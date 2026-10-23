@@ -553,7 +553,7 @@ class AnalysisSession:
         inst = RL.evaluate(schema, a, b, st)
         touched = self._touched(st, a, b)
         varied = touched & self._varied
-        searchable = (varied and "beat" not in schema.capabilities() and RL.pair_scope_representable(schema)
+        searchable = (varied and self._varies(schema)
                       and (st is self.stream or getattr(st, "any_reading_witness", None) is not None))
         first_only = bool(touched - varied) or bool(varied) and not searchable
         if inst is not None and inst.verdict is True:
@@ -580,7 +580,13 @@ class AnalysisSession:
                 continue
             sides = []
             for rule, span in ((schema.spans[0], a), (schema.spans[1], b)):
-                index = self._spans_by_key(alt, rule)
+                try:
+                    index = self._spans_by_key(alt, rule)
+                except RL.NoReferent:
+                    # The rule has no referent at all under this reading (a
+                    # line-final penult once `fire` is one syllable): the
+                    # member does not exist there, a judged absence.
+                    index = {}
                 found = index.get(self._span_key(span, st), ())
                 # No span at all at this locus under this reading is a judged
                 # absence; spans there that match none is a key the reader
@@ -598,6 +604,16 @@ class AnalysisSession:
         if inst is not None and open_ and inst.verdict is False:
             inst = replace(inst, verdict=None)
         return inst, st, None, first_only
+
+    def _varies(self, schema):
+        """-> bool: whether this schema's edges are judged under every
+        reading of their line-ending words. Not a whole figure, a beat
+        schema, or a SEARCHED rule (`free_run`): a searched rule enumerates
+        sub-spans inside a word, and a word whose syllable count changes has
+        no sub-span-for-sub-span counterpart -- matching them would pair
+        different members. Those keep the first-listed reading, counted."""
+        return (self.RL.pair_scope_representable(schema) and "beat" not in schema.capabilities()
+                and not any(rule.anchor == "searched" or rule.locus == "free_run" for rule in schema.spans))
 
     def _shape_first_only(self, kind, value):
         """-> bool: a full-shape candidate over a disputed word, which only
@@ -629,8 +645,7 @@ class AnalysisSession:
         and unions are sorted. Over `PIN_CAP` the method is marked
         incomplete (`_incomplete`) instead of silently answered."""
         RL = self.RL
-        if (not self._varied or self._schema_stream is not self.stream or "beat" in schema.capabilities()
-                or not RL.pair_scope_representable(schema)):
+        if not self._varied or self._schema_stream is not self.stream or not self._varies(schema):
             return
         plan = self._reading_plan(schema)
         unions = self._joint_unions(schema, plan) if plan is not None else None
