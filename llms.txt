@@ -39,8 +39,10 @@ each instrument it should color; specific gear/material/technique -> get_instrum
 set_variant; space/era/medium -> set_environment; roster -> add/remove instruments and
 traditions. There are NO coherence fences — nothing is anachronistic, out-of-region, or
 physically impossible (it is words for audio generation); the researched defaults are
-flavor to keep or override, and every id-valid combination renders. Batch edits in one
-call; present the FINAL recipe verbatim.
+flavor to keep or override, and every id-valid combination within the operational limits
+renders: 16 traditions per start, 64 edits per call, 512 cards in the final workspace.
+An overflowing batch applies no edits; remove cards in that batch or add fewer.
+Batch edits in one call; present the FINAL recipe verbatim.
 
 ## Pre-compiled catalog (static JSON — bulk reads, no editing)
 One recipe per tradition, pre-compiled at build time. Use it to read the whole catalog

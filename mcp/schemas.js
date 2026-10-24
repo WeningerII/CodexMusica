@@ -15,6 +15,7 @@
 import { z } from 'zod';
 import {
   RECIPE_CHAR_CEILING,
+  MAX_WORKSPACE_CARDS,
   CHAIN_STAGE_IDS,
   CHAIN_MULTI_STAGE_IDS,
   ENV_FIELDS,
@@ -64,14 +65,14 @@ export const renderShape = {
 // (how OFTEN a caller may ask); neither substitutes for the other.
 export const MAX_TRADITIONS_PER_CALL = 16;
 export const MAX_EDITS_PER_CALL = 64;
-export const MAX_WORKSPACE_CARDS = 512;
+export { MAX_WORKSPACE_CARDS } from './engine.js';
 
 export const workspaceSchema = z
   .object({
     // z.any() on the elements is deliberate and unchanged: a card is the
     // engine's own shape, threaded back verbatim, and re-describing it here
-    // would create a second definition to drift. The LENGTH, though, is not the
-    // engine's business to trust — the array arrives from the network.
+    // would create a second definition to drift. The engine applies this same
+    // length limit to final output so every successful workspace fits here.
     cards: z.array(z.any()).max(MAX_WORKSPACE_CARDS),
   })
   // Threading is described HERE and only here. A tool's main description is

@@ -36,6 +36,8 @@ const {
 // The product-defining hard recipe cap — single source of truth, re-exported so
 // the tool schema (tools.js) derives its max_chars bound from the same constant.
 const { RECIPE_CHAR_CEILING } = require('../scripts/_api_contract.js');
+// A returned workspace must fit the next recipe request's schema too.
+export const MAX_WORKSPACE_CARDS = 512;
 
 // Locale-invariant ordering: localeCompare with no locale argument collates by
 // the machine's ICU locale, which made this ordering depend on where it ran.
@@ -351,6 +353,12 @@ function cardsSummary(ws) {
 // that moved or was overwritten mid-batch); everything else here is a pure
 // function of the workspace and the render.
 function shape(ws, params = {}, meta = {}) {
+  if (ws.cards.length > MAX_WORKSPACE_CARDS)
+    throw new EngineError(
+      `A recipe can hold at most ${MAX_WORKSPACE_CARDS} cards; this result would have ${ws.cards.length}. ` +
+        'Remove cards in the same batch or add fewer instruments or traditions. ' +
+        'Nothing was applied to the original workspace.'
+    );
   const format = params.format || 'rich';
   // RECIPE_CHAR_CEILING is the canonical Current-Recipe cap; clamp defensively
   // so a direct engine call (bypassing the tool-schema max) can't exceed it.

@@ -183,8 +183,11 @@ Map intent to edits — each mapping below is one `edit_recipe` op:
 physically impossible here — recipes are *words for audio generation*, so a
 Delta-blues igil through a cathedral chain onto shellac is exactly as renderable
 as the period-correct default. The catalog's researched defaults are flavor to
-keep or override, never a wall. Every id-valid combination renders; an edit is
-refused only for an unknown id, a misspelled field, or doing nothing (a tradition
+keep or override, never a wall. Every id-valid combination within the operational
+limits renders (at most 16 traditions per start, 64 edits per call and 512 cards
+in the final workspace). An overflowing batch applies no edits; remove cards
+in the same batch or add fewer. An edit also refuses an unknown id, a misspelled
+field, or doing nothing (a tradition
 already in the recipe, an environment edit with nothing to set, a batch that
 leaves no cards), and the refusal names what to do instead.
 

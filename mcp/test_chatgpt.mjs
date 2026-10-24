@@ -11,6 +11,7 @@ import { WorkflowSessions, SESSION_STORE_LIMITS, publicToolResult } from './work
 import { buildWorkflowServer } from './workflow_tools.js';
 import { buildServer } from './tools.js';
 import { startRecipe, editRecipe, renderRecipe } from './engine.js';
+import { MAX_WORKSPACE_CARDS, TOOL_SCHEMAS } from './schemas.js';
 import { requestContext } from './execution_context.js';
 import { continuationSemanticIdentity, decodeState } from './state_codec.js';
 import { PaidLedger, createOperationBudget } from './paid_budget.js';
@@ -1381,4 +1382,115 @@ test('P8: a record over the per-record cap is refused as too large, never told t
       !/Retry this same call/.test(error.message)
   );
   assert.deepEqual({ size: store.records.size, bytes: store.bytes }, before);
+});
+
+function recipeAtCardLimit(count = MAX_WORKSPACE_CARDS) {
+  let value = startRecipe({ traditions: ['delta_blues'] });
+  while (value.workspace.cards.length < count) {
+    const n = Math.min(64, count - value.workspace.cards.length);
+    value = editRecipe({
+      workspace: value.workspace,
+      edits: Array.from({ length: n }, () => ({ action: 'add_instrument', instrument: 'voice' })),
+    });
+  }
+  return value;
+}
+
+test('recipe output card limit refuses overflow atomically and permits a final in-limit batch', async (t) => {
+  const server = buildServer({ task: { domain: 'recipe' } });
+  const [a, b] = InMemoryTransport.createLinkedPair();
+  const client = new Client({ name: 'recipe-capacity-test', version: '1' }, { capabilities: {} });
+  await server.connect(a);
+  await client.connect(b);
+  t.after(async () => {
+    await client.close();
+    await server.close();
+  });
+  const initial = recipeAtCardLimit(MAX_WORKSPACE_CARDS - 1).workspace;
+  const added = await call(client, 'edit_recipe', {
+    workspace: initial,
+    edits: [{ action: 'add_instrument', instrument: 'voice' }],
+  });
+  assert.ok(!added.isError);
+  const atLimit = JSON.parse(added.content[0].text).workspace;
+  assert.equal(atLimit.cards.length, MAX_WORKSPACE_CARDS);
+  TOOL_SCHEMAS.render_recipe.parse({ workspace: atLimit });
+  const unchanged = JSON.stringify(atLimit);
+  for (const grow of [
+    { action: 'add_instrument', instrument: 'voice' },
+    { action: 'add_tradition', tradition: 'bluegrass' },
+  ]) {
+    const edits = [{ action: 'set_preface', card: 'voice', preface: 'worn' }, grow];
+    const refused = await call(client, 'edit_recipe', { workspace: atLimit, edits });
+    assert.equal(
+      refused.isError,
+      true,
+      'overflow must refuse before returning an unusable workspace'
+    );
+    assert.match(refused.content[0].text, /512.*cards|cards.*512/);
+    assert.throws(() => editRecipe({ workspace: atLimit, edits }), /512.*cards|cards.*512/);
+    assert.equal(
+      JSON.stringify(atLimit),
+      unchanged,
+      'failed batch leaves every original card intact'
+    );
+  }
+  const bounded = await call(client, 'edit_recipe', {
+    workspace: atLimit,
+    edits: [
+      { action: 'add_instrument', instrument: 'voice' },
+      { action: 'remove_instrument', card: atLimit.cards[0].id },
+    ],
+  });
+  assert.ok(!bounded.isError, 'the limit applies to the final workspace, not intermediate edits');
+  const final = JSON.parse(bounded.content[0].text).workspace;
+  assert.equal(final.cards.length, MAX_WORKSPACE_CARDS);
+  const rendered = await call(client, 'render_recipe', { workspace: final });
+  assert.ok(!rendered.isError, 'every successful result can be passed back unchanged');
+  assert.throws(
+    () => renderRecipe({ workspace: { cards: [...final.cards, final.cards[0]] } }),
+    /512.*cards|cards.*512/
+  );
+});
+
+test('recipe output card limit preserves a durable session after a refused expanding batch', async (t) => {
+  const { store, directory } = storeFor(t);
+  let sessions = new WorkflowSessions({ store });
+  const session = sessions.fresh('recipe');
+  session.workspace = recipeAtCardLimit().workspace;
+  const original = structuredClone(session.workspace);
+  const id = randomBytes(32).toString('hex');
+  const opened = sessions.open('recipe');
+  const integration = store.get(opened.session_id).intent.integration;
+  store.begin(id, { request_id: id, integration }, {}, { session });
+  store.complete(id, 200, { session, result: { content: [] } });
+  let client = await connect(t, 'recipe', sessions);
+  const refused = await call(client, 'edit_recipe', {
+    session_id: id,
+    edits: [
+      { action: 'set_preface', card: 'voice', preface: 'worn' },
+      { action: 'add_instrument', instrument: 'voice' },
+    ],
+  });
+  assert.equal(refused.isError, true);
+  const next = refused.structuredContent.session_id;
+  assert.ok(next);
+  assert.deepEqual(store.get(next).response.body.session.workspace, original);
+  await client.close();
+  sessions = new WorkflowSessions({ store: new JobStore(directory) });
+  client = await connect(t, 'recipe', sessions);
+  const rendered = data(await call(client, 'render_recipe', { session_id: next }));
+  assert.equal(
+    sessions.store.get(rendered.session_id).response.body.session.workspace.cards.length,
+    MAX_WORKSPACE_CARDS
+  );
+  const removed = await call(client, 'edit_recipe', {
+    session_id: rendered.session_id,
+    edits: [{ action: 'remove_instrument', card: original.cards[0].id }],
+  });
+  assert.ok(!removed.isError);
+  assert.equal(
+    sessions.store.get(data(removed).session_id).response.body.session.workspace.cards.length,
+    MAX_WORKSPACE_CARDS - 1
+  );
 });

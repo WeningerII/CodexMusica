@@ -135,7 +135,7 @@ export function registerTools(server) {
     {
       title: 'Start a recipe from tradition(s)',
       description:
-        'Seed a recording recipe from any number of traditions — deterministic default cards, identical to what a human sees in the ' +
+        'Seed a recording recipe from one or more traditions — deterministic default cards, identical to what a human sees in the ' +
         'app ("Current Recipe"). This is the SCAFFOLD, not the finished answer: when the user gave any stylistic words (a mood, ' +
         'gear, a space, an era), follow with edit_recipe to realize them before presenting. First tradition is primary; any ' +
         'others are explicit staples (NOT auto-added); list each once. Returns the recipe string, a per-card summary (with each ' +
@@ -165,7 +165,8 @@ export function registerTools(server) {
         'tradition), add_tradition / remove_tradition, move_instrument (preserve the card and its settings; omit before to move ' +
         'it to the front). Explicit part descriptors have priority in Rich compression; inspect render_warnings for requested ' +
         'words (parts, prefaces, environment) that did not survive into the output. Iterate until the recipe reflects every ' +
-        'word the user said, then present the final `recipe` string VERBATIM.',
+        'word the user said, then present the final `recipe` string VERBATIM. ' +
+        `The final recipe may contain at most ${E.MAX_WORKSPACE_CARDS} cards; an overflowing batch is refused without applying any edits.`,
       inputSchema: TOOL_SCHEMAS.edit_recipe.shape,
     },
     (a) => E.editRecipe(a)
