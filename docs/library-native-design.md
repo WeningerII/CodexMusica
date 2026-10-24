@@ -269,7 +269,7 @@ Sizes are measured on 317c by scratchpad r1design/measure_e.py and measure_f.py,
   - When a unit is no longer readable, every retained file for it is deleted in the same commit, and its `u/` entry is removed.
   - The client then gets 404, finds no shard entry, and falls back to the metadata-only UI through `/library/v1/metadata/:id`, with the old "not readable" notice.
   - Eligibility is judged per unit, so an independently eligible older edition is unaffected when another edition changes.
-- **Recovery on 404 for a readable unit.** After 30 days, or for a path key never published, the tab refetches the `u/` shard (`cache: 'reload'`) and opens the current directory with the "This reading was updated" notice, landing by `line_id` where it exists.
+- **Recovery on 404 for a readable unit.** After 30 days, or for an explicit path key never published, a missing head offers **Open current reading**. Only that explicit action refreshes the `u/` shard (`cache: 'reload'`, bypassing cached unit paths), then navigates to its current verified path without the old line, span or offset. It never silently substitutes text. Failed lookups and units absent from the readable shard remain closed with a retryable error; server errors and integrity failures do not offer this fallback.
 - **Held units.** A deep link to a held unit has no r/ directory. The tab fetches `/library/v1/metadata/:id` and shows the metadata sheet with the old "not readable" notice.
 
 ### Snapshot labels
