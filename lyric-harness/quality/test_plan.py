@@ -4795,8 +4795,11 @@ def test_the_seed_redraw():
             make_plan(seed=1, wants=[want])
         except PlanRefused as exc:
             msg = str(exc)
-        check("...the wants path keeps its own bound of 64 and its own "
-              "exhaustion text", len(calls) == 64
+        # The seed's own plan is tried first (its bounded redraw, the plan a
+        # sweep judges), then the wants path's own 64 conditioned draws.
+        check("...the wants path keeps its own bound of 64 after the seed's "
+              "own bounded redraw, and its own exhaustion text",
+              len(calls) == REDRAW_BOUND + 64
               and "bounded candidate draws" in msg, f"{len(calls)} draws")
         calls.clear()
         raised = None
