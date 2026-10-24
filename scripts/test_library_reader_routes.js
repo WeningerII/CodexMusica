@@ -531,3 +531,34 @@ for (const transition of ['stop', 'restart', 'replacement-idle', 'replacement-sp
       assert.equal(pressed(), 'false');
     }
   });
+
+for (const transition of ['same-reader', 'replacement', 'invalid-replacement', 'start-stop'])
+  test(`delayed voices preserve ${transition} autoplay ownership`, async (t) => {
+    const f = fixture(t);
+    const synth = f.w.speechSynthesis;
+    const voice = synth.getVoices();
+    const listeners = [];
+    let ready = false;
+    synth.getVoices = () => (ready ? voice : []);
+    synth.addEventListener = (event, callback, options) => {
+      assert.equal(event, 'voiceschanged');
+      listeners.push({ callback, once: options?.once });
+    };
+    await f.open(`revision=${f.currentKey}`);
+    f.reader._internals.speak(true);
+    const retry = listeners.find((listener) => listener.once);
+    assert.ok(retry, 'autoplay waits for device voices');
+    if (transition === 'replacement') await f.open(`revision=${f.oldKey}`);
+    if (transition === 'invalid-replacement') await f.open('revision=bad');
+    ready = true;
+    if (transition === 'start-stop') {
+      f.reader._internals.speak(false);
+      await speechSettled(() => f.utterances.length === 1);
+      f.reader._internals.speak(false);
+    }
+    assert.doesNotThrow(() => retry.callback());
+    if (transition === 'same-reader') await speechSettled(() => f.utterances.length === 1);
+    else for (let i = 0; i < 10; i++) await new Promise((resolve) => setImmediate(resolve));
+    assert.equal(f.utterances.length, ['same-reader', 'start-stop'].includes(transition) ? 1 : 0);
+    assert.equal(f.state().speaking, transition === 'same-reader');
+  });

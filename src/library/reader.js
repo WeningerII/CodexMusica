@@ -1348,7 +1348,16 @@ function speak(auto) {
   if (!chosen) {
     if (auto && !voices.length) {
       // Voices arrive asynchronously on first use.
-      synth.addEventListener('voiceschanged', () => speak(true), { once: true });
+      const mine = S;
+      const gen = S.gen;
+      synth.addEventListener(
+        'voiceschanged',
+        () => {
+          if (S !== mine || gen !== S.gen) return;
+          speak(true);
+        },
+        { once: true }
+      );
       return;
     }
     return say('No matching device voice is available for this language.');
