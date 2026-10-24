@@ -3198,7 +3198,7 @@ function lyLibraryCapture() {
   };
 }
 function lyLibraryAcquire() {
-  if (lyLibraryLock) return;
+  if (lyLibraryLock) throw new Error('Another draft is being opened. Retry when it finishes.');
   const surface = $ui('surface-lyrics'),
     draft = lyDraft();
   lyLibraryLock = { inert: surface?.inert || false, readOnly: draft.readOnly };
@@ -3207,9 +3207,10 @@ function lyLibraryAcquire() {
   // A writer reply delivered during the commit cannot overwrite an edit
   // being preserved. Its request/continuation remains retrievable in History.
   UI.lyricRevision++;
+  return lyLibraryLock;
 }
-function lyLibraryRelease() {
-  if (!lyLibraryLock) return;
+function lyLibraryRelease(owner) {
+  if (!owner || lyLibraryLock !== owner) return;
   const surface = $ui('surface-lyrics');
   if (surface) surface.inert = lyLibraryLock.inert;
   lyDraft().readOnly = lyLibraryLock.readOnly;
@@ -3339,11 +3340,12 @@ async function lyLibraryImport(envelope, { push = false } = {}) {
 async function lyLibraryStart() {
   if (lyLibraryReceiver || typeof CMLibraryImport === 'undefined') return;
   lyLibraryStore = CMLibraryImport.createIndexedDBStore();
+  let importLock = null;
   lyLibraryReceiver = CMLibraryImport.createReceiver({
     window,
     store: lyLibraryStore,
     captureCurrent: async () => {
-      lyLibraryAcquire();
+      importLock = lyLibraryAcquire();
       const previous = lyLibraryCapture();
       if (previous.meta.libraryOrigin && previous.originalText === null) {
         const stored = await lyLibraryStore.getDraft(previous.draftId);
@@ -3351,7 +3353,10 @@ async function lyLibraryStart() {
       }
       return previous;
     },
-    releaseCurrent: lyLibraryRelease,
+    releaseCurrent: () => {
+      lyLibraryRelease(importLock);
+      importLock = null;
+    },
     activate: lyLibraryActivate,
     devOrigin: window.CODEX_LIBRARY_DEV_ORIGIN,
     onError: (error) => showToast('Library import failed: ' + error.message, 'error'),
@@ -5996,12 +6001,16 @@ if (typeof window !== 'undefined')
     if (undecided) return { blocked: undecided };
     return lyContext(model, { document: choice === 'lyrics-edit' });
   };
+let lyRetrieveGeneration = 0;
 async function lyRetrieve(id) {
   if (!/^[a-f0-9]{64}$/.test(id || ''))
     return showToast('This saved run has no retrievable record.', 'error');
+  const generation = ++lyRetrieveGeneration;
+  lyShowTab('history');
   try {
     const res = await fetch(`${CHAT_BACKEND}/chat/jobs/${id}`, { cache: 'no-store' });
     const record = await res.json();
+    if (generation !== lyRetrieveGeneration) return;
     if (!res.ok) throw Error(record.error || 'The saved result could not be read.');
     const body = record.response?.body;
     const text =
@@ -6019,9 +6028,10 @@ async function lyRetrieve(id) {
       note: record.error || '',
     };
   } catch (err) {
+    if (generation !== lyRetrieveGeneration) return;
     LY.retrieved = { id, state: 'unavailable', text: '', note: err.message };
   }
-  lyShowTab('history');
+  if (LY.tab === 'history') lyRenderHistory();
 }
 
 // ── Menus ─────────────────────────────────────────────────────────────────
@@ -6302,17 +6312,18 @@ const LY_ACTIONS = {
     );
   },
   async 'ly-library-restore'(draftId) {
+    let owner;
     try {
+      owner = lyLibraryAcquire();
       const record = await lyLibraryStore.getDraft(draftId);
       if (!record) throw new Error('That saved draft is unavailable.');
-      lyLibraryAcquire();
       const previous = lyLibraryCapture();
       await lyLibraryStore.saveDraft(previous);
       await lyLibraryActivate(record, { restored: true, preservedDraftId: previous.draftId });
     } catch (error) {
       showToast('Draft could not be opened: ' + error.message, 'error');
     } finally {
-      lyLibraryRelease();
+      lyLibraryRelease(owner);
     }
   },
   'ly-blank'() {

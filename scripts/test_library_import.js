@@ -546,7 +546,7 @@ test('Lyrics activation preserves the old private continuation without aborting 
     'lyRefresh=()=>{};lyLibraryStore={listDrafts:async()=>[]};LY.run={lyric:{certified:true},final:["My existing song"]};globalThis.capture=lyLibraryCapture;globalThis.acquire=lyLibraryAcquire;globalThis.release=lyLibraryRelease;globalThis.activate=lyLibraryActivate;globalThis.pageState=LY;',
     ctx
   );
-  ctx.acquire();
+  const owner = ctx.acquire();
   const preserved = ctx.capture();
   assert.equal(elements['lyrics-draft'].readOnly, true);
   assert.equal(elements['surface-lyrics'].inert, true);
@@ -583,7 +583,7 @@ test('Lyrics activation preserves the old private continuation without aborting 
   assert.equal(ctx.app.lyricMeta.libraryOrigin.digest, carried.digest);
   const sent = vm.runInContext('JSON.stringify(lyDeclarationsOf(lyParse(lyDraft().value)))', ctx);
   assert.ok(!/AA1|the singer|readings|pronunciation/.test(sent), sent);
-  ctx.release();
+  ctx.release(owner);
   assert.equal(aborts, 0);
   assert.equal(resets, 0);
   assert.equal(ctx.chatState.generation, 6);
