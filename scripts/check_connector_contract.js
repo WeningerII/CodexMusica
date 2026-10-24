@@ -913,6 +913,11 @@ function unboundedArrays(toolName, schema) {
       !ids.includes(alias.id) && ids.includes(alias.of),
       `${alias.inst}.${alias.part}: ${alias.id} listed=${ids.includes(alias.id)}, ${alias.of} listed=${ids.includes(alias.of)}`
     );
+    check(
+      'the part reports how many ids it resolves but does not list',
+      Number.isInteger((listed.parts || [])[0]?.alias_count) && listed.parts[0].alias_count > 0,
+      `alias_count=${(listed.parts || [])[0]?.alias_count}`
+    );
     const added = await edited([{ action: 'add_instrument', instrument: alias.inst }]);
     const card = (added.workspace?.cards || []).find((c) => c.instrumentId === alias.inst)?.id;
     const pick = async (variant) => {
