@@ -336,6 +336,54 @@ class ReaderAcceptance(unittest.TestCase):
             self.assertEqual(len(live), 2)
             self.assertEqual(set(session._span_index), live)
 
+    def test_a_rebuild_is_guarded_when_its_lines_are_already_read(self):
+        # 3PO on #598: a warm line-read table means a rebuild syllabifies
+        # nothing, so the guard inside syllabification never runs. The
+        # rebuild itself is guarded, whatever it reads.
+        import os
+        from quality.phonology.eng import English
+        session = AnalysisSession(source("Every hour of our family fire\nDifferent nights and every lonely desire"),
+                                  None, {"layers": ["sound"]}, None, load_records=lambda mid: iter(()))
+        combos, _ = RL.reading_combos(session.stream, {t for t in session._disputed if t[0] == 0}, 64)
+        session._line_stream([0], combos[1])
+        session._mini.clear()
+        session._span_index.clear()
+        read = []
+        merged = English._merged
+        with patch.object(English, "_merged", lambda self, w: read.append(w) or merged(self, w)), \
+             patch.dict(os.environ, {"LIBRARY_READER_MAX_RSS_MIB": "1"}):
+            with self.assertRaisesRegex(ValueError, "RESOURCE_LIMIT: any-reading rebuild"):
+                session._line_stream([0], combos[1])
+        self.assertEqual(read, [])
+
+    def test_the_line_read_table_is_bounded(self):
+        # 3PO on #598: a measured peak is not a bound. Each combination of
+        # line 0's readings is a new entry, so the table grows with them --
+        # and stops at LINE_READS_CACHE + 3.
+        def sizes(cap):
+            session = AnalysisSession(source("Every hour of our family fire\nDifferent nights and every lonely desire"),
+                                      None, {"layers": ["sound"]}, None, load_records=lambda mid: iter(()))
+            combos, _ = RL.reading_combos(session.stream, {t for t in session._disputed if t[0] == 0}, 64)
+            with patch.object(AnalysisSession, "LINE_READS_CACHE", cap):
+                out = []
+                for combo in combos[1:12]:
+                    session._line_stream([0, 1], combo)
+                    out.append(len(session._line_reads))
+                return out
+        self.assertGreater(max(sizes(1024)), 4 + 3)
+        self.assertLessEqual(max(sizes(4)), 4 + 3)
+
+    def test_every_rebuild_cache_leaves_the_record_stream_unchanged(self):
+        # The caches decide what is read again, never what is recorded: the
+        # whole record stream, not only verdicts, is the same with every
+        # rebuild cache held to its smallest size.
+        reading = source("Every night I watch the fire\nBurning in our family room\n"
+                         "Every hour I feel it higher\nEvery flower starts to bloom")
+        _, rows, _ = complete(reading)
+        with patch.object(AnalysisSession, "MINI_CACHE", 1), patch.object(AnalysisSession, "LINE_READS_CACHE", 1):
+            _, squeezed, _ = complete(reading)
+        self.assertEqual(canonical_json(squeezed), canonical_json(rows))
+
     def test_a_member_with_no_referent_under_another_reading_is_absent(self):
         # BB8's texts on #590: with `fire` / `hour` read as one syllable, the
         # line-final penult has no referent anywhere (cynghanedd lusg,

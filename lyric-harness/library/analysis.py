@@ -403,6 +403,7 @@ class AnalysisSession:
         # Line readings the rebuilt streams share (`RL._line_read_scope`'s
         # table, held for the session as `_mini` is): a rebuild re-reads
         # only a line whose own pinned readings it has not read before.
+        # Bounded by LINE_READS_CACHE.
         self._line_reads = {}
         # A rebuilt line carries no unit-indexed declaration (a declared
         # caesura, lift or beat names the work's own units), so a work with
@@ -509,6 +510,12 @@ class AnalysisSession:
     EDGE_COMBOS = 64
     #: Line-pair rebuilds one schema's discovery may make, likewise.
     MINI_CAP = 4096
+    #: Line readings kept for the rebuilds at once, one per line text, its
+    #: words and the readings pinned on it. Past it the table starts again:
+    #: a cache, so what a rebuild reads never depends on it. One rebuild adds
+    #: at most one entry per line text it holds -- its one or two lines and
+    #: the blank -- so the table never exceeds LINE_READS_CACHE + 3.
+    LINE_READS_CACHE = 1024
 
     def _line_stream(self, lines, combo):
         """The work read with only `lines` present -- every other line blank,
@@ -520,6 +527,9 @@ class AnalysisSession:
         if key in self._mini:
             self._mini.move_to_end(key)
             return self._mini[key]
+        # A rebuild is an allocation whatever it reads: guarded here, not
+        # only through syllabification, which a warm line-read table skips.
+        _resource_guard("any-reading rebuild")
         phon = self.RL.pinned_phonology(self.stream, combo) if combo else self.phon
         st = None
         if phon is not None:
@@ -532,6 +542,8 @@ class AnalysisSession:
             # M-317): a line's reading is keyed by its text, its words and
             # the readings pinned on it, so the blank lines and the line a
             # combination does not touch are read once, not once per rebuild.
+            if len(self._line_reads) >= self.LINE_READS_CACHE:
+                self._line_reads.clear()
             outer, self.RL._ACTIVE_LINE_READS = self.RL._ACTIVE_LINE_READS, self._line_reads
             try:
                 st = self.RL.build_stream(raw, _GuardedPhonology(phon), sections=sections, stanzas=ground,
