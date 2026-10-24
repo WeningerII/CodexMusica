@@ -209,6 +209,32 @@ class ReaderAcceptance(unittest.TestCase):
                 self.assertTrue(any(cell in owner._disputed for key in pair for cell in key[2]), pair)
         self.assertTrue(any(r["kind"] == "relation_instance" and r["verdict"] == "true" for r in rows))
 
+    def test_every_figure_edge_resolves_to_the_schema_that_judged_it(self):
+        # #595: analysed rhyme judges its four edges with figure-internal
+        # schemas ("assonance (crossed)", "consonance (crossed)") the registry
+        # does not hold, and the reader looked each edge's schema up by name
+        # for its tradition scope -- a KeyError that aborted the whole run.
+        # Every edge of every figure must resolve to the schema that judged it.
+        import quality.relations as RL
+        reading = source("We walked into the sun\nAnd found a can of tin\n"
+                         "The dog was feeling sick\nIt fell into the suck\n\n"
+                         "And that was all we knew")
+        _, rows, _ = complete(reading, schemas=["analysed rhyme"])
+        figures = [r for r in rows if r["kind"] == "relation_figure"]
+        self.assertEqual([f["verdict"] for f in figures], ["true"])
+        names = set()
+        for edge in figures[0]["edges"]:
+            judged = RL.schema_named(edge["schema_name"])
+            self.assertEqual(judged.name, edge["schema_name"])
+            self.assertEqual(edge["scope"], RL.tradition_scope(judged, "eng"))
+            names.add(edge["schema_name"])
+        self.assertEqual(names, {"assonance (crossed)", "consonance (crossed)"})
+        # The crossing is the definition, and an unknown name still refuses.
+        self.assertIs(RL.schema_named("assonance (crossed)"), RL.crossed_edge("assonance"))
+        self.assertIn(RL.ChannelRule("coda", RL.DIFFER, "anchor"), RL.crossed_edge("assonance").channels)
+        with self.assertRaises(KeyError):
+            RL.schema_named("assonance (inverted)")
+
     def test_alternate_reading_records_keep_the_partner_word_exact(self):
         # Jony's probe on #590: under `us = Y UW2 EH1 S`, `confess` rhymes
         # on its second syllable only, and the record must say so -- not
