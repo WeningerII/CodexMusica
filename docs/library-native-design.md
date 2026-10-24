@@ -263,14 +263,14 @@ Sizes are measured on 317c by scratchpad r1design/measure_e.py and measure_f.py,
 - A deep link without it, including every translated old-Site link, first fetches the `u/<hh>` shard (<=6 KB gz, one extra request), then the head.
 
 ### Retention and eligibility
-- **Retention.** When a reading's revision or projection changes, the previous directory is kept for 30 days. An open tab holding an old list keeps working. When it next refreshes a shard, it lands on the new directory by `line_id`, with a notice.
+- **Retention.** When a reading's revision or projection changes, the previous directory is kept for 30 days. An open tab holding an old list keeps working. If the old path disappears, the reader offers the explicit current-reading recovery described below.
 - **Eligibility always wins over retention.**
   - Every build revalidates **all retained generations** against current eligibility.
   - When a unit is no longer readable, every retained file for it is deleted in the same commit, and its `u/` entry is removed.
-  - The client then gets 404, finds no shard entry, and falls back to the metadata-only UI through `/library/v1/metadata/:id`, with the old "not readable" notice.
+  - A missing head or absence from the refreshed readable shard keeps the reader closed. Retry and Works remain available; the reader does not infer an eligible replacement or automatically open a metadata sheet.
   - Eligibility is judged per unit, so an independently eligible older edition is unaffected when another edition changes.
 - **Recovery on 404 for a readable unit.** After 30 days, or for an explicit path key never published, a missing head offers **Open current reading**. Only that explicit action refreshes the `u/` shard (`cache: 'reload'`, bypassing cached unit paths), then navigates to its current verified path without the old line, span or offset. It never silently substitutes text. Failed lookups and units absent from the readable shard remain closed with a retryable error; server errors and integrity failures do not offer this fallback.
-- **Held units.** A deep link to a held unit has no r/ directory. The tab fetches `/library/v1/metadata/:id` and shows the metadata sheet with the old "not readable" notice.
+- **Held units.** A reader deep link to a held unit has no r/ directory and remains unavailable. Use Works to inspect its recorded metadata; the reader does not automatically fetch and display a metadata sheet.
 
 ### Snapshot labels
 - `projected_from` is **truthful**: that snapshot contains exactly this revision, and anyone can rebuild it from the recorded commit. Main's newest snapshot may not even be deployed yet.
