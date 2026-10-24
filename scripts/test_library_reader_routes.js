@@ -471,3 +471,63 @@ test('late recovery cannot navigate away from a newer reading', async (t) => {
   assert.equal(f.routes.length, count);
   assert.equal(f.state().R.revision, CURRENT);
 });
+async function speechSettled(predicate) {
+  for (let i = 0; i < 200; i++) {
+    if (predicate()) return;
+    await new Promise((resolve) => setTimeout(resolve, 5));
+  }
+  assert.fail('speech operation did not settle');
+}
+
+for (const transition of ['stop', 'restart', 'replacement-idle', 'replacement-speaking', 'current'])
+  test(`delayed speech failure respects ${transition} ownership`, async (t) => {
+    const f = fixture(t);
+    await f.open(`revision=${f.currentKey}`);
+    const fetch = f.w.fetch;
+    const held = deferred();
+    let requested = false;
+    f.w.fetch = async (url) => {
+      if (!requested && String(url).includes('/1-')) {
+        requested = true;
+        await held.promise;
+        return new Response('', { status: 503 });
+      }
+      return fetch(url);
+    };
+    const errors = [];
+    f.w.console.error = (...args) => errors.push(args);
+    const speak = () => f.reader._internals.speak(false);
+    const pressed = () => f.main.querySelector('[data-rd="speak"]').getAttribute('aria-pressed');
+    speak();
+    await speechSettled(() => requested);
+    if (transition === 'stop' || transition === 'restart') speak();
+    if (transition.startsWith('replacement')) await f.open(`revision=${f.oldKey}`);
+    const active = transition === 'replacement-speaking';
+    const currentFailure = transition === 'current' || transition === 'restart';
+    if (transition === 'restart') speak(); // Both generations await the same cached fetch.
+    if (active) {
+      speak();
+      await speechSettled(() => f.utterances.length === 1);
+    }
+    held.resolve();
+    // Let the failed request and its promise rejection handler finish.
+    for (let i = 0; i < 10; i++) await new Promise((resolve) => setImmediate(resolve));
+    assert.equal(f.state().speaking, active);
+    assert.equal(pressed(), String(active));
+    assert.equal(errors.length, currentFailure ? 1 : 0);
+    assert.equal(f.main.textContent.includes('503'), currentFailure);
+    if (active) {
+      f.utterances[0].onend();
+      assert.equal(f.utterances.length, 2);
+      f.utterances[1].onend();
+      assert.equal(pressed(), 'false');
+    }
+    if (currentFailure) {
+      speak();
+      await speechSettled(() => f.utterances.length === 1);
+      assert.equal(pressed(), 'true');
+      f.utterances[0].onend();
+      f.utterances[1].onend();
+      assert.equal(pressed(), 'false');
+    }
+  });

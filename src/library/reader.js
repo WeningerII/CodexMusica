@@ -1385,6 +1385,7 @@ function speak(auto) {
       next();
     })
     .catch((e) => {
+      if (S !== mine || gen !== S.gen) return;
       S.speaking = false;
       fail(e);
       renderSpeech();
