@@ -52,9 +52,13 @@ rm -rf "$STAGE/$SKILL_NAME/references/_archive"
 # $TMPDIR/codex-outputs on a runner, nothing had ever created it, and tandem's
 # self-heal ("zip missing, build it") failed for a reason its error text hid.
 mkdir -p "$(dirname "$ZIP_OUT")"
+# Absolute before the `cd "$STAGE"` below: a relative path would land inside
+# the stage directory, which the EXIT trap deletes.
+ZIP_OUT="$(cd "$(dirname "$ZIP_OUT")" && pwd)/$(basename "$ZIP_OUT")"
 rm -f "$ZIP_OUT"
 (cd "$STAGE" && zip -rq "$ZIP_OUT" "$SKILL_NAME")
 
+[ -s "$ZIP_OUT" ] || { echo "build_zip: no zip was written at $ZIP_OUT" >&2; exit 1; }
 size_kb=$(( $(stat -c %s "$ZIP_OUT" 2>/dev/null || stat -f %z "$ZIP_OUT") / 1024 ))
 staged=$(cd "$STAGE/$SKILL_NAME" && ls -1 | tr '\n' ' ')
 echo "Built: $ZIP_OUT (${size_kb} KB)"

@@ -507,7 +507,9 @@ jobs:
             echo "No usable base commit — assuming artifacts affected."
           elif ! git cat-file -e "$base^{commit}" 2>/dev/null; then
             echo "Base commit $base is not present (force-push?) — assuming artifacts affected."
-          elif ! changed=$(git diff --name-only "$base" "${{ github.sha }}" 2>/dev/null); then
+          # --no-renames: a rename lists its OLD path too, so moving a build
+          # input out of the closure still counts as touching it.
+          elif ! changed=$(git diff --no-renames --name-only "$base" "${{ github.sha }}" 2>/dev/null); then
             echo "Could not compute a diff — assuming artifacts affected."
           elif [ -z "$changed" ]; then
             echo "Empty diff — assuming artifacts affected."
@@ -518,12 +520,16 @@ jobs:
             # true/false; CODEX_CLOSURE_VERBOSE puts the per-path reason in the
             # log so a "rebuilding" decision is always attributable to a file.
             # Uses only node builtins + git, so it runs before setup-node/npm ci.
-            if [ "$(CODEX_CLOSURE_VERBOSE=1 node scripts/check_build_closure.js --affected $changed)" = "true" ]; then
-              echo "→ at least one changed path is in the artifact build closure; rebuilding."
-            else
-              affected=false
-              echo "→ no changed path is read by any artifact builder."
-            fi
+            # Paths go on stdin (a long diff outgrows ARG_MAX), and only a
+            # literal "false" skips: a classifier that failed answers neither.
+            ans="$(printf '%s\n' "$changed" | CODEX_CLOSURE_VERBOSE=1 node scripts/check_build_closure.js --affected -)"
+            case "$ans" in
+              true) echo "→ at least one changed path is in the artifact build closure; rebuilding." ;;
+              false)
+                affected=false
+                echo "→ no changed path is read by any artifact builder." ;;
+              *) echo "→ the closure classifier gave no answer (${ans:-empty}) — assuming artifacts affected." ;;
+            esac
           fi
           echo "artifacts_affected=$affected" >> "$GITHUB_OUTPUT"
           echo "artifacts_affected=$affected"
@@ -1529,7 +1535,15 @@ jobs:
               echo "All shards passed."
               ;;
             skipped)
-              echo "Shards skipped — the scope step found no changed path in the artifact build closure."
+              # A skip is a pass only when `gate` succeeded and scoped the
+              # artifacts out; a failed or timed-out gate also skips the
+              # shards, and that pool was never executed.
+              if [ "${{ needs.gate.result }}" = "success" ] && [ "${{ needs.gate.outputs.artifacts_affected }}" = "false" ]; then
+                echo "Shards skipped — the scope step found no changed path in the artifact build closure."
+              else
+                echo "::error::catalog shards were SKIPPED but gate reported '${{ needs.gate.result }}' (artifacts_affected='${{ needs.gate.outputs.artifacts_affected }}') — no shard ran"
+                exit 1
+              fi
               ;;
             cancelled)
               # Reached only when the RUN was not cancelled (the `if:` above),

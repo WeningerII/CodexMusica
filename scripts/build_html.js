@@ -802,9 +802,29 @@ fs.writeFileSync(outputPath, html);
 // earlier build is removed, so the directory holds exactly this build's).
 if (LIBRARY && LAZY) {
   const codeDir = path.join(outDir, 'library', 'code');
-  fs.rmSync(codeDir, { recursive: true, force: true });
-  fs.mkdirSync(codeDir, { recursive: true });
-  for (const { out, bytes } of LIBRARY_CHUNK_FILES) fs.writeFileSync(path.join(outDir, out), bytes);
+  if (path.resolve(outDir) === path.resolve(SKILL_ROOT)) {
+    // INTO THE CHECKOUT, the directory is the published one: it keeps older
+    // generations for 30 days and their record (generations.json), so the
+    // build is merged the way sync-pages merges it instead of wiped.
+    const os = require('os');
+    const dist = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-chunks-'));
+    try {
+      for (const { out, bytes } of LIBRARY_CHUNK_FILES)
+        fs.writeFileSync(path.join(dist, path.basename(out)), bytes);
+      require('./library_chunk_generations.js').apply({
+        repo: codeDir,
+        dist,
+        today: new Date().toISOString().slice(0, 10),
+      });
+    } finally {
+      fs.rmSync(dist, { recursive: true, force: true });
+    }
+  } else {
+    fs.rmSync(codeDir, { recursive: true, force: true });
+    fs.mkdirSync(codeDir, { recursive: true });
+    for (const { out, bytes } of LIBRARY_CHUNK_FILES)
+      fs.writeFileSync(path.join(outDir, out), bytes);
+  }
 }
 
 console.error(`Built ${outputPath} (${html.length.toLocaleString()} bytes)`);

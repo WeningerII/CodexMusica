@@ -145,6 +145,14 @@ async function main() {
   mkdir(OUT);
   mkdir(path.join(OUT, 'traditions'));
   mkdir(path.join(OUT, 'instruments'));
+  // A FULL build writes every record, so a file left from an earlier build
+  // names an id the catalog no longer has (a removed or renamed instrument or
+  // tradition); nothing below overwrites it. Cleared first, so the output is
+  // exactly this build's. A --limit sample writes a prefix and clears nothing.
+  if (LIMIT === Infinity)
+    for (const dir of ['traditions', 'instruments'])
+      for (const f of fs.readdirSync(path.join(OUT, dir)))
+        if (f.endsWith('.json')) fs.unlinkSync(path.join(OUT, dir, f));
 
   // The static API is the agent-facing PRODUCT, so this build is fail-CLOSED:
   // a tradition that won't compile, or any record that breaks a documented

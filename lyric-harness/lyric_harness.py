@@ -27,6 +27,7 @@ import json
 import math
 import os
 import re
+import shlex
 import unicodedata
 import sys
 import contextlib
@@ -8980,12 +8981,20 @@ def _defer_proposer(path, lines=None):
         rels = [_related(brief)]
         nos = {int(brief.line_no)}
         for x in ahead:
-            if _line_lookup(ones, x, 0) is not None:
-                continue
             xr = _related(x)
             xn = int(x.line_no)
-            if xn in nos or any(xn in r for r in rels) \
+            # EVERY ahead line the batch leaves out is still walked, in
+            # order, before the batched lines behind it, and its answer may
+            # be accepted there. So it BLOCKS what it relates to exactly as a
+            # batched line does: otherwise a batched answer written against
+            # the partner's old word is verified against its new one, which
+            # no brief showed the writer ("as fresh as it would be asked
+            # alone", `propose.render_batch`).
+            if _line_lookup(ones, x, 0) is not None or xn in nos \
+                    or any(xn in r for r in rels) \
                     or (xr & nos) or any(xr & r for r in rels):
+                rels.append(xr)
+                nos.add(xn)
                 continue
             # Independence and replay are decidable from the assessed
             # mandate context. Only a question that survives those tests
@@ -8993,11 +9002,11 @@ def _defer_proposer(path, lines=None):
             materialize = getattr(x, "_materialize", None)
             if materialize is not None:
                 x = materialize()
+            rels.append(xr)
+            nos.add(xn)
             if x is None or x.joint_conflict:
                 continue
             chosen.append(x)
-            rels.append(xr)
-            nos.add(xn)
         _rn = getattr(brief, "round_no", None)
         # Independent questions may fit separately even when their combined
         # full briefs do not. Keep the largest fitting prefix of this exact
@@ -10985,12 +10994,12 @@ def main():
         # THE NEXT COMMAND, SPELLED (2026-09-02): `plan` prints GRADE IT and
         # this door printed only "hand them to brief/revise" — the tier-A
         # verification of M-195 named the gap. Quoted, so the line pastes.
-        _gi = [f"python3 lyric_harness.py brief {rest[0]}",
-               f"\"--groups={ms.get('--groups=', '')}\""]
+        _gi = ["python3 lyric_harness.py brief", shlex.quote(rest[0]),
+               shlex.quote(f"--groups={ms.get('--groups=', '')}")]
         if input_format == "source":
             _gi.append("--input-format=source")
         if ms.get('--returns='):
-            _gi.append(f"\"--returns={ms['--returns=']}\"")
+            _gi.append(shlex.quote(f"--returns={ms['--returns=']}"))
         print(f"  GRADE IT: {' '.join(_gi)}")
         print("      (`revise FILE MANDATE --propose=defer:STATE.json` is the "
               "same mandate driven to a stop condition and stamped)")
@@ -11090,6 +11099,22 @@ def main():
                                     "put on a pair of line ends.",
                                     "`type:`/`class:` names judge word "
                                     "pairs as before."])
+                # The pair route drops the schema's placement on purpose
+                # (`_pair_schema_unplaced`), but a mandate group at line ends
+                # is graded through the instances route, which enforces it.
+                # A schema two line ends cannot place would read SATISFIES
+                # here and SCHEME_VIOLATION at grade, for the same two words.
+                if not _RL_s.placement_bindable(_sch, ("end", "end")):
+                    _refuse(f"screen --relation={screen_rel!r} names a "
+                            f"schema whose placement two line ends cannot "
+                            f"satisfy (`relations.placement_bindable`), so "
+                            f"the grade charges a line-end mandate declaring "
+                            f"it whatever the words; the screen judges line "
+                            f"ends and would answer SATISFIES under its name",
+                            detail=["declare it at the slots its placement "
+                                    "names, and the grade judges it there "
+                                    "(`line_pairs_for`); the planner never "
+                                    "draws it on line ends either."])
         bad_flag = [a for a in rest if a.startswith("--")]
         if bad_flag:
             _refuse(f"screen does not take {bad_flag[0]!r}",
@@ -11403,8 +11428,13 @@ def main():
                         detail=["--sweep=LO-HI over integer seeds, e.g. "
                                 "--sweep=0-600"],
                         machine={"sweep": {"version": 1, "outcome": "arguments refused"}})
-            if hi < lo:
-                _refuse(f"--sweep={sweep_raw!r} runs backwards",
+            if hi <= lo:
+                # HI is exclusive (`range(lo, hi)`): an equal pair names no
+                # seed, and sweeping it would report "the planner refused
+                # every seed" about a window the caller left empty.
+                _refuse(f"--sweep={sweep_raw!r} "
+                        + ("runs backwards" if hi < lo else
+                           "names no seed (HI is exclusive)"),
                         machine={"sweep": {"version": 1, "outcome": "arguments refused"}})
             try:
                 wants = [PLN.parse_sweep_want(w)
@@ -11499,7 +11529,13 @@ def main():
                   f"--seed={res['accepted'][0]}"
                   + (f" --form={form}" if form != "verse-chorus" else "")
                   + (f" --lines={nlines}" if nlines else "")
-                  + (f" --functions={funcs_raw}" if funcs_raw else ""))
+                  + (f" --functions={funcs_raw}" if funcs_raw else "")
+                  # Every declaration the sweep planned under, or the
+                  # printed seed plans something the sweep never judged.
+                  + "".join(f" {shlex.quote(f'--{k}={v}')}" for k, v in (
+                      ("relation", relation), ("title", title),
+                      ("narrative", narrative_raw), ("melody", melody_raw))
+                      if v is not None))
             _lyric_result(status="swept", exit=0,
                           sweep={**record, "outcome": "accepted"})
             return 0
@@ -13169,6 +13205,17 @@ def main():
                                           structures=st, relations=rl), tail)
             return _finish(g, tail)              # --groups= alone, as before
 
+        def _refuse_extra_positionals(verb, tail):
+            """A positional after the mandate names nothing for brief/revise,
+            and dropping it silently grades a mandate the writer did not
+            state (`--groups=1,3 2,4` for `1,3;2,4`; `ABAB AABB`)."""
+            if tail:
+                _refuse(f"{verb} takes one mandate; unexpected positional "
+                        f"argument(s) after it: {tail!r}",
+                        detail=["join groups with ';' inside one "
+                                "--groups= (quote it), and hand in one "
+                                "letter scheme."])
+
         def _say_derived(m, n_lines=None, src=None):
             """Doctrine 14, out loud. A cover read off the rhyme graph is
             mutually band-passing BY CONSTRUCTION, so a clean rhyme result
@@ -13908,6 +13955,7 @@ def main():
                 sides.append(("HANDED IN brief's FILE", args[1]))
                 lines = read_input(args[1])
                 scheme, _tail = _mandate_arg(args, 2, lines)
+                _refuse_extra_positionals(cmd, _tail)
                 _say_derived(scheme, len(lines), src=args[1])
                 _say_relation(scheme)
                 if scheme is not None:
@@ -14253,6 +14301,7 @@ def main():
                           f"on this command line restates any of it.")
                 else:
                     scheme, _tail = _mandate_arg(args, 2, lines)
+                    _refuse_extra_positionals(cmd, _tail)
                 _say_derived(scheme, len(lines), src=args[1])
                 _say_relation(scheme)
                 if scheme is not None:
