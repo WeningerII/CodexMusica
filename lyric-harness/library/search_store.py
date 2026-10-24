@@ -141,6 +141,10 @@ def _chunks(items, size, lo_key, hi_key):
 
 
 def build(export: Path, out: Path) -> dict:
+    # store.json hashes every file in `out`, so a stray file left there would
+    # be published as part of the store. Refuse it, as the other exporters do.
+    if out.exists() and any(out.iterdir()):
+        raise ValueError("search store output must be empty")
     packs = _Packs(export)
     out.mkdir(parents=True, exist_ok=True)
     names = ("title", "contributor", "contributor_lower", "body", "metadata")

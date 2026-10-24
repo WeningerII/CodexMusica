@@ -337,4 +337,41 @@ for(const item of input.cases) {
             self.assertEqual(descriptor, verify_export(export_dir))
 
 
+class CatalogEdgeTests(unittest.TestCase):
+    def test_an_empty_language_or_author_header_declares_nothing(self):
+        # `# language:` and `# author:` with no value crashed the build with
+        # IndexError; they declare no language and name no contributor.
+        from library.catalog import contributor_records, header_fields, language_for
+        _, rows = physical_rows(b"# language:\n# author:\n--- TITLE: x\nhello\n")
+        fields = header_fields(rows)
+        self.assertEqual(language_for("corpus/song/eng_x.txt", fields), "eng")
+        self.assertEqual(language_for("corpus/song/x.txt", fields), "und")
+        self.assertEqual(contributor_records(fields), [])
+
+    def test_a_corrupt_reused_file_is_rewritten_not_a_crash(self):
+        # A gzip file with a valid header and a corrupt deflate body raises
+        # zlib.error, which the reuse comparison did not catch.
+        from library.catalog_static_export import _Out
+        with tempfile.TemporaryDirectory() as tmp:
+            reuse, out = Path(tmp) / "reuse", Path(tmp) / "out"
+            reuse.mkdir()
+            good = bytearray(gzip.compress(b'{"a":1}' * 50, mtime=0))
+            for i in range(12, len(good) - 8):
+                good[i] ^= 0xFF
+            (reuse / "x.json.gz").write_bytes(bytes(good))
+            _Out(out, reuse).write("x.json.gz", b'{"a":2}')
+            self.assertEqual(gzip.decompress((out / "x.json.gz").read_bytes()), b'{"a":2}')
+
+    def test_the_search_store_refuses_a_nonempty_output(self):
+        # store.json hashes every file in its output, so a stray file would be
+        # published as part of the store.
+        from library.search_store import build as build_store
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp) / "store"
+            out.mkdir()
+            (out / "stray.txt").write_text("x")
+            with self.assertRaisesRegex(ValueError, "must be empty"):
+                build_store(Path(tmp) / "no-export", out)
+
+
 if __name__ == "__main__": unittest.main()

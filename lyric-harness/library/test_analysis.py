@@ -858,5 +858,22 @@ class ReaderAcceptance(unittest.TestCase):
             list(resolve_detail_records(damaged))
 
 
+class ResumeKeepsRefusals(unittest.TestCase):
+    def test_an_unsearched_reading_combination_survives_a_restart(self):
+        # One whole-line pair holds six disputed words, more combinations
+        # than `EDGE_COMBOS`. `_any_reading` recorded that per candidate,
+        # outside the generator a resume fast-forwards, so a restarted
+        # traversal reported the method answered.
+        reading = source("fire every hour flower power\nour family evening fire flower\ncat")
+        schemas = ["parechesis / general consonance"]
+        _, whole, _ = complete(reading, schemas=schemas)
+        result = next(r for r in whole if r["kind"] == "method_result")
+        self.assertEqual(result["coverage"], "refused")
+        self.assertEqual(result["refusal"]["kind"], "reading_combinations")
+        for batch in (1, 7):
+            _, resumed, _ = complete(reading, schemas=schemas, batch=batch, restart=True)
+            self.assertEqual(canonical_json(resumed), canonical_json(whole))
+
+
 if __name__ == "__main__":
     unittest.main()

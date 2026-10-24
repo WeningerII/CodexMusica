@@ -49,6 +49,7 @@ import json
 from pathlib import Path
 import re
 import uuid
+import zlib
 
 from library.catalog import CatalogError, NAMESPACE, canonical, sha
 from library.catalog_site_export import SOURCE_BASIS_FIELDS
@@ -199,7 +200,7 @@ class _Out:
             old = previous.read_bytes()
             try:
                 same = (gzip.decompress(old) if compress else old) == raw
-            except (OSError, EOFError):
+            except (OSError, EOFError, zlib.error):  # a corrupt deflate body is zlib.error, not OSError
                 same = False
             if same:
                 data = old

@@ -295,6 +295,69 @@ class FormReaderTests(unittest.TestCase):
         self.assertEqual(hook["placement_refusals"][0]["code"], "HOOK_PLACEMENT_PARTLY_UNDECLARED")
         self.assertFalse(any(f["code"] == "HOOK_CONFINED" for f in hook["findings"]))
 
+    def test_duplicate_declared_section_ids_refuse_instead_of_losing_lines(self):
+        work = source(["cat", "hat"], "eng")
+        declaration = {"form": {"sections": [
+            {"id": "verse", "function": "verse", "line_ids": ["l1"], "source": "reader"},
+            {"id": "verse", "function": "verse", "line_ids": ["l2"], "source": "reader"},
+        ]}}
+        with self.assertRaisesRegex(InvalidDeclaration, "declared section IDs must be unique"):
+            analyze_form(work, declaration)
+        # The worker-facing traversal must refuse the same declaration.
+        from library.test_analysis import complete
+        work["text"] = "cat\nhat"
+        with self.assertRaisesRegex(InvalidDeclaration, "declared section IDs must be unique"):
+            complete(work, declaration, schemas=[], layers=["form"])
+
+    def test_setting_bar_matches_however_the_number_is_written(self):
+        # `G.song_from_blueprint` fits `int(bar)`; the line lookup keyed the
+        # raw declared value, so a bar written "2" raised KeyError.
+        work = source(["[VERSE]", "Vaka vanha Väinämöinen", "Laula kultainen käkönen"])
+        lines = [{"line_id": "l2", "section_id": "l1:block", "bar": 1, "beat": 1, "duration": 7},
+                 {"line_id": "l3", "section_id": "l1:block", "bar": 2, "beat": 1, "duration": 7}]
+        sections = [{"id": "l1:block", "bars": 4, "meter": {"beats": 7, "unit": 8, "groups": [2, 2, 3]}}]
+        plain = analyze_form(work, {"setting": {"source": "s", "sections": sections, "lines": lines}})
+        written = copy.deepcopy(lines)
+        written[1]["bar"] = "2"
+        as_text = analyze_form(work, {"setting": {"source": "s", "sections": sections, "lines": written}})
+        self.assertEqual(as_text["rhythm"]["setting"], plain["rhythm"]["setting"])
+
+    def test_empty_lines_array_reads_the_same_rows_as_the_session(self):
+        # `analysis._source_lines` falls back to the text when `lines` is
+        # empty; the form layer read the same source as having no lines.
+        from library.test_analysis import complete
+        work = {"reading_unit_id": "unit", "reading_revision": "r", "language": "fin",
+                "text": "Vaka vanha\nLaula kultainen\n", "lines": []}
+        absent = dict(work)
+        del absent["lines"]
+        self.assertEqual(analyze_form(work)["line_count"], analyze_form(absent)["line_count"])
+        self.assertEqual(analyze_form(work)["line_count"], 2)
+        _, records, _ = complete(work, layers=["form"])
+        self.assertEqual(sum(r["kind"] == "line" for r in records), analyze_form(work)["line_count"])
+
+    def test_malformed_declarations_refuse_as_invalid_declarations(self):
+        # Each of these crashed with TypeError, which the worker reports as a
+        # bare READER_ERROR instead of the caller's own mistake.
+        work = source(["[VERSE]", "Vaka vanha Väinämöinen", "Laula kultainen käkönen"])
+        bad = [
+            {"form": {"sections": [{"id": "x", "source": "s", "line_ids": [["l2"]]}]}},
+            {"line_relations": [{"source": "s", "call": ["l2"], "response": "l3"}]},
+            {"beatgrid": {"source": "s", "derived_from": "score", "positions": [],
+                          "meter": {"beats": 7, "unit": 8, "groups": 5}}},
+        ]
+        for declaration in bad:
+            with self.subTest(declaration=declaration), self.assertRaises(InvalidDeclaration):
+                analyze_form(work, declaration)
+        with self.assertRaises(InvalidDeclaration):
+            analyze_form({"lines": [{"id": ["a"], "text": "x"}]})
+
+    def test_refusal_message_carries_the_code_the_worker_reads(self):
+        # mcp/worker.py takes a reader refusal's code from the message prefix.
+        with self.assertRaises(InvalidDeclaration) as raised:
+            analyze_form(source(["cat"], "eng"), {"setting": {"source": "s", "sections": 5, "lines": []}})
+        self.assertTrue(str(raised.exception).startswith("INVALID_DECLARATION: "))
+        self.assertEqual(str(InvalidDeclaration("INVALID_DECLARATION: x")), "INVALID_DECLARATION: x")
+
     def test_reader_declared_voice_keeps_source_voices_separate(self):
         work = source(["[PART: narrator]", "[VERSE]", "Vaka vanha Väinämöinen"])
         result = analyze_form(work, {"form": {"sections": [{"id": "l2:block", "function": "verse",
