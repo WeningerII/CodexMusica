@@ -33,7 +33,9 @@ function fixture(t) {
     requests = [],
     frames = [],
     scrolls = [],
-    gates = new Map();
+    gates = new Map(),
+    statuses = new Map(),
+    fetchOptions = [];
   const rights = { sources: [], file_sources: [], notices: [] },
     metadata = {};
   files.set(`rights/r-${sha(rights).slice(0, 2)}.json.gz`, { rights: { [sha(rights)]: rights } });
@@ -117,9 +119,11 @@ function fixture(t) {
     requestAnimationFrame: (fn) => {
       frames.push(fn);
     },
-    fetch: async (url) => {
+    fetch: async (url, options) => {
       const name = String(url).replace('https://example.test/data/', '');
       requests.push(name);
+      fetchOptions.push({ name, cache: options?.cache });
+      if (statuses.has(name)) return new Response('', { status: statuses.get(name) });
       if (gates.has(name)) await gates.get(name).promise;
       return files.has(name)
         ? new Response(canonical(files.get(name)))
@@ -143,7 +147,10 @@ function fixture(t) {
   };
   let source = fs
     .readFileSync(path.join(__dirname, '../src/library/reader.js'), 'utf8')
-    .replace('_internals: {', '_internals: { state: () => S, parse, route, rowRequests, speak,');
+    .replace(
+      '_internals: {',
+      '_internals: { state: () => S, parse, route, rowRequests, speak, resolveKey,'
+    );
   source = source.replace(
     'return {\n  show,',
     'const rowRequests = []; const originalGoToRow = goToRow; goToRow = (row) => { const task = originalGoToRow(row); rowRequests.push(task); return task; };\nreturn {\n  show,'
@@ -172,6 +179,8 @@ function fixture(t) {
     projectionKey,
     routes,
     requests,
+    statuses,
+    fetchOptions,
     frames,
     gates,
     scrolls,
@@ -362,3 +371,103 @@ for (const stopSpeech of [false, true])
     assert.deepEqual([...f.state().window], [1, 1]);
     assert.equal(f.state().speaking, !stopSpeech);
   });
+
+async function waitFor(condition) {
+  for (let i = 0; i < 50; i++) {
+    if (condition()) return;
+    await new Promise((resolve) => setImmediate(resolve));
+  }
+  assert.ok(condition(), 'expected async reader action to finish');
+}
+const MISSING_KEY = '0'.repeat(16) + '-' + '0'.repeat(12);
+
+test('missing retained head offers explicit current recovery using a refreshed shard, not cached paths', async (t) => {
+  const f = fixture(t),
+    shardPath = 'u/12.json.gz';
+  const shard = f.files.get(shardPath);
+  f.files.set(shardPath, { ...shard, units: [[ID, MISSING_KEY, 'collection:test']] });
+  assert.equal(await f.reader._internals.resolveKey(f.lib, ID, ''), MISSING_KEY);
+  f.files.set(shardPath, shard);
+  let cachedPathCalls = 0;
+  f.lib.unitPath = async () => {
+    cachedPathCalls++;
+    return MISSING_KEY;
+  };
+  await f.open(
+    `revision=${MISSING_KEY}&line=stale&offset=250&span=1:4&precision=exact&lens=sources&view=source&autoplay=1`
+  );
+  assert.equal(f.main.querySelector('.rd'), null);
+  const button = f.main.querySelector('[data-rd-current]');
+  assert.ok(button);
+  button.click();
+  await waitFor(() => f.routes.length > 0);
+  const route = f.routes.at(-1),
+    q = new URLSearchParams(route.split('?')[1]);
+  assert.equal(q.get('revision'), f.currentKey);
+  for (const k of ['line', 'offset', 'span', 'precision', 'autoplay'])
+    assert.equal(q.has(k), false, k);
+  assert.ok(f.fetchOptions.some((r) => r.name === shardPath && r.cache === 'reload'));
+  assert.equal(cachedPathCalls, 0);
+  await f.reader.show(f.main, route, f.lib);
+  assert.equal(f.state().R.revision, CURRENT);
+  assert.equal(f.state().record, null);
+  assert.equal(
+    (await f.reader._internals.provenance(f.lib, f.state().R)).snapshot_id,
+    'c'.repeat(64)
+  );
+});
+
+for (const failure of ['lookup', 'unreadable'])
+  test(`failed current recovery stays closed and retryable: ${failure}`, async (t) => {
+    const f = fixture(t),
+      shardPath = 'u/12.json.gz',
+      shard = f.files.get(shardPath);
+    await f.open(`revision=${MISSING_KEY}&offset=250&span=1:4`);
+    const button = f.main.querySelector('[data-rd-current]');
+    assert.ok(button);
+    if (failure === 'lookup') f.statuses.set(shardPath, 503);
+    else f.files.set(shardPath, { ...shard, units: [] });
+    button.click();
+    await waitFor(
+      () => !button.disabled && f.main.querySelector('[data-rd-recovery-error]')?.textContent
+    );
+    assert.equal(f.routes.length, 0);
+    assert.equal(f.main.querySelector('.rd'), null);
+    assert.ok(f.main.querySelector('[data-rd-retry]'));
+    f.statuses.delete(shardPath);
+    f.files.set(shardPath, shard);
+    button.click();
+    await waitFor(() => f.routes.length > 0);
+    assert.equal(new URLSearchParams(f.routes.at(-1).split('?')[1]).get('revision'), f.currentKey);
+  });
+
+for (const failure of ['500', 'integrity', 'page404'])
+  test(`current recovery is not offered for ${failure} failure`, async (t) => {
+    const f = fixture(t);
+    if (failure === '500') f.statuses.set(f.headPath(f.currentKey), 500);
+    if (failure === 'integrity') f.files.set(f.headPath(f.currentKey), {});
+    if (failure === 'page404') {
+      const h = f.files.get(f.headPath(f.currentKey));
+      f.files.delete(`r/12/${ID}/${f.currentKey}/1-${h.pages[0].slice(0, 12)}.json.gz`);
+    }
+    await f.open(`revision=${f.currentKey}&offset=${failure === 'page404' ? 250 : 0}`);
+    assert.equal(f.main.querySelector('[data-rd-current]'), null);
+    assert.ok(f.main.querySelector('[data-rd-retry]'));
+    assert.ok(!f.fetchOptions.some((r) => r.cache === 'reload'));
+  });
+
+test('late recovery cannot navigate away from a newer reading', async (t) => {
+  const f = fixture(t),
+    gate = deferred();
+  await f.open(`revision=${MISSING_KEY}`);
+  f.gates.set('u/12.json.gz', gate);
+  const button = f.main.querySelector('[data-rd-current]');
+  assert.ok(button);
+  button.click();
+  await f.open(`revision=${f.currentKey}`);
+  const count = f.routes.length;
+  gate.resolve();
+  await new Promise((resolve) => setImmediate(resolve));
+  assert.equal(f.routes.length, count);
+  assert.equal(f.state().R.revision, CURRENT);
+});

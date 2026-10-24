@@ -102,33 +102,49 @@ const unitShard = (id) => /^reading_([0-9a-f]{2})/.exec(id)?.[1];
 
 class Closed extends Error {}
 class VersionUnavailable extends Error {}
+class StaticFetchError extends Error {
+  constructor(path, status) {
+    super(`The Library could not load ${path} (${status}).`);
+    this.path = path;
+    this.status = status;
+  }
+}
 
 // Static files, raw: gzip is undone here so the bytes can be hashed. Cached
 // per tab; a failure is forgotten so Retry asks again.
 const FILES = new Map();
-function fetchBytes(lib, path) {
-  if (!FILES.has(path))
-    FILES.set(
-      path,
-      (async () => {
-        const r = await fetch(lib.base + path);
-        if (!r.ok) throw Error(`The Library could not load ${path} (${r.status}).`);
-        let b = new Uint8Array(await r.arrayBuffer());
-        if (b[0] === 0x1f && b[1] === 0x8b)
-          b = new Uint8Array(
-            await new Response(
-              new Blob([b]).stream().pipeThrough(new DecompressionStream('gzip'))
-            ).arrayBuffer()
-          );
-        return b;
-      })().catch((e) => {
-        FILES.delete(path);
-        throw e;
-      })
-    );
+function fetchBytes(lib, path, reload = false) {
+  if (reload || !FILES.has(path)) {
+    const pending = (async () => {
+      const r = await fetch(lib.base + path, reload ? { cache: 'reload' } : undefined);
+      if (!r.ok) throw new StaticFetchError(path, r.status);
+      let b = new Uint8Array(await r.arrayBuffer());
+      if (b[0] === 0x1f && b[1] === 0x8b)
+        b = new Uint8Array(
+          await new Response(
+            new Blob([b]).stream().pipeThrough(new DecompressionStream('gzip'))
+          ).arrayBuffer()
+        );
+      return b;
+    })().catch((e) => {
+      if (FILES.get(path) === pending) FILES.delete(path);
+      throw e;
+    });
+    FILES.set(path, pending);
+  }
   return FILES.get(path);
 }
-const fetchJSON = async (lib, path) => JSON.parse(dec.decode(await fetchBytes(lib, path)));
+const fetchJSON = async (lib, path, reload = false) =>
+  JSON.parse(dec.decode(await fetchBytes(lib, path, reload)));
+
+async function refreshedKey(lib, id) {
+  // Recovery must bypass both the tab's FILES cache and lib.unitPath's cache.
+  const shard = await fetchJSON(lib, `u/${unitShard(id)}.json.gz`, true);
+  const key = (shard.units || []).find((u) => u[0] === id)?.[1];
+  if (!/^[0-9a-f]{16}-[0-9a-f]{12}$/.test(key || ''))
+    throw new VersionUnavailable('This reading is not currently in the Library’s readable set.');
+  return key;
+}
 
 // ─── the reading model ─────────────────────────────────────────────────────
 async function resolveKey(lib, id, key) {
@@ -775,10 +791,16 @@ async function show(main, sub, lib) {
   } catch (e) {
     if (S !== mine) return;
     console.error('[library reader]', e);
+    const missingPath =
+      key &&
+      e instanceof StaticFetchError &&
+      e.status === 404 &&
+      e.path === `r/${unitShard(id)}/${id}/${key}/head.json.gz`;
+    const canOpenCurrent = missingPath || e instanceof VersionUnavailable;
     main.innerHTML = uiEmptyState({
       title: e instanceof Closed ? 'This reading failed its check' : 'Reading unavailable',
       text: e.message + (e instanceof Closed ? ' No text is shown. Reload to fetch it again.' : ''),
-      actions: `${e instanceof VersionUnavailable ? '<button type="button" class="cm-btn" data-rd-current>Open current reading</button>' : ''}<button type="button" class="cm-btn" data-rd-retry>${icon('refresh-cw', 16)}<span>Retry</span></button><button type="button" class="cm-btn" data-rd-back>${icon('arrow-left', 16)}<span>Works</span></button>`,
+      actions: `${canOpenCurrent ? '<button type="button" class="cm-btn" data-rd-current>Open current reading</button><p data-rd-recovery-error role="alert"></p>' : ''}<button type="button" class="cm-btn" data-rd-retry>${icon('refresh-cw', 16)}<span>Retry</span></button><button type="button" class="cm-btn" data-rd-back>${icon('arrow-left', 16)}<span>Works</span></button>`,
       tone: 'danger',
     });
     main.querySelector('[data-rd-retry]')?.addEventListener('click', () => {
@@ -787,10 +809,22 @@ async function show(main, sub, lib) {
       show(main, sub, lib);
     });
     main.querySelector('[data-rd-back]')?.addEventListener('click', () => lib.go('/works'));
-    main.querySelector('[data-rd-current]')?.addEventListener('click', () => {
-      const presentation = new URLSearchParams();
-      for (const k of ['lens', 'view']) if (params.has(k)) presentation.set(k, params.get(k));
-      lib.go(`/read/${id}${presentation.size ? '?' + presentation : ''}`);
+    main.querySelector('[data-rd-current]')?.addEventListener('click', async (event) => {
+      const button = event.currentTarget;
+      button.disabled = true;
+      try {
+        const currentKey = missingPath ? await refreshedKey(lib, id) : '';
+        if (S !== mine || !button.isConnected) return;
+        const presentation = new URLSearchParams();
+        for (const k of ['lens', 'view']) if (params.has(k)) presentation.set(k, params.get(k));
+        if (currentKey) presentation.set('revision', currentKey);
+        lib.go(`/read/${id}${presentation.size ? '?' + presentation : ''}`);
+      } catch (error) {
+        if (S === mine && button.isConnected)
+          main.querySelector('[data-rd-recovery-error]').textContent = error.message;
+      } finally {
+        if (S === mine && button.isConnected) button.disabled = false;
+      }
     });
   }
 }
