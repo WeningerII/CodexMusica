@@ -254,6 +254,15 @@ function mkenv(items) {
 // (BAD here). A non-zero exit is only a real CATCH if its output also names the
 // planted defect (see record) — a timeout is surfaced separately so a gate that
 // merely hangs can't masquerade as detection.
+// check_doc_paths.js lists the documents with `git ls-files`, so its copy has
+// to be a repository with the planted file staged. Without one the gate fails
+// on "examined NO path at all", and a loose expectation could read that
+// failure as the planted defect being caught.
+function stageAsRepo(dir) {
+  execFileSync('git', ['init', '-q'], { cwd: dir, stdio: 'ignore' });
+  execFileSync('git', ['add', '-A'], { cwd: dir, stdio: 'ignore' });
+}
+
 function gate(dir, args) {
   try {
     const out = execFileSync('node', args, {
@@ -2037,10 +2046,40 @@ if (want('11b', 'documented-path-missing')) {
     path.join(d, 'AGENTS.md'),
     '\n```\npython3 quality/floor.py corpus/song/__docpath_fault__.txt\n```\n'
   );
+  stageAsRepo(d);
   record(
     'documented-path-missing -> check_doc_paths.js',
     gate(d, ['scripts/check_doc_paths.js']),
-    /__docpath_fault__|MISSING|do not exist/i
+    /__docpath_fault__/
+  );
+}
+
+// 11c. the same missing file, cited inline in prose and in a blockquoted
+//      transcript -> check_doc_paths.js. The gate matched only lines that
+//      START with a command, so BACKLOG.md went on citing a fixture deleted on
+//      purpose, from a `> \`python3 …\`` line, while the gate said MISSING 0.
+if (want('11c', 'documented-path-missing-inline')) {
+  const d = mkenv([
+    'scripts',
+    'references',
+    'api',
+    'src',
+    'AGENTS.md',
+    'llms.txt',
+    'README.md',
+    'SKILL.md',
+  ]);
+  fs.appendFileSync(
+    path.join(d, 'AGENTS.md'),
+    '\nFirst run `python3 quality/floor.py corpus/song/__docpath_inline__.txt` here.\n' +
+      '\n> `python3 quality/floor.py corpus/song/__docpath_quote__.txt` reports it.\n'
+  );
+  stageAsRepo(d);
+  const res = gate(d, ['scripts/check_doc_paths.js']);
+  record(
+    'documented-path-missing-inline -> check_doc_paths.js',
+    res,
+    /__docpath_inline__[\s\S]*__docpath_quote__/
   );
 }
 

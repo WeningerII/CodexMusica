@@ -1,7 +1,9 @@
 # RESULTS — Old Norse, K-4, and which of the three blockers it actually is
 
 Cell AJ, 2026-08-11. Every figure below names the command that produced it.
-Working files are under `scratchpad/cellAJ/` (doctrine 77).
+Working files were under `scratchpad/cellAJ/` (doctrine 77). That scratchpad was
+never committed, so each `python3 scratchpad/cellAJ/…` line below is a record of
+a run and CANNOT RUN FROM A CLEAN CHECKOUT.
 
 `MISSING.md` K-4 said:
 
@@ -40,7 +42,7 @@ was one blocker where the evidence says three, stacked.
 
 ## 1 · The wipe, re-measured from the bytes
 
-`python3 scratchpad/cellAJ/measure_ocr.py`
+`python3 scratchpad/cellAJ/measure_ocr.py` (CANNOT RUN FROM A CLEAN CHECKOUT; see the top)
 
 | quantity | measured |
 |---|---:|
@@ -59,7 +61,8 @@ passes. The record is not stale.
 ### 1.1 · WHY — and it is written in the artifact
 
 Nobody had opened the `.hocr` half of the clone. It carries the recognition
-pass. `python3 scratchpad/cellAJ/measure_hocr.py`:
+pass. `python3 scratchpad/cellAJ/measure_hocr.py` (CANNOT RUN FROM A CLEAN CHECKOUT; see
+the top):
 
 ```
    tesseract 3.04.00        70 pages   (sampled every 10th of 746)
@@ -124,7 +127,8 @@ its image contains no free symbol.
 
 ### 2.2 · The ceiling
 
-`python3 scratchpad/cellAJ/price_repair.py` builds the **Bayes-optimal**
+`python3 scratchpad/cellAJ/price_repair.py` (CANNOT RUN FROM A CLEAN CHECKOUT; see the
+top) builds the **Bayes-optimal**
 single-valued inverse — every image emits its modal source, fitted on the
 answer key. No hand-written table can beat it.
 
@@ -211,7 +215,8 @@ facing Latin translation headed `CLAVIS METRICA` on the recto. Latin uses none
 of `þ ð æ ǫ ø œ á é í ó ú ý`, so the substitution that wiped the Norse had
 nothing to bite on.
 
-`python3 scratchpad/cellAJ/measure_latin.py`, over the same 121 pages:
+`python3 scratchpad/cellAJ/measure_latin.py` (CANNOT RUN FROM A CLEAN CHECKOUT; see the
+top), over the same 121 pages:
 
 | | Old Norse verso | Latin recto |
 |---|---:|---:|

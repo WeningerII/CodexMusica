@@ -40,10 +40,15 @@
 // silencing this gate costs an edit to the document that admits what happened.
 //
 // RESOLUTION RULE, DECLARED because a relative path means nothing without one
-// (doctrine 1): a path is resolved against the root of its own tree — commands
-// in `lyric-harness/**/*.md` are written as run from `lyric-harness/`,
-// everything else from the repository root. A path that resolves under neither
-// is MISSING rather than quietly skipped.
+// (doctrine 1): a path is resolved first against the root of its own tree —
+// commands in `lyric-harness/**/*.md` are written as run from `lyric-harness/`,
+// everything else from the repository root — then against the other tree and
+// the document's own folder. A path that resolves under none of them is
+// MISSING rather than quietly skipped.
+//
+// WHERE A COMMAND IS READ: a line that is one (also inside a blockquote), and
+// any inline-code span in a paragraph that is one. Inline, only a path with a
+// directory is checked; see candidatePaths.
 //
 // Usage: node scripts/check_doc_paths.js [--verbose]
 // Exit 0 if every cited path is present, ignored or declared; 1 otherwise.
@@ -108,6 +113,27 @@ const INLINE_PROGRAM_RE = /\s(?:-e|--eval)\s/;
 //: different question with a different remedy.
 const COMMAND_RE = /^\s*(?:\$\s+)?(?:python3?|node|npm|bash|sh)\s/;
 
+//: The same command, offered in two places that the line-anchored match never
+//: reached. A blockquoted transcript (`> \`python3 …\``) and a command written
+//: in a paragraph as inline code are just as much an instruction to the reader
+//: as a fenced one. Before this, BACKLOG.md:182 cited a fixture deleted on
+//: purpose, and three RESULTS lines cited a scratchpad that is not in the repo,
+//: while this gate reported MISSING 0.
+const BLOCKQUOTE_RE = /^\s*(?:>\s?)+/;
+const INLINE_CODE_RE = /`([^`]+)`/g;
+
+//: Every command a line offers: the line itself when it is one (after any
+//: blockquote markers), and each inline-code span that is one.
+function commandsOf(line) {
+  const out = [];
+  const unquoted = line.replace(BLOCKQUOTE_RE, '');
+  if (COMMAND_RE.test(unquoted)) out.push({ cmd: unquoted, inline: false });
+  for (const m of unquoted.matchAll(INLINE_CODE_RE)) {
+    if (COMMAND_RE.test(m[1])) out.push({ cmd: m[1], inline: true });
+  }
+  return out;
+}
+
 //: Never treated as a real path.
 const PLACEHOLDER_RE = /[<>{}$*…]|\.\.\.|^[A-Z][A-Z0-9_]*$|:\/\//;
 
@@ -145,7 +171,7 @@ function isIgnored(rel) {
   return ignored;
 }
 
-function candidatePaths(line) {
+function candidatePaths(line, inline = false) {
   const out = [];
   for (let tok of line.split(/[\s`'"()|]+/)) {
     tok = tok.replace(/[.,;:]+$/, '');
@@ -156,10 +182,20 @@ function candidatePaths(line) {
     // and `--subdivision` all over CLAUDE.md, so the next person to write one
     // hits the identical wall; it is the checker that mis-parses, not the doc
     // that mis-cites. Strip the flag and judge what it names.
+    // An `--out=` / `--output=` value is a file the command WRITES, the same
+    // as a redirection target below, so it is not required to pre-exist.
+    if (/^--out(?:put)?=/.test(tok)) continue;
     tok = tok.replace(/^--[A-Za-z0-9][A-Za-z0-9-]*=/, '');
     if (!tok || PLACEHOLDER_RE.test(tok)) continue;
     if (!EXTS.has(path.extname(tok))) continue;
     if (tok.startsWith('/') || tok.startsWith('http')) continue;
+    // In running prose a bare file name is nearly always an example argument
+    // (`lyric.txt`, `BP.json`) or a file the reader is told to create (`q.js`),
+    // not a citation of one in the repository. Measured when inline commands
+    // were first read: every bare name flagged was one of those, and every
+    // real miss carried a directory. So inline, only a path with a directory
+    // is checked (doctrine 61).
+    if (inline && !tok.includes('/')) continue;
     out.push(tok);
   }
   return out;
@@ -194,15 +230,18 @@ for (const rel of docFiles()) {
   const base = rel.startsWith('lyric-harness/') ? path.join(ROOT, 'lyric-harness') : ROOT;
 
   lines.forEach((line, i) => {
-    if (!COMMAND_RE.test(line)) return;
-    if (INLINE_PROGRAM_RE.test(line)) return;
+    for (const { cmd, inline } of commandsOf(line)) checkCommand(cmd, inline, i);
+  });
+
+  function checkCommand(offered, inline, i) {
+    if (INLINE_PROGRAM_RE.test(offered)) return;
     // A redirection target is an OUTPUT and is not required to pre-exist; a
     // trailing `# …` is prose. RESULTS_SONG_FLOOR.md:33 is the worked case for
     // the second — `--check    # exit 1 if floor.py has drifted` names
     // `floor.py` in a comment, and reading it as an argument charges a
     // documentation gate with a file the command never opens.
-    const cmd = line.replace(/\s+#.*$/, '').split('>')[0];
-    for (const p of candidatePaths(cmd)) {
+    const cmd = offered.replace(/\s+#.*$/, '').split('>')[0];
+    for (const p of candidatePaths(cmd, inline)) {
       const onDisk = path.join(base, p);
       const relToRoot = path.relative(ROOT, onDisk);
       const key = `${rel}:${i + 1}:${p}`;
@@ -210,6 +249,20 @@ for (const rel of docFiles()) {
       seen.add(key);
 
       if (fs.existsSync(onDisk)) {
+        counts.present++;
+        continue;
+      }
+      // A citation often names a file from the other tree — a lyric-harness
+      // document citing `node scripts/build_html.js`, or a root document
+      // saying "from `lyric-harness/`, `python3 quality/fetch_data.py`" — or
+      // from the document's own folder (an import's README citing its
+      // `adapter.py`). The rule above says a path resolving under NEITHER tree
+      // is missing, so every tree is tried before that verdict.
+      if (
+        fs.existsSync(path.join(ROOT, p)) ||
+        fs.existsSync(path.join(ROOT, 'lyric-harness', p)) ||
+        fs.existsSync(path.join(path.dirname(abs), p))
+      ) {
         counts.present++;
         continue;
       }
@@ -235,7 +288,7 @@ for (const rel of docFiles()) {
       counts.missing++;
       missing.push({ file: rel, line: i + 1, p, tried: relToRoot });
     }
-  });
+  }
 }
 
 console.log('=== Documented path existence ===');

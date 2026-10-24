@@ -182,6 +182,8 @@ marked `source=derived` and NOT INDEPENDENT of the grader (doctrine 14).
 > `python3 lyric_harness.py graph examples/never_been_to_a_scene.txt` reports
 > **8 maximal cliques and 1 overlapping node** (L27, `ones`, in cliques 3 and 7).
 > Calibrating `theta_coda` 0.60 → 0.80 on 2026-08-11 removed 20 of the 21 pivots.
+> (A record of that run. It CANNOT RUN FROM A CLEAN CHECKOUT: `11aa19b` removed
+> the song file from the repository on purpose.)
 >
 > **AND THERE ARE TWO CLIQUE COUNTS ON THIS SONG, BOTH CORRECT.** `brief
 > --cliques` reports **12 groups and 5 pivots** on the same 41 lines, because
