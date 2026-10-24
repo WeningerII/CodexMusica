@@ -874,6 +874,20 @@ class ResumeKeepsRefusals(unittest.TestCase):
             _, resumed, _ = complete(reading, schemas=schemas, batch=batch, restart=True)
             self.assertEqual(canonical_json(resumed), canonical_json(whole))
 
+    def test_every_checkpoint_key_is_declared(self):
+        # `incomplete` was written to the checkpoint without a place in
+        # `ReaderCheckpoint`, the documented shape of a checkpoint.
+        import typing
+        from library.contracts import ReaderCheckpoint
+        reading = source("fire every hour flower power\nour family evening fire flower\ncat")
+        _, _, last = complete(reading, schemas=["parechesis / general consonance"])
+        self.assertIn("incomplete", last["checkpoint"])
+        # contracts.py defers annotations, so `__optional_keys__` is empty;
+        # resolving the hints is what sees NotRequired.
+        hints = typing.get_type_hints(ReaderCheckpoint, include_extras=True)
+        self.assertLessEqual(set(last["checkpoint"]), set(hints))
+        self.assertIs(typing.get_origin(hints["incomplete"]), typing.NotRequired)
+
 
 if __name__ == "__main__":
     unittest.main()
