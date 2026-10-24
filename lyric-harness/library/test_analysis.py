@@ -100,6 +100,212 @@ class ReaderAcceptance(unittest.TestCase):
         self.assertEqual(restarted["summary"]["coverage"], full["summary"]["coverage"])
         self.assertEqual(len({r["id"] for r in resumed}), len(resumed))
 
+    def test_syllable_disputed_words_hold_under_any_reading(self):
+        # Owner ruling 2026-10-23: `us` (AH1 S | Y UW2 EH1 S) and `fine`
+        # (F AY1 N | F IH1 N AH0) differ in syllable count. The Library reads
+        # them, and a check holds when ANY reading holds it -- `us`/`yes`
+        # rhymes only as the letters U.S., and says so.
+        reading = source("Between the two of us\nI only answered yes\n"
+                         "The evening sun was fine\nThe wine was red as dine")
+        session, rows, last = complete(reading, schemas=["perfect rhyme"])
+        self.assertEqual(sorted(session._disputed), [(0, 4), (2, 4)])
+        tokens = {r["text"]: r for r in rows if r["kind"] == "token"}
+        for word in ("us", "fine"):
+            self.assertTrue(tokens[word]["readable"])
+            self.assertEqual(tokens[word]["reading_status"], "disputed")
+        edges = {(r["a"]["origin"], r["b"]["origin"]): r for r in rows if r["kind"] == "relation_instance"}
+        self.assertEqual(edges[("L2.final", "L3.final")]["verdict"], "true")
+        self.assertNotIn("reading", edges[("L2.final", "L3.final")])
+        us = edges[("L0.final", "L1.final")]
+        self.assertEqual(us["verdict"], "true")
+        self.assertEqual(us["reading"], {"rule": "any_reading", "witness": ["us = Y UW2 EH1 S"]})
+        # Judged under another reading, the record still names the work's
+        # own syllables of the word, never the pinned stream's numbering.
+        self.assertEqual(us["a"]["unit_ids"], [f"syllable:{i}" for i in session.stream.tokens[(0, 4)]])
+        result = next(r for r in rows if r["kind"] == "method_result")
+        self.assertEqual(result["coverage"], "answered")
+        self.assertNotIn("unreadable_tokens", result["counts"])
+        _, resumed, _ = complete(reading, schemas=["perfect rhyme"], batch=1, restart=True)
+        self.assertEqual(canonical_json(resumed), canonical_json(rows))
+
+    def test_joint_alternate_readings_are_discovered_or_refused(self):
+        # 3PO's case on #590: each word's first reading, and either single
+        # switch, leave the end words in different rhyme buckets; only BOTH
+        # alternates rhyme (IY1 T). Discovery must reach that pair through
+        # the public path, and a bounded search must say it is incomplete.
+        import lyric_harness as LH
+        original = LH.Lexicon.__init__
+
+        def with_fixture_words(self, *args, **kwargs):
+            original(self, *args, **kwargs)
+            self.entries["zibbet"] = [["B", "AH1", "T"], ["AH0", "B", "IY1", "T"]]
+            self.entries["zoddet"] = [["D", "EH1", "T"], ["AH0", "D", "IY1", "T"]]
+
+        reading = source("I saw the zibbet\nAnd then the zoddet")
+        with patch.object(LH.Lexicon, "__init__", with_fixture_words):
+            session, rows, _ = complete(reading, schemas=["perfect rhyme"])
+            self.assertEqual(sorted(session._disputed), [(0, 3), (1, 3)])
+            edge = next(r for r in rows if r["kind"] == "relation_instance")
+            self.assertEqual(edge["verdict"], "true")
+            self.assertEqual(edge["reading"]["witness"], ["zibbet = AH0 B IY1 T", "zoddet = AH0 D IY1 T"])
+            result = next(r for r in rows if r["kind"] == "method_result")
+            self.assertEqual(result["coverage"], "answered")
+            with patch.object(AnalysisSession, "MINI_CAP", 0):
+                _, capped, _ = complete(reading, schemas=["perfect rhyme"])
+            result = next(r for r in capped if r["kind"] == "method_result")
+            self.assertEqual(result["coverage"], "refused")
+            self.assertEqual(result["refusal"]["kind"], "reading_combinations")
+
+    def test_each_reading_combination_cap_refuses_the_method(self):
+        # BB8 and Jony on #590: a cap that never fires is untested. With
+        # `zoddet` first read B AH1 T, the first readings rhyme identically
+        # (not a perfect rhyme), so the pair is a candidate on the work's own
+        # stream and is searched there: four combinations, past a cap of two.
+        # With D EH1 T the pair is reachable only through each line's
+        # discovery: two combinations a line, past a cap of one. Either way
+        # the method is refused and the pair is never answered true.
+        import lyric_harness as LH
+        original = LH.Lexicon.__init__
+        reading = source("I saw the zibbet\nAnd then the zoddet")
+        for zoddet, cap, scope in ((["B", "AH1", "T"], 2, "a pair's words"),
+                                   (["D", "EH1", "T"], 1, "a line's words")):
+            def with_fixture_words(self, *args, **kwargs):
+                original(self, *args, **kwargs)
+                self.entries["zibbet"] = [["B", "AH1", "T"], ["AH0", "B", "IY1", "T"]]
+                self.entries["zoddet"] = [zoddet, ["AH0", "D", "IY1", "T"]]
+
+            with self.subTest(scope=scope), patch.object(LH.Lexicon, "__init__", with_fixture_words):
+                _, rows, _ = complete(reading, schemas=["perfect rhyme"])
+                self.assertEqual([r["verdict"] for r in rows if r["kind"] == "relation_instance"], ["true"])
+                with patch.object(AnalysisSession, "EDGE_COMBOS", cap):
+                    _, capped, _ = complete(reading, schemas=["perfect rhyme"])
+                result = next(r for r in capped if r["kind"] == "method_result")
+                self.assertEqual(result["coverage"], "refused")
+                self.assertEqual(result["refusal"]["kind"], "reading_combinations")
+                self.assertIn(scope, result["refusal"]["detail"])
+                self.assertNotIn("true", [r["verdict"] for r in capped if r["kind"] == "relation_instance"])
+
+    def test_only_pairs_over_disputed_words_are_kept_for_discovery(self):
+        # #590's memory regression: every candidate pair of the work was kept
+        # to deduplicate alternate-reading discovery, +295 MiB on a 325-word
+        # text. Discovery only ever asks about pairs with a member over a
+        # disputed word, so only those are kept, whatever the words.
+        captured = []
+        original = AnalysisSession._alternate_edges
+
+        def capture(self, name, schema, seen):
+            captured.append((self, seen))
+            return original(self, name, schema, seen)
+
+        reading = source("Between the two of us\nI only answered yes\n"
+                         "The evening sun went down\nThe river ran through town\n"
+                         "We walked along the shore\nAnd talked of nothing more")
+        with patch.object(AnalysisSession, "_alternate_edges", capture):
+            session, rows, _ = complete(reading, schemas=["perfect rhyme", "multisyllabic rhyme"])
+        self.assertTrue(session._disputed)
+        self.assertTrue(any(seen for _, seen in captured))
+        for owner, seen in captured:
+            for pair in seen:
+                self.assertTrue(any(cell in owner._disputed for key in pair for cell in key[2]), pair)
+        self.assertTrue(any(r["kind"] == "relation_instance" and r["verdict"] == "true" for r in rows))
+
+    def test_alternate_reading_records_keep_the_partner_word_exact(self):
+        # Jony's probe on #590: under `us = Y UW2 EH1 S`, `confess` rhymes
+        # on its second syllable only, and the record must say so -- not
+        # widen the undisputed partner to the whole word.
+        session, rows, _ = complete(source("Between the two of us\nI have one thing to confess"),
+                                    schemas=["perfect rhyme"])
+        edge = next(r for r in rows if r["kind"] == "relation_instance")
+        self.assertEqual(edge["verdict"], "true")
+        self.assertEqual(edge["b"]["unit_ids"], [f"syllable:{session.stream.tokens[(1, 5)][-1]}"])
+
+    def test_first_reading_only_verdicts_are_counted(self):
+        # A searched rule enumerates sub-spans inside a word, which another
+        # syllable count leaves without counterparts: such a schema keeps the
+        # first-listed reading, and says how many verdicts rest on it alone.
+        session, rows, _ = complete(source("every day\nheavy clay"), schemas=["multisyllabic rhyme"])
+        self.assertEqual(sorted(session._disputed), [(0, 0)])
+        result = next(r for r in rows if r["kind"] == "method_result")
+        self.assertEqual(result["coverage"], "answered")
+        self.assertGreater(result["counts"]["first_reading_only"], 0)
+        self.assertTrue(all("reading" not in r for r in rows if r["kind"] == "relation_instance"))
+
+    def test_rebuilt_lines_judge_every_pair_as_the_whole_work_does(self):
+        # The any-reading search judges a pair on its own one or two lines,
+        # rebuilt. That is only sound if, under the work's own readings, the
+        # rebuilt lines give every pair exactly the verdict the whole work
+        # gives -- for every schema the search covers, on every candidate.
+        reading = source("Every hour of our family fire\nDifferent nights and every lonely desire\n"
+                         "We sat by the fire with our camera and wine\nEvery interest naturally fine\n"
+                         "Our hour is over and the fire is low\nEvery family knows what different people know")
+        session = AnalysisSession(reading, None, {"layers": ["sound"]}, None, load_records=lambda mid: iter(()))
+        checked = 0
+        for name in session.schema_names:
+            schema = RL.REGISTRY[name]
+            if not session._varies(schema):
+                continue
+            try:
+                candidates = list(session._candidates(name))
+            except Exception:
+                continue
+            for kind, value in candidates:
+                if kind != "edge":
+                    continue
+                a, b = value
+                whole = RL.evaluate(schema, a, b, session.stream)
+                lines = sorted({session.stream.units[i].line for span in (a, b) for i in span.idx})
+                mini = session._line_stream(lines, {})
+                xs = session._spans_by_key(mini, schema.spans[0]).get(session._span_key(a, session.stream), ())
+                ys = session._spans_by_key(mini, schema.spans[1]).get(session._span_key(b, session.stream), ())
+                got = [RL.evaluate(schema, x, y, mini) for x in xs for y in ys]
+                self.assertEqual(len(got), 1, (name, a.origin, b.origin))
+                self.assertEqual(None if whole is None else whole.verdict,
+                                 None if got[0] is None else got[0].verdict, (name, a.origin, b.origin))
+                checked += 1
+        self.assertGreater(checked, 2000)
+
+    def test_a_member_with_no_referent_under_another_reading_is_absent(self):
+        # BB8's texts on #590: with `fire` / `hour` read as one syllable, the
+        # line-final penult has no referent anywhere (cynghanedd lusg,
+        # syllabic rhyme). The default run over every schema must finish.
+        for text in ("I sat beside the fire\nand watched the night go by",
+                     "we waited for an hour\nthe rain came down"):
+            _, rows, last = complete(source(text))
+            self.assertTrue(last["done"], text)
+            self.assertTrue(any(r["kind"] == "method_result" for r in rows), text)
+
+    def test_relation_instance_ids_are_unique_under_any_reading(self):
+        _, rows, _ = complete(source("Every hour of our family fire\nDifferent nights and every lonely desire\n"
+                                     "The camera sees us every time we fly\nOur desire was natural and so was our goodbye"),
+                              layers=["sound"])
+        ids = [r["id"] for r in rows if r["kind"] == "relation_instance"]
+        self.assertEqual(len(ids), len(set(ids)))
+
+    def test_every_syllable_disputed_word_is_read_by_the_library_only(self):
+        # The whole dictionary, not a chosen word: every CMUdict entry whose
+        # readings differ in syllable count (1,698 at the pinned cmudict) is
+        # read by the Library under exactly its first-listed reading, and
+        # refused by the graders exactly as before.
+        import lyric_harness as LH
+        from quality.phonology import UNALIGNABLE, merge_readings
+        from quality.phonology.eng import English
+        grader, library = English(), English(syllable_disputes="first")
+        lex = grader._lexicon()
+        disputed = [w for w, prons in lex.entries.items()
+                    if len(prons) > 1 and merge_readings(grader.parses(w))[1] == UNALIGNABLE]
+        self.assertGreater(len(disputed), 1000)
+        for word in disputed:
+            first = next(p for p in lex.pronunciation_variants(word) if p)
+            self.assertEqual(grader.syllabify(word), [], word)
+            self.assertEqual(grader.reading_status(word)[0], "unalignable", word)
+            self.assertEqual([(s.onset, s.nucleus, s.coda) for s in library.syllabify(word)],
+                             [(tuple(s["onset"]), s["nucleus"], tuple(s["coda"])) for s in LH.syllabify(first)], word)
+            self.assertEqual(library.reading_status(word)[0], "disputed", word)
+        self.assertNotIn("syllable_disputes", grader.declaration())
+        self.assertEqual(library.declaration()["syllable_disputes"], "first")
+        with self.assertRaises(ValueError):
+            English(syllable_disputes="any")
+
     def test_whole_dictionary_witness_and_occurrence_override(self):
         reading = source("wind\nfind")
         _, rows, _ = complete(reading, schemas=["perfect rhyme"])

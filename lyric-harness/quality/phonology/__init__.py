@@ -242,6 +242,11 @@ CERTAIN = "certain"          # one reading, or every reading identical
 MERGED = "merged"            # >1 reading, folded into knowledge sets
 UNREADABLE = "unreadable"    # the phonology could not read the word at all
 UNALIGNABLE = "unalignable"  # >1 reading and no shared index to hold a set on
+#: Not a `merge_readings` outcome: the status a phonology declaring
+#: `syllable_disputes="first"` reports for an UNALIGNABLE word it reads anyway
+#: (its first-listed reading carries the coordinates; a caller answering
+#: "does ANY reading hold" varies the rest -- library/analysis.py).
+DISPUTED = "disputed"
 
 
 def merge_readings(readings):

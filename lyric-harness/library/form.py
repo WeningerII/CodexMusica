@@ -266,7 +266,8 @@ def _phonology(language, declarations):
         from quality.phonology.eng import English
         lex = (Lexicon(strip_parens=False, fallback=settings.get("fallback"), pronunciations=choices)
                if choices or settings.get("fallback") is not None else None)
-        phon = English(fallback=settings.get("fallback"), readings=settings.get("readings", "all"), lexicon=lex)
+        phon = English(fallback=settings.get("fallback"), readings=settings.get("readings", "all"), lexicon=lex,
+                        syllable_disputes="first")
     elif language == "ltc":
         if set(settings) - {"standard", "variants", "overlap", "edition"}:
             raise InvalidDeclaration("unsupported Middle Chinese phonology setting")

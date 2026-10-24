@@ -9733,7 +9733,8 @@ def pinned_phonology(stream, combo):
                                 in sorted(combo.items())], _READING_SOURCE)
     if pinned is None:
         return None
-    eng = English(fallback=ph.fallback, readings=ph.readings, lexicon=pinned)
+    eng = English(fallback=ph.fallback, readings=ph.readings, lexicon=pinned,
+                  syllable_disputes=getattr(ph, "syllable_disputes", "refuse"))
     # A trial phonology, built once per combination: `_pair_memo_slot`
     # keeps its streams out of the pair memo, and gives the whole-song edge
     # memo the slot of `any_reading_base` (see there).

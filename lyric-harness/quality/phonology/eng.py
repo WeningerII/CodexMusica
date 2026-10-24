@@ -11,6 +11,10 @@ and revision graders separately require unanimous endpoint-reading verdicts.~~
 Since 2026-10-01 (owner ruling, CLAUDE.md standing rule 5) the graders ask
 whether ANY whole reading holds an obligation, and charge a prohibition only
 when every reading triggers it; the measurement instruments keep unanimity.
+Since 2026-10-23 (owner ruling) the Library reader is the exception: it
+declares `syllable_disputes="first"`, so a word whose readings differ in
+syllable count is read rather than refused, and a Library relation holds when
+ANY reading holds it, with the readings it rests on recorded beside it.
 
 WHY THIS FILE EXISTS AND WHY IT IS LATE
 
@@ -111,7 +115,8 @@ would compete with a coordinate that can already say it.
 import contextlib
 import re
 
-from quality.phonology import Phonology, Syllable, merge_readings, register
+from quality.phonology import (DISPUTED, UNALIGNABLE, Phonology, Syllable,
+                              merge_readings, register)
 from quality import quotients as _QUOTIENTS  # noqa: E402
 from quality import morphology as _MORPH  # noqa: E402
 
@@ -195,7 +200,8 @@ class English(Phonology):
               "Mellon University), NOT public domain; see data/sources.tsv")
 
     def __init__(self, fallback=None, readings="all", lexicon=None,
-                 reader_scheme=None, strip_parens=None):
+                 reader_scheme=None, strip_parens=None,
+                 syllable_disputes="refuse"):
         """`fallback` is a DECLARED coordinate, defaulting to the refusal.
 
         It is not a boolean, because "did you guess" has three answers here and
@@ -211,6 +217,15 @@ class English(Phonology):
         `--voices` lexicon passes `False` without the lexicon itself
         (`quality.revise.relation_phonology_for`), so the relation stream
         reads the same end word as `line_anchors`. Scheme `v1` ignores it.
+
+        `syllable_disputes` is what a word whose readings differ in SYLLABLE
+        COUNT (`fire`, `every`, `us`) reads as. `"refuse"`, the default and
+        every grader's, is `merge_readings`' UNALIGNABLE: no syllables. The
+        Library declares `"first"` (owner ruling 2026-10-23: a Library check
+        holds when ANY pronunciation holds it, as the graders' do since
+        2026-10-01): the word is read under its first-listed reading, which
+        carries the coordinates, and `reading_status` says DISPUTED so the
+        reader can vary the other readings (`library/analysis.py`).
         """
         self._strip_parens = strip_parens
         if reader_scheme is not None:
@@ -223,6 +238,9 @@ class English(Phonology):
                 f"{sorted(k for k in FALLBACK_MODES if k)} or None")
         if readings not in ("all", "first"):
             raise ValueError("readings must be 'all' or explicitly 'first'")
+        if syllable_disputes not in ("refuse", "first"):
+            raise ValueError("syllable_disputes must be 'refuse' or 'first'")
+        self.syllable_disputes = syllable_disputes
         self.lexicon = lexicon
         self.readings = readings
         self.fallback = fallback
@@ -259,6 +277,10 @@ class English(Phonology):
         """
         d = super().declaration()
         d["readings"] = self.readings
+        # Declared only when read, so every grader's declaration -- and every
+        # memo keyed by one -- is byte-identical to before.
+        if self.syllable_disputes != "refuse":
+            d["syllable_disputes"] = self.syllable_disputes
         if self.lexicon is not None and self.lexicon.pronunciations:
             from quality.pronunciation import fingerprint
             d['pronunciations_sha256'] = fingerprint(self.lexicon.pronunciations)
@@ -329,7 +351,8 @@ class English(Phonology):
         return English(fallback=self.fallback, readings=self.readings,
                        lexicon=self.lexicon.for_line(text),
                        reader_scheme=self._reader_scheme,
-                       strip_parens=self._strip_parens)
+                       strip_parens=self._strip_parens,
+                       syllable_disputes=self.syllable_disputes)
 
     def for_token(self, index):
         if self.lexicon is None or not self.lexicon.pronunciations:
@@ -337,7 +360,8 @@ class English(Phonology):
         return English(fallback=self.fallback, readings=self.readings,
                        lexicon=self.lexicon.for_token(index),
                        reader_scheme=self._reader_scheme,
-                       strip_parens=self._strip_parens)
+                       strip_parens=self._strip_parens,
+                       syllable_disputes=self.syllable_disputes)
 
     def tokens_for_line(self, text):
         """-> the line's `line_tokens`, the relations stream's English words.
@@ -598,17 +622,38 @@ class English(Phonology):
         # returns fresh Syllable objects, because Syllable is mutable.
         memo = _READING_SCOPE[-1] if _READING_SCOPE else None
         if memo is None:
-            return merge_readings(self.parses(word))[0]
+            return self._merged(word)
         lex = self._lexicon()
         key = (id(self), id(lex), word, self.readings, self.fallback)
+        if self.syllable_disputes != "refuse":
+            # Only when read: a grader's memo key is the one it always was.
+            key += (self.syllable_disputes,)
         hit = memo.get(key)
         if hit is None:
-            hit = memo[key] = merge_readings(self.parses(word))[0]
+            hit = memo[key] = self._merged(word)
             # The scope holds both objects, so neither id can be reused
             # while their answers are remembered.
             memo.setdefault(("held", id(self), id(lex)), (self, lex))
         return [Syllable(s.text, s.onset, s.nucleus, s.coda, s.prominence,
                          s.moras) for s in hit]
+
+    def _merged(self, word):
+        """`merge_readings` over every reading, except that a phonology
+        declaring `syllable_disputes="first"` reads an UNALIGNABLE word under
+        its first-listed readable reading instead of refusing it."""
+        parses = self.parses(word)
+        merged, status, _ = merge_readings(parses)
+        if status == UNALIGNABLE and self.syllable_disputes == "first":
+            return next(r for r in parses if r)
+        return merged
+
+    def reading_status(self, word):
+        status, note = super().reading_status(word)
+        if status == UNALIGNABLE and self.syllable_disputes == "first":
+            return DISPUTED, note.split(":")[0] + (
+                ": read under its first-listed reading, and a check holds "
+                "when ANY of its readings holds it (owner ruling 2026-10-23)")
+        return status, note
 
     def readable(self, word):
         """-> bool. Separates 'no syllables' from 'could not read', which
