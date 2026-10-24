@@ -15,7 +15,8 @@
     "test:packages": "node scripts/test-library-package-import.cjs",
     "test:catalog": "node scripts/test-library-catalog.cjs",
     "test:exports": "node scripts/test-library-export-api.cjs",
-    "db:generate": "drizzle-kit generate"
+    "db:generate": "drizzle-kit generate",
+    "test:reader": "node --test scripts/test-reader-job-ownership.cjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

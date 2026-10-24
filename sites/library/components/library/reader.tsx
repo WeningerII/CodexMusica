@@ -110,6 +110,10 @@ export function Reader({
   const speechGeneration = useRef(0),
     currentJob = useRef<ReaderJob | null>(null),
     currentReport = useRef<ResultManifest | null>(null);
+  // Opens follow the latest request; mutations exclude other job actions
+  // until both the server action and its device persistence have settled.
+  const jobRequest = useRef(0),
+    jobMutation = useRef(false);
   const jobId = job?.id;
   useEffect(() => {
     currentReport.current = report;
@@ -218,6 +222,8 @@ export function Reader({
     return () => {
       live = false;
       speechGeneration.current++;
+      jobRequest.current++;
+      jobMutation.current = false;
       window.speechSynthesis?.cancel();
     };
   }, [id, snapshot]);
@@ -271,11 +277,20 @@ export function Reader({
   );
   useEffect(() => {
     if (!jobId) return;
-    let live = true;
+    let live = true,
+      polling = false;
     const tick = async () => {
+      if (polling || jobMutation.current) return;
+      polling = true;
+      const request = jobRequest.current;
+      const ownsJob = () =>
+        live &&
+        request === jobRequest.current &&
+        !jobMutation.current &&
+        currentJob.current?.id === jobId;
       try {
         const data = await api<{ job: ReaderJob }>(`jobs/${jobId}`);
-        if (!live || currentJob.current?.id !== jobId) return;
+        if (!ownsJob()) return;
         if (data.job.manifest_hash && !currentReport.current)
           await loadEvidence(data.job);
         else if (
@@ -285,10 +300,12 @@ export function Reader({
           setNotice(
             "A newer evidence checkpoint is available. Load it explicitly to replace the currently pinned pages.",
           );
-        if (!live || currentJob.current?.id !== jobId) return;
+        if (!ownsJob()) return;
         setJob(data.job);
       } catch (e) {
-        if (live) setError(failMessage(e));
+        if (ownsJob()) setError(failMessage(e));
+      } finally {
+        polling = false;
       }
     };
     const initial = currentJob.current;
@@ -309,8 +326,28 @@ export function Reader({
       clearInterval(timer);
     };
   }, [jobId, loadEvidence]);
+  async function openAnalysis(id: string) {
+    if (jobMutation.current) return;
+    const request = ++jobRequest.current;
+    setError("");
+    try {
+      const data = await api<{ job: ReaderJob }>(`jobs/${id}`);
+      if (request !== jobRequest.current) return;
+      evidenceEpoch.current++;
+      evidenceLoaded.current.clear();
+      currentJob.current = data.job;
+      currentReport.current = null;
+      setJob(data.job);
+      setRecords([]);
+      setReport(null);
+    } catch (e) {
+      if (request === jobRequest.current) setError(failMessage(e));
+    }
+  }
   async function analyze(method?: string) {
-    if (!reading) return;
+    if (!reading || jobMutation.current) return;
+    jobMutation.current = true;
+    const request = ++jobRequest.current;
     setBusy(true);
     setError("");
     try {
@@ -328,6 +365,7 @@ export function Reader({
           idempotency_key: randomHex(16),
         }),
       });
+      if (request !== jobRequest.current) return;
       evidenceEpoch.current++;
       evidenceLoaded.current.clear();
       currentJob.current = data.job;
@@ -342,18 +380,23 @@ export function Reader({
           job_id: data.job.id,
           previous: old,
         });
-        setUnsaved(false);
+        if (request === jobRequest.current) setUnsaved(false);
       } catch {
-        setUnsaved(true);
+        if (request === jobRequest.current) setUnsaved(true);
       }
     } catch (e) {
-      setError(failMessage(e));
+      if (request === jobRequest.current) setError(failMessage(e));
     } finally {
-      setBusy(false);
+      if (request === jobRequest.current) {
+        jobMutation.current = false;
+        setBusy(false);
+      }
     }
   }
   async function control(action: "cancel" | "resume" | "delete") {
-    if (!job) return;
+    if (!job || jobMutation.current) return;
+    jobMutation.current = true;
+    const request = ++jobRequest.current;
     setBusy(true);
     try {
       if (action === "delete") {
@@ -361,6 +404,7 @@ export function Reader({
           method: "DELETE",
           headers: { "idempotency-key": randomHex(16) },
         });
+        if (request !== jobRequest.current) return;
         evidenceEpoch.current++;
         evidenceLoaded.current.clear();
         currentJob.current = null;
@@ -368,7 +412,9 @@ export function Reader({
         setJob(null);
         setReport(null);
         setRecords([]);
-        await writeDevice(storageKey, { declarations, previous });
+        const retained = previous.filter((p) => p.id !== job.id);
+        setPrevious(retained);
+        await writeDevice(storageKey, { declarations, previous: retained });
       } else {
         const result = await api<{ job: ReaderJob }>(
           `jobs/${job.id}/${action}`,
@@ -378,12 +424,17 @@ export function Reader({
             body: "{}",
           },
         );
+        if (request !== jobRequest.current) return;
+        currentJob.current = result.job;
         setJob(result.job);
       }
     } catch (e) {
-      setError(failMessage(e));
+      if (request === jobRequest.current) setError(failMessage(e));
     } finally {
-      setBusy(false);
+      if (request === jobRequest.current) {
+        jobMutation.current = false;
+        setBusy(false);
+      }
     }
   }
   async function changeSourcePage(direction: "next" | "previous") {
@@ -777,6 +828,7 @@ export function Reader({
             )}
             <button
               className="text-link"
+              disabled={busy}
               onClick={() => void control("delete")}
             >
               Delete analysis
@@ -885,19 +937,8 @@ export function Reader({
                 <button
                   className="text-link"
                   key={p.id}
-                  onClick={() =>
-                    void api<{ job: ReaderJob }>(`jobs/${p.id}`)
-                      .then((r) => {
-                        evidenceEpoch.current++;
-                        evidenceLoaded.current.clear();
-                        currentJob.current = r.job;
-                        currentReport.current = null;
-                        setJob(r.job);
-                        setRecords([]);
-                        setReport(null);
-                      })
-                      .catch((e) => setError(failMessage(e)))
-                  }
+                  disabled={busy}
+                  onClick={() => void openAnalysis(p.id)}
                 >
                   Open {p.id.slice(-12)}
                 </button>
