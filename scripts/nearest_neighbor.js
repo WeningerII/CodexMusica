@@ -25,7 +25,11 @@ for (let i = 0; i < args.length; i++) {
   }
 }
 
-const limit = parseInt(flags.limit) || 5;
+const { checkFlags, intFlag, refuse } = require('./_cli_flags.js');
+checkFlags(flags, { boolean: ['json'], value: ['axes', 'id', 'keyword', 'limit', 'type'] });
+// A malformed --limit used to fall back to 5 without a word, and --limit=-1
+// printed "Top -1" and 1.45 MB.
+const limit = intFlag(flags, 'limit', { min: 1, fallback: 5 });
 const useJson = !!flags.json;
 const type = flags.type || 'tradition';
 
@@ -432,9 +436,14 @@ if (type === 'tradition') {
     header = `Top ${Math.min(limit, results.length)} traditions matching keyword="${flags.keyword}":`;
   } else if (flags.axes) {
     const target = {};
+    const axisIds = new Set((C.AXIS_DEFINITIONS || []).map((a) => a.id));
     for (const pair of String(flags.axes).split(',')) {
       const [k, v] = pair.split(':');
-      if (k && v !== undefined) {
+      // A pair that is not <axis>:<n> used to be skipped, so "--axes garbage"
+      // searched an empty target and answered "No matches.", exit 0.
+      if (!k || v === undefined || !axisIds.has(k.trim()))
+        refuse(`--axes: "${pair}" is not <axis>:<n>. Axes: ${[...axisIds].join(', ')}.`);
+      {
         const n = parseInt(v, 10);
         // A non-numeric value would become NaN, making every distance NaN and
         // the "top by distance" table just catalog order with score=NaN.

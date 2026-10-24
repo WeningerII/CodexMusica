@@ -32,6 +32,11 @@ for (let i = 0; i < args.length; i++) {
   }
 }
 
+require('./_cli_flags.js').checkFlags(flags, {
+  boolean: ['json'],
+  value: ['id', 'parent', 'room', 'tuning', 'archetype', 'aesthetic', 'instruments'],
+});
+
 if (!flags.id || !flags.parent) {
   console.error('Usage: placement_check.js --id <new_id> --parent <tree_path> [options]');
   console.error('  --id           proposed tradition id');

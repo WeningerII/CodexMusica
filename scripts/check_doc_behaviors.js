@@ -86,6 +86,16 @@ assert('§3f', '--swap-variant with an unknown variant id is rejected with exit 
   return { ok: r.code === 2, detail: `exit ${r.code}` };
 });
 
+// SKILL.md's flag contract: a misspelled flag is refused by name, not
+// stored and ignored with the recipe unchanged and exit 0.
+assert('§3f', 'a misspelled flag exits 2 and names the flag it meant', () => {
+  const r = run([RECIPE, '--tradition', 'afrobeat', '--exclude-instruments=saxophone']);
+  return {
+    ok: r.code === 2 && /Did you mean --exclude-instrument\?/.test(r.out),
+    detail: `exit ${r.code}`,
+  };
+});
+
 assert(
   '§3f',
   'stapling order sets the lead: `a,b` vs `b,a` differ and each leads with its first id',

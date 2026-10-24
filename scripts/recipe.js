@@ -74,14 +74,40 @@ for (let i = 0; i < args.length; i++) {
   }
 }
 
+// Every flag this script reads; anything else, or a value flag given bare, is
+// refused by name with exit 2 (_cli_flags.js says why).
+const { checkFlags, intFlag, numFlag, refuse } = require('./_cli_flags.js');
+checkFlags(flags, {
+  boolean: [...BOOLEAN_FLAGS],
+  value: [
+    'add-instrument',
+    'arrangement',
+    'axis-target',
+    'exclude-instrument',
+    'max-chars',
+    'staple-mode',
+    'swap-variant',
+    'tradition',
+    'traditions',
+    'weight',
+  ],
+});
+// One mode per call. --tradition used to win silently over --traditions, --diff
+// and --axis-target, so the others were dropped with exit 0.
+{
+  const modes = ['tradition', 'traditions', 'diff', 'axis-target'].filter(
+    (m) => flags[m] !== undefined
+  );
+  if (modes.length > 1)
+    refuse(
+      `Choose one of ${modes.map((m) => '--' + m).join(', ')}: they are different modes, and only one would be used.`
+    );
+}
+
 const { RECIPE_CHAR_CEILING } = require('./_api_contract.js');
 let maxChars = RECIPE_CHAR_CEILING;
 if (flags['max-chars'] !== undefined) {
-  maxChars = parseInt(flags['max-chars'], 10);
-  if (!Number.isInteger(maxChars) || maxChars <= 0) {
-    console.error(`--max-chars must be a positive integer; got "${flags['max-chars']}"`);
-    process.exit(2);
-  }
+  maxChars = intFlag(flags, 'max-chars', { min: 1 });
   // Hard recipe ceiling (RECIPE_CHAR_CEILING): --max-chars can only shorten the
   // recipe, never raise it past the cap. translate() clamps too; this makes the
   // cap explicit at the CLI boundary.
@@ -214,9 +240,17 @@ function parseOpts(flags, _primaryTradId, _stapleIds) {
 function seedFromAxisTarget(axisStr, opts) {
   // Parse axis target like "harm:1,density:2"
   const target = {};
+  // Each pair names a known axis and a whole number from -2 to +2. "harm:9"
+  // used to be accepted out of range, and a pair that did not parse was
+  // skipped, so the target silently lost an axis.
+  const axes = new Set((C.AXIS_DEFINITIONS || []).map((a) => a.id));
   for (const pair of axisStr.split(',')) {
-    const [k, v] = pair.split(':');
-    if (k && v !== undefined) target[k.trim()] = parseInt(v);
+    const [k, v] = pair.split(':').map((x) => (x === undefined ? x : x.trim()));
+    if (!k || !axes.has(k) || !/^[-+]?\d+$/.test(v || '') || Math.abs(Number(v)) > 2)
+      refuse(
+        `--axis-target: "${pair}" is not <axis>:<-2..2>. Axes: ${[...axes].join(', ')} (list.js --axes).`
+      );
+    target[k] = Number(v);
   }
   const best = findClosestTraditionByAxis(target);
   return best ? seedFromTradition(best, [], opts) : null;
@@ -356,11 +390,7 @@ if (flags.tradition) {
   }
   let weight = 0.5;
   if (flags.weight !== undefined) {
-    weight = parseFloat(flags.weight);
-    if (!Number.isFinite(weight) || weight < 0 || weight > 1) {
-      console.error(`--weight must be a number in [0,1]; got "${flags.weight}"`);
-      process.exit(2);
-    }
+    weight = numFlag(flags, 'weight', { min: 0, max: 1 });
   }
   seed = seedDiff(idA, idB, weight, opts);
   if (!seed) {

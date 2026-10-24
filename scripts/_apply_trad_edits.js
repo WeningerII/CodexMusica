@@ -29,7 +29,17 @@ if (!editsPath) {
 }
 
 const FILE = path.join(__dirname, '..', 'references', '05_traditions.js');
-const edits = JSON.parse(fs.readFileSync(editsPath, 'utf8'));
+// A missing or malformed edits file is a bad argument (exit 2 with one line),
+// not a crash with an ENOENT or SyntaxError stack.
+let edits;
+try {
+  edits = JSON.parse(fs.readFileSync(editsPath, 'utf8'));
+} catch (e) {
+  console.error(
+    `${editsPath}: ${e.code === 'ENOENT' ? 'no such file' : 'not readable as JSON (' + e.message + ')'}`
+  );
+  process.exit(2);
+}
 const lines = fs.readFileSync(FILE, 'utf8').split('\n');
 
 // index each tradition id → line number

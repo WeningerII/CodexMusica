@@ -59,6 +59,66 @@ for (let i = 0; i < args.length; i++) {
   }
 }
 
+// The argument contract (_cli_flags.js): known flags only, values where a flag
+// takes one, and an exact-match filter that names nothing is refused. Such a
+// filter used to print nothing and exit 0, which reads the same as a real empty
+// result. (The substring filters, era, region, cluster and scale, can match
+// nothing legitimately and are left alone.)
+{
+  const { checkFlags, intFlag, refuse } = require('./_cli_flags.js');
+  checkFlags(flags, {
+    boolean: [
+      'rooms',
+      'instruments',
+      'variants',
+      'archetypes',
+      'aesthetics',
+      'traditions',
+      'tunings',
+      'tree',
+      'axes',
+      'inst-axes',
+      'ids',
+      'json',
+    ],
+    value: [
+      'section',
+      'cluster',
+      'era',
+      'region',
+      'scale',
+      'family',
+      'has-part',
+      'instrument',
+      'part',
+      'parent',
+      'root',
+      'depth',
+    ],
+  });
+  const treeIds = new Set(C.TREE_NODES.map((n) => n.id));
+  if (flags.family !== undefined) {
+    const pool = flags.instruments !== undefined ? C.INSTRUMENTS : C.TRADITIONS;
+    const families = new Set(pool.map((x) => x.family));
+    if (!families.has(flags.family))
+      refuse(`Unknown family "${flags.family}". Families: ${[...families].sort().join(', ')}.`);
+  }
+  if (
+    flags['has-part'] !== undefined &&
+    !C.INSTRUMENTS.some((i) => (i.parts || []).some((p) => p.id === flags['has-part']))
+  )
+    refuse(`No instrument has a part "${flags['has-part']}".`);
+  if (flags.part !== undefined && flags.instrument !== undefined) {
+    const inst = C.INSTRUMENTS.find((i) => i.id === flags.instrument);
+    if (inst && !(inst.parts || []).some((p) => p.id === flags.part))
+      refuse(`Instrument ${flags.instrument} has no part "${flags.part}".`);
+  }
+  for (const k of ['parent', 'root'])
+    if (flags[k] !== undefined && !treeIds.has(flags[k]))
+      refuse(`--${k}: "${flags[k]}" is not a tree node id (list.js --tree).`);
+  intFlag(flags, 'depth', { min: 0 });
+}
+
 function emit(items, fields) {
   if (flags.ids) {
     for (const it of items) console.log(it.id);
