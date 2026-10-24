@@ -477,6 +477,42 @@ for (const [script, sources] of scriptRefs) {
   }
 }
 
+// ───────────────────────── Payload-size claims ─────────────────────────
+
+// A stated size for api/all.json is read against the built file. AUDIT.md's
+// F099 corrected index.html's '~0.8 MB' to the real 1.9 MB; the file then grew
+// past 4 MB while AGENTS.md kept saying ~1.9 and index.html ~2, and nothing
+// noticed, because a size is a number no other check reads. An agent sizing its
+// fetch or context budget from the guide got half of what arrived. Decimal MB,
+// as the docs write it; the first `~N MB` within a short window after a mention.
+const ALL_JSON = path.join(ROOT, 'api', 'all.json');
+const SIZE_TOLERANCE = 0.15;
+const sizeFailures = [];
+if (fs.existsSync(ALL_JSON)) {
+  const actualMB = fs.statSync(ALL_JSON).size / 1e6;
+  for (const { rel, content } of activeMarkdowns) {
+    const mention = /all\.json/g;
+    let m;
+    while ((m = mention.exec(content)) !== null) {
+      const windowText = content.slice(m.index, m.index + 400);
+      const claim = /~\s*([\d.]+)\s*MB/.exec(windowText);
+      if (!claim) continue;
+      const lineNum = lineNumberAt(content, m.index + claim.index);
+      if (PRAGMA_RE.test(lineAt(content, lineNum))) continue;
+      const claimed = parseFloat(claim[1]);
+      if (Math.abs(claimed - actualMB) / actualMB > SIZE_TOLERANCE)
+        sizeFailures.push({
+          file: rel,
+          line: lineNum,
+          claimed,
+          actual: Number(actualMB.toFixed(2)),
+          context: lineAt(content, lineNum).trim().slice(0, 120),
+        });
+      mention.lastIndex = m.index + claim.index + claim[0].length;
+    }
+  }
+}
+
 // ───────────────────────── Audit-derived counts (opt-in) ─────────────────────────
 
 const auditFailures = [];
@@ -632,6 +668,7 @@ if (JSON_OUT) {
         },
         numericFailures,
         missingScripts,
+        sizeFailures,
         auditFailures,
         smokeFailures,
       },
@@ -640,7 +677,12 @@ if (JSON_OUT) {
     )
   );
   process.exit(
-    numericFailures.length + missingScripts.length + auditFailures.length + smokeFailures.length > 0
+    numericFailures.length +
+      missingScripts.length +
+      sizeFailures.length +
+      auditFailures.length +
+      smokeFailures.length >
+      0
       ? 1
       : 0
   );
@@ -671,6 +713,18 @@ if (missingScripts.length === 0) {
   for (const m of missingScripts) {
     console.log(`  ✗ scripts/${m.script} — does not exist in scripts/`);
     for (const src of m.sources) console.log(`      referenced at ${src.file}:${src.line}`);
+  }
+}
+console.log();
+
+// Payload sizes
+console.log(`[PAYLOAD SIZES]  (api/all.json, within ${SIZE_TOLERANCE * 100}%)`);
+if (sizeFailures.length === 0) {
+  console.log(`  ✓ Stated api/all.json sizes match the built file.`);
+} else {
+  for (const f of sizeFailures) {
+    console.log(`  ✗ ${f.file}:${f.line} — claims ~${f.claimed} MB (actual: ${f.actual} MB)`);
+    console.log(`      "${f.context}"`);
   }
 }
 console.log();
@@ -711,7 +765,11 @@ if (WITH_SMOKE) {
 }
 
 const totalFailures =
-  numericFailures.length + missingScripts.length + auditFailures.length + smokeFailures.length;
+  numericFailures.length +
+  missingScripts.length +
+  sizeFailures.length +
+  auditFailures.length +
+  smokeFailures.length;
 if (totalFailures === 0) {
   console.log(`PASS — no drift detected.`);
   if (!WITH_AUDITS && !WITH_SMOKE) {
