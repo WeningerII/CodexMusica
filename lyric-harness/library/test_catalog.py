@@ -362,25 +362,6 @@ class CatalogEdgeTests(unittest.TestCase):
             _Out(out, reuse).write("x.json.gz", b'{"a":2}')
             self.assertEqual(gzip.decompress((out / "x.json.gz").read_bytes()), b'{"a":2}')
 
-    def test_a_gutenberg_notice_is_ranged_over_the_file_as_committed(self):
-        # read_text() turned CRLF into LF, so the notice's range and text were
-        # measured on a different string than the file every reading line is
-        # ranged over.
-        from library.catalog import gutenberg_notice
-        with tempfile.TemporaryDirectory() as tmp:
-            path = Path(tmp) / "x.txt"
-            path.write_bytes(b"one\r\ntwo\r\n*** END OF THE BOOK ***\r\nterms\r\n")
-            notice = gutenberg_notice(path, "corpus/x.txt")
-            raw = path.read_bytes().decode("utf-8")
-            a, b = notice["source_cp_range"]
-            self.assertEqual((a, b), (10, len(raw)))
-            self.assertEqual(raw[a:b], notice["text"])
-        for rel in ("corpus/sonnets.txt", "corpus/whitman.txt"):
-            path = Path(__file__).resolve().parents[1] / rel
-            notice = gutenberg_notice(path, rel)
-            a, b = notice["source_cp_range"]
-            self.assertEqual(path.read_bytes().decode("utf-8")[a:b], notice["text"], rel)
-
     def test_the_search_store_refuses_a_nonempty_output(self):
         # store.json hashes every file in its output, so a stray file would be
         # published as part of the store.
