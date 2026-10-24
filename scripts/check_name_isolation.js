@@ -32,9 +32,13 @@
 // name is self-description and is supposed to matter. If any observer's config
 // differs between the runs, some other record's label reached its picks.
 //
-// Configs are compared, not recipe strings: sentence 1 legitimately PRINTS the
-// names of the tradition and its staples, so the rendered text is expected to
-// move when names move. What may not move is the choice.
+// Configs are compared, and so is the rendered text after sentence 1. Sentence
+// 1 legitimately PRINTS the names of the tradition and its staples, so it is
+// expected to move when names move; and its length moves the budget trim, so
+// the later sentences are compared untrimmed (translate.js buildSentences).
+// What may not move is the choice, nor which descriptors the renderer trusts:
+// translate.js once harvested every staple's NAME into its trust filter, so
+// renaming fado moved "bright" into morna's cavaquinho with every config equal.
 //
 // Usage: node scripts/check_name_isolation.js [--sample=N] [--verbose]
 // Exit 0 if every sampled tradition is isolated, 1 otherwise.
@@ -59,12 +63,18 @@ const SAMPLE = sampleFlag ? parseInt(sampleFlag.slice('--sample='.length), 10) :
 // outside most traditions' era windows, decade forms the era-conflict guard does
 // NOT understand (it only parses 4-digit years), and gear/production words that
 // appear verbatim in variant descriptors across the catalog.
-const PAYLOAD = ' 1985 80s 90s modern digital tube tape analog vintage distorted';
+// `bright` and `tradition` are words that really did leak through the
+// renderer's trust filter (a fado rename -> morna; the flamenco toque staple's
+// name -> nuevo flamenco).
+const PAYLOAD = ' 1985 80s 90s modern digital tube tape analog vintage distorted bright tradition';
 
-// The two known-affected traditions from the original defect are always sampled,
-// then the rest of the catalog is sampled at a fixed stride for breadth. Fixed
-// stride, not random: this gate must give the same verdict on every run.
-const ALWAYS = ['merseybeat', 'mod_60s_british'];
+// The known-affected traditions are always sampled: merseybeat and
+// mod_60s_british from the scoring defect; morna, whose cavaquinho the render
+// leak reached on a fado rename; and nuevo_flamenco, the one shipped recipe that
+// leak changed. The rest of the catalog is sampled at a fixed stride for
+// breadth. Fixed stride, not random: this gate must give the same verdict on
+// every run.
+const ALWAYS = ['merseybeat', 'mod_60s_british', 'morna', 'nuevo_flamenco'];
 
 const child = (payloadForOthers, observers) => `
 const C = require(${JSON.stringify(path.join(ROOT, 'scripts', '_loader.js'))});
@@ -78,6 +88,7 @@ if (PAYLOAD) {
   for (const t of C.TRADITIONS) if (!keep.has(t.id)) t.name = t.name + PAYLOAD;
 }
 const { search, seedFromTradition } = require(${JSON.stringify(path.join(ROOT, 'scripts', 'search.js'))});
+const { buildSentences } = require(${JSON.stringify(path.join(ROOT, 'scripts', 'translate.js'))});
 const out = {};
 for (const id of OBS) {
   const seed = seedFromTradition(id, [], {});
@@ -92,6 +103,7 @@ for (const id of OBS) {
     archetype: r.config.archetype,
     aesthetic: r.config.aesthetic || null,
     instruments: (r.config.instruments || []).map((i) => [i.id, i.slots]),
+    text: buildSentences(r.config).slice(1),
   });
 }
 process.stdout.write(JSON.stringify(out));
@@ -118,7 +130,9 @@ for (let i = 0; i < all.length && observers.length < SAMPLE; i += stride) {
   if (!observers.includes(all[i])) observers.push(all[i]);
 }
 
-console.log("=== Name isolation (another tradition's NAME may not move your picks) ===");
+console.log(
+  "=== Name isolation (another tradition's NAME may not move your picks or recipe text) ==="
+);
 console.log(`  sampling ${observers.length} tradition(s) of ${all.length}`);
 
 const before = run('', observers);
@@ -151,6 +165,16 @@ for (const id of observers) {
     }
     if (a.room !== b.room) bits.push(`room ${a.room} -> ${b.room}`);
     if (a.tuning !== b.tuning) bits.push(`tuning ${a.tuning} -> ${b.tuning}`);
+    const { text: aText, ...aConfig } = a;
+    const { text: bText, ...bConfig } = b;
+    if (JSON.stringify(aConfig) === JSON.stringify(bConfig)) {
+      // Same choices, different words: the renderer read a foreign name.
+      const was = aText.join(' ').split(', ');
+      const now = bText.join(' ').split(', ');
+      const lost = was.filter((x) => !now.includes(x));
+      const gained = now.filter((x) => !was.includes(x));
+      bits.push(`rendered text: ${JSON.stringify(lost)} -> ${JSON.stringify(gained)}`);
+    }
     drifted.push([id, bits.slice(0, 4).join('; ') || 'config differs']);
   }
 }
@@ -165,10 +189,17 @@ if (pass === 0 && drifted.length === 0) {
   process.exit(1);
 }
 if (drifted.length > 0) {
-  console.error("FAIL — a tradition's picks changed when OTHER traditions were renamed.");
-  console.error("       Some scoring or stapling path is reading a foreign record's label.");
-  console.error('       buildContext takes { includeName: false } for exactly this reason —');
-  console.error('       check that every cross-tradition call site passes it.');
+  console.error(
+    "FAIL — a tradition's picks or recipe text changed when OTHER traditions were renamed."
+  );
+  console.error(
+    "       Some scoring, stapling or rendering path is reading a foreign record's label."
+  );
+  console.error('       buildContext takes { includeName: false } for exactly this reason, and');
+  console.error(
+    "       translate.js buildTraditionContextTokens harvests only traditions[0]'s name —"
+  );
+  console.error('       check that every cross-tradition call site keeps that cut.');
   process.exit(1);
 }
 console.log("PASS — every sampled tradition ignored every other tradition's name.");

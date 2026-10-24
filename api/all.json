@@ -1,7 +1,7 @@
 {
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json. `aliases` maps each retired (merged) id to the tradition it was merged into.",
-  "generated": "2026-10-08",
+  "generated": "2026-10-24",
   "count": 7755,
   "items": [
     {
@@ -10858,8 +10858,8 @@
       "id": "nuevo_flamenco",
       "name": "Nuevo Flamenco",
       "family": "global",
-      "recipe": "classic Los Angeles 1977-1979 nuevo flamenco, functional Song, iberian branch, string improv improv on frame flamenco guitar cimbálová muzika. thick, nasal, straight onset, interlocked note trading. cypress body percussive attack strong flamenco tradition low action golpe tap plate flamenco cedar nylon fan strum classical nylon-string guitar, festejo tradition marinera tradition open back Afro peruvian tradition cajon peruano, hand clap, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris rubber continuous-airflow saxophone, open slap hand drum congas. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-      "recipe_chars": 875
+      "recipe": "classic Los Angeles 1977-1979 nuevo flamenco, functional Song, iberian branch, string improv improv on frame flamenco guitar cimbálová muzika. thick, nasal, straight onset, interlocked note trading. cypress body percussive attack strong flamenco tradition low action golpe tap plate flamenco cedar nylon fan strum classical nylon-string guitar, open back Afro peruvian tradition cajon peruano, hand clap, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris rubber continuous-airflow saxophone, open slap hand drum congas. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+      "recipe_chars": 838
     },
     {
       "id": "raices",

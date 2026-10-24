@@ -211,7 +211,7 @@ module.exports = [
     doc: 'AGENTS.md',
     gate: 'check_name_isolation.js',
     claim:
-      "a tradition's compiled configuration never depends on what any OTHER tradition is called",
+      "a tradition's compiled configuration, and every recipe sentence beyond the one that prints its staples' names, never depends on what any OTHER tradition is called",
   },
   {
     id: 'mobile-layout-usable',

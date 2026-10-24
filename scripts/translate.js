@@ -1864,7 +1864,7 @@ function buildTraditionContextTokens(config) {
   //                 PLUS room.descriptors only (genre_tags removed).
   //                 Used as a permissive trust filter on character descriptors.
   //   - `direct`  — tokens ONLY from the tradition itself (name/lineage/family/parent/
-  //                 crossrefs/desc, plus stapled traditions). Used as a stricter
+  //                 crossrefs/desc, plus stapled traditions minus their names). Used as a stricter
   //                 trust filter on iconic descriptors so that a genre-bound iconic
   //                 term (e.g. "four-on-floor" iconic for percussion_disco_four_on_floor)
   //                 doesn't leak into a tradition that only inherits dance/disco
@@ -1888,11 +1888,16 @@ function buildTraditionContextTokens(config) {
     }
   };
   const tradIds = config.traditions || [];
-  for (const tid of tradIds) {
+  tradIds.forEach((tid, i) => {
     const t = C.TRADITIONS.find((x) => x.id === tid);
-    if (!t) continue;
-    // Tradition-direct tokens go into BOTH sets
-    harvest(t.name, [all, direct]);
+    if (!t) return;
+    // Tradition-direct tokens go into BOTH sets. The NAME only for the
+    // tradition being compiled (traditions[0]), the same cut score.js makes
+    // with `includeName: false` for every later id: a staple's name is a label,
+    // and a label may not decide which of this recipe's descriptors are trusted
+    // (renaming fado once moved "bright" into morna's cavaquinho). Sentence 1
+    // still PRINTS staple names; that is naming, not trust.
+    if (i === 0) harvest(t.name, [all, direct]);
     harvest(t.lineage, [all, direct]);
     harvest(t.family, [all, direct]);
     const e = C.TRADITION_EXTRAS[tid] || {};
@@ -1902,7 +1907,7 @@ function buildTraditionContextTokens(config) {
       const ref = typeof cr === 'string' ? cr : cr && cr.ref;
       if (ref) harvest(ref, [all, direct]);
     }
-  }
+  });
   // Inherited tokens (room / archetype) go into `all` only — NOT `direct`.
   // Rooms and archetypes are physical/gear patterns, not genre classifiers;
   // genre signal comes from the tradition's own name/lineage/parent/crossrefs.
@@ -1917,11 +1922,10 @@ function buildTraditionContextTokens(config) {
   return { all, direct };
 }
 
-function translate(config, options = {}) {
-  // Hard recipe ceiling: a requested ceiling may only LOWER the cap, never
-  // raise it past RECIPE_CHAR_CEILING (the product-defining constant).
-  const { RECIPE_CHAR_CEILING } = require('./_api_contract.js');
-  const ceiling = Math.min(options.ceiling || RECIPE_CHAR_CEILING, RECIPE_CHAR_CEILING);
+// The recipe's sentences in order, before the budget trim. Exported so
+// check_name_isolation.js can compare sentences 2+ untrimmed: sentence 1
+// legitimately prints staple names, and its length moves the trim.
+function buildSentences(config) {
   const trustedTokens = buildTraditionContextTokens(config);
   const sentences = [];
   const s1 = buildSentence1(config);
@@ -1938,6 +1942,15 @@ function translate(config, options = {}) {
   if (s5) sentences.push(s5);
   const s6 = buildSentence6_medium_fx(config);
   if (s6) sentences.push(s6);
+  return sentences;
+}
+
+function translate(config, options = {}) {
+  // Hard recipe ceiling: a requested ceiling may only LOWER the cap, never
+  // raise it past RECIPE_CHAR_CEILING (the product-defining constant).
+  const { RECIPE_CHAR_CEILING } = require('./_api_contract.js');
+  const ceiling = Math.min(options.ceiling || RECIPE_CHAR_CEILING, RECIPE_CHAR_CEILING);
+  const sentences = buildSentences(config);
 
   // Budget trim — graded, never over the ceiling.
   //
@@ -2027,4 +2040,4 @@ if (require.main === module) {
   console.error(`(${out.length} chars)`);
 }
 
-module.exports = { translate };
+module.exports = { translate, buildSentences };

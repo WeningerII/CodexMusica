@@ -2304,6 +2304,35 @@ if (want('23', 'foreign-name-in-picks')) {
   }
 }
 
+// 23b. A foreign tradition's NAME reaches the recipe text -> check_name_isolation.js
+// The renderer's half of 23. translate.js trusts a character descriptor only
+// when one of its words appears in the tradition's own context, and it
+// harvests the NAME for traditions[0] alone. Harvest every staple's name and
+// the configs stay equal while the words move: renaming fado put "bright" on
+// morna's cavaquinho. The gate's rendered-text comparison must name it.
+if (want('23b', 'foreign-name-in-recipe-text')) {
+  const d = mkenv(['scripts', 'references']);
+  const f = path.join(d, 'scripts/translate.js');
+  const src = fs.readFileSync(f, 'utf8');
+  const faulted = src.replace(
+    'if (i === 0) harvest(t.name, [all, direct]);',
+    'harvest(t.name, [all, direct]); /* FAULT */'
+  );
+  if (faulted === src) {
+    record('foreign-name-in-recipe-text -> check_name_isolation.js', {
+      code: 0,
+      out: 'FAULT NOT PLANTED: no traditions[0]-only name harvest found in translate.js',
+    });
+  } else {
+    fs.writeFileSync(f, faulted);
+    record(
+      'foreign-name-in-recipe-text -> check_name_isolation.js',
+      gate(d, ['scripts/check_name_isolation.js', '--sample=12']),
+      /rendered text/
+    );
+  }
+}
+
 // 24. Two entities that print the same label -> check_duplicates.js
 //     The gate's BLOCK tier is identity collision on the display label, so the
 //     fault is a second room carrying an existing room's name. It must fail and
