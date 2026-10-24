@@ -247,6 +247,15 @@ export async function executeNative(session, name, input) {
     // need the same restoration, without exposing state to the language model.
     if (carried && next.task.phase === 'edit') {
       for (const [key, value] of Object.entries(carried)) {
+        // The authoritative reader verifies equivalent token coordinates against
+        // the held continuation. Preserve supplied coordinates for that check;
+        // every other declaration and the continuation itself stay fixed.
+        if (
+          ['pronunciations', 'groups', 'returns', 'numbering'].includes(key) &&
+          args[key] !== undefined &&
+          (carried.state || carried.checkpoint)
+        )
+          continue;
         if (args[key] !== undefined && requestDigest(args[key]) !== requestDigest(value))
           throw fail(
             'SESSION_CONTINUATION',
