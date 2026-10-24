@@ -375,6 +375,31 @@ test('controls: 120 an hour per viewer', async (t) => {
   assert.equal(last.status, 429);
 });
 
+test('controls: 480 an hour per address, whatever cookie it sends', async (t) => {
+  const { browser } = await setup(t);
+  const a = browser('ip-flood');
+  const id = 'reader_' + 'a'.repeat(64);
+  const fresh = (i) => ({
+    headers: {
+      'Idempotency-Key': `k${i}`,
+      cookie: `${VIEWER_COOKIE}=${String(i).padStart(43, 'v')}`,
+    },
+  });
+  let last;
+  for (let i = 0; i < LIBRARY_LIMITS.controlsPerIpPerHour; i++) {
+    last = await a.call('POST', `/jobs/${id}/cancel`, fresh(i));
+    assert.notEqual(last.status, 429, `request ${i} is inside the address's allowance`);
+  }
+  last = await a.call('POST', `/jobs/${id}/cancel`, fresh(LIBRARY_LIMITS.controlsPerIpPerHour));
+  assert.equal(last.status, 429, 'a new viewer cookie does not reset the address');
+  const other = browser('ip-other');
+  assert.notEqual(
+    (await other.call('POST', `/jobs/${id}/cancel`, fresh('other'))).status,
+    429,
+    'another address keeps its own allowance'
+  );
+});
+
 test('evidence reads are private, re-hashed and carry X-Library-SHA256', async (t) => {
   const { browser, store } = await setup(t);
   const a = browser();

@@ -116,6 +116,9 @@ export const LIBRARY_LIMITS = Object.freeze({
   createsPerIpPerHour: 120,
   jobReadsPerIpPerMinute: 600,
   controlsPerViewerPerHour: 120,
+  // Checked before the viewer bucket: a viewer is any cookie the caller sends,
+  // so without it one address mints an hour-long bucket per request.
+  controlsPerIpPerHour: 480,
   mintsPerIpPerHour: 30,
   exportPlansPerIpPerHour: 120,
   exportStreamsPerIp: 2,
