@@ -16,7 +16,8 @@
 //   node scripts/list.js --axes                            13 axis definitions
 //   node scripts/list.js --inst-axes                       9 instrument axis definitions
 //
-// Add --json for machine-readable output. Add --ids to list bare ids only.
+// Add --json for machine-readable output. Add --ids to list bare ids only, in
+// every mode (--variants lists `part:variant` pairs).
 //
 // NOTHING IN THIS FILE MAY CALL process.exit(). It used to, on all 26 exit
 // paths, and that silently truncated the output of every mode that outgrew the
@@ -163,6 +164,12 @@ if (flags.variants !== undefined) {
     console.log(JSON.stringify(parts, null, 2));
     return;
   }
+  // A variant id repeats across parts (a shared material appears under several),
+  // so the bare id is `part:variant`, the pair --swap-variant takes.
+  if (flags.ids) {
+    for (const p of parts) for (const v of p.variants || []) console.log(`${p.id}:${v.id}`);
+    return;
+  }
   for (const p of parts) {
     console.log(`${p.id}  (${p.name})`);
     for (const v of p.variants || []) {
@@ -204,6 +211,10 @@ if (flags.aesthetics !== undefined) {
   const filtered = filterBy(C.PRODUCTION_AESTHETICS || [], { era: 'era' });
   if (flags.json) {
     console.log(JSON.stringify(filtered, null, 2));
+    return;
+  }
+  if (flags.ids) {
+    for (const p of filtered) console.log(p.id);
     return;
   }
   for (const p of filtered) {
@@ -258,6 +269,10 @@ if (flags.tree !== undefined) {
     console.log(JSON.stringify(nodes, null, 2));
     return;
   }
+  if (flags.ids) {
+    for (const n of nodes) console.log(n.id);
+    return;
+  }
   for (const n of nodes) {
     const depth = (n.id.match(/\./g) || []).length;
     const indent = '  '.repeat(depth);
@@ -272,6 +287,10 @@ if (flags.axes !== undefined) {
     console.log(JSON.stringify(C.AXIS_DEFINITIONS, null, 2));
     return;
   }
+  if (flags.ids) {
+    for (const a of C.AXIS_DEFINITIONS) console.log(a.id);
+    return;
+  }
   for (const a of C.AXIS_DEFINITIONS) {
     console.log(`${a.id.padEnd(14)} ${a.name}`);
     console.log(`  -2 ← ${a.neg}  ${a.neg_anchor ? '(' + a.neg_anchor + ')' : ''}`);
@@ -284,6 +303,10 @@ if (flags.axes !== undefined) {
 if (flags['inst-axes'] !== undefined) {
   if (flags.json) {
     console.log(JSON.stringify(C.INSTRUMENT_AXIS_DEFINITIONS, null, 2));
+    return;
+  }
+  if (flags.ids) {
+    for (const a of C.INSTRUMENT_AXIS_DEFINITIONS) console.log(a.id);
     return;
   }
   for (const a of C.INSTRUMENT_AXIS_DEFINITIONS) {

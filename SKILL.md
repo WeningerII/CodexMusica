@@ -113,11 +113,11 @@ treeNode    : {id(=full dotted path), name, parent(id|null), description}
 tradition   : {id, name, family, lineage, instruments[], room, tuning, chain_archetype?,
                chain_mic, chain_pre, chain_console, chain_comp, chain_eq, chain_medium, chain_amp*, production_aesthetic?,
                chain_status, parts?, pin_parts?, chain_fx?, arrangement?}
-              // chain_status is on ALL 2588; parts on 1204 (per-instrument slot pins,
+              // chain_status is on 6640 of 7755; parts on 6655 (per-instrument slot pins,
               // flat {partId: variantId} — these OVERRIDE the instrument's
               // defaults on browser/connector import. With pin_parts:true the CLI/static
               // optimizer also preserves these choices; caller swaps take precedence);
-              // chain_fx on 78; arrangement on 2
+              // chain_fx on 583; arrangement on 2
 extras[id]  : {parent(node id), axes{13 named keys, ints -2..+2}, description, exemplars[], status, crossRefs[]}
 preface     : {id, tokens[], note?}                                    // a named bundle of descriptor tokens
 ```
@@ -716,7 +716,8 @@ re-run the checker.
 - I2 Family part `applies_to[]` ⊆ instrument ids; per part, multiple `default:true`
   variants only if their `applies_to` scopes are disjoint (never both apply to one inst).
 - I3 Tradition `instruments[]` ⊆ instruments; `room`/`tuning`/`chain_archetype`/
-  `production_aesthetic` resolve; every tradition has paired extras.
+  `production_aesthetic` resolve (`production_aesthetic` is one id or an array of ids, as
+  `validate.js` accepts); every tradition has paired extras.
 - I4 Extras: no orphan keys (key ∈ traditions); `parent` and every normalized
   `crossRefs[]` (`cr.ref ?? cr`) resolve via `byNode`; `axes` is a 13-key object of ints
   in −2..+2.
@@ -764,7 +765,7 @@ for (const t of db.TRADITIONS) {                                    // I3
   if (t.room && !roomIds.has(t.room)) issues.push('TRAD_BAD_ROOM ' + t.id + '->' + t.room);
   if (t.tuning && !tunIds.has(t.tuning)) issues.push('TRAD_BAD_TUNING ' + t.id + '->' + t.tuning);
   if (t.chain_archetype && !archIds.has(t.chain_archetype)) issues.push('TRAD_BAD_ARCH ' + t.id + '->' + t.chain_archetype);
-  if (t.production_aesthetic && !aesIds.has(t.production_aesthetic)) issues.push('TRAD_BAD_AES ' + t.id + '->' + t.production_aesthetic);
+  [].concat(t.production_aesthetic || []).forEach(a => { if (!aesIds.has(a)) issues.push('TRAD_BAD_AES ' + t.id + '->' + a); });
   if (!db.extras[t.id]) issues.push('TRAD_NO_EXTRAS ' + t.id);
 }
 for (const k of Object.keys(db.extras)) if (!tradIds.has(k)) issues.push('EXTRAS_ORPHAN ' + k);  // I4
