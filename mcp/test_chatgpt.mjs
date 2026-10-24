@@ -1391,7 +1391,11 @@ test('detail reads the finished result itself: a revise paused on a question has
     findings_measured: true,
     findings: [{ code: 'METER', line: 3, message: 'm' }],
     coverage: {},
+    final_draft: song,
   };
+  // Block 0 as the harness writes it: a header, the song, a footer. Its
+  // physical lines are not the song's lines.
+  const block0 = ['[Verse 1]', ...song, '', 'FINISHED: …', 'CONTINUE: …'].join('\n');
   const sessions = new WorkflowSessions({
     store,
     execute: async (session, name) => ({
@@ -1407,7 +1411,7 @@ test('detail reads the finished result itself: a revise paused on a question has
                 },
               ]
             : [
-                { type: 'text', text: song.join('\n') },
+                { type: 'text', text: block0 },
                 { type: 'text', text: JSON.stringify(verdict) },
               ],
       },
@@ -1424,17 +1428,18 @@ test('detail reads the finished result itself: a revise paused on a question has
       /^Error: DETAIL_NOT_READY: this lyric_revise finished without a verdict to take apart/,
       detail
     );
-  // A grade sent as lines_text (and a revise continued with answers) carries
-  // no draft argument; the song in block 0 still has its lines.
+  // A grade sent as draft_text (and a revise continued with answers) carries
+  // no draft argument; the verdict's final_draft still has the song's lines.
   const next = sessions.status(paused.operation_id, 'lyrics').session_id;
   const graded = sessions.submit(next, 'lyrics', 'lyric_grade', {
     seed: 1,
-    lines_text: song.join('\n'),
+    draft_text: song.join('\n'),
   });
   await sessions.wait(graded.operation_id);
+  // Line 5 is inside block 0's eight physical lines and past the song's four.
   assert.throws(
-    () => sessions.status(graded.operation_id, 'lyrics', { detail: 'findings', lines: [999] }),
-    /^Error: LINES_OUT_OF_RANGE: this lyric_grade's song has 4 line\(s\); line\(s\) 999/
+    () => sessions.status(graded.operation_id, 'lyrics', { detail: 'findings', lines: [5] }),
+    /^Error: LINES_OUT_OF_RANGE: this lyric_grade's song has 4 line\(s\); line\(s\) 5/
   );
   assert.throws(
     () => sessions.status(graded.operation_id, 'lyrics', { detail: 'report', lines: [1] }),

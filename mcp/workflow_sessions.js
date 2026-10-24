@@ -238,7 +238,14 @@ function checkDetail(record, result, detail, lines) {
     throw new Error(
       `LINES_NOT_APPLICABLE: lines narrows only ${LINE_PARTS.join(', ')} on a lyric_grade or lyric_revise; detail "${detail}" on a ${tool} has nothing per line. Omit lines.`
     );
-  const count = shape.lines;
+  const args = record.intent.action?.arguments || {};
+  const count =
+    shape.lines ??
+    (Array.isArray(args.draft)
+      ? args.draft.length
+      : typeof args.draft_text === 'string'
+        ? args.draft_text.split('\n').length
+        : null);
   const past = count ? lines.filter((n) => n > count) : [];
   if (past.length)
     throw new Error(

@@ -330,14 +330,18 @@ function screenView(content, detail) {
 
 // What a finished result can serve to `detail`, read from the result itself:
 // whether it carries a verdict with parts at all (a revise suspended on a
-// question, at exit 4, does not), and how many lines the song in block 0 has.
-// The line count comes from the song and not from the call, because a revise
-// continued with `answers`, or a grade sent as `lines_text`, has no `draft`.
+// question, at exit 4, does not), and how many lines its song has. The count is
+// the verdict's own final_draft, not the call's arguments (a revise continued
+// with `answers`, or a grade sent as draft_text, has no `draft`) and not block
+// 0's physical lines, which carry section headers, blanks and the footer: a
+// 12-line song read as 31 there (Jony's re-check).
 export function verdictShape(tool, content) {
   if (!Array.isArray(content)) return { ready: false, lines: null };
   if (tool === 'lyric_screen') return { ready: screenAt(content) >= 0, lines: null };
-  if (verdictAt(content) < 0) return { ready: false, lines: null };
-  return { ready: true, lines: String(content[0].text).split('\n').length };
+  const at = verdictAt(content);
+  if (at < 0) return { ready: false, lines: null };
+  const draft = JSON.parse(content[at].text).final_draft;
+  return { ready: true, lines: Array.isArray(draft) && draft.length ? draft.length : null };
 }
 
 export function sessionView(tool, content, { detail, lines } = {}) {
