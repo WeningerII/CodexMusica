@@ -264,6 +264,48 @@ class ReaderAcceptance(unittest.TestCase):
                 checked += 1
         self.assertGreater(checked, 2000)
 
+    def test_a_rebuild_reads_only_the_lines_it_has_not_read(self):
+        # The #590 slowdown (Don, 6379114576): a rebuilt line stream is the
+        # work's length with every other line blank, and each rebuild asked
+        # every line's phonology again and re-read the syllables of a line its
+        # readings leave as they were. A rebuild asks a line TEXT once, and
+        # reads a line's words once per readings pinned on that line, across
+        # the session. Counted, so a regression is a failure, not a slowdown.
+        from quality.phonology.eng import English
+        text = ("Every hour of our family fire\nDifferent nights and every lonely desire\n\n"
+                "We sat by the fire with our camera and wine\nEvery interest naturally fine")
+        session = AnalysisSession(source(text), None, {"layers": ["sound"]}, None, load_records=lambda mid: iter(()))
+        combos, _ = RL.reading_combos(session.stream, {t for t in session._disputed if t[0] == 0}, 64)
+        line0, line3 = (list(session.stream.lexical_tokens[li]) for li in (0, 3))
+        texts = text.split("\n")
+        asked, read = [], []
+        for_line, merged = English.for_line, English._merged
+        with patch.object(English, "for_line", lambda self, t: asked.append(t) or for_line(self, t)), \
+             patch.object(English, "_merged", lambda self, w: read.append(w) or merged(self, w)):
+            for lines, combo, texts_asked, words in (
+                    ([0], combos[1], {texts[0], ""}, line0),             # one blank text, not four blank lines
+                    ([0, 3], combos[1], {texts[0], texts[3], ""}, line3),  # line 0 under these readings is read
+                    ([0, 3], combos[2], {texts[0], texts[3], ""}, line0),  # line 3's readings did not move
+                    ([0], combos[1], set(), [])):                       # the same rebuild is the cached one
+                asked.clear()
+                read.clear()
+                session._line_stream(lines, combo)
+                with self.subTest(lines=lines, combo=session._combo_key(combo)):
+                    self.assertEqual(sorted(asked), sorted(texts_asked))
+                    self.assertEqual(read, words)
+
+    def test_an_evicted_rebuild_leaves_no_span_index(self):
+        session = AnalysisSession(source("Every hour of our family fire\nDifferent nights and every lonely desire"),
+                                  None, {"layers": ["sound"]}, None, load_records=lambda mid: iter(()))
+        rule = RL.REGISTRY["perfect rhyme"].spans[0]
+        combos, _ = RL.reading_combos(session.stream, {t for t in session._disputed if t[0] == 0}, 64)
+        with patch.object(AnalysisSession, "MINI_CACHE", 2):
+            for combo in combos[1:6]:
+                session._spans_by_key(session._line_stream([0], combo), rule)
+            live = {id(st) for st in session._mini.values()}
+            self.assertEqual(len(live), 2)
+            self.assertEqual(set(session._span_index), live)
+
     def test_a_member_with_no_referent_under_another_reading_is_absent(self):
         # BB8's texts on #590: with `fire` / `hour` read as one syllable, the
         # line-final penult has no referent anywhere (cynghanedd lusg,
