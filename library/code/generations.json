@@ -52,6 +52,19 @@
         "works.fd3dfc5815.js"
       ],
       "first_published": "2026-10-24",
+      "retired": "2026-10-24"
+    },
+    {
+      "id": "5eb7bef72a0e2059",
+      "files": [
+        "analysis.444aa6b634.js",
+        "compare.eb183f0025.js",
+        "core.0dcc6ec3f7.js",
+        "reader.c5d70df167.js",
+        "rights.8a94ca24b7.js",
+        "works.fd3dfc5815.js"
+      ],
+      "first_published": "2026-10-24",
       "retired": null
     }
   ]
