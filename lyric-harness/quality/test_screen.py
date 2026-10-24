@@ -332,14 +332,27 @@ def test_the_screen_asks_the_grades_question():
     # token cannot bind. `anaphora` binds line HEADS at token loci and IS
     # bindable, so it is judged rather than refused; a searched-anchor
     # shape is the one that still refuses, by the judge's own reason.
+    # CONTRACT CORRECTED 2026-10-24 (bug hunt, #607): the pair route drops
+    # a schema's placement on purpose, so `anaphora` read SATISFIES at two
+    # end words while a line-end mandate declaring it is graded through the
+    # instances route, which enforces placement, and is charged
+    # SCHEME_VIOLATION for the same words. The screen still answers PER PAIR
+    # at exit 0 (M-189 stands), but a schema whose placement two line ends
+    # cannot meet answers REFUSED with that reason; one they can place is
+    # judged exactly as before.
     rc, out, err = run("screen", "cellar", "seller",
                        "--relation=schema:anaphora")
-    check("a pair-bindable schema-namespace relation is JUDGED at the two "
-          "end words now, not refused — the pair route, not the instances "
-          "route",
-          rc == 0 and ("SATISFIES schema:anaphora" in out
-                       or "VIOLATES schema:anaphora" in out
-                       or "schema:anaphora REFUSED" in out), f"rc {rc}")
+    check("a pair-bindable schema whose placement two line ends cannot meet "
+          "answers REFUSED per pair, naming the placement, at exit 0 — never "
+          "SATISFIES for a pair the grade charges",
+          rc == 0 and "schema:anaphora REFUSED" in out
+          and "cannot be met by two line ends" in out
+          and "SATISFIES schema:anaphora" not in out, f"rc {rc}")
+    rc, out, err = run("screen", "hair", "chair",
+                       "--relation=schema:perfect rhyme")
+    check("...while a schema two line ends CAN place is still judged at the "
+          "pair (positive control)",
+          rc == 0 and "SATISFIES schema:perfect rhyme" in out, f"rc {rc}")
     rc, out, err = run("screen", "cellar", "seller",
                        "--relation=type:zzznotarelation")
     check("an unknown relation name refuses at exit 2 by name",
