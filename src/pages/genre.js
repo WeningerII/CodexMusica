@@ -1291,6 +1291,15 @@ uiRegisterPage({
       UI.limit = 50;
       gpListToTop();
       renderGenreDiscovery();
+      // Clearing removes the focused button. Extra axes may disappear, and
+      // narrow screens can hide the whole sound panel behind its disclosure.
+      uiFocus(
+        [
+          $ui('gp-ax-' + id),
+          document.querySelector('#surface-genre [data-ui="genre-axes"]'),
+          document.querySelector('#surface-genre [data-ui="genre-browse-toggle"]'),
+        ].find((el) => el?.getClientRects().length)
+      );
     },
     'genre-sound-reset'() {
       G.targets = {};
