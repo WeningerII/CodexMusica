@@ -632,9 +632,13 @@ function uiExport() {
   uiDownload('codex-musica-session.json', JSON.stringify(p, null, 2), 'application/json');
 }
 async function uiImport(file) {
-  if (!_engineLive && !(await engineReady({ label: 'Retry', run: () => uiImport(file) }))) return;
+  const open = beginSessionOpen();
   try {
-    const s = JSON.parse(await file.text()),
+    if (!_engineLive && !(await engineReady({ label: 'Retry', run: () => uiImport(file) }))) return;
+    if (!sessionOpenCurrent(open)) return;
+    const raw = await file.text();
+    if (!sessionOpenCurrent(open)) return;
+    const s = JSON.parse(raw),
       cards = s.cards || s.workspace?.cards;
     if (!Array.isArray(cards)) throw Error('No workspace in this file');
     const validated = normalizeWorkspaceCards(cards, true);
@@ -652,7 +656,8 @@ async function uiImport(file) {
     renderAll();
     showToast('Session imported', 'success');
   } catch (e) {
-    showToast('Import failed: ' + e.message, 'error');
+    if (open.generation === app._workspaceGeneration)
+      showToast('Import failed: ' + e.message, 'error');
   }
 }
 function uiSaveLyrics() {

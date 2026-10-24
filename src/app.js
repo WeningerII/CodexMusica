@@ -14592,10 +14592,22 @@ async function saveWS(name) {
   });showToast(`Workspace copy saved: ${name}`,'success',{label:'Open copy',run:()=>loadWS(savedKey)});
   }catch(e){console.error(e);showToast('Save did not finish. Your session remains open; retry or export.','error');}
 }
+// Saved loads, forks and file imports replace the same session. Reserve intent
+// before any wait, and do not overwrite edits made while that session loads.
+function beginSessionOpen(){
+  app._workspaceGeneration=(app._workspaceGeneration||0)+1;
+  return {generation:app._workspaceGeneration,key:sessionKey(sessionSnapshot())};
+}
+function sessionOpenCurrent(open){
+  return open.generation===app._workspaceGeneration&&open.key===sessionKey(sessionSnapshot());
+}
 async function restoreSavedWorkspace(key,fork){
+  const open=beginSessionOpen();
+  try {
   // engineReady has already said why (and offered Reload or Retry): quiet, so loadWS/forkWS add nothing over it.
   if(!_engineLive&&!(await engineReady({label:'Retry',run:()=>(fork?forkWS(key):loadWS(key))})))throw Object.assign(Error('Could not load the instrument data'),{quiet:true});
-  const r=await window.storage.get(key);if(!r)throw Error('Saved session not found');
+  if(!sessionOpenCurrent(open))return;
+  const r=await window.storage.get(key);if(!sessionOpenCurrent(open))return;if(!r)throw Error('Saved session not found');
   const d=JSON.parse(r.value);if(d.schema>WS_SCHEMA)throw Error('Saved by a newer version — update to open it');
   const cards=normalizeWorkspaceCards(d.cards||[],fork);
   app.cards=cards;app.workspaceName=d.name||'Untitled session';
@@ -14606,6 +14618,7 @@ async function restoreSavedWorkspace(key,fork){
   if(draft&&typeof uiLyricsOpened==='function')uiLyricsOpened();
   closeModal('modal-saved');pushHistory();renderAll();
   showToast(`${fork?'Copied':'Loaded'} "${app.workspaceName}"`,'success');
+  }catch(e){if(open.generation===app._workspaceGeneration)throw e;}
 }
 async function loadWS(key){try{await restoreSavedWorkspace(key,false);}catch(e){if(!e.quiet)showToast(e.message||'Load failed','error');}}
 async function forkWS(key){try{await restoreSavedWorkspace(key,true);}catch(e){if(!e.quiet)showToast(e.message||'Copy failed','error');}}

@@ -76,3 +76,120 @@ test('failed index read writes nothing and leaves the open session intact', asyn
   assert.equal(JSON.stringify(f.context.app), before);
   assert.equal(f.notices.at(-1)[1], 'error');
 });
+
+function openFixture() {
+  const requests = new Map(), notices = [], history = [];
+  const f = fixture({ get(key) { const request = deferred(); requests.set(key, request); return request.promise; } });
+  const c = f.context;
+  Object.assign(c, { _engineLive: true, document: { getElementById: () => null },
+    musicalWorkspaceKey: cards => JSON.stringify(cards),
+    normalizeWorkspaceCards(cards, fork) {
+      if (!Array.isArray(cards)) throw Error('Invalid cards');
+      return cards.map(card => ({ ...card, id: fork ? card.id + '-fork' : card.id }));
+    },
+    closeModal() {}, renderAll() {}, showToast: (...args) => notices.push(args),
+    pushHistory: () => history.push(JSON.stringify(c.app.cards)),
+    $ui: () => ({}), uiSaveLyrics() {},
+  });
+  vm.runInContext(section('function sessionKey(', 'function pushHistory(')
+    + section('function beginSessionOpen(', 'async function delWS('), c);
+  const workbench = fs.readFileSync(path.join(__dirname, '../src/workbench.js'), 'utf8');
+  vm.runInContext(workbench.slice(workbench.indexOf('async function uiImport('), workbench.indexOf('function uiSaveLyrics(')), c);
+  const stored = name => ({ value: JSON.stringify({ schema: 2, name, cards: [{ id: name, instrumentId: 'voice' }], lyrics: name }) });
+  return { c, requests, notices, history, stored,
+    load: key => vm.runInContext(`loadWS(${JSON.stringify(key)})`, c),
+    fork: key => vm.runInContext(`forkWS(${JSON.stringify(key)})`, c),
+    importFile: file => c.uiImport(file),
+  };
+}
+
+test('latest saved load wins over an older load or fork', async () => {
+  for (const older of ['load', 'fork']) {
+    const f = openFixture(), a = f[older]('A'), b = f.load('B');
+    f.requests.get('B').resolve(f.stored('B')); await b;
+    f.requests.get('A').resolve(f.stored('A')); await a;
+    assert.equal(f.c.app.workspaceName, 'B');
+    assert.equal(f.history.length, 1);
+  }
+});
+
+test('file import and saved load share replacement ownership in either order', async () => {
+  for (const importFirst of [true, false]) {
+    const f = openFixture(), file = deferred();
+    let importing, loading;
+    if (importFirst) { importing = f.importFile({ text: () => file.promise }); loading = f.load('B'); }
+    else { loading = f.load('B'); importing = f.importFile({ text: () => file.promise }); }
+    if (importFirst) {
+      f.requests.get('B').resolve(f.stored('B')); await loading;
+      file.resolve(f.stored('File').value); await importing;
+      assert.equal(f.c.app.workspaceName, 'B');
+    } else {
+      file.resolve(f.stored('File').value); await importing;
+      f.requests.get('B').resolve(f.stored('B')); await loading;
+      assert.equal(f.c.app.workspaceName, 'File');
+    }
+    assert.equal(f.history.length, 1);
+  }
+});
+
+test('pending replacements preserve subsequent edits and a cleared workspace', async () => {
+  for (const clear of [false, true]) {
+    const f = openFixture(), loading = f.load('A');
+    f.c.app.cards = clear ? [] : [{ id: 'edited', instrumentId: 'voice' }];
+    const changed = JSON.stringify(f.c.app.cards);
+    f.requests.get('A').resolve(f.stored('A')); await loading;
+    assert.equal(JSON.stringify(f.c.app.cards), changed);
+    assert.equal(f.history.length, 0);
+  }
+});
+
+test('a failed newer load never resurrects the older request', async () => {
+  const f = openFixture(), before = JSON.stringify(f.c.app.cards);
+  const a = f.load('A'), b = f.load('B');
+  f.requests.get('B').reject(Error('offline')); await b;
+  f.requests.get('A').resolve(f.stored('A')); await a;
+  assert.equal(JSON.stringify(f.c.app.cards), before);
+  assert.equal(f.history.length, 0);
+  assert.equal(f.notices.length, 1);
+  assert.equal(f.notices[0][0], 'offline');
+});
+
+test('obsolete load and import errors do not disturb the newer session', async () => {
+  for (const kind of ['load', 'import']) {
+    const f = openFixture(), file = deferred();
+    const a = kind === 'load' ? f.load('A') : f.importFile({ text: () => file.promise });
+    const b = f.load('B'); f.requests.get('B').resolve(f.stored('B')); await b;
+    (kind === 'load' ? f.requests.get('A') : file).reject(Error('obsolete'));
+    await a;
+    assert.equal(f.c.app.workspaceName, 'B');
+    assert.equal(f.notices.length, 1);
+    assert.equal(f.notices[0][1], 'success');
+  }
+});
+
+test('ownership is reserved before engine readiness and stale work never reads storage', async () => {
+  const f = openFixture(), gates = [];
+  f.c._engineLive = false;
+  f.c.engineReady = () => { const gate = deferred(); gates.push(gate); return gate.promise; };
+  const a = f.load('A'), b = f.load('B');
+  gates[0].resolve(true); await a;
+  assert.equal(f.requests.has('A'), false);
+  gates[1].resolve(true); await settle();
+  f.requests.get('B').resolve(f.stored('B')); await b;
+  assert.equal(f.c.app.workspaceName, 'B');
+});
+
+test('successful fork copies once with fresh IDs; failed input leaves state intact', async () => {
+  const f = openFixture(), copying = f.fork('Copy');
+  f.requests.get('Copy').resolve(f.stored('Copy')); await copying;
+  assert.equal(f.c.app.cards[0].id, 'Copy-fork');
+  assert.equal(f.history.length, 1);
+  const before = JSON.stringify(f.c.app.cards);
+  for (const payload of [null, { value: 'not JSON' }, { value: JSON.stringify({ schema: 999, cards: [] }) }]) {
+    const pending = f.load('Invalid'); f.requests.get('Invalid').resolve(payload); await pending;
+    assert.equal(JSON.stringify(f.c.app.cards), before);
+  }
+  await f.importFile({ text: async () => 'not JSON' });
+  assert.equal(JSON.stringify(f.c.app.cards), before);
+  assert.equal(f.history.length, 1);
+});
