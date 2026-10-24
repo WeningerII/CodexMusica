@@ -77,6 +77,29 @@ test('C3: a misspelled, unsupported or conflicting flag is refused by name', () 
   refused(['scripts/fingerprint.js', 'khayal', 'bluegrass'], /takes one tradition id/);
 });
 
+test("--help prints the script's usage on stdout and exits 0", () => {
+  for (const f of [
+    'recipe',
+    'stack',
+    'inspect',
+    'fingerprint',
+    'nearest_neighbor',
+    'list',
+    'placement_check',
+    'preface_configure',
+  ]) {
+    const r = run([`scripts/${f}.js`, '--help']);
+    assert.equal(r.code, 0, `${f} --help: ${r.err}`);
+    assert.match(r.out, /\S/, `${f} --help prints its usage`);
+  }
+});
+
+test('an out-of-range or fractional axis and two list modes are refused', () => {
+  refused(['scripts/nearest_neighbor.js', '--axes', 'harm:1.5'], /whole number from -2 to 2/);
+  refused(['scripts/nearest_neighbor.js', '--axes', 'harm:9'], /whole number from -2 to 2/);
+  refused(['scripts/list.js', '--rooms', '--tunings'], /Choose one of --rooms, --tunings/);
+});
+
 test('the documented forms still run', () => {
   for (const args of [
     ['scripts/recipe.js', '--tradition', 'afrobeat', '--exclude-instrument=saxophone,trumpet'],

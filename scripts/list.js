@@ -96,6 +96,25 @@ for (let i = 0; i < args.length; i++) {
       'depth',
     ],
   });
+  // One listing per call: with two modes the first one in the file won and the
+  // other was dropped without a word.
+  const modes = [
+    'section',
+    'rooms',
+    'instruments',
+    'variants',
+    'archetypes',
+    'aesthetics',
+    'traditions',
+    'tunings',
+    'tree',
+    'axes',
+    'inst-axes',
+  ].filter((m) => flags[m] !== undefined);
+  if (modes.length > 1)
+    refuse(
+      `Choose one of ${modes.map((m) => '--' + m).join(', ')}: list.js prints one listing per call.`
+    );
   const treeIds = new Set(C.TREE_NODES.map((n) => n.id));
   if (flags.family !== undefined) {
     const pool = flags.instruments !== undefined ? C.INSTRUMENTS : C.TRADITIONS;

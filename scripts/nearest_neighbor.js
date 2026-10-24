@@ -444,13 +444,11 @@ if (type === 'tradition') {
       if (!k || v === undefined || !axisIds.has(k.trim()))
         refuse(`--axes: "${pair}" is not <axis>:<n>. Axes: ${[...axisIds].join(', ')}.`);
       {
-        const n = parseInt(v, 10);
-        // A non-numeric value would become NaN, making every distance NaN and
-        // the "top by distance" table just catalog order with score=NaN.
-        if (!Number.isInteger(n)) {
-          console.error(`--axes: "${k.trim()}" has a non-integer value "${v}"`);
-          process.exit(2);
-        }
+        // A whole number from -2 to +2, read strictly: parseInt read "1.5" as 1,
+        // and "9" was accepted though no tradition sits past 2.
+        const n = /^[-+]?\d+$/.test(v.trim()) ? Number(v) : NaN;
+        if (!Number.isInteger(n) || Math.abs(n) > 2)
+          refuse(`--axes: "${k.trim()}" needs a whole number from -2 to 2; got "${v}".`);
         target[k.trim()] = n;
       }
     }

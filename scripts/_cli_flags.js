@@ -16,8 +16,29 @@ function refuse(message) {
   process.exit(2);
 }
 
+// --help prints the running script's header comment, which is where each of
+// these scripts documents its usage, to stdout with exit 0. (It used to fall
+// through to each script's own missing-argument usage line; listing flags
+// would otherwise refuse it as unknown, BB8's review.)
+function printHelp() {
+  const fs = require('fs');
+  const lines = fs.readFileSync(require.main.filename, 'utf8').split('\n');
+  const out = [];
+  for (const line of lines) {
+    if (/^#!/.test(line) || /^'use strict'/.test(line)) continue;
+    if (!/^\s*\/\//.test(line)) {
+      if (out.length) break;
+      continue;
+    }
+    out.push(line.replace(/^\s*\/\/ ?/, ''));
+  }
+  process.stdout.write(out.join('\n') + '\n');
+  process.exit(0);
+}
+
 // boolean: flags that take no value. value: flags that need one.
 function checkFlags(flags, { boolean = [], value = [] }) {
+  if (flags.help !== undefined || flags.h !== undefined) printHelp();
   const known = [...boolean, ...value];
   for (const name of Object.keys(flags)) {
     if (!known.includes(name)) {
