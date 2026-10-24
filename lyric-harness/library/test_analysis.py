@@ -209,6 +209,36 @@ class ReaderAcceptance(unittest.TestCase):
                 self.assertTrue(any(cell in owner._disputed for key in pair for cell in key[2]), pair)
         self.assertTrue(any(r["kind"] == "relation_instance" and r["verdict"] == "true" for r in rows))
 
+    def test_figure_edge_schema_names_resolve_for_tradition_scope(self):
+        # #595: analysed rhyme names its four edges "assonance (crossed)" and
+        # "consonance (crossed)", schemas the registry does not hold, and the
+        # reader looked each edge's schema up by name for its tradition scope
+        # -- a KeyError that aborted the whole run. Every name a figure puts on
+        # an edge must resolve to a schema of that name, true or undecided.
+        import quality.relations as RL
+        stanza = ("We walked into the sun\nAnd found a can of tin\n"
+                  "The dog was feeling sick\nIt fell into the {}\n\n"
+                  "And that was all we knew")
+        # `zorbleth` is unread, so the same grid is recorded undecided.
+        for end, expected in (("suck", "true"), ("zorbleth", "undecided")):
+            with self.subTest(end=end):
+                _, rows, _ = complete(source(stanza.format(end)), schemas=["analysed rhyme"])
+                figures = [r for r in rows if r["kind"] == "relation_figure"]
+                self.assertEqual([f["verdict"] for f in figures], [expected])
+                names = set()
+                for edge in figures[0]["edges"]:
+                    named = RL.schema_named(edge["schema_name"])
+                    self.assertEqual(named.name, edge["schema_name"])
+                    self.assertEqual(edge["scope"], RL.tradition_scope(named, "eng"))
+                    names.add(edge["schema_name"])
+                self.assertEqual(names, {"assonance (crossed)", "consonance (crossed)"})
+        # The crossing is the definition, and an unknown name still refuses.
+        self.assertIs(RL.schema_named("assonance (crossed)"), RL.crossed_edge("assonance"))
+        self.assertIn(RL.ChannelRule("coda", RL.DIFFER, "anchor"), RL.crossed_edge("assonance").channels)
+        self.assertIn(RL.ChannelRule("nucleus", RL.DIFFER, "anchor"), RL.crossed_edge("consonance").channels)
+        with self.assertRaises(KeyError):
+            RL.schema_named("assonance (inverted)")
+
     def test_alternate_reading_records_keep_the_partner_word_exact(self):
         # Jony's probe on #590: under `us = Y UW2 EH1 S`, `confess` rhymes
         # on its second syllable only, and the record must say so -- not

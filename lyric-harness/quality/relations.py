@@ -7031,6 +7031,42 @@ def named_cells(schema):
     return out
 
 
+#: Figure-internal edge schemas: named schemas a full shape judges edges
+#: with that the registry does not hold. An edge instance carries only its
+#: schema's NAME, so every name a figure can put on an edge must resolve to a
+#: schema of that name (`schema_named`), or a reader that looks it up again
+#: -- its tradition scope, for one -- cannot record the figure (#595). This
+#: resolves NAMES: `_full_shape` may still judge a placement- or span-adjusted
+#: copy under the same name (symploce's epistrophe keeps anaphora's).
+_CROSSED_EDGES = {}
+
+
+def crossed_edge(label):
+    """-> analysed rhyme's crossed `label` edge. THE CROSSING IS THE
+    DEFINITION: an assonance whose codas differ, a consonance whose nuclei
+    differ. Built once per label, from the registered schema."""
+    got = _CROSSED_EDGES.get(label)
+    if got is None:
+        base = REGISTRY[label]
+        other = "coda" if label == "assonance" else "nucleus"
+        got = _CROSSED_EDGES[label] = replace(base, channels=base.channels + (
+            ChannelRule(other, DIFFER, "anchor"),), name=f"{label} (crossed)")
+    return got
+
+
+def schema_named(name):
+    """-> the schema an edge instance's NAME refers to: a registered schema,
+    or a figure-internal one built from one. KeyError for a name no schema or
+    figure defines. What a reader reads off it (tradition scope) is shared by
+    every adjusted copy that keeps the name."""
+    if name in REGISTRY:
+        return REGISTRY[name]
+    for _, _, label in REGISTRY["analysed rhyme"].figure.edges:
+        if name == f"{label} (crossed)":
+            return crossed_edge(label)
+    raise KeyError(name)
+
+
 def tradition_scope(schema, language):
     """Is this schema's rule shape being run inside its own tradition?
 
@@ -8817,11 +8853,7 @@ def _full_shape(schema, stream):
                 # rhyme). The registry's assonance and consonance leave the
                 # other channel free, so the figure states its own Differ.
                 for ai, bi, label in schema.figure.edges:
-                    base = REGISTRY[label]
-                    other = "coda" if label == "assonance" else "nucleus"
-                    edge(replace(base, channels=base.channels + (
-                        ChannelRule(other, DIFFER, "anchor"),),
-                        name=f"{label} (crossed)"), ai, bi)
+                    edge(crossed_edge(label), ai, bi)
                     if values[-1] is False:
                         break
             else:
