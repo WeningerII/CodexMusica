@@ -66,6 +66,70 @@ class ReaderAcceptance(unittest.TestCase):
                 self.assertEqual({r["schema_name"] for r in rows}, set(RL.REGISTRY))
                 self.assertEqual(result["provider_calls"], 0)
 
+    def test_method_results_are_unique_with_and_without_stanza_breaks(self):
+        for separator in ("\n", "\n\n"):
+            reading = source("cat\nhat\nbat\nmat" + separator + "cat\nhat\nbat\nmat")
+            with self.subTest(separator=separator):
+                _, records, _ = complete(reading)
+                results = [r for r in records if r["kind"] == "method_result"]
+                self.assertEqual(len(results), len({r["id"] for r in results}))
+                self.assertEqual(len(results), len(RL.REGISTRY))
+                if separator == "\n":
+                    for name in ("monorhyme / leash", "dvitiyakshara-prasa", "monai"):
+                        result = next(r for r in results if r["schema_name"] == name)
+                        self.assertEqual(result["availability"], "needs_declaration")
+                        self.assertEqual(result["verdict"], "undecided")
+                        self.assertEqual(result["coverage"], "refused")
+                        self.assertIn("stanza", result["refusal"]["missing"])
+                        self.assertNotIn("supply", result)
+
+    def test_refused_whole_figures_restart_without_duplicate_results(self):
+        reading = source("cat\nhat")
+        schemas = ["monorhyme / leash", "dvitiyakshara-prasa", "monai"]
+        _, records, full = complete(reading, schemas=schemas)
+        _, resumed, restarted = complete(reading, schemas=schemas, batch=1, restart=True)
+        self.assertEqual(canonical_json(resumed), canonical_json(records))
+        self.assertEqual(len(resumed), len({r["id"] for r in resumed}))
+        self.assertEqual(restarted["summary"]["coverage"], full["summary"]["coverage"])
+        self.assertEqual(restarted["summary"]["counters"], full["summary"]["counters"])
+
+    def test_whole_figure_terminal_record_restart_preserves_refusal_phase(self):
+        # Expired leases stop immediately after each record, including after
+        # the terminal result but before its task advances. A candidate batch
+        # alone does not exercise that emission cursor.
+        fixtures = (("cat\nhat", "needs_declaration", "schema"),
+                    ("cat zzzqxx\nhat\n\nbat\nmat", "unknown_members", "assembly"),
+                    ("cat\nhat\n\nbat\nmat", "available", "assembly"),
+                    ("cat\nhat\n\nbat\nmat", "unsupported", "assembly"))
+        name = "monorhyme / leash"
+        for text, availability, terminal_phase in fixtures:
+            with self.subTest(availability=availability), patch.object(RL, "assemble", wraps=RL.assemble) as assemble:
+                if availability == "unsupported":
+                    assemble.return_value = RL.Refusal(name, "stanza", "Assembly declined the supplied frame.")
+                reading = source(text)
+                _, records, full = complete(reading, schemas=[name])
+                committed, checkpoint, terminal_checkpoints = [], None, []
+                for _ in range(100):
+                    with patch("library.analysis.runtime_identity", return_value=_FIXTURE_RUNTIME):
+                        session = AnalysisSession(reading, None,
+                            {"layers": ["sound"], "schemas": [name]}, checkpoint,
+                            load_records=lambda mid: (r for r in committed if r.get("method_id") == mid))
+                    result = session.step(256, deadline=0)
+                    committed.extend(result["records"])
+                    checkpoint = json.loads(json.dumps(result["checkpoint"]))
+                    for row in result["records"]:
+                        if row["kind"] == "method_result":
+                            self.assertEqual(row["availability"], availability)
+                            terminal_checkpoints.append((checkpoint["phase"], checkpoint["emission"]))
+                    if result["done"]:
+                        break
+                else:
+                    self.fail("reader did not finish single-record restart traversal")
+                self.assertEqual(terminal_checkpoints, [(terminal_phase, 1)])
+                self.assertEqual(canonical_json(committed), canonical_json(records))
+                self.assertEqual(len(committed), len({r["id"] for r in committed}))
+                self.assertEqual(result["summary"], full["summary"])
+
     def test_pair_judges_and_full_figures_match_installed_engine(self):
         reading = source("cat bat hat mat\ncat rat hat mat\n\ncat\nhat\nbat")
         session, records, _ = complete(reading)

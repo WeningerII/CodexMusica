@@ -12,7 +12,7 @@ import hashlib
 import json
 import math
 from fractions import Fraction
-from typing import Any, Literal, TypedDict
+from typing import Any, Literal, NotRequired, TypedDict
 
 CONTRACT_VERSION = 1
 Verdict = Literal["true", "false", "undecided"]
@@ -52,6 +52,7 @@ class ReaderCheckpoint(TypedDict):
     methods: dict[str, Any]
     emission: int
     done: bool
+    refused_schemas: NotRequired[list[str]]
 
 
 def verdict(value: bool | None) -> Verdict:

@@ -1588,6 +1588,12 @@ class AnalysisSession:
         RL, cp = self.RL, self.checkpoint
         mid = self._task_mid(phase, name)
         counts = cp["methods"].setdefault(mid, {"candidates": 0, "true": 0, "false": 0, "undecided": 0})
+        # A schema refusal already emitted this method's terminal result.
+        # Assembly skips refused schemas; its empty iterator must not finish
+        # them a second time, including after a checkpoint restart.
+        if phase == "assembly" and name in cp.get("refused_schemas", []):
+            self._local_records.pop(mid, None)
+            return []
         counts["coverage"] = "refused" if counts.get("refused_questions") else counts.get("coverage", "answered")
         rows = []
         needs_assembly = phase == "schema" and not RL.pair_scope_representable(RL.REGISTRY[name]) and name not in RL.FULL_SHAPES
@@ -1707,6 +1713,8 @@ class AnalysisSession:
         except _Refused as exc:
             counts["coverage"] = "refused"
             counts["refusal"] = json_safe(exc.refusal)
+            if phase == "schema" and name not in cp.setdefault("refused_schemas", []):
+                cp["refused_schemas"].append(name)
             new, action = [self._refusal(name, exc.refusal)], "advance"
         emitted = iter(self._bounded_records(new))
         for _ in range(cp["emission"]):
