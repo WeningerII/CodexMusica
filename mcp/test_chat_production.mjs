@@ -1647,3 +1647,181 @@ test('schema occurrence evidence requires an authenticated result, not prose or 
   trusted.lyric_result.schema_instance_evidence.version = 2;
   assert.equal(_verdictInternals.verdictOf(trusted).schema_instance_evidence, undefined);
 });
+
+test('a newer signed tool result supersedes worker progress across durable restart', async () => {
+  const { CONNECTOR_CONTRACT_VERSION } = await import('./contract_version.js');
+  const secret = 'checkpoint-order-fixture-secret';
+  const previous = process.env.CHAT_SECRET;
+  let makeRouter;
+  try {
+    process.env.CHAT_SECRET = secret;
+    makeRouter = (await import('./chat.js?checkpoint-order-fixture')).createChatRouter;
+  } finally {
+    if (previous === undefined) delete process.env.CHAT_SECRET;
+    else process.env.CHAT_SECRET = previous;
+  }
+  const router = await makeRouter({
+    buildServer: () => {
+      const server = new McpServer({ name: 'checkpoint-order', version: '1' }, { instructions });
+      server.registerTool('lyric_types', { inputSchema: {} }, async () => ({ content: [] }));
+      return server;
+    },
+    Client,
+    InMemoryTransport,
+    apiKey: 'offline',
+  });
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'checkpoint-order-'));
+  const progress = (status) => ({
+    version: 1,
+    connector_semantic_identity: continuationSemanticIdentity(),
+    status,
+    input_draft: ['original'],
+    accepted_lines: ['earlier worker draft'],
+    answered: { q: 'earlier worker draft' },
+    connector_declarations: { seed: 16, writer: 'kitchen' },
+  });
+  try {
+    for (const state of ['finished_clean', 'parked']) {
+      for (const workerStatus of ['accepted', 'finished', 'proposing']) {
+        let store = new JobStore(directory);
+        const id = crypto.randomBytes(32).toString('hex');
+        store.begin(id, { request_id: id, message: 'revise' });
+        store.checkpoint(id, progress(workerStatus));
+        const envelope = {
+          history: [
+            {
+              role: 'user',
+              parts: [
+                {
+                  functionResponse: {
+                    name: 'lyric_revise',
+                    response: { status: state, final_draft: ['final tool draft'] },
+                  },
+                },
+              ],
+            },
+          ],
+          workspace: null,
+          lyric: { resumable: false, status: state, final_draft: ['final tool draft'] },
+          task: {
+            ...task('lyrics'),
+            version: CONNECTOR_CONTRACT_VERSION,
+            connector_semantic_identity: continuationSemanticIdentity(),
+            artifact: {
+              status: state,
+              certified: state === 'finished_clean',
+              final_draft: ['final tool draft'],
+            },
+          },
+        };
+        const signed = {
+          ...envelope,
+          sig: crypto.createHmac('sha256', secret).update(JSON.stringify(envelope)).digest('hex'),
+        };
+        // The signed checkpoint is written after the tool returned, before the
+        // HTTP response is complete. Reopening simulates a crash in that gap.
+        store.checkpoint(id, { ...signed, worker_progress_superseded: true });
+        store = new JobStore(directory);
+        const recovered = router.recoverCheckpoint(store.get(id));
+        assert.deepEqual(recovered, signed, `${state} after ${workerStatus}`);
+        assert.equal(store.get(id).uncertain_proposal, false);
+      }
+    }
+    // Progress from a subsequent active tool still overrides its earlier
+    // signed history and retains the genuinely newer accepted words.
+    let store = new JobStore(directory);
+    const id = crypto.randomBytes(32).toString('hex');
+    store.begin(id, { request_id: id, message: 'revise again' });
+    const envelope = {
+      history: [],
+      workspace: null,
+      task: {
+        ...task('lyrics'),
+        version: CONNECTOR_CONTRACT_VERSION,
+        connector_semantic_identity: continuationSemanticIdentity(),
+      },
+    };
+    store.checkpoint(id, {
+      ...envelope,
+      sig: crypto.createHmac('sha256', secret).update(JSON.stringify(envelope)).digest('hex'),
+    });
+    store.checkpoint(id, progress('accepted'));
+    store = new JobStore(directory);
+    const recovered = router.recoverCheckpoint(store.get(id));
+    assert.deepEqual(recovered.lyric.final_draft, ['earlier worker draft']);
+    assert.equal(recovered.lyric.resumable, true);
+    assert.equal(recovered.task.artifact.status, 'interrupted');
+  } finally {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test('only a returned revise result supersedes progress, not an error or unrelated tool', async () => {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'checkpoint-runner-'));
+  try {
+    for (const outcome of ['throw', 'error', 'returned']) {
+      let store = new JobStore(directory);
+      const id = crypto.randomBytes(32).toString('hex');
+      store.begin(id, { request_id: id, message: 'revise' });
+      const journal = {
+        version: 1,
+        status: 'accepted',
+        input_draft: ['original'],
+        accepted_lines: ['accepted worker words'],
+        answered: { q: 'accepted worker words' },
+        connector_declarations: { seed: 16, writer: 'kitchen' },
+      };
+      globalThis.fetch = async () =>
+        response([fc('lyric_revise', { seed: 16, draft: ['original'] }), fc('lyric_types')]);
+      const checkpoints = [];
+      const calls = [];
+      await runTurn({
+        ...opts,
+        task: task('lyrics'),
+        surface: {
+          ...surface,
+          declarations: [
+            ...surface.declarations,
+            { name: 'lyric_types', parameters: { type: 'object', properties: {} } },
+          ],
+        },
+        limits: { ...opts.limits, maxSteps: 1 },
+        callTool: async (name) => {
+          calls.push(name);
+          if (name === 'lyric_types') return { content: [{ type: 'text', text: 'types' }] };
+          store.checkpoint(id, journal);
+          if (outcome === 'throw') throw new Error('transport lost after accepted progress');
+          if (outcome === 'error')
+            return {
+              isError: true,
+              content: [{ type: 'text', text: 'tool failed after progress' }],
+            };
+          return {
+            content: [
+              {
+                type: 'text',
+                text: JSON.stringify({
+                  exit_code: 3,
+                  status: 'parked',
+                  final_draft: ['finished tool words'],
+                  open: [1],
+                }),
+              },
+            ],
+          };
+        },
+        onCheckpoint: async (value) => {
+          checkpoints.push(value.worker_progress_superseded);
+          store.checkpoint(id, { ...value, sig: 'fixture' });
+        },
+      });
+      assert.deepEqual(calls, ['lyric_revise', 'lyric_types']);
+      assert.deepEqual(checkpoints, [outcome === 'returned', false]);
+      store = new JobStore(directory);
+      assert.deepEqual(store.get(id).progress, outcome === 'returned' ? null : journal);
+    }
+  } finally {
+    globalThis.fetch = nativeFetch;
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+});

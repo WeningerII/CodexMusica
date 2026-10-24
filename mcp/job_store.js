@@ -338,14 +338,21 @@ export class JobStore {
     // it is the only copy of paid work the caller has not yet recovered, and a burst of cheap
     // unrelated requests must not be able to retire it. TTL expiry, which the
     // caller can read from the receipt, is what bounds it.
-    const rank = (r) =>
-      r.state === 'completed'
-        ? r.successor_id
-          ? 0
-          : 1
-        : (r.progress?.accepted_lines ?? r.checkpoint?.accepted_lines)?.length
-          ? 3
-          : 2;
+    const rank = (r) => {
+      if (r.state === 'completed') return r.successor_id ? 0 : 1;
+      const progress = r.progress;
+      const checkpoint = r.checkpoint;
+      // Accepted work may now live in a signed tool result, after its worker
+      // journal was superseded. A later empty journal cannot erase that copy.
+      return [
+        progress?.accepted_lines,
+        checkpoint?.accepted_lines,
+        checkpoint?.lyric?.final_draft,
+        checkpoint?.task?.artifact?.final_draft,
+      ].some((lines) => Array.isArray(lines) && lines.length)
+        ? 3
+        : 2;
+    };
     const terminal = [...this.records.values()]
       .filter(
         (r) =>
@@ -582,6 +589,9 @@ export class JobStore {
       ...record,
       updated_at: this.now(),
       [safe ? 'checkpoint' : 'progress']: copy(payload),
+      // Only the runner can establish that a returned revision superseded
+      // its worker journal. Signed error exchanges still need that journal.
+      ...(safe && payload.worker_progress_superseded === true ? { progress: null } : {}),
     });
   }
 
