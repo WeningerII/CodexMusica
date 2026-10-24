@@ -1368,6 +1368,7 @@ function buildSentence2_voice(config, _trustedTokens) {
   const voice = C.INSTRUMENTS.find((i) => i.id === 'voice');
   if (!voice) return null;
   const descriptors = [];
+  const swappedDescs = [];
   for (const part of voice.parts || []) {
     const variantId = (voiceSlot.slots || {})[part.id];
     if (!variantId) continue;
@@ -1391,12 +1392,14 @@ function buildSentence2_voice(config, _trustedTokens) {
       if (isDefaultDescriptor(d)) continue;
       const stripped = stripCanonical(d);
       if (isScoreHintOnly(stripped)) continue;
-      descriptors.push(displayDescriptor(stripped));
+      // A swapped part's word leads, so the cap of four below cannot cut it.
+      if (isSwappedSlot(config, 'voice', part.id)) swappedDescs.push(displayDescriptor(stripped));
+      else descriptors.push(displayDescriptor(stripped));
       break; // one per variant — the iconic name
     }
   }
-  if (descriptors.length === 0) return null;
-  const unique = [...new Set(descriptors)].slice(0, 4);
+  if (descriptors.length + swappedDescs.length === 0) return null;
+  const unique = [...new Set([...swappedDescs, ...descriptors])].slice(0, 4);
   return unique.join(', ') + '.';
 }
 
@@ -1588,10 +1591,20 @@ function buildSentence3_instruments(config, trustedTokens) {
       // (see earlier surgical fix at entryRenderDescs/buildStackParts in the HTML embed).
       const scored = [];
       const allDescs = [...(variant.descriptors || [])];
+      // A swapped part's first real descriptor counts as iconic and skips the
+      // trust filter: the caller named this variant, which is the reason the
+      // score threshold above is skipped for it. Without this a swap such as
+      // banjo clawhammer (score 2.34) exited 0 with a byte-identical recipe,
+      // because none of its words matched its id or passed the trust filter.
+      const swappedPart = isSwappedSlot(config, inst.id, part.id);
       for (const d of allDescs) {
         if (isDefaultDescriptor(d)) continue;
         const stripped = stripCanonical(d);
         if (isScoreHintOnly(stripped)) continue;
+        if (swappedPart && !scored.some((x) => x.iconic)) {
+          scored.push({ d: displayDescriptor(stripped), iconic: true });
+          continue;
+        }
         const dTokens = stripped.toLowerCase().split(/[-\s]/);
         let iconicMatch = false;
         for (const dTok of dTokens) {
@@ -1674,6 +1687,7 @@ function buildSentence3_instruments(config, trustedTokens) {
         iconics: iconics.map((s) => s.d),
         isTechniquePart,
         partId: part.id,
+        swapped: swappedPart,
       });
     }
     // Order: physical-construction first, technique last
@@ -1681,6 +1695,9 @@ function buildSentence3_instruments(config, trustedTokens) {
       if (a.isTechniquePart === b.isTechniquePart) return 0;
       return a.isTechniquePart ? 1 : -1;
     });
+    // A swapped part's first word must survive the cap below; it keeps its
+    // place in the stack and displaces the last word that is not kept.
+    const keep = new Set(partGroups.filter((g) => g.swapped).flatMap((g) => g.iconics.slice(0, 1)));
 
     // Two-pass budget allocation:
     // - If only 1 part contributes (e.g., guitar with just chicken_scratch), take its iconics + 2 chars.
@@ -1701,6 +1718,18 @@ function buildSentence3_instruments(config, trustedTokens) {
       }
     }
     const trimmed = finalDescs.slice(0, cap);
+    for (const k of keep)
+      if (!trimmed.includes(k)) {
+        // Replace the last word that is not itself a kept one.
+        for (let j = trimmed.length - 1; j >= 0; j--)
+          if (!keep.has(trimmed[j])) {
+            trimmed.splice(j, 1);
+            break;
+          }
+        const at = finalDescs.indexOf(k);
+        const pos = trimmed.findIndex((t) => finalDescs.indexOf(t) > at);
+        trimmed.splice(pos === -1 ? trimmed.length : pos, 0, k);
+      }
     const instName = displayInstrumentName(inst.id);
     if (!instName) continue;
     if (trimmed.length === 0) {

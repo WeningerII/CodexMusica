@@ -110,6 +110,23 @@ assert('§3f', 'a valid --swap-variant reaches the recipe (the documented falset
   };
 });
 
+// The same contract on an instrument part, which goes through a second filter:
+// clawhammer scores above the threshold, yet none of its words matched its id
+// or passed the trust filter, so the swap exited 0 with the recipe unchanged.
+assert('§3f', 'a valid --swap-variant on an instrument part changes the recipe', () => {
+  const base = run([RECIPE, '--tradition', 'bluegrass']);
+  const r = run([
+    RECIPE,
+    '--tradition',
+    'bluegrass',
+    '--swap-variant=banjo_5_string:banjo_play:clawhammer',
+  ]);
+  return {
+    ok: base.code === 0 && r.code === 0 && r.out !== base.out,
+    detail: `exit ${r.code}; recipe ${r.out === base.out ? 'unchanged' : 'changed'}`,
+  };
+});
+
 assert(
   '§3f',
   'stapling order sets the lead: `a,b` vs `b,a` differ and each leads with its first id',
