@@ -1346,6 +1346,19 @@ function buildSentence1(config) {
   return sentence + ', ' + positionStr + '.';
 }
 
+// A slot the caller swapped (--swap-variant) is a choice someone named. The
+// score thresholds below drop UNINFORMED picks, and a swapped pick usually
+// scores low, which is why it had to be named. Dropping it left the pin in
+// config.pinned and its words out of the recipe: SKILL.md's documented falsetto
+// swap exited 0 and rendered nothing. The connector already renders a part set
+// by set_variant whatever its score. A catalog pin_parts pin is not a swap and
+// keeps its threshold: lifting that would rewrite most of the shipped catalog,
+// which is a product decision rather than this fix.
+function isSwappedSlot(config, instId, partId) {
+  const parts = config.swapped && config.swapped[instId];
+  return Array.isArray(parts) && parts.includes(partId);
+}
+
 function buildSentence2_voice(config, _trustedTokens) {
   // "blues-shouter, narrative."
   // Take the IDENTIFYING descriptor (the iconic name) from each scoring part.
@@ -1366,7 +1379,7 @@ function buildSentence2_voice(config, _trustedTokens) {
     // sits at ~0.9 where it used to be ~3.5. The 0.5 threshold preserves the
     // intent (drop uninformed picks) without losing legitimate surfacings.
     const score = (voiceSlot.scores || {})[part.id];
-    if (score !== undefined && score < 0.5) continue;
+    if (score !== undefined && score < 0.5 && !isSwappedSlot(config, 'voice', part.id)) continue;
     const variant = part.variants.find((v) => v.id === variantId);
     if (!variant) continue;
     // Take the iconic descriptor only — usually the first non-default, non-score-hint descriptor
@@ -1555,7 +1568,8 @@ function buildSentence3_instruments(config, trustedTokens) {
       // vocabulary, not authored for this specific instrument, so they need
       // to score strongly to surface (avoids weak family-variants leaking in).
       const threshold = part._fromFamily ? 3.0 : 1.0;
-      if (score !== undefined && score < threshold) continue;
+      if (score !== undefined && score < threshold && !isSwappedSlot(config, inst.id, part.id))
+        continue;
       const variant = part.variants.find((v) => v.id === variantId);
       if (!variant) continue;
       // Compute identity-token set for iconic detection: variant id tokens AND
