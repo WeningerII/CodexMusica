@@ -658,7 +658,7 @@ function ipRenderParts(inst) {
               : ''
           }</div>`
         : '';
-      return `<section class="ip-part${open ? ' is-open' : ''}"><h3 class="ip-part-head"><button type="button" data-ui="ip-part" data-id="${esc(part.id)}" aria-expanded="${open}" data-ip-key="part:${esc(part.id)}"><span class="ip-part-name">${esc(part.name || ipHuman(part.id))}</span><span class="ip-part-value${cur ? '' : ' is-unset'}">${cur ? esc(cur.name) : 'Not set'}${pinned ? ' · your choice' : ''}</span><span class="ip-part-count">${uiCount(part.variants.length, 'option')}</span>${icon('chevron-down', 16)}</button></h3>${body}</section>`;
+      return `<section class="ip-part${open ? ' is-open' : ''}"><h3 class="ip-part-head"><button type="button" data-ui="ip-part" data-id="${esc(part.id)}" aria-expanded="${open}" data-ip-key="part:${esc(part.id)}"><span class="ip-part-name">${esc(part.name || ipHuman(part.id))}</span><span class="ip-part-value${cur ? '' : ' is-unset'}">${cur ? esc(cur.name) : 'Not set'}${pinned ? ' · your choice' : ''}</span><span class="ip-part-count">${uiCount(part.variants.filter((v) => !v.alias_of).length, 'option')}</span>${icon('chevron-down', 16)}</button></h3>${body}</section>`;
     })
     .join('');
 }

@@ -16407,7 +16407,8 @@ function renderPartRow(card, inst, part) {
   const variantName = currentVar ? currentVar.name : '—';
   const descriptors = currentVar ? entryRenderDescs(currentVar) : [];
   const dotDescriptors = descriptors.join(' · ');
-  const optionCount = (part.variants || []).length;
+  // Listed options only: an alias (alias_of, _merge.js) resolves but is not one.
+  const optionCount = (part.variants || []).filter(v => !v.alias_of).length;
 
   row.innerHTML =
     '<div class="part-label-cell">' + esc(partLabel) + '</div>' +
