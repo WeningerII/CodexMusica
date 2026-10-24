@@ -304,6 +304,19 @@ class IdentityRegistry:
         return result
 
 
+def gutenberg_notice(path, rel):
+    """The Project Gutenberg terms at the end of `path`, in the code points of
+    the file as committed. `read_text` turns CRLF into LF, so a range measured
+    on it named a different span of the CRLF original than every reading line
+    ranged over the same file (sonnets: [97088, 115541] for [99742, 118546])."""
+    text = path.read_bytes().decode("utf-8")
+    match = re.search(r"\*\*\*\s*END OF[^\n]+", text, re.I)
+    if not match: return None
+    notice_text = text[match.start():]
+    return {"path": rel, "sha256": sha(notice_text.encode()), "text": notice_text,
+            "scope": [rel], "source_cp_range": [match.start(), len(text)], "kind": "gutenberg_terms"}
+
+
 class RightsResolver:
     def __init__(self, root, registry):
         from quality.provenance import load_sources, load_authority, ProvenanceGate
@@ -374,12 +387,8 @@ class RightsResolver:
         if rel == "corpus/fas_hafez.json" and notice.exists():
             notices.append({"path": "corpus/fas_hafez.LICENSE.txt", "sha256": sha(notice.read_bytes()), "text": notice.read_text(), "scope": [rel]})
         if rel in {"corpus/sonnets.txt", "corpus/whitman.txt"}:
-            text = (self.root / rel).read_text(encoding="utf-8")
-            match = re.search(r"\*\*\*\s*END OF[^\n]+", text, re.I)
-            if match:
-                notice_text = text[match.start():]
-                notices.append({"path": rel, "sha256": sha(notice_text.encode()), "text": notice_text,
-                                "scope": [rel], "source_cp_range": [match.start(), len(text)], "kind": "gutenberg_terms"})
+            notice = gutenberg_notice(self.root / rel, rel)
+            if notice: notices.append(notice)
         attribution = fields.get("attribution", [])[:]
         if any("dcs" in sid.lower() for sid in scoped_ids):
             attribution.append("Oliver Hellwig: Digital Corpus of Sanskrit (DCS). 2010-2021.")
