@@ -45,7 +45,11 @@ const argv = process.argv.slice(2);
 
 // ── --affected: the query the workflow asks ─────────────────────────────────
 if (argv[0] === '--affected') {
-  const paths = argv.slice(1).filter(Boolean);
+  // `--affected -` reads the paths from stdin, one per line: a whole diff can
+  // outgrow ARG_MAX, and an exec that fails there prints nothing at all.
+  const paths = (
+    argv[1] === '-' ? require('fs').readFileSync(0, 'utf8').split('\n') : argv.slice(1)
+  ).filter(Boolean);
   const hits = affected(paths);
   if (process.env.CODEX_CLOSURE_VERBOSE) {
     for (const p of paths) {

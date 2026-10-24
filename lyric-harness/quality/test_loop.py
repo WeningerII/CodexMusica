@@ -2682,6 +2682,54 @@ def test_the_batch_door_and_the_recorded_verdict():
           heard[:4])
 
 
+def test_a_batch_waits_for_every_line_walked_before_it():
+    print("\n— a batched line waits for every line the walk reaches before "
+          "it, batched or not (2026-10-24)")
+    # THE DEFECT: `prefetch` blocked only on lines already IN the batch. A
+    # line it left out (related to the batch, already answered, or in joint
+    # conflict) is still walked first and may be accepted, so a later line
+    # related to IT was batched against the partner's old word and verified
+    # against the new one. Groups [[1,3],[2,3],[2,4]]: L2 clashes with L1
+    # through L3 and is left out, and L4 depends on L2.
+    import tempfile
+    import lyric_harness as LH
+    from quality.revise import Brief
+    draft = ["one aaa", "two ccc", "three bbb", "four ddd"]
+    groups = [[1, 3], [2, 3], [2, 4]]
+
+    def brief(ln):
+        must = [(chr(65 + k), tuple(g),
+                 [(x, draft[x - 1].split()[-1]) for x in g if x != ln])
+                for k, g in enumerate(groups) if ln in g]
+        return Brief(line_no=ln, text=draft[ln - 1], findings=[],
+                     must_answer=must, violated_groups=(), candidates=[],
+                     field_computed=True, offers_requested=True,
+                     joint_conflict=False)
+
+    state = os.path.join(tempfile.mkdtemp(), "state.json")
+    propose, _, _ = LH._defer_proposer(state, lines=list(draft))
+    asked = None
+    try:
+        propose.prefetch(brief(1), [brief(2), brief(4)], list(draft))
+    except LH._NeedProposal as need:
+        asked = ([r["line"] for r in need.record["records"]]
+                 if "records" in need.record else [need.record["line"]])
+    check("L4 is not batched with L1 while L2, which it depends on, is "
+          "walked between them", asked == [1], asked)
+
+
+def test_a_one_letter_capital_keeps_its_case():
+    print("\n— a replacement for 'I' is capitalised, not shouted")
+    from quality.loop import swap_end_word
+    got = [swap_end_word("Just the two of us, you and I", "sky", scheme=s)
+           for s in (None, "v1")]
+    check("'you and I' -> 'you and Sky' under both readers",
+          got == ["Just the two of us, you and Sky"] * 2, got)
+    check("CONTROL: an all-capitals word of two letters or more stays "
+          "all capitals", swap_end_word("WE RUN THE NIGHT", "day")
+          == "WE RUN THE DAY")
+
+
 def test_a_rejected_group_rewrite_is_recorded_and_quoted_next_round():
     print("\n— tier 2 tells a recording proposer the verdict and asks it for "
           "the last round's rejection, exactly as tier 1 has since M-236 "
@@ -2752,6 +2800,8 @@ if __name__ == "__main__":
     # printout every run leaves behind.
     from quality.shard import run_sections
     _SECTIONS = (test_success_stop,
+               test_a_batch_waits_for_every_line_walked_before_it,
+               test_a_one_letter_capital_keeps_its_case,
                test_no_progress_stop,
                test_round_limit_stop,
                test_tier2_backtrack_resolves_a_joint_conflict,

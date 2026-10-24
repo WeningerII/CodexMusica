@@ -4312,6 +4312,44 @@ def test_the_structures_spelling_reaches_the_verbs():
 
 
 
+def test_what_the_command_line_prints_is_what_it_means():
+    print("\n— an empty sweep window, the NEXT line, the screen's placement, "
+          "a pasteable GRADE IT and a dropped mandate (2026-10-24)")
+    rc, out, _ = run("plan", "--sweep=5-5")
+    check("--sweep=5-5 names no seed and is refused as an argument, not as "
+          "'the planner refused every seed'",
+          rc != 0 and "names no seed" in out
+          and "planner refused every seed" not in out, out[-300:])
+    rc, out, _ = run("plan", "--sweep=0-3", "--relation=type:assonance",
+                     "--title=Two Rivers", "--narrative=off")
+    nxt = next((ln for ln in out.splitlines() if "NEXT:" in ln), "")
+    check("the sweep's NEXT line carries every declaration it planned under",
+          "--relation=type:assonance" in nxt and "'--title=Two Rivers'" in nxt
+          and "--narrative=off" in nxt, nxt)
+    rc, out, _ = run("screen", "love", "dove", "--relation=schema:internal rhyme")
+    check("screen refuses a schema two line ends cannot place, instead of "
+          "SATISFIES for a pair the grade charges",
+          rc != 0 and "placement" in out
+          and not re.search(r"\|\s+SATISFIES", out),
+          out[-300:])
+    with tempfile.TemporaryDirectory() as d:
+        song = os.path.join(d, "my song.txt")
+        with open(song, "w") as fh:
+            fh.write("I walked along the river side\nThe water cold and "
+                     "running wide\n\nI never thought I would be here\n"
+                     "But now the end is drawing near\n")
+        rc, out, _ = run("recover", song)
+        gi = next((ln for ln in out.splitlines() if "GRADE IT:" in ln), "")
+        check("recover's GRADE IT quotes a path with a space, so it pastes",
+              f"'{song}'" in gi, gi)
+        for argv in (("brief", song, "--groups=1,2", "3,4"),
+                     ("revise", song, "ABAB", "AABB", "--attempts=1")):
+            rc, out, _ = run(*argv)
+            check(f"{argv[0]} refuses a second positional mandate rather "
+                  f"than grading the first alone",
+                  rc != 0 and "unexpected positional" in out, out[-300:])
+
+
 def test_the_seed_sweep_is_reachable_from_the_command_line():
     print("\n40. THE SEED SWEEP is a VERB, not a scratch script "
           "(`MISSING.md` M-82)")
@@ -6508,6 +6546,7 @@ if __name__ == "__main__":
     # this tuple is re-cut from when the costs move.
     _SECTIONS = (
         test_the_seed_sweep_is_reachable_from_the_command_line,
+        test_what_the_command_line_prints_is_what_it_means,
         test_the_comparator_and_the_meter_flags_reach_the_graders,
         test_both_meter_coordinates_are_disclosed_and_collisions_are_typed,
         test_brief_refuses_instead_of_tracebacking,

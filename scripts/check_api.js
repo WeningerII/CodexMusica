@@ -568,6 +568,14 @@ if (iindex) {
     }
     ichecked++;
   }
+  // As traditions/ above: a file for an id the catalog no longer has is
+  // served as if it were live, and the per-id loop never opens it.
+  const iallowed = new Set([...instIds, 'index'].map((id) => `${id}.json`));
+  const istray = fs.readdirSync(path.join(API, 'instruments')).filter((f) => !iallowed.has(f));
+  if (istray.length)
+    fail(
+      `instruments/: ${istray.length} stale file(s) for no live id (e.g. ${istray.slice(0, 5).join(', ')})`
+    );
   if (!VERBOSE) console.error(`  …validated ${ichecked} instrument files`);
 }
 

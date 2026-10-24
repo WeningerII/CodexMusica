@@ -150,6 +150,7 @@ import json
 import shlex
 import math
 import random
+import re
 from fractions import Fraction
 from functools import lru_cache
 from itertools import accumulate
@@ -2460,6 +2461,17 @@ def parse_sweep_want(text):
                 raise PlanRefused(
                     f"{raw!r}: {name!r} answers '=' and nothing else — it "
                     f"names functions, and functions do not compare.")
+            # A name no pattern can draw makes the predicate false on every
+            # seed: refused by name, as an unknown measure already is.
+            fns = [x.strip() for x in val.split(",") if x.strip()]
+            unknown = [f for f in fns if f not in GENERATOR_ROSTER]
+            if unknown:
+                raise PlanRefused(
+                    f"{raw!r} names {unknown}, which no plan draws. "
+                    f"Drawable: {', '.join(sorted(GENERATOR_ROSTER))}.")
+            if name in SWEEP_ORDERS and len(fns) != 2:
+                raise PlanRefused(
+                    f"{raw!r}: {name!r} takes exactly two functions, A,B.")
         elif name in SWEEP_REAL:
             try:
                 if not math.isfinite(float(val)):
@@ -2468,7 +2480,8 @@ def parse_sweep_want(text):
                 raise PlanRefused(
                     f"{raw!r}: {name!r} is a real-valued measure and "
                     f"{val!r} is not a number.")
-        elif not val.lstrip("-").isdigit():
+        elif not re.fullmatch(r"-?[0-9]+", val):
+            # `str.isdigit` admits superscripts ("²") that `int` refuses.
             raise PlanRefused(
                 f"{raw!r}: {name!r} is a count and {val!r} is not an "
                 f"integer.")
@@ -2586,6 +2599,20 @@ def _sweep_one(job):
 
 
 
+def _want_candidates(seed, kw):
+    """Yield (candidate seed, plan or SeedRefused) over the bounded candidate
+    sequence `make_plan` walks under wants it must condition the draw on.
+    A refusal of the REQUEST reads no seed, so another candidate would meet
+    it again: it propagates at once, as it does without wants."""
+    rng = random.Random(seed)
+    for attempt in range(64):
+        candidate_seed = seed if attempt == 0 else rng.getrandbits(64)
+        try:
+            yield candidate_seed, _make_plan_candidate(candidate_seed, **kw)
+        except SeedRefused as exc:
+            yield candidate_seed, exc
+
+
 def make_plan(seed, form="verse-chorus", lines=None, relation=None,
               functions=None, title=None, narrative=None, wants=(), melody=None):
     """Plan under explicit brief predicates; never supply aesthetic defaults.
@@ -2607,19 +2634,41 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         if melody is not None:
             return _make_plan_candidate(seed, **kw)
         return _redraw_past_joint_gate(seed, kw)
+    # THE SEED'S OWN PLAN FIRST. `sweep` judges each seed's plan drawn
+    # WITHOUT the wants (a filter over seeds, M-79), and the wants below
+    # narrow the draw itself, which moves the rng: a seed the sweep accepted
+    # came back from `lyric_plan` with the same want as a different song
+    # under the same candidate seed, undisclosed (seed 31 under `lines<=60`:
+    # 18 lines judged, 12 delivered). So the plan `plan --seed=N` makes is
+    # returned whenever it already satisfies every want, and the draw is
+    # conditioned only when it does not.
+    try:
+        base = make_plan(seed, form=form, lines=lines, relation=relation,
+                         functions=functions, title=title,
+                         narrative=narrative, melody=melody)
+    except SeedRefused:
+        base = None
+    if base is not None and all(sweep_holds(base, w) for w in parsed):
+        redraw = base["choices"].get("seed_redraw")
+        attempts = (redraw["refused"] if redraw else []) + [
+            {"seed": redraw["candidate_seed"] if redraw else str(seed),
+             "status": "accepted", "failed": []}]
+        base["choices"]["brief_selection"] = {
+            "wants": ["".join(w) for w in parsed], "attempts": attempts,
+            "candidate_seed": attempts[-1]["seed"],
+            "policy": "the seed's own plan satisfies every want; the draw "
+                      "was not conditioned"}
+        base["writer_brief"] = writer_brief(base)
+        return base
     # Candidate seeds are 64-bit, so they are DISCLOSED as decimal strings,
     # as `_redraw_past_joint_gate` discloses its own: an integer past 2**53
     # is rounded by the connector's JSON.parse and names a different song
     # (Jony 6347921225, 3PO 6348036141). The rng keeps integers.
-    rng = random.Random(seed)
     attempts = []
-    for attempt in range(64):
-        candidate_seed = seed if attempt == 0 else rng.getrandbits(64)
-        try:
-            plan = _make_plan_candidate(candidate_seed, **kw)
-        except PlanRefused as exc:
+    for candidate_seed, plan in _want_candidates(seed, kw):
+        if isinstance(plan, Exception):
             attempts.append({"seed": str(candidate_seed), "status": "refused",
-                             "reason": str(exc)})
+                             "reason": str(plan)})
             continue
         failed = ["".join(w) for w in parsed if not sweep_holds(plan, w)]
         attempts.append({"seed": str(candidate_seed),
@@ -2778,6 +2827,29 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
         except _SC.NoMandate as e:
             raise PlanRefused(f"--relation={relation!r} is not declarable: "
                               f"{e}")
+        # A SCHEMA NO PLANNED GROUP CAN CARRY refuses the request here. Every
+        # group binds each member at its line end (`_place_group`, 2026-10-04)
+        # and has two members or more, so the binding draw's end/end
+        # placement and identity checks answer the same for every seed; left
+        # to that draw, they read as a seed refusal ("cannot bind group A")
+        # on every seed of a sweep.
+        if relation.startswith("schema:"):
+            from quality import relations as _RL
+            _sch = _RL.REGISTRY.get(relation.split(":", 1)[1])
+            if _sch is not None and (
+                    not _RL.placement_bindable(_sch, ("end", "end"))
+                    or _RL.identity_forced(_sch)):
+                raise PlanRefused(
+                    f"--relation={relation!r} cannot bind two line ends, and "
+                    f"every group this planner draws is bound at its line "
+                    f"ends: "
+                    + ("its identity rule makes both lines end on the same "
+                       "word, which floor.REPEAT_IN_VERSE flags whatever "
+                       "words are chosen (M-175)"
+                       if _RL.identity_forced(_sch) else
+                       "its placement rule needs a member that is not "
+                       "line-final")
+                    + ". Declare a relation that holds between line ends.")
 
     # THE DECLARED ROSTER. A song may ask for the functions it wants, and the
     # request is CHECKED against the vocabulary's own definitional
@@ -2842,6 +2914,23 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
                     f"novel structure, it is a mislabelled one. Declare "
                     f"{missing} too, or drop {f!r}.")
         roster = tuple(want)
+        # A FORM'S REQUIRED FUNCTION THE ROSTER CANNOT DRAW refuses the
+        # request here. `_sample_pattern` would reject every pattern for it,
+        # and the draw loop below reads that as one unlucky length, so it
+        # surfaced as "500 seeded draws ... try another seed" when no seed
+        # can ever carry it. Reachable is what the pattern draw itself can
+        # place: a cell the roster admits whole, or an edge it names.
+        first_fns, last_fns = _edges()
+        reachable = set().union(
+            *(c for c in _CELLS if all(f in roster for f in c)),
+            (f for f in (*first_fns, *last_fns) if f in roster))
+        need = set(FORM_REQUIRES.get(form, ())) | set(FORM_RECURS.get(form, ()))
+        if need - reachable:
+            raise PlanRefused(
+                f"--form={form} requires {sorted(need)}, and the declared "
+                f"roster {sorted(roster)} can draw none of "
+                f"{sorted(need - reachable)}. Declare them in --functions, "
+                f"or declare a form that does not require them.")
 
     rng = random.Random(seed)
 
