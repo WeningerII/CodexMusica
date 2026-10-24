@@ -392,7 +392,9 @@ class RightsResolver:
 
 
 def language_for(rel, fields):
-    declared = fields.get("language", [""])[0].split()[0].lower() if fields.get("language") else ""
+    # A header present with no value (`# language:`) declares nothing.
+    tokens = (fields.get("language") or [""])[0].split()
+    declared = tokens[0].lower() if tokens else ""
     aliases = {"en": "eng", "fa": "fas", "fi": "fin", "cy": "cym", "sa": "san", "ms": "msa", "zh": "ltc"}
     if declared: return aliases.get(declared, declared)
     stem = Path(rel).stem
@@ -418,7 +420,10 @@ def contributor_records(fields):
     records = []
     for role in ("author", "translator", "compiler", "editor", "transcriber"):
         for declared in fields.get(role, []):
-            name = declared.splitlines()[0].split("(")[0].strip()
+            # An empty header value (`# author:`) names nobody.
+            name = (declared.splitlines() or [""])[0].split("(")[0].strip()
+            if not name:
+                continue
             if name.upper().startswith("ANONYMOUS"): name = name.split(".")[0]
             records.append({"role": role, "name": name, "basis": "source_header", "source_declaration": declared})
             if role == "author":
