@@ -724,6 +724,11 @@ test(
         'no standalone forged request-log line'
       );
 
+      await post('/mcp/recipe', call(2, 'y\u2028z', {}));
+      await new Promise((resolve) => setTimeout(resolve, 100));
+      assert.ok(output.includes('[mcp] tools/call "y\\u2028z"'), 'U+2028 is escaped in the log');
+      assert.ok(!output.includes('\u2028'), 'no raw line separator reaches the log');
+
       // Express routes case-insensitively; a case variant is refused, not served
       // as a different surface.
       for (const path of ['/MCP', '/mcp/Recipe', '/mcp/ChatGPT']) {

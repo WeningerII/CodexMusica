@@ -746,7 +746,13 @@ app.get('/.well-known/mcp.json', (_req, res) =>
 const LOGGED_TOKEN_CHARS = 64;
 function logToken(value) {
   const text = String(value);
-  return /^[\w./:-]{1,64}$/.test(text) ? text : JSON.stringify(text.slice(0, LOGGED_TOKEN_CHARS));
+  if (/^[\w./:-]{1,64}$/.test(text)) return text;
+  // JSON.stringify escapes C0 controls but leaves U+2028/U+2029 raw, and a log
+  // viewer may break a line on either.
+  return JSON.stringify(text.slice(0, LOGGED_TOKEN_CHARS)).replace(
+    /[\u2028\u2029]/g,
+    (c) => `\\u${c.charCodeAt(0).toString(16)}`
+  );
 }
 function describe(body) {
   const m = Array.isArray(body) ? body[0] : body;
@@ -848,7 +854,7 @@ app.post(mcpPaths, async (req, res) => {
     (m) => m?.method === 'tools/call'
   );
   const formats = [
-    ...new Set(calls.map((m) => m.params?.arguments?.format).filter((f) => f !== undefined)),
+    ...new Set(calls.map((m) => m.params?.arguments?.format).filter((f) => f != null)),
   ];
   if (domain && formats.length > 1) {
     return res.status(400).json({
