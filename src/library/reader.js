@@ -1034,10 +1034,11 @@ async function page(direction) {
   const target = direction === 'next' ? S.window[1] + 1 : S.window[0] - 1;
   if (target < 0 || target >= R.pageCount) return;
   S.busy = true;
-  const mine = S;
+  const mine = S,
+    generation = ++mine.rowGeneration;
   try {
-    await loadPage(S.lib, R, target);
-    if (S !== mine || !S.root?.isConnected) return;
+    await loadPage(mine.lib, R, target);
+    if (S !== mine || mine.rowGeneration !== generation || !mine.root?.isConnected) return;
     const lines = S.root.querySelector('.rd-lines');
     const before = lines?.scrollHeight || 0;
     const y = window.scrollY;
@@ -1058,7 +1059,7 @@ async function page(direction) {
     else window.scrollTo(0, y + ((S.root.querySelector('.rd-lines')?.scrollHeight || 0) - before));
     replaceRoute();
   } catch (e) {
-    if (S === mine) fail(e);
+    if (S === mine && mine.rowGeneration === generation) fail(e);
   } finally {
     mine.busy = false;
   }

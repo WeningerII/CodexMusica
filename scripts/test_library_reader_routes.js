@@ -20,7 +20,7 @@ function deferred() {
   });
   return { promise, resolve };
 }
-function fixture(t) {
+function fixture(t, { threePages = false } = {}) {
   const utterances = [];
   const dom = new JSDOM('<div id="surface-library"><main></main></div>', {
     url: 'https://example.test/#library',
@@ -50,7 +50,7 @@ function fixture(t) {
       reading_unit_id: ID,
       reading_revision: revision,
       page_index: 1,
-      page_count: 2,
+      page_count: threePages ? 3 : 2,
       start: {
         row_start: 250,
         analysis_line_start: 1,
@@ -59,13 +59,33 @@ function fixture(t) {
       },
       lines: [['lyric', tail, 0, 251, 2, [0, tail.length], null, []]],
     };
-    const pageHash = sha(page);
+    const third = threePages
+      ? {
+          ...page,
+          page_index: 2,
+          start: { ...page.start, row_start: 500, analysis_line_start: 2 },
+          lines: [
+            [
+              'lyric',
+              title + ' final page',
+              0,
+              501,
+              3,
+              [0, (title + ' final page').length],
+              null,
+              [],
+            ],
+          ],
+        }
+      : null;
+    const pageHash = sha(page),
+      thirdHash = third && sha(third);
     const head = {
       reading_unit_id: ID,
       reading_revision: revision,
       page_index: 0,
-      page_count: 2,
-      pages: [pageHash],
+      page_count: threePages ? 3 : 2,
+      pages: third ? [pageHash, thirdHash] : [pageHash],
       start: {
         row_start: 0,
         analysis_line_start: 0,
@@ -76,7 +96,7 @@ function fixture(t) {
       title,
       language: 'eng',
       contributors: [],
-      normalized_sha256: sha(text + '\n' + tail),
+      normalized_sha256: sha(text + '\n' + tail + (third ? '\n' + title + ' final page' : '')),
       canonical_reading_sha256: sha(revision),
       source_map: {},
       source_marks: {},
@@ -90,6 +110,7 @@ function fixture(t) {
     const key = revision.slice(0, 16) + '-' + sha(head).slice(0, 12);
     files.set(`r/12/${ID}/${key}/head.json.gz`, head);
     files.set(`r/12/${ID}/${key}/1-${pageHash.slice(0, 12)}.json.gz`, page);
+    if (third) files.set(`r/12/${ID}/${key}/2-${thirdHash.slice(0, 12)}.json.gz`, third);
     return key;
   }
   const oldKey = add(OLD, 'Retained'),
@@ -116,6 +137,8 @@ function fixture(t) {
     icon: () => '',
     uiEmptyState: ({ title, text = '', actions = '' }) => `<p>${title}: ${text}</p>${actions}`,
     libraryChunk: async () => ({ mount: () => analysis }),
+    scrollBy() {},
+    scrollTo() {},
     requestAnimationFrame: (fn) => {
       frames.push(fn);
     },
@@ -149,11 +172,11 @@ function fixture(t) {
     .readFileSync(path.join(__dirname, '../src/library/reader.js'), 'utf8')
     .replace(
       '_internals: {',
-      '_internals: { state: () => S, parse, route, rowRequests, speak, resolveKey,'
+      '_internals: { state: () => S, parse, route, rowRequests, pageRequests, speak, resolveKey,'
     );
   source = source.replace(
     'return {\n  show,',
-    'const rowRequests = []; const originalGoToRow = goToRow; goToRow = (row) => { const task = originalGoToRow(row); rowRequests.push(task); return task; };\nreturn {\n  show,'
+    'const pageRequests = []; const originalPage = page; page = (direction) => { const task = originalPage(direction); pageRequests.push(task); return task; }; const rowRequests = []; const originalGoToRow = goToRow; goToRow = (row) => { const task = originalGoToRow(row); rowRequests.push(task); return task; };\nreturn {\n  show,'
   );
   const reader = w.eval(`(function () { ${source}\n})()`);
   const main = w.document.querySelector('main');
@@ -562,3 +585,78 @@ for (const transition of ['same-reader', 'replacement', 'invalid-replacement', '
     assert.equal(f.utterances.length, ['same-reader', 'start-stop'].includes(transition) ? 1 : 0);
     assert.equal(f.state().speaking, transition === 'same-reader');
   });
+function pagePath(f, index) {
+  const head = f.files.get(f.headPath(f.currentKey));
+  return `r/12/${ID}/${f.currentKey}/${index}-${head.pages[index - 1].slice(0, 12)}.json.gz`;
+}
+function clickPage(f, direction) {
+  f.main.querySelector(`[data-rd="${direction}"]`).click();
+  return f.reader._internals.pageRequests.at(-1);
+}
+
+test('normal reader Next and Previous preserve rows and release pagination busy state', async (t) => {
+  const f = fixture(t, { threePages: true });
+  await f.open(`revision=${f.currentKey}`);
+  await clickPage(f, 'next');
+  assert.deepEqual([...f.state().window], [0, 1]);
+  assert.equal(f.main.querySelectorAll('.rd-line').length, 2);
+  assert.equal(f.state().busy, false);
+  await f.open(`revision=${f.currentKey}&offset=500`);
+  await f.reader._internals.rowRequests.at(-1);
+  await clickPage(f, 'prev');
+  assert.deepEqual([...f.state().window], [1, 2]);
+  assert.equal(f.main.querySelectorAll('.rd-line').length, 2);
+  assert.equal(f.state().busy, false);
+});
+
+for (const corrupt of [false, true])
+  test(`a stale Next ${corrupt ? 'integrity error' : 'success'} cannot replace a newer offset page`, async (t) => {
+    const f = fixture(t, { threePages: true }),
+      gate = deferred();
+    await f.open(`revision=${f.currentKey}`);
+    f.gates.set(pagePath(f, 1), gate);
+    const pending = clickPage(f, 'next');
+    assert.equal(f.state().busy, true);
+    await f.open(`revision=${f.currentKey}&offset=500`);
+    await f.reader._internals.rowRequests.at(-1);
+    const current = f.state().root.innerHTML;
+    if (corrupt) f.files.set(pagePath(f, 1), { ...f.files.get(pagePath(f, 1)), lines: [] });
+    gate.resolve();
+    await pending;
+    assert.deepEqual([...f.state().window], [2, 2]);
+    assert.equal(f.state().root.innerHTML, current);
+    assert.equal(f.main.querySelectorAll('.rd-line').length, 1);
+    assert.equal(f.state().busy, false);
+  });
+
+test('a newer Next supersedes a pending offset jump without cancelling speech', async (t) => {
+  const f = fixture(t, { threePages: true }),
+    gate = deferred();
+  await f.open(`revision=${f.currentKey}`);
+  f.gates.set(pagePath(f, 2), gate);
+  await f.open(`revision=${f.currentKey}&offset=500`);
+  const jump = f.reader._internals.rowRequests.at(-1);
+  const speechGeneration = f.state().gen;
+  await clickPage(f, 'next');
+  gate.resolve();
+  await jump;
+  assert.deepEqual([...f.state().window], [0, 1]);
+  assert.equal(f.main.querySelectorAll('.rd-line').length, 2);
+  assert.equal(f.state().gen, speechGeneration);
+  assert.equal(f.state().busy, false);
+});
+
+test('pagination leaves active speech ownership and its next utterance intact', async (t) => {
+  const f = fixture(t);
+  await f.open(`revision=${f.currentKey}`);
+  await f.reader._internals.wholeText(f.lib, f.state().R);
+  f.reader._internals.speak(false);
+  await new Promise((resolve) => setImmediate(resolve));
+  assert.equal(f.utterances.length, 1);
+  await clickPage(f, 'next');
+  assert.equal(f.state().speaking, true);
+  f.utterances[0].onend();
+  assert.equal(f.utterances.length, 2);
+  f.utterances[1].onend();
+  assert.equal(f.state().speaking, false);
+});
