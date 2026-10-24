@@ -14594,12 +14594,18 @@ async function saveWS(name) {
 }
 // Saved loads, forks and file imports replace the same session. Reserve intent
 // before any wait, and do not overwrite edits made while that session loads.
+function sessionOpenKey(){
+  // History omits tool drafts and migration records; opening replaces those
+  // too. Presentation-only metadata does not cancel a requested open.
+  const {ui,...metadata}=lyricMetaOf(app.lyricMeta);
+  return JSON.stringify([sessionKey(sessionSnapshot()),metadata]);
+}
 function beginSessionOpen(){
   app._workspaceGeneration=(app._workspaceGeneration||0)+1;
-  return {generation:app._workspaceGeneration,key:sessionKey(sessionSnapshot())};
+  return {generation:app._workspaceGeneration,key:sessionOpenKey()};
 }
 function sessionOpenCurrent(open){
-  return open.generation===app._workspaceGeneration&&open.key===sessionKey(sessionSnapshot());
+  return open.generation===app._workspaceGeneration&&open.key===sessionOpenKey();
 }
 async function restoreSavedWorkspace(key,fork){
   const open=beginSessionOpen();

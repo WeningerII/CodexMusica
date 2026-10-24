@@ -92,7 +92,7 @@ function openFixture() {
     $ui: () => ({}), uiSaveLyrics() {},
   });
   vm.runInContext(section('function sessionKey(', 'function pushHistory(')
-    + section('function beginSessionOpen(', 'async function delWS('), c);
+    + section('function sessionOpenKey(', 'async function delWS('), c);
   const workbench = fs.readFileSync(path.join(__dirname, '../src/workbench.js'), 'utf8');
   vm.runInContext(workbench.slice(workbench.indexOf('async function uiImport('), workbench.indexOf('function uiSaveLyrics(')), c);
   const stored = name => ({ value: JSON.stringify({ schema: 2, name, cards: [{ id: name, instrumentId: 'voice' }], lyrics: name }) });
@@ -192,4 +192,15 @@ test('successful fork copies once with fresh IDs; failed input leaves state inta
   await f.importFile({ text: async () => 'not JSON' });
   assert.equal(JSON.stringify(f.c.app.cards), before);
   assert.equal(f.history.length, 1);
+});
+
+test('opening preserves newer tool drafts and migration records but tolerates presentation changes', async () => {
+  for (const field of ['drafts', 'renumbered', 'ui']) {
+    const f = openFixture(), pending = f.load('A');
+    f.c.app.lyricMeta[field] = field === 'renumbered' ? { items: [{ from: 1, to: 2 }] } : { changed: 'new' };
+    f.requests.get('A').resolve(f.stored('A')); await pending;
+    assert.equal(f.c.app.workspaceName, field === 'ui' ? 'A' : 'Old');
+    assert.equal(f.history.length, field === 'ui' ? 1 : 0);
+    if (field !== 'ui') assert.ok(f.c.app.lyricMeta[field]);
+  }
 });
