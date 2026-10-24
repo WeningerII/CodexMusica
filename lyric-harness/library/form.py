@@ -200,7 +200,7 @@ def _sections(source, physical, sung, declarations):
         raise InvalidDeclaration("form must be an object")
     if not isinstance(annotation.get("sections", []), list):
         raise InvalidDeclaration("form sections must be an array")
-    occupied = {}
+    occupied, declared_ids = {}, set()
     for item in annotation.get("sections", []):
         _source_basis(item, "form section")
         if "voice" in item and (not isinstance(item["voice"], str) or not item["voice"].strip()):
@@ -218,6 +218,9 @@ def _sections(source, physical, sung, declarations):
         sid = item.get("id")
         if not isinstance(sid, str) or not sid:
             raise InvalidDeclaration("form section requires an id")
+        if sid in declared_ids:
+            raise InvalidDeclaration("declared section IDs must be unique")
+        declared_ids.add(sid)
         if spec and spec.kind == "section":
             for lid in line_ids:
                 if lid in occupied:

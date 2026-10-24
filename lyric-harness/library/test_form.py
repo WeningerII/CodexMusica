@@ -295,6 +295,20 @@ class FormReaderTests(unittest.TestCase):
         self.assertEqual(hook["placement_refusals"][0]["code"], "HOOK_PLACEMENT_PARTLY_UNDECLARED")
         self.assertFalse(any(f["code"] == "HOOK_CONFINED" for f in hook["findings"]))
 
+    def test_duplicate_declared_section_ids_refuse_instead_of_losing_lines(self):
+        work = source(["cat", "hat"], "eng")
+        declaration = {"form": {"sections": [
+            {"id": "verse", "function": "verse", "line_ids": ["l1"], "source": "reader"},
+            {"id": "verse", "function": "verse", "line_ids": ["l2"], "source": "reader"},
+        ]}}
+        with self.assertRaisesRegex(InvalidDeclaration, "declared section IDs must be unique"):
+            analyze_form(work, declaration)
+        # The worker-facing traversal must refuse the same declaration.
+        from library.test_analysis import complete
+        work["text"] = "cat\nhat"
+        with self.assertRaisesRegex(InvalidDeclaration, "declared section IDs must be unique"):
+            complete(work, declaration, schemas=[], layers=["form"])
+
     def test_reader_declared_voice_keeps_source_voices_separate(self):
         work = source(["[PART: narrator]", "[VERSE]", "Vaka vanha Väinämöinen"])
         result = analyze_form(work, {"form": {"sections": [{"id": "l2:block", "function": "verse",
