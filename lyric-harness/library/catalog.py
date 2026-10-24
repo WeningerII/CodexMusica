@@ -553,6 +553,10 @@ def registry_seed_bytes(value, compressed=False):
 
 
 def build(root, output, repo_sha, registry_path=None, source_manifest=None, write_registry=False):
+    # The manifest schema requires a full commit id; without a pinned source
+    # manifest nothing else would check it before it is written.
+    if not isinstance(repo_sha, str) or not re.fullmatch(r"[0-9a-f]{40}", repo_sha):
+        raise CatalogError("--repo-sha must be a full 40-hex commit id")
     root, output = Path(root), Path(output)
     registry_path = registry_seed_path(root, registry_path)
     registry = IdentityRegistry(load_registry_seed(registry_path) if registry_path.exists() else None)
