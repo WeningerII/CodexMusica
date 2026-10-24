@@ -1295,14 +1295,14 @@ their permitted precision. Author `references/_tradition_place.json`, `_toponym_
 `check_places.js`, `check_no_cartography.js`. Make the closure per-builder; teach `buildFresh()`;
 split the CI scope output. Ship the corrections channel: issue template, `SUPPORT.md` alias and SLA.
 
-**Exit:** `node check_places.js` exits 0 with all **15** classes clean — 0 labels at more than one
+**Exit:** `node check_places.js` (planned, never built) exits 0 with all **15** classes clean — 0 labels at more than one
 coordinate, 0 nesting duplicate labels at one centroid, 0 place_ids with more than one centroid, 0
 coordinates finer than their extent permits, 0 coordinates on a `no-single-place` edge, all 66
 `no-single-place` edges emitting `no_single_place` and never `not_established`, 0 unruled contested
 toponyms, `state` consistent per `cultural_region`, corroboration recomputed and matching the fixture file
 record-by-record at 1,822. `node scripts/check_build_closure.js` green with **5** builders traced and
 per-builder containment asserted. `npm run check:fresh` green with `api/places/*` byte-identical to a fresh
-build. `node check_no_cartography.js` exits 0 and fails on a planted `lat` key in
+build. `node check_no_cartography.js` (planned, never built) exits 0 and fails on a planted `lat` key in
 `references/10_places.js`. `npm run faults` catches all five planted place defects. A PR touching only
 `references/_places.json` logs `api_affected=false places_affected=true`, runs
 `check:fresh --only=places,html` rather than `buildFresh()`, and completes in **under 6 minutes** — reachable
@@ -1317,7 +1317,7 @@ ships.
 intact. Add `robots noindex,follow` to `src/index.template.html`. Ship `check_deeplink.js` and its
 promise, plus the fault class. One inventory entry for the modal state — not an `n/a` row.
 
-**Exit:** `node check_deeplink.js` exits 0 in both build variants over the 6-id sample, with
+**Exit:** `node check_deeplink.js` (planned, never built) exits 0 in both build variants over the 6-id sample, with
 all four adversarial inputs importing nothing and logging zero page errors. `npm run faults` fails the
 gate when auto-import is restored. `?trad=` appears nowhere in `sitemap.xml` (still 3,918 `<loc>`).
 
@@ -1337,9 +1337,9 @@ assertion-G branch, `narrow-880`. The hashed meta CSP + `check_csp.js`; `check_e
 `check_shell_parity.js`.
 
 **Exit:** `npm run reachability` passes ~109 reachable entries, 0 failures, zero `n/a`/`document`
-selectors among the new ones. `node check_atlas_surface.js` exits 0 on every clause.
+selectors among the new ones. `node check_atlas_surface.js` (planned, never built) exits 0 on every clause.
 `node scripts/build_html.js --check` prints **22 blocks, largest 924 KiB**, exit 0.
-`node check_app_size_budget.js` green. `npm run check:mobile` passes all 9 viewports with
+`node check_app_size_budget.js` (planned, never built) green. `npm run check:mobile` passes all 9 viewports with
 `browse-place` reachable and no `<svg>` below 900px. `npm run check:fresh` byte-identical.
 `npm run faults` 0 escapes across all classes. `check_csp.js`, `check_escaping.js`,
 `check_shell_parity.js` exit 0, the last with the three ≤599px type overrides folded into the token source
@@ -1375,7 +1375,7 @@ rewrite the `clave` dembow link to name Jamaican dancehall. Promote `STARTER_TRA
 promise. Then the sourcing campaign: batched PRs, sensitive class first, each raising
 `references/_place_budget.json`.
 
-**Exit:** `node check_threads.js` exits 0 on byline, citations, resolving stops, non-decreasing
+**Exit:** `node check_threads.js` (planned, never built) exits 0 on byline, citations, resolving stops, non-decreasing
 periods and recomputed blurb numerals, with `thread-numeral-drift` proving the last of those two-sided.
 `sensitive_unsourced` reaches 0 and published coverage reaches **81.4%** (2,038 edges), which raises the
 mark count on the already-shipped map without any flag being flipped. `npm run check:promises` PASS at

@@ -173,8 +173,13 @@ function isIgnored(rel) {
 
 function candidatePaths(line, inline = false) {
   const out = [];
+  let prev = '';
   for (let tok of line.split(/[\s`'"()|]+/)) {
     tok = tok.replace(/[.,;:]+$/, '');
+    // `--out rows.tsv` is the same output as `--out=rows.tsv` below.
+    const after = prev;
+    prev = tok;
+    if (/^--out(?:put)?$|^-o$/.test(after)) continue;
     // A PATH GIVEN AS A FLAG VALUE IS STILL A PATH. `--fill=songs/x.txt` is
     // one token, and reading it whole made this checker look for a file
     // literally named `--fill=songs/x.txt` — reporting MISSING on a file that
@@ -192,9 +197,11 @@ function candidatePaths(line, inline = false) {
     // In running prose a bare file name is nearly always an example argument
     // (`lyric.txt`, `BP.json`) or a file the reader is told to create (`q.js`),
     // not a citation of one in the repository. Measured when inline commands
-    // were first read: every bare name flagged was one of those, and every
-    // real miss carried a directory. So inline, only a path with a directory
-    // is checked (doctrine 61).
+    // were first read: every real miss carried a directory. So inline, only a
+    // path with a directory is checked (doctrine 61). Also checking a bare name
+    // that no tracked file carries was tried: it caught six stale citations in
+    // a superseded plan, and flagged six example or reader-created names with
+    // them, so those six citations say so where they stand instead.
     if (inline && !tok.includes('/')) continue;
     out.push(tok);
   }
