@@ -24,6 +24,17 @@ import { isStanding } from './lyric_tools.js';
 
 export const SHORT_VIEW_TOOLS = new Set(['lyric_grade', 'lyric_revise', 'lyric_screen']);
 export const DETAIL_PARTS = ['full', 'findings', 'report', 'coverage', 'pronunciations', 'pairs'];
+// The detail parts each finished tool actually has. Any other part used to be
+// answered rather than refused: a sweep returned its summary for every part, a
+// screen returned `null` for coverage, and a grade `null` for pairs, so a caller
+// asking for something the operation does not have was told it was empty.
+export const DETAIL_FOR = {
+  lyric_grade: ['findings', 'report', 'coverage', 'pronunciations', 'full'],
+  lyric_revise: ['findings', 'report', 'coverage', 'pronunciations', 'full'],
+  lyric_screen: ['pairs', 'findings', 'report', 'full'],
+};
+// The parts `lines` narrows (detailOf); on any other part it would be ignored.
+export const LINE_PARTS = ['findings', 'coverage', 'pronunciations'];
 
 // A requested obligation is unjudged because a reading was undecided or a
 // word could not be read: these are the findings that say which, per line.

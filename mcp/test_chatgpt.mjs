@@ -1382,3 +1382,69 @@ test('P8: a record over the per-record cap is refused as too large, never told t
   );
   assert.deepEqual({ size: store.records.size, bytes: store.bytes }, before);
 });
+
+test('get_operation refuses a detail or lines the operation cannot serve; an edit grade of an unplanned song names lyric_recover', async (t) => {
+  const { store } = storeFor(t);
+  const sessions = new WorkflowSessions({ store });
+  const client = await connect(t, 'lyrics', sessions);
+  const read = (operation_id, extra) => call(client, 'get_operation', { operation_id, ...extra });
+  const text = (r) => r.content.map((c) => c.text).join('\n');
+
+  // A sweep has no detail parts: every part used to return its summary.
+  const begun = data(await call(client, 'begin_lyrics', { phase: 'create' }));
+  const swept = data(
+    await call(client, 'lyric_sweep', {
+      session_id: begun.session_id,
+      seed_from: 1,
+      count: 1,
+      lines: 12,
+    })
+  );
+  await sessions.wait(swept.operation_id);
+  assert.equal(data(await read(swept.operation_id)).status, 'completed');
+  for (const detail of ['findings', 'report', 'coverage', 'pronunciations', 'full', 'pairs']) {
+    const r = await read(swept.operation_id, { detail });
+    assert.equal(r.isError, true, `sweep detail ${detail}`);
+    assert.match(
+      text(r),
+      /^DETAIL_NOT_APPLICABLE: .*lyric_sweep\. Call get_operation without detail/
+    );
+  }
+  const bare = await read(swept.operation_id, { lines: [1] });
+  assert.match(text(bare), /^DETAIL_REQUIRED: /);
+
+  // An edit session's grade of a 4-line pasted song: the refusal now names the
+  // call that works, and a detail it lacks is refused rather than null.
+  const edit = data(await call(client, 'begin_lyrics', { phase: 'edit' }));
+  const draft = [
+    'the river runs beneath the town',
+    'and carries all our voices down',
+    'I held the lantern by the door',
+    'and waited there forevermore',
+  ];
+  const graded = data(
+    await call(client, 'lyric_grade', { session_id: edit.session_id, seed: 1, draft })
+  );
+  await sessions.wait(graded.operation_id);
+  const verdict = data(await read(graded.operation_id));
+  const short = JSON.parse(verdict.tool_result.content.at(-1).text);
+  assert.equal(short.exit_code, 2);
+  assert.match(
+    short.refusal,
+    /must be the same song\. These are lyrics this session did not plan: read them with lyric_recover, then grade them with lyric_check/
+  );
+  const pairs = await read(graded.operation_id, { detail: 'pairs' });
+  assert.match(
+    text(pairs),
+    /^DETAIL_NOT_APPLICABLE: a lyric_grade has detail findings, report, coverage, pronunciations, full; "pairs"/
+  );
+  const past = await read(graded.operation_id, { detail: 'findings', lines: [2, 999] });
+  assert.match(
+    text(past),
+    /^LINES_OUT_OF_RANGE: this lyric_grade's draft has 4 line\(s\); line\(s\) 999/
+  );
+  assert.equal(
+    (await read(graded.operation_id, { detail: 'findings', lines: [2] })).isError,
+    undefined
+  );
+});
