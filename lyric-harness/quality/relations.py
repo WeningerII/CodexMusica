@@ -7031,11 +7031,13 @@ def named_cells(schema):
     return out
 
 
-#: Figure-internal edge schemas: what a full shape judges an edge with that
-#: the registry does not hold. An edge instance carries only its schema's
-#: NAME, so every name a figure can put on an edge must resolve back to the
-#: schema that judged it (`schema_named`), or a reader that looks it up again
-#: -- its tradition scope, for one -- cannot record the figure (#595).
+#: Figure-internal edge schemas: named schemas a full shape judges edges
+#: with that the registry does not hold. An edge instance carries only its
+#: schema's NAME, so every name a figure can put on an edge must resolve to a
+#: schema of that name (`schema_named`), or a reader that looks it up again
+#: -- its tradition scope, for one -- cannot record the figure (#595). This
+#: resolves NAMES: `_full_shape` may still judge a placement- or span-adjusted
+#: copy under the same name (symploce's epistrophe keeps anaphora's).
 _CROSSED_EDGES = {}
 
 
@@ -7053,9 +7055,10 @@ def crossed_edge(label):
 
 
 def schema_named(name):
-    """-> the schema an edge instance named `name` was judged under: a
-    registered schema, or a figure-internal one built from one. KeyError for
-    a name no schema or figure defines."""
+    """-> the schema an edge instance's NAME refers to: a registered schema,
+    or a figure-internal one built from one. KeyError for a name no schema or
+    figure defines. What a reader reads off it (tradition scope) is shared by
+    every adjusted copy that keeps the name."""
     if name in REGISTRY:
         return REGISTRY[name]
     for _, _, label in REGISTRY["analysed rhyme"].figure.edges:

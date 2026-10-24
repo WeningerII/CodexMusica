@@ -209,29 +209,33 @@ class ReaderAcceptance(unittest.TestCase):
                 self.assertTrue(any(cell in owner._disputed for key in pair for cell in key[2]), pair)
         self.assertTrue(any(r["kind"] == "relation_instance" and r["verdict"] == "true" for r in rows))
 
-    def test_every_figure_edge_resolves_to_the_schema_that_judged_it(self):
-        # #595: analysed rhyme judges its four edges with figure-internal
-        # schemas ("assonance (crossed)", "consonance (crossed)") the registry
-        # does not hold, and the reader looked each edge's schema up by name
-        # for its tradition scope -- a KeyError that aborted the whole run.
-        # Every edge of every figure must resolve to the schema that judged it.
+    def test_figure_edge_schema_names_resolve_for_tradition_scope(self):
+        # #595: analysed rhyme names its four edges "assonance (crossed)" and
+        # "consonance (crossed)", schemas the registry does not hold, and the
+        # reader looked each edge's schema up by name for its tradition scope
+        # -- a KeyError that aborted the whole run. Every name a figure puts on
+        # an edge must resolve to a schema of that name, true or undecided.
         import quality.relations as RL
-        reading = source("We walked into the sun\nAnd found a can of tin\n"
-                         "The dog was feeling sick\nIt fell into the suck\n\n"
-                         "And that was all we knew")
-        _, rows, _ = complete(reading, schemas=["analysed rhyme"])
-        figures = [r for r in rows if r["kind"] == "relation_figure"]
-        self.assertEqual([f["verdict"] for f in figures], ["true"])
-        names = set()
-        for edge in figures[0]["edges"]:
-            judged = RL.schema_named(edge["schema_name"])
-            self.assertEqual(judged.name, edge["schema_name"])
-            self.assertEqual(edge["scope"], RL.tradition_scope(judged, "eng"))
-            names.add(edge["schema_name"])
-        self.assertEqual(names, {"assonance (crossed)", "consonance (crossed)"})
+        stanza = ("We walked into the sun\nAnd found a can of tin\n"
+                  "The dog was feeling sick\nIt fell into the {}\n\n"
+                  "And that was all we knew")
+        # `zorbleth` is unread, so the same grid is recorded undecided.
+        for end, expected in (("suck", "true"), ("zorbleth", "undecided")):
+            with self.subTest(end=end):
+                _, rows, _ = complete(source(stanza.format(end)), schemas=["analysed rhyme"])
+                figures = [r for r in rows if r["kind"] == "relation_figure"]
+                self.assertEqual([f["verdict"] for f in figures], [expected])
+                names = set()
+                for edge in figures[0]["edges"]:
+                    named = RL.schema_named(edge["schema_name"])
+                    self.assertEqual(named.name, edge["schema_name"])
+                    self.assertEqual(edge["scope"], RL.tradition_scope(named, "eng"))
+                    names.add(edge["schema_name"])
+                self.assertEqual(names, {"assonance (crossed)", "consonance (crossed)"})
         # The crossing is the definition, and an unknown name still refuses.
         self.assertIs(RL.schema_named("assonance (crossed)"), RL.crossed_edge("assonance"))
         self.assertIn(RL.ChannelRule("coda", RL.DIFFER, "anchor"), RL.crossed_edge("assonance").channels)
+        self.assertIn(RL.ChannelRule("nucleus", RL.DIFFER, "anchor"), RL.crossed_edge("consonance").channels)
         with self.assertRaises(KeyError):
             RL.schema_named("assonance (inverted)")
 
