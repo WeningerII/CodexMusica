@@ -14597,7 +14597,7 @@ async function saveWS(name) {
 function sessionOpenKey(){
   // History omits tool drafts and migration records; opening replaces those
   // too. Presentation-only metadata does not cancel a requested open.
-  const {ui,...metadata}=lyricMetaOf(app.lyricMeta);
+  const {ui:_ui,...metadata}=lyricMetaOf(app.lyricMeta);
   return JSON.stringify([sessionKey(sessionSnapshot()),metadata]);
 }
 function beginSessionOpen(){
