@@ -1047,7 +1047,9 @@ export function getInstrument({ id, part, query, limit } = {}) {
   }
 
   const out = parts.map((p) => {
-    const all = p.variants || [];
+    // An alias (a lent copy of a sound the part already offers, _merge.js) still
+    // resolves for set_variant, but is not listed: the part lists that sound once.
+    const all = (p.variants || []).filter((v) => !v.alias_of);
     // The default always survives filtering and truncation — it is the one
     // variant the caller needs to know in order to decide whether to change it.
     const scored = all.map((v) => {

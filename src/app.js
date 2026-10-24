@@ -16471,7 +16471,9 @@ function renderPartRow(card, inst, part) {
     };
     // The instrument's own (curated) variants stay on top, exactly as before.
     const nativeVars = part.variants.filter(v => !v.expanded);
-    const expandedVars = part.variants.filter(v => v.expanded);
+    // An alias (a lent copy of a sound this part already offers, _merge.js) is
+    // listed only while it is this card's pick, so a saved choice still shows.
+    const expandedVars = part.variants.filter(v => v.expanded && (!v.alias_of || card.parts[part.id] === v.id));
     nativeVars.forEach(v => variants.appendChild(makeChip(v)));
     row.appendChild(variants);
     // Universal cross-instrument materials (a sound generator isn't bound by
