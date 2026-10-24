@@ -199,3 +199,79 @@ test('native client copies an actual voices option marker and ambiguous unmarked
     await _workerInternals.kill();
   }
 });
+
+test('edit sessions accept returned numbering through the authoritative continuation check', async () => {
+  const { WorkflowSessions, verdictOf } = await import('./workflow_sessions.js');
+  const { JobStore } = await import('./job_store.js');
+  const { _workerInternals } = await import('./lyric_tools.js');
+  const { decodeState } = await import('./state_codec.js');
+  const sessions = new WorkflowSessions({ store: new JobStore() });
+  let id = sessions.open('lyrics', { phase: 'edit' }).session_id;
+  const revise = async (args) => {
+    const operation = sessions.submit(id, 'lyrics', 'lyric_revise', args);
+    await sessions.wait(operation.operation_id);
+    id = operation.operation_id;
+    return sessions.store.get(id).response.body.result;
+  };
+  const start = {
+    draft: ['Oh--oh my cat', 'I carry a dog'],
+    groups: '1.T3,2.end',
+    returns: '1.T3,2.T4',
+    numbering: 'v1',
+    pronunciations: [
+      {
+        line: 'Oh--oh my cat',
+        token: 3,
+        word: 'cat',
+        phones: ['K', 'AE1', 'T'],
+        basis: 'dictionary',
+        source: 'test: chosen cat',
+      },
+    ],
+    writer: 'interview',
+    attempts: 1,
+    max_rounds: 1,
+    backtrack: 0,
+  };
+  try {
+    const first = verdictOf(await revise(start));
+    assert.equal(first?.exit_code, 4);
+    const normalized = {
+      ...first.numbered_mandate,
+      pronunciations: first.pronunciations,
+    };
+    const again = await revise(normalized);
+    assert(!again.isError, JSON.stringify(again));
+    const verdict = verdictOf(again);
+    assert.equal(verdict.exit_code, 4);
+    assert.equal(decodeState(verdict.state).connector_declarations.groups, start.groups);
+    assert.deepEqual(
+      decodeState(verdict.state).connector_declarations.pronunciations,
+      start.pronunciations
+    );
+    for (const changed of [
+      { ...normalized, numbering: 'v1' },
+      { ...normalized, groups: start.groups },
+      { ...normalized, groups: '1.T5,2.end' },
+      {
+        ...normalized,
+        pronunciations: [{ ...first.pronunciations[0], phones: ['K', 'AH1', 'T'] }],
+      },
+      { ...normalized, draft: ['A different cat', 'I carry a dog'] },
+    ]) {
+      const refused = await revise(changed);
+      assert.equal(refused.isError, true, JSON.stringify(refused));
+    }
+    // Failed resends retain the original pending run and its own arguments.
+    const original = await revise({
+      groups: start.groups,
+      returns: start.returns,
+      numbering: start.numbering,
+      pronunciations: start.pronunciations,
+    });
+    assert(!original.isError, JSON.stringify(original));
+    assert.equal(verdictOf(original).exit_code, 4);
+  } finally {
+    await _workerInternals.kill();
+  }
+});
