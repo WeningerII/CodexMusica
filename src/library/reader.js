@@ -101,6 +101,7 @@ const rowsShard = (digest) => (parseInt(digest.slice(0, 2), 16) >> 2).toString(1
 const unitShard = (id) => /^reading_([0-9a-f]{2})/.exec(id)?.[1];
 
 class Closed extends Error {}
+class VersionUnavailable extends Error {}
 
 // Static files, raw: gzip is undone here so the bytes can be hashed. Cached
 // per tab; a failure is forgotten so Retry asks again.
@@ -615,10 +616,20 @@ function parse(sub) {
   const m = /^\/read\/([^/?#]+)/.exec(path);
   const params = new URLSearchParams(query);
   let id = m ? decodeURIComponent(m[1]) : '';
-  let key = params.get('key') || '';
-  const at = /^(reading_[0-9a-f-]{36})[@:]([0-9a-f]{16}-[0-9a-f]{12})$/.exec(id);
-  if (at) [, id, key] = at;
-  return { id, key, params };
+  const selectors = [...params.getAll('revision'), ...params.getAll('key')];
+  const at = /^(reading_[0-9a-f-]{36})[@:](.*)$/.exec(id);
+  if (at) {
+    id = at[1];
+    selectors.push(at[2]);
+  }
+  const selector = selectors[0];
+  const key = /^[0-9a-f]{16}-[0-9a-f]{12}$/.test(selector || '') ? selector : '';
+  const revision = /^[0-9a-f]{64}$/.test(selector || '') ? selector : '';
+  const error =
+    selectors.some((s) => s !== selector) || (selectors.length && !key && !revision)
+      ? 'The reading version selector is invalid or conflicting.'
+      : '';
+  return { id, key, revision, params, error };
 }
 
 function store(name, value) {
@@ -632,17 +643,26 @@ function store(name, value) {
 }
 
 function route(extra) {
-  const q = new URLSearchParams();
-  const set = (k, v) => v != null && v !== '' && q.set(k, v);
+  const q = new URLSearchParams(S.params);
+  const set = (k, v) => (v != null && v !== '' ? q.set(k, v) : q.delete(k));
+  q.delete('key');
+  q.delete('snapshot');
+  q.delete('play');
+  q.delete('autoplay');
+  q.set('revision', S.R.pathKey);
+  if (q.has('offset') && Number(q.get('offset')) !== extra.offset) {
+    for (const k of ['line', 'span', 'precision']) q.delete(k);
+  }
   set('offset', extra.offset);
   set('lens', S.lens !== 'summary' ? S.lens : '');
   set('view', S.source ? 'source' : '');
-  set('compare', extra.compare);
+  if ('compare' in extra) set('compare', extra.compare);
   const s = q.toString();
   return `/read/${S.R.id}${s ? '?' + s : ''}`;
 }
 function replaceRoute(extra = {}) {
   S.ownRoute = route({ offset: S.firstRow(), ...extra });
+  S.params = new URLSearchParams(S.ownRoute.split('?')[1]);
   try {
     S.lib.go(S.ownRoute, { replace: true });
   } catch {
@@ -653,17 +673,26 @@ function replaceRoute(extra = {}) {
 async function show(main, sub, lib) {
   if (!document.querySelector('style[data-lib="reader"]'))
     document.head.insertAdjacentHTML('beforeend', `<style data-lib="reader">${CSS}</style>`);
-  const { id, key, params } = parse(sub);
+  const { id, key, revision, params, error } = parse(sub);
   // Our own replace navigation, or a param change on the open reading.
-  if (S && S.main === main && S.R?.id === id && main.contains(S.root)) {
+  if (
+    !error &&
+    S &&
+    S.main === main &&
+    S.R?.id === id &&
+    main.contains(S.root) &&
+    (key === S.R.pathKey || (revision && revision === S.R.revision))
+  ) {
     if (sub === S.ownRoute) return;
     applyParams(params);
+    replaceRoute(params.has('offset') ? { offset: Number(params.get('offset')) || 0 } : {});
     return;
   }
   stop();
   S = {
     main,
     lib,
+    params,
     root: null,
     R: null,
     window: [0, 0],
@@ -696,8 +725,13 @@ async function show(main, sub, lib) {
   main.innerHTML = uiEmptyState({ title: 'Opening the source…' });
   const mine = S;
   try {
+    if (error) throw Error(error);
     const R = await openReading(lib, id, key);
     if (S !== mine) return;
+    if (revision && revision !== R.revision)
+      throw new VersionUnavailable(
+        'The requested reading version is unavailable here or has changed. Open the current reading to start without the old position or selection.'
+      );
     S.R = R;
     const pos = store('position:' + id);
     let offset = Number(params.get('offset'));
@@ -722,13 +756,20 @@ async function show(main, sub, lib) {
       };
     if (params.get('line')) S.hl = new Set([params.get('line')]);
     render();
-    const anchor = params.get('line') || (!params.has('offset') && pos?.line_id) || '';
+    const anchor =
+      params.get('line') ||
+      (!params.has('offset') && pos?.revision === R.revision && pos.line_id) ||
+      '';
     const row = params.has('offset') ? offset : null;
-    requestAnimationFrame(() => scrollToLine(anchor, row));
+    requestAnimationFrame(() => {
+      if (S === mine && S.R === R) scrollToLine(anchor, row);
+    });
+    replaceRoute({ offset: offset || 0 });
     if (params.get('compare')) openCompare(null, params.get('compare'));
     if (params.get('autoplay') === '1' || params.get('play') === '1') {
-      replaceRoute();
-      setTimeout(() => speak(true), 300);
+      setTimeout(() => {
+        if (S === mine && S.R === R) speak(true);
+      }, 300);
     }
   } catch (e) {
     if (S !== mine) return;
@@ -736,7 +777,7 @@ async function show(main, sub, lib) {
     main.innerHTML = uiEmptyState({
       title: e instanceof Closed ? 'This reading failed its check' : 'Reading unavailable',
       text: e.message + (e instanceof Closed ? ' No text is shown. Reload to fetch it again.' : ''),
-      actions: `<button type="button" class="cm-btn" data-rd-retry>${icon('refresh-cw', 16)}<span>Retry</span></button><button type="button" class="cm-btn" data-rd-back>${icon('arrow-left', 16)}<span>Works</span></button>`,
+      actions: `${e instanceof VersionUnavailable ? '<button type="button" class="cm-btn" data-rd-current>Open current reading</button>' : ''}<button type="button" class="cm-btn" data-rd-retry>${icon('refresh-cw', 16)}<span>Retry</span></button><button type="button" class="cm-btn" data-rd-back>${icon('arrow-left', 16)}<span>Works</span></button>`,
       tone: 'danger',
     });
     main.querySelector('[data-rd-retry]')?.addEventListener('click', () => {
@@ -745,10 +786,24 @@ async function show(main, sub, lib) {
       show(main, sub, lib);
     });
     main.querySelector('[data-rd-back]')?.addEventListener('click', () => lib.go('/works'));
+    main.querySelector('[data-rd-current]')?.addEventListener('click', () => {
+      const presentation = new URLSearchParams();
+      for (const k of ['lens', 'view']) if (params.has(k)) presentation.set(k, params.get(k));
+      lib.go(`/read/${id}${presentation.size ? '?' + presentation : ''}`);
+    });
   }
 }
 
 function applyParams(params) {
+  S.params = params;
+  const source = params.get('view') === 'source';
+  if (source !== S.source) {
+    S.source = source;
+    S.root.querySelector('[data-rd="source"]').checked = source;
+    S.root.querySelector('.rd-eyebrow').textContent =
+      `${words_(S.R.head.completeness)} · ${source ? 'Source transcription' : 'Normalized reading text'}`;
+    renderBody();
+  }
   const lens = params.get('lens') || 'summary';
   if (LENSES.some(([l]) => l === lens) && lens !== S.lens) {
     S.lens = lens;
@@ -974,13 +1029,18 @@ async function page(direction) {
 }
 
 async function goToRow(row) {
-  const p = Math.max(0, Math.min(S.R.pageCount - 1, Math.floor(row / PAGE_ROWS)));
-  if (p < S.window[0] || p > S.window[1]) {
+  const mine = S,
+    generation = ++mine.gen,
+    R = mine.R;
+  const p = Math.max(0, Math.min(R.pageCount - 1, Math.floor(row / PAGE_ROWS)));
+  if (p < mine.window[0] || p > mine.window[1]) {
     try {
-      await loadPage(S.lib, S.R, p);
+      await loadPage(mine.lib, R, p);
     } catch (e) {
-      return fail(e);
+      if (S === mine && mine.gen === generation) fail(e);
+      return;
     }
+    if (S !== mine || mine.gen !== generation) return;
     S.window = [p, p];
     renderBody();
   }

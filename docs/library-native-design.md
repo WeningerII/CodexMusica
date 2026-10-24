@@ -92,6 +92,7 @@ The Library becomes a native tab on codexmusica.com, as much a part of the site 
 - List params: q, language, availability, completeness, contributor, sort, offset. Defaults (''/'all'/'0') are omitted, as before.
 - Reader params: revision, line, offset, span=a:b, precision=exact|span, lens=summary|sound|form|rhythm|language|sources, view=source, compare=<id>, autoplay=1 (consumed with replaceState).
   - `revision` accepts either a full reading revision (old-Site links) or the `<rev16>-<proj12>` path key that the tab writes in its own links. Only the path key lets the head preload skip the `u/` shard.
+  - Every opened reading writes its verified path key as `revision`, including retained readings; legacy `key=` and `id@key`/`id:key` links remain accepted. Conflicting or malformed selectors are refused. A full hash is matched against the mounted reading or the current head, never treated as a path key. If no exact revision is available, the reader offers an explicit current-reading action that discards the old coordinates instead of silently substituting text.
 - All Library state lives in the fragment. `location.search` is never written, so nothing leaks into other tabs' URLs, and `?trad` (workbench.js:1047-1063) is unchanged.
 - An old `?snapshot=` is accepted and dropped. Every 5226 identity is unchanged in 317c (critic-verified). A notice appears only when `?revision` differs from the static revision.
 - Shell changes are confined to the three places the critic named:
