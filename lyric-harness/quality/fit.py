@@ -2122,8 +2122,8 @@ def from_blueprint(obj, assume_meter=None):
         if declared:
             cyc, assumed = _cycle_of(md), ""
         elif assume_meter is not None:
-            cyc = Cycle(pulses=int(assume_meter.beats),
-                        unit=int(assume_meter.unit),
+            cyc = Cycle(pulses=exact_number(assume_meter.beats, "meter beats"),
+                        unit=exact_integer(assume_meter.unit, "meter unit", 1),
                         groups=tuple(md.get("groups", ()) or ()))
             assumed = assume_meter.source
         else:

@@ -193,6 +193,32 @@ class RuntimeArithmetic(unittest.TestCase):
         self.assertEqual(QualityFeatures._tokens('cafe\u0301'),
                          QualityFeatures._tokens('café'))
 
+    def test_assumed_meter_preserves_exact_coordinates_in_both_readers(self):
+        from quality import grid as GR
+        blueprint = {"sections": [{"name": "verse", "bars": 2}],
+                     "lines": [{"section": "verse", "bar": 1, "beat": 1,
+                                "duration": 1, "text": "cat"}]}
+        for beats in (4, 4., "4", Fraction(9, 2), 4.5, "9/2"):
+            for unit in (4, 4., "4", Fraction(4)):
+                with self.subTest(beats=beats, unit=unit):
+                    assumed = FT.AssumedMeter(beats=beats, unit=unit, source="test arrangement")
+                    sections, _ = FT.from_blueprint(blueprint, assume_meter=assumed)
+                    song, _ = GR.song_from_blueprint(blueprint, assume_meter=assumed)
+                    cycle = sections[0]["cycle"]
+                    self.assertEqual(cycle.pulses, Fraction(str(beats)))
+                    self.assertEqual(cycle.unit, 4)
+                    self.assertEqual(cycle.pulses, song.sections[0].meter.beats)
+                    self.assertEqual(cycle.unit, song.sections[0].meter.unit)
+        for key, values in (("beats", (True, False, float("inf"), float("nan"))),
+                            ("unit", (True, False, 0, -1, 4.9, Fraction(9, 2), "4.5",
+                                      float("inf"), float("nan")))):
+            for value in values:
+                with self.subTest(key=key, value=value):
+                    assumed = FT.AssumedMeter(**{key: value}, source="test arrangement")
+                    for reader in (FT.from_blueprint, GR.song_from_blueprint):
+                        with self.subTest(reader=reader.__module__), self.assertRaises(ValueError):
+                            reader(blueprint, assume_meter=assumed)
+
     def test_subdivision_never_truncates_a_declared_coordinate(self):
         for value in (1.9, Fraction(3, 2), True, False, 0, -1,
                       float('inf'), float('nan'), '1.5'):
