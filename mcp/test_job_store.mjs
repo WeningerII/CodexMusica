@@ -129,7 +129,9 @@ test('receipt precedes execution; pending/different-input duplicates cannot disp
     requestContext().onCheckpoint({ kind: 'proposal', proposal: 'already accepted line' });
     entered();
     await gate;
-    res.status(201).json({ reply: 'finished', ...signed('fixture-secret') });
+    const finished = signed('fixture-secret', { final_draft: ['already accepted line'] });
+    req.chatJob.checkpoint({ ...finished, worker_progress_superseded: true });
+    res.status(201).json({ reply: 'finished', ...finished });
   });
   try {
     const first = post(host.url, body);

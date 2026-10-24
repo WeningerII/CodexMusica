@@ -612,11 +612,19 @@ export class JobStore {
     boundedPayload(body, RESPONSE_BYTES, 'Response');
     const record = this.records.get(id);
     if (!record || record.state !== 'pending') throw new Error('Cannot complete an inactive job');
+    // A chat exchange can finish after a tool lost its final response. Until
+    // a successful signed tool result supersedes its journal, completion must
+    // keep those accepted words and direct the caller to explicit recovery.
+    const unfinished = !!(
+      record.progress &&
+      Array.isArray(record.checkpoint?.history) &&
+      typeof record.checkpoint?.sig === 'string'
+    );
     return this.write({
-      ...record,
-      state: 'completed',
-      checkpoint: null,
-      progress: null,
+      ...(unfinished ? interruptedRecord(record, 'worker_result_unavailable', this.now()) : record),
+      state: unfinished ? 'interrupted' : 'completed',
+      checkpoint: unfinished ? record.checkpoint : null,
+      progress: unfinished ? record.progress : null,
       updated_at: this.now(),
       response: {
         status,
@@ -877,13 +885,21 @@ export function createJobRouter({
       if (completed) return res;
       try {
         const retryAfter = res.getHeader('Retry-After');
-        store.complete(
+        const saved = store.complete(
           id,
           res.statusCode,
           body,
           retryAfter === undefined ? {} : { 'retry-after': String(retryAfter) }
         );
         completed = true;
+        if (saved.state === 'interrupted') {
+          res.status(503);
+          return originalJson({
+            ...publicRecord(saved),
+            error:
+              'A lyric tool stopped before its final result arrived. Accepted work is retained; recover this request_id before continuing.',
+          });
+        }
       } catch (err) {
         completed = true;
         store.failedCompletion(id, err);

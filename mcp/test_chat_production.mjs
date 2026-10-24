@@ -801,7 +801,9 @@ test('largest carried ASCII, escaped and multibyte receipts complete durably wit
       store.begin(request_id, { request_id, message: 'continue', ...envelope });
       store.checkpoint(request_id, envelope);
       store.checkpoint(request_id, { accepted_lines: ['line'], journal: 'j'.repeat(500000) });
-      store.complete(request_id, 200, { reply: 'complete', ...envelope });
+      const finished = { ...envelope, lyric: { final_draft: ['line'] } };
+      store.checkpoint(request_id, { ...finished, worker_progress_superseded: true });
+      store.complete(request_id, 200, { reply: 'complete', ...finished });
       assert.equal(store.get(request_id).state, 'completed');
       assert.equal(store.failure, null);
     }
@@ -1822,6 +1824,136 @@ test('only a returned revise result supersedes progress, not an error or unrelat
     }
   } finally {
     globalThis.fetch = nativeFetch;
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test('normal chat completion retains an unfinished tool journal and directs explicit recovery', async () => {
+  const { requestContext } = await import('./execution_context.js');
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'chat-unfinished-worker-'));
+  const store = new JobStore(directory);
+  let mode = 'accepted';
+  let dispatches = 0;
+  const router = await createChatRouter({
+    buildServer: () => {
+      const server = new McpServer({ name: 'unfinished-worker', version: '1' }, { instructions });
+      server.registerTool('lyric_revise', { inputSchema: {} }, async () => {
+        dispatches++;
+        requestContext().onCheckpoint({
+          version: 1,
+          connector_semantic_identity:
+            mode === 'invalid' ? '0'.repeat(64) : continuationSemanticIdentity(),
+          status: mode === 'proposing' ? 'proposing' : 'accepted',
+          input_draft: ['original'],
+          accepted_lines: ['accepted worker words'],
+          answered: { q: 'accepted worker words' },
+          connector_declarations: { seed: 16, writer: 'kitchen' },
+        });
+        if (mode === 'returned')
+          return {
+            content: [
+              {
+                type: 'text',
+                text: JSON.stringify({
+                  exit_code: 3,
+                  status: 'parked',
+                  final_draft: ['final tool words'],
+                  open: [1],
+                }),
+              },
+            ],
+          };
+        throw new Error('transport lost after accepted progress');
+      });
+      return server;
+    },
+    Client,
+    InMemoryTransport,
+    apiKey: 'offline',
+    limits: { ...CHAT_LIMITS, perIpPerMinute: 1000, perIpPerHour: 1000 },
+    turnLimits: { ...LIMITS, maxSteps: 2 },
+  });
+  const app = express();
+  app.use(express.json());
+  app.use(
+    createJobRouter({ store, recoverCheckpoint: (record) => router.recoverCheckpoint(record) })
+  );
+  app.use(router);
+  const server = app.listen(0, '127.0.0.1');
+  await once(server, 'listening');
+  const url = `http://127.0.0.1:${server.address().port}`;
+  const post = async (body) => {
+    const response = await nativeFetch(url + '/chat', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    return { status: response.status, body: await response.json() };
+  };
+  try {
+    for (mode of ['accepted', 'proposing', 'invalid', 'returned']) {
+      let modelCalls = 0;
+      globalThis.fetch = async () =>
+        response(++modelCalls === 1 ? [fc('lyric_revise')] : [{ text: 'The outer turn stopped.' }]);
+      const id = crypto.randomBytes(32).toString('hex');
+      const input = {
+        request_id: id,
+        message: 'Edit these words',
+        task: { domain: 'lyrics', phase: 'edit' },
+      };
+      const result = await post(input);
+      assert.equal(result.status, mode === 'returned' ? 200 : 503, JSON.stringify(result.body));
+      const record = store.get(id);
+      assert.equal(store.failure, null);
+      if (mode === 'returned') {
+        assert.equal(record.state, 'completed');
+        assert.equal(record.progress, null);
+        assert.deepEqual(result.body.artifact.final_draft, ['final tool words']);
+        continue;
+      }
+      assert.equal(record.state, 'interrupted');
+      assert.deepEqual(result.body.progress.accepted_lines, ['accepted worker words']);
+      assert.equal(result.body.interruption, 'worker_result_unavailable');
+      assert.equal(typeof result.body.response.body.cost, 'number');
+      assert.equal(result.body.response.body.tools[0].name, 'lyric_revise');
+      assert.equal(
+        new JobStore(directory).get(id).progress.accepted_lines[0],
+        'accepted worker words'
+      );
+      if (mode === 'invalid') assert.equal(result.body.continuation, undefined);
+      else {
+        assert.deepEqual(result.body.continuation.lyric.final_draft, ['accepted worker words']);
+        assert.equal(result.body.continuation.lyric.resumable, mode !== 'proposing');
+        assert.equal(result.body.continuation.task.artifact.certified, false);
+      }
+      const before = dispatches;
+      const retry = await post(input);
+      assert.equal(retry.status, 409);
+      assert.equal(dispatches, before, 'the same receipt cannot dispatch again');
+      if (mode === 'accepted') {
+        const continued = await post({
+          request_id: crypto.randomBytes(32).toString('hex'),
+          continuation_id: id,
+          message: 'continue',
+        });
+        assert.equal(continued.status, 200, JSON.stringify(continued.body));
+        assert.deepEqual(continued.body.lyric.final_draft, ['accepted worker words']);
+        assert.equal(dispatches, before, 'outer reply does not replay the tool');
+      }
+      if (mode !== 'accepted') {
+        const continued = await post({
+          request_id: crypto.randomBytes(32).toString('hex'),
+          continuation_id: id,
+          message: 'continue',
+        });
+        assert.equal(continued.status, 409);
+        assert.equal(dispatches, before, 'unsafe journals cannot authorize redispatch');
+      }
+    }
+  } finally {
+    globalThis.fetch = nativeFetch;
+    server.close();
+    server.closeAllConnections();
     fs.rmSync(directory, { recursive: true, force: true });
   }
 });
