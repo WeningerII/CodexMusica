@@ -278,6 +278,7 @@ Sizes are measured on 317c by scratchpad r1design/measure_e.py and measure_f.py,
   - analysis shows **"Analysed on snapshot Y"**, from Render.
   - When X ≠ Y, the Sources lens explains that both snapshots contain this exact revision. It says so only after confirming revision equality through `GET /library/v1/metadata/:id`, which returns the unit's `reading_revision`. `/library/v1/health` carries no per-unit data.
 - The provenance download and the Lyrics envelope use `projected_from`. This keeps provenance working through Render outages.
+- A saved path may still open a retained revision. The reader binds its snapshot label to the current `u/` shard and catalog's matching `data_id`, and checks the full reading revision if the current path differs. A retained projection of the same revision remains exportable. If the revision differs or the binding cannot be verified, the saved text and source details stay readable, the snapshot is labelled unverified, and provenance download and Lyrics handoff refuse without inventing an origin or switching the reading.
 - The nightly `library-data` job regenerates catalog.json only when content changes. So `projected_from` can lag main's label, and that lag is documented.
 
 ### Totals and fetch rules
