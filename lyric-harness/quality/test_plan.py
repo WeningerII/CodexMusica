@@ -4795,8 +4795,11 @@ def test_the_seed_redraw():
             make_plan(seed=1, wants=[want])
         except PlanRefused as exc:
             msg = str(exc)
-        check("...the wants path keeps its own bound of 64 and its own "
-              "exhaustion text", len(calls) == 64
+        # The seed's own plan is tried first (its bounded redraw, the plan a
+        # sweep judges), then the wants path's own 64 conditioned draws.
+        check("...the wants path keeps its own bound of 64 after the seed's "
+              "own bounded redraw, and its own exhaustion text",
+              len(calls) == REDRAW_BOUND + 64
               and "bounded candidate draws" in msg, f"{len(calls)} draws")
         calls.clear()
         raised = None
@@ -4883,7 +4886,63 @@ def test_the_seed_redraw():
           f"blocked {blocked}; default {sw}")
 
 
+def test_a_request_refusal_is_the_requests():
+    print("\n— a refusal that reads only the request says so at once, and a "
+          "swept seed is the plan the same want builds (2026-10-24)")
+    from quality.plan import PlanRefused, SeedRefused, make_plan, sweep
+
+    def refusal(**kw):
+        try:
+            make_plan(**kw)
+        except PlanRefused as exc:
+            return exc
+        return None
+
+    # A roster missing a function the form requires: no seed can carry it.
+    e = refusal(seed=1, functions=["verse"])
+    check("a roster without the form's required chorus refuses the REQUEST, "
+          "naming it, not 500 draws of one seed",
+          e is not None and not isinstance(e, SeedRefused)
+          and "chorus" in str(e), repr(e)[:200])
+    # A schema no line-end group can carry: every group binds at its ends.
+    for rel in ("schema:anaphora", "schema:internal rhyme"):
+        e = refusal(seed=1, relation=rel)
+        check(f"--relation={rel} refuses the REQUEST: no planned group can "
+              f"carry it on any seed",
+              e is not None and not isinstance(e, SeedRefused), repr(e)[:200])
+    sw = sweep(range(3), relation="schema:anaphora")
+    check("...and the sweep reports it with request scope",
+          [g["scope"] for g in sw["refusals"]] == ["request"],
+          sw["refusals"])
+    # Under wants, a request refusal is raised once, not retried 64 times.
+    e = refusal(seed=1, form="ghazal", wants=["lines>=20"])
+    check("a blocked form under --want refuses at once with its own reason",
+          e is not None and "BLOCKED" in str(e)
+          and "candidate draws" not in str(e), repr(e)[:200])
+    # Predicates that can never hold, or never parse, refuse by name.
+    for raw in ("lines>=\u00b2", "uses=chrous", "before=verse"):
+        try:
+            PLN.parse_sweep_want(raw)
+            got = None
+        except PlanRefused as exc:
+            got = str(exc)
+        check(f"--want={raw!r} is refused by name", got is not None, got)
+    # A SWEPT SEED IS THE PLAN THE SAME WANT BUILDS. The sweep judges each
+    # seed's own plan; `lines<=60` narrows the draw, which moved the rng,
+    # so `make_plan(seed, wants)` delivered another song for seeds the
+    # sweep accepted. `returns>=3` narrows nothing: the control.
+    for want in ("lines<=60", "returns>=3"):
+        acc = sweep(range(40), wants=[PLN.parse_sweep_want(want)])["accepted"]
+        moved = [seed for seed in acc
+                 if make_plan(seed=seed, wants=[want])["sections"]
+                 != make_plan(seed=seed)["sections"]]
+        check(f"want {want}: every seed the sweep accepts plans, under the "
+              f"same want, the sections the sweep judged",
+              acc and not moved, (acc, moved))
+
+
 _SECTIONS = (
+    test_a_request_refusal_is_the_requests,
     test_the_seed_sweep_is_a_verb,
     test_the_form_is_read,
     test_the_measure,

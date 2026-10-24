@@ -66,6 +66,70 @@ class ReaderAcceptance(unittest.TestCase):
                 self.assertEqual({r["schema_name"] for r in rows}, set(RL.REGISTRY))
                 self.assertEqual(result["provider_calls"], 0)
 
+    def test_method_results_are_unique_with_and_without_stanza_breaks(self):
+        for separator in ("\n", "\n\n"):
+            reading = source("cat\nhat\nbat\nmat" + separator + "cat\nhat\nbat\nmat")
+            with self.subTest(separator=separator):
+                _, records, _ = complete(reading)
+                results = [r for r in records if r["kind"] == "method_result"]
+                self.assertEqual(len(results), len({r["id"] for r in results}))
+                self.assertEqual(len(results), len(RL.REGISTRY))
+                if separator == "\n":
+                    for name in ("monorhyme / leash", "dvitiyakshara-prasa", "monai"):
+                        result = next(r for r in results if r["schema_name"] == name)
+                        self.assertEqual(result["availability"], "needs_declaration")
+                        self.assertEqual(result["verdict"], "undecided")
+                        self.assertEqual(result["coverage"], "refused")
+                        self.assertIn("stanza", result["refusal"]["missing"])
+                        self.assertNotIn("supply", result)
+
+    def test_refused_whole_figures_restart_without_duplicate_results(self):
+        reading = source("cat\nhat")
+        schemas = ["monorhyme / leash", "dvitiyakshara-prasa", "monai"]
+        _, records, full = complete(reading, schemas=schemas)
+        _, resumed, restarted = complete(reading, schemas=schemas, batch=1, restart=True)
+        self.assertEqual(canonical_json(resumed), canonical_json(records))
+        self.assertEqual(len(resumed), len({r["id"] for r in resumed}))
+        self.assertEqual(restarted["summary"]["coverage"], full["summary"]["coverage"])
+        self.assertEqual(restarted["summary"]["counters"], full["summary"]["counters"])
+
+    def test_whole_figure_terminal_record_restart_preserves_refusal_phase(self):
+        # Expired leases stop immediately after each record, including after
+        # the terminal result but before its task advances. A candidate batch
+        # alone does not exercise that emission cursor.
+        fixtures = (("cat\nhat", "needs_declaration", "schema"),
+                    ("cat zzzqxx\nhat\n\nbat\nmat", "unknown_members", "assembly"),
+                    ("cat\nhat\n\nbat\nmat", "available", "assembly"),
+                    ("cat\nhat\n\nbat\nmat", "unsupported", "assembly"))
+        name = "monorhyme / leash"
+        for text, availability, terminal_phase in fixtures:
+            with self.subTest(availability=availability), patch.object(RL, "assemble", wraps=RL.assemble) as assemble:
+                if availability == "unsupported":
+                    assemble.return_value = RL.Refusal(name, "stanza", "Assembly declined the supplied frame.")
+                reading = source(text)
+                _, records, full = complete(reading, schemas=[name])
+                committed, checkpoint, terminal_checkpoints = [], None, []
+                for _ in range(100):
+                    with patch("library.analysis.runtime_identity", return_value=_FIXTURE_RUNTIME):
+                        session = AnalysisSession(reading, None,
+                            {"layers": ["sound"], "schemas": [name]}, checkpoint,
+                            load_records=lambda mid: (r for r in committed if r.get("method_id") == mid))
+                    result = session.step(256, deadline=0)
+                    committed.extend(result["records"])
+                    checkpoint = json.loads(json.dumps(result["checkpoint"]))
+                    for row in result["records"]:
+                        if row["kind"] == "method_result":
+                            self.assertEqual(row["availability"], availability)
+                            terminal_checkpoints.append((checkpoint["phase"], checkpoint["emission"]))
+                    if result["done"]:
+                        break
+                else:
+                    self.fail("reader did not finish single-record restart traversal")
+                self.assertEqual(terminal_checkpoints, [(terminal_phase, 1)])
+                self.assertEqual(canonical_json(committed), canonical_json(records))
+                self.assertEqual(len(committed), len({r["id"] for r in committed}))
+                self.assertEqual(result["summary"], full["summary"])
+
     def test_pair_judges_and_full_figures_match_installed_engine(self):
         reading = source("cat bat hat mat\ncat rat hat mat\n\ncat\nhat\nbat")
         session, records, _ = complete(reading)
@@ -293,6 +357,96 @@ class ReaderAcceptance(unittest.TestCase):
                                  None if got[0] is None else got[0].verdict, (name, a.origin, b.origin))
                 checked += 1
         self.assertGreater(checked, 2000)
+
+    def test_a_rebuild_reads_only_the_lines_it_has_not_read(self):
+        # The #590 slowdown (Don, 6379114576): a rebuilt line stream is the
+        # work's length with every other line blank, and each rebuild asked
+        # every line's phonology again and re-read the syllables of a line its
+        # readings leave as they were. A rebuild asks a line TEXT once, and
+        # reads a line's words once per readings pinned on that line, across
+        # the session. Counted, so a regression is a failure, not a slowdown.
+        from quality.phonology.eng import English
+        text = ("Every hour of our family fire\nDifferent nights and every lonely desire\n\n"
+                "We sat by the fire with our camera and wine\nEvery interest naturally fine")
+        session = AnalysisSession(source(text), None, {"layers": ["sound"]}, None, load_records=lambda mid: iter(()))
+        combos, _ = RL.reading_combos(session.stream, {t for t in session._disputed if t[0] == 0}, 64)
+        line0, line3 = (list(session.stream.lexical_tokens[li]) for li in (0, 3))
+        texts = text.split("\n")
+        asked, read = [], []
+        for_line, merged = English.for_line, English._merged
+        with patch.object(English, "for_line", lambda self, t: asked.append(t) or for_line(self, t)), \
+             patch.object(English, "_merged", lambda self, w: read.append(w) or merged(self, w)):
+            for lines, combo, texts_asked, words in (
+                    ([0], combos[1], {texts[0], ""}, line0),             # one blank text, not four blank lines
+                    ([0, 3], combos[1], {texts[0], texts[3], ""}, line3),  # line 0 under these readings is read
+                    ([0, 3], combos[2], {texts[0], texts[3], ""}, line0),  # line 3's readings did not move
+                    ([0], combos[1], set(), [])):                       # the same rebuild is the cached one
+                asked.clear()
+                read.clear()
+                session._line_stream(lines, combo)
+                with self.subTest(lines=lines, combo=session._combo_key(combo)):
+                    self.assertEqual(sorted(asked), sorted(texts_asked))
+                    self.assertEqual(read, words)
+
+    def test_an_evicted_rebuild_leaves_no_span_index(self):
+        session = AnalysisSession(source("Every hour of our family fire\nDifferent nights and every lonely desire"),
+                                  None, {"layers": ["sound"]}, None, load_records=lambda mid: iter(()))
+        rule = RL.REGISTRY["perfect rhyme"].spans[0]
+        combos, _ = RL.reading_combos(session.stream, {t for t in session._disputed if t[0] == 0}, 64)
+        with patch.object(AnalysisSession, "MINI_CACHE", 2):
+            for combo in combos[1:6]:
+                session._spans_by_key(session._line_stream([0], combo), rule)
+            live = {id(st) for st in session._mini.values()}
+            self.assertEqual(len(live), 2)
+            self.assertEqual(set(session._span_index), live)
+
+    def test_a_rebuild_is_guarded_when_its_lines_are_already_read(self):
+        # 3PO on #598: a warm line-read table means a rebuild syllabifies
+        # nothing, so the guard inside syllabification never runs. The
+        # rebuild itself is guarded, whatever it reads.
+        import os
+        from quality.phonology.eng import English
+        session = AnalysisSession(source("Every hour of our family fire\nDifferent nights and every lonely desire"),
+                                  None, {"layers": ["sound"]}, None, load_records=lambda mid: iter(()))
+        combos, _ = RL.reading_combos(session.stream, {t for t in session._disputed if t[0] == 0}, 64)
+        session._line_stream([0], combos[1])
+        session._mini.clear()
+        session._span_index.clear()
+        read = []
+        merged = English._merged
+        with patch.object(English, "_merged", lambda self, w: read.append(w) or merged(self, w)), \
+             patch.dict(os.environ, {"LIBRARY_READER_MAX_RSS_MIB": "1"}):
+            with self.assertRaisesRegex(ValueError, "RESOURCE_LIMIT: any-reading rebuild"):
+                session._line_stream([0], combos[1])
+        self.assertEqual(read, [])
+
+    def test_the_line_read_table_is_bounded(self):
+        # 3PO on #598: a measured peak is not a bound. Each combination of
+        # line 0's readings is a new entry, so the table grows with them --
+        # and stops at LINE_READS_CACHE + 3.
+        def sizes(cap):
+            session = AnalysisSession(source("Every hour of our family fire\nDifferent nights and every lonely desire"),
+                                      None, {"layers": ["sound"]}, None, load_records=lambda mid: iter(()))
+            combos, _ = RL.reading_combos(session.stream, {t for t in session._disputed if t[0] == 0}, 64)
+            with patch.object(AnalysisSession, "LINE_READS_CACHE", cap):
+                out = []
+                for combo in combos[1:12]:
+                    session._line_stream([0, 1], combo)
+                    out.append(len(session._line_reads))
+                return out
+        self.assertGreater(max(sizes(1024)), 4 + 3)
+        self.assertLessEqual(max(sizes(4)), 4 + 3)
+
+    def test_every_rebuild_cache_leaves_the_record_stream_unchanged(self):
+        # The caches decide what is read again, never what is recorded: the
+        # whole record stream, not only verdicts, is the same with every
+        # rebuild cache held to its smallest size.
+        reading = source("Every night I watch the fire\nBurning in our family room\n"
+                         "Every hour I feel it higher\nEvery flower starts to bloom")
+        _, rows, _ = complete(reading)
+        with patch.object(AnalysisSession, "MINI_CACHE", 1), patch.object(AnalysisSession, "LINE_READS_CACHE", 1):
+            _, squeezed, _ = complete(reading)
+        self.assertEqual(canonical_json(squeezed), canonical_json(rows))
 
     def test_a_member_with_no_referent_under_another_reading_is_absent(self):
         # BB8's texts on #590: with `fire` / `hour` read as one syllable, the
@@ -702,6 +856,23 @@ class ReaderAcceptance(unittest.TestCase):
         next(r for r in damaged if r["kind"] == "detail_part")["json_fragment"] += "x"
         with self.assertRaisesRegex(ValueError, "RESULT_EXPIRED"):
             list(resolve_detail_records(damaged))
+
+
+class ResumeKeepsRefusals(unittest.TestCase):
+    def test_an_unsearched_reading_combination_survives_a_restart(self):
+        # One whole-line pair holds six disputed words, more combinations
+        # than `EDGE_COMBOS`. `_any_reading` recorded that per candidate,
+        # outside the generator a resume fast-forwards, so a restarted
+        # traversal reported the method answered.
+        reading = source("fire every hour flower power\nour family evening fire flower\ncat")
+        schemas = ["parechesis / general consonance"]
+        _, whole, _ = complete(reading, schemas=schemas)
+        result = next(r for r in whole if r["kind"] == "method_result")
+        self.assertEqual(result["coverage"], "refused")
+        self.assertEqual(result["refusal"]["kind"], "reading_combinations")
+        for batch in (1, 7):
+            _, resumed, _ = complete(reading, schemas=schemas, batch=batch, restart=True)
+            self.assertEqual(canonical_json(resumed), canonical_json(whole))
 
 
 if __name__ == "__main__":

@@ -129,7 +129,9 @@ test('receipt precedes execution; pending/different-input duplicates cannot disp
     requestContext().onCheckpoint({ kind: 'proposal', proposal: 'already accepted line' });
     entered();
     await gate;
-    res.status(201).json({ reply: 'finished', ...signed('fixture-secret') });
+    const finished = signed('fixture-secret', { final_draft: ['already accepted line'] });
+    req.chatJob.checkpoint({ ...finished, worker_progress_superseded: true });
+    res.status(201).json({ reply: 'finished', ...finished });
   });
   try {
     const first = post(host.url, body);
@@ -877,6 +879,37 @@ test('P8: a link that would push the parent past the per-record cap is refused b
         assert.equal(store.get(p).successor_id, childId, `adopted=${adopted}`);
         assert.equal(store.get(childId).state, 'pending');
       }
+    }
+  }
+});
+
+test('signed accepted drafts remain protected after their worker progress is superseded', () => {
+  for (const location of ['lyric', 'artifact']) {
+    for (const laterEmptyProgress of [false, true]) {
+      const store = new JobStore(null, { maxPayloadRecords: 1 });
+      const first = id();
+      store.begin(first, { request_id: first, message: 'revise' });
+      store.checkpoint(first, { accepted_lines: ['worker words'] });
+      const checkpoint = {
+        history: [],
+        sig: 'fixture',
+        worker_progress_superseded: true,
+        ...(location === 'lyric'
+          ? { lyric: { final_draft: ['finished tool words'] } }
+          : { task: { artifact: { final_draft: ['finished tool words'] } } }),
+      };
+      store.checkpoint(first, checkpoint);
+      assert.equal(store.get(first).progress, null);
+      if (laterEmptyProgress) store.checkpoint(first, { accepted_lines: [] });
+      store.interrupt(first, 'process_restarted');
+      const second = id();
+      assert.throws(
+        () => store.begin(second, { request_id: second, message: 'unrelated' }),
+        (error) => error.code === 'JOB_CAPACITY'
+      );
+      assert.equal(store.get(second), null);
+      assert.equal(store.get(first).state, 'interrupted');
+      assert.deepEqual(store.get(first).checkpoint, checkpoint);
     }
   }
 });

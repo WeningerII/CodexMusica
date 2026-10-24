@@ -55,17 +55,40 @@ def _resource_guard(phase, extra_bytes=0):
                          "No source or comparison was dropped. Resume requires increased capacity.")
 
 
+#: What `build_stream` asks of a line's phonology about the line's text
+#: alone: one answer per text, whichever line prints it.
+_LINE_QUERIES = ("for_line", "tokens_for_line", "printed_boundary", "split_final")
+
+
 class _GuardedPhonology:
-    """Call the identical native reader while guarding stream preparation."""
+    """Call the identical native reader while guarding stream preparation.
+
+    One stream is read through one adapter, and a line's phonology and its
+    token cut are functions of the line's TEXT (a pinned reading binds to
+    the text it was declared on), so each is asked once per text, not once
+    per line. A rebuilt line stream is the work's length with every other
+    line blank: without this, every rebuild read every blank line again."""
     def __init__(self, phon, counter=None):
         self._inner = phon
         self._counter = counter if counter is not None else [0]
+        self._asked = {}
 
     def __getattr__(self, name):
         value = getattr(self._inner, name)
-        if name in ("for_line", "for_token"):
+        if name == "for_token":
             return lambda *args, **kwargs: _GuardedPhonology(value(*args, **kwargs), self._counter)
+        if name in _LINE_QUERIES:
+            return lambda text: self._ask(name, text, value)
         return value
+
+    def _ask(self, name, text, query):
+        key = (name, text)
+        if key not in self._asked:
+            got = query(text)
+            self._asked[key] = _GuardedPhonology(got, self._counter) if name == "for_line" else got
+        got = self._asked[key]
+        # A token cut is a list its caller owns.
+        return list(got) if isinstance(got, list) else got
 
     def syllabify(self, word):
         self._counter[0] += 1
@@ -377,6 +400,11 @@ class AnalysisSession:
         self._disputed = self._disputed_tokens()
         self._work_unit = {(u.line, u.token, u.tok_syl): u.i for u in self.stream.units}
         self._mini, self._span_index, self._incomplete = collections.OrderedDict(), {}, {}
+        # Line readings the rebuilt streams share (`RL._line_read_scope`'s
+        # table, held for the session as `_mini` is): a rebuild re-reads
+        # only a line whose own pinned readings it has not read before.
+        # Bounded by LINE_READS_CACHE.
+        self._line_reads = {}
         # A rebuilt line carries no unit-indexed declaration (a declared
         # caesura, lift or beat names the work's own units), so a work with
         # sound declarations keeps first-listed readings, counted.
@@ -420,6 +448,9 @@ class AnalysisSession:
                                    "true": 0, "false": 0, "undecided": 0}, "methods": {}}
         self.checkpoint["done"] = self.checkpoint["method_index"] >= len(self.tasks)
         self.checkpoint.setdefault("emission", 0)
+        # Searches `_any_reading` left incomplete before this checkpoint (the
+        # candidate generator's own writers replay themselves on resume).
+        self._incomplete.update(self.checkpoint.get("incomplete", {}))
 
     def _build_stream(self, phon=None):
         from quality import grid as GR
@@ -482,6 +513,12 @@ class AnalysisSession:
     EDGE_COMBOS = 64
     #: Line-pair rebuilds one schema's discovery may make, likewise.
     MINI_CAP = 4096
+    #: Line readings kept for the rebuilds at once, one per line text, its
+    #: words and the readings pinned on it. Past it the table starts again:
+    #: a cache, so what a rebuild reads never depends on it. One rebuild adds
+    #: at most one entry per line text it holds -- its one or two lines and
+    #: the blank -- so the table never exceeds LINE_READS_CACHE + 3.
+    LINE_READS_CACHE = 1024
 
     def _line_stream(self, lines, combo):
         """The work read with only `lines` present -- every other line blank,
@@ -493,6 +530,9 @@ class AnalysisSession:
         if key in self._mini:
             self._mini.move_to_end(key)
             return self._mini[key]
+        # A rebuild is an allocation whatever it reads: guarded here, not
+        # only through syllabification, which a warm line-read table skips.
+        _resource_guard("any-reading rebuild")
         phon = self.RL.pinned_phonology(self.stream, combo) if combo else self.phon
         st = None
         if phon is not None:
@@ -500,9 +540,20 @@ class AnalysisSession:
             keep = set(lines)
             raw = [text if i in keep else "" for i, text in enumerate(self._raw_lines)]
             sections, ground, source, status = self._stream_args
-            st = self.RL.build_stream(raw, _GuardedPhonology(phon), sections=sections, stanzas=ground,
-                                     stanza_source=source or "", line_status=status,
-                                     exclude_status=(GR.SECTION_MARKER_STATUS, "song_break"))
+            # Every rebuild reads its lines through one shared table, as the
+            # engine's own any-reading search does (`_line_read_scope`,
+            # M-317): a line's reading is keyed by its text, its words and
+            # the readings pinned on it, so the blank lines and the line a
+            # combination does not touch are read once, not once per rebuild.
+            if len(self._line_reads) >= self.LINE_READS_CACHE:
+                self._line_reads.clear()
+            outer, self.RL._ACTIVE_LINE_READS = self.RL._ACTIVE_LINE_READS, self._line_reads
+            try:
+                st = self.RL.build_stream(raw, _GuardedPhonology(phon), sections=sections, stanzas=ground,
+                                         stanza_source=source or "", line_status=status,
+                                         exclude_status=(GR.SECTION_MARKER_STATUS, "song_break"))
+            finally:
+                self.RL._ACTIVE_LINE_READS = outer
             st.phon = phon
             if any("/" in raw[i] or "|" in raw[i] for i in keep):
                 self.RL.mark_printed_caesura(st)
@@ -511,8 +562,7 @@ class AnalysisSession:
         while len(self._mini) > self.MINI_CACHE:
             _, old = self._mini.popitem(last=False)
             if old is not None:
-                for k in [k for k in self._span_index if k[0] == id(old)]:
-                    del self._span_index[k]
+                self._span_index.pop(id(old), None)
         return st
 
     def _touched(self, st, *spans):
@@ -547,9 +597,11 @@ class AnalysisSession:
         return (self._origin(span, st), span.direction, tuple(cells))
 
     def _spans_by_key(self, st, rule):
-        memo = self._span_index.get((id(st), id(rule)))
+        # Per stream, so an evicted stream's spans leave with it in one step.
+        by_rule = self._span_index.setdefault(id(st), {})
+        memo = by_rule.get(id(rule))
         if memo is None:
-            memo = self._span_index[(id(st), id(rule))] = {}
+            memo = by_rule[id(rule)] = {}
             for span in self.RL.enumerate_spans(rule, st):
                 memo.setdefault(self._span_key(span, st), []).append(span)
                 memo.setdefault(("locus", self._origin(span, st), span.direction), []).append(span)
@@ -583,9 +635,13 @@ class AnalysisSession:
         combos, complete = RL.reading_combos(self.stream, touched, self.EDGE_COMBOS)
         if not combos:
             return inst, st, None, first_only
-        if not complete:
-            self._incomplete.setdefault(name, f"a pair's words take more than {self.EDGE_COMBOS} "
-                                              f"combinations of readings")
+        if not complete and name not in self._incomplete:
+            # Judged here, per candidate, outside the candidate generator, so
+            # a resumed traversal that fast-forwards past this candidate never
+            # meets it again: the reason rides in the checkpoint, or the
+            # method resumes as answered (`_finish`).
+            reason = f"a pair's words take more than {self.EDGE_COMBOS} combinations of readings"
+            self._incomplete[name] = self.checkpoint.setdefault("incomplete", {})[name] = reason
         lines = sorted({st.units[i].line for span in (a, b) for i in span.idx})
         own = self._combo_key({t: c for t, c in (getattr(st, "any_reading_combo", None) or {}).items()
                                if t in touched})
@@ -929,16 +985,24 @@ class AnalysisSession:
             encoded_fields = {k: canonical_json(v) for k, v in record.items()
                               if k not in ("id", "kind", "method_id", "basis")}
             candidates = sorted(encoded_fields, key=lambda k: len(encoded_fields[k].encode("utf-8")), reverse=True)
+            # The record's size changes only when a field is detached, so it
+            # is measured once and again after each detachment -- not once
+            # per field.
+            size = None
             for field in candidates:
                 encoded = encoded_fields[field]
                 raw = encoded.encode("utf-8")
-                if len(raw) <= 8192 and len(canonical_json(record).encode("utf-8")) <= 24576:
-                    continue
+                if len(raw) <= 8192:
+                    if size is None:
+                        size = len(canonical_json(record).encode("utf-8"))
+                    if size <= 24576:
+                        continue
                 sha = hashlib.sha256(raw).hexdigest()
                 detail_id = "detail:" + digest([original["id"], field, sha])[:32]
                 parts = max(1, (len(encoded) + 4095) // 4096)
                 record[field] = {"$detail_ref": detail_id, "encoding": "json",
                                  "sha256": sha, "byte_length": len(raw), "parts": parts}
+                size = None
                 details.append((field, detail_id, encoded, parts))
             yield record
             for field, detail_id, encoded, total in details:
@@ -1531,6 +1595,12 @@ class AnalysisSession:
         RL, cp = self.RL, self.checkpoint
         mid = self._task_mid(phase, name)
         counts = cp["methods"].setdefault(mid, {"candidates": 0, "true": 0, "false": 0, "undecided": 0})
+        # A schema refusal already emitted this method's terminal result.
+        # Assembly skips refused schemas; its empty iterator must not finish
+        # them a second time, including after a checkpoint restart.
+        if phase == "assembly" and name in cp.get("refused_schemas", []):
+            self._local_records.pop(mid, None)
+            return []
         counts["coverage"] = "refused" if counts.get("refused_questions") else counts.get("coverage", "answered")
         rows = []
         needs_assembly = phase == "schema" and not RL.pair_scope_representable(RL.REGISTRY[name]) and name not in RL.FULL_SHAPES
@@ -1650,6 +1720,8 @@ class AnalysisSession:
         except _Refused as exc:
             counts["coverage"] = "refused"
             counts["refusal"] = json_safe(exc.refusal)
+            if phase == "schema" and name not in cp.setdefault("refused_schemas", []):
+                cp["refused_schemas"].append(name)
             new, action = [self._refusal(name, exc.refusal)], "advance"
         emitted = iter(self._bounded_records(new))
         for _ in range(cp["emission"]):

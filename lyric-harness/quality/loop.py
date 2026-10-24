@@ -376,7 +376,9 @@ def _no_word_in(new_word):
 
 
 def _cased(old, new_word):
-    if old.isupper():
+    # A one-letter capital ("I", "O") is a word's spelling, not shouting:
+    # "you and I" -> "you and Sky", never "you and SKY".
+    if old.isupper() and len(old) > 1:
         return new_word.upper()
     if old[:1].isupper():
         return new_word.capitalize()
@@ -2976,8 +2978,9 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                         _x = latest_open.get(_x.line_no)
                         if _x is None:
                             continue
-                    if _x.joint_conflict:
-                        continue
+                    # A joint-conflict line is still walked before the lines
+                    # behind it, so it is offered: `prefetch` keeps it out of
+                    # the batch and lets it block what it relates to.
                     _x._materialize = lambda _candidate=_x: _materialize(
                         _candidate, line_only=True)
                     _ahead.append(_x)

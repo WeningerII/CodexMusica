@@ -289,16 +289,40 @@ async function metadataOf(lib, R) {
   if (!m) throw Error('The reading’s metadata header is missing.');
   return (R.metadata = m);
 }
-async function snapshotOf(lib) {
+async function snapshotOf(lib, R) {
   try {
-    const c =
-      typeof lib.catalog === 'function'
-        ? await lib.catalog()
-        : await fetchJSON(lib, 'catalog.json');
-    return c?.projected_from?.snapshot_id || '';
+    // A saved path can still serve a retained revision after the catalog moves
+    // on. Only label it with a snapshot that actually contains that revision.
+    const [c, shard] = await Promise.all([
+      typeof lib.catalog === 'function' ? lib.catalog() : fetchJSON(lib, 'catalog.json'),
+      fetchJSON(lib, `u/${unitShard(R.id)}.json.gz`),
+    ]);
+    const snapshot = c?.projected_from?.snapshot_id;
+    if (
+      typeof snapshot !== 'string' ||
+      !/^[0-9a-f]{64}$/.test(snapshot) ||
+      !c?.data_id ||
+      shard.data_id !== c.data_id
+    )
+      return '';
+    const key = (shard.units || []).find((u) => u[0] === R.id)?.[1];
+    if (!key) return '';
+    // A retained projection of the same canonical revision is still valid.
+    // Check the full revision, not just the sixteen characters in a path key.
+    const current = key === R.pathKey ? R : await openReading(lib, R.id, key);
+    return current.revision === R.revision ? snapshot : '';
   } catch {
     return '';
   }
+}
+function requireSnapshot(snapshot) {
+  if (!snapshot)
+    // Missing origin is not a content-integrity failure: keep the saved text
+    // visible, but never emit an import envelope with an invented identity.
+    throw Error(
+      'This reading’s snapshot could not be verified. Its saved text is still available. Reload the page or open the current reading before exporting or sending it to Lyrics.'
+    );
+  return snapshot;
 }
 // Canonical (sorted-key) order, as the Worker's wholeReading spread emits it.
 const sorted = (o) =>
@@ -318,10 +342,10 @@ async function provenance(lib, R) {
     allLines(lib, R),
     rightsOf(lib, R),
     metadataOf(lib, R),
-    snapshotOf(lib),
+    snapshotOf(lib, R),
   ]);
   return {
-    snapshot_id: snapshot,
+    snapshot_id: requireSnapshot(snapshot),
     reading_unit_id: R.id,
     reading_revision: R.revision,
     rights,
@@ -341,7 +365,7 @@ async function buildEnvelope(lib, R, excerptIds, declarations) {
     wholeText(lib, R),
     rightsOf(lib, R),
     metadataOf(lib, R),
-    snapshotOf(lib),
+    snapshotOf(lib, R),
   ]);
   const picked = lines.filter(
     (l) => l.analysis_line !== null && (!excerptIds || excerptIds.has(l.id))
@@ -360,7 +384,7 @@ async function buildEnvelope(lib, R, excerptIds, declarations) {
       language: h.language,
       scope: excerptIds ? 'excerpt' : 'whole',
       provenance: {
-        snapshotId: snapshot,
+        snapshotId: requireSnapshot(snapshot),
         unitId: R.id,
         workId: h.work_id,
         editionId: h.edition_id,
@@ -1040,7 +1064,7 @@ async function fillSources(el) {
   const [meta, rights, snap] = await Promise.allSettled([
     metadataOf(S.lib, S.R),
     rightsOf(S.lib, S.R),
-    snapshotOf(S.lib),
+    snapshotOf(S.lib, S.R),
   ]);
   if (S !== mine || !el.isConnected) return;
   const m = el.querySelector('[data-rd-meta]'),
@@ -1061,7 +1085,7 @@ async function fillSources(el) {
   if (i && snap.status === 'fulfilled')
     i.innerHTML = i.innerHTML.replace(
       'snapshot …',
-      'snapshot ' + esc(snap.value.slice(0, 12) || 'unknown')
+      'snapshot ' + esc(snap.value.slice(0, 12) || 'unverified')
     );
   if (rights.status === 'rejected' && rights.reason instanceof Closed) fail(rights.reason);
 }
@@ -1084,7 +1108,7 @@ function readingContext() {
     wholeText: () => wholeText(lib, R),
     rights: () => rightsOf(lib, R),
     metadata: () => metadataOf(lib, R),
-    snapshotId: () => snapshotOf(lib),
+    snapshotId: () => snapshotOf(lib, R),
     selection: () => [...S.sel],
     highlight: (record, lineIds) => highlight(record, lineIds),
     open: (sub) => lib.go(sub),

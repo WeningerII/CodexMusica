@@ -16,7 +16,18 @@ from .contracts import json_safe, range_pair
 
 
 class InvalidDeclaration(ValueError):
+    """A caller declaration the reader refuses. The message carries the code
+    as its prefix, because the reader worker reads the refusal's code from
+    the message (`mcp/worker.py`), as it does for `analysis.py`'s own
+    `ValueError("INVALID_DECLARATION: ...")`; without it every form
+    refusal reached the job as a bare READER_ERROR."""
     code = "INVALID_DECLARATION"
+
+    def __init__(self, message=""):
+        message = str(message)
+        if not message.startswith(self.code + ":"):
+            message = f"{self.code}: {message}"
+        super().__init__(message)
 
 
 def _presence(value):
@@ -61,7 +72,9 @@ def _rows(source):
     if not isinstance(source, dict):
         raise InvalidDeclaration("source must be an object")
     raw = source.get("lines")
-    if raw is None:
+    # An empty `lines` array is read as absent, exactly as the session's own
+    # `analysis._source_lines` reads it, so every layer reads the same rows.
+    if raw is None or raw == []:
         text = source.get("normalized_text", source.get("text", ""))
         if not isinstance(text, str):
             raise InvalidDeclaration("reading text must be a string")
@@ -81,6 +94,8 @@ def _rows(source):
             _capacity_guard("source row preparation")
         row = dict(supplied) if isinstance(supplied, dict) else {"text": str(supplied)}
         row.setdefault("id", f"{source.get('reading_unit_id', 'reading')}:line:{index + 1}")
+        if not isinstance(row["id"], str):
+            raise InvalidDeclaration("source line IDs must be strings")
         if row["id"] in used:
             raise InvalidDeclaration("source line IDs must be unique")
         used.add(row["id"])
@@ -200,13 +215,14 @@ def _sections(source, physical, sung, declarations):
         raise InvalidDeclaration("form must be an object")
     if not isinstance(annotation.get("sections", []), list):
         raise InvalidDeclaration("form sections must be an array")
-    occupied = {}
+    occupied, declared_ids = {}, set()
     for item in annotation.get("sections", []):
         _source_basis(item, "form section")
         if "voice" in item and (not isinstance(item["voice"], str) or not item["voice"].strip()):
             raise InvalidDeclaration("a declared section voice must be a nonempty label")
         line_ids = item.get("line_ids")
-        if not isinstance(line_ids, list) or not line_ids or len(set(line_ids)) != len(line_ids):
+        if (not isinstance(line_ids, list) or not line_ids or not all(isinstance(i, str) for i in line_ids)
+                or len(set(line_ids)) != len(line_ids)):
             raise InvalidDeclaration("form section requires distinct line_ids")
         if any(i not in by_id for i in line_ids):
             raise InvalidDeclaration("form section refers to a missing sung line")
@@ -218,6 +234,9 @@ def _sections(source, physical, sung, declarations):
         sid = item.get("id")
         if not isinstance(sid, str) or not sid:
             raise InvalidDeclaration("form section requires an id")
+        if sid in declared_ids:
+            raise InvalidDeclaration("declared section IDs must be unique")
+        declared_ids.add(sid)
         if spec and spec.kind == "section":
             for lid in line_ids:
                 if lid in occupied:
@@ -335,6 +354,8 @@ def decode_beatgrid(source, declaration):
     meter = declaration.get("meter")
     if not isinstance(meter, dict) or not {"beats", "unit"} <= meter.keys():
         raise InvalidDeclaration("beatgrid requires explicit meter beats and unit")
+    if not isinstance(meter.get("groups", []), list):
+        raise InvalidDeclaration("beatgrid meter groups must be an array")
     cycle = Cycle(exact_number(meter["beats"], "beatgrid meter beats"),
                   exact_integer(meter["unit"], "beatgrid meter unit", 1),
                   tuple(exact_number(g, "beatgrid group") for g in meter.get("groups", [])))
@@ -405,10 +426,14 @@ def _setting(source, sung, sections, declarations, phon):
     fitted = F.fit_song(bp, phon=phon, subdivision=subdivision, assume=assume, strip_parens=False)
     values = []
     # SongFit.lines groups sections; map by placement, not declaration order.
-    lookup = {(l["section"], l["bar"], str(Fraction(str(l["beat"]))), str(Fraction(str(l["duration"]))), l["text"]): []
-              for l in bp["lines"]}
+    # The key is normalised exactly as `G.song_from_blueprint` normalises the
+    # placement it fits (`int(bar)`), so a bar declared as "2" or 2.0 finds
+    # its line rather than raising KeyError.
+    def placement_key(l):
+        return (l["section"], int(l["bar"]), str(Fraction(str(l["beat"]))), str(Fraction(str(l["duration"]))), l["text"])
+    lookup = {placement_key(l): [] for l in bp["lines"]}
     for line in bp["lines"]:
-        key = (line["section"], line["bar"], str(Fraction(str(line["beat"]))), str(Fraction(str(line["duration"]))), line["text"])
+        key = placement_key(line)
         lookup[key].append(line["line_id"])
     for lf in fitted.lines:
         p = lf.placement
@@ -595,7 +620,7 @@ def _voices(sections, sung, voice_by_line, declarations):
         converted = []
         for item in value:
             _source_basis(item, "line relation")
-            if item.get("call") not in by_id or item.get("response") not in by_id:
+            if not all(isinstance(item.get(k), str) and item[k] in by_id for k in ("call", "response")):
                 raise InvalidDeclaration("line relation refers to a missing line_id")
             converted.append({**item, "call": by_id[item["call"]] + 1, "response": by_id[item["response"]] + 1})
     relations = read_line_relations(converted, blocks)

@@ -338,14 +338,21 @@ export class JobStore {
     // it is the only copy of paid work the caller has not yet recovered, and a burst of cheap
     // unrelated requests must not be able to retire it. TTL expiry, which the
     // caller can read from the receipt, is what bounds it.
-    const rank = (r) =>
-      r.state === 'completed'
-        ? r.successor_id
-          ? 0
-          : 1
-        : (r.progress?.accepted_lines ?? r.checkpoint?.accepted_lines)?.length
-          ? 3
-          : 2;
+    const rank = (r) => {
+      if (r.state === 'completed') return r.successor_id ? 0 : 1;
+      const progress = r.progress;
+      const checkpoint = r.checkpoint;
+      // Accepted work may now live in a signed tool result, after its worker
+      // journal was superseded. A later empty journal cannot erase that copy.
+      return [
+        progress?.accepted_lines,
+        checkpoint?.accepted_lines,
+        checkpoint?.lyric?.final_draft,
+        checkpoint?.task?.artifact?.final_draft,
+      ].some((lines) => Array.isArray(lines) && lines.length)
+        ? 3
+        : 2;
+    };
     const terminal = [...this.records.values()]
       .filter(
         (r) =>
@@ -582,6 +589,9 @@ export class JobStore {
       ...record,
       updated_at: this.now(),
       [safe ? 'checkpoint' : 'progress']: copy(payload),
+      // Only the runner can establish that a returned revision superseded
+      // its worker journal. Signed error exchanges still need that journal.
+      ...(safe && payload.worker_progress_superseded === true ? { progress: null } : {}),
     });
   }
 
@@ -602,11 +612,19 @@ export class JobStore {
     boundedPayload(body, RESPONSE_BYTES, 'Response');
     const record = this.records.get(id);
     if (!record || record.state !== 'pending') throw new Error('Cannot complete an inactive job');
+    // A chat exchange can finish after a tool lost its final response. Until
+    // a successful signed tool result supersedes its journal, completion must
+    // keep those accepted words and direct the caller to explicit recovery.
+    const unfinished = !!(
+      record.progress &&
+      Array.isArray(record.checkpoint?.history) &&
+      typeof record.checkpoint?.sig === 'string'
+    );
     return this.write({
-      ...record,
-      state: 'completed',
-      checkpoint: null,
-      progress: null,
+      ...(unfinished ? interruptedRecord(record, 'worker_result_unavailable', this.now()) : record),
+      state: unfinished ? 'interrupted' : 'completed',
+      checkpoint: unfinished ? record.checkpoint : null,
+      progress: unfinished ? record.progress : null,
       updated_at: this.now(),
       response: {
         status,
@@ -867,13 +885,21 @@ export function createJobRouter({
       if (completed) return res;
       try {
         const retryAfter = res.getHeader('Retry-After');
-        store.complete(
+        const saved = store.complete(
           id,
           res.statusCode,
           body,
           retryAfter === undefined ? {} : { 'retry-after': String(retryAfter) }
         );
         completed = true;
+        if (saved.state === 'interrupted') {
+          res.status(503);
+          return originalJson({
+            ...publicRecord(saved),
+            error:
+              'A lyric tool stopped before its final result arrived. Accepted work is retained; recover this request_id before continuing.',
+          });
+        }
       } catch (err) {
         completed = true;
         store.failedCompletion(id, err);

@@ -192,9 +192,11 @@ const ENTRY_POINTS = [
   { url: 'llms.txt', backedBy: path.join(OUT_DIR, 'llms.txt') },
   { url: 'AGENTS.md', backedBy: path.join(ROOT, 'AGENTS.md') },
   { url: 'SKILL.md', backedBy: path.join(ROOT, 'SKILL.md') },
-  { url: 'server.json', backedBy: path.join(ROOT, 'server.json') },
+  // Written by this script further down, unconditionally, so it is backed by
+  // construction: checking for it first refused to regenerate a missing one.
+  { url: 'server.json', backedBy: path.join(OUT_DIR, 'server.json'), writtenBelow: true },
 ];
-const missing = ENTRY_POINTS.filter((e) => !fs.existsSync(e.backedBy));
+const missing = ENTRY_POINTS.filter((e) => !e.writtenBelow && !fs.existsSync(e.backedBy));
 if (missing.length) {
   process.stderr.write(
     'build_discovery: refusing to declare sitemap URLs with no file behind them:\n' +
