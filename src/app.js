@@ -19452,9 +19452,9 @@ async function _chatSend(message, { choice, context = null, clearInput = false }
     _chatAppend('<div class="chat-msg chat-msg-note">The response was interrupted. Checking the saved request before continuing…</div>');
     await _chatRecover(generation);
   } finally {
-    _chatPollStop();
     note?.remove();
     if (generation === chatState.generation) {
+      _chatPollStop();
       chatState.controller = null;
       _chatSetBusy(false);
       if (clearInput && input && !input.disabled) input.focus();
