@@ -27,7 +27,6 @@ import json
 import math
 import os
 import re
-import shlex
 import unicodedata
 import sys
 import contextlib
@@ -10994,12 +10993,13 @@ def main():
         # THE NEXT COMMAND, SPELLED (2026-09-02): `plan` prints GRADE IT and
         # this door printed only "hand them to brief/revise" — the tier-A
         # verification of M-195 named the gap. Quoted, so the line pastes.
-        _gi = ["python3 lyric_harness.py brief", shlex.quote(rest[0]),
-               shlex.quote(f"--groups={ms.get('--groups=', '')}")]
+        import shlex as _shlex
+        _gi = ["python3 lyric_harness.py brief", _shlex.quote(rest[0]),
+               _shlex.quote(f"--groups={ms.get('--groups=', '')}")]
         if input_format == "source":
             _gi.append("--input-format=source")
         if ms.get('--returns='):
-            _gi.append(shlex.quote(f"--returns={ms['--returns=']}"))
+            _gi.append(_shlex.quote(f"--returns={ms['--returns=']}"))
         print(f"  GRADE IT: {' '.join(_gi)}")
         print("      (`revise FILE MANDATE --propose=defer:STATE.json` is the "
               "same mandate driven to a stop condition and stamped)")
@@ -11525,6 +11525,7 @@ def main():
             print(f"      {', '.join(str(x) for x in res['accepted'][:40])}"
                   + (f" ... and {len(res['accepted']) - 40} more"
                      if len(res["accepted"]) > 40 else ""))
+            import shlex as _shlex
             print(f"    NEXT: python3 lyric_harness.py plan "
                   f"--seed={res['accepted'][0]}"
                   + (f" --form={form}" if form != "verse-chorus" else "")
@@ -11532,7 +11533,7 @@ def main():
                   + (f" --functions={funcs_raw}" if funcs_raw else "")
                   # Every declaration the sweep planned under, or the
                   # printed seed plans something the sweep never judged.
-                  + "".join(f" {shlex.quote(f'--{k}={v}')}" for k, v in (
+                  + "".join(f" {_shlex.quote(f'--{k}={v}')}" for k, v in (
                       ("relation", relation), ("title", title),
                       ("narrative", narrative_raw), ("melody", melody_raw))
                       if v is not None))
