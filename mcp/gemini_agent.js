@@ -1978,7 +1978,9 @@ export async function runTurn({
       }
 
       const responses = [];
+      let workerProgressSuperseded = false;
       for (const fc of functionCalls) {
+        workerProgressSuperseded = false;
         const args = { ...(fc.args || {}) };
         const recoveryOnly = isRecoveryOnly(fc.name, args);
         let result;
@@ -2379,6 +2381,16 @@ export async function runTurn({
             };
           }
           if (!recoveryOnly) lyr = carryState(lyr, fc.name, args, lyricVerdict, surface);
+          // Only a returned revision carrying its draft or continuation replaces
+          // its worker journal. An error exchange (or a later unrelated tool)
+          // must retain accepted progress whose final result never arrived.
+          workerProgressSuperseded =
+            fc.name === 'lyric_revise' &&
+            !recoveryOnly &&
+            !isError &&
+            (Array.isArray(lyricVerdict?.final_draft) ||
+              typeof lyricVerdict?.state === 'string' ||
+              typeof lyricVerdict?.checkpoint === 'string');
           if (!recoveryOnly && lyr && lyricVerdict?.run_revision != null)
             lyr.run_revision = lyricVerdict.run_revision;
           if (lyricVerdict?.status === 'uncertain_proposal') {
@@ -2486,6 +2498,7 @@ export async function runTurn({
           safeLyric = lyr;
           await onCheckpoint({
             history: safeHistory,
+            worker_progress_superseded: workerProgressSuperseded,
             workspace: ws,
             lyric: lyr,
             task,
@@ -2503,6 +2516,7 @@ export async function runTurn({
       if (onCheckpoint)
         await onCheckpoint({
           history: contents,
+          worker_progress_superseded: workerProgressSuperseded,
           workspace: ws,
           lyric: lyr,
           task,
