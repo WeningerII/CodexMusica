@@ -76,7 +76,10 @@ const resolver = createCatalogResolver({
   readerScheme: await probeReaderSchemeOfWorker(),
 });
 const catalog = await resolver.probe();
-const pinnedSnapshot = 'ef7cc67b3fef549c3bb8a8565b69ddddd9a7c57293bcf3355f787653bb5f7b13';
+// 6d6b4314 since the Gutenberg notice ranges were measured on the committed
+// CRLF files (#609): the notices sit in every sonnets and Whitman reading, so
+// the canonical snapshot moved. library/data is projected from the same one.
+const pinnedSnapshot = '6d6b4314aa57901757ce456e6a3ba6b5223db23a58eedb195201060cd4ec8377';
 const retainedSnapshot = '5226b4fbe427848759a626560b18b361990ef8c80debece031d770e363febc9e';
 const retainedImage =
   'ghcr.io/weningerii/codexmusica/lyrics@sha256:3a9ad3711a338653cb1dc97e81badae2ab9a330eb624ae154e0c8b33e805e7f7';
