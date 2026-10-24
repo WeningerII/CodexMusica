@@ -103,20 +103,30 @@ def blob_id(path):
 def rows(snapshot_dir, admitted):
     manifest_bytes = (snapshot_dir / "manifest.json").read_bytes()
     manifest = json.loads(manifest_bytes)
+    # A snapshot missing a table is refused like any other broken link, not
+    # left to raise KeyError past the CLI's ManifestError handler.
+    if not isinstance(manifest, dict):
+        raise ManifestError("manifest.json is not an object")
     if sha({k: v for k, v in manifest.items() if k != "snapshot_id"}) != manifest.get("snapshot_id"):
         raise ManifestError("manifest.json does not hash to its snapshot_id")
-    artifacts = manifest["artifacts"]
+    artifacts = manifest.get("artifacts")
+    if not isinstance(artifacts, dict):
+        raise ManifestError("manifest.json has no artifacts table")
     index_bytes = (snapshot_dir / "index.json").read_bytes()
     if sha(index_bytes) != artifacts.get("index.json"):
         raise ManifestError("index.json does not match its manifest artifact entry")
     index = json.loads(index_bytes)
+    if not isinstance(index, dict) or not isinstance(index.get("readings"), list):
+        raise ManifestError("index.json has no readings list")
     out = []
     for reading in index["readings"]:
+        if not isinstance(reading, dict):
+            raise ManifestError("index.json lists a reading that is not an object")
         rid = reading.get("reading_unit_id", "")
-        if not UNIT_ID.fullmatch(rid):
+        if not isinstance(rid, str) or not UNIT_ID.fullmatch(rid):
             raise ManifestError(f"malformed reading_unit_id {rid!r}")
         availability = reading.get("availability")
-        if availability not in AVAILABILITY:
+        if not isinstance(availability, str) or availability not in AVAILABILITY:
             raise ManifestError(f"{rid}: unknown availability {availability!r}")
         path = f"readings/{rid}.json"
         if reading.get("path") != path or path not in artifacts:
@@ -125,8 +135,12 @@ def rows(snapshot_dir, admitted):
         if sha(raw) != artifacts[path]:
             raise ManifestError(f"{rid}: reading file does not match its artifact entry")
         body = json.loads(raw)
+        if not isinstance(body, dict):
+            raise ManifestError(f"{rid}: reading file is not an object")
         if body.get("reading_unit_id") != rid or body.get("availability") != availability:
             raise ManifestError(f"{rid}: reading file disagrees with the index")
+        if not isinstance(body.get("reading_revision"), str):
+            raise ManifestError(f"{rid}: reading has no revision")
         if body.get("reading_revision") != reading.get("reading_revision"):
             raise ManifestError(f"{rid}: reading revision disagrees with the index")
         if sha({k: v for k, v in body.items() if k != "reading_revision"}) != body["reading_revision"]:
@@ -134,7 +148,10 @@ def rows(snapshot_dir, admitted):
         if body.get("normalized_sha256") != reading.get("normalized_sha256"):
             raise ManifestError(f"{rid}: normalized hash disagrees with the index")
         reason = reading.get("availability_reason") or {}
-        verdicts = sorted({e.get("verdict") for e in reason.get("admission", []) if e.get("verdict")})
+        admission = reason.get("admission", []) if isinstance(reason, dict) else None
+        if not isinstance(admission, list) or not all(isinstance(e, dict) for e in admission):
+            raise ManifestError(f"{rid}: malformed availability_reason")
+        verdicts = sorted({e["verdict"] for e in admission if isinstance(e.get("verdict"), str) and e["verdict"]})
         if availability == "readable":
             if not set(verdicts) & set(admitted):
                 raise ManifestError(f"{rid}: readable without an admitting verdict")
@@ -161,7 +178,8 @@ def rows(snapshot_dir, admitted):
     counts = {}
     for row in out:
         counts[row[1]] = counts.get(row[1], 0) + 1
-    if counts != manifest["counts"]["availability"]:
+    declared = manifest.get("counts")
+    if counts != (declared.get("availability") if isinstance(declared, dict) else None):
         raise ManifestError(f"availability counts {counts} differ from the manifest's")
     return manifest, out, counts
 

@@ -109,5 +109,79 @@ class UnitManifestTests(unittest.TestCase):
         self.refuses(revised, "revision disagrees")
 
 
+class MalformedSnapshotTests(unittest.TestCase):
+    """A self-consistent snapshot missing one of its tables used to raise
+    KeyError past main's ManifestError handler (a traceback, not
+    `unit_manifest: ...`). Each case re-hashes what it breaks, so the chain of
+    hashes still holds and only the shape is wrong."""
+
+    def refuses(self, rewrite, message):
+        with tempfile.TemporaryDirectory() as d:
+            root = write_snapshot(d)
+            rewrite(root)
+            with self.assertRaisesRegex(um.ManifestError, message):
+                um.rows(root, ADMITTED)
+
+    @staticmethod
+    def manifest(change):
+        def rewrite(root):
+            manifest = json.loads((root / "manifest.json").read_bytes())
+            manifest.pop("snapshot_id")
+            change(manifest)
+            manifest["snapshot_id"] = um.sha(manifest)
+            (root / "manifest.json").write_bytes(um.canonical(manifest))
+        return rewrite
+
+    @classmethod
+    def index(cls, change):
+        def rewrite(root):
+            index = json.loads((root / "index.json").read_bytes())
+            change(index)
+            raw = um.canonical(index)
+            (root / "index.json").write_bytes(raw)
+            cls.manifest(lambda m: m["artifacts"].__setitem__("index.json", um.sha(raw)))(root)
+        return rewrite
+
+    def test_a_manifest_without_artifacts_is_refused(self):
+        self.refuses(self.manifest(lambda m: m.pop("artifacts")), "no artifacts table")
+
+    def test_a_manifest_without_counts_is_refused(self):
+        self.refuses(self.manifest(lambda m: m.pop("counts")), "differ from the manifest's")
+
+    def test_an_index_without_readings_is_refused(self):
+        self.refuses(self.index(lambda i: i.pop("readings")), "no readings list")
+
+    def test_a_reading_that_is_not_an_object_is_refused(self):
+        self.refuses(self.index(lambda i: i["readings"].append("x")), "not an object")
+
+    def test_an_id_or_availability_of_the_wrong_type_is_refused(self):
+        self.refuses(self.index(lambda i: i["readings"][0].__setitem__("reading_unit_id", 5)),
+                     "malformed reading_unit_id")
+        self.refuses(self.index(lambda i: i["readings"][0].__setitem__("availability", ["readable"])),
+                     "unknown availability")
+
+    def test_a_malformed_availability_reason_is_refused(self):
+        self.refuses(self.index(lambda i: i["readings"][0].__setitem__("availability_reason", ["x"])),
+                     "malformed availability_reason")
+
+    def test_a_reading_without_a_revision_is_refused(self):
+        def strip(root):
+            index = json.loads((root / "index.json").read_bytes())
+            summary = index["readings"][0]
+            path = root / summary["path"]
+            body = json.loads(path.read_bytes())
+            body.pop("reading_revision")
+            summary.pop("reading_revision")
+            raw = um.canonical(body)
+            path.write_bytes(raw)
+            index_raw = um.canonical(index)
+            (root / "index.json").write_bytes(index_raw)
+            def change(m):
+                m["artifacts"][summary["path"]] = um.sha(raw)
+                m["artifacts"]["index.json"] = um.sha(index_raw)
+            self.manifest(change)(root)
+        self.refuses(strip, "has no revision")
+
+
 if __name__ == "__main__":
     unittest.main()
