@@ -3040,6 +3040,19 @@ function lyEditSections(mutate, message) {
         : '')
   );
 }
+// Structural edits replace the table. Keep keyboard work on the affected row,
+// using its section button when the same action is now disabled at a boundary.
+function lyFocusSectionControl(index, selector) {
+  const row = document.querySelector(`#ly-form-rows tr[data-sec="${index}"]`);
+  uiFocus(
+    row?.querySelector(`${selector}:not([disabled])`) ||
+      row?.querySelector('[data-ui="ly-form-pick"]') ||
+      [
+        document.querySelector('#surface-lyrics .ly-tool-nav [data-ui="ly-tool"]'),
+        document.querySelector('#ly-panel-tools [data-ui="ly-tool"][data-id="form-story"]'),
+      ].find((el) => el?.getClientRects().length)
+  );
+}
 // Replace every [SETUP — key — …] row with `values` (in order), placed with
 // the other setup rows (or at the top, before the song).
 function lySetSetup(key, values, text = lyDraft().value) {
@@ -6503,6 +6516,7 @@ const LY_ACTIONS = {
       `Moved section ${d < 0 ? 'up' : 'down'}.`
     );
     if (LY.picks.formSec === k) LY.picks.formSec = k + d;
+    lyFocusSectionControl(k + d, `[data-ui="ly-sec-move"][data-id="${k + d}:${d}"]`);
   },
   'ly-sec-dup'(id) {
     const k = Number(id);
@@ -6513,6 +6527,7 @@ const LY_ACTIONS = {
         blocks[k].map((r) => ({ raw: r.raw, n: r.n }))
       );
     }, 'Duplicated the section after the original.');
+    lyFocusSectionControl(k + 1, '[data-ui="ly-sec-dup"]');
   },
   'ly-sec-remove'(id) {
     const k = Number(id);
@@ -6520,6 +6535,7 @@ const LY_ACTIONS = {
     lyEditSections(({ blocks }) => {
       blocks.splice(k, 1);
     }, `Removed ${title}. Undo restores it.`);
+    lyFocusSectionControl(Math.min(k, LY.model.sections.length - 1), '[data-ui="ly-sec-remove"]');
   },
   'ly-label-stanzas'() {
     lyEditSections(({ blocks }) => {
