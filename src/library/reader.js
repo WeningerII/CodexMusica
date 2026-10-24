@@ -1259,22 +1259,34 @@ function ensureAnalysis() {
 const syncSelection = () => S.ana?.setSelection(new Set(S.sel));
 
 async function openCompare(passage, other) {
-  const host = S.root?.querySelector('[data-rd-compare]');
-  if (!host) return;
+  const mine = S,
+    R = mine.R,
+    lib = mine.lib,
+    host = mine.root?.querySelector('[data-rd-compare]');
+  if (!host?.isConnected) return;
+  const reading = readingContext();
+  const owns = () => S === mine && mine.R === R && host.isConnected;
   try {
     const compare = await libraryChunk('compare');
-    await compare.mount(host, {
-      reading: readingContext(),
-      lib: S.lib,
+    if (!owns()) return;
+    const handle = await compare.mount(host, {
+      reading,
+      lib,
       passage: passage || [],
       compare: other || '',
       close: () => {
+        if (!owns()) return;
         host.innerHTML = '';
         replaceRoute({ compare: '' });
       },
     });
+    if (!owns()) {
+      handle?.close?.({ silent: true });
+      return;
+    }
     host.scrollIntoView({ block: 'start', behavior: 'smooth' });
   } catch (e) {
+    if (!owns()) return;
     console.warn('[library reader] compare', e);
     say('', 'Comparison is not available right now.');
   }

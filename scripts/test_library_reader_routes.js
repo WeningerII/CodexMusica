@@ -14,11 +14,12 @@ const sha = (x) =>
     .update(typeof x === 'string' ? x : canonical(x))
     .digest('hex');
 function deferred() {
-  let resolve;
-  const promise = new Promise((r) => {
+  let resolve, reject;
+  const promise = new Promise((r, no) => {
     resolve = r;
+    reject = no;
   });
-  return { promise, resolve };
+  return { promise, resolve, reject };
 }
 function fixture(t) {
   const utterances = [];
@@ -149,7 +150,7 @@ function fixture(t) {
     .readFileSync(path.join(__dirname, '../src/library/reader.js'), 'utf8')
     .replace(
       '_internals: {',
-      '_internals: { state: () => S, parse, route, rowRequests, speak, resolveKey,'
+      '_internals: { state: () => S, parse, route, rowRequests, speak, resolveKey, openCompare,'
     );
   source = source.replace(
     'return {\n  show,',
@@ -470,4 +471,112 @@ test('late recovery cannot navigate away from a newer reading', async (t) => {
   await new Promise((resolve) => setImmediate(resolve));
   assert.equal(f.routes.length, count);
   assert.equal(f.state().R.revision, CURRENT);
+});
+
+function compareModule(f) {
+  return f.w.eval(
+    `(function () { ${fs.readFileSync(path.join(__dirname, '../src/library/compare.js'), 'utf8')}\n})()`
+  );
+}
+function compareProvider(f, provide) {
+  const normal = f.w.libraryChunk;
+  f.w.libraryChunk = (name) => (name === 'compare' ? provide() : normal(name));
+}
+
+for (const existingReplacement of [false, true])
+  test(`late comparison chunk cannot open on a replacement reader${existingReplacement ? ' or replace its comparison' : ''}`, async (t) => {
+    const f = fixture(t),
+      gate = deferred(),
+      compare = compareModule(f);
+    await f.open(`revision=${f.oldKey}`);
+    compareProvider(f, () => gate.promise);
+    const pending = f.reader._internals.openCompare(null, '');
+    await f.open(`revision=${f.currentKey}`);
+    let replacement = null;
+    if (existingReplacement) {
+      compareProvider(f, async () => compare);
+      await f.reader._internals.openCompare(null, '');
+      replacement = f.main.querySelector('.lib-cmp-sheet');
+      assert.ok(replacement);
+    }
+    gate.resolve(compare);
+    await pending;
+    assert.equal(f.w.document.querySelector('.lib-cmp-sheet'), replacement);
+    assert.equal(f.state().R.revision, CURRENT);
+    if (replacement) replacement.querySelector('[data-close]').click();
+  });
+
+for (const navigate of [false, true])
+  test(`comparison chunk failure ${navigate ? 'cannot report into a new reader' : 'reports to its owning reader'}`, async (t) => {
+    const f = fixture(t),
+      gate = deferred();
+    await f.open(`revision=${f.oldKey}`);
+    compareProvider(f, () => gate.promise);
+    const pending = f.reader._internals.openCompare(null, '');
+    if (navigate) await f.open(`revision=${f.currentKey}`);
+    gate.reject(Error('chunk unavailable'));
+    await pending;
+    if (navigate) assert.equal(f.state().error, '');
+    else assert.match(f.state().error, /Comparison is not available/);
+  });
+
+test('same-reader lens navigation preserves a pending comparison and normal close', async (t) => {
+  const f = fixture(t),
+    gate = deferred(),
+    compare = compareModule(f);
+  await f.open(`revision=${f.currentKey}`);
+  compareProvider(f, () => gate.promise);
+  const pending = f.reader._internals.openCompare(null, '');
+  await f.open(`revision=${f.currentKey}&lens=sources`);
+  gate.resolve(compare);
+  await pending;
+  const sheet = f.main.querySelector('.lib-cmp-sheet');
+  assert.ok(sheet);
+  sheet.querySelector('[data-close]').click();
+  assert.equal(f.main.querySelector('.lib-cmp-sheet'), null);
+  const q = new URLSearchParams(f.routes.at(-1).split('?')[1]);
+  assert.equal(q.get('revision'), f.currentKey);
+  assert.equal(q.get('lens'), 'sources');
+  assert.equal(q.has('compare'), false);
+});
+
+test('a stale comparison close callback cannot rewrite a newer reading route', async (t) => {
+  const f = fixture(t);
+  let options;
+  await f.open(`revision=${f.oldKey}`);
+  compareProvider(f, async () => ({
+    mount: (host, input) => {
+      options = input;
+      return {};
+    },
+  }));
+  await f.reader._internals.openCompare(null, '');
+  assert.equal(options.reading.revision, OLD);
+  assert.equal(options.lib, f.lib);
+  await f.open(`revision=${f.currentKey}`);
+  const routes = [...f.routes];
+  options.close();
+  assert.deepEqual(f.routes, routes);
+});
+
+test('comparison mount completion after navigation disposes only its own returned handle', async (t) => {
+  const f = fixture(t),
+    mounted = deferred(),
+    result = deferred(),
+    closes = [];
+  await f.open(`revision=${f.oldKey}`);
+  compareProvider(f, async () => ({
+    mount: () => {
+      mounted.resolve();
+      return result.promise;
+    },
+  }));
+  const pending = f.reader._internals.openCompare(null, '');
+  await mounted.promise;
+  await f.open(`revision=${f.currentKey}`);
+  const routes = [...f.routes];
+  result.resolve({ close: (options) => closes.push({ ...options }) });
+  await pending;
+  assert.deepEqual(closes, [{ silent: true }]);
+  assert.deepEqual(f.routes, routes);
 });
