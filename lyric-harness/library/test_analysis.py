@@ -99,10 +99,13 @@ class ReaderAcceptance(unittest.TestCase):
         # alone does not exercise that emission cursor.
         fixtures = (("cat\nhat", "needs_declaration", "schema"),
                     ("cat zzzqxx\nhat\n\nbat\nmat", "unknown_members", "assembly"),
-                    ("cat\nhat\n\nbat\nmat", "available", "assembly"))
+                    ("cat\nhat\n\nbat\nmat", "available", "assembly"),
+                    ("cat\nhat\n\nbat\nmat", "unsupported", "assembly"))
         name = "monorhyme / leash"
         for text, availability, terminal_phase in fixtures:
-            with self.subTest(availability=availability):
+            with self.subTest(availability=availability), patch.object(RL, "assemble", wraps=RL.assemble) as assemble:
+                if availability == "unsupported":
+                    assemble.return_value = RL.Refusal(name, "stanza", "Assembly declined the supplied frame.")
                 reading = source(text)
                 _, records, full = complete(reading, schemas=[name])
                 committed, checkpoint, terminal_checkpoints = [], None, []
@@ -113,7 +116,7 @@ class ReaderAcceptance(unittest.TestCase):
                             load_records=lambda mid: (r for r in committed if r.get("method_id") == mid))
                     result = session.step(256, deadline=0)
                     committed.extend(result["records"])
-                    checkpoint = result["checkpoint"]
+                    checkpoint = json.loads(json.dumps(result["checkpoint"]))
                     for row in result["records"]:
                         if row["kind"] == "method_result":
                             self.assertEqual(row["availability"], availability)
