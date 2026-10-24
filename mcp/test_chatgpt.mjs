@@ -1383,6 +1383,66 @@ test('P8: a record over the per-record cap is refused as too large, never told t
   assert.deepEqual({ size: store.records.size, bytes: store.bytes }, before);
 });
 
+test('detail reads the finished result itself: a revise paused on a question has no parts, and lines are counted on the song', async (t) => {
+  const { store } = storeFor(t);
+  const song = ['one line', '', 'two line', 'three line'];
+  const verdict = {
+    exit_code: 3,
+    findings_measured: true,
+    findings: [{ code: 'METER', line: 3, message: 'm' }],
+    coverage: {},
+  };
+  const sessions = new WorkflowSessions({
+    store,
+    execute: async (session, name) => ({
+      session,
+      result: {
+        content:
+          name === 'lyric_revise'
+            ? [
+                { type: 'text', text: 'QUESTION: what should line 3 say?' },
+                {
+                  type: 'text',
+                  text: JSON.stringify({ exit_code: 4, status: 'awaiting_proposal' }),
+                },
+              ]
+            : [
+                { type: 'text', text: song.join('\n') },
+                { type: 'text', text: JSON.stringify(verdict) },
+              ],
+      },
+    }),
+  });
+  const opened = sessions.open('lyrics');
+  // A revise paused at exit 4 published its question; every detail used to
+  // hand that question back as if it were the part asked for.
+  const paused = sessions.submit(opened.session_id, 'lyrics', 'lyric_revise', {});
+  await sessions.wait(paused.operation_id);
+  for (const detail of ['findings', 'report', 'coverage', 'pronunciations', 'full'])
+    assert.throws(
+      () => sessions.status(paused.operation_id, 'lyrics', { detail }),
+      /^Error: DETAIL_NOT_READY: this lyric_revise finished without a verdict to take apart/,
+      detail
+    );
+  // A grade sent as lines_text (and a revise continued with answers) carries
+  // no draft argument; the song in block 0 still has its lines.
+  const next = sessions.status(paused.operation_id, 'lyrics').session_id;
+  const graded = sessions.submit(next, 'lyrics', 'lyric_grade', {
+    seed: 1,
+    lines_text: song.join('\n'),
+  });
+  await sessions.wait(graded.operation_id);
+  assert.throws(
+    () => sessions.status(graded.operation_id, 'lyrics', { detail: 'findings', lines: [999] }),
+    /^Error: LINES_OUT_OF_RANGE: this lyric_grade's song has 4 line\(s\); line\(s\) 999/
+  );
+  assert.throws(
+    () => sessions.status(graded.operation_id, 'lyrics', { detail: 'report', lines: [1] }),
+    /^Error: LINES_NOT_APPLICABLE: /
+  );
+  assert.ok(sessions.status(graded.operation_id, 'lyrics', { detail: 'findings', lines: [3] }));
+});
+
 test('get_operation refuses a detail or lines the operation cannot serve; an edit grade of an unplanned song names lyric_recover', async (t) => {
   const { store } = storeFor(t);
   const sessions = new WorkflowSessions({ store });
@@ -1438,13 +1498,9 @@ test('get_operation refuses a detail or lines the operation cannot serve; an edi
     text(pairs),
     /^DETAIL_NOT_APPLICABLE: a lyric_grade has detail findings, report, coverage, pronunciations, full; "pairs"/
   );
-  const past = await read(graded.operation_id, { detail: 'findings', lines: [2, 999] });
-  assert.match(
-    text(past),
-    /^LINES_OUT_OF_RANGE: this lyric_grade's draft has 4 line\(s\); line\(s\) 999/
-  );
-  assert.equal(
-    (await read(graded.operation_id, { detail: 'findings', lines: [2] })).isError,
-    undefined
-  );
+  // That grade was refused before anything was measured, so it has no
+  // findings to narrow: refused, not an empty list (lines are tested on a
+  // measured grade in the test above).
+  const unmeasured = await read(graded.operation_id, { detail: 'findings', lines: [2] });
+  assert.match(text(unmeasured), /^DETAIL_NOT_READY: this lyric_grade finished without a verdict/);
 });

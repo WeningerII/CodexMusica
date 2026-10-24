@@ -16,7 +16,7 @@ import {
   recoverState,
 } from './state_codec.js';
 import { HTTP_REQUEST_BYTES, jsonBytes } from './payload_limits.js';
-import { sessionView, DETAIL_FOR, LINE_PARTS } from './verdict_view.js';
+import { sessionView, verdictShape, DETAIL_FOR, LINE_PARTS } from './verdict_view.js';
 
 // Persisted namespace from the first release: keep existing capabilities recoverable.
 export const INTEGRATION = 'chatgpt-v1';
@@ -225,17 +225,24 @@ function checkDetail(record, result, detail, lines) {
     throw new Error(
       `DETAIL_NOT_APPLICABLE: a ${tool} has detail ${parts.join(', ')}; "${detail}" is not one of them.`
     );
+  // A finished operation can still have no verdict to take apart: a revise
+  // suspended on a question (exit 4) published that question and its brief,
+  // and the published view hands them back unchanged whatever detail asks.
+  const shape = verdictShape(tool, result.content);
+  if (!shape.ready)
+    throw new Error(
+      `DETAIL_NOT_READY: this ${tool} finished without a verdict to take apart (a revise awaiting answers, at exit 4, or a refusal); it has no detail parts. Call get_operation without detail, and answer its question if it asks one.`
+    );
   if (!lines?.length) return;
   if (!LINE_PARTS.includes(detail) || tool === 'lyric_screen')
     throw new Error(
-      `DETAIL_REQUIRED: lines narrows only ${LINE_PARTS.join(', ')} on a lyric_grade or lyric_revise; detail "${detail}" on a ${tool} has nothing per line. Omit lines.`
+      `LINES_NOT_APPLICABLE: lines narrows only ${LINE_PARTS.join(', ')} on a lyric_grade or lyric_revise; detail "${detail}" on a ${tool} has nothing per line. Omit lines.`
     );
-  const draft = record.intent.action?.arguments?.draft;
-  const count = Array.isArray(draft) ? draft.length : null;
+  const count = shape.lines;
   const past = count ? lines.filter((n) => n > count) : [];
   if (past.length)
     throw new Error(
-      `LINES_OUT_OF_RANGE: this ${tool}'s draft has ${count} line(s); line(s) ${past.join(', ')} are past its end. Use lines between 1 and ${count}.`
+      `LINES_OUT_OF_RANGE: this ${tool}'s song has ${count} line(s); line(s) ${past.join(', ')} are past its end. Use lines between 1 and ${count}.`
     );
 }
 
@@ -247,7 +254,7 @@ function checkDetail(record, result, detail, lines) {
 // lyric_check; the refusal says so.
 const SAME_SONG = /they must be the same song\.$/;
 const EDIT_SAME_SONG =
-  ' These are lyrics this session did not plan: read them with lyric_recover, then grade them with lyric_check (the latest session_id each time); lyric_revise then takes the checked draft without a seed.';
+  ' These are lyrics this session did not plan: read them with lyric_recover, then grade them with lyric_check (the latest session_id each time); lyric_revise then takes the checked draft without a seed, with the same declaration lyric_check used.';
 function editRefusal(value, task) {
   if (
     task?.phase !== 'edit' ||
