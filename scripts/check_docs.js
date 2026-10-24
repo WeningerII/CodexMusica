@@ -484,7 +484,10 @@ for (const [script, sources] of scriptRefs) {
 // past 4 MB while AGENTS.md kept saying ~1.9 and index.html ~2, and nothing
 // noticed, because a size is a number no other check reads. An agent sizing its
 // fetch or context budget from the guide got half of what arrived. Decimal MB,
-// as the docs write it; the first `~N MB` within a short window after a mention.
+// as the docs write it; the first `N MB` (with or without `~`) after a mention,
+// within its own paragraph and before any other file is named, so a size that
+// belongs to a neighbouring file is never read as this one's. A figure followed
+// by "gzip" is the compressed size and is not this claim.
 const ALL_JSON = path.join(ROOT, 'api', 'all.json');
 const SIZE_TOLERANCE = 0.15;
 const sizeFailures = [];
@@ -494,8 +497,14 @@ if (fs.existsSync(ALL_JSON)) {
     const mention = /all\.json/g;
     let m;
     while ((m = mention.exec(content)) !== null) {
-      const windowText = content.slice(m.index, m.index + 400);
-      const claim = /~\s*([\d.]+)\s*MB/.exec(windowText);
+      let windowText = content.slice(m.index, m.index + 400);
+      const paraEnd = windowText.search(/\n\s*\n/);
+      if (paraEnd !== -1) windowText = windowText.slice(0, paraEnd);
+      const otherFile = /\b(?!all\.json\b)[\w-]+\.(?:json|html|js|txt)\b/.exec(
+        windowText.slice('all.json'.length)
+      );
+      if (otherFile) windowText = windowText.slice(0, 'all.json'.length + otherFile.index);
+      const claim = /(?:~\s*)?(\d+(?:\.\d+)?)\s*MB\b(?![^.;)]{0,12}gzip)/.exec(windowText);
       if (!claim) continue;
       const lineNum = lineNumberAt(content, m.index + claim.index);
       if (PRAGMA_RE.test(lineAt(content, lineNum))) continue;
@@ -723,7 +732,7 @@ if (sizeFailures.length === 0) {
   console.log(`  ✓ Stated api/all.json sizes match the built file.`);
 } else {
   for (const f of sizeFailures) {
-    console.log(`  ✗ ${f.file}:${f.line} — claims ~${f.claimed} MB (actual: ${f.actual} MB)`);
+    console.log(`  ✗ ${f.file}:${f.line} — claims ${f.claimed} MB (actual: ${f.actual} MB)`);
     console.log(`      "${f.context}"`);
   }
 }

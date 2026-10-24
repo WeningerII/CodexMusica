@@ -113,11 +113,11 @@ treeNode    : {id(=full dotted path), name, parent(id|null), description}
 tradition   : {id, name, family, lineage, instruments[], room, tuning, chain_archetype?,
                chain_mic, chain_pre, chain_console, chain_comp, chain_eq, chain_medium, chain_amp*, production_aesthetic?,
                chain_status, parts?, pin_parts?, chain_fx?, arrangement?}
-              // chain_status is on 6640 of 7755; parts on 6655 (per-instrument slot pins,
+              // chain_status is on 6640 of 7755; parts present on 6655, 6651 non-empty (per-instrument slot pins,
               // flat {partId: variantId} — these OVERRIDE the instrument's
               // defaults on browser/connector import. With pin_parts:true the CLI/static
               // optimizer also preserves these choices; caller swaps take precedence);
-              // chain_fx on 583; arrangement on 2
+              // chain_fx present on 583, 301 non-empty; arrangement on 2
 extras[id]  : {parent(node id), axes{13 named keys, ints -2..+2}, description, exemplars[], status, crossRefs[]}
 preface     : {id, tokens[], note?}                                    // a named bundle of descriptor tokens
 ```
