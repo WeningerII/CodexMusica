@@ -9,7 +9,8 @@
    One preference, stored under localStorage "codex-theme", shared by the app
    and the atlas (same origin). The atlas embedded in the Map view follows a
    change through the storage event, or through a postMessage from the app
-   when storage is unavailable. "system" follows prefers-color-scheme live. */
+   when storage is unavailable — sent to every frame on a change, and to each
+   frame as it loads. "system" follows prefers-color-scheme live. */
 'use strict';
 var UITheme = (function () {
   var KEY = 'codex-theme';
@@ -50,19 +51,32 @@ var UITheme = (function () {
       }
     }
   }
-  function relay() {
-    var frames = document.querySelectorAll('iframe');
-    for (var i = 0; i < frames.length; i++) {
-      try {
-        frames[i].contentWindow.postMessage(
-          { type: 'codex-theme', preference: preference },
-          location.origin
-        );
-      } catch {
-        /* A frame that is not ready will read the stored preference on load. */
-      }
+  function post(frame) {
+    try {
+      frame.contentWindow.postMessage(
+        { type: 'codex-theme', preference: preference },
+        location.origin
+      );
+    } catch {
+      /* Not ready yet: the load listener below posts once it is. */
     }
   }
+  function relay() {
+    var frames = document.querySelectorAll('iframe');
+    for (var i = 0; i < frames.length; i++) post(frames[i]);
+  }
+  // A frame that loads after the choice (the Map's atlas gets its src only
+  // when Map opens) is told on load. It cannot rely on reading the stored
+  // preference: with site storage blocked nothing was stored, and it would
+  // fall back to System. load does not bubble, so listen in the capture phase.
+  if (document.addEventListener)
+    document.addEventListener(
+      'load',
+      function (e) {
+        if (e.target && e.target.tagName === 'IFRAME') post(e.target);
+      },
+      true
+    );
   function set(pref) {
     if (CHOICES.indexOf(pref) < 0) return false;
     preference = pref;

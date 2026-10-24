@@ -2860,6 +2860,24 @@ if (want('36', 'theme-after-first-paint')) {
     /not applied before first paint/
   );
 }
+//   (a2) A THEME THAT NEVER REACHES A LATE FRAME. The Map's atlas loads only when
+//       Map opens; with site storage blocked it cannot read the choice, so the
+//       app posts it on the frame's load. Stop posting on load and a Dark
+//       chosen before Map opens leaves the embedded atlas on System.
+if (want('36b', 'theme-misses-late-frame')) {
+  const d = foundationEnv();
+  const f = path.join(d, 'codex.html');
+  const before = fs.readFileSync(f, 'utf8');
+  const onLoad = 'if(e.target&&e.target.tagName==="IFRAME")post(e.target)';
+  const after = before.replace(onLoad, '/* __THEME_FAULT__ */void e');
+  if (after === before) throw new Error('faults: theme frame-load relay not found in codex.html');
+  fs.writeFileSync(f, after);
+  record(
+    'theme-misses-late-frame -> check_ui_foundation.js',
+    gate(d, ['scripts/check_ui_foundation.js']),
+    /with storage blocked, the atlas opened after choosing Dark/
+  );
+}
 //   (b) THE MAP WITHOUT THE RECIPE. Until the foundation, the Map view hid the
 //       recipe panel at desktop width and offered nothing to open it. Put that
 //       back and the one-workspace promise is false on one of its three pages.

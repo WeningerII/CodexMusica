@@ -886,6 +886,52 @@ async function loadDelta(page) {
       await ctx.close();
     }
 
+    // ── C. Blocked storage: a choice made before the Map opens reaches the atlas
+    // With site storage blocked (Chrome's "Don't allow sites to save data"
+    // throws on the localStorage accessor) nothing is stored, so the atlas the
+    // Map loads later cannot read the choice; the app must tell it on load.
+    stage = 'C. blocked storage';
+    {
+      const { ctx, page } = await newPage({ colorScheme: 'light' });
+      await ctx.addInitScript(() => {
+        Object.defineProperty(window, 'localStorage', {
+          configurable: true,
+          get() {
+            throw new DOMException('The operation is insecure.', 'SecurityError');
+          },
+        });
+      });
+      await page.goto(url + '#genre');
+      await ready(page);
+      check(
+        !page.frames().some((f) => f.url().includes('atlas.html')),
+        'C. (blocked storage) the atlas frame loaded before Map opened; the case tests nothing'
+      );
+      await page.click('[data-ui="menu"]');
+      await page.click('[data-ui="theme"][data-id="dark"]');
+      await page.keyboard.press('Escape');
+      await page.click('.ui-header nav button[data-view="map"]');
+      let frame = null;
+      for (let i = 0; i < 100 && !frame; i++) {
+        frame = page.frames().find((f) => f.url().includes('atlas.html'));
+        if (!frame) await page.waitForTimeout(200);
+      }
+      check(!!frame, 'C. (blocked storage) the Map view has no atlas frame');
+      if (frame) {
+        await frame
+          .waitForFunction(() => document.documentElement.dataset.theme === 'dark', null, {
+            timeout: 10000,
+          })
+          .catch(() => {});
+        const got = await frame.evaluate(() => document.documentElement.dataset.theme);
+        check(
+          got === 'dark',
+          `C. with storage blocked, the atlas opened after choosing Dark is "${got}", not dark`
+        );
+      }
+      await ctx.close();
+    }
+
     // ── H. ?trad=<id> opens a genre once and yields to a #section ─────────
     stage = 'H. ?trad= deep link';
     {
