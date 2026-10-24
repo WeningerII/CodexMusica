@@ -64,6 +64,8 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Typecheck the approved frontend
         run: pnpm exec tsc --noEmit
+      - name: Verify reader request ownership
+        run: node --test scripts/test-reader-job-ownership.cjs
       - name: Verify signed package publication and corruption refusal
         run: node scripts/test-library-package-import.cjs
 
