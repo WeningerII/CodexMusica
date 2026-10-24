@@ -4,7 +4,7 @@ import { createRequire } from 'node:module';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { connectConnector } from './client.js';
 import { buildServer } from './tools.js';
-import { startRecipe, editRecipe, renderRecipe } from './engine.js';
+import { startRecipe, editRecipe, renderRecipe, ENV_FIELDS } from './engine.js';
 import { _verdictInternals } from './lyric_tools.js';
 const require = createRequire(import.meta.url);
 const W = require('../scripts/_workspace_ops.js');
@@ -388,4 +388,75 @@ test('the tree’s expected surface is built once per domain, not per connection
   assert.notEqual(expectedSurfaceFor('recipe'), expectedSurfaceFor('lyrics'));
   const { tools } = await expectedSurfaceFor('recipe');
   assert(tools.some((tool) => tool.name === 'edit_recipe'));
+});
+
+test('environment clear warnings distinguish cleared settings from retained non-rendered writes', () => {
+  const initial = startRecipe({ traditions: ['garage_rock'] });
+  const owner = initial.render_scope.environment_card;
+  const later = initial.workspace.cards.find((c) => c.id !== owner && c.room).id;
+  const run = (edits) => editRecipe({ workspace: initial.workspace, edits });
+  const hidden = (result) =>
+    result.render_warnings.filter((w) => w.code === 'ENVIRONMENT_NOT_RENDERED');
+  const cleared = run([{ action: 'set_environment', clear: ENV_FIELDS }]);
+  assert.notEqual(cleared.render_scope.environment_card, owner);
+  const empty = cleared.workspace.cards.find((c) => c.id === owner);
+  assert(
+    ENV_FIELDS.every((field) => {
+      const value = ['room', 'tuning'].includes(field) ? empty[field] : empty.chain[field];
+      return Array.isArray(value) ? value.length === 0 : value == null;
+    })
+  );
+  assert(cleared.render_warnings.some((w) => w.code === 'ENVIRONMENT_MOVED'));
+  assert.deepEqual(hidden(cleared), [], 'a clear cannot claim its removed setting is stored');
+  const partial = run([{ action: 'set_environment', clear: ['room'] }]);
+  assert.equal(partial.render_scope.environment_card, owner);
+  assert.deepEqual(hidden(partial), []);
+  assert.deepEqual(hidden(run([{ action: 'set_environment', card: later, clear: ['room'] }])), []);
+  const write = { action: 'set_environment', card: later, room: 'cathedral' };
+  assert.equal(hidden(run([write])).length, 1, 'a non-rendered room write still warns');
+  assert.equal(
+    hidden(run([{ ...write, clear: ['tuning'] }])).length,
+    1,
+    'mixed clear/write still stores the room'
+  );
+  assert.deepEqual(
+    hidden(run([write, { action: 'set_environment', card: later, clear: ['room'] }])),
+    [],
+    'a later clear means the earlier room is no longer stored'
+  );
+  assert.deepEqual(
+    hidden(run([{ action: 'set_environment', card: later, clear: ['room'] }, write])).map(
+      (w) => w.edit
+    ),
+    [1]
+  );
+  const effects = run([
+    { action: 'set_environment', card: later, chain: { fx: 'plate_reverb' } },
+    { action: 'set_environment', card: later, chain: { fx: 'fuzz_germanium' } },
+  ]);
+  assert.deepEqual(
+    hidden(effects).map((w) => w.edit),
+    [0, 1],
+    'appending another effect retains both earlier and later writes'
+  );
+  const different = run([
+    write,
+    { action: 'set_environment', card: later, room: 'concrete_basement' },
+  ]);
+  assert.deepEqual(
+    hidden(different).map((w) => w.edit),
+    [1],
+    'an overwritten value is not reported as still stored'
+  );
+});
+
+test('environment warning accuracy preserves preface/write ordering disclosures', () => {
+  const initial = startRecipe({ traditions: ['appalachian_folk'] });
+  const write = { action: 'set_environment', room: 'cathedral' };
+  const preface = { action: 'set_preface', card: 'voice', preface: 'raging' };
+  const overwritten = editRecipe({ workspace: initial.workspace, edits: [write, preface] });
+  assert(overwritten.render_warnings.some((w) => w.code === 'ENVIRONMENT_OVERWRITTEN'));
+  const preserved = editRecipe({ workspace: initial.workspace, edits: [preface, write] });
+  assert.equal(preserved.render_scope.environment_settings.room, 'cathedral');
+  assert(!preserved.render_warnings.some((w) => w.code === 'ENVIRONMENT_OVERWRITTEN'));
 });

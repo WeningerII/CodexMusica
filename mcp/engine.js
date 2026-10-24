@@ -693,7 +693,13 @@ export function editRecipe(params = {}) {
     if (e.action === 'set_environment') {
       const card = e.card ? W.findCard(before, e.card) : envCardOf(before.cards);
       target = card ? card.id : null;
-      if (target) envTargets.push({ edit: i, card: target });
+      // Clearing removes a value; only concrete writes can remain stored but
+      // unrendered. Track their values so later clears/overwrites in this batch
+      // cannot turn a historical write into a false final-state warning.
+      const settings = Object.entries({ room: e.room, tuning: e.tuning, ...e.chain }).filter(
+        ([, value]) => value != null && value !== '' && (!Array.isArray(value) || value.length)
+      );
+      if (target && settings.length) envTargets.push({ edit: i, card: target, settings });
     }
     warnings.push(...environmentTransition(before, ws, i, e, target));
   }
@@ -710,7 +716,17 @@ export function editRecipe(params = {}) {
   // write was an environment request rather than a preface cascade.
   const env = envCardOf(ws.cards);
   for (const t of envTargets) {
-    if (!ws.cards.some((c) => c.id === t.card) || t.card === env.id) continue;
+    const card = ws.cards.find((c) => c.id === t.card);
+    if (!card || t.card === env.id) continue;
+    const retained = t.settings.some(([field, value]) => {
+      const actual = envValue(card, field);
+      // Multi-select stages append: a later effect does not erase an earlier
+      // write that still occurs in the final list.
+      return Array.isArray(actual)
+        ? (Array.isArray(value) ? value : [value]).some((item) => actual.includes(item))
+        : actual === value;
+    });
+    if (!retained) continue;
     warnings.push({
       card: t.card,
       code: 'ENVIRONMENT_NOT_RENDERED',
