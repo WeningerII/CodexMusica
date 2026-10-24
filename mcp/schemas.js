@@ -21,6 +21,8 @@ import {
   LIST_TRADITIONS_MAX,
   OPTION_KINDS,
   SEARCH_TYPES,
+  MAX_QUERY_CHARS,
+  MAX_QUERY_TERMS,
 } from './engine.js';
 
 export const renderShape = {
@@ -266,7 +268,12 @@ export const TOOL_SCHEMAS = {
   }),
   render_recipe: z.object({ workspace: workspaceSchema, ...renderShape }),
   search_catalog: z.object({
-    query: z.string().describe('Words from the request, e.g. "garage rock fuzz".'),
+    query: z
+      .string()
+      .max(MAX_QUERY_CHARS)
+      .describe(
+        `Words from the request, e.g. "garage rock fuzz" (at most ${MAX_QUERY_CHARS} characters and ${MAX_QUERY_TERMS} words).`
+      ),
     types: z
       .array(z.enum(SEARCH_TYPES))
       // One entry per record type at most: an unbounded array lets a request
@@ -283,7 +290,12 @@ export const TOOL_SCHEMAS = {
       .describe('Max results (default 20, max 50).'),
   }),
   search_prefaces: z.object({
-    query: z.string().describe('Mood/feel words, e.g. "worn bitter struggling".'),
+    query: z
+      .string()
+      .max(MAX_QUERY_CHARS)
+      .describe(
+        `Mood/feel words, e.g. "worn bitter struggling" (at most ${MAX_QUERY_CHARS} characters and ${MAX_QUERY_TERMS} words).`
+      ),
     limit: z
       .number()
       .int()
@@ -300,6 +312,7 @@ export const TOOL_SCHEMAS = {
       .describe('Show only this part. Use when you already know which knob you are turning.'),
     query: z
       .string()
+      .max(MAX_QUERY_CHARS)
       .optional()
       .describe('Filter variants by name/descriptor words, e.g. "mahogany" or "nylon gut".'),
     limit: z
@@ -314,6 +327,7 @@ export const TOOL_SCHEMAS = {
   list_traditions: z.object({
     query: z
       .string()
+      .max(MAX_QUERY_CHARS)
       .optional()
       .describe('Keep traditions whose id or name contains this text (case-insensitive).'),
     family: z

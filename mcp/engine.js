@@ -836,25 +836,42 @@ function _stem(t) {
     if (t.length - suffix.length >= 4 && t.endsWith(suffix)) return t.slice(0, -suffix.length);
   return null;
 }
+// A free-text query's bounds. Every term is one more pass over every row, so
+// the cost of a search is linear in its term count, and the engine is
+// synchronous on a single-process server: measured on 5810c4a3b, 1,000 terms
+// (3,975 bytes) held the event loop for 7.4 s, /health included, at about 8 ms
+// a term. The numbers are chosen against what a search SAYS — "words from the
+// request" — not against what the process survives: sixteen words is a long
+// description. A query past either bound is refused, never truncated, so the
+// caller learns it rather than getting results for part of what they asked.
+export const MAX_QUERY_CHARS = 200;
+export const MAX_QUERY_TERMS = 16;
+
 // One compiled matcher per TERM, not per term per row.
 //
 // The word-boundary RegExp used to be constructed inside the per-term loop, i.e.
 // once for every (row, term) pair — tens of thousands of identical compilations
 // per query, and the largest single cost in the profile after the variant
 // blowup. The pattern depends only on the term.
-function queryMatchers(query) {
-  return String(query)
-    .toLowerCase()
-    .split(/\s+/)
-    .filter(Boolean)
-    .map((t) => {
-      const stem = _stem(t);
-      return {
-        t,
-        re: new RegExp(`(^|[^a-z0-9])${_esc(t)}([^a-z0-9]|$)`),
-        stemRe: stem ? new RegExp(`(^|[^a-z0-9])${_esc(stem)}`) : null,
-      };
-    });
+function queryMatchers(query, tool) {
+  const text = String(query);
+  if (text.length > MAX_QUERY_CHARS)
+    throw new EngineError(
+      `${tool} query is ${text.length} characters; the limit is ${MAX_QUERY_CHARS}. Search with the key words only.`
+    );
+  const terms = text.toLowerCase().split(/\s+/).filter(Boolean);
+  if (terms.length > MAX_QUERY_TERMS)
+    throw new EngineError(
+      `${tool} query has ${terms.length} words; the limit is ${MAX_QUERY_TERMS}. Search with the key words only, or split it into separate searches.`
+    );
+  return terms.map((t) => {
+    const stem = _stem(t);
+    return {
+      t,
+      re: new RegExp(`(^|[^a-z0-9])${_esc(t)}([^a-z0-9]|$)`),
+      stemRe: stem ? new RegExp(`(^|[^a-z0-9])${_esc(stem)}`) : null,
+    };
+  });
 }
 function scoreRecord(matchers, id, name, prose, gloss = '') {
   const idL = String(id).toLowerCase();
@@ -885,7 +902,7 @@ function scoreRecord(matchers, id, name, prose, gloss = '') {
 export function searchCatalog({ query, types, limit = 20 } = {}) {
   if (!query || !String(query).trim()) throw new EngineError('search_catalog needs a query.');
   const want = new Set(Array.isArray(types) && types.length ? types : SEARCH_TYPES);
-  const matchers = queryMatchers(query);
+  const matchers = queryMatchers(query, 'search_catalog');
   const rows = [];
   // `extra` carries fields that make a hit USABLE, not merely findable. Today
   // only chain rows need one — see the CHAIN_SECTIONS loop below.
@@ -986,7 +1003,7 @@ export function searchCatalog({ query, types, limit = 20 } = {}) {
 export function searchPrefaces({ query, limit = 15 } = {}) {
   if (!query || !String(query).trim())
     throw new EngineError('search_prefaces needs mood/feel words.');
-  const matchers = queryMatchers(query);
+  const matchers = queryMatchers(query, 'search_prefaces');
   const rows = [];
   for (const p of C.PREFACE_LEXICON || []) {
     const toks = tokensOf(p);
