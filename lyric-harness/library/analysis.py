@@ -420,6 +420,9 @@ class AnalysisSession:
                                    "true": 0, "false": 0, "undecided": 0}, "methods": {}}
         self.checkpoint["done"] = self.checkpoint["method_index"] >= len(self.tasks)
         self.checkpoint.setdefault("emission", 0)
+        # Searches `_any_reading` left incomplete before this checkpoint (the
+        # candidate generator's own writers replay themselves on resume).
+        self._incomplete.update(self.checkpoint.get("incomplete", {}))
 
     def _build_stream(self, phon=None):
         from quality import grid as GR
@@ -583,9 +586,13 @@ class AnalysisSession:
         combos, complete = RL.reading_combos(self.stream, touched, self.EDGE_COMBOS)
         if not combos:
             return inst, st, None, first_only
-        if not complete:
-            self._incomplete.setdefault(name, f"a pair's words take more than {self.EDGE_COMBOS} "
-                                              f"combinations of readings")
+        if not complete and name not in self._incomplete:
+            # Judged here, per candidate, outside the candidate generator, so
+            # a resumed traversal that fast-forwards past this candidate never
+            # meets it again: the reason rides in the checkpoint, or the
+            # method resumes as answered (`_finish`).
+            reason = f"a pair's words take more than {self.EDGE_COMBOS} combinations of readings"
+            self._incomplete[name] = self.checkpoint.setdefault("incomplete", {})[name] = reason
         lines = sorted({st.units[i].line for span in (a, b) for i in span.idx})
         own = self._combo_key({t: c for t, c in (getattr(st, "any_reading_combo", None) or {}).items()
                                if t in touched})
