@@ -465,6 +465,26 @@ console.log('\ncard ids across processes:');
     'start_recipe is idempotent in its ids as well as its recipe',
     JSON.stringify(W.seed(['garage_rock'])) === JSON.stringify(W.seed(['garage_rock']))
   );
+  // Imported IDs are strings, not bounded JavaScript numbers. Round-trip the
+  // edited workspace as a caller would, then use the returned ID for removal.
+  for (const suffix of ['9007199254740991', '9007199254740992', '9'.repeat(400)]) {
+    const imported = JSON.parse(JSON.stringify(minted));
+    imported.cards[0].id = 'card_' + suffix;
+    const before = JSON.stringify(imported);
+    const expanded = W.addInstrument(imported, 'harmonica');
+    const saved = JSON.parse(JSON.stringify(expanded));
+    const guestId = saved.cards.at(-1).id;
+    check(`imported ${suffix.length}-digit ID allocates its exact successor`,
+      guestId === `card_${BigInt(suffix) + 1n}`);
+    check('returned guest ID removes the guest, preserving every original card',
+      JSON.stringify(W.removeInstrument(saved, guestId)) === before);
+    const blended = W.addTradition(imported, 'bluegrass');
+    check('a whole added tradition has unique decimal IDs after the imported maximum',
+      new Set(blended.cards.map((c) => c.id)).size === blended.cards.length &&
+      blended.cards.slice(imported.cards.length).every((c) => /^card_\d+$/.test(c.id) &&
+        BigInt(c.id.slice(5)) > BigInt(suffix)));
+    check('ID allocation preserves the imported input', JSON.stringify(imported) === before);
+  }
 }
 
 // ── add_instrument into a tradition: configured and placed as the app does ──

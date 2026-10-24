@@ -44,12 +44,17 @@ const tradById = (id) => {
 // time (start_recipe is idempotent in its ids as well as its recipe).
 const CARD_ID = /^card_(\d+)$/;
 function nextCardIds(existing, count) {
-  let max = 0;
+  // Imported suffixes can exceed Number's exact integer range (or overflow it).
+  // Keep the allocator exact; only the decimal string is stored in the card.
+  let max = 0n;
   for (const c of existing || []) {
     const m = CARD_ID.exec((c && c.id) || '');
-    if (m) max = Math.max(max, Number(m[1]));
+    if (m) {
+      const value = BigInt(m[1]);
+      if (value > max) max = value;
+    }
   }
-  return Array.from({ length: count }, (_, i) => `card_${max + 1 + i}`);
+  return Array.from({ length: count }, (_, i) => `card_${max + 1n + BigInt(i)}`);
 }
 
 // ── card construction (mirrors src/app.js) ──────────────────────────────────
