@@ -71,9 +71,18 @@ function fixture(options = {}) {
       contributors: [],
       completeness: 'complete',
     };
+    let page;
+    if (options.extraPage) {
+      head.page_count = 2;
+      page = canonical({ reading_unit_id: ID, reading_revision: revision,
+        page_index: 1, page_count: 2, start: { row_start: 1, analysis_line_start: 1,
+          normalized_cp_start: text.length + 1, normalized_utf16_start: text.length + 1 }, lines: [] });
+      head.pages = [sha(page)];
+    }
     const bytes = canonical(head),
       key = revision.slice(0, 16) + '-' + sha(bytes).slice(0, 12);
     files.set(`r/12/${ID}/${key}/head.json.gz`, bytes);
+    if (page) files.set(`r/12/${ID}/${key}/1-${sha(page).slice(0, 12)}.json.gz`, page);
     return key;
   }
   const oldKey = addHead(REV);
@@ -97,6 +106,9 @@ function fixture(options = {}) {
     DecompressionStream,
     CMLibraryImport: Import,
     console: { error() {}, warn() {} },
+    clearTimeout,
+    window: {},
+    uiEmptyState: ({ title, text }) => `${title}: ${text}`,
     esc: String,
     icon: () => '',
     uiDownload: (...x) => downloads.push(x),
@@ -245,4 +257,60 @@ test('shard failure is retryable without losing the reading', async () => {
   await assert.rejects(f.reader.provenance(f.lib, R), /snapshot.*verif/i);
   offline = false;
   assert.equal((await f.reader.provenance(f.lib, R)).snapshot_id, SNAP);
+});
+
+for (const replaced of [false, true]) {
+  for (const integrity of [false, true]) {
+    test(`provenance ${integrity ? 'integrity' : 'network'} failure belongs to ${replaced ? 'replaced' : 'current'} reader`, async () => {
+      const gate = deferred(), entered = deferred();
+      const f = fixture({ extraPage: true, async onFetch(name) {
+        if (!/\/1-/.test(name)) return;
+        entered.resolve(); await gate.promise;
+        if (!integrity) throw Error('Download network failed');
+      } });
+      const first = await f.open();
+      const page = [...f.files.keys()].find(name => /\/1-/.test(name));
+      if (integrity) f.files.set(page, JSON.stringify({ changed: true }));
+      const pending = f.reader.downloadProvenance();
+      await entered.promise;
+      let second;
+      if (replaced) {
+        second = await f.open();
+        second.R.id = 'replacement-B'; second.R.revision = NEXT;
+        second.main.innerHTML = 'Replacement reader B';
+      }
+      gate.resolve(); await pending;
+      assert.equal(f.downloads.length, 0);
+      if (replaced) {
+        assert.equal(second.main.innerHTML, 'Replacement reader B');
+        assert.equal(second.alerts.innerHTML, '');
+      } else if (integrity) {
+        assert.match(first.main.innerHTML, /This reading failed its check/);
+        assert.match(first.main.innerHTML, /integrity check/);
+      } else {
+        assert.equal(first.main.innerHTML, 'A café at dusk');
+        assert.match(first.alerts.innerHTML, /Download network failed/);
+      }
+    });
+  }
+}
+
+test('successful delayed provenance downloads its originating identity after reader replacement', async () => {
+  const gate = deferred(), entered = deferred();
+  const f = fixture({ extraPage: true, async onFetch(name) {
+    if (/\/1-/.test(name)) { entered.resolve(); await gate.promise; }
+  } });
+  await f.open();
+  const pending = f.reader.downloadProvenance(); await entered.promise;
+  const second = await f.open();
+  second.R.id = 'replacement-B'; second.R.revision = NEXT;
+  second.main.innerHTML = 'Replacement reader B';
+  gate.resolve(); await pending;
+  assert.equal(f.downloads.length, 1);
+  const artifact = JSON.parse(f.downloads[0][1]);
+  assert.equal(artifact.reading_unit_id, ID);
+  assert.equal(artifact.reading_revision, REV);
+  assert.equal(artifact.snapshot_id, SNAP);
+  assert.equal(second.main.innerHTML, 'Replacement reader B');
+  assert.equal(second.alerts.innerHTML, '');
 });

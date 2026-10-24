@@ -1285,14 +1285,15 @@ async function handoff(excerpt) {
 }
 
 async function downloadProvenance() {
+  const owner = S;
   try {
     uiDownload(
       'reading-provenance.json',
-      JSON.stringify(await provenance(S.lib, S.R), null, 2),
+      JSON.stringify(await provenance(owner.lib, owner.R), null, 2),
       'application/json'
     );
   } catch (e) {
-    fail(e);
+    if (S === owner) fail(e);
   }
 }
 
