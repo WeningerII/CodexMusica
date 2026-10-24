@@ -1171,7 +1171,7 @@ class AnalysisSession:
             a=a, b=b, **extra, alignment=json_safe(inst.alignment),
             channel_reads=json_safe(inst.reads), placement_reads=json_safe(inst.placement_reads),
             identity_reads=json_safe(inst.identity_reads), unknown_channels=json_safe(inst.unknown_channels),
-            informative_channels=list(inst.informative), scope=RL.tradition_scope(RL.REGISTRY[inst.schema], self.language),
+            informative_channels=list(inst.informative), scope=RL.tradition_scope(RL.schema_named(inst.schema), self.language),
             engine_edge=json_safe(inst))
 
     def _refusal(self, name, refusal):
