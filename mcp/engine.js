@@ -170,9 +170,19 @@ function baselineForCard(card) {
       return makeCard(card.instrumentId, traditionCardOpts(trad, card.instrumentId));
   }
   // A card added by hand (add_instrument) has no tradition baseline; its
-  // reference point is the instrument's own defaults.
+  // reference point is the instrument's own defaults. It names its instrument:
+  // the unpinned-preface pass resolves a preface from the baseline, and without
+  // the instrument it resolved none, so any pin on a bare card read as changed.
   const inst = instById(card.instrumentId);
-  return inst ? { parts: defaultParts(inst), room: null, tuning: null, chain: {} } : null;
+  return inst
+    ? {
+        instrumentId: card.instrumentId,
+        parts: defaultParts(inst),
+        room: null,
+        tuning: null,
+        chain: {},
+      }
+    : null;
 }
 
 // One environment field of a card, normalised so two cards can be compared: a

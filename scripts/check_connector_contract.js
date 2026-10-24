@@ -427,6 +427,27 @@ function unboundedArrays(toolName, schema) {
     );
   }
 
+  // The negative case, on the card with the thinnest baseline. A card added
+  // with no tradition used to resolve its "would show" preface to nothing, so
+  // pinning the preface it already showed read as `changed.preface` while the
+  // recipe stayed byte-identical. Only the positive case above was gated.
+  const bareRes = await edited([{ action: 'add_instrument', instrument: 'saxophone' }]);
+  const bareRow = bareRes.cards?.find((c) => c.instrument === 'saxophone' && !c.tradition);
+  check('add_instrument with no tradition yields a bare card', !!bareRow?.preface, bareRes.err);
+  if (bareRow?.preface) {
+    const r = await call('edit_recipe', {
+      workspace: bareRes.workspace,
+      edits: [{ action: 'set_preface', card: bareRow.card, preface: bareRow.preface }],
+    });
+    const again = r.isError ? null : JSON.parse(r.text);
+    const row = again?.cards?.find((c) => c.card === bareRow.card);
+    check(
+      'pinning the preface a bare card already shows is not `changed.preface`',
+      !!row && !row.changed?.preface,
+      JSON.stringify(row?.changed)
+    );
+  }
+
   // ── the derived Gemini declarations ───────────────────────────────────────
   //
   // The subset scan above asks whether the PUBLISHED schema is representable.
