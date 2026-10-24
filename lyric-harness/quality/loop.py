@@ -481,7 +481,12 @@ def swap_end_word(text, new_word, scheme=None, lex=None):
     old = last.group(0)
     if old != raw_final_token(text, scheme="v1"):
         return None
-    cased = _cased(old, new_word)
+    if old.isupper():
+        cased = new_word.upper()
+    elif old[:1].isupper():
+        cased = new_word.capitalize()
+    else:
+        cased = new_word.lower()
     return text[:last.start()] + cased + text[last.end():]
 
 
@@ -713,7 +718,12 @@ def swap_at_slot(text, slot, new_word, scheme=None, strip_parens=None, lex=None)
         return None
     hit = toks[idx]
     old = hit.group(0)
-    cased = _cased(old, new_word)
+    if old.isupper():
+        cased = new_word.upper()
+    elif old[:1].isupper():
+        cased = new_word.capitalize()
+    else:
+        cased = new_word.lower()
     return text[:hit.start()] + cased + text[hit.end():]
 
 

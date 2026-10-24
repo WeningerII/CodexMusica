@@ -6957,13 +6957,30 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
                     # words have several readings is answered by whether one
                     # whole reading of each holds it, and the readings used
                     # are reported.
-                    _ans, _wit = _RL.pair_satisfies_any(
-                        _schema, _stream, (0, -1), (1, -1),
-                        _RL.cached_builder(
-                            lambda ph: _RL.build_stream(_carriers, ph)))
+                    # The pair route drops the schema's placement on
+                    # purpose (`_pair_schema_unplaced`), but a mandate
+                    # group at line ends is graded through the instances
+                    # route, which enforces it: a schema two line ends
+                    # cannot place would read SATISFIES here and
+                    # SCHEME_VIOLATION at grade, for the same two words.
+                    if not _RL.placement_bindable(_schema, ("end", "end")):
+                        _ans = _wit = None
+                        row["named"] = None
+                        row["named_reason"] = (
+                            f"the placement of {_schema.name!r} cannot be met by "
+                            f"two line ends, so a line-end mandate declaring "
+                            f"it is charged whatever the words — declare it "
+                            f"at the slots its placement names")
+                    else:
+                        _ans, _wit = _RL.pair_satisfies_any(
+                            _schema, _stream, (0, -1), (1, -1),
+                            _RL.cached_builder(
+                                lambda ph: _RL.build_stream(_carriers, ph)))
                     if _wit:
                         row["named_readings"] = _wit
-                    if isinstance(_ans, _RL.Refusal):
+                    if row["named_reason"] is not None:
+                        pass
+                    elif isinstance(_ans, _RL.Refusal):
                         row["named"] = None
                         row["named_reason"] = str(
                             getattr(_ans, "reason", None)
@@ -11099,22 +11116,6 @@ def main():
                                     "put on a pair of line ends.",
                                     "`type:`/`class:` names judge word "
                                     "pairs as before."])
-                # The pair route drops the schema's placement on purpose
-                # (`_pair_schema_unplaced`), but a mandate group at line ends
-                # is graded through the instances route, which enforces it.
-                # A schema two line ends cannot place would read SATISFIES
-                # here and SCHEME_VIOLATION at grade, for the same two words.
-                if not _RL_s.placement_bindable(_sch, ("end", "end")):
-                    _refuse(f"screen --relation={screen_rel!r} names a "
-                            f"schema whose placement two line ends cannot "
-                            f"satisfy (`relations.placement_bindable`), so "
-                            f"the grade charges a line-end mandate declaring "
-                            f"it whatever the words; the screen judges line "
-                            f"ends and would answer SATISFIES under its name",
-                            detail=["declare it at the slots its placement "
-                                    "names, and the grade judges it there "
-                                    "(`line_pairs_for`); the planner never "
-                                    "draws it on line ends either."])
         bad_flag = [a for a in rest if a.startswith("--")]
         if bad_flag:
             _refuse(f"screen does not take {bad_flag[0]!r}",

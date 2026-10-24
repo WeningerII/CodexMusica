@@ -2721,10 +2721,14 @@ def test_a_batch_waits_for_every_line_walked_before_it():
 def test_a_one_letter_capital_keeps_its_case():
     print("\n— a replacement for 'I' is capitalised, not shouted")
     from quality.loop import swap_end_word
-    got = [swap_end_word("Just the two of us, you and I", "sky", scheme=s)
-           for s in (None, "v1")]
-    check("'you and I' -> 'you and Sky' under both readers",
-          got == ["Just the two of us, you and Sky"] * 2, got)
+    got = swap_end_word("Just the two of us, you and I", "sky")
+    check("'you and I' -> 'you and Sky' under the v2 reader",
+          got == "Just the two of us, you and Sky", got)
+    # v1 is FROZEN: its consumers must match the pre-batch oracle
+    # (test_reader.V1Frozen), casing included.
+    v1 = swap_end_word("Just the two of us, you and I", "sky", scheme="v1")
+    check("CONTROL: the frozen v1 reader keeps its recorded casing",
+          v1 == "Just the two of us, you and SKY", v1)
     check("CONTROL: an all-capitals word of two letters or more stays "
           "all capitals", swap_end_word("WE RUN THE NIGHT", "day")
           == "WE RUN THE DAY")
