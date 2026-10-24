@@ -128,16 +128,16 @@ Facts that bite if you miss them:
   voice, timbre, percussion, cyclicity`. Instrument axes: a 9-key object (`pitchFix,
   sustain, polyphony, …`). Values are ints **−2..+2**.
 - **`instrument.family`** ∈ the 11-value `INSTRUMENT_FAMILIES` table (always resolves).
-  **`tradition.family`** is a *different* 12-value vocabulary (`global, classical,
+  **`tradition.family`** is a *different* 17-value vocabulary (`global, classical,
   rock_punk, electronic, hip_hop, vernacular, jazz, pop, blues_gospel, rock, country,
-  pop_rock`; `global` dominates at 2492/7755) — a top-level genre bucket, NOT an
-  instrument family.
+  pop_rock`, plus five small ones: `sacred` 8, `popular` 6, `folk` 3, `latin` 1, `vocal` 1;
+  `global` dominates at 2492/7755) — a top-level genre bucket, NOT an instrument family.
 - **Tree-node ids are full dotted paths.** 292 of 317 ids contain dots
   (`functionalSong.country.honkyTonkEra`); `extras.parent`/`crossRefs` hold such ids and
   resolve directly via `byNode[path]` — no path reconstruction.
-- **`crossRefs[]` is a mixed array**: mostly strings (node-id paths), but 67 entries
-  (across 63 distinct traditions) are `{ref:"<node path>", voice_isolated:true}` (44) or
-  `{ref:"<node path>", isolated_parts:[…]}` (23) objects — there is **no** `weight` field
+- **`crossRefs[]` is a mixed array**: mostly strings (node-id paths), but 66 entries
+  (across 62 distinct traditions) are `{ref:"<node path>", voice_isolated:true}` (44) or
+  `{ref:"<node path>", isolated_parts:[…]}` (22) objects — there is **no** `weight` field
   (a `{ref,weight}` object would fail `validate.js`). Normalize with `cr.ref ?? cr` before
   resolving (the §5/§6 checks do this).
 - An instrument's `parts` are already family-merged in the data; the §2 helper
