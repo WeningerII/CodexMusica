@@ -14,7 +14,7 @@ import { requestContext } from './execution_context.js';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
 import { TOOL_SCHEMAS } from './schemas.js';
-import { LYRIC_TOOL_SCHEMAS } from './lyric_tools.js';
+import { LYRIC_TOOL_SCHEMAS, MAX_LINES } from './lyric_tools.js';
 import { expectedSurface } from './surface_contract.js';
 import { executeNative, publicToolResult } from './workflow_sessions.js';
 import { DETAIL_PARTS } from './verdict_view.js';
@@ -251,6 +251,7 @@ export async function buildWorkflowServer({ domain = null, sessions, compatibili
           ),
         lines: z
           .array(z.number().int().min(1))
+          .max(MAX_LINES)
           .optional()
           .describe(
             'With detail: keep only the findings, obligations and reading options that touch these 1-based lines.'

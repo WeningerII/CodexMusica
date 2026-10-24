@@ -1,6 +1,6 @@
 # Runtime wheels pinned from PyPI release metadata; generated 2026-09-08.
-nltk==3.10.3 \
-    --hash=sha256:ff9598a8e20518ee0d557745890cc4435b9578489e2dcbc69c4f81fa060caf7c
+nltk==3.10.4 \
+    --hash=sha256:769ba5413f265b7d3e87cd163cc28efa01e29eeef8bb6080bc907949d9fcfb51
 defusedxml==0.7.1 \
     --hash=sha256:a352e7e428770286cc899e2542b6cdaedb2b4953ff269a210103ec58f6198a61
 click==8.5.0 \

@@ -1,7 +1,11 @@
 # Build once in CI, qualify this image ID, and promote its registry digest.
-# Official node:22.23.2-bookworm-slim manifest, verified 2026-09-08.
-FROM node:22.23.2-bookworm-slim@sha256:83f487e0a63425e5b4d146fb5e5be574bcbe1b7b843d3ebafdd95eaf7767a7e5 AS runtime-base
+# Official node:22.23.4-bookworm-slim manifest (Node security release 2026-10-21), verified 2026-10-23.
+FROM node:22.23.4-bookworm-slim@sha256:de170b39439eb0e5a3444ad7d60b015614a381e10fecae2e30ec9e735122f38d AS runtime-base
+# Take every Debian fix published since the base digest was cut (the
+# 2026-10-23 scan of the built image found tzdata DLA-4854-1 behind); the
+# image is qualified by its own ID, so this adds no unqualified bytes.
 RUN apt-get update \
+ && apt-get upgrade -y --no-install-recommends \
  && apt-get install -y --no-install-recommends python3 python3-pip \
  && rm -rf /var/lib/apt/lists/*
 WORKDIR /app/mcp
@@ -62,6 +66,12 @@ RUN cd /source/lyric-harness \
  && rm -f /library/corpus/*.part-*
 
 FROM runtime-base AS production
+# npm ran once, above, to install dependencies; the server, every CI gate and
+# every qualification run start `node` or `python3`, never npm or npx. Removed
+# from the final image because npm's own bundled packages were the only
+# fixable findings left in the base (Trivy 0.76.1, 2026-10-23: brace-expansion,
+# ip-address, pacote, picomatch, sigstore, under /usr/local/lib/node_modules/npm).
+RUN rm -rf /usr/local/lib/node_modules/npm /usr/local/bin/npm /usr/local/bin/npx
 WORKDIR /app
 COPY scripts ./scripts
 COPY references ./references

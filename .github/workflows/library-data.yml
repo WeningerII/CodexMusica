@@ -45,13 +45,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           persist-credentials: false
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: '3.12'
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: '22'
           cache: npm
@@ -70,7 +70,7 @@ jobs:
             python3 -c "import json, sys; m = json.load(open(sys.argv[1])); print('data_id', m['data_id'], 'files', len(m['files']), 'bytes', sum(f['bytes'] for f in m['files'].values()))" "$RUNNER_TEMP/library-data/manifest.json"
             cp "$RUNNER_TEMP/library-data/manifest.json" library-data-manifest.json
           fi
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
           name: library-data-manifest
