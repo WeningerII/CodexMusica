@@ -18473,6 +18473,10 @@ function _addedInstrumentMessage(instrumentId, card) {
 // entry is recorded, so "add this instrument, configured like so" is one
 // action and one Ctrl+Z (the Instrument page's configure-before-add uses it).
 async function addInstrumentFromPicker(instrumentId, opts) {
+  // An add belongs to the session in which it was requested. Opening another
+  // workspace invalidates it even while the engine or full tradition loads.
+  const workspaceGeneration = app._workspaceGeneration || 0;
+  const ownsWorkspace = () => (app._workspaceGeneration || 0) === workspaceGeneration;
   // Read the destination before any wait: the Add-to context can change while
   // the instrument data loads (another Add, the page's own select), and the
   // user's choice is the one in force when they asked.
@@ -18480,6 +18484,7 @@ async function addInstrumentFromPicker(instrumentId, opts) {
   const tradId = app._addToTradition || null;
   app._addToTradition = null;
   if (!_engineLive && !(await engineReady(opts && opts.retry))) return null;
+  if (!ownsWorkspace()) return null;
   // An ungrouped card: addCard records it, unless it is configured first.
   const addLoose = () => {
     if (!configure) return addCard(instrumentId);
@@ -18495,6 +18500,7 @@ async function addInstrumentFromPicker(instrumentId, opts) {
   // embedded mode and for any tradition already imported into the workspace.
   try { await Catalog.ensureFull(tradId); }
   catch { /* fall through: cardOpts stays null and the card is added ungrouped */ }
+  if (!ownsWorkspace()) return null;
   const cardOpts = traditionCardOpts(tradId, instrumentId);
   if (!cardOpts) return addLoose();
   // skipHistory + explicit pushHistory: the card is repositioned into its

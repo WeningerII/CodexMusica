@@ -595,6 +595,7 @@ async function uiAddGenre(id) {
 // configured addition is one Undo; message(card) words the success toast.
 async function uiAddInstrument(id, { configure, message, destination } = {}) {
   if (UI.busy) return null;
+  const workspaceGeneration = app._workspaceGeneration || 0;
   UI.busy = true;
   try {
     const dest = destination !== undefined ? destination : $ui('instrument-destination')?.value;
@@ -604,6 +605,7 @@ async function uiAddInstrument(id, { configure, message, destination } = {}) {
       run: () => uiAddInstrument(id, { configure, message, destination: dest || '' }),
     };
     const c = await addInstrumentFromPicker(id, { configure, retry });
+    if ((app._workspaceGeneration || 0) !== workspaceGeneration) return null;
     // No card while the instrument data could not load: engineReady has said so.
     if (!c) {
       if (!_engineLive) return null;
@@ -614,6 +616,7 @@ async function uiAddInstrument(id, { configure, message, destination } = {}) {
     showToast(message ? message(c) : _addedInstrumentMessage(id, c), 'success');
     return c;
   } catch (e) {
+    if ((app._workspaceGeneration || 0) !== workspaceGeneration) return null;
     showToast(e.message || 'Could not add the instrument', 'error');
     return null;
   } finally {
