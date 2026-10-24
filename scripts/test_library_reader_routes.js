@@ -21,6 +21,7 @@ function deferred() {
   return { promise, resolve };
 }
 function fixture(t) {
+  const utterances = [];
   const dom = new JSDOM('<div id="surface-library"><main></main></div>', {
     url: 'https://example.test/#library',
     runScripts: 'outside-only',
@@ -126,12 +127,23 @@ function fixture(t) {
     },
   });
   Object.defineProperty(w, 'crypto', { value: webcrypto });
+  w.SpeechSynthesisUtterance = class {
+    constructor(text) {
+      this.text = text;
+    }
+  };
+  w.speechSynthesis = {
+    getVoices: () => [{ voiceURI: 'english', lang: 'en' }],
+    speak: (u) => utterances.push(u),
+    cancel() {},
+    addEventListener() {},
+  };
   w.HTMLElement.prototype.scrollIntoView = function () {
     scrolls.push(this.id);
   };
   let source = fs
     .readFileSync(path.join(__dirname, '../src/library/reader.js'), 'utf8')
-    .replace('_internals: {', '_internals: { state: () => S, parse, route, rowRequests,');
+    .replace('_internals: {', '_internals: { state: () => S, parse, route, rowRequests, speak,');
   source = source.replace(
     'return {\n  show,',
     'const rowRequests = []; const originalGoToRow = goToRow; goToRow = (row) => { const task = originalGoToRow(row); rowRequests.push(task); return task; };\nreturn {\n  show,'
@@ -155,6 +167,7 @@ function fixture(t) {
     lib,
     files,
     oldKey,
+    utterances,
     currentKey,
     projectionKey,
     routes,
@@ -317,3 +330,35 @@ test('an old offset page load cannot change a new revision or supersede a newer 
     assert.ok(f.main.querySelector('.rd'));
   }
 });
+
+test('same-reading offset navigation does not cancel speech ownership', async (t) => {
+  const f = fixture(t);
+  await f.open(`revision=${f.currentKey}`);
+  await f.reader._internals.wholeText(f.lib, f.state().R);
+  f.reader._internals.speak(false);
+  await new Promise((resolve) => setImmediate(resolve));
+  assert.equal(f.utterances.length, 1);
+  await f.open(`revision=${f.currentKey}&offset=1`);
+  f.utterances[0].onend();
+  assert.equal(f.utterances.length, 2);
+  f.utterances[1].onend();
+  assert.equal(f.state().speaking, false);
+});
+
+for (const stopSpeech of [false, true])
+  test(`speech ${stopSpeech ? 'start/stop' : 'start'} does not supersede a pending offset`, async (t) => {
+    const f = fixture(t);
+    await f.open(`revision=${f.currentKey}`);
+    const head = f.files.get(f.headPath(f.currentKey));
+    const pagePath = `r/12/${ID}/${f.currentKey}/1-${head.pages[0].slice(0, 12)}.json.gz`;
+    const gate = deferred();
+    f.gates.set(pagePath, gate);
+    await f.open(`revision=${f.currentKey}&offset=250`);
+    const pending = f.reader._internals.rowRequests.at(-1);
+    f.reader._internals.speak(false);
+    if (stopSpeech) f.reader._internals.speak(false);
+    gate.resolve();
+    await pending;
+    assert.deepEqual([...f.state().window], [1, 1]);
+    assert.equal(f.state().speaking, !stopSpeech);
+  });

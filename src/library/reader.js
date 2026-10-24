@@ -709,6 +709,7 @@ async function show(main, sub, lib) {
     busy: false,
     speaking: false,
     gen: 0,
+    rowGeneration: 0,
     voice: '',
     speed: 1,
     ownRoute: null,
@@ -816,6 +817,7 @@ function applyParams(params) {
 function stop() {
   if (!S) return;
   S.gen++;
+  S.rowGeneration++;
   try {
     window.speechSynthesis?.cancel();
   } catch {
@@ -1030,17 +1032,17 @@ async function page(direction) {
 
 async function goToRow(row) {
   const mine = S,
-    generation = ++mine.gen,
+    generation = ++mine.rowGeneration,
     R = mine.R;
   const p = Math.max(0, Math.min(R.pageCount - 1, Math.floor(row / PAGE_ROWS)));
   if (p < mine.window[0] || p > mine.window[1]) {
     try {
       await loadPage(mine.lib, R, p);
     } catch (e) {
-      if (S === mine && mine.gen === generation) fail(e);
+      if (S === mine && mine.rowGeneration === generation) fail(e);
       return;
     }
-    if (S !== mine || mine.gen !== generation) return;
+    if (S !== mine || mine.rowGeneration !== generation) return;
     S.window = [p, p];
     renderBody();
   }
