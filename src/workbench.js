@@ -237,7 +237,7 @@ function uiNavigate(view, { push = false, sub } = {}) {
   }
   document.body.classList.remove('session-open');
   UILayout.refresh();
-  document.querySelector(`[data-view="${view}"]`)?.focus({ preventScroll: true });
+  document.querySelector(`button[data-view="${view}"]`)?.focus({ preventScroll: true });
 }
 // ── Recipe panel ── #workspace-sidebar is the one recipe workspace on every
 // route: the same cards, the same editor (#workspace-detail) and the same
