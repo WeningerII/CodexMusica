@@ -760,6 +760,24 @@ test(
       ]);
       assert.equal(mixed.status, 400);
       assert.match((await mixed.json()).error.message, /^TASK_FORMAT: .*tags, prose/);
+      // An omitted format is Rich, as it is alone, so it cannot quietly take
+      // the batch's other format; a lookup in the batch names no format at all.
+      const omitted = await post('/mcp/recipe', [
+        call(1, 'start_recipe', { traditions: ['bluegrass'], format: 'tags' }),
+        call(2, 'start_recipe', { traditions: ['bluegrass'] }),
+      ]);
+      assert.equal(omitted.status, 400);
+      assert.match((await omitted.json()).error.message, /^TASK_FORMAT: .*tags, rich/);
+      const lookup = await post('/mcp/recipe', [
+        call(1, 'start_recipe', { traditions: ['bluegrass'], format: 'tags' }),
+        call(2, 'search_catalog', { query: 'banjo' }),
+      ]);
+      assert.equal(lookup.status, 200);
+
+      // A cut log token says it was cut.
+      await post('/mcp/recipe', call(3, 'n'.repeat(500) + ' x', {}));
+      await new Promise((resolve) => setTimeout(resolve, 100));
+      assert.ok(output.includes(`"${'n'.repeat(64)}…"`), 'a cut token ends with an ellipsis');
     } finally {
       await stopHTTP(child, exited, () => output);
       rmSync(root, { recursive: true, force: true });

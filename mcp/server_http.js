@@ -744,12 +744,16 @@ app.get('/.well-known/mcp.json', (_req, res) =>
 // A name that is not a plain identifier is JSON-quoted (escaping every control
 // character) and cut to a fixed length, so one call is always one line.
 const LOGGED_TOKEN_CHARS = 64;
+const RENDERING_TOOLS = new Set(['start_recipe', 'edit_recipe', 'render_recipe']);
+
 function logToken(value) {
   const text = String(value);
   if (/^[\w./:-]{1,64}$/.test(text)) return text;
   // JSON.stringify escapes C0 controls but leaves U+2028/U+2029 raw, and a log
   // viewer may break a line on either.
-  return JSON.stringify(text.slice(0, LOGGED_TOKEN_CHARS)).replace(
+  // A cut token says so, so a 64-character prefix never reads as a whole name.
+  const cut = text.length > LOGGED_TOKEN_CHARS ? text.slice(0, LOGGED_TOKEN_CHARS) + '…' : text;
+  return JSON.stringify(cut).replace(
     /[\u2028\u2029]/g,
     (c) => `\\u${c.charCodeAt(0).toString(16)}`
   );
@@ -853,8 +857,15 @@ app.post(mcpPaths, async (req, res) => {
   const calls = (Array.isArray(req.body) ? req.body : [req.body]).filter(
     (m) => m?.method === 'tools/call'
   );
+  // Only the three tools that render a recipe take a format, and one that
+  // omits it renders Rich, as it does alone; counting the omission as nothing
+  // let it inherit another call's format inside a batch (BB8's review).
   const formats = [
-    ...new Set(calls.map((m) => m.params?.arguments?.format).filter((f) => f != null)),
+    ...new Set(
+      calls
+        .filter((m) => RENDERING_TOOLS.has(m.params?.name))
+        .map((m) => m.params?.arguments?.format ?? 'rich')
+    ),
   ];
   if (domain && formats.length > 1) {
     return res.status(400).json({
