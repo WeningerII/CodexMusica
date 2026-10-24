@@ -14582,11 +14582,11 @@ function withSavedWrite(fn){
 // A saved copy: the open workspace stays open and keeps its name; the copy
 // is listed under Saved sessions and can be opened from the confirmation.
 async function saveWS(name) {
-  const snapshot=JSON.parse(JSON.stringify(sessionSnapshot()));let savedKey=null;
+  const snapshot=JSON.parse(JSON.stringify(sessionSnapshot())),savedMeta=lyricMetaOf(app.lyricMeta);let savedKey=null;
   if(!window.storage||window.storage.backend==='memory'){showToast('Permanent storage unavailable. Export your session.','error');return;}
   try {await withSavedWrite(async()=>{
     const list=await readListStrict();if(window.storage.backend==='memory')throw Error('Permanent storage unavailable');const key=savedKey='codex:ws:'+newId('ws');
-    const data={schema:WS_SCHEMA,key,name,saved_at:new Date().toISOString(),cards:snapshot.cards,lyrics:snapshot.lyrics,lyricMeta:lyricMetaOf(app.lyricMeta)};
+    const data={schema:WS_SCHEMA,key,name,saved_at:new Date().toISOString(),cards:snapshot.cards,lyrics:snapshot.lyrics,lyricMeta:savedMeta};
     await window.storage.set(key,JSON.stringify(data));list.push({key,name,saved_at:data.saved_at,count:data.cards.length});
     await window.storage.set('codex:list',JSON.stringify(list));
   });showToast(`Workspace copy saved: ${name}`,'success',{label:'Open copy',run:()=>loadWS(savedKey)});
