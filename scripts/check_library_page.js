@@ -394,6 +394,87 @@ const SECTIONS = {
       );
       check(`${tag} collection page renders`, !failedC && rows > 0, failedC || `${rows} rows`);
     }
+    // A collection's page is in the hash (?offset=), Back restores it, and it
+    // never leaks into the next collection opened from history (BB8's L1).
+    const colls = JSON.parse(
+      fs.readFileSync(path.join(DATA, 'collections.json'), 'utf8')
+    ).collections;
+    const big = colls.find((c) => c[3] > 250);
+    const small = colls.find((c) => c[3] > 0 && c[3] <= 250);
+    if (big && small) {
+      const pagerText = () =>
+        page.evaluate(
+          () => document.querySelector('#surface-library .lib-pager span')?.textContent
+        );
+      await go(page, base, `/collections/${small[0]}`);
+      await settled(page, 'core', '#surface-library .lib-coll-list');
+      await go(page, base, `/collections/${big[0]}`);
+      await settled(page, 'core', '#surface-library .lib-pager');
+      await page.click('#surface-library .lib-pager button:last-child');
+      await page
+        .waitForFunction(() => /\?offset=250$/.test(location.hash), null, { timeout: 8000 })
+        .catch(() => {});
+      await page
+        .waitForFunction(
+          () =>
+            /^251/.test(
+              document.querySelector('#surface-library .lib-pager span')?.textContent || ''
+            ),
+          null,
+          { timeout: 8000 }
+        )
+        .catch(() => {});
+      check(
+        `${tag} collection Next writes ?offset=250`,
+        /\?offset=250$/.test(await page.evaluate(() => location.hash)),
+        await page.evaluate(() => location.hash)
+      );
+      check(
+        `${tag} collection Next shows 251–`,
+        /^251/.test((await pagerText()) || ''),
+        await pagerText()
+      );
+      await page.goBack();
+      await page.goBack();
+      const failedS = await settled(
+        page,
+        'core',
+        '#surface-library .lib-coll-list, #surface-library .cm-empty'
+      );
+      check(
+        `${tag} Back to a one-page collection renders it, not the other's page`,
+        !failedS,
+        failedS
+      );
+      await page.goForward();
+      await page.goForward();
+      await page
+        .waitForFunction(
+          () =>
+            /^251/.test(
+              document.querySelector('#surface-library .lib-pager span')?.textContent || ''
+            ),
+          null,
+          { timeout: 8000 }
+        )
+        .catch(() => {});
+      check(
+        `${tag} Forward restores the collection's page`,
+        /^251/.test((await pagerText()) || ''),
+        await pagerText()
+      );
+      await go(page, base, `/collections/${big[0]}?offset=300`);
+      await settled(page, 'core', '#surface-library .lib-pager');
+      await page
+        .waitForFunction(() => /\?offset=250$/.test(location.hash), null, { timeout: 8000 })
+        .catch(() => {});
+      check(
+        `${tag} an off-grid collection offset reads as its page, in the hash too`,
+        /\?offset=250$/.test(await page.evaluate(() => location.hash)) &&
+          /^251/.test((await pagerText()) || ''),
+        `${await page.evaluate(() => location.hash)} ${await pagerText()}`
+      );
+    }
   },
 
   async works({ page, base, tag }) {
@@ -424,6 +505,41 @@ const SECTIONS = {
       `${tag} works: q in the hash`,
       /[?&]q=epithalamion/i.test(await page.evaluate(() => location.hash))
     );
+    // A value outside a closed set reads as its default everywhere, and the
+    // hash says so (BB8's L2); an off-grid offset snaps to the 50 grid (L3).
+    await go(page, base, '/works?sort=bogus&availability=bogus&completeness=&language=zzz');
+    await settled(page, 'works', '#surface-library .lw-table tbody tr');
+    await page
+      .waitForFunction(() => location.hash === '#library/works', null, { timeout: 8000 })
+      .catch(() => {});
+    check(
+      `${tag} works: unknown filter values are dropped from the hash`,
+      (await page.evaluate(() => location.hash)) === '#library/works',
+      await page.evaluate(() => location.hash)
+    );
+    check(
+      `${tag} works: and no filter badge or chip shows for them`,
+      await page.evaluate(
+        () =>
+          document.querySelector('#surface-library .lw-count')?.hidden !== false &&
+          !/bogus|zzz|Sorted by/.test(
+            document.querySelector('#surface-library .lw-chips')?.textContent || ''
+          )
+      )
+    );
+    await go(page, base, '/works?offset=75');
+    await settled(page, 'works', '#surface-library .lw-table tbody tr');
+    await page
+      .waitForFunction(() => /offset=50$/.test(location.hash), null, { timeout: 8000 })
+      .catch(() => {});
+    const snapped = await page.$$eval('#surface-library .lw-table tbody tr', (r) => r.length);
+    check(
+      `${tag} works: offset=75 snaps to 50 with a full page`,
+      /offset=50$/.test(await page.evaluate(() => location.hash)) && snapped === 50,
+      `${await page.evaluate(() => location.hash)} ${snapped} rows`
+    );
+    await go(page, base, '/works?q=epithalamion');
+    await settled(page, 'works', '#surface-library .lw-table tbody tr');
     // Filters sheet.
     await page.click('#surface-library [data-lw="filters"]');
     const sheet = await page

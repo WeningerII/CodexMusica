@@ -39,6 +39,11 @@ const COMPLETENESS = [
   'documented_excerpt',
   'continuous_segment',
 ];
+const CLOSED = {
+  availability: AVAILABILITY,
+  completeness: COMPLETENESS,
+  sort: ['title', 'contributor'],
+};
 // The list parameters and their defaults; a default is left out of the hash.
 const DEFAULTS = {
   q: '',
@@ -141,7 +146,16 @@ function parse(sub) {
   for (const k of Object.keys(DEFAULTS)) s[k] = p.get(k) ?? DEFAULTS[k];
   const m = /^\/collections\/(.+)$/.exec(path);
   if (m) s.collection = decodeURIComponent(m[1]);
-  s.offset = String(Math.max(0, Math.floor(Number(s.offset) || 0)));
+  // A value outside a closed set reads as the default, never half-applied
+  // (the chip, the filter sheet and the request each read it differently;
+  // BB8's L2). update() writes the result back to the hash. A language is
+  // checked against the catalog there; here only its shape.
+  for (const [k, set] of Object.entries(CLOSED)) if (!set.includes(s[k])) s[k] = DEFAULTS[k];
+  if (s.language !== 'all' && !/^[a-z]{2,3}$/.test(s.language)) s.language = DEFAULTS.language;
+  // Offsets sit on the 50-row grid the pager produces, so a page never spans
+  // two 100-row w/title files (an offset of 75 used to skip rows 101-125; L3).
+  const n = Math.max(0, Math.floor(Number(s.offset) || 0));
+  s.offset = String(n - (n % PAGE));
   s.base = m ? path : '/works';
   return s;
 }
@@ -323,10 +337,18 @@ class WorksView {
     // lib.go may re-enter show(); that call sees the same sub and stays put.
     this.load();
   }
-  update(sub) {
+  async update(sub) {
     const s = parse(sub);
+    if (s.language !== 'all' && !(await this.languages()).includes(s.language))
+      s.language = DEFAULTS.language;
     this.state = s;
     this.sub = format(s);
+    // What is shown is what the hash says: a value read as its default is
+    // dropped from the hash (replace, not a new history entry).
+    if (sub !== this.sub) {
+      if (this.lib.go) this.lib.go(this.sub, { replace: true });
+      else uiSubroute(this.sub, { push: false });
+    }
     if (document.activeElement !== this.input || this.input.value !== s.q) this.input.value = s.q;
     this.root.querySelector('.lw-top').classList.toggle('has-q', !!s.q);
     this.load();
@@ -523,16 +545,19 @@ class WorksView {
       this.load();
     }
   }
-  async openFilters(opener) {
-    const s = this.state;
-    let languages = Object.keys(LANGUAGE_NAMES);
+  // The full recorded-language list (every collection, held ones too).
+  async languages() {
     try {
       const cat = await this.lib.catalog();
-      // The full recorded-language list (every collection, held ones too).
-      if (Array.isArray(cat?.languages) && cat.languages.length) languages = cat.languages;
+      if (Array.isArray(cat?.languages) && cat.languages.length) return cat.languages;
     } catch {
       /* fall back to the known names */
     }
+    return Object.keys(LANGUAGE_NAMES);
+  }
+  async openFilters(opener) {
+    const s = this.state;
+    const languages = await this.languages();
     const opt = (v, label, cur) =>
       `<option value="${esc(v)}"${v === cur ? ' selected' : ''}>${esc(label)}</option>`;
     const body =

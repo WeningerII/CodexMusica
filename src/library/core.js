@@ -380,7 +380,6 @@ const state = {
   shelfShown: {},
   shelfUnsaved: {},
   shelfTimers: {},
-  page: 0,
   token: 0,
 };
 const num = (n) => Number(n || 0).toLocaleString('en-US');
@@ -588,7 +587,21 @@ function withFirst(rows, shelf) {
 }
 
 // ─── A collection ────────────────────────────────────────────────────────────
-async function showCollection(main, id, token) {
+// The page of a collection lives in the hash as a row offset, the documented
+// `#library/collections/<id>?offset=n` (docs/library-native-design.md row 12),
+// so Next pushes, Back restores it and a shared link opens the same page. It
+// used to be a module global that nothing reset on Back, so one collection's
+// page was applied to the next collection opened from history (BB8's L1).
+const COLLECTION_PAGE = 250;
+function collectionOffset(sub) {
+  const at = sub.indexOf('?');
+  const raw = new URLSearchParams(at < 0 ? '' : sub.slice(at + 1)).get('offset');
+  return /^\d+$/.test(raw || '') ? Number(raw) : 0;
+}
+const collectionSub = (id, page) =>
+  '/collections/' + encodeURIComponent(id) + (page ? '?offset=' + page * COLLECTION_PAGE : '');
+
+async function showCollection(main, id, token, offset = 0) {
   const [catalog, all] = await Promise.all([lib.catalog(), lib.collections()]);
   if (token !== state.token) return;
   const row = all.collections.find((c) => c[0] === id);
@@ -624,16 +637,26 @@ async function showCollection(main, id, token) {
   }
   main.innerHTML = frame(header('') + `<div class="lib-skel" aria-hidden="true"></div>`);
   fillRail(main, id);
-  const page = await lib.collection(id, state.page);
+  const head = await lib.collection(id);
+  if (token !== state.token) return;
+  const pages = head.page_count || 1;
+  const at = Math.min(Math.floor(offset / COLLECTION_PAGE), pages - 1);
+  // An off-grid, past-the-end or malformed offset is shown as the page that
+  // holds it, and the hash is rewritten to say so.
+  const canonical = collectionSub(id, at);
+  if ((LIBRARY.sub || '') !== canonical && /\?/.test(LIBRARY.sub || '')) {
+    LIBRARY.sub = canonical;
+    uiSubroute(canonical, { push: false });
+  }
+  const page = at ? await lib.collection(id, at) : head;
   if (token !== state.token) return;
   selectedFor.set(id, page.readable_ids || selectedFor.get(id));
   const ids = selectedFor.get(id) || [];
   const pressed = selectionState(id);
-  const pages = page.page_count || 1;
   const actions = `<div class="lib-coll-actions">${libButton('read', 'Read the first', 'play', ` data-id="${esc(ids[0] || '')}"`)}${libButton('select', pressed === 'true' ? 'Remove all from selection' : 'Add all to selection', pressed === 'true' ? 'check' : 'plus', ` data-cid="${esc(id)}" aria-pressed="${pressed}"`)}${libButton('go', 'Search in Works', 'search', ` data-sub="/works?collection=${encodeURIComponent(id)}"`)}</div>`;
   const pager =
     pages > 1
-      ? `<div class="lib-pager"><button type="button" class="lib-btn" data-lib-act="page" data-page="${state.page - 1}"${state.page ? '' : ' disabled'}>Previous</button><span>${num(state.page * 250 + 1)}–${num(state.page * 250 + page.rows.length)} of ${num(ids.length)}</span><button type="button" class="lib-btn" data-lib-act="page" data-page="${state.page + 1}"${state.page + 1 < pages ? '' : ' disabled'}>Next</button></div>`
+      ? `<div class="lib-pager"><button type="button" class="lib-btn" data-lib-act="page" data-cid="${esc(id)}" data-page="${at - 1}"${at ? '' : ' disabled'}>Previous</button><span>${num(at * COLLECTION_PAGE + 1)}–${num(at * COLLECTION_PAGE + page.rows.length)} of ${num(ids.length)}</span><button type="button" class="lib-btn" data-lib-act="page" data-cid="${esc(id)}" data-page="${at + 1}"${at + 1 < pages ? '' : ' disabled'}>Next</button></div>`
       : '';
   const list = `<ul class="lib-coll-list" aria-label="Readings in ${esc(title)}">${page.rows
     .map((r) => {
@@ -790,7 +813,6 @@ function bind(main) {
         const card = main.querySelector(`.lib-card[data-cid="${CSS_ESC(cid)}"]`);
         await showCredit(card?.dataset.art, card?.querySelector('[data-lib-act="menu"]'));
       } else if (act === 'open') {
-        state.page = 0;
         lib.go('/collections/' + cid);
       } else if (act === 'play') {
         const first = firstOf.get(cid) || (await readableIds(cid))[0];
@@ -830,8 +852,7 @@ function bind(main) {
         );
         if (next) (restoreShelf(next.closest('.lib-shelf'), 0), (next.scrollLeft = scrollLeft));
       } else if (act === 'page') {
-        state.page = Number(el.dataset.page) || 0;
-        render(main, LIBRARY.sub);
+        await lib.go(collectionSub(cid, Math.max(0, Number(el.dataset.page) || 0)));
       } else if (act === 'retry') {
         render(main, LIBRARY.sub);
       }
@@ -859,7 +880,7 @@ async function render(main, sub) {
   if (!main.querySelector('.lib-core'))
     main.innerHTML = `<div class="lib-core-main"><div class="lib-skel" aria-hidden="true"></div><div class="lib-skel" aria-hidden="true"></div></div>`;
   try {
-    if (coll) await showCollection(main, decodeURIComponent(coll[1]), token);
+    if (coll) await showCollection(main, decodeURIComponent(coll[1]), token, collectionOffset(sub));
     else await showExplore(main, token);
   } catch (error) {
     if (token !== state.token) return;
@@ -892,7 +913,7 @@ async function show(main, sub = '') {
         : null;
   if (!chunk) {
     if (main.dataset.libraryChunk !== 'core') main.innerHTML = '';
-    return render(main, path);
+    return render(main, sub);
   }
   ensureStyles();
   main.dataset.libraryChunk = chunk;
