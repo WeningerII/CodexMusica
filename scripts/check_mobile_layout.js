@@ -384,6 +384,30 @@ const PINNED_PROBE = `(() => {
     };
     assertViewport(await page.evaluate(VIEWPORT_PROBE), 'on the empty state');
 
+    // No header tab's icon and label may spill outside its own button: below
+    // 900px the tabs share the row (flex: 1, min-width: 0), and a label wider
+    // than its share draws over the next tab without overflowing anything the
+    // checks above measure ("Instrument" covered Genre at 360-412px; Jony's
+    // viewport lane).
+    const spills = await page.evaluate(() =>
+      [...document.querySelectorAll('.ui-header nav button, .ui-header nav .ui-nav-link')]
+        .filter((t) => t.getClientRects().length)
+        .map((t) => {
+          const box = t.getBoundingClientRect();
+          const kids = [...t.children].map((c) => c.getBoundingClientRect()).filter((k) => k.width);
+          if (!kids.length) return null;
+          const left = Math.min(...kids.map((k) => k.left));
+          const right = Math.max(...kids.map((k) => k.right));
+          return left < box.left - 0.5 || right > box.right + 0.5
+            ? `${(t.textContent || '').trim()} needs ${Math.round(right - left)}px in a ${Math.round(box.width)}px tab`
+            : null;
+        })
+        .filter(Boolean)
+    );
+    checks++;
+    if (spills.length)
+      fail(vp, `a header tab's content spills over its neighbour: ${spills.join('; ')}`);
+
     // Load a real workspace. Every assertion below is about editing a stack,
     // and the empty state has neither a tree nor a recipe bar to check.
     // Reach the starter through the search box, as check_layout_usability does:
