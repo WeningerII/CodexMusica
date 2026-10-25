@@ -1797,6 +1797,46 @@ test('a newer signed tool result supersedes worker progress across durable resta
     // A run the ledger has finished is not carried into a recovered call.
     RUNS.ledger.mark(runId, 3, true);
     assert.equal(router.recoverCheckpoint(store.get(crashed)).lyric.run_id, undefined);
+
+    // RD1 (BB8): a pasted song's (unseeded) journal carries declarationsOf's
+    // planner default form: 'verse-chorus'. Carried back, every revise from the
+    // recovered continuation was refused as "form is a plan declaration …".
+    // The recovered decl keeps the mandate and drops every plan-only field;
+    // a seeded run keeps its plan.
+    const pasted = crypto.randomBytes(32).toString('hex');
+    store.begin(pasted, { request_id: pasted, message: 'revise' });
+    store.checkpoint(pasted, {
+      ...envelope,
+      sig: crypto.createHmac('sha256', secret).update(JSON.stringify(envelope)).digest('hex'),
+    });
+    store.checkpoint(pasted, {
+      ...progress('accepted'),
+      connector_declarations: {
+        writer: 'kitchen',
+        form: 'verse-chorus',
+        voices: false,
+        groups: '1,2',
+        relation: 'class:RHYME',
+      },
+    });
+    store = new JobStore(directory);
+    const unseeded = router.recoverCheckpoint(store.get(pasted)).lyric;
+    assert.ok(!('form' in unseeded.decl), 'no plan-only field on a pasted song');
+    assert.equal(unseeded.decl.groups, '1,2', 'the mandate stays');
+    assert.equal(unseeded.decl.relation, 'class:RHYME', 'and its relation');
+    assert.equal(unseeded.key, 'mandate:[null,"1,2",null,"class:RHYME",null]');
+    const planned = crypto.randomBytes(32).toString('hex');
+    store.begin(planned, { request_id: planned, message: 'revise' });
+    store.checkpoint(planned, {
+      ...envelope,
+      sig: crypto.createHmac('sha256', secret).update(JSON.stringify(envelope)).digest('hex'),
+    });
+    store.checkpoint(planned, {
+      ...progress('accepted'),
+      connector_declarations: { seed: 16, writer: 'kitchen', form: 'verse-chorus' },
+    });
+    store = new JobStore(directory);
+    assert.equal(router.recoverCheckpoint(store.get(planned)).lyric.decl.form, 'verse-chorus');
   } finally {
     fs.rmSync(directory, { recursive: true, force: true });
   }
