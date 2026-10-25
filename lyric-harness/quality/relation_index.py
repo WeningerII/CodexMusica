@@ -47,10 +47,11 @@ line's final token becomes a different word, and the judge may well accept
 that word. Those words go to the full grade like any other.
 
 Channel values are the phonology's MERGED readings (`merge_readings`): a
-channel the readings disagree on is a `Readings` set, and `_cmp` / `Agree`
-can only answer True when two values are equal, which for two sets means
-they share every element. Testing for a shared element is therefore implied
-by every True either judge can return.
+channel the readings disagree on is a `Readings` set. `_cmp` answers True
+only when every pairing of the two values' readings agrees (so a set of more
+than one reading is never True), and `Agree` only when two values are equal,
+which for two sets means they share every element. Testing for a shared
+element is therefore implied by every True either judge can return.
 """
 
 from quality import relations as RL

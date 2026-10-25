@@ -636,6 +636,11 @@ function seedFromTradition(tradId, stapleIds = [], opts = {}) {
   // override the auto-picked slot AND record (instId → [partId, ...]) in pinned so
   // the hill-climb search exempts these slots from its variantSwapMoves. Without
   // pinning, search would climb back to the higher-scoring canonical variant.
+  //
+  // The caller's swaps are also recorded apart, in `swapped`: translate.js
+  // renders a swapped slot whatever its score, because the caller named it,
+  // while a catalog pin_parts pin keeps the score threshold it has always had.
+  const swapped = {};
   for (const iid of Object.keys(swap)) {
     const instEntry = instruments.find((x) => x.id === iid);
     if (!instEntry) continue;
@@ -643,12 +648,14 @@ function seedFromTradition(tradId, stapleIds = [], opts = {}) {
       instEntry.slots[partId] = swap[iid][partId];
       pinned[iid] = pinned[iid] || [];
       if (!pinned[iid].includes(partId)) pinned[iid].push(partId);
+      (swapped[iid] ||= []).push(partId);
     }
   }
   return {
     traditions: allTradIds,
     instruments,
     pinned: Object.keys(pinned).length > 0 ? pinned : undefined,
+    swapped: Object.keys(swapped).length > 0 ? swapped : undefined,
     room: t.room,
     archetype: t.chain_archetype,
     inline_chain: {

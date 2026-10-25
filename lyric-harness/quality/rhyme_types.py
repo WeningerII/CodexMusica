@@ -1076,10 +1076,31 @@ class Frame:
 
 
 def _cmp(x, y):
-    """Ternary channel comparison. None means the phonology declined."""
+    """Ternary channel comparison. None means UNDECIDED: the phonology
+    declined, or a member holds several readings that do not all answer alike.
+
+    A channel the readings disagree on is a `Readings` set (phonology
+    `merge_readings`). Plain `x == y` made such a set a definite False against
+    any single value (`read` R IY1 D / R EH1 D against `seed`), so the pair lost
+    every name it satisfies on one reading while the coarse layer, which
+    handles the set, called it RHYME. The rule is the phonology's own
+    (`Readings.sole`: "UNDECIDED, not whichever reading sorts first"): True
+    only when every pairing of readings agrees, False only when none does,
+    None otherwise. Two equal multi-reading sets are therefore None, not True:
+    two occurrences of `read` may be read differently.
+    """
     if x is None or y is None:
         return None
-    return x == y
+    xs = x if isinstance(x, frozenset) else (x,)
+    ys = y if isinstance(y, frozenset) else (y,)
+    hits = [p == q for p in xs for q in ys]
+    if not hits:
+        return None  # an empty reading set permits nothing to compare
+    if all(hits):
+        return True
+    if not any(hits):
+        return False
+    return None
 
 
 def _read(text, phon):
@@ -1674,6 +1695,14 @@ def classify_pair(a, b, phon, span=None, position=None, boundary="simple",
                   realisation=realisation, anchor_a=anchor_a,
                   anchor_b=anchor_b)
     object.__setattr__(t, "origins", (ia, ib))
+    # RICH OR DISTINCT MAY BE UNDECIDED. `identity` is "rich" only when every
+    # channel is True; a channel that is None (declined, or readings that do
+    # not settle, `_cmp`) with none False leaves it open whether the pair is
+    # rich, and `distinct` above is then a default, not a finding. A judge
+    # whose demand turns on rich-vs-distinct reads this and answers None.
+    object.__setattr__(t, "identity_undecided", identity == "distinct" and not any(
+        v is False for syl in agr for v in syl) and any(
+        v is None for syl in agr for v in syl))
     # EVERY ALIGNMENT THE SEARCH TRIED, not only the best-scoring one: a
     # name another alignment supports is a name the pair stands in.
     import dataclasses as _dcx

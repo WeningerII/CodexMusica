@@ -231,7 +231,17 @@ export async function buildWorkflowServer({ domain = null, sessions, compatibili
       try {
         return await handler(args);
       } catch (error) {
-        return { isError: true, content: [{ type: 'text', text: error.message }] };
+        // An id the refusal needs (see fail() in workflow_sessions.js) rides in
+        // a JSON block after the text, never in the text itself. It holds no
+        // next session_id, so it is not a receipt: an immediate refusal still
+        // has none (the init guidance).
+        const content = [{ type: 'text', text: error.message }];
+        if (error.receipt)
+          content.push({
+            type: 'text',
+            text: JSON.stringify({ ...error.receipt, tool_error: true }),
+          });
+        return { isError: true, content };
       }
     });
 

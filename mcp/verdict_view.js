@@ -24,6 +24,17 @@ import { isStanding } from './lyric_tools.js';
 
 export const SHORT_VIEW_TOOLS = new Set(['lyric_grade', 'lyric_revise', 'lyric_screen']);
 export const DETAIL_PARTS = ['full', 'findings', 'report', 'coverage', 'pronunciations', 'pairs'];
+// The detail parts each finished tool actually has. Any other part used to be
+// answered rather than refused: a sweep returned its summary for every part, a
+// screen returned `null` for coverage, and a grade `null` for pairs, so a caller
+// asking for something the operation does not have was told it was empty.
+export const DETAIL_FOR = {
+  lyric_grade: ['findings', 'report', 'coverage', 'pronunciations', 'full'],
+  lyric_revise: ['findings', 'report', 'coverage', 'pronunciations', 'full'],
+  lyric_screen: ['pairs', 'findings', 'report', 'full'],
+};
+// The parts `lines` narrows (detailOf); on any other part it would be ignored.
+export const LINE_PARTS = ['findings', 'coverage', 'pronunciations'];
 
 // A requested obligation is unjudged because a reading was undecided or a
 // word could not be read: these are the findings that say which, per line.
@@ -315,6 +326,22 @@ function screenView(content, detail) {
     .filter((l) => /^\d+ banned, \d+ refused, /.test(l) || l.startsWith('NAMED COUNTS:'));
   short.detail = SCREEN_DETAIL_NOTE;
   return [{ type: 'text', text: JSON.stringify(short) }];
+}
+
+// What a finished result can serve to `detail`, read from the result itself:
+// whether it carries a verdict with parts at all (a revise suspended on a
+// question, at exit 4, does not), and how many lines its song has. The count is
+// the verdict's own final_draft, not the call's arguments (a revise continued
+// with `answers`, or a grade sent as draft_text, has no `draft`) and not block
+// 0's physical lines, which carry section headers, blanks and the footer: a
+// 12-line song read as 31 there (Jony's re-check).
+export function verdictShape(tool, content) {
+  if (!Array.isArray(content)) return { ready: false, lines: null };
+  if (tool === 'lyric_screen') return { ready: screenAt(content) >= 0, lines: null };
+  const at = verdictAt(content);
+  if (at < 0) return { ready: false, lines: null };
+  const draft = JSON.parse(content[at].text).final_draft;
+  return { ready: true, lines: Array.isArray(draft) && draft.length ? draft.length : null };
 }
 
 export function sessionView(tool, content, { detail, lines } = {}) {
