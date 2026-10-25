@@ -67,7 +67,7 @@
 // Exit 0 if every assertion passes, 1 otherwise, 2 if playwright is missing.
 
 'use strict';
-/* global devicePixelRatio, visualViewport, innerHeight, document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lySyncCaret, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage, uiChatOpen, requestAnimationFrame, LY_ACTION_TEXT, lySubmitLyricsAction, lyWriterState, lyToolRequestAction, lyInspectionSession */
+/* global devicePixelRatio, visualViewport, innerHeight, document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lySyncCaret, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage, uiChatOpen, requestAnimationFrame, LY_ACTION_TEXT, lySubmitLyricsAction, lyWriterState, lyToolRequestAction, lyInspectionSession, Image */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -4214,6 +4214,9 @@ async function browserChecks(chromium) {
           text: $ui('lyrics-draft').value,
           selection: [$ui('lyrics-draft').selectionStart, $ui('lyrics-draft').selectionEnd],
           focused: document.activeElement === $ui('lyrics-draft'),
+          // R17 #72: the stepper keeps focus (its replacement, or the
+          // position button at either end) instead of moving it into the song.
+          onPager: $ui('ly-section-nav').contains(document.activeElement),
         }));
       console.log('J1 initial ' + JSON.stringify(await snapshot()));
       await page.locator('#ly-section-nav [data-id="1"]').click();
@@ -4235,8 +4238,8 @@ async function browserChecks(chromium) {
       );
       const chorusEnd = draft.indexOf('Chorus lyric 1') + 'Chorus lyric 1'.length;
       check(
-        after.focused && after.selection[0] === chorusEnd && after.selection[1] === chorusEnd,
-        'Next must retain document focus and caret at destination'
+        after.onPager && after.selection[0] === chorusEnd && after.selection[1] === chorusEnd,
+        'Next must keep focus on the pager and put the caret at its destination'
       );
       await page.evaluate(() => lyRefresh(true));
       const refreshed = await snapshot();
@@ -4258,14 +4261,15 @@ async function browserChecks(chromium) {
         'Previous pager must describe Verse 1 of 2 and endpoints'
       );
       check(
-        back.focused && back.selection[0] === 23 && back.selection[1] === 23 && back.text === draft,
-        'Previous must retain document focus, caret and unchanged draft'
+        back.onPager && back.selection[0] === 23 && back.selection[1] === 23 && back.text === draft,
+        'Previous must keep focus on the pager, put the caret back and leave the draft unchanged'
       );
       await page.evaluate(() => lyRefresh(true));
       const caretOnly = await page.evaluate(() => {
+        const d = $ui('lyrics-draft');
+        d.focus({ preventScroll: true });
         const nav = $ui('ly-section-nav'),
           position = nav.querySelector('.ly-sec-pos');
-        const d = $ui('lyrics-draft');
         const offset = d.value.indexOf('Chorus lyric 2');
         d.setSelectionRange(offset, offset);
         lySyncCaret();
@@ -5654,6 +5658,334 @@ async function browserChecks(chromium) {
     // "Get dictionary options". A 503 (persistence down) still holds the ticket.
     // New conversation also drops the copy kept when switching writers, and the
     // panel redraws at once.
+    // R17 #72: the phone's section stepper keeps focus, moves the caret
+    // without focusing the draft and says where the song now is, so a second
+    // Enter steps again instead of typing a blank line into the song.
+    await step('R17a. section stepper keeps focus', async () => {
+      const { ctx, page } = await boot({ theme: 'light', phone: true });
+      await setDraft(page, DRAFT);
+      await page.evaluate(() => LY_ACTIONS['ly-mobile']('song'));
+      const before = await page.evaluate(() => $ui('lyrics-draft').value);
+      await page.focus('#ly-section-nav [data-ui="ly-sec-step"][data-id="1"]');
+      const said = [];
+      for (let i = 0; i < 2; i++) {
+        await page.keyboard.press('Enter');
+        await page.waitForTimeout(150);
+        said.push(
+          await page.evaluate(() => ({
+            focus: document.activeElement?.dataset?.ui || document.activeElement?.tagName,
+            live: $ui('ly-live')?.textContent || '',
+            pos: document.querySelector('.ly-sec-pos > span')?.textContent || '',
+          }))
+        );
+      }
+      const after = await page.evaluate(() => $ui('lyrics-draft').value);
+      check(after === before, 'a second Enter on Next section typed into the song');
+      check(
+        said.every((s) => s.focus === 'ly-sec-step'),
+        `Next section did not keep focus: ${JSON.stringify(said)}`
+      );
+      check(
+        /^.+, 2 of \d+$/.test(said[0].live) && /^.+, 3 of \d+$/.test(said[1].live),
+        `the section step was not announced: ${JSON.stringify(said)}`
+      );
+      await ctx.close();
+    });
+
+    // R17 #73: the phone's Sections sheet is a modal dialog: Tab stays in
+    // it, and Escape or Collapse returns focus to the visible opener.
+    await step('R17b. Sections sheet is modal and returns focus', async () => {
+      const { ctx, page } = await boot({ theme: 'light', phone: true });
+      await setDraft(page, DRAFT);
+      await page.evaluate(() => LY_ACTIONS['ly-mobile']('song'));
+      const state = () =>
+        page.evaluate(() => {
+          const panel = $ui('ly-outline-panel');
+          const a = document.activeElement;
+          return {
+            role: panel.getAttribute('role'),
+            modal: panel.getAttribute('aria-modal'),
+            mainInert: $ui('ly-main').inert,
+            inPanel: panel.contains(a),
+            focus: a === document.body ? 'BODY' : a?.className || a?.tagName,
+            visible: !!a?.getClientRects().length,
+          };
+        });
+      for (const close of ['Escape', 'Collapse']) {
+        await page.focus('#ly-section-nav .ly-sec-pos');
+        await page.keyboard.press('Enter');
+        await page.waitForTimeout(100);
+        const open = await state();
+        check(
+          open.role === 'dialog' && open.modal === 'true' && open.mainInert && open.inPanel,
+          `the open Sections sheet is not a modal dialog: ${JSON.stringify(open)}`
+        );
+        const walked = [];
+        for (let i = 0; i < 12; i++) {
+          await page.keyboard.press('Tab');
+          walked.push((await state()).inPanel || (await state()).focus);
+        }
+        check(
+          walked.every((w) => w === true),
+          `Tab left the Sections sheet: ${JSON.stringify(walked)}`
+        );
+        if (close === 'Escape') await page.keyboard.press('Escape');
+        else {
+          await page.focus('#ly-outline-panel .ly-outline-close');
+          await page.keyboard.press('Enter');
+        }
+        await page.waitForTimeout(100);
+        const shut = await state();
+        check(
+          /ly-sec-pos/.test(shut.focus) && shut.visible && !shut.mainInert && !shut.modal,
+          `${close} on the Sections sheet: ${JSON.stringify(shut)}`
+        );
+      }
+      await ctx.close();
+    });
+
+    // R17 #74: typing in Find lands on the first match, marked as the
+    // current one; Enter goes to the second and Shift+Enter comes back.
+    await step('R17c. Find starts on the first match', async () => {
+      const { ctx, page } = await boot({ theme: 'light' });
+      await setDraft(page, DRAFT);
+      await page.click('[data-ui="ly-find-open"]');
+      await page.keyboard.type('rain');
+      await page.waitForTimeout(100);
+      const where = () =>
+        page.evaluate(() => {
+          const d = $ui('lyrics-draft');
+          const line = d.value.slice(0, d.selectionStart).split('\n').length - 1;
+          return {
+            count: $ui('ly-find-count').textContent,
+            selected: d.value.slice(d.selectionStart, d.selectionEnd),
+            line: LY.model.rows[line]?.n || 0,
+            current: [
+              ...new Set(
+                [...document.querySelectorAll('#ly-overlay .ly-hit-current')].map(
+                  (e) => e.closest('.ly-r')?.dataset.n
+                )
+              ),
+            ],
+            focus: document.activeElement?.id,
+          };
+        });
+      const typed = await where();
+      check(
+        typed.count === '1 of 2 lines' &&
+          typed.selected === 'rain' &&
+          typed.line === 2 &&
+          JSON.stringify(typed.current) === '["2"]' &&
+          typed.focus === 'ly-find-input',
+        `typing in Find did not land on match 1: ${JSON.stringify(typed)}`
+      );
+      await page.keyboard.press('Enter');
+      const next = await where();
+      check(
+        next.count === '2 of 2 lines' &&
+          next.line === 9 &&
+          JSON.stringify(next.current) === '["9"]',
+        `the first Enter in Find did not go to match 2: ${JSON.stringify(next)}`
+      );
+      await page.keyboard.press('Shift+Enter');
+      const back = await where();
+      check(
+        back.count === '1 of 2 lines' &&
+          back.line === 2 &&
+          JSON.stringify(back.current) === '["2"]',
+        `Shift+Enter in Find did not come back to match 1: ${JSON.stringify(back)}`
+      );
+      // A phrase marks every word it spans (it marked none: each word was
+      // tested for the whole query on its own), the current line's as current.
+      await page.fill('#ly-find-input', 'rain has blur');
+      await page.waitForTimeout(150);
+      const phrase = await page.evaluate(() => {
+        const words = (sel) =>
+          [...document.querySelectorAll(`#ly-overlay .ly-r[data-n="2"] ${sel}`)].map((e) =>
+            e.textContent.trim()
+          );
+        return {
+          count: $ui('ly-find-count').textContent,
+          hit: words('.ly-hit'),
+          current: words('.ly-hit-current'),
+        };
+      });
+      check(
+        phrase.count === '1 of 1 line' &&
+          JSON.stringify(phrase.hit) === '["rain","has","blurred"]' &&
+          JSON.stringify(phrase.current) === '["rain","has","blurred"]',
+        `a Find phrase did not mark the words it spans: ${JSON.stringify(phrase)}`
+      );
+      await ctx.close();
+    });
+
+    // R20. Jony's round 20, Lyrics parts. #97/#98: in forced colours the
+    // draft's own text was forced visible with a readability backplate over
+    // the read layer, so every header showed twice and the Find marks behind
+    // it vanished; #98 also asks a non-colour cue on the current section.
+    // #95: at 320×256 the Sections sheet's list was 0 px. #100: rotating with
+    // Find's field focused left it off-screen.
+    await step('R20. forced colours, short sheet, rotation', async () => {
+      // The colour the page shows at the centre of an element, read from a
+      // screenshot decoded in the page (no image library in this repo).
+      const pixel = async (page, selector) => {
+        await page.$eval(selector, (e) => e.scrollIntoView({ block: 'center' }));
+        await page.waitForTimeout(100);
+        const box = await (await page.$(selector)).boundingBox();
+        const shot = await page.screenshot({
+          clip: {
+            x: box.x + box.width / 2 - 1,
+            y: box.y + box.height / 2 - 1,
+            width: 2,
+            height: 2,
+          },
+        });
+        return page.evaluate(async (b64) => {
+          const img = new Image();
+          img.src = 'data:image/png;base64,' + b64;
+          await img.decode();
+          const c = document.createElement('canvas');
+          c.width = img.width;
+          c.height = img.height;
+          const g = c.getContext('2d');
+          g.drawImage(img, 0, 0);
+          return [...g.getImageData(0, 0, 1, 1).data.slice(0, 3)];
+        }, shot.toString('base64'));
+      };
+      const rgb = (css) => (css.match(/\d+/g) || []).slice(0, 3).map(Number);
+      const near = (a, b) => a.every((v, k) => Math.abs(v - b[k]) <= 24);
+      for (const phone of [false, true]) {
+        const { ctx, page } = await boot({ theme: 'light', phone });
+        const cdp = await ctx.newCDPSession(page);
+        await cdp.send('Emulation.setEmulatedMedia', {
+          features: [{ name: 'forced-colors', value: 'active' }],
+        });
+        await setDraft(page, DRAFT);
+        if (phone) await page.evaluate(() => LY_ACTIONS['ly-mobile']('song'));
+        await page.evaluate(() => {
+          LY.find = { q: 'rain', at: 0, open: true };
+          lyRefresh(true);
+        });
+        await page.waitForTimeout(200);
+        const tag = phone ? '390' : '1280';
+        const mark = '#ly-overlay .ly-hit:not(.ly-hit-current)';
+        const want = rgb(await page.$eval(mark, (e) => getComputedStyle(e).backgroundColor));
+        const seen = await pixel(page, mark);
+        const draft = await page.$eval('#lyrics-draft', (d) => getComputedStyle(d).color);
+        check(
+          near(seen, want) && rgb(draft).length === 3 && /rgba\(.*,\s*0\)$/.test(draft),
+          `${tag} forced colours: a Find mark shows ${seen}, not its ${want}, and the draft's own text is ${draft}`
+        );
+        // The draft's selection still shows, in Highlight: a whole line selected
+        // with Find closed, sampled over its text.
+        await page.evaluate(() => {
+          LY.find = { q: '', at: 0, open: false };
+          lyRefresh(true);
+        });
+        await page.focus('#lyrics-draft');
+        const hl = rgb(
+          await page.evaluate(() => {
+            const probe = document.createElement('span');
+            probe.style.color = 'Highlight';
+            document.body.append(probe);
+            const c = getComputedStyle(probe).color;
+            probe.remove();
+            return c;
+          })
+        );
+        await page.evaluate(() => {
+          const d = $ui('lyrics-draft');
+          const line = LY.model.sung[1];
+          const rows = d.value.split('\n');
+          const start = rows.slice(0, line.i).reduce((t, r) => t + r.length + 1, 0);
+          d.setSelectionRange(start, start + rows[line.i].length);
+        });
+        const at = await pixel(page, '#ly-overlay .ly-r[data-n="2"] .ly-t');
+        check(
+          near(at, hl),
+          `${tag} forced colours: the draft's selection shows ${at}, not Highlight ${hl}`
+        );
+        await ctx.close();
+      }
+      // The current section: a cue that is not colour, everywhere, and a
+      // Highlight outline in forced colours.
+      {
+        const { ctx, page } = await boot({ theme: 'light' });
+        const cdp = await ctx.newCDPSession(page);
+        await cdp.send('Emulation.setEmulatedMedia', {
+          features: [{ name: 'forced-colors', value: 'active' }],
+        });
+        await setDraft(page, DRAFT);
+        await page.evaluate(() => {
+          LY.railOpen = true;
+          lyScrollToLine(2);
+          lyRefresh(true);
+        });
+        await page.waitForTimeout(200);
+        const cur = await page.evaluate(() => {
+          const b = document.querySelector('#ly-sections .ly-sec[aria-current]');
+          const cs = b && getComputedStyle(b);
+          return b ? { weight: Number(cs.fontWeight), outline: cs.outlineStyle } : null;
+        });
+        check(
+          cur && cur.weight >= 600 && cur.outline === 'solid',
+          `the current section has no cue but colour: ${JSON.stringify(cur)}`
+        );
+        await ctx.close();
+      }
+      // #95: the sheet at 320×256 keeps a list and scrolls as a whole.
+      {
+        const { ctx, page } = await boot({ theme: 'light', phone: true });
+        await page.setViewportSize({ width: 320, height: 256 });
+        await setDraft(page, DRAFT);
+        await page.evaluate(() => LY_ACTIONS['ly-mobile']('song'));
+        await page.focus('#ly-section-nav .ly-sec-pos');
+        await page.keyboard.press('Enter');
+        await page.waitForTimeout(200);
+        const sheet = await page.evaluate(() => {
+          const list = $ui('ly-sections');
+          const outline = document.querySelector('.ly-outline');
+          const last = [...list.querySelectorAll('.ly-sec')].at(-1);
+          last.focus();
+          const r = last.getBoundingClientRect();
+          return {
+            list: list.getBoundingClientRect().height,
+            modal: $ui('ly-outline-panel').getAttribute('aria-modal'),
+            lastVisible: r.top >= 0 && r.bottom <= innerHeight,
+            scrolls: outline.scrollHeight > outline.clientHeight,
+          };
+        });
+        check(
+          sheet.list >= 88 && sheet.modal === 'true' && sheet.lastVisible,
+          `the Sections sheet at 320×256: ${JSON.stringify(sheet)}`
+        );
+        await ctx.close();
+      }
+      // #100: Find's field stays in view across a rotation.
+      {
+        const { ctx, page } = await boot({ theme: 'light', phone: true });
+        await setDraft(page, DRAFT);
+        await page.click('[data-ui="ly-find-open"]');
+        await page.waitForSelector('#ly-find-input', { state: 'visible' });
+        await page.focus('#ly-find-input');
+        await page.setViewportSize({ width: 844, height: 390 });
+        await page.waitForTimeout(400);
+        const where = await page.evaluate(() => {
+          const r = $ui('ly-find-input').getBoundingClientRect();
+          return {
+            focus: document.activeElement?.id,
+            inView: r.top >= 0 && r.bottom <= innerHeight && r.left >= 0 && r.right <= innerWidth,
+            top: Math.round(r.top),
+          };
+        });
+        check(
+          where.focus === 'ly-find-input' && where.inView,
+          `after rotating, Find's focused field is off-screen: ${JSON.stringify(where)}`
+        );
+        await ctx.close();
+      }
+    });
+
     await step('10. expired saved request and New conversation', async () => {
       const KEY = 'codex-musica-chat-v2:https://mcp.codexmusica.com';
       const stuck = async ({ status, backup = false }) => {
