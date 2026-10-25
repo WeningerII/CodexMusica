@@ -670,12 +670,14 @@ function ipRenderMore(inst, part, expanded, cur) {
 // lexicon, the same categories (prefaceGroups / PREFACE_CAT_ORDER), glyphs,
 // search predicate and recently-used list. Only the target differs: a pick
 // configures the preview card instead of a recipe card.
-function ipPrefaceChip(e, grouped) {
+// `where` (a category, recent or suggest) keeps each copy of a chip its own
+// focus key, so a pick returns focus to the chip that was pressed.
+function ipPrefaceChip(e, grouped, where) {
   const g = prefaceGlyphsHTML(e, 15, grouped);
-  return `<button type="button" class="cm-chip ip-pchip" data-ui="ip-preface" data-id="${esc(e.id)}" aria-pressed="${IP.card.preface === e.id}"${e.note ? ` data-tooltip="${esc(e.note)}"` : ''}>${g}<span>${esc(e.id)}</span></button>`;
+  return `<button type="button" class="cm-chip ip-pchip" data-ui="ip-preface" data-id="${esc(e.id)}" data-ip-key="pref:${esc(where)}:${esc(e.id)}" aria-pressed="${IP.card.preface === e.id}"${e.note ? ` data-tooltip="${esc(e.note)}"` : ''}>${g}<span>${esc(e.id)}</span></button>`;
 }
 function ipPrefaceCategory(cat, list, open) {
-  return `<details class="ip-pcat" data-ip-pcat="${esc(cat)}"${open ? ' open' : ''}><summary data-ip-key="pcat:${esc(cat)}">${prefaceCatGlyphHTML(cat, 16)}<span class="ip-pcat-name">${esc(cat)}</span><span class="ip-pcat-count">${list.length}</span></summary>${open ? `<div class="ip-pcat-items">${list.map((e) => ipPrefaceChip(e, true)).join('')}</div>` : ''}</details>`;
+  return `<details class="ip-pcat" data-ip-pcat="${esc(cat)}"${open ? ' open' : ''}><summary data-ip-key="pcat:${esc(cat)}">${prefaceCatGlyphHTML(cat, 16)}<span class="ip-pcat-name">${esc(cat)}</span><span class="ip-pcat-count">${list.length}</span></summary>${open ? `<div class="ip-pcat-items">${list.map((e) => ipPrefaceChip(e, true, cat)).join('')}</div>` : ''}</details>`;
 }
 function ipRenderCharacter() {
   const card = IP.card;
@@ -695,13 +697,13 @@ function ipRenderCharacter() {
       if (!list.length) return '';
       // While searching every category with a hit is open, as in the editor.
       if (q)
-        return `<section class="ip-pcat ip-pcat-hit"><h4>${prefaceCatGlyphHTML(cat, 16)}<span class="ip-pcat-name">${esc(cat)}</span><span class="ip-pcat-count">${list.length}</span></h4><div class="ip-pcat-items">${list.map((e) => ipPrefaceChip(e, true)).join('')}</div></section>`;
+        return `<section class="ip-pcat ip-pcat-hit"><h4>${prefaceCatGlyphHTML(cat, 16)}<span class="ip-pcat-name">${esc(cat)}</span><span class="ip-pcat-count">${list.length}</span></h4><div class="ip-pcat-items">${list.map((e) => ipPrefaceChip(e, true, cat)).join('')}</div></section>`;
       return ipPrefaceCategory(cat, list, IP.pcats.has(cat));
     })
     .join('');
   const recent = q ? [] : loadPrefaceRecent().map(byId).filter(Boolean);
   const sug = suggested && suggested !== card.preface ? byId(suggested) : null;
-  return `<div class="ip-block"><p class="ip-current"><span class="ip-label">Character</span><strong>${esc(card.preface || 'None')}</strong><span class="ip-muted">${card.prefaceAuto === false ? 'chosen' : 'automatic, from the parts'}</span></p>${card.prefaceAuto === false ? uiButton('ip-auto', 'Back to automatic', 'refresh-cw', 'class="cm-btn cm-btn-outline"') : ''}<p class="ip-help">Picking a character re-derives the parts, tuning, room and chain toward it (the same cascade as the editor). What moved is listed under Your changes.</p>${sug ? `<div class="ip-suggest"><span class="ip-label">Suggested for this sound</span>${ipPrefaceChip(sug, false)}</div>` : ''}<label class="ip-filter cm-search">${icon('search', 16)}<input type="search" id="ip-pref-q" data-ip-key="pref-q" value="${esc(IP.prefQuery)}" placeholder="Search ${lex.length.toLocaleString('en')} characters (bitter, dreamy, haunted…)" aria-label="Search characters"></label><div class="ip-pref-browser" role="group" aria-label="Browse characters by category"><div class="ip-pref-bar"><span class="ip-muted" role="status">${q ? uiCount(total, 'match', 'matches') : `${lex.length.toLocaleString('en')} characters · ${order.length} categories`}</span>${q ? '' : uiButton('ip-pcat-all', 'Expand all', 'chevron-down', 'class="ip-link" data-id="all"') + uiButton('ip-pcat-all', 'Collapse all', 'chevron-right', 'class="ip-link" data-id="none"')}</div>${recent.length ? `<div class="ip-pref-recent"><span class="ip-label">Recently used</span><div class="ip-pcat-items">${recent.map((e) => ipPrefaceChip(e, false)).join('')}</div></div>` : ''}${cats}${q && !total ? `<p class="ip-muted">No character matches “${esc(IP.prefQuery)}”.</p>` : ''}</div></div>`;
+  return `<div class="ip-block"><p class="ip-current"><span class="ip-label">Character</span><strong>${esc(card.preface || 'None')}</strong><span class="ip-muted">${card.prefaceAuto === false ? 'chosen' : 'automatic, from the parts'}</span></p>${card.prefaceAuto === false ? uiButton('ip-auto', 'Back to automatic', 'refresh-cw', 'class="cm-btn cm-btn-outline"') : ''}<p class="ip-help">Picking a character re-derives the parts, tuning, room and chain toward it (the same cascade as the editor). What moved is listed under Your changes.</p>${sug ? `<div class="ip-suggest"><span class="ip-label">Suggested for this sound</span>${ipPrefaceChip(sug, false, 'suggest')}</div>` : ''}<label class="ip-filter cm-search">${icon('search', 16)}<input type="search" id="ip-pref-q" data-ip-key="pref-q" value="${esc(IP.prefQuery)}" placeholder="Search ${lex.length.toLocaleString('en')} characters (bitter, dreamy, haunted…)" aria-label="Search characters"></label><div class="ip-pref-browser" role="group" aria-label="Browse characters by category"><div class="ip-pref-bar"><span class="ip-muted" role="status">${q ? uiCount(total, 'match', 'matches') : `${lex.length.toLocaleString('en')} characters · ${order.length} categories`}</span>${q ? '' : uiButton('ip-pcat-all', 'Expand all', 'chevron-down', 'class="ip-link" data-id="all"') + uiButton('ip-pcat-all', 'Collapse all', 'chevron-right', 'class="ip-link" data-id="none"')}</div>${recent.length ? `<div class="ip-pref-recent"><span class="ip-label">Recently used</span><div class="ip-pcat-items">${recent.map((e) => ipPrefaceChip(e, false, 'recent')).join('')}</div></div>` : ''}${cats}${q && !total ? `<p class="ip-muted">No character matches “${esc(IP.prefQuery)}”.</p>` : ''}</div></div>`;
 }
 function ipEnvSource() {
   // The recipe renders ONE environment: the first card that has one
@@ -804,6 +806,7 @@ function ipRenderInspector(focusKey) {
   const id = UI.instrumentPreview,
     inst = id && Inst(id);
   $ui('ip-root')?.classList.toggle('is-previewing', !!inst);
+  ipSyncCovered();
   if (!inst) {
     host.innerHTML = `<div class="ip-insp-empty">${uiEmptyState({
       title: 'Select an instrument',
@@ -873,6 +876,13 @@ function ipOverlay() {
   // Narrow layouts show the inspector over the catalogue.
   const host = $ui('instrument-preview');
   return !!host && getComputedStyle(host).position === 'absolute';
+}
+// While the inspector covers the catalogue, the catalogue leaves the Tab order:
+// focus must not walk controls nobody can see (WCAG 2.4.11).
+function ipSyncCovered() {
+  const covered = !!UI.instrumentPreview && ipOverlay();
+  for (const el of [document.querySelector('#ip-root .ip-head'), $ui('instrument-body')])
+    if (el) el.inert = covered;
 }
 function uiCloseInstrumentPreview() {
   const id = UI.instrumentPreview;
@@ -974,6 +984,9 @@ uiRegisterPage({
   mount(surface) {
     IP.view = UILayout.remember('instrument-view', 'rows', () => renderInstrumentDiscovery());
     surface.innerHTML = `<div class="ip" id="ip-root"><header class="ip-head"><h1 class="ip-title">Instruments <span id="ip-total" class="ip-total"></span></h1><label class="cm-search ip-search">${icon('search', 20)}<input id="instrument-search" type="search" placeholder="Search instruments" aria-label="Search instruments"></label><label class="ip-field destination"><span>Add to</span><select id="instrument-destination" class="cm-select" aria-label="Add instrument to"></select></label></header><div id="instrument-body" class="ip-body"></div><aside id="instrument-preview" class="ip-inspector" aria-label="Instrument preview"></aside></div>`;
+    // The overlay is a container-width layout, so follow the root's size.
+    if (typeof ResizeObserver === 'function')
+      new ResizeObserver(ipSyncCovered).observe($ui('ip-root'));
     $ui('instrument-search').addEventListener('input', () => {
       UI.limit = 50;
       renderInstrumentDiscovery();
@@ -1208,9 +1221,17 @@ uiRegisterPage({
       else IP.open.add(id);
       ipRenderInspector('part:' + id);
     },
-    'ip-preface'(id) {
+    'ip-preface'(id, button) {
       recordPrefaceRecent(id);
-      ipChoose({ k: 'preface', id }, 'pref-q');
+      ipChoose({ k: 'preface', id }, button?.dataset.ipKey);
+      // The suggested chip leaves with its pick: land on the same character
+      // in the browser instead, never on a control scrolled out of sight.
+      if (!document.activeElement?.closest('#instrument-preview')) {
+        const el =
+          uiFind('#instrument-preview [data-ui="ip-preface"]', 'id', id) || $ui('ip-pref-q');
+        el?.focus({ preventScroll: true });
+        el?.scrollIntoView({ block: 'nearest' });
+      }
     },
     'ip-pcat-all'(id) {
       IP.pcats = new Set(id === 'all' ? PREFACE_CAT_ORDER : []);
@@ -1219,6 +1240,7 @@ uiRegisterPage({
     },
     'ip-auto'() {
       ipChoose({ k: 'auto' }, 'pref-q');
+      $ui('ip-pref-q')?.scrollIntoView({ block: 'nearest' });
     },
     'ip-fx-remove'(id, button) {
       const stage = button.dataset.stage;

@@ -611,6 +611,10 @@ async function uiAddInstrument(id, { configure, message, destination } = {}) {
     }
     renderAll();
     uiOpenEditor(c.id);
+    // On a phone layout the recipe sheet now covers the page, and the button
+    // that added stays focused underneath it: move focus to the new card.
+    if (document.body.classList.contains('session-open') && uiFocusCard(c.id))
+      document.activeElement.scrollIntoView({ block: 'nearest' });
     showToast(message ? message(c) : _addedInstrumentMessage(id, c), 'success');
     return c;
   } catch (e) {
