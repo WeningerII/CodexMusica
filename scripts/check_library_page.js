@@ -621,6 +621,18 @@ const SECTIONS = {
         !held.retry,
       JSON.stringify(held)
     );
+    // A listed collection that records no units at all is empty, not held.
+    const empty = await outcome(
+      '/works?collection=collection_6be22f99-f402-54a8-b0ef-d2f3ae08fbba'
+    );
+    check(
+      `${tag} works: a collection with no units says it is empty, not that every unit is held`,
+      empty.tone !== 'danger' &&
+        /This collection is empty/.test(empty.text) &&
+        !/held/.test(empty.text) &&
+        empty.all,
+      JSON.stringify(empty)
+    );
     // A navigation that lands while an earlier one still waits on the
     // catalog wins: the stale update writes neither its state nor the hash.
     let served = await slowCatalog(page, 2500);

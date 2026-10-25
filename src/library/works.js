@@ -218,7 +218,12 @@ async function staticPage(s, lib) {
         throw none;
       }
       if ((Array.isArray(row) ? row[3] : row.readable) === 0)
-        return { rows: [], total: 0, held: true };
+        return {
+          rows: [],
+          total: 0,
+          held: true,
+          recorded: Array.isArray(row) ? row[4] : row.recorded,
+        };
     }
     let head;
     try {
@@ -488,6 +493,15 @@ class WorksView {
     const offset = Number(s.offset);
     this.slot('summary').textContent =
       `${page.total.toLocaleString()} reading units · work and edition identities remain distinct`;
+    if (page.held && !page.recorded) {
+      // Nothing recorded at all is not "every unit is held" (BB8's nit).
+      results.innerHTML = uiEmptyState({
+        title: 'This collection is empty',
+        text: 'It records no units in this snapshot.',
+        actions: `<button type="button" class="cm-btn cm-btn-outline" data-lw="all-works">Browse all works</button>`,
+      });
+      return;
+    }
     if (page.held) {
       results.innerHTML = uiEmptyState({
         title: 'Nothing here is readable',
