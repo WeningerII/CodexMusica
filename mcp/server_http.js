@@ -75,9 +75,18 @@ const MCP_PATH = process.env.MCP_PATH || '/mcp';
 // a recipe makes a handful of calls per turn — search, seed, a few edits, a
 // render — so 60/minute leaves an interactive session untouched while turning
 // "block the loop forever" into "block it, then wait".
+// A JSON-RPC BATCH IS AS MANY CALLS AS IT CARRIES (BB8 A1, #519). The SDK
+// accepts up to 100 messages in one POST and dispatches them back to back, so
+// one request counted once against these limits ran 100 searches: measured on
+// 0a66a95b4c, a 100-call batch held the event loop for 11.4 s and /health for
+// 10.9 s, and six such requests a minute kept the process unresponsive. A
+// batch is now refused above `maxBatch`, every message in it counts against
+// both windows, and its messages run one at a time with the event loop free
+// between them.
 const MCP_LIMITS = {
   perIpPerMinute: Number(process.env.MCP_IP_RPM) || 60,
   perIpPerHour: Number(process.env.MCP_IP_RPH) || 600,
+  maxBatch: Number(process.env.MCP_MAX_BATCH) || 8,
 };
 const mcpWindows = new Windows();
 
@@ -812,12 +821,25 @@ const mcpPaths = [
 app.post(mcpPaths, async (req, res) => {
   const ip = clientIp(req);
   const now = Date.now();
-  const perMin = mcpWindows.hit(`mcp:${ip}`, 60_000, MCP_LIMITS.perIpPerMinute, now);
+  const batch = Array.isArray(req.body) ? req.body.length : 1;
+  if (batch > MCP_LIMITS.maxBatch) {
+    console.error(`[mcp] 400 ${ip} batch of ${batch}`);
+    return res.status(400).json({
+      jsonrpc: '2.0',
+      error: {
+        code: -32600,
+        message: `BATCH_TOO_LARGE: this server takes at most ${MCP_LIMITS.maxBatch} messages in one request; this one has ${batch}. Send them as separate requests (each message counts against the rate limit either way).`,
+      },
+      id: null,
+    });
+  }
+  const weight = Math.max(1, batch);
+  const perMin = mcpWindows.hit(`mcp:${ip}`, 60_000, MCP_LIMITS.perIpPerMinute, now, weight);
   if (!perMin.ok) {
     console.error(`[mcp] 429 ${ip} (minute)`);
     return tooMany(res, perMin.retryAfter);
   }
-  const perHour = mcpWindows.hit(`mcp:${ip}`, 3_600_000, MCP_LIMITS.perIpPerHour, now);
+  const perHour = mcpWindows.hit(`mcp:${ip}`, 3_600_000, MCP_LIMITS.perIpPerHour, now, weight);
   if (!perHour.ok) {
     console.error(`[mcp] 429 ${ip} (hour)`);
     return tooMany(res, perHour.retryAfter);
@@ -900,6 +922,20 @@ app.post(mcpPaths, async (req, res) => {
         ? await buildWorkflowServer({ domain, sessions: workflowSessions, compatibility: shared })
         : buildServer(task ? { task } : {});
     await server.connect(transport);
+    // One message at a time, with a turn of the event loop before each: the
+    // transport hands every message of a batch to the server in one
+    // synchronous loop, and a synchronous engine call started by each would
+    // run back to back with nothing else served in between.
+    if (batch > 1) {
+      const deliver = transport.onmessage;
+      let turn = Promise.resolve();
+      transport.onmessage = (message, extra) => {
+        turn = turn
+          .then(() => new Promise((resolve) => setImmediate(resolve)))
+          .then(() => deliver.call(transport, message, extra))
+          .catch((err) => console.error('[mcp] batch message failed:', err));
+      };
+    }
     await withExecutionContext(context, () => transport.handleRequest(req, res, req.body));
   } catch (err) {
     console.error('[mcp] request error:', err);
