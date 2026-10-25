@@ -330,6 +330,21 @@ async function editorKeyboard(page, where) {
     pressed.length > 1 && pressed.filter((v) => v === 'true').length === 1,
     tag('every variant option exposes whether it is chosen: ' + JSON.stringify(pressed))
   );
+  // A chip's name reads its tags as separate words ("Chest (M1), thick,
+  // grounded"), never run together ("Chest (M1)thickgrounded").
+  const runTogether = await page
+    .locator('#' + opened.controls + ' .variant-chip')
+    .evaluateAll((els) =>
+      els
+        .map((b) => {
+          const name = b.querySelector('.variant-chip-name')?.textContent || '';
+          const tags = [...b.querySelectorAll('.variant-chip-descr')].map((t) => t.textContent);
+          const want = tags.length ? [name, ...tags].join(', ') : name;
+          return b.textContent === want ? null : b.textContent;
+        })
+        .filter(Boolean)
+    );
+  assert.deepEqual(runTogether, [], tag('variant option names separate their tags'));
   // Choose an option that is not chosen yet, from the keyboard.
   if (chip.pressed === 'true') await page.keyboard.press('Tab');
   const pick = await focusInfo(page);
@@ -370,6 +385,34 @@ async function editorKeyboard(page, where) {
     stage.stage === 'fx' && stage.expanded === 'true' && stage.controls,
     tag('Enter on a chain stage keeps focus on it: ' + JSON.stringify(stage))
   );
+  // The open stage's options are the next Tab stop, not seven stages later,
+  // and the panel still sits below every stage on screen.
+  await page.keyboard.press('Tab');
+  const next = await page.evaluate(() => ({
+    inPanel: !!document.activeElement?.closest('.chain-edit-panel'),
+    name: document.activeElement?.getAttribute('aria-label') || document.activeElement?.textContent,
+  }));
+  assert.ok(
+    next.inPanel,
+    tag('Tab from an open stage enters its options: ' + JSON.stringify(next))
+  );
+  const below = await page.evaluate(() => {
+    const panel = document.querySelector('.chain-edit-panel').getBoundingClientRect();
+    const stages = [...document.querySelectorAll('.chain-stage')].map((b) =>
+      b.getBoundingClientRect()
+    );
+    return panel.top >= Math.max(...stages.map((r) => r.bottom)) - 1;
+  });
+  assert.ok(below, tag('the open stage panel stays below every stage'));
+  const chainNames = await page
+    .locator('.chain-edit-options button[data-set-chain="fx"]')
+    .evaluateAll((els) =>
+      els
+        .filter((b) => b.querySelector('.chip-block-sub'))
+        .map((b) => b.textContent)
+        .filter((t) => !/^[^,]+, \S/.test(t))
+    );
+  assert.deepEqual(chainNames, [], tag('chain option names separate the name from its tags'));
   assert.ok(
     await tabTo(page, '.chain-edit-options button[data-set-chain="fx"]'),
     tag('Tab reaches the effects')

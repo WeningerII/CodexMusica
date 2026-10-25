@@ -16598,14 +16598,18 @@ function renderPartRow(card, inst, part) {
       const lostDescs = isCurrent ? [] : [...currentVarDescs].filter(d => !candDescSet.has(d));
       const descrHtml = descs.length || lostDescs.length
         ? `<div class="variant-chip-descrs">${
-            descs.map(d => {
-              const isNew = !currentVarDescs.has(d);
-              return `<span class="variant-chip-descr ${isNew ? 'is-new' : 'is-kept'}">${esc(d)}</span>`;
-            }).join('') +
-            lostDescs.map(d => `<span class="variant-chip-descr is-lost">${esc(d)}</span>`).join('')
+            // Spoken as a list: a hidden comma between tags, which the layout
+            // gap separates for the eye only; a lost tag says so.
+            [
+              ...descs.map(d => {
+                const isNew = !currentVarDescs.has(d);
+                return `<span class="variant-chip-descr ${isNew ? 'is-new' : 'is-kept'}">${esc(d)}</span>`;
+              }),
+              ...lostDescs.map(d => `<span class="variant-chip-descr is-lost"><span class="sr-only">loses </span>${esc(d)}</span>`),
+            ].join('<span class="sr-only">, </span>')
           }</div>`
         : '';
-      b.innerHTML = `<span class="variant-chip-name">${esc(v.name)}</span>${descrHtml}`;
+      b.innerHTML = `<span class="variant-chip-name">${esc(v.name)}</span>${descrHtml ? '<span class="sr-only">, </span>' : ''}${descrHtml}`;
       return b;
     };
     // The instrument's own (curated) variants stay on top, exactly as before.
@@ -16781,7 +16785,7 @@ function renderEnvRow(card, kind) {
     if (isTuning) {
       opts.innerHTML = `<button class="chip-block ${!card.tuning ? 'selected' : ''}" aria-pressed="${!card.tuning}" data-set-tuning="" data-filter-pin="1">Not set</button>`;
       TUNINGS.forEach(t => {
-        opts.innerHTML += `<button class="chip-block ${card.tuning === t.id ? 'selected' : ''}" aria-pressed="${card.tuning === t.id}" data-set-tuning="${esc(t.id)}">${esc(t.name)}<span class="chip-block-sub">${esc(t.sub)}</span></button>`;
+        opts.innerHTML += `<button class="chip-block ${card.tuning === t.id ? 'selected' : ''}" aria-pressed="${card.tuning === t.id}" data-set-tuning="${esc(t.id)}">${esc(t.name)}<span class="sr-only">, </span><span class="chip-block-sub">${esc(t.sub)}</span></button>`;
       });
       row.appendChild(opts);
       attachInlineFilter(opts, { placeholder: `Filter ${TUNINGS.length} tunings…` });
@@ -16794,7 +16798,7 @@ function renderEnvRow(card, kind) {
         let inner = `<button class="env-cluster-head" type="button" data-env-cluster><span class="env-cluster-chevron">${icon('chevron-down', 12)}</span>${clusterGlyph}<span class="env-cluster-name">${esc(cl.name)}</span><span class="env-cluster-count">${rooms.length}</span></button><div class="env-cluster-items">`;
         rooms.forEach(r => {
           const g = typeof roomGlyphsHTML === 'function' ? roomGlyphsHTML(r.id, 15, true) : '';
-          inner += `<button class="chip-block ${card.room === r.id ? 'selected' : ''}" aria-pressed="${card.room === r.id}" data-set-room="${esc(r.id)}">${g}${esc(r.name)}<span class="chip-block-sub">${esc(entryRenderDescs(r).join(' · '))}</span></button>`;
+          inner += `<button class="chip-block ${card.room === r.id ? 'selected' : ''}" aria-pressed="${card.room === r.id}" data-set-room="${esc(r.id)}">${g}${esc(r.name)}<span class="sr-only">, </span><span class="chip-block-sub">${esc(entryRenderDescs(r).join(' · '))}</span></button>`;
         });
         inner += `</div>`;
         const wrap = document.createElement('div');
@@ -16878,7 +16882,7 @@ function renderChainSection(card) {
         b.dataset.setChain = stageDef.id;
         b.dataset.item = it.id;
         const descs = entryRenderDescs(it);
-        b.innerHTML = `${esc(it.name)}${descs.length ? `<span class="chip-block-sub">${esc(descs.join(' · '))}</span>` : ''}`;
+        b.innerHTML = `${esc(it.name)}${descs.length ? `<span class="sr-only">, </span><span class="chip-block-sub">${esc(descs.join(' · '))}</span>` : ''}`;
         return b;
       };
       // Stages whose items carry a `family` (e.g. mics) render grouped under
@@ -16913,7 +16917,9 @@ function renderChainSection(card) {
           headerSelector: '.chain-family-header',
         });
       }
-      sec.appendChild(panel);
+      // Right after its stage, so the options are the next Tab stop; CSS
+      // order keeps the panel below every stage on screen.
+      [...flow.children].find(el => el.dataset.editChain === stageDef.id).after(panel);
     }
   }
   return sec;
