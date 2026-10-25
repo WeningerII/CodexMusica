@@ -67,7 +67,7 @@
 // Exit 0 if every assertion passes, 1 otherwise, 2 if playwright is missing.
 
 'use strict';
-/* global devicePixelRatio, visualViewport, innerHeight, document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lySyncCaret, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage, uiChatOpen, requestAnimationFrame, LY_ACTION_TEXT, lySubmitLyricsAction, lyWriterState, lyToolRequestAction, lyInspectionSession, Image, InputEvent */
+/* global devicePixelRatio, visualViewport, innerHeight, document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lySyncCaret, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage, uiChatOpen, requestAnimationFrame, LY_ACTION_TEXT, lySubmitLyricsAction, lyWriterState, lyToolRequestAction, lyInspectionSession, Image, InputEvent, MutationObserver */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -4398,6 +4398,163 @@ async function browserChecks(chromium) {
       await ctx.close();
     });
 
+    // ── R17. Menus expose their state, Tab leaves them, the badge speaks
+    // only on change, and ending an inspection keeps focus (Jony #75, #78,
+    // #80, #77 Stay/Back). Real keys throughout.
+    await step('R17. menus, badge, inspection end', async () => {
+      // A control that is not there fails its own check, by name, in seconds.
+      const focusOn = async (loc, label) => {
+        try {
+          await loc.focus({ timeout: 5000 });
+        } catch {
+          throw new Error(`cannot focus ${label}`);
+        }
+      };
+      const where = (page) =>
+        page.evaluate(() => {
+          const a = document.activeElement;
+          return {
+            tag: a?.tagName,
+            ui: a?.dataset?.ui || '',
+            id: a?.dataset?.id ?? null,
+            expanded: a?.getAttribute('aria-expanded'),
+            inMenu: !!a?.closest('.ly-menu'),
+          };
+        });
+      {
+        const { ctx, page } = await boot({ theme: 'light' });
+        await setDraft(page, DRAFT);
+        // #75: Display holds a radio group and a checkbox, named without the tick.
+        await focusOn(page.locator('[aria-controls="ly-menu-display"]'), 'Display');
+        await page.keyboard.press('Enter');
+        const menu = page.locator('#ly-menu-display');
+        const radios = await menu.getByRole('menuitemradio').count();
+        const checkedRadios = await menu.getByRole('menuitemradio', { checked: true }).count();
+        const numbers = await menu
+          .getByRole('menuitemcheckbox', { name: 'Line numbers', exact: true })
+          .count();
+        const normal = await menu
+          .getByRole('menuitemradio', { name: 'Normal', exact: true })
+          .count();
+        const pressed = await menu.locator('[aria-pressed]').count();
+        check(
+          radios === 3 && checkedRadios === 1 && numbers === 1 && normal === 1 && pressed === 0,
+          `Display menu state is not exposed as radios and a checkbox named without the tick: ${JSON.stringify({ radios, checkedRadios, numbers, normal, pressed })}`
+        );
+        const stops = await menu.evaluate(
+          (m) => [...m.querySelectorAll('button')].filter((b) => b.tabIndex >= 0).length
+        );
+        check(stops === 0, `Display menu items are ${stops} separate Tab stops`);
+        // #80 (the same handler serves every menu): Tab leaves and closes it.
+        await page.keyboard.press('Tab');
+        let w = await where(page);
+        const hidden = await menu.evaluate((m) => m.hidden);
+        check(
+          hidden && !w.inMenu && w.tag !== 'BODY',
+          `Tab in the Display menu does not close it and move on: ${JSON.stringify({ hidden, ...w })}`
+        );
+        // #78: refreshes and a typed edit that leaves the state alone do not
+        // rewrite the status region.
+        const said = await page.evaluate(() => $ui('ly-badge').innerText.trim());
+        await page.evaluate(() => {
+          globalThis.__badgeWrites = 0;
+          new MutationObserver((records) => (globalThis.__badgeWrites += records.length)).observe(
+            $ui('ly-badge'),
+            { childList: true, subtree: true, characterData: true }
+          );
+          lyRefresh(true);
+          lyRefresh(true);
+        });
+        await edit(page, 'Leave the Light On', 'Leave the Light On Now');
+        await page.waitForTimeout(100);
+        const writes = await page.evaluate(() => globalThis.__badgeWrites);
+        const after = await page.evaluate(() => $ui('ly-badge').innerText.trim());
+        check(
+          said && writes === 0 && after === said,
+          `the status badge is rewritten without a change (${writes} writes; "${said}" → "${after}")`
+        );
+        // #77: Stay and Back end the inspection on the dock's Relations button.
+        // Leaving the draft redraws the dock (the dock-first-click branch's
+        // subject), so focus steps out of the draft before reaching Relations.
+        for (const how of ['stay', 'back']) {
+          await focusOn(page.locator('[aria-controls="ly-menu-display"]'), 'Display');
+          await focusOn(page.locator('[data-ui="ly-relations"]'), 'Relations');
+          await page.keyboard.press('Enter');
+          await page.waitForTimeout(200);
+          await focusOn(
+            page.locator(`#ly-relation-inspector [data-ui="ly-relation-${how}"]`),
+            `inspector ${how}`
+          );
+          await page.keyboard.press('Enter');
+          await page.waitForTimeout(200);
+          w = await where(page);
+          check(
+            w.ui === 'ly-relations',
+            `wide: ${how === 'stay' ? 'Stay here and end inspection' : 'Back to previous panel'} drops focus: ${JSON.stringify(w)}`
+          );
+        }
+        await ctx.close();
+      }
+      {
+        const { ctx, page } = await boot({ theme: 'light', phone: true });
+        await setDraft(page, DRAFT);
+        await page.locator('#lyrics-draft').click();
+        await page.evaluate(() => {
+          const d = $ui('lyrics-draft');
+          const i = d.value.indexOf('I leave the porch light on');
+          d.setSelectionRange(i, i);
+          document.dispatchEvent(new Event('selectionchange'));
+        });
+        await page.waitForTimeout(400);
+        const opener = page.locator('#ly-linedock [aria-controls="ly-menu-line-actions"]');
+        await focusOn(opener, 'Line actions');
+        await page.keyboard.press('Enter');
+        await page.waitForTimeout(150);
+        let w = await where(page);
+        check(
+          w.inMenu && w.ui === 'ly-line-tool',
+          `phone Line actions opens elsewhere: ${JSON.stringify(w)}`
+        );
+        // #80: Tab leaves the menu and closes it.
+        await page.keyboard.press('Tab');
+        w = await where(page);
+        const hidden = await page.evaluate(() => $ui('ly-menu-line-actions').hidden);
+        check(
+          hidden && !w.inMenu && w.tag !== 'BODY',
+          `phone: Tab in Line actions does not close it and move on: ${JSON.stringify({ hidden, ...w })}`
+        );
+        // #80: a tool chosen from the menu lands on that tool, not <body>.
+        await focusOn(opener, 'Line actions');
+        await page.keyboard.press('Enter');
+        await page.waitForTimeout(150);
+        await page.keyboard.press('Enter');
+        await page.waitForTimeout(300);
+        w = await where(page);
+        check(
+          w.ui === 'ly-tool' && w.id === 'rhymes' && w.expanded === 'true',
+          `phone: Rhyme from Line actions drops focus: ${JSON.stringify(w)}`
+        );
+        // #77: Stay ends the inspection on the dock's Relations button.
+        await page.evaluate(() => LY_ACTIONS['ly-mobile']('song'));
+        await page.waitForTimeout(200);
+        await focusOn(page.locator('[data-ui="ly-relations"]'), 'Relations');
+        await page.keyboard.press('Enter');
+        await page.waitForTimeout(200);
+        await focusOn(
+          page.locator('#ly-relations-dialog [data-ui="ly-relation-stay"]'),
+          'dialog stay'
+        );
+        await page.keyboard.press('Enter');
+        await page.waitForTimeout(200);
+        w = await where(page);
+        check(
+          w.ui === 'ly-relations',
+          `phone: Stay here and end inspection drops focus: ${JSON.stringify(w)}`
+        );
+        await ctx.close();
+      }
+    });
+
     // N1/N2: Rhythm has three independently applied forms. A failure must
     // not conceal successful commits, and review must account for all three.
     await step('N1. partial Rhythm Apply', async () => {
@@ -6271,6 +6428,79 @@ async function browserChecks(chromium) {
         'Redo after new typing did not keep the typing and say "Nothing to redo"'
       );
       await ctx.close();
+    });
+    // M2. The phone's Line actions menu lives in the line dock, which is
+    // redrawn whenever the history moves: its own Undo, or any step while it
+    // is open, replaced the item in focus (focus to <body>, the menu shut
+    // under the person, LY.menu left set). It stays open, on that item. A
+    // tool chosen from it closes it (LY.menu was left 'line-actions').
+    // Second review of lyrics-menus-sr 0dda776ba.
+    await step('M2. Line actions survives a dock redraw', async () => {
+      for (const how of ['keyboard', 'pointer']) {
+        const { ctx, page } = await boot({ theme: 'light', phone: true });
+        const where = () =>
+          page.evaluate(() => {
+            const a = document.activeElement;
+            const menu = $ui('ly-menu-line-actions');
+            return {
+              inMenu: !!menu && !menu.hidden && menu.contains(a),
+              item: a?.dataset?.ui || (a === document.body ? 'BODY' : a?.tagName),
+              menu: LY.menu,
+              open: [...document.querySelectorAll('#surface-lyrics .ly-menu:not([hidden])')].length,
+            };
+          });
+        const sel = '#ly-linedock [aria-controls="ly-menu-line-actions"]';
+        const press = async (selector) => {
+          if (how === 'keyboard') {
+            await page.focus(selector);
+            await page.keyboard.press('Enter');
+          } else await page.click(selector);
+          await page.waitForTimeout(200);
+        };
+        const song = () =>
+          page.evaluate(() => {
+            LY_ACTIONS['ly-mobile']('song');
+            lyScrollToLine(2);
+            lySyncCaret();
+            lyRefresh(true);
+          });
+        await setDraft(page, DRAFT);
+        await page.evaluate(() => {
+          const d = $ui('lyrics-draft');
+          d.value += '\nOne more line';
+          uiSaveLyrics();
+          pushHistory();
+        });
+        await song();
+        await press(sel);
+        await press('#ly-menu-line-actions [data-ui="ly-undo"]');
+        const undone = await where();
+        check(
+          undone.inMenu && undone.menu === 'line-actions',
+          `${how}: Undo from Line actions dropped focus or shut the menu: ${JSON.stringify(undone)}`
+        );
+        await page.evaluate(() => {
+          app.workspaceName = 'Renamed while the menu is open';
+          pushHistory();
+          lyRefresh(true);
+        });
+        await page.waitForTimeout(200);
+        const moved = await where();
+        check(
+          moved.inMenu && moved.menu === 'line-actions',
+          `${how}: a history step under the open Line actions dropped it: ${JSON.stringify(moved)}`
+        );
+        await page.keyboard.press('Escape');
+        await song();
+        await press(sel);
+        await press('#ly-menu-line-actions [data-ui="ly-line-tool"]');
+        const tool = await where();
+        check(
+          tool.menu === '' && tool.open === 0 && tool.item === 'ly-tool',
+          `${how}: a tool chosen from Line actions left the menu set: ${JSON.stringify(tool)}`
+        );
+        await ctx.close();
+      }
     });
 
     // ── screenshots: a suggestion, light and dark, desktop and phone ─────

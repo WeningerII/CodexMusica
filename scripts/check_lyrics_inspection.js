@@ -1,5 +1,5 @@
 // Offline integrated evidence inspection journeys; no provider requests.
-/* global document, window, LY, UI, lyDraft, lyRefresh, uiSaveLyrics, pushHistory, lyReceive, lyContext, lyRelationEvidenceView, lyIdentity, LY_READING_CUT, lyInspectionSession, lyRelationWritingMarks */
+/* global app, pushHistory, document, window, LY, UI, lyDraft, lyRefresh, uiSaveLyrics, pushHistory, lyReceive, lyContext, lyRelationEvidenceView, lyIdentity, LY_READING_CUT, lyInspectionSession, lyRelationWritingMarks */
 const fs = require('node:fs');
 const path = require('node:path');
 const { chromium } = require('playwright');
@@ -243,6 +243,17 @@ const settle = (p) => p.waitForTimeout(120);
         await settle(p);
         const original = await state(p);
         await click(p, 'ly-relations');
+        // Opening Relations swaps the dock's buttons; the dock's redraw must
+        // not hand focus to its new Back to relations button and pull it out
+        // of the inspector (R2, from BB8's 3d run).
+        const opened = await p.evaluate(() => {
+          const a = document.activeElement;
+          return { ui: a?.dataset?.ui || a?.tagName, inDock: !!a?.closest('#ly-linedock') };
+        });
+        check(
+          !opened.inDock,
+          `${label} opening Relations moved focus into the dock (${opened.ui})`
+        );
         check(
           (await p.locator('[data-ui="ly-relation-source"]:visible').count()) > 1,
           label + ' source choice shown'
@@ -638,6 +649,38 @@ const settle = (p) => p.waitForTimeout(120);
       } catch (e) {
         errors.push(variant + ': ' + e.message);
         console.error(variant, e.message);
+      } finally {
+        await p.finish();
+      }
+    }
+    // Stay and Back land on the dock's Relations button (focusAfterEnd); a
+    // later step that moves the history redraws the dock, and focus fell from
+    // that button to <body>. It stays on the redrawn button. Second review of
+    // lyrics-menus-sr 0dda776ba.
+    for (const [w, h, end] of [
+      [390, 844, 'ly-relation-stay'],
+      [1280, 900, 'ly-relation-stay'],
+      [1280, 900, 'ly-relation-back'],
+    ]) {
+      const p = await open(w, h);
+      try {
+        await receive(p);
+        await click(p, 'ly-relations');
+        await (await control(p, end)).focus();
+        await p.keyboard.press('Enter');
+        await settle(p);
+        await p.evaluate(() => {
+          app.workspaceName = 'A step while the dock has focus';
+          pushHistory();
+          lyRefresh(true);
+        });
+        await settle(p);
+        const at = await p.evaluate(() => {
+          const a = document.activeElement;
+          return a === document.body ? 'BODY' : a?.dataset?.ui || a?.id || a?.tagName;
+        });
+        check(at === 'ly-relations', `${w} ${end}: a dock redraw moved focus to ${at}`);
+        results.push({ kind: `dock-redraw-${w}-${end}` });
       } finally {
         await p.finish();
       }

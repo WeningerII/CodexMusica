@@ -268,6 +268,20 @@
       session = lyRelationSessionBack(session, { back: restorePanel });
     }
     render();
+    if (action === 'ly-relation-stay' || action === 'ly-relation-back') focusAfterEnd();
+  }
+  // Stay and Back end the inspection: the button pressed went with the dialog
+  // or the inline panel, and the dock was just redrawn. Unless Back restored
+  // the previous panel's own focus, land on the dock's visible Relations
+  // button (the dock Close returns to as well), else the draft — never <body>.
+  function focusAfterEnd() {
+    const a = document.activeElement;
+    if (a && a !== document.body && a.isConnected && a.getClientRects().length) return;
+    const dock = $ui('ly-relation-dock')?.querySelector(
+      '[data-ui="ly-relations"], [data-ui="ly-relation-reopen"]'
+    );
+    const target = dock?.getClientRects().length ? dock : lyDraft();
+    if (target?.getClientRects().length) target.focus({ preventScroll: true });
   }
   function lyInspectionWire(surface) {
     surface.addEventListener(

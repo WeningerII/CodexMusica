@@ -253,9 +253,11 @@ function chromiumPath() {
           const items = menu.locator('button');
           check((await items.count()) === 10, label + ' all10 menu actions retained');
           record.keyboardItems = [];
+          // A menu is one Tab stop: its actions are reached with the arrow
+          // keys, and Tab leaves it (Jony #80).
           for (let i = 0; i < (await items.count()); i++) {
             const already = await items.nth(i).evaluate((el) => el === document.activeElement);
-            if (!already) await p.keyboard.press('Tab');
+            if (!already) await p.keyboard.press('ArrowDown');
             const focused = await items.nth(i).evaluate((el) => el === document.activeElement);
             record.keyboardItems.push({ index: i, focused });
             check(focused, label + ' keyboard menu action ' + i);

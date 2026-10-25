@@ -515,8 +515,10 @@
 #surface-lyrics .ly-menu-item:hover {
   background: var(--cm-hover);
 }
-#surface-lyrics .ly-menu-item[aria-pressed='true']::after {
-  content: '✓';
+/* The tick shows the state aria-checked already gives; its alt text is empty
+   so it is not read as part of the item's name. */
+#surface-lyrics .ly-menu-item[aria-checked='true']::after {
+  content: '✓' / '';
   margin-left: auto;
   color: var(--cm-accent);
 }
