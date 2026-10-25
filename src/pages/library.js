@@ -1,4 +1,4 @@
-/* exported CMLibraryDefine */
+/* exported CMLibraryDefine, libraryAnnounce */
 /* global $ui, UI, esc, uiButton, uiEmptyState, uiEnsureWorkspace, uiRegisterPage, uiSubroute, uiTabIndex */
 'use strict';
 // ─── Library page: the inline stub (docs/library-native-design.md) ───────────
@@ -76,6 +76,15 @@ function libraryTabKeys(e) {
   tabs[i].focus();
 }
 
+// The Library's one polite live region. It sits outside #library-main, so a
+// re-render never reads the page aloud; views send it short status lines
+// ("2 lines selected"). Cleared first so the same line twice is read twice.
+function libraryAnnounce(text) {
+  const live = $ui('library-live');
+  if (!live) return;
+  live.textContent = '';
+  if (text) setTimeout(() => (live.textContent = text), 50);
+}
 async function libraryShow() {
   librarySelectTab();
   const main = libraryMain();
@@ -132,7 +141,7 @@ uiRegisterPage({
       )
       .join(
         ''
-      )}</div><div id="library-main" class="lib-main" aria-live="polite"><div class="lib-skeleton" aria-hidden="true"></div><div class="lib-skeleton" aria-hidden="true"></div></div></div>`;
+      )}</div><div id="library-main" class="lib-main"><div class="lib-skeleton" aria-hidden="true"></div><div class="lib-skeleton" aria-hidden="true"></div></div><div id="library-live" class="lib-live" role="status" aria-live="polite"></div></div>`;
     surface.querySelector('.lib-bar').addEventListener('keydown', libraryTabKeys);
   },
   route(sub, { pop }) {

@@ -169,8 +169,10 @@ const uiButton = (act, label, ic = 'plus', extra = '') =>
   `<button type="button" data-ui="${act}" ${extra.includes('aria-label=') ? '' : `aria-label="${esc(label)}"`} ${extra}>${icon(ic, 18)}<span>${esc(label)}</span></button>`;
 // Empty, no-results, loading and failure states share one shape: what is
 // true now, and the actions that move on from it. tone 'danger' = a failure.
-const uiEmptyState = ({ title, text = '', actions = '', tone = '' }) =>
-  `<div class="cm-empty"${tone ? ` data-tone="${tone}"` : ''} role="status"><strong>${esc(title)}</strong>${text ? `<span>${esc(text)}</span>` : ''}${actions ? `<div class="cm-empty-actions">${actions}</div>` : ''}</div>`;
+// role '' for a page that speaks the state through its own one live region
+// (the Library's #library-live), so it is not heard twice.
+const uiEmptyState = ({ title, text = '', actions = '', tone = '', role = 'status' }) =>
+  `<div class="cm-empty"${tone ? ` data-tone="${tone}"` : ''}${role ? ` role="${role}"` : ''}><strong>${esc(title)}</strong>${text ? `<span>${esc(text)}</span>` : ''}${actions ? `<div class="cm-empty-actions">${actions}</div>` : ''}</div>`;
 const listenHref = (name, instrument = false) =>
   `https://www.youtube.com/results?search_query=${encodeURIComponent(name + (instrument ? ' musical instrument solo demonstration' : ' music'))}`;
 const listenLink = (name, instrument = false) =>

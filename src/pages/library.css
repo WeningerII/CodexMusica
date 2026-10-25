@@ -11,6 +11,15 @@
   gap: 4px;
   flex-wrap: wrap;
 }
+/* The one polite live region (libraryAnnounce): heard, not seen. */
+#surface-library .lib-live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
 #surface-library .lib-skeleton {
   height: 236px;
   border-radius: 8px;

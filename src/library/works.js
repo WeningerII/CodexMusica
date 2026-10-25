@@ -16,7 +16,7 @@
 // language, availability, completeness, edition8, work8, source_path,
 // snippet, contributor_search]; search items are compact summaries. Both
 // become one row shape below.
-/* global esc, icon, showToast, uiEmptyState, uiSubroute */
+/* global esc, icon, showToast, uiEmptyState, uiSubroute, LIBRARY, libraryAnnounce */
 'use strict';
 
 const PAGE = 50;
@@ -123,7 +123,23 @@ const STYLE = `
 #surface-library .lw-table td:first-child{padding-left:12px;padding-right:96px}
 #surface-library .lw-table td.lw-actions{position:absolute;top:8px;right:8px;padding:0}
 #surface-library .lw-sheet{width:100vw;border-radius:0}
-}`;
+}
+#surface-library .lib-coll-head{display:flex;gap:16px;align-items:flex-start}
+#surface-library .lib-coll-head .lib-art{flex:0 0 120px}
+#surface-library .lib-coll-head .lib-cover{justify-content:center;align-items:center}
+#surface-library .lib-coll-head .lib-cover>:not(svg){display:none}
+#surface-library .lib-coll-head h1{margin:0 0 4px;font-size:22px;line-height:1.25;color:var(--cm-text);white-space:pre-line}
+#surface-library .lib-coll-head p{margin:0 0 10px;color:var(--cm-text-secondary)}
+#surface-library .lib-coll-actions{display:flex;flex-wrap:wrap;gap:8px}
+#surface-library .lib-coll-list{list-style:none;margin:0;padding:0;border:1px solid var(--cm-border);border-radius:var(--cm-radius-lg,12px);background:var(--cm-surface);overflow:hidden}
+#surface-library .lib-coll-list li{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--cm-border-subtle,var(--cm-border))}
+#surface-library .lib-coll-list li:last-child{border-bottom:0}
+#surface-library .lib-coll-list a{flex:1;min-width:0;display:flex;flex-direction:column;color:var(--cm-text);text-decoration:none}
+#surface-library .lib-coll-list a:hover strong{text-decoration:underline}
+#surface-library .lib-coll-list strong{font-size:14px;font-weight:600}
+#surface-library .lib-coll-list small{font-size:12px;color:var(--cm-text-secondary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#surface-library .lib-coll-list input{width:18px;height:18px;accent-color:var(--cm-accent)}
+#surface-library .lib-pager{display:flex;align-items:center;gap:10px;justify-content:flex-end;color:var(--cm-text-secondary);font-size:13px}`;
 
 function injectStyle() {
   if (!document.querySelector('style[data-lib="works"]'))
@@ -285,15 +301,22 @@ async function searchPage(s, lib) {
 const VIEWS = new WeakMap();
 let ACTIVE = null;
 
+// Search's shortcut: ⌘K on Apple platforms, Ctrl+K elsewhere, named so in
+// the hint and in aria-keyshortcuts.
+const MAC = /Mac|iPhone|iPad|iPod/.test(
+  (typeof navigator !== 'undefined' && (navigator.userAgentData?.platform || navigator.platform)) ||
+    ''
+);
+const SHORTCUT = MAC ? { hint: '⌘ K', aria: 'Meta+K' } : { hint: 'Ctrl K', aria: 'Control+K' };
 function shell(lib) {
   return (
     `<div class="lw" data-lib-view="works">` +
     `<div class="lw-top">` +
-    `<label class="cm-search">${ic(lib, 'search', 18)}<input type="search" data-lw="q" placeholder="Search titles, authors, or exact phrases" aria-label="Search Library" autocomplete="off" spellcheck="false"><button type="button" class="cm-btn cm-btn-icon lw-search-clear" data-lw="clear-q" aria-label="Clear search">${ic(lib, 'x', 16)}</button><kbd aria-hidden="true">⌘ K</kbd></label>` +
+    `<label class="cm-search">${ic(lib, 'search', 18)}<input type="search" data-lw="q" placeholder="Search titles, authors, or exact phrases" aria-label="Search Library" aria-keyshortcuts="${SHORTCUT.aria}" autocomplete="off" spellcheck="false"><button type="button" class="cm-btn cm-btn-icon lw-search-clear" data-lw="clear-q" aria-label="Clear search">${ic(lib, 'x', 16)}</button><kbd aria-hidden="true" title="${SHORTCUT.hint.replace(' ', '+')} focuses Search">${SHORTCUT.hint}</kbd></label>` +
     `<button type="button" class="cm-btn cm-btn-outline" data-lw="filters" aria-haspopup="dialog" aria-label="Filter Library">${ic(lib, 'sliders-horizontal', 18)}<span>Filter</span><span class="lw-count" data-lw-slot="filter-count" hidden></span></button>` +
     `</div>` +
-    `<div class="lw-head"><div><h2 data-lw-slot="title">Works</h2><p data-lw-slot="summary"> </p></div><div class="lw-chips" data-lw-slot="chips"></div></div>` +
-    `<div class="lw-results" data-lw-slot="results" aria-live="polite"></div>` +
+    `<div class="lw-head"><div><h2 id="lw-title" data-lw-slot="title">Works</h2><p data-lw-slot="summary"> </p></div><div class="lw-chips" data-lw-slot="chips"></div></div>` +
+    `<div class="lw-results" data-lw-slot="results"></div>` +
     `<div data-lw-slot="layer"></div>` +
     `</div>`
   );
@@ -352,8 +375,24 @@ class WorksView {
         this.commit(false);
       }
     });
+    // The shortcut is taken only while Works is on screen and focus is not
+    // in another text field: elsewhere Ctrl+K stays the browser's, and a
+    // person typing in a field is not moved.
     this.keys = (e) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k' && this.root.isConnected) {
+      const t = e.target;
+      const typing =
+        t !== this.input &&
+        t instanceof Element &&
+        t.matches('input, textarea, select, [contenteditable]:not([contenteditable="false"])');
+      if (
+        (MAC ? e.metaKey : e.ctrlKey) &&
+        !e.altKey &&
+        !e.shiftKey &&
+        e.key.toLowerCase() === 'k' &&
+        this.root.isConnected &&
+        this.root.getClientRects().length &&
+        !typing
+      ) {
         e.preventDefault();
         this.input.focus();
         this.input.select();
@@ -448,12 +487,30 @@ class WorksView {
         ? `<button type="button" class="cm-btn cm-btn-tonal" data-lw="select-collection">${ic(this.lib, 'plus', 16)}<span>Select collection</span></button>`
         : '');
   }
+  // Every load ends with one line through #library-live (the results are not
+  // a live region: a table read aloud is noise). A failure or an empty result
+  // is read from its state; rows say how many. After a Retry focus also lands
+  // on the new Retry, or the first result or way on (lib.settle in core).
+  settle(target, stateShown) {
+    const moved = this.retried;
+    this.retried = false;
+    const results = this.slot('results');
+    const summary = this.slot('summary').textContent.trim();
+    const said = stateShown
+      ? this.lib.failed
+        ? this.lib.failed(results)
+        : ''
+      : moved
+        ? `Works loaded. ${summary}`
+        : summary;
+    if (this.lib.settle) this.lib.settle(moved ? target || this.slot('title') : null, said);
+  }
   async load() {
     const s = { ...this.state };
     const seq = ++this.seq;
     const results = this.slot('results');
     results.setAttribute('aria-busy', 'true');
-    if (!this.rows.length) results.innerHTML = uiEmptyState({ title: 'Loading works…' });
+    if (!this.rows.length) results.innerHTML = uiEmptyState({ title: 'Loading works…', role: '' });
     this.paintHead();
     let page;
     try {
@@ -476,11 +533,15 @@ class WorksView {
         title: isStatic(s) ? 'The Library list could not load' : 'Search is unavailable right now',
         text: rate
           ? 'Too many searches from this network; retry shortly.'
-          : (error && error.message) || 'Check your connection and retry.',
+          : this.lib.problem
+            ? this.lib.problem(error)
+            : 'Couldn’t reach the Library. Check your connection and try again.',
         actions: `<button type="button" class="cm-btn cm-btn-outline" data-lw="retry">${ic(this.lib, 'refresh-cw', 16)}<span>Retry</span></button>`,
         tone: 'danger',
+        role: '',
       });
       this.slot('summary').textContent = '';
+      this.settle(results.querySelector('[data-lw="retry"]'), true);
       return;
     }
     // Superseded, or the view left the page while the rows loaded (a slow
@@ -525,18 +586,21 @@ class WorksView {
           : this.filterCount() || s.q
             ? `<button type="button" class="cm-btn cm-btn-outline" data-lw="clear-all">Clear search and filters</button>`
             : '',
+        role: '',
       });
+      this.settle(results.querySelector('button'), true);
       return;
     }
     const last = Math.min(offset + page.rows.length, page.total);
     const hasNext = page.next !== undefined ? page.next !== null : last < page.total;
     results.innerHTML =
-      `<div class="lw-scroll"><table class="lw-table"><thead><tr><th scope="col">Work / reading</th><th scope="col">Contributor</th><th scope="col">Language</th><th scope="col">Scope / availability</th><th scope="col"><span class="lw-sr">Record and export selection</span></th></tr></thead><tbody>` +
+      `<div class="lw-scroll"><table class="lw-table" aria-labelledby="lw-title"><thead><tr><th scope="col">Work / reading</th><th scope="col">Contributor</th><th scope="col">Language</th><th scope="col">Scope / availability</th><th scope="col"><span class="lw-sr">Record and export selection</span></th></tr></thead><tbody>` +
       page.rows.map((r) => rowHTML(r, this.lib)).join('') +
       `</tbody></table></div>` +
       `<nav class="lw-pager" aria-label="Works pages"><button type="button" class="cm-btn cm-btn-outline" data-lw="page" data-to="${Math.max(0, offset - PAGE)}" ${offset === 0 ? 'disabled' : ''}>Previous</button>` +
       `<span>${(offset + 1).toLocaleString()}–${last.toLocaleString()} of ${page.total.toLocaleString()}</span>` +
       `<button type="button" class="cm-btn cm-btn-outline" data-lw="page" data-to="${page.next ?? offset + PAGE}" ${hasNext ? '' : 'disabled'}>Next</button></nav>`;
+    this.settle(results.querySelector('[data-lw="open"]'));
   }
   paintSelection() {
     for (const b of this.root.querySelectorAll('[data-lw="select"]')) {
@@ -626,6 +690,7 @@ class WorksView {
     } else if (act === 'filters') {
       this.openFilters(t);
     } else if (act === 'retry') {
+      this.retried = true;
       this.load();
     } else if (act === 'all-availability') {
       s.availability = 'all';
@@ -871,6 +936,116 @@ async function openMetadata(lib, id, { opener = null, row = null, layer = null }
   return sheet;
 }
 
+// ─── A collection page (core hands it over: never the shelves' first view) ──
+// A collection page replaces the control that opened it (a rail spine, a
+// card, a pager button): when that left focus on the page, land it on the
+// collection's heading instead. Focus the person put elsewhere is kept.
+function focusLostToHeading(main, fresh) {
+  const a = document.activeElement;
+  if (fresh || (a && a !== document.body && a.isConnected)) return;
+  const h = main.querySelector('.lib-coll-head h1');
+  if (!h) return;
+  h.tabIndex = -1;
+  h.focus();
+}
+async function collection(main, id, token, offset = 0, core) {
+  const {
+    lib,
+    state,
+    selection,
+    selectedFor,
+    selectionState,
+    fillRail,
+    railHtml,
+    toplineHtml,
+    artHtml,
+    fromRow,
+    shortTitle,
+    plural,
+    num,
+    libButton,
+    collectionSub,
+    COLLECTION_PAGE,
+  } = core;
+  injectStyle();
+  // A page load's first view keeps focus where the browser put it (#129).
+  const fresh = !!lib.fresh;
+  const [catalog, all] = await Promise.all([lib.catalog(), lib.collections()]);
+  if (token !== state.token) return;
+  const row = all.collections.find((c) => c[0] === id);
+  const c = row ? fromRow(row) : null;
+  const frame = (body) =>
+    `<div class="lib-core">${railHtml(catalog)}<div class="lib-core-main">${toplineHtml(catalog)}<div><button type="button" class="lib-btn" data-lib-act="go" data-sub="">${icon('library', 16)}<span>Explore</span></button></div>${body}</div></div>`;
+  if (!c) {
+    main.innerHTML = frame(
+      uiEmptyState({
+        title: 'No such collection',
+        text: 'It may have been merged or withdrawn in this snapshot.',
+        actions: libButton('go', 'Explore', 'library', ' data-sub=""'),
+      })
+    );
+    fillRail(main);
+    state.railPicked = false;
+    return;
+  }
+  const title = shortTitle(c.title);
+  const header = (extra) =>
+    `<header class="lib-coll-head"><div class="lib-art">${artHtml(c, 0, title)}</div><div><h1>${esc(title)}</h1><p>${esc(lib.languageName(c.language))} · ${plural(c.readable, 'readable unit')}${c.recorded > c.readable ? ` of ${num(c.recorded)} recorded` : ''}</p>${extra}</div></header>`;
+  if (!c.readable) {
+    main.innerHTML = frame(
+      header(
+        `<div class="lib-coll-actions">${libButton('go', 'Search its works', 'search', ` data-sub="/works?collection=${encodeURIComponent(id)}"`)}</div>`
+      ) +
+        uiEmptyState({
+          title: 'Nothing here is readable',
+          text: 'Every unit in this collection is held. Its metadata is searchable in Works.',
+        })
+    );
+    fillRail(main, id);
+    state.railPicked = false;
+    return;
+  }
+  main.innerHTML = frame(header('') + `<div class="lib-skel" aria-hidden="true"></div>`);
+  fillRail(main, id);
+  focusLostToHeading(main, fresh);
+  const head = await lib.collection(id);
+  if (token !== state.token) return;
+  const pages = head.page_count || 1;
+  const at = Math.min(Math.floor(offset / COLLECTION_PAGE), pages - 1);
+  // An off-grid, past-the-end or malformed offset is shown as the page that
+  // holds it, and the hash is rewritten to say so.
+  const canonical = collectionSub(id, at);
+  if ((LIBRARY.sub || '') !== canonical && /\?/.test(LIBRARY.sub || '')) {
+    LIBRARY.sub = canonical;
+    uiSubroute(canonical, { push: false });
+  }
+  const page = at ? await lib.collection(id, at) : head;
+  if (token !== state.token) return;
+  // Only the head file carries readable_ids; a cold load of a later page
+  // (a shared ?offset= link) counted none ("251–500 of 0", BB8).
+  selectedFor.set(id, head.readable_ids || selectedFor.get(id));
+  const ids = selectedFor.get(id) || [];
+  const pressed = selectionState(id);
+  const actions = `<div class="lib-coll-actions">${libButton('read', 'Read the first', 'play', ` data-id="${esc(ids[0] || '')}"`)}${libButton('select', pressed === 'true' ? 'Remove all from selection' : 'Add all to selection', pressed === 'true' ? 'check' : 'plus', ` data-cid="${esc(id)}" aria-pressed="${pressed}"`)}${libButton('go', 'Search in Works', 'search', ` data-sub="/works?collection=${encodeURIComponent(id)}"`)}</div>`;
+  const pager =
+    pages > 1
+      ? `<div class="lib-pager"><button type="button" class="lib-btn" data-lib-act="page" data-cid="${esc(id)}" data-page="${at - 1}"${at ? '' : ' disabled'}>Previous</button><span>${num(at * COLLECTION_PAGE + 1)}–${num(at * COLLECTION_PAGE + page.rows.length)} of ${num(ids.length)}</span><button type="button" class="lib-btn" data-lib-act="page" data-cid="${esc(id)}" data-page="${at + 1}"${at + 1 < pages ? '' : ' disabled'}>Next</button></div>`
+      : '';
+  const list = `<ul class="lib-coll-list" aria-label="Readings in ${esc(title)}">${page.rows
+    .map((r) => {
+      const who = (r[3] || []).map((p) => p[0]).join(', ');
+      return `<li><input type="checkbox" data-lib-act="pick" data-id="${esc(r[0])}" aria-label="Select ${esc(r[2])}"${selection.has(r[0]) ? ' checked' : ''}><a href="#library/read/${esc(r[0])}" data-lib-act="read" data-id="${esc(r[0])}" data-key="${esc(r[1])}"><strong>${esc(r[2])}</strong><small>${esc([who, r[10]].filter(Boolean).join(' — '))}</small></a></li>`;
+    })
+    .join('')}</ul>`;
+  main.querySelector('.lib-core-main').innerHTML =
+    `${toplineHtml(catalog)}<div><button type="button" class="lib-btn" data-lib-act="go" data-sub="">${icon('library', 16)}<span>Explore</span></button></div>${header(actions)}${pager}${list}${pager}`;
+  focusLostToHeading(main, fresh);
+  if (state.railPicked) {
+    state.railPicked = false;
+    if (typeof libraryAnnounce === 'function') libraryAnnounce(`${title}, collection`);
+  }
+}
+
 return {
   // main: the Library's content element; sub: '/works?…' (or
   // '/collections/<id>?…' if core hands a collection over); lib: the shared
@@ -898,4 +1073,5 @@ return {
   openMetadata,
   parse,
   format,
+  collection,
 };

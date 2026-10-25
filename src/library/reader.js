@@ -12,7 +12,7 @@
 // page_count}: any mismatch fails closed (no text is shown). Line ids
 // (UUIDv5) and normalized code-point/UTF-16 ranges are derived from each
 // page's start counters exactly as catalog_static_export.replay does.
-/* global esc, icon, uiEmptyState, uiOpenInLyrics, uiDownload, libraryChunk, CMLibraryImport, uiInertOutside */
+/* global esc, icon, uiEmptyState, uiOpenInLyrics, uiDownload, libraryChunk, CMLibraryImport, uiInertOutside, libraryAnnounce */
 'use strict';
 
 const PAGE_ROWS = 250;
@@ -111,7 +111,10 @@ function fetchBytes(lib, path) {
       path,
       (async () => {
         const r = await fetch(lib.base + path);
-        if (!r.ok) throw Error(`The Library could not load ${path} (${r.status}).`);
+        if (!r.ok)
+          throw Object.assign(Error(`The Library could not load ${path} (${r.status}).`), {
+            status: r.status,
+          });
         let b = new Uint8Array(await r.arrayBuffer());
         if (b[0] === 0x1f && b[1] === 0x8b)
           b = new Uint8Array(
@@ -580,7 +583,7 @@ const CSS = `
 #surface-library .rd-lens{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px}
 #surface-library .rd-sec{border-top:1px solid var(--cm-border-subtle);padding:12px 0}
 #surface-library .rd-sec:first-of-type{border-top:0}
-#surface-library .rd-sec h3{font-size:var(--cm-text-sm);font-weight:600;margin:0 0 8px}
+#surface-library .rd-sec h2,#surface-library .rd-sec h3{font-size:var(--cm-text-sm);font-weight:600;margin:0 0 8px}
 #surface-library .rd-note{color:var(--cm-text-muted);font-size:var(--cm-text-xs);margin:6px 0;overflow-wrap:anywhere}
 #surface-library .rd-measure{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 #surface-library .rd-measure div{background:var(--cm-surface-subtle);border-radius:var(--cm-radius-md);padding:8px;font-size:var(--cm-text-xs);color:var(--cm-text-muted)}
@@ -650,7 +653,7 @@ function replaceRoute(extra = {}) {
   }
 }
 
-async function show(main, sub, lib) {
+async function show(main, sub, lib, { retry = false } = {}) {
   if (!document.querySelector('style[data-lib="reader"]'))
     document.head.insertAdjacentHTML('beforeend', `<style data-lib="reader">${CSS}</style>`);
   const { id, key, params } = parse(sub);
@@ -685,6 +688,7 @@ async function show(main, sub, lib) {
     ownRoute: null,
   };
   S.firstRow = () => S.window[0] * PAGE_ROWS;
+  S.fresh = !!lib.fresh;
   main.dataset.libraryChunk = 'reader';
   if (!id) {
     main.innerHTML = uiEmptyState({
@@ -722,6 +726,9 @@ async function show(main, sub, lib) {
       };
     if (params.get('line')) S.hl = new Set([params.get('line')]);
     render();
+    // render() lands focus on the h1 when the Retry that asked is gone.
+    if (retry && typeof libraryAnnounce === 'function')
+      libraryAnnounce(`${S.root.querySelector('h1')?.textContent || 'Reading'} loaded`);
     const anchor = params.get('line') || (!params.has('offset') && pos?.line_id) || '';
     const row = params.has('offset') ? offset : null;
     requestAnimationFrame(() => scrollToLine(anchor, row));
@@ -735,16 +742,27 @@ async function show(main, sub, lib) {
     console.error('[library reader]', e);
     main.innerHTML = uiEmptyState({
       title: e instanceof Closed ? 'This reading failed its check' : 'Reading unavailable',
-      text: e.message + (e instanceof Closed ? ' No text is shown. Reload to fetch it again.' : ''),
+      text:
+        e instanceof Closed
+          ? e.message + ' No text is shown. Reload to fetch it again.'
+          : lib.problem
+            ? lib.problem(e)
+            : 'Couldn’t reach the Library. Check your connection and try again.',
+      role: '',
       actions: `<button type="button" class="cm-btn" data-rd-retry>${icon('refresh-cw', 16)}<span>Retry</span></button><button type="button" class="cm-btn" data-rd-back>${icon('arrow-left', 16)}<span>Works</span></button>`,
       tone: 'danger',
     });
     main.querySelector('[data-rd-retry]')?.addEventListener('click', () => {
       FILES.clear();
       S = null;
-      show(main, sub, lib);
+      show(main, sub, lib, { retry: true });
     });
     main.querySelector('[data-rd-back]')?.addEventListener('click', () => lib.go('/works'));
+    if (lib.settle)
+      lib.settle(
+        retry ? main.querySelector('[data-rd-retry]') : null,
+        lib.failed ? lib.failed(main) : ''
+      );
   }
 }
 
@@ -820,15 +838,53 @@ function render() {
 </div>`;
   S.root = S.main.firstElementChild;
   S.root.addEventListener('click', onClick);
+  S.root.addEventListener('keydown', (e) => {
+    const b = e.target.closest?.('.rd-num');
+    const go = { ArrowDown: 1, ArrowUp: -1, Home: -Infinity, End: Infinity }[e.key];
+    if (!b || !e.shiftKey || !go || e.altKey || e.ctrlKey || e.metaKey) return;
+    const nums = [...S.root.querySelectorAll('.rd-num:not([disabled])')];
+    const at = nums.indexOf(b);
+    const next = nums[go === -Infinity ? 0 : go === Infinity ? nums.length - 1 : at + go] || null;
+    e.preventDefault();
+    if (!next) return;
+    if (!S.range) S.range = { anchor: S.anchor || b.dataset.id, base: new Set(S.sel) };
+    next.focus();
+    selectRange(next.dataset.id);
+  });
   S.root.addEventListener('change', onChange);
   S.root.addEventListener('input', onChange);
+  // One Escape, one layer. An Escape pressed in another layer (the app's More
+  // menu, which closes on the way here, a dialog) or already taken by one is
+  // not also the reader's: only one pressed in the reader, or with nothing
+  // focused, closes its sheet or clears its line selection.
   S.onKey = (e) => {
-    if (e.key !== 'Escape' || !S?.root?.isConnected) return;
+    if (e.key !== 'Escape' || e.defaultPrevented || !S?.root?.isConnected) return;
+    if (e.target !== document.body && !S.root.contains(e.target)) return;
     if (S.root.classList.contains('rd-sheet')) closeSheet();
     else if (S.sel.size) {
+      // renderBody() replaces the line controls, so keep focus on the one that
+      // held it (Jony #130): find it again by its data attributes, else fall
+      // back to the reading body, then the title.
+      const held = S.root.contains(document.activeElement)
+        ? document.activeElement.closest('[data-rd][data-id]')
+        : null;
+      const key = held && [held.dataset.rd, held.dataset.id];
       S.sel.clear();
+      S.range = S.anchor = null;
       syncSelection();
       renderBody();
+      if (key || !document.activeElement || document.activeElement === document.body) {
+        const back =
+          (key &&
+            [...S.root.querySelectorAll(`[data-rd="${key[0]}"]`)].find(
+              (n) => n.dataset.id === key[1]
+            )) ||
+          S.root.querySelector('.rd-paper') ||
+          S.root.querySelector('h1');
+        if (back?.classList.contains('rd-paper')) back.tabIndex = -1;
+        back?.focus();
+      }
+      if (typeof libraryAnnounce === 'function') libraryAnnounce('Selection cleared');
     }
   };
   document.addEventListener('keydown', S.onKey);
@@ -836,8 +892,10 @@ function render() {
   renderBody();
   renderInspector();
   // Opened from a works result or a link: the control that asked is gone.
-  if (!document.activeElement || document.activeElement === document.body)
+  // Not on a page load's first view (lib.fresh, #129), and once per reading.
+  if (!S.fresh && (!document.activeElement || document.activeElement === document.body))
     S.root.querySelector('h1')?.focus();
+  S.fresh = false;
 }
 
 function renderAlerts() {
@@ -845,12 +903,15 @@ function renderAlerts() {
   if (!el) return;
   el.innerHTML =
     (S.error ? `<p class="rd-alert" data-tone="danger" role="alert">${esc(S.error)}</p>` : '') +
-    (S.notice ? `<p class="rd-alert" role="status">${esc(S.notice)}</p>` : '');
+    (S.notice ? `<p class="rd-alert">${esc(S.notice)}</p>` : '');
 }
+// A notice is heard through the Library's one live region (a status node
+// inserted fresh here is not reliably read); an error stays role="alert".
 const say = (notice, error = '') => {
   S.notice = notice;
   S.error = error;
   renderAlerts();
+  if (notice && typeof libraryAnnounce === 'function') libraryAnnounce(notice);
 };
 
 function renderBar() {
@@ -1020,21 +1081,21 @@ function renderInspector() {
   let body = '';
   if (S.lens === 'summary') {
     const c = h.census || {};
-    body = `<section class="rd-sec"><h3>This reading</h3>
+    body = `<section class="rd-sec"><h2>This reading</h2>
 <div class="rd-measure"><div><b>${esc(c.physical_source_rows ?? '—')}</b>physical rows</div><div><b>${esc(words_(h.completeness))}</b>documented scope</div>
 <div><b>${esc(c.normalized_lines ?? '—')}</b>analysis lines</div><div><b>${esc(R.pageCount)}</b>page${R.pageCount === 1 ? '' : 's'} of ${PAGE_ROWS} rows</div></div>
 <p class="rd-note">${esc(h.source_path)}</p><p class="rd-note">${esc(h.notation || '')} · ${esc(h.direction === 'rtl' ? 'right to left' : 'left to right')}</p></section>
 `;
   } else if (S.lens === 'sources') {
-    body = `<section class="rd-sec"><h3>Text, edition and digital witness</h3>${valueTree({
+    body = `<section class="rd-sec"><h2>Text, edition and digital witness</h2>${valueTree({
       work_id: h.work_id,
       edition_id: h.edition_id,
       contributors: h.contributors,
       source_path: h.source_path,
       completeness: h.completeness,
     })}<div data-rd-meta><p class="rd-note">Loading metadata…</p></div></section>
-<section class="rd-sec"><h3>Rights and required credits</h3><div data-rd-rights><p class="rd-note">Loading rights…</p></div></section>
-<section class="rd-sec"><h3>Recorded source labels</h3>${valueTree(h.source_labels)}
+<section class="rd-sec"><h2>Rights and required credits</h2><div data-rd-rights><p class="rd-note">Loading rights…</p></div></section>
+<section class="rd-sec"><h2>Recorded source labels</h2>${valueTree(h.source_labels)}
 <h3 style="margin-top:12px">Exact source identity</h3><p class="rd-hash" data-rd-ident>Readings: snapshot …<br>Revision ${esc(R.revision)}<br>Source SHA256 ${esc(h.source_sha256)}<br>Normalized SHA256 ${esc(h.normalized_sha256)}</p>
 ${btn('provenance', 'Source details', 'download')}</section>`;
   }
@@ -1050,7 +1111,7 @@ function renderSpeech() {
   const h = S.R.head;
   let body = '';
   const voices = window.speechSynthesis?.getVoices?.() || [];
-  body += `<section class="rd-sec rd-speech"><h3>Read aloud</h3>
+  body += `<section class="rd-sec rd-speech"><h2>Read aloud</h2>
 <label>Device voice<select class="cm-select" data-rd="voice"><option value="">Match language</option>${voices
     .map(
       (v) =>
@@ -1300,23 +1361,58 @@ function speak(auto) {
 }
 
 // ─── events ────────────────────────────────────────────────────────────────
-function toggleLine(id) {
+function paintLine(id) {
   const l = windowLines().find((x) => x.id === id);
-  if (!l || l.analysis_line == null) return;
-  if (S.sel.has(id)) S.sel.delete(id);
-  else S.sel.add(id);
   const el = document.getElementById(id);
   el?.classList.toggle('rd-sel', S.sel.has(id));
   const b = el?.querySelector('.rd-num');
-  if (b) {
+  if (b && l) {
     b.setAttribute('aria-pressed', String(S.sel.has(id)));
     b.setAttribute(
       'aria-label',
       `${S.sel.has(id) ? 'Deselect' : 'Select'} analysis line ${l.analysis_line}`
     );
   }
+}
+// A range, as in a list (Jony #116): Shift+Arrow, Shift+Home/End or
+// Shift+click selects every line from the anchor (the line last toggled) to
+// the target, on top of what was selected before the range began; going back
+// shrinks the range. A plain toggle sets a new anchor.
+function selectRange(toId) {
+  const nums = [...S.root.querySelectorAll('.rd-num:not([disabled])')];
+  const ids = nums.map((b) => b.dataset.id);
+  const to = ids.indexOf(toId);
+  if (to < 0) return;
+  if (!S.range || !ids.includes(S.range.anchor)) {
+    const focused = document.activeElement?.closest?.('.rd-num')?.dataset.id;
+    S.range = { anchor: ids.includes(focused) ? focused : toId, base: new Set(S.sel) };
+  }
+  const from = ids.indexOf(S.range.anchor);
+  const span = new Set(ids.slice(Math.min(from, to), Math.max(from, to) + 1));
+  const before = new Set(S.sel);
+  S.sel = new Set([...S.range.base, ...span]);
+  for (const id of new Set([...before, ...S.sel])) paintLine(id);
+  selectionChanged(toId);
+}
+function toggleLine(id) {
+  const l = windowLines().find((x) => x.id === id);
+  if (!l || l.analysis_line == null) return;
+  if (S.sel.has(id)) S.sel.delete(id);
+  else S.sel.add(id);
+  paintLine(id);
+  S.range = null;
+  S.anchor = id;
+  selectionChanged(id);
+}
+function selectionChanged(id) {
+  const l = windowLines().find((x) => x.id === id);
+  if (!l) return;
   renderBar();
   syncSelection();
+  if (typeof libraryAnnounce === 'function')
+    libraryAnnounce(
+      S.sel.size ? `${S.sel.size} line${S.sel.size === 1 ? '' : 's'} selected` : 'No lines selected'
+    );
   store('position:' + S.R.id, {
     line_id: id,
     offset: Math.max(0, l.row - 30),
@@ -1333,6 +1429,10 @@ function onClick(e) {
     case 'back':
       return S.lib.go('/works');
     case 'toggle':
+      if (e.shiftKey && S.anchor) {
+        S.range = S.range || { anchor: S.anchor, base: new Set(S.sel) };
+        return selectRange(id);
+      }
       return toggleLine(id);
     case 'srcrow': {
       const l = windowLines().find((x) => x.id === id);
@@ -1340,7 +1440,7 @@ function onClick(e) {
       S.lens = 'sources';
       renderBody();
       renderInspector();
-      openSheet();
+      openSheet(false, b);
       replaceRoute();
       // The row's button was re-rendered: land on the Sources lens it opened.
       focusInspector();
@@ -1394,10 +1494,18 @@ function onClick(e) {
       return page('previous');
     case 'next':
       return page('next');
-    case 'lens':
+    case 'lens': {
       S.lens = id;
       renderInspector();
+      // The re-render replaced the pressed chip: keep focus on it and name
+      // the lens, instead of leaving focus on the page.
+      S.root
+        ?.querySelector(`[data-rd="lens"][data-id="${window.CSS.escape(id)}"]`)
+        ?.focus({ preventScroll: true });
+      const lens = LENSES.find(([k]) => k === id);
+      if (lens && typeof libraryAnnounce === 'function') libraryAnnounce(`${lens[1]} lens`);
       return replaceRoute();
+    }
     case 'provenance':
       return downloadProvenance();
     case 'speak':
@@ -1432,12 +1540,16 @@ function onClick(e) {
       return handoff(true);
     case 'p-clear':
       S.sel.clear();
+      S.range = S.anchor = null;
       syncSelection();
       return renderBody();
   }
 }
 
-function openSheet(force) {
+// `from` is the control that asked. A caller that re-renders the reader first
+// (Inspect source row) passes it, since by then focus has fallen to the page;
+// closing finds it again by its data-rd and data-id if it was replaced.
+function openSheet(force, from) {
   if (!S.inspector && !matchMedia('(max-width: 899px)').matches) {
     S.inspector = true;
     S.root.classList.remove('rd-noinsp');
@@ -1445,14 +1557,24 @@ function openSheet(force) {
   if (force || matchMedia('(max-width: 899px)').matches) S.root.classList.add('rd-sheet');
   const insp = S.root.querySelector('.rd-insp');
   // A narrow layout shows the inspector as a sheet over the reader: what it
-  // covers leaves the Tab order, focus moves in, and closing returns it.
+  // covers leaves the Tab order, it is a modal dialog, focus moves in, and
+  // closing returns it.
   if (!S.unsheet && insp && getComputedStyle(insp).position === 'fixed') {
-    const opener = document.activeElement;
+    const active = document.activeElement;
+    const opener = from || (active && active !== document.body ? active : null);
+    const key = opener?.dataset?.rd
+      ? `[data-rd="${opener.dataset.rd}"]${opener.dataset.id ? `[data-id="${window.CSS.escape(opener.dataset.id)}"]` : ''}`
+      : '';
     const restore = uiInertOutside(insp);
+    insp.setAttribute('role', 'dialog');
+    insp.setAttribute('aria-modal', 'true');
     S.unsheet = () => {
       S.unsheet = null;
       restore();
-      if (opener?.isConnected && !opener.closest('[inert]')) opener.focus();
+      insp.removeAttribute('role');
+      insp.removeAttribute('aria-modal');
+      const back = opener?.isConnected ? opener : key ? S.root?.querySelector(key) : null;
+      if (back && !back.closest('[inert]')) back.focus();
     };
     focusInspector();
   }

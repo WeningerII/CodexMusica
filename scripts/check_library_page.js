@@ -18,7 +18,7 @@
 //   node scripts/check_library_page.js --built=DIR     # check an existing build
 //   node scripts/check_library_page.js --only=reader,compare --headed
 //   node scripts/check_library_page.js --shots=DIR     # screenshot each section
-/* global document, location, getComputedStyle, libraryChunk, indexedDB, window */ // inside page.evaluate
+/* global innerWidth, document, location, getComputedStyle, libraryChunk, indexedDB, window, MutationObserver */ // inside page.evaluate
 'use strict';
 
 const fs = require('fs');
@@ -470,6 +470,20 @@ const SECTIONS = {
         `${tag} explore: ArrowDown moves through the rail and keeps focus across repaints`,
         row.spine && row.i === '30',
         JSON.stringify(row)
+      );
+      // Opening a collection from the rail replaces the spine pressed: focus
+      // lands on the new collection's heading, not the page (Jony, #50).
+      await page.keyboard.press('Enter');
+      await page.waitForSelector('#surface-library .lib-coll-list', { timeout: 20000 });
+      await page.waitForTimeout(800);
+      const opened = await page.evaluate(() => ({
+        tag: document.activeElement?.tagName,
+        text: (document.activeElement?.textContent || '').trim().slice(0, 40),
+      }));
+      check(
+        `${tag} explore: opening a collection from the rail does not drop focus to the page`,
+        opened.tag !== 'BODY' && !!opened.tag,
+        JSON.stringify(opened)
       );
     }
     // Where the open rail overlays the page (narrow widths), it is a panel:
@@ -1196,6 +1210,34 @@ const SECTIONS = {
       sel.rd === 'select' && sel.pressed === 'true',
       JSON.stringify(sel)
     );
+    // #49: the content area is not itself a live region (a re-render would be
+    // read aloud whole); a short status goes to the one region outside it.
+    const live = await page.evaluate(() => {
+      const main = document.getElementById('library-main');
+      const region = document.getElementById('library-live');
+      return {
+        mainLive: main?.getAttribute('aria-live') || null,
+        role: region?.getAttribute('role') || null,
+        outside: !!region && !!main && !main.contains(region),
+      };
+    });
+    check(
+      `${tag} live: the Library content area is not a live region; one status region sits outside it`,
+      !live.mainLive && live.role === 'status' && live.outside,
+      JSON.stringify(live)
+    );
+    await page.focus('#surface-library .rd-num:not([disabled])');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(200);
+    const heard = await page.evaluate(
+      () => document.getElementById('library-live')?.textContent || ''
+    );
+    check(
+      `${tag} live: selecting a line says how many are selected`,
+      heard === '1 line selected',
+      heard
+    );
+    await page.keyboard.press('Enter');
     // #18: at a phone width, Inspect moves focus into the sheet, Tab stays
     // there, and Escape gives it back to Inspect.
     if (await page.isVisible('#surface-library [data-rd="sheet"]')) {
@@ -1238,6 +1280,32 @@ const SECTIONS = {
       src.rd === 'lens' && src.id === 'sources',
       JSON.stringify(src)
     );
+    // #51: where that opens the sheet, the sheet is a modal dialog, and Escape
+    // returns focus to the source row's button, re-rendered meanwhile.
+    const sheet = await page.evaluate(() => {
+      const insp = document.querySelector('#surface-library .rd-insp');
+      return {
+        open: !!document.querySelector('#surface-library .rd-sheet'),
+        fixed: !!insp && getComputedStyle(insp).position === 'fixed',
+        role: insp?.getAttribute('role') || null,
+        modal: insp?.getAttribute('aria-modal') || null,
+      };
+    });
+    if (sheet.open && sheet.fixed) {
+      check(
+        `${tag} focus: the inspector sheet is a modal dialog`,
+        sheet.role === 'dialog' && sheet.modal === 'true',
+        JSON.stringify(sheet)
+      );
+      await page.keyboard.press('Escape');
+      await page.waitForTimeout(200);
+      const backSrc = await where();
+      check(
+        `${tag} focus: Escape from the sheet returns focus to Inspect source row`,
+        backSrc.rd === 'srcrow',
+        JSON.stringify(backSrc)
+      );
+    }
     // #19c: a works result opens the reader with focus on its title.
     await go(page, base, '/works');
     await settled(page, 'works', '#surface-library [data-lw="open"][aria-label^="Read "]');
@@ -1328,7 +1396,41 @@ const SECTIONS = {
         h.includes(`lens=${lens}`) || lens === 'summary',
         h
       );
+      const kept = await page.evaluate(() => ({
+        rd: document.activeElement?.dataset?.rd || document.activeElement?.tagName,
+        id: document.activeElement?.dataset?.id,
+        live: document.getElementById('library-live')?.textContent || '',
+      }));
+      check(
+        `${tag} analysis: the ${lens} lens chip keeps focus and is named`,
+        kept.rd === 'lens' && kept.id === lens && / lens$/.test(kept.live),
+        JSON.stringify(kept)
+      );
     }
+    // A lens switch that changes no state says only the lens: everything
+    // written to #library-live is "<Lens> lens", and no other polite live
+    // region in the inspector re-reads the analysis intro (Jony, 6396554291).
+    await page.evaluate(() => {
+      window.__said = [];
+      const live = document.getElementById('library-live');
+      new MutationObserver(() => live.textContent && window.__said.push(live.textContent)).observe(
+        live,
+        { childList: true, characterData: true, subtree: true }
+      );
+    });
+    await page.click('#surface-library [data-rd="lens"][data-id="form"]');
+    await page.waitForTimeout(700);
+    const quiet = await page.evaluate(() => ({
+      said: window.__said,
+      others: [...document.querySelectorAll('#surface-library [aria-live]')]
+        .filter((el) => el.id !== 'library-live' && el.getAttribute('aria-live') !== 'off')
+        .map((el) => el.className || el.id),
+    }));
+    check(
+      `${tag} analysis: a lens switch with no state change says only the lens name`,
+      quiet.said.length > 0 && quiet.said.every((t) => t === 'Form lens') && !quiet.others.length,
+      JSON.stringify(quiet)
+    );
   },
 };
 // Saved pronunciation choices across the reader's word cut
@@ -1439,7 +1541,9 @@ SECTIONS.declarations = async function ({ page, base, tag, log }) {
   check(
     `${tag} declarations: no analysis starts while a choice is undecided`,
     !log.some((l) => l.startsWith('POST /analyses')) &&
-      /Nothing was sent/.test(await text('.la-section[aria-live]')),
+      /Nothing was sent/.test(
+        await page.evaluate(() => document.getElementById('library-live')?.textContent || '')
+      ),
     log.slice(-4).join(' | ')
   );
   for (let i = 0; i < 2; i++) {
@@ -1582,6 +1686,557 @@ SECTIONS.retained = async function ({ page, base, tag }) {
     JSON.stringify(after).slice(0, 400)
   );
 };
+// Retry (Jony #59): every Library data file answers 503, so each view shows its
+// failure; a Retry that fails again lands focus on the new Retry and says, in
+// plain words, what to do; served again, a Retry lands on the loaded view and
+// says it loaded. Before the fix both ended with focus on BODY and the line
+// read "Failed to fetch" or "Library data 503: …".
+SECTIONS.retry = async function ({ page, base, tag, errors }) {
+  const RETRY =
+    '#surface-library .cm-empty [data-lib-act="retry"], #surface-library [data-lw="retry"], #surface-library [data-rd-retry]';
+  const live = () =>
+    page.evaluate(() => document.getElementById('library-live')?.textContent || '');
+  const focused = (sel) =>
+    page.evaluate((s) => {
+      const a = document.activeElement;
+      return a && a !== document.body && a.matches(s) ? a.outerHTML.slice(0, 120) : '';
+    }, sel);
+  // Click the Retry on screen and wait for its replacement (a new Retry, or
+  // the loaded view's own selector).
+  const retryInto = async (sel) => {
+    await page.$eval(RETRY, (b) => (b.dataset.old = '1'));
+    await page.evaluate(() => (document.getElementById('library-live').textContent = ''));
+    await page.click(RETRY);
+    await page.waitForFunction(
+      (s) => {
+        const e = document.querySelector(s);
+        return e && !e.dataset.old;
+      },
+      sel,
+      { timeout: 20000 }
+    );
+    await page
+      .waitForFunction(() => document.getElementById('library-live')?.textContent, null, {
+        timeout: 3000,
+      })
+      .catch(() => {});
+  };
+  const fail = (route) => route.fulfill({ status: 503, body: 'unavailable' });
+  for (const [view, hash, loaded, landing] of [
+    ['home', '', '#surface-library .lib-shelf', '.lib-shelf-scroll'],
+    ['works', '/works', '#surface-library [data-lw="open"]', '[data-lw="open"]'],
+    ['reader', `/read/${EPI_A}`, '#surface-library .rd h1', '.rd h1'],
+  ]) {
+    await page.route('**/library/data/**', fail);
+    await go(page, base, hash);
+    await page.waitForSelector(RETRY, { timeout: 20000 });
+    const shown = await page.$eval('#surface-library .cm-empty', (e) => e.textContent);
+    check(
+      `${tag} retry ${view}: the failure says what to do, not the transport's words`,
+      /Couldn’t reach the Library\. Check your connection and try again\./.test(shown) &&
+        !/Failed to fetch|\b503\b|library\/data|\.json/i.test(shown),
+      short(shown)
+    );
+    // Said once (R2's nit on d53f3ac04b): the visible state is not a second
+    // live region; #library-live is the one voice, first failure included.
+    await page
+      .waitForFunction(() => document.getElementById('library-live')?.textContent, null, {
+        timeout: 3000,
+      })
+      .catch(() => {});
+    const once = await page.evaluate(() => ({
+      said: document.getElementById('library-live')?.textContent || '',
+      voices: [
+        ...document.querySelectorAll(
+          '#surface-library [aria-live], #surface-library [role="status"], #surface-library [role="alert"]'
+        ),
+      ]
+        .filter((el) => el.id !== 'library-live' && el.getAttribute('aria-live') !== 'off')
+        .map((el) => el.className || el.tagName),
+    }));
+    check(
+      `${tag} retry ${view}: the failure is said once, through #library-live`,
+      /Couldn’t reach the Library/.test(once.said) && !once.voices.length,
+      JSON.stringify(once)
+    );
+    await retryInto(RETRY);
+    check(
+      `${tag} retry ${view}: a Retry that fails again lands on the new Retry`,
+      !!(await focused(RETRY)),
+      await page.evaluate(() => document.activeElement?.tagName)
+    );
+    const saidFail = await live();
+    check(
+      `${tag} retry ${view}: and says the plain line through #library-live`,
+      /Couldn’t reach the Library/.test(saidFail) && !/Failed to fetch|\b503\b/.test(saidFail),
+      short(saidFail)
+    );
+    await page.unroute('**/library/data/**', fail);
+    await retryInto(loaded);
+    check(
+      `${tag} retry ${view}: a Retry that succeeds lands on the loaded view`,
+      !!(await focused(`#surface-library ${landing}`)),
+      await page.evaluate(() => document.activeElement?.outerHTML.slice(0, 120))
+    );
+    const saidOk = await live();
+    const voices = await page.evaluate(() =>
+      [
+        ...document.querySelectorAll(
+          '#surface-library [aria-live], #surface-library [role="status"]'
+        ),
+      ]
+        .filter((el) => el.id !== 'library-live' && el.getAttribute('aria-live') !== 'off')
+        .map((el) => el.className || el.tagName)
+    );
+    check(
+      `${tag} retry ${view}: and says it loaded, in one line from the one live region`,
+      /loaded/.test(saidOk) && !/\n|Work \/ reading|Contributor/.test(saidOk) && !voices.length,
+      `${short(saidOk)} · ${voices.join(',')}`
+    );
+  }
+  // Analyze (Jony #59, 3PO's wording): a 503 after POST /analyses cannot show
+  // that nothing was admitted, so it never says "Nothing was sent"; it says the
+  // status is unconfirmed, and focus stays on Analyze through the redraws.
+  // Served again, the next press starts the job with focus still there.
+  const down = (route) => {
+    const req = route.request();
+    if (req.method() !== 'POST') return route.fallback();
+    return route.fulfill({
+      status: 503,
+      headers: {
+        'content-type': 'application/json',
+        'access-control-allow-origin': req.headers().origin || '*',
+        'access-control-allow-credentials': 'true',
+      },
+      body: '{}',
+    });
+  };
+  await page.route(`${API}/analyses`, down);
+  await go(page, base, `/read/${EPI_A}?lens=sound`);
+  const analyze = await inspectorOpen(page);
+  if (check(`${tag} retry analyze: Sound lens offers Analyze`, !!analyze)) {
+    await page.evaluate(() => (document.getElementById('library-live').textContent = ''));
+    await analyze.click();
+    await page.waitForSelector('#surface-library .la-error', { timeout: 10000 }).catch(() => null);
+    await page.waitForTimeout(300);
+    const err = await page
+      .$eval('#surface-library .la-error', (e) => e.textContent)
+      .catch(() => '');
+    check(
+      `${tag} retry analyze: a 503 after POST says the status is unconfirmed, never "Nothing was sent"`,
+      err === 'The analysis service is unavailable. We couldn’t confirm the current status.',
+      short(err)
+    );
+    check(
+      `${tag} retry analyze: a failed Analyze keeps focus on Analyze`,
+      !!(await focused('#surface-library [data-act="analyze"]')),
+      await page.evaluate(() => document.activeElement?.outerHTML.slice(0, 120))
+    );
+    const said = await live();
+    check(
+      `${tag} retry analyze: and says the same line through #library-live`,
+      /couldn’t confirm the current status/.test(said) && !/Nothing was sent|\b503\b/.test(said),
+      short(said)
+    );
+    await page.unroute(`${API}/analyses`, down);
+    await page.click('#surface-library [data-act="analyze"]');
+    await page
+      .waitForFunction(
+        () =>
+          /running/i.test(document.querySelector('#surface-library .la-section')?.innerText || ''),
+        null,
+        { timeout: 10000 }
+      )
+      .catch(() => {});
+    await page.waitForTimeout(300);
+    check(
+      `${tag} retry analyze: an Analyze that starts the job keeps focus on its replacement`,
+      !!(await focused('#surface-library [data-act="analyze"]')),
+      await page.evaluate(() => document.activeElement?.outerHTML.slice(0, 120))
+    );
+  }
+  // The failures this section asked for are not the page's errors.
+  for (let i = errors.length - 1; i >= 0; i--)
+    if (/^(503 \/library\/data\/|console: \[library( reader)?\])/.test(errors[i]))
+      errors.splice(i, 1);
+};
+// Keys (Jony round 15). #67: one Escape, one layer: the Escape that closes
+// the app's More menu does not also clear the reader's line selection, and
+// one pressed in the reader still does. #68: the Works hint names the
+// platform's key (Ctrl K off Apple), and Ctrl+K is taken only while Works is
+// on screen and focus is not in another text field.
+SECTIONS.keys = async function ({ page, base, tag }) {
+  const pressed = () =>
+    page.$$eval('#surface-library [data-rd="toggle"][aria-pressed="true"]', (b) => b.length);
+  await go(page, base, `/read/${EPI_A}`);
+  await settled(page, 'reader', '#surface-library .rd-paper .rd-line');
+  const toggles = await page.$$('#surface-library [data-rd="toggle"]:not([disabled])');
+  for (const t of toggles.slice(0, 2)) await t.click();
+  const before = await pressed();
+  await page.click('[data-ui="menu"]');
+  await page.waitForSelector('#ui-menu:not([hidden])', { timeout: 5000 });
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(200);
+  const menuHidden = await page.$eval('#ui-menu', (m) => m.hidden);
+  const after = await pressed();
+  check(
+    `${tag} keys: the Escape that closes the More menu leaves the line selection`,
+    before === 2 && menuHidden && after === 2,
+    `selected ${before} → ${after}, menu hidden ${menuHidden}`
+  );
+  // Where the menu's Escape cleared it (before the fix), select again so the
+  // reader's own Escape is still tested.
+  if (!(await pressed())) await page.click('#surface-library [data-rd="toggle"]:not([disabled])');
+  await page.focus('#surface-library [data-rd="toggle"][aria-pressed="true"]');
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(200);
+  check(
+    `${tag} keys: an Escape pressed in the reader still clears the selection`,
+    (await pressed()) === 0,
+    String(await pressed())
+  );
+
+  await go(page, base, '/works');
+  await settled(page, 'works', '#surface-library [data-lw="open"]');
+  const hint = await page.$eval('#surface-library .cm-search kbd', (k) => k.textContent);
+  const aria = await page.$eval('#surface-library [data-lw="q"]', (i) =>
+    i.getAttribute('aria-keyshortcuts')
+  );
+  check(
+    `${tag} keys: off Apple platforms the Works hint says Ctrl K`,
+    hint === 'Ctrl K' && aria === 'Control+K',
+    `${hint} · ${aria}`
+  );
+  // What Ctrl+K did: where focus landed, and whether the page took the key
+  // from the browser.
+  const ctrlK = async () => {
+    await page.evaluate(() => {
+      window.__k = null;
+      const seen = (e) => {
+        if (e.key.toLowerCase() !== 'k') return;
+        window.__k = e.defaultPrevented;
+        window.removeEventListener('keydown', seen);
+      };
+      window.addEventListener('keydown', seen);
+    });
+    await page.keyboard.press('Control+k');
+    return page.evaluate(() => ({
+      taken: window.__k,
+      search: document.activeElement?.matches('[data-lw="q"]') || false,
+    }));
+  };
+  await page.evaluate(() => document.activeElement?.blur());
+  const free = await ctrlK();
+  check(
+    `${tag} keys: Ctrl+K on the Works page focuses Search`,
+    free.search && free.taken === true,
+    JSON.stringify(free)
+  );
+  await page.evaluate(() => {
+    const f = document.createElement('input');
+    f.id = 'keys-other-field';
+    document.querySelector('#surface-library .lw-head').append(f);
+    f.focus();
+  });
+  const typing = await ctrlK();
+  check(
+    `${tag} keys: Ctrl+K in another text field leaves focus and the key alone`,
+    !typing.search && typing.taken === false,
+    JSON.stringify(typing)
+  );
+  await page.evaluate(() => document.getElementById('keys-other-field')?.remove());
+  await page.click('[data-view="lyrics"]');
+  await page
+    .waitForFunction(
+      () => !document.getElementById('surface-library')?.getClientRects().length,
+      null,
+      { timeout: 5000 }
+    )
+    .catch(() => {});
+  await page.evaluate(() => document.activeElement?.blur());
+  const away = await ctrlK();
+  check(
+    `${tag} keys: with the Library not shown, Ctrl+K stays the browser's`,
+    !away.search && away.taken === false,
+    JSON.stringify(away)
+  );
+  // On an Apple platform the hint and the binding are ⌘K.
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, 'platform', { get: () => 'MacIntel' });
+    Object.defineProperty(navigator, 'userAgentData', { get: () => undefined });
+  });
+  // A real reload of the Works route (a hash change alone keeps the page),
+  // so the init script runs; no about:blank hop, whose favicon fetch logs.
+  await go(page, base, '/works');
+  await page.reload();
+  await page.waitForSelector('#surface-library [data-lw="open"]', { timeout: 20000 });
+  const mac = await page.$eval('#surface-library .cm-search kbd', (k) => k.textContent);
+  check(`${tag} keys: on Apple platforms the hint says ⌘ K`, mac === '⌘ K', mac);
+};
+// The artwork credit opens from a card's menu (it loads with the rights
+// chunk, never on the shelves' first view): a dialog naming the artwork,
+// and Close returns focus to the menu button.
+SECTIONS.credit = async function ({ page, base, tag }) {
+  await go(page, base, '');
+  const failed = await settled(page, 'core', '#surface-library .lib-card[data-art]');
+  if (!check(`${tag} credit: a card with artwork`, !failed, failed)) return;
+  const menu = '#surface-library .lib-card[data-art] [data-lib-act="menu"]';
+  await page.click(menu);
+  await page.click('#surface-library .lib-menu [data-lib-act="credit"]');
+  const dialog = await page
+    .waitForSelector('#surface-library dialog.lib-credit[open] h2', { timeout: 15000 })
+    .catch(() => null);
+  const title = dialog ? (await dialog.textContent()).trim() : '';
+  check(`${tag} credit: the artwork credit opens and names its artwork`, !!title, title);
+  await page.click('#surface-library dialog.lib-credit .lib-credit-close');
+  await page.waitForTimeout(200);
+  const back = await page.evaluate(
+    (sel) => document.activeElement === document.querySelector(sel),
+    menu
+  );
+  check(`${tag} credit: Close returns focus to the card's menu button`, back);
+};
+// Keyboard range selection in the reader, as in a list (Jony #116):
+// Shift+Arrow extends from the anchor line, Shift+Home/End to the first and
+// last line, going back shrinks it, Shift+click matches, Escape clears, and
+// the count is said through #library-live.
+SECTIONS.range = async function ({ page, base, tag }) {
+  await go(page, base, `/read/${EPI_A}`);
+  const failed = await settled(
+    page,
+    'reader',
+    '#surface-library .rd-paper .rd-num:not([disabled])'
+  );
+  if (!check(`${tag} range: reader lines`, !failed, failed)) return;
+  const state = () =>
+    page.evaluate(() => {
+      const nums = [...document.querySelectorAll('#surface-library .rd-num:not([disabled])')];
+      const a = document.activeElement;
+      return {
+        selected: nums
+          .filter((b) => b.getAttribute('aria-pressed') === 'true')
+          .map((b) => nums.indexOf(b)),
+        focus: nums.indexOf(a),
+        total: nums.length,
+        said: document.getElementById('library-live')?.textContent || '',
+      };
+    });
+  const said = async () => {
+    await page.waitForTimeout(120);
+    return (await state()).said;
+  };
+  const nums = '#surface-library .rd-num:not([disabled])';
+  await page.locator(nums).nth(1).focus();
+  await page.keyboard.press('Enter');
+  await page.keyboard.press('Shift+ArrowDown');
+  await page.keyboard.press('Shift+ArrowDown');
+  let st = await state();
+  check(
+    `${tag} range: Shift+ArrowDown twice extends 1 line to 3, focus on the last`,
+    JSON.stringify(st.selected) === '[1,2,3]' && st.focus === 3,
+    JSON.stringify(st)
+  );
+  check(`${tag} range: the count is said`, (await said()) === '3 lines selected', st.said);
+  await page.keyboard.press('Shift+ArrowUp');
+  st = await state();
+  check(
+    `${tag} range: Shift+ArrowUp shrinks it back to 2`,
+    JSON.stringify(st.selected) === '[1,2]' && st.focus === 2,
+    JSON.stringify(st)
+  );
+  await page.keyboard.press('Shift+End');
+  st = await state();
+  check(
+    `${tag} range: Shift+End extends to the last line`,
+    st.selected.length === st.total - 1 && st.selected[0] === 1 && st.focus === st.total - 1,
+    JSON.stringify({ ...st, selected: st.selected.length })
+  );
+  await page.keyboard.press('Shift+Home');
+  st = await state();
+  check(
+    `${tag} range: Shift+Home extends from the anchor to the first line`,
+    JSON.stringify(st.selected) === '[0,1]' && st.focus === 0,
+    JSON.stringify(st)
+  );
+  await page.keyboard.press('Escape');
+  st = await state();
+  check(`${tag} range: Escape clears the selection`, st.selected.length === 0, JSON.stringify(st));
+  // The body re-renders on Escape; focus stays on the line number that held
+  // it rather than dropping to the page, and the clear is said (Jony #130).
+  check(
+    `${tag} range: Escape keeps focus on the line it was on`,
+    st.focus === 0,
+    JSON.stringify({ ...st, active: await page.evaluate(() => document.activeElement?.tagName) })
+  );
+  check(
+    `${tag} range: and says the selection is cleared`,
+    (await said()) === 'Selection cleared',
+    st.said
+  );
+  await page.locator(nums).nth(0).click();
+  await page
+    .locator(nums)
+    .nth(3)
+    .click({ modifiers: ['Shift'] });
+  st = await state();
+  check(
+    `${tag} range: Shift+click selects from the anchor to the clicked line`,
+    JSON.stringify(st.selected) === '[0,1,2,3]',
+    JSON.stringify(st)
+  );
+  check(`${tag} range: and says so`, (await said()) === '4 lines selected', st.said);
+};
+// The rail at a narrow width covers the page: choosing a collection from it
+// closes it and lands focus on the collection's heading, said through
+// #library-live (Jony #122: it stayed open at 390). Wider, it stays open.
+SECTIONS.railpick = async function ({ page, base, tag }) {
+  await go(page, base, '');
+  const failed = await settled(page, 'core', '#surface-library .lib-card');
+  if (!check(`${tag} railpick: shelves`, !failed, failed)) return;
+  const narrow = await page.evaluate(() => innerWidth < 1100);
+  if (await page.$eval('#surface-library .lib-rail', (r) => r.hidden))
+    await page.click('#surface-library .lib-topline [data-lib-act="rail"]');
+  await page.waitForSelector('#surface-library .lib-rail .lib-spine', { timeout: 15000 });
+  await page.evaluate(() => (document.getElementById('library-live').textContent = ''));
+  await page.click('#surface-library .lib-rail .lib-spine');
+  await page.waitForSelector('#surface-library .lib-coll-head h1', { timeout: 15000 });
+  await page.waitForTimeout(400);
+  const st = await page.evaluate(() => {
+    const rail = document.querySelector('#surface-library .lib-rail');
+    const h = document.querySelector('#surface-library .lib-coll-head h1');
+    return {
+      railOpen: !!rail && !rail.hidden,
+      overlays: !!rail && getComputedStyle(rail).position === 'fixed',
+      onHeading: document.activeElement === h,
+      title: h?.textContent.trim(),
+      said: document.getElementById('library-live').textContent,
+    };
+  });
+  if (narrow)
+    check(
+      `${tag} railpick: choosing a collection closes the narrow rail, focuses and says its heading`,
+      !st.railOpen && st.onHeading && st.said.includes(st.title),
+      JSON.stringify(st)
+    );
+  else
+    check(
+      `${tag} railpick: wide, the rail stays open after choosing a collection`,
+      st.railOpen,
+      JSON.stringify(st)
+    );
+};
+// Structure as a screen reader meets it (Jony #127, #128), read from
+// Chrome's accessibility tree: each language shelf is one group (it was a
+// region, listed under landmarks beside its heading), the Works table has a
+// name, and the reader's headings nest under its h1 with no level skipped
+// (its lens sections were h3 straight under the h1).
+SECTIONS.ax = async function ({ page, base, tag }) {
+  const cdp = await page.context().newCDPSession(page);
+  const ax = async () =>
+    (await cdp.send('Accessibility.getFullAXTree')).nodes
+      .filter((n) => !n.ignored)
+      .map((n) => ({ role: n.role?.value, name: n.name?.value || '' }));
+  await go(page, base, '');
+  const failed = await settled(page, 'core', '#surface-library .lib-shelf');
+  if (!check(`${tag} ax: shelves`, !failed, failed)) return;
+  const langs = await page.$$eval('#surface-library .lib-shelf-head h2', (h) =>
+    h.map((x) => x.textContent.trim())
+  );
+  const nodes = await ax();
+  const twice = langs.filter(
+    (l) =>
+      nodes.filter((n) => n.role === 'region' && n.name === l).length !== 0 ||
+      nodes.filter((n) => n.role === 'group' && n.name === l).length !== 1
+  );
+  check(
+    `${tag} ax: each language shelf is one group, not a region`,
+    langs.length > 0 && twice.length === 0,
+    `${langs.length} shelves; wrong: ${twice.join(', ')}`
+  );
+  await go(page, base, '/works');
+  await settled(page, 'works', '#surface-library [data-lw="open"]');
+  const table = (await ax()).find((n) => n.role === 'table');
+  check(`${tag} ax: the Works table is named`, !!table?.name, JSON.stringify(table));
+  for (const lens of ['summary', 'sources', 'sound']) {
+    await go(page, base, `/read/${EPI_A}?lens=${lens}`);
+    await settled(page, 'reader', '#surface-library .rd-paper .rd-line');
+    const sheetOpen = await page
+      .$eval('#surface-library .rd', (r) => r.classList.contains('rd-sheet'))
+      .catch(() => true);
+    if (
+      !sheetOpen &&
+      (await page.isVisible('#surface-library [data-rd="sheet"]').catch(() => false))
+    )
+      await page.click('#surface-library [data-rd="sheet"]');
+    await page.waitForTimeout(300);
+    const levels = await page.$$eval(
+      '#surface-library h1, #surface-library h2, #surface-library h3, #surface-library h4, #surface-library h5',
+      (hs) => hs.filter((h) => h.getClientRects().length).map((h) => Number(h.tagName[1]))
+    );
+    const skip = levels.findIndex((l, i) => (i === 0 ? l !== 1 : l > levels[i - 1] + 1));
+    check(
+      `${tag} ax: reader (${lens}) headings nest under its h1`,
+      levels.length > 1 && skip < 0,
+      levels.join(' ')
+    );
+  }
+};
+// A page load's first view is a landing (Jony #129): a direct link to a
+// reading or a collection leaves focus where the browser put it, so the
+// first Tab reaches the top of the page (the app bar and skip links), not
+// past them. In-app steps whose opener went away still land on the heading.
+SECTIONS.fresh = async function ({ page, base, tag }) {
+  const top = () =>
+    page.evaluate(() => {
+      const a = document.activeElement;
+      return {
+        body: a === document.body,
+        inLibrary: !!a?.closest?.('#surface-library'),
+        tag: a?.tagName,
+      };
+    });
+  const firstTab = async () => {
+    await page.keyboard.press('Tab');
+    return top();
+  };
+  const collection =
+    JSON.parse(
+      fs.readFileSync(path.join(__dirname, '..', 'library', 'data', 'collections.json'), 'utf8')
+    ).collections.find((r) => r[3] > 0)?.[0] || '';
+  for (const [what, hash, ready] of [
+    ['reading', `/read/${EPI_A}`, '#surface-library .rd-paper .rd-line'],
+    [
+      'collection',
+      `/collections/${encodeURIComponent(collection)}`,
+      '#surface-library .lib-coll-list',
+    ],
+  ]) {
+    await page.goto('about:blank');
+    await go(page, base, hash);
+    await page.waitForSelector(ready, { timeout: 20000 });
+    await page.waitForTimeout(300);
+    const landed = await top();
+    check(
+      `${tag} fresh: a direct link to a ${what} leaves focus on the page`,
+      landed.body,
+      JSON.stringify(landed)
+    );
+    const tabbed = await firstTab();
+    check(
+      `${tag} fresh: the first Tab after a direct ${what} link reaches the top of the page`,
+      !tabbed.body && !tabbed.inLibrary,
+      JSON.stringify(tabbed)
+    );
+  }
+  // In-app: a Works result opens the reading and its h1 takes focus.
+  await go(page, base, '/works');
+  await settled(page, 'works', '#surface-library [data-lw="open"]');
+  await page.click('#surface-library [data-lw="open"]');
+  await page.waitForSelector('#surface-library .rd-paper .rd-line', { timeout: 20000 });
+  await page.waitForTimeout(300);
+  const h1 = await page.evaluate(() => document.activeElement?.tagName === 'H1');
+  check(`${tag} fresh: a Works result still lands focus on the reading's h1`, h1);
+};
 const NEEDS = {
   explore: 'core',
   works: 'works',
@@ -1592,6 +2247,13 @@ const NEEDS = {
   analysis: 'analysis',
   declarations: 'analysis',
   retained: 'analysis',
+  retry: 'works',
+  keys: 'works',
+  credit: 'rights',
+  range: 'reader',
+  railpick: 'works',
+  ax: 'reader',
+  fresh: 'reader',
 };
 
 (async () => {
@@ -1613,7 +2275,9 @@ const NEEDS = {
       if (ONLY && !ONLY.has(name)) continue;
       const need = [
         NEEDS[name],
-        ...(['compare', 'focus', 'analysis', 'declarations', 'retained'].includes(name)
+        ...(['compare', 'focus', 'analysis', 'declarations', 'retained', 'retry', 'keys'].includes(
+          name
+        )
           ? ['reader']
           : []),
       ];
@@ -1626,7 +2290,7 @@ const NEEDS = {
         const tag = `[${combo.theme} ${combo.width}]`;
         const { context, page, errors, log } = await openPage(browser, srv.url, combo);
         try {
-          await fn({ page, base: srv.url, tag, log });
+          await fn({ page, base: srv.url, tag, log, errors });
         } catch (e) {
           check(`${tag} ${name}: ran to the end`, false, short(e.message, 300));
         }
