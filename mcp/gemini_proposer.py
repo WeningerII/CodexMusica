@@ -81,6 +81,7 @@ says so.
 import json
 import math
 import os
+import socket
 import sys
 import time
 import urllib.error
@@ -192,6 +193,14 @@ def _usage_state(usage):
     if usage.get("cachedContentTokenCount", 0) > usage.get("promptTokenCount", 0):
         return usage, False, "cachedContentTokenCount exceeds promptTokenCount"
     return usage, known, None
+
+
+def _never_sent(error):
+    """A refused connection or a failed name lookup: the request was never
+    written, so the provider cannot have charged for it. A timeout, a reset or
+    anything after the connection opened may have reached it, and stays unknown."""
+    reason = getattr(error, "reason", error)
+    return isinstance(reason, (ConnectionRefusedError, socket.gaierror))
 
 
 class _Kitchen:
@@ -382,8 +391,13 @@ class _Kitchen:
                     + (f" after {transient} transient retries" if transient else "")) from None
             except (urllib.error.URLError, TimeoutError, OSError, ValueError) as error:
                 self.in_flight = False
-                self.unknown_attempts += 1
-                self._budget("settle", reservation_id=reservation_id, usage=None, status="unknown")
+                if _never_sent(error):
+                    # Nothing reached the provider: no charge can exist.
+                    self._budget("settle", reservation_id=reservation_id, usage=None, status="rejected")
+                    self._emit("rejected")
+                else:
+                    self.unknown_attempts += 1
+                    self._budget("settle", reservation_id=reservation_id, usage=None, status="unknown")
                 if transient < TRANSIENT_RETRIES:
                     wait = TRANSIENT_BACKOFF_S[transient]
                     transient += 1
