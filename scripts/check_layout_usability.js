@@ -300,7 +300,11 @@ async function noOverflow(page) {
         return {
           you: you.querySelector('.chat-sr')?.textContent,
           codex: reply.querySelector('.chat-sr')?.textContent,
-          recipe: [...reply.querySelectorAll('.chat-recipe .chat-sr')].map((s) => s.textContent),
+          recipe: [...reply.querySelectorAll('.chat-recipe .chat-sr')].map((s) =>
+            s.textContent.replace(/^\d+ of 1000 characters\. $/, 'N of 1000 characters. ')
+          ),
+          // The short "77 / 1000 chars" is for the eye only (Jony #112).
+          countHidden: reply.querySelector('.chat-recipe-foot > span')?.getAttribute('aria-hidden'),
           copy: copy?.getAttribute('aria-label'),
           tools: reply.querySelector('.chat-tools')?.getAttribute('aria-hidden'),
           summary: [...reply.children]
@@ -313,7 +317,8 @@ async function noOverflow(page) {
         {
           you: 'You: ',
           codex: 'Codex: ',
-          recipe: ['Recipe: ', '. '],
+          recipe: ['Recipe: ', '. ', 'N of 1000 characters. '],
+          countHidden: 'true',
           copy: 'Copy recipe',
           tools: 'true',
           summary: ['Codex:', '2 tool steps.'],

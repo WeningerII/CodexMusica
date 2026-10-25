@@ -19081,8 +19081,11 @@ function _chatRenderReply(payload,request) {
     const foot = document.createElement('div');
     foot.className = 'chat-recipe-foot';
     const count = document.createElement('span');
+    // The log is live, and a span's aria-label is not what it speaks: the
+    // short form is for the eye, the words for the ear, so the reply is not
+    // heard as "77 / 1000 charsCopy" (Jony #112).
     count.textContent = `${payload.recipe.length} / ${RECIPE_CHAR_CEILING} chars`;
-    count.ariaLabel = `${payload.recipe.length} of ${RECIPE_CHAR_CEILING} characters.`;
+    count.setAttribute('aria-hidden', 'true');
     const copy = document.createElement('button');
     copy.className = 'btn btn-secondary';
     copy.type = 'button';
@@ -19092,6 +19095,7 @@ function _chatRenderReply(payload,request) {
       copyToClipboard(payload.recipe, 'Recipe copied', 'Could not copy')
     );
     foot.appendChild(count);
+    foot.appendChild(_chatSr(`${payload.recipe.length} of ${RECIPE_CHAR_CEILING} characters. `));
     foot.appendChild(copy);
     box.appendChild(_chatSr('Recipe: '));
     box.appendChild(pre);
