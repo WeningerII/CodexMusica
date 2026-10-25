@@ -15,7 +15,7 @@
 //     (an old package) re-reads health once.
 // Every download-path error is an attachment server side, so a navigation
 // never replaces the page; the HEAD keeps errors in the page as toasts.
-/* global esc, icon, uiButton, uiEmptyState, showToast, uiDownload, libraryChunk */
+/* global uiMotion, esc, icon, uiButton, uiEmptyState, showToast, uiDownload, libraryChunk */
 'use strict';
 
 const FORMATS = [
@@ -34,6 +34,8 @@ const CENSUS = [
   'readable_editions',
   'readable_reading_units',
 ];
+// Smooth scrolls follow the shell's reduced-motion choice (uiMotion).
+const libMotion = () => (typeof uiMotion === 'function' ? uiMotion() : 'smooth');
 const PAGE = 50;
 const PENDING = 'pending-export';
 const FORMAT_KEY = 'export-format';
@@ -789,7 +791,7 @@ ${body}
           );
         }
       };
-      el.scrollIntoView?.({ block: 'nearest', behavior: 'smooth' });
+      el.scrollIntoView?.({ block: 'nearest', behavior: libMotion() });
     } catch (e) {
       if (view.current !== id) return;
       console.error('[library rights]', e);

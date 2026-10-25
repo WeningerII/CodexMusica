@@ -12,9 +12,11 @@
 // page_count}: any mismatch fails closed (no text is shown). Line ids
 // (UUIDv5) and normalized code-point/UTF-16 ranges are derived from each
 // page's start counters exactly as catalog_static_export.replay does.
-/* global esc, icon, uiEmptyState, uiOpenInLyrics, uiDownload, libraryChunk, CMLibraryImport */
+/* global uiMotion, esc, icon, uiEmptyState, uiOpenInLyrics, uiDownload, libraryChunk, CMLibraryImport */
 'use strict';
 
+// Smooth scrolls follow the shell's reduced-motion choice (uiMotion).
+const libMotion = () => (typeof uiMotion === 'function' ? uiMotion() : 'smooth');
 const PAGE_ROWS = 250;
 const WINDOW_PAGES = 3; // <= 750 rows in the DOM
 const LINE_NS = '7b347e4c-4ea7-5cbf-8387-2975a17890f3';
@@ -1120,7 +1122,7 @@ function highlight(record, lineIds) {
   S.hl = new Set(lineIds || []);
   renderBody();
   const first = [...S.hl].map((id) => document.getElementById(id)).find(Boolean);
-  if (first) first.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  if (first) first.scrollIntoView({ block: 'center', behavior: libMotion() });
   else if (S.hl.size)
     say('This evidence is elsewhere in the work. Load the next source rows to locate its spans.');
 }
@@ -1177,7 +1179,7 @@ async function openCompare(passage, other) {
         replaceRoute({ compare: '' });
       },
     });
-    host.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    host.scrollIntoView({ block: 'start', behavior: libMotion() });
   } catch (e) {
     console.warn('[library reader] compare', e);
     say('', 'Comparison is not available right now.');
@@ -1416,7 +1418,7 @@ function onClick(e) {
           () =>
             host
               .querySelector('[data-slot="decl"]')
-              ?.scrollIntoView({ block: 'start', behavior: 'smooth' }),
+              ?.scrollIntoView({ block: 'start', behavior: libMotion() }),
           100
         );
       });

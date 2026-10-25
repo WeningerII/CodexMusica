@@ -206,6 +206,10 @@ function uiNavigate(view, { push = false, sub } = {}) {
   else if (sub === undefined) sub = page.currentRoute?.() || '';
   UI.view = view;
   document.body.dataset.view = view;
+  // The tab title names the surface (WCAG 2.4.2). Back and Forward come
+  // through here too (hashchange), so the title follows them.
+  const label = UI_ROUTES.find(([id]) => id === view)?.[1] || view[0].toUpperCase() + view.slice(1);
+  document.title = label + ' · Codex Musica';
   if (/^https?:$/.test(location.protocol) && location.hash !== '#' + view + sub) {
     if (push) history.pushState(null, '', '#' + view + sub);
     else history.replaceState(null, '', '#' + view + sub);

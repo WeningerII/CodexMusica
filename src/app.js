@@ -1,4 +1,4 @@
-/* global CODEX_DEFER_BOOT, UI, UI_ICONS, UI_PAGES, UILayout, uiAddGenre, uiAfterPaint, uiChatSessions, uiLyricsOpened, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
+/* global uiMotion, CODEX_DEFER_BOOT, UI, UI_ICONS, UI_PAGES, UILayout, uiAddGenre, uiAfterPaint, uiChatSessions, uiLyricsOpened, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
 /* exported INSTRUMENT_FILTER_PILLS, RECIPE_FORMATS, STARTER_TRADITIONS, addInstrumentFromPicker, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, passesInstrumentFilter, surpriseTradition, lyricMetaOf, _chatSend, uiEnsureWorkspace, _whenWorkspace, _releaseEngine */
 
 
@@ -2424,7 +2424,7 @@ async function importTraditionWithFeedback(tradId, opts) {
   // and would cover a card scrolled to the very top of the list.
   setTimeout(() => {
     const elc = document.querySelector(`[data-card-id="${created[0].id}"]`);
-    if (elc) elc.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (elc) elc.scrollIntoView({ behavior: uiMotion(), block: 'center' });
   }, 60);
   return created;
 }
@@ -16146,7 +16146,7 @@ function renderDetailBreadcrumb(card, _inst) {
     left.addEventListener('click', () => {
       // Scroll sidebar to that tradition group
       const grp = document.querySelector('#sidebar-traditions [data-tradition-id="' + card.traditionId + '"]');
-      if (grp) grp.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      if (grp) grp.scrollIntoView({ behavior: uiMotion(), block: 'nearest' });
     });
     // Keyboard parity for the role="button" breadcrumb (Enter/Space activate).
     left.addEventListener('keydown', (e) => {
@@ -17290,7 +17290,7 @@ function handleAction(action, card, trigger) {
     // renderDetail repaint to land before measuring.
     requestAnimationFrame(() => {
       const dp = document.querySelector('.drift-panel');
-      if (dp) dp.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (dp) dp.scrollIntoView({ behavior: uiMotion(), block: 'center' });
     });
   } else if (action === 'drift-roll') {
     const candidates = buildDriftCandidates(card);
