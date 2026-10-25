@@ -330,6 +330,8 @@ class WorksView {
   // Write the state to the hash (push for paging, replace for q and filters)
   // and load.
   commit(push) {
+    // A user's own change supersedes an update() still waiting on the catalog.
+    this.generation = (this.generation || 0) + 1;
     const sub = format(this.state);
     this.sub = sub;
     if (this.lib.go) this.lib.go(sub, { replace: !push });
@@ -338,9 +340,14 @@ class WorksView {
     this.load();
   }
   async update(sub) {
+    const gen = (this.generation = (this.generation || 0) + 1);
     const s = parse(sub);
     if (s.language !== 'all' && !(await this.languages()).includes(s.language))
       s.language = DEFAULTS.language;
+    // A later navigation (or the user's own change) arrived while the catalog
+    // loaded: this one is stale and must not overwrite its state or the hash
+    // (Jony's review: language=eng then offset=50 with a slow catalog).
+    if (gen !== this.generation) return;
     this.state = s;
     this.sub = format(s);
     // What is shown is what the hash says: a value read as its default is

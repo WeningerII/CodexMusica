@@ -650,7 +650,9 @@ async function showCollection(main, id, token, offset = 0) {
   }
   const page = at ? await lib.collection(id, at) : head;
   if (token !== state.token) return;
-  selectedFor.set(id, page.readable_ids || selectedFor.get(id));
+  // Only the head file carries readable_ids; a cold load of a later page
+  // (a shared ?offset= link) counted none ("251–500 of 0", BB8).
+  selectedFor.set(id, head.readable_ids || selectedFor.get(id));
   const ids = selectedFor.get(id) || [];
   const pressed = selectionState(id);
   const actions = `<div class="lib-coll-actions">${libButton('read', 'Read the first', 'play', ` data-id="${esc(ids[0] || '')}"`)}${libButton('select', pressed === 'true' ? 'Remove all from selection' : 'Add all to selection', pressed === 'true' ? 'check' : 'plus', ` data-cid="${esc(id)}" aria-pressed="${pressed}"`)}${libButton('go', 'Search in Works', 'search', ` data-sub="/works?collection=${encodeURIComponent(id)}"`)}</div>`;

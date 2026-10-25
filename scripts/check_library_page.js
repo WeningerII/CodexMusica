@@ -464,10 +464,16 @@ const SECTIONS = {
         await pagerText()
       );
       await go(page, base, `/collections/${big[0]}?offset=300`);
+      await page.reload(); // cold, as a shared link opens it
       await settled(page, 'core', '#surface-library .lib-pager');
       await page
         .waitForFunction(() => /\?offset=250$/.test(location.hash), null, { timeout: 8000 })
         .catch(() => {});
+      check(
+        `${tag} a cold load of a later page counts the whole collection`,
+        /of [1-9]/.test((await pagerText()) || ''),
+        await pagerText()
+      );
       check(
         `${tag} an off-grid collection offset reads as its page, in the hash too`,
         /\?offset=250$/.test(await page.evaluate(() => location.hash)) &&
@@ -537,6 +543,27 @@ const SECTIONS = {
       `${tag} works: offset=75 snaps to 50 with a full page`,
       /offset=50$/.test(await page.evaluate(() => location.hash)) && snapped === 50,
       `${await page.evaluate(() => location.hash)} ${snapped} rows`
+    );
+    // A navigation that lands while an earlier one still waits on the
+    // catalog wins: the stale update writes neither its state nor the hash.
+    await page.route('**/library/data/catalog.json', async (route) => {
+      await new Promise((r) => setTimeout(r, 2500));
+      await route.continue();
+    });
+    await go(page, base, '/works?language=eng');
+    await page.reload(); // a cold start, so the catalog is fetched again
+    await page.waitForSelector('#surface-library', { state: 'attached', timeout: 20000 });
+    await page.evaluate(() => (location.hash = '#library/works?offset=50'));
+    await page.waitForTimeout(4000);
+    await page.unroute('**/library/data/catalog.json');
+    const raced = await page.evaluate(() => ({
+      hash: location.hash,
+      chips: document.querySelector('#surface-library .lw-chips')?.textContent || '',
+    }));
+    check(
+      `${tag} works: a later navigation beats an update still waiting on the catalog`,
+      raced.hash === '#library/works?offset=50' && !/English/.test(raced.chips),
+      JSON.stringify(raced)
     );
     await go(page, base, '/works?q=epithalamion');
     await settled(page, 'works', '#surface-library .lw-table tbody tr');
