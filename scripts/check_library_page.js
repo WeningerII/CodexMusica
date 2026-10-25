@@ -18,7 +18,7 @@
 //   node scripts/check_library_page.js --built=DIR     # check an existing build
 //   node scripts/check_library_page.js --only=reader,compare --headed
 //   node scripts/check_library_page.js --shots=DIR     # screenshot each section
-/* global document, location, getComputedStyle, libraryChunk, indexedDB */ // inside page.evaluate
+/* global document, location, getComputedStyle, libraryChunk, indexedDB, window */ // inside page.evaluate
 'use strict';
 
 const fs = require('fs');
@@ -277,6 +277,14 @@ function check(label, ok, detail = '') {
 }
 const short = (s, n = 160) => String(s).replace(/\s+/g, ' ').slice(0, n);
 
+// h1s in the Library a screen reader is given (display:none removes one).
+const exposedH1s = (page) =>
+  page.evaluate(
+    () =>
+      [...document.querySelectorAll('#surface-library h1')].filter(
+        (h) => getComputedStyle(h).display !== 'none'
+      ).length
+  );
 async function openPage(browser, url, combo) {
   const context = await browser.newContext({
     viewport: { width: combo.width, height: combo.width > 600 ? 900 : 844 },
@@ -313,7 +321,10 @@ async function openPage(browser, url, combo) {
       errors.push(`${r.status()} ${r.url().slice(url.length)}`);
   });
   page.on('requestfailed', (r) => {
-    if (r.url().startsWith(url))
+    // A request the browser abandoned because the page navigated or reloaded
+    // (the races' cold reloads cut off an in-flight favicon) is not a failure
+    // of the page; anything else that fails still is (BB8's flake, #519).
+    if (r.url().startsWith(url) && r.failure()?.errorText !== 'net::ERR_ABORTED')
       errors.push(`requestfailed ${r.url().slice(url.length)} ${r.failure()?.errorText}`);
   });
   return { context, page, errors, log };
@@ -333,6 +344,20 @@ async function settled(page, chunk, selector, timeout = 20000) {
     return e && e.offsetParent ? e.textContent.trim() : '';
   });
   return failed;
+}
+// Delay catalog.json by `ms`; the returned function waits until every delayed
+// response has been served (not a fixed time, which flaked), then removes it.
+async function slowCatalog(page, ms) {
+  const served = [];
+  await page.route('**/library/data/catalog.json', (route) => {
+    served.push(new Promise((r) => setTimeout(r, ms)).then(() => route.continue()));
+  });
+  return async () => {
+    await page.waitForTimeout(ms + 300);
+    await Promise.all(served);
+    await page.waitForTimeout(500);
+    await page.unroute('**/library/data/catalog.json');
+  };
 }
 async function overflow(page) {
   return page.evaluate(
@@ -370,6 +395,21 @@ const SECTIONS = {
       info.rail > 0 || /^(390)$/.test(String(tag).split(' ')[1]),
       `${info.rail} rail entries`
     );
+    // A screen reader hears a page heading and a named shelf (Jony #23, #25).
+    const sr = await page.evaluate(() => {
+      const h1 = document.querySelector('#surface-library h1');
+      const shelf = document.querySelector('#surface-library .lib-shelf-scroll');
+      return {
+        h1: h1 ? h1.textContent.trim() : null,
+        shelfRole: shelf ? shelf.getAttribute('role') : 'none',
+        shelfName: shelf ? shelf.getAttribute('aria-label') : null,
+      };
+    });
+    check(
+      `${tag} explore: the Library has an h1 and its shelves are named regions`,
+      !!sr.h1 && sr.shelfRole === 'region' && !!sr.shelfName,
+      JSON.stringify(sr)
+    );
     check(`${tag} explore: topline`, info.topline.length > 0);
     // Collection page.
     const card = await page.$(
@@ -393,6 +433,267 @@ const SECTIONS = {
           ).length
       );
       check(`${tag} collection page renders`, !failedC && rows > 0, failedC || `${rows} rows`);
+      check(
+        `${tag} collection page: one h1 is exposed`,
+        (await exposedH1s(page)) === 1,
+        `${await exposedH1s(page)} h1s`
+      );
+    }
+    // Where the rail is open, it is one tab stop: Tab leaves it for the page,
+    // and the arrow keys move between rows across repaints (Jony's lane, #519).
+    await go(page, base, '');
+    await page.waitForSelector('#surface-library .lib-core-main', { timeout: 20000 });
+    const railOpen = await page
+      .waitForSelector('#surface-library .lib-rail:not([hidden]) .lib-spine', { timeout: 8000 })
+      .then(() => true)
+      .catch(() => false);
+    if (railOpen) {
+      await page.focus('#surface-library .lib-spine');
+      let reached = false;
+      for (let i = 0; i < 12 && !reached; i++) {
+        await page.keyboard.press('Tab');
+        reached = await page.evaluate(
+          () => !!document.activeElement?.closest('#surface-library .lib-core-main')
+        );
+      }
+      check(`${tag} explore: Tab leaves the rail for the page within 12 presses`, reached);
+      await page.focus('#surface-library .lib-spine');
+      for (let i = 0; i < 30; i++) await page.keyboard.press('ArrowDown');
+      await page.waitForTimeout(200);
+      const row = await page.evaluate(() => ({
+        spine: !!document.activeElement?.classList.contains('lib-spine'),
+        i: document.activeElement?.dataset?.i,
+      }));
+      check(
+        `${tag} explore: ArrowDown moves through the rail and keeps focus across repaints`,
+        row.spine && row.i === '30',
+        JSON.stringify(row)
+      );
+    }
+    // Where the open rail overlays the page (narrow widths), it is a panel:
+    // opening moves focus into it, Escape closes it back to the toggle, and
+    // Tab out of it closes it, so no focused control sits under it (Jony).
+    const overlay = await page.evaluate(() => {
+      const r = document.querySelector('#surface-library .lib-rail');
+      return !!r && r.hidden && window.innerWidth < 1100;
+    });
+    if (overlay) {
+      const toggle = '#surface-library .lib-topline [data-lib-act="rail"]';
+      await page.click(toggle);
+      await page.waitForSelector('#surface-library .lib-rail:not([hidden]) .lib-spine', {
+        timeout: 8000,
+      });
+      const inside = await page.evaluate(
+        () => !!document.activeElement?.closest('#surface-library .lib-rail')
+      );
+      check(`${tag} explore: opening the overlaying rail moves focus into it`, inside);
+      await page.keyboard.press('Escape');
+      const closed = await page.evaluate(() => ({
+        hidden: document.querySelector('#surface-library .lib-rail')?.hidden,
+        toggle: !!document.activeElement?.matches('[data-lib-act="rail"]'),
+      }));
+      check(
+        `${tag} explore: Escape closes the overlaying rail and returns focus to its toggle`,
+        closed.hidden === true && closed.toggle,
+        JSON.stringify(closed)
+      );
+      await page.click(toggle);
+      await page.waitForSelector('#surface-library .lib-rail:not([hidden]) .lib-spine', {
+        timeout: 8000,
+      });
+      let left = false;
+      for (let i = 0; i < 8 && !left; i++) {
+        await page.keyboard.press('Tab');
+        left = await page.evaluate(
+          () => !document.activeElement?.closest('#surface-library .lib-rail')
+        );
+      }
+      const after = await page.evaluate(() => {
+        const a = document.activeElement;
+        return {
+          hidden: document.querySelector('#surface-library .lib-rail')?.hidden,
+          to: a ? `${a.tagName.toLowerCase()}.${a.className}[${a.dataset?.libAct || ''}]` : null,
+        };
+      });
+      check(
+        `${tag} explore: Tab out of the overlaying rail closes it`,
+        left && after.hidden === true,
+        `left=${left} ${JSON.stringify(after)}`
+      );
+      // It opens below the sticky app bar, so its head row is not covered,
+      // and a press outside it closes it (Jony, #519).
+      await page.click(toggle);
+      await page.waitForSelector('#surface-library .lib-rail:not([hidden]) .lib-spine', {
+        timeout: 8000,
+      });
+      const head = await page.evaluate(() => {
+        const rail = document.querySelector('#surface-library .lib-rail');
+        const bar = document.querySelector('.app-bar');
+        const r = rail.getBoundingClientRect();
+        const b = bar ? bar.getBoundingClientRect().bottom : 0;
+        const controls = [...rail.querySelectorAll('.lib-rail-head button, .lib-rail-head select')];
+        const covered = controls.filter((el) => {
+          const c = el.getBoundingClientRect();
+          return !el.contains(
+            document.elementFromPoint(c.left + c.width / 2, c.top + c.height / 2)
+          );
+        }).length;
+        return { top: Math.round(r.top), bar: Math.round(b), controls: controls.length, covered };
+      });
+      check(
+        `${tag} explore: the overlaying rail starts below the app bar, head row uncovered`,
+        head.top >= head.bar && head.controls > 0 && head.covered === 0,
+        JSON.stringify(head)
+      );
+      const spot = await page.evaluate(() => {
+        const r = document.querySelector('#surface-library .lib-rail').getBoundingClientRect();
+        for (let y = Math.round(r.top + 40); y < window.innerHeight - 8; y += 24)
+          for (let x = window.innerWidth - 4; x > r.right + 2; x -= 12) {
+            const el = document.elementFromPoint(x, y);
+            if (
+              el &&
+              !el.closest('a,button,input,select,textarea,label,[tabindex],[role="button"]')
+            )
+              return { x, y };
+          }
+        return null;
+      });
+      if (spot) await page.mouse.click(spot.x, spot.y);
+      const dismissed = await page.evaluate(
+        () => document.querySelector('#surface-library .lib-rail')?.hidden
+      );
+      check(
+        `${tag} explore: a press outside the overlaying rail closes it`,
+        !!spot && dismissed === true,
+        JSON.stringify({ spot, dismissed })
+      );
+      // That press only dismisses: a control under it is not also activated.
+      await page.click(toggle);
+      await page.waitForSelector('#surface-library .lib-rail:not([hidden]) .lib-spine', {
+        timeout: 8000,
+      });
+      const under = await page.evaluate(() => {
+        const r = document.querySelector('#surface-library .lib-rail').getBoundingClientRect();
+        // A Library control beside the rail, else (on a phone, where the rail
+        // leaves no room beside it) one in the app bar above it.
+        const b = [
+          ...document.querySelectorAll('#surface-library button'),
+          ...document.querySelectorAll('.app-bar button'),
+        ].find((el) => {
+          const c = el.getBoundingClientRect();
+          const x = c.left + c.width / 2;
+          const y = c.top + c.height / 2;
+          const inRail = x >= r.left && x <= r.right && y >= r.top && y <= r.bottom;
+          return (
+            c.width &&
+            !inRail &&
+            !el.matches('[data-lib-act="rail"]') &&
+            el.contains(document.elementFromPoint(x, y))
+          );
+        });
+        if (!b) return null;
+        window.__libUnderHit = false;
+        b.addEventListener('click', () => (window.__libUnderHit = true), { once: true });
+        const c = b.getBoundingClientRect();
+        return { x: c.left + c.width / 2, y: c.top + c.height / 2 };
+      });
+      if (under) await page.mouse.click(under.x, under.y);
+      const swallowed = await page.evaluate(() => ({
+        hidden: document.querySelector('#surface-library .lib-rail')?.hidden,
+        hit: window.__libUnderHit,
+      }));
+      check(
+        `${tag} explore: the dismissing press does not also activate the control under it`,
+        !!under && swallowed.hidden === true && swallowed.hit === false,
+        JSON.stringify({ under, ...swallowed })
+      );
+    }
+    // A collection's page is in the hash (?offset=), Back restores it, and it
+    // never leaks into the next collection opened from history (BB8's L1).
+    const colls = JSON.parse(
+      fs.readFileSync(path.join(DATA, 'collections.json'), 'utf8')
+    ).collections;
+    const big = colls.find((c) => c[3] > 250);
+    const small = colls.find((c) => c[3] > 0 && c[3] <= 250);
+    if (big && small) {
+      const pagerText = () =>
+        page.evaluate(
+          () => document.querySelector('#surface-library .lib-pager span')?.textContent
+        );
+      await go(page, base, `/collections/${small[0]}`);
+      await settled(page, 'core', '#surface-library .lib-coll-list');
+      await go(page, base, `/collections/${big[0]}`);
+      await settled(page, 'core', '#surface-library .lib-pager');
+      await page.click('#surface-library .lib-pager button:last-child');
+      await page
+        .waitForFunction(() => /\?offset=250$/.test(location.hash), null, { timeout: 8000 })
+        .catch(() => {});
+      await page
+        .waitForFunction(
+          () =>
+            /^251/.test(
+              document.querySelector('#surface-library .lib-pager span')?.textContent || ''
+            ),
+          null,
+          { timeout: 8000 }
+        )
+        .catch(() => {});
+      check(
+        `${tag} collection Next writes ?offset=250`,
+        /\?offset=250$/.test(await page.evaluate(() => location.hash)),
+        await page.evaluate(() => location.hash)
+      );
+      check(
+        `${tag} collection Next shows 251–`,
+        /^251/.test((await pagerText()) || ''),
+        await pagerText()
+      );
+      await page.goBack();
+      await page.goBack();
+      const failedS = await settled(
+        page,
+        'core',
+        '#surface-library .lib-coll-list, #surface-library .cm-empty'
+      );
+      check(
+        `${tag} Back to a one-page collection renders it, not the other's page`,
+        !failedS,
+        failedS
+      );
+      await page.goForward();
+      await page.goForward();
+      await page
+        .waitForFunction(
+          () =>
+            /^251/.test(
+              document.querySelector('#surface-library .lib-pager span')?.textContent || ''
+            ),
+          null,
+          { timeout: 8000 }
+        )
+        .catch(() => {});
+      check(
+        `${tag} Forward restores the collection's page`,
+        /^251/.test((await pagerText()) || ''),
+        await pagerText()
+      );
+      await go(page, base, `/collections/${big[0]}?offset=300`);
+      await page.reload(); // cold, as a shared link opens it
+      await settled(page, 'core', '#surface-library .lib-pager');
+      await page
+        .waitForFunction(() => /\?offset=250$/.test(location.hash), null, { timeout: 8000 })
+        .catch(() => {});
+      check(
+        `${tag} a cold load of a later page counts the whole collection`,
+        /of [1-9]/.test((await pagerText()) || ''),
+        await pagerText()
+      );
+      check(
+        `${tag} an off-grid collection offset reads as its page, in the hash too`,
+        /\?offset=250$/.test(await page.evaluate(() => location.hash)) &&
+          /^251/.test((await pagerText()) || ''),
+        `${await page.evaluate(() => location.hash)} ${await pagerText()}`
+      );
     }
   },
 
@@ -424,6 +725,92 @@ const SECTIONS = {
       `${tag} works: q in the hash`,
       /[?&]q=epithalamion/i.test(await page.evaluate(() => location.hash))
     );
+    // A value outside a closed set reads as its default everywhere, and the
+    // hash says so (BB8's L2); an off-grid offset snaps to the 50 grid (L3).
+    await go(page, base, '/works?sort=bogus&availability=bogus&completeness=&language=zzz');
+    await settled(page, 'works', '#surface-library .lw-table tbody tr');
+    await page
+      .waitForFunction(() => location.hash === '#library/works', null, { timeout: 8000 })
+      .catch(() => {});
+    check(
+      `${tag} works: unknown filter values are dropped from the hash`,
+      (await page.evaluate(() => location.hash)) === '#library/works',
+      await page.evaluate(() => location.hash)
+    );
+    check(
+      `${tag} works: and no filter badge or chip shows for them`,
+      await page.evaluate(
+        () =>
+          document.querySelector('#surface-library .lw-count')?.hidden !== false &&
+          !/bogus|zzz|Sorted by/.test(
+            document.querySelector('#surface-library .lw-chips')?.textContent || ''
+          )
+      )
+    );
+    await go(page, base, '/works?offset=75');
+    await settled(page, 'works', '#surface-library .lw-table tbody tr');
+    await page
+      .waitForFunction(() => /offset=50$/.test(location.hash), null, { timeout: 8000 })
+      .catch(() => {});
+    const snapped = await page.$$eval('#surface-library .lw-table tbody tr', (r) => r.length);
+    check(
+      `${tag} works: offset=75 snaps to 50 with a full page`,
+      /offset=50$/.test(await page.evaluate(() => location.hash)) && snapped === 50,
+      `${await page.evaluate(() => location.hash)} ${snapped} rows`
+    );
+    // A navigation that lands while an earlier one still waits on the
+    // catalog wins: the stale update writes neither its state nor the hash.
+    let served = await slowCatalog(page, 2500);
+    await go(page, base, '/works?language=eng');
+    await page.reload(); // a cold start, so the catalog is fetched again
+    await page.waitForSelector('#surface-library', { state: 'attached', timeout: 20000 });
+    await page.evaluate(() => (location.hash = '#library/works?offset=50'));
+    await served();
+    const raced = await page.evaluate(() => ({
+      hash: location.hash,
+      chips: document.querySelector('#surface-library .lw-chips')?.textContent || '',
+    }));
+    check(
+      `${tag} works: a later navigation beats an update still waiting on the catalog`,
+      raced.hash === '#library/works?offset=50' && !/English/.test(raced.chips),
+      JSON.stringify(raced)
+    );
+    // And back to the route already shown while the update still waits
+    // (show()'s echo branch; Jony's review).
+    served = await slowCatalog(page, 4000);
+    await go(page, base, '/works');
+    await page.reload(); // cold: the catalog is on its way for the whole run
+    await page.waitForSelector('#surface-library .lw', { timeout: 20000 });
+    await page.evaluate(() => (location.hash = '#library/works?language=eng'));
+    await page.waitForTimeout(300);
+    await page.evaluate(() => (location.hash = '#library/works'));
+    await served();
+    const back = await page.evaluate(() => ({
+      hash: location.hash,
+      chips: document.querySelector('#surface-library .lw-chips')?.textContent || '',
+    }));
+    check(
+      `${tag} works: going back to the shown route beats an update still waiting`,
+      back.hash === '#library/works' && !/English/.test(back.chips),
+      JSON.stringify(back)
+    );
+    // And leaving Works for another Library page while it waits: the stale
+    // update must not touch the detached view (BB8's L4; the section's
+    // console-error check catches a TypeError).
+    served = await slowCatalog(page, 3000);
+    await go(page, base, '/works');
+    await page.reload();
+    await page.waitForSelector('#surface-library .lw', { timeout: 20000 });
+    await page.evaluate(() => (location.hash = '#library/works?language=eng'));
+    await page.waitForTimeout(300);
+    await page.evaluate(() => (location.hash = '#library'));
+    await served();
+    check(
+      `${tag} works: leaving Works while an update waits leaves Explore shown`,
+      (await page.evaluate(() => location.hash)) === '#library'
+    );
+    await go(page, base, '/works?q=epithalamion');
+    await settled(page, 'works', '#surface-library .lw-table tbody tr');
     // Filters sheet.
     await page.click('#surface-library [data-lw="filters"]');
     const sheet = await page
@@ -492,6 +879,7 @@ const SECTIONS = {
   async reader({ page, base, tag }) {
     await go(page, base, `/read/${EPI_A}`);
     const failed = await settled(page, 'reader', '#surface-library .rd-paper .rd-line');
+    check(`${tag} reader: one h1 is exposed`, (await exposedH1s(page)) === 1);
     const head = headOf(EPI_A);
     const info = await page.evaluate(() => ({
       lines: document.querySelectorAll('#surface-library .rd-line').length,
