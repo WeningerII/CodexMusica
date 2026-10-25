@@ -542,6 +542,7 @@ function ipChoose(e, focusKey) {
       moved.map((c) => `${c.label} ${c.from} → ${c.to}`).join('; ')
     : '';
   ipRenderInspector(focusKey);
+  if (IP.note) ipAnnounce(IP.note);
 }
 const ipVariantName = (inst, part, v) => (v ? Variant(inst, part, v)?.name || v : 'Not set');
 const ipChainName = (stage, v) =>
@@ -607,21 +608,24 @@ function ipDescriptors(card) {
 function ipOptionDescs(v, current) {
   const descs = v ? entryRenderDescs(v) : [];
   const now = new Set(current ? entryRenderDescs(current) : []);
-  if (v === current) return descs.map((d) => `<span class="ip-d">${esc(d)}</span>`).join('');
+  // Spoken as a list: a hidden comma between items, which the layout gap
+  // separates for the eye only.
+  const list = (items) => items.join('<span class="ip-sr">, </span>');
+  if (v === current) return list(descs.map((d) => `<span class="ip-d">${esc(d)}</span>`));
   const cand = new Set(descs);
-  return (
-    descs
-      .map((d) =>
-        now.has(d)
-          ? `<span class="ip-d">${esc(d)}</span>`
-          : `<span class="ip-d ip-d-add" title="Added">+ ${esc(d)}</span>`
-      )
-      .join('') +
-    [...now]
+  return list([
+    ...descs.map((d) =>
+      now.has(d)
+        ? `<span class="ip-d">${esc(d)}</span>`
+        : `<span class="ip-d ip-d-add" title="Added"><span aria-hidden="true">+ </span><span class="ip-sr">adds </span>${esc(d)}</span>`
+    ),
+    ...[...now]
       .filter((d) => !cand.has(d))
-      .map((d) => `<del class="ip-d ip-d-lost" title="Removed">${esc(d)}</del>`)
-      .join('')
-  );
+      .map(
+        (d) =>
+          `<del class="ip-d ip-d-lost" title="Removed"><span class="ip-sr">removes </span>${esc(d)}</del>`
+      ),
+  ]);
 }
 function ipOption(inst, part, v, current, extra = '') {
   const vid = v ? v.id : '';
@@ -630,11 +634,15 @@ function ipOption(inst, part, v, current, extra = '') {
   // The filter matches the option's own name and descriptors, never the
   // descriptors it would remove.
   const text = v ? [v.name || v.id, ...entryRenderDescs(v)].join(' ') : 'Not set';
-  return `<label class="ip-opt${checked ? ' is-on' : ''}" data-ip-text="${esc(text)}"${extra}><input type="radio" name="ip-part-${esc(part.id)}" value="${esc(vid)}" data-ip-part="${esc(part.id)}" data-ip-key="${esc(key)}"${checked ? ' checked' : ''}><span class="ip-opt-name">${v ? esc(v.name || v.id) : 'Not set'}</span><span class="ip-opt-descs">${v || current ? ipOptionDescs(v, current) : ''}</span></label>`;
+  // The radio is named by the option alone; what it adds and removes is its
+  // description, spoken as such (the + and strikethrough are visual only;
+  // Jony #27 on #519).
+  const nid = 'ipo-' + key.replace(/[^\w-]/g, '_');
+  return `<label class="ip-opt${checked ? ' is-on' : ''}" data-ip-text="${esc(text)}"${extra}><input type="radio" name="ip-part-${esc(part.id)}" value="${esc(vid)}" data-ip-part="${esc(part.id)}" data-ip-key="${esc(key)}" aria-labelledby="${nid}" aria-describedby="${nid}-d"${checked ? ' checked' : ''}><span class="ip-opt-name" id="${nid}">${v ? esc(v.name || v.id) : 'Not set'}</span><span class="ip-opt-descs" id="${nid}-d">${v || current ? ipOptionDescs(v, current) : ''}</span></label>`;
 }
 function ipFilterBox(key, label) {
   const value = IP.filters[key] || '';
-  return `<label class="ip-filter cm-search">${icon('search', 16)}<input type="search" data-ip-filter="${esc(key)}" data-ip-key="filter:${esc(key)}" value="${esc(value)}" placeholder="${esc(label)}" aria-label="${esc(label)}"><span class="ip-filter-count" aria-live="polite"></span></label>`;
+  return `<label class="ip-filter cm-search">${icon('search', 16)}<input type="search" data-ip-filter="${esc(key)}" data-ip-key="filter:${esc(key)}" value="${esc(value)}" placeholder="${esc(label)}" aria-label="${esc(label)}"><span class="ip-filter-count"></span></label>`;
 }
 function ipRenderParts(inst) {
   const card = IP.card;
@@ -796,7 +804,24 @@ function ipRenderChanges() {
     : 'None — catalog defaults' + (ipDest() ? ' for ' + ipDestName() : '');
   if (!changes.length)
     return `<div class="ip-changes"><p class="ip-changes-sum"><span class="ip-label">Your changes</span> <span>${esc(summary)}</span></p></div>`;
-  return `<details class="ip-changes" data-ip-changes${IP.changesOpen ? ' open' : ''}><summary class="ip-changes-sum"><span class="ip-label">Your changes</span> <span>${esc(summary)}</span></summary><div class="ip-changes-body">${IP.note ? `<p class="ip-note" role="status">${esc(IP.note)}</p>` : ''}<ul class="ip-changes-list">${changes.map((c) => `<li><strong>${esc(c.label)}</strong> ${esc(c.from)} → ${esc(c.to)} <span class="ip-muted">${chosen.has(c.key) ? 'your choice' : 'moved to match'}</span></li>`).join('')}</ul><details class="ip-review"><summary>Review descriptor changes</summary><div class="ip-review-grid">${list('Added', added, 'ip-d-add')}${list('Removed', removed, 'ip-d-lost')}${list('Kept', kept, '')}</div></details>${uiButton('ip-reset', 'Reset to catalog defaults', 'refresh-cw', 'class="ip-link"')}</div></details>`;
+  return `<details class="ip-changes" data-ip-changes${IP.changesOpen ? ' open' : ''}><summary class="ip-changes-sum"><span class="ip-label">Your changes</span> <span>${esc(summary)}</span></summary><div class="ip-changes-body">${IP.note ? `<p class="ip-note">${esc(IP.note)}</p>` : ''}<ul class="ip-changes-list">${changes.map((c) => `<li><strong>${esc(c.label)}</strong> ${esc(c.from)} → ${esc(c.to)} <span class="ip-muted">${chosen.has(c.key) ? 'your choice' : 'moved to match'}</span></li>`).join('')}</ul><details class="ip-review"><summary>Review descriptor changes</summary><div class="ip-review-grid">${list('Added', added, 'ip-d-add')}${list('Removed', removed, 'ip-d-lost')}${list('Kept', kept, '')}</div></details>${uiButton('ip-reset', 'Reset to catalog defaults', 'refresh-cw', 'class="ip-link"')}</div></details>`;
+}
+// One live region outside the inspector, which re-renders by innerHTML and
+// so would replace any status node inside it before it is announced (Jony #28
+// on #519): the filter's match count and the "Configured for …" note speak
+// here.
+function ipAnnounce(text) {
+  const host = $ui('instrument-preview');
+  if (!host?.parentElement) return;
+  let live = $ui('ip-live');
+  if (!live) {
+    live = document.createElement('div');
+    live.id = 'ip-live';
+    live.className = 'ip-sr';
+    live.setAttribute('role', 'status');
+    host.after(live);
+  }
+  if (live.textContent !== text) live.textContent = text;
 }
 function ipRenderInspector(focusKey) {
   const host = $ui('instrument-preview');
@@ -868,6 +893,7 @@ function ipFilterList(input) {
   }
   const count = input.parentElement.querySelector('.ip-filter-count');
   if (count) count.textContent = q ? uiCount(shown, 'match', 'matches') : '';
+  ipAnnounce(q ? uiCount(shown, 'match', 'matches') : '');
 }
 function ipOverlay() {
   // Narrow layouts show the inspector over the catalogue.

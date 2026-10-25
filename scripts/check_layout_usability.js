@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global document, ipAnnounce, ipRenderInspector, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -111,6 +111,55 @@ async function noOverflow(page) {
       // The genre catalogue: cards in Rows (the default), rows in List.
       await page.locator('.catalog-row, .cm-tile').first().waitFor();
       await noOverflow(page);
+      if (width === 1280) {
+        // The part editor speaks plainly (Jony #27, #28 on #519): a part option
+        // is named by itself, what it adds or removes is its description, and
+        // status text reaches a live region the inspector's re-render keeps.
+        await page.getByRole('button', { name: 'Instrument', exact: true }).first().click();
+        await page.locator('#surface-instrument .cm-tile-name').first().click();
+        await page.locator('#instrument-preview .ip-opt input[type=radio]').first().waitFor();
+        const opts = await page.evaluate(() => {
+          const text = (ids) =>
+            (ids || '')
+              .split(' ')
+              .map((id) => document.getElementById(id)?.textContent.trim() || '')
+              .join(' ');
+          return [
+            ...document.querySelectorAll('#instrument-preview .ip-opt input[type=radio]'),
+          ].map((r) => ({
+            name: text(r.getAttribute('aria-labelledby')),
+            shown: r.closest('label').querySelector('.ip-opt-name')?.textContent.trim(),
+            desc: text(r.getAttribute('aria-describedby')),
+          }));
+        });
+        assert.ok(
+          opts.length && opts.every((o) => o.name && o.name === o.shown),
+          'Instrument: a part option is named by its own name only'
+        );
+        assert.ok(
+          opts.some((o) => /\b(adds|removes) /.test(o.desc)),
+          'Instrument: an option describes what it adds or removes in words'
+        );
+        const live = await page.evaluate(() => {
+          ipAnnounce('probe');
+          const first = document.getElementById('ip-live');
+          ipRenderInspector();
+          const again = document.getElementById('ip-live');
+          return {
+            same: !!first && first === again,
+            outside: !document.getElementById('instrument-preview').contains(again),
+            role: again?.getAttribute('role'),
+            text: again?.textContent,
+          };
+        });
+        assert.deepEqual(
+          live,
+          { same: true, outside: true, role: 'status', text: 'probe' },
+          'Instrument: the live region outlives the inspector re-render'
+        );
+        await page.getByRole('button', { name: 'Genre', exact: true }).first().click();
+        await page.locator('.catalog-row, .cm-tile').first().waitFor();
+      }
       await page.getByRole('button', { name: 'Browse tree', exact: true }).click();
       const tree = page.locator('.inline-tree > .modal');
       assert.equal(
