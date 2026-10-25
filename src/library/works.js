@@ -347,7 +347,8 @@ class WorksView {
     // A later navigation (or the user's own change) arrived while the catalog
     // loaded: this one is stale and must not overwrite its state or the hash
     // (Jony's review: language=eng then offset=50 with a slow catalog).
-    if (gen !== this.generation) return;
+    // Left for another Library page meanwhile (BB8's L4): nothing to update.
+    if (gen !== this.generation || !this.root.isConnected) return;
     this.state = s;
     this.sub = format(s);
     // What is shown is what the hash says: a value read as its default is
@@ -415,7 +416,7 @@ class WorksView {
     try {
       page = isStatic(s) ? await staticPage(s, this.lib) : await searchPage(s, this.lib);
     } catch (error) {
-      if (seq !== this.seq) return;
+      if (seq !== this.seq || !this.root.isConnected) return;
       results.removeAttribute('aria-busy');
       this.rows = [];
       const rate = error && (error.status === 429 || error.code === 'RATE_LIMITED');
@@ -430,7 +431,9 @@ class WorksView {
       this.slot('summary').textContent = '';
       return;
     }
-    if (seq !== this.seq) return;
+    // Superseded, or the view left the page while the rows loaded (a slow
+    // catalog holds every static read): nothing to paint.
+    if (seq !== this.seq || !this.root.isConnected) return;
     this.page = page;
     this.rows = page.rows;
     results.removeAttribute('aria-busy');

@@ -334,6 +334,20 @@ async function settled(page, chunk, selector, timeout = 20000) {
   });
   return failed;
 }
+// Delay catalog.json by `ms`; the returned function waits until every delayed
+// response has been served (not a fixed time, which flaked), then removes it.
+async function slowCatalog(page, ms) {
+  const served = [];
+  await page.route('**/library/data/catalog.json', (route) => {
+    served.push(new Promise((r) => setTimeout(r, ms)).then(() => route.continue()));
+  });
+  return async () => {
+    await page.waitForTimeout(ms + 300);
+    await Promise.all(served);
+    await page.waitForTimeout(500);
+    await page.unroute('**/library/data/catalog.json');
+  };
+}
 async function overflow(page) {
   return page.evaluate(
     () => document.documentElement.scrollWidth - document.documentElement.clientWidth
@@ -546,16 +560,12 @@ const SECTIONS = {
     );
     // A navigation that lands while an earlier one still waits on the
     // catalog wins: the stale update writes neither its state nor the hash.
-    await page.route('**/library/data/catalog.json', async (route) => {
-      await new Promise((r) => setTimeout(r, 2500));
-      await route.continue();
-    });
+    let served = await slowCatalog(page, 2500);
     await go(page, base, '/works?language=eng');
     await page.reload(); // a cold start, so the catalog is fetched again
     await page.waitForSelector('#surface-library', { state: 'attached', timeout: 20000 });
     await page.evaluate(() => (location.hash = '#library/works?offset=50'));
-    await page.waitForTimeout(4000);
-    await page.unroute('**/library/data/catalog.json');
+    await served();
     const raced = await page.evaluate(() => ({
       hash: location.hash,
       chips: document.querySelector('#surface-library .lw-chips')?.textContent || '',
@@ -567,18 +577,14 @@ const SECTIONS = {
     );
     // And back to the route already shown while the update still waits
     // (show()'s echo branch; Jony's review).
-    await page.route('**/library/data/catalog.json', async (route) => {
-      await new Promise((r) => setTimeout(r, 4000));
-      await route.continue();
-    });
+    served = await slowCatalog(page, 4000);
     await go(page, base, '/works');
     await page.reload(); // cold: the catalog is on its way for the whole run
     await page.waitForSelector('#surface-library .lw', { timeout: 20000 });
     await page.evaluate(() => (location.hash = '#library/works?language=eng'));
     await page.waitForTimeout(300);
     await page.evaluate(() => (location.hash = '#library/works'));
-    await page.waitForTimeout(6000);
-    await page.unroute('**/library/data/catalog.json');
+    await served();
     const back = await page.evaluate(() => ({
       hash: location.hash,
       chips: document.querySelector('#surface-library .lw-chips')?.textContent || '',
@@ -587,6 +593,21 @@ const SECTIONS = {
       `${tag} works: going back to the shown route beats an update still waiting`,
       back.hash === '#library/works' && !/English/.test(back.chips),
       JSON.stringify(back)
+    );
+    // And leaving Works for another Library page while it waits: the stale
+    // update must not touch the detached view (BB8's L4; the section's
+    // console-error check catches a TypeError).
+    served = await slowCatalog(page, 3000);
+    await go(page, base, '/works');
+    await page.reload();
+    await page.waitForSelector('#surface-library .lw', { timeout: 20000 });
+    await page.evaluate(() => (location.hash = '#library/works?language=eng'));
+    await page.waitForTimeout(300);
+    await page.evaluate(() => (location.hash = '#library'));
+    await served();
+    check(
+      `${tag} works: leaving Works while an update waits leaves Explore shown`,
+      (await page.evaluate(() => location.hash)) === '#library'
     );
     await go(page, base, '/works?q=epithalamion');
     await settled(page, 'works', '#surface-library .lw-table tbody tr');
