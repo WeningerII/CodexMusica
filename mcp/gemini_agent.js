@@ -252,19 +252,20 @@ function addUsage(into, meta) {
 // The key is the EFFECTIVE work: the arguments as they are about to be
 // dispatched (after the carried run's declarations, draft and writer are
 // applied), with the draft read as the tools read it (`lyric_text.js`: blank
-// rows and [SECTION] rows are not sung lines, in either spelling). Run
-// coordinates (state, checkpoint, run_id, run_revision, recovery_part,
-// writer) are not part of it; an explicit `new_run` restart has no key and
-// always runs. The key rides back on the completed result as `repeat_key`
+// rows and [SECTION] rows are not sung lines, in either spelling). The
+// effective writer is part of it (the tool's default is the interview
+// writer): a draft one writer stopped on is new work for the other. Run
+// coordinates (run_id, run_revision, recovery_part) are not. A call that
+// resumes or continues a run — it carries a checkpoint or a sealed state —
+// has no key and always runs, as does an explicit `new_run` restart; and
+// only a FINISHED result is recorded as done (`finishedRevise`), never an
+// interrupted one, so an interrupted run stays resumable. The key rides back on the completed result as `repeat_key`
 // (kept by the history stub), which is how a later turn recognises it.
 const REPEAT_VOLATILE = new Set([
-  STATE_PROPERTY,
   WORKSPACE_PROPERTY,
-  'checkpoint',
   'run_id',
   'run_revision',
   'recovery_part',
-  'writer',
   'repeat_key',
 ]);
 function canonicalJson(v) {
@@ -283,6 +284,8 @@ function canonicalJson(v) {
 export function reviseRepeatKey(name, args) {
   if (name !== 'lyric_revise' || !args || typeof args !== 'object') return null;
   if (args.recover_only === true || args.new_run === true) return null;
+  // A resume or a continuation is the run's own next step, never a repeat.
+  if (args.checkpoint != null || args[STATE_PROPERTY] != null) return null;
   const draft = Array.isArray(args.draft)
     ? normalizeDraftLines(args.draft)
     : typeof args.draft_text === 'string'
@@ -291,10 +294,23 @@ export function reviseRepeatKey(name, args) {
   // A call that leaves the draft to the carried run is a continuation, keyed
   // by the run itself (the ledger), not here.
   if (!draft) return null;
-  const decl = {};
+  const decl = { writer: 'interview' };
   for (const k of Object.keys(args))
-    if (!REPEAT_VOLATILE.has(k) && k !== 'draft' && k !== 'draft_text') decl[k] = args[k];
+    if (!REPEAT_VOLATILE.has(k) && k !== 'draft' && k !== 'draft_text' && args[k] !== undefined)
+      decl[k] = args[k];
   return createHash('sha256').update(canonicalJson({ draft, decl })).digest('hex').slice(0, 32);
+}
+// A revise result that FINISHED: not interrupted, not an uncertain proposal,
+// and carrying no checkpoint or sealed state to continue from. Only such a
+// result answers a later repeat.
+function finishedRevise(verdict) {
+  return (
+    !!verdict &&
+    typeof verdict === 'object' &&
+    !['interrupted', 'uncertain_proposal'].includes(verdict.status) &&
+    verdict.checkpoint == null &&
+    verdict[STATE_PROPERTY] == null
+  );
 }
 // Where a lyric_revise functionResponse keeps its verdict: under `verdict`
 // for a two-block result, the response itself for one block or a stub.
@@ -309,7 +325,7 @@ export function completedRevises(contents) {
       const fr = part?.functionResponse;
       if (fr?.name !== 'lyric_revise' || fr.response?.error != null) continue;
       const verdict = reviseVerdictOf(fr.response);
-      if (typeof verdict.repeat_key !== 'string') continue;
+      if (typeof verdict.repeat_key !== 'string' || !finishedRevise(verdict)) continue;
       done.set(verdict.repeat_key, {
         where: 'an earlier turn of this conversation',
         status: verdict.status ?? null,
@@ -2302,6 +2318,14 @@ export async function runTurn({
         // the work this call would actually dispatch (BB8 Q1).
         const revising = fc.name === 'lyric_revise' && !recoveryOnly;
         const repeatKey = revising && !freshRun ? reviseRepeatKey(fc.name, args) : null;
+        // A kitchen resume has no key of its own, but when it FINISHES the
+        // work it finished is the original call's: recorded under that key,
+        // so the finished run is not started over by a repeat of it.
+        const doneKey =
+          repeatKey ??
+          (revising && !freshRun && args.checkpoint != null
+            ? reviseRepeatKey(fc.name, { ...args, checkpoint: undefined })
+            : null);
         const earlierRevise = repeatKey ? revisesDone.get(repeatKey) : null;
         if (earlierRevise) {
           const note = repeatNote(earlierRevise);
@@ -2532,8 +2556,8 @@ export async function runTurn({
             if (!isError && typeof lyricVerdict?.proposer_calls === 'number')
               usage.writerCallsReported += lyricVerdict.proposer_calls;
             else usage.reviseUnreported++;
-            if (repeatKey && !isError)
-              revisesDone.set(repeatKey, {
+            if (doneKey && !isError && finishedRevise(lyricVerdict))
+              revisesDone.set(doneKey, {
                 where: 'this request',
                 status: lyricVerdict?.status ?? null,
                 exit_code: lyricVerdict?.exit_code ?? null,
@@ -2619,8 +2643,13 @@ export async function runTurn({
           : result;
         const functionResponse = toFunctionResponse(fc.name, fc.id, observation);
         // The completed revise carries its key into the signed history.
-        if (repeatKey && !isError && functionResponse.response?.error == null)
-          reviseVerdictOf(functionResponse.response).repeat_key = repeatKey;
+        if (
+          doneKey &&
+          !isError &&
+          finishedRevise(lyricVerdict) &&
+          functionResponse.response?.error == null
+        )
+          reviseVerdictOf(functionResponse.response).repeat_key = doneKey;
         responses.push({ functionResponse });
         if (onCheckpoint && responses.length < functionCalls.length) {
           // A crash during the next tool must not erase this completed one.

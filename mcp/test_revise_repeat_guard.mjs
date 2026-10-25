@@ -273,21 +273,124 @@ test('across turns the guard holds while the result is in the signed history, st
   assert.equal(completedRevises(refused).size, 0);
 });
 
-test('not keyed: recovery, a draft-less continuation, other tools', () => {
+test('not keyed: recovery, a resume, a continuation, a draft-less call, other tools', () => {
   assert.equal(reviseRepeatKey('lyric_revise', { recover_only: true, checkpoint: 'c' }), null);
   assert.equal(reviseRepeatKey('lyric_revise', { ...decl }), null);
   assert.equal(reviseRepeatKey('lyric_grade', { draft, ...decl }), null);
-  // Run coordinates and the writer are not part of the work.
+  // A resume (checkpoint) or a continuation (sealed state) is the run's own
+  // next step, never a repeat (Jony 466263826).
+  assert.equal(reviseRepeatKey('lyric_revise', { draft, ...decl, checkpoint: 'c' }), null);
+  assert.equal(reviseRepeatKey('lyric_revise', { draft, ...decl, state: 's' }), null);
+  // Run coordinates are not part of the work; an echoed key is ignored.
   assert.equal(
     reviseRepeatKey('lyric_revise', {
       draft,
       ...decl,
       run_id: 'run_x',
       run_revision: 3,
-      checkpoint: 'c',
-      writer: 'kitchen',
       repeat_key: 'echoed',
     }),
     reviseRepeatKey('lyric_revise', { draft, ...decl })
   );
+  // The writer is: the tool's default is the interview writer.
+  const plain = reviseRepeatKey('lyric_revise', { draft, ...decl });
+  assert.equal(reviseRepeatKey('lyric_revise', { draft, ...decl, writer: 'interview' }), plain);
+  assert.notEqual(reviseRepeatKey('lyric_revise', { draft, ...decl, writer: 'kitchen' }), plain);
+});
+
+// An interrupted kitchen run (Jony, #519 466263826): the result is not an
+// error, carries a checkpoint, and the next call resumes it with that
+// checkpoint injected. It must never be answered as a repeat.
+const interrupted = () =>
+  verdict({
+    exit_code: 5,
+    status: 'interrupted',
+    certified: false,
+    checkpoint: 'ckpt-1',
+    replay_draft: draft,
+    final_draft: accepted,
+    proposer_calls: 2,
+  });
+const interruptThenFinish = (_args, n) => (n === 1 ? interrupted() : finished());
+
+test('an interrupted kitchen run resumes in the same request, and its finished run is then done', async () => {
+  const { dispatched, sent, out } = await turn(
+    [
+      { draft, ...decl },
+      { draft, ...decl },
+      { draft, ...decl },
+    ],
+    { tool: interruptThenFinish }
+  );
+  assert.equal(dispatched, 2, 'the resume runs; the repeat after it finished does not');
+  assert.equal(sent[1].checkpoint, 'ckpt-1', 'the second call resumed from the checkpoint');
+  assert.equal(repeats(out), 1);
+  assert.equal(out.lyric?.resumable ?? false, false, 'the run is no longer resumable');
+  // The interrupted result was never stamped done.
+  const stamped = out.history
+    .flatMap((c) => c.parts || [])
+    .map((p) => p.functionResponse)
+    .filter((fr) => fr?.name === 'lyric_revise' && fr.response && !fr.response.error)
+    .map((fr) => (fr.response.verdict || fr.response).repeat_key ?? null);
+  assert.equal(stamped[0], null, 'the interrupted result carries no repeat_key');
+  assert.equal(typeof stamped[1], 'string', 'the finished resume carries one');
+  // An interrupted call with nothing to resume from is not done either: the
+  // identical retry, with no checkpoint to carry, runs.
+  const bare = () => verdict({ exit_code: 5, status: 'interrupted', certified: false });
+  const retry = await turn(
+    [
+      { draft, ...decl },
+      { draft, ...decl },
+    ],
+    { tool: (_args, n) => (n === 1 ? bare() : finished()) }
+  );
+  assert.equal(retry.dispatched, 2);
+  assert.equal(retry.sent[1].checkpoint, undefined);
+});
+
+test('an interrupted kitchen run resumes in the next turn (§ blocker, across turns)', async () => {
+  const first = await turn([{ draft, ...decl }], { tool: interrupted });
+  assert.equal(first.dispatched, 1);
+  assert.equal(first.out.lyric?.resumable, true, 'turn 1 carries the resumable checkpoint');
+  assert.equal(completedRevises(first.out.history).size, 0, 'nothing is recorded as done');
+  const second = await turn([{ draft, ...decl }], {
+    history: first.out.history,
+    lyric: first.out.lyric,
+    tool: finished,
+  });
+  assert.equal(second.dispatched, 1, 'the resume is dispatched, not answered ALREADY_DONE');
+  assert.equal(second.sent[0].checkpoint, 'ckpt-1');
+  assert.equal(repeats(second.out), 0);
+  // A history stamped by an earlier build on an interrupted result does not
+  // count either.
+  const forged = first.out.history.map((c) => ({
+    ...c,
+    parts: (c.parts || []).map((p) => {
+      const fr = p.functionResponse;
+      if (fr?.name !== 'lyric_revise') return p;
+      return {
+        functionResponse: { ...fr, response: { ...fr.response, repeat_key: 'x'.repeat(32) } },
+      };
+    }),
+  }));
+  assert.equal(completedRevises(forged).size, 0);
+});
+
+test('a draft one writer stopped on is new work for the other writer (false repeat)', async () => {
+  const interview = await turn([{ draft, ...decl }], { writer: 'interview' });
+  assert.equal(interview.dispatched, 1);
+  const kitchen = await turn([{ draft, ...decl }], {
+    history: interview.out.history,
+    lyric: interview.out.lyric,
+    writer: 'kitchen',
+  });
+  assert.equal(kitchen.dispatched, 1, 'the kitchen runs the draft the interview stopped on');
+  assert.equal(kitchen.sent[0].writer, 'kitchen');
+  // The same writer again is still a repeat.
+  const again = await turn([{ draft, ...decl }], {
+    history: interview.out.history,
+    lyric: interview.out.lyric,
+    writer: 'interview',
+  });
+  assert.equal(again.dispatched, 0);
 });
