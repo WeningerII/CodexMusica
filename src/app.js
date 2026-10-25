@@ -19419,7 +19419,10 @@ function _chatRenderReply(payload,request) {
   const prose = payload.artifact || recoveryExport ? '' : _chatStripRecipeCopy(payload.reply, payload.recipe);
   const parts = [];
   if (prose) parts.push(`<p style="margin:0;">${esc(prose)}</p>`);
-  const node = _chatAppend(`<div class="chat-msg chat-msg-engine">${parts.join('') || ''}</div>`);
+  // Who is speaking, and a pause between the reply's parts, for a screen
+  // reader: the log reads each addition as one utterance, so without these the
+  // request and the reply sound alike and the parts run into each other.
+  const node = _chatAppend(`<div class="chat-msg chat-msg-engine"><span class="chat-sr">Codex: </span>${parts.join('') || ''}</div>`);
   if (!node) return;
 
   if (payload.artifact || recoveryExport) {
@@ -19448,17 +19451,25 @@ function _chatRenderReply(payload,request) {
     const foot = document.createElement('div');
     foot.className = 'chat-recipe-foot';
     const count = document.createElement('span');
+    // The log is live, and a span's aria-label is not what it speaks: the
+    // short form is for the eye, the words for the ear, so the reply is not
+    // heard as "77 / 1000 charsCopy" (Jony #112).
     count.textContent = `${payload.recipe.length} / ${RECIPE_CHAR_CEILING} chars`;
+    count.setAttribute('aria-hidden', 'true');
     const copy = document.createElement('button');
     copy.className = 'btn btn-secondary';
     copy.type = 'button';
     copy.textContent = 'Copy';
+    copy.ariaLabel = 'Copy recipe';
     copy.addEventListener('click', () =>
       copyToClipboard(payload.recipe, 'Recipe copied', 'Could not copy')
     );
     foot.appendChild(count);
+    foot.appendChild(_chatSr(`${payload.recipe.length} of ${RECIPE_CHAR_CEILING} characters. `));
     foot.appendChild(copy);
+    box.appendChild(_chatSr('Recipe: '));
     box.appendChild(pre);
+    box.appendChild(_chatSr('. '));
     box.appendChild(foot);
     node.appendChild(box);
   }
@@ -19466,6 +19477,11 @@ function _chatRenderReply(payload,request) {
   if (Array.isArray(payload.tools) && payload.tools.length) {
     const trace = document.createElement('div');
     trace.className = 'chat-tools';
+    // The chips read as one run-on string ("start_recipe · exit 0edit_recipe
+    // · exit 0"); a screen reader gets one sentence instead: how many steps,
+    // and only the ones that did not go cleanly.
+    trace.ariaHidden = 'true';
+    const flagged = [];
     for (const t of payload.tools) {
       const chip = document.createElement('span');
       // Lyric verbs carry a verdict (exit code, banned-pair count) and the
@@ -19479,11 +19495,14 @@ function _chatRenderReply(payload,request) {
       if (typeof t.exit_code === 'number') label += ` · exit ${t.exit_code}`;
       if (banned) label += ` · ${t.banned_pairs} banned`;
       chip.textContent = label;
+      if (t.error || banned || / · exit [^0]/.test(label) || t.certified === false) flagged.push(t.error ? `${label} (${t.error})` : label);
       if (t.error) chip.title = t.error;
       else if (banned)
         chip.title = `${t.banned_pairs} banned pair(s) — reported as notes; they do not stop the song finishing`;
       trace.appendChild(chip);
     }
+    const steps = payload.tools.length;
+    node.appendChild(_chatSr(` ${steps} tool step${steps === 1 ? '' : 's'}${flagged.length ? `; ${flagged.join('; ')}` : ''}.`));
     node.appendChild(trace);
   }
 
@@ -19519,14 +19538,25 @@ function _chatSetBusy(busy) {
   const send = _chatEl('chat-send');
   if (dock) dock.classList.toggle('is-busy', busy);
   if (input) input.disabled = busy;
-  if (send) send.disabled = busy;
+  // Ask and Saved runs keep focus while a request runs (disabling the focused
+  // button would drop focus to the page); they say they are unavailable, and
+  // their handlers already ignore a press while busy.
+  if (send) { send.disabled = false; send.ariaDisabled = String(busy); }
   const domain = _chatEl('chat-domain');
   if (domain) {
     domain.disabled = busy || !!chatState.sig || !!chatState.continuationId;
     if (chatState.task?.domain) domain.value = chatState.task.domain + (chatState.task.phase === 'edit' ? '-edit' : chatState.task.phase === 'browse' ? '-browse' : '');
   }
   const recover = _chatEl('chat-recover');
-  if (recover) recover.disabled = busy;
+  if (recover) { recover.disabled = false; recover.ariaDisabled = String(busy); }
+}
+
+// Visually hidden text for the conversation log (see .chat-sr).
+function _chatSr(text) {
+  const span = document.createElement('span');
+  span.className = 'chat-sr';
+  span.textContent = text;
+  return span;
 }
 
 // ── the character counter ────────────────────────────────────────────────────
@@ -19771,7 +19801,7 @@ async function _chatSend(message, { choice, context = null, clearInput = false }
   }
   if(typeof UI!=='undefined'&&UI.ready&&domain==='lyrics')UI.lyricRequest={id:request_id,revision:UI.lyricRevision,text:app.lyrics||'',submittedContext:body.lyric_context?JSON.parse(JSON.stringify(body.lyric_context)):null};
   _chatOpenPanel();
-  _chatAppend(`<div class="chat-msg chat-msg-you">${esc(message)}</div>`);
+  _chatAppend(`<div class="chat-msg chat-msg-you"><span class="chat-sr">You: </span>${esc(message)}</div>`);
   if (clearInput && input) {
     input.value = '';
     // Clearing the field programmatically fires no `input` event, so the counter
@@ -19874,6 +19904,10 @@ function initChatDock() {
       _chatSave();
     }
     _chatRecover();
+    // _chatReset focused the input, which the busy state then disables; keep
+    // focus on Saved runs (focusable while busy) instead of the page.
+    const active = document.activeElement;
+    if (!active || active === document.body || active.disabled) recover.focus({ preventScroll: true });
   });
   if (!chatState.pending && chatState.continuationId) chatState.pending = {request_id:chatState.continuationId,message:'',domain:chatState.task?.domain};
   if (chatState.pending) _chatRecover();
