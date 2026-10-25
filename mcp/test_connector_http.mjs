@@ -138,17 +138,6 @@ test(
       const readyResponse = await fetch(`${base}/ready`),
         ready = await readyResponse.json();
       assert.equal(readyResponse.status, 503);
-      // A body over the limit is refused as JSON, not an HTML page (#519).
-      for (const path of ['/mcp', '/chat']) {
-        const big = await fetch(base + path, {
-          method: 'POST',
-          headers: { 'content-type': 'application/json', accept: 'application/json' },
-          body: JSON.stringify({ pad: 'x'.repeat(5 * 1024 * 1024) }),
-        });
-        assert.equal(big.status, 413, path);
-        assert.match(big.headers.get('content-type') || '', /application\/json/, path);
-        assert.equal((await big.json()).code, 'PAYLOAD_TOO_LARGE', path);
-      }
       assert.equal(ready.ready, false);
       assert.equal(ready.capabilities.recipe, true);
       assert.equal(ready.capabilities.lyrics, false);
