@@ -117,6 +117,105 @@ const focusInfo = (page) =>
       inList: a?.parentElement?.closest('[id^="detail-opts-"]')?.id || null,
     };
   });
+// Preface commits keep focus (#82), Clear has a name (#83), and the Browse
+// dialog says its count, exposes its sections and describes its chips (#84).
+async function prefaceKeyboard(page, tag) {
+  const where = () =>
+    page.evaluate(() => {
+      const a = document.activeElement;
+      return {
+        tag: a?.tagName,
+        cls: a?.classList?.[0] || null,
+        fan: a?.dataset?.fanPrefaceId || null,
+        cat: a?.dataset?.prefCat || null,
+        expanded: a?.getAttribute('aria-expanded'),
+        value: a?.value ?? null,
+        inPreface: !!a?.closest('.preface-section'),
+      };
+    });
+  assert.equal(
+    await page
+      .locator('#detail-view')
+      .getByRole('button', { name: 'Clear preface and re-suggest from current parts' })
+      .count(),
+    1,
+    tag('the preface Clear button is named')
+  );
+  const input = page.locator('#detail-view .preface-input');
+  await input.focus();
+  await input.fill('haunting');
+  await page.keyboard.press('Enter');
+  await settle(page);
+  const typed = await where();
+  assert.ok(
+    typed.cls === 'preface-input' && typed.value === 'haunting',
+    tag('Enter in the character search commits and keeps focus there: ' + JSON.stringify(typed))
+  );
+  const fan = page.locator('#detail-view [data-fan-preface-id]:not(.is-current)').first();
+  if (await fan.count()) {
+    const id = await fan.getAttribute('data-fan-preface-id');
+    await fan.focus();
+    await page.keyboard.press('Enter');
+    await settle(page);
+    const chose = await where();
+    assert.ok(
+      chose.inPreface && (chose.fan === id || chose.cls === 'preface-input'),
+      tag('a suggestion chip pick keeps focus on that chip: ' + JSON.stringify(chose))
+    );
+  }
+  await page.locator('#detail-view .preface-browse').focus();
+  await page.keyboard.press('Enter');
+  await page.waitForFunction(() => document.activeElement?.id === 'search-preface');
+  const head = page.locator('#preface-modal-body .preface-cat-head').first();
+  assert.equal(await head.getAttribute('aria-expanded'), 'true', tag('an open section says so'));
+  const cat = await head.getAttribute('data-pref-cat');
+  await head.focus();
+  await page.keyboard.press('Enter');
+  const folded = await where();
+  assert.deepEqual(
+    { cat: folded.cat, expanded: folded.expanded },
+    { cat, expanded: 'false' },
+    tag('collapsing a section keeps focus on its head, which says it is collapsed')
+  );
+  await page.keyboard.press('Enter');
+  await page.locator('#search-preface').fill('bitter');
+  await page.waitForFunction(() =>
+    /^\d+ match(es)?$/.test(document.getElementById('preface-modal-live')?.textContent || '')
+  );
+  const heads = page.locator('#preface-modal-body .preface-cat-head');
+  assert.equal(
+    await page
+      .locator('#preface-modal-body')
+      .getByRole('button', { name: /^[^\d]+, \d+ prefaces?$/ })
+      .count(),
+    await heads.count(),
+    tag('each section head is named with its count as words')
+  );
+  const notes = await page.locator('#preface-modal-body .preface-pick').evaluateAll((els) =>
+    els
+      .filter((b) => b.dataset.tooltip)
+      .map((b) => {
+        const d = document.getElementById(b.getAttribute('aria-describedby') || '');
+        return d && d.textContent === b.dataset.tooltip ? null : b.dataset.prefId;
+      })
+      .filter(Boolean)
+  );
+  assert.deepEqual(notes, [], tag('every preface chip is described by its note'));
+  await page.keyboard.press('Enter');
+  await page.waitForFunction(
+    () => !document.getElementById('modal-preface')?.classList.contains('open')
+  );
+  await settle(page);
+  const back = await where();
+  assert.ok(
+    back.cls === 'btn' && back.inPreface,
+    tag('a Browse pick returns focus to Browse on the redrawn card: ' + JSON.stringify(back))
+  );
+  assert.ok(
+    await page.evaluate(() => document.activeElement?.classList.contains('preface-browse')),
+    tag('the focused control after a Browse pick is Browse')
+  );
+}
 // The card editor works from the keyboard alone (screen-reader round 4,
 // #31–#34): section buttons expose which is current, a part row's header is a
 // button that opens its options, focus survives each re-render, every option
@@ -223,6 +322,16 @@ async function editorKeyboard(page, where) {
     stage.stage === 'fx' && stage.expanded === 'true' && stage.controls,
     tag('Enter on a chain stage keeps focus on it: ' + JSON.stringify(stage))
   );
+  // #88: the open stage's options are a group named by the stage heading.
+  assert.deepEqual(
+    await page.evaluate(() => {
+      const g = document.querySelector('.chain-edit-options');
+      const by = document.getElementById(g.getAttribute('aria-labelledby') || '');
+      return { role: g.getAttribute('role'), name: by?.textContent || null };
+    }),
+    { role: 'group', name: 'Effects — pick any number' },
+    tag('the open stage options are a group named by its heading')
+  );
   // The open stage's options are the next Tab stop, not seven stages later,
   // and the panel still sits below every stage on screen.
   await page.keyboard.press('Tab');
@@ -272,6 +381,7 @@ async function editorKeyboard(page, where) {
     1,
     tag('the character search is named')
   );
+  await prefaceKeyboard(page, tag);
   // Output: the format switcher is a named group that says which format is
   // shown and keeps focus on the format just pressed.
   await page.locator('.detail-tab[data-tab="stack"]').focus();

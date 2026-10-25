@@ -13624,7 +13624,9 @@ function renderReachabilityFan(card, section) {
   }).join('');
   wrap.querySelectorAll('[data-fan-preface-id]').forEach(function (btn) {
     btn.addEventListener('click', function () {
-      commitPrefaceChange(card, btn.dataset.fanPrefaceId);
+      const id = btn.dataset.fanPrefaceId;
+      commitPrefaceChange(card, id);
+      _refocusPreface(card.id, { chip: id });
     });
   });
   section.appendChild(wrap);
@@ -13708,6 +13710,19 @@ const _recentShiftsByCard = new Map();
 // modal, sanitizing the input field) handle those concerns before calling
 // here. This function only owns the inverse-apply-history-render-toast
 // sequence common across all entry points.
+// A preface commit redraws the card (rerenderCard), so the control that made
+// it is gone. Focus goes to the same control on the redrawn card, found by
+// card id and dataset, never a stale node: the chip of that preface, else
+// `control`, else the Character input. Never BODY.
+function _refocusPreface(cardId, { chip = '', control = '.preface-input' } = {}) {
+  const sec = [...document.querySelectorAll('.preface-section')].find(
+    s => s.querySelector('.preface-input')?.dataset.cardId === cardId);
+  if (!sec) return;
+  const shown = el => el && el.isConnected && el.getClientRects().length;
+  const pick = chip && [...sec.querySelectorAll('[data-fan-preface-id]')].find(b => b.dataset.fanPrefaceId === chip);
+  const target = [pick, sec.querySelector(control), sec.querySelector('.preface-input')].find(shown);
+  if (target) target.focus({ preventScroll: true });
+}
 function commitPrefaceChange(card, prefaceId) {
   if (!card || !prefaceId) return;
   const result = (typeof inverseConfigureForPreface === 'function')
@@ -16745,12 +16760,14 @@ function renderChainSection(card) {
       panel.className = 'chain-edit-panel';
       const isMulti = !!stageDef.multiSelect;
       panel.innerHTML = `
-        <div class="chain-edit-title">${esc(stageDef.name)}${isMulti ? ' — pick any number' : ''}</div>
+        <div class="chain-edit-title" id="${_detailOptsId(card, 'chain', stageDef.id)}-title">${esc(stageDef.name)}${isMulti ? ' — pick any number' : ''}</div>
         <div class="chain-edit-hint">${esc(chainStageHint(stageDef.id))}</div>
       `;
       const opts = document.createElement('div');
       opts.className = 'chain-edit-options';
       opts.id = _detailOptsId(card, 'chain', stageDef.id);
+      opts.setAttribute('role', 'group');
+      opts.setAttribute('aria-labelledby', opts.id + '-title');
       if (!isMulti) {
         const noneBtn = document.createElement('button');
         noneBtn.className = 'chip-block' + (!card.chain[stageDef.id] ? ' selected' : '');
@@ -16867,7 +16884,7 @@ function renderPrefaceSection(card) {
                placeholder="weeping, face-melting, saudade, numinous, mono-no-aware…"
                autocomplete="off" spellcheck="false">
       </div>
-      <button class="btn btn-ghost preface-clear" data-card-id="${esc(card.id)}" data-tooltip="Clear preface and re-suggest from current parts">${icon('x', 14)}</button>
+      <button class="btn btn-ghost preface-clear" data-card-id="${esc(card.id)}" aria-label="Clear preface and re-suggest from current parts" data-tooltip="Clear preface and re-suggest from current parts">${icon('x', 14)}</button>
       <button class="btn btn-secondary preface-browse" data-card-id="${esc(card.id)}">Browse</button>
     </div>
     <div class="preface-hint">${hint}</div>
@@ -16904,7 +16921,8 @@ function renderPrefaceSection(card) {
     };
     input.addEventListener('change', commit);
     input.addEventListener('keydown', e => {
-      if (e.key === 'Enter') { e.preventDefault(); input.blur(); }
+      // Enter commits in place: the redrawn card's input takes focus back.
+      if (e.key === 'Enter') { e.preventDefault(); commit(); _refocusPreface(card.id); }
       if (e.key === 'Escape') { input.value = card.preface || ''; input.blur(); }
     });
   }
@@ -16924,6 +16942,7 @@ function renderPrefaceSection(card) {
         _recentShiftsByCard.delete(card.id);
       }
       rerenderCard(card);
+      _refocusPreface(card.id, { control: '.preface-clear' });
     });
   }
 
@@ -17096,9 +17115,13 @@ function recordPrefaceRecent(id) {
 // under its own heading is the exact wallpaper this system exists to avoid.
 // Chips shown loose (recently-used, the suggestion fan) carry the full pair,
 // because there is no header above them to supply the first axis.
-function prefaceChipHtml(e, grouped) {
+// The note, shown as a tooltip, is also the chip's description (a hidden
+// span: `noteId` is unique within one render, as a preface can be listed
+// twice, under Recently used and under its category).
+function prefaceChipHtml(e, grouped, noteId) {
   const g = typeof prefaceGlyphsHTML === 'function' ? prefaceGlyphsHTML(e, 15, grouped) : '';
-  return `<button class="chip preface-pick" data-pref-id="${esc(e.id)}" data-tooltip="${esc(e.note || '')}">${g}${esc(e.id)}</button>`;
+  const note = e.note && noteId ? `<span class="sr-only" id="${noteId}">${esc(e.note)}</span>` : '';
+  return `<button class="chip preface-pick" data-pref-id="${esc(e.id)}" data-tooltip="${esc(e.note || '')}"${note ? ` aria-describedby="${noteId}"` : ''}>${g}${esc(e.id)}</button>${note}`;
 }
 
 // Render the modal body from current search + collapse state. Called on open and
@@ -17114,13 +17137,15 @@ function renderPrefaceModalBody() {
 
   let matchCount = 0;
   for (const cat of PREFACE_CAT_ORDER) matchCount += (groups[cat] || []).filter(matches).length;
+  let noteSeq = 0;
+  const chip = (e, grouped) => prefaceChipHtml(e, grouped, 'pref-note-' + noteSeq++);
 
   let html = `<div class="preface-toolbar"><span class="preface-toolbar-count">${q ? `${matchCount} match${matchCount === 1 ? '' : 'es'}` : `${PREFACE_LEXICON.length} prefaces · ${PREFACE_CAT_ORDER.length} categories`}</span><span class="preface-toolbar-actions"><button data-pref-expand="all">Expand all</button><button data-pref-expand="none">Collapse all</button></span></div>`;
 
   if (!q) {
     const recent = loadPrefaceRecent().map(id => PREFACE_LEXICON.find(x => x.id === id)).filter(Boolean);
     if (recent.length) {
-      html += `<div class="preface-recent"><div class="preface-recent-label">Recently used</div><div class="preface-recent-items">${recent.map(e => prefaceChipHtml(e, false)).join('')}</div></div>`;
+      html += `<div class="preface-recent"><div class="preface-recent-label">Recently used</div><div class="preface-recent-items">${recent.map(e => chip(e, false)).join('')}</div></div>`;
     }
   }
 
@@ -17130,12 +17155,22 @@ function renderPrefaceModalBody() {
     // While searching, force every matching section open so hits are visible.
     const collapsed = !q && app.prefaceCollapsed.has(cat);
     html += `<div class="preface-cat${collapsed ? ' collapsed' : ''}">` +
-      `<button class="preface-cat-head" data-pref-cat="${esc(cat)}"><span class="preface-cat-chevron">${icon('chevron-down', 14)}</span>${typeof prefaceCatGlyphHTML === 'function' ? prefaceCatGlyphHTML(cat, 16) : ''}<span class="preface-cat-title">${esc(cat)}</span><span class="preface-cat-count">${list.length}</span></button>` +
-      `<div class="preface-cat-items">${list.map(e => prefaceChipHtml(e, true)).join('')}</div></div>`;
+      `<button class="preface-cat-head" data-pref-cat="${esc(cat)}" aria-expanded="${!collapsed}"><span class="preface-cat-chevron">${icon('chevron-down', 14)}</span>${typeof prefaceCatGlyphHTML === 'function' ? prefaceCatGlyphHTML(cat, 16) : ''}<span class="preface-cat-title">${esc(cat)}</span><span class="preface-cat-count" aria-hidden="true">${list.length}</span><span class="sr-only">, ${list.length} preface${list.length === 1 ? '' : 's'}</span></button>` +
+      `<div class="preface-cat-items">${list.map(e => chip(e, true)).join('')}</div></div>`;
   }
   if (matchCount === 0) html += `<div class="preface-empty">No prefaces match “${esc(app.prefaceSearch)}”.</div>`;
 
   body.innerHTML = html;
+  // The count is said through #preface-modal-live (outside the re-rendered
+  // body) when the search changes, not on a collapse or an expand.
+  const said = !q ? '' : matchCount ? `${matchCount} match${matchCount === 1 ? '' : 'es'}` : `No prefaces match “${app.prefaceSearch}”`;
+  const live = document.getElementById('preface-modal-live');
+  if (live && said !== live.dataset.said) {
+    live.dataset.said = said;
+    live.textContent = '';
+    clearTimeout(live._t);
+    if (said) live._t = setTimeout(() => (live.textContent = said), 50);
+  }
 
   body.querySelectorAll('[data-pref-id]').forEach(b => b.addEventListener('click', () => {
     const prefId = b.dataset.prefId;
@@ -17144,16 +17179,24 @@ function renderPrefaceModalBody() {
     // Route through commitPrefaceChange so inverseConfigureForPreface fires and
     // reshapes the card's parts/env toward the chosen target.
     commitPrefaceChange(card, prefId);
+    // closeModal returned focus to the Browse button the redraw then replaced.
+    _refocusPreface(card.id, { control: '.preface-browse' });
   }));
+  // A toggle redraws the body; focus goes back to the same head or button.
+  const refocus = (attr, value) =>
+    [...body.querySelectorAll(`[${attr}]`)].find(el => el.getAttribute(attr) === value)?.focus({ preventScroll: true });
   body.querySelectorAll('[data-pref-cat]').forEach(b => b.addEventListener('click', () => {
     const c = b.dataset.prefCat;
     if (app.prefaceCollapsed.has(c)) app.prefaceCollapsed.delete(c); else app.prefaceCollapsed.add(c);
     renderPrefaceModalBody();
+    refocus('data-pref-cat', c);
   }));
   body.querySelectorAll('[data-pref-expand]').forEach(b => b.addEventListener('click', () => {
-    if (b.dataset.prefExpand === 'all') app.prefaceCollapsed.clear();
+    const which = b.dataset.prefExpand;
+    if (which === 'all') app.prefaceCollapsed.clear();
     else PREFACE_CAT_ORDER.forEach(c => app.prefaceCollapsed.add(c));
     renderPrefaceModalBody();
+    refocus('data-pref-expand', which);
   }));
 }
 
