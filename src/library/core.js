@@ -453,28 +453,78 @@ function railHtml(catalog) {
 <footer class="lib-rail-foot"><button type="button" class="lib-btn" data-lib-act="go" data-sub="/rights">${icon('download', 16)}<span>Export selection</span><b data-lib="sel-count">${num(selection.size)}</b></button><small data-lib="sel-note">On this device${selection.unsaved ? ' · unsaved' : ''}</small></footer></aside>`;
 }
 
-// The rail is virtualized: at most RAIL_MAX rows in the DOM.
+// The rail is virtualized: at most RAIL_MAX rows in the DOM. It is one tab
+// stop (a roving tabindex): Tab enters on one row and leaves for the page,
+// and the arrow keys, Home and End move between rows. Each row used to be a
+// tab stop, so tabbing scrolled the rail, the repaint replaced the focused
+// row, focus fell to the body, and the next Tab re-entered at row 01: at
+// widths where the rail is open, keyboard users never reached the page
+// (Jony's viewport lane, #519).
 let railRows = [];
+let railFocus = 0;
 function drawRail(root, activeId) {
   const scroll = root.querySelector('.lib-rail-scroll');
   const spacer = root.querySelector('.lib-rail-spacer');
   if (!scroll || !spacer) return;
   spacer.style.height = railRows.length * RAIL_ROW + 'px';
+  const at = activeId ? railRows.findIndex((c) => c.id === activeId) : -1;
+  railFocus = at >= 0 ? at : Math.min(railFocus, Math.max(0, railRows.length - 1));
   const paint = () => {
+    const hadFocus = spacer.contains(document.activeElement);
     const first = Math.max(0, Math.floor(scroll.scrollTop / RAIL_ROW) - 5);
     const count = Math.min(RAIL_MAX, Math.ceil((scroll.clientHeight || 600) / RAIL_ROW) + 10);
     spacer.innerHTML = railRows
       .slice(first, first + count)
       .map((c, j) => {
         const i = first + j;
-        return `<button type="button" class="lib-spine" style="top:${i * RAIL_ROW}px" data-lib-act="open" data-cid="${esc(c.id)}"${c.id === activeId ? ' aria-current="true"' : ''}><b>${String(i + 1).padStart(2, '0')}</b><span><strong>${esc(shortTitle(c.title))}</strong><small>${esc(lib.languageName(c.language))} · ${plural(c.readable, 'reading')}</small></span></button>`;
+        return `<button type="button" class="lib-spine" style="top:${i * RAIL_ROW}px" data-lib-act="open" data-cid="${esc(c.id)}" data-i="${i}" tabindex="${i === railFocus ? 0 : -1}"${c.id === activeId ? ' aria-current="true"' : ''}><b>${String(i + 1).padStart(2, '0')}</b><span><strong>${esc(shortTitle(c.title))}</strong><small>${esc(lib.languageName(c.language))} · ${plural(c.readable, 'reading')}</small></span></button>`;
       })
       .join('');
+    // The row that held focus is a new element now: give focus back to it.
+    if (hadFocus) spacer.querySelector(`[data-i="${railFocus}"]`)?.focus({ preventScroll: true });
+  };
+  const moveTo = (i) => {
+    railFocus = Math.max(0, Math.min(railRows.length - 1, i));
+    const top = railFocus * RAIL_ROW;
+    if (top < scroll.scrollTop) scroll.scrollTop = top;
+    else if (top > scroll.scrollTop + scroll.clientHeight - RAIL_ROW)
+      scroll.scrollTop = top - scroll.clientHeight + RAIL_ROW;
+    paint();
+    spacer.querySelector(`[data-i="${railFocus}"]`)?.focus({ preventScroll: true });
   };
   scroll.onscroll = () => requestAnimationFrame(paint);
+  const onFocus = (e) => {
+    const i = Number(e.target?.dataset?.i);
+    if (Number.isInteger(i) && i !== railFocus) {
+      railFocus = i;
+      for (const b of spacer.querySelectorAll('.lib-spine'))
+        b.tabIndex = Number(b.dataset.i) === i ? 0 : -1;
+    }
+  };
+  const onKey = (e) => {
+    if (!e.target?.classList?.contains('lib-spine')) return;
+    const page = Math.max(1, Math.floor(scroll.clientHeight / RAIL_ROW) - 1);
+    const to = {
+      ArrowDown: railFocus + 1,
+      ArrowUp: railFocus - 1,
+      PageDown: railFocus + page,
+      PageUp: railFocus - page,
+      Home: 0,
+      End: railRows.length - 1,
+    }[e.key];
+    if (to === undefined) return;
+    e.preventDefault();
+    moveTo(to);
+  };
+  // One listener pair per spacer, always calling this draw's handlers.
+  spacer._rail = { onFocus, onKey };
+  if (!spacer._railBound) {
+    spacer._railBound = true;
+    spacer.addEventListener('focusin', (e) => spacer._rail.onFocus(e));
+    spacer.addEventListener('keydown', (e) => spacer._rail.onKey(e));
+  }
   paint();
   if (activeId) {
-    const at = railRows.findIndex((c) => c.id === activeId);
     if (
       at >= 0 &&
       (at * RAIL_ROW < scroll.scrollTop ||

@@ -411,6 +411,37 @@ const SECTIONS = {
       );
       check(`${tag} collection page renders`, !failedC && rows > 0, failedC || `${rows} rows`);
     }
+    // Where the rail is open, it is one tab stop: Tab leaves it for the page,
+    // and the arrow keys move between rows across repaints (Jony's lane, #519).
+    await go(page, base, '');
+    await page.waitForSelector('#surface-library .lib-core-main', { timeout: 20000 });
+    const railOpen = await page
+      .waitForSelector('#surface-library .lib-rail:not([hidden]) .lib-spine', { timeout: 8000 })
+      .then(() => true)
+      .catch(() => false);
+    if (railOpen) {
+      await page.focus('#surface-library .lib-spine');
+      let reached = false;
+      for (let i = 0; i < 12 && !reached; i++) {
+        await page.keyboard.press('Tab');
+        reached = await page.evaluate(
+          () => !!document.activeElement?.closest('#surface-library .lib-core-main')
+        );
+      }
+      check(`${tag} explore: Tab leaves the rail for the page within 12 presses`, reached);
+      await page.focus('#surface-library .lib-spine');
+      for (let i = 0; i < 30; i++) await page.keyboard.press('ArrowDown');
+      await page.waitForTimeout(200);
+      const row = await page.evaluate(() => ({
+        spine: !!document.activeElement?.classList.contains('lib-spine'),
+        i: document.activeElement?.dataset?.i,
+      }));
+      check(
+        `${tag} explore: ArrowDown moves through the rail and keeps focus across repaints`,
+        row.spine && row.i === '30',
+        JSON.stringify(row)
+      );
+    }
     // A collection's page is in the hash (?offset=), Back restores it, and it
     // never leaks into the next collection opened from history (BB8's L1).
     const colls = JSON.parse(
