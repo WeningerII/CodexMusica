@@ -28,6 +28,22 @@ async function local(task) {
   return { server, client, close: () => client.close() };
 }
 
+test('a missing seed names where one comes from', async () => {
+  const c = await local({ domain: 'lyrics' });
+  try {
+    for (const name of ['lyric_plan', 'lyric_grade']) {
+      const text = await c.client.callTool({ name, arguments: {} }).then(
+        (r) => JSON.stringify(r),
+        (e) => e.message
+      );
+      assert.match(text, /seed is required: use one from lyric_sweep's accepted seeds/, name);
+      assert.doesNotMatch(text, /expected number, received undefined/, name);
+    }
+  } finally {
+    await c.close();
+  }
+});
+
 test('sweep applies advertised dotted predicates and leaves vocabulary refusal to the harness', async () => {
   const c = await local({ domain: 'lyrics' });
   const sweep = (want) =>

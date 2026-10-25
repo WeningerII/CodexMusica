@@ -35,7 +35,7 @@ and `render_scope` for which shared environment is represented.
 
 | Tool | What it does |
 |---|---|
-| `start_recipe` | Seed a recipe from one or more `traditions` (first = primary, rest = explicit staples). Returns the recipe and a per-card summary; on `/mcp` it opens a session (`session_id`), on a task endpoint it returns the `workspace` to pass on. |
+| `start_recipe` | Seed a recipe from one or more `traditions` (the first leads; each listed tradition adds its instruments, and none is added unlisted). Returns the recipe and a per-card summary; on `/mcp` it opens a session (`session_id`), on a task endpoint it returns the `workspace` to pass on. |
 | `edit_recipe` | Apply an ordered `edits` list (to the session's workspace, or a passed `workspace`): `set_preface` (re-derive an instrument toward a mood, labeled verbatim), `set_variant` (sets and pins one part; as in the app, an auto preface re-derives and a material part may move that card's other parts toward the preface), `set_environment`, `add_instrument` / `remove_instrument`, `move_instrument`, `add_tradition` / `remove_tradition`. |
 | `render_recipe` | Re-render (e.g. different `format` or `max_chars`) without editing. |
 | `search_catalog` | Free-text search → ids, across traditions, instruments, variants, rooms, tunings, arrangements, aesthetics, prefaces, chain. Resolve words before guessing. |

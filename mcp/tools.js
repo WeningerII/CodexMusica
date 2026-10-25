@@ -137,8 +137,8 @@ export function registerTools(server) {
       description:
         'Seed a recording recipe from any number of traditions — deterministic default cards, identical to what a human sees in the ' +
         'app ("Current Recipe"). This is the SCAFFOLD, not the finished answer: when the user gave any stylistic words (a mood, ' +
-        'gear, a space, an era), follow with edit_recipe to realize them before presenting. First tradition is primary; any ' +
-        'others are explicit staples (NOT auto-added); list each once. Returns the recipe string, a per-card summary (with each ' +
+        'gear, a space, an era), follow with edit_recipe to realize them before presenting. Every tradition you list adds its ' +
+        'instruments and the first one leads; no tradition is added that you did not list; list each once. Returns the recipe string, a per-card summary (with each ' +
         "instrument's preface) and render_scope (the card the environment renders from, and its settings). Resolve tradition " +
         'names to ids with search_catalog first.',
       inputSchema: TOOL_SCHEMAS.start_recipe.shape,

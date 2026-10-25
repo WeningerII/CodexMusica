@@ -70,7 +70,7 @@ guitar-amp — if you can say it, it renders.
 
 | Tool | What it does |
 |---|---|
-| `start_recipe` | Seed a recipe from one or more tradition ids (first = primary, rest = explicit staples). On `/mcp` it opens a session and returns its `session_id`; on a task endpoint it returns the `workspace` to pass on. |
+| `start_recipe` | Seed a recipe from one or more tradition ids (the first leads; each listed tradition adds its instruments, and none is added unlisted). On `/mcp` it opens a session and returns its `session_id`; on a task endpoint it returns the `workspace` to pass on. |
 | `edit_recipe` | Apply ordered edits: `set_preface` (re-derive an instrument toward a mood), `set_variant`, `set_environment` (room/tuning/chain; `clear` empties a setting), `add`/`remove_instrument`, `move_instrument`, `add`/`remove_tradition`. `render_warnings` names any requested word the rendered recipe lost. |
 | `render_recipe` | Re-render (e.g. a different format or length) without editing. |
 | `search_catalog` | Turn request words into real catalog ids (traditions, instruments, variants, rooms, tunings, arrangements, aesthetics, prefaces). |
