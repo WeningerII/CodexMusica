@@ -1063,6 +1063,16 @@ await check('validation: actionable errors', () => {
     const { LYRIC_TOOL_SCHEMAS: S, _argvInternals: AV } = await import('./lyric_tools.js');
     const LB = await import('./lexicon_basis.js');
     await check(
+      'a draft line is bounded in code points, as the schema and the harness count',
+      () => {
+        const emoji = '\u{1F3B5}';
+        AV.checkLines([emoji.repeat(200)]); // 400 UTF-16 units, 200 code points
+        assert.equal(S.lyric_grade.draft.safeParse([emoji.repeat(200)]).success, true);
+        assert.throws(() => AV.checkLines([emoji.repeat(201)]), /line over 200 chars/);
+        assert.throws(() => AV.checkLines(['x'.repeat(201)]), /line over 200 chars/);
+      }
+    );
+    await check(
       'every grading tool can declare --voices and --fallback; screen takes a relation; verify takes structures',
       () => {
         for (const t of ['lyric_grade', 'lyric_revise', 'lyric_verify', 'lyric_check']) {
@@ -9081,7 +9091,7 @@ try {
 // A maxItems cap is checked first, so the refusal is one issue whatever the
 // size. Issue counts and response sizes, not RSS, so the check is deterministic.
 await check(
-  'oversized arrays are refused before per-item validation (GHSA-mrhx-c7xc-m3w5)',
+  'oversized arrays and free-text queries are refused before the work they would cost (GHSA-mrhx-c7xc-m3w5)',
   async () => {
     const here = new URL('.', import.meta.url).pathname;
     const sdkPath = (m) => import(createRequire(import.meta.url).resolve(m, { paths: [here] }));
@@ -9129,6 +9139,34 @@ await check(
       );
       assert.ok(text(r).length < 1000, `${types.length} types: ${text(r).length}-char refusal`);
     }
+
+    // A free-text query is bounded in characters (the schema) and in words (the
+    // engine): each word is one more pass over every row, on a synchronous
+    // single-process server, so an unbounded query held /health for seconds.
+    const { MAX_QUERY_CHARS, MAX_QUERY_TERMS } = E;
+    const words = (n) => Array.from({ length: n }, (_, k) => `w${k}`).join(' ');
+    for (const tool of ['search_catalog', 'search_prefaces']) {
+      const ask = (query) => raw.callTool({ name: tool, arguments: { query } });
+      assert.ok(
+        !(await ask(words(MAX_QUERY_TERMS))).isError,
+        `${tool}: ${MAX_QUERY_TERMS} words answer`
+      );
+      const many = await ask(words(MAX_QUERY_TERMS + 1));
+      assert.ok(
+        many.isError && text(many).includes(`limit is ${MAX_QUERY_TERMS}`),
+        `${tool}: ${MAX_QUERY_TERMS + 1} words are refused by name: ${text(many)}`
+      );
+      for (const query of ['a'.repeat(MAX_QUERY_CHARS + 1), 'x '.repeat(HUGE)]) {
+        const r = await ask(query);
+        assert.ok(r.isError && /Too big/.test(text(r)), `${tool}: ${query.length} chars refused`);
+        assert.ok(text(r).length < 1000, `${tool}: ${text(r).length}-char refusal`);
+      }
+    }
+    assert.throws(
+      () => E.searchCatalog({ query: words(MAX_QUERY_TERMS + 1) }),
+      new RegExp(`limit is ${MAX_QUERY_TERMS}`),
+      'the engine refuses past the bound for callers that skip the schema'
+    );
 
     const sessions = new WorkflowSessions({ store: new JobStore() });
     const flow = await connect(await buildWorkflowServer({ sessions }));

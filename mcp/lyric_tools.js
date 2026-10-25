@@ -1256,7 +1256,10 @@ function checkLines(lines) {
       throw refuse(
         'each array item must be exactly one lyric line; use the newline text field for multiple rows'
       );
-    else if (l.length > MAX_LINE_CHARS) throw refuse(`line over ${MAX_LINE_CHARS} chars`);
+    // Code points, as the published schema (zod) and the Python harness count:
+    // UTF-16 `.length` refused lines of 101–200 astral characters (emoji)
+    // that both of those accept.
+    else if ([...l].length > MAX_LINE_CHARS) throw refuse(`line over ${MAX_LINE_CHARS} chars`);
 }
 
 async function withTempDir(fn) {
@@ -1839,7 +1842,7 @@ export function answerFromRows(rows, pending) {
 // THE VERDICT'S EXTRACTORS, exported for mcp/test.mjs to drive on synthetic
 // reports (M-186): a live check proves one draft; the unit cases prove the
 // regexes against every spelling the harness prints.
-export const _argvInternals = { globalsFor, planArgs };
+export const _argvInternals = { globalsFor, planArgs, checkLines };
 
 export const _verdictInternals = {
   sweepVerdict,

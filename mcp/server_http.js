@@ -736,10 +736,24 @@ app.get('/.well-known/mcp.json', (_req, res) =>
 );
 
 // One-line observability so the Render log shows what each call was.
+//
+// The method and the tool name come from the request body, so they are logged
+// as tokens, not as text: a name carrying a newline used to write a second,
+// forged log line — a standalone `{"ev":"http",...}` record indistinguishable
+// from the request log's own, which is the evidence those lines exist to give.
+// A name that is not a plain identifier is JSON-quoted (escaping every control
+// character) and cut to a fixed length, so one call is always one line.
+const LOGGED_TOKEN_CHARS = 64;
+function logToken(value) {
+  const text = String(value);
+  return /^[\w./:-]{1,64}$/.test(text) ? text : JSON.stringify(text.slice(0, LOGGED_TOKEN_CHARS));
+}
 function describe(body) {
   const m = Array.isArray(body) ? body[0] : body;
   if (!m || !m.method) return 'unknown';
-  return m.method === 'tools/call' ? `tools/call ${m.params && m.params.name}` : m.method;
+  return m.method === 'tools/call'
+    ? `tools/call ${logToken(m.params && m.params.name)}`
+    : logToken(m.method);
 }
 
 // Refuse in JSON-RPC, not in Express's default HTML: the caller is a protocol
@@ -799,10 +813,22 @@ app.post(mcpPaths, async (req, res) => {
     return tooMany(res, perHour.retryAfter);
   }
 
+  // Express matches routes case-insensitively, but every surface decision below
+  // compares the path exactly, so `/MCP` used to reach the raw 18-tool server
+  // with no sessions and `/mcp/Recipe` a recipe surface with no task contract.
+  // Only the paths this route was mounted for are served; a case variant is
+  // refused rather than quietly mapped to a surface its spelling does not name.
+  const requestPath = req.path.replace(/\/$/, '');
+  if (!mcpPaths.includes(requestPath)) {
+    return res.status(404).json({
+      jsonrpc: '2.0',
+      error: { code: -32601, message: `Not found. The MCP endpoints are ${mcpPaths.join(', ')}.` },
+      id: null,
+    });
+  }
   console.error(`[mcp] ${describe(req.body)}`);
   // Stateless: brand-new server + transport for this single request.
   const controller = new AbortController();
-  const requestPath = req.path.replace(/\/$/, '');
   const compatibilityAlias =
     requestPath === MCP_PATH + '/chatgpt' || requestPath.startsWith(MCP_PATH + '/chatgpt/');
   const shared = requestPath === MCP_PATH;
@@ -814,8 +840,27 @@ app.post(mcpPaths, async (req, res) => {
       : null;
   // Task-scoped raw HTTP supports the same explicit views its schema advertises.
   // Native hosts still pin their own task.format through the maintained client.
-  const format = req.body?.method === 'tools/call' ? req.body.params?.arguments?.format : null;
-  const task = domain ? { domain, format: format ?? 'rich', maxChars: 1000 } : null;
+  // A JSON-RPC batch is read the same way as a single call: its format used to
+  // be read only from a single-object body, so a batch asking for `tags` was
+  // refused as if the endpoint served Rich alone. One request holds one task,
+  // so a batch whose calls name different formats is refused by name.
+  const calls = (Array.isArray(req.body) ? req.body : [req.body]).filter(
+    (m) => m?.method === 'tools/call'
+  );
+  const formats = [
+    ...new Set(calls.map((m) => m.params?.arguments?.format).filter((f) => f !== undefined)),
+  ];
+  if (domain && formats.length > 1) {
+    return res.status(400).json({
+      jsonrpc: '2.0',
+      error: {
+        code: -32600,
+        message: `TASK_FORMAT: one request carries one recipe format; this batch names ${formats.join(', ')}. Send one batch per format.`,
+      },
+      id: null,
+    });
+  }
+  const task = domain ? { domain, format: formats[0] ?? 'rich', maxChars: 1000 } : null;
   const context = {
     task,
     signal: controller.signal,
@@ -866,6 +911,35 @@ const notAllowed = (_req, res) =>
   });
 app.get(mcpPaths, notAllowed);
 app.delete(mcpPaths, notAllowed);
+
+// Last, after every route: an error raised before a route answered — chiefly a
+// body express.json() could not parse, or one over HTTP_REQUEST_BYTES — used to
+// fall through to Express's default HTML page, stack trace and /app paths
+// included, on /mcp and /chat alike (the Library has its own handler above). A
+// protocol client gets JSON-RPC (-32700 for a body that is not JSON); every
+// other caller gets JSON in /chat's shape. Nothing from the error is echoed:
+// a parser message quotes the body back.
+app.use((err, req, res, next) => {
+  if (res.headersSent) return next(err);
+  const status = err.status ?? err.statusCode;
+  const client = status >= 400 && status < 500;
+  if (!client) console.error('[http] unhandled error:', err);
+  const message =
+    err.type === 'entity.parse.failed'
+      ? 'Parse error: the request body is not valid JSON.'
+      : err.type === 'entity.too.large'
+        ? 'The request body is too large.'
+        : client
+          ? 'Malformed request.'
+          : 'Internal server error.';
+  res.setHeader('Cache-Control', 'no-store');
+  res.status(client ? status : 500);
+  if (mcpPaths.includes(req.path.replace(/\/$/, '').toLowerCase())) {
+    const code = err.type === 'entity.parse.failed' ? -32700 : client ? -32600 : -32603;
+    return res.json({ jsonrpc: '2.0', error: { code, message }, id: null });
+  }
+  res.json({ error: message });
+});
 
 const httpServer = app.listen(PORT, () => {
   console.error(

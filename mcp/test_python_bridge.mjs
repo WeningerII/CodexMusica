@@ -98,6 +98,8 @@ def cli():
         print(gemini_proposer.make()('fixture prompt'), flush=True)
     elif mode == 'unicode':
         print('é' * int(args[1]), flush=True)
+    elif mode == 'echo':
+        print(args[1], flush=True)
     elif mode == 'checkpoint':
         for i in range(20):
             print('  lyric checkpoint: '+json.dumps({'transport_token':os.environ.get('LYRIC_CONTROL_TOKEN'),'version':1,'accepted_lines':['é' * 10000],'round':i}), flush=True)
@@ -276,6 +278,23 @@ test('warm and cold count UTF-8 report bytes with identical output ceilings', as
     assert.equal(overWarm.code, 2);
     assert.equal(overCold.code, 2);
     assert.equal(overWarm.stdout, overCold.stdout);
+  } finally {
+    await f.close();
+  }
+});
+
+test('a lone surrogate argument reaches warm and cold paths as the same U+FFFD', async () => {
+  const f = await fixture({ timeoutMs: 2000 });
+  try {
+    const arg = 'Bad \ud800 title \u{1F600}';
+    const warm = await f.internals.runWarm(['echo', arg]);
+    const cold = await f.internals.runCold(['echo', arg]);
+    assert.equal(cold.code, 0);
+    assert.equal(warm.code, 0, warm.stderr);
+    assert.equal(warm.stdout, cold.stdout);
+    assert.equal(warm.stdout.trim(), 'Bad \ufffd title \u{1F600}');
+    const after = await f.internals.runWarm(['echo', 'plain']);
+    assert.equal(after.stdout.trim(), 'plain', 'the worker survives and answers the next request');
   } finally {
     await f.close();
   }
