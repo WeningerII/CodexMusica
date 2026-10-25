@@ -15058,6 +15058,10 @@ function renderSidebarTraditions() {
   // The key lives on the element, so replacing the host (or reloading) loses it
   // and the next render repaints — a cache miss, never a stale tree.
   if (host._codexTreeHtml === treeHtml) return;
+  // Phone: the tree (and the editor inside it) is torn down and rebuilt in
+  // place; the box that scrolls it is put back where it was (Jony #117: a
+  // variant or part-row tap threw the Recipe sheet back up the list).
+  const keep = _treeScrollKeep(host);
   host.innerHTML = treeHtml;
   host._codexTreeHtml = treeHtml;
 
@@ -15244,6 +15248,43 @@ function renderSidebarTraditions() {
     host.querySelectorAll('.sb-card').forEach(b => b.setAttribute('aria-expanded', 'false'));
     renderDetail();
   }
+  keep();
+}
+
+// Returns a function that puts the box scrolling the phone tree (the Recipe
+// sheet's #sidebar-scroll, or the page) back after a rebuild, which can clamp
+// its scrollTop. The control just tapped (a variant chip, or the part or
+// environment row it opened) is held where it was on screen, so a header that
+// rewraps above it cannot move it; failing that, the scroll offset is put back.
+// One render can nest another (the tree remounts the editor): the first hold
+// of a frame wins.
+const _KEEP_KEYS = ['data-toggle-part', 'data-toggle-env', 'data-set-part', 'data-variant', 'data-edit-chain'];
+let _treeHold = false;
+function _treeScrollKeep(el) {
+  if (!isMobileLayout() || !el || _treeHold) return () => {};
+  const box = _dndScrollParent(el) || document.scrollingElement;
+  if (!box) return () => {};
+  _treeHold = true;
+  requestAnimationFrame(() => { _treeHold = false; });
+  const top = box.scrollTop;
+  const a = document.activeElement;
+  const card = app.cards.find(c => c.id === app.selected);
+  let key = a && a !== box && box.contains(a)
+    ? _KEEP_KEYS.filter(k => a.hasAttribute(k)).map(k => `[${k}="${CSS.escape(a.getAttribute(k))}"]`).join('')
+    : '';
+  if (!key && card && card.editingPart) key = `[data-toggle-part="${CSS.escape(card.editingPart)}"]`;
+  else if (!key && card && card.editingEnv) key = `[data-toggle-env="${CSS.escape(card.editingEnv)}"]`;
+  const from = key && box.querySelector(key);
+  const was = from ? from.getBoundingClientRect().top : 0;
+  const keep = () => {
+    if (!box.isConnected) return;
+    if (Math.abs(box.scrollTop - top) > 1) box.scrollTop = top;
+    const now = from && box.querySelector(key);
+    if (now) box.scrollTop += now.getBoundingClientRect().top - was;
+  };
+  // A held control is held again before the next paint: uiSync puts the
+  // editor's Close bar back after this render.
+  return () => { keep(); if (from) requestAnimationFrame(keep); };
 }
 
 function renderSidebarCard(card) {
@@ -15537,8 +15578,10 @@ function renderDetail() {
   const host = document.getElementById('workspace-detail');
   if (!host) return;
 
-  // Remove any previous detail view
+  // Remove any previous detail view (on a phone, keeping the scroll of the
+  // tree it sits in: see _treeScrollKeep)
   const existing = document.getElementById('detail-view');
+  const keep = existing ? _treeScrollKeep(existing) : () => {};
   if (existing) existing.remove();
 
   // No workspace content, no detail. The shell's Your recipe panel says what
@@ -15605,6 +15648,7 @@ function renderDetail() {
   } else {
     host.appendChild(view);
   }
+  keep();
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -16076,12 +16120,29 @@ function _revealSelectedCard() {
   requestAnimationFrame(() => {
     const anchor = _detailAnchorFor(app.selected);
     if (!anchor) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // In the Recipe sheet the tree scrolls inside #sidebar-scroll, not the
+    // page, so the editor opened below the fold (Jony #119): reveal it there.
+    // It is in place once the editor's tabs are in view; the row stays in view
+    // too unless the box is too short for both, when the editor wins (its
+    // Close and tabs stick to the top of the box).
+    const box = _dndScrollParent(anchor);
+    if (box) {
+      const frame = box.getBoundingClientRect();
+      const top = anchor.getBoundingClientRect().top - frame.top;
+      const tabs = document.querySelector('#detail-view .detail-tab-bar');
+      if (!tabs) return;
+      const tabsEnd = tabs.getBoundingClientRect().bottom;
+      if (top >= 0 && tabsEnd <= frame.bottom) return;
+      const by = Math.max(top - 8, tabsEnd - frame.bottom + 8);
+      box.scrollBy({ top: by, behavior: reduce ? 'auto' : 'smooth' });
+      return;
+    }
     const barH = parseInt(
       getComputedStyle(document.documentElement).getPropertyValue('--app-bar-height'), 10
     ) || 56;
     const top = anchor.getBoundingClientRect().top;
     if (top >= barH && top <= window.innerHeight * 0.5) return;
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     window.scrollBy({ top: top - barH - 8, behavior: reduce ? 'auto' : 'smooth' });
   });
 }
@@ -16205,9 +16266,9 @@ function renderDetailHeader(card, inst) {
     : '';
   titleBlock.innerHTML =
     '<div class="detail-title">' +
-      (prefaceLabel ? '<span class="detail-preface">' + esc(prefaceLabel) + '</span>' : '') +
+      (prefaceLabel ? '<span class="detail-preface">' + esc(prefaceLabel) + '</span><span class="sr-only">, </span>' : '') +
       '<span>' + esc(name) + '</span>' +
-      primaryBadge +
+      (primaryBadge ? '<span class="sr-only">, </span>' + primaryBadge : '') +
     '</div>' +
     '<div class="detail-subtitle">' +
       '<span class="detail-family">' + esc(familyName) + '</span>' +

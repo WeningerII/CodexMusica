@@ -1741,6 +1741,15 @@ function uiRowsControls() {
 function uiCloseEditor() {
   const id = app.selected;
   UI.editor = false;
+  // On a phone the editor is the open row inside the Recipe tree: closing it
+  // collapses that row, and focus goes to the row's Edit (Jony #118).
+  if (isMobileLayout() && $ui('detail-view')?.closest('#sidebar-traditions')) {
+    app.selected = null;
+    renderSidebarTraditions();
+    uiSync();
+    uiFocus(uiFind('.sb-card-edit', 'cardId', id)) || uiFocusCard(id);
+    return;
+  }
   uiSync();
   uiFocusCard(id);
 }
@@ -1756,6 +1765,14 @@ function uiEscape(e) {
   } else if (body.classList.contains('assistant-open')) {
     body.classList.remove('assistant-open');
     uiFocus(UI.assistantOpener) || uiFocus(document.querySelector(`[data-view="${UI.view}"]`));
+  } else if (
+    body.classList.contains('session-open') &&
+    isMobileLayout() &&
+    $ui('detail-view')?.closest('#sidebar-traditions')
+  ) {
+    // The editor open inside the sheet is the top layer: it closes first, and
+    // a second Escape closes the sheet (Jony #118).
+    uiCloseEditor();
   } else if (body.classList.contains('session-open')) {
     body.classList.remove('session-open');
     UI.editor = false;

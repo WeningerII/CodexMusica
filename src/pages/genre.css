@@ -697,6 +697,13 @@
   font-size: var(--cm-text-sm);
   line-height: 1.6;
 }
+/* Each classification link is a 24px target (WCAG 2.5.8): wrapped rows no
+   longer sit 20px apart (Jony #121). */
+#surface-genre .gp-crumbs .gp-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
 .gp-detail-actions {
   display: flex;
   flex-wrap: wrap;
