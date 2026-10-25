@@ -67,7 +67,7 @@
 // Exit 0 if every assertion passes, 1 otherwise, 2 if playwright is missing.
 
 'use strict';
-/* global devicePixelRatio, visualViewport, innerHeight, document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lySyncCaret, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage, uiChatOpen, requestAnimationFrame, LY_ACTION_TEXT, lySubmitLyricsAction, lyWriterState, lyToolRequestAction */
+/* global devicePixelRatio, visualViewport, innerHeight, document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lySyncCaret, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage, uiChatOpen, requestAnimationFrame, LY_ACTION_TEXT, lySubmitLyricsAction, lyWriterState, lyToolRequestAction, lyInspectionSession */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -2664,6 +2664,64 @@ async function browserChecks(chromium) {
     }
   };
   try {
+    // D5: pressing a dock or line-bar button blurs the editor, whose blur
+    // pushes history and re-places the bar between pointerdown and pointerup.
+    // A button rebuilt there never gets its click: the first press after
+    // typing did nothing (Jony's Lyrics #5). One real mouse click each, and
+    // the action has to have run.
+    await step('D5. first dock click after typing', async () => {
+      const TARGETS = {
+        'inline Rhyme': ['#ly-linebar:not([hidden]) [data-id="rhymes:1"]', 'rhyme'],
+        'dock Rhyme': ['#ly-linedock [data-id="rhymes:1"]', 'rhyme'],
+        'Line actions': ['#ly-linedock [aria-controls="ly-menu-line-actions"]', 'menu'],
+        Relations: ['#ly-linedock [data-ui="ly-relations"]', 'relations'],
+      };
+      const ran = {
+        rhyme: () => LY.picks.linkLine === 1,
+        menu: () => !$ui('ly-menu-line-actions')?.hidden,
+        relations: () => !!lyInspectionSession()?.listOpen,
+      };
+      const seen = new Set();
+      for (const [width, height] of [
+        [390, 844],
+        [1280, 900],
+      ]) {
+        for (const [label, [selector, effect]] of Object.entries(TARGETS)) {
+          for (const typing of label === 'inline Rhyme' ? [true, false] : [true]) {
+            const { ctx, page } = await boot({ theme: 'light' });
+            await page.setViewportSize({ width, height });
+            await setDraft(page, DRAFT);
+            await page.evaluate(() => (LY.picks.linkLine = 0));
+            const text = await page.locator('#ly-overlay .ly-r[data-n="1"] .ly-t').boundingBox();
+            await page.mouse.click(text.x + text.width - 2, text.y + text.height / 2);
+            await page.waitForFunction(() => LY.activeLine === 1, null, { timeout: 5000 });
+            if (typing) await page.keyboard.type(' now');
+            await page.waitForTimeout(300);
+            const button = page.locator(selector);
+            if (!(await button.count()) || !(await button.first().isVisible())) {
+              await ctx.close();
+              continue;
+            }
+            seen.add(`${width} ${label}`);
+            const box = await button.first().boundingBox();
+            await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
+            await page.waitForTimeout(200);
+            check(
+              await page.evaluate(ran[effect]),
+              `${width}px: the first click on ${label}${typing ? ' after typing' : ''} did nothing`
+            );
+            await ctx.close();
+          }
+        }
+      }
+      for (const want of ['390 Line actions', '390 Relations', '1280 Relations'])
+        check(seen.has(want), `${want} was not on screen to click`);
+      check(
+        seen.has('1280 inline Rhyme') || seen.has('1280 dock Rhyme'),
+        'no Rhyme button was on screen at 1280'
+      );
+    });
+
     // H1: reduced CSS viewports are layout probes, not browser zoom.
     await step('H1. short viewport reachability', async () => {
       const results = [];
