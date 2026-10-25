@@ -2196,9 +2196,12 @@ body.workbench {
     min-height: 36px;
     padding: 4px 12px;
   }
+  /* An empty recipe has no context or preview, so the empty card takes those
+     two columns. Spanning the tree column too put it under #sidebar-scroll
+     (Add a genre / Add instrument), which covered its title and actions. */
   .workbench[data-recipe='dock'] #recipe-empty {
-    grid-column: 1 / -1;
-    grid-row: 2 / -1;
+    grid-column: 2 / -1;
+    grid-row: 2;
   }
   .workbench[data-recipe='dock'] #sidebar-scroll {
     grid-area: tree;
