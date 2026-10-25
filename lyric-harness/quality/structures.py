@@ -279,6 +279,31 @@ def judge(name, a, b, phon=None):
     return get(name).judge(a, b, phon=phon)
 
 
+def undecided_by_readings(name, a, b, phon=None):
+    """True when `judge` answered None because a member holds readings that
+    do not agree on a channel the structure reads -- the pair is readable and
+    its anchors resolve, but which reading was meant decides the verdict --
+    as against an unreadable member or a refused anchor. A caller can settle
+    the first by declaring a reading (pronunciation_options), never the
+    second, so the two get different instructions."""
+    from quality import rhyme_types as RT
+    from quality import phonology as PH
+    s = get(name)
+    if s.kind not in ("preset", "cell"):
+        return False
+    phon = phon or PH.get("eng")
+    kw = ({"preset": s.name} if s.kind == "preset"
+          else {"anchor_a": s.cell[7], "anchor_b": s.cell[8]})
+    try:
+        t = RT.classify_pair(a, b, phon, **kw)
+    except RT.Indeterminate:
+        return False
+    if t is None:
+        return False
+    return getattr(t, "identity_undecided", False) or any(
+        v is None for x in _readings(t) for syl in x.agreement for v in syl)
+
+
 if __name__ == "__main__":
     import sys
     sys.path.insert(0, ".")

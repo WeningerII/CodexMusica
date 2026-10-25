@@ -2292,6 +2292,10 @@ class Reviser:
                 if why is None and _nondefault_struct:
                     sv = _ST.judge(struct, ew_i, ew_j)
                     if sv is None:
+                        # Readings that disagree are settled by declaring the
+                        # intended one; an unreadable member or a refused
+                        # anchor is not. Say which, so the instruction fits.
+                        _by_readings = _ST.undecided_by_readings(struct, ew_i, ew_j)
                         refusals.append({
                             "lines": (i, j),
                             "endwords": (ew_i, ew_j),
@@ -2304,7 +2308,18 @@ class Reviser:
                             # is about THIS group's declared structure, not
                             # about every group the pair happens to share.
                             "groups": [m.labels[k]],
-                            "reason": (f"the declared structure {struct!r} has "
+                            "cause": "readings" if _by_readings else "unreadable",
+                            "reason": (f"the declared structure {struct!r} "
+                                       f"cannot be judged on this pair: a word "
+                                       f"here has more than one reading and "
+                                       f"they disagree on what the structure "
+                                       f"compares — UNDECIDED, not failed "
+                                       f"(doctrine 79). Choose the intended "
+                                       f"reading from pronunciation_options, "
+                                       f"declare it with --pronunciations, and "
+                                       f"regrade"
+                                       if _by_readings else
+                                       f"the declared structure {struct!r} has "
                                        f"no coordinates in this pair (a "
                                        f"refused anchor or an unreadable "
                                        f"member) — REFUSED, not failed "
@@ -4136,10 +4151,16 @@ class Reviser:
             for ln in (i, j):
                 add(ln, Finding(
                     "SCHEME_UNREADABLE", "note",
-                    f"L{i}/L{j} are mandated together (group(s) "
-                    f"{', '.join(r['groups']) or '-'}) and the harness could "
-                    f"not read a declared rhyme anchor, so this rhyme is UNKNOWN rather "
-                    f"than absent",
+                    (f"L{i}/L{j} are mandated together (group(s) "
+                     f"{', '.join(r['groups']) or '-'}) and a word's readings "
+                     f"disagree on what the declared structure compares, so "
+                     f"this rhyme is UNDECIDED rather than absent — choose a "
+                     f"reading (pronunciation_options)"
+                     if r.get("cause") == "readings" else
+                     f"L{i}/L{j} are mandated together (group(s) "
+                     f"{', '.join(r['groups']) or '-'}) and the harness could "
+                     f"not read a declared rhyme anchor, so this rhyme is UNKNOWN rather "
+                     f"than absent"),
                     r["reason"], [i, j], groups=tuple(r["groups"]),
                     subject=("unreadable_anchor", *r["repair_lines"])
                     if r.get("repair_lines") else ()))

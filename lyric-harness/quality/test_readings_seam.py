@@ -495,6 +495,15 @@ def test_the_classifier_seam():
           ST.STRUCTURES["perfect-rhyme"].judge("reed", "seed", phon) is True
           and ST.STRUCTURES["consonance"].judge("reed", "seed", phon) is True
           and RT.classify_pair("reed", "seed", phon).identity_undecided is False)
+    # WHY a structure judge said None decides the instruction: readings that
+    # disagree are settled by declaring one (pronunciation_options); an
+    # unreadable member or a refused anchor is not.
+    check("undecided_by_readings: read/seed under perfect-rhyme is the "
+          "readings, not an unreadable member",
+          ST.undecided_by_readings("perfect-rhyme", "read", "seed", phon) is True)
+    check("...reed/seed (decided) and an unreadable member are not",
+          ST.undecided_by_readings("perfect-rhyme", "reed", "seed", phon) is False
+          and ST.undecided_by_readings("perfect-rhyme", "zzzqx", "seed", phon) is False)
 
 
 def test_doctrine_66():
