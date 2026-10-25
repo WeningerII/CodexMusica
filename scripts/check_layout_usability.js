@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global toastTimed, showToast, document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global toastTimed, toastDeadline, hideToast, showToast, document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -578,6 +578,26 @@ async function editorKeyboard(page, where) {
         await page.evaluate(() => document.getElementById('toast').classList.contains('show')),
         false,
         'Toast: Dismiss takes the error toast down'
+      );
+      // A plain error waits too, with Dismiss; other toasts stay long
+      // enough to read (at least 4 s, longer for a longer message).
+      const plain = await page.evaluate(() => {
+        showToast('Probe plain error', 'error');
+        const error = {
+          timed: toastTimed,
+          actions: [...document.querySelectorAll('#toast .toast-action')].map((b) => b.textContent),
+        };
+        showToast('Saved', 'success');
+        const short = toastDeadline - Date.now();
+        showToast('x'.repeat(90), 'success');
+        const long = toastDeadline - Date.now();
+        hideToast(document.getElementById('toast'));
+        return { error, short: short >= 3800, long: long > short && long <= 6600 };
+      });
+      assert.deepEqual(
+        plain,
+        { error: { timed: false, actions: ['Dismiss'] }, short: true, long: true },
+        'Toast: a plain error waits with Dismiss; other toasts last long enough to read'
       );
       // Genre detail: an in-content jump to a tab brings the tab into view.
       await page.getByRole('button', { name: 'Genre', exact: true }).first().click();

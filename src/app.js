@@ -2197,9 +2197,10 @@ const _CARD_TRANSIENTS = { drift: null, stackPanel: null, editingPart: null, edi
 //   MODAL_FOCUS_DELAY — wait for the modal to paint before focusing
 //     its first input. Browsers won't accept focus on an element that's
 //     still mid-transition; ~60 ms covers the common compositor delay.
-//   TOAST_LIFETIME — how long a toast stays on screen before fading.
-//     Long enough to read a short message at glance speed, short enough
-//     that a rapid sequence of operations doesn't pile up toasts.
+//   TOAST_LIFETIME — the unit toast timing is measured in. An action toast
+//     stays three units; any other timed toast stays about a second per 15
+//     characters, at least 4 s and at most three units (showToast). Errors
+//     do not time out.
 const UI_TIMING_MS = {
   PREFACE_SHIFT: 800,
   MODAL_FOCUS_DELAY: 60,
@@ -14825,24 +14826,38 @@ function showToast(msg, kind, action, opts) {
     hint.textContent = `. ${TOAST_KEY_LABEL} reaches ${action.label}. `;
     t.append(hint, b);
     t.classList.add('has-action');
-    if (kind === 'error') {
-      const x = document.createElement('button');
-      x.type = 'button';
-      x.className = 'toast-action toast-dismiss';
-      x.textContent = 'Dismiss';
-      x.addEventListener('click', () => hideToast(t), { once: true });
-      t.append(x);
+  }
+  // Every error waits for its user (WCAG 2.2.1): no timeout, a Dismiss
+  // button, and the next toast replaces it. With no other action, Dismiss is
+  // what F8 reaches.
+  if (kind === 'error') {
+    if (!t.querySelector('.toast-hint')) {
+      const hint = document.createElement('span');
+      hint.className = 'sr-only toast-hint';
+      hint.textContent = `. ${TOAST_KEY_LABEL} reaches Dismiss. `;
+      t.append(hint);
     }
+    const x = document.createElement('button');
+    x.type = 'button';
+    x.className = 'toast-action toast-dismiss';
+    x.textContent = 'Dismiss';
+    x.addEventListener('click', () => hideToast(t), { once: true });
+    t.append(x);
+    t.classList.add('has-action');
   }
   t.classList.add('show');
   if (toastT) clearTimeout(toastT);
   toastT = null;
   // opts.sticky: a status that lasts as long as what it reports; its caller
   // takes it down (engineReady).
-  // An error with an action (Retry) waits for its user: no timeout, so Tab
-  // reaches it without the shortcut; Dismiss or the next toast takes it down.
-  toastTimed = !(opts && opts.sticky) && !(kind === 'error' && action && action.label);
-  if (toastTimed) _toastArm(t, UI_TIMING_MS.TOAST_LIFETIME * (action ? 3 : 1));
+  // An error waits for its user: no timeout, so Tab reaches it without the
+  // shortcut; Dismiss or the next toast takes it down. Any other toast stays
+  // long enough to read: about a second per 15 characters, at least 4 s, and
+  // never longer than an action toast's lifetime.
+  toastTimed = !(opts && opts.sticky) && kind !== 'error';
+  const longest = UI_TIMING_MS.TOAST_LIFETIME * 3;
+  const readable = Math.min(longest, Math.max(4000, Math.ceil(String(msg).length / 15) * 1000));
+  if (toastTimed) _toastArm(t, action ? longest : readable);
   return ++toastSeq;
 }
 // The action leaves with the toast. Left behind at opacity 0 it would still
