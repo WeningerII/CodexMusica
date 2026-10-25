@@ -349,6 +349,18 @@ async function noOverflow(page) {
         (await lives()).some((t) => /didn’t match a page/.test(t)),
         'Routes: an unknown page link says so: ' + JSON.stringify(await lives())
       );
+      await page.goto(base + '/codex.html?miss=3#instrument/zzqx_not_an_instrument');
+      await page
+        .waitForFunction(
+          () => (window.__live || []).some((t) => /didn’t match an instrument/.test(t)),
+          null,
+          { timeout: 20000 }
+        )
+        .catch(() => {});
+      assert.ok(
+        (await lives()).some((t) => /didn’t match an instrument/.test(t)),
+        'Routes: an instrument link that matched nothing says so: ' + JSON.stringify(await lives())
+      );
       // The standalone map: Try again keeps the keyboard and says it in words.
       let atlasDown = true;
       await page.route('**/api/traditions/index.json', (route) =>
