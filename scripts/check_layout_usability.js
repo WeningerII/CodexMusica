@@ -628,6 +628,63 @@ async function editorKeyboard(page, where) {
       await page.goto(base + '/codex.html');
       // The genre catalogue: cards in Rows (the default), rows in List.
       await page.locator('.catalog-row, .cm-tile').first().waitFor();
+      // Forced colours erase colour-only state: a chosen tab, view or page
+      // must still differ from its siblings, and a focused field keeps a ring.
+      await page.emulateMedia({ forcedColors: 'active' });
+      const forced = await page.evaluate(() => {
+        const bg = (el) => (el ? getComputedStyle(el).backgroundColor : null);
+        const pair = (on, off) => ({
+          on: bg(document.querySelector(on)),
+          off: bg(document.querySelector(off)),
+        });
+        return {
+          tab: pair(
+            '#surface-genre [role="tab"][aria-selected="true"]',
+            '#surface-genre [role="tab"][aria-selected="false"]'
+          ),
+          layout: pair(
+            '#surface-genre button[aria-pressed="true"]',
+            '#surface-genre button[aria-pressed="false"]'
+          ),
+          page: pair(
+            '.cm-tab[aria-current="page"]',
+            '.cm-tab:not([aria-current]):not([aria-selected="true"])'
+          ),
+        };
+      });
+      for (const [what, p] of Object.entries(forced))
+        assert.ok(
+          p.on && p.off && p.on !== p.off,
+          'Forced colours: the chosen ' + what + ' still stands out: ' + JSON.stringify(p)
+        );
+      // Probes for the states that are not on screen here: a muted label
+      // inside a chosen control, an open chain stage, compare's marks.
+      const probe = await page.evaluate(() => {
+        const host = document.getElementById('surface-library') || document.body;
+        const box = document.createElement('div');
+        box.innerHTML =
+          '<button aria-pressed="true">x<span style="color:#888">1,671</span></button>' +
+          '<button class="chain-stage editing">Mic</button><button class="chain-stage">Amp</button>' +
+          '<mark>a</mark>';
+        host.appendChild(box);
+        const [chosen, open, closed] = box.querySelectorAll('button');
+        const s = (el) => getComputedStyle(el);
+        const out = {
+          label: s(chosen.querySelector('span')).color === s(chosen).color,
+          stage: s(open).borderTopColor !== s(closed).borderTopColor,
+          mark:
+            host.id !== 'surface-library' ||
+            s(box.querySelector('mark')).backgroundColor !== s(box).backgroundColor,
+        };
+        box.remove();
+        return out;
+      });
+      assert.deepEqual(
+        probe,
+        { label: true, stage: true, mark: true },
+        'Forced colours: sub-labels, the open stage and compare marks stay visible'
+      );
+      await page.emulateMedia({ forcedColors: 'none' });
       await noOverflow(page);
       // A first visit's recipe is empty. Where a page docks the recipe under
       // it (Instrument, Map), the empty card's title and both of its actions
