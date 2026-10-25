@@ -18,7 +18,7 @@
 //   node scripts/check_library_page.js --built=DIR     # check an existing build
 //   node scripts/check_library_page.js --only=reader,compare --headed
 //   node scripts/check_library_page.js --shots=DIR     # screenshot each section
-/* global document, location, getComputedStyle, libraryChunk, indexedDB */ // inside page.evaluate
+/* global document, location, getComputedStyle, libraryChunk, indexedDB, window */ // inside page.evaluate
 'use strict';
 
 const fs = require('fs');
@@ -440,6 +440,53 @@ const SECTIONS = {
         `${tag} explore: ArrowDown moves through the rail and keeps focus across repaints`,
         row.spine && row.i === '30',
         JSON.stringify(row)
+      );
+    }
+    // Where the open rail overlays the page (narrow widths), it is a panel:
+    // opening moves focus into it, Escape closes it back to the toggle, and
+    // Tab out of it closes it, so no focused control sits under it (Jony).
+    const overlay = await page.evaluate(() => {
+      const r = document.querySelector('#surface-library .lib-rail');
+      return !!r && r.hidden && window.innerWidth < 1100;
+    });
+    if (overlay) {
+      const toggle = '#surface-library .lib-topline [data-lib-act="rail"]';
+      await page.click(toggle);
+      await page.waitForSelector('#surface-library .lib-rail:not([hidden]) .lib-spine', {
+        timeout: 8000,
+      });
+      const inside = await page.evaluate(
+        () => !!document.activeElement?.closest('#surface-library .lib-rail')
+      );
+      check(`${tag} explore: opening the overlaying rail moves focus into it`, inside);
+      await page.keyboard.press('Escape');
+      const closed = await page.evaluate(() => ({
+        hidden: document.querySelector('#surface-library .lib-rail')?.hidden,
+        toggle: !!document.activeElement?.matches('[data-lib-act="rail"]'),
+      }));
+      check(
+        `${tag} explore: Escape closes the overlaying rail and returns focus to its toggle`,
+        closed.hidden === true && closed.toggle,
+        JSON.stringify(closed)
+      );
+      await page.click(toggle);
+      await page.waitForSelector('#surface-library .lib-rail:not([hidden]) .lib-spine', {
+        timeout: 8000,
+      });
+      let left = false;
+      for (let i = 0; i < 8 && !left; i++) {
+        await page.keyboard.press('Tab');
+        left = await page.evaluate(
+          () => !document.activeElement?.closest('#surface-library .lib-rail')
+        );
+      }
+      const after = await page.evaluate(
+        () => document.querySelector('#surface-library .lib-rail')?.hidden
+      );
+      check(
+        `${tag} explore: Tab out of the overlaying rail closes it`,
+        left && after === true,
+        `left=${left} hidden=${after}`
       );
     }
     // A collection's page is in the hash (?offset=), Back restores it, and it

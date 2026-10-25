@@ -533,9 +533,65 @@ function drawRail(root, activeId) {
       scroll.scrollTop = Math.max(0, at * RAIL_ROW - 2 * RAIL_ROW);
   }
 }
+// Below 1100 px the open rail overlays the page (position: fixed). It then
+// behaves as a panel: opening moves focus into it, Escape closes it and
+// returns focus to the toggle, and focus leaving it closes it, so a focused
+// control is never left under the rail (Jony's viewport lane, #519;
+// WCAG 2.4.11). Where the rail sits beside the page, none of this applies.
+const railOverlays = (rail) => !!rail && getComputedStyle(rail).position === 'fixed';
+function setRail(main, open, { focusToggle = false } = {}) {
+  const rail = main.querySelector('.lib-rail');
+  if (!rail) return;
+  // Closing from inside (the rail's own close button) gives focus back to
+  // the toggle instead of dropping it with the hidden rail.
+  const hadFocus = rail.contains(document.activeElement);
+  state.rail = open;
+  rail.hidden = !open;
+  main.querySelectorAll('.lib-topline [data-lib-act="rail"]').forEach((b) => {
+    b.setAttribute('aria-expanded', String(open));
+    b.setAttribute('aria-label', `${open ? 'Collapse' : 'Open'} collections rail`);
+    b.innerHTML = icon(open ? 'panel-left-close' : 'panel-left-open', 18);
+  });
+  if (open) {
+    drawRail(main, currentCollection());
+    if (railOverlays(rail))
+      (rail.querySelector('.lib-spine[tabindex="0"]') || rail.querySelector('select'))?.focus();
+  } else if (focusToggle || hadFocus)
+    main.querySelector('.lib-topline [data-lib-act="rail"]')?.focus();
+  bindRailPanel(main, rail);
+}
+function bindRailPanel(main, rail) {
+  if (!rail || rail._panelBound) return;
+  rail._panelBound = true;
+  if (!main._railPressBound) {
+    main._railPressBound = true;
+    main.addEventListener('pointerdown', (e) => {
+      main._railTogglePress = !!e.target.closest?.('[data-lib-act="rail"]');
+    });
+    main.addEventListener('click', () => setTimeout(() => (main._railTogglePress = false)));
+  }
+  {
+    rail.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && state.rail && railOverlays(rail)) {
+        e.preventDefault();
+        e.stopPropagation();
+        setRail(main, false, { focusToggle: true });
+      }
+    });
+    rail.addEventListener('focusout', (e) => {
+      const to = e.relatedTarget;
+      if (!state.rail || !railOverlays(rail) || !to || rail.contains(to)) return;
+      // A pointer press on the toggle closes the rail through its own click;
+      // Tab onto the toggle is leaving the rail like any other move.
+      if (main._railTogglePress && to.closest?.('[data-lib-act="rail"]')) return;
+      setRail(main, false);
+    });
+  }
+}
 async function fillRail(root, activeId) {
   const scroll = root.querySelector('.lib-rail-scroll');
   if (!scroll) return;
+  bindRailPanel(root, root.querySelector('.lib-rail'));
   try {
     const { collections } = await lib.collections();
     railRows = collections
@@ -879,14 +935,7 @@ function bind(main) {
       } else if (act === 'go') {
         lib.go(el.dataset.sub || '');
       } else if (act === 'rail') {
-        state.rail = !state.rail;
-        main.querySelector('.lib-rail').hidden = !state.rail;
-        main.querySelectorAll('.lib-topline [data-lib-act="rail"]').forEach((b) => {
-          b.setAttribute('aria-expanded', String(state.rail));
-          b.setAttribute('aria-label', `${state.rail ? 'Collapse' : 'Open'} collections rail`);
-          b.innerHTML = icon(state.rail ? 'panel-left-close' : 'panel-left-open', 18);
-        });
-        if (state.rail) drawRail(main, currentCollection());
+        setRail(main, !state.rail);
       } else if (act === 'rail-retry') {
         fillRail(main, currentCollection());
       } else if (act === 'more') {
