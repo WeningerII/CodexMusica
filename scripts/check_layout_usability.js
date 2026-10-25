@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global document, window, MutationObserver, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -228,6 +228,143 @@ async function noOverflow(page) {
         'PASS layout usability at ' +
           width +
           'px: tree, labels, editor, panes, menus, lyrics, embedded/standalone map, short viewport'
+      );
+      await context.close();
+    }
+    // Error and empty states: a Retry keeps the keyboard and says what
+    // happened; Genre's no-match is said once; a link that matched nothing
+    // says so instead of redirecting silently.
+    {
+      const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+      await context.route('https://mcp.codexmusica.com/**', (route) =>
+        route.fulfill({ contentType: 'application/json', body: '{"ok":true,"enabled":true}' })
+      );
+      let engineDown = true;
+      await context.route('**/engine.json*', (route) =>
+        engineDown ? route.abort('internetdisconnected') : route.continue()
+      );
+      const page = await context.newPage();
+      const toasts = () => page.evaluate(() => window.__toasts || []);
+      await page.addInitScript(() => {
+        window.__toasts = [];
+        document.addEventListener('DOMContentLoaded', () => {
+          const t = document.getElementById('toast');
+          if (t)
+            new MutationObserver(() => {
+              const text = t.textContent.trim();
+              if (text && window.__toasts[window.__toasts.length - 1] !== text)
+                window.__toasts.push(text);
+            }).observe(t, { childList: true, characterData: true, subtree: true });
+        });
+      });
+      // Instrument: Retry while the data is still down, then once it is back.
+      await page.goto(base + '/codex.html#instrument');
+      const retry = page.locator('#instrument-body [data-ui="engine-retry"]');
+      await retry.waitFor({ timeout: 20000 });
+      await retry.focus();
+      await page.keyboard.press('Enter');
+      await page.waitForTimeout(300);
+      await page
+        .locator('#instrument-body [data-engine-pending="failed"]')
+        .waitFor({ timeout: 20000 });
+      assert.deepEqual(
+        await page.evaluate(() => ({
+          focus: document.activeElement?.dataset?.ui || document.activeElement?.tagName,
+          words: /Still couldn/.test(
+            document.querySelector('#instrument-body [data-engine-pending]')?.textContent || ''
+          ),
+        })),
+        { focus: 'engine-retry', words: true },
+        'Instrument: a Retry that fails again keeps focus on Retry and says so'
+      );
+      engineDown = false;
+      await page.keyboard.press('Enter');
+      await page.locator('#instrument-body .ip-cat').first().waitFor({ timeout: 30000 });
+      assert.equal(
+        await page.evaluate(() => document.activeElement?.classList?.contains('ip-title')),
+        true,
+        'Instrument: a Retry that loads the data lands on the heading'
+      );
+      // Genre: typing a search that matches nothing says so once.
+      await page.getByRole('button', { name: 'Genre', exact: true }).first().click();
+      await page.locator('#genre-search').waitFor();
+      await page.evaluate(() => (window.__toasts.length = 0));
+      await page.locator('#genre-search').pressSequentially('zzqxv', { delay: 60 });
+      await page.waitForTimeout(900);
+      const said = (await toasts()).filter((t) => /No genres match/.test(t));
+      const live = await page.evaluate(
+        () => document.querySelector('#genre-list .cm-empty')?.getAttribute('role') ?? null
+      );
+      assert.deepEqual(
+        { said, live },
+        { said: ['No genres match “zzqxv”'], live: null },
+        'Genre: an empty search is said once, and the no-match block is not a live region'
+      );
+      // A link that matched nothing says so.
+      await page.goto(base + '/codex.html?miss=1#genre/zzqx_not_a_genre');
+      await page
+        .waitForFunction(
+          () => (window.__toasts || []).some((t) => /didn’t match a genre/.test(t)),
+          null,
+          { timeout: 15000 }
+        )
+        .catch(() => {});
+      assert.ok(
+        (await toasts()).some((t) => /didn’t match a genre/.test(t)),
+        'Routes: a genre link that matched nothing says so: ' + JSON.stringify(await toasts())
+      );
+      await page.goto(base + '/codex.html?miss=2#nonsense');
+      await page
+        .waitForFunction(
+          () => (window.__toasts || []).some((t) => /didn’t match a page/.test(t)),
+          null,
+          { timeout: 15000 }
+        )
+        .catch(() => {});
+      assert.ok(
+        (await toasts()).some((t) => /didn’t match a page/.test(t)),
+        'Routes: an unknown page link says so: ' + JSON.stringify(await toasts())
+      );
+      // The standalone map: Try again keeps the keyboard and says it in words.
+      let atlasDown = true;
+      await page.route('**/api/traditions/index.json', (route) =>
+        atlasDown ? route.abort('internetdisconnected') : route.continue()
+      );
+      await page.goto(base + '/atlas.html');
+      const again = page.locator('[data-act="reload"]');
+      await again.waitFor({ timeout: 20000 });
+      assert.doesNotMatch(
+        await page.locator('#loading').innerText(),
+        /Failed to fetch|\.json|\b\d{3}\b/,
+        'Map: a failed load says what happened in words, not a raw error'
+      );
+      await again.focus();
+      await page.keyboard.press('Enter');
+      await page.waitForFunction(
+        () => /Still couldn/.test(document.getElementById('loading')?.textContent || ''),
+        null,
+        { timeout: 20000 }
+      );
+      assert.equal(
+        await page.evaluate(
+          () => document.activeElement?.dataset?.act || document.activeElement?.tagName
+        ),
+        'reload',
+        'Map: a Try again that fails again keeps focus on Try again'
+      );
+      atlasDown = false;
+      await page.keyboard.press('Enter');
+      await page.locator('.rowbtn').first().waitFor({ state: 'attached', timeout: 30000 });
+      await page
+        .waitForFunction(() => document.activeElement?.id === 'search', null, { timeout: 5000 })
+        .catch(() => {});
+      assert.equal(
+        await page.evaluate(() => document.activeElement?.id || document.activeElement?.tagName),
+        'search',
+        'Map: a Try again that loads the map lands on the search'
+      );
+      console.log(
+        'PASS error states at 1280px: Retry focus and words, empty search said once, unmatched links said'
       );
       await context.close();
     }

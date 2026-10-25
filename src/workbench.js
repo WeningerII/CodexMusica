@@ -1105,6 +1105,8 @@ function uiStart() {
   );
   window.addEventListener('hashchange', () => {
     const { view, sub } = uiRouteOf(location.hash);
+    const miss = uiRouteMiss({ view, sub }, false);
+    if (miss) showToast(miss);
     if (!UI_PAGES[view]) return;
     if (view !== UI.view) uiNavigate(view, { sub });
     // Back/Forward within one page: its own route, without refocusing the
@@ -1159,8 +1161,28 @@ function uiStart() {
   if (deep && !UI_PAGES[route.view] && Tradition(deep)) {
     UI.genre = Tradition(deep).id; // an old link to a merged tradition opens the survivor
     uiNavigate('genre');
-  } else if (UI_PAGES[route.view]) uiNavigate(route.view, { sub: route.sub });
-  else uiNavigate('genre');
+  } else {
+    if (UI_PAGES[route.view]) uiNavigate(route.view, { sub: route.sub });
+    else uiNavigate('genre');
+    const miss = uiRouteMiss(route, true);
+    if (miss) showToast(miss);
+  }
+}
+// A link that matched nothing still lands somewhere (the genres, or the page
+// without its sub-route); this says so once, instead of redirecting silently.
+// `boot`: an unknown page was redirected to the genres (a hashchange to one
+// is not). The Library resolves its own sub-routes and says so itself.
+function uiRouteMiss({ view, sub }, boot) {
+  if (!view) return '';
+  if (!UI_PAGES[view])
+    return boot
+      ? 'That link didn’t match a page, so here are the genres.'
+      : 'That link didn’t match a page.';
+  if (!sub || UI_PAGES[view].route) return '';
+  if (view === 'genre') return 'That link didn’t match a genre, so here are all genres.';
+  if (view === 'instrument')
+    return 'That link didn’t match an instrument, so here are all instruments.';
+  return 'That link didn’t match anything on this page, so here it is.';
 }
 
 // ── Layers ── Escape closes the topmost open layer only and returns focus to

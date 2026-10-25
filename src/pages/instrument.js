@@ -24,6 +24,7 @@
 // Page-private state. UI.instrumentFamily / UI.instrumentClass /
 // UI.instrumentPreview are this page's shell-visible state.
 const IP = {
+  retryFocus: false, // a Retry was pressed: the next render places focus (ipRenderEnginePending)
   sort: 'name',
   view: null, // UILayout.remember preference: 'rows' | 'list'
   manifest: null, // CODEX_IMAGE_MANIFEST (see ipLoadManifest)
@@ -294,11 +295,29 @@ function ipRenderEnginePending(host) {
   $ui('ip-total').textContent = '';
   // A stale file (another deploy's) cannot load by retrying: say so, and offer
   // a reload instead.
-  host.innerHTML = stale
-    ? `<div class="cm-status" role="status" data-engine-pending="failed">This page is out of date for the instrument data. ${uiButton('engine-reload', 'Reload', 'refresh-cw', 'class="cm-btn gp-linkbtn"')}</div>`
+  const retried = IP.retryFocus;
+  const inner = stale
+    ? `This page is out of date for the instrument data. ${uiButton('engine-reload', 'Reload', 'refresh-cw', 'class="cm-btn gp-linkbtn"')}`
     : failed
-      ? `<div class="cm-status" role="status" data-engine-pending="failed">Couldn’t load the instruments. ${uiButton('engine-retry', 'Retry', 'refresh-cw', 'class="cm-btn gp-linkbtn"')}</div>`
-      : '<div class="cm-status" role="status" data-engine-pending="instruments">Loading the instruments…</div>';
+      ? `${retried ? 'Still couldn’t load the instruments. Check your connection and try again.' : 'Couldn’t load the instruments.'} ${uiButton('engine-retry', 'Retry', 'refresh-cw', 'class="cm-btn gp-linkbtn"')}`
+      : 'Loading the instruments…';
+  const kind = failed ? 'failed' : 'instruments';
+  // The status is kept and its words replaced, so it stays one live region a
+  // screen reader hears change; a status inserted fresh is not read.
+  const status =
+    host.childElementCount === 1 && host.querySelector(':scope > [data-engine-pending]');
+  if (status) {
+    status.dataset.enginePending = kind;
+    status.innerHTML = inner;
+  } else
+    host.innerHTML = `<div class="cm-status" role="status" tabindex="-1" data-engine-pending="${kind}">${inner}</div>`;
+  // A Retry replaced itself: keep focus on the new Retry, or on the status
+  // while the data loads, rather than on the page.
+  if (retried) {
+    const again = host.querySelector('[data-ui="engine-retry"]');
+    if (again) IP.retryFocus = false;
+    uiFocus(again || host.querySelector('[data-engine-pending]'));
+  }
   if (!failed) Engine.ensure().catch(() => {});
 }
 function renderInstrumentDiscovery() {
@@ -316,6 +335,11 @@ function renderInstrumentDiscovery() {
   host.classList.toggle('ip-cats-open', IP.catsOpen);
   host.innerHTML = ipRenderCategories(scope, q, filters) + ipRenderList(filtered, fam, q, filters);
   uiRowsRestore(host, keep);
+  // A Retry that loaded the data lands on the heading, which says how many.
+  if (IP.retryFocus) {
+    IP.retryFocus = false;
+    uiFocus(document.querySelector('#ip-root .ip-title'));
+  }
   if (changed && UI.instrumentPreview) ipRebuild();
 }
 function ipRenderCategories(scope, q, filters) {
@@ -973,7 +997,7 @@ uiRegisterPage({
   recipe: 'dock',
   mount(surface) {
     IP.view = UILayout.remember('instrument-view', 'rows', () => renderInstrumentDiscovery());
-    surface.innerHTML = `<div class="ip" id="ip-root"><header class="ip-head"><h1 class="ip-title">Instruments <span id="ip-total" class="ip-total"></span></h1><label class="cm-search ip-search">${icon('search', 20)}<input id="instrument-search" type="search" placeholder="Search instruments" aria-label="Search instruments"></label><label class="ip-field destination"><span>Add to</span><select id="instrument-destination" class="cm-select" aria-label="Add instrument to"></select></label></header><div id="instrument-body" class="ip-body"></div><aside id="instrument-preview" class="ip-inspector" aria-label="Instrument preview"></aside></div>`;
+    surface.innerHTML = `<div class="ip" id="ip-root"><header class="ip-head"><h1 class="ip-title" tabindex="-1">Instruments <span id="ip-total" class="ip-total"></span></h1><label class="cm-search ip-search">${icon('search', 20)}<input id="instrument-search" type="search" placeholder="Search instruments" aria-label="Search instruments"></label><label class="ip-field destination"><span>Add to</span><select id="instrument-destination" class="cm-select" aria-label="Add instrument to"></select></label></header><div id="instrument-body" class="ip-body"></div><aside id="instrument-preview" class="ip-inspector" aria-label="Instrument preview"></aside></div>`;
     $ui('instrument-search').addEventListener('input', () => {
       UI.limit = 50;
       renderInstrumentDiscovery();
@@ -1120,6 +1144,7 @@ uiRegisterPage({
   },
   actions: {
     'engine-retry'() {
+      IP.retryFocus = true;
       Engine.ensure().catch(() => {});
       renderInstrumentDiscovery();
     },

@@ -304,71 +304,97 @@
       });
     };
 
-    var sources = INLINE
-      ? Promise.resolve([
-          INLINE.index,
-          INLINE.geo,
-          INLINE.sigs,
-          INLINE.world,
-          INLINE.treeMap,
-          INLINE.nodes,
-          INLINE.routes,
-          INLINE.threads,
-          INLINE.meta,
-        ])
-      : Promise.all([
-          get('api/traditions/index.json'),
-          get('data/atlas-geo.json'),
-          get('references/_tradition_signatures.json'),
-          get('data/countries.geo.json'),
-          get('data/tree-map.json'),
-          get('data/tree-nodes.json'),
-          get('data/routes.json'),
-          get('data/threads.json'),
-          get('data/geo-meta.json'),
-        ]);
+    // A function, so Try again can ask again without reloading the page.
+    var sources = function () {
+      return INLINE
+        ? Promise.resolve([
+            INLINE.index,
+            INLINE.geo,
+            INLINE.sigs,
+            INLINE.world,
+            INLINE.treeMap,
+            INLINE.nodes,
+            INLINE.routes,
+            INLINE.threads,
+            INLINE.meta,
+          ])
+        : Promise.all([
+            get('api/traditions/index.json'),
+            get('data/atlas-geo.json'),
+            get('references/_tradition_signatures.json'),
+            get('data/countries.geo.json'),
+            get('data/tree-map.json'),
+            get('data/tree-nodes.json'),
+            get('data/routes.json'),
+            get('data/threads.json'),
+            get('data/geo-meta.json'),
+          ]);
+    };
+    load(false);
 
-    sources
-      .then(function (r) {
-        ingest(r[0], r[1].coords, r[2], r[3], r[4], r[5], r[6], r[7], r[8], r[1].no_fixed_origin);
-        setupCanvas();
-        wireControls();
-        $('loading').textContent = S.pts.length + ' traditions loaded.';
-        $('loading').classList.add('sr-only');
-        renderProvenance();
-        renderLegend();
-        renderThreads();
-        renderRoutes();
-        // Docked on a wide map, Genres starts open as the full legend.
-        if (!overlay()) setPanel('territories');
-        syncList();
-        syncControls();
-        loadImages();
-        var deep = new URLSearchParams(location.search).get('trad');
-        if (deep && !S.byId[deep] && S.aliasOf[deep]) deep = S.aliasOf[deep];
-        if (deep && S.byId[deep]) {
-          select(S.byId[deep]);
-          flyTo(S.byId[deep]);
-        }
-      })
-      .catch(function (err) {
-        el.count.textContent = 'Not loaded';
-        $('loading').classList.remove('sr-only');
-        $('loading').innerHTML =
-          '<div class="cm-empty" data-tone="danger"><strong>The map did not load.</strong>' +
-          '<span>' +
-          esc(err && err.message ? err.message : 'The catalog could not be fetched.') +
-          '</span><span class="cm-empty-actions"><button type="button" data-act="reload">Try again</button>' +
-          '<a href="api/all.json">Every recipe as JSON</a></span></div>';
-        var again = document.querySelector('[data-act="reload"]');
-        if (again)
-          again.addEventListener('click', function () {
-            location.reload();
-          });
-        el.list.innerHTML =
-          '<p class="list-empty">The catalog did not load. Every recipe is still available at ' +
-          '<a href="api/all.json">api/all.json</a>.</p>';
-      });
+    // `retrying`: Try again was pressed, so this attempt places focus (on the
+    // search once the map is here, on the new Try again if it fails again).
+    function load(retrying) {
+      sources()
+        .then(function (r) {
+          // From here the map is being built: a failure past this point cannot
+          // be retried in place, so Try again reloads the page instead.
+          S.building = true;
+          ingest(r[0], r[1].coords, r[2], r[3], r[4], r[5], r[6], r[7], r[8], r[1].no_fixed_origin);
+          setupCanvas();
+          wireControls();
+          $('loading').textContent = S.pts.length + ' traditions loaded.';
+          $('loading').classList.add('sr-only');
+          renderProvenance();
+          renderLegend();
+          renderThreads();
+          renderRoutes();
+          // Docked on a wide map, Genres starts open as the full legend.
+          if (!overlay()) setPanel('territories');
+          syncList();
+          syncControls();
+          loadImages();
+          var deep = new URLSearchParams(location.search).get('trad');
+          if (deep && !S.byId[deep] && S.aliasOf[deep]) deep = S.aliasOf[deep];
+          if (deep && S.byId[deep]) {
+            select(S.byId[deep]);
+            flyTo(S.byId[deep]);
+          }
+          // Focus waited on the loading status, now hidden: move it to the search.
+          var waiting = document.activeElement;
+          if (retrying && (waiting === document.body || waiting === $('loading')))
+            el.search.focus();
+          $('loading').removeAttribute('tabindex');
+        })
+        .catch(function (err) {
+          // The detail (a URL and a status) is for the console; the page says
+          // what happened in words.
+          if (window.console) console.warn('[atlas] ' + (err && err.message ? err.message : err));
+          el.count.textContent = 'Not loaded';
+          $('loading').classList.remove('sr-only');
+          $('loading').innerHTML =
+            '<div class="cm-empty" data-tone="danger"><strong>The map did not load.</strong>' +
+            '<span>' +
+            (retrying ? 'Still couldn’t reach the server. ' : 'Couldn’t reach the server. ') +
+            'Check your connection and try again.</span><span class="cm-empty-actions"><button type="button" data-act="reload">Try again</button>' +
+            '<a href="api/all.json">Every recipe as JSON</a></span></div>';
+          var again = document.querySelector('[data-act="reload"]');
+          if (again) {
+            again.addEventListener('click', function () {
+              if (S.building) return location.reload();
+              $('loading').textContent = 'Loading the catalog…';
+              // Focus waits on the status while the catalog loads.
+              $('loading').setAttribute('tabindex', '-1');
+              $('loading').focus();
+              load(true);
+            });
+            if (retrying) again.focus();
+          }
+          el.list.innerHTML =
+            '<p class="list-empty">The catalog did not load. Every recipe is still available at ' +
+            '<a href="api/all.json">api/all.json</a>.</p>';
+        });
+    }
   }
 
   function ingest(idx, geo, sigs, world, treeMap, nodes, routes, threads, meta, noOrigin) {
