@@ -5158,6 +5158,8 @@ await check('validation: actionable errors', () => {
         'localhost HTTP kitchen repair and durable receipt integration regressions',
       'mcp/test_job_store.mjs': 'offline durable recovery regressions',
       'mcp/test_chat_production.mjs': 'offline authoritative delivery and task routing regressions',
+      'mcp/test_revise_repeat_guard.mjs':
+        'offline repeated-revise guard and writer-dispatch count regressions',
       'mcp/test_lyrics_evidence_binding.mjs':
         'offline authenticated evidence-binding regression suite, not a production entry point',
       'mcp/test_connector_contracts.mjs': 'offline connector and release contract regressions',

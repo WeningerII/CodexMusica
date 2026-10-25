@@ -24,6 +24,7 @@ import {
 import { decodeState } from './state_codec.js';
 import { requestContext } from './execution_context.js';
 import { toGeminiDeclarations, WORKSPACE_PROPERTY, STATE_PROPERTY } from './gemini_tools.js';
+import { draftFromText, normalizeDraftLines } from './lyric_text.js';
 
 export const API_BASE = 'https://generativelanguage.googleapis.com/v1beta';
 
@@ -240,6 +241,92 @@ function addUsage(into, meta) {
   into.thoughtsTokens += meta.thoughtsTokenCount || 0;
   into.requests += 1;
   return into;
+}
+
+// THE REPEAT GUARD (BB8 Q1, #519). A model that calls lyric_revise again
+// for work that already completed — in this request, or in an earlier turn of
+// the same signed conversation — asks the paid writer the questions it just
+// answered: one measured request ran 40 such revises, 160 writer calls,
+// stopped only by the turn's dollar and time ceilings. The repeat is answered
+// from the earlier result instead, with nothing dispatched.
+// The key is the EFFECTIVE work: the arguments as they are about to be
+// dispatched (after the carried run's declarations, draft and writer are
+// applied), with the draft read as the tools read it (`lyric_text.js`: blank
+// rows and [SECTION] rows are not sung lines, in either spelling). Run
+// coordinates (state, checkpoint, run_id, run_revision, recovery_part,
+// writer) are not part of it; an explicit `new_run` restart has no key and
+// always runs. The key rides back on the completed result as `repeat_key`
+// (kept by the history stub), which is how a later turn recognises it.
+const REPEAT_VOLATILE = new Set([
+  STATE_PROPERTY,
+  WORKSPACE_PROPERTY,
+  'checkpoint',
+  'run_id',
+  'run_revision',
+  'recovery_part',
+  'writer',
+  'repeat_key',
+]);
+function canonicalJson(v) {
+  if (Array.isArray(v)) return '[' + v.map(canonicalJson).join(',') + ']';
+  if (v && typeof v === 'object')
+    return (
+      '{' +
+      Object.keys(v)
+        .sort()
+        .map((k) => JSON.stringify(k) + ':' + canonicalJson(v[k]))
+        .join(',') +
+      '}'
+    );
+  return JSON.stringify(v ?? null);
+}
+export function reviseRepeatKey(name, args) {
+  if (name !== 'lyric_revise' || !args || typeof args !== 'object') return null;
+  if (args.recover_only === true || args.new_run === true) return null;
+  const draft = Array.isArray(args.draft)
+    ? normalizeDraftLines(args.draft)
+    : typeof args.draft_text === 'string'
+      ? draftFromText(args.draft_text)
+      : null;
+  // A call that leaves the draft to the carried run is a continuation, keyed
+  // by the run itself (the ledger), not here.
+  if (!draft) return null;
+  const decl = {};
+  for (const k of Object.keys(args))
+    if (!REPEAT_VOLATILE.has(k) && k !== 'draft' && k !== 'draft_text') decl[k] = args[k];
+  return createHash('sha256').update(canonicalJson({ draft, decl })).digest('hex').slice(0, 32);
+}
+// Where a lyric_revise functionResponse keeps its verdict: under `verdict`
+// for a two-block result, the response itself for one block or a stub.
+const reviseVerdictOf = (response) =>
+  response?.verdict && typeof response.verdict === 'object' ? response.verdict : response || {};
+// The lyric_revise calls a signed history shows completed, by the
+// `repeat_key` their results carry. A refused or failed call carries none.
+export function completedRevises(contents) {
+  const done = new Map();
+  for (const c of contents || [])
+    for (const part of c?.parts || []) {
+      const fr = part?.functionResponse;
+      if (fr?.name !== 'lyric_revise' || fr.response?.error != null) continue;
+      const verdict = reviseVerdictOf(fr.response);
+      if (typeof verdict.repeat_key !== 'string') continue;
+      done.set(verdict.repeat_key, {
+        where: 'an earlier turn of this conversation',
+        status: verdict.status ?? null,
+        exit_code: verdict.exit_code ?? null,
+        final_draft: Array.isArray(verdict.final_draft) ? verdict.final_draft : null,
+      });
+    }
+  return done;
+}
+function repeatNote(earlier) {
+  const song = earlier.final_draft ? ` Its song: ${JSON.stringify(earlier.final_draft)}.` : '';
+  return (
+    `ALREADY_DONE: this lyric_revise asks for the same work (draft and declarations) as one that already completed in ${earlier.where}` +
+    `${earlier.status ? ` (status ${earlier.status}${earlier.exit_code != null ? `, exit ${earlier.exit_code}` : ''})` : ''}. ` +
+    `Nothing was run and the writer was not asked again; that result stands.${song} ` +
+    'To go further, send a draft you changed yourself (rewrite the lines that result left open), change a declaration, or ask the user what to change.'
+  );
 }
 
 // The tool result is an MCP content block: `[{type:'text', text:'<json>'}]`, and
@@ -1409,6 +1496,8 @@ function buildSystemInstruction(surface, lyr, record = null, task = null) {
 const PRUNED_FAMILY = /^lyric_/;
 const STUB_FIELDS = [
   'exit_code',
+  // The repeat guard's key (BB8 Q1): a stubbed revise is still recognised.
+  'repeat_key',
   'status',
   'kind',
   'meaning',
@@ -1589,6 +1678,8 @@ export async function runTurn({
     ? pruneHistory(history, { keepTurns: limits.pruneKeepTurns, maxBytes: limits.pruneMaxBytes })
     : history;
   const contents = [...prior, { role: 'user', parts: [{ text: userText }] }];
+  // The revises this conversation already completed (the repeat guard).
+  const revisesDone = completedRevises(prior);
   let safeHistory = [...contents];
   let safeWorkspace = workspace;
   let safeLyric = lyric;
@@ -1602,6 +1693,16 @@ export async function runTurn({
     malformedRetries: 0,
     kitchenUsd: 0,
     kitchenUnpriced: false,
+    // Revise work this request admitted (BB8 Q1). reviseDispatched counts
+    // every lyric_revise sent to the tool, before it runs, whatever its
+    // outcome; reviseUnreported is the part of those that failed or did not
+    // report its writer calls, so writerCallsReported is a floor, not a
+    // total. reviseRepeated counts repeats answered without dispatch. Paid
+    // writer spend itself is admitted call by call by the operation budget.
+    reviseDispatched: 0,
+    reviseUnreported: 0,
+    writerCallsReported: 0,
+    reviseRepeated: 0,
   };
   const calls = [];
   let malformed = 0;
@@ -2196,6 +2297,32 @@ export async function runTurn({
           responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
           continue;
         }
+        // An exact repeat of completed work is answered here, after every
+        // carried field is applied and every refusal has spoken, so the key is
+        // the work this call would actually dispatch (BB8 Q1).
+        const revising = fc.name === 'lyric_revise' && !recoveryOnly;
+        const repeatKey = revising && !freshRun ? reviseRepeatKey(fc.name, args) : null;
+        const earlierRevise = repeatKey ? revisesDone.get(repeatKey) : null;
+        if (earlierRevise) {
+          const note = repeatNote(earlierRevise);
+          result = { isError: true, content: [{ type: 'text', text: note }] };
+          usage.reviseRepeated++;
+          calls.push({
+            name: fc.name,
+            args,
+            isError: true,
+            not_run: true,
+            refused_by_connector: true,
+            repeat_of: earlierRevise.where,
+            error: note,
+          });
+          if (onEvent) onEvent({ type: 'tool', name: fc.name, isError: true, refused: true });
+          responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
+          continue;
+        }
+        // Counted at admission, before the call is sent: a revise that then
+        // fails or times out may still have used the writer.
+        if (revising) usage.reviseDispatched++;
         // A tool that fails — a timeout, a dropped transport — becomes an
         // ERROR RESULT the model can see and react to, never an exception
         // that kills the whole turn: under the old shape one slow call
@@ -2401,6 +2528,20 @@ export async function runTurn({
               calls: calls.length + 1,
             };
           }
+          if (revising) {
+            if (!isError && typeof lyricVerdict?.proposer_calls === 'number')
+              usage.writerCallsReported += lyricVerdict.proposer_calls;
+            else usage.reviseUnreported++;
+            if (repeatKey && !isError)
+              revisesDone.set(repeatKey, {
+                where: 'this request',
+                status: lyricVerdict?.status ?? null,
+                exit_code: lyricVerdict?.exit_code ?? null,
+                final_draft: Array.isArray(lyricVerdict?.final_draft)
+                  ? lyricVerdict.final_draft
+                  : null,
+              });
+          }
           if (lyricVerdict?.proposer_calls > 0) {
             const kitchenCost =
               typeof lyricVerdict.proposer_cost_usd === 'number'
@@ -2476,7 +2617,11 @@ export async function runTurn({
               ],
             }
           : result;
-        responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, observation) });
+        const functionResponse = toFunctionResponse(fc.name, fc.id, observation);
+        // The completed revise carries its key into the signed history.
+        if (repeatKey && !isError && functionResponse.response?.error == null)
+          reviseVerdictOf(functionResponse.response).repeat_key = repeatKey;
+        responses.push({ functionResponse });
         if (onCheckpoint && responses.length < functionCalls.length) {
           // A crash during the next tool must not erase this completed one.
           // Close a COPY of the current model group for recovery, explicitly
