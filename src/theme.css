@@ -304,6 +304,20 @@ html[data-theme] body {
   padding: 8px;
 }
 
+/* Read by assistive technology, not shown: a page's own heading where the
+   design shows none (WCAG 1.3.1 / 2.4.6). */
+.cm-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* Fields. */
 .cm-input,
 .cm-select {

@@ -851,7 +851,7 @@ function gpRenderMain() {
     ]
       .map(
         ([k, l, ic]) =>
-          `<button type="button" data-ui="genre-layout" data-id="${k}" aria-pressed="${layout === k}">${icon(ic, 16)}<span>${l}</span></button>`
+          `<button type="button" data-ui="genre-layout" data-id="${k}" aria-pressed="${layout === k}" aria-label="${l}">${icon(ic, 16)}<span>${l}</span></button>`
       )
       .join('')}</div>`;
   // A search always shows its results (All genres), however it was set.

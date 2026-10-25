@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global document, lyErr, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -111,6 +111,43 @@ async function noOverflow(page) {
       // The genre catalogue: cards in Rows (the default), rows in List.
       await page.locator('.catalog-row, .cm-tile').first().waitFor();
       await noOverflow(page);
+      // What a screen reader is told (Jony #22-#24, #26 on #519): every page
+      // has its own h1, there is one main landmark, a layout button has a name
+      // when its label is hidden, and a field's error joins its help text.
+      if (width === 360 || width === 1280) {
+        for (const name of ['Rows', 'List'])
+          assert.equal(
+            (await page.getByRole('button', { name, exact: true }).count()) > 0,
+            true,
+            `Genre: the ${name} layout button has an accessible name at ${width}px`
+          );
+      }
+      if (width === 1280) {
+        for (const view of ['Genre', 'Instrument', 'Map', 'Lyrics']) {
+          await page.getByRole('button', { name: view, exact: true }).first().click();
+          await page.waitForTimeout(400);
+          const marks = await page.evaluate((v) => {
+            const surface = document.getElementById('surface-' + v.toLowerCase());
+            return {
+              h1: surface ? surface.querySelectorAll('h1').length : -1,
+              main: document.querySelectorAll('main, [role="main"]').length,
+            };
+          }, view);
+          assert.ok(marks.h1 >= 1, `${view}: the page has an h1 (${JSON.stringify(marks)})`);
+          assert.equal(
+            marks.main,
+            1,
+            `${view}: exactly one main landmark (${JSON.stringify(marks)})`
+          );
+        }
+        assert.match(
+          await page.evaluate(() => lyErr({ errors: { lines: 'x' } }, 'lines', 'ly-f-lines-help')),
+          /aria-describedby="ly-f-lines-help ly-err-lines"/,
+          'Lyrics: an error joins the field help in one aria-describedby'
+        );
+        await page.getByRole('button', { name: 'Genre', exact: true }).first().click();
+        await page.locator('.catalog-row, .cm-tile').first().waitFor();
+      }
       await page.getByRole('button', { name: 'Browse tree', exact: true }).click();
       const tree = page.locator('.inline-tree > .modal');
       assert.equal(
