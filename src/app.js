@@ -18802,7 +18802,8 @@ function normalizeSearch(s) {
 // joined one, so "Add instrument to tradition" visibly confirms WHERE the
 // instrument landed rather than just that something was added.
 function _addedInstrumentMessage(instrumentId, card) {
-  const name = Inst(instrumentId)?.short || instrumentId;
+  // The display name: `short` is a catalog key, often lowercase ("voice").
+  const name = Inst(instrumentId)?.name || instrumentId;
   const trad = card && card.traditionId ? Tradition(card.traditionId) : null;
   return trad ? `Added ${name} to ${trad.name}` : `Added ${name}`;
 }

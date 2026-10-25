@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global window, document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame, app, UI, uiAddGenre, uiNavigate, renderRecipeStack, openModal, closeModal, toastTimed, toastDeadline, hideToast, showToast, ipAnnounce, ipRenderInspector, uiCloseInstrumentPreview, MutationObserver, chatState, Element */
+/* global window, document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame, app, UI, uiAddGenre, uiNavigate, renderRecipeStack, openModal, closeModal, toastTimed, toastDeadline, hideToast, showToast, ipAnnounce, ipRenderInspector, uiCloseInstrumentPreview, MutationObserver, chatState, Element, InstLite, uiInspectInstrument */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -2198,6 +2198,200 @@ async function editorKeyboard(page, where) {
       );
       await context.close();
       console.log('PASS map keyboard and genre prose Retry at 1280px');
+    }
+    {
+      // Genre › Instruments: the destination is named on each Add and its
+      // note is tied to the select and said once; the toast names the
+      // instrument; the Instrument inspector's Similar items are a list.
+      const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+      await context.route('https://mcp.codexmusica.com/**', (route) =>
+        route.fulfill({ contentType: 'application/json', body: '{"ok":true,"enabled":true}' })
+      );
+      const page = await context.newPage();
+      const errors = [];
+      page.on('pageerror', (e) => errors.push(e.message));
+      await page.goto(base + '/codex.html');
+      await page.locator('.catalog-row, .cm-tile').first().waitFor();
+      // Find a sound speaks once a change settles: the targets and the count,
+      // not the same status sentence on every step (Jony #110).
+      await page.locator('#surface-genre input[type="range"][data-axis]:visible').first().waitFor();
+      assert.equal(
+        await page.locator('#gp-sound-status').getAttribute('role'),
+        null,
+        'Find a sound: the visible status line is not itself a live region'
+      );
+      const slider = page.locator('#surface-genre input[type="range"][data-axis]:visible').first();
+      await slider.focus();
+      for (let k = 0; k < 3; k++) await page.keyboard.press('ArrowRight');
+      await page.waitForTimeout(900);
+      assert.match(
+        await page.evaluate(() => document.getElementById('gp-live')?.textContent || ''),
+        /^1 target applied\. [\d,]+ genres?\.$/,
+        'Find a sound: one line with the targets and the result count after the steps settle'
+      );
+      await page.locator('#surface-genre [data-ui="genre-sound-reset"]').first().click();
+      await page.waitForTimeout(900);
+      assert.match(
+        await page.evaluate(() => document.getElementById('gp-live')?.textContent || ''),
+        /^Sound targets cleared\./,
+        'Find a sound: Reset says the targets were cleared'
+      );
+      await page.getByLabel('Search genres').fill('Delta blues');
+      await page.locator('[data-ui="genre-select"]').first().click();
+      await page.locator('#gp-tab-instruments').click();
+      const select = page.locator('#gp-inst-dest');
+      await select.waitFor();
+      const first = page.locator('[data-ui="genre-inst-add"]').first();
+      const before = await page.evaluate(() => ({
+        described: document.getElementById('gp-inst-dest').getAttribute('aria-describedby'),
+        live: document.getElementById('gp-inst-dest-note')?.getAttribute('aria-live'),
+      }));
+      assert.deepEqual(
+        before,
+        { described: 'gp-inst-dest-note', live: 'polite' },
+        'Genre instruments: the destination note is tied to the select and announced'
+      );
+      assert.match(
+        (await first.getAttribute('aria-label')) || '',
+        /^Add .+ to (?!the chosen destination).+$/,
+        'Genre instruments: each Add names its destination'
+      );
+      await select.selectOption('');
+      await page.waitForTimeout(500);
+      assert.equal(
+        await page.evaluate(() => document.getElementById('gp-inst-dest-note').textContent),
+        'Added on its own, outside any genre group.',
+        'Genre instruments: choosing "on its own" updates the note'
+      );
+      assert.match(
+        (await first.getAttribute('aria-label')) || '',
+        /^Add .+ on its own$/,
+        'Genre instruments: Add says it adds on its own'
+      );
+      const id = await first.getAttribute('data-id');
+      await first.click();
+      await page.waitForFunction(
+        () => /Added/.test(document.getElementById('toast').textContent),
+        null,
+        {
+          timeout: 20000,
+        }
+      );
+      const toast = await page.evaluate(
+        (i) => ({
+          text: document.getElementById('toast').textContent,
+          name: InstLite(i)?.name,
+        }),
+        id
+      );
+      assert.ok(
+        toast.name && toast.text.includes('Added ' + toast.name),
+        'Toast: an added instrument is named by its display name: ' + JSON.stringify(toast)
+      );
+      await page.getByRole('button', { name: 'Instrument', exact: true }).first().click();
+      await page.locator('#surface-instrument .cm-tile-name').first().click();
+      await page.locator('#ip-similar').waitFor();
+      assert.ok(
+        (await page.locator('#ip-similar').getByRole('listitem').count()) > 0 &&
+          (await page.locator('#ip-similar').getByRole('listitem').count()) ===
+            (await page.locator('#ip-similar .ip-sim-main').count()),
+        'Instrument: Similar instruments are a list, one item per instrument'
+      );
+      assert.equal(
+        await page.locator('#ip-similar ul').first().getAttribute('role'),
+        'list',
+        'Instrument: the unstyled Similar list keeps its list role (Safari)'
+      );
+      // The inspector's own Add names the instrument by its display name too
+      // (Jony #111: "Added aburukuwa…", its internal short key).
+      const odd = await page.evaluate(
+        () =>
+          Object.keys(window.INSTRUMENT_INDEX || {}).find((i) => {
+            const x = InstLite(i);
+            return x && x.short && x.name && x.short !== x.name;
+          }) || 'aburukuwa'
+      );
+      await page.evaluate((i) => uiInspectInstrument(i), odd);
+      await page.locator('[data-ui="ip-add-configured"]').waitFor();
+      await page.evaluate(() => (document.getElementById('toast').textContent = ''));
+      await page.locator('[data-ui="ip-add-configured"]').click();
+      await page.waitForFunction(
+        () => /Added/.test(document.getElementById('toast').textContent),
+        null,
+        {
+          timeout: 20000,
+        }
+      );
+      const added = await page.evaluate(
+        (i) => ({ text: document.getElementById('toast').textContent, name: InstLite(i)?.name }),
+        odd
+      );
+      assert.ok(
+        added.name && added.text.includes('Added ' + added.name),
+        'Inspector Add: the toast names the display name: ' + JSON.stringify(added)
+      );
+      assert.deepEqual(errors, [], 'No browser errors');
+      console.log('PASS genre instruments destination, add toast name, similar list at 1280px');
+      await context.close();
+    }
+    for (const width of [1280, 390]) {
+      // Back from a page lands where that page was left (the Inspect button
+      // that opened the Instrument page), and Forward on the page's nav
+      // button: never on BODY (body carries data-view too).
+      const context = await browser.newContext({ viewport: { width, height: 900 } });
+      await context.route('https://mcp.codexmusica.com/**', (route) =>
+        route.fulfill({ contentType: 'application/json', body: '{"ok":true,"enabled":true}' })
+      );
+      const page = await context.newPage();
+      const errors = [];
+      page.on('pageerror', (e) => errors.push(e.message));
+      await page.goto(base + '/codex.html#genre/delta_blues');
+      await page.locator('#gp-tab-instruments').click();
+      const inspect = page.locator('[data-ui="instrument-inspect"]').first();
+      const id = await inspect.getAttribute('data-id');
+      await inspect.focus();
+      await page.keyboard.press('Enter');
+      await page.locator('#ip-title').waitFor();
+      const focused = () =>
+        page.evaluate(() => {
+          const a = document.activeElement;
+          return {
+            tag: a.tagName,
+            ui: a.dataset.ui || '',
+            id: a.dataset.id || '',
+            view: a.dataset.view || '',
+          };
+        });
+      await page.goBack();
+      await page.waitForFunction(() => document.body.dataset.view === 'genre');
+      await settle(page);
+      assert.deepEqual(
+        await focused(),
+        { tag: 'BUTTON', ui: 'instrument-inspect', id, view: '' },
+        `Back to Genre at ${width}px: focus returns to the Inspect button that left it`
+      );
+      await page.goForward();
+      await page.waitForFunction(() => document.body.dataset.view === 'instrument');
+      await settle(page);
+      const f = await focused();
+      assert.ok(
+        f.tag !== 'BODY' && f.view === 'instrument',
+        `Forward to Instrument at ${width}px: focus lands on its nav button, not BODY: ` +
+          JSON.stringify(f)
+      );
+      // Back again, after Forward: the Inspect button again, not the
+      // Instrument nav button Forward left focus on.
+      await page.goBack();
+      await page.waitForFunction(() => document.body.dataset.view === 'genre');
+      await settle(page);
+      assert.deepEqual(
+        await focused(),
+        { tag: 'BUTTON', ui: 'instrument-inspect', id, view: '' },
+        `Back after Forward at ${width}px: focus returns to the Inspect button again`
+      );
+      assert.deepEqual(errors, [], 'No browser errors');
+      console.log(`PASS page Back/Forward focus at ${width}px`);
+      await context.close();
     }
   } finally {
     await browser.close();

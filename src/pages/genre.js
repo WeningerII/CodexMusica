@@ -486,16 +486,26 @@ function gpSoundProfile(id, ext) {
     ''
   )}</ul><div class="gp-detail-foot">${uiButton('genre-sound-from', 'Use as sound targets', 'sliders-horizontal', `class="cm-btn cm-btn-tonal" data-id="${esc(id)}" data-tooltip="Set all 13 Find a sound targets to this profile and list the genres within one step of it"`)}${uiButton('genre-tab', 'Similar sounds', 'arrow-right', `class="cm-btn gp-linkbtn" data-id="similar"`)}</div>`;
 }
+// What a single-instrument Add does with the chosen destination ('' is on
+// its own): the note under the select, and each Add button's name.
+function gpDestNote(dest) {
+  return dest
+    ? `Joins the ${Tradition(dest)?.name || dest} group in Your recipe${gpRecipeCount(dest) ? '' : ' (the group is created)'}.`
+    : 'Added on its own, outside any genre group.';
+}
+function gpDestAddLabel(name, dest) {
+  return dest ? `Add ${name} to ${Tradition(dest)?.name || dest}` : `Add ${name} on its own`;
+}
 function gpInstruments(id, t) {
   const insts = t.instruments || [];
   const others = uiRecipeGenres().filter((g) => g !== id);
   const dest = G.instDest[id] ?? id;
   const opt = (value, label) =>
     `<option value="${esc(value)}"${value === dest ? ' selected' : ''}>${esc(label)}</option>`;
-  return `<div class="gp-dest"><label for="gp-inst-dest">Add single instruments to</label><select id="gp-inst-dest" class="cm-select" data-genre="${esc(id)}">${opt(id, `${t.name} — set up as ${t.name} plays it`)}${others.map((g) => opt(g, `${Tradition(g)?.name || g} — set up as that genre plays it`)).join('')}${opt('', 'Independent instrument — default settings')}</select><span class="gp-note" id="gp-inst-dest-note">${dest ? `Joins the ${esc(Tradition(dest)?.name || dest)} group in Your recipe${gpRecipeCount(dest) ? '' : ' (the group is created)'}.` : 'Added on its own, outside any genre group.'}</span></div><ul class="gp-roster">${insts
+  return `<div class="gp-dest"><label for="gp-inst-dest">Add single instruments to</label><select id="gp-inst-dest" class="cm-select" data-genre="${esc(id)}" aria-describedby="gp-inst-dest-note">${opt(id, `${t.name} — set up as ${t.name} plays it`)}${others.map((g) => opt(g, `${Tradition(g)?.name || g} — set up as that genre plays it`)).join('')}${opt('', 'Independent instrument — default settings')}</select><span class="gp-note" id="gp-inst-dest-note" aria-live="polite">${esc(gpDestNote(dest))}</span></div><ul class="gp-roster">${insts
     .map((i) => {
       const name = InstLite(i)?.name || i;
-      return `<li class="gp-roster-row">${image(i, 30)}<button type="button" class="gp-link gp-roster-name" data-ui="instrument-inspect" data-id="${esc(i)}" aria-label="Inspect ${esc(name)} on the Instrument page">${esc(name)}</button>${listenLink(name, true)}${uiButton('genre-inst-add', 'Add', 'plus', `class="cm-btn cm-btn-tonal" data-id="${esc(i)}" data-genre="${esc(id)}" aria-label="Add ${esc(name)} to the chosen destination"`)}</li>`;
+      return `<li class="gp-roster-row">${image(i, 30)}<button type="button" class="gp-link gp-roster-name" data-ui="instrument-inspect" data-id="${esc(i)}" aria-label="Inspect ${esc(name)} on the Instrument page">${esc(name)}</button>${listenLink(name, true)}${uiButton('genre-inst-add', 'Add', 'plus', `class="cm-btn cm-btn-tonal" data-id="${esc(i)}" data-genre="${esc(id)}" data-name="${esc(name)}" aria-label="${esc(gpDestAddLabel(name, dest))}"`)}</li>`;
     })
     .join(
       ''
@@ -646,7 +656,36 @@ function gpFindSound() {
   const axes = AXIS_DEFINITIONS.filter(
     (ax) => G.allAxes || GP_FEATURED_AXES.includes(ax.id) || ax.id in G.targets
   ).sort((a, b) => rank(a) - rank(b));
-  return `<section class="gp-sound" aria-labelledby="gp-sound-title"><div class="gp-sec-head"><h2 id="gp-sound-title">${icon('sliders-horizontal', 18)}Find a sound</h2>${uiButton('genre-sound-reset', 'Reset', 'x', `class="cm-btn gp-linkbtn" ${applied ? '' : 'disabled'} aria-label="Clear all sound targets"`)}</div><div class="gp-axes">${axes.map(gpAxisControl).join('')}</div><p class="gp-note" id="gp-sound-status" role="status">${gpSoundStatus()}</p>${uiButton('genre-axes', G.allAxes ? 'Fewer characteristics' : `All ${AXIS_DEFINITIONS.length} characteristics`, 'chevron-down', `class="cm-btn gp-linkbtn gp-axes-toggle" aria-expanded="${G.allAxes}"`)}${uiButton('genre-sound-match', 'Match a sound', 'search', `class="cm-btn cm-btn-tonal gp-match" ${applied ? '' : 'disabled'} data-tooltip="Open the genre closest to your targets"`)}</section>`;
+  return `<section class="gp-sound" aria-labelledby="gp-sound-title"><div class="gp-sec-head"><h2 id="gp-sound-title">${icon('sliders-horizontal', 18)}Find a sound</h2>${uiButton('genre-sound-reset', 'Reset', 'x', `class="cm-btn gp-linkbtn" ${applied ? '' : 'disabled'} aria-label="Clear all sound targets"`)}</div><div class="gp-axes">${axes.map(gpAxisControl).join('')}</div><p class="gp-note" id="gp-sound-status">${gpSoundStatus()}</p>${uiButton('genre-axes', G.allAxes ? 'Fewer characteristics' : `All ${AXIS_DEFINITIONS.length} characteristics`, 'chevron-down', `class="cm-btn gp-linkbtn gp-axes-toggle" aria-expanded="${G.allAxes}"`)}${uiButton('genre-sound-match', 'Match a sound', 'search', `class="cm-btn cm-btn-tonal gp-match" ${applied ? '' : 'disabled'} data-tooltip="Open the genre closest to your targets"`)}</section>`;
+}
+// Find a sound speaks once a change settles: how many targets, and how many
+// genres the list now holds, or that the targets were cleared (Jony #110).
+// The visible status line is not a live region: rewritten on every slider
+// step, it re-spoke the same sentence each time and never said the count. One
+// persistent region outside the re-rendered page carries it.
+let gpSoundTimer = 0,
+  gpSoundSaid = '';
+function gpSoundAnnounceSoon() {
+  clearTimeout(gpSoundTimer);
+  gpSoundTimer = setTimeout(() => {
+    const n = gpTargets().length;
+    const count = ($ui('gp-count')?.textContent || '').split(' · ')[0].trim();
+    const text = n
+      ? `${uiCount(n, 'target')} applied.${count ? ' ' + count + '.' : ''}`
+      : `Sound targets cleared.${count ? ' ' + count + '.' : ''}`;
+    if (text === gpSoundSaid) return;
+    gpSoundSaid = text;
+    let live = $ui('gp-live');
+    if (!live) {
+      live = document.createElement('div');
+      live.id = 'gp-live';
+      live.className = 'gp-sr';
+      live.setAttribute('role', 'status');
+      document.body.append(live);
+    }
+    live.textContent = '';
+    setTimeout(() => (live.textContent = text), 50);
+  }, 500);
 }
 function gpSoundStatus() {
   const n = gpTargets().length;
@@ -685,6 +724,7 @@ function gpApplyAxis(input) {
   UI.limit = 50;
   gpListToTop();
   gpScheduleList();
+  gpSoundAnnounceSoon();
 }
 function gpSyncSoundHead() {
   const n = gpTargets().length;
@@ -1238,12 +1278,16 @@ uiRegisterPage({
       if (e.target.id === 'gp-inst-dest') {
         const genre = e.target.dataset.genre;
         G.instDest[genre] = e.target.value;
-        const note = $ui('gp-inst-dest-note');
         const dest = e.target.value;
-        if (note)
-          note.textContent = dest
-            ? `Joins the ${Tradition(dest)?.name || dest} group in Your recipe${gpRecipeCount(dest) ? '' : ' (the group is created)'}.`
-            : 'Added on its own, outside any genre group.';
+        // Each Add names where it adds; the note (a polite live region,
+        // updated in place) says it once the choice settles.
+        for (const b of surface.querySelectorAll('[data-ui="genre-inst-add"][data-name]'))
+          b.setAttribute('aria-label', gpDestAddLabel(b.dataset.name, dest));
+        clearTimeout(G.instDestTimer);
+        G.instDestTimer = setTimeout(() => {
+          const note = $ui('gp-inst-dest-note');
+          if (note) note.textContent = gpDestNote(dest);
+        }, 300);
       }
     });
     // A manifest image that fails to load falls back to the glyph beside it.
@@ -1373,12 +1417,14 @@ uiRegisterPage({
       UI.limit = 50;
       gpListToTop();
       renderGenreDiscovery();
+      gpSoundAnnounceSoon();
     },
     'genre-sound-reset'() {
       G.targets = {};
       UI.limit = 50;
       gpListToTop();
       renderGenreDiscovery();
+      gpSoundAnnounceSoon();
       uiFocus(document.querySelector('#surface-genre input[type="range"][data-axis]'));
     },
     'genre-sound-from'(id) {
