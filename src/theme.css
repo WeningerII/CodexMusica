@@ -610,12 +610,6 @@ html[data-theme] body {
   button.chain-stage[aria-expanded='true'] {
     border: 2px solid Highlight !important;
   }
-  /* Compare's changed characters are marked by background alone. */
-  #surface-library mark {
-    forced-color-adjust: none;
-    background: Mark !important;
-    color: MarkText !important;
-  }
   :focus-visible,
   #surface-lyrics .ly-input:focus {
     outline: 2px solid Highlight !important;

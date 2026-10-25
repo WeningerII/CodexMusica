@@ -17,3 +17,14 @@
   background: var(--cm-surface-subtle);
   margin-bottom: 16px;
 }
+
+/* Forced colours: compare's changed characters are marked by background
+   alone, which forced colours erase; use the system mark colours. (Here,
+   not in theme.css: a build without the Library carries none of it.) */
+@media (forced-colors: active) {
+  #surface-library mark {
+    forced-color-adjust: none;
+    background: Mark !important;
+    color: MarkText !important;
+  }
+}
