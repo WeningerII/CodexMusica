@@ -727,7 +727,13 @@ export function editRecipe(params = {}) {
         ...Object.keys(p.chain),
         ...p.clear,
       ];
-      if (target) envTargets.push({ edit: i, card: target, fields });
+      // Clearing removes a value; only concrete writes can remain stored but
+      // unrendered. Track their values so later clears/overwrites in this batch
+      // cannot turn a historical write into a false final-state warning.
+      const settings = Object.entries({ room: p.room, tuning: p.tuning, ...p.chain }).filter(
+        ([, value]) => value != null && value !== '' && (!Array.isArray(value) || value.length)
+      );
+      if (target) envTargets.push({ edit: i, card: target, fields, settings });
     }
     warnings.push(...environmentTransition(before, ws, i, e, target));
   }
@@ -772,16 +778,25 @@ export function editRecipe(params = {}) {
     }
   }
   for (const t of envTargets) {
-    if (!ws.cards.some((c) => c.id === t.card) || t.card === env.id) continue;
-    const stored = ws.cards.find((c) => c.id === t.card);
+    const card = ws.cards.find((c) => c.id === t.card);
+    if (!card || t.card === env.id) continue;
+    const retained = t.settings.some(([field, value]) => {
+      const actual = envValue(card, field);
+      // Multi-select stages append: a later effect does not erase an earlier
+      // write that still occurs in the final list.
+      return Array.isArray(actual)
+        ? (Array.isArray(value) ? value : [value]).some((item) => actual.includes(item))
+        : actual === value;
+    });
+    if (!retained) continue;
     warnings.push({
       card: t.card,
-      instrument: stored.instrumentId,
+      instrument: card.instrumentId,
       code: 'ENVIRONMENT_NOT_RENDERED',
       edit: t.edit,
       environment_card: env.id,
       environment_instrument: env.instrumentId,
-      meaning: `Saved on ${cardLabel(ws.cards, stored)}, but the recipe takes its room, tuning and chain from ${cardLabel(ws.cards, env)}, so this setting is not used in the current rendered recipe. Repeat the edit without \`card\` to change the rendered environment.`,
+      meaning: `Saved on ${cardLabel(ws.cards, card)}, but the recipe takes its room, tuning and chain from ${cardLabel(ws.cards, env)}, so this setting is not used in the current rendered recipe. Repeat the edit without \`card\` to change the rendered environment.`,
     });
   }
   return shape(ws, params, { warnings });
