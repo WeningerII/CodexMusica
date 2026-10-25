@@ -477,6 +477,13 @@ async function editorKeyboard(page, where) {
         { focus: 'toast-action', label: 'Undo', hint: true },
         'Toast: F8 reaches the action, and the toast says so'
       );
+      assert.equal(
+        await page.evaluate(() =>
+          document.getElementById('toast').closest('[role="region"]')?.getAttribute('aria-label')
+        ),
+        'Notifications',
+        'Toast: the toast sits in a Notifications landmark'
+      );
       await page.waitForTimeout(7500);
       assert.deepEqual(
         await page.evaluate(() => ({
