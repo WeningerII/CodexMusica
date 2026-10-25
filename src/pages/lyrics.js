@@ -3112,8 +3112,16 @@ const lyMenu = (
   { cls = 'cm-btn', align = 'start', hideLabel = false, chevron = true } = {}
 ) =>
   `<div class="ly-menu-wrap"><button type="button" class="${cls}" data-ui="ly-menu" data-id="${id}" aria-haspopup="true" aria-expanded="false" aria-controls="ly-menu-${id}"${hideLabel ? ` aria-label="${esc(label)}" title="${esc(label)}"` : ''}>${ic ? icon(ic, 18) : ''}${hideLabel ? '' : `<span>${esc(label)}</span>${chevron ? icon('chevron-down', 16) : ''}`}</button><div class="cm-menu ly-menu" data-align="${align}" id="ly-menu-${id}" role="menu" hidden>${items}</div></div>`;
-const lyMenuItem = (act, label, ic, id = '', extra = '') =>
-  lyBtn(act, label, ic, { id, cls: 'ly-menu-item', extra: `role="menuitem" ${extra}` });
+// One Tab stop per menu: its items are reached with the arrow keys
+// (tabindex -1), and Tab leaves the menu (see the surface keydown). `role`
+// is menuitemradio or menuitemcheckbox for an item that holds a state, which
+// it then exposes as aria-checked (lySyncDisplayMenu).
+const lyMenuItem = (act, label, ic, id = '', extra = '', role = 'menuitem') =>
+  lyBtn(act, label, ic, {
+    id,
+    cls: 'ly-menu-item',
+    extra: `role="${role}" tabindex="-1" ${extra}`,
+  });
 const lyStatus = (tone, word, ic) =>
   `<span class="cm-status" data-tone="${tone}">${icon(ic || (tone === 'success' ? 'circle-check' : tone === 'danger' ? 'circle-alert' : tone === 'warning' ? 'triangle-alert' : 'info'), 14)}<span>${esc(word)}</span></span>`;
 // A state pill: a dot and a word; colour never carries the meaning alone.
@@ -4153,7 +4161,7 @@ function lyMountMarkup() {
         ${lyBtn('ly-find-open', 'Find', 'search', { cls: 'cm-btn cm-btn-outline', extra: 'aria-controls="ly-find" aria-expanded="false"' })}
         ${lyBtn('ly-undo', 'Undo', 'undo-2', { cls: 'cm-btn cm-btn-outline' })}
         ${lyBtn('ly-redo', 'Redo', 'redo-2', { cls: 'cm-btn cm-btn-outline' })}
-        ${lyMenu('display', 'Display', 'monitor', '<div class="cm-menu-label">Text size</div>' + ['Normal', 'Large', 'Larger'].map((l, k) => lyMenuItem('ly-text-size', l, '', String(k), 'aria-pressed="false"')).join('') + '<div class="cm-menu-sep"></div>' + lyMenuItem('ly-numbers', 'Line numbers', '', '', 'aria-pressed="true"'), { cls: 'cm-btn cm-btn-outline' })}
+        ${lyMenu('display', 'Display', 'monitor', '<div class="cm-menu-label">Text size</div>' + ['Normal', 'Large', 'Larger'].map((l, k) => lyMenuItem('ly-text-size', l, '', String(k), 'aria-checked="false"', 'menuitemradio')).join('') + '<div class="cm-menu-sep"></div>' + lyMenuItem('ly-numbers', 'Line numbers', '', '', 'aria-checked="true"', 'menuitemcheckbox'), { cls: 'cm-btn cm-btn-outline' })}
       </div>
       <div class="ly-find" id="ly-find" hidden role="search"><input id="ly-find-input" class="cm-input" type="search" placeholder="Find in lyrics" aria-label="Find in lyrics" autocomplete="off"><span id="ly-find-count" class="ly-find-count" role="status" aria-live="polite"></span>${lyBtn('ly-find-step', 'Previous match', 'arrow-up', { id: '-1', cls: 'cm-btn cm-btn-icon', hideLabel: true })}${lyBtn('ly-find-step', 'Next match', 'arrow-down', { id: '1', cls: 'cm-btn cm-btn-icon', hideLabel: true })}${lyBtn('ly-find-close', 'Close find', 'x', { cls: 'cm-btn cm-btn-icon', hideLabel: true })}</div>
       <div class="ly-doc-note" id="ly-doc-note" hidden></div>
@@ -4203,8 +4211,15 @@ function lyRenderHead() {
     ?.setAttribute('aria-describedby', 'ly-workspace');
   const a = lyAnalysis(model);
   LY.state = a;
-  $ui('ly-badge').innerHTML =
+  // A status region speaks whenever it is written: write it only when what
+  // it says changes, not on every refresh (typing, Undo, Display, a step).
+  const badge =
     lyPill(a.tone, a.label) + (a.certified ? lyPill('success', 'Certified for this version') : '');
+  const badgeEl = $ui('ly-badge');
+  if (badgeEl.dataset.said !== badge) {
+    badgeEl.innerHTML = badge;
+    badgeEl.dataset.said = badge;
+  }
   const gate = $ui('ly-gate');
   if (LY.gate && lyPendingAll()) {
     gate.hidden = false;
@@ -6132,11 +6147,11 @@ function lySyncDisplayMenu() {
   document
     .querySelectorAll('[data-ui="ly-text-size"]')
     .forEach((b) =>
-      b.setAttribute('aria-pressed', String(b.dataset.id === String(LY.prefs.size.get())))
+      b.setAttribute('aria-checked', String(b.dataset.id === String(LY.prefs.size.get())))
     );
   document
     .querySelector('[data-ui="ly-numbers"]')
-    ?.setAttribute('aria-pressed', String(!!LY.prefs.numbers.get()));
+    ?.setAttribute('aria-checked', String(!!LY.prefs.numbers.get()));
 }
 
 // ── Actions ───────────────────────────────────────────────────────────────
@@ -6552,6 +6567,28 @@ const LY_ACTIONS = {
         : null;
     }
     lyToolOpen(tool);
+    // From the phone's Line actions menu the item that was pressed is gone
+    // with the menu: land on the opened tool, never on <body> — on the phone
+    // its expanded row ("Rhyme, expanded", the tool's body just under it),
+    // wider its heading. Focus the page has already placed is kept.
+    const a = document.activeElement;
+    if (!a || a === document.body || !a.isConnected || !a.getClientRects().length) {
+      const visible = (e) => e.getClientRects().length;
+      const row = [...document.querySelectorAll('#surface-lyrics .ly-toolrow')].find(
+        (e) => e.dataset.id === tool && e.getAttribute('aria-expanded') === 'true' && visible(e)
+      );
+      const h =
+        row ||
+        [
+          ...document.querySelectorAll(
+            '#surface-lyrics #ly-tool-main .ly-view-head h3, #surface-lyrics .ly-tool-head h3'
+          ),
+        ].find(visible);
+      if (h) {
+        if (h.tagName === 'H3' && !h.hasAttribute('tabindex')) h.tabIndex = -1;
+        uiFocus(h);
+      }
+    }
   },
   'ly-draft-apply'(tool) {
     const { applied } = lyDraftApplyTools(lyDraftTools(tool));
@@ -7295,6 +7332,17 @@ function lyWire(surface) {
     }
     if (e.target.closest('.ly-itabs, .ly-mnav')) return lyTabKeys(e);
     const menu = e.target.closest('.ly-menu');
+    // Tab (or Shift+Tab) leaves an open menu the way it leaves a menu button:
+    // the menu closes and focus moves on from its opener, the browser's own
+    // Tab step taking it from there.
+    if (menu && e.key === 'Tab' && !e.altKey && !e.ctrlKey && !e.metaKey) {
+      const opener =
+        (LY.menuOpener?.isConnected && LY.menuOpener) ||
+        document.querySelector(`#surface-lyrics [aria-controls="${menu.id}"]`);
+      lyCloseMenus();
+      opener?.focus({ preventScroll: true });
+      return;
+    }
     if (!menu || !['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(e.key)) return;
     const items = [...menu.querySelectorAll('button:not([disabled])')];
     const i = items.indexOf(e.target);
