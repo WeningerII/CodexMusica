@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -229,6 +229,59 @@ async function noOverflow(page) {
           width +
           'px: tree, labels, editor, panes, menus, lyrics, embedded/standalone map, short viewport'
       );
+      await context.close();
+    }
+    for (const width of [1280, 390]) {
+      // A catalogue search lists its best name match first (Jony #114) and
+      // ArrowDown in the search box goes to it (#115), in the default Rows.
+      const context = await browser.newContext({ viewport: { width, height: 900 } });
+      await context.route('https://mcp.codexmusica.com/**', (route) =>
+        route.fulfill({ contentType: 'application/json', body: '{"ok":true,"enabled":true}' })
+      );
+      const page = await context.newPage();
+      const errors = [];
+      page.on('pageerror', (e) => errors.push(e.message));
+      const first = async (sel) => {
+        const shown = (s) =>
+          [...document.querySelectorAll(s)].find((e) => e.getClientRects().length);
+        await page.waitForFunction(shown, sel);
+        return (await page.evaluateHandle(shown, sel)).evaluate((e) => e?.textContent);
+      };
+      await page.goto(base + '/codex.html');
+      await page.locator('.catalog-row, .cm-tile').first().waitFor();
+      await page.getByLabel('Search genres').fill('bluegrass');
+      await settle(page);
+      const genreSel = '#genre-list .cm-tile-name, #genre-list .gp-open';
+      assert.equal(
+        await first(genreSel),
+        'Bluegrass',
+        `Search at ${width}px: "bluegrass" lists Bluegrass first`
+      );
+      await page.getByLabel('Search genres').press('ArrowDown');
+      assert.equal(
+        await page.evaluate(() => document.activeElement?.textContent),
+        'Bluegrass',
+        `Search at ${width}px: ArrowDown from Search genres lands on the first result`
+      );
+      await page.goto(base + '/codex.html#instrument');
+      await page.locator('#instrument-search').waitFor();
+      await page.waitForFunction(() => document.querySelector('#instrument-body .ip-list'));
+      await page.fill('#instrument-search', 'oud');
+      await settle(page);
+      const instSel = '#instrument-body .cm-tile-name, #instrument-body .ip-row-main';
+      assert.match(
+        (await first(instSel)) || '',
+        /^Oud\b/,
+        `Search at ${width}px: "oud" lists an Oud first`
+      );
+      await page.press('#instrument-search', 'ArrowDown');
+      assert.match(
+        await page.evaluate(() => document.activeElement?.textContent || ''),
+        /^Oud\b/,
+        `Search at ${width}px: ArrowDown from Search instruments lands on the first result`
+      );
+      assert.deepEqual(errors, [], 'No browser errors');
+      console.log(`PASS catalogue search rank and ArrowDown at ${width}px`);
       await context.close();
     }
   } finally {

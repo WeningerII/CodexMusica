@@ -1168,6 +1168,24 @@ function uiStart() {
 // Escape), a dialog (src/app.js handles those), then the More
 // menu, the AI writer, the Recipe sheet (below 900px), the editor, and last
 // whatever the current page opened (page.escape()).
+// ArrowDown or Enter in a catalogue search goes to its first result, as the
+// map's search does, instead of the dozens of Tabs past the browse tree and
+// the filters between them (Jony #115). Nothing new is said: the result count
+// already is. `host` returns the list; `selector` names each result's button.
+/* exported uiSearchToResults */
+function uiSearchToResults(input, host, selector) {
+  input.addEventListener('keydown', (e) => {
+    if (e.key !== 'ArrowDown' && e.key !== 'Enter') return;
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || e.isComposing || !input.value.trim())
+      return;
+    const first = [...(host()?.querySelectorAll(selector) || [])].find(
+      (b) => !b.disabled && b.getClientRects().length
+    );
+    if (!first) return;
+    e.preventDefault();
+    first.focus();
+  });
+}
 function uiFocus(el) {
   if (!el || !el.isConnected || !el.getClientRects().length) return false;
   el.focus({ preventScroll: true });

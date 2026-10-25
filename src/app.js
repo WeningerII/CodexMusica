@@ -1,5 +1,5 @@
 /* global CODEX_DEFER_BOOT, UI, UI_ICONS, UI_PAGES, UILayout, uiAddGenre, uiAfterPaint, uiChatSessions, uiLyricsOpened, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
-/* exported INSTRUMENT_FILTER_PILLS, RECIPE_FORMATS, STARTER_TRADITIONS, addInstrumentFromPicker, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, passesInstrumentFilter, surpriseTradition, lyricMetaOf, _chatSend, uiEnsureWorkspace, _whenWorkspace, _releaseEngine */
+/* exported INSTRUMENT_FILTER_PILLS, RECIPE_FORMATS, STARTER_TRADITIONS, addInstrumentFromPicker, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, passesInstrumentFilter, surpriseTradition, lyricMetaOf, _chatSend, uiEnsureWorkspace, _whenWorkspace, _releaseEngine, searchRank */
 
 
 // ============================================================
@@ -18425,12 +18425,29 @@ function wireStackSignatureEvents(el) {
 // using natural whitespace ("doo wop") match canonical hyphenated names
 // ("Doo-wop") and prose with em-dashes. Applied to BOTH query and target
 // fields at query time; the underlying data is never modified.
+// Accents and the ʿ/ʾ/ʻ modifier letters fold away too, so "oud" finds ʿŪd and
+// "cafe" finds Café (Jony #114).
 function normalizeSearch(s) {
   return (s || '')
     .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f\u02bb\u02bc\u02be\u02bf]/g, '')
     .replace(/[\u002D\u2013\u2014]/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
+}
+// How well a normalized query matches a normalized name, best first: 0 the
+// whole name, 1 its start, 2 the start of a later word, 3 anywhere inside it,
+// 4 only in `extras` (a short name, aliases), -1 not at all. A search list
+// sorts by this, then A to Z within a tier (Jony #114: "oud" listed Koudi
+// before Oud arbi, "bluegrass" put Bluegrass third).
+function searchRank(q, name, extras = []) {
+  if (!q) return 0;
+  if (name === q) return 0;
+  if (name.startsWith(q)) return 1;
+  if ((' ' + name).includes(' ' + q)) return 2;
+  if (name.includes(q)) return 3;
+  return extras.some((x) => x && x.includes(q)) ? 4 : -1;
 }
 
 // Toast text for a picker add. Names the destination genre when the card

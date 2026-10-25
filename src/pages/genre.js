@@ -1,5 +1,5 @@
 /* exported renderGenreDiscovery */
-/* global $ui, Catalog, Engine, InstLite, STARTER_TRADITIONS, Tradition, UI, UILayout, _determinePrimaryCard, app, axisLabel, esc, findSimilar, getMatchingAxes, getRoots, getTreeNode, icon, image, listenLink, normalizeSearch, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, uiAddInstrument, uiAfterPaint, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos */
+/* global $ui, Catalog, Engine, InstLite, STARTER_TRADITIONS, Tradition, UI, UILayout, _determinePrimaryCard, app, axisLabel, esc, findSimilar, getMatchingAxes, getRoots, getTreeNode, icon, image, listenLink, normalizeSearch, renderTradPicker, searchRank, showToast, tradParent, traditionGlyphsHTML, uiAddInstrument, uiAfterPaint, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiSearchToResults, uiTabIndex, uiTile, uiTilesPhotos */
 /* Genre page. Owned by the Genre page worker; see docs/ui-foundation.md.
    Shared state, recipe commands (genre-add, instrument-add), navigation and
    theming belong to the shell in src/workbench.js and src/theme.css.
@@ -283,8 +283,10 @@ function gpQuery() {
 function gpTargets() {
   return Object.entries(G.targets);
 }
-// The All genres list. Search ranks by where the query matches: exact name,
-// name prefix, anywhere in the name, then lineage/description only. The branch
+// The All genres list. Search ranks by where the query matches (searchRank):
+// exact name, name prefix, a later word's start, anywhere in the name; a
+// former name (an alias) counts as one tier below the name it matches; then
+// lineage/description only. The branch
 // keeps members, cross-listed ones included; sound targets keep genres within
 // one step of every target and rank by total distance — the engine's
 // --axis-target rule. Every tie is A–Z by name, as the list was before the
@@ -296,20 +298,11 @@ function gpResults() {
   if (q) {
     rows = [];
     for (const e of Catalog.searchIndex()) {
+      const tiers = [searchRank(q, e.name), ...e.aliases.map((a) => searchRank(q, a))]
+        .map((r, k) => (r < 0 || r > 3 ? 9 : k ? Math.max(1, r) : r))
+        .sort((a, b) => a - b);
       const rank =
-        e.name === q
-          ? 0
-          : e.name.startsWith(q)
-            ? 1
-            : e.name.includes(q)
-              ? 2
-              : e.aliases.some((a) => a === q || a.startsWith(q))
-                ? 1
-                : e.aliases.some((a) => a.includes(q))
-                  ? 2
-                  : e.lineage.includes(q) || e.description.includes(q)
-                    ? 3
-                    : -1;
+        tiers[0] < 9 ? tiers[0] : e.lineage.includes(q) || e.description.includes(q) ? 4 : -1;
       if (rank >= 0) rows.push({ t: e.t, rank });
     }
   } else rows = gpSorted().map((t) => ({ t, rank: 0 }));
@@ -712,6 +705,7 @@ function gpSuggestions() {
     'genre-suggest'
   )}`;
 }
+const GP_BEST = 12;
 function gpAll(open) {
   const results = gpResults();
   const q = gpQuery();
@@ -756,7 +750,9 @@ function gpAll(open) {
   const order = targets.length
     ? ' · closest to your sound targets first'
     : rows
-      ? ' · A to Z by first letter'
+      ? q && results.some((r) => r.rank <= 2)
+        ? ' · best matches first, then A to Z by first letter'
+        : ' · A to Z by first letter'
       : q
         ? ' · best name matches first'
         : ' · A to Z';
@@ -772,9 +768,20 @@ function gpAll(open) {
       { tile: (t) => gpTile(t, why.get(t.id)), noun: 'genre' }
     );
   } else if (rows) {
-    const letters = gpLetterGroups(results);
+    // A search leads with its best name matches (a whole name, its start, a
+    // word's start), in rank order, then the rest by letter (Jony #114). Each
+    // genre is shown once.
+    const best = q ? results.filter((r) => r.rank <= 2).slice(0, GP_BEST) : [];
+    const letters = gpLetterGroups(best.length ? results.slice(best.length) : results);
     G.jump = uiRowsJumpHTML('genre', letters, { label: 'Jump to a letter', noun: 'genre' });
-    html += uiRowsHTML('genre', letters, { tile: gpTile, noun: 'genre' });
+    html += uiRowsHTML(
+      'genre',
+      (best.length
+        ? [{ key: 'best', label: 'Best matches', items: best.map((r) => r.t) }]
+        : []
+      ).concat(letters),
+      { tile: gpTile, noun: 'genre' }
+    );
   } else
     html +=
       gpList(shown, pinned ? null : open, targets.length ? gpTargetReason : null) +
@@ -1130,6 +1137,7 @@ uiRegisterPage({
       if (gpQuery()) G.tab = 'all';
       gpRenderMain();
     });
+    uiSearchToResults($ui('genre-search'), () => $ui('genre-list'), '.cm-tile-name, .gp-open');
     if (typeof ResizeObserver === 'function')
       new ResizeObserver(() => gpFitPlaceholder()).observe($ui('genre-search'));
     // The rest of a row (a glyph picture, its margins, the chevron) opens it

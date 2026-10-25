@@ -1,5 +1,5 @@
 /* exported renderInstrumentDiscovery, uiInspectInstrument */
-/* global $ui, CODEX_IMAGE_MANIFEST, Catalog, ChainItem, FamName, INSTRUMENT_FILTER_PILLS, Inst, PREFACE_CAT_ORDER, RECIPE_FORMATS, Room, Tradition, Tuning, UI, UILayout, Variant, app, applyPartEdit, buildStackParts, compileStack, copyToClipboard, entryRenderDescs, envCardOf, esc, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, icon, image, inverseConfigureForPreface, listenLink, loadPrefaceRecent, makeCard, normalizeSearch, passesInstrumentFilter, prefaceCatGlyphHTML, prefaceGlyphsHTML, prefaceGroups, recordPrefaceRecent, showToast, suggestPrefaceForCard, traditionCardOpts, uiAddInstrument, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos, Engine, InstLite, UI_PAGES, _engineLive, engineReady */
+/* global $ui, CODEX_IMAGE_MANIFEST, Catalog, ChainItem, FamName, INSTRUMENT_FILTER_PILLS, Inst, PREFACE_CAT_ORDER, RECIPE_FORMATS, Room, Tradition, Tuning, UI, UILayout, Variant, app, applyPartEdit, buildStackParts, compileStack, copyToClipboard, entryRenderDescs, envCardOf, esc, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, icon, image, inverseConfigureForPreface, listenLink, loadPrefaceRecent, makeCard, normalizeSearch, passesInstrumentFilter, prefaceCatGlyphHTML, prefaceGlyphsHTML, prefaceGroups, recordPrefaceRecent, searchRank, showToast, suggestPrefaceForCard, traditionCardOpts, uiAddInstrument, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiSearchToResults, uiTabIndex, uiTile, uiTilesPhotos, Engine, InstLite, UI_PAGES, _engineLive, engineReady */
 /* Instrument page. Owned by the Instrument page worker; see docs/ui-foundation.md.
 
    Three columns over the Your recipe dock: the catalogue (families, classes,
@@ -203,11 +203,23 @@ function ipMatches(i, { q, family = UI.instrumentFamily, cls = UI.instrumentClas
     passesInstrumentFilter(i, filters)
   );
 }
-function ipSorted(list) {
+// How well the search matches an instrument: its name first, its short name
+// only as the last tier (searchRank).
+function ipRank(i, q) {
+  return searchRank(q, normalizeSearch(i.name), [normalizeSearch(i.short)]);
+}
+// Name A–Z (the default) under a search ranks by match first and reads A to Z
+// within a tier (Jony #114: "oud" listed Koudi first); a sort the person
+// chose (Z–A, Most customizable) is theirs.
+function ipSorted(list, q = '') {
   const byName = (a, b) => ipByName(a.name, b.name);
   if (IP.sort === 'name-desc') return list.sort((a, b) => byName(b, a));
   if (IP.sort === 'parts')
     return list.sort((a, b) => (b.parts || []).length - (a.parts || []).length || byName(a, b));
+  if (q) {
+    const rank = new Map(list.map((i) => [i, ipRank(i, q)]));
+    return list.sort((a, b) => rank.get(a) - rank.get(b) || byName(a, b));
+  }
   return list.sort(byName);
 }
 function ipDest() {
@@ -310,7 +322,10 @@ function renderInstrumentDiscovery() {
   const q = ipQuery(),
     filters = app.instrumentAxisFilters,
     fam = INSTRUMENT_FAMILIES.find((f) => f.id === UI.instrumentFamily);
-  const filtered = ipSorted(INSTRUMENTS.filter((i) => ipMatches(i, { q, filters })));
+  const filtered = ipSorted(
+    INSTRUMENTS.filter((i) => ipMatches(i, { q, filters })),
+    q
+  );
   const scope = INSTRUMENTS.filter((i) => ipMatches(i, { q, family: '', cls: '', filters }));
   $ui('ip-total').textContent = uiCount(INSTRUMENTS.length, 'instrument');
   host.classList.toggle('ip-cats-open', IP.catsOpen);
@@ -398,12 +413,16 @@ function ipRenderList(filtered, fam, q, filters) {
         )
         .join('')}${uiButton('clear-filters', 'Clear all', 'x', 'class="ip-link"')}</div>`
     : '';
-  const body = view === 'rows' ? ipRowsBody(filtered, fam) : ipListBody(filtered);
+  const body = view === 'rows' ? ipRowsBody(filtered, fam, q) : ipListBody(filtered);
   return `<section class="ip-list" aria-labelledby="ip-list-title">${crumbs}<div class="ip-list-head"><h2 id="ip-list-title">${esc(title)}</h2><span class="ip-list-count" role="status">${uiCount(filtered.length, 'instrument')}</span>${controls}</div>${classChips}${active}${body}${!filtered.length ? uiInstrumentNoResults(q, fam) : ''}</section>`;
 }
 // Rows: the family (or class) bar when two or more rows have instruments, then the rows.
-function ipRowsBody(filtered, fam) {
-  const groups = ipGroups(filtered, fam);
+function ipRowsBody(filtered, fam, q = '') {
+  // A search leads with its best name matches, in rank order, then the rest
+  // by family (Jony #114), as the Genre page does; each instrument once.
+  const best =
+    q && IP.sort === 'name' ? filtered.filter((i) => ipRank(i, q) <= 2).slice(0, 12) : [];
+  const groups = ipGroups(best.length ? filtered.slice(best.length) : filtered, fam);
   const jump =
     groups.filter((g) => g.items.length).length > 1
       ? uiRowsJumpHTML('instrument', groups, {
@@ -411,7 +430,14 @@ function ipRowsBody(filtered, fam) {
           noun: 'instrument',
         })
       : '';
-  return jump + uiRowsHTML('instrument', groups, { tile: ipTile, noun: 'instrument' });
+  return (
+    jump +
+    uiRowsHTML(
+      'instrument',
+      (best.length ? [{ key: 'best', label: 'Best matches', items: best }] : []).concat(groups),
+      { tile: ipTile, noun: 'instrument' }
+    )
+  );
 }
 function ipListBody(filtered) {
   const dest = ipDestName();
@@ -978,6 +1004,11 @@ uiRegisterPage({
       UI.limit = 50;
       renderInstrumentDiscovery();
     });
+    uiSearchToResults(
+      $ui('instrument-search'),
+      () => document.querySelector('#instrument-body .ip-list'),
+      '.cm-tile-name, .ip-row-main'
+    );
     surface.addEventListener('change', (e) => {
       const t = e.target;
       if (t.id === 'ip-sort') {
