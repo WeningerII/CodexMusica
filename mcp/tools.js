@@ -36,16 +36,64 @@ import { jsonBytes, HTTP_REQUEST_BYTES, assertStateFits } from './payload_limits
 export { renderShape, workspaceSchema, editSchema, TOOL_SCHEMAS } from './schemas.js';
 import { editSchema, unknownEditKeys } from './schemas.js';
 
-// Refuse an edit_recipe call whose edits carry an undeclared key, before the
-// SDK's schema parse strips it (see unknownEditKeys). The SDK validates input
-// in McpServer.validateToolInput; wrapping it is the one place the raw
-// arguments are visible. mcp/test_connector_contracts.mjs fails if this hook
-// stops running on either server.
+// The nearest declared key to a misspelled one: a prefix either way, or at
+// most two edits apart.
+function nearestKey(key, keys) {
+  const dist = (a, b) => {
+    const row = Array.from({ length: b.length + 1 }, (_, j) => j);
+    for (let i = 1; i <= a.length; i++) {
+      let prev = row[0];
+      row[0] = i;
+      for (let j = 1; j <= b.length; j++) {
+        const keep = row[j];
+        row[j] = Math.min(row[j] + 1, row[j - 1] + 1, prev + (a[i - 1] === b[j - 1] ? 0 : 1));
+        prev = keep;
+      }
+    }
+    return row[b.length];
+  };
+  return (
+    keys.find((k) => k.startsWith(key) || key.startsWith(k)) || keys.find((k) => dist(key, k) <= 2)
+  );
+}
+
+// Refuse a call whose arguments carry an undeclared key, and an edit_recipe
+// call whose edits do, before the SDK's schema parse strips it (see
+// unknownEditKeys). A stripped key was silently dropped: `lyric_sweep` with
+// `line: 12` swept with no length. The published schemas cannot say so
+// themselves (no additionalProperties: connector-schema-subset). The SDK
+// validates input in McpServer.validateToolInput; wrapping it is the one place
+// the raw arguments are visible. mcp/test_connector_contracts.mjs fails if
+// this hook stops running on either server.
+// Keys no surface publishes any more but older callers still send: stripped
+// without a refusal, as before. `writer` was retired 2026-09-27 (the caller
+// writes every line; test_session_repairs pins that it changes nothing), and
+// a client-sent `workflow` (forged creation receipts) is stripped so the
+// creation order still refuses the call by name (test_chatgpt).
+const TOLERATED_KEYS = new Set(['writer', 'workflow']);
+
 export function guardEditKeys(server) {
   const validate = server.validateToolInput?.bind(server);
   if (!validate)
     throw new Error('The MCP SDK no longer exposes validateToolInput; move the edit-key guard.');
   server.validateToolInput = async (tool, args, toolName) => {
+    const declared = Object.keys(tool?.inputSchema?.shape || {});
+    if (declared.length && args && typeof args === 'object' && !Array.isArray(args)) {
+      const unknown = Object.keys(args).filter(
+        (k) => !declared.includes(k) && !TOLERATED_KEYS.has(k)
+      );
+      if (unknown.length) {
+        const hints = unknown
+          .map((k) => [k, nearestKey(k, declared)])
+          .filter(([, near]) => near)
+          .map(([k, near]) => `${near} (for ${k})`);
+        throw new Error(
+          `Unknown argument(s) for ${toolName}: ${unknown.join(', ')}.` +
+            (hints.length ? ` Did you mean ${hints.join(', ')}?` : '') +
+            ` Call ${toolName} again with only its arguments: ${declared.join(', ')}. Nothing was run.`
+        );
+      }
+    }
     if (toolName === 'edit_recipe') {
       const unknown = unknownEditKeys(args);
       if (unknown.length)

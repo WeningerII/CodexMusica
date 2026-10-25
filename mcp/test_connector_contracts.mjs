@@ -849,6 +849,62 @@ test('edit_recipe refuses an undeclared edit field on every server', async () =>
   }
 });
 
+test('an undeclared argument is refused by name on every server, a retired one ignored', async () => {
+  // The SDK's schema parse strips keys a schema does not declare, so `line: 12`
+  // swept with no length declared and `tradition` reached start_recipe as a
+  // missing `traditions`. The guard sees the raw arguments first.
+  const { buildWorkflowServer } = await import('./workflow_tools.js');
+  const { WorkflowSessions } = await import('./workflow_sessions.js');
+  const { JobStore } = await import('./job_store.js');
+  const raw = await local({ domain: 'lyrics' });
+  const shared = await buildWorkflowServer({
+    sessions: new WorkflowSessions({ store: new JobStore() }),
+    compatibility: true,
+  });
+  const [a, b] = InMemoryTransport.createLinkedPair();
+  await shared.connect(a);
+  const client = new Client({ name: 'unknown-args', version: '1' }, { capabilities: {} });
+  await client.connect(b);
+  try {
+    const rawSweep = await raw.client.callTool({
+      name: 'lyric_sweep',
+      arguments: { seed_from: 31, count: 1, line: 12 },
+    });
+    assert.equal(rawSweep.isError, true);
+    assert.match(
+      rawSweep.content[0].text,
+      /Unknown argument\(s\) for lyric_sweep: line\. Did you mean lines/
+    );
+    assert.match(rawSweep.content[0].text, /Nothing was run/);
+    const begun = await client.callTool({
+      name: 'begin_lyrics',
+      arguments: { writer: 'interview' },
+    });
+    assert.notEqual(begun.isError, true, 'a retired key is still ignored');
+    const sharedSweep = await client.callTool({
+      name: 'lyric_sweep',
+      arguments: {
+        session_id: begun.structuredContent.session_id,
+        seed_from: 31,
+        count: 1,
+        line: 12,
+      },
+    });
+    assert.equal(sharedSweep.isError, true);
+    assert.match(sharedSweep.content[0].text, /Unknown argument\(s\) for lyric_sweep: line/);
+    const recipe = await client.callTool({
+      name: 'start_recipe',
+      arguments: { tradition: 'bluegrass' },
+    });
+    assert.equal(recipe.isError, true);
+    assert.match(recipe.content[0].text, /Did you mean traditions \(for tradition\)/);
+  } finally {
+    await raw.close();
+    await client.close();
+    await shared.close();
+  }
+});
+
 test('a production deploy is verified with the Library stores loaded, not merely configured', () => {
   const library = {
     search_ready: true,
