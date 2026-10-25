@@ -416,6 +416,20 @@ function ipAfterCategory(button) {
   uiFocus(again);
   ipAnnounce($ui('instrument-body')?.querySelector('.ip-list-count')?.textContent || '');
 }
+// The same for the class chips, the Back crumb and Sort, which the re-render
+// also replaces under focus (Jony #103): focus the control of that data-ui
+// (and data-id) again, else `fallback`, and say the count.
+function ipAfterRender(ui, id, fallback) {
+  const again = [...document.querySelectorAll(`#instrument-body [data-ui="${ui}"]`)].find(
+    (b) => id == null || b.dataset.id === id
+  );
+  if (!uiFocus(again) && fallback) {
+    const el = fallback();
+    if (el && !el.matches('button, select, input, [tabindex]')) el.tabIndex = -1;
+    uiFocus(el);
+  }
+  ipAnnounce($ui('instrument-body')?.querySelector('.ip-list-count')?.textContent || '');
+}
 function ipRowsBody(filtered, fam) {
   const groups = ipGroups(filtered, fam);
   const jump =
@@ -1034,7 +1048,10 @@ uiRegisterPage({
       const t = e.target;
       if (t.id === 'ip-sort') {
         IP.sort = t.value;
+        const had = document.activeElement === t;
         renderInstrumentDiscovery();
+        // The select is re-rendered under focus (arrow keys change it).
+        if (had) uiFocus($ui('ip-sort'));
       } else if (t.id === 'instrument-destination' || t.id === 'ip-destination') {
         $ui('instrument-destination').value = t.value;
         app._addToTradition = null;
@@ -1199,11 +1216,13 @@ uiRegisterPage({
       UI.instrumentClass = id;
       UI.limit = 50;
       renderInstrumentDiscovery();
+      ipAfterRender('instrument-class', id);
     },
     'instrument-class-all'() {
       UI.instrumentClass = '';
       UI.limit = 50;
       renderInstrumentDiscovery();
+      ipAfterRender('instrument-class-all');
     },
     'ip-class'(id, button) {
       UI.instrumentFamily = button.dataset.family;
@@ -1215,6 +1234,8 @@ uiRegisterPage({
       if (UI.instrumentClass) UI.instrumentClass = '';
       else UI.instrumentFamily = '';
       renderInstrumentDiscovery();
+      // Back again if there is a level left, else the list's heading.
+      ipAfterRender('instrument-back', null, () => $ui('ip-list-title'));
     },
     'instrument-filter'(id, button, event) {
       // A checkbox has already toggled itself; the set is the state of record.

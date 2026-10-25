@@ -147,6 +147,55 @@ async function noOverflow(page) {
           cat.id === famId && cat.pressed === 'true' && /^[\d,]+ instruments?$/.test(cat.live),
           'Instrument: a category keeps focus and announces its count: ' + JSON.stringify(cat)
         );
+        // The class chips, "All · N", the Back crumb and Sort keep focus too
+        // (Jony #103 on #519).
+        const where = () =>
+          page.evaluate(() => {
+            const a = document.activeElement;
+            return { tag: a?.tagName, ui: a?.dataset?.ui || a?.id || '', id: a?.dataset?.id || '' };
+          });
+        const clsId = await page.evaluate(
+          () => document.querySelector('#instrument-body [data-ui="instrument-class"]')?.dataset.id
+        );
+        await page
+          .locator(`#instrument-body [data-ui="instrument-class"][data-id="${clsId}"]`)
+          .focus();
+        await page.keyboard.press('Enter');
+        assert.deepEqual(
+          await where(),
+          { tag: 'BUTTON', ui: 'instrument-class', id: clsId },
+          'Instrument: a class chip keeps focus'
+        );
+        await page.locator('#instrument-body [data-ui="instrument-class-all"]').focus();
+        await page.keyboard.press('Enter');
+        assert.deepEqual(
+          (await where()).ui,
+          'instrument-class-all',
+          "Instrument: the class row's All keeps focus"
+        );
+        await page
+          .locator(`#instrument-body [data-ui="instrument-class"][data-id="${clsId}"]`)
+          .click();
+        await page.locator('#instrument-body [data-ui="instrument-back"]').focus();
+        await page.keyboard.press('Enter');
+        assert.equal(
+          (await where()).ui,
+          'instrument-back',
+          'Instrument: Back from a class keeps focus on Back'
+        );
+        await page.keyboard.press('Enter');
+        assert.equal(
+          (await where()).ui,
+          'ip-list-title',
+          'Instrument: Back to all instruments lands on the list heading'
+        );
+        await page.locator('#ip-sort').focus();
+        await page.keyboard.press('ArrowDown');
+        assert.equal((await where()).ui, 'ip-sort', 'Instrument: Sort keeps focus as it changes');
+        await page.locator('#ip-sort').selectOption('name');
+        await page
+          .locator(`#instrument-body .ip-cat[data-ui="instrument-family"][data-id="${famId}"]`)
+          .click();
         await page.locator('[data-ui="ip-view"][data-id="list"]').click();
         const listRows = await page.locator('#instrument-body .ip-row').count();
         assert.ok(
