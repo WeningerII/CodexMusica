@@ -1916,6 +1916,21 @@ async function loadDelta(page) {
         await page.waitForTimeout(300);
       };
       await openSaved();
+      // Round 5 #37: a list, each action named for its row.
+      const rows = await page.evaluate(() => ({
+        list: document.querySelectorAll('#saved-body ul > li [data-load]').length,
+        names: [
+          ...document.querySelectorAll(
+            '#saved-body [data-load], #saved-body [data-fork], #saved-body [data-del]'
+          ),
+        ].map((b) => b.getAttribute('aria-label') || b.textContent.trim()),
+      }));
+      check(
+        rows.list === 3 &&
+          new Set(rows.names).size === rows.names.length &&
+          rows.names.every((n) => /^(Load|Fork|Delete) \S/.test(n)),
+        `S. ${width}px: saved rows are not a list with actions named for their row: ${JSON.stringify(rows)}`
+      );
       await askDelete();
       await page.keyboard.press('Escape');
       await page.waitForTimeout(300);
