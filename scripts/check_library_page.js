@@ -408,8 +408,10 @@ const SECTIONS = {
       };
     });
     check(
-      `${tag} explore: the Library has an h1 and its shelves are named regions`,
-      !!sr.h1 && sr.shelfRole === 'region' && !!sr.shelfName,
+      // A shelf's scroller is a named group, not a landmark: one region per
+      // language crowded the landmark list (Jony #127).
+      `${tag} explore: the Library has an h1 and its shelf scrollers are named groups`,
+      !!sr.h1 && sr.shelfRole === 'group' && !!sr.shelfName,
       JSON.stringify(sr)
     );
     check(`${tag} explore: topline`, info.topline.length > 0);

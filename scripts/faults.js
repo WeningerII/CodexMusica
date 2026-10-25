@@ -2924,12 +2924,18 @@ if (want('38', 'toast-action-lingers')) {
   // Runtime minification preserves hideToast's public name, not its local
   // parameter. Bind the removal to that function's actual parameter and refuse
   // a missing/ambiguous anchor rather than accepting an unplanted mutant.
+  // hideToast now clears the action and the keyboard hint together
+  // (`querySelectorAll(".toast-action, .toast-hint").forEach(...)`): the
+  // mutant keeps the hint removal and drops only the action from it.
   const removal =
-    /(function hideToast\(([$\w]+)\)\{[^{}]*?)\2\.querySelector\("\.toast-action"\)\?\.remove\(\)/g;
+    /(function hideToast\(([$\w]+)\)\{[^{}]*?)\2\.querySelectorAll\("\.toast-action, \.toast-hint"\)/g;
   if ([...before.matchAll(removal)].length !== 1)
     throw new Error('faults: expected exactly one toast action removal in hideToast');
   const after = before
-    .replace(removal, (_match, prefix) => prefix + 'void 0 /* __TOAST_FAULT__ */')
+    .replace(
+      removal,
+      (_match, prefix, t) => prefix + t + '.querySelectorAll(".toast-hint" /* __TOAST_FAULT__ */)'
+    )
     .replace(
       '</body>',
       '<style>/* __TOAST_FAULT__ */ #toast .toast-action { visibility: visible !important; pointer-events: auto !important; }</style>\n</body>'

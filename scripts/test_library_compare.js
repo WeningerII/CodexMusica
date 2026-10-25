@@ -31,6 +31,8 @@ function fixture(t) {
   w.esc = (value) =>
     String(value).replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;');
   w.icon = () => '';
+  // The phone inspector sheet's modal layer (workbench.js); a no-op here.
+  w.uiInertOutside = () => () => {};
   const timers = new Map();
   let timerId = 0;
   w.setTimeout = (callback) => {

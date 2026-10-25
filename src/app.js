@@ -14957,7 +14957,9 @@ function esc(s) { return s == null ? '' : String(s).replace(/&/g, '&amp;').repla
 // mounted the detail in the desktop pane. The same (max-width: 899px) query
 // the CSS uses, so the JS and the cascade never disagree at a fractional width.
 function isMobileLayout() {
-  return !UILayout.wide();
+  // UILayout is the shell's (src/layout.js); the engine harnesses load this
+  // file without it, and the width rule is the same either way.
+  return typeof UILayout === 'undefined' ? window.innerWidth <= 899 : !UILayout.wide();
 }
 
 function renderAll() {
@@ -19614,7 +19616,11 @@ function _chatRenderReply(payload,request) {
         chip.title = `${t.banned_pairs} banned pair(s) — reported as notes; they do not stop the song finishing`;
       trace.appendChild(chip);
     }
-    node.appendChild(_chatSr(_chatToolsPlain(payload.tools)));
+    // One spoken summary: in the log's speaker order (.chat-sr) and the
+    // count a test or tool reads (.chat-count-sr).
+    const said = _chatSr(_chatToolsPlain(payload.tools));
+    said.classList.add('chat-count-sr');
+    node.appendChild(said);
     node.appendChild(trace);
   }
 
