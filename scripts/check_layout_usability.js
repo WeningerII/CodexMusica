@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -111,6 +111,32 @@ async function noOverflow(page) {
       // The genre catalogue: cards in Rows (the default), rows in List.
       await page.locator('.catalog-row, .cm-tile').first().waitFor();
       await noOverflow(page);
+      // A first visit's recipe is empty. Where a page docks the recipe under
+      // it (Instrument, Map), the empty card's title and both of its actions
+      // must be the topmost thing at their own centre, not under the
+      // genre-tree column (Jony, #519).
+      if (width >= 900)
+        for (const view of ['Instrument', 'Map']) {
+          await page.getByRole('button', { name: view, exact: true }).click();
+          await page.locator('#recipe-empty:not([hidden]) [data-ui="surprise"]').waitFor();
+          await settle(page);
+          const covered = await page.evaluate(() =>
+            ['strong', '[data-ui="genre-nav"]', '[data-ui="surprise"]']
+              .map((sel) => document.querySelector('#recipe-empty ' + sel))
+              .filter((el) => {
+                const r = el.getBoundingClientRect();
+                return !el.contains(
+                  document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2)
+                );
+              })
+              .map((el) => el.textContent.trim())
+          );
+          assert.deepEqual(covered, [], `${view}: empty recipe card covered at ${width}px`);
+        }
+      if (width >= 900) {
+        await page.getByRole('button', { name: 'Genre', exact: true }).click();
+        await page.locator('.catalog-row, .cm-tile').first().waitFor();
+      }
       await page.getByRole('button', { name: 'Browse tree', exact: true }).click();
       const tree = page.locator('.inline-tree > .modal');
       assert.equal(
