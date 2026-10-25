@@ -8,7 +8,7 @@
 // of mcp/library_routes.js, library_viewer_routes.js, library_export_routes.js
 // and library_corpus_routes.js; search answers from the static w/title rows.
 //
-// Sections: explore, works, rights, reader, compare, analysis,
+// Sections: explore, works, rights, reader, compare, focus, analysis,
 // declarations, retained. A section whose
 // chunk is not in the build prints SKIP (not a failure). Every section runs in
 // both themes at 1280 and 390 wide; any console error, uncaught exception,
@@ -1025,6 +1025,123 @@ const SECTIONS = {
     );
   },
 
+  // Jony's round 6: the compare dialog keeps focus (#17), the phone
+  // inspector takes it and gives it back (#18), and four actions that
+  // re-render or navigate land focus on a real control, never <body> (#19).
+  // Real keys throughout.
+  async focus({ page, base, tag }) {
+    const where = () =>
+      page.evaluate(() => {
+        const a = document.activeElement;
+        return {
+          body: !a || a === document.body,
+          cmp: !!a?.closest('.lib-cmp-sheet'),
+          insp: !!a?.closest('#surface-library .rd-insp'),
+          rd: a?.dataset?.rd || '',
+          id: a?.dataset?.id || a?.id || '',
+          pressed: a?.getAttribute('aria-pressed'),
+          tag: a?.tagName || '',
+          name: (a?.getAttribute('aria-label') || a?.textContent || '').trim().slice(0, 40),
+        };
+      });
+    // #17: Tab and Shift+Tab never leave the compare dialog.
+    await go(page, base, `/read/${EPI_A}?compare=${EPI_B}`);
+    await page.waitForSelector('#surface-library .lib-cmp-rows > div', { timeout: 25000 });
+    await page.focus('.lib-cmp-sheet [data-close]');
+    const out = [];
+    for (const key of [...Array(4).fill('Shift+Tab'), ...Array(30).fill('Tab')]) {
+      await page.keyboard.press(key);
+      const w = await where();
+      if (!w.body && !w.cmp) out.push(w.name);
+    }
+    check(
+      `${tag} focus: Tab stays in the compare dialog`,
+      !out.length,
+      `${out.length} stop(s) outside: ${out.slice(0, 4).join(' | ')}`
+    );
+    await page.keyboard.press('Escape');
+    await page.waitForTimeout(200);
+    // #19a: Export selection keeps focus on the toggled button.
+    await go(page, base, `/read/${EPI_A}`);
+    await settled(page, 'reader', '#surface-library .rd-paper .rd-line');
+    await page.focus('#surface-library [data-rd="select"]');
+    await page.keyboard.press('Enter');
+    const sel = await where();
+    check(
+      `${tag} focus: Export selection keeps focus on its button`,
+      sel.rd === 'select' && sel.pressed === 'true',
+      JSON.stringify(sel)
+    );
+    // #18: at a phone width, Inspect moves focus into the sheet, Tab stays
+    // there, and Escape gives it back to Inspect.
+    if (await page.isVisible('#surface-library [data-rd="sheet"]')) {
+      await page.focus('#surface-library [data-rd="sheet"]');
+      await page.keyboard.press('Enter');
+      await page.waitForTimeout(200);
+      const opened = await where();
+      const behind = [];
+      for (let i = 0; i < 15; i++) {
+        await page.keyboard.press('Tab');
+        const w = await where();
+        if (!w.body && !w.insp) behind.push(w.name);
+      }
+      await page.keyboard.press('Escape');
+      await page.waitForTimeout(200);
+      const back = await where();
+      check(
+        `${tag} focus: Inspect moves focus into the inspector sheet`,
+        opened.insp,
+        JSON.stringify(opened)
+      );
+      check(
+        `${tag} focus: Tab stays in the inspector sheet`,
+        !behind.length,
+        `${behind.length} stop(s) behind it: ${behind.slice(0, 4).join(' | ')}`
+      );
+      check(
+        `${tag} focus: closing the inspector sheet returns focus to Inspect`,
+        back.rd === 'sheet',
+        JSON.stringify(back)
+      );
+    }
+    // #19b: Inspect source row lands on the Sources lens it opened.
+    await page.focus('#surface-library [data-rd="srcrow"]');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(200);
+    const src = await where();
+    check(
+      `${tag} focus: Inspect source row lands on the Sources lens`,
+      src.rd === 'lens' && src.id === 'sources',
+      JSON.stringify(src)
+    );
+    // #19c: a works result opens the reader with focus on its title.
+    await go(page, base, '/works');
+    await settled(page, 'works', '#surface-library [data-lw="open"][aria-label^="Read "]');
+    await page.focus('#surface-library [data-lw="open"][aria-label^="Read "]');
+    await page.keyboard.press('Enter');
+    await page.waitForSelector('#surface-library .rd-paper .rd-line', { timeout: 20000 });
+    await page.waitForTimeout(200);
+    const opened = await where();
+    check(
+      `${tag} focus: a works result opens the reader with focus on its title`,
+      opened.tag === 'H1',
+      JSON.stringify(opened)
+    );
+    // #19d: Open in Lyrics lands in the Lyrics draft.
+    await page.focus('#surface-library [data-rd="lyrics"]');
+    await page.keyboard.press('Enter');
+    await page.waitForFunction(() => location.hash.startsWith('#lyrics'), null, {
+      timeout: 20000,
+    });
+    await page.waitForTimeout(500);
+    const ly = await where();
+    check(
+      `${tag} focus: Open in Lyrics lands in the Lyrics draft`,
+      ly.id === 'lyrics-draft',
+      JSON.stringify(ly)
+    );
+  },
+
   async analysis({ page, base, tag, log }) {
     await go(page, base, `/read/${EPI_A}?lens=sound`);
     await settled(page, 'reader', '#surface-library .rd-paper .rd-line');
@@ -1326,6 +1443,7 @@ const NEEDS = {
   rights: 'rights',
   reader: 'reader',
   compare: 'compare',
+  focus: 'compare',
   analysis: 'analysis',
   declarations: 'analysis',
   retained: 'analysis',
@@ -1350,7 +1468,9 @@ const NEEDS = {
       if (ONLY && !ONLY.has(name)) continue;
       const need = [
         NEEDS[name],
-        ...(['compare', 'analysis', 'declarations', 'retained'].includes(name) ? ['reader'] : []),
+        ...(['compare', 'focus', 'analysis', 'declarations', 'retained'].includes(name)
+          ? ['reader']
+          : []),
       ];
       const missing = need.filter((c) => !chunks.has(c));
       if (missing.length) {

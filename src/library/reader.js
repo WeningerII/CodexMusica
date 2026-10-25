@@ -12,7 +12,7 @@
 // page_count}: any mismatch fails closed (no text is shown). Line ids
 // (UUIDv5) and normalized code-point/UTF-16 ranges are derived from each
 // page's start counters exactly as catalog_static_export.replay does.
-/* global esc, icon, uiEmptyState, uiOpenInLyrics, uiDownload, libraryChunk, CMLibraryImport */
+/* global esc, icon, uiEmptyState, uiOpenInLyrics, uiDownload, libraryChunk, CMLibraryImport, uiInertOutside */
 'use strict';
 
 const PAGE_ROWS = 250;
@@ -769,6 +769,7 @@ function stop() {
   S.observer?.disconnect();
   clearTimeout(S.posTimer);
   S.ana?.destroy?.();
+  S.unsheet?.();
   if (S.onKey) document.removeEventListener('keydown', S.onKey);
 }
 
@@ -801,7 +802,7 @@ function render() {
     <article class="rd-paper" aria-label="Reading">
       <header>
         <p class="rd-eyebrow">${esc(words_(h.completeness))} · ${S.source ? 'Source transcription' : 'Normalized reading text'}</p>
-        <h1 lang="${esc(h.language)}" dir="${esc(h.direction || 'ltr')}">${esc(h.title)}</h1>
+        <h1 tabindex="-1" lang="${esc(h.language)}" dir="${esc(h.direction || 'ltr')}">${esc(h.title)}</h1>
         <p class="rd-author">${esc((h.contributors || []).map((c) => c.name).join(' · '))}</p>
         <div class="rd-row">
           ${btn('select', inSel ? 'In export selection' : 'Export selection', inSel ? 'check' : 'plus', `aria-pressed="${!!inSel}"`)}
@@ -823,7 +824,7 @@ function render() {
   S.root.addEventListener('input', onChange);
   S.onKey = (e) => {
     if (e.key !== 'Escape' || !S?.root?.isConnected) return;
-    if (S.root.classList.contains('rd-sheet')) S.root.classList.remove('rd-sheet');
+    if (S.root.classList.contains('rd-sheet')) closeSheet();
     else if (S.sel.size) {
       S.sel.clear();
       syncSelection();
@@ -834,6 +835,9 @@ function render() {
   renderAlerts();
   renderBody();
   renderInspector();
+  // Opened from a works result or a link: the control that asked is gone.
+  if (!document.activeElement || document.activeElement === document.body)
+    S.root.querySelector('h1')?.focus();
 }
 
 function renderAlerts() {
@@ -1338,6 +1342,8 @@ function onClick(e) {
       renderInspector();
       openSheet();
       replaceRoute();
+      // The row's button was re-rendered: land on the Sources lens it opened.
+      focusInspector();
       return say(
         `Source row ${l.physical_line} · ${l.source_ranges.map((r) => r.precision).join(', ') || 'no'} coordinates`
       );
@@ -1364,7 +1370,7 @@ function onClick(e) {
     case 'sheet':
       return openSheet(true);
     case 'sheet-close':
-      return S.root.classList.remove('rd-sheet');
+      return closeSheet();
     case 'select': {
       const sel = S.lib.selection;
       if (!sel) return;
@@ -1377,6 +1383,7 @@ function onClick(e) {
         on ? 'check' : 'plus',
         `aria-pressed="${on}"`
       );
+      S.root.querySelector('[data-rd="select"]')?.focus();
       return;
     }
     case 'compare':
@@ -1436,6 +1443,31 @@ function openSheet(force) {
     S.root.classList.remove('rd-noinsp');
   }
   if (force || matchMedia('(max-width: 899px)').matches) S.root.classList.add('rd-sheet');
+  const insp = S.root.querySelector('.rd-insp');
+  // A narrow layout shows the inspector as a sheet over the reader: what it
+  // covers leaves the Tab order, focus moves in, and closing returns it.
+  if (!S.unsheet && insp && getComputedStyle(insp).position === 'fixed') {
+    const opener = document.activeElement;
+    const restore = uiInertOutside(insp);
+    S.unsheet = () => {
+      S.unsheet = null;
+      restore();
+      if (opener?.isConnected && !opener.closest('[inert]')) opener.focus();
+    };
+    focusInspector();
+  }
+}
+function closeSheet() {
+  S.root.classList.remove('rd-sheet');
+  S.unsheet?.();
+}
+// The inspector's current lens (or its Close), where focus lands when it opens.
+function focusInspector() {
+  const insp = S.root.querySelector('.rd-insp');
+  (
+    insp?.querySelector('[data-rd="lens"][aria-pressed="true"]') ||
+    insp?.querySelector('[data-rd="sheet-close"]')
+  )?.focus();
 }
 
 function onChange(e) {

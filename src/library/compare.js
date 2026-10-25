@@ -15,7 +15,7 @@
 //   onClose  called after the sheet closes (Escape, scrim, close button).
 // The sheet keeps `compare=<id>` in the hash with replaceState and removes it
 // on close, as the old Site did with ?compare.
-/* global esc, icon, libraryChunk */
+/* global esc, icon, libraryChunk, uiInertOutside */
 'use strict';
 
 const PAGE_ROWS = 250;
@@ -301,6 +301,9 @@ function mount(container, input) {
 <button type="button" class="cm-btn cm-btn-icon" data-close aria-label="Close comparison">${icon('x', 20)}</button></div>
 <div class="lib-cmp-picker"></div><div class="lib-cmp-body"></div>`;
   host.append(scrim, sheet);
+  // aria-modal is kept: what the sheet covers leaves the Tab order (the scrim
+  // stays clickable, it closes the sheet).
+  const restoreInert = uiInertOutside(sheet, [scrim]);
   const pickerEl = sheet.querySelector('.lib-cmp-picker');
   const bodyEl = sheet.querySelector('.lib-cmp-body');
   let alive = true,
@@ -498,6 +501,7 @@ ${limit < rows.length ? `<button type="button" class="cm-btn cm-btn-outline lib-
     if (current === handle) current = null;
     clearTimeout(timer);
     document.removeEventListener('keydown', onKey, true);
+    restoreInert();
     scrim.remove();
     sheet.remove();
     if (silent) return;
