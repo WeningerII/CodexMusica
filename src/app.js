@@ -14710,7 +14710,10 @@ function confirmDialog(opts) {
     };
     const onKey = (e) => {
       if (e.key === 'Escape') { e.preventDefault(); close(false); }
-      else if (e.key === 'Enter') { e.preventDefault(); close(true); }
+      // Enter activates the focused button (the browser clicks it), so Enter on
+      // Cancel cancels. With no dialog button focused it does nothing: a stray
+      // Enter, such as the one that opened the dialog, never confirms a delete.
+      else if (e.key === 'Enter') { if (!e.target.closest?.('.confirm-dialog button')) e.preventDefault(); }
       else if (e.key === 'Tab') _trapTab(e, bg.querySelector('.modal'));
     };
     document.addEventListener('keydown', onKey);
@@ -17816,7 +17819,9 @@ function _initApp() {
     closeModal('modal-save');
     saveWS(n);
   });
-  document.getElementById('save-name').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('save-confirm').click(); });
+  // preventDefault: otherwise the same Enter lands on Save (focus is back on it)
+  // and opens the dialog again, and a second Enter saves a duplicate copy.
+  document.getElementById('save-name').addEventListener('keydown', e => { if (e.key === 'Enter' && !e.isComposing) { e.preventDefault(); document.getElementById('save-confirm').click(); } });
   document.getElementById('btn-saved').addEventListener('click', () => { renderSaved(); openModal('modal-saved'); });
   // Debounced, but only lightly.
   //
