@@ -152,12 +152,24 @@ async function failFrom(response) {
   });
   return error;
 }
+// An unclassified failure (a 5xx, no answer at all, or a bare transport
+// message such as "Library service 503") does not show what the server
+// admitted: a POST /analyses may have started a job, and a poll's job still
+// stands. So it says only that the status is unconfirmed, never "Nothing was
+// sent" (kept for the undecided-choice guard, which returns before any request).
+const UNCONFIRMED = 'The analysis service is unavailable. We couldn’t confirm the current status.';
 function failMessage(p) {
   if (p.status === 404 || p.code === 'NOT_FOUND') return EARLIER_SESSION;
   if (p.status === 410) return 'This analysis expired or was deleted.';
   if (p.code === 'STALE_READING')
     return 'This reading was updated. The analysis server updates within a day; retry later.';
   if (p.status === 429) return `${p.message}${p.retryAfter ? ` Retry in ${p.retryAfter} s.` : ''}`;
+  if (
+    !p.status ||
+    p.status >= 500 ||
+    /^(Library service|HTTP) \d+$|fetch|network|load failed/i.test(p.message)
+  )
+    return UNCONFIRMED;
   return p.remedy ? `${p.message} ${p.remedy}` : p.message;
 }
 
@@ -1897,8 +1909,15 @@ function mount(container, input) {
     if (changed.length && typeof libraryAnnounce === 'function')
       libraryAnnounce(changed.map((k) => now[k]).join(' '));
   }
+  // A redraw replaces the control that held focus (Analyze, a job action).
+  // Give focus to its replacement; while the work runs that replacement is
+  // disabled, so hold the wish until the redraw that enables it again.
+  let held = null;
   function draw(which = ['tabs', 'status', 'main']) {
     if (!alive) return;
+    const had = document.activeElement;
+    if (had && root.contains(had) && had.dataset.act)
+      held = { act: had.dataset.act, id: had.dataset.id || '' };
     root.setAttribute('aria-busy', String(st.busy));
     if (which.includes('tabs')) slot('tabs').innerHTML = tabsHTML();
     if (which.includes('status')) {
@@ -1906,6 +1925,14 @@ function mount(container, input) {
       announceStatus();
     }
     if (which.includes('main')) slot('main').innerHTML = mainHTML();
+    const now = document.activeElement;
+    if (held && (!now || now === document.body || !now.isConnected)) {
+      const next = [...root.querySelectorAll(`[data-act="${held.act}"]`)].find(
+        (el) => (el.dataset.id || '') === held.id
+      );
+      if (next && !next.disabled) (next.focus(), (held = null));
+      else if (!st.busy) held = null;
+    } else held = null;
     if (which.includes('decl')) {
       slot('decl').innerHTML = '';
       if (st.declOpen) drawDeclarations(slot('decl'));

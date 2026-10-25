@@ -111,7 +111,10 @@ function fetchBytes(lib, path) {
       path,
       (async () => {
         const r = await fetch(lib.base + path);
-        if (!r.ok) throw Error(`The Library could not load ${path} (${r.status}).`);
+        if (!r.ok)
+          throw Object.assign(Error(`The Library could not load ${path} (${r.status}).`), {
+            status: r.status,
+          });
         let b = new Uint8Array(await r.arrayBuffer());
         if (b[0] === 0x1f && b[1] === 0x8b)
           b = new Uint8Array(
@@ -650,7 +653,7 @@ function replaceRoute(extra = {}) {
   }
 }
 
-async function show(main, sub, lib) {
+async function show(main, sub, lib, { retry = false } = {}) {
   if (!document.querySelector('style[data-lib="reader"]'))
     document.head.insertAdjacentHTML('beforeend', `<style data-lib="reader">${CSS}</style>`);
   const { id, key, params } = parse(sub);
@@ -722,6 +725,9 @@ async function show(main, sub, lib) {
       };
     if (params.get('line')) S.hl = new Set([params.get('line')]);
     render();
+    // render() lands focus on the h1 when the Retry that asked is gone.
+    if (retry && typeof libraryAnnounce === 'function')
+      libraryAnnounce(`${S.root.querySelector('h1')?.textContent || 'Reading'} loaded`);
     const anchor = params.get('line') || (!params.has('offset') && pos?.line_id) || '';
     const row = params.has('offset') ? offset : null;
     requestAnimationFrame(() => scrollToLine(anchor, row));
@@ -735,16 +741,23 @@ async function show(main, sub, lib) {
     console.error('[library reader]', e);
     main.innerHTML = uiEmptyState({
       title: e instanceof Closed ? 'This reading failed its check' : 'Reading unavailable',
-      text: e.message + (e instanceof Closed ? ' No text is shown. Reload to fetch it again.' : ''),
+      text:
+        e instanceof Closed
+          ? e.message + ' No text is shown. Reload to fetch it again.'
+          : lib.problem
+            ? lib.problem(e)
+            : 'Couldn’t reach the Library. Check your connection and try again.',
       actions: `<button type="button" class="cm-btn" data-rd-retry>${icon('refresh-cw', 16)}<span>Retry</span></button><button type="button" class="cm-btn" data-rd-back>${icon('arrow-left', 16)}<span>Works</span></button>`,
       tone: 'danger',
     });
     main.querySelector('[data-rd-retry]')?.addEventListener('click', () => {
       FILES.clear();
       S = null;
-      show(main, sub, lib);
+      show(main, sub, lib, { retry: true });
     });
     main.querySelector('[data-rd-back]')?.addEventListener('click', () => lib.go('/works'));
+    if (retry && lib.settle)
+      lib.settle(main.querySelector('[data-rd-retry]'), lib.failed ? lib.failed(main) : '');
   }
 }
 

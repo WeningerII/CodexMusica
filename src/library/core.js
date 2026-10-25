@@ -3,7 +3,7 @@
 // router (show(main, sub)), the shared `lib` service every other chunk codes
 // against (docs/library-ui-contract.md), and Explore: language shelves of
 // collection cards, the collections rail, the topline and a collection page.
-/* global LIBRARY, LIBRARY_DATA_BASE, esc, icon, libraryChunk, libraryShow, uiButton, uiEmptyState, uiSubroute, showToast */
+/* global LIBRARY, LIBRARY_DATA_BASE, esc, icon, libraryChunk, libraryShow, uiButton, uiEmptyState, uiSubroute, showToast, libraryAnnounce */
 'use strict';
 
 // ─── The shared service ──────────────────────────────────────────────────────
@@ -207,12 +207,45 @@ const selection = (() => {
   return sel;
 })();
 
+// A failure state read as one sentence pair: its title, then what to do.
+const failed = (root) =>
+  [...(root.querySelector('.cm-empty')?.children || [])]
+    .filter((el) => el.matches('strong, span'))
+    .map((el) => el.textContent.replace(/\.?$/, '.'))
+    .join(' ');
+const UNREACHABLE = 'Couldn’t reach the Library. Check your connection and try again.';
 const lib = {
   base: typeof LIBRARY_DATA_BASE === 'string' ? LIBRARY_DATA_BASE : 'library/data/',
   api: 'https://mcp.codexmusica.com/library/v1',
   artBase: ART_BASE,
   languageNames: LANGUAGE_NAMES,
   languageName: (code) => LANGUAGE_NAMES[code] || code,
+  // The visible line for a load that failed: what the person can do, not the
+  // transport's words ("Failed to fetch", "Library data 503: …"), which stay in
+  // the console. A refusal written for readers (a 400 from search) keeps its own.
+  problem(error) {
+    const msg = String((error && error.message) || error || '');
+    const status = (error && error.status) || 0;
+    return !msg ||
+      error instanceof TypeError ||
+      status >= 500 ||
+      status === 404 ||
+      /Library (data|service) \d|\(\d{3}\)|fetch|network|load failed/i.test(msg)
+      ? UNREACHABLE
+      : msg;
+  },
+  failed,
+  // After a Retry the button that held focus is gone. When focus fell with it,
+  // land on the control that matters now (the new Retry, or the loaded view's
+  // heading or first control) and say what happened.
+  settle(target, said) {
+    const a = document.activeElement;
+    if (target && (!a || a === document.body || !a.isConnected)) {
+      if (!target.matches('button,a[href],input,select,textarea,[tabindex]')) target.tabIndex = -1;
+      target.focus();
+    }
+    if (said && typeof libraryAnnounce === 'function') libraryAnnounce(said);
+  },
   go(sub, { replace = false } = {}) {
     LIBRARY.sub = sub;
     uiSubroute(sub, { push: !replace });
@@ -1009,7 +1042,7 @@ function bind(main) {
       } else if (act === 'page') {
         await lib.go(collectionSub(cid, Math.max(0, Number(el.dataset.page) || 0)));
       } else if (act === 'retry') {
-        render(main, LIBRARY.sub);
+        render(main, LIBRARY.sub, { retry: true });
       }
     } catch (error) {
       console.error('[library]', error);
@@ -1026,7 +1059,7 @@ function currentCollection() {
   return m ? decodeURIComponent(m[1]) : null;
 }
 
-async function render(main, sub) {
+async function render(main, sub, { retry = false } = {}) {
   ensureStyles();
   bind(main);
   main.dataset.libraryChunk = 'core';
@@ -1037,6 +1070,13 @@ async function render(main, sub) {
   try {
     if (coll) await showCollection(main, decodeURIComponent(coll[1]), token, collectionOffset(sub));
     else await showExplore(main, token);
+    if (retry && token === state.token) {
+      const h = main.querySelector('.lib-core-main h1');
+      lib.settle(
+        h || main.querySelector('.lib-shelf-scroll') || main.querySelector('.lib-core-main button'),
+        h ? `${h.textContent} loaded` : 'Library catalog loaded'
+      );
+    }
   } catch (error) {
     if (token !== state.token) return;
     console.error('[library]', error);
@@ -1049,10 +1089,15 @@ async function render(main, sub) {
         })
       : uiEmptyState({
           title: 'The Library catalog did not load',
-          text: String(error.message || error),
+          text: lib.problem(error),
           actions: libButton('retry', 'Retry', 'refresh-cw', ''),
           tone: 'danger',
         });
+    if (retry)
+      lib.settle(
+        main.querySelector('[data-lib-act="retry"], [data-ui="lib-reload"]'),
+        failed(main)
+      );
   }
 }
 

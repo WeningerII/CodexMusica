@@ -1564,6 +1564,145 @@ SECTIONS.retained = async function ({ page, base, tag }) {
     JSON.stringify(after).slice(0, 400)
   );
 };
+// Retry (Jony #59): every Library data file answers 503, so each view shows its
+// failure; a Retry that fails again lands focus on the new Retry and says, in
+// plain words, what to do; served again, a Retry lands on the loaded view and
+// says it loaded. Before the fix both ended with focus on BODY and the line
+// read "Failed to fetch" or "Library data 503: …".
+SECTIONS.retry = async function ({ page, base, tag, errors }) {
+  const RETRY =
+    '#surface-library .cm-empty [data-lib-act="retry"], #surface-library [data-lw="retry"], #surface-library [data-rd-retry]';
+  const live = () =>
+    page.evaluate(() => document.getElementById('library-live')?.textContent || '');
+  const focused = (sel) =>
+    page.evaluate((s) => {
+      const a = document.activeElement;
+      return a && a !== document.body && a.matches(s) ? a.outerHTML.slice(0, 120) : '';
+    }, sel);
+  // Click the Retry on screen and wait for its replacement (a new Retry, or
+  // the loaded view's own selector).
+  const retryInto = async (sel) => {
+    await page.$eval(RETRY, (b) => (b.dataset.old = '1'));
+    await page.evaluate(() => (document.getElementById('library-live').textContent = ''));
+    await page.click(RETRY);
+    await page.waitForFunction(
+      (s) => {
+        const e = document.querySelector(s);
+        return e && !e.dataset.old;
+      },
+      sel,
+      { timeout: 20000 }
+    );
+    await page
+      .waitForFunction(() => document.getElementById('library-live')?.textContent, null, {
+        timeout: 3000,
+      })
+      .catch(() => {});
+  };
+  const fail = (route) => route.fulfill({ status: 503, body: 'unavailable' });
+  for (const [view, hash, loaded, landing] of [
+    ['home', '', '#surface-library .lib-shelf', '.lib-shelf-scroll'],
+    ['works', '/works', '#surface-library [data-lw="open"]', '[data-lw="open"]'],
+    ['reader', `/read/${EPI_A}`, '#surface-library .rd h1', '.rd h1'],
+  ]) {
+    await page.route('**/library/data/**', fail);
+    await go(page, base, hash);
+    await page.waitForSelector(RETRY, { timeout: 20000 });
+    const shown = await page.$eval('#surface-library .cm-empty', (e) => e.textContent);
+    check(
+      `${tag} retry ${view}: the failure says what to do, not the transport's words`,
+      /Couldn’t reach the Library\. Check your connection and try again\./.test(shown) &&
+        !/Failed to fetch|\b503\b|library\/data|\.json/i.test(shown),
+      short(shown)
+    );
+    await retryInto(RETRY);
+    check(
+      `${tag} retry ${view}: a Retry that fails again lands on the new Retry`,
+      !!(await focused(RETRY)),
+      await page.evaluate(() => document.activeElement?.tagName)
+    );
+    const saidFail = await live();
+    check(
+      `${tag} retry ${view}: and says the plain line through #library-live`,
+      /Couldn’t reach the Library/.test(saidFail) && !/Failed to fetch|\b503\b/.test(saidFail),
+      short(saidFail)
+    );
+    await page.unroute('**/library/data/**', fail);
+    await retryInto(loaded);
+    check(
+      `${tag} retry ${view}: a Retry that succeeds lands on the loaded view`,
+      !!(await focused(`#surface-library ${landing}`)),
+      await page.evaluate(() => document.activeElement?.outerHTML.slice(0, 120))
+    );
+    const saidOk = await live();
+    check(`${tag} retry ${view}: and says it loaded`, /loaded/.test(saidOk), short(saidOk));
+  }
+  // Analyze (Jony #59, 3PO's wording): a 503 after POST /analyses cannot show
+  // that nothing was admitted, so it never says "Nothing was sent"; it says the
+  // status is unconfirmed, and focus stays on Analyze through the redraws.
+  // Served again, the next press starts the job with focus still there.
+  const down = (route) => {
+    const req = route.request();
+    if (req.method() !== 'POST') return route.fallback();
+    return route.fulfill({
+      status: 503,
+      headers: {
+        'content-type': 'application/json',
+        'access-control-allow-origin': req.headers().origin || '*',
+        'access-control-allow-credentials': 'true',
+      },
+      body: '{}',
+    });
+  };
+  await page.route(`${API}/analyses`, down);
+  await go(page, base, `/read/${EPI_A}?lens=sound`);
+  const analyze = await inspectorOpen(page);
+  if (check(`${tag} retry analyze: Sound lens offers Analyze`, !!analyze)) {
+    await page.evaluate(() => (document.getElementById('library-live').textContent = ''));
+    await analyze.click();
+    await page.waitForSelector('#surface-library .la-error', { timeout: 10000 }).catch(() => null);
+    await page.waitForTimeout(300);
+    const err = await page
+      .$eval('#surface-library .la-error', (e) => e.textContent)
+      .catch(() => '');
+    check(
+      `${tag} retry analyze: a 503 after POST says the status is unconfirmed, never "Nothing was sent"`,
+      err === 'The analysis service is unavailable. We couldn’t confirm the current status.',
+      short(err)
+    );
+    check(
+      `${tag} retry analyze: a failed Analyze keeps focus on Analyze`,
+      !!(await focused('#surface-library [data-act="analyze"]')),
+      await page.evaluate(() => document.activeElement?.outerHTML.slice(0, 120))
+    );
+    const said = await live();
+    check(
+      `${tag} retry analyze: and says the same line through #library-live`,
+      /couldn’t confirm the current status/.test(said) && !/Nothing was sent|\b503\b/.test(said),
+      short(said)
+    );
+    await page.unroute(`${API}/analyses`, down);
+    await page.click('#surface-library [data-act="analyze"]');
+    await page
+      .waitForFunction(
+        () =>
+          /running/i.test(document.querySelector('#surface-library .la-section')?.innerText || ''),
+        null,
+        { timeout: 10000 }
+      )
+      .catch(() => {});
+    await page.waitForTimeout(300);
+    check(
+      `${tag} retry analyze: an Analyze that starts the job keeps focus on its replacement`,
+      !!(await focused('#surface-library [data-act="analyze"]')),
+      await page.evaluate(() => document.activeElement?.outerHTML.slice(0, 120))
+    );
+  }
+  // The failures this section asked for are not the page's errors.
+  for (let i = errors.length - 1; i >= 0; i--)
+    if (/^(503 \/library\/data\/|console: \[library( reader)?\])/.test(errors[i]))
+      errors.splice(i, 1);
+};
 const NEEDS = {
   explore: 'core',
   works: 'works',
@@ -1574,6 +1713,7 @@ const NEEDS = {
   analysis: 'analysis',
   declarations: 'analysis',
   retained: 'analysis',
+  retry: 'works',
 };
 
 (async () => {
@@ -1595,7 +1735,7 @@ const NEEDS = {
       if (ONLY && !ONLY.has(name)) continue;
       const need = [
         NEEDS[name],
-        ...(['compare', 'focus', 'analysis', 'declarations', 'retained'].includes(name)
+        ...(['compare', 'focus', 'analysis', 'declarations', 'retained', 'retry'].includes(name)
           ? ['reader']
           : []),
       ];
@@ -1608,7 +1748,7 @@ const NEEDS = {
         const tag = `[${combo.theme} ${combo.width}]`;
         const { context, page, errors, log } = await openPage(browser, srv.url, combo);
         try {
-          await fn({ page, base: srv.url, tag, log });
+          await fn({ page, base: srv.url, tag, log, errors });
         } catch (e) {
           check(`${tag} ${name}: ran to the end`, false, short(e.message, 300));
         }

@@ -405,6 +405,18 @@ class WorksView {
         ? `<button type="button" class="cm-btn cm-btn-tonal" data-lw="select-collection">${ic(this.lib, 'plus', 16)}<span>Select collection</span></button>`
         : '');
   }
+  // After Retry (lib.settle in core): focus the new Retry, or the first
+  // result or way on, and say which.
+  settle(target, failedAgain) {
+    this.retried = false;
+    const results = this.slot('results');
+    const said = failedAgain
+      ? this.lib.failed
+        ? this.lib.failed(results)
+        : 'The Library list could not load.'
+      : `Works loaded. ${this.slot('summary').textContent || ''}`.trim();
+    if (this.lib.settle) this.lib.settle(target || this.slot('title'), said);
+  }
   async load() {
     const s = { ...this.state };
     const seq = ++this.seq;
@@ -424,11 +436,14 @@ class WorksView {
         title: isStatic(s) ? 'The Library list could not load' : 'Search is unavailable right now',
         text: rate
           ? 'Too many searches from this network; retry shortly.'
-          : (error && error.message) || 'Check your connection and retry.',
+          : this.lib.problem
+            ? this.lib.problem(error)
+            : 'Couldn’t reach the Library. Check your connection and try again.',
         actions: `<button type="button" class="cm-btn cm-btn-outline" data-lw="retry">${ic(this.lib, 'refresh-cw', 16)}<span>Retry</span></button>`,
         tone: 'danger',
       });
       this.slot('summary').textContent = '';
+      if (this.retried) this.settle(results.querySelector('[data-lw="retry"]'), true);
       return;
     }
     // Superseded, or the view left the page while the rows loaded (a slow
@@ -452,6 +467,7 @@ class WorksView {
               ? `<button type="button" class="cm-btn cm-btn-outline" data-lw="clear-all">Clear search and filters</button>`
               : '',
       });
+      if (this.retried) this.settle(results.querySelector('button'));
       return;
     }
     const last = Math.min(offset + page.rows.length, page.total);
@@ -463,6 +479,7 @@ class WorksView {
       `<nav class="lw-pager" aria-label="Works pages"><button type="button" class="cm-btn cm-btn-outline" data-lw="page" data-to="${Math.max(0, offset - PAGE)}" ${offset === 0 ? 'disabled' : ''}>Previous</button>` +
       `<span>${(offset + 1).toLocaleString()}–${last.toLocaleString()} of ${page.total.toLocaleString()}</span>` +
       `<button type="button" class="cm-btn cm-btn-outline" data-lw="page" data-to="${page.next ?? offset + PAGE}" ${hasNext ? '' : 'disabled'}>Next</button></nav>`;
+    if (this.retried) this.settle(results.querySelector('[data-lw="open"]'));
   }
   paintSelection() {
     for (const b of this.root.querySelectorAll('[data-lw="select"]')) {
@@ -552,6 +569,7 @@ class WorksView {
     } else if (act === 'filters') {
       this.openFilters(t);
     } else if (act === 'retry') {
+      this.retried = true;
       this.load();
     }
   }
