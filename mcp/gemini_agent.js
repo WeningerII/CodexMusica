@@ -1050,6 +1050,28 @@ export function declarationsFor(surface, lyr, writer = chatWriter()) {
   return declarationsForRun({ ...surface, declarations: base }, lyr);
 }
 
+// What one hop offers under a host task: that task's domain only, and in a
+// recipe task no `format`. The host fixes the format (task.format, else rich)
+// and the call is rewritten to it, so offering four formats would offer the
+// model a choice it cannot have — dropped as the interview fields are.
+export function taskDeclarations(declarations, task) {
+  if (!task) return declarations;
+  return declarations
+    .filter((d) => (task.domain === 'lyrics') === d.name.startsWith('lyric_'))
+    .map((d) => {
+      if (task.domain !== 'recipe' || !d.parameters?.properties?.format) return d;
+      const properties = { ...d.parameters.properties };
+      delete properties.format;
+      const required = Array.isArray(d.parameters.required)
+        ? d.parameters.required.filter((n) => n !== 'format')
+        : d.parameters.required;
+      return {
+        ...d,
+        parameters: { ...d.parameters, properties, ...(required ? { required } : {}) },
+      };
+    });
+}
+
 function declarationsForRun(surface, lyr) {
   // M-232: a PARKED run's continuing call is the rewritten draft plus the
   // run's key — no `answer`, no `state` — the mirror image of a suspended one.
@@ -1657,7 +1679,10 @@ function pruneHistory(contents, { keepTurns = 1, maxBytes = 200_000 } = {}) {
  *   different seed starts a fresh run instead of inheriting a stale record.
  */
 const declaresFormat = (surface, name) =>
-  !!(surface.tools || []).find((t) => t.name === name)?.inputSchema?.properties?.format;
+  !!(
+    (surface.tools || []).find((t) => t.name === name)?.inputSchema?.properties?.format ||
+    (surface.declarations || []).find((d) => d.name === name)?.parameters?.properties?.format
+  );
 export async function runTurn({
   // KITCHEN COOKS (M-254): who answers a revise question on this surface —
   // the declared default, overridable per call so a test drives both
@@ -1912,9 +1937,7 @@ export async function runTurn({
       // Per hop, like the reminder: the record can appear mid-turn (M-226).
       body.tools = [
         {
-          functionDeclarations: declarationsFor(surface, lyr, writer).filter(
-            (d) => !task || (task.domain === 'lyrics') === d.name.startsWith('lyric_')
-          ),
+          functionDeclarations: taskDeclarations(declarationsFor(surface, lyr, writer), task),
         },
       ];
       body.toolConfig = { functionCallingConfig: { mode: 'AUTO' } };
@@ -2124,7 +2147,16 @@ export async function runTurn({
             content: [
               {
                 type: 'text',
-                text: `REFUSED: ${fc.name} is outside the active ${task.domain} task.`,
+                // Name the next step: what this task can call, and that the
+                // other domain is a task the user starts, not one the model can.
+                text:
+                  `REFUSED: ${fc.name} is outside the active ${task.domain} task. ` +
+                  `This task's tools are ${body.tools[0].functionDeclarations
+                    .map((d) => d.name)
+                    .join(', ')}; ` +
+                  (task.domain === 'lyrics'
+                    ? 'a recipe needs a Recipe task, which the user starts.'
+                    : 'lyrics need a Lyrics task, which the user starts.'),
               },
             ],
           };
@@ -2138,10 +2170,18 @@ export async function runTurn({
           responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
           continue;
         }
-        // Rich is the chat's recipe format, set only on a tool that declares
-        // `format`: the connector refuses an argument a tool does not declare,
-        // so stamping it on search_catalog refused every recipe-turn search.
-        if (task?.domain === 'recipe' && declaresFormat(surface, fc.name)) args.format = 'rich';
+        // The host fixes a recipe task's format, set only on a tool that
+        // declares `format`: the connector refuses an argument a tool does not
+        // declare, so stamping it on search_catalog refused every recipe-turn
+        // search. A model that sends another format is still rendered in the
+        // host's format, and told so rather than left to believe it.
+        let formatNote = null;
+        if (task?.domain === 'recipe' && declaresFormat(surface, fc.name)) {
+          const host = task.format || 'rich';
+          if (args.format !== undefined && args.format !== host)
+            formatNote = `format ${JSON.stringify(String(args.format))} is not offered in this chat; the recipe was rendered ${host}, this task's only recipe format.`;
+          args.format = host;
+        }
         const spent = totalCost();
         const overCost = limits.maxTurnUsd > 0 && (spent === null || spent >= limits.maxTurnUsd);
         if (stopped || interruption(step + 1) || overCost) {
@@ -2470,6 +2510,20 @@ export async function runTurn({
           }
           recordCreation(task, fc.name, args, lyricVerdict, isError);
           result = withSweepNext(task, fc.name, result, lyr);
+          // Inside the JSON payload, never as a second block: a second block
+          // would make block 0 a verbatim "presentation" in toFunctionResponse
+          // and hand the model the workspace that path exists to strip.
+          if (formatNote && !isError && payload && typeof payload === 'object')
+            result = {
+              ...result,
+              content: [
+                {
+                  ...result.content[0],
+                  text: JSON.stringify({ ...payload, format_note: formatNote }),
+                },
+                ...result.content.slice(1),
+              ],
+            };
           if (task?.domain === 'lyrics' && task.phase === 'create' && fc.name === 'lyric_plan') {
             artifact = null;
             task.artifact = null;

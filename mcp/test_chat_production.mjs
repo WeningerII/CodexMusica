@@ -482,6 +482,93 @@ test('recipe task excludes lyric instructions and declarations and rejects wrong
   }
 });
 
+test('a recipe task offers no format, the host format is the one sent, and a wrong-family refusal names the next step', async () => {
+  // The real connector declares `format` on the recipe tools; the shared test
+  // surface does not, so this one does, or the absence would prove nothing.
+  const fmt = { type: 'string', enum: ['rich', 'tags', 'prose', 'compact'] };
+  const withFormat = {
+    ...surface,
+    declarations: surface.declarations.map((d) =>
+      d.name === 'start_recipe'
+        ? {
+            ...d,
+            parameters: {
+              type: 'object',
+              properties: { traditions: { type: 'array' }, format: fmt },
+              required: ['traditions', 'format'],
+            },
+          }
+        : d
+    ),
+  };
+  const bodies = [];
+  const sent = [];
+  globalThis.fetch = async (_url, req) => {
+    bodies.push(JSON.parse(req.body));
+    if (bodies.length === 1)
+      return response([
+        fc('lyric_revise'),
+        fc('start_recipe', { traditions: ['x'], format: 'prose' }),
+      ]);
+    return response([{ text: 'done' }]);
+  };
+  try {
+    const out = await runTurn({
+      ...opts,
+      surface: withFormat,
+      task: { ...task('recipe'), format: 'tags' },
+      callTool: async (name, args) => {
+        sent.push([name, args.format]);
+        return {
+          content: [
+            { type: 'text', text: JSON.stringify({ recipe: 'r', workspace: { cards: [1] } }) },
+          ],
+        };
+      },
+    });
+    const start = bodies[0].tools[0].functionDeclarations.find((d) => d.name === 'start_recipe');
+    assert.ok(start && !('format' in start.parameters.properties), 'format is not offered');
+    assert.deepEqual(start.parameters.required, ['traditions']);
+    assert.ok('traditions' in start.parameters.properties, 'the other fields stay');
+    assert.deepEqual(
+      sent,
+      [['start_recipe', 'tags']],
+      "the host's format, not 'rich' or the model's"
+    );
+    // The model asked for prose anyway: it is told which format it got, inside
+    // the one JSON payload, so the workspace is still stripped from what it reads.
+    const told = bodies[1].contents
+      .flatMap((c) => c.parts || [])
+      .find((p) => p.functionResponse?.name === 'start_recipe')?.functionResponse.response;
+    assert.match(
+      told?.format_note || '',
+      /format "prose" is not offered in this chat; the recipe was rendered tags/
+    );
+    assert.equal(told.recipe, 'r');
+    assert.ok(!('workspace' in told) && !('presentation' in told), 'still the one-payload path');
+    const refusal = out.calls.find((c) => c.name === 'lyric_revise').error;
+    assert.match(refusal, /outside the active recipe task\. This task's tools are start_recipe;/);
+    assert.match(refusal, /lyrics need a Lyrics task, which the user starts\./);
+  } finally {
+    globalThis.fetch = nativeFetch;
+  }
+});
+
+test('a lyrics task refusing a recipe tool names its own tools and the Recipe task', async () => {
+  let count = 0;
+  globalThis.fetch = async () =>
+    ++count === 1 ? response([fc('start_recipe')]) : response([{ text: 'ok' }]);
+  try {
+    const out = await runTurn({ ...opts, task: task('lyrics') });
+    const refusal = out.calls[0].error;
+    assert.match(refusal, /outside the active lyrics task\. This task's tools are lyric_/);
+    assert.doesNotMatch(refusal, /tools are[^;]*start_recipe/);
+    assert.match(refusal, /a recipe needs a Recipe task, which the user starts\./);
+  } finally {
+    globalThis.fetch = nativeFetch;
+  }
+});
+
 test('certified delivery uses the exact authoritative artifact and binds full draft digest', async () => {
   const draft = ['I love you, still.', 'I love you now.'];
   const text = '[VERSE]\n' + draft.join('\n') + '\n[FINISHED]';
