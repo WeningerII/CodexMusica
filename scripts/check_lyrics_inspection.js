@@ -684,6 +684,146 @@ const settle = (p) => p.waitForTimeout(120);
         await p.finish();
       }
     }
+    // #108, #109 (Jony, with 3PO's committed replay fixture of 21 relation
+    // records): Show all and an occurrence choice keep focus in the list and
+    // say what is shown; every Go names its pair and relation.
+    const replay = JSON.parse(
+      fs.readFileSync(
+        path.join(
+          root,
+          'docs/lyrics-evidence-build/integration-checks/transport/sections-blanks-repeated-utf16-go.json'
+        ),
+        'utf8'
+      )
+    );
+    for (const [width, height] of [
+      [1280, 900],
+      [390, 844],
+    ]) {
+      const p = await open(width, height),
+        label = `${width}x${height}`;
+      try {
+        // Kept together and unchanged: the draft, the request's context and
+        // id, and the whole reply.
+        await p.evaluate(
+          ({ text, post, reply }) => {
+            lyDraft().value = text;
+            uiSaveLyrics();
+            pushHistory();
+            lyRefresh(true);
+            UI.lyricRequest = {
+              id: post.request_id,
+              text: lyDraft().value,
+              submittedContext: post.lyric_context,
+            };
+            lyReceive(reply, { request_id: post.request_id });
+          },
+          { text: replay.record.beforeClick.text, post: replay.posts[0], reply: replay.replies[0] }
+        );
+        // The caret inside the first "cat", as a writer inspecting it: the
+        // inspector then offers its occurrences to choose from.
+        await p.evaluate(() => {
+          const d = lyDraft(),
+            at = d.value.indexOf('cat bat cat') + 1;
+          d.focus();
+          d.setSelectionRange(at, at);
+        });
+        await settle(p);
+        await click(p, 'ly-relations');
+        const where = () =>
+          p.evaluate(() => {
+            const a = document.activeElement;
+            const host = a?.closest('#ly-relations-dialog, #ly-relation-inspector');
+            return {
+              inList: !!host,
+              ui: a?.dataset?.ui || a?.tagName || '',
+              row: a?.closest('li[data-relation-id]')
+                ? [...host.querySelectorAll('li[data-relation-id]')].indexOf(
+                    a.closest('li[data-relation-id]')
+                  )
+                : -1,
+            };
+          });
+        const said = () =>
+          p.evaluate(() =>
+            [...document.querySelectorAll('[data-relation-said]')]
+              .filter((e) => e.getClientRects().length || e.closest('dialog[open]'))
+              .map((e) => e.textContent)
+              .join('|')
+          );
+        // An occurrence choice: focus lands on the list's first Go, said.
+        const choice = await control(p, 'ly-relation-source', ':not([data-id=""])');
+        await choice.focus();
+        await p.keyboard.press('Enter');
+        await p.waitForTimeout(300);
+        const chosen = await where();
+        check(
+          chosen.inList && chosen.ui === 'ly-relation-go' && chosen.row === 0,
+          `#108 ${label} choosing an occurrence lands on the list's first Go: ` +
+            JSON.stringify(chosen)
+        );
+        check(
+          / pairs? for .+, L\d/.test(await said()),
+          `#108 ${label} choosing an occurrence says what is shown: ` + (await said())
+        );
+        // All document evidence (21 pairs, 3 shown): its choice is said too,
+        // and its list offers Show all.
+        await click(p, 'ly-relation-stay');
+        await p.evaluate(() => {
+          const d = lyDraft(),
+            at = d.value.indexOf('cat bat cat') + 1;
+          d.focus();
+          d.setSelectionRange(at, at);
+        });
+        await click(p, 'ly-relations');
+        await (await control(p, 'ly-relation-source', '[data-id=""]')).focus();
+        await p.keyboard.press('Enter');
+        await p.waitForTimeout(300);
+        const all = await where();
+        check(
+          all.inList && all.ui === 'ly-relation-go' && all.row === 0,
+          `#108 ${label} choosing All document evidence lands on the first Go: ` +
+            JSON.stringify(all)
+        );
+        check(
+          /^All document evidence: \d+ pairs$/.test(await said()),
+          `#108 ${label} choosing All document evidence says it: ` + (await said())
+        );
+        // Show all: focus lands on the first newly shown pair's Go, said.
+        const expand = await control(p, 'ly-relation-expand');
+        check((await expand.count()) === 1, `#108 ${label} offers Show all`);
+        await expand.focus();
+        await p.keyboard.press('Enter');
+        await p.waitForTimeout(300);
+        const shown = await where();
+        check(
+          shown.inList && shown.ui === 'ly-relation-go' && shown.row === 3,
+          `#108 ${label} Show all lands on the first newly shown pair: ` + JSON.stringify(shown)
+        );
+        check(
+          /^Showing all \d+ pairs$/.test(await said()),
+          `#108 ${label} Show all says it: ` + (await said())
+        );
+        // #109: every Go's name starts with its words and names its pair.
+        const names = await p.evaluate(() =>
+          [...document.querySelectorAll('[data-ui="ly-relation-go"]')]
+            .filter((b) => b.getClientRects().length)
+            .map((b) => [b.textContent.trim(), b.getAttribute('aria-label') || ''])
+        );
+        check(
+          names.length > 3 &&
+            names.every(([t, n]) => n.startsWith(t + ', pair ') && n.length > t.length + 8) &&
+            new Set(names.map(([, n]) => n)).size === names.length,
+          `#109 ${label} each Go names its pair and relation: ` + JSON.stringify(names.slice(0, 3))
+        );
+        results.push({ kind: 'pair-list-focus-' + label });
+      } catch (e) {
+        errors.push('pair-list ' + label + ': ' + e.message);
+        console.error('pair-list', label, e.message);
+      } finally {
+        await p.finish();
+      }
+    }
   } finally {
     await browser.close();
     await backend.close();

@@ -210,8 +210,32 @@
     const to = showing ? (narrow ? dialog : inline) : null;
     if (from && to && to !== from) followInto(to, key);
   }
+  // Show all and an occurrence choice redraw the list under the button that
+  // asked (Jony #108: focus fell to BODY and nothing was said). Focus lands in
+  // the redrawn list, found afresh, and one line says what is shown, through a
+  // status inside the inspector (outside it, a modal dialog would hide it).
+  const listHost = () =>
+    LY.size === 'narrow' ? $ui('ly-relations-dialog') : $ui('ly-relation-inspector');
+  const listRows = (host) => [...(host?.querySelectorAll('li[data-relation-id]') || [])];
+  function settleList(host, from, said) {
+    if (!host || !host.getClientRects().length) return;
+    const row = listRows(host)[from] || listRows(host)[0];
+    const go =
+      row && [...row.querySelectorAll('[data-ui="ly-relation-go"]')].find((b) => !b.disabled);
+    const heading = host.querySelector('section[aria-label="Relations"] h3');
+    const target = go || heading;
+    if (target) {
+      if (target === heading) heading.tabIndex = -1;
+      target.focus({ preventScroll: true });
+    }
+    const live = host.querySelector('[data-relation-said]');
+    if (!live) return;
+    live.textContent = '';
+    setTimeout(() => (live.textContent = said), 50);
+  }
   function lyInspectionAction(action, id, button) {
     if (!LY.model) return;
+    const shownBefore = listRows(listHost()).length;
     if (action === 'ly-relations') {
       const captured = pendingOrigin || { origin: lyCaptureWritingOrigin(), panel: capturePanel() };
       pendingOrigin = null;
@@ -293,6 +317,25 @@
       session = lyRelationSessionBack(session, { back: restorePanel });
     }
     render();
+    if (action === 'ly-relation-expand' && session?.listOpen) {
+      const host = listHost();
+      settleList(host, shownBefore, `Showing all ${listRows(host).length} pairs`);
+    } else if (action === 'ly-relation-source' && session?.listOpen) {
+      const view = getView(),
+        source = session.sourceOccurrence,
+        o = source && view.occurrences[source];
+      const n = source
+        ? view.pairs.filter((p) => p.a === source || p.b === source).length
+        : view.pairs.length;
+      const pairs = `${n} ${n === 1 ? 'pair' : 'pairs'}`;
+      settleList(
+        listHost(),
+        0,
+        o
+          ? `${pairs} for ${o.text}, ${lyRelationLineLabels(o.lineIds)}`
+          : `All document evidence: ${pairs}`
+      );
+    }
   }
   function lyInspectionWire(surface) {
     surface.addEventListener(
