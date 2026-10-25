@@ -16,7 +16,7 @@ import {
   recoverState,
 } from './state_codec.js';
 import { HTTP_REQUEST_BYTES, jsonBytes } from './payload_limits.js';
-import { sessionView } from './verdict_view.js';
+import { sessionView, verdictShape, DETAIL_FOR, LINE_PARTS } from './verdict_view.js';
 
 // Persisted namespace from the first release: keep existing capabilities recoverable.
 export const INTEGRATION = 'chatgpt-v1';
@@ -35,8 +35,16 @@ export const SESSION_STORE_LIMITS = Object.freeze({
 
 const capability = () => randomBytes(32).toString('hex');
 const clone = (value) => structuredClone(value);
-const fail = (code, message) =>
-  Object.assign(new Error(`${code}: ${message}`), { code, beforeDispatch: true });
+// `receipt` carries any id the caller needs to go on (the operation a stale
+// session advanced to): ids are private capabilities and stay out of the
+// refusal's text, which a host may show (workflow_tools.js renders it as a
+// JSON block after the text; it is not a session receipt).
+const fail = (code, message, receipt) =>
+  Object.assign(new Error(`${code}: ${message}`), {
+    code,
+    beforeDispatch: true,
+    ...(receipt ? { receipt } : {}),
+  });
 // A store that cannot admit a call refuses it as a session refusal that names
 // the same call to retry, keeping the store's `code` and `status` so
 // storeRefused() and a recipe's NOT SAVED path still recognise it. Nothing was
@@ -201,6 +209,77 @@ export function continueNote(footnote, task = null) {
         '`new_run: true` — each call with the latest session_id.';
 }
 
+// A `detail` or `lines` the operation cannot serve is refused by name, with
+// the call that works: before, it was ignored (a sweep answered every part with
+// its summary) or answered with null or [] (a coverage read on a screen, lines
+// past the end of the song), which reads as "there is nothing there".
+function checkDetail(record, result, detail, lines) {
+  const tool = record.intent.action?.tool;
+  const parts = DETAIL_FOR[tool];
+  const plain = 'Call get_operation without detail or lines for the result as published.';
+  if (detail === undefined)
+    throw new Error(
+      `DETAIL_REQUIRED: lines narrows a detail read (${LINE_PARTS.join(', ')}). Add one of those as detail, or omit lines.`
+    );
+  if (!parts)
+    throw new Error(
+      `DETAIL_NOT_APPLICABLE: detail applies to a finished lyric_grade, lyric_revise or lyric_screen; this operation is ${tool || 'not a tool call'}. ${plain}`
+    );
+  if (record.state !== 'completed' || !result)
+    throw new Error(
+      `DETAIL_NOT_READY: this ${tool} is ${record.state}; its verdict has no parts yet. Poll get_operation without detail until status is completed.`
+    );
+  if (!parts.includes(detail))
+    throw new Error(
+      `DETAIL_NOT_APPLICABLE: a ${tool} has detail ${parts.join(', ')}; "${detail}" is not one of them.`
+    );
+  // A finished operation can still have no verdict to take apart: a revise
+  // suspended on a question (exit 4) published that question and its brief,
+  // and the published view hands them back unchanged whatever detail asks.
+  const shape = verdictShape(tool, result.content);
+  if (!shape.ready)
+    throw new Error(
+      `DETAIL_NOT_READY: this ${tool} finished without a verdict to take apart (a revise awaiting answers, at exit 4, or a refusal); it has no detail parts. Call get_operation without detail, and answer its question if it asks one.`
+    );
+  if (!lines?.length) return;
+  if (!LINE_PARTS.includes(detail) || tool === 'lyric_screen')
+    throw new Error(
+      `LINES_NOT_APPLICABLE: lines narrows only ${LINE_PARTS.join(', ')} on a lyric_grade or lyric_revise; detail "${detail}" on a ${tool} has nothing per line. Omit lines.`
+    );
+  const args = record.intent.action?.arguments || {};
+  const count =
+    shape.lines ??
+    (Array.isArray(args.draft)
+      ? args.draft.length
+      : typeof args.draft_text === 'string'
+        ? args.draft_text.split('\n').length
+        : null);
+  const past = count ? lines.filter((n) => n > count) : [];
+  if (past.length)
+    throw new Error(
+      `LINES_OUT_OF_RANGE: this ${tool}'s song has ${count} line(s); line(s) ${past.join(', ')} are past its end. Use lines between 1 and ${count}.`
+    );
+}
+
+// In an edit session a lyric_grade draws a plan from its seed, and a pasted
+// song is rarely that plan's length: the harness refuses "they must be the same
+// song" and names nothing to do. The only lever it implies, a plan `lines`
+// equal to the draft, is out of reach under 12 lines, and the user's lyrics
+// were never planned. The call that works on them is lyric_recover, then
+// lyric_check; the refusal says so.
+const SAME_SONG = /they must be the same song\.$/;
+const EDIT_SAME_SONG =
+  ' These are lyrics this session did not plan: read them with lyric_recover, then grade them with lyric_check (the latest session_id each time); lyric_revise then takes the checked draft without a seed, with the same declaration lyric_check used.';
+function editRefusal(value, task) {
+  if (
+    task?.phase !== 'edit' ||
+    typeof value?.refusal !== 'string' ||
+    !SAME_SONG.test(value.refusal)
+  )
+    return value;
+  return { ...value, refusal: value.refusal + EDIT_SAME_SONG };
+}
+
 // `view` is how a session publishes a lyric verdict: `tool` names the tool
 // that produced it, so a finished grade or revise gets the short verdict, and
 // `detail`/`lines` select what get_operation returns in its place
@@ -209,7 +288,10 @@ export function publicToolResult(result, task = null, view = {}) {
   const content = (result.content || []).map((block) => {
     if (block.type !== 'text') throw new Error('Unexpected non-text connector result.');
     try {
-      return { type: 'text', text: JSON.stringify(visible(JSON.parse(block.text))) };
+      return {
+        type: 'text',
+        text: JSON.stringify(editRefusal(visible(JSON.parse(block.text)), task)),
+      };
     } catch {
       // Keep the song verbatim; replace only the raw connector's continuation
       // footnote, which otherwise names an internal run capability.
@@ -462,7 +544,8 @@ export class WorkflowSessions {
         if (requestDigest(successor.intent.action) !== requestDigest(action))
           throw fail(
             'STALE_SESSION',
-            `This session's saved state was retired after it advanced to operation ${successor.request_id}. Read it with get_operation and continue from the session_id it returns.`
+            "This session's saved state was retired after it advanced to the operation named by the operation_id after this text. Read it with get_operation and continue from the session_id it returns.",
+            { operation_id: successor.request_id }
           );
         return this.status(successor.request_id, domain);
       }
@@ -473,7 +556,8 @@ export class WorkflowSessions {
         if (requestDigest(existing.intent.action) !== requestDigest(action))
           throw fail(
             'STALE_SESSION',
-            `This session already advanced to operation ${parent.successor_id}. Read it with get_operation and continue from the session_id it returns.`
+            'This session already advanced to the operation named by the operation_id after this text. Read it with get_operation and continue from the session_id it returns.',
+            { operation_id: parent.successor_id }
           );
         return this.status(existing.request_id, domain);
       }
@@ -708,7 +792,8 @@ export class WorkflowSessions {
       if (successor.intent.action?.resumed !== true)
         throw fail(
           'STALE_SESSION',
-          `This operation's saved state was retired after it advanced to operation ${successor.request_id}, which is not its resume. Read that operation with get_operation and continue from the session_id it returns.`
+          "This operation's saved state was retired after it advanced to another operation (named by the operation_id after this text), which is not its resume. Read that operation with get_operation and continue from the session_id it returns.",
+          { operation_id: successor.request_id }
         );
       return this.status(successor.request_id, domain);
     }
@@ -783,7 +868,7 @@ export class WorkflowSessions {
         interruption: found.interruption ?? 'receipt_payload_retired',
         ...(found.successor_id ? { successor_id: found.successor_id } : {}),
         note: found.successor_id
-          ? `This id's saved state was retired: its retention ended, or newer work needed the space. It had already advanced to operation ${found.successor_id}: read that with get_operation and continue from the session_id it returns.`
+          ? `This id's saved state was retired: its retention ended, or newer work needed the space. It had already advanced to the operation in successor_id: read that with get_operation and continue from the session_id it returns.`
           : `This id's saved state was retired: its retention ended, or newer work needed the space. ${restartStep(domain)}`,
         resumable: false,
         durable: this.store.durable,
@@ -793,6 +878,7 @@ export class WorkflowSessions {
       };
     const { record, session } = this.record(id, domain);
     const result = record.response?.body?.result;
+    if (detail !== undefined || lines?.length) checkDetail(record, result, detail, lines);
     const accepted = record.progress?.accepted_lines ?? record.checkpoint?.accepted_lines;
     const resumable = this.resumable(record, session);
     // The id continues the workflow when its operation finished, or when it was

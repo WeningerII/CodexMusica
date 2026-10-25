@@ -86,6 +86,47 @@ assert('§3f', '--swap-variant with an unknown variant id is rejected with exit 
   return { ok: r.code === 2, detail: `exit ${r.code}` };
 });
 
+// The other half of the swap contract: a VALID swap has to reach the recipe.
+// SKILL.md lists this exact command as a verified example of customizing a
+// part, and it exited 0 while rendering none of falsetto's words, because the
+// voice sentence's score threshold dropped the low-scoring pick the caller had
+// named. The words come from the catalog, so a renamed descriptor cannot turn
+// this into a silent pass.
+assert('§3f', 'a valid --swap-variant reaches the recipe (the documented falsetto swap)', () => {
+  const voice = C.INSTRUMENTS.find((i) => i.id === 'voice');
+  const part = voice && voice.parts.find((p) => p.id === 'voice_register');
+  const variant = part && part.variants.find((v) => v.id === 'falsetto');
+  const words = ((variant && variant.descriptors) || []).map((d) => d.replace(/-/g, ' '));
+  const r = run([
+    RECIPE,
+    '--tradition',
+    'delta_blues',
+    '--swap-variant=voice:voice_register:falsetto',
+  ]);
+  const shown = words.filter((w) => r.out.toLowerCase().includes(w.toLowerCase()));
+  return {
+    ok: r.code === 0 && words.length > 0 && shown.length > 0,
+    detail: `exit ${r.code}; falsetto words ${JSON.stringify(words)} shown ${JSON.stringify(shown)}`,
+  };
+});
+
+// The same contract on an instrument part, which goes through a second filter:
+// clawhammer scores above the threshold, yet none of its words matched its id
+// or passed the trust filter, so the swap exited 0 with the recipe unchanged.
+assert('§3f', 'a valid --swap-variant on an instrument part changes the recipe', () => {
+  const base = run([RECIPE, '--tradition', 'bluegrass']);
+  const r = run([
+    RECIPE,
+    '--tradition',
+    'bluegrass',
+    '--swap-variant=banjo_5_string:banjo_play:clawhammer',
+  ]);
+  return {
+    ok: base.code === 0 && r.code === 0 && r.out !== base.out,
+    detail: `exit ${r.code}; recipe ${r.out === base.out ? 'unchanged' : 'changed'}`,
+  };
+});
+
 assert(
   '§3f',
   'stapling order sets the lead: `a,b` vs `b,a` differ and each leads with its first id',

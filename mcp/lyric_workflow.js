@@ -162,6 +162,18 @@ const gradeAttemptNote = (a, lines) => {
 export const isRecoveryOnly = (name, args) =>
   name === 'lyric_revise' && args?.recover_only === true;
 
+// A bare recover_only from a model that never holds the wire (/chat keeps the
+// run's continuation server-side): the carried one fills it in — its
+// checkpoint first, as a resume would use it, else its state. The run
+// ledger's refusals name recover_only as the way out, which a model on /chat
+// could otherwise never take (Jony's review, #519). An explicit wire wins.
+export function recoveryWire(args, lyr) {
+  if (args?.state != null || args?.checkpoint != null || !lyr) return null;
+  if (typeof lyr.checkpoint === 'string') return { checkpoint: lyr.checkpoint };
+  if (typeof lyr.state === 'string') return { state: lyr.state };
+  return null;
+}
+
 // A refusal can be the answer to a requested assessment. A lone certification
 // boolean cannot prove that assessment happened or account for its obligations.
 export function assessmentCoverageValid(coverage) {

@@ -309,6 +309,40 @@ await check('an environment that stops rendering is reported, not lost silently'
     edits: [{ action: 'move_instrument', card: blend.cards.at(-1).card }],
   });
   assert.ok(!moved.render_warnings.some((x) => x.code === 'ENVIRONMENT_MOVED'));
+  // A warning that stands describes the recipe returned: it names the card the
+  // environment renders from at the END of the batch, with that card's values,
+  // not the card an intermediate step handed it to (Jony's B, #519).
+  const twice = E.editRecipe({
+    workspace: thread(blend.workspace),
+    edits: [
+      { action: 'set_environment', room: 'cathedral' },
+      { action: 'move_instrument', card: blend.cards.at(-1).card },
+      { action: 'move_instrument', card: blend.cards.at(-2).card },
+    ],
+  });
+  const last = twice.render_warnings.filter((x) => x.code === 'ENVIRONMENT_MOVED');
+  const finalEnv = twice.render_scope.environment_card;
+  assert.ok(last.length, 'the room set on the first card no longer renders');
+  for (const w of last) {
+    assert.equal(w.environment_card, finalEnv);
+    const final = twice.workspace.cards.find((c) => c.id === finalEnv);
+    assert.equal(w.settings.room.now, final.room);
+  }
+  // An OVERWRITTEN that stands on a card the environment has since left says
+  // which card its `now` values come from (Jony's nit on b1750eff2).
+  const folk = E.startRecipe({ traditions: ['appalachian_folk', 'delta_blues'] });
+  const leftBehind = E.editRecipe({
+    workspace: thread(folk.workspace),
+    edits: [
+      { action: 'set_environment', room: 'cathedral' },
+      { action: 'set_preface', card: 'voice', preface: 'raging' },
+      { action: 'move_instrument', card: folk.cards.at(-1).card },
+    ],
+  });
+  const over = leftBehind.render_warnings.find((x) => x.code === 'ENVIRONMENT_OVERWRITTEN');
+  assert.ok(over, 'fixture: the preface overwrote the room');
+  assert.notEqual(over.card, leftBehind.render_scope.environment_card, 'fixture: env moved');
+  assert.equal(over.environment_card, leftBehind.render_scope.environment_card);
 });
 
 await check('set_preface after set_environment reports the environment it replaced', () => {
@@ -338,6 +372,61 @@ await check('set_preface after set_environment reports the environment it replac
   assert.equal(ordered.workspace.cards[0].room, 'cathedral');
   assert.equal(ordered.workspace.cards[0].preface, 'raging');
   assert.ok(!ordered.render_warnings.some((x) => x.code === 'ENVIRONMENT_OVERWRITTEN'));
+  // A later edit that puts the room back settles the warning: the response
+  // describes the recipe it returns, not a step on the way there.
+  const restored = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [
+      { action: 'set_environment', room: 'cathedral' },
+      { action: 'set_preface', card: 'voice', preface: 'raging' },
+      { action: 'set_environment', room: 'cathedral' },
+    ],
+  });
+  assert.match(restored.recipe, /cathedral/);
+  assert.ok(!restored.render_warnings.some((x) => x.code === 'ENVIRONMENT_OVERWRITTEN'));
+  // Same for a card moved away and back within one batch.
+  const roundTrip = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [
+      { action: 'set_environment', room: 'cathedral' },
+      { action: 'move_instrument', card: s.cards.at(-1).card },
+      { action: 'move_instrument', card: s.cards[0].card },
+    ],
+  });
+  assert.match(roundTrip.recipe, /cathedral/);
+  assert.ok(!roundTrip.render_warnings.some((x) => x.code === 'ENVIRONMENT_MOVED'));
+  // Away and back, then a preface on it: the overwrite is real and reported;
+  // the move that was undone is not (Jony's A, #519).
+  const backThenPreface = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [
+      { action: 'set_environment', room: 'cathedral' },
+      { action: 'move_instrument', card: s.cards.at(-1).card },
+      { action: 'move_instrument', card: s.cards[0].card },
+      { action: 'set_preface', card: s.cards[0].card, preface: 'raging' },
+    ],
+  });
+  assert.deepEqual(
+    backThenPreface.render_warnings
+      .filter((x) => x.code.startsWith('ENVIRONMENT_'))
+      .map((x) => x.code),
+    ['ENVIRONMENT_OVERWRITTEN']
+  );
+  // A set_environment after the preface is the documented order even when it
+  // picks a different room from the first: the final room is the caller's own
+  // (Jony's C).
+  const other = s.workspace.cards[0].room;
+  assert.ok(other && other !== 'cathedral' && other !== r.workspace.cards[0].room, 'fixture');
+  const changedMind = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [
+      { action: 'set_environment', room: 'cathedral' },
+      { action: 'set_preface', card: 'voice', preface: 'raging' },
+      { action: 'set_environment', room: other },
+    ],
+  });
+  assert.equal(changedMind.workspace.cards[0].room, other);
+  assert.ok(!changedMind.render_warnings.some((x) => x.code === 'ENVIRONMENT_OVERWRITTEN'));
 });
 
 await check('an environment edit that does not reach the output is not confirmed silently', () => {
@@ -974,6 +1063,16 @@ await check('validation: actionable errors', () => {
     const { LYRIC_TOOL_SCHEMAS: S, _argvInternals: AV } = await import('./lyric_tools.js');
     const LB = await import('./lexicon_basis.js');
     await check(
+      'a draft line is bounded in code points, as the schema and the harness count',
+      () => {
+        const emoji = '\u{1F3B5}';
+        AV.checkLines([emoji.repeat(200)]); // 400 UTF-16 units, 200 code points
+        assert.equal(S.lyric_grade.draft.safeParse([emoji.repeat(200)]).success, true);
+        assert.throws(() => AV.checkLines([emoji.repeat(201)]), /line over 200 chars/);
+        assert.throws(() => AV.checkLines(['x'.repeat(201)]), /line over 200 chars/);
+      }
+    );
+    await check(
       'every grading tool can declare --voices and --fallback; screen takes a relation; verify takes structures',
       () => {
         for (const t of ['lyric_grade', 'lyric_revise', 'lyric_verify', 'lyric_check']) {
@@ -1430,7 +1529,9 @@ await check('validation: actionable errors', () => {
           );
         const src = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
         assert.ok(
-          /const runWander = runRefusal\(runRec, a\);/.test(src),
+          // The run ledger's mark joins the call (#519 C1): still the first
+          // thing judged, before anything is carried.
+          /const runWander = runRefusal\(runRec, a, ledgerMark\);/.test(src),
           "the tool's refusals run before anything is carried"
         );
         assert.ok(
@@ -1439,7 +1540,9 @@ await check('validation: actionable errors', () => {
         );
         assert.ok(
           /status: r\.code === 2 \? 'uncertified' : 'parked',/.test(src) &&
-            /RUNS\.del\(runRec\.run_id\);/.test(src),
+            // ~~RUNS.del(runRec.run_id)~~: exit 0 forgets the record and the
+            // run ledger remembers that it finished (#519 C1).
+            /RUNS\.finish\(runRec \|\| ledgerMark \? runId : null, inputWires/.test(src),
           'exit 2 stays uncertified, exit 3 parks the record, and exit 0 forgets it'
         );
         assert.ok(
@@ -5124,6 +5227,8 @@ await check('validation: actionable errors', () => {
       'mcp/test_continuation_audit.mjs':
         'real local worker continuation regression suite, executed by CI',
       'mcp/test_spend_store.mjs': 'shared corrupt-spend assertion and isolated fault runner',
+      'mcp/test_run_ledger.mjs':
+        'offline run ledger regressions (stale and moved-past continuations)',
       'mcp/test_paid_budget.mjs': 'offline shared spending admission regressions',
       'mcp/test_python_bridge.mjs': 'offline worker lifecycle regressions',
       'mcp/test_reader_job_store.mjs': 'offline durable Library reader job regressions',
@@ -5158,6 +5263,8 @@ await check('validation: actionable errors', () => {
         'localhost HTTP kitchen repair and durable receipt integration regressions',
       'mcp/test_job_store.mjs': 'offline durable recovery regressions',
       'mcp/test_chat_production.mjs': 'offline authoritative delivery and task routing regressions',
+      'mcp/test_revise_repeat_guard.mjs':
+        'offline repeated-revise guard and writer-dispatch count regressions',
       'mcp/test_lyrics_evidence_binding.mjs':
         'offline authenticated evidence-binding regression suite, not a production entry point',
       'mcp/test_connector_contracts.mjs': 'offline connector and release contract regressions',
@@ -8984,7 +9091,7 @@ try {
 // A maxItems cap is checked first, so the refusal is one issue whatever the
 // size. Issue counts and response sizes, not RSS, so the check is deterministic.
 await check(
-  'oversized arrays are refused before per-item validation (GHSA-mrhx-c7xc-m3w5)',
+  'oversized arrays and free-text queries are refused before the work they would cost (GHSA-mrhx-c7xc-m3w5)',
   async () => {
     const here = new URL('.', import.meta.url).pathname;
     const sdkPath = (m) => import(createRequire(import.meta.url).resolve(m, { paths: [here] }));
@@ -9032,6 +9139,34 @@ await check(
       );
       assert.ok(text(r).length < 1000, `${types.length} types: ${text(r).length}-char refusal`);
     }
+
+    // A free-text query is bounded in characters (the schema) and in words (the
+    // engine): each word is one more pass over every row, on a synchronous
+    // single-process server, so an unbounded query held /health for seconds.
+    const { MAX_QUERY_CHARS, MAX_QUERY_TERMS } = E;
+    const words = (n) => Array.from({ length: n }, (_, k) => `w${k}`).join(' ');
+    for (const tool of ['search_catalog', 'search_prefaces']) {
+      const ask = (query) => raw.callTool({ name: tool, arguments: { query } });
+      assert.ok(
+        !(await ask(words(MAX_QUERY_TERMS))).isError,
+        `${tool}: ${MAX_QUERY_TERMS} words answer`
+      );
+      const many = await ask(words(MAX_QUERY_TERMS + 1));
+      assert.ok(
+        many.isError && text(many).includes(`limit is ${MAX_QUERY_TERMS}`),
+        `${tool}: ${MAX_QUERY_TERMS + 1} words are refused by name: ${text(many)}`
+      );
+      for (const query of ['a'.repeat(MAX_QUERY_CHARS + 1), 'x '.repeat(HUGE)]) {
+        const r = await ask(query);
+        assert.ok(r.isError && /Too big/.test(text(r)), `${tool}: ${query.length} chars refused`);
+        assert.ok(text(r).length < 1000, `${tool}: ${text(r).length}-char refusal`);
+      }
+    }
+    assert.throws(
+      () => E.searchCatalog({ query: words(MAX_QUERY_TERMS + 1) }),
+      new RegExp(`limit is ${MAX_QUERY_TERMS}`),
+      'the engine refuses past the bound for callers that skip the schema'
+    );
 
     const sessions = new WorkflowSessions({ store: new JobStore() });
     const flow = await connect(await buildWorkflowServer({ sessions }));

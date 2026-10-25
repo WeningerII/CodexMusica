@@ -214,6 +214,7 @@ export function libraryViewerRouter({
   const act = (fn) =>
     handler((req, res) => {
       jsonOnlyOrEmpty(req);
+      limit(`library-controls-ip:${ipOf(req)}`, HOUR, LIBRARY_LIMITS.controlsPerIpPerHour);
       const viewer = viewerFor(req, res);
       limit(`library-controls:${viewer}`, HOUR, LIBRARY_LIMITS.controlsPerViewerPerHour);
       return fn(req, res);
@@ -559,5 +560,7 @@ export function libraryErrorHandler(error, req, res, next) {
 }
 
 export function isViewerPath(url) {
-  return /^\/library\/v1\/(?:analyses|jobs)(?:[/?]|$)/.test(url);
+  // Case-insensitive, as Express's routing is: /Library/V1/Jobs reaches the
+  // same viewer route, so it must get the same credentials and cache headers.
+  return /^\/library\/v1\/(?:analyses|jobs)(?:[/?]|$)/i.test(url);
 }

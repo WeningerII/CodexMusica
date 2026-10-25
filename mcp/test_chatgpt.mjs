@@ -1382,3 +1382,130 @@ test('P8: a record over the per-record cap is refused as too large, never told t
   );
   assert.deepEqual({ size: store.records.size, bytes: store.bytes }, before);
 });
+
+test('detail reads the finished result itself: a revise paused on a question has no parts, and lines are counted on the song', async (t) => {
+  const { store } = storeFor(t);
+  const song = ['one line', '', 'two line', 'three line'];
+  const verdict = {
+    exit_code: 3,
+    findings_measured: true,
+    findings: [{ code: 'METER', line: 3, message: 'm' }],
+    coverage: {},
+    final_draft: song,
+  };
+  // Block 0 as the harness writes it: a header, the song, a footer. Its
+  // physical lines are not the song's lines.
+  const block0 = ['[Verse 1]', ...song, '', 'FINISHED: …', 'CONTINUE: …'].join('\n');
+  const sessions = new WorkflowSessions({
+    store,
+    execute: async (session, name) => ({
+      session,
+      result: {
+        content:
+          name === 'lyric_revise'
+            ? [
+                { type: 'text', text: 'QUESTION: what should line 3 say?' },
+                {
+                  type: 'text',
+                  text: JSON.stringify({ exit_code: 4, status: 'awaiting_proposal' }),
+                },
+              ]
+            : [
+                { type: 'text', text: block0 },
+                { type: 'text', text: JSON.stringify(verdict) },
+              ],
+      },
+    }),
+  });
+  const opened = sessions.open('lyrics');
+  // A revise paused at exit 4 published its question; every detail used to
+  // hand that question back as if it were the part asked for.
+  const paused = sessions.submit(opened.session_id, 'lyrics', 'lyric_revise', {});
+  await sessions.wait(paused.operation_id);
+  for (const detail of ['findings', 'report', 'coverage', 'pronunciations', 'full'])
+    assert.throws(
+      () => sessions.status(paused.operation_id, 'lyrics', { detail }),
+      /^Error: DETAIL_NOT_READY: this lyric_revise finished without a verdict to take apart/,
+      detail
+    );
+  // A grade sent as draft_text (and a revise continued with answers) carries
+  // no draft argument; the verdict's final_draft still has the song's lines.
+  const next = sessions.status(paused.operation_id, 'lyrics').session_id;
+  const graded = sessions.submit(next, 'lyrics', 'lyric_grade', {
+    seed: 1,
+    draft_text: song.join('\n'),
+  });
+  await sessions.wait(graded.operation_id);
+  // Line 5 is inside block 0's eight physical lines and past the song's four.
+  assert.throws(
+    () => sessions.status(graded.operation_id, 'lyrics', { detail: 'findings', lines: [5] }),
+    /^Error: LINES_OUT_OF_RANGE: this lyric_grade's song has 4 line\(s\); line\(s\) 5/
+  );
+  assert.throws(
+    () => sessions.status(graded.operation_id, 'lyrics', { detail: 'report', lines: [1] }),
+    /^Error: LINES_NOT_APPLICABLE: /
+  );
+  assert.ok(sessions.status(graded.operation_id, 'lyrics', { detail: 'findings', lines: [3] }));
+});
+
+test('get_operation refuses a detail or lines the operation cannot serve; an edit grade of an unplanned song names lyric_recover', async (t) => {
+  const { store } = storeFor(t);
+  const sessions = new WorkflowSessions({ store });
+  const client = await connect(t, 'lyrics', sessions);
+  const read = (operation_id, extra) => call(client, 'get_operation', { operation_id, ...extra });
+  const text = (r) => r.content.map((c) => c.text).join('\n');
+
+  // A sweep has no detail parts: every part used to return its summary.
+  const begun = data(await call(client, 'begin_lyrics', { phase: 'create' }));
+  const swept = data(
+    await call(client, 'lyric_sweep', {
+      session_id: begun.session_id,
+      seed_from: 1,
+      count: 1,
+      lines: 12,
+    })
+  );
+  await sessions.wait(swept.operation_id);
+  assert.equal(data(await read(swept.operation_id)).status, 'completed');
+  for (const detail of ['findings', 'report', 'coverage', 'pronunciations', 'full', 'pairs']) {
+    const r = await read(swept.operation_id, { detail });
+    assert.equal(r.isError, true, `sweep detail ${detail}`);
+    assert.match(
+      text(r),
+      /^DETAIL_NOT_APPLICABLE: .*lyric_sweep\. Call get_operation without detail/
+    );
+  }
+  const bare = await read(swept.operation_id, { lines: [1] });
+  assert.match(text(bare), /^DETAIL_REQUIRED: /);
+
+  // An edit session's grade of a 4-line pasted song: the refusal now names the
+  // call that works, and a detail it lacks is refused rather than null.
+  const edit = data(await call(client, 'begin_lyrics', { phase: 'edit' }));
+  const draft = [
+    'the river runs beneath the town',
+    'and carries all our voices down',
+    'I held the lantern by the door',
+    'and waited there forevermore',
+  ];
+  const graded = data(
+    await call(client, 'lyric_grade', { session_id: edit.session_id, seed: 1, draft })
+  );
+  await sessions.wait(graded.operation_id);
+  const verdict = data(await read(graded.operation_id));
+  const short = JSON.parse(verdict.tool_result.content.at(-1).text);
+  assert.equal(short.exit_code, 2);
+  assert.match(
+    short.refusal,
+    /must be the same song\. These are lyrics this session did not plan: read them with lyric_recover, then grade them with lyric_check/
+  );
+  const pairs = await read(graded.operation_id, { detail: 'pairs' });
+  assert.match(
+    text(pairs),
+    /^DETAIL_NOT_APPLICABLE: a lyric_grade has detail findings, report, coverage, pronunciations, full; "pairs"/
+  );
+  // That grade was refused before anything was measured, so it has no
+  // findings to narrow: refused, not an empty list (lines are tested on a
+  // measured grade in the test above).
+  const unmeasured = await read(graded.operation_id, { detail: 'findings', lines: [2] });
+  assert.match(text(unmeasured), /^DETAIL_NOT_READY: this lyric_grade finished without a verdict/);
+});

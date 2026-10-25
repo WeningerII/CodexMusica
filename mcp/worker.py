@@ -29,6 +29,7 @@ import hashlib
 import io
 import json
 import os
+import re
 import sys
 import time
 import zlib
@@ -74,6 +75,16 @@ class ProtocolStream(io.TextIOBase):
 
     def flush(self):
         self.target.flush()
+
+
+# A lone UTF-16 surrogate in an argument (a title sent as "Bad \ud800" in the
+# request JSON) arrives as a str json.loads cannot pair, and the first
+# ensure_ascii=False frame written to the strict UTF-8 stdout raised, crashing
+# the request with a traceback. The cold path never sees one: Node encodes a
+# lone surrogate in argv as U+FFFD before exec. Replacing it here gives the warm
+# path the same argument the cold path has always had. (json.loads joins a valid
+# pair into one code point, so anything in this range is unpaired.)
+_LONE_SURROGATE = re.compile("[\ud800-\udfff]")
 
 
 REQUEST_ENV = ("LYRIC_CONTROL_TOKEN", "LYRIC_REQUEST_DEADLINE_MS", "LYRIC_CHECKPOINT_PATH",
@@ -235,6 +246,7 @@ def main():
             if not isinstance(argv, list) \
                     or not all(isinstance(a, str) for a in argv):
                 raise ValueError("argv must be a list of strings")
+            argv = [_LONE_SURROGATE.sub("\ufffd", a) for a in argv]
         except ValueError as e:
             print(json.dumps({"id": None, "code": -1, "stdout": "",
                               "stderr": f"worker: unreadable request: {e}"}),

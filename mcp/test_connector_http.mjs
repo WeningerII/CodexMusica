@@ -653,3 +653,111 @@ test(
     }
   }
 );
+
+test(
+  'the HTTP boundary: JSON errors, one log line per call, exact MCP paths, batch formats',
+  { timeout: 60_000 },
+  async () => {
+    const port = await freePort(),
+      root = mkdtempSync(join(tmpdir(), 'connector-http-'));
+    const base = `http://127.0.0.1:${port}`;
+    const child = spawn(
+      process.execPath,
+      [fileURLToPath(new URL('./server_http.js', import.meta.url))],
+      {
+        cwd: fileURLToPath(new URL('..', import.meta.url)),
+        env: { ...process.env, PORT: String(port), GEMINI_API_KEY: '', LYRIC_RUNTIME_DIR: root },
+      }
+    );
+    let output = '';
+    child.stdout.on('data', (c) => (output += c));
+    child.stderr.on('data', (c) => (output += c));
+    const exited = new Promise((resolve) => child.once('exit', resolve));
+    const post = (path, body) =>
+      fetch(`${base}${path}`, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          accept: 'application/json, text/event-stream',
+        },
+        body: typeof body === 'string' ? body : JSON.stringify(body),
+      });
+    const rpcBody = async (response) => {
+      // One SSE event per JSON-RPC response: a batch answers with several.
+      const text = await response.text();
+      const events = text
+        .split('\n')
+        .filter((l) => l.startsWith('data: '))
+        .map((l) => JSON.parse(l.slice(6)));
+      if (!events.length) return JSON.parse(text);
+      return events.length === 1 ? events[0] : events.flat();
+    };
+    const call = (id, name, args) => ({
+      jsonrpc: '2.0',
+      id,
+      method: 'tools/call',
+      params: { name, arguments: args },
+    });
+    try {
+      await waitForHealth(base, child, () => output);
+
+      // A body that does not parse answers JSON, never Express's HTML page with
+      // its stack trace; a protocol client gets JSON-RPC -32700.
+      for (const path of ['/mcp', '/mcp/recipe', '/chat']) {
+        const r = await post(path, '{bad');
+        assert.equal(r.status, 400, path);
+        assert.match(r.headers.get('content-type'), /application\/json/, path);
+        const text = await r.text();
+        assert.doesNotMatch(text, /<html|<pre>|at \w+ \(|node_modules|\/app\//i, path);
+        const body = JSON.parse(text);
+        if (path.startsWith('/mcp')) assert.equal(body.error.code, -32700, path);
+        else assert.equal(typeof body.error, 'string', path);
+      }
+
+      // A tool name carrying a newline cannot write a second, forged log line.
+      const forged = 'x\n{"ev":"http","ua":"FORGED/1.0"}';
+      await post('/mcp/recipe', call(1, forged, {}));
+      await new Promise((resolve) => setTimeout(resolve, 100));
+      assert.ok(output.includes('[mcp] tools/call "x\\n{'), output.slice(-2000));
+      assert.ok(
+        !output.split('\n').some((line) => line.startsWith('{"ev":"http","ua":"FORGED')),
+        'no standalone forged request-log line'
+      );
+
+      // Express routes case-insensitively; a case variant is refused, not served
+      // as a different surface.
+      for (const path of ['/MCP', '/mcp/Recipe', '/mcp/ChatGPT']) {
+        const r = await post(path, { jsonrpc: '2.0', id: 1, method: 'tools/list' });
+        assert.equal(r.status, 404, path);
+        assert.equal((await r.json()).error.code, -32601, path);
+      }
+      const listed = await rpcBody(
+        await post('/mcp/recipe', { jsonrpc: '2.0', id: 1, method: 'tools/list' })
+      );
+      assert.ok(listed.result.tools.length > 0, 'the exact path still serves');
+
+      // A batch's format is read as a single call's is.
+      const batch = await post('/mcp/recipe', [
+        call(1, 'start_recipe', { traditions: ['bluegrass'], format: 'tags' }),
+        call(2, 'start_recipe', { traditions: ['delta_blues'], format: 'tags' }),
+      ]);
+      assert.equal(batch.status, 200);
+      const answers = await rpcBody(batch);
+      assert.equal(answers.length, 2);
+      for (const a of answers)
+        assert.ok(
+          !a.result.isError,
+          `tags in a batch is served: ${JSON.stringify(a).slice(0, 300)}`
+        );
+      const mixed = await post('/mcp/recipe', [
+        call(1, 'start_recipe', { traditions: ['bluegrass'], format: 'tags' }),
+        call(2, 'start_recipe', { traditions: ['bluegrass'], format: 'prose' }),
+      ]);
+      assert.equal(mixed.status, 400);
+      assert.match((await mixed.json()).error.message, /^TASK_FORMAT: .*tags, prose/);
+    } finally {
+      await stopHTTP(child, exited, () => output);
+      rmSync(root, { recursive: true, force: true });
+    }
+  }
+);

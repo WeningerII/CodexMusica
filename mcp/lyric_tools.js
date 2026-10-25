@@ -70,10 +70,13 @@ import {
 } from './state_codec.js';
 import {
   RunStore,
+  createRunLedger,
   runKeyOf,
   declarationsOf,
   newRunId,
   runRefusal,
+  USED_WIRE_REFUSAL,
+  LEDGER_UNAVAILABLE_REFUSAL,
   movedDeclarations,
   movedRefusal,
 } from './run_store.js';
@@ -346,7 +349,29 @@ const EXIT_MEANING = {
 // the budget's LAST attempt is `unknown` here (rejected-and-exhausted and
 // accepted both move to another line) and is left so, never guessed.
 // Cache only by unguessable run capability; a seed never identifies an owner.
-export const RUNS = new RunStore();
+// A wire's ledger identity is its decoded content in a canonical key order;
+// one that does not decode is keyed by its bytes (it cannot run anyway).
+function canonicalJSON(v) {
+  if (Array.isArray(v)) return '[' + v.map(canonicalJSON).join(',') + ']';
+  if (v && typeof v === 'object')
+    return (
+      '{' +
+      Object.keys(v)
+        .sort()
+        .map((k) => JSON.stringify(k) + ':' + canonicalJSON(v[k]))
+        .join(',') +
+      '}'
+    );
+  return JSON.stringify(v);
+}
+function wireKey(wire) {
+  try {
+    return canonicalJSON(decodeState(wire));
+  } catch {
+    return wire;
+  }
+}
+export const RUNS = new RunStore({ ledger: createRunLedger(), wireKey });
 
 export const CONNECTOR_ATTEMPTS = 1;
 // THE KITCHEN'S OWN ATTEMPTS (M-257, round 24). One attempt per line was
@@ -1231,7 +1256,10 @@ function checkLines(lines) {
       throw refuse(
         'each array item must be exactly one lyric line; use the newline text field for multiple rows'
       );
-    else if (l.length > MAX_LINE_CHARS) throw refuse(`line over ${MAX_LINE_CHARS} chars`);
+    // Code points, as the published schema (zod) and the Python harness count:
+    // UTF-16 `.length` refused lines of 101–200 astral characters (emoji)
+    // that both of those accept.
+    else if ([...l].length > MAX_LINE_CHARS) throw refuse(`line over ${MAX_LINE_CHARS} chars`);
 }
 
 async function withTempDir(fn) {
@@ -1814,7 +1842,7 @@ export function answerFromRows(rows, pending) {
 // THE VERDICT'S EXTRACTORS, exported for mcp/test.mjs to drive on synthetic
 // reports (M-186): a live check proves one draft; the unit cases prove the
 // regexes against every spelling the harness prints.
-export const _argvInternals = { globalsFor, planArgs };
+export const _argvInternals = { globalsFor, planArgs, checkLines };
 
 export const _verdictInternals = {
   sweepVerdict,
@@ -2144,7 +2172,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_MANDATE_CHARS)
       .optional()
       .describe(
-        "Declare a catalog STRUCTURE per group, e.g. 'B:kalevala-alliteration' — exactly the field lyric_check takes, so a structured draft is VERIFIED under the mandate it was CHECKED under. Comma-separated for several: 'A:pararhyme,B:skothending'. An unknown name refuses BY NAME; cannot be combined with a song-wide `relation`."
+        "Declare a catalog STRUCTURE per group, e.g. 'B:kalevala-alliteration' — exactly the field lyric_check takes, so a structured draft is VERIFIED under the mandate it was CHECKED under. Comma-separated for several: 'A:pararhyme,B:skothending'. An unknown name refuses BY NAME. Beside a song-wide `relation` both are judged: a structured group's pairs must satisfy the relation AND the row's own judge."
       ),
     voices: voicesField,
     fallback: fallbackField,
@@ -2227,7 +2255,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_MANDATE_CHARS)
       .optional()
       .describe(
-        "Declare a catalog STRUCTURE per group, e.g. 'B:kalevala-alliteration' — the group's pairs are then judged by that row's own judge at its own anchors, not by the end-rhyme comparator. Comma-separated for several: 'A:pararhyme,B:skothending'. An unknown name refuses, and the refusal lists the catalog's rows and aliases. TWO CONSEQUENCES a caller must expect: the two-tier ban is NOT ASKED of a pair judged under a non-default structure (the ban's tables are end-rhyme instruments) — the verdict lists those pairs in ban_not_asked, and banned_pairs is null when no pair was asked; and a row with no laziness calibration for the draft's language is named in structures_uncalibrated — correctness is judged, laziness is not. Cannot be combined with a song-wide `relation`: both judge the same pairs and the relation would win on every group, so the harness refuses rather than letting a declared structure grade nothing."
+        "Declare a catalog STRUCTURE per group, e.g. 'B:kalevala-alliteration' — the group's pairs are then judged by that row's own judge at its own anchors, not by the end-rhyme comparator. Comma-separated for several: 'A:pararhyme,B:skothending'. An unknown name refuses, and the refusal lists the catalog's rows and aliases. TWO CONSEQUENCES a caller must expect: the two-tier ban is NOT ASKED of a pair judged under a non-default structure (the ban's tables are end-rhyme instruments) — the verdict lists those pairs in ban_not_asked, and banned_pairs is null when no pair was asked; and a row with no laziness calibration for the draft's language is named in structures_uncalibrated — correctness is judged, laziness is not. Beside a song-wide `relation` the two are a CONJUNCTION: a structured group's pairs must satisfy both, so neither coordinate wins in silence — a pair its structure accepts is still charged when the relation fails it."
       ),
     voices: voicesField,
     fallback: fallbackField,
@@ -2634,16 +2662,35 @@ export function registerLyricTools(server, tool) {
               const runRec = a.new_run ? null : a.run_id ? RUNS.byId(a.run_id) : null;
               // Minted before the verb runs so every state this call encodes
               // names the run it belongs to (see RUNS.byState).
-              const runId = runRec?.run_id ?? newRunId();
+              // A run the record cache lost (a restart, an eviction) but the
+              // ledger still knows keeps its id, so its revision goes on
+              // advancing and its older revisions stay refused.
+              const ledgerMark = !runRec && a.run_id && !a.new_run ? RUNS.mark(a.run_id) : null;
+              const runId = runRec?.run_id ?? (ledgerMark ? a.run_id : newRunId());
               if (runRec?.status === 'journal_capacity')
                 throw refuse(
                   'JOURNAL_CAPACITY: this run reached its journal capacity. Keep its returned state/checkpoint and final_draft. This run cannot resume; an identical restart may hit the same limit. Reduce the requested scope explicitly before independent new_run work.'
                 );
-              if (a.run_id && !a.new_run && !runRec && a.state == null && a.checkpoint == null)
-                throw refuse(
-                  `\`run_id\` ${a.run_id} names no run this tool remembers — it may have finished, expired (${Math.round(RUNS.ttlMs / 3600000)} h idle) or been forgotten by a restart; pass \`state\` back, or omit \`run_id\` and send the draft to open a fresh run`
-                );
-              const runWander = runRefusal(runRec, a);
+              if (a.run_id && !a.new_run && !runRec && a.state == null && a.checkpoint == null) {
+                // The record is gone (a restart, the TTL) and nothing to carry
+                // was sent. Where the LEDGER knows the run, its refusals come
+                // first (finished, stale or missing revision), and an
+                // unfinished run at its latest revision continues on the draft
+                // the caller holds, as a parked run is continued: a run that
+                // stopped with open lines and no checkpoint leaves a /chat
+                // client no `state` to pass back (BB8 N1).
+                const ledgerSays = ledgerMark ? runRefusal(null, a, ledgerMark) : null;
+                if (ledgerSays) throw refuse(ledgerSays);
+                if (!ledgerMark)
+                  throw refuse(
+                    `\`run_id\` ${a.run_id} names no run this tool remembers — it may have finished, expired (${Math.round(RUNS.ttlMs / 3600000)} h idle) or been forgotten by a restart; pass \`state\` back, or omit \`run_id\` and send the draft to open a fresh run`
+                  );
+                if (!Array.isArray(a.draft))
+                  throw refuse(
+                    `REFUSED: run ${a.run_id} is at revision ${ledgerMark.revision}, but its record was lost (a restart or an expiry), so there is nothing to carry. Continue it with \`run_id\`, \`run_revision\` ${ledgerMark.revision} and the song you hold as \`draft_text\` (one newline-separated string), or send \`new_run: true\` with it. Nothing was run.`
+                  );
+              }
+              const runWander = runRefusal(runRec, a, ledgerMark);
               if (runWander) throw refuse(runWander);
               const carried = { state: false, draft: false, decl: false };
               if (runRec) {
@@ -2691,6 +2738,12 @@ export function registerLyricTools(server, tool) {
               // Only the outer connector contract changes here. The worker reads
               // its original journal schema, and foldedOf/askedOf see raw state.
               const checkpointWire = a.checkpoint;
+              // The wires this call continues from, as the caller sent them
+              // (or the record carried them). One a run already moved past is
+              // refused here, before any work, run_id or not (the ledger).
+              const inputWires = [a.state, a.checkpoint];
+              const continuing =
+                !a.new_run && (a.state != null || a.checkpoint != null || a.run_id != null);
               for (const field of ['state', 'checkpoint'])
                 if (a[field] != null) {
                   const decoded = decodeState(a[field]);
@@ -3026,6 +3079,11 @@ export function registerLyricTools(server, tool) {
               if (budget.max_rounds !== undefined) args.push(`--max-rounds=${budget.max_rounds}`);
               args.push(`--attempts=${budget.attempts}`);
               args.push(`--backtrack=${budget.backtrack}`);
+              // The ledger's word, last before any work (the more specific
+              // refusals above keep their own wording): a continuation the run
+              // already moved past, or one the ledger cannot check.
+              if (continuing && !RUNS.ledgerHealthy) throw refuse(LEDGER_UNAVAILABLE_REFUSAL);
+              if (continuing && RUNS.used(inputWires)) throw refuse(USED_WIRE_REFUSAL);
               const execution = requestContext();
               const r = await runVerb(args, {
                 checkpointPath,
@@ -3095,18 +3153,23 @@ export function registerLyricTools(server, tool) {
                 // that returns a state (LOOP_REDESIGN.md §2.8 D).
                 if (writer === 'interview' && capacityState)
                   result.folded = foldedOf(a.state, capacityState);
-                const saved = RUNS.put(runKey, {
-                  status: 'journal_capacity',
-                  draft: exactDraft,
-                  replay_draft: a.draft,
-                  state: result.state,
-                  checkpoint: result.checkpoint,
-                  decl: declarationsOf(a),
-                  reader_scheme:
-                    r.lyric_result?.reader_scheme ??
-                    (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
-                  run_id: runId,
-                });
+                const saved = RUNS.put(
+                  runKey,
+                  {
+                    status: 'journal_capacity',
+                    draft: exactDraft,
+                    replay_draft: a.draft,
+                    state: result.state,
+                    checkpoint: result.checkpoint,
+                    decl: declarationsOf(a),
+                    reader_scheme:
+                      r.lyric_result?.reader_scheme ??
+                      (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
+                    run_id: runId,
+                  },
+                  inputWires,
+                  { paid: writer === 'kitchen' }
+                );
                 result.run_id = saved.run_id;
                 result.run_revision = saved.revision;
                 return result;
@@ -3134,19 +3197,24 @@ export function registerLyricTools(server, tool) {
                 // M-237: the tool remembers the run; the client may omit `state`
                 // and `draft` on the next call.
                 const runNow = runKey
-                  ? RUNS.put(runKey, {
-                      seed: typeof a.seed === 'number' ? a.seed : null,
-                      status: 'suspended',
-                      state: stateWire,
-                      draft: a.draft,
-                      replay_draft: a.draft,
-                      decl: declarationsOf(a),
-                      reader_scheme:
-                        r.lyric_result?.reader_scheme ??
-                        (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
-                      answers: onRecord,
-                      run_id: runId,
-                    })
+                  ? RUNS.put(
+                      runKey,
+                      {
+                        seed: typeof a.seed === 'number' ? a.seed : null,
+                        status: 'suspended',
+                        state: stateWire,
+                        draft: a.draft,
+                        replay_draft: a.draft,
+                        decl: declarationsOf(a),
+                        reader_scheme:
+                          r.lyric_result?.reader_scheme ??
+                          (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
+                        answers: onRecord,
+                        run_id: runId,
+                      },
+                      inputWires,
+                      { paid: writer === 'kitchen' }
+                    )
                   : null;
                 const answerField =
                   askedNow && askedNow.kind === 'propose_batch'
@@ -3241,31 +3309,40 @@ export function registerLyricTools(server, tool) {
                 verdict.run_draft_carried = carried.draft;
                 verdict.run_decl_carried = carried.decl;
                 if (runKey && r.code !== 0 && exactDraft) {
-                  const parkedRec = RUNS.put(runKey, {
-                    seed: typeof a.seed === 'number' ? a.seed : null,
-                    status: r.code === 2 ? 'uncertified' : 'parked',
-                    exit_code: r.code,
-                    refused_obligations: verdict.coverage?.refused_obligations || [],
-                    draft: exactDraft,
-                    replay_draft: a.draft,
-                    decl: declarationsOf(a),
-                    reader_scheme:
-                      r.lyric_result?.reader_scheme ??
-                      (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
-                    stop: verdict.loop_stop_reason ?? null,
-                    open: Array.isArray(verdict.loop_unresolved_lines)
-                      ? verdict.loop_unresolved_lines
-                      : [],
-                    whole: Array.isArray(verdict.loop_whole_flag_codes)
-                      ? verdict.loop_whole_flag_codes
-                      : [],
-                    standing: Array.isArray(verdict.standing) ? verdict.standing.slice(0, 24) : [],
-                    run_id: runId,
-                  });
+                  const parkedRec = RUNS.put(
+                    runKey,
+                    {
+                      seed: typeof a.seed === 'number' ? a.seed : null,
+                      status: r.code === 2 ? 'uncertified' : 'parked',
+                      exit_code: r.code,
+                      refused_obligations: verdict.coverage?.refused_obligations || [],
+                      draft: exactDraft,
+                      replay_draft: a.draft,
+                      decl: declarationsOf(a),
+                      reader_scheme:
+                        r.lyric_result?.reader_scheme ??
+                        (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
+                      stop: verdict.loop_stop_reason ?? null,
+                      open: Array.isArray(verdict.loop_unresolved_lines)
+                        ? verdict.loop_unresolved_lines
+                        : [],
+                      whole: Array.isArray(verdict.loop_whole_flag_codes)
+                        ? verdict.loop_whole_flag_codes
+                        : [],
+                      standing: Array.isArray(verdict.standing)
+                        ? verdict.standing.slice(0, 24)
+                        : [],
+                      run_id: runId,
+                    },
+                    inputWires,
+                    { paid: writer === 'kitchen' }
+                  );
                   verdict.run_id = parkedRec.run_id;
                   verdict.run_revision = parkedRec.revision;
                 } else if (runKey && r.code === 0) {
-                  if (runRec) RUNS.del(runRec.run_id);
+                  RUNS.finish(runRec || ledgerMark ? runId : null, inputWires, {
+                    paid: writer === 'kitchen',
+                  });
                   verdict.run_id = runRec?.run_id ?? null;
                   verdict.run_revision = runRec?.revision ?? null;
                 }
@@ -3355,19 +3432,24 @@ export function registerLyricTools(server, tool) {
                 other.final_draft = exactDraft;
                 other.replay_draft = a.draft;
                 if (resumable) {
-                  const saved = RUNS.put(runKey, {
-                    seed: a.seed ?? null,
-                    status: other.status,
-                    checkpoint: other.checkpoint,
-                    state: other.state,
-                    draft: exactDraft,
-                    replay_draft: a.draft,
-                    decl: declarationsOf(a),
-                    reader_scheme:
-                      r.lyric_result?.reader_scheme ??
-                      (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
-                    run_id: runId,
-                  });
+                  const saved = RUNS.put(
+                    runKey,
+                    {
+                      seed: a.seed ?? null,
+                      status: other.status,
+                      checkpoint: other.checkpoint,
+                      state: other.state,
+                      draft: exactDraft,
+                      replay_draft: a.draft,
+                      decl: declarationsOf(a),
+                      reader_scheme:
+                        r.lyric_result?.reader_scheme ??
+                        (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
+                      run_id: runId,
+                    },
+                    inputWires,
+                    { paid: writer === 'kitchen' }
+                  );
                   other.run_id = saved.run_id;
                   other.run_revision = saved.revision;
                   if (other.no_progress_calls)
@@ -3642,10 +3724,11 @@ export function registerLyricTools(server, tool) {
         if (hasGroups) args.push(`--groups=${a.groups}`);
         if (a.returns) args.push(`--returns=${a.returns}`);
         if (a.relation) args.push(`--relation=${a.relation}`);
-        // The relation/structures collision is REFUSED BY THE HARNESS
-        // (`MISSING.md` M-102), not re-decided here: a second copy of that
-        // rule in JS is a second place for it to drift, and the harness's
-        // refusal names both coordinates and the spelling that works.
+        // A song-wide relation beside a structure is judged BY THE HARNESS
+        // as a conjunction (`quality/test_verbs.py` §44, repointed from the
+        // M-102 refusal on 2026-09-22): a structured group's pairs must
+        // satisfy both. Not re-decided here: a second copy of that rule in JS
+        // is a second place for it to drift.
         if (a.structures) args.push(`--structures=${a.structures}`);
         // THE BLUEPRINT (M-195): with it `brief` asks meter, song-function,
         // hook and title of a pasted song, exactly as `song` asks them of a

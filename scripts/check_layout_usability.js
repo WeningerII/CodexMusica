@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global window, document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -204,6 +204,76 @@ async function noOverflow(page) {
       await settle(page);
       await inside(page, '#ui-menu');
       await page.getByRole('button', { name: 'Reset layout', exact: true }).click();
+      // The save and delete dialogs are safe from the keyboard (Jony #7, #9 on
+      // #519): Enter in the name field saves once and does not reopen Save, and
+      // Enter on Cancel in the delete confirmation keeps the workspace, while
+      // Enter on Delete still deletes it.
+      if (width === 1280) {
+        const saved = () =>
+          page.evaluate(
+            async () => JSON.parse((await window.storage.get('codex:list'))?.value || '[]').length
+          );
+        const settleCount = async (n) => {
+          for (let i = 0; i < 40 && (await saved()) !== n; i++) await page.waitForTimeout(50);
+          return saved();
+        };
+        const start = await saved();
+        await page.locator('#btn-save').click();
+        await page.locator('#save-name').fill('Keyboard check');
+        await page.locator('#save-name').press('Enter');
+        assert.equal(await settleCount(start + 1), start + 1, 'Enter in the name field saves once');
+        await page.waitForTimeout(300);
+        assert.equal(
+          await page.evaluate(() => !!document.querySelector('#modal-save.open')),
+          false,
+          'Enter in the name field must not reopen Save'
+        );
+        assert.equal(await saved(), start + 1, 'one Enter, one saved copy');
+        const confirmDelete = async (choice) => {
+          await page.locator('#btn-saved').click();
+          const row = page.locator('#modal-saved [data-del]').last();
+          await row.waitFor();
+          await row.focus();
+          await page.keyboard.press('Enter');
+          await page
+            .waitForFunction(
+              () => document.activeElement?.matches('.confirm-dialog [data-confirm-action]'),
+              null,
+              { timeout: 3000 }
+            )
+            .catch(() => {});
+          const dialog = await page.evaluate(() => {
+            const d = document.querySelector('.confirm-dialog');
+            const text = (id) => (id && document.getElementById(id)?.textContent.trim()) || '';
+            return {
+              role: d?.getAttribute('role'),
+              modal: d?.getAttribute('aria-modal'),
+              name: text(d?.getAttribute('aria-labelledby')),
+              desc: text(d?.getAttribute('aria-describedby')),
+              focus: document.activeElement?.dataset?.confirmAction || null,
+            };
+          });
+          assert.ok(
+            dialog.role === 'alertdialog' && dialog.modal === 'true' && dialog.name && dialog.desc,
+            `the confirm dialog is a named, described alertdialog: ${JSON.stringify(dialog)}`
+          );
+          assert.equal(dialog.focus, 'cancel', 'a delete confirmation opens on Cancel');
+          if (choice === 'confirm')
+            await page.locator('.confirm-dialog [data-confirm-action="confirm"]').focus();
+          await page.keyboard.press('Enter');
+          await page.locator('.confirm-dialog').waitFor({ state: 'detached' });
+          await page.keyboard.press('Escape');
+        };
+        await confirmDelete('cancel');
+        // A delete is asynchronous: the count has to stay put, not merely be
+        // right at the first look.
+        for (let i = 0; i < 20; i++) {
+          assert.equal(await saved(), start + 1, 'Enter on Cancel must not delete');
+          await page.waitForTimeout(50);
+        }
+        await confirmDelete('confirm');
+        assert.equal(await settleCount(start), start, 'Enter on Delete deletes');
+      }
       await page.getByRole('button', { name: 'Lyrics', exact: true }).click();
       await noOverflow(page);
       await page.getByRole('button', { name: 'Map', exact: true }).click();
@@ -229,6 +299,62 @@ async function noOverflow(page) {
           width +
           'px: tree, labels, editor, panes, menus, lyrics, embedded/standalone map, short viewport'
       );
+      await context.close();
+    }
+    {
+      // Chat (Jony #89): Ask while an earlier request's outcome is unknown and
+      // its lookup fails sends nothing past it, says so in the log, and keeps
+      // the new text and focus in the box (the box is disabled while
+      // recovery checks, which drops focus in a real browser).
+      const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+      let posts = 0;
+      await context.route('https://mcp.codexmusica.com/**', (route) => {
+        const url = route.request().url();
+        if (route.request().method() === 'POST' && /\/chat$/.test(url)) {
+          posts++;
+          return route.abort();
+        }
+        if (/\/chat\/jobs\//.test(url))
+          return route.fulfill({
+            status: 503,
+            contentType: 'application/json',
+            body: '{"error":"The request outcome is unknown. The saved request will not be repeated."}',
+          });
+        return route.fulfill({
+          contentType: 'application/json',
+          body: '{"ok":true,"enabled":true}',
+        });
+      });
+      const page = await context.newPage();
+      const errors = [];
+      page.on('pageerror', (e) => errors.push(e.message));
+      await page.goto(base + '/codex.html');
+      await page.locator('[data-ui="ai"]:visible').first().click();
+      const input = page.locator('#chat-input');
+      await input.fill('make it bluesy');
+      await page.locator('#chat-send').click();
+      await page.waitForFunction(() =>
+        /outcome is unknown/.test(document.getElementById('chat-log').textContent)
+      );
+      await page.waitForFunction(() => !document.getElementById('chat-input').disabled);
+      assert.equal(posts, 1, 'Chat: the first request is sent once');
+      await input.fill('add a fiddle');
+      await input.focus();
+      await page.evaluate(() => document.getElementById('chat-form').requestSubmit());
+      await page.waitForFunction(() => !document.getElementById('chat-input').disabled);
+      await settle(page);
+      const after = await page.evaluate(() => ({
+        active: document.activeElement.id || document.activeElement.tagName,
+        value: document.getElementById('chat-input').value,
+        last: document.getElementById('chat-log').lastElementChild?.textContent || '',
+      }));
+      assert.equal(posts, 1, 'Chat: nothing is sent past an unknown outcome');
+      assert.equal(after.value, 'add a fiddle', 'Chat: the new text stays in the box');
+      assert.equal(after.active, 'chat-input', 'Chat: focus stays in the box, not BODY');
+      assert.match(after.last, /new message wasn’t sent/, 'Chat: the log says it was not sent');
+      assert.match(after.last, /set aside here, not cancelled/);
+      assert.deepEqual(errors, [], 'No browser errors');
+      console.log('PASS chat: an Ask past an unknown outcome is held, said and kept at 1280px');
       await context.close();
     }
   } finally {

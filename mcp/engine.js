@@ -685,7 +685,13 @@ export function editRecipe(params = {}) {
     if (e.action === 'set_environment') {
       const card = e.card ? W.findCard(before, e.card) : envCardOf(before.cards);
       target = card ? card.id : null;
-      if (target) envTargets.push({ edit: i, card: target });
+      const p = envPatch(e);
+      const fields = [
+        ...['room', 'tuning'].filter((f) => p[f] !== undefined),
+        ...Object.keys(p.chain),
+        ...p.clear,
+      ];
+      if (target) envTargets.push({ edit: i, card: target, fields });
     }
     warnings.push(...environmentTransition(before, ws, i, e, target));
   }
@@ -701,6 +707,34 @@ export function editRecipe(params = {}) {
   // chain no format renders. Said per edit, because only this call knows the
   // write was an environment request rather than a preface cascade.
   const env = envCardOf(ws.cards);
+  // The warnings describe the recipe returned, not a step on the way there. A
+  // later edit in the same batch can undo what an earlier one reported:
+  //   - the environment is back on the card it was moved off (any later loss on
+  //     that card is its own OVERWRITTEN);
+  //   - a setting is back to what was lost;
+  //   - a later set_environment on the final environment card chose that
+  //     setting itself (the documented order: set_environment after set_preface).
+  // What stands is restated against the final environment card.
+  for (let k = warnings.length - 1; k >= 0; k--) {
+    const w = warnings[k];
+    if (w.code !== 'ENVIRONMENT_MOVED' && w.code !== 'ENVIRONMENT_OVERWRITTEN') continue;
+    if (w.code === 'ENVIRONMENT_MOVED' && w.card === env.id) {
+      warnings.splice(k, 1);
+      continue;
+    }
+    const chosen = (f) =>
+      envTargets.some((t) => t.edit > w.edit && t.card === env.id && t.fields.includes(f));
+    const settings = {};
+    for (const [f, v] of Object.entries(w.settings || {}))
+      if (!sameValue(v.was, envValue(env, f)) && !chosen(f))
+        settings[f] = { was: v.was, now: envValue(env, f) };
+    if (!Object.keys(settings).length) warnings.splice(k, 1);
+    else {
+      w.settings = settings;
+      // Restated against another card than the one it names: say which.
+      if (w.code === 'ENVIRONMENT_MOVED' || w.card !== env.id) w.environment_card = env.id;
+    }
+  }
   for (const t of envTargets) {
     if (!ws.cards.some((c) => c.id === t.card) || t.card === env.id) continue;
     warnings.push({
@@ -836,25 +870,42 @@ function _stem(t) {
     if (t.length - suffix.length >= 4 && t.endsWith(suffix)) return t.slice(0, -suffix.length);
   return null;
 }
+// A free-text query's bounds. Every term is one more pass over every row, so
+// the cost of a search is linear in its term count, and the engine is
+// synchronous on a single-process server: measured on 5810c4a3b, 1,000 terms
+// (3,975 bytes) held the event loop for 7.4 s, /health included, at about 8 ms
+// a term. The numbers are chosen against what a search SAYS — "words from the
+// request" — not against what the process survives: sixteen words is a long
+// description. A query past either bound is refused, never truncated, so the
+// caller learns it rather than getting results for part of what they asked.
+export const MAX_QUERY_CHARS = 200;
+export const MAX_QUERY_TERMS = 16;
+
 // One compiled matcher per TERM, not per term per row.
 //
 // The word-boundary RegExp used to be constructed inside the per-term loop, i.e.
 // once for every (row, term) pair — tens of thousands of identical compilations
 // per query, and the largest single cost in the profile after the variant
 // blowup. The pattern depends only on the term.
-function queryMatchers(query) {
-  return String(query)
-    .toLowerCase()
-    .split(/\s+/)
-    .filter(Boolean)
-    .map((t) => {
-      const stem = _stem(t);
-      return {
-        t,
-        re: new RegExp(`(^|[^a-z0-9])${_esc(t)}([^a-z0-9]|$)`),
-        stemRe: stem ? new RegExp(`(^|[^a-z0-9])${_esc(stem)}`) : null,
-      };
-    });
+function queryMatchers(query, tool) {
+  const text = String(query);
+  if (text.length > MAX_QUERY_CHARS)
+    throw new EngineError(
+      `${tool} query is ${text.length} characters; the limit is ${MAX_QUERY_CHARS}. Search with the key words only.`
+    );
+  const terms = text.toLowerCase().split(/\s+/).filter(Boolean);
+  if (terms.length > MAX_QUERY_TERMS)
+    throw new EngineError(
+      `${tool} query has ${terms.length} words; the limit is ${MAX_QUERY_TERMS}. Search with the key words only, or split it into separate searches.`
+    );
+  return terms.map((t) => {
+    const stem = _stem(t);
+    return {
+      t,
+      re: new RegExp(`(^|[^a-z0-9])${_esc(t)}([^a-z0-9]|$)`),
+      stemRe: stem ? new RegExp(`(^|[^a-z0-9])${_esc(stem)}`) : null,
+    };
+  });
 }
 function scoreRecord(matchers, id, name, prose, gloss = '') {
   const idL = String(id).toLowerCase();
@@ -885,7 +936,7 @@ function scoreRecord(matchers, id, name, prose, gloss = '') {
 export function searchCatalog({ query, types, limit = 20 } = {}) {
   if (!query || !String(query).trim()) throw new EngineError('search_catalog needs a query.');
   const want = new Set(Array.isArray(types) && types.length ? types : SEARCH_TYPES);
-  const matchers = queryMatchers(query);
+  const matchers = queryMatchers(query, 'search_catalog');
   const rows = [];
   // `extra` carries fields that make a hit USABLE, not merely findable. Today
   // only chain rows need one — see the CHAIN_SECTIONS loop below.
@@ -986,7 +1037,7 @@ export function searchCatalog({ query, types, limit = 20 } = {}) {
 export function searchPrefaces({ query, limit = 15 } = {}) {
   if (!query || !String(query).trim())
     throw new EngineError('search_prefaces needs mood/feel words.');
-  const matchers = queryMatchers(query);
+  const matchers = queryMatchers(query, 'search_prefaces');
   const rows = [];
   for (const p of C.PREFACE_LEXICON || []) {
     const toks = tokensOf(p);

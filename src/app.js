@@ -14668,8 +14668,10 @@ function closeModal(id) {
 // additional dialogs" mechanism kicks in surprisingly easily), and the
 // native dialog renders as a thin chip at the very top of the viewport
 // that's easy to miss or dismiss without noticing. This custom version
-// renders inline, can't be suppressed, focuses the destructive action
-// automatically for keyboard confirm, and integrates with toast feedback.
+// renders inline, can't be suppressed, and integrates with toast feedback.
+// It is an alertdialog named by its title and described by its message; a
+// danger dialog opens on Cancel, so the destructive choice is never the one
+// a stray keystroke lands on.
 //
 // Returns a Promise<boolean>. Usage:
 //   const ok = await confirmDialog({ title, message, confirmLabel, danger });
@@ -14686,13 +14688,14 @@ function confirmDialog(opts) {
   return new Promise(resolve => {
     const bg = document.createElement('div');
     bg.className = 'modal-bg open confirm-dialog-bg';
+    const uid = 'confirm-' + (confirmDialog.seq = (confirmDialog.seq || 0) + 1);
     bg.innerHTML = `
-      <div class="modal confirm-dialog">
+      <div class="modal confirm-dialog" role="alertdialog" aria-modal="true" aria-labelledby="${uid}-title"${message ? ` aria-describedby="${uid}-msg"` : ''}>
         <div class="modal-head">
-          <h2 class="modal-title">${esc(title)}</h2>
+          <h2 class="modal-title" id="${uid}-title">${esc(title)}</h2>
         </div>
         <div class="confirm-dialog-body">
-          <p class="confirm-dialog-msg">${esc(message)}</p>
+          <p class="confirm-dialog-msg" id="${uid}-msg">${esc(message)}</p>
           <div class="confirm-dialog-actions">
             <button type="button" class="btn btn-ghost" data-confirm-action="cancel">${esc(cancelLabel)}</button>
             <button type="button" class="btn ${danger ? 'btn-danger-solid' : 'btn-primary'}" data-confirm-action="confirm">${esc(confirmLabel)}</button>
@@ -14710,17 +14713,21 @@ function confirmDialog(opts) {
     };
     const onKey = (e) => {
       if (e.key === 'Escape') { e.preventDefault(); close(false); }
-      else if (e.key === 'Enter') { e.preventDefault(); close(true); }
+      // Enter activates the focused button (the browser clicks it), so Enter on
+      // Cancel cancels. With no dialog button focused it does nothing: a stray
+      // Enter, such as the one that opened the dialog, never confirms a delete.
+      else if (e.key === 'Enter') { if (!e.target.closest?.('.confirm-dialog button')) e.preventDefault(); }
       else if (e.key === 'Tab') _trapTab(e, bg.querySelector('.modal'));
     };
     document.addEventListener('keydown', onKey);
     bg.querySelector('[data-confirm-action="cancel"]').addEventListener('click', () => close(false));
     bg.querySelector('[data-confirm-action="confirm"]').addEventListener('click', () => close(true));
     bg.addEventListener('click', e => { if (e.target === bg) close(false); });
-    // Focus the confirm button so Enter confirms by default. Slight delay
+    // Focus the confirm button, or Cancel for a danger dialog. Slight delay
     // lets the modal's opacity/transform transition begin before focus,
     // matching the existing modal pattern in openModal().
-    setTimeout(() => bg.querySelector('[data-confirm-action="confirm"]').focus(), UI_TIMING_MS.MODAL_FOCUS_DELAY);
+    const first = danger ? 'cancel' : 'confirm';
+    setTimeout(() => bg.querySelector(`[data-confirm-action="${first}"]`).focus(), UI_TIMING_MS.MODAL_FOCUS_DELAY);
   });
 }
 
@@ -17816,7 +17823,9 @@ function _initApp() {
     closeModal('modal-save');
     saveWS(n);
   });
-  document.getElementById('save-name').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('save-confirm').click(); });
+  // preventDefault: otherwise the same Enter lands on Save (focus is back on it)
+  // and opens the dialog again, and a second Enter saves a duplicate copy.
+  document.getElementById('save-name').addEventListener('keydown', e => { if (e.key === 'Enter' && !e.isComposing) { e.preventDefault(); document.getElementById('save-confirm').click(); } });
   document.getElementById('btn-saved').addEventListener('click', () => { renderSaved(); openModal('modal-saved'); });
   // Debounced, but only lightly.
   //
@@ -18911,18 +18920,37 @@ async function _chatRecover(generation = chatState.generation) {
   try {
     for (;;) {
       const res = await fetch(`${CHAT_BACKEND}/chat/jobs/${job.request_id}`, {cache:'no-store'});
-      const record = await res.json();
+      // A proxy's error page is not a receipt: say the service is down, never
+      // the parser's "Unexpected token '<'". The ticket stays for the next try.
+      const record = await res.json().catch(() => null);
       if (generation !== chatState.generation) return;
-      // 404: the server no longer retains this receipt (receipts expire), so
-      // asking again can never settle it. Set the ticket aside in the archive
-      // instead of blocking every new request on it; nothing is replayed.
+      if (!record || typeof record !== 'object')
+        throw new Error(`The service is not answering right now (HTTP ${res.status}). Your request is saved and will not be repeated; press Send to check it again.`);
+      // 404: the server holds no receipt for this request now. That does not
+      // prove nothing ran (a receipt can be lost or expire after the work), so
+      // the outcome is worded as unknown. After a POST that never got an
+      // answer, the typed message goes back in the box; whether the service
+      // ever showed a receipt for it (admitted) decides how the note reads.
+      // Asking again can never settle a 404: the ticket is set aside in Saved
+      // runs in every case, since none of them proves it never ran.
       if (res.status === 404) {
+        const dropped = chatState.disconnected === job.request_id;
+        const unseen = dropped && !job.admitted;
         chatState.archives = [...chatState.archives, job].slice(-8);
         if (chatState.continuationId === job.request_id) chatState.continuationId = null;
         chatState.pending = null;
         chatState.disconnected = null;
         _chatSave();
-        _chatAppend('<div class="chat-msg chat-msg-note">The saved request is no longer kept on the server, so it was set aside. Nothing was repeated; you can start a new request.</div>');
+        const input = _chatEl('chat-input');
+        if (dropped && input && job.message && !input.value) {
+          input.value = job.message;
+          _chatSyncCount();
+        }
+        _chatAppend(unseen
+          ? '<div class="chat-msg chat-msg-note">The connection dropped and the service has no record of that request, so it may never have arrived. Your message is back in the box; send it again if nothing changed.</div>'
+          : dropped
+            ? '<div class="chat-msg chat-msg-note">The service received that request, but its receipt is no longer kept, so whether it finished is unknown. Your message is back in the box; check the result before sending it again.</div>'
+            : '<div class="chat-msg chat-msg-note">The saved request is no longer kept on the server, so it was set aside. Nothing was repeated; you can start a new request.</div>');
         return;
       }
       if (!res.ok) throw new Error(record.error || 'The request outcome is unknown. The saved request will not be repeated.');
@@ -19321,6 +19349,12 @@ function _chatPollStart(request_id) {
       if (res.ok) {
         const view = _chatProgressOf(await res.json());
         if (_chatPoll.request_id !== request_id) return;
+        // The service holds a receipt: the request arrived. Recovery reads
+        // this to word a later missing receipt (it may have run).
+        if (chatState.pending?.request_id === request_id && !chatState.pending.admitted) {
+          chatState.pending.admitted = true;
+          try { _chatSave(); } catch { /* the flag only shapes wording */ }
+        }
         if (view) {
           chatState.progress = { ...chatState.progress, ...view, created_at: view.created_at ?? chatState.progress?.created_at };
           document.dispatchEvent(new CustomEvent('chat-progress', { detail: chatState.progress }));
@@ -19350,7 +19384,7 @@ function _chatPollStart(request_id) {
 async function _chatSend(message, { choice, context = null, clearInput = false } = {}) {
   if (chatState.busy) return { ok: false, reason: 'busy' };
   if (chatState.pending) {
-    _chatRecover();
+    _chatRecoverBeforeSend(message);
     return { ok: false, reason: 'pending' };
   }
   if (chatState.retryAt > Date.now()) {
@@ -19437,10 +19471,41 @@ async function _chatSend(message, { choice, context = null, clearInput = false }
   }
   return { ok: true };
 }
+// A new message never goes out past a saved request whose outcome is unknown:
+// it would continue, or repeat, a conversation whose last step is unsettled
+// (the receipt saved before dispatch exists so a paid prompt is never sent
+// twice). Recovery runs first, and once it settles the person sends again.
+// While the earlier request still can't be checked (its lookup fails), say the
+// new message was not sent and the way on, rather than only repeating the
+// recovery note (Jony #89). The text stays in the box, and focus with it.
+async function _chatRecoverBeforeSend(message) {
+  const log = _chatEl('chat-log');
+  const before = log?.lastElementChild;
+  await _chatRecover();
+  const input = _chatEl('chat-input');
+  if (chatState.pending && !chatState.busy && String(message || '').trim()) {
+    // One held note at a time: a repeated Ask replaces the previous note and
+    // the recovery line it followed, rather than adding three lines per Ask.
+    log?.querySelectorAll('[data-chat-held]').forEach(el => el.remove());
+    const said = log?.lastElementChild;
+    if (said && said !== before && said.matches('.chat-msg-error')) said.dataset.chatHeld = '1';
+    const note = _chatAppend('<div class="chat-msg chat-msg-error">Your new message wasn’t sent: the earlier request can’t be checked yet, so its outcome is still unknown. Try again in a moment, or start a new conversation; the earlier request is set aside here, not cancelled. </div>');
+    if (note) {
+      const fresh = document.createElement('button');
+      fresh.type = 'button';
+      fresh.className = 'btn btn-ghost';
+      fresh.textContent = 'New conversation';
+      fresh.onclick = () => _chatEl('chat-reset')?.click();
+      note.append(fresh);
+      note.dataset.chatHeld = '1';
+    }
+  }
+  if (input && !input.disabled && (!document.activeElement || document.activeElement === document.body)) input.focus();
+}
 async function _chatSubmit(e) {
   e.preventDefault();
   if (chatState.busy) return;
-  if (chatState.pending) return _chatRecover();
+  if (chatState.pending) return _chatRecoverBeforeSend(_chatEl('chat-input')?.value);
   const input = _chatEl('chat-input');
   if (!(input?.value.trim()) && chatState.retryAt <= Date.now()) return;
   await _chatSend(input?.value || '', { choice: _chatEl('chat-domain')?.value || 'recipe', clearInput: true });

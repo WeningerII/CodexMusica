@@ -570,7 +570,47 @@ No endpoint can enforce a task an external host never states: `/mcp` serves
 whichever family the host calls.
 
 Direct lyric continuations require the returned `run_revision` with `run_id`.
-A concurrent continuation or stale revision refuses before work starts. Original
+A concurrent continuation or stale revision refuses before work starts. That holds
+after the run's cached record is gone (a clean finish deletes it, a restart loses it):
+a run ledger keeps each run's latest revision, whether it finished, and a digest of
+every state or checkpoint the run has moved past. It holds digests only, never a
+`run_id` or a wire, in `run-ledger.json` under `LYRIC_RUNTIME_DIR` (`RUN_LEDGER_FILE`
+overrides; in memory otherwise), replaced atomically after a file and a directory
+fsync. A wire is identified by its decoded content, so a re-spaced or re-encoded
+copy is the same wire (and a wire whose decoded content differs, even by one added
+field, is a different wire). Runs on the paid website writer are kept apart from free
+ones: up to 20,000 of their runs and moved-past wires, with no age limit (a signed
+`/chat` envelope does not expire), so free calls cannot push them out; other runs
+are kept 30 days within a cap of 5,000 runs and 5,000 wires. So, with nothing run:
+
+- a revision behind the run's latest, or any revision of a finished run, refuses;
+- a state or checkpoint the run already moved past refuses whether or not the call
+  names its `run_id` (the `/chat` checkpoint recovery carries none);
+- while the ledger cannot be read or saved, every continuation refuses
+  (`RUN_LEDGER_UNAVAILABLE`); a fresh run on a draft is unaffected.
+
+Limits: replay prevention is bounded, not unlimited. A run the ledger never saw
+(from before it shipped) continues as before, and so does one it has dropped — the
+oldest entry is evicted first: a paid run once 20,000 newer paid entries exist, any
+other run past 30 days or once 5,000 newer ones exist — and a continuation it
+covered would run again. An unreadable ledger file is never written over, so a
+restart still finds it unreadable and continuations stay refused. It is not repaired
+by moving the file aside: an empty ledger forgets that history and readmits every
+older continuation it covered, as runs it never saw. Restoring a readable copy is
+the repair; starting empty is a decision to readmit those continuations, not a
+routine fix. "Behind" and "never delivered" look the same from a revision:
+a call interrupted after its run advanced but before its result reached the caller
+leaves the caller holding the earlier one, which then refuses; `recover_only` reads
+its accepted lyrics and `new_run` goes on as an independent run. On `/chat` a model
+never holds the wire: a bare `recover_only` there recovers the conversation's
+carried continuation. A `/chat` result recorded in its receipt is fetchable by
+`request_id`; one lost between the run ledger and the receipt (a crash in that
+window) is not — the receipt is `interrupted`, and continuing it by
+`continuation_id` resumes from the receipt's progress as an independent run. When
+both are open, recover by `continuation_id` first: it keeps answers the receipt's
+progress recorded, which a `recover_only` export of an older wire does not. A repeated question
+(the run still on the same state) is not moved past. `new_run` stays the explicit way
+to start independent work on a draft. Original
 replay input, accepted lines and immutable declarations have separate fields;
 accepted lines never silently replace the replay input. The bounded state codec
 identifies the scorer source, lexical data and runtime. Signed chat continuations
