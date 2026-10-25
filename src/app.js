@@ -19470,9 +19470,16 @@ async function _chatSend(message, { choice, context = null, clearInput = false }
 // new message was not sent and the way on, rather than only repeating the
 // recovery note (Jony #89). The text stays in the box, and focus with it.
 async function _chatRecoverBeforeSend(message) {
+  const log = _chatEl('chat-log');
+  const before = log?.lastElementChild;
   await _chatRecover();
   const input = _chatEl('chat-input');
   if (chatState.pending && !chatState.busy && String(message || '').trim()) {
+    // One held note at a time: a repeated Ask replaces the previous note and
+    // the recovery line it followed, rather than adding three lines per Ask.
+    log?.querySelectorAll('[data-chat-held]').forEach(el => el.remove());
+    const said = log?.lastElementChild;
+    if (said && said !== before && said.matches('.chat-msg-error')) said.dataset.chatHeld = '1';
     const note = _chatAppend('<div class="chat-msg chat-msg-error">Your new message wasn’t sent: the earlier request can’t be checked yet, so its outcome is still unknown. Try again in a moment, or start a new conversation; the earlier request is set aside here, not cancelled. </div>');
     if (note) {
       const fresh = document.createElement('button');
@@ -19481,6 +19488,7 @@ async function _chatRecoverBeforeSend(message) {
       fresh.textContent = 'New conversation';
       fresh.onclick = () => _chatEl('chat-reset')?.click();
       note.append(fresh);
+      note.dataset.chatHeld = '1';
     }
   }
   if (input && !input.disabled && (!document.activeElement || document.activeElement === document.body)) input.focus();

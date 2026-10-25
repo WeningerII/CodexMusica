@@ -264,6 +264,19 @@ const run = (code) => dom.window.eval(code);
   // cancel or stop it (3PO, #519 6398223235).
   assert.match(blocked.textContent, /set aside here, not cancelled/);
   assert.equal(blocked.querySelector('button')?.textContent, 'New conversation');
+  // Asking again while it still can't be checked replaces that note (and the
+  // recovery line before it) rather than stacking them (Jony #89).
+  await run('_chatSubmit({preventDefault(){}})');
+  assert.equal(run('window.posts'), 0, 'A repeated Ask past an unknown outcome sends nothing');
+  assert.deepEqual(
+    JSON.parse(
+      run(
+        "(()=>{const t=[...document.getElementById('chat-log').children].map((e)=>e.textContent);return JSON.stringify({held:t.filter((x)=>/wasn’t sent/.test(x)).length,unknown:t.filter((x)=>/^The request outcome is unknown/.test(x)).length})})()"
+      )
+    ),
+    { held: 1, unknown: 1 },
+    'A repeated held Ask leaves one note and one recovery line'
+  );
   // A bare recheck (empty box, "press Send to check it again") adds no such note.
   run(
     "document.getElementById('chat-input').value='';document.getElementById('chat-log').lastElementChild.remove();"
