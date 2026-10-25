@@ -565,6 +565,29 @@ const SECTIONS = {
       raced.hash === '#library/works?offset=50' && !/English/.test(raced.chips),
       JSON.stringify(raced)
     );
+    // And back to the route already shown while the update still waits
+    // (show()'s echo branch; Jony's review).
+    await page.route('**/library/data/catalog.json', async (route) => {
+      await new Promise((r) => setTimeout(r, 4000));
+      await route.continue();
+    });
+    await go(page, base, '/works');
+    await page.reload(); // cold: the catalog is on its way for the whole run
+    await page.waitForSelector('#surface-library .lw', { timeout: 20000 });
+    await page.evaluate(() => (location.hash = '#library/works?language=eng'));
+    await page.waitForTimeout(300);
+    await page.evaluate(() => (location.hash = '#library/works'));
+    await page.waitForTimeout(6000);
+    await page.unroute('**/library/data/catalog.json');
+    const back = await page.evaluate(() => ({
+      hash: location.hash,
+      chips: document.querySelector('#surface-library .lw-chips')?.textContent || '',
+    }));
+    check(
+      `${tag} works: going back to the shown route beats an update still waiting`,
+      back.hash === '#library/works' && !/English/.test(back.chips),
+      JSON.stringify(back)
+    );
     await go(page, base, '/works?q=epithalamion');
     await settled(page, 'works', '#surface-library .lw-table tbody tr');
     // Filters sheet.

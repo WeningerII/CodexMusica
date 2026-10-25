@@ -799,7 +799,10 @@ return {
       view = new WorksView(main, lib);
       VIEWS.set(main, view);
     } else if (view.sub === format(parse(sub))) {
-      // Our own lib.go echoing back: already shown.
+      // Our own lib.go echoing back, or a return to the route already shown
+      // while a later update() still waits on the catalog: that update is
+      // superseded either way (Jony's review).
+      view.generation = (view.generation || 0) + 1;
       return view;
     }
     ACTIVE = view;
