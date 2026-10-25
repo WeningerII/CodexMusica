@@ -949,6 +949,17 @@ test('every refusal names the call that works instead', async () => {
   assert.deepEqual(failing, []);
 });
 
+test('no refusal text carries a session or operation id', async () => {
+  // Ids are private capabilities: a refusal that needs one to go on (a stale
+  // session) carries it in a JSON block after its text, never in the text,
+  // which a host may show. Every refusal row, read as a host reads it.
+  const leaking = [];
+  for (const { spec, got } of await collect())
+    if (typeof got.text === 'string' && /\b[a-f0-9]{64}\b/.test(got.text))
+      leaking.push(`${spec.where}: ${got.text}`);
+  assert.deepEqual(leaking, []);
+});
+
 test('each refusal arrives in the shape the receipt sentence promises', async () => {
   // workflow_tools.js (P5): every call that takes a session_id "ends its
   // content with a receipt (a JSON object) holding the next session_id; an

@@ -7,7 +7,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { once } from 'node:events';
 import express from 'express';
-import { runTurn, LIMITS } from './gemini_agent.js';
+import { runTurn, LIMITS, buildSurface } from './gemini_agent.js';
 import { JobStore, createJobRouter } from './job_store.js';
 import { RunStore, declarationsOf, movedDeclarations, runRefusal } from './run_store.js';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
@@ -1322,6 +1322,172 @@ test('recipe creation needs a successful customization; explicit browse can retu
   } finally {
     globalThis.fetch = nativeFetch;
   }
+});
+
+test('every tool call a recipe turn builds carries only the arguments its tool declares', async () => {
+  // The connector refuses an argument a tool does not declare (guardEditKeys).
+  // The chat once stamped format: 'rich' on EVERY recipe-turn call, so each
+  // search_catalog and search_prefaces was refused and the turn found no
+  // tradition (BB8, #519). Driven through the chat's own real server and
+  // live surface, every call the turn builds is checked against the schema.
+  const server = buildRealServer({ kitchen: true });
+  const [clientSide, serverSide] = InMemoryTransport.createLinkedPair();
+  const client = new Client({ name: 'declared-args', version: '1.0.0' }, { capabilities: {} });
+  await Promise.all([server.connect(serverSide), client.connect(clientSide)]);
+  const live = await buildSurface(client);
+  const declared = new Map(
+    live.tools.map((t) => [t.name, new Set(Object.keys(t.inputSchema?.properties || {}))])
+  );
+  const sent = [];
+  globalThis.fetch = async (_url, request) => {
+    const hop = JSON.parse(request.body).contents.length;
+    return response(
+      hop <= 1
+        ? [
+            fc('search_catalog', { query: 'bluegrass' }),
+            fc('search_prefaces', { query: 'haunting' }),
+            fc('start_recipe', { traditions: ['bluegrass'] }),
+          ]
+        : [{ text: 'Done.' }]
+    );
+  };
+  try {
+    await runTurn({
+      ...opts,
+      surface: live,
+      task: task('recipe'),
+      userText: 'A haunting bluegrass recipe.',
+      limits: { ...LIMITS, maxSteps: 3, maxTurnMs: 20000, maxTurnUsd: 0 },
+      callTool: async (name, args) => {
+        const result = await client.callTool({ name, arguments: args });
+        sent.push({ name, keys: Object.keys(args), refused: !!result.isError });
+        return result;
+      },
+    });
+  } finally {
+    globalThis.fetch = nativeFetch;
+    await client.close();
+  }
+  assert.deepEqual(
+    sent.map((c) => c.name),
+    ['search_catalog', 'search_prefaces', 'start_recipe'],
+    'the turn made every call it was given'
+  );
+  for (const c of sent) {
+    assert.deepEqual(
+      c.keys.filter((k) => !declared.get(c.name).has(k)),
+      [],
+      `${c.name} was sent only arguments it declares`
+    );
+    assert.equal(c.refused, false, `${c.name} was not refused`);
+  }
+  assert.ok(
+    sent.find((c) => c.name === 'start_recipe').keys.includes('format'),
+    "a tool that declares format still gets the turn's Rich"
+  );
+});
+
+test('every tool family the chat calls is sent only declared arguments, its own injections included', async () => {
+  // The recipe turn above covers format. This drives every other family the
+  // chat's server exposes (lookups, recipe edits, each lyric verb) and a
+  // lyric_revise that continues a carried run, so the run's state, run id,
+  // revision, draft, declarations and the kitchen writer the chat adds all
+  // pass through the connector's unknown-argument guard. A tool may still
+  // refuse on its merits (a fabricated state, an offline writer); what may
+  // never happen is an input refusal for an argument the chat put there.
+  const server = buildRealServer({ kitchen: true });
+  const [clientSide, serverSide] = InMemoryTransport.createLinkedPair();
+  const client = new Client({ name: 'declared-args', version: '1.0.0' }, { capabilities: {} });
+  await Promise.all([server.connect(serverSide), client.connect(clientSide)]);
+  const live = await buildSurface(client);
+  const declared = new Map(
+    live.tools.map((t) => [t.name, new Set(Object.keys(t.inputSchema?.properties || {}))])
+  );
+  const draft = ['the porch light burns', 'for no one home tonight'];
+  const turns = [
+    {
+      domain: 'recipe',
+      calls: [
+        fc('get_tradition', { id: 'bluegrass' }),
+        fc('get_instrument', { id: 'banjo_5_string' }),
+        fc('list_traditions', { query: 'blues', limit: 3 }),
+        fc('list_options', { kind: 'rooms' }),
+        fc('start_recipe', { traditions: ['bluegrass'] }),
+        fc('render_recipe', {}),
+        fc('edit_recipe', { edits: [{ action: 'set_environment', room: 'stone_cathedral' }] }),
+      ],
+    },
+    {
+      domain: 'lyrics',
+      calls: [
+        fc('lyric_types', { word_a: 'night', word_b: 'light' }),
+        fc('lyric_check', { lines_text: draft.join('\n') }),
+        fc('lyric_recover', { lines_text: draft.join('\n') }),
+        fc('lyric_verify', { before_text: draft.join('\n'), after_text: draft.join('\n') }),
+        fc('lyric_grade', { seed: 16, title: 'Porch Light', draft_text: draft.join('\n') }),
+        fc('lyric_revise', { seed: 16, answer: 'keep it' }),
+      ],
+      lyric: {
+        seed: 16,
+        state: 'not-a-real-state',
+        run_id: 'run_' + 'a'.repeat(64),
+        run_revision: 1,
+        draft,
+        decl: {
+          writer: 'kitchen',
+          form: 'verse-chorus',
+          voices: false,
+          seed: 16,
+          title: 'Porch Light',
+        },
+      },
+    },
+  ];
+  const sent = [];
+  try {
+    for (const turn of turns) {
+      let hop = 0;
+      globalThis.fetch = async () => response(hop++ === 0 ? turn.calls : [{ text: 'Done.' }]);
+      await runTurn({
+        ...opts,
+        surface: live,
+        writer: 'kitchen',
+        task: task(turn.domain),
+        lyric: turn.lyric,
+        userText: 'Every family.',
+        limits: { ...LIMITS, maxSteps: 2, maxTurnMs: 120000, maxTurnUsd: 0 },
+        callTool: async (name, args) => {
+          const result = await client.callTool({ name, arguments: args });
+          const text = (result.content || []).map((b) => b.text || '').join(' ');
+          sent.push({
+            name,
+            keys: Object.keys(args),
+            inputRefused: /Unknown argument|Input validation error|Invalid arguments/.test(text),
+            text: text.slice(0, 200),
+          });
+          return result;
+        },
+      });
+    }
+  } finally {
+    globalThis.fetch = nativeFetch;
+    await client.close();
+  }
+  const called = new Set(sent.map((c) => c.name));
+  for (const turn of turns)
+    for (const c of turn.calls)
+      assert.ok(called.has(c.functionCall.name), `${c.functionCall.name} reached the connector`);
+  for (const c of sent) {
+    assert.deepEqual(
+      c.keys.filter((k) => !declared.get(c.name).has(k)),
+      [],
+      `${c.name} was sent only arguments it declares`
+    );
+    assert.equal(c.inputRefused, false, `${c.name} was not refused for its input: ${c.text}`);
+  }
+  const revise = sent.find((c) => c.name === 'lyric_revise');
+  for (const k of ['run_id', 'run_revision', 'writer', 'draft', 'title'])
+    assert.ok(revise.keys.includes(k), `the chat's own ${k} reached lyric_revise`);
 });
 
 test('a recipe turn the step limit ends reaches the page as the recipe it reached, and continues', async () => {

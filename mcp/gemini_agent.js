@@ -1656,6 +1656,8 @@ function pruneHistory(contents, { keepTurns = 1, maxBytes = 200_000 } = {}) {
  *   result returned, keyed on the seed it was returned FOR, so a call about a
  *   different seed starts a fresh run instead of inheriting a stale record.
  */
+const declaresFormat = (surface, name) =>
+  !!(surface.tools || []).find((t) => t.name === name)?.inputSchema?.properties?.format;
 export async function runTurn({
   // KITCHEN COOKS (M-254): who answers a revise question on this surface —
   // the declared default, overridable per call so a test drives both
@@ -2136,7 +2138,10 @@ export async function runTurn({
           responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
           continue;
         }
-        if (task?.domain === 'recipe') args.format = 'rich';
+        // Rich is the chat's recipe format, set only on a tool that declares
+        // `format`: the connector refuses an argument a tool does not declare,
+        // so stamping it on search_catalog refused every recipe-turn search.
+        if (task?.domain === 'recipe' && declaresFormat(surface, fc.name)) args.format = 'rich';
         const spent = totalCost();
         const overCost = limits.maxTurnUsd > 0 && (spent === null || spent >= limits.maxTurnUsd);
         if (stopped || interruption(step + 1) || overCost) {
