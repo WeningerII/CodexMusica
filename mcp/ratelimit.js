@@ -29,10 +29,12 @@ export class Windows {
     this.buckets = new Map();
   }
 
-  hit(key, windowMs, limit, now) {
+  // `weight`: how many units this request spends (a JSON-RPC batch spends one
+  // per message).
+  hit(key, windowMs, limit, now, weight = 1) {
     const slot = Math.floor(now / windowMs);
     const id = `${key}:${windowMs}:${slot}`;
-    const count = (this.buckets.get(id) || 0) + 1;
+    const count = (this.buckets.get(id) || 0) + weight;
     this.buckets.set(id, count);
     // Opportunistic sweep: without it this Map is an unbounded leak keyed by
     // client IP, which is the sort of thing that stays invisible until an

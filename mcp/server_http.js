@@ -75,9 +75,18 @@ const MCP_PATH = process.env.MCP_PATH || '/mcp';
 // a recipe makes a handful of calls per turn — search, seed, a few edits, a
 // render — so 60/minute leaves an interactive session untouched while turning
 // "block the loop forever" into "block it, then wait".
+// A JSON-RPC BATCH IS AS MANY CALLS AS IT CARRIES (BB8 A1, #519). The SDK
+// accepts up to 100 messages in one POST and dispatches them back to back, so
+// one request counted once against these limits ran 100 searches: measured on
+// 0a66a95b4c, a 100-call batch held the event loop for 11.4 s and /health for
+// 10.9 s, and six such requests a minute kept the process unresponsive. A
+// batch is now refused above `maxBatch`, every message in it counts against
+// both windows, and its messages run one at a time with the event loop free
+// between them.
 const MCP_LIMITS = {
   perIpPerMinute: Number(process.env.MCP_IP_RPM) || 60,
   perIpPerHour: Number(process.env.MCP_IP_RPH) || 600,
+  maxBatch: Number(process.env.MCP_MAX_BATCH) || 8,
 };
 const mcpWindows = new Windows();
 
@@ -744,9 +753,19 @@ app.get('/.well-known/mcp.json', (_req, res) =>
 // A name that is not a plain identifier is JSON-quoted (escaping every control
 // character) and cut to a fixed length, so one call is always one line.
 const LOGGED_TOKEN_CHARS = 64;
+const RENDERING_TOOLS = new Set(['start_recipe', 'edit_recipe', 'render_recipe']);
+
 function logToken(value) {
   const text = String(value);
-  return /^[\w./:-]{1,64}$/.test(text) ? text : JSON.stringify(text.slice(0, LOGGED_TOKEN_CHARS));
+  if (/^[\w./:-]{1,64}$/.test(text)) return text;
+  // JSON.stringify escapes C0 controls but leaves U+2028/U+2029 raw, and a log
+  // viewer may break a line on either.
+  // A cut token says so, so a 64-character prefix never reads as a whole name.
+  const cut = text.length > LOGGED_TOKEN_CHARS ? text.slice(0, LOGGED_TOKEN_CHARS) + '…' : text;
+  return JSON.stringify(cut).replace(
+    /[\u2028\u2029]/g,
+    (c) => `\\u${c.charCodeAt(0).toString(16)}`
+  );
 }
 function describe(body) {
   const m = Array.isArray(body) ? body[0] : body;
@@ -802,12 +821,25 @@ const mcpPaths = [
 app.post(mcpPaths, async (req, res) => {
   const ip = clientIp(req);
   const now = Date.now();
-  const perMin = mcpWindows.hit(`mcp:${ip}`, 60_000, MCP_LIMITS.perIpPerMinute, now);
+  const batch = Array.isArray(req.body) ? req.body.length : 1;
+  if (batch > MCP_LIMITS.maxBatch) {
+    console.error(`[mcp] 400 ${ip} batch of ${batch}`);
+    return res.status(400).json({
+      jsonrpc: '2.0',
+      error: {
+        code: -32600,
+        message: `BATCH_TOO_LARGE: this server takes at most ${MCP_LIMITS.maxBatch} messages in one request; this one has ${batch}. Send them as separate requests (each message counts against the rate limit either way).`,
+      },
+      id: null,
+    });
+  }
+  const weight = Math.max(1, batch);
+  const perMin = mcpWindows.hit(`mcp:${ip}`, 60_000, MCP_LIMITS.perIpPerMinute, now, weight);
   if (!perMin.ok) {
     console.error(`[mcp] 429 ${ip} (minute)`);
     return tooMany(res, perMin.retryAfter);
   }
-  const perHour = mcpWindows.hit(`mcp:${ip}`, 3_600_000, MCP_LIMITS.perIpPerHour, now);
+  const perHour = mcpWindows.hit(`mcp:${ip}`, 3_600_000, MCP_LIMITS.perIpPerHour, now, weight);
   if (!perHour.ok) {
     console.error(`[mcp] 429 ${ip} (hour)`);
     return tooMany(res, perHour.retryAfter);
@@ -847,8 +879,15 @@ app.post(mcpPaths, async (req, res) => {
   const calls = (Array.isArray(req.body) ? req.body : [req.body]).filter(
     (m) => m?.method === 'tools/call'
   );
+  // Only the three tools that render a recipe take a format, and one that
+  // omits it renders Rich, as it does alone; counting the omission as nothing
+  // let it inherit another call's format inside a batch (BB8's review).
   const formats = [
-    ...new Set(calls.map((m) => m.params?.arguments?.format).filter((f) => f !== undefined)),
+    ...new Set(
+      calls
+        .filter((m) => RENDERING_TOOLS.has(m.params?.name))
+        .map((m) => m.params?.arguments?.format ?? 'rich')
+    ),
   ];
   if (domain && formats.length > 1) {
     return res.status(400).json({
@@ -883,6 +922,20 @@ app.post(mcpPaths, async (req, res) => {
         ? await buildWorkflowServer({ domain, sessions: workflowSessions, compatibility: shared })
         : buildServer(task ? { task } : {});
     await server.connect(transport);
+    // One message at a time, with a turn of the event loop before each: the
+    // transport hands every message of a batch to the server in one
+    // synchronous loop, and a synchronous engine call started by each would
+    // run back to back with nothing else served in between.
+    if (batch > 1) {
+      const deliver = transport.onmessage;
+      let turn = Promise.resolve();
+      transport.onmessage = (message, extra) => {
+        turn = turn
+          .then(() => new Promise((resolve) => setImmediate(resolve)))
+          .then(() => deliver.call(transport, message, extra))
+          .catch((err) => console.error('[mcp] batch message failed:', err));
+      };
+    }
     await withExecutionContext(context, () => transport.handleRequest(req, res, req.body));
   } catch (err) {
     console.error('[mcp] request error:', err);

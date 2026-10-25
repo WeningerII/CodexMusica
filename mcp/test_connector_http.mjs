@@ -724,6 +724,11 @@ test(
         'no standalone forged request-log line'
       );
 
+      await post('/mcp/recipe', call(2, 'y\u2028z', {}));
+      await new Promise((resolve) => setTimeout(resolve, 100));
+      assert.ok(output.includes('[mcp] tools/call "y\\u2028z"'), 'U+2028 is escaped in the log');
+      assert.ok(!output.includes('\u2028'), 'no raw line separator reaches the log');
+
       // Express routes case-insensitively; a case variant is refused, not served
       // as a different surface.
       for (const path of ['/MCP', '/mcp/Recipe', '/mcp/ChatGPT']) {
@@ -755,9 +760,124 @@ test(
       ]);
       assert.equal(mixed.status, 400);
       assert.match((await mixed.json()).error.message, /^TASK_FORMAT: .*tags, prose/);
+      // An omitted format is Rich, as it is alone, so it cannot quietly take
+      // the batch's other format; a lookup in the batch names no format at all.
+      const omitted = await post('/mcp/recipe', [
+        call(1, 'start_recipe', { traditions: ['bluegrass'], format: 'tags' }),
+        call(2, 'start_recipe', { traditions: ['bluegrass'] }),
+      ]);
+      assert.equal(omitted.status, 400);
+      assert.match((await omitted.json()).error.message, /^TASK_FORMAT: .*tags, rich/);
+      const lookup = await post('/mcp/recipe', [
+        call(1, 'start_recipe', { traditions: ['bluegrass'], format: 'tags' }),
+        call(2, 'search_catalog', { query: 'banjo' }),
+      ]);
+      assert.equal(lookup.status, 200);
+
+      // A cut log token says it was cut.
+      await post('/mcp/recipe', call(3, 'n'.repeat(500) + ' x', {}));
+      await new Promise((resolve) => setTimeout(resolve, 100));
+      assert.ok(output.includes(`"${'n'.repeat(64)}…"`), 'a cut token ends with an ellipsis');
     } finally {
       await stopHTTP(child, exited, () => output);
       rmSync(root, { recursive: true, force: true });
+    }
+  }
+);
+
+test(
+  'a JSON-RPC batch is as many calls as it carries: capped, counted per message, and /health answers while it runs (BB8 A1)',
+  { timeout: 120_000 },
+  async () => {
+    const port = await freePort(),
+      root = mkdtempSync(join(tmpdir(), 'connector-http-'));
+    const base = `http://127.0.0.1:${port}`;
+    const child = spawn(
+      process.execPath,
+      [fileURLToPath(new URL('./server_http.js', import.meta.url))],
+      {
+        cwd: fileURLToPath(new URL('..', import.meta.url)),
+        env: {
+          ...process.env,
+          PORT: String(port),
+          GEMINI_API_KEY: '',
+          LYRIC_RUNTIME_DIR: root,
+          MCP_IP_RPM: '20',
+          MCP_MAX_BATCH: '',
+        },
+      }
+    );
+    let output = '';
+    child.stdout.on('data', (c) => (output += c));
+    child.stderr.on('data', (c) => (output += c));
+    const exited = new Promise((resolve) => child.once('exit', resolve));
+    // The longest query the bounds admit: sixteen words.
+    const heavy =
+      'blues rock garage fuzz delta acoustic bright warm dark fast slow old new dry wet loud';
+    const batchOf = (n, query) =>
+      Array.from({ length: n }, (_, i) => ({
+        jsonrpc: '2.0',
+        id: i + 1,
+        method: 'tools/call',
+        params: { name: 'search_catalog', arguments: { query, limit: 1 } },
+      }));
+    const post = (body) =>
+      fetch(`${base}/mcp/recipe`, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          accept: 'application/json, text/event-stream',
+        },
+        body: JSON.stringify(body),
+      });
+    try {
+      await waitForHealth(base, child, () => output);
+
+      // The measured attack (100 calls in one POST) and the first size past
+      // the cap are refused by name, before any of them runs.
+      for (const n of [100, 9]) {
+        const r = await post(batchOf(n, heavy));
+        assert.equal(r.status, 400, `a batch of ${n}`);
+        const body = await r.json();
+        assert.equal(body.error.code, -32600);
+        assert.match(body.error.message, new RegExp(`^BATCH_TOO_LARGE: .*at most 8 .*has ${n}\\.`));
+      }
+
+      // /health answers while a batch of the heaviest searches runs: the
+      // batch's messages run one at a time with the event loop free between,
+      // so a probe waits for one call, not for the batch (measured: without
+      // the yield, a probe sent 150 ms in came back 5 ms before the batch).
+      const t0 = Date.now();
+      const batch = post(batchOf(8, heavy)).then(async (r) => {
+        const text = await r.text(); // its BODY ends after the last call
+        return { status: r.status, text, at: Date.now() - t0 };
+      });
+      await new Promise((resolve) => setTimeout(resolve, 150));
+      const health = await fetch(`${base}/health`).then((r) => ({
+        status: r.status,
+        at: Date.now() - t0,
+      }));
+      const done = await batch;
+      assert.equal(health.status, 200);
+      assert.equal(done.status, 200);
+      assert.equal((done.text.match(/"id":\d+/g) || []).length, 8, 'all eight calls answered');
+      assert.ok(
+        done.at - health.at > done.at / 4,
+        `/health answered at ${health.at} ms, the batch at ${done.at} ms: it waited for the batch`
+      );
+
+      // Every message counts: 8 spent above, 8 more fit the 20/minute window,
+      // and the next 8 do not.
+      assert.equal((await post(batchOf(8, 'blues'))).status, 200);
+      const over = await post(batchOf(8, 'blues'));
+      assert.equal(over.status, 429, 'a batch counts once per message');
+      assert.match(over.headers.get('retry-after') || '', /^\d+$/);
+    } finally {
+      try {
+        await stopHTTP(child, exited, () => output);
+      } finally {
+        rmSync(root, { recursive: true, force: true });
+      }
     }
   }
 );

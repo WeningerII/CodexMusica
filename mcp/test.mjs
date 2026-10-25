@@ -9162,6 +9162,13 @@ await check(
         assert.ok(text(r).length < 1000, `${tool}: ${text(r).length}-char refusal`);
       }
     }
+    // Both bounds count code points: 150 emoji are 300 UTF-16 units.
+    const emoji = '\u{1F3B5}'.repeat(150);
+    assert.equal(TOOL_SCHEMAS.search_catalog.safeParse({ query: emoji }).success, true);
+    assert.doesNotThrow(
+      () => E.searchCatalog({ query: emoji }),
+      'the engine agrees with the schema'
+    );
     assert.throws(
       () => E.searchCatalog({ query: words(MAX_QUERY_TERMS + 1) }),
       new RegExp(`limit is ${MAX_QUERY_TERMS}`),

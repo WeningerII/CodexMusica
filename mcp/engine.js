@@ -889,9 +889,12 @@ export const MAX_QUERY_TERMS = 16;
 // blowup. The pattern depends only on the term.
 function queryMatchers(query, tool) {
   const text = String(query);
-  if (text.length > MAX_QUERY_CHARS)
+  // Code points, as the schema's maxLength counts them: UTF-16 `.length` would
+  // refuse 150 emoji the schema accepts, as "300 characters".
+  const chars = [...text].length;
+  if (chars > MAX_QUERY_CHARS)
     throw new EngineError(
-      `${tool} query is ${text.length} characters; the limit is ${MAX_QUERY_CHARS}. Search with the key words only.`
+      `${tool} query is ${chars} characters; the limit is ${MAX_QUERY_CHARS}. Search with the key words only.`
     );
   const terms = text.toLowerCase().split(/\s+/).filter(Boolean);
   if (terms.length > MAX_QUERY_TERMS)
