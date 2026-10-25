@@ -146,7 +146,12 @@ try {
   });
   check('...and the revision it moved past is refused as stale (the record is back)', () => {
     assert.equal(n1Stale.isError, true, text(n1Stale).slice(0, 300));
-    assert.match(text(n1Stale), /stale run revision \d+; current revision is \d+/);
+    // The record's refusal names the way on, as the ledger's does: "Recover
+    // the current record" gave none a /chat client could take (Jony).
+    assert.match(
+      text(n1Stale),
+      /stale run revision \d+; current revision is \d+\. Nothing was run\. Continue from the latest result.*recover_only.*new_run: true/
+    );
   });
   RUNS.del(n1.run_id);
   const n1StaleLedger = await call({

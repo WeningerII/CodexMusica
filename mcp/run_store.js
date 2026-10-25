@@ -430,7 +430,7 @@ export function runRefusal(rec, args, mark = null) {
   if (args.run_revision == null)
     return `REFUSED: run_revision is required when continuing run_id; current revision is ${rec.revision}. Pass the revision returned with this run.`;
   if (args.run_revision !== rec.revision)
-    return `REFUSED: stale run revision ${args.run_revision}; current revision is ${rec.revision}. Recover the current record before continuing.`;
+    return `REFUSED: stale run revision ${args.run_revision}; current revision is ${rec.revision}. Nothing was run. ${USED_TAIL}`;
   for (const field of ['state', 'checkpoint'])
     if (
       ['suspended', 'interrupted', 'uncertain_proposal'].includes(rec.status) &&
