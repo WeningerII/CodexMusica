@@ -675,10 +675,12 @@ async function fillRail(root, activeId) {
   } catch (e) {
     scroll.innerHTML = uiEmptyState({
       title: 'Collections did not load',
-      text: String(e.message || e),
+      text: lib.problem(e),
       actions: libButton('rail-retry', 'Retry', 'refresh-cw', ''),
       tone: 'danger',
+      role: '',
     });
+    lib.settle(null, failed(scroll));
   }
 }
 
@@ -1086,18 +1088,20 @@ async function render(main, sub, { retry = false } = {}) {
           text: 'Reload to read the current catalog.',
           actions: uiButton('lib-reload', 'Reload', 'refresh-cw'),
           tone: 'danger',
+          role: '',
         })
       : uiEmptyState({
           title: 'The Library catalog did not load',
           text: lib.problem(error),
           actions: libButton('retry', 'Retry', 'refresh-cw', ''),
           tone: 'danger',
+          role: '',
         });
-    if (retry)
-      lib.settle(
-        main.querySelector('[data-lib-act="retry"], [data-ui="lib-reload"]'),
-        failed(main)
-      );
+    // Said through #library-live every time; focus moves only after a Retry.
+    lib.settle(
+      retry ? main.querySelector('[data-lib-act="retry"], [data-ui="lib-reload"]') : null,
+      failed(main)
+    );
   }
 }
 
@@ -1127,10 +1131,12 @@ async function show(main, sub = '') {
     console.error('[library]', error);
     main.innerHTML = uiEmptyState({
       title: 'This part of the Library did not load',
-      text: String(error.message || error),
+      text: lib.problem(error),
       actions: uiButton('lib-reload', 'Reload', 'refresh-cw'),
       tone: 'danger',
+      role: '',
     });
+    lib.settle(null, failed(main));
   }
 }
 

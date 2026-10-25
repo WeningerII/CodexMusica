@@ -747,6 +747,7 @@ async function show(main, sub, lib, { retry = false } = {}) {
           : lib.problem
             ? lib.problem(e)
             : 'Couldn’t reach the Library. Check your connection and try again.',
+      role: '',
       actions: `<button type="button" class="cm-btn" data-rd-retry>${icon('refresh-cw', 16)}<span>Retry</span></button><button type="button" class="cm-btn" data-rd-back>${icon('arrow-left', 16)}<span>Works</span></button>`,
       tone: 'danger',
     });
@@ -756,8 +757,11 @@ async function show(main, sub, lib, { retry = false } = {}) {
       show(main, sub, lib, { retry: true });
     });
     main.querySelector('[data-rd-back]')?.addEventListener('click', () => lib.go('/works'));
-    if (retry && lib.settle)
-      lib.settle(main.querySelector('[data-rd-retry]'), lib.failed ? lib.failed(main) : '');
+    if (lib.settle)
+      lib.settle(
+        retry ? main.querySelector('[data-rd-retry]') : null,
+        lib.failed ? lib.failed(main) : ''
+      );
   }
 }
 
@@ -835,8 +839,13 @@ function render() {
   S.root.addEventListener('click', onClick);
   S.root.addEventListener('change', onChange);
   S.root.addEventListener('input', onChange);
+  // One Escape, one layer. An Escape pressed in another layer (the app's More
+  // menu, which closes on the way here, a dialog) or already taken by one is
+  // not also the reader's: only one pressed in the reader, or with nothing
+  // focused, closes its sheet or clears its line selection.
   S.onKey = (e) => {
-    if (e.key !== 'Escape' || !S?.root?.isConnected) return;
+    if (e.key !== 'Escape' || e.defaultPrevented || !S?.root?.isConnected) return;
+    if (e.target !== document.body && !S.root.contains(e.target)) return;
     if (S.root.classList.contains('rd-sheet')) closeSheet();
     else if (S.sel.size) {
       S.sel.clear();

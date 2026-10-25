@@ -1615,6 +1615,28 @@ SECTIONS.retry = async function ({ page, base, tag, errors }) {
         !/Failed to fetch|\b503\b|library\/data|\.json/i.test(shown),
       short(shown)
     );
+    // Said once (R2's nit on d53f3ac04b): the visible state is not a second
+    // live region; #library-live is the one voice, first failure included.
+    await page
+      .waitForFunction(() => document.getElementById('library-live')?.textContent, null, {
+        timeout: 3000,
+      })
+      .catch(() => {});
+    const once = await page.evaluate(() => ({
+      said: document.getElementById('library-live')?.textContent || '',
+      voices: [
+        ...document.querySelectorAll(
+          '#surface-library [aria-live], #surface-library [role="status"], #surface-library [role="alert"]'
+        ),
+      ]
+        .filter((el) => el.id !== 'library-live' && el.getAttribute('aria-live') !== 'off')
+        .map((el) => el.className || el.tagName),
+    }));
+    check(
+      `${tag} retry ${view}: the failure is said once, through #library-live`,
+      /Couldn’t reach the Library/.test(once.said) && !once.voices.length,
+      JSON.stringify(once)
+    );
     await retryInto(RETRY);
     check(
       `${tag} retry ${view}: a Retry that fails again lands on the new Retry`,
@@ -1635,7 +1657,20 @@ SECTIONS.retry = async function ({ page, base, tag, errors }) {
       await page.evaluate(() => document.activeElement?.outerHTML.slice(0, 120))
     );
     const saidOk = await live();
-    check(`${tag} retry ${view}: and says it loaded`, /loaded/.test(saidOk), short(saidOk));
+    const voices = await page.evaluate(() =>
+      [
+        ...document.querySelectorAll(
+          '#surface-library [aria-live], #surface-library [role="status"]'
+        ),
+      ]
+        .filter((el) => el.id !== 'library-live' && el.getAttribute('aria-live') !== 'off')
+        .map((el) => el.className || el.tagName)
+    );
+    check(
+      `${tag} retry ${view}: and says it loaded, in one line from the one live region`,
+      /loaded/.test(saidOk) && !/\n|Work \/ reading|Contributor/.test(saidOk) && !voices.length,
+      `${short(saidOk)} · ${voices.join(',')}`
+    );
   }
   // Analyze (Jony #59, 3PO's wording): a 503 after POST /analyses cannot show
   // that nothing was admitted, so it never says "Nothing was sent"; it says the
@@ -1703,6 +1738,117 @@ SECTIONS.retry = async function ({ page, base, tag, errors }) {
     if (/^(503 \/library\/data\/|console: \[library( reader)?\])/.test(errors[i]))
       errors.splice(i, 1);
 };
+// Keys (Jony round 15). #67: one Escape, one layer: the Escape that closes
+// the app's More menu does not also clear the reader's line selection, and
+// one pressed in the reader still does. #68: the Works hint names the
+// platform's key (Ctrl K off Apple), and Ctrl+K is taken only while Works is
+// on screen and focus is not in another text field.
+SECTIONS.keys = async function ({ page, base, tag }) {
+  const pressed = () =>
+    page.$$eval('#surface-library [data-rd="toggle"][aria-pressed="true"]', (b) => b.length);
+  await go(page, base, `/read/${EPI_A}`);
+  await settled(page, 'reader', '#surface-library .rd-paper .rd-line');
+  const toggles = await page.$$('#surface-library [data-rd="toggle"]:not([disabled])');
+  for (const t of toggles.slice(0, 2)) await t.click();
+  const before = await pressed();
+  await page.click('[data-ui="menu"]');
+  await page.waitForSelector('#ui-menu:not([hidden])', { timeout: 5000 });
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(200);
+  const menuHidden = await page.$eval('#ui-menu', (m) => m.hidden);
+  const after = await pressed();
+  check(
+    `${tag} keys: the Escape that closes the More menu leaves the line selection`,
+    before === 2 && menuHidden && after === 2,
+    `selected ${before} → ${after}, menu hidden ${menuHidden}`
+  );
+  // Where the menu's Escape cleared it (before the fix), select again so the
+  // reader's own Escape is still tested.
+  if (!(await pressed())) await page.click('#surface-library [data-rd="toggle"]:not([disabled])');
+  await page.focus('#surface-library [data-rd="toggle"][aria-pressed="true"]');
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(200);
+  check(
+    `${tag} keys: an Escape pressed in the reader still clears the selection`,
+    (await pressed()) === 0,
+    String(await pressed())
+  );
+
+  await go(page, base, '/works');
+  await settled(page, 'works', '#surface-library [data-lw="open"]');
+  const hint = await page.$eval('#surface-library .cm-search kbd', (k) => k.textContent);
+  const aria = await page.$eval('#surface-library [data-lw="q"]', (i) =>
+    i.getAttribute('aria-keyshortcuts')
+  );
+  check(
+    `${tag} keys: off Apple platforms the Works hint says Ctrl K`,
+    hint === 'Ctrl K' && aria === 'Control+K',
+    `${hint} · ${aria}`
+  );
+  // What Ctrl+K did: where focus landed, and whether the page took the key
+  // from the browser.
+  const ctrlK = async () => {
+    await page.evaluate(() => {
+      window.__k = null;
+      const seen = (e) => {
+        if (e.key.toLowerCase() !== 'k') return;
+        window.__k = e.defaultPrevented;
+        window.removeEventListener('keydown', seen);
+      };
+      window.addEventListener('keydown', seen);
+    });
+    await page.keyboard.press('Control+k');
+    return page.evaluate(() => ({
+      taken: window.__k,
+      search: document.activeElement?.matches('[data-lw="q"]') || false,
+    }));
+  };
+  await page.evaluate(() => document.activeElement?.blur());
+  const free = await ctrlK();
+  check(
+    `${tag} keys: Ctrl+K on the Works page focuses Search`,
+    free.search && free.taken === true,
+    JSON.stringify(free)
+  );
+  await page.evaluate(() => {
+    const f = document.createElement('input');
+    f.id = 'keys-other-field';
+    document.querySelector('#surface-library .lw-head').append(f);
+    f.focus();
+  });
+  const typing = await ctrlK();
+  check(
+    `${tag} keys: Ctrl+K in another text field leaves focus and the key alone`,
+    !typing.search && typing.taken === false,
+    JSON.stringify(typing)
+  );
+  await page.evaluate(() => document.getElementById('keys-other-field')?.remove());
+  await page.click('[data-view="lyrics"]');
+  await page
+    .waitForFunction(
+      () => !document.getElementById('surface-library')?.getClientRects().length,
+      null,
+      { timeout: 5000 }
+    )
+    .catch(() => {});
+  await page.evaluate(() => document.activeElement?.blur());
+  const away = await ctrlK();
+  check(
+    `${tag} keys: with the Library not shown, Ctrl+K stays the browser's`,
+    !away.search && away.taken === false,
+    JSON.stringify(away)
+  );
+  // On an Apple platform the hint and the binding are ⌘K.
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, 'platform', { get: () => 'MacIntel' });
+    Object.defineProperty(navigator, 'userAgentData', { get: () => undefined });
+  });
+  await page.goto('about:blank');
+  await go(page, base, '/works');
+  await page.waitForSelector('#surface-library [data-lw="open"]', { timeout: 20000 });
+  const mac = await page.$eval('#surface-library .cm-search kbd', (k) => k.textContent);
+  check(`${tag} keys: on Apple platforms the hint says ⌘ K`, mac === '⌘ K', mac);
+};
 const NEEDS = {
   explore: 'core',
   works: 'works',
@@ -1714,6 +1860,7 @@ const NEEDS = {
   declarations: 'analysis',
   retained: 'analysis',
   retry: 'works',
+  keys: 'works',
 };
 
 (async () => {
@@ -1735,7 +1882,9 @@ const NEEDS = {
       if (ONLY && !ONLY.has(name)) continue;
       const need = [
         NEEDS[name],
-        ...(['compare', 'focus', 'analysis', 'declarations', 'retained', 'retry'].includes(name)
+        ...(['compare', 'focus', 'analysis', 'declarations', 'retained', 'retry', 'keys'].includes(
+          name
+        )
           ? ['reader']
           : []),
       ];

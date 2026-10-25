@@ -242,15 +242,22 @@ async function searchPage(s, lib) {
 const VIEWS = new WeakMap();
 let ACTIVE = null;
 
+// Search's shortcut: ⌘K on Apple platforms, Ctrl+K elsewhere, named so in
+// the hint and in aria-keyshortcuts.
+const MAC = /Mac|iPhone|iPad|iPod/.test(
+  (typeof navigator !== 'undefined' && (navigator.userAgentData?.platform || navigator.platform)) ||
+    ''
+);
+const SHORTCUT = MAC ? { hint: '⌘ K', aria: 'Meta+K' } : { hint: 'Ctrl K', aria: 'Control+K' };
 function shell(lib) {
   return (
     `<div class="lw" data-lib-view="works">` +
     `<div class="lw-top">` +
-    `<label class="cm-search">${ic(lib, 'search', 18)}<input type="search" data-lw="q" placeholder="Search titles, authors, or exact phrases" aria-label="Search Library" autocomplete="off" spellcheck="false"><button type="button" class="cm-btn cm-btn-icon lw-search-clear" data-lw="clear-q" aria-label="Clear search">${ic(lib, 'x', 16)}</button><kbd aria-hidden="true">⌘ K</kbd></label>` +
+    `<label class="cm-search">${ic(lib, 'search', 18)}<input type="search" data-lw="q" placeholder="Search titles, authors, or exact phrases" aria-label="Search Library" aria-keyshortcuts="${SHORTCUT.aria}" autocomplete="off" spellcheck="false"><button type="button" class="cm-btn cm-btn-icon lw-search-clear" data-lw="clear-q" aria-label="Clear search">${ic(lib, 'x', 16)}</button><kbd aria-hidden="true" title="${SHORTCUT.hint.replace(' ', '+')} focuses Search">${SHORTCUT.hint}</kbd></label>` +
     `<button type="button" class="cm-btn cm-btn-outline" data-lw="filters" aria-haspopup="dialog" aria-label="Filter Library">${ic(lib, 'sliders-horizontal', 18)}<span>Filter</span><span class="lw-count" data-lw-slot="filter-count" hidden></span></button>` +
     `</div>` +
     `<div class="lw-head"><div><h2 data-lw-slot="title">Works</h2><p data-lw-slot="summary"> </p></div><div class="lw-chips" data-lw-slot="chips"></div></div>` +
-    `<div class="lw-results" data-lw-slot="results" aria-live="polite"></div>` +
+    `<div class="lw-results" data-lw-slot="results"></div>` +
     `<div data-lw-slot="layer"></div>` +
     `</div>`
   );
@@ -309,8 +316,24 @@ class WorksView {
         this.commit(false);
       }
     });
+    // The shortcut is taken only while Works is on screen and focus is not
+    // in another text field: elsewhere Ctrl+K stays the browser's, and a
+    // person typing in a field is not moved.
     this.keys = (e) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k' && this.root.isConnected) {
+      const t = e.target;
+      const typing =
+        t !== this.input &&
+        t instanceof Element &&
+        t.matches('input, textarea, select, [contenteditable]:not([contenteditable="false"])');
+      if (
+        (MAC ? e.metaKey : e.ctrlKey) &&
+        !e.altKey &&
+        !e.shiftKey &&
+        e.key.toLowerCase() === 'k' &&
+        this.root.isConnected &&
+        this.root.getClientRects().length &&
+        !typing
+      ) {
         e.preventDefault();
         this.input.focus();
         this.input.select();
@@ -405,24 +428,30 @@ class WorksView {
         ? `<button type="button" class="cm-btn cm-btn-tonal" data-lw="select-collection">${ic(this.lib, 'plus', 16)}<span>Select collection</span></button>`
         : '');
   }
-  // After Retry (lib.settle in core): focus the new Retry, or the first
-  // result or way on, and say which.
-  settle(target, failedAgain) {
+  // Every load ends with one line through #library-live (the results are not
+  // a live region: a table read aloud is noise). A failure or an empty result
+  // is read from its state; rows say how many. After a Retry focus also lands
+  // on the new Retry, or the first result or way on (lib.settle in core).
+  settle(target, stateShown) {
+    const moved = this.retried;
     this.retried = false;
     const results = this.slot('results');
-    const said = failedAgain
+    const summary = this.slot('summary').textContent.trim();
+    const said = stateShown
       ? this.lib.failed
         ? this.lib.failed(results)
-        : 'The Library list could not load.'
-      : `Works loaded. ${this.slot('summary').textContent || ''}`.trim();
-    if (this.lib.settle) this.lib.settle(target || this.slot('title'), said);
+        : ''
+      : moved
+        ? `Works loaded. ${summary}`
+        : summary;
+    if (this.lib.settle) this.lib.settle(moved ? target || this.slot('title') : null, said);
   }
   async load() {
     const s = { ...this.state };
     const seq = ++this.seq;
     const results = this.slot('results');
     results.setAttribute('aria-busy', 'true');
-    if (!this.rows.length) results.innerHTML = uiEmptyState({ title: 'Loading works…' });
+    if (!this.rows.length) results.innerHTML = uiEmptyState({ title: 'Loading works…', role: '' });
     this.paintHead();
     let page;
     try {
@@ -441,9 +470,10 @@ class WorksView {
             : 'Couldn’t reach the Library. Check your connection and try again.',
         actions: `<button type="button" class="cm-btn cm-btn-outline" data-lw="retry">${ic(this.lib, 'refresh-cw', 16)}<span>Retry</span></button>`,
         tone: 'danger',
+        role: '',
       });
       this.slot('summary').textContent = '';
-      if (this.retried) this.settle(results.querySelector('[data-lw="retry"]'), true);
+      this.settle(results.querySelector('[data-lw="retry"]'), true);
       return;
     }
     // Superseded, or the view left the page while the rows loaded (a slow
@@ -466,8 +496,9 @@ class WorksView {
             : this.filterCount() || s.q
               ? `<button type="button" class="cm-btn cm-btn-outline" data-lw="clear-all">Clear search and filters</button>`
               : '',
+        role: '',
       });
-      if (this.retried) this.settle(results.querySelector('button'));
+      this.settle(results.querySelector('button'), true);
       return;
     }
     const last = Math.min(offset + page.rows.length, page.total);
@@ -479,7 +510,7 @@ class WorksView {
       `<nav class="lw-pager" aria-label="Works pages"><button type="button" class="cm-btn cm-btn-outline" data-lw="page" data-to="${Math.max(0, offset - PAGE)}" ${offset === 0 ? 'disabled' : ''}>Previous</button>` +
       `<span>${(offset + 1).toLocaleString()}–${last.toLocaleString()} of ${page.total.toLocaleString()}</span>` +
       `<button type="button" class="cm-btn cm-btn-outline" data-lw="page" data-to="${page.next ?? offset + PAGE}" ${hasNext ? '' : 'disabled'}>Next</button></nav>`;
-    if (this.retried) this.settle(results.querySelector('[data-lw="open"]'));
+    this.settle(results.querySelector('[data-lw="open"]'));
   }
   paintSelection() {
     for (const b of this.root.querySelectorAll('[data-lw="select"]')) {
