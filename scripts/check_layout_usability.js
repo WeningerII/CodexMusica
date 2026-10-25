@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 'use strict';
-/* global getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global document, getComputedStyle, innerWidth, innerHeight, matchMedia, requestAnimationFrame,
+   uiChatOpen, _chatRenderReply, openModal, closeModal, showToast, uiShowStorageConflict */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -231,6 +232,182 @@ async function noOverflow(page) {
       );
       await context.close();
     }
+    // Reflow (Jony round 20): 400% zoom is 320×256 CSS px of a 1280×1024
+    // window; WCAG 1.4.12 text spacing; forced colours.
+    const reflowPage = async (width, height) => {
+      const context = await browser.newContext({ viewport: { width, height } });
+      await context.route('https://mcp.codexmusica.com/**', (route) =>
+        route.fulfill({ contentType: 'application/json', body: '{"ok":true,"enabled":true}' })
+      );
+      const page = await context.newPage();
+      const errors = [];
+      page.on('pageerror', (e) => errors.push(e.message));
+      return { context, page, errors };
+    };
+    const rectOf = (page, selector) =>
+      page.evaluate((s) => {
+        const e = typeof s === 'string' ? document.querySelector(s) : null;
+        if (!e) return null;
+        e.scrollIntoView({ block: 'nearest' });
+        const b = e.getBoundingClientRect();
+        return { left: b.left, right: b.right, top: b.top, bottom: b.bottom, height: b.height };
+      }, selector);
+    const overlaps = (a, b) =>
+      !!a && !!b && a.left < b.right && b.left < a.right && a.top < b.bottom && b.top < a.bottom;
+    {
+      // #94: the AI panel at 320×256 — after a reply, the reply, the input,
+      // the Task select and Ask can each be brought on screen.
+      const { context, page, errors } = await reflowPage(320, 256);
+      await page.goto(base + '/codex.html');
+      await page.locator('.catalog-row, .cm-tile').first().waitFor();
+      await page.evaluate(() => uiChatOpen());
+      await page.evaluate(() =>
+        _chatRenderReply(
+          {
+            reply: 'Delta blues, brooding voice.',
+            recipe: 'Delta blues, brooding voice, slide guitar, tin roof.',
+            tools: [{ name: 'start_recipe', by_server: true }],
+          },
+          {}
+        )
+      );
+      await settle(page);
+      for (const s of ['#chat-log > :last-child', '#chat-input', '#chat-domain', '.chat-send']) {
+        const r = await rectOf(page, s);
+        assert.ok(
+          r && r.height > 0 && r.top >= -1 && r.bottom <= 257,
+          `AI panel at 320×256: ${s} can be brought on screen: ` + JSON.stringify(r)
+        );
+      }
+      assert.deepEqual(errors, [], 'No browser errors');
+      await context.close();
+    }
+    {
+      // #96: with text spacing the header keeps every tool inside the window.
+      const spacing =
+        '*{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}p{margin-bottom:2em!important}';
+      for (const width of [1024, 1280]) {
+        const { context, page, errors } = await reflowPage(width, 800);
+        for (const view of ['genre', 'lyrics', 'library']) {
+          await page.goto(base + '/codex.html#' + view);
+          await page.locator('.ui-tools').waitFor();
+          await page.addStyleTag({ content: spacing });
+          await settle(page);
+          await settle(page);
+          const out = await page.evaluate(() =>
+            [...document.querySelectorAll('.ui-tools > *')]
+              .filter((e) => e.getClientRects().length)
+              .map((e) => [e.dataset.ui || e.id, Math.round(e.getBoundingClientRect().right)])
+              .filter(([, r]) => r > innerWidth)
+          );
+          assert.deepEqual(
+            out,
+            [],
+            `Header with text spacing at ${width}px on ${view}: no tool past the right edge`
+          );
+          const named = await page.evaluate(() =>
+            [...document.querySelectorAll('.ui-tools button')]
+              .filter((b) => b.getClientRects().length)
+              .every((b) => (b.getAttribute('aria-label') || b.textContent).trim())
+          );
+          assert.ok(named, `Header at ${width}px on ${view}: every tool keeps its name`);
+        }
+        assert.deepEqual(errors, [], 'No browser errors');
+        await context.close();
+      }
+    }
+    {
+      // #99: a toast never covers an open dialog's controls (320×256) or the
+      // storage-conflict banner's buttons.
+      const { context, page, errors } = await reflowPage(320, 256);
+      await page.goto(base + '/codex.html');
+      await page.locator('.catalog-row, .cm-tile').first().waitFor();
+      await page.evaluate(() => openModal('modal-save'));
+      await page.locator('#save-name').waitFor();
+      await page.evaluate(() =>
+        showToast('Imported 3 instruments into Your recipe', 'success', {
+          label: 'Undo',
+          run() {},
+        })
+      );
+      await page.waitForFunction(() => document.getElementById('toast').classList.contains('show'));
+      await settle(page);
+      for (const s of ['#save-name', '#save-confirm']) {
+        const toast = await page.evaluate(() => {
+          const b = document.getElementById('toast').getBoundingClientRect();
+          return { left: b.left, right: b.right, top: b.top, bottom: b.bottom };
+        });
+        const r = await rectOf(page, s);
+        assert.ok(
+          !overlaps(toast, r),
+          `A toast does not cover ${s} in the open Save dialog at 320×256: ` +
+            JSON.stringify({ toast, r })
+        );
+      }
+      await page.evaluate(() => closeModal('modal-save'));
+      await page.setViewportSize({ width: 390, height: 780 });
+      await page.evaluate(() => uiShowStorageConflict());
+      await page.evaluate(() =>
+        showToast('Imported 3 instruments into Your recipe', 'success', {
+          label: 'Undo',
+          run() {},
+        })
+      );
+      await settle(page);
+      const banner = await page.evaluate(() => {
+        const r = (e) => {
+          const b = e.getBoundingClientRect();
+          return { left: b.left, right: b.right, top: b.top, bottom: b.bottom };
+        };
+        return {
+          toast: r(document.getElementById('toast')),
+          buttons: [...document.querySelectorAll('#storage-conflict button')].map(r),
+        };
+      });
+      assert.ok(
+        !banner.buttons.some((b) => overlaps(banner.toast, b)),
+        'A toast does not cover the storage-conflict banner’s buttons at 390: ' +
+          JSON.stringify(banner)
+      );
+      assert.deepEqual(errors, [], 'No browser errors');
+      await context.close();
+    }
+    {
+      // #98: in forced colours a descriptor the swap would add is told apart
+      // from one it keeps by more than colour.
+      const { context, page, errors } = await reflowPage(1280, 800);
+      const cdp = await context.newCDPSession(page);
+      await cdp.send('Emulation.setEmulatedMedia', {
+        features: [{ name: 'forced-colors', value: 'active' }],
+      });
+      await page.goto(base + '/codex.html');
+      await page.locator('.catalog-row, .cm-tile').first().waitFor();
+      const looks = await page.evaluate(() => {
+        const chip = document.createElement('button');
+        chip.className = 'chip variant-chip';
+        chip.innerHTML =
+          '<span class="variant-chip-descr is-new">added</span><span class="variant-chip-descr is-kept">kept</span>';
+        document.body.append(chip);
+        const look = (e) => {
+          const s = getComputedStyle(e);
+          return [s.textDecorationLine, s.fontWeight, s.fontStyle, s.borderBottomStyle].join(' ');
+        };
+        const out = { forced: matchMedia('(forced-colors: active)').matches };
+        out.added = look(chip.children[0]);
+        out.kept = look(chip.children[1]);
+        chip.remove();
+        return out;
+      });
+      assert.ok(
+        looks.forced && looks.added !== looks.kept,
+        'Forced colours: a new descriptor looks different from a kept one: ' + JSON.stringify(looks)
+      );
+      assert.deepEqual(errors, [], 'No browser errors');
+      await context.close();
+    }
+    console.log(
+      'PASS reflow: AI panel at 320×256, header under text spacing, toasts clear of dialogs and the banner, forced-colours descriptors'
+    );
   } finally {
     await browser.close();
     server.close();

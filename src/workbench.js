@@ -829,6 +829,19 @@ function uiStart() {
     uiThemeControl() +
     '<input type="file" id="ui-file" accept="application/json" hidden>';
   header.append(more);
+  // Followed, not guessed: the header's size, and the tools' own (larger text,
+  // text spacing, a longer status, a font that loads late). Applied in the
+  // next frame so a fit never resizes what is being observed mid-callback.
+  if (typeof ResizeObserver === 'function') {
+    let fitting = 0;
+    const fit = new ResizeObserver(() => {
+      cancelAnimationFrame(fitting);
+      fitting = requestAnimationFrame(uiFitHeader);
+    });
+    fit.observe(header);
+    fit.observe(header.querySelector('.ui-tools'));
+  }
+  uiTrackToastRoom($ui('toast'), '--ui-toast-h');
   const discovery = document.createElement('section');
   discovery.id = 'discovery';
   for (const [id] of UI_ROUTES) {
@@ -1168,6 +1181,24 @@ function uiStart() {
 // Escape), a dialog (src/app.js handles those), then the More
 // menu, the AI writer, the Recipe sheet (below 900px), the editor, and last
 // whatever the current page opened (page.escape()).
+// The header keeps every tool on screen. When its row would run past the
+// right edge (a narrower window, larger text, WCAG 1.4.12 text spacing, a
+// longer status word), .ui-header-tight clips the tools' words, which stay
+// their names, and their icons stay, as the fixed breakpoints already do at
+// known widths (#96). Measured with the words shown, so it lets go again.
+function uiFitHeader() {
+  const head = document.querySelector('.ui-header');
+  const tools = head?.querySelector('.ui-tools');
+  if (!tools) return;
+  head.classList.remove('ui-header-tight');
+  const edge = head.getBoundingClientRect().right - parseFloat(getComputedStyle(head).paddingRight);
+  const right = Math.max(
+    ...[...tools.children].map((el) =>
+      el.getClientRects().length ? el.getBoundingClientRect().right : 0
+    )
+  );
+  head.classList.toggle('ui-header-tight', right > edge + 0.5);
+}
 function uiFocus(el) {
   if (!el || !el.isConnected || !el.getClientRects().length) return false;
   el.focus({ preventScroll: true });
@@ -2179,6 +2210,16 @@ function uiShowStorageConflict() {
     uiButton('keep-session', 'Keep this session', 'save') +
     uiButton('export', 'Export this session', 'download');
   document.querySelector('.ui-header').after(note);
+  uiTrackToastRoom(note, '--ui-conflict-h');
+}
+// The toast's and the conflict banner's heights, for the CSS that keeps a
+// toast clear of the banner and of an open dialog (#99): followed as their
+// words change, never guessed.
+function uiTrackToastRoom(el, name) {
+  if (!el || typeof ResizeObserver !== 'function') return;
+  new ResizeObserver(() =>
+    document.documentElement.style.setProperty(name, el.offsetHeight + 'px')
+  ).observe(el);
 }
 // Run fn once the first paint has been presented and the main thread is idle:
 // two animation frames (the second runs after the frame the first one queued
