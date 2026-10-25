@@ -67,7 +67,7 @@
 // Exit 0 if every assertion passes, 1 otherwise, 2 if playwright is missing.
 
 'use strict';
-/* global devicePixelRatio, visualViewport, innerHeight, document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lySyncCaret, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage, uiChatOpen, requestAnimationFrame, LY_ACTION_TEXT, lySubmitLyricsAction, lyWriterState, lyToolRequestAction, lyInspectionSession, Image */
+/* global devicePixelRatio, visualViewport, innerHeight, document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lySyncCaret, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage, uiChatOpen, requestAnimationFrame, LY_ACTION_TEXT, lySubmitLyricsAction, lyWriterState, lyToolRequestAction, lyInspectionSession, Image, InputEvent */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -6104,6 +6104,173 @@ async function browserChecks(chromium) {
         );
         await ctx.close();
       }
+    });
+
+    // U. Undo in the draft is the page's one history, a typing run per step
+    // (Jony #79: the read layer's redraw broke Chromium's native typing group,
+    // so Ctrl+Z took back one character a press); Undo and Redo say what they
+    // did, and a toolbar button that runs out hands focus on (Jony #76).
+    await step('U. draft undo runs, announcements and focus', async () => {
+      const { ctx, page } = await boot({ theme: 'light' });
+      const BASE = 'Hold the light\nRiver runs';
+      await setDraft(page, BASE);
+      const live = async () => {
+        await page.waitForTimeout(120);
+        return page.evaluate(() => $ui('ly-live')?.textContent || '');
+      };
+      const state = () =>
+        page.evaluate(() => {
+          const d = $ui('lyrics-draft');
+          const a = document.activeElement;
+          return {
+            value: d.value,
+            caret: d.selectionStart,
+            focus: a === d ? 'draft' : a === document.body ? 'BODY' : a?.dataset?.ui || a?.tagName,
+          };
+        });
+      await page.click('#lyrics-draft');
+      await page.keyboard.press('Control+End');
+      await page.keyboard.type(' word', { delay: 30 });
+      await page.keyboard.press('Control+z');
+      let s = await state();
+      check(
+        s.value === BASE,
+        `Ctrl+Z after typing " word" left ${JSON.stringify(s.value.slice(-8))}, not the text before the run`
+      );
+      check(s.focus === 'draft', `Ctrl+Z moved focus to ${s.focus}`);
+      check(s.caret === BASE.length, `Ctrl+Z put the caret at ${s.caret}, not where the run was`);
+      check((await live()) === 'Undone', 'Ctrl+Z in the draft did not say "Undone"');
+      await page.keyboard.press('Control+Shift+z');
+      s = await state();
+      check(s.value === BASE + ' word', `Ctrl+Shift+Z gave ${JSON.stringify(s.value.slice(-8))}`);
+      check((await live()) === 'Redone', 'Ctrl+Shift+Z in the draft did not say "Redone"');
+      // A pause closes the run: the second run goes back alone.
+      await page.keyboard.press('Control+End');
+      await page.keyboard.type(' again', { delay: 30 });
+      await page.waitForTimeout(1300);
+      await page.keyboard.type(' more', { delay: 30 });
+      await page.keyboard.press('Control+z');
+      s = await state();
+      check(
+        s.value === BASE + ' word again',
+        `after a pause Ctrl+Z gave ${JSON.stringify(s.value.slice(-12))}, not the run before it`
+      );
+      // A paste is a step of its own.
+      await page.keyboard.press('Control+End');
+      await page.keyboard.type(' x', { delay: 30 });
+      await page.evaluate(() => {
+        const d = $ui('lyrics-draft');
+        const ev = new InputEvent('beforeinput', {
+          inputType: 'insertFromPaste',
+          data: ' pasted',
+          bubbles: true,
+          cancelable: true,
+        });
+        if (d.dispatchEvent(ev)) {
+          d.setRangeText(' pasted', d.selectionStart, d.selectionEnd, 'end');
+          d.dispatchEvent(new InputEvent('input', { inputType: 'insertFromPaste', bubbles: true }));
+        }
+      });
+      await page.keyboard.press('Control+z');
+      s = await state();
+      check(
+        s.value === BASE + ' word again x',
+        `Ctrl+Z after a paste gave ${JSON.stringify(s.value.slice(-14))}, not the text before the paste`
+      );
+      // The toolbar: Undo to the oldest step and Redo to the newest by keys;
+      // focus is never left on the page, and each step is said.
+      const press = async (act) => {
+        const seen = [];
+        await page.focus(`#ly-toolbar [data-ui="${act}"]`);
+        for (let k = 0; k < 80; k++) {
+          const off = await page.evaluate(
+            (a) => document.querySelector(`#ly-toolbar [data-ui="${a}"]`).disabled,
+            act
+          );
+          if (off) break;
+          await page.keyboard.press('Enter');
+          seen.push((await state()).focus);
+        }
+        return seen;
+      };
+      const undos = await press('ly-undo');
+      check(undos.length > 0, 'toolbar Undo was never available');
+      check(!undos.includes('BODY'), `toolbar Undo dropped focus to BODY (${undos.join(' ')})`);
+      check(undos.at(-1) === 'ly-redo', `the last Undo left focus on ${undos.at(-1)}, not Redo`);
+      check((await live()) === 'Undone', 'toolbar Undo did not say "Undone"');
+      const redos = await press('ly-redo');
+      check(!redos.includes('BODY'), `toolbar Redo dropped focus to BODY (${redos.join(' ')})`);
+      check(redos.at(-1) === 'ly-undo', `the last Redo left focus on ${redos.at(-1)}, not Undo`);
+      check((await live()) === 'Redone', 'toolbar Redo did not say "Redone"');
+      check(
+        (await state()).value === BASE + ' word again x pasted',
+        'Redo to the newest step did not restore the pasted text'
+      );
+      await ctx.close();
+    });
+
+    // U2. Two edges of the typing runs (second review of b7ba5a0f2): text
+    // moved by dragging it inside the draft is one Undo step (Chromium sends
+    // deleteByDrag, then insertFromDrop; each was a step, so one Undo left
+    // the moved words deleted), and while a new run is open the toolbar does
+    // not offer the Redo that run has already replaced.
+    await step('U2. drag-move is one step; an open run drops Redo', async () => {
+      const { ctx, page } = await boot({ theme: 'light' });
+      const BASE = 'Hold the light\nRiver runs';
+      const val = () => page.evaluate(() => $ui('lyrics-draft').value);
+      const edit = (type, text, from, to) =>
+        page.evaluate(
+          ([type, text, from, to]) => {
+            const d = $ui('lyrics-draft');
+            d.setSelectionRange(from < 0 ? d.value.length : from, to < 0 ? d.value.length : to);
+            const ev = new InputEvent('beforeinput', {
+              inputType: type,
+              data: text,
+              bubbles: true,
+              cancelable: true,
+            });
+            if (!d.dispatchEvent(ev)) return;
+            d.setRangeText(text, d.selectionStart, d.selectionEnd, 'end');
+            d.dispatchEvent(
+              new InputEvent('input', { inputType: type, data: text, bubbles: true })
+            );
+          },
+          [type, text, from, to]
+        );
+      await setDraft(page, BASE);
+      await page.click('#lyrics-draft');
+      await edit('deleteByDrag', '', 0, 5);
+      await edit('insertFromDrop', ' Hold', -1, -1);
+      const moved = await val();
+      await page.keyboard.press('Control+z');
+      const back = await val();
+      check(
+        moved === 'the light\nRiver runs Hold' && back === BASE,
+        `one Undo after moving "Hold " by drag gave ${JSON.stringify(back)}, not the text before the move`
+      );
+      await page.keyboard.press('Control+Shift+z');
+      check((await val()) === moved, 'Redo did not bring the moved text back in one step');
+      // Undo, then type: the new run replaces the Redo step at once.
+      await page.keyboard.press('Control+End');
+      await page.keyboard.type(' r1', { delay: 30 });
+      await page.keyboard.press('Control+z');
+      await page.keyboard.type(' r2', { delay: 30 });
+      const typing = await page.evaluate(() => ({
+        redo: document.querySelector('#ly-toolbar [data-ui="ly-redo"]')?.disabled,
+        undo: document.querySelector('#ly-toolbar [data-ui="ly-undo"]')?.disabled,
+      }));
+      check(
+        typing.redo === true && typing.undo === false,
+        `while a new run is open the toolbar offered Redo=${!typing.redo}, Undo=${!typing.undo}`
+      );
+      await page.keyboard.press('Control+Shift+z');
+      await page.waitForTimeout(120);
+      check(
+        (await val()).endsWith(' r2') &&
+          (await page.evaluate(() => $ui('ly-live').textContent)) === 'Nothing to redo',
+        'Redo after new typing did not keep the typing and say "Nothing to redo"'
+      );
+      await ctx.close();
     });
 
     // ── screenshots: a suggestion, light and dark, desktop and phone ─────
