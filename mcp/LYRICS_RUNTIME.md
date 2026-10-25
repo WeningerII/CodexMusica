@@ -570,7 +570,13 @@ No endpoint can enforce a task an external host never states: `/mcp` serves
 whichever family the host calls.
 
 Direct lyric continuations require the returned `run_revision` with `run_id`.
-A concurrent continuation or stale revision refuses before work starts. Original
+A concurrent continuation or stale revision refuses before work starts. That holds
+after the run's cached record is gone: a run ledger keeps each run's latest revision
+and whether it finished (a digest of the `run_id`, never the id itself, in
+`run-ledger.json` under `LYRIC_RUNTIME_DIR`, or `RUN_LEDGER_FILE`; in memory
+otherwise), so an older revision, or any revision of a finished run, sent after a
+clean finish or a restart refuses with nothing run; `new_run` stays the explicit way
+to start independent work on a draft. Original
 replay input, accepted lines and immutable declarations have separate fields;
 accepted lines never silently replace the replay input. The bounded state codec
 identifies the scorer source, lexical data and runtime. Signed chat continuations

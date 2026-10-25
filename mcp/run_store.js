@@ -15,7 +15,9 @@
 // passes `state` back loses nothing. Losing it is disclosed (`run_carried`
 // false on a fresh stamp), never silently restarted.
 
-import { randomBytes } from 'node:crypto';
+import { createHash, randomBytes } from 'node:crypto';
+import fs from 'node:fs';
+import path from 'node:path';
 
 export const RUN_TTL_MS = 6 * 60 * 60 * 1000;
 export const RUN_CAP = 64;
@@ -76,13 +78,105 @@ export function newRunId(_key, rand = () => randomBytes(32).toString('hex')) {
   return `run_${rand()}`;
 }
 
+// THE RUN LEDGER: every run's latest revision, and whether it finished,
+// kept past the record itself. The record above is a cache that a clean
+// finish deletes and a restart loses; with nothing left to compare, a stale
+// continuation (an older signed /chat envelope sent with a fresh request_id)
+// passed as a fork and the website writer was paid again for prompts the run
+// had already answered (BB8, #519 6391205136). The ledger keeps only a digest
+// of each run_id, its revision and a finished flag, so it can refuse a
+// revision that is behind, or a run that finished, before any work starts —
+// LYRICS_RUNTIME.md's "a stale revision refuses before work starts". It is
+// durable when LYRIC_RUNTIME_DIR names a disk (RUN_LEDGER_FILE overrides),
+// and otherwise covers the life of the process.
+export const LEDGER_RETAIN_MS = 30 * 24 * 60 * 60 * 1000;
+export const LEDGER_CAP = 20000;
+const digest = (runId) => createHash('sha256').update(String(runId)).digest('hex').slice(0, 32);
+
+export class RunLedger {
+  constructor(file = null, { now = () => Date.now(), log = console.error } = {}) {
+    this.file = file;
+    this.now = now;
+    this.log = log;
+    this.runs = new Map(); // digest -> [revision, finished 0|1, updated_at]
+    if (!file) return;
+    try {
+      const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
+      for (const [k, v] of Object.entries(raw?.runs || {}))
+        if (
+          /^[0-9a-f]{32}$/.test(k) &&
+          Array.isArray(v) &&
+          Number.isSafeInteger(v[0]) &&
+          v[0] > 0 &&
+          (v[1] === 0 || v[1] === 1) &&
+          Number.isFinite(v[2])
+        )
+          this.runs.set(k, v);
+    } catch (err) {
+      if (err.code !== 'ENOENT')
+        this.log(`[runs] ledger unreadable (${err.code || err.message}); starting empty.`);
+    }
+  }
+  get(runId) {
+    const v = this.runs.get(digest(runId));
+    return v ? { revision: v[0], finished: v[1] === 1 } : null;
+  }
+  mark(runId, revision, finished = false) {
+    const k = digest(runId);
+    const was = this.runs.get(k);
+    // A revision only moves forward, and a finished run stays finished.
+    const v = [Math.max(revision, was?.[0] ?? 0), finished || was?.[1] === 1 ? 1 : 0, this.now()];
+    this.runs.delete(k);
+    this.runs.set(k, v);
+    const cutoff = this.now() - LEDGER_RETAIN_MS;
+    for (const [key, val] of this.runs) {
+      if (val[2] >= cutoff && this.runs.size <= LEDGER_CAP) break;
+      this.runs.delete(key);
+    }
+    this.save();
+  }
+  save() {
+    if (!this.file) return;
+    const temp = `${this.file}.${randomBytes(8).toString('hex')}.tmp`;
+    try {
+      fs.mkdirSync(path.dirname(this.file), { recursive: true, mode: 0o700 });
+      fs.writeFileSync(temp, JSON.stringify({ version: 1, runs: Object.fromEntries(this.runs) }), {
+        mode: 0o600,
+      });
+      fs.renameSync(temp, this.file);
+    } catch (err) {
+      try {
+        fs.rmSync(temp, { force: true });
+      } catch {}
+      this.log(`[runs] ledger not saved (${err.code || err.message}); it holds in memory.`);
+    }
+  }
+}
+
+export function createRunLedger(env = process.env, opts = {}) {
+  const file =
+    env.RUN_LEDGER_FILE ||
+    (env.LYRIC_RUNTIME_DIR && path.join(env.LYRIC_RUNTIME_DIR, 'run-ledger.json'));
+  return new RunLedger(file || null, opts);
+}
+
 export class RunStore {
-  constructor({ ttlMs = RUN_TTL_MS, cap = RUN_CAP, now = () => Date.now() } = {}) {
+  constructor({
+    ttlMs = RUN_TTL_MS,
+    cap = RUN_CAP,
+    now = () => Date.now(),
+    ledger = new RunLedger(null, { now }),
+  } = {}) {
     this.ttlMs = ttlMs;
     this.cap = cap;
     this.now = now;
+    this.ledger = ledger;
     this.locks = new Set();
     this.map = new Map(); // opaque run_id -> record, insertion order = recency
+  }
+  // What the ledger knows of a run this store no longer holds (or null).
+  mark(runId) {
+    return runId ? this.ledger.get(runId) : null;
   }
   acquire(runId) {
     if (!runId) return () => {};
@@ -137,13 +231,26 @@ export class RunStore {
       ...rec,
       key,
       run_id: rec.run_id || newRunId(),
-      revision: (previous?.revision ?? 0) + 1,
+      // After a restart or an eviction the record is gone but the ledger is
+      // not: the revision continues from it, never back to 1.
+      revision:
+        Math.max(
+          previous?.revision ?? 0,
+          rec.run_id ? (this.ledger.get(rec.run_id)?.revision ?? 0) : 0
+        ) + 1,
       updated_at: this.now(),
     };
     this.map.delete(r.run_id);
     this.map.set(r.run_id, r);
+    this.ledger.mark(r.run_id, r.revision);
     this._sweep();
     return r;
+  }
+  // A clean finish: the record goes, the ledger remembers it finished.
+  finish(runId) {
+    const revision = this.map.get(runId)?.revision ?? this.ledger.get(runId)?.revision;
+    if (revision) this.ledger.mark(runId, revision, true);
+    this.map.delete(runId);
   }
   del(runId) {
     this.map.delete(runId);
@@ -152,6 +259,20 @@ export class RunStore {
     this._sweep();
     return this.map.size;
   }
+}
+
+// A run_id this store no longer holds, judged by the ledger. Unknown to the
+// ledger too (never seen, or past its retention), the call proceeds as before
+// on the state it carries.
+function ledgerRefusal(mark, args) {
+  if (!mark || args.new_run) return null;
+  if (mark.finished)
+    return `REFUSED: run ${args.run_id} already finished at revision ${mark.revision}; nothing was run. Its final_draft is the finished song. To revise that song again, send new_run: true with its draft — an independent run.`;
+  if (args.run_revision == null)
+    return `REFUSED: run_revision is required when continuing run_id; current revision is ${mark.revision}. Pass the revision returned with this run.`;
+  if (args.run_revision !== mark.revision)
+    return `REFUSED: stale run revision ${args.run_revision}; current revision is ${mark.revision}. Nothing was run. Continue from the latest result of this run, or send new_run: true with the draft you hold.`;
+  return null;
 }
 
 function sameDraft(a, b) {
@@ -164,8 +285,8 @@ function sameDraft(a, b) {
 // `parkedRefusal` conditions, worded for any client. `null` means the call
 // may proceed. `args` is the call AFTER `draft_text` became `draft` and
 // BEFORE anything is carried in.
-export function runRefusal(rec, args) {
-  if (!rec) return null;
+export function runRefusal(rec, args, mark = null) {
+  if (!rec) return ledgerRefusal(mark, args);
   if (args.run_revision == null)
     return `REFUSED: run_revision is required when continuing run_id; current revision is ${rec.revision}. Pass the revision returned with this run.`;
   if (args.run_revision !== rec.revision)

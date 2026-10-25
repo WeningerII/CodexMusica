@@ -70,6 +70,7 @@ import {
 } from './state_codec.js';
 import {
   RunStore,
+  createRunLedger,
   runKeyOf,
   declarationsOf,
   newRunId,
@@ -346,7 +347,7 @@ const EXIT_MEANING = {
 // the budget's LAST attempt is `unknown` here (rejected-and-exhausted and
 // accepted both move to another line) and is left so, never guessed.
 // Cache only by unguessable run capability; a seed never identifies an owner.
-export const RUNS = new RunStore();
+export const RUNS = new RunStore({ ledger: createRunLedger() });
 
 export const CONNECTOR_ATTEMPTS = 1;
 // THE KITCHEN'S OWN ATTEMPTS (M-257, round 24). One attempt per line was
@@ -2634,7 +2635,11 @@ export function registerLyricTools(server, tool) {
               const runRec = a.new_run ? null : a.run_id ? RUNS.byId(a.run_id) : null;
               // Minted before the verb runs so every state this call encodes
               // names the run it belongs to (see RUNS.byState).
-              const runId = runRec?.run_id ?? newRunId();
+              // A run the record cache lost (a restart, an eviction) but the
+              // ledger still knows keeps its id, so its revision goes on
+              // advancing and its older revisions stay refused.
+              const ledgerMark = !runRec && a.run_id && !a.new_run ? RUNS.mark(a.run_id) : null;
+              const runId = runRec?.run_id ?? (ledgerMark ? a.run_id : newRunId());
               if (runRec?.status === 'journal_capacity')
                 throw refuse(
                   'JOURNAL_CAPACITY: this run reached its journal capacity. Keep its returned state/checkpoint and final_draft. This run cannot resume; an identical restart may hit the same limit. Reduce the requested scope explicitly before independent new_run work.'
@@ -2643,7 +2648,7 @@ export function registerLyricTools(server, tool) {
                 throw refuse(
                   `\`run_id\` ${a.run_id} names no run this tool remembers — it may have finished, expired (${Math.round(RUNS.ttlMs / 3600000)} h idle) or been forgotten by a restart; pass \`state\` back, or omit \`run_id\` and send the draft to open a fresh run`
                 );
-              const runWander = runRefusal(runRec, a);
+              const runWander = runRefusal(runRec, a, ledgerMark);
               if (runWander) throw refuse(runWander);
               const carried = { state: false, draft: false, decl: false };
               if (runRec) {
@@ -3265,7 +3270,7 @@ export function registerLyricTools(server, tool) {
                   verdict.run_id = parkedRec.run_id;
                   verdict.run_revision = parkedRec.revision;
                 } else if (runKey && r.code === 0) {
-                  if (runRec) RUNS.del(runRec.run_id);
+                  if (runRec || ledgerMark) RUNS.finish(runId);
                   verdict.run_id = runRec?.run_id ?? null;
                   verdict.run_revision = runRec?.revision ?? null;
                 }
