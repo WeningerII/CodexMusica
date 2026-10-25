@@ -658,13 +658,22 @@
       '</ul>';
   }
 
-  function setNoOrigin(open) {
+  var noOriginReturnFocus = null;
+  function setNoOrigin(open, opener) {
     if (open && !el.noOrigin.innerHTML) renderNoOrigin();
     el.noOrigin.hidden = !open;
     if (open) {
+      // The information panel closes when this list opens, so its toolbar
+      // button is the visible return point. The legend's opener stays visible.
+      noOriginReturnFocus = el.provenance.contains(opener) ? $('t-info') : opener;
       setInfo(false);
       var close = el.noOrigin.querySelector('[data-act="close-noorigin"]');
       if (close) close.focus();
+    } else {
+      var target = noOriginReturnFocus;
+      noOriginReturnFocus = null;
+      if (!target || !target.isConnected || !target.getClientRects().length) target = $('t-info');
+      if (target && target.getClientRects().length) target.focus();
     }
   }
 
@@ -2845,7 +2854,7 @@
     });
     el.provenance.addEventListener('click', function (e) {
       if (e.target.closest('[data-act="open-noorigin"]')) {
-        setNoOrigin(true);
+        setNoOrigin(true, e.target.closest('[data-act="open-noorigin"]'));
         return;
       }
       if (e.target.closest('[data-act="close-info"]')) {
@@ -2941,7 +2950,7 @@
         return;
       }
       if (e.target.closest('[data-act="open-noorigin"]')) {
-        setNoOrigin(true);
+        setNoOrigin(true, e.target.closest('[data-act="open-noorigin"]'));
         return;
       }
       if (e.target.closest('[data-act="all-groups"]')) {

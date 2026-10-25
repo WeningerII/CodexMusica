@@ -207,8 +207,13 @@
     else if (action === 'ly-relation-close') {
       session = lyRelationSessionClose(session);
       closeDialog();
-      if (opener?.isConnected && opener.getClientRects().length)
-        opener.focus({ preventScroll: true });
+      // Opening inspection replaces the initial Relations button in the dock.
+      // Return to its visible replacement when the original no longer exists.
+      const target =
+        opener?.isConnected && opener.getClientRects().length
+          ? opener
+          : $ui('ly-relation-dock')?.querySelector('[data-ui="ly-relation-reopen"]');
+      if (target?.getClientRects().length) target.focus({ preventScroll: true });
     } else if (action === 'ly-relation-go') {
       const index = /^\d+$/.test(button?.dataset.part || '') ? Number(button.dataset.part) : NaN;
       session = lyRelationSessionSelect(
