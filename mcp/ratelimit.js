@@ -99,12 +99,34 @@ export function bucketOf(ip) {
   const mapped = /^::ffff:(\d{1,3}(?:\.\d{1,3}){3})$/.exec(a);
   if (mapped) return mapped[1];
   if (!a.includes(':')) return a;
+  // A dotted IPv4 tail is the last two groups.
+  const dotted = /:(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/.exec(a);
+  if (dotted) {
+    const [w, x, y, z] = dotted.slice(1).map(Number);
+    a =
+      a.slice(0, dotted.index + 1) +
+      ((w << 8) | x).toString(16) +
+      ':' +
+      ((y << 8) | z).toString(16);
+  }
   // Expand '::' to full 8 groups, then keep the first four.
   const [head, tail = ''] = a.split('::');
   const h = head ? head.split(':') : [];
   const t = a.includes('::') ? (tail ? tail.split(':') : []) : [];
   const groups = [...h, ...Array(Math.max(0, 8 - h.length - t.length)).fill('0'), ...t];
   if (!a.includes('::') && groups.length !== 8) return a;
+  // An IPv4-mapped address written in hex or in full (::ffff:cb00:7107,
+  // 0:0:0:0:0:ffff:1.2.3.4) is still its IPv4 address (BB8's review): read the
+  // last 32 bits rather than the shared all-zero /64.
+  if (
+    groups.length === 8 &&
+    groups.slice(0, 5).every((g) => /^0{1,4}$/.test(g)) &&
+    groups[5] === 'ffff' &&
+    groups.slice(6).every((g) => /^[0-9a-f]{1,4}$/.test(g))
+  ) {
+    const [hi, lo] = groups.slice(6).map((g) => parseInt(g, 16));
+    return [hi >> 8, hi & 255, lo >> 8, lo & 255].join('.');
+  }
   const first = groups.slice(0, 4);
   // Not an IPv6 address after all: keyed as written, as before.
   if (first.length !== 4 || !first.every((g) => /^[0-9a-f]{1,4}$/.test(g))) return a;

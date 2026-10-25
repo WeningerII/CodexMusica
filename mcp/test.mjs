@@ -670,6 +670,9 @@ await check('validation: actionable errors', () => {
   await check('clientIp reads an IPv4-mapped address as its IPv4 address', () => {
     assert.equal(clientIp(req('::ffff:203.0.113.7')), '203.0.113.7');
     assert.equal(clientIp(req('::FFFF:203.0.113.7')), clientIp(req('203.0.113.7')));
+    // In hex or in full, too, never the shared all-zero /64 (BB8's review).
+    assert.equal(clientIp(req('::ffff:cb00:7107')), '203.0.113.7');
+    assert.equal(clientIp(req('0:0:0:0:0:ffff:203.0.113.7')), '203.0.113.7');
   });
 
   await check('an unpriced model has no price and no cost', () => {
