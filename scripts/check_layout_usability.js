@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global InstLite, document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global InstLite, document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame, window, uiInspectInstrument */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -244,6 +244,30 @@ async function noOverflow(page) {
       page.on('pageerror', (e) => errors.push(e.message));
       await page.goto(base + '/codex.html');
       await page.locator('.catalog-row, .cm-tile').first().waitFor();
+      // Find a sound speaks once a change settles: the targets and the count,
+      // not the same status sentence on every step (Jony #110).
+      await page.locator('#surface-genre input[type="range"][data-axis]:visible').first().waitFor();
+      assert.equal(
+        await page.locator('#gp-sound-status').getAttribute('role'),
+        null,
+        'Find a sound: the visible status line is not itself a live region'
+      );
+      const slider = page.locator('#surface-genre input[type="range"][data-axis]:visible').first();
+      await slider.focus();
+      for (let k = 0; k < 3; k++) await page.keyboard.press('ArrowRight');
+      await page.waitForTimeout(900);
+      assert.match(
+        await page.evaluate(() => document.getElementById('gp-live')?.textContent || ''),
+        /^1 target applied\. [\d,]+ genres?\.$/,
+        'Find a sound: one line with the targets and the result count after the steps settle'
+      );
+      await page.locator('#surface-genre [data-ui="genre-sound-reset"]').first().click();
+      await page.waitForTimeout(900);
+      assert.match(
+        await page.evaluate(() => document.getElementById('gp-live')?.textContent || ''),
+        /^Sound targets cleared\./,
+        'Find a sound: Reset says the targets were cleared'
+      );
       await page.getByLabel('Search genres').fill('Delta blues');
       await page.locator('[data-ui="genre-select"]').first().click();
       await page.locator('#gp-tab-instruments').click();
@@ -309,6 +333,34 @@ async function noOverflow(page) {
         await page.locator('#ip-similar ul').first().getAttribute('role'),
         'list',
         'Instrument: the unstyled Similar list keeps its list role (Safari)'
+      );
+      // The inspector's own Add names the instrument by its display name too
+      // (Jony #111: "Added aburukuwa…", its internal short key).
+      const odd = await page.evaluate(
+        () =>
+          Object.keys(window.INSTRUMENT_INDEX || {}).find((i) => {
+            const x = InstLite(i);
+            return x && x.short && x.name && x.short !== x.name;
+          }) || 'aburukuwa'
+      );
+      await page.evaluate((i) => uiInspectInstrument(i), odd);
+      await page.locator('[data-ui="ip-add-configured"]').waitFor();
+      await page.evaluate(() => (document.getElementById('toast').textContent = ''));
+      await page.locator('[data-ui="ip-add-configured"]').click();
+      await page.waitForFunction(
+        () => /Added/.test(document.getElementById('toast').textContent),
+        null,
+        {
+          timeout: 20000,
+        }
+      );
+      const added = await page.evaluate(
+        (i) => ({ text: document.getElementById('toast').textContent, name: InstLite(i)?.name }),
+        odd
+      );
+      assert.ok(
+        added.name && added.text.includes('Added ' + added.name),
+        'Inspector Add: the toast names the display name: ' + JSON.stringify(added)
       );
       assert.deepEqual(errors, [], 'No browser errors');
       console.log('PASS genre instruments destination, add toast name, similar list at 1280px');

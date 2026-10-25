@@ -622,7 +622,36 @@ function gpFindSound() {
   const axes = AXIS_DEFINITIONS.filter(
     (ax) => G.allAxes || GP_FEATURED_AXES.includes(ax.id) || ax.id in G.targets
   ).sort((a, b) => rank(a) - rank(b));
-  return `<section class="gp-sound" aria-labelledby="gp-sound-title"><div class="gp-sec-head"><h2 id="gp-sound-title">${icon('sliders-horizontal', 18)}Find a sound</h2>${uiButton('genre-sound-reset', 'Reset', 'x', `class="cm-btn gp-linkbtn" ${applied ? '' : 'disabled'} aria-label="Clear all sound targets"`)}</div><div class="gp-axes">${axes.map(gpAxisControl).join('')}</div><p class="gp-note" id="gp-sound-status" role="status">${gpSoundStatus()}</p>${uiButton('genre-axes', G.allAxes ? 'Fewer characteristics' : `All ${AXIS_DEFINITIONS.length} characteristics`, 'chevron-down', `class="cm-btn gp-linkbtn gp-axes-toggle" aria-expanded="${G.allAxes}"`)}${uiButton('genre-sound-match', 'Match a sound', 'search', `class="cm-btn cm-btn-tonal gp-match" ${applied ? '' : 'disabled'} data-tooltip="Open the genre closest to your targets"`)}</section>`;
+  return `<section class="gp-sound" aria-labelledby="gp-sound-title"><div class="gp-sec-head"><h2 id="gp-sound-title">${icon('sliders-horizontal', 18)}Find a sound</h2>${uiButton('genre-sound-reset', 'Reset', 'x', `class="cm-btn gp-linkbtn" ${applied ? '' : 'disabled'} aria-label="Clear all sound targets"`)}</div><div class="gp-axes">${axes.map(gpAxisControl).join('')}</div><p class="gp-note" id="gp-sound-status">${gpSoundStatus()}</p>${uiButton('genre-axes', G.allAxes ? 'Fewer characteristics' : `All ${AXIS_DEFINITIONS.length} characteristics`, 'chevron-down', `class="cm-btn gp-linkbtn gp-axes-toggle" aria-expanded="${G.allAxes}"`)}${uiButton('genre-sound-match', 'Match a sound', 'search', `class="cm-btn cm-btn-tonal gp-match" ${applied ? '' : 'disabled'} data-tooltip="Open the genre closest to your targets"`)}</section>`;
+}
+// Find a sound speaks once a change settles: how many targets, and how many
+// genres the list now holds, or that the targets were cleared (Jony #110).
+// The visible status line is not a live region: rewritten on every slider
+// step, it re-spoke the same sentence each time and never said the count. One
+// persistent region outside the re-rendered page carries it.
+let gpSoundTimer = 0,
+  gpSoundSaid = '';
+function gpSoundAnnounceSoon() {
+  clearTimeout(gpSoundTimer);
+  gpSoundTimer = setTimeout(() => {
+    const n = gpTargets().length;
+    const count = ($ui('gp-count')?.textContent || '').split(' · ')[0].trim();
+    const text = n
+      ? `${uiCount(n, 'target')} applied.${count ? ' ' + count + '.' : ''}`
+      : `Sound targets cleared.${count ? ' ' + count + '.' : ''}`;
+    if (text === gpSoundSaid) return;
+    gpSoundSaid = text;
+    let live = $ui('gp-live');
+    if (!live) {
+      live = document.createElement('div');
+      live.id = 'gp-live';
+      live.className = 'gp-sr';
+      live.setAttribute('role', 'status');
+      document.body.append(live);
+    }
+    live.textContent = '';
+    setTimeout(() => (live.textContent = text), 50);
+  }, 500);
 }
 function gpSoundStatus() {
   const n = gpTargets().length;
@@ -661,6 +690,7 @@ function gpApplyAxis(input) {
   UI.limit = 50;
   gpListToTop();
   gpScheduleList();
+  gpSoundAnnounceSoon();
 }
 function gpSyncSoundHead() {
   const n = gpTargets().length;
@@ -1305,12 +1335,14 @@ uiRegisterPage({
       UI.limit = 50;
       gpListToTop();
       renderGenreDiscovery();
+      gpSoundAnnounceSoon();
     },
     'genre-sound-reset'() {
       G.targets = {};
       UI.limit = 50;
       gpListToTop();
       renderGenreDiscovery();
+      gpSoundAnnounceSoon();
       uiFocus(document.querySelector('#surface-genre input[type="range"][data-axis]'));
     },
     'genre-sound-from'(id) {

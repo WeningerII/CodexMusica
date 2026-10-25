@@ -923,7 +923,9 @@ async function ipAddConfigured() {
   if (!id || !card) return;
   const configured = ipDiff(IP.base, card);
   const dest = ipDest();
-  const name = Inst(id).short || Inst(id).name;
+  // The display name, as #71 settled for the Genre page's Add (not `short`,
+  // an internal key such as "aburukuwa"; Jony #111).
+  const name = Inst(id).name || Inst(id).short;
   // uiAddInstrument resolves to null both when another addition is running and
   // when the add fails (which it reports itself); only the first would be
   // silent, so say so here rather than drop the configured add.
