@@ -15132,6 +15132,7 @@ function renderSidebarTraditions() {
       e.stopPropagation();
       if (b.disabled) return;
       _moveTraditionGroup(b.dataset.moveTradUp, -1);
+      _refocusTree([() => _treeGenreControl(b.dataset.moveTradUp)]);
     });
   });
   host.querySelectorAll('[data-move-trad-down]').forEach(b => {
@@ -15139,6 +15140,7 @@ function renderSidebarTraditions() {
       e.stopPropagation();
       if (b.disabled) return;
       _moveTraditionGroup(b.dataset.moveTradDown, +1);
+      _refocusTree([() => _treeGenreControl(b.dataset.moveTradDown)]);
     });
   });
   // Make primary: the same splice a drop above the first genre performs
@@ -15152,6 +15154,7 @@ function renderSidebarTraditions() {
       if (!dropTraditionOnTradition(tradId, movableKeys[0], true)) return;
       if (typeof pushHistory === 'function') pushHistory();
       renderAll();
+      _refocusTree([() => _treeGenreControl(tradId)]);
       const t = Tradition(tradId);
       showToast((t ? t.name : tradId) + ' is now the primary genre', 'success');
     });
@@ -15167,6 +15170,7 @@ function renderSidebarTraditions() {
       const trad = Tradition(tradId);
       const tradName = (trad && trad.name) || tradId;
       const cards = app.cards.filter(c => c.traditionId === tradId);
+      const successors = _treeGenreSuccessorsOf(tradId);
       // Blur immediately so the focus-ring + hover-state release before the
       // modal paints — otherwise the button can appear "stuck" in danger-red.
       b.blur();
@@ -15179,6 +15183,7 @@ function renderSidebarTraditions() {
       if (!ok) return;
       for (const c of cards) rmCard(c.id, { skipHistory: true });
       if (typeof pushHistory === 'function') pushHistory();
+      _refocusTree([...successors, ..._treeSuccessorsOf(null)]);
       showToast(`Removed ${tradName} (${cards.length} card${cards.length === 1 ? '' : 's'})`, 'success');
     });
   });
@@ -15216,10 +15221,14 @@ function renderSidebarTraditions() {
       if (!card) return;
       const row = b.closest('.sb-card-row');
       const rowButton = row && row.querySelector('.sb-card');
+      // Read before the action rebuilds the tree (see _refocusTree).
+      const successors = action === 'delete' ? _treeSuccessorsOf(cardId) : null;
+      const known = new Set(app.cards.map(c => c.id));
       if (action === 'edit') {
         // On a phone the open row IS the editor; tapping Edit again keeps it.
         if (isMobileLayout() && app.selected === cardId) { _revealSelectedCard(); return; }
         if (rowButton) rowButton.click();
+        _refocusTree([_treeEditorHeading, () => _treeCardControl(cardId, 'edit')]);
       } else if (action === 'drift') {
         // Variations render inside the editor, so open it on this card first.
         if (app.selected !== cardId && rowButton) rowButton.click();
@@ -15230,6 +15239,11 @@ function renderSidebarTraditions() {
         handleAction('move-genre', card, (row && row.querySelector('[data-menu-toggle]')) || b);
       } else {
         handleAction(action, card, b);
+        if (action === 'delete') _refocusTree(successors);
+        else if (action === 'duplicate') {
+          const copy = app.cards.find(c => !known.has(c.id));
+          _refocusTree([() => copy && _treeCardControl(copy.id, 'more'), () => _treeCardControl(cardId, 'more')]);
+        } else if (action === 'pin') _refocusTree([() => _treeCardControl(cardId, 'more')]);
       }
     });
   });
@@ -15809,6 +15823,9 @@ function openMoveToGenreMenu(card, anchor) {
     if (!dropCardOnTradition(card.id, targetId)) return;
     if (typeof pushHistory === 'function') pushHistory();
     renderAll();
+    // The card, in its new genre (the anchor close() focused was rebuilt
+    // away); that genre's name when it is collapsed and the card is hidden.
+    _refocusTree([() => _treeCardControl(card.id, 'more'), () => _treeGenreControl(targetId, 'toggle')]);
     if (typeof showToast === 'function') {
       const t = Tradition(targetId);
       showToast('Moved to ' + (t ? t.name : targetId), 'success');
@@ -16073,6 +16090,84 @@ function _detailAnchorFor(cardId) {
   const tree = document.getElementById('sidebar-traditions');
   if (!tree || !cardId) return null;
   return [...tree.querySelectorAll('.sb-card')].find(b => b.dataset.cardId === cardId) || null;
+}
+
+// ── Tree focus (Jony #15, #519) ──
+// Every recipe-tree action ends in a rebuild of #sidebar-traditions, which
+// replaces the control the keyboard was on — the menu item, its row, the
+// "Move to genre…" anchor — so focus fell to <body> and the next Tab started
+// over. After an action, _refocusTree puts focus on the first of `targets`
+// (thunks read after the rebuild) that the rebuilt tree shows. It acts only
+// when focus was actually lost: a dialog, the editor or a page that took focus
+// on its own keeps it.
+function _treeFocusLost() {
+  const a = document.activeElement;
+  return !a || a === document.body || !a.isConnected;
+}
+// A card's control in the rebuilt tree: 'more' (its … menu), 'edit' or 'card'.
+function _treeCardControl(cardId, control) {
+  const card = _detailAnchorFor(cardId);
+  if (!card || control === 'card') return card;
+  const row = card.closest('.sb-card-row');
+  return row && row.querySelector(control === 'edit' ? '.sb-card-edit' : '.sb-more');
+}
+// A genre's control in the rebuilt tree: 'menu' (its … menu) or 'toggle'
+// (its name, which collapses it — the one control a collapsed genre shows
+// for the cards inside it).
+function _treeGenreControl(tradId, control) {
+  const tree = document.getElementById('sidebar-traditions');
+  const group = tree && [...tree.querySelectorAll('.sb-tradition-group')].find(g => g.dataset.traditionId === tradId);
+  return group && group.querySelector(control === 'toggle' ? '.sb-tradition-toggle' : '.sb-tradition-header [data-menu-toggle]');
+}
+// Where focus goes after `cardId` leaves the tree, read BEFORE it leaves:
+// the next card in its genre, then the previous one, then that genre's "Add
+// instrument", then the nearest card anywhere, then the empty recipe's first
+// control.
+function _treeSuccessorsOf(cardId) {
+  const tree = document.getElementById('sidebar-traditions');
+  const ids = tree ? [...tree.querySelectorAll('.sb-card')].map(b => b.dataset.cardId) : [];
+  const card = app.cards.find(c => c.id === cardId);
+  const genre = card ? card.traditionId || null : null;
+  const inGenre = (id) => (app.cards.find(c => c.id === id) || {}).traditionId === genre;
+  const at = ids.indexOf(cardId);
+  const after = at < 0 ? [] : ids.slice(at + 1);
+  const before = at < 0 ? [] : ids.slice(0, at).reverse();
+  const near = [...after.filter(inGenre), ...before.filter(inGenre), null, ...after, ...before];
+  return [
+    ...near.map(id => id === null
+      ? () => genre && tree && [...tree.querySelectorAll('[data-add-to-trad]')].find(b => b.dataset.addToTrad === genre)
+      : () => _treeCardControl(id, 'more')),
+    () => genre && _treeGenreControl(genre, 'toggle'),
+    () => {
+      const empty = document.getElementById('recipe-empty');
+      return empty && empty.querySelector('button:not([disabled]), a[href]');
+    },
+  ];
+}
+// The genres beside `tradId`, for after its group is removed.
+function _treeGenreSuccessorsOf(tradId) {
+  const tree = document.getElementById('sidebar-traditions');
+  const ids = tree ? [...tree.querySelectorAll('.sb-tradition-group')].map(g => g.dataset.traditionId) : [];
+  const at = ids.indexOf(tradId);
+  const near = at < 0 ? [] : [...ids.slice(at + 1), ...ids.slice(0, at).reverse()];
+  return near.flatMap(id => [() => _treeGenreControl(id), () => _treeGenreControl(id, 'toggle')]);
+}
+function _refocusTree(targets) {
+  if (!_treeFocusLost()) return false;
+  for (const target of targets) {
+    const el = typeof target === 'function' ? target() : target;
+    if (!el || !el.isConnected || el.disabled || !el.getClientRects().length) continue;
+    el.focus();
+    if (document.activeElement === el) return true;
+  }
+  return false;
+}
+// The editor a card's Edit opened: its heading, made programmatically
+// focusable, the way the Instrument inspector focuses #ip-title.
+function _treeEditorHeading() {
+  const title = document.querySelector('#detail-view .detail-title');
+  if (title && !title.hasAttribute('tabindex')) title.setAttribute('tabindex', '-1');
+  return title;
 }
 
 // After a tap expands a row, bring it under the app bar — but only if it isn't
