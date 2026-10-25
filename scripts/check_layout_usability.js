@@ -305,8 +305,62 @@ async function noOverflow(page) {
             (await page.locator('#ip-similar .ip-sim-main').count()),
         'Instrument: Similar instruments are a list, one item per instrument'
       );
+      assert.equal(
+        await page.locator('#ip-similar ul').first().getAttribute('role'),
+        'list',
+        'Instrument: the unstyled Similar list keeps its list role (Safari)'
+      );
       assert.deepEqual(errors, [], 'No browser errors');
       console.log('PASS genre instruments destination, add toast name, similar list at 1280px');
+      await context.close();
+    }
+    for (const width of [1280, 390]) {
+      // Back from a page lands where that page was left (the Inspect button
+      // that opened the Instrument page), and Forward on the page's nav
+      // button: never on BODY (body carries data-view too).
+      const context = await browser.newContext({ viewport: { width, height: 900 } });
+      await context.route('https://mcp.codexmusica.com/**', (route) =>
+        route.fulfill({ contentType: 'application/json', body: '{"ok":true,"enabled":true}' })
+      );
+      const page = await context.newPage();
+      const errors = [];
+      page.on('pageerror', (e) => errors.push(e.message));
+      await page.goto(base + '/codex.html#genre/delta_blues');
+      await page.locator('#gp-tab-instruments').click();
+      const inspect = page.locator('[data-ui="instrument-inspect"]').first();
+      const id = await inspect.getAttribute('data-id');
+      await inspect.focus();
+      await page.keyboard.press('Enter');
+      await page.locator('#ip-title').waitFor();
+      const focused = () =>
+        page.evaluate(() => {
+          const a = document.activeElement;
+          return {
+            tag: a.tagName,
+            ui: a.dataset.ui || '',
+            id: a.dataset.id || '',
+            view: a.dataset.view || '',
+          };
+        });
+      await page.goBack();
+      await page.waitForFunction(() => document.body.dataset.view === 'genre');
+      await settle(page);
+      assert.deepEqual(
+        await focused(),
+        { tag: 'BUTTON', ui: 'instrument-inspect', id, view: '' },
+        `Back to Genre at ${width}px: focus returns to the Inspect button that left it`
+      );
+      await page.goForward();
+      await page.waitForFunction(() => document.body.dataset.view === 'instrument');
+      await settle(page);
+      const f = await focused();
+      assert.ok(
+        f.tag !== 'BODY' && f.view === 'instrument',
+        `Forward to Instrument at ${width}px: focus lands on its nav button, not BODY: ` +
+          JSON.stringify(f)
+      );
+      assert.deepEqual(errors, [], 'No browser errors');
+      console.log(`PASS page Back/Forward focus at ${width}px`);
       await context.close();
     }
   } finally {

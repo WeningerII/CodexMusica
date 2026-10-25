@@ -34,6 +34,8 @@ const UI = {
   // Focus return: what opened the AI writer, and the instrument preview.
   assistantOpener: null,
   instrumentPreview: null,
+  // Per page, the control (data-ui, data-id) that last left it (uiNavigate).
+  leftFrom: {},
   // Set on the way down when a dialog owns this Escape (see uiEscape).
   escapeOwned: false,
 };
@@ -192,7 +194,7 @@ function uiSubroute(sub, { push = false, state = null } = {}) {
 // between sections; boot and deep links replace the entry instead. `sub` is
 // the sub-route to show; left out (a nav click), the page's currentRoute()
 // resumes where it was. Pages without route() always show '#<view>'.
-function uiNavigate(view, { push = false, sub } = {}) {
+function uiNavigate(view, { push = false, sub, pop = false } = {}) {
   const page = UI_PAGES[view];
   if (!page) return;
   // A deferred boot (src/app.js _BOOT_DEFER): any page but one that holds the
@@ -204,6 +206,10 @@ function uiNavigate(view, { push = false, sub } = {}) {
     uiEnsureWorkspace().then(() => UI.view === view && UI_PAGES[view].render?.(), _renderBootError);
   if (!page.route) sub = '';
   else if (sub === undefined) sub = page.currentRoute?.() || '';
+  // The control that leaves a page is where Back to it lands (below).
+  const from = document.activeElement;
+  if (UI.view && UI.view !== view && from?.dataset?.ui)
+    UI.leftFrom[UI.view] = { ui: from.dataset.ui, id: from.dataset.id };
   UI.view = view;
   document.body.dataset.view = view;
   if (/^https?:$/.test(location.protocol) && location.hash !== '#' + view + sub) {
@@ -237,7 +243,25 @@ function uiNavigate(view, { push = false, sub } = {}) {
   }
   document.body.classList.remove('session-open');
   UILayout.refresh();
-  document.querySelector(`[data-view="${view}"]`)?.focus({ preventScroll: true });
+  // Back or Forward to a page (pop): focus that fell with the page it was on
+  // lands on this page's way in, the control that left it if it is still
+  // shown, else its nav button (a button: body carries data-view too). Any
+  // other switch leaves focus to its caller, which knows where the person is
+  // going (Open in Lyrics lands in the draft).
+  const a = document.activeElement;
+  if (pop && (!a || a === document.body || !a.isConnected || !a.getClientRects().length)) {
+    const left = UI.leftFrom[view];
+    const back =
+      left &&
+      [...document.querySelectorAll(`#surface-${view} [data-ui]`)].find(
+        (el) =>
+          el.dataset.ui === left.ui &&
+          (left.id == null || el.dataset.id === left.id) &&
+          !el.disabled &&
+          el.getClientRects().length
+      );
+    uiFocus(back) || uiFocus(document.querySelector(`button[data-view="${view}"]`));
+  }
 }
 // ── Recipe panel ── #workspace-sidebar is the one recipe workspace on every
 // route: the same cards, the same editor (#workspace-detail) and the same
@@ -1106,7 +1130,7 @@ function uiStart() {
   window.addEventListener('hashchange', () => {
     const { view, sub } = uiRouteOf(location.hash);
     if (!UI_PAGES[view]) return;
-    if (view !== UI.view) uiNavigate(view, { sub });
+    if (view !== UI.view) uiNavigate(view, { sub, pop: true });
     // Back/Forward within one page: its own route, without refocusing the
     // nav button or re-applying the recipe presentation.
     else UI_PAGES[view].route?.(sub, { pop: true });
