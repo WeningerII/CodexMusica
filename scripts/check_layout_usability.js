@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global document, window, MutationObserver, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global document, window, MutationObserver, showToast, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -245,16 +245,22 @@ async function noOverflow(page) {
       );
       const page = await context.newPage();
       const toasts = () => page.evaluate(() => window.__toasts || []);
+      const lives = () => page.evaluate(() => window.__live || []);
       await page.addInitScript(() => {
         window.__toasts = [];
+        window.__live = [];
         document.addEventListener('DOMContentLoaded', () => {
-          const t = document.getElementById('toast');
-          if (t)
-            new MutationObserver(() => {
-              const text = t.textContent.trim();
-              if (text && window.__toasts[window.__toasts.length - 1] !== text)
-                window.__toasts.push(text);
-            }).observe(t, { childList: true, characterData: true, subtree: true });
+          for (const [id, log] of [
+            ['toast', window.__toasts],
+            ['ui-live', window.__live],
+          ]) {
+            const t = document.getElementById(id);
+            if (t)
+              new MutationObserver(() => {
+                const text = t.textContent.trim();
+                if (text && log[log.length - 1] !== text) log.push(text);
+              }).observe(t, { childList: true, characterData: true, subtree: true });
+          }
         });
       });
       // Instrument: Retry while the data is still down, then once it is back.
@@ -288,10 +294,15 @@ async function noOverflow(page) {
       // Genre: typing a search that matches nothing says so once.
       await page.getByRole('button', { name: 'Genre', exact: true }).first().click();
       await page.locator('#genre-search').waitFor();
-      await page.evaluate(() => (window.__toasts.length = 0));
+      await page.evaluate(() => {
+        window.__toasts.length = 0;
+        window.__live.length = 0;
+        // An unresolved error and its Retry, standing while the search runs.
+        showToast('Probe error', 'error', { label: 'Retry', run() {} });
+      });
       await page.locator('#genre-search').pressSequentially('zzqxv', { delay: 60 });
       await page.waitForTimeout(900);
-      const said = (await toasts()).filter((t) => /No genres match/.test(t));
+      const said = (await lives()).filter((t) => /No genres match/.test(t));
       const live = await page.evaluate(
         () => document.querySelector('#genre-list .cm-empty')?.getAttribute('role') ?? null
       );
@@ -300,30 +311,43 @@ async function noOverflow(page) {
         { said: ['No genres match “zzqxv”'], live: null },
         'Genre: an empty search is said once, and the no-match block is not a live region'
       );
+      assert.deepEqual(
+        await page.evaluate(() => ({
+          text: /Probe error/.test(document.getElementById('toast').textContent),
+          retry: !!document.querySelector('#toast .toast-action'),
+        })),
+        { text: true, retry: true },
+        'Genre: a search announcement leaves a standing error and its Retry alone'
+      );
+      assert.deepEqual(
+        (await toasts()).filter((t) => /No genres match/.test(t)),
+        [],
+        'Genre: a search announcement is not a toast'
+      );
       // A link that matched nothing says so.
       await page.goto(base + '/codex.html?miss=1#genre/zzqx_not_a_genre');
       await page
         .waitForFunction(
-          () => (window.__toasts || []).some((t) => /didn’t match a genre/.test(t)),
+          () => (window.__live || []).some((t) => /didn’t match a genre/.test(t)),
           null,
           { timeout: 15000 }
         )
         .catch(() => {});
       assert.ok(
-        (await toasts()).some((t) => /didn’t match a genre/.test(t)),
-        'Routes: a genre link that matched nothing says so: ' + JSON.stringify(await toasts())
+        (await lives()).some((t) => /didn’t match a genre/.test(t)),
+        'Routes: a genre link that matched nothing says so: ' + JSON.stringify(await lives())
       );
       await page.goto(base + '/codex.html?miss=2#nonsense');
       await page
         .waitForFunction(
-          () => (window.__toasts || []).some((t) => /didn’t match a page/.test(t)),
+          () => (window.__live || []).some((t) => /didn’t match a page/.test(t)),
           null,
           { timeout: 15000 }
         )
         .catch(() => {});
       assert.ok(
-        (await toasts()).some((t) => /didn’t match a page/.test(t)),
-        'Routes: an unknown page link says so: ' + JSON.stringify(await toasts())
+        (await lives()).some((t) => /didn’t match a page/.test(t)),
+        'Routes: an unknown page link says so: ' + JSON.stringify(await lives())
       );
       // The standalone map: Try again keeps the keyboard and says it in words.
       let atlasDown = true;

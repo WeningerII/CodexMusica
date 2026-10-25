@@ -1106,7 +1106,7 @@ function uiStart() {
   window.addEventListener('hashchange', () => {
     const { view, sub } = uiRouteOf(location.hash);
     const miss = uiRouteMiss({ view, sub }, false);
-    if (miss) showToast(miss);
+    if (miss) uiAnnounce(miss);
     if (!UI_PAGES[view]) return;
     if (view !== UI.view) uiNavigate(view, { sub });
     // Back/Forward within one page: its own route, without refocusing the
@@ -1165,7 +1165,7 @@ function uiStart() {
     if (UI_PAGES[route.view]) uiNavigate(route.view, { sub: route.sub });
     else uiNavigate('genre');
     const miss = uiRouteMiss(route, true);
-    if (miss) showToast(miss);
+    if (miss) uiAnnounce(miss);
   }
 }
 // A link that matched nothing still lands somewhere (the genres, or the page
