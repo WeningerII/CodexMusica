@@ -3203,6 +3203,46 @@ async function browserChecks(chromium) {
       await ctx.close();
     });
 
+    // ── 2. A line's finding reaches a screen reader ──────────────────────
+    // The editor's line marks are aria-hidden: the dock label carries the
+    // count, and Show in draft says why focus moved, in a region that
+    // exists before its first message.
+    await step('2. line finding announced', async () => {
+      const { ctx, page, q } = await boot({ theme: 'light' });
+      await setDraft(page, DRAFT);
+      check(
+        await page.evaluate(() => $ui('ly-live')?.getAttribute('role') === 'status'),
+        'the Lyrics live region does not exist before its first message'
+      );
+      await sendReview(page, q, unfinished());
+      const n = await page.evaluate(
+        () => LY.items.find((i) => !i.stale && i.lines?.length)?.lines[0]
+      );
+      check(!!n, 'no current finding names a line');
+      await page.evaluate((line) => LY_ACTIONS['ly-show-lines'](line), n);
+      await page
+        .waitForFunction(() => $ui('ly-live').textContent !== '', null, {
+          timeout: 2000,
+        })
+        .catch(() => {});
+      const got = await page.evaluate(() => ({
+        live: $ui('ly-live').textContent,
+        dock: $ui('ly-linedock').getAttribute('aria-label') || '',
+        label: $ui('ly-linedock').querySelector('.ly-dock-label')?.textContent || '',
+        focus: document.activeElement?.id,
+      }));
+      check(
+        got.live.startsWith(`Line ${n}: `) && got.live.length > `Line ${n}: `.length,
+        `Show in draft does not say why focus moved: ${JSON.stringify(got)}`
+      );
+      check(
+        new RegExp(`^Line ${n} actions, \\d+ findings?: .+`).test(got.dock) &&
+          / · \d+ findings?$/.test(got.label),
+        `the line dock does not name the line's finding: ${JSON.stringify(got)}`
+      );
+      await ctx.close();
+    });
+
     // ── 2. Check & apply: the change would add a local issue ─────────────
     await step('2. check & apply (new issue)', async () => {
       const { ctx, page, q } = await boot({ theme: 'light' });

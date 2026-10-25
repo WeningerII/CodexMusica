@@ -4179,6 +4179,7 @@ function lyMountMarkup() {
 <nav class="ly-mnav" id="ly-mnav" aria-label="Lyrics views"><div role="tablist" aria-label="Lyrics views">${mobileTabs}</div></nav>
 <div class="ly-sheet-scrim" id="ly-scrim" hidden data-ui="ly-outline-toggle"></div>
 <input type="file" id="ly-file" accept=".txt,.md,.json,text/plain,application/json" hidden>
+<div id="ly-live" class="ly-sr" role="status" aria-live="polite"></div>
 </div>`;
 }
 
@@ -4559,6 +4560,21 @@ function lyRhymeMarks(model) {
   });
   return { ends, letters };
 }
+// The current review items marking line n (the editor's line marks are
+// aria-hidden, so this is what a screen reader hears instead), issues first.
+function lyLineFindings(n) {
+  return (LY.items || [])
+    .filter((it) => !it.stale && it.lines?.includes(n))
+    .sort((a, b) => (b.tone === 'issue') - (a.tone === 'issue'));
+}
+// One persistent polite region, outside every re-rendered panel. Cleared
+// first so the same message twice is read twice.
+function lyAnnounce(text) {
+  const live = $ui('ly-live');
+  if (!live) return;
+  live.textContent = '';
+  if (text) setTimeout(() => (live.textContent = text), 50);
+}
 function lyRenderEditor() {
   const model = LY.model;
   const draft = lyDraft();
@@ -4789,20 +4805,27 @@ function lyPlaceLineBar() {
       if (!inline) bar.hidden = true;
     }
   }
+  const finds = row ? lyLineFindings(n) : [];
+  const findCount = finds.length ? uiCount(finds.length, 'finding') : '';
   // Keep the open menu and its focus while selection events settle. History
   // is not in the key: the editor's blur pushes it between pointerdown and
   // pointerup on a dock button, and a rebuild there swallows the click. Only
   // Undo/Redo depend on it, so they are updated in place.
-  const key = `${LY.size}:${row ? n : 0}:${inspecting}:${inline}`;
+  const key = `${LY.size}:${row ? n : 0}:${inspecting}:${inline}:${finds.length}`;
   if (dock.dataset.writingActions !== key) {
-    dock.innerHTML = `${inspecting ? '' : `<span class="ly-dock-label">${row ? `Line ${n}` : 'Song'}</span>`}<span id="ly-relation-dock" class="ly-relation-dock"></span>${inspecting || inline ? '' : row && LY.size !== 'narrow' ? wideButtons() : lyWritingLineActions(row ? n : 0)}`;
+    dock.innerHTML = `${inspecting ? '' : `<span class="ly-dock-label">${row ? `Line ${n}${findCount ? ` · ${findCount}` : ''}` : 'Song'}</span>`}<span id="ly-relation-dock" class="ly-relation-dock"></span>${inspecting || inline ? '' : row && LY.size !== 'narrow' ? wideButtons() : lyWritingLineActions(row ? n : 0)}`;
     dock.dataset.writingActions = key;
   }
   dock.querySelector('[data-ui="ly-undo"]')?.toggleAttribute('disabled', !(app.historyIndex > 0));
   dock
     .querySelector('[data-ui="ly-redo"]')
     ?.toggleAttribute('disabled', !(app.historyIndex < app.history.length - 1));
-  dock.setAttribute('aria-label', row ? `Line ${n} actions` : 'Song actions');
+  dock.setAttribute(
+    'aria-label',
+    row
+      ? `Line ${n} actions${findCount ? `, ${findCount}: ${finds[0].title}` : ''}`
+      : 'Song actions'
+  );
   dock.hidden = false;
   lyInspectionRenderDock();
   const menu = $ui('ly-menu-line-actions');
@@ -6920,7 +6943,15 @@ const LY_ACTIONS = {
     lyCommit(rows.join('\n'), 'Declaration removed.');
   },
   'ly-show-lines'(id) {
-    lyScrollToLine(Number(id));
+    const n = Number(id);
+    lyScrollToLine(n);
+    // Focus lands in the editor; say why.
+    const [first, ...more] = lyLineFindings(n);
+    lyAnnounce(
+      first
+        ? `Line ${n}: ${first.title}${first.text ? `. ${first.text}` : ''}${more.length ? `. ${uiCount(more.length, 'more finding')} on this line.` : ''}`
+        : `Line ${n}`
+    );
   },
   'ly-apply'(id) {
     const item = lyItem(id);
