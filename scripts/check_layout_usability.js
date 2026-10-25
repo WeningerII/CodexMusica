@@ -168,6 +168,20 @@ async function noOverflow(page) {
           { same: true, outside: true, role: 'status', text: 'probe' },
           'Instrument: the live region outlives the inspector re-render'
         );
+        await page.locator('#ip-tab-preface').click();
+        await page.locator('#ip-pref-q').pressSequentially('dre', { delay: 60 });
+        await page
+          .waitForFunction(
+            () => /match/.test(document.getElementById('ip-live')?.textContent || ''),
+            null,
+            { timeout: 3000 }
+          )
+          .catch(() => {});
+        assert.match(
+          await page.evaluate(() => document.getElementById('ip-live').textContent),
+          /^\d+ match(es)?$/,
+          'Instrument: the Character search count is announced once typing stops'
+        );
         await page.evaluate(() => uiCloseInstrumentPreview());
         assert.equal(
           await page.evaluate(() => document.getElementById('ip-live').textContent),

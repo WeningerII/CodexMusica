@@ -710,9 +710,11 @@ function ipRenderCharacter() {
       return ipPrefaceCategory(cat, list, IP.pcats.has(cat));
     })
     .join('');
+  // Read by the search's input handler, which announces it once typing stops.
+  IP.prefMatches = q ? total : null;
   const recent = q ? [] : loadPrefaceRecent().map(byId).filter(Boolean);
   const sug = suggested && suggested !== card.preface ? byId(suggested) : null;
-  return `<div class="ip-block"><p class="ip-current"><span class="ip-label">Character</span><strong>${esc(card.preface || 'None')}</strong><span class="ip-muted">${card.prefaceAuto === false ? 'chosen' : 'automatic, from the parts'}</span></p>${card.prefaceAuto === false ? uiButton('ip-auto', 'Back to automatic', 'refresh-cw', 'class="cm-btn cm-btn-outline"') : ''}<p class="ip-help">Picking a character re-derives the parts, tuning, room and chain toward it (the same cascade as the editor). What moved is listed under Your changes.</p>${sug ? `<div class="ip-suggest"><span class="ip-label">Suggested for this sound</span>${ipPrefaceChip(sug, false)}</div>` : ''}<label class="ip-filter cm-search">${icon('search', 16)}<input type="search" id="ip-pref-q" data-ip-key="pref-q" value="${esc(IP.prefQuery)}" placeholder="Search ${lex.length.toLocaleString('en')} characters (bitter, dreamy, haunted…)" aria-label="Search characters"></label><div class="ip-pref-browser" role="group" aria-label="Browse characters by category"><div class="ip-pref-bar"><span class="ip-muted" role="status">${q ? uiCount(total, 'match', 'matches') : `${lex.length.toLocaleString('en')} characters · ${order.length} categories`}</span>${q ? '' : uiButton('ip-pcat-all', 'Expand all', 'chevron-down', 'class="ip-link" data-id="all"') + uiButton('ip-pcat-all', 'Collapse all', 'chevron-right', 'class="ip-link" data-id="none"')}</div>${recent.length ? `<div class="ip-pref-recent"><span class="ip-label">Recently used</span><div class="ip-pcat-items">${recent.map((e) => ipPrefaceChip(e, false)).join('')}</div></div>` : ''}${cats}${q && !total ? `<p class="ip-muted">No character matches “${esc(IP.prefQuery)}”.</p>` : ''}</div></div>`;
+  return `<div class="ip-block"><p class="ip-current"><span class="ip-label">Character</span><strong>${esc(card.preface || 'None')}</strong><span class="ip-muted">${card.prefaceAuto === false ? 'chosen' : 'automatic, from the parts'}</span></p>${card.prefaceAuto === false ? uiButton('ip-auto', 'Back to automatic', 'refresh-cw', 'class="cm-btn cm-btn-outline"') : ''}<p class="ip-help">Picking a character re-derives the parts, tuning, room and chain toward it (the same cascade as the editor). What moved is listed under Your changes.</p>${sug ? `<div class="ip-suggest"><span class="ip-label">Suggested for this sound</span>${ipPrefaceChip(sug, false)}</div>` : ''}<label class="ip-filter cm-search">${icon('search', 16)}<input type="search" id="ip-pref-q" data-ip-key="pref-q" value="${esc(IP.prefQuery)}" placeholder="Search ${lex.length.toLocaleString('en')} characters (bitter, dreamy, haunted…)" aria-label="Search characters"></label><div class="ip-pref-browser" role="group" aria-label="Browse characters by category"><div class="ip-pref-bar"><span class="ip-muted">${q ? uiCount(total, 'match', 'matches') : `${lex.length.toLocaleString('en')} characters · ${order.length} categories`}</span>${q ? '' : uiButton('ip-pcat-all', 'Expand all', 'chevron-down', 'class="ip-link" data-id="all"') + uiButton('ip-pcat-all', 'Collapse all', 'chevron-right', 'class="ip-link" data-id="none"')}</div>${recent.length ? `<div class="ip-pref-recent"><span class="ip-label">Recently used</span><div class="ip-pcat-items">${recent.map((e) => ipPrefaceChip(e, false)).join('')}</div></div>` : ''}${cats}${q && !total ? `<p class="ip-muted">No character matches “${esc(IP.prefQuery)}”.</p>` : ''}</div></div>`;
 }
 function ipEnvSource() {
   // The recipe renders ONE environment: the first card that has one
@@ -1045,6 +1047,16 @@ uiRegisterPage({
       else if (t.id === 'ip-pref-q') {
         IP.prefQuery = t.value;
         ipRenderInspector('pref-q');
+        // The count above is re-rendered with the inspector, so a live
+        // region there is never read; the one persistent region says it.
+        const n = IP.prefMatches;
+        ipAnnounceSoon(
+          n == null
+            ? ''
+            : n
+              ? uiCount(n, 'match', 'matches')
+              : `No character matches “${t.value.trim()}”`
+        );
       }
     });
     // Destinations follow the recipe: refresh them when a select is opened.
