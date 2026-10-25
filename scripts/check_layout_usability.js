@@ -285,6 +285,24 @@ async function noOverflow(page) {
         ),
         `Search at ${width}px: "oud" lists ʿŪd (id oud) in the first three`
       );
+      // Within a tier a name match leads an id match: "ud" no longer leads with
+      // an instrument whose id starts "udmurt" (Jony, #519), and ʿŪd stays near
+      // the top with the names that start "ud".
+      await page.fill('#instrument-search', 'ud');
+      await settle(page);
+      const udIds = await page.evaluate(() =>
+        [...document.querySelectorAll('#instrument-body [data-ui="instrument-inspect"]')]
+          .filter((e) => e.getClientRects().length)
+          .slice(0, 3)
+          .map((e) => e.dataset.id)
+      );
+      assert.ok(
+        udIds[0] !== 'udmurt_kubyz' && udIds.includes('oud'),
+        `Search at ${width}px: "ud" leads with name matches, ʿŪd among them: ` +
+          JSON.stringify(udIds)
+      );
+      await page.fill('#instrument-search', 'oud');
+      await settle(page);
       await page.press('#instrument-search', 'ArrowDown');
       assert.match(
         await page.evaluate(() => document.activeElement?.textContent || ''),

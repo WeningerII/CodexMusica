@@ -206,12 +206,13 @@ function ipMatches(i, { q, family = UI.instrumentFamily, cls = UI.instrumentClas
 // How well the search matches an instrument: its name first, its short name
 // only as the last tier (searchRank). The catalogue id is a name too, but at
 // best the second tier: "oud" is ʿŪd's id, though its folded name reads "ud"
-// (Jony, #519).
+// (Jony, #519). Within a tier a name match comes before an id match (+0.5),
+// so "ud" leads with ʿŪd, not an id that starts "udmurt".
 function ipRank(i, q) {
   const byName = searchRank(q, normalizeSearch(i.name), [normalizeSearch(i.short)]);
   const byId = searchRank(q, normalizeSearch(i.id.replace(/_/g, ' ')));
   if (byId < 0 || byId > 3) return byName;
-  const id = Math.max(1, byId);
+  const id = Math.max(1, byId) + 0.5;
   return byName < 0 ? id : Math.min(byName, id);
 }
 // Name A–Z (the default) under a search ranks by match first and reads A to Z
