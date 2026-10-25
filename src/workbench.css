@@ -3028,3 +3028,18 @@ html.cm-lightbox-open body {
     gap: 0;
   }
 }
+/* On a phone the five header tabs share 68-78px each, and "Instrument" beside
+   its icon needs ~95px, so its label spilled over Genre (Jony's viewport lane).
+   There the icon sits above the label, as a bottom bar's tabs do. Last in the
+   file, at the same specificity as the workbench's max-width: 899px row
+   layout above, so it wins there. */
+@media (max-width: 479px) {
+  .workbench .ui-header nav button,
+  .workbench .ui-header nav .ui-nav-link {
+    flex-direction: column;
+    gap: 2px;
+    padding: 0 2px;
+    font-size: 12px;
+    line-height: 1.1;
+  }
+}
