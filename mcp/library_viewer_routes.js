@@ -214,6 +214,7 @@ export function libraryViewerRouter({
   const act = (fn) =>
     handler((req, res) => {
       jsonOnlyOrEmpty(req);
+      limit(`library-controls-ip:${ipOf(req)}`, HOUR, LIBRARY_LIMITS.controlsPerIpPerHour);
       const viewer = viewerFor(req, res);
       limit(`library-controls:${viewer}`, HOUR, LIBRARY_LIMITS.controlsPerViewerPerHour);
       return fn(req, res);
