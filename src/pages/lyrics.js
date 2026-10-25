@@ -4770,7 +4770,13 @@ function lyPlaceLineBar() {
     const element = $ui('ly-overlay')?.querySelector(`.ly-r[data-n="${n}"]`);
     const text = element?.querySelector('.ly-t');
     if (element && text) {
-      bar.innerHTML = wideButtons();
+      // Rebuilt only for another line: the editor's blur (a press on one of
+      // these buttons) re-places the bar between pointerdown and pointerup,
+      // and a replaced button never receives its click.
+      if (bar.dataset.n !== String(n)) {
+        bar.innerHTML = wideButtons();
+        bar.dataset.n = String(n);
+      }
       bar.setAttribute('aria-label', `Line ${n} tools`);
       bar.hidden = false;
       const editor = $ui('ly-editor').getBoundingClientRect();
@@ -4783,12 +4789,19 @@ function lyPlaceLineBar() {
       if (!inline) bar.hidden = true;
     }
   }
-  // Keep the open menu and its focus while selection events settle.
-  const key = `${LY.size}:${row ? n : 0}:${app.historyIndex}:${app.history.length}:${inspecting}:${inline}`;
+  // Keep the open menu and its focus while selection events settle. History
+  // is not in the key: the editor's blur pushes it between pointerdown and
+  // pointerup on a dock button, and a rebuild there swallows the click. Only
+  // Undo/Redo depend on it, so they are updated in place.
+  const key = `${LY.size}:${row ? n : 0}:${inspecting}:${inline}`;
   if (dock.dataset.writingActions !== key) {
     dock.innerHTML = `${inspecting ? '' : `<span class="ly-dock-label">${row ? `Line ${n}` : 'Song'}</span>`}<span id="ly-relation-dock" class="ly-relation-dock"></span>${inspecting || inline ? '' : row && LY.size !== 'narrow' ? wideButtons() : lyWritingLineActions(row ? n : 0)}`;
     dock.dataset.writingActions = key;
   }
+  dock.querySelector('[data-ui="ly-undo"]')?.toggleAttribute('disabled', !(app.historyIndex > 0));
+  dock
+    .querySelector('[data-ui="ly-redo"]')
+    ?.toggleAttribute('disabled', !(app.historyIndex < app.history.length - 1));
   dock.setAttribute('aria-label', row ? `Line ${n} actions` : 'Song actions');
   dock.hidden = false;
   lyInspectionRenderDock();
