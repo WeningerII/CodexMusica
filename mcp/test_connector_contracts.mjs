@@ -849,6 +849,49 @@ test('edit_recipe refuses an undeclared edit field on every server', async () =>
   }
 });
 
+// The shared /mcp surface hands start_recipe's caller-managed workspace back in
+// the first block on purpose (existing consumers read it there). Its own
+// instructions say so, rather than claiming every block withholds the workspace;
+// a session-only surface withholds it and says nothing about an exception.
+test('the session guide names the one block that carries the workspace', async () => {
+  const { buildWorkflowServer } = await import('./workflow_tools.js');
+  const { WorkflowSessions } = await import('./workflow_sessions.js');
+  const { JobStore } = await import('./job_store.js');
+  for (const compatibility of [true, false]) {
+    const server = await buildWorkflowServer({
+      domain: compatibility ? null : 'recipe',
+      sessions: new WorkflowSessions({ store: new JobStore() }),
+      compatibility,
+    });
+    const [a, b] = InMemoryTransport.createLinkedPair();
+    await server.connect(a);
+    const client = new Client({ name: 'guide-workspace', version: '1' }, { capabilities: {} });
+    await client.connect(b);
+    try {
+      const opened = await client.callTool({
+        name: 'start_recipe',
+        arguments: { traditions: ['bluegrass'] },
+      });
+      const carries = 'workspace' in JSON.parse(opened.content[0].text);
+      assert.equal(
+        carries,
+        compatibility,
+        `start_recipe workspace, compatibility=${compatibility}`
+      );
+      assert.equal(
+        /private state withheld \(workspace, except start_recipe's, run state/.test(
+          client.getInstructions()
+        ),
+        carries,
+        `the guide names the exception exactly when it holds, compatibility=${compatibility}`
+      );
+    } finally {
+      await client.close();
+      await server.close();
+    }
+  }
+});
+
 test('a production deploy is verified with the Library stores loaded, not merely configured', () => {
   const library = {
     search_ready: true,
