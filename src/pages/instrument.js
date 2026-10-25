@@ -199,14 +199,20 @@ function ipMatches(i, { q, family = UI.instrumentFamily, cls = UI.instrumentClas
   return (
     (!family || i.family === family) &&
     (!cls || i.class === cls) &&
-    (!q || normalizeSearch(i.name + ' ' + i.short).includes(q)) &&
+    (!q || normalizeSearch(i.name + ' ' + i.short + ' ' + i.id.replace(/_/g, ' ')).includes(q)) &&
     passesInstrumentFilter(i, filters)
   );
 }
 // How well the search matches an instrument: its name first, its short name
-// only as the last tier (searchRank).
+// only as the last tier (searchRank). The catalogue id is a name too, but at
+// best the second tier: "oud" is ʿŪd's id, though its folded name reads "ud"
+// (Jony, #519).
 function ipRank(i, q) {
-  return searchRank(q, normalizeSearch(i.name), [normalizeSearch(i.short)]);
+  const byName = searchRank(q, normalizeSearch(i.name), [normalizeSearch(i.short)]);
+  const byId = searchRank(q, normalizeSearch(i.id.replace(/_/g, ' ')));
+  if (byId < 0 || byId > 3) return byName;
+  const id = Math.max(1, byId);
+  return byName < 0 ? id : Math.min(byName, id);
 }
 // Name A–Z (the default) under a search ranks by match first and reads A to Z
 // within a tier (Jony #114: "oud" listed Koudi first); a sort the person

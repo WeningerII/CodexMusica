@@ -285,8 +285,8 @@ function gpTargets() {
 }
 // The All genres list. Search ranks by where the query matches (searchRank):
 // exact name, name prefix, a later word's start, anywhere in the name; a
-// former name (an alias) counts as one tier below the name it matches; then
-// lineage/description only. The branch
+// former name (an alias) ranks by its own match but never in the first tier
+// (an exact alias counts as a name prefix); then lineage/description only. The branch
 // keeps members, cross-listed ones included; sound targets keep genres within
 // one step of every target and rank by total distance — the engine's
 // --axis-target rule. Every tie is A–Z by name, as the list was before the

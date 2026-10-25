@@ -274,6 +274,17 @@ async function noOverflow(page) {
         /^Oud\b/,
         `Search at ${width}px: "oud" lists an Oud first`
       );
+      // ʿŪd's folded name reads "ud"; its id "oud" ranks it with the names
+      // that start with the query (Jony, #519).
+      assert.ok(
+        await page.evaluate(() =>
+          [...document.querySelectorAll('#instrument-body [data-ui="instrument-inspect"]')]
+            .filter((e) => e.getClientRects().length)
+            .slice(0, 3)
+            .some((e) => e.dataset.id === 'oud')
+        ),
+        `Search at ${width}px: "oud" lists ʿŪd (id oud) in the first three`
+      );
       await page.press('#instrument-search', 'ArrowDown');
       assert.match(
         await page.evaluate(() => document.activeElement?.textContent || ''),
