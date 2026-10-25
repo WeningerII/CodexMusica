@@ -265,6 +265,11 @@ try {
       assert.equal(ledger.isUsed(['paid-wire']), true);
       assert.deepEqual(ledger.get('run_paid'), { revision: 2, finished: false });
     });
+    ledger.mark('run_both', 1, false, [], { paid: true });
+    ledger.mark('run_both', 3, false, []);
+    check('a run in both partitions reads its larger revision (BB8 N4)', () =>
+      assert.deepEqual(ledger.get('run_both'), { revision: 3, finished: false })
+    );
     check('while the free entries stay within their own cap and age', () =>
       assert.ok(ledger.used.size <= LEDGER_CAP && !ledger.isUsed(['w0']))
     );

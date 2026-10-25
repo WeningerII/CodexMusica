@@ -169,9 +169,16 @@ export class RunLedger {
       `[runs] ledger ${what} (${this.error}); continuations are refused until it is repaired.`
     );
   }
+  // The furthest a run has got in either partition (BB8's N4: a run's paid
+  // and free entries can both exist; the larger revision is its latest).
+  entry(k) {
+    const a = this.paidRuns.get(k),
+      b = this.runs.get(k);
+    if (!a || !b) return a || b;
+    return [Math.max(a[0], b[0]), a[1] === 1 || b[1] === 1 ? 1 : 0, Math.max(a[2], b[2])];
+  }
   get(runId) {
-    const k = digest(runId);
-    const v = this.paidRuns.get(k) || this.runs.get(k);
+    const v = this.entry(digest(runId));
     return v ? { revision: v[0], finished: v[1] === 1 } : null;
   }
   // True when any of these wire keys is one a run has already moved past.
@@ -187,7 +194,7 @@ export class RunLedger {
     const used = paid ? this.paidUsed : this.used;
     if (runId) {
       const k = digest(runId);
-      const was = this.paidRuns.get(k) || this.runs.get(k);
+      const was = this.entry(k);
       // A revision only moves forward, and a finished run stays finished.
       const v = [Math.max(revision, was?.[0] ?? 0), finished || was?.[1] === 1 ? 1 : 0, t];
       runs.delete(k);

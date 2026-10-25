@@ -577,7 +577,8 @@ every state or checkpoint the run has moved past. It holds digests only, never a
 `run_id` or a wire, in `run-ledger.json` under `LYRIC_RUNTIME_DIR` (`RUN_LEDGER_FILE`
 overrides; in memory otherwise), replaced atomically after a file and a directory
 fsync. A wire is identified by its decoded content, so a re-spaced or re-encoded
-copy is the same wire. Runs on the paid website writer are kept apart from free
+copy is the same wire (and a wire whose decoded content differs, even by one added
+field, is a different wire). Runs on the paid website writer are kept apart from free
 ones: up to 20,000 of their runs and moved-past wires, with no age limit (a signed
 `/chat` envelope does not expire), so free calls cannot push them out; other runs
 are kept 30 days within a cap of 5,000 runs and 5,000 wires. So, with nothing run:
