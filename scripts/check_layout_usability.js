@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -230,6 +230,133 @@ async function noOverflow(page) {
           'px: tree, labels, editor, panes, menus, lyrics, embedded/standalone map, short viewport'
       );
       await context.close();
+    }
+    // Map keyboard (1280): the canvas shows its focus ring above the canvas
+    // (also in forced colours), a skip link reaches the map past the In view
+    // list, and choosing a route says which.
+    {
+      const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+      const page = await context.newPage();
+      await page.goto(base + '/atlas.html');
+      await page.locator('.rowbtn').first().waitFor({ state: 'attached' });
+      await page.locator('#search').focus();
+      await page.keyboard.press('Tab');
+      assert.equal(
+        await page.evaluate(() => document.activeElement?.textContent?.trim()),
+        'Skip to map',
+        'Map: the Tab stop after the search skips to the map'
+      );
+      await page.keyboard.press('Enter');
+      assert.equal(
+        await page.evaluate(() => document.activeElement?.id),
+        'canvas-host',
+        'Map: the skip link puts focus on the map'
+      );
+      const ring = () =>
+        page.evaluate(() => {
+          const s = getComputedStyle(document.getElementById('canvas-host'), '::after');
+          return { content: s.content, outline: s.outlineStyle, width: s.outlineWidth };
+        });
+      const shown = await ring();
+      assert.ok(
+        shown.content !== 'none' && shown.outline === 'solid' && parseFloat(shown.width) > 0,
+        'Map: the focused canvas shows a ring above the canvas: ' + JSON.stringify(shown)
+      );
+      await page.emulateMedia({ forcedColors: 'active' });
+      const forcedRing = await ring();
+      assert.ok(
+        forcedRing.content !== 'none' && forcedRing.outline === 'solid',
+        'Map: the canvas ring stays in forced colours: ' + JSON.stringify(forcedRing)
+      );
+      await page.emulateMedia({ forcedColors: 'none' });
+      await page.locator('#t-routes').click();
+      await page.locator('.route-row').first().focus();
+      await page.keyboard.press('Enter');
+      await page
+        .waitForFunction(
+          () => /^Route: /.test(document.getElementById('map-live').textContent),
+          null,
+          {
+            timeout: 3000,
+          }
+        )
+        .catch(() => {});
+      assert.match(
+        await page.evaluate(() => document.getElementById('map-live').textContent),
+        /^Route: .+, 2 endpoints$/,
+        'Map: choosing a route says which'
+      );
+      await context.close();
+    }
+    // Genre prose Retry (1280): with the prose index failing, Retry keeps
+    // focus on its slot through failure and success, says the outcome, and
+    // each Retry is named for what it loads.
+    {
+      const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+      await context.route('https://mcp.codexmusica.com/**', (route) =>
+        route.fulfill({ contentType: 'application/json', body: '{"ok":true,"enabled":true}' })
+      );
+      let failProse = true;
+      await context.route('**/browse_prose.json', (route) =>
+        failProse ? route.abort() : route.continue()
+      );
+      const page = await context.newPage();
+      await page.goto(base + '/codex.html');
+      await page.locator('.catalog-row, .cm-tile').first().waitFor();
+      await page.getByLabel('Search genres').fill('1960s girl group');
+      await page.locator('[data-ui="genre-select"]').first().click();
+      const retry = page.getByRole('button', {
+        name: 'Retry loading the description',
+        exact: true,
+      });
+      await page.locator('[data-prose-pending="lede"] [data-ui="genre-prose-retry"]').waitFor();
+      assert.equal(
+        await retry.count(),
+        1,
+        'Genre: the description Retry is named for what it loads'
+      );
+      await retry.focus();
+      await page.keyboard.press('Enter');
+      await page
+        .waitForFunction(
+          () => /Still couldn/.test(document.getElementById('toast').textContent),
+          null,
+          {
+            timeout: 5000,
+          }
+        )
+        .catch(() => {});
+      const failed = await page.evaluate(() => ({
+        focus:
+          document.activeElement?.getAttribute('aria-label') || document.activeElement?.tagName,
+        toast: document.getElementById('toast').textContent,
+      }));
+      assert.ok(
+        failed.focus === 'Retry loading the description' && /Still couldn/.test(failed.toast),
+        'Genre: a failed Retry keeps focus on Retry and says so: ' + JSON.stringify(failed)
+      );
+      failProse = false;
+      await page.keyboard.press('Enter');
+      await page
+        .waitForFunction(
+          () => /Description loaded/.test(document.getElementById('toast').textContent),
+          null,
+          {
+            timeout: 10000,
+          }
+        )
+        .catch(() => {});
+      const loaded = await page.evaluate(() => ({
+        focus: document.activeElement?.className || document.activeElement?.tagName,
+        toast: document.getElementById('toast').textContent,
+      }));
+      assert.ok(
+        loaded.focus !== 'BODY' && /Description loaded/.test(loaded.toast),
+        'Genre: a Retry that loads keeps focus on the description and says so: ' +
+          JSON.stringify(loaded)
+      );
+      await context.close();
+      console.log('PASS map keyboard and genre prose Retry at 1280px');
     }
   } finally {
     await browser.close();
