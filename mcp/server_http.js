@@ -221,6 +221,17 @@ app.use(
     },
   })
 );
+// A body over the limit is refused as JSON, like every other refusal here,
+// not Express's default HTML error page (Jony, #519). Every other parser error
+// keeps its existing handling.
+app.use((err, _req, res, next) => {
+  if (err?.type !== 'entity.too.large') return next(err);
+  res.status(413).json({
+    error: `The request body exceeds the ${HTTP_REQUEST_BYTES}-byte limit.`,
+    code: 'PAYLOAD_TOO_LARGE',
+    limit_bytes: HTTP_REQUEST_BYTES,
+  });
+});
 
 // Supplied browser origins are checked before any dispatch, including preflights.
 // Native clients without Origin follow the public endpoint's access policy.

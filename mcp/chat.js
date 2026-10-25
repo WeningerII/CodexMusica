@@ -115,7 +115,8 @@ export const CHAT_LIMITS = {
   // run, capped at 2MiB by the tool's own MAX_STATE_CHARS), so the old ceiling
   // would have ended a revise conversation mid-run with "grown too long".
   // 1.5MB holds the measured state plus a long transcript and stays under the
-  // 2MiB express.json body limit the POST must fit inside.
+  // express.json body limit the POST must fit inside (~~2MiB~~; now
+  // HTTP_REQUEST_BYTES in payload_limits.js, 4.5 MiB).
   maxHistoryBytes: num('CHAT_MAX_HISTORY_BYTES', 1_500_000),
   maxTurns: num('CHAT_MAX_TURNS', 50),
   // A SECOND daily ceiling, in turns, deliberately independent of the first.
