@@ -1,4 +1,4 @@
-/* exported UI, UI_ICONS, uiEmptyState, uiFind, uiFocus, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport, uiRecipeGenres, uiCount, uiTabIndex, uiDownload, uiSubroute, uiRouteOf, uiOpenInLyrics */
+/* exported UI, UI_ICONS, uiEmptyState, uiFind, uiFocus, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport, uiRecipeGenres, uiCount, uiTabIndex, uiDownload, uiSubroute, uiRouteOf, uiOpenInLyrics, uiInertOutside */
 /* global UILayout, CMLibraryImport, _whenWorkspace, _workspaceReady, uiEnsureWorkspace, _releaseEngine, _renderBootError, uiLyricsOpened */
 /* global lyricMetaOf, ChainItem, renderSidebar, Room, Tuning, compileRecipeStack, envCardOf, renderSidebarTraditions, _revealSelectedCard, Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting, _engineLive, engineReady, storedSessionText */
 /* The shared application shell: one header, one navigation, one recipe
@@ -129,7 +129,11 @@ async function uiOpenInLyrics(envelope) {
   await uiEnsureWorkspace();
   const importer = UI_PAGES.lyrics?.imports?.library;
   if (!importer) throw Error('Lyrics cannot import from the Library.');
-  return importer(envelope);
+  const result = await importer(envelope);
+  // The button that asked is gone with the page it was on: land in the draft.
+  if (!document.activeElement || document.activeElement === document.body)
+    uiFocus($ui('lyrics-draft'));
+  return result;
 }
 // The Library is its own site (sites/library, hosted apart from this static
 // build), so its entry in Main sections is a link that opens it in a new tab
@@ -1177,6 +1181,27 @@ function uiFocus(el) {
 function uiFind(selector, key, value) {
   if (!value) return null;
   return [...document.querySelectorAll(selector)].find((el) => el.dataset[key] === value) || null;
+}
+// A modal layer: everything outside `el` (its siblings at each level up to
+// <body>) becomes inert, so Tab cannot reach what the layer covers. Live
+// regions stay live and `keep` (a scrim that closes on click) stays usable.
+// Returns the function that restores exactly what it changed.
+function uiInertOutside(el, keep = []) {
+  const changed = [];
+  for (let n = el; n && n.parentElement && n !== document.body; n = n.parentElement)
+    for (const sib of n.parentElement.children)
+      if (
+        sib !== n &&
+        !sib.inert &&
+        !keep.includes(sib) &&
+        !sib.matches('script, style, template, [aria-live], [role="status"], [role="alert"]')
+      ) {
+        sib.inert = true;
+        changed.push(sib);
+      }
+  return () => {
+    for (const sib of changed) sib.inert = false;
+  };
 }
 function uiFocusCard(id) {
   return uiFocus(uiFind('.sb-card', 'cardId', id));
