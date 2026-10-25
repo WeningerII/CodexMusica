@@ -122,6 +122,48 @@ async function noOverflow(page) {
           'status',
           'Instrument: the live region exists before its first message'
         );
+        // A category keeps focus and says what it lists; List view is a list
+        // (Jony #44, #45 on #519).
+        const catsToggle = page.locator('[data-ui="ip-cats"]');
+        if (await catsToggle.isVisible()) {
+          if ((await catsToggle.getAttribute('aria-expanded')) !== 'true') await catsToggle.click();
+        }
+        const famId = await page.evaluate(
+          () =>
+            document.querySelector(
+              '#instrument-body .ip-cat[data-ui="instrument-family"]:not([data-empty])'
+            )?.dataset.id
+        );
+        await page
+          .locator(`#instrument-body .ip-cat[data-ui="instrument-family"][data-id="${famId}"]`)
+          .focus();
+        await page.keyboard.press('Enter');
+        const cat = await page.evaluate(() => ({
+          id: document.activeElement?.dataset?.id || document.activeElement?.tagName,
+          pressed: document.activeElement?.getAttribute('aria-pressed'),
+          live: document.getElementById('ip-live')?.textContent || '',
+        }));
+        assert.ok(
+          cat.id === famId && cat.pressed === 'true' && /^[\d,]+ instruments?$/.test(cat.live),
+          'Instrument: a category keeps focus and announces its count: ' + JSON.stringify(cat)
+        );
+        await page.locator('[data-ui="ip-view"][data-id="list"]').click();
+        const listRows = await page.locator('#instrument-body .ip-row').count();
+        assert.ok(
+          listRows > 0 &&
+            (await page
+              .getByRole('list', { name: 'Instruments' })
+              .getByRole('listitem')
+              .count()) === listRows,
+          'Instrument: List view rows are items of a list'
+        );
+        await page.locator('[data-ui="ip-view"][data-id="rows"]').click();
+        await page.locator('#instrument-body .ip-cat[data-ui="instrument-all"]').click();
+        if (
+          (await catsToggle.isVisible()) &&
+          (await catsToggle.getAttribute('aria-expanded')) === 'true'
+        )
+          await catsToggle.click();
         await page.locator('#instrument-search').fill('drum');
         await page.waitForFunction(() =>
           /instrument/.test(document.getElementById('ip-live')?.textContent || '')
