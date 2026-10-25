@@ -1672,7 +1672,7 @@ async function editorKeyboard(page, where) {
           countHidden: 'true',
           copy: 'Copy recipe',
           tools: 'true',
-          summary: ['Codex:', '2 tool steps.'],
+          summary: ['Codex:', '2 tool steps, all clean.'],
         },
         'Chat: the log names each speaker, separates the reply, names Copy and sums up the tools'
       );

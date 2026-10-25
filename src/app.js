@@ -19445,7 +19445,7 @@ function _chatRenderReply(payload,request) {
     box.className = 'chat-recipe';
     const verdict = document.createElement('div');
     verdict.className = 'chat-recipe-foot';
-    verdict.textContent = recoveryExport ? 'Recovered export · not graded' : payload.completion?.certified === true ? 'Finished · certified' : `Unfinished · ${payload.artifact.status || payload.stopped || 'not certified'}`;
+    verdict.textContent = recoveryExport ? 'Recovered export · not graded' : payload.completion?.certified === true ? 'Finished · certified' : _chatUnfinishedWord(payload);
     const pre = document.createElement('pre');
     pre.className = 'chat-recipe-text';
     const text = recoveryExport ? payload.reply : payload.artifact.text || (payload.artifact.final_draft || []).join('\n');
@@ -19496,7 +19496,6 @@ function _chatRenderReply(payload,request) {
     // · exit 0"); a screen reader gets one sentence instead: how many steps,
     // and only the ones that did not go cleanly.
     trace.ariaHidden = 'true';
-    const flagged = [];
     for (const t of payload.tools) {
       const chip = document.createElement('span');
       // Lyric verbs carry a verdict (exit code, banned-pair count) and the
@@ -19510,14 +19509,12 @@ function _chatRenderReply(payload,request) {
       if (typeof t.exit_code === 'number') label += ` · exit ${t.exit_code}`;
       if (banned) label += ` · ${t.banned_pairs} banned`;
       chip.textContent = label;
-      if (t.error || banned || / · exit [^0]/.test(label) || t.certified === false) flagged.push(t.error ? `${label} (${t.error})` : label);
       if (t.error) chip.title = t.error;
       else if (banned)
         chip.title = `${t.banned_pairs} banned pair(s) — reported as notes; they do not stop the song finishing`;
       trace.appendChild(chip);
     }
-    const steps = payload.tools.length;
-    node.appendChild(_chatSr(` ${steps} tool step${steps === 1 ? '' : 's'}${flagged.length ? `; ${flagged.join('; ')}` : ''}.`));
+    node.appendChild(_chatSr(_chatToolsPlain(payload.tools)));
     node.appendChild(trace);
   }
 
@@ -19539,13 +19536,40 @@ function _chatRenderReply(payload,request) {
         ? payload.recipe
           ? 'Reached the step limit — this is the recipe so far; ask for more changes to refine it.'
           : 'Stopped after the maximum number of tool calls — ask for one change at a time to go further.'
-        : `Stopped early (${payload.stopped}).`);
+        : payload.stopped === 'LYRICS_UNFINISHED'
+          ? 'The writer stopped before finishing, so this draft isn’t final.'
+          : 'Stopped before finishing.');
+    // The reason code stays available without being read as the message.
+    if (!recipeNote && payload.stopped !== 'MAX_STEPS') note.title = `Reason code: ${payload.stopped}`;
     node.appendChild(note);
   }
   _chatScroll();
   if (typeof uiReceiveReply === 'function') uiReceiveReply(payload,request);
 }
 
+// The verdict under an unfinished draft: its status in words, never the same
+// word twice ("Unfinished · unfinished") and never a raw stop code.
+function _chatUnfinishedWord(payload) {
+  const why = String(payload.artifact?.status || '').replace(/_/g, ' ').trim().toLowerCase();
+  return !why || /^(lyrics )?(unfinished|not certified)$/.test(why) ? 'Unfinished · not certified' : `Unfinished · ${why}`;
+}
+// The tool chips (lyric_revise · exit 3) in plain words, for a listener.
+function _chatToolsPlain(tools) {
+  const steps = tools.length === 1 ? '1 tool step' : `${tools.length} tool steps`;
+  const notes = [];
+  for (const t of tools) {
+    let n = '';
+    if (t.error) n = 'a step failed';
+    else if (typeof t.exit_code === 'number' && t.exit_code !== 0)
+      n = /revise/.test(t.name || '') && t.exit_code === 3 ? 'the writer asked a question'
+        : t.exit_code === 3 ? 'a check found an open problem'
+          : t.exit_code === 2 ? 'a step was refused'
+            : 'a step did not finish';
+    else if (t.certified === false) n = 'a check did not certify the draft';
+    if (n && !notes.includes(n)) notes.push(n);
+  }
+  return notes.length ? `${steps}: ${notes.join('; ')}.` : `${steps}, all clean.`;
+}
 function _chatSetBusy(busy) {
   chatState.busy = busy;
   const dock = _chatEl('chat-dock');
