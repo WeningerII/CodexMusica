@@ -45,6 +45,12 @@ for (let i = 0; i < args.length; i++) {
   } else flags[name] = true;
 }
 
+const { checkFlags, intFlag, numFlag, refuse } = require('./_cli_flags.js');
+checkFlags(flags, {
+  boolean: ['filtered'],
+  value: ['tradition', 'staples', 'instrument', 'part', 'runner-up', 'threshold'],
+});
+
 if (!flags.tradition) {
   console.error(
     'Usage: inspect.js --tradition=<id> [--staples=id1,id2] [--instrument=id] [--part=id] [--runner-up=N] [--threshold=N] [--filtered]'
@@ -56,8 +62,20 @@ const tid = C.resolveTraditionId(flags.tradition);
 const staples = flags.staples ? flags.staples.split(',').map(C.resolveTraditionId) : [];
 const filterInstrument = flags.instrument || null;
 const filterPart = flags.part || null;
-const runnerUpCount = parseInt(flags['runner-up']) || 3;
-const minScore = flags.threshold !== undefined ? parseFloat(flags.threshold) : null;
+const runnerUpCount = intFlag(flags, 'runner-up', { min: 0, fallback: 3 });
+const minScore = numFlag(flags, 'threshold', { fallback: null });
+// An unknown --instrument or --part used to filter the report down to nothing,
+// exit 0, which reads the same as "nothing to report".
+if (filterInstrument) {
+  const inst = C.INSTRUMENTS.find((x) => x.id === filterInstrument);
+  if (!inst) refuse(`Unknown instrument id: ${filterInstrument}`);
+  if (filterPart && !(inst.parts || []).some((p) => p.id === filterPart))
+    refuse(`Instrument ${filterInstrument} has no part ${filterPart}.`);
+} else if (
+  filterPart &&
+  !C.INSTRUMENTS.some((i) => (i.parts || []).some((p) => p.id === filterPart))
+)
+  refuse(`Unknown part id: ${filterPart}`);
 const showFiltered = !!flags.filtered;
 
 const t = C.TRADITIONS.find((x) => x.id === tid);

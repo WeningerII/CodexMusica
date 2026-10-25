@@ -413,9 +413,15 @@ flags below are verified; run from the repo root.
 | **Add** instrument(s) beyond the roster | `node scripts/recipe.js --tradition <id> --add-instrument=<id>` |
 | Pin a different arrangement | `node scripts/recipe.js --tradition <id> --arrangement=<id>` |
 | Machine-readable config (not the string) | `… --json` |
-| Explain variant picks / preface picks | `… --why` / `… --why-prefaces` (add `-json` for either) |
+| Explain variant picks / preface picks | `… --why` / `… --why-prefaces` (add `-json` for either; the explanation goes to **stderr**, so stdout stays the recipe: `… --why-json 2>&1 >/dev/null \| jq`) |
 
 Notes that bite:
+- **Every documented script refuses a flag it doesn't read, a value flag given no value, and a
+  malformed number**, with exit 2 and one line on stderr naming it (`Unknown flag
+  --exclude-instruments. Did you mean --exclude-instrument?`). Before, a typo exited 0 with
+  the output unchanged. `recipe.js` also refuses two modes at once (`--tradition` with
+  `--traditions`, `--diff` or `--axis-target`). `--json` exists only where noted; `stack.js` and
+  `inspect.js` refuse it.
 - `--diff` is a registered boolean flag (`recipe.js`'s `BOOLEAN_FLAGS`), so it never
   swallows the next token: the natural `--diff <a> <b> [--weight=0.7]` form just works,
   and the two ids stay positional no matter where `--weight` / `--swap-variant` /

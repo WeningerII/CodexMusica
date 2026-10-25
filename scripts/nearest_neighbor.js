@@ -25,7 +25,11 @@ for (let i = 0; i < args.length; i++) {
   }
 }
 
-const limit = parseInt(flags.limit) || 5;
+const { checkFlags, intFlag, refuse } = require('./_cli_flags.js');
+checkFlags(flags, { boolean: ['json'], value: ['axes', 'id', 'keyword', 'limit', 'type'] });
+// A malformed --limit used to fall back to 5 without a word, and --limit=-1
+// printed "Top -1" and 1.45 MB.
+const limit = intFlag(flags, 'limit', { min: 1, fallback: 5 });
 const useJson = !!flags.json;
 const type = flags.type || 'tradition';
 
@@ -432,16 +436,19 @@ if (type === 'tradition') {
     header = `Top ${Math.min(limit, results.length)} traditions matching keyword="${flags.keyword}":`;
   } else if (flags.axes) {
     const target = {};
+    const axisIds = new Set((C.AXIS_DEFINITIONS || []).map((a) => a.id));
     for (const pair of String(flags.axes).split(',')) {
       const [k, v] = pair.split(':');
-      if (k && v !== undefined) {
-        const n = parseInt(v, 10);
-        // A non-numeric value would become NaN, making every distance NaN and
-        // the "top by distance" table just catalog order with score=NaN.
-        if (!Number.isInteger(n)) {
-          console.error(`--axes: "${k.trim()}" has a non-integer value "${v}"`);
-          process.exit(2);
-        }
+      // A pair that is not <axis>:<n> used to be skipped, so "--axes garbage"
+      // searched an empty target and answered "No matches.", exit 0.
+      if (!k || v === undefined || !axisIds.has(k.trim()))
+        refuse(`--axes: "${pair}" is not <axis>:<n>. Axes: ${[...axisIds].join(', ')}.`);
+      {
+        // A whole number from -2 to +2, read strictly: parseInt read "1.5" as 1,
+        // and "9" was accepted though no tradition sits past 2.
+        const n = /^[-+]?\d+$/.test(v.trim()) ? Number(v) : NaN;
+        if (!Number.isInteger(n) || Math.abs(n) > 2)
+          refuse(`--axes: "${k.trim()}" needs a whole number from -2 to 2; got "${v}".`);
         target[k.trim()] = n;
       }
     }
