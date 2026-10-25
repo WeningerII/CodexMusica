@@ -399,7 +399,10 @@ function ipRenderList(filtered, fam, q, filters) {
         .join('')}${uiButton('clear-filters', 'Clear all', 'x', 'class="ip-link"')}</div>`
     : '';
   const body = view === 'rows' ? ipRowsBody(filtered, fam) : ipListBody(filtered);
-  return `<section class="ip-list" aria-labelledby="ip-list-title">${crumbs}<div class="ip-list-head"><h2 id="ip-list-title">${esc(title)}</h2><span class="ip-list-count" role="status">${uiCount(filtered.length, 'instrument')}</span>${controls}</div>${classChips}${active}${body}${!filtered.length ? uiInstrumentNoResults(q, fam) : ''}</section>`;
+  // The count is re-rendered with the list, so it speaks through the live
+  // region instead, once typing settles (Jony #28).
+  if (q) ipAnnounceSoon(uiCount(filtered.length, 'instrument'));
+  return `<section class="ip-list" aria-labelledby="ip-list-title">${crumbs}<div class="ip-list-head"><h2 id="ip-list-title">${esc(title)}</h2><span class="ip-list-count">${uiCount(filtered.length, 'instrument')}</span>${controls}</div>${classChips}${active}${body}${!filtered.length ? uiInstrumentNoResults(q, fam) : ''}</section>`;
 }
 // Rows: the family (or class) bar when two or more rows have instruments, then the rows.
 function ipRowsBody(filtered, fam) {
@@ -542,6 +545,7 @@ function ipChoose(e, focusKey) {
       moved.map((c) => `${c.label} ${c.from} → ${c.to}`).join('; ')
     : '';
   ipRenderInspector(focusKey);
+  if (IP.note) ipAnnounce(IP.note);
 }
 const ipVariantName = (inst, part, v) => (v ? Variant(inst, part, v)?.name || v : 'Not set');
 const ipChainName = (stage, v) =>
@@ -607,21 +611,24 @@ function ipDescriptors(card) {
 function ipOptionDescs(v, current) {
   const descs = v ? entryRenderDescs(v) : [];
   const now = new Set(current ? entryRenderDescs(current) : []);
-  if (v === current) return descs.map((d) => `<span class="ip-d">${esc(d)}</span>`).join('');
+  // Spoken as a list: a hidden comma between items, which the layout gap
+  // separates for the eye only.
+  const list = (items) => items.join('<span class="ip-sr">, </span>');
+  if (v === current) return list(descs.map((d) => `<span class="ip-d">${esc(d)}</span>`));
   const cand = new Set(descs);
-  return (
-    descs
-      .map((d) =>
-        now.has(d)
-          ? `<span class="ip-d">${esc(d)}</span>`
-          : `<span class="ip-d ip-d-add" title="Added">+ ${esc(d)}</span>`
-      )
-      .join('') +
-    [...now]
+  return list([
+    ...descs.map((d) =>
+      now.has(d)
+        ? `<span class="ip-d">${esc(d)}</span>`
+        : `<span class="ip-d ip-d-add" title="Added"><span aria-hidden="true">+ </span><span class="ip-sr">adds </span>${esc(d)}</span>`
+    ),
+    ...[...now]
       .filter((d) => !cand.has(d))
-      .map((d) => `<del class="ip-d ip-d-lost" title="Removed">${esc(d)}</del>`)
-      .join('')
-  );
+      .map(
+        (d) =>
+          `<del class="ip-d ip-d-lost" title="Removed"><span class="ip-sr">removes </span>${esc(d)}</del>`
+      ),
+  ]);
 }
 function ipOption(inst, part, v, current, extra = '') {
   const vid = v ? v.id : '';
@@ -630,11 +637,15 @@ function ipOption(inst, part, v, current, extra = '') {
   // The filter matches the option's own name and descriptors, never the
   // descriptors it would remove.
   const text = v ? [v.name || v.id, ...entryRenderDescs(v)].join(' ') : 'Not set';
-  return `<label class="ip-opt${checked ? ' is-on' : ''}" data-ip-text="${esc(text)}"${extra}><input type="radio" name="ip-part-${esc(part.id)}" value="${esc(vid)}" data-ip-part="${esc(part.id)}" data-ip-key="${esc(key)}"${checked ? ' checked' : ''}><span class="ip-opt-name">${v ? esc(v.name || v.id) : 'Not set'}</span><span class="ip-opt-descs">${v || current ? ipOptionDescs(v, current) : ''}</span></label>`;
+  // The radio is named by the option alone; what it adds and removes is its
+  // description, spoken as such (the + and strikethrough are visual only;
+  // Jony #27 on #519).
+  const nid = 'ipo-' + key.replace(/[^\w-]/g, '_');
+  return `<label class="ip-opt${checked ? ' is-on' : ''}" data-ip-text="${esc(text)}"${extra}><input type="radio" name="ip-part-${esc(part.id)}" value="${esc(vid)}" data-ip-part="${esc(part.id)}" data-ip-key="${esc(key)}" aria-labelledby="${nid}" aria-describedby="${nid}-d"${checked ? ' checked' : ''}><span class="ip-opt-name" id="${nid}">${v ? esc(v.name || v.id) : 'Not set'}</span><span class="ip-opt-descs" id="${nid}-d">${v || current ? ipOptionDescs(v, current) : ''}</span></label>`;
 }
 function ipFilterBox(key, label) {
   const value = IP.filters[key] || '';
-  return `<label class="ip-filter cm-search">${icon('search', 16)}<input type="search" data-ip-filter="${esc(key)}" data-ip-key="filter:${esc(key)}" value="${esc(value)}" placeholder="${esc(label)}" aria-label="${esc(label)}"><span class="ip-filter-count" aria-live="polite"></span></label>`;
+  return `<label class="ip-filter cm-search">${icon('search', 16)}<input type="search" data-ip-filter="${esc(key)}" data-ip-key="filter:${esc(key)}" value="${esc(value)}" placeholder="${esc(label)}" aria-label="${esc(label)}"><span class="ip-filter-count"></span></label>`;
 }
 function ipRenderParts(inst) {
   const card = IP.card;
@@ -706,9 +717,11 @@ function ipRenderCharacter() {
       return ipPrefaceCategory(cat, list, IP.pcats.has(cat));
     })
     .join('');
+  // Read by the search's input handler, which announces it once typing stops.
+  IP.prefMatches = q ? total : null;
   const recent = q ? [] : loadPrefaceRecent().map(byId).filter(Boolean);
   const sug = suggested && suggested !== card.preface ? byId(suggested) : null;
-  return `<div class="ip-block"><p class="ip-current"><span class="ip-label">Character</span><strong>${esc(card.preface || 'None')}</strong><span class="ip-muted">${card.prefaceAuto === false ? 'chosen' : 'automatic, from the parts'}</span></p>${card.prefaceAuto === false ? uiButton('ip-auto', 'Back to automatic', 'refresh-cw', 'class="cm-btn cm-btn-outline"') : ''}<p class="ip-help">Picking a character re-derives the parts, tuning, room and chain toward it (the same cascade as the editor). What moved is listed under Your changes.</p>${sug ? `<div class="ip-suggest"><span class="ip-label">Suggested for this sound</span>${ipPrefaceChip(sug, false, 'suggest')}</div>` : ''}<label class="ip-filter cm-search">${icon('search', 16)}<input type="search" id="ip-pref-q" data-ip-key="pref-q" value="${esc(IP.prefQuery)}" placeholder="Search ${lex.length.toLocaleString('en')} characters (bitter, dreamy, haunted…)" aria-label="Search characters"></label><div class="ip-pref-browser" role="group" aria-label="Browse characters by category"><div class="ip-pref-bar"><span class="ip-muted" role="status">${q ? uiCount(total, 'match', 'matches') : `${lex.length.toLocaleString('en')} characters · ${order.length} categories`}</span>${q ? '' : uiButton('ip-pcat-all', 'Expand all', 'chevron-down', 'class="ip-link" data-id="all"') + uiButton('ip-pcat-all', 'Collapse all', 'chevron-right', 'class="ip-link" data-id="none"')}</div>${recent.length ? `<div class="ip-pref-recent"><span class="ip-label">Recently used</span><div class="ip-pcat-items">${recent.map((e) => ipPrefaceChip(e, false, 'recent')).join('')}</div></div>` : ''}${cats}${q && !total ? `<p class="ip-muted">No character matches “${esc(IP.prefQuery)}”.</p>` : ''}</div></div>`;
+  return `<div class="ip-block"><p class="ip-current"><span class="ip-label">Character</span><strong>${esc(card.preface || 'None')}</strong><span class="ip-muted">${card.prefaceAuto === false ? 'chosen' : 'automatic, from the parts'}</span></p>${card.prefaceAuto === false ? uiButton('ip-auto', 'Back to automatic', 'refresh-cw', 'class="cm-btn cm-btn-outline"') : ''}<p class="ip-help">Picking a character re-derives the parts, tuning, room and chain toward it (the same cascade as the editor). What moved is listed under Your changes.</p>${sug ? `<div class="ip-suggest"><span class="ip-label">Suggested for this sound</span>${ipPrefaceChip(sug, false, 'suggest')}</div>` : ''}<label class="ip-filter cm-search">${icon('search', 16)}<input type="search" id="ip-pref-q" data-ip-key="pref-q" value="${esc(IP.prefQuery)}" placeholder="Search ${lex.length.toLocaleString('en')} characters (bitter, dreamy, haunted…)" aria-label="Search characters"></label><div class="ip-pref-browser" role="group" aria-label="Browse characters by category"><div class="ip-pref-bar"><span class="ip-muted">${q ? uiCount(total, 'match', 'matches') : `${lex.length.toLocaleString('en')} characters · ${order.length} categories`}</span>${q ? '' : uiButton('ip-pcat-all', 'Expand all', 'chevron-down', 'class="ip-link" data-id="all"') + uiButton('ip-pcat-all', 'Collapse all', 'chevron-right', 'class="ip-link" data-id="none"')}</div>${recent.length ? `<div class="ip-pref-recent"><span class="ip-label">Recently used</span><div class="ip-pcat-items">${recent.map((e) => ipPrefaceChip(e, false, 'recent')).join('')}</div></div>` : ''}${cats}${q && !total ? `<p class="ip-muted">No character matches “${esc(IP.prefQuery)}”.</p>` : ''}</div></div>`;
 }
 function ipEnvSource() {
   // The recipe renders ONE environment: the first card that has one
@@ -803,7 +816,29 @@ function ipRenderChanges() {
     : 'None — catalog defaults' + (ipDest() ? ' for ' + ipDestName() : '');
   if (!changes.length)
     return `<div class="ip-changes"><p class="ip-changes-sum"><span class="ip-label">Your changes</span> <span>${esc(summary)}</span></p></div>`;
-  return `<details class="ip-changes" data-ip-changes${IP.changesOpen ? ' open' : ''}><summary class="ip-changes-sum"><span class="ip-label">Your changes</span> <span>${esc(summary)}</span></summary><div class="ip-changes-body">${IP.note ? `<p class="ip-note" role="status">${esc(IP.note)}</p>` : ''}<ul class="ip-changes-list">${changes.map((c) => `<li><strong>${esc(c.label)}</strong> ${esc(c.from)} → ${esc(c.to)} <span class="ip-muted">${chosen.has(c.key) ? 'your choice' : 'moved to match'}</span></li>`).join('')}</ul><details class="ip-review"><summary>Review descriptor changes</summary><div class="ip-review-grid">${list('Added', added, 'ip-d-add')}${list('Removed', removed, 'ip-d-lost')}${list('Kept', kept, '')}</div></details>${uiButton('ip-reset', 'Reset to catalog defaults', 'refresh-cw', 'class="ip-link"')}</div></details>`;
+  return `<details class="ip-changes" data-ip-changes${IP.changesOpen ? ' open' : ''}><summary class="ip-changes-sum"><span class="ip-label">Your changes</span> <span>${esc(summary)}</span></summary><div class="ip-changes-body">${IP.note ? `<p class="ip-note">${esc(IP.note)}</p>` : ''}<ul class="ip-changes-list">${changes.map((c) => `<li><strong>${esc(c.label)}</strong> ${esc(c.from)} → ${esc(c.to)} <span class="ip-muted">${chosen.has(c.key) ? 'your choice' : 'moved to match'}</span></li>`).join('')}</ul><details class="ip-review"><summary>Review descriptor changes</summary><div class="ip-review-grid">${list('Added', added, 'ip-d-add')}${list('Removed', removed, 'ip-d-lost')}${list('Kept', kept, '')}</div></details>${uiButton('ip-reset', 'Reset to catalog defaults', 'refresh-cw', 'class="ip-link"')}</div></details>`;
+}
+// One live region outside the inspector, which re-renders by innerHTML and
+// so would replace any status node inside it before it is announced (Jony #28
+// on #519): the filter's match count and the "Configured for …" note speak
+// here.
+function ipAnnounce(text) {
+  const host = $ui('instrument-preview');
+  if (!host?.parentElement) return;
+  let live = $ui('ip-live');
+  if (!live) {
+    live = document.createElement('div');
+    live.id = 'ip-live';
+    live.className = 'ip-sr';
+    live.setAttribute('role', 'status');
+    host.after(live);
+  }
+  if (live.textContent !== text) live.textContent = text;
+}
+let ipAnnounceTimer = 0;
+function ipAnnounceSoon(text) {
+  clearTimeout(ipAnnounceTimer);
+  ipAnnounceTimer = setTimeout(() => ipAnnounce(text), 600);
 }
 function ipRenderInspector(focusKey) {
   const host = $ui('instrument-preview');
@@ -876,6 +911,7 @@ function ipFilterList(input) {
   }
   const count = input.parentElement.querySelector('.ip-filter-count');
   if (count) count.textContent = q ? uiCount(shown, 'match', 'matches') : '';
+  ipAnnounce(q ? uiCount(shown, 'match', 'matches') : '');
 }
 function ipOverlay() {
   // Narrow layouts show the inspector over the catalogue.
@@ -894,6 +930,7 @@ function uiCloseInstrumentPreview() {
   UI.instrumentPreview = null;
   IP.trail = [];
   IP.card = IP.base = null;
+  ipAnnounce('');
   ipRenderInspector();
   renderInstrumentDiscovery();
   uiFocus(uiFind('#instrument-body [data-ui="instrument-inspect"]', 'id', id)) ||
@@ -917,6 +954,7 @@ function uiInspectInstrument(id, { fromTrail = false, similar = false } = {}) {
     IP.filters = {};
     IP.note = '';
     IP.prefQuery = '';
+    ipAnnounce('');
   }
   // Similar instruments build a trail the inspector can step back through;
   // choosing from the list, a genre or a deep link starts a new one.
@@ -992,6 +1030,9 @@ uiRegisterPage({
     // The overlay is a container-width layout, so follow the root's size.
     if (typeof ResizeObserver === 'function')
       new ResizeObserver(ipSyncCovered).observe($ui('ip-root'));
+    // The live region exists before its first message, which is otherwise
+    // not read (Jony #28).
+    ipAnnounce('');
     $ui('instrument-search').addEventListener('input', () => {
       UI.limit = 50;
       renderInstrumentDiscovery();
@@ -1024,6 +1065,16 @@ uiRegisterPage({
       else if (t.id === 'ip-pref-q') {
         IP.prefQuery = t.value;
         ipRenderInspector('pref-q');
+        // The count above is re-rendered with the inspector, so a live
+        // region there is never read; the one persistent region says it.
+        const n = IP.prefMatches;
+        ipAnnounceSoon(
+          n == null
+            ? ''
+            : n
+              ? uiCount(n, 'match', 'matches')
+              : `No character matches “${t.value.trim()}”`
+        );
       }
     });
     // Destinations follow the recipe: refresh them when a select is opened.
