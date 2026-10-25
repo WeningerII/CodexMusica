@@ -576,7 +576,8 @@ a run ledger keeps each run's latest revision, whether it finished, and a digest
 every state or checkpoint the run has moved past. It holds digests only, never a
 `run_id` or a wire, in `run-ledger.json` under `LYRIC_RUNTIME_DIR` (`RUN_LEDGER_FILE`
 overrides; in memory otherwise), replaced atomically after a file and a directory
-fsync, kept 30 days and capped at 5,000 runs. So, with nothing run:
+fsync, and kept 30 days within a cap of 5,000 runs and 5,000 moved-past wires,
+whichever comes first. So, with nothing run:
 
 - a revision behind the run's latest, or any revision of a finished run, refuses;
 - a state or checkpoint the run already moved past refuses whether or not the call
@@ -584,11 +585,23 @@ fsync, kept 30 days and capped at 5,000 runs. So, with nothing run:
 - while the ledger cannot be read or saved, every continuation refuses
   (`RUN_LEDGER_UNAVAILABLE`); a fresh run on a draft is unaffected.
 
-Limits: a run the ledger never saw (from before it shipped, or past its retention)
-continues as before. "Behind" and "never delivered" look the same from a revision:
+Limits: replay prevention is bounded, not unlimited. A run the ledger never saw
+(from before it shipped) continues as before, and so does one it has dropped: past
+30 days, or earlier once 5,000 newer runs or moved-past wires have pushed it out of
+the cap — the oldest entry is evicted first, and a continuation it covered would run
+again. An unreadable ledger is not repaired by moving the file aside: an empty
+ledger forgets that history and readmits every older continuation it covered, as
+runs it never saw. While it stays unreadable, continuations stay refused; restoring
+a readable copy is the repair, and starting empty is a decision to readmit those
+continuations, not a routine fix. "Behind" and "never delivered" look the same from a revision:
 a call interrupted after its run advanced but before its result reached the caller
 leaves the caller holding the earlier one, which then refuses; `recover_only` reads
-its accepted lyrics and `new_run` goes on as an independent run. A repeated question
+its accepted lyrics and `new_run` goes on as an independent run. On `/chat` a model
+never holds the wire: a bare `recover_only` there recovers the conversation's
+carried continuation. A `/chat` result recorded in its receipt is fetchable by
+`request_id`; one lost between the run ledger and the receipt (a crash in that
+window) is not — the receipt is `interrupted`, and continuing it by
+`continuation_id` resumes from the receipt's progress as an independent run. A repeated question
 (the run still on the same state) is not moved past. `new_run` stays the explicit way
 to start independent work on a draft. Original
 replay input, accepted lines and immutable declarations have separate fields;

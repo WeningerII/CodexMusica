@@ -361,7 +361,7 @@ function ledgerRefusal(mark, args) {
 const USED_TAIL =
   'Continue from the latest result of this run. If that result never reached you (an interrupted call), lyric_revise with recover_only returns the accepted lyrics from what you hold; then send new_run: true with that draft to go on as an independent run.';
 export const LEDGER_UNAVAILABLE_REFUSAL =
-  'RUN_LEDGER_UNAVAILABLE: the run ledger cannot be read or saved on this server, so a continuation cannot be checked against what its run already did. Nothing was run. lyric_revise with recover_only still returns the accepted lyrics from what you hold, and new_run: true with a draft starts an independent run.';
+  'RUN_LEDGER_UNAVAILABLE: the run ledger cannot be read or saved on this server, so a continuation cannot be checked against what its run already did. Nothing was run, and nothing this call can send repairs it: the server operator must restore a readable ledger. Meanwhile lyric_revise with recover_only still returns the accepted lyrics from what you hold, and new_run: true with a draft starts an independent run.';
 export const USED_WIRE_REFUSAL = `REFUSED: this state or checkpoint was already continued — its run moved past it or finished. Nothing was run. ${USED_TAIL}`;
 
 function sameDraft(a, b) {

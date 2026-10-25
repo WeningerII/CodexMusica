@@ -435,6 +435,59 @@ test('actual kitchen driver exports the explicit original envelope without resum
   }
 });
 
+test('a bare recover_only on /chat recovers the carried continuation (the run ledger names that way out)', async () => {
+  const carried = {
+    seed: 16,
+    resumable: true,
+    decl: { seed: 16 },
+    draft,
+    checkpoint: 'host-checkpoint',
+    run_id: 'host-run',
+    run_revision: 7,
+  };
+  const cases = [
+    [{ recover_only: true }, carried, { recover_only: true, checkpoint: 'host-checkpoint' }],
+    [
+      { recover_only: true, recovery_part: 'journal', seed: 16 },
+      carried,
+      { recover_only: true, recovery_part: 'journal', checkpoint: 'host-checkpoint' },
+    ],
+    [
+      { recover_only: true },
+      { ...carried, checkpoint: undefined, state: 'host-state' },
+      { recover_only: true, state: 'host-state' },
+    ],
+  ];
+  for (const [call, lyric, expected] of cases) {
+    let requests = 0;
+    const dispatched = [];
+    globalThis.fetch = async () =>
+      response(++requests === 1 ? [fc('lyric_revise', call)] : [{ text: 'Recovered.' }]);
+    try {
+      await runTurn({
+        ...opts,
+        writer: 'kitchen',
+        task: { ...fresh(), completedSteps: [] },
+        lyric,
+        callTool: async (name, args) => {
+          dispatched.push({ name, args });
+          return result({
+            status: 'recovered_artifact',
+            recovery_part: args.recovery_part ?? 'all',
+            certified: false,
+            resumable: false,
+            new_run_required: true,
+            final_draft: draft,
+          });
+        },
+      });
+      assert.deepEqual(dispatched, [{ name: 'lyric_revise', args: expected }]);
+    } finally {
+      globalThis.fetch = nativeFetch;
+    }
+  }
+});
+
 test('kitchen declarations retain the recovery export door during suspended and parked runs', () => {
   const declaration = {
     name: 'lyric_revise',
