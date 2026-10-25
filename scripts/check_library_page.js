@@ -1874,6 +1874,84 @@ SECTIONS.credit = async function ({ page, base, tag }) {
   );
   check(`${tag} credit: Close returns focus to the card's menu button`, back);
 };
+// Keyboard range selection in the reader, as in a list (Jony #116):
+// Shift+Arrow extends from the anchor line, Shift+Home/End to the first and
+// last line, going back shrinks it, Shift+click matches, Escape clears, and
+// the count is said through #library-live.
+SECTIONS.range = async function ({ page, base, tag }) {
+  await go(page, base, `/read/${EPI_A}`);
+  const failed = await settled(
+    page,
+    'reader',
+    '#surface-library .rd-paper .rd-num:not([disabled])'
+  );
+  if (!check(`${tag} range: reader lines`, !failed, failed)) return;
+  const state = () =>
+    page.evaluate(() => {
+      const nums = [...document.querySelectorAll('#surface-library .rd-num:not([disabled])')];
+      const a = document.activeElement;
+      return {
+        selected: nums
+          .filter((b) => b.getAttribute('aria-pressed') === 'true')
+          .map((b) => nums.indexOf(b)),
+        focus: nums.indexOf(a),
+        total: nums.length,
+        said: document.getElementById('library-live')?.textContent || '',
+      };
+    });
+  const said = async () => {
+    await page.waitForTimeout(120);
+    return (await state()).said;
+  };
+  const nums = '#surface-library .rd-num:not([disabled])';
+  await page.locator(nums).nth(1).focus();
+  await page.keyboard.press('Enter');
+  await page.keyboard.press('Shift+ArrowDown');
+  await page.keyboard.press('Shift+ArrowDown');
+  let st = await state();
+  check(
+    `${tag} range: Shift+ArrowDown twice extends 1 line to 3, focus on the last`,
+    JSON.stringify(st.selected) === '[1,2,3]' && st.focus === 3,
+    JSON.stringify(st)
+  );
+  check(`${tag} range: the count is said`, (await said()) === '3 lines selected', st.said);
+  await page.keyboard.press('Shift+ArrowUp');
+  st = await state();
+  check(
+    `${tag} range: Shift+ArrowUp shrinks it back to 2`,
+    JSON.stringify(st.selected) === '[1,2]' && st.focus === 2,
+    JSON.stringify(st)
+  );
+  await page.keyboard.press('Shift+End');
+  st = await state();
+  check(
+    `${tag} range: Shift+End extends to the last line`,
+    st.selected.length === st.total - 1 && st.selected[0] === 1 && st.focus === st.total - 1,
+    JSON.stringify({ ...st, selected: st.selected.length })
+  );
+  await page.keyboard.press('Shift+Home');
+  st = await state();
+  check(
+    `${tag} range: Shift+Home extends from the anchor to the first line`,
+    JSON.stringify(st.selected) === '[0,1]' && st.focus === 0,
+    JSON.stringify(st)
+  );
+  await page.keyboard.press('Escape');
+  st = await state();
+  check(`${tag} range: Escape clears the selection`, st.selected.length === 0, JSON.stringify(st));
+  await page.locator(nums).nth(0).click();
+  await page
+    .locator(nums)
+    .nth(3)
+    .click({ modifiers: ['Shift'] });
+  st = await state();
+  check(
+    `${tag} range: Shift+click selects from the anchor to the clicked line`,
+    JSON.stringify(st.selected) === '[0,1,2,3]',
+    JSON.stringify(st)
+  );
+  check(`${tag} range: and says so`, (await said()) === '4 lines selected', st.said);
+};
 const NEEDS = {
   explore: 'core',
   works: 'works',
@@ -1887,6 +1965,7 @@ const NEEDS = {
   retry: 'works',
   keys: 'works',
   credit: 'rights',
+  range: 'reader',
 };
 
 (async () => {

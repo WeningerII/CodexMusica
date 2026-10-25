@@ -837,6 +837,19 @@ function render() {
 </div>`;
   S.root = S.main.firstElementChild;
   S.root.addEventListener('click', onClick);
+  S.root.addEventListener('keydown', (e) => {
+    const b = e.target.closest?.('.rd-num');
+    const go = { ArrowDown: 1, ArrowUp: -1, Home: -Infinity, End: Infinity }[e.key];
+    if (!b || !e.shiftKey || !go || e.altKey || e.ctrlKey || e.metaKey) return;
+    const nums = [...S.root.querySelectorAll('.rd-num:not([disabled])')];
+    const at = nums.indexOf(b);
+    const next = nums[go === -Infinity ? 0 : go === Infinity ? nums.length - 1 : at + go] || null;
+    e.preventDefault();
+    if (!next) return;
+    if (!S.range) S.range = { anchor: S.anchor || b.dataset.id, base: new Set(S.sel) };
+    next.focus();
+    selectRange(next.dataset.id);
+  });
   S.root.addEventListener('change', onChange);
   S.root.addEventListener('input', onChange);
   // One Escape, one layer. An Escape pressed in another layer (the app's More
@@ -849,6 +862,7 @@ function render() {
     if (S.root.classList.contains('rd-sheet')) closeSheet();
     else if (S.sel.size) {
       S.sel.clear();
+      S.range = S.anchor = null;
       syncSelection();
       renderBody();
     }
@@ -1325,21 +1339,52 @@ function speak(auto) {
 }
 
 // ─── events ────────────────────────────────────────────────────────────────
-function toggleLine(id) {
+function paintLine(id) {
   const l = windowLines().find((x) => x.id === id);
-  if (!l || l.analysis_line == null) return;
-  if (S.sel.has(id)) S.sel.delete(id);
-  else S.sel.add(id);
   const el = document.getElementById(id);
   el?.classList.toggle('rd-sel', S.sel.has(id));
   const b = el?.querySelector('.rd-num');
-  if (b) {
+  if (b && l) {
     b.setAttribute('aria-pressed', String(S.sel.has(id)));
     b.setAttribute(
       'aria-label',
       `${S.sel.has(id) ? 'Deselect' : 'Select'} analysis line ${l.analysis_line}`
     );
   }
+}
+// A range, as in a list (Jony #116): Shift+Arrow, Shift+Home/End or
+// Shift+click selects every line from the anchor (the line last toggled) to
+// the target, on top of what was selected before the range began; going back
+// shrinks the range. A plain toggle sets a new anchor.
+function selectRange(toId) {
+  const nums = [...S.root.querySelectorAll('.rd-num:not([disabled])')];
+  const ids = nums.map((b) => b.dataset.id);
+  const to = ids.indexOf(toId);
+  if (to < 0) return;
+  if (!S.range || !ids.includes(S.range.anchor)) {
+    const focused = document.activeElement?.closest?.('.rd-num')?.dataset.id;
+    S.range = { anchor: ids.includes(focused) ? focused : toId, base: new Set(S.sel) };
+  }
+  const from = ids.indexOf(S.range.anchor);
+  const span = new Set(ids.slice(Math.min(from, to), Math.max(from, to) + 1));
+  const before = new Set(S.sel);
+  S.sel = new Set([...S.range.base, ...span]);
+  for (const id of new Set([...before, ...S.sel])) paintLine(id);
+  selectionChanged(toId);
+}
+function toggleLine(id) {
+  const l = windowLines().find((x) => x.id === id);
+  if (!l || l.analysis_line == null) return;
+  if (S.sel.has(id)) S.sel.delete(id);
+  else S.sel.add(id);
+  paintLine(id);
+  S.range = null;
+  S.anchor = id;
+  selectionChanged(id);
+}
+function selectionChanged(id) {
+  const l = windowLines().find((x) => x.id === id);
+  if (!l) return;
   renderBar();
   syncSelection();
   if (typeof libraryAnnounce === 'function')
@@ -1362,6 +1407,10 @@ function onClick(e) {
     case 'back':
       return S.lib.go('/works');
     case 'toggle':
+      if (e.shiftKey && S.anchor) {
+        S.range = S.range || { anchor: S.anchor, base: new Set(S.sel) };
+        return selectRange(id);
+      }
       return toggleLine(id);
     case 'srcrow': {
       const l = windowLines().find((x) => x.id === id);
@@ -1469,6 +1518,7 @@ function onClick(e) {
       return handoff(true);
     case 'p-clear':
       S.sel.clear();
+      S.range = S.anchor = null;
       syncSelection();
       return renderBody();
   }
