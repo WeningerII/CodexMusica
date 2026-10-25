@@ -57,6 +57,8 @@ Connector:
 | DEFAULT_TOOL_BUDGET_MS | 600,000 | `../mcp/budget.js` |
 | TOOL_DELIVERY_MARGIN_MS | 30,000 | `../mcp/budget.js` |
 | LIST_TRADITIONS_MAX | 100 | `../mcp/engine.js` |
+| MAX_QUERY_CHARS | 200 | `../mcp/engine.js` |
+| MAX_QUERY_TERMS | 16 | `../mcp/engine.js` |
 | VARIANT_BUDGET | 120 | `../mcp/engine.js` |
 | MIN_PER_PART | 4 | `../mcp/engine.js` |
 | RECIPE_FINISH_MS | 10,000 | `../mcp/gemini_agent.js` |
@@ -98,10 +100,14 @@ Connector:
 | READER_BODY_BYTES | 2,097,152 (2,048 KB) | `../mcp/reader_protocol.js` |
 | RUN_TTL_MS | 21,600,000 | `../mcp/run_store.js` |
 | RUN_CAP | 64 | `../mcp/run_store.js` |
+| LEDGER_RETAIN_MS | 2,592,000,000 | `../mcp/run_store.js` |
+| LEDGER_CAP | 5,000 | `../mcp/run_store.js` |
+| LEDGER_PAID_CAP | 20,000 | `../mcp/run_store.js` |
 | MAX_TRADITIONS_PER_CALL | 16 | `../mcp/schemas.js` |
 | MAX_EDITS_PER_CALL | 64 | `../mcp/schemas.js` |
 | MAX_WORKSPACE_CARDS | 512 | `../mcp/schemas.js` |
 | HEADER_LOG_LIMIT | 300 | `../mcp/server_http.js` |
+| LOGGED_TOKEN_CHARS | 64 | `../mcp/server_http.js` |
 | WORKER_STATE_BYTES | 1,114,112 (1,088 KB) | `../mcp/state_codec.js` |
 | STATE_DECODED_BYTES | 1,179,648 (1,152 KB) | `../mcp/state_codec.js` |
 | CONNECTOR_DECLARATION_BYTES | 32,768 (32 KB) | `../mcp/state_codec.js` |
