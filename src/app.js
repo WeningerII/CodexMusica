@@ -14835,7 +14835,7 @@ function showToast(msg, kind, action, opts) {
     if (!t.querySelector('.toast-hint')) {
       const hint = document.createElement('span');
       hint.className = 'sr-only toast-hint';
-      hint.textContent = `. ${TOAST_KEY_LABEL} reaches Dismiss. `;
+      hint.textContent = `${/[.!?…]$/.test(String(msg).trim()) ? ' ' : '. '}${TOAST_KEY_LABEL} reaches Dismiss. `;
       t.append(hint);
     }
     const x = document.createElement('button');
