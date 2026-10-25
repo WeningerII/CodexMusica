@@ -2432,6 +2432,14 @@ body.workbench {
 .map-status[hidden] {
   display: none;
 }
+.ui-live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
 #toast {
   max-width: min(560px, calc(100vw - 32px));
 }

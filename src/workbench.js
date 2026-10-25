@@ -1163,6 +1163,17 @@ function uiStart() {
   else uiNavigate('genre');
 }
 
+// Short status lines (a search count, a route notice) go to #ui-live, not to
+// showToast: a toast replaces the one before it, and must not evict an
+// unresolved error and its Retry. Cleared first so a repeat is read again.
+/* exported uiAnnounce */
+function uiAnnounce(text) {
+  const live = document.getElementById('ui-live');
+  if (!live) return;
+  live.textContent = '';
+  if (text) setTimeout(() => (live.textContent = text), 50);
+}
+
 // ── Layers ── Escape closes the topmost open layer only and returns focus to
 // whatever opened it: an enlarged photo (uiLightbox, below, owns its own
 // Escape), a dialog (src/app.js handles those), then the More
