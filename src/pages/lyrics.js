@@ -7067,10 +7067,14 @@ const LY_FOCUS_OWN = new Set(['ly-sec-move', 'ly-sec-dup', 'ly-sec-remove']);
 function lyFocusFind(want) {
   const scope = (want.scope && document.getElementById(want.scope)) || null;
   const { ui, id } = want;
-  const sel = `[data-ui="${CSS.escape(ui)}"]${id == null ? '' : `[data-id="${CSS.escape(id)}"]`}`;
+  // Compared, not built into a selector: no CSS.escape (absent under jsdom).
+  const same = (e) => e.dataset.ui === ui && (id == null || e.dataset.id === String(id));
   for (const root of [scope, $ui('surface-lyrics')]) {
     const el =
-      root && [...root.querySelectorAll(sel)].find((e) => !e.disabled && e.getClientRects().length);
+      root &&
+      [...root.querySelectorAll('[data-ui]')].find(
+        (e) => same(e) && !e.disabled && e.getClientRects().length
+      );
     if (el) return el;
   }
   // Gone: the heading of the view it was in.
