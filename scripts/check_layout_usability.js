@@ -301,6 +301,27 @@ async function noOverflow(page) {
         false,
         'Keyboard guards: closing the Recipe sheet makes the page usable again'
       );
+      // A page opened from the sheet takes focus at once (Jony #81): the page
+      // is given back in the same task, before the page focuses its field.
+      await page.locator('[data-ui="session"]').click();
+      await page.locator('#btn-add').focus();
+      await page.keyboard.press('Enter');
+      await page.waitForFunction(() => document.body.dataset.view === 'instrument');
+      await settle(page);
+      assert.deepEqual(
+        await page.evaluate(() => ({
+          focus: document.activeElement?.id || document.activeElement?.tagName,
+          inert: document.getElementById('discovery').inert,
+        })),
+        { focus: 'instrument-search', inert: false },
+        'Keyboard guards: Add instrument from the Recipe sheet lands in Search instruments'
+      );
+      await page.keyboard.type('fiddle');
+      assert.equal(
+        await page.locator('#instrument-search').inputValue(),
+        'fiddle',
+        'Keyboard guards: typing after Add instrument goes into Search instruments'
+      );
       console.log('PASS keyboard guards at 390x780: undo behind a dialog, in a field, sheet Tab');
       await context.close();
     }

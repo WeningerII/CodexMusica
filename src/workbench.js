@@ -236,6 +236,9 @@ function uiNavigate(view, { push = false, sub } = {}) {
     if (!chatState.busy) uiSwitchChat('recipe');
   }
   document.body.classList.remove('session-open');
+  // Now, not in the observer's microtask: the page's own focus call follows
+  // in this task, and an inert page would refuse it (Jony #81).
+  uiSyncSheetCovered();
   UILayout.refresh();
   document.querySelector(`[data-view="${view}"]`)?.focus({ preventScroll: true });
 }
@@ -989,6 +992,7 @@ function uiStart() {
         break;
       case 'close-session':
         document.body.classList.remove('session-open');
+        uiSyncSheetCovered();
         document.querySelector('[data-ui="session"]').setAttribute('aria-expanded', 'false');
         document.querySelector('[data-ui="session"]').focus({ preventScroll: true });
         break;
@@ -1031,7 +1035,8 @@ function uiStart() {
         break;
       case 'close-ai':
         document.body.classList.remove('assistant-open');
-        uiFocus(UI.assistantOpener) || uiFocus(document.querySelector(`[data-view="${UI.view}"]`));
+        uiFocus(UI.assistantOpener) ||
+          uiFocus(document.querySelector(`button[data-view="${UI.view}"]`));
         break;
       case 'new-recipe':
         uiNewTask('recipe');
@@ -1196,6 +1201,9 @@ function uiSyncSheetCovered() {
 // whatever the current page opened (page.escape()).
 function uiFocus(el) {
   if (!el || !el.isConnected || !el.getClientRects().length) return false;
+  // The sheet's cover follows its class from a MutationObserver (a microtask):
+  // a sheet closed earlier in this task has not uncovered the page yet.
+  if (el.closest('[inert]')) uiSyncSheetCovered();
   el.focus({ preventScroll: true });
   return true;
 }
@@ -1781,9 +1789,11 @@ function uiEscape(e) {
     uiFocus(document.querySelector('[data-ui="menu"]'));
   } else if (body.classList.contains('assistant-open')) {
     body.classList.remove('assistant-open');
-    uiFocus(UI.assistantOpener) || uiFocus(document.querySelector(`[data-view="${UI.view}"]`));
+    uiFocus(UI.assistantOpener) ||
+      uiFocus(document.querySelector(`button[data-view="${UI.view}"]`));
   } else if (body.classList.contains('session-open')) {
     body.classList.remove('session-open');
+    uiSyncSheetCovered();
     UI.editor = false;
     uiSync();
     document.querySelector('[data-ui="session"]').setAttribute('aria-expanded', 'false');
