@@ -2712,10 +2712,12 @@ function lyRunChecks(model) {
       title:
         run.stopped === 'MAX_STEPS'
           ? 'The writer stopped after its maximum number of steps'
-          : `The writer stopped early (${run.stopped})`,
+          : run.stopped === 'LYRICS_UNFINISHED'
+            ? 'The writer stopped before finishing, so this draft isn’t final'
+            : 'The writer stopped before finishing',
       where: 'Writer run',
       lines: [],
-      text: 'The reply is incomplete for that reason, not finished.',
+      text: `The reply is incomplete for that reason, not finished. Reason code: ${run.stopped}.`,
       actions: [['ly-tab', 'Open the writer', 'user', 'writer']],
     });
   const cur = lyRunCurrent(run, model);
@@ -5518,7 +5520,7 @@ function lyRenderWriter() {
   } else if (w.waiting) {
     const item = (LY.items || []).find((i) => i.id === 'waiting');
     const lines = item?.answer || [0];
-    html += `<section class="ly-card" aria-labelledby="ly-ask-h"><h4 class="ly-h4" id="ly-ask-h">${esc(item?.title || 'The writer is waiting for an answer')}</h4>${item?.question ? `<p class="ly-quote">${esc(item.question)}</p>` : ''}${lines.map((n) => `<div class="ly-field"><label class="ly-label" for="ly-answer-${n}">${n ? `Your line ${n}` : 'Your answer'}</label><textarea id="ly-answer-${n}" class="cm-input" rows="2" data-answer="${n}">${esc(n ? lySungTexts(model)[n - 1] || '' : '')}</textarea></div>`).join('')}${lyBtn('ly-answer', 'Submit answer', 'send', { cls: 'cm-btn cm-btn-primary' })}<p class="ly-help">Sent to the same, still-waiting run.</p></section>`;
+    html += `<section class="ly-card" aria-labelledby="ly-ask-h"><h4 class="ly-h4" id="ly-ask-h">${esc(item?.title || 'The writer is waiting for an answer')}</h4>${item?.question ? `<p class="ly-quote" id="ly-ask-q">${esc(item.question)}</p>` : ''}${lines.map((n) => `<div class="ly-field"><label class="ly-label" for="ly-answer-${n}">${n ? `Your line ${n}` : 'Your answer'}</label><textarea id="ly-answer-${n}" class="cm-input" rows="2" data-answer="${n}"${item?.question ? ' aria-describedby="ly-ask-q"' : ''}>${esc(n ? lySungTexts(model)[n - 1] || '' : '')}</textarea></div>`).join('')}${lyBtn('ly-answer', 'Submit answer', 'send', { cls: 'cm-btn cm-btn-primary' })}<p class="ly-help">Sent to the same, still-waiting run.</p></section>`;
   } else if (w.parked)
     html += `<section class="ly-card" data-tone="warning"><p><strong>Parked with ${esc(uiCount((w.lyric.open || []).length, 'open line'))}</strong></p><p class="ly-help">The run stopped with lines unresolved. Answer in the conversation below, or start new work.</p></section>`;
   else if (!run)
@@ -5807,6 +5809,37 @@ function lyReceive(payload, request) {
   });
   LY.progress = null;
   lyRefresh(true);
+  lyFocusQuestionSoon();
+}
+// A writer's question is answered in the Writer card's field, not the chat
+// box: when it arrives, focus goes there, unless the person is typing in the
+// document or another field of their own (the chat box and the controls that
+// sent the request are not that). After the shell's own reply handling,
+// which may focus the chat box.
+// The run reads as waiting only once the request has settled.
+function lyFocusQuestionSoon(tries = 0, seq = lyRunSeq) {
+  if (chatState.busy) {
+    if (tries < 300) setTimeout(() => lyFocusQuestionSoon(tries + 1, seq), 100);
+    return;
+  }
+  setTimeout(() => lyFocusQuestion(seq));
+}
+function lyFocusQuestion(seq) {
+  // Only for the reply that asked, and only while its card is what the
+  // Writer tab shows: a later reply or a choice the person opened since
+  // (new work over the waiting run, the review gate) is left alone.
+  if (seq !== lyRunSeq || LY.conflict || LY.gate || !lyWriterState().waiting) return;
+  const a = document.activeElement;
+  const typing =
+    a &&
+    a !== document.body &&
+    a.id !== 'chat-input' &&
+    (a.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName));
+  if (typing) return;
+  const field = () => document.querySelector('#ly-writer-status [data-answer]');
+  if (!field()?.getClientRects().length) lyShowTab('writer');
+  lyFocusWant = null;
+  uiFocus(field());
 }
 
 // What the writer is given as the document. [SETUP] rows stay in the stored

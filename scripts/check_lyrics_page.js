@@ -3654,6 +3654,165 @@ async function browserChecks(chromium) {
       );
       await ctx.close();
     });
+    // ── 3. the review flow by keyboard: focus never falls to the page ────
+    // Each step is pressed with Enter on the real control; during the
+    // request and after the reply focus stays on something the person can
+    // act on, and a writer's question lands on its answer field.
+    const focusAt = (page) =>
+      page.evaluate(() => {
+        const a = document.activeElement;
+        return {
+          tag: a?.tagName,
+          ui: a?.dataset?.ui || '',
+          id: a?.id || '',
+          text: (a?.getAttribute('aria-label') || a?.innerText || '').trim().slice(0, 40),
+        };
+      });
+    const press = async (page, sel) => {
+      await page.locator(sel).first().focus();
+      await page.keyboard.press('Enter');
+    };
+    await step('3. review flow focus', async () => {
+      const { ctx, page, q } = await boot();
+      await setDraft(page, DRAFT);
+      await page.evaluate(() => LY_ACTIONS['ly-tab']('review'));
+      q.delay = 1200;
+      q.replies.push(waiting());
+      await press(page, '#ly-panel-review [data-ui="ly-run-review"]');
+      await page.waitForFunction(() => chatState.busy);
+      await page.waitForTimeout(200);
+      const during = await focusAt(page);
+      check(
+        during.tag !== 'BODY',
+        `Run review drops focus while the request runs: ${JSON.stringify(during)}`
+      );
+      await page.waitForFunction(() => !chatState.busy, null, { timeout: 20000 });
+      await page.waitForTimeout(400);
+      const asked = await page.evaluate(() => {
+        const a = document.activeElement;
+        const ids = (a?.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean);
+        return {
+          id: a?.id || a?.tagName,
+          desc: ids.map((x) => document.getElementById(x)?.textContent || '').join(' '),
+        };
+      });
+      check(
+        asked.id === 'ly-answer-3' && /which word should end it/.test(asked.desc),
+        `a writer question does not land on its answer field, described by the question: ${JSON.stringify(asked)}`
+      );
+      // (Shown either way, so the rest of the flow is checked on its own.)
+      await page.evaluate(() => {
+        if (!$ui('ly-answer-3')?.getClientRects().length) LY_ACTIONS['ly-tab']('writer');
+      });
+      q.replies.push(unfinished());
+      await page.fill('#ly-answer-3', 'I keep one foot upon the chair');
+      await press(page, '[data-ui="ly-answer"]');
+      await page.waitForFunction(() => chatState.busy);
+      await page.waitForTimeout(200);
+      const sending = await focusAt(page);
+      check(
+        sending.tag !== 'BODY',
+        `Submit answer drops focus while the request runs: ${JSON.stringify(sending)}`
+      );
+      await page.waitForFunction(() => !chatState.busy, null, { timeout: 20000 });
+      await page.waitForTimeout(400);
+      const answered = await focusAt(page);
+      check(
+        answered.tag !== 'BODY',
+        `Submit answer drops focus after the reply: ${JSON.stringify(answered)}`
+      );
+      q.replies.push(certified());
+      await page.evaluate(() => LY_ACTIONS['ly-tab']('review'));
+      await press(page, '#ly-panel-review [data-ui="ly-run-review"]');
+      await page.waitForFunction(() => !chatState.busy, null, { timeout: 20000 });
+      await page.waitForTimeout(400);
+      const reviewed = await focusAt(page);
+      check(
+        reviewed.tag !== 'BODY',
+        `Run review drops focus after the reply: ${JSON.stringify(reviewed)}`
+      );
+      await ctx.close();
+    });
+    await step('3. stale suggestion focus', async () => {
+      for (const action of ['ly-keep', 'ly-recheck']) {
+        const { ctx, page, q } = await boot();
+        await setDraft(page, DRAFT);
+        await sendReview(page, q, unfinished(), () =>
+          page.evaluate((a) => {
+            const d = $ui('lyrics-draft');
+            d.value = d.value.replace(
+              '[SETUP — title — "Leave the Light On"]',
+              `[SETUP — title — "Leave the Light On"]\n${a}`
+            );
+            uiSaveLyrics();
+          }, AVOID)
+        );
+        await page.evaluate(() => LY_ACTIONS['ly-tab']('review'));
+        q.replies.push({
+          reply: 'Fixture: rechecked.',
+          history: [],
+          sig: 'rechecked',
+          task: { domain: 'lyrics', phase: 'edit' },
+        });
+        await press(page, `#ly-panel-review [data-ui="${action}"]`);
+        await page.waitForFunction(() => !chatState.busy, null, { timeout: 20000 });
+        await page.waitForTimeout(400);
+        const after = await focusAt(page);
+        check(
+          after.tag !== 'BODY',
+          `${action === 'ly-keep' ? 'Keep mine' : 'Recheck suggestion'} drops focus: ${JSON.stringify(after)}`
+        );
+        await ctx.close();
+      }
+    });
+    // ── 3. a stopped or asking run reads in words, not codes ──────────────
+    await step('3. plain words', async () => {
+      const { ctx, page, q } = await boot();
+      await setDraft(page, DRAFT);
+      const read = () =>
+        page.evaluate(() => {
+          const reply = [...document.querySelectorAll('#chat-log .chat-msg-engine')].pop();
+          const titles = [...document.querySelectorAll('#ly-panel-review .ly-item strong')].map(
+            (n) => n.textContent
+          );
+          return {
+            verdict: reply?.querySelector('.chat-recipe-foot')?.textContent || '',
+            note: reply?.querySelector('.chat-msg-note')?.textContent || '',
+            chips: reply?.querySelector('.chat-tools')?.getAttribute('aria-hidden') || '',
+            said: reply?.querySelector('.chat-count-sr')?.textContent || '',
+            titles,
+          };
+        });
+      await sendReview(page, q, unfinished());
+      await page.evaluate(() => LY_ACTIONS['ly-tab']('review'));
+      const stopped = await read();
+      check(
+        stopped.verdict === 'Unfinished · not certified',
+        `the verdict repeats its word or shows a code: ${JSON.stringify(stopped.verdict)}`
+      );
+      check(
+        !/LYRICS_UNFINISHED/.test(stopped.note) && /stopped before finishing/.test(stopped.note),
+        `the stop note reads a raw code: ${JSON.stringify(stopped.note)}`
+      );
+      check(
+        stopped.titles.some((t) => /stopped before finishing/.test(t)) &&
+          !stopped.titles.some((t) => /LYRICS_UNFINISHED/.test(t)),
+        `a review title reads a raw stop code: ${JSON.stringify(stopped.titles)}`
+      );
+      check(
+        stopped.chips === 'true' &&
+          /a check found an open problem/.test(stopped.said) &&
+          !/exit|lyric_/.test(stopped.said),
+        `the tool line is read as codes: ${JSON.stringify(stopped)}`
+      );
+      await sendReview(page, q, waiting());
+      const asking = await read();
+      check(
+        /the writer asked a question/.test(asking.said) && !/exit|lyric_/.test(asking.said),
+        `a waiting revise is read as codes: ${JSON.stringify(asking.said)}`
+      );
+      await ctx.close();
+    });
     await step('3. waiting run, independent work', async () => {
       const { ctx, page, q } = await boot({ theme: 'dark' });
       await setDraft(page, DRAFT);
