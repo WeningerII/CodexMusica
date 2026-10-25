@@ -1538,9 +1538,11 @@
       : '';
   }
 
+  // The list item wraps the button: role="listitem" on the button itself
+  // would replace its button role and drop the name it takes from its text.
   function stackRow(p) {
     return (
-      '<button class="rowbtn" type="button" role="listitem" data-tid="' +
+      '<div role="listitem"><button class="rowbtn" type="button" data-tid="' +
       esc(p.id) +
       '">' +
       mark(p.root) +
@@ -1550,7 +1552,7 @@
       esc(p.place) +
       '</span></span>' +
       ICON.chevron +
-      '</button>'
+      '</button></div>'
     );
   }
 

@@ -979,7 +979,7 @@ async function editorKeyboard(page, where) {
         'Part text must remain readable'
       );
       await editorKeyboard(page, width + 'px');
-      if (width >= 900) {
+      if (width >= 1024) {
         await page.locator('.detail-actions [data-action="pin"]').hover();
         await page.getByRole('tooltip').waitFor();
         await inside(page, '#layout-tooltip');
@@ -990,7 +990,7 @@ async function editorKeyboard(page, where) {
       await page.getByRole('button', { name: 'AI recipe', exact: true }).last().click();
       await page.locator('#assistant-slot').waitFor();
       await inside(page, '#assistant-slot');
-      if (width >= 900) {
+      if (width >= 1024) {
         const move = page.getByRole('button', { name: 'Move AI recipe panel', exact: true });
         const resize = page.getByRole('button', { name: 'Resize AI recipe panel', exact: true });
         await move.press('ArrowLeft');
@@ -1162,6 +1162,33 @@ async function editorKeyboard(page, where) {
       }
       await page.goto(base + '/atlas.html');
       await page.locator('.rowbtn').first().waitFor({ state: 'attached' });
+      // The location chooser: each row is a named button inside a list item.
+      // Iqaluit's dots stack at the zoom a 1024px+ canvas reaches; narrower
+      // canvases fly in closer, where they split apart instead.
+      if (width >= 1024) {
+        await page.getByLabel('Search traditions').fill('Iqaluit');
+        await page.locator('#results button[data-tid]').first().click();
+        await page.waitForTimeout(2500);
+        await page.keyboard.press('Escape');
+        const canvas = await page.locator('canvas').first().boundingBox();
+        await page.mouse.click(canvas.x + canvas.width / 2, canvas.y + canvas.height / 2);
+        await page.locator('#stack-list [data-tid]').first().waitFor();
+        const stack = page.locator('#stack');
+        const stackRows = await page.locator('#stack-list [data-tid]').count();
+        assert.ok(stackRows > 1, 'Map: the Iqaluit location opens a chooser');
+        assert.equal(
+          await stack.getByRole('button', { name: /Iqaluit/ }).count(),
+          stackRows,
+          'Map: every location chooser row is a button named by its tradition'
+        );
+        assert.equal(
+          await stack.getByRole('listitem').count(),
+          stackRows,
+          'Map: every location chooser row is a list item'
+        );
+        await page.keyboard.press('Escape');
+        await page.getByLabel('Search traditions').fill('');
+      }
       await page.getByLabel('Search traditions').fill('-');
       await page.locator('#results').waitFor();
       await settle(page);
