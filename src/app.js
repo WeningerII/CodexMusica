@@ -14822,7 +14822,8 @@ function showToast(msg, kind, action, opts) {
     b.addEventListener('click', () => { hideToast(t); action.run(); }, { once: true });
     const hint = document.createElement('span');
     hint.className = 'sr-only toast-hint';
-    hint.textContent = `. ${TOAST_KEY_LABEL} reaches ${action.label}. `;
+    // A message that already ends a sentence gets no second full stop.
+    hint.textContent = `${/[.!?…]$/.test(String(msg).trim()) ? ' ' : '. '}${TOAST_KEY_LABEL} reaches ${action.label}. `;
     t.append(hint, b);
     t.classList.add('has-action');
     if (kind === 'error') {

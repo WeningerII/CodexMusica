@@ -2627,7 +2627,7 @@ async function engineRecordBeside(lazyHtml) {
       `await Engine.whenReady(); const r = await window.__act; ${FRAMES(2)}
       const t = document.getElementById('toast');
       return { added: r.added, cards: app.cards.length, toast: t.textContent, error: t.classList.contains('toast-error'),
-        actions: [...t.querySelectorAll('.toast-action')].map((b) => b.textContent) };`,
+        actions: [...t.querySelectorAll('.toast-action:not(.toast-dismiss)')].map((b) => b.textContent) };`,
       E_WAIT,
       { prose: false }
     );
@@ -3436,7 +3436,7 @@ async function engineUnreachable(lazyHtml) {
       `const r = await uiAddGenre(STARTER_TRADITIONS[0]);
       const t = document.getElementById('toast');
       return { added: r.added, cards: app.cards.length, toast: t.textContent, error: t.classList.contains('toast-error'),
-        actions: [...t.querySelectorAll('.toast-action')].map((b) => b.textContent) };`,
+        actions: [...t.querySelectorAll('.toast-action:not(.toast-dismiss)')].map((b) => b.textContent) };`,
       E_WAIT,
       { prose: false }
     );
@@ -3505,7 +3505,7 @@ async function engineUnreachable(lazyHtml) {
         `${step}
         const t = document.getElementById('toast');
         return { cards: app.cards.length, toast: t.textContent, error: t.classList.contains('toast-error'),
-          actions: [...t.querySelectorAll('.toast-action')].map((b) => b.textContent) };`,
+          actions: [...t.querySelectorAll('.toast-action:not(.toast-dismiss)')].map((b) => b.textContent) };`,
         E_WAIT,
         { prose: false }
       );
@@ -3700,7 +3700,7 @@ async function engineStale(lazyHtml) {
       dom,
       `const r = await uiAddGenre(STARTER_TRADITIONS[0]);
       const t = document.getElementById('toast');
-      return { cards: app.cards.length, toast: t.textContent, actions: [...t.querySelectorAll('.toast-action')].map((b) => b.textContent), tables: typeof INSTRUMENTS };`,
+      return { cards: app.cards.length, toast: t.textContent, actions: [...t.querySelectorAll('.toast-action:not(.toast-dismiss)')].map((b) => b.textContent), tables: typeof INSTRUMENTS };`,
       E_WAIT,
       { prose: false }
     );
@@ -3938,7 +3938,7 @@ async function engineRefused(lazyHtml, id) {
           `const r = await uiAddGenre(STARTER_TRADITIONS[0]);
           const t = document.getElementById('toast');
           return { cards: app.cards.length, toast: t.textContent, error: t.classList.contains('toast-error'),
-            actions: [...t.querySelectorAll('.toast-action')].map((b) => b.textContent) };`,
+            actions: [...t.querySelectorAll('.toast-action:not(.toast-dismiss)')].map((b) => b.textContent) };`,
           E_WAIT,
           { prose: false }
         );
