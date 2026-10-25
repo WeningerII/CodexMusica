@@ -685,7 +685,13 @@ export function editRecipe(params = {}) {
     if (e.action === 'set_environment') {
       const card = e.card ? W.findCard(before, e.card) : envCardOf(before.cards);
       target = card ? card.id : null;
-      if (target) envTargets.push({ edit: i, card: target });
+      const p = envPatch(e);
+      const fields = [
+        ...['room', 'tuning'].filter((f) => p[f] !== undefined),
+        ...Object.keys(p.chain),
+        ...p.clear,
+      ];
+      if (target) envTargets.push({ edit: i, card: target, fields });
     }
     warnings.push(...environmentTransition(before, ws, i, e, target));
   }
@@ -701,14 +707,33 @@ export function editRecipe(params = {}) {
   // chain no format renders. Said per edit, because only this call knows the
   // write was an environment request rather than a preface cascade.
   const env = envCardOf(ws.cards);
-  // A later edit in the same batch can put back what an earlier one took away
-  // (move the card away and back, or set_environment again after set_preface).
-  // Those warnings describe a step, not the result, so keep only the ones whose
-  // settings still differ from what the final environment card renders.
-  const settled = (w) =>
-    (w.code === 'ENVIRONMENT_MOVED' || w.code === 'ENVIRONMENT_OVERWRITTEN') &&
-    Object.entries(w.settings || {}).every(([f, v]) => sameValue(v.was, envValue(env, f)));
-  for (let k = warnings.length - 1; k >= 0; k--) if (settled(warnings[k])) warnings.splice(k, 1);
+  // The warnings describe the recipe returned, not a step on the way there. A
+  // later edit in the same batch can undo what an earlier one reported:
+  //   - the environment is back on the card it was moved off (any later loss on
+  //     that card is its own OVERWRITTEN);
+  //   - a setting is back to what was lost;
+  //   - a later set_environment on the final environment card chose that
+  //     setting itself (the documented order: set_environment after set_preface).
+  // What stands is restated against the final environment card.
+  for (let k = warnings.length - 1; k >= 0; k--) {
+    const w = warnings[k];
+    if (w.code !== 'ENVIRONMENT_MOVED' && w.code !== 'ENVIRONMENT_OVERWRITTEN') continue;
+    if (w.code === 'ENVIRONMENT_MOVED' && w.card === env.id) {
+      warnings.splice(k, 1);
+      continue;
+    }
+    const chosen = (f) =>
+      envTargets.some((t) => t.edit > w.edit && t.card === env.id && t.fields.includes(f));
+    const settings = {};
+    for (const [f, v] of Object.entries(w.settings || {}))
+      if (!sameValue(v.was, envValue(env, f)) && !chosen(f))
+        settings[f] = { was: v.was, now: envValue(env, f) };
+    if (!Object.keys(settings).length) warnings.splice(k, 1);
+    else {
+      w.settings = settings;
+      if (w.code === 'ENVIRONMENT_MOVED') w.environment_card = env.id;
+    }
+  }
   for (const t of envTargets) {
     if (!ws.cards.some((c) => c.id === t.card) || t.card === env.id) continue;
     warnings.push({

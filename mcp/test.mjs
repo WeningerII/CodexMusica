@@ -309,6 +309,25 @@ await check('an environment that stops rendering is reported, not lost silently'
     edits: [{ action: 'move_instrument', card: blend.cards.at(-1).card }],
   });
   assert.ok(!moved.render_warnings.some((x) => x.code === 'ENVIRONMENT_MOVED'));
+  // A warning that stands describes the recipe returned: it names the card the
+  // environment renders from at the END of the batch, with that card's values,
+  // not the card an intermediate step handed it to (Jony's B, #519).
+  const twice = E.editRecipe({
+    workspace: thread(blend.workspace),
+    edits: [
+      { action: 'set_environment', room: 'cathedral' },
+      { action: 'move_instrument', card: blend.cards.at(-1).card },
+      { action: 'move_instrument', card: blend.cards.at(-2).card },
+    ],
+  });
+  const last = twice.render_warnings.filter((x) => x.code === 'ENVIRONMENT_MOVED');
+  const finalEnv = twice.render_scope.environment_card;
+  assert.ok(last.length, 'the room set on the first card no longer renders');
+  for (const w of last) {
+    assert.equal(w.environment_card, finalEnv);
+    const final = twice.workspace.cards.find((c) => c.id === finalEnv);
+    assert.equal(w.settings.room.now, final.room);
+  }
 });
 
 await check('set_preface after set_environment reports the environment it replaced', () => {
@@ -361,6 +380,38 @@ await check('set_preface after set_environment reports the environment it replac
   });
   assert.match(roundTrip.recipe, /cathedral/);
   assert.ok(!roundTrip.render_warnings.some((x) => x.code === 'ENVIRONMENT_MOVED'));
+  // Away and back, then a preface on it: the overwrite is real and reported;
+  // the move that was undone is not (Jony's A, #519).
+  const backThenPreface = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [
+      { action: 'set_environment', room: 'cathedral' },
+      { action: 'move_instrument', card: s.cards.at(-1).card },
+      { action: 'move_instrument', card: s.cards[0].card },
+      { action: 'set_preface', card: s.cards[0].card, preface: 'raging' },
+    ],
+  });
+  assert.deepEqual(
+    backThenPreface.render_warnings
+      .filter((x) => x.code.startsWith('ENVIRONMENT_'))
+      .map((x) => x.code),
+    ['ENVIRONMENT_OVERWRITTEN']
+  );
+  // A set_environment after the preface is the documented order even when it
+  // picks a different room from the first: the final room is the caller's own
+  // (Jony's C).
+  const other = s.workspace.cards[0].room;
+  assert.ok(other && other !== 'cathedral' && other !== r.workspace.cards[0].room, 'fixture');
+  const changedMind = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [
+      { action: 'set_environment', room: 'cathedral' },
+      { action: 'set_preface', card: 'voice', preface: 'raging' },
+      { action: 'set_environment', room: other },
+    ],
+  });
+  assert.equal(changedMind.workspace.cards[0].room, other);
+  assert.ok(!changedMind.render_warnings.some((x) => x.code === 'ENVIRONMENT_OVERWRITTEN'));
 });
 
 await check('an environment edit that does not reach the output is not confirmed silently', () => {
