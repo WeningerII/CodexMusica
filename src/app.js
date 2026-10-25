@@ -18911,18 +18911,32 @@ async function _chatRecover(generation = chatState.generation) {
   try {
     for (;;) {
       const res = await fetch(`${CHAT_BACKEND}/chat/jobs/${job.request_id}`, {cache:'no-store'});
-      const record = await res.json();
+      // A proxy's error page is not a receipt: say the service is down, never
+      // the parser's "Unexpected token '<'". The ticket stays for the next try.
+      const record = await res.json().catch(() => null);
       if (generation !== chatState.generation) return;
-      // 404: the server no longer retains this receipt (receipts expire), so
-      // asking again can never settle it. Set the ticket aside in the archive
-      // instead of blocking every new request on it; nothing is replayed.
+      if (!record || typeof record !== 'object')
+        throw new Error(`The service is not answering right now (HTTP ${res.status}). Your request is saved and will not be repeated; press Send to check it again.`);
+      // 404: the server holds no receipt for this request. After a POST that
+      // never got an answer, it never arrived (receipts are written before any
+      // work), so nothing ran: hand the message back to send again. Otherwise
+      // the receipt expired, and asking again can never settle it: set the
+      // ticket aside instead of blocking every new request on it.
       if (res.status === 404) {
-        chatState.archives = [...chatState.archives, job].slice(-8);
+        const unsent = chatState.disconnected === job.request_id;
+        if (!unsent) chatState.archives = [...chatState.archives, job].slice(-8);
         if (chatState.continuationId === job.request_id) chatState.continuationId = null;
         chatState.pending = null;
         chatState.disconnected = null;
         _chatSave();
-        _chatAppend('<div class="chat-msg chat-msg-note">The saved request is no longer kept on the server, so it was set aside. Nothing was repeated; you can start a new request.</div>');
+        const input = _chatEl('chat-input');
+        if (unsent && input && job.message && !input.value) {
+          input.value = job.message;
+          _chatSyncCount();
+        }
+        _chatAppend(unsent
+          ? '<div class="chat-msg chat-msg-note">The service has no record of that request, so nothing ran. Your message is back in the box; send it again.</div>'
+          : '<div class="chat-msg chat-msg-note">The saved request is no longer kept on the server, so it was set aside. Nothing was repeated; you can start a new request.</div>');
         return;
       }
       if (!res.ok) throw new Error(record.error || 'The request outcome is unknown. The saved request will not be repeated.');

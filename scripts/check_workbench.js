@@ -233,6 +233,30 @@ const run = (code) => dom.window.eval(code);
   );
   await run('_chatSubmit({preventDefault(){}})');
   assert.equal(run('app.lyrics'), 'Manual edits');
+  // A proxy's HTML error page during recovery says the service is down, keeps
+  // the ticket, and never shows the JSON parser's message.
+  run(
+    "chatState.pending={request_id:'down-request',domain:'recipe',message:'make it bluesy'};chatState.continuationId=null;chatState.busy=false;window.fetch=async()=>({ok:false,status:503,json:async()=>JSON.parse('<!DOCTYPE html>')});"
+  );
+  await run('_chatRecover()');
+  assert.match(
+    run("document.getElementById('chat-log').lastElementChild.textContent"),
+    /not answering right now \(HTTP 503\)/
+  );
+  assert.equal(run('chatState.pending?.request_id'), 'down-request');
+  // A request whose POST never got an answer and of which the service has no
+  // record never ran: the message goes back in the box, not to the archive.
+  run(
+    "chatState.disconnected='down-request';chatState.archives=[];document.getElementById('chat-input').value='';window.fetch=async()=>({ok:false,status:404,json:async()=>({error:'not found'})});"
+  );
+  await run('_chatRecover()');
+  assert.equal(run('chatState.pending'), null);
+  assert.equal(run('chatState.archives.length'), 0);
+  assert.equal(run("document.getElementById('chat-input').value"), 'make it bluesy');
+  assert.match(
+    run("document.getElementById('chat-log').lastElementChild.textContent"),
+    /no record of that request, so nothing ran/
+  );
   // Domain changes fail atomically if a continuation cannot be stored.
   run(
     "chatState.task={domain:'lyrics'};chatState.pending=null;chatState.continuationId='lyric-receipt';window.oldSet=Storage.prototype.setItem;Storage.prototype.setItem=function(){throw Error('QuotaExceededError')};"
