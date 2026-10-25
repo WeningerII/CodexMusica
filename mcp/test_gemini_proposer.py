@@ -9,8 +9,10 @@ import io
 import json
 import os
 import re
+import socket
 import sys
 import threading
+import urllib.error
 from datetime import datetime, timezone
 from email.utils import format_datetime
 from unittest.mock import patch
@@ -398,6 +400,61 @@ def main():
                 failure = error
     check("configured insufficient group output allowance refuses before any reservation",
           getattr(failure, "code", None) == "PROPOSER_CONFIG" and writer.attempts == 0)
+
+    print("\n8. a request that never left the machine is no spend: refused and unresolved settle rejected")
+    env(GEMINI_API_KEY="k", LYRIC_PROPOSER_MODEL="m")
+    cases = [
+        ("URLError(ConnectionRefusedError)", lambda: urllib.error.URLError(ConnectionRefusedError(111, "refused")), "rejected"),
+        ("URLError(socket.gaierror)", lambda: urllib.error.URLError(socket.gaierror(-2, "Name or service not known")), "rejected"),
+        ("ConnectionRefusedError raised directly", lambda: ConnectionRefusedError(111, "refused"), "rejected"),
+        ("socket.gaierror raised directly", lambda: socket.gaierror(-3, "Temporary failure in name resolution"), "rejected"),
+        ("TimeoutError", lambda: TimeoutError("timed out"), "unknown"),
+        ("URLError(ConnectionResetError)", lambda: urllib.error.URLError(ConnectionResetError(104, "reset")), "unknown"),
+    ]
+    for label, make_error, want in cases:
+        writer = GP.make()
+        settlements = []
+        writer._budget = lambda action, **fields: settlements.append((action, fields)) or {}
+        buf = io.StringIO()
+        with patch.object(GP.urllib.request, "urlopen", side_effect=lambda *a, **k: (_ for _ in ()).throw(make_error())):
+            with redirect_stdout(buf):
+                try:
+                    writer("never sent")
+                    failure = None
+                except GP.ProposerUnavailable as error:
+                    failure = error
+        settles = [f["status"] for action, f in settlements if action == "settle"]
+        events = [json.loads(line.split("proposer event: ", 1)[1])
+                  for line in buf.getvalue().splitlines() if "proposer event:" in line]
+        unknown = len(settles) if want == "unknown" else 0
+        check(f"{label}: four attempts (the retry path kept), every settle {want}, "
+              f"unknown_attempts {unknown}, usage_unknown {bool(unknown)}",
+              failure is not None and writer.attempts == 4 and settles == [want] * 4
+              and writer.unknown_attempts == unknown
+              and events and events[-1]["usage_unknown"] is bool(unknown),
+              json.dumps({"settles": settles, "unknown": writer.unknown_attempts,
+                          "attempts": writer.attempts, "last": events[-1] if events else None})[:300])
+    replies = iter([urllib.error.URLError(ConnectionRefusedError(111, "refused"))])
+
+    class _Reply:
+        def __init__(self, data): self.data = data
+        def __enter__(self): return self
+        def __exit__(self, *a): return False
+        def read(self, n=-1): return self.data
+
+    def refused_then_ok(*a, **k):
+        for error in replies:
+            raise error
+        return _Reply(json.dumps(ok_body("after the refusal")).encode())
+    writer = GP.make()
+    settlements = []
+    writer._budget = lambda action, **fields: settlements.append((action, fields)) or {}
+    with patch.object(GP.urllib.request, "urlopen", side_effect=refused_then_ok):
+        with redirect_stdout(io.StringIO()):
+            got = writer("refused once")
+    check("a refused attempt then a reply: the reply is used, the refusal settles rejected and leaves no unknown",
+          got == "after the refusal" and [f["status"] for a, f in settlements if a == "settle"] == ["rejected", "success"]
+          and writer.unknown_attempts == 0, json.dumps(settlements)[:300])
 
     print()
     if FAILURES:
