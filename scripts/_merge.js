@@ -118,6 +118,7 @@ function* mergeFamilyPartsSteps(instruments, familyParts, opts) {
       targets.add(part);
     }
     const union = [];
+    const origins = [];
     const seen = {};
     for (let n = 0, i = 0; n < p.u.length; n += 3) {
       i += p.u[n];
@@ -127,12 +128,28 @@ function* mergeFamilyPartsSteps(instruments, familyParts, opts) {
         return null;
       seen[v.id] = true;
       union.push(v);
+      origins.push([instruments[i], part]);
     }
-    return { targets, union };
+    return { targets, union, origins };
+  };
+  // A material's label as a reader compares it (case, accents, spaces and
+  // punctuation dropped), and its sound: label plus descriptors. Two union variants with the
+  // same sound key are one choice to a reader; two with the same label and
+  // different sounds are two choices a reader cannot tell apart.
+  const labelKey = function (v) {
+    return String(v.name || v.label || v.id)
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, ''); // as check_duplicates.js identity(): "Goat skin" is "Goatskin"
+  };
+  const soundKey = function (v) {
+    return labelKey(v) + '|' + (v.descriptors || []).slice().sort().join(',');
   };
   const augmentUniversalMaterial = function* (instruments, kind, isTargetPart, isMemberVariant) {
     const given = plan ? planned(instruments, plan[kind]) : null;
     const union = given ? given.union : [];
+    const origins = given ? given.origins : []; // [instrument, part] each union variant came from
     const seen = {};
     // The parts this kind targets, remembered for the lending pass below: the
     // predicate reads only the part and its variants, and nothing changes them
@@ -149,6 +166,7 @@ function* mergeFamilyPartsSteps(instruments, familyParts, opts) {
           if (!seen[v.id]) {
             seen[v.id] = true;
             union.push(v);
+            origins.push([inst, p]);
           }
         }
       }
@@ -168,9 +186,50 @@ function* mergeFamilyPartsSteps(instruments, familyParts, opts) {
     // ID onto a CARD, never into the catalog. If that ever stops being true this
     // becomes aliasing, so it is stated here rather than left to be rediscovered.
     if (observe) observe(kind, instruments, targets, union);
-    const lent = union.map((v) =>
-      Object.assign({}, v, { auto: false, expanded: kind, default: false })
-    );
+    // ONE PICKER, NO TWIN LABELS. The union is collected by id, so it held the
+    // same material twice under two ids (pure_nickel / pure_nickel_h: same
+    // label, same descriptors) and different materials under one label (24
+    // "Gut strings" from 24 instruments), and a picker showed them as identical
+    // chips. A label shared by different sounds is told apart on the lent copy
+    // by the instrument it came from; the instruments' own variants keep their
+    // authored names. A sound offered twice is offered once per part (see
+    // aliasOf below).
+    const soundsByLabel = Object.create(null);
+    for (const v of union) {
+      const l = labelKey(v);
+      (soundsByLabel[l] || (soundsByLabel[l] = new Set())).add(soundKey(v));
+    }
+    const sounds = union.map(soundKey);
+    // The instrument, and where one instrument lends two such sounds (a body
+    // mahogany and a neck mahogany), its part as well.
+    const nameOf = (x) => (x && (x.name || x.label || x.id)) || '';
+    const byOrigin = Object.create(null);
+    union.forEach((v, k) => {
+      const key = labelKey(v) + '|' + nameOf(origins[k] && origins[k][0]);
+      (byOrigin[key] || (byOrigin[key] = new Set())).add(sounds[k]);
+    });
+    const lent = union.map((v, k) => {
+      const copy = Object.assign({}, v, { auto: false, expanded: kind, default: false });
+      const [inst, part] = origins[k] || [];
+      if (inst && soundsByLabel[labelKey(v)].size > 1) {
+        const twice = byOrigin[labelKey(v) + '|' + nameOf(inst)].size > 1;
+        copy.name =
+          nameOf(v) + ' — ' + nameOf(inst) + (twice ? ', ' + nameOf(part).toLowerCase() : '');
+      }
+      return copy;
+    });
+    // A lent copy whose sound the part already offers is lent as an ALIAS: it
+    // stays in part.variants, so an id a saved workspace, a stored card, a
+    // set_variant or a --swap-variant already carries still resolves and
+    // renders exactly as before, but it carries alias_of (the id the part shows
+    // for that sound) and no picker lists it. Cached per (variant, survivor).
+    const aliases = new Map();
+    const aliasOf = function (k, survivor) {
+      const key = k + '>' + survivor;
+      let a = aliases.get(key);
+      if (!a) aliases.set(key, (a = Object.assign({}, lent[k], { alias_of: survivor })));
+      return a;
+    };
     // Each union id's position. A part borrows every union variant whose id it
     // does not already carry, in union order: so its additions are `lent` with
     // the positions of the ids it has taken out, cut as a few slices rather than
@@ -206,9 +265,25 @@ function* mergeFamilyPartsSteps(instruments, familyParts, opts) {
           from = k + 1;
         }
         if (from < lent.length) slices.push(lent.slice(from));
-        return slices.length
-          ? Object.assign({}, p, { variants: (p.variants || []).concat(...slices) })
-          : p;
+        if (!slices.length) return p;
+        // The first variant of each sound the part shows: its own, else the
+        // first lent one. Every later lent variant of that sound is an alias.
+        const shown = Object.create(null);
+        for (const v of p.variants || []) {
+          const s = soundKey(v);
+          if (!(s in shown)) shown[s] = v.id;
+        }
+        const added = [];
+        for (const slice of slices)
+          for (const c of slice) {
+            const k = at[c.id];
+            const s = sounds[k];
+            if (!(s in shown)) {
+              shown[s] = c.id;
+              added.push(c);
+            } else added.push(aliasOf(k, shown[s]));
+          }
+        return Object.assign({}, p, { variants: (p.variants || []).concat(added) });
       });
     }
   };

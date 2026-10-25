@@ -245,6 +245,9 @@ if (flags.variants !== undefined) {
   for (const p of parts) {
     console.log(`${p.id}  (${p.name})`);
     for (const v of p.variants || []) {
+      // An alias still resolves (--swap-variant takes it) but is not a choice of
+      // its own: the part already lists its sound under alias_of (_merge.js).
+      if (v.alias_of) continue;
       const desc = (v.descriptors || []).join(', ');
       console.log(`  ${v.id}  ${v.name}  [${desc}]`);
     }

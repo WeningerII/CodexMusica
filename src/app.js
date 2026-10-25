@@ -16414,7 +16414,8 @@ function renderPartRow(card, inst, part) {
   const variantName = currentVar ? currentVar.name : '—';
   const descriptors = currentVar ? entryRenderDescs(currentVar) : [];
   const dotDescriptors = descriptors.join(' · ');
-  const optionCount = (part.variants || []).length;
+  // Listed options only: an alias (alias_of, _merge.js) resolves but is not one.
+  const optionCount = (part.variants || []).filter(v => !v.alias_of).length;
 
   row.innerHTML =
     '<div class="part-label-cell">' + esc(partLabel) + '</div>' +
@@ -16478,7 +16479,9 @@ function renderPartRow(card, inst, part) {
     };
     // The instrument's own (curated) variants stay on top, exactly as before.
     const nativeVars = part.variants.filter(v => !v.expanded);
-    const expandedVars = part.variants.filter(v => v.expanded);
+    // An alias (a lent copy of a sound this part already offers, _merge.js) is
+    // listed only while it is this card's pick, so a saved choice still shows.
+    const expandedVars = part.variants.filter(v => v.expanded && (!v.alias_of || card.parts[part.id] === v.id));
     nativeVars.forEach(v => variants.appendChild(makeChip(v)));
     row.appendChild(variants);
     // Universal cross-instrument materials (a sound generator isn't bound by

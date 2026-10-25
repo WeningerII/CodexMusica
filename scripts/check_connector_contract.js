@@ -878,6 +878,70 @@ function unboundedArrays(toolName, schema) {
     `only ${lendCount} instruments carry lent material variants`
   );
 
+  // A material the pool held twice under two ids (pure_nickel / pure_nickel_h:
+  // one label, one set of descriptors) is listed once per part; the other id is
+  // lent as an alias (alias_of, scripts/_merge.js). It is not listed, but a
+  // workspace, a stored card or a caller may already carry it, so it must still
+  // resolve for set_variant and render exactly as the sound it stands for.
+  console.log('\n=== A sound offered twice is listed once, and the other id still resolves ===');
+  let alias = null;
+  for (const i of cat.INSTRUMENTS || []) {
+    for (const p of i.parts || []) {
+      const a = (p.variants || []).find((v) => v.alias_of);
+      if (a) {
+        alias = { inst: i.id, part: p.id, id: a.id, of: a.alias_of, name: a.name };
+        break;
+      }
+    }
+    if (alias) break;
+  }
+  check('the material pools lend at least one alias', !!alias);
+  if (alias) {
+    const listed = JSON.parse(
+      (
+        await call('get_instrument', {
+          id: alias.inst,
+          part: alias.part,
+          query: alias.name,
+          limit: 200,
+        })
+      ).text
+    );
+    const ids = ((listed.parts || [])[0]?.variants || []).map((v) => v.id);
+    check(
+      'get_instrument lists the sound once: the alias is absent and what it stands for is present',
+      !ids.includes(alias.id) && ids.includes(alias.of),
+      `${alias.inst}.${alias.part}: ${alias.id} listed=${ids.includes(alias.id)}, ${alias.of} listed=${ids.includes(alias.of)}`
+    );
+    check(
+      'the part reports how many ids it resolves but does not list',
+      Number.isInteger((listed.parts || [])[0]?.alias_count) && listed.parts[0].alias_count > 0,
+      `alias_count=${(listed.parts || [])[0]?.alias_count}`
+    );
+    const added = await edited([{ action: 'add_instrument', instrument: alias.inst }]);
+    const card = (added.workspace?.cards || []).find((c) => c.instrumentId === alias.inst)?.id;
+    const pick = async (variant) => {
+      const r = await call('edit_recipe', {
+        workspace: added.workspace,
+        edits: [{ action: 'set_variant', card, part: alias.part, variant }],
+      });
+      return r.isError ? { err: r.text } : JSON.parse(r.text);
+    };
+    const viaAlias = await pick(alias.id);
+    const viaSurvivor = await pick(alias.of);
+    check(
+      'set_variant accepts the alias id and reports it in `changed.parts`',
+      !viaAlias.err &&
+        viaAlias.cards?.find((c) => c.card === card)?.changed?.parts?.[alias.part] === alias.id,
+      viaAlias.err || JSON.stringify(viaAlias.cards?.find((c) => c.card === card)?.changed)
+    );
+    check(
+      'the alias renders exactly as the sound it stands for',
+      !viaAlias.err && !viaSurvivor.err && viaAlias.recipe === viaSurvivor.recipe,
+      `${alias.id} vs ${alias.of}`
+    );
+  }
+
   console.log('\n=== A borrowed variant is marked as one ===');
   const kithara = JSON.parse(
     (await call('get_instrument', { id: 'kithara', part: 'kithara_strings', limit: 6 })).text
