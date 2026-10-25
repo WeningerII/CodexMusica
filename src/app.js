@@ -17291,6 +17291,13 @@ function handleAction(action, card, trigger) {
     requestAnimationFrame(() => {
       const dp = document.querySelector('.drift-panel');
       if (dp) dp.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // The menu item that asked went with its menu: focus lands on the
+      // variations' own heading, which says how many there are.
+      const a = document.activeElement, label = dp && dp.querySelector('.drift-head-label');
+      if (label && (!a || a === document.body || !a.isConnected || !a.getClientRects().length)) {
+        label.tabIndex = -1;
+        label.focus({ preventScroll: true });
+      }
     });
   } else if (action === 'drift-roll') {
     const candidates = buildDriftCandidates(card);

@@ -322,6 +322,23 @@ async function noOverflow(page) {
         'fiddle',
         'Keyboard guards: typing after Add instrument goes into Search instruments'
       );
+      // Explore variations from a card's menu in the sheet lands on the
+      // variations it opened, not on BODY (Jony, #519).
+      await page.locator('[data-ui="session"]').click();
+      const fold = page.locator(
+        '#workspace-sidebar .sb-tradition-toggle[aria-expanded="false"]:visible'
+      );
+      if (await fold.count()) await fold.first().click();
+      await page.locator('#workspace-sidebar .sb-card-row .sb-more:visible').first().click();
+      await page.locator('[data-card-action="drift"]:visible').first().click();
+      await page.locator('.drift-panel').first().waitFor();
+      await page.waitForTimeout(100);
+      assert.equal(
+        await page.evaluate(() => !!document.activeElement?.closest('.drift-panel')),
+        true,
+        'Keyboard guards: Explore variations from the sheet focuses the variations: ' +
+          (await page.evaluate(() => document.activeElement?.outerHTML.slice(0, 80)))
+      );
       console.log('PASS keyboard guards at 390x780: undo behind a dialog, in a field, sheet Tab');
       await context.close();
     }
