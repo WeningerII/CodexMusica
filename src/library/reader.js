@@ -1401,10 +1401,18 @@ function onClick(e) {
       return page('previous');
     case 'next':
       return page('next');
-    case 'lens':
+    case 'lens': {
       S.lens = id;
       renderInspector();
+      // The re-render replaced the pressed chip: keep focus on it and name
+      // the lens, instead of leaving focus on the page.
+      S.root
+        ?.querySelector(`[data-rd="lens"][data-id="${window.CSS.escape(id)}"]`)
+        ?.focus({ preventScroll: true });
+      const lens = LENSES.find(([k]) => k === id);
+      if (lens && typeof libraryAnnounce === 'function') libraryAnnounce(`${lens[1]} lens`);
       return replaceRoute();
+    }
     case 'provenance':
       return downloadProvenance();
     case 'speak':

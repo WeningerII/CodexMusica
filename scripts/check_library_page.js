@@ -1274,6 +1274,16 @@ const SECTIONS = {
         h.includes(`lens=${lens}`) || lens === 'summary',
         h
       );
+      const kept = await page.evaluate(() => ({
+        rd: document.activeElement?.dataset?.rd || document.activeElement?.tagName,
+        id: document.activeElement?.dataset?.id,
+        live: document.getElementById('library-live')?.textContent || '',
+      }));
+      check(
+        `${tag} analysis: the ${lens} lens chip keeps focus and is named`,
+        kept.rd === 'lens' && kept.id === lens && / lens$/.test(kept.live),
+        JSON.stringify(kept)
+      );
     }
   },
 };
