@@ -89,8 +89,15 @@ export function newRunId(_key, rand = () => randomBytes(32).toString('hex')) {
 // LYRICS_RUNTIME.md's "a stale revision refuses before work starts". It is
 // durable when LYRIC_RUNTIME_DIR names a disk (RUN_LEDGER_FILE overrides),
 // and otherwise covers the life of the process.
+//
+// It also keeps a digest of every continuation wire (a state or checkpoint)
+// a run has moved past, or finished on. A call that carries such a wire is
+// refused whether or not it names its run_id (Jony's review: a stale state
+// sent without run_id still ran as a new run, and the /chat checkpoint
+// recovery carries no run_id at all). A wire the run is still on (a repeated
+// question) is not moved past, so it stays usable.
 export const LEDGER_RETAIN_MS = 30 * 24 * 60 * 60 * 1000;
-export const LEDGER_CAP = 20000;
+export const LEDGER_CAP = 5000;
 const digest = (runId) => createHash('sha256').update(String(runId)).digest('hex').slice(0, 32);
 
 export class RunLedger {
@@ -99,9 +106,25 @@ export class RunLedger {
     this.now = now;
     this.log = log;
     this.runs = new Map(); // digest -> [revision, finished 0|1, updated_at]
+    this.used = new Map(); // wire digest -> updated_at
+    // Fails closed (3PO, BB8 N3): a ledger that cannot be read or saved
+    // cannot tell a stale continuation from a live one, so while it is
+    // unhealthy every continuation is refused (lyric_tools) — as unreadable
+    // spend persistence closes paid chat. A fresh run is unaffected.
+    this.healthy = true;
+    this.error = null;
     if (!file) return;
+    // A temp file left by a kill between write and rename is never read.
+    try {
+      const base = path.basename(file) + '.';
+      for (const name of fs.readdirSync(path.dirname(file)))
+        if (name.startsWith(base) && name.endsWith('.tmp'))
+          fs.rmSync(path.join(path.dirname(file), name), { force: true });
+    } catch {}
     try {
       const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
+      for (const [k, t] of Object.entries(raw?.used || {}))
+        if (/^[0-9a-f]{32}$/.test(k) && Number.isFinite(t)) this.used.set(k, t);
       for (const [k, v] of Object.entries(raw?.runs || {}))
         if (
           /^[0-9a-f]{32}$/.test(k) &&
@@ -113,42 +136,81 @@ export class RunLedger {
         )
           this.runs.set(k, v);
     } catch (err) {
-      if (err.code !== 'ENOENT')
-        this.log(`[runs] ledger unreadable (${err.code || err.message}); starting empty.`);
+      if (err.code !== 'ENOENT') this.fail(err, 'unreadable');
     }
+  }
+  fail(err, what) {
+    this.healthy = false;
+    this.error = err.code || err.message;
+    this.log(
+      `[runs] ledger ${what} (${this.error}); continuations are refused until it is repaired.`
+    );
   }
   get(runId) {
     const v = this.runs.get(digest(runId));
     return v ? { revision: v[0], finished: v[1] === 1 } : null;
   }
-  mark(runId, revision, finished = false) {
-    const k = digest(runId);
-    const was = this.runs.get(k);
-    // A revision only moves forward, and a finished run stays finished.
-    const v = [Math.max(revision, was?.[0] ?? 0), finished || was?.[1] === 1 ? 1 : 0, this.now()];
-    this.runs.delete(k);
-    this.runs.set(k, v);
-    const cutoff = this.now() - LEDGER_RETAIN_MS;
-    for (const [key, val] of this.runs) {
-      if (val[2] >= cutoff && this.runs.size <= LEDGER_CAP) break;
-      this.runs.delete(key);
+  // True when any of these wires is one a run has already moved past.
+  isUsed(wires) {
+    return wires.some((w) => typeof w === 'string' && this.used.has(digest(w)));
+  }
+  // runId may be null: a call with no run record still uses up its wires.
+  mark(runId, revision, finished = false, usedWires = []) {
+    const t = this.now();
+    if (runId) {
+      const k = digest(runId);
+      const was = this.runs.get(k);
+      // A revision only moves forward, and a finished run stays finished.
+      const v = [Math.max(revision, was?.[0] ?? 0), finished || was?.[1] === 1 ? 1 : 0, t];
+      this.runs.delete(k);
+      this.runs.set(k, v);
     }
+    for (const w of usedWires)
+      if (typeof w === 'string') {
+        this.used.delete(digest(w));
+        this.used.set(digest(w), t);
+      }
+    const cutoff = t - LEDGER_RETAIN_MS;
+    for (const map of [this.runs, this.used])
+      for (const [key, val] of map) {
+        if ((Array.isArray(val) ? val[2] : val) >= cutoff && map.size <= LEDGER_CAP) break;
+        map.delete(key);
+      }
     this.save();
   }
   save() {
     if (!this.file) return;
     const temp = `${this.file}.${randomBytes(8).toString('hex')}.tmp`;
+    const dir = path.dirname(this.file);
     try {
-      fs.mkdirSync(path.dirname(this.file), { recursive: true, mode: 0o700 });
-      fs.writeFileSync(temp, JSON.stringify({ version: 1, runs: Object.fromEntries(this.runs) }), {
-        mode: 0o600,
+      fs.mkdirSync(dir, { recursive: true, mode: 0o700 });
+      const body = JSON.stringify({
+        version: 1,
+        runs: Object.fromEntries(this.runs),
+        used: Object.fromEntries(this.used),
       });
+      // Replaced atomically after a file and a directory fsync, as the other
+      // runtime files are (LYRICS_RUNTIME.md): the guard is only as good as
+      // the newest ledger that survives a power loss.
+      const fd = fs.openSync(temp, 'wx', 0o600);
+      try {
+        fs.writeFileSync(fd, body);
+        fs.fsyncSync(fd);
+      } finally {
+        fs.closeSync(fd);
+      }
       fs.renameSync(temp, this.file);
+      const dfd = fs.openSync(dir, 'r');
+      try {
+        fs.fsyncSync(dfd);
+      } finally {
+        fs.closeSync(dfd);
+      }
     } catch (err) {
       try {
         fs.rmSync(temp, { force: true });
       } catch {}
-      this.log(`[runs] ledger not saved (${err.code || err.message}); it holds in memory.`);
+      this.fail(err, 'not saved');
     }
   }
 }
@@ -177,6 +239,13 @@ export class RunStore {
   // What the ledger knows of a run this store no longer holds (or null).
   mark(runId) {
     return runId ? this.ledger.get(runId) : null;
+  }
+  // True when a continuation wire this call carries was already moved past.
+  used(wires) {
+    return this.ledger.isUsed(wires);
+  }
+  get ledgerHealthy() {
+    return this.ledger.healthy !== false;
   }
   acquire(runId) {
     if (!runId) return () => {};
@@ -225,7 +294,9 @@ export class RunStore {
     for (const r of this.map.values()) if (r.state === wire) return this.get(r.run_id);
     return null;
   }
-  put(key, rec) {
+  // `inputs`: the state/checkpoint wires the call continued from; each one
+  // this record moves past is recorded as used.
+  put(key, rec, inputs = []) {
     const previous = rec.run_id ? this.map.get(rec.run_id) : null;
     const r = {
       ...rec,
@@ -242,15 +313,23 @@ export class RunStore {
     };
     this.map.delete(r.run_id);
     this.map.set(r.run_id, r);
-    this.ledger.mark(r.run_id, r.revision);
+    this.ledger.mark(
+      r.run_id,
+      r.revision,
+      false,
+      inputs.filter((w) => w !== r.state && w !== r.checkpoint)
+    );
     this._sweep();
     return r;
   }
-  // A clean finish: the record goes, the ledger remembers it finished.
-  finish(runId) {
-    const revision = this.map.get(runId)?.revision ?? this.ledger.get(runId)?.revision;
-    if (revision) this.ledger.mark(runId, revision, true);
-    this.map.delete(runId);
+  // A clean finish: the record goes, the ledger remembers it finished and
+  // that the wires it finished on are used. runId may be null (no record).
+  finish(runId, inputs = []) {
+    const revision = runId
+      ? (this.map.get(runId)?.revision ?? this.ledger.get(runId)?.revision)
+      : null;
+    this.ledger.mark(revision ? runId : null, revision ?? 0, true, inputs);
+    if (runId) this.map.delete(runId);
   }
   del(runId) {
     this.map.delete(runId);
@@ -271,9 +350,19 @@ function ledgerRefusal(mark, args) {
   if (args.run_revision == null)
     return `REFUSED: run_revision is required when continuing run_id; current revision is ${mark.revision}. Pass the revision returned with this run.`;
   if (args.run_revision !== mark.revision)
-    return `REFUSED: stale run revision ${args.run_revision}; current revision is ${mark.revision}. Nothing was run. Continue from the latest result of this run, or send new_run: true with the draft you hold.`;
+    return `REFUSED: stale run revision ${args.run_revision}; current revision is ${mark.revision}. Nothing was run. ${USED_TAIL}`;
   return null;
 }
+
+// What to do when the continuation held is not the run's latest. "Behind"
+// and "never delivered" look the same from here: a call interrupted after
+// the run advanced but before its result was recorded leaves the caller
+// holding the older one, and recover_only reads its accepted lyrics.
+const USED_TAIL =
+  'Continue from the latest result of this run. If that result never reached you (an interrupted call), lyric_revise with recover_only returns the accepted lyrics from what you hold; then send new_run: true with that draft to go on as an independent run.';
+export const LEDGER_UNAVAILABLE_REFUSAL =
+  'RUN_LEDGER_UNAVAILABLE: the run ledger cannot be read or saved on this server, so a continuation cannot be checked against what its run already did. Nothing was run. lyric_revise with recover_only still returns the accepted lyrics from what you hold, and new_run: true with a draft starts an independent run.';
+export const USED_WIRE_REFUSAL = `REFUSED: this state or checkpoint was already continued — its run moved past it or finished. Nothing was run. ${USED_TAIL}`;
 
 function sameDraft(a, b) {
   return (

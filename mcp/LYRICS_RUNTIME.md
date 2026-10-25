@@ -571,11 +571,25 @@ whichever family the host calls.
 
 Direct lyric continuations require the returned `run_revision` with `run_id`.
 A concurrent continuation or stale revision refuses before work starts. That holds
-after the run's cached record is gone: a run ledger keeps each run's latest revision
-and whether it finished (a digest of the `run_id`, never the id itself, in
-`run-ledger.json` under `LYRIC_RUNTIME_DIR`, or `RUN_LEDGER_FILE`; in memory
-otherwise), so an older revision, or any revision of a finished run, sent after a
-clean finish or a restart refuses with nothing run; `new_run` stays the explicit way
+after the run's cached record is gone (a clean finish deletes it, a restart loses it):
+a run ledger keeps each run's latest revision, whether it finished, and a digest of
+every state or checkpoint the run has moved past. It holds digests only, never a
+`run_id` or a wire, in `run-ledger.json` under `LYRIC_RUNTIME_DIR` (`RUN_LEDGER_FILE`
+overrides; in memory otherwise), replaced atomically after a file and a directory
+fsync, kept 30 days and capped at 5,000 runs. So, with nothing run:
+
+- a revision behind the run's latest, or any revision of a finished run, refuses;
+- a state or checkpoint the run already moved past refuses whether or not the call
+  names its `run_id` (the `/chat` checkpoint recovery carries none);
+- while the ledger cannot be read or saved, every continuation refuses
+  (`RUN_LEDGER_UNAVAILABLE`); a fresh run on a draft is unaffected.
+
+Limits: a run the ledger never saw (from before it shipped, or past its retention)
+continues as before. "Behind" and "never delivered" look the same from a revision:
+a call interrupted after its run advanced but before its result reached the caller
+leaves the caller holding the earlier one, which then refuses; `recover_only` reads
+its accepted lyrics and `new_run` goes on as an independent run. A repeated question
+(the run still on the same state) is not moved past. `new_run` stays the explicit way
 to start independent work on a draft. Original
 replay input, accepted lines and immutable declarations have separate fields;
 accepted lines never silently replace the replay input. The bounded state codec

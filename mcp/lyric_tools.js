@@ -75,6 +75,8 @@ import {
   declarationsOf,
   newRunId,
   runRefusal,
+  USED_WIRE_REFUSAL,
+  LEDGER_UNAVAILABLE_REFUSAL,
   movedDeclarations,
   movedRefusal,
 } from './run_store.js';
@@ -2696,6 +2698,12 @@ export function registerLyricTools(server, tool) {
               // Only the outer connector contract changes here. The worker reads
               // its original journal schema, and foldedOf/askedOf see raw state.
               const checkpointWire = a.checkpoint;
+              // The wires this call continues from, as the caller sent them
+              // (or the record carried them). One a run already moved past is
+              // refused here, before any work, run_id or not (the ledger).
+              const inputWires = [a.state, a.checkpoint];
+              const continuing =
+                !a.new_run && (a.state != null || a.checkpoint != null || a.run_id != null);
               for (const field of ['state', 'checkpoint'])
                 if (a[field] != null) {
                   const decoded = decodeState(a[field]);
@@ -3031,6 +3039,11 @@ export function registerLyricTools(server, tool) {
               if (budget.max_rounds !== undefined) args.push(`--max-rounds=${budget.max_rounds}`);
               args.push(`--attempts=${budget.attempts}`);
               args.push(`--backtrack=${budget.backtrack}`);
+              // The ledger's word, last before any work (the more specific
+              // refusals above keep their own wording): a continuation the run
+              // already moved past, or one the ledger cannot check.
+              if (continuing && !RUNS.ledgerHealthy) throw refuse(LEDGER_UNAVAILABLE_REFUSAL);
+              if (continuing && RUNS.used(inputWires)) throw refuse(USED_WIRE_REFUSAL);
               const execution = requestContext();
               const r = await runVerb(args, {
                 checkpointPath,
@@ -3100,18 +3113,22 @@ export function registerLyricTools(server, tool) {
                 // that returns a state (LOOP_REDESIGN.md §2.8 D).
                 if (writer === 'interview' && capacityState)
                   result.folded = foldedOf(a.state, capacityState);
-                const saved = RUNS.put(runKey, {
-                  status: 'journal_capacity',
-                  draft: exactDraft,
-                  replay_draft: a.draft,
-                  state: result.state,
-                  checkpoint: result.checkpoint,
-                  decl: declarationsOf(a),
-                  reader_scheme:
-                    r.lyric_result?.reader_scheme ??
-                    (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
-                  run_id: runId,
-                });
+                const saved = RUNS.put(
+                  runKey,
+                  {
+                    status: 'journal_capacity',
+                    draft: exactDraft,
+                    replay_draft: a.draft,
+                    state: result.state,
+                    checkpoint: result.checkpoint,
+                    decl: declarationsOf(a),
+                    reader_scheme:
+                      r.lyric_result?.reader_scheme ??
+                      (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
+                    run_id: runId,
+                  },
+                  inputWires
+                );
                 result.run_id = saved.run_id;
                 result.run_revision = saved.revision;
                 return result;
@@ -3139,19 +3156,23 @@ export function registerLyricTools(server, tool) {
                 // M-237: the tool remembers the run; the client may omit `state`
                 // and `draft` on the next call.
                 const runNow = runKey
-                  ? RUNS.put(runKey, {
-                      seed: typeof a.seed === 'number' ? a.seed : null,
-                      status: 'suspended',
-                      state: stateWire,
-                      draft: a.draft,
-                      replay_draft: a.draft,
-                      decl: declarationsOf(a),
-                      reader_scheme:
-                        r.lyric_result?.reader_scheme ??
-                        (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
-                      answers: onRecord,
-                      run_id: runId,
-                    })
+                  ? RUNS.put(
+                      runKey,
+                      {
+                        seed: typeof a.seed === 'number' ? a.seed : null,
+                        status: 'suspended',
+                        state: stateWire,
+                        draft: a.draft,
+                        replay_draft: a.draft,
+                        decl: declarationsOf(a),
+                        reader_scheme:
+                          r.lyric_result?.reader_scheme ??
+                          (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
+                        answers: onRecord,
+                        run_id: runId,
+                      },
+                      inputWires
+                    )
                   : null;
                 const answerField =
                   askedNow && askedNow.kind === 'propose_batch'
@@ -3246,31 +3267,37 @@ export function registerLyricTools(server, tool) {
                 verdict.run_draft_carried = carried.draft;
                 verdict.run_decl_carried = carried.decl;
                 if (runKey && r.code !== 0 && exactDraft) {
-                  const parkedRec = RUNS.put(runKey, {
-                    seed: typeof a.seed === 'number' ? a.seed : null,
-                    status: r.code === 2 ? 'uncertified' : 'parked',
-                    exit_code: r.code,
-                    refused_obligations: verdict.coverage?.refused_obligations || [],
-                    draft: exactDraft,
-                    replay_draft: a.draft,
-                    decl: declarationsOf(a),
-                    reader_scheme:
-                      r.lyric_result?.reader_scheme ??
-                      (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
-                    stop: verdict.loop_stop_reason ?? null,
-                    open: Array.isArray(verdict.loop_unresolved_lines)
-                      ? verdict.loop_unresolved_lines
-                      : [],
-                    whole: Array.isArray(verdict.loop_whole_flag_codes)
-                      ? verdict.loop_whole_flag_codes
-                      : [],
-                    standing: Array.isArray(verdict.standing) ? verdict.standing.slice(0, 24) : [],
-                    run_id: runId,
-                  });
+                  const parkedRec = RUNS.put(
+                    runKey,
+                    {
+                      seed: typeof a.seed === 'number' ? a.seed : null,
+                      status: r.code === 2 ? 'uncertified' : 'parked',
+                      exit_code: r.code,
+                      refused_obligations: verdict.coverage?.refused_obligations || [],
+                      draft: exactDraft,
+                      replay_draft: a.draft,
+                      decl: declarationsOf(a),
+                      reader_scheme:
+                        r.lyric_result?.reader_scheme ??
+                        (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
+                      stop: verdict.loop_stop_reason ?? null,
+                      open: Array.isArray(verdict.loop_unresolved_lines)
+                        ? verdict.loop_unresolved_lines
+                        : [],
+                      whole: Array.isArray(verdict.loop_whole_flag_codes)
+                        ? verdict.loop_whole_flag_codes
+                        : [],
+                      standing: Array.isArray(verdict.standing)
+                        ? verdict.standing.slice(0, 24)
+                        : [],
+                      run_id: runId,
+                    },
+                    inputWires
+                  );
                   verdict.run_id = parkedRec.run_id;
                   verdict.run_revision = parkedRec.revision;
                 } else if (runKey && r.code === 0) {
-                  if (runRec || ledgerMark) RUNS.finish(runId);
+                  RUNS.finish(runRec || ledgerMark ? runId : null, inputWires);
                   verdict.run_id = runRec?.run_id ?? null;
                   verdict.run_revision = runRec?.revision ?? null;
                 }
@@ -3360,19 +3387,23 @@ export function registerLyricTools(server, tool) {
                 other.final_draft = exactDraft;
                 other.replay_draft = a.draft;
                 if (resumable) {
-                  const saved = RUNS.put(runKey, {
-                    seed: a.seed ?? null,
-                    status: other.status,
-                    checkpoint: other.checkpoint,
-                    state: other.state,
-                    draft: exactDraft,
-                    replay_draft: a.draft,
-                    decl: declarationsOf(a),
-                    reader_scheme:
-                      r.lyric_result?.reader_scheme ??
-                      (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
-                    run_id: runId,
-                  });
+                  const saved = RUNS.put(
+                    runKey,
+                    {
+                      seed: a.seed ?? null,
+                      status: other.status,
+                      checkpoint: other.checkpoint,
+                      state: other.state,
+                      draft: exactDraft,
+                      replay_draft: a.draft,
+                      decl: declarationsOf(a),
+                      reader_scheme:
+                        r.lyric_result?.reader_scheme ??
+                        (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
+                      run_id: runId,
+                    },
+                    inputWires
+                  );
                   other.run_id = saved.run_id;
                   other.run_revision = saved.revision;
                   if (other.no_progress_calls)

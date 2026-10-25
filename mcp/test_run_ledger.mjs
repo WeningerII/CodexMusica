@@ -9,6 +9,12 @@
 // flag past the record. Here, with the interview writer (no provider):
 //   - lines still open, record lost (a restart): the older revision is
 //     refused by name, the latest still continues;
+//   - the same with no run_id: a moved-past state is refused, the latest
+//     continues once, recover_only still reads the old one;
+//   - the crash window (advanced, result never delivered): refused with the
+//     way out named, and recover_only reads the held revision;
+//   - an unreadable or unsavable ledger refuses every continuation (fails
+//     closed); a kill's leftover temp file is swept;
 //   - run finished: any revision of it is refused, new_run still works;
 //   - the ledger file survives a new store, and a revision never restarts
 //     at 1 after the record is lost.
@@ -107,6 +113,32 @@ try {
     if (v.run_revision != null) assert.equal(v.run_revision, 3);
   });
 
+  // ── The same, with no run_id (Jony's review) ─────────────────────────
+  // A stale state alone used to run as a new run: the C1 shape on any path
+  // that carries the state without the capability (the /chat checkpoint
+  // recovery carries none).
+  const s1 = verdict(await start());
+  const s2 = verdict(await call({ run_id: s1.run_id, run_revision: 1, answer: 'I hold you.' }));
+  RUNS.del(s1.run_id);
+  const staleBare = await call({ state: s1.state, answer: 'I hold you.' });
+  check('record lost: a moved-past state with no run_id is refused before any work', () => {
+    assert.equal(staleBare.isError, true, text(staleBare).slice(0, 300));
+    assert.match(text(staleBare), /already continued.*Nothing was run.*recover_only/);
+  });
+  const latestBare = await call({ state: s2.state, draft: ['Copper cat', 'Azure dog'] });
+  check('the latest state with no run_id still continues', () =>
+    assert.doesNotMatch(text(latestBare), /already continued|stale run revision/)
+  );
+  const againBare = await call({ state: s2.state, draft: ['Copper cat', 'Azure dog'] });
+  check('and once it has been continued, sending it again is refused', () => {
+    assert.equal(againBare.isError, true, text(againBare).slice(0, 300));
+    assert.match(text(againBare), /already continued/);
+  });
+  const recovered = await call({ state: s1.state, recover_only: true });
+  check('recover_only still reads a moved-past state', () =>
+    assert.notEqual(recovered.isError, true, text(recovered).slice(0, 300))
+  );
+
   // ── Run finished ──────────────────────────────────────────────────────
   const f1 = verdict(await start());
   verdict(await call({ run_id: f1.run_id, run_revision: 1, answer: 'I hold you.' }));
@@ -139,6 +171,69 @@ try {
     assert.notEqual(fresh.isError, true, text(fresh).slice(0, 300));
     assert.notEqual(verdict(fresh).run_id, f1.run_id);
   });
+
+  // ── The crash window (Jony, 3PO) ──────────────────────────────────────
+  // The run advanced (put) but its result never reached the caller, who
+  // still holds revision 1. That cannot be told apart from a stale replay,
+  // so it is refused, and the refusal names the way out: recover_only reads
+  // the accepted lyrics from what the caller holds, new_run goes on.
+  const w1 = verdict(await start());
+  verdict(await call({ run_id: w1.run_id, run_revision: 1, answer: 'I hold you.' })); // "lost"
+  RUNS.del(w1.run_id);
+  const resumed = await call({
+    run_id: w1.run_id,
+    run_revision: 1,
+    state: w1.state,
+    answer: 'I hold you.',
+  });
+  check(
+    'crash window: the undelivered revision is refused, naming recover_only and new_run',
+    () => {
+      assert.equal(resumed.isError, true);
+      assert.match(text(resumed), /never reached you.*recover_only.*new_run: true/);
+    }
+  );
+  const fromHeld = await call({ state: w1.state, recover_only: true });
+  check('crash window: recover_only reads the accepted lyrics from the held revision', () => {
+    assert.notEqual(fromHeld.isError, true, text(fromHeld).slice(0, 300));
+    assert.match(text(fromHeld), /Copper cat/);
+  });
+
+  // ── Fails closed (3PO, BB8 N3) ────────────────────────────────────────
+  const bad = fs.mkdtempSync(path.join(os.tmpdir(), 'run-ledger-bad-'));
+  const healthyLedger = RUNS.ledger;
+  try {
+    fs.writeFileSync(path.join(bad, 'run-ledger.json'), '{not json');
+    fs.writeFileSync(path.join(bad, 'run-ledger.json.abc123.tmp'), 'orphan');
+    const corrupt = new RunLedger(path.join(bad, 'run-ledger.json'), { log: () => {} });
+    check('an unreadable ledger file marks the ledger unhealthy', () =>
+      assert.equal(corrupt.healthy, false)
+    );
+    check('and a temp file a kill left behind is swept on load', () =>
+      assert.equal(fs.existsSync(path.join(bad, 'run-ledger.json.abc123.tmp')), false)
+    );
+    RUNS.ledger = corrupt;
+    const g1 = verdict(await start()); // a fresh run is unaffected
+    const closed = await call({ run_id: g1.run_id, run_revision: 1, answer: 'I hold you.' });
+    check('while unhealthy, a continuation is refused before any work', () => {
+      assert.equal(closed.isError, true, text(closed).slice(0, 300));
+      assert.match(text(closed), /RUN_LEDGER_UNAVAILABLE.*Nothing was run/);
+    });
+    const closedBare = await call({ state: g1.state, answer: 'I hold you.' });
+    check('and so is a state with no run_id', () =>
+      assert.match(text(closedBare), /RUN_LEDGER_UNAVAILABLE/)
+    );
+    const unsaved = new RunLedger(path.join(bad, 'run-ledger.json', 'not-a-dir', 'x.json'), {
+      log: () => {},
+    });
+    unsaved.mark('run_y', 1);
+    check('a save that fails marks the ledger unhealthy too', () =>
+      assert.equal(unsaved.healthy, false)
+    );
+  } finally {
+    RUNS.ledger = healthyLedger;
+    fs.rmSync(bad, { recursive: true, force: true });
+  }
 
   // ── The ledger file ──────────────────────────────────────────────────
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'run-ledger-'));
