@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global showToast, document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global toastTimed, showToast, document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -493,7 +493,7 @@ async function editorKeyboard(page, where) {
         'Toast: replacing a toast that holds focus returns focus to where it came from'
       );
       await page.evaluate(() => {
-        showToast('Probe failed', 'error', { label: 'Retry', run() {} });
+        showToast('Probe timed', 'success', { label: 'Act', run() {} });
         document.getElementById('probe-return').focus();
       });
       await page.keyboard.press('Alt+Shift+T');
@@ -526,6 +526,51 @@ async function editorKeyboard(page, where) {
         await page.evaluate(() => document.activeElement?.id),
         'probe-target',
         'Toast: focus the action places on purpose is kept'
+      );
+      // A second press from inside the toast keeps the original way back.
+      await page.evaluate(() => {
+        showToast('Probe twice', 'success', { label: 'Act', run() {} });
+        document.getElementById('probe-return').focus();
+      });
+      await page.keyboard.press('Alt+Shift+T');
+      await page.keyboard.press('Alt+Shift+T');
+      await page.evaluate(() => showToast('Replaced again', 'success'));
+      assert.equal(
+        await page.evaluate(() => document.activeElement?.id),
+        'probe-return',
+        'Toast: a repeated shortcut still returns focus to where it came from'
+      );
+      // The shortcut never takes a keystroke from a text field.
+      await page.evaluate(() => {
+        const f = document.createElement('input');
+        f.id = 'probe-field';
+        document.body.appendChild(f);
+        showToast('Probe field', 'success', { label: 'Act', run() {} });
+        f.focus();
+      });
+      await page.keyboard.press('Alt+Shift+T');
+      assert.equal(
+        await page.evaluate(() => document.activeElement?.id),
+        'probe-field',
+        'Toast: the shortcut leaves a text field alone'
+      );
+      // Retry is reachable without the shortcut: an error toast with an
+      // action does not time out, and it can be dismissed.
+      await page.evaluate(() => showToast('Probe error', 'error', { label: 'Retry', run() {} }));
+      const err = await page.evaluate(() => ({
+        timed: toastTimed,
+        actions: [...document.querySelectorAll('#toast .toast-action')].map((b) => b.textContent),
+      }));
+      assert.deepEqual(
+        err,
+        { timed: false, actions: ['Retry', 'Dismiss'] },
+        'Toast: an error with Retry waits for its user and can be dismissed'
+      );
+      await page.locator('#toast .toast-dismiss').click();
+      assert.equal(
+        await page.evaluate(() => document.getElementById('toast').classList.contains('show')),
+        false,
+        'Toast: Dismiss takes the error toast down'
       );
       // Genre detail: an in-content jump to a tab brings the tab into view.
       await page.getByRole('button', { name: 'Genre', exact: true }).first().click();

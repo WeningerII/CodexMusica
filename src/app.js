@@ -14728,16 +14728,19 @@ function confirmDialog(opts) {
 let toastT = null;
 let toastSeq = 0; // counts toasts, so a caller can tell whether its own is still up
 // An action toast sits at the end of the page, a hundred Tabs away, so
-// Alt+Shift+T jumps to its action; the toast's hidden text says so. Its timer
-// waits while the action is hovered or focused, and when a toast that holds
-// focus goes (timeout or replacement), focus goes back to where it came from.
+// Alt+Shift+T jumps to its action (never while typing in a field); the toast's
+// hidden text says so. The shortcut is a convenience, not the only way: an
+// error toast with an action (Retry) does not time out, so Tab reaches it, and
+// it carries a Dismiss button. A timed toast's timer waits while the action is
+// hovered or focused, and when a toast that holds focus goes (timeout or
+// replacement), focus goes back to where it was before it entered the toast.
 let toastDeadline = 0, toastLeft = 0, toastHeld = 0, toastTimed = false, toastReturn = null;
 const TOAST_KEY_LABEL = 'Alt+Shift+T';
 function _toastRestoreFocus(t) {
   const back = toastReturn;
   toastReturn = null;
   if (!t.contains(document.activeElement)) return;
-  if (back && back !== document.body && back.isConnected && typeof back.focus === 'function') back.focus({ preventScroll: true });
+  if (back && back !== document.body && back.isConnected && !t.contains(back) && typeof back.focus === 'function') back.focus({ preventScroll: true });
   else document.activeElement.blur();
 }
 function _toastArm(t, ms) {
@@ -14763,7 +14766,7 @@ function _toastWire(t) {
   t._wired = true;
   t.addEventListener('focusin', (e) => {
     if (!t.contains(e.relatedTarget)) {
-      if (!toastReturn) toastReturn = e.relatedTarget;
+      if (!toastReturn && e.relatedTarget && !t.contains(e.relatedTarget)) toastReturn = e.relatedTarget;
       _toastHold(t, true);
     }
   });
@@ -14771,11 +14774,16 @@ function _toastWire(t) {
   t.addEventListener('mouseover', (e) => { if (!t.contains(e.relatedTarget)) _toastHold(t, true); });
   t.addEventListener('mouseout', (e) => { if (!t.contains(e.relatedTarget)) _toastHold(t, false); });
   document.addEventListener('keydown', (e) => {
-    if (!(e.altKey && e.shiftKey && e.code === 'KeyT')) return;
+    if (!(e.altKey && e.shiftKey && e.code === 'KeyT') || e.ctrlKey || e.metaKey) return;
+    if (e.defaultPrevented || e.isComposing) return;
+    // Never take a keystroke from text entry (on macOS Option+Shift+T types).
+    const a = document.activeElement;
+    if (a && (a.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName))) return;
     const b = t.classList.contains('show') && t.querySelector('.toast-action');
     if (!b) return;
     e.preventDefault();
-    toastReturn = document.activeElement;
+    // A second press from inside the toast keeps the original way back.
+    if (!t.contains(a)) toastReturn = a;
     b.focus();
   }, true);
 }
@@ -14815,13 +14823,23 @@ function showToast(msg, kind, action, opts) {
     hint.textContent = `. ${TOAST_KEY_LABEL} reaches ${action.label}. `;
     t.append(hint, b);
     t.classList.add('has-action');
+    if (kind === 'error') {
+      const x = document.createElement('button');
+      x.type = 'button';
+      x.className = 'toast-action toast-dismiss';
+      x.textContent = 'Dismiss';
+      x.addEventListener('click', () => hideToast(t), { once: true });
+      t.append(x);
+    }
   }
   t.classList.add('show');
   if (toastT) clearTimeout(toastT);
   toastT = null;
   // opts.sticky: a status that lasts as long as what it reports; its caller
   // takes it down (engineReady).
-  toastTimed = !(opts && opts.sticky);
+  // An error with an action (Retry) waits for its user: no timeout, so Tab
+  // reaches it without the shortcut; Dismiss or the next toast takes it down.
+  toastTimed = !(opts && opts.sticky) && !(kind === 'error' && action && action.label);
   if (toastTimed) _toastArm(t, UI_TIMING_MS.TOAST_LIFETIME * (action ? 3 : 1));
   return ++toastSeq;
 }
@@ -14835,8 +14853,7 @@ function hideToast(t) {
   toastTimed = false;
   _toastRestoreFocus(t);
   t.classList.remove('show', 'has-action');
-  t.querySelector('.toast-action')?.remove();
-  t.querySelector('.toast-hint')?.remove();
+  t.querySelectorAll('.toast-action, .toast-hint').forEach((n) => n.remove());
 }
 
 // ---- Clipboard helper ----
