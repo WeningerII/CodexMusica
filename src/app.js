@@ -14668,8 +14668,10 @@ function closeModal(id) {
 // additional dialogs" mechanism kicks in surprisingly easily), and the
 // native dialog renders as a thin chip at the very top of the viewport
 // that's easy to miss or dismiss without noticing. This custom version
-// renders inline, can't be suppressed, focuses the destructive action
-// automatically for keyboard confirm, and integrates with toast feedback.
+// renders inline, can't be suppressed, and integrates with toast feedback.
+// It is an alertdialog named by its title and described by its message; a
+// danger dialog opens on Cancel, so the destructive choice is never the one
+// a stray keystroke lands on.
 //
 // Returns a Promise<boolean>. Usage:
 //   const ok = await confirmDialog({ title, message, confirmLabel, danger });
@@ -14686,13 +14688,14 @@ function confirmDialog(opts) {
   return new Promise(resolve => {
     const bg = document.createElement('div');
     bg.className = 'modal-bg open confirm-dialog-bg';
+    const uid = 'confirm-' + (confirmDialog.seq = (confirmDialog.seq || 0) + 1);
     bg.innerHTML = `
-      <div class="modal confirm-dialog">
+      <div class="modal confirm-dialog" role="alertdialog" aria-modal="true" aria-labelledby="${uid}-title"${message ? ` aria-describedby="${uid}-msg"` : ''}>
         <div class="modal-head">
-          <h2 class="modal-title">${esc(title)}</h2>
+          <h2 class="modal-title" id="${uid}-title">${esc(title)}</h2>
         </div>
         <div class="confirm-dialog-body">
-          <p class="confirm-dialog-msg">${esc(message)}</p>
+          <p class="confirm-dialog-msg" id="${uid}-msg">${esc(message)}</p>
           <div class="confirm-dialog-actions">
             <button type="button" class="btn btn-ghost" data-confirm-action="cancel">${esc(cancelLabel)}</button>
             <button type="button" class="btn ${danger ? 'btn-danger-solid' : 'btn-primary'}" data-confirm-action="confirm">${esc(confirmLabel)}</button>
@@ -14720,10 +14723,11 @@ function confirmDialog(opts) {
     bg.querySelector('[data-confirm-action="cancel"]').addEventListener('click', () => close(false));
     bg.querySelector('[data-confirm-action="confirm"]').addEventListener('click', () => close(true));
     bg.addEventListener('click', e => { if (e.target === bg) close(false); });
-    // Focus the confirm button so Enter confirms by default. Slight delay
+    // Focus the confirm button, or Cancel for a danger dialog. Slight delay
     // lets the modal's opacity/transform transition begin before focus,
     // matching the existing modal pattern in openModal().
-    setTimeout(() => bg.querySelector('[data-confirm-action="confirm"]').focus(), UI_TIMING_MS.MODAL_FOCUS_DELAY);
+    const first = danger ? 'cancel' : 'confirm';
+    setTimeout(() => bg.querySelector(`[data-confirm-action="${first}"]`).focus(), UI_TIMING_MS.MODAL_FOCUS_DELAY);
   });
 }
 

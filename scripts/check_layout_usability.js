@@ -235,11 +235,31 @@ async function noOverflow(page) {
           await row.waitFor();
           await row.focus();
           await page.keyboard.press('Enter');
-          await page.waitForFunction(() =>
-            document.activeElement?.matches('.confirm-dialog [data-confirm-action="confirm"]')
+          await page
+            .waitForFunction(
+              () => document.activeElement?.matches('.confirm-dialog [data-confirm-action]'),
+              null,
+              { timeout: 3000 }
+            )
+            .catch(() => {});
+          const dialog = await page.evaluate(() => {
+            const d = document.querySelector('.confirm-dialog');
+            const text = (id) => (id && document.getElementById(id)?.textContent.trim()) || '';
+            return {
+              role: d?.getAttribute('role'),
+              modal: d?.getAttribute('aria-modal'),
+              name: text(d?.getAttribute('aria-labelledby')),
+              desc: text(d?.getAttribute('aria-describedby')),
+              focus: document.activeElement?.dataset?.confirmAction || null,
+            };
+          });
+          assert.ok(
+            dialog.role === 'alertdialog' && dialog.modal === 'true' && dialog.name && dialog.desc,
+            `the confirm dialog is a named, described alertdialog: ${JSON.stringify(dialog)}`
           );
-          if (choice === 'cancel')
-            await page.locator('.confirm-dialog [data-confirm-action="cancel"]').focus();
+          assert.equal(dialog.focus, 'cancel', 'a delete confirmation opens on Cancel');
+          if (choice === 'confirm')
+            await page.locator('.confirm-dialog [data-confirm-action="confirm"]').focus();
           await page.keyboard.press('Enter');
           await page.locator('.confirm-dialog').waitFor({ state: 'detached' });
           await page.keyboard.press('Escape');
