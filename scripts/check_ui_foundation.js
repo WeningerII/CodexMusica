@@ -43,9 +43,11 @@
 //
 //   A TO Z
 //   N. At a desktop and a phone width, every row of All genres, a Browse
-//      branch, All instruments, a family, a family's classes, a class and an
-//      instrument search reads A to Z by the name it shows, as before the
-//      redesign. Ranked lists keep their rank — a genre search its match tier,
+//      branch, All instruments, a family, a family's classes and a class
+//      reads A to Z by the name it shows, as before the redesign. Ranked
+//      lists keep their rank — a genre or instrument search its match tier
+//      (the whole name, its start, a later word's start, inside it, then
+//      elsewhere),
 //      a sound target and Similar sounds their distance, the map key and the
 //      map's In view their group size, a map search an exact name first — and
 //      read A to Z within a tie. Curated orders (the taxonomy's categories,
@@ -1071,7 +1073,16 @@ async function loadDelta(page) {
           const n = normalizeSearch(e.textContent);
           return {
             name: e.textContent,
-            key: n === q ? 0 : n.startsWith(q) ? 1 : n.includes(q) ? 2 : 3,
+            key:
+              n === q
+                ? 0
+                : n.startsWith(q)
+                  ? 1
+                  : (' ' + n).includes(' ' + q)
+                    ? 2
+                    : n.includes(q)
+                      ? 3
+                      : 4,
           };
         });
       });
@@ -1133,9 +1144,30 @@ async function loadDelta(page) {
       await page.evaluate(() => document.querySelector('[data-ui="instrument-all"]')?.click());
       await page.fill('#instrument-search', 'guitar');
       await all('renderInstrumentDiscovery');
-      const guitars = await names('#instrument-body .ip-row-name');
+      const guitars = await page.evaluate(() => {
+        const q = normalizeSearch('guitar');
+        return [...document.querySelectorAll('#instrument-body .ip-row-name')].map((e) => {
+          const n = normalizeSearch(e.textContent);
+          return {
+            name: e.textContent,
+            key:
+              n === q
+                ? 0
+                : n.startsWith(q)
+                  ? 1
+                  : (' ' + n).includes(' ' + q)
+                    ? 2
+                    : n.includes(q)
+                      ? 3
+                      : 4,
+          };
+        });
+      });
       check(guitars.length > 1, where('a search for "guitar" finds nothing'));
-      check(azBreak(guitars) === '', where('instrument search is not A to Z: ' + azBreak(guitars)));
+      check(
+        azBreak(guitars) === '',
+        where('instrument search is not A to Z within a match tier: ' + azBreak(guitars))
+      );
       // Map key: largest group first, a tie A to Z by the name shown. London
       // has tied groups at this zoom; the world view is checked too.
       for (const at of ['atlas.html', 'atlas.html?trad=acid_breaks']) {
