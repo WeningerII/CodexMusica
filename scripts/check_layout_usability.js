@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global getComputedStyle, innerWidth, innerHeight, requestAnimationFrame, window, document, MutationObserver */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -216,6 +216,54 @@ async function noOverflow(page) {
       await inside(mapFrame, '#results');
       await page.goto(base + '/atlas.html');
       await page.locator('.rowbtn').first().waitFor({ state: 'attached' });
+      // Typing in the map's search says once what it found, not every keystroke.
+      await page.evaluate(() => {
+        window.__said = { summary: [], live: [] };
+        const watch = (id, key) =>
+          new MutationObserver(() => {
+            const t = document.getElementById(id).textContent.trim();
+            if (t) window.__said[key].push(t);
+          }).observe(document.getElementById(id), {
+            childList: true,
+            subtree: true,
+            characterData: true,
+          });
+        watch('filter-summary', 'summary');
+        watch('map-live', 'live');
+      });
+      await page.getByLabel('Search traditions').pressSequentially('delta blues', { delay: 40 });
+      await page.waitForTimeout(1000);
+      const said = await page.evaluate(() => window.__said);
+      assert.deepEqual(
+        [...new Set(said.summary)],
+        ['Search: delta blues'],
+        'Map: the search summary is written once the typing stops, not per keystroke'
+      );
+      assert.match(
+        said.live[said.live.length - 1] || '',
+        /^[\d,]+ traditions? match(es)? “delta blues”$/,
+        'Map: the search result count is announced in the live region'
+      );
+      assert.equal(
+        await page.getByLabel('Search traditions').getAttribute('aria-expanded'),
+        'true',
+        'Map: the search box says its results are open'
+      );
+      await page.getByLabel('Search traditions').fill('zzqxv');
+      await page.waitForFunction(() =>
+        /^No matching/.test(document.getElementById('map-live').textContent)
+      );
+      assert.equal(
+        await page.locator('#results [role="status"]').count(),
+        0,
+        'Map: the no-match text is not a freshly inserted status'
+      );
+      await page.getByLabel('Search traditions').fill('');
+      assert.equal(
+        await page.getByLabel('Search traditions').getAttribute('aria-expanded'),
+        'false',
+        'Map: the search box says its results are closed'
+      );
       await page.getByLabel('Search traditions').fill('-');
       await page.locator('#results').waitFor();
       await settle(page);

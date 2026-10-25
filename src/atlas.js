@@ -2227,12 +2227,28 @@
 
   // ── search ──
 
+  // The results panel and the search box's expanded state move together.
+  function setResultsOpen(open) {
+    el.results.hidden = !open;
+    el.search.setAttribute('aria-expanded', String(open));
+  }
+
+  // While typing, say once what the search found, after the typing stops.
+  var queryAnnounceTimer = 0;
+  function announceQuery(text) {
+    clearTimeout(queryAnnounceTimer);
+    if (!text) return;
+    queryAnnounceTimer = setTimeout(function () {
+      announce(text);
+    }, 500);
+  }
+
   function onQuery() {
     var val = el.search.value;
     var ql = val.trim().toLowerCase();
     // Focusing an empty search must not erase the active collection filter.
     if (S.thread && !ql) {
-      el.results.hidden = true;
+      setResultsOpen(false);
       return;
     }
     if (S.thread) exitThread();
@@ -2330,13 +2346,25 @@
           : 'These sound words belong to the traditions already listed.') +
         '</div></div>';
     }
-    if (ql && !all.length && !tokenHit)
-      h =
-        '<div class="route-end" role="status">No matching genres or places for “' +
-        esc(val.trim()) +
-        '”. Try a place, a catalog id, or a sound word such as “drone”.</div>';
+    var noMatch =
+      'No matching genres or places for “' +
+      val.trim() +
+      '”. Try a place, a catalog id, or a sound word such as “drone”.';
+    // Plain text here: a status node inserted fresh is not read. The one
+    // persistent live region says it instead.
+    if (ql && !all.length && !tokenHit) h = '<div class="route-end">' + esc(noMatch) + '</div>';
     el.results.innerHTML = h;
-    el.results.hidden = !ql;
+    setResultsOpen(!!ql);
+    announceQuery(
+      !ql
+        ? ''
+        : ids.size
+          ? plural(ids.size, 'tradition') +
+            (ids.size === 1 ? ' matches “' : ' match “') +
+            val.trim() +
+            '”'
+          : noMatch
+    );
     syncControls();
     draw();
     scheduleListSync();
@@ -2413,7 +2441,7 @@
     S.thread = t;
     closeStack();
     el.search.value = '';
-    el.results.hidden = true;
+    setResultsOpen(false);
     select(null);
     renderLegend();
     renderThreads();
@@ -2523,7 +2551,15 @@
       );
     if (S.thread) chips.push(chip(S.thread.title, 'thread', 'Collection: ' + S.thread.title));
     if (el.search.value.trim()) chips.push(chip('Search: ' + el.search.value.trim(), 'search'));
-    $('filter-summary').innerHTML = chips.join('');
+    // The summary is a live region: while the search box is being typed in,
+    // write it once the typing stops, not once per keystroke.
+    var summary = chips.join('');
+    clearTimeout(syncControls.summaryTimer);
+    if (document.activeElement === el.search && el.search.value.trim())
+      syncControls.summaryTimer = setTimeout(function () {
+        $('filter-summary').innerHTML = summary;
+      }, 500);
+    else $('filter-summary').innerHTML = summary;
     $('active-filters').hidden = chips.length === 0;
     $('no-filters').hidden = chips.length > 0;
     syncRouteChip();
@@ -2620,7 +2656,7 @@
 
   function clearSearch() {
     el.search.value = '';
-    el.results.hidden = true;
+    setResultsOpen(false);
     if (!S.thread) S.qmatch = null;
   }
 
@@ -2629,7 +2665,7 @@
     S.thread = null;
     S.qmatch = null;
     el.search.value = '';
-    el.results.hidden = true;
+    setResultsOpen(false);
     el.threadCard.hidden = true;
     closeStack();
     renderLegend();
@@ -2981,7 +3017,7 @@
         if (!p) return;
         if (!S.thread) S.qmatch = null;
         el.search.value = '';
-        el.results.hidden = true;
+        setResultsOpen(false);
         syncControls();
         S.opener = root === el.card || root === el.results ? null : row;
         select(p);
@@ -3038,7 +3074,7 @@
     });
 
     document.addEventListener('click', function (e) {
-      if (!el.results.hidden && !e.target.closest('.searchwrap')) el.results.hidden = true;
+      if (!el.results.hidden && !e.target.closest('.searchwrap')) setResultsOpen(false);
     });
 
     document.addEventListener('keydown', function (e) {
@@ -3057,7 +3093,7 @@
         return;
       }
       if (!el.results.hidden) {
-        el.results.hidden = true;
+        setResultsOpen(false);
         el.search.focus();
         return;
       }
