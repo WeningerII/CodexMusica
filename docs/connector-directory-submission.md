@@ -99,7 +99,7 @@ listed under **Read / write** above.
 
 | Tool | Title | One-line summary |
 |---|---|---|
-| `start_recipe` | Start a recipe from tradition(s) | Seed a recipe from one or more tradition ids (first = primary, the rest explicit staples) — deterministic default cards, identical to the app's "Current Recipe". Opens a session and returns its `session_id`. |
+| `start_recipe` | Start a recipe from tradition(s) | Seed a recipe from one or more tradition ids (the first leads; each listed tradition adds its instruments, and none is added unlisted) — deterministic default cards, identical to the app's "Current Recipe". Opens a session and returns its `session_id`. |
 | `edit_recipe` | Edit the recipe (the main tool) | Apply an ordered list of edits and re-render: `set_preface` (re-derive an instrument toward a mood, labeled verbatim), `set_variant`, `set_environment` (room/tuning/chain), `add`/`remove_instrument`, `move_instrument`, `add`/`remove_tradition`. |
 | `render_recipe` | Re-render the recipe | Render the current recipe again (e.g. a different format or `max_chars`) without editing it. |
 | `search_catalog` | Search the catalog | Free-text search across every record type — turns request words into real ids. |

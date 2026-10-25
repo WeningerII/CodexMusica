@@ -368,10 +368,11 @@ function shape(ws, params = {}, meta = {}) {
   const environment = envCardOf(ws.cards);
   out.render_scope = {
     environment_card: environment?.id || null,
+    environment_instrument: environment?.instrumentId || null,
     environment_settings: envSettings(environment),
     environment:
-      'One shared room/tuning/signal chain, taken whole from environment_card (the first card that has any). ' +
-      'set_environment without `card` writes there. Other cards do not create individual audio paths.',
+      `The whole recipe uses one room, tuning and signal chain, taken from environment_card (${environment ? cardLabel(ws.cards, environment) : 'none yet'}), the first card that has any. ` +
+      'set_environment without `card` changes it; these settings on other cards are not used in the current rendered recipe.',
     output:
       'Text recipe only; no recording, mix, stereo placement or listening test was performed.',
   };
@@ -383,6 +384,7 @@ function shape(ws, params = {}, meta = {}) {
     if (missing.length)
       out.render_warnings.push({
         card: card.id,
+        instrument: card.instrumentId,
         code: 'PINNED_DESCRIPTORS_NOT_LITERAL',
         descriptors: missing,
         meaning:
@@ -391,6 +393,7 @@ function shape(ws, params = {}, meta = {}) {
     if (card.prefaceAuto === false && card.preface && !recipe.includes(card.preface))
       out.render_warnings.push({
         card: card.id,
+        instrument: card.instrumentId,
         code: 'EXPLICIT_PREFACE_NOT_LITERAL',
         preface: card.preface,
       });
@@ -408,10 +411,10 @@ function shape(ws, params = {}, meta = {}) {
     if (items.length)
       out.render_warnings.push({
         card: environment.id,
+        instrument: environment.instrumentId,
         code: 'ENVIRONMENT_NOT_LITERAL',
         items,
-        meaning:
-          'These environment settings are on the environment card but their names are absent from this output; compression removes environment chunks first. Do not claim they survived.',
+        meaning: `These environment settings are on ${cardLabel(ws.cards, environment)}, the card the recipe takes its environment from, but their names are absent from this output; compression removes environment chunks first. Do not claim they survived.`,
       });
   }
   for (const w of meta.warnings || []) out.render_warnings.push(w);
@@ -430,12 +433,22 @@ function shape(ws, params = {}, meta = {}) {
   return out;
 }
 
+// Every refusal names the call that works instead (the server instructions
+// promise it): an unknown id names the lookup that finds a real one.
+const NEXT_STEP = {
+  UNKNOWN_TRADITION:
+    'Find its id with search_catalog {query: "<genre name>", types: ["tradition"]}.',
+  UNKNOWN_PREFACE:
+    'Find one with search_prefaces {query: "<mood word>"}. If nothing fits, the word may name gear or a space; try search_catalog.',
+};
+const withNextStep = (e) => (NEXT_STEP[e.code] ? `${e.message}. ${NEXT_STEP[e.code]}` : e.message);
+
 // Convert a WorkspaceError (bad id, etc.) into an actionable EngineError.
 function wrap(fn) {
   try {
     return fn();
   } catch (e) {
-    if (e instanceof W.WorkspaceError) throw new EngineError(e.message);
+    if (e instanceof W.WorkspaceError) throw new EngineError(withNextStep(e));
     throw e;
   }
 }
@@ -524,9 +537,9 @@ function envPatch(e) {
     clear.length === 0
   )
     throw new EngineError(
-      'set_environment sets nothing. It takes room, tuning, chain {<stage>: <id>} ' +
-        `(stages: ${CHAIN_STAGE_IDS.join(', ')}) and clear [${ENV_FIELDS.join(', ')}]; any other ` +
-        'field name is dropped before it arrives. A chain stage goes inside chain, e.g. chain: {"mic": "<id>"}.'
+      'set_environment sets nothing: it needs room, tuning, chain or clear. Put a chain item inside ' +
+        `chain, e.g. chain: {"mic": "<id>"} (stages: ${CHAIN_STAGE_IDS.join(', ')}); clear takes ` +
+        `[${ENV_FIELDS.join(', ')}].`
     );
   return { room: e.room, tuning: e.tuning, chain, clear };
 }
@@ -601,10 +614,26 @@ function applyEdit(ws, e) {
 // card that has one — and in a seeded tradition that card carries the same
 // environment, so the cleared settings render again. The app does the same;
 // the response says so, and names the step that gets there.
+// Warnings name cards as edits do — by instrument — with the card id added only
+// when two cards in the recipe share that instrument.
+function cardLabel(cards, card) {
+  if (!card) return 'no card';
+  const shared = cards.filter((c) => c.instrumentId === card.instrumentId).length > 1;
+  return shared ? `${card.instrumentId} (${card.id})` : card.instrumentId;
+}
+const envWord = (v) =>
+  v == null ? 'none' : Array.isArray(v) ? (v.length ? v.join(', ') : 'none') : String(v);
+const envChanges = (settings) =>
+  Object.entries(settings)
+    .map(([f, { was, now }]) => `${f} ${envWord(was)} → ${envWord(now)}`)
+    .join('; ');
+
 function environmentTransition(before, after, i, e, target) {
   const a = envCardOf(before.cards);
   if (!a) return [];
   const b = envCardOf(after.cards);
+  const A = cardLabel(before.cards, a);
+  const B = b ? cardLabel(after.cards, b) : null;
   if (b && b.id !== a.id && e.action === 'set_environment' && target === a.id) {
     const back = {};
     for (const f of Array.isArray(e.clear) ? e.clear : []) {
@@ -615,13 +644,14 @@ function environmentTransition(before, after, i, e, target) {
       return [
         {
           card: a.id,
+          instrument: a.instrumentId,
           code: 'ENVIRONMENT_MOVED',
           edit: i,
           action: e.action,
           environment_card: b.id,
+          environment_instrument: b.instrumentId,
           settings: back,
-          meaning:
-            "Clearing left this card with no environment, so the recipe now renders environment_card's, which has these settings of its own. To render none, clear them on environment_card too (repeat the edit without `card`).",
+          meaning: `Clearing left ${A} with no environment, so the recipe now takes its room, tuning and chain from ${B}, which has these settings of its own (${envChanges(back)}). To render none, clear them there too: repeat the edit without \`card\`.`,
         },
       ];
   }
@@ -637,24 +667,28 @@ function environmentTransition(before, after, i, e, target) {
     return [
       {
         card: a.id,
+        instrument: a.instrumentId,
         code: 'ENVIRONMENT_MOVED',
         edit: i,
         action: e.action,
         environment_card: b ? b.id : null,
+        environment_instrument: b ? b.instrumentId : null,
         settings: lost,
-        meaning:
-          'The environment set on this card no longer renders: the recipe takes its environment from environment_card now (the first card that has one). Repeat set_environment without `card` to apply it there.',
+        meaning: b
+          ? `The environment set on ${A} is not used in the current rendered recipe: it now takes its room, tuning and chain from ${B} (the first card that has one). Repeat set_environment without \`card\` to apply it there.`
+          : `The environment set on ${A} is not used in the current rendered recipe: no card carries an environment now. Set one with set_environment.`,
       },
     ];
   if (e.action === 'set_environment') return [];
   return [
     {
       card: a.id,
+      instrument: a.instrumentId,
       code: 'ENVIRONMENT_OVERWRITTEN',
       edit: i,
       action: e.action,
       settings: lost,
-      meaning: `${e.action} re-derived this card's environment, replacing what was set before (set_preface re-derives room, tuning and chain toward the preface). Put set_environment after set_preface to keep both.`,
+      meaning: `${e.action} on ${A} replaced the environment you set (${envChanges(lost)}): it re-derives room, tuning and chain toward the preface. To keep your settings, put set_environment after ${e.action} in the same batch.`,
     },
   ];
 }
@@ -678,8 +712,10 @@ export function editRecipe(params = {}) {
     try {
       ws = applyEdit(ws, e);
     } catch (err) {
-      const msg = (err && err.message) || String(err);
-      throw new EngineError(`edit[${i}] (${(e && e.action) || '?'}): ${msg}`);
+      const msg =
+        err instanceof W.WorkspaceError ? withNextStep(err) : (err && err.message) || String(err);
+      // `edits[i]`, the parameter's own name, as the unknown-field refusal writes it.
+      throw new EngineError(`edits[${i}] (${(e && e.action) || '?'}): ${msg}`);
     }
     let target = null;
     if (e.action === 'set_environment') {
@@ -737,13 +773,15 @@ export function editRecipe(params = {}) {
   }
   for (const t of envTargets) {
     if (!ws.cards.some((c) => c.id === t.card) || t.card === env.id) continue;
+    const stored = ws.cards.find((c) => c.id === t.card);
     warnings.push({
       card: t.card,
+      instrument: stored.instrumentId,
       code: 'ENVIRONMENT_NOT_RENDERED',
       edit: t.edit,
       environment_card: env.id,
-      meaning:
-        'This card is not the one the recipe renders its environment from, so the setting is stored but not rendered. Omit `card` to set the rendered environment.',
+      environment_instrument: env.instrumentId,
+      meaning: `Saved on ${cardLabel(ws.cards, stored)}, but the recipe takes its room, tuning and chain from ${cardLabel(ws.cards, env)}, so this setting is not used in the current rendered recipe. Repeat the edit without \`card\` to change the rendered environment.`,
     });
   }
   return shape(ws, params, { warnings });
@@ -1030,7 +1068,16 @@ export function searchCatalog({ query, types, limit = 20 } = {}) {
         stage: sec.id || sec.stage,
       });
   rows.sort((a, b) => b.matched - a.matched || _cmp(a.id, b.id));
-  return { query, total: rows.length, items: rows.slice(0, Math.min(limit, 50)) };
+  return withEmptyHint(
+    { query, total: rows.length, items: rows.slice(0, Math.min(limit, 50)) },
+    'Try fewer or broader words, drop the types filter, or browse with list_options or list_traditions.'
+  );
+}
+
+// An empty search is not a dead end: say what to try next.
+function withEmptyHint(out, next) {
+  if (out.total === 0) out.hint = `No matches for "${out.query}". ${next}`;
+  return out;
 }
 
 // Search the prefaces (named aesthetic/technique/delivery signatures) by mood
@@ -1055,7 +1102,10 @@ export function searchPrefaces({ query, limit = 15 } = {}) {
       });
   }
   rows.sort((a, b) => b.matched - a.matched || _cmp(a.id, b.id));
-  return { query, total: rows.length, items: rows.slice(0, Math.min(limit, 50)) };
+  return withEmptyHint(
+    { query, total: rows.length, items: rows.slice(0, Math.min(limit, 50)) },
+    'Try a plainer or broader mood word. If the word names gear, a material or a space, try search_catalog.'
+  );
 }
 
 // The knob catalog for one instrument: every part + the variant ids valid for

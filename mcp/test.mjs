@@ -295,6 +295,14 @@ await check('an environment that stops rendering is reported, not lost silently'
     assert.equal(w.card, envCard);
     assert.equal(w.settings.room.was, 'cathedral');
     assert.equal(w.environment_card, r.render_scope.environment_card);
+    // Named as edits name cards, by instrument, beside the card ids.
+    const inst = (id) => set.workspace.cards.find((c) => c.id === id)?.instrumentId;
+    assert.equal(w.instrument, inst(envCard));
+    assert.equal(w.environment_instrument, r.render_scope.environment_instrument);
+    assert.match(
+      w.meaning,
+      new RegExp(`set on ${inst(envCard)}\\b.*not used in the current rendered recipe`)
+    );
     // The named next step works: repeating the edit restores the room.
     const again = E.editRecipe({
       workspace: thread(r.workspace),
@@ -361,6 +369,15 @@ await check('set_preface after set_environment reports the environment it replac
   assert.ok(w, 'no warning for an overwritten room');
   assert.equal(w.edit, 1);
   assert.equal(w.settings.room.was, 'cathedral');
+  // The meaning names the card and the values, not "this card".
+  assert.equal(w.instrument, 'voice');
+  assert.match(
+    w.meaning,
+    new RegExp(
+      `^set_preface on voice replaced the environment you set \\(room cathedral → ${w.settings.room.now}`
+    )
+  );
+  assert.match(w.meaning, /put set_environment after set_preface/);
   // The documented order keeps both.
   const ordered = E.editRecipe({
     workspace: thread(s.workspace),
@@ -440,6 +457,21 @@ await check('an environment edit that does not reach the output is not confirmed
   const nr = other.render_warnings.find((x) => x.code === 'ENVIRONMENT_NOT_RENDERED');
   assert.ok(nr, 'changed reported a room the recipe does not contain, with no warning');
   assert.equal(nr.environment_card, s.render_scope.environment_card);
+  // Both cards named by instrument, as edits address them; "not used in the
+  // current rendered recipe", since moving cards can change what renders.
+  assert.equal(nr.instrument, s.cards.at(-1).instrument);
+  assert.equal(nr.environment_instrument, s.render_scope.environment_instrument);
+  assert.equal(
+    s.render_scope.environment_instrument,
+    s.cards.find((c) => c.card === s.render_scope.environment_card).instrument
+  );
+  assert.match(
+    nr.meaning,
+    new RegExp(
+      `^Saved on ${s.cards.at(-1).instrument}\\b.*from ${nr.environment_instrument}\\b.*not used in the current rendered recipe`
+    )
+  );
+  assert.doesNotMatch(nr.meaning, /no effect/);
   // Compressed out of a long blend.
   const big = E.startRecipe({
     traditions: ['afrobeat', 'bluegrass', 'javanese_gamelan', 'zydeco', 'bossa_nova'],
@@ -507,9 +539,32 @@ await check('edits that would do nothing, or undo the recipe, are refused with a
   const ws = () => thread(s.workspace);
   const refuses = (edits, re) =>
     assert.throws(() => E.editRecipe({ workspace: ws(), edits }), re, JSON.stringify(edits));
-  // A misspelled field is dropped before the engine sees it; what arrives sets nothing.
-  refuses([{ action: 'set_environment' }], /sets nothing.*room, tuning, chain/);
+  // An environment edit with nothing to set names what it takes.
+  refuses([{ action: 'set_environment' }], /sets nothing: it needs room, tuning, chain or clear/);
   refuses([{ action: 'set_environment', chain: {} }], /sets nothing/);
+  // An unknown id names the lookup that finds a real one, under `edits[i]`.
+  refuses(
+    [{ action: 'set_preface', card: s.cards[0].card, preface: 'zzzhaunting' }],
+    /: edits\[0\] \(set_preface\): Unknown preface: "zzzhaunting"\. Find one with search_prefaces/
+  );
+  refuses(
+    [{ action: 'add_tradition', tradition: 'not_a_tradition' }],
+    /: edits\[0\] \(add_tradition\): Unknown tradition: "not_a_tradition"\. Find its id with search_catalog/
+  );
+  assert.throws(
+    () => E.startRecipe({ traditions: ['not_a_tradition'] }),
+    /Unknown tradition: "not_a_tradition"\. Find its id with search_catalog \{query: "<genre name>", types: \["tradition"\]\}/
+  );
+  // An empty search says what to try next.
+  assert.match(
+    E.searchCatalog({ query: 'zzqxv' }).hint,
+    /^No matches for "zzqxv"\. .*list_options/
+  );
+  assert.match(
+    E.searchPrefaces({ query: 'zzqxv' }).hint,
+    /^No matches for "zzqxv"\. .*search_catalog/
+  );
+  assert.equal(E.searchCatalog({ query: 'banjo' }).hint, undefined);
   refuses(
     [{ action: 'add_tradition', tradition: 'tamil_filmi' }],
     /already in this recipe.*add_instrument/

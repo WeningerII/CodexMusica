@@ -33,7 +33,15 @@ const { envCardOf } = require('./_recipe_stack.js');
 const { cardDescriptors } = require('./_card_descriptors.js');
 const { suggest } = require('./_preface_match.js');
 
-class WorkspaceError extends Error {}
+// `code` and `id` let a caller say what to do next (the connector names the
+// lookup that finds a real id); the message itself stays neutral.
+class WorkspaceError extends Error {
+  constructor(message, code, id) {
+    super(message);
+    if (code) this.code = code;
+    if (id !== undefined) this.id = id;
+  }
+}
 
 const instById = (id) => (C.INSTRUMENTS || []).find((i) => i.id === id);
 // Retired (merged) tradition ids resolve to the tradition they were merged into.
@@ -90,7 +98,7 @@ function seed(traditionIds) {
   const ws = emptyWorkspace();
   for (const id of ids) {
     const cards = seedTraditionCards(id, ws.cards);
-    if (!cards) throw new WorkspaceError(`Unknown tradition: "${id}"`);
+    if (!cards) throw new WorkspaceError(`Unknown tradition: "${id}"`, 'UNKNOWN_TRADITION', id);
     ws.cards.push(...cards);
   }
   return ws;
@@ -99,13 +107,23 @@ function seed(traditionIds) {
 function addTradition(ws, traditionId) {
   const next = clone(ws);
   const cards = seedTraditionCards(traditionId, next.cards);
-  if (!cards) throw new WorkspaceError(`Unknown tradition: "${traditionId}"`);
+  if (!cards)
+    throw new WorkspaceError(
+      `Unknown tradition: "${traditionId}"`,
+      'UNKNOWN_TRADITION',
+      traditionId
+    );
   next.cards.push(...cards);
   return next;
 }
 
 function removeTradition(ws, traditionId) {
-  if (!tradById(traditionId)) throw new WorkspaceError(`Unknown tradition: "${traditionId}"`);
+  if (!tradById(traditionId))
+    throw new WorkspaceError(
+      `Unknown tradition: "${traditionId}"`,
+      'UNKNOWN_TRADITION',
+      traditionId
+    );
   traditionId = C.resolveTraditionId(traditionId);
   const next = clone(ws);
   next.cards = next.cards.filter((c) => c.traditionId !== traditionId);
@@ -458,7 +476,8 @@ function setEnvironment(ws, cardRef, { room, tuning, chain, clear } = {}) {
 
 // set_preface — deterministic re-derive (the headline edit).
 function setPreface(ws, cardRef, prefaceId) {
-  if (!prefaceById(prefaceId)) throw new WorkspaceError(`Unknown preface: "${prefaceId}"`);
+  if (!prefaceById(prefaceId))
+    throw new WorkspaceError(`Unknown preface: "${prefaceId}"`, 'UNKNOWN_PREFACE', prefaceId);
   const next = clone(ws);
   const card = findCard(next, cardRef);
   if (!card) throw noCard(next, cardRef);
