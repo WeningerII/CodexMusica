@@ -16,7 +16,7 @@ import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { createChatRouter, CHAT_LIMITS } from './chat.js';
 import { continuationSemanticIdentity, recoverState, STATE_DECODED_BYTES } from './state_codec.js';
 import { buildServer as buildRealServer } from './tools.js';
-import { _verdictInternals } from './lyric_tools.js';
+import { RUNS, _verdictInternals } from './lyric_tools.js';
 
 const nativeFetch = globalThis.fetch;
 const instructions =
@@ -1753,6 +1753,90 @@ test('a newer signed tool result supersedes worker progress across durable resta
     assert.deepEqual(recovered.lyric.final_draft, ['earlier worker draft']);
     assert.equal(recovered.lyric.resumable, true);
     assert.equal(recovered.task.artifact.status, 'interrupted');
+
+    // THE RUN GOES ON (Jony's C1 crash test). The base envelope names run_c1 at
+    // revision 1; the worker advanced it (the ledger says 3) and the process
+    // died before the result was delivered. The recovered continuation keeps
+    // the run and the ledger's revision, so it continues run_c1 rather than
+    // opening a new anonymous run at revision 1, and revision 1 stays stale.
+    const runId = 'run_c1_' + crypto.randomBytes(6).toString('hex');
+    RUNS.ledger.mark(runId, 3);
+    store = new JobStore(directory);
+    const crashed = crypto.randomBytes(32).toString('hex');
+    store.begin(crashed, { request_id: crashed, message: 'revise' });
+    // Signed in the order the verifier rebuilds it: history, workspace, lyric, task.
+    const named = {
+      history: envelope.history,
+      workspace: envelope.workspace,
+      lyric: { run_id: runId, run_revision: 1, resumable: false },
+      task: envelope.task,
+    };
+    store.checkpoint(crashed, {
+      ...named,
+      sig: crypto.createHmac('sha256', secret).update(JSON.stringify(named)).digest('hex'),
+    });
+    store.checkpoint(crashed, progress('accepted'));
+    store = new JobStore(directory);
+    const onward = router.recoverCheckpoint(store.get(crashed));
+    assert.equal(onward.lyric.run_id, runId, 'the recovered call continues the same run');
+    assert.equal(onward.lyric.run_revision, 3, "at the ledger's revision, not 1");
+    assert.equal(
+      runRefusal(
+        null,
+        { run_id: runId, run_revision: onward.lyric.run_revision },
+        RUNS.mark(runId)
+      ),
+      null,
+      'which the ledger accepts'
+    );
+    assert.match(
+      runRefusal(null, { run_id: runId, run_revision: 1 }, RUNS.mark(runId)),
+      /stale run revision 1; current revision is 3/,
+      "while the base envelope's revision is still refused"
+    );
+    // A run the ledger has finished is not carried into a recovered call.
+    RUNS.ledger.mark(runId, 3, true);
+    assert.equal(router.recoverCheckpoint(store.get(crashed)).lyric.run_id, undefined);
+
+    // RD1 (BB8): a pasted song's (unseeded) journal carries declarationsOf's
+    // planner default form: 'verse-chorus'. Carried back, every revise from the
+    // recovered continuation was refused as "form is a plan declaration …".
+    // The recovered decl keeps the mandate and drops every plan-only field;
+    // a seeded run keeps its plan.
+    const pasted = crypto.randomBytes(32).toString('hex');
+    store.begin(pasted, { request_id: pasted, message: 'revise' });
+    store.checkpoint(pasted, {
+      ...envelope,
+      sig: crypto.createHmac('sha256', secret).update(JSON.stringify(envelope)).digest('hex'),
+    });
+    store.checkpoint(pasted, {
+      ...progress('accepted'),
+      connector_declarations: {
+        writer: 'kitchen',
+        form: 'verse-chorus',
+        voices: false,
+        groups: '1,2',
+        relation: 'class:RHYME',
+      },
+    });
+    store = new JobStore(directory);
+    const unseeded = router.recoverCheckpoint(store.get(pasted)).lyric;
+    assert.ok(!('form' in unseeded.decl), 'no plan-only field on a pasted song');
+    assert.equal(unseeded.decl.groups, '1,2', 'the mandate stays');
+    assert.equal(unseeded.decl.relation, 'class:RHYME', 'and its relation');
+    assert.equal(unseeded.key, 'mandate:[null,"1,2",null,"class:RHYME",null]');
+    const planned = crypto.randomBytes(32).toString('hex');
+    store.begin(planned, { request_id: planned, message: 'revise' });
+    store.checkpoint(planned, {
+      ...envelope,
+      sig: crypto.createHmac('sha256', secret).update(JSON.stringify(envelope)).digest('hex'),
+    });
+    store.checkpoint(planned, {
+      ...progress('accepted'),
+      connector_declarations: { seed: 16, writer: 'kitchen', form: 'verse-chorus' },
+    });
+    store = new JobStore(directory);
+    assert.equal(router.recoverCheckpoint(store.get(planned)).lyric.decl.form, 'verse-chorus');
   } finally {
     fs.rmSync(directory, { recursive: true, force: true });
   }

@@ -18,6 +18,7 @@ import {
   recordCreation,
   creationQualified,
   isRecoveryOnly,
+  recoveryWire,
   withNextCall,
   withSweepNext,
 } from './lyric_workflow.js';
@@ -1983,6 +1984,15 @@ export async function runTurn({
         workerProgressSuperseded = false;
         const args = { ...(fc.args || {}) };
         const recoveryOnly = isRecoveryOnly(fc.name, args);
+        if (recoveryOnly) {
+          const wire = recoveryWire(args, lyr);
+          // Recovery takes the wire and nothing else (recoverContinuationOnly).
+          if (wire) {
+            for (const k of Object.keys(args))
+              if (k !== 'recover_only' && k !== 'recovery_part') delete args[k];
+            Object.assign(args, wire);
+          }
+        }
         let result;
         if (task && (task.domain === 'lyrics') !== fc.name.startsWith('lyric_')) {
           result = {

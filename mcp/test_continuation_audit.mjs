@@ -372,23 +372,38 @@ test('F04/F06: mixed versions refuse; repeated questions and cache-loss recovery
   assert.match(mixed.content[0].text, /state.*revision|continuation.*mismatch/i);
   assert.deepEqual(RUNS.byId(next.run_id), before);
   let repeated = verdict(await call(c, { run_id: next.run_id, run_revision: next.run_revision }));
-  for (const v of [repeated, verdict(await call(c, { state: next.state }))]) {
+  // Continuing by the run's latest state names the same run and advances it.
+  const viaState = verdict(await call(c, { state: next.state }));
+  for (const v of [repeated, viaState]) {
     assert.deepEqual(v.final_draft, [single.draft[0], accepted, single.draft[2]]);
     assert.deepEqual(v.asked, next.asked);
     assert.equal(v.certified, false);
     assert.deepEqual(decodeState(v.state).accepted_lines, v.final_draft);
   }
-  RUNS.del(repeated.run_id);
+  assert.equal(viaState.run_id, repeated.run_id);
+  RUNS.del(viaState.run_id); // the cached record is lost (a restart, the TTL)
+  // The run ledger outlives the record (#519 6391205136): the revision the
+  // state-only call superseded is refused before any work, where it used to
+  // fork the run and, on the website writer, pay again.
+  const stale = await call(c, {
+    run_id: repeated.run_id,
+    run_revision: repeated.run_revision,
+    state: repeated.state,
+  });
+  assert.equal(stale.isError, true);
+  assert.match(stale.content[0].text, /stale run revision .*Nothing was run/);
   const recovered = verdict(
     await call(c, {
-      run_id: repeated.run_id,
-      run_revision: repeated.run_revision,
-      state: repeated.state,
+      run_id: viaState.run_id,
+      run_revision: viaState.run_revision,
+      state: viaState.state,
     })
   );
-  assert.deepEqual(recovered.final_draft, repeated.final_draft);
+  assert.deepEqual(recovered.final_draft, viaState.final_draft);
   assert.equal(recovered.exit_code, 4);
-  assert.notEqual(recovered.run_id, repeated.run_id);
+  // The latest revision recovers and keeps the run's identity.
+  assert.equal(recovered.run_id, viaState.run_id);
+  assert.equal(recovered.run_revision, viaState.run_revision + 1);
 });
 
 test('F05: a rejected whole-song answer opens a new attempt which can succeed', async () => {

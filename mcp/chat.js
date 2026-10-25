@@ -27,6 +27,8 @@ import { loadChatSecret } from './job_store.js';
 import { encodeInterviewWire } from './state_codec.js';
 import { lyricContext, taskDomain } from './task_contract.js';
 import { runKeyOf } from './run_store.js';
+import { RUNS } from './lyric_tools.js';
+import { PLAN_FIELDS } from './lyric_workflow.js';
 import { CONNECTOR_CONTRACT_VERSION } from './contract_version.js';
 import {
   encodeState,
@@ -434,7 +436,21 @@ export async function createChatRouter({
       !progress.connector_declarations
     )
       return null;
-    const decl = progress.connector_declarations;
+    // The journal's declarations are declarationsOf's, which writes the
+    // planner's defaults (form: 'verse-chorus') into every run. A normal turn
+    // carries only what the caller declared (declarationArgs), so a pasted
+    // song's (unseeded) recovered call re-sent `form` and every revise was
+    // refused as "form is a plan declaration …" (BB8's RD1). A plan-only field
+    // cannot have come from such a caller (it is refused on that run), so
+    // none is carried for one.
+    const decl =
+      typeof progress.connector_declarations.seed === 'number'
+        ? progress.connector_declarations
+        : Object.fromEntries(
+            Object.entries(progress.connector_declarations).filter(
+              ([k]) => !PLAN_FIELDS.includes(k) || k === 'seed' || k === 'relation'
+            )
+          );
     const key = runKeyOf(decl);
     if (!key) return null;
     const uncertain = !!(
@@ -444,6 +460,21 @@ export async function createChatRouter({
       record.proposer_usage?.in_flight
     );
     const cp = { ...progress, ...(uncertain ? { uncertain_proposal: true } : {}) };
+    // THE RUN GOES ON (Jony's C1 crash test). The signed base envelope names
+    // the run (its lyric.run_id, written on the run's previous turn), the
+    // progress is that run's newer work, and the ledger knows how far it got.
+    // Rebuilt without them, the recovered call opened a new anonymous run at
+    // revision 1. Carried here, it continues the same run at the ledger's
+    // revision, and the base envelope's older revision stays refused as
+    // stale. A finished run, or one the ledger does not know, is not carried.
+    const runId = typeof base.lyric?.run_id === 'string' ? base.lyric.run_id : null;
+    let mark = null;
+    try {
+      mark = runId ? RUNS.mark(runId) : null;
+    } catch {
+      mark = null;
+    }
+    const runFields = mark && !mark.finished ? { run_id: runId, run_revision: mark.revision } : {};
     const capacityStop = cp.new_run_required || cp.status === 'journal_capacity';
     let wire;
     try {
@@ -464,6 +495,7 @@ export async function createChatRouter({
       draft: cp.input_draft,
       replay_draft: cp.input_draft,
       final_draft: cp.accepted_lines,
+      ...runFields,
     };
     envelope.task = {
       ...envelope.task,
