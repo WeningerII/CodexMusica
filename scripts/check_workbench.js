@@ -252,7 +252,7 @@ const run = (code) => dom.window.eval(code);
   );
   await run('_chatRecover()');
   assert.equal(run('chatState.pending'), null);
-  assert.equal(run('chatState.archives.length'), 0);
+  assert.equal(run('chatState.archives.map((j)=>j.request_id).join()'), 'down-request');
   assert.equal(run("document.getElementById('chat-input').value"), 'make it bluesy');
   const unsent = run("document.getElementById('chat-log').lastElementChild.textContent");
   assert.match(unsent, /may never have arrived/);

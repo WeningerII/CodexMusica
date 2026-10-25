@@ -18922,12 +18922,12 @@ async function _chatRecover(generation = chatState.generation) {
       // the outcome is worded as unknown. After a POST that never got an
       // answer, the typed message goes back in the box; whether the service
       // ever showed a receipt for it (admitted) decides how the note reads.
-      // Asking again can never settle a 404: the ticket is set aside, kept in
-      // Saved runs unless the service never acknowledged it at all.
+      // Asking again can never settle a 404: the ticket is set aside in Saved
+      // runs in every case, since none of them proves it never ran.
       if (res.status === 404) {
         const dropped = chatState.disconnected === job.request_id;
         const unseen = dropped && !job.admitted;
-        if (!unseen) chatState.archives = [...chatState.archives, job].slice(-8);
+        chatState.archives = [...chatState.archives, job].slice(-8);
         if (chatState.continuationId === job.request_id) chatState.continuationId = null;
         chatState.pending = null;
         chatState.disconnected = null;
