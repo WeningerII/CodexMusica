@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global app, document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -229,6 +229,100 @@ async function noOverflow(page) {
           width +
           'px: tree, labels, editor, panes, menus, lyrics, embedded/standalone map, short viewport'
       );
+      await context.close();
+    }
+    for (const width of [1280, 390]) {
+      // Session flows (Jony #91, #92): an empty copy name is said at the field;
+      // Tab leaves the More menu closed behind it; a finished Import closes the
+      // menu and hands focus back to More.
+      const context = await browser.newContext({ viewport: { width, height: 900 } });
+      await context.route('https://mcp.codexmusica.com/**', (route) =>
+        route.fulfill({ contentType: 'application/json', body: '{"ok":true,"enabled":true}' })
+      );
+      const page = await context.newPage();
+      const errors = [];
+      page.on('pageerror', (e) => errors.push(e.message));
+      await page.goto(base + '/codex.html');
+      await page.locator('.catalog-row, .cm-tile').first().waitFor();
+      await page.evaluate(() => {
+        app.lyrics = 'a line';
+        document.getElementById('btn-save').click();
+      });
+      await page.locator('#modal-save.open').waitFor();
+      await page.locator('#save-name').fill('');
+      await page.locator('#save-name').press('Enter');
+      const empty = await page.evaluate(() => {
+        const f = document.getElementById('save-name');
+        const err = document.getElementById('save-name-error');
+        return {
+          invalid: f.getAttribute('aria-invalid'),
+          described: (f.getAttribute('aria-describedby') || '').split(' ').includes(err?.id),
+          shown: !!err && !err.hidden && !!err.getClientRects().length,
+          focus: document.activeElement === f,
+        };
+      });
+      assert.deepEqual(
+        empty,
+        { invalid: 'true', described: true, shown: true, focus: true },
+        `Save copy at ${width}px: an empty name is marked and explained at the field`
+      );
+      await page.locator('#save-name').type('Copy');
+      assert.deepEqual(
+        await page.evaluate(() => ({
+          invalid: document.getElementById('save-name').getAttribute('aria-invalid'),
+          hidden: document.getElementById('save-name-error').hidden,
+        })),
+        { invalid: null, hidden: true },
+        `Save copy at ${width}px: typing a name clears the error`
+      );
+      await page.keyboard.press('Escape');
+      await page.waitForFunction(() => !document.querySelector('#modal-save.open'));
+      // Tab out of the More menu closes it.
+      await page.locator('[data-ui="menu"]').click();
+      await page.locator('#ui-menu:not([hidden])').waitFor();
+      await page.evaluate(() => {
+        const items = [...document.querySelectorAll('#ui-menu button')].filter(
+          (b) => !b.disabled && b.getClientRects().length
+        );
+        items.at(-1).focus();
+      });
+      await page.keyboard.press('Tab');
+      const tabbed = await page.evaluate(() => ({
+        hidden: document.getElementById('ui-menu').hidden,
+        expanded: document.querySelector('[data-ui="menu"]').getAttribute('aria-expanded'),
+        inMenu: document.getElementById('ui-menu').contains(document.activeElement),
+      }));
+      assert.deepEqual(
+        tabbed,
+        { hidden: true, expanded: 'false', inMenu: false },
+        `More menu at ${width}px: Tab out of it closes it`
+      );
+      // A finished Import closes the menu and returns focus to More.
+      await page.locator('[data-ui="menu"]').click();
+      await page.locator('#ui-menu:not([hidden])').waitFor();
+      const chooser = page.waitForEvent('filechooser');
+      await page.locator('#ui-menu [data-ui="import"]').click();
+      await (
+        await chooser
+      ).setFiles({
+        name: 'session.json',
+        mimeType: 'application/json',
+        buffer: Buffer.from(JSON.stringify({ version: 1, name: 'Imported', cards: [] })),
+      });
+      await page.waitForFunction(() =>
+        /Session imported/.test(document.getElementById('toast').textContent)
+      );
+      const imported = await page.evaluate(() => ({
+        hidden: document.getElementById('ui-menu').hidden,
+        focus: document.activeElement?.dataset.ui || document.activeElement?.tagName,
+      }));
+      assert.deepEqual(
+        imported,
+        { hidden: true, focus: 'menu' },
+        `More menu at ${width}px: a finished Import closes it and focuses More`
+      );
+      assert.deepEqual(errors, [], 'No browser errors');
+      console.log(`PASS session flows at ${width}px: Save copy name, More menu Tab and Import`);
       await context.close();
     }
   } finally {

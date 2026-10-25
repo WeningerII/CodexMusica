@@ -696,7 +696,35 @@ async function loadDelta(page) {
           `G. after another tab took the autosave over the status reads "${taken.text}" (${taken.tone})`
         );
         await other.close();
-        if (taken.banner) await page.click('[data-ui="keep-session"]');
+        if (taken.banner) {
+          // #90: the sentence alone is the status, and Keep this session
+          // leaves focus on Save (or More), not on BODY under a removed banner.
+          const shape = await page.evaluate(() => {
+            const n = document.getElementById('storage-conflict');
+            const st = n.querySelector('[role="status"]');
+            return {
+              outer: n.getAttribute('role'),
+              status: st?.textContent.trim(),
+              buttonsInStatus: !!st?.querySelector('button'),
+            };
+          });
+          check(
+            shape.outer === null &&
+              shape.status === 'A newer session is open in another tab.' &&
+              !shape.buttonsInStatus,
+            "G. the conflict banner's status is its sentence alone: " + JSON.stringify(shape)
+          );
+          await page.focus('[data-ui="keep-session"]');
+          await page.keyboard.press('Enter');
+          const kept = await page.evaluate(() => {
+            const a = document.activeElement;
+            return { tag: a.tagName, ui: a.dataset.ui || '' };
+          });
+          check(
+            kept.ui === 'save' || kept.ui === 'menu',
+            'G. Keep this session leaves focus on Save, not BODY: ' + JSON.stringify(kept)
+          );
+        }
       }
 
       // G. a refused write is reported as a failure, never as Autosaved.

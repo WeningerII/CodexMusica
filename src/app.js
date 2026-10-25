@@ -17808,14 +17808,22 @@ function _initApp() {
   document.getElementById('btn-save').addEventListener('click', () => {
     if (!app.cards.length && !app.lyrics) { showToast('Nothing to save yet', 'error'); return; }
     document.getElementById('save-name').value = app.workspaceName || 'Untitled session';
+    _saveNameValid();
     openModal('modal-save');
   });
   document.getElementById('save-confirm').addEventListener('click', () => {
-    const n = document.getElementById('save-name').value.trim();
-    if (!n) { showToast('Name required', 'error'); return; }
+    const field = document.getElementById('save-name');
+    const n = field.value.trim();
+    // An empty name is said at the field too, tied to it (Jony #91).
+    if (!n) { field.setAttribute('aria-invalid', 'true'); document.getElementById('save-name-error').hidden = false; field.focus(); showToast('Name required', 'error'); return; }
     closeModal('modal-save');
     saveWS(n);
   });
+  function _saveNameValid() {
+    document.getElementById('save-name').removeAttribute('aria-invalid');
+    document.getElementById('save-name-error').hidden = true;
+  }
+  document.getElementById('save-name').addEventListener('input', _saveNameValid);
   document.getElementById('save-name').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('save-confirm').click(); });
   document.getElementById('btn-saved').addEventListener('click', () => { renderSaved(); openModal('modal-saved'); });
   // Debounced, but only lightly.

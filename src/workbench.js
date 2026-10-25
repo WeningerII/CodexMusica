@@ -650,6 +650,14 @@ async function uiImport(file) {
     uiSaveLyrics();
     pushHistory();
     renderAll();
+    // From the More menu: the import is done, so the menu closes and focus
+    // goes back to More rather than staying on a hidden Import (Jony #92).
+    if ($ui('ui-menu') && !$ui('ui-menu').hidden) {
+      uiSetMenu(false);
+      const a = document.activeElement;
+      if (!a || a === document.body || !a.getClientRects().length)
+        uiFocus(document.querySelector('[data-ui="menu"]'));
+    }
     showToast('Session imported', 'success');
   } catch (e) {
     showToast('Import failed: ' + e.message, 'error');
@@ -810,12 +818,19 @@ function uiStart() {
       `<button class="cm-tab" data-view="${v}">${icon(i, 20)}<span>${l}</span></button>`
   ).join(
     ''
-  )}${UI_ROUTES.some(([id]) => id === 'library') ? '' : uiLibraryLink()}</nav><div class="ui-tools"><button id="ui-undo" data-ui="undo" aria-label="Undo">${icon('undo', 18)}</button><button id="ui-redo" data-ui="redo" aria-label="Redo">${icon('redo', 18)}</button><span id="ui-autosave" class="cm-status" role="status" aria-live="polite"></span>${uiButton('save', 'Save', 'save')}${uiButton('saved', 'Saved sessions', 'folder')}${uiButton('session', 'Recipe', 'layers', 'aria-expanded="false" aria-controls="workspace-sidebar"')}<span id="ui-count">0</span>${uiButton('menu', 'More', 'more-horizontal')}</div>`;
+  )}${UI_ROUTES.some(([id]) => id === 'library') ? '' : uiLibraryLink()}</nav><div class="ui-tools"><button id="ui-undo" data-ui="undo" aria-label="Undo">${icon('undo', 18)}</button><button id="ui-redo" data-ui="redo" aria-label="Redo">${icon('redo', 18)}</button><span id="ui-autosave" class="cm-status" role="status" aria-live="polite"></span>${uiButton('save', 'Save', 'save')}${uiButton('saved', 'Saved sessions', 'folder')}${uiButton('session', 'Recipe', 'layers', 'aria-expanded="false" aria-controls="workspace-sidebar"')}<span id="ui-count">0</span>${uiButton('menu', 'More', 'more-horizontal', 'aria-controls="ui-menu"')}</div>`;
   document.body.prepend(header);
   const more = document.createElement('div');
   more.id = 'ui-menu';
   more.className = 'cm-menu';
   more.hidden = true;
+  // Tab (or Shift+Tab) out of the open menu closes it; focus moves on where
+  // Tab put it. A blur to nothing (the file picker, the window) is not a leave.
+  more.addEventListener('focusout', (e) => {
+    const to = e.relatedTarget;
+    if (!to || more.contains(to) || to.closest?.('[data-ui="menu"]')) return;
+    uiSetMenu(false);
+  });
   more.innerHTML =
     uiButton('surprise', 'Surprise me', 'shuffle') +
     uiButton('saved', 'Saved sessions', 'folder') +
@@ -1002,12 +1017,20 @@ function uiStart() {
         surpriseTradition();
         uiSetMenu(false);
         break;
-      case 'keep-session':
+      case 'keep-session': {
         UI.storageConflict = false;
-        $ui('storage-conflict')?.remove();
+        const note = $ui('storage-conflict');
+        const held = note?.contains(document.activeElement);
+        note?.remove();
         UI.lastSaved = null;
         uiAutosave();
+        // The banner went with the button that held focus: Save is where this
+        // session goes on from (Jony #90).
+        if (held)
+          uiFocus(document.querySelector('.ui-tools [data-ui="save"]')) ||
+            uiFocus(document.querySelector('[data-ui="menu"]'));
         break;
+      }
       case 'export':
         uiExport();
         uiSetMenu(false);
@@ -2171,11 +2194,12 @@ function uiRenderAutosave(state) {
 }
 function uiShowStorageConflict() {
   if ($ui('storage-conflict')) return;
+  // The sentence is the status; the buttons sit beside it, not inside it, so
+  // it is read as one sentence rather than run on into their names.
   const note = document.createElement('div');
   note.id = 'storage-conflict';
-  note.setAttribute('role', 'status');
   note.innerHTML =
-    '<span>A newer session is open in another tab.</span>' +
+    '<span role="status">A newer session is open in another tab.</span>' +
     uiButton('keep-session', 'Keep this session', 'save') +
     uiButton('export', 'Export this session', 'download');
   document.querySelector('.ui-header').after(note);
