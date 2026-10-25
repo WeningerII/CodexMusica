@@ -859,9 +859,9 @@ async function openMetadata(lib, id, { opener = null, row = null, layer = null }
 // A collection page replaces the control that opened it (a rail spine, a
 // card, a pager button): when that left focus on the page, land it on the
 // collection's heading instead. Focus the person put elsewhere is kept.
-function focusLostToHeading(main) {
+function focusLostToHeading(main, fresh) {
   const a = document.activeElement;
-  if (a && a !== document.body && a.isConnected) return;
+  if (fresh || (a && a !== document.body && a.isConnected)) return;
   const h = main.querySelector('.lib-coll-head h1');
   if (!h) return;
   h.tabIndex = -1;
@@ -887,6 +887,8 @@ async function collection(main, id, token, offset = 0, core) {
     COLLECTION_PAGE,
   } = core;
   injectStyle();
+  // A page load's first view keeps focus where the browser put it (#129).
+  const fresh = !!lib.fresh;
   const [catalog, all] = await Promise.all([lib.catalog(), lib.collections()]);
   if (token !== state.token) return;
   const row = all.collections.find((c) => c[0] === id);
@@ -924,7 +926,7 @@ async function collection(main, id, token, offset = 0, core) {
   }
   main.innerHTML = frame(header('') + `<div class="lib-skel" aria-hidden="true"></div>`);
   fillRail(main, id);
-  focusLostToHeading(main);
+  focusLostToHeading(main, fresh);
   const head = await lib.collection(id);
   if (token !== state.token) return;
   const pages = head.page_count || 1;
@@ -956,7 +958,7 @@ async function collection(main, id, token, offset = 0, core) {
     .join('')}</ul>`;
   main.querySelector('.lib-core-main').innerHTML =
     `${toplineHtml(catalog)}<div><button type="button" class="lib-btn" data-lib-act="go" data-sub="">${icon('library', 16)}<span>Explore</span></button></div>${header(actions)}${pager}${list}${pager}`;
-  focusLostToHeading(main);
+  focusLostToHeading(main, fresh);
   if (state.railPicked) {
     state.railPicked = false;
     if (typeof libraryAnnounce === 'function') libraryAnnounce(`${title}, collection`);

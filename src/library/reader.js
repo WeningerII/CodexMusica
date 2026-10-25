@@ -688,6 +688,7 @@ async function show(main, sub, lib, { retry = false } = {}) {
     ownRoute: null,
   };
   S.firstRow = () => S.window[0] * PAGE_ROWS;
+  S.fresh = !!lib.fresh;
   main.dataset.libraryChunk = 'reader';
   if (!id) {
     main.innerHTML = uiEmptyState({
@@ -861,10 +862,29 @@ function render() {
     if (e.target !== document.body && !S.root.contains(e.target)) return;
     if (S.root.classList.contains('rd-sheet')) closeSheet();
     else if (S.sel.size) {
+      // renderBody() replaces the line controls, so keep focus on the one that
+      // held it (Jony #130): find it again by its data attributes, else fall
+      // back to the reading body, then the title.
+      const held = S.root.contains(document.activeElement)
+        ? document.activeElement.closest('[data-rd][data-id]')
+        : null;
+      const key = held && [held.dataset.rd, held.dataset.id];
       S.sel.clear();
       S.range = S.anchor = null;
       syncSelection();
       renderBody();
+      if (key || !document.activeElement || document.activeElement === document.body) {
+        const back =
+          (key &&
+            [...S.root.querySelectorAll(`[data-rd="${key[0]}"]`)].find(
+              (n) => n.dataset.id === key[1]
+            )) ||
+          S.root.querySelector('.rd-paper') ||
+          S.root.querySelector('h1');
+        if (back?.classList.contains('rd-paper')) back.tabIndex = -1;
+        back?.focus();
+      }
+      if (typeof libraryAnnounce === 'function') libraryAnnounce('Selection cleared');
     }
   };
   document.addEventListener('keydown', S.onKey);
@@ -872,8 +892,10 @@ function render() {
   renderBody();
   renderInspector();
   // Opened from a works result or a link: the control that asked is gone.
-  if (!document.activeElement || document.activeElement === document.body)
+  // Not on a page load's first view (lib.fresh, #129), and once per reading.
+  if (!S.fresh && (!document.activeElement || document.activeElement === document.body))
     S.root.querySelector('h1')?.focus();
+  S.fresh = false;
 }
 
 function renderAlerts() {

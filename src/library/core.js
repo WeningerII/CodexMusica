@@ -1015,6 +1015,12 @@ async function render(main, sub, { retry = false } = {}) {
 
 // ─── Router ──────────────────────────────────────────────────────────────────
 async function show(main, sub = '') {
+  // The first view after a page load is a landing, not an in-app step:
+  // nothing asked for focus, so it stays where the browser put it and the
+  // first Tab reaches the skip link (Jony #129). Later views may land focus
+  // on their heading when the control that opened them went away.
+  lib.fresh = !state.shown;
+  state.shown = true;
   const path = sub.split('?')[0];
   const chunk = /^\/works(\/|$)/.test(path)
     ? 'works'

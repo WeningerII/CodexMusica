@@ -1939,6 +1939,18 @@ SECTIONS.range = async function ({ page, base, tag }) {
   await page.keyboard.press('Escape');
   st = await state();
   check(`${tag} range: Escape clears the selection`, st.selected.length === 0, JSON.stringify(st));
+  // The body re-renders on Escape; focus stays on the line number that held
+  // it rather than dropping to the page, and the clear is said (Jony #130).
+  check(
+    `${tag} range: Escape keeps focus on the line it was on`,
+    st.focus === 0,
+    JSON.stringify({ ...st, active: await page.evaluate(() => document.activeElement?.tagName) })
+  );
+  check(
+    `${tag} range: and says the selection is cleared`,
+    (await said()) === 'Selection cleared',
+    st.said
+  );
   await page.locator(nums).nth(0).click();
   await page
     .locator(nums)
@@ -2047,6 +2059,62 @@ SECTIONS.ax = async function ({ page, base, tag }) {
     );
   }
 };
+// A page load's first view is a landing (Jony #129): a direct link to a
+// reading or a collection leaves focus where the browser put it, so the
+// first Tab reaches the top of the page (the app bar and skip links), not
+// past them. In-app steps whose opener went away still land on the heading.
+SECTIONS.fresh = async function ({ page, base, tag }) {
+  const top = () =>
+    page.evaluate(() => {
+      const a = document.activeElement;
+      return {
+        body: a === document.body,
+        inLibrary: !!a?.closest?.('#surface-library'),
+        tag: a?.tagName,
+      };
+    });
+  const firstTab = async () => {
+    await page.keyboard.press('Tab');
+    return top();
+  };
+  const collection =
+    JSON.parse(
+      fs.readFileSync(path.join(__dirname, '..', 'library', 'data', 'collections.json'), 'utf8')
+    ).collections.find((r) => r[3] > 0)?.[0] || '';
+  for (const [what, hash, ready] of [
+    ['reading', `/read/${EPI_A}`, '#surface-library .rd-paper .rd-line'],
+    [
+      'collection',
+      `/collections/${encodeURIComponent(collection)}`,
+      '#surface-library .lib-coll-list',
+    ],
+  ]) {
+    await page.goto('about:blank');
+    await go(page, base, hash);
+    await page.waitForSelector(ready, { timeout: 20000 });
+    await page.waitForTimeout(300);
+    const landed = await top();
+    check(
+      `${tag} fresh: a direct link to a ${what} leaves focus on the page`,
+      landed.body,
+      JSON.stringify(landed)
+    );
+    const tabbed = await firstTab();
+    check(
+      `${tag} fresh: the first Tab after a direct ${what} link reaches the top of the page`,
+      !tabbed.body && !tabbed.inLibrary,
+      JSON.stringify(tabbed)
+    );
+  }
+  // In-app: a Works result opens the reading and its h1 takes focus.
+  await go(page, base, '/works');
+  await settled(page, 'works', '#surface-library [data-lw="open"]');
+  await page.click('#surface-library [data-lw="open"]');
+  await page.waitForSelector('#surface-library .rd-paper .rd-line', { timeout: 20000 });
+  await page.waitForTimeout(300);
+  const h1 = await page.evaluate(() => document.activeElement?.tagName === 'H1');
+  check(`${tag} fresh: a Works result still lands focus on the reading's h1`, h1);
+};
 const NEEDS = {
   explore: 'core',
   works: 'works',
@@ -2063,6 +2131,7 @@ const NEEDS = {
   range: 'reader',
   railpick: 'works',
   ax: 'reader',
+  fresh: 'reader',
 };
 
 (async () => {
