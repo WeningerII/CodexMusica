@@ -204,7 +204,33 @@ const fromSearch = (item) => ({
 async function staticPage(s, lib) {
   const offset = Number(s.offset);
   if (s.collection) {
-    const head = await lib.collection(s.collection);
+    // An id the collection list does not hold names no collection: said as
+    // such, without asking for a head file that is not there.
+    const list = await lib.collections().catch(() => null);
+    const ids = Array.isArray(list) ? list : list?.collections;
+    if (
+      Array.isArray(ids) &&
+      !ids.some((c) => (Array.isArray(c) ? c[0] : c.collection_id) === s.collection)
+    ) {
+      const none = Error('No such collection');
+      none.code = 'NO_COLLECTION';
+      throw none;
+    }
+    let head;
+    try {
+      head = await lib.collection(s.collection);
+    } catch (error) {
+      // No head file: the id names no collection. Said as such, not as a
+      // load failure whose Retry could only ask for the same missing file.
+      if (!error || error.status !== 404) throw error;
+      const none = Error('No such collection');
+      none.code = 'NO_COLLECTION';
+      throw none;
+    }
+    // Past the end: an empty page, which load() shows as past the end with
+    // First page, rather than a request for a page file that does not exist.
+    if (offset >= (head.total || 0))
+      return { rows: [], total: head.total || 0, readableIds: head.readable_ids };
     const k = Math.floor(offset / 250);
     const page = k === 0 ? head : await lib.collection(s.collection, k);
     const start = offset - k * 250;
@@ -217,6 +243,14 @@ async function staticPage(s, lib) {
     return { rows: rows.map(fromStatic), total: head.total, readableIds: head.readable_ids };
   }
   const k = Math.floor(offset / 100);
+  // Past the end of the list (a shared or hand-edited link): an empty page,
+  // which load() shows as past the end with First page, rather than a request
+  // for a title file that does not exist. The static list is the readable
+  // units, so the catalog's census carries its total.
+  if (k > 0) {
+    const total = (await lib.catalog().catch(() => null))?.census?.readable_reading_units;
+    if (Number.isInteger(total) && offset >= total) return { rows: [], total };
+  }
   const file = await lib.json(`w/title/${k}.json.gz`);
   const start = offset - k * 100;
   return { rows: file.rows.slice(start, start + PAGE).map(fromStatic), total: file.total };
@@ -419,6 +453,15 @@ class WorksView {
       if (seq !== this.seq || !this.root.isConnected) return;
       results.removeAttribute('aria-busy');
       this.rows = [];
+      if (error && error.code === 'NO_COLLECTION') {
+        results.innerHTML = uiEmptyState({
+          title: 'No such collection',
+          text: `This Library has no collection “${esc(s.collection)}”.`,
+          actions: `<button type="button" class="cm-btn cm-btn-outline" data-lw="all-works">Browse all works</button>`,
+        });
+        this.slot('summary').textContent = '';
+        return;
+      }
       const rate = error && (error.status === 429 || error.code === 'RATE_LIMITED');
       results.innerHTML = uiEmptyState({
         title: isStatic(s) ? 'The Library list could not load' : 'Search is unavailable right now',
@@ -553,6 +596,9 @@ class WorksView {
       this.openFilters(t);
     } else if (act === 'retry') {
       this.load();
+    } else if (act === 'all-works') {
+      Object.assign(s, { collection: '', offset: '0', base: '/works' });
+      this.commit(false);
     }
   }
   // The full recorded-language list (every collection, held ones too).

@@ -558,6 +558,44 @@ const SECTIONS = {
       /offset=50$/.test(await page.evaluate(() => location.hash)) && snapped === 50,
       `${await page.evaluate(() => location.hash)} ${snapped} rows`
     );
+    // A shared or hand-edited link past the end, and one naming no
+    // collection, are said as such: never a load error whose Retry can only
+    // ask for the same missing file (BB8's lane, 6391088047).
+    const outcome = async (sub) => {
+      await go(page, base, sub);
+      await page
+        .waitForFunction(
+          () => {
+            const e = document.querySelector('#surface-library .lw-results .cm-empty');
+            return e && !/Loading/.test(e.textContent);
+          },
+          null,
+          { timeout: 20000 }
+        )
+        .catch(() => {});
+      return page.evaluate(() => {
+        const e = document.querySelector('#surface-library .lw-results .cm-empty');
+        return {
+          tone: e?.dataset.tone || '',
+          text: (e?.textContent || '').trim().slice(0, 120),
+          first: !!e?.querySelector('[data-lw="page"][data-to="0"]'),
+          all: !!e?.querySelector('[data-lw="all-works"]'),
+          retry: !!e?.querySelector('[data-lw="retry"]'),
+        };
+      });
+    };
+    const past = await outcome('/works?offset=999999');
+    check(
+      `${tag} works: offset=999999 says past the end with First page, not a load error`,
+      past.tone !== 'danger' && /No more readings/.test(past.text) && past.first && !past.retry,
+      JSON.stringify(past)
+    );
+    const none = await outcome('/works?collection=collection_nope');
+    check(
+      `${tag} works: an unknown collection says No such collection, not a load error`,
+      none.tone !== 'danger' && /No such collection/.test(none.text) && none.all && !none.retry,
+      JSON.stringify(none)
+    );
     // A navigation that lands while an earlier one still waits on the
     // catalog wins: the stale update writes neither its state nor the hash.
     let served = await slowCatalog(page, 2500);
