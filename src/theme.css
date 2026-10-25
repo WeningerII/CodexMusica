@@ -42,6 +42,9 @@
   --cm-border-subtle: #e8eaed;
   --cm-border: #dadce0;
   --cm-border-strong: #bdc1c6;
+  /* A field with no fill of its own: its border is what marks it (WCAG
+     1.4.11, 3:1): 3.7:1 on --cm-surface, 3.3:1 on --cm-surface-sunken. */
+  --cm-control-border: #80868b;
   /* Interaction: one blue means "act here / this is selected". */
   --cm-accent: #1a73e8;
   --cm-accent-hover: #185abc;
@@ -118,6 +121,7 @@
   --cm-border-subtle: #262626;
   --cm-border: #333333;
   --cm-border-strong: #4d4d4d;
+  --cm-control-border: #757575;
   --cm-accent: #8ab4f8;
   --cm-accent-hover: #aecbfa;
   --cm-accent-soft: rgba(138, 180, 248, 0.16);
@@ -309,7 +313,7 @@ html[data-theme] body {
 .cm-select {
   min-height: var(--cm-control);
   padding: 8px 12px;
-  border: 1px solid var(--cm-border);
+  border: 1px solid var(--cm-control-border);
   border-radius: var(--cm-radius-md);
   background: var(--cm-surface);
   color: var(--cm-text);

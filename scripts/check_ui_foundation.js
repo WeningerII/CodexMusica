@@ -313,6 +313,32 @@ async function loadDelta(page) {
         at === theme,
         `A. stored "${theme}" was not applied before first paint (data-theme at <body>: ${at})`
       );
+      // A field with no fill of its own is marked by its border alone, so that
+      // border holds 3:1 against what is behind it (WCAG 1.4.11; Jony #20).
+      const fields = await page.evaluate(() => {
+        const rgb = (c) => (c.match(/[\d.]+/g) || []).map(Number);
+        const lum = ([r, g, b]) => {
+          const f = (v) => ((v /= 255) <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4);
+          return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b);
+        };
+        const behind = (el) => {
+          for (let e = el.parentElement; e; e = e.parentElement) {
+            const c = rgb(getComputedStyle(e).backgroundColor);
+            if (c.length === 3 || c[3] > 0.5) return c;
+          }
+          return [255, 255, 255];
+        };
+        return [...document.querySelectorAll('.cm-input, .cm-select')].map((el) => {
+          const [hi, lo] = [lum(rgb(getComputedStyle(el).borderTopColor)), lum(behind(el))].sort(
+            (a, b) => b - a
+          );
+          return { field: el.id || el.className, ratio: +((hi + 0.05) / (lo + 0.05)).toFixed(2) };
+        });
+      });
+      check(
+        fields.length > 0 && fields.every((f) => f.ratio >= 3),
+        `A. ${theme}: a field border under 3:1 (WCAG 1.4.11): ${JSON.stringify(fields.filter((f) => f.ratio < 3).slice(0, 4))} of ${fields.length}`
+      );
       const frameProbe = await ctx.newPage();
       await frameProbe.goto(base + 'atlas.html');
       const atlasAt = await frameProbe.evaluate(() => window.__themeAtBody);
