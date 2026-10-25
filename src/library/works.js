@@ -204,17 +204,21 @@ const fromSearch = (item) => ({
 async function staticPage(s, lib) {
   const offset = Number(s.offset);
   if (s.collection) {
-    // An id the collection list does not hold names no collection: said as
-    // such, without asking for a head file that is not there.
+    // Decided from the collection list, never from a head fetch: an id it
+    // does not hold names no collection, and a listed collection with nothing
+    // readable (held only) has no head file at all, as the Collections page
+    // says. A collections.json row is [cid, title, language, readable, ...].
     const list = await lib.collections().catch(() => null);
-    const ids = Array.isArray(list) ? list : list?.collections;
-    if (
-      Array.isArray(ids) &&
-      !ids.some((c) => (Array.isArray(c) ? c[0] : c.collection_id) === s.collection)
-    ) {
-      const none = Error('No such collection');
-      none.code = 'NO_COLLECTION';
-      throw none;
+    const listed = Array.isArray(list) ? list : list?.collections;
+    if (Array.isArray(listed)) {
+      const row = listed.find((c) => (Array.isArray(c) ? c[0] : c.collection_id) === s.collection);
+      if (!row) {
+        const none = Error('No such collection');
+        none.code = 'NO_COLLECTION';
+        throw none;
+      }
+      if ((Array.isArray(row) ? row[3] : row.readable) === 0)
+        return { rows: [], total: 0, held: true };
     }
     let head;
     try {
@@ -456,7 +460,7 @@ class WorksView {
       if (error && error.code === 'NO_COLLECTION') {
         results.innerHTML = uiEmptyState({
           title: 'No such collection',
-          text: `This Library has no collection “${esc(s.collection)}”.`,
+          text: `This Library has no collection “${s.collection}”.`,
           actions: `<button type="button" class="cm-btn cm-btn-outline" data-lw="all-works">Browse all works</button>`,
         });
         this.slot('summary').textContent = '';
@@ -484,16 +488,28 @@ class WorksView {
     const offset = Number(s.offset);
     this.slot('summary').textContent =
       `${page.total.toLocaleString()} reading units · work and edition identities remain distinct`;
-    if (!page.total || !page.rows.length) {
+    if (page.held) {
       results.innerHTML = uiEmptyState({
-        title: offset && page.total ? 'No more readings on this page' : 'No matching readings',
-        text: 'Search is literal and accent-preserving. Try a recorded title, contributor or exact phrase.',
-        actions:
-          offset && page.total
-            ? `<button type="button" class="cm-btn cm-btn-outline" data-lw="page" data-to="0">First page</button>`
-            : this.filterCount() || s.q
-              ? `<button type="button" class="cm-btn cm-btn-outline" data-lw="clear-all">Clear search and filters</button>`
-              : '',
+        title: 'Nothing here is readable',
+        text: 'Every unit in this collection is held. Its metadata is searchable with every availability.',
+        actions: `<button type="button" class="cm-btn cm-btn-outline" data-lw="all-availability">Show every availability</button>`,
+      });
+      return;
+    }
+    if (!page.total || !page.rows.length) {
+      const pastEnd = offset && page.total;
+      results.innerHTML = uiEmptyState({
+        title: pastEnd ? 'No more readings on this page' : 'No matching readings',
+        // The search hint is about a query; a page past the end of a list
+        // (a static one has no query at all) needs only where the list ends.
+        text: pastEnd
+          ? `This list has ${page.total.toLocaleString()} readings; this page is past its end.`
+          : 'Search is literal and accent-preserving. Try a recorded title, contributor or exact phrase.',
+        actions: pastEnd
+          ? `<button type="button" class="cm-btn cm-btn-outline" data-lw="page" data-to="0">First page</button>`
+          : this.filterCount() || s.q
+            ? `<button type="button" class="cm-btn cm-btn-outline" data-lw="clear-all">Clear search and filters</button>`
+            : '',
       });
       return;
     }
@@ -596,6 +612,10 @@ class WorksView {
       this.openFilters(t);
     } else if (act === 'retry') {
       this.load();
+    } else if (act === 'all-availability') {
+      s.availability = 'all';
+      s.offset = '0';
+      this.commit(false);
     } else if (act === 'all-works') {
       Object.assign(s, { collection: '', offset: '0', base: '/works' });
       this.commit(false);

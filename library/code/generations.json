@@ -78,6 +78,19 @@
         "works.7b7804829b.js"
       ],
       "first_published": "2026-10-25",
+      "retired": "2026-10-25"
+    },
+    {
+      "id": "f23611f1428b5ae9",
+      "files": [
+        "analysis.444aa6b634.js",
+        "compare.e48e7feb47.js",
+        "core.cf1c17234e.js",
+        "reader.c5d70df167.js",
+        "rights.8a94ca24b7.js",
+        "works.e837430a20.js"
+      ],
+      "first_published": "2026-10-25",
       "retired": null
     }
   ]

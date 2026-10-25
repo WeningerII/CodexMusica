@@ -577,9 +577,10 @@ const SECTIONS = {
         const e = document.querySelector('#surface-library .lw-results .cm-empty');
         return {
           tone: e?.dataset.tone || '',
-          text: (e?.textContent || '').trim().slice(0, 120),
+          text: (e?.textContent || '').trim().slice(0, 160),
           first: !!e?.querySelector('[data-lw="page"][data-to="0"]'),
           all: !!e?.querySelector('[data-lw="all-works"]'),
+          every: !!e?.querySelector('[data-lw="all-availability"]'),
           retry: !!e?.querySelector('[data-lw="retry"]'),
         };
       });
@@ -590,11 +591,35 @@ const SECTIONS = {
       past.tone !== 'danger' && /No more readings/.test(past.text) && past.first && !past.retry,
       JSON.stringify(past)
     );
+    check(
+      `${tag} works: and a static page past the end says where the list ends, not the search hint`,
+      /past its end/.test(past.text) && !/Search is literal/.test(past.text),
+      JSON.stringify(past)
+    );
     const none = await outcome('/works?collection=collection_nope');
     check(
       `${tag} works: an unknown collection says No such collection, not a load error`,
       none.tone !== 'danger' && /No such collection/.test(none.text) && none.all && !none.retry,
       JSON.stringify(none)
+    );
+    // The id is shown as typed: escaped once (uiEmptyState), never twice.
+    const amp = await outcome('/works?collection=' + encodeURIComponent('nope&co'));
+    check(
+      `${tag} works: an unknown id is shown as typed, escaped once`,
+      /“nope&co”/.test(amp.text) && !/&amp;/.test(amp.text),
+      JSON.stringify(amp)
+    );
+    // A LISTED collection with nothing readable has no head file; it is
+    // held, not missing (BB8's W1: 48 such, e.g. "sonnets generated").
+    const held = await outcome('/works?collection=collection_9edc5f69-bf21-5946-bb46-27d95903804c');
+    check(
+      `${tag} works: a held-only collection says Nothing here is readable, not No such collection`,
+      held.tone !== 'danger' &&
+        /Nothing here is readable/.test(held.text) &&
+        !/No such collection/.test(held.text) &&
+        held.every &&
+        !held.retry,
+      JSON.stringify(held)
     );
     // A navigation that lands while an earlier one still waits on the
     // catalog wins: the stale update writes neither its state nor the hash.
