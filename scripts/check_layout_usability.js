@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global window, document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame, app, UI, uiAddGenre, uiNavigate, renderRecipeStack, openModal, closeModal */
+/* global window, document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame, app, UI, uiAddGenre, uiNavigate, renderRecipeStack, openModal, closeModal, toastTimed, toastDeadline, hideToast, showToast */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -1064,6 +1064,183 @@ async function editorKeyboard(page, where) {
         await page.locator('#toast').innerText(),
         /Removed Voice\. Undo restores it\./,
         'Removing an instrument from the recipe is announced'
+      );
+      // An action toast is a hundred Tabs away: F8 reaches its action,
+      // it does not time out while it holds focus, and when it goes (replaced
+      // or timed out) focus returns to where it was, unless the action put
+      // focus somewhere on purpose.
+      await page.evaluate(() => {
+        for (const id of ['probe-return', 'probe-target']) {
+          const b = document.createElement('button');
+          b.id = id;
+          b.textContent = id;
+          document.body.appendChild(b);
+        }
+        document.getElementById('probe-return').focus();
+      });
+      await page.keyboard.press('F8');
+      const reach = await page.evaluate(() => ({
+        focus: document.activeElement?.className,
+        label: document.activeElement?.textContent,
+        hint: /F8 reaches Undo/.test(document.getElementById('toast').textContent),
+      }));
+      assert.deepEqual(
+        reach,
+        { focus: 'toast-action', label: 'Undo', hint: true },
+        'Toast: F8 reaches the action, and the toast says so'
+      );
+      assert.equal(
+        await page.evaluate(() =>
+          document.getElementById('toast').closest('[role="region"]')?.getAttribute('aria-label')
+        ),
+        'Notifications',
+        'Toast: the toast sits in a Notifications landmark'
+      );
+      await page.waitForTimeout(7500);
+      assert.deepEqual(
+        await page.evaluate(() => ({
+          shown: document.getElementById('toast').classList.contains('show'),
+          focus: document.activeElement?.className,
+        })),
+        { shown: true, focus: 'toast-action' },
+        'Toast: a toast holding focus does not time out'
+      );
+      await page.evaluate(() => showToast('Replaced', 'success'));
+      assert.equal(
+        await page.evaluate(() => document.activeElement?.id),
+        'probe-return',
+        'Toast: replacing a toast that holds focus returns focus to where it came from'
+      );
+      await page.evaluate(() => {
+        showToast('Probe timed', 'success', { label: 'Act', run() {} });
+        document.getElementById('probe-return').focus();
+      });
+      await page.keyboard.press('F8');
+      await page.evaluate(() => document.getElementById('probe-return').focus());
+      await page
+        .waitForFunction(() => !document.getElementById('toast').classList.contains('show'), null, {
+          timeout: 9000,
+        })
+        .catch(() => {});
+      assert.deepEqual(
+        await page.evaluate(() => ({
+          shown: document.getElementById('toast').classList.contains('show'),
+          focus: document.activeElement?.id,
+        })),
+        { shown: false, focus: 'probe-return' },
+        'Toast: once focus leaves, the timer resumes and the toast times out'
+      );
+      await page.evaluate(() => {
+        showToast('Probe', 'success', {
+          label: 'Act',
+          run() {
+            document.getElementById('probe-target').focus();
+          },
+        });
+        document.getElementById('probe-return').focus();
+      });
+      await page.keyboard.press('F8');
+      await page.keyboard.press('Enter');
+      assert.equal(
+        await page.evaluate(() => document.activeElement?.id),
+        'probe-target',
+        'Toast: focus the action places on purpose is kept'
+      );
+      // A second press from inside the toast keeps the original way back.
+      await page.evaluate(() => {
+        showToast('Probe twice', 'success', { label: 'Act', run() {} });
+        document.getElementById('probe-return').focus();
+      });
+      await page.keyboard.press('F8');
+      await page.keyboard.press('F8');
+      await page.evaluate(() => showToast('Replaced again', 'success'));
+      assert.equal(
+        await page.evaluate(() => document.activeElement?.id),
+        'probe-return',
+        'Toast: a repeated shortcut still returns focus to where it came from'
+      );
+      // The shortcut never takes a keystroke from a text field.
+      await page.evaluate(() => {
+        const f = document.createElement('input');
+        f.id = 'probe-field';
+        document.body.appendChild(f);
+        showToast('Probe field', 'success', { label: 'Act', run() {} });
+        f.focus();
+      });
+      await page.keyboard.press('F8');
+      assert.equal(
+        await page.evaluate(() => document.activeElement?.id),
+        'probe-field',
+        'Toast: the shortcut leaves a text field alone'
+      );
+      // Retry is reachable without the shortcut: an error toast with an
+      // action does not time out, and it can be dismissed.
+      await page.evaluate(() => showToast('Probe error', 'error', { label: 'Retry', run() {} }));
+      const err = await page.evaluate(() => ({
+        timed: toastTimed,
+        actions: [...document.querySelectorAll('#toast .toast-action')].map((b) => b.textContent),
+      }));
+      assert.deepEqual(
+        err,
+        { timed: false, actions: ['Retry', 'Dismiss'] },
+        'Toast: an error with Retry waits for its user and can be dismissed'
+      );
+      await page.locator('#toast .toast-dismiss').click();
+      assert.equal(
+        await page.evaluate(() => document.getElementById('toast').classList.contains('show')),
+        false,
+        'Toast: Dismiss takes the error toast down'
+      );
+      // A plain error waits too, with Dismiss; other toasts stay long
+      // enough to read (at least 4 s, longer for a longer message).
+      const plain = await page.evaluate(() => {
+        showToast('Probe plain error', 'error');
+        const error = {
+          timed: toastTimed,
+          actions: [...document.querySelectorAll('#toast .toast-action')].map((b) => b.textContent),
+        };
+        showToast('Saved', 'success');
+        const short = toastDeadline - Date.now();
+        showToast('x'.repeat(90), 'success');
+        const long = toastDeadline - Date.now();
+        hideToast(document.getElementById('toast'));
+        return { error, short: short >= 3800, long: long > short && long <= 6600 };
+      });
+      assert.deepEqual(
+        plain,
+        { error: { timed: false, actions: ['Dismiss'] }, short: true, long: true },
+        'Toast: a plain error waits with Dismiss; other toasts last long enough to read'
+      );
+      // Genre detail: an in-content jump to a tab brings the tab into view.
+      await page.getByRole('button', { name: 'Genre', exact: true }).first().click();
+      await page.getByLabel('Search genres').fill('Delta blues');
+      await page.locator('[data-ui="genre-select"]').first().click();
+      const similar = page.locator(
+        '#surface-genre [data-ui="genre-tab"][data-id="similar"].gp-linkbtn'
+      );
+      await similar.first().scrollIntoViewIfNeeded();
+      await similar.first().focus();
+      await page.keyboard.press('Enter');
+      const tabSeen = await page.evaluate(() => {
+        const t = document.activeElement;
+        const r = t.getBoundingClientRect();
+        const hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+        return {
+          id: t.id,
+          visible: r.top >= 0 && r.bottom <= innerHeight && !!hit && t.contains(hit),
+          at: `${Math.round(r.top)}..${Math.round(r.bottom)} of ${innerHeight}`,
+          over: hit
+            ? (hit.closest('[id]')?.id || '') +
+              ' ' +
+              (hit.getAttribute('aria-label') || hit.textContent.trim().slice(0, 40))
+            : null,
+        };
+      });
+      assert.deepEqual(
+        { id: tabSeen.id, visible: tabSeen.visible },
+        { id: 'gp-tab-similar', visible: true },
+        'Genre: Find similar sounds focuses its tab where it can be seen: ' +
+          JSON.stringify(tabSeen)
       );
       assert.deepEqual(errors, [], 'No browser errors (390x780)');
       console.log('PASS card editor at 390x780: Edit Voice by keyboard, remove announced');

@@ -2197,9 +2197,10 @@ const _CARD_TRANSIENTS = { drift: null, stackPanel: null, editingPart: null, edi
 //   MODAL_FOCUS_DELAY — wait for the modal to paint before focusing
 //     its first input. Browsers won't accept focus on an element that's
 //     still mid-transition; ~60 ms covers the common compositor delay.
-//   TOAST_LIFETIME — how long a toast stays on screen before fading.
-//     Long enough to read a short message at glance speed, short enough
-//     that a rapid sequence of operations doesn't pile up toasts.
+//   TOAST_LIFETIME — the unit toast timing is measured in. An action toast
+//     stays three units; any other timed toast stays about a second per 15
+//     characters, at least 4 s and at most three units (showToast). Errors
+//     do not time out.
 const UI_TIMING_MS = {
   PREFACE_SHIFT: 800,
   MODAL_FOCUS_DELAY: 60,
@@ -14756,6 +14757,68 @@ function confirmDialog(opts) {
 // ---- Toast ----
 let toastT = null;
 let toastSeq = 0; // counts toasts, so a caller can tell whether its own is still up
+// An action toast sits at the end of the page, a hundred Tabs away, so
+// F8 jumps to its action (never while typing in a field); the toast's
+// hidden text says so. The shortcut is a convenience, not the only way: an
+// error toast with an action (Retry) does not time out, so Tab reaches it, and
+// it carries a Dismiss button. A timed toast's timer waits while the action is
+// hovered or focused, and when a toast that holds focus goes (timeout or
+// replacement), focus goes back to where it was before it entered the toast.
+let toastDeadline = 0, toastLeft = 0, toastHeld = 0, toastTimed = false, toastReturn = null;
+// F8: Alt+Shift+T is the browser's own focus-toolbar key on Windows, Linux
+// and ChromeOS, and types a character on macOS.
+const TOAST_KEY_LABEL = 'F8';
+function _toastRestoreFocus(t) {
+  const back = toastReturn;
+  toastReturn = null;
+  if (!t.contains(document.activeElement)) return;
+  if (back && back !== document.body && back.isConnected && !t.contains(back) && typeof back.focus === 'function') back.focus({ preventScroll: true });
+  else document.activeElement.blur();
+}
+function _toastArm(t, ms) {
+  if (toastT) clearTimeout(toastT);
+  toastDeadline = Date.now() + ms;
+  toastT = setTimeout(() => hideToast(t), ms);
+}
+function _toastHold(t, on) {
+  if (!t.classList.contains('show') || !toastTimed) return;
+  const was = toastHeld > 0;
+  toastHeld = Math.max(0, toastHeld + (on ? 1 : -1));
+  if (!was && toastHeld) {
+    clearTimeout(toastT);
+    toastT = null;
+    toastLeft = Math.max(0, toastDeadline - Date.now());
+  } else if (was && !toastHeld) {
+    _toastArm(t, Math.max(toastLeft, 1500));
+    toastLeft = 0;
+  }
+}
+function _toastWire(t) {
+  if (t._wired) return;
+  t._wired = true;
+  t.addEventListener('focusin', (e) => {
+    if (!t.contains(e.relatedTarget)) {
+      if (!toastReturn && e.relatedTarget && !t.contains(e.relatedTarget)) toastReturn = e.relatedTarget;
+      _toastHold(t, true);
+    }
+  });
+  t.addEventListener('focusout', (e) => { if (!t.contains(e.relatedTarget)) _toastHold(t, false); });
+  t.addEventListener('mouseover', (e) => { if (!t.contains(e.relatedTarget)) _toastHold(t, true); });
+  t.addEventListener('mouseout', (e) => { if (!t.contains(e.relatedTarget)) _toastHold(t, false); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'F8' || e.altKey || e.shiftKey || e.ctrlKey || e.metaKey) return;
+    if (e.defaultPrevented || e.isComposing) return;
+    // Never take a keystroke from text entry.
+    const a = document.activeElement;
+    if (a && (a.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName))) return;
+    const b = t.classList.contains('show') && t.querySelector('.toast-action');
+    if (!b) return;
+    e.preventDefault();
+    // A second press from inside the toast keeps the original way back.
+    if (!t.contains(a)) toastReturn = a;
+    b.focus();
+  }, true);
+}
 function showToast(msg, kind, action, opts) {
   // kind: undefined (default neutral), 'success' (green w/ check icon),
   // 'error' (red w/ alert-circle icon). Icon emoji is part of the toast
@@ -14763,6 +14826,12 @@ function showToast(msg, kind, action, opts) {
   // action: optional { label, run } — one labelled button (Undo, Retry) that
   // keeps the toast up long enough to be reached and runs once.
   const t = document.getElementById('toast');
+  _toastWire(t);
+  // A replacement takes the focused action with it: hand focus back first.
+  _toastRestoreFocus(t);
+  toastHeld = 0;
+  toastLeft = 0;
+  toastTimed = false;
   t.classList.remove('toast-success', 'toast-error', 'has-action');
   if (kind === 'success') {
     t.innerHTML = `${icon('check')}<span>${esc(msg)}</span>`;
@@ -14778,22 +14847,60 @@ function showToast(msg, kind, action, opts) {
     b.type = 'button';
     b.className = 'toast-action';
     b.textContent = action.label;
+    // hideToast hands focus back before the action runs, so focus the action
+    // places on purpose (an Undo that refocuses) is never overridden.
     b.addEventListener('click', () => { hideToast(t); action.run(); }, { once: true });
-    t.appendChild(b);
+    const hint = document.createElement('span');
+    hint.className = 'sr-only toast-hint';
+    // A message that already ends a sentence gets no second full stop.
+    hint.textContent = `${/[.!?…]$/.test(String(msg).trim()) ? ' ' : '. '}${TOAST_KEY_LABEL} reaches ${action.label}. `;
+    t.append(hint, b);
+    t.classList.add('has-action');
+  }
+  // Every error waits for its user (WCAG 2.2.1): no timeout, a Dismiss
+  // button, and the next toast replaces it. With no other action, Dismiss is
+  // what F8 reaches.
+  if (kind === 'error') {
+    if (!t.querySelector('.toast-hint')) {
+      const hint = document.createElement('span');
+      hint.className = 'sr-only toast-hint';
+      hint.textContent = `${/[.!?…]$/.test(String(msg).trim()) ? ' ' : '. '}${TOAST_KEY_LABEL} reaches Dismiss. `;
+      t.append(hint);
+    }
+    const x = document.createElement('button');
+    x.type = 'button';
+    x.className = 'toast-action toast-dismiss';
+    x.textContent = 'Dismiss';
+    x.addEventListener('click', () => hideToast(t), { once: true });
+    t.append(x);
     t.classList.add('has-action');
   }
   t.classList.add('show');
   if (toastT) clearTimeout(toastT);
+  toastT = null;
   // opts.sticky: a status that lasts as long as what it reports; its caller
   // takes it down (engineReady).
-  toastT = opts && opts.sticky ? null : setTimeout(() => hideToast(t), UI_TIMING_MS.TOAST_LIFETIME * (action ? 3 : 1));
+  // An error waits for its user: no timeout, so Tab reaches it without the
+  // shortcut; Dismiss or the next toast takes it down. Any other toast stays
+  // long enough to read: about a second per 15 characters, at least 4 s, and
+  // never longer than an action toast's lifetime.
+  toastTimed = !(opts && opts.sticky) && kind !== 'error';
+  const longest = UI_TIMING_MS.TOAST_LIFETIME * 3;
+  const readable = Math.min(longest, Math.max(4000, Math.ceil(String(msg).length / 15) * 1000));
+  if (toastTimed) _toastArm(t, action ? longest : readable);
   return ++toastSeq;
 }
 // The action leaves with the toast. Left behind at opacity 0 it would still
 // take a click at bottom centre and run Undo or Retry unseen.
 function hideToast(t) {
+  if (toastT) clearTimeout(toastT);
+  toastT = null;
+  toastHeld = 0;
+  toastLeft = 0;
+  toastTimed = false;
+  _toastRestoreFocus(t);
   t.classList.remove('show', 'has-action');
-  t.querySelector('.toast-action')?.remove();
+  t.querySelectorAll('.toast-action, .toast-hint').forEach((n) => n.remove());
 }
 
 // ---- Clipboard helper ----

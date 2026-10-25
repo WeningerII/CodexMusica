@@ -1016,6 +1016,21 @@ function gpTabKeys(e) {
   tabs[i].click();
   uiFocus(uiFind(`#surface-genre [data-ui="${ui}"]`, 'id', id));
 }
+// Scroll `el` into view and clear the sticky view bar (sticky on a phone
+// while the A–Z jump bar shows), which would otherwise sit over it.
+function gpRevealUnderBar(el) {
+  if (!el?.scrollIntoView) return;
+  el.scrollIntoView({ block: 'nearest' });
+  const bar = document.querySelector('#surface-genre .gp-maintabs');
+  if (!bar || getComputedStyle(bar).position !== 'sticky') return;
+  const over = bar.getBoundingClientRect().bottom - el.getBoundingClientRect().top;
+  if (over <= 0) return;
+  for (let s = el.parentElement; s; s = s.parentElement)
+    if (s.scrollHeight > s.clientHeight && /auto|scroll/.test(getComputedStyle(s).overflowY)) {
+      s.scrollBy(0, -(over + 8));
+      return;
+    }
+}
 function gpSetTab(k) {
   G.detailTab = k;
   const d = $ui('genre-detail');
@@ -1240,7 +1255,11 @@ uiRegisterPage({
     },
     'genre-tab'(id) {
       gpSetTab(id);
-      uiFocus($ui('gp-tab-' + id));
+      // An in-content jump (Find similar sounds) can select a tab scrolled
+      // out of view on a phone: bring it in before focusing it.
+      const tab = $ui('gp-tab-' + id);
+      gpRevealUnderBar(tab);
+      uiFocus(tab);
     },
     'genre-view-tab'(id) {
       gpForgetPosition();
