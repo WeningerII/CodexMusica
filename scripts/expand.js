@@ -30,6 +30,12 @@ for (let i = 0; i < args.length; i++) {
   }
 }
 
+// The shared argument contract (_cli_flags.js): an unknown or misspelled flag
+// and a bare value flag exit 2 by name; --help prints the usage above.
+require('./_cli_flags.js').checkFlags(flags, {
+  value: ['tradition', 'instrument', 'room', 'archetype', 'aesthetic', 'tree'],
+});
+
 function resolveChainItem(sectionId, itemId) {
   const sec = C.CHAIN_SECTIONS.find((s) => s.id === sectionId);
   if (sec) {

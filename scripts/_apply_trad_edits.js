@@ -16,7 +16,7 @@
 //
 // USAGE
 //   node scripts/_apply_trad_edits.js edits.json            # apply
-//   node scripts/_apply_trad_edits.js edits.json --dry-run  # report only
+//   node scripts/_apply_trad_edits.js edits.json --dry-run  # report only; exits 1 on any error
 'use strict';
 const fs = require('fs');
 const path = require('path');
@@ -92,8 +92,10 @@ if (errors.length) {
 console.log(
   `\n${dryRun ? 'DRY-RUN ' : ''}${applied} edit(s) across ${Object.keys(edits).length} tradition(s); ${errors.length} error(s).`
 );
-if (errors.length && !dryRun) {
-  console.error('Refusing to write due to errors. Fix the edits file.');
+// A dry run is how an edits file is checked before it is applied, so its
+// errors fail it too: exit 1, the same as the refused write.
+if (errors.length) {
+  if (!dryRun) console.error('Refusing to write due to errors. Fix the edits file.');
   process.exit(1);
 }
 if (!dryRun && applied) {
