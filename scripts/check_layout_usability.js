@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global MutationObserver, document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame, uiNavigate, window */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -229,6 +229,95 @@ async function noOverflow(page) {
           width +
           'px: tree, labels, editor, panes, menus, lyrics, embedded/standalone map, short viewport'
       );
+      await context.close();
+    }
+    for (const width of [1280, 390]) {
+      // Map focus and speech (Jony #101, #102, #104, #105 on #519): an In view
+      // pick lands on the card's title; the count is said once a move
+      // settles; Open on the Genre page leaves the hidden frame for the
+      // genre's heading; an embedded Add is said once, by the shell.
+      const context = await browser.newContext({ viewport: { width, height: 800 } });
+      await context.route('https://mcp.codexmusica.com/**', (route) =>
+        route.fulfill({ contentType: 'application/json', body: '{"ok":true,"enabled":true}' })
+      );
+      const page = await context.newPage();
+      const errors = [];
+      page.on('pageerror', (e) => errors.push(e.message));
+      const recordLive = (frame) =>
+        frame.evaluate(() => {
+          window.__said = [];
+          const live = document.getElementById('map-live');
+          new MutationObserver(() => {
+            if (live.textContent) window.__said.push(live.textContent);
+          }).observe(live, { childList: true, characterData: true, subtree: true });
+        });
+      await page.goto(base + '/atlas.html');
+      await page.locator('#list .rowbtn[data-tid]').first().waitFor({ state: 'attached' });
+      assert.equal(
+        await page.locator('#count').getAttribute('role'),
+        null,
+        `Map at ${width}px: the count is not itself a live region`
+      );
+      if (!(await page.locator('#list .rowbtn[data-tid]').first().isVisible()))
+        await page.locator('#t-inview').click();
+      // Let the first view's count be said before recording the pick's.
+      await page.waitForTimeout(900);
+      await recordLive(page);
+      await page.locator('#list .rowbtn[data-tid]').first().focus();
+      await page.keyboard.press('Enter');
+      await page.locator('#card-title').waitFor();
+      await page.waitForTimeout(1500);
+      assert.equal(
+        await page.evaluate(() => document.activeElement?.id),
+        'card-title',
+        `Map at ${width}px: an In view pick lands on the card's title`
+      );
+      const pickSaid = await page.evaluate(() => window.__said.filter((t) => / on map$/.test(t)));
+      assert.ok(
+        pickSaid.length <= 1,
+        `Map at ${width}px: the count is said at most once per fly-to: ` + JSON.stringify(pickSaid)
+      );
+      await page.keyboard.press('Escape');
+      await page.locator('#canvas-host').focus();
+      await page.evaluate(() => (window.__said = []));
+      for (let i = 0; i < 3; i++) await page.keyboard.press('ArrowRight');
+      await page.waitForTimeout(1500);
+      const panSaid = await page.evaluate(() => window.__said.filter((t) => / on map$/.test(t)));
+      assert.ok(
+        panSaid.length <= 1,
+        `Map at ${width}px: three pan steps say the count once: ` + JSON.stringify(panSaid)
+      );
+      // Embedded: Open on the Genre page, and Add.
+      await page.goto(base + '/codex.html');
+      await page.locator('.catalog-row, .cm-tile').first().waitFor();
+      await page.evaluate(() => uiNavigate('map', { push: true }));
+      const atlas = page.frameLocator('#map-frame');
+      await atlas.locator('#list .rowbtn[data-tid]').first().waitFor({ state: 'attached' });
+      const frame = page.frames().find((f) => f.url().includes('atlas.html'));
+      await atlas.getByLabel('Search traditions').fill('flamenco');
+      await atlas.locator('#results [data-tid]').first().click();
+      await atlas.locator('#card [data-act="add"]').waitFor();
+      await recordLive(frame);
+      await atlas.locator('#card [data-act="add"]').click();
+      await page.waitForFunction(() =>
+        /Imported/.test(document.getElementById('toast').textContent)
+      );
+      await page.waitForTimeout(600);
+      assert.deepEqual(
+        await frame.evaluate(() => window.__said.filter((t) => /^Added /.test(t))),
+        [],
+        `Map at ${width}px: an embedded Add is said by the shell's toast only`
+      );
+      await atlas.getByRole('button', { name: 'Open on the Genre page', exact: true }).click();
+      await page.waitForFunction(() => document.body.dataset.view === 'genre');
+      await page.waitForTimeout(200);
+      assert.equal(
+        await page.evaluate(() => document.activeElement?.id),
+        'gp-detail-title',
+        `Map at ${width}px: Open on the Genre page lands on the genre's heading`
+      );
+      assert.deepEqual(errors, [], 'No browser errors');
+      console.log(`PASS map focus and speech at ${width}px`);
       await context.close();
     }
   } finally {

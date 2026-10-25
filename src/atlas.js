@@ -551,6 +551,21 @@
     }, 30);
   }
 
+  // The count changes on every step of a fly-to or a pan. It is said once,
+  // through the live region, when the view has been still for half a second,
+  // and only if it changed (Jony #104); while the search box has focus, the
+  // search says what it found instead.
+  var countTimer = 0,
+    countSaid = '';
+  function countSoon(text) {
+    clearTimeout(countTimer);
+    countTimer = setTimeout(function () {
+      if (text === countSaid || document.activeElement === el.search) return;
+      countSaid = text;
+      announce(text);
+    }, 500);
+  }
+
   function metaCount(v) {
     return typeof v === 'number' ? v : (v || []).length;
   }
@@ -2049,10 +2064,26 @@
         ICON.back +
         'Back to collection</button>';
     }
+    // A re-render (the detail arriving after a pick) replaces what holds focus;
+    // focus goes back to the same control, or the title, not to the body
+    // (Jony #16 on #519).
+    var had = el.card.contains(document.activeElement) ? document.activeElement : null;
+    var again = had
+      ? had.matches('h2')
+        ? 'h2'
+        : had.dataset.act
+          ? '[data-act="' + had.dataset.act + '"]'
+          : null
+      : null;
     el.card.innerHTML = h;
     el.card.setAttribute('aria-labelledby', 'card-title');
     el.card.hidden = false;
     document.body.classList.add('card-open');
+    var back = again && el.card.querySelector(again);
+    if (back) {
+      if (again === 'h2') back.tabIndex = -1;
+      back.focus({ preventScroll: true });
+    }
     var im = el.card.querySelector('img[data-fallback]');
     if (im)
       im.addEventListener('error', function () {
@@ -2165,6 +2196,7 @@
         ? S.pts.length.toLocaleString('en')
         : vis.length.toLocaleString('en') + ' in view';
     el.count.textContent = shown + ' on map';
+    countSoon(shown + ' on map');
     renderKey(vis);
   }
 
@@ -2991,7 +3023,10 @@
           syncSide();
         }
         flyTo(p);
-        if (root === el.card || root === el.results) {
+        // A pick from the card, the search results or the In view list (which
+        // re-renders as the view flies in, replacing the row) lands on the
+        // card's title, as a search pick does (Jony #101).
+        if (root === el.card || root === el.results || root === el.list) {
           var title = el.card.querySelector('h2');
           if (title) {
             title.tabIndex = -1;
@@ -3093,17 +3128,9 @@
             times: (prev.times || 0) + 1,
           }
         : { state: 'failed', times: prev.times || 0 };
-      var name = S.byId[e.data.id] ? S.byId[e.data.id].name : e.data.id;
-      announce(
-        e.data.ok
-          ? 'Added ' +
-              e.data.added +
-              (e.data.expected ? ' of ' + e.data.expected : '') +
-              ' instruments from ' +
-              name +
-              ' to Your recipe.'
-          : 'Nothing was added from ' + name + '.'
-      );
+      // The shell's toast (with its Undo) has already said what arrived, or
+      // why nothing did; the card's status shows it here without saying it a
+      // second time (Jony #105).
       if (S.sel && S.sel.id === e.data.id) {
         var focused = document.activeElement && document.activeElement.dataset.act === 'add';
         renderCard();
