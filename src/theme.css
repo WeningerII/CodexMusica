@@ -455,10 +455,14 @@ html[data-theme] body {
   font: 500 var(--cm-text-sm) var(--cm-font);
   cursor: pointer;
 }
+/* The selected segment's fill is barely lighter than the track (1.1:1), so an
+   accent underline is what marks it at 3:1 or more (WCAG 1.4.11; Jony, #519). */
 .cm-segmented button[aria-pressed='true'] {
   background: var(--cm-surface);
   color: var(--cm-text);
-  box-shadow: var(--cm-shadow-1);
+  box-shadow:
+    var(--cm-shadow-1),
+    inset 0 -2px 0 var(--cm-accent);
 }
 
 /* Accordions: native details/summary with a visible disclosure marker. */

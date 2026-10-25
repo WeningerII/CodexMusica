@@ -339,6 +339,35 @@ async function loadDelta(page) {
         fields.length > 0 && fields.every((f) => f.ratio >= 3),
         `A. ${theme}: a field border under 3:1 (WCAG 1.4.11): ${JSON.stringify(fields.filter((f) => f.ratio < 3).slice(0, 4))} of ${fields.length}`
       );
+      // A selected segment carries a 3:1 cue against its own fill: the accent
+      // underline (the fill alone is 1.1:1 against the track).
+      const segment = await page.evaluate(() => {
+        const host = document.createElement('div');
+        host.className = 'cm-segmented';
+        host.innerHTML = '<button aria-pressed="true">A</button><button>B</button>';
+        document.body.append(host);
+        const cs = getComputedStyle(host.firstChild);
+        const out = { shadow: cs.boxShadow, fill: cs.backgroundColor };
+        host.remove();
+        return out;
+      });
+      const inset = (segment.shadow.match(/rgba?\([^)]*\)[^,]*inset|inset[^,]*rgba?\([^)]*\)/) || [
+        '',
+      ])[0];
+      const cue = (inset.match(/rgba?\(([^)]*)\)/) || ['', ''])[1].split(',').map(Number);
+      const fill = (segment.fill.match(/[\d.]+/g) || []).map(Number);
+      const lumOf = ([r, g, b]) => {
+        const f = (v) => ((v /= 255) <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4);
+        return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b);
+      };
+      const segRatio =
+        cue.length >= 3
+          ? (Math.max(lumOf(cue), lumOf(fill)) + 0.05) / (Math.min(lumOf(cue), lumOf(fill)) + 0.05)
+          : 0;
+      check(
+        segRatio >= 3,
+        `A. ${theme}: the selected segment has no 3:1 cue (WCAG 1.4.11): ${segment.shadow} on ${segment.fill}`
+      );
       const frameProbe = await ctx.newPage();
       await frameProbe.goto(base + 'atlas.html');
       const atlasAt = await frameProbe.evaluate(() => window.__themeAtBody);
