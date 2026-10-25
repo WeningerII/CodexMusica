@@ -98,9 +98,13 @@ class Structure:
     #: truthy, so `if s.calibrated` still means "some regime exists".
     calibrated: tuple = ()
 
-    def judge(self, a, b, phon=None):
+    def judge(self, a, b, phon=None, member_phons=None):
         """-> True / False / None (None = REFUSED: the phonology declined
-        a member; a refusal is not a failure and not a pass)."""
+        a member; a refusal is not a failure and not a pass). `member_phons`
+        is one phonology per member carrying its declared reading
+        (--pronunciations), exactly as the relation path passes it to
+        `classify_pair`; without it a declared reading never reached the
+        structure, which stayed UNDECIDED however it was declared."""
         from quality import rhyme_types as RT
         from quality import phonology as PH
         phon = phon or PH.get("eng")
@@ -112,7 +116,7 @@ class Structure:
                 f"implementations that drift (doctrine 48).")
         if self.kind == "preset":
             try:
-                t = RT.classify_pair(a, b, phon, preset=self.name)
+                t = RT.classify_pair(a, b, phon, preset=self.name, member_phons=member_phons)
             except RT.Indeterminate:
                 # e.g. a fixed-index anchor with no referent in a
                 # one-syllable member: the QUESTION has no coordinates in
@@ -135,7 +139,7 @@ class Structure:
         anchor_a, anchor_b = self.cell[7], self.cell[8]
         try:
             t = RT.classify_pair(a, b, phon, anchor_a=anchor_a,
-                                 anchor_b=anchor_b)
+                                 anchor_b=anchor_b, member_phons=member_phons)
         except RT.Indeterminate:
             return None
         if t is None:
@@ -274,12 +278,12 @@ def get(name):
     return STRUCTURES[resolve(name)]
 
 
-def judge(name, a, b, phon=None):
+def judge(name, a, b, phon=None, member_phons=None):
     """Judge one pair under one declared structure, by name or alias."""
-    return get(name).judge(a, b, phon=phon)
+    return get(name).judge(a, b, phon=phon, member_phons=member_phons)
 
 
-def undecided_by_readings(name, a, b, phon=None):
+def undecided_by_readings(name, a, b, phon=None, member_phons=None):
     """True when `judge` answered None because a member holds readings that
     do not agree on a channel the structure reads -- the pair is readable and
     its anchors resolve, but which reading was meant decides the verdict --
@@ -294,6 +298,7 @@ def undecided_by_readings(name, a, b, phon=None):
     phon = phon or PH.get("eng")
     kw = ({"preset": s.name} if s.kind == "preset"
           else {"anchor_a": s.cell[7], "anchor_b": s.cell[8]})
+    kw["member_phons"] = member_phons
     try:
         t = RT.classify_pair(a, b, phon, **kw)
     except RT.Indeterminate:

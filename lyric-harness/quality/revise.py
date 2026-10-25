@@ -2290,12 +2290,13 @@ class Reviser:
                 if _refused_here:
                     continue
                 if why is None and _nondefault_struct:
-                    sv = _ST.judge(struct, ew_i, ew_j)
+                    sv = _ST.judge(struct, ew_i, ew_j, member_phons=member_phons)
                     if sv is None:
                         # Readings that disagree are settled by declaring the
                         # intended one; an unreadable member or a refused
                         # anchor is not. Say which, so the instruction fits.
-                        _by_readings = _ST.undecided_by_readings(struct, ew_i, ew_j)
+                        _by_readings = _ST.undecided_by_readings(
+                            struct, ew_i, ew_j, member_phons=member_phons)
                         refusals.append({
                             "lines": (i, j),
                             "endwords": (ew_i, ew_j),
