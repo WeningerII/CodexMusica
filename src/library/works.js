@@ -16,7 +16,7 @@
 // language, availability, completeness, edition8, work8, source_path,
 // snippet, contributor_search]; search items are compact summaries. Both
 // become one row shape below.
-/* global esc, icon, showToast, uiEmptyState, uiSubroute */
+/* global esc, icon, showToast, uiEmptyState, uiSubroute, LIBRARY */
 'use strict';
 
 const PAGE = 50;
@@ -123,7 +123,31 @@ const STYLE = `
 #surface-library .lw-table td:first-child{padding-left:12px;padding-right:96px}
 #surface-library .lw-table td.lw-actions{position:absolute;top:8px;right:8px;padding:0}
 #surface-library .lw-sheet{width:100vw;border-radius:0}
-}`;
+}
+#surface-library .lib-coll-head{display:flex;gap:16px;align-items:flex-start}
+#surface-library .lib-coll-head .lib-art{flex:0 0 120px}
+#surface-library .lib-coll-head .lib-cover{justify-content:center;align-items:center}
+#surface-library .lib-coll-head .lib-cover>:not(svg){display:none}
+#surface-library .lib-coll-head h1{margin:0 0 4px;font-size:22px;line-height:1.25;color:var(--cm-text);white-space:pre-line}
+#surface-library .lib-coll-head p{margin:0 0 10px;color:var(--cm-text-secondary)}
+#surface-library .lib-coll-actions{display:flex;flex-wrap:wrap;gap:8px}
+#surface-library .lib-coll-list{list-style:none;margin:0;padding:0;border:1px solid var(--cm-border);border-radius:var(--cm-radius-lg,12px);background:var(--cm-surface);overflow:hidden}
+#surface-library .lib-coll-list li{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--cm-border-subtle,var(--cm-border))}
+#surface-library .lib-coll-list li:last-child{border-bottom:0}
+#surface-library .lib-coll-list a{flex:1;min-width:0;display:flex;flex-direction:column;color:var(--cm-text);text-decoration:none}
+#surface-library .lib-coll-list a:hover strong{text-decoration:underline}
+#surface-library .lib-coll-list strong{font-size:14px;font-weight:600}
+#surface-library .lib-coll-list small{font-size:12px;color:var(--cm-text-secondary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#surface-library .lib-coll-list input{width:18px;height:18px;accent-color:var(--cm-accent)}
+#surface-library .lib-pager{display:flex;align-items:center;gap:10px;justify-content:flex-end;color:var(--cm-text-secondary);font-size:13px}
+#surface-library .lib-credit{position:fixed;inset:0;margin:auto;height:fit-content;max-height:calc(100vh - 32px);overflow:auto;max-width:min(560px,calc(100vw - 32px));padding:20px;border:1px solid var(--cm-border);border-radius:var(--cm-radius-lg,12px);background:var(--cm-surface);color:var(--cm-text);box-shadow:var(--cm-shadow-3)}
+#surface-library .lib-credit::backdrop{background:var(--cm-scrim,rgba(0,0,0,.5))}
+#surface-library .lib-credit form{display:flex;justify-content:flex-end;margin:0 0 8px}
+#surface-library .lib-credit img{display:block;max-width:100%;max-height:60vh;margin:0 auto 12px;border-radius:var(--cm-radius-md,8px)}
+#surface-library .lib-credit h2{margin:0 0 4px;font-size:18px}
+#surface-library .lib-credit p{margin:0 0 8px;color:var(--cm-text-secondary);font-size:14px}
+#surface-library .lib-credit .lib-credit-note{font-size:12px;color:var(--cm-text-muted)}
+#surface-library .lib-credit a{color:var(--cm-accent-text);display:inline-flex;align-items:center;gap:4px}`;
 
 function injectStyle() {
   if (!document.querySelector('style[data-lib="works"]'))
@@ -839,6 +863,130 @@ async function openMetadata(lib, id, { opener = null, row = null, layer = null }
   return sheet;
 }
 
+// ─── A collection page (core hands it over: never the shelves' first view) ──
+// A collection page replaces the control that opened it (a rail spine, a
+// card, a pager button): when that left focus on the page, land it on the
+// collection's heading instead. Focus the person put elsewhere is kept.
+function focusLostToHeading(main) {
+  const a = document.activeElement;
+  if (a && a !== document.body && a.isConnected) return;
+  const h = main.querySelector('.lib-coll-head h1');
+  if (!h) return;
+  h.tabIndex = -1;
+  h.focus();
+}
+async function collection(main, id, token, offset = 0, core) {
+  const {
+    lib,
+    state,
+    selection,
+    selectedFor,
+    selectionState,
+    fillRail,
+    railHtml,
+    toplineHtml,
+    artHtml,
+    fromRow,
+    shortTitle,
+    plural,
+    num,
+    libButton,
+    collectionSub,
+    COLLECTION_PAGE,
+  } = core;
+  injectStyle();
+  const [catalog, all] = await Promise.all([lib.catalog(), lib.collections()]);
+  if (token !== state.token) return;
+  const row = all.collections.find((c) => c[0] === id);
+  const c = row ? fromRow(row) : null;
+  const frame = (body) =>
+    `<div class="lib-core">${railHtml(catalog)}<div class="lib-core-main">${toplineHtml(catalog)}<div><button type="button" class="lib-btn" data-lib-act="go" data-sub="">${icon('library', 16)}<span>Explore</span></button></div>${body}</div></div>`;
+  if (!c) {
+    main.innerHTML = frame(
+      uiEmptyState({
+        title: 'No such collection',
+        text: 'It may have been merged or withdrawn in this snapshot.',
+        actions: libButton('go', 'Explore', 'library', ' data-sub=""'),
+      })
+    );
+    fillRail(main);
+    return;
+  }
+  const title = shortTitle(c.title);
+  const header = (extra) =>
+    `<header class="lib-coll-head"><div class="lib-art">${artHtml(c, 0, title)}</div><div><h1>${esc(title)}</h1><p>${esc(lib.languageName(c.language))} · ${plural(c.readable, 'readable unit')}${c.recorded > c.readable ? ` of ${num(c.recorded)} recorded` : ''}</p>${extra}</div></header>`;
+  if (!c.readable) {
+    main.innerHTML = frame(
+      header(
+        `<div class="lib-coll-actions">${libButton('go', 'Search its works', 'search', ` data-sub="/works?collection=${encodeURIComponent(id)}"`)}</div>`
+      ) +
+        uiEmptyState({
+          title: 'Nothing here is readable',
+          text: 'Every unit in this collection is held. Its metadata is searchable in Works.',
+        })
+    );
+    fillRail(main, id);
+    return;
+  }
+  main.innerHTML = frame(header('') + `<div class="lib-skel" aria-hidden="true"></div>`);
+  fillRail(main, id);
+  focusLostToHeading(main);
+  const head = await lib.collection(id);
+  if (token !== state.token) return;
+  const pages = head.page_count || 1;
+  const at = Math.min(Math.floor(offset / COLLECTION_PAGE), pages - 1);
+  // An off-grid, past-the-end or malformed offset is shown as the page that
+  // holds it, and the hash is rewritten to say so.
+  const canonical = collectionSub(id, at);
+  if ((LIBRARY.sub || '') !== canonical && /\?/.test(LIBRARY.sub || '')) {
+    LIBRARY.sub = canonical;
+    uiSubroute(canonical, { push: false });
+  }
+  const page = at ? await lib.collection(id, at) : head;
+  if (token !== state.token) return;
+  // Only the head file carries readable_ids; a cold load of a later page
+  // (a shared ?offset= link) counted none ("251–500 of 0", BB8).
+  selectedFor.set(id, head.readable_ids || selectedFor.get(id));
+  const ids = selectedFor.get(id) || [];
+  const pressed = selectionState(id);
+  const actions = `<div class="lib-coll-actions">${libButton('read', 'Read the first', 'play', ` data-id="${esc(ids[0] || '')}"`)}${libButton('select', pressed === 'true' ? 'Remove all from selection' : 'Add all to selection', pressed === 'true' ? 'check' : 'plus', ` data-cid="${esc(id)}" aria-pressed="${pressed}"`)}${libButton('go', 'Search in Works', 'search', ` data-sub="/works?collection=${encodeURIComponent(id)}"`)}</div>`;
+  const pager =
+    pages > 1
+      ? `<div class="lib-pager"><button type="button" class="lib-btn" data-lib-act="page" data-cid="${esc(id)}" data-page="${at - 1}"${at ? '' : ' disabled'}>Previous</button><span>${num(at * COLLECTION_PAGE + 1)}–${num(at * COLLECTION_PAGE + page.rows.length)} of ${num(ids.length)}</span><button type="button" class="lib-btn" data-lib-act="page" data-cid="${esc(id)}" data-page="${at + 1}"${at + 1 < pages ? '' : ' disabled'}>Next</button></div>`
+      : '';
+  const list = `<ul class="lib-coll-list" aria-label="Readings in ${esc(title)}">${page.rows
+    .map((r) => {
+      const who = (r[3] || []).map((p) => p[0]).join(', ');
+      return `<li><input type="checkbox" data-lib-act="pick" data-id="${esc(r[0])}" aria-label="Select ${esc(r[2])}"${selection.has(r[0]) ? ' checked' : ''}><a href="#library/read/${esc(r[0])}" data-lib-act="read" data-id="${esc(r[0])}" data-key="${esc(r[1])}"><strong>${esc(r[2])}</strong><small>${esc([who, r[10]].filter(Boolean).join(' — '))}</small></a></li>`;
+    })
+    .join('')}</ul>`;
+  main.querySelector('.lib-core-main').innerHTML =
+    `${toplineHtml(catalog)}<div><button type="button" class="lib-btn" data-lib-act="go" data-sub="">${icon('library', 16)}<span>Explore</span></button></div>${header(actions)}${pager}${list}${pager}`;
+  focusLostToHeading(main);
+}
+
+// ─── An artwork credit (core hands it over from a card's menu) ──────────────
+async function credit(artId, opener, lib) {
+  injectStyle();
+  const { artwork } = await lib.artwork();
+  const a = artwork.find((x) => x.id === artId);
+  if (!a) return;
+  const r = lib.art(artId);
+  const dialog = document.createElement('dialog');
+  dialog.className = 'lib-credit';
+  dialog.setAttribute('aria-labelledby', 'lib-credit-title');
+  dialog.innerHTML = `<form method="dialog"><button class="lib-icon-btn lib-credit-close" aria-label="Close">${icon('x', 18)}</button></form>
+<picture><source type="image/avif" srcset="${r.avif}" sizes="(max-width:600px) 90vw, 480px"><source type="image/webp" srcset="${r.webp}" sizes="(max-width:600px) 90vw, 480px"><img src="${r.src}" alt="${esc(a.title)} — ${esc(a.author)}"></picture>
+<div><h2 id="lib-credit-title">${esc(a.title)}</h2><p>${esc(a.author)}</p><p>${esc(a.credit)}</p>${a.note ? `<p class="lib-credit-note">${esc(a.note)}</p>` : ''}<a href="${esc(a.source)}" target="_blank" rel="noopener noreferrer">Artwork source ${icon('link', 14)}</a></div>`;
+  document.getElementById('surface-library').append(dialog);
+  dialog.addEventListener('close', () => {
+    dialog.remove();
+    opener?.focus?.();
+  });
+  dialog.addEventListener('click', (e) => e.target === dialog && dialog.close());
+  dialog.showModal();
+}
+
 return {
   // main: the Library's content element; sub: '/works?…' (or
   // '/collections/<id>?…' if core hands a collection over); lib: the shared
@@ -866,4 +1014,6 @@ return {
   openMetadata,
   parse,
   format,
+  collection,
+  credit,
 };

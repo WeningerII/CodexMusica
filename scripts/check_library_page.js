@@ -1843,8 +1843,10 @@ SECTIONS.keys = async function ({ page, base, tag }) {
     Object.defineProperty(navigator, 'platform', { get: () => 'MacIntel' });
     Object.defineProperty(navigator, 'userAgentData', { get: () => undefined });
   });
-  await page.goto('about:blank');
+  // A real reload of the Works route (a hash change alone keeps the page),
+  // so the init script runs; no about:blank hop, whose favicon fetch logs.
   await go(page, base, '/works');
+  await page.reload();
   await page.waitForSelector('#surface-library [data-lw="open"]', { timeout: 20000 });
   const mac = await page.$eval('#surface-library .cm-search kbd', (k) => k.textContent);
   check(`${tag} keys: on Apple platforms the hint says ⌘ K`, mac === '⌘ K', mac);

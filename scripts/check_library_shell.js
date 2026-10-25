@@ -538,7 +538,10 @@ function chromiumPath() {
   {
     const s = await open(dirs.lazy, '#library/works', async (route) => {
       const response = await route.fetch();
-      const body = (await response.text()).replace('Works', 'Werks');
+      // One byte more in the core chunk (it named no particular word to
+      // change once the collection page moved to the Works chunk).
+      const text = await response.text();
+      const body = /\/core\.[0-9a-f]+\.js/.test(route.request().url()) ? text + ';' : text;
       await route.fulfill({ response, body });
     });
     await s.page.waitForFunction(
