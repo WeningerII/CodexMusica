@@ -44,6 +44,8 @@ const SNAPSHOT = 'snapshot-check-library-page';
 // ─── Fixture readings (real units in library/data) ──────────────────────────
 // Epithalamion: two readings of one reviewed work, two pages each.
 const EPI_A = 'reading_570567e3-ba7f-56f3-a1bf-f06c6a8d9b81';
+// One of the two readings recorded with no title.
+const UNTITLED = 'reading_c05c5055-7137-5e81-b6d1-7ebef7a0b3f3';
 const EPI_B = 'reading_2c8cde38-7ea1-5dda-a413-98e3c4b0fb5f';
 // Hafez: two Persian (right-to-left) ghazals.
 const FAS_A = 'reading_001e1786-f68f-580f-94b0-fbea01a67323';
@@ -1127,13 +1129,34 @@ const SECTIONS = {
       opened.tag === 'H1',
       JSON.stringify(opened)
     );
+    // An untitled reading's title still says something, so focus on it is
+    // never an empty, zero-size heading (Jony, on d66311db3c).
+    await go(page, base, `/read/${UNTITLED}`);
+    await settled(page, 'reader', '#surface-library .rd-paper .rd-line');
+    await page.waitForTimeout(200);
+    const untitled = await page.evaluate(() => {
+      const a = document.activeElement;
+      return { tag: a.tagName, text: a.textContent.trim(), width: a.getBoundingClientRect().width };
+    });
+    check(
+      `${tag} focus: an untitled reading focuses a heading that says so`,
+      untitled.tag === 'H1' && untitled.text === 'Untitled reading' && untitled.width > 0,
+      JSON.stringify(untitled)
+    );
+    await go(page, base, `/read/${EPI_A}`);
+    await settled(page, 'reader', '#surface-library .rd-paper .rd-line');
     // #19d: Open in Lyrics lands in the Lyrics draft.
     await page.focus('#surface-library [data-rd="lyrics"]');
     await page.keyboard.press('Enter');
     await page.waitForFunction(() => location.hash.startsWith('#lyrics'), null, {
       timeout: 20000,
     });
-    await page.waitForTimeout(500);
+    // The import finishes after the route changes: wait for it, not a fixed time.
+    await page
+      .waitForFunction(() => document.activeElement?.id === 'lyrics-draft', null, {
+        timeout: 10000,
+      })
+      .catch(() => {});
     const ly = await where();
     check(
       `${tag} focus: Open in Lyrics lands in the Lyrics draft`,

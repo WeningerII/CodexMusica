@@ -802,7 +802,7 @@ function render() {
     <article class="rd-paper" aria-label="Reading">
       <header>
         <p class="rd-eyebrow">${esc(words_(h.completeness))} · ${S.source ? 'Source transcription' : 'Normalized reading text'}</p>
-        <h1 tabindex="-1" lang="${esc(h.language)}" dir="${esc(h.direction || 'ltr')}">${esc(h.title)}</h1>
+        ${h.title?.trim() ? `<h1 tabindex="-1" lang="${esc(h.language)}" dir="${esc(h.direction || 'ltr')}">${esc(h.title)}</h1>` : '<h1 tabindex="-1">Untitled reading</h1>'}
         <p class="rd-author">${esc((h.contributors || []).map((c) => c.name).join(' · '))}</p>
         <div class="rd-row">
           ${btn('select', inSel ? 'In export selection' : 'Export selection', inSel ? 'check' : 'plus', `aria-pressed="${!!inSel}"`)}
