@@ -16345,7 +16345,7 @@ function renderDetailTabBar(card) {
     { id: 'stack',   label: 'Output',       ic: 'eye' },
   ];
   wrap.innerHTML = tabs.map(t =>
-    '<button class="detail-tab' + (card._uiTab === t.id ? ' is-active' : '') + '" data-tab="' + t.id + '">' +
+    '<button type="button" class="detail-tab' + (card._uiTab === t.id ? ' is-active' : '') + '" data-tab="' + t.id + '" aria-pressed="' + (card._uiTab === t.id) + '">' +
       icon(t.ic, 14) + '<span>' + t.label + '</span>' +
     '</button>'
   ).join('');
@@ -16356,6 +16356,8 @@ function renderDetailTabBar(card) {
       e.stopPropagation();
       card._uiTab = b.dataset.tab;
       renderDetail();
+      // The bar re-rendered: keep focus on the section button just pressed.
+      _restoreDetailFocus('.detail-tab[data-tab="' + b.dataset.tab + '"]');
     });
   });
   return wrap;
@@ -16512,6 +16514,19 @@ function _historyFocusHandoff(active) {
   if (partner && !partner.disabled) partner.focus({ preventScroll: true });
 }
 
+// Id of a card-editor row's option list, for its header's aria-controls.
+function _detailOptsId(card, kind, id) {
+  return ('detail-opts-' + card.id + '-' + kind + '-' + id).replace(/[^\w-]/g, '_');
+}
+// A part or environment row's keyboard header: the options cell as a button,
+// named by the row, with its expanded state and the list it opens.
+function _rowHeadButton(dataAttr, name, optionCount, open, optsId) {
+  const count = optionCount + ' option' + (optionCount === 1 ? '' : 's');
+  return '<button type="button" class="part-options-cell" ' + dataAttr +
+    ' aria-expanded="' + open + '"' + (open ? ' aria-controls="' + optsId + '"' : '') +
+    ' aria-label="' + esc(name + ', ' + count) + '">' + count + ' ' + icon('chevron-right', 12) + '</button>';
+}
+
 function renderPartRow(card, inst, part) {
   const row = document.createElement('div');
   row.className = 'part-row-grid' + (card.editingPart === part.id ? ' is-editing' : '');
@@ -16524,16 +16539,22 @@ function renderPartRow(card, inst, part) {
   const dotDescriptors = descriptors.join(' · ');
   // Listed options only: an alias (alias_of, _merge.js) resolves but is not one.
   const optionCount = (part.variants || []).filter(v => !v.alias_of).length;
+  const optsId = _detailOptsId(card, 'part', part.id);
 
+  // The whole row opens on a click; the options cell is the row's keyboard
+  // header (a real button carrying the row's name, state and target).
   row.innerHTML =
     '<div class="part-label-cell">' + esc(partLabel) + '</div>' +
     '<div class="part-variant-cell">' + esc(variantName) + '</div>' +
     '<div class="part-descriptors-cell">' + esc(dotDescriptors) + '</div>' +
-    '<div class="part-options-cell">' + optionCount + ' option' + (optionCount === 1 ? '' : 's') + ' ' + icon('chevron-right', 12) + '</div>';
+    _rowHeadButton('data-toggle-part="' + esc(part.id) + '"', (part.name || part.id) + ': ' + variantName, optionCount, isEditing, optsId);
 
   if (isEditing) {
     const variants = document.createElement('div');
     variants.className = 'part-variants-grid';
+    variants.id = optsId;
+    variants.setAttribute('role', 'group');
+    variants.setAttribute('aria-label', (part.name || part.id) + ' options');
     // Variant chip delta preview: per-part scope only.
     //
     // The user is swapping ONE part's variant. The truthful delta is
@@ -16557,6 +16578,7 @@ function renderPartRow(card, inst, part) {
     // (Variant() returns null and the descriptor builders skip it).
     const noneChip = document.createElement('button');
     noneChip.className = 'chip variant-chip' + (!card.parts[part.id] ? ' selected' : '');
+    noneChip.setAttribute('aria-pressed', String(!card.parts[part.id]));
     noneChip.dataset.setPart = part.id;
     noneChip.dataset.variant = '';
     noneChip.innerHTML = '<span class="variant-chip-name">Not set</span>';
@@ -16566,6 +16588,7 @@ function renderPartRow(card, inst, part) {
       const b = document.createElement('button');
       const isCurrent = card.parts[part.id] === v.id;
       b.className = 'chip variant-chip' + (isCurrent ? ' selected' : '');
+      b.setAttribute('aria-pressed', String(isCurrent));
       b.dataset.setPart = part.id;
       b.dataset.variant = v.id;
       const descs = entryRenderDescs(v);
@@ -16744,24 +16767,26 @@ function renderEnvRow(card, kind) {
     ? (typeof TUNINGS !== 'undefined' ? TUNINGS.length : 0)
     : (typeof ROOMS !== 'undefined' ? ROOMS.length : 0);
 
+  const optsId = _detailOptsId(card, 'env', kind);
   row.innerHTML =
     '<div class="part-label-cell">' + esc(label) + '</div>' +
     '<div class="part-variant-cell' + (cur ? '' : ' muted-italic') + '">' + esc(variantName) + '</div>' +
     '<div class="part-descriptors-cell">' + esc(descriptor) + '</div>' +
-    '<div class="part-options-cell">' + optionCount + ' option' + (optionCount === 1 ? '' : 's') + ' ' + icon('chevron-right', 12) + '</div>';
+    _rowHeadButton('data-toggle-env="' + kind + '"', (isTuning ? 'Tuning' : 'Room') + ': ' + variantName, optionCount, isEditing, optsId);
 
   if (isEditing) {
     const opts = document.createElement('div');
     opts.className = 'env-options';
+    opts.id = optsId;
     if (isTuning) {
-      opts.innerHTML = `<button class="chip-block ${!card.tuning ? 'selected' : ''}" data-set-tuning="" data-filter-pin="1">Not set</button>`;
+      opts.innerHTML = `<button class="chip-block ${!card.tuning ? 'selected' : ''}" aria-pressed="${!card.tuning}" data-set-tuning="" data-filter-pin="1">Not set</button>`;
       TUNINGS.forEach(t => {
-        opts.innerHTML += `<button class="chip-block ${card.tuning === t.id ? 'selected' : ''}" data-set-tuning="${esc(t.id)}">${esc(t.name)}<span class="chip-block-sub">${esc(t.sub)}</span></button>`;
+        opts.innerHTML += `<button class="chip-block ${card.tuning === t.id ? 'selected' : ''}" aria-pressed="${card.tuning === t.id}" data-set-tuning="${esc(t.id)}">${esc(t.name)}<span class="chip-block-sub">${esc(t.sub)}</span></button>`;
       });
       row.appendChild(opts);
       attachInlineFilter(opts, { placeholder: `Filter ${TUNINGS.length} tunings…` });
     } else {
-      opts.innerHTML = `<button class="chip-block ${!card.room ? 'selected' : ''}" data-set-room="" data-filter-pin="1">Not set</button>`;
+      opts.innerHTML = `<button class="chip-block ${!card.room ? 'selected' : ''}" aria-pressed="${!card.room}" data-set-room="" data-filter-pin="1">Not set</button>`;
       ROOM_CLUSTERS.forEach(cl => {
         const rooms = ROOMS.filter(r => r.cluster === cl.id);
         if (!rooms.length) return;
@@ -16769,7 +16794,7 @@ function renderEnvRow(card, kind) {
         let inner = `<button class="env-cluster-head" type="button" data-env-cluster><span class="env-cluster-chevron">${icon('chevron-down', 12)}</span>${clusterGlyph}<span class="env-cluster-name">${esc(cl.name)}</span><span class="env-cluster-count">${rooms.length}</span></button><div class="env-cluster-items">`;
         rooms.forEach(r => {
           const g = typeof roomGlyphsHTML === 'function' ? roomGlyphsHTML(r.id, 15, true) : '';
-          inner += `<button class="chip-block ${card.room === r.id ? 'selected' : ''}" data-set-room="${esc(r.id)}">${g}${esc(r.name)}<span class="chip-block-sub">${esc(entryRenderDescs(r).join(' · '))}</span></button>`;
+          inner += `<button class="chip-block ${card.room === r.id ? 'selected' : ''}" aria-pressed="${card.room === r.id}" data-set-room="${esc(r.id)}">${g}${esc(r.name)}<span class="chip-block-sub">${esc(entryRenderDescs(r).join(' · '))}</span></button>`;
         });
         inner += `</div>`;
         const wrap = document.createElement('div');
@@ -16811,7 +16836,7 @@ function renderChainSection(card) {
     }
     const editing = card.editingChainStage === s.id;
     flow.innerHTML += `
-      <button class="chain-stage ${isSet ? 'set' : ''} ${editing ? 'editing' : ''}" data-edit-chain="${esc(s.id)}">
+      <button class="chain-stage ${isSet ? 'set' : ''} ${editing ? 'editing' : ''}" data-edit-chain="${esc(s.id)}" aria-expanded="${editing}"${editing ? ` aria-controls="${_detailOptsId(card, 'chain', s.id)}"` : ''}>
         <span class="chain-stage-label">${esc(s.name)}</span>
         <span class="chain-stage-value ${isSet ? '' : 'empty'}">${esc(value)}</span>
       </button>
@@ -16832,9 +16857,11 @@ function renderChainSection(card) {
       `;
       const opts = document.createElement('div');
       opts.className = 'chain-edit-options';
+      opts.id = _detailOptsId(card, 'chain', stageDef.id);
       if (!isMulti) {
         const noneBtn = document.createElement('button');
         noneBtn.className = 'chip-block' + (!card.chain[stageDef.id] ? ' selected' : '');
+        noneBtn.setAttribute('aria-pressed', String(!card.chain[stageDef.id]));
         noneBtn.dataset.setChain = stageDef.id;
         noneBtn.dataset.item = '';
         noneBtn.dataset.filterPin = '1';
@@ -16847,6 +16874,7 @@ function renderChainSection(card) {
           ? (card.chain[stageDef.id] || []).includes(it.id)
           : card.chain[stageDef.id] === it.id;
         b.className = 'chip-block' + (isSelected ? ' selected' : '');
+        b.setAttribute('aria-pressed', String(isSelected));
         b.dataset.setChain = stageDef.id;
         b.dataset.item = it.id;
         const descs = entryRenderDescs(it);
@@ -16939,7 +16967,7 @@ function renderPrefaceSection(card) {
     <div class="composer-section-title">Preface <span class="composer-section-title-aside">— aesthetic claim</span></div>
     <div class="preface-row">
       <div class="preface-input-wrap">
-        <input type="text" class="preface-input" data-card-id="${esc(card.id)}"
+        <input type="text" class="preface-input" data-card-id="${esc(card.id)}" aria-label="Search characters"
                value="${esc(current)}" list="preface-options"
                placeholder="weeping, face-melting, saudade, numinous, mono-no-aware…"
                autocomplete="off" spellcheck="false">
@@ -17309,9 +17337,35 @@ function renderStackPanel(card) {
 // ============================================================
 // EVENTS
 // ============================================================
+// After a card-editor re-render, put focus back on the control that was
+// pressed (or `fallback` when that control is gone, e.g. a closed list),
+// unless something else has taken focus on purpose.
+function _restoreDetailFocus(sel, fallback) {
+  const a = document.activeElement;
+  if (a && a !== document.body && a.isConnected) return;
+  const view = document.getElementById('detail-view') || document;
+  const el = view.querySelector(sel) || (fallback && view.querySelector(fallback));
+  if (el) el.focus({ preventScroll: true });
+}
+// The selector that finds a card-editor control again after a re-render.
+function _detailFocusTarget(t) {
+  const d = t.dataset, q = v => '"' + CSS.escape(v) + '"';
+  if (d.togglePart != null) return ['button[data-toggle-part=' + q(d.togglePart) + ']'];
+  if (d.toggleEnv != null) return ['button[data-toggle-env=' + q(d.toggleEnv) + ']'];
+  if (d.editChain) return ['button[data-edit-chain=' + q(d.editChain) + ']'];
+  if (d.setPart != null) return ['[data-set-part=' + q(d.setPart) + '][data-variant=' + q(d.variant || '') + ']', 'button[data-toggle-part=' + q(d.setPart) + ']'];
+  if (d.setChain) return ['[data-set-chain=' + q(d.setChain) + '][data-item=' + q(d.item || '') + ']', 'button[data-edit-chain=' + q(d.setChain) + ']'];
+  if (d.setTuning != null) return ['button[data-toggle-env="tuning"]'];
+  if (d.setRoom != null) return ['button[data-toggle-env="room"]'];
+  return null;
+}
+
 function handleCardClick(e, card) {
   const t = e.target.closest('button, [data-toggle-part], [data-toggle-env]');
   if (!t) return;
+  // Every branch below re-renders the editor, which drops focus to <body>.
+  const refocus = _detailFocusTarget(t);
+  if (refocus) queueMicrotask(() => _restoreDetailFocus(refocus[0], refocus[1]));
 
   if (t.dataset.togglePart != null) {
     card.editingPart = card.editingPart === t.dataset.togglePart ? null : t.dataset.togglePart;
@@ -17434,9 +17488,15 @@ function handleAction(action, card, trigger) {
     renderAll();
     showToast('Duplicated', 'success');
   } else if (action === 'delete') {
+    const name = Inst(card.instrumentId)?.name || card.instrumentId;
     rmCard(card.id);
-    // rmCard schedules renderAll() after the unmount animation completes.
-    // Don't repaint here or the card would vanish instantly without animating.
+    // rmCard repaints; say what went, and offer the same one-step Undo an
+    // addition offers, only while this removal is still the latest change.
+    const at = app.historyIndex;
+    showToast(`Removed ${name}. Undo restores it.`, 'success', { label: 'Undo', run: () => {
+      if (app.historyIndex !== at) { showToast('Later changes followed this removal. Use Undo in the header to step back.', 'error'); return; }
+      undo(); if (typeof UI !== 'undefined' && UI.ready) uiSync();
+    } });
   } else if (action === 'similar') {
     // uiOpenSurface hands this to the Instrument page's inspector.
     app.similarInstFor = card.instrumentId;
