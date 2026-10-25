@@ -88,7 +88,58 @@ if (!Number.isInteger(TRUSTED_PROXY_HOPS) || TRUSTED_PROXY_HOPS < 0)
 // DIRECT-TO-NODE DEPLOYS MUST NOT SET TRUSTED_PROXY_HOPS ABOVE THE REAL COUNT.
 // Trusting more hops than exist walks left past the proxy-written entries and
 // back into caller-controlled text, which is the bug this replaced.
+// Every caller keys a limit on this value, so it names the CLIENT, not one of
+// its addresses (Jony, #519): an IPv4-mapped IPv6 address is its IPv4 address,
+// and an IPv6 address is its /64 — the block one home or host is handed, which
+// it can rotate through at will. Keying on the literal address gave each of a
+// /64's 2^64 addresses its own bucket, so the per-IP limits did not bind IPv6.
+export function bucketOf(ip) {
+  if (typeof ip !== 'string' || !ip || ip === 'unknown') return ip || 'unknown';
+  let a = ip.trim().toLowerCase();
+  const zone = a.indexOf('%');
+  if (zone >= 0) a = a.slice(0, zone);
+  const mapped = /^::ffff:(\d{1,3}(?:\.\d{1,3}){3})$/.exec(a);
+  if (mapped) return mapped[1];
+  if (!a.includes(':')) return a;
+  // A dotted IPv4 tail is the last two groups.
+  const dotted = /:(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/.exec(a);
+  if (dotted) {
+    const [w, x, y, z] = dotted.slice(1).map(Number);
+    a =
+      a.slice(0, dotted.index + 1) +
+      ((w << 8) | x).toString(16) +
+      ':' +
+      ((y << 8) | z).toString(16);
+  }
+  // Expand '::' to full 8 groups, then keep the first four.
+  const [head, tail = ''] = a.split('::');
+  const h = head ? head.split(':') : [];
+  const t = a.includes('::') ? (tail ? tail.split(':') : []) : [];
+  const groups = [...h, ...Array(Math.max(0, 8 - h.length - t.length)).fill('0'), ...t];
+  if (!a.includes('::') && groups.length !== 8) return a;
+  // An IPv4-mapped address written in hex or in full (::ffff:cb00:7107,
+  // 0:0:0:0:0:ffff:1.2.3.4) is still its IPv4 address (BB8's review): read the
+  // last 32 bits rather than the shared all-zero /64.
+  if (
+    groups.length === 8 &&
+    groups.slice(0, 5).every((g) => /^0{1,4}$/.test(g)) &&
+    groups[5] === 'ffff' &&
+    groups.slice(6).every((g) => /^[0-9a-f]{1,4}$/.test(g))
+  ) {
+    const [hi, lo] = groups.slice(6).map((g) => parseInt(g, 16));
+    return [hi >> 8, hi & 255, lo >> 8, lo & 255].join('.');
+  }
+  const first = groups.slice(0, 4);
+  // Not an IPv6 address after all: keyed as written, as before.
+  if (first.length !== 4 || !first.every((g) => /^[0-9a-f]{1,4}$/.test(g))) return a;
+  return `${first.map((g) => parseInt(g, 16).toString(16)).join(':')}::/64`;
+}
+
 export function clientIp(req) {
+  return bucketOf(rawClientIp(req));
+}
+
+function rawClientIp(req) {
   if (TRUSTED_PROXY_HOPS === 0) return req.socket?.remoteAddress || req.ip || 'unknown';
   const xff = req.headers['x-forwarded-for'];
   if (typeof xff === 'string' && xff.length) {

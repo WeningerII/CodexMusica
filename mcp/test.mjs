@@ -745,8 +745,23 @@ await check('validation: actionable errors', () => {
   await check('clientIp gives one bucket regardless of the spoofed prefix', () => {
     assert.equal(clientIp(req('9.9.9.9, 203.0.113.7')), clientIp(req('8.8.8.8, 203.0.113.7')));
   });
-  await check('clientIp keeps IPv6 intact', () => {
-    assert.equal(clientIp(req('2001:db8::1, 2001:db8::99')), '2001:db8::99');
+  // ~~'clientIp keeps IPv6 intact' (2001:db8::99)~~ — every limit keys on this
+  // value, and an IPv6 client rotates freely through its /64, so the bucket is
+  // the /64 (Jony, #519). Parsing still never splits on the colons wrongly.
+  await check('clientIp buckets IPv6 by its /64', () => {
+    assert.equal(clientIp(req('2001:db8::1, 2001:db8::99')), '2001:db8:0:0::/64');
+    assert.equal(
+      clientIp(req('2001:db8:0:0:aaaa::1')),
+      clientIp(req('2001:0db8:0000:0000:ffff:ffff:ffff:ffff'))
+    );
+    assert.notEqual(clientIp(req('2001:db8:0:1::1')), clientIp(req('2001:db8:0:2::1')));
+  });
+  await check('clientIp reads an IPv4-mapped address as its IPv4 address', () => {
+    assert.equal(clientIp(req('::ffff:203.0.113.7')), '203.0.113.7');
+    assert.equal(clientIp(req('::FFFF:203.0.113.7')), clientIp(req('203.0.113.7')));
+    // In hex or in full, too, never the shared all-zero /64 (BB8's review).
+    assert.equal(clientIp(req('::ffff:cb00:7107')), '203.0.113.7');
+    assert.equal(clientIp(req('0:0:0:0:0:ffff:203.0.113.7')), '203.0.113.7');
   });
 
   await check('an unpriced model has no price and no cost', () => {
