@@ -582,11 +582,39 @@ html[data-theme] body {
   .chip-block.selected,
   .stack-format button.active,
   .cm-chip.active,
-  .icon-btn.is-active {
+  .icon-btn.is-active,
+  .lib-spine[aria-current='true'],
+  .rd-line.rd-sel {
     forced-color-adjust: none;
     border-color: Highlight !important;
     background: Highlight !important;
     color: HighlightText !important;
+  }
+  /* forced-color-adjust: none reaches the children, so a muted sub-label
+     (a count, a description) would keep its author grey on Highlight. */
+  :is(
+      button[aria-pressed='true'],
+      [role='tab'][aria-selected='true'],
+      .cm-tab[aria-current='page'],
+      .detail-tab.is-active,
+      .chip.selected,
+      .chip-block.selected,
+      .lib-spine[aria-current='true'],
+      .rd-line.rd-sel
+    )
+    * {
+    color: inherit !important;
+  }
+  /* An open chain stage: its options are drawn below every stage. */
+  .chain-stage.editing,
+  button.chain-stage[aria-expanded='true'] {
+    border: 2px solid Highlight !important;
+  }
+  /* Compare's changed characters are marked by background alone. */
+  #surface-library mark {
+    forced-color-adjust: none;
+    background: Mark !important;
+    color: MarkText !important;
   }
   :focus-visible,
   #surface-lyrics .ly-input:focus {

@@ -139,6 +139,33 @@ async function noOverflow(page) {
           p.on && p.off && p.on !== p.off,
           'Forced colours: the chosen ' + what + ' still stands out: ' + JSON.stringify(p)
         );
+      // Probes for the states that are not on screen here: a muted label
+      // inside a chosen control, an open chain stage, compare's marks.
+      const probe = await page.evaluate(() => {
+        const host = document.getElementById('surface-library') || document.body;
+        const box = document.createElement('div');
+        box.innerHTML =
+          '<button aria-pressed="true">x<span style="color:#888">1,671</span></button>' +
+          '<button class="chain-stage editing">Mic</button><button class="chain-stage">Amp</button>' +
+          '<mark>a</mark>';
+        host.appendChild(box);
+        const [chosen, open, closed] = box.querySelectorAll('button');
+        const s = (el) => getComputedStyle(el);
+        const out = {
+          label: s(chosen.querySelector('span')).color === s(chosen).color,
+          stage: s(open).borderTopColor !== s(closed).borderTopColor,
+          mark:
+            host.id !== 'surface-library' ||
+            s(box.querySelector('mark')).backgroundColor !== s(box).backgroundColor,
+        };
+        box.remove();
+        return out;
+      });
+      assert.deepEqual(
+        probe,
+        { label: true, stage: true, mark: true },
+        'Forced colours: sub-labels, the open stage and compare marks stay visible'
+      );
       await page.emulateMedia({ forcedColors: 'none' });
       await noOverflow(page);
       await page.getByRole('button', { name: 'Browse tree', exact: true }).click();
