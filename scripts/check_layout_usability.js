@@ -319,7 +319,7 @@ async function noOverflow(page) {
       await page.keyboard.press('Enter');
       await page
         .waitForFunction(
-          () => /Still couldn/.test(document.getElementById('toast').textContent),
+          () => /Still couldn/.test(document.getElementById('ui-live').textContent),
           null,
           {
             timeout: 5000,
@@ -329,7 +329,7 @@ async function noOverflow(page) {
       const failed = await page.evaluate(() => ({
         focus:
           document.activeElement?.getAttribute('aria-label') || document.activeElement?.tagName,
-        toast: document.getElementById('toast').textContent,
+        toast: document.getElementById('ui-live').textContent,
       }));
       assert.ok(
         failed.focus === 'Retry loading the description' && /Still couldn/.test(failed.toast),
@@ -339,7 +339,7 @@ async function noOverflow(page) {
       await page.keyboard.press('Enter');
       await page
         .waitForFunction(
-          () => /Description loaded/.test(document.getElementById('toast').textContent),
+          () => /Description loaded/.test(document.getElementById('ui-live').textContent),
           null,
           {
             timeout: 10000,
@@ -348,7 +348,7 @@ async function noOverflow(page) {
         .catch(() => {});
       const loaded = await page.evaluate(() => ({
         focus: document.activeElement?.className || document.activeElement?.tagName,
-        toast: document.getElementById('toast').textContent,
+        toast: document.getElementById('ui-live').textContent,
       }));
       assert.ok(
         loaded.focus !== 'BODY' && /Description loaded/.test(loaded.toast),

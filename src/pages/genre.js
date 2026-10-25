@@ -1,5 +1,5 @@
 /* exported renderGenreDiscovery */
-/* global $ui, Catalog, Engine, InstLite, STARTER_TRADITIONS, Tradition, UI, UILayout, _determinePrimaryCard, app, axisLabel, esc, findSimilar, getMatchingAxes, getRoots, getTreeNode, icon, image, listenLink, normalizeSearch, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, uiAddInstrument, uiAfterPaint, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos */
+/* global $ui, Catalog, Engine, InstLite, STARTER_TRADITIONS, Tradition, UI, UILayout, _determinePrimaryCard, app, axisLabel, esc, findSimilar, getMatchingAxes, getRoots, getTreeNode, icon, image, listenLink, normalizeSearch, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, uiAddInstrument, uiAfterPaint, uiAnnounce, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos */
 /* Genre page. Owned by the Genre page worker; see docs/ui-foundation.md.
    Shared state, recipe commands (genre-add, instrument-add), navigation and
    theming belong to the shell in src/workbench.js and src/theme.css.
@@ -1362,8 +1362,8 @@ uiRegisterPage({
       // The outcome is announced once it settles (the slots have been
       // redrawn by then: Catalog.onProse runs first).
       Catalog.loadProse().then(
-        () => showToast('Description loaded.', 'success'),
-        () => showToast('Still couldn’t load the description.', 'error')
+        () => uiAnnounce('Description loaded.'),
+        () => uiAnnounce('Still couldn’t load the description.')
       );
       gpApplyProse();
     },
