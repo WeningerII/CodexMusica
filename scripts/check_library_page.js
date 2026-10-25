@@ -313,7 +313,10 @@ async function openPage(browser, url, combo) {
       errors.push(`${r.status()} ${r.url().slice(url.length)}`);
   });
   page.on('requestfailed', (r) => {
-    if (r.url().startsWith(url))
+    // A request the browser abandoned because the page navigated or reloaded
+    // (the races' cold reloads cut off an in-flight favicon) is not a failure
+    // of the page; anything else that fails still is (BB8's flake, #519).
+    if (r.url().startsWith(url) && r.failure()?.errorText !== 'net::ERR_ABORTED')
       errors.push(`requestfailed ${r.url().slice(url.length)} ${r.failure()?.errorText}`);
   });
   return { context, page, errors, log };
