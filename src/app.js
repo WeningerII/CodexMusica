@@ -14727,6 +14727,58 @@ function confirmDialog(opts) {
 // ---- Toast ----
 let toastT = null;
 let toastSeq = 0; // counts toasts, so a caller can tell whether its own is still up
+// An action toast sits at the end of the page, a hundred Tabs away, so
+// Alt+Shift+T jumps to its action; the toast's hidden text says so. Its timer
+// waits while the action is hovered or focused, and when a toast that holds
+// focus goes (timeout or replacement), focus goes back to where it came from.
+let toastDeadline = 0, toastLeft = 0, toastHeld = 0, toastTimed = false, toastReturn = null;
+const TOAST_KEY_LABEL = 'Alt+Shift+T';
+function _toastRestoreFocus(t) {
+  const back = toastReturn;
+  toastReturn = null;
+  if (!t.contains(document.activeElement)) return;
+  if (back && back !== document.body && back.isConnected && typeof back.focus === 'function') back.focus({ preventScroll: true });
+  else document.activeElement.blur();
+}
+function _toastArm(t, ms) {
+  if (toastT) clearTimeout(toastT);
+  toastDeadline = Date.now() + ms;
+  toastT = setTimeout(() => hideToast(t), ms);
+}
+function _toastHold(t, on) {
+  if (!t.classList.contains('show') || !toastTimed) return;
+  const was = toastHeld > 0;
+  toastHeld = Math.max(0, toastHeld + (on ? 1 : -1));
+  if (!was && toastHeld) {
+    clearTimeout(toastT);
+    toastT = null;
+    toastLeft = Math.max(0, toastDeadline - Date.now());
+  } else if (was && !toastHeld) {
+    _toastArm(t, Math.max(toastLeft, 1500));
+    toastLeft = 0;
+  }
+}
+function _toastWire(t) {
+  if (t._wired) return;
+  t._wired = true;
+  t.addEventListener('focusin', (e) => {
+    if (!t.contains(e.relatedTarget)) {
+      if (!toastReturn) toastReturn = e.relatedTarget;
+      _toastHold(t, true);
+    }
+  });
+  t.addEventListener('focusout', (e) => { if (!t.contains(e.relatedTarget)) _toastHold(t, false); });
+  t.addEventListener('mouseover', (e) => { if (!t.contains(e.relatedTarget)) _toastHold(t, true); });
+  t.addEventListener('mouseout', (e) => { if (!t.contains(e.relatedTarget)) _toastHold(t, false); });
+  document.addEventListener('keydown', (e) => {
+    if (!(e.altKey && e.shiftKey && e.code === 'KeyT')) return;
+    const b = t.classList.contains('show') && t.querySelector('.toast-action');
+    if (!b) return;
+    e.preventDefault();
+    toastReturn = document.activeElement;
+    b.focus();
+  }, true);
+}
 function showToast(msg, kind, action, opts) {
   // kind: undefined (default neutral), 'success' (green w/ check icon),
   // 'error' (red w/ alert-circle icon). Icon emoji is part of the toast
@@ -14734,6 +14786,12 @@ function showToast(msg, kind, action, opts) {
   // action: optional { label, run } — one labelled button (Undo, Retry) that
   // keeps the toast up long enough to be reached and runs once.
   const t = document.getElementById('toast');
+  _toastWire(t);
+  // A replacement takes the focused action with it: hand focus back first.
+  _toastRestoreFocus(t);
+  toastHeld = 0;
+  toastLeft = 0;
+  toastTimed = false;
   t.classList.remove('toast-success', 'toast-error', 'has-action');
   if (kind === 'success') {
     t.innerHTML = `${icon('check')}<span>${esc(msg)}</span>`;
@@ -14749,22 +14807,36 @@ function showToast(msg, kind, action, opts) {
     b.type = 'button';
     b.className = 'toast-action';
     b.textContent = action.label;
+    // hideToast hands focus back before the action runs, so focus the action
+    // places on purpose (an Undo that refocuses) is never overridden.
     b.addEventListener('click', () => { hideToast(t); action.run(); }, { once: true });
-    t.appendChild(b);
+    const hint = document.createElement('span');
+    hint.className = 'sr-only toast-hint';
+    hint.textContent = `. ${TOAST_KEY_LABEL} reaches ${action.label}. `;
+    t.append(hint, b);
     t.classList.add('has-action');
   }
   t.classList.add('show');
   if (toastT) clearTimeout(toastT);
+  toastT = null;
   // opts.sticky: a status that lasts as long as what it reports; its caller
   // takes it down (engineReady).
-  toastT = opts && opts.sticky ? null : setTimeout(() => hideToast(t), UI_TIMING_MS.TOAST_LIFETIME * (action ? 3 : 1));
+  toastTimed = !(opts && opts.sticky);
+  if (toastTimed) _toastArm(t, UI_TIMING_MS.TOAST_LIFETIME * (action ? 3 : 1));
   return ++toastSeq;
 }
 // The action leaves with the toast. Left behind at opacity 0 it would still
 // take a click at bottom centre and run Undo or Retry unseen.
 function hideToast(t) {
+  if (toastT) clearTimeout(toastT);
+  toastT = null;
+  toastHeld = 0;
+  toastLeft = 0;
+  toastTimed = false;
+  _toastRestoreFocus(t);
   t.classList.remove('show', 'has-action');
   t.querySelector('.toast-action')?.remove();
+  t.querySelector('.toast-hint')?.remove();
 }
 
 // ---- Clipboard helper ----

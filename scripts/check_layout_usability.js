@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global showToast, document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -452,6 +452,111 @@ async function editorKeyboard(page, where) {
         await page.locator('#toast').innerText(),
         /Removed Voice\. Undo restores it\./,
         'Removing an instrument from the recipe is announced'
+      );
+      // An action toast is a hundred Tabs away: Alt+Shift+T reaches its action,
+      // it does not time out while it holds focus, and when it goes (replaced
+      // or timed out) focus returns to where it was, unless the action put
+      // focus somewhere on purpose.
+      await page.evaluate(() => {
+        for (const id of ['probe-return', 'probe-target']) {
+          const b = document.createElement('button');
+          b.id = id;
+          b.textContent = id;
+          document.body.appendChild(b);
+        }
+        document.getElementById('probe-return').focus();
+      });
+      await page.keyboard.press('Alt+Shift+T');
+      const reach = await page.evaluate(() => ({
+        focus: document.activeElement?.className,
+        label: document.activeElement?.textContent,
+        hint: /Alt\+Shift\+T reaches Undo/.test(document.getElementById('toast').textContent),
+      }));
+      assert.deepEqual(
+        reach,
+        { focus: 'toast-action', label: 'Undo', hint: true },
+        'Toast: Alt+Shift+T reaches the action, and the toast says so'
+      );
+      await page.waitForTimeout(7500);
+      assert.deepEqual(
+        await page.evaluate(() => ({
+          shown: document.getElementById('toast').classList.contains('show'),
+          focus: document.activeElement?.className,
+        })),
+        { shown: true, focus: 'toast-action' },
+        'Toast: a toast holding focus does not time out'
+      );
+      await page.evaluate(() => showToast('Replaced', 'success'));
+      assert.equal(
+        await page.evaluate(() => document.activeElement?.id),
+        'probe-return',
+        'Toast: replacing a toast that holds focus returns focus to where it came from'
+      );
+      await page.evaluate(() => {
+        showToast('Probe failed', 'error', { label: 'Retry', run() {} });
+        document.getElementById('probe-return').focus();
+      });
+      await page.keyboard.press('Alt+Shift+T');
+      await page.evaluate(() => document.getElementById('probe-return').focus());
+      await page
+        .waitForFunction(() => !document.getElementById('toast').classList.contains('show'), null, {
+          timeout: 9000,
+        })
+        .catch(() => {});
+      assert.deepEqual(
+        await page.evaluate(() => ({
+          shown: document.getElementById('toast').classList.contains('show'),
+          focus: document.activeElement?.id,
+        })),
+        { shown: false, focus: 'probe-return' },
+        'Toast: once focus leaves, the timer resumes and the toast times out'
+      );
+      await page.evaluate(() => {
+        showToast('Probe', 'success', {
+          label: 'Act',
+          run() {
+            document.getElementById('probe-target').focus();
+          },
+        });
+        document.getElementById('probe-return').focus();
+      });
+      await page.keyboard.press('Alt+Shift+T');
+      await page.keyboard.press('Enter');
+      assert.equal(
+        await page.evaluate(() => document.activeElement?.id),
+        'probe-target',
+        'Toast: focus the action places on purpose is kept'
+      );
+      // Genre detail: an in-content jump to a tab brings the tab into view.
+      await page.getByRole('button', { name: 'Genre', exact: true }).first().click();
+      await page.getByLabel('Search genres').fill('Delta blues');
+      await page.locator('[data-ui="genre-select"]').first().click();
+      const similar = page.locator(
+        '#surface-genre [data-ui="genre-tab"][data-id="similar"].gp-linkbtn'
+      );
+      await similar.first().scrollIntoViewIfNeeded();
+      await similar.first().focus();
+      await page.keyboard.press('Enter');
+      const tabSeen = await page.evaluate(() => {
+        const t = document.activeElement;
+        const r = t.getBoundingClientRect();
+        const hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+        return {
+          id: t.id,
+          visible: r.top >= 0 && r.bottom <= innerHeight && !!hit && t.contains(hit),
+          at: `${Math.round(r.top)}..${Math.round(r.bottom)} of ${innerHeight}`,
+          over: hit
+            ? (hit.closest('[id]')?.id || '') +
+              ' ' +
+              (hit.getAttribute('aria-label') || hit.textContent.trim().slice(0, 40))
+            : null,
+        };
+      });
+      assert.deepEqual(
+        { id: tabSeen.id, visible: tabSeen.visible },
+        { id: 'gp-tab-similar', visible: true },
+        'Genre: Find similar sounds focuses its tab where it can be seen: ' +
+          JSON.stringify(tabSeen)
       );
       assert.deepEqual(errors, [], 'No browser errors (390x780)');
       console.log('PASS card editor at 390x780: Edit Voice by keyboard, remove announced');
