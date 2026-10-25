@@ -1670,6 +1670,117 @@ async function editorKeyboard(page, where) {
       console.log('PASS chat panel at 1280px: focus while busy, speakers, parts, Copy, tools');
       await context.close();
     }
+    {
+      // Keyboard guards on a phone: Ctrl+Z behind a dialog or in a text field
+      // never undoes the recipe, and the open Recipe sheet keeps Tab off the
+      // page hidden under it.
+      const context = await browser.newContext({ viewport: { width: 390, height: 780 } });
+      await context.route('https://mcp.codexmusica.com/**', (route) =>
+        route.fulfill({ contentType: 'application/json', body: '{"ok":true,"enabled":true}' })
+      );
+      const page = await context.newPage();
+      await page.goto(base + '/codex.html');
+      await page.locator('.catalog-row, .cm-tile').first().waitFor();
+      await page.getByLabel('Search genres').fill('Delta blues');
+      await page.getByRole('button', { name: 'Add Delta blues', exact: true }).click();
+      await page.locator('.sb-card').first().waitFor({ state: 'attached' });
+      const cards = () => page.evaluate(() => app.cards.length);
+      const before = await cards();
+      assert.ok(before > 0, 'Keyboard guards: the recipe has cards');
+      await page.evaluate(() => document.getElementById('btn-saved').click());
+      await page.locator('#modal-saved.open').waitFor();
+      await page.keyboard.press('Control+z');
+      await page.waitForTimeout(200);
+      assert.equal(
+        await cards(),
+        before,
+        'Keyboard guards: Ctrl+Z with Saved sessions open leaves the recipe alone'
+      );
+      await page.keyboard.press('Escape');
+      await page.waitForFunction(() => !document.querySelector('.modal-bg.open'));
+      await page.getByLabel('Search genres').fill('blues');
+      await page.getByLabel('Search genres').focus();
+      await page.keyboard.press('Control+z');
+      await page.waitForTimeout(200);
+      assert.equal(
+        await cards(),
+        before,
+        'Keyboard guards: Ctrl+Z in a text field is the field’s own undo'
+      );
+      // The Recipe sheet covers the page: Tab past its last control stays off it.
+      await page.evaluate(() => document.activeElement?.blur());
+      await page.locator('[data-ui="session"]').click();
+      await page.locator('#workspace-sidebar').waitFor();
+      await page.evaluate(() => {
+        const items = [
+          ...document.querySelectorAll(
+            '#workspace-sidebar button, #workspace-sidebar a[href], #workspace-sidebar input, #workspace-sidebar select, #workspace-sidebar textarea, #workspace-sidebar [tabindex="0"]'
+          ),
+        ].filter((el) => !el.disabled && el.getClientRects().length);
+        items[items.length - 1].focus();
+      });
+      await page.keyboard.press('Tab');
+      const landed = await page.evaluate(() => {
+        const a = document.activeElement;
+        return {
+          onPage: !!document.getElementById('discovery')?.contains(a),
+          what: a?.getAttribute('aria-label') || a?.id || a?.tagName,
+        };
+      });
+      assert.equal(
+        landed.onPage,
+        false,
+        'Keyboard guards: Tab from the Recipe sheet does not land on the page under it: ' +
+          JSON.stringify(landed)
+      );
+      // Closing the sheet gives the page back.
+      await page.locator('[data-ui="session"]').click();
+      assert.equal(
+        await page.evaluate(() => document.getElementById('discovery').inert),
+        false,
+        'Keyboard guards: closing the Recipe sheet makes the page usable again'
+      );
+      // A page opened from the sheet takes focus at once (Jony #81): the page
+      // is given back in the same task, before the page focuses its field.
+      await page.locator('[data-ui="session"]').click();
+      await page.locator('#btn-add').focus();
+      await page.keyboard.press('Enter');
+      await page.waitForFunction(() => document.body.dataset.view === 'instrument');
+      await settle(page);
+      assert.deepEqual(
+        await page.evaluate(() => ({
+          focus: document.activeElement?.id || document.activeElement?.tagName,
+          inert: document.getElementById('discovery').inert,
+        })),
+        { focus: 'instrument-search', inert: false },
+        'Keyboard guards: Add instrument from the Recipe sheet lands in Search instruments'
+      );
+      await page.keyboard.type('fiddle');
+      assert.equal(
+        await page.locator('#instrument-search').inputValue(),
+        'fiddle',
+        'Keyboard guards: typing after Add instrument goes into Search instruments'
+      );
+      // Explore variations from a card's menu in the sheet lands on the
+      // variations it opened, not on BODY (Jony, #519).
+      await page.locator('[data-ui="session"]').click();
+      const fold = page.locator(
+        '#workspace-sidebar .sb-tradition-toggle[aria-expanded="false"]:visible'
+      );
+      if (await fold.count()) await fold.first().click();
+      await page.locator('#workspace-sidebar .sb-card-row .sb-more:visible').first().click();
+      await page.locator('[data-card-action="drift"]:visible').first().click();
+      await page.locator('.drift-panel').first().waitFor();
+      await page.waitForTimeout(100);
+      assert.equal(
+        await page.evaluate(() => !!document.activeElement?.closest('.drift-panel')),
+        true,
+        'Keyboard guards: Explore variations from the sheet focuses the variations: ' +
+          (await page.evaluate(() => document.activeElement?.outerHTML.slice(0, 80)))
+      );
+      console.log('PASS keyboard guards at 390x780: undo behind a dialog, in a field, sheet Tab');
+      await context.close();
+    }
   } finally {
     await browser.close();
     server.close();

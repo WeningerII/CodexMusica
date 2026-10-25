@@ -17627,6 +17627,13 @@ function handleAction(action, card, trigger) {
     requestAnimationFrame(() => {
       const dp = document.querySelector('.drift-panel');
       if (dp) dp.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // The menu item that asked went with its menu: focus lands on the
+      // variations' own heading, which says how many there are.
+      const a = document.activeElement, label = dp && dp.querySelector('.drift-head-label');
+      if (label && (!a || a === document.body || !a.isConnected || !a.getClientRects().length)) {
+        label.tabIndex = -1;
+        label.focus({ preventScroll: true });
+      }
     });
   } else if (action === 'drift-roll') {
     const candidates = buildDriftCandidates(card);
@@ -18244,6 +18251,9 @@ function _initApp() {
     // is also the OS-level text undo for those.
     const tag = (e.target && e.target.tagName) || '';
     if (tag === 'INPUT' || tag === 'TEXTAREA' || (e.target && e.target.isContentEditable)) return;
+    // Nor while a dialog is open: undoing the recipe behind it changes what
+    // the dialog is about (eight cards to none with Saved sessions open).
+    if (document.querySelector('.modal-bg.open:not(.inline-tree), .confirm-dialog-bg, dialog[open]')) return;
     const mod = e.ctrlKey || e.metaKey;
     if (!mod) return;
     if (e.key === 'z' || e.key === 'Z') {

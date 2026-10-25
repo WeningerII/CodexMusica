@@ -242,6 +242,9 @@ function uiNavigate(view, { push = false, sub } = {}) {
     if (!chatState.busy) uiSwitchChat('recipe');
   }
   document.body.classList.remove('session-open');
+  // Now, not in the observer's microtask: the page's own focus call follows
+  // in this task, and an inert page would refuse it (Jony #81).
+  uiSyncSheetCovered();
   UILayout.refresh();
   document.querySelector(`[data-view="${view}"]`)?.focus({ preventScroll: true });
 }
@@ -858,6 +861,12 @@ function uiStart() {
   }
   const workspace = document.querySelector('main.workspace');
   workspace.insertBefore(discovery, $ui('workspace-detail'));
+  // The Recipe sheet opens and closes through several paths; follow the class.
+  new MutationObserver(uiSyncSheetCovered).observe(document.body, {
+    attributes: true,
+    attributeFilter: ['class'],
+  });
+  window.addEventListener('resize', uiSyncSheetCovered);
   for (const [id] of UI_ROUTES) UI_PAGES[id]?.mount($ui('surface-' + id));
   const assistant = document.createElement('aside');
   assistant.id = 'assistant-slot';
@@ -1010,6 +1019,7 @@ function uiStart() {
         break;
       case 'close-session':
         document.body.classList.remove('session-open');
+        uiSyncSheetCovered();
         document.querySelector('[data-ui="session"]').setAttribute('aria-expanded', 'false');
         document.querySelector('[data-ui="session"]').focus({ preventScroll: true });
         break;
@@ -1052,7 +1062,8 @@ function uiStart() {
         break;
       case 'close-ai':
         document.body.classList.remove('assistant-open');
-        uiFocus(UI.assistantOpener) || uiFocus(document.querySelector(`[data-view="${UI.view}"]`));
+        uiFocus(UI.assistantOpener) ||
+          uiFocus(document.querySelector(`button[data-view="${UI.view}"]`));
         break;
       case 'new-recipe':
         uiNewTask('recipe');
@@ -1190,6 +1201,26 @@ function uiStart() {
   else uiNavigate('genre');
 }
 
+// While the Recipe sheet covers the page (below 900px), the page under it
+// leaves the Tab order: focus must not walk controls nobody can see (WCAG
+// 2.4.11), as the Instrument inspector does for its catalogue. A partial
+// sheet (Map, Lyrics) leaves the page above it in use.
+function uiSyncSheetCovered() {
+  const page = $ui('discovery'),
+    sheet = $ui('workspace-sidebar');
+  if (!page || !sheet) return;
+  let covered = false;
+  if (
+    document.body.classList.contains('session-open') &&
+    getComputedStyle(sheet).position === 'fixed'
+  ) {
+    const s = sheet.getBoundingClientRect(),
+      p = page.getBoundingClientRect();
+    covered = s.top <= p.top + 1 && s.bottom >= Math.min(p.bottom, innerHeight) - 1;
+  }
+  if (page.inert !== covered) page.inert = covered;
+}
+
 // ── Layers ── Escape closes the topmost open layer only and returns focus to
 // whatever opened it: an enlarged photo (uiLightbox, below, owns its own
 // Escape), a dialog (src/app.js handles those), then the More
@@ -1197,6 +1228,9 @@ function uiStart() {
 // whatever the current page opened (page.escape()).
 function uiFocus(el) {
   if (!el || !el.isConnected || !el.getClientRects().length) return false;
+  // The sheet's cover follows its class from a MutationObserver (a microtask):
+  // a sheet closed earlier in this task has not uncovered the page yet.
+  if (el.closest('[inert]')) uiSyncSheetCovered();
   el.focus({ preventScroll: true });
   return true;
 }
@@ -1803,9 +1837,11 @@ function uiEscape(e) {
     uiFocus(document.querySelector('[data-ui="menu"]'));
   } else if (body.classList.contains('assistant-open')) {
     body.classList.remove('assistant-open');
-    uiFocus(UI.assistantOpener) || uiFocus(document.querySelector(`[data-view="${UI.view}"]`));
+    uiFocus(UI.assistantOpener) ||
+      uiFocus(document.querySelector(`button[data-view="${UI.view}"]`));
   } else if (body.classList.contains('session-open')) {
     body.classList.remove('session-open');
+    uiSyncSheetCovered();
     UI.editor = false;
     uiSync();
     document.querySelector('[data-ui="session"]').setAttribute('aria-expanded', 'false');
