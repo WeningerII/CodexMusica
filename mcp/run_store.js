@@ -162,6 +162,13 @@ export class RunLedger {
       }
     }
   }
+  // While a save is failing nothing new is written (every continuation is
+  // refused before work), so the check itself retries one durable save of
+  // the in-memory ledger; only that write's success makes it healthy again.
+  recover() {
+    if (!this.healthy && this.file && !this.loadFailed) this.save();
+    return this.healthy;
+  }
   fail(err, what) {
     this.healthy = false;
     this.error = err.code || err.message;
@@ -248,6 +255,18 @@ export class RunLedger {
       } finally {
         fs.closeSync(dfd);
       }
+      // RECOVERED BY A DURABLE WRITE (BB8 A2, #519). A save that failed (a
+      // full disk, an I/O error) left the ledger unhealthy for the life of
+      // the process, though the in-memory ledger was intact and the next
+      // write could succeed: every continuation was refused until a restart.
+      // The whole ledger just reached the disk, file and directory both
+      // synced, so it is current again. A file that failed to LOAD never
+      // gets here (the guard above): it stays refused until repaired.
+      if (!this.healthy) {
+        this.healthy = true;
+        this.error = null;
+        this.log('[runs] ledger saved again; continuations are checked against it once more.');
+      }
     } catch (err) {
       try {
         fs.rmSync(temp, { force: true });
@@ -292,6 +311,8 @@ export class RunStore {
     return this.ledger.isUsed(wires.map(this.wireKey));
   }
   get ledgerHealthy() {
+    if (this.ledger.healthy === false && typeof this.ledger.recover === 'function')
+      return this.ledger.recover();
     return this.ledger.healthy !== false;
   }
   acquire(runId) {
