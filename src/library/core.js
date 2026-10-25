@@ -600,16 +600,24 @@ function bindRailOutside(main) {
     true
   );
 }
+let railTogglePress = false;
 function bindRailPanel(main, rail) {
   if (rail) bindRailOutside(main);
   if (!rail || rail._panelBound) return;
   rail._panelBound = true;
-  if (!main._railPressBound) {
-    main._railPressBound = true;
-    main.addEventListener('pointerdown', (e) => {
-      main._railTogglePress = !!e.target.closest?.('[data-lib-act="rail"]');
-    });
-    main.addEventListener('click', () => setTimeout(() => (main._railTogglePress = false)));
+  // True only while a pointer is held down on the toggle: set and cleared on
+  // the document in the capture phase, so no stopped click (the dismissing
+  // press swallows one) can leave it stale and make a later Tab onto the
+  // toggle look like a press.
+  if (!bindRailPanel.pressBound) {
+    bindRailPanel.pressBound = true;
+    document.addEventListener(
+      'pointerdown',
+      (e) => (railTogglePress = !!e.target.closest?.('[data-lib-act="rail"]')),
+      true
+    );
+    for (const type of ['pointerup', 'pointercancel'])
+      document.addEventListener(type, () => (railTogglePress = false), true);
   }
   {
     rail.addEventListener('keydown', (e) => {
@@ -624,7 +632,7 @@ function bindRailPanel(main, rail) {
       if (!state.rail || !railOverlays(rail) || !to || rail.contains(to)) return;
       // A pointer press on the toggle closes the rail through its own click;
       // Tab onto the toggle is leaving the rail like any other move.
-      if (main._railTogglePress && to.closest?.('[data-lib-act="rail"]')) return;
+      if (railTogglePress && to.closest?.('[data-lib-act="rail"]')) return;
       setRail(main, false);
     });
   }

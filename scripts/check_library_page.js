@@ -277,6 +277,14 @@ function check(label, ok, detail = '') {
 }
 const short = (s, n = 160) => String(s).replace(/\s+/g, ' ').slice(0, n);
 
+// h1s in the Library a screen reader is given (display:none removes one).
+const exposedH1s = (page) =>
+  page.evaluate(
+    () =>
+      [...document.querySelectorAll('#surface-library h1')].filter(
+        (h) => getComputedStyle(h).display !== 'none'
+      ).length
+  );
 async function openPage(browser, url, combo) {
   const context = await browser.newContext({
     viewport: { width: combo.width, height: combo.width > 600 ? 900 : 844 },
@@ -425,6 +433,11 @@ const SECTIONS = {
           ).length
       );
       check(`${tag} collection page renders`, !failedC && rows > 0, failedC || `${rows} rows`);
+      check(
+        `${tag} collection page: one h1 is exposed`,
+        (await exposedH1s(page)) === 1,
+        `${await exposedH1s(page)} h1s`
+      );
     }
     // Where the rail is open, it is one tab stop: Tab leaves it for the page,
     // and the arrow keys move between rows across repaints (Jony's lane, #519).
@@ -866,6 +879,7 @@ const SECTIONS = {
   async reader({ page, base, tag }) {
     await go(page, base, `/read/${EPI_A}`);
     const failed = await settled(page, 'reader', '#surface-library .rd-paper .rd-line');
+    check(`${tag} reader: one h1 is exposed`, (await exposedH1s(page)) === 1);
     const head = headOf(EPI_A);
     const info = await page.evaluate(() => ({
       lines: document.querySelectorAll('#surface-library .rd-line').length,

@@ -31,3 +31,8 @@
   white-space: nowrap;
   border: 0;
 }
+/* A page with its own h1 (a collection, a reading) keeps one: the shell's
+   hidden "Library" heading steps aside (Jony, #519). */
+#surface-library .lib-shell:has(h1:not(.sr-only)) > h1.sr-only {
+  display: none;
+}
