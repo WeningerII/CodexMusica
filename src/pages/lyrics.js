@@ -4595,7 +4595,8 @@ function lyRenderEditor() {
   editor.dataset.size = LY.prefs.size.get();
   editor.classList.toggle('no-numbers', !LY.prefs.numbers.get());
   editor.classList.toggle('has-letters', letters.size > 0);
-  draft.scrollTop = 0;
+  // A hidden draft cannot scroll, and setting it would lay the page out.
+  if (!draft.closest('[hidden]')) draft.scrollTop = 0;
   const empty = !model.text.trim();
   const box = $ui('ly-empty-doc');
   box.hidden = !empty || document.activeElement === draft;
@@ -7529,7 +7530,8 @@ function lyWire(surface) {
   };
   window.addEventListener('resize', viewportResize);
   window.visualViewport?.addEventListener('resize', viewportResize);
-  rememberViewportPosition(true);
+  // A hidden page has no reading position, and measuring for one lays it out.
+  if (!surface.hidden) rememberViewportPosition(true);
   const shellReceive = window.uiReceiveReply;
   if (!shellReceive.lyWrapped) {
     const wrapped = function (payload, request) {
@@ -7578,7 +7580,9 @@ uiRegisterPage({
     if (!ui.tool || LY_TOOLS.some((t) => t[0] === ui.tool)) LY.tool = ui.tool || '';
     if (typeof ui.outline === 'boolean') LY.outline = ui.outline;
     surface.innerHTML = lyMountMarkup();
-    LY.size = lySizeOf(surface.clientWidth || innerWidth);
+    // A hidden surface (every boot mount) has no width to read, and reading it
+    // would lay the page out; render() and the ResizeObserver size it on show.
+    if (!surface.hidden) LY.size = lySizeOf(surface.clientWidth || innerWidth);
     $ui('ly-page').dataset.size = LY.size;
     lyWire(surface);
     // Opening the page is a boundary (the shell's own opens have already
