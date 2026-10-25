@@ -564,7 +564,10 @@ function setRail(main, open, { focusToggle = false } = {}) {
   bindRailPanel(main, rail);
 }
 // One document listener for the light dismiss, aimed at the current view.
+// The dismissing press only dismisses: its click is swallowed, so a tap
+// beside the rail never also ticks or opens what lies under it (Jony, #519).
 let railOutsideMain = null;
+let railSwallowClick = 0;
 function bindRailOutside(main) {
   railOutsideMain = main;
   if (bindRailOutside.bound) return;
@@ -572,12 +575,26 @@ function bindRailOutside(main) {
   document.addEventListener(
     'pointerdown',
     (e) => {
+      railSwallowClick = 0;
       const m = railOutsideMain;
       const rail = m?.isConnected ? m.querySelector('.lib-rail') : null;
       if (!rail || !state.rail || !railOverlays(rail)) return;
       // A press on the toggle closes the rail through its own click.
       if (rail.contains(e.target) || e.target.closest?.('[data-lib-act="rail"]')) return;
       setRail(m, false);
+      railSwallowClick = e.timeStamp;
+    },
+    true
+  );
+  document.addEventListener(
+    'click',
+    (e) => {
+      // Only the click that ends the dismissing press (a press that never
+      // becomes a click is forgotten at the next press or after a second).
+      if (!railSwallowClick || e.timeStamp - railSwallowClick > 1000) return;
+      railSwallowClick = 0;
+      e.preventDefault();
+      e.stopPropagation();
     },
     true
   );

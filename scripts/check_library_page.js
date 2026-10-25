@@ -539,6 +539,46 @@ const SECTIONS = {
         !!spot && dismissed === true,
         JSON.stringify({ spot, dismissed })
       );
+      // That press only dismisses: a control under it is not also activated.
+      await page.click(toggle);
+      await page.waitForSelector('#surface-library .lib-rail:not([hidden]) .lib-spine', {
+        timeout: 8000,
+      });
+      const under = await page.evaluate(() => {
+        const r = document.querySelector('#surface-library .lib-rail').getBoundingClientRect();
+        // A Library control beside the rail, else (on a phone, where the rail
+        // leaves no room beside it) one in the app bar above it.
+        const b = [
+          ...document.querySelectorAll('#surface-library button'),
+          ...document.querySelectorAll('.app-bar button'),
+        ].find((el) => {
+          const c = el.getBoundingClientRect();
+          const x = c.left + c.width / 2;
+          const y = c.top + c.height / 2;
+          const inRail = x >= r.left && x <= r.right && y >= r.top && y <= r.bottom;
+          return (
+            c.width &&
+            !inRail &&
+            !el.matches('[data-lib-act="rail"]') &&
+            el.contains(document.elementFromPoint(x, y))
+          );
+        });
+        if (!b) return null;
+        window.__libUnderHit = false;
+        b.addEventListener('click', () => (window.__libUnderHit = true), { once: true });
+        const c = b.getBoundingClientRect();
+        return { x: c.left + c.width / 2, y: c.top + c.height / 2 };
+      });
+      if (under) await page.mouse.click(under.x, under.y);
+      const swallowed = await page.evaluate(() => ({
+        hidden: document.querySelector('#surface-library .lib-rail')?.hidden,
+        hit: window.__libUnderHit,
+      }));
+      check(
+        `${tag} explore: the dismissing press does not also activate the control under it`,
+        !!under && swallowed.hidden === true && swallowed.hit === false,
+        JSON.stringify({ under, ...swallowed })
+      );
     }
     // A collection's page is in the hash (?offset=), Back restores it, and it
     // never leaks into the next collection opened from history (BB8's L1).
