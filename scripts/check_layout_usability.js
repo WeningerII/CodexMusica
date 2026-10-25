@@ -93,6 +93,41 @@ async function noOverflow(page) {
     );
   assert.deepEqual(bad, [], 'Content must reflow within its container');
 }
+// Walks focus with `key` and returns each focused control that a sticky or
+// fixed element (not one containing it) covers at its centre or a corner
+// (WCAG 2.4.11). The Lyrics draft keeps its own caret handling.
+async function obscuredFocus(page, key, steps) {
+  const hidden = new Set();
+  for (let i = 0; i < steps; i++) {
+    await page.keyboard.press(key);
+    const hit = await page.evaluate(() => {
+      const a = document.activeElement;
+      if (!a || a === document.body || a.id === 'lyrics-draft') return null;
+      const c = a.getBoundingClientRect();
+      const by = [
+        [c.left + c.width / 2, c.top + c.height / 2],
+        [c.left + 2, c.top + 2],
+        [c.right - 2, c.bottom - 2],
+      ]
+        .filter(([x, y]) => x >= 0 && y >= 0 && x < innerWidth && y < innerHeight)
+        .map(([x, y]) => document.elementFromPoint(x, y))
+        .filter((h) => h && !a.contains(h) && !h.contains(a))
+        .map((h) => {
+          for (let e = h; e; e = e.parentElement) {
+            const pos = getComputedStyle(e).position;
+            if ((pos === 'sticky' || pos === 'fixed') && !e.contains(a)) return e;
+          }
+          return null;
+        })
+        .find(Boolean);
+      return by
+        ? `${(a.getAttribute('aria-label') || a.textContent).trim().slice(0, 40)} under .${by.className}`
+        : null;
+    });
+    if (hit) hidden.add(hit);
+  }
+  return [...hidden];
+}
 (async () => {
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
   const base = 'http://127.0.0.1:' + server.address().port;
@@ -135,6 +170,44 @@ async function noOverflow(page) {
         }
       if (width >= 900) {
         await page.getByRole('button', { name: 'Genre', exact: true }).click();
+        await page.locator('.catalog-row, .cm-tile').first().waitFor();
+      }
+      // Focus is never left under a sticky bar (Jony, #519): Shift+Tab back up
+      // the Genre page lands below its sticky tabs, and on a phone a control
+      // focused behind the Lyrics line dock scrolls into view.
+      if (width === 899 || width === 1280) {
+        await page.locator('#genre-main').evaluate((el) => {
+          const all = [...el.querySelectorAll('a, button, input, select, [tabindex="0"]')];
+          all
+            .filter((e) => e.getClientRects().length)
+            .pop()
+            ?.focus();
+        });
+        const under = await obscuredFocus(page, 'Shift+Tab', 60);
+        assert.deepEqual(under, [], `Genre: focus under a sticky bar at ${width}px`);
+      }
+      if (width === 360) {
+        const small = await page
+          .locator('#surface-genre .gp-crumbs .gp-link, #surface-genre .gp-also .gp-link')
+          .evaluateAll((els) =>
+            els
+              .filter((el) => el.getClientRects().length)
+              .map((el) => [el.textContent.trim(), el.getBoundingClientRect().height])
+              .filter(([, h]) => h < 24)
+          );
+        assert.deepEqual(small, [], 'Genre: breadcrumb and also links are 24 px targets');
+        // A phone-height screen, where the empty song's actions reach the dock.
+        await page.setViewportSize({ width, height: 780 });
+        await page.getByRole('button', { name: 'Lyrics', exact: true }).first().click();
+        await page.locator('#ly-body').waitFor();
+        await page
+          .locator('#ly-page')
+          .focus()
+          .catch(() => {});
+        const under = await obscuredFocus(page, 'Tab', 40);
+        assert.deepEqual(under, [], 'Lyrics: focus under the line dock at 360x780');
+        await page.setViewportSize({ width, height: 900 });
+        await page.getByRole('button', { name: 'Genre', exact: true }).first().click();
         await page.locator('.catalog-row, .cm-tile').first().waitFor();
       }
       await page.getByRole('button', { name: 'Browse tree', exact: true }).click();

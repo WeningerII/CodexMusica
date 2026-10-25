@@ -7471,6 +7471,22 @@ function lyWire(surface) {
     true
   );
   document.addEventListener('selectionchange', () => rememberViewportPosition());
+  // On the phone layout, keyboard focus is never left under the line dock or
+  // the bottom tabs (WCAG 2.4.11): a control focused behind either scrolls
+  // into the band between them (Jony, #519). The draft keeps its own caret
+  // handling, and a control taller than the band is left where it is.
+  surface.addEventListener('focusin', (event) => {
+    const target = event.target;
+    if (LY.size !== 'narrow' || target === lyDraft()) return;
+    if (target.closest?.('#ly-linedock, #ly-mnav')) return;
+    const scroller = lyViewportScroller();
+    if (!scroller?.contains(target)) return;
+    const { top, bottom } = lyViewportBand(scroller);
+    const rect = target.getBoundingClientRect();
+    if (rect.height > bottom - top) return;
+    if (rect.bottom > bottom) scroller.scrollTop += rect.bottom - bottom + 8;
+    else if (rect.top < top) scroller.scrollTop -= top - rect.top + 8;
+  });
   const viewportResize = () => {
     if (window.visualViewport && window.visualViewport.scale !== 1) return;
     if (revealPending) return;
