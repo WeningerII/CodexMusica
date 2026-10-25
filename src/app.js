@@ -19375,7 +19375,7 @@ function _chatPollStart(request_id) {
 async function _chatSend(message, { choice, context = null, clearInput = false } = {}) {
   if (chatState.busy) return { ok: false, reason: 'busy' };
   if (chatState.pending) {
-    _chatRecover();
+    _chatRecoverBeforeSend(message);
     return { ok: false, reason: 'pending' };
   }
   if (chatState.retryAt > Date.now()) {
@@ -19462,10 +19462,33 @@ async function _chatSend(message, { choice, context = null, clearInput = false }
   }
   return { ok: true };
 }
+// A new message never goes out past a saved request whose outcome is unknown:
+// it would continue, or repeat, a conversation whose last step is unsettled
+// (the receipt saved before dispatch exists so a paid prompt is never sent
+// twice). Recovery runs first, and once it settles the person sends again.
+// While the earlier request still can't be checked (its lookup fails), say the
+// new message was not sent and the way on, rather than only repeating the
+// recovery note (Jony #89). The text stays in the box, and focus with it.
+async function _chatRecoverBeforeSend(message) {
+  await _chatRecover();
+  const input = _chatEl('chat-input');
+  if (chatState.pending && !chatState.busy && String(message || '').trim()) {
+    const note = _chatAppend('<div class="chat-msg chat-msg-error">Your new message wasn’t sent: the earlier request can’t be checked yet, so its outcome is still unknown. Try again in a moment, or start a new conversation; the earlier request is set aside here, not cancelled. </div>');
+    if (note) {
+      const fresh = document.createElement('button');
+      fresh.type = 'button';
+      fresh.className = 'btn btn-ghost';
+      fresh.textContent = 'New conversation';
+      fresh.onclick = () => _chatEl('chat-reset')?.click();
+      note.append(fresh);
+    }
+  }
+  if (input && !input.disabled && (!document.activeElement || document.activeElement === document.body)) input.focus();
+}
 async function _chatSubmit(e) {
   e.preventDefault();
   if (chatState.busy) return;
-  if (chatState.pending) return _chatRecover();
+  if (chatState.pending) return _chatRecoverBeforeSend(_chatEl('chat-input')?.value);
   const input = _chatEl('chat-input');
   if (!(input?.value.trim()) && chatState.retryAt <= Date.now()) return;
   await _chatSend(input?.value || '', { choice: _chatEl('chat-domain')?.value || 'recipe', clearInput: true });

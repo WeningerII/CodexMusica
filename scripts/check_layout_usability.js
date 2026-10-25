@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -229,6 +229,62 @@ async function noOverflow(page) {
           width +
           'px: tree, labels, editor, panes, menus, lyrics, embedded/standalone map, short viewport'
       );
+      await context.close();
+    }
+    {
+      // Chat (Jony #89): Ask while an earlier request's outcome is unknown and
+      // its lookup fails sends nothing past it, says so in the log, and keeps
+      // the new text and focus in the box (the box is disabled while
+      // recovery checks, which drops focus in a real browser).
+      const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+      let posts = 0;
+      await context.route('https://mcp.codexmusica.com/**', (route) => {
+        const url = route.request().url();
+        if (route.request().method() === 'POST' && /\/chat$/.test(url)) {
+          posts++;
+          return route.abort();
+        }
+        if (/\/chat\/jobs\//.test(url))
+          return route.fulfill({
+            status: 503,
+            contentType: 'application/json',
+            body: '{"error":"The request outcome is unknown. The saved request will not be repeated."}',
+          });
+        return route.fulfill({
+          contentType: 'application/json',
+          body: '{"ok":true,"enabled":true}',
+        });
+      });
+      const page = await context.newPage();
+      const errors = [];
+      page.on('pageerror', (e) => errors.push(e.message));
+      await page.goto(base + '/codex.html');
+      await page.locator('[data-ui="ai"]:visible').first().click();
+      const input = page.locator('#chat-input');
+      await input.fill('make it bluesy');
+      await page.locator('#chat-send').click();
+      await page.waitForFunction(() =>
+        /outcome is unknown/.test(document.getElementById('chat-log').textContent)
+      );
+      await page.waitForFunction(() => !document.getElementById('chat-input').disabled);
+      assert.equal(posts, 1, 'Chat: the first request is sent once');
+      await input.fill('add a fiddle');
+      await input.focus();
+      await page.evaluate(() => document.getElementById('chat-form').requestSubmit());
+      await page.waitForFunction(() => !document.getElementById('chat-input').disabled);
+      await settle(page);
+      const after = await page.evaluate(() => ({
+        active: document.activeElement.id || document.activeElement.tagName,
+        value: document.getElementById('chat-input').value,
+        last: document.getElementById('chat-log').lastElementChild?.textContent || '',
+      }));
+      assert.equal(posts, 1, 'Chat: nothing is sent past an unknown outcome');
+      assert.equal(after.value, 'add a fiddle', 'Chat: the new text stays in the box');
+      assert.equal(after.active, 'chat-input', 'Chat: focus stays in the box, not BODY');
+      assert.match(after.last, /new message wasn’t sent/, 'Chat: the log says it was not sent');
+      assert.match(after.last, /set aside here, not cancelled/);
+      assert.deepEqual(errors, [], 'No browser errors');
+      console.log('PASS chat: an Ask past an unknown outcome is held, said and kept at 1280px');
       await context.close();
     }
   } finally {

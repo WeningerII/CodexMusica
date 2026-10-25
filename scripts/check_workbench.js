@@ -244,6 +244,35 @@ const run = (code) => dom.window.eval(code);
     /not answering right now \(HTTP 503\)/
   );
   assert.equal(run('chatState.pending?.request_id'), 'down-request');
+  // Ask while that earlier request still can't be checked (its lookup answers
+  // 503): nothing is sent past it, and the person is told so with the way on;
+  // the new text and focus stay in the box (Jony #89).
+  run(
+    "window.posts=0;window.fetch=async(url,o={})=>{if(o.method==='POST'){window.posts++;return {ok:true,json:async()=>({reply:'sent'})}}return {ok:false,status:503,json:async()=>({error:'The request outcome is unknown. The saved request will not be repeated.'})}};const i=document.getElementById('chat-input');i.value='add a fiddle';i.focus();"
+  );
+  await run('_chatSubmit({preventDefault(){}})');
+  assert.equal(run('window.posts'), 0, 'Ask past an unknown outcome sends nothing');
+  assert.equal(run('chatState.pending?.request_id'), 'down-request');
+  assert.equal(run("document.getElementById('chat-input').value"), 'add a fiddle');
+  assert.equal(run('document.activeElement?.id'), 'chat-input');
+  const blocked = run("document.getElementById('chat-log').lastElementChild");
+  assert.match(
+    blocked.textContent,
+    /new message wasn’t sent: the earlier request can’t be checked yet, so its outcome is still unknown/
+  );
+  // New conversation sets the earlier request aside; it is never said to
+  // cancel or stop it (3PO, #519 6398223235).
+  assert.match(blocked.textContent, /set aside here, not cancelled/);
+  assert.equal(blocked.querySelector('button')?.textContent, 'New conversation');
+  // A bare recheck (empty box, "press Send to check it again") adds no such note.
+  run(
+    "document.getElementById('chat-input').value='';document.getElementById('chat-log').lastElementChild.remove();"
+  );
+  await run('_chatSubmit({preventDefault(){}})');
+  assert.doesNotMatch(
+    run("document.getElementById('chat-log').lastElementChild.textContent"),
+    /wasn’t sent/
+  );
   // A missing receipt never proves nothing ran, so the outcome is worded as
   // unknown either way, and the typed message goes back in the box. Unsent: a
   // POST that never got an answer and was never acknowledged (no receipt seen).
@@ -257,6 +286,13 @@ const run = (code) => dom.window.eval(code);
   const unsent = run("document.getElementById('chat-log').lastElementChild.textContent");
   assert.match(unsent, /may never have arrived/);
   assert.doesNotMatch(unsent, /nothing ran/);
+  // Once the lookup has settled (404, set aside), the next Ask sends.
+  run(
+    "window.posts=0;window.fetch=async(url,o={})=>{if(o.method==='POST')window.posts++;return {ok:true,json:async()=>({reply:'sent'})}};"
+  );
+  await run('_chatSubmit({preventDefault(){}})');
+  assert.equal(run('window.posts'), 1, 'After a 404 recovery the next Ask sends');
+  run("window.fetch=async()=>({ok:false,status:404,json:async()=>({error:'not found'})});");
   // Accepted (the progress poll saw its receipt), then disconnected, then the
   // receipt is gone: it may have run, so the note says so and the ticket is
   // kept in Saved runs.
