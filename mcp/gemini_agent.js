@@ -941,6 +941,28 @@ export function declarationsFor(surface, lyr, writer = chatWriter()) {
   return declarationsForRun({ ...surface, declarations: base }, lyr);
 }
 
+// What one hop offers under a host task: that task's domain only, and in a
+// recipe task no `format`. The host fixes the format (task.format, else rich)
+// and the call is rewritten to it, so offering four formats would offer the
+// model a choice it cannot have — dropped as the interview fields are.
+export function taskDeclarations(declarations, task) {
+  if (!task) return declarations;
+  return declarations
+    .filter((d) => (task.domain === 'lyrics') === d.name.startsWith('lyric_'))
+    .map((d) => {
+      if (task.domain !== 'recipe' || !d.parameters?.properties?.format) return d;
+      const properties = { ...d.parameters.properties };
+      delete properties.format;
+      const required = Array.isArray(d.parameters.required)
+        ? d.parameters.required.filter((n) => n !== 'format')
+        : d.parameters.required;
+      return {
+        ...d,
+        parameters: { ...d.parameters, properties, ...(required ? { required } : {}) },
+      };
+    });
+}
+
 function declarationsForRun(surface, lyr) {
   // M-232: a PARKED run's continuing call is the rewritten draft plus the
   // run's key — no `answer`, no `state` — the mirror image of a suspended one.
@@ -1787,9 +1809,7 @@ export async function runTurn({
       // Per hop, like the reminder: the record can appear mid-turn (M-226).
       body.tools = [
         {
-          functionDeclarations: declarationsFor(surface, lyr, writer).filter(
-            (d) => !task || (task.domain === 'lyrics') === d.name.startsWith('lyric_')
-          ),
+          functionDeclarations: taskDeclarations(declarationsFor(surface, lyr, writer), task),
         },
       ];
       body.toolConfig = { functionCallingConfig: { mode: 'AUTO' } };
@@ -1990,7 +2010,16 @@ export async function runTurn({
             content: [
               {
                 type: 'text',
-                text: `REFUSED: ${fc.name} is outside the active ${task.domain} task.`,
+                // Name the next step: what this task can call, and that the
+                // other domain is a task the user starts, not one the model can.
+                text:
+                  `REFUSED: ${fc.name} is outside the active ${task.domain} task. ` +
+                  `This task's tools are ${body.tools[0].functionDeclarations
+                    .map((d) => d.name)
+                    .join(', ')}; ` +
+                  (task.domain === 'lyrics'
+                    ? 'a recipe needs a Recipe task, which the user starts.'
+                    : 'lyrics need a Lyrics task, which the user starts.'),
               },
             ],
           };
@@ -2004,7 +2033,7 @@ export async function runTurn({
           responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
           continue;
         }
-        if (task?.domain === 'recipe') args.format = 'rich';
+        if (task?.domain === 'recipe') args.format = task.format || 'rich';
         const spent = totalCost();
         const overCost = limits.maxTurnUsd > 0 && (spent === null || spent >= limits.maxTurnUsd);
         if (stopped || interruption(step + 1) || overCost) {
