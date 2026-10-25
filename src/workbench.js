@@ -212,6 +212,9 @@ function uiNavigate(view, { push = false, sub } = {}) {
   else if (sub === undefined) sub = page.currentRoute?.() || '';
   UI.view = view;
   document.body.dataset.view = view;
+  // A route notice belongs to the page it was shown on.
+  const routeNote = $ui('ui-route-note');
+  if (routeNote && routeNote.dataset.view !== view) routeNote.hidden = true;
   if (/^https?:$/.test(location.protocol) && location.hash !== '#' + view + sub) {
     if (push) history.pushState(null, '', '#' + view + sub);
     else history.replaceState(null, '', '#' + view + sub);
@@ -859,6 +862,24 @@ function uiStart() {
     surface.hidden = id !== 'genre';
     discovery.append(surface);
   }
+  // The visible half of a route notice (uiRouteMissed): above the surfaces, so
+  // a page's re-render never removes it.
+  const routeNote = document.createElement('div');
+  routeNote.id = 'ui-route-note';
+  routeNote.className = 'ui-route-note';
+  routeNote.hidden = true;
+  routeNote.innerHTML =
+    '<span class="ui-route-note-text"></span><button type="button" class="cm-btn ui-route-note-close">Dismiss</button>';
+  routeNote.querySelector('button').addEventListener('click', () => {
+    routeNote.hidden = true;
+    // The button that had focus is gone: the page's heading takes it.
+    const h = $ui('surface-' + UI.view)?.querySelector('h1, h2');
+    if (h && !h.hasAttribute('tabindex')) h.setAttribute('tabindex', '-1');
+    uiFocus(h);
+    if (document.activeElement !== h)
+      uiFocus(document.querySelector(`button[data-view="${UI.view}"]`));
+  });
+  discovery.prepend(routeNote);
   const workspace = document.querySelector('main.workspace');
   workspace.insertBefore(discovery, $ui('workspace-detail'));
   // The Recipe sheet opens and closes through several paths; follow the class.
@@ -1143,11 +1164,13 @@ function uiStart() {
   );
   window.addEventListener('hashchange', () => {
     const { view, sub } = uiRouteOf(location.hash);
-    if (!UI_PAGES[view]) return;
+    const miss = uiRouteMiss({ view, sub }, false);
+    if (!UI_PAGES[view]) return uiRouteMissed(miss);
     if (view !== UI.view) uiNavigate(view, { sub });
     // Back/Forward within one page: its own route, without refocusing the
     // nav button or re-applying the recipe presentation.
     else UI_PAGES[view].route?.(sub, { pop: true });
+    uiRouteMissed(miss);
   });
   $ui('ui-file').addEventListener('change', (e) => {
     if (e.target.files[0]) uiImport(e.target.files[0]);
@@ -1197,8 +1220,54 @@ function uiStart() {
   if (deep && !UI_PAGES[route.view] && Tradition(deep)) {
     UI.genre = Tradition(deep).id; // an old link to a merged tradition opens the survivor
     uiNavigate('genre');
-  } else if (UI_PAGES[route.view]) uiNavigate(route.view, { sub: route.sub });
-  else uiNavigate('genre');
+  } else {
+    if (UI_PAGES[route.view]) uiNavigate(route.view, { sub: route.sub });
+    else uiNavigate('genre');
+    uiRouteMissed(uiRouteMiss(route, true), { boot: true });
+  }
+}
+// A link that matched nothing still lands somewhere (the genres, or the page
+// without its sub-route); this says so once, instead of redirecting silently.
+// `boot`: an unknown page was redirected to the genres (a hashchange to one
+// is not). The Library resolves its own sub-routes and says so itself.
+// Says it twice, never as a toast (which would replace a standing error and
+// its action): spoken through #ui-live, and shown as a slim note above the
+// page it landed on until it is dismissed or another page is opened. Focus
+// stays where navigation put it. At boot the spoken half waits for the page
+// to paint and settle: a polite update in the first moments of a load is
+// often dropped by screen readers. A hashchange says it at once.
+function uiRouteMissed(miss, { boot = false } = {}) {
+  if (!miss) return;
+  if (boot) uiAfterPaint(() => setTimeout(() => uiAnnounce(miss), 1000));
+  else uiAnnounce(miss);
+  const note = $ui('ui-route-note');
+  if (!note) return;
+  note.querySelector('.ui-route-note-text').textContent = miss;
+  note.dataset.view = UI.view;
+  note.hidden = false;
+}
+function uiRouteMiss({ view, sub }, boot) {
+  if (!view) return '';
+  if (!UI_PAGES[view])
+    return boot
+      ? 'That link didn’t match a page, so here are the genres.'
+      : 'That link didn’t match a page.';
+  if (!sub || UI_PAGES[view].route) return '';
+  if (view === 'genre') return 'That link didn’t match a genre, so here are all genres.';
+  if (view === 'instrument')
+    return 'That link didn’t match an instrument, so here are all instruments.';
+  return 'That link didn’t match anything on this page, so here it is.';
+}
+
+// Short status lines (a search count, a route notice) go to #ui-live, not to
+// showToast: a toast replaces the one before it, and must not evict an
+// unresolved error and its Retry. Cleared first so a repeat is read again.
+/* exported uiAnnounce */
+function uiAnnounce(text) {
+  const live = document.getElementById('ui-live');
+  if (!live) return;
+  live.textContent = '';
+  if (text) setTimeout(() => (live.textContent = text), 50);
 }
 
 // While the Recipe sheet covers the page (below 900px), the page under it

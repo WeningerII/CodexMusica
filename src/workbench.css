@@ -205,6 +205,40 @@ h3 {
   overflow: auto;
   background: var(--cm-surface);
 }
+/* A route notice above the surfaces: while it shows, the surface takes the
+   rest of the height instead of 100%, so nothing is clipped or covered. */
+.ui-route-note {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--cm-border-subtle);
+  background: var(--cm-surface-sunken);
+  color: var(--cm-text-secondary);
+  font: 400 var(--cm-text-sm) var(--cm-font);
+}
+.ui-route-note[hidden] {
+  display: none;
+}
+.ui-route-note-text {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.ui-route-note-close {
+  flex: none;
+  min-height: 24px;
+}
+#discovery:has(> .ui-route-note:not([hidden])) {
+  display: flex;
+  flex-direction: column;
+}
+#discovery:has(> .ui-route-note:not([hidden])) > .ui-surface {
+  flex: 1 1 0;
+  height: auto;
+  min-height: 0;
+}
 .ui-surface[hidden] {
   display: none !important;
 }
@@ -2434,6 +2468,14 @@ body.workbench {
 }
 .map-status[hidden] {
   display: none;
+}
+.ui-live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 #toast {
   max-width: min(560px, calc(100vw - 32px));

@@ -1,5 +1,5 @@
 /* exported renderGenreDiscovery */
-/* global $ui, Catalog, Engine, InstLite, STARTER_TRADITIONS, Tradition, UI, UILayout, _determinePrimaryCard, app, axisLabel, esc, findSimilar, getMatchingAxes, getRoots, getTreeNode, icon, image, listenLink, normalizeSearch, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, uiAddInstrument, uiAfterPaint, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos */
+/* global $ui, Catalog, Engine, InstLite, STARTER_TRADITIONS, Tradition, UI, UILayout, _determinePrimaryCard, app, axisLabel, esc, findSimilar, getMatchingAxes, getRoots, getTreeNode, icon, image, listenLink, normalizeSearch, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, uiAddInstrument, uiAfterPaint, uiAnnounce, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos */
 /* Genre page. Owned by the Genre page worker; see docs/ui-foundation.md.
    Shared state, recipe commands (genre-add, instrument-add), navigation and
    theming belong to the shell in src/workbench.js and src/theme.css.
@@ -19,6 +19,7 @@
 // Page-private state. UI.genre (the open genre) and UI.genreNode (the branch)
 // are the shell-visible part; everything else lives here.
 const G = {
+  saidNoMatch: '', // the search gpSayNoMatch last announced as matching nothing
   tab: 'start', // 'start' | 'all'
   detailTab: 'overview',
   featureClosed: false, // the Start exploring feature has been closed
@@ -798,7 +799,7 @@ function gpNoResults(q, node, targets) {
     // Lazy shell, before the prose lands: only names were searched, so this
     // says so instead of saying no genre matches.
     const failed = Catalog.proseFailed();
-    return uiEmptyState({
+    return gpQuietEmpty({
       title: `No genre names match “${$ui('genre-search').value.trim()}”`,
       text:
         (why.length > 1 ? 'Nothing satisfies ' + why.join(' and ') + ' together. ' : '') +
@@ -813,7 +814,7 @@ function gpNoResults(q, node, targets) {
       tone: failed ? 'danger' : '',
     });
   }
-  return uiEmptyState({
+  return gpQuietEmpty({
     title: q
       ? `No genres match “${$ui('genre-search').value.trim()}”`
       : 'No genres match these constraints',
@@ -825,6 +826,24 @@ function gpNoResults(q, node, targets) {
       (node ? uiButton('genre-all', 'All genres', 'arrow-left') : '') +
       (targets.length ? uiButton('genre-sound-reset', 'Clear sound targets', 'x') : ''),
   });
+}
+// The no-match block is rebuilt on every keystroke, so it is not a live
+// region (a fresh status is read whole each time, Clear search included):
+// gpSayNoMatch says the short line once, after the typing stops.
+function gpQuietEmpty(state) {
+  return uiEmptyState(state).replace(' role="status"', '');
+}
+let gpNoMatchTimer = 0;
+function gpSayNoMatch() {
+  clearTimeout(gpNoMatchTimer);
+  gpNoMatchTimer = setTimeout(() => {
+    const q = $ui('genre-search')?.value.trim();
+    const said = G.saidNoMatch;
+    G.saidNoMatch = '';
+    if (!q || !document.querySelector('#genre-list .cm-empty')) return;
+    G.saidNoMatch = q;
+    if (q !== said) uiAnnounce(`No genres match “${q}”`);
+  }, 500);
 }
 function gpRenderMain() {
   const host = $ui('genre-list');
@@ -1147,6 +1166,7 @@ uiRegisterPage({
       UI.limit = 50;
       if (gpQuery()) G.tab = 'all';
       gpRenderMain();
+      gpSayNoMatch();
     });
     if (typeof ResizeObserver === 'function')
       new ResizeObserver(() => gpFitPlaceholder()).observe($ui('genre-search'));

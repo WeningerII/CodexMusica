@@ -1781,6 +1781,264 @@ async function editorKeyboard(page, where) {
       console.log('PASS keyboard guards at 390x780: undo behind a dialog, in a field, sheet Tab');
       await context.close();
     }
+    // Error and empty states: a Retry keeps the keyboard and says what
+    // happened; Genre's no-match is said once; a link that matched nothing
+    // says so instead of redirecting silently.
+    {
+      const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+      await context.route('https://mcp.codexmusica.com/**', (route) =>
+        route.fulfill({ contentType: 'application/json', body: '{"ok":true,"enabled":true}' })
+      );
+      let engineDown = true;
+      await context.route('**/engine.json*', (route) =>
+        engineDown ? route.abort('internetdisconnected') : route.continue()
+      );
+      const page = await context.newPage();
+      const toasts = () => page.evaluate(() => window.__toasts || []);
+      const lives = () => page.evaluate(() => window.__live || []);
+      await page.addInitScript(() => {
+        window.__toasts = [];
+        window.__live = [];
+        // When #ui-live first speaks, relative to DOMContentLoaded, and whether
+        // the page it speaks for had rendered by then.
+        window.__liveFirst = null;
+        document.addEventListener('DOMContentLoaded', () => {
+          const dcl = performance.now();
+          const live = document.getElementById('ui-live');
+          if (live)
+            new MutationObserver(() => {
+              if (window.__liveFirst || !live.textContent.trim()) return;
+              const s = document.querySelector('.ui-surface:not([hidden])');
+              window.__liveFirst = {
+                after: Math.round(performance.now() - dcl),
+                rendered: !!s && s.querySelectorAll('button, a[href]').length > 0,
+              };
+            }).observe(live, { childList: true, characterData: true, subtree: true });
+          for (const [id, log] of [
+            ['toast', window.__toasts],
+            ['ui-live', window.__live],
+          ]) {
+            const t = document.getElementById(id);
+            if (t)
+              new MutationObserver(() => {
+                const text = t.textContent.trim();
+                if (text && log[log.length - 1] !== text) log.push(text);
+              }).observe(t, { childList: true, characterData: true, subtree: true });
+          }
+        });
+      });
+      // Instrument: Retry while the data is still down, then once it is back.
+      await page.goto(base + '/codex.html#instrument');
+      const retry = page.locator('#instrument-body [data-ui="engine-retry"]');
+      await retry.waitFor({ timeout: 20000 });
+      await retry.focus();
+      await page.keyboard.press('Enter');
+      await page.waitForTimeout(300);
+      await page
+        .locator('#instrument-body [data-engine-pending="failed"]')
+        .waitFor({ timeout: 20000 });
+      assert.deepEqual(
+        await page.evaluate(() => ({
+          focus: document.activeElement?.dataset?.ui || document.activeElement?.tagName,
+          words: /Still couldn/.test(
+            document.querySelector('#instrument-body [data-engine-pending]')?.textContent || ''
+          ),
+        })),
+        { focus: 'engine-retry', words: true },
+        'Instrument: a Retry that fails again keeps focus on Retry and says so'
+      );
+      engineDown = false;
+      await page.keyboard.press('Enter');
+      await page.locator('#instrument-body .ip-cat').first().waitFor({ timeout: 30000 });
+      assert.equal(
+        await page.evaluate(() => document.activeElement?.classList?.contains('ip-title')),
+        true,
+        'Instrument: a Retry that loads the data lands on the heading'
+      );
+      // Genre: typing a search that matches nothing says so once.
+      await page.getByRole('button', { name: 'Genre', exact: true }).first().click();
+      await page.locator('#genre-search').waitFor();
+      await page.evaluate(() => {
+        window.__toasts.length = 0;
+        window.__live.length = 0;
+        // An unresolved error and its Retry, standing while the search runs.
+        showToast('Probe error', 'error', { label: 'Retry', run() {} });
+      });
+      await page.locator('#genre-search').pressSequentially('zzqxv', { delay: 60 });
+      await page.waitForTimeout(900);
+      const said = (await lives()).filter((t) => /No genres match/.test(t));
+      const live = await page.evaluate(
+        () => document.querySelector('#genre-list .cm-empty')?.getAttribute('role') ?? null
+      );
+      assert.deepEqual(
+        { said, live },
+        { said: ['No genres match “zzqxv”'], live: null },
+        'Genre: an empty search is said once, and the no-match block is not a live region'
+      );
+      assert.deepEqual(
+        await page.evaluate(() => ({
+          text: /Probe error/.test(document.getElementById('toast').textContent),
+          retry: !!document.querySelector('#toast .toast-action'),
+        })),
+        { text: true, retry: true },
+        'Genre: a search announcement leaves a standing error and its Retry alone'
+      );
+      assert.deepEqual(
+        (await toasts()).filter((t) => /No genres match/.test(t)),
+        [],
+        'Genre: a search announcement is not a toast'
+      );
+      // A link that matched nothing says so.
+      await page.goto(base + '/codex.html?miss=1#genre/zzqx_not_a_genre');
+      await page
+        .waitForFunction(
+          () => (window.__live || []).some((t) => /didn’t match a genre/.test(t)),
+          null,
+          { timeout: 15000 }
+        )
+        .catch(() => {});
+      assert.ok(
+        (await lives()).some((t) => /didn’t match a genre/.test(t)),
+        'Routes: a genre link that matched nothing says so: ' + JSON.stringify(await lives())
+      );
+      await page.goto(base + '/codex.html?miss=2#nonsense');
+      await page
+        .waitForFunction(
+          () => (window.__live || []).some((t) => /didn’t match a page/.test(t)),
+          null,
+          { timeout: 15000 }
+        )
+        .catch(() => {});
+      assert.ok(
+        (await lives()).some((t) => /didn’t match a page/.test(t)),
+        'Routes: an unknown page link says so: ' + JSON.stringify(await lives())
+      );
+      await page.goto(base + '/codex.html?miss=3#instrument/zzqx_not_an_instrument');
+      await page
+        .waitForFunction(
+          () => (window.__live || []).some((t) => /didn’t match an instrument/.test(t)),
+          null,
+          { timeout: 20000 }
+        )
+        .catch(() => {});
+      assert.ok(
+        (await lives()).some((t) => /didn’t match an instrument/.test(t)),
+        'Routes: an instrument link that matched nothing says so: ' + JSON.stringify(await lives())
+      );
+      // At boot it is said once the page has rendered and settled, not in the
+      // first moments of the load, when screen readers drop polite updates.
+      const first = await page.evaluate(() => window.__liveFirst);
+      assert.ok(
+        first && first.after >= 1000 && first.rendered,
+        'Routes: at boot the notice is spoken after the page renders: ' + JSON.stringify(first)
+      );
+      // Said and shown: a slim note above the page, never a toast and never
+      // focused, until it is dismissed or another page is opened.
+      const note = () =>
+        page.evaluate(() => {
+          const n = document.getElementById('ui-route-note');
+          return {
+            shown: !!n && !n.hidden && n.getClientRects().length > 0,
+            text: n?.querySelector('.ui-route-note-text')?.textContent || '',
+            focused: !!n?.contains(document.activeElement),
+          };
+        });
+      assert.deepEqual(
+        await note(),
+        {
+          shown: true,
+          text: 'That link didn’t match an instrument, so here are all instruments.',
+          focused: false,
+        },
+        'Routes: an unmatched instrument link shows a visible note that does not take focus'
+      );
+      await page.evaluate(() => (window.location.hash = '#genre/zzqx_other_genre'));
+      await page.waitForFunction(() =>
+        /didn’t match a genre/.test(document.getElementById('ui-route-note')?.textContent)
+      );
+      assert.deepEqual(
+        await note(),
+        {
+          shown: true,
+          text: 'That link didn’t match a genre, so here are all genres.',
+          focused: false,
+        },
+        'Routes: an unmatched genre link shows the note on the genres'
+      );
+      await page.setViewportSize({ width: 390, height: 780 });
+      assert.deepEqual(
+        await page.evaluate(() => {
+          const n = document.getElementById('ui-route-note');
+          const s = document.getElementById('surface-genre');
+          return {
+            fits: n.scrollWidth <= n.clientWidth && document.documentElement.scrollWidth <= 390,
+            below: s.getBoundingClientRect().top >= n.getBoundingClientRect().bottom - 1,
+            target: n.querySelector('button').getBoundingClientRect().height >= 24,
+          };
+        }),
+        { fits: true, below: true, target: true },
+        'Routes: at 390 the note fits, covers nothing and its Dismiss is a 24px target'
+      );
+      await page.setViewportSize({ width: 1280, height: 900 });
+      await page.locator('#ui-route-note button').focus();
+      await page.keyboard.press('Enter');
+      assert.deepEqual(
+        await page
+          .evaluate(() => ({
+            shown: !document.getElementById('ui-route-note').hidden,
+            focus: document.activeElement?.tagName,
+          }))
+          .then((r) => ({ shown: r.shown, lost: r.focus === 'BODY' })),
+        { shown: false, lost: false },
+        'Routes: Dismiss hides the note without dropping focus'
+      );
+      await page.evaluate(() => (window.location.hash = '#nonsense'));
+      await page.waitForFunction(() => !document.getElementById('ui-route-note').hidden);
+      await page.getByRole('button', { name: 'Instrument', exact: true }).first().click();
+      assert.equal((await note()).shown, false, 'Routes: opening another page clears the note');
+      // The standalone map: Try again keeps the keyboard and says it in words.
+      let atlasDown = true;
+      await page.route('**/api/traditions/index.json', (route) =>
+        atlasDown ? route.abort('internetdisconnected') : route.continue()
+      );
+      await page.goto(base + '/atlas.html');
+      const again = page.locator('[data-act="reload"]');
+      await again.waitFor({ timeout: 20000 });
+      assert.doesNotMatch(
+        await page.locator('#loading').innerText(),
+        /Failed to fetch|\.json|\b\d{3}\b/,
+        'Map: a failed load says what happened in words, not a raw error'
+      );
+      await again.focus();
+      await page.keyboard.press('Enter');
+      await page.waitForFunction(
+        () => /Still couldn/.test(document.getElementById('loading')?.textContent || ''),
+        null,
+        { timeout: 20000 }
+      );
+      assert.equal(
+        await page.evaluate(
+          () => document.activeElement?.dataset?.act || document.activeElement?.tagName
+        ),
+        'reload',
+        'Map: a Try again that fails again keeps focus on Try again'
+      );
+      atlasDown = false;
+      await page.keyboard.press('Enter');
+      await page.locator('.rowbtn').first().waitFor({ state: 'attached', timeout: 30000 });
+      await page
+        .waitForFunction(() => document.activeElement?.id === 'search', null, { timeout: 5000 })
+        .catch(() => {});
+      assert.equal(
+        await page.evaluate(() => document.activeElement?.id || document.activeElement?.tagName),
+        'search',
+        'Map: a Try again that loads the map lands on the search'
+      );
+      console.log(
+        'PASS error states at 1280px: Retry focus and words, empty search said once, unmatched links said'
+      );
+      await context.close();
+    }
   } finally {
     await browser.close();
     server.close();
