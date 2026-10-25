@@ -519,7 +519,11 @@ test('a recipe task offers no format, the host format is the one sent, and a wro
       task: { ...task('recipe'), format: 'tags' },
       callTool: async (name, args) => {
         sent.push([name, args.format]);
-        return { content: [{ type: 'text', text: '{}' }] };
+        return {
+          content: [
+            { type: 'text', text: JSON.stringify({ recipe: 'r', workspace: { cards: [1] } }) },
+          ],
+        };
       },
     });
     const start = bodies[0].tools[0].functionDeclarations.find((d) => d.name === 'start_recipe');
@@ -531,6 +535,17 @@ test('a recipe task offers no format, the host format is the one sent, and a wro
       [['start_recipe', 'tags']],
       "the host's format, not 'rich' or the model's"
     );
+    // The model asked for prose anyway: it is told which format it got, inside
+    // the one JSON payload, so the workspace is still stripped from what it reads.
+    const told = bodies[1].contents
+      .flatMap((c) => c.parts || [])
+      .find((p) => p.functionResponse?.name === 'start_recipe')?.functionResponse.response;
+    assert.match(
+      told?.format_note || '',
+      /format "prose" is not offered in this chat; the recipe was rendered tags/
+    );
+    assert.equal(told.recipe, 'r');
+    assert.ok(!('workspace' in told) && !('presentation' in told), 'still the one-payload path');
     const refusal = out.calls.find((c) => c.name === 'lyric_revise').error;
     assert.match(refusal, /outside the active recipe task\. This task's tools are start_recipe;/);
     assert.match(refusal, /lyrics need a Lyrics task, which the user starts\./);

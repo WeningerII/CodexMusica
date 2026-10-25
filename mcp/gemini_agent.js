@@ -2033,7 +2033,16 @@ export async function runTurn({
           responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
           continue;
         }
-        if (task?.domain === 'recipe') args.format = task.format || 'rich';
+        // The host fixes a recipe task's format and `format` is not declared
+        // (taskDeclarations). A model that sends one anyway is still rendered
+        // in the host's format, and told so rather than left to believe it.
+        let formatNote = null;
+        if (task?.domain === 'recipe') {
+          const host = task.format || 'rich';
+          if (args.format !== undefined && args.format !== host)
+            formatNote = `format ${JSON.stringify(String(args.format))} is not offered in this chat; the recipe was rendered ${host}, this task's only recipe format.`;
+          args.format = host;
+        }
         const spent = totalCost();
         const overCost = limits.maxTurnUsd > 0 && (spent === null || spent >= limits.maxTurnUsd);
         if (stopped || interruption(step + 1) || overCost) {
@@ -2328,6 +2337,20 @@ export async function runTurn({
           }
           recordCreation(task, fc.name, args, lyricVerdict, isError);
           result = withSweepNext(task, fc.name, result, lyr);
+          // Inside the JSON payload, never as a second block: a second block
+          // would make block 0 a verbatim "presentation" in toFunctionResponse
+          // and hand the model the workspace that path exists to strip.
+          if (formatNote && !isError && payload && typeof payload === 'object')
+            result = {
+              ...result,
+              content: [
+                {
+                  ...result.content[0],
+                  text: JSON.stringify({ ...payload, format_note: formatNote }),
+                },
+                ...result.content.slice(1),
+              ],
+            };
           if (task?.domain === 'lyrics' && task.phase === 'create' && fc.name === 'lyric_plan') {
             artifact = null;
             task.artifact = null;
