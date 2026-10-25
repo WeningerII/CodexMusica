@@ -34,6 +34,9 @@ const UI = {
   // Focus return: what opened the AI writer, and the instrument preview.
   assistantOpener: null,
   instrumentPreview: null,
+  // The card the recording environment came from at the last sync (uiEnvHandover).
+  envSource: null,
+  envPending: false,
   // Set on the way down when a dialog owns this Escape (see uiEscape).
   escapeOwned: false,
 };
@@ -450,17 +453,23 @@ const UI_ENV_ROWS = [
   ['tuning', 'Tuning', 'tuning-fork', 'env'],
   ['chain', 'Signal chain', 'settings', 'chain'],
 ];
+const uiEnvIsSet = (card) =>
+  !!(
+    card &&
+    (card.room ||
+      card.tuning ||
+      Object.values(card.chain || {}).some((v) => (Array.isArray(v) ? v.length : v)))
+  );
+const uiCardWho = (card) => {
+  const inst = Inst(card.instrumentId);
+  return (inst && (inst.name || inst.short)) || card.instrumentId;
+};
 function uiRecipeEnvHTML() {
   const card = envCardOf(app.cards);
   if (!card) return '';
-  const inst = Inst(card.instrumentId),
-    trad = card.traditionId ? Tradition(card.traditionId) : null;
-  const who = esc((inst && (inst.name || inst.short)) || card.instrumentId);
-  const has = !!(
-    card.room ||
-    card.tuning ||
-    Object.values(card.chain || {}).some((v) => (Array.isArray(v) ? v.length : v))
-  );
+  const trad = card.traditionId ? Tradition(card.traditionId) : null;
+  const who = esc(uiCardWho(card));
+  const has = uiEnvIsSet(card);
   // Every set stage, in chain order; the summary names each by its kind
   // ("Ribbon") or its name without the parenthesis, the tooltip in full.
   const stages = CHAIN_SECTIONS.flatMap((sec) =>
@@ -489,6 +498,39 @@ function uiRecipeEnvHTML() {
     `<p class="recipe-env-source" data-tooltip="Every recipe format renders the room, tuning and signal chain of this one card">${source}</p>`
   );
 }
+// The environment comes from one card. An edit that hands it to another card
+// already in the recipe (a genre group or card moved, the lead card removed,
+// its environment cleared) changes only the panel's source line, so it is
+// said too, as the connector reports ENVIRONMENT_MOVED. A recipe replaced
+// whole (a load, an import, a new recipe), or an environment first set on a
+// recipe that had none, is no hand-over. Read once the edit is done: removing
+// a genre removes its cards one by one, and only where it ends is said.
+function uiEnvHandover() {
+  if (UI.envPending) return;
+  UI.envPending = true;
+  setTimeout(() => {
+    UI.envPending = false;
+    const text = uiEnvHandoverText();
+    if (text) uiAnnounce(text);
+  });
+}
+function uiEnvHandoverText() {
+  const card = envCardOf(app.cards);
+  const prev = UI.envSource;
+  UI.envSource = card
+    ? { id: card.id, ids: new Set(app.cards.map((c) => c.id)), has: uiEnvIsSet(card), card }
+    : null;
+  if (!prev || !card || prev.id === card.id || !prev.has || !prev.ids.has(card.id)) return '';
+  const trad = card.traditionId ? Tradition(card.traditionId) : null;
+  const from = `${uiCardWho(card)} (${trad ? trad.name : 'independent'})`;
+  if (!uiEnvIsSet(card))
+    return `No recording environment is set now. It was on ${uiCardWho(prev.card)}.`;
+  const leads =
+    trad && app.cards[0] === card && card.traditionId !== prev.card.traditionId
+      ? `${trad.name} now leads. `
+      : '';
+  return `${leads}The recording environment now comes from ${from}.`;
+}
 // Opens the shared editor on the environment's source card, at the tab (and,
 // for Room and Tuning, the open picker) that the row names.
 function uiOpenEnvironment(which) {
@@ -496,6 +538,9 @@ function uiOpenEnvironment(which) {
   if (!card) return;
   card._uiTab = which === 'chain' ? 'chain' : 'env';
   card.editingEnv = which === 'room' || which === 'tuning' ? which : null;
+  // On a phone the editor opens inside its genre group in the tree, which
+  // must not stay collapsed around it.
+  if (isMobileLayout()) app.collapsedTraditionGroups?.delete(card.traditionId || '__ungrouped__');
   uiOpenEditor(card.id);
   if (isMobileLayout()) {
     renderSidebarTraditions();
@@ -505,6 +550,22 @@ function uiOpenEnvironment(which) {
       .querySelector(`#detail-view [data-toggle-env="${card.editingEnv}"]`)
       ?.scrollIntoView({ block: 'start' });
   }
+  // Focus goes where the row said it would open: the picker's own header
+  // when it is a button, else its current choice; the chain's first stage;
+  // else the open tab, as Edit does. #detail-view is the editor at every
+  // width (on a phone it is mounted inside the tree).
+  const ed = $ui('detail-view');
+  const row = card.editingEnv && ed?.querySelector(`[data-toggle-env="${card.editingEnv}"]`);
+  const visible = (el) => !!el && el.getClientRects().length > 0;
+  const target = [
+    row?.matches('button') && row,
+    row?.querySelector('.env-options .selected'),
+    row?.querySelector('.env-options button'),
+    which === 'chain' && ed?.querySelector('.chain-stage.editing'),
+    which === 'chain' && ed?.querySelector('.chain-stage'),
+    ed?.querySelector('.detail-tab.is-active'),
+  ].find(visible);
+  uiFocus(target);
 }
 function uiSyncRecipeFilter() {
   const toggle = document.querySelector('[data-ui="recipe-filter"]');
@@ -539,6 +600,7 @@ function uiSync() {
     $ui('recipe-env').innerHTML = env;
     $ui('recipe-env')._html = env;
   }
+  uiEnvHandover();
   $ui('recipe-ai-input').placeholder = n
     ? 'Describe a change to this recipe…'
     : 'Describe the recording you want…';
@@ -1161,6 +1223,17 @@ function uiStart() {
     uiNavigate('genre');
   } else if (UI_PAGES[route.view]) uiNavigate(route.view, { sub: route.sub });
   else uiNavigate('genre');
+}
+
+// Short status lines (a search count, a route notice) go to #ui-live, not to
+// showToast: a toast replaces the one before it, and must not evict an
+// unresolved error and its Retry. Cleared first so a repeat is read again.
+/* exported uiAnnounce */
+function uiAnnounce(text) {
+  const live = document.getElementById('ui-live');
+  if (!live) return;
+  live.textContent = '';
+  if (text) setTimeout(() => (live.textContent = text), 50);
 }
 
 // ── Layers ── Escape closes the topmost open layer only and returns focus to
@@ -1795,6 +1868,9 @@ function uiToggleMenu(trigger) {
   menu.closest('.sb-tradition-header, .sb-card-row')?.classList.add('has-open-menu');
   trigger.setAttribute('aria-expanded', 'true');
   uiMenuOpen = { menu, trigger, stop: UILayout.anchor(menu, trigger, { align: 'end' }) };
+  // One Tab stop: the arrow keys move between items, and Tab leaves the menu
+  // (closing it, below) rather than walking item by item.
+  menu.querySelectorAll('[role="menuitem"]').forEach((item) => (item.tabIndex = -1));
   menu.querySelector('[role="menuitem"]:not(:disabled)')?.focus({ preventScroll: true });
 }
 function uiMenuControls() {
@@ -1831,6 +1907,17 @@ function uiMenuControls() {
           ? items.length - 1
           : (at + (e.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length;
     items[next].focus();
+  });
+  // Focus that leaves an open menu (Tab, Shift+Tab, a click elsewhere) closes
+  // it where focus went, so the trigger's next press opens it again. Read
+  // after the move: a window losing focus keeps the item focused.
+  document.addEventListener('focusout', (e) => {
+    const open = uiMenuOpen;
+    if (!open || !open.menu.contains(e.target)) return;
+    setTimeout(() => {
+      if (uiMenuOpen === open && !open.menu.contains(document.activeElement) && document.hasFocus())
+        uiCloseMenu(false);
+    });
   });
   // A menu whose tree was repainted under it has nothing left to close.
   new MutationObserver(() => {

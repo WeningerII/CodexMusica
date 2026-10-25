@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global document, uiAddGenre, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -229,6 +229,104 @@ async function noOverflow(page) {
           width +
           'px: tree, labels, editor, panes, menus, lyrics, embedded/standalone map, short viewport'
       );
+      await context.close();
+    }
+    for (const width of [1280, 390]) {
+      // Your recipe: a menu is one Tab stop that Tab leaves closed; the
+      // Recording environment rows move focus into what they open; a move or
+      // remove that hands the environment to another card says so (#85–#87).
+      const context = await browser.newContext({ viewport: { width, height: 900 } });
+      await context.route('https://mcp.codexmusica.com/**', (route) =>
+        route.fulfill({ contentType: 'application/json', body: '{"ok":true,"enabled":true}' })
+      );
+      const page = await context.newPage();
+      const errors = [];
+      page.on('pageerror', (e) => errors.push(e.message));
+      await page.goto(base + '/codex.html');
+      await page.locator('.catalog-row, .cm-tile').first().waitFor();
+      await page.evaluate(async () => {
+        await uiAddGenre('delta_blues');
+        await uiAddGenre('bluegrass');
+      });
+      await settle(page);
+      const focused = () =>
+        page.evaluate(() => {
+          const a = document.activeElement;
+          return {
+            tag: a.tagName,
+            env: a.closest('[data-toggle-env]')?.dataset.toggleEnv || '',
+            stage: a.dataset.editChain || '',
+          };
+        });
+      const said = () =>
+        page
+          .waitForFunction(() => document.getElementById('ui-live')?.textContent, null, {
+            timeout: 3000,
+          })
+          .then(
+            () => page.evaluate(() => document.getElementById('ui-live').textContent),
+            () => '(nothing said)'
+          );
+      // On a phone Your recipe is the Recipe sheet.
+      if (width < 900) await page.locator('[data-ui="session"]').click();
+      const toggle = page.locator('[data-menu-toggle][aria-label="Bluegrass actions"]').first();
+      await toggle.focus();
+      await page.keyboard.press('Enter');
+      await settle(page);
+      const items = await page
+        .locator('.sb-menu:not([hidden]) [role="menuitem"]')
+        .evaluateAll((els) => els.map((el) => el.tabIndex));
+      assert.ok(
+        items.length > 1 && items.every((t) => t === -1),
+        `Menus at ${width}px: items are not Tab stops (${items})`
+      );
+      await page.keyboard.press('Tab');
+      await settle(page);
+      assert.equal(
+        await toggle.getAttribute('aria-expanded'),
+        'false',
+        `Menus at ${width}px: Tab out of a menu closes it`
+      );
+      await toggle.focus();
+      await page.keyboard.press('Enter');
+      await settle(page);
+      assert.equal(
+        await toggle.getAttribute('aria-expanded'),
+        'true',
+        `Menus at ${width}px: the trigger's next Enter opens the menu again`
+      );
+      await page.locator('.sb-menu:not([hidden]) [data-move-trad-up="bluegrass"]').click();
+      assert.match(
+        await said(),
+        /^Bluegrass now leads\. The recording environment now comes from .+ \(Bluegrass\)\.$/,
+        `Environment at ${width}px: moving a group up says the environment moved`
+      );
+      await page.evaluate(() => (document.getElementById('ui-live').textContent = ''));
+      // Removing a genre asks nothing (Undo restores it).
+      await page.locator('[data-menu-toggle][aria-label="Bluegrass actions"]').first().click();
+      await page.locator('.sb-menu:not([hidden]) [data-delete-tradition="bluegrass"]').click();
+      assert.match(
+        await said(),
+        /^Delta blues now leads\. The recording environment now comes from .+ \(Delta blues\)\.$/,
+        `Environment at ${width}px: removing the lead group says where the environment went`
+      );
+      for (const [id, want] of [
+        ['room', { env: 'room' }],
+        ['tuning', { env: 'tuning' }],
+        ['chain', { stage: /./ }],
+      ]) {
+        await page.locator(`.recipe-env-row[data-id="${id}"]`).first().focus();
+        await page.keyboard.press('Enter');
+        await settle(page);
+        const f = await focused();
+        assert.ok(
+          f.tag !== 'BODY' && (want.env ? f.env === want.env : want.stage.test(f.stage)),
+          `Environment at ${width}px: the ${id} row moves focus into what it opened: ` +
+            JSON.stringify(f)
+        );
+      }
+      assert.deepEqual(errors, [], 'No browser errors');
+      console.log(`PASS recipe menus, environment rows and hand-over at ${width}px`);
       await context.close();
     }
   } finally {
