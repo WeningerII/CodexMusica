@@ -478,16 +478,26 @@ function gpSoundProfile(id, ext) {
     ''
   )}</ul><div class="gp-detail-foot">${uiButton('genre-sound-from', 'Use as sound targets', 'sliders-horizontal', `class="cm-btn cm-btn-tonal" data-id="${esc(id)}" data-tooltip="Set all 13 Find a sound targets to this profile and list the genres within one step of it"`)}${uiButton('genre-tab', 'Similar sounds', 'arrow-right', `class="cm-btn gp-linkbtn" data-id="similar"`)}</div>`;
 }
+// What a single-instrument Add does with the chosen destination ('' is on
+// its own): the note under the select, and each Add button's name.
+function gpDestNote(dest) {
+  return dest
+    ? `Joins the ${Tradition(dest)?.name || dest} group in Your recipe${gpRecipeCount(dest) ? '' : ' (the group is created)'}.`
+    : 'Added on its own, outside any genre group.';
+}
+function gpDestAddLabel(name, dest) {
+  return dest ? `Add ${name} to ${Tradition(dest)?.name || dest}` : `Add ${name} on its own`;
+}
 function gpInstruments(id, t) {
   const insts = t.instruments || [];
   const others = uiRecipeGenres().filter((g) => g !== id);
   const dest = G.instDest[id] ?? id;
   const opt = (value, label) =>
     `<option value="${esc(value)}"${value === dest ? ' selected' : ''}>${esc(label)}</option>`;
-  return `<div class="gp-dest"><label for="gp-inst-dest">Add single instruments to</label><select id="gp-inst-dest" class="cm-select" data-genre="${esc(id)}">${opt(id, `${t.name} — set up as ${t.name} plays it`)}${others.map((g) => opt(g, `${Tradition(g)?.name || g} — set up as that genre plays it`)).join('')}${opt('', 'Independent instrument — default settings')}</select><span class="gp-note" id="gp-inst-dest-note">${dest ? `Joins the ${esc(Tradition(dest)?.name || dest)} group in Your recipe${gpRecipeCount(dest) ? '' : ' (the group is created)'}.` : 'Added on its own, outside any genre group.'}</span></div><ul class="gp-roster">${insts
+  return `<div class="gp-dest"><label for="gp-inst-dest">Add single instruments to</label><select id="gp-inst-dest" class="cm-select" data-genre="${esc(id)}" aria-describedby="gp-inst-dest-note">${opt(id, `${t.name} — set up as ${t.name} plays it`)}${others.map((g) => opt(g, `${Tradition(g)?.name || g} — set up as that genre plays it`)).join('')}${opt('', 'Independent instrument — default settings')}</select><span class="gp-note" id="gp-inst-dest-note" aria-live="polite">${esc(gpDestNote(dest))}</span></div><ul class="gp-roster">${insts
     .map((i) => {
       const name = InstLite(i)?.name || i;
-      return `<li class="gp-roster-row">${image(i, 30)}<button type="button" class="gp-link gp-roster-name" data-ui="instrument-inspect" data-id="${esc(i)}" aria-label="Inspect ${esc(name)} on the Instrument page">${esc(name)}</button>${listenLink(name, true)}${uiButton('genre-inst-add', 'Add', 'plus', `class="cm-btn cm-btn-tonal" data-id="${esc(i)}" data-genre="${esc(id)}" aria-label="Add ${esc(name)} to the chosen destination"`)}</li>`;
+      return `<li class="gp-roster-row">${image(i, 30)}<button type="button" class="gp-link gp-roster-name" data-ui="instrument-inspect" data-id="${esc(i)}" aria-label="Inspect ${esc(name)} on the Instrument page">${esc(name)}</button>${listenLink(name, true)}${uiButton('genre-inst-add', 'Add', 'plus', `class="cm-btn cm-btn-tonal" data-id="${esc(i)}" data-genre="${esc(id)}" data-name="${esc(name)}" aria-label="${esc(gpDestAddLabel(name, dest))}"`)}</li>`;
     })
     .join(
       ''
@@ -1160,12 +1170,16 @@ uiRegisterPage({
       if (e.target.id === 'gp-inst-dest') {
         const genre = e.target.dataset.genre;
         G.instDest[genre] = e.target.value;
-        const note = $ui('gp-inst-dest-note');
         const dest = e.target.value;
-        if (note)
-          note.textContent = dest
-            ? `Joins the ${Tradition(dest)?.name || dest} group in Your recipe${gpRecipeCount(dest) ? '' : ' (the group is created)'}.`
-            : 'Added on its own, outside any genre group.';
+        // Each Add names where it adds; the note (a polite live region,
+        // updated in place) says it once the choice settles.
+        for (const b of surface.querySelectorAll('[data-ui="genre-inst-add"][data-name]'))
+          b.setAttribute('aria-label', gpDestAddLabel(b.dataset.name, dest));
+        clearTimeout(G.instDestTimer);
+        G.instDestTimer = setTimeout(() => {
+          const note = $ui('gp-inst-dest-note');
+          if (note) note.textContent = gpDestNote(dest);
+        }, 300);
       }
     });
     // A manifest image that fails to load falls back to the glyph beside it.

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global InstLite, document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -229,6 +229,84 @@ async function noOverflow(page) {
           width +
           'px: tree, labels, editor, panes, menus, lyrics, embedded/standalone map, short viewport'
       );
+      await context.close();
+    }
+    {
+      // Genre › Instruments: the destination is named on each Add and its
+      // note is tied to the select and said once; the toast names the
+      // instrument; the Instrument inspector's Similar items are a list.
+      const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+      await context.route('https://mcp.codexmusica.com/**', (route) =>
+        route.fulfill({ contentType: 'application/json', body: '{"ok":true,"enabled":true}' })
+      );
+      const page = await context.newPage();
+      const errors = [];
+      page.on('pageerror', (e) => errors.push(e.message));
+      await page.goto(base + '/codex.html');
+      await page.locator('.catalog-row, .cm-tile').first().waitFor();
+      await page.getByLabel('Search genres').fill('Delta blues');
+      await page.locator('[data-ui="genre-select"]').first().click();
+      await page.locator('#gp-tab-instruments').click();
+      const select = page.locator('#gp-inst-dest');
+      await select.waitFor();
+      const first = page.locator('[data-ui="genre-inst-add"]').first();
+      const before = await page.evaluate(() => ({
+        described: document.getElementById('gp-inst-dest').getAttribute('aria-describedby'),
+        live: document.getElementById('gp-inst-dest-note')?.getAttribute('aria-live'),
+      }));
+      assert.deepEqual(
+        before,
+        { described: 'gp-inst-dest-note', live: 'polite' },
+        'Genre instruments: the destination note is tied to the select and announced'
+      );
+      assert.match(
+        (await first.getAttribute('aria-label')) || '',
+        /^Add .+ to (?!the chosen destination).+$/,
+        'Genre instruments: each Add names its destination'
+      );
+      await select.selectOption('');
+      await page.waitForTimeout(500);
+      assert.equal(
+        await page.evaluate(() => document.getElementById('gp-inst-dest-note').textContent),
+        'Added on its own, outside any genre group.',
+        'Genre instruments: choosing "on its own" updates the note'
+      );
+      assert.match(
+        (await first.getAttribute('aria-label')) || '',
+        /^Add .+ on its own$/,
+        'Genre instruments: Add says it adds on its own'
+      );
+      const id = await first.getAttribute('data-id');
+      await first.click();
+      await page.waitForFunction(
+        () => /Added/.test(document.getElementById('toast').textContent),
+        null,
+        {
+          timeout: 20000,
+        }
+      );
+      const toast = await page.evaluate(
+        (i) => ({
+          text: document.getElementById('toast').textContent,
+          name: InstLite(i)?.name,
+        }),
+        id
+      );
+      assert.ok(
+        toast.name && toast.text.includes('Added ' + toast.name),
+        'Toast: an added instrument is named by its display name: ' + JSON.stringify(toast)
+      );
+      await page.getByRole('button', { name: 'Instrument', exact: true }).first().click();
+      await page.locator('#surface-instrument .cm-tile-name').first().click();
+      await page.locator('#ip-similar').waitFor();
+      assert.ok(
+        (await page.locator('#ip-similar').getByRole('listitem').count()) > 0 &&
+          (await page.locator('#ip-similar').getByRole('listitem').count()) ===
+            (await page.locator('#ip-similar .ip-sim-main').count()),
+        'Instrument: Similar instruments are a list, one item per instrument'
+      );
+      assert.deepEqual(errors, [], 'No browser errors');
+      console.log('PASS genre instruments destination, add toast name, similar list at 1280px');
       await context.close();
     }
   } finally {

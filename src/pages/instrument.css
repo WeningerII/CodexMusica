@@ -852,6 +852,11 @@
 .ip-similar h3 {
   margin: 8px 0 0;
 }
+.ip-sims {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 .ip-sim {
   display: flex;
   align-items: center;
