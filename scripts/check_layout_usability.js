@@ -249,7 +249,21 @@ async function noOverflow(page) {
       await page.addInitScript(() => {
         window.__toasts = [];
         window.__live = [];
+        // When #ui-live first speaks, relative to DOMContentLoaded, and whether
+        // the page it speaks for had rendered by then.
+        window.__liveFirst = null;
         document.addEventListener('DOMContentLoaded', () => {
+          const dcl = performance.now();
+          const live = document.getElementById('ui-live');
+          if (live)
+            new MutationObserver(() => {
+              if (window.__liveFirst || !live.textContent.trim()) return;
+              const s = document.querySelector('.ui-surface:not([hidden])');
+              window.__liveFirst = {
+                after: Math.round(performance.now() - dcl),
+                rendered: !!s && s.querySelectorAll('button, a[href]').length > 0,
+              };
+            }).observe(live, { childList: true, characterData: true, subtree: true });
           for (const [id, log] of [
             ['toast', window.__toasts],
             ['ui-live', window.__live],
@@ -361,6 +375,77 @@ async function noOverflow(page) {
         (await lives()).some((t) => /didn’t match an instrument/.test(t)),
         'Routes: an instrument link that matched nothing says so: ' + JSON.stringify(await lives())
       );
+      // At boot it is said once the page has rendered and settled, not in the
+      // first moments of the load, when screen readers drop polite updates.
+      const first = await page.evaluate(() => window.__liveFirst);
+      assert.ok(
+        first && first.after >= 1000 && first.rendered,
+        'Routes: at boot the notice is spoken after the page renders: ' + JSON.stringify(first)
+      );
+      // Said and shown: a slim note above the page, never a toast and never
+      // focused, until it is dismissed or another page is opened.
+      const note = () =>
+        page.evaluate(() => {
+          const n = document.getElementById('ui-route-note');
+          return {
+            shown: !!n && !n.hidden && n.getClientRects().length > 0,
+            text: n?.querySelector('.ui-route-note-text')?.textContent || '',
+            focused: !!n?.contains(document.activeElement),
+          };
+        });
+      assert.deepEqual(
+        await note(),
+        {
+          shown: true,
+          text: 'That link didn’t match an instrument, so here are all instruments.',
+          focused: false,
+        },
+        'Routes: an unmatched instrument link shows a visible note that does not take focus'
+      );
+      await page.evaluate(() => (window.location.hash = '#genre/zzqx_other_genre'));
+      await page.waitForFunction(() =>
+        /didn’t match a genre/.test(document.getElementById('ui-route-note')?.textContent)
+      );
+      assert.deepEqual(
+        await note(),
+        {
+          shown: true,
+          text: 'That link didn’t match a genre, so here are all genres.',
+          focused: false,
+        },
+        'Routes: an unmatched genre link shows the note on the genres'
+      );
+      await page.setViewportSize({ width: 390, height: 780 });
+      assert.deepEqual(
+        await page.evaluate(() => {
+          const n = document.getElementById('ui-route-note');
+          const s = document.getElementById('surface-genre');
+          return {
+            fits: n.scrollWidth <= n.clientWidth && document.documentElement.scrollWidth <= 390,
+            below: s.getBoundingClientRect().top >= n.getBoundingClientRect().bottom - 1,
+            target: n.querySelector('button').getBoundingClientRect().height >= 24,
+          };
+        }),
+        { fits: true, below: true, target: true },
+        'Routes: at 390 the note fits, covers nothing and its Dismiss is a 24px target'
+      );
+      await page.setViewportSize({ width: 1280, height: 900 });
+      await page.locator('#ui-route-note button').focus();
+      await page.keyboard.press('Enter');
+      assert.deepEqual(
+        await page
+          .evaluate(() => ({
+            shown: !document.getElementById('ui-route-note').hidden,
+            focus: document.activeElement?.tagName,
+          }))
+          .then((r) => ({ shown: r.shown, lost: r.focus === 'BODY' })),
+        { shown: false, lost: false },
+        'Routes: Dismiss hides the note without dropping focus'
+      );
+      await page.evaluate(() => (window.location.hash = '#nonsense'));
+      await page.waitForFunction(() => !document.getElementById('ui-route-note').hidden);
+      await page.getByRole('button', { name: 'Instrument', exact: true }).first().click();
+      assert.equal((await note()).shown, false, 'Routes: opening another page clears the note');
       // The standalone map: Try again keeps the keyboard and says it in words.
       let atlasDown = true;
       await page.route('**/api/traditions/index.json', (route) =>
