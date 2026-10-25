@@ -38,6 +38,7 @@ const G = {
   images: null, // the tradition photos, when they can be read
   optionalScheduled: false, // gpLoadOptional is queued for after the first paint
   namesOnly: false, // the list on screen is a search over names only (prose still to come)
+  proseRetry: null, // { id, key }: the prose slot whose Retry was pressed; focus follows it
 };
 const GP_FEATURED_AXES = ['soundTech', 'density', 'voice'];
 const GP_ROOTS_SHOWN = 10;
@@ -126,12 +127,18 @@ function gpLede(id, max = 170) {
 // rebuilt (uiTilesPhotos says why), except a search drawn over names only,
 // which redraws once, as a keystroke would. The embedded build has every
 // genre's prose from the start and never draws a pending slot.
-function gpProseRetry() {
-  return uiButton('genre-prose-retry', 'Retry', 'refresh-cw', 'class="cm-btn gp-linkbtn"');
+// Named for what it retries: a detail can show two Retry buttons at once.
+function gpProseRetry(what) {
+  return uiButton(
+    'genre-prose-retry',
+    'Retry',
+    'refresh-cw',
+    `class="cm-btn gp-linkbtn" aria-label="Retry loading ${esc(what)}"`
+  );
 }
 function gpPendingNote(id, what, retry) {
   return Catalog.proseState(id) === 'failed'
-    ? `<p class="gp-note">Couldn’t load ${what}.${retry ? ' ' + gpProseRetry() : ''}</p>`
+    ? `<p class="gp-note">Couldn’t load ${what}.${retry ? ' ' + gpProseRetry(what) : ''}</p>`
     : `<p class="gp-note" role="status">Loading ${what}…</p>`;
 }
 function gpLedeHTML(id) {
@@ -141,7 +148,7 @@ function gpLedeHTML(id) {
     return l ? `<p class="gp-lede">${esc(l)}</p>` : '';
   }
   return st === 'failed'
-    ? `<p class="gp-lede" data-prose-pending="lede">Couldn’t load the description. ${gpProseRetry()}</p>`
+    ? `<p class="gp-lede" data-prose-pending="lede">Couldn’t load the description. ${gpProseRetry('the description')}</p>`
     : `<p class="gp-lede" data-prose-pending="lede" role="status">Loading the description…</p>`;
 }
 function gpRowDescHTML(id) {
@@ -559,11 +566,37 @@ const GP_PROSE_SLOTS = {
   about: (id) => gpBgAboutHTML(id, Tradition(id), Catalog.ext(id) || {}),
   recordings: (id) => gpBgRecordingsHTML(id, Catalog.ext(id) || {}),
 };
+// A pressed Retry is replaced with its slot, so focus would fall to the page:
+// it follows the slot instead (the loading note, then the prose or the next
+// Retry), unless the person has moved it somewhere else meanwhile.
 function gpApplyProse() {
+  const want = G.proseRetry;
+  let hit = null;
   for (const el of document.querySelectorAll('#surface-genre [data-prose-pending]')) {
     const id = el.closest('[data-gp-id]')?.dataset.gpId,
-      slot = GP_PROSE_SLOTS[el.dataset.prosePending];
-    if (id && slot && Tradition(id)) el.outerHTML = slot(id);
+      key = el.dataset.prosePending,
+      slot = GP_PROSE_SLOTS[key];
+    if (!(id && slot && Tradition(id))) continue;
+    const t = document.createElement('template');
+    t.innerHTML = slot(id);
+    const node = t.content.firstElementChild;
+    const parent = el.parentElement;
+    el.replaceWith(t.content);
+    if (want && want.id === id && want.key === key) hit = { node, parent };
+  }
+  if (hit) {
+    const a = document.activeElement;
+    if (!a || a === document.body || !a.isConnected) {
+      const target =
+        hit.node?.querySelector('[data-ui="genre-prose-retry"]') ||
+        hit.node ||
+        hit.parent?.closest('[data-gp-id]')?.querySelector('h1, h2');
+      if (target) {
+        if (!target.matches('button, a, input, select, textarea')) target.tabIndex = -1;
+        target.focus({ preventScroll: true });
+      }
+    }
+    if (Catalog.proseState(want.id) !== 'loading') G.proseRetry = null;
   }
   if (G.namesOnly) gpScheduleList();
 }
@@ -807,7 +840,14 @@ function gpNoResults(q, node, targets) {
           ? 'The descriptions could not be loaded, so only names were searched.'
           : 'Lineage and descriptions are still loading; genres they match will appear here when they arrive.'),
       actions:
-        (failed ? uiButton('genre-prose-retry', 'Retry', 'refresh-cw') : '') +
+        (failed
+          ? uiButton(
+              'genre-prose-retry',
+              'Retry',
+              'refresh-cw',
+              'aria-label="Retry loading the descriptions"'
+            )
+          : '') +
         uiButton('genre-clear-search', 'Clear search', 'x') +
         (node ? uiButton('genre-all', 'All genres', 'arrow-left') : '') +
         (targets.length ? uiButton('genre-sound-reset', 'Clear sound targets', 'x') : ''),
@@ -1358,7 +1398,15 @@ uiRegisterPage({
       uiFocus($ui('gp-count'));
     },
     'genre-prose-retry'() {
-      Catalog.loadProse().catch(() => {});
+      const slot = document.activeElement?.closest?.('[data-prose-pending]');
+      const id = slot?.closest('[data-gp-id]')?.dataset.gpId;
+      G.proseRetry = id ? { id, key: slot.dataset.prosePending } : null;
+      // The outcome is announced once it settles (the slots have been
+      // redrawn by then: Catalog.onProse runs first).
+      Catalog.loadProse().then(
+        () => uiAnnounce('Description loaded.'),
+        () => uiAnnounce('Still couldn’t load the description.')
+      );
       gpApplyProse();
     },
     async 'genre-sound-match'() {

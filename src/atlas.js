@@ -2781,6 +2781,7 @@
     syncControls();
     fitPoints([route.a, route.b]);
     draw();
+    announce('Route: ' + route.label + ', 2 endpoints');
   }
 
   function clearRoute() {
@@ -2815,6 +2816,13 @@
 
   function wireControls() {
     wireStack();
+    // The link's own jump would also rewrite the URL hash; just move focus.
+    var skip = document.querySelector('.skip-map');
+    if (skip)
+      skip.addEventListener('click', function (e) {
+        e.preventDefault();
+        el.host.focus();
+      });
 
     $('zoom-in').addEventListener('click', function () {
       var r = el.host.getBoundingClientRect();
