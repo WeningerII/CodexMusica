@@ -278,7 +278,7 @@ const CSS = `
 #surface-library .lib-rail[hidden]{display:none}
 #surface-library .lib-rail-head{display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid var(--cm-border-subtle,var(--cm-border))}
 #surface-library .lib-rail-head strong{flex:1}
-#surface-library .lib-rail-head select{max-width:110px;min-height:30px;border:1px solid var(--cm-border);border-radius:var(--cm-radius-md,8px);background:var(--cm-surface);color:var(--cm-text);font:inherit;font-size:12px}
+#surface-library .lib-rail-head select{max-width:110px;min-height:30px;border:1px solid var(--cm-control-border,var(--cm-border));border-radius:var(--cm-radius-md,8px);background:var(--cm-surface);color:var(--cm-text);font:inherit;font-size:12px}
 #surface-library .lib-rail-scroll{flex:1;overflow-y:auto;position:relative;min-height:200px}
 #surface-library .lib-rail-spacer{position:relative}
 #surface-library .lib-spine{position:absolute;left:0;right:0;height:52px;display:flex;align-items:center;gap:10px;padding:0 12px;border:0;border-bottom:1px solid var(--cm-border-subtle,var(--cm-border));background:transparent;color:var(--cm-text);text-align:left;cursor:pointer;font:inherit}
