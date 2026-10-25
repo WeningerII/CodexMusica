@@ -98,21 +98,40 @@ export function newRunId(_key, rand = () => randomBytes(32).toString('hex')) {
 // question) is not moved past, so it stays usable.
 export const LEDGER_RETAIN_MS = 30 * 24 * 60 * 60 * 1000;
 export const LEDGER_CAP = 5000;
+// Runs on the paid writer (the website chat's kitchen) are kept apart: free
+// calls cannot push them out of the cap (BB8's R3), and they do not age out,
+// because a signed /chat envelope does not expire. Their cap is count only.
+export const LEDGER_PAID_CAP = 20000;
 const digest = (runId) => createHash('sha256').update(String(runId)).digest('hex').slice(0, 32);
+const RUN_ENTRY = (v) =>
+  Array.isArray(v) &&
+  Number.isSafeInteger(v[0]) &&
+  v[0] > 0 &&
+  (v[1] === 0 || v[1] === 1) &&
+  Number.isFinite(v[2]);
 
 export class RunLedger {
   constructor(file = null, { now = () => Date.now(), log = console.error } = {}) {
     this.file = file;
     this.now = now;
     this.log = log;
-    this.runs = new Map(); // digest -> [revision, finished 0|1, updated_at]
-    this.used = new Map(); // wire digest -> updated_at
+    // digest -> [revision, finished 0|1, updated_at]; free and paid apart.
+    this.runs = new Map();
+    this.paidRuns = new Map();
+    // wire digest -> updated_at; free and paid apart.
+    this.used = new Map();
+    this.paidUsed = new Map();
     // Fails closed (3PO, BB8 N3): a ledger that cannot be read or saved
     // cannot tell a stale continuation from a live one, so while it is
     // unhealthy every continuation is refused (lyric_tools) — as unreadable
     // spend persistence closes paid chat. A fresh run is unaffected.
     this.healthy = true;
     this.error = null;
+    // A file that failed to load is never written over (BB8's R1): saving the
+    // empty in-memory ledger would replace the unreadable history with a
+    // readable empty one, and after a restart every older continuation it
+    // covered would pass.
+    this.loadFailed = false;
     if (!file) return;
     // A temp file left by a kill between write and rename is never read.
     try {
@@ -123,20 +142,24 @@ export class RunLedger {
     } catch {}
     try {
       const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
-      for (const [k, t] of Object.entries(raw?.used || {}))
-        if (/^[0-9a-f]{32}$/.test(k) && Number.isFinite(t)) this.used.set(k, t);
-      for (const [k, v] of Object.entries(raw?.runs || {}))
-        if (
-          /^[0-9a-f]{32}$/.test(k) &&
-          Array.isArray(v) &&
-          Number.isSafeInteger(v[0]) &&
-          v[0] > 0 &&
-          (v[1] === 0 || v[1] === 1) &&
-          Number.isFinite(v[2])
-        )
-          this.runs.set(k, v);
+      if (!raw || typeof raw !== 'object') throw new Error('ledger is not an object');
+      for (const [key, map] of [
+        ['used', this.used],
+        ['paid_used', this.paidUsed],
+      ])
+        for (const [k, t] of Object.entries(raw[key] || {}))
+          if (/^[0-9a-f]{32}$/.test(k) && Number.isFinite(t)) map.set(k, t);
+      for (const [key, map] of [
+        ['runs', this.runs],
+        ['paid_runs', this.paidRuns],
+      ])
+        for (const [k, v] of Object.entries(raw[key] || {}))
+          if (/^[0-9a-f]{32}$/.test(k) && RUN_ENTRY(v)) map.set(k, v);
     } catch (err) {
-      if (err.code !== 'ENOENT') this.fail(err, 'unreadable');
+      if (err.code !== 'ENOENT') {
+        this.loadFailed = true;
+        this.fail(err, 'unreadable');
+      }
     }
   }
   fail(err, what) {
@@ -147,28 +170,33 @@ export class RunLedger {
     );
   }
   get(runId) {
-    const v = this.runs.get(digest(runId));
+    const k = digest(runId);
+    const v = this.paidRuns.get(k) || this.runs.get(k);
     return v ? { revision: v[0], finished: v[1] === 1 } : null;
   }
-  // True when any of these wires is one a run has already moved past.
-  isUsed(wires) {
-    return wires.some((w) => typeof w === 'string' && this.used.has(digest(w)));
+  // True when any of these wire keys is one a run has already moved past.
+  isUsed(keys) {
+    return keys.some(
+      (w) => typeof w === 'string' && (this.paidUsed.has(digest(w)) || this.used.has(digest(w)))
+    );
   }
   // runId may be null: a call with no run record still uses up its wires.
-  mark(runId, revision, finished = false, usedWires = []) {
+  mark(runId, revision, finished = false, usedKeys = [], { paid = false } = {}) {
     const t = this.now();
+    const runs = paid ? this.paidRuns : this.runs;
+    const used = paid ? this.paidUsed : this.used;
     if (runId) {
       const k = digest(runId);
-      const was = this.runs.get(k);
+      const was = this.paidRuns.get(k) || this.runs.get(k);
       // A revision only moves forward, and a finished run stays finished.
       const v = [Math.max(revision, was?.[0] ?? 0), finished || was?.[1] === 1 ? 1 : 0, t];
-      this.runs.delete(k);
-      this.runs.set(k, v);
+      runs.delete(k);
+      runs.set(k, v);
     }
-    for (const w of usedWires)
+    for (const w of usedKeys)
       if (typeof w === 'string') {
-        this.used.delete(digest(w));
-        this.used.set(digest(w), t);
+        used.delete(digest(w));
+        used.set(digest(w), t);
       }
     const cutoff = t - LEDGER_RETAIN_MS;
     for (const map of [this.runs, this.used])
@@ -176,18 +204,25 @@ export class RunLedger {
         if ((Array.isArray(val) ? val[2] : val) >= cutoff && map.size <= LEDGER_CAP) break;
         map.delete(key);
       }
+    for (const map of [this.paidRuns, this.paidUsed])
+      for (const key of map.keys()) {
+        if (map.size <= LEDGER_PAID_CAP) break;
+        map.delete(key);
+      }
     this.save();
   }
   save() {
-    if (!this.file) return;
+    if (!this.file || this.loadFailed) return;
     const temp = `${this.file}.${randomBytes(8).toString('hex')}.tmp`;
     const dir = path.dirname(this.file);
     try {
       fs.mkdirSync(dir, { recursive: true, mode: 0o700 });
       const body = JSON.stringify({
-        version: 1,
+        version: 2,
         runs: Object.fromEntries(this.runs),
         used: Object.fromEntries(this.used),
+        paid_runs: Object.fromEntries(this.paidRuns),
+        paid_used: Object.fromEntries(this.paidUsed),
       });
       // Replaced atomically after a file and a directory fsync, as the other
       // runtime files are (LYRICS_RUNTIME.md): the guard is only as good as
@@ -228,11 +263,16 @@ export class RunStore {
     cap = RUN_CAP,
     now = () => Date.now(),
     ledger = new RunLedger(null, { now }),
+    // How a continuation wire is identified in the ledger: by its content,
+    // not its bytes, so a re-spaced or re-encoded copy of a moved-past wire
+    // is still that wire (BB8's R2). lyric_tools passes the decoder.
+    wireKey = (w) => w,
   } = {}) {
     this.ttlMs = ttlMs;
     this.cap = cap;
     this.now = now;
     this.ledger = ledger;
+    this.wireKey = (w) => (typeof w === 'string' ? wireKey(w) : null);
     this.locks = new Set();
     this.map = new Map(); // opaque run_id -> record, insertion order = recency
   }
@@ -242,7 +282,7 @@ export class RunStore {
   }
   // True when a continuation wire this call carries was already moved past.
   used(wires) {
-    return this.ledger.isUsed(wires);
+    return this.ledger.isUsed(wires.map(this.wireKey));
   }
   get ledgerHealthy() {
     return this.ledger.healthy !== false;
@@ -296,7 +336,7 @@ export class RunStore {
   }
   // `inputs`: the state/checkpoint wires the call continued from; each one
   // this record moves past is recorded as used.
-  put(key, rec, inputs = []) {
+  put(key, rec, inputs = [], { paid = false } = {}) {
     const previous = rec.run_id ? this.map.get(rec.run_id) : null;
     const r = {
       ...rec,
@@ -313,22 +353,26 @@ export class RunStore {
     };
     this.map.delete(r.run_id);
     this.map.set(r.run_id, r);
+    const held = new Set([r.state, r.checkpoint].map(this.wireKey));
     this.ledger.mark(
       r.run_id,
       r.revision,
       false,
-      inputs.filter((w) => w !== r.state && w !== r.checkpoint)
+      inputs.map(this.wireKey).filter((k) => k != null && !held.has(k)),
+      { paid }
     );
     this._sweep();
     return r;
   }
   // A clean finish: the record goes, the ledger remembers it finished and
   // that the wires it finished on are used. runId may be null (no record).
-  finish(runId, inputs = []) {
+  finish(runId, inputs = [], { paid = false } = {}) {
     const revision = runId
       ? (this.map.get(runId)?.revision ?? this.ledger.get(runId)?.revision)
       : null;
-    this.ledger.mark(revision ? runId : null, revision ?? 0, true, inputs);
+    this.ledger.mark(revision ? runId : null, revision ?? 0, true, inputs.map(this.wireKey), {
+      paid,
+    });
     if (runId) this.map.delete(runId);
   }
   del(runId) {

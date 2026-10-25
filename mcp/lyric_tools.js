@@ -349,7 +349,29 @@ const EXIT_MEANING = {
 // the budget's LAST attempt is `unknown` here (rejected-and-exhausted and
 // accepted both move to another line) and is left so, never guessed.
 // Cache only by unguessable run capability; a seed never identifies an owner.
-export const RUNS = new RunStore({ ledger: createRunLedger() });
+// A wire's ledger identity is its decoded content in a canonical key order;
+// one that does not decode is keyed by its bytes (it cannot run anyway).
+function canonicalJSON(v) {
+  if (Array.isArray(v)) return '[' + v.map(canonicalJSON).join(',') + ']';
+  if (v && typeof v === 'object')
+    return (
+      '{' +
+      Object.keys(v)
+        .sort()
+        .map((k) => JSON.stringify(k) + ':' + canonicalJSON(v[k]))
+        .join(',') +
+      '}'
+    );
+  return JSON.stringify(v);
+}
+function wireKey(wire) {
+  try {
+    return canonicalJSON(decodeState(wire));
+  } catch {
+    return wire;
+  }
+}
+export const RUNS = new RunStore({ ledger: createRunLedger(), wireKey });
 
 export const CONNECTOR_ATTEMPTS = 1;
 // THE KITCHEN'S OWN ATTEMPTS (M-257, round 24). One attempt per line was
@@ -3127,7 +3149,8 @@ export function registerLyricTools(server, tool) {
                       (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
                     run_id: runId,
                   },
-                  inputWires
+                  inputWires,
+                  { paid: writer === 'kitchen' }
                 );
                 result.run_id = saved.run_id;
                 result.run_revision = saved.revision;
@@ -3171,7 +3194,8 @@ export function registerLyricTools(server, tool) {
                         answers: onRecord,
                         run_id: runId,
                       },
-                      inputWires
+                      inputWires,
+                      { paid: writer === 'kitchen' }
                     )
                   : null;
                 const answerField =
@@ -3292,12 +3316,15 @@ export function registerLyricTools(server, tool) {
                         : [],
                       run_id: runId,
                     },
-                    inputWires
+                    inputWires,
+                    { paid: writer === 'kitchen' }
                   );
                   verdict.run_id = parkedRec.run_id;
                   verdict.run_revision = parkedRec.revision;
                 } else if (runKey && r.code === 0) {
-                  RUNS.finish(runRec || ledgerMark ? runId : null, inputWires);
+                  RUNS.finish(runRec || ledgerMark ? runId : null, inputWires, {
+                    paid: writer === 'kitchen',
+                  });
                   verdict.run_id = runRec?.run_id ?? null;
                   verdict.run_revision = runRec?.revision ?? null;
                 }
@@ -3402,7 +3429,8 @@ export function registerLyricTools(server, tool) {
                         (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
                       run_id: runId,
                     },
-                    inputWires
+                    inputWires,
+                    { paid: writer === 'kitchen' }
                   );
                   other.run_id = saved.run_id;
                   other.run_revision = saved.revision;

@@ -29,7 +29,7 @@ import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
 import { RUNS } from './lyric_tools.js';
-import { RunLedger, RunStore } from './run_store.js';
+import { LEDGER_CAP, RunLedger, RunStore } from './run_store.js';
 
 const server = buildServer({ task: { domain: 'lyrics' } });
 const client = new Client({ name: 'run-ledger', version: '1' }, { capabilities: {} });
@@ -134,6 +134,12 @@ try {
     assert.equal(againBare.isError, true, text(againBare).slice(0, 300));
     assert.match(text(againBare), /already continued/);
   });
+  const respaced = JSON.stringify(JSON.parse(s1.state), null, 1);
+  const staleRespaced = await call({ state: respaced, answer: 'I hold you.' });
+  check('a re-spaced copy of a moved-past state is the same state, refused (BB8 R2)', () => {
+    assert.equal(staleRespaced.isError, true, text(staleRespaced).slice(0, 300));
+    assert.match(text(staleRespaced), /already continued/);
+  });
   const recovered = await call({ state: s1.state, recover_only: true });
   check('recover_only still reads a moved-past state', () =>
     assert.notEqual(recovered.isError, true, text(recovered).slice(0, 300))
@@ -223,6 +229,16 @@ try {
     check('and so is a state with no run_id', () =>
       assert.match(text(closedBare), /RUN_LEDGER_UNAVAILABLE/)
     );
+    corrupt.mark('run_new_song', 1);
+    check('a file that failed to load is never written over (BB8 R1)', () =>
+      assert.equal(fs.readFileSync(path.join(bad, 'run-ledger.json'), 'utf8'), '{not json')
+    );
+    check('so a restart still finds it unreadable, and still refuses', () =>
+      assert.equal(
+        new RunLedger(path.join(bad, 'run-ledger.json'), { log: () => {} }).healthy,
+        false
+      )
+    );
     const unsaved = new RunLedger(path.join(bad, 'run-ledger.json', 'not-a-dir', 'x.json'), {
       log: () => {},
     });
@@ -233,6 +249,25 @@ try {
   } finally {
     RUNS.ledger = healthyLedger;
     fs.rmSync(bad, { recursive: true, force: true });
+  }
+
+  // ── Paid runs apart (BB8 R3) ──────────────────────────────────────────
+  // Free calls cannot push a paid (website writer) run's wires out of the
+  // cap, and paid entries do not age out.
+  {
+    let clock = 0;
+    const ledger = new RunLedger(null, { now: () => clock });
+    ledger.mark('run_paid', 2, false, ['paid-wire'], { paid: true });
+    for (let i = 0; i < LEDGER_CAP + 10; i++) ledger.mark(`run_free_${i}`, 1, false, [`w${i}`]);
+    clock += 40 * 24 * 60 * 60 * 1000; // past the 30-day retention
+    ledger.mark('run_free_late', 1, false, ['late']);
+    check('a paid wire survives a flood of free ones and the 30-day retention', () => {
+      assert.equal(ledger.isUsed(['paid-wire']), true);
+      assert.deepEqual(ledger.get('run_paid'), { revision: 2, finished: false });
+    });
+    check('while the free entries stay within their own cap and age', () =>
+      assert.ok(ledger.used.size <= LEDGER_CAP && !ledger.isUsed(['w0']))
+    );
   }
 
   // ── The ledger file ──────────────────────────────────────────────────
