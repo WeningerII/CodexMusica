@@ -4829,10 +4829,18 @@ function lyPlaceLineBar() {
     } else if (kept) {
       if (kept.menu) LY.menu = '';
       lyInspectionRenderDock();
+      // Only a control that fell with the redraw is put back. Opening an
+      // inspection swaps the dock's buttons (Relations becomes Back to
+      // relations) and the inspector places focus itself, so no stand-in
+      // dock button takes it there (R2, from BB8's 3d run).
+      const fell =
+        !document.activeElement ||
+        document.activeElement === document.body ||
+        !document.activeElement.isConnected;
       const buttons = [...dock.querySelectorAll('button:not([disabled])')].filter(
         (b) => b.getClientRects().length
       );
-      (same(buttons) || buttons[0])?.focus({ preventScroll: true });
+      if (fell) (same(buttons) || (inspecting ? null : buttons[0]))?.focus({ preventScroll: true });
     }
   }
   dock.setAttribute('aria-label', row ? `Line ${n} actions` : 'Song actions');

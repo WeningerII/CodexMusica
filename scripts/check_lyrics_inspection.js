@@ -243,6 +243,17 @@ const settle = (p) => p.waitForTimeout(120);
         await settle(p);
         const original = await state(p);
         await click(p, 'ly-relations');
+        // Opening Relations swaps the dock's buttons; the dock's redraw must
+        // not hand focus to its new Back to relations button and pull it out
+        // of the inspector (R2, from BB8's 3d run).
+        const opened = await p.evaluate(() => {
+          const a = document.activeElement;
+          return { ui: a?.dataset?.ui || a?.tagName, inDock: !!a?.closest('#ly-linedock') };
+        });
+        check(
+          !opened.inDock,
+          `${label} opening Relations moved focus into the dock (${opened.ui})`
+        );
         check(
           (await p.locator('[data-ui="ly-relation-source"]:visible').count()) > 1,
           label + ' source choice shown'
