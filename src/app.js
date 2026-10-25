@@ -15261,7 +15261,10 @@ function renderSidebarTraditions() {
 const _KEEP_KEYS = ['data-toggle-part', 'data-toggle-env', 'data-set-part', 'data-variant', 'data-edit-chain'];
 let _treeHold = false;
 function _treeScrollKeep(el) {
-  if (!isMobileLayout() || !el || _treeHold) return () => {};
+  // Only while the Recipe sheet is open: measuring a closed tree (at boot, say)
+  // would force a layout for nothing a person can see.
+  if (!document.body.classList.contains('session-open') || !isMobileLayout() || !el || _treeHold)
+    return () => {};
   const box = _dndScrollParent(el) || document.scrollingElement;
   if (!box) return () => {};
   _treeHold = true;
