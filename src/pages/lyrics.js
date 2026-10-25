@@ -5709,7 +5709,8 @@ function lyRefresh(now = false) {
 // (Ctrl+Z, Ctrl+Shift+Z or Ctrl+Y, the Edit menu) are therefore the toolbar's:
 // one history, where a run of typing is one step, closed by a pause, a switch
 // between typing and deleting, a paste, cut, drop or spelling replacement (each
-// a step of its own), a caret move, or leaving the draft.
+// a step of its own), a caret move, or leaving the draft. Moving text by
+// dragging it inside the draft is one step: its drop completes its removal.
 const LY_RUN_PAUSE_MS = 1000;
 const lyRun = { kind: '', next: '', timer: 0 };
 function lyCloseRun() {
@@ -5718,6 +5719,7 @@ function lyCloseRun() {
   if (!lyRun.kind) return;
   lyRun.kind = '';
   pushHistory();
+  lyRenderHistoryButtons();
 }
 // After an edit lands (uiSaveLyrics has run, so pushHistory sees it).
 function lyExtendRun() {
@@ -5728,18 +5730,22 @@ function lyExtendRun() {
   if (kind === 'whole') {
     lyRun.kind = '';
     pushHistory();
+    lyRenderHistoryButtons();
     return;
   }
   lyRun.kind = kind;
   lyRun.timer = setTimeout(lyCloseRun, LY_RUN_PAUSE_MS);
+  lyRenderHistoryButtons();
 }
 // Before an edit: one of another kind closes the run it would otherwise join.
 function lyEditKind(type) {
-  return /^(insertFrom|insertReplacementText|deleteByCut|deleteByDrag)/.test(type)
-    ? 'whole'
-    : type.startsWith('delete')
-      ? 'delete'
-      : 'insert';
+  return type === 'deleteByDrag'
+    ? 'drag'
+    : /^(insertFrom|insertReplacementText|deleteByCut)/.test(type)
+      ? 'whole'
+      : type.startsWith('delete')
+        ? 'delete'
+        : 'insert';
 }
 // One Undo or Redo, from the toolbar, the line menu or the keyboard in the
 // draft. It says what it did (Jony #76), and focus never falls to the page:
@@ -5787,12 +5793,14 @@ function lyHistoryStep(redoing) {
   if (next) next.focus();
   else draft?.focus({ preventScroll: true });
 }
+// An open typing run is an Undo step not yet recorded, and it has already
+// taken the place of anything Redo could bring back.
 function lyRenderHistoryButtons() {
   document.querySelectorAll('[data-ui="ly-undo"]').forEach((button) => {
-    button.disabled = app.historyIndex <= 0;
+    button.disabled = app.historyIndex <= 0 && !lyRun.kind;
   });
   document.querySelectorAll('[data-ui="ly-redo"]').forEach((button) => {
-    button.disabled = app.historyIndex >= app.history.length - 1;
+    button.disabled = app.historyIndex >= app.history.length - 1 || !!lyRun.kind;
   });
 }
 function lyShowTab(tab, { focus = false } = {}) {
@@ -7260,7 +7268,10 @@ function lyWire(surface) {
       return;
     }
     const kind = lyEditKind(type);
-    if (kind === 'whole' || (lyRun.kind && lyRun.kind !== kind)) lyCloseRun();
+    // A drop that lands the text a drag just lifted out joins that removal.
+    const dropping = lyRun.kind === 'drag' && type === 'insertFromDrop';
+    if (!dropping && (kind === 'whole' || kind === 'drag' || (lyRun.kind && lyRun.kind !== kind)))
+      lyCloseRun();
     lyRun.next = kind;
   });
   draft.addEventListener('keydown', (e) => {

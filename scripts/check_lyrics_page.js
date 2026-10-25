@@ -5549,6 +5549,70 @@ async function browserChecks(chromium) {
       await ctx.close();
     });
 
+    // U2. Two edges of the typing runs (second review of b7ba5a0f2): text
+    // moved by dragging it inside the draft is one Undo step (Chromium sends
+    // deleteByDrag, then insertFromDrop; each was a step, so one Undo left
+    // the moved words deleted), and while a new run is open the toolbar does
+    // not offer the Redo that run has already replaced.
+    await step('U2. drag-move is one step; an open run drops Redo', async () => {
+      const { ctx, page } = await boot({ theme: 'light' });
+      const BASE = 'Hold the light\nRiver runs';
+      const val = () => page.evaluate(() => $ui('lyrics-draft').value);
+      const edit = (type, text, from, to) =>
+        page.evaluate(
+          ([type, text, from, to]) => {
+            const d = $ui('lyrics-draft');
+            d.setSelectionRange(from < 0 ? d.value.length : from, to < 0 ? d.value.length : to);
+            const ev = new InputEvent('beforeinput', {
+              inputType: type,
+              data: text,
+              bubbles: true,
+              cancelable: true,
+            });
+            if (!d.dispatchEvent(ev)) return;
+            d.setRangeText(text, d.selectionStart, d.selectionEnd, 'end');
+            d.dispatchEvent(
+              new InputEvent('input', { inputType: type, data: text, bubbles: true })
+            );
+          },
+          [type, text, from, to]
+        );
+      await setDraft(page, BASE);
+      await page.click('#lyrics-draft');
+      await edit('deleteByDrag', '', 0, 5);
+      await edit('insertFromDrop', ' Hold', -1, -1);
+      const moved = await val();
+      await page.keyboard.press('Control+z');
+      const back = await val();
+      check(
+        moved === 'the light\nRiver runs Hold' && back === BASE,
+        `one Undo after moving "Hold " by drag gave ${JSON.stringify(back)}, not the text before the move`
+      );
+      await page.keyboard.press('Control+Shift+z');
+      check((await val()) === moved, 'Redo did not bring the moved text back in one step');
+      // Undo, then type: the new run replaces the Redo step at once.
+      await page.keyboard.press('Control+End');
+      await page.keyboard.type(' r1', { delay: 30 });
+      await page.keyboard.press('Control+z');
+      await page.keyboard.type(' r2', { delay: 30 });
+      const typing = await page.evaluate(() => ({
+        redo: document.querySelector('#ly-toolbar [data-ui="ly-redo"]')?.disabled,
+        undo: document.querySelector('#ly-toolbar [data-ui="ly-undo"]')?.disabled,
+      }));
+      check(
+        typing.redo === true && typing.undo === false,
+        `while a new run is open the toolbar offered Redo=${!typing.redo}, Undo=${!typing.undo}`
+      );
+      await page.keyboard.press('Control+Shift+z');
+      await page.waitForTimeout(120);
+      check(
+        (await val()).endsWith(' r2') &&
+          (await page.evaluate(() => $ui('ly-live').textContent)) === 'Nothing to redo',
+        'Redo after new typing did not keep the typing and say "Nothing to redo"'
+      );
+      await ctx.close();
+    });
+
     // ── screenshots: a suggestion, light and dark, desktop and phone ─────
     if (SHOTS) {
       stage = 'screenshots';
