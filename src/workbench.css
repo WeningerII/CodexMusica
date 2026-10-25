@@ -554,10 +554,48 @@ h3 {
   font-size: 13px;
   min-height: 36px;
 }
+/* A short viewport (a phone on its side, 400% zoom): the AI column scrolls as
+   one, the log, the input and Ask in flow at their own heights, instead of a
+   fixed bar under a log squeezed to nothing that nothing can scroll to (#94). */
+@media (max-height: 420px) {
+  #assistant-slot {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  #assistant-slot .chat-dock,
+  #assistant-slot .chat-panel {
+    flex: none !important;
+  }
+  #assistant-slot .chat-log {
+    flex: none;
+    overflow: visible;
+  }
+}
 .toast {
   z-index: 1000 !important;
   bottom: 20px !important;
   max-width: calc(100vw - 32px);
+}
+/* A toast never covers what is open beside it (#99). It rises above the
+   storage-conflict banner, but never past the top of a short window (heights
+   measured by uiTrackToastRoom). An open dialog is never shrunk for it: the
+   toast goes under the dialog's layer, still spoken, as the page behind a
+   modal dialog is out of reach anyway. */
+body:has(#storage-conflict) .toast {
+  bottom: min(
+    calc(var(--ui-conflict-h, 64px) + 24px),
+    calc(100vh - var(--ui-toast-h, 40px) - 8px)
+  ) !important;
+}
+body:has(.modal-bg.open) .toast,
+body:has(.confirm-dialog-bg) .toast,
+body:has(dialog[open]) .toast {
+  z-index: 90 !important;
+}
+/* The inline genre tree is a panel, not a modal: the toast stays above it.
+   (Simple selectors: jsdom's parser refuses :not() inside :has().) */
+body:has(.modal-bg.open.inline-tree) .toast {
+  z-index: 1000 !important;
 }
 @media (min-width: 900px) and (max-width: 1250px) {
   .ui-brand {
@@ -1322,6 +1360,18 @@ body.workbench {
     white-space: nowrap;
     pointer-events: none;
   }
+}
+/* Set by uiFitHeader when the header's row would overflow: the same clip as
+   above for every tool's word; aria-label and the tooltip keep the name. */
+.ui-header-tight .ui-tools button > span,
+.ui-header-tight #ui-autosave .ui-autosave-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  pointer-events: none;
 }
 @media (max-width: 420px), (min-width: 900px) and (max-width: 1099px) {
   .ui-brand-name {
@@ -3086,5 +3136,15 @@ html.cm-lightbox-open body {
     padding: 0 2px;
     font-size: 12px;
     line-height: 1.1;
+  }
+}
+/* Forced colours flatten the variant picker's tones, so a descriptor the
+   swap would add (is-new) and one it keeps (is-kept) looked the same; a lost
+   one keeps its strikethrough. An added one is underlined (#98). */
+@media (forced-colors: active) {
+  .variant-chip .variant-chip-descr.is-new {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
   }
 }
