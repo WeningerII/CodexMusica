@@ -12,7 +12,7 @@
 // page_count}: any mismatch fails closed (no text is shown). Line ids
 // (UUIDv5) and normalized code-point/UTF-16 ranges are derived from each
 // page's start counters exactly as catalog_static_export.replay does.
-/* global esc, icon, uiEmptyState, uiOpenInLyrics, uiDownload, libraryChunk, CMLibraryImport, uiInertOutside */
+/* global esc, icon, uiEmptyState, uiOpenInLyrics, uiDownload, libraryChunk, CMLibraryImport, uiInertOutside, libraryAnnounce */
 'use strict';
 
 const PAGE_ROWS = 250;
@@ -845,12 +845,15 @@ function renderAlerts() {
   if (!el) return;
   el.innerHTML =
     (S.error ? `<p class="rd-alert" data-tone="danger" role="alert">${esc(S.error)}</p>` : '') +
-    (S.notice ? `<p class="rd-alert" role="status">${esc(S.notice)}</p>` : '');
+    (S.notice ? `<p class="rd-alert">${esc(S.notice)}</p>` : '');
 }
+// A notice is heard through the Library's one live region (a status node
+// inserted fresh here is not reliably read); an error stays role="alert".
 const say = (notice, error = '') => {
   S.notice = notice;
   S.error = error;
   renderAlerts();
+  if (notice && typeof libraryAnnounce === 'function') libraryAnnounce(notice);
 };
 
 function renderBar() {
@@ -1317,6 +1320,10 @@ function toggleLine(id) {
   }
   renderBar();
   syncSelection();
+  if (typeof libraryAnnounce === 'function')
+    libraryAnnounce(
+      S.sel.size ? `${S.sel.size} line${S.sel.size === 1 ? '' : 's'} selected` : 'No lines selected'
+    );
   store('position:' + S.R.id, {
     line_id: id,
     offset: Math.max(0, l.row - 30),
@@ -1340,7 +1347,7 @@ function onClick(e) {
       S.lens = 'sources';
       renderBody();
       renderInspector();
-      openSheet();
+      openSheet(false, b);
       replaceRoute();
       // The row's button was re-rendered: land on the Sources lens it opened.
       focusInspector();
@@ -1437,7 +1444,10 @@ function onClick(e) {
   }
 }
 
-function openSheet(force) {
+// `from` is the control that asked. A caller that re-renders the reader first
+// (Inspect source row) passes it, since by then focus has fallen to the page;
+// closing finds it again by its data-rd and data-id if it was replaced.
+function openSheet(force, from) {
   if (!S.inspector && !matchMedia('(max-width: 899px)').matches) {
     S.inspector = true;
     S.root.classList.remove('rd-noinsp');
@@ -1445,14 +1455,24 @@ function openSheet(force) {
   if (force || matchMedia('(max-width: 899px)').matches) S.root.classList.add('rd-sheet');
   const insp = S.root.querySelector('.rd-insp');
   // A narrow layout shows the inspector as a sheet over the reader: what it
-  // covers leaves the Tab order, focus moves in, and closing returns it.
+  // covers leaves the Tab order, it is a modal dialog, focus moves in, and
+  // closing returns it.
   if (!S.unsheet && insp && getComputedStyle(insp).position === 'fixed') {
-    const opener = document.activeElement;
+    const active = document.activeElement;
+    const opener = from || (active && active !== document.body ? active : null);
+    const key = opener?.dataset?.rd
+      ? `[data-rd="${opener.dataset.rd}"]${opener.dataset.id ? `[data-id="${window.CSS.escape(opener.dataset.id)}"]` : ''}`
+      : '';
     const restore = uiInertOutside(insp);
+    insp.setAttribute('role', 'dialog');
+    insp.setAttribute('aria-modal', 'true');
     S.unsheet = () => {
       S.unsheet = null;
       restore();
-      if (opener?.isConnected && !opener.closest('[inert]')) opener.focus();
+      insp.removeAttribute('role');
+      insp.removeAttribute('aria-modal');
+      const back = opener?.isConnected ? opener : key ? S.root?.querySelector(key) : null;
+      if (back && !back.closest('[inert]')) back.focus();
     };
     focusInspector();
   }

@@ -748,6 +748,17 @@ function collectionOffset(sub) {
 const collectionSub = (id, page) =>
   '/collections/' + encodeURIComponent(id) + (page ? '?offset=' + page * COLLECTION_PAGE : '');
 
+// A collection page replaces the control that opened it (a rail spine, a
+// card, a pager button): when that left focus on the page, land it on the
+// collection's heading instead. Focus the person put elsewhere is kept.
+function focusLostToHeading(main) {
+  const a = document.activeElement;
+  if (a && a !== document.body && a.isConnected) return;
+  const h = main.querySelector('.lib-coll-head h1');
+  if (!h) return;
+  h.tabIndex = -1;
+  h.focus();
+}
 async function showCollection(main, id, token, offset = 0) {
   const [catalog, all] = await Promise.all([lib.catalog(), lib.collections()]);
   if (token !== state.token) return;
@@ -784,6 +795,7 @@ async function showCollection(main, id, token, offset = 0) {
   }
   main.innerHTML = frame(header('') + `<div class="lib-skel" aria-hidden="true"></div>`);
   fillRail(main, id);
+  focusLostToHeading(main);
   const head = await lib.collection(id);
   if (token !== state.token) return;
   const pages = head.page_count || 1;
@@ -815,6 +827,7 @@ async function showCollection(main, id, token, offset = 0) {
     .join('')}</ul>`;
   main.querySelector('.lib-core-main').innerHTML =
     `${toplineHtml(catalog)}<div><button type="button" class="lib-btn" data-lib-act="go" data-sub="">${icon('library', 16)}<span>Explore</span></button></div>${header(actions)}${pager}${list}${pager}`;
+  focusLostToHeading(main);
 }
 
 // ─── Card menu and artwork credit ───────────────────────────────────────────

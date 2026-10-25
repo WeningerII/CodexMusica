@@ -443,6 +443,20 @@ const SECTIONS = {
         row.spine && row.i === '30',
         JSON.stringify(row)
       );
+      // Opening a collection from the rail replaces the spine pressed: focus
+      // lands on the new collection's heading, not the page (Jony, #50).
+      await page.keyboard.press('Enter');
+      await page.waitForSelector('#surface-library .lib-coll-list', { timeout: 20000 });
+      await page.waitForTimeout(800);
+      const opened = await page.evaluate(() => ({
+        tag: document.activeElement?.tagName,
+        text: (document.activeElement?.textContent || '').trim().slice(0, 40),
+      }));
+      check(
+        `${tag} explore: opening a collection from the rail does not drop focus to the page`,
+        opened.tag !== 'BODY' && !!opened.tag,
+        JSON.stringify(opened)
+      );
     }
     // Where the open rail overlays the page (narrow widths), it is a panel:
     // opening moves focus into it, Escape closes it back to the toggle, and
@@ -1074,6 +1088,34 @@ const SECTIONS = {
       sel.rd === 'select' && sel.pressed === 'true',
       JSON.stringify(sel)
     );
+    // #49: the content area is not itself a live region (a re-render would be
+    // read aloud whole); a short status goes to the one region outside it.
+    const live = await page.evaluate(() => {
+      const main = document.getElementById('library-main');
+      const region = document.getElementById('library-live');
+      return {
+        mainLive: main?.getAttribute('aria-live') || null,
+        role: region?.getAttribute('role') || null,
+        outside: !!region && !!main && !main.contains(region),
+      };
+    });
+    check(
+      `${tag} live: the Library content area is not a live region; one status region sits outside it`,
+      !live.mainLive && live.role === 'status' && live.outside,
+      JSON.stringify(live)
+    );
+    await page.focus('#surface-library .rd-num:not([disabled])');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(200);
+    const heard = await page.evaluate(
+      () => document.getElementById('library-live')?.textContent || ''
+    );
+    check(
+      `${tag} live: selecting a line says how many are selected`,
+      heard === '1 line selected',
+      heard
+    );
+    await page.keyboard.press('Enter');
     // #18: at a phone width, Inspect moves focus into the sheet, Tab stays
     // there, and Escape gives it back to Inspect.
     if (await page.isVisible('#surface-library [data-rd="sheet"]')) {
@@ -1116,6 +1158,32 @@ const SECTIONS = {
       src.rd === 'lens' && src.id === 'sources',
       JSON.stringify(src)
     );
+    // #51: where that opens the sheet, the sheet is a modal dialog, and Escape
+    // returns focus to the source row's button, re-rendered meanwhile.
+    const sheet = await page.evaluate(() => {
+      const insp = document.querySelector('#surface-library .rd-insp');
+      return {
+        open: !!document.querySelector('#surface-library .rd-sheet'),
+        fixed: !!insp && getComputedStyle(insp).position === 'fixed',
+        role: insp?.getAttribute('role') || null,
+        modal: insp?.getAttribute('aria-modal') || null,
+      };
+    });
+    if (sheet.open && sheet.fixed) {
+      check(
+        `${tag} focus: the inspector sheet is a modal dialog`,
+        sheet.role === 'dialog' && sheet.modal === 'true',
+        JSON.stringify(sheet)
+      );
+      await page.keyboard.press('Escape');
+      await page.waitForTimeout(200);
+      const backSrc = await where();
+      check(
+        `${tag} focus: Escape from the sheet returns focus to Inspect source row`,
+        backSrc.rd === 'srcrow',
+        JSON.stringify(backSrc)
+      );
+    }
     // #19c: a works result opens the reader with focus on its title.
     await go(page, base, '/works');
     await settled(page, 'works', '#surface-library [data-lw="open"][aria-label^="Read "]');
