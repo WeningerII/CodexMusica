@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global document, ipAnnounce, ipRenderInspector, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global document, ipAnnounce, ipRenderInspector, uiCloseInstrumentPreview, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -116,6 +116,17 @@ async function noOverflow(page) {
         // is named by itself, what it adds or removes is its description, and
         // status text reaches a live region the inspector's re-render keeps.
         await page.getByRole('button', { name: 'Instrument', exact: true }).first().click();
+        await page.locator('#surface-instrument .cm-tile-name').first().waitFor();
+        assert.equal(
+          await page.evaluate(() => document.getElementById('ip-live')?.getAttribute('role')),
+          'status',
+          'Instrument: the live region exists before its first message'
+        );
+        await page.locator('#instrument-search').fill('drum');
+        await page.waitForFunction(() =>
+          /instrument/.test(document.getElementById('ip-live')?.textContent || '')
+        );
+        await page.locator('#instrument-search').fill('');
         await page.locator('#surface-instrument .cm-tile-name').first().click();
         await page.locator('#instrument-preview .ip-opt input[type=radio]').first().waitFor();
         const opts = await page.evaluate(() => {
@@ -156,6 +167,12 @@ async function noOverflow(page) {
           live,
           { same: true, outside: true, role: 'status', text: 'probe' },
           'Instrument: the live region outlives the inspector re-render'
+        );
+        await page.evaluate(() => uiCloseInstrumentPreview());
+        assert.equal(
+          await page.evaluate(() => document.getElementById('ip-live').textContent),
+          '',
+          'Instrument: closing the inspector clears its last message'
         );
         await page.getByRole('button', { name: 'Genre', exact: true }).first().click();
         await page.locator('.catalog-row, .cm-tile').first().waitFor();

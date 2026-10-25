@@ -399,7 +399,10 @@ function ipRenderList(filtered, fam, q, filters) {
         .join('')}${uiButton('clear-filters', 'Clear all', 'x', 'class="ip-link"')}</div>`
     : '';
   const body = view === 'rows' ? ipRowsBody(filtered, fam) : ipListBody(filtered);
-  return `<section class="ip-list" aria-labelledby="ip-list-title">${crumbs}<div class="ip-list-head"><h2 id="ip-list-title">${esc(title)}</h2><span class="ip-list-count" role="status">${uiCount(filtered.length, 'instrument')}</span>${controls}</div>${classChips}${active}${body}${!filtered.length ? uiInstrumentNoResults(q, fam) : ''}</section>`;
+  // The count is re-rendered with the list, so it speaks through the live
+  // region instead, once typing settles (Jony #28).
+  if (q) ipAnnounceSoon(uiCount(filtered.length, 'instrument'));
+  return `<section class="ip-list" aria-labelledby="ip-list-title">${crumbs}<div class="ip-list-head"><h2 id="ip-list-title">${esc(title)}</h2><span class="ip-list-count">${uiCount(filtered.length, 'instrument')}</span>${controls}</div>${classChips}${active}${body}${!filtered.length ? uiInstrumentNoResults(q, fam) : ''}</section>`;
 }
 // Rows: the family (or class) bar when two or more rows have instruments, then the rows.
 function ipRowsBody(filtered, fam) {
@@ -823,6 +826,11 @@ function ipAnnounce(text) {
   }
   if (live.textContent !== text) live.textContent = text;
 }
+let ipAnnounceTimer = 0;
+function ipAnnounceSoon(text) {
+  clearTimeout(ipAnnounceTimer);
+  ipAnnounceTimer = setTimeout(() => ipAnnounce(text), 600);
+}
 function ipRenderInspector(focusKey) {
   const host = $ui('instrument-preview');
   if (!host) return;
@@ -905,6 +913,7 @@ function uiCloseInstrumentPreview() {
   UI.instrumentPreview = null;
   IP.trail = [];
   IP.card = IP.base = null;
+  ipAnnounce('');
   ipRenderInspector();
   renderInstrumentDiscovery();
   uiFocus(uiFind('#instrument-body [data-ui="instrument-inspect"]', 'id', id)) ||
@@ -928,6 +937,7 @@ function uiInspectInstrument(id, { fromTrail = false, similar = false } = {}) {
     IP.filters = {};
     IP.note = '';
     IP.prefQuery = '';
+    ipAnnounce('');
   }
   // Similar instruments build a trail the inspector can step back through;
   // choosing from the list, a genre or a deep link starts a new one.
@@ -1000,6 +1010,9 @@ uiRegisterPage({
   mount(surface) {
     IP.view = UILayout.remember('instrument-view', 'rows', () => renderInstrumentDiscovery());
     surface.innerHTML = `<div class="ip" id="ip-root"><header class="ip-head"><h1 class="ip-title">Instruments <span id="ip-total" class="ip-total"></span></h1><label class="cm-search ip-search">${icon('search', 20)}<input id="instrument-search" type="search" placeholder="Search instruments" aria-label="Search instruments"></label><label class="ip-field destination"><span>Add to</span><select id="instrument-destination" class="cm-select" aria-label="Add instrument to"></select></label></header><div id="instrument-body" class="ip-body"></div><aside id="instrument-preview" class="ip-inspector" aria-label="Instrument preview"></aside></div>`;
+    // The live region exists before its first message, which is otherwise
+    // not read (Jony #28).
+    ipAnnounce('');
     $ui('instrument-search').addEventListener('input', () => {
       UI.limit = 50;
       renderInstrumentDiscovery();
