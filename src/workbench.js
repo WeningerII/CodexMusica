@@ -1026,9 +1026,8 @@ function uiStart() {
         uiAutosave();
         // The banner went with the button that held focus: Save is where this
         // session goes on from (Jony #90).
-        if (held)
-          uiFocus(document.querySelector('.ui-tools [data-ui="save"]')) ||
-            uiFocus(document.querySelector('[data-ui="menu"]'));
+        // (#btn-save: the header's Save placeholder is swapped for it.)
+        if (held) uiFocus($ui('btn-save')) || uiFocus(document.querySelector('[data-ui="menu"]'));
         break;
       }
       case 'export':
@@ -2199,10 +2198,16 @@ function uiShowStorageConflict() {
   const note = document.createElement('div');
   note.id = 'storage-conflict';
   note.innerHTML =
-    '<span role="status">A newer session is open in another tab.</span>' +
+    '<span role="status"></span>' +
     uiButton('keep-session', 'Keep this session', 'save') +
     uiButton('export', 'Export this session', 'download');
   document.querySelector('.ui-header').after(note);
+  // A status inserted already holding its text is often not spoken: the text
+  // arrives a moment after the empty region is in the page.
+  setTimeout(() => {
+    const st = note.querySelector('[role="status"]');
+    if (st) st.textContent = 'A newer session is open in another tab.';
+  }, 50);
 }
 // Run fn once the first paint has been presented and the main thread is idle:
 // two animation frames (the second runs after the frame the first one queued
