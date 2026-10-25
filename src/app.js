@@ -14615,7 +14615,7 @@ async function delWS(key){
    const list=await readListStrict();
    await window.storage.delete(key);
    await window.storage.set('codex:list',JSON.stringify(list.filter(w=>w.key!==key)));
- });renderSaved();showToast('Deleted','success');}catch(e){console.error(e);showToast('Deletion did not finish. Refresh Saved to check its state.','error');}
+ });await renderSaved();showToast('Deleted','success');return true;}catch(e){console.error(e);showToast('Deletion did not finish. Refresh Saved to check its state.','error');return false;}
 }
 
 // ---- Modals ----
@@ -14656,7 +14656,7 @@ function closeModal(id) {
   if (!bg) return;
   bg.classList.remove('open');
   if (bg._trapHandler) { bg.removeEventListener('keydown', bg._trapHandler); bg._trapHandler = null; }
-  if (_modalReturnFocus && typeof _modalReturnFocus.focus === 'function' && document.contains(_modalReturnFocus) && _modalReturnFocus.getClientRects().length) {
+  if (_modalReturnFocus && _modalReturnFocus !== document.body && typeof _modalReturnFocus.focus === 'function' && document.contains(_modalReturnFocus) && _modalReturnFocus.getClientRects().length) {
     _modalReturnFocus.focus();
   }else if(typeof UI!=='undefined'&&UI.ready){document.querySelector('[data-ui="menu"]')?.focus();}
   _modalReturnFocus = null;
@@ -17395,14 +17395,19 @@ async function renderSaved() {
   }).join('') + `</div>`;
   b.querySelectorAll('[data-load]').forEach(x => x.addEventListener('click', () => loadWS(x.dataset.load)));
   b.querySelectorAll('[data-fork]').forEach(x => x.addEventListener('click', () => forkWS(x.dataset.fork)));
-  b.querySelectorAll('[data-del]').forEach(x => x.addEventListener('click', async () => {
+  b.querySelectorAll('[data-del]').forEach((x, i) => x.addEventListener('click', async () => {
     const ok = await confirmDialog({
       title: 'Delete workspace',
       message: 'Delete this saved workspace?',
       confirmLabel: 'Delete',
       danger: true,
     });
-    if (ok) delWS(x.dataset.del);
+    // The re-render removes the button that had focus: hand it to the row
+    // that took its place, the one above when it was the last, or Close.
+    if (ok && (await delWS(x.dataset.del))) {
+      const rows = document.querySelectorAll('#saved-body [data-del]');
+      (rows[i] || rows[i - 1] || document.querySelector('#modal-saved [data-close]'))?.focus();
+    }
   }));
 }
 
@@ -17784,14 +17789,16 @@ function _initApp() {
     if (nowMobile !== wasMobile) { wasMobile = nowMobile; if (_workspaceReady) renderAll(); }
     _syncRecipeBarHeight();
   });
-  // Escape closes any currently-open modal. Backdrop click closes are wired
-  // elsewhere via data-close; this adds the keyboard parity for accessibility.
+  // Escape closes the topmost open modal, through closeModal so its Tab trap
+  // and return focus go with it. Backdrop click closes are wired elsewhere via
+  // data-close; this adds the keyboard parity for accessibility. A confirmation
+  // owns its own Escape (and sits above the modal that asked), so it is left
+  // to close itself, and the modal under it stays open.
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      const open = document.querySelector('.modal-bg.open');
-      if (open && open.id) closeModal(open.id); // restores focus + clears the trap
-      else if (open) open.classList.remove('open');
-    }
+    if (e.key !== 'Escape' || document.querySelector('.confirm-dialog-bg')) return;
+    const open = [...document.querySelectorAll('.modal-bg.open')].pop();
+    if (open && open.id) closeModal(open.id);
+    else if (open) open.classList.remove('open');
   });
   // Warn before discarding an unsaved in-progress workspace: the canvas lives in
   // memory only (Save persists it), so a reload/close/crash would silently lose
@@ -17921,9 +17928,7 @@ function _initApp() {
   document.querySelectorAll('[data-close]').forEach(b => {
     b.addEventListener('click', () => closeModal(b.dataset.close));
   });
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') document.querySelectorAll('.modal-bg.open').forEach(m => m.classList.remove('open'));
-  });
+  // Escape: the one handler above (topmost modal only).
 
   _whenWorkspace(renderAll);
   if (typeof uiStart === 'function') uiStart();

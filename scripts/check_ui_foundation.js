@@ -92,7 +92,7 @@
 
 'use strict';
 /* global document, window, openPrefaceModal, renderPrefaceModalBody, MutationObserver, getComputedStyle, localStorage, location, parent, app, UI, UI_PAGES, innerHeight, Storage, ROOMS, RECIPE_CHAR_CEILING, Inst, Room, Tradition, addCard, compileRecipeStack, envCardOf, pushHistory, renderAll, uiNavigate, uiSync, Catalog, INSTRUMENTS, normalizeSearch, renderGenreDiscovery, gpRenderMain, renderInstrumentDiscovery, computeDistance */
-/* global innerWidth, UITheme, uiInspectInstrument, INSTRUMENT_FAMILIES, uiAddGenre, Engine */
+/* global innerWidth, UITheme, uiInspectInstrument, INSTRUMENT_FAMILIES, uiAddGenre, Engine, saveWS, openModal, ipOverlay */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -1866,6 +1866,163 @@ async function loadDelta(page) {
       await ctx.close();
     }
 
+    // ── S. Saved sessions and the Instrument inspector keep focus visible ─
+    // Jony's round 3: Escape on a confirmation closes only the confirmation
+    // (#8); Delete hands focus to a row and Load to the opener (#10); after
+    // Add on a narrow page, and behind the phone inspector, focus never sits
+    // on a control nobody can see (#11). Real keys, from the real openers.
+    stage = 'S. saved sessions and inspector focus';
+    for (const width of [1280, 820, 390]) {
+      const { ctx, page } = await newPage({ viewport: { width, height: 900 } });
+      stage = `S. saved sessions and inspector focus (${width}px)`;
+      await page.goto(url + '#instrument');
+      await ready(page);
+      const focus = () =>
+        page.evaluate(() => {
+          const a = document.activeElement;
+          const r = a.getBoundingClientRect();
+          const hit = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2);
+          return {
+            body: a === document.body,
+            del: a.matches('#saved-body [data-del]'),
+            name: a.getAttribute('aria-label') || a.textContent.trim().slice(0, 30),
+            card: a.matches('.sb-card'),
+            seen: !!hit && (hit === a || a.contains(hit)),
+          };
+        });
+      const savedOpen = () =>
+        page.evaluate(() => document.getElementById('modal-saved').classList.contains('open'));
+      await page.evaluate(async () => {
+        for (const n of ['Alpha', 'Beta', 'Gamma']) await saveWS(n);
+      });
+      const openSaved = async () => {
+        if (
+          await page.evaluate(() => !!document.getElementById('btn-saved').getClientRects().length)
+        ) {
+          await page.focus('#btn-saved');
+        } else {
+          await page.focus('[data-ui="menu"]');
+          await page.keyboard.press('Enter');
+          await page.locator('#ui-menu #btn-saved, #ui-menu [data-ui="saved"]').first().focus();
+        }
+        await page.keyboard.press('Enter');
+        await page.waitForSelector('#saved-body [data-del]');
+        await page.waitForTimeout(300);
+      };
+      const askDelete = async () => {
+        await page.locator('#saved-body [data-del]').first().focus();
+        await page.keyboard.press('Enter');
+        await page.waitForSelector('.confirm-dialog-bg');
+        await page.waitForTimeout(300);
+      };
+      await openSaved();
+      await askDelete();
+      await page.keyboard.press('Escape');
+      await page.waitForTimeout(300);
+      const esc = await focus();
+      check(
+        (await savedOpen()) && esc.del,
+        `S. ${width}px: Escape on the delete confirmation closed Saved sessions too, or left focus on "${esc.name}"`
+      );
+      if (!(await savedOpen())) await openSaved();
+      await askDelete();
+      await page.locator('.confirm-dialog [data-confirm-action="confirm"]').click();
+      await page.waitForFunction(
+        () => document.querySelectorAll('#saved-body [data-del]').length === 2
+      );
+      await page.waitForTimeout(200);
+      const del = await focus();
+      check(
+        del.del,
+        `S. ${width}px: after Delete focus is on "${del.body ? 'body' : del.name}", not the next row's Delete`
+      );
+      await page.locator('#saved-body [data-load]').first().focus();
+      await page.keyboard.press('Enter');
+      await page.waitForFunction(
+        () => !document.getElementById('modal-saved').classList.contains('open')
+      );
+      await page.waitForTimeout(300);
+      const load = await focus();
+      check(
+        !load.body && /Saved sessions|More/.test(load.name),
+        `S. ${width}px: after Load focus is on "${load.body ? 'body' : load.name}", not the opener`
+      );
+      // An opener of <body> (opened by script) still lands somewhere real.
+      await page.evaluate(() => {
+        document.activeElement.blur();
+        openModal('modal-saved');
+      });
+      await page.waitForTimeout(300);
+      await page.keyboard.press('Escape');
+      await page.waitForTimeout(200);
+      check(
+        !(await focus()).body,
+        `S. ${width}px: closing Saved sessions opened from nowhere left focus on body`
+      );
+
+      // #11: the inspector, then Add with its own button.
+      await page.evaluate(() => {
+        app.cards = [];
+        renderAll();
+      });
+      await page.waitForSelector('#instrument-body [data-ui="instrument-inspect"]');
+      await page.locator('#instrument-body [data-ui="instrument-inspect"]').first().focus();
+      await page.keyboard.press('Enter');
+      await page.waitForSelector('[data-ui="ip-add-configured"]', { timeout: 20000 });
+      await page.waitForTimeout(300);
+      if (await page.evaluate(() => ipOverlay())) {
+        const hidden = [];
+        for (let i = 0; i < 60; i++) {
+          await page.keyboard.press('Tab');
+          const name = await page.evaluate(() => {
+            const a = document.activeElement;
+            return a.closest('#ip-root .ip-head, #instrument-body')
+              ? a.getAttribute('aria-label') || a.textContent.trim().slice(0, 20)
+              : '';
+          });
+          if (name) hidden.push(name);
+        }
+        check(
+          !hidden.length,
+          `S. ${width}px: Tab walked ${hidden.length} catalogue control(s) under the inspector (${hidden.slice(0, 3).join(', ')})`
+        );
+      }
+      // #12: a character chip picked from deep in the expanded browser keeps
+      // focus on itself, in sight, not on the search box thousands of px up.
+      await page.locator('#instrument-preview [data-ui="ip-tab"][data-id="preface"]').click();
+      await page.locator('#instrument-preview [data-ui="ip-pcat-all"][data-id="all"]').click();
+      const chips = page.locator('#instrument-preview .ip-pcat-items [data-ui="ip-preface"]');
+      const chip = chips.nth(Math.floor((await chips.count()) / 2));
+      const picked = await chip.getAttribute('data-id');
+      await chip.focus();
+      await page.keyboard.press('Enter');
+      await page.waitForTimeout(300);
+      const after = await page.evaluate(() => {
+        const a = document.activeElement;
+        const r = a.getBoundingClientRect();
+        const s = document
+          .querySelector('#instrument-preview .ip-insp-scroll')
+          .getBoundingClientRect();
+        return { id: a.dataset.id || a.id, inView: r.top >= s.top && r.bottom <= s.bottom };
+      });
+      check(
+        after.id === picked && after.inView,
+        `S. ${width}px: picking the character "${picked}" sent focus to ${after.id}${after.inView ? '' : ', out of sight'}`
+      );
+      await page.locator('[data-ui="ip-add-configured"]').focus();
+      await page.keyboard.press('Enter');
+      await page.waitForFunction(() => app.cards.length > 0, null, { timeout: 20000 });
+      await page.waitForTimeout(500);
+      const added = await focus();
+      check(added.seen, `S. ${width}px: after Add focus is on "${added.name}", which is covered`);
+      if (width < 900)
+        check(
+          added.card,
+          `S. ${width}px: after Add focus is on "${added.name}", not the added card`
+        );
+      await ctx.close();
+    }
+
     // ── K. a phone: the Recipe sheet leaves the map on screen ────────────
     stage = 'K. a phone';
     {
@@ -1926,7 +2083,9 @@ async function loadDelta(page) {
       'photos that enlarge and close on a click anywhere, Escape or Back; ' +
       'Rows by default on Genre and Instrument: letter and family rows, the A–Z bar, hover and ' +
       'touch controls, the card menu, details from the photo, Add and ✓; ' +
-      'nav glyphs never blank without api/nav_glyphs.json, fetched with backoff, filled in place.'
+      'nav glyphs never blank without api/nav_glyphs.json, fetched with backoff, filled in place; ' +
+      'Saved sessions: Escape closes only the confirmation, Delete and Load keep focus on a real control; ' +
+      'Add, a character pick and the phone inspector never leave focus out of sight.'
   );
   process.exit(0);
 })();
