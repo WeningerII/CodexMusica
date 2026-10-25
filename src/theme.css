@@ -565,3 +565,36 @@ html[data-theme] body {
     transition: none;
   }
 }
+
+/* Forced colours (Windows High Contrast and the like) replace every colour
+   with system colours, which erases the background, underline and
+   box-shadow that mark a chosen tab, chip or format. Mark those states with
+   the system highlight instead, and give focus and borderless actions an
+   outline the system keeps. !important: page styles load after this file
+   and would otherwise put their own (now literal) colours back. */
+@media (forced-colors: active) {
+  button[aria-pressed='true'],
+  [role='tab'][aria-selected='true'],
+  .cm-tab[aria-current='page'],
+  .cm-rows-jump button[aria-current='true'],
+  .detail-tab.is-active,
+  .chip.selected,
+  .chip-block.selected,
+  .stack-format button.active,
+  .cm-chip.active,
+  .icon-btn.is-active {
+    forced-color-adjust: none;
+    border-color: Highlight !important;
+    background: Highlight !important;
+    color: HighlightText !important;
+  }
+  :focus-visible,
+  #surface-lyrics .ly-input:focus {
+    outline: 2px solid Highlight !important;
+    outline-offset: 2px;
+  }
+  .toast-action,
+  .cm-segmented button {
+    border: 1px solid ButtonText !important;
+  }
+}

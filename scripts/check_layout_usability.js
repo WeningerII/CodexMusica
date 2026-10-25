@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -110,6 +110,36 @@ async function noOverflow(page) {
       await page.goto(base + '/codex.html');
       // The genre catalogue: cards in Rows (the default), rows in List.
       await page.locator('.catalog-row, .cm-tile').first().waitFor();
+      // Forced colours erase colour-only state: a chosen tab, view or page
+      // must still differ from its siblings, and a focused field keeps a ring.
+      await page.emulateMedia({ forcedColors: 'active' });
+      const forced = await page.evaluate(() => {
+        const bg = (el) => (el ? getComputedStyle(el).backgroundColor : null);
+        const pair = (on, off) => ({
+          on: bg(document.querySelector(on)),
+          off: bg(document.querySelector(off)),
+        });
+        return {
+          tab: pair(
+            '#surface-genre [role="tab"][aria-selected="true"]',
+            '#surface-genre [role="tab"][aria-selected="false"]'
+          ),
+          layout: pair(
+            '#surface-genre button[aria-pressed="true"]',
+            '#surface-genre button[aria-pressed="false"]'
+          ),
+          page: pair(
+            '.cm-tab[aria-current="page"]',
+            '.cm-tab:not([aria-current]):not([aria-selected="true"])'
+          ),
+        };
+      });
+      for (const [what, p] of Object.entries(forced))
+        assert.ok(
+          p.on && p.off && p.on !== p.off,
+          'Forced colours: the chosen ' + what + ' still stands out: ' + JSON.stringify(p)
+        );
+      await page.emulateMedia({ forcedColors: 'none' });
       await noOverflow(page);
       await page.getByRole('button', { name: 'Browse tree', exact: true }).click();
       const tree = page.locator('.inline-tree > .modal');
