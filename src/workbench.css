@@ -3148,3 +3148,34 @@ html.cm-lightbox-open body {
     text-underline-offset: 2px;
   }
 }
+/* Visually hidden, still read: a separator between words that sit in their
+   own boxes (the editor's title, #120). */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+/* In the phone's Recipe sheet the editor scrolls inside #sidebar-scroll: its
+   Close (and Listen) stay pinned above the tabs instead of scrolling away
+   (Jony #119). Clip, not hide: overflow-x: hidden would make the editor its
+   own scroll box and nothing in it could stick. */
+@media (max-width: 899px) {
+  .session-open #sidebar-traditions #detail-view {
+    overflow-x: clip;
+  }
+  /* The tree holds a tapped control in place itself (Jony #117); the
+     browser's own scroll anchoring would then move it again. */
+  .session-open #sidebar-scroll {
+    overflow-anchor: none;
+  }
+  .session-open #sidebar-traditions #detail-view .ui-detail-tools {
+    position: sticky;
+    top: 0;
+  }
+  .session-open #sidebar-traditions #detail-view .detail-tab-bar {
+    top: 61px !important;
+  }
+}
