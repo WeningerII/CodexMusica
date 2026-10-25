@@ -142,10 +142,17 @@ class Structure:
             return None
         if identity == "distinct" and t.identity in ("rich", "same_word"):
             return False
+        # Whether the pair is rich may be undecided (a channel None and none
+        # False, `classify_pair` identity_undecided): a demand on rich or
+        # distinct is then unanswered, never met or failed by the default.
+        open_identity = getattr(t, "identity_undecided", False)
         if identity == "rich" and t.identity != "rich":
-            return False
-        return _any_reading(_cell_holds(pattern, x.agreement)
+            return None if open_identity else False
+        held = _any_reading(_cell_holds(pattern, x.agreement)
                             for x in _readings(t))
+        if identity == "distinct" and open_identity and held:
+            return None
+        return held
 
 
 def _readings(t):
