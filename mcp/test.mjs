@@ -1430,7 +1430,7 @@ await check('validation: actionable errors', () => {
           );
         const src = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
         assert.ok(
-          /const runWander = runRefusal\(runRec, a\);/.test(src),
+          /const runWander = runRefusal\(runRec, a(, ledgerMark)?\);/.test(src),
           "the tool's refusals run before anything is carried"
         );
         assert.ok(
@@ -1439,7 +1439,11 @@ await check('validation: actionable errors', () => {
         );
         assert.ok(
           /status: r\.code === 2 \? 'uncertified' : 'parked',/.test(src) &&
-            /RUNS\.del\(runRec\.run_id\);/.test(src),
+            // The ledger era finishes a run (record forgotten, ledger marked
+            // finished) where it used to delete the record outright.
+            /RUNS\.(del\(runRec\.run_id\);|finish\(runRec \|\| ledgerMark \? runId : null)/.test(
+              src
+            ),
           'exit 2 stays uncertified, exit 3 parks the record, and exit 0 forgets it'
         );
         assert.ok(
@@ -5174,6 +5178,7 @@ await check('validation: actionable errors', () => {
         'session adapter parked-song continuation on the real lyric harness, executed by CI',
       'mcp/test_release_gates.mjs': 'offline verified CI and battery acceptance regressions',
       'mcp/test_run_continuation.mjs': 'offline real run continuation regressions',
+      'mcp/test_run_ledger.mjs': 'offline run-ledger regressions',
       'mcp/test_deferred_continuation.mjs': 'real deferred provider recovery regression',
       'mcp/test_state_codec.mjs': 'offline portable state codec regressions',
       'mcp/test_runtime_assets.mjs': 'offline immutable runtime asset inventory regressions',
