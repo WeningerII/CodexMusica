@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global renderRecipeStack, openModal, document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -272,6 +272,40 @@ async function editorKeyboard(page, where) {
     1,
     tag('the character search is named')
   );
+  // Output: the format switcher is a named group that says which format is
+  // shown and keeps focus on the format just pressed.
+  await page.locator('.detail-tab[data-tab="stack"]').focus();
+  await page.keyboard.press('Enter');
+  await page.locator('#detail-view button[data-fmt="tags"]').focus();
+  await page.keyboard.press('Enter');
+  const fmt = await page.evaluate(() => ({
+    focus: document.activeElement?.dataset?.fmt || document.activeElement?.tagName,
+    pressed: document.activeElement?.getAttribute('aria-pressed'),
+    group: document.activeElement?.parentElement?.getAttribute('aria-label'),
+  }));
+  assert.deepEqual(
+    fmt,
+    { focus: 'tags', pressed: 'true', group: 'Recipe format' },
+    tag('a format button keeps focus and reads as pressed in a named group')
+  );
+  // The full recipe dialog's switcher does the same.
+  await page.evaluate(() => {
+    renderRecipeStack();
+    openModal('modal-recipe-stack');
+  });
+  await page.locator('#recipe-stack-body button[data-rfmt="compact"]').focus();
+  await page.keyboard.press('Enter');
+  const rfmt = await page.evaluate(() => ({
+    focus: document.activeElement?.dataset?.rfmt || document.activeElement?.tagName,
+    pressed: document.activeElement?.getAttribute('aria-pressed'),
+    group: document.activeElement?.parentElement?.getAttribute('aria-label'),
+  }));
+  assert.deepEqual(
+    rfmt,
+    { focus: 'compact', pressed: 'true', group: 'Recipe format' },
+    tag('the full recipe format button keeps focus and reads as pressed')
+  );
+  await page.keyboard.press('Escape');
 }
 (async () => {
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));

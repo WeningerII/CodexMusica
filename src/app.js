@@ -15481,7 +15481,7 @@ function renderSidebarRecipePreview() {
         'aria-label="' + (isOpen ? 'Show less of the recipe' : 'Show all of the recipe') + '">' + icon('chevron-down', 16) + '</button>' +
     '</div>' +
     (text
-      ? '<div class="rp-text" aria-labelledby="rp-label" tabindex="0">' + esc(text) + '</div>'
+      ? '<div class="rp-text" role="region" aria-label="Recipe text" tabindex="0">' + esc(text) + '</div>'
       : '<div class="rp-empty">Nothing configured yet.</div>') +
     '<button type="button" class="rp-open" id="sb-open-full-stack">Open full recipe ' + icon('arrow-right', 14) + '</button>';
 
@@ -17205,11 +17205,11 @@ function renderStackPanel(card) {
     <div class="stack-head">
       <div class="stack-head-label">Descriptor stack</div>
       <div style="display: flex; gap: var(--s3); align-items: center;">
-        <div class="stack-format">
-          <button data-fmt="prose" class="${fmt === 'prose' ? 'active' : ''}">Prose</button>
-          <button data-fmt="tags" class="${fmt === 'tags' ? 'active' : ''}">Tags</button>
-          <button data-fmt="rich" class="${fmt === 'rich' ? 'active' : ''}">Rich</button>
-          <button data-fmt="compact" class="${fmt === 'compact' ? 'active' : ''}">Compact</button>
+        <div class="stack-format" role="group" aria-label="Recipe format">
+          <button type="button" data-fmt="prose" class="${fmt === 'prose' ? 'active' : ''}" aria-pressed="${fmt === 'prose'}">Prose</button>
+          <button type="button" data-fmt="tags" class="${fmt === 'tags' ? 'active' : ''}" aria-pressed="${fmt === 'tags'}">Tags</button>
+          <button type="button" data-fmt="rich" class="${fmt === 'rich' ? 'active' : ''}" aria-pressed="${fmt === 'rich'}">Rich</button>
+          <button type="button" data-fmt="compact" class="${fmt === 'compact' ? 'active' : ''}" aria-pressed="${fmt === 'compact'}">Compact</button>
         </div>
         <button class="btn btn-ghost" data-action="stack-close" style="padding: 4px 8px; font-size: var(--fs-micro);">Close</button>
       </div>
@@ -17245,6 +17245,7 @@ function _detailFocusTarget(t) {
   if (d.setChain) return ['[data-set-chain=' + q(d.setChain) + '][data-item=' + q(d.item || '') + ']', 'button[data-edit-chain=' + q(d.setChain) + ']'];
   if (d.setTuning != null) return ['button[data-toggle-env="tuning"]'];
   if (d.setRoom != null) return ['button[data-toggle-env="room"]'];
+  if (d.fmt) return ['button[data-fmt=' + q(d.fmt) + ']'];
   return null;
 }
 
@@ -17674,11 +17675,11 @@ function renderRecipeStack() {
       <div style="font-size: var(--fs-caption); color: var(--text-2);">
         ${app.cards.length} instrument${app.cards.length === 1 ? '' : 's'} · ${lengthLabel}
       </div>
-      <div class="stack-format">
-        <button data-rfmt="prose" class="${fmt === 'prose' ? 'active' : ''}">Prose</button>
-        <button data-rfmt="tags" class="${fmt === 'tags' ? 'active' : ''}">Tags</button>
-        <button data-rfmt="rich" class="${fmt === 'rich' ? 'active' : ''}">Rich</button>
-        <button data-rfmt="compact" class="${fmt === 'compact' ? 'active' : ''}">Compact</button>
+      <div class="stack-format" role="group" aria-label="Recipe format">
+        <button type="button" data-rfmt="prose" class="${fmt === 'prose' ? 'active' : ''}" aria-pressed="${fmt === 'prose'}">Prose</button>
+        <button type="button" data-rfmt="tags" class="${fmt === 'tags' ? 'active' : ''}" aria-pressed="${fmt === 'tags'}">Tags</button>
+        <button type="button" data-rfmt="rich" class="${fmt === 'rich' ? 'active' : ''}" aria-pressed="${fmt === 'rich'}">Rich</button>
+        <button type="button" data-rfmt="compact" class="${fmt === 'compact' ? 'active' : ''}" aria-pressed="${fmt === 'compact'}">Compact</button>
       </div>
     </div>
     <pre class="stack-text" style="white-space: pre-wrap; word-break: break-word; font-family: 'JetBrains Mono', monospace; font-size: var(--fs-caption); line-height: 1.6; background: var(--surface-2); padding: var(--s4); border-radius: 6px; max-height: 60vh; overflow-y: auto; margin: 0;">${text ? esc(text) : '<span class="muted-italic">Nothing configured yet.</span>'}</pre>
@@ -17690,6 +17691,8 @@ function renderRecipeStack() {
     btn.addEventListener('click', () => {
       app.recipeStackFormat = btn.dataset.rfmt;
       renderRecipeStack();
+      // The re-render replaced the pressed button: focus its successor.
+      b.querySelector('[data-rfmt="' + CSS.escape(btn.dataset.rfmt) + '"]')?.focus();
     });
   });
   const copyBtn = b.querySelector('[data-rstack-copy]');
