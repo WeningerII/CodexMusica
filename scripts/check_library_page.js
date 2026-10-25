@@ -758,6 +758,99 @@ const SECTIONS = {
       /offset=50$/.test(await page.evaluate(() => location.hash)) && snapped === 50,
       `${await page.evaluate(() => location.hash)} ${snapped} rows`
     );
+    // A shared or hand-edited link past the end, and one naming no
+    // collection, are said as such: never a load error whose Retry can only
+    // ask for the same missing file (BB8's lane, 6391088047).
+    const outcome = async (sub) => {
+      await go(page, base, sub);
+      await page
+        .waitForFunction(
+          () => {
+            const e = document.querySelector('#surface-library .lw-results .cm-empty');
+            return e && !/Loading/.test(e.textContent);
+          },
+          null,
+          { timeout: 20000 }
+        )
+        .catch(() => {});
+      return page.evaluate(() => {
+        const e = document.querySelector('#surface-library .lw-results .cm-empty');
+        return {
+          tone: e?.dataset.tone || '',
+          text: (e?.textContent || '').trim().slice(0, 160),
+          first: !!e?.querySelector('[data-lw="page"][data-to="0"]'),
+          all: !!e?.querySelector('[data-lw="all-works"]'),
+          every: !!e?.querySelector('[data-lw="all-availability"]'),
+          retry: !!e?.querySelector('[data-lw="retry"]'),
+        };
+      });
+    };
+    const past = await outcome('/works?offset=999999');
+    check(
+      `${tag} works: offset=999999 says past the end with First page, not a load error`,
+      past.tone !== 'danger' && /No more readings/.test(past.text) && past.first && !past.retry,
+      JSON.stringify(past)
+    );
+    check(
+      `${tag} works: and a static page past the end says where the list ends, not the search hint`,
+      /past its end/.test(past.text) && !/Search is literal/.test(past.text),
+      JSON.stringify(past)
+    );
+    const none = await outcome('/works?collection=collection_nope');
+    check(
+      `${tag} works: an unknown collection says No such collection, not a load error`,
+      none.tone !== 'danger' && /No such collection/.test(none.text) && none.all && !none.retry,
+      JSON.stringify(none)
+    );
+    // The id is shown as typed: escaped once (uiEmptyState), never twice.
+    const amp = await outcome('/works?collection=' + encodeURIComponent('nope&co'));
+    check(
+      `${tag} works: an unknown id is shown as typed, escaped once`,
+      /“nope&co”/.test(amp.text) && !/&amp;/.test(amp.text),
+      JSON.stringify(amp)
+    );
+    // A LISTED collection with nothing readable has no head file; it is
+    // held, not missing (BB8's W1: 48 such, e.g. "sonnets generated").
+    const held = await outcome('/works?collection=collection_9edc5f69-bf21-5946-bb46-27d95903804c');
+    check(
+      `${tag} works: a held-only collection says Nothing here is readable, not No such collection`,
+      held.tone !== 'danger' &&
+        /Nothing here is readable/.test(held.text) &&
+        !/No such collection/.test(held.text) &&
+        held.every &&
+        !held.retry,
+      JSON.stringify(held)
+    );
+    // A listed collection that records no units at all is empty, not held.
+    const empty = await outcome(
+      '/works?collection=collection_6be22f99-f402-54a8-b0ef-d2f3ae08fbba'
+    );
+    check(
+      `${tag} works: a collection with no units says it is empty, not that every unit is held`,
+      empty.tone !== 'danger' &&
+        /This collection is empty/.test(empty.text) &&
+        !/held/.test(empty.text) &&
+        empty.all,
+      JSON.stringify(empty)
+    );
+    // A row with no recorded count is not a count of zero: it stays held.
+    const HELD_ROW = 'collection_9edc5f69-bf21-5946-bb46-27d95903804c';
+    await page.route('**/library/data/collections.json', async (route) => {
+      const response = await route.fetch();
+      const body = await response.json();
+      body.collections = body.collections.map((c) => (c[0] === HELD_ROW ? c.slice(0, 4) : c));
+      await route.fulfill({ response, json: body });
+    });
+    await go(page, base, `/works?collection=${HELD_ROW}`);
+    await page.reload(); // cold, so the stubbed list is the one read
+    const uncounted = await outcome(`/works?collection=${HELD_ROW}`);
+    await page.unroute('**/library/data/collections.json');
+    await page.reload();
+    check(
+      `${tag} works: a held collection with no recorded count is held, not empty`,
+      /Nothing here is readable/.test(uncounted.text) && uncounted.every,
+      JSON.stringify(uncounted)
+    );
     // A navigation that lands while an earlier one still waits on the
     // catalog wins: the stale update writes neither its state nor the hash.
     let served = await slowCatalog(page, 2500);
