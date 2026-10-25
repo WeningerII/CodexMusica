@@ -642,6 +642,48 @@ const settle = (p) => p.waitForTimeout(120);
         await p.finish();
       }
     }
+    // #106 (Jony round 22): the inspector changes form with the layout, a
+    // dialog at 390 and an inline panel at 1280. Focus inside it follows it
+    // into the new form, onto the same control; it fell to BODY.
+    {
+      const p = await open(390, 844);
+      try {
+        await receive(p);
+        await click(p, 'ly-relations');
+        await (await control(p, 'ly-relation-close')).focus();
+        const where = () =>
+          p.evaluate(() => {
+            const a = document.activeElement;
+            return {
+              host: a?.closest('#ly-relations-dialog')
+                ? 'dialog'
+                : a?.closest('#ly-relation-inspector')
+                  ? 'inline'
+                  : a === document.body
+                    ? 'BODY'
+                    : a?.id || a?.tagName,
+              ui: a?.dataset?.ui || '',
+            };
+          });
+        await p.setViewportSize({ width: 1280, height: 900 });
+        await p.waitForTimeout(400);
+        const wide = await where();
+        check(
+          wide.host === 'inline' && wide.ui === 'ly-relation-close',
+          '#106 390 -> 1280 keeps focus on Close in the inline inspector: ' + JSON.stringify(wide)
+        );
+        await p.setViewportSize({ width: 390, height: 844 });
+        await p.waitForTimeout(400);
+        const narrow = await where();
+        check(
+          narrow.host === 'dialog' && narrow.ui === 'ly-relation-close',
+          '#106 1280 -> 390 keeps focus on Close in the dialog: ' + JSON.stringify(narrow)
+        );
+        results.push({ kind: 'resize-focus' });
+      } finally {
+        await p.finish();
+      }
+    }
   } finally {
     await browser.close();
     await backend.close();

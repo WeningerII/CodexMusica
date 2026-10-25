@@ -145,8 +145,44 @@
     const html = lyRelationDockMarkup(getView(), session);
     if (dock.innerHTML !== html) dock.innerHTML = html;
   }
+  // The inspector changes form with the layout: an inline panel at 1280, a
+  // dialog at 390. Focus inside the old form follows it into the new one,
+  // onto the same control when it is there, else the heading or Close
+  // (Jony #106: a resize from the dialog left focus on BODY).
+  const HOSTS = '#ly-relations-dialog, #ly-relation-inspector';
+  function followInto(host, key) {
+    if (!host || host.hidden || !host.getClientRects().length) return;
+    const same =
+      key &&
+      [...host.querySelectorAll('[data-ui]')].find(
+        (n) =>
+          n.dataset.ui === key.ui &&
+          (n.dataset.id || '') === (key.item || '') &&
+          (n.dataset.pair || '') === (key.pair || '') &&
+          (n.dataset.side || '') === (key.side || '') &&
+          (n.dataset.part || '') === (key.part || '')
+      );
+    // A dialog opening puts focus on its first control; the same control wins.
+    if (host.contains(document.activeElement) && (!same || same.disabled)) return;
+    const target =
+      (same && !same.disabled && same) ||
+      host.querySelector('h3') ||
+      host.querySelector('[data-ui="ly-relation-close"]');
+    if (!target) return;
+    if (target.matches('h3')) target.tabIndex = -1;
+    target.focus({ preventScroll: true });
+  }
   function render() {
     if (!LY.model) return;
+    const had = document.activeElement;
+    const from = had?.closest?.(HOSTS) || null;
+    const key = from && {
+      ui: had.dataset?.ui,
+      item: had.dataset?.id,
+      pair: had.dataset?.pair,
+      side: had.dataset?.side,
+      part: had.dataset?.part,
+    };
     const view = getView();
     lySetWritingRangeMarks(lyRelationWritingMarks(view, session));
     lyInspectionRenderDock();
@@ -171,6 +207,8 @@
         if (!dialog.open) dialog.showModal();
       }
     }
+    const to = showing ? (narrow ? dialog : inline) : null;
+    if (from && to && to !== from) followInto(to, key);
   }
   function lyInspectionAction(action, id, button) {
     if (!LY.model) return;
