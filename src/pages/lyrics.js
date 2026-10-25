@@ -3594,10 +3594,14 @@ function lyDraftApplyTools(tools, { stopOnFailure = false } = {}) {
     );
   return { applied, failed };
 }
-const lyErr = (d, field) =>
+// `help` is a field's own help text id: one aria-describedby names both, as a
+// second attribute would be dropped by the parser (Jony #22 on #519).
+const lyErr = (d, field, help = '') =>
   d?.errors?.[field]
-    ? ` aria-invalid="true" aria-describedby="ly-err-${esc(field.replace(/\W/g, '-'))}"`
-    : '';
+    ? ` aria-invalid="true" aria-describedby="${help ? `${help} ` : ''}ly-err-${esc(field.replace(/\W/g, '-'))}"`
+    : help
+      ? ` aria-describedby="${help}"`
+      : '';
 const lyErrText = (d, field) =>
   d?.errors?.[field]
     ? `<p class="ly-field-error" id="ly-err-${esc(field.replace(/\W/g, '-'))}">${esc(d.errors[field])}</p>`
@@ -4124,6 +4128,7 @@ function lyMountMarkup() {
     )
     .join('');
   return `<div class="ly-page" id="ly-page">
+<h1 class="cm-sr-only">Lyrics</h1>
 <header class="ly-head" id="ly-head">
   <div class="ly-head-main">
     <div class="ly-title-wrap" id="ly-title-wrap"></div>
@@ -4166,7 +4171,7 @@ function lyMountMarkup() {
       </div>
     </div>
   </aside>
-  <main class="ly-main" id="ly-main" aria-label="Song">
+  <section class="ly-main" id="ly-main" aria-label="Song">
     <div class="ly-brief" id="ly-brief"></div>
     <div id="ly-library-source" hidden></div>
     <div id="ly-relation-inspector" class="ly-relation-inspector" hidden></div>
@@ -4192,7 +4197,7 @@ function lyMountMarkup() {
       </div>
     </div>
     <div class="ly-linedock" id="ly-linedock" role="toolbar" hidden></div>
-  </main>
+  </section>
   <aside class="ly-inspector" id="ly-inspector" aria-label="Tools, writer, review and history">
     <div class="ly-itabs" role="tablist" aria-label="Inspector">${tabs}</div>
     ${panels}
@@ -5153,7 +5158,7 @@ function lyToolFormStory(model) {
   const k = sung.indexOf(s);
   const f = (name) => `${name}.${sel}`;
   const form = s
-    ? `<div class="ly-form-grid"><div class="ly-field"><label class="ly-label" for="ly-f-name">Section name</label><input id="ly-f-name" class="cm-input" maxlength="80" data-draft="${T}" data-target="${G}" data-field="${f('name')}" value="${esc(v(f('name')))}" placeholder="${esc(s.title)}"${lyErr(d, f('name'))}>${lyErrText(d, f('name'))}</div><div class="ly-field ly-field-sm"><label class="ly-label" for="ly-f-lines">Target (lines)</label><input id="ly-f-lines" class="cm-input" inputmode="numeric" data-draft="${T}" data-target="${G}" data-field="${f('lines')}" value="${esc(v(f('lines')))}" placeholder="Not set" aria-describedby="ly-f-lines-help"${lyErr(d, f('lines'))}><small class="ly-help" id="ly-f-lines-help">Actual: ${s.sung.length}</small>${lyErrText(d, f('lines'))}</div>${
+    ? `<div class="ly-form-grid"><div class="ly-field"><label class="ly-label" for="ly-f-name">Section name</label><input id="ly-f-name" class="cm-input" maxlength="80" data-draft="${T}" data-target="${G}" data-field="${f('name')}" value="${esc(v(f('name')))}" placeholder="${esc(s.title)}"${lyErr(d, f('name'))}>${lyErrText(d, f('name'))}</div><div class="ly-field ly-field-sm"><label class="ly-label" for="ly-f-lines">Target (lines)</label><input id="ly-f-lines" class="cm-input" inputmode="numeric" data-draft="${T}" data-target="${G}" data-field="${f('lines')}" value="${esc(v(f('lines')))}" placeholder="Not set"${lyErr(d, f('lines'), 'ly-f-lines-help')}><small class="ly-help" id="ly-f-lines-help">Actual: ${s.sung.length}</small>${lyErrText(d, f('lines'))}</div>${
         k >= 0
           ? `<div class="ly-field"><label class="ly-label" for="ly-f-atom">Story job</label><select id="ly-f-atom" class="cm-select" data-draft="${T}" data-target="${G}" data-field="${f('atom')}"${lyErr(d, f('atom'))}>${lyOpts(Object.entries(LY_ATOM_LABELS), v(f('atom')), 'Not declared')}</select>${lyErrText(d, f('atom'))}</div>${
               k > 0
