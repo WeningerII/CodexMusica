@@ -387,6 +387,21 @@ const SECTIONS = {
       info.rail > 0 || /^(390)$/.test(String(tag).split(' ')[1]),
       `${info.rail} rail entries`
     );
+    // A screen reader hears a page heading and a named shelf (Jony #23, #25).
+    const sr = await page.evaluate(() => {
+      const h1 = document.querySelector('#surface-library h1');
+      const shelf = document.querySelector('#surface-library .lib-shelf-scroll');
+      return {
+        h1: h1 ? h1.textContent.trim() : null,
+        shelfRole: shelf ? shelf.getAttribute('role') : 'none',
+        shelfName: shelf ? shelf.getAttribute('aria-label') : null,
+      };
+    });
+    check(
+      `${tag} explore: the Library has an h1 and its shelves are named regions`,
+      !!sr.h1 && sr.shelfRole === 'region' && !!sr.shelfName,
+      JSON.stringify(sr)
+    );
     check(`${tag} explore: topline`, info.topline.length > 0);
     // Collection page.
     const card = await page.$(

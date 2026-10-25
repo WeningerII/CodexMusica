@@ -655,7 +655,7 @@ function shelfHtml(shelf, rows) {
   const more = shelf.total - cards.length;
   return `<section class="lib-shelf" data-lang="${esc(shelf.language)}" aria-labelledby="lib-shelf-${esc(shelf.language)}">
 <div class="lib-shelf-head"><h2 id="lib-shelf-${esc(shelf.language)}">${esc(lib.languageName(shelf.language))}</h2><span>${plural(shelf.total, 'collection')}<span data-lib="shelf-note">${state.shelfUnsaved[shelf.language] ? ' · position unsaved' : ''}</span></span></div>
-<div class="lib-shelf-scroll" tabindex="0" aria-label="${esc(lib.languageName(shelf.language))} collections, scroll horizontally">${cards.map((c, i) => cardHtml(c, i)).join('')}${more > 0 ? `<button type="button" class="lib-more" data-lib-act="more" data-lang="${esc(shelf.language)}">Show ${num(Math.min(more, SHELF_BATCH))} more<br>of ${num(more)}</button>` : ''}</div></section>`;
+<div class="lib-shelf-scroll" tabindex="0" role="region" aria-label="${esc(lib.languageName(shelf.language))} collections, scroll horizontally">${cards.map((c, i) => cardHtml(c, i)).join('')}${more > 0 ? `<button type="button" class="lib-more" data-lib-act="more" data-lang="${esc(shelf.language)}">Show ${num(Math.min(more, SHELF_BATCH))} more<br>of ${num(more)}</button>` : ''}</div></section>`;
 }
 
 async function showExplore(main, token) {

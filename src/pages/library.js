@@ -121,7 +121,7 @@ uiRegisterPage({
   // A deferred boot keeps the engine back while this page is shown.
   holdsEngine: true,
   mount(surface) {
-    surface.innerHTML = `<div class="lib-shell"><div class="lib-bar" role="tablist" aria-label="Library sections">${[
+    surface.innerHTML = `<div class="lib-shell"><h1 class="sr-only">Library</h1><div class="lib-bar" role="tablist" aria-label="Library sections">${[
       ['', 'Explore'],
       ['/works', 'Works'],
       ['/rights', 'Sources & rights'],
