@@ -709,6 +709,97 @@ async function editorKeyboard(page, where) {
           'status',
           'Instrument: the live region exists before its first message'
         );
+        // A category keeps focus and says what it lists; List view is a list
+        // (Jony #44, #45 on #519).
+        const catsToggle = page.locator('[data-ui="ip-cats"]');
+        if (await catsToggle.isVisible()) {
+          if ((await catsToggle.getAttribute('aria-expanded')) !== 'true') await catsToggle.click();
+        }
+        const famId = await page.evaluate(
+          () =>
+            document.querySelector(
+              '#instrument-body .ip-cat[data-ui="instrument-family"]:not([data-empty])'
+            )?.dataset.id
+        );
+        await page
+          .locator(`#instrument-body .ip-cat[data-ui="instrument-family"][data-id="${famId}"]`)
+          .focus();
+        await page.keyboard.press('Enter');
+        const cat = await page.evaluate(() => ({
+          id: document.activeElement?.dataset?.id || document.activeElement?.tagName,
+          pressed: document.activeElement?.getAttribute('aria-pressed'),
+          live: document.getElementById('ip-live')?.textContent || '',
+        }));
+        assert.ok(
+          cat.id === famId && cat.pressed === 'true' && /^[\d,]+ instruments?$/.test(cat.live),
+          'Instrument: a category keeps focus and announces its count: ' + JSON.stringify(cat)
+        );
+        // The class chips, "All · N", the Back crumb and Sort keep focus too
+        // (Jony #103 on #519).
+        const where = () =>
+          page.evaluate(() => {
+            const a = document.activeElement;
+            return { tag: a?.tagName, ui: a?.dataset?.ui || a?.id || '', id: a?.dataset?.id || '' };
+          });
+        const clsId = await page.evaluate(
+          () => document.querySelector('#instrument-body [data-ui="instrument-class"]')?.dataset.id
+        );
+        await page
+          .locator(`#instrument-body [data-ui="instrument-class"][data-id="${clsId}"]`)
+          .focus();
+        await page.keyboard.press('Enter');
+        assert.deepEqual(
+          await where(),
+          { tag: 'BUTTON', ui: 'instrument-class', id: clsId },
+          'Instrument: a class chip keeps focus'
+        );
+        await page.locator('#instrument-body [data-ui="instrument-class-all"]').focus();
+        await page.keyboard.press('Enter');
+        assert.deepEqual(
+          (await where()).ui,
+          'instrument-class-all',
+          "Instrument: the class row's All keeps focus"
+        );
+        await page
+          .locator(`#instrument-body [data-ui="instrument-class"][data-id="${clsId}"]`)
+          .click();
+        await page.locator('#instrument-body [data-ui="instrument-back"]').focus();
+        await page.keyboard.press('Enter');
+        assert.equal(
+          (await where()).ui,
+          'instrument-back',
+          'Instrument: Back from a class keeps focus on Back'
+        );
+        await page.keyboard.press('Enter');
+        assert.equal(
+          (await where()).ui,
+          'ip-list-title',
+          'Instrument: Back to all instruments lands on the list heading'
+        );
+        await page.locator('#ip-sort').focus();
+        await page.keyboard.press('ArrowDown');
+        assert.equal((await where()).ui, 'ip-sort', 'Instrument: Sort keeps focus as it changes');
+        await page.locator('#ip-sort').selectOption('name');
+        await page
+          .locator(`#instrument-body .ip-cat[data-ui="instrument-family"][data-id="${famId}"]`)
+          .click();
+        await page.locator('[data-ui="ip-view"][data-id="list"]').click();
+        const listRows = await page.locator('#instrument-body .ip-row').count();
+        assert.ok(
+          listRows > 0 &&
+            (await page
+              .getByRole('list', { name: 'Instruments' })
+              .getByRole('listitem')
+              .count()) === listRows,
+          'Instrument: List view rows are items of a list'
+        );
+        await page.locator('[data-ui="ip-view"][data-id="rows"]').click();
+        await page.locator('#instrument-body .ip-cat[data-ui="instrument-all"]').click();
+        if (
+          (await catsToggle.isVisible()) &&
+          (await catsToggle.getAttribute('aria-expanded')) === 'true'
+        )
+          await catsToggle.click();
         await page.locator('#instrument-search').fill('drum');
         await page.waitForFunction(() =>
           /instrument/.test(document.getElementById('ip-live')?.textContent || '')

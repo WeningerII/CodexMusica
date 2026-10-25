@@ -405,6 +405,31 @@ function ipRenderList(filtered, fam, q, filters) {
   return `<section class="ip-list" aria-labelledby="ip-list-title">${crumbs}<div class="ip-list-head"><h2 id="ip-list-title">${esc(title)}</h2><span class="ip-list-count">${uiCount(filtered.length, 'instrument')}</span>${controls}</div>${classChips}${active}${body}${!filtered.length ? uiInstrumentNoResults(q, fam) : ''}</section>`;
 }
 // Rows: the family (or class) bar when two or more rows have instruments, then the rows.
+// A category press re-renders the catalogue and its sidebar: keep focus on
+// the category pressed, and say how many it now lists (Jony #44).
+function ipAfterCategory(button) {
+  if (!button?.classList?.contains('ip-cat')) return;
+  const id = button.dataset.id;
+  const again = [...document.querySelectorAll('#instrument-body .ip-cat')].find(
+    (b) => b.dataset.ui === button.dataset.ui && b.dataset.id === id
+  );
+  uiFocus(again);
+  ipAnnounce($ui('instrument-body')?.querySelector('.ip-list-count')?.textContent || '');
+}
+// The same for the class chips, the Back crumb and Sort, which the re-render
+// also replaces under focus (Jony #103): focus the control of that data-ui
+// (and data-id) again, else `fallback`, and say the count.
+function ipAfterRender(ui, id, fallback) {
+  const again = [...document.querySelectorAll(`#instrument-body [data-ui="${ui}"]`)].find(
+    (b) => id == null || b.dataset.id === id
+  );
+  if (!uiFocus(again) && fallback) {
+    const el = fallback();
+    if (el && !el.matches('button, select, input, [tabindex]')) el.tabIndex = -1;
+    uiFocus(el);
+  }
+  ipAnnounce($ui('instrument-body')?.querySelector('.ip-list-count')?.textContent || '');
+}
 function ipRowsBody(filtered, fam) {
   const groups = ipGroups(filtered, fam);
   const jump =
@@ -423,14 +448,14 @@ function ipListBody(filtered) {
     .map((i) => {
       const parts = (i.parts || []).length;
       const current = UI.instrumentPreview === i.id;
-      return `<div class="ip-row"${current ? ' aria-current="true"' : ''}>${ipImage(i.id, 44, i.name)}<button type="button" class="ip-row-main" data-ui="instrument-inspect" data-id="${esc(i.id)}" aria-label="${esc(i.name)}: configure before adding"><span class="ip-row-text"><span class="ip-row-name">${esc(i.name)}</span><span class="ip-row-meta">${esc(FamName(i.family))} · ${esc(ipHuman(i.class))} · ${uiCount(parts, 'customizable part')}</span>${ipCredit(i.id)}</span></button>${listenLink(i.name, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(i.id)}" aria-label="Add ${esc(i.name)} with catalog defaults to ${esc(dest)}" data-tooltip="Adds with catalog defaults to ${esc(dest)}"`)}</div>`;
+      return `<li class="ip-row"${current ? ' aria-current="true"' : ''}>${ipImage(i.id, 44, i.name)}<button type="button" class="ip-row-main" data-ui="instrument-inspect" data-id="${esc(i.id)}" aria-label="${esc(i.name)}: configure before adding"><span class="ip-row-text"><span class="ip-row-name">${esc(i.name)}</span><span class="ip-row-meta">${esc(FamName(i.family))} · ${esc(ipHuman(i.class))} · ${uiCount(parts, 'customizable part')}</span>${ipCredit(i.id)}</span></button>${listenLink(i.name, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(i.id)}" aria-label="Add ${esc(i.name)} with catalog defaults to ${esc(dest)}" data-tooltip="Adds with catalog defaults to ${esc(dest)}"`)}</li>`;
     })
     .join('');
   const more =
     filtered.length > UI.limit
       ? `<div class="ip-more-row"><span>Showing ${Math.min(UI.limit, filtered.length).toLocaleString('en')} of ${filtered.length.toLocaleString('en')}</span>${uiButton('more', 'Show more', 'chevron-down', 'class="cm-btn cm-btn-outline"')}</div>`
       : '';
-  return `<div class="ip-rows">${rows}</div>${more}`;
+  return `<ul class="ip-rows" aria-label="Instruments">${rows}</ul>${more}`;
 }
 // No results says which constraints are in force and offers to lift each one.
 // Conflicting properties are named when the catalogue never has them together.
@@ -1041,7 +1066,10 @@ uiRegisterPage({
       const t = e.target;
       if (t.id === 'ip-sort') {
         IP.sort = t.value;
+        const had = document.activeElement === t;
         renderInstrumentDiscovery();
+        // The select is re-rendered under focus (arrow keys change it).
+        if (had) uiFocus($ui('ip-sort'));
       } else if (t.id === 'instrument-destination' || t.id === 'ip-destination') {
         $ui('instrument-destination').value = t.value;
         app._addToTradition = null;
@@ -1187,21 +1215,24 @@ uiRegisterPage({
     'engine-reload'() {
       location.reload();
     },
-    'instrument-family'(id) {
+    'instrument-family'(id, button) {
       UI.instrumentFamily = id;
       UI.instrumentClass = '';
       UI.limit = 50;
       renderInstrumentDiscovery();
+      ipAfterCategory(button);
     },
     'instrument-class'(id) {
       UI.instrumentClass = id;
       UI.limit = 50;
       renderInstrumentDiscovery();
+      ipAfterRender('instrument-class', id);
     },
     'instrument-class-all'() {
       UI.instrumentClass = '';
       UI.limit = 50;
       renderInstrumentDiscovery();
+      ipAfterRender('instrument-class-all');
     },
     'ip-class'(id, button) {
       UI.instrumentFamily = button.dataset.family;
@@ -1213,6 +1244,8 @@ uiRegisterPage({
       if (UI.instrumentClass) UI.instrumentClass = '';
       else UI.instrumentFamily = '';
       renderInstrumentDiscovery();
+      // Back again if there is a level left, else the list's heading.
+      ipAfterRender('instrument-back', null, () => $ui('ip-list-title'));
     },
     'instrument-filter'(id, button, event) {
       // A checkbox has already toggled itself; the set is the state of record.
@@ -1244,11 +1277,12 @@ uiRegisterPage({
       renderInstrumentDiscovery();
       $ui('instrument-search').focus();
     },
-    'instrument-all'() {
+    'instrument-all'(id, button) {
       UI.instrumentFamily = '';
       UI.instrumentClass = '';
       UI.limit = 50;
       renderInstrumentDiscovery();
+      ipAfterCategory(button);
     },
     'ip-cats'() {
       IP.catsOpen = !IP.catsOpen;
