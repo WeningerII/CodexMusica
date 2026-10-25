@@ -5290,6 +5290,9 @@ function lyToolRhythm(model) {
 }
 
 // ── Rhymes ────────────────────────────────────────────────────────────────
+// A pair or group of words, "a ~ b": the tilde is for the eye; a screen
+// reader hears "a with b" (Jony #107: it read "tilde").
+const LY_PAIR_SEP = '<span aria-hidden="true"> ~ </span><span class="ly-sr"> with </span>';
 function lyToolRhymes(model) {
   const T = 'rhymes',
     G = 'song';
@@ -5324,7 +5327,7 @@ function lyToolRhymes(model) {
     ? `<ul class="ly-links">${groups
         .map((g, k) => {
           const letter = lyFamilyLabel(k);
-          return `<li><label class="ly-check"><input type="radio" name="ly-link-group" value="${k}"${k === selGroup ? ' checked' : ''}><span class="ly-letter" data-g="${k % 6}">${letter}</span><span><strong>${letter} · declared ${esc(relName(c.relation))}</strong><small>${g.map((m) => (m.bad || m.undecided ? esc(m.raw) : `Line ${m.line} · ${esc(String(lyMemberWord(model, m) ?? 'missing').slice(0, 30))}`)).join(' ~ ')}</small></span></label></li>`;
+          return `<li><label class="ly-check"><input type="radio" name="ly-link-group" value="${k}"${k === selGroup ? ' checked' : ''}><span class="ly-letter" data-g="${k % 6}">${letter}</span><span><strong>${letter} · declared ${esc(relName(c.relation))}</strong><small>${g.map((m) => (m.bad || m.undecided ? esc(m.raw) : `Line ${m.line} · ${esc(String(lyMemberWord(model, m) ?? 'missing').slice(0, 30))}`)).join(LY_PAIR_SEP)}</small></span></label></li>`;
         })
         .join('')}</ul>`
     : '<p class="ly-help">No rhyme links declared.</p>';
@@ -5356,7 +5359,7 @@ function lyRhymeResults() {
     .map((p) => {
       const kind = p.refused ? 'refused' : p.codes.length ? 'partial' : 'matched';
       const word = kind === 'matched' ? 'Matched' : kind === 'partial' ? 'Partial' : 'Refused';
-      return `<li data-kind="${kind}">${lyPill(kind === 'matched' ? 'success' : kind === 'partial' ? 'warning' : 'danger', word)}<span><strong>${esc(p.a)} ~ ${esc(p.b)}</strong><small>${esc(p.refused ? p.reason || 'Not judged' : p.codes.length ? `Banned: ${p.codes.join(', ')}` : p.relations.join(', ') || 'no relation')}</small></span></li>`;
+      return `<li data-kind="${kind}">${lyPill(kind === 'matched' ? 'success' : kind === 'partial' ? 'warning' : 'danger', word)}<span><strong>${esc(p.a)}${LY_PAIR_SEP}${esc(p.b)}</strong><small>${esc(p.refused ? p.reason || 'Not judged' : p.codes.length ? `Banned: ${p.codes.join(', ')}` : p.relations.join(', ') || 'no relation')}</small></span></li>`;
     })
     .join('');
   return `<section class="ly-result" aria-labelledby="ly-rr-h"><h4 class="ly-h4" id="ly-rr-h">Rhyme options</h4><p class="ly-help">From the writer’s screen of ${esc(uiCount(r.pairs.length, 'pair'))}${stale ? ' · asked about an earlier version' : ''}. Nothing was inserted or declared.</p><ul class="ly-options">${rows || '<li>No pairs returned.</li>'}</ul></section>`;

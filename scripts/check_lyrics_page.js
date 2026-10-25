@@ -67,7 +67,7 @@
 // Exit 0 if every assertion passes, 1 otherwise, 2 if playwright is missing.
 
 'use strict';
-/* global devicePixelRatio, visualViewport, innerHeight, document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lySyncCaret, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage, uiChatOpen, requestAnimationFrame, LY_ACTION_TEXT, lySubmitLyricsAction, lyWriterState, lyToolRequestAction, lyInspectionSession, Image, InputEvent, MutationObserver */
+/* global devicePixelRatio, visualViewport, innerHeight, document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lySyncCaret, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage, uiChatOpen, requestAnimationFrame, LY_ACTION_TEXT, lySubmitLyricsAction, lyWriterState, lyToolRequestAction, lyInspectionSession, Image, InputEvent, MutationObserver, NodeFilter */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -4831,7 +4831,8 @@ async function browserChecks(chromium) {
       );
       check(q.calls.length === 2, `expected two fixture requests, got ${q.calls.length}`);
       check(
-        (await page.locator('.ly-options').innerText()).includes('you ~ blue'),
+        // The pair reads "you ~ blue" on screen, "you with blue" aloud (R22).
+        /you\s*~\s*(with\s*)?blue/.test(await page.locator('.ly-options').innerText()),
         'stale status changed or removed the returned pair'
       );
       // A recovered result without its request has no known version to compare.
@@ -5975,7 +5976,6 @@ async function browserChecks(chromium) {
       );
       await ctx.close();
     });
-
     // R20. Jony's round 20, Lyrics parts. #97/#98: in forced colours the
     // draft's own text was forced visible with a readability backplate over
     // the read layer, so every header showed twice and the Find marks behind
@@ -6141,6 +6141,43 @@ async function browserChecks(chromium) {
         );
         await ctx.close();
       }
+    });
+    // R22 (Jony #107): a pair of words, "a ~ b", is heard "a with b"; the
+    // tilde is for the eye only (it was read "tilde"). Both places that print
+    // one: the declared groups in Rhymes and the checked pairs under them.
+    await step('R22. pair separator is spoken as "with"', async () => {
+      const { ctx, page } = await boot({ theme: 'light' });
+      await setDraft(page, DRAFT);
+      await page.evaluate(() => {
+        LY.results.rhymes = {
+          pairs: [{ a: 'night', b: 'light', refused: false, codes: [], relations: ['perfect'] }],
+          baseId: null,
+        };
+        LY_ACTIONS['ly-tool']('rhymes');
+        lyRefresh(true);
+      });
+      await page.waitForTimeout(150);
+      const seps = await page.evaluate(() => {
+        const out = [];
+        const walk = document.createTreeWalker($ui('surface-lyrics'), NodeFilter.SHOW_TEXT);
+        for (let n = walk.nextNode(); n; n = walk.nextNode()) {
+          if (!n.nodeValue.includes('~') || !n.parentElement.getClientRects().length) continue;
+          const hidden = n.parentElement.closest('[aria-hidden="true"]');
+          out.push({
+            text: n.parentElement.closest('strong, small')?.textContent.trim() || n.nodeValue,
+            hidden: !!hidden,
+            spoken: hidden?.nextElementSibling?.matches('.ly-sr')
+              ? hidden.nextElementSibling.textContent
+              : '',
+          });
+        }
+        return out;
+      });
+      check(
+        seps.length >= 2 && seps.every((s) => s.hidden && s.spoken.trim() === 'with'),
+        `a pair separator is read as "tilde": ${JSON.stringify(seps.slice(0, 4))}`
+      );
+      await ctx.close();
     });
 
     await step('10. expired saved request and New conversation', async () => {
