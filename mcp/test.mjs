@@ -338,6 +338,29 @@ await check('set_preface after set_environment reports the environment it replac
   assert.equal(ordered.workspace.cards[0].room, 'cathedral');
   assert.equal(ordered.workspace.cards[0].preface, 'raging');
   assert.ok(!ordered.render_warnings.some((x) => x.code === 'ENVIRONMENT_OVERWRITTEN'));
+  // A later edit that puts the room back settles the warning: the response
+  // describes the recipe it returns, not a step on the way there.
+  const restored = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [
+      { action: 'set_environment', room: 'cathedral' },
+      { action: 'set_preface', card: 'voice', preface: 'raging' },
+      { action: 'set_environment', room: 'cathedral' },
+    ],
+  });
+  assert.match(restored.recipe, /cathedral/);
+  assert.ok(!restored.render_warnings.some((x) => x.code === 'ENVIRONMENT_OVERWRITTEN'));
+  // Same for a card moved away and back within one batch.
+  const roundTrip = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [
+      { action: 'set_environment', room: 'cathedral' },
+      { action: 'move_instrument', card: s.cards.at(-1).card },
+      { action: 'move_instrument', card: s.cards[0].card },
+    ],
+  });
+  assert.match(roundTrip.recipe, /cathedral/);
+  assert.ok(!roundTrip.render_warnings.some((x) => x.code === 'ENVIRONMENT_MOVED'));
 });
 
 await check('an environment edit that does not reach the output is not confirmed silently', () => {

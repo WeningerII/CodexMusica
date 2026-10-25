@@ -701,6 +701,14 @@ export function editRecipe(params = {}) {
   // chain no format renders. Said per edit, because only this call knows the
   // write was an environment request rather than a preface cascade.
   const env = envCardOf(ws.cards);
+  // A later edit in the same batch can put back what an earlier one took away
+  // (move the card away and back, or set_environment again after set_preface).
+  // Those warnings describe a step, not the result, so keep only the ones whose
+  // settings still differ from what the final environment card renders.
+  const settled = (w) =>
+    (w.code === 'ENVIRONMENT_MOVED' || w.code === 'ENVIRONMENT_OVERWRITTEN') &&
+    Object.entries(w.settings || {}).every(([f, v]) => sameValue(v.was, envValue(env, f)));
+  for (let k = warnings.length - 1; k >= 0; k--) if (settled(warnings[k])) warnings.splice(k, 1);
   for (const t of envTargets) {
     if (!ws.cards.some((c) => c.id === t.card) || t.card === env.id) continue;
     warnings.push({
