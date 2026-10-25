@@ -3145,6 +3145,78 @@ async function browserChecks(chromium) {
       await ctx.close();
     });
 
+    // ── 6. Tool actions keep focus; a tool opens where its heading is ────
+    // Each control is pressed with a real Enter. A re-render must not drop
+    // focus to <body>: it returns to the pressed control. Opening a tool
+    // focuses its heading where it renders, and Back returns to that tool's
+    // row. (Section move, duplicate and remove place focus themselves and
+    // are checked on the branch that owns them.)
+    await step('6. tool focus', async () => {
+      const { ctx, page } = await boot({ theme: 'light' });
+      await setDraft(page, DRAFT);
+      await page.evaluate(() => LY_ACTIONS['ly-tab']('tools'));
+      const where = () =>
+        page.evaluate(() => {
+          const a = document.activeElement;
+          return {
+            tag: a?.tagName,
+            ui: a?.dataset?.ui || '',
+            id: a?.dataset?.id ?? null,
+            text: (a?.textContent || '').trim().slice(0, 40),
+            main: !!a?.closest('#ly-tool-main'),
+          };
+        });
+      const press = async (selector) => {
+        await page.locator(selector).first().focus();
+        await page.keyboard.press('Enter');
+        await page.waitForTimeout(300);
+        return where();
+      };
+      let w = await press('#surface-lyrics .ly-toolrow[data-id="rhythm"]');
+      check(
+        w.tag === 'H3' && w.main && /Rhythm/.test(w.text),
+        `opening Rhythm does not focus its heading in the centre: ${JSON.stringify(w)}`
+      );
+      w = await press('[data-ui="ly-rhythm-copy"]');
+      check(w.ui === 'ly-rhythm-copy', `Copy to other sections drops focus: ${JSON.stringify(w)}`);
+      await page.locator('#ly-r-meter').fill('3/4');
+      w = await press('[data-ui="ly-rhythm-save"]');
+      check(w.ui === 'ly-rhythm-save', `Save rhythm drops focus: ${JSON.stringify(w)}`);
+      w = await press('#surface-lyrics .ly-tool-nav [data-ui="ly-tool"]');
+      check(
+        w.ui === 'ly-tool' && w.id === 'rhythm',
+        `Back to tools does not return to the Rhythm row: ${JSON.stringify(w)}`
+      );
+      await page.evaluate(() => LY_ACTIONS['ly-tool']('rhymes'));
+      w = await press('[data-ui="ly-relation"][aria-pressed="false"]');
+      check(w.ui === 'ly-relation', `a rhyme filter drops focus: ${JSON.stringify(w)}`);
+      await page.evaluate(() => LY_ACTIONS['ly-line-tool']('pronunciation:3'));
+      w = await press('[data-ui="ly-reading-pick"]:not([aria-pressed="true"])');
+      check(
+        w.ui === 'ly-reading-pick',
+        `a pronunciation word chip drops focus: ${JSON.stringify(w)}`
+      );
+      await page.evaluate(() => LY_ACTIONS['ly-tool']('repeats-voices'));
+      w = await press('[data-ui="ly-voices"][data-id="sung"]');
+      check(w.ui === 'ly-voices', `Sung second voice drops focus: ${JSON.stringify(w)}`);
+      await page.evaluate(() => LY_ACTIONS['ly-tool']('form-story'));
+      const names = await page.evaluate(() => ({
+        tables: [...document.querySelectorAll('#surface-lyrics table')].map((t) =>
+          t.getAttribute('aria-label')
+        ),
+      }));
+      check(
+        names.tables.length > 0 && names.tables.every(Boolean),
+        `a Lyrics tool table has no name: ${JSON.stringify(names)}`
+      );
+      await page.evaluate(() => LY_ACTIONS['ly-tool']('word-rules'));
+      check(
+        (await page.getByLabel('Add an avoided phrase', { exact: true }).count()) === 1,
+        'the Word rules avoid field is not labelled "Add an avoided phrase"'
+      );
+      await ctx.close();
+    });
+
     // ── 2. Check & apply: the change would add a local issue ─────────────
     await step('2. check & apply (new issue)', async () => {
       const { ctx, page, q } = await boot({ theme: 'light' });
