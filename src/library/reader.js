@@ -583,7 +583,7 @@ const CSS = `
 #surface-library .rd-lens{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px}
 #surface-library .rd-sec{border-top:1px solid var(--cm-border-subtle);padding:12px 0}
 #surface-library .rd-sec:first-of-type{border-top:0}
-#surface-library .rd-sec h3{font-size:var(--cm-text-sm);font-weight:600;margin:0 0 8px}
+#surface-library .rd-sec h2,#surface-library .rd-sec h3{font-size:var(--cm-text-sm);font-weight:600;margin:0 0 8px}
 #surface-library .rd-note{color:var(--cm-text-muted);font-size:var(--cm-text-xs);margin:6px 0;overflow-wrap:anywhere}
 #surface-library .rd-measure{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 #surface-library .rd-measure div{background:var(--cm-surface-subtle);border-radius:var(--cm-radius-md);padding:8px;font-size:var(--cm-text-xs);color:var(--cm-text-muted)}
@@ -1059,21 +1059,21 @@ function renderInspector() {
   let body = '';
   if (S.lens === 'summary') {
     const c = h.census || {};
-    body = `<section class="rd-sec"><h3>This reading</h3>
+    body = `<section class="rd-sec"><h2>This reading</h2>
 <div class="rd-measure"><div><b>${esc(c.physical_source_rows ?? '—')}</b>physical rows</div><div><b>${esc(words_(h.completeness))}</b>documented scope</div>
 <div><b>${esc(c.normalized_lines ?? '—')}</b>analysis lines</div><div><b>${esc(R.pageCount)}</b>page${R.pageCount === 1 ? '' : 's'} of ${PAGE_ROWS} rows</div></div>
 <p class="rd-note">${esc(h.source_path)}</p><p class="rd-note">${esc(h.notation || '')} · ${esc(h.direction === 'rtl' ? 'right to left' : 'left to right')}</p></section>
 `;
   } else if (S.lens === 'sources') {
-    body = `<section class="rd-sec"><h3>Text, edition and digital witness</h3>${valueTree({
+    body = `<section class="rd-sec"><h2>Text, edition and digital witness</h2>${valueTree({
       work_id: h.work_id,
       edition_id: h.edition_id,
       contributors: h.contributors,
       source_path: h.source_path,
       completeness: h.completeness,
     })}<div data-rd-meta><p class="rd-note">Loading metadata…</p></div></section>
-<section class="rd-sec"><h3>Rights and required credits</h3><div data-rd-rights><p class="rd-note">Loading rights…</p></div></section>
-<section class="rd-sec"><h3>Recorded source labels</h3>${valueTree(h.source_labels)}
+<section class="rd-sec"><h2>Rights and required credits</h2><div data-rd-rights><p class="rd-note">Loading rights…</p></div></section>
+<section class="rd-sec"><h2>Recorded source labels</h2>${valueTree(h.source_labels)}
 <h3 style="margin-top:12px">Exact source identity</h3><p class="rd-hash" data-rd-ident>Readings: snapshot …<br>Revision ${esc(R.revision)}<br>Source SHA256 ${esc(h.source_sha256)}<br>Normalized SHA256 ${esc(h.normalized_sha256)}</p>
 ${btn('provenance', 'Source details', 'download')}</section>`;
   }
@@ -1089,7 +1089,7 @@ function renderSpeech() {
   const h = S.R.head;
   let body = '';
   const voices = window.speechSynthesis?.getVoices?.() || [];
-  body += `<section class="rd-sec rd-speech"><h3>Read aloud</h3>
+  body += `<section class="rd-sec rd-speech"><h2>Read aloud</h2>
 <label>Device voice<select class="cm-select" data-rd="voice"><option value="">Match language</option>${voices
     .map(
       (v) =>

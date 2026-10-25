@@ -1991,6 +1991,62 @@ SECTIONS.railpick = async function ({ page, base, tag }) {
       JSON.stringify(st)
     );
 };
+// Structure as a screen reader meets it (Jony #127, #128), read from
+// Chrome's accessibility tree: each language shelf is one group (it was a
+// region, listed under landmarks beside its heading), the Works table has a
+// name, and the reader's headings nest under its h1 with no level skipped
+// (its lens sections were h3 straight under the h1).
+SECTIONS.ax = async function ({ page, base, tag }) {
+  const cdp = await page.context().newCDPSession(page);
+  const ax = async () =>
+    (await cdp.send('Accessibility.getFullAXTree')).nodes
+      .filter((n) => !n.ignored)
+      .map((n) => ({ role: n.role?.value, name: n.name?.value || '' }));
+  await go(page, base, '');
+  const failed = await settled(page, 'core', '#surface-library .lib-shelf');
+  if (!check(`${tag} ax: shelves`, !failed, failed)) return;
+  const langs = await page.$$eval('#surface-library .lib-shelf-head h2', (h) =>
+    h.map((x) => x.textContent.trim())
+  );
+  const nodes = await ax();
+  const twice = langs.filter(
+    (l) =>
+      nodes.filter((n) => n.role === 'region' && n.name === l).length !== 0 ||
+      nodes.filter((n) => n.role === 'group' && n.name === l).length !== 1
+  );
+  check(
+    `${tag} ax: each language shelf is one group, not a region`,
+    langs.length > 0 && twice.length === 0,
+    `${langs.length} shelves; wrong: ${twice.join(', ')}`
+  );
+  await go(page, base, '/works');
+  await settled(page, 'works', '#surface-library [data-lw="open"]');
+  const table = (await ax()).find((n) => n.role === 'table');
+  check(`${tag} ax: the Works table is named`, !!table?.name, JSON.stringify(table));
+  for (const lens of ['summary', 'sources', 'sound']) {
+    await go(page, base, `/read/${EPI_A}?lens=${lens}`);
+    await settled(page, 'reader', '#surface-library .rd-paper .rd-line');
+    const sheetOpen = await page
+      .$eval('#surface-library .rd', (r) => r.classList.contains('rd-sheet'))
+      .catch(() => true);
+    if (
+      !sheetOpen &&
+      (await page.isVisible('#surface-library [data-rd="sheet"]').catch(() => false))
+    )
+      await page.click('#surface-library [data-rd="sheet"]');
+    await page.waitForTimeout(300);
+    const levels = await page.$$eval(
+      '#surface-library h1, #surface-library h2, #surface-library h3, #surface-library h4, #surface-library h5',
+      (hs) => hs.filter((h) => h.getClientRects().length).map((h) => Number(h.tagName[1]))
+    );
+    const skip = levels.findIndex((l, i) => (i === 0 ? l !== 1 : l > levels[i - 1] + 1));
+    check(
+      `${tag} ax: reader (${lens}) headings nest under its h1`,
+      levels.length > 1 && skip < 0,
+      levels.join(' ')
+    );
+  }
+};
 const NEEDS = {
   explore: 'core',
   works: 'works',
@@ -2006,6 +2062,7 @@ const NEEDS = {
   credit: 'rights',
   range: 'reader',
   railpick: 'works',
+  ax: 'reader',
 };
 
 (async () => {

@@ -272,7 +272,7 @@ function shell(lib) {
     `<label class="cm-search">${ic(lib, 'search', 18)}<input type="search" data-lw="q" placeholder="Search titles, authors, or exact phrases" aria-label="Search Library" aria-keyshortcuts="${SHORTCUT.aria}" autocomplete="off" spellcheck="false"><button type="button" class="cm-btn cm-btn-icon lw-search-clear" data-lw="clear-q" aria-label="Clear search">${ic(lib, 'x', 16)}</button><kbd aria-hidden="true" title="${SHORTCUT.hint.replace(' ', '+')} focuses Search">${SHORTCUT.hint}</kbd></label>` +
     `<button type="button" class="cm-btn cm-btn-outline" data-lw="filters" aria-haspopup="dialog" aria-label="Filter Library">${ic(lib, 'sliders-horizontal', 18)}<span>Filter</span><span class="lw-count" data-lw-slot="filter-count" hidden></span></button>` +
     `</div>` +
-    `<div class="lw-head"><div><h2 data-lw-slot="title">Works</h2><p data-lw-slot="summary"> </p></div><div class="lw-chips" data-lw-slot="chips"></div></div>` +
+    `<div class="lw-head"><div><h2 id="lw-title" data-lw-slot="title">Works</h2><p data-lw-slot="summary"> </p></div><div class="lw-chips" data-lw-slot="chips"></div></div>` +
     `<div class="lw-results" data-lw-slot="results"></div>` +
     `<div data-lw-slot="layer"></div>` +
     `</div>`
@@ -520,7 +520,7 @@ class WorksView {
     const last = Math.min(offset + page.rows.length, page.total);
     const hasNext = page.next !== undefined ? page.next !== null : last < page.total;
     results.innerHTML =
-      `<div class="lw-scroll"><table class="lw-table"><thead><tr><th scope="col">Work / reading</th><th scope="col">Contributor</th><th scope="col">Language</th><th scope="col">Scope / availability</th><th scope="col"><span class="lw-sr">Record and export selection</span></th></tr></thead><tbody>` +
+      `<div class="lw-scroll"><table class="lw-table" aria-labelledby="lw-title"><thead><tr><th scope="col">Work / reading</th><th scope="col">Contributor</th><th scope="col">Language</th><th scope="col">Scope / availability</th><th scope="col"><span class="lw-sr">Record and export selection</span></th></tr></thead><tbody>` +
       page.rows.map((r) => rowHTML(r, this.lib)).join('') +
       `</tbody></table></div>` +
       `<nav class="lw-pager" aria-label="Works pages"><button type="button" class="cm-btn cm-btn-outline" data-lw="page" data-to="${Math.max(0, offset - PAGE)}" ${offset === 0 ? 'disabled' : ''}>Previous</button>` +

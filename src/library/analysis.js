@@ -578,7 +578,7 @@ function methodDetailHTML(m, analyzable) {
       ${m.aliases?.length ? `<p class="la-note">Also called ${esc(m.aliases.join(', '))}</p>` : ''}
       ${
         m.required_capabilities?.length
-          ? `<h4>Requires</h4>${m.required_capabilities
+          ? `<h3>Requires</h3>${m.required_capabilities
               .map(
                 (c) =>
                   `<p class="la-req">${icon('info', 14)}<span><b>${esc(label(c))}</b> <small>${esc(m.remedies?.[c] ?? '')}</small></span></p>`
@@ -941,8 +941,8 @@ function ensureStyles() {
     `<style data-lib="analysis">
 #surface-library .la-root{display:flex;flex-direction:column;gap:14px;font:var(--cm-text-sm) var(--cm-font);color:var(--cm-text)}
 #surface-library .la-section{display:flex;flex-direction:column;gap:8px;padding:12px;border:1px solid var(--cm-border-subtle);border-radius:var(--cm-radius-md);background:var(--cm-surface)}
-#surface-library .la-section h3{margin:0;font:600 var(--cm-text-md) var(--cm-font)}
-#surface-library .la-section h4{margin:6px 0 2px;font:600 var(--cm-text-sm) var(--cm-font)}
+#surface-library .la-section h2{margin:0;font:600 var(--cm-text-md) var(--cm-font)}
+#surface-library .la-section h3{margin:6px 0 2px;font:600 var(--cm-text-sm) var(--cm-font)}
 #surface-library .la-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 #surface-library .la-note{margin:0;color:var(--cm-text-muted);font-size:var(--cm-text-xs)}
 #surface-library .la-error{margin:0;color:var(--cm-danger-text)}
@@ -1005,7 +1005,7 @@ function declarationsView(
   };
   const functions = methods.filter((m) => m.namespace === 'function');
   root.innerHTML = `<section class="la-section la-decl">
-    <h3>Reading interpretations</h3>
+    <h2>Reading interpretations</h2>
     <p class="la-note">On this device · tied to this edition and revision. Source geometry and whole-work scope remain explicit.</p>
     <label>Source / basis <input class="cm-input" data-f="source" placeholder="Edition note or your reading"></label>
     <details class="cm-accordion"${annotate.length ? ' open' : ''}><summary>Add or interpret a section / line function</summary>
@@ -1751,7 +1751,7 @@ function mount(container, input) {
     const report = evidenceVisible() ? mem.report : null;
     let html = '';
     if (report)
-      html += `<section class="la-section"><h3>Coverage of the entire unit</h3>${render(report.summary ?? report.coverage)}
+      html += `<section class="la-section"><h2>Coverage of the entire unit</h2>${render(report.summary ?? report.coverage)}
         <p class="la-note">Unknown readings and refused obligations remain separate from measured results.</p>
         <button type="button" class="cm-btn cm-btn-outline" data-act="export" ${st.busy ? 'disabled' : ''}>${icon('download', 15)}<span>${report.partial ? 'Export partial checkpoint' : 'Export complete analysis'}</span></button>
         ${st.exportBlocked ? `<p class="la-error" role="alert">${esc(st.exportBlocked)}</p><button type="button" class="cm-btn cm-btn-tonal" data-act="analyze">Run again on the current reading</button>` : ''}
@@ -1791,7 +1791,7 @@ function mount(container, input) {
         )
         .join('')}</div>`;
       if (Object.keys(form).length)
-        html += `<section class="la-section"><h3>${esc(st.formView)}</h3>${render(
+        html += `<section class="la-section"><h2>${esc(st.formView)}</h2>${render(
           st.formView === 'Structure'
             ? {
                 sections: form.sections,
@@ -1804,10 +1804,10 @@ function mount(container, input) {
         )}</section>`;
     }
     if (lens === 'rhythm' && Object.keys(form).length)
-      html += `<section class="la-section"><h3>Native rhythm and setting</h3>${render(form.rhythm)}
+      html += `<section class="la-section"><h2>Native rhythm and setting</h2>${render(form.rhythm)}
         <p class="la-note">Meter, bars, duration, grouping and performance timing remain undeclared unless supplied.</p></section>`;
     if (lens === 'language' && Object.keys(language).length)
-      html += `<section class="la-section"><h3>Language measurements</h3>${render(language)}</section>`;
+      html += `<section class="la-section"><h2>Language measurements</h2>${render(language)}</section>`;
     const records = visible
       ? st.resolved.filter((r) => {
           if (st.methodFilter !== 'all' && r.method_id !== st.methodFilter) return false;
@@ -1821,7 +1821,7 @@ function mount(container, input) {
     st.visible = records;
     const methods = st.registry?.methods || [];
     const byId = new Map(methods.map((m) => [m.id, m]));
-    html += `<section class="la-section"><h3>Evidence${st.selected.size ? ' in selected passage' : ''}</h3>
+    html += `<section class="la-section"><h2>Evidence${st.selected.size ? ' in selected passage' : ''}</h2>
       ${st.pending.length && visible ? `<p class="la-note">${st.pending.length} records require further verified detail pages. They remain incomplete until every referenced part is loaded.</p>` : ''}
       <label>Method <select class="cm-select" data-f="method"><option value="all">All available methods</option>${methods
         .filter((m) => m.reader_requestable && (!m.language || m.language === reading.language))
