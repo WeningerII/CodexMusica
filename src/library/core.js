@@ -362,7 +362,7 @@ const CSS = `
 #surface-library .lib-skel{height:240px;border-radius:var(--cm-radius-md,8px);background:var(--cm-surface-sunken);animation:lib-pulse 1.4s ease-in-out infinite}
 @keyframes lib-pulse{50%{opacity:.55}}
 @media (prefers-reduced-motion:reduce){#surface-library .lib-skel{animation:none}}
-@media (max-width:1099px){#surface-library .lib-rail{position:fixed;z-index:30;left:8px;top:72px;bottom:8px;max-height:none;box-shadow:var(--cm-shadow-3)}}
+@media (max-width:1099px){#surface-library .lib-rail{position:fixed;z-index:30;left:8px;top:calc(var(--app-bar-height,56px) + 8px);bottom:8px;max-height:none;box-shadow:var(--cm-shadow-3)}}
 @media (max-width:600px){#surface-library .lib-card,#surface-library .lib-more{flex-basis:140px}#surface-library .lib-coll-head .lib-art{flex-basis:84px}}
 `;
 function ensureStyles() {
@@ -537,7 +537,10 @@ function drawRail(root, activeId) {
 // behaves as a panel: opening moves focus into it, Escape closes it and
 // returns focus to the toggle, and focus leaving it closes it, so a focused
 // control is never left under the rail (Jony's viewport lane, #519;
-// WCAG 2.4.11). Where the rail sits beside the page, none of this applies.
+// WCAG 2.4.11). It starts below the sticky app bar (--app-bar-height, kept in
+// sync by app.js), so its head row is never under the bar, and a press
+// anywhere outside it closes it. Where the rail sits beside the page, none of
+// this applies.
 const railOverlays = (rail) => !!rail && getComputedStyle(rail).position === 'fixed';
 function setRail(main, open, { focusToggle = false } = {}) {
   const rail = main.querySelector('.lib-rail');
@@ -560,7 +563,27 @@ function setRail(main, open, { focusToggle = false } = {}) {
     main.querySelector('.lib-topline [data-lib-act="rail"]')?.focus();
   bindRailPanel(main, rail);
 }
+// One document listener for the light dismiss, aimed at the current view.
+let railOutsideMain = null;
+function bindRailOutside(main) {
+  railOutsideMain = main;
+  if (bindRailOutside.bound) return;
+  bindRailOutside.bound = true;
+  document.addEventListener(
+    'pointerdown',
+    (e) => {
+      const m = railOutsideMain;
+      const rail = m?.isConnected ? m.querySelector('.lib-rail') : null;
+      if (!rail || !state.rail || !railOverlays(rail)) return;
+      // A press on the toggle closes the rail through its own click.
+      if (rail.contains(e.target) || e.target.closest?.('[data-lib-act="rail"]')) return;
+      setRail(m, false);
+    },
+    true
+  );
+}
 function bindRailPanel(main, rail) {
+  if (rail) bindRailOutside(main);
   if (!rail || rail._panelBound) return;
   rail._panelBound = true;
   if (!main._railPressBound) {

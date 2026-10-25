@@ -480,13 +480,64 @@ const SECTIONS = {
           () => !document.activeElement?.closest('#surface-library .lib-rail')
         );
       }
-      const after = await page.evaluate(
+      const after = await page.evaluate(() => {
+        const a = document.activeElement;
+        return {
+          hidden: document.querySelector('#surface-library .lib-rail')?.hidden,
+          to: a ? `${a.tagName.toLowerCase()}.${a.className}[${a.dataset?.libAct || ''}]` : null,
+        };
+      });
+      check(
+        `${tag} explore: Tab out of the overlaying rail closes it`,
+        left && after.hidden === true,
+        `left=${left} ${JSON.stringify(after)}`
+      );
+      // It opens below the sticky app bar, so its head row is not covered,
+      // and a press outside it closes it (Jony, #519).
+      await page.click(toggle);
+      await page.waitForSelector('#surface-library .lib-rail:not([hidden]) .lib-spine', {
+        timeout: 8000,
+      });
+      const head = await page.evaluate(() => {
+        const rail = document.querySelector('#surface-library .lib-rail');
+        const bar = document.querySelector('.app-bar');
+        const r = rail.getBoundingClientRect();
+        const b = bar ? bar.getBoundingClientRect().bottom : 0;
+        const controls = [...rail.querySelectorAll('.lib-rail-head button, .lib-rail-head select')];
+        const covered = controls.filter((el) => {
+          const c = el.getBoundingClientRect();
+          return !el.contains(
+            document.elementFromPoint(c.left + c.width / 2, c.top + c.height / 2)
+          );
+        }).length;
+        return { top: Math.round(r.top), bar: Math.round(b), controls: controls.length, covered };
+      });
+      check(
+        `${tag} explore: the overlaying rail starts below the app bar, head row uncovered`,
+        head.top >= head.bar && head.controls > 0 && head.covered === 0,
+        JSON.stringify(head)
+      );
+      const spot = await page.evaluate(() => {
+        const r = document.querySelector('#surface-library .lib-rail').getBoundingClientRect();
+        for (let y = Math.round(r.top + 40); y < window.innerHeight - 8; y += 24)
+          for (let x = window.innerWidth - 4; x > r.right + 2; x -= 12) {
+            const el = document.elementFromPoint(x, y);
+            if (
+              el &&
+              !el.closest('a,button,input,select,textarea,label,[tabindex],[role="button"]')
+            )
+              return { x, y };
+          }
+        return null;
+      });
+      if (spot) await page.mouse.click(spot.x, spot.y);
+      const dismissed = await page.evaluate(
         () => document.querySelector('#surface-library .lib-rail')?.hidden
       );
       check(
-        `${tag} explore: Tab out of the overlaying rail closes it`,
-        left && after === true,
-        `left=${left} hidden=${after}`
+        `${tag} explore: a press outside the overlaying rail closes it`,
+        !!spot && dismissed === true,
+        JSON.stringify({ spot, dismissed })
       );
     }
     // A collection's page is in the hash (?offset=), Back restores it, and it
