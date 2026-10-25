@@ -13,7 +13,12 @@ const { spawnSync } = require('child_process');
 
 const ROOT = path.join(__dirname, '..');
 const run = (args) => {
-  const r = spawnSync('node', args, { cwd: ROOT, encoding: 'utf8', timeout: 120000 });
+  const r = spawnSync('node', args, {
+    cwd: ROOT,
+    encoding: 'utf8',
+    timeout: 120000,
+    maxBuffer: 64 << 20, // expand.js prints over 1 MB for a full tradition
+  });
   return { code: r.status, out: r.stdout, err: r.stderr };
 };
 const refused = (args, why) => {
@@ -100,6 +105,36 @@ test('an out-of-range or fractional axis and two list modes are refused', () => 
   refused(['scripts/list.js', '--rooms', '--tunings'], /Choose one of --rooms, --tunings/);
 });
 
+test('expand.js and compare.js share the contract; a dry run with errors fails', () => {
+  refused(['scripts/expand.js', '--tradition'], /--tradition needs a value/);
+  refused(['scripts/expand.js', '--traditon', 'bluegrass'], /Unknown flag --traditon/);
+  refused(
+    ['scripts/compare.js', '--tradition', 'bluegrass', 'thrash_metal'],
+    /Unknown flag --tradition\. Did you mean --traditions\?/
+  );
+  // The unknown id is named, not just "Unknown tradition".
+  refused(
+    ['scripts/compare.js', '--traditions', 'bluegrass', 'nope_x'],
+    /Unknown tradition: nope_x/
+  );
+  for (const script of ['scripts/expand.js', 'scripts/compare.js']) {
+    const help = run([script, '--help']);
+    assert.equal(help.code, 0, `${script} --help: ${help.err}`);
+    assert.match(help.out, /Usage:/, `${script} --help prints its usage`);
+  }
+  // --dry-run is how an edits file is checked: its errors exit 1, as a write does.
+  const fs = require('fs');
+  const os = require('os');
+  const bad = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'cli-')), 'edits.json');
+  fs.writeFileSync(
+    bad,
+    JSON.stringify({ bluegrass: [{ field: 'chain_archetype', from: 'WRONG', to: 'x' }] })
+  );
+  const dry = run(['scripts/_apply_trad_edits.js', bad, '--dry-run']);
+  assert.equal(dry.code, 1, `a dry run with errors exits 1 (got ${dry.code})`);
+  assert.match(dry.err, /NO_MATCH/);
+});
+
 test('the documented forms still run', () => {
   for (const args of [
     ['scripts/recipe.js', '--tradition', 'afrobeat', '--exclude-instrument=saxophone,trumpet'],
@@ -108,6 +143,9 @@ test('the documented forms still run', () => {
     ['scripts/fingerprint.js', '--tradition', 'afrobeat'],
     ['scripts/nearest_neighbor.js', '--id', 'bluegrass', '--limit=3'],
     ['scripts/list.js', '--tree', '--depth=1'],
+    ['scripts/expand.js', '--tradition', 'afrobeat'],
+    ['scripts/compare.js', '--traditions=afrobeat,highlife'],
+    ['scripts/compare.js', '--traditions', 'afrobeat', 'gamelan'],
     [
       'scripts/preface_configure.js',
       '--instrument',
