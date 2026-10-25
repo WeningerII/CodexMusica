@@ -17367,22 +17367,26 @@ async function renderSaved() {
     return;
   }
   list.sort((a, b) => _cmp(b.saved_at || '', a.saved_at || ''));
-  b.innerHTML = `<div class="saved-grid">` + list.map(w => {
+  // A list, and each row's actions named for the row: otherwise a screen
+  // reader hears "Load, Fork, Delete" once per row with nothing to tell
+  // the rows apart.
+  b.innerHTML = `<ul class="saved-grid">` + list.map(w => {
     const date = w.saved_at ? new Date(w.saved_at).toLocaleString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+    const name = esc(w.name);
     return `
-      <div class="saved-item">
+      <li class="saved-item">
         <div>
-          <div class="saved-name">${esc(w.name)}</div>
+          <div class="saved-name">${name}</div>
           <div class="saved-meta">${esc(date)} · ${w.count || 0} ${w.count === 1 ? 'instrument' : 'instruments'}</div>
         </div>
         <div class="saved-actions">
-          <button class="btn btn-secondary" data-load="${esc(w.key)}">Load</button>
-          <button class="btn btn-ghost" data-fork="${esc(w.key)}" data-tooltip="Open as an independent copy">Fork</button>
-          <button class="btn btn-ghost btn-danger" data-del="${esc(w.key)}">Delete</button>
+          <button class="btn btn-secondary" data-load="${esc(w.key)}" aria-label="Load ${name}">Load</button>
+          <button class="btn btn-ghost" data-fork="${esc(w.key)}" aria-label="Fork ${name}" data-tooltip="Open as an independent copy">Fork</button>
+          <button class="btn btn-ghost btn-danger" data-del="${esc(w.key)}" aria-label="Delete ${name}">Delete</button>
         </div>
-      </div>
+      </li>
     `;
-  }).join('') + `</div>`;
+  }).join('') + `</ul>`;
   b.querySelectorAll('[data-load]').forEach(x => x.addEventListener('click', () => loadWS(x.dataset.load)));
   b.querySelectorAll('[data-fork]').forEach(x => x.addEventListener('click', () => forkWS(x.dataset.fork)));
   b.querySelectorAll('[data-del]').forEach((x, i) => x.addEventListener('click', async () => {
