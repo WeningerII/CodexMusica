@@ -591,7 +591,8 @@ function bindRailOutside(main) {
     (e) => {
       // Only the click that ends the dismissing press (a press that never
       // becomes a click is forgotten at the next press or after a second).
-      if (!railSwallowClick || e.timeStamp - railSwallowClick > 1000) return;
+      // A keyboard click (detail 0) is never the end of a press.
+      if (!railSwallowClick || e.detail === 0 || e.timeStamp - railSwallowClick > 1000) return;
       railSwallowClick = 0;
       e.preventDefault();
       e.stopPropagation();
