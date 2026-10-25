@@ -327,10 +327,23 @@ test(
       });
       assert.equal(verdictOf(mismatched).exit_code, 2);
       assert.match(text(mismatched), new RegExp(`${UNAVAILABLE}: this deferred run was started`));
-      // A true legacy state carries the field in neither place.
-      const legacy = structuredClone(stripped);
-      delete legacy.lexicon;
-      const legacyWire = encodeState(legacy);
+      // A true legacy state carries the field in neither place. Each assertion
+      // that continues one gets its own fresh run and wire: the run ledger
+      // refuses a wire that was already continued (checked on its own below).
+      const legacyOf = (state) => {
+        const s = decodeState(state);
+        delete s.connector_declarations.lexicon_supplement;
+        delete s.connector_declarations.lexicon_supplement_sha256;
+        delete s.lexicon;
+        return encodeState(s);
+      };
+      const freshLegacyWire = async () => {
+        const run = verdictOf(await revise(c, OPEN));
+        assert.equal(run.exit_code, 4, JSON.stringify(run).slice(0, 600));
+        RUNS.del(run.run_id); // as for the first run: continued from its state alone
+        return legacyOf(run.state);
+      };
+      const legacyWire = legacyOf(first.state);
       const upgraded = await revise(c, {
         state: legacyWire,
         lexicon_supplement: DEFAULT.id,
@@ -341,12 +354,28 @@ test(
       const kept = verdictOf(await revise(c, { state: legacyWire, answer: 'I hold you.' }));
       assert.deepEqual(kept.lexicon, { supplement_id: null, sha256: null });
       assert.equal(decodeState(kept.state).connector_declarations.lexicon_supplement, NONE);
+      // The consumed legacy wire is not continued twice, and re-encoding the
+      // same content (keys in another order: other bytes, same canonical
+      // content) does not get past the ledger either (pinned in C1).
+      for (const wire of [
+        legacyWire,
+        encodeState(Object.fromEntries(Object.entries(decodeState(legacyWire)).reverse())),
+      ]) {
+        const replay = await revise(c, { state: wire, answer: 'I hold you.' });
+        assert.equal(replay.isError, true, text(replay).slice(0, 400));
+        assert.match(text(replay), /already continued/);
+      }
       // Restating what a legacy record means (`none`) is not a moved
       // declaration (3PO's review of #529): absence is normalized first.
       const restated = verdictOf(
-        await revise(c, { state: legacyWire, lexicon_supplement: NONE, answer: 'I hold you.' })
+        await revise(c, {
+          state: await freshLegacyWire(),
+          lexicon_supplement: NONE,
+          answer: 'I hold you.',
+        })
       );
       assert.deepEqual(restated.lexicon, { supplement_id: null, sha256: null });
+      assert.equal(decodeState(restated.state).connector_declarations.lexicon_supplement, NONE);
       // The same through a cached run whose record predates the field. The
       // run is continued the way its status asks: an answer to a pending
       // question, or a rewritten draft for a parked one.
