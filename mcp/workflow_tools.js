@@ -119,7 +119,9 @@ function sessionGuide(domains, compatibility) {
       ? "Codex Musica serves recording recipes and lyrics on this one connection. Use the tools the user's request calls for: a request to write a song is a lyric request, a recipe request does not start lyrics, and a combined request uses both. Keep each workflow's latest session_id separately."
       : `Codex Musica ${recipe ? 'recording recipes' : 'lyrics'}, with sessions kept by the server.`,
     `SESSIONS. ${opens} and return a session_id; pass the latest session_id to that workflow's next call. The server carries what the engine guidance below has a caller-managed client thread by hand — ${carried} — so never send those with a session_id.`,
-    "Every call that opens a session or takes a session_id, and get_operation, ends its content with a receipt (a JSON object) holding the next session_id; an immediate refusal has none. Every block before the receipt is the tool's own output with private state withheld (workspace, run state and ids are removed from its JSON, and a continue footnote is rewritten for the session); the deliverable text — song, plan, recipe string — is exact, and the first block is the deliverable the guidance below says to reproduce exactly.",
+    "Every call that opens a session or takes a session_id, and get_operation, ends its content with a receipt (a JSON object) holding the next session_id; an immediate refusal has none. Every block before the receipt is the tool's own output with private state withheld (workspace" +
+      (compatibility && recipe ? ", except start_recipe's," : ',') +
+      ' run state and ids are removed from its JSON, and a continue footnote is rewritten for the session); the deliverable text — song, plan, recipe string — is exact, and the first block is the deliverable the guidance below says to reproduce exactly.',
     lyrics
       ? 'A finished lyric_grade or lyric_revise is published with a SHORT verdict: exit_code, meaning, certified, status and stop fields, `blocking` (what stands, one line each, and each line a requested obligation could not be judged on, with the words there that have more than one reading), a count of notes with `notes_by_code`, and `not_checked` (the coverage layers the request did not ask). Where the guidance below says to read findings, report, coverage, pronunciation_options or pronunciations, read them with get_operation and `detail` (optionally `lines`). A finished lyric_screen is published as one line per pair (the ban, the coarse relations, the schemas it stands in, the declared relation\'s answer) and the report\'s own counts; `detail` "pairs" returns every pair in full.'
       : null,
@@ -132,7 +134,7 @@ function sessionGuide(domains, compatibility) {
       : null,
     'An interrupted operation continues with resume_operation only when resumable is true. Every refusal names the call that works instead. Session and operation ids are private: keep them out of what you show the user.',
     compatibility
-      ? `WITHOUT session_id a tool runs the raw engine directly, for integrations that thread their own state: synchronous, with that state passed back by the caller exactly as the guidance below describes${lyrics ? ', and with no creation-order enforcement' : ''}. Never mix the two modes in one workflow.`
+      ? `WITHOUT session_id a tool runs the raw engine directly: synchronous, with the caller threading its own state exactly as the guidance below describes${lyrics ? ', and with no creation-order enforcement' : ''}. Never mix the two modes in one workflow.`
       : `This endpoint has no caller-managed mode: wherever the guidance below says to thread ${carried}, pass session_id instead.`,
   ];
   return text.filter(Boolean).join(' ');
