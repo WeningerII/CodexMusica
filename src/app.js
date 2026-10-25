@@ -15720,6 +15720,11 @@ function renderDetail() {
   view.id = 'detail-view';
   view.className = 'detail-view';
   view.dataset.cardId = card.id;
+  // The editor is a region named for its card, so it is on the landmark list
+  // and a person can jump back to it (Jony #125); it travels with the view
+  // into the tree on a phone.
+  view.setAttribute('role', 'region');
+  view.setAttribute('aria-label', 'Edit ' + (inst.short || inst.name));
   view.style.setProperty('--family-tint', familyTint);
 
   view.appendChild(renderDetailBreadcrumb(card, inst));
@@ -16444,6 +16449,12 @@ function renderDetailHeader(card, inst) {
       '<span class="detail-family">' + esc(familyName) + '</span>' +
       (subtitleExtra ? '<span class="detail-sep">·</span><span>' + esc(subtitleExtra) + '</span>' : '') +
     '</div>';
+  // The title heads the editor region (Jony #125), as a role so it keeps its
+  // look; #120 separates its words.
+  const title = titleBlock.firstChild;
+  title.id = 'detail-title';
+  title.setAttribute('role', 'heading');
+  title.setAttribute('aria-level', '2');
   wrap.appendChild(titleBlock);
   return wrap;
 }

@@ -4220,7 +4220,8 @@ function lyRenderHead() {
     if (!wrap.querySelector('input'))
       wrap.innerHTML = `<label class="ly-sr" for="ly-title-input">Song title</label><input id="ly-title-input" class="cm-input ly-title-input" maxlength="160" value="${esc(title)}" placeholder="Untitled song" autocomplete="off">`;
   } else
-    wrap.innerHTML = `<h2 class="ly-title"><button type="button" class="ly-title-btn" data-ui="ly-title-edit" aria-label="Song title: ${esc(title || 'Untitled song')}. Edit title"><span>${esc(title || 'Untitled song')}</span>${icon('pencil', 18)}</button></h2>`;
+    // The heading is the title; Edit title is its button's own name (Jony #128).
+    wrap.innerHTML = `<h2 class="ly-title" aria-label="${esc(title || 'Untitled song')}"><button type="button" class="ly-title-btn" data-ui="ly-title-edit" aria-label="Song title: ${esc(title || 'Untitled song')}. Edit title"><span>${esc(title || 'Untitled song')}</span>${icon('pencil', 18)}</button></h2>`;
   const ws =
     app.workspaceName && app.workspaceName !== 'Untitled session'
       ? app.workspaceName
@@ -5583,7 +5584,7 @@ function lyRenderReview() {
   const suggestions = run.filter((i) => i.decision && !i.stale);
   const others = run.filter((i) => !i.decision);
   const w = lyWriterState();
-  let html = `<section class="ly-card" aria-labelledby="ly-cur-h"><div class="ly-rev-head"><h3 class="ly-h3" id="ly-cur-h">Current version · ${esc(lyShortId(lyIdentity(model)))}</h3>${lyPill(a.tone, a.label)}</div>${a.certified ? `<p>${lyPill('success', 'Certified for this version')}</p>` : ''}${a.earlier ? `<p class="ly-inline" data-tone="warning">${icon('triangle-alert', 16)}<span>Review running for earlier version. Its results will arrive as history.</span></p>` : ''}${a.state === 'stale' && LY.run?.resultModel ? `<p class="ly-help">${esc(lyIdentityDiff(LY.run.resultModel, model).join(', ') || 'The document')} changed since the review.</p>` : ''}${w.unknown ? `<p class="ly-help">Outcome unknown. Retrieve the saved result before starting another request.</p>${lyBtn('ly-retrieve', 'Retrieve saved result', 'refresh-cw', { cls: 'cm-btn cm-btn-primary ly-block' })}` : ''}${
+  let html = `<section class="ly-card" aria-labelledby="ly-cur-h"><div class="ly-rev-head"><h3 class="ly-h3" id="ly-cur-h">Review of this version <span class="ly-rev-id">· ${esc(lyShortId(lyIdentity(model)))}</span></h3>${lyPill(a.tone, a.label)}</div>${a.certified ? `<p>${lyPill('success', 'Certified for this version')}</p>` : ''}${a.earlier ? `<p class="ly-inline" data-tone="warning">${icon('triangle-alert', 16)}<span>Review running for earlier version. Its results will arrive as history.</span></p>` : ''}${a.state === 'stale' && LY.run?.resultModel ? `<p class="ly-help">${esc(lyIdentityDiff(LY.run.resultModel, model).join(', ') || 'The document')} changed since the review.</p>` : ''}${w.unknown ? `<p class="ly-help">Outcome unknown. Retrieve the saved result before starting another request.</p>${lyBtn('ly-retrieve', 'Retrieve saved result', 'refresh-cw', { cls: 'cm-btn cm-btn-primary ly-block' })}` : ''}${
     model.sung.length
       ? lyBtn('ly-run-review', 'Run review', 'play', {
           cls: 'cm-btn cm-btn-primary ly-block',

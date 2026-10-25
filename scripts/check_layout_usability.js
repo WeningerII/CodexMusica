@@ -972,6 +972,27 @@ async function editorKeyboard(page, where) {
       );
       assert.ok(await tree.locator('.tree-row').count());
       await tree.locator('[data-close]').click();
+      // Landmarks (Jony #124): the page is the one main and holds its h1; Your
+      // recipe is its own complementary landmark beside main, not inside it.
+      const main = page.getByRole('main');
+      assert.equal(await main.count(), 1, 'One main landmark');
+      assert.equal(
+        await main.getByRole('heading', { level: 1 }).count(),
+        1,
+        'The page h1 is inside main'
+      );
+      assert.equal(
+        await main.locator('#workspace-sidebar').count(),
+        0,
+        'Your recipe is outside main'
+      );
+      assert.equal(
+        await page
+          .getByRole('complementary', { name: 'Your recipe', exact: true, includeHidden: true })
+          .count(),
+        1,
+        'Your recipe is a named complementary landmark'
+      );
       await page.getByLabel('Search genres').fill('Delta blues');
       await page.getByRole('button', { name: 'Add Delta blues', exact: true }).click();
       await page.locator('.sb-card').first().waitFor({ state: 'attached' });
@@ -1014,6 +1035,32 @@ async function editorKeyboard(page, where) {
       assert.ok(
         labels.length && labels.every((value) => value !== 'nowrap'),
         'Part text must remain readable'
+      );
+      // The card editor is a region named for its card, headed by an h2 that
+      // names it (Jony #125). A row of genre tiles is a heading and a named
+      // list, not a landmark: one region per letter flooded the list (#127).
+      const editor = page.getByRole('region', { name: /^Edit / });
+      assert.equal(await editor.count(), 1, 'The card editor is one named region');
+      const cardName = (await editor.getAttribute('aria-label')).slice('Edit '.length);
+      const editorHeading = editor.getByRole('heading', { level: 2 });
+      assert.equal(await editorHeading.count(), 1, 'The card editor has one h2');
+      assert.ok(
+        (await editorHeading.textContent()).includes(cardName),
+        'The editor heading names ' + cardName
+      );
+      const rows = page.locator('.cm-rows-group');
+      assert.ok(await rows.count(), 'Genre rows are on the page');
+      assert.equal(
+        await page.getByRole('region', { includeHidden: true }).and(rows).count(),
+        0,
+        'A tile row is not a landmark'
+      );
+      assert.ok(
+        await page
+          .getByRole('list', { includeHidden: true })
+          .and(page.locator('.cm-rows-track[aria-label]'))
+          .count(),
+        'A tile row keeps its named list'
       );
       await editorKeyboard(page, width + 'px');
       if (width >= 1024) {
@@ -1207,6 +1254,32 @@ async function editorKeyboard(page, where) {
       await page.goForward();
       await page.waitForFunction(() => document.body.dataset.view === 'lyrics');
       assert.equal(await page.title(), 'Lyrics · Codex Musica', 'Title: Forward to Lyrics');
+      // Headings say what they head (Jony #128): the Instruments h1 is not
+      // read with its count, the song title heading is the title rather than
+      // its button's "Edit title" name, and the review heading leads with words.
+      await page.getByRole('button', { name: 'Instrument', exact: true }).click();
+      await page.locator('#ip-total', { hasText: /\d/ }).waitFor();
+      assert.equal(
+        await page.getByRole('heading', { level: 1, name: 'Instruments', exact: true }).count(),
+        1,
+        'The Instruments h1 is named Instruments'
+      );
+      await page.getByRole('button', { name: 'Lyrics', exact: true }).click();
+      await noOverflow(page);
+      const songTitle = await page.locator('.ly-title-btn > span').textContent();
+      assert.equal(
+        await page.getByRole('heading', { level: 2, name: songTitle, exact: true }).count(),
+        1,
+        'The song title heading is named by the title'
+      );
+      await page.locator('#ly-tab-review').dispatchEvent('click');
+      assert.equal(
+        await page
+          .getByRole('heading', { level: 3, name: /^Review of this version/, includeHidden: true })
+          .count(),
+        1,
+        'The review heading leads with words'
+      );
       await page.getByRole('button', { name: 'Map', exact: true }).click();
       const atlas = page.frameLocator('#map-frame');
       await atlas.locator('.rowbtn').first().waitFor({ state: 'attached' });
@@ -1318,7 +1391,7 @@ async function editorKeyboard(page, where) {
       console.log(
         'PASS layout usability at ' +
           width +
-          'px: tree, labels, editor, panes, menus, lyrics, embedded/standalone map, short viewport'
+          'px: landmarks, headings, tree, labels, editor, panes, menus, lyrics, embedded/standalone map, short viewport'
       );
       await context.close();
     }

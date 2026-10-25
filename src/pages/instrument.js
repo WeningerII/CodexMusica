@@ -1110,7 +1110,7 @@ uiRegisterPage({
   recipe: 'dock',
   mount(surface) {
     IP.view = UILayout.remember('instrument-view', 'rows', () => renderInstrumentDiscovery());
-    surface.innerHTML = `<div class="ip" id="ip-root"><header class="ip-head"><h1 class="ip-title" tabindex="-1">Instruments <span id="ip-total" class="ip-total"></span></h1><label class="cm-search ip-search">${icon('search', 20)}<input id="instrument-search" type="search" placeholder="Search instruments" aria-label="Search instruments"></label><label class="ip-field destination"><span>Add to</span><select id="instrument-destination" class="cm-select" aria-label="Add instrument to"></select></label></header><div id="instrument-body" class="ip-body"></div><aside id="instrument-preview" class="ip-inspector" aria-label="Instrument preview"></aside></div>`;
+    surface.innerHTML = `<div class="ip" id="ip-root"><header class="ip-head"><h1 class="ip-title" tabindex="-1">Instruments <span id="ip-total" class="ip-total" aria-hidden="true"></span></h1><label class="cm-search ip-search">${icon('search', 20)}<input id="instrument-search" type="search" placeholder="Search instruments" aria-label="Search instruments"></label><label class="ip-field destination"><span>Add to</span><select id="instrument-destination" class="cm-select" aria-label="Add instrument to"></select></label></header><div id="instrument-body" class="ip-body"></div><aside id="instrument-preview" class="ip-inspector" aria-label="Instrument preview"></aside></div>`;
     // The overlay is a container-width layout, so follow the root's size.
     if (typeof ResizeObserver === 'function')
       new ResizeObserver(ipSyncCovered).observe($ui('ip-root'));
