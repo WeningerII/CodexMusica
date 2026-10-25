@@ -293,6 +293,12 @@ async function editorKeyboard(page, where) {
     renderRecipeStack();
     openModal('modal-recipe-stack');
   });
+  // openModal moves focus into the dialog on a short timer; let it land
+  // first, or it takes focus back from the format button mid-check.
+  await page.waitForFunction(() =>
+    document.getElementById('modal-recipe-stack')?.contains(document.activeElement)
+  );
+  await page.waitForTimeout(100);
   await page.locator('#recipe-stack-body button[data-rfmt="compact"]').focus();
   await page.keyboard.press('Enter');
   const rfmt = await page.evaluate(() => ({
