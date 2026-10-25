@@ -18,7 +18,7 @@
 //   node scripts/check_library_page.js --built=DIR     # check an existing build
 //   node scripts/check_library_page.js --only=reader,compare --headed
 //   node scripts/check_library_page.js --shots=DIR     # screenshot each section
-/* global document, location, getComputedStyle, libraryChunk, indexedDB, window, MutationObserver */ // inside page.evaluate
+/* global innerWidth, document, location, getComputedStyle, libraryChunk, indexedDB, window, MutationObserver */ // inside page.evaluate
 'use strict';
 
 const fs = require('fs');
@@ -1952,6 +1952,45 @@ SECTIONS.range = async function ({ page, base, tag }) {
   );
   check(`${tag} range: and says so`, (await said()) === '4 lines selected', st.said);
 };
+// The rail at a narrow width covers the page: choosing a collection from it
+// closes it and lands focus on the collection's heading, said through
+// #library-live (Jony #122: it stayed open at 390). Wider, it stays open.
+SECTIONS.railpick = async function ({ page, base, tag }) {
+  await go(page, base, '');
+  const failed = await settled(page, 'core', '#surface-library .lib-card');
+  if (!check(`${tag} railpick: shelves`, !failed, failed)) return;
+  const narrow = await page.evaluate(() => innerWidth < 1100);
+  if (await page.$eval('#surface-library .lib-rail', (r) => r.hidden))
+    await page.click('#surface-library .lib-topline [data-lib-act="rail"]');
+  await page.waitForSelector('#surface-library .lib-rail .lib-spine', { timeout: 15000 });
+  await page.evaluate(() => (document.getElementById('library-live').textContent = ''));
+  await page.click('#surface-library .lib-rail .lib-spine');
+  await page.waitForSelector('#surface-library .lib-coll-head h1', { timeout: 15000 });
+  await page.waitForTimeout(400);
+  const st = await page.evaluate(() => {
+    const rail = document.querySelector('#surface-library .lib-rail');
+    const h = document.querySelector('#surface-library .lib-coll-head h1');
+    return {
+      railOpen: !!rail && !rail.hidden,
+      overlays: !!rail && getComputedStyle(rail).position === 'fixed',
+      onHeading: document.activeElement === h,
+      title: h?.textContent.trim(),
+      said: document.getElementById('library-live').textContent,
+    };
+  });
+  if (narrow)
+    check(
+      `${tag} railpick: choosing a collection closes the narrow rail, focuses and says its heading`,
+      !st.railOpen && st.onHeading && st.said.includes(st.title),
+      JSON.stringify(st)
+    );
+  else
+    check(
+      `${tag} railpick: wide, the rail stays open after choosing a collection`,
+      st.railOpen,
+      JSON.stringify(st)
+    );
+};
 const NEEDS = {
   explore: 'core',
   works: 'works',
@@ -1966,6 +2005,7 @@ const NEEDS = {
   keys: 'works',
   credit: 'rights',
   range: 'reader',
+  railpick: 'works',
 };
 
 (async () => {

@@ -16,7 +16,7 @@
 // language, availability, completeness, edition8, work8, source_path,
 // snippet, contributor_search]; search items are compact summaries. Both
 // become one row shape below.
-/* global esc, icon, showToast, uiEmptyState, uiSubroute, LIBRARY */
+/* global esc, icon, showToast, uiEmptyState, uiSubroute, LIBRARY, libraryAnnounce */
 'use strict';
 
 const PAGE = 50;
@@ -902,6 +902,7 @@ async function collection(main, id, token, offset = 0, core) {
       })
     );
     fillRail(main);
+    state.railPicked = false;
     return;
   }
   const title = shortTitle(c.title);
@@ -918,6 +919,7 @@ async function collection(main, id, token, offset = 0, core) {
         })
     );
     fillRail(main, id);
+    state.railPicked = false;
     return;
   }
   main.innerHTML = frame(header('') + `<div class="lib-skel" aria-hidden="true"></div>`);
@@ -955,6 +957,10 @@ async function collection(main, id, token, offset = 0, core) {
   main.querySelector('.lib-core-main').innerHTML =
     `${toplineHtml(catalog)}<div><button type="button" class="lib-btn" data-lib-act="go" data-sub="">${icon('library', 16)}<span>Explore</span></button></div>${header(actions)}${pager}${list}${pager}`;
   focusLostToHeading(main);
+  if (state.railPicked) {
+    state.railPicked = false;
+    if (typeof libraryAnnounce === 'function') libraryAnnounce(`${title}, collection`);
+  }
 }
 
 return {

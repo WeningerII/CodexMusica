@@ -551,7 +551,7 @@ function drawRail(root, activeId) {
 // anywhere outside it closes it. Where the rail sits beside the page, none of
 // this applies.
 const railOverlays = (rail) => !!rail && getComputedStyle(rail).position === 'fixed';
-function setRail(main, open, { focusToggle = false } = {}) {
+function setRail(main, open, { focusToggle = false, quiet = false } = {}) {
   const rail = main.querySelector('.lib-rail');
   if (!rail) return;
   // Closing from inside (the rail's own close button) gives focus back to
@@ -568,7 +568,7 @@ function setRail(main, open, { focusToggle = false } = {}) {
     drawRail(main, currentCollection());
     if (railOverlays(rail))
       (rail.querySelector('.lib-spine[tabindex="0"]') || rail.querySelector('select'))?.focus();
-  } else if (focusToggle || hadFocus)
+  } else if (!quiet && (focusToggle || hadFocus))
     main.querySelector('.lib-topline [data-lib-act="rail"]')?.focus();
   bindRailPanel(main, rail);
 }
@@ -887,6 +887,15 @@ function bind(main) {
         const rights = await libraryChunk('rights');
         await rights.credit(card?.dataset.art, card?.querySelector('[data-lib-act="menu"]'), lib);
       } else if (act === 'open') {
+        // A collection chosen from the rail where it covers the page (narrow
+        // widths, Jony #122): the rail closes and the collection's heading
+        // takes focus (focusLostToHeading), said through #library-live.
+        // Wider, the rail stays as it is.
+        const rail = el.closest('.lib-rail');
+        if (rail && railOverlays(rail)) {
+          setRail(main, false, { quiet: true });
+          state.railPicked = true;
+        }
         lib.go('/collections/' + cid);
       } else if (act === 'play') {
         const first = firstOf.get(cid) || (await readableIds(cid))[0];
