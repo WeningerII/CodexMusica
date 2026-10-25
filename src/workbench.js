@@ -215,6 +215,10 @@ function uiNavigate(view, { push = false, sub } = {}) {
   // A route notice belongs to the page it was shown on.
   const routeNote = $ui('ui-route-note');
   if (routeNote && routeNote.dataset.view !== view) routeNote.hidden = true;
+  // The tab title names the surface (WCAG 2.4.2). Back and Forward come
+  // through here too (hashchange), so the title follows them.
+  const label = UI_ROUTES.find(([id]) => id === view)?.[1] || view[0].toUpperCase() + view.slice(1);
+  document.title = label + ' · Codex Musica';
   if (/^https?:$/.test(location.protocol) && location.hash !== '#' + view + sub) {
     if (push) history.pushState(null, '', '#' + view + sub);
     else history.replaceState(null, '', '#' + view + sub);

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global window, document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame, app, UI, uiAddGenre, uiNavigate, renderRecipeStack, openModal, closeModal, toastTimed, toastDeadline, hideToast, showToast, ipAnnounce, ipRenderInspector, uiCloseInstrumentPreview, MutationObserver, chatState */
+/* global window, document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame, app, UI, uiAddGenre, uiNavigate, renderRecipeStack, openModal, closeModal, toastTimed, toastDeadline, hideToast, showToast, ipAnnounce, ipRenderInspector, uiCloseInstrumentPreview, MutationObserver, chatState, Element */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -1137,6 +1137,39 @@ async function editorKeyboard(page, where) {
         await page.locator('#ly-relation-inspector [data-ui="ly-relation-close"]').click();
         await page.locator('#lyrics-draft').fill('');
       }
+      // Reduced motion: a script-driven jump scrolls without animating.
+      await page.emulateMedia({ reducedMotion: 'reduce' });
+      await page.getByRole('button', { name: 'Instrument', exact: true }).first().click();
+      await page.locator('#surface-instrument .cm-tile-name').first().click();
+      await page.locator('[data-ui="ip-similar-jump"]').waitFor();
+      const behaviors = await page.evaluate(() => {
+        const seen = [];
+        const orig = Element.prototype.scrollIntoView;
+        Element.prototype.scrollIntoView = function (o) {
+          seen.push(o && o.behavior);
+          return orig.call(this, o);
+        };
+        document.querySelector('[data-ui="ip-similar-jump"]').click();
+        Element.prototype.scrollIntoView = orig;
+        return seen;
+      });
+      assert.ok(
+        behaviors.length > 0 && !behaviors.includes('smooth'),
+        'Reduced motion: the Similar jump scrolls without animating: ' + JSON.stringify(behaviors)
+      );
+      await page.emulateMedia({ reducedMotion: null });
+      await page.keyboard.press('Escape');
+      // The tab title names the surface, through Back and Forward too.
+      assert.equal(await page.title(), 'Instrument · Codex Musica', 'Title: Instrument');
+      await page.getByRole('button', { name: 'Lyrics', exact: true }).click();
+      await noOverflow(page);
+      assert.equal(await page.title(), 'Lyrics · Codex Musica', 'Title: Lyrics');
+      await page.goBack();
+      await page.waitForFunction(() => document.body.dataset.view === 'instrument');
+      assert.equal(await page.title(), 'Instrument · Codex Musica', 'Title: Back to Instrument');
+      await page.goForward();
+      await page.waitForFunction(() => document.body.dataset.view === 'lyrics');
+      assert.equal(await page.title(), 'Lyrics · Codex Musica', 'Title: Forward to Lyrics');
       await page.getByRole('button', { name: 'Map', exact: true }).click();
       const atlas = page.frameLocator('#map-frame');
       await atlas.locator('.rowbtn').first().waitFor({ state: 'attached' });

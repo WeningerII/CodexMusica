@@ -3218,6 +3218,8 @@
     var text = s.recipe || s.name + ' — ' + s.place;
     var done = function (label) {
       S.copyLabel = label;
+      // The button's label change is visual only; say the outcome too.
+      announce(label === 'Copied' ? 'Recipe copied' : label);
       renderCard();
       var b = el.card.querySelector('[data-act="copy"]');
       if (b) b.focus();
