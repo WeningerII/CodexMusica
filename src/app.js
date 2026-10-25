@@ -19493,6 +19493,10 @@ function initChatDock() {
       _chatSave();
     }
     _chatRecover();
+    // _chatReset focused the input, which the busy state then disables; keep
+    // focus on Saved runs (focusable while busy) instead of the page.
+    const active = document.activeElement;
+    if (!active || active === document.body || active.disabled) recover.focus({ preventScroll: true });
   });
   if (!chatState.pending && chatState.continuationId) chatState.pending = {request_id:chatState.continuationId,message:'',domain:chatState.task?.domain};
   if (chatState.pending) _chatRecover();

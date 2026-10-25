@@ -328,6 +328,21 @@ async function noOverflow(page) {
         'BODY',
         'Chat: Saved runs keeps focus'
       );
+      // With a saved request to recover, Saved runs resets the conversation
+      // (which focuses the input) and then goes busy (which disables it).
+      await page.waitForFunction(() => !chatState.busy);
+      await page.evaluate(() => {
+        chatState.pending = null;
+        chatState.archives = [{ request_id: 'a'.repeat(64), message: 'saved', domain: 'recipe' }];
+      });
+      await page.locator('#chat-recover').focus();
+      await page.keyboard.press('Enter');
+      await page.waitForTimeout(100);
+      assert.equal(
+        await page.evaluate(() => document.activeElement?.id || document.activeElement?.tagName),
+        'chat-recover',
+        'Chat: Saved runs keeps focus while it recovers a saved request'
+      );
       assert.deepEqual(errors, [], 'Chat: no browser errors');
       console.log('PASS chat panel at 1280px: focus while busy, speakers, parts, Copy, tools');
       await context.close();
