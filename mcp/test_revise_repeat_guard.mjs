@@ -107,6 +107,12 @@ test('the original draft re-sent 40 times after open lines reaches the writer on
     'the note carries the accepted song, not the draft re-sent'
   );
   assert.match(note, /send a draft you changed yourself/);
+  // A deliberate re-roll is named, and only on the user's own request
+  // (BB8 A4): it is not permission for repeated paid runs.
+  assert.match(
+    note,
+    /Only if the user has asked, in this conversation, for another attempt at this same song, send it again with new_run: true \(an independent run\); never re-run it on your own\./
+  );
 });
 
 test('every spelling the tools read as the same song is the same work (3PO 6393791362 §1)', async () => {

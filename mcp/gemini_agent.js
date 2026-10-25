@@ -341,7 +341,12 @@ function repeatNote(earlier) {
     `ALREADY_DONE: this lyric_revise asks for the same work (draft and declarations) as one that already completed in ${earlier.where}` +
     `${earlier.status ? ` (status ${earlier.status}${earlier.exit_code != null ? `, exit ${earlier.exit_code}` : ''})` : ''}. ` +
     `Nothing was run and the writer was not asked again; that result stands.${song} ` +
-    'To go further, send a draft you changed yourself (rewrite the lines that result left open), change a declaration, or ask the user what to change.'
+    'To go further, send a draft you changed yourself (rewrite the lines that result left open), change a declaration, or ask the user what to change. ' +
+    // The one deliberate re-run (BB8 A4, #519): the writer is not
+    // deterministic, so a person may ask for another attempt at the same
+    // song. That is their request to make, never a retry the model chooses:
+    // each run is paid.
+    'Only if the user has asked, in this conversation, for another attempt at this same song, send it again with new_run: true (an independent run); never re-run it on your own.'
   );
 }
 
