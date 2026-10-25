@@ -274,6 +274,7 @@ class WorksView {
     this.seq = 0;
     this.rows = [];
     this.timer = 0;
+    this.disposed = false;
     injectStyle();
     main.innerHTML = shell(lib);
     main.dataset.libraryChunk = 'works';
@@ -310,12 +311,21 @@ class WorksView {
       this.unsub = lib.selection.onChange(() => this.root.isConnected && this.paintSelection());
   }
   dispose() {
+    this.disposed = true;
+    this.cancelQuery();
+    this.seq++;
     document.removeEventListener('keydown', this.keys, true);
     if (typeof this.unsub === 'function') this.unsub();
+  }
+  cancelQuery() {
+    clearTimeout(this.timer);
+    this.timer = 0;
   }
   // Write the state to the hash (push for paging, replace for q and filters)
   // and load.
   commit(push) {
+    this.cancelQuery();
+    if (this.disposed || !this.root.isConnected) return;
     const sub = format(this.state);
     this.sub = sub;
     if (this.lib.go) this.lib.go(sub, { replace: !push });
@@ -324,6 +334,7 @@ class WorksView {
     this.load();
   }
   update(sub) {
+    this.cancelQuery();
     const s = parse(sub);
     this.state = s;
     this.sub = format(s);
@@ -448,6 +459,7 @@ class WorksView {
     }
   }
   openReading(r) {
+    this.cancelQuery();
     const p = new URLSearchParams();
     if (r.path_key) p.set('revision', r.path_key);
     const hit = r.search_hit;
@@ -762,7 +774,7 @@ return {
   show(main, sub, lib) {
     LIB = lib;
     let view = VIEWS.get(main);
-    if (!view || !view.root.isConnected || view.lib !== lib) {
+    if (!view || view.disposed || !view.root.isConnected || view.lib !== lib) {
       view?.dispose();
       view = new WorksView(main, lib);
       VIEWS.set(main, view);
