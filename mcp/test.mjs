@@ -328,6 +328,21 @@ await check('an environment that stops rendering is reported, not lost silently'
     const final = twice.workspace.cards.find((c) => c.id === finalEnv);
     assert.equal(w.settings.room.now, final.room);
   }
+  // An OVERWRITTEN that stands on a card the environment has since left says
+  // which card its `now` values come from (Jony's nit on b1750eff2).
+  const folk = E.startRecipe({ traditions: ['appalachian_folk', 'delta_blues'] });
+  const leftBehind = E.editRecipe({
+    workspace: thread(folk.workspace),
+    edits: [
+      { action: 'set_environment', room: 'cathedral' },
+      { action: 'set_preface', card: 'voice', preface: 'raging' },
+      { action: 'move_instrument', card: folk.cards.at(-1).card },
+    ],
+  });
+  const over = leftBehind.render_warnings.find((x) => x.code === 'ENVIRONMENT_OVERWRITTEN');
+  assert.ok(over, 'fixture: the preface overwrote the room');
+  assert.notEqual(over.card, leftBehind.render_scope.environment_card, 'fixture: env moved');
+  assert.equal(over.environment_card, leftBehind.render_scope.environment_card);
 });
 
 await check('set_preface after set_environment reports the environment it replaced', () => {

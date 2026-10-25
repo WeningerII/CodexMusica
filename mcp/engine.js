@@ -731,7 +731,8 @@ export function editRecipe(params = {}) {
     if (!Object.keys(settings).length) warnings.splice(k, 1);
     else {
       w.settings = settings;
-      if (w.code === 'ENVIRONMENT_MOVED') w.environment_card = env.id;
+      // Restated against another card than the one it names: say which.
+      if (w.code === 'ENVIRONMENT_MOVED' || w.card !== env.id) w.environment_card = env.id;
     }
   }
   for (const t of envTargets) {
