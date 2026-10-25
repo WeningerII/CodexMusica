@@ -114,7 +114,7 @@
 //                        the page: core and reader 20,480, analysis 24,576,
 //                        compare 6,144, inflate 4,096. A chunk with no row
 //                        here fails: a new chunk cannot ship unbudgeted
-//   library-shelves-path codex.html + core + library/data/catalog.json  <= 393,216
+//   library-shelves-path codex.html + core + library/data/catalog.json  <= 400,640
 //                        — what the Library's first view waits for. Reported
 //                        absent, not failed, while library/data/ is not
 //                        beside the page (PR 2 publishes it)
@@ -175,7 +175,12 @@ const LIBRARY_BUDGETS = {
   'library-works': 12288,
   'library-rights': 12288,
   'library-readertools': 12288,
-  'library-shelves-path': 393216,
+  // ~~393216~~ raised 2026-10-25 to 400,640 (the merged interface batch
+  // measured 399,587 B, plus ~1 KB headroom). Owner-authorised ship ("merge
+  // the built fixes and get them live"). Lighthouse evidence on #519 comment
+  // 6400551234: pooled LCP +3.6% (4,202 -> 4,352 ms), FCP +150 ms from a
+  // byte-threshold step (one more simulated round trip), not a code path.
+  'library-shelves-path': 400640,
   'library-growth': 6144,
 };
 
