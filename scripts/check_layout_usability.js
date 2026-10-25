@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -203,9 +203,54 @@ async function noOverflow(page) {
       await page.getByRole('button', { name: 'More', exact: true }).click();
       await settle(page);
       await inside(page, '#ui-menu');
-      await page.getByRole('button', { name: 'Reset layout', exact: true }).click();
+      if (width === 1280) {
+        // A menu item's action hands focus back to More, and an Undo or Redo
+        // that its own step disables hands focus to its partner, never to the
+        // page body (Jony #14 on #519).
+        await page.locator('#ui-menu [data-ui="reset-layout"]').focus();
+        await page.keyboard.press('Enter');
+        assert.deepEqual(
+          await page.evaluate(() => ({
+            hidden: document.getElementById('ui-menu').hidden,
+            more: !!document.activeElement?.matches('[data-ui="menu"]'),
+          })),
+          { hidden: true, more: true },
+          'Reset layout from the keyboard returns focus to More'
+        );
+        const focused = () =>
+          page.evaluate(() => {
+            const a = document.activeElement;
+            return a === document.body ? 'body' : a.id || a.dataset.ui || a.tagName;
+          });
+        await page.locator('#btn-undo').focus();
+        for (let i = 0; i < 60 && (await focused()) === 'btn-undo'; i++)
+          await page.keyboard.press('Enter');
+        assert.equal(await focused(), 'btn-redo', 'the last Undo hands focus to Redo');
+        for (let i = 0; i < 60 && (await focused()) === 'btn-redo'; i++)
+          await page.keyboard.press('Enter');
+        assert.equal(await focused(), 'btn-undo', 'the last Redo hands focus to Undo');
+      } else await page.getByRole('button', { name: 'Reset layout', exact: true }).click();
       await page.getByRole('button', { name: 'Lyrics', exact: true }).click();
       await noOverflow(page);
+      if (width === 1280) {
+        // Relations opens inline beside the song here; opening it from the
+        // keyboard puts focus on its Close, not on the page body (Jony #13).
+        await page.locator('#lyrics-draft').fill('[Verse]\nThe morning light\nIs warm and bright');
+        await page.locator('[data-ui="ly-find-open"]').click();
+        await page.keyboard.press('Escape');
+        await page.locator('[data-ui="ly-relations"]').focus();
+        await page.keyboard.press('Enter');
+        await page.locator('#ly-relation-inspector:not([hidden])').waitFor();
+        assert.equal(
+          await page.evaluate(
+            () => document.activeElement?.closest('#ly-relation-inspector')?.id || 'body'
+          ),
+          'ly-relation-inspector',
+          'opening Relations moves focus into the inline inspector'
+        );
+        await page.locator('#ly-relation-inspector [data-ui="ly-relation-close"]').click();
+        await page.locator('#lyrics-draft').fill('');
+      }
       await page.getByRole('button', { name: 'Map', exact: true }).click();
       const atlas = page.frameLocator('#map-frame');
       await atlas.locator('.rowbtn').first().waitFor({ state: 'attached' });
@@ -214,6 +259,21 @@ async function noOverflow(page) {
       const mapFrame = page.frames().find((f) => f.url().includes('atlas.html'));
       await settle(mapFrame);
       await inside(mapFrame, '#results');
+      if (width === 1280) {
+        // Picking a result from the keyboard leaves focus in the tradition card,
+        // also after its detail arrives and the card re-renders (Jony #16).
+        await mapFrame.locator('#results [data-tid]').first().focus();
+        await page.keyboard.press('Enter');
+        await mapFrame.locator('#card:not([hidden]) h2').waitFor();
+        await page.waitForTimeout(800);
+        assert.equal(
+          await mapFrame.evaluate(() =>
+            document.activeElement?.closest('#card') ? 'card' : document.activeElement?.tagName
+          ),
+          'card',
+          'picking a search result keeps focus in the card'
+        );
+      }
       await page.goto(base + '/atlas.html');
       await page.locator('.rowbtn').first().waitFor({ state: 'attached' });
       await page.getByLabel('Search traditions').fill('-');

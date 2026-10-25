@@ -2049,10 +2049,26 @@
         ICON.back +
         'Back to collection</button>';
     }
+    // A re-render (the detail arriving after a pick) replaces what holds focus;
+    // focus goes back to the same control, or the title, not to the body
+    // (Jony #16 on #519).
+    var had = el.card.contains(document.activeElement) ? document.activeElement : null;
+    var again = had
+      ? had.matches('h2')
+        ? 'h2'
+        : had.dataset.act
+          ? '[data-act="' + had.dataset.act + '"]'
+          : null
+      : null;
     el.card.innerHTML = h;
     el.card.setAttribute('aria-labelledby', 'card-title');
     el.card.hidden = false;
     document.body.classList.add('card-open');
+    var back = again && el.card.querySelector(again);
+    if (back) {
+      if (again === 'h2') back.tabIndex = -1;
+      back.focus({ preventScroll: true });
+    }
     var im = el.card.querySelector('img[data-fallback]');
     if (im)
       im.addEventListener('error', function () {

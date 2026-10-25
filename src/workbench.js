@@ -960,10 +960,12 @@ function uiStart() {
       case 'undo':
         undo();
         uiSync();
+        if (b.closest('#ui-menu')) uiSetMenu(false);
         break;
       case 'redo':
         redo();
         uiSync();
+        if (b.closest('#ui-menu')) uiSetMenu(false);
         break;
       case 'close-editor':
         uiCloseEditor();
@@ -2263,6 +2265,10 @@ function uiSyncThemeControl() {
 function uiSetMenu(open) {
   const menu = $ui('ui-menu'),
     trigger = document.querySelector('[data-ui="menu"]');
+  // Closing the menu from inside it (an item's action) hands focus back to
+  // More, not to the page body under a hidden button (Jony, #519).
+  const inside = !open && menu && !menu.hidden && menu.contains(document.activeElement);
   if (menu) menu.hidden = !open;
   if (trigger) trigger.setAttribute('aria-expanded', String(open));
+  if (inside) trigger?.focus({ preventScroll: true });
 }
