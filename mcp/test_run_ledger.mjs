@@ -113,6 +113,62 @@ try {
     if (v.run_revision != null) assert.equal(v.run_revision, 3);
   });
 
+  // ── Record lost, no state to send (BB8 N1) ─────────────────────────────
+  // A run that stopped with open lines and carried no checkpoint leaves its
+  // client with run_id, run_revision and the song: the kitchen drops state.
+  // After a restart or the TTL the record is gone, and "pass `state` back"
+  // was the only way on — one a /chat user cannot take. The ledger knows the
+  // run, so the rewritten draft continues it, as a parked run is continued.
+  const n1 = verdict(await start());
+  const n2 = verdict(await call({ run_id: n1.run_id, run_revision: 1, answer: 'I hold you.' }));
+  RUNS.del(n1.run_id);
+  const rewritten = ['Copper cat', 'Azure cat'];
+  const onward = await call({
+    run_id: n1.run_id,
+    run_revision: n2.run_revision,
+    draft: rewritten,
+    scheme: 'AA',
+    relation: 'type:rime riche',
+    writer: 'interview',
+    max_rounds: 1,
+    backtrack: 0,
+  });
+  check('record lost, no state: run_id + run_revision + a draft continues the run', () => {
+    assert.doesNotMatch(text(onward), /names no run this tool remembers|pass `state` back/);
+    const v = verdict(onward);
+    assert.equal(v.run_id, n1.run_id, 'the same run');
+    assert.equal(v.run_revision, n2.run_revision + 1, 'its revision goes on from the ledger');
+  });
+  const n1Stale = await call({
+    run_id: n1.run_id,
+    run_revision: n2.run_revision,
+    draft: rewritten,
+  });
+  check('...and the revision it moved past is refused as stale (the record is back)', () => {
+    assert.equal(n1Stale.isError, true, text(n1Stale).slice(0, 300));
+    assert.match(text(n1Stale), /stale run revision \d+; current revision is \d+/);
+  });
+  RUNS.del(n1.run_id);
+  const n1StaleLedger = await call({
+    run_id: n1.run_id,
+    run_revision: n2.run_revision,
+    draft: rewritten,
+  });
+  check('...and with the record lost again, the ledger refuses it as stale', () => {
+    assert.equal(n1StaleLedger.isError, true, text(n1StaleLedger).slice(0, 300));
+    assert.match(
+      text(n1StaleLedger),
+      /stale run revision \d+; current revision is \d+\. Nothing was run/
+    );
+  });
+  RUNS.del(n1.run_id);
+  const noDraft = await call({ run_id: n1.run_id, run_revision: n2.run_revision + 1 });
+  check('with neither state nor draft, the refusal names the call that works', () => {
+    assert.equal(noDraft.isError, true, text(noDraft).slice(0, 300));
+    assert.match(text(noDraft), /run_revision.*draft_text/);
+    assert.doesNotMatch(text(noDraft), /pass `state` back/);
+  });
+
   // ── The same, with no run_id (Jony's review) ─────────────────────────
   // A stale state alone used to run as a new run: the C1 shape on any path
   // that carries the state without the capability (the /chat checkpoint

@@ -2668,10 +2668,25 @@ export function registerLyricTools(server, tool) {
                 throw refuse(
                   'JOURNAL_CAPACITY: this run reached its journal capacity. Keep its returned state/checkpoint and final_draft. This run cannot resume; an identical restart may hit the same limit. Reduce the requested scope explicitly before independent new_run work.'
                 );
-              if (a.run_id && !a.new_run && !runRec && a.state == null && a.checkpoint == null)
-                throw refuse(
-                  `\`run_id\` ${a.run_id} names no run this tool remembers — it may have finished, expired (${Math.round(RUNS.ttlMs / 3600000)} h idle) or been forgotten by a restart; pass \`state\` back, or omit \`run_id\` and send the draft to open a fresh run`
-                );
+              if (a.run_id && !a.new_run && !runRec && a.state == null && a.checkpoint == null) {
+                // The record is gone (a restart, the TTL) and nothing to carry
+                // was sent. Where the LEDGER knows the run, its refusals come
+                // first (finished, stale or missing revision), and an
+                // unfinished run at its latest revision continues on the draft
+                // the caller holds, as a parked run is continued: a run that
+                // stopped with open lines and no checkpoint leaves a /chat
+                // client no `state` to pass back (BB8 N1).
+                const ledgerSays = ledgerMark ? runRefusal(null, a, ledgerMark) : null;
+                if (ledgerSays) throw refuse(ledgerSays);
+                if (!ledgerMark)
+                  throw refuse(
+                    `\`run_id\` ${a.run_id} names no run this tool remembers — it may have finished, expired (${Math.round(RUNS.ttlMs / 3600000)} h idle) or been forgotten by a restart; pass \`state\` back, or omit \`run_id\` and send the draft to open a fresh run`
+                  );
+                if (!Array.isArray(a.draft))
+                  throw refuse(
+                    `REFUSED: run ${a.run_id} is at revision ${ledgerMark.revision}, but its record was lost (a restart or an expiry), so there is nothing to carry. Continue it with \`run_id\`, \`run_revision\` ${ledgerMark.revision} and the song you hold as \`draft_text\` (one newline-separated string), or send \`new_run: true\` with it. Nothing was run.`
+                  );
+              }
               const runWander = runRefusal(runRec, a, ledgerMark);
               if (runWander) throw refuse(runWander);
               const carried = { state: false, draft: false, decl: false };
