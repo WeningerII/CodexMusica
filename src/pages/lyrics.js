@@ -4179,6 +4179,7 @@ function lyMountMarkup() {
 <nav class="ly-mnav" id="ly-mnav" aria-label="Lyrics views"><div role="tablist" aria-label="Lyrics views">${mobileTabs}</div></nav>
 <div class="ly-sheet-scrim" id="ly-scrim" hidden data-ui="ly-outline-toggle"></div>
 <input type="file" id="ly-file" accept=".txt,.md,.json,text/plain,application/json" hidden>
+<div id="ly-live" class="ly-sr" role="status" aria-live="polite"></div>
 </div>`;
 }
 
@@ -4558,6 +4559,14 @@ function lyRhymeMarks(model) {
     }
   });
   return { ends, letters };
+}
+// One persistent polite region, outside every re-rendered panel. Cleared
+// first so the same message twice is read twice.
+function lyAnnounce(text) {
+  const live = $ui('ly-live');
+  if (!live) return;
+  live.textContent = '';
+  if (text) setTimeout(() => (live.textContent = text), 50);
 }
 function lyRenderEditor() {
   const model = LY.model;
@@ -5692,6 +5701,91 @@ function lyRefresh(now = false) {
     Object.assign(ui, { tab: LY.tab, tool: LY.tool, outline: LY.outline });
     lyMetaSaved();
   }
+}
+// ── Undo in the draft: the page's one history, a typing run per step ──────
+// The read layer redraws on every keystroke, and Chromium closes its native
+// typing group on any DOM change in the document, so the textarea's own undo
+// stepped back one character per press (Jony #79). Undo and Redo in the draft
+// (Ctrl+Z, Ctrl+Shift+Z or Ctrl+Y, the Edit menu) are therefore the toolbar's:
+// one history, where a run of typing is one step, closed by a pause, a switch
+// between typing and deleting, a paste, cut, drop or spelling replacement (each
+// a step of its own), a caret move, or leaving the draft.
+const LY_RUN_PAUSE_MS = 1000;
+const lyRun = { kind: '', next: '', timer: 0 };
+function lyCloseRun() {
+  clearTimeout(lyRun.timer);
+  lyRun.timer = 0;
+  if (!lyRun.kind) return;
+  lyRun.kind = '';
+  pushHistory();
+}
+// After an edit lands (uiSaveLyrics has run, so pushHistory sees it).
+function lyExtendRun() {
+  const kind = lyRun.next || 'insert';
+  lyRun.next = '';
+  clearTimeout(lyRun.timer);
+  lyRun.timer = 0;
+  if (kind === 'whole') {
+    lyRun.kind = '';
+    pushHistory();
+    return;
+  }
+  lyRun.kind = kind;
+  lyRun.timer = setTimeout(lyCloseRun, LY_RUN_PAUSE_MS);
+}
+// Before an edit: one of another kind closes the run it would otherwise join.
+function lyEditKind(type) {
+  return /^(insertFrom|insertReplacementText|deleteByCut|deleteByDrag)/.test(type)
+    ? 'whole'
+    : type.startsWith('delete')
+      ? 'delete'
+      : 'insert';
+}
+// One Undo or Redo, from the toolbar, the line menu or the keyboard in the
+// draft. It says what it did (Jony #76), and focus never falls to the page:
+// in the draft the caret lands where the change was; a toolbar button that has
+// just run out hands focus to the other one.
+function lyHistoryStep(redoing) {
+  const draft = lyDraft();
+  const from = document.activeElement;
+  const inDraft = !!draft && from === draft;
+  const before = draft ? draft.value : '';
+  lyCloseRun();
+  const at = app.historyIndex;
+  ($ui(redoing ? 'ui-redo' : 'ui-undo') || $ui(redoing ? 'btn-redo' : 'btn-undo'))?.click();
+  if (app.historyIndex === at) {
+    lyAnnounce(redoing ? 'Nothing to redo' : 'Nothing to undo');
+    return;
+  }
+  lyRefresh(true);
+  lyAnnounce(redoing ? 'Redone' : 'Undone');
+  if (inDraft) {
+    const after = draft.value;
+    let i = 0;
+    while (i < before.length && i < after.length && before[i] === after[i]) i++;
+    let j = 0;
+    while (
+      j < before.length - i &&
+      j < after.length - i &&
+      before[before.length - 1 - j] === after[after.length - 1 - j]
+    )
+      j++;
+    if (document.activeElement !== draft) draft.focus({ preventScroll: true });
+    draft.setSelectionRange(after.length - j, after.length - j);
+    lySyncCaret();
+    return;
+  }
+  const act = from?.dataset?.ui;
+  if (act !== 'ly-undo' && act !== 'ly-redo') return;
+  const a = document.activeElement;
+  if (from.isConnected && !from.disabled && a === from) return;
+  if (a && a !== document.body && a !== from && a.isConnected) return;
+  const scope = (from.isConnected && from.closest('[role="toolbar"]')) || $ui('ly-toolbar');
+  const same = scope?.querySelector(`[data-ui="${act}"]`);
+  const other = scope?.querySelector(`[data-ui="${act === 'ly-undo' ? 'ly-redo' : 'ly-undo'}"]`);
+  const next = [same, other].find((b) => b && !b.disabled && b.getClientRects().length);
+  if (next) next.focus();
+  else draft?.focus({ preventScroll: true });
 }
 function lyRenderHistoryButtons() {
   document.querySelectorAll('[data-ui="ly-undo"]').forEach((button) => {
@@ -7017,10 +7111,10 @@ const LY_ACTIONS = {
     lyFindClose();
   },
   'ly-undo'() {
-    ($ui('ui-undo') || $ui('btn-undo'))?.click();
+    lyHistoryStep(false);
   },
   'ly-redo'() {
-    ($ui('ui-redo') || $ui('btn-redo'))?.click();
+    lyHistoryStep(true);
   },
   'ly-text-size'(id) {
     LY.prefs.size.set(id);
@@ -7156,7 +7250,32 @@ function lyWire(surface) {
     lySyncCaret();
     lyRenderEditor();
     lyRefresh();
+    lyExtendRun();
   });
+  draft.addEventListener('beforeinput', (e) => {
+    const type = e.inputType || '';
+    if (type === 'historyUndo' || type === 'historyRedo') {
+      e.preventDefault();
+      lyHistoryStep(type === 'historyRedo');
+      return;
+    }
+    const kind = lyEditKind(type);
+    if (kind === 'whole' || (lyRun.kind && lyRun.kind !== kind)) lyCloseRun();
+    lyRun.next = kind;
+  });
+  draft.addEventListener('keydown', (e) => {
+    const k = e.key.toLowerCase();
+    if (
+      (e.ctrlKey || e.metaKey) &&
+      !e.altKey &&
+      !e.isComposing &&
+      (k === 'z' || (k === 'y' && e.ctrlKey && !e.shiftKey))
+    ) {
+      e.preventDefault();
+      lyHistoryStep(k === 'y' || e.shiftKey);
+    } else if (/^(Arrow(Left|Right|Up|Down)|Home|End|PageUp|PageDown)$/.test(e.key)) lyCloseRun();
+  });
+  draft.addEventListener('pointerdown', lyCloseRun);
   // Keep an editor selection attached to its textarea on a mouse review,
   // including a collapsed caret retained after Tab has moved focus elsewhere.
   // Disabling the clicked Run button during send otherwise lets the browser
@@ -7177,6 +7296,7 @@ function lyWire(surface) {
     }
   });
   draft.addEventListener('blur', () => {
+    lyCloseRun();
     pushHistory();
     lyRenderEditor();
   });
