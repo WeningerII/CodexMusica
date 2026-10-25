@@ -81,16 +81,23 @@ const server = http.createServer((req, res) => {
       const before = await snapshot();
       const verify = async (view) => {
         await page.waitForFunction((view) => document.body.dataset.view === view, view);
+        // The pop focus contract (uiNavigate): after Back/Forward focus is
+        // never BODY. It is the element that kept it while still shown, a
+        // control in the destination page, or that page's nav button.
+        const where = await page.evaluate((view) => {
+          const a = document.activeElement;
+          const nav = document.querySelector(`button[data-view="${view}"]`);
+          return {
+            body: !a || a === document.body,
+            shown: !!a?.isConnected && !!a.getClientRects().length,
+            inPage: !!a?.closest(`#surface-${view}`),
+            nav: a === nav,
+            current: nav?.getAttribute('aria-current'),
+          };
+        }, view);
         assert(
-          await page
-            .locator(`button[data-view="${view}"]`)
-            .evaluate(
-              (n) =>
-                document.activeElement === n &&
-                n.getAttribute('aria-current') === 'page' &&
-                !!n.getClientRects().length
-            ),
-          `history ${view}: destination nav receives focus`
+          !where.body && where.shown && where.current === 'page',
+          `history ${view}: focus is on a shown control, not BODY: ${JSON.stringify(where)}`
         );
         assert.equal(await snapshot(), before, 'navigation does not edit the recipe or history');
         assert.equal(await page.evaluate(() => UI.genre), genre, 'genre detail retained');
