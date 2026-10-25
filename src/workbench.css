@@ -553,8 +553,15 @@ body:has(#storage-conflict) .toast {
     calc(100vh - var(--ui-toast-h, 40px) - 8px)
   ) !important;
 }
-body:has(.modal-bg.open:not(.inline-tree), .confirm-dialog-bg, dialog[open]) .toast {
+body:has(.modal-bg.open) .toast,
+body:has(.confirm-dialog-bg) .toast,
+body:has(dialog[open]) .toast {
   z-index: 90 !important;
+}
+/* The inline genre tree is a panel, not a modal: the toast stays above it.
+   (Simple selectors: jsdom's parser refuses :not() inside :has().) */
+body:has(.modal-bg.open.inline-tree) .toast {
+  z-index: 1000 !important;
 }
 @media (min-width: 900px) and (max-width: 1250px) {
   .ui-brand {
