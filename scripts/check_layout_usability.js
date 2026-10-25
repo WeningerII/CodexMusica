@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 /* global document, getComputedStyle, innerWidth, innerHeight, matchMedia, requestAnimationFrame,
-   uiChatOpen, _chatRenderReply, openModal, closeModal, showToast, uiShowStorageConflict */
+   uiChatOpen, _chatRenderReply, openModal, closeModal, showToast, uiShowStorageConflict, uiInspectInstrument */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -277,6 +277,41 @@ async function noOverflow(page) {
         assert.ok(
           r && r.height > 0 && r.top >= -1 && r.bottom <= 257,
           `AI panel at 320×256: ${s} can be brought on screen: ` + JSON.stringify(r)
+        );
+      }
+      assert.deepEqual(errors, [], 'No browser errors');
+      await context.close();
+    }
+    {
+      // #113: the Instrument inspector at 320×256 — its title, tabs and Add
+      // can each be brought on screen, and nothing covers them there.
+      const { context, page, errors } = await reflowPage(320, 256);
+      await page.goto(base + '/codex.html');
+      await page.locator('.catalog-row, .cm-tile').first().waitFor();
+      await page.evaluate(() => uiInspectInstrument('voice'));
+      await page.locator('#ip-title').waitFor({ state: 'attached' });
+      await settle(page);
+      for (const s of ['#ip-title', '.ip-tabs [role="tab"]', '[data-ui="ip-add-configured"]']) {
+        const seen = await page.evaluate((sel) => {
+          const e = document.querySelector(sel);
+          if (!e) return null;
+          e.scrollIntoView({ block: 'nearest' });
+          const b = e.getBoundingClientRect();
+          const hit = document.elementFromPoint(
+            b.left + Math.min(8, b.width / 2),
+            b.top + b.height / 2
+          );
+          return {
+            top: b.top,
+            bottom: b.bottom,
+            height: b.height,
+            on: !!hit && (e === hit || e.contains(hit)),
+          };
+        }, s);
+        assert.ok(
+          seen && seen.height > 0 && seen.top >= -1 && seen.bottom <= 257 && seen.on,
+          `Instrument inspector at 320×256: ${s} can be brought on screen, uncovered: ` +
+            JSON.stringify(seen)
         );
       }
       assert.deepEqual(errors, [], 'No browser errors');

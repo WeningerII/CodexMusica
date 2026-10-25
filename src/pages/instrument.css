@@ -1128,3 +1128,19 @@ details.ip-changes[open] .ip-changes-sum > span:last-child {
     align-content: center;
   }
 }
+/* A short window (400% zoom, a phone on its side): the inspector scrolls as
+   one column, its footer in flow at the end, instead of a scroll area
+   squeezed to a sliver under a fixed footer (Jony #113, as #94). */
+@media (max-height: 420px) {
+  .ip-inspector {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .ip-insp-scroll,
+  .ip-foot {
+    flex: none;
+  }
+  .ip-insp-scroll {
+    overflow: visible;
+  }
+}
