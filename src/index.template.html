@@ -80,10 +80,10 @@ ul { list-style: none; }
 .boot-status { display: none; }
 body:not(.workbench):not(.boot-failed) > .boot-status { display: flex; position: fixed; inset: 0; align-items: center; justify-content: center; color: var(--text-3); font-size: var(--fs-body); background: var(--bg); z-index: 1; }
 body:not(.workbench):not(.boot-failed) > .app-bar,
-body:not(.workbench):not(.boot-failed) > main.workspace { visibility: hidden; }
+body:not(.workbench):not(.boot-failed) > .workspace { visibility: hidden; }
 body.boot-failed > .boot-status { display: block; position: fixed; inset: 0; overflow-y: auto; background: var(--bg); z-index: 200; }
 body.boot-failed > .app-bar,
-body.boot-failed > main.workspace { display: none; }
+body.boot-failed > .workspace { display: none; }
 
 /* App bar */
 .app-bar { position: sticky; top: 0; z-index: 30; background: var(--header-glass); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: var(--s3) var(--s6); display: flex; align-items: center; justify-content: space-between; gap: var(--s4); }
@@ -1491,7 +1491,9 @@ body.is-dnd-active * { cursor: grabbing !important; }
   <button id="btn-add"></button>
 </header>
 
-<main class="workspace">
+<!-- The page itself is the main landmark (#discovery, src/workbench.js); Your
+     recipe and the card editor are its siblings, not inside it (Jony #124). -->
+<div class="workspace">
   <aside id="workspace-sidebar" aria-label="Your recipe">
     <!-- Three zones: a fixed top (session name), a scrolling middle
          (#sidebar-scroll: filter, genre groups, suggestions — the shell adds
@@ -1509,7 +1511,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
     <div id="sidebar-recipe-preview"></div>
   </aside>
   <section id="workspace-detail"></section>
-</main>
+</div>
 
 <!-- Modal: traditions -->
 <div class="modal-bg" id="modal-trad">

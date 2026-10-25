@@ -829,7 +829,9 @@ function uiStart() {
     uiThemeControl() +
     '<input type="file" id="ui-file" accept="application/json" hidden>';
   header.append(more);
-  const discovery = document.createElement('section');
+  // The page is the document's main landmark: a screen reader's "main" jump
+  // lands on it, not on a region that also holds Your recipe (Jony #124).
+  const discovery = document.createElement('main');
   discovery.id = 'discovery';
   for (const [id] of UI_ROUTES) {
     const surface = document.createElement('section');
@@ -838,7 +840,7 @@ function uiStart() {
     surface.hidden = id !== 'genre';
     discovery.append(surface);
   }
-  const workspace = document.querySelector('main.workspace');
+  const workspace = document.querySelector('.workspace');
   workspace.insertBefore(discovery, $ui('workspace-detail'));
   for (const [id] of UI_ROUTES) UI_PAGES[id]?.mount($ui('surface-' + id));
   const assistant = document.createElement('aside');
@@ -1429,7 +1431,9 @@ function uiRowsHTML(prefix, groups, { tile, noun }) {
             `<button type="button" data-ui="rows-scroll" data-id="${esc(key)}" data-dir="${dir}" aria-label="Scroll ${label || 'the row'} ${way}"${dir < 0 ? ' disabled' : ''}>${icon(ic, 18)}</button>`
         )
         .join('');
-      return `<section class="cm-rows-group" data-rows="${esc(key)}"${label ? ` aria-label="${label}"` : ''}><div class="cm-rows-head">${label ? `<h3 class="cm-rows-label" tabindex="-1">${label}</h3><span class="cm-rows-count">${uiCount(g.items.length, noun)}</span>` : ''}<div class="cm-rows-nav">${arrows}</div></div><div class="cm-rows-track" role="list" data-rows="${esc(key)}"${label ? ` aria-label="${label}"` : ''}></div></section>`;
+      // A row is a heading and its named list, not a landmark: 13 letter
+      // regions per search turned the landmark list into an index (Jony #127).
+      return `<section class="cm-rows-group" data-rows="${esc(key)}"><div class="cm-rows-head">${label ? `<h3 class="cm-rows-label" tabindex="-1">${label}</h3><span class="cm-rows-count">${uiCount(g.items.length, noun)}</span>` : ''}<div class="cm-rows-nav">${arrows}</div></div><div class="cm-rows-track" role="list" data-rows="${esc(key)}"${label ? ` aria-label="${label}"` : ''}></div></section>`;
     })
     .join('');
 }
