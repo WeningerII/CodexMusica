@@ -425,6 +425,129 @@ def test_the_tri_state():
 # 4. DOCTRINE 66 — the derived set's ITERATION ORDER is fixed and stated
 # ---------------------------------------------------------------------------
 
+# ---------------------------------------------------------------------------
+# 3b. THE CLASSIFIER'S HALF — rhyme_types._cmp is the same tri-state
+# ---------------------------------------------------------------------------
+# `classify_pair` builds every agreement cell, and so every NAME `lyric_types`
+# reports, from `rhyme_types._cmp`. It was `x == y`, which made a channel
+# holding several readings a definite False against one value: `read`/`seed`
+# (read: R IY1 D / R EH1 D) lost every rhyme name while the same answer's
+# coarse layer said RHYME. Now True only when every pairing of readings
+# agrees, False only when none does, None otherwise — `Agree`'s rule above.
+
+def test_the_classifier_seam():
+    from quality import rhyme_types as RT
+    two = Readings({"IY", "EH"})
+    check("_cmp: a set of readings against a value it contains is UNDECIDED",
+          RT._cmp(two, "IY") is None and RT._cmp("IY", two) is None)
+    check("_cmp: ...against a value none of its readings is, a definite False",
+          RT._cmp(two, "AA") is False)
+    check("_cmp: a SINGLETON set is certainty: True against its own value",
+          RT._cmp(Readings({"IY"}), "IY") is True)
+    check("_cmp: two EQUAL multi-reading sets are UNDECIDED, not True "
+          "(as close/close on `coda` above)",
+          RT._cmp(two, Readings({"IY", "EH"})) is None)
+    check("_cmp: the phonology declining is still None",
+          RT._cmp(None, "IY") is None)
+    phon = eng.English()
+    pins = {
+        ("read", "seed"): ((False, None, True),),     # nucleus IY|EH vs IY
+        ("don't", "won't"): ((False, True, None),),   # coda {N T}|{N} vs N T
+        ("reed", "seed"): ((False, True, True),),     # control: no set
+        ("bed", "fed"): ((False, True, True),),       # control: no set
+    }
+    for (a, b), want in pins.items():
+        got = RT.classify_pair(a, b, phon).agreement
+        check(f"classify_pair {a}/{b}: agreement {want}", got == want,
+              f"got {got}")
+    old = RT._cmp
+    RT._cmp = lambda x, y: None if x is None or y is None else x == y
+    try:
+        was = RT.classify_pair("read", "seed", phon).agreement
+    finally:
+        RT._cmp = old
+    check("...and the old `x == y` read read/seed's vowel as a definite "
+          "False — the pin above fails without the fix",
+          was == ((False, False, True),), f"old gave {was}")
+    names = RT.names_at("reed", "seed", phon, "end")[0]
+    check("the control still names a perfect rhyme at `end`",
+          any("perfect rhyme" in n for n in names), f"{names}")
+    # THE JUDGES' HALF. A cell demanding a DISTINCT (or a RICH) pair read
+    # `identity`, which is "rich" only when every channel is True and
+    # "distinct" otherwise -- so an undecided vowel made an identical-sound
+    # pair "distinct" and the judge answered a definite True or False it could
+    # not know. `identity_undecided` carries that, and the judge answers None.
+    from quality import structures as ST
+    t = RT.classify_pair("bronstein", "hornstein", phon)
+    check("bronstein/hornstein: rich-or-distinct is UNDECIDED (one set, "
+          "both sides)", t.identity_undecided is True, f"{t.agreement}")
+    check("...so `consonance` (a DISTINCT pair) is None, where the default "
+          "'distinct' made it a definite True",
+          ST.STRUCTURES["consonance"].judge("bronstein", "hornstein", phon) is None)
+    check("barrack/barrack under `skothending`'s own anchors: None, not a "
+          "definite True", ST.STRUCTURES["skothending"].judge(
+              "barrack", "barrack", phon) is None)
+    check("read/seed under `perfect-rhyme`: None (UNJUDGED), not the "
+          "definite failure that flagged a SCHEME_VIOLATION",
+          ST.STRUCTURES["perfect-rhyme"].judge("read", "seed", phon) is None)
+    check("controls: reed/seed is still a perfect rhyme and a consonance, "
+          "and not undecided",
+          ST.STRUCTURES["perfect-rhyme"].judge("reed", "seed", phon) is True
+          and ST.STRUCTURES["consonance"].judge("reed", "seed", phon) is True
+          and RT.classify_pair("reed", "seed", phon).identity_undecided is False)
+    # WHY a structure judge said None decides the instruction: readings that
+    # disagree are settled by declaring one (pronunciation_options); an
+    # unreadable member or a refused anchor is not.
+    check("undecided_by_readings: read/seed under perfect-rhyme is the "
+          "readings, not an unreadable member",
+          ST.undecided_by_readings("perfect-rhyme", "read", "seed", phon) is True)
+    check("...reed/seed (decided) and an unreadable member are not",
+          ST.undecided_by_readings("perfect-rhyme", "reed", "seed", phon) is False
+          and ST.undecided_by_readings("perfect-rhyme", "zzzqx", "seed", phon) is False)
+
+
+def test_declared_reading_settles_a_structure():
+    """BB8's review of the SCHEME_UNREADABLE wording: the note tells the
+    writer to declare a reading, so declaring one must settle the structure.
+    The structure judge now receives the declared readings (member_phons), as
+    the relation path always did. Driven through the real `brief` verb."""
+    import json as _json
+    import subprocess as _sp
+    import tempfile as _tf
+    print("\n3c. a declared reading settles a declared structure")
+    lines = ["I sat all night and slowly read", "and from the dark there grew a seed",
+             "the sun came up and I was home", "and all the night was gone and done"]
+    with _tf.NamedTemporaryFile("w", suffix=".txt", delete=False) as f:
+        f.write("\n".join(lines) + "\n")
+        draft = f.name
+
+    def scheme_findings(phones):
+        argv = [sys.executable, os.path.join(ROOT, "lyric_harness.py"), "brief", draft,
+                "AABB", "--structures=A:perfect-rhyme"]
+        if phones:
+            argv.append("--pronunciations=" + _json.dumps([{
+                "line": lines[0], "token": 7, "word": "read", "phones": phones,
+                "basis": "dictionary", "source": "cmudict"}]))
+        out = _sp.run(argv, cwd=ROOT, capture_output=True, text=True).stdout
+        tail = [l for l in out.splitlines() if l.strip().startswith("lyric result:")]
+        res = _json.loads(tail[-1].split("lyric result:", 1)[1]) if tail else {}
+        return {(x["code"], tuple(x.get("locations") or ()))
+                for x in res.get("findings", []) if x["code"].startswith("SCHEME")}
+    try:
+        none = scheme_findings(None)
+        check("nothing declared: read/seed under perfect-rhyme is UNDECIDED",
+              ("SCHEME_UNREADABLE", (1, 2)) in none, f"{sorted(none)}")
+        ee = scheme_findings(["R", "IY1", "D"])
+        check("read declared R IY1 D: the pair is judged, and holds",
+              not any(loc == (1, 2) for _, loc in ee), f"{sorted(ee)}")
+        eh = scheme_findings(["R", "EH1", "D"])
+        check("read declared R EH1 D: the pair is judged, and fails",
+              ("SCHEME_VIOLATION", (1, 2)) in eh
+              and ("SCHEME_UNREADABLE", (1, 2)) not in eh, f"{sorted(eh)}")
+    finally:
+        os.unlink(draft)
+
+
 def test_doctrine_66():
     print("\n4. doctrine 66 — the derived sets iterate in a FIXED order, so "
           "any consumer that iterates one cannot differ between runs")
@@ -921,6 +1044,8 @@ if __name__ == "__main__":
     for fn in (test_doctrine_25_tripwire,
                test_the_four_readers,
                test_the_tri_state,
+               test_the_classifier_seam,
+               test_declared_reading_settles_a_structure,
                test_doctrine_66,
                test_the_product_over_generates_conservatively,
                test_the_guards_now_fire,

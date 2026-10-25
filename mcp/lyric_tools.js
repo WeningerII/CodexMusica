@@ -2169,7 +2169,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_MANDATE_CHARS)
       .optional()
       .describe(
-        "Declare a catalog STRUCTURE per group, e.g. 'B:kalevala-alliteration' — exactly the field lyric_check takes, so a structured draft is VERIFIED under the mandate it was CHECKED under. Comma-separated for several: 'A:pararhyme,B:skothending'. An unknown name refuses BY NAME; cannot be combined with a song-wide `relation`."
+        "Declare a catalog STRUCTURE per group, e.g. 'B:kalevala-alliteration' — exactly the field lyric_check takes, so a structured draft is VERIFIED under the mandate it was CHECKED under. Comma-separated for several: 'A:pararhyme,B:skothending'. An unknown name refuses BY NAME. Beside a song-wide `relation` both are judged: a structured group's pairs must satisfy the relation AND the row's own judge."
       ),
     voices: voicesField,
     fallback: fallbackField,
@@ -2252,7 +2252,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_MANDATE_CHARS)
       .optional()
       .describe(
-        "Declare a catalog STRUCTURE per group, e.g. 'B:kalevala-alliteration' — the group's pairs are then judged by that row's own judge at its own anchors, not by the end-rhyme comparator. Comma-separated for several: 'A:pararhyme,B:skothending'. An unknown name refuses, and the refusal lists the catalog's rows and aliases. TWO CONSEQUENCES a caller must expect: the two-tier ban is NOT ASKED of a pair judged under a non-default structure (the ban's tables are end-rhyme instruments) — the verdict lists those pairs in ban_not_asked, and banned_pairs is null when no pair was asked; and a row with no laziness calibration for the draft's language is named in structures_uncalibrated — correctness is judged, laziness is not. Cannot be combined with a song-wide `relation`: both judge the same pairs and the relation would win on every group, so the harness refuses rather than letting a declared structure grade nothing."
+        "Declare a catalog STRUCTURE per group, e.g. 'B:kalevala-alliteration' — the group's pairs are then judged by that row's own judge at its own anchors, not by the end-rhyme comparator. Comma-separated for several: 'A:pararhyme,B:skothending'. An unknown name refuses, and the refusal lists the catalog's rows and aliases. TWO CONSEQUENCES a caller must expect: the two-tier ban is NOT ASKED of a pair judged under a non-default structure (the ban's tables are end-rhyme instruments) — the verdict lists those pairs in ban_not_asked, and banned_pairs is null when no pair was asked; and a row with no laziness calibration for the draft's language is named in structures_uncalibrated — correctness is judged, laziness is not. Beside a song-wide `relation` the two are a CONJUNCTION: a structured group's pairs must satisfy both, so neither coordinate wins in silence — a pair its structure accepts is still charged when the relation fails it."
       ),
     voices: voicesField,
     fallback: fallbackField,
@@ -3721,10 +3721,11 @@ export function registerLyricTools(server, tool) {
         if (hasGroups) args.push(`--groups=${a.groups}`);
         if (a.returns) args.push(`--returns=${a.returns}`);
         if (a.relation) args.push(`--relation=${a.relation}`);
-        // The relation/structures collision is REFUSED BY THE HARNESS
-        // (`MISSING.md` M-102), not re-decided here: a second copy of that
-        // rule in JS is a second place for it to drift, and the harness's
-        // refusal names both coordinates and the spelling that works.
+        // A song-wide relation beside a structure is judged BY THE HARNESS
+        // as a conjunction (`quality/test_verbs.py` §44, repointed from the
+        // M-102 refusal on 2026-09-22): a structured group's pairs must
+        // satisfy both. Not re-decided here: a second copy of that rule in JS
+        // is a second place for it to drift.
         if (a.structures) args.push(`--structures=${a.structures}`);
         // THE BLUEPRINT (M-195): with it `brief` asks meter, song-function,
         // hook and title of a pasted song, exactly as `song` asks them of a
