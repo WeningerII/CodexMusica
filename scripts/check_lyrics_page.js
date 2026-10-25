@@ -3886,6 +3886,9 @@ async function browserChecks(chromium) {
           text: $ui('lyrics-draft').value,
           selection: [$ui('lyrics-draft').selectionStart, $ui('lyrics-draft').selectionEnd],
           focused: document.activeElement === $ui('lyrics-draft'),
+          // R17 #72: the stepper keeps focus (its replacement, or the
+          // position button at either end) instead of moving it into the song.
+          onPager: $ui('ly-section-nav').contains(document.activeElement),
         }));
       console.log('J1 initial ' + JSON.stringify(await snapshot()));
       await page.locator('#ly-section-nav [data-id="1"]').click();
@@ -3907,8 +3910,8 @@ async function browserChecks(chromium) {
       );
       const chorusEnd = draft.indexOf('Chorus lyric 1') + 'Chorus lyric 1'.length;
       check(
-        after.focused && after.selection[0] === chorusEnd && after.selection[1] === chorusEnd,
-        'Next must retain document focus and caret at destination'
+        after.onPager && after.selection[0] === chorusEnd && after.selection[1] === chorusEnd,
+        'Next must keep focus on the pager and put the caret at its destination'
       );
       await page.evaluate(() => lyRefresh(true));
       const refreshed = await snapshot();
@@ -3930,14 +3933,15 @@ async function browserChecks(chromium) {
         'Previous pager must describe Verse 1 of 2 and endpoints'
       );
       check(
-        back.focused && back.selection[0] === 23 && back.selection[1] === 23 && back.text === draft,
-        'Previous must retain document focus, caret and unchanged draft'
+        back.onPager && back.selection[0] === 23 && back.selection[1] === 23 && back.text === draft,
+        'Previous must keep focus on the pager, put the caret back and leave the draft unchanged'
       );
       await page.evaluate(() => lyRefresh(true));
       const caretOnly = await page.evaluate(() => {
+        const d = $ui('lyrics-draft');
+        d.focus({ preventScroll: true });
         const nav = $ui('ly-section-nav'),
           position = nav.querySelector('.ly-sec-pos');
-        const d = $ui('lyrics-draft');
         const offset = d.value.indexOf('Chorus lyric 2');
         d.setSelectionRange(offset, offset);
         lySyncCaret();
@@ -5326,6 +5330,146 @@ async function browserChecks(chromium) {
     // "Get dictionary options". A 503 (persistence down) still holds the ticket.
     // New conversation also drops the copy kept when switching writers, and the
     // panel redraws at once.
+    // R17 #72: the phone's section stepper keeps focus, moves the caret
+    // without focusing the draft and says where the song now is, so a second
+    // Enter steps again instead of typing a blank line into the song.
+    await step('R17a. section stepper keeps focus', async () => {
+      const { ctx, page } = await boot({ theme: 'light', phone: true });
+      await setDraft(page, DRAFT);
+      await page.evaluate(() => LY_ACTIONS['ly-mobile']('song'));
+      const before = await page.evaluate(() => $ui('lyrics-draft').value);
+      await page.focus('#ly-section-nav [data-ui="ly-sec-step"][data-id="1"]');
+      const said = [];
+      for (let i = 0; i < 2; i++) {
+        await page.keyboard.press('Enter');
+        await page.waitForTimeout(150);
+        said.push(
+          await page.evaluate(() => ({
+            focus: document.activeElement?.dataset?.ui || document.activeElement?.tagName,
+            live: $ui('ly-live')?.textContent || '',
+            pos: document.querySelector('.ly-sec-pos > span')?.textContent || '',
+          }))
+        );
+      }
+      const after = await page.evaluate(() => $ui('lyrics-draft').value);
+      check(after === before, 'a second Enter on Next section typed into the song');
+      check(
+        said.every((s) => s.focus === 'ly-sec-step'),
+        `Next section did not keep focus: ${JSON.stringify(said)}`
+      );
+      check(
+        /^.+, 2 of \d+$/.test(said[0].live) && /^.+, 3 of \d+$/.test(said[1].live),
+        `the section step was not announced: ${JSON.stringify(said)}`
+      );
+      await ctx.close();
+    });
+
+    // R17 #73: the phone's Sections sheet is a modal dialog: Tab stays in
+    // it, and Escape or Collapse returns focus to the visible opener.
+    await step('R17b. Sections sheet is modal and returns focus', async () => {
+      const { ctx, page } = await boot({ theme: 'light', phone: true });
+      await setDraft(page, DRAFT);
+      await page.evaluate(() => LY_ACTIONS['ly-mobile']('song'));
+      const state = () =>
+        page.evaluate(() => {
+          const panel = $ui('ly-outline-panel');
+          const a = document.activeElement;
+          return {
+            role: panel.getAttribute('role'),
+            modal: panel.getAttribute('aria-modal'),
+            mainInert: $ui('ly-main').inert,
+            inPanel: panel.contains(a),
+            focus: a === document.body ? 'BODY' : a?.className || a?.tagName,
+            visible: !!a?.getClientRects().length,
+          };
+        });
+      for (const close of ['Escape', 'Collapse']) {
+        await page.focus('#ly-section-nav .ly-sec-pos');
+        await page.keyboard.press('Enter');
+        await page.waitForTimeout(100);
+        const open = await state();
+        check(
+          open.role === 'dialog' && open.modal === 'true' && open.mainInert && open.inPanel,
+          `the open Sections sheet is not a modal dialog: ${JSON.stringify(open)}`
+        );
+        const walked = [];
+        for (let i = 0; i < 12; i++) {
+          await page.keyboard.press('Tab');
+          walked.push((await state()).inPanel || (await state()).focus);
+        }
+        check(
+          walked.every((w) => w === true),
+          `Tab left the Sections sheet: ${JSON.stringify(walked)}`
+        );
+        if (close === 'Escape') await page.keyboard.press('Escape');
+        else {
+          await page.focus('#ly-outline-panel .ly-outline-close');
+          await page.keyboard.press('Enter');
+        }
+        await page.waitForTimeout(100);
+        const shut = await state();
+        check(
+          /ly-sec-pos/.test(shut.focus) && shut.visible && !shut.mainInert && !shut.modal,
+          `${close} on the Sections sheet: ${JSON.stringify(shut)}`
+        );
+      }
+      await ctx.close();
+    });
+
+    // R17 #74: typing in Find lands on the first match, marked as the
+    // current one; Enter goes to the second and Shift+Enter comes back.
+    await step('R17c. Find starts on the first match', async () => {
+      const { ctx, page } = await boot({ theme: 'light' });
+      await setDraft(page, DRAFT);
+      await page.click('[data-ui="ly-find-open"]');
+      await page.keyboard.type('rain');
+      await page.waitForTimeout(100);
+      const where = () =>
+        page.evaluate(() => {
+          const d = $ui('lyrics-draft');
+          const line = d.value.slice(0, d.selectionStart).split('\n').length - 1;
+          return {
+            count: $ui('ly-find-count').textContent,
+            selected: d.value.slice(d.selectionStart, d.selectionEnd),
+            line: LY.model.rows[line]?.n || 0,
+            current: [
+              ...new Set(
+                [...document.querySelectorAll('#ly-overlay .ly-hit-current')].map(
+                  (e) => e.closest('.ly-r')?.dataset.n
+                )
+              ),
+            ],
+            focus: document.activeElement?.id,
+          };
+        });
+      const typed = await where();
+      check(
+        typed.count === '1 of 2 lines' &&
+          typed.selected === 'rain' &&
+          typed.line === 2 &&
+          JSON.stringify(typed.current) === '["2"]' &&
+          typed.focus === 'ly-find-input',
+        `typing in Find did not land on match 1: ${JSON.stringify(typed)}`
+      );
+      await page.keyboard.press('Enter');
+      const next = await where();
+      check(
+        next.count === '2 of 2 lines' &&
+          next.line === 9 &&
+          JSON.stringify(next.current) === '["9"]',
+        `the first Enter in Find did not go to match 2: ${JSON.stringify(next)}`
+      );
+      await page.keyboard.press('Shift+Enter');
+      const back = await where();
+      check(
+        back.count === '1 of 2 lines' &&
+          back.line === 2 &&
+          JSON.stringify(back.current) === '["2"]',
+        `Shift+Enter in Find did not come back to match 1: ${JSON.stringify(back)}`
+      );
+      await ctx.close();
+    });
+
     await step('10. expired saved request and New conversation', async () => {
       const KEY = 'codex-musica-chat-v2:https://mcp.codexmusica.com';
       const stuck = async ({ status, backup = false }) => {

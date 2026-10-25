@@ -996,6 +996,22 @@
   background: color-mix(in srgb, var(--cm-warning) 45%, transparent);
   border-radius: 3px;
 }
+#surface-lyrics .ly-hit-current {
+  background: color-mix(in srgb, var(--cm-warning) 85%, transparent);
+  outline: 2px solid var(--cm-warning);
+}
+@media (forced-colors: active) {
+  #surface-lyrics .ly-hit {
+    forced-color-adjust: none;
+    background: Mark;
+    color: MarkText;
+  }
+  #surface-lyrics .ly-hit-current {
+    background: Highlight;
+    color: HighlightText;
+    outline-color: Highlight;
+  }
+}
 #surface-lyrics .ly-reading {
   background: color-mix(in srgb, var(--cm-accent) 22%, transparent);
   border-radius: 3px;

@@ -4179,6 +4179,7 @@ function lyMountMarkup() {
 <nav class="ly-mnav" id="ly-mnav" aria-label="Lyrics views"><div role="tablist" aria-label="Lyrics views">${mobileTabs}</div></nav>
 <div class="ly-sheet-scrim" id="ly-scrim" hidden data-ui="ly-outline-toggle"></div>
 <input type="file" id="ly-file" accept=".txt,.md,.json,text/plain,application/json" hidden>
+<div id="ly-live" class="ly-sr" role="status" aria-live="polite"></div>
 </div>`;
 }
 
@@ -4272,6 +4273,7 @@ function lyRenderOutline() {
       b.setAttribute('aria-expanded', String(page.dataset.outline === 'open' || LY.railOpen))
     );
   $ui('ly-scrim').hidden = !(LY.railOpen && (LY.size === 'narrow' || railed));
+  lySheetModal(page.dataset.outline === 'sheet');
   // Song view on a phone: previous/next section and where the reader is.
   const nav = $ui('ly-section-nav');
   if (LY.size === 'narrow' && model.sections.length) {
@@ -4492,7 +4494,8 @@ function lyRowHtml(row, model, ctx) {
         if (p.gap !== undefined) return rangeText(p.gap);
         const cls = [];
         if (p.aside) cls.push('ly-aside');
-        if (ctx.find && p.word.toLowerCase().includes(ctx.find)) cls.push('ly-hit');
+        if (ctx.find && p.word.toLowerCase().includes(ctx.find))
+          cls.push('ly-hit', ...(row.n === ctx.findLine ? ['ly-hit-current'] : []));
         const groups = (p.token && ctx.ends.get(`${row.n}:${p.token}`)) || [];
         const g = groups[0];
         if (g) cls.push('ly-end');
@@ -4587,6 +4590,7 @@ function lyRenderEditor() {
     letters,
     focus: new Set(LY.focusLines || []),
     find: LY.find.open && LY.find.q ? LY.find.q.toLowerCase() : '',
+    findLine: LY.find.open && LY.find.q ? lyFindMatches()[LY.find.at] || 0 : 0,
     reading: readingTarget ? `${readingTarget[0]}|${readingTarget[1]}` : '',
   };
   overlay.innerHTML =
@@ -4643,6 +4647,46 @@ function lySyncCaret() {
     lyRenderOutlineActive();
   }
 }
+// The phone's Sections sheet is a modal dialog while open: the page behind
+// the scrim is inert and Tab wraps inside the sheet; all of it comes back on
+// close.
+let lySheetInert = [];
+function lySheetTab(e) {
+  if (e.key !== 'Tab') return;
+  const list = [
+    ...this.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    ),
+  ].filter((el) => !el.disabled && el.getClientRects().length);
+  if (list.length && document.activeElement === (e.shiftKey ? list[0] : list.at(-1))) {
+    e.preventDefault();
+    (e.shiftKey ? list.at(-1) : list[0]).focus();
+  }
+}
+function lySheetModal(on) {
+  const panel = $ui('ly-outline-panel');
+  if (!panel || on === panel.hasAttribute('aria-modal')) return;
+  lySheetInert.forEach((el) => (el.inert = false));
+  lySheetInert = [];
+  panel[on ? 'addEventListener' : 'removeEventListener']('keydown', lySheetTab);
+  if (!on)
+    return ['role', 'aria-modal', 'aria-labelledby'].forEach((a) => panel.removeAttribute(a));
+  panel.setAttribute('role', 'dialog');
+  panel.setAttribute('aria-modal', 'true');
+  panel.setAttribute('aria-labelledby', 'ly-outline-h');
+  for (let el = panel; el.parentElement && el.id !== 'ly-page'; el = el.parentElement)
+    for (const sib of el.parentElement.children)
+      if (sib !== el && !sib.inert && !['ly-scrim', 'ly-live'].includes(sib.id)) {
+        sib.inert = true;
+        lySheetInert.push(sib);
+      }
+}
+// The Sections opener a person can see: the rail button, or on a phone the
+// position button in the song view.
+const lySectionsOpener = () =>
+  [...document.querySelectorAll('.ly-rail-btn, .ly-sec-pos')].find(
+    (b) => b.getClientRects().length
+  );
 function lyRenderOutlineActive() {
   const model = LY.model;
   const active = lySectionOfLine(model, LY.activeLine) || lySectionAtRow(model, LY.caretRow);
@@ -5707,7 +5751,15 @@ function lyShowTab(tab, { focus = false } = {}) {
   lyRefresh(true);
   if (focus) uiFocus($ui(`ly-tab-${tab}`));
 }
-function lyScrollToLine(n, { select = true } = {}) {
+function lyAnnounce(text) {
+  const live = $ui('ly-live');
+  if (!live) return;
+  live.textContent = '';
+  if (text) setTimeout(() => (live.textContent = text), 50);
+}
+// focus: false moves the caret and the view but leaves focus where it is
+// (the section stepper keeps it, so a second Enter is not typed into the song).
+function lyScrollToLine(n, { select = true, focus = true } = {}) {
   const model = LY.model;
   const row = model.sung[n - 1];
   if (!row) return;
@@ -5718,11 +5770,34 @@ function lyScrollToLine(n, { select = true } = {}) {
   if (select) {
     const rows = draft.value.split('\n');
     const start = rows.slice(0, row.i).reduce((t, r) => t + r.length + 1, 0);
-    draft.focus({ preventScroll: true });
-    draft.setSelectionRange(start + rows[row.i].length, start + rows[row.i].length);
+    const caret = start + rows[row.i].length;
+    if (focus) draft.focus({ preventScroll: true });
+    draft.setSelectionRange(caret, caret);
     lySyncCaret();
+    // A click that took focus off the draft lets the browser put its old
+    // selection back after the click returns: place the caret again then.
+    if (!focus)
+      requestAnimationFrame(() => {
+        if (document.activeElement === draft || draft.selectionStart === caret) return;
+        if (draft.value.length < caret) return;
+        draft.setSelectionRange(caret, caret);
+        lySyncCaret();
+      });
   }
   $ui('ly-overlay')?.querySelector(`.ly-r[data-n="${n}"]`)?.scrollIntoView?.({ block: 'center' });
+}
+function lyGotoSection(id, { focus = true } = {}) {
+  const s = LY.model.sections[Number(id)];
+  if (!s) return;
+  LY.railOpen = false;
+  if (s.sung.length) lyScrollToLine(s.sung[0].n, { focus });
+  else {
+    LY.mobile = 'song';
+    lyRefresh(true);
+    $ui('ly-overlay')
+      ?.querySelector(`.ly-r[data-i="${s.headerRow?.i ?? 0}"]`)
+      ?.scrollIntoView?.({ block: 'start' });
+  }
 }
 
 // ── The writer's replies ──────────────────────────────────────────────────
@@ -6458,20 +6533,10 @@ const LY_ACTIONS = {
         document.querySelector('#ly-sections .ly-sec') ||
           document.querySelector('.ly-outline-close')
       );
-    else uiFocus(document.querySelector('.ly-rail-btn'));
+    else uiFocus(lySectionsOpener());
   },
   'ly-goto'(id) {
-    const s = LY.model.sections[Number(id)];
-    if (!s) return;
-    LY.railOpen = false;
-    if (s.sung.length) lyScrollToLine(s.sung[0].n);
-    else {
-      LY.mobile = 'song';
-      lyRefresh(true);
-      $ui('ly-overlay')
-        ?.querySelector(`.ly-r[data-i="${s.headerRow?.i ?? 0}"]`)
-        ?.scrollIntoView?.({ block: 'start' });
-    }
+    lyGotoSection(id);
   },
   'ly-sec-step'(id) {
     const model = LY.model;
@@ -6480,7 +6545,15 @@ const LY_ACTIONS = {
       lySectionAtRow(model, LY.caretRow) ||
       model.sections[0];
     const k = Math.max(0, Math.min(model.sections.length - 1, (cur?.index ?? 0) + Number(id)));
-    LY_ACTIONS['ly-goto'](k);
+    lyGotoSection(k, { focus: false });
+    // The stepper was re-rendered: focus its replacement (or, at the first or
+    // last section, the position button) and say where the song now is.
+    const nav = $ui('ly-section-nav');
+    uiFocus(
+      nav?.querySelector(`[data-ui="ly-sec-step"][data-id="${id}"]:not(:disabled)`) ||
+        nav?.querySelector('.ly-sec-pos')
+    );
+    lyAnnounce(`${model.sections[k].title}, ${k + 1} of ${model.sections.length}`);
   },
   'ly-add-section'(name) {
     lyCloseMenus();
@@ -7214,6 +7287,8 @@ function lyWire(surface) {
   });
   $ui('ly-find-input').addEventListener('input', (e) => {
     LY.find = { q: e.target.value, at: 0, open: true };
+    // Typing lands on the first match, so the first Enter goes to the second.
+    if (lyFindMatches().length) return lyFindStep(0);
     lyFindUpdate();
     lyRenderEditor();
   });
@@ -7656,9 +7731,7 @@ uiRegisterPage({
     if (LY.railOpen) {
       LY.railOpen = false;
       lyRefresh(true);
-      return uiFocus(
-        document.querySelector('.ly-rail-btn') || document.querySelector('.ly-sec-pos')
-      );
+      return uiFocus(lySectionsOpener());
     }
     if (LY.gate) return LY_ACTIONS['ly-gate-close']();
     if (LY.tool && LY.size !== 'narrow') {
