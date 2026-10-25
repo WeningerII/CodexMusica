@@ -1430,7 +1430,9 @@ await check('validation: actionable errors', () => {
           );
         const src = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
         assert.ok(
-          /const runWander = runRefusal\(runRec, a\);/.test(src),
+          // The run ledger's mark joins the call (#519 C1): still the first
+          // thing judged, before anything is carried.
+          /const runWander = runRefusal\(runRec, a, ledgerMark\);/.test(src),
           "the tool's refusals run before anything is carried"
         );
         assert.ok(
@@ -1439,7 +1441,9 @@ await check('validation: actionable errors', () => {
         );
         assert.ok(
           /status: r\.code === 2 \? 'uncertified' : 'parked',/.test(src) &&
-            /RUNS\.del\(runRec\.run_id\);/.test(src),
+            // ~~RUNS.del(runRec.run_id)~~: exit 0 forgets the record and the
+            // run ledger remembers that it finished (#519 C1).
+            /RUNS\.finish\(runRec \|\| ledgerMark \? runId : null, inputWires/.test(src),
           'exit 2 stays uncertified, exit 3 parks the record, and exit 0 forgets it'
         );
         assert.ok(
@@ -5124,6 +5128,8 @@ await check('validation: actionable errors', () => {
       'mcp/test_continuation_audit.mjs':
         'real local worker continuation regression suite, executed by CI',
       'mcp/test_spend_store.mjs': 'shared corrupt-spend assertion and isolated fault runner',
+      'mcp/test_run_ledger.mjs':
+        'offline run ledger regressions (stale and moved-past continuations)',
       'mcp/test_paid_budget.mjs': 'offline shared spending admission regressions',
       'mcp/test_python_bridge.mjs': 'offline worker lifecycle regressions',
       'mcp/test_reader_job_store.mjs': 'offline durable Library reader job regressions',
