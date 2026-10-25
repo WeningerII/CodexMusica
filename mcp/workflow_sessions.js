@@ -35,8 +35,16 @@ export const SESSION_STORE_LIMITS = Object.freeze({
 
 const capability = () => randomBytes(32).toString('hex');
 const clone = (value) => structuredClone(value);
-const fail = (code, message) =>
-  Object.assign(new Error(`${code}: ${message}`), { code, beforeDispatch: true });
+// `receipt` carries any id the caller needs to go on (the operation a stale
+// session advanced to): ids are private capabilities and stay out of the
+// refusal's text, which a host may show (workflow_tools.js renders it as a
+// JSON block after the text; it is not a session receipt).
+const fail = (code, message, receipt) =>
+  Object.assign(new Error(`${code}: ${message}`), {
+    code,
+    beforeDispatch: true,
+    ...(receipt ? { receipt } : {}),
+  });
 // A store that cannot admit a call refuses it as a session refusal that names
 // the same call to retry, keeping the store's `code` and `status` so
 // storeRefused() and a recipe's NOT SAVED path still recognise it. Nothing was
@@ -536,7 +544,8 @@ export class WorkflowSessions {
         if (requestDigest(successor.intent.action) !== requestDigest(action))
           throw fail(
             'STALE_SESSION',
-            `This session's saved state was retired after it advanced to operation ${successor.request_id}. Read it with get_operation and continue from the session_id it returns.`
+            "This session's saved state was retired after it advanced to the operation named by the operation_id after this text. Read it with get_operation and continue from the session_id it returns.",
+            { operation_id: successor.request_id }
           );
         return this.status(successor.request_id, domain);
       }
@@ -547,7 +556,8 @@ export class WorkflowSessions {
         if (requestDigest(existing.intent.action) !== requestDigest(action))
           throw fail(
             'STALE_SESSION',
-            `This session already advanced to operation ${parent.successor_id}. Read it with get_operation and continue from the session_id it returns.`
+            'This session already advanced to the operation named by the operation_id after this text. Read it with get_operation and continue from the session_id it returns.',
+            { operation_id: parent.successor_id }
           );
         return this.status(existing.request_id, domain);
       }
@@ -782,7 +792,8 @@ export class WorkflowSessions {
       if (successor.intent.action?.resumed !== true)
         throw fail(
           'STALE_SESSION',
-          `This operation's saved state was retired after it advanced to operation ${successor.request_id}, which is not its resume. Read that operation with get_operation and continue from the session_id it returns.`
+          "This operation's saved state was retired after it advanced to another operation (named by the operation_id after this text), which is not its resume. Read that operation with get_operation and continue from the session_id it returns.",
+          { operation_id: successor.request_id }
         );
       return this.status(successor.request_id, domain);
     }
@@ -857,7 +868,7 @@ export class WorkflowSessions {
         interruption: found.interruption ?? 'receipt_payload_retired',
         ...(found.successor_id ? { successor_id: found.successor_id } : {}),
         note: found.successor_id
-          ? `This id's saved state was retired: its retention ended, or newer work needed the space. It had already advanced to operation ${found.successor_id}: read that with get_operation and continue from the session_id it returns.`
+          ? `This id's saved state was retired: its retention ended, or newer work needed the space. It had already advanced to the operation in successor_id: read that with get_operation and continue from the session_id it returns.`
           : `This id's saved state was retired: its retention ended, or newer work needed the space. ${restartStep(domain)}`,
         resumable: false,
         durable: this.store.durable,

@@ -892,6 +892,30 @@ test('an undeclared argument is refused by name on every server, a retired one i
     });
     assert.equal(sharedSweep.isError, true);
     assert.match(sharedSweep.content[0].text, /Unknown argument\(s\) for lyric_sweep: line/);
+    // `want` and `wants` are each one tool's spelling: the refusal names this one's.
+    const sid = begun.structuredContent.session_id;
+    const planWant = await client.callTool({
+      name: 'lyric_plan',
+      arguments: { session_id: sid, seed: 31, want: ['x'] },
+    });
+    assert.match(planWant.content[0].text, /Did you mean wants \(for want\)/);
+    // A stale session's refusal names get_operation and carries the operation
+    // it advanced to in a JSON block after its text, never in the text.
+    const swept = await client.callTool({
+      name: 'lyric_sweep',
+      arguments: { session_id: sid, seed_from: 31, count: 1, lines: 12 },
+    });
+    const stale = await client.callTool({
+      name: 'lyric_screen',
+      arguments: { session_id: sid, words: ['stove', 'coat'] },
+    });
+    assert.equal(stale.isError, true);
+    assert.match(stale.content[0].text, /^STALE_SESSION: .*get_operation/);
+    assert.doesNotMatch(stale.content[0].text, /[a-f0-9]{64}/);
+    assert.deepEqual(JSON.parse(stale.content[1].text), {
+      operation_id: swept.structuredContent.operation_id,
+      tool_error: true,
+    });
     const recipe = await client.callTool({
       name: 'start_recipe',
       arguments: { tradition: 'bluegrass' },
