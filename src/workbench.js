@@ -1795,28 +1795,51 @@ function uiRowsAppend(t, upTo) {
     );
 }
 // A row near the screen and near its end takes its next cards; its arrows
-// say whether it can move.
-function uiRowsFill(t) {
+// say whether it can move. Measuring returns the writes, so a batch of rows
+// reads its geometry once before any row changes it.
+function uiRowsMeasure(t) {
   const row = UI_ROWS.get(t.dataset.rows);
   if (!row || !t.isConnected) return;
   const r = t.getBoundingClientRect();
   if (!r.height || r.top > Math.max(2 * innerHeight, 1800) || r.bottom < -innerHeight) return;
-  if (t.scrollLeft + 2 * t.clientWidth >= t.scrollWidth)
-    uiRowsAppend(t, t.childElementCount + UI_ROWS_CHUNK);
-  const [back, on] = t.parentElement.querySelectorAll('[data-ui="rows-scroll"]');
-  if (back) back.disabled = t.scrollLeft <= 1;
-  if (on)
-    on.disabled =
-      t.scrollLeft + t.clientWidth >= t.scrollWidth - 1 && t.childElementCount >= row.items.length;
+  const left = t.scrollLeft,
+    w = t.clientWidth,
+    sw = t.scrollWidth,
+    more = left + 2 * w >= sw && t.childElementCount < row.items.length;
+  return () => {
+    if (more) uiRowsAppend(t, t.childElementCount + UI_ROWS_CHUNK);
+    const [back, on] = t.parentElement.querySelectorAll('[data-ui="rows-scroll"]');
+    if (back) back.disabled = left <= 1;
+    const all = t.childElementCount >= row.items.length;
+    // The last cards just went in: whether they reach the edge is measured
+    // next frame, not by laying the row out again now.
+    if (all && more) requestAnimationFrame(() => uiRowsFill(t));
+    else if (on) on.disabled = all && left + w >= sw - 1;
+  };
 }
+const uiRowsFill = (...rows) => rows.map(uiRowsMeasure).forEach((write) => write?.());
+// Rows fill once the frame has laid them out (and again when a hidden row is
+// shown), instead of laying the page out mid-render to measure them. A row a
+// repaint removed is let go. Made on first use, so the observers pages make as
+// they mount read the laid-out frame before these rows take more cards.
+let uiRowsSized;
 function uiRowsRestore(host, keep) {
+  uiRowsSized ??=
+    typeof ResizeObserver === 'function' &&
+    new ResizeObserver((entries) => {
+      const rows = entries.map((e) => e.target);
+      rows.filter((t) => !t.isConnected).forEach((t) => uiRowsSized.unobserve(t));
+      uiRowsFill(...rows);
+    });
   for (const t of host.querySelectorAll('.cm-rows-track')) {
     const was = keep?.rows.get(t.dataset.rows);
     if (was?.shown && was.sig === UI_ROWS.get(t.dataset.rows)?.sig) {
       uiRowsAppend(t, was.shown);
       t.scrollLeft = was.left;
     }
-    uiRowsFill(t);
+    // A card that held focus has to exist before focus can return to it.
+    if (uiRowsSized && !keep?.focus) uiRowsSized.observe(t);
+    else uiRowsFill(t);
   }
   document.querySelectorAll('.cm-rows-jump').forEach(uiRowsEdges);
   // A card menu whose card was just repainted has nothing left to act on.
@@ -2000,7 +2023,7 @@ function uiRowsControls() {
     frame = 0;
     // The rows scrolled, and any row still empty that came near the screen.
     document.querySelectorAll('.cm-rows-track:empty').forEach((t) => touched.add(t));
-    touched.forEach(uiRowsFill);
+    uiRowsFill(...touched);
     touched.clear();
     document.querySelectorAll('.cm-rows-jump').forEach(uiRowsEdges);
     if (!uiRowsJumping) uiRowsSpy();
@@ -2207,7 +2230,7 @@ function uiLayoutControls() {
     title: 'Resize recipe sidebar',
     limits: () => [220, Math.min(520, innerWidth * 0.35)],
     enabled: () =>
-      innerWidth >= 900 && uiRecipeMode() === 'sidebar' && !uiRecipeCollapsed.sidebar?.get(),
+      UILayout.wide() && uiRecipeMode() === 'sidebar' && !uiRecipeCollapsed.sidebar?.get(),
   });
   // The right-hand column resizes from its left edge; its width is its own
   // remembered preference, independent of the left-hand column's.
@@ -2220,7 +2243,7 @@ function uiLayoutControls() {
     side: 'left',
     limits: () => [280, Math.min(560, innerWidth * 0.4)],
     enabled: () =>
-      innerWidth >= 900 &&
+      UILayout.wide() &&
       uiRecipeMode() === 'sidebar-right' &&
       !uiRecipeCollapsed['sidebar-right']?.get(),
   });
@@ -2232,7 +2255,7 @@ function uiLayoutControls() {
     title: 'Resize instrument editor',
     side: 'left',
     limits: () => [320, Math.min(700, innerWidth * 0.45)],
-    enabled: () => innerWidth >= 900 && document.body.classList.contains('editor-open'),
+    enabled: () => UILayout.wide() && document.body.classList.contains('editor-open'),
   });
   // The docked presentation (the Map) resizes from its top edge.
   UILayout.splitter({
@@ -2243,7 +2266,7 @@ function uiLayoutControls() {
     title: 'Resize Your recipe',
     side: 'top',
     limits: () => [220, Math.max(220, Math.round(workspace.clientHeight * 0.7))],
-    enabled: () => innerWidth >= 900 && uiRecipeMode() === 'dock' && !uiRecipeCollapsed.dock?.get(),
+    enabled: () => UILayout.wide() && uiRecipeMode() === 'dock' && !uiRecipeCollapsed.dock?.get(),
   });
   for (const [route] of UI_ROUTES) UI_PAGES[route]?.layout?.();
   UILayout.floating($ui('assistant-slot'), {

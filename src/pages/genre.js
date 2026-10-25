@@ -1226,12 +1226,13 @@ const GP_PLACEHOLDERS = [
   'Search genres…',
 ];
 let gpMeasure = null;
-function gpFitPlaceholder() {
+// `width` is the field's content box as its ResizeObserver entry already
+// measured it, so fitting never lays the page out again.
+function gpFitPlaceholder(width) {
   const input = $ui('genre-search');
-  if (!input) return;
+  const room = width - 4;
+  if (!input || !(room > 0)) return; // not laid out (another route)
   const cs = getComputedStyle(input);
-  const room = input.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight) - 4;
-  if (!(room > 0)) return; // not laid out (another route)
   if (!gpMeasure) gpMeasure = document.createElement('canvas').getContext('2d');
   if (!gpMeasure) return;
   gpMeasure.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
@@ -1257,7 +1258,9 @@ uiRegisterPage({
     });
     uiSearchToResults($ui('genre-search'), () => $ui('genre-list'), '.cm-tile-name, .gp-open');
     if (typeof ResizeObserver === 'function')
-      new ResizeObserver(() => gpFitPlaceholder()).observe($ui('genre-search'));
+      new ResizeObserver(([e]) => gpFitPlaceholder(e.contentRect.width)).observe(
+        $ui('genre-search')
+      );
     // The rest of a row (a glyph picture, its margins, the chevron) opens it
     // too; the name button is the keyboard route. A photo is its own button.
     surface.addEventListener('click', (e) => {

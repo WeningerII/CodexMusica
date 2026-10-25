@@ -14954,10 +14954,10 @@ function esc(s) { return s == null ? '' : String(s).replace(/&/g, '&amp;').repla
 //
 // Matches the CSS on WIDTH ALONE, deliberately: gating on `pointer: coarse`
 // would let a narrow desktop window take the phone layout while the JS still
-// mounted the detail in the desktop pane.
-const MOBILE_MAX_WIDTH = 899;
+// mounted the detail in the desktop pane. The same (max-width: 899px) query
+// the CSS uses, so the JS and the cascade never disagree at a fractional width.
 function isMobileLayout() {
-  return window.innerWidth <= MOBILE_MAX_WIDTH;
+  return !UILayout.wide();
 }
 
 function renderAll() {

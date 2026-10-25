@@ -582,8 +582,10 @@ function bootDom(html, fetchShim, { url = 'about:blank', width, storage, onWindo
           return { keys: [] };
         },
       };
-      w.matchMedia = () => ({
-        matches: false,
+      // A width query answers for the scenario's width (jsdom's own is 1024),
+      // as the shell asks one for its phone layout; every other query is false.
+      w.matchMedia = (q) => ({
+        matches: /max-width:\s*(\d+)px/.test(q) && (width || 1024) <= +RegExp.$1,
         addEventListener() {},
         removeEventListener() {},
         addListener() {},
