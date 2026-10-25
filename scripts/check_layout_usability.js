@@ -453,7 +453,7 @@ async function editorKeyboard(page, where) {
         /Removed Voice\. Undo restores it\./,
         'Removing an instrument from the recipe is announced'
       );
-      // An action toast is a hundred Tabs away: Alt+Shift+T reaches its action,
+      // An action toast is a hundred Tabs away: F8 reaches its action,
       // it does not time out while it holds focus, and when it goes (replaced
       // or timed out) focus returns to where it was, unless the action put
       // focus somewhere on purpose.
@@ -466,16 +466,16 @@ async function editorKeyboard(page, where) {
         }
         document.getElementById('probe-return').focus();
       });
-      await page.keyboard.press('Alt+Shift+T');
+      await page.keyboard.press('F8');
       const reach = await page.evaluate(() => ({
         focus: document.activeElement?.className,
         label: document.activeElement?.textContent,
-        hint: /Alt\+Shift\+T reaches Undo/.test(document.getElementById('toast').textContent),
+        hint: /F8 reaches Undo/.test(document.getElementById('toast').textContent),
       }));
       assert.deepEqual(
         reach,
         { focus: 'toast-action', label: 'Undo', hint: true },
-        'Toast: Alt+Shift+T reaches the action, and the toast says so'
+        'Toast: F8 reaches the action, and the toast says so'
       );
       await page.waitForTimeout(7500);
       assert.deepEqual(
@@ -496,7 +496,7 @@ async function editorKeyboard(page, where) {
         showToast('Probe timed', 'success', { label: 'Act', run() {} });
         document.getElementById('probe-return').focus();
       });
-      await page.keyboard.press('Alt+Shift+T');
+      await page.keyboard.press('F8');
       await page.evaluate(() => document.getElementById('probe-return').focus());
       await page
         .waitForFunction(() => !document.getElementById('toast').classList.contains('show'), null, {
@@ -520,7 +520,7 @@ async function editorKeyboard(page, where) {
         });
         document.getElementById('probe-return').focus();
       });
-      await page.keyboard.press('Alt+Shift+T');
+      await page.keyboard.press('F8');
       await page.keyboard.press('Enter');
       assert.equal(
         await page.evaluate(() => document.activeElement?.id),
@@ -532,8 +532,8 @@ async function editorKeyboard(page, where) {
         showToast('Probe twice', 'success', { label: 'Act', run() {} });
         document.getElementById('probe-return').focus();
       });
-      await page.keyboard.press('Alt+Shift+T');
-      await page.keyboard.press('Alt+Shift+T');
+      await page.keyboard.press('F8');
+      await page.keyboard.press('F8');
       await page.evaluate(() => showToast('Replaced again', 'success'));
       assert.equal(
         await page.evaluate(() => document.activeElement?.id),
@@ -548,7 +548,7 @@ async function editorKeyboard(page, where) {
         showToast('Probe field', 'success', { label: 'Act', run() {} });
         f.focus();
       });
-      await page.keyboard.press('Alt+Shift+T');
+      await page.keyboard.press('F8');
       assert.equal(
         await page.evaluate(() => document.activeElement?.id),
         'probe-field',

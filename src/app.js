@@ -14728,14 +14728,16 @@ function confirmDialog(opts) {
 let toastT = null;
 let toastSeq = 0; // counts toasts, so a caller can tell whether its own is still up
 // An action toast sits at the end of the page, a hundred Tabs away, so
-// Alt+Shift+T jumps to its action (never while typing in a field); the toast's
+// F8 jumps to its action (never while typing in a field); the toast's
 // hidden text says so. The shortcut is a convenience, not the only way: an
 // error toast with an action (Retry) does not time out, so Tab reaches it, and
 // it carries a Dismiss button. A timed toast's timer waits while the action is
 // hovered or focused, and when a toast that holds focus goes (timeout or
 // replacement), focus goes back to where it was before it entered the toast.
 let toastDeadline = 0, toastLeft = 0, toastHeld = 0, toastTimed = false, toastReturn = null;
-const TOAST_KEY_LABEL = 'Alt+Shift+T';
+// F8: Alt+Shift+T is the browser's own focus-toolbar key on Windows, Linux
+// and ChromeOS, and types a character on macOS.
+const TOAST_KEY_LABEL = 'F8';
 function _toastRestoreFocus(t) {
   const back = toastReturn;
   toastReturn = null;
@@ -14774,9 +14776,9 @@ function _toastWire(t) {
   t.addEventListener('mouseover', (e) => { if (!t.contains(e.relatedTarget)) _toastHold(t, true); });
   t.addEventListener('mouseout', (e) => { if (!t.contains(e.relatedTarget)) _toastHold(t, false); });
   document.addEventListener('keydown', (e) => {
-    if (!(e.altKey && e.shiftKey && e.code === 'KeyT') || e.ctrlKey || e.metaKey) return;
+    if (e.key !== 'F8' || e.altKey || e.shiftKey || e.ctrlKey || e.metaKey) return;
     if (e.defaultPrevented || e.isComposing) return;
-    // Never take a keystroke from text entry (on macOS Option+Shift+T types).
+    // Never take a keystroke from text entry.
     const a = document.activeElement;
     if (a && (a.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName))) return;
     const b = t.classList.contains('show') && t.querySelector('.toast-action');
