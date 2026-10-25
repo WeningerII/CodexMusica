@@ -18,7 +18,7 @@
 //   node scripts/check_library_page.js --built=DIR     # check an existing build
 //   node scripts/check_library_page.js --only=reader,compare --headed
 //   node scripts/check_library_page.js --shots=DIR     # screenshot each section
-/* global document, location, getComputedStyle, libraryChunk, indexedDB, window */ // inside page.evaluate
+/* global document, location, getComputedStyle, libraryChunk, indexedDB, window, MutationObserver */ // inside page.evaluate
 'use strict';
 
 const fs = require('fs');
@@ -1285,6 +1285,30 @@ const SECTIONS = {
         JSON.stringify(kept)
       );
     }
+    // A lens switch that changes no state says only the lens: everything
+    // written to #library-live is "<Lens> lens", and no other polite live
+    // region in the inspector re-reads the analysis intro (Jony, 6396554291).
+    await page.evaluate(() => {
+      window.__said = [];
+      const live = document.getElementById('library-live');
+      new MutationObserver(() => live.textContent && window.__said.push(live.textContent)).observe(
+        live,
+        { childList: true, characterData: true, subtree: true }
+      );
+    });
+    await page.click('#surface-library [data-rd="lens"][data-id="form"]');
+    await page.waitForTimeout(700);
+    const quiet = await page.evaluate(() => ({
+      said: window.__said,
+      others: [...document.querySelectorAll('#surface-library [aria-live]')]
+        .filter((el) => el.id !== 'library-live' && el.getAttribute('aria-live') !== 'off')
+        .map((el) => el.className || el.id),
+    }));
+    check(
+      `${tag} analysis: a lens switch with no state change says only the lens name`,
+      quiet.said.length > 0 && quiet.said.every((t) => t === 'Form lens') && !quiet.others.length,
+      JSON.stringify(quiet)
+    );
   },
 };
 // Saved pronunciation choices across the reader's word cut
@@ -1395,7 +1419,9 @@ SECTIONS.declarations = async function ({ page, base, tag, log }) {
   check(
     `${tag} declarations: no analysis starts while a choice is undecided`,
     !log.some((l) => l.startsWith('POST /analyses')) &&
-      /Nothing was sent/.test(await text('.la-section[aria-live]')),
+      /Nothing was sent/.test(
+        await page.evaluate(() => document.getElementById('library-live')?.textContent || '')
+      ),
     log.slice(-4).join(' | ')
   );
   for (let i = 0; i < 2; i++) {
