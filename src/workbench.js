@@ -245,11 +245,18 @@ function uiNavigate(view, { push = false, sub, pop = false } = {}) {
   UILayout.refresh();
   // Back or Forward to a page (pop): focus that fell with the page it was on
   // lands on this page's way in, the control that left it if it is still
-  // shown, else its nav button (a button: body carries data-view too). Any
-  // other switch leaves focus to its caller, which knows where the person is
-  // going (Open in Lyrics lands in the draft).
+  // shown, else its nav button (a button: body carries data-view too). Focus
+  // left on a nav button by the previous pop is no place either. Any other
+  // switch leaves focus to its caller, which knows where the person is going
+  // (Open in Lyrics lands in the draft).
   const a = document.activeElement;
-  if (pop && (!a || a === document.body || !a.isConnected || !a.getClientRects().length)) {
+  const lost =
+    !a ||
+    a === document.body ||
+    !a.isConnected ||
+    !a.getClientRects().length ||
+    a.matches('button[data-view]');
+  if (pop && lost) {
     const left = UI.leftFrom[view];
     const back =
       left &&

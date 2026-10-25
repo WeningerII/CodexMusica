@@ -359,6 +359,16 @@ async function noOverflow(page) {
         `Forward to Instrument at ${width}px: focus lands on its nav button, not BODY: ` +
           JSON.stringify(f)
       );
+      // Back again, after Forward: the Inspect button again, not the
+      // Instrument nav button Forward left focus on.
+      await page.goBack();
+      await page.waitForFunction(() => document.body.dataset.view === 'genre');
+      await settle(page);
+      assert.deepEqual(
+        await focused(),
+        { tag: 'BUTTON', ui: 'instrument-inspect', id, view: '' },
+        `Back after Forward at ${width}px: focus returns to the Inspect button again`
+      );
       assert.deepEqual(errors, [], 'No browser errors');
       console.log(`PASS page Back/Forward focus at ${width}px`);
       await context.close();
