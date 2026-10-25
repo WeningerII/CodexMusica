@@ -580,6 +580,6 @@ if (flags.json) {
   process.exit(0);
 }
 
-const out = translate(result.config, { ceiling: maxChars });
+const out = translate(result.config, { ceiling: maxChars, requested: opts.swap });
 console.log(out);
 if (!flags['why-json'] && !flags['why-prefaces-json']) console.error(`(${out.length} chars)`);

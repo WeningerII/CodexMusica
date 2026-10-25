@@ -87,6 +87,27 @@ assert('§3f', '--swap-variant with an unknown variant id is rejected with exit 
 });
 
 assert(
+  'AGENTS.md',
+  'the documented --swap-variant reaches the recipe: falsetto\'s "airy" leads the voice sentence',
+  () => {
+    // The pinned part scores low in isolation (it was chosen, not picked), and
+    // the voice sentence used to drop every part under 0.5 as an "uninformed
+    // pick", so the documented swap changed the config and not one word.
+    const base = run([RECIPE, '--tradition', 'afrobeat', '--exclude-instrument=saxophone']).out;
+    const swapped = run([
+      RECIPE,
+      '--tradition',
+      'afrobeat',
+      '--exclude-instrument=saxophone',
+      '--swap-variant=voice:voice_register:falsetto',
+    ]).out;
+    const voice = (out) => out.split('. ')[1] || '';
+    const ok = /^airy\b/.test(voice(swapped)) && !/\bairy\b/.test(voice(base));
+    return { ok, detail: `voice: "${voice(swapped).slice(0, 60)}"` };
+  }
+);
+
+assert(
   '§3f',
   'stapling order sets the lead: `a,b` vs `b,a` differ and each leads with its first id',
   () => {

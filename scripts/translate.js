@@ -1346,7 +1346,15 @@ function buildSentence1(config) {
   return sentence + ', ' + positionStr + '.';
 }
 
-function buildSentence2_voice(config, _trustedTokens) {
+// A part the caller asked for by name (recipe.js --swap-variant, passed as
+// options.requested = { instId: { partId: variantId } }) was chosen on purpose:
+// its low isolation score is not an "uninformed pick", so no score gate drops
+// it. Catalog-pinned slots are not this: they keep the gates, so a tradition's
+// default recipe is unchanged.
+const isRequested = (requested, instId, partId) =>
+  !!(requested && requested[instId] && requested[instId][partId]);
+
+function buildSentence2_voice(config, _trustedTokens, requested) {
   // "blues-shouter, narrative."
   // Take the IDENTIFYING descriptor (the iconic name) from each scoring part.
   // Just voice descriptors, no noun.
@@ -1366,7 +1374,8 @@ function buildSentence2_voice(config, _trustedTokens) {
     // sits at ~0.9 where it used to be ~3.5. The 0.5 threshold preserves the
     // intent (drop uninformed picks) without losing legitimate surfacings.
     const score = (voiceSlot.scores || {})[part.id];
-    if (score !== undefined && score < 0.5) continue;
+    const asked = isRequested(requested, 'voice', part.id);
+    if (!asked && score !== undefined && score < 0.5) continue;
     const variant = part.variants.find((v) => v.id === variantId);
     if (!variant) continue;
     // Take the iconic descriptor only — usually the first non-default, non-score-hint descriptor
@@ -1378,7 +1387,9 @@ function buildSentence2_voice(config, _trustedTokens) {
       if (isDefaultDescriptor(d)) continue;
       const stripped = stripCanonical(d);
       if (isScoreHintOnly(stripped)) continue;
-      descriptors.push(displayDescriptor(stripped));
+      // A requested part leads, so the four-descriptor cap below never cuts it.
+      if (asked) descriptors.unshift(displayDescriptor(stripped));
+      else descriptors.push(displayDescriptor(stripped));
       break; // one per variant — the iconic name
     }
   }
@@ -1534,7 +1545,7 @@ function lastWord(s) {
   return idx === -1 ? trimmed : trimmed.slice(idx + 1);
 }
 
-function buildSentence3_instruments(config, trustedTokens) {
+function buildSentence3_instruments(config, trustedTokens, requested) {
   const phrases = [];
   for (const inst of config.instruments || []) {
     if (inst.id === 'voice') continue; // handled in sentence 2
@@ -1555,7 +1566,8 @@ function buildSentence3_instruments(config, trustedTokens) {
       // vocabulary, not authored for this specific instrument, so they need
       // to score strongly to surface (avoids weak family-variants leaking in).
       const threshold = part._fromFamily ? 3.0 : 1.0;
-      if (score !== undefined && score < threshold) continue;
+      if (!isRequested(requested, inst.id, part.id) && score !== undefined && score < threshold)
+        continue;
       const variant = part.variants.find((v) => v.id === variantId);
       if (!variant) continue;
       // Compute identity-token set for iconic detection: variant id tokens AND
@@ -1926,11 +1938,11 @@ function translate(config, options = {}) {
   const sentences = [];
   const s1 = buildSentence1(config);
   if (s1) sentences.push(s1);
-  const s2 = buildSentence2_voice(config, trustedTokens);
+  const s2 = buildSentence2_voice(config, trustedTokens, options.requested);
   if (s2) sentences.push(s2);
   const s2b = buildSentenceArrangement(config);
   if (s2b) sentences.push(s2b);
-  const s3 = buildSentence3_instruments(config, trustedTokens);
+  const s3 = buildSentence3_instruments(config, trustedTokens, options.requested);
   if (s3) sentences.push(s3);
   const s4 = buildSentence4_room(config);
   if (s4) sentences.push(s4);

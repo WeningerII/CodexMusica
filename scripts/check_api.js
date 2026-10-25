@@ -235,6 +235,22 @@ if (all) {
       .map((id) => [id, C.TRADITION_ALIASES[id].of])
   );
   if (stable(all.aliases) !== stable(wantAliases)) fail('all.json aliases != registry');
+  // The size the agent-facing docs quote for this file ("~N MB") is a promise an
+  // agent plans its fetch around; it went stale at ~1.9 MB while the file grew
+  // past 4. Each quoted figure must be within 25% of the real size.
+  const mb = fs.statSync(path.join(API, 'all.json')).size / 1e6;
+  for (const doc of ['AGENTS.md', 'index.html', 'llms.txt']) {
+    const file = path.join(ROOT, doc);
+    if (!fs.existsSync(file)) continue;
+    const text = fs.readFileSync(file, 'utf8');
+    // A figure counts when all.json is named within the 300 characters before it.
+    for (const m of text.matchAll(/~\s*(\d+(?:\.\d+)?)\s*MB/g)) {
+      if (!text.slice(Math.max(0, m.index - 300), m.index).includes('all.json')) continue;
+      const said = Number(m[1]);
+      if (Math.abs(said - mb) / mb > 0.25)
+        fail(`${doc} says all.json is ~${said} MB; it is ${mb.toFixed(1)} MB`);
+    }
+  }
   for (const item of items) {
     // all.json items carry recipe + recipe_chars but no config (by design).
     for (const p of recordProblems(item, R, { requireConfig: false }))
