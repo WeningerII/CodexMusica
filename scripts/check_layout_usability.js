@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global getComputedStyle, innerWidth, innerHeight, requestAnimationFrame, document, UI, chatState */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -229,6 +229,107 @@ async function noOverflow(page) {
           width +
           'px: tree, labels, editor, panes, menus, lyrics, embedded/standalone map, short viewport'
       );
+      await context.close();
+    }
+    {
+      // Round 5 #38: the AI recipe panel by keyboard, against a stub writer
+      // that answers after 1.5 s (fixture reply, never a provider).
+      const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+      await context.route('https://mcp.codexmusica.com/**', async (route) => {
+        if (/\/chat$/.test(route.request().url()) && route.request().method() === 'POST') {
+          await new Promise((resolve) => setTimeout(resolve, 1500));
+          return route.fulfill({
+            contentType: 'application/json',
+            body: JSON.stringify({
+              reply: 'Here is a dusty Delta blues recipe.',
+              recipe:
+                'classic Delta blues, worn acoustic guitar, bottleneck slide, stomping foot, small wooden room, ribbon microphone, tape saturation.',
+              tools: [
+                { name: 'start_recipe', exit_code: 0 },
+                { name: 'edit_recipe', exit_code: 0 },
+              ],
+              history: [],
+              sig: 'fixture',
+            }),
+          });
+        }
+        return route.fulfill({
+          contentType: 'application/json',
+          body: '{"ok":true,"enabled":true}',
+        });
+      });
+      const page = await context.newPage();
+      const errors = [];
+      page.on('pageerror', (e) => errors.push(e.message));
+      await page.goto(base + '/codex.html');
+      await page.waitForFunction(() => typeof UI !== 'undefined' && UI.ready);
+      const opener = page.locator('[data-ui="ai"]:visible').first();
+      assert.equal(
+        await opener.getAttribute('aria-expanded'),
+        'false',
+        'Chat: the AI entry says the writer is closed'
+      );
+      await opener.focus();
+      await page.keyboard.press('Enter');
+      await page.locator('#chat-input').waitFor();
+      assert.equal(
+        await opener.getAttribute('aria-expanded'),
+        'true',
+        'Chat: the AI entry says the writer is open'
+      );
+      await page.locator('#chat-input').fill('dusty delta blues');
+      await page.locator('#chat-send').focus();
+      await page.keyboard.press('Enter');
+      await page.waitForTimeout(400);
+      const busy = await page.evaluate(() => ({
+        busy: chatState.busy,
+        focus: document.activeElement?.id || document.activeElement?.tagName,
+        unavailable: document.getElementById('chat-send').getAttribute('aria-disabled'),
+      }));
+      assert.deepEqual(
+        busy,
+        { busy: true, focus: 'chat-send', unavailable: 'true' },
+        'Chat: Ask keeps focus while the request runs, and says it is unavailable'
+      );
+      await page.locator('.chat-msg-engine .chat-recipe').waitFor({ timeout: 10000 });
+      await page.waitForFunction(() => !chatState.busy);
+      const log = await page.evaluate(() => {
+        const you = [...document.querySelectorAll('#chat-log .chat-msg-you')].pop();
+        const reply = [...document.querySelectorAll('#chat-log .chat-msg-engine')].pop();
+        const copy = reply.querySelector('.chat-recipe button');
+        return {
+          you: you.querySelector('.chat-sr')?.textContent,
+          codex: reply.querySelector('.chat-sr')?.textContent,
+          recipe: [...reply.querySelectorAll('.chat-recipe .chat-sr')].map((s) => s.textContent),
+          copy: copy?.getAttribute('aria-label'),
+          tools: reply.querySelector('.chat-tools')?.getAttribute('aria-hidden'),
+          summary: [...reply.children]
+            .filter((n) => n.matches('.chat-sr'))
+            .map((n) => n.textContent.trim()),
+        };
+      });
+      assert.deepEqual(
+        log,
+        {
+          you: 'You: ',
+          codex: 'Codex: ',
+          recipe: ['Recipe: ', '. '],
+          copy: 'Copy recipe',
+          tools: 'true',
+          summary: ['Codex:', '2 tool steps.'],
+        },
+        'Chat: the log names each speaker, separates the reply, names Copy and sums up the tools'
+      );
+      await page.locator('#chat-recover').focus();
+      await page.keyboard.press('Enter');
+      await page.waitForTimeout(400);
+      assert.notEqual(
+        await page.evaluate(() => document.activeElement?.tagName),
+        'BODY',
+        'Chat: Saved runs keeps focus'
+      );
+      assert.deepEqual(errors, [], 'Chat: no browser errors');
+      console.log('PASS chat panel at 1280px: focus while busy, speakers, parts, Copy, tools');
       await context.close();
     }
   } finally {

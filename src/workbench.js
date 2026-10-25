@@ -399,6 +399,7 @@ function uiRecipePanelSetup() {
     `<div class="recipe-ai-field"><input type="text" id="recipe-ai-input" class="cm-input" maxlength="4000" autocomplete="off" aria-label="Describe a change to this recipe" placeholder="Describe a change to this recipe…">` +
     `<button type="submit" class="cm-btn cm-btn-icon recipe-ai-send" aria-label="Send to the AI recipe writer" data-tooltip="Send to the AI recipe writer">${icon('send', 18)}</button></div>`;
   $ui('sidebar-recipe-preview').after(ai);
+  uiSyncAIExpanded();
   ai.addEventListener('submit', (e) => {
     e.preventDefault();
     uiRecipeAskAI(e.submitter || ai.querySelector('.recipe-ai-send'));
@@ -770,6 +771,13 @@ function uiSwitchChat(target) {
   }
   return true;
 }
+function uiSyncAIExpanded() {
+  const open = String(document.body.classList.contains('assistant-open'));
+  for (const b of document.querySelectorAll('[data-ui="ai"]')) {
+    if (b.getAttribute('aria-expanded') !== open) b.setAttribute('aria-expanded', open);
+    b.setAttribute('aria-controls', 'assistant-slot');
+  }
+}
 function uiChatOpen() {
   if (!uiSwitchChat(UI.view === 'lyrics' ? 'lyrics' : 'recipe')) {
     showToast('A request is running in the other writer.', 'error');
@@ -847,6 +855,12 @@ function uiStart() {
   assistant.innerHTML = `<div class="assistant-toolbar"><strong>AI recipe</strong>${uiButton('new-recipe', 'New recipe', 'plus')}${uiButton('close-ai', 'Close', 'x')}</div>`;
   assistant.append($ui('chat-dock'));
   document.body.append(assistant);
+  // Every AI entry says whether the writer is open; the open state is the
+  // body class, whoever sets it.
+  new MutationObserver(uiSyncAIExpanded).observe(document.body, {
+    attributes: true,
+    attributeFilter: ['class'],
+  });
   // The Recipe sheet's toolbar on a phone (hidden in the desktop panel, where
   // the AI entry and the add controls have their own places).
   const quick = document.createElement('div');
@@ -858,6 +872,7 @@ function uiStart() {
     uiButton('instrument-nav', 'Add instrument', 'plus') +
     uiButton('close-session', 'Close recipe', 'x');
   $ui('workspace-sidebar').prepend(quick);
+  uiSyncAIExpanded();
   uiRecipePanelSetup();
   // Keep native action nodes, so save, keyboard proxies and assistive labels share one implementation.
   for (const [id, target, label] of [
