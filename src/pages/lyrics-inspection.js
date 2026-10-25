@@ -160,8 +160,16 @@
         `<section aria-label="Choose an occurrence"><h3>Choose the occurrence to inspect</h3>${choices.map((o) => `<button type="button" data-ui="ly-relation-source" data-id="${esc(o.id)}">${esc(o.text)} · ${esc(lyRelationLineLabels(o.lineIds))}</button>`).join('')}<button type="button" data-ui="ly-relation-source" data-id="">All document evidence</button></section>` +
         html;
     if (inline) {
+      const opening = inline.hidden && showing && !narrow;
       inline.hidden = !showing || narrow;
       if (!inline.hidden && inline.innerHTML !== html) inline.innerHTML = html;
+      // Opening replaces the dock's Relations button, so focus would fall to
+      // the page body; it moves to the inspector's Close, as the narrow
+      // dialog's does (Jony #13 on #519).
+      if (opening && (!document.activeElement || document.activeElement === document.body))
+        (
+          inline.querySelector('[data-ui="ly-relation-close"]') || inline.querySelector('button')
+        )?.focus({ preventScroll: true });
     }
     if (dialog) {
       dialog.classList.toggle('is-expanded', !!session?.expanded);

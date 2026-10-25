@@ -16383,17 +16383,21 @@ function _restoreSnapshot(idx) {
 }
 function undo() {
   if (app.historyIndex <= 0) return;
+  const active = document.activeElement;
   app.historyIndex--;
   if (!_restoreSnapshot(app.historyIndex)) { app.historyIndex++; return; }
   renderAll();
   updateHistoryButtons();
+  _historyFocusHandoff(active);
 }
 function redo() {
   if (app.historyIndex >= app.history.length - 1) return;
+  const active = document.activeElement;
   app.historyIndex++;
   if (!_restoreSnapshot(app.historyIndex)) { app.historyIndex--; return; }
   renderAll();
   updateHistoryButtons();
+  _historyFocusHandoff(active);
 }
 function updateHistoryButtons() {
   const undoBtn = document.getElementById('btn-undo');
@@ -16402,6 +16406,15 @@ function updateHistoryButtons() {
   if (redoBtn) redoBtn.disabled = app.historyIndex >= app.history.length - 1;
   document.querySelectorAll('[data-proxy="btn-undo"],[data-ui="undo"]').forEach(b=>{b.disabled=app.historyIndex<=0;});
   document.querySelectorAll('[data-proxy="btn-redo"],[data-ui="redo"]').forEach(b=>{b.disabled=app.historyIndex>=app.history.length-1;});
+}
+// An Undo or Redo that its own step disabled would drop focus to the page body
+// (the re-render disables it while it holds focus); focus passes to its partner
+// beside it, which the same step has just enabled (Jony, #519).
+function _historyFocusHandoff(active) {
+  const UNDO = '#btn-undo,[data-proxy="btn-undo"],[data-ui="undo"]', REDO = '#btn-redo,[data-proxy="btn-redo"],[data-ui="redo"]';
+  if (!active?.disabled || !active.isConnected || !active.matches?.(UNDO + ',' + REDO)) return;
+  const partner = active.parentElement?.querySelector(active.matches(UNDO) ? REDO : UNDO);
+  if (partner && !partner.disabled) partner.focus({ preventScroll: true });
 }
 
 function renderPartRow(card, inst, part) {
