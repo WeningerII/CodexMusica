@@ -67,7 +67,7 @@
 // Exit 0 if every assertion passes, 1 otherwise, 2 if playwright is missing.
 
 'use strict';
-/* global devicePixelRatio, visualViewport, innerHeight, document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lySyncCaret, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage, uiChatOpen, requestAnimationFrame, LY_ACTION_TEXT, lySubmitLyricsAction, lyWriterState, lyToolRequestAction */
+/* global Image, devicePixelRatio, visualViewport, innerHeight, document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lySyncCaret, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage, uiChatOpen, requestAnimationFrame, LY_ACTION_TEXT, lySubmitLyricsAction, lyWriterState, lyToolRequestAction */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -5489,6 +5489,173 @@ async function browserChecks(chromium) {
         `a Find phrase did not mark the words it spans: ${JSON.stringify(phrase)}`
       );
       await ctx.close();
+    });
+
+    // R20. Jony's round 20, Lyrics parts. #97/#98: in forced colours the
+    // draft's own text was forced visible with a readability backplate over
+    // the read layer, so every header showed twice and the Find marks behind
+    // it vanished; #98 also asks a non-colour cue on the current section.
+    // #95: at 320×256 the Sections sheet's list was 0 px. #100: rotating with
+    // Find's field focused left it off-screen.
+    await step('R20. forced colours, short sheet, rotation', async () => {
+      // The colour the page shows at the centre of an element, read from a
+      // screenshot decoded in the page (no image library in this repo).
+      const pixel = async (page, selector) => {
+        await page.$eval(selector, (e) => e.scrollIntoView({ block: 'center' }));
+        await page.waitForTimeout(100);
+        const box = await (await page.$(selector)).boundingBox();
+        const shot = await page.screenshot({
+          clip: {
+            x: box.x + box.width / 2 - 1,
+            y: box.y + box.height / 2 - 1,
+            width: 2,
+            height: 2,
+          },
+        });
+        return page.evaluate(async (b64) => {
+          const img = new Image();
+          img.src = 'data:image/png;base64,' + b64;
+          await img.decode();
+          const c = document.createElement('canvas');
+          c.width = img.width;
+          c.height = img.height;
+          const g = c.getContext('2d');
+          g.drawImage(img, 0, 0);
+          return [...g.getImageData(0, 0, 1, 1).data.slice(0, 3)];
+        }, shot.toString('base64'));
+      };
+      const rgb = (css) => (css.match(/\d+/g) || []).slice(0, 3).map(Number);
+      const near = (a, b) => a.every((v, k) => Math.abs(v - b[k]) <= 24);
+      for (const phone of [false, true]) {
+        const { ctx, page } = await boot({ theme: 'light', phone });
+        const cdp = await ctx.newCDPSession(page);
+        await cdp.send('Emulation.setEmulatedMedia', {
+          features: [{ name: 'forced-colors', value: 'active' }],
+        });
+        await setDraft(page, DRAFT);
+        if (phone) await page.evaluate(() => LY_ACTIONS['ly-mobile']('song'));
+        await page.evaluate(() => {
+          LY.find = { q: 'rain', at: 0, open: true };
+          lyRefresh(true);
+        });
+        await page.waitForTimeout(200);
+        const tag = phone ? '390' : '1280';
+        const mark = '#ly-overlay .ly-hit:not(.ly-hit-current)';
+        const want = rgb(await page.$eval(mark, (e) => getComputedStyle(e).backgroundColor));
+        const seen = await pixel(page, mark);
+        const draft = await page.$eval('#lyrics-draft', (d) => getComputedStyle(d).color);
+        check(
+          near(seen, want) && rgb(draft).length === 3 && /rgba\(.*,\s*0\)$/.test(draft),
+          `${tag} forced colours: a Find mark shows ${seen}, not its ${want}, and the draft's own text is ${draft}`
+        );
+        // The draft's selection still shows, in Highlight: a whole line selected
+        // with Find closed, sampled over its text.
+        await page.evaluate(() => {
+          LY.find = { q: '', at: 0, open: false };
+          lyRefresh(true);
+        });
+        await page.focus('#lyrics-draft');
+        const hl = rgb(
+          await page.evaluate(() => {
+            const probe = document.createElement('span');
+            probe.style.color = 'Highlight';
+            document.body.append(probe);
+            const c = getComputedStyle(probe).color;
+            probe.remove();
+            return c;
+          })
+        );
+        await page.evaluate(() => {
+          const d = $ui('lyrics-draft');
+          const line = LY.model.sung[1];
+          const rows = d.value.split('\n');
+          const start = rows.slice(0, line.i).reduce((t, r) => t + r.length + 1, 0);
+          d.setSelectionRange(start, start + rows[line.i].length);
+        });
+        const at = await pixel(page, '#ly-overlay .ly-r[data-n="2"] .ly-t');
+        check(
+          near(at, hl),
+          `${tag} forced colours: the draft's selection shows ${at}, not Highlight ${hl}`
+        );
+        await ctx.close();
+      }
+      // The current section: a cue that is not colour, everywhere, and a
+      // Highlight outline in forced colours.
+      {
+        const { ctx, page } = await boot({ theme: 'light' });
+        const cdp = await ctx.newCDPSession(page);
+        await cdp.send('Emulation.setEmulatedMedia', {
+          features: [{ name: 'forced-colors', value: 'active' }],
+        });
+        await setDraft(page, DRAFT);
+        await page.evaluate(() => {
+          LY.railOpen = true;
+          lyScrollToLine(2);
+          lyRefresh(true);
+        });
+        await page.waitForTimeout(200);
+        const cur = await page.evaluate(() => {
+          const b = document.querySelector('#ly-sections .ly-sec[aria-current]');
+          const cs = b && getComputedStyle(b);
+          return b ? { weight: Number(cs.fontWeight), outline: cs.outlineStyle } : null;
+        });
+        check(
+          cur && cur.weight >= 600 && cur.outline === 'solid',
+          `the current section has no cue but colour: ${JSON.stringify(cur)}`
+        );
+        await ctx.close();
+      }
+      // #95: the sheet at 320×256 keeps a list and scrolls as a whole.
+      {
+        const { ctx, page } = await boot({ theme: 'light', phone: true });
+        await page.setViewportSize({ width: 320, height: 256 });
+        await setDraft(page, DRAFT);
+        await page.evaluate(() => LY_ACTIONS['ly-mobile']('song'));
+        await page.focus('#ly-section-nav .ly-sec-pos');
+        await page.keyboard.press('Enter');
+        await page.waitForTimeout(200);
+        const sheet = await page.evaluate(() => {
+          const list = $ui('ly-sections');
+          const outline = document.querySelector('.ly-outline');
+          const last = [...list.querySelectorAll('.ly-sec')].at(-1);
+          last.focus();
+          const r = last.getBoundingClientRect();
+          return {
+            list: list.getBoundingClientRect().height,
+            modal: $ui('ly-outline-panel').getAttribute('aria-modal'),
+            lastVisible: r.top >= 0 && r.bottom <= innerHeight,
+            scrolls: outline.scrollHeight > outline.clientHeight,
+          };
+        });
+        check(
+          sheet.list >= 88 && sheet.modal === 'true' && sheet.lastVisible,
+          `the Sections sheet at 320×256: ${JSON.stringify(sheet)}`
+        );
+        await ctx.close();
+      }
+      // #100: Find's field stays in view across a rotation.
+      {
+        const { ctx, page } = await boot({ theme: 'light', phone: true });
+        await setDraft(page, DRAFT);
+        await page.click('[data-ui="ly-find-open"]');
+        await page.waitForSelector('#ly-find-input', { state: 'visible' });
+        await page.focus('#ly-find-input');
+        await page.setViewportSize({ width: 844, height: 390 });
+        await page.waitForTimeout(400);
+        const where = await page.evaluate(() => {
+          const r = $ui('ly-find-input').getBoundingClientRect();
+          return {
+            focus: document.activeElement?.id,
+            inView: r.top >= 0 && r.bottom <= innerHeight && r.left >= 0 && r.right <= innerWidth,
+            top: Math.round(r.top),
+          };
+        });
+        check(
+          where.focus === 'ly-find-input' && where.inView,
+          `after rotating, Find's focused field is off-screen: ${JSON.stringify(where)}`
+        );
+        await ctx.close();
+      }
     });
 
     await step('10. expired saved request and New conversation', async () => {

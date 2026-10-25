@@ -676,6 +676,13 @@
 #surface-lyrics .ly-sec.is-active {
   background: var(--cm-accent-soft);
   color: var(--cm-accent-text);
+  font-weight: 600;
+}
+@media (forced-colors: active) {
+  #surface-lyrics .ly-sec[aria-current] {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+  }
 }
 #surface-lyrics .ly-sec.is-active svg {
   color: var(--cm-accent-text);
@@ -933,6 +940,23 @@
 #surface-lyrics .ly-input::selection {
   background: color-mix(in srgb, var(--cm-accent) 28%, transparent);
   color: transparent;
+}
+/* Forced colours paint the draft's own text (CanvasText) over the read layer
+   it sits on, so every line and section header showed twice (Jony #97). The
+   read layer is the visible text; the draft keeps its caret and selection. */
+@media (forced-colors: active) {
+  #surface-lyrics .ly-input {
+    forced-color-adjust: none;
+    color: transparent;
+    caret-color: CanvasText;
+  }
+  #surface-lyrics .ly-input::placeholder {
+    color: GrayText;
+  }
+  #surface-lyrics .ly-input::selection {
+    background: Highlight;
+    color: transparent;
+  }
 }
 #surface-lyrics .ly-editor:has(.ly-input:focus-visible) {
   outline: 3px solid var(--cm-focus);
@@ -1575,8 +1599,19 @@
   z-index: 70;
   display: flex;
   max-height: 70vh;
+  overflow-y: auto;
   border-radius: var(--cm-radius-lg) var(--cm-radius-lg) 0 0;
   box-shadow: var(--cm-shadow-3);
+}
+/* At a short height (320×256, Jony #95) the list shrank to 0 px under its
+   header and footer: it keeps two rows, and the whole sheet scrolls. */
+#surface-lyrics .ly-page[data-size='narrow'][data-outline='sheet'] .ly-sections {
+  min-height: 88px;
+}
+@media (max-height: 480px) {
+  #surface-lyrics .ly-page[data-size='narrow'][data-outline='sheet'] .ly-outline-panel {
+    flex: 1 0 auto;
+  }
 }
 #surface-lyrics .ly-page[data-size='narrow'] .ly-sheet-scrim:not([hidden]) {
   position: fixed;

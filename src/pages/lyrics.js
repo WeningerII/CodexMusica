@@ -7618,6 +7618,25 @@ function lyWire(surface) {
   };
   window.addEventListener('resize', viewportResize);
   window.visualViewport?.addEventListener('resize', viewportResize);
+  // A rotation or a resize can leave a focused control other than the draft
+  // (Find's field, a tool's input) off-screen (Jony #100): bring it back into
+  // view once the new layout has settled, as the draft's caret is above.
+  const revealFocused = () =>
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => {
+        const a = document.activeElement;
+        if (!a || a === lyDraft() || !surface.contains(a) || !a.getClientRects().length) return;
+        if (window.visualViewport && window.visualViewport.scale !== 1) return;
+        const r = a.getBoundingClientRect();
+        const v = window.visualViewport;
+        const top = v ? v.offsetTop : 0;
+        const bottom = top + (v ? v.height : innerHeight);
+        if (r.top < top || r.bottom > bottom || r.left < 0 || r.right > innerWidth)
+          a.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+      })
+    );
+  window.addEventListener('resize', revealFocused);
+  window.addEventListener('orientationchange', revealFocused);
   rememberViewportPosition(true);
   const shellReceive = window.uiReceiveReply;
   if (!shellReceive.lyWrapped) {
