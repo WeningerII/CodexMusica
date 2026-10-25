@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global renderRecipeStack, openModal, document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global renderRecipeStack, openModal, closeModal, document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -312,6 +312,32 @@ async function editorKeyboard(page, where) {
     tag('the full recipe format button keeps focus and reads as pressed')
   );
   await page.keyboard.press('Escape');
+  // Early interaction: focus placed in the dialog before its delayed first
+  // focus fires is kept, and a dialog closed before then takes no focus.
+  await page.evaluate(() => {
+    renderRecipeStack();
+    openModal('modal-recipe-stack');
+    document.querySelector('#recipe-stack-body button[data-rfmt="tags"]').focus();
+  });
+  await page.waitForTimeout(250);
+  assert.equal(
+    await page.evaluate(() => document.activeElement?.dataset?.rfmt || null),
+    'tags',
+    tag('the dialog delayed first focus does not take focus placed inside it')
+  );
+  await page.evaluate(() => {
+    closeModal('modal-recipe-stack');
+    openModal('modal-recipe-stack');
+    closeModal('modal-recipe-stack');
+  });
+  await page.waitForTimeout(250);
+  assert.equal(
+    await page.evaluate(() =>
+      document.getElementById('modal-recipe-stack').contains(document.activeElement)
+    ),
+    false,
+    tag('a dialog closed before its first focus takes no focus')
+  );
 }
 (async () => {
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));

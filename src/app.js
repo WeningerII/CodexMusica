@@ -14645,7 +14645,13 @@ function openModal(id) {
   bg.classList.add('open');
   bg._trapHandler = (e) => _trapTab(e, bg.querySelector('.modal') || bg);
   bg.addEventListener('keydown', bg._trapHandler);
-  setTimeout(() => {
+  // The first focus waits for the opening transition. It is dropped if the
+  // dialog closed meanwhile, or if focus was already placed inside it on
+  // purpose; a reopen cancels the older timer.
+  clearTimeout(bg._focusTimer);
+  bg._focusTimer = setTimeout(() => {
+    bg._focusTimer = null;
+    if (!bg.classList.contains('open') || bg.contains(document.activeElement)) return;
     const i = bg.querySelector('input[type=search], input[type=text]');
     (i || _focusables(bg)[0] || bg).focus();
   }, UI_TIMING_MS.MODAL_FOCUS_DELAY);
@@ -14655,6 +14661,7 @@ function closeModal(id) {
   const bg = document.getElementById(id);
   if (!bg) return;
   bg.classList.remove('open');
+  clearTimeout(bg._focusTimer); bg._focusTimer = null;
   if (bg._trapHandler) { bg.removeEventListener('keydown', bg._trapHandler); bg._trapHandler = null; }
   if (_modalReturnFocus && typeof _modalReturnFocus.focus === 'function' && document.contains(_modalReturnFocus) && _modalReturnFocus.getClientRects().length) {
     _modalReturnFocus.focus();
