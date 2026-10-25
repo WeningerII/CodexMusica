@@ -7,7 +7,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { once } from 'node:events';
 import express from 'express';
-import { runTurn, LIMITS } from './gemini_agent.js';
+import { runTurn, LIMITS, buildSurface } from './gemini_agent.js';
 import { JobStore, createJobRouter } from './job_store.js';
 import { RunStore, declarationsOf, movedDeclarations, runRefusal } from './run_store.js';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
@@ -1322,6 +1322,69 @@ test('recipe creation needs a successful customization; explicit browse can retu
   } finally {
     globalThis.fetch = nativeFetch;
   }
+});
+
+test('every tool call a recipe turn builds carries only the arguments its tool declares', async () => {
+  // The connector refuses an argument a tool does not declare (guardEditKeys).
+  // The chat once stamped format: 'rich' on EVERY recipe-turn call, so each
+  // search_catalog and search_prefaces was refused and the turn found no
+  // tradition (BB8, #519). Driven through the chat's own real server and
+  // live surface, every call the turn builds is checked against the schema.
+  const server = buildRealServer({ kitchen: true });
+  const [clientSide, serverSide] = InMemoryTransport.createLinkedPair();
+  const client = new Client({ name: 'declared-args', version: '1.0.0' }, { capabilities: {} });
+  await Promise.all([server.connect(serverSide), client.connect(clientSide)]);
+  const live = await buildSurface(client);
+  const declared = new Map(
+    live.tools.map((t) => [t.name, new Set(Object.keys(t.inputSchema?.properties || {}))])
+  );
+  const sent = [];
+  globalThis.fetch = async (_url, request) => {
+    const hop = JSON.parse(request.body).contents.length;
+    return response(
+      hop <= 1
+        ? [
+            fc('search_catalog', { query: 'bluegrass' }),
+            fc('search_prefaces', { query: 'haunting' }),
+            fc('start_recipe', { traditions: ['bluegrass'] }),
+          ]
+        : [{ text: 'Done.' }]
+    );
+  };
+  try {
+    await runTurn({
+      ...opts,
+      surface: live,
+      task: task('recipe'),
+      userText: 'A haunting bluegrass recipe.',
+      limits: { ...LIMITS, maxSteps: 3, maxTurnMs: 20000, maxTurnUsd: 0 },
+      callTool: async (name, args) => {
+        const result = await client.callTool({ name, arguments: args });
+        sent.push({ name, keys: Object.keys(args), refused: !!result.isError });
+        return result;
+      },
+    });
+  } finally {
+    globalThis.fetch = nativeFetch;
+    await client.close();
+  }
+  assert.deepEqual(
+    sent.map((c) => c.name),
+    ['search_catalog', 'search_prefaces', 'start_recipe'],
+    'the turn made every call it was given'
+  );
+  for (const c of sent) {
+    assert.deepEqual(
+      c.keys.filter((k) => !declared.get(c.name).has(k)),
+      [],
+      `${c.name} was sent only arguments it declares`
+    );
+    assert.equal(c.refused, false, `${c.name} was not refused`);
+  }
+  assert.ok(
+    sent.find((c) => c.name === 'start_recipe').keys.includes('format'),
+    "a tool that declares format still gets the turn's Rich"
+  );
 });
 
 test('a recipe turn the step limit ends reaches the page as the recipe it reached, and continues', async () => {
