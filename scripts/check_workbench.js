@@ -244,8 +244,9 @@ const run = (code) => dom.window.eval(code);
     /not answering right now \(HTTP 503\)/
   );
   assert.equal(run('chatState.pending?.request_id'), 'down-request');
-  // A request whose POST never got an answer and of which the service has no
-  // record never ran: the message goes back in the box, not to the archive.
+  // A missing receipt never proves nothing ran, so the outcome is worded as
+  // unknown either way, and the typed message goes back in the box. Unsent: a
+  // POST that never got an answer and was never acknowledged (no receipt seen).
   run(
     "chatState.disconnected='down-request';chatState.archives=[];document.getElementById('chat-input').value='';window.fetch=async()=>({ok:false,status:404,json:async()=>({error:'not found'})});"
   );
@@ -253,10 +254,22 @@ const run = (code) => dom.window.eval(code);
   assert.equal(run('chatState.pending'), null);
   assert.equal(run('chatState.archives.length'), 0);
   assert.equal(run("document.getElementById('chat-input').value"), 'make it bluesy');
-  assert.match(
-    run("document.getElementById('chat-log').lastElementChild.textContent"),
-    /no record of that request, so nothing ran/
+  const unsent = run("document.getElementById('chat-log').lastElementChild.textContent");
+  assert.match(unsent, /may never have arrived/);
+  assert.doesNotMatch(unsent, /nothing ran/);
+  // Accepted (the progress poll saw its receipt), then disconnected, then the
+  // receipt is gone: it may have run, so the note says so and the ticket is
+  // kept in Saved runs.
+  run(
+    "chatState.pending={request_id:'taken-request',domain:'recipe',message:'add strings',admitted:true};chatState.disconnected='taken-request';chatState.archives=[];document.getElementById('chat-input').value='';"
   );
+  await run('_chatRecover()');
+  assert.equal(run('chatState.pending'), null);
+  assert.equal(run('chatState.archives.map((j)=>j.request_id).join()'), 'taken-request');
+  assert.equal(run("document.getElementById('chat-input').value"), 'add strings');
+  const taken = run("document.getElementById('chat-log').lastElementChild.textContent");
+  assert.match(taken, /whether it finished is unknown/);
+  assert.doesNotMatch(taken, /nothing ran|never have arrived/);
   // Domain changes fail atomically if a continuation cannot be stored.
   run(
     "chatState.task={domain:'lyrics'};chatState.pending=null;chatState.continuationId='lyric-receipt';window.oldSet=Storage.prototype.setItem;Storage.prototype.setItem=function(){throw Error('QuotaExceededError')};"

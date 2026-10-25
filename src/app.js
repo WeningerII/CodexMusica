@@ -18917,26 +18917,31 @@ async function _chatRecover(generation = chatState.generation) {
       if (generation !== chatState.generation) return;
       if (!record || typeof record !== 'object')
         throw new Error(`The service is not answering right now (HTTP ${res.status}). Your request is saved and will not be repeated; press Send to check it again.`);
-      // 404: the server holds no receipt for this request. After a POST that
-      // never got an answer, it never arrived (receipts are written before any
-      // work), so nothing ran: hand the message back to send again. Otherwise
-      // the receipt expired, and asking again can never settle it: set the
-      // ticket aside instead of blocking every new request on it.
+      // 404: the server holds no receipt for this request now. That does not
+      // prove nothing ran (a receipt can be lost or expire after the work), so
+      // the outcome is worded as unknown. After a POST that never got an
+      // answer, the typed message goes back in the box; whether the service
+      // ever showed a receipt for it (admitted) decides how the note reads.
+      // Asking again can never settle a 404: the ticket is set aside, kept in
+      // Saved runs unless the service never acknowledged it at all.
       if (res.status === 404) {
-        const unsent = chatState.disconnected === job.request_id;
-        if (!unsent) chatState.archives = [...chatState.archives, job].slice(-8);
+        const dropped = chatState.disconnected === job.request_id;
+        const unseen = dropped && !job.admitted;
+        if (!unseen) chatState.archives = [...chatState.archives, job].slice(-8);
         if (chatState.continuationId === job.request_id) chatState.continuationId = null;
         chatState.pending = null;
         chatState.disconnected = null;
         _chatSave();
         const input = _chatEl('chat-input');
-        if (unsent && input && job.message && !input.value) {
+        if (dropped && input && job.message && !input.value) {
           input.value = job.message;
           _chatSyncCount();
         }
-        _chatAppend(unsent
-          ? '<div class="chat-msg chat-msg-note">The service has no record of that request, so nothing ran. Your message is back in the box; send it again.</div>'
-          : '<div class="chat-msg chat-msg-note">The saved request is no longer kept on the server, so it was set aside. Nothing was repeated; you can start a new request.</div>');
+        _chatAppend(unseen
+          ? '<div class="chat-msg chat-msg-note">The connection dropped and the service has no record of that request, so it may never have arrived. Your message is back in the box; send it again if nothing changed.</div>'
+          : dropped
+            ? '<div class="chat-msg chat-msg-note">The service received that request, but its receipt is no longer kept, so whether it finished is unknown. Your message is back in the box; check the result before sending it again.</div>'
+            : '<div class="chat-msg chat-msg-note">The saved request is no longer kept on the server, so it was set aside. Nothing was repeated; you can start a new request.</div>');
         return;
       }
       if (!res.ok) throw new Error(record.error || 'The request outcome is unknown. The saved request will not be repeated.');
@@ -19335,6 +19340,12 @@ function _chatPollStart(request_id) {
       if (res.ok) {
         const view = _chatProgressOf(await res.json());
         if (_chatPoll.request_id !== request_id) return;
+        // The service holds a receipt: the request arrived. Recovery reads
+        // this to word a later missing receipt (it may have run).
+        if (chatState.pending?.request_id === request_id && !chatState.pending.admitted) {
+          chatState.pending.admitted = true;
+          try { _chatSave(); } catch { /* the flag only shapes wording */ }
+        }
         if (view) {
           chatState.progress = { ...chatState.progress, ...view, created_at: view.created_at ?? chatState.progress?.created_at };
           document.dispatchEvent(new CustomEvent('chat-progress', { detail: chatState.progress }));
