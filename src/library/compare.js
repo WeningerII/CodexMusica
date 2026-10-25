@@ -313,7 +313,8 @@ function mount(container, input) {
     query = '',
     error = '',
     timer = 0,
-    token = 0;
+    searchToken = 0,
+    comparisonToken = 0;
 
   // Picker: other readings of the same recorded work, from the static head's
   // work_readings (current id excluded, title-ordered), then free search.
@@ -337,19 +338,21 @@ function mount(container, input) {
     if (e.target.tagName !== 'INPUT') return;
     query = e.target.value;
     clearTimeout(timer);
+    const mine = ++searchToken;
+    results = [];
+    error = '';
     if (!query) return renderPicker();
-    const mine = ++token;
     timer = setTimeout(() => {
       lib
         .get(`/search?availability=readable&limit=20&q=${encodeURIComponent(query)}`)
         .then((r) => {
-          if (!alive || mine !== token) return;
+          if (!alive || mine !== searchToken) return;
           results = (r.items || []).filter((x) => x.reading_unit_id !== leftId);
           error = '';
           renderPicker();
         })
         .catch((err) => {
-          if (!alive || mine !== token) return;
+          if (!alive || mine !== searchToken) return;
           error = err.message;
           renderPicker();
         });
@@ -479,18 +482,18 @@ ${limit < rows.length ? `<button type="button" class="cm-btn cm-btn-outline lib-
     chosen = id;
     setCompareParam(id);
     renderPicker();
-    const mine = ++token;
+    const mine = ++comparisonToken;
     view = null;
     bodyEl.innerHTML =
       '<p class="lib-cmp-note" role="status">Loading both complete reading units…</p>';
     Promise.all([loadLeft(), loadWhole(lib, id)])
       .then((data) => {
-        if (!alive || mine !== token) return;
+        if (!alive || mine !== comparisonToken) return;
         view = { data, source: false, mode: 'Differences', limit: 250 };
         renderComparison();
       })
       .catch((err) => {
-        if (!alive || mine !== token) return;
+        if (!alive || mine !== comparisonToken) return;
         bodyEl.innerHTML = `<p class="lib-cmp-error" role="alert">${esc(err.message)}</p>`;
       });
   }
