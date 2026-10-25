@@ -324,6 +324,12 @@ async function noOverflow(page) {
       await page.locator('.catalog-row, .cm-tile').first().waitFor();
       await page.evaluate(() => openModal('modal-save'));
       await page.locator('#save-name').waitFor();
+      await settle(page);
+      const dialogHeight = () =>
+        page.evaluate(
+          () => document.querySelector('#modal-save .modal').getBoundingClientRect().height
+        );
+      const before = await dialogHeight();
       await page.evaluate(() =>
         showToast('Imported 3 instruments into Your recipe', 'success', {
           label: 'Undo',
@@ -332,17 +338,21 @@ async function noOverflow(page) {
       );
       await page.waitForFunction(() => document.getElementById('toast').classList.contains('show'));
       await settle(page);
-      for (const s of ['#save-name', '#save-confirm']) {
-        const toast = await page.evaluate(() => {
-          const b = document.getElementById('toast').getBoundingClientRect();
-          return { left: b.left, right: b.right, top: b.top, bottom: b.bottom };
-        });
-        const r = await rectOf(page, s);
-        assert.ok(
-          !overlaps(toast, r),
-          `A toast does not cover ${s} in the open Save dialog at 320×256: ` +
-            JSON.stringify({ toast, r })
-        );
+      // The dialog keeps its size (never shrunk for the toast), and each of
+      // its controls is what a click there reaches: the toast is under it.
+      assert.ok(
+        (await dialogHeight()) >= before - 1,
+        `The Save dialog is not shrunk by a toast at 320×256: ${before} → ${await dialogHeight()}`
+      );
+      for (const s of ['#save-name', '#save-confirm', '#modal-save [data-close="modal-save"]']) {
+        const top = await page.evaluate((sel) => {
+          const el = document.querySelector(sel);
+          el.scrollIntoView({ block: 'nearest' });
+          const b = el.getBoundingClientRect();
+          const hit = document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2);
+          return el === hit || el.contains(hit);
+        }, s);
+        assert.ok(top, `A toast does not cover ${s} in the open Save dialog at 320×256`);
       }
       await page.evaluate(() => closeModal('modal-save'));
       await page.setViewportSize({ width: 390, height: 780 });
@@ -368,6 +378,17 @@ async function noOverflow(page) {
         !banner.buttons.some((b) => overlaps(banner.toast, b)),
         'A toast does not cover the storage-conflict banner’s buttons at 390: ' +
           JSON.stringify(banner)
+      );
+      // A short window: the toast stays inside it, top and bottom.
+      await page.setViewportSize({ width: 320, height: 256 });
+      await settle(page);
+      const shortToast = await page.evaluate(() => {
+        const b = document.getElementById('toast').getBoundingClientRect();
+        return { top: b.top, bottom: b.bottom, h: innerHeight };
+      });
+      assert.ok(
+        shortToast.top >= 0 && shortToast.bottom <= shortToast.h,
+        'With the banner up at 320×256 the toast stays on screen: ' + JSON.stringify(shortToast)
       );
       assert.deepEqual(errors, [], 'No browser errors');
       await context.close();

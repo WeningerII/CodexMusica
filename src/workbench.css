@@ -542,18 +542,19 @@ h3 {
   bottom: 20px !important;
   max-width: calc(100vw - 32px);
 }
-/* A toast never covers what is open beside it (#99): it rises above the
-   storage-conflict banner, and an open dialog gives the toast its room at the
-   bottom, its box shrinking (its body scrolls) rather than sitting under it.
-   Heights are measured (uiTrackToastRoom). */
+/* A toast never covers what is open beside it (#99). It rises above the
+   storage-conflict banner, but never past the top of a short window (heights
+   measured by uiTrackToastRoom). An open dialog is never shrunk for it: the
+   toast goes under the dialog's layer, still spoken, as the page behind a
+   modal dialog is out of reach anyway. */
 body:has(#storage-conflict) .toast {
-  bottom: calc(var(--ui-conflict-h, 64px) + 24px) !important;
+  bottom: min(
+    calc(var(--ui-conflict-h, 64px) + 24px),
+    calc(100vh - var(--ui-toast-h, 40px) - 8px)
+  ) !important;
 }
-body:has(.toast.show) .modal-bg.open {
-  padding-bottom: calc(var(--ui-toast-h, 40px) + 32px) !important;
-}
-body:has(.toast.show) .modal-bg.open .modal {
-  max-height: 100% !important;
+body:has(.modal-bg.open:not(.inline-tree), .confirm-dialog-bg, dialog[open]) .toast {
+  z-index: 90 !important;
 }
 @media (min-width: 900px) and (max-width: 1250px) {
   .ui-brand {
