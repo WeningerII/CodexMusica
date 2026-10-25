@@ -633,6 +633,24 @@ const SECTIONS = {
         empty.all,
       JSON.stringify(empty)
     );
+    // A row with no recorded count is not a count of zero: it stays held.
+    const HELD_ROW = 'collection_9edc5f69-bf21-5946-bb46-27d95903804c';
+    await page.route('**/library/data/collections.json', async (route) => {
+      const response = await route.fetch();
+      const body = await response.json();
+      body.collections = body.collections.map((c) => (c[0] === HELD_ROW ? c.slice(0, 4) : c));
+      await route.fulfill({ response, json: body });
+    });
+    await go(page, base, `/works?collection=${HELD_ROW}`);
+    await page.reload(); // cold, so the stubbed list is the one read
+    const uncounted = await outcome(`/works?collection=${HELD_ROW}`);
+    await page.unroute('**/library/data/collections.json');
+    await page.reload();
+    check(
+      `${tag} works: a held collection with no recorded count is held, not empty`,
+      /Nothing here is readable/.test(uncounted.text) && uncounted.every,
+      JSON.stringify(uncounted)
+    );
     // A navigation that lands while an earlier one still waits on the
     // catalog wins: the stale update writes neither its state nor the hash.
     let served = await slowCatalog(page, 2500);

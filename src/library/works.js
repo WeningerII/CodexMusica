@@ -493,8 +493,9 @@ class WorksView {
     const offset = Number(s.offset);
     this.slot('summary').textContent =
       `${page.total.toLocaleString()} reading units · work and edition identities remain distinct`;
-    if (page.held && !page.recorded) {
-      // Nothing recorded at all is not "every unit is held" (BB8's nit).
+    if (page.held && page.recorded === 0) {
+      // Nothing recorded at all is not "every unit is held" (BB8's nit). A
+      // row with no recorded count says nothing either way, so it stays held.
       results.innerHTML = uiEmptyState({
         title: 'This collection is empty',
         text: 'It records no units in this snapshot.',
