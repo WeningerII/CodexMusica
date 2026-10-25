@@ -1851,6 +1851,29 @@ SECTIONS.keys = async function ({ page, base, tag }) {
   const mac = await page.$eval('#surface-library .cm-search kbd', (k) => k.textContent);
   check(`${tag} keys: on Apple platforms the hint says ⌘ K`, mac === '⌘ K', mac);
 };
+// The artwork credit opens from a card's menu (it loads with the rights
+// chunk, never on the shelves' first view): a dialog naming the artwork,
+// and Close returns focus to the menu button.
+SECTIONS.credit = async function ({ page, base, tag }) {
+  await go(page, base, '');
+  const failed = await settled(page, 'core', '#surface-library .lib-card[data-art]');
+  if (!check(`${tag} credit: a card with artwork`, !failed, failed)) return;
+  const menu = '#surface-library .lib-card[data-art] [data-lib-act="menu"]';
+  await page.click(menu);
+  await page.click('#surface-library .lib-menu [data-lib-act="credit"]');
+  const dialog = await page
+    .waitForSelector('#surface-library dialog.lib-credit[open] h2', { timeout: 15000 })
+    .catch(() => null);
+  const title = dialog ? (await dialog.textContent()).trim() : '';
+  check(`${tag} credit: the artwork credit opens and names its artwork`, !!title, title);
+  await page.click('#surface-library dialog.lib-credit .lib-credit-close');
+  await page.waitForTimeout(200);
+  const back = await page.evaluate(
+    (sel) => document.activeElement === document.querySelector(sel),
+    menu
+  );
+  check(`${tag} credit: Close returns focus to the card's menu button`, back);
+};
 const NEEDS = {
   explore: 'core',
   works: 'works',
@@ -1863,6 +1886,7 @@ const NEEDS = {
   retained: 'analysis',
   retry: 'works',
   keys: 'works',
+  credit: 'rights',
 };
 
 (async () => {

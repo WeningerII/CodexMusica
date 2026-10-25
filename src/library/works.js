@@ -139,15 +139,7 @@ const STYLE = `
 #surface-library .lib-coll-list strong{font-size:14px;font-weight:600}
 #surface-library .lib-coll-list small{font-size:12px;color:var(--cm-text-secondary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 #surface-library .lib-coll-list input{width:18px;height:18px;accent-color:var(--cm-accent)}
-#surface-library .lib-pager{display:flex;align-items:center;gap:10px;justify-content:flex-end;color:var(--cm-text-secondary);font-size:13px}
-#surface-library .lib-credit{position:fixed;inset:0;margin:auto;height:fit-content;max-height:calc(100vh - 32px);overflow:auto;max-width:min(560px,calc(100vw - 32px));padding:20px;border:1px solid var(--cm-border);border-radius:var(--cm-radius-lg,12px);background:var(--cm-surface);color:var(--cm-text);box-shadow:var(--cm-shadow-3)}
-#surface-library .lib-credit::backdrop{background:var(--cm-scrim,rgba(0,0,0,.5))}
-#surface-library .lib-credit form{display:flex;justify-content:flex-end;margin:0 0 8px}
-#surface-library .lib-credit img{display:block;max-width:100%;max-height:60vh;margin:0 auto 12px;border-radius:var(--cm-radius-md,8px)}
-#surface-library .lib-credit h2{margin:0 0 4px;font-size:18px}
-#surface-library .lib-credit p{margin:0 0 8px;color:var(--cm-text-secondary);font-size:14px}
-#surface-library .lib-credit .lib-credit-note{font-size:12px;color:var(--cm-text-muted)}
-#surface-library .lib-credit a{color:var(--cm-accent-text);display:inline-flex;align-items:center;gap:4px}`;
+#surface-library .lib-pager{display:flex;align-items:center;gap:10px;justify-content:flex-end;color:var(--cm-text-secondary);font-size:13px}`;
 
 function injectStyle() {
   if (!document.querySelector('style[data-lib="works"]'))
@@ -965,28 +957,6 @@ async function collection(main, id, token, offset = 0, core) {
   focusLostToHeading(main);
 }
 
-// ─── An artwork credit (core hands it over from a card's menu) ──────────────
-async function credit(artId, opener, lib) {
-  injectStyle();
-  const { artwork } = await lib.artwork();
-  const a = artwork.find((x) => x.id === artId);
-  if (!a) return;
-  const r = lib.art(artId);
-  const dialog = document.createElement('dialog');
-  dialog.className = 'lib-credit';
-  dialog.setAttribute('aria-labelledby', 'lib-credit-title');
-  dialog.innerHTML = `<form method="dialog"><button class="lib-icon-btn lib-credit-close" aria-label="Close">${icon('x', 18)}</button></form>
-<picture><source type="image/avif" srcset="${r.avif}" sizes="(max-width:600px) 90vw, 480px"><source type="image/webp" srcset="${r.webp}" sizes="(max-width:600px) 90vw, 480px"><img src="${r.src}" alt="${esc(a.title)} — ${esc(a.author)}"></picture>
-<div><h2 id="lib-credit-title">${esc(a.title)}</h2><p>${esc(a.author)}</p><p>${esc(a.credit)}</p>${a.note ? `<p class="lib-credit-note">${esc(a.note)}</p>` : ''}<a href="${esc(a.source)}" target="_blank" rel="noopener noreferrer">Artwork source ${icon('link', 14)}</a></div>`;
-  document.getElementById('surface-library').append(dialog);
-  dialog.addEventListener('close', () => {
-    dialog.remove();
-    opener?.focus?.();
-  });
-  dialog.addEventListener('click', (e) => e.target === dialog && dialog.close());
-  dialog.showModal();
-}
-
 return {
   // main: the Library's content element; sub: '/works?…' (or
   // '/collections/<id>?…' if core hands a collection over); lib: the shared
@@ -1015,5 +985,4 @@ return {
   parse,
   format,
   collection,
-  credit,
 };

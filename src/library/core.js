@@ -884,8 +884,8 @@ function bind(main) {
       } else if (act === 'credit') {
         const card = main.querySelector(`.lib-card[data-cid="${CSS_ESC(cid)}"]`);
         // The artwork credit opens from a card's menu, never on first view.
-        const works = await libraryChunk('works');
-        await works.credit(card?.dataset.art, card?.querySelector('[data-lib-act="menu"]'), lib);
+        const rights = await libraryChunk('rights');
+        await rights.credit(card?.dataset.art, card?.querySelector('[data-lib-act="menu"]'), lib);
       } else if (act === 'open') {
         lib.go('/collections/' + cid);
       } else if (act === 'play') {
