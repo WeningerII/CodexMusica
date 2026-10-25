@@ -5467,6 +5467,27 @@ async function browserChecks(chromium) {
           JSON.stringify(back.current) === '["2"]',
         `Shift+Enter in Find did not come back to match 1: ${JSON.stringify(back)}`
       );
+      // A phrase marks every word it spans (it marked none: each word was
+      // tested for the whole query on its own), the current line's as current.
+      await page.fill('#ly-find-input', 'rain has blur');
+      await page.waitForTimeout(150);
+      const phrase = await page.evaluate(() => {
+        const words = (sel) =>
+          [...document.querySelectorAll(`#ly-overlay .ly-r[data-n="2"] ${sel}`)].map((e) =>
+            e.textContent.trim()
+          );
+        return {
+          count: $ui('ly-find-count').textContent,
+          hit: words('.ly-hit'),
+          current: words('.ly-hit-current'),
+        };
+      });
+      check(
+        phrase.count === '1 of 1 line' &&
+          JSON.stringify(phrase.hit) === '["rain","has","blurred"]' &&
+          JSON.stringify(phrase.current) === '["rain","has","blurred"]',
+        `a Find phrase did not mark the words it spans: ${JSON.stringify(phrase)}`
+      );
       await ctx.close();
     });
 

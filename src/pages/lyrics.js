@@ -4489,12 +4489,26 @@ function lyRowHtml(row, model, ctx) {
       offset += text.length;
       return html;
     };
+    // Find marks every word a match on this line spans, so a phrase ("the
+    // rain") marks both words, not only a query inside a single word.
+    const hits = [];
+    const lower = ctx.find ? raw.toLowerCase() : '';
+    for (let at = ctx.find ? lower.indexOf(ctx.find) : -1; at >= 0; ) {
+      hits.push([at, at + ctx.find.length]);
+      at = lower.indexOf(ctx.find, at + ctx.find.length);
+    }
+    let pos = 0;
     const spans = lyWordSpans(raw, model.voices)
       .map((p) => {
-        if (p.gap !== undefined) return rangeText(p.gap);
+        if (p.gap !== undefined) {
+          pos += p.gap.length;
+          return rangeText(p.gap);
+        }
+        const from = pos;
+        pos += p.word.length;
         const cls = [];
         if (p.aside) cls.push('ly-aside');
-        if (ctx.find && p.word.toLowerCase().includes(ctx.find))
+        if (hits.some(([a, b]) => a < pos && b > from))
           cls.push('ly-hit', ...(row.n === ctx.findLine ? ['ly-hit-current'] : []));
         const groups = (p.token && ctx.ends.get(`${row.n}:${p.token}`)) || [];
         const g = groups[0];
