@@ -295,6 +295,21 @@ try {
         false
       )
     );
+    // 3PO (#519 6395131994): recovery by a durable write must not reach a
+    // file that failed to load. Restarted on the same bad bytes, the fresh
+    // run's continuation is still refused, and checking it writes nothing.
+    const restarted = new RunLedger(path.join(bad, 'run-ledger.json'), { log: () => {} });
+    RUNS.ledger = restarted;
+    const replay = await call({ run_id: g1.run_id, run_revision: 1, answer: 'I hold you.' });
+    check('restarted on an unreadable file, a replay is still refused (BB8 A2)', () => {
+      assert.equal(replay.isError, true, text(replay).slice(0, 300));
+      assert.match(text(replay), /RUN_LEDGER_UNAVAILABLE/);
+      assert.equal(restarted.recover(), false);
+      assert.equal(restarted.healthy, false);
+    });
+    check('and the original bad bytes are untouched', () =>
+      assert.equal(fs.readFileSync(path.join(bad, 'run-ledger.json'), 'utf8'), '{not json')
+    );
     const unsaved = new RunLedger(path.join(bad, 'run-ledger.json', 'not-a-dir', 'x.json'), {
       log: () => {},
     });
@@ -305,6 +320,89 @@ try {
   } finally {
     RUNS.ledger = healthyLedger;
     fs.rmSync(bad, { recursive: true, force: true });
+  }
+
+  // ── A failed write recovers by a durable write (BB8 A2, #519) ──────────
+  // One save fails (a full disk for a moment): the ledger is unhealthy. The
+  // next check retries a durable save of the in-memory ledger, which now
+  // succeeds, so the ledger is healthy again and still knows the revision
+  // the failed save was for: a stale revision is refused as stale, before
+  // and after a restart, not waved through and not refused wholesale.
+  const flaky = fs.mkdtempSync(path.join(os.tmpdir(), 'run-ledger-flaky-'));
+  const ledgerFile = path.join(flaky, 'run-ledger.json');
+  try {
+    RUNS.ledger = new RunLedger(ledgerFile, { log: () => {} });
+    const f1 = verdict(await start());
+    const realOpen = fs.openSync;
+    let failNext = true;
+    fs.openSync = (file, ...rest) => {
+      if (failNext && String(file).startsWith(ledgerFile + '.')) {
+        failNext = false;
+        throw Object.assign(new Error('no space left on device'), { code: 'ENOSPC' });
+      }
+      return realOpen(file, ...rest);
+    };
+    let f2;
+    try {
+      f2 = verdict(await call({ run_id: f1.run_id, run_revision: 1, answer: 'I hold you.' }));
+    } finally {
+      fs.openSync = realOpen;
+    }
+    check('a save that fails once leaves the ledger unhealthy', () => {
+      assert.equal(failNext, false, 'the injected failure was hit');
+      assert.equal(RUNS.ledger.healthy, false);
+      assert.equal(f2.run_revision, 2);
+    });
+    RUNS.del(f1.run_id); // the record is lost too: only the ledger can judge
+    const stale = await call({
+      run_id: f1.run_id,
+      run_revision: 1,
+      state: f1.state,
+      answer: 'I hold you.',
+    });
+    check('meanwhile the stale revision is refused as stale (the ledger kept it in memory)', () =>
+      assert.match(text(stale), /stale run revision 1; current revision is 2\. Nothing was run/)
+    );
+    // The latest revision, exactly as the record-lost case above continues it.
+    const onwardAfterFailure = await call({
+      run_id: f1.run_id,
+      run_revision: 2,
+      state: f2.state,
+      scheme: 'AA',
+      relation: 'type:rime riche',
+      writer: 'interview',
+      max_rounds: 1,
+      backtrack: 0,
+      draft: ['Copper cat', 'Azure dog'],
+    });
+    check('the latest revision continues: the check saved durably and recovered', () => {
+      assert.doesNotMatch(
+        text(onwardAfterFailure),
+        /RUN_LEDGER_UNAVAILABLE|stale run revision|already finished/
+      );
+      assert.equal(RUNS.ledger.healthy, true);
+    });
+    check('the recovered file holds the revision the failed save was for, and no temp file', () => {
+      assert.ok(new RunLedger(ledgerFile, { log: () => {} }).get(f1.run_id).revision >= 2);
+      assert.deepEqual(
+        fs.readdirSync(flaky).filter((n) => n.endsWith('.tmp')),
+        []
+      );
+    });
+    RUNS.ledger = new RunLedger(ledgerFile, { log: () => {} }); // a restart
+    RUNS.del(f1.run_id);
+    const staleAfter = await call({
+      run_id: f1.run_id,
+      run_revision: 1,
+      state: f1.state,
+      answer: 'I hold you.',
+    });
+    check('after a restart the stale revision is still refused as stale', () =>
+      assert.match(text(staleAfter), /stale run revision 1; current revision is [2-9]/)
+    );
+  } finally {
+    RUNS.ledger = healthyLedger;
+    fs.rmSync(flaky, { recursive: true, force: true });
   }
 
   // ── Paid runs apart (BB8 R3) ──────────────────────────────────────────
