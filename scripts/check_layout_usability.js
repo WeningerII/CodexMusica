@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global app, document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -229,6 +229,79 @@ async function noOverflow(page) {
           width +
           'px: tree, labels, editor, panes, menus, lyrics, embedded/standalone map, short viewport'
       );
+      await context.close();
+    }
+    {
+      // Keyboard guards on a phone: Ctrl+Z behind a dialog or in a text field
+      // never undoes the recipe, and the open Recipe sheet keeps Tab off the
+      // page hidden under it.
+      const context = await browser.newContext({ viewport: { width: 390, height: 780 } });
+      await context.route('https://mcp.codexmusica.com/**', (route) =>
+        route.fulfill({ contentType: 'application/json', body: '{"ok":true,"enabled":true}' })
+      );
+      const page = await context.newPage();
+      await page.goto(base + '/codex.html');
+      await page.locator('.catalog-row, .cm-tile').first().waitFor();
+      await page.getByLabel('Search genres').fill('Delta blues');
+      await page.getByRole('button', { name: 'Add Delta blues', exact: true }).click();
+      await page.locator('.sb-card').first().waitFor({ state: 'attached' });
+      const cards = () => page.evaluate(() => app.cards.length);
+      const before = await cards();
+      assert.ok(before > 0, 'Keyboard guards: the recipe has cards');
+      await page.evaluate(() => document.getElementById('btn-saved').click());
+      await page.locator('#modal-saved.open').waitFor();
+      await page.keyboard.press('Control+z');
+      await page.waitForTimeout(200);
+      assert.equal(
+        await cards(),
+        before,
+        'Keyboard guards: Ctrl+Z with Saved sessions open leaves the recipe alone'
+      );
+      await page.keyboard.press('Escape');
+      await page.waitForFunction(() => !document.querySelector('.modal-bg.open'));
+      await page.getByLabel('Search genres').fill('blues');
+      await page.getByLabel('Search genres').focus();
+      await page.keyboard.press('Control+z');
+      await page.waitForTimeout(200);
+      assert.equal(
+        await cards(),
+        before,
+        'Keyboard guards: Ctrl+Z in a text field is the field’s own undo'
+      );
+      // The Recipe sheet covers the page: Tab past its last control stays off it.
+      await page.evaluate(() => document.activeElement?.blur());
+      await page.locator('[data-ui="session"]').click();
+      await page.locator('#workspace-sidebar').waitFor();
+      await page.evaluate(() => {
+        const items = [
+          ...document.querySelectorAll(
+            '#workspace-sidebar button, #workspace-sidebar a[href], #workspace-sidebar input, #workspace-sidebar select, #workspace-sidebar textarea, #workspace-sidebar [tabindex="0"]'
+          ),
+        ].filter((el) => !el.disabled && el.getClientRects().length);
+        items[items.length - 1].focus();
+      });
+      await page.keyboard.press('Tab');
+      const landed = await page.evaluate(() => {
+        const a = document.activeElement;
+        return {
+          onPage: !!document.getElementById('discovery')?.contains(a),
+          what: a?.getAttribute('aria-label') || a?.id || a?.tagName,
+        };
+      });
+      assert.equal(
+        landed.onPage,
+        false,
+        'Keyboard guards: Tab from the Recipe sheet does not land on the page under it: ' +
+          JSON.stringify(landed)
+      );
+      // Closing the sheet gives the page back.
+      await page.locator('[data-ui="session"]').click();
+      assert.equal(
+        await page.evaluate(() => document.getElementById('discovery').inert),
+        false,
+        'Keyboard guards: closing the Recipe sheet makes the page usable again'
+      );
+      console.log('PASS keyboard guards at 390x780: undo behind a dialog, in a field, sheet Tab');
       await context.close();
     }
   } finally {

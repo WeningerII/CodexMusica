@@ -17887,6 +17887,9 @@ function _initApp() {
     // is also the OS-level text undo for those.
     const tag = (e.target && e.target.tagName) || '';
     if (tag === 'INPUT' || tag === 'TEXTAREA' || (e.target && e.target.isContentEditable)) return;
+    // Nor while a dialog is open: undoing the recipe behind it changes what
+    // the dialog is about (eight cards to none with Saved sessions open).
+    if (document.querySelector('.modal-bg.open:not(.inline-tree), .confirm-dialog-bg, dialog[open]')) return;
     const mod = e.ctrlKey || e.metaKey;
     if (!mod) return;
     if (e.key === 'z' || e.key === 'Z') {

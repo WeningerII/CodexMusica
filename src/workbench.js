@@ -840,6 +840,12 @@ function uiStart() {
   }
   const workspace = document.querySelector('main.workspace');
   workspace.insertBefore(discovery, $ui('workspace-detail'));
+  // The Recipe sheet opens and closes through several paths; follow the class.
+  new MutationObserver(uiSyncSheetCovered).observe(document.body, {
+    attributes: true,
+    attributeFilter: ['class'],
+  });
+  window.addEventListener('resize', uiSyncSheetCovered);
   for (const [id] of UI_ROUTES) UI_PAGES[id]?.mount($ui('surface-' + id));
   const assistant = document.createElement('aside');
   assistant.id = 'assistant-slot';
@@ -1161,6 +1167,26 @@ function uiStart() {
     uiNavigate('genre');
   } else if (UI_PAGES[route.view]) uiNavigate(route.view, { sub: route.sub });
   else uiNavigate('genre');
+}
+
+// While the Recipe sheet covers the page (below 900px), the page under it
+// leaves the Tab order: focus must not walk controls nobody can see (WCAG
+// 2.4.11), as the Instrument inspector does for its catalogue. A partial
+// sheet (Map, Lyrics) leaves the page above it in use.
+function uiSyncSheetCovered() {
+  const page = $ui('discovery'),
+    sheet = $ui('workspace-sidebar');
+  if (!page || !sheet) return;
+  let covered = false;
+  if (
+    document.body.classList.contains('session-open') &&
+    getComputedStyle(sheet).position === 'fixed'
+  ) {
+    const s = sheet.getBoundingClientRect(),
+      p = page.getBoundingClientRect();
+    covered = s.top <= p.top + 1 && s.bottom >= Math.min(p.bottom, innerHeight) - 1;
+  }
+  if (page.inert !== covered) page.inert = covered;
 }
 
 // ── Layers ── Escape closes the topmost open layer only and returns focus to
