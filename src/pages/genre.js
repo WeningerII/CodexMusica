@@ -858,6 +858,9 @@ function gpRenderMain() {
   if (gpQuery()) G.tab = 'all';
   G.jump = '';
   host.innerHTML = G.tab === 'all' ? gpAll(open) : gpStart(open);
+  // The view tabs control this list: it is their tabpanel.
+  host.setAttribute('role', 'tabpanel');
+  host.setAttribute('aria-labelledby', `gp-view-${G.tab}`);
   // All genres in Rows: the A–Z bar sticks under the tabs.
   $ui('genre-maintabs').insertAdjacentHTML('beforeend', G.jump);
   $ui('genre-maintabs').classList.toggle('gp-maintabs-jump', !!G.jump);

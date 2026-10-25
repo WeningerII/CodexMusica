@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
+/* global document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -93,6 +93,143 @@ async function noOverflow(page) {
     );
   assert.deepEqual(bad, [], 'Content must reflow within its container');
 }
+// Press Tab until `selector` holds focus (or give up after `max` presses).
+async function tabTo(page, selector, max = 40) {
+  for (let i = 0; i < max; i++) {
+    await page.keyboard.press('Tab');
+    if (await page.evaluate((s) => !!document.activeElement?.matches(s), selector)) return true;
+  }
+  return false;
+}
+const focusInfo = (page) =>
+  page.evaluate(() => {
+    const a = document.activeElement;
+    return {
+      tag: a?.tagName,
+      cls: a?.className,
+      part: a?.dataset?.togglePart ?? a?.dataset?.setPart,
+      variant: a?.dataset?.variant,
+      stage: a?.dataset?.editChain ?? a?.dataset?.setChain,
+      item: a?.dataset?.item,
+      expanded: a?.getAttribute('aria-expanded'),
+      pressed: a?.getAttribute('aria-pressed'),
+      controls: a?.getAttribute('aria-controls'),
+      inList: a?.parentElement?.closest('[id^="detail-opts-"]')?.id || null,
+    };
+  });
+// The card editor works from the keyboard alone (screen-reader round 4,
+// #31–#34): section buttons expose which is current, a part row's header is a
+// button that opens its options, focus survives each re-render, every option
+// exposes whether it is chosen, and the character search has a name.
+async function editorKeyboard(page, where) {
+  const tag = (msg) => `Editor (${where}): ${msg}`;
+  const partsTab = page.locator('.detail-tab[data-tab="parts"]');
+  await partsTab.focus();
+  await page.keyboard.press('Enter');
+  await page.locator('.part-row-grid').first().waitFor();
+  assert.deepEqual(
+    await page
+      .locator('.detail-tab')
+      .evaluateAll((els) => els.map((b) => [b.dataset.tab, b.getAttribute('aria-pressed')])),
+    [
+      ['preface', 'false'],
+      ['parts', 'true'],
+      ['env', 'false'],
+      ['chain', 'false'],
+      ['stack', 'false'],
+    ],
+    tag('the section buttons expose which section is shown')
+  );
+  assert.equal(
+    await page.evaluate(() => document.activeElement?.dataset?.tab),
+    'parts',
+    tag('focus stays on the section button after it re-renders the editor')
+  );
+  assert.ok(await tabTo(page, 'button[data-toggle-part]'), tag('Tab reaches a part row header'));
+  const head = await focusInfo(page);
+  assert.equal(head.expanded, 'false', tag('a closed part row header says it is collapsed'));
+  await page.keyboard.press('Enter');
+  await page.locator('.part-variants-grid').first().waitFor();
+  const opened = await focusInfo(page);
+  assert.ok(
+    opened.part === head.part && opened.expanded === 'true' && opened.controls,
+    tag('Enter opens the part row and focus stays on its header: ' + JSON.stringify(opened))
+  );
+  await page.keyboard.press('Tab');
+  const chip = await focusInfo(page);
+  assert.ok(
+    chip.part === head.part && chip.inList === opened.controls && chip.pressed,
+    tag("Tab from the header reaches the row's options: " + JSON.stringify(chip))
+  );
+  const pressed = await page
+    .locator('#' + opened.controls + ' .variant-chip')
+    .evaluateAll((els) => els.map((b) => b.getAttribute('aria-pressed')));
+  assert.ok(
+    pressed.length > 1 && pressed.filter((v) => v === 'true').length === 1,
+    tag('every variant option exposes whether it is chosen: ' + JSON.stringify(pressed))
+  );
+  // Choose an option that is not chosen yet, from the keyboard.
+  if (chip.pressed === 'true') await page.keyboard.press('Tab');
+  const pick = await focusInfo(page);
+  await page.keyboard.press('Enter');
+  await settle(page);
+  const picked = await focusInfo(page);
+  assert.ok(
+    picked.part === pick.part && picked.variant === pick.variant && picked.pressed === 'true',
+    tag('a chosen variant keeps focus and reads as chosen: ' + JSON.stringify(picked))
+  );
+  // Environment rows open from the keyboard the same way.
+  await page.locator('.detail-tab[data-tab="env"]').focus();
+  await page.keyboard.press('Enter');
+  assert.ok(
+    await tabTo(page, 'button[data-toggle-env]'),
+    tag('Tab reaches an environment row header')
+  );
+  await page.keyboard.press('Enter');
+  const env = await page.evaluate(() => ({
+    expanded: document.activeElement?.getAttribute('aria-expanded'),
+    options: document.querySelectorAll('.env-options [aria-pressed="true"]').length,
+  }));
+  assert.deepEqual(
+    env,
+    { expanded: 'true', options: 1 },
+    tag('Enter opens an environment row, and its chosen option reads as chosen')
+  );
+  // Chain stages: Enter keeps focus on the stage; fx is multi-select.
+  await page.locator('.detail-tab[data-tab="chain"]').focus();
+  await page.keyboard.press('Enter');
+  const fx = page.locator('button.chain-stage[data-edit-chain="fx"]');
+  assert.equal(await fx.getAttribute('aria-expanded'), 'false', tag('a closed stage says so'));
+  await fx.focus();
+  await page.keyboard.press('Enter');
+  await page.locator('.chain-edit-options').waitFor();
+  const stage = await focusInfo(page);
+  assert.ok(
+    stage.stage === 'fx' && stage.expanded === 'true' && stage.controls,
+    tag('Enter on a chain stage keeps focus on it: ' + JSON.stringify(stage))
+  );
+  assert.ok(
+    await tabTo(page, '.chain-edit-options button[data-set-chain="fx"]'),
+    tag('Tab reaches the effects')
+  );
+  const fxOff = await focusInfo(page);
+  await page.keyboard.press('Enter');
+  await settle(page);
+  const fxOn = await focusInfo(page);
+  assert.ok(
+    fxOn.item === fxOff.item && fxOn.pressed === String(fxOff.pressed !== 'true'),
+    tag(
+      'toggling an effect keeps focus and flips its pressed state: ' + JSON.stringify([fxOff, fxOn])
+    )
+  );
+  await page.locator('.detail-tab[data-tab="preface"]').focus();
+  await page.keyboard.press('Enter');
+  assert.equal(
+    await page.getByRole('combobox', { name: 'Search characters' }).count(),
+    1,
+    tag('the character search is named')
+  );
+}
 (async () => {
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
   const base = 'http://127.0.0.1:' + server.address().port;
@@ -111,6 +248,11 @@ async function noOverflow(page) {
       // The genre catalogue: cards in Rows (the default), rows in List.
       await page.locator('.catalog-row, .cm-tile').first().waitFor();
       await noOverflow(page);
+      assert.equal(
+        await page.locator('#genre-list').getAttribute('role'),
+        'tabpanel',
+        'Genre: the list the view tabs control is their tabpanel'
+      );
       await page.getByRole('button', { name: 'Browse tree', exact: true }).click();
       const tree = page.locator('.inline-tree > .modal');
       assert.equal(
@@ -163,6 +305,7 @@ async function noOverflow(page) {
         labels.length && labels.every((value) => value !== 'nowrap'),
         'Part text must remain readable'
       );
+      await editorKeyboard(page, width + 'px');
       if (width >= 900) {
         await page.locator('.detail-actions [data-action="pin"]').hover();
         await page.getByRole('tooltip').waitFor();
@@ -229,6 +372,46 @@ async function noOverflow(page) {
           width +
           'px: tree, labels, editor, panes, menus, lyrics, embedded/standalone map, short viewport'
       );
+      await context.close();
+    }
+    // The narrow Edit Voice setup (390x780): the card opened from its own Edit
+    // button, then the keyboard alone; then removing it is announced.
+    {
+      console.log('Checking the card editor at 390x780 (Edit Voice)');
+      const context = await browser.newContext({ viewport: { width: 390, height: 780 } });
+      await context.route('https://mcp.codexmusica.com/**', (route) =>
+        route.fulfill({ contentType: 'application/json', body: '{"ok":true,"enabled":true}' })
+      );
+      const page = await context.newPage();
+      const errors = [];
+      page.on('pageerror', (e) => errors.push(e.message));
+      await page.goto(base + '/codex.html');
+      await page.locator('.catalog-row, .cm-tile').first().waitFor();
+      await page.getByLabel('Search genres').fill('Delta blues');
+      await page.getByRole('button', { name: 'Add Delta blues', exact: true }).click();
+      await page.locator('.sb-card').first().waitFor({ state: 'attached' });
+      await page.locator('[data-ui="session"]').click();
+      await page.getByRole('button', { name: 'Edit Voice', exact: true }).click();
+      await page.locator('.detail-tab[data-tab="parts"]').waitFor();
+      await editorKeyboard(page, '390x780 Edit Voice');
+      await page.locator('#detail-view [data-action="delete"]').click();
+      await page
+        .waitForFunction(
+          () =>
+            /Removed Voice\. Undo restores it\./.test(
+              document.getElementById('toast')?.textContent || ''
+            ),
+          null,
+          { timeout: 3000 }
+        )
+        .catch(() => {});
+      assert.match(
+        await page.locator('#toast').innerText(),
+        /Removed Voice\. Undo restores it\./,
+        'Removing an instrument from the recipe is announced'
+      );
+      assert.deepEqual(errors, [], 'No browser errors (390x780)');
+      console.log('PASS card editor at 390x780: Edit Voice by keyboard, remove announced');
       await context.close();
     }
   } finally {

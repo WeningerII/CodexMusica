@@ -390,6 +390,8 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .part-descriptors-cell { font-size: var(--fs-caption); color: var(--text-2); text-align: right; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 320px; }
 .part-options-cell { display: inline-flex; align-items: center; gap: 4px; color: var(--text-3); font-size: var(--fs-caption); white-space: nowrap; }
 .part-row-grid:hover .part-options-cell { color: var(--text); }
+button.part-options-cell { background: none; border: 0; padding: 0; margin: 0; min-height: 24px; }
+.part-row-grid button.part-options-cell:hover { background: none; }
 .part-variants-grid { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: var(--s2); padding: var(--s3) 0 var(--s2); }
 .part-variants-grid .variant-chip { text-align: left; }
 /* Universal cross-instrument string materials: collapsed under a part's own
