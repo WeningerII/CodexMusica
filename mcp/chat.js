@@ -27,6 +27,7 @@ import { loadChatSecret } from './job_store.js';
 import { encodeInterviewWire } from './state_codec.js';
 import { lyricContext, taskDomain } from './task_contract.js';
 import { runKeyOf } from './run_store.js';
+import { RUNS } from './lyric_tools.js';
 import { CONNECTOR_CONTRACT_VERSION } from './contract_version.js';
 import {
   encodeState,
@@ -444,6 +445,21 @@ export async function createChatRouter({
       record.proposer_usage?.in_flight
     );
     const cp = { ...progress, ...(uncertain ? { uncertain_proposal: true } : {}) };
+    // THE RUN GOES ON (Jony's C1 crash test). The signed base envelope names
+    // the run (its lyric.run_id, written on the run's previous turn), the
+    // progress is that run's newer work, and the ledger knows how far it got.
+    // Rebuilt without them, the recovered call opened a new anonymous run at
+    // revision 1. Carried here, it continues the same run at the ledger's
+    // revision, and the base envelope's older revision stays refused as
+    // stale. A finished run, or one the ledger does not know, is not carried.
+    const runId = typeof base.lyric?.run_id === 'string' ? base.lyric.run_id : null;
+    let mark = null;
+    try {
+      mark = runId ? RUNS.mark(runId) : null;
+    } catch {
+      mark = null;
+    }
+    const runFields = mark && !mark.finished ? { run_id: runId, run_revision: mark.revision } : {};
     const capacityStop = cp.new_run_required || cp.status === 'journal_capacity';
     let wire;
     try {
@@ -464,6 +480,7 @@ export async function createChatRouter({
       draft: cp.input_draft,
       replay_draft: cp.input_draft,
       final_draft: cp.accepted_lines,
+      ...runFields,
     };
     envelope.task = {
       ...envelope.task,
