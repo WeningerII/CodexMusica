@@ -4801,8 +4801,39 @@ function lyPlaceLineBar() {
   // Keep the open menu and its focus while selection events settle.
   const key = `${LY.size}:${row ? n : 0}:${app.historyIndex}:${app.history.length}:${inspecting}:${inline}`;
   if (dock.dataset.writingActions !== key) {
+    // A redraw (a step that moves the history: the Line actions Undo, a
+    // keyboard Undo, an edit landing) replaced the control in focus, and
+    // focus fell to <body>; an open Line actions menu closed under the
+    // person. Focus comes back to the same control, the menu stays open.
+    const had = document.activeElement;
+    const kept =
+      had && dock.contains(had)
+        ? {
+            ui: had.dataset?.ui || '',
+            id: had.dataset?.id || '',
+            menu: LY.menu === 'line-actions' && !!had.closest('.ly-menu'),
+          }
+        : null;
     dock.innerHTML = `${inspecting ? '' : `<span class="ly-dock-label">${row ? `Line ${n}` : 'Song'}</span>`}<span id="ly-relation-dock" class="ly-relation-dock"></span>${inspecting || inline ? '' : row && LY.size !== 'narrow' ? wideButtons() : lyWritingLineActions(row ? n : 0)}`;
     dock.dataset.writingActions = key;
+    const same = (list) =>
+      list.find((b) => b.dataset.ui === kept.ui && (b.dataset.id || '') === kept.id);
+    const menu = kept?.menu && $ui('ly-menu-line-actions');
+    const opener = menu && dock.querySelector('[aria-controls="ly-menu-line-actions"]');
+    if (opener) {
+      menu.hidden = false;
+      opener.setAttribute('aria-expanded', 'true');
+      LY.menuOpener = opener;
+      const items = [...menu.querySelectorAll('button:not([disabled])')];
+      (same(items) || items[0] || opener).focus({ preventScroll: true });
+    } else if (kept) {
+      if (kept.menu) LY.menu = '';
+      lyInspectionRenderDock();
+      const buttons = [...dock.querySelectorAll('button:not([disabled])')].filter(
+        (b) => b.getClientRects().length
+      );
+      (same(buttons) || buttons[0])?.focus({ preventScroll: true });
+    }
   }
   dock.setAttribute('aria-label', row ? `Line ${n} actions` : 'Song actions');
   dock.hidden = false;
@@ -6555,6 +6586,8 @@ const LY_ACTIONS = {
       uiFocus(document.querySelector('.ly-tool-nav [data-ui="ly-tool"]'));
   },
   'ly-line-tool'(id) {
+    // Chosen from the phone's Line actions menu: that menu is done.
+    lyCloseMenus();
     const [tool, n] = [id.split(':')[0], Number(id.split(':')[1])];
     const model = LY.model;
     if (tool === 'rhymes') LY.picks.linkLine = n;
@@ -7388,7 +7421,12 @@ function lyWire(surface) {
     LY.picks.formSec = to;
   });
   document.addEventListener('click', (e) => {
-    if (LY.menu && !e.target.closest('.ly-menu-wrap')) lyCloseMenus();
+    if (!LY.menu || e.target.closest('.ly-menu-wrap')) return;
+    // Not a click elsewhere: a target the click's own action redrew away, or
+    // the page's history button clicked in code by a menu's Undo or Redo.
+    if (!e.target.isConnected) return;
+    if (!e.isTrusted && e.target.closest('#ui-undo, #ui-redo, #btn-undo, #btn-redo')) return;
+    lyCloseMenus();
   });
   // Read-only progress while a request runs (src/app.js _chatPollStart).
   document.addEventListener('chat-progress', (e) => {

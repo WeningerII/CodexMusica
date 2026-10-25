@@ -5603,6 +5603,80 @@ async function browserChecks(chromium) {
       }
     });
 
+    // M2. The phone's Line actions menu lives in the line dock, which is
+    // redrawn whenever the history moves: its own Undo, or any step while it
+    // is open, replaced the item in focus (focus to <body>, the menu shut
+    // under the person, LY.menu left set). It stays open, on that item. A
+    // tool chosen from it closes it (LY.menu was left 'line-actions').
+    // Second review of lyrics-menus-sr 0dda776ba.
+    await step('M2. Line actions survives a dock redraw', async () => {
+      for (const how of ['keyboard', 'pointer']) {
+        const { ctx, page } = await boot({ theme: 'light', phone: true });
+        const where = () =>
+          page.evaluate(() => {
+            const a = document.activeElement;
+            const menu = $ui('ly-menu-line-actions');
+            return {
+              inMenu: !!menu && !menu.hidden && menu.contains(a),
+              item: a?.dataset?.ui || (a === document.body ? 'BODY' : a?.tagName),
+              menu: LY.menu,
+              open: [...document.querySelectorAll('#surface-lyrics .ly-menu:not([hidden])')].length,
+            };
+          });
+        const sel = '#ly-linedock [aria-controls="ly-menu-line-actions"]';
+        const press = async (selector) => {
+          if (how === 'keyboard') {
+            await page.focus(selector);
+            await page.keyboard.press('Enter');
+          } else await page.click(selector);
+          await page.waitForTimeout(200);
+        };
+        const song = () =>
+          page.evaluate(() => {
+            LY_ACTIONS['ly-mobile']('song');
+            lyScrollToLine(2);
+            lySyncCaret();
+            lyRefresh(true);
+          });
+        await setDraft(page, DRAFT);
+        await page.evaluate(() => {
+          const d = $ui('lyrics-draft');
+          d.value += '\nOne more line';
+          uiSaveLyrics();
+          pushHistory();
+        });
+        await song();
+        await press(sel);
+        await press('#ly-menu-line-actions [data-ui="ly-undo"]');
+        const undone = await where();
+        check(
+          undone.inMenu && undone.menu === 'line-actions',
+          `${how}: Undo from Line actions dropped focus or shut the menu: ${JSON.stringify(undone)}`
+        );
+        await page.evaluate(() => {
+          app.workspaceName = 'Renamed while the menu is open';
+          pushHistory();
+          lyRefresh(true);
+        });
+        await page.waitForTimeout(200);
+        const moved = await where();
+        check(
+          moved.inMenu && moved.menu === 'line-actions',
+          `${how}: a history step under the open Line actions dropped it: ${JSON.stringify(moved)}`
+        );
+        await page.keyboard.press('Escape');
+        await song();
+        await press(sel);
+        await press('#ly-menu-line-actions [data-ui="ly-line-tool"]');
+        const tool = await where();
+        check(
+          tool.menu === '' && tool.open === 0 && tool.item === 'ly-tool',
+          `${how}: a tool chosen from Line actions left the menu set: ${JSON.stringify(tool)}`
+        );
+        await ctx.close();
+      }
+    });
+
     // ── screenshots: a suggestion, light and dark, desktop and phone ─────
     if (SHOTS) {
       stage = 'screenshots';
