@@ -2649,6 +2649,10 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
     except SeedRefused:
         base = None
     if base is not None and all(sweep_holds(base, w) for w in parsed):
+        # Keep the swept shape, but retain the declarations supplied to this
+        # request: the base was generated without wants. Creation receipts
+        # and later grading compare this request, not the selection notes.
+        base["request"]["wants"] = ["".join(w) for w in parsed]
         redraw = base["choices"].get("seed_redraw")
         attempts = (redraw["refused"] if redraw else []) + [
             {"seed": redraw["candidate_seed"] if redraw else str(seed),

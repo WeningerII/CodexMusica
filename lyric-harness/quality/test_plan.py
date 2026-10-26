@@ -4941,7 +4941,42 @@ def test_a_request_refusal_is_the_requests():
               acc and not moved, (acc, moved))
 
 
+def test_satisfied_wants_remain_in_the_request():
+    """Keeping the swept shape must keep its declared planning predicates."""
+    base = make_plan(seed=31, lines=12)
+    wants = ["lines <= 30", "lines >= 12"]
+    planned = make_plan(seed=31, lines=12, wants=wants)
+    canonical = ["lines<=30", "lines>=12"]
+    check("already-satisfied wants remain in the plan request",
+          planned["request"]["wants"] == canonical, planned["request"])
+    check("selection and request disclose the same wants",
+          planned["choices"]["brief_selection"]["wants"]
+          == planned["request"]["wants"])
+    check("keeping satisfied wants does not redraw the swept shape",
+          all(planned[k] == base[k]
+              for k in ("sections", "line_slots", "total_lines")))
+    check("the no-wants control remains undeclared",
+          base["request"]["wants"] == [])
+    check("the declared request reproduces the identical plan",
+          make_plan(**planned["request"]) == planned)
+    unchanged = json.loads(json.dumps(planned))
+    unchanged["request"]["wants"] = []
+    del unchanged["choices"]["brief_selection"]
+    check("only the request and selection provenance differ from the control",
+          unchanged == base)
+    conditioned = make_plan(seed=31, wants=["lines<=12"])
+    check("the conditioned-draw control still records its wants",
+          make_plan(seed=31)["total_lines"] > 12
+          and conditioned["total_lines"] <= 12
+          and conditioned["request"]["wants"] == ["lines<=12"]
+          and conditioned["choices"]["brief_selection"]["policy"]
+          == "first satisfying candidate; no ranking")
+    check("the conditioned request still reproduces the identical plan",
+          make_plan(**conditioned["request"]) == conditioned)
+
+
 _SECTIONS = (
+    test_satisfied_wants_remain_in_the_request,
     test_a_request_refusal_is_the_requests,
     test_the_seed_sweep_is_a_verb,
     test_the_form_is_read,
