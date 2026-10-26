@@ -204,6 +204,48 @@ RECORDED, not adopted**: nothing in this tree reads either figure.
 re-derived sample**, which is the sharpest single statement of how far the
 population moved.
 
+### Live D1 re-derived 2026-10-26: reading uncertainty and conjunction
+
+The unchanged population is 4,315,945 unique pairs from the 1,344 English
+files described by `D1_2026_10_15` in `structure_census.py`; the seed remains
+20260818 and the sample remains 1,000 pairs. The dated artifact is untouched.
+
+PR #615 (`d21de02ecb3c50979dd35f135b1c12dfe117b1ae`) changed mixed-reading
+channel comparisons from definite False to None. A full-sample A/B at
+`6c6a9540c37e6361b4b6a52ea4d635667d8e1be9`, restoring only the former
+`rhyme_types._cmp` (`None` for a missing channel, otherwise `x == y`),
+isolated exactly three changed judgments; engine admissions did not change:
+
+| Pair | Demanded vowel / coda | Before #615 | After #615 | Corrected cell judge |
+|---|---|---|---|---|
+| office / color | None / True | False | None | None |
+| han' / frocks | None / False | False | None | False |
+| fall / along | None / False | False | None | False |
+
+The latter two exposed a product defect: `_cell_holds` returned on the
+unknown vowel before inspecting the definite coda mismatch. Its conjunction
+now uses the existing `relations.tri_and`: a known demanded mismatch disproves
+the cell regardless of channel order. A second full-sample A/B against the
+early-return implementation changes exactly those two pairs. No comparator,
+identity, alignment or admission rule is retuned. `office/color` remains
+undecided; masculine-rhyme demands only its first agreement row, so its
+second row cannot settle this question. The measurement adapter retains its
+declared unanimity policy, distinct from the song grader's whole-reading policy.
+
+The live table is now true/admits **5**, true/rejects **2**, false/admits **1**,
+false/rejects **678**, refused/admits **4**, refused/rejects **310**. Agreement
+over judged is **683/686**, versus the dated 2026-10-15 **684/687**. Only
+`office/color` leaves the judged denominator. This is an uncertainty correction,
+not evidence of improved accuracy. The prior record remains as
+`D1_2026_10_15`; the temporary nightly values 676/312 are not adopted.
+
+Verification: `python3 quality/test_structures.py` covers all 27 ternary
+channel combinations, later-syllable mismatch, unconstrained channels, short
+patterns, these three actual pairs, and decided/undecided controls. Nine new
+assertions fail with the early-return implementation and all pass with the fix.
+`python3 quality/structure_census.py --check` re-derives the aggregate and the
+unchanged artifact independently of those pair pins.
+
 ## The null table this run banks (the point of the census)
 
 Chance rates over eng_song, judged-base — what INCIDENTAL co-occurrence
