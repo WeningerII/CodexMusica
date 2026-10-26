@@ -1514,8 +1514,15 @@ function extractRender(stdout) {
 // ── the schemas (plain shapes: no unions, no refs — the contract gate's
 //    STRUCTURAL scan and Gemini's key allowlist both stay clean) ───────────
 
+// A missing seed names where one comes from, instead of zod's bare
+// "expected number, received undefined" (every refusal names its next step).
 const seedField = z
-  .number()
+  .number({
+    error: (iss) =>
+      iss.input === undefined
+        ? "seed is required: use one from lyric_sweep's accepted seeds, and the same one for the whole song."
+        : undefined,
+  })
   .int()
   .min(-2147483648)
   .max(2147483647)

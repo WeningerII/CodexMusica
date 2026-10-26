@@ -3,7 +3,7 @@
 // router (show(main, sub)), the shared `lib` service every other chunk codes
 // against (docs/library-ui-contract.md), and Explore: language shelves of
 // collection cards, the collections rail, the topline and a collection page.
-/* global LIBRARY, LIBRARY_DATA_BASE, esc, icon, libraryChunk, libraryShow, uiButton, uiEmptyState, uiSubroute, showToast */
+/* global LIBRARY, LIBRARY_DATA_BASE, esc, icon, libraryChunk, libraryShow, uiButton, uiEmptyState, uiSubroute, showToast, libraryAnnounce */
 'use strict';
 
 // ─── The shared service ──────────────────────────────────────────────────────
@@ -207,12 +207,45 @@ const selection = (() => {
   return sel;
 })();
 
+// A failure state read as one sentence pair: its title, then what to do.
+const failed = (root) =>
+  [...(root.querySelector('.cm-empty')?.children || [])]
+    .filter((el) => el.matches('strong, span'))
+    .map((el) => el.textContent.replace(/\.?$/, '.'))
+    .join(' ');
+const UNREACHABLE = 'Couldn’t reach the Library. Check your connection and try again.';
 const lib = {
   base: typeof LIBRARY_DATA_BASE === 'string' ? LIBRARY_DATA_BASE : 'library/data/',
   api: 'https://mcp.codexmusica.com/library/v1',
   artBase: ART_BASE,
   languageNames: LANGUAGE_NAMES,
   languageName: (code) => LANGUAGE_NAMES[code] || code,
+  // The visible line for a load that failed: what the person can do, not the
+  // transport's words ("Failed to fetch", "Library data 503: …"), which stay in
+  // the console. A refusal written for readers (a 400 from search) keeps its own.
+  problem(error) {
+    const msg = String((error && error.message) || error || '');
+    const status = (error && error.status) || 0;
+    return !msg ||
+      error instanceof TypeError ||
+      status >= 500 ||
+      status === 404 ||
+      /Library (data|service) \d|\(\d{3}\)|fetch|network|load failed/i.test(msg)
+      ? UNREACHABLE
+      : msg;
+  },
+  failed,
+  // After a Retry the button that held focus is gone. When focus fell with it,
+  // land on the control that matters now (the new Retry, or the loaded view's
+  // heading or first control) and say what happened.
+  settle(target, said) {
+    const a = document.activeElement;
+    if (target && (!a || a === document.body || !a.isConnected)) {
+      if (!target.matches('button,a[href],input,select,textarea,[tabindex]')) target.tabIndex = -1;
+      target.focus();
+    }
+    if (said && typeof libraryAnnounce === 'function') libraryAnnounce(said);
+  },
   go(sub, { replace = false } = {}) {
     LIBRARY.sub = sub;
     uiSubroute(sub, { push: !replace });
@@ -278,7 +311,7 @@ const CSS = `
 #surface-library .lib-rail[hidden]{display:none}
 #surface-library .lib-rail-head{display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid var(--cm-border-subtle,var(--cm-border))}
 #surface-library .lib-rail-head strong{flex:1}
-#surface-library .lib-rail-head select{max-width:110px;min-height:30px;border:1px solid var(--cm-border);border-radius:var(--cm-radius-md,8px);background:var(--cm-surface);color:var(--cm-text);font:inherit;font-size:12px}
+#surface-library .lib-rail-head select{max-width:110px;min-height:30px;border:1px solid var(--cm-control-border,var(--cm-border));border-radius:var(--cm-radius-md,8px);background:var(--cm-surface);color:var(--cm-text);font:inherit;font-size:12px}
 #surface-library .lib-rail-scroll{flex:1;overflow-y:auto;position:relative;min-height:200px}
 #surface-library .lib-rail-spacer{position:relative}
 #surface-library .lib-spine{position:absolute;left:0;right:0;height:52px;display:flex;align-items:center;gap:10px;padding:0 12px;border:0;border-bottom:1px solid var(--cm-border-subtle,var(--cm-border));background:transparent;color:var(--cm-text);text-align:left;cursor:pointer;font:inherit}
@@ -329,40 +362,16 @@ const CSS = `
 #surface-library .lib-menu{position:fixed;z-index:40;min-width:220px;display:flex;flex-direction:column;padding:4px;border:1px solid var(--cm-border);border-radius:var(--cm-radius-md,8px);background:var(--cm-surface-overlay,var(--cm-surface));box-shadow:var(--cm-shadow-3)}
 #surface-library .lib-menu button{display:flex;align-items:center;gap:8px;min-height:36px;padding:0 10px;border:0;border-radius:6px;background:transparent;color:var(--cm-text);font:inherit;font-size:13px;text-align:left;cursor:pointer}
 #surface-library .lib-menu button:hover,#surface-library .lib-menu button:focus{background:var(--cm-hover);outline:none}
-#surface-library .lib-credit{position:fixed;inset:0;margin:auto;height:fit-content;max-height:calc(100vh - 32px);overflow:auto;max-width:min(560px,calc(100vw - 32px));padding:20px;border:1px solid var(--cm-border);border-radius:var(--cm-radius-lg,12px);background:var(--cm-surface);color:var(--cm-text);box-shadow:var(--cm-shadow-3)}
-#surface-library .lib-credit::backdrop{background:var(--cm-scrim,rgba(0,0,0,.5))}
-#surface-library .lib-credit form{display:flex;justify-content:flex-end;margin:0 0 8px}
-#surface-library .lib-credit img{display:block;max-width:100%;max-height:60vh;margin:0 auto 12px;border-radius:var(--cm-radius-md,8px)}
-#surface-library .lib-credit h2{margin:0 0 4px;font-size:18px}
-#surface-library .lib-credit p{margin:0 0 8px;color:var(--cm-text-secondary);font-size:14px}
-#surface-library .lib-credit .lib-credit-note{font-size:12px;color:var(--cm-text-muted)}
-#surface-library .lib-credit a{color:var(--cm-accent-text);display:inline-flex;align-items:center;gap:4px}
 #surface-library .lib-caption small{font-size:12px;color:var(--cm-text-secondary)}
 #surface-library .lib-more{flex:0 0 172px;display:grid;place-items:center;aspect-ratio:3/4;border:1px dashed var(--cm-border);border-radius:var(--cm-radius-md,8px);background:transparent;color:var(--cm-text-secondary);cursor:pointer;font:inherit}
 #surface-library .lib-more:hover{background:var(--cm-hover);color:var(--cm-text)}
 #surface-library .lib-foot{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;color:var(--cm-text-muted);font-size:12px}
 #surface-library .lib-foot a{color:var(--cm-accent-text)}
-#surface-library .lib-coll-head{display:flex;gap:16px;align-items:flex-start}
-#surface-library .lib-coll-head .lib-art{flex:0 0 120px}
-#surface-library .lib-coll-head .lib-cover{justify-content:center;align-items:center}
-#surface-library .lib-coll-head .lib-cover>:not(svg){display:none}
 #surface-library .lib-core button[disabled]{opacity:.5;cursor:default}
-#surface-library .lib-coll-head h1{margin:0 0 4px;font-size:22px;line-height:1.25;color:var(--cm-text);white-space:pre-line}
-#surface-library .lib-coll-head p{margin:0 0 10px;color:var(--cm-text-secondary)}
-#surface-library .lib-coll-actions{display:flex;flex-wrap:wrap;gap:8px}
-#surface-library .lib-coll-list{list-style:none;margin:0;padding:0;border:1px solid var(--cm-border);border-radius:var(--cm-radius-lg,12px);background:var(--cm-surface);overflow:hidden}
-#surface-library .lib-coll-list li{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--cm-border-subtle,var(--cm-border))}
-#surface-library .lib-coll-list li:last-child{border-bottom:0}
-#surface-library .lib-coll-list a{flex:1;min-width:0;display:flex;flex-direction:column;color:var(--cm-text);text-decoration:none}
-#surface-library .lib-coll-list a:hover strong{text-decoration:underline}
-#surface-library .lib-coll-list strong{font-size:14px;font-weight:600}
-#surface-library .lib-coll-list small{font-size:12px;color:var(--cm-text-secondary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-#surface-library .lib-coll-list input{width:18px;height:18px;accent-color:var(--cm-accent)}
-#surface-library .lib-pager{display:flex;align-items:center;gap:10px;justify-content:flex-end;color:var(--cm-text-secondary);font-size:13px}
 #surface-library .lib-skel{height:240px;border-radius:var(--cm-radius-md,8px);background:var(--cm-surface-sunken);animation:lib-pulse 1.4s ease-in-out infinite}
 @keyframes lib-pulse{50%{opacity:.55}}
 @media (prefers-reduced-motion:reduce){#surface-library .lib-skel{animation:none}}
-@media (max-width:1099px){#surface-library .lib-rail{position:fixed;z-index:30;left:8px;top:72px;bottom:8px;max-height:none;box-shadow:var(--cm-shadow-3)}}
+@media (max-width:1099px){#surface-library .lib-rail{position:fixed;z-index:30;left:8px;top:calc(var(--app-bar-height,56px) + 8px);bottom:8px;max-height:none;box-shadow:var(--cm-shadow-3)}}
 @media (max-width:600px){#surface-library .lib-card,#surface-library .lib-more{flex-basis:140px}#surface-library .lib-coll-head .lib-art{flex-basis:84px}}
 `;
 function ensureStyles() {
@@ -380,7 +389,6 @@ const state = {
   shelfShown: {},
   shelfUnsaved: {},
   shelfTimers: {},
-  page: 0,
   token: 0,
 };
 const num = (n) => Number(n || 0).toLocaleString('en-US');
@@ -454,28 +462,78 @@ function railHtml(catalog) {
 <footer class="lib-rail-foot"><button type="button" class="lib-btn" data-lib-act="go" data-sub="/rights">${icon('download', 16)}<span>Export selection</span><b data-lib="sel-count">${num(selection.size)}</b></button><small data-lib="sel-note">On this device${selection.unsaved ? ' · unsaved' : ''}</small></footer></aside>`;
 }
 
-// The rail is virtualized: at most RAIL_MAX rows in the DOM.
+// The rail is virtualized: at most RAIL_MAX rows in the DOM. It is one tab
+// stop (a roving tabindex): Tab enters on one row and leaves for the page,
+// and the arrow keys, Home and End move between rows. Each row used to be a
+// tab stop, so tabbing scrolled the rail, the repaint replaced the focused
+// row, focus fell to the body, and the next Tab re-entered at row 01: at
+// widths where the rail is open, keyboard users never reached the page
+// (Jony's viewport lane, #519).
 let railRows = [];
+let railFocus = 0;
 function drawRail(root, activeId) {
   const scroll = root.querySelector('.lib-rail-scroll');
   const spacer = root.querySelector('.lib-rail-spacer');
   if (!scroll || !spacer) return;
   spacer.style.height = railRows.length * RAIL_ROW + 'px';
+  const at = activeId ? railRows.findIndex((c) => c.id === activeId) : -1;
+  railFocus = at >= 0 ? at : Math.min(railFocus, Math.max(0, railRows.length - 1));
   const paint = () => {
+    const hadFocus = spacer.contains(document.activeElement);
     const first = Math.max(0, Math.floor(scroll.scrollTop / RAIL_ROW) - 5);
     const count = Math.min(RAIL_MAX, Math.ceil((scroll.clientHeight || 600) / RAIL_ROW) + 10);
     spacer.innerHTML = railRows
       .slice(first, first + count)
       .map((c, j) => {
         const i = first + j;
-        return `<button type="button" class="lib-spine" style="top:${i * RAIL_ROW}px" data-lib-act="open" data-cid="${esc(c.id)}"${c.id === activeId ? ' aria-current="true"' : ''}><b>${String(i + 1).padStart(2, '0')}</b><span><strong>${esc(shortTitle(c.title))}</strong><small>${esc(lib.languageName(c.language))} · ${plural(c.readable, 'reading')}</small></span></button>`;
+        return `<button type="button" class="lib-spine" style="top:${i * RAIL_ROW}px" data-lib-act="open" data-cid="${esc(c.id)}" data-i="${i}" tabindex="${i === railFocus ? 0 : -1}"${c.id === activeId ? ' aria-current="true"' : ''}><b>${String(i + 1).padStart(2, '0')}</b><span><strong>${esc(shortTitle(c.title))}</strong><small>${esc(lib.languageName(c.language))} · ${plural(c.readable, 'reading')}</small></span></button>`;
       })
       .join('');
+    // The row that held focus is a new element now: give focus back to it.
+    if (hadFocus) spacer.querySelector(`[data-i="${railFocus}"]`)?.focus({ preventScroll: true });
+  };
+  const moveTo = (i) => {
+    railFocus = Math.max(0, Math.min(railRows.length - 1, i));
+    const top = railFocus * RAIL_ROW;
+    if (top < scroll.scrollTop) scroll.scrollTop = top;
+    else if (top > scroll.scrollTop + scroll.clientHeight - RAIL_ROW)
+      scroll.scrollTop = top - scroll.clientHeight + RAIL_ROW;
+    paint();
+    spacer.querySelector(`[data-i="${railFocus}"]`)?.focus({ preventScroll: true });
   };
   scroll.onscroll = () => requestAnimationFrame(paint);
+  const onFocus = (e) => {
+    const i = Number(e.target?.dataset?.i);
+    if (Number.isInteger(i) && i !== railFocus) {
+      railFocus = i;
+      for (const b of spacer.querySelectorAll('.lib-spine'))
+        b.tabIndex = Number(b.dataset.i) === i ? 0 : -1;
+    }
+  };
+  const onKey = (e) => {
+    if (!e.target?.classList?.contains('lib-spine')) return;
+    const page = Math.max(1, Math.floor(scroll.clientHeight / RAIL_ROW) - 1);
+    const to = {
+      ArrowDown: railFocus + 1,
+      ArrowUp: railFocus - 1,
+      PageDown: railFocus + page,
+      PageUp: railFocus - page,
+      Home: 0,
+      End: railRows.length - 1,
+    }[e.key];
+    if (to === undefined) return;
+    e.preventDefault();
+    moveTo(to);
+  };
+  // One listener pair per spacer, always calling this draw's handlers.
+  spacer._rail = { onFocus, onKey };
+  if (!spacer._railBound) {
+    spacer._railBound = true;
+    spacer.addEventListener('focusin', (e) => spacer._rail.onFocus(e));
+    spacer.addEventListener('keydown', (e) => spacer._rail.onKey(e));
+  }
   paint();
   if (activeId) {
-    const at = railRows.findIndex((c) => c.id === activeId);
     if (
       at >= 0 &&
       (at * RAIL_ROW < scroll.scrollTop ||
@@ -484,9 +542,114 @@ function drawRail(root, activeId) {
       scroll.scrollTop = Math.max(0, at * RAIL_ROW - 2 * RAIL_ROW);
   }
 }
+// Below 1100 px the open rail overlays the page (position: fixed). It then
+// behaves as a panel: opening moves focus into it, Escape closes it and
+// returns focus to the toggle, and focus leaving it closes it, so a focused
+// control is never left under the rail (Jony's viewport lane, #519;
+// WCAG 2.4.11). It starts below the sticky app bar (--app-bar-height, kept in
+// sync by app.js), so its head row is never under the bar, and a press
+// anywhere outside it closes it. Where the rail sits beside the page, none of
+// this applies.
+const railOverlays = (rail) => !!rail && getComputedStyle(rail).position === 'fixed';
+function setRail(main, open, { focusToggle = false, quiet = false } = {}) {
+  const rail = main.querySelector('.lib-rail');
+  if (!rail) return;
+  // Closing from inside (the rail's own close button) gives focus back to
+  // the toggle instead of dropping it with the hidden rail.
+  const hadFocus = rail.contains(document.activeElement);
+  state.rail = open;
+  rail.hidden = !open;
+  main.querySelectorAll('.lib-topline [data-lib-act="rail"]').forEach((b) => {
+    b.setAttribute('aria-expanded', String(open));
+    b.setAttribute('aria-label', `${open ? 'Collapse' : 'Open'} collections rail`);
+    b.innerHTML = icon(open ? 'panel-left-close' : 'panel-left-open', 18);
+  });
+  if (open) {
+    drawRail(main, currentCollection());
+    if (railOverlays(rail))
+      (rail.querySelector('.lib-spine[tabindex="0"]') || rail.querySelector('select'))?.focus();
+  } else if (!quiet && (focusToggle || hadFocus))
+    main.querySelector('.lib-topline [data-lib-act="rail"]')?.focus();
+  bindRailPanel(main, rail);
+}
+// One document listener for the light dismiss, aimed at the current view.
+// The dismissing press only dismisses: its click is swallowed, so a tap
+// beside the rail never also ticks or opens what lies under it (Jony, #519).
+let railOutsideMain = null;
+let railSwallowClick = 0;
+function bindRailOutside(main) {
+  railOutsideMain = main;
+  if (bindRailOutside.bound) return;
+  bindRailOutside.bound = true;
+  document.addEventListener(
+    'pointerdown',
+    (e) => {
+      railSwallowClick = 0;
+      const m = railOutsideMain;
+      const rail = m?.isConnected ? m.querySelector('.lib-rail') : null;
+      if (!rail || !state.rail || !railOverlays(rail)) return;
+      // A press on the toggle closes the rail through its own click.
+      if (rail.contains(e.target) || e.target.closest?.('[data-lib-act="rail"]')) return;
+      setRail(m, false);
+      railSwallowClick = e.timeStamp;
+    },
+    true
+  );
+  document.addEventListener(
+    'click',
+    (e) => {
+      // Only the click that ends the dismissing press (a press that never
+      // becomes a click is forgotten at the next press or after a second).
+      // A keyboard click (detail 0) is never the end of a press.
+      if (!railSwallowClick || e.detail === 0 || e.timeStamp - railSwallowClick > 1000) return;
+      railSwallowClick = 0;
+      e.preventDefault();
+      e.stopPropagation();
+    },
+    true
+  );
+}
+let railTogglePress = false;
+function bindRailPanel(main, rail) {
+  if (rail) bindRailOutside(main);
+  if (!rail || rail._panelBound) return;
+  rail._panelBound = true;
+  // True only while a pointer is held down on the toggle: set and cleared on
+  // the document in the capture phase, so no stopped click (the dismissing
+  // press swallows one) can leave it stale and make a later Tab onto the
+  // toggle look like a press.
+  if (!bindRailPanel.pressBound) {
+    bindRailPanel.pressBound = true;
+    document.addEventListener(
+      'pointerdown',
+      (e) => (railTogglePress = !!e.target.closest?.('[data-lib-act="rail"]')),
+      true
+    );
+    for (const type of ['pointerup', 'pointercancel'])
+      document.addEventListener(type, () => (railTogglePress = false), true);
+  }
+  {
+    rail.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && state.rail && railOverlays(rail)) {
+        e.preventDefault();
+        e.stopPropagation();
+        setRail(main, false, { focusToggle: true });
+      }
+    });
+    rail.addEventListener('focusout', (e) => {
+      const to = e.relatedTarget;
+      if (!state.rail || !railOverlays(rail) || !to || rail.contains(to)) return;
+      // A pointer press on the toggle closes the rail through its own click;
+      // Tab onto the toggle is leaving the rail like any other move.
+      if (railTogglePress && to.closest?.('[data-lib-act="rail"]')) return;
+      setRail(main, false);
+    });
+  }
+}
 async function fillRail(root, activeId) {
   const scroll = root.querySelector('.lib-rail-scroll');
   if (!scroll) return;
+  bindRailPanel(root, root.querySelector('.lib-rail'));
   try {
     const { collections } = await lib.collections();
     railRows = collections
@@ -496,10 +659,12 @@ async function fillRail(root, activeId) {
   } catch (e) {
     scroll.innerHTML = uiEmptyState({
       title: 'Collections did not load',
-      text: String(e.message || e),
+      text: lib.problem(e),
       actions: libButton('rail-retry', 'Retry', 'refresh-cw', ''),
       tone: 'danger',
+      role: '',
     });
+    lib.settle(null, failed(scroll));
   }
 }
 
@@ -507,9 +672,9 @@ function shelfHtml(shelf, rows) {
   const shown = state.shelfShown[shelf.language] || shelf.cards.length;
   const cards = rows ? rows.slice(0, shown) : shelf.cards.map((c) => fromShelf(c, shelf.language));
   const more = shelf.total - cards.length;
-  return `<section class="lib-shelf" data-lang="${esc(shelf.language)}" aria-labelledby="lib-shelf-${esc(shelf.language)}">
+  return `<div class="lib-shelf" role="group" data-lang="${esc(shelf.language)}" aria-labelledby="lib-shelf-${esc(shelf.language)}">
 <div class="lib-shelf-head"><h2 id="lib-shelf-${esc(shelf.language)}">${esc(lib.languageName(shelf.language))}</h2><span>${plural(shelf.total, 'collection')}<span data-lib="shelf-note">${state.shelfUnsaved[shelf.language] ? ' · position unsaved' : ''}</span></span></div>
-<div class="lib-shelf-scroll" tabindex="0" aria-label="${esc(lib.languageName(shelf.language))} collections, scroll horizontally">${cards.map((c, i) => cardHtml(c, i)).join('')}${more > 0 ? `<button type="button" class="lib-more" data-lib-act="more" data-lang="${esc(shelf.language)}">Show ${num(Math.min(more, SHELF_BATCH))} more<br>of ${num(more)}</button>` : ''}</div></section>`;
+<div class="lib-shelf-scroll" tabindex="0" role="group" aria-label="${esc(lib.languageName(shelf.language))} collections, scroll horizontally">${cards.map((c, i) => cardHtml(c, i)).join('')}${more > 0 ? `<button type="button" class="lib-more" data-lib-act="more" data-lang="${esc(shelf.language)}">Show ${num(Math.min(more, SHELF_BATCH))} more<br>of ${num(more)}</button>` : ''}</div></div>`;
 }
 
 async function showExplore(main, token) {
@@ -588,62 +753,19 @@ function withFirst(rows, shelf) {
 }
 
 // ─── A collection ────────────────────────────────────────────────────────────
-async function showCollection(main, id, token) {
-  const [catalog, all] = await Promise.all([lib.catalog(), lib.collections()]);
-  if (token !== state.token) return;
-  const row = all.collections.find((c) => c[0] === id);
-  const c = row ? fromRow(row) : null;
-  const frame = (body) =>
-    `<div class="lib-core">${railHtml(catalog)}<div class="lib-core-main">${toplineHtml(catalog)}<div><button type="button" class="lib-btn" data-lib-act="go" data-sub="">${icon('library', 16)}<span>Explore</span></button></div>${body}</div></div>`;
-  if (!c) {
-    main.innerHTML = frame(
-      uiEmptyState({
-        title: 'No such collection',
-        text: 'It may have been merged or withdrawn in this snapshot.',
-        actions: libButton('go', 'Explore', 'library', ' data-sub=""'),
-      })
-    );
-    fillRail(main);
-    return;
-  }
-  const title = shortTitle(c.title);
-  const header = (extra) =>
-    `<header class="lib-coll-head"><div class="lib-art">${artHtml(c, 0, title)}</div><div><h1>${esc(title)}</h1><p>${esc(lib.languageName(c.language))} · ${plural(c.readable, 'readable unit')}${c.recorded > c.readable ? ` of ${num(c.recorded)} recorded` : ''}</p>${extra}</div></header>`;
-  if (!c.readable) {
-    main.innerHTML = frame(
-      header(
-        `<div class="lib-coll-actions">${libButton('go', 'Search its works', 'search', ` data-sub="/works?collection=${encodeURIComponent(id)}"`)}</div>`
-      ) +
-        uiEmptyState({
-          title: 'Nothing here is readable',
-          text: 'Every unit in this collection is held. Its metadata is searchable in Works.',
-        })
-    );
-    fillRail(main, id);
-    return;
-  }
-  main.innerHTML = frame(header('') + `<div class="lib-skel" aria-hidden="true"></div>`);
-  fillRail(main, id);
-  const page = await lib.collection(id, state.page);
-  if (token !== state.token) return;
-  selectedFor.set(id, page.readable_ids || selectedFor.get(id));
-  const ids = selectedFor.get(id) || [];
-  const pressed = selectionState(id);
-  const pages = page.page_count || 1;
-  const actions = `<div class="lib-coll-actions">${libButton('read', 'Read the first', 'play', ` data-id="${esc(ids[0] || '')}"`)}${libButton('select', pressed === 'true' ? 'Remove all from selection' : 'Add all to selection', pressed === 'true' ? 'check' : 'plus', ` data-cid="${esc(id)}" aria-pressed="${pressed}"`)}${libButton('go', 'Search in Works', 'search', ` data-sub="/works?collection=${encodeURIComponent(id)}"`)}</div>`;
-  const pager =
-    pages > 1
-      ? `<div class="lib-pager"><button type="button" class="lib-btn" data-lib-act="page" data-page="${state.page - 1}"${state.page ? '' : ' disabled'}>Previous</button><span>${num(state.page * 250 + 1)}–${num(state.page * 250 + page.rows.length)} of ${num(ids.length)}</span><button type="button" class="lib-btn" data-lib-act="page" data-page="${state.page + 1}"${state.page + 1 < pages ? '' : ' disabled'}>Next</button></div>`
-      : '';
-  const list = `<ul class="lib-coll-list" aria-label="Readings in ${esc(title)}">${page.rows
-    .map((r) => {
-      const who = (r[3] || []).map((p) => p[0]).join(', ');
-      return `<li><input type="checkbox" data-lib-act="pick" data-id="${esc(r[0])}" aria-label="Select ${esc(r[2])}"${selection.has(r[0]) ? ' checked' : ''}><a href="#library/read/${esc(r[0])}" data-lib-act="read" data-id="${esc(r[0])}" data-key="${esc(r[1])}"><strong>${esc(r[2])}</strong><small>${esc([who, r[10]].filter(Boolean).join(' — '))}</small></a></li>`;
-    })
-    .join('')}</ul>`;
-  main.querySelector('.lib-core-main').innerHTML =
-    `${toplineHtml(catalog)}<div><button type="button" class="lib-btn" data-lib-act="go" data-sub="">${icon('library', 16)}<span>Explore</span></button></div>${header(actions)}${pager}${list}${pager}`;
+// The page of a collection lives in the hash as a row offset, the documented
+// `#library/collections/<id>?offset=n` (docs/library-native-design.md row 12),
+// so Next pushes, Back restores it and a shared link opens the same page. It
+// used to be a module global that nothing reset on Back, so one collection's
+// page was applied to the next collection opened from history (BB8's L1).
+const COLLECTION_PAGE = 250;
+function collectionOffset(sub) {
+  const at = sub.indexOf('?');
+  const raw = new URLSearchParams(at < 0 ? '' : sub.slice(at + 1)).get('offset');
+  return /^\d+$/.test(raw || '') ? Number(raw) : 0;
 }
+const collectionSub = (id, page) =>
+  '/collections/' + encodeURIComponent(id) + (page ? '?offset=' + page * COLLECTION_PAGE : '');
 
 // ─── Card menu and artwork credit ───────────────────────────────────────────
 function closeMenu(main, focus) {
@@ -695,25 +817,6 @@ function menuKeys(main, e) {
   else return false;
   if (e.key !== 'Tab') e.preventDefault();
   return true;
-}
-async function showCredit(artId, opener) {
-  const { artwork } = await lib.artwork();
-  const a = artwork.find((x) => x.id === artId);
-  if (!a) return;
-  const r = lib.art(artId);
-  const dialog = document.createElement('dialog');
-  dialog.className = 'lib-credit';
-  dialog.setAttribute('aria-labelledby', 'lib-credit-title');
-  dialog.innerHTML = `<form method="dialog"><button class="lib-icon-btn lib-credit-close" aria-label="Close">${icon('x', 18)}</button></form>
-<picture><source type="image/avif" srcset="${r.avif}" sizes="(max-width:600px) 90vw, 480px"><source type="image/webp" srcset="${r.webp}" sizes="(max-width:600px) 90vw, 480px"><img src="${r.src}" alt="${esc(a.title)} — ${esc(a.author)}"></picture>
-<div><h2 id="lib-credit-title">${esc(a.title)}</h2><p>${esc(a.author)}</p><p>${esc(a.credit)}</p>${a.note ? `<p class="lib-credit-note">${esc(a.note)}</p>` : ''}<a href="${esc(a.source)}" target="_blank" rel="noopener noreferrer">Artwork source ${icon('link', 14)}</a></div>`;
-  document.getElementById('surface-library').append(dialog);
-  dialog.addEventListener('close', () => {
-    dialog.remove();
-    opener?.focus?.();
-  });
-  dialog.addEventListener('click', (e) => e.target === dialog && dialog.close());
-  dialog.showModal();
 }
 
 // ─── Events ──────────────────────────────────────────────────────────────────
@@ -788,9 +891,19 @@ function bind(main) {
         openMenu(main, el);
       } else if (act === 'credit') {
         const card = main.querySelector(`.lib-card[data-cid="${CSS_ESC(cid)}"]`);
-        await showCredit(card?.dataset.art, card?.querySelector('[data-lib-act="menu"]'));
+        // The artwork credit opens from a card's menu, never on first view.
+        const rights = await libraryChunk('rights');
+        await rights.credit(card?.dataset.art, card?.querySelector('[data-lib-act="menu"]'), lib);
       } else if (act === 'open') {
-        state.page = 0;
+        // A collection chosen from the rail where it covers the page (narrow
+        // widths, Jony #122): the rail closes and the collection's heading
+        // takes focus (focusLostToHeading), said through #library-live.
+        // Wider, the rail stays as it is.
+        const rail = el.closest('.lib-rail');
+        if (rail && railOverlays(rail)) {
+          setRail(main, false, { quiet: true });
+          state.railPicked = true;
+        }
         lib.go('/collections/' + cid);
       } else if (act === 'play') {
         const first = firstOf.get(cid) || (await readableIds(cid))[0];
@@ -805,14 +918,7 @@ function bind(main) {
       } else if (act === 'go') {
         lib.go(el.dataset.sub || '');
       } else if (act === 'rail') {
-        state.rail = !state.rail;
-        main.querySelector('.lib-rail').hidden = !state.rail;
-        main.querySelectorAll('.lib-topline [data-lib-act="rail"]').forEach((b) => {
-          b.setAttribute('aria-expanded', String(state.rail));
-          b.setAttribute('aria-label', `${state.rail ? 'Collapse' : 'Open'} collections rail`);
-          b.innerHTML = icon(state.rail ? 'panel-left-close' : 'panel-left-open', 18);
-        });
-        if (state.rail) drawRail(main, currentCollection());
+        setRail(main, !state.rail);
       } else if (act === 'rail-retry') {
         fillRail(main, currentCollection());
       } else if (act === 'more') {
@@ -830,10 +936,9 @@ function bind(main) {
         );
         if (next) (restoreShelf(next.closest('.lib-shelf'), 0), (next.scrollLeft = scrollLeft));
       } else if (act === 'page') {
-        state.page = Number(el.dataset.page) || 0;
-        render(main, LIBRARY.sub);
+        await lib.go(collectionSub(cid, Math.max(0, Number(el.dataset.page) || 0)));
       } else if (act === 'retry') {
-        render(main, LIBRARY.sub);
+        render(main, LIBRARY.sub, { retry: true });
       }
     } catch (error) {
       console.error('[library]', error);
@@ -850,7 +955,7 @@ function currentCollection() {
   return m ? decodeURIComponent(m[1]) : null;
 }
 
-async function render(main, sub) {
+async function render(main, sub, { retry = false } = {}) {
   ensureStyles();
   bind(main);
   main.dataset.libraryChunk = 'core';
@@ -859,8 +964,37 @@ async function render(main, sub) {
   if (!main.querySelector('.lib-core'))
     main.innerHTML = `<div class="lib-core-main"><div class="lib-skel" aria-hidden="true"></div><div class="lib-skel" aria-hidden="true"></div></div>`;
   try {
-    if (coll) await showCollection(main, decodeURIComponent(coll[1]), token);
-    else await showExplore(main, token);
+    // A collection page is never the shelves' first view: the Works chunk
+    // draws it, from the parts of core it shares.
+    if (coll) {
+      const works = await libraryChunk('works');
+      if (token !== state.token) return;
+      await works.collection(main, decodeURIComponent(coll[1]), token, collectionOffset(sub), {
+        lib,
+        state,
+        selection,
+        selectedFor,
+        selectionState,
+        fillRail,
+        railHtml,
+        toplineHtml,
+        artHtml,
+        fromRow,
+        shortTitle,
+        plural,
+        num,
+        libButton,
+        collectionSub,
+        COLLECTION_PAGE,
+      });
+    } else await showExplore(main, token);
+    if (retry && token === state.token) {
+      const h = main.querySelector('.lib-core-main h1');
+      lib.settle(
+        h || main.querySelector('.lib-shelf-scroll') || main.querySelector('.lib-core-main button'),
+        h ? `${h.textContent} loaded` : 'Library catalog loaded'
+      );
+    }
   } catch (error) {
     if (token !== state.token) return;
     console.error('[library]', error);
@@ -870,18 +1004,31 @@ async function render(main, sub) {
           text: 'Reload to read the current catalog.',
           actions: uiButton('lib-reload', 'Reload', 'refresh-cw'),
           tone: 'danger',
+          role: '',
         })
       : uiEmptyState({
           title: 'The Library catalog did not load',
-          text: String(error.message || error),
+          text: lib.problem(error),
           actions: libButton('retry', 'Retry', 'refresh-cw', ''),
           tone: 'danger',
+          role: '',
         });
+    // Said through #library-live every time; focus moves only after a Retry.
+    lib.settle(
+      retry ? main.querySelector('[data-lib-act="retry"], [data-ui="lib-reload"]') : null,
+      failed(main)
+    );
   }
 }
 
 // ─── Router ──────────────────────────────────────────────────────────────────
 async function show(main, sub = '') {
+  // The first view after a page load is a landing, not an in-app step:
+  // nothing asked for focus, so it stays where the browser put it and the
+  // first Tab reaches the skip link (Jony #129). Later views may land focus
+  // on their heading when the control that opened them went away.
+  lib.fresh = !state.shown;
+  state.shown = true;
   const path = sub.split('?')[0];
   const chunk = /^\/works(\/|$)/.test(path)
     ? 'works'
@@ -892,7 +1039,7 @@ async function show(main, sub = '') {
         : null;
   if (!chunk) {
     if (main.dataset.libraryChunk !== 'core') main.innerHTML = '';
-    return render(main, path);
+    return render(main, sub);
   }
   ensureStyles();
   main.dataset.libraryChunk = chunk;
@@ -906,10 +1053,12 @@ async function show(main, sub = '') {
     console.error('[library]', error);
     main.innerHTML = uiEmptyState({
       title: 'This part of the Library did not load',
-      text: String(error.message || error),
+      text: lib.problem(error),
       actions: uiButton('lib-reload', 'Reload', 'refresh-cw'),
       tone: 'danger',
+      role: '',
     });
+    lib.settle(null, failed(main));
   }
 }
 

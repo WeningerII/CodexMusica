@@ -1,4 +1,4 @@
-/* exported UI, UI_ICONS, uiEmptyState, uiFind, uiFocus, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport, uiRecipeGenres, uiCount, uiTabIndex, uiDownload, uiSubroute, uiRouteOf, uiOpenInLyrics */
+/* exported UI, UI_ICONS, uiEmptyState, uiFind, uiFocus, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport, uiRecipeGenres, uiCount, uiTabIndex, uiDownload, uiSubroute, uiRouteOf, uiOpenInLyrics, uiInertOutside */
 /* global UILayout, CMLibraryImport, _whenWorkspace, _workspaceReady, uiEnsureWorkspace, _releaseEngine, _renderBootError, uiLyricsOpened */
 /* global lyricMetaOf, ChainItem, renderSidebar, Room, Tuning, compileRecipeStack, envCardOf, renderSidebarTraditions, _revealSelectedCard, Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting, _engineLive, engineReady, storedSessionText */
 /* The shared application shell: one header, one navigation, one recipe
@@ -34,6 +34,11 @@ const UI = {
   // Focus return: what opened the AI writer, and the instrument preview.
   assistantOpener: null,
   instrumentPreview: null,
+  // Per page, the control (data-ui, data-id) that last left it (uiNavigate).
+  leftFrom: {},
+  // The card the recording environment came from at the last sync (uiEnvHandover).
+  envSource: null,
+  envPending: false,
   // Set on the way down when a dialog owns this Escape (see uiEscape).
   escapeOwned: false,
 };
@@ -129,7 +134,11 @@ async function uiOpenInLyrics(envelope) {
   await uiEnsureWorkspace();
   const importer = UI_PAGES.lyrics?.imports?.library;
   if (!importer) throw Error('Lyrics cannot import from the Library.');
-  return importer(envelope);
+  const result = await importer(envelope);
+  // The button that asked is gone with the page it was on: land in the draft.
+  if (!document.activeElement || document.activeElement === document.body)
+    uiFocus($ui('lyrics-draft'));
+  return result;
 }
 // The Library is its own site (sites/library, hosted apart from this static
 // build), so its entry in Main sections is a link that opens it in a new tab
@@ -165,8 +174,10 @@ const uiButton = (act, label, ic = 'plus', extra = '') =>
   `<button type="button" data-ui="${act}" ${extra.includes('aria-label=') ? '' : `aria-label="${esc(label)}"`} ${extra}>${icon(ic, 18)}<span>${esc(label)}</span></button>`;
 // Empty, no-results, loading and failure states share one shape: what is
 // true now, and the actions that move on from it. tone 'danger' = a failure.
-const uiEmptyState = ({ title, text = '', actions = '', tone = '' }) =>
-  `<div class="cm-empty"${tone ? ` data-tone="${tone}"` : ''} role="status"><strong>${esc(title)}</strong>${text ? `<span>${esc(text)}</span>` : ''}${actions ? `<div class="cm-empty-actions">${actions}</div>` : ''}</div>`;
+// role '' for a page that speaks the state through its own one live region
+// (the Library's #library-live), so it is not heard twice.
+const uiEmptyState = ({ title, text = '', actions = '', tone = '', role = 'status' }) =>
+  `<div class="cm-empty"${tone ? ` data-tone="${tone}"` : ''}${role ? ` role="${role}"` : ''}><strong>${esc(title)}</strong>${text ? `<span>${esc(text)}</span>` : ''}${actions ? `<div class="cm-empty-actions">${actions}</div>` : ''}</div>`;
 const listenHref = (name, instrument = false) =>
   `https://www.youtube.com/results?search_query=${encodeURIComponent(name + (instrument ? ' musical instrument solo demonstration' : ' music'))}`;
 const listenLink = (name, instrument = false) =>
@@ -192,7 +203,7 @@ function uiSubroute(sub, { push = false, state = null } = {}) {
 // between sections; boot and deep links replace the entry instead. `sub` is
 // the sub-route to show; left out (a nav click), the page's currentRoute()
 // resumes where it was. Pages without route() always show '#<view>'.
-function uiNavigate(view, { push = false, sub } = {}) {
+function uiNavigate(view, { push = false, sub, pop = false } = {}) {
   const page = UI_PAGES[view];
   if (!page) return;
   // A deferred boot (src/app.js _BOOT_DEFER): any page but one that holds the
@@ -204,8 +215,19 @@ function uiNavigate(view, { push = false, sub } = {}) {
     uiEnsureWorkspace().then(() => UI.view === view && UI_PAGES[view].render?.(), _renderBootError);
   if (!page.route) sub = '';
   else if (sub === undefined) sub = page.currentRoute?.() || '';
+  // The control that leaves a page is where Back to it lands (below).
+  const from = document.activeElement;
+  if (UI.view && UI.view !== view && from?.dataset?.ui)
+    UI.leftFrom[UI.view] = { ui: from.dataset.ui, id: from.dataset.id };
   UI.view = view;
   document.body.dataset.view = view;
+  // A route notice belongs to the page it was shown on.
+  const routeNote = $ui('ui-route-note');
+  if (routeNote && routeNote.dataset.view !== view) routeNote.hidden = true;
+  // The tab title names the surface (WCAG 2.4.2). Back and Forward come
+  // through here too (hashchange), so the title follows them.
+  const label = UI_ROUTES.find(([id]) => id === view)?.[1] || view[0].toUpperCase() + view.slice(1);
+  document.title = label + ' · Codex Musica';
   if (/^https?:$/.test(location.protocol) && location.hash !== '#' + view + sub) {
     if (push) history.pushState(null, '', '#' + view + sub);
     else history.replaceState(null, '', '#' + view + sub);
@@ -236,8 +258,36 @@ function uiNavigate(view, { push = false, sub } = {}) {
     if (!chatState.busy) uiSwitchChat('recipe');
   }
   document.body.classList.remove('session-open');
+  // Now, not in the observer's microtask: the page's own focus call follows
+  // in this task, and an inert page would refuse it (Jony #81).
+  uiSyncSheetCovered();
   UILayout.refresh();
-  document.querySelector(`[data-view="${view}"]`)?.focus({ preventScroll: true });
+  // Back or Forward to a page (pop): focus that fell with the page it was on
+  // lands on this page's way in, the control that left it if it is still
+  // shown, else its nav button (a button: body carries data-view too). Focus
+  // left on a nav button by the previous pop is no place either. Any other
+  // switch leaves focus to its caller, which knows where the person is going
+  // (Open in Lyrics lands in the draft).
+  const a = document.activeElement;
+  const lost =
+    !a ||
+    a === document.body ||
+    !a.isConnected ||
+    !a.getClientRects().length ||
+    a.matches('button[data-view]');
+  if (pop && lost) {
+    const left = UI.leftFrom[view];
+    const back =
+      left &&
+      [...document.querySelectorAll(`#surface-${view} [data-ui]`)].find(
+        (el) =>
+          el.dataset.ui === left.ui &&
+          (left.id == null || el.dataset.id === left.id) &&
+          !el.disabled &&
+          el.getClientRects().length
+      );
+    uiFocus(back) || uiFocus(document.querySelector(`button[data-view="${view}"]`));
+  }
 }
 // ── Recipe panel ── #workspace-sidebar is the one recipe workspace on every
 // route: the same cards, the same editor (#workspace-detail) and the same
@@ -399,6 +449,7 @@ function uiRecipePanelSetup() {
     `<div class="recipe-ai-field"><input type="text" id="recipe-ai-input" class="cm-input" maxlength="4000" autocomplete="off" aria-label="Describe a change to this recipe" placeholder="Describe a change to this recipe…">` +
     `<button type="submit" class="cm-btn cm-btn-icon recipe-ai-send" aria-label="Send to the AI recipe writer" data-tooltip="Send to the AI recipe writer">${icon('send', 18)}</button></div>`;
   $ui('sidebar-recipe-preview').after(ai);
+  uiSyncAIExpanded();
   ai.addEventListener('submit', (e) => {
     e.preventDefault();
     uiRecipeAskAI(e.submitter || ai.querySelector('.recipe-ai-send'));
@@ -450,17 +501,23 @@ const UI_ENV_ROWS = [
   ['tuning', 'Tuning', 'tuning-fork', 'env'],
   ['chain', 'Signal chain', 'settings', 'chain'],
 ];
+const uiEnvIsSet = (card) =>
+  !!(
+    card &&
+    (card.room ||
+      card.tuning ||
+      Object.values(card.chain || {}).some((v) => (Array.isArray(v) ? v.length : v)))
+  );
+const uiCardWho = (card) => {
+  const inst = Inst(card.instrumentId);
+  return (inst && (inst.name || inst.short)) || card.instrumentId;
+};
 function uiRecipeEnvHTML() {
   const card = envCardOf(app.cards);
   if (!card) return '';
-  const inst = Inst(card.instrumentId),
-    trad = card.traditionId ? Tradition(card.traditionId) : null;
-  const who = esc((inst && (inst.name || inst.short)) || card.instrumentId);
-  const has = !!(
-    card.room ||
-    card.tuning ||
-    Object.values(card.chain || {}).some((v) => (Array.isArray(v) ? v.length : v))
-  );
+  const trad = card.traditionId ? Tradition(card.traditionId) : null;
+  const who = esc(uiCardWho(card));
+  const has = uiEnvIsSet(card);
   // Every set stage, in chain order; the summary names each by its kind
   // ("Ribbon") or its name without the parenthesis, the tooltip in full.
   const stages = CHAIN_SECTIONS.flatMap((sec) =>
@@ -489,6 +546,39 @@ function uiRecipeEnvHTML() {
     `<p class="recipe-env-source" data-tooltip="Every recipe format renders the room, tuning and signal chain of this one card">${source}</p>`
   );
 }
+// The environment comes from one card. An edit that hands it to another card
+// already in the recipe (a genre group or card moved, the lead card removed,
+// its environment cleared) changes only the panel's source line, so it is
+// said too, as the connector reports ENVIRONMENT_MOVED. A recipe replaced
+// whole (a load, an import, a new recipe), or an environment first set on a
+// recipe that had none, is no hand-over. Read once the edit is done: removing
+// a genre removes its cards one by one, and only where it ends is said.
+function uiEnvHandover() {
+  if (UI.envPending) return;
+  UI.envPending = true;
+  setTimeout(() => {
+    UI.envPending = false;
+    const text = uiEnvHandoverText();
+    if (text) uiAnnounce(text);
+  });
+}
+function uiEnvHandoverText() {
+  const card = envCardOf(app.cards);
+  const prev = UI.envSource;
+  UI.envSource = card
+    ? { id: card.id, ids: new Set(app.cards.map((c) => c.id)), has: uiEnvIsSet(card), card }
+    : null;
+  if (!prev || !card || prev.id === card.id || !prev.has || !prev.ids.has(card.id)) return '';
+  const trad = card.traditionId ? Tradition(card.traditionId) : null;
+  const from = `${uiCardWho(card)} (${trad ? trad.name : 'independent'})`;
+  if (!uiEnvIsSet(card))
+    return `No recording environment is set now. It was on ${uiCardWho(prev.card)}.`;
+  const leads =
+    trad && app.cards[0] === card && card.traditionId !== prev.card.traditionId
+      ? `${trad.name} now leads. `
+      : '';
+  return `${leads}The recording environment now comes from ${from}.`;
+}
 // Opens the shared editor on the environment's source card, at the tab (and,
 // for Room and Tuning, the open picker) that the row names.
 function uiOpenEnvironment(which) {
@@ -496,6 +586,9 @@ function uiOpenEnvironment(which) {
   if (!card) return;
   card._uiTab = which === 'chain' ? 'chain' : 'env';
   card.editingEnv = which === 'room' || which === 'tuning' ? which : null;
+  // On a phone the editor opens inside its genre group in the tree, which
+  // must not stay collapsed around it.
+  if (isMobileLayout()) app.collapsedTraditionGroups?.delete(card.traditionId || '__ungrouped__');
   uiOpenEditor(card.id);
   if (isMobileLayout()) {
     renderSidebarTraditions();
@@ -505,6 +598,22 @@ function uiOpenEnvironment(which) {
       .querySelector(`#detail-view [data-toggle-env="${card.editingEnv}"]`)
       ?.scrollIntoView({ block: 'start' });
   }
+  // Focus goes where the row said it would open: the picker's own header
+  // when it is a button, else its current choice; the chain's first stage;
+  // else the open tab, as Edit does. #detail-view is the editor at every
+  // width (on a phone it is mounted inside the tree).
+  const ed = $ui('detail-view');
+  const row = card.editingEnv && ed?.querySelector(`[data-toggle-env="${card.editingEnv}"]`);
+  const visible = (el) => !!el && el.getClientRects().length > 0;
+  const target = [
+    row?.matches('button') && row,
+    row?.querySelector('.env-options .selected'),
+    row?.querySelector('.env-options button'),
+    which === 'chain' && ed?.querySelector('.chain-stage.editing'),
+    which === 'chain' && ed?.querySelector('.chain-stage'),
+    ed?.querySelector('.detail-tab.is-active'),
+  ].find(visible);
+  uiFocus(target);
 }
 function uiSyncRecipeFilter() {
   const toggle = document.querySelector('[data-ui="recipe-filter"]');
@@ -539,6 +648,7 @@ function uiSync() {
     $ui('recipe-env').innerHTML = env;
     $ui('recipe-env')._html = env;
   }
+  uiEnvHandover();
   $ui('recipe-ai-input').placeholder = n
     ? 'Describe a change to this recipe…'
     : 'Describe the recording you want…';
@@ -611,6 +721,10 @@ async function uiAddInstrument(id, { configure, message, destination } = {}) {
     }
     renderAll();
     uiOpenEditor(c.id);
+    // On a phone layout the recipe sheet now covers the page, and the button
+    // that added stays focused underneath it: move focus to the new card.
+    if (document.body.classList.contains('session-open') && uiFocusCard(c.id))
+      document.activeElement.scrollIntoView({ block: 'nearest' });
     showToast(message ? message(c) : _addedInstrumentMessage(id, c), 'success');
     return c;
   } catch (e) {
@@ -650,6 +764,14 @@ async function uiImport(file) {
     uiSaveLyrics();
     pushHistory();
     renderAll();
+    // From the More menu: the import is done, so the menu closes and focus
+    // goes back to More rather than staying on a hidden Import (Jony #92).
+    if ($ui('ui-menu') && !$ui('ui-menu').hidden) {
+      uiSetMenu(false);
+      const a = document.activeElement;
+      if (!a || a === document.body || !a.getClientRects().length)
+        uiFocus(document.querySelector('[data-ui="menu"]'));
+    }
     showToast('Session imported', 'success');
   } catch (e) {
     showToast('Import failed: ' + e.message, 'error');
@@ -770,6 +892,13 @@ function uiSwitchChat(target) {
   }
   return true;
 }
+function uiSyncAIExpanded() {
+  const open = String(document.body.classList.contains('assistant-open'));
+  for (const b of document.querySelectorAll('[data-ui="ai"]')) {
+    if (b.getAttribute('aria-expanded') !== open) b.setAttribute('aria-expanded', open);
+    b.setAttribute('aria-controls', 'assistant-slot');
+  }
+}
 function uiChatOpen() {
   if (!uiSwitchChat(UI.view === 'lyrics' ? 'lyrics' : 'recipe')) {
     showToast('A request is running in the other writer.', 'error');
@@ -810,12 +939,19 @@ function uiStart() {
       `<button class="cm-tab" data-view="${v}">${icon(i, 20)}<span>${l}</span></button>`
   ).join(
     ''
-  )}${UI_ROUTES.some(([id]) => id === 'library') ? '' : uiLibraryLink()}</nav><div class="ui-tools"><button id="ui-undo" data-ui="undo" aria-label="Undo">${icon('undo', 18)}</button><button id="ui-redo" data-ui="redo" aria-label="Redo">${icon('redo', 18)}</button><span id="ui-autosave" class="cm-status" role="status" aria-live="polite"></span>${uiButton('save', 'Save', 'save')}${uiButton('saved', 'Saved sessions', 'folder')}${uiButton('session', 'Recipe', 'layers', 'aria-expanded="false" aria-controls="workspace-sidebar"')}<span id="ui-count">0</span>${uiButton('menu', 'More', 'more-horizontal')}</div>`;
+  )}${UI_ROUTES.some(([id]) => id === 'library') ? '' : uiLibraryLink()}</nav><div class="ui-tools"><button id="ui-undo" data-ui="undo" aria-label="Undo">${icon('undo', 18)}</button><button id="ui-redo" data-ui="redo" aria-label="Redo">${icon('redo', 18)}</button><span id="ui-autosave" class="cm-status" role="status" aria-live="polite"></span>${uiButton('save', 'Save', 'save')}${uiButton('saved', 'Saved sessions', 'folder')}${uiButton('session', 'Recipe', 'layers', 'aria-expanded="false" aria-controls="workspace-sidebar"')}<span id="ui-count">0</span>${uiButton('menu', 'More', 'more-horizontal', 'aria-controls="ui-menu"')}</div>`;
   document.body.prepend(header);
   const more = document.createElement('div');
   more.id = 'ui-menu';
   more.className = 'cm-menu';
   more.hidden = true;
+  // Tab (or Shift+Tab) out of the open menu closes it; focus moves on where
+  // Tab put it. A blur to nothing (the file picker, the window) is not a leave.
+  more.addEventListener('focusout', (e) => {
+    const to = e.relatedTarget;
+    if (!to || more.contains(to) || to.closest?.('[data-ui="menu"]')) return;
+    uiSetMenu(false);
+  });
   more.innerHTML =
     uiButton('surprise', 'Surprise me', 'shuffle') +
     uiButton('saved', 'Saved sessions', 'folder') +
@@ -829,7 +965,22 @@ function uiStart() {
     uiThemeControl() +
     '<input type="file" id="ui-file" accept="application/json" hidden>';
   header.append(more);
-  const discovery = document.createElement('section');
+  // Followed, not guessed: the header's size, and the tools' own (larger text,
+  // text spacing, a longer status, a font that loads late). Applied in the
+  // next frame so a fit never resizes what is being observed mid-callback.
+  if (typeof ResizeObserver === 'function') {
+    let fitting = 0;
+    const fit = new ResizeObserver(() => {
+      cancelAnimationFrame(fitting);
+      fitting = requestAnimationFrame(uiFitHeader);
+    });
+    fit.observe(header);
+    fit.observe(header.querySelector('.ui-tools'));
+  }
+  uiTrackToastRoom($ui('toast'), '--ui-toast-h');
+  // The page is the document's main landmark: a screen reader's "main" jump
+  // lands on it, not on a region that also holds Your recipe (Jony #124).
+  const discovery = document.createElement('main');
   discovery.id = 'discovery';
   for (const [id] of UI_ROUTES) {
     const surface = document.createElement('section');
@@ -838,8 +989,32 @@ function uiStart() {
     surface.hidden = id !== 'genre';
     discovery.append(surface);
   }
-  const workspace = document.querySelector('main.workspace');
+  // The visible half of a route notice (uiRouteMissed): above the surfaces, so
+  // a page's re-render never removes it.
+  const routeNote = document.createElement('div');
+  routeNote.id = 'ui-route-note';
+  routeNote.className = 'ui-route-note';
+  routeNote.hidden = true;
+  routeNote.innerHTML =
+    '<span class="ui-route-note-text"></span><button type="button" class="cm-btn ui-route-note-close">Dismiss</button>';
+  routeNote.querySelector('button').addEventListener('click', () => {
+    routeNote.hidden = true;
+    // The button that had focus is gone: the page's heading takes it.
+    const h = $ui('surface-' + UI.view)?.querySelector('h1, h2');
+    if (h && !h.hasAttribute('tabindex')) h.setAttribute('tabindex', '-1');
+    uiFocus(h);
+    if (document.activeElement !== h)
+      uiFocus(document.querySelector(`button[data-view="${UI.view}"]`));
+  });
+  discovery.prepend(routeNote);
+  const workspace = document.querySelector('.workspace');
   workspace.insertBefore(discovery, $ui('workspace-detail'));
+  // The Recipe sheet opens and closes through several paths; follow the class.
+  new MutationObserver(uiSyncSheetCovered).observe(document.body, {
+    attributes: true,
+    attributeFilter: ['class'],
+  });
+  window.addEventListener('resize', uiSyncSheetCovered);
   for (const [id] of UI_ROUTES) UI_PAGES[id]?.mount($ui('surface-' + id));
   const assistant = document.createElement('aside');
   assistant.id = 'assistant-slot';
@@ -847,6 +1022,12 @@ function uiStart() {
   assistant.innerHTML = `<div class="assistant-toolbar"><strong>AI recipe</strong>${uiButton('new-recipe', 'New recipe', 'plus')}${uiButton('close-ai', 'Close', 'x')}</div>`;
   assistant.append($ui('chat-dock'));
   document.body.append(assistant);
+  // Every AI entry says whether the writer is open; the open state is the
+  // body class, whoever sets it.
+  new MutationObserver(uiSyncAIExpanded).observe(document.body, {
+    attributes: true,
+    attributeFilter: ['class'],
+  });
   // The Recipe sheet's toolbar on a phone (hidden in the desktop panel, where
   // the AI entry and the add controls have their own places).
   const quick = document.createElement('div');
@@ -858,6 +1039,7 @@ function uiStart() {
     uiButton('instrument-nav', 'Add instrument', 'plus') +
     uiButton('close-session', 'Close recipe', 'x');
   $ui('workspace-sidebar').prepend(quick);
+  uiSyncAIExpanded();
   uiRecipePanelSetup();
   // Keep native action nodes, so save, keyboard proxies and assistive labels share one implementation.
   for (const [id, target, label] of [
@@ -960,10 +1142,12 @@ function uiStart() {
       case 'undo':
         undo();
         uiSync();
+        if (b.closest('#ui-menu')) uiSetMenu(false);
         break;
       case 'redo':
         redo();
         uiSync();
+        if (b.closest('#ui-menu')) uiSetMenu(false);
         break;
       case 'close-editor':
         uiCloseEditor();
@@ -983,6 +1167,7 @@ function uiStart() {
         break;
       case 'close-session':
         document.body.classList.remove('session-open');
+        uiSyncSheetCovered();
         document.querySelector('[data-ui="session"]').setAttribute('aria-expanded', 'false');
         document.querySelector('[data-ui="session"]').focus({ preventScroll: true });
         break;
@@ -1002,12 +1187,19 @@ function uiStart() {
         surpriseTradition();
         uiSetMenu(false);
         break;
-      case 'keep-session':
+      case 'keep-session': {
         UI.storageConflict = false;
-        $ui('storage-conflict')?.remove();
+        const note = $ui('storage-conflict');
+        const held = note?.contains(document.activeElement);
+        note?.remove();
         UI.lastSaved = null;
         uiAutosave();
+        // The banner went with the button that held focus: Save is where this
+        // session goes on from (Jony #90).
+        // (#btn-save: the header's Save placeholder is swapped for it.)
+        if (held) uiFocus($ui('btn-save')) || uiFocus(document.querySelector('[data-ui="menu"]'));
         break;
+      }
       case 'export':
         uiExport();
         uiSetMenu(false);
@@ -1025,7 +1217,8 @@ function uiStart() {
         break;
       case 'close-ai':
         document.body.classList.remove('assistant-open');
-        uiFocus(UI.assistantOpener) || uiFocus(document.querySelector(`[data-view="${UI.view}"]`));
+        uiFocus(UI.assistantOpener) ||
+          uiFocus(document.querySelector(`button[data-view="${UI.view}"]`));
         break;
       case 'new-recipe':
         uiNewTask('recipe');
@@ -1105,11 +1298,13 @@ function uiStart() {
   );
   window.addEventListener('hashchange', () => {
     const { view, sub } = uiRouteOf(location.hash);
-    if (!UI_PAGES[view]) return;
-    if (view !== UI.view) uiNavigate(view, { sub });
+    const miss = uiRouteMiss({ view, sub }, false);
+    if (!UI_PAGES[view]) return uiRouteMissed(miss);
+    if (view !== UI.view) uiNavigate(view, { sub, pop: true });
     // Back/Forward within one page: its own route, without refocusing the
     // nav button or re-applying the recipe presentation.
     else UI_PAGES[view].route?.(sub, { pop: true });
+    uiRouteMissed(miss);
   });
   $ui('ui-file').addEventListener('change', (e) => {
     if (e.target.files[0]) uiImport(e.target.files[0]);
@@ -1159,8 +1354,74 @@ function uiStart() {
   if (deep && !UI_PAGES[route.view] && Tradition(deep)) {
     UI.genre = Tradition(deep).id; // an old link to a merged tradition opens the survivor
     uiNavigate('genre');
-  } else if (UI_PAGES[route.view]) uiNavigate(route.view, { sub: route.sub });
-  else uiNavigate('genre');
+  } else {
+    if (UI_PAGES[route.view]) uiNavigate(route.view, { sub: route.sub });
+    else uiNavigate('genre');
+    uiRouteMissed(uiRouteMiss(route, true), { boot: true });
+  }
+}
+// A link that matched nothing still lands somewhere (the genres, or the page
+// without its sub-route); this says so once, instead of redirecting silently.
+// `boot`: an unknown page was redirected to the genres (a hashchange to one
+// is not). The Library resolves its own sub-routes and says so itself.
+// Says it twice, never as a toast (which would replace a standing error and
+// its action): spoken through #ui-live, and shown as a slim note above the
+// page it landed on until it is dismissed or another page is opened. Focus
+// stays where navigation put it. At boot the spoken half waits for the page
+// to paint and settle: a polite update in the first moments of a load is
+// often dropped by screen readers. A hashchange says it at once.
+function uiRouteMissed(miss, { boot = false } = {}) {
+  if (!miss) return;
+  if (boot) uiAfterPaint(() => setTimeout(() => uiAnnounce(miss), 1000));
+  else uiAnnounce(miss);
+  const note = $ui('ui-route-note');
+  if (!note) return;
+  note.querySelector('.ui-route-note-text').textContent = miss;
+  note.dataset.view = UI.view;
+  note.hidden = false;
+}
+function uiRouteMiss({ view, sub }, boot) {
+  if (!view) return '';
+  if (!UI_PAGES[view])
+    return boot
+      ? 'That link didn’t match a page, so here are the genres.'
+      : 'That link didn’t match a page.';
+  if (!sub || UI_PAGES[view].route) return '';
+  if (view === 'genre') return 'That link didn’t match a genre, so here are all genres.';
+  if (view === 'instrument')
+    return 'That link didn’t match an instrument, so here are all instruments.';
+  return 'That link didn’t match anything on this page, so here it is.';
+}
+
+// Short status lines (a search count, a route notice) go to #ui-live, not to
+// showToast: a toast replaces the one before it, and must not evict an
+// unresolved error and its Retry. Cleared first so a repeat is read again.
+/* exported uiAnnounce */
+function uiAnnounce(text) {
+  const live = document.getElementById('ui-live');
+  if (!live) return;
+  live.textContent = '';
+  if (text) setTimeout(() => (live.textContent = text), 50);
+}
+
+// While the Recipe sheet covers the page (below 900px), the page under it
+// leaves the Tab order: focus must not walk controls nobody can see (WCAG
+// 2.4.11), as the Instrument inspector does for its catalogue. A partial
+// sheet (Map, Lyrics) leaves the page above it in use.
+function uiSyncSheetCovered() {
+  const page = $ui('discovery'),
+    sheet = $ui('workspace-sidebar');
+  if (!page || !sheet) return;
+  let covered = false;
+  if (
+    document.body.classList.contains('session-open') &&
+    getComputedStyle(sheet).position === 'fixed'
+  ) {
+    const s = sheet.getBoundingClientRect(),
+      p = page.getBoundingClientRect();
+    covered = s.top <= p.top + 1 && s.bottom >= Math.min(p.bottom, innerHeight) - 1;
+  }
+  if (page.inert !== covered) page.inert = covered;
 }
 
 // ── Layers ── Escape closes the topmost open layer only and returns focus to
@@ -1168,8 +1429,47 @@ function uiStart() {
 // Escape), a dialog (src/app.js handles those), then the More
 // menu, the AI writer, the Recipe sheet (below 900px), the editor, and last
 // whatever the current page opened (page.escape()).
+// The header keeps every tool on screen. When its row would run past the
+// right edge (a narrower window, larger text, WCAG 1.4.12 text spacing, a
+// longer status word), .ui-header-tight clips the tools' words, which stay
+// their names, and their icons stay, as the fixed breakpoints already do at
+// known widths (#96). Measured with the words shown, so it lets go again.
+function uiFitHeader() {
+  const head = document.querySelector('.ui-header');
+  const tools = head?.querySelector('.ui-tools');
+  if (!tools) return;
+  head.classList.remove('ui-header-tight');
+  const edge = head.getBoundingClientRect().right - parseFloat(getComputedStyle(head).paddingRight);
+  const right = Math.max(
+    ...[...tools.children].map((el) =>
+      el.getClientRects().length ? el.getBoundingClientRect().right : 0
+    )
+  );
+  head.classList.toggle('ui-header-tight', right > edge + 0.5);
+}
+// ArrowDown or Enter in a catalogue search goes to its first result, as the
+// map's search does, instead of the dozens of Tabs past the browse tree and
+// the filters between them (Jony #115). Nothing new is said: the result count
+// already is. `host` returns the list; `selector` names each result's button.
+/* exported uiSearchToResults */
+function uiSearchToResults(input, host, selector) {
+  input.addEventListener('keydown', (e) => {
+    if (e.key !== 'ArrowDown' && e.key !== 'Enter') return;
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || e.isComposing || !input.value.trim())
+      return;
+    const first = [...(host()?.querySelectorAll(selector) || [])].find(
+      (b) => !b.disabled && b.getClientRects().length
+    );
+    if (!first) return;
+    e.preventDefault();
+    first.focus();
+  });
+}
 function uiFocus(el) {
   if (!el || !el.isConnected || !el.getClientRects().length) return false;
+  // The sheet's cover follows its class from a MutationObserver (a microtask):
+  // a sheet closed earlier in this task has not uncovered the page yet.
+  if (el.closest('[inert]')) uiSyncSheetCovered();
   el.focus({ preventScroll: true });
   return true;
 }
@@ -1177,6 +1477,27 @@ function uiFocus(el) {
 function uiFind(selector, key, value) {
   if (!value) return null;
   return [...document.querySelectorAll(selector)].find((el) => el.dataset[key] === value) || null;
+}
+// A modal layer: everything outside `el` (its siblings at each level up to
+// <body>) becomes inert, so Tab cannot reach what the layer covers. Live
+// regions stay live and `keep` (a scrim that closes on click) stays usable.
+// Returns the function that restores exactly what it changed.
+function uiInertOutside(el, keep = []) {
+  const changed = [];
+  for (let n = el; n && n.parentElement && n !== document.body; n = n.parentElement)
+    for (const sib of n.parentElement.children)
+      if (
+        sib !== n &&
+        !sib.inert &&
+        !keep.includes(sib) &&
+        !sib.matches('script, style, template, [aria-live], [role="status"], [role="alert"]')
+      ) {
+        sib.inert = true;
+        changed.push(sib);
+      }
+  return () => {
+    for (const sib of changed) sib.inert = false;
+  };
 }
 function uiFocusCard(id) {
   return uiFocus(uiFind('.sb-card', 'cardId', id));
@@ -1429,7 +1750,9 @@ function uiRowsHTML(prefix, groups, { tile, noun }) {
             `<button type="button" data-ui="rows-scroll" data-id="${esc(key)}" data-dir="${dir}" aria-label="Scroll ${label || 'the row'} ${way}"${dir < 0 ? ' disabled' : ''}>${icon(ic, 18)}</button>`
         )
         .join('');
-      return `<section class="cm-rows-group" data-rows="${esc(key)}"${label ? ` aria-label="${label}"` : ''}><div class="cm-rows-head">${label ? `<h3 class="cm-rows-label" tabindex="-1">${label}</h3><span class="cm-rows-count">${uiCount(g.items.length, noun)}</span>` : ''}<div class="cm-rows-nav">${arrows}</div></div><div class="cm-rows-track" role="list" data-rows="${esc(key)}"${label ? ` aria-label="${label}"` : ''}></div></section>`;
+      // A row is a heading and its named list, not a landmark: 13 letter
+      // regions per search turned the landmark list into an index (Jony #127).
+      return `<section class="cm-rows-group" data-rows="${esc(key)}"><div class="cm-rows-head">${label ? `<h3 class="cm-rows-label" tabindex="-1">${label}</h3><span class="cm-rows-count">${uiCount(g.items.length, noun)}</span>` : ''}<div class="cm-rows-nav">${arrows}</div></div><div class="cm-rows-track" role="list" data-rows="${esc(key)}"${label ? ` aria-label="${label}"` : ''}></div></section>`;
     })
     .join('');
 }
@@ -1472,28 +1795,51 @@ function uiRowsAppend(t, upTo) {
     );
 }
 // A row near the screen and near its end takes its next cards; its arrows
-// say whether it can move.
-function uiRowsFill(t) {
+// say whether it can move. Measuring returns the writes, so a batch of rows
+// reads its geometry once before any row changes it.
+function uiRowsMeasure(t) {
   const row = UI_ROWS.get(t.dataset.rows);
   if (!row || !t.isConnected) return;
   const r = t.getBoundingClientRect();
   if (!r.height || r.top > Math.max(2 * innerHeight, 1800) || r.bottom < -innerHeight) return;
-  if (t.scrollLeft + 2 * t.clientWidth >= t.scrollWidth)
-    uiRowsAppend(t, t.childElementCount + UI_ROWS_CHUNK);
-  const [back, on] = t.parentElement.querySelectorAll('[data-ui="rows-scroll"]');
-  if (back) back.disabled = t.scrollLeft <= 1;
-  if (on)
-    on.disabled =
-      t.scrollLeft + t.clientWidth >= t.scrollWidth - 1 && t.childElementCount >= row.items.length;
+  const left = t.scrollLeft,
+    w = t.clientWidth,
+    sw = t.scrollWidth,
+    more = left + 2 * w >= sw && t.childElementCount < row.items.length;
+  return () => {
+    if (more) uiRowsAppend(t, t.childElementCount + UI_ROWS_CHUNK);
+    const [back, on] = t.parentElement.querySelectorAll('[data-ui="rows-scroll"]');
+    if (back) back.disabled = left <= 1;
+    const all = t.childElementCount >= row.items.length;
+    // The last cards just went in: whether they reach the edge is measured
+    // next frame, not by laying the row out again now.
+    if (all && more) requestAnimationFrame(() => uiRowsFill(t));
+    else if (on) on.disabled = all && left + w >= sw - 1;
+  };
 }
+const uiRowsFill = (...rows) => rows.map(uiRowsMeasure).forEach((write) => write?.());
+// Rows fill once the frame has laid them out (and again when a hidden row is
+// shown), instead of laying the page out mid-render to measure them. A row a
+// repaint removed is let go. Made on first use, so the observers pages make as
+// they mount read the laid-out frame before these rows take more cards.
+let uiRowsSized;
 function uiRowsRestore(host, keep) {
+  uiRowsSized ??=
+    typeof ResizeObserver === 'function' &&
+    new ResizeObserver((entries) => {
+      const rows = entries.map((e) => e.target);
+      rows.filter((t) => !t.isConnected).forEach((t) => uiRowsSized.unobserve(t));
+      uiRowsFill(...rows);
+    });
   for (const t of host.querySelectorAll('.cm-rows-track')) {
     const was = keep?.rows.get(t.dataset.rows);
     if (was?.shown && was.sig === UI_ROWS.get(t.dataset.rows)?.sig) {
       uiRowsAppend(t, was.shown);
       t.scrollLeft = was.left;
     }
-    uiRowsFill(t);
+    // A card that held focus has to exist before focus can return to it.
+    if (uiRowsSized && !keep?.focus) uiRowsSized.observe(t);
+    else uiRowsFill(t);
   }
   document.querySelectorAll('.cm-rows-jump').forEach(uiRowsEdges);
   // A card menu whose card was just repainted has nothing left to act on.
@@ -1677,7 +2023,7 @@ function uiRowsControls() {
     frame = 0;
     // The rows scrolled, and any row still empty that came near the screen.
     document.querySelectorAll('.cm-rows-track:empty').forEach((t) => touched.add(t));
-    touched.forEach(uiRowsFill);
+    uiRowsFill(...touched);
     touched.clear();
     document.querySelectorAll('.cm-rows-jump').forEach(uiRowsEdges);
     if (!uiRowsJumping) uiRowsSpy();
@@ -1741,6 +2087,15 @@ function uiRowsControls() {
 function uiCloseEditor() {
   const id = app.selected;
   UI.editor = false;
+  // On a phone the editor is the open row inside the Recipe tree: closing it
+  // collapses that row, and focus goes to the row's Edit (Jony #118).
+  if (isMobileLayout() && $ui('detail-view')?.closest('#sidebar-traditions')) {
+    app.selected = null;
+    renderSidebarTraditions();
+    uiSync();
+    uiFocus(uiFind('.sb-card-edit', 'cardId', id)) || uiFocusCard(id);
+    return;
+  }
   uiSync();
   uiFocusCard(id);
 }
@@ -1755,9 +2110,19 @@ function uiEscape(e) {
     uiFocus(document.querySelector('[data-ui="menu"]'));
   } else if (body.classList.contains('assistant-open')) {
     body.classList.remove('assistant-open');
-    uiFocus(UI.assistantOpener) || uiFocus(document.querySelector(`[data-view="${UI.view}"]`));
+    uiFocus(UI.assistantOpener) ||
+      uiFocus(document.querySelector(`button[data-view="${UI.view}"]`));
+  } else if (
+    body.classList.contains('session-open') &&
+    isMobileLayout() &&
+    $ui('detail-view')?.closest('#sidebar-traditions')
+  ) {
+    // The editor open inside the sheet is the top layer: it closes first, and
+    // a second Escape closes the sheet (Jony #118).
+    uiCloseEditor();
   } else if (body.classList.contains('session-open')) {
     body.classList.remove('session-open');
+    uiSyncSheetCovered();
     UI.editor = false;
     uiSync();
     document.querySelector('[data-ui="session"]').setAttribute('aria-expanded', 'false');
@@ -1795,6 +2160,9 @@ function uiToggleMenu(trigger) {
   menu.closest('.sb-tradition-header, .sb-card-row')?.classList.add('has-open-menu');
   trigger.setAttribute('aria-expanded', 'true');
   uiMenuOpen = { menu, trigger, stop: UILayout.anchor(menu, trigger, { align: 'end' }) };
+  // One Tab stop: the arrow keys move between items, and Tab leaves the menu
+  // (closing it, below) rather than walking item by item.
+  menu.querySelectorAll('[role="menuitem"]').forEach((item) => (item.tabIndex = -1));
   menu.querySelector('[role="menuitem"]:not(:disabled)')?.focus({ preventScroll: true });
 }
 function uiMenuControls() {
@@ -1832,6 +2200,17 @@ function uiMenuControls() {
           : (at + (e.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length;
     items[next].focus();
   });
+  // Focus that leaves an open menu (Tab, Shift+Tab, a click elsewhere) closes
+  // it where focus went, so the trigger's next press opens it again. Read
+  // after the move: a window losing focus keeps the item focused.
+  document.addEventListener('focusout', (e) => {
+    const open = uiMenuOpen;
+    if (!open || !open.menu.contains(e.target)) return;
+    setTimeout(() => {
+      if (uiMenuOpen === open && !open.menu.contains(document.activeElement) && document.hasFocus())
+        uiCloseMenu(false);
+    });
+  });
   // A menu whose tree was repainted under it has nothing left to close.
   new MutationObserver(() => {
     if (uiMenuOpen && !uiMenuOpen.menu.isConnected) uiCloseMenu(false);
@@ -1851,7 +2230,7 @@ function uiLayoutControls() {
     title: 'Resize recipe sidebar',
     limits: () => [220, Math.min(520, innerWidth * 0.35)],
     enabled: () =>
-      innerWidth >= 900 && uiRecipeMode() === 'sidebar' && !uiRecipeCollapsed.sidebar?.get(),
+      UILayout.wide() && uiRecipeMode() === 'sidebar' && !uiRecipeCollapsed.sidebar?.get(),
   });
   // The right-hand column resizes from its left edge; its width is its own
   // remembered preference, independent of the left-hand column's.
@@ -1864,7 +2243,7 @@ function uiLayoutControls() {
     side: 'left',
     limits: () => [280, Math.min(560, innerWidth * 0.4)],
     enabled: () =>
-      innerWidth >= 900 &&
+      UILayout.wide() &&
       uiRecipeMode() === 'sidebar-right' &&
       !uiRecipeCollapsed['sidebar-right']?.get(),
   });
@@ -1876,7 +2255,7 @@ function uiLayoutControls() {
     title: 'Resize instrument editor',
     side: 'left',
     limits: () => [320, Math.min(700, innerWidth * 0.45)],
-    enabled: () => innerWidth >= 900 && document.body.classList.contains('editor-open'),
+    enabled: () => UILayout.wide() && document.body.classList.contains('editor-open'),
   });
   // The docked presentation (the Map) resizes from its top edge.
   UILayout.splitter({
@@ -1887,7 +2266,7 @@ function uiLayoutControls() {
     title: 'Resize Your recipe',
     side: 'top',
     limits: () => [220, Math.max(220, Math.round(workspace.clientHeight * 0.7))],
-    enabled: () => innerWidth >= 900 && uiRecipeMode() === 'dock' && !uiRecipeCollapsed.dock?.get(),
+    enabled: () => UILayout.wide() && uiRecipeMode() === 'dock' && !uiRecipeCollapsed.dock?.get(),
   });
   for (const [route] of UI_ROUTES) UI_PAGES[route]?.layout?.();
   UILayout.floating($ui('assistant-slot'), {
@@ -2171,14 +2550,31 @@ function uiRenderAutosave(state) {
 }
 function uiShowStorageConflict() {
   if ($ui('storage-conflict')) return;
+  // The sentence is the status; the buttons sit beside it, not inside it, so
+  // it is read as one sentence rather than run on into their names.
   const note = document.createElement('div');
   note.id = 'storage-conflict';
-  note.setAttribute('role', 'status');
   note.innerHTML =
-    '<span>A newer session is open in another tab.</span>' +
+    '<span role="status"></span>' +
     uiButton('keep-session', 'Keep this session', 'save') +
     uiButton('export', 'Export this session', 'download');
   document.querySelector('.ui-header').after(note);
+  // A status inserted already holding its text is often not spoken: the text
+  // arrives a moment after the empty region is in the page.
+  setTimeout(() => {
+    const st = note.querySelector('[role="status"]');
+    if (st) st.textContent = 'A newer session is open in another tab.';
+  }, 50);
+  uiTrackToastRoom(note, '--ui-conflict-h');
+}
+// The toast's and the conflict banner's heights, for the CSS that keeps a
+// toast clear of the banner and of an open dialog (#99): followed as their
+// words change, never guessed.
+function uiTrackToastRoom(el, name) {
+  if (!el || typeof ResizeObserver !== 'function') return;
+  new ResizeObserver(() =>
+    document.documentElement.style.setProperty(name, el.offsetHeight + 'px')
+  ).observe(el);
 }
 // Run fn once the first paint has been presented and the main thread is idle:
 // two animation frames (the second runs after the frame the first one queued
@@ -2263,6 +2659,10 @@ function uiSyncThemeControl() {
 function uiSetMenu(open) {
   const menu = $ui('ui-menu'),
     trigger = document.querySelector('[data-ui="menu"]');
+  // Closing the menu from inside it (an item's action) hands focus back to
+  // More, not to the page body under a hidden button (Jony, #519).
+  const inside = !open && menu && !menu.hidden && menu.contains(document.activeElement);
   if (menu) menu.hidden = !open;
   if (trigger) trigger.setAttribute('aria-expanded', String(open));
+  if (inside) trigger?.focus({ preventScroll: true });
 }

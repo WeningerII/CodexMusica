@@ -29,6 +29,37 @@ summary:focus-visible,
 #canvas-host:focus-visible {
   outline-offset: -3px;
 }
+/* The canvas fills the host and paints over the host's own inset outline,
+   and the clipped parent hides an outset one, so the ring is drawn on an
+   overlay above the canvas. */
+#canvas-host:focus-visible::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  outline: var(--cm-focus-width) solid var(--cm-focus);
+  outline-offset: -3px;
+}
+@media (forced-colors: active) {
+  #canvas-host:focus-visible::after {
+    outline-color: Highlight;
+  }
+}
+/* Skip past the panels' long In view list to the map. */
+.skip-map {
+  position: absolute;
+  left: -10000px;
+  top: 8px;
+  z-index: 50;
+  padding: 8px 12px;
+  border-radius: var(--cm-radius-sm);
+  background: var(--cm-surface);
+  color: var(--cm-link);
+}
+.skip-map:focus {
+  left: 16px;
+}
 svg:not(.mark) {
   flex: none;
   fill: none;

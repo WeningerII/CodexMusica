@@ -27,6 +27,14 @@ for (let i = 0; i < args.length; i++) {
   }
 }
 
+// The shared argument contract (_cli_flags.js): an unknown or misspelled flag
+// exits 2 by name; --help prints the usage above. The four modes take their
+// ids either way (--traditions=a,b or --traditions a b), so they are boolean
+// here; twoIds reads both forms.
+require('./_cli_flags.js').checkFlags(flags, {
+  boolean: ['traditions', 'instruments', 'rooms', 'archetypes'],
+});
+
 // Accepts two ids from either:
 //   --flag=a,b      (comma-separated, in line with sibling scripts)
 //   --flag a b      (positional, original form)
@@ -77,7 +85,7 @@ if (flags.traditions) {
   const eA = C.TRADITION_EXTRAS[idA] || {};
   const eB = C.TRADITION_EXTRAS[idB] || {};
   if (!tA || !tB) {
-    console.error('Unknown tradition');
+    console.error(`Unknown tradition: ${[!tA && idA, !tB && idB].filter(Boolean).join(', ')}`);
     process.exit(2);
   }
 
@@ -124,7 +132,7 @@ if (flags.instruments) {
   const iA = C.INSTRUMENTS.find((x) => x.id === idA);
   const iB = C.INSTRUMENTS.find((x) => x.id === idB);
   if (!iA || !iB) {
-    console.error('Unknown instrument');
+    console.error(`Unknown instrument: ${[!iA && idA, !iB && idB].filter(Boolean).join(', ')}`);
     process.exit(2);
   }
 
@@ -151,7 +159,7 @@ if (flags.rooms) {
   const rA = C.ROOMS.find((x) => x.id === idA);
   const rB = C.ROOMS.find((x) => x.id === idB);
   if (!rA || !rB) {
-    console.error('Unknown room');
+    console.error(`Unknown room: ${[!rA && idA, !rB && idB].filter(Boolean).join(', ')}`);
     process.exit(2);
   }
 
@@ -193,7 +201,7 @@ if (flags.archetypes) {
   const aA = C.CHAIN_ARCHETYPES.find((x) => x.id === idA);
   const aB = C.CHAIN_ARCHETYPES.find((x) => x.id === idB);
   if (!aA || !aB) {
-    console.error('Unknown archetype');
+    console.error(`Unknown archetype: ${[!aA && idA, !aB && idB].filter(Boolean).join(', ')}`);
     process.exit(2);
   }
 

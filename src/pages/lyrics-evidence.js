@@ -530,7 +530,10 @@
     );
     const visible = session?.expanded ? listed : listed.slice(0, 3);
     const rows = visible
-      .map((pair) => {
+      .map((pair, k) => {
+        // Each Go names its pair and relation after its visible words, so a
+        // person moving by buttons hears which pair it belongs to (Jony #109).
+        const about = `pair ${k + 1}, ${pair.types.map((t) => t.schema).join('; ') || 'relation unavailable'}`;
         const endpoints = ['a', 'b']
           .map((side) => {
             const o = view.occurrences[pair[side]];
@@ -538,10 +541,10 @@
             return `<div><span>${esc(label)}</span> ${
               o.parts.length
                 ? o.parts
-                    .map(
-                      (p, i) =>
-                        `<button type="button" data-ui="ly-relation-go" data-pair="${esc(pair.id)}" data-side="${side}" data-part="${i}"${o.canGo ? '' : ' disabled'}>Go to ${side.toUpperCase()}${o.parts.length > 1 ? ` part ${i + 1}` : ''}: ${esc(p.text)}</button>`
-                    )
+                    .map((p, i) => {
+                      const words = `Go to ${side.toUpperCase()}${o.parts.length > 1 ? ` part ${i + 1}` : ''}: ${p.text}`;
+                      return `<button type="button" data-ui="ly-relation-go" data-pair="${esc(pair.id)}" data-side="${side}" data-part="${i}" aria-label="${esc(`${words}, ${about}`)}"${o.canGo ? '' : ' disabled'}>${esc(words)}</button>`;
+                    })
                     .join(' ')
                 : `<span>${esc(o.text)}</span> <span title="${esc(o.reason)}" aria-label="${esc(`Not placed in this draft. ${o.reason}`)}">Not placed in this draft</span>`
             }</div>`;
@@ -557,7 +560,7 @@
     const scopeDetails = view.population
       ? `<details><summary>Report scope and exclusions</summary><pre>${esc(JSON.stringify(view.population, null, 2))}</pre><p>Coverage by check</p><pre>${esc(JSON.stringify(view.coverage.methods || [], null, 2))}</pre></details>`
       : '';
-    return `<section aria-label="Relations"><h3>Relations</h3>${session?.sourceOccurrence ? `<p>Source: ${esc(view.occurrences[session.sourceOccurrence]?.text || 'unplaced occurrence')} · ${listed.length} reported pairs · ${partners.size} partner occurrences</p>` : ''}<p role="status">${esc(summary)} ${view.reason ? `<span title="${esc(view.reason)}" aria-label="${esc(`These pairs can’t be shown in your lyrics yet. ${view.reason}`)}">These pairs can’t be shown in your lyrics yet.</span>` : ''}</p><p>These results come from checks of your lyrics. They are separate from your declared rhyme scheme and suggested words.</p><p>${esc(scope)}</p>${scopeDetails}${!session?.expanded && listed.length ? `<p>${visible.length} of ${listed.length}, in lyric order</p>` : ''}<ol>${rows}</ol>${visible.length < listed.length ? `<button type="button" data-ui="ly-relation-expand">Show all ${listed.length} pairs</button>` : ''}<p role="status">${esc(session?.reason)}</p><button type="button" data-ui="ly-relation-close">Close</button><button type="button" data-ui="ly-relation-return"${session?.returnUnavailable ? ' disabled' : ''}>Return to editing origin</button>${session?.previousPanel ? '<button type="button" data-ui="ly-relation-back">Back to previous panel</button>' : ''}<button type="button" data-ui="ly-relation-stay">Stay here and end inspection</button></section>`;
+    return `<section aria-label="Relations"><h3>Relations</h3>${session?.sourceOccurrence ? `<p>Source: ${esc(view.occurrences[session.sourceOccurrence]?.text || 'unplaced occurrence')} · ${listed.length} reported pairs · ${partners.size} partner occurrences</p>` : ''}<p role="status">${esc(summary)} ${view.reason ? `<span title="${esc(view.reason)}" aria-label="${esc(`These pairs can’t be shown in your lyrics yet. ${view.reason}`)}">These pairs can’t be shown in your lyrics yet.</span>` : ''}</p><p>These results come from checks of your lyrics. They are separate from your declared rhyme scheme and suggested words.</p><p>${esc(scope)}</p>${scopeDetails}${!session?.expanded && listed.length ? `<p>${visible.length} of ${listed.length}, in lyric order</p>` : ''}<ol>${rows}</ol>${visible.length < listed.length ? `<button type="button" data-ui="ly-relation-expand">Show all ${listed.length} pairs</button>` : ''}<p role="status">${esc(session?.reason)}</p><p class="ly-sr" role="status" data-relation-said></p><button type="button" data-ui="ly-relation-close">Close</button><button type="button" data-ui="ly-relation-return"${session?.returnUnavailable ? ' disabled' : ''}>Return to editing origin</button>${session?.previousPanel ? '<button type="button" data-ui="ly-relation-back">Back to previous panel</button>' : ''}<button type="button" data-ui="ly-relation-stay">Stay here and end inspection</button></section>`;
   }
   Object.assign(globalThis, {
     lyRelationBindReport,

@@ -29,6 +29,19 @@ for (const a of args) {
   }
 }
 
+const { checkFlags, refuse } = require('./_cli_flags.js');
+// --tradition is accepted as the other scripts spell it. This parser does not
+// take the next token as a value, so `--tradition afrobeat` leaves the id as a
+// positional, which is the form check_cli_output pins; `--tradition=afrobeat`
+// is moved there too.
+checkFlags(flags, { boolean: ['json', 'tradition'], value: ['aesthetic'] });
+if (typeof flags.tradition === 'string') positional.unshift(flags.tradition);
+// One tradition per call: a second id used to be dropped without a word.
+if (positional.length > 1)
+  refuse(
+    `fingerprint.js takes one tradition id; got ${positional.length}: ${positional.join(' ')}.`
+  );
+
 const tradId = C.resolveTraditionId(positional[0]);
 if (!tradId) {
   console.error('Usage: fingerprint.js <tradition_id> [--aesthetic=<id>] [--json]');

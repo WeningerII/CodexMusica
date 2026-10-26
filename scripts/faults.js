@@ -2334,6 +2334,40 @@ if (want('24', 'duplicate-entity')) {
   }
 }
 
+// 24b/24c. Two chips that read the same in one picker -> check_duplicates.js
+//     _merge.js keeps a picker free of twin labels two ways: a sound the part
+//     already offers is lent as an alias no picker lists (24b), and a label
+//     shared by different sounds is told apart by the instrument the copy came
+//     from (24c). Undo either and the picker check must name the collision.
+for (const [id, name, from, to] of [
+  ['24b', 'picker-twin-sound', 'else added.push(aliasOf(k, shown[s]));', 'else added.push(c);'],
+  [
+    '24c',
+    'picker-twin-label',
+    'if (inst && soundsByLabel[labelKey(v)].size > 1) {',
+    'if (false) {',
+  ],
+]) {
+  if (!want(id, name)) continue;
+  const d = mkenv(['scripts', 'references']);
+  const f = path.join(d, 'scripts/_merge.js');
+  const src = fs.readFileSync(f, 'utf8');
+  const faulted = src.replace(from, to + ' /* FAULT */');
+  if (faulted === src) {
+    record(`${name} -> check_duplicates.js`, {
+      code: 0,
+      out: `FAULT NOT PLANTED: ${JSON.stringify(from)} not found in _merge.js`,
+    });
+    continue;
+  }
+  fs.writeFileSync(f, faulted);
+  record(
+    `${name} -> check_duplicates.js`,
+    gate(d, ['scripts/check_duplicates.js']),
+    /in one picker/
+  );
+}
+
 // 25. A cultural claim ruled false comes back -> check_signature_tokens.js
 //     The defect this gate exists for: a token the tradition's own prose rules
 //     out (a Yolŋu didgeridoo tagged `celtic`) returns to the signature table,
@@ -2890,12 +2924,18 @@ if (want('38', 'toast-action-lingers')) {
   // Runtime minification preserves hideToast's public name, not its local
   // parameter. Bind the removal to that function's actual parameter and refuse
   // a missing/ambiguous anchor rather than accepting an unplanted mutant.
+  // hideToast now clears the action and the keyboard hint together
+  // (`querySelectorAll(".toast-action, .toast-hint").forEach(...)`): the
+  // mutant keeps the hint removal and drops only the action from it.
   const removal =
-    /(function hideToast\(([$\w]+)\)\{[^{}]*?)\2\.querySelector\("\.toast-action"\)\?\.remove\(\)/g;
+    /(function hideToast\(([$\w]+)\)\{[^{}]*?)\2\.querySelectorAll\("\.toast-action, \.toast-hint"\)/g;
   if ([...before.matchAll(removal)].length !== 1)
     throw new Error('faults: expected exactly one toast action removal in hideToast');
   const after = before
-    .replace(removal, (_match, prefix) => prefix + 'void 0 /* __TOAST_FAULT__ */')
+    .replace(
+      removal,
+      (_match, prefix, t) => prefix + t + '.querySelectorAll(".toast-hint" /* __TOAST_FAULT__ */)'
+    )
     .replace(
       '</body>',
       '<style>/* __TOAST_FAULT__ */ #toast .toast-action { visibility: visible !important; pointer-events: auto !important; }</style>\n</body>'

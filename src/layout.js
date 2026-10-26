@@ -7,7 +7,14 @@ const UILayout = (() => {
     resets = new Set();
   let frame = 0;
   const clamp = (n, lo, hi) => Math.max(lo, Math.min(n, Math.max(lo, hi)));
-  const visible = (el) => el.isConnected && el.getClientRects().length > 0;
+  // A [hidden] ancestor answers without laying the page out (no stylesheet
+  // here shows a [hidden] element).
+  const visible = (el) =>
+    el.isConnected && !el.closest('[hidden]') && el.getClientRects().length > 0;
+  // The workbench's own breakpoint, asked of the viewport: on a phone, reading
+  // innerWidth lays the page out first; a media query does not.
+  const narrow = window.matchMedia?.('(max-width: 899px)');
+  const wide = () => (narrow ? !narrow.matches : innerWidth >= 900);
   const viewport = () => {
     const v = window.visualViewport;
     const x = (v?.offsetLeft || 0) + 8,
@@ -173,10 +180,7 @@ const UILayout = (() => {
       document.addEventListener('keydown', key, true);
     });
   }
-  function floating(
-    panel,
-    { key, title, header, enabled = () => innerWidth >= 900, onChange = () => {} } = {}
-  ) {
+  function floating(panel, { key, title, header, enabled = wide, onChange = () => {} } = {}) {
     const bounds = () => {
       const v = viewport();
       const bar = document.querySelector('.ui-header, .topbar');
@@ -317,7 +321,7 @@ const UILayout = (() => {
     title,
     side = 'right',
     limits,
-    enabled = () => innerWidth >= 900,
+    enabled = wide,
   }) {
     const vertical = side === 'top';
     const size = (r) => (vertical ? r.height : r.width);
@@ -421,6 +425,7 @@ const UILayout = (() => {
     };
   }
   return {
+    wide,
     anchor,
     floating,
     splitter,

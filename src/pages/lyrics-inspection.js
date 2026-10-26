@@ -145,8 +145,44 @@
     const html = lyRelationDockMarkup(getView(), session);
     if (dock.innerHTML !== html) dock.innerHTML = html;
   }
+  // The inspector changes form with the layout: an inline panel at 1280, a
+  // dialog at 390. Focus inside the old form follows it into the new one,
+  // onto the same control when it is there, else the heading or Close
+  // (Jony #106: a resize from the dialog left focus on BODY).
+  const HOSTS = '#ly-relations-dialog, #ly-relation-inspector';
+  function followInto(host, key) {
+    if (!host || host.hidden || !host.getClientRects().length) return;
+    const same =
+      key &&
+      [...host.querySelectorAll('[data-ui]')].find(
+        (n) =>
+          n.dataset.ui === key.ui &&
+          (n.dataset.id || '') === (key.item || '') &&
+          (n.dataset.pair || '') === (key.pair || '') &&
+          (n.dataset.side || '') === (key.side || '') &&
+          (n.dataset.part || '') === (key.part || '')
+      );
+    // A dialog opening puts focus on its first control; the same control wins.
+    if (host.contains(document.activeElement) && (!same || same.disabled)) return;
+    const target =
+      (same && !same.disabled && same) ||
+      host.querySelector('h3') ||
+      host.querySelector('[data-ui="ly-relation-close"]');
+    if (!target) return;
+    if (target.matches('h3')) target.tabIndex = -1;
+    target.focus({ preventScroll: true });
+  }
   function render() {
     if (!LY.model) return;
+    const had = document.activeElement;
+    const from = had?.closest?.(HOSTS) || null;
+    const key = from && {
+      ui: had.dataset?.ui,
+      item: had.dataset?.id,
+      pair: had.dataset?.pair,
+      side: had.dataset?.side,
+      part: had.dataset?.part,
+    };
     const view = getView();
     lySetWritingRangeMarks(lyRelationWritingMarks(view, session));
     lyInspectionRenderDock();
@@ -160,8 +196,16 @@
         `<section aria-label="Choose an occurrence"><h3>Choose the occurrence to inspect</h3>${choices.map((o) => `<button type="button" data-ui="ly-relation-source" data-id="${esc(o.id)}">${esc(o.text)} · ${esc(lyRelationLineLabels(o.lineIds))}</button>`).join('')}<button type="button" data-ui="ly-relation-source" data-id="">All document evidence</button></section>` +
         html;
     if (inline) {
+      const opening = inline.hidden && showing && !narrow;
       inline.hidden = !showing || narrow;
       if (!inline.hidden && inline.innerHTML !== html) inline.innerHTML = html;
+      // Opening replaces the dock's Relations button, so focus would fall to
+      // the page body; it moves to the inspector's Close, as the narrow
+      // dialog's does (Jony #13 on #519).
+      if (opening && (!document.activeElement || document.activeElement === document.body))
+        (
+          inline.querySelector('[data-ui="ly-relation-close"]') || inline.querySelector('button')
+        )?.focus({ preventScroll: true });
     }
     if (dialog) {
       dialog.classList.toggle('is-expanded', !!session?.expanded);
@@ -171,9 +215,35 @@
         if (!dialog.open) dialog.showModal();
       }
     }
+    const to = showing ? (narrow ? dialog : inline) : null;
+    if (from && to && to !== from) followInto(to, key);
+  }
+  // Show all and an occurrence choice redraw the list under the button that
+  // asked (Jony #108: focus fell to BODY and nothing was said). Focus lands in
+  // the redrawn list, found afresh, and one line says what is shown, through a
+  // status inside the inspector (outside it, a modal dialog would hide it).
+  const listHost = () =>
+    LY.size === 'narrow' ? $ui('ly-relations-dialog') : $ui('ly-relation-inspector');
+  const listRows = (host) => [...(host?.querySelectorAll('li[data-relation-id]') || [])];
+  function settleList(host, from, said) {
+    if (!host || !host.getClientRects().length) return;
+    const row = listRows(host)[from] || listRows(host)[0];
+    const go =
+      row && [...row.querySelectorAll('[data-ui="ly-relation-go"]')].find((b) => !b.disabled);
+    const heading = host.querySelector('section[aria-label="Relations"] h3');
+    const target = go || heading;
+    if (target) {
+      if (target === heading) heading.tabIndex = -1;
+      target.focus({ preventScroll: true });
+    }
+    const live = host.querySelector('[data-relation-said]');
+    if (!live) return;
+    live.textContent = '';
+    setTimeout(() => (live.textContent = said), 50);
   }
   function lyInspectionAction(action, id, button) {
     if (!LY.model) return;
+    const shownBefore = listRows(listHost()).length;
     if (action === 'ly-relations') {
       const captured = pendingOrigin || { origin: lyCaptureWritingOrigin(), panel: capturePanel() };
       pendingOrigin = null;
@@ -199,8 +269,13 @@
     else if (action === 'ly-relation-close') {
       session = lyRelationSessionClose(session);
       closeDialog();
-      if (opener?.isConnected && opener.getClientRects().length)
-        opener.focus({ preventScroll: true });
+      // Opening inspection replaces the initial Relations button in the dock.
+      // Return to its visible replacement when the original no longer exists.
+      const target =
+        opener?.isConnected && opener.getClientRects().length
+          ? opener
+          : $ui('ly-relation-dock')?.querySelector('[data-ui="ly-relation-reopen"]');
+      if (target?.getClientRects().length) target.focus({ preventScroll: true });
     } else if (action === 'ly-relation-go') {
       const index = /^\d+$/.test(button?.dataset.part || '') ? Number(button.dataset.part) : NaN;
       session = lyRelationSessionSelect(
@@ -255,6 +330,39 @@
       session = lyRelationSessionBack(session, { back: restorePanel });
     }
     render();
+    if (action === 'ly-relation-expand' && session?.listOpen) {
+      const host = listHost();
+      settleList(host, shownBefore, `Showing all ${listRows(host).length} pairs`);
+    } else if (action === 'ly-relation-source' && session?.listOpen) {
+      const view = getView(),
+        source = session.sourceOccurrence,
+        o = source && view.occurrences[source];
+      const n = source
+        ? view.pairs.filter((p) => p.a === source || p.b === source).length
+        : view.pairs.length;
+      const pairs = `${n} ${n === 1 ? 'pair' : 'pairs'}`;
+      settleList(
+        listHost(),
+        0,
+        o
+          ? `${pairs} for ${o.text}, ${lyRelationLineLabels(o.lineIds)}`
+          : `All document evidence: ${pairs}`
+      );
+    }
+    if (action === 'ly-relation-stay' || action === 'ly-relation-back') focusAfterEnd();
+  }
+  // Stay and Back end the inspection: the button pressed went with the dialog
+  // or the inline panel, and the dock was just redrawn. Unless Back restored
+  // the previous panel's own focus, land on the dock's visible Relations
+  // button (the dock Close returns to as well), else the draft — never <body>.
+  function focusAfterEnd() {
+    const a = document.activeElement;
+    if (a && a !== document.body && a.isConnected && a.getClientRects().length) return;
+    const dock = $ui('ly-relation-dock')?.querySelector(
+      '[data-ui="ly-relations"], [data-ui="ly-relation-reopen"]'
+    );
+    const target = dock?.getClientRects().length ? dock : lyDraft();
+    if (target?.getClientRects().length) target.focus({ preventScroll: true });
   }
   function lyInspectionWire(surface) {
     surface.addEventListener(

@@ -379,6 +379,15 @@
 }
 
 /* ── Main pane ─────────────────────────────────────────────────────────── */
+/* Focus moved into view (Shift+Tab, a jump) lands below the sticky tabs, not
+   under them (Jony, #519; WCAG 2.4.11). The tabs are about 64 px tall, with
+   the A–Z line about 100 px. */
+#genre-main {
+  scroll-padding-top: 72px;
+}
+#genre-main:has(> .gp-maintabs-jump) {
+  scroll-padding-top: 112px;
+}
 .gp-maintabs {
   position: sticky;
   top: 0;
@@ -697,6 +706,13 @@
   font-size: var(--cm-text-sm);
   line-height: 1.6;
 }
+/* Each classification link is a 24px target (WCAG 2.5.8): wrapped rows no
+   longer sit 20px apart (Jony #121). */
+#surface-genre .gp-crumbs .gp-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
 .gp-detail-actions {
   display: flex;
   flex-wrap: wrap;
@@ -816,6 +832,14 @@
   color: var(--cm-text-muted);
   font-size: var(--cm-text-sm);
   line-height: 1.6;
+}
+/* The breadcrumb and "also" links are whole controls, so each is at least a
+   24 px target (WCAG 2.5.8; Jony, #519), not the 21 px of their text. */
+#surface-genre .gp-crumbs .gp-link,
+#surface-genre .gp-also .gp-link {
+  display: inline-block;
+  min-height: 24px;
+  line-height: 24px;
 }
 .gp-detail-foot {
   display: flex;

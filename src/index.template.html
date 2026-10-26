@@ -80,10 +80,10 @@ ul { list-style: none; }
 .boot-status { display: none; }
 body:not(.workbench):not(.boot-failed) > .boot-status { display: flex; position: fixed; inset: 0; align-items: center; justify-content: center; color: var(--text-3); font-size: var(--fs-body); background: var(--bg); z-index: 1; }
 body:not(.workbench):not(.boot-failed) > .app-bar,
-body:not(.workbench):not(.boot-failed) > main.workspace { visibility: hidden; }
+body:not(.workbench):not(.boot-failed) > .workspace { visibility: hidden; }
 body.boot-failed > .boot-status { display: block; position: fixed; inset: 0; overflow-y: auto; background: var(--bg); z-index: 200; }
 body.boot-failed > .app-bar,
-body.boot-failed > main.workspace { display: none; }
+body.boot-failed > .workspace { display: none; }
 
 /* App bar */
 .app-bar { position: sticky; top: 0; z-index: 30; background: var(--header-glass); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: var(--s3) var(--s6); display: flex; align-items: center; justify-content: space-between; gap: var(--s4); }
@@ -390,6 +390,8 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .part-descriptors-cell { font-size: var(--fs-caption); color: var(--text-2); text-align: right; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 320px; }
 .part-options-cell { display: inline-flex; align-items: center; gap: 4px; color: var(--text-3); font-size: var(--fs-caption); white-space: nowrap; }
 .part-row-grid:hover .part-options-cell { color: var(--text); }
+button.part-options-cell { background: none; border: 0; padding: 0; margin: 0; min-height: 24px; }
+.part-row-grid button.part-options-cell:hover { background: none; }
 .part-variants-grid { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: var(--s2); padding: var(--s3) 0 var(--s2); }
 .part-variants-grid .variant-chip { text-align: left; }
 /* Universal cross-instrument string materials: collapsed under a part's own
@@ -869,6 +871,9 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .chain-stage-label { font-size: var(--fs-micro); font-weight: var(--fw-semibold); letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-3); }
 .chain-stage-value { font-size: var(--fs-micro); color: var(--text); line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
 .chain-stage-value.empty { color: var(--text-3); font-style: italic; }
+/* The open stage's panel sits right after its stage in the DOM (so it is the
+   next Tab stop) and, by order, below every stage on screen as before. */
+.chain-flow > .chain-edit-panel { grid-column: 1 / -1; order: 1; }
 .chain-edit-panel { margin-top: var(--s3); padding: var(--s4); background: var(--surface-2); border-radius: var(--r2); border: 1px solid var(--border); }
 .chain-edit-title { font-size: var(--fs-caption); font-weight: var(--fw-semibold); color: var(--text-2); margin-bottom: var(--s2); }
 .chain-edit-hint { font-size: var(--fs-micro); color: var(--text-3); margin-bottom: var(--s3); }
@@ -979,7 +984,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .confirm-dialog-actions { display: flex; justify-content: flex-end; gap: var(--s2); }
 
 /* Saved list */
-.saved-grid { display: flex; flex-direction: column; gap: var(--s2); }
+.saved-grid { display: flex; flex-direction: column; gap: var(--s2); list-style: none; margin: 0; padding: 0; }
 .saved-item { padding: var(--s3) var(--s4); border: 1px solid var(--border); border-radius: var(--r2); background: var(--surface); display: flex; align-items: center; justify-content: space-between; gap: var(--s3); }
 .saved-name { font-size: var(--fs-body); font-weight: var(--fw-medium); }
 .saved-meta { font-size: var(--fs-micro); color: var(--text-3); margin-top: 2px; }
@@ -990,6 +995,8 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .save-form label { display: block; font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-3); margin-bottom: 6px; }
 .save-form input { width: 100%; padding: 8px var(--s3); border: 1px solid var(--border-strong); border-radius: var(--r2); font-size: var(--fs-body); }
 .save-form input:focus { outline: none; border-color: var(--color-blue); box-shadow: 0 0 0 2px var(--color-blue-soft); }
+.save-form input[aria-invalid='true'] { border-color: var(--color-red); }
+.save-error { margin: 6px 0 0; font-size: var(--fs-micro); color: var(--color-red); }
 
 /* Toast */
 .toast { position: fixed; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--text); color: var(--surface); padding: 8px var(--s4); border-radius: var(--r2); font-size: var(--fs-caption); font-weight: var(--fw-medium); box-shadow: var(--shadow-modal); opacity: 0; transition: opacity var(--t-norm) var(--ease), transform var(--t-norm) var(--ease); pointer-events: none; display: inline-flex; align-items: center; gap: var(--s2); }
@@ -1441,7 +1448,9 @@ body.is-dnd-active * { cursor: grabbing !important; }
 /* Screen-reader-only live region for the same information. The visible counter
    is aria-hidden: a live region that fires on every keystroke is unusable, so
    the announcements below are emitted only when a band CHANGES. */
-.chat-count-sr {
+.chat-count-sr,
+.sr-only,
+.chat-sr {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -1491,7 +1500,9 @@ body.is-dnd-active * { cursor: grabbing !important; }
   <button id="btn-add"></button>
 </header>
 
-<main class="workspace">
+<!-- The page itself is the main landmark (#discovery, src/workbench.js); Your
+     recipe and the card editor are its siblings, not inside it (Jony #124). -->
+<div class="workspace">
   <aside id="workspace-sidebar" aria-label="Your recipe">
     <!-- Three zones: a fixed top (session name), a scrolling middle
          (#sidebar-scroll: filter, genre groups, suggestions — the shell adds
@@ -1509,7 +1520,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
     <div id="sidebar-recipe-preview"></div>
   </aside>
   <section id="workspace-detail"></section>
-</main>
+</div>
 
 <!-- Modal: traditions -->
 <div class="modal-bg" id="modal-trad">
@@ -1532,7 +1543,8 @@ body.is-dnd-active * { cursor: grabbing !important; }
     </div>
     <div class="save-form">
       <label for="save-name">Copy name</label>
-      <input type="text" id="save-name" placeholder="e.g. Hindustani electric experiment" autocomplete="off">
+      <input type="text" id="save-name" placeholder="e.g. Hindustani electric experiment" autocomplete="off" aria-describedby="save-name-error">
+      <p class="save-error" id="save-name-error" hidden>Enter a name for the copy.</p>
     </div>
     <div class="modal-foot">
       <button class="btn btn-ghost" data-close="modal-save">Cancel</button>
@@ -1552,6 +1564,10 @@ body.is-dnd-active * { cursor: grabbing !important; }
   </div>
 </div>
 
+<!-- Short status lines (search counts, route notices): a persistent polite
+     region of its own, so they never replace a toast and its action. -->
+<div id="ui-live" class="ui-live" role="status" aria-live="polite"></div>
+
 <div class="modal-bg" id="modal-recipe-stack">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-recipe-stack-title">
     <div class="modal-head">
@@ -1562,7 +1578,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
   </div>
 </div>
 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div role="region" aria-label="Notifications"><div class="toast" id="toast" role="status" aria-live="polite"></div></div>
 
 <!-- Modal: browse preface lexicon -->
 <div class="modal-bg" id="modal-preface">
@@ -1572,6 +1588,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
       <button class="icon-btn" data-close="modal-preface" data-tooltip="Close" data-tooltip-pos="bottom" aria-label="Close"><span data-icon="x" data-size="14"></span></button>
     </div>
     <div class="modal-search"><span class="search-adornment"><span data-icon="search" data-size="14"></span></span><input type="search" id="search-preface" placeholder="Search prefaces by name or description…" autocomplete="off" aria-label="Search prefaces"></div>
+    <div class="sr-only" id="preface-modal-live" aria-live="polite"></div>
     <div class="modal-body" id="preface-modal-body" style="padding: var(--s5);"></div>
   </div>
 </div>

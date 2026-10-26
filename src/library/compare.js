@@ -15,7 +15,7 @@
 //   onClose  called after the sheet closes (Escape, scrim, close button).
 // The sheet keeps `compare=<id>` in the hash with replaceState and removes it
 // on close, as the old Site did with ?compare.
-/* global esc, icon, libraryChunk */
+/* global esc, icon, libraryChunk, uiInertOutside */
 'use strict';
 
 const PAGE_ROWS = 250;
@@ -301,6 +301,9 @@ function mount(container, input) {
 <button type="button" class="cm-btn cm-btn-icon" data-close aria-label="Close comparison">${icon('x', 20)}</button></div>
 <div class="lib-cmp-picker"></div><div class="lib-cmp-body"></div>`;
   host.append(scrim, sheet);
+  // aria-modal is kept: what the sheet covers leaves the Tab order (the scrim
+  // stays clickable, it closes the sheet).
+  const restoreInert = uiInertOutside(sheet, [scrim]);
   const pickerEl = sheet.querySelector('.lib-cmp-picker');
   const bodyEl = sheet.querySelector('.lib-cmp-body');
   let alive = true,
@@ -310,7 +313,8 @@ function mount(container, input) {
     query = '',
     error = '',
     timer = 0,
-    token = 0;
+    searchToken = 0,
+    comparisonToken = 0;
 
   // Picker: other readings of the same recorded work, from the static head's
   // work_readings (current id excluded, title-ordered), then free search.
@@ -334,19 +338,21 @@ function mount(container, input) {
     if (e.target.tagName !== 'INPUT') return;
     query = e.target.value;
     clearTimeout(timer);
+    const mine = ++searchToken;
+    results = [];
+    error = '';
     if (!query) return renderPicker();
-    const mine = ++token;
     timer = setTimeout(() => {
       lib
         .get(`/search?availability=readable&limit=20&q=${encodeURIComponent(query)}`)
         .then((r) => {
-          if (!alive || mine !== token) return;
+          if (!alive || mine !== searchToken) return;
           results = (r.items || []).filter((x) => x.reading_unit_id !== leftId);
           error = '';
           renderPicker();
         })
         .catch((err) => {
-          if (!alive || mine !== token) return;
+          if (!alive || mine !== searchToken) return;
           error = err.message;
           renderPicker();
         });
@@ -476,18 +482,18 @@ ${limit < rows.length ? `<button type="button" class="cm-btn cm-btn-outline lib-
     chosen = id;
     setCompareParam(id);
     renderPicker();
-    const mine = ++token;
+    const mine = ++comparisonToken;
     view = null;
     bodyEl.innerHTML =
       '<p class="lib-cmp-note" role="status">Loading both complete reading units…</p>';
     Promise.all([loadLeft(), loadWhole(lib, id)])
       .then((data) => {
-        if (!alive || mine !== token) return;
+        if (!alive || mine !== comparisonToken) return;
         view = { data, source: false, mode: 'Differences', limit: 250 };
         renderComparison();
       })
       .catch((err) => {
-        if (!alive || mine !== token) return;
+        if (!alive || mine !== comparisonToken) return;
         bodyEl.innerHTML = `<p class="lib-cmp-error" role="alert">${esc(err.message)}</p>`;
       });
   }
@@ -498,6 +504,7 @@ ${limit < rows.length ? `<button type="button" class="cm-btn cm-btn-outline lib-
     if (current === handle) current = null;
     clearTimeout(timer);
     document.removeEventListener('keydown', onKey, true);
+    restoreInert();
     scrim.remove();
     sheet.remove();
     if (silent) return;

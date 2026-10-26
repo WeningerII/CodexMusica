@@ -11,9 +11,47 @@
   gap: 4px;
   flex-wrap: wrap;
 }
+/* The one polite live region (libraryAnnounce): heard, not seen. */
+#surface-library .lib-live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
 #surface-library .lib-skeleton {
   height: 236px;
   border-radius: 8px;
   background: var(--cm-surface-subtle);
   margin-bottom: 16px;
+}
+
+/* Forced colours: compare's changed characters are marked by background
+   alone, which forced colours erase; use the system mark colours. (Here,
+   not in theme.css: a build without the Library carries none of it.) */
+@media (forced-colors: active) {
+  #surface-library mark {
+    forced-color-adjust: none;
+    background: Mark !important;
+    color: MarkText !important;
+  }
+}
+/* Read by assistive technology, not shown: the Library's own h1, and the
+   rights table's Artwork column head (Jony #23 on #519). */
+#surface-library .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+/* A page with its own h1 (a collection, a reading) keeps one: the shell's
+   hidden "Library" heading steps aside (Jony, #519). */
+#surface-library .lib-shell:has(h1:not(.sr-only)) > h1.sr-only {
+  display: none;
 }

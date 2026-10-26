@@ -57,6 +57,14 @@ for (let i = 0; i < args.length; i++) {
   } else flags[name] = true;
 }
 
+const { checkFlags, intFlag } = require('./_cli_flags.js');
+// No --json: this script prints a box-drawn table, and a guessed --json used to
+// exit 0 with that table on stdout.
+checkFlags(flags, {
+  boolean: ['no-instruments'],
+  value: ['tradition', 'staples', 'mode', 'top'],
+});
+
 if (!flags.tradition) {
   console.error(
     'Usage: stack.js --tradition=<id> [--staples=id1,id2] [--mode=stack|cloud] [--top=N] [--no-instruments]'
@@ -80,7 +88,7 @@ if (_badStaples.length) {
   process.exit(2);
 }
 const mode = flags.mode || 'stack';
-const topN = parseInt(flags.top) || 50;
+const topN = intFlag(flags, 'top', { min: 1, fallback: 50 });
 const showInstruments = !flags['no-instruments'];
 
 if (!['stack', 'cloud'].includes(mode)) {

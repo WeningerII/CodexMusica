@@ -54,6 +54,10 @@ function parseArgs(argv) {
 
 function main() {
   const flags = parseArgs(process.argv.slice(2));
+  require('./_cli_flags.js').checkFlags(flags, {
+    boolean: ['json'],
+    value: ['instrument', 'preface', 'tradition'],
+  });
   const instrumentId = flags.instrument;
   const targetId = flags.preface;
   if (!instrumentId || !targetId) {
@@ -70,7 +74,18 @@ function main() {
     console.error('Unknown preface id: ' + targetId);
     process.exit(2);
   }
-  const card = seedCard(instrumentId, flags.tradition || null);
+  // An unknown --tradition used to seed nothing and exit 0, so the caller got
+  // the instrument's bare defaults while believing it got that tradition's card.
+  // Retired ids still resolve to the tradition they were merged into.
+  let tradition = null;
+  if (flags.tradition !== undefined) {
+    tradition = typeof flags.tradition === 'string' ? C.resolveTraditionId(flags.tradition) : null;
+    if (!tradition || !C.TRADITIONS.find((t) => t.id === tradition)) {
+      console.error('Unknown tradition id: ' + flags.tradition);
+      process.exit(2);
+    }
+  }
+  const card = seedCard(instrumentId, tradition);
   const result = inverseConfigure(card, targetId);
   if (!result) {
     console.error('inverse-configure failed (no target tokens or unknown instrument).');

@@ -304,71 +304,97 @@
       });
     };
 
-    var sources = INLINE
-      ? Promise.resolve([
-          INLINE.index,
-          INLINE.geo,
-          INLINE.sigs,
-          INLINE.world,
-          INLINE.treeMap,
-          INLINE.nodes,
-          INLINE.routes,
-          INLINE.threads,
-          INLINE.meta,
-        ])
-      : Promise.all([
-          get('api/traditions/index.json'),
-          get('data/atlas-geo.json'),
-          get('references/_tradition_signatures.json'),
-          get('data/countries.geo.json'),
-          get('data/tree-map.json'),
-          get('data/tree-nodes.json'),
-          get('data/routes.json'),
-          get('data/threads.json'),
-          get('data/geo-meta.json'),
-        ]);
+    // A function, so Try again can ask again without reloading the page.
+    var sources = function () {
+      return INLINE
+        ? Promise.resolve([
+            INLINE.index,
+            INLINE.geo,
+            INLINE.sigs,
+            INLINE.world,
+            INLINE.treeMap,
+            INLINE.nodes,
+            INLINE.routes,
+            INLINE.threads,
+            INLINE.meta,
+          ])
+        : Promise.all([
+            get('api/traditions/index.json'),
+            get('data/atlas-geo.json'),
+            get('references/_tradition_signatures.json'),
+            get('data/countries.geo.json'),
+            get('data/tree-map.json'),
+            get('data/tree-nodes.json'),
+            get('data/routes.json'),
+            get('data/threads.json'),
+            get('data/geo-meta.json'),
+          ]);
+    };
+    load(false);
 
-    sources
-      .then(function (r) {
-        ingest(r[0], r[1].coords, r[2], r[3], r[4], r[5], r[6], r[7], r[8], r[1].no_fixed_origin);
-        setupCanvas();
-        wireControls();
-        $('loading').textContent = S.pts.length + ' traditions loaded.';
-        $('loading').classList.add('sr-only');
-        renderProvenance();
-        renderLegend();
-        renderThreads();
-        renderRoutes();
-        // Docked on a wide map, Genres starts open as the full legend.
-        if (!overlay()) setPanel('territories');
-        syncList();
-        syncControls();
-        loadImages();
-        var deep = new URLSearchParams(location.search).get('trad');
-        if (deep && !S.byId[deep] && S.aliasOf[deep]) deep = S.aliasOf[deep];
-        if (deep && S.byId[deep]) {
-          select(S.byId[deep]);
-          flyTo(S.byId[deep]);
-        }
-      })
-      .catch(function (err) {
-        el.count.textContent = 'Not loaded';
-        $('loading').classList.remove('sr-only');
-        $('loading').innerHTML =
-          '<div class="cm-empty" data-tone="danger"><strong>The map did not load.</strong>' +
-          '<span>' +
-          esc(err && err.message ? err.message : 'The catalog could not be fetched.') +
-          '</span><span class="cm-empty-actions"><button type="button" data-act="reload">Try again</button>' +
-          '<a href="api/all.json">Every recipe as JSON</a></span></div>';
-        var again = document.querySelector('[data-act="reload"]');
-        if (again)
-          again.addEventListener('click', function () {
-            location.reload();
-          });
-        el.list.innerHTML =
-          '<p class="list-empty">The catalog did not load. Every recipe is still available at ' +
-          '<a href="api/all.json">api/all.json</a>.</p>';
-      });
+    // `retrying`: Try again was pressed, so this attempt places focus (on the
+    // search once the map is here, on the new Try again if it fails again).
+    function load(retrying) {
+      sources()
+        .then(function (r) {
+          // From here the map is being built: a failure past this point cannot
+          // be retried in place, so Try again reloads the page instead.
+          S.building = true;
+          ingest(r[0], r[1].coords, r[2], r[3], r[4], r[5], r[6], r[7], r[8], r[1].no_fixed_origin);
+          setupCanvas();
+          wireControls();
+          $('loading').textContent = S.pts.length + ' traditions loaded.';
+          $('loading').classList.add('sr-only');
+          renderProvenance();
+          renderLegend();
+          renderThreads();
+          renderRoutes();
+          // Docked on a wide map, Genres starts open as the full legend.
+          if (!overlay()) setPanel('territories');
+          syncList();
+          syncControls();
+          loadImages();
+          var deep = new URLSearchParams(location.search).get('trad');
+          if (deep && !S.byId[deep] && S.aliasOf[deep]) deep = S.aliasOf[deep];
+          if (deep && S.byId[deep]) {
+            select(S.byId[deep]);
+            flyTo(S.byId[deep]);
+          }
+          // Focus waited on the loading status, now hidden: move it to the search.
+          var waiting = document.activeElement;
+          if (retrying && (waiting === document.body || waiting === $('loading')))
+            el.search.focus();
+          $('loading').removeAttribute('tabindex');
+        })
+        .catch(function (err) {
+          // The detail (a URL and a status) is for the console; the page says
+          // what happened in words.
+          if (window.console) console.warn('[atlas] ' + (err && err.message ? err.message : err));
+          el.count.textContent = 'Not loaded';
+          $('loading').classList.remove('sr-only');
+          $('loading').innerHTML =
+            '<div class="cm-empty" data-tone="danger"><strong>The map did not load.</strong>' +
+            '<span>' +
+            (retrying ? 'Still couldn’t reach the server. ' : 'Couldn’t reach the server. ') +
+            'Check your connection and try again.</span><span class="cm-empty-actions"><button type="button" data-act="reload">Try again</button>' +
+            '<a href="api/all.json">Every recipe as JSON</a></span></div>';
+          var again = document.querySelector('[data-act="reload"]');
+          if (again) {
+            again.addEventListener('click', function () {
+              if (S.building) return location.reload();
+              $('loading').textContent = 'Loading the catalog…';
+              // Focus waits on the status while the catalog loads.
+              $('loading').setAttribute('tabindex', '-1');
+              $('loading').focus();
+              load(true);
+            });
+            if (retrying) again.focus();
+          }
+          el.list.innerHTML =
+            '<p class="list-empty">The catalog did not load. Every recipe is still available at ' +
+            '<a href="api/all.json">api/all.json</a>.</p>';
+        });
+    }
   }
 
   function ingest(idx, geo, sigs, world, treeMap, nodes, routes, threads, meta, noOrigin) {
@@ -551,6 +577,21 @@
     }, 30);
   }
 
+  // The count changes on every step of a fly-to or a pan. It is said once,
+  // through the live region, when the view has been still for half a second,
+  // and only if it changed (Jony #104); while the search box has focus, the
+  // search says what it found instead.
+  var countTimer = 0,
+    countSaid = '';
+  function countSoon(text) {
+    clearTimeout(countTimer);
+    countTimer = setTimeout(function () {
+      if (text === countSaid || document.activeElement === el.search) return;
+      countSaid = text;
+      announce(text);
+    }, 500);
+  }
+
   function metaCount(v) {
     return typeof v === 'number' ? v : (v || []).length;
   }
@@ -632,13 +673,22 @@
       '</ul>';
   }
 
-  function setNoOrigin(open) {
+  var noOriginReturnFocus = null;
+  function setNoOrigin(open, opener) {
     if (open && !el.noOrigin.innerHTML) renderNoOrigin();
     el.noOrigin.hidden = !open;
     if (open) {
+      // The information panel closes when this list opens, so its toolbar
+      // button is the visible return point. The legend's opener stays visible.
+      noOriginReturnFocus = el.provenance.contains(opener) ? $('t-info') : opener;
       setInfo(false);
       var close = el.noOrigin.querySelector('[data-act="close-noorigin"]');
       if (close) close.focus();
+    } else {
+      var target = noOriginReturnFocus;
+      noOriginReturnFocus = null;
+      if (!target || !target.isConnected || !target.getClientRects().length) target = $('t-info');
+      if (target && target.getClientRects().length) target.focus();
     }
   }
 
@@ -1538,9 +1588,11 @@
       : '';
   }
 
+  // The list item wraps the button: role="listitem" on the button itself
+  // would replace its button role and drop the name it takes from its text.
   function stackRow(p) {
     return (
-      '<button class="rowbtn" type="button" role="listitem" data-tid="' +
+      '<div role="listitem"><button class="rowbtn" type="button" data-tid="' +
       esc(p.id) +
       '">' +
       mark(p.root) +
@@ -1550,7 +1602,7 @@
       esc(p.place) +
       '</span></span>' +
       ICON.chevron +
-      '</button>'
+      '</button></div>'
     );
   }
 
@@ -2049,10 +2101,26 @@
         ICON.back +
         'Back to collection</button>';
     }
+    // A re-render (the detail arriving after a pick) replaces what holds focus;
+    // focus goes back to the same control, or the title, not to the body
+    // (Jony #16 on #519).
+    var had = el.card.contains(document.activeElement) ? document.activeElement : null;
+    var again = had
+      ? had.matches('h2')
+        ? 'h2'
+        : had.dataset.act
+          ? '[data-act="' + had.dataset.act + '"]'
+          : null
+      : null;
     el.card.innerHTML = h;
     el.card.setAttribute('aria-labelledby', 'card-title');
     el.card.hidden = false;
     document.body.classList.add('card-open');
+    var back = again && el.card.querySelector(again);
+    if (back) {
+      if (again === 'h2') back.tabIndex = -1;
+      back.focus({ preventScroll: true });
+    }
     var im = el.card.querySelector('img[data-fallback]');
     if (im)
       im.addEventListener('error', function () {
@@ -2165,6 +2233,7 @@
         ? S.pts.length.toLocaleString('en')
         : vis.length.toLocaleString('en') + ' in view';
     el.count.textContent = shown + ' on map';
+    countSoon(shown + ' on map');
     renderKey(vis);
   }
 
@@ -2227,12 +2296,28 @@
 
   // ── search ──
 
+  // The results panel and the search box's expanded state move together.
+  function setResultsOpen(open) {
+    el.results.hidden = !open;
+    el.search.setAttribute('aria-expanded', String(open));
+  }
+
+  // While typing, say once what the search found, after the typing stops.
+  var queryAnnounceTimer = 0;
+  function announceQuery(text) {
+    clearTimeout(queryAnnounceTimer);
+    if (!text) return;
+    queryAnnounceTimer = setTimeout(function () {
+      announce(text);
+    }, 500);
+  }
+
   function onQuery() {
     var val = el.search.value;
     var ql = val.trim().toLowerCase();
     // Focusing an empty search must not erase the active collection filter.
     if (S.thread && !ql) {
-      el.results.hidden = true;
+      setResultsOpen(false);
       return;
     }
     if (S.thread) exitThread();
@@ -2330,13 +2415,25 @@
           : 'These sound words belong to the traditions already listed.') +
         '</div></div>';
     }
-    if (ql && !all.length && !tokenHit)
-      h =
-        '<div class="route-end" role="status">No matching genres or places for “' +
-        esc(val.trim()) +
-        '”. Try a place, a catalog id, or a sound word such as “drone”.</div>';
+    var noMatch =
+      'No matching genres or places for “' +
+      val.trim() +
+      '”. Try a place, a catalog id, or a sound word such as “drone”.';
+    // Plain text here: a status node inserted fresh is not read. The one
+    // persistent live region says it instead.
+    if (ql && !all.length && !tokenHit) h = '<div class="route-end">' + esc(noMatch) + '</div>';
     el.results.innerHTML = h;
-    el.results.hidden = !ql;
+    setResultsOpen(!!ql);
+    announceQuery(
+      !ql
+        ? ''
+        : ids.size
+          ? plural(ids.size, 'tradition') +
+            (ids.size === 1 ? ' matches “' : ' match “') +
+            val.trim() +
+            '”'
+          : noMatch
+    );
     syncControls();
     draw();
     scheduleListSync();
@@ -2413,7 +2510,7 @@
     S.thread = t;
     closeStack();
     el.search.value = '';
-    el.results.hidden = true;
+    setResultsOpen(false);
     select(null);
     renderLegend();
     renderThreads();
@@ -2523,7 +2620,15 @@
       );
     if (S.thread) chips.push(chip(S.thread.title, 'thread', 'Collection: ' + S.thread.title));
     if (el.search.value.trim()) chips.push(chip('Search: ' + el.search.value.trim(), 'search'));
-    $('filter-summary').innerHTML = chips.join('');
+    // The summary is a live region: while the search box is being typed in,
+    // write it once the typing stops, not once per keystroke.
+    var summary = chips.join('');
+    clearTimeout(syncControls.summaryTimer);
+    if (document.activeElement === el.search && el.search.value.trim())
+      syncControls.summaryTimer = setTimeout(function () {
+        $('filter-summary').innerHTML = summary;
+      }, 500);
+    else $('filter-summary').innerHTML = summary;
     $('active-filters').hidden = chips.length === 0;
     $('no-filters').hidden = chips.length > 0;
     syncRouteChip();
@@ -2620,7 +2725,7 @@
 
   function clearSearch() {
     el.search.value = '';
-    el.results.hidden = true;
+    setResultsOpen(false);
     if (!S.thread) S.qmatch = null;
   }
 
@@ -2629,7 +2734,7 @@
     S.thread = null;
     S.qmatch = null;
     el.search.value = '';
-    el.results.hidden = true;
+    setResultsOpen(false);
     el.threadCard.hidden = true;
     closeStack();
     renderLegend();
@@ -2701,6 +2806,7 @@
     syncControls();
     fitPoints([route.a, route.b]);
     draw();
+    announce('Route: ' + route.label + ', 2 endpoints');
   }
 
   function clearRoute() {
@@ -2735,6 +2841,13 @@
 
   function wireControls() {
     wireStack();
+    // The link's own jump would also rewrite the URL hash; just move focus.
+    var skip = document.querySelector('.skip-map');
+    if (skip)
+      skip.addEventListener('click', function (e) {
+        e.preventDefault();
+        el.host.focus();
+      });
 
     $('zoom-in').addEventListener('click', function () {
       var r = el.host.getBoundingClientRect();
@@ -2757,7 +2870,7 @@
     });
     el.provenance.addEventListener('click', function (e) {
       if (e.target.closest('[data-act="open-noorigin"]')) {
-        setNoOrigin(true);
+        setNoOrigin(true, e.target.closest('[data-act="open-noorigin"]'));
         return;
       }
       if (e.target.closest('[data-act="close-info"]')) {
@@ -2853,7 +2966,7 @@
         return;
       }
       if (e.target.closest('[data-act="open-noorigin"]')) {
-        setNoOrigin(true);
+        setNoOrigin(true, e.target.closest('[data-act="open-noorigin"]'));
         return;
       }
       if (e.target.closest('[data-act="all-groups"]')) {
@@ -2981,7 +3094,7 @@
         if (!p) return;
         if (!S.thread) S.qmatch = null;
         el.search.value = '';
-        el.results.hidden = true;
+        setResultsOpen(false);
         syncControls();
         S.opener = root === el.card || root === el.results ? null : row;
         select(p);
@@ -2991,7 +3104,10 @@
           syncSide();
         }
         flyTo(p);
-        if (root === el.card || root === el.results) {
+        // A pick from the card, the search results or the In view list (which
+        // re-renders as the view flies in, replacing the row) lands on the
+        // card's title, as a search pick does (Jony #101).
+        if (root === el.card || root === el.results || root === el.list) {
           var title = el.card.querySelector('h2');
           if (title) {
             title.tabIndex = -1;
@@ -3038,7 +3154,7 @@
     });
 
     document.addEventListener('click', function (e) {
-      if (!el.results.hidden && !e.target.closest('.searchwrap')) el.results.hidden = true;
+      if (!el.results.hidden && !e.target.closest('.searchwrap')) setResultsOpen(false);
     });
 
     document.addEventListener('keydown', function (e) {
@@ -3057,7 +3173,7 @@
         return;
       }
       if (!el.results.hidden) {
-        el.results.hidden = true;
+        setResultsOpen(false);
         el.search.focus();
         return;
       }
@@ -3093,17 +3209,9 @@
             times: (prev.times || 0) + 1,
           }
         : { state: 'failed', times: prev.times || 0 };
-      var name = S.byId[e.data.id] ? S.byId[e.data.id].name : e.data.id;
-      announce(
-        e.data.ok
-          ? 'Added ' +
-              e.data.added +
-              (e.data.expected ? ' of ' + e.data.expected : '') +
-              ' instruments from ' +
-              name +
-              ' to Your recipe.'
-          : 'Nothing was added from ' + name + '.'
-      );
+      // The shell's toast (with its Undo) has already said what arrived, or
+      // why nothing did; the card's status shows it here without saying it a
+      // second time (Jony #105).
       if (S.sel && S.sel.id === e.data.id) {
         var focused = document.activeElement && document.activeElement.dataset.act === 'add';
         renderCard();
@@ -3130,6 +3238,8 @@
     var text = s.recipe || s.name + ' — ' + s.place;
     var done = function (label) {
       S.copyLabel = label;
+      // The button's label change is visual only; say the outcome too.
+      announce(label === 'Copied' ? 'Recipe copied' : label);
       renderCard();
       var b = el.card.querySelector('[data-act="copy"]');
       if (b) b.focus();

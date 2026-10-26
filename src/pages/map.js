@@ -1,4 +1,4 @@
-/* global $ui, UI, uiAddGenre, uiNavigate, uiRegisterPage */
+/* global $ui, UI, uiAddGenre, uiFocus, uiNavigate, uiRegisterPage */
 /* Map page (the codex side). Owned by the Map page worker together with
    atlas.html, src/atlas.js, src/atlas-tiles.js, src/map-ui.js and src/map.css;
    see docs/ui-foundation.md. The atlas runs in a same-origin iframe and asks
@@ -10,7 +10,7 @@ uiRegisterPage({
   recipe: 'dock',
   mount(surface) {
     surface.innerHTML =
-      '<div id="map-status" class="cm-status map-status" role="status" hidden>Loading the map…</div><iframe id="map-frame" title="World music map"></iframe>';
+      '<h1 class="cm-sr-only">World music map</h1><div id="map-status" class="cm-status map-status" role="status" hidden>Loading the map…</div><iframe id="map-frame" title="World music map"></iframe>';
     window.addEventListener('message', async (e) => {
       if (e.origin !== location.origin || e.source !== $ui('map-frame').contentWindow) return;
       if (e.data?.type === 'add-genre' && typeof e.data.id === 'string') {
@@ -31,6 +31,9 @@ uiRegisterPage({
       if (e.data?.type === 'genre-web' && typeof e.data.id === 'string') {
         UI.genre = e.data.id;
         uiNavigate('genre', { push: true });
+        // Focus was in the map frame, now hidden: it lands on the genre's
+        // heading on the Genre page (Jony #102).
+        uiFocus($ui('gp-detail-title'));
       }
     });
   },

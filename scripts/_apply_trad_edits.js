@@ -16,7 +16,7 @@
 //
 // USAGE
 //   node scripts/_apply_trad_edits.js edits.json            # apply
-//   node scripts/_apply_trad_edits.js edits.json --dry-run  # report only
+//   node scripts/_apply_trad_edits.js edits.json --dry-run  # report only; exits 1 on any error
 'use strict';
 const fs = require('fs');
 const path = require('path');
@@ -29,7 +29,17 @@ if (!editsPath) {
 }
 
 const FILE = path.join(__dirname, '..', 'references', '05_traditions.js');
-const edits = JSON.parse(fs.readFileSync(editsPath, 'utf8'));
+// A missing or malformed edits file is a bad argument (exit 2 with one line),
+// not a crash with an ENOENT or SyntaxError stack.
+let edits;
+try {
+  edits = JSON.parse(fs.readFileSync(editsPath, 'utf8'));
+} catch (e) {
+  console.error(
+    `${editsPath}: ${e.code === 'ENOENT' ? 'no such file' : 'not readable as JSON (' + e.message + ')'}`
+  );
+  process.exit(2);
+}
 const lines = fs.readFileSync(FILE, 'utf8').split('\n');
 
 // index each tradition id → line number
@@ -82,8 +92,10 @@ if (errors.length) {
 console.log(
   `\n${dryRun ? 'DRY-RUN ' : ''}${applied} edit(s) across ${Object.keys(edits).length} tradition(s); ${errors.length} error(s).`
 );
-if (errors.length && !dryRun) {
-  console.error('Refusing to write due to errors. Fix the edits file.');
+// A dry run is how an edits file is checked before it is applied, so its
+// errors fail it too: exit 1, the same as the refused write.
+if (errors.length) {
+  if (!dryRun) console.error('Refusing to write due to errors. Fix the edits file.');
   process.exit(1);
 }
 if (!dryRun && applied) {

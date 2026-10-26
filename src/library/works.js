@@ -16,7 +16,7 @@
 // language, availability, completeness, edition8, work8, source_path,
 // snippet, contributor_search]; search items are compact summaries. Both
 // become one row shape below.
-/* global esc, icon, showToast, uiEmptyState, uiSubroute */
+/* global esc, icon, showToast, uiEmptyState, uiSubroute, LIBRARY, libraryAnnounce */
 'use strict';
 
 const PAGE = 50;
@@ -39,6 +39,11 @@ const COMPLETENESS = [
   'documented_excerpt',
   'continuous_segment',
 ];
+const CLOSED = {
+  availability: AVAILABILITY,
+  completeness: COMPLETENESS,
+  sort: ['title', 'contributor'],
+};
 // The list parameters and their defaults; a default is left out of the hash.
 const DEFAULTS = {
   q: '',
@@ -118,7 +123,23 @@ const STYLE = `
 #surface-library .lw-table td:first-child{padding-left:12px;padding-right:96px}
 #surface-library .lw-table td.lw-actions{position:absolute;top:8px;right:8px;padding:0}
 #surface-library .lw-sheet{width:100vw;border-radius:0}
-}`;
+}
+#surface-library .lib-coll-head{display:flex;gap:16px;align-items:flex-start}
+#surface-library .lib-coll-head .lib-art{flex:0 0 120px}
+#surface-library .lib-coll-head .lib-cover{justify-content:center;align-items:center}
+#surface-library .lib-coll-head .lib-cover>:not(svg){display:none}
+#surface-library .lib-coll-head h1{margin:0 0 4px;font-size:22px;line-height:1.25;color:var(--cm-text);white-space:pre-line}
+#surface-library .lib-coll-head p{margin:0 0 10px;color:var(--cm-text-secondary)}
+#surface-library .lib-coll-actions{display:flex;flex-wrap:wrap;gap:8px}
+#surface-library .lib-coll-list{list-style:none;margin:0;padding:0;border:1px solid var(--cm-border);border-radius:var(--cm-radius-lg,12px);background:var(--cm-surface);overflow:hidden}
+#surface-library .lib-coll-list li{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--cm-border-subtle,var(--cm-border))}
+#surface-library .lib-coll-list li:last-child{border-bottom:0}
+#surface-library .lib-coll-list a{flex:1;min-width:0;display:flex;flex-direction:column;color:var(--cm-text);text-decoration:none}
+#surface-library .lib-coll-list a:hover strong{text-decoration:underline}
+#surface-library .lib-coll-list strong{font-size:14px;font-weight:600}
+#surface-library .lib-coll-list small{font-size:12px;color:var(--cm-text-secondary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#surface-library .lib-coll-list input{width:18px;height:18px;accent-color:var(--cm-accent)}
+#surface-library .lib-pager{display:flex;align-items:center;gap:10px;justify-content:flex-end;color:var(--cm-text-secondary);font-size:13px}`;
 
 function injectStyle() {
   if (!document.querySelector('style[data-lib="works"]'))
@@ -141,7 +162,16 @@ function parse(sub) {
   for (const k of Object.keys(DEFAULTS)) s[k] = p.get(k) ?? DEFAULTS[k];
   const m = /^\/collections\/(.+)$/.exec(path);
   if (m) s.collection = decodeURIComponent(m[1]);
-  s.offset = String(Math.max(0, Math.floor(Number(s.offset) || 0)));
+  // A value outside a closed set reads as the default, never half-applied
+  // (the chip, the filter sheet and the request each read it differently;
+  // BB8's L2). update() writes the result back to the hash. A language is
+  // checked against the catalog there; here only its shape.
+  for (const [k, set] of Object.entries(CLOSED)) if (!set.includes(s[k])) s[k] = DEFAULTS[k];
+  if (s.language !== 'all' && !/^[a-z]{2,3}$/.test(s.language)) s.language = DEFAULTS.language;
+  // Offsets sit on the 50-row grid the pager produces, so a page never spans
+  // two 100-row w/title files (an offset of 75 used to skip rows 101-125; L3).
+  const n = Math.max(0, Math.floor(Number(s.offset) || 0));
+  s.offset = String(n - (n % PAGE));
   s.base = m ? path : '/works';
   return s;
 }
@@ -190,7 +220,42 @@ const fromSearch = (item) => ({
 async function staticPage(s, lib) {
   const offset = Number(s.offset);
   if (s.collection) {
-    const head = await lib.collection(s.collection);
+    // Decided from the collection list, never from a head fetch: an id it
+    // does not hold names no collection, and a listed collection with nothing
+    // readable (held only) has no head file at all, as the Collections page
+    // says. A collections.json row is [cid, title, language, readable, ...].
+    const list = await lib.collections().catch(() => null);
+    const listed = Array.isArray(list) ? list : list?.collections;
+    if (Array.isArray(listed)) {
+      const row = listed.find((c) => (Array.isArray(c) ? c[0] : c.collection_id) === s.collection);
+      if (!row) {
+        const none = Error('No such collection');
+        none.code = 'NO_COLLECTION';
+        throw none;
+      }
+      if ((Array.isArray(row) ? row[3] : row.readable) === 0)
+        return {
+          rows: [],
+          total: 0,
+          held: true,
+          recorded: Array.isArray(row) ? row[4] : row.recorded,
+        };
+    }
+    let head;
+    try {
+      head = await lib.collection(s.collection);
+    } catch (error) {
+      // No head file: the id names no collection. Said as such, not as a
+      // load failure whose Retry could only ask for the same missing file.
+      if (!error || error.status !== 404) throw error;
+      const none = Error('No such collection');
+      none.code = 'NO_COLLECTION';
+      throw none;
+    }
+    // Past the end: an empty page, which load() shows as past the end with
+    // First page, rather than a request for a page file that does not exist.
+    if (offset >= (head.total || 0))
+      return { rows: [], total: head.total || 0, readableIds: head.readable_ids };
     const k = Math.floor(offset / 250);
     const page = k === 0 ? head : await lib.collection(s.collection, k);
     const start = offset - k * 250;
@@ -203,6 +268,14 @@ async function staticPage(s, lib) {
     return { rows: rows.map(fromStatic), total: head.total, readableIds: head.readable_ids };
   }
   const k = Math.floor(offset / 100);
+  // Past the end of the list (a shared or hand-edited link): an empty page,
+  // which load() shows as past the end with First page, rather than a request
+  // for a title file that does not exist. The static list is the readable
+  // units, so the catalog's census carries its total.
+  if (k > 0) {
+    const total = (await lib.catalog().catch(() => null))?.census?.readable_reading_units;
+    if (Number.isInteger(total) && offset >= total) return { rows: [], total };
+  }
   const file = await lib.json(`w/title/${k}.json.gz`);
   const start = offset - k * 100;
   return { rows: file.rows.slice(start, start + PAGE).map(fromStatic), total: file.total };
@@ -228,15 +301,22 @@ async function searchPage(s, lib) {
 const VIEWS = new WeakMap();
 let ACTIVE = null;
 
+// Search's shortcut: ⌘K on Apple platforms, Ctrl+K elsewhere, named so in
+// the hint and in aria-keyshortcuts.
+const MAC = /Mac|iPhone|iPad|iPod/.test(
+  (typeof navigator !== 'undefined' && (navigator.userAgentData?.platform || navigator.platform)) ||
+    ''
+);
+const SHORTCUT = MAC ? { hint: '⌘ K', aria: 'Meta+K' } : { hint: 'Ctrl K', aria: 'Control+K' };
 function shell(lib) {
   return (
     `<div class="lw" data-lib-view="works">` +
     `<div class="lw-top">` +
-    `<label class="cm-search">${ic(lib, 'search', 18)}<input type="search" data-lw="q" placeholder="Search titles, authors, or exact phrases" aria-label="Search Library" autocomplete="off" spellcheck="false"><button type="button" class="cm-btn cm-btn-icon lw-search-clear" data-lw="clear-q" aria-label="Clear search">${ic(lib, 'x', 16)}</button><kbd aria-hidden="true">⌘ K</kbd></label>` +
+    `<label class="cm-search">${ic(lib, 'search', 18)}<input type="search" data-lw="q" placeholder="Search titles, authors, or exact phrases" aria-label="Search Library" aria-keyshortcuts="${SHORTCUT.aria}" autocomplete="off" spellcheck="false"><button type="button" class="cm-btn cm-btn-icon lw-search-clear" data-lw="clear-q" aria-label="Clear search">${ic(lib, 'x', 16)}</button><kbd aria-hidden="true" title="${SHORTCUT.hint.replace(' ', '+')} focuses Search">${SHORTCUT.hint}</kbd></label>` +
     `<button type="button" class="cm-btn cm-btn-outline" data-lw="filters" aria-haspopup="dialog" aria-label="Filter Library">${ic(lib, 'sliders-horizontal', 18)}<span>Filter</span><span class="lw-count" data-lw-slot="filter-count" hidden></span></button>` +
     `</div>` +
-    `<div class="lw-head"><div><h2 data-lw-slot="title">Works</h2><p data-lw-slot="summary"> </p></div><div class="lw-chips" data-lw-slot="chips"></div></div>` +
-    `<div class="lw-results" data-lw-slot="results" aria-live="polite"></div>` +
+    `<div class="lw-head"><div><h2 id="lw-title" data-lw-slot="title">Works</h2><p data-lw-slot="summary"> </p></div><div class="lw-chips" data-lw-slot="chips"></div></div>` +
+    `<div class="lw-results" data-lw-slot="results"></div>` +
     `<div data-lw-slot="layer"></div>` +
     `</div>`
   );
@@ -296,8 +376,24 @@ class WorksView {
         this.commit(false);
       }
     });
+    // The shortcut is taken only while Works is on screen and focus is not
+    // in another text field: elsewhere Ctrl+K stays the browser's, and a
+    // person typing in a field is not moved.
     this.keys = (e) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k' && this.root.isConnected) {
+      const t = e.target;
+      const typing =
+        t !== this.input &&
+        t instanceof Element &&
+        t.matches('input, textarea, select, [contenteditable]:not([contenteditable="false"])');
+      if (
+        (MAC ? e.metaKey : e.ctrlKey) &&
+        !e.altKey &&
+        !e.shiftKey &&
+        e.key.toLowerCase() === 'k' &&
+        this.root.isConnected &&
+        this.root.getClientRects().length &&
+        !typing
+      ) {
         e.preventDefault();
         this.input.focus();
         this.input.select();
@@ -326,6 +422,8 @@ class WorksView {
   commit(push) {
     this.cancelQuery();
     if (this.disposed || !this.root.isConnected) return;
+    // A user's own change supersedes an update() still waiting on the catalog.
+    this.generation = (this.generation || 0) + 1;
     const sub = format(this.state);
     this.sub = sub;
     if (this.lib.go) this.lib.go(sub, { replace: !push });
@@ -333,11 +431,25 @@ class WorksView {
     // lib.go may re-enter show(); that call sees the same sub and stays put.
     this.load();
   }
-  update(sub) {
+  async update(sub) {
     this.cancelQuery();
+    const gen = (this.generation = (this.generation || 0) + 1);
     const s = parse(sub);
+    if (s.language !== 'all' && !(await this.languages()).includes(s.language))
+      s.language = DEFAULTS.language;
+    // A later navigation (or the user's own change) arrived while the catalog
+    // loaded: this one is stale and must not overwrite its state or the hash
+    // (Jony's review: language=eng then offset=50 with a slow catalog).
+    // Left for another Library page meanwhile (BB8's L4): nothing to update.
+    if (gen !== this.generation || !this.root.isConnected) return;
     this.state = s;
     this.sub = format(s);
+    // What is shown is what the hash says: a value read as its default is
+    // dropped from the hash (replace, not a new history entry).
+    if (sub !== this.sub) {
+      if (this.lib.go) this.lib.go(this.sub, { replace: true });
+      else uiSubroute(this.sub, { push: false });
+    }
     if (document.activeElement !== this.input || this.input.value !== s.q) this.input.value = s.q;
     this.root.querySelector('.lw-top').classList.toggle('has-q', !!s.q);
     this.load();
@@ -386,33 +498,66 @@ class WorksView {
         ? `<button type="button" class="cm-btn cm-btn-tonal" data-lw="select-collection">${ic(this.lib, 'plus', 16)}<span>Select collection</span></button>`
         : '');
   }
+  // Every load ends with one line through #library-live (the results are not
+  // a live region: a table read aloud is noise). A failure or an empty result
+  // is read from its state; rows say how many. After a Retry focus also lands
+  // on the new Retry, or the first result or way on (lib.settle in core).
+  settle(target, stateShown) {
+    const moved = this.retried;
+    this.retried = false;
+    const results = this.slot('results');
+    const summary = this.slot('summary').textContent.trim();
+    const said = stateShown
+      ? this.lib.failed
+        ? this.lib.failed(results)
+        : ''
+      : moved
+        ? `Works loaded. ${summary}`
+        : summary;
+    if (this.lib.settle) this.lib.settle(moved ? target || this.slot('title') : null, said);
+  }
   async load() {
     const s = { ...this.state };
     const seq = ++this.seq;
     const results = this.slot('results');
     results.setAttribute('aria-busy', 'true');
-    if (!this.rows.length) results.innerHTML = uiEmptyState({ title: 'Loading works…' });
+    if (!this.rows.length) results.innerHTML = uiEmptyState({ title: 'Loading works…', role: '' });
     this.paintHead();
     let page;
     try {
       page = isStatic(s) ? await staticPage(s, this.lib) : await searchPage(s, this.lib);
     } catch (error) {
-      if (seq !== this.seq) return;
+      if (seq !== this.seq || !this.root.isConnected) return;
       results.removeAttribute('aria-busy');
       this.rows = [];
+      if (error && error.code === 'NO_COLLECTION') {
+        results.innerHTML = uiEmptyState({
+          title: 'No such collection',
+          text: `This Library has no collection “${s.collection}”.`,
+          actions: `<button type="button" class="cm-btn cm-btn-outline" data-lw="all-works">Browse all works</button>`,
+        });
+        this.slot('summary').textContent = '';
+        return;
+      }
       const rate = error && (error.status === 429 || error.code === 'RATE_LIMITED');
       results.innerHTML = uiEmptyState({
         title: isStatic(s) ? 'The Library list could not load' : 'Search is unavailable right now',
         text: rate
           ? 'Too many searches from this network; retry shortly.'
-          : (error && error.message) || 'Check your connection and retry.',
+          : this.lib.problem
+            ? this.lib.problem(error)
+            : 'Couldn’t reach the Library. Check your connection and try again.',
         actions: `<button type="button" class="cm-btn cm-btn-outline" data-lw="retry">${ic(this.lib, 'refresh-cw', 16)}<span>Retry</span></button>`,
         tone: 'danger',
+        role: '',
       });
       this.slot('summary').textContent = '';
+      this.settle(results.querySelector('[data-lw="retry"]'), true);
       return;
     }
-    if (seq !== this.seq) return;
+    // Superseded, or the view left the page while the rows loaded (a slow
+    // catalog holds every static read): nothing to paint.
+    if (seq !== this.seq || !this.root.isConnected) return;
     this.page = page;
     this.rows = page.rows;
     results.removeAttribute('aria-busy');
@@ -420,28 +565,53 @@ class WorksView {
     const offset = Number(s.offset);
     this.slot('summary').textContent =
       `${page.total.toLocaleString()} reading units · work and edition identities remain distinct`;
-    if (!page.total || !page.rows.length) {
+    if (page.held && page.recorded === 0) {
+      // Nothing recorded at all is not "every unit is held" (BB8's nit). A
+      // row with no recorded count says nothing either way, so it stays held.
       results.innerHTML = uiEmptyState({
-        title: offset && page.total ? 'No more readings on this page' : 'No matching readings',
-        text: 'Search is literal and accent-preserving. Try a recorded title, contributor or exact phrase.',
-        actions:
-          offset && page.total
-            ? `<button type="button" class="cm-btn cm-btn-outline" data-lw="page" data-to="0">First page</button>`
-            : this.filterCount() || s.q
-              ? `<button type="button" class="cm-btn cm-btn-outline" data-lw="clear-all">Clear search and filters</button>`
-              : '',
+        title: 'This collection is empty',
+        text: 'It records no units in this snapshot.',
+        actions: `<button type="button" class="cm-btn cm-btn-outline" data-lw="all-works">Browse all works</button>`,
       });
+      return;
+    }
+    if (page.held) {
+      results.innerHTML = uiEmptyState({
+        title: 'Nothing here is readable',
+        text: 'Every unit in this collection is held. Its metadata is searchable with every availability.',
+        actions: `<button type="button" class="cm-btn cm-btn-outline" data-lw="all-availability">Show every availability</button>`,
+      });
+      return;
+    }
+    if (!page.total || !page.rows.length) {
+      const pastEnd = offset && page.total;
+      results.innerHTML = uiEmptyState({
+        title: pastEnd ? 'No more readings on this page' : 'No matching readings',
+        // The search hint is about a query; a page past the end of a list
+        // (a static one has no query at all) needs only where the list ends.
+        text: pastEnd
+          ? `This list has ${page.total.toLocaleString()} readings; this page is past its end.`
+          : 'Search is literal and accent-preserving. Try a recorded title, contributor or exact phrase.',
+        actions: pastEnd
+          ? `<button type="button" class="cm-btn cm-btn-outline" data-lw="page" data-to="0">First page</button>`
+          : this.filterCount() || s.q
+            ? `<button type="button" class="cm-btn cm-btn-outline" data-lw="clear-all">Clear search and filters</button>`
+            : '',
+        role: '',
+      });
+      this.settle(results.querySelector('button'), true);
       return;
     }
     const last = Math.min(offset + page.rows.length, page.total);
     const hasNext = page.next !== undefined ? page.next !== null : last < page.total;
     results.innerHTML =
-      `<div class="lw-scroll"><table class="lw-table"><thead><tr><th scope="col">Work / reading</th><th scope="col">Contributor</th><th scope="col">Language</th><th scope="col">Scope / availability</th><th scope="col"><span class="lw-sr">Record and export selection</span></th></tr></thead><tbody>` +
+      `<div class="lw-scroll"><table class="lw-table" aria-labelledby="lw-title"><thead><tr><th scope="col">Work / reading</th><th scope="col">Contributor</th><th scope="col">Language</th><th scope="col">Scope / availability</th><th scope="col"><span class="lw-sr">Record and export selection</span></th></tr></thead><tbody>` +
       page.rows.map((r) => rowHTML(r, this.lib)).join('') +
       `</tbody></table></div>` +
       `<nav class="lw-pager" aria-label="Works pages"><button type="button" class="cm-btn cm-btn-outline" data-lw="page" data-to="${Math.max(0, offset - PAGE)}" ${offset === 0 ? 'disabled' : ''}>Previous</button>` +
       `<span>${(offset + 1).toLocaleString()}–${last.toLocaleString()} of ${page.total.toLocaleString()}</span>` +
       `<button type="button" class="cm-btn cm-btn-outline" data-lw="page" data-to="${page.next ?? offset + PAGE}" ${hasNext ? '' : 'disabled'}>Next</button></nav>`;
+    this.settle(results.querySelector('[data-lw="open"]'));
   }
   paintSelection() {
     for (const b of this.root.querySelectorAll('[data-lw="select"]')) {
@@ -532,19 +702,30 @@ class WorksView {
     } else if (act === 'filters') {
       this.openFilters(t);
     } else if (act === 'retry') {
+      this.retried = true;
       this.load();
+    } else if (act === 'all-availability') {
+      s.availability = 'all';
+      s.offset = '0';
+      this.commit(false);
+    } else if (act === 'all-works') {
+      Object.assign(s, { collection: '', offset: '0', base: '/works' });
+      this.commit(false);
     }
   }
-  async openFilters(opener) {
-    const s = this.state;
-    let languages = Object.keys(LANGUAGE_NAMES);
+  // The full recorded-language list (every collection, held ones too).
+  async languages() {
     try {
       const cat = await this.lib.catalog();
-      // The full recorded-language list (every collection, held ones too).
-      if (Array.isArray(cat?.languages) && cat.languages.length) languages = cat.languages;
+      if (Array.isArray(cat?.languages) && cat.languages.length) return cat.languages;
     } catch {
       /* fall back to the known names */
     }
+    return Object.keys(LANGUAGE_NAMES);
+  }
+  async openFilters(opener) {
+    const s = this.state;
+    const languages = await this.languages();
     const opt = (v, label, cur) =>
       `<option value="${esc(v)}"${v === cur ? ' selected' : ''}>${esc(label)}</option>`;
     const body =
@@ -767,6 +948,116 @@ async function openMetadata(lib, id, { opener = null, row = null, layer = null }
   return sheet;
 }
 
+// ─── A collection page (core hands it over: never the shelves' first view) ──
+// A collection page replaces the control that opened it (a rail spine, a
+// card, a pager button): when that left focus on the page, land it on the
+// collection's heading instead. Focus the person put elsewhere is kept.
+function focusLostToHeading(main, fresh) {
+  const a = document.activeElement;
+  if (fresh || (a && a !== document.body && a.isConnected)) return;
+  const h = main.querySelector('.lib-coll-head h1');
+  if (!h) return;
+  h.tabIndex = -1;
+  h.focus();
+}
+async function collection(main, id, token, offset = 0, core) {
+  const {
+    lib,
+    state,
+    selection,
+    selectedFor,
+    selectionState,
+    fillRail,
+    railHtml,
+    toplineHtml,
+    artHtml,
+    fromRow,
+    shortTitle,
+    plural,
+    num,
+    libButton,
+    collectionSub,
+    COLLECTION_PAGE,
+  } = core;
+  injectStyle();
+  // A page load's first view keeps focus where the browser put it (#129).
+  const fresh = !!lib.fresh;
+  const [catalog, all] = await Promise.all([lib.catalog(), lib.collections()]);
+  if (token !== state.token) return;
+  const row = all.collections.find((c) => c[0] === id);
+  const c = row ? fromRow(row) : null;
+  const frame = (body) =>
+    `<div class="lib-core">${railHtml(catalog)}<div class="lib-core-main">${toplineHtml(catalog)}<div><button type="button" class="lib-btn" data-lib-act="go" data-sub="">${icon('library', 16)}<span>Explore</span></button></div>${body}</div></div>`;
+  if (!c) {
+    main.innerHTML = frame(
+      uiEmptyState({
+        title: 'No such collection',
+        text: 'It may have been merged or withdrawn in this snapshot.',
+        actions: libButton('go', 'Explore', 'library', ' data-sub=""'),
+      })
+    );
+    fillRail(main);
+    state.railPicked = false;
+    return;
+  }
+  const title = shortTitle(c.title);
+  const header = (extra) =>
+    `<header class="lib-coll-head"><div class="lib-art">${artHtml(c, 0, title)}</div><div><h1>${esc(title)}</h1><p>${esc(lib.languageName(c.language))} · ${plural(c.readable, 'readable unit')}${c.recorded > c.readable ? ` of ${num(c.recorded)} recorded` : ''}</p>${extra}</div></header>`;
+  if (!c.readable) {
+    main.innerHTML = frame(
+      header(
+        `<div class="lib-coll-actions">${libButton('go', 'Search its works', 'search', ` data-sub="/works?collection=${encodeURIComponent(id)}"`)}</div>`
+      ) +
+        uiEmptyState({
+          title: 'Nothing here is readable',
+          text: 'Every unit in this collection is held. Its metadata is searchable in Works.',
+        })
+    );
+    fillRail(main, id);
+    state.railPicked = false;
+    return;
+  }
+  main.innerHTML = frame(header('') + `<div class="lib-skel" aria-hidden="true"></div>`);
+  fillRail(main, id);
+  focusLostToHeading(main, fresh);
+  const head = await lib.collection(id);
+  if (token !== state.token) return;
+  const pages = head.page_count || 1;
+  const at = Math.min(Math.floor(offset / COLLECTION_PAGE), pages - 1);
+  // An off-grid, past-the-end or malformed offset is shown as the page that
+  // holds it, and the hash is rewritten to say so.
+  const canonical = collectionSub(id, at);
+  if ((LIBRARY.sub || '') !== canonical && /\?/.test(LIBRARY.sub || '')) {
+    LIBRARY.sub = canonical;
+    uiSubroute(canonical, { push: false });
+  }
+  const page = at ? await lib.collection(id, at) : head;
+  if (token !== state.token) return;
+  // Only the head file carries readable_ids; a cold load of a later page
+  // (a shared ?offset= link) counted none ("251–500 of 0", BB8).
+  selectedFor.set(id, head.readable_ids || selectedFor.get(id));
+  const ids = selectedFor.get(id) || [];
+  const pressed = selectionState(id);
+  const actions = `<div class="lib-coll-actions">${libButton('read', 'Read the first', 'play', ` data-id="${esc(ids[0] || '')}"`)}${libButton('select', pressed === 'true' ? 'Remove all from selection' : 'Add all to selection', pressed === 'true' ? 'check' : 'plus', ` data-cid="${esc(id)}" aria-pressed="${pressed}"`)}${libButton('go', 'Search in Works', 'search', ` data-sub="/works?collection=${encodeURIComponent(id)}"`)}</div>`;
+  const pager =
+    pages > 1
+      ? `<div class="lib-pager"><button type="button" class="lib-btn" data-lib-act="page" data-cid="${esc(id)}" data-page="${at - 1}"${at ? '' : ' disabled'}>Previous</button><span>${num(at * COLLECTION_PAGE + 1)}–${num(at * COLLECTION_PAGE + page.rows.length)} of ${num(ids.length)}</span><button type="button" class="lib-btn" data-lib-act="page" data-cid="${esc(id)}" data-page="${at + 1}"${at + 1 < pages ? '' : ' disabled'}>Next</button></div>`
+      : '';
+  const list = `<ul class="lib-coll-list" aria-label="Readings in ${esc(title)}">${page.rows
+    .map((r) => {
+      const who = (r[3] || []).map((p) => p[0]).join(', ');
+      return `<li><input type="checkbox" data-lib-act="pick" data-id="${esc(r[0])}" aria-label="Select ${esc(r[2])}"${selection.has(r[0]) ? ' checked' : ''}><a href="#library/read/${esc(r[0])}" data-lib-act="read" data-id="${esc(r[0])}" data-key="${esc(r[1])}"><strong>${esc(r[2])}</strong><small>${esc([who, r[10]].filter(Boolean).join(' — '))}</small></a></li>`;
+    })
+    .join('')}</ul>`;
+  main.querySelector('.lib-core-main').innerHTML =
+    `${toplineHtml(catalog)}<div><button type="button" class="lib-btn" data-lib-act="go" data-sub="">${icon('library', 16)}<span>Explore</span></button></div>${header(actions)}${pager}${list}${pager}`;
+  focusLostToHeading(main, fresh);
+  if (state.railPicked) {
+    state.railPicked = false;
+    if (typeof libraryAnnounce === 'function') libraryAnnounce(`${title}, collection`);
+  }
+}
+
 return {
   // main: the Library's content element; sub: '/works?…' (or
   // '/collections/<id>?…' if core hands a collection over); lib: the shared
@@ -779,7 +1070,10 @@ return {
       view = new WorksView(main, lib);
       VIEWS.set(main, view);
     } else if (view.sub === format(parse(sub))) {
-      // Our own lib.go echoing back: already shown.
+      // Our own lib.go echoing back, or a return to the route already shown
+      // while a later update() still waits on the catalog: that update is
+      // superseded either way (Jony's review).
+      view.generation = (view.generation || 0) + 1;
       return view;
     }
     ACTIVE = view;
@@ -791,4 +1085,5 @@ return {
   openMetadata,
   parse,
   format,
+  collection,
 };

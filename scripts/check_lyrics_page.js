@@ -67,7 +67,7 @@
 // Exit 0 if every assertion passes, 1 otherwise, 2 if playwright is missing.
 
 'use strict';
-/* global devicePixelRatio, visualViewport, innerHeight, document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lySyncCaret, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage, uiChatOpen, requestAnimationFrame, LY_ACTION_TEXT, lySubmitLyricsAction, lyWriterState, lyToolRequestAction */
+/* global devicePixelRatio, visualViewport, innerHeight, document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lySyncCaret, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage, uiChatOpen, requestAnimationFrame, LY_ACTION_TEXT, lySubmitLyricsAction, lyWriterState, lyToolRequestAction, lyInspectionSession, Image, InputEvent, MutationObserver, NodeFilter */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -2664,6 +2664,64 @@ async function browserChecks(chromium) {
     }
   };
   try {
+    // D5: pressing a dock or line-bar button blurs the editor, whose blur
+    // pushes history and re-places the bar between pointerdown and pointerup.
+    // A button rebuilt there never gets its click: the first press after
+    // typing did nothing (Jony's Lyrics #5). One real mouse click each, and
+    // the action has to have run.
+    await step('D5. first dock click after typing', async () => {
+      const TARGETS = {
+        'inline Rhyme': ['#ly-linebar:not([hidden]) [data-id="rhymes:1"]', 'rhyme'],
+        'dock Rhyme': ['#ly-linedock [data-id="rhymes:1"]', 'rhyme'],
+        'Line actions': ['#ly-linedock [aria-controls="ly-menu-line-actions"]', 'menu'],
+        Relations: ['#ly-linedock [data-ui="ly-relations"]', 'relations'],
+      };
+      const ran = {
+        rhyme: () => LY.picks.linkLine === 1,
+        menu: () => !$ui('ly-menu-line-actions')?.hidden,
+        relations: () => !!lyInspectionSession()?.listOpen,
+      };
+      const seen = new Set();
+      for (const [width, height] of [
+        [390, 844],
+        [1280, 900],
+      ]) {
+        for (const [label, [selector, effect]] of Object.entries(TARGETS)) {
+          for (const typing of label === 'inline Rhyme' ? [true, false] : [true]) {
+            const { ctx, page } = await boot({ theme: 'light' });
+            await page.setViewportSize({ width, height });
+            await setDraft(page, DRAFT);
+            await page.evaluate(() => (LY.picks.linkLine = 0));
+            const text = await page.locator('#ly-overlay .ly-r[data-n="1"] .ly-t').boundingBox();
+            await page.mouse.click(text.x + text.width - 2, text.y + text.height / 2);
+            await page.waitForFunction(() => LY.activeLine === 1, null, { timeout: 5000 });
+            if (typing) await page.keyboard.type(' now');
+            await page.waitForTimeout(300);
+            const button = page.locator(selector);
+            if (!(await button.count()) || !(await button.first().isVisible())) {
+              await ctx.close();
+              continue;
+            }
+            seen.add(`${width} ${label}`);
+            const box = await button.first().boundingBox();
+            await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
+            await page.waitForTimeout(200);
+            check(
+              await page.evaluate(ran[effect]),
+              `${width}px: the first click on ${label}${typing ? ' after typing' : ''} did nothing`
+            );
+            await ctx.close();
+          }
+        }
+      }
+      for (const want of ['390 Line actions', '390 Relations', '1280 Relations'])
+        check(seen.has(want), `${want} was not on screen to click`);
+      check(
+        seen.has('1280 inline Rhyme') || seen.has('1280 dock Rhyme'),
+        'no Rhyme button was on screen at 1280'
+      );
+    });
+
     // H1: reduced CSS viewports are layout probes, not browser zoom.
     await step('H1. short viewport reachability', async () => {
       const results = [];
@@ -3145,6 +3203,117 @@ async function browserChecks(chromium) {
       await ctx.close();
     });
 
+    // ── 2. A line's finding reaches a screen reader ──────────────────────
+    // The editor's line marks are aria-hidden: the dock label carries the
+    // count, and Show in draft says why focus moved, in a region that
+    // exists before its first message.
+    await step('2. line finding announced', async () => {
+      const { ctx, page, q } = await boot({ theme: 'light' });
+      await setDraft(page, DRAFT);
+      check(
+        await page.evaluate(() => $ui('ly-live')?.getAttribute('role') === 'status'),
+        'the Lyrics live region does not exist before its first message'
+      );
+      await sendReview(page, q, unfinished());
+      const n = await page.evaluate(
+        () => LY.items.find((i) => !i.stale && i.lines?.length)?.lines[0]
+      );
+      check(!!n, 'no current finding names a line');
+      await page.evaluate((line) => LY_ACTIONS['ly-show-lines'](line), n);
+      await page
+        .waitForFunction(() => $ui('ly-live').textContent !== '', null, {
+          timeout: 2000,
+        })
+        .catch(() => {});
+      const got = await page.evaluate(() => ({
+        live: $ui('ly-live').textContent,
+        dock: $ui('ly-linedock').getAttribute('aria-label') || '',
+        label: $ui('ly-linedock').querySelector('.ly-dock-label')?.textContent || '',
+        focus: document.activeElement?.id,
+      }));
+      check(
+        got.live.startsWith(`Line ${n}: `) && got.live.length > `Line ${n}: `.length,
+        `Show in draft does not say why focus moved: ${JSON.stringify(got)}`
+      );
+      check(
+        new RegExp(`^Line ${n} actions, \\d+ findings?: .+`).test(got.dock) &&
+          / · \d+ findings?$/.test(got.label),
+        `the line dock does not name the line's finding: ${JSON.stringify(got)}`
+      );
+      await ctx.close();
+    });
+    // ── 6. Tool actions keep focus; a tool opens where its heading is ────
+    // Each control is pressed with a real Enter. A re-render must not drop
+    // focus to <body>: it returns to the pressed control. Opening a tool
+    // focuses its heading where it renders, and Back returns to that tool's
+    // row. (Section move, duplicate and remove place focus themselves and
+    // are checked on the branch that owns them.)
+    await step('6. tool focus', async () => {
+      const { ctx, page } = await boot({ theme: 'light' });
+      await setDraft(page, DRAFT);
+      await page.evaluate(() => LY_ACTIONS['ly-tab']('tools'));
+      const where = () =>
+        page.evaluate(() => {
+          const a = document.activeElement;
+          return {
+            tag: a?.tagName,
+            ui: a?.dataset?.ui || '',
+            id: a?.dataset?.id ?? null,
+            text: (a?.textContent || '').trim().slice(0, 40),
+            main: !!a?.closest('#ly-tool-main'),
+          };
+        });
+      const press = async (selector) => {
+        await page.locator(selector).first().focus();
+        await page.keyboard.press('Enter');
+        await page.waitForTimeout(300);
+        return where();
+      };
+      let w = await press('#surface-lyrics .ly-toolrow[data-id="rhythm"]');
+      check(
+        w.tag === 'H3' && w.main && /Rhythm/.test(w.text),
+        `opening Rhythm does not focus its heading in the centre: ${JSON.stringify(w)}`
+      );
+      w = await press('[data-ui="ly-rhythm-copy"]');
+      check(w.ui === 'ly-rhythm-copy', `Copy to other sections drops focus: ${JSON.stringify(w)}`);
+      await page.locator('#ly-r-meter').fill('3/4');
+      w = await press('[data-ui="ly-rhythm-save"]');
+      check(w.ui === 'ly-rhythm-save', `Save rhythm drops focus: ${JSON.stringify(w)}`);
+      w = await press('#surface-lyrics .ly-tool-nav [data-ui="ly-tool"]');
+      check(
+        w.ui === 'ly-tool' && w.id === 'rhythm',
+        `Back to tools does not return to the Rhythm row: ${JSON.stringify(w)}`
+      );
+      await page.evaluate(() => LY_ACTIONS['ly-tool']('rhymes'));
+      w = await press('[data-ui="ly-relation"][aria-pressed="false"]');
+      check(w.ui === 'ly-relation', `a rhyme filter drops focus: ${JSON.stringify(w)}`);
+      await page.evaluate(() => LY_ACTIONS['ly-line-tool']('pronunciation:3'));
+      w = await press('[data-ui="ly-reading-pick"]:not([aria-pressed="true"])');
+      check(
+        w.ui === 'ly-reading-pick',
+        `a pronunciation word chip drops focus: ${JSON.stringify(w)}`
+      );
+      await page.evaluate(() => LY_ACTIONS['ly-tool']('repeats-voices'));
+      w = await press('[data-ui="ly-voices"][data-id="sung"]');
+      check(w.ui === 'ly-voices', `Sung second voice drops focus: ${JSON.stringify(w)}`);
+      await page.evaluate(() => LY_ACTIONS['ly-tool']('form-story'));
+      const names = await page.evaluate(() => ({
+        tables: [...document.querySelectorAll('#surface-lyrics table')].map((t) =>
+          t.getAttribute('aria-label')
+        ),
+      }));
+      check(
+        names.tables.length > 0 && names.tables.every(Boolean),
+        `a Lyrics tool table has no name: ${JSON.stringify(names)}`
+      );
+      await page.evaluate(() => LY_ACTIONS['ly-tool']('word-rules'));
+      check(
+        (await page.getByLabel('Add an avoided phrase', { exact: true }).count()) === 1,
+        'the Word rules avoid field is not labelled "Add an avoided phrase"'
+      );
+      await ctx.close();
+    });
+
     // ── 2. Check & apply: the change would add a local issue ─────────────
     await step('2. check & apply (new issue)', async () => {
       const { ctx, page, q } = await boot({ theme: 'light' });
@@ -3582,6 +3751,165 @@ async function browserChecks(chromium) {
       );
       await ctx.close();
     });
+    // ── 3. the review flow by keyboard: focus never falls to the page ────
+    // Each step is pressed with Enter on the real control; during the
+    // request and after the reply focus stays on something the person can
+    // act on, and a writer's question lands on its answer field.
+    const focusAt = (page) =>
+      page.evaluate(() => {
+        const a = document.activeElement;
+        return {
+          tag: a?.tagName,
+          ui: a?.dataset?.ui || '',
+          id: a?.id || '',
+          text: (a?.getAttribute('aria-label') || a?.innerText || '').trim().slice(0, 40),
+        };
+      });
+    const press = async (page, sel) => {
+      await page.locator(sel).first().focus();
+      await page.keyboard.press('Enter');
+    };
+    await step('3. review flow focus', async () => {
+      const { ctx, page, q } = await boot();
+      await setDraft(page, DRAFT);
+      await page.evaluate(() => LY_ACTIONS['ly-tab']('review'));
+      q.delay = 1200;
+      q.replies.push(waiting());
+      await press(page, '#ly-panel-review [data-ui="ly-run-review"]');
+      await page.waitForFunction(() => chatState.busy);
+      await page.waitForTimeout(200);
+      const during = await focusAt(page);
+      check(
+        during.tag !== 'BODY',
+        `Run review drops focus while the request runs: ${JSON.stringify(during)}`
+      );
+      await page.waitForFunction(() => !chatState.busy, null, { timeout: 20000 });
+      await page.waitForTimeout(400);
+      const asked = await page.evaluate(() => {
+        const a = document.activeElement;
+        const ids = (a?.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean);
+        return {
+          id: a?.id || a?.tagName,
+          desc: ids.map((x) => document.getElementById(x)?.textContent || '').join(' '),
+        };
+      });
+      check(
+        asked.id === 'ly-answer-3' && /which word should end it/.test(asked.desc),
+        `a writer question does not land on its answer field, described by the question: ${JSON.stringify(asked)}`
+      );
+      // (Shown either way, so the rest of the flow is checked on its own.)
+      await page.evaluate(() => {
+        if (!$ui('ly-answer-3')?.getClientRects().length) LY_ACTIONS['ly-tab']('writer');
+      });
+      q.replies.push(unfinished());
+      await page.fill('#ly-answer-3', 'I keep one foot upon the chair');
+      await press(page, '[data-ui="ly-answer"]');
+      await page.waitForFunction(() => chatState.busy);
+      await page.waitForTimeout(200);
+      const sending = await focusAt(page);
+      check(
+        sending.tag !== 'BODY',
+        `Submit answer drops focus while the request runs: ${JSON.stringify(sending)}`
+      );
+      await page.waitForFunction(() => !chatState.busy, null, { timeout: 20000 });
+      await page.waitForTimeout(400);
+      const answered = await focusAt(page);
+      check(
+        answered.tag !== 'BODY',
+        `Submit answer drops focus after the reply: ${JSON.stringify(answered)}`
+      );
+      q.replies.push(certified());
+      await page.evaluate(() => LY_ACTIONS['ly-tab']('review'));
+      await press(page, '#ly-panel-review [data-ui="ly-run-review"]');
+      await page.waitForFunction(() => !chatState.busy, null, { timeout: 20000 });
+      await page.waitForTimeout(400);
+      const reviewed = await focusAt(page);
+      check(
+        reviewed.tag !== 'BODY',
+        `Run review drops focus after the reply: ${JSON.stringify(reviewed)}`
+      );
+      await ctx.close();
+    });
+    await step('3. stale suggestion focus', async () => {
+      for (const action of ['ly-keep', 'ly-recheck']) {
+        const { ctx, page, q } = await boot();
+        await setDraft(page, DRAFT);
+        await sendReview(page, q, unfinished(), () =>
+          page.evaluate((a) => {
+            const d = $ui('lyrics-draft');
+            d.value = d.value.replace(
+              '[SETUP — title — "Leave the Light On"]',
+              `[SETUP — title — "Leave the Light On"]\n${a}`
+            );
+            uiSaveLyrics();
+          }, AVOID)
+        );
+        await page.evaluate(() => LY_ACTIONS['ly-tab']('review'));
+        q.replies.push({
+          reply: 'Fixture: rechecked.',
+          history: [],
+          sig: 'rechecked',
+          task: { domain: 'lyrics', phase: 'edit' },
+        });
+        await press(page, `#ly-panel-review [data-ui="${action}"]`);
+        await page.waitForFunction(() => !chatState.busy, null, { timeout: 20000 });
+        await page.waitForTimeout(400);
+        const after = await focusAt(page);
+        check(
+          after.tag !== 'BODY',
+          `${action === 'ly-keep' ? 'Keep mine' : 'Recheck suggestion'} drops focus: ${JSON.stringify(after)}`
+        );
+        await ctx.close();
+      }
+    });
+    // ── 3. a stopped or asking run reads in words, not codes ──────────────
+    await step('3. plain words', async () => {
+      const { ctx, page, q } = await boot();
+      await setDraft(page, DRAFT);
+      const read = () =>
+        page.evaluate(() => {
+          const reply = [...document.querySelectorAll('#chat-log .chat-msg-engine')].pop();
+          const titles = [...document.querySelectorAll('#ly-panel-review .ly-item strong')].map(
+            (n) => n.textContent
+          );
+          return {
+            verdict: reply?.querySelector('.chat-recipe-foot')?.textContent || '',
+            note: reply?.querySelector('.chat-msg-note')?.textContent || '',
+            chips: reply?.querySelector('.chat-tools')?.getAttribute('aria-hidden') || '',
+            said: reply?.querySelector('.chat-count-sr')?.textContent || '',
+            titles,
+          };
+        });
+      await sendReview(page, q, unfinished());
+      await page.evaluate(() => LY_ACTIONS['ly-tab']('review'));
+      const stopped = await read();
+      check(
+        stopped.verdict === 'Unfinished · not certified',
+        `the verdict repeats its word or shows a code: ${JSON.stringify(stopped.verdict)}`
+      );
+      check(
+        !/LYRICS_UNFINISHED/.test(stopped.note) && /stopped before finishing/.test(stopped.note),
+        `the stop note reads a raw code: ${JSON.stringify(stopped.note)}`
+      );
+      check(
+        stopped.titles.some((t) => /stopped before finishing/.test(t)) &&
+          !stopped.titles.some((t) => /LYRICS_UNFINISHED/.test(t)),
+        `a review title reads a raw stop code: ${JSON.stringify(stopped.titles)}`
+      );
+      check(
+        stopped.chips === 'true' &&
+          /a check found an open problem/.test(stopped.said) &&
+          !/exit|lyric_/.test(stopped.said),
+        `the tool line is read as codes: ${JSON.stringify(stopped)}`
+      );
+      await sendReview(page, q, waiting());
+      const asking = await read();
+      check(
+        /the writer asked a question/.test(asking.said) && !/exit|lyric_/.test(asking.said),
+        `a waiting revise is read as codes: ${JSON.stringify(asking.said)}`
+      );
+      await ctx.close();
+    });
     await step('3. waiting run, independent work', async () => {
       const { ctx, page, q } = await boot({ theme: 'dark' });
       await setDraft(page, DRAFT);
@@ -3886,6 +4214,9 @@ async function browserChecks(chromium) {
           text: $ui('lyrics-draft').value,
           selection: [$ui('lyrics-draft').selectionStart, $ui('lyrics-draft').selectionEnd],
           focused: document.activeElement === $ui('lyrics-draft'),
+          // R17 #72: the stepper keeps focus (its replacement, or the
+          // position button at either end) instead of moving it into the song.
+          onPager: $ui('ly-section-nav').contains(document.activeElement),
         }));
       console.log('J1 initial ' + JSON.stringify(await snapshot()));
       await page.locator('#ly-section-nav [data-id="1"]').click();
@@ -3907,8 +4238,8 @@ async function browserChecks(chromium) {
       );
       const chorusEnd = draft.indexOf('Chorus lyric 1') + 'Chorus lyric 1'.length;
       check(
-        after.focused && after.selection[0] === chorusEnd && after.selection[1] === chorusEnd,
-        'Next must retain document focus and caret at destination'
+        after.onPager && after.selection[0] === chorusEnd && after.selection[1] === chorusEnd,
+        'Next must keep focus on the pager and put the caret at its destination'
       );
       await page.evaluate(() => lyRefresh(true));
       const refreshed = await snapshot();
@@ -3930,14 +4261,15 @@ async function browserChecks(chromium) {
         'Previous pager must describe Verse 1 of 2 and endpoints'
       );
       check(
-        back.focused && back.selection[0] === 23 && back.selection[1] === 23 && back.text === draft,
-        'Previous must retain document focus, caret and unchanged draft'
+        back.onPager && back.selection[0] === 23 && back.selection[1] === 23 && back.text === draft,
+        'Previous must keep focus on the pager, put the caret back and leave the draft unchanged'
       );
       await page.evaluate(() => lyRefresh(true));
       const caretOnly = await page.evaluate(() => {
+        const d = $ui('lyrics-draft');
+        d.focus({ preventScroll: true });
         const nav = $ui('ly-section-nav'),
           position = nav.querySelector('.ly-sec-pos');
-        const d = $ui('lyrics-draft');
         const offset = d.value.indexOf('Chorus lyric 2');
         d.setSelectionRange(offset, offset);
         lySyncCaret();
@@ -4064,6 +4396,163 @@ async function browserChecks(chromium) {
       check(tools.rows === 6 && tools.doc === 'none', `phone Tools view: ${JSON.stringify(tools)}`);
       await shot(page, 'b7-phone-tools');
       await ctx.close();
+    });
+
+    // ── R17. Menus expose their state, Tab leaves them, the badge speaks
+    // only on change, and ending an inspection keeps focus (Jony #75, #78,
+    // #80, #77 Stay/Back). Real keys throughout.
+    await step('R17. menus, badge, inspection end', async () => {
+      // A control that is not there fails its own check, by name, in seconds.
+      const focusOn = async (loc, label) => {
+        try {
+          await loc.focus({ timeout: 5000 });
+        } catch {
+          throw new Error(`cannot focus ${label}`);
+        }
+      };
+      const where = (page) =>
+        page.evaluate(() => {
+          const a = document.activeElement;
+          return {
+            tag: a?.tagName,
+            ui: a?.dataset?.ui || '',
+            id: a?.dataset?.id ?? null,
+            expanded: a?.getAttribute('aria-expanded'),
+            inMenu: !!a?.closest('.ly-menu'),
+          };
+        });
+      {
+        const { ctx, page } = await boot({ theme: 'light' });
+        await setDraft(page, DRAFT);
+        // #75: Display holds a radio group and a checkbox, named without the tick.
+        await focusOn(page.locator('[aria-controls="ly-menu-display"]'), 'Display');
+        await page.keyboard.press('Enter');
+        const menu = page.locator('#ly-menu-display');
+        const radios = await menu.getByRole('menuitemradio').count();
+        const checkedRadios = await menu.getByRole('menuitemradio', { checked: true }).count();
+        const numbers = await menu
+          .getByRole('menuitemcheckbox', { name: 'Line numbers', exact: true })
+          .count();
+        const normal = await menu
+          .getByRole('menuitemradio', { name: 'Normal', exact: true })
+          .count();
+        const pressed = await menu.locator('[aria-pressed]').count();
+        check(
+          radios === 3 && checkedRadios === 1 && numbers === 1 && normal === 1 && pressed === 0,
+          `Display menu state is not exposed as radios and a checkbox named without the tick: ${JSON.stringify({ radios, checkedRadios, numbers, normal, pressed })}`
+        );
+        const stops = await menu.evaluate(
+          (m) => [...m.querySelectorAll('button')].filter((b) => b.tabIndex >= 0).length
+        );
+        check(stops === 0, `Display menu items are ${stops} separate Tab stops`);
+        // #80 (the same handler serves every menu): Tab leaves and closes it.
+        await page.keyboard.press('Tab');
+        let w = await where(page);
+        const hidden = await menu.evaluate((m) => m.hidden);
+        check(
+          hidden && !w.inMenu && w.tag !== 'BODY',
+          `Tab in the Display menu does not close it and move on: ${JSON.stringify({ hidden, ...w })}`
+        );
+        // #78: refreshes and a typed edit that leaves the state alone do not
+        // rewrite the status region.
+        const said = await page.evaluate(() => $ui('ly-badge').innerText.trim());
+        await page.evaluate(() => {
+          globalThis.__badgeWrites = 0;
+          new MutationObserver((records) => (globalThis.__badgeWrites += records.length)).observe(
+            $ui('ly-badge'),
+            { childList: true, subtree: true, characterData: true }
+          );
+          lyRefresh(true);
+          lyRefresh(true);
+        });
+        await edit(page, 'Leave the Light On', 'Leave the Light On Now');
+        await page.waitForTimeout(100);
+        const writes = await page.evaluate(() => globalThis.__badgeWrites);
+        const after = await page.evaluate(() => $ui('ly-badge').innerText.trim());
+        check(
+          said && writes === 0 && after === said,
+          `the status badge is rewritten without a change (${writes} writes; "${said}" → "${after}")`
+        );
+        // #77: Stay and Back end the inspection on the dock's Relations button.
+        // Leaving the draft redraws the dock (the dock-first-click branch's
+        // subject), so focus steps out of the draft before reaching Relations.
+        for (const how of ['stay', 'back']) {
+          await focusOn(page.locator('[aria-controls="ly-menu-display"]'), 'Display');
+          await focusOn(page.locator('[data-ui="ly-relations"]'), 'Relations');
+          await page.keyboard.press('Enter');
+          await page.waitForTimeout(200);
+          await focusOn(
+            page.locator(`#ly-relation-inspector [data-ui="ly-relation-${how}"]`),
+            `inspector ${how}`
+          );
+          await page.keyboard.press('Enter');
+          await page.waitForTimeout(200);
+          w = await where(page);
+          check(
+            w.ui === 'ly-relations',
+            `wide: ${how === 'stay' ? 'Stay here and end inspection' : 'Back to previous panel'} drops focus: ${JSON.stringify(w)}`
+          );
+        }
+        await ctx.close();
+      }
+      {
+        const { ctx, page } = await boot({ theme: 'light', phone: true });
+        await setDraft(page, DRAFT);
+        await page.locator('#lyrics-draft').click();
+        await page.evaluate(() => {
+          const d = $ui('lyrics-draft');
+          const i = d.value.indexOf('I leave the porch light on');
+          d.setSelectionRange(i, i);
+          document.dispatchEvent(new Event('selectionchange'));
+        });
+        await page.waitForTimeout(400);
+        const opener = page.locator('#ly-linedock [aria-controls="ly-menu-line-actions"]');
+        await focusOn(opener, 'Line actions');
+        await page.keyboard.press('Enter');
+        await page.waitForTimeout(150);
+        let w = await where(page);
+        check(
+          w.inMenu && w.ui === 'ly-line-tool',
+          `phone Line actions opens elsewhere: ${JSON.stringify(w)}`
+        );
+        // #80: Tab leaves the menu and closes it.
+        await page.keyboard.press('Tab');
+        w = await where(page);
+        const hidden = await page.evaluate(() => $ui('ly-menu-line-actions').hidden);
+        check(
+          hidden && !w.inMenu && w.tag !== 'BODY',
+          `phone: Tab in Line actions does not close it and move on: ${JSON.stringify({ hidden, ...w })}`
+        );
+        // #80: a tool chosen from the menu lands on that tool, not <body>.
+        await focusOn(opener, 'Line actions');
+        await page.keyboard.press('Enter');
+        await page.waitForTimeout(150);
+        await page.keyboard.press('Enter');
+        await page.waitForTimeout(300);
+        w = await where(page);
+        check(
+          w.ui === 'ly-tool' && w.id === 'rhymes' && w.expanded === 'true',
+          `phone: Rhyme from Line actions drops focus: ${JSON.stringify(w)}`
+        );
+        // #77: Stay ends the inspection on the dock's Relations button.
+        await page.evaluate(() => LY_ACTIONS['ly-mobile']('song'));
+        await page.waitForTimeout(200);
+        await focusOn(page.locator('[data-ui="ly-relations"]'), 'Relations');
+        await page.keyboard.press('Enter');
+        await page.waitForTimeout(200);
+        await focusOn(
+          page.locator('#ly-relations-dialog [data-ui="ly-relation-stay"]'),
+          'dialog stay'
+        );
+        await page.keyboard.press('Enter');
+        await page.waitForTimeout(200);
+        w = await where(page);
+        check(
+          w.ui === 'ly-relations',
+          `phone: Stay here and end inspection drops focus: ${JSON.stringify(w)}`
+        );
+        await ctx.close();
+      }
     });
 
     // N1/N2: Rhythm has three independently applied forms. A failure must
@@ -4342,7 +4831,8 @@ async function browserChecks(chromium) {
       );
       check(q.calls.length === 2, `expected two fixture requests, got ${q.calls.length}`);
       check(
-        (await page.locator('.ly-options').innerText()).includes('you ~ blue'),
+        // The pair reads "you ~ blue" on screen, "you with blue" aloud (R22).
+        /you\s*~\s*(with\s*)?blue/.test(await page.locator('.ly-options').innerText()),
         'stale status changed or removed the returned pair'
       );
       // A recovered result without its request has no known version to compare.
@@ -5326,6 +5816,399 @@ async function browserChecks(chromium) {
     // "Get dictionary options". A 503 (persistence down) still holds the ticket.
     // New conversation also drops the copy kept when switching writers, and the
     // panel redraws at once.
+    // R17 #72: the phone's section stepper keeps focus, moves the caret
+    // without focusing the draft and says where the song now is, so a second
+    // Enter steps again instead of typing a blank line into the song.
+    await step('R17a. section stepper keeps focus', async () => {
+      const { ctx, page } = await boot({ theme: 'light', phone: true });
+      await setDraft(page, DRAFT);
+      await page.evaluate(() => LY_ACTIONS['ly-mobile']('song'));
+      const before = await page.evaluate(() => $ui('lyrics-draft').value);
+      await page.focus('#ly-section-nav [data-ui="ly-sec-step"][data-id="1"]');
+      const said = [];
+      for (let i = 0; i < 2; i++) {
+        await page.keyboard.press('Enter');
+        await page.waitForTimeout(150);
+        said.push(
+          await page.evaluate(() => ({
+            focus: document.activeElement?.dataset?.ui || document.activeElement?.tagName,
+            live: $ui('ly-live')?.textContent || '',
+            pos: document.querySelector('.ly-sec-pos > span')?.textContent || '',
+          }))
+        );
+      }
+      const after = await page.evaluate(() => $ui('lyrics-draft').value);
+      check(after === before, 'a second Enter on Next section typed into the song');
+      check(
+        said.every((s) => s.focus === 'ly-sec-step'),
+        `Next section did not keep focus: ${JSON.stringify(said)}`
+      );
+      check(
+        /^.+, 2 of \d+$/.test(said[0].live) && /^.+, 3 of \d+$/.test(said[1].live),
+        `the section step was not announced: ${JSON.stringify(said)}`
+      );
+      await ctx.close();
+    });
+
+    // R17 #73: the phone's Sections sheet is a modal dialog: Tab stays in
+    // it, and Escape or Collapse returns focus to the visible opener.
+    await step('R17b. Sections sheet is modal and returns focus', async () => {
+      const { ctx, page } = await boot({ theme: 'light', phone: true });
+      await setDraft(page, DRAFT);
+      await page.evaluate(() => LY_ACTIONS['ly-mobile']('song'));
+      const state = () =>
+        page.evaluate(() => {
+          const panel = $ui('ly-outline-panel');
+          const a = document.activeElement;
+          return {
+            role: panel.getAttribute('role'),
+            modal: panel.getAttribute('aria-modal'),
+            mainInert: $ui('ly-main').inert,
+            inPanel: panel.contains(a),
+            focus: a === document.body ? 'BODY' : a?.className || a?.tagName,
+            visible: !!a?.getClientRects().length,
+          };
+        });
+      for (const close of ['Escape', 'Collapse']) {
+        await page.focus('#ly-section-nav .ly-sec-pos');
+        await page.keyboard.press('Enter');
+        await page.waitForTimeout(100);
+        const open = await state();
+        check(
+          open.role === 'dialog' && open.modal === 'true' && open.mainInert && open.inPanel,
+          `the open Sections sheet is not a modal dialog: ${JSON.stringify(open)}`
+        );
+        const walked = [];
+        for (let i = 0; i < 12; i++) {
+          await page.keyboard.press('Tab');
+          walked.push((await state()).inPanel || (await state()).focus);
+        }
+        check(
+          walked.every((w) => w === true),
+          `Tab left the Sections sheet: ${JSON.stringify(walked)}`
+        );
+        if (close === 'Escape') await page.keyboard.press('Escape');
+        else {
+          await page.focus('#ly-outline-panel .ly-outline-close');
+          await page.keyboard.press('Enter');
+        }
+        await page.waitForTimeout(100);
+        const shut = await state();
+        check(
+          /ly-sec-pos/.test(shut.focus) && shut.visible && !shut.mainInert && !shut.modal,
+          `${close} on the Sections sheet: ${JSON.stringify(shut)}`
+        );
+      }
+      await ctx.close();
+    });
+
+    // R17 #74: typing in Find lands on the first match, marked as the
+    // current one; Enter goes to the second and Shift+Enter comes back.
+    await step('R17c. Find starts on the first match', async () => {
+      const { ctx, page } = await boot({ theme: 'light' });
+      await setDraft(page, DRAFT);
+      await page.click('[data-ui="ly-find-open"]');
+      await page.keyboard.type('rain');
+      await page.waitForTimeout(100);
+      const where = () =>
+        page.evaluate(() => {
+          const d = $ui('lyrics-draft');
+          const line = d.value.slice(0, d.selectionStart).split('\n').length - 1;
+          return {
+            count: $ui('ly-find-count').textContent,
+            selected: d.value.slice(d.selectionStart, d.selectionEnd),
+            line: LY.model.rows[line]?.n || 0,
+            current: [
+              ...new Set(
+                [...document.querySelectorAll('#ly-overlay .ly-hit-current')].map(
+                  (e) => e.closest('.ly-r')?.dataset.n
+                )
+              ),
+            ],
+            focus: document.activeElement?.id,
+          };
+        });
+      const typed = await where();
+      check(
+        typed.count === '1 of 2 lines' &&
+          typed.selected === 'rain' &&
+          typed.line === 2 &&
+          JSON.stringify(typed.current) === '["2"]' &&
+          typed.focus === 'ly-find-input',
+        `typing in Find did not land on match 1: ${JSON.stringify(typed)}`
+      );
+      await page.keyboard.press('Enter');
+      const next = await where();
+      check(
+        next.count === '2 of 2 lines' &&
+          next.line === 9 &&
+          JSON.stringify(next.current) === '["9"]',
+        `the first Enter in Find did not go to match 2: ${JSON.stringify(next)}`
+      );
+      await page.keyboard.press('Shift+Enter');
+      const back = await where();
+      check(
+        back.count === '1 of 2 lines' &&
+          back.line === 2 &&
+          JSON.stringify(back.current) === '["2"]',
+        `Shift+Enter in Find did not come back to match 1: ${JSON.stringify(back)}`
+      );
+      // A phrase marks every word it spans (it marked none: each word was
+      // tested for the whole query on its own), the current line's as current.
+      await page.fill('#ly-find-input', 'rain has blur');
+      await page.waitForTimeout(150);
+      const phrase = await page.evaluate(() => {
+        const words = (sel) =>
+          [...document.querySelectorAll(`#ly-overlay .ly-r[data-n="2"] ${sel}`)].map((e) =>
+            e.textContent.trim()
+          );
+        return {
+          count: $ui('ly-find-count').textContent,
+          hit: words('.ly-hit'),
+          current: words('.ly-hit-current'),
+        };
+      });
+      check(
+        phrase.count === '1 of 1 line' &&
+          JSON.stringify(phrase.hit) === '["rain","has","blurred"]' &&
+          JSON.stringify(phrase.current) === '["rain","has","blurred"]',
+        `a Find phrase did not mark the words it spans: ${JSON.stringify(phrase)}`
+      );
+      await ctx.close();
+    });
+    // R20. Jony's round 20, Lyrics parts. #97/#98: in forced colours the
+    // draft's own text was forced visible with a readability backplate over
+    // the read layer, so every header showed twice and the Find marks behind
+    // it vanished; #98 also asks a non-colour cue on the current section.
+    // #95: at 320×256 the Sections sheet's list was 0 px. #100: rotating with
+    // Find's field focused left it off-screen.
+    await step('R20. forced colours, short sheet, rotation', async () => {
+      // The colour the page shows at the centre of an element, read from a
+      // screenshot decoded in the page (no image library in this repo).
+      const pixel = async (page, selector) => {
+        await page.$eval(selector, (e) => e.scrollIntoView({ block: 'center' }));
+        await page.waitForTimeout(100);
+        const box = await (await page.$(selector)).boundingBox();
+        const shot = await page.screenshot({
+          clip: {
+            x: box.x + box.width / 2 - 1,
+            y: box.y + box.height / 2 - 1,
+            width: 2,
+            height: 2,
+          },
+        });
+        return page.evaluate(async (b64) => {
+          const img = new Image();
+          img.src = 'data:image/png;base64,' + b64;
+          await img.decode();
+          const c = document.createElement('canvas');
+          c.width = img.width;
+          c.height = img.height;
+          const g = c.getContext('2d');
+          g.drawImage(img, 0, 0);
+          return [...g.getImageData(0, 0, 1, 1).data.slice(0, 3)];
+        }, shot.toString('base64'));
+      };
+      const rgb = (css) => (css.match(/\d+/g) || []).slice(0, 3).map(Number);
+      const near = (a, b) => a.every((v, k) => Math.abs(v - b[k]) <= 24);
+      for (const phone of [false, true]) {
+        const { ctx, page } = await boot({ theme: 'light', phone });
+        const cdp = await ctx.newCDPSession(page);
+        await cdp.send('Emulation.setEmulatedMedia', {
+          features: [{ name: 'forced-colors', value: 'active' }],
+        });
+        await setDraft(page, DRAFT);
+        if (phone) await page.evaluate(() => LY_ACTIONS['ly-mobile']('song'));
+        await page.evaluate(() => {
+          LY.find = { q: 'rain', at: 0, open: true };
+          lyRefresh(true);
+        });
+        await page.waitForTimeout(200);
+        const tag = phone ? '390' : '1280';
+        const mark = '#ly-overlay .ly-hit:not(.ly-hit-current)';
+        const want = rgb(await page.$eval(mark, (e) => getComputedStyle(e).backgroundColor));
+        // The mark's commonest colour over its whole box, not one pixel: a
+        // single sample can land on a letter or an edge, depending on the
+        // fonts and line breaks of the machine, and the question here is
+        // whether the mark's background shows through the draft above it.
+        await page.$eval(mark, (e) => e.scrollIntoView({ block: 'center' }));
+        await page.waitForTimeout(100);
+        const box = await (await page.$(mark)).boundingBox();
+        const shot = await page.screenshot({
+          clip: { x: box.x + 1, y: box.y + 1, width: box.width - 2, height: box.height - 2 },
+        });
+        const seen = await page.evaluate(async (b64) => {
+          const img = new Image();
+          img.src = 'data:image/png;base64,' + b64;
+          await img.decode();
+          const c = document.createElement('canvas');
+          c.width = img.width;
+          c.height = img.height;
+          const g = c.getContext('2d');
+          g.drawImage(img, 0, 0);
+          const d = g.getImageData(0, 0, c.width, c.height).data;
+          const count = new Map();
+          for (let i = 0; i < d.length; i += 4) {
+            const k = `${d[i]},${d[i + 1]},${d[i + 2]}`;
+            count.set(k, (count.get(k) || 0) + 1);
+          }
+          return [...count]
+            .sort((a, b) => b[1] - a[1])[0][0]
+            .split(',')
+            .map(Number);
+        }, shot.toString('base64'));
+        const draft = await page.$eval('#lyrics-draft', (d) => getComputedStyle(d).color);
+        check(
+          near(seen, want) && rgb(draft).length === 3 && /rgba\(.*,\s*0\)$/.test(draft),
+          `${tag} forced colours: a Find mark shows ${seen}, not its ${want}, and the draft's own text is ${draft}`
+        );
+        // The draft's selection still shows, in Highlight: a whole line selected
+        // with Find closed, sampled over its text.
+        await page.evaluate(() => {
+          LY.find = { q: '', at: 0, open: false };
+          lyRefresh(true);
+        });
+        await page.focus('#lyrics-draft');
+        const hl = rgb(
+          await page.evaluate(() => {
+            const probe = document.createElement('span');
+            probe.style.color = 'Highlight';
+            document.body.append(probe);
+            const c = getComputedStyle(probe).color;
+            probe.remove();
+            return c;
+          })
+        );
+        await page.evaluate(() => {
+          const d = $ui('lyrics-draft');
+          const line = LY.model.sung[1];
+          const rows = d.value.split('\n');
+          const start = rows.slice(0, line.i).reduce((t, r) => t + r.length + 1, 0);
+          d.setSelectionRange(start, start + rows[line.i].length);
+        });
+        const at = await pixel(page, '#ly-overlay .ly-r[data-n="2"] .ly-t');
+        check(
+          near(at, hl),
+          `${tag} forced colours: the draft's selection shows ${at}, not Highlight ${hl}`
+        );
+        await ctx.close();
+      }
+      // The current section: a cue that is not colour, everywhere, and a
+      // Highlight outline in forced colours.
+      {
+        const { ctx, page } = await boot({ theme: 'light' });
+        const cdp = await ctx.newCDPSession(page);
+        await cdp.send('Emulation.setEmulatedMedia', {
+          features: [{ name: 'forced-colors', value: 'active' }],
+        });
+        await setDraft(page, DRAFT);
+        await page.evaluate(() => {
+          LY.railOpen = true;
+          lyScrollToLine(2);
+          lyRefresh(true);
+        });
+        await page.waitForTimeout(200);
+        const cur = await page.evaluate(() => {
+          const b = document.querySelector('#ly-sections .ly-sec[aria-current]');
+          const cs = b && getComputedStyle(b);
+          return b ? { weight: Number(cs.fontWeight), outline: cs.outlineStyle } : null;
+        });
+        check(
+          cur && cur.weight >= 600 && cur.outline === 'solid',
+          `the current section has no cue but colour: ${JSON.stringify(cur)}`
+        );
+        await ctx.close();
+      }
+      // #95: the sheet at 320×256 keeps a list and scrolls as a whole.
+      {
+        const { ctx, page } = await boot({ theme: 'light', phone: true });
+        await page.setViewportSize({ width: 320, height: 256 });
+        await setDraft(page, DRAFT);
+        await page.evaluate(() => LY_ACTIONS['ly-mobile']('song'));
+        await page.focus('#ly-section-nav .ly-sec-pos');
+        await page.keyboard.press('Enter');
+        await page.waitForTimeout(200);
+        const sheet = await page.evaluate(() => {
+          const list = $ui('ly-sections');
+          const outline = document.querySelector('.ly-outline');
+          const last = [...list.querySelectorAll('.ly-sec')].at(-1);
+          last.focus();
+          const r = last.getBoundingClientRect();
+          return {
+            list: list.getBoundingClientRect().height,
+            modal: $ui('ly-outline-panel').getAttribute('aria-modal'),
+            lastVisible: r.top >= 0 && r.bottom <= innerHeight,
+            scrolls: outline.scrollHeight > outline.clientHeight,
+          };
+        });
+        check(
+          sheet.list >= 88 && sheet.modal === 'true' && sheet.lastVisible,
+          `the Sections sheet at 320×256: ${JSON.stringify(sheet)}`
+        );
+        await ctx.close();
+      }
+      // #100: Find's field stays in view across a rotation.
+      {
+        const { ctx, page } = await boot({ theme: 'light', phone: true });
+        await setDraft(page, DRAFT);
+        await page.click('[data-ui="ly-find-open"]');
+        await page.waitForSelector('#ly-find-input', { state: 'visible' });
+        await page.focus('#ly-find-input');
+        await page.setViewportSize({ width: 844, height: 390 });
+        await page.waitForTimeout(400);
+        const where = await page.evaluate(() => {
+          const r = $ui('ly-find-input').getBoundingClientRect();
+          return {
+            focus: document.activeElement?.id,
+            inView: r.top >= 0 && r.bottom <= innerHeight && r.left >= 0 && r.right <= innerWidth,
+            top: Math.round(r.top),
+          };
+        });
+        check(
+          where.focus === 'ly-find-input' && where.inView,
+          `after rotating, Find's focused field is off-screen: ${JSON.stringify(where)}`
+        );
+        await ctx.close();
+      }
+    });
+    // R22 (Jony #107): a pair of words, "a ~ b", is heard "a with b"; the
+    // tilde is for the eye only (it was read "tilde"). Both places that print
+    // one: the declared groups in Rhymes and the checked pairs under them.
+    await step('R22. pair separator is spoken as "with"', async () => {
+      const { ctx, page } = await boot({ theme: 'light' });
+      await setDraft(page, DRAFT);
+      await page.evaluate(() => {
+        LY.results.rhymes = {
+          pairs: [{ a: 'night', b: 'light', refused: false, codes: [], relations: ['perfect'] }],
+          baseId: null,
+        };
+        LY_ACTIONS['ly-tool']('rhymes');
+        lyRefresh(true);
+      });
+      await page.waitForTimeout(150);
+      const seps = await page.evaluate(() => {
+        const out = [];
+        const walk = document.createTreeWalker($ui('surface-lyrics'), NodeFilter.SHOW_TEXT);
+        for (let n = walk.nextNode(); n; n = walk.nextNode()) {
+          if (!n.nodeValue.includes('~') || !n.parentElement.getClientRects().length) continue;
+          const hidden = n.parentElement.closest('[aria-hidden="true"]');
+          out.push({
+            text: n.parentElement.closest('strong, small')?.textContent.trim() || n.nodeValue,
+            hidden: !!hidden,
+            spoken: hidden?.nextElementSibling?.matches('.ly-sr')
+              ? hidden.nextElementSibling.textContent
+              : '',
+          });
+        }
+        return out;
+      });
+      check(
+        seps.length >= 2 && seps.every((s) => s.hidden && s.spoken.trim() === 'with'),
+        `a pair separator is read as "tilde": ${JSON.stringify(seps.slice(0, 4))}`
+      );
+      await ctx.close();
+    });
+
     await step('10. expired saved request and New conversation', async () => {
       const KEY = 'codex-musica-chat-v2:https://mcp.codexmusica.com';
       const stuck = async ({ status, backup = false }) => {
@@ -5441,6 +6324,246 @@ async function browserChecks(chromium) {
         check(
           /Get dictionary options/.test(s.options),
           'pronunciation options hidden after New conversation'
+        );
+        await ctx.close();
+      }
+    });
+
+    // U. Undo in the draft is the page's one history, a typing run per step
+    // (Jony #79: the read layer's redraw broke Chromium's native typing group,
+    // so Ctrl+Z took back one character a press); Undo and Redo say what they
+    // did, and a toolbar button that runs out hands focus on (Jony #76).
+    await step('U. draft undo runs, announcements and focus', async () => {
+      const { ctx, page } = await boot({ theme: 'light' });
+      const BASE = 'Hold the light\nRiver runs';
+      await setDraft(page, BASE);
+      const live = async () => {
+        await page.waitForTimeout(120);
+        return page.evaluate(() => $ui('ly-live')?.textContent || '');
+      };
+      const state = () =>
+        page.evaluate(() => {
+          const d = $ui('lyrics-draft');
+          const a = document.activeElement;
+          return {
+            value: d.value,
+            caret: d.selectionStart,
+            focus: a === d ? 'draft' : a === document.body ? 'BODY' : a?.dataset?.ui || a?.tagName,
+          };
+        });
+      await page.click('#lyrics-draft');
+      await page.keyboard.press('Control+End');
+      await page.keyboard.type(' word', { delay: 30 });
+      await page.keyboard.press('Control+z');
+      let s = await state();
+      check(
+        s.value === BASE,
+        `Ctrl+Z after typing " word" left ${JSON.stringify(s.value.slice(-8))}, not the text before the run`
+      );
+      check(s.focus === 'draft', `Ctrl+Z moved focus to ${s.focus}`);
+      check(s.caret === BASE.length, `Ctrl+Z put the caret at ${s.caret}, not where the run was`);
+      check((await live()) === 'Undone', 'Ctrl+Z in the draft did not say "Undone"');
+      await page.keyboard.press('Control+Shift+z');
+      s = await state();
+      check(s.value === BASE + ' word', `Ctrl+Shift+Z gave ${JSON.stringify(s.value.slice(-8))}`);
+      check((await live()) === 'Redone', 'Ctrl+Shift+Z in the draft did not say "Redone"');
+      // A pause closes the run: the second run goes back alone.
+      await page.keyboard.press('Control+End');
+      await page.keyboard.type(' again', { delay: 30 });
+      await page.waitForTimeout(1300);
+      await page.keyboard.type(' more', { delay: 30 });
+      await page.keyboard.press('Control+z');
+      s = await state();
+      check(
+        s.value === BASE + ' word again',
+        `after a pause Ctrl+Z gave ${JSON.stringify(s.value.slice(-12))}, not the run before it`
+      );
+      // A paste is a step of its own.
+      await page.keyboard.press('Control+End');
+      await page.keyboard.type(' x', { delay: 30 });
+      await page.evaluate(() => {
+        const d = $ui('lyrics-draft');
+        const ev = new InputEvent('beforeinput', {
+          inputType: 'insertFromPaste',
+          data: ' pasted',
+          bubbles: true,
+          cancelable: true,
+        });
+        if (d.dispatchEvent(ev)) {
+          d.setRangeText(' pasted', d.selectionStart, d.selectionEnd, 'end');
+          d.dispatchEvent(new InputEvent('input', { inputType: 'insertFromPaste', bubbles: true }));
+        }
+      });
+      await page.keyboard.press('Control+z');
+      s = await state();
+      check(
+        s.value === BASE + ' word again x',
+        `Ctrl+Z after a paste gave ${JSON.stringify(s.value.slice(-14))}, not the text before the paste`
+      );
+      // The toolbar: Undo to the oldest step and Redo to the newest by keys;
+      // focus is never left on the page, and each step is said.
+      const press = async (act) => {
+        const seen = [];
+        await page.focus(`#ly-toolbar [data-ui="${act}"]`);
+        for (let k = 0; k < 80; k++) {
+          const off = await page.evaluate(
+            (a) => document.querySelector(`#ly-toolbar [data-ui="${a}"]`).disabled,
+            act
+          );
+          if (off) break;
+          await page.keyboard.press('Enter');
+          seen.push((await state()).focus);
+        }
+        return seen;
+      };
+      const undos = await press('ly-undo');
+      check(undos.length > 0, 'toolbar Undo was never available');
+      check(!undos.includes('BODY'), `toolbar Undo dropped focus to BODY (${undos.join(' ')})`);
+      check(undos.at(-1) === 'ly-redo', `the last Undo left focus on ${undos.at(-1)}, not Redo`);
+      check((await live()) === 'Undone', 'toolbar Undo did not say "Undone"');
+      const redos = await press('ly-redo');
+      check(!redos.includes('BODY'), `toolbar Redo dropped focus to BODY (${redos.join(' ')})`);
+      check(redos.at(-1) === 'ly-undo', `the last Redo left focus on ${redos.at(-1)}, not Undo`);
+      check((await live()) === 'Redone', 'toolbar Redo did not say "Redone"');
+      check(
+        (await state()).value === BASE + ' word again x pasted',
+        'Redo to the newest step did not restore the pasted text'
+      );
+      await ctx.close();
+    });
+
+    // U2. Two edges of the typing runs (second review of b7ba5a0f2): text
+    // moved by dragging it inside the draft is one Undo step (Chromium sends
+    // deleteByDrag, then insertFromDrop; each was a step, so one Undo left
+    // the moved words deleted), and while a new run is open the toolbar does
+    // not offer the Redo that run has already replaced.
+    await step('U2. drag-move is one step; an open run drops Redo', async () => {
+      const { ctx, page } = await boot({ theme: 'light' });
+      const BASE = 'Hold the light\nRiver runs';
+      const val = () => page.evaluate(() => $ui('lyrics-draft').value);
+      const edit = (type, text, from, to) =>
+        page.evaluate(
+          ([type, text, from, to]) => {
+            const d = $ui('lyrics-draft');
+            d.setSelectionRange(from < 0 ? d.value.length : from, to < 0 ? d.value.length : to);
+            const ev = new InputEvent('beforeinput', {
+              inputType: type,
+              data: text,
+              bubbles: true,
+              cancelable: true,
+            });
+            if (!d.dispatchEvent(ev)) return;
+            d.setRangeText(text, d.selectionStart, d.selectionEnd, 'end');
+            d.dispatchEvent(
+              new InputEvent('input', { inputType: type, data: text, bubbles: true })
+            );
+          },
+          [type, text, from, to]
+        );
+      await setDraft(page, BASE);
+      await page.click('#lyrics-draft');
+      await edit('deleteByDrag', '', 0, 5);
+      await edit('insertFromDrop', ' Hold', -1, -1);
+      const moved = await val();
+      await page.keyboard.press('Control+z');
+      const back = await val();
+      check(
+        moved === 'the light\nRiver runs Hold' && back === BASE,
+        `one Undo after moving "Hold " by drag gave ${JSON.stringify(back)}, not the text before the move`
+      );
+      await page.keyboard.press('Control+Shift+z');
+      check((await val()) === moved, 'Redo did not bring the moved text back in one step');
+      // Undo, then type: the new run replaces the Redo step at once.
+      await page.keyboard.press('Control+End');
+      await page.keyboard.type(' r1', { delay: 30 });
+      await page.keyboard.press('Control+z');
+      await page.keyboard.type(' r2', { delay: 30 });
+      const typing = await page.evaluate(() => ({
+        redo: document.querySelector('#ly-toolbar [data-ui="ly-redo"]')?.disabled,
+        undo: document.querySelector('#ly-toolbar [data-ui="ly-undo"]')?.disabled,
+      }));
+      check(
+        typing.redo === true && typing.undo === false,
+        `while a new run is open the toolbar offered Redo=${!typing.redo}, Undo=${!typing.undo}`
+      );
+      await page.keyboard.press('Control+Shift+z');
+      await page.waitForTimeout(120);
+      check(
+        (await val()).endsWith(' r2') &&
+          (await page.evaluate(() => $ui('ly-live').textContent)) === 'Nothing to redo',
+        'Redo after new typing did not keep the typing and say "Nothing to redo"'
+      );
+      await ctx.close();
+    });
+    // M2. The phone's Line actions menu lives in the line dock, which is
+    // redrawn whenever the history moves: its own Undo, or any step while it
+    // is open, replaced the item in focus (focus to <body>, the menu shut
+    // under the person, LY.menu left set). It stays open, on that item. A
+    // tool chosen from it closes it (LY.menu was left 'line-actions').
+    // Second review of lyrics-menus-sr 0dda776ba.
+    await step('M2. Line actions survives a dock redraw', async () => {
+      for (const how of ['keyboard', 'pointer']) {
+        const { ctx, page } = await boot({ theme: 'light', phone: true });
+        const where = () =>
+          page.evaluate(() => {
+            const a = document.activeElement;
+            const menu = $ui('ly-menu-line-actions');
+            return {
+              inMenu: !!menu && !menu.hidden && menu.contains(a),
+              item: a?.dataset?.ui || (a === document.body ? 'BODY' : a?.tagName),
+              menu: LY.menu,
+              open: [...document.querySelectorAll('#surface-lyrics .ly-menu:not([hidden])')].length,
+            };
+          });
+        const sel = '#ly-linedock [aria-controls="ly-menu-line-actions"]';
+        const press = async (selector) => {
+          if (how === 'keyboard') {
+            await page.focus(selector);
+            await page.keyboard.press('Enter');
+          } else await page.click(selector);
+          await page.waitForTimeout(200);
+        };
+        const song = () =>
+          page.evaluate(() => {
+            LY_ACTIONS['ly-mobile']('song');
+            lyScrollToLine(2);
+            lySyncCaret();
+            lyRefresh(true);
+          });
+        await setDraft(page, DRAFT);
+        await page.evaluate(() => {
+          const d = $ui('lyrics-draft');
+          d.value += '\nOne more line';
+          uiSaveLyrics();
+          pushHistory();
+        });
+        await song();
+        await press(sel);
+        await press('#ly-menu-line-actions [data-ui="ly-undo"]');
+        const undone = await where();
+        check(
+          undone.inMenu && undone.menu === 'line-actions',
+          `${how}: Undo from Line actions dropped focus or shut the menu: ${JSON.stringify(undone)}`
+        );
+        await page.evaluate(() => {
+          app.workspaceName = 'Renamed while the menu is open';
+          pushHistory();
+          lyRefresh(true);
+        });
+        await page.waitForTimeout(200);
+        const moved = await where();
+        check(
+          moved.inMenu && moved.menu === 'line-actions',
+          `${how}: a history step under the open Line actions dropped it: ${JSON.stringify(moved)}`
+        );
+        await page.keyboard.press('Escape');
+        await song();
+        await press(sel);
+        await press('#ly-menu-line-actions [data-ui="ly-line-tool"]');
+        const tool = await where();
+        check(
+          tool.menu === '' && tool.open === 0 && tool.item === 'ly-tool',
+          `${how}: a tool chosen from Line actions left the menu set: ${JSON.stringify(tool)}`
         );
         await ctx.close();
       }

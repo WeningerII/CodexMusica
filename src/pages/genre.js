@@ -1,5 +1,5 @@
 /* exported renderGenreDiscovery */
-/* global $ui, Catalog, Engine, InstLite, STARTER_TRADITIONS, Tradition, UI, UILayout, _determinePrimaryCard, app, axisLabel, esc, findSimilar, getMatchingAxes, getRoots, getTreeNode, icon, image, listenLink, normalizeSearch, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, uiAddInstrument, uiAfterPaint, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos */
+/* global $ui, Catalog, Engine, InstLite, STARTER_TRADITIONS, Tradition, UI, UILayout, _determinePrimaryCard, app, axisLabel, esc, findSimilar, getMatchingAxes, getRoots, getTreeNode, icon, image, listenLink, normalizeSearch, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, uiAddInstrument, uiAfterPaint, uiAnnounce, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos, searchRank, uiSearchToResults */
 /* Genre page. Owned by the Genre page worker; see docs/ui-foundation.md.
    Shared state, recipe commands (genre-add, instrument-add), navigation and
    theming belong to the shell in src/workbench.js and src/theme.css.
@@ -19,6 +19,7 @@
 // Page-private state. UI.genre (the open genre) and UI.genreNode (the branch)
 // are the shell-visible part; everything else lives here.
 const G = {
+  saidNoMatch: '', // the search gpSayNoMatch last announced as matching nothing
   tab: 'start', // 'start' | 'all'
   detailTab: 'overview',
   featureClosed: false, // the Start exploring feature has been closed
@@ -37,6 +38,7 @@ const G = {
   images: null, // the tradition photos, when they can be read
   optionalScheduled: false, // gpLoadOptional is queued for after the first paint
   namesOnly: false, // the list on screen is a search over names only (prose still to come)
+  proseRetry: null, // { id, key }: the prose slot whose Retry was pressed; focus follows it
 };
 const GP_FEATURED_AXES = ['soundTech', 'density', 'voice'];
 const GP_ROOTS_SHOWN = 10;
@@ -125,12 +127,18 @@ function gpLede(id, max = 170) {
 // rebuilt (uiTilesPhotos says why), except a search drawn over names only,
 // which redraws once, as a keystroke would. The embedded build has every
 // genre's prose from the start and never draws a pending slot.
-function gpProseRetry() {
-  return uiButton('genre-prose-retry', 'Retry', 'refresh-cw', 'class="cm-btn gp-linkbtn"');
+// Named for what it retries: a detail can show two Retry buttons at once.
+function gpProseRetry(what) {
+  return uiButton(
+    'genre-prose-retry',
+    'Retry',
+    'refresh-cw',
+    `class="cm-btn gp-linkbtn" aria-label="Retry loading ${esc(what)}"`
+  );
 }
 function gpPendingNote(id, what, retry) {
   return Catalog.proseState(id) === 'failed'
-    ? `<p class="gp-note">Couldn’t load ${what}.${retry ? ' ' + gpProseRetry() : ''}</p>`
+    ? `<p class="gp-note">Couldn’t load ${what}.${retry ? ' ' + gpProseRetry(what) : ''}</p>`
     : `<p class="gp-note" role="status">Loading ${what}…</p>`;
 }
 function gpLedeHTML(id) {
@@ -140,7 +148,7 @@ function gpLedeHTML(id) {
     return l ? `<p class="gp-lede">${esc(l)}</p>` : '';
   }
   return st === 'failed'
-    ? `<p class="gp-lede" data-prose-pending="lede">Couldn’t load the description. ${gpProseRetry()}</p>`
+    ? `<p class="gp-lede" data-prose-pending="lede">Couldn’t load the description. ${gpProseRetry('the description')}</p>`
     : `<p class="gp-lede" data-prose-pending="lede" role="status">Loading the description…</p>`;
 }
 function gpRowDescHTML(id) {
@@ -283,8 +291,10 @@ function gpQuery() {
 function gpTargets() {
   return Object.entries(G.targets);
 }
-// The All genres list. Search ranks by where the query matches: exact name,
-// name prefix, anywhere in the name, then lineage/description only. The branch
+// The All genres list. Search ranks by where the query matches (searchRank):
+// exact name, name prefix, a later word's start, anywhere in the name; a
+// former name (an alias) ranks by its own match but never in the first tier
+// (an exact alias counts as a name prefix); then lineage/description only. The branch
 // keeps members, cross-listed ones included; sound targets keep genres within
 // one step of every target and rank by total distance — the engine's
 // --axis-target rule. Every tie is A–Z by name, as the list was before the
@@ -296,20 +306,11 @@ function gpResults() {
   if (q) {
     rows = [];
     for (const e of Catalog.searchIndex()) {
+      const tiers = [searchRank(q, e.name), ...e.aliases.map((a) => searchRank(q, a))]
+        .map((r, k) => (r < 0 || r > 3 ? 9 : k ? Math.max(1, r) : r))
+        .sort((a, b) => a - b);
       const rank =
-        e.name === q
-          ? 0
-          : e.name.startsWith(q)
-            ? 1
-            : e.name.includes(q)
-              ? 2
-              : e.aliases.some((a) => a === q || a.startsWith(q))
-                ? 1
-                : e.aliases.some((a) => a.includes(q))
-                  ? 2
-                  : e.lineage.includes(q) || e.description.includes(q)
-                    ? 3
-                    : -1;
+        tiers[0] < 9 ? tiers[0] : e.lineage.includes(q) || e.description.includes(q) ? 4 : -1;
       if (rank >= 0) rows.push({ t: e.t, rank });
     }
   } else rows = gpSorted().map((t) => ({ t, rank: 0 }));
@@ -478,16 +479,26 @@ function gpSoundProfile(id, ext) {
     ''
   )}</ul><div class="gp-detail-foot">${uiButton('genre-sound-from', 'Use as sound targets', 'sliders-horizontal', `class="cm-btn cm-btn-tonal" data-id="${esc(id)}" data-tooltip="Set all 13 Find a sound targets to this profile and list the genres within one step of it"`)}${uiButton('genre-tab', 'Similar sounds', 'arrow-right', `class="cm-btn gp-linkbtn" data-id="similar"`)}</div>`;
 }
+// What a single-instrument Add does with the chosen destination ('' is on
+// its own): the note under the select, and each Add button's name.
+function gpDestNote(dest) {
+  return dest
+    ? `Joins the ${Tradition(dest)?.name || dest} group in Your recipe${gpRecipeCount(dest) ? '' : ' (the group is created)'}.`
+    : 'Added on its own, outside any genre group.';
+}
+function gpDestAddLabel(name, dest) {
+  return dest ? `Add ${name} to ${Tradition(dest)?.name || dest}` : `Add ${name} on its own`;
+}
 function gpInstruments(id, t) {
   const insts = t.instruments || [];
   const others = uiRecipeGenres().filter((g) => g !== id);
   const dest = G.instDest[id] ?? id;
   const opt = (value, label) =>
     `<option value="${esc(value)}"${value === dest ? ' selected' : ''}>${esc(label)}</option>`;
-  return `<div class="gp-dest"><label for="gp-inst-dest">Add single instruments to</label><select id="gp-inst-dest" class="cm-select" data-genre="${esc(id)}">${opt(id, `${t.name} — set up as ${t.name} plays it`)}${others.map((g) => opt(g, `${Tradition(g)?.name || g} — set up as that genre plays it`)).join('')}${opt('', 'Independent instrument — default settings')}</select><span class="gp-note" id="gp-inst-dest-note">${dest ? `Joins the ${esc(Tradition(dest)?.name || dest)} group in Your recipe${gpRecipeCount(dest) ? '' : ' (the group is created)'}.` : 'Added on its own, outside any genre group.'}</span></div><ul class="gp-roster">${insts
+  return `<div class="gp-dest"><label for="gp-inst-dest">Add single instruments to</label><select id="gp-inst-dest" class="cm-select" data-genre="${esc(id)}" aria-describedby="gp-inst-dest-note">${opt(id, `${t.name} — set up as ${t.name} plays it`)}${others.map((g) => opt(g, `${Tradition(g)?.name || g} — set up as that genre plays it`)).join('')}${opt('', 'Independent instrument — default settings')}</select><span class="gp-note" id="gp-inst-dest-note" aria-live="polite">${esc(gpDestNote(dest))}</span></div><ul class="gp-roster">${insts
     .map((i) => {
       const name = InstLite(i)?.name || i;
-      return `<li class="gp-roster-row">${image(i, 30)}<button type="button" class="gp-link gp-roster-name" data-ui="instrument-inspect" data-id="${esc(i)}" aria-label="Inspect ${esc(name)} on the Instrument page">${esc(name)}</button>${listenLink(name, true)}${uiButton('genre-inst-add', 'Add', 'plus', `class="cm-btn cm-btn-tonal" data-id="${esc(i)}" data-genre="${esc(id)}" aria-label="Add ${esc(name)} to the chosen destination"`)}</li>`;
+      return `<li class="gp-roster-row">${image(i, 30)}<button type="button" class="gp-link gp-roster-name" data-ui="instrument-inspect" data-id="${esc(i)}" aria-label="Inspect ${esc(name)} on the Instrument page">${esc(name)}</button>${listenLink(name, true)}${uiButton('genre-inst-add', 'Add', 'plus', `class="cm-btn cm-btn-tonal" data-id="${esc(i)}" data-genre="${esc(id)}" data-name="${esc(name)}" aria-label="${esc(gpDestAddLabel(name, dest))}"`)}</li>`;
     })
     .join(
       ''
@@ -558,11 +569,37 @@ const GP_PROSE_SLOTS = {
   about: (id) => gpBgAboutHTML(id, Tradition(id), Catalog.ext(id) || {}),
   recordings: (id) => gpBgRecordingsHTML(id, Catalog.ext(id) || {}),
 };
+// A pressed Retry is replaced with its slot, so focus would fall to the page:
+// it follows the slot instead (the loading note, then the prose or the next
+// Retry), unless the person has moved it somewhere else meanwhile.
 function gpApplyProse() {
+  const want = G.proseRetry;
+  let hit = null;
   for (const el of document.querySelectorAll('#surface-genre [data-prose-pending]')) {
     const id = el.closest('[data-gp-id]')?.dataset.gpId,
-      slot = GP_PROSE_SLOTS[el.dataset.prosePending];
-    if (id && slot && Tradition(id)) el.outerHTML = slot(id);
+      key = el.dataset.prosePending,
+      slot = GP_PROSE_SLOTS[key];
+    if (!(id && slot && Tradition(id))) continue;
+    const t = document.createElement('template');
+    t.innerHTML = slot(id);
+    const node = t.content.firstElementChild;
+    const parent = el.parentElement;
+    el.replaceWith(t.content);
+    if (want && want.id === id && want.key === key) hit = { node, parent };
+  }
+  if (hit) {
+    const a = document.activeElement;
+    if (!a || a === document.body || !a.isConnected) {
+      const target =
+        hit.node?.querySelector('[data-ui="genre-prose-retry"]') ||
+        hit.node ||
+        hit.parent?.closest('[data-gp-id]')?.querySelector('h1, h2');
+      if (target) {
+        if (!target.matches('button, a, input, select, textarea')) target.tabIndex = -1;
+        target.focus({ preventScroll: true });
+      }
+    }
+    if (Catalog.proseState(want.id) !== 'loading') G.proseRetry = null;
   }
   if (G.namesOnly) gpScheduleList();
 }
@@ -612,7 +649,36 @@ function gpFindSound() {
   const axes = AXIS_DEFINITIONS.filter(
     (ax) => G.allAxes || GP_FEATURED_AXES.includes(ax.id) || ax.id in G.targets
   ).sort((a, b) => rank(a) - rank(b));
-  return `<section class="gp-sound" aria-labelledby="gp-sound-title"><div class="gp-sec-head"><h2 id="gp-sound-title">${icon('sliders-horizontal', 18)}Find a sound</h2>${uiButton('genre-sound-reset', 'Reset', 'x', `class="cm-btn gp-linkbtn" ${applied ? '' : 'disabled'} aria-label="Clear all sound targets"`)}</div><div class="gp-axes">${axes.map(gpAxisControl).join('')}</div><p class="gp-note" id="gp-sound-status" role="status">${gpSoundStatus()}</p>${uiButton('genre-axes', G.allAxes ? 'Fewer characteristics' : `All ${AXIS_DEFINITIONS.length} characteristics`, 'chevron-down', `class="cm-btn gp-linkbtn gp-axes-toggle" aria-expanded="${G.allAxes}"`)}${uiButton('genre-sound-match', 'Match a sound', 'search', `class="cm-btn cm-btn-tonal gp-match" ${applied ? '' : 'disabled'} data-tooltip="Open the genre closest to your targets"`)}</section>`;
+  return `<section class="gp-sound" aria-labelledby="gp-sound-title"><div class="gp-sec-head"><h2 id="gp-sound-title">${icon('sliders-horizontal', 18)}Find a sound</h2>${uiButton('genre-sound-reset', 'Reset', 'x', `class="cm-btn gp-linkbtn" ${applied ? '' : 'disabled'} aria-label="Clear all sound targets"`)}</div><div class="gp-axes">${axes.map(gpAxisControl).join('')}</div><p class="gp-note" id="gp-sound-status">${gpSoundStatus()}</p>${uiButton('genre-axes', G.allAxes ? 'Fewer characteristics' : `All ${AXIS_DEFINITIONS.length} characteristics`, 'chevron-down', `class="cm-btn gp-linkbtn gp-axes-toggle" aria-expanded="${G.allAxes}"`)}${uiButton('genre-sound-match', 'Match a sound', 'search', `class="cm-btn cm-btn-tonal gp-match" ${applied ? '' : 'disabled'} data-tooltip="Open the genre closest to your targets"`)}</section>`;
+}
+// Find a sound speaks once a change settles: how many targets, and how many
+// genres the list now holds, or that the targets were cleared (Jony #110).
+// The visible status line is not a live region: rewritten on every slider
+// step, it re-spoke the same sentence each time and never said the count. One
+// persistent region outside the re-rendered page carries it.
+let gpSoundTimer = 0,
+  gpSoundSaid = '';
+function gpSoundAnnounceSoon() {
+  clearTimeout(gpSoundTimer);
+  gpSoundTimer = setTimeout(() => {
+    const n = gpTargets().length;
+    const count = ($ui('gp-count')?.textContent || '').split(' · ')[0].trim();
+    const text = n
+      ? `${uiCount(n, 'target')} applied.${count ? ' ' + count + '.' : ''}`
+      : `Sound targets cleared.${count ? ' ' + count + '.' : ''}`;
+    if (text === gpSoundSaid) return;
+    gpSoundSaid = text;
+    let live = $ui('gp-live');
+    if (!live) {
+      live = document.createElement('div');
+      live.id = 'gp-live';
+      live.className = 'gp-sr';
+      live.setAttribute('role', 'status');
+      document.body.append(live);
+    }
+    live.textContent = '';
+    setTimeout(() => (live.textContent = text), 50);
+  }, 500);
 }
 function gpSoundStatus() {
   const n = gpTargets().length;
@@ -651,6 +717,7 @@ function gpApplyAxis(input) {
   UI.limit = 50;
   gpListToTop();
   gpScheduleList();
+  gpSoundAnnounceSoon();
 }
 function gpSyncSoundHead() {
   const n = gpTargets().length;
@@ -712,6 +779,7 @@ function gpSuggestions() {
     'genre-suggest'
   )}`;
 }
+const GP_BEST = 12;
 function gpAll(open) {
   const results = gpResults();
   const q = gpQuery();
@@ -756,7 +824,9 @@ function gpAll(open) {
   const order = targets.length
     ? ' · closest to your sound targets first'
     : rows
-      ? ' · A to Z by first letter'
+      ? q && results.some((r) => r.rank <= 2)
+        ? ' · best matches first, then A to Z by first letter'
+        : ' · A to Z by first letter'
       : q
         ? ' · best name matches first'
         : ' · A to Z';
@@ -772,9 +842,20 @@ function gpAll(open) {
       { tile: (t) => gpTile(t, why.get(t.id)), noun: 'genre' }
     );
   } else if (rows) {
-    const letters = gpLetterGroups(results);
+    // A search leads with its best name matches (a whole name, its start, a
+    // word's start), in rank order, then the rest by letter (Jony #114). Each
+    // genre is shown once.
+    const best = q ? results.filter((r) => r.rank <= 2).slice(0, GP_BEST) : [];
+    const letters = gpLetterGroups(best.length ? results.slice(best.length) : results);
     G.jump = uiRowsJumpHTML('genre', letters, { label: 'Jump to a letter', noun: 'genre' });
-    html += uiRowsHTML('genre', letters, { tile: gpTile, noun: 'genre' });
+    html += uiRowsHTML(
+      'genre',
+      (best.length
+        ? [{ key: 'best', label: 'Best matches', items: best.map((r) => r.t) }]
+        : []
+      ).concat(letters),
+      { tile: gpTile, noun: 'genre' }
+    );
   } else
     html +=
       gpList(shown, pinned ? null : open, targets.length ? gpTargetReason : null) +
@@ -798,7 +879,7 @@ function gpNoResults(q, node, targets) {
     // Lazy shell, before the prose lands: only names were searched, so this
     // says so instead of saying no genre matches.
     const failed = Catalog.proseFailed();
-    return uiEmptyState({
+    return gpQuietEmpty({
       title: `No genre names match “${$ui('genre-search').value.trim()}”`,
       text:
         (why.length > 1 ? 'Nothing satisfies ' + why.join(' and ') + ' together. ' : '') +
@@ -806,14 +887,21 @@ function gpNoResults(q, node, targets) {
           ? 'The descriptions could not be loaded, so only names were searched.'
           : 'Lineage and descriptions are still loading; genres they match will appear here when they arrive.'),
       actions:
-        (failed ? uiButton('genre-prose-retry', 'Retry', 'refresh-cw') : '') +
+        (failed
+          ? uiButton(
+              'genre-prose-retry',
+              'Retry',
+              'refresh-cw',
+              'aria-label="Retry loading the descriptions"'
+            )
+          : '') +
         uiButton('genre-clear-search', 'Clear search', 'x') +
         (node ? uiButton('genre-all', 'All genres', 'arrow-left') : '') +
         (targets.length ? uiButton('genre-sound-reset', 'Clear sound targets', 'x') : ''),
       tone: failed ? 'danger' : '',
     });
   }
-  return uiEmptyState({
+  return gpQuietEmpty({
     title: q
       ? `No genres match “${$ui('genre-search').value.trim()}”`
       : 'No genres match these constraints',
@@ -825,6 +913,24 @@ function gpNoResults(q, node, targets) {
       (node ? uiButton('genre-all', 'All genres', 'arrow-left') : '') +
       (targets.length ? uiButton('genre-sound-reset', 'Clear sound targets', 'x') : ''),
   });
+}
+// The no-match block is rebuilt on every keystroke, so it is not a live
+// region (a fresh status is read whole each time, Clear search included):
+// gpSayNoMatch says the short line once, after the typing stops.
+function gpQuietEmpty(state) {
+  return uiEmptyState(state).replace(' role="status"', '');
+}
+let gpNoMatchTimer = 0;
+function gpSayNoMatch() {
+  clearTimeout(gpNoMatchTimer);
+  gpNoMatchTimer = setTimeout(() => {
+    const q = $ui('genre-search')?.value.trim();
+    const said = G.saidNoMatch;
+    G.saidNoMatch = '';
+    if (!q || !document.querySelector('#genre-list .cm-empty')) return;
+    G.saidNoMatch = q;
+    if (q !== said) uiAnnounce(`No genres match “${q}”`);
+  }, 500);
 }
 function gpRenderMain() {
   const host = $ui('genre-list');
@@ -851,13 +957,16 @@ function gpRenderMain() {
     ]
       .map(
         ([k, l, ic]) =>
-          `<button type="button" data-ui="genre-layout" data-id="${k}" aria-pressed="${layout === k}">${icon(ic, 16)}<span>${l}</span></button>`
+          `<button type="button" data-ui="genre-layout" data-id="${k}" aria-pressed="${layout === k}" aria-label="${l}">${icon(ic, 16)}<span>${l}</span></button>`
       )
       .join('')}</div>`;
   // A search always shows its results (All genres), however it was set.
   if (gpQuery()) G.tab = 'all';
   G.jump = '';
   host.innerHTML = G.tab === 'all' ? gpAll(open) : gpStart(open);
+  // The view tabs control this list: it is their tabpanel.
+  host.setAttribute('role', 'tabpanel');
+  host.setAttribute('aria-labelledby', `gp-view-${G.tab}`);
   // All genres in Rows: the A–Z bar sticks under the tabs.
   $ui('genre-maintabs').insertAdjacentHTML('beforeend', G.jump);
   $ui('genre-maintabs').classList.toggle('gp-maintabs-jump', !!G.jump);
@@ -1013,6 +1122,21 @@ function gpTabKeys(e) {
   tabs[i].click();
   uiFocus(uiFind(`#surface-genre [data-ui="${ui}"]`, 'id', id));
 }
+// Scroll `el` into view and clear the sticky view bar (sticky on a phone
+// while the A–Z jump bar shows), which would otherwise sit over it.
+function gpRevealUnderBar(el) {
+  if (!el?.scrollIntoView) return;
+  el.scrollIntoView({ block: 'nearest' });
+  const bar = document.querySelector('#surface-genre .gp-maintabs');
+  if (!bar || getComputedStyle(bar).position !== 'sticky') return;
+  const over = bar.getBoundingClientRect().bottom - el.getBoundingClientRect().top;
+  if (over <= 0) return;
+  for (let s = el.parentElement; s; s = s.parentElement)
+    if (s.scrollHeight > s.clientHeight && /auto|scroll/.test(getComputedStyle(s).overflowY)) {
+      s.scrollBy(0, -(over + 8));
+      return;
+    }
+}
 function gpSetTab(k) {
   G.detailTab = k;
   const d = $ui('genre-detail');
@@ -1102,12 +1226,13 @@ const GP_PLACEHOLDERS = [
   'Search genres…',
 ];
 let gpMeasure = null;
-function gpFitPlaceholder() {
+// `width` is the field's content box as its ResizeObserver entry already
+// measured it, so fitting never lays the page out again.
+function gpFitPlaceholder(width) {
   const input = $ui('genre-search');
-  if (!input) return;
+  const room = width - 4;
+  if (!input || !(room > 0)) return; // not laid out (another route)
   const cs = getComputedStyle(input);
-  const room = input.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight) - 4;
-  if (!(room > 0)) return; // not laid out (another route)
   if (!gpMeasure) gpMeasure = document.createElement('canvas').getContext('2d');
   if (!gpMeasure) return;
   gpMeasure.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
@@ -1129,9 +1254,13 @@ uiRegisterPage({
       UI.limit = 50;
       if (gpQuery()) G.tab = 'all';
       gpRenderMain();
+      gpSayNoMatch();
     });
+    uiSearchToResults($ui('genre-search'), () => $ui('genre-list'), '.cm-tile-name, .gp-open');
     if (typeof ResizeObserver === 'function')
-      new ResizeObserver(() => gpFitPlaceholder()).observe($ui('genre-search'));
+      new ResizeObserver(([e]) => gpFitPlaceholder(e.contentRect.width)).observe(
+        $ui('genre-search')
+      );
     // The rest of a row (a glyph picture, its margins, the chevron) opens it
     // too; the name button is the keyboard route. A photo is its own button.
     surface.addEventListener('click', (e) => {
@@ -1160,12 +1289,16 @@ uiRegisterPage({
       if (e.target.id === 'gp-inst-dest') {
         const genre = e.target.dataset.genre;
         G.instDest[genre] = e.target.value;
-        const note = $ui('gp-inst-dest-note');
         const dest = e.target.value;
-        if (note)
-          note.textContent = dest
-            ? `Joins the ${Tradition(dest)?.name || dest} group in Your recipe${gpRecipeCount(dest) ? '' : ' (the group is created)'}.`
-            : 'Added on its own, outside any genre group.';
+        // Each Add names where it adds; the note (a polite live region,
+        // updated in place) says it once the choice settles.
+        for (const b of surface.querySelectorAll('[data-ui="genre-inst-add"][data-name]'))
+          b.setAttribute('aria-label', gpDestAddLabel(b.dataset.name, dest));
+        clearTimeout(G.instDestTimer);
+        G.instDestTimer = setTimeout(() => {
+          const note = $ui('gp-inst-dest-note');
+          if (note) note.textContent = gpDestNote(dest);
+        }, 300);
       }
     });
     // A manifest image that fails to load falls back to the glyph beside it.
@@ -1237,7 +1370,11 @@ uiRegisterPage({
     },
     'genre-tab'(id) {
       gpSetTab(id);
-      uiFocus($ui('gp-tab-' + id));
+      // An in-content jump (Find similar sounds) can select a tab scrolled
+      // out of view on a phone: bring it in before focusing it.
+      const tab = $ui('gp-tab-' + id);
+      gpRevealUnderBar(tab);
+      uiFocus(tab);
     },
     'genre-view-tab'(id) {
       gpForgetPosition();
@@ -1291,12 +1428,23 @@ uiRegisterPage({
       UI.limit = 50;
       gpListToTop();
       renderGenreDiscovery();
+      // Clearing removes the focused button. Extra axes may disappear, and
+      // narrow screens can hide the whole sound panel behind its disclosure.
+      uiFocus(
+        [
+          $ui('gp-ax-' + id),
+          document.querySelector('#surface-genre [data-ui="genre-axes"]'),
+          document.querySelector('#surface-genre [data-ui="genre-browse-toggle"]'),
+        ].find((el) => el?.getClientRects().length)
+      );
+      gpSoundAnnounceSoon();
     },
     'genre-sound-reset'() {
       G.targets = {};
       UI.limit = 50;
       gpListToTop();
       renderGenreDiscovery();
+      gpSoundAnnounceSoon();
       uiFocus(document.querySelector('#surface-genre input[type="range"][data-axis]'));
     },
     'genre-sound-from'(id) {
@@ -1316,7 +1464,15 @@ uiRegisterPage({
       uiFocus($ui('gp-count'));
     },
     'genre-prose-retry'() {
-      Catalog.loadProse().catch(() => {});
+      const slot = document.activeElement?.closest?.('[data-prose-pending]');
+      const id = slot?.closest('[data-gp-id]')?.dataset.gpId;
+      G.proseRetry = id ? { id, key: slot.dataset.prosePending } : null;
+      // The outcome is announced once it settles (the slots have been
+      // redrawn by then: Catalog.onProse runs first).
+      Catalog.loadProse().then(
+        () => uiAnnounce('Description loaded.'),
+        () => uiAnnounce('Still couldn’t load the description.')
+      );
       gpApplyProse();
     },
     async 'genre-sound-match'() {

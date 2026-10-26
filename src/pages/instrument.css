@@ -315,6 +315,9 @@
 .ip-rows {
   display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 .ip-row {
   display: flex;
@@ -852,6 +855,11 @@
 .ip-similar h3 {
   margin: 8px 0 0;
 }
+.ip-sims {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 .ip-sim {
   display: flex;
   align-items: center;
@@ -1126,5 +1134,34 @@ details.ip-changes[open] .ip-changes-sum > span:last-child {
   .ip-opt {
     min-height: 44px;
     align-content: center;
+  }
+}
+
+/* Read by assistive technology, not shown (Jony #27, #28 on #519). */
+.ip-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+/* A short window (400% zoom, a phone on its side): the inspector scrolls as
+   one column, its footer in flow at the end, instead of a scroll area
+   squeezed to a sliver under a fixed footer (Jony #113, as #94). */
+@media (max-height: 420px) {
+  .ip-inspector {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .ip-insp-scroll,
+  .ip-foot {
+    flex: none;
+  }
+  .ip-insp-scroll {
+    overflow: visible;
   }
 }

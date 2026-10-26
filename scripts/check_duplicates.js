@@ -286,6 +286,42 @@ function findIdentityCollisions(all) {
 // `Amapiano` and `Amapiano (South African 2010s)`. Sometimes one genre entered
 // twice, sometimes a real parent/subgenre pair (`Trap` / `Trap (southern)`),
 // so it is evidence to look at rather than a verdict.
+// Variants one picker lists under the same label. A part's variants are not
+// entities of their own, so entities() never meets them, but a picker is where a
+// reader chooses between them: two chips that read the same and sound
+// different are the "two things a reader cannot tell apart" this gate exists
+// for. The picker is what the app, list.js and the connector list: the part's
+// own variants plus the materials _merge.js lends it, without the aliases it
+// lends for a sound the part already offers. Every identity collision blocks.
+let pickerCount = 0;
+function findPickerCollisions() {
+  const out = [];
+  for (const inst of C.INSTRUMENTS || []) {
+    for (const p of inst.parts || []) {
+      pickerCount++;
+      const seen = new Map();
+      for (const v of p.variants || []) {
+        if (v.alias_of) continue;
+        const k = identity(v.name || v.label || v.id);
+        const first = seen.get(k);
+        if (!first) {
+          seen.set(k, v);
+          continue;
+        }
+        out.push({
+          tier: 'BLOCK',
+          kind: 'variant',
+          a: `${inst.id}.${p.id}.${first.id}`,
+          b: `${inst.id}.${p.id}.${v.id}`,
+          detail: `both listed as "${v.name || v.label || v.id}" in one picker`,
+          why: 'two choices in one picker that a reader cannot tell apart',
+        });
+      }
+    }
+  }
+  return out;
+}
+
 function findHeadFormReview(all) {
   const byKind = new Map();
   for (const e of all) {
@@ -487,6 +523,7 @@ function main() {
   const rulings = loadRulings();
   const raw = [
     ...findIdentityCollisions(all),
+    ...findPickerCollisions(),
     ...findHeadFormReview(all),
     ...findTraditionReview(),
     ...findInstrumentReview(all),
@@ -539,7 +576,7 @@ function main() {
     process.exit(1);
   }
   console.log(
-    `DUPLICATE GATE: PASS — ${all.length} entities, 0 unruled identity collisions` +
+    `DUPLICATE GATE: PASS — ${all.length} entities and ${pickerCount} variant pickers, 0 unruled identity collisions` +
       (knownDebt.length ? `, ${knownDebt.length} known unresolved` : '') +
       (review.length ? `, ${review.length} advisory review pair(s)` : '') +
       '.'

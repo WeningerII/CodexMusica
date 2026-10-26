@@ -80,9 +80,11 @@
             autocomplete="off"
             placeholder="Search traditions, places, or sound words…"
             aria-controls="results"
+            aria-expanded="false"
           />
           <div id="results" class="panel" hidden></div>
         </div>
+        <a class="skip-map" href="#canvas-host">Skip to map</a>
         <div class="filterbar">
           <span id="no-filters" class="no-filters">No filters</span>
           <div id="active-filters" hidden>
@@ -90,7 +92,7 @@
             <button id="clear-filters" type="button">Clear filters</button>
           </div>
         </div>
-        <span id="count" class="pill" role="status">…</span>
+        <span id="count" class="pill">…</span>
         <button id="t-info" class="tool-btn" type="button" aria-expanded="false" aria-controls="provenance">
           <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="12" r="9"></circle>

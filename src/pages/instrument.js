@@ -1,5 +1,5 @@
 /* exported renderInstrumentDiscovery, uiInspectInstrument */
-/* global $ui, CODEX_IMAGE_MANIFEST, Catalog, ChainItem, FamName, INSTRUMENT_FILTER_PILLS, Inst, PREFACE_CAT_ORDER, RECIPE_FORMATS, Room, Tradition, Tuning, UI, UILayout, Variant, app, applyPartEdit, buildStackParts, compileStack, copyToClipboard, entryRenderDescs, envCardOf, esc, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, icon, image, inverseConfigureForPreface, listenLink, loadPrefaceRecent, makeCard, normalizeSearch, passesInstrumentFilter, prefaceCatGlyphHTML, prefaceGlyphsHTML, prefaceGroups, recordPrefaceRecent, showToast, suggestPrefaceForCard, traditionCardOpts, uiAddInstrument, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos, Engine, InstLite, UI_PAGES, _engineLive, engineReady */
+/* global uiMotion, $ui, CODEX_IMAGE_MANIFEST, Catalog, ChainItem, FamName, INSTRUMENT_FILTER_PILLS, Inst, PREFACE_CAT_ORDER, RECIPE_FORMATS, Room, Tradition, Tuning, UI, UILayout, Variant, app, applyPartEdit, buildStackParts, compileStack, copyToClipboard, entryRenderDescs, envCardOf, esc, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, icon, image, inverseConfigureForPreface, listenLink, loadPrefaceRecent, makeCard, normalizeSearch, passesInstrumentFilter, prefaceCatGlyphHTML, prefaceGlyphsHTML, prefaceGroups, recordPrefaceRecent, showToast, suggestPrefaceForCard, traditionCardOpts, uiAddInstrument, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos, Engine, InstLite, UI_PAGES, _engineLive, engineReady, searchRank, uiSearchToResults */
 /* Instrument page. Owned by the Instrument page worker; see docs/ui-foundation.md.
 
    Three columns over the Your recipe dock: the catalogue (families, classes,
@@ -24,6 +24,7 @@
 // Page-private state. UI.instrumentFamily / UI.instrumentClass /
 // UI.instrumentPreview are this page's shell-visible state.
 const IP = {
+  retryFocus: false, // a Retry was pressed: the next render places focus (ipRenderEnginePending)
   sort: 'name',
   view: null, // UILayout.remember preference: 'rows' | 'list'
   manifest: null, // CODEX_IMAGE_MANIFEST (see ipLoadManifest)
@@ -199,15 +200,34 @@ function ipMatches(i, { q, family = UI.instrumentFamily, cls = UI.instrumentClas
   return (
     (!family || i.family === family) &&
     (!cls || i.class === cls) &&
-    (!q || normalizeSearch(i.name + ' ' + i.short).includes(q)) &&
+    (!q || normalizeSearch(i.name + ' ' + i.short + ' ' + i.id.replace(/_/g, ' ')).includes(q)) &&
     passesInstrumentFilter(i, filters)
   );
 }
-function ipSorted(list) {
+// How well the search matches an instrument: its name first, its short name
+// only as the last tier (searchRank). The catalogue id is a name too, but at
+// best the second tier: "oud" is ʿŪd's id, though its folded name reads "ud"
+// (Jony, #519). Within a tier a name match comes before an id match (+0.5),
+// so "ud" leads with ʿŪd, not an id that starts "udmurt".
+function ipRank(i, q) {
+  const byName = searchRank(q, normalizeSearch(i.name), [normalizeSearch(i.short)]);
+  const byId = searchRank(q, normalizeSearch(i.id.replace(/_/g, ' ')));
+  if (byId < 0 || byId > 3) return byName;
+  const id = Math.max(1, byId) + 0.5;
+  return byName < 0 ? id : Math.min(byName, id);
+}
+// Name A–Z (the default) under a search ranks by match first and reads A to Z
+// within a tier (Jony #114: "oud" listed Koudi first); a sort the person
+// chose (Z–A, Most customizable) is theirs.
+function ipSorted(list, q = '') {
   const byName = (a, b) => ipByName(a.name, b.name);
   if (IP.sort === 'name-desc') return list.sort((a, b) => byName(b, a));
   if (IP.sort === 'parts')
     return list.sort((a, b) => (b.parts || []).length - (a.parts || []).length || byName(a, b));
+  if (q) {
+    const rank = new Map(list.map((i) => [i, ipRank(i, q)]));
+    return list.sort((a, b) => rank.get(a) - rank.get(b) || byName(a, b));
+  }
   return list.sort(byName);
 }
 function ipDest() {
@@ -294,11 +314,29 @@ function ipRenderEnginePending(host) {
   $ui('ip-total').textContent = '';
   // A stale file (another deploy's) cannot load by retrying: say so, and offer
   // a reload instead.
-  host.innerHTML = stale
-    ? `<div class="cm-status" role="status" data-engine-pending="failed">This page is out of date for the instrument data. ${uiButton('engine-reload', 'Reload', 'refresh-cw', 'class="cm-btn gp-linkbtn"')}</div>`
+  const retried = IP.retryFocus;
+  const inner = stale
+    ? `This page is out of date for the instrument data. ${uiButton('engine-reload', 'Reload', 'refresh-cw', 'class="cm-btn gp-linkbtn"')}`
     : failed
-      ? `<div class="cm-status" role="status" data-engine-pending="failed">Couldn’t load the instruments. ${uiButton('engine-retry', 'Retry', 'refresh-cw', 'class="cm-btn gp-linkbtn"')}</div>`
-      : '<div class="cm-status" role="status" data-engine-pending="instruments">Loading the instruments…</div>';
+      ? `${retried ? 'Still couldn’t load the instruments. Check your connection and try again.' : 'Couldn’t load the instruments.'} ${uiButton('engine-retry', 'Retry', 'refresh-cw', 'class="cm-btn gp-linkbtn"')}`
+      : 'Loading the instruments…';
+  const kind = failed ? 'failed' : 'instruments';
+  // The status is kept and its words replaced, so it stays one live region a
+  // screen reader hears change; a status inserted fresh is not read.
+  const status =
+    host.childElementCount === 1 && host.querySelector(':scope > [data-engine-pending]');
+  if (status) {
+    status.dataset.enginePending = kind;
+    status.innerHTML = inner;
+  } else
+    host.innerHTML = `<div class="cm-status" role="status" tabindex="-1" data-engine-pending="${kind}">${inner}</div>`;
+  // A Retry replaced itself: keep focus on the new Retry, or on the status
+  // while the data loads, rather than on the page.
+  if (retried) {
+    const again = host.querySelector('[data-ui="engine-retry"]');
+    if (again) IP.retryFocus = false;
+    uiFocus(again || host.querySelector('[data-engine-pending]'));
+  }
   if (!failed) Engine.ensure().catch(() => {});
 }
 function renderInstrumentDiscovery() {
@@ -310,12 +348,20 @@ function renderInstrumentDiscovery() {
   const q = ipQuery(),
     filters = app.instrumentAxisFilters,
     fam = INSTRUMENT_FAMILIES.find((f) => f.id === UI.instrumentFamily);
-  const filtered = ipSorted(INSTRUMENTS.filter((i) => ipMatches(i, { q, filters })));
+  const filtered = ipSorted(
+    INSTRUMENTS.filter((i) => ipMatches(i, { q, filters })),
+    q
+  );
   const scope = INSTRUMENTS.filter((i) => ipMatches(i, { q, family: '', cls: '', filters }));
   $ui('ip-total').textContent = uiCount(INSTRUMENTS.length, 'instrument');
   host.classList.toggle('ip-cats-open', IP.catsOpen);
   host.innerHTML = ipRenderCategories(scope, q, filters) + ipRenderList(filtered, fam, q, filters);
   uiRowsRestore(host, keep);
+  // A Retry that loaded the data lands on the heading, which says how many.
+  if (IP.retryFocus) {
+    IP.retryFocus = false;
+    uiFocus(document.querySelector('#ip-root .ip-title'));
+  }
   if (changed && UI.instrumentPreview) ipRebuild();
 }
 function ipRenderCategories(scope, q, filters) {
@@ -398,12 +444,44 @@ function ipRenderList(filtered, fam, q, filters) {
         )
         .join('')}${uiButton('clear-filters', 'Clear all', 'x', 'class="ip-link"')}</div>`
     : '';
-  const body = view === 'rows' ? ipRowsBody(filtered, fam) : ipListBody(filtered);
-  return `<section class="ip-list" aria-labelledby="ip-list-title">${crumbs}<div class="ip-list-head"><h2 id="ip-list-title">${esc(title)}</h2><span class="ip-list-count" role="status">${uiCount(filtered.length, 'instrument')}</span>${controls}</div>${classChips}${active}${body}${!filtered.length ? uiInstrumentNoResults(q, fam) : ''}</section>`;
+  const body = view === 'rows' ? ipRowsBody(filtered, fam, q) : ipListBody(filtered);
+  // The count is re-rendered with the list, so it speaks through the live
+  // region instead, once typing settles (Jony #28).
+  if (q) ipAnnounceSoon(uiCount(filtered.length, 'instrument'));
+  return `<section class="ip-list" aria-labelledby="ip-list-title">${crumbs}<div class="ip-list-head"><h2 id="ip-list-title">${esc(title)}</h2><span class="ip-list-count">${uiCount(filtered.length, 'instrument')}</span>${controls}</div>${classChips}${active}${body}${!filtered.length ? uiInstrumentNoResults(q, fam) : ''}</section>`;
 }
 // Rows: the family (or class) bar when two or more rows have instruments, then the rows.
-function ipRowsBody(filtered, fam) {
-  const groups = ipGroups(filtered, fam);
+// A category press re-renders the catalogue and its sidebar: keep focus on
+// the category pressed, and say how many it now lists (Jony #44).
+function ipAfterCategory(button) {
+  if (!button?.classList?.contains('ip-cat')) return;
+  const id = button.dataset.id;
+  const again = [...document.querySelectorAll('#instrument-body .ip-cat')].find(
+    (b) => b.dataset.ui === button.dataset.ui && b.dataset.id === id
+  );
+  uiFocus(again);
+  ipAnnounce($ui('instrument-body')?.querySelector('.ip-list-count')?.textContent || '');
+}
+// The same for the class chips, the Back crumb and Sort, which the re-render
+// also replaces under focus (Jony #103): focus the control of that data-ui
+// (and data-id) again, else `fallback`, and say the count.
+function ipAfterRender(ui, id, fallback) {
+  const again = [...document.querySelectorAll(`#instrument-body [data-ui="${ui}"]`)].find(
+    (b) => id == null || b.dataset.id === id
+  );
+  if (!uiFocus(again) && fallback) {
+    const el = fallback();
+    if (el && !el.matches('button, select, input, [tabindex]')) el.tabIndex = -1;
+    uiFocus(el);
+  }
+  ipAnnounce($ui('instrument-body')?.querySelector('.ip-list-count')?.textContent || '');
+}
+function ipRowsBody(filtered, fam, q = '') {
+  // A search leads with its best name matches, in rank order, then the rest
+  // by family (Jony #114), as the Genre page does; each instrument once.
+  const best =
+    q && IP.sort === 'name' ? filtered.filter((i) => ipRank(i, q) <= 2).slice(0, 12) : [];
+  const groups = ipGroups(best.length ? filtered.slice(best.length) : filtered, fam);
   const jump =
     groups.filter((g) => g.items.length).length > 1
       ? uiRowsJumpHTML('instrument', groups, {
@@ -411,7 +489,14 @@ function ipRowsBody(filtered, fam) {
           noun: 'instrument',
         })
       : '';
-  return jump + uiRowsHTML('instrument', groups, { tile: ipTile, noun: 'instrument' });
+  return (
+    jump +
+    uiRowsHTML(
+      'instrument',
+      (best.length ? [{ key: 'best', label: 'Best matches', items: best }] : []).concat(groups),
+      { tile: ipTile, noun: 'instrument' }
+    )
+  );
 }
 function ipListBody(filtered) {
   const dest = ipDestName();
@@ -420,14 +505,14 @@ function ipListBody(filtered) {
     .map((i) => {
       const parts = (i.parts || []).length;
       const current = UI.instrumentPreview === i.id;
-      return `<div class="ip-row"${current ? ' aria-current="true"' : ''}>${ipImage(i.id, 44, i.name)}<button type="button" class="ip-row-main" data-ui="instrument-inspect" data-id="${esc(i.id)}" aria-label="${esc(i.name)}: configure before adding"><span class="ip-row-text"><span class="ip-row-name">${esc(i.name)}</span><span class="ip-row-meta">${esc(FamName(i.family))} · ${esc(ipHuman(i.class))} · ${uiCount(parts, 'customizable part')}</span>${ipCredit(i.id)}</span></button>${listenLink(i.name, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(i.id)}" aria-label="Add ${esc(i.name)} with catalog defaults to ${esc(dest)}" data-tooltip="Adds with catalog defaults to ${esc(dest)}"`)}</div>`;
+      return `<li class="ip-row"${current ? ' aria-current="true"' : ''}>${ipImage(i.id, 44, i.name)}<button type="button" class="ip-row-main" data-ui="instrument-inspect" data-id="${esc(i.id)}" aria-label="${esc(i.name)}: configure before adding"><span class="ip-row-text"><span class="ip-row-name">${esc(i.name)}</span><span class="ip-row-meta">${esc(FamName(i.family))} · ${esc(ipHuman(i.class))} · ${uiCount(parts, 'customizable part')}</span>${ipCredit(i.id)}</span></button>${listenLink(i.name, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(i.id)}" aria-label="Add ${esc(i.name)} with catalog defaults to ${esc(dest)}" data-tooltip="Adds with catalog defaults to ${esc(dest)}"`)}</li>`;
     })
     .join('');
   const more =
     filtered.length > UI.limit
       ? `<div class="ip-more-row"><span>Showing ${Math.min(UI.limit, filtered.length).toLocaleString('en')} of ${filtered.length.toLocaleString('en')}</span>${uiButton('more', 'Show more', 'chevron-down', 'class="cm-btn cm-btn-outline"')}</div>`
       : '';
-  return `<div class="ip-rows">${rows}</div>${more}`;
+  return `<ul class="ip-rows" aria-label="Instruments">${rows}</ul>${more}`;
 }
 // No results says which constraints are in force and offers to lift each one.
 // Conflicting properties are named when the catalogue never has them together.
@@ -542,6 +627,7 @@ function ipChoose(e, focusKey) {
       moved.map((c) => `${c.label} ${c.from} → ${c.to}`).join('; ')
     : '';
   ipRenderInspector(focusKey);
+  if (IP.note) ipAnnounce(IP.note);
 }
 const ipVariantName = (inst, part, v) => (v ? Variant(inst, part, v)?.name || v : 'Not set');
 const ipChainName = (stage, v) =>
@@ -607,21 +693,24 @@ function ipDescriptors(card) {
 function ipOptionDescs(v, current) {
   const descs = v ? entryRenderDescs(v) : [];
   const now = new Set(current ? entryRenderDescs(current) : []);
-  if (v === current) return descs.map((d) => `<span class="ip-d">${esc(d)}</span>`).join('');
+  // Spoken as a list: a hidden comma between items, which the layout gap
+  // separates for the eye only.
+  const list = (items) => items.join('<span class="ip-sr">, </span>');
+  if (v === current) return list(descs.map((d) => `<span class="ip-d">${esc(d)}</span>`));
   const cand = new Set(descs);
-  return (
-    descs
-      .map((d) =>
-        now.has(d)
-          ? `<span class="ip-d">${esc(d)}</span>`
-          : `<span class="ip-d ip-d-add" title="Added">+ ${esc(d)}</span>`
-      )
-      .join('') +
-    [...now]
+  return list([
+    ...descs.map((d) =>
+      now.has(d)
+        ? `<span class="ip-d">${esc(d)}</span>`
+        : `<span class="ip-d ip-d-add" title="Added"><span aria-hidden="true">+ </span><span class="ip-sr">adds </span>${esc(d)}</span>`
+    ),
+    ...[...now]
       .filter((d) => !cand.has(d))
-      .map((d) => `<del class="ip-d ip-d-lost" title="Removed">${esc(d)}</del>`)
-      .join('')
-  );
+      .map(
+        (d) =>
+          `<del class="ip-d ip-d-lost" title="Removed"><span class="ip-sr">removes </span>${esc(d)}</del>`
+      ),
+  ]);
 }
 function ipOption(inst, part, v, current, extra = '') {
   const vid = v ? v.id : '';
@@ -630,11 +719,15 @@ function ipOption(inst, part, v, current, extra = '') {
   // The filter matches the option's own name and descriptors, never the
   // descriptors it would remove.
   const text = v ? [v.name || v.id, ...entryRenderDescs(v)].join(' ') : 'Not set';
-  return `<label class="ip-opt${checked ? ' is-on' : ''}" data-ip-text="${esc(text)}"${extra}><input type="radio" name="ip-part-${esc(part.id)}" value="${esc(vid)}" data-ip-part="${esc(part.id)}" data-ip-key="${esc(key)}"${checked ? ' checked' : ''}><span class="ip-opt-name">${v ? esc(v.name || v.id) : 'Not set'}</span><span class="ip-opt-descs">${v || current ? ipOptionDescs(v, current) : ''}</span></label>`;
+  // The radio is named by the option alone; what it adds and removes is its
+  // description, spoken as such (the + and strikethrough are visual only;
+  // Jony #27 on #519).
+  const nid = 'ipo-' + key.replace(/[^\w-]/g, '_');
+  return `<label class="ip-opt${checked ? ' is-on' : ''}" data-ip-text="${esc(text)}"${extra}><input type="radio" name="ip-part-${esc(part.id)}" value="${esc(vid)}" data-ip-part="${esc(part.id)}" data-ip-key="${esc(key)}" aria-labelledby="${nid}" aria-describedby="${nid}-d"${checked ? ' checked' : ''}><span class="ip-opt-name" id="${nid}">${v ? esc(v.name || v.id) : 'Not set'}</span><span class="ip-opt-descs" id="${nid}-d">${v || current ? ipOptionDescs(v, current) : ''}</span></label>`;
 }
 function ipFilterBox(key, label) {
   const value = IP.filters[key] || '';
-  return `<label class="ip-filter cm-search">${icon('search', 16)}<input type="search" data-ip-filter="${esc(key)}" data-ip-key="filter:${esc(key)}" value="${esc(value)}" placeholder="${esc(label)}" aria-label="${esc(label)}"><span class="ip-filter-count" aria-live="polite"></span></label>`;
+  return `<label class="ip-filter cm-search">${icon('search', 16)}<input type="search" data-ip-filter="${esc(key)}" data-ip-key="filter:${esc(key)}" value="${esc(value)}" placeholder="${esc(label)}" aria-label="${esc(label)}"><span class="ip-filter-count"></span></label>`;
 }
 function ipRenderParts(inst) {
   const card = IP.card;
@@ -647,7 +740,7 @@ function ipRenderParts(inst) {
     .map((part) => {
       const cur = card.parts[part.id] ? Variant(inst, part.id, card.parts[part.id]) : null;
       const native = part.variants.filter((v) => !v.expanded),
-        expanded = part.variants.filter((v) => v.expanded);
+        expanded = ipMore(part, cur);
       const open = IP.open.has(part.id);
       const pinned = (card.pinnedParts || []).includes(part.id);
       const nativeKey = 'native:' + part.id;
@@ -658,9 +751,14 @@ function ipRenderParts(inst) {
               : ''
           }</div>`
         : '';
-      return `<section class="ip-part${open ? ' is-open' : ''}"><h3 class="ip-part-head"><button type="button" data-ui="ip-part" data-id="${esc(part.id)}" aria-expanded="${open}" data-ip-key="part:${esc(part.id)}"><span class="ip-part-name">${esc(part.name || ipHuman(part.id))}</span><span class="ip-part-value${cur ? '' : ' is-unset'}">${cur ? esc(cur.name) : 'Not set'}${pinned ? ' · your choice' : ''}</span><span class="ip-part-count">${uiCount(part.variants.length, 'option')}</span>${icon('chevron-down', 16)}</button></h3>${body}</section>`;
+      return `<section class="ip-part${open ? ' is-open' : ''}"><h3 class="ip-part-head"><button type="button" data-ui="ip-part" data-id="${esc(part.id)}" aria-expanded="${open}" data-ip-key="part:${esc(part.id)}"><span class="ip-part-name">${esc(part.name || ipHuman(part.id))}</span><span class="ip-part-value${cur ? '' : ' is-unset'}">${cur ? esc(cur.name) : 'Not set'}${pinned ? ' · your choice' : ''}</span><span class="ip-part-count">${uiCount(part.variants.filter((v) => !v.alias_of).length, 'option')}</span>${icon('chevron-down', 16)}</button></h3>${body}</section>`;
     })
     .join('');
+}
+// The borrowed materials a picker lists. An alias (a lent copy of a sound the
+// part already offers, _merge.js) is listed only while it is the current pick.
+function ipMore(part, cur) {
+  return part.variants.filter((v) => v.expanded && (!v.alias_of || (cur && v.id === cur.id)));
 }
 function ipRenderMore(inst, part, expanded, cur) {
   const key = 'more:' + part.id;
@@ -670,12 +768,14 @@ function ipRenderMore(inst, part, expanded, cur) {
 // lexicon, the same categories (prefaceGroups / PREFACE_CAT_ORDER), glyphs,
 // search predicate and recently-used list. Only the target differs: a pick
 // configures the preview card instead of a recipe card.
-function ipPrefaceChip(e, grouped) {
+// `where` (a category, recent or suggest) keeps each copy of a chip its own
+// focus key, so a pick returns focus to the chip that was pressed.
+function ipPrefaceChip(e, grouped, where) {
   const g = prefaceGlyphsHTML(e, 15, grouped);
-  return `<button type="button" class="cm-chip ip-pchip" data-ui="ip-preface" data-id="${esc(e.id)}" aria-pressed="${IP.card.preface === e.id}"${e.note ? ` data-tooltip="${esc(e.note)}"` : ''}>${g}<span>${esc(e.id)}</span></button>`;
+  return `<button type="button" class="cm-chip ip-pchip" data-ui="ip-preface" data-id="${esc(e.id)}" data-ip-key="pref:${esc(where)}:${esc(e.id)}" aria-pressed="${IP.card.preface === e.id}"${e.note ? ` data-tooltip="${esc(e.note)}"` : ''}>${g}<span>${esc(e.id)}</span></button>`;
 }
 function ipPrefaceCategory(cat, list, open) {
-  return `<details class="ip-pcat" data-ip-pcat="${esc(cat)}"${open ? ' open' : ''}><summary data-ip-key="pcat:${esc(cat)}">${prefaceCatGlyphHTML(cat, 16)}<span class="ip-pcat-name">${esc(cat)}</span><span class="ip-pcat-count">${list.length}</span></summary>${open ? `<div class="ip-pcat-items">${list.map((e) => ipPrefaceChip(e, true)).join('')}</div>` : ''}</details>`;
+  return `<details class="ip-pcat" data-ip-pcat="${esc(cat)}"${open ? ' open' : ''}><summary data-ip-key="pcat:${esc(cat)}">${prefaceCatGlyphHTML(cat, 16)}<span class="ip-pcat-name">${esc(cat)}</span><span class="ip-pcat-count">${list.length}</span></summary>${open ? `<div class="ip-pcat-items">${list.map((e) => ipPrefaceChip(e, true, cat)).join('')}</div>` : ''}</details>`;
 }
 function ipRenderCharacter() {
   const card = IP.card;
@@ -695,13 +795,15 @@ function ipRenderCharacter() {
       if (!list.length) return '';
       // While searching every category with a hit is open, as in the editor.
       if (q)
-        return `<section class="ip-pcat ip-pcat-hit"><h4>${prefaceCatGlyphHTML(cat, 16)}<span class="ip-pcat-name">${esc(cat)}</span><span class="ip-pcat-count">${list.length}</span></h4><div class="ip-pcat-items">${list.map((e) => ipPrefaceChip(e, true)).join('')}</div></section>`;
+        return `<section class="ip-pcat ip-pcat-hit"><h4>${prefaceCatGlyphHTML(cat, 16)}<span class="ip-pcat-name">${esc(cat)}</span><span class="ip-pcat-count">${list.length}</span></h4><div class="ip-pcat-items">${list.map((e) => ipPrefaceChip(e, true, cat)).join('')}</div></section>`;
       return ipPrefaceCategory(cat, list, IP.pcats.has(cat));
     })
     .join('');
+  // Read by the search's input handler, which announces it once typing stops.
+  IP.prefMatches = q ? total : null;
   const recent = q ? [] : loadPrefaceRecent().map(byId).filter(Boolean);
   const sug = suggested && suggested !== card.preface ? byId(suggested) : null;
-  return `<div class="ip-block"><p class="ip-current"><span class="ip-label">Character</span><strong>${esc(card.preface || 'None')}</strong><span class="ip-muted">${card.prefaceAuto === false ? 'chosen' : 'automatic, from the parts'}</span></p>${card.prefaceAuto === false ? uiButton('ip-auto', 'Back to automatic', 'refresh-cw', 'class="cm-btn cm-btn-outline"') : ''}<p class="ip-help">Picking a character re-derives the parts, tuning, room and chain toward it (the same cascade as the editor). What moved is listed under Your changes.</p>${sug ? `<div class="ip-suggest"><span class="ip-label">Suggested for this sound</span>${ipPrefaceChip(sug, false)}</div>` : ''}<label class="ip-filter cm-search">${icon('search', 16)}<input type="search" id="ip-pref-q" data-ip-key="pref-q" value="${esc(IP.prefQuery)}" placeholder="Search ${lex.length.toLocaleString('en')} characters (bitter, dreamy, haunted…)" aria-label="Search characters"></label><div class="ip-pref-browser" role="group" aria-label="Browse characters by category"><div class="ip-pref-bar"><span class="ip-muted" role="status">${q ? uiCount(total, 'match', 'matches') : `${lex.length.toLocaleString('en')} characters · ${order.length} categories`}</span>${q ? '' : uiButton('ip-pcat-all', 'Expand all', 'chevron-down', 'class="ip-link" data-id="all"') + uiButton('ip-pcat-all', 'Collapse all', 'chevron-right', 'class="ip-link" data-id="none"')}</div>${recent.length ? `<div class="ip-pref-recent"><span class="ip-label">Recently used</span><div class="ip-pcat-items">${recent.map((e) => ipPrefaceChip(e, false)).join('')}</div></div>` : ''}${cats}${q && !total ? `<p class="ip-muted">No character matches “${esc(IP.prefQuery)}”.</p>` : ''}</div></div>`;
+  return `<div class="ip-block"><p class="ip-current"><span class="ip-label">Character</span><strong>${esc(card.preface || 'None')}</strong><span class="ip-muted">${card.prefaceAuto === false ? 'chosen' : 'automatic, from the parts'}</span></p>${card.prefaceAuto === false ? uiButton('ip-auto', 'Back to automatic', 'refresh-cw', 'class="cm-btn cm-btn-outline"') : ''}<p class="ip-help">Picking a character re-derives the parts, tuning, room and chain toward it (the same cascade as the editor). What moved is listed under Your changes.</p>${sug ? `<div class="ip-suggest"><span class="ip-label">Suggested for this sound</span>${ipPrefaceChip(sug, false, 'suggest')}</div>` : ''}<label class="ip-filter cm-search">${icon('search', 16)}<input type="search" id="ip-pref-q" data-ip-key="pref-q" value="${esc(IP.prefQuery)}" placeholder="Search ${lex.length.toLocaleString('en')} characters (bitter, dreamy, haunted…)" aria-label="Search characters"></label><div class="ip-pref-browser" role="group" aria-label="Browse characters by category"><div class="ip-pref-bar"><span class="ip-muted">${q ? uiCount(total, 'match', 'matches') : `${lex.length.toLocaleString('en')} characters · ${order.length} categories`}</span>${q ? '' : uiButton('ip-pcat-all', 'Expand all', 'chevron-down', 'class="ip-link" data-id="all"') + uiButton('ip-pcat-all', 'Collapse all', 'chevron-right', 'class="ip-link" data-id="none"')}</div>${recent.length ? `<div class="ip-pref-recent"><span class="ip-label">Recently used</span><div class="ip-pcat-items">${recent.map((e) => ipPrefaceChip(e, false, 'recent')).join('')}</div></div>` : ''}${cats}${q && !total ? `<p class="ip-muted">No character matches “${esc(IP.prefQuery)}”.</p>` : ''}</div></div>`;
 }
 function ipEnvSource() {
   // The recipe renders ONE environment: the first card that has one
@@ -796,7 +898,29 @@ function ipRenderChanges() {
     : 'None — catalog defaults' + (ipDest() ? ' for ' + ipDestName() : '');
   if (!changes.length)
     return `<div class="ip-changes"><p class="ip-changes-sum"><span class="ip-label">Your changes</span> <span>${esc(summary)}</span></p></div>`;
-  return `<details class="ip-changes" data-ip-changes${IP.changesOpen ? ' open' : ''}><summary class="ip-changes-sum"><span class="ip-label">Your changes</span> <span>${esc(summary)}</span></summary><div class="ip-changes-body">${IP.note ? `<p class="ip-note" role="status">${esc(IP.note)}</p>` : ''}<ul class="ip-changes-list">${changes.map((c) => `<li><strong>${esc(c.label)}</strong> ${esc(c.from)} → ${esc(c.to)} <span class="ip-muted">${chosen.has(c.key) ? 'your choice' : 'moved to match'}</span></li>`).join('')}</ul><details class="ip-review"><summary>Review descriptor changes</summary><div class="ip-review-grid">${list('Added', added, 'ip-d-add')}${list('Removed', removed, 'ip-d-lost')}${list('Kept', kept, '')}</div></details>${uiButton('ip-reset', 'Reset to catalog defaults', 'refresh-cw', 'class="ip-link"')}</div></details>`;
+  return `<details class="ip-changes" data-ip-changes${IP.changesOpen ? ' open' : ''}><summary class="ip-changes-sum"><span class="ip-label">Your changes</span> <span>${esc(summary)}</span></summary><div class="ip-changes-body">${IP.note ? `<p class="ip-note">${esc(IP.note)}</p>` : ''}<ul class="ip-changes-list">${changes.map((c) => `<li><strong>${esc(c.label)}</strong> ${esc(c.from)} → ${esc(c.to)} <span class="ip-muted">${chosen.has(c.key) ? 'your choice' : 'moved to match'}</span></li>`).join('')}</ul><details class="ip-review"><summary>Review descriptor changes</summary><div class="ip-review-grid">${list('Added', added, 'ip-d-add')}${list('Removed', removed, 'ip-d-lost')}${list('Kept', kept, '')}</div></details>${uiButton('ip-reset', 'Reset to catalog defaults', 'refresh-cw', 'class="ip-link"')}</div></details>`;
+}
+// One live region outside the inspector, which re-renders by innerHTML and
+// so would replace any status node inside it before it is announced (Jony #28
+// on #519): the filter's match count and the "Configured for …" note speak
+// here.
+function ipAnnounce(text) {
+  const host = $ui('instrument-preview');
+  if (!host?.parentElement) return;
+  let live = $ui('ip-live');
+  if (!live) {
+    live = document.createElement('div');
+    live.id = 'ip-live';
+    live.className = 'ip-sr';
+    live.setAttribute('role', 'status');
+    host.after(live);
+  }
+  if (live.textContent !== text) live.textContent = text;
+}
+let ipAnnounceTimer = 0;
+function ipAnnounceSoon(text) {
+  clearTimeout(ipAnnounceTimer);
+  ipAnnounceTimer = setTimeout(() => ipAnnounce(text), 600);
 }
 function ipRenderInspector(focusKey) {
   const host = $ui('instrument-preview');
@@ -804,6 +928,7 @@ function ipRenderInspector(focusKey) {
   const id = UI.instrumentPreview,
     inst = id && Inst(id);
   $ui('ip-root')?.classList.toggle('is-previewing', !!inst);
+  ipSyncCovered();
   if (!inst) {
     host.innerHTML = `<div class="ip-insp-empty">${uiEmptyState({
       title: 'Select an instrument',
@@ -831,16 +956,16 @@ function ipRenderInspector(focusKey) {
     chain: ipRenderChain,
     stack: ipRenderOutput,
   };
-  host.innerHTML = `<div class="ip-insp-scroll"><div class="ip-insp-top">${prev ? uiButton('ip-trail-back', 'Back to ' + prev.name, 'arrow-left', 'class="ip-back"') : ''}<nav class="ip-crumbs" aria-label="Instrument family"><button type="button" class="ip-link" data-ui="instrument-family" data-id="${esc(inst.family)}">${esc(FamName(inst.family))}</button><span aria-hidden="true">›</span><button type="button" class="ip-link" data-ui="ip-class" data-id="${esc(inst.class)}" data-family="${esc(inst.family)}">${esc(ipHuman(inst.class))}</button></nav>${uiButton('close-preview', 'Close', 'x', 'class="cm-btn cm-btn-icon ip-close" aria-label="Close instrument preview" data-tooltip="Close (Esc)"')}</div><div class="ip-hero"><div class="ip-hero-text"><h2 id="ip-title" tabindex="-1">${esc(inst.name)}</h2><p class="ip-muted">${esc(inst.short || '')} · catalog id <code>${esc(inst.id)}</code></p><div class="ip-hero-actions">${listenLink(inst.name, true)}<a class="ip-link" href="#ip-similar" data-ui="ip-similar-jump">Similar instruments ${icon('arrow-right', 14)}</a></div></div><figure class="ip-media">${ipImage(id, 96, inst.name)}</figure></div>${ipCredit(id) ? `<p class="ip-media-credit">${ipCredit(id, { link: true })}</p>` : ''}<div class="ip-tabs" role="tablist" aria-label="Instrument settings">${IP_TABS.map(([t, label, ic]) => `<button type="button" role="tab" class="cm-tab" id="ip-tab-${t}" data-ui="ip-tab" data-id="${t}" aria-selected="${tab === t}" aria-controls="ip-panel-${t}" tabindex="${tab === t ? 0 : -1}" data-ip-key="tab:${t}">${icon(ic, 16)}<span>${label}</span></button>`).join('')}</div>${IP_TABS.map(([t]) => `<div class="ip-panel" id="ip-panel-${t}" role="tabpanel" aria-labelledby="ip-tab-${t}"${t === tab ? '' : ' hidden'}>${panels[t]()}</div>`).join('')}<section class="ip-similar" id="ip-similar" aria-labelledby="ip-similar-title"><h3 id="ip-similar-title">Similar instruments</h3><p class="ip-help">Closest by sound axes; your recipe and the list stay as they are.</p>${similar
+  host.innerHTML = `<div class="ip-insp-scroll"><div class="ip-insp-top">${prev ? uiButton('ip-trail-back', 'Back to ' + prev.name, 'arrow-left', 'class="ip-back"') : ''}<nav class="ip-crumbs" aria-label="Instrument family"><button type="button" class="ip-link" data-ui="instrument-family" data-id="${esc(inst.family)}">${esc(FamName(inst.family))}</button><span aria-hidden="true">›</span><button type="button" class="ip-link" data-ui="ip-class" data-id="${esc(inst.class)}" data-family="${esc(inst.family)}">${esc(ipHuman(inst.class))}</button></nav>${uiButton('close-preview', 'Close', 'x', 'class="cm-btn cm-btn-icon ip-close" aria-label="Close instrument preview" data-tooltip="Close (Esc)"')}</div><div class="ip-hero"><div class="ip-hero-text"><h2 id="ip-title" tabindex="-1">${esc(inst.name)}</h2><p class="ip-muted">${esc(inst.short || '')} · catalog id <code>${esc(inst.id)}</code></p><div class="ip-hero-actions">${listenLink(inst.name, true)}<a class="ip-link" href="#ip-similar" data-ui="ip-similar-jump">Similar instruments ${icon('arrow-right', 14)}</a></div></div><figure class="ip-media">${ipImage(id, 96, inst.name)}</figure></div>${ipCredit(id) ? `<p class="ip-media-credit">${ipCredit(id, { link: true })}</p>` : ''}<div class="ip-tabs" role="tablist" aria-label="Instrument settings">${IP_TABS.map(([t, label, ic]) => `<button type="button" role="tab" class="cm-tab" id="ip-tab-${t}" data-ui="ip-tab" data-id="${t}" aria-selected="${tab === t}" aria-controls="ip-panel-${t}" tabindex="${tab === t ? 0 : -1}" data-ip-key="tab:${t}">${icon(ic, 16)}<span>${label}</span></button>`).join('')}</div>${IP_TABS.map(([t]) => `<div class="ip-panel" id="ip-panel-${t}" role="tabpanel" aria-labelledby="ip-tab-${t}"${t === tab ? '' : ' hidden'}>${panels[t]()}</div>`).join('')}<section class="ip-similar" id="ip-similar" aria-labelledby="ip-similar-title"><h3 id="ip-similar-title">Similar instruments</h3><p class="ip-help">Closest by sound axes; your recipe and the list stay as they are.</p><ul class="ip-sims" role="list">${similar
     .map((n) => {
       const shared = getMatchingInstrumentAxes(id, n.id, 2)
         .map((m) => m.axis.name.toLowerCase())
         .join(', ');
-      return `<div class="ip-sim">${ipImage(n.id, 28, n.name)}<button type="button" class="ip-sim-main" data-ui="ip-similar" data-id="${esc(n.id)}"><span><span class="ip-row-name">${esc(n.name)}</span><span class="ip-row-meta">Closest on ${esc(shared)}</span>${ipCredit(n.id)}</span></button>${listenLink(n.name, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(n.id)}" aria-label="Add ${esc(n.name)} with catalog defaults"`)}</div>`;
+      return `<li class="ip-sim">${ipImage(n.id, 28, n.name)}<button type="button" class="ip-sim-main" data-ui="ip-similar" data-id="${esc(n.id)}"><span><span class="ip-row-name">${esc(n.name)}</span><span class="ip-row-meta">Closest on ${esc(shared)}</span>${ipCredit(n.id)}</span></button>${listenLink(n.name, true)}${uiButton('instrument-add', 'Add', 'plus', `data-id="${esc(n.id)}" aria-label="Add ${esc(n.name)} with catalog defaults"`)}</li>`;
     })
     .join(
       ''
-    )}</section></div><footer class="ip-foot">${ipRenderChanges()}<div class="ip-add-row"><label class="ip-field ip-dest"><span>Add to</span><select id="ip-destination" class="cm-select" data-ip-key="dest" aria-label="Add configured instrument to">${$ui('instrument-destination').innerHTML}</select></label><button type="button" class="cm-btn cm-btn-primary ip-add" data-ui="ip-add-configured" data-ip-key="add">${icon('plus', 18)}<span>${changes ? 'Add configured instrument' : 'Add instrument'}</span></button></div></footer>`;
+    )}</ul></section></div><footer class="ip-foot">${ipRenderChanges()}<div class="ip-add-row"><label class="ip-field ip-dest"><span>Add to</span><select id="ip-destination" class="cm-select" data-ip-key="dest" aria-label="Add configured instrument to">${$ui('instrument-destination').innerHTML}</select></label><button type="button" class="cm-btn cm-btn-primary ip-add" data-ui="ip-add-configured" data-ip-key="add">${icon('plus', 18)}<span>${changes ? 'Add configured instrument' : 'Add instrument'}</span></button></div></footer>`;
   $ui('ip-destination').value = ipDest();
   const scroll2 = host.querySelector('.ip-insp-scroll');
   scroll2.scrollTop = scroll;
@@ -868,17 +993,26 @@ function ipFilterList(input) {
   }
   const count = input.parentElement.querySelector('.ip-filter-count');
   if (count) count.textContent = q ? uiCount(shown, 'match', 'matches') : '';
+  ipAnnounce(q ? uiCount(shown, 'match', 'matches') : '');
 }
 function ipOverlay() {
   // Narrow layouts show the inspector over the catalogue.
   const host = $ui('instrument-preview');
   return !!host && getComputedStyle(host).position === 'absolute';
 }
+// While the inspector covers the catalogue, the catalogue leaves the Tab order:
+// focus must not walk controls nobody can see (WCAG 2.4.11).
+function ipSyncCovered() {
+  const covered = !!UI.instrumentPreview && ipOverlay();
+  for (const el of [document.querySelector('#ip-root .ip-head'), $ui('instrument-body')])
+    if (el) el.inert = covered;
+}
 function uiCloseInstrumentPreview() {
   const id = UI.instrumentPreview;
   UI.instrumentPreview = null;
   IP.trail = [];
   IP.card = IP.base = null;
+  ipAnnounce('');
   ipRenderInspector();
   renderInstrumentDiscovery();
   uiFocus(uiFind('#instrument-body [data-ui="instrument-inspect"]', 'id', id)) ||
@@ -902,6 +1036,7 @@ function uiInspectInstrument(id, { fromTrail = false, similar = false } = {}) {
     IP.filters = {};
     IP.note = '';
     IP.prefQuery = '';
+    ipAnnounce('');
   }
   // Similar instruments build a trail the inspector can step back through;
   // choosing from the list, a genre or a deep link starts a new one.
@@ -923,7 +1058,9 @@ async function ipAddConfigured() {
   if (!id || !card) return;
   const configured = ipDiff(IP.base, card);
   const dest = ipDest();
-  const name = Inst(id).short || Inst(id).name;
+  // The display name, as #71 settled for the Genre page's Add (not `short`,
+  // an internal key such as "aburukuwa"; Jony #111).
+  const name = Inst(id).name || Inst(id).short;
   // uiAddInstrument resolves to null both when another addition is running and
   // when the add fails (which it reports itself); only the first would be
   // silent, so say so here rather than drop the configured add.
@@ -973,16 +1110,30 @@ uiRegisterPage({
   recipe: 'dock',
   mount(surface) {
     IP.view = UILayout.remember('instrument-view', 'rows', () => renderInstrumentDiscovery());
-    surface.innerHTML = `<div class="ip" id="ip-root"><header class="ip-head"><h1 class="ip-title">Instruments <span id="ip-total" class="ip-total"></span></h1><label class="cm-search ip-search">${icon('search', 20)}<input id="instrument-search" type="search" placeholder="Search instruments" aria-label="Search instruments"></label><label class="ip-field destination"><span>Add to</span><select id="instrument-destination" class="cm-select" aria-label="Add instrument to"></select></label></header><div id="instrument-body" class="ip-body"></div><aside id="instrument-preview" class="ip-inspector" aria-label="Instrument preview"></aside></div>`;
+    surface.innerHTML = `<div class="ip" id="ip-root"><header class="ip-head"><h1 class="ip-title" tabindex="-1">Instruments <span id="ip-total" class="ip-total" aria-hidden="true"></span></h1><label class="cm-search ip-search">${icon('search', 20)}<input id="instrument-search" type="search" placeholder="Search instruments" aria-label="Search instruments"></label><label class="ip-field destination"><span>Add to</span><select id="instrument-destination" class="cm-select" aria-label="Add instrument to"></select></label></header><div id="instrument-body" class="ip-body"></div><aside id="instrument-preview" class="ip-inspector" aria-label="Instrument preview"></aside></div>`;
+    // The overlay is a container-width layout, so follow the root's size.
+    if (typeof ResizeObserver === 'function')
+      new ResizeObserver(ipSyncCovered).observe($ui('ip-root'));
+    // The live region exists before its first message, which is otherwise
+    // not read (Jony #28).
+    ipAnnounce('');
     $ui('instrument-search').addEventListener('input', () => {
       UI.limit = 50;
       renderInstrumentDiscovery();
     });
+    uiSearchToResults(
+      $ui('instrument-search'),
+      () => document.querySelector('#instrument-body .ip-list'),
+      '.cm-tile-name, .ip-row-main'
+    );
     surface.addEventListener('change', (e) => {
       const t = e.target;
       if (t.id === 'ip-sort') {
         IP.sort = t.value;
+        const had = document.activeElement === t;
         renderInstrumentDiscovery();
+        // The select is re-rendered under focus (arrow keys change it).
+        if (had) uiFocus($ui('ip-sort'));
       } else if (t.id === 'instrument-destination' || t.id === 'ip-destination') {
         $ui('instrument-destination').value = t.value;
         app._addToTradition = null;
@@ -1006,6 +1157,16 @@ uiRegisterPage({
       else if (t.id === 'ip-pref-q') {
         IP.prefQuery = t.value;
         ipRenderInspector('pref-q');
+        // The count above is re-rendered with the inspector, so a live
+        // region there is never read; the one persistent region says it.
+        const n = IP.prefMatches;
+        ipAnnounceSoon(
+          n == null
+            ? ''
+            : n
+              ? uiCount(n, 'match', 'matches')
+              : `No character matches “${t.value.trim()}”`
+        );
       }
     });
     // Destinations follow the recipe: refresh them when a select is opened.
@@ -1045,15 +1206,7 @@ uiRegisterPage({
             const inst = Inst(UI.instrumentPreview),
               part = inst.parts.find((p) => p.id === pid);
             const cur = IP.card.parts[pid] ? Variant(inst, pid, IP.card.parts[pid]) : null;
-            d.insertAdjacentHTML(
-              'beforeend',
-              ipRenderMore(
-                inst,
-                part,
-                part.variants.filter((v) => v.expanded),
-                cur
-              )
-            );
+            d.insertAdjacentHTML('beforeend', ipRenderMore(inst, part, ipMore(part, cur), cur));
           } else if (!d.open) IP.more.delete(pid);
         }
       },
@@ -1120,27 +1273,31 @@ uiRegisterPage({
   },
   actions: {
     'engine-retry'() {
+      IP.retryFocus = true;
       Engine.ensure().catch(() => {});
       renderInstrumentDiscovery();
     },
     'engine-reload'() {
       location.reload();
     },
-    'instrument-family'(id) {
+    'instrument-family'(id, button) {
       UI.instrumentFamily = id;
       UI.instrumentClass = '';
       UI.limit = 50;
       renderInstrumentDiscovery();
+      ipAfterCategory(button);
     },
     'instrument-class'(id) {
       UI.instrumentClass = id;
       UI.limit = 50;
       renderInstrumentDiscovery();
+      ipAfterRender('instrument-class', id);
     },
     'instrument-class-all'() {
       UI.instrumentClass = '';
       UI.limit = 50;
       renderInstrumentDiscovery();
+      ipAfterRender('instrument-class-all');
     },
     'ip-class'(id, button) {
       UI.instrumentFamily = button.dataset.family;
@@ -1152,6 +1309,8 @@ uiRegisterPage({
       if (UI.instrumentClass) UI.instrumentClass = '';
       else UI.instrumentFamily = '';
       renderInstrumentDiscovery();
+      // Back again if there is a level left, else the list's heading.
+      ipAfterRender('instrument-back', null, () => $ui('ip-list-title'));
     },
     'instrument-filter'(id, button, event) {
       // A checkbox has already toggled itself; the set is the state of record.
@@ -1183,11 +1342,12 @@ uiRegisterPage({
       renderInstrumentDiscovery();
       $ui('instrument-search').focus();
     },
-    'instrument-all'() {
+    'instrument-all'(id, button) {
       UI.instrumentFamily = '';
       UI.instrumentClass = '';
       UI.limit = 50;
       renderInstrumentDiscovery();
+      ipAfterCategory(button);
     },
     'ip-cats'() {
       IP.catsOpen = !IP.catsOpen;
@@ -1208,9 +1368,17 @@ uiRegisterPage({
       else IP.open.add(id);
       ipRenderInspector('part:' + id);
     },
-    'ip-preface'(id) {
+    'ip-preface'(id, button) {
       recordPrefaceRecent(id);
-      ipChoose({ k: 'preface', id }, 'pref-q');
+      ipChoose({ k: 'preface', id }, button?.dataset.ipKey);
+      // The suggested chip leaves with its pick: land on the same character
+      // in the browser instead, never on a control scrolled out of sight.
+      if (!document.activeElement?.closest('#instrument-preview')) {
+        const el =
+          uiFind('#instrument-preview [data-ui="ip-preface"]', 'id', id) || $ui('ip-pref-q');
+        el?.focus({ preventScroll: true });
+        el?.scrollIntoView({ block: 'nearest' });
+      }
     },
     'ip-pcat-all'(id) {
       IP.pcats = new Set(id === 'all' ? PREFACE_CAT_ORDER : []);
@@ -1219,6 +1387,7 @@ uiRegisterPage({
     },
     'ip-auto'() {
       ipChoose({ k: 'auto' }, 'pref-q');
+      $ui('ip-pref-q')?.scrollIntoView({ block: 'nearest' });
     },
     'ip-fx-remove'(id, button) {
       const stage = button.dataset.stage;
@@ -1251,7 +1420,7 @@ uiRegisterPage({
     'ip-similar-jump'(id, button, event) {
       event.preventDefault();
       const el = $ui('ip-similar');
-      el?.scrollIntoView?.({ block: 'start', behavior: 'smooth' });
+      el?.scrollIntoView?.({ block: 'start', behavior: uiMotion() });
       uiFocus(el?.querySelector('button'));
     },
     async 'ip-add-configured'() {

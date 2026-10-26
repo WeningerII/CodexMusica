@@ -1,6 +1,6 @@
 /* global lyInspectionSession, lyInspectionRenderDock, lyInspectionRefresh, lyInspectionReceive, lyInspectionAction, lyInspectionWire, lyInspectionEscape */
 /* exported uiLyricsWaiting, lyDraftForWriter, uiLyricsOpened, lyPrepareRangeMarks, lyCaptureWritingOrigin, lyRestoreWritingOrigin, lyGoToRangeParts, lyWritingLineActions, lySetWritingRangeMarks */
-/* global $ui, UI, UILayout, CHAT_BACKEND, CHAT_STORAGE_KEY, CMLibraryImport, CMLyricTokens, _chatPersistedState, _chatPollStop, _chatSave, _chatRecover, _chatReset, _chatSend, _chatSyncCount, app, chatState, compileRecipeStack, esc, execCopyFallback, icon, lyricMetaOf, pushHistory, showToast, uiAutosave, uiButton, uiChatOpen, uiChatSessions, uiCount, uiDownload, uiEmptyState, uiExport, uiFocus, uiNavigate, uiRegisterPage, uiSaveLyrics, uiSwitchChat, uiUpdatePrompt, sessionSnapshot */
+/* global $ui, UI, UILayout, CHAT_BACKEND, CHAT_STORAGE_KEY, CMLibraryImport, CMLyricTokens, _chatPersistedState, _chatPollStop, _chatSave, _chatRecover, _chatReset, _chatSend, _chatSyncCount, app, chatState, compileRecipeStack, esc, execCopyFallback, icon, lyricMetaOf, pushHistory, showToast, uiAutosave, uiButton, uiChatOpen, uiChatSessions, uiCount, uiDownload, uiEmptyState, uiExport, uiFind, uiFocus, uiNavigate, uiRegisterPage, uiSaveLyrics, uiSwitchChat, uiUpdatePrompt, sessionSnapshot */
 /* Lyrics page. Owned by the Lyrics page worker; see docs/ui-foundation.md.
 
    THE DRAFT IS THE ONE SOURCE OF TRUTH. Everything this page shows is read
@@ -2712,10 +2712,12 @@ function lyRunChecks(model) {
       title:
         run.stopped === 'MAX_STEPS'
           ? 'The writer stopped after its maximum number of steps'
-          : `The writer stopped early (${run.stopped})`,
+          : run.stopped === 'LYRICS_UNFINISHED'
+            ? 'The writer stopped before finishing, so this draft isn’t final'
+            : 'The writer stopped before finishing',
       where: 'Writer run',
       lines: [],
-      text: 'The reply is incomplete for that reason, not finished.',
+      text: `The reply is incomplete for that reason, not finished. Reason code: ${run.stopped}.`,
       actions: [['ly-tab', 'Open the writer', 'user', 'writer']],
     });
   const cur = lyRunCurrent(run, model);
@@ -3040,6 +3042,19 @@ function lyEditSections(mutate, message) {
         : '')
   );
 }
+// Structural edits replace the table. Keep keyboard work on the affected row,
+// using its section button when the same action is now disabled at a boundary.
+function lyFocusSectionControl(index, selector) {
+  const row = document.querySelector(`#ly-form-rows tr[data-sec="${index}"]`);
+  uiFocus(
+    row?.querySelector(`${selector}:not([disabled])`) ||
+      row?.querySelector('[data-ui="ly-form-pick"]') ||
+      [
+        document.querySelector('#surface-lyrics .ly-tool-nav [data-ui="ly-tool"]'),
+        document.querySelector('#ly-panel-tools [data-ui="ly-tool"][data-id="form-story"]'),
+      ].find((el) => el?.getClientRects().length)
+  );
+}
 // Replace every [SETUP — key — …] row with `values` (in order), placed with
 // the other setup rows (or at the top, before the song).
 function lySetSetup(key, values, text = lyDraft().value) {
@@ -3112,8 +3127,16 @@ const lyMenu = (
   { cls = 'cm-btn', align = 'start', hideLabel = false, chevron = true } = {}
 ) =>
   `<div class="ly-menu-wrap"><button type="button" class="${cls}" data-ui="ly-menu" data-id="${id}" aria-haspopup="true" aria-expanded="false" aria-controls="ly-menu-${id}"${hideLabel ? ` aria-label="${esc(label)}" title="${esc(label)}"` : ''}>${ic ? icon(ic, 18) : ''}${hideLabel ? '' : `<span>${esc(label)}</span>${chevron ? icon('chevron-down', 16) : ''}`}</button><div class="cm-menu ly-menu" data-align="${align}" id="ly-menu-${id}" role="menu" hidden>${items}</div></div>`;
-const lyMenuItem = (act, label, ic, id = '', extra = '') =>
-  lyBtn(act, label, ic, { id, cls: 'ly-menu-item', extra: `role="menuitem" ${extra}` });
+// One Tab stop per menu: its items are reached with the arrow keys
+// (tabindex -1), and Tab leaves the menu (see the surface keydown). `role`
+// is menuitemradio or menuitemcheckbox for an item that holds a state, which
+// it then exposes as aria-checked (lySyncDisplayMenu).
+const lyMenuItem = (act, label, ic, id = '', extra = '', role = 'menuitem') =>
+  lyBtn(act, label, ic, {
+    id,
+    cls: 'ly-menu-item',
+    extra: `role="${role}" tabindex="-1" ${extra}`,
+  });
 const lyStatus = (tone, word, ic) =>
   `<span class="cm-status" data-tone="${tone}">${icon(ic || (tone === 'success' ? 'circle-check' : tone === 'danger' ? 'circle-alert' : tone === 'warning' ? 'triangle-alert' : 'info'), 14)}<span>${esc(word)}</span></span>`;
 // A state pill: a dot and a word; colour never carries the meaning alone.
@@ -3571,10 +3594,14 @@ function lyDraftApplyTools(tools, { stopOnFailure = false } = {}) {
     );
   return { applied, failed };
 }
-const lyErr = (d, field) =>
+// `help` is a field's own help text id: one aria-describedby names both, as a
+// second attribute would be dropped by the parser (Jony #22 on #519).
+const lyErr = (d, field, help = '') =>
   d?.errors?.[field]
-    ? ` aria-invalid="true" aria-describedby="ly-err-${esc(field.replace(/\W/g, '-'))}"`
-    : '';
+    ? ` aria-invalid="true" aria-describedby="${help ? `${help} ` : ''}ly-err-${esc(field.replace(/\W/g, '-'))}"`
+    : help
+      ? ` aria-describedby="${help}"`
+      : '';
 const lyErrText = (d, field) =>
   d?.errors?.[field]
     ? `<p class="ly-field-error" id="ly-err-${esc(field.replace(/\W/g, '-'))}">${esc(d.errors[field])}</p>`
@@ -4101,6 +4128,7 @@ function lyMountMarkup() {
     )
     .join('');
   return `<div class="ly-page" id="ly-page">
+<h1 class="cm-sr-only">Lyrics</h1>
 <header class="ly-head" id="ly-head">
   <div class="ly-head-main">
     <div class="ly-title-wrap" id="ly-title-wrap"></div>
@@ -4143,7 +4171,7 @@ function lyMountMarkup() {
       </div>
     </div>
   </aside>
-  <main class="ly-main" id="ly-main" aria-label="Song">
+  <section class="ly-main" id="ly-main" aria-label="Song">
     <div class="ly-brief" id="ly-brief"></div>
     <div id="ly-library-source" hidden></div>
     <div id="ly-relation-inspector" class="ly-relation-inspector" hidden></div>
@@ -4153,7 +4181,7 @@ function lyMountMarkup() {
         ${lyBtn('ly-find-open', 'Find', 'search', { cls: 'cm-btn cm-btn-outline', extra: 'aria-controls="ly-find" aria-expanded="false"' })}
         ${lyBtn('ly-undo', 'Undo', 'undo-2', { cls: 'cm-btn cm-btn-outline' })}
         ${lyBtn('ly-redo', 'Redo', 'redo-2', { cls: 'cm-btn cm-btn-outline' })}
-        ${lyMenu('display', 'Display', 'monitor', '<div class="cm-menu-label">Text size</div>' + ['Normal', 'Large', 'Larger'].map((l, k) => lyMenuItem('ly-text-size', l, '', String(k), 'aria-pressed="false"')).join('') + '<div class="cm-menu-sep"></div>' + lyMenuItem('ly-numbers', 'Line numbers', '', '', 'aria-pressed="true"'), { cls: 'cm-btn cm-btn-outline' })}
+        ${lyMenu('display', 'Display', 'monitor', '<div class="cm-menu-label">Text size</div>' + ['Normal', 'Large', 'Larger'].map((l, k) => lyMenuItem('ly-text-size', l, '', String(k), 'aria-checked="false"', 'menuitemradio')).join('') + '<div class="cm-menu-sep"></div>' + lyMenuItem('ly-numbers', 'Line numbers', '', '', 'aria-checked="true"', 'menuitemcheckbox'), { cls: 'cm-btn cm-btn-outline' })}
       </div>
       <div class="ly-find" id="ly-find" hidden role="search"><input id="ly-find-input" class="cm-input" type="search" placeholder="Find in lyrics" aria-label="Find in lyrics" autocomplete="off"><span id="ly-find-count" class="ly-find-count" role="status" aria-live="polite"></span>${lyBtn('ly-find-step', 'Previous match', 'arrow-up', { id: '-1', cls: 'cm-btn cm-btn-icon', hideLabel: true })}${lyBtn('ly-find-step', 'Next match', 'arrow-down', { id: '1', cls: 'cm-btn cm-btn-icon', hideLabel: true })}${lyBtn('ly-find-close', 'Close find', 'x', { cls: 'cm-btn cm-btn-icon', hideLabel: true })}</div>
       <div class="ly-doc-note" id="ly-doc-note" hidden></div>
@@ -4169,7 +4197,7 @@ function lyMountMarkup() {
       </div>
     </div>
     <div class="ly-linedock" id="ly-linedock" role="toolbar" hidden></div>
-  </main>
+  </section>
   <aside class="ly-inspector" id="ly-inspector" aria-label="Tools, writer, review and history">
     <div class="ly-itabs" role="tablist" aria-label="Inspector">${tabs}</div>
     ${panels}
@@ -4179,6 +4207,7 @@ function lyMountMarkup() {
 <nav class="ly-mnav" id="ly-mnav" aria-label="Lyrics views"><div role="tablist" aria-label="Lyrics views">${mobileTabs}</div></nav>
 <div class="ly-sheet-scrim" id="ly-scrim" hidden data-ui="ly-outline-toggle"></div>
 <input type="file" id="ly-file" accept=".txt,.md,.json,text/plain,application/json" hidden>
+<div id="ly-live" class="ly-sr" role="status" aria-live="polite"></div>
 </div>`;
 }
 
@@ -4191,7 +4220,8 @@ function lyRenderHead() {
     if (!wrap.querySelector('input'))
       wrap.innerHTML = `<label class="ly-sr" for="ly-title-input">Song title</label><input id="ly-title-input" class="cm-input ly-title-input" maxlength="160" value="${esc(title)}" placeholder="Untitled song" autocomplete="off">`;
   } else
-    wrap.innerHTML = `<h2 class="ly-title"><button type="button" class="ly-title-btn" data-ui="ly-title-edit" aria-label="Song title: ${esc(title || 'Untitled song')}. Edit title"><span>${esc(title || 'Untitled song')}</span>${icon('pencil', 18)}</button></h2>`;
+    // The heading is the title; Edit title is its button's own name (Jony #128).
+    wrap.innerHTML = `<h2 class="ly-title" aria-label="${esc(title || 'Untitled song')}"><button type="button" class="ly-title-btn" data-ui="ly-title-edit" aria-label="Song title: ${esc(title || 'Untitled song')}. Edit title"><span>${esc(title || 'Untitled song')}</span>${icon('pencil', 18)}</button></h2>`;
   const ws =
     app.workspaceName && app.workspaceName !== 'Untitled session'
       ? app.workspaceName
@@ -4203,8 +4233,15 @@ function lyRenderHead() {
     ?.setAttribute('aria-describedby', 'ly-workspace');
   const a = lyAnalysis(model);
   LY.state = a;
-  $ui('ly-badge').innerHTML =
+  // A status region speaks whenever it is written: write it only when what
+  // it says changes, not on every refresh (typing, Undo, Display, a step).
+  const badge =
     lyPill(a.tone, a.label) + (a.certified ? lyPill('success', 'Certified for this version') : '');
+  const badgeEl = $ui('ly-badge');
+  if (badgeEl.dataset.said !== badge) {
+    badgeEl.innerHTML = badge;
+    badgeEl.dataset.said = badge;
+  }
   const gate = $ui('ly-gate');
   if (LY.gate && lyPendingAll()) {
     gate.hidden = false;
@@ -4272,6 +4309,7 @@ function lyRenderOutline() {
       b.setAttribute('aria-expanded', String(page.dataset.outline === 'open' || LY.railOpen))
     );
   $ui('ly-scrim').hidden = !(LY.railOpen && (LY.size === 'narrow' || railed));
+  lySheetModal(page.dataset.outline === 'sheet');
   // Song view on a phone: previous/next section and where the reader is.
   const nav = $ui('ly-section-nav');
   if (LY.size === 'narrow' && model.sections.length) {
@@ -4487,12 +4525,27 @@ function lyRowHtml(row, model, ctx) {
       offset += text.length;
       return html;
     };
+    // Find marks every word a match on this line spans, so a phrase ("the
+    // rain") marks both words, not only a query inside a single word.
+    const hits = [];
+    const lower = ctx.find ? raw.toLowerCase() : '';
+    for (let at = ctx.find ? lower.indexOf(ctx.find) : -1; at >= 0; ) {
+      hits.push([at, at + ctx.find.length]);
+      at = lower.indexOf(ctx.find, at + ctx.find.length);
+    }
+    let pos = 0;
     const spans = lyWordSpans(raw, model.voices)
       .map((p) => {
-        if (p.gap !== undefined) return rangeText(p.gap);
+        if (p.gap !== undefined) {
+          pos += p.gap.length;
+          return rangeText(p.gap);
+        }
+        const from = pos;
+        pos += p.word.length;
         const cls = [];
         if (p.aside) cls.push('ly-aside');
-        if (ctx.find && p.word.toLowerCase().includes(ctx.find)) cls.push('ly-hit');
+        if (hits.some(([a, b]) => a < pos && b > from))
+          cls.push('ly-hit', ...(row.n === ctx.findLine ? ['ly-hit-current'] : []));
         const groups = (p.token && ctx.ends.get(`${row.n}:${p.token}`)) || [];
         const g = groups[0];
         if (g) cls.push('ly-end');
@@ -4559,6 +4612,21 @@ function lyRhymeMarks(model) {
   });
   return { ends, letters };
 }
+// The current review items marking line n (the editor's line marks are
+// aria-hidden, so this is what a screen reader hears instead), issues first.
+function lyLineFindings(n) {
+  return (LY.items || [])
+    .filter((it) => !it.stale && it.lines?.includes(n))
+    .sort((a, b) => (b.tone === 'issue') - (a.tone === 'issue'));
+}
+// One persistent polite region, outside every re-rendered panel. Cleared
+// first so the same message twice is read twice.
+function lyAnnounce(text) {
+  const live = $ui('ly-live');
+  if (!live) return;
+  live.textContent = '';
+  if (text) setTimeout(() => (live.textContent = text), 50);
+}
 function lyRenderEditor() {
   const model = LY.model;
   const draft = lyDraft();
@@ -4587,6 +4655,7 @@ function lyRenderEditor() {
     letters,
     focus: new Set(LY.focusLines || []),
     find: LY.find.open && LY.find.q ? LY.find.q.toLowerCase() : '',
+    findLine: LY.find.open && LY.find.q ? lyFindMatches()[LY.find.at] || 0 : 0,
     reading: readingTarget ? `${readingTarget[0]}|${readingTarget[1]}` : '',
   };
   overlay.innerHTML =
@@ -4595,7 +4664,8 @@ function lyRenderEditor() {
   editor.dataset.size = LY.prefs.size.get();
   editor.classList.toggle('no-numbers', !LY.prefs.numbers.get());
   editor.classList.toggle('has-letters', letters.size > 0);
-  draft.scrollTop = 0;
+  // A hidden draft cannot scroll, and setting it would lay the page out.
+  if (!draft.closest('[hidden]')) draft.scrollTop = 0;
   const empty = !model.text.trim();
   const box = $ui('ly-empty-doc');
   box.hidden = !empty || document.activeElement === draft;
@@ -4643,6 +4713,46 @@ function lySyncCaret() {
     lyRenderOutlineActive();
   }
 }
+// The phone's Sections sheet is a modal dialog while open: the page behind
+// the scrim is inert and Tab wraps inside the sheet; all of it comes back on
+// close.
+let lySheetInert = [];
+function lySheetTab(e) {
+  if (e.key !== 'Tab') return;
+  const list = [
+    ...this.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    ),
+  ].filter((el) => !el.disabled && el.getClientRects().length);
+  if (list.length && document.activeElement === (e.shiftKey ? list[0] : list.at(-1))) {
+    e.preventDefault();
+    (e.shiftKey ? list.at(-1) : list[0]).focus();
+  }
+}
+function lySheetModal(on) {
+  const panel = $ui('ly-outline-panel');
+  if (!panel || on === panel.hasAttribute('aria-modal')) return;
+  lySheetInert.forEach((el) => (el.inert = false));
+  lySheetInert = [];
+  panel[on ? 'addEventListener' : 'removeEventListener']('keydown', lySheetTab);
+  if (!on)
+    return ['role', 'aria-modal', 'aria-labelledby'].forEach((a) => panel.removeAttribute(a));
+  panel.setAttribute('role', 'dialog');
+  panel.setAttribute('aria-modal', 'true');
+  panel.setAttribute('aria-labelledby', 'ly-outline-h');
+  for (let el = panel; el.parentElement && el.id !== 'ly-page'; el = el.parentElement)
+    for (const sib of el.parentElement.children)
+      if (sib !== el && !sib.inert && !['ly-scrim', 'ly-live'].includes(sib.id)) {
+        sib.inert = true;
+        lySheetInert.push(sib);
+      }
+}
+// The Sections opener a person can see: the rail button, or on a phone the
+// position button in the song view.
+const lySectionsOpener = () =>
+  [...document.querySelectorAll('.ly-rail-btn, .ly-sec-pos')].find(
+    (b) => b.getClientRects().length
+  );
 function lyRenderOutlineActive() {
   const model = LY.model;
   const active = lySectionOfLine(model, LY.activeLine) || lySectionAtRow(model, LY.caretRow);
@@ -4770,7 +4880,13 @@ function lyPlaceLineBar() {
     const element = $ui('ly-overlay')?.querySelector(`.ly-r[data-n="${n}"]`);
     const text = element?.querySelector('.ly-t');
     if (element && text) {
-      bar.innerHTML = wideButtons();
+      // Rebuilt only for another line: the editor's blur (a press on one of
+      // these buttons) re-places the bar between pointerdown and pointerup,
+      // and a replaced button never receives its click.
+      if (bar.dataset.n !== String(n)) {
+        bar.innerHTML = wideButtons();
+        bar.dataset.n = String(n);
+      }
       bar.setAttribute('aria-label', `Line ${n} tools`);
       bar.hidden = false;
       const editor = $ui('ly-editor').getBoundingClientRect();
@@ -4783,13 +4899,66 @@ function lyPlaceLineBar() {
       if (!inline) bar.hidden = true;
     }
   }
-  // Keep the open menu and its focus while selection events settle.
-  const key = `${LY.size}:${row ? n : 0}:${app.historyIndex}:${app.history.length}:${inspecting}:${inline}`;
+  const finds = row ? lyLineFindings(n) : [];
+  const findCount = finds.length ? uiCount(finds.length, 'finding') : '';
+  // Keep the open menu and its focus while selection events settle. History
+  // is not in the key: the editor's blur pushes it between pointerdown and
+  // pointerup on a dock button, and a rebuild there swallows the click. Only
+  // Undo/Redo depend on it, so they are updated in place.
+  const key = `${LY.size}:${row ? n : 0}:${inspecting}:${inline}:${finds.length}`;
   if (dock.dataset.writingActions !== key) {
-    dock.innerHTML = `${inspecting ? '' : `<span class="ly-dock-label">${row ? `Line ${n}` : 'Song'}</span>`}<span id="ly-relation-dock" class="ly-relation-dock"></span>${inspecting || inline ? '' : row && LY.size !== 'narrow' ? wideButtons() : lyWritingLineActions(row ? n : 0)}`;
+    // A redraw (a step that moves the history: the Line actions Undo, a
+    // keyboard Undo, an edit landing) replaced the control in focus, and
+    // focus fell to <body>; an open Line actions menu closed under the
+    // person. Focus comes back to the same control, the menu stays open.
+    const had = document.activeElement;
+    const kept =
+      had && dock.contains(had)
+        ? {
+            ui: had.dataset?.ui || '',
+            id: had.dataset?.id || '',
+            menu: LY.menu === 'line-actions' && !!had.closest('.ly-menu'),
+          }
+        : null;
+    dock.innerHTML = `${inspecting ? '' : `<span class="ly-dock-label">${row ? `Line ${n}${findCount ? ` · ${findCount}` : ''}` : 'Song'}</span>`}<span id="ly-relation-dock" class="ly-relation-dock"></span>${inspecting || inline ? '' : row && LY.size !== 'narrow' ? wideButtons() : lyWritingLineActions(row ? n : 0)}`;
     dock.dataset.writingActions = key;
+    const same = (list) =>
+      list.find((b) => b.dataset.ui === kept.ui && (b.dataset.id || '') === kept.id);
+    const menu = kept?.menu && $ui('ly-menu-line-actions');
+    const opener = menu && dock.querySelector('[aria-controls="ly-menu-line-actions"]');
+    if (opener) {
+      menu.hidden = false;
+      opener.setAttribute('aria-expanded', 'true');
+      LY.menuOpener = opener;
+      const items = [...menu.querySelectorAll('button:not([disabled])')];
+      (same(items) || items[0] || opener).focus({ preventScroll: true });
+    } else if (kept) {
+      if (kept.menu) LY.menu = '';
+      lyInspectionRenderDock();
+      // Only a control that fell with the redraw is put back. Opening an
+      // inspection swaps the dock's buttons (Relations becomes Back to
+      // relations) and the inspector places focus itself, so no stand-in
+      // dock button takes it there (R2, from BB8's 3d run).
+      const fell =
+        !document.activeElement ||
+        document.activeElement === document.body ||
+        !document.activeElement.isConnected;
+      const buttons = [...dock.querySelectorAll('button:not([disabled])')].filter(
+        (b) => b.getClientRects().length
+      );
+      if (fell) (same(buttons) || (inspecting ? null : buttons[0]))?.focus({ preventScroll: true });
+    }
   }
-  dock.setAttribute('aria-label', row ? `Line ${n} actions` : 'Song actions');
+  dock.querySelector('[data-ui="ly-undo"]')?.toggleAttribute('disabled', !(app.historyIndex > 0));
+  dock
+    .querySelector('[data-ui="ly-redo"]')
+    ?.toggleAttribute('disabled', !(app.historyIndex < app.history.length - 1));
+  dock.setAttribute(
+    'aria-label',
+    row
+      ? `Line ${n} actions${findCount ? `, ${findCount}: ${finds[0].title}` : ''}`
+      : 'Song actions'
+  );
   dock.hidden = false;
   lyInspectionRenderDock();
   const menu = $ui('ly-menu-line-actions');
@@ -4914,7 +5083,7 @@ function lyRenderTools() {
     lySetHtml(box, html, `tools:${LY.tool}:${LY.size}`);
     return;
   }
-  html = `${head}<div class="ly-tool-head">${icon(ic, 22)}<div><h3 class="ly-h3">${esc(label)}</h3><p class="ly-help">${esc(help)}</p></div></div>${lyToolBody(LY.tool, model)}`;
+  html = `${head}<div class="ly-tool-head">${icon(ic, 22)}<div><h3 class="ly-h3" tabindex="-1">${esc(label)}</h3><p class="ly-help">${esc(help)}</p></div></div>${lyToolBody(LY.tool, model)}`;
   lySetHtml(box, html, `tools:${LY.tool}:${LY.size}`);
 }
 // Rendering a request affordance does not bypass the existing dispatch guards.
@@ -4991,7 +5160,7 @@ function lyToolFormStory(model) {
   const k = sung.indexOf(s);
   const f = (name) => `${name}.${sel}`;
   const form = s
-    ? `<div class="ly-form-grid"><div class="ly-field"><label class="ly-label" for="ly-f-name">Section name</label><input id="ly-f-name" class="cm-input" maxlength="80" data-draft="${T}" data-target="${G}" data-field="${f('name')}" value="${esc(v(f('name')))}" placeholder="${esc(s.title)}"${lyErr(d, f('name'))}>${lyErrText(d, f('name'))}</div><div class="ly-field ly-field-sm"><label class="ly-label" for="ly-f-lines">Target (lines)</label><input id="ly-f-lines" class="cm-input" inputmode="numeric" data-draft="${T}" data-target="${G}" data-field="${f('lines')}" value="${esc(v(f('lines')))}" placeholder="Not set" aria-describedby="ly-f-lines-help"${lyErr(d, f('lines'))}><small class="ly-help" id="ly-f-lines-help">Actual: ${s.sung.length}</small>${lyErrText(d, f('lines'))}</div>${
+    ? `<div class="ly-form-grid"><div class="ly-field"><label class="ly-label" for="ly-f-name">Section name</label><input id="ly-f-name" class="cm-input" maxlength="80" data-draft="${T}" data-target="${G}" data-field="${f('name')}" value="${esc(v(f('name')))}" placeholder="${esc(s.title)}"${lyErr(d, f('name'))}>${lyErrText(d, f('name'))}</div><div class="ly-field ly-field-sm"><label class="ly-label" for="ly-f-lines">Target (lines)</label><input id="ly-f-lines" class="cm-input" inputmode="numeric" data-draft="${T}" data-target="${G}" data-field="${f('lines')}" value="${esc(v(f('lines')))}" placeholder="Not set"${lyErr(d, f('lines'), 'ly-f-lines-help')}><small class="ly-help" id="ly-f-lines-help">Actual: ${s.sung.length}</small>${lyErrText(d, f('lines'))}</div>${
         k >= 0
           ? `<div class="ly-field"><label class="ly-label" for="ly-f-atom">Story job</label><select id="ly-f-atom" class="cm-select" data-draft="${T}" data-target="${G}" data-field="${f('atom')}"${lyErr(d, f('atom'))}>${lyOpts(Object.entries(LY_ATOM_LABELS), v(f('atom')), 'Not declared')}</select>${lyErrText(d, f('atom'))}</div>${
               k > 0
@@ -5002,9 +5171,9 @@ function lyToolFormStory(model) {
       }<div class="ly-field ly-field-wide"><label class="ly-label" for="ly-f-note">Section note</label><textarea id="ly-f-note" class="cm-input" rows="2" maxlength="400" data-draft="${T}" data-target="${G}" data-field="${f('note')}" placeholder="This section’s creative job, e.g. Arrival and kindness"${lyErr(d, f('note'))}>${esc(v(f('note')))}</textarea>${lyErrText(d, f('note'))}</div></div>`
     : '';
   const headerless = model.sections.length && model.sections.every((x) => !x.header);
-  return `<div class="ly-tool-view"><div class="ly-view-head">${icon('book-open', 22)}<div><h3 class="ly-h3">Form & story</h3><p class="ly-help">Section order and story jobs</p></div></div>${headerless ? `<p class="ly-help">These stanzas have no headers. ${lyBtn('ly-label-stanzas', 'Add a header to each stanza', 'plus', { cls: 'cm-btn ly-link-btn' })}</p>` : ''}${
+  return `<div class="ly-tool-view"><div class="ly-view-head">${icon('book-open', 22)}<div><h3 class="ly-h3" tabindex="-1">Form & story</h3><p class="ly-help">Section order and story jobs</p></div></div>${headerless ? `<p class="ly-help">These stanzas have no headers. ${lyBtn('ly-label-stanzas', 'Add a header to each stanza', 'plus', { cls: 'cm-btn ly-link-btn' })}</p>` : ''}${
     model.sections.length
-      ? `<div class="ly-table-wrap"><table class="ly-table ly-form-table"><thead><tr><th><span class="ly-sr">Move</span></th><th>Section</th><th>Lines</th><th>Target</th><th>Story job</th><th><span class="ly-sr">Actions</span></th></tr></thead><tbody id="ly-form-rows">${rows}</tbody></table></div>`
+      ? `<div class="ly-table-wrap"><table class="ly-table ly-form-table" aria-label="Sections"><thead><tr><th><span class="ly-sr">Move</span></th><th>Section</th><th>Lines</th><th>Target</th><th>Story job</th><th><span class="ly-sr">Actions</span></th></tr></thead><tbody id="ly-form-rows">${rows}</tbody></table></div>`
       : '<p class="ly-help">No sections yet. Add one from the Sections list.</p>'
   }<h4 class="ly-h4">Creative guidance</h4>${flow ? `<div class="ly-flow">${flow}</div>` : '<p class="ly-help">No story jobs or section notes yet.</p>'}<p class="ly-help">Story jobs and notes guide the writer. They are not graded, and nothing here judges the plot.${story.off ? ' The story layer is declared off.' : ''}</p>${s ? `<h4 class="ly-h4">Edit selected section</h4>${form}` : ''}<div class="ly-actions">${story.declared && !story.off ? lyBtn('ly-story-off', 'Turn the story layer off', '', { cls: 'cm-btn cm-btn-outline' }) : ''}${story.declared ? lyBtn('ly-story-clear', 'Clear story plan', '', { cls: 'cm-btn' }) : ''}</div>${lyPendingStrip(T)}</div>`;
 }
@@ -5036,7 +5205,7 @@ function lyToolRhythm(model) {
   const k = lyRhythmSec(model);
   const s = model.sections[k];
   if (!s)
-    return `<div class="ly-tool-view"><div class="ly-view-head">${icon('music', 22)}<div><h3 class="ly-h3">Rhythm</h3><p class="ly-help">Meter and line placement</p></div></div><p class="ly-help">Add a section first; rhythm is declared per section header.</p></div>`;
+    return `<div class="ly-tool-view"><div class="ly-view-head">${icon('music', 22)}<div><h3 class="ly-h3" tabindex="-1">Rhythm</h3><p class="ly-help">Meter and line placement</p></div></div><p class="ly-help">Add a section first; rhythm is declared per section header.</p></div>`;
   const T = 'rhythm',
     G = String(k);
   const d = lyDraftOf(T, G);
@@ -5096,13 +5265,13 @@ function lyToolRhythm(model) {
         )
         .join('')
     : '';
-  return `<div class="ly-tool-view"><div class="ly-view-head">${icon('music', 22)}<div><h3 class="ly-h3">Rhythm</h3><p class="ly-help">Set meter, bars and line placement for each section.</p></div>${saved ? `<span class="ly-view-status">${lyStatus('success', saved)}</span>` : ''}</div>
+  return `<div class="ly-tool-view"><div class="ly-view-head">${icon('music', 22)}<div><h3 class="ly-h3" tabindex="-1">Rhythm</h3><p class="ly-help">Set meter, bars and line placement for each section.</p></div>${saved ? `<span class="ly-view-status">${lyStatus('success', saved)}</span>` : ''}</div>
 <div class="ly-form-grid"><div class="ly-field"><label class="ly-label" for="ly-r-meter">Meter <small>(${esc(s.title)})</small></label><input id="ly-r-meter" class="cm-input" list="ly-meters" data-draft="${T}" data-target="${G}" data-field="meter" value="${esc(v('meter'))}" placeholder="Not set" autocomplete="off"${lyErr(d, 'meter')}><datalist id="ly-meters">${LY_COMMON_METERS.map((m) => `<option value="${m}">`).join('')}</datalist>${lyErrText(d, 'meter')}</div><div class="ly-field"><label class="ly-label" for="ly-r-bars">Section bars <small>(optional)</small></label><input id="ly-r-bars" class="cm-input" inputmode="numeric" data-draft="${T}" data-target="${G}" data-field="bars" value="${esc(v('bars'))}" placeholder="Not set"${lyErr(d, 'bars')}>${lyErrText(d, 'bars')}</div><div class="ly-field"><label class="ly-label" for="ly-r-pickup">Pickup</label><select id="ly-r-pickup" class="cm-select" data-draft="${T}" data-target="${G}" data-field="pickup"${lyErr(d, 'pickup')}>${lyOpts(
     pickups.map((p) => [p, p]),
     v('pickup'),
     'None'
   )}</select>${lyErrText(d, 'pickup')}</div></div>
-<div class="ly-table-wrap"><table class="ly-table"><thead><tr><th>Section</th><th>Meter</th><th>Bars (optional)</th><th>Pickup</th></tr></thead><tbody>${table}</tbody></table></div>
+<div class="ly-table-wrap"><table class="ly-table" aria-label="Meter by section"><thead><tr><th>Section</th><th>Meter</th><th>Bars (optional)</th><th>Pickup</th></tr></thead><tbody>${table}</tbody></table></div>
 <div class="ly-actions">${lyBtn('ly-rhythm-save', 'Save rhythm', 'check', { id: k, cls: 'cm-btn cm-btn-primary', extra: lyDraftStale(d) ? 'disabled' : '' })}${lyBtn('ly-rhythm-copy', 'Copy to other sections', 'copy', { cls: 'cm-btn cm-btn-outline', extra: `aria-expanded="${!!LY.picks.rhythmCopy}"` })}</div>${copy}
 <h4 class="ly-h4">Line placement <small>(optional)</small></h4><p class="ly-help">Where each line starts within the song’s bars and how long it lasts. All three blank is undeclared. No tempo is assumed.</p>${
     beats
@@ -5115,7 +5284,7 @@ function lyToolRhythm(model) {
           null
         )}</select></div>`
       : ''
-  }<div class="ly-table-wrap"><table class="ly-table"><thead><tr><th>Line</th><th>Text</th><th>Bar</th><th>Start beat</th><th>Duration (${unit})</th></tr></thead><tbody>${prow}</tbody></table></div>
+  }<div class="ly-table-wrap"><table class="ly-table" aria-label="Line placement"><thead><tr><th>Line</th><th>Text</th><th>Bar</th><th>Start beat</th><th>Duration (${unit})</th></tr></thead><tbody>${prow}</tbody></table></div>
 <h4 class="ly-h4">Declared melody · whole song <small>(optional)</small></h4><p class="ly-help">One repeating phrase per line, in scientific pitch (A4 = 440 Hz); durations in beats of the meter’s unit.</p>${chips ? `<div class="ly-note-chips">${chips}</div>` : '<p class="ly-help">No melody declared.</p>'}<details class="cm-accordion"${md ? ' open' : ''}><summary>Advanced input</summary><div class="ly-form-grid"><div class="ly-field ly-field-sm"><label class="ly-label" for="ly-m-meter">Meter</label><input id="ly-m-meter" class="cm-input" data-draft="${M}" data-target="song" data-field="meter" value="${esc(mv('meter'))}" placeholder="6/8"></div><div class="ly-field ly-field-sm"><label class="ly-label" for="ly-m-groups">Beat groups</label><input id="ly-m-groups" class="cm-input" data-draft="${M}" data-target="song" data-field="groups" value="${esc(mv('groups'))}" placeholder="3+3"></div><div class="ly-field ly-field-sm"><label class="ly-label" for="ly-m-bars">Bars per line</label><input id="ly-m-bars" class="cm-input" inputmode="numeric" data-draft="${M}" data-target="song" data-field="bars" value="${esc(mv('bars'))}" placeholder="1"></div><div class="ly-field ly-field-sm"><label class="ly-label" for="ly-m-sub">Subdivision</label><select id="ly-m-sub" class="cm-select" data-draft="${M}" data-target="song" data-field="subdivision">${lyOpts(
     [
       ['1', '1'],
@@ -5128,6 +5297,9 @@ function lyToolRhythm(model) {
 }
 
 // ── Rhymes ────────────────────────────────────────────────────────────────
+// A pair or group of words, "a ~ b": the tilde is for the eye; a screen
+// reader hears "a with b" (Jony #107: it read "tilde").
+const LY_PAIR_SEP = '<span aria-hidden="true"> ~ </span><span class="ly-sr"> with </span>';
 function lyToolRhymes(model) {
   const T = 'rhymes',
     G = 'song';
@@ -5162,7 +5334,7 @@ function lyToolRhymes(model) {
     ? `<ul class="ly-links">${groups
         .map((g, k) => {
           const letter = lyFamilyLabel(k);
-          return `<li><label class="ly-check"><input type="radio" name="ly-link-group" value="${k}"${k === selGroup ? ' checked' : ''}><span class="ly-letter" data-g="${k % 6}">${letter}</span><span><strong>${letter} · declared ${esc(relName(c.relation))}</strong><small>${g.map((m) => (m.bad || m.undecided ? esc(m.raw) : `Line ${m.line} · ${esc(String(lyMemberWord(model, m) ?? 'missing').slice(0, 30))}`)).join(' ~ ')}</small></span></label></li>`;
+          return `<li><label class="ly-check"><input type="radio" name="ly-link-group" value="${k}"${k === selGroup ? ' checked' : ''}><span class="ly-letter" data-g="${k % 6}">${letter}</span><span><strong>${letter} · declared ${esc(relName(c.relation))}</strong><small>${g.map((m) => (m.bad || m.undecided ? esc(m.raw) : `Line ${m.line} · ${esc(String(lyMemberWord(model, m) ?? 'missing').slice(0, 30))}`)).join(LY_PAIR_SEP)}</small></span></label></li>`;
         })
         .join('')}</ul>`
     : '<p class="ly-help">No rhyme links declared.</p>';
@@ -5194,7 +5366,7 @@ function lyRhymeResults() {
     .map((p) => {
       const kind = p.refused ? 'refused' : p.codes.length ? 'partial' : 'matched';
       const word = kind === 'matched' ? 'Matched' : kind === 'partial' ? 'Partial' : 'Refused';
-      return `<li data-kind="${kind}">${lyPill(kind === 'matched' ? 'success' : kind === 'partial' ? 'warning' : 'danger', word)}<span><strong>${esc(p.a)} ~ ${esc(p.b)}</strong><small>${esc(p.refused ? p.reason || 'Not judged' : p.codes.length ? `Banned: ${p.codes.join(', ')}` : p.relations.join(', ') || 'no relation')}</small></span></li>`;
+      return `<li data-kind="${kind}">${lyPill(kind === 'matched' ? 'success' : kind === 'partial' ? 'warning' : 'danger', word)}<span><strong>${esc(p.a)}${LY_PAIR_SEP}${esc(p.b)}</strong><small>${esc(p.refused ? p.reason || 'Not judged' : p.codes.length ? `Banned: ${p.codes.join(', ')}` : p.relations.join(', ') || 'no relation')}</small></span></li>`;
     })
     .join('');
   return `<section class="ly-result" aria-labelledby="ly-rr-h"><h4 class="ly-h4" id="ly-rr-h">Rhyme options</h4><p class="ly-help">From the writer’s screen of ${esc(uiCount(r.pairs.length, 'pair'))}${stale ? ' · asked about an earlier version' : ''}. Nothing was inserted or declared.</p><ul class="ly-options">${rows || '<li>No pairs returned.</li>'}</ul></section>`;
@@ -5325,11 +5497,11 @@ function lyToolWordRules(model) {
     G = 'song';
   const d = lyDraftOf(T, G);
   const c = LY_FORMS[T].committed(model);
-  const list = (key, label, hint) => {
+  const list = (key, label, hint, addLabel) => {
     const values = lyVal(T, G, key, c[key]) || [];
-    return `<div class="ly-field"><h4 class="ly-label">${label}</h4>${values.map((w, i) => `<div class="ly-inline-field"><input class="cm-input" data-list="${key}" data-idx="${i}" value="${esc(w)}" aria-label="${label} ${i + 1}">${lyBtn('ly-word-remove', `Remove ${w || 'phrase'}`, 'x', { id: `${key}:${i}`, cls: 'cm-btn cm-btn-icon', hideLabel: true })}</div>`).join('')}<div class="ly-inline-field"><input class="cm-input" id="ly-${key}-new" placeholder="${hint}" aria-label="Add a ${label.toLowerCase().replace(/s$/, '')}">${lyBtn('ly-word-add', 'Add phrase', 'plus', { id: key, cls: 'cm-btn cm-btn-outline' })}</div></div>`;
+    return `<div class="ly-field"><h4 class="ly-label">${label}</h4>${values.map((w, i) => `<div class="ly-inline-field"><input class="cm-input" data-list="${key}" data-idx="${i}" value="${esc(w)}" aria-label="${label} ${i + 1}">${lyBtn('ly-word-remove', `Remove ${w || 'phrase'}`, 'x', { id: `${key}:${i}`, cls: 'cm-btn cm-btn-icon', hideLabel: true })}</div>`).join('')}<div class="ly-inline-field"><input class="cm-input" id="ly-${key}-new" placeholder="${hint}" aria-label="${addLabel}">${lyBtn('ly-word-add', 'Add phrase', 'plus', { id: key, cls: 'cm-btn cm-btn-outline' })}</div></div>`;
   };
-  return `<div class="ly-tool-view">${list('require', 'Required phrases', 'Add phrase…')}${list('avoid', 'Avoid phrases', 'Add phrase…')}${lyErrText(d, 'require')}<p class="ly-help">Checked on this page by exact wording. Blank entries are ignored; repeated entries are kept once. Title and hook are set in the Song brief.</p>${lyPendingStrip(T)}</div>`;
+  return `<div class="ly-tool-view">${list('require', 'Required phrases', 'Add phrase…', 'Add a required phrase')}${list('avoid', 'Avoid phrases', 'Add phrase…', 'Add an avoided phrase')}${lyErrText(d, 'require')}<p class="ly-help">Checked on this page by exact wording. Blank entries are ignored; repeated entries are kept once. Title and hook are set in the Song brief.</p>${lyPendingStrip(T)}</div>`;
 }
 
 // ── Review ────────────────────────────────────────────────────────────────
@@ -5413,7 +5585,7 @@ function lyRenderReview() {
   const suggestions = run.filter((i) => i.decision && !i.stale);
   const others = run.filter((i) => !i.decision);
   const w = lyWriterState();
-  let html = `<section class="ly-card" aria-labelledby="ly-cur-h"><div class="ly-rev-head"><h3 class="ly-h3" id="ly-cur-h">Current version · ${esc(lyShortId(lyIdentity(model)))}</h3>${lyPill(a.tone, a.label)}</div>${a.certified ? `<p>${lyPill('success', 'Certified for this version')}</p>` : ''}${a.earlier ? `<p class="ly-inline" data-tone="warning">${icon('triangle-alert', 16)}<span>Review running for earlier version. Its results will arrive as history.</span></p>` : ''}${a.state === 'stale' && LY.run?.resultModel ? `<p class="ly-help">${esc(lyIdentityDiff(LY.run.resultModel, model).join(', ') || 'The document')} changed since the review.</p>` : ''}${w.unknown ? `<p class="ly-help">Outcome unknown. Retrieve the saved result before starting another request.</p>${lyBtn('ly-retrieve', 'Retrieve saved result', 'refresh-cw', { cls: 'cm-btn cm-btn-primary ly-block' })}` : ''}${
+  let html = `<section class="ly-card" aria-labelledby="ly-cur-h"><div class="ly-rev-head"><h3 class="ly-h3" id="ly-cur-h">Review of this version <span class="ly-rev-id">· ${esc(lyShortId(lyIdentity(model)))}</span></h3>${lyPill(a.tone, a.label)}</div>${a.certified ? `<p>${lyPill('success', 'Certified for this version')}</p>` : ''}${a.earlier ? `<p class="ly-inline" data-tone="warning">${icon('triangle-alert', 16)}<span>Review running for earlier version. Its results will arrive as history.</span></p>` : ''}${a.state === 'stale' && LY.run?.resultModel ? `<p class="ly-help">${esc(lyIdentityDiff(LY.run.resultModel, model).join(', ') || 'The document')} changed since the review.</p>` : ''}${w.unknown ? `<p class="ly-help">Outcome unknown. Retrieve the saved result before starting another request.</p>${lyBtn('ly-retrieve', 'Retrieve saved result', 'refresh-cw', { cls: 'cm-btn cm-btn-primary ly-block' })}` : ''}${
     model.sung.length
       ? lyBtn('ly-run-review', 'Run review', 'play', {
           cls: 'cm-btn cm-btn-primary ly-block',
@@ -5518,7 +5690,7 @@ function lyRenderWriter() {
   } else if (w.waiting) {
     const item = (LY.items || []).find((i) => i.id === 'waiting');
     const lines = item?.answer || [0];
-    html += `<section class="ly-card" aria-labelledby="ly-ask-h"><h4 class="ly-h4" id="ly-ask-h">${esc(item?.title || 'The writer is waiting for an answer')}</h4>${item?.question ? `<p class="ly-quote">${esc(item.question)}</p>` : ''}${lines.map((n) => `<div class="ly-field"><label class="ly-label" for="ly-answer-${n}">${n ? `Your line ${n}` : 'Your answer'}</label><textarea id="ly-answer-${n}" class="cm-input" rows="2" data-answer="${n}">${esc(n ? lySungTexts(model)[n - 1] || '' : '')}</textarea></div>`).join('')}${lyBtn('ly-answer', 'Submit answer', 'send', { cls: 'cm-btn cm-btn-primary' })}<p class="ly-help">Sent to the same, still-waiting run.</p></section>`;
+    html += `<section class="ly-card" aria-labelledby="ly-ask-h"><h4 class="ly-h4" id="ly-ask-h">${esc(item?.title || 'The writer is waiting for an answer')}</h4>${item?.question ? `<p class="ly-quote" id="ly-ask-q">${esc(item.question)}</p>` : ''}${lines.map((n) => `<div class="ly-field"><label class="ly-label" for="ly-answer-${n}">${n ? `Your line ${n}` : 'Your answer'}</label><textarea id="ly-answer-${n}" class="cm-input" rows="2" data-answer="${n}"${item?.question ? ' aria-describedby="ly-ask-q"' : ''}>${esc(n ? lySungTexts(model)[n - 1] || '' : '')}</textarea></div>`).join('')}${lyBtn('ly-answer', 'Submit answer', 'send', { cls: 'cm-btn cm-btn-primary' })}<p class="ly-help">Sent to the same, still-waiting run.</p></section>`;
   } else if (w.parked)
     html += `<section class="ly-card" data-tone="warning"><p><strong>Parked with ${esc(uiCount((w.lyric.open || []).length, 'open line'))}</strong></p><p class="ly-help">The run stopped with lines unresolved. Answer in the conversation below, or start new work.</p></section>`;
   else if (!run)
@@ -5528,7 +5700,25 @@ function lyRenderWriter() {
     html += `<section class="ly-card"><p>${lyPill(st.tone || '', `Last reply: ${st.word}`)}</p><p class="ly-help">${esc(new Date(run.at).toLocaleTimeString())} · ${run.final ? esc(uiCount(run.final.length, 'line')) : 'no draft in this reply'}</p></section>`;
   }
   html += `<p class="ly-sr" id="ly-stage-live" aria-live="polite">${esc(LY.stageSaid || '')}</p>`;
-  lySetHtml(box, html, 'writer');
+  // Each card is its own view: a different card (the Resume/Start choice, an
+  // interrupted or parked run) always draws, even over a focused answer field;
+  // only a redraw of the same card keeps what is being typed.
+  const card = LY.conflict
+    ? 'conflict'
+    : w.busy
+      ? 'busy'
+      : w.unknown
+        ? 'unknown'
+        : w.interrupted || w.uncertain || w.capacity
+          ? 'interrupted'
+          : w.waiting
+            ? 'waiting'
+            : w.parked
+              ? 'parked'
+              : run
+                ? 'run'
+                : 'idle';
+  lySetHtml(box, html, `writer-${card}`);
   lyClock(w.busy);
 }
 // The clock ticks without re-rendering or announcing, and only while a
@@ -5687,18 +5877,112 @@ function lyRefresh(now = false) {
   lyRenderHistoryButtons();
   lyFindUpdate();
   lyInspectionRefresh();
+  lyRestoreFocus();
   const ui = lyMeta().ui;
   if (ui.tab !== LY.tab || ui.tool !== LY.tool || ui.outline !== LY.outline) {
     Object.assign(ui, { tab: LY.tab, tool: LY.tool, outline: LY.outline });
     lyMetaSaved();
   }
 }
+// ── Undo in the draft: the page's one history, a typing run per step ──────
+// The read layer redraws on every keystroke, and Chromium closes its native
+// typing group on any DOM change in the document, so the textarea's own undo
+// stepped back one character per press (Jony #79). Undo and Redo in the draft
+// (Ctrl+Z, Ctrl+Shift+Z or Ctrl+Y, the Edit menu) are therefore the toolbar's:
+// one history, where a run of typing is one step, closed by a pause, a switch
+// between typing and deleting, a paste, cut, drop or spelling replacement (each
+// a step of its own), a caret move, or leaving the draft. Moving text by
+// dragging it inside the draft is one step: its drop completes its removal.
+const LY_RUN_PAUSE_MS = 1000;
+const lyRun = { kind: '', next: '', timer: 0 };
+function lyCloseRun() {
+  clearTimeout(lyRun.timer);
+  lyRun.timer = 0;
+  if (!lyRun.kind) return;
+  lyRun.kind = '';
+  pushHistory();
+  lyRenderHistoryButtons();
+}
+// After an edit lands (uiSaveLyrics has run, so pushHistory sees it).
+function lyExtendRun() {
+  const kind = lyRun.next || 'insert';
+  lyRun.next = '';
+  clearTimeout(lyRun.timer);
+  lyRun.timer = 0;
+  if (kind === 'whole') {
+    lyRun.kind = '';
+    pushHistory();
+    lyRenderHistoryButtons();
+    return;
+  }
+  lyRun.kind = kind;
+  lyRun.timer = setTimeout(lyCloseRun, LY_RUN_PAUSE_MS);
+  lyRenderHistoryButtons();
+}
+// Before an edit: one of another kind closes the run it would otherwise join.
+function lyEditKind(type) {
+  return type === 'deleteByDrag'
+    ? 'drag'
+    : /^(insertFrom|insertReplacementText|deleteByCut)/.test(type)
+      ? 'whole'
+      : type.startsWith('delete')
+        ? 'delete'
+        : 'insert';
+}
+// One Undo or Redo, from the toolbar, the line menu or the keyboard in the
+// draft. It says what it did (Jony #76), and focus never falls to the page:
+// in the draft the caret lands where the change was; a toolbar button that has
+// just run out hands focus to the other one.
+function lyHistoryStep(redoing) {
+  const draft = lyDraft();
+  const from = document.activeElement;
+  const inDraft = !!draft && from === draft;
+  const before = draft ? draft.value : '';
+  lyCloseRun();
+  const at = app.historyIndex;
+  ($ui(redoing ? 'ui-redo' : 'ui-undo') || $ui(redoing ? 'btn-redo' : 'btn-undo'))?.click();
+  if (app.historyIndex === at) {
+    lyAnnounce(redoing ? 'Nothing to redo' : 'Nothing to undo');
+    return;
+  }
+  lyRefresh(true);
+  lyAnnounce(redoing ? 'Redone' : 'Undone');
+  if (inDraft) {
+    const after = draft.value;
+    let i = 0;
+    while (i < before.length && i < after.length && before[i] === after[i]) i++;
+    let j = 0;
+    while (
+      j < before.length - i &&
+      j < after.length - i &&
+      before[before.length - 1 - j] === after[after.length - 1 - j]
+    )
+      j++;
+    if (document.activeElement !== draft) draft.focus({ preventScroll: true });
+    draft.setSelectionRange(after.length - j, after.length - j);
+    lySyncCaret();
+    return;
+  }
+  const act = from?.dataset?.ui;
+  if (act !== 'ly-undo' && act !== 'ly-redo') return;
+  const a = document.activeElement;
+  if (from.isConnected && !from.disabled && a === from) return;
+  if (a && a !== document.body && a !== from && a.isConnected) return;
+  const scope = (from.isConnected && from.closest('[role="toolbar"]')) || $ui('ly-toolbar');
+  const same = scope?.querySelector(`[data-ui="${act}"]`);
+  const other = scope?.querySelector(`[data-ui="${act === 'ly-undo' ? 'ly-redo' : 'ly-undo'}"]`);
+  const next = [same, other].find((b) => b && !b.disabled && b.getClientRects().length);
+  if (next) next.focus();
+  else draft?.focus({ preventScroll: true });
+}
+// An open typing run is an Undo step not yet recorded, and it has already
+// taken the place of anything Redo could bring back.
 function lyRenderHistoryButtons() {
   document.querySelectorAll('[data-ui="ly-undo"]').forEach((button) => {
-    button.disabled = app.historyIndex <= 0;
+    button.disabled = app.historyIndex <= 0 && !lyRun.kind;
   });
   document.querySelectorAll('[data-ui="ly-redo"]').forEach((button) => {
-    button.disabled = app.historyIndex >= app.history.length - 1;
+    button.disabled = app.historyIndex >= app.history.length - 1 || !!lyRun.kind;
   });
 }
 function lyShowTab(tab, { focus = false } = {}) {
@@ -5707,7 +5991,9 @@ function lyShowTab(tab, { focus = false } = {}) {
   lyRefresh(true);
   if (focus) uiFocus($ui(`ly-tab-${tab}`));
 }
-function lyScrollToLine(n, { select = true } = {}) {
+// focus: false moves the caret and the view but leaves focus where it is
+// (the section stepper keeps it, so a second Enter is not typed into the song).
+function lyScrollToLine(n, { select = true, focus = true } = {}) {
   const model = LY.model;
   const row = model.sung[n - 1];
   if (!row) return;
@@ -5718,11 +6004,34 @@ function lyScrollToLine(n, { select = true } = {}) {
   if (select) {
     const rows = draft.value.split('\n');
     const start = rows.slice(0, row.i).reduce((t, r) => t + r.length + 1, 0);
-    draft.focus({ preventScroll: true });
-    draft.setSelectionRange(start + rows[row.i].length, start + rows[row.i].length);
+    const caret = start + rows[row.i].length;
+    if (focus) draft.focus({ preventScroll: true });
+    draft.setSelectionRange(caret, caret);
     lySyncCaret();
+    // A click that took focus off the draft lets the browser put its old
+    // selection back after the click returns: place the caret again then.
+    if (!focus)
+      requestAnimationFrame(() => {
+        if (document.activeElement === draft || draft.selectionStart === caret) return;
+        if (draft.value.length < caret) return;
+        draft.setSelectionRange(caret, caret);
+        lySyncCaret();
+      });
   }
   $ui('ly-overlay')?.querySelector(`.ly-r[data-n="${n}"]`)?.scrollIntoView?.({ block: 'center' });
+}
+function lyGotoSection(id, { focus = true } = {}) {
+  const s = LY.model.sections[Number(id)];
+  if (!s) return;
+  LY.railOpen = false;
+  if (s.sung.length) lyScrollToLine(s.sung[0].n, { focus });
+  else {
+    LY.mobile = 'song';
+    lyRefresh(true);
+    $ui('ly-overlay')
+      ?.querySelector(`.ly-r[data-i="${s.headerRow?.i ?? 0}"]`)
+      ?.scrollIntoView?.({ block: 'start' });
+  }
 }
 
 // ── The writer's replies ──────────────────────────────────────────────────
@@ -5806,6 +6115,37 @@ function lyReceive(payload, request) {
   });
   LY.progress = null;
   lyRefresh(true);
+  lyFocusQuestionSoon();
+}
+// A writer's question is answered in the Writer card's field, not the chat
+// box: when it arrives, focus goes there, unless the person is typing in the
+// document or another field of their own (the chat box and the controls that
+// sent the request are not that). After the shell's own reply handling,
+// which may focus the chat box.
+// The run reads as waiting only once the request has settled.
+function lyFocusQuestionSoon(tries = 0, seq = lyRunSeq) {
+  if (chatState.busy) {
+    if (tries < 300) setTimeout(() => lyFocusQuestionSoon(tries + 1, seq), 100);
+    return;
+  }
+  setTimeout(() => lyFocusQuestion(seq));
+}
+function lyFocusQuestion(seq) {
+  // Only for the reply that asked, and only while its card is what the
+  // Writer tab shows: a later reply or a choice the person opened since
+  // (new work over the waiting run, the review gate) is left alone.
+  if (seq !== lyRunSeq || LY.conflict || LY.gate || !lyWriterState().waiting) return;
+  const a = document.activeElement;
+  const typing =
+    a &&
+    a !== document.body &&
+    a.id !== 'chat-input' &&
+    (a.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName));
+  if (typing) return;
+  const field = () => document.querySelector('#ly-writer-status [data-answer]');
+  if (!field()?.getClientRects().length) lyShowTab('writer');
+  lyFocusWant = null;
+  uiFocus(field());
 }
 
 // What the writer is given as the document. [SETUP] rows stay in the stored
@@ -6132,11 +6472,11 @@ function lySyncDisplayMenu() {
   document
     .querySelectorAll('[data-ui="ly-text-size"]')
     .forEach((b) =>
-      b.setAttribute('aria-pressed', String(b.dataset.id === String(LY.prefs.size.get())))
+      b.setAttribute('aria-checked', String(b.dataset.id === String(LY.prefs.size.get())))
     );
   document
     .querySelector('[data-ui="ly-numbers"]')
-    ?.setAttribute('aria-pressed', String(!!LY.prefs.numbers.get()));
+    ?.setAttribute('aria-checked', String(!!LY.prefs.numbers.get()));
 }
 
 // ── Actions ───────────────────────────────────────────────────────────────
@@ -6185,6 +6525,13 @@ function lyCommitTitle(value) {
     'title',
     v ? [v] : [],
     v ? 'Title saved.' : 'Title removed. The song reads Untitled song.'
+  );
+}
+// Back from a tool lands on that tool's row, not the first one.
+function lyFocusToolRow(id) {
+  return (
+    uiFocus(uiFind('.ly-toolrow[data-ui="ly-tool"]', 'id', id)) ||
+    uiFocus(document.querySelector('.ly-toolrow'))
   );
 }
 function lyToolOpen(id) {
@@ -6458,20 +6805,10 @@ const LY_ACTIONS = {
         document.querySelector('#ly-sections .ly-sec') ||
           document.querySelector('.ly-outline-close')
       );
-    else uiFocus(document.querySelector('.ly-rail-btn'));
+    else uiFocus(lySectionsOpener());
   },
   'ly-goto'(id) {
-    const s = LY.model.sections[Number(id)];
-    if (!s) return;
-    LY.railOpen = false;
-    if (s.sung.length) lyScrollToLine(s.sung[0].n);
-    else {
-      LY.mobile = 'song';
-      lyRefresh(true);
-      $ui('ly-overlay')
-        ?.querySelector(`.ly-r[data-i="${s.headerRow?.i ?? 0}"]`)
-        ?.scrollIntoView?.({ block: 'start' });
-    }
+    lyGotoSection(id);
   },
   'ly-sec-step'(id) {
     const model = LY.model;
@@ -6480,7 +6817,15 @@ const LY_ACTIONS = {
       lySectionAtRow(model, LY.caretRow) ||
       model.sections[0];
     const k = Math.max(0, Math.min(model.sections.length - 1, (cur?.index ?? 0) + Number(id)));
-    LY_ACTIONS['ly-goto'](k);
+    lyGotoSection(k, { focus: false });
+    // The stepper was re-rendered: focus its replacement (or, at the first or
+    // last section, the position button) and say where the song now is.
+    const nav = $ui('ly-section-nav');
+    uiFocus(
+      nav?.querySelector(`[data-ui="ly-sec-step"][data-id="${id}"]:not(:disabled)`) ||
+        nav?.querySelector('.ly-sec-pos')
+    );
+    lyAnnounce(`${model.sections[k].title}, ${k + 1} of ${model.sections.length}`);
   },
   'ly-add-section'(name) {
     lyCloseMenus();
@@ -6503,6 +6848,7 @@ const LY_ACTIONS = {
       `Moved section ${d < 0 ? 'up' : 'down'}.`
     );
     if (LY.picks.formSec === k) LY.picks.formSec = k + d;
+    lyFocusSectionControl(k + d, `[data-ui="ly-sec-move"][data-id="${k + d}:${d}"]`);
   },
   'ly-sec-dup'(id) {
     const k = Number(id);
@@ -6513,6 +6859,7 @@ const LY_ACTIONS = {
         blocks[k].map((r) => ({ raw: r.raw, n: r.n }))
       );
     }, 'Duplicated the section after the original.');
+    lyFocusSectionControl(k + 1, '[data-ui="ly-sec-dup"]');
   },
   'ly-sec-remove'(id) {
     const k = Number(id);
@@ -6520,6 +6867,7 @@ const LY_ACTIONS = {
     lyEditSections(({ blocks }) => {
       blocks.splice(k, 1);
     }, `Removed ${title}. Undo restores it.`);
+    lyFocusSectionControl(Math.min(k, LY.model.sections.length - 1), '[data-ui="ly-sec-remove"]');
   },
   'ly-label-stanzas'() {
     lyEditSections(({ blocks }) => {
@@ -6533,13 +6881,21 @@ const LY_ACTIONS = {
   },
   'ly-tool'(id) {
     lyCloseMenus();
+    const from = LY.tool;
     if (LY.size === 'narrow' && id && id === LY.tool) id = '';
     lyToolOpen(id);
-    if (!id) uiFocus(document.querySelector('.ly-toolrow'));
+    if (!id) lyFocusToolRow(from);
+    // The tool's own heading, where it opened: the centre for a main tool.
     else if (LY.size !== 'narrow')
-      uiFocus(document.querySelector('.ly-tool-nav [data-ui="ly-tool"]'));
+      uiFocus(
+        document.querySelector(
+          LY_MAIN_TOOLS.includes(id) ? '#ly-tool-main .ly-view-head h3' : '.ly-tool-head h3'
+        )
+      );
   },
   'ly-line-tool'(id) {
+    // Chosen from the phone's Line actions menu: that menu is done.
+    lyCloseMenus();
     const [tool, n] = [id.split(':')[0], Number(id.split(':')[1])];
     const model = LY.model;
     if (tool === 'rhymes') LY.picks.linkLine = n;
@@ -6552,6 +6908,28 @@ const LY_ACTIONS = {
         : null;
     }
     lyToolOpen(tool);
+    // From the phone's Line actions menu the item that was pressed is gone
+    // with the menu: land on the opened tool, never on <body> — on the phone
+    // its expanded row ("Rhyme, expanded", the tool's body just under it),
+    // wider its heading. Focus the page has already placed is kept.
+    const a = document.activeElement;
+    if (!a || a === document.body || !a.isConnected || !a.getClientRects().length) {
+      const visible = (e) => e.getClientRects().length;
+      const row = [...document.querySelectorAll('#surface-lyrics .ly-toolrow')].find(
+        (e) => e.dataset.id === tool && e.getAttribute('aria-expanded') === 'true' && visible(e)
+      );
+      const h =
+        row ||
+        [
+          ...document.querySelectorAll(
+            '#surface-lyrics #ly-tool-main .ly-view-head h3, #surface-lyrics .ly-tool-head h3'
+          ),
+        ].find(visible);
+      if (h) {
+        if (h.tagName === 'H3' && !h.hasAttribute('tabindex')) h.tabIndex = -1;
+        uiFocus(h);
+      }
+    }
   },
   'ly-draft-apply'(tool) {
     const { applied } = lyDraftApplyTools(lyDraftTools(tool));
@@ -6907,7 +7285,15 @@ const LY_ACTIONS = {
     lyCommit(rows.join('\n'), 'Declaration removed.');
   },
   'ly-show-lines'(id) {
-    lyScrollToLine(Number(id));
+    const n = Number(id);
+    lyScrollToLine(n);
+    // Focus lands in the editor; say why.
+    const [first, ...more] = lyLineFindings(n);
+    lyAnnounce(
+      first
+        ? `Line ${n}: ${first.title}${first.text ? `. ${first.text}` : ''}${more.length ? `. ${uiCount(more.length, 'more finding')} on this line.` : ''}`
+        : `Line ${n}`
+    );
   },
   'ly-apply'(id) {
     const item = lyItem(id);
@@ -7017,10 +7403,10 @@ const LY_ACTIONS = {
     lyFindClose();
   },
   'ly-undo'() {
-    ($ui('ui-undo') || $ui('btn-undo'))?.click();
+    lyHistoryStep(false);
   },
   'ly-redo'() {
-    ($ui('ui-redo') || $ui('btn-redo'))?.click();
+    lyHistoryStep(true);
   },
   'ly-text-size'(id) {
     LY.prefs.size.set(id);
@@ -7037,6 +7423,67 @@ const LY_ACTIONS = {
     lyRefresh(true);
   },
 };
+
+// Most actions re-render the panel holding the control just pressed, and
+// focus falls to <body> with it. Every action pressed on this page therefore
+// runs through lyFocusRun: the control is remembered by its data-ui/data-id
+// and focused again once the render has run (lyRefresh ends with
+// lyRestoreFocus), or the heading of its view when the control is gone. An
+// action that moves focus on purpose keeps that, and the next key or pointer
+// press ends the wish.
+let lyFocusWant = null;
+// Section move, duplicate and remove place focus themselves (the moved row,
+// the duplicate, the neighbour at a removal or a boundary): a same-button
+// lookup must not stand in for that.
+const LY_FOCUS_OWN = new Set(['ly-sec-move', 'ly-sec-dup', 'ly-sec-remove']);
+function lyFocusFind(want) {
+  const scope = (want.scope && document.getElementById(want.scope)) || null;
+  const { ui, id } = want;
+  // Compared, not built into a selector: no CSS.escape (absent under jsdom).
+  const same = (e) => e.dataset.ui === ui && (id == null || e.dataset.id === String(id));
+  for (const root of [scope, $ui('surface-lyrics')]) {
+    const el =
+      root &&
+      [...root.querySelectorAll('[data-ui]')].find(
+        (e) => same(e) && !e.disabled && e.getClientRects().length
+      );
+    if (el) return el;
+  }
+  // Gone: the heading of the view it was in.
+  const head = scope?.querySelector('h3, h2');
+  if (head && !head.hasAttribute('tabindex')) head.tabIndex = -1;
+  return head;
+}
+function lyRestoreFocus() {
+  const want = lyFocusWant;
+  if (!want) return;
+  const a = document.activeElement;
+  if (a && a !== document.body && a.isConnected) return;
+  uiFocus(lyFocusFind(want));
+}
+function lyFocusRun(fn, id, button, e) {
+  if (!button?.closest?.('#surface-lyrics')) return fn(id, button, e);
+  lyFocusWant = {
+    ui: button.dataset.ui,
+    id: button.dataset.id ?? null,
+    scope: button.parentElement?.closest('[id]')?.id || '',
+  };
+  const settle = () => {
+    const a = document.activeElement;
+    // The action put focus somewhere on purpose: leave it there.
+    if (a && a !== button && a !== document.body && a.isConnected) lyFocusWant = null;
+    else lyRestoreFocus();
+  };
+  const out = fn(id, button, e);
+  if (out && typeof out.then === 'function') return out.finally(settle);
+  settle();
+  return out;
+}
+for (const name of Object.keys(LY_ACTIONS)) {
+  if (LY_FOCUS_OWN.has(name)) continue;
+  const fn = LY_ACTIONS[name];
+  LY_ACTIONS[name] = (id, button, e) => lyFocusRun(fn, id, button, e);
+}
 
 // Copy: a fulfilled browser write confirms; a failure leaves the exact text
 // selected on the page so it can still be copied by hand.
@@ -7156,7 +7603,35 @@ function lyWire(surface) {
     lySyncCaret();
     lyRenderEditor();
     lyRefresh();
+    lyExtendRun();
   });
+  draft.addEventListener('beforeinput', (e) => {
+    const type = e.inputType || '';
+    if (type === 'historyUndo' || type === 'historyRedo') {
+      e.preventDefault();
+      lyHistoryStep(type === 'historyRedo');
+      return;
+    }
+    const kind = lyEditKind(type);
+    // A drop that lands the text a drag just lifted out joins that removal.
+    const dropping = lyRun.kind === 'drag' && type === 'insertFromDrop';
+    if (!dropping && (kind === 'whole' || kind === 'drag' || (lyRun.kind && lyRun.kind !== kind)))
+      lyCloseRun();
+    lyRun.next = kind;
+  });
+  draft.addEventListener('keydown', (e) => {
+    const k = e.key.toLowerCase();
+    if (
+      (e.ctrlKey || e.metaKey) &&
+      !e.altKey &&
+      !e.isComposing &&
+      (k === 'z' || (k === 'y' && e.ctrlKey && !e.shiftKey))
+    ) {
+      e.preventDefault();
+      lyHistoryStep(k === 'y' || e.shiftKey);
+    } else if (/^(Arrow(Left|Right|Up|Down)|Home|End|PageUp|PageDown)$/.test(e.key)) lyCloseRun();
+  });
+  draft.addEventListener('pointerdown', lyCloseRun);
   // Keep an editor selection attached to its textarea on a mouse review,
   // including a collapsed caret retained after Tab has moved focus elsewhere.
   // Disabling the clicked Run button during send otherwise lets the browser
@@ -7177,9 +7652,14 @@ function lyWire(surface) {
     }
   });
   draft.addEventListener('blur', () => {
+    lyCloseRun();
     pushHistory();
     lyRenderEditor();
   });
+  // The person's next press, by key or pointer, ends any focus restore an
+  // action asked for (lyFocusRun): from then on focus is theirs.
+  for (const event of ['keydown', 'pointerdown'])
+    document.addEventListener(event, () => (lyFocusWant = null), true);
   let pointerFocusingDraft = false;
   document.addEventListener(
     'pointerdown',
@@ -7214,6 +7694,8 @@ function lyWire(surface) {
   });
   $ui('ly-find-input').addEventListener('input', (e) => {
     LY.find = { q: e.target.value, at: 0, open: true };
+    // Typing lands on the first match, so the first Enter goes to the second.
+    if (lyFindMatches().length) return lyFindStep(0);
     lyFindUpdate();
     lyRenderEditor();
   });
@@ -7295,6 +7777,17 @@ function lyWire(surface) {
     }
     if (e.target.closest('.ly-itabs, .ly-mnav')) return lyTabKeys(e);
     const menu = e.target.closest('.ly-menu');
+    // Tab (or Shift+Tab) leaves an open menu the way it leaves a menu button:
+    // the menu closes and focus moves on from its opener, the browser's own
+    // Tab step taking it from there.
+    if (menu && e.key === 'Tab' && !e.altKey && !e.ctrlKey && !e.metaKey) {
+      const opener =
+        (LY.menuOpener?.isConnected && LY.menuOpener) ||
+        document.querySelector(`#surface-lyrics [aria-controls="${menu.id}"]`);
+      lyCloseMenus();
+      opener?.focus({ preventScroll: true });
+      return;
+    }
     if (!menu || !['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(e.key)) return;
     const items = [...menu.querySelectorAll('button:not([disabled])')];
     const i = items.indexOf(e.target);
@@ -7340,7 +7833,12 @@ function lyWire(surface) {
     LY.picks.formSec = to;
   });
   document.addEventListener('click', (e) => {
-    if (LY.menu && !e.target.closest('.ly-menu-wrap')) lyCloseMenus();
+    if (!LY.menu || e.target.closest('.ly-menu-wrap')) return;
+    // Not a click elsewhere: a target the click's own action redrew away, or
+    // the page's history button clicked in code by a menu's Undo or Redo.
+    if (!e.target.isConnected) return;
+    if (!e.isTrusted && e.target.closest('#ui-undo, #ui-redo, #btn-undo, #btn-redo')) return;
+    lyCloseMenus();
   });
   // Read-only progress while a request runs (src/app.js _chatPollStart).
   document.addEventListener('chat-progress', (e) => {
@@ -7471,6 +7969,22 @@ function lyWire(surface) {
     true
   );
   document.addEventListener('selectionchange', () => rememberViewportPosition());
+  // On the phone layout, keyboard focus is never left under the line dock or
+  // the bottom tabs (WCAG 2.4.11): a control focused behind either scrolls
+  // into the band between them (Jony, #519). The draft keeps its own caret
+  // handling, and a control taller than the band is left where it is.
+  surface.addEventListener('focusin', (event) => {
+    const target = event.target;
+    if (LY.size !== 'narrow' || target === lyDraft()) return;
+    if (target.closest?.('#ly-linedock, #ly-mnav')) return;
+    const scroller = lyViewportScroller();
+    if (!scroller?.contains(target)) return;
+    const { top, bottom } = lyViewportBand(scroller);
+    const rect = target.getBoundingClientRect();
+    if (rect.height > bottom - top) return;
+    if (rect.bottom > bottom) scroller.scrollTop += rect.bottom - bottom + 8;
+    else if (rect.top < top) scroller.scrollTop -= top - rect.top + 8;
+  });
   const viewportResize = () => {
     if (window.visualViewport && window.visualViewport.scale !== 1) return;
     if (revealPending) return;
@@ -7529,7 +8043,27 @@ function lyWire(surface) {
   };
   window.addEventListener('resize', viewportResize);
   window.visualViewport?.addEventListener('resize', viewportResize);
-  rememberViewportPosition(true);
+  // A rotation or a resize can leave a focused control other than the draft
+  // (Find's field, a tool's input) off-screen (Jony #100): bring it back into
+  // view once the new layout has settled, as the draft's caret is above.
+  const revealFocused = () =>
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => {
+        const a = document.activeElement;
+        if (!a || a === lyDraft() || !surface.contains(a) || !a.getClientRects().length) return;
+        if (window.visualViewport && window.visualViewport.scale !== 1) return;
+        const r = a.getBoundingClientRect();
+        const v = window.visualViewport;
+        const top = v ? v.offsetTop : 0;
+        const bottom = top + (v ? v.height : innerHeight);
+        if (r.top < top || r.bottom > bottom || r.left < 0 || r.right > innerWidth)
+          a.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+      })
+    );
+  window.addEventListener('resize', revealFocused);
+  window.addEventListener('orientationchange', revealFocused);
+  // A hidden page has no reading position, and measuring for one lays it out.
+  if (!surface.hidden) rememberViewportPosition(true);
   const shellReceive = window.uiReceiveReply;
   if (!shellReceive.lyWrapped) {
     const wrapped = function (payload, request) {
@@ -7578,7 +8112,9 @@ uiRegisterPage({
     if (!ui.tool || LY_TOOLS.some((t) => t[0] === ui.tool)) LY.tool = ui.tool || '';
     if (typeof ui.outline === 'boolean') LY.outline = ui.outline;
     surface.innerHTML = lyMountMarkup();
-    LY.size = lySizeOf(surface.clientWidth || innerWidth);
+    // A hidden surface (every boot mount) has no width to read, and reading it
+    // would lay the page out; render() and the ResizeObserver size it on show.
+    if (!surface.hidden) LY.size = lySizeOf(surface.clientWidth || innerWidth);
     $ui('ly-page').dataset.size = LY.size;
     lyWire(surface);
     // Opening the page is a boundary (the shell's own opens have already
@@ -7656,15 +8192,14 @@ uiRegisterPage({
     if (LY.railOpen) {
       LY.railOpen = false;
       lyRefresh(true);
-      return uiFocus(
-        document.querySelector('.ly-rail-btn') || document.querySelector('.ly-sec-pos')
-      );
+      return uiFocus(lySectionsOpener());
     }
     if (LY.gate) return LY_ACTIONS['ly-gate-close']();
     if (LY.tool && LY.size !== 'narrow') {
+      const from = LY.tool;
       LY.tool = '';
       lyRefresh(true);
-      return uiFocus(document.querySelector('.ly-toolrow'));
+      return lyFocusToolRow(from);
     }
   },
   actions: LY_ACTIONS,

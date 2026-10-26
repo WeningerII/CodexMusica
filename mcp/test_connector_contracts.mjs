@@ -28,6 +28,22 @@ async function local(task) {
   return { server, client, close: () => client.close() };
 }
 
+test('a missing seed names where one comes from', async () => {
+  const c = await local({ domain: 'lyrics' });
+  try {
+    for (const name of ['lyric_plan', 'lyric_grade']) {
+      const text = await c.client.callTool({ name, arguments: {} }).then(
+        (r) => JSON.stringify(r),
+        (e) => e.message
+      );
+      assert.match(text, /seed is required: use one from lyric_sweep's accepted seeds/, name);
+      assert.doesNotMatch(text, /expected number, received undefined/, name);
+    }
+  } finally {
+    await c.close();
+  }
+});
+
 test('sweep applies advertised dotted predicates and leaves vocabulary refusal to the harness', async () => {
   const c = await local({ domain: 'lyrics' });
   const sweep = (want) =>
@@ -926,6 +942,49 @@ test('an undeclared argument is refused by name on every server, a retired one i
     await raw.close();
     await client.close();
     await shared.close();
+  }
+});
+
+// The shared /mcp surface hands start_recipe's caller-managed workspace back in
+// the first block on purpose (existing consumers read it there). Its own
+// instructions say so, rather than claiming every block withholds the workspace;
+// a session-only surface withholds it and says nothing about an exception.
+test('the session guide names the one block that carries the workspace', async () => {
+  const { buildWorkflowServer } = await import('./workflow_tools.js');
+  const { WorkflowSessions } = await import('./workflow_sessions.js');
+  const { JobStore } = await import('./job_store.js');
+  for (const compatibility of [true, false]) {
+    const server = await buildWorkflowServer({
+      domain: compatibility ? null : 'recipe',
+      sessions: new WorkflowSessions({ store: new JobStore() }),
+      compatibility,
+    });
+    const [a, b] = InMemoryTransport.createLinkedPair();
+    await server.connect(a);
+    const client = new Client({ name: 'guide-workspace', version: '1' }, { capabilities: {} });
+    await client.connect(b);
+    try {
+      const opened = await client.callTool({
+        name: 'start_recipe',
+        arguments: { traditions: ['bluegrass'] },
+      });
+      const carries = 'workspace' in JSON.parse(opened.content[0].text);
+      assert.equal(
+        carries,
+        compatibility,
+        `start_recipe workspace, compatibility=${compatibility}`
+      );
+      assert.equal(
+        /private state withheld \(workspace, except start_recipe's, run state/.test(
+          client.getInstructions()
+        ),
+        carries,
+        `the guide names the exception exactly when it holds, compatibility=${compatibility}`
+      );
+    } finally {
+      await client.close();
+      await server.close();
+    }
   }
 });
 

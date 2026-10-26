@@ -1,5 +1,5 @@
-/* global CODEX_DEFER_BOOT, UI, UI_ICONS, UI_PAGES, UILayout, uiAddGenre, uiAfterPaint, uiChatSessions, uiLyricsOpened, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
-/* exported INSTRUMENT_FILTER_PILLS, RECIPE_FORMATS, STARTER_TRADITIONS, addInstrumentFromPicker, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, passesInstrumentFilter, surpriseTradition, lyricMetaOf, _chatSend, uiEnsureWorkspace, _whenWorkspace, _releaseEngine */
+/* global uiMotion, CODEX_DEFER_BOOT, UI, UI_ICONS, UI_PAGES, UILayout, uiAddGenre, uiAfterPaint, uiChatSessions, uiLyricsOpened, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
+/* exported INSTRUMENT_FILTER_PILLS, RECIPE_FORMATS, STARTER_TRADITIONS, addInstrumentFromPicker, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, passesInstrumentFilter, surpriseTradition, lyricMetaOf, _chatSend, uiEnsureWorkspace, _whenWorkspace, _releaseEngine, searchRank */
 
 
 // ============================================================
@@ -2197,9 +2197,10 @@ const _CARD_TRANSIENTS = { drift: null, stackPanel: null, editingPart: null, edi
 //   MODAL_FOCUS_DELAY — wait for the modal to paint before focusing
 //     its first input. Browsers won't accept focus on an element that's
 //     still mid-transition; ~60 ms covers the common compositor delay.
-//   TOAST_LIFETIME — how long a toast stays on screen before fading.
-//     Long enough to read a short message at glance speed, short enough
-//     that a rapid sequence of operations doesn't pile up toasts.
+//   TOAST_LIFETIME — the unit toast timing is measured in. An action toast
+//     stays three units; any other timed toast stays about a second per 15
+//     characters, at least 4 s and at most three units (showToast). Errors
+//     do not time out.
 const UI_TIMING_MS = {
   PREFACE_SHIFT: 800,
   MODAL_FOCUS_DELAY: 60,
@@ -2424,7 +2425,7 @@ async function importTraditionWithFeedback(tradId, opts) {
   // and would cover a card scrolled to the very top of the list.
   setTimeout(() => {
     const elc = document.querySelector(`[data-card-id="${created[0].id}"]`);
-    if (elc) elc.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (elc) elc.scrollIntoView({ behavior: uiMotion(), block: 'center' });
   }, 60);
   return created;
 }
@@ -13624,7 +13625,9 @@ function renderReachabilityFan(card, section) {
   }).join('');
   wrap.querySelectorAll('[data-fan-preface-id]').forEach(function (btn) {
     btn.addEventListener('click', function () {
-      commitPrefaceChange(card, btn.dataset.fanPrefaceId);
+      const id = btn.dataset.fanPrefaceId;
+      commitPrefaceChange(card, id);
+      _refocusPreface(card.id, { chip: id });
     });
   });
   section.appendChild(wrap);
@@ -13708,6 +13711,19 @@ const _recentShiftsByCard = new Map();
 // modal, sanitizing the input field) handle those concerns before calling
 // here. This function only owns the inverse-apply-history-render-toast
 // sequence common across all entry points.
+// A preface commit redraws the card (rerenderCard), so the control that made
+// it is gone. Focus goes to the same control on the redrawn card, found by
+// card id and dataset, never a stale node: the chip of that preface, else
+// `control`, else the Character input. Never BODY.
+function _refocusPreface(cardId, { chip = '', control = '.preface-input' } = {}) {
+  const sec = [...document.querySelectorAll('.preface-section')].find(
+    s => s.querySelector('.preface-input')?.dataset.cardId === cardId);
+  if (!sec) return;
+  const shown = el => el && el.isConnected && el.getClientRects().length;
+  const pick = chip && [...sec.querySelectorAll('[data-fan-preface-id]')].find(b => b.dataset.fanPrefaceId === chip);
+  const target = [pick, sec.querySelector(control), sec.querySelector('.preface-input')].find(shown);
+  if (target) target.focus({ preventScroll: true });
+}
 function commitPrefaceChange(card, prefaceId) {
   if (!card || !prefaceId) return;
   const result = (typeof inverseConfigureForPreface === 'function')
@@ -14615,7 +14631,7 @@ async function delWS(key){
    const list=await readListStrict();
    await window.storage.delete(key);
    await window.storage.set('codex:list',JSON.stringify(list.filter(w=>w.key!==key)));
- });renderSaved();showToast('Deleted','success');}catch(e){console.error(e);showToast('Deletion did not finish. Refresh Saved to check its state.','error');}
+ });await renderSaved();showToast('Deleted','success');return true;}catch(e){console.error(e);showToast('Deletion did not finish. Refresh Saved to check its state.','error');return false;}
 }
 
 // ---- Modals ----
@@ -14645,7 +14661,13 @@ function openModal(id) {
   bg.classList.add('open');
   bg._trapHandler = (e) => _trapTab(e, bg.querySelector('.modal') || bg);
   bg.addEventListener('keydown', bg._trapHandler);
-  setTimeout(() => {
+  // The first focus waits for the opening transition. It is dropped if the
+  // dialog closed meanwhile, or if focus was already placed inside it on
+  // purpose; a reopen cancels the older timer.
+  clearTimeout(bg._focusTimer);
+  bg._focusTimer = setTimeout(() => {
+    bg._focusTimer = null;
+    if (!bg.classList.contains('open') || bg.contains(document.activeElement)) return;
     const i = bg.querySelector('input[type=search], input[type=text]');
     (i || _focusables(bg)[0] || bg).focus();
   }, UI_TIMING_MS.MODAL_FOCUS_DELAY);
@@ -14655,8 +14677,9 @@ function closeModal(id) {
   const bg = document.getElementById(id);
   if (!bg) return;
   bg.classList.remove('open');
+  clearTimeout(bg._focusTimer); bg._focusTimer = null;
   if (bg._trapHandler) { bg.removeEventListener('keydown', bg._trapHandler); bg._trapHandler = null; }
-  if (_modalReturnFocus && typeof _modalReturnFocus.focus === 'function' && document.contains(_modalReturnFocus) && _modalReturnFocus.getClientRects().length) {
+  if (_modalReturnFocus && _modalReturnFocus !== document.body && typeof _modalReturnFocus.focus === 'function' && document.contains(_modalReturnFocus) && _modalReturnFocus.getClientRects().length) {
     _modalReturnFocus.focus();
   }else if(typeof UI!=='undefined'&&UI.ready){document.querySelector('[data-ui="menu"]')?.focus();}
   _modalReturnFocus = null;
@@ -14734,6 +14757,68 @@ function confirmDialog(opts) {
 // ---- Toast ----
 let toastT = null;
 let toastSeq = 0; // counts toasts, so a caller can tell whether its own is still up
+// An action toast sits at the end of the page, a hundred Tabs away, so
+// F8 jumps to its action (never while typing in a field); the toast's
+// hidden text says so. The shortcut is a convenience, not the only way: an
+// error toast with an action (Retry) does not time out, so Tab reaches it, and
+// it carries a Dismiss button. A timed toast's timer waits while the action is
+// hovered or focused, and when a toast that holds focus goes (timeout or
+// replacement), focus goes back to where it was before it entered the toast.
+let toastDeadline = 0, toastLeft = 0, toastHeld = 0, toastTimed = false, toastReturn = null;
+// F8: Alt+Shift+T is the browser's own focus-toolbar key on Windows, Linux
+// and ChromeOS, and types a character on macOS.
+const TOAST_KEY_LABEL = 'F8';
+function _toastRestoreFocus(t) {
+  const back = toastReturn;
+  toastReturn = null;
+  if (!t.contains(document.activeElement)) return;
+  if (back && back !== document.body && back.isConnected && !t.contains(back) && typeof back.focus === 'function') back.focus({ preventScroll: true });
+  else document.activeElement.blur();
+}
+function _toastArm(t, ms) {
+  if (toastT) clearTimeout(toastT);
+  toastDeadline = Date.now() + ms;
+  toastT = setTimeout(() => hideToast(t), ms);
+}
+function _toastHold(t, on) {
+  if (!t.classList.contains('show') || !toastTimed) return;
+  const was = toastHeld > 0;
+  toastHeld = Math.max(0, toastHeld + (on ? 1 : -1));
+  if (!was && toastHeld) {
+    clearTimeout(toastT);
+    toastT = null;
+    toastLeft = Math.max(0, toastDeadline - Date.now());
+  } else if (was && !toastHeld) {
+    _toastArm(t, Math.max(toastLeft, 1500));
+    toastLeft = 0;
+  }
+}
+function _toastWire(t) {
+  if (t._wired) return;
+  t._wired = true;
+  t.addEventListener('focusin', (e) => {
+    if (!t.contains(e.relatedTarget)) {
+      if (!toastReturn && e.relatedTarget && !t.contains(e.relatedTarget)) toastReturn = e.relatedTarget;
+      _toastHold(t, true);
+    }
+  });
+  t.addEventListener('focusout', (e) => { if (!t.contains(e.relatedTarget)) _toastHold(t, false); });
+  t.addEventListener('mouseover', (e) => { if (!t.contains(e.relatedTarget)) _toastHold(t, true); });
+  t.addEventListener('mouseout', (e) => { if (!t.contains(e.relatedTarget)) _toastHold(t, false); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'F8' || e.altKey || e.shiftKey || e.ctrlKey || e.metaKey) return;
+    if (e.defaultPrevented || e.isComposing) return;
+    // Never take a keystroke from text entry.
+    const a = document.activeElement;
+    if (a && (a.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName))) return;
+    const b = t.classList.contains('show') && t.querySelector('.toast-action');
+    if (!b) return;
+    e.preventDefault();
+    // A second press from inside the toast keeps the original way back.
+    if (!t.contains(a)) toastReturn = a;
+    b.focus();
+  }, true);
+}
 function showToast(msg, kind, action, opts) {
   // kind: undefined (default neutral), 'success' (green w/ check icon),
   // 'error' (red w/ alert-circle icon). Icon emoji is part of the toast
@@ -14741,6 +14826,12 @@ function showToast(msg, kind, action, opts) {
   // action: optional { label, run } — one labelled button (Undo, Retry) that
   // keeps the toast up long enough to be reached and runs once.
   const t = document.getElementById('toast');
+  _toastWire(t);
+  // A replacement takes the focused action with it: hand focus back first.
+  _toastRestoreFocus(t);
+  toastHeld = 0;
+  toastLeft = 0;
+  toastTimed = false;
   t.classList.remove('toast-success', 'toast-error', 'has-action');
   if (kind === 'success') {
     t.innerHTML = `${icon('check')}<span>${esc(msg)}</span>`;
@@ -14756,22 +14847,60 @@ function showToast(msg, kind, action, opts) {
     b.type = 'button';
     b.className = 'toast-action';
     b.textContent = action.label;
+    // hideToast hands focus back before the action runs, so focus the action
+    // places on purpose (an Undo that refocuses) is never overridden.
     b.addEventListener('click', () => { hideToast(t); action.run(); }, { once: true });
-    t.appendChild(b);
+    const hint = document.createElement('span');
+    hint.className = 'sr-only toast-hint';
+    // A message that already ends a sentence gets no second full stop.
+    hint.textContent = `${/[.!?…]$/.test(String(msg).trim()) ? ' ' : '. '}${TOAST_KEY_LABEL} reaches ${action.label}. `;
+    t.append(hint, b);
+    t.classList.add('has-action');
+  }
+  // Every error waits for its user (WCAG 2.2.1): no timeout, a Dismiss
+  // button, and the next toast replaces it. With no other action, Dismiss is
+  // what F8 reaches.
+  if (kind === 'error') {
+    if (!t.querySelector('.toast-hint')) {
+      const hint = document.createElement('span');
+      hint.className = 'sr-only toast-hint';
+      hint.textContent = `${/[.!?…]$/.test(String(msg).trim()) ? ' ' : '. '}${TOAST_KEY_LABEL} reaches Dismiss. `;
+      t.append(hint);
+    }
+    const x = document.createElement('button');
+    x.type = 'button';
+    x.className = 'toast-action toast-dismiss';
+    x.textContent = 'Dismiss';
+    x.addEventListener('click', () => hideToast(t), { once: true });
+    t.append(x);
     t.classList.add('has-action');
   }
   t.classList.add('show');
   if (toastT) clearTimeout(toastT);
+  toastT = null;
   // opts.sticky: a status that lasts as long as what it reports; its caller
   // takes it down (engineReady).
-  toastT = opts && opts.sticky ? null : setTimeout(() => hideToast(t), UI_TIMING_MS.TOAST_LIFETIME * (action ? 3 : 1));
+  // An error waits for its user: no timeout, so Tab reaches it without the
+  // shortcut; Dismiss or the next toast takes it down. Any other toast stays
+  // long enough to read: about a second per 15 characters, at least 4 s, and
+  // never longer than an action toast's lifetime.
+  toastTimed = !(opts && opts.sticky) && kind !== 'error';
+  const longest = UI_TIMING_MS.TOAST_LIFETIME * 3;
+  const readable = Math.min(longest, Math.max(4000, Math.ceil(String(msg).length / 15) * 1000));
+  if (toastTimed) _toastArm(t, action ? longest : readable);
   return ++toastSeq;
 }
 // The action leaves with the toast. Left behind at opacity 0 it would still
 // take a click at bottom centre and run Undo or Retry unseen.
 function hideToast(t) {
+  if (toastT) clearTimeout(toastT);
+  toastT = null;
+  toastHeld = 0;
+  toastLeft = 0;
+  toastTimed = false;
+  _toastRestoreFocus(t);
   t.classList.remove('show', 'has-action');
-  t.querySelector('.toast-action')?.remove();
+  t.querySelectorAll('.toast-action, .toast-hint').forEach((n) => n.remove());
 }
 
 // ---- Clipboard helper ----
@@ -14825,10 +14954,12 @@ function esc(s) { return s == null ? '' : String(s).replace(/&/g, '&amp;').repla
 //
 // Matches the CSS on WIDTH ALONE, deliberately: gating on `pointer: coarse`
 // would let a narrow desktop window take the phone layout while the JS still
-// mounted the detail in the desktop pane.
-const MOBILE_MAX_WIDTH = 899;
+// mounted the detail in the desktop pane. The same (max-width: 899px) query
+// the CSS uses, so the JS and the cascade never disagree at a fractional width.
 function isMobileLayout() {
-  return window.innerWidth <= MOBILE_MAX_WIDTH;
+  // UILayout is the shell's (src/layout.js); the engine harnesses load this
+  // file without it, and the width rule is the same either way.
+  return typeof UILayout === 'undefined' ? window.innerWidth <= 899 : !UILayout.wide();
 }
 
 function renderAll() {
@@ -15065,6 +15196,10 @@ function renderSidebarTraditions() {
   // The key lives on the element, so replacing the host (or reloading) loses it
   // and the next render repaints — a cache miss, never a stale tree.
   if (host._codexTreeHtml === treeHtml) return;
+  // Phone: the tree (and the editor inside it) is torn down and rebuilt in
+  // place; the box that scrolls it is put back where it was (Jony #117: a
+  // variant or part-row tap threw the Recipe sheet back up the list).
+  const keep = _treeScrollKeep(host);
   host.innerHTML = treeHtml;
   host._codexTreeHtml = treeHtml;
 
@@ -15132,6 +15267,7 @@ function renderSidebarTraditions() {
       e.stopPropagation();
       if (b.disabled) return;
       _moveTraditionGroup(b.dataset.moveTradUp, -1);
+      _refocusTree([() => _treeGenreControl(b.dataset.moveTradUp)]);
     });
   });
   host.querySelectorAll('[data-move-trad-down]').forEach(b => {
@@ -15139,6 +15275,7 @@ function renderSidebarTraditions() {
       e.stopPropagation();
       if (b.disabled) return;
       _moveTraditionGroup(b.dataset.moveTradDown, +1);
+      _refocusTree([() => _treeGenreControl(b.dataset.moveTradDown)]);
     });
   });
   // Make primary: the same splice a drop above the first genre performs
@@ -15152,6 +15289,7 @@ function renderSidebarTraditions() {
       if (!dropTraditionOnTradition(tradId, movableKeys[0], true)) return;
       if (typeof pushHistory === 'function') pushHistory();
       renderAll();
+      _refocusTree([() => _treeGenreControl(tradId)]);
       const t = Tradition(tradId);
       showToast((t ? t.name : tradId) + ' is now the primary genre', 'success');
     });
@@ -15167,6 +15305,7 @@ function renderSidebarTraditions() {
       const trad = Tradition(tradId);
       const tradName = (trad && trad.name) || tradId;
       const cards = app.cards.filter(c => c.traditionId === tradId);
+      const successors = _treeGenreSuccessorsOf(tradId);
       // Blur immediately so the focus-ring + hover-state release before the
       // modal paints — otherwise the button can appear "stuck" in danger-red.
       b.blur();
@@ -15179,6 +15318,7 @@ function renderSidebarTraditions() {
       if (!ok) return;
       for (const c of cards) rmCard(c.id, { skipHistory: true });
       if (typeof pushHistory === 'function') pushHistory();
+      _refocusTree([...successors, ..._treeSuccessorsOf(null)]);
       showToast(`Removed ${tradName} (${cards.length} card${cards.length === 1 ? '' : 's'})`, 'success');
     });
   });
@@ -15216,10 +15356,14 @@ function renderSidebarTraditions() {
       if (!card) return;
       const row = b.closest('.sb-card-row');
       const rowButton = row && row.querySelector('.sb-card');
+      // Read before the action rebuilds the tree (see _refocusTree).
+      const successors = action === 'delete' ? _treeSuccessorsOf(cardId) : null;
+      const known = new Set(app.cards.map(c => c.id));
       if (action === 'edit') {
         // On a phone the open row IS the editor; tapping Edit again keeps it.
         if (isMobileLayout() && app.selected === cardId) { _revealSelectedCard(); return; }
         if (rowButton) rowButton.click();
+        _refocusTree([_treeEditorHeading, () => _treeCardControl(cardId, 'edit')]);
       } else if (action === 'drift') {
         // Variations render inside the editor, so open it on this card first.
         if (app.selected !== cardId && rowButton) rowButton.click();
@@ -15230,6 +15374,11 @@ function renderSidebarTraditions() {
         handleAction('move-genre', card, (row && row.querySelector('[data-menu-toggle]')) || b);
       } else {
         handleAction(action, card, b);
+        if (action === 'delete') _refocusTree(successors);
+        else if (action === 'duplicate') {
+          const copy = app.cards.find(c => !known.has(c.id));
+          _refocusTree([() => copy && _treeCardControl(copy.id, 'more'), () => _treeCardControl(cardId, 'more')]);
+        } else if (action === 'pin') _refocusTree([() => _treeCardControl(cardId, 'more')]);
       }
     });
   });
@@ -15251,6 +15400,46 @@ function renderSidebarTraditions() {
     host.querySelectorAll('.sb-card').forEach(b => b.setAttribute('aria-expanded', 'false'));
     renderDetail();
   }
+  keep();
+}
+
+// Returns a function that puts the box scrolling the phone tree (the Recipe
+// sheet's #sidebar-scroll, or the page) back after a rebuild, which can clamp
+// its scrollTop. The control just tapped (a variant chip, or the part or
+// environment row it opened) is held where it was on screen, so a header that
+// rewraps above it cannot move it; failing that, the scroll offset is put back.
+// One render can nest another (the tree remounts the editor): the first hold
+// of a frame wins.
+const _KEEP_KEYS = ['data-toggle-part', 'data-toggle-env', 'data-set-part', 'data-variant', 'data-edit-chain'];
+let _treeHold = false;
+function _treeScrollKeep(el) {
+  // Only while the Recipe sheet is open: measuring a closed tree (at boot, say)
+  // would force a layout for nothing a person can see.
+  if (!document.body.classList.contains('session-open') || !isMobileLayout() || !el || _treeHold)
+    return () => {};
+  const box = _dndScrollParent(el) || document.scrollingElement;
+  if (!box) return () => {};
+  _treeHold = true;
+  requestAnimationFrame(() => { _treeHold = false; });
+  const top = box.scrollTop;
+  const a = document.activeElement;
+  const card = app.cards.find(c => c.id === app.selected);
+  let key = a && a !== box && box.contains(a)
+    ? _KEEP_KEYS.filter(k => a.hasAttribute(k)).map(k => `[${k}="${CSS.escape(a.getAttribute(k))}"]`).join('')
+    : '';
+  if (!key && card && card.editingPart) key = `[data-toggle-part="${CSS.escape(card.editingPart)}"]`;
+  else if (!key && card && card.editingEnv) key = `[data-toggle-env="${CSS.escape(card.editingEnv)}"]`;
+  const from = key && box.querySelector(key);
+  const was = from ? from.getBoundingClientRect().top : 0;
+  const keep = () => {
+    if (!box.isConnected) return;
+    if (Math.abs(box.scrollTop - top) > 1) box.scrollTop = top;
+    const now = from && box.querySelector(key);
+    if (now) box.scrollTop += now.getBoundingClientRect().top - was;
+  };
+  // A held control is held again before the next paint: uiSync puts the
+  // editor's Close bar back after this render.
+  return () => { keep(); if (from) requestAnimationFrame(keep); };
 }
 
 function renderSidebarCard(card) {
@@ -15488,7 +15677,7 @@ function renderSidebarRecipePreview() {
         'aria-label="' + (isOpen ? 'Show less of the recipe' : 'Show all of the recipe') + '">' + icon('chevron-down', 16) + '</button>' +
     '</div>' +
     (text
-      ? '<div class="rp-text" aria-labelledby="rp-label" tabindex="0">' + esc(text) + '</div>'
+      ? '<div class="rp-text" role="region" aria-label="Recipe text" tabindex="0">' + esc(text) + '</div>'
       : '<div class="rp-empty">Nothing configured yet.</div>') +
     '<button type="button" class="rp-open" id="sb-open-full-stack">Open full recipe ' + icon('arrow-right', 14) + '</button>';
 
@@ -15544,8 +15733,10 @@ function renderDetail() {
   const host = document.getElementById('workspace-detail');
   if (!host) return;
 
-  // Remove any previous detail view
+  // Remove any previous detail view (on a phone, keeping the scroll of the
+  // tree it sits in: see _treeScrollKeep)
   const existing = document.getElementById('detail-view');
+  const keep = existing ? _treeScrollKeep(existing) : () => {};
   if (existing) existing.remove();
 
   // No workspace content, no detail. The shell's Your recipe panel says what
@@ -15577,6 +15768,11 @@ function renderDetail() {
   view.id = 'detail-view';
   view.className = 'detail-view';
   view.dataset.cardId = card.id;
+  // The editor is a region named for its card, so it is on the landmark list
+  // and a person can jump back to it (Jony #125); it travels with the view
+  // into the tree on a phone.
+  view.setAttribute('role', 'region');
+  view.setAttribute('aria-label', 'Edit ' + (inst.short || inst.name));
   view.style.setProperty('--family-tint', familyTint);
 
   view.appendChild(renderDetailBreadcrumb(card, inst));
@@ -15612,6 +15808,7 @@ function renderDetail() {
   } else {
     host.appendChild(view);
   }
+  keep();
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -15809,6 +16006,9 @@ function openMoveToGenreMenu(card, anchor) {
     if (!dropCardOnTradition(card.id, targetId)) return;
     if (typeof pushHistory === 'function') pushHistory();
     renderAll();
+    // The card, in its new genre (the anchor close() focused was rebuilt
+    // away); that genre's name when it is collapsed and the card is hidden.
+    _refocusTree([() => _treeCardControl(card.id, 'more'), () => _treeGenreControl(targetId, 'toggle')]);
     if (typeof showToast === 'function') {
       const t = Tradition(targetId);
       showToast('Moved to ' + (t ? t.name : targetId), 'success');
@@ -16075,6 +16275,84 @@ function _detailAnchorFor(cardId) {
   return [...tree.querySelectorAll('.sb-card')].find(b => b.dataset.cardId === cardId) || null;
 }
 
+// ── Tree focus (Jony #15, #519) ──
+// Every recipe-tree action ends in a rebuild of #sidebar-traditions, which
+// replaces the control the keyboard was on — the menu item, its row, the
+// "Move to genre…" anchor — so focus fell to <body> and the next Tab started
+// over. After an action, _refocusTree puts focus on the first of `targets`
+// (thunks read after the rebuild) that the rebuilt tree shows. It acts only
+// when focus was actually lost: a dialog, the editor or a page that took focus
+// on its own keeps it.
+function _treeFocusLost() {
+  const a = document.activeElement;
+  return !a || a === document.body || !a.isConnected;
+}
+// A card's control in the rebuilt tree: 'more' (its … menu), 'edit' or 'card'.
+function _treeCardControl(cardId, control) {
+  const card = _detailAnchorFor(cardId);
+  if (!card || control === 'card') return card;
+  const row = card.closest('.sb-card-row');
+  return row && row.querySelector(control === 'edit' ? '.sb-card-edit' : '.sb-more');
+}
+// A genre's control in the rebuilt tree: 'menu' (its … menu) or 'toggle'
+// (its name, which collapses it — the one control a collapsed genre shows
+// for the cards inside it).
+function _treeGenreControl(tradId, control) {
+  const tree = document.getElementById('sidebar-traditions');
+  const group = tree && [...tree.querySelectorAll('.sb-tradition-group')].find(g => g.dataset.traditionId === tradId);
+  return group && group.querySelector(control === 'toggle' ? '.sb-tradition-toggle' : '.sb-tradition-header [data-menu-toggle]');
+}
+// Where focus goes after `cardId` leaves the tree, read BEFORE it leaves:
+// the next card in its genre, then the previous one, then that genre's "Add
+// instrument", then the nearest card anywhere, then the empty recipe's first
+// control.
+function _treeSuccessorsOf(cardId) {
+  const tree = document.getElementById('sidebar-traditions');
+  const ids = tree ? [...tree.querySelectorAll('.sb-card')].map(b => b.dataset.cardId) : [];
+  const card = app.cards.find(c => c.id === cardId);
+  const genre = card ? card.traditionId || null : null;
+  const inGenre = (id) => (app.cards.find(c => c.id === id) || {}).traditionId === genre;
+  const at = ids.indexOf(cardId);
+  const after = at < 0 ? [] : ids.slice(at + 1);
+  const before = at < 0 ? [] : ids.slice(0, at).reverse();
+  const near = [...after.filter(inGenre), ...before.filter(inGenre), null, ...after, ...before];
+  return [
+    ...near.map(id => id === null
+      ? () => genre && tree && [...tree.querySelectorAll('[data-add-to-trad]')].find(b => b.dataset.addToTrad === genre)
+      : () => _treeCardControl(id, 'more')),
+    () => genre && _treeGenreControl(genre, 'toggle'),
+    () => {
+      const empty = document.getElementById('recipe-empty');
+      return empty && empty.querySelector('button:not([disabled]), a[href]');
+    },
+  ];
+}
+// The genres beside `tradId`, for after its group is removed.
+function _treeGenreSuccessorsOf(tradId) {
+  const tree = document.getElementById('sidebar-traditions');
+  const ids = tree ? [...tree.querySelectorAll('.sb-tradition-group')].map(g => g.dataset.traditionId) : [];
+  const at = ids.indexOf(tradId);
+  const near = at < 0 ? [] : [...ids.slice(at + 1), ...ids.slice(0, at).reverse()];
+  return near.flatMap(id => [() => _treeGenreControl(id), () => _treeGenreControl(id, 'toggle')]);
+}
+function _refocusTree(targets) {
+  if (!_treeFocusLost()) return false;
+  for (const target of targets) {
+    const el = typeof target === 'function' ? target() : target;
+    if (!el || !el.isConnected || el.disabled || !el.getClientRects().length) continue;
+    el.focus();
+    if (document.activeElement === el) return true;
+  }
+  return false;
+}
+// The editor a card's Edit opened: its heading, made programmatically
+// focusable, the way the Instrument inspector focuses #ip-title.
+function _treeEditorHeading() {
+  const title = document.querySelector('#detail-view .detail-title');
+  if (title && !title.hasAttribute('tabindex')) title.setAttribute('tabindex', '-1');
+  return title;
+}
+
 // After a tap expands a row, bring it under the app bar — but only if it isn't
 // already sitting somewhere sensible, so tapping through a short list doesn't
 // jerk the page on every tap.
@@ -16083,12 +16361,29 @@ function _revealSelectedCard() {
   requestAnimationFrame(() => {
     const anchor = _detailAnchorFor(app.selected);
     if (!anchor) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // In the Recipe sheet the tree scrolls inside #sidebar-scroll, not the
+    // page, so the editor opened below the fold (Jony #119): reveal it there.
+    // It is in place once the editor's tabs are in view; the row stays in view
+    // too unless the box is too short for both, when the editor wins (its
+    // Close and tabs stick to the top of the box).
+    const box = _dndScrollParent(anchor);
+    if (box) {
+      const frame = box.getBoundingClientRect();
+      const top = anchor.getBoundingClientRect().top - frame.top;
+      const tabs = document.querySelector('#detail-view .detail-tab-bar');
+      if (!tabs) return;
+      const tabsEnd = tabs.getBoundingClientRect().bottom;
+      if (top >= 0 && tabsEnd <= frame.bottom) return;
+      const by = Math.max(top - 8, tabsEnd - frame.bottom + 8);
+      box.scrollBy({ top: by, behavior: reduce ? 'auto' : 'smooth' });
+      return;
+    }
     const barH = parseInt(
       getComputedStyle(document.documentElement).getPropertyValue('--app-bar-height'), 10
     ) || 56;
     const top = anchor.getBoundingClientRect().top;
     if (top >= barH && top <= window.innerHeight * 0.5) return;
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     window.scrollBy({ top: top - barH - 8, behavior: reduce ? 'auto' : 'smooth' });
   });
 }
@@ -16153,7 +16448,7 @@ function renderDetailBreadcrumb(card, _inst) {
     left.addEventListener('click', () => {
       // Scroll sidebar to that tradition group
       const grp = document.querySelector('#sidebar-traditions [data-tradition-id="' + card.traditionId + '"]');
-      if (grp) grp.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      if (grp) grp.scrollIntoView({ behavior: uiMotion(), block: 'nearest' });
     });
     // Keyboard parity for the role="button" breadcrumb (Enter/Space activate).
     left.addEventListener('keydown', (e) => {
@@ -16212,14 +16507,20 @@ function renderDetailHeader(card, inst) {
     : '';
   titleBlock.innerHTML =
     '<div class="detail-title">' +
-      (prefaceLabel ? '<span class="detail-preface">' + esc(prefaceLabel) + '</span>' : '') +
+      (prefaceLabel ? '<span class="detail-preface">' + esc(prefaceLabel) + '</span><span class="sr-only">, </span>' : '') +
       '<span>' + esc(name) + '</span>' +
-      primaryBadge +
+      (primaryBadge ? '<span class="sr-only">, </span>' + primaryBadge : '') +
     '</div>' +
     '<div class="detail-subtitle">' +
       '<span class="detail-family">' + esc(familyName) + '</span>' +
       (subtitleExtra ? '<span class="detail-sep">·</span><span>' + esc(subtitleExtra) + '</span>' : '') +
     '</div>';
+  // The title heads the editor region (Jony #125), as a role so it keeps its
+  // look; #120 separates its words.
+  const title = titleBlock.firstChild;
+  title.id = 'detail-title';
+  title.setAttribute('role', 'heading');
+  title.setAttribute('aria-level', '2');
   wrap.appendChild(titleBlock);
   return wrap;
 }
@@ -16250,7 +16551,7 @@ function renderDetailTabBar(card) {
     { id: 'stack',   label: 'Output',       ic: 'eye' },
   ];
   wrap.innerHTML = tabs.map(t =>
-    '<button class="detail-tab' + (card._uiTab === t.id ? ' is-active' : '') + '" data-tab="' + t.id + '">' +
+    '<button type="button" class="detail-tab' + (card._uiTab === t.id ? ' is-active' : '') + '" data-tab="' + t.id + '" aria-pressed="' + (card._uiTab === t.id) + '">' +
       icon(t.ic, 14) + '<span>' + t.label + '</span>' +
     '</button>'
   ).join('');
@@ -16261,6 +16562,8 @@ function renderDetailTabBar(card) {
       e.stopPropagation();
       card._uiTab = b.dataset.tab;
       renderDetail();
+      // The bar re-rendered: keep focus on the section button just pressed.
+      _restoreDetailFocus('.detail-tab[data-tab="' + b.dataset.tab + '"]');
     });
   });
   return wrap;
@@ -16383,17 +16686,21 @@ function _restoreSnapshot(idx) {
 }
 function undo() {
   if (app.historyIndex <= 0) return;
+  const active = document.activeElement;
   app.historyIndex--;
   if (!_restoreSnapshot(app.historyIndex)) { app.historyIndex++; return; }
   renderAll();
   updateHistoryButtons();
+  _historyFocusHandoff(active);
 }
 function redo() {
   if (app.historyIndex >= app.history.length - 1) return;
+  const active = document.activeElement;
   app.historyIndex++;
   if (!_restoreSnapshot(app.historyIndex)) { app.historyIndex--; return; }
   renderAll();
   updateHistoryButtons();
+  _historyFocusHandoff(active);
 }
 function updateHistoryButtons() {
   const undoBtn = document.getElementById('btn-undo');
@@ -16402,6 +16709,28 @@ function updateHistoryButtons() {
   if (redoBtn) redoBtn.disabled = app.historyIndex >= app.history.length - 1;
   document.querySelectorAll('[data-proxy="btn-undo"],[data-ui="undo"]').forEach(b=>{b.disabled=app.historyIndex<=0;});
   document.querySelectorAll('[data-proxy="btn-redo"],[data-ui="redo"]').forEach(b=>{b.disabled=app.historyIndex>=app.history.length-1;});
+}
+// An Undo or Redo that its own step disabled would drop focus to the page body
+// (the re-render disables it while it holds focus); focus passes to its partner
+// beside it, which the same step has just enabled (Jony, #519).
+function _historyFocusHandoff(active) {
+  const UNDO = '#btn-undo,[data-proxy="btn-undo"],[data-ui="undo"]', REDO = '#btn-redo,[data-proxy="btn-redo"],[data-ui="redo"]';
+  if (!active?.disabled || !active.isConnected || !active.matches?.(UNDO + ',' + REDO)) return;
+  const partner = active.parentElement?.querySelector(active.matches(UNDO) ? REDO : UNDO);
+  if (partner && !partner.disabled) partner.focus({ preventScroll: true });
+}
+
+// Id of a card-editor row's option list, for its header's aria-controls.
+function _detailOptsId(card, kind, id) {
+  return ('detail-opts-' + card.id + '-' + kind + '-' + id).replace(/[^\w-]/g, '_');
+}
+// A part or environment row's keyboard header: the options cell as a button,
+// named by the row, with its expanded state and the list it opens.
+function _rowHeadButton(dataAttr, name, optionCount, open, optsId) {
+  const count = optionCount + ' option' + (optionCount === 1 ? '' : 's');
+  return '<button type="button" class="part-options-cell" ' + dataAttr +
+    ' aria-expanded="' + open + '"' + (open ? ' aria-controls="' + optsId + '"' : '') +
+    ' aria-label="' + esc(name + ', ' + count) + '">' + count + ' ' + icon('chevron-right', 12) + '</button>';
 }
 
 function renderPartRow(card, inst, part) {
@@ -16414,17 +16743,24 @@ function renderPartRow(card, inst, part) {
   const variantName = currentVar ? currentVar.name : '—';
   const descriptors = currentVar ? entryRenderDescs(currentVar) : [];
   const dotDescriptors = descriptors.join(' · ');
-  const optionCount = (part.variants || []).length;
+  // Listed options only: an alias (alias_of, _merge.js) resolves but is not one.
+  const optionCount = (part.variants || []).filter(v => !v.alias_of).length;
+  const optsId = _detailOptsId(card, 'part', part.id);
 
+  // The whole row opens on a click; the options cell is the row's keyboard
+  // header (a real button carrying the row's name, state and target).
   row.innerHTML =
     '<div class="part-label-cell">' + esc(partLabel) + '</div>' +
     '<div class="part-variant-cell">' + esc(variantName) + '</div>' +
     '<div class="part-descriptors-cell">' + esc(dotDescriptors) + '</div>' +
-    '<div class="part-options-cell">' + optionCount + ' option' + (optionCount === 1 ? '' : 's') + ' ' + icon('chevron-right', 12) + '</div>';
+    _rowHeadButton('data-toggle-part="' + esc(part.id) + '"', (part.name || part.id) + ': ' + variantName, optionCount, isEditing, optsId);
 
   if (isEditing) {
     const variants = document.createElement('div');
     variants.className = 'part-variants-grid';
+    variants.id = optsId;
+    variants.setAttribute('role', 'group');
+    variants.setAttribute('aria-label', (part.name || part.id) + ' options');
     // Variant chip delta preview: per-part scope only.
     //
     // The user is swapping ONE part's variant. The truthful delta is
@@ -16448,6 +16784,7 @@ function renderPartRow(card, inst, part) {
     // (Variant() returns null and the descriptor builders skip it).
     const noneChip = document.createElement('button');
     noneChip.className = 'chip variant-chip' + (!card.parts[part.id] ? ' selected' : '');
+    noneChip.setAttribute('aria-pressed', String(!card.parts[part.id]));
     noneChip.dataset.setPart = part.id;
     noneChip.dataset.variant = '';
     noneChip.innerHTML = '<span class="variant-chip-name">Not set</span>';
@@ -16457,6 +16794,7 @@ function renderPartRow(card, inst, part) {
       const b = document.createElement('button');
       const isCurrent = card.parts[part.id] === v.id;
       b.className = 'chip variant-chip' + (isCurrent ? ' selected' : '');
+      b.setAttribute('aria-pressed', String(isCurrent));
       b.dataset.setPart = part.id;
       b.dataset.variant = v.id;
       const descs = entryRenderDescs(v);
@@ -16466,19 +16804,25 @@ function renderPartRow(card, inst, part) {
       const lostDescs = isCurrent ? [] : [...currentVarDescs].filter(d => !candDescSet.has(d));
       const descrHtml = descs.length || lostDescs.length
         ? `<div class="variant-chip-descrs">${
-            descs.map(d => {
-              const isNew = !currentVarDescs.has(d);
-              return `<span class="variant-chip-descr ${isNew ? 'is-new' : 'is-kept'}">${esc(d)}</span>`;
-            }).join('') +
-            lostDescs.map(d => `<span class="variant-chip-descr is-lost">${esc(d)}</span>`).join('')
+            // Spoken as a list: a hidden comma between tags, which the layout
+            // gap separates for the eye only; a lost tag says so.
+            [
+              ...descs.map(d => {
+                const isNew = !currentVarDescs.has(d);
+                return `<span class="variant-chip-descr ${isNew ? 'is-new' : 'is-kept'}">${esc(d)}</span>`;
+              }),
+              ...lostDescs.map(d => `<span class="variant-chip-descr is-lost"><span class="sr-only">loses </span>${esc(d)}</span>`),
+            ].join('<span class="sr-only">, </span>')
           }</div>`
         : '';
-      b.innerHTML = `<span class="variant-chip-name">${esc(v.name)}</span>${descrHtml}`;
+      b.innerHTML = `<span class="variant-chip-name">${esc(v.name)}</span>${descrHtml ? '<span class="sr-only">, </span>' : ''}${descrHtml}`;
       return b;
     };
     // The instrument's own (curated) variants stay on top, exactly as before.
     const nativeVars = part.variants.filter(v => !v.expanded);
-    const expandedVars = part.variants.filter(v => v.expanded);
+    // An alias (a lent copy of a sound this part already offers, _merge.js) is
+    // listed only while it is this card's pick, so a saved choice still shows.
+    const expandedVars = part.variants.filter(v => v.expanded && (!v.alias_of || card.parts[part.id] === v.id));
     nativeVars.forEach(v => variants.appendChild(makeChip(v)));
     row.appendChild(variants);
     // Universal cross-instrument materials (a sound generator isn't bound by
@@ -16633,24 +16977,26 @@ function renderEnvRow(card, kind) {
     ? (typeof TUNINGS !== 'undefined' ? TUNINGS.length : 0)
     : (typeof ROOMS !== 'undefined' ? ROOMS.length : 0);
 
+  const optsId = _detailOptsId(card, 'env', kind);
   row.innerHTML =
     '<div class="part-label-cell">' + esc(label) + '</div>' +
     '<div class="part-variant-cell' + (cur ? '' : ' muted-italic') + '">' + esc(variantName) + '</div>' +
     '<div class="part-descriptors-cell">' + esc(descriptor) + '</div>' +
-    '<div class="part-options-cell">' + optionCount + ' option' + (optionCount === 1 ? '' : 's') + ' ' + icon('chevron-right', 12) + '</div>';
+    _rowHeadButton('data-toggle-env="' + kind + '"', (isTuning ? 'Tuning' : 'Room') + ': ' + variantName, optionCount, isEditing, optsId);
 
   if (isEditing) {
     const opts = document.createElement('div');
     opts.className = 'env-options';
+    opts.id = optsId;
     if (isTuning) {
-      opts.innerHTML = `<button class="chip-block ${!card.tuning ? 'selected' : ''}" data-set-tuning="" data-filter-pin="1">Not set</button>`;
+      opts.innerHTML = `<button class="chip-block ${!card.tuning ? 'selected' : ''}" aria-pressed="${!card.tuning}" data-set-tuning="" data-filter-pin="1">Not set</button>`;
       TUNINGS.forEach(t => {
-        opts.innerHTML += `<button class="chip-block ${card.tuning === t.id ? 'selected' : ''}" data-set-tuning="${esc(t.id)}">${esc(t.name)}<span class="chip-block-sub">${esc(t.sub)}</span></button>`;
+        opts.innerHTML += `<button class="chip-block ${card.tuning === t.id ? 'selected' : ''}" aria-pressed="${card.tuning === t.id}" data-set-tuning="${esc(t.id)}">${esc(t.name)}<span class="sr-only">, </span><span class="chip-block-sub">${esc(t.sub)}</span></button>`;
       });
       row.appendChild(opts);
       attachInlineFilter(opts, { placeholder: `Filter ${TUNINGS.length} tunings…` });
     } else {
-      opts.innerHTML = `<button class="chip-block ${!card.room ? 'selected' : ''}" data-set-room="" data-filter-pin="1">Not set</button>`;
+      opts.innerHTML = `<button class="chip-block ${!card.room ? 'selected' : ''}" aria-pressed="${!card.room}" data-set-room="" data-filter-pin="1">Not set</button>`;
       ROOM_CLUSTERS.forEach(cl => {
         const rooms = ROOMS.filter(r => r.cluster === cl.id);
         if (!rooms.length) return;
@@ -16658,7 +17004,7 @@ function renderEnvRow(card, kind) {
         let inner = `<button class="env-cluster-head" type="button" data-env-cluster><span class="env-cluster-chevron">${icon('chevron-down', 12)}</span>${clusterGlyph}<span class="env-cluster-name">${esc(cl.name)}</span><span class="env-cluster-count">${rooms.length}</span></button><div class="env-cluster-items">`;
         rooms.forEach(r => {
           const g = typeof roomGlyphsHTML === 'function' ? roomGlyphsHTML(r.id, 15, true) : '';
-          inner += `<button class="chip-block ${card.room === r.id ? 'selected' : ''}" data-set-room="${esc(r.id)}">${g}${esc(r.name)}<span class="chip-block-sub">${esc(entryRenderDescs(r).join(' · '))}</span></button>`;
+          inner += `<button class="chip-block ${card.room === r.id ? 'selected' : ''}" aria-pressed="${card.room === r.id}" data-set-room="${esc(r.id)}">${g}${esc(r.name)}<span class="sr-only">, </span><span class="chip-block-sub">${esc(entryRenderDescs(r).join(' · '))}</span></button>`;
         });
         inner += `</div>`;
         const wrap = document.createElement('div');
@@ -16700,7 +17046,7 @@ function renderChainSection(card) {
     }
     const editing = card.editingChainStage === s.id;
     flow.innerHTML += `
-      <button class="chain-stage ${isSet ? 'set' : ''} ${editing ? 'editing' : ''}" data-edit-chain="${esc(s.id)}">
+      <button class="chain-stage ${isSet ? 'set' : ''} ${editing ? 'editing' : ''}" data-edit-chain="${esc(s.id)}" aria-expanded="${editing}"${editing ? ` aria-controls="${_detailOptsId(card, 'chain', s.id)}"` : ''}>
         <span class="chain-stage-label">${esc(s.name)}</span>
         <span class="chain-stage-value ${isSet ? '' : 'empty'}">${esc(value)}</span>
       </button>
@@ -16716,14 +17062,18 @@ function renderChainSection(card) {
       panel.className = 'chain-edit-panel';
       const isMulti = !!stageDef.multiSelect;
       panel.innerHTML = `
-        <div class="chain-edit-title">${esc(stageDef.name)}${isMulti ? ' — pick any number' : ''}</div>
+        <div class="chain-edit-title" id="${_detailOptsId(card, 'chain', stageDef.id)}-title">${esc(stageDef.name)}${isMulti ? ' — pick any number' : ''}</div>
         <div class="chain-edit-hint">${esc(chainStageHint(stageDef.id))}</div>
       `;
       const opts = document.createElement('div');
       opts.className = 'chain-edit-options';
+      opts.id = _detailOptsId(card, 'chain', stageDef.id);
+      opts.setAttribute('role', 'group');
+      opts.setAttribute('aria-labelledby', opts.id + '-title');
       if (!isMulti) {
         const noneBtn = document.createElement('button');
         noneBtn.className = 'chip-block' + (!card.chain[stageDef.id] ? ' selected' : '');
+        noneBtn.setAttribute('aria-pressed', String(!card.chain[stageDef.id]));
         noneBtn.dataset.setChain = stageDef.id;
         noneBtn.dataset.item = '';
         noneBtn.dataset.filterPin = '1';
@@ -16736,10 +17086,11 @@ function renderChainSection(card) {
           ? (card.chain[stageDef.id] || []).includes(it.id)
           : card.chain[stageDef.id] === it.id;
         b.className = 'chip-block' + (isSelected ? ' selected' : '');
+        b.setAttribute('aria-pressed', String(isSelected));
         b.dataset.setChain = stageDef.id;
         b.dataset.item = it.id;
         const descs = entryRenderDescs(it);
-        b.innerHTML = `${esc(it.name)}${descs.length ? `<span class="chip-block-sub">${esc(descs.join(' · '))}</span>` : ''}`;
+        b.innerHTML = `${esc(it.name)}${descs.length ? `<span class="sr-only">, </span><span class="chip-block-sub">${esc(descs.join(' · '))}</span>` : ''}`;
         return b;
       };
       // Stages whose items carry a `family` (e.g. mics) render grouped under
@@ -16774,7 +17125,9 @@ function renderChainSection(card) {
           headerSelector: '.chain-family-header',
         });
       }
-      sec.appendChild(panel);
+      // Right after its stage, so the options are the next Tab stop; CSS
+      // order keeps the panel below every stage on screen.
+      [...flow.children].find(el => el.dataset.editChain === stageDef.id).after(panel);
     }
   }
   return sec;
@@ -16828,12 +17181,12 @@ function renderPrefaceSection(card) {
     <div class="composer-section-title">Preface <span class="composer-section-title-aside">— aesthetic claim</span></div>
     <div class="preface-row">
       <div class="preface-input-wrap">
-        <input type="text" class="preface-input" data-card-id="${esc(card.id)}"
+        <input type="text" class="preface-input" data-card-id="${esc(card.id)}" aria-label="Search characters"
                value="${esc(current)}" list="preface-options"
                placeholder="weeping, face-melting, saudade, numinous, mono-no-aware…"
                autocomplete="off" spellcheck="false">
       </div>
-      <button class="btn btn-ghost preface-clear" data-card-id="${esc(card.id)}" data-tooltip="Clear preface and re-suggest from current parts">${icon('x', 14)}</button>
+      <button class="btn btn-ghost preface-clear" data-card-id="${esc(card.id)}" aria-label="Clear preface and re-suggest from current parts" data-tooltip="Clear preface and re-suggest from current parts">${icon('x', 14)}</button>
       <button class="btn btn-secondary preface-browse" data-card-id="${esc(card.id)}">Browse</button>
     </div>
     <div class="preface-hint">${hint}</div>
@@ -16870,7 +17223,8 @@ function renderPrefaceSection(card) {
     };
     input.addEventListener('change', commit);
     input.addEventListener('keydown', e => {
-      if (e.key === 'Enter') { e.preventDefault(); input.blur(); }
+      // Enter commits in place: the redrawn card's input takes focus back.
+      if (e.key === 'Enter') { e.preventDefault(); commit(); _refocusPreface(card.id); }
       if (e.key === 'Escape') { input.value = card.preface || ''; input.blur(); }
     });
   }
@@ -16890,6 +17244,7 @@ function renderPrefaceSection(card) {
         _recentShiftsByCard.delete(card.id);
       }
       rerenderCard(card);
+      _refocusPreface(card.id, { control: '.preface-clear' });
     });
   }
 
@@ -17062,9 +17417,13 @@ function recordPrefaceRecent(id) {
 // under its own heading is the exact wallpaper this system exists to avoid.
 // Chips shown loose (recently-used, the suggestion fan) carry the full pair,
 // because there is no header above them to supply the first axis.
-function prefaceChipHtml(e, grouped) {
+// The note, shown as a tooltip, is also the chip's description (a hidden
+// span: `noteId` is unique within one render, as a preface can be listed
+// twice, under Recently used and under its category).
+function prefaceChipHtml(e, grouped, noteId) {
   const g = typeof prefaceGlyphsHTML === 'function' ? prefaceGlyphsHTML(e, 15, grouped) : '';
-  return `<button class="chip preface-pick" data-pref-id="${esc(e.id)}" data-tooltip="${esc(e.note || '')}">${g}${esc(e.id)}</button>`;
+  const note = e.note && noteId ? `<span class="sr-only" id="${noteId}">${esc(e.note)}</span>` : '';
+  return `<button class="chip preface-pick" data-pref-id="${esc(e.id)}" data-tooltip="${esc(e.note || '')}"${note ? ` aria-describedby="${noteId}"` : ''}>${g}${esc(e.id)}</button>${note}`;
 }
 
 // Render the modal body from current search + collapse state. Called on open and
@@ -17080,13 +17439,15 @@ function renderPrefaceModalBody() {
 
   let matchCount = 0;
   for (const cat of PREFACE_CAT_ORDER) matchCount += (groups[cat] || []).filter(matches).length;
+  let noteSeq = 0;
+  const chip = (e, grouped) => prefaceChipHtml(e, grouped, 'pref-note-' + noteSeq++);
 
   let html = `<div class="preface-toolbar"><span class="preface-toolbar-count">${q ? `${matchCount} match${matchCount === 1 ? '' : 'es'}` : `${PREFACE_LEXICON.length} prefaces · ${PREFACE_CAT_ORDER.length} categories`}</span><span class="preface-toolbar-actions"><button data-pref-expand="all">Expand all</button><button data-pref-expand="none">Collapse all</button></span></div>`;
 
   if (!q) {
     const recent = loadPrefaceRecent().map(id => PREFACE_LEXICON.find(x => x.id === id)).filter(Boolean);
     if (recent.length) {
-      html += `<div class="preface-recent"><div class="preface-recent-label">Recently used</div><div class="preface-recent-items">${recent.map(e => prefaceChipHtml(e, false)).join('')}</div></div>`;
+      html += `<div class="preface-recent"><div class="preface-recent-label">Recently used</div><div class="preface-recent-items">${recent.map(e => chip(e, false)).join('')}</div></div>`;
     }
   }
 
@@ -17096,12 +17457,22 @@ function renderPrefaceModalBody() {
     // While searching, force every matching section open so hits are visible.
     const collapsed = !q && app.prefaceCollapsed.has(cat);
     html += `<div class="preface-cat${collapsed ? ' collapsed' : ''}">` +
-      `<button class="preface-cat-head" data-pref-cat="${esc(cat)}"><span class="preface-cat-chevron">${icon('chevron-down', 14)}</span>${typeof prefaceCatGlyphHTML === 'function' ? prefaceCatGlyphHTML(cat, 16) : ''}<span class="preface-cat-title">${esc(cat)}</span><span class="preface-cat-count">${list.length}</span></button>` +
-      `<div class="preface-cat-items">${list.map(e => prefaceChipHtml(e, true)).join('')}</div></div>`;
+      `<button class="preface-cat-head" data-pref-cat="${esc(cat)}" aria-expanded="${!collapsed}"><span class="preface-cat-chevron">${icon('chevron-down', 14)}</span>${typeof prefaceCatGlyphHTML === 'function' ? prefaceCatGlyphHTML(cat, 16) : ''}<span class="preface-cat-title">${esc(cat)}</span><span class="preface-cat-count" aria-hidden="true">${list.length}</span><span class="sr-only">, ${list.length} preface${list.length === 1 ? '' : 's'}</span></button>` +
+      `<div class="preface-cat-items">${list.map(e => chip(e, true)).join('')}</div></div>`;
   }
   if (matchCount === 0) html += `<div class="preface-empty">No prefaces match “${esc(app.prefaceSearch)}”.</div>`;
 
   body.innerHTML = html;
+  // The count is said through #preface-modal-live (outside the re-rendered
+  // body) when the search changes, not on a collapse or an expand.
+  const said = !q ? '' : matchCount ? `${matchCount} match${matchCount === 1 ? '' : 'es'}` : `No prefaces match “${app.prefaceSearch}”`;
+  const live = document.getElementById('preface-modal-live');
+  if (live && said !== live.dataset.said) {
+    live.dataset.said = said;
+    live.textContent = '';
+    clearTimeout(live._t);
+    if (said) live._t = setTimeout(() => (live.textContent = said), 50);
+  }
 
   body.querySelectorAll('[data-pref-id]').forEach(b => b.addEventListener('click', () => {
     const prefId = b.dataset.prefId;
@@ -17110,16 +17481,24 @@ function renderPrefaceModalBody() {
     // Route through commitPrefaceChange so inverseConfigureForPreface fires and
     // reshapes the card's parts/env toward the chosen target.
     commitPrefaceChange(card, prefId);
+    // closeModal returned focus to the Browse button the redraw then replaced.
+    _refocusPreface(card.id, { control: '.preface-browse' });
   }));
+  // A toggle redraws the body; focus goes back to the same head or button.
+  const refocus = (attr, value) =>
+    [...body.querySelectorAll(`[${attr}]`)].find(el => el.getAttribute(attr) === value)?.focus({ preventScroll: true });
   body.querySelectorAll('[data-pref-cat]').forEach(b => b.addEventListener('click', () => {
     const c = b.dataset.prefCat;
     if (app.prefaceCollapsed.has(c)) app.prefaceCollapsed.delete(c); else app.prefaceCollapsed.add(c);
     renderPrefaceModalBody();
+    refocus('data-pref-cat', c);
   }));
   body.querySelectorAll('[data-pref-expand]').forEach(b => b.addEventListener('click', () => {
-    if (b.dataset.prefExpand === 'all') app.prefaceCollapsed.clear();
+    const which = b.dataset.prefExpand;
+    if (which === 'all') app.prefaceCollapsed.clear();
     else PREFACE_CAT_ORDER.forEach(c => app.prefaceCollapsed.add(c));
     renderPrefaceModalBody();
+    refocus('data-pref-expand', which);
   }));
 }
 
@@ -17178,11 +17557,11 @@ function renderStackPanel(card) {
     <div class="stack-head">
       <div class="stack-head-label">Descriptor stack</div>
       <div style="display: flex; gap: var(--s3); align-items: center;">
-        <div class="stack-format">
-          <button data-fmt="prose" class="${fmt === 'prose' ? 'active' : ''}">Prose</button>
-          <button data-fmt="tags" class="${fmt === 'tags' ? 'active' : ''}">Tags</button>
-          <button data-fmt="rich" class="${fmt === 'rich' ? 'active' : ''}">Rich</button>
-          <button data-fmt="compact" class="${fmt === 'compact' ? 'active' : ''}">Compact</button>
+        <div class="stack-format" role="group" aria-label="Recipe format">
+          <button type="button" data-fmt="prose" class="${fmt === 'prose' ? 'active' : ''}" aria-pressed="${fmt === 'prose'}">Prose</button>
+          <button type="button" data-fmt="tags" class="${fmt === 'tags' ? 'active' : ''}" aria-pressed="${fmt === 'tags'}">Tags</button>
+          <button type="button" data-fmt="rich" class="${fmt === 'rich' ? 'active' : ''}" aria-pressed="${fmt === 'rich'}">Rich</button>
+          <button type="button" data-fmt="compact" class="${fmt === 'compact' ? 'active' : ''}" aria-pressed="${fmt === 'compact'}">Compact</button>
         </div>
         <button class="btn btn-ghost" data-action="stack-close" style="padding: 4px 8px; font-size: var(--fs-micro);">Close</button>
       </div>
@@ -17198,9 +17577,36 @@ function renderStackPanel(card) {
 // ============================================================
 // EVENTS
 // ============================================================
+// After a card-editor re-render, put focus back on the control that was
+// pressed (or `fallback` when that control is gone, e.g. a closed list),
+// unless something else has taken focus on purpose.
+function _restoreDetailFocus(sel, fallback) {
+  const a = document.activeElement;
+  if (a && a !== document.body && a.isConnected) return;
+  const view = document.getElementById('detail-view') || document;
+  const el = view.querySelector(sel) || (fallback && view.querySelector(fallback));
+  if (el) el.focus({ preventScroll: true });
+}
+// The selector that finds a card-editor control again after a re-render.
+function _detailFocusTarget(t) {
+  const d = t.dataset, q = v => '"' + CSS.escape(v) + '"';
+  if (d.togglePart != null) return ['button[data-toggle-part=' + q(d.togglePart) + ']'];
+  if (d.toggleEnv != null) return ['button[data-toggle-env=' + q(d.toggleEnv) + ']'];
+  if (d.editChain) return ['button[data-edit-chain=' + q(d.editChain) + ']'];
+  if (d.setPart != null) return ['[data-set-part=' + q(d.setPart) + '][data-variant=' + q(d.variant || '') + ']', 'button[data-toggle-part=' + q(d.setPart) + ']'];
+  if (d.setChain) return ['[data-set-chain=' + q(d.setChain) + '][data-item=' + q(d.item || '') + ']', 'button[data-edit-chain=' + q(d.setChain) + ']'];
+  if (d.setTuning != null) return ['button[data-toggle-env="tuning"]'];
+  if (d.setRoom != null) return ['button[data-toggle-env="room"]'];
+  if (d.fmt) return ['button[data-fmt=' + q(d.fmt) + ']'];
+  return null;
+}
+
 function handleCardClick(e, card) {
   const t = e.target.closest('button, [data-toggle-part], [data-toggle-env]');
   if (!t) return;
+  // Every branch below re-renders the editor, which drops focus to <body>.
+  const refocus = _detailFocusTarget(t);
+  if (refocus) queueMicrotask(() => _restoreDetailFocus(refocus[0], refocus[1]));
 
   if (t.dataset.togglePart != null) {
     card.editingPart = card.editingPart === t.dataset.togglePart ? null : t.dataset.togglePart;
@@ -17297,7 +17703,14 @@ function handleAction(action, card, trigger) {
     // renderDetail repaint to land before measuring.
     requestAnimationFrame(() => {
       const dp = document.querySelector('.drift-panel');
-      if (dp) dp.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (dp) dp.scrollIntoView({ behavior: uiMotion(), block: 'center' });
+      // The menu item that asked went with its menu: focus lands on the
+      // variations' own heading, which says how many there are.
+      const a = document.activeElement, label = dp && dp.querySelector('.drift-head-label');
+      if (label && (!a || a === document.body || !a.isConnected || !a.getClientRects().length)) {
+        label.tabIndex = -1;
+        label.focus({ preventScroll: true });
+      }
     });
   } else if (action === 'drift-roll') {
     const candidates = buildDriftCandidates(card);
@@ -17323,9 +17736,15 @@ function handleAction(action, card, trigger) {
     renderAll();
     showToast('Duplicated', 'success');
   } else if (action === 'delete') {
+    const name = Inst(card.instrumentId)?.name || card.instrumentId;
     rmCard(card.id);
-    // rmCard schedules renderAll() after the unmount animation completes.
-    // Don't repaint here or the card would vanish instantly without animating.
+    // rmCard repaints; say what went, and offer the same one-step Undo an
+    // addition offers, only while this removal is still the latest change.
+    const at = app.historyIndex;
+    showToast(`Removed ${name}. Undo restores it.`, 'success', { label: 'Undo', run: () => {
+      if (app.historyIndex !== at) { showToast('Later changes followed this removal. Use Undo in the header to step back.', 'error'); return; }
+      undo(); if (typeof UI !== 'undefined' && UI.ready) uiSync();
+    } });
   } else if (action === 'similar') {
     // uiOpenSurface hands this to the Instrument page's inspector.
     app.similarInstFor = card.instrumentId;
@@ -17374,32 +17793,41 @@ async function renderSaved() {
     return;
   }
   list.sort((a, b) => _cmp(b.saved_at || '', a.saved_at || ''));
-  b.innerHTML = `<div class="saved-grid">` + list.map(w => {
+  // A list, and each row's actions named for the row: otherwise a screen
+  // reader hears "Load, Fork, Delete" once per row with nothing to tell
+  // the rows apart.
+  b.innerHTML = `<ul class="saved-grid">` + list.map(w => {
     const date = w.saved_at ? new Date(w.saved_at).toLocaleString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+    const name = esc(w.name);
     return `
-      <div class="saved-item">
+      <li class="saved-item">
         <div>
-          <div class="saved-name">${esc(w.name)}</div>
+          <div class="saved-name">${name}</div>
           <div class="saved-meta">${esc(date)} · ${w.count || 0} ${w.count === 1 ? 'instrument' : 'instruments'}</div>
         </div>
         <div class="saved-actions">
-          <button class="btn btn-secondary" data-load="${esc(w.key)}">Load</button>
-          <button class="btn btn-ghost" data-fork="${esc(w.key)}" data-tooltip="Open as an independent copy">Fork</button>
-          <button class="btn btn-ghost btn-danger" data-del="${esc(w.key)}">Delete</button>
+          <button class="btn btn-secondary" data-load="${esc(w.key)}" aria-label="Load ${name}">Load</button>
+          <button class="btn btn-ghost" data-fork="${esc(w.key)}" aria-label="Fork ${name}" data-tooltip="Open as an independent copy">Fork</button>
+          <button class="btn btn-ghost btn-danger" data-del="${esc(w.key)}" aria-label="Delete ${name}">Delete</button>
         </div>
-      </div>
+      </li>
     `;
-  }).join('') + `</div>`;
+  }).join('') + `</ul>`;
   b.querySelectorAll('[data-load]').forEach(x => x.addEventListener('click', () => loadWS(x.dataset.load)));
   b.querySelectorAll('[data-fork]').forEach(x => x.addEventListener('click', () => forkWS(x.dataset.fork)));
-  b.querySelectorAll('[data-del]').forEach(x => x.addEventListener('click', async () => {
+  b.querySelectorAll('[data-del]').forEach((x, i) => x.addEventListener('click', async () => {
     const ok = await confirmDialog({
       title: 'Delete workspace',
       message: 'Delete this saved workspace?',
       confirmLabel: 'Delete',
       danger: true,
     });
-    if (ok) delWS(x.dataset.del);
+    // The re-render removes the button that had focus: hand it to the row
+    // that took its place, the one above when it was the last, or Close.
+    if (ok && (await delWS(x.dataset.del))) {
+      const rows = document.querySelectorAll('#saved-body [data-del]');
+      (rows[i] || rows[i - 1] || document.querySelector('#modal-saved [data-close]'))?.focus();
+    }
   }));
 }
 
@@ -17615,11 +18043,11 @@ function renderRecipeStack() {
       <div style="font-size: var(--fs-caption); color: var(--text-2);">
         ${app.cards.length} instrument${app.cards.length === 1 ? '' : 's'} · ${lengthLabel}
       </div>
-      <div class="stack-format">
-        <button data-rfmt="prose" class="${fmt === 'prose' ? 'active' : ''}">Prose</button>
-        <button data-rfmt="tags" class="${fmt === 'tags' ? 'active' : ''}">Tags</button>
-        <button data-rfmt="rich" class="${fmt === 'rich' ? 'active' : ''}">Rich</button>
-        <button data-rfmt="compact" class="${fmt === 'compact' ? 'active' : ''}">Compact</button>
+      <div class="stack-format" role="group" aria-label="Recipe format">
+        <button type="button" data-rfmt="prose" class="${fmt === 'prose' ? 'active' : ''}" aria-pressed="${fmt === 'prose'}">Prose</button>
+        <button type="button" data-rfmt="tags" class="${fmt === 'tags' ? 'active' : ''}" aria-pressed="${fmt === 'tags'}">Tags</button>
+        <button type="button" data-rfmt="rich" class="${fmt === 'rich' ? 'active' : ''}" aria-pressed="${fmt === 'rich'}">Rich</button>
+        <button type="button" data-rfmt="compact" class="${fmt === 'compact' ? 'active' : ''}" aria-pressed="${fmt === 'compact'}">Compact</button>
       </div>
     </div>
     <pre class="stack-text" style="white-space: pre-wrap; word-break: break-word; font-family: 'JetBrains Mono', monospace; font-size: var(--fs-caption); line-height: 1.6; background: var(--surface-2); padding: var(--s4); border-radius: 6px; max-height: 60vh; overflow-y: auto; margin: 0;">${text ? esc(text) : '<span class="muted-italic">Nothing configured yet.</span>'}</pre>
@@ -17631,6 +18059,8 @@ function renderRecipeStack() {
     btn.addEventListener('click', () => {
       app.recipeStackFormat = btn.dataset.rfmt;
       renderRecipeStack();
+      // The re-render replaced the pressed button: focus its successor.
+      b.querySelector('[data-rfmt="' + CSS.escape(btn.dataset.rfmt) + '"]')?.focus();
     });
   });
   const copyBtn = b.querySelector('[data-rstack-copy]');
@@ -17781,14 +18211,16 @@ function _initApp() {
     if (nowMobile !== wasMobile) { wasMobile = nowMobile; if (_workspaceReady) renderAll(); }
     _syncRecipeBarHeight();
   });
-  // Escape closes any currently-open modal. Backdrop click closes are wired
-  // elsewhere via data-close; this adds the keyboard parity for accessibility.
+  // Escape closes the topmost open modal, through closeModal so its Tab trap
+  // and return focus go with it. Backdrop click closes are wired elsewhere via
+  // data-close; this adds the keyboard parity for accessibility. A confirmation
+  // owns its own Escape (and sits above the modal that asked), so it is left
+  // to close itself, and the modal under it stays open.
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      const open = document.querySelector('.modal-bg.open');
-      if (open && open.id) closeModal(open.id); // restores focus + clears the trap
-      else if (open) open.classList.remove('open');
-    }
+    if (e.key !== 'Escape' || document.querySelector('.confirm-dialog-bg')) return;
+    const open = [...document.querySelectorAll('.modal-bg.open')].pop();
+    if (open && open.id) closeModal(open.id);
+    else if (open) open.classList.remove('open');
   });
   // Warn before discarding an unsaved in-progress workspace: the canvas lives in
   // memory only (Save persists it), so a reload/close/crash would silently lose
@@ -17815,14 +18247,22 @@ function _initApp() {
   document.getElementById('btn-save').addEventListener('click', () => {
     if (!app.cards.length && !app.lyrics) { showToast('Nothing to save yet', 'error'); return; }
     document.getElementById('save-name').value = app.workspaceName || 'Untitled session';
+    _saveNameValid();
     openModal('modal-save');
   });
   document.getElementById('save-confirm').addEventListener('click', () => {
-    const n = document.getElementById('save-name').value.trim();
-    if (!n) { showToast('Name required', 'error'); return; }
+    const field = document.getElementById('save-name');
+    const n = field.value.trim();
+    // An empty name is said at the field too, tied to it (Jony #91).
+    if (!n) { field.setAttribute('aria-invalid', 'true'); document.getElementById('save-name-error').hidden = false; field.focus(); showToast('Name required', 'error'); return; }
     closeModal('modal-save');
     saveWS(n);
   });
+  function _saveNameValid() {
+    document.getElementById('save-name').removeAttribute('aria-invalid');
+    document.getElementById('save-name-error').hidden = true;
+  }
+  document.getElementById('save-name').addEventListener('input', _saveNameValid);
   // preventDefault: otherwise the same Enter lands on Save (focus is back on it)
   // and opens the dialog again, and a second Enter saves a duplicate copy.
   document.getElementById('save-name').addEventListener('keydown', e => { if (e.key === 'Enter' && !e.isComposing) { e.preventDefault(); document.getElementById('save-confirm').click(); } });
@@ -17896,6 +18336,9 @@ function _initApp() {
     // is also the OS-level text undo for those.
     const tag = (e.target && e.target.tagName) || '';
     if (tag === 'INPUT' || tag === 'TEXTAREA' || (e.target && e.target.isContentEditable)) return;
+    // Nor while a dialog is open: undoing the recipe behind it changes what
+    // the dialog is about (eight cards to none with Saved sessions open).
+    if (document.querySelector('.modal-bg.open:not(.inline-tree), .confirm-dialog-bg, dialog[open]')) return;
     const mod = e.ctrlKey || e.metaKey;
     if (!mod) return;
     if (e.key === 'z' || e.key === 'Z') {
@@ -17918,9 +18361,7 @@ function _initApp() {
   document.querySelectorAll('[data-close]').forEach(b => {
     b.addEventListener('click', () => closeModal(b.dataset.close));
   });
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') document.querySelectorAll('.modal-bg.open').forEach(m => m.classList.remove('open'));
-  });
+  // Escape: the one handler above (topmost modal only).
 
   _whenWorkspace(renderAll);
   if (typeof uiStart === 'function') uiStart();
@@ -18434,19 +18875,37 @@ function wireStackSignatureEvents(el) {
 // using natural whitespace ("doo wop") match canonical hyphenated names
 // ("Doo-wop") and prose with em-dashes. Applied to BOTH query and target
 // fields at query time; the underlying data is never modified.
+// Accents and the ʿ/ʾ/ʻ modifier letters fold away too, so "oud" finds ʿŪd and
+// "cafe" finds Café (Jony #114).
 function normalizeSearch(s) {
   return (s || '')
     .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f\u02bb\u02bc\u02be\u02bf]/g, '')
     .replace(/[\u002D\u2013\u2014]/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
+}
+// How well a normalized query matches a normalized name, best first: 0 the
+// whole name, 1 its start, 2 the start of a later word, 3 anywhere inside it,
+// 4 only in `extras` (a short name, aliases), -1 not at all. A search list
+// sorts by this, then A to Z within a tier (Jony #114: "oud" listed Koudi
+// before Oud arbi, "bluegrass" put Bluegrass third).
+function searchRank(q, name, extras = []) {
+  if (!q) return 0;
+  if (name === q) return 0;
+  if (name.startsWith(q)) return 1;
+  if ((' ' + name).includes(' ' + q)) return 2;
+  if (name.includes(q)) return 3;
+  return extras.some((x) => x && x.includes(q)) ? 4 : -1;
 }
 
 // Toast text for a picker add. Names the destination genre when the card
 // joined one, so "Add instrument to tradition" visibly confirms WHERE the
 // instrument landed rather than just that something was added.
 function _addedInstrumentMessage(instrumentId, card) {
-  const name = Inst(instrumentId)?.short || instrumentId;
+  // The display name: `short` is a catalog key, often lowercase ("voice").
+  const name = Inst(instrumentId)?.name || instrumentId;
   const trad = card && card.traditionId ? Tradition(card.traditionId) : null;
   return trad ? `Added ${name} to ${trad.name}` : `Added ${name}`;
 }
@@ -19077,7 +19536,10 @@ function _chatRenderReply(payload,request) {
   const prose = payload.artifact || recoveryExport ? '' : _chatStripRecipeCopy(payload.reply, payload.recipe);
   const parts = [];
   if (prose) parts.push(`<p style="margin:0;">${esc(prose)}</p>`);
-  const node = _chatAppend(`<div class="chat-msg chat-msg-engine">${parts.join('') || ''}</div>`);
+  // Who is speaking, and a pause between the reply's parts, for a screen
+  // reader: the log reads each addition as one utterance, so without these the
+  // request and the reply sound alike and the parts run into each other.
+  const node = _chatAppend(`<div class="chat-msg chat-msg-engine"><span class="chat-sr">Codex: </span>${parts.join('') || ''}</div>`);
   if (!node) return;
 
   if (payload.artifact || recoveryExport) {
@@ -19085,7 +19547,7 @@ function _chatRenderReply(payload,request) {
     box.className = 'chat-recipe';
     const verdict = document.createElement('div');
     verdict.className = 'chat-recipe-foot';
-    verdict.textContent = recoveryExport ? 'Recovered export · not graded' : payload.completion?.certified === true ? 'Finished · certified' : `Unfinished · ${payload.artifact.status || payload.stopped || 'not certified'}`;
+    verdict.textContent = recoveryExport ? 'Recovered export · not graded' : payload.completion?.certified === true ? 'Finished · certified' : _chatUnfinishedWord(payload);
     const pre = document.createElement('pre');
     pre.className = 'chat-recipe-text';
     const text = recoveryExport ? payload.reply : payload.artifact.text || (payload.artifact.final_draft || []).join('\n');
@@ -19106,17 +19568,25 @@ function _chatRenderReply(payload,request) {
     const foot = document.createElement('div');
     foot.className = 'chat-recipe-foot';
     const count = document.createElement('span');
+    // The log is live, and a span's aria-label is not what it speaks: the
+    // short form is for the eye, the words for the ear, so the reply is not
+    // heard as "77 / 1000 charsCopy" (Jony #112).
     count.textContent = `${payload.recipe.length} / ${RECIPE_CHAR_CEILING} chars`;
+    count.setAttribute('aria-hidden', 'true');
     const copy = document.createElement('button');
     copy.className = 'btn btn-secondary';
     copy.type = 'button';
     copy.textContent = 'Copy';
+    copy.ariaLabel = 'Copy recipe';
     copy.addEventListener('click', () =>
       copyToClipboard(payload.recipe, 'Recipe copied', 'Could not copy')
     );
     foot.appendChild(count);
+    foot.appendChild(_chatSr(`${payload.recipe.length} of ${RECIPE_CHAR_CEILING} characters. `));
     foot.appendChild(copy);
+    box.appendChild(_chatSr('Recipe: '));
     box.appendChild(pre);
+    box.appendChild(_chatSr('. '));
     box.appendChild(foot);
     node.appendChild(box);
   }
@@ -19124,6 +19594,10 @@ function _chatRenderReply(payload,request) {
   if (Array.isArray(payload.tools) && payload.tools.length) {
     const trace = document.createElement('div');
     trace.className = 'chat-tools';
+    // The chips read as one run-on string ("start_recipe · exit 0edit_recipe
+    // · exit 0"); a screen reader gets one sentence instead: how many steps,
+    // and only the ones that did not go cleanly.
+    trace.ariaHidden = 'true';
     for (const t of payload.tools) {
       const chip = document.createElement('span');
       // Lyric verbs carry a verdict (exit code, banned-pair count) and the
@@ -19142,6 +19616,11 @@ function _chatRenderReply(payload,request) {
         chip.title = `${t.banned_pairs} banned pair(s) — reported as notes; they do not stop the song finishing`;
       trace.appendChild(chip);
     }
+    // One spoken summary: in the log's speaker order (.chat-sr) and the
+    // count a test or tool reads (.chat-count-sr).
+    const said = _chatSr(_chatToolsPlain(payload.tools));
+    said.classList.add('chat-count-sr');
+    node.appendChild(said);
     node.appendChild(trace);
   }
 
@@ -19163,13 +19642,40 @@ function _chatRenderReply(payload,request) {
         ? payload.recipe
           ? 'Reached the step limit — this is the recipe so far; ask for more changes to refine it.'
           : 'Stopped after the maximum number of tool calls — ask for one change at a time to go further.'
-        : `Stopped early (${payload.stopped}).`);
+        : payload.stopped === 'LYRICS_UNFINISHED'
+          ? 'The writer stopped before finishing, so this draft isn’t final.'
+          : 'Stopped before finishing.');
+    // The reason code stays available without being read as the message.
+    if (!recipeNote && payload.stopped !== 'MAX_STEPS') note.title = `Reason code: ${payload.stopped}`;
     node.appendChild(note);
   }
   _chatScroll();
   if (typeof uiReceiveReply === 'function') uiReceiveReply(payload,request);
 }
 
+// The verdict under an unfinished draft: its status in words, never the same
+// word twice ("Unfinished · unfinished") and never a raw stop code.
+function _chatUnfinishedWord(payload) {
+  const why = String(payload.artifact?.status || '').replace(/_/g, ' ').trim().toLowerCase();
+  return !why || /^(lyrics )?(unfinished|not certified)$/.test(why) ? 'Unfinished · not certified' : `Unfinished · ${why}`;
+}
+// The tool chips (lyric_revise · exit 3) in plain words, for a listener.
+function _chatToolsPlain(tools) {
+  const steps = tools.length === 1 ? '1 tool step' : `${tools.length} tool steps`;
+  const notes = [];
+  for (const t of tools) {
+    let n = '';
+    if (t.error) n = 'a step failed';
+    else if (typeof t.exit_code === 'number' && t.exit_code !== 0)
+      n = /revise/.test(t.name || '') && t.exit_code === 3 ? 'the writer asked a question'
+        : t.exit_code === 3 ? 'a check found an open problem'
+          : t.exit_code === 2 ? 'a step was refused'
+            : 'a step did not finish';
+    else if (t.certified === false) n = 'a check did not certify the draft';
+    if (n && !notes.includes(n)) notes.push(n);
+  }
+  return notes.length ? `${steps}: ${notes.join('; ')}.` : `${steps}, all clean.`;
+}
 function _chatSetBusy(busy) {
   chatState.busy = busy;
   const dock = _chatEl('chat-dock');
@@ -19177,14 +19683,25 @@ function _chatSetBusy(busy) {
   const send = _chatEl('chat-send');
   if (dock) dock.classList.toggle('is-busy', busy);
   if (input) input.disabled = busy;
-  if (send) send.disabled = busy;
+  // Ask and Saved runs keep focus while a request runs (disabling the focused
+  // button would drop focus to the page); they say they are unavailable, and
+  // their handlers already ignore a press while busy.
+  if (send) { send.disabled = false; send.ariaDisabled = String(busy); }
   const domain = _chatEl('chat-domain');
   if (domain) {
     domain.disabled = busy || !!chatState.sig || !!chatState.continuationId;
     if (chatState.task?.domain) domain.value = chatState.task.domain + (chatState.task.phase === 'edit' ? '-edit' : chatState.task.phase === 'browse' ? '-browse' : '');
   }
   const recover = _chatEl('chat-recover');
-  if (recover) recover.disabled = busy;
+  if (recover) { recover.disabled = false; recover.ariaDisabled = String(busy); }
+}
+
+// Visually hidden text for the conversation log (see .chat-sr).
+function _chatSr(text) {
+  const span = document.createElement('span');
+  span.className = 'chat-sr';
+  span.textContent = text;
+  return span;
 }
 
 // ── the character counter ────────────────────────────────────────────────────
@@ -19429,7 +19946,7 @@ async function _chatSend(message, { choice, context = null, clearInput = false }
   }
   if(typeof UI!=='undefined'&&UI.ready&&domain==='lyrics')UI.lyricRequest={id:request_id,revision:UI.lyricRevision,text:app.lyrics||'',submittedContext:body.lyric_context?JSON.parse(JSON.stringify(body.lyric_context)):null};
   _chatOpenPanel();
-  _chatAppend(`<div class="chat-msg chat-msg-you">${esc(message)}</div>`);
+  _chatAppend(`<div class="chat-msg chat-msg-you"><span class="chat-sr">You: </span>${esc(message)}</div>`);
   if (clearInput && input) {
     input.value = '';
     // Clearing the field programmatically fires no `input` event, so the counter
@@ -19532,6 +20049,10 @@ function initChatDock() {
       _chatSave();
     }
     _chatRecover();
+    // _chatReset focused the input, which the busy state then disables; keep
+    // focus on Saved runs (focusable while busy) instead of the page.
+    const active = document.activeElement;
+    if (!active || active === document.body || active.disabled) recover.focus({ preventScroll: true });
   });
   if (!chatState.pending && chatState.continuationId) chatState.pending = {request_id:chatState.continuationId,message:'',domain:chatState.task?.domain};
   if (chatState.pending) _chatRecover();
