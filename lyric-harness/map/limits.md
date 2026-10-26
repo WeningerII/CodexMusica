@@ -61,6 +61,7 @@ Connector:
 | MAX_QUERY_TERMS | 16 | `../mcp/engine.js` |
 | VARIANT_BUDGET | 120 | `../mcp/engine.js` |
 | MIN_PER_PART | 4 | `../mcp/engine.js` |
+| MAX_COMPLETED_REVISE_KEYS | 4,096 | `../mcp/gemini_agent.js` |
 | RECIPE_FINISH_MS | 10,000 | `../mcp/gemini_agent.js` |
 | DEFAULT_TTL_MS | 86,400,000 | `../mcp/job_store.js` |
 | MAX_RECORD_BYTES | 18,874,368 (18,432 KB) | `../mcp/job_store.js` |
