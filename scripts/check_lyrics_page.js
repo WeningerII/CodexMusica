@@ -6027,7 +6027,36 @@ async function browserChecks(chromium) {
         const tag = phone ? '390' : '1280';
         const mark = '#ly-overlay .ly-hit:not(.ly-hit-current)';
         const want = rgb(await page.$eval(mark, (e) => getComputedStyle(e).backgroundColor));
-        const seen = await pixel(page, mark);
+        // The mark's commonest colour over its whole box, not one pixel: a
+        // single sample can land on a letter or an edge, depending on the
+        // fonts and line breaks of the machine, and the question here is
+        // whether the mark's background shows through the draft above it.
+        await page.$eval(mark, (e) => e.scrollIntoView({ block: 'center' }));
+        await page.waitForTimeout(100);
+        const box = await (await page.$(mark)).boundingBox();
+        const shot = await page.screenshot({
+          clip: { x: box.x + 1, y: box.y + 1, width: box.width - 2, height: box.height - 2 },
+        });
+        const seen = await page.evaluate(async (b64) => {
+          const img = new Image();
+          img.src = 'data:image/png;base64,' + b64;
+          await img.decode();
+          const c = document.createElement('canvas');
+          c.width = img.width;
+          c.height = img.height;
+          const g = c.getContext('2d');
+          g.drawImage(img, 0, 0);
+          const d = g.getImageData(0, 0, c.width, c.height).data;
+          const count = new Map();
+          for (let i = 0; i < d.length; i += 4) {
+            const k = `${d[i]},${d[i + 1]},${d[i + 2]}`;
+            count.set(k, (count.get(k) || 0) + 1);
+          }
+          return [...count]
+            .sort((a, b) => b[1] - a[1])[0][0]
+            .split(',')
+            .map(Number);
+        }, shot.toString('base64'));
         const draft = await page.$eval('#lyrics-draft', (d) => getComputedStyle(d).color);
         check(
           near(seen, want) && rgb(draft).length === 3 && /rgba\(.*,\s*0\)$/.test(draft),
