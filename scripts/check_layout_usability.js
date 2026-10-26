@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global window, document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame, app, UI, uiAddGenre, uiNavigate, renderRecipeStack, openModal, closeModal, toastTimed, toastDeadline, hideToast, showToast, ipAnnounce, ipRenderInspector, uiCloseInstrumentPreview, MutationObserver, chatState, Element, InstLite, uiInspectInstrument, matchMedia, uiChatOpen, _chatRenderReply, uiShowStorageConflict, lyErr */
+/* global lyRefresh, window, document, getComputedStyle, innerWidth, innerHeight, requestAnimationFrame, app, UI, uiAddGenre, uiNavigate, renderRecipeStack, openModal, closeModal, toastTimed, toastDeadline, hideToast, showToast, ipAnnounce, ipRenderInspector, uiCloseInstrumentPreview, MutationObserver, chatState, Element, InstLite, uiInspectInstrument, matchMedia, uiChatOpen, _chatRenderReply, uiShowStorageConflict, lyErr */
 // Real rendering regression coverage for anchored overlays and adjustable panes.
 // Run against the built artifact, alongside check_mobile_layout's touch/reorder gate.
 const assert = require('node:assert/strict');
@@ -1221,7 +1221,31 @@ async function editorKeyboard(page, where) {
           'ly-relation-inspector',
           'opening Relations moves focus into the inline inspector'
         );
-        await page.locator('#ly-relation-inspector [data-ui="ly-relation-close"]').click();
+        // The draft's pending 120 ms refresh can arrive after opening. Run
+        // that same refresh explicitly so its ordering is deterministic.
+        const close = page.locator('#ly-relation-inspector [data-ui="ly-relation-close"]');
+        assert.ok(await close.evaluate((el) => document.activeElement === el));
+        await page.evaluate(() => lyRefresh(true));
+        assert.ok(
+          await close.evaluate((el) => document.activeElement === el),
+          'an edit refresh keeps focus on Close in the redrawn inline inspector'
+        );
+        const stay = page.locator('#ly-relation-inspector [data-ui="ly-relation-stay"]');
+        await stay.focus();
+        await page.evaluate(() => lyRefresh(true));
+        assert.ok(
+          await stay.evaluate((el) => document.activeElement === el),
+          'an inspector refresh preserves the chosen control rather than resetting to Close'
+        );
+        await page.locator('[data-ui="ly-find-open"]').focus();
+        await page.evaluate(() => lyRefresh(true));
+        assert.ok(
+          await page
+            .locator('[data-ui="ly-find-open"]')
+            .evaluate((el) => document.activeElement === el),
+          'an inspector refresh does not steal focus after the user leaves it'
+        );
+        await close.click();
         await page.locator('#lyrics-draft').fill('');
       }
       // Reduced motion: a script-driven jump scrolls without animating.
