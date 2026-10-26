@@ -2482,7 +2482,7 @@ Rows is the default layout of the Genre and Instrument catalogues (List is the o
 ```yaml
 name: browse-rows-genre-letters
 kind: widget
-selector: '#genre-list .cm-rows-group[aria-label]'
+selector: '#genre-list .cm-rows-group .cm-rows-track[aria-label]'
 surface: Genre — All genres in Rows: one row per first letter (accents folded; # for digits), A to Z within it, headed by the letter and its count; search and the Browse branch narrow the rows and an empty row disappears; with sound targets it is one row, Closest to your sound, closest first, each card's line saying how close. A new list (search, branch, sound targets, tab) starts at the top of its results
 implementation: gpLetterGroups / gpTile / gpAll in src/pages/genre.js; uiRowsHTML in src/workbench.js
 status: reachable
@@ -2502,7 +2502,7 @@ precondition: 'genre: all genres'
 ```yaml
 name: browse-rows-instrument-families
 kind: widget
-selector: '#instrument-body .cm-rows-group[aria-label]'
+selector: '#instrument-body .cm-rows-group .cm-rows-track[aria-label]'
 surface: Instrument — All instruments in Rows: one row per family, largest first (by the catalogue's sizes, so rows keep their places while a search narrows them); inside a family, one row per class; Sort orders each row
 implementation: ipGroups / ipTile in src/pages/instrument.js; uiRowsHTML in src/workbench.js
 status: reachable
