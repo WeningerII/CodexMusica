@@ -5700,7 +5700,25 @@ function lyRenderWriter() {
     html += `<section class="ly-card"><p>${lyPill(st.tone || '', `Last reply: ${st.word}`)}</p><p class="ly-help">${esc(new Date(run.at).toLocaleTimeString())} · ${run.final ? esc(uiCount(run.final.length, 'line')) : 'no draft in this reply'}</p></section>`;
   }
   html += `<p class="ly-sr" id="ly-stage-live" aria-live="polite">${esc(LY.stageSaid || '')}</p>`;
-  lySetHtml(box, html, 'writer');
+  // Each card is its own view: a different card (the Resume/Start choice, an
+  // interrupted or parked run) always draws, even over a focused answer field;
+  // only a redraw of the same card keeps what is being typed.
+  const card = LY.conflict
+    ? 'conflict'
+    : w.busy
+      ? 'busy'
+      : w.unknown
+        ? 'unknown'
+        : w.interrupted || w.uncertain || w.capacity
+          ? 'interrupted'
+          : w.waiting
+            ? 'waiting'
+            : w.parked
+              ? 'parked'
+              : run
+                ? 'run'
+                : 'idle';
+  lySetHtml(box, html, `writer-${card}`);
   lyClock(w.busy);
 }
 // The clock ticks without re-rendering or announcing, and only while a
