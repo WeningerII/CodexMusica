@@ -220,6 +220,7 @@ function uiNavigate(view, { push = false, sub, pop = false } = {}) {
   const from = document.activeElement;
   if (UI.view && UI.view !== view && from?.dataset?.ui)
     UI.leftFrom[UI.view] = { ui: from.dataset.ui, id: from.dataset.id };
+  if (UI.view !== view) UI_PAGES[UI.view]?.leave?.();
   UI.view = view;
   document.body.dataset.view = view;
   // A route notice belongs to the page it was shown on.

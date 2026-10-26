@@ -119,3 +119,20 @@ test('Enter commits immediately once; a no-input Open remains open', async (t) =
   await other.tick();
   assert.deepEqual(other.routes, [route]);
 });
+
+// Top-level navigation keeps the old root connected while an update can be
+// awaiting the language catalog. Disposal must invalidate that update too.
+test('a disposed view cannot rewrite navigation after its catalog resolves', async (t) => {
+  const f = await fixture(t);
+  let release;
+  f.lib.catalog = () =>
+    new Promise((resolve) => {
+      release = resolve;
+    });
+  const updating = f.view.update('/works?language=eng');
+  f.view.dispose();
+  assert.equal(f.view.root.isConnected, true);
+  release({ languages: ['fra'] });
+  await updating;
+  assert.deepEqual(f.routes, []);
+});

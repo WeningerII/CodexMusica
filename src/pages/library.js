@@ -150,6 +150,11 @@ uiRegisterPage({
   },
   currentRoute: () => LIBRARY.sub,
   render: libraryShow,
+  leave() {
+    // Top-level tabs hide the connected Works view; its pending query must
+    // not commit into the destination page's URL or survive a quick return.
+    LIBRARY_CODE.loaded.works?.leave?.();
+  },
   actions: {
     'lib-section': (id) => {
       LIBRARY.sub = id;
