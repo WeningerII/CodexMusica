@@ -945,3 +945,51 @@ test(
     assert.equal(verdictOf(planned.tool_result).exit_code, 0, JSON.stringify(planned));
   }
 );
+
+test(
+  'real plans retain already-satisfied wants and admit the next grade',
+  { timeout: 240_000 },
+  async () => {
+    const server = buildServer({ task: { domain: 'lyrics' } });
+    const [a, b] = InMemoryTransport.createLinkedPair();
+    await server.connect(a);
+    const client = new Client({ name: 'satisfied-wants', version: '1' }, { capabilities: {} });
+    await client.connect(b);
+    try {
+      for (const wants of [[], ['lines<=30', 'lines>=12']]) {
+        const task = fresh();
+        const call = async (name, args) => {
+          const result = await client.callTool({ name, arguments: args });
+          const verdict = verdictOf(result);
+          assert(!result.isError, JSON.stringify(result));
+          assert.equal(verdict.exit_code, 0, JSON.stringify(verdict));
+          recordCreation(task, name, args, verdict);
+          return verdict;
+        };
+        const sweep = await call('lyric_sweep', {
+          seed_from: 31,
+          count: 1,
+          lines: 12,
+          want: wants,
+        });
+        const seed = sweep.accepted_shown[0];
+        await call('lyric_screen', { words: ['rain', 'train'] });
+        const plan = await call('lyric_plan', { seed, lines: 12, wants });
+        assert.deepEqual(plan.plan_request.wants, wants);
+        assert(task.workflow.plan, 'a successful plan must be recorded before grading');
+        assert.equal(task.workflow.plan.sha256, plan.plan_sha256);
+        assert.equal(
+          creationRefusal(task, 'lyric_grade', {
+            seed,
+            draft: Array(plan.plan.total_lines).fill('A synthetic line'),
+          }),
+          null,
+          'the complete draft is admitted under the recorded plan'
+        );
+      }
+    } finally {
+      await client.close();
+      await server.close();
+    }
+  }
+);
