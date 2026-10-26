@@ -113,6 +113,8 @@ function launch() {
     child.on('close', (code) => {
       const seconds = (Date.now() - started) / 1000;
       results[i] = { cmd, code: code === null ? 1 : code, seconds };
+      if (results[i].code !== 0)
+        results[i].tail = Buffer.concat(chunks).toString().split('\n').slice(-60).join('\n');
       // Printed WHOLE, as one write, so a concurrent leaf cannot land inside it.
       process.stdout.write(
         `\n── ${cmd}  (${seconds.toFixed(1)}s, exit ${results[i].code})\n` +
@@ -140,6 +142,9 @@ function finish() {
   if (failed.length) {
     console.log(`${failed.length} FAILING:`);
     for (const r of failed) console.log(`  ${r.cmd}  (exit ${r.code})`);
+    // Each failing leaf's last lines again, at the end: a CI log viewer that
+    // shows only the tail still shows why.
+    for (const r of failed) console.log(`\n── tail of ${r.cmd}\n${r.tail || ''}`);
     process.exit(1);
   }
   console.log(`every leaf of '${NAME}' passed`);
