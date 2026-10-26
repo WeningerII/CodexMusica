@@ -216,7 +216,10 @@
       }
     }
     const to = showing ? (narrow ? dialog : inline) : null;
-    if (from && to && to !== from) followInto(to, key);
+    // An edit refresh can replace controls inside the same host after it
+    // opens. Restore only focus that belonged to the replaced controls;
+    // a person who moved outside the inspector keeps their new focus.
+    if (from && to && (to !== from || !had.isConnected)) followInto(to, key);
   }
   // Show all and an occurrence choice redraw the list under the button that
   // asked (Jony #108: focus fell to BODY and nothing was said). Focus lands in

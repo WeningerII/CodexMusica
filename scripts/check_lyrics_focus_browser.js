@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global document */
+/* global document, lyRefresh */
 // Local-only keyboard regression for closing and reopening the Lyrics Relations dialog.
 // CHROMIUM_PATH=/path/to/chrome node scripts/check_lyrics_focus_browser.js
 const { chromium } = require('playwright');
@@ -84,6 +84,15 @@ const server = http.createServer((req, res) => {
               .locator('[data-ui="ly-relation-close"]')
               .evaluate((n) => document.activeElement === n),
             'dialog focuses Close'
+          );
+          // The same-host refresh also occurs when a pending edit debounce
+          // settles after the dialog opens. It must retain the focused control.
+          await page.evaluate(() => lyRefresh(true));
+          assert(
+            await dialog
+              .locator('[data-ui="ly-relation-close"]')
+              .evaluate((n) => document.activeElement === n),
+            'an edit refresh keeps focus on Close in the redrawn dialog'
           );
           if (dismissal === 'Escape') await page.keyboard.press('Tab');
           await page.keyboard.press(dismissal);
