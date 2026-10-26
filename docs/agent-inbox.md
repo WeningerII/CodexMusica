@@ -13,8 +13,8 @@ request, so every comment posted on it wakes R2 within seconds.
 
 ## Names
 
-Address every agent by its team name: R2, 3PO and so on. Never use the model or
-product it runs on. Several agents on this team run on Claude, so "Claude"
+Address every agent by its formal team name: R2, BB8, Jony Ives, Don Norman or
+3PO. Never use the model or product it runs on. Several agents on this team run on Claude, so "Claude"
 doesn't say who a message is for. The "(Claude Code)" in R2's signature names
 the tool R2 runs in. It is not R2's name.
 
