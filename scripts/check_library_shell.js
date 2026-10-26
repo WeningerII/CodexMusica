@@ -393,6 +393,109 @@ function chromiumPath() {
     await s.close();
   }
 
+  // A connected but hidden Works view must not commit its debounce into
+  // another top-level page's URL. Drive the actual input and nav handlers in
+  // one browser task so the departure is deterministically inside 200 ms.
+  {
+    const s = await open(dirs.lazy, '#library/works');
+    const { page } = s;
+    const searches = [];
+    let held = null;
+    await page.route('**/library/v1/search?*', async (route) => {
+      const q = new URL(route.request().url()).searchParams.get('q');
+      searches.push(q);
+      if (q === 'committed' && !held) {
+        held = route;
+        return;
+      }
+      await route.fulfill({ json: { items: [], total: 0 } });
+    });
+    await shown(page, 'Works');
+    const input = page.locator('[data-lw="q"]');
+    const depart = (target, backImmediately = false) =>
+      page.evaluate(
+        ({ target, backImmediately }) => {
+          const input = document.querySelector('[data-lw="q"]');
+          input.value = 'stale';
+          input.dispatchEvent(new Event('input', { bubbles: true }));
+          document.querySelector(`button.cm-tab[data-view="${target}"]`).click();
+          if (backImmediately) document.querySelector('button.cm-tab[data-view="library"]').click();
+          return location.hash;
+        },
+        { target, backImmediately }
+      );
+    for (const target of ['genre', 'lyrics']) {
+      const hash = await depart(target);
+      assert.equal(hash, '#' + target);
+      assert.equal(
+        await input.evaluate((el) => el.isConnected),
+        true,
+        'hidden Works remains connected'
+      );
+      await page.waitForTimeout(350);
+      assert.equal(
+        await page.evaluate(() => location.hash),
+        hash,
+        'pending Works query cannot rewrite ' + target
+      );
+      assert.deepEqual(searches, [], 'leaving before debounce sends no search');
+      await page.click('button.cm-tab[data-view="library"]');
+      await shown(page, 'Works');
+      assert.equal(await input.inputValue(), '', 'return restores the last committed Works route');
+      assert.equal(await page.evaluate(() => location.hash), '#library/works');
+    }
+    await depart('genre', true);
+    await page.waitForTimeout(350);
+    assert.deepEqual(searches, [], 'a quick leave and return must not revive the old timer');
+    assert.equal(await input.inputValue(), '');
+    assert.equal(await page.evaluate(() => location.hash), '#library/works');
+
+    await input.fill('ordinary');
+    await page.waitForFunction(() => location.hash === '#library/works?q=ordinary');
+    await page.waitForTimeout(100);
+    assert.deepEqual(searches, ['ordinary'], 'ordinary same-Library search still commits once');
+    await input.fill('committed');
+    const committedRequest = page.waitForRequest(
+      (r) => r.url().includes('/search?') && r.url().includes('q=committed')
+    );
+    await input.press('Enter');
+    await committedRequest;
+    assert.equal(await page.evaluate(() => location.hash), '#library/works?q=committed');
+    await page.click('button.cm-tab[data-view="lyrics"]');
+    await held.fulfill({ json: { items: [], total: 0 } });
+    await page.waitForTimeout(350);
+    assert.equal(
+      await page.evaluate(() => location.hash),
+      '#lyrics',
+      'in-flight results cannot change the destination URL'
+    );
+    await page.click('button.cm-tab[data-view="library"]');
+    await page.waitForFunction(() => location.hash === '#library/works?q=committed');
+    await input.waitFor({ state: 'visible' });
+    assert.equal(
+      await input.inputValue(),
+      'committed',
+      'an explicit Enter commit survives navigation'
+    );
+    await page.click('button.cm-tab[data-view="genre"]');
+    await page.goBack();
+    await page.waitForFunction(() => UI.view === 'library');
+    assert.equal(await page.evaluate(() => location.hash), '#library/works?q=committed');
+    await input.waitFor({ state: 'visible' });
+    assert.equal(await input.inputValue(), 'committed', 'Back preserves the committed query');
+    await page.goForward();
+    await page.waitForFunction(() => UI.view === 'genre');
+    await page.waitForTimeout(350);
+    assert.equal(
+      await page.evaluate(() => location.hash),
+      '#genre',
+      'Forward keeps its destination URL'
+    );
+
+    assert.deepEqual(s.errors, []);
+    await s.close();
+  }
+
   // A page that needs the catalog, opened before the workspace is in, shows
   // its skeleton (it is not drawn against an empty catalog) and draws once
   // the workspace is in.

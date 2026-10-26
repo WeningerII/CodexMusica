@@ -47,6 +47,7 @@ uiRegisterPage({
   recipe: 'sidebar', // 'sidebar-right' or 'dock': how Your recipe is presented on this route
   mount(surface) {}, // build the page once inside <section id="surface-genre">
   render() {}, // show current state; called on every visit and refresh
+  leave() {}, // optional: cancel page-owned pending work before switching to another page
   route(sub, { pop }) {}, // optional: show the sub-route after '#genre' ('/…' or '?…', '' for none)
   currentRoute() {}, // optional: the sub-route a nav click resumes at
   layout() {}, // page-specific UILayout panes, once, after the shell's

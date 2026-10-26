@@ -441,7 +441,7 @@ class WorksView {
     // loaded: this one is stale and must not overwrite its state or the hash
     // (Jony's review: language=eng then offset=50 with a slow catalog).
     // Left for another Library page meanwhile (BB8's L4): nothing to update.
-    if (gen !== this.generation || !this.root.isConnected) return;
+    if (this.disposed || gen !== this.generation || !this.root.isConnected) return;
     this.state = s;
     this.sub = format(s);
     // What is shown is what the hash says: a value read as its default is
@@ -1079,6 +1079,11 @@ return {
     ACTIVE = view;
     view.update(sub || '/works');
     return view;
+  },
+  // Leaving the top-level Library hides rather than removes this view.
+  // Re-entry creates a fresh view from the last committed Library route.
+  leave: () => {
+    if (ACTIVE && !ACTIVE.disposed) ACTIVE.dispose();
   },
   // Closes the topmost Works layer (metadata or filter sheet); true if it did.
   escape: () => Boolean(ACTIVE && ACTIVE.root.isConnected && ACTIVE.escape()),
