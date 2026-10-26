@@ -178,16 +178,14 @@ def _any_reading(verdicts):
 
 def _cell_holds(pattern, got):
     """One alignment's agreement rows against a cell's demanded channels.
-    Demanded syllables count from the anchor forward."""
+    Demanded syllables count from the anchor forward. A known demanded
+    mismatch disproves the conjunction even when another channel is unknown;
+    the answer must not depend on which channel is visited first."""
+    from quality.relations import tri_and
     if len(got) < len(pattern):
         return False
-    for want, have in zip(pattern, got):
-        for w, h in zip(want, have):
-            if w and h is None:
-                return None       # a demanded channel was unreadable
-            if w and not h:
-                return False
-    return True
+    return tri_and(h for want, have in zip(pattern, got)
+                   for w, h in zip(want, have) if w)
 
 
 def _build():

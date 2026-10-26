@@ -317,7 +317,7 @@ D1_2026_10_04_LABELS = {
 # and the seeded 1,000-pair draw is a re-draw. The artifact arm HOLDS in all
 # nine figures. Agreement over judged 684/687 (99.6%), refusals apart.
 # D1_2026_10_04_LABELS kept above.
-D1_RECORDED = {
+D1_2026_10_15 = {
     "pool": 4315945,
     "measured": "2026-10-15",
     "population": "1344 English files; normalized-lyrics-v1, 106 explicit work groups; nonlyric apparatus annotated (2026-09-15, M-25(a) and the label pass 2026-10-04, the M-25 residue 2026-10-15); declared label prefixes stripped",
@@ -325,6 +325,29 @@ D1_RECORDED = {
               ("false", "admits"): 1, ("false", "rejects"): 679,
               ("refused", "admits"): 4, ("refused", "rejects"): 309},
     "agree": (684, 687),
+}
+
+# REPINNED 2026-10-26 — THE READING COMPARISON, not the population.
+# PR #615 (d21de02e) stopped calling mixed pronunciation readings False.
+# A/B on all 1,000 sampled pairs, restoring only the old `_cmp`, locates
+# three False -> None changes: office/color, han'/frocks, fall/along.
+# The latter two expose `_cell_holds` returning at an unknown vowel before
+# seeing a definite coda mismatch. Its conjunction now uses `tri_and`, so
+# those two return False again; a second full-sample A/B finds ONLY those
+# two changes. office/color remains legitimately undecided: its demanded
+# first-row vowel is None and coda True (the second row is not demanded).
+# Thus exactly one pair leaves false/rejects for refused/rejects versus
+# 2026-10-15. Engine admission, corpus pool and artifact arm are unchanged.
+# This is a corrected uncertainty count, not an improvement in agreement.
+# Actual pairs and all 27 channel combinations: test_structures.py,
+# test_cell_uncertainty. Dated old record retained above, never overwritten.
+D1_RECORDED = {
+    **D1_2026_10_15,
+    "measured": "2026-10-26",
+    "table": {("true", "admits"): 5, ("true", "rejects"): 2,
+              ("false", "admits"): 1, ("false", "rejects"): 678,
+              ("refused", "admits"): 4, ("refused", "rejects"): 310},
+    "agree": (683, 686),
 }
 
 #: HISTORICAL, and unreachable from this tree by any population.

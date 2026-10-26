@@ -101,6 +101,38 @@ def test_the_judges():
               got is want if want is None else got == want, f"got {got}")
 
 
+def test_cell_uncertainty():
+    print("\n2b. a known demanded mismatch beats an unknown channel")
+    from itertools import product
+    from quality import rhyme_types as RT
+    from quality import phonology as PH
+    for channels in product((True, False, None), repeat=3):
+        want = False if False in channels else None if None in channels else True
+        got = ST._cell_holds(((1, 1, 1),), (channels,))
+        check(f"demanded channels {channels}: {want}", got is want)
+    check("a later demanded syllable can disprove an earlier unknown",
+          ST._cell_holds(((0, 1, 1), (0, 1, 1)),
+                         ((True, None, True), (True, True, False))) is False)
+    check("unconstrained channels and unrequested syllables stay irrelevant",
+          ST._cell_holds(((0, 1, 1),),
+                         ((None, True, True), (False, False, False))) is True)
+    check("too few syllables cannot satisfy the demanded pattern",
+          ST._cell_holds(((0, 1, 1), (0, 1, 1)),
+                         ((True, None, True),)) is False)
+    phon = PH.get("eng")
+    for a, b, agreement, want in (
+        ("han'", "frocks", ((False, None, False),), False),
+        ("fall", "along", ((False, None, False),), False),
+        ("office", "color", ((False, None, True), (False, False, False)), None),
+        ("read", "seed", ((False, None, True),), None),
+        ("reed", "seed", ((False, True, True),), True),
+    ):
+        check(f"{a}/{b}: actual merged readings are {agreement}",
+              RT.classify_pair(a, b, phon).agreement == agreement)
+        check(f"{a}/{b}: masculine-rhyme is {want}",
+              ST.judge("masculine-rhyme", a, b, phon=phon) is want)
+
+
 def test_refusals():
     print("\n3. refusals, never defaults")
     try:
@@ -374,7 +406,7 @@ def test_planner_samples_calibrated():
 
 
 if __name__ == "__main__":
-    for fn in (test_the_catalog, test_the_judges, test_refusals,
+    for fn in (test_the_catalog, test_the_judges, test_cell_uncertainty, test_refusals,
                test_mandate_coordinate, test_grade_routing,
                test_laziness_scope_and_disclosure,
                test_planner_samples_calibrated):
