@@ -8,7 +8,13 @@
 // new_run still runs.
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { runTurn, LIMITS, reviseRepeatKey, completedRevises } from './gemini_agent.js';
+import {
+  runTurn,
+  LIMITS,
+  reviseRepeatKey,
+  completedRevises,
+  MAX_COMPLETED_REVISE_KEYS,
+} from './gemini_agent.js';
 
 const nativeFetch = globalThis.fetch;
 const surface = {
@@ -57,21 +63,35 @@ const parked = () =>
 const finished = () =>
   verdict({ exit_code: 0, status: 'certified', certified: true, final_draft: draft });
 // The model asks for each scripted call in turn, then answers in text.
-async function turn(script, { history = [], lyric = null, tool = parked, writer, limits } = {}) {
+async function turn(
+  script,
+  {
+    history = [],
+    lyric = null,
+    tool = parked,
+    writer,
+    limits,
+    priorTask = null,
+    userText = 'Revise this.',
+    modelText = 'done',
+    onCheckpoint,
+  } = {}
+) {
   let hop = 0;
   const sent = [];
   globalThis.fetch = async () => {
     const next = script[hop++];
-    return response(next ? [fc('lyric_revise', next)] : [{ text: 'done' }]);
+    return response(next ? [fc('lyric_revise', next)] : [{ text: modelText }]);
   };
   try {
     const out = await runTurn({
       apiKey: 'offline',
+      onCheckpoint,
       surface,
-      userText: 'Revise this.',
+      userText,
       history,
       lyric,
-      task: task(),
+      task: priorTask || task(),
       ...(writer ? { writer } : {}),
       limits: { ...LIMITS, maxSteps: 60, maxTurnMs: 30000, maxTurnUsd: 0, ...limits },
       callTool: async (name, args) => {
@@ -249,13 +269,14 @@ test('across turns the guard holds while the result is in the signed history, st
   assert.ok(stub && typeof stub.response.repeat_key === 'string', 'the stub keeps the key');
   assert.equal(stub.response.final_draft, undefined);
   assert.match(third.out.calls[0].error, /stopped_with_open_lines, exit 3\)\. Nothing was run/);
-  // Where the guarantee lapses: a turn the byte ceiling drops takes its key
-  // with it, and a result recorded before this change carries no key.
+  // Import legacy history receipts before the byte ceiling drops their turn.
+  // A result recorded before repeat keys existed still carries no key.
   const dropped = await turn([{ draft, ...decl }], {
     history: second.out.history,
     limits: { pruneMaxBytes: 1 },
   });
-  assert.equal(dropped.dispatched, 1);
+  assert.equal(dropped.dispatched, 0);
+  assert(dropped.out.task.completed_revise_keys.length);
   const legacy = first.out.history.map((c) => ({
     ...c,
     parts: (c.parts || []).map((p) => {
@@ -399,4 +420,91 @@ test('a draft one writer stopped on is new work for the other writer (false repe
     writer: 'interview',
   });
   assert.equal(again.dispatched, 0);
+});
+
+test('completed work survives default whole-turn trimming in the carried task', async () => {
+  const first = await turn([{ draft, ...decl }]);
+  let state = first.out;
+  let dropped = false;
+  for (let i = 0; i < 45; i++) {
+    const next = await turn([], {
+      history: state.history,
+      lyric: state.lyric,
+      priorTask: state.task,
+      userText: 'Discuss only; do not restart. ' + 'Synthetic context. '.repeat(200),
+      modelText: 'Discussion only. '.repeat(220),
+    });
+    state = next.out;
+    if (!completedRevises(state.history).size) {
+      dropped = true;
+      break;
+    }
+  }
+  assert(dropped, 'the default byte ceiling deleted the completion turn');
+  assert(state.task.turns < 49, 'within the default 50-turn HTTP admission limit');
+  const again = await turn([{ draft, ...decl }], {
+    history: state.history,
+    lyric: state.lyric,
+    priorTask: state.task,
+  });
+  assert.equal(again.dispatched, 0, 'transcript trimming must not authorize another paid revise');
+  assert.equal(repeats(again.out), 1);
+  const explicit = await turn([{ draft, ...decl, new_run: true }], {
+    history: state.history,
+    lyric: state.lyric,
+    priorTask: state.task,
+  });
+  assert.equal(explicit.dispatched, 1, 'explicit independent runs retain their existing semantics');
+  const independent = await turn([{ draft, ...decl }]);
+  assert.equal(independent.dispatched, 1, 'receipts are scoped to one conversation');
+});
+
+test('completion receipt capacity refuses new keyed work without evicting old protection', async () => {
+  const keys = Array.from({ length: MAX_COMPLETED_REVISE_KEYS }, (_, i) =>
+    i.toString(16).padStart(32, '0')
+  );
+  const key = reviseRepeatKey('lyric_revise', { draft, ...decl, writer: 'kitchen' });
+  keys[0] = key;
+  const priorTask = { ...task(), completed_revise_keys: keys };
+  const repeated = await turn([{ draft, ...decl }], { priorTask });
+  assert.equal(repeated.dispatched, 0);
+  assert.equal(repeats(repeated.out), 1);
+  const changed = { draft: ['A new synthetic line', draft[1]], ...decl };
+  const full = await turn([changed], { priorTask });
+  assert.equal(full.dispatched, 0);
+  assert.match(full.out.calls[0].error, /^REVISE_RECEIPTS_FULL:/);
+  assert.deepEqual(full.out.task.completed_revise_keys, keys);
+  assert.equal(full.out.usage.reviseRepeated, 0, 'capacity refusal is not an observed repeat');
+  const restart = await turn([{ ...changed, new_run: true }], { priorTask });
+  assert.equal(restart.dispatched, 1);
+  assert.deepEqual(restart.out.task.completed_revise_keys, keys);
+  const held = await turn([{ draft, ...decl }], { tool: interrupted });
+  const resumed = await turn([{ draft, ...decl }], {
+    priorTask,
+    lyric: held.out.lyric,
+    tool: finished,
+  });
+  assert.equal(resumed.dispatched, 1, 'capacity does not block a checkpoint continuation');
+  assert.equal(resumed.sent[0].checkpoint, 'ckpt-1');
+  assert.deepEqual(resumed.out.task.completed_revise_keys, keys);
+  const recovered = await turn([{ recover_only: true }], { priorTask });
+  assert.equal(recovered.dispatched, 1, 'capacity does not block recovery-only exports');
+  const room = { ...task(), completed_revise_keys: keys.slice(1) };
+  const last = await turn([{ draft, ...decl }], { priorTask: room });
+  assert.equal(last.dispatched, 1);
+  assert.equal(last.out.task.completed_revise_keys.length, MAX_COMPLETED_REVISE_KEYS);
+  assert(last.out.task.completed_revise_keys.includes(key));
+});
+
+test('completion receipts are carried by the first checkpoint after a finished revise', async () => {
+  const checkpoints = [];
+  const result = await turn([{ draft, ...decl }], {
+    onCheckpoint: async (value) => checkpoints.push(structuredClone(value)),
+  });
+  assert(checkpoints.length);
+  assert.deepEqual(
+    checkpoints[0].task.completed_revise_keys,
+    result.out.task.completed_revise_keys
+  );
+  assert.equal(checkpoints[0].task.completed_revise_keys.length, 1);
 });

@@ -178,6 +178,15 @@ or the separate lyrics pipeline.
   checkpoint and response recovery through `GET /chat/jobs/<request_id>`. This
   identifier is a bearer capability. The battery uses it on every attempt; an
   ordinary request without it has no recoverable request receipt.
+- Completed `lyric_revise` work is protected against accidental repeat dispatch
+  within the continued conversation, even after old transcript turns are trimmed.
+  The signed task retains up to 4,096 compact completion keys without eviction.
+  At capacity, new ordinary keyed revisions receive `REVISE_RECEIPTS_FULL` before
+  execution; start a new conversation for new work. Existing repeats remain
+  refused, while explicit `new_run`, checkpoint/state continuation and recovery
+  retain their existing semantics. This is conversation-local protection, not
+  cross-conversation deduplication. Old receipts already removed before this
+  retention was introduced cannot be reconstructed.
 - `GET /chat/status` reports model availability, declared pricing, usage and
   outstanding reservations against the shared daily allowance.
 
