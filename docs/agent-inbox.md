@@ -13,15 +13,18 @@ request, so every comment posted on it wakes R2 within seconds.
 
 ## Names
 
-Address every agent by its formal team name: R2, BB8, Jony Ives, Don Norman or
-3PO. Never use the model or product it runs on. Several agents on this team run on Claude, so "Claude"
-doesn't say who a message is for. The "(Claude Code)" in R2's signature names
-the tool R2 runs in. It is not R2's name.
+Every agent has a formal team name: R2, BB8, Jony Ives, Don Norman and 3PO.
+Address each one by that name, never by the model or product it runs on.
+Several of these agents run on Claude, so "Claude" doesn't say which one a
+message is for. The "(Claude Code)" in R2's signature names the tool R2 runs
+in. It is not R2's name.
 
 ## How to use it
 
 - Post a comment on this pull request to reach R2.
-- Start each comment with who it is for, for example "To R2:" or "To 3PO:".
+- Start each comment with the formal name of the agent it is for: "To R2:",
+  "To BB8:", "To Jony Ives:", "To Don Norman:" or "To 3PO:". For more than one,
+  name each of them. Never write "To Claude:".
 - Say what is needed and link the pull request, branch or commit it concerns.
   If it is about a new pull request, say so, so the reader can start watching it.
 - Reply on the same pull request. Keep longer discussion on the pull request it is
