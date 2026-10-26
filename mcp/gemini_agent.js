@@ -261,7 +261,11 @@ function addUsage(into, meta) {
 // has no key and always runs, as does an explicit `new_run` restart; and
 // only a FINISHED result is recorded as done (`finishedRevise`), never an
 // interrupted one, so an interrupted run stays resumable. The key rides back on the completed result as `repeat_key`
-// (kept by the history stub), which is how a later turn recognises it.
+// (kept by the history stub). The host-owned task also retains compact keys:
+// deleting an old transcript turn must not authorize paying for it again.
+// At capacity, refuse new keyed work rather than silently evict protection.
+// Explicit new runs and checkpoint/state continuations retain their semantics.
+export const MAX_COMPLETED_REVISE_KEYS = 4096;
 const REPEAT_VOLATILE = new Set([
   WORKSPACE_PROPERTY,
   'run_id',
@@ -1498,7 +1502,7 @@ function buildSystemInstruction(surface, lyr, record = null, task = null) {
   const text = [
     task ? instructionsForTask(surface.instructions || '', task.domain) : surface.instructions,
     task
-      ? `ACTIVE TASK (chosen by the user and held by the host): ${JSON.stringify({ ...task, artifact: undefined, lyric_context: undefined })}. Stay in this domain. The brief and current plan remain authoritative even when observations have been pruned.`
+      ? `ACTIVE TASK (chosen by the user and held by the host): ${JSON.stringify({ ...task, artifact: undefined, lyric_context: undefined, completed_revise_keys: undefined })}. Stay in this domain. The brief and current plan remain authoritative even when observations have been pruned.`
       : null,
     task?.domain === 'lyrics' && task.lyric_context ? lyricContextText(task.lyric_context) : null,
     task?.domain === 'recipe'
@@ -1723,12 +1727,30 @@ export async function runTurn({
   let artifact = task?.artifact ? { ...task.artifact, certified: false } : null;
   let recoveredDelivery = null;
   if (task?.artifact) task.artifact = artifact;
+  // /chat supplies only its verified task (or a fresh whitelisted task).
+  // Import legacy receipts BEFORE trimming, then carry keys independently of
+  // the model transcript. Existing history still supplies richer reply text.
+  const retainedReviseKeys = new Set(
+    (Array.isArray(task?.completed_revise_keys) ? task.completed_revise_keys : [])
+      .filter((key) => typeof key === 'string' && /^[a-f0-9]{32}$/.test(key))
+      .slice(0, MAX_COMPLETED_REVISE_KEYS)
+  );
+  const revisesDone = completedRevises(history);
+  for (const key of revisesDone.keys()) {
+    if (retainedReviseKeys.size >= MAX_COMPLETED_REVISE_KEYS) break;
+    retainedReviseKeys.add(key);
+  }
+  for (const key of retainedReviseKeys)
+    if (!revisesDone.has(key))
+      revisesDone.set(key, { where: 'an earlier turn of this conversation' });
+  const saveReviseKeys = () => {
+    if (task && retainedReviseKeys.size) task.completed_revise_keys = [...retainedReviseKeys];
+  };
+  saveReviseKeys();
   const prior = limits.pruneFolded
     ? pruneHistory(history, { keepTurns: limits.pruneKeepTurns, maxBytes: limits.pruneMaxBytes })
     : history;
   const contents = [...prior, { role: 'user', parts: [{ text: userText }] }];
-  // The revises this conversation already completed (the repeat guard).
-  const revisesDone = completedRevises(prior);
   let safeHistory = [...contents];
   let safeWorkspace = workspace;
   let safeLyric = lyric;
@@ -2387,17 +2409,21 @@ export async function runTurn({
             ? reviseRepeatKey(fc.name, { ...args, checkpoint: undefined })
             : null);
         const earlierRevise = repeatKey ? revisesDone.get(repeatKey) : null;
-        if (earlierRevise) {
-          const note = repeatNote(earlierRevise);
+        const repeatCapacity =
+          repeatKey && !earlierRevise && retainedReviseKeys.size >= MAX_COMPLETED_REVISE_KEYS;
+        if (earlierRevise || repeatCapacity) {
+          const note = earlierRevise
+            ? repeatNote(earlierRevise)
+            : 'REVISE_RECEIPTS_FULL: this conversation cannot retain another completion receipt. Nothing was run. Start a new conversation for new work; existing checkpoints can still resume.';
           result = { isError: true, content: [{ type: 'text', text: note }] };
-          usage.reviseRepeated++;
+          if (earlierRevise) usage.reviseRepeated++;
           calls.push({
             name: fc.name,
             args,
             isError: true,
             not_run: true,
             refused_by_connector: true,
-            repeat_of: earlierRevise.where,
+            repeat_of: earlierRevise?.where ?? null,
             error: note,
           });
           if (onEvent) onEvent({ type: 'tool', name: fc.name, isError: true, refused: true });
@@ -2630,7 +2656,7 @@ export async function runTurn({
             if (!isError && typeof lyricVerdict?.proposer_calls === 'number')
               usage.writerCallsReported += lyricVerdict.proposer_calls;
             else usage.reviseUnreported++;
-            if (doneKey && !isError && finishedRevise(lyricVerdict))
+            if (doneKey && !isError && finishedRevise(lyricVerdict)) {
               revisesDone.set(doneKey, {
                 where: 'this request',
                 status: lyricVerdict?.status ?? null,
@@ -2639,6 +2665,10 @@ export async function runTurn({
                   ? lyricVerdict.final_draft
                   : null,
               });
+              if (retainedReviseKeys.size < MAX_COMPLETED_REVISE_KEYS)
+                retainedReviseKeys.add(doneKey);
+              saveReviseKeys();
+            }
           }
           if (lyricVerdict?.proposer_calls > 0) {
             const kitchenCost =

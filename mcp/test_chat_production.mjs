@@ -2294,3 +2294,123 @@ test('normal chat completion retains an unfinished tool journal and directs expl
     fs.rmSync(directory, { recursive: true, force: true });
   }
 });
+
+test('completion receipts survive stored continuation trimming and remain host-owned', async () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'chat-repeat-receipts-'));
+  const store = new JobStore(dir);
+  const app = express();
+  app.use(express.json({ limit: '2mb' }));
+  let dispatched = 0;
+  const original = ['A synthetic first line', 'A synthetic second line'];
+  const makeServer = () => {
+    const mcp = new McpServer({ name: 'repeat-receipts', version: '1' }, { instructions });
+    mcp.registerTool('lyric_revise', { inputSchema: {} }, async () => {
+      dispatched++;
+      return {
+        content: [
+          {
+            type: 'text',
+            text: JSON.stringify({
+              exit_code: 3,
+              status: 'stopped_with_open_lines',
+              certified: false,
+              final_draft: [original[0], 'An accepted synthetic change'],
+              loop_unresolved_lines: [1],
+            }),
+          },
+        ],
+      };
+    });
+    return mcp;
+  };
+  const router = await createChatRouter({
+    buildServer: makeServer,
+    Client,
+    InMemoryTransport,
+    apiKey: 'offline',
+    limits: { ...CHAT_LIMITS, perIpPerMinute: 1000, perIpPerHour: 1000 },
+    turnLimits: { ...LIMITS, maxSteps: 1, pruneMaxBytes: 1 },
+  });
+  app.use(createJobRouter({ store, recoverCheckpoint: (r) => router.recoverCheckpoint(r) }));
+  app.use(router);
+  const server = app.listen(0, '127.0.0.1');
+  await once(server, 'listening');
+  const url = `http://127.0.0.1:${server.address().port}/chat`;
+  let revise = true;
+  globalThis.fetch = async (_url, init) => {
+    assert(
+      !JSON.parse(init.body).systemInstruction.parts[0].text.includes('completed_revise_keys')
+    );
+    return response(
+      revise
+        ? [fc('lyric_revise', { draft: original, groups: '1,2' })]
+        : [{ text: 'Discuss only.' }]
+    );
+  };
+  const post = async (body) => {
+    const r = await nativeFetch(url, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    return { status: r.status, body: await r.json() };
+  };
+  try {
+    let id = crypto.randomBytes(32).toString('hex');
+    let r = await post({
+      message: 'Edit this draft',
+      request_id: id,
+      task: { domain: 'lyrics', phase: 'edit', completed_revise_keys: ['f'.repeat(32)] },
+    });
+    assert.equal(r.status, 200);
+    assert.equal(dispatched, 1);
+    assert.equal(r.body.task.completed_revise_keys.length, 1);
+    assert.notEqual(
+      r.body.task.completed_revise_keys[0],
+      'f'.repeat(32),
+      'unsigned metadata ignored'
+    );
+    const forged = {
+      history: r.body.history,
+      workspace: r.body.workspace,
+      lyric: r.body.lyric,
+      task: { ...r.body.task, completed_revise_keys: [] },
+      sig: r.body.sig,
+    };
+    assert.equal((await post({ message: 'continue', ...forged })).status, 400);
+    assert.equal(
+      (
+        await post({
+          message: 'continue',
+          continuation_id: id,
+          request_id: crypto.randomBytes(32).toString('hex'),
+          task: { completed_revise_keys: [] },
+        })
+      ).status,
+      400
+    );
+    revise = false;
+    for (let i = 0; i < 2; i++) {
+      const child = crypto.randomBytes(32).toString('hex');
+      r = await post({ message: 'Discuss only.', request_id: child, continuation_id: id });
+      assert.equal(r.status, 200);
+      id = child;
+    }
+    assert(!JSON.stringify(r.body.history).includes('repeat_key'), 'whole completion turn removed');
+    assert.equal(r.body.task.completed_revise_keys.length, 1);
+    revise = true;
+    const child = crypto.randomBytes(32).toString('hex');
+    r = await post({
+      message: 'Continue without restarting.',
+      request_id: child,
+      continuation_id: id,
+    });
+    assert.equal(r.status, 200);
+    assert.equal(dispatched, 1, 'stored continuation refuses the repeat before tool dispatch');
+    assert(r.body.tools.some((row) => /^ALREADY_DONE/.test(row.error || '')));
+  } finally {
+    globalThis.fetch = nativeFetch;
+    await new Promise((resolve) => server.close(resolve));
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
