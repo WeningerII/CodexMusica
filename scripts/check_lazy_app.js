@@ -2073,7 +2073,10 @@ const E3_STEPS = [
     "the AI writer's Use recipe",
     `const node = document.createElement('div');
     document.getElementById('chat-log').append(node);
-    uiReceiveReply({ recipe: 'E3', workspace: { cards: ${E3_CARDS} } }, null);
+    // This engine-readiness fixture represents an unchanged request. The
+    // dispatch/edit race and null-request refusal live in check_workbench.js.
+    UI.recipeRequest = { id: 'engine-e3', ...recipeEditSnapshot() };
+    uiReceiveReply({ recipe: 'E3', workspace: { cards: ${E3_CARDS} } }, { request_id: 'engine-e3' });
     const use = [...node.querySelectorAll('button')].find((b) => /Use recipe/.test(b.textContent));
     if (!use) throw Error('uiReceiveReply drew no Use recipe button');
     use.click();`,
