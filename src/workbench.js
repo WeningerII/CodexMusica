@@ -1,6 +1,6 @@
 /* exported UI, UI_ICONS, uiEmptyState, uiFind, uiFocus, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport, uiRecipeGenres, uiCount, uiTabIndex, uiDownload, uiSubroute, uiRouteOf, uiOpenInLyrics, uiInertOutside */
 /* global UILayout, CMLibraryImport, _whenWorkspace, _workspaceReady, uiEnsureWorkspace, _releaseEngine, _renderBootError, uiLyricsOpened */
-/* global lyricMetaOf, ChainItem, renderSidebar, Room, Tuning, compileRecipeStack, envCardOf, renderSidebarTraditions, _revealSelectedCard, Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting, _engineLive, engineReady, storedSessionText */
+/* global recipeEditSnapshot, lyricMetaOf, ChainItem, renderSidebar, Room, Tuning, compileRecipeStack, envCardOf, renderSidebarTraditions, _revealSelectedCard, Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting, _engineLive, engineReady, storedSessionText */
 /* The shared application shell: one header, one navigation, one recipe
    workspace and session, one AI writer, one set of panels. Built alongside the
    canonical app (src/app.js) and catalog, which stay the only engine.
@@ -13,6 +13,7 @@
 const UI = {
   lyricRevision: 0,
   lyricRequest: null,
+  recipeRequest: null,
   lastSaved: null,
   storageConflict: false,
   saveFailed: false,
@@ -2322,12 +2323,24 @@ function uiReceiveReply(payload, request) {
   }
   if (payload.recipe && payload.workspace?.cards) {
     const source = JSON.parse(JSON.stringify(payload.workspace.cards));
+    // Never infer a request baseline from the editor at response time. Legacy
+    // or recovered replies without local provenance cannot replace this editor.
+    const baseline =
+      request?.request_id && request.request_id === UI.recipeRequest?.id ? UI.recipeRequest : null;
     const use = document.createElement('button');
     use.className = 'btn btn-primary';
     use.innerHTML = icon('plus', 16) + ' Use recipe';
     use.onclick = async () => {
       if (!_engineLive && !(await engineReady({ label: 'Retry', run: () => use.onclick() })))
         return;
+      const current = recipeEditSnapshot();
+      if (!baseline || baseline.revision !== current.revision || baseline.key !== current.key) {
+        showToast(
+          'Recipe not loaded: the editor changed or the original request is unavailable. Ask again from your current recipe.',
+          'error'
+        );
+        return;
+      }
       try {
         app.cards = normalizeWorkspaceCards(source, true);
         pushHistory();

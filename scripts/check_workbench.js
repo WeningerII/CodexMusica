@@ -191,6 +191,117 @@ const run = (code) => dom.window.eval(code);
   );
   assert.equal(run('app.workspaceName'), 'Before');
   assert.equal(run('app.lyrics'), 'Original words');
+  // Real request dispatch and reply controls, with deferred offline transport.
+  const savedFetch = dom.window.fetch;
+  async function recipeReply(editWhilePending = '', continuation = false) {
+    if (!continuation) run('_chatReset()');
+    run(
+      "app.cards=[makeCard('oud')];pushHistory();window.recipeResult={history:[],task:{domain:'recipe'},recipe:'Synthetic recipe',workspace:{cards:[makeCard('voice')]},sig:'synthetic-signature'};"
+    );
+    let deliver;
+    dom.window.fetch = async (_url, options) => {
+      dom.window.recipeBody = JSON.parse(options.body);
+      return new Promise((resolve) => {
+        deliver = resolve;
+      });
+    };
+    const sent = run("_chatSend('Change the recipe',{choice:'recipe'})");
+    run('_chatPollStop()');
+    if (editWhilePending) run(editWhilePending);
+    deliver({ ok: true, headers: { get: () => null }, json: async () => run('recipeResult') });
+    await sent;
+    return [...doc.querySelectorAll('#chat-log button')]
+      .reverse()
+      .find((b) => b.textContent.includes('Use recipe'));
+  }
+  let recipeUse = await recipeReply();
+  const beforeRecipe = run('musicalWorkspaceKey(app.cards)');
+  await recipeUse.onclick();
+  assert.equal(run('app.cards[0].instrumentId'), 'voice', 'unchanged editor accepts the reply');
+  run('undo()');
+  assert.equal(
+    run('musicalWorkspaceKey(app.cards)'),
+    beforeRecipe,
+    'Undo restores pre-apply recipe'
+  );
+  const continuationId = run('chatState.continuationId');
+  recipeUse = await recipeReply('', true);
+  assert.equal(dom.window.recipeBody.continuation_id, continuationId);
+  assert.equal(
+    dom.window.recipeBody.workspace,
+    undefined,
+    'editor never replaces signed AI workspace'
+  );
+  await recipeUse.onclick();
+  assert.equal(run('app.cards[0].instrumentId'), 'voice', 'unchanged continuation reply applies');
+  recipeUse = await recipeReply("commitPrefaceChange(app.cards[0],'bright')");
+  const editedRecipe = run('musicalWorkspaceKey(app.cards)');
+  await recipeUse.onclick();
+  assert.equal(
+    run('musicalWorkspaceKey(app.cards)'),
+    editedRecipe,
+    'reply must preserve edits made after request dispatch'
+  );
+  assert.equal(
+    run('chatState.workspace.cards[0].instrumentId'),
+    'voice',
+    'AI workspace retains its own reply'
+  );
+  assert.equal(run('chatState.sig'), 'synthetic-signature');
+  for (const edit of [
+    "commitPrefaceChange(app.cards[0],'bright');undo()",
+    "commitPrefaceChange(app.cards[0],'bright');undo();redo()",
+    "app.cards.push(makeCard('voice'));pushHistory()",
+    'app.cards=[];pushHistory()',
+    "app.cards[0].chain.fx=['plate_reverb'];pushHistory()",
+  ]) {
+    recipeUse = await recipeReply(edit);
+    const current = run('musicalWorkspaceKey(app.cards)');
+    const history = run('JSON.stringify(app.history)');
+    await recipeUse.onclick();
+    assert.equal(run('musicalWorkspaceKey(app.cards)'), current, edit);
+    assert.equal(
+      run('JSON.stringify(app.history)'),
+      history,
+      'refusal leaves Undo history unchanged'
+    );
+  }
+  recipeUse = await recipeReply();
+  run("commitPrefaceChange(app.cards[0],'bright')");
+  const afterReplyEdit = run('musicalWorkspaceKey(app.cards)');
+  await recipeUse.onclick();
+  assert.equal(
+    run('musicalWorkspaceKey(app.cards)'),
+    afterReplyEdit,
+    'edits after reply are protected'
+  );
+  recipeUse = await recipeReply();
+  // Presentation and lyrics-only commits do not invalidate an unchanged recipe.
+  run("app.cards[0]._uiTab='parts';app.lyrics='Unrelated lyrics';pushHistory()");
+  await recipeUse.onclick();
+  assert.equal(run('app.cards[0].instrumentId'), 'voice');
+  assert.equal(run('app.lyrics'), 'Unrelated lyrics');
+  // A null request is a supported legacy/test call, never evidence that the
+  // current editor is the one from which the result was requested.
+  run("_chatAppend('<div></div>');uiReceiveReply(recipeResult,null)");
+  const nullUse = doc.querySelector('#chat-log').lastElementChild.querySelector('button');
+  const beforeNull = run('musicalWorkspaceKey(app.cards)');
+  await nullUse.onclick();
+  assert.equal(run('musicalWorkspaceKey(app.cards)'), beforeNull);
+  assert.match(doc.getElementById('toast').textContent, /original request is unavailable/);
+  // Loading the engine yields; ownership must be checked after that await.
+  recipeUse = await recipeReply();
+  run(
+    'window.savedEngineReady=engineReady;window.savedEngineLive=_engineLive;_engineLive=false;engineReady=()=>new Promise(resolve=>window.engineResolve=resolve)'
+  );
+  const applying = recipeUse.onclick();
+  run("_engineLive=true;commitPrefaceChange(app.cards[0],'bright');engineResolve(true)");
+  const duringLoad = run('musicalWorkspaceKey(app.cards)');
+  await applying;
+  assert.equal(run('musicalWorkspaceKey(app.cards)'), duringLoad);
+  run('engineReady=savedEngineReady;_engineLive=savedEngineLive');
+  dom.window.fetch = savedFetch;
+
   // Recipe request remains recipe request when user opens lyrics during work.
   run("chatState.busy=true;chatState.task={domain:'recipe'};uiNavigate('lyrics');");
   assert.equal(run("document.getElementById('chat-dock').parentElement.id"), 'assistant-slot');
@@ -423,7 +534,7 @@ const run = (code) => dom.window.eval(code);
   );
 
   console.log(
-    'PASS workbench integration: boot, route grammar and sub-routes, partial import, isolated transfers, Undo, full sessions, concurrent save recovery, chat routing, late lyrics, conflict protection, preface Enter flush'
+    'PASS workbench integration: boot, route grammar and sub-routes, partial import, isolated transfers, Undo, full sessions, concurrent save recovery, chat routing, stale recipe protection, late lyrics, conflict protection, preface Enter flush'
   );
   dom.window.close();
 })().catch((e) => {

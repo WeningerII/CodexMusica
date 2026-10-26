@@ -16612,6 +16612,14 @@ function musicalWorkspaceKey(cards) {
     parts:c.parts,room:c.room,tuning:c.tuning,chain:c.chain,preface:c.preface,
     prefaceAuto:c.prefaceAuto,pinned:c.pinned,pinnedParts:c.pinnedParts})));
 }
+// Local editor ownership for asynchronous recipe replies. History commits and
+// restores observe transitions, so edit -> Undo cannot revive an old reply.
+const recipeEditState = {revision:0,key:null};
+function recipeEditSnapshot() {
+  const key=musicalWorkspaceKey(app.cards);
+  if(key!==recipeEditState.key){recipeEditState.key=key;recipeEditState.revision++;}
+  return {...recipeEditState};
+}
 // The Lyrics page's own context, version 1: the creative brief, a note per
 // section, the pending tool entries and the page's layout choices. Engine
 // declarations and sung text stay in the document; this never holds them.
@@ -16660,6 +16668,7 @@ function sessionKey(value) {
 }
 function pushHistory() {
   if(typeof _applyRecipeDedup==='function')_applyRecipeDedup();
+  recipeEditSnapshot();
   const snapshot=JSON.stringify(sessionSnapshot()),previous=app.history[app.historyIndex];
   if(previous&&sessionKey(JSON.parse(previous))===sessionKey(JSON.parse(snapshot))){app.history[app.historyIndex]=snapshot;updateHistoryButtons();return;}
   app.history=app.history.slice(0,app.historyIndex+1);app.history.push(snapshot);
@@ -16679,6 +16688,7 @@ function _restoreSnapshot(idx) {
       if(snapshot.lyricMeta){const m=lyricMetaOf(app.lyricMeta),h=lyricMetaOf({...snapshot.lyricMeta,version:1});delete m.draftId;delete m.libraryOrigin;delete m.renumbered;app.lyricMeta={...m,...lyricMetaHistory(h)};}
     }
     for(const c of app.cards)if(tabs.has(c.id))c._uiTab=tabs.get(c.id);
+    recipeEditSnapshot();
     if(typeof UI!=='undefined')UI.lyricRevision++;
     const draft=document.getElementById('lyrics-draft');if(draft)draft.value=app.lyrics||'';
     return true;
@@ -19937,6 +19947,7 @@ async function _chatSend(message, { choice, context = null, clearInput = false }
     if (ctx) body.lyric_context = ctx;
   }
   chatState.pending = {request_id,message,domain,created_at:Date.now()};
+  if(typeof UI!=='undefined'&&UI.ready&&domain==='recipe')UI.recipeRequest={id:request_id,...recipeEditSnapshot()};
   try { _chatSave(); }
   catch {
     chatState.pending = null;
