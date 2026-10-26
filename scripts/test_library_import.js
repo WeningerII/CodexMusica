@@ -391,7 +391,8 @@ test('origins require exact production or explicitly configured localhost equali
 });
 test('metadata, saved copies, session exports and Undo retain the full untruncated provenance sidecar', async () => {
   const source = fs.readFileSync(path.join(__dirname, '../src/app.js'), 'utf8');
-  const start = source.indexOf('const LYRIC_META_LIMITS='),
+  // Include the recipe revision tracker used by history restoration.
+  const start = source.indexOf('function musicalWorkspaceKey(cards)'),
     end = source.indexOf('function sessionSnapshot()', start);
   const context = vm.createContext({});
   vm.runInContext(
