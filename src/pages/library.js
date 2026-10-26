@@ -86,6 +86,9 @@ function libraryAnnounce(text) {
   if (text) setTimeout(() => (live.textContent = text), 50);
 }
 async function libraryShow() {
+  // A new section can await its chunk while Works is still connected.
+  // Retire its pending query at navigation intent, before any loading await.
+  if (!/^\/works(?:[/?]|$)/.test(LIBRARY.sub)) LIBRARY_CODE.loaded.works?.leave?.();
   librarySelectTab();
   const main = libraryMain();
   if (!main) return;

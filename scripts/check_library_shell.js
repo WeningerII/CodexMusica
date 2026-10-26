@@ -199,6 +199,62 @@ function chromiumPath() {
       { timeout: 30000 }
     );
 
+  // A cold section chunk can leave Works connected beyond its query debounce.
+  // Compare an unheld control with a deterministic delayed Rights load.
+  for (const holdRights of [false, true]) {
+    let heldRights;
+    const s = await open(dirs.lazy, '#library/works', (route) => {
+      if (holdRights && /\/rights\./.test(route.request().url())) heldRights = route;
+      else return route.continue();
+    });
+    const { page } = s;
+    const searches = [];
+    await page.route('**/library/v1/search?*', (route) => {
+      searches.push(new URL(route.request().url()).searchParams.get('q'));
+      return route.fulfill({ json: { items: [], total: 0 } });
+    });
+    await shown(page, 'Works');
+    await page.locator('[data-lw="q"]').fill('william sidney walker');
+    await page.locator('[data-lw="q"]').press('Enter');
+    await page.waitForFunction(() => location.hash === '#library/works?q=william+sidney+walker');
+    const immediate = await page.evaluate(() => {
+      const input = document.querySelector('[data-lw="q"]');
+      input.value = 'john donne';
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+      document.querySelector('[data-ui="lib-section"][data-id="/rights"]').click();
+      return location.hash;
+    });
+    assert.equal(immediate, '#library/rights');
+    await page.waitForTimeout(400);
+    const settled = await page.evaluate(() => ({
+      hash: location.hash,
+      selected: document.querySelector('[data-ui="lib-section"][aria-selected="true"]').dataset.id,
+      worksConnected: !!document.querySelector('[data-lw="q"]'),
+    }));
+    console.log(
+      'Rights debounce reproduction',
+      JSON.stringify({ holdRights, immediate, ...settled, searches })
+    );
+    if (holdRights) assert.ok(heldRights, 'Rights request was held past the debounce');
+    assert.equal(
+      settled.hash,
+      '#library/rights',
+      'pending Works query cannot replace Rights while its chunk loads'
+    );
+    assert.equal(settled.selected, '/rights');
+    assert.ok(!searches.includes('john donne'), 'departing query sends no search');
+    if (heldRights) await heldRights.continue();
+    await shown(page, 'Sources & rights');
+    await page.goBack();
+    await page.locator('[data-lw="q"]').waitFor({ state: 'visible' });
+    assert.equal(await page.locator('[data-lw="q"]').inputValue(), 'william sidney walker');
+    await page.goForward();
+    await shown(page, 'Sources & rights');
+    assert.equal(await page.evaluate(() => location.hash), '#library/rights');
+    assert.deepEqual(s.errors, []);
+    await s.close();
+  }
+
   // The default build: no Library route; #library falls back to Genre.
   {
     const s = await open(dirs.plain, '#library');
