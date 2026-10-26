@@ -381,7 +381,10 @@ export class RunStore {
     };
     this.map.delete(r.run_id);
     this.map.set(r.run_id, r);
-    const held = new Set([r.state, r.checkpoint].map(this.wireKey));
+    // `held` only filters inputs, and each wireKey decodes and canonicalizes a
+    // whole wire, so build it only when there are inputs to filter: a put with
+    // none (every snapshot re-put, the capacity seed) must stay cheap.
+    const held = inputs.length ? new Set([r.state, r.checkpoint].map(this.wireKey)) : null;
     this.ledger.mark(
       r.run_id,
       r.revision,

@@ -338,6 +338,21 @@ for(const item of input.cases) {
 
 
 class CatalogEdgeTests(unittest.TestCase):
+    def test_build_refuses_a_commit_id_that_is_not_40_hex(self):
+        # Without a pinned source manifest, any string reached the manifest's
+        # `repository_commit`, which its schema requires to be 40 hex digits.
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp) / "harness"; (root / "corpus/song").mkdir(parents=True); (root / "data").mkdir()
+            (root / "corpus/song/eng_fixture.txt").write_text("--- TITLE: Commit witness\nAllowed source.\n")
+            (root / "data/sources.tsv").write_text("source_id\tlicence\tpd_affirmed\tevidence\nlocal:corpus/song/eng_fixture.txt\tpublic domain\ttrue\trecorded\n")
+            for i, bad in enumerate(("fixture-pinned-commit", "A" * 40, "a" * 39, "a" * 40 + "\n", None)):
+                out = Path(temp) / f"out-{i}"
+                with self.subTest(repo_sha=bad):
+                    with self.assertRaisesRegex(CatalogError, "40-hex"):
+                        build(root, out, bad)
+                    self.assertFalse(out.exists())
+            self.assertEqual(build(root, Path(temp) / "good", "a" * 40)["repository_commit"], "a" * 40)
+
     def test_an_empty_language_or_author_header_declares_nothing(self):
         # `# language:` and `# author:` with no value crashed the build with
         # IndexError; they declare no language and name no contributor.

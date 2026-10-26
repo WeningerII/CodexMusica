@@ -53,6 +53,7 @@ class ReaderCheckpoint(TypedDict):
     emission: int
     done: bool
     refused_schemas: NotRequired[list[str]]
+    incomplete: NotRequired[dict[str, str]]
 
 
 def verdict(value: bool | None) -> Verdict:
