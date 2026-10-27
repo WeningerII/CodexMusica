@@ -8312,6 +8312,28 @@ class _JournalCapacity(Exception):
         self.path, self.code = path, code
 
 
+class _QuestionChanged(_JournalCapacity):
+    """A held run whose next replayed question is no longer the one it asked.
+
+    The journal pins each completed writer question by the sha256 of its
+    prompt, so an update that rewords the questions (2026-10-27: D6 removed
+    the word lists they offered) makes a run held across it unreplayable.
+    Replaying its old answers under new questions would carry the old
+    prompts' steering forward, and asking again would re-dispatch completed
+    writer calls. Neither happens: the run parks the way a capacity stop
+    does -- its accepted draft kept, `new_run_required`, no writer request --
+    and the user continues it as new work from that draft and their own
+    requirements, which the website already offers on this park. `path` is
+    None on purpose: the input checkpoint is left byte-identical."""
+    def __init__(self, state):
+        super().__init__(state, state.get("accepted_lines"), None,
+                         "QUESTION_CHANGED")
+        Exception.__init__(self, "QUESTION_CHANGED: this run was held across "
+                           "an update that changed its questions; the "
+                           "accepted draft and requirements are kept; "
+                           "continue as new work from that draft")
+
+
 def _journal_admit(state, reserve=0, *, lines=None, path=None,
                    ceiling=JOURNAL_WORK_BYTES, prior=None):
     if _journal_bytes(state) + reserve > ceiling:
@@ -8359,10 +8381,17 @@ def _journal_stop(error, machine=None, plan=None):
     if plan is not None:
         from quality.plan import render_song
         text = render_song(plan, error.lines).rstrip()
-    text += ("\n\n[STOPPED — " + error.code + " — accepted draft preserved; "
-             "not certified. Keep the journal. This run cannot resume; an "
-             "identical restart can reach the same limit. Reduce the requested "
-             "scope explicitly before starting independent work.]")
+    if isinstance(error, _QuestionChanged):
+        text += ("\n\n[STOPPED — " + error.code + " — accepted draft preserved; "
+                 "not certified. This run was held across an update that "
+                 "changed its questions, so it cannot replay them. No writer "
+                 "request was made. Continue as new work from the accepted "
+                 "draft; your requirements carry over.]")
+    else:
+        text += ("\n\n[STOPPED — " + error.code + " — accepted draft preserved; "
+                 "not certified. Keep the journal. This run cannot resume; an "
+                 "identical restart can reach the same limit. Reduce the requested "
+                 "scope explicitly before starting independent work.]")
     _lyric_result(**_lexicon_kw(), status="journal_capacity", exit=3, stop_reason=error.code,
                   code=error.code, input_draft=st.get("input_draft", error.lines),
                   accepted_lines=error.lines, final_draft=error.lines,
@@ -9546,8 +9575,8 @@ def _checkpoint_proposer(one, two, lines, config_key, spec):
         if cursor < replay_count:
             event = state["proposals"][cursor]
             if event.get("kind") != kind or event.get("question_sha256") != identity:
-                raise ProposerUnavailable(
-                    "checkpoint replay question differs; no new writer request was made")
+                # Parked, not refused: the accepted draft is the way forward.
+                raise _QuestionChanged(state)
             cursor += 1
             replayed_completed += 1
             return event.get("answer")

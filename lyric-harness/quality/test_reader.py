@@ -2583,9 +2583,12 @@ class LegacyReplay(unittest.TestCase):
         fx = json.loads((HERE / "fixtures" / "reader_v1_checkpoint.json").read_text(encoding="utf-8"))
         work = Path(tempfile.mkdtemp())
         self.addCleanup(__import__("shutil").rmtree, work, True)
+        calls = work / "calls.log"
         (work / "stubwriter.py").write_text(
-            "def factory():\n    def call(prompt):\n        return %r\n    return call\n"
-            % fx["stub_answer"], encoding="utf-8")
+            "def factory():\n    def call(prompt):\n"
+            "        open(%r, 'a').write('call\\n')\n"
+            "        return %r\n    return call\n"
+            % (str(calls), fx["stub_answer"]), encoding="utf-8")
         draft = work / "draft.txt"
         draft.write_text("\n".join(fx["draft"]) + "\n", encoding="utf-8")
         env = {k: v for k, v in os.environ.items() if k != "LYRIC_CONTROL_TOKEN"}
@@ -2610,20 +2613,31 @@ class LegacyReplay(unittest.TestCase):
             return out
         # NOT BYTE FOR BYTE SINCE 2026-10-27 (D6 on #519). The checkpoint's
         # journal pins the question it asked, and the pre-batch question
-        # offered word lists this build never prints, so the replay refuses
-        # on the question by name rather than hand a recorded answer to a
-        # different question. What the reader scheme owes still holds: the
-        # checkpoint is read as v1 with no flag and with --reader-scheme=v1
-        # (no READER_SCHEME_MISMATCH), no new writer request is made, and the
-        # checkpoint is left exactly as it was.
+        # offered word lists this build never prints, so the run cannot
+        # replay it. It PARKS (3PO's finding on #627): the typed new-run stop
+        # the website already offers "Start new work from current draft" on,
+        # with the checkpoint's accepted draft as the way forward. What the
+        # reader scheme owes still holds: the checkpoint is read as v1 with no
+        # flag and with --reader-scheme=v1 (no READER_SCHEME_MISMATCH), no
+        # writer request is made, and the checkpoint is left exactly as it was.
+        accepted = json.loads(fx["checkpoint"])["accepted_lines"]
         for flags in ((), ("--reader-scheme=v1",)):
             ck = work / "ck.json"
             ck.write_text(fx["checkpoint"], encoding="utf-8")
+            calls.unlink(missing_ok=True)
             r = run(ck, *flags)
             with self.subTest(flags=flags):
-                self.assertEqual(r.returncode, 2, r.stdout[-600:])
-                self.assertIn("checkpoint replay question differs", r.stdout)
-                self.assertIn("no new writer request was made", r.stdout)
+                self.assertEqual(r.returncode, 3, r.stdout[-600:])
+                rec = [json.loads(l[len("  lyric result: "):]) for l in r.stdout.splitlines()
+                       if l.startswith("  lyric result: ")][-1]
+                self.assertEqual(rec["stop_reason"], "QUESTION_CHANGED")
+                self.assertIs(rec["new_run_required"], True)
+                self.assertIs(rec["resumable"], False)
+                self.assertIs(rec["certified"], False)
+                self.assertEqual(rec["accepted_lines"], accepted)
+                self.assertEqual(rec["final_draft"], accepted)
+                self.assertIn("Continue as new work from the accepted draft", r.stdout)
+                self.assertFalse(calls.exists(), "a writer request was made")
                 self.assertNotIn("READER_SCHEME_MISMATCH", r.stdout)
                 self.assertEqual(ck.read_text(encoding="utf-8"), fx["checkpoint"])
         ck.write_text(fx["checkpoint"], encoding="utf-8")
