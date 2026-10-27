@@ -1543,11 +1543,14 @@ const linesField = z
   // them by name (MEASURED: `--lines=4`, `=8`, `=11` all answer "outside the
   // planner's envelope [12, 447]"). 4 was reachable when the volunteered set
   // still carried the {4, 5} island; the derived envelope has no island now.
-  .min(12)
+  // ~~.min(12)~~ -> 2 (2026-10-27, D7): 12 was the verse-chorus form's
+  // floor, and the default form `open` plans any total from 2 (one group of
+  // two lines); a verse-chorus request below 12 is refused by the planner.
+  .min(2)
   .max(MAX_LINES)
   .optional()
   .describe(
-    `Exact total line count to request, at least 12 and at most ${MAX_LINES} (the planner's envelope). Every plan can be written, graded and revised. Omit to let the planner choose.`
+    `Exact total line count to request, at least 2 and at most ${MAX_LINES} (the planner's envelope; the verse-chorus form needs at least 12). Every plan can be written, graded and revised. Omit to let the planner choose.`
   );
 
 // THE WRITER'S DECLARATION (MISSING.md M-55). Neither field is sampled here

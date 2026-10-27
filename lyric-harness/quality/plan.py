@@ -1783,12 +1783,12 @@ def _channel_clause(c):
     elif kind == "Differ":
         s = f"P and Q have different {what} {where}"
     elif kind == "PrefixAgree":
-        s = (f"the {what} {where} of the shorter of P and Q is the start of "
+        s = (f"the {what}, {where}, of the shorter of P and Q is the start of "
              f"the longer one's")
     elif kind == "ClassEqual":
         cls = _CLASS_WORDS.get(getattr(pred, "resource", ""),
                                f"the same class ({getattr(pred, 'label', '')})")
-        s = f"the {what} of P and Q {where} belong to {cls}"
+        s = f"the {what} of P and Q, {where}, belong to {cls}"
     elif kind == "PresentVsAbsent":
         on = "Q" if getattr(pred, "on", 1) == 1 else "P"
         off = "P" if on == "Q" else "Q"
