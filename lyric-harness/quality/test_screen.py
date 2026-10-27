@@ -56,14 +56,15 @@ def rows_for(*words):
 def test_the_controls():
     print("\n1. the pairs that taught us the bans answer the same through "
           "the front door")
+    # REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660, D6: no
+    # unsolicited system bans): ~~hair/chair BANNED: HOMEOTELEUTON;
+    # obey/away BANNED: MODAL_RHYME~~ — the screen relays no system ban.
     r = rows_for("hair", "chair")[0]
-    check("hair/chair is BANNED: HOMEOTELEUTON — the same spelled ending "
-          "(-air), the tier-1 ban that closed the a3-era escapes",
-          r["codes"] == ["HOMEOTELEUTON"] and not r["refused"], r)
+    check("hair/chair carries no system ban and is answered, not refused",
+          r["codes"] == [] and not r["refused"], r)
     r = rows_for("obey", "away")[0]
-    check("obey/away is BANNED: MODAL_RHYME — the tier-2 predictability "
-          "ban, differently spelled and banned anyway",
-          r["codes"] == ["MODAL_RHYME"] and not r["refused"], r)
+    check("obey/away carries no system ban and is answered, not refused",
+          r["codes"] == [] and not r["refused"], r)
     r = rows_for("gasoline", "tambourine")[0]
     check("gasoline/tambourine is unbanned and stands in RHYME (with "
           "ASSONANCE and CONSONANCE beside it — a perfect rhyme is all "
@@ -127,7 +128,7 @@ def test_honesty_and_the_split():
           "word and the reason — UNKNOWN is not absent",
           r["refused"] and "xzqwv" in r["reason"]
           and "no pronunciation" in r["reason"], r["reason"][:80])
-    check("...and a banned pair is an ANSWER, not a refusal — the split "
+    check("...and a pair the screen answers is not a refusal — the split "
           "the summary line states",
           rows_for("hair", "chair")[0]["refused"] is False)
 
@@ -148,11 +149,14 @@ def test_no_drift():
     codes = {f.code for fs in found["per_line"].values() for f in fs}
     s_bad = rows_for("hair", "chair")[0]
     s_ok = rows_for("gasoline", "tambourine")[0]
-    check("the banned pair carries HOMEOTELEUTON in the FULL-DRAFT grade "
-          "and in screen's answer; the clean pair carries it in neither",
-          "HOMEOTELEUTON" in codes and s_bad["codes"] == ["HOMEOTELEUTON"]
-          and s_ok["codes"] == [],
-          sorted(c for c in codes if c in LH.SCREEN_PAIR_CODES))
+    # REPOINTED 2026-10-27 (D6): ~~the banned pair carries HOMEOTELEUTON
+    # in both~~ — the screen relays no system ban, so neither pair carries
+    # a relayed code, whatever the full-draft grade files.
+    check("the screen relays no system ban for either pair, and no code "
+          "it relays appears in the full-draft grade",
+          s_bad["codes"] == [] and s_ok["codes"] == []
+          and not [c for c in codes if c in LH.SCREEN_PAIR_CODES],
+          sorted(codes))
     src = _inspect.getsource(LH.screen_pairs)
     check("screen_pairs visibly goes THROUGH Reviser.inspect — no "
           "re-implementation to drift (doctrine 91 at the code level)",
@@ -221,9 +225,9 @@ def run(*argv):
 def test_the_cli():
     print("\n5. the CLI verb — dispatch, refusals, exit codes")
     rc, out, _ = run("screen", "hair", "chair")
-    check("`screen hair chair` answers at exit 0 with the ban named — a "
-          "banned pair is an ANSWER",
-          rc == 0 and "BANNED: HOMEOTELEUTON" in out, f"rc {rc}")
+    check("`screen hair chair` answers at exit 0 and names no system ban "
+          "(repointed 2026-10-27, D6)",
+          rc == 0 and "BANNED" not in out, f"rc {rc}")
     rc, out, _ = run("screen", "gasoline", "tambourine")
     check("an unbanned pair lists EVERY relation it stands in at exit 0, "
           "with no CLEAN verdict standing in for them",
@@ -392,9 +396,10 @@ def test_the_screen_judges_a_drawn_schema_and_names_a_near_relation():
     rc, out, _ = run("screen", "hair", "chair", "spare",
                      "--relation=schema:perfect rhyme")
     check("a drawn end-rhyme schema is judged per pair at the two end "
-          "words — SATISFIES on a perfect rhyme, alongside the ban row",
+          "words — SATISFIES on a perfect rhyme, and no system ban row "
+          "(repointed 2026-10-27, D6)",
           rc == 0 and "SATISFIES schema:perfect rhyme" in out
-          and "BANNED: HOMEOTELEUTON" in out, f"rc {rc}")
+          and "BANNED" not in out, f"rc {rc}")
     rc, out, _ = run("screen", "cellar", "seller",
                      "--relation=schema:rime riche")
     check("a rime riche pair SATISFIES the rime riche schema", rc == 0
@@ -411,11 +416,10 @@ def test_the_screen_judges_a_drawn_schema_and_names_a_near_relation():
           rc == 0 and "ASSONANCE" in _ha and "assonance" in _ha
           and not re.search(r"\bRHYME\b", _ha), _ha)
     # MEASURED: home~alone and home~stone stand in ASSONANCE; alone~stone
-    # stands in RHYME AND is the -one/-one HOMEOTELEUTON, so it is BANNED
-    # and counted there — the counts are never summed.
-    check("...and the tail counts the banned pair apart from the pairs "
-          "standing in a relation (doctrine 79)",
-          "1 banned, 0 refused, 2 standing in at least one relation, "
+    # stands in RHYME. ~~It was BANNED as HOMEOTELEUTON~~ — no system ban
+    # is relayed since 2026-10-27 (D6), so all three stand in a relation.
+    check("...and the tail counts the three pairs, none banned (doctrine 79)",
+          "0 banned, 0 refused, 3 standing in at least one relation, "
           "0 standing in none" in out,
           out[-400:])
 
@@ -594,9 +598,11 @@ def test_rime_riche_reads_the_words_own_onset():
     check("rain ~ reign stands in RIME_RICHE AND RHYME — rime riche is also "
           "rhyme, the same answer vain ~ vein already gave",
           {"RIME_RICHE", "RHYME"} <= _rr, sorted(_rr))
-    check("rite ~ write stands in RIME_RICHE too (and still HOMEOTELEUTON, which is the spelling's business)",
+    # REPOINTED 2026-10-27 (D6): ~~and still HOMEOTELEUTON~~ — no system
+    # ban is relayed.
+    check("rite ~ write stands in RIME_RICHE too, with no system ban relayed",
           "RIME_RICHE" in rows[("rite", "write")]["coarse_relations"]
-          and "HOMEOTELEUTON" in rows[("rite", "write")]["codes"], rows[("rite", "write")])
+          and rows[("rite", "write")]["codes"] == [], rows[("rite", "write")])
     check("CONTROL: rain ~ vein stands in RHYME and NOT RIME_RICHE — the words' own onsets differ",
           "RHYME" in rows[("rain", "vein")]["coarse_relations"]
           and "RIME_RICHE" not in rows[("rain", "vein")]["relations"],

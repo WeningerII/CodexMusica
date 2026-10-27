@@ -6456,7 +6456,11 @@ def _rel_show(stream, inst):
 #: Pair-scoped finding codes `screen` relays. Everything else the carrier
 #: lines provoke is about the SCAFFOLD, not the pair, and relaying it
 #: would teach a caller to distrust the instrument.
-SCREEN_PAIR_CODES = ("HOMEOTELEUTON", "MODAL_RHYME")
+#: ~~("HOMEOTELEUTON", "MODAL_RHYME")~~ -> (), 2026-10-27 (end-of-day plan,
+#: #519 6448819660, D6: no unsolicited system bans). Both were system
+#: lexical bans; the revision lane stops filing them, and the screen no
+#: longer relays them as bans on a pair.
+SCREEN_PAIR_CODES = ()
 
 #: Two DIFFERENT carrier lines, every word CMUdict-readable, ending in the
 #: screened words. Different on purpose: with identical carriers the
@@ -11190,8 +11194,10 @@ def main():
         print(f"  SCREEN: {len(rows)} pair(s) from {len(words)} word(s) — "
               f"each pair listed with EVERY relation it stands in: the "
               f"coarse relations its end words hold at their cuts and "
-              f"every registry schema judged at the two end tokens; bans "
-              f"({', '.join(SCREEN_PAIR_CODES)}) are relayed separately")
+              f"every registry schema judged at the two end tokens; "
+              + (f"bans ({', '.join(SCREEN_PAIR_CODES)}) are relayed "
+                 f"separately" if SCREEN_PAIR_CODES
+                 else "no system ban is relayed"))
         _na = sorted(_screen_not_applicable())
         print(f"  NOT APPLICABLE to two line-final end words "
               f"({len(_na)} schemas — stream, stanza, figure or placement "
