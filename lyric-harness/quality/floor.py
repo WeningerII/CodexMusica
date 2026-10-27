@@ -2579,7 +2579,13 @@ class SlopFloor:
                 a, b, self.qf.lex, self.qf.decl)
             if verdict == _lh.ENDING_IS_THE_RHYME:
                 suffix.append((i + 1, j + 1, f"-{suf} ({why})"))
-        if cliche:
+        # THE SHIPPED STOCK LIST IS NOT ENFORCED (2026-10-27, D6 on #519).
+        # Raw membership of the two end words in a hand-typed pair list was
+        # a system lexical ban: a FLAG inside its rated band, and a printed
+        # list of words either way. Only a list the user declared themselves
+        # (a `cliche_pairs` that is not the shipped `CLICHE_PAIRS`) is still
+        # checked, because a user's own bans always apply.
+        if cliche and self.decl.cliche_pairs != frozenset(CLICHE_PAIRS):
             n_list = len(self.decl.cliche_pairs)
             shipped = self.decl.cliche_pairs == frozenset(CLICHE_PAIRS)
             # WHERE CLICHE_PAIR'S RATE WAS MEASURED (M-239, 2026-09-04). The
