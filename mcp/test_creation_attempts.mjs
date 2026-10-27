@@ -225,7 +225,10 @@ test('the store refusing a measured grade as too large is told, and the next rev
   assert.match(text, /nothing the call produced was kept/);
   assert.match(text, /that limit is this session's, not the song's/);
   assert.doesNotMatch(text, /shorter draft|plan fewer lines/);
-  assert.match(text, /A different draft of this plan may be too large as well/);
+  assert.match(
+    text,
+    /call lyric_grade on a different draft of this plan \(it may be too large as well\)/
+  );
   // The kept session is the pre-call one: no grade receipt, an attempt marked.
   const kept = sessions.record(read.session_id, 'lyrics').session.native.task.workflow;
   assert.equal(kept.grade, null);

@@ -138,7 +138,7 @@ const resultNotKept = (name, task, error) => {
   return (
     `SESSION_RESULT_NOT_KEPT: ${name} ran, but its result is over the ${limit ? `${limit}-byte ` : ''}limit this session can keep, so it was not saved and nothing the call produced was kept. ` +
     (name === 'lyric_grade' && task.phase !== 'edit'
-      ? "Grading the same draft again returns the same result: that limit is this session's, not the song's: report it to the user with the song's length unchanged. A different draft of this plan may be too large as well."
+      ? "Grading the same draft again returns the same result: that limit is this session's, not the song's: report it to the user with the song's length unchanged, or call lyric_grade on a different draft of this plan (it may be too large as well)."
       : `Send ${name} again with a smaller request.`)
   );
 };

@@ -267,7 +267,9 @@ test('published lyric text carries no ticket, date, doctrine number or stale cla
     const grade = tools.find((t) => t.name === 'lyric_grade').description;
     const revise = tools.find((t) => t.name === 'lyric_revise').description;
     assert.match(revise, /holds every flagged line open/);
-    assert.match(revise, /Banned pairs .* are reported as notes and hold no line open/);
+    // ~~Banned pairs … are reported as notes~~: no system ban is described to
+    // the writer (2026-10-27, D6).
+    assert.doesNotMatch(revise, /Banned pairs|FORBIDDEN|too predictable/);
     for (const field of [...PLAN_FIELDS.filter((f) => f !== 'seed'), ...READING_FIELDS])
       assert.ok(grade.includes(field), `lyric_grade names ${field}`);
     const lines = tools.find((t) => t.name === 'lyric_plan').inputSchema.properties.lines;
@@ -281,8 +283,10 @@ test('published lyric text carries no ticket, date, doctrine number or stale cla
       /CONDITION the planner's draw/
     );
     const melody = tools.find((t) => t.name === 'lyric_plan').inputSchema.properties.melody;
-    const example = /e\.g\. (\{.*?\})\. Repeat/.exec(melody.description)[1];
-    assert.doesNotThrow(() => JSON.parse(example), 'the melody example is valid JSON');
+    // ~~the melody example is valid JSON~~: the field states its shape with
+    // variables and carries no example (2026-10-27, D5).
+    assert.match(melody.description, /of the shape \{"meter":\{"beats":B,"unit":U/);
+    assert.doesNotMatch(melody.description, /e\.g\./);
   } finally {
     await client.close();
     await server.close();

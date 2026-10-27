@@ -152,7 +152,7 @@ const gradeAttemptNote = (a, lines) => {
   const limit =
     "that limit is this session's, not the song's: report it to the user with the song's length unchanged";
   if (a.cause === 'not_kept')
-    return ` lyric_grade measured this exact draft${facts}, but its result was over the size this session can keep, so nothing it produced was kept and no grade receipt was written. Grading this same draft again returns the same result: ${limit}. A different draft of this plan may be too large as well.`;
+    return ` lyric_grade measured this exact draft${facts}, but its result was over the size this session can keep, so nothing it produced was kept and no grade receipt was written. Grading this same draft again returns the same result: ${limit}, or call lyric_grade on a different draft of this plan (it may be too large as well).`;
   if (a.cause === 'overflow')
     return ` lyric_grade ran on this exact draft but did not answer with a grade receipt${facts}: it printed more than this connector can carry. Grading this same draft again returns the same result: ${limit}, or grade a different draft of this plan's ${lines} lines. Neither is known to be a cure.`;
   return ` lyric_grade ran on this exact draft but did not answer with a grade receipt${facts}; its report names why. Read that report for the cause, then call lyric_grade again on this draft once it is fixed.`;
