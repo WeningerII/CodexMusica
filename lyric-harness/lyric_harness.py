@@ -9567,6 +9567,18 @@ def _checkpoint_proposer(one, two, lines, config_key, spec):
         if applied is not None:
             confirmed[active["index"]] = applied
 
+    def _same_question_coordinates(event, kind, record):
+        if event.get("kind") != kind or event.get("answer") is None:
+            return False
+        k = sum(1 for e in state["proposals"][:cursor]
+                if e.get("kind") == kind and e.get("answer") is not None)
+        recorded = state.get("answered", {}).get(kind, [])
+        if k >= len(recorded) or not isinstance(recorded[k], dict):
+            return False
+        keys = [x for x in record if x not in ("text", "new", "batch")]
+        return bool(keys) and all(recorded[k].get(x) == record.get(x)
+                                  for x in keys)
+
     def ask(kind, prompt, current, round_no, call, record):
         nonlocal cursor, active, replayed_completed
         identity = hashlib.sha256(prompt.encode("utf-8")).hexdigest()
@@ -9575,8 +9587,17 @@ def _checkpoint_proposer(one, two, lines, config_key, spec):
         if cursor < replay_count:
             event = state["proposals"][cursor]
             if event.get("kind") != kind or event.get("question_sha256") != identity:
-                # Parked, not refused: the accepted draft is the way forward.
-                raise _QuestionChanged(state)
+                # SAME QUESTION, NEW WORDING -> park: the recorded answer's
+                # coordinates (line or members, attempt, round, draft
+                # fingerprint) match this question's, so only the prompt text
+                # moved, which is what an update that rewords the questions
+                # does. The accepted draft is the way forward. Anything else
+                # is a replay that diverged (another draft, another line),
+                # and that stays a refusal by name.
+                if _same_question_coordinates(event, kind, record):
+                    raise _QuestionChanged(state)
+                raise ProposerUnavailable(
+                    "checkpoint replay question differs; no new writer request was made")
             cursor += 1
             replayed_completed += 1
             return event.get("answer")

@@ -223,9 +223,27 @@ class AuditRegressions(unittest.TestCase):
             self.assertEqual(len(called), 1)
             with self.assertRaises(ProposerUnavailable):
                 LH._checkpoint_proposer(writer, None, initial, 'other-config', 'fake')
+            # A replay that DIVERGED (another draft) is still refused by name.
             mismatched, _ = LH._checkpoint_proposer(writer, None, initial, 'config', 'fake')
-            with self.assertRaises(ProposerUnavailable):
+            with self.assertRaises(ProposerUnavailable) as diverged:
                 mismatched(b, ['different cat', initial[1]], 0)
+            self.assertNotIsInstance(diverged.exception, LH._QuestionChanged)
+            self.assertEqual(len(called), 1)
+            # The SAME question in new wording -- what an update that rewords
+            # the writer's questions does (2026-10-27, 3PO on #627) -- parks:
+            # the accepted draft is kept, no writer call is made, and the
+            # checkpoint is not rewritten.
+            import quality.propose as PRM
+            real_render = PRM.render_line
+            with patch.object(PRM, 'render_line',
+                              lambda *a, **k: real_render(*a, **k) + '\n(reworded)'):
+                reworded, _ = LH._checkpoint_proposer(writer, None, initial, 'config', 'fake')
+                before = (Path(tmp)/'cp.json').read_bytes()
+                with self.assertRaises(LH._QuestionChanged) as parked:
+                    reworded(b, initial, 0)
+            self.assertEqual(parked.exception.code, 'QUESTION_CHANGED')
+            self.assertEqual(parked.exception.lines, accepted)
+            self.assertEqual((Path(tmp)/'cp.json').read_bytes(), before)
             self.assertEqual(len(called), 1)
             for bad in ([], dict(state, proposals=[None]),
                         dict(state, proposals=[{'kind': 'propose',
