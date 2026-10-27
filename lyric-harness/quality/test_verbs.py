@@ -3529,8 +3529,18 @@ def test_the_named_pair_disclosure_survives_the_module_boundary():
     # time -- directly beneath the missing banner that says the same fact
     # loudly. One is the invariant on the other.
     fix = os.path.join(ROOT, "quality", "fixtures")
+    # REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660): ~~`--cliques`~~.
+    # The disclosure's population is the fixture's identical pair L6~L14
+    # (counting/counting), and under a mandate that says nothing about
+    # repeats, identical words that satisfy a type (`repetition`) are no
+    # longer charged, so `--cliques` left nothing to disclose. The same cover,
+    # spelled out, with the song's other verbatim pair declared a return
+    # (L7 = L15): a mandate that declares its returns charges an undeclared
+    # identical pair (doctrine 3), so L6~L14 is charged again and its mosaic
+    # span is disclosed exactly as before. `--cliques` cannot take `--returns=`.
+    cover = ("--groups=2,4;6,14;7,15;8,9;10,11;3,13;13,16", "--returns=7,15")
     rc, out, _ = run("song", os.path.join(fix, "song.blueprint.json"),
-                     os.path.join(fix, "song.txt"), "--cliques", expect_rc=3)
+                     os.path.join(fix, "song.txt"), *cover, expect_rc=3)
     lines = out.splitlines()
     mosaic = [i for i, ln in enumerate(lines) if "MOSAIC (" in ln]
     check("the fixture still carries a mosaic span to disclose", mosaic,
@@ -3555,7 +3565,7 @@ def test_the_named_pair_disclosure_survives_the_module_boundary():
 
     # THE SAME PAIR THROUGH `brief`, which reaches `Reviser` by a different
     # route and was equally blind. Two verbs, one boundary.
-    rc, out, _ = run("brief", os.path.join(fix, "song.txt"), "--cliques")
+    rc, out, _ = run("brief", os.path.join(fix, "song.txt"), *cover)
     check("`brief` discloses it too", rc == 0
           and "NAMED PAIR IS NOT THE EVIDENCE" in out, f"rc {rc}")
 
