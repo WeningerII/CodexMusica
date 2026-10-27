@@ -103,20 +103,7 @@ INSTRUMENTS = {
         #: An empty set does NOT make this instrument inert: `reconcile`
         #: passes only when the OBSERVED drift is also empty, so the runner
         #: still fails the moment anything moves.
-        declared={
-            "held-out FPR cliche (%)": Ruling(
-                because=("the shipped stock-pair list is no longer enforced "
-                         "(end-of-day plan on #519, D6: no unsolicited system "
-                         "lexical bans), so quality/floor.py files no "
-                         "CLICHE_PAIR on the default declaration and the "
-                         "held-out rate this column re-derives is a rate of a "
-                         "check that no longer runs; the pinned rate is kept "
-                         "only as the record of what the list used to do"),
-                since="2026-10-27",
-                closed_by=("retiring the cliche column with the CLICHE_PAIRS "
-                           "constant (BB8's follow-up after #627), or repinning "
-                           "it if the owner reinstates the list")),
-        }),
+        declared={}),
 }
 
 

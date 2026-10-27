@@ -1702,7 +1702,7 @@ class FloorDeclaration:
     #: own stock rhymes states them here rather than arguing with a list typed
     #: for English pop.
     #:
-    #: THE DEFAULT IS THE SHIPPED 30, and the shipped 30 are what carry the
+    #: ~~THE DEFAULT IS THE SHIPPED 30~~ (until 2026-10-27, below), and the shipped 30 are what carry the
     #: only measured in-band false-positive rates this check has -- read them
     #: from the rows with `cliche_rate_rows()` rather than from a number typed
     #: here, which is how this comment went stale: ~~the measured 6.35%
@@ -1716,8 +1716,16 @@ class FloorDeclaration:
     #: property of THIS set on THIS corpus, not of the membership test. The
     #: finding says so on its face, so a swapped list cannot quietly borrow
     #: the number.
-    cliche_pairs: frozenset = field(
-        default_factory=lambda: frozenset(CLICHE_PAIRS))
+    #:
+    #: THE DEFAULT IS NOW EMPTY (2026-10-27, D6 on #519; 3PO's finding on
+    #: #627). The shipped 30 are no longer a system ban, and a default that
+    #: still HELD them could not tell "nobody declared a list" from "the user
+    #: declared exactly these 30": the check compared contents, so a user who
+    #: asked for the shipped pairs by name was silently ignored. Absent is
+    #: now the empty set, so any list present here was declared, and is
+    #: enforced whatever it contains. `CLICHE_PAIRS` stays importable for a
+    #: caller who wants to declare it.
+    cliche_pairs: frozenset = field(default_factory=frozenset)
     #: MATTR's moving-average window, in TOKENS. Definitional in the same
     #: sense `predictability_max` is — it states what the statistic IS, so
     #: moving it moves what every `mattr_min` percentile above is a
@@ -2582,10 +2590,11 @@ class SlopFloor:
         # THE SHIPPED STOCK LIST IS NOT ENFORCED (2026-10-27, D6 on #519).
         # Raw membership of the two end words in a hand-typed pair list was
         # a system lexical ban: a FLAG inside its rated band, and a printed
-        # list of words either way. Only a list the user declared themselves
-        # (a `cliche_pairs` that is not the shipped `CLICHE_PAIRS`) is still
-        # checked, because a user's own bans always apply.
-        if cliche and self.decl.cliche_pairs != frozenset(CLICHE_PAIRS):
+        # list of words either way. The declaration's default is now EMPTY,
+        # so `cliche` can only be non-empty under a list the user declared
+        # themselves, and a user's own bans always apply -- including a list
+        # equal to the shipped 30, which `shipped` below still names.
+        if cliche:
             n_list = len(self.decl.cliche_pairs)
             shipped = self.decl.cliche_pairs == frozenset(CLICHE_PAIRS)
             # WHERE CLICHE_PAIR'S RATE WAS MEASURED (M-239, 2026-09-04). The

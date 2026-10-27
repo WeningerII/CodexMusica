@@ -266,9 +266,20 @@ def test_cliche_pair():
     # the caller has to argue with. Until 2026-08-14 it was the only floor
     # threshold with no field to disagree in.
     d = FloorDeclaration()
-    check("the stock list is a declared coordinate",
-          isinstance(d.cliche_pairs, frozenset) and len(d.cliche_pairs) == 30,
-          f"FloorDeclaration.cliche_pairs, {len(d.cliche_pairs)} pairs")
+    check("the stock list is a declared coordinate, ABSENT by default",
+          isinstance(d.cliche_pairs, frozenset) and len(d.cliche_pairs) == 0,
+          f"FloorDeclaration.cliche_pairs, {len(d.cliche_pairs)} pairs "
+          "(2026-10-27: was the shipped 30, which made an explicit equal "
+          "list indistinguishable from no list)")
+    # 3PO's finding on #627: the check compared CONTENTS against the shipped
+    # list, so a user who declared exactly those 30 pairs was ignored. Absent
+    # and explicit are told apart by the default now, not by the contents.
+    equal = SlopFloor(decl=FloorDeclaration(
+        cliche_pairs=frozenset(_lh.CLICHE_PAIRS)), qf=FLOOR.qf)
+    e = [x for x in equal.check(lines, "AA") if x.code == "CLICHE_PAIR"]
+    check("a user list EQUAL to the shipped 30 is enforced",
+          bool(e) and "rain/pain" in e[0].evidence,
+          e[0].evidence[:120] if e else "the explicit list was ignored")
     check("...and it is DEFINITIONAL, not a measured threshold",
           "cliche_pairs" in CALIBRATION.get("definitional", []),
           "there is no percentile to move: the only disagreement available "
