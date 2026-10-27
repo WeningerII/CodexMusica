@@ -5127,6 +5127,80 @@ def test_the_type_draw():
                   why in str(e), str(e)[:120])
 
 
+def test_a_chosen_type_reaches_the_grader():
+    """28. END TO END (2026-10-27, the reviewers' merge gate): a group's type,
+    chosen by the website's `group_types` index or drawn, reaches the grader
+    as `schema:<registry name>` and the group is judged under that type
+    alone. A pair that holds under the chosen type and fails under another,
+    and a pair that fails under the chosen type, are graded through the same
+    mandate the plan's GRADE IT line spells."""
+    print("\n28. END TO END — a chosen type reaches the grader and is the only "
+          "judge of its group")
+    import shlex
+    import quality.schemes as SC
+    names = list(RL.REGISTRY)
+    p = make_plan(3, lines=16, group_types=[
+        {"group": 1, "type": names.index("perfect rhyme")}])
+    cmd = " ".join(shlex.split(grading_command(p)))
+    check("a group_types choice is the plan's group A type and the GRADE IT "
+          "line hands it to the grader as schema:<name>",
+          p["relations"].get("A") == "schema:perfect rhyme"
+          and "A:schema:perfect rhyme" in cmd, cmd[:160])
+    R = _round_trip_reviser()
+    gs = [g.split(",") for g in p["groups"].split(";")]
+    lines_a = [int(m.split(".")[0]) for m in gs[0]]
+    draft = dummy_draft(p, unambiguous=True)
+
+    def ends(words):
+        d = list(draft)
+        for ln, w in zip(lines_a, words):
+            d[ln - 1] = d[ln - 1].rsplit(" ", 1)[0] + " " + w
+        return d
+
+    def judged(d, rel_a):
+        rels = dict(p["relations"])
+        rels["A"] = rel_a
+        g = R.grade(d, SC.mandate(gs, n_lines=p["total_lines"],
+                                  relations=rels))
+        return [v for v in g["verdicts"] if v["group"] == 0], g
+
+    rhymes = ["cat", "hat", "bat", "mat", "sat", "rat"][:len(lines_a)]
+    held, _ = judged(ends(rhymes), "schema:perfect rhyme")
+    other, _ = judged(ends(rhymes), "schema:pararhyme")
+    broken = list(rhymes)
+    broken[1] = "cap"
+    failed, _ = judged(ends(broken), "schema:perfect rhyme")
+    check("a pair that holds under the chosen type passes, and only that "
+          "type is named as satisfying it",
+          held and all(v["satisfied_by"] == ["schema:perfect rhyme"]
+                       for v in held),
+          [(v["lines"], v["satisfied_by"]) for v in held])
+    check("...the same words fail when the group is given another type: "
+          "no other relation they stand in rescues the group",
+          other and all(not v["satisfied_by"] for v in other)
+          and any("RHYME" in v["relations"] for v in other),
+          [(v["lines"], v["satisfied_by"]) for v in other])
+    check("...and a pair that breaks the chosen type fails under it",
+          any(not v["satisfied_by"] for v in failed),
+          [(v["lines"], v["satisfied_by"]) for v in failed])
+    # A DRAWN type travels the same way: every group's drawn type is in the
+    # GRADE IT line, and nothing but that type is credited for any pair.
+    q = make_plan(5, lines=24)
+    qcmd = " ".join(shlex.split(grading_command(q)))
+    qgs = [g.split(",") for g in q["groups"].split(";")]
+    gq = R.grade(dummy_draft(q, unambiguous=True),
+                 SC.mandate(qgs, n_lines=q["total_lines"],
+                            relations=q["relations"]))
+    stray = [(v["group"], v["satisfied_by"]) for v in gq["verdicts"]
+             if set(v["satisfied_by"])
+             - {q["relations"][SC.label((v["group"],))]}]
+    check("every drawn group's type is spelled schema:<name> in the GRADE IT "
+          "line, and no pair is credited to any relation but its group's own",
+          all(f"{k}:{v}" in qcmd for k, v in q["relations"].items())
+          and all(v.startswith("schema:") for v in q["relations"].values())
+          and not stray and gq["verdicts"], stray[:3])
+
+
 _SECTIONS = (
     test_satisfied_wants_remain_in_the_request,
     test_a_request_refusal_is_the_requests,
@@ -5154,6 +5228,7 @@ _SECTIONS = (
     test_the_published_vocabulary_names_no_ticket,
     test_the_seed_redraw,
     test_the_type_draw,
+    test_a_chosen_type_reaches_the_grader,
 )
 
 if __name__ == "__main__":

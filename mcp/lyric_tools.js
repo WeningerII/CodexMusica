@@ -1533,7 +1533,9 @@ const seedField = z
 const formField = z
   .enum(PLAN_FORMS)
   .optional()
-  .describe(`The song form: ${PLAN_FORMS.join(', ')} (the planner's forms; default ${DEFAULT_FORM}, which requires no section function and no return).`);
+  .describe(
+    `The song form: ${PLAN_FORMS.join(', ')} (the planner's forms; default ${DEFAULT_FORM}, which requires no section function and no return).`
+  );
 
 const linesField = z
   .number()

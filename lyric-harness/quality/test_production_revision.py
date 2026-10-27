@@ -276,7 +276,10 @@ class ProductionRevisionTests(unittest.TestCase):
 
     def test_audible_plan_disclosure_resolves_the_declared_global_relation(self):
         from quality.plan import make_plan, audible_share
+        # A return is planned only for a returning form (2026-10-27, D7:
+        # the default `open` form asks none), so the request names one.
         plan = make_plan(20261001, lines=12, relation='class:CONSONANCE',
+                         form='verse-chorus',
                          functions=['verse', 'chorus', 'outro'],
                          wants=['uses=verse,chorus', 'sections>=3', 'returns>=1'])
         share = audible_share(plan)

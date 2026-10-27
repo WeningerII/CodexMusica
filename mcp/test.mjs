@@ -8069,12 +8069,22 @@ try {
     // 1..5 declares a hook at this length, so the loop below now confirms
     // the premise rather than searching for it.
     const LIVE_LINES = 24;
-    const withLines = (extra) => ({ seed: planSeed, lines: LIVE_LINES, ...extra });
+    // A HOOK AND A CHORUS RETURN ARE PLANNED ONLY FOR A RETURNING FORM
+    // (2026-10-27, D7: the default `open` form asks for neither), and this
+    // block's title checks need a hook, so every call declares
+    // `verse-chorus` — the plan, the grade and the revision one shape.
+    const LIVE_FORM = 'verse-chorus';
+    const withLines = (extra) => ({
+      seed: planSeed,
+      lines: LIVE_LINES,
+      form: LIVE_FORM,
+      ...extra,
+    });
     let plannedRes = null;
     let planSeed = null;
     for (const candidate of [1, 2, 3, 4, 5]) {
       const tryRes = await client.callTool(
-        { name: 'lyric_plan', arguments: { seed: candidate, lines: LIVE_LINES } },
+        { name: 'lyric_plan', arguments: { seed: candidate, lines: LIVE_LINES, form: LIVE_FORM } },
         undefined,
         LIVE_OPTS
       );
@@ -8368,10 +8378,15 @@ try {
     // ended on L2's 'June' while L2 shared L1's group; RE-MEASURED
     // 2026-10-21, L1's partner is L3 now (1,3 above) and 'June' finishes
     // clean, so L1 ends on L3's 'afternoon' instead, the same defect.
+    // 2026-10-27 (D7): the returns and hook this draft is written for are
+    // planned only for a returning form, so every seed-176 call declares
+    // `verse-chorus`; under it the plan is unchanged (1,3;4,5;6,7, returns
+    // 6,8;7,9, hook L6).
     revisionDraft[0] = 'Bone buttons gleam beneath the rain all afternoon';
     const withRevision = (extra) => ({
       seed: revisionSeed,
       lines: 12,
+      form: 'verse-chorus',
       relation: 'class:RHYME',
       title: 'wakes the rain',
       ...extra,
@@ -8698,6 +8713,7 @@ try {
           arguments: {
             seed: 176,
             lines: 12,
+            form: 'verse-chorus',
             draft: qualifiedDraft,
             relation: 'class:RHYME',
             title,
