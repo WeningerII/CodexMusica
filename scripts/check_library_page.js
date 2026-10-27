@@ -855,7 +855,9 @@ const SECTIONS = {
       JSON.stringify(empty)
     );
     // A row with no recorded count is not a count of zero: it stays held.
-    const HELD_ROW = 'collection_9edc5f69-bf21-5946-bb46-27d95903804c';
+    // The same held collection as above ("sonnets generated" until its
+    // deletion on 2026-10-27).
+    const HELD_ROW = 'collection_3675f60a-d858-5597-b656-93c572751ec8';
     await page.route('**/library/data/collections.json', async (route) => {
       const response = await route.fetch();
       const body = await response.json();
