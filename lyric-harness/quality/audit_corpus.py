@@ -3277,7 +3277,14 @@ def main(argv=None):
 # 2026-10-14 approved reader audit refresh: NOTE ~~1856~~ -> 1861.
 # Check L now detects numeric footnote markers in five unchanged corpus files
 # (47 spans); every finding is retained. See RESULTS_CORPUS_AUDIT.md.
-PINNED_SHAPE = {"files": 2328, "FAIL": 0, "WARN": 38, "NOTE": 1861}
+# 2026-10-27 the generated sonnets deleted (owner-approved deletion of the
+# AI-written text): files ~~2328~~ -> 2327, WARN ~~38~~ -> 37, NOTE ~~1861~~ ->
+# 1860. The two lost findings are exactly the deleted file's own check B pair
+# (`corpus/generated/sonnets_generated.txt`: WARN "no `#` header at all",
+# NOTE "no declared language"). Every other finding is identical line for line
+# against a run with the file restored. Source declarations stay 2917 (the file
+# declared none). See RESULTS_CORPUS_AUDIT.md.
+PINNED_SHAPE = {"files": 2327, "FAIL": 0, "WARN": 37, "NOTE": 1860}
 
 
 def _verify_shape(files, findings):
