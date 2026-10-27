@@ -648,13 +648,27 @@ print(json.dumps([n for n, _ in (_sections_from_marks(sys.stdin.read().split('\\
 // ── T. the per-link type menu, its payload, and clean starts ────────────────
 // The menu lists every registry type an English song can use (the list is
 // the registry's, checked by scripts/lyric_type_menu.py --check), in name
-// order, never the four disowned types, with the planner's draw as the
-// default that is not a type. A link's chosen type reaches the writer as its
-// registry index alone. A new song carries no saved brief or notes unless the
-// person ticks the box for it.
+// order, never the four non-attested types, with the planner's draw as the
+// default that is not a type. The list is not in the page: it is
+// src/pages/lyric_types.json, served as api/lyric_types.json and fetched when
+// the menu first draws, so the unit loads it as that fetch would. A link's
+// chosen type reaches the writer as its registry index alone. A new song
+// carries no saved brief or notes unless the person ticks the box for it.
 function unitTypeMenu() {
   stage = 'T. type menu';
   const { run, draft, app } = lyricsUnitContext();
+  const served = fs.readFileSync(path.join(ROOT, 'src/pages/lyric_types.json'), 'utf8');
+  check(
+    fs.existsSync(path.join(ROOT, 'api/lyric_types.json')) &&
+      fs.readFileSync(path.join(ROOT, 'api/lyric_types.json'), 'utf8') === served,
+    'api/lyric_types.json is not src/pages/lyric_types.json (npm run build:api)'
+  );
+  check(
+    !/perfect rhyme/.test(fs.readFileSync(path.resolve(ROOT, HTML), 'utf8')),
+    'the type list is inlined into the page again'
+  );
+  check(run('LY_TYPES.length') === 0, 'the type list is in the page before it is fetched');
+  run('lyTypesSet(__r)', { __r: JSON.parse(served).types });
   const listed = Array.from(run('LY_TYPES_SHOWN.map((t) => t[1])'));
   const indexes = Array.from(run('LY_TYPES.map((t) => t[0])'));
   check(listed.length === indexes.length && listed.length > 4, 'the type menu is empty or short');
@@ -664,7 +678,7 @@ function unitTypeMenu() {
     'cynghanedd sain drosgl',
     'fourth lift must not alliterate',
   ])
-    check(!listed.includes(gone), `the type menu offers the disowned type ${gone}`);
+    check(!listed.includes(gone), `the type menu offers the non-attested type ${gone}`);
   const sorted = [...listed].sort((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' }));
   check(JSON.stringify(listed) === JSON.stringify(sorted), 'the type menu is not in name order');
   check(
@@ -710,7 +724,7 @@ function unitTypeMenu() {
   check(/Placed by the type/.test(view), 'the default placement is not the type’s own');
   // A chosen type travels as its index only; the other link is the planner's.
   const pick = Array.from(run('LY_TYPES_SHOWN[0]'));
-  const typed = run('lySetGroupType(__t, "3.head,4.head", __i)', { __t: song, __i: pick[0] });
+  const typed = run('lySetGroupType(__t, 1, __i)', { __t: song, __i: pick[0] });
   check(
     typed.includes(`[SETUP — group types — 3.head,4.head=${pick[0]}]`),
     `the chosen type was not kept with its link: ${typed.split('\n')[1]}`
@@ -723,11 +737,68 @@ function unitTypeMenu() {
   check(!JSON.stringify(decl).includes(pick[1]), 'a type name reached the writer');
   check(!('relation' in decl), 'a relation was declared for a per-link type');
   // Removing the link takes its type with it.
-  const removed = run(
-    'lySetGroupType(lySetSetup("rhyme groups", ["1,2"], __t), "3.head,4.head", null)',
-    { __t: typed }
+  draft.value = typed;
+  run(`LY.picks.linkGroup = 1; LY_ACTIONS['ly-link-remove']()`);
+  check(!/group types/.test(draft.value), 'a removed link left its type behind');
+  // Two links with the same members keep a type each (3PO, #629): saved one
+  // after the other through the form, removed through the action.
+  const twin = `[SETUP — rhyme groups — 3.head,4.head]\n\n[VERSE — 4 lines]\none\ntwo\nthree\nfour`;
+  const save = (text, type) =>
+    run('LY_FORMS.rhymes.apply(lyParse(__t), "song", __v, ["members", "type"])', {
+      __t: text,
+      __v: {
+        type: String(type),
+        members: [
+          { line: 1, place: 'auto' },
+          { line: 2, place: 'auto' },
+        ],
+      },
+    }).text;
+  const [perfect, assonance] = [0, 4];
+  const twins = save(save(twin, perfect), assonance);
+  const twinDecl = JSON.parse(
+    JSON.stringify(run('lyDeclarationsOf(lyParse(__t))', { __t: twins }))
   );
-  check(!/group types/.test(removed), 'a removed link left its type behind');
+  check(
+    JSON.stringify(twinDecl.group_types) ===
+      JSON.stringify([
+        { group: 2, type: perfect },
+        { group: 3, type: assonance },
+      ]),
+    `two links with the same members share a type: ${JSON.stringify(twinDecl.group_types)}`
+  );
+  const removeLink = (text, k) => {
+    draft.value = text;
+    run(`LY.picks.linkGroup = ${k}; LY_ACTIONS['ly-link-remove']()`);
+    return JSON.parse(JSON.stringify(run('lyDeclarationsOf(lyParse(__t))', { __t: draft.value })))
+      .group_types;
+  };
+  check(
+    JSON.stringify(removeLink(twins, 2)) === JSON.stringify([{ group: 2, type: perfect }]),
+    'removing the second of two like links took the first one’s type'
+  );
+  check(
+    JSON.stringify(removeLink(twins, 1)) === JSON.stringify([{ group: 2, type: assonance }]),
+    'removing the first of two like links did not leave the second its own type'
+  );
+  // A legacy row's migration moves the link and its type together (3PO,
+  // #629): the unmarked `1.T4` is rebound under the current cut, and the type
+  // keyed to it follows, so the declarations still carry it.
+  const legacy = `[SETUP — rhyme groups — 1.T4,2]\n[SETUP — group types — 1.T4,2=${perfect}]\n\n[VERSE — 2 lines]\nOh--oh, oh my love\nyou were above`;
+  draft.value = legacy;
+  run("lyEnsureTokenScheme('page')");
+  const moved = run('lySetupOf(lyParse(__t), "rhyme groups")[0].value', { __t: draft.value });
+  const movedDecl = JSON.parse(
+    JSON.stringify(run('lyDeclarationsOf(lyParse(__t))', { __t: draft.value }))
+  );
+  check(
+    moved !== '1.T4,2',
+    `the legacy link was not migrated (${moved}), so the case proves nothing`
+  );
+  check(
+    JSON.stringify(movedDecl.group_types) === JSON.stringify([{ group: 1, type: perfect }]),
+    `the migrated link lost its type: ${JSON.stringify(movedDecl.group_types)} (${draft.value.split('\n')[1]})`
+  );
   // Clean starts: the saved brief and notes go with a new song only when chosen.
   const model = run('lyParse(__t)', { __t: song });
   app.lyricMeta = {

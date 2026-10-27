@@ -2160,7 +2160,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_MANDATE_CHARS)
       .optional()
       .describe(
-        "Groups by 1-based line numbers, written N,N;N,N. A member may name WHERE in its line it binds, written N.PLACE. Places: end, endword, head, headrime, line, T<n>; a member with no place is read where its group's relation places it."
+        "Groups by 1-based line numbers, written N,N;N,N. A member may name WHERE in its line it binds, written N.PLACE. Places: end, endword, head, headrime, line, T<n>; a member with no place binds at end (its line's last word, from its last stress), whatever the group's relation."
       ),
     returns: z
       .string()
@@ -2242,7 +2242,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_MANDATE_CHARS)
       .optional()
       .describe(
-        "Groups by 1-based line numbers, written N,N;N,N — the lines of each group must satisfy that group's relation. Alternative to scheme. A member may also name WHERE in its line it binds, written N.PLACE; places are end, endword, head, headrime, line, or T<n> for the n-th word, and a member with no place is read where its group's relation places it."
+        "Groups by 1-based line numbers, written N,N;N,N — the lines of each group must satisfy that group's relation. Alternative to scheme. A member may also name WHERE in its line it binds, written N.PLACE; places are end, endword, head, headrime, line, or T<n> for the n-th word, and a member with no place binds at end (its line's last word, from its last stress), whatever the group's relation."
       ),
     // `lyric_check` builds its own mandate rather than reading a plan, so
     // the relation is a DIRECT parameter here where `lyric_grade` takes it

@@ -1793,7 +1793,7 @@ surface: Lyrics — Rhymes: a searchable type menu per link (every registry type
 implementation: lyToolRhymes / LY_FORMS.rhymes / LY_TYPES / ly-rhyme-options in src/pages/lyrics.js
 status: reachable
 precondition: empty
-notes: Written as [SETUP — …] lines in the harness's own spelling; a link's type is kept as [SETUP — group types — <members>=<registry index>] and reaches the writer as the index alone. Word options never insert a word or declare a link.
+notes: Written as [SETUP — …] lines in the harness's own spelling; a link's type is kept as [SETUP — group types — <members>=<registry index>] and reaches the writer as the index alone. The type list is not in the page: it is fetched from api/lyric_types.json when the menu first draws. Word options never insert a word or declare a link.
 ```
 
 ```yaml
