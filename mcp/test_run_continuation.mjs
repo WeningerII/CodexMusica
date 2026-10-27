@@ -221,7 +221,11 @@ try {
   // group pivot first and accepts at its second question). quality/test_loop.py
   // §4-§6 cover the loop's tier-2 group repair on fixed fixtures, not this
   // protocol's pivot before the door, which now has no MCP test (Jony 6347921225).
-  const originalIndependent = [1, 2, 3, 4, 5, 6, 7, 14, 15, 17, 19, 21, 23];
+  // ~~[1, 2, 3, 4, 5, 6, 7, 14, 15, 17, 19, 21, 23]~~ REPINNED 2026-10-27
+  // (measured): each group is judged under the type it drew (D1) and the
+  // default form is `open` (D7), so seed 1 at 24 lines flags a different
+  // thirteen, and the door still opens on continuation 0 with all of them.
+  const originalIndependent = [1, 2, 4, 8, 10, 11, 12, 13, 14, 18, 19, 20, 24];
   // Any question before the batch is a tier-2 group rewrite or a tier-1
   // retry of its pivot; ~~the door opened on continuation 16~~ (M-305) the
   // door opens on continuation 0 (measured 2026-09-24). ~~18~~ -> 2.
@@ -318,7 +322,10 @@ try {
   // measured): L1 is asked as a pivot before the door, as on 2026-10-01.
   // ~~the ten after L1~~ -> all thirteen, L1 among them (2026-10-21,
   // equal-weight beat draw; measured): no pivot precedes the door.
-  assert.deepEqual(firstSubset, [1, 2, 3, 4, 5, 6, 7, 14, 15, 17, 19, 21, 23]);
+  // ~~[1, 2, 3, 4, 5, 6, 7, 14, 15, 17, 19, 21, 23]~~ -> the thirteen below
+  // (2026-10-27, per-group type draw and `open` default form; measured): each
+  // group is judged under the type it drew, so the flagged lines move.
+  assert.deepEqual(firstSubset, [1, 2, 4, 8, 10, 11, 12, 13, 14, 18, 19, 20, 24]);
   const omittedTail = originalIndependent.filter((n) => !firstSubset.includes(n));
   // ~~[21, 23]~~ ~~[21, 24]~~ (M-305) [21, 23] (2026-09-24; measured)
   // ~~[19, 21, 23]~~ (2026-09-28; measured) [] (2026-10-01; measured)
