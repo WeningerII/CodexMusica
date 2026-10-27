@@ -13,7 +13,14 @@ from quality import relations as RL
 
 MAX_RECORDS = 256
 MAX_BYTES = 262144
-MAX_CANDIDATES_PER_SCHEMA = 4096
+#: ~~4096~~ -> None, 2026-10-27 (end-of-day plan, #519 6448819660: lift the
+#: rhyme-type counter caps so long songs get a full count). A song past
+#: about 90 lines exceeded 4096 candidate pairs on the line-end types and
+#: those types reported no count at all (`candidate_limit`). Production
+#: search has had no candidate cap since the owner's 2026-09-28 ruling; the
+#: census now matches it. RECORDS and BYTES stay bounded: they size the
+#: inline report, not the count.
+MAX_CANDIDATES_PER_SCHEMA = None
 
 
 class _Serializer(AnalysisSession):
@@ -56,7 +63,8 @@ def from_stream(stream, phon, *, declarations, provenance, schemas=None,
     reading witness searches are outside this bounded census, explicitly named.
     It must never be used as a new verdict on the grade's obligations.
     """
-    if max_bytes < 1024 or max_records < 0 or max_candidates < 0:
+    if max_bytes < 1024 or max_records < 0 or (
+            max_candidates is not None and max_candidates < 0):
         raise ValueError("invalid report evidence limits")
     text = "\n".join(stream.text_lines)
     names = sorted(RL.REGISTRY if schemas is None else set(schemas))
