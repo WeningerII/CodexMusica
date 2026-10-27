@@ -8295,8 +8295,8 @@ try {
       LIVE_OPTS
     );
     splitRes = await resumeStopped(client, splitRes, LIVE_OPTS);
-    assert.ok(!splitRes.isError);
-    assert.equal(splitRes.content.length, 2);
+    assert.ok(!splitRes.isError, String(splitRes.content?.[0]?.text).slice(0, 800));
+    assert.equal(splitRes.content.length, 2, String(splitRes.content?.[0]?.text).slice(0, 800));
     let splitVerdict = JSON.parse(splitRes.content[1].text);
     assert.equal(splitVerdict.status, 'awaiting_proposal');
     assert.equal(splitVerdict.exit_code, 4);

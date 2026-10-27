@@ -545,11 +545,18 @@ def test_the_wired_draw():
     #: so the spelling carries in-line places again: 23 -> 29 characters
     #: ('2,4;1,5;3,7;13,14;17.T3,18.T4') and 0 -> 5 labels; the lines and the
     #: narrative draw do not move (the types draw on a stream of their own).
-    check("seed 31 draws 18 lines, with a 29-character groups spelling "
-          "placed by type and 5 labels; the capped 12/79/0 draw is recorded "
+    #: REPINNED AGAIN 2026-10-27 (measured): a line-final member is spelled
+    #: `N.endword` (`plan.fit_type`, one declared pair per group at grade
+    #: time), and the eligible set is 31 types under rule (e), so the draw
+    #: re-deals: 29 -> 81 characters
+    #: ('1.endword,2.endword,4.endword,5.endword;6,7;13.endword,14.endword;
+    #: 17.head,18.head') and 5 -> 4 labels; lines and the narrative draw do
+    #: not move.
+    check("seed 31 draws 18 lines, with an 81-character groups spelling "
+          "placed by type and 4 labels; the capped 12/79/0 draw is recorded "
           "above",
           pl["total_lines"] == 18
-          and len(pl["groups"]) == 29 and len(pl["relations"]) == 5,
+          and len(pl["groups"]) == 81 and len(pl["relations"]) == 4,
           f"lines {pl['total_lines']}, groups {len(pl['groups'])}, labels {len(pl['relations'])}")
     nar = pl["narrative"]
     #: REPINNED 2026-09-05 (M-239) WITH THE LENGTH: seed 31's roster is

@@ -17,6 +17,7 @@ proposal per type is groups / |eligible|; `spread` reports the delivered
 max/min ratio and a chi-square statistic against equal delivery.
 
 Run: python3 quality/type_draw_count.py [--plans=1000] [--lines=N] [--jobs=N]
+     [--form=open|verse-chorus]
 """
 
 import json
@@ -31,9 +32,9 @@ from quality import plan as PL  # noqa: E402
 
 
 def _one(job):
-    seed, lines = job
+    seed, lines, form = job
     try:
-        p = PL.make_plan(seed, lines=lines)
+        p = PL.make_plan(seed, lines=lines, form=form)
     except PL.PlanRefused as exc:
         return {"seed": seed, "refused": str(exc)[:200]}
     recs = p["choices"]["relations"]["groups"]
@@ -45,10 +46,10 @@ def _one(job):
                         for r in recs]}
 
 
-def count(plans=1000, lines=None, jobs=None, first_seed=1):
+def count(plans=1000, lines=None, jobs=None, first_seed=1, form=None):
     eligible = PL.eligible_types()
     with Pool(jobs or os.cpu_count()) as pool:
-        rows = pool.map(_one, [(s, lines) for s in
+        rows = pool.map(_one, [(s, lines, form) for s in
                                range(first_seed, first_seed + plans)],
                         chunksize=8)
     proposed, rejected, delivered, first = Counter(), Counter(), Counter(), Counter()
@@ -69,7 +70,8 @@ def count(plans=1000, lines=None, jobs=None, first_seed=1):
     chi = sum((delivered[t] - exp) ** 2 / exp for t in eligible) if exp else 0
     lo = min(delivered[t] for t in eligible) if eligible else 0
     hi = max(delivered[t] for t in eligible) if eligible else 0
-    return {"plans": plans, "lines": lines, "refused_plans": len(refused),
+    return {"plans": plans, "lines": lines,
+            "form": form or PL.DEFAULT_FORM, "refused_plans": len(refused),
             "groups": groups, "eligible": n,
             "expected_per_type": round(exp, 2),
             "per_type": {t: {"proposed": proposed[t], "first_draw": first[t],
@@ -85,7 +87,9 @@ def main(argv):
     kw = {}
     for a in argv:
         k, _, v = a.lstrip("-").partition("=")
-        kw[{"plans": "plans", "lines": "lines", "jobs": "jobs"}[k]] = int(v)
+        k = {"plans": "plans", "lines": "lines", "jobs": "jobs",
+             "form": "form"}[k]
+        kw[k] = v if k == "form" else int(v)
     rep = count(**kw)
     print(json.dumps(rep, indent=1, ensure_ascii=False))
 

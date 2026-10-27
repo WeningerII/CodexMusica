@@ -309,6 +309,16 @@ FORM_RECURS = {
 }
 
 
+def form_asks_return(form):
+    """-> does `form` ask for a section to come back word for word, with a
+    hook line in it? Only a form `FORM_RECURS` names a returner for
+    (owner-approved plan, D7, 2026-10-27: no required chorus return and no
+    hook check unless the request asks for one). Under `open` a function
+    drawn twice is planned twice, each instance with its own lines and
+    groups, and no line is declared the hook."""
+    return bool(FORM_RECURS.get(form))
+
+
 def form_min_sections(form):
     """-> the fewest SUNG sections a plan of `form` can carry: every
     function `FORM_REQUIRES` names once, and every returner `FORM_RECURS`
@@ -1269,16 +1279,20 @@ def _PLACE_POOL(max_token):
 # grader receives the type through the mandate's per-group `relations`, spelled
 # `schema:<registry name>`.
 #
-# ELIGIBILITY READS FORMAL FIELDS ONLY. A type's `name`, `aka`, `traditions`
-# and `note` are never read to decide whether it is drawn or how often. The
-# four types the system disowns (homoioteleuton, trite rhyme, cynghanedd sain
-# drosgl, fourth lift must not alliterate) are exactly the registry rows whose
-# `normative` field is `forbidden` or `deprecated`; they leave the eligible set
-# through that field, never through their names, and test_plan pins that the
-# field selects those four and only those.
+# ELIGIBILITY READS FORMAL FIELDS ONLY (`type_eligibility`, rules (a)-(e)).
+# A type's `name`, `aka` and `note` are never read to decide whether it is
+# drawn or how often, and of its `traditions` only each one's language code
+# is read (rule (e), the owner's ruling that a type not specifically for
+# English does not count for English). The four types the system disowns
+# (homoioteleuton, trite rhyme, cynghanedd sain drosgl, fourth lift must not
+# alliterate) are exactly the registry rows whose `normative` field is not
+# `attested`; they leave the eligible set through that field, never through
+# their names, and test_plan pins that the field selects those four and only
+# those.
 
 #: The `normative` values that disown a type: never drawn, and refused when
-#: requested.
+#: requested. Eligibility asks the stricter `normative == "attested"` (rule
+#: (a) in `type_eligibility`); today the two select the same rows.
 DISOWNED_NORMATIVE = ("forbidden", "deprecated")
 
 #: THE CAPABILITIES THE GRADE STREAM OF A PLANNED SONG PROVIDES, per language.
@@ -1375,6 +1389,20 @@ def _member_options(locus, max_token):
     return ["end", "head"] + [f"T{n}" for n in range(2, max_token + 1)]
 
 
+def _position_of(member):
+    """-> 'end', 'head' or 'internal' for a declared-word member
+    (`N.end`, `N.endword`, `N.head`, `N.T<k>`), else None (a bare line, or a
+    place the draw does not produce)."""
+    place = str(member).partition(".")[2]
+    if place in ("end", "endword"):
+        return "end"
+    if place in ("head", "T1"):
+        return "head"
+    if re.fullmatch(r"T\d+", place):
+        return "internal"
+    return None
+
+
 def _position(place):
     return ("end" if place == "end" else "head" if place == "head"
             else "internal")
@@ -1439,7 +1467,18 @@ def fit_type(sch, lines, rng, max_token, section_lines=None, tries=48,
         if all(_bindable_at(sch.name, _position(places[i]),
                             _position(places[j]))
                for i in range(k) for j in range(i + 1, k)):
-            return [str(ln) if pl == "end" else f"{ln}.{pl}"
+            # THE LAST WORD IS DECLARED (`N.endword`) for a type the grader
+            # can judge at a declared word: its declared-token route reads
+            # the type's own anchors, channels and identity at the named
+            # word, as the default slot's instance route does, and it costs
+            # one pair, where the instance route realises the type over the
+            # whole song once per type. Measured equal on every line-end
+            # exhibit and contrast the registry carries (17 types, 34 rows);
+            # the instance route on a 434-line plan with 33 types took about
+            # 2,900 s to grade (test_plan's round trip, seed 0).
+            end = "endword" if _RL.pair_bindable(sch) else None
+            return [(f"{ln}.{end}" if end else str(ln)) if pl == "end"
+                    else f"{ln}.{pl}"
                     for ln, pl in zip(lines, places)], None
         if all(len(o) == 1 for o in opts):
             break
@@ -1450,24 +1489,60 @@ def fit_type(sch, lines, rng, max_token, section_lines=None, tries=48,
 def type_eligibility(language="eng"):
     """-> (eligible names, {refused name: reason}) for a song in `language`.
 
-    D1: a registry type is eligible when (1) the registry does not disown it
-    (`normative`), (2) every capability it needs (`capabilities()`, read from
-    `channels`, `spans`, `placement`, `identity`, `figure` and `requires`) is
-    provided by the grade stream of a song in this language, (3) its figure
-    is a pair, (4) every placement kind it declares is one the planner can
-    realise, and (5) `fit_type` can bind it on two consecutive lines of a
-    two-line section. No name, alias, tradition or note is read."""
+    THE ONE ELIGIBILITY RULE (D1; the website's type menu,
+    `scripts/lyric_type_menu.py`, is to import it rather than restate it).
+    A registry type is eligible for a song in `language` when ALL hold:
+
+      (a) its `normative` is `attested` — which leaves out the four disowned
+          types (homoioteleuton, trite rhyme, cynghanedd sain drosgl, fourth
+          lift must not alliterate), the registry's only rows marked
+          `forbidden` or `deprecated`;
+      (b) every `requires` input is one this language's grade stream
+          provides, and
+      (c) every channel in `channels` is computable for it — (b) and (c) are
+          read together through `capabilities()`, which collects the inputs
+          `channels`, `spans`, `placement`, `identity`, `figure` and
+          `requires` need, against `GRADE_STREAM_CAPABILITIES`;
+      (d) its `placement` is one the planner can place: every placement kind
+          it declares is plannable, its figure is one pair judged pair by
+          pair (a figure of three or four members joined by separate
+          relations, or a rule quantified over a whole stanza or line, has
+          no pair placement), and `fit_type` binds it on two consecutive
+          lines of a two-line section;
+      (e) it is not specifically for another language: excluded only when
+          its registry `traditions` name languages and none of them is
+          `language`; a type whose traditions name no language is not
+          excluded on that ground.
+
+    (e) is the owner's ruling (2026-10-27, about 17:35Z), verbatim: "if it's
+    not specifically for English then it doesn't count for English", with
+    "homoioteleuton stays forbidden", "a Germanic rule should not apply to
+    every language" and "keep Trite rhymes out as well". KEEPING a type
+    whose `traditions` name no language at all is R2's READING of "if it's
+    not specifically for English then it doesn't count for English", not
+    the owner's explicit words: such a type is not specifically for any
+    other language, so this rule does not exclude it. Only each
+    tradition's language code (`lang`) is read; no name, alias, tradition
+    name or note decides eligibility or odds."""
     have = GRADE_STREAM_CAPABILITIES.get(language)
     ok, refused = [], {}
     for name in sorted(_RL.REGISTRY):
         sch = _RL.REGISTRY[name]
-        if sch.normative in DISOWNED_NORMATIVE:
+        if sch.normative != "attested":
             refused[name] = (f"the registry marks it {sch.normative}; a "
                              f"disowned type is never planned")
             continue
         if have is None:
             refused[name] = (f"no grade stream is declared for language "
                              f"{language!r}")
+            continue
+        langs = sorted({t.lang for t in sch.traditions or ()
+                        if getattr(t, "lang", None)})
+        if langs and language not in langs:
+            refused[name] = (f"its traditions name {', '.join(langs)} and "
+                             f"not {_LANGUAGE_NAMES.get(language, language)}"
+                             f", and a type not specifically for a song's "
+                             f"language does not count for it")
             continue
         missing = [c for c in sch.capabilities() if c not in have]
         if missing:
@@ -1514,14 +1589,16 @@ def refuse_ineligible(name, language="eng"):
     planned (D1, item 4); a non-registry relation (a coarse class) passes."""
     bare, sch = _schema_of(name)
     if sch is None:
+        if str(name or "").startswith("schema:"):
+            raise PlanRefused(f"the requested type {name!r} is not in the "
+                              f"registry")
         return
     why = type_eligibility(language)[1].get(bare)
     if why:
         raise PlanRefused(f"the requested type {bare!r} cannot be planned for "
                           f"a song in {_LANGUAGE_NAMES.get(language, language)}"
-                          f": {why}. The grader could never "
-                          f"pass a group bound to it, so it is refused rather "
-                          f"than accepted.")
+                          f": {why}. It is refused rather than accepted, "
+                          f"and no other type is put in its place.")
 
 
 def _line_reach(sch, head_cap=None):
@@ -1691,6 +1768,15 @@ def _assign_types(section_blocks, trng, max_token, declared=None,
                             "drawn_block": list(block), "type": name,
                             "chosen_from": chosen_from,
                             "proposed": proposed, "rejected": rejected})
+    absent = sorted(set(per_group) - set(rels),
+                    key=lambda x: (len(x), x))
+    if absent:
+        raise JointRefused(
+            f"a type is chosen for group(s) {', '.join(absent)}, and this "
+            f"plan draws {len(groups)} group(s)",
+            codes=("TYPE_GROUP_ABSENT",),
+            findings=[{"code": "TYPE_GROUP_ABSENT", "line": 0,
+                       "detail": f"groups chosen: {', '.join(absent)}"}])
     return groups, rels, records, carried
 
 
@@ -1710,7 +1796,7 @@ _CHANNEL_WORDS = {
     "moras": "vowel length",
     "consonants": "consonant sounds in order",
     "phones": "sounds in order",
-    "token": "words",
+    "token": "word",
     "grapheme": "spelling",
 }
 
@@ -1879,6 +1965,8 @@ def _member_words(member, token=True):
     if not place:
         return (f"line {ln} at its last word" if token
                 else f"line {ln}")
+    if place in ("end", "endword"):
+        return f"line {ln} at its last word"
     if place == "head":
         return f"line {ln} at its first word"
     return f"line {ln} at word {place[1:]}"
@@ -2337,7 +2425,7 @@ def joint_findings(plan):
                          else f"word {word}")
                 out.append((
                     "TWO_GROUPS_ONE_WORD", ln,
-                    f"{len(names)} declared rhyme groups bind {where} of this "
+                    f"{len(names)} declared groups bind {where} of this "
                     f"line ({', '.join(sorted(names))}). Whether one word "
                     f"answers every family at once is `joint_field`'s "
                     f"question and it needs WORDS; a plan has none, so this "
@@ -2414,6 +2502,9 @@ def joint_findings(plan):
     # names every member, since the impossibility is a fact about the set.
     _rel = plan.get("relations") or {}
     _groups = [g for g in str(plan.get("groups") or "").split(";") if g.strip()]
+    _placed_by_planner = {
+        r.get("group") for r in ((plan.get("choices") or {}).get(
+            "relations") or {}).get("groups") or ()}
     _overhangs = {}
     for _gi, _g in enumerate(_groups):
         _name = _rel.get(SC.label((_gi,))) or plan.get("relation") or ""
@@ -2458,7 +2549,39 @@ def joint_findings(plan):
         # A type whose spans are not token-shaped (a searched run, a whole
         # line, a syllable index) is judged at its own loci, where a bare
         # line number names the line and not its last word (D3).
-        if not all(_SL.is_default_spelling(_m4) for _m4 in _mem):
+        # AND THE DECLARED-WORD CASE (2026-10-27, D3). The planner binds a
+        # type's line-final member as `N.endword` (`fit_type`), and the pair
+        # route that judges declared words strips `placement`, so nothing at
+        # grade time checks that the places the PLAN chose meet the type's
+        # placement rule: the plan must, by construction. This asks the same
+        # predicate the draw asks (`_bindable_at`) of the places the plan
+        # carries, so a draw that ever placed a type where its own rule
+        # forbids is refused here rather than shipped.
+        # Asked only of groups the PLANNER placed (recorded in
+        # `choices.relations.groups`): a writer who names a slot by hand
+        # overrides the placement rule, as the comment below says.
+        _pos = [_position_of(_m5) for _m5 in _mem]
+        if (SC.label((_gi,)) in _placed_by_planner
+                and not all(_SL.is_default_spelling(_m4) for _m4 in _mem)
+                and None not in _pos and _RL.pair_bindable(_s)
+                and not all(_bindable_at(_s.name, _pos[_i], _pos[_j])
+                            for _i in range(len(_pos))
+                            for _j in range(_i + 1, len(_pos)))):
+            _pl = ", ".join(
+                "%s%s" % ("NOT " if not _p.polarity else "", _p.kind)
+                for _p in _s.placement
+                if _p.kind in _RL.POSITION_PLACEMENT_KINDS)
+            out.append((
+                "PLACEMENT_CONTRADICTS_SCHEMA",
+                min(int(str(m).split(".", 1)[0]) for m in _mem),
+                f"group {SC.label((_gi,))} declares {_name!r} over "
+                f"{len(_mem)} declared word(s) ({', '.join(_mem)}). That "
+                f"schema's own placement rule is {_pl!r}, which those places "
+                f"cannot satisfy, and a group of declared words is judged "
+                f"without its placement rule, so the plan must place it where "
+                f"the rule holds (`--groups=` with the places the type "
+                f"allows)."))
+        elif not all(_SL.is_default_spelling(_m4) for _m4 in _mem):
             pass
         elif not all(_r.locus in _TOKEN_LOCI
                      for _r in (_s.spans[0], _s.spans[-1])):
@@ -3258,9 +3381,42 @@ def _want_candidates(seed, kw):
             yield candidate_seed, exc
 
 
+def group_types_to_relations(group_types, relations=None):
+    """-> `relations` by group label, with each `group_types` entry added.
+
+    `group_types` is the website's per-group choice (`src/pages/lyrics.js`,
+    `[{group, type}]`): `group` is a 1-based group number and `type` a
+    REGISTRY INDEX, the type's position in `relations.REGISTRY`, so a type's
+    name never travels. Each entry becomes an explicit choice for the plan's
+    group of that number, spelled `schema:<registry name>` as the mandate
+    carries it. An index outside the registry, a group number below 1, or a
+    group named twice with two different types refuses by name."""
+    out = dict(relations or {})
+    names = list(_RL.REGISTRY)
+    for e in group_types or ():
+        try:
+            g, t = int(e["group"]), int(e["type"])
+        except (KeyError, TypeError, ValueError):
+            raise PlanRefused(f"group_types entry {e!r} is not "
+                              f"{{group: N, type: INDEX}}")
+        if g < 1:
+            raise PlanRefused(f"group_types names group {g}; groups are "
+                              f"numbered from 1")
+        if not 0 <= t < len(names):
+            raise PlanRefused(f"group_types names type index {t}; the "
+                              f"registry's indices run 0 to {len(names) - 1}")
+        label = SC.label((g - 1,))
+        want = f"schema:{names[t]}"
+        if out.get(label) not in (None, want):
+            raise PlanRefused(f"group {g} ({label}) is given two different "
+                              f"types")
+        out[label] = want
+    return out
+
+
 def make_plan(seed, form=None, lines=None, relation=None,
               functions=None, title=None, narrative=None, wants=(), melody=None,
-              relations=None):
+              relations=None, group_types=None):
     """Plan under explicit brief predicates; never supply aesthetic defaults.
 
     The existing closed sweep vocabulary is also accepted at the generation
@@ -3275,6 +3431,8 @@ def make_plan(seed, form=None, lines=None, relation=None,
     parsed = [parse_sweep_want(w) if isinstance(w, str) else
               parse_sweep_want("".join(w)) for w in wants]
     form = form or DEFAULT_FORM
+    if group_types:
+        relations = group_types_to_relations(group_types, relations) or None
     kw = dict(form=form, lines=lines, relation=relation, functions=functions,
               title=title, narrative=narrative, _wants=parsed, melody=melody,
               relations=relations)
@@ -3488,10 +3646,22 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         # formal fields by `type_eligibility`, the same predicate the draw
         # uses, so a requested type and a drawn one answer one question.
         refuse_ineligible(relation)
+    # EACH PER-GROUP CHOICE, validated the same way, and stored in the
+    # spelling that re-resolves to the same judge.
+    _checked = {}
     for _lab, _want in sorted((relations or {}).items()):
         if str(_want).strip().lower() in ("draw", "any", ""):
+            _checked[_lab] = _want
             continue
         refuse_ineligible(_want)
+        from quality import schemes as _SC
+        try:
+            _checked[_lab] = _SC.mandate(
+                "AA", n_lines=2, default_relation=_want).default_relation
+        except _SC.NoMandate as e:
+            raise PlanRefused(f"the relation chosen for group {_lab} "
+                              f"({_want!r}) is not declarable: {e}")
+    relations = _checked or relations
 
     # THE DECLARED ROSTER. A song may ask for the functions it wants, and the
     # request is CHECKED against the vocabulary's own definitional
@@ -3934,7 +4104,10 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         bar += n_bars
         if k == 0:
             continue
-        if fn in VERBATIM_RETURNERS and fn in first_seen:
+        # A RETURN ONLY WHEN THE FORM ASKS FOR ONE (D7, 2026-10-27): under
+        # `open` a second chorus is new lines with groups of their own.
+        if (fn in VERBATIM_RETURNERS and fn in first_seen
+                and form_asks_return(form)):
             returns.extend([first_seen[fn] + i, first + i]
                            for i in range(k))
         else:
@@ -4022,14 +4195,21 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
                 if getattr(_GR.SECTION_FUNCTIONS.get(fn), "returns_as", "")
                 == "verbatim"}
     hook_slot, hook_refused = None, ""
-    for pool in (verbatim, recurs):
+    # NO HOOK UNLESS THE FORM ASKS FOR A RETURN (D7, 2026-10-27): a hook slot
+    # is checked at grade time (`HOOK_ABSENT`), so under `open` none is
+    # declared, and the plan says why.
+    for pool in ((verbatim, recurs) if form_asks_return(form) else ()):
         for s in line_slots:
             if s["function"] in pool:
                 hook_slot = s["line"]
                 break
         if hook_slot:
             break
-    if hook_slot is None:
+    if hook_slot is None and not form_asks_return(form):
+        hook_refused = (
+            f"the form {form!r} asks for no section to return, and a hook is "
+            f"planned only when the request asks for a returning form")
+    elif hook_slot is None:
         # A REFUSAL IS NOT AN ABSENCE (doctrine 20). Silence here would read
         # as "this shape has no hook worth naming"; the truth is that nothing
         # in it comes back, so no position can carry one.
@@ -4668,8 +4848,9 @@ def writer_brief(plan):
         out.append("NO STORY PLAN: this shape carries no legal story "
                    "line-up, so nothing is asked of the meaning axis.")
     rets = {fn for fn in VERBATIM_RETURNERS
-            if sum(1 for s in plan["sections"]
-                   if s["function"] == fn) >= 2}
+            if plan.get("returns")
+            and sum(1 for s in plan["sections"]
+                    if s["function"] == fn) >= 2}
     for fn in sorted(rets):
         out.append(f"Every {fn} after the first repeats the first {fn} "
                    f"word for word, line for line.")
@@ -4882,10 +5063,10 @@ def grading_command(plan, draft_path="DRAFT.txt", bp_path="BP.json", input_forma
     # a declared coordinate read by nothing, one layer out from M-54's.
     if plan.get("relation"):
         parts.append(shlex.quote(f"--relation={plan['relation']}"))
-    # PER-GROUP RELATIONS, ONLY WHEN THE PLAN CARRIES DECLARED ONES. The
-    # planner draws none, so a plan with no declaration emits no
-    # `--relations=` and the grade judges every group against every
-    # relation. Sorted by label so the command is deterministic.
+    # PER-GROUP RELATIONS: each group's type, drawn or declared
+    # (2026-10-27, D1), spelled `schema:<registry name>` as the mandate's
+    # per-group `relations` carries it. Sorted by label so the command is
+    # deterministic.
     if plan.get("relations"):
         _spec = ",".join(f"{k}:{v}"
                          for k, v in sorted(plan["relations"].items()))

@@ -319,13 +319,46 @@ def dummy_draft(plan, unambiguous=False):
         for r in plan["returns"].split(";"):
             a, b = (int(x) for x in r.split(","))
             rets[b] = a
+    # A TYPE WHOSE SPAN IS A FINAL UNSTRESSED SYLLABLE (2026-10-27, D1: the
+    # planner draws one) has no coordinates on a monosyllable, and the grader
+    # REFUSES such a pair rather than judging it. The fixture must make every
+    # obligation judged (M-146), so the lines such a group binds end on a
+    # bank word whose last syllable is unstressed. The verdict is still not
+    # asserted, only that it exists.
+    weak = _final_unstressed_lines(plan)
+    soft = bank
+    if weak:
+        entries = _round_trip_reviser().lex.entries
+        soft = [w for w in bank
+                if any(len([p for p in ph if p[-1].isdigit()]) >= 2
+                       and [p for p in ph if p[-1].isdigit()][-1][-1] == "0"
+                       for ph in entries.get(w, ()))]
     lines = []
     for i in range(1, plan["total_lines"] + 1):
         if i in rets:
             lines.append(lines[rets[i] - 1])
+        elif i in weak:
+            lines.append(DUMMY_PREFIX + soft[(i - 1) % len(soft)])
         else:
             lines.append(DUMMY_PREFIX + bank[(i - 1) % len(bank)])
     return lines
+
+
+def _final_unstressed_lines(plan):
+    """-> the lines a group binds whose drawn type reads a final unstressed
+    syllable (`spans[*].anchor == "final_unstressed"`)."""
+    out = set()
+    rels = plan.get("relations") or {}
+    groups = [g for g in str(plan.get("groups") or "").split(";") if g]
+    for gi, g in enumerate(groups):
+        name = rels.get(PLN.SC.label((gi,))) or plan.get("relation") or ""
+        sch = RL.REGISTRY.get(name.split(":", 1)[1]) if name.startswith(
+            "schema:") else None
+        if sch is None or not any(r.anchor == "final_unstressed"
+                                  for r in (sch.spans[0], sch.spans[-1])):
+            continue
+        out.update(int(m.split(".")[0]) for m in g.split(","))
+    return out
 
 
 #: Findings that must NEVER stand on a planner-emitted shape: the two hard
@@ -1750,8 +1783,11 @@ def test_the_disclosure():
                 drawn[sec["function"]] = drawn.get(sec["function"], 0) + 1
             recurs = {fn for fn, n in drawn.items()
                       if n > 1 and fn not in PLN.WORDLESS_FUNCTIONS}
+            # A hook only where the form asks for a return (D7,
+            # 2026-10-27): a form that asks none declares none, and says why.
             want = next((s2["line"] for s2 in p["line_slots"]
-                         if s2["function"] in recurs), None)
+                         if s2["function"] in recurs), None) \
+                if PLN.form_asks_return(form) else None
             got = p["hook_slot"]
             if want is None:
                 ok = ok and got is None
@@ -1795,14 +1831,13 @@ def test_the_disclosure():
           "sweep has no such plan to ask",
           m_why and m_without,
           f"declared forms: {PLN.PLAN_FORMS}")
-    # D7 (2026-10-27): the default form requires no return, so its sweep
-    # reaches BOTH branches without any mutation, and each holds.
+    # D7 (2026-10-27): the default form asks for no return, so it declares
+    # no hook on any seed, and each plan says why.
     o_ok, o_why, o_with, o_without, o_skipped = _hook_walk(
         range(40), form=PLN.DEFAULT_FORM)
-    check("...and under the DEFAULT form (`open`, no required return) both "
-          "branches occur unmutated: a hook where a function recurs, a "
-          "stated reason where none does",
-          o_ok and o_why and o_with and o_without,
+    check("...and under the DEFAULT form (`open`, no required return) no "
+          "plan declares a hook, and every plan states why",
+          o_ok and o_why and not o_with and o_without,
           f"with {o_with}, without {o_without}; refused NO_FREE_WORD: "
           f"{o_skipped or 'none'}")
 
@@ -1866,8 +1901,9 @@ def test_the_rendering():
           "copy-paste artifact is the system's output")
     # A shape with both a verbatim return and an instrumental, found
     # honestly rather than pinned to a seed.
+    # A verbatim return is planned only for a returning form (D7).
     for seed in range(300):
-        p = make_plan(seed=seed)
+        p = make_plan(seed=seed, form="verse-chorus")
         if p["returns"] and any(s["function"] in ZERO_LINE_FUNCTIONS
                                 for s in p["sections"]):
             break
@@ -2408,6 +2444,19 @@ def test_the_joint_gate():
     # WRITING, which is exactly why it belongs to a PLAN-TIME gate: no choice
     # of words makes a section recur. Before the repair the planner emitted it
     # in 219 of 400 seeds, all chorus.
+    # THE HOOK IS ASKED OF A RETURNING FORM (D7, 2026-10-27): the default
+    # `open` form declares no hook, so the hook half of this gate is asked
+    # of the same seeds planned as verse-chorus, and the open sweep must
+    # declare none and say why.
+    check("the default (open) form declares no hook on any seed of the "
+          "sweep, and each plan says why",
+          all(not p.get("hook_slot") and p.get("hook_slot_refused")
+              for p in plans),
+          f"{sum(1 for p in plans if p.get('hook_slot'))} open plans "
+          f"declare a hook")
+    open_plans = plans
+    plans = [make_plan(seed=k, form="verse-chorus")
+             for k in range(JOINT_SWEEP)]
     hooked = [p for p in plans if p.get("hook_slot")]
     check("plans that DO declare a hook declare it in a function this plan "
           "drew MORE THAN ONCE — a hook is defined by RETURN, so a slot in a "
@@ -2429,7 +2478,11 @@ def test_the_joint_gate():
     # THE MUTATION: force the hook into a section drawn once and require the
     # gate to fire. Without this the two checks above pass on any tree whose
     # planner simply never declares a hook at all.
-    victim = next((p for p in plans if not p.get("hook_slot")), None)
+    # The victim is an open plan whose first line sits in a function drawn
+    # once (every verse-chorus plan carries a hook, so none is a victim).
+    victim = next((p for p in open_plans if sum(
+        1 for s in p["sections"]
+        if s["function"] == p["line_slots"][0]["function"]) == 1), None)
     if victim is not None:
         mutant = dict(victim)
         mutant["hook_slot"] = victim["line_slots"][0]["line"]
@@ -4083,7 +4136,8 @@ def test_the_placement_route(FAILURES=None):
     check("...and the finding names the schema, the members and the "
           "placement rule, and points at the declaration that WOULD work "
           "rather than refusing the figure",
-          ex is not None and "schema:" in ex[2] and "DEFAULT slot" in ex[2]
+          ex is not None and "schema:" in ex[2]
+          and ("DEFAULT slot" in ex[2] or "declared word" in ex[2])
           and "--groups=" in ex[2]
           and "PLACEMENT_CONTRADICTS_SCHEMA" in PLN.JOINT_CODES,
           (ex[2][:110] if ex else "did not fire"))
@@ -4854,11 +4908,14 @@ def test_a_request_refusal_is_the_requests():
     # seed's own plan; `lines<=60` narrows the draw, which moved the rng,
     # so `make_plan(seed, wants)` delivered another song for seeds the
     # sweep accepted. `returns>=3` narrows nothing: the control.
-    for want in ("lines<=60", "returns>=3"):
-        acc = sweep(range(40), wants=[PLN.parse_sweep_want(want)])["accepted"]
+    # The control asks a returning form: the default `open` form plans no
+    # return (D7, 2026-10-27), so `returns>=3` would accept nothing there.
+    for want, form in (("lines<=60", None), ("returns>=3", "verse-chorus")):
+        acc = sweep(range(40), wants=[PLN.parse_sweep_want(want)],
+                    form=form)["accepted"]
         moved = [seed for seed in acc
-                 if make_plan(seed=seed, wants=[want])["sections"]
-                 != make_plan(seed=seed)["sections"]]
+                 if make_plan(seed=seed, wants=[want], form=form)["sections"]
+                 != make_plan(seed=seed, form=form)["sections"]]
         check(f"want {want}: every seed the sweep accepts plans, under the "
               f"same want, the sections the sweep judged",
               acc and not moved, (acc, moved))
@@ -4911,7 +4968,7 @@ def test_the_type_draw():
     from quality import relations as _R
     ok, refused = PLN.type_eligibility()
     disowned = sorted(n for n, s in _R.REGISTRY.items()
-                      if s.normative in PLN.DISOWNED_NORMATIVE)
+                      if s.normative != "attested")
     check("the disowned types are exactly the four the owner named, selected "
           "by the registry's `normative` field, and none is eligible",
           disowned == sorted(["homoioteleuton", "trite rhyme",
@@ -4921,10 +4978,31 @@ def test_the_type_draw():
     src = "".join(_insp.getsource(f) for f in (
         PLN.type_eligibility, PLN.fit_type, PLN._assign_types, PLN._carve,
         PLN._line_reach, PLN._domain_cap, PLN.type_rule))
-    check("eligibility, odds, placement and the rule read no name, alias, "
-          "tradition or note",
-          not any(t in src for t in (".aka", ".traditions", ".note",
+    check("eligibility, odds, placement and the rule read no name, alias "
+          "or note",
+          not any(t in src for t in (".aka", ".note",
                                      "REGISTRY[\"", "REGISTRY['")))
+    # Rule (e), the owner's ruling: of `traditions` only the language codes
+    # are read, and only by the one eligibility function.
+    _elig = _insp.getsource(PLN.type_eligibility)
+    _rest = src.replace(_elig, "")
+    check("rule (e) reads only each tradition's language code, and only in "
+          "type_eligibility",
+          ".traditions" not in _rest and "t.lang" in _elig
+          and not any(t in _elig for t in ("t.name", ".why", ".witness",
+                                           ".source")))
+    check("rule (e): a type whose traditions name languages, none English, "
+          "is refused with that reason; one naming English is not",
+          "and not English" in refused.get("pantun ABAB", "")
+          and "and not English" in refused.get(
+              "Scots vowel-length rhyme (Aitken's Law)", "")
+          and "perfect rhyme" in ok and "chain rhyme (rap)" in ok,
+          (refused.get("pantun ABAB"), len(ok)))
+    check("rule (e): a type whose traditions name no language is not "
+          "refused on that ground",
+          all("and not English" not in refused.get(n, "")
+              for n, s in _R.REGISTRY.items()
+              if not any(getattr(t, "lang", None) for t in s.traditions)))
     check("every refused type carries a reason, and eligible + refused is "
           "the whole registry",
           set(ok) | set(refused) == set(_R.REGISTRY)
@@ -5006,6 +5084,47 @@ def test_the_type_draw():
           f"{sum(first)} of {len(first)}")
     check("planner output carries no 'plan fewer lines' advice",
           "fewer lines" not in _insp.getsource(PLN))
+    # D7: a chorus return and a hook only when the request asks for a
+    # returning form.
+    opens = [make_plan(seed, lines=104) for seed in range(1, 9)]
+    vcs = [make_plan(seed, lines=104, form="verse-chorus")
+           for seed in range(1, 9)]
+    check("an open plan carries no verbatim return and no hook, and says "
+          "why there is no hook",
+          all(not p["returns"] and not p["hook_slot"]
+              and p["hook_slot_refused"]
+              and "word for word" not in p["writer_brief"] for p in opens),
+          [(p["returns"][:20], p["hook_slot"]) for p in opens][:3])
+    check("a verse-chorus plan still returns its chorus with a hook line",
+          all(p["returns"] and p["hook_slot"] for p in vcs),
+          [(bool(p["returns"]), p["hook_slot"]) for p in vcs])
+    briefs = " ".join(p["writer_brief"] for p in opens + vcs)
+    check("the brief carries no fixed example: no 'leaves humming', no "
+          "'walk home'",
+          "humming" not in briefs and "walk home" not in briefs
+          and "humming" not in _insp.getsource(PLN.writer_brief)
+          and "walk home" not in _insp.getsource(PLN.writer_brief))
+    # The website's per-group choice: `group_types: [{group, type}]`, the
+    # type as a registry index.
+    _names = list(_R.REGISTRY)
+    p = make_plan(5, group_types=[
+        {"group": 1, "type": _names.index("perfect rhyme")},
+        {"group": 2, "type": _names.index("assonance")}])
+    check("group_types maps a registry index to that group's explicit type",
+          p["relations"].get("A") == "schema:perfect rhyme"
+          and p["relations"].get("B") == "schema:assonance"
+          and p["choices"]["relations"]["groups"][0]["chosen_from"]
+          == "declared", (p["relations"].get("A"), p["relations"].get("B")))
+    for gt, why in (([{"group": 1, "type": len(_names)}], "indices run"),
+                    ([{"group": 1,
+                       "type": _names.index("homoioteleuton")}], "forbidden"),
+                    ([{"group": 0, "type": 0}], "numbered from 1")):
+        try:
+            make_plan(5, group_types=gt)
+            check(f"group_types {gt} is refused, naming why", False)
+        except PlanRefused as e:
+            check(f"group_types {gt} is refused, naming why",
+                  why in str(e), str(e)[:120])
 
 
 _SECTIONS = (
