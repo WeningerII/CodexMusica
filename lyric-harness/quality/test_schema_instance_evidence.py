@@ -74,6 +74,24 @@ class EvidenceTests(unittest.TestCase):
         self.assertEqual(before, R._WVP_MEMO)
         with patch.object(R, 'whole_vocabulary_pairs', side_effect=AssertionError('name cache used')):
             self.assertEqual(a, self.report(schemas=['perfect rhyme']))
+    def test_no_candidate_cap_and_the_time_guard_names_what_it_did_not_count(self):
+        # 2026-10-27 (end-of-day plan, #519): no type is capped by candidate
+        # count; a count that runs out of time names every type it did not
+        # reach and says the coverage is incomplete.
+        full = self.report()
+        self.assertIsNone(full["limits"]["candidates_per_schema"])
+        self.assertFalse([m for m in full["coverage"]["methods"]
+                          if m.get("reason") == "candidate_limit"])
+        ticks = iter([0.0, 0.0] + [10.0] * 1000)
+        cut = self.report(time_budget_s=5, clock=lambda: next(ticks))
+        methods = cut["coverage"]["methods"]
+        self.assertEqual(methods[0]["status"], "answered")
+        self.assertTrue(methods[1:])
+        self.assertTrue(all(m["status"] == "partial" and m["reason"] == "time_budget"
+                            for m in methods[1:]))
+        self.assertEqual(cut["coverage"]["status"], "partial")
+        self.assertIsNone(cut["coverage"]["total_records"])
+        self.assertEqual(cut["limits"]["count_time_budget_s"], 5)
     def test_limits_are_honest(self):
         got = self.report(max_records=0)
         self.assertFalse(got['coverage']['complete'])

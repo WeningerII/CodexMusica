@@ -4072,6 +4072,13 @@ def unadmitted_reason(s, decl):
             f"{dict(decl.theta_by_relation)})")
     rt = relation_totals(s)
     adm = sorted(r for r in rt if r in decl.admit)
+    if not adm and admit_is_default(decl):
+        # 2026-10-27 (end-of-day plan, #519 6448819660): ~~"none of the
+        # relations it stands in is in the declared admit set [the five
+        # basic names]"~~ — under the default every registry type is asked
+        # too, so the failure is stated over all of them, not as five names.
+        return (f"{head} — no registry type holds at its bound words, and "
+                f"none of the relations it stands in is admitted")
     if not adm:
         return (f"{head} — none of the relations it stands in is in the "
                 f"declared admit set {sorted(decl.admit)}")

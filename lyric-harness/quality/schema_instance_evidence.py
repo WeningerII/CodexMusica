@@ -5,6 +5,7 @@ not a restatement of mandate satisfaction or an all-figures verdict. Report-time
 recomputation deliberately does not consume reduced schema-name memo answers.
 """
 import hashlib
+import time
 from pathlib import Path
 
 from library.analysis import AnalysisSession
@@ -13,25 +14,20 @@ from quality import relations as RL
 
 MAX_RECORDS = 256
 MAX_BYTES = 262144
-MAX_CANDIDATES_PER_SCHEMA = 4096
-#: LIFTED FOR LINE-LEVEL TYPES, 2026-10-27 (end-of-day plan, #519
-#: 6448819660: lift the rhyme-type counter caps so long songs get a full
-#: count). A song past about 90 lines exceeded 4096 candidate pairs on the
-#: line-end types and they reported no count at all (`candidate_limit`). A
-#: type whose every span sits at a line's end or is the whole line has
-#: candidates that grow with LINES, so it is counted uncapped. A type that
-#: may bind any token grows with TOKENS (measured on a 104-line fixed-seed
-#: draw: 4.8 s capped, 189 s with no cap at all), keeps the cap and still
-#: reports `candidate_limit` by name. RECORDS and BYTES stay bounded: they
-#: size the inline report, not the count.
-UNCAPPED_LOCI = frozenset({"line_final_token", "line"})
-
-
-def _candidate_cap(schema, cap):
-    """-> the candidate cap this type is counted under (None = uncapped)."""
-    if all(r.locus in UNCAPPED_LOCI for r in schema.spans):
-        return None
-    return cap
+#: ~~4096~~ -> None, 2026-10-27 (end-of-day plan, #519 6448819660: lift the
+#: rhyme-type counter caps so long songs get a full count). A song past
+#: about 90 lines exceeded 4096 candidate pairs and 15 types reported no
+#: count at all (`candidate_limit`). Every type is now counted uncapped.
+#: RECORDS and BYTES stay bounded: they size the inline report, not the
+#: count.
+MAX_CANDIDATES_PER_SCHEMA = None
+#: THE TIME GUARD THAT REPLACES THE CAP. Uncapped, a 104-line fixed-seed
+#: draw took 189 s (4.8 s capped), inside a tool's 10-minute limit; the cost
+#: grows with the song. Types are counted in turn until this many seconds
+#: have passed; every type not reached is reported by name with reason
+#: `time_budget` and the coverage says the count is incomplete. Nothing is
+#: capped silently.
+COUNT_TIME_BUDGET_S = 300
 
 
 class _Serializer(AnalysisSession):
@@ -67,14 +63,16 @@ def _report_bytes(result, record_bytes):
 
 def from_stream(stream, phon, *, declarations, provenance, schemas=None,
                 max_records=MAX_RECORDS, max_bytes=MAX_BYTES,
-                max_candidates=MAX_CANDIDATES_PER_SCHEMA):
+                max_candidates=MAX_CANDIDATES_PER_SCHEMA,
+                time_budget_s=None, clock=time.monotonic):
     """Serialize actual instances; all limits apply only to this report census.
 
     False instances are counted but not emitted. Whole figures and alternative
     reading witness searches are outside this bounded census, explicitly named.
     It must never be used as a new verdict on the grade's obligations.
     """
-    if max_bytes < 1024 or max_records < 0 or max_candidates < 0:
+    if max_bytes < 1024 or max_records < 0 or (
+            max_candidates is not None and max_candidates < 0):
         raise ValueError("invalid report evidence limits")
     text = "\n".join(stream.text_lines)
     names = sorted(RL.REGISTRY if schemas is None else set(schemas))
@@ -100,18 +98,26 @@ def from_stream(stream, phon, *, declarations, provenance, schemas=None,
         "coverage": {"complete": False, "status": "partial", "methods": [],
             "omitted_records": 0, "remaining_records_unknown": False},
         "limits": {"records": max_records, "bytes": max_bytes,
-                   "candidates_per_schema": max_candidates}, "records": []}
+                   "candidates_per_schema": max_candidates,
+                   "count_time_budget_s": (COUNT_TIME_BUDGET_S if time_budget_s is None
+                                           else time_budget_s)}, "records": []}
     serializer = _Serializer(stream, phon, identity)
     cov = result["coverage"]
     record_bytes = 0
     # Reserve room for the small per-method coverage records. Never detach data
     # into pages: this report has no evidence retrieval endpoint.
+    budget = COUNT_TIME_BUDGET_S if time_budget_s is None else time_budget_s
+    started = clock()
     for name in requested:
         method = {"schema_name": name, "status": "answered", "counts": {}, "emitted": 0}
         cov["methods"].append(method)
+        if clock() - started > budget:
+            method.update(status="partial", reason="time_budget")
+            cov["remaining_records_unknown"] = True
+            continue
         try:
             instances = RL.realise(RL.REGISTRY[name], stream, keep="all",
-                                   max_pairs=_candidate_cap(RL.REGISTRY[name], max_candidates))
+                                   max_pairs=max_candidates)
         except RuntimeError as exc:
             if str(exc) != "candidate explosion; tighten the schema":
                 raise
