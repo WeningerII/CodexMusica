@@ -1,4 +1,5 @@
 {
+  "lyric_text_replaced": "2026-10-27: SYNTHETIC REPLACEMENT. `lines` are phonological twins (lyric-harness/quality/fixtures/phonological_twin.py, seed 20261027, `palm` kept) of an AI-written draft the owner approved deleting. `archive_sha256` and `transcript_sha256` still name the ORIGINAL external artifact; they do not bind these `lines`, which are not that transcript's song_at_stop, and `selection` describes how the original lines were chosen. `parks` is unchanged.",
   "source_run": 34116990907,
   "source_sha": "8bf7362f54f67c686347b5356b52f73491c808d2",
   "artifact_id": 10020550885,

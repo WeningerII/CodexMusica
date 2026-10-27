@@ -2,7 +2,7 @@
 
 Raw local records from **Node 24 and Python 3.12**, each applying to its recorded source epoch. They do not qualify a Docker image, production CPU/memory capacity, or a paid provider run.
 
-The [artifact index](artifact-index.json) records SHA-256, bytes, original path, and classification. Raw outputs, failures, commands, and captured identities are unchanged; the index excludes its own recursive hash. The [final composite](final-python-evidence-decision.json) explains source changes and applicable followups. Its evidence paths are relative to this directory; source-code paths are relative to the repository root. [Final static checks](final-static/result.json) passed four commands and 85 ledger invariants.
+The [artifact index](artifact-index.json) records SHA-256, bytes, original path, and classification. Raw outputs, failures, commands, and captured identities are unchanged; the index excludes its own recursive hash. One exception, 2026-10-27: in [connector-native-tail-probe.json](connector-native-tail-probe.json) the `verify` and `noOp` `final_draft` lines are synthetic replacements for deleted AI-written text. The file is marked (`redaction`, and `final_draft_redaction` in each of those records) and its index entry carries `raw_copy: false`. Those records' stored hashes, verdicts and certified/verified claims describe the original executed drafts, not the replacement text. The [final composite](final-python-evidence-decision.json) explains source changes and applicable followups. Its evidence paths are relative to this directory; source-code paths are relative to the repository root. [Final static checks](final-static/result.json) passed four commands and 85 ledger invariants.
 
 | Evidence | What it establishes |
 | --- | --- |

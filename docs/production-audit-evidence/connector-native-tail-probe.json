@@ -1,4 +1,5 @@
 {
+  "redaction": "2026-10-27: this file is NOT a byte-for-byte copy of the probe output. The `final_draft` arrays of `verify` and `noOp` are synthetic replacements for deleted AI-written lines; each of those records carries `final_draft_redaction` saying which of its fields describe the original draft. `checked`, `structured` and `narrowed` are unchanged and their `final_draft_sha256` still matches their `final_draft`.",
   "checked": {
     "exit_code": 0,
     "meaning": "answered — 0 per-line and 1 whole-draft flag(s) stand",
@@ -575,6 +576,7 @@
       "Choice tunnel yoga semester tore"
     ],
     "final_draft_sha256": "94bb258aeb6d7bdc39daf6130ce981a8d39e0cdcb2d0775dba7ff949685313b9",
+    "final_draft_redaction": "2026-10-27: SYNTHETIC REPLACEMENT, NOT EXECUTED EVIDENCE. `final_draft` no longer holds the draft this call executed: its lines were AI-written text the owner approved deleting, and they are replaced with seeded dictionary words (lyric-harness/quality/fixtures/seeded_lines.py). Every measurement in this record was taken on the ORIGINAL draft and describes it, not the text shown: `report` (including its BEFORE/AFTER md5s), `coverage`, `coverage_before`, `certified`, `measurement_status`, `verdict`, `accepted`, `reasons`, `fixed`, `new` and the counts. `final_draft_sha256` (94bb258aeb6d7bdc39daf6130ce981a8d39e0cdcb2d0775dba7ff949685313b9) is the executed original's SHA256(JSON.stringify(final_draft)); the replacement text hashes to 884a921d26251bad0a15dbe9d120fc1da7bcdc781d7bbc4ed9a12691f8304da1 under the same contract, so the stored hash deliberately does NOT match `final_draft`. No call was re-run on the replacement.",
     "accepted": true,
     "verdict": "ACCEPTED",
     "reasons": [
@@ -744,6 +746,7 @@
       "Choice tunnel yoga semester stone"
     ],
     "final_draft_sha256": "62ba3b06129d86c63564807612f79397e1543ebe587e6cc9d2fd1df7274bbc08",
+    "final_draft_redaction": "2026-10-27: SYNTHETIC REPLACEMENT, NOT EXECUTED EVIDENCE. `final_draft` no longer holds the draft this call executed: its lines were AI-written text the owner approved deleting, and they are replaced with seeded dictionary words (lyric-harness/quality/fixtures/seeded_lines.py). Every measurement in this record was taken on the ORIGINAL draft and describes it, not the text shown: `report` (including its BEFORE/AFTER md5s), `coverage`, `coverage_before`, `certified`, `measurement_status`, `verdict`, `accepted`, `reasons`, `fixed`, `new` and the counts. `final_draft_sha256` (62ba3b06129d86c63564807612f79397e1543ebe587e6cc9d2fd1df7274bbc08) is the executed original's SHA256(JSON.stringify(final_draft)); the replacement text hashes to edaac74e96897a64e33dc8423d553dfcd5f01a3319302c0ac8027b3a96ff4801 under the same contract, so the stored hash deliberately does NOT match `final_draft`. No call was re-run on the replacement.",
     "accepted": false,
     "verdict": "REJECTED",
     "reasons": [

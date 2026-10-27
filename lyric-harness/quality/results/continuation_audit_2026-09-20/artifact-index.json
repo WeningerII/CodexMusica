@@ -14,8 +14,8 @@
     },
     {
       "path": "bell_foundry_case.json",
-      "bytes": 18568,
-      "sha256": "9ba77aca655e5519187f3d5dc0557453e2da4b5d3893030afb780df8641fcff6"
+      "bytes": 19274,
+      "sha256": "44c95c7ec2590c2fd941f5c5e8446ca873cbedc6ecf94b73fa0a3ab47cd74680"
     },
     {
       "path": "calibration-rows.zip",
@@ -39,8 +39,8 @@
     },
     {
       "path": "dead_letter_case.json",
-      "bytes": 23135,
-      "sha256": "51a798bf8b4902c1ab88823a4be4910481ccdb33e033c276a5aebdda2b58fdb2"
+      "bytes": 23841,
+      "sha256": "c32f401461e42f221779dc41bb45b53fbef658c1da3797c963ed0ad329987147"
     },
     {
       "path": "deployed-health-before.json",
@@ -49,8 +49,8 @@
     },
     {
       "path": "greenhouse_case.json",
-      "bytes": 20385,
-      "sha256": "65f4f4acd67dce4734880d9923d902c463d894b94c4418912195c4e39ec2e1d3"
+      "bytes": 21091,
+      "sha256": "7c193b309cbe81546f64e4258d9ac1ec706a0ca17b88453c638abbb51b647711"
     },
     {
       "path": "interviews.zip",
@@ -64,8 +64,8 @@
     },
     {
       "path": "rain_gauge_case.json",
-      "bytes": 15432,
-      "sha256": "fea7e98b5e78f9e20a79b4de0ff874970d4475f01642c0e00dcf10713438627e"
+      "bytes": 16138,
+      "sha256": "edfe3cdeef0305890ac9d11bc2f81b9cc21fc287861cd115e8048555de177246"
     },
     {
       "path": "session-metrics.json",
@@ -74,13 +74,13 @@
     },
     {
       "path": "signal_flags_case.json",
-      "bytes": 12498,
-      "sha256": "142be8e626302d5f900e1cd76bd39ae055c5233c72d82f06c9b303cfaab1c5d2"
+      "bytes": 13204,
+      "sha256": "243a511cb5b6f4beaead6183a4b1ab2b88b1bbb4887e29fcf977ff26f685fe38"
     },
     {
       "path": "spare_key_case.json",
-      "bytes": 14152,
-      "sha256": "05fd22acc06612f2fdfda01a5ccb632ac1869a4b34bea933d9da63eda3d05e4d"
+      "bytes": 14858,
+      "sha256": "f94581fe779be29e6d726b2445d93ff7d2c184d63f4d2052315a4db086ad8ba5"
     },
     {
       "path": "ticket-source-after.json",
