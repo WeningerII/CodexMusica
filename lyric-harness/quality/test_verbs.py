@@ -4327,10 +4327,15 @@ def test_what_the_command_line_prints_is_what_it_means():
           "--relation=type:assonance" in nxt and "'--title=Two Rivers'" in nxt
           and "--narrative=off" in nxt, nxt)
     rc, out, _ = run("screen", "love", "dove", "--relation=schema:internal rhyme")
-    check("screen answers REFUSED, not SATISFIES, for a schema two line ends "
-          "cannot place (the grade charges a line-end mandate declaring it)",
-          rc == 0 and "schema:internal rhyme REFUSED" in out
-          and "SATISFIES schema:internal rhyme" not in out, out[-300:])
+    # REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660: the screen
+    # tests the positions each type uses): ~~REFUSED for a schema two line
+    # ends cannot place~~ — it is judged at the positions its placement
+    # meets, and the answer NAMES them, so it is never an unqualified
+    # line-end SATISFIES.
+    check("screen judges a schema two line ends cannot place at the positions "
+          "it uses and names them — never an unqualified line-end SATISFIES",
+          rc == 0 and "schema:internal rhyme at head/head" in out
+          and "SATISFIES schema:internal rhyme |" not in out, out[-300:])
     with tempfile.TemporaryDirectory() as d:
         song = os.path.join(d, "my song.txt")
         with open(song, "w") as fh:
