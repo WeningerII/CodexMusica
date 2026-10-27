@@ -799,6 +799,48 @@ function unitTypeMenu() {
     JSON.stringify(movedDecl.group_types) === JSON.stringify([{ group: 1, type: perfect }]),
     `the migrated link lost its type: ${JSON.stringify(movedDecl.group_types)} (${draft.value.split('\n')[1]})`
   );
+  // A structural edit that makes two links spell alike keeps each link's type
+  // (3PO, #629): `1,2;1,2,3` typed 0 and 4 loses line 3 with its section, and
+  // becomes `1,2;1,2` typed 0 and 4, not 4 and none. Each route that
+  // rebuilds the text (removing a section, a section made to return) and the
+  // Run review boundary after it are held to that, and the saved text read
+  // back fresh (a reload) and the text before the edit (Undo) answer alike.
+  const typesOf = (text, at = run) =>
+    JSON.parse(JSON.stringify(at('lyDeclarationsOf(lyParse(__t))', { __t: text }))).group_types;
+  const both = JSON.stringify([
+    { group: 1, type: perfect },
+    { group: 2, type: assonance },
+  ]);
+  const converge = `[SETUP — rhyme groups — 1,2;1,2,3]\n[SETUP — group types — 1,2=${perfect};1,2,3=${assonance}]\n\n[VERSE — 2 lines]\none\ntwo\n\n[CHORUS — 1 line]\nthree`;
+  for (const [route, edit] of [
+    ['a removed section', 'lyEditSections(({ blocks }) => { blocks.splice(1, 1); }, "")'],
+    ['a section made to return', "LY_ACTIONS['ly-make-return']('1:0')"],
+  ]) {
+    draft.value = converge;
+    run(edit);
+    const edited = draft.value;
+    check(
+      /rhyme groups — 1,2;1,2\b/.test(edited),
+      `${route}: the links did not come to spell alike, so the case proves nothing: ${edited.split('\n')[0]}`
+    );
+    check(
+      typesOf(edited) && JSON.stringify(typesOf(edited)) === both,
+      `${route}: two links spelled alike lost a type: ${JSON.stringify(typesOf(edited))} (${edited.split('\n')[1]})`
+    );
+    run("lyEnsureTokenScheme('page')");
+    check(
+      JSON.stringify(typesOf(draft.value)) === both,
+      `${route}, then Run review: ${JSON.stringify(typesOf(draft.value))}`
+    );
+    check(
+      JSON.stringify(typesOf(draft.value, lyricsUnitContext().run)) === both,
+      `${route}, read back fresh: ${JSON.stringify(typesOf(draft.value, lyricsUnitContext().run))}`
+    );
+    check(
+      JSON.stringify(typesOf(converge)) === both,
+      `${route}, undone: ${JSON.stringify(typesOf(converge))}`
+    );
+  }
   // Clean starts: the saved brief and notes go with a new song only when chosen.
   const model = run('lyParse(__t)', { __t: song });
   app.lyricMeta = {
@@ -5502,6 +5544,58 @@ async function browserChecks(chromium) {
         !/rhyme groups/.test(await page.evaluate(() => $ui('lyrics-draft').value)) &&
           st.items.length === 0,
         `Remove did not remove the link: ${st.row}`
+      );
+      await ctx.close();
+    });
+
+    // ── 9e. link types through a removed section, in the shipped page: two
+    // links that come to spell alike keep a type each, through Run review,
+    // a reload and Undo (3PO, #629) ─────────────────────────────────────
+    await step('9e. link types survive a removed section', async () => {
+      const { ctx, page, q } = await boot();
+      const pre = `[SETUP — rhyme groups — 1,2;1,2,3]\n[SETUP — group types — 1,2=0;1,2,3=4]\n\n[VERSE — 2 lines]\none\ntwo\n\n[CHORUS — 1 line]\nthree`;
+      const both = JSON.stringify([
+        { group: 1, type: 0 },
+        { group: 2, type: 4 },
+      ]);
+      const types = () =>
+        page.evaluate(
+          () => lyDeclarationsOf(lyParse($ui('lyrics-draft').value)).group_types || null
+        );
+      await setDraft(page, pre);
+      await page.evaluate(() => LY_ACTIONS['ly-sec-remove']('1'));
+      const row = await page.evaluate(() => $ui('lyrics-draft').value.split('\n')[0]);
+      check(/1,2;1,2\b/.test(row), `the removed section left ${row}`);
+      check(
+        JSON.stringify(await types()) === both,
+        `after the removal: ${JSON.stringify(await types())}`
+      );
+      await page.evaluate(() => $ui('btn-undo').click());
+      await page.evaluate(() => lyRefresh(true));
+      const undone = await page.evaluate(() => $ui('lyrics-draft').value);
+      check(
+        /1,2;1,2,3/.test(undone.split('\n')[0]) && JSON.stringify(await types()) === both,
+        `Undo did not restore both links and their types: ${undone.split('\n').slice(0, 2).join(' / ')}`
+      );
+      await page.evaluate(() => $ui('btn-redo').click());
+      await page.evaluate(() => lyRefresh(true));
+      check(JSON.stringify(await types()) === both, `after Redo: ${JSON.stringify(await types())}`);
+      const calls = q.calls.length;
+      q.replies.push({ reply: 'ok', history: [], sig: 'x' });
+      await page.evaluate(async () => LY_ACTIONS['ly-run-review']());
+      await page.waitForFunction(() => !chatState.busy, null, { timeout: 20000 });
+      const sent = q.calls.slice(calls).map((c) => c.lyric_context?.declarations?.group_types);
+      check(
+        sent.length === 1 && JSON.stringify(sent[0]) === both,
+        `Run review sent ${JSON.stringify(sent)}`
+      );
+      await page.reload();
+      await page.waitForFunction(() => typeof UI !== 'undefined' && UI.ready && !!LY.model, null, {
+        timeout: 60000,
+      });
+      check(
+        JSON.stringify(await types()) === both,
+        `after a reload: ${JSON.stringify(await types())}`
       );
       await ctx.close();
     });

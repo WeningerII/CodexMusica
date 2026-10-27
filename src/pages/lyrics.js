@@ -1649,15 +1649,16 @@ function lySetGroupType(text, k, index) {
     })
   );
 }
-// `after` (a rewrite of `before` that respelled links, or removed link
-// `removed`) with each link's type moved from its old name to its new one.
-function lyCarryGroupTypes(before, after, removed = -1) {
+// `after` (a rewrite of `before` that respelled links, or removed the links
+// at the places in `removed`) with each link's type moved from its old name
+// to its new one, `#n` allocated afresh where links come to be spelled alike.
+function lyCarryGroupTypes(before, after, removed = []) {
   const was = lyParse(before);
   const types = lyGroupTypes(was);
   if (!types.size) return after;
-  const from = lyGroupKeys(lyLinksOf(was)).filter((_, j) => j !== removed);
+  const from = lyGroupKeys(lyLinksOf(was)).filter((_, j) => !removed.includes(j));
   const to = lyGroupKeys(lyLinksOf(lyParse(after)));
-  if (from.length !== to.length || (removed < 0 && from.every((key, j) => key === to[j])))
+  if (from.length !== to.length || (!removed.length && from.every((key, j) => key === to[j])))
     return after;
   return lyTypesRow(
     after,
@@ -3100,6 +3101,10 @@ function lyAssemble({ prefix, blocks, suffix }) {
     if (r.n && !map.has(r.n)) map.set(r.n, n);
   }
   let dropped = 0;
+  // Each link's type follows its own link by its place among the links (the
+  // order the rows keep), even where two links come to be spelled alike
+  // (lyCarryGroupTypes); `links` holds null for a link that no longer stands.
+  const links = [];
   const rows = out.map((r) => {
     const t = r.raw.trim();
     if (!LY_SETUP.test(t)) return r.raw;
@@ -3117,23 +3122,6 @@ function lyAssemble({ prefix, blocks, suffix }) {
       const good = rows.filter((x) => !x.bad);
       return good.length ? `[SETUP${LY_DASH}placement${LY_DASH}${lyPlacementText(good)}]` : null;
     }
-    if (item.key === 'group types') {
-      // A link's type follows the link: its key is renumbered the way the
-      // link's own row is, and goes with a link that no longer stands.
-      const entries = String(item.value)
-        .split(';')
-        .map((part) => /^(.+)=(\d+)$/.exec(part.trim()))
-        .filter(Boolean)
-        .map(([, key, index]) => {
-          const [members, n] = key.split('#');
-          const g = lyParseGroups(members)[0] || [];
-          const kept = g.filter((m) => m.bad || map.has(m.line));
-          kept.forEach((m) => m.bad || (m.line = map.get(m.line)));
-          return kept.length > 1 ? `${lyGroupsWire([kept])}${n ? `#${n}` : ''}=${index}` : null;
-        })
-        .filter(Boolean);
-      return entries.length ? `[SETUP${LY_DASH}group types${LY_DASH}${entries.join(';')}]` : null;
-    }
     if (item.key !== 'rhyme groups' && item.key !== 'returns') return r.raw;
     const groups = lyParseGroups(item.value)
       .map((g) =>
@@ -3147,6 +3135,7 @@ function lyAssemble({ prefix, blocks, suffix }) {
           return true;
         })
       )
+      .map((g) => (item.key === 'rhyme groups' && links.push(g.length > 1 ? g : null), g))
       .filter((g) => g.length > 1);
     // The row keeps the cut it was numbered under (renumbering lines moves no
     // word place); an unmarked row is left for the migration to read.
@@ -3154,7 +3143,14 @@ function lyAssemble({ prefix, blocks, suffix }) {
       ? `[SETUP${LY_DASH}${item.key}${LY_DASH}${lyGroupsText(groups)}${item.numbering ? `${LY_DASH}numbering ${item.numbering}` : ''}${item.cut ? `${LY_DASH}cut ${item.cut}` : ''}]`
       : null;
   });
-  return { text: rows.filter((r) => r !== null).join('\n'), dropped };
+  return {
+    text: lyCarryGroupTypes(
+      out.map((r) => r.raw).join('\n'),
+      rows.filter((r) => r !== null).join('\n'),
+      links.flatMap((g, j) => (g ? [] : [j]))
+    ),
+    dropped,
+  };
 }
 function lyCarriedDecide(id, keep) {
   const [key, i, gi, mi] = String(id).split('|');
@@ -3178,7 +3174,7 @@ function lyCarriedDecide(id, keep) {
   if (key === 'rhyme groups') {
     const own = lySetupOf(model, key);
     const at = own.slice(0, own.indexOf(d)).reduce((n, r) => n + lyRowGroups(r).length, 0);
-    const gone = groups[Number(gi)] === g ? -1 : at + Number(gi);
+    const gone = groups[Number(gi)] === g ? [] : [at + Number(gi)];
     rows = lyCarryGroupTypes(model.text, rows.join('\n'), gone).split('\n');
   }
   const what = key === 'returns' ? 'declared return' : 'rhyme link';
@@ -7217,7 +7213,7 @@ const LY_ACTIONS = {
       lyCarryGroupTypes(
         base.text,
         lySetSetup('rhyme groups', groups.length ? [lyGroupsText(groups)] : [], base.text),
-        k
+        [k]
       ),
       lyFormMigrated(base.done, 'Link removed. Undo restores it.')
     );
@@ -7438,14 +7434,19 @@ const LY_ACTIONS = {
         : []),
     ];
     const noun = key === 'returns' ? 'declared return' : 'rhyme link';
-    lySetupCommit(
-      key,
-      groups.length ? [lyGroupsText(groups)] : [],
+    const text = lySetSetup(key, groups.length ? [lyGroupsText(groups)] : [], base.text);
+    lyCommit(
+      key === 'returns'
+        ? text
+        : lyCarryGroupTypes(
+            base.text,
+            text,
+            all.flatMap((g, k) => (drop(g, k) ? [k] : []))
+          ),
       lyFormMigrated(
         base.done,
         `Removed ${uiCount(gone.length, noun)} whose word place binds no word: ${why.join('; and ')}. Undo restores ${gone.length === 1 ? 'it' : 'them'}.`
-      ),
-      base.text
+      )
     );
   },
   // The renumbering card is a record for the writer: dismissing it changes
