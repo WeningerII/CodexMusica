@@ -248,10 +248,17 @@ def test_the_doctrine_14_claim_is_GRADED_not_grepped():
     # control: if this is 0 the fixture cannot discriminate and the check
     # below examined nothing (doctrine 48's own failure mode).
     whole = ";".join(f"{e['a']},{e['b']}" for e in r["web"])
-    check("the WHOLE web DOES charge violations — this is the defect, "
-          "measured, and it is the control that makes the next check "
-          "non-vacuous",
-          _violations(whole) > 0, f"{_violations(whole)} SCHEME_VIOLATION")
+    # REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660): ~~the WHOLE
+    # web DOES charge violations~~ — the charge came from its REPEAT edges,
+    # and identical words that satisfy a type (`repetition`) are no longer
+    # charged, so handing the whole web over as groups is no longer the
+    # defect it was. The control now pins that the REPEAT edges are what
+    # changed: graded as plain groups they charge nothing.
+    check("the WHOLE web, REPEAT edges included, charges no violation: "
+          "identical words that satisfy a type are not charged",
+          _violations(whole) == 0
+          and _violations(";".join(f"{e['a']},{e['b']}" for e in reps)) == 0,
+          f"{_violations(whole)} SCHEME_VIOLATION")
     check("and `mandate_spelling['--groups=']` charges NONE, which is the "
           "doctrine-14 sentence made TRUE rather than asserted",
           _violations(ms["--groups="]) == 0,
