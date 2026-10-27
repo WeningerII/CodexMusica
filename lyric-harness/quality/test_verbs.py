@@ -753,9 +753,13 @@ def test_brief_refuses_instead_of_tracebacking():
         refrain_path = fh.name
     try:
         rc3, out3, _ = run("brief", refrain_path, "--groups=3,5")
-        check("--groups= on an IDENTICAL pair charges it a violation -- "
-              "identity is FORBIDDEN under the default REQUIRE_RHYME",
-              rc3 == 0 and "SCHEME_VIOLATION" in out3, out3[:200])
+        # REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660): ~~--groups=
+        # on an IDENTICAL pair charges it a violation~~ — identical words
+        # that satisfy a type (`repetition`) are not charged; a declared
+        # `--returns=` violation still is.
+        check("--groups= on an IDENTICAL pair is not charged: the identical "
+              "words satisfy a type (repetition)",
+              rc3 == 0 and "SCHEME_VIOLATION" not in out3, out3[:200])
         rc4, out4, _ = run("brief", refrain_path, "--returns=3,5")
         result4 = _machine_result(out4)
         check("--returns= on the SAME pair judges the full-line return without inventing a rhyme group",
