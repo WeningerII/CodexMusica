@@ -425,10 +425,16 @@ const SECTIONS = {
     );
     if (check(`${tag} explore: a card names its collection`, !!cid)) {
       await go(page, base, `/collections/${cid}`);
+      // Wait for the rows, the explicit empty state or the load error, not
+      // the header: the collection page paints its header over a skeleton
+      // first, before the head file arrives, and `.lib-coll-list` (and its
+      // rows) only appear in the final paint. Waiting on `.lib-coll-head`
+      // counted the rows of the skeleton paint ("0 rows") whenever the head
+      // fetch was slower than the count.
       const failedC = await settled(
         page,
         'core',
-        '#surface-library .lib-coll-head, #surface-library .lib-coll-list'
+        '#surface-library .lib-coll-list, #surface-library .lw-table tbody tr, #surface-library .cm-empty, #surface-library [role="alert"]:not(:empty)'
       );
       const rows = await page.evaluate(
         () =>
