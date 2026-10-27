@@ -5036,13 +5036,16 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                     schema_satisfied.append({"lines": pr,
                                              "satisfied_by": _sat})
         _kept = []
+        _sat_pairs = {tuple(d["lines"]) for d in schema_satisfied}
         for v in violations:
             pr = (v[0], v[1])
-            if v[3].startswith("REPEAT"):
-                _kept.append(v)
-            elif pr in {tuple(d["lines"]) for d in schema_satisfied} \
-                    and admit_is_default(decl):
+            if pr in _sat_pairs and admit_is_default(decl):
+                # Satisfied by a type — identical words included
+                # (2026-10-27, end-of-day plan, #519 6448819660: identical
+                # words that satisfy a type are not charged as REPEAT).
                 continue
+            elif v[3].startswith("REPEAT"):
+                _kept.append(v)
             elif admit_is_default(decl) and [
                     n for n in _wvp.undecided.get(pr, ())
                     if _REG[n].normative not in ("forbidden", "deprecated")]:

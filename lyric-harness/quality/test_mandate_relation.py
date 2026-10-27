@@ -1427,6 +1427,47 @@ def test_m319_declared_perfect_rhyme_admits_the_promoted_final():
           and gr(rv, "schema:alliteration", pair("sea", "harmony"))
           == gr(rv_off, "schema:alliteration", pair("sea", "harmony")))
 
+def test_eod_assigned_type_and_identical_words():
+    """End-of-day plan (#519 6448819660), grader workstream: a group is held
+    to its assigned type alone, an extra relation neither rescues nor
+    charges it, and identical words that satisfy a type are not charged
+    as REPEAT on the default route."""
+    print("\nEOD. a group is held to its assigned type; identical words that "
+          "satisfy a type are not charged")
+    from quality.revise import Reviser
+    from lyric_harness import check_scheme, Declaration
+    rv = Reviser()
+
+    def g(rel, lines):
+        x = rv.grade(lines, mandate([[1, 2]], n_lines=2,
+                                    **({"default_relation": rel} if rel
+                                       else {})))
+        return [v["why"] for v in x["violations"]], len(x["refusals"])
+
+    def pair(a, b):
+        return [f"we walked down to the {a}", f"and all we found was {b}"]
+
+    check("an assigned type that does not hold FAILS though the pair is a "
+          "basic rhyme: pararhyme on tree~sea (vowels agree, so it is not "
+          "pararhyme) — no basic relation rescues it",
+          len(g("schema:pararhyme", pair("tree", "sea"))[0]) == 1)
+    check("an assigned type that holds PASSES and the extra relations the "
+          "pair also stands in are not charged: assonance on tree~sea",
+          g("schema:assonance", pair("tree", "sea")) == ([], 0))
+    same = pair("sea", "sea")
+    check("identical end words, no assigned type: they satisfy a type "
+          "(repetition), so grade() charges no REPEAT (it did on 3e4d7e3f7)",
+          g(None, same) == ([], 0), g(None, same))
+    check("...the trial grade agrees",
+          rv.grade(same, mandate([[1, 2]], n_lines=2),
+                   _verdicts_only=True)["violations"] == [])
+    check("...and check_scheme agrees",
+          check_scheme(rv.lex, same, "AA", Declaration())["violations"]
+          == [])
+    check("NOT WEAKENED: a pair that stands in no type still fails",
+          len(g(None, pair("sea", "ash"))[0]) == 1)
+
+
 if __name__ == "__main__":
     for fn in (test_vocabulary, test_judge, test_mandate_coordinate,
                test_grade_routing, test_position_is_declared,
@@ -1440,7 +1481,8 @@ if __name__ == "__main__":
                test_every_drawable_schema_answers_its_own_example,
                test_e2_default_grade_reaches_the_registry,
                test_the_edge_label_carries_two_relations_over_one_pair,
-               test_m319_declared_perfect_rhyme_admits_the_promoted_final):
+               test_m319_declared_perfect_rhyme_admits_the_promoted_final,
+               test_eod_assigned_type_and_identical_words):
         fn()
     print("=" * 62)
     if FAILURES:
