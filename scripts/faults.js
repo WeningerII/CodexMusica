@@ -253,14 +253,16 @@ function mkenv(items) {
 // Run a gate; capture combined output + exit code (never throws). 0 = passed
 // (BAD here). A non-zero exit is only a real CATCH if its output also names the
 // planted defect (see record) — a timeout is surfaced separately so a gate that
-// merely hangs can't masquerade as detection.
-function gate(dir, args) {
+// merely hangs can't masquerade as detection. The 300 s cap is per gate; a
+// browser gate whose CLEAN run already takes most of it declares its own
+// (see class 20), rather than every class's cap being raised to fit it.
+function gate(dir, args, { timeout = 300000 } = {}) {
   try {
     const out = execFileSync('node', args, {
       cwd: dir,
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'pipe'],
-      timeout: 300000,
+      timeout,
       maxBuffer: 32 * 1024 * 1024,
     });
     if (VERBOSE) process.stderr.write(out);
@@ -2220,9 +2222,14 @@ if (want('20', 'unfittable-header')) {
   // viewport measurement before it touches the page, precisely so a layout this
   // broken — which also stops Playwright clicking through it — still fails on the
   // measurement rather than on a click timeout. Keep them in step.
+  // 600 s, not the default 300: the gate drives 8 viewports through a real
+  // browser and its CLEAN run measured 2m59s locally (2026-10-27), so on a
+  // loaded CI runner it went over 300 s and reported TIMEOUT on main and on
+  // every PR. The planted defect is caught at 3m18s; the cap only has to let
+  // the gate finish. A gate that genuinely hangs still times out.
   record(
     'unfittable-header -> check_mobile_layout.js',
-    gate(d, ['scripts/check_mobile_layout.js']),
+    gate(d, ['scripts/check_mobile_layout.js'], { timeout: 600000 }),
     /layout viewport blown open|off-screen/i
   );
 }
