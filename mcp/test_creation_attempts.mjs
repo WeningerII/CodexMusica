@@ -23,7 +23,9 @@ const OVERFLOW_HEADLINE =
 function planReceipt(seed = 16) {
   const request = {
     seed,
-    form: 'verse-chorus',
+    // The planner echoes the form it planned: `open` when the request
+    // names none (2026-10-27, D7).
+    form: 'open',
     lines: null,
     relation: '',
     functions: null,
