@@ -89,8 +89,13 @@ test('a verified rewrite retires its old occurrence reading and retains the orig
   // its occurrence reading) and ends on 'keep', which closes on P like 'hope'.
   // superseded: draft fixture.before with fixture.plan.groups/returns, L3
   // asked, answered with fixture.after[2].
+  // 2026-10-27: the case's lines (and this rewrite, under the case's own
+  // mapping) are PHONOLOGICAL TWINS (lyric-harness/quality/fixtures/
+  // phonological_twin.py, seed 20261027): the frozen draft was AI-written and
+  // is deleted (owner-approved). Same syllables, stress and rime per word, so
+  // the rewrite still drops 'our' and still ends on a word closing on P.
   const draft = [fixture.before[3], fixture.before[2]];
-  const rewrite = 'I sowed each seed beside the walls we keep';
+  const rewrite = 'I wowed each feed beside the hauls we jeep';
   const c = await connect();
   const first = verdict(
     await call(c, {

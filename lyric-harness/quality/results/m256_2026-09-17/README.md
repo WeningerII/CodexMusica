@@ -190,3 +190,11 @@ profiler timing fixture expected `wall_deadline` but hit its 50 ms
 tree. No assertion or production behavior was changed. The original failed
 job `105319673586` remains the evidence; that CI attempt is not counted as
 green, and the next published head must pass its own CI before merge.
+
+## 2026-10-27: AI-written lyric text replaced
+
+`round24.json`'s `lines` are now phonological twins of the round's draft
+(`lyric-harness/quality/fixtures/phonological_twin.py`, seed 20261027, `palm`
+kept): the draft was AI-written and the owner approved deleting it. Its
+`archive_sha256` and `transcript_sha256` still name the original external
+artifact. The park counts and every other field are unchanged.

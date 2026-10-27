@@ -6,9 +6,9 @@
 
 WHY THIS EXISTS. Every enforcement layer in this tree checks SOUND — rhyme,
 meter, syllable bands, predictability, density. None asked whether a line has
-a verb in it, so `songs/long_bridge.txt` satisfied every constraint while its
-lines were comma-spliced inventories ("Spark, full height, cinder, ash,
-sleeve") and shipped at exit 0. A blind five-judge panel (2026-08-25, run 1,
+a verb in it, so `songs/long_bridge.txt` (an AI-written bank song, deleted on
+purpose 2026-10-27) satisfied every constraint while its lines were
+comma-spliced noun inventories, and shipped at exit 0. A blind five-judge panel (2026-08-25, run 1,
 `quality/RESULTS_PANEL.md`) rejected it 5/5 — every lens converging on one
 cause: lines without verbs, "no phrase a melody could carry."
 

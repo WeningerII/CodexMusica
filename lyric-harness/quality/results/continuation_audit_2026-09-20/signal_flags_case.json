@@ -316,17 +316,17 @@
     "writer_brief": "Write a song: 12 lines, 3 sections, in this order:\n  [CHORUS \u2014 5 lines \u2014 5 bars of 8/8, one-beat pickup]\n      up to 7 syllables a line after the pickup; the calibrated band asks at least 5\n  [VERSE \u2014 2 lines \u2014 2 bars of 8/8]\n      up to 8 syllables a line after the pickup; the calibrated band asks at least 5\n  [CHORUS \u2014 5 lines \u2014 5 bars of 8/8, one-beat pickup]\n      up to 7 syllables a line after the pickup; the calibrated band asks at least 5\nFeel: 8/8 grouped 3+2+3.\nRhyme plan (line numbers over the whole song):\n  lines 4.T1 & 5.T2 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 2.T3 & 3.T6 & 5.T3 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 1.endword & 2.head & 3.T2 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 1.T4 & 3.T1 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 6.T3 & 7.T4 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 4 & 5 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 6 & 7 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\nStory plan (one job per sung section; each enters from the section before it as stated):\n  CHORUS1 is the fixed claim the song keeps returning to\n  VERSE1 is a compressed verdict on what has happened \u2014 deeper into CHORUS1\n  CHORUS2 is the fixed claim the song keeps returning to \u2014 after VERSE1\nEvery chorus after the first repeats the first chorus word for word, line for line.\nLine 1 is the hook \u2014 make it the line someone leaves humming.\nWhere a binding sits (a bare line number is its end word, read as a rhyme span):\n  T1: the first word, read as a rhyme span \u2014 from its last stressed syllable to its end\n  T2: word 2, read as a rhyme span \u2014 from its last stressed syllable to its end\n  T3: word 3, read as a rhyme span \u2014 from its last stressed syllable to its end\n  T6: word 6, read as a rhyme span \u2014 from its last stressed syllable to its end\n  endword: the end word, read whole, from its first syllable\n  head: the first word, its first syllable \u2014 the head-rhyme / alliteration reading\n  T4: word 4, read as a rhyme span \u2014 from its last stressed syllable to its end"
   },
   "initial": [
-    "We fly this red flag for hope",
-    "Cup the lamp; ships need its light",
-    "Good sleep will come; boots thump",
-    "Boat lights are all the bay keeps",
-    "We let limp hands lift cups",
-    "We count cold plates at first dawn",
-    "My cuffs still held the night's cold rain",
-    "We fly this red flag for hope",
-    "Cup the lamp; ships need its light",
-    "Good sleep will come; boots thump",
-    "Boat lights are all the bay keeps",
-    "We let limp hands lift cups"
+    "We ply this zed tag for nope",
+    "Yup the kamp; phipps keyed its slight",
+    "Good sheep will crumb; roots grump",
+    "Float tights are all the lay sweeps",
+    "We pet shrimp strands gift ups",
+    "We mount told bates at durst yawn",
+    "My huffs chill meld the dwight's told sprain",
+    "We ply this zed tag for nope",
+    "Yup the kamp; phipps keyed its slight",
+    "Good sheep will crumb; roots grump",
+    "Float tights are all the lay sweeps",
+    "We pet shrimp strands gift ups"
   ]
 }

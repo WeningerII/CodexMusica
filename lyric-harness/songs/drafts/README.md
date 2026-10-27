@@ -45,3 +45,6 @@ would make a run that recorded its bytes and a run that did not look identical
 — which is the one distinction this directory is for (doctrine 20).
 
     python3 quality/song_log.py --drafts     # every banked md5 vs the bytes
+
+(CANNOT RUN FROM A CLEAN CHECKOUT: `quality/song_log.py` was deleted on purpose
+2026-10-27 with the song bank, as the note at the top of this file says.)

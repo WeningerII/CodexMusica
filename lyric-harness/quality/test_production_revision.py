@@ -245,8 +245,13 @@ class ProductionRevisionTests(unittest.TestCase):
         self.assertFalse(b.candidates)
         self.assertFalse(b.joint_conflict)  # each place has only one partner
         after = list(lines)
-        after[0] = after[7] = 'The spare key turns locks behind the shop'
-        after[1] = after[8] = 'Come when leaks have taken all your sleep'
+        # The case's lines and these two repairs are PHONOLOGICAL TWINS since
+        # 2026-10-27 (`fixtures/phonological_twin.py`, seed 20261027, one
+        # mapping per case): the frozen draft was AI-written and is deleted
+        # (owner-approved); every content word is a seeded dictionary word
+        # with the original's syllables, stress and rime.
+        after[0] = after[7] = 'The snare wee ferns jocks behind the chop'
+        after[1] = after[8] = 'Crumb when peaks have shaken all your sheep'
         verdict = r.verify(lines, after, m, targeted={1, 2, 8, 9})
         self.assertTrue(verdict['accepted'], verdict['reasons'])
         calls = []
@@ -550,9 +555,15 @@ class ProductionRevisionTests(unittest.TestCase):
         readings = []
         for repair_l7 in (False, True):
             lines = list(original)
+            # round24.json's lines are PHONOLOGICAL TWINS since 2026-10-27
+            # (`fixtures/phonological_twin.py`, seed 20261027, `palm` kept):
+            # the round's draft was AI-written and is deleted (owner-
+            # approved). The L7 repair below is twinned under the same
+            # mapping; the L19 line, recorded in MISSING.md M-256 as written
+            # by hand, is kept as recorded (its authorship is unresolved).
             lines[18] = 'Waters lap the shore in calm'
             if repair_l7:
-                lines[6] = lines[9] = 'I seem to drift on memory'
+                lines[6] = lines[9] = 'I diem to swift on emery'
             grade = self.reviser.grade(lines, m, _only_groups=groups)
             readings.append(grade)
         for key in ('verdicts', 'violations', 'refused_obligations',

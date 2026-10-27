@@ -16,7 +16,8 @@ syllable count, stress pattern and RIME (every phone from the last stressed
 vowel to the end), relaxing to the final syllable's rime, then to the
 stressed vowel, then to the stress pattern alone, only when no stricter twin
 exists. The same word always maps to the same twin, so returns and
-repeated words stay repeated, and two different words never share a twin
+repeated words stay repeated, a twin keeps the original's last two letters
+whenever a candidate does, and two different words never share a twin
 (the mapping is injective within one draft). Function words (`FUNCTION`) are kept, because
 they carry no lyric content and the graders read their share. Case and
 punctuation are kept. Nothing about meaning is kept, and nothing is composed:
@@ -70,6 +71,7 @@ spics chink chinks gook gooks dyke dykes tranny retard retards wank wanker
 tits titty boob boobs butt butts anus anal semen sperm penis vagina clit
 negro negroes jap japs paki pakis coon coons homo homos queer queers
 nazi nazis hitler bastard bastards damn damned hell crap ass asses arse
+slave slaves slavery lynch lynched holocaust genocide suicide
 """.split())
 
 _WORD = re.compile(r"[A-Za-z]+(?:'[A-Za-z]+)*")
@@ -131,8 +133,14 @@ def _load(root=ROOT):
 
 
 class Twin:
-    def __init__(self, seed, root=ROOT):
+    """`keep_end=True` keeps each line's LAST word as it is (a regression
+    whose subject is the end-word layer itself: a same-spelled ending, or the
+    predictability of an end-word rhyme, which the twin's dictionary draws do
+    not reproduce). Every other content word is still twinned."""
+
+    def __init__(self, seed, root=ROOT, keep_end=False):
         self.seed = seed
+        self.keep_end = keep_end
         self.readings, self.pool = _load(root)
         self.mapping = {}
         self.used = set()   # injective: two source words never share a twin
@@ -149,8 +157,13 @@ class Twin:
                 cands = [c for c in self.pool.get(k, ())
                          if c != base and self.readings[c][0] != prons[0]
                          and c not in self.used]
-                if cands:
-                    choice = random.Random(f"{self.seed}:{base}").choice(cands)
+                # Prefer a twin that also keeps the SPELLED ending (the last
+                # two letters), so a same-spelled-ending relation between two
+                # words survives the substitution as their rime does.
+                spelled = [c for c in cands if c[-2:] == base[-2:]]
+                if spelled or cands:
+                    choice = random.Random(f"{self.seed}:{base}").choice(
+                        spelled or cands)
                     break
             if choice is None:
                 # No twin with the same shape: a seeded token the dictionary
@@ -170,7 +183,10 @@ class Twin:
     def line(self, text):
         if text.lstrip().startswith("["):
             return text          # a section header names a part, not a lyric
-        return _WORD.sub(lambda m: self.word(m.group(0)), text)
+        spans = list(_WORD.finditer(text))
+        last = spans[-1].span() if (self.keep_end and spans) else None
+        return _WORD.sub(lambda m: (m.group(0) if m.span() == last
+                                    else self.word(m.group(0))), text)
 
     def lines(self, lines):
         return [self.line(x) for x in lines]

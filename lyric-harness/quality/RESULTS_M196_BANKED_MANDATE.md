@@ -20,6 +20,10 @@ Both runs used the existing instrument, from `lyric-harness`:
 python3 quality/ban_convergence.py --check
 ```
 
+(CANNOT RUN FROM A CLEAN CHECKOUT: `quality/ban_convergence.py` and the song bank it read were
+deleted on purpose 2026-10-27 — the banked songs were AI-written and the owner
+approved their deletion. The record below is historical.)
+
 - **Before:** isolated checkout of main
   `d6f729101777b440041a5d3c0854f2e04f1df204`; complete stdout in
   `quality/results/m196_banked_mandate_2026-09-17/before.txt`; exit **1**.

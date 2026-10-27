@@ -346,8 +346,8 @@
     },
     {
       "path": "connector-native-tail-probe.json",
-      "sha256": "aa2a6092d1693cd73487e627274868b85b46ada0c12e4e3c9b07e51ebea40ee0",
-      "bytes": 40189,
+      "sha256": "3a013667040e542df8883b1472438f17c3acca8ca20ae543f60d0feb6643aae8",
+      "bytes": 40141,
       "original_path": "/workspace/scratch/b0544e4bbdd6/production-fix-results/connector-native-tail-probe.json",
       "classification": "partial_verdict_scope_counterexample_and_repair"
     },
