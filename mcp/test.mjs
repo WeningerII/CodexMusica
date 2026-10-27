@@ -7925,12 +7925,14 @@ try {
       return JSON.parse(res.content[0].text);
     };
     const screened = await callText('lyric_screen', { words: ['hair', 'chair'] });
-    assert.equal(screened.exit_code, 0, 'screen exit 0 — a banned pair is an ANSWER');
+    assert.equal(screened.exit_code, 0, 'screen exit 0 — the pair is an ANSWER');
+    // REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660, D6: no
+    // unsolicited system bans): the screen relays no system ban.
     assert.ok(
-      screened.report.includes('BANNED: HOMEOTELEUTON'),
-      'the control pair is banned through the whole stack'
+      !screened.report.includes('BANNED'),
+      'no system ban is relayed through the whole stack'
     );
-    console.log('  ok  lyric_screen live: hair/chair BANNED: HOMEOTELEUTON, exit 0');
+    console.log('  ok  lyric_screen live: hair/chair answered with no system ban, exit 0');
     passed++;
     // EVERY RELATION THE PAIR STANDS IN, structured (the N-relation model):
     // hair/chair is a perfect rhyme, so it stands in RHYME AND ASSONANCE AND
@@ -7945,7 +7947,7 @@ try {
         hc.schema_relations.every((n) => hc.relations.includes(n)),
       'the relation list carries the registry schemas beside the coarse relations'
     );
-    assert.deepEqual(hc.codes, ['HOMEOTELEUTON'], 'the ban rides beside the relations');
+    assert.deepEqual(hc.codes, [], 'no system ban rides beside the relations');
     assert.ok(!/CLEAN —/.test(screened.report), 'no CLEAN — RHYMES / DOES NOT RHYME verdict');
     console.log('  ok  lyric_screen live: the pair carries every relation it stands in');
     passed++;
@@ -8736,10 +8738,12 @@ try {
       lines: ['we carry the evening to the mass', 'and no one had to tell us about pass'],
       scheme: 'AA',
     });
-    assert.equal(checked.exit_code, 0, 'the banned pair rhymes — no flag stands');
-    assert.equal(checked.banned_pairs, 1, 'exactly one banned pair is surfaced');
-    assert.equal(checked.banned[0].code, 'HOMEOTELEUTON', 'named by the ban tier that caught it');
-    assert.deepEqual(checked.banned[0].lines, [1, 2], 'with the lines to revise');
+    assert.equal(checked.exit_code, 0, 'the pair rhymes — no flag stands');
+    // REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660, D6: no
+    // unsolicited system bans): the harness no longer files HOMEOTELEUTON
+    // or MODAL_RHYME, so a pair that holds surfaces no banned pair.
+    assert.equal(checked.banned_pairs, 0, 'no system ban is surfaced');
+    assert.deepEqual(checked.banned, [], 'and none is named');
     // REPINNED 2026-10-04 (owner's ruling): a banned pair is reported, not
     // standing — ~~`standing` carries it~~, ~~the contract says "unskippable
     // at any exit code"~~.
@@ -8748,7 +8752,7 @@ try {
       /reported as notes/i.test(lyric.find((t) => t.name === 'lyric_check').description),
       'the advertised tool contract says the ban is reported as notes'
     );
-    console.log('  ok  lyric_check live: banned_pairs surfaces the ban at exit 0');
+    console.log('  ok  lyric_check live: no system ban is surfaced at exit 0');
     passed++;
     const survivingBan = await callText('lyric_verify', {
       before: checked.final_draft,

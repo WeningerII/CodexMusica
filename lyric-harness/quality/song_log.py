@@ -213,7 +213,7 @@ def _p_screen(out):
         tail = m.group(3).strip()
         # `a ~ b  SCORE  VERDICT` since the relation-set screen (every
         # relation listed); `a ~ b  LABEL SCORE  VERDICT` before it.
-        scored = re.match(r"(?:\S+\s+)?[\d.]+\s+(.+)$", tail)
+        scored = re.match(r"(?:\S+\s+)?[\d.]+\s{2,}(.+)$", tail)
         if scored:
             verdict = scored.group(1).strip()
         elif tail.startswith("REFUSED"):

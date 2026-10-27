@@ -129,24 +129,17 @@ RHYME_FINDINGS = {"SCHEME_VIOLATION", "CLICHE_PAIR", "PREDICTABLE_RHYME",
 
 
 def held_note_standing(codes):
-    """-> the standing a mandate line prints for a group whose pair HOLDS but
-    carries a pursued NOTE (`Brief.noted_groups`, 2026-10-02).
+    """-> the standing a mandate line prints for a group whose pair HOLDS and
+    carries a NOTE (`Brief.noted_groups`).
 
-    It was printed as "VIOLATED" until 2026-10-02: on read/bed the report
-    said "0 FLAG, 1 NOTE" and the line said "— VIOLATED". The pair holds;
-    what is true is that its rhyme is a predictable one (or another pursued
-    note) and the loop still asks for this word to change (doctrine 9).
-    `Brief.__str__` and the `brief` verb's report print this; the writer
-    prompt (`quality/propose.py`, which imports nothing from here) says the
-    same in its own words.
+    Since 2026-10-27 (the owner's end-of-day plan on #519, D6) a note never
+    asks for a word to change: the pair holds and the word stays. Until then
+    this said the loop "still asks to change" it. `Brief.__str__` and the
+    `brief` verb's report print this; the writer prompt
+    (`quality/propose.py`, which imports nothing from here) says the same in
+    its own words.
     """
-    codes = tuple(codes)
-    named = ", ".join(codes)
-    if {"MODAL_RHYME", "PREDICTABLE_RHYME"} & set(codes):
-        return (f" — HOLDS, but its rhyme is a predictable one (NOTE "
-                f"{named}), which the loop still asks to change")
-    return (f" — HOLDS, but carries NOTE {named}, which the loop still "
-            f"asks to change")
+    return f" — HOLDS as written (NOTE {', '.join(tuple(codes))})"
 
 #: Findings whose PRESENCE records that a requirement or a licence HOLDS.
 #: Everything else in the finding set names something WRONG, so its
@@ -546,16 +539,12 @@ class Brief:
     #: empty when neither names a group (e.g. only PREDICTABLE_RHYME),
     #: in which case `slot` is the first group's.
     violated_groups: tuple = ()
-    #: THE GROUPS IN `violated_groups` WHOSE PAIR HOLDS (2026-10-02):
-    #: `{label: (note codes)}` for a group attributed only by NOTE findings
-    #: (MODAL_RHYME, PREDICTABLE_RHYME, HOMEOTELEUTON, SHARED_SUFFIX — the
-    #: pursued notes in `RHYME_FINDINGS`) and by no flag and no incident
-    #: graded violation. `violated_groups` still carries them, because the
-    #: loop still asks for that word to change (doctrine 9) and the place,
-    #: the field and `verify()` are unchanged; this is what lets a renderer
-    #: say the pair HOLDS instead of calling it VIOLATED. Measured on
-    #: read/bed under `--groups=1,2;3,4`: "0 FLAG, 1 NOTE", and the brief
-    #: said "group A [1, 2]: L1 ('read') — VIOLATED".
+    #: THE GROUPS WHOSE PAIR HOLDS AND CARRIES A NOTE: `{label: (note
+    #: codes)}` for a group attributed only by NOTE findings and by no flag
+    #: and no incident graded violation. Since 2026-10-27 (D6 on #519) such
+    #: a group is NOT in `violated_groups`: a note never asks for a word to
+    #: change. This is what lets a renderer report the note beside a pair
+    #: that HOLDS.
     noted_groups: dict = field(default_factory=dict)
     #: The labels of the groups that bind at `slot` — the groups a tier-2
     #: backtrack may rewrite for this pivot. Tier 2 used to walk EVERY group
@@ -818,58 +807,10 @@ class Brief:
                 out.append(f"    L{self.line_no} is a PIVOT — it is in "
                            f"{len(self.must_answer)} groups and must answer "
                            f"every one of them (conjunctive; doctrine 2)")
-        if self.joint_conflict:
-            out.append(f"    NO JOINT CANDIDATE at {self.field_declaration}: "
-                       f"this bounded search found no word that answers all of those groups "
-                       f"at once; no impossibility is proved. ~~The mandate, not the line, is what needs "
-                       f"revising.~~ STRUCK 2026-09-03 (M-202) — see below: "
-                       f"the grader flags PAIRS, so a word answering the "
-                       f"VIOLATED one is accepted.")
-            for _c1, _ws in (self.partial_by_call or ()):
-                out.append(f"      answers {_c1!r} ALONE ({len(_ws)}): "
-                           f"{', '.join(_ws[:12])}"
-                           + (" ..." if len(_ws) > 12 else ""))
-            if not self.partial_by_call:
-                out.append("      Separate searches also returned empty pools; "
-                           "unsearched words and whole-line rewrites remain possible.")
         if self.must_rhyme_with and not self.must_answer:
             n, w = self.must_rhyme_with
             out.append(f"    must stand in at least one relation with "
                        f"L{n} ({w!r})")
-        # TWO LINES, TWO RULES. Printing one list under one sentence is what
-        # made this renderer state doctrine 9 about a word that was only ever
-        # the incumbent. Each line now names the rule it is stating, and the
-        # consequences differ: landing on a modal word is a RULE 3 rejection
-        # on its own, while keeping the incumbent is not rejected here at all
-        # (`verify()` RULE 3 asks whether a word was TAKEN) and is caught, if
-        # at all, by RULE 4's "nothing was fixed".
-        if self.forbidden_modal:
-            out.append(f"    FORBIDDEN (modal — passing the band by taking "
-                       f"these is the slop direction): "
-                       f"{', '.join(self.forbidden_modal)}")
-        if self.screened_out:
-            out.append(f"    NOT OFFERED ({len(self.screened_out)} rhyme(s) "
-                       f"the ban refuses from the OTHER side — the call "
-                       f"word sits in their own modal head, so taking one "
-                       f"re-opens the line as MODAL_RHYME): "
-                       f"{', '.join(self.screened_out[:8])}"
-                       + (" …" if len(self.screened_out) > 8 else ""))
-        if self.forbidden_incumbent:
-            # THE SECOND RENDERER OF THE SAME SENTENCE (`MISSING.md` M-91).
-            # It said "end word" whatever `self.slot` bound; `slots
-            # .word_phrase` is the one definition and answers "end word" for
-            # every default member, so this line is byte-identical on every
-            # mandate written before placement existed.
-            out.append(f"    ALREADY THERE (not a modal word — re-proposing "
-                       f"the {_SL.word_phrase(self.slot)} that is already on "
-                       f"this line is not a revision): "
-                       f"{self.forbidden_incumbent}")
-        if self.offer_emptied_by_ban:
-            out.extend("    " + ln for ln in
-                       self.offer_emptied_by_ban.split("\n"))
-        if self.candidates:
-            out.append(f"    offered: {', '.join(self.candidates[:12])}"
-                       + (" ..." if len(self.candidates) > 12 else ""))
         # `keep` is the lines the grader found NOTHING on, which is not the
         # set a question protects (every line outside it; `propose.py`
         # derives that). Labelled for what it holds (2026-10-18).
@@ -904,38 +845,6 @@ class Brief:
 #:                     2026-09-25).
 EMPTY_HEAD_CAUSES = ("DECLARED_RELATION", "NO_ANSWER", "DECLARED_ZERO",
                      "UNEVIDENCED")
-
-
-def ban_emptied_note(calls, labels, forbidden, width=76):
-    """-> the sentence an offer emptied by the two-tier ban owes, wrapped
-    at `width` and newline-joined (`MISSING.md` M-246). THE ONE DEFINITION:
-    `Brief.offer_emptied_by_ban` carries it, and every renderer prints it.
-
-    What it has to say, in order: that the offer is empty for a REASON
-    that is not the lexicon; that a swap on this line cannot clear it
-    while the partners stand; that the move is the GROUP's — the loop's
-    tier 2, the joint backtrack (M-105), which `revise`/`finish` escalate
-    to after tier 1 fails (M-205) — at which width on each path (the
-    CLI's 5, the connector's 1 since M-247; 0 shuts it); and the two
-    other doors (a narrower mandate; a family certified deeper, which
-    `capacity WORD` prints together with the words the ban admits).
-    """
-    import textwrap
-    partners = ", ".join(repr(c) for c in calls)
-    labs = ", ".join(str(x) for x in labels) or "?"
-    text = (
-        f"NOTHING OFFERED: the searched answers to {partners} were removed "
-        f"by the two-tier ban (HOMEOTELEUTON / MODAL_RHYME; "
-        f"{len(forbidden)} under FORBIDDEN). This bounded field does not "
-        f"prove that no one-line repair exists. The GROUP ({labs}) can move "
-        f"together through tier 2, the joint backtrack (M-105): "
-        f"`revise`/`finish` escalate there after tier 1 fails (M-205). "
-        f"The CLI uses `--backtrack=5`; connector `lyric_revise` uses "
-        f"`backtrack=1` by default (0 disables group search). "
-        f"Preserve every declared relation and return while rewriting. "
-        f"`capacity WORD` can also show a certified chain and the words "
-        f"the ban admits against WORD; that evidence has its own declared scope.")
-    return "\n".join(textwrap.wrap(text, width))
 
 
 def _relation_phonology():
@@ -4012,26 +3921,14 @@ class Reviser:
                 f"{v['endwords'][0]!r} ~ {v['endwords'][1]!r})"
                 f"{v.get('attribution', '')}", [i, j],
                 groups=(v["label"],)))
-        # DOCTRINE 9, ASKED OF A PAIR THAT ALREADY PASSES, NOT ONLY ONE THAT
-        # FAILED. `modal_field` has existed since the candidate field was
-        # built, and every caller of it -- `joint_field`'s own candidate
-        # offer, `verify()`'s `modal_taken` rejection -- only ever consults
-        # it once a pair has ALREADY been flagged and a replacement is being
-        # searched for. A pair that rhymes cleanly on the FIRST draft is
-        # never asked whether the word it landed on was the single most
-        # predictable answer to its partner, because nothing routes a
-        # passing pair through this method at all. FOUND BY MEASURING, NOT
-        # ARGUING: two real songs' worth of pairs that all passed `grade()`
-        # cleanly, checked against `modal_field` after the fact, turned out
-        # to BE the #1 or #2 ranked candidate for half of them -- claim/name,
-        # word/heard, stopped/dropped, night/right were all the single most
-        # frequent realised partner for their call word; trial/denial was
-        # second. Nothing before this line had ever asked the question of a
-        # pair that was never broken.
-        for v in rep["verdicts"]:
-            finding = self.earned_pair_ban(v, profile=profile)
-            if finding is not None:
-                add(v["lines"][1], finding)
+        # NO PREDICTABILITY BAN ON A PAIR THAT PASSES (2026-10-27, the owner's
+        # end-of-day plan on #519, D6). This used to route every passing
+        # verdict through `earned_pair_ban`, filing MODAL_RHYME and
+        # HOMEOTELEUTON notes that told the writer to change a word its group
+        # had already satisfied, and the pre-writing screen banned pairs on
+        # those two codes. A group passes when its assigned relation holds;
+        # nothing is charged for which word met it. `earned_pair_ban` stays
+        # as a method because `quality/capacity.py` measures with it.
         default_licensed = self.rdecl.repeat_licence == "refrain"
         for v in rep["repeats"]:
             i, j = v["lines"]
@@ -6537,7 +6434,13 @@ class Reviser:
             _skey = {k: (None if _SL.is_default(sl) else str(sl))
                      for k, sl in _slot_of.items()}
             b.group_slots = {m.labels[k]: _skey[k] for k, _ in groups}
-            _violated = self._violated_groups(m, ln, groups, fs)
+            # A NOTE NEVER ASKS FOR A WORD TO CHANGE (2026-10-27, D6 on
+            # #519): only flagged findings and the grade's own incident
+            # verdicts make a group violated. A group with notes alone holds
+            # and is recorded in `noted_groups` below for the report.
+            _violated = self._violated_groups(
+                m, ln, groups, [f for f in fs
+                                 if getattr(f, "severity", "flag") != "note"])
             # Pair findings are assigned once, to the later endpoint. That
             # reporting ownership cannot establish that an earlier endpoint
             # holds. Read the authoritative incident verdicts as well, before
@@ -6547,11 +6450,10 @@ class Reviser:
             _violated.update(k for k, _ in groups if m.labels[k] in _incident)
             b.violated_groups = tuple(m.labels[k] for k, _ in groups
                                       if k in _violated)
-            # A GROUP ATTRIBUTED ONLY BY NOTES STILL HOLDS. It stays in
-            # `violated_groups` above — the loop still asks for that word
-            # to change — and is recorded here with its note codes so the
-            # renderers can say so (flags and notes kept apart, never
-            # summed: doctrine 79).
+            # A GROUP ATTRIBUTED ONLY BY NOTES HOLDS. It is not in
+            # `violated_groups` above; it is recorded here with its note
+            # codes so the renderers can report them (flags and notes kept
+            # apart, never summed: doctrine 79).
             _flagged = self._violated_groups(
                 m, ln, groups, [f for f in fs
                                  if getattr(f, "severity", "flag") != "note"])
@@ -6607,97 +6509,14 @@ class Reviser:
                     _first[0],
                     self._slot_word(lines, m, groups[0][0], _first[0],
                                     endwords))
-            # ANY rhyme-implicating finding earns a candidate field, not just
-            # a broken scheme. The cliche and predictable-rhyme cases are
-            # precisely where a writer reaches for the obvious replacement, so
-            # they are precisely where the modal exclusion has to be applied.
-            wants = bool(_violated) or any(f.code in RHYME_FINDINGS for f in fs)
-            if include_offers and wants and groups:
-                # ONE `joint_field` PER PLACE. On an ordinary end-rhyme
-                # mandate there is one place, so this is the one call it
-                # always was, over the same calls in the same order —
-                # byte-identical (test_revise.py pins the field).
-                for sk, ks in _by_slot.items():
-                    def _build(sk=sk, ks=ks):
-                        return self._place_field(
-                            lines, m, ln, sk, ks, groups, endwords,
-                            _viol_slots, _slot_of[ks[0]], profile=profile,
-                            blueprint=blueprint,
-                            _verify_fields_only=_verify_fields_only)
-                    # ONE PLACE AT A TIME, WHEN A CALLER IS SAVING THEM
-                    # (LOOP_REDESIGN.md §2.3b; owner ruling 2026-10-03,
-                    # option B). `place_hook` is set only by the deferred
-                    # loop's reviser proxy, which saves each place's field
-                    # by draft, line and place and may stop the call between
-                    # two places. What the hook returns is this same field.
-                    _hook = (None if _verify_fields_only
-                             else getattr(self, "place_hook", None))
-                    b.fields_by_slot[sk] = (_build() if _hook is None
-                                            else _hook(lines, ln, sk, _build))
-                _pf = b.fields_by_slot.get(_primary)
-                calls = list(_pf.calls) if _pf else []
-                # THE INCUMBENT AT THIS LINE'S OWN BINDING SITE — the
-                # PRIMARY place. For a default slot this is `qf._endword`
-                # exactly as before — which `verify()`'s RULE 3 compares
-                # against, so the two must stay the same function or the
-                # corollary that makes "took the modal candidate" true of
-                # every entry stops holding.
-                cur = self._incumbent(lines, ln, b.slot)
-                if calls:
-                    b.candidates, b.forbidden_modal = (list(_pf.offered),
-                                                       list(_pf.forbidden))
-                    b.screened_out = tuple(_pf.dropped)
-                    # SET HERE AND NOWHERE ELSE — this is the one statement
-                    # that `joint_field` ran, so an EMPTY head can be told
-                    # apart from a head nobody asked for. See the field.
-                    b.field_computed = True
-                    # WHICH CAUSE, when the head is empty (doctrine 28):
-                    # read off the same memoised ranking, never guessed.
-                    if not _pf.forbidden and not _verify_fields_only:
-                        b.empty_head_cause = self.empty_head_cause(
-                            list(_pf.calls), _pf.offered, profile=profile)
-                    # A CONJUNCTION IS EMPTY AT ONE PLACE, never across
-                    # places (M-184): two families at two places are two
-                    # questions, and neither is unsatisfiable for the
-                    # other's sake.
-                    b.joint_conflict = _pf.joint_conflict
-                    # M-202 — carried out of the SlotField beside the flag
-                    # it is conditional on, so no reader can have one
-                    # without the other.
-                    b.partial_by_call = _pf.by_call
-                    # M-204 — carried beside the field it narrowed.
-                    b.schema_refused = _pf.schema_refused
-                    # M-315 — the same, for the judge that could not compare.
-                    b.grader_refused = _pf.grader_refused
-                    # Expanded-search count, carried with its offer. Both
-                    # exact-vowel and broader declared-offer routes use it.
-                    b.field_widened = _pf.widened
-                    # M-246 — the pointer an EMPTY offer owes, set beside
-                    # the offer it explains and nowhere else: empty offer,
-                    # non-empty ban, so the field was asked and the ban is
-                    # what emptied it. `joint_conflict` is the OTHER empty
-                    # (nothing answers, ban or none) and keeps its own
-                    # sentence (M-202).
-                    if not _pf.offered and _pf.forbidden:
-                        b.offer_emptied_by_ban = ban_emptied_note(
-                            calls, _pf.labels, _pf.forbidden)
-                # THE WORD CURRENTLY THERE, ON ITS OWN FIELD SINCE
-                # 2026-08-16. It used to be APPENDED to `forbidden_modal`,
-                # which put two rules in one list under doctrine 9's name —
-                # see the two fields' own comments. `joint_field` above has
-                # already dropped it from the OFFER via `exclude=(cur,)`;
-                # this records it so a renderer can state the second rule
-                # instead of mislabelling it as the first.
-                #
-                # NOT SUBTRACTED FROM THE HEAD, deliberately. A word can be
-                # the incumbent AND genuinely modal — measured on this repo's
-                # own `MODAL_DRAFT`, where BOTH briefed lines sit on a word
-                # that is already inside their own head — and removing it
-                # from `forbidden_modal` would make `verify()` stop rejecting
-                # a revision that MOVES a different line onto it. The two
-                # fields overlap on purpose; what they no longer do is answer
-                # for each other.
-                b.forbidden_incumbent = cur or ""
+            # NO SYSTEM WORD LIST REACHES THE WRITER (2026-10-27, D6 on #519).
+            # The candidate field (`joint_field` and its ranking, partition,
+            # pool order and modal ban) was computed here and handed to the
+            # writer as OFFERED and FORBIDDEN lists, and `verify()` rejected a
+            # revision that moved onto a FORBIDDEN word. Both are gone: a
+            # brief states the rule and the findings, never which words to
+            # use or avoid. A user's own word requests and bans are part of
+            # the declaration and are graded there, not here.
             briefs.append(b)
         return briefs
 
@@ -6755,17 +6574,6 @@ class Reviser:
                     f"lines {sorted(stray)} were changed but not targeted; "
                     f"revise flagged lines only")
                 return out
-        # RULE 3 READS `slot`, `forbidden_incumbent` AND `forbidden_modal`
-        # OFF THIS BRIEF, AND NOTHING ELSE. `_verify_fields_only` computes
-        # those three by the full brief's own code and skips the offer
-        # (LOOP_REDESIGN.md §2.6; pinned equal by quality/test_loop_redesign.py).
-        b_before = {b.line_no: b for b in self.brief(before, m,
-                                                    profile=profile,
-                                                    blueprint=blueprint,
-                                                    subdivision=subdivision,
-                                                    assume=assume,
-                                                    target_lines=changed,
-                                                    _verify_fields_only=True)}
         f_before = self.inspect(before, m, profile=profile,
                                 blueprint=blueprint, subdivision=subdivision,
                                 assume=assume)
@@ -6868,114 +6676,11 @@ class Reviser:
         out["mandate"] = m
         out["independent"] = m.independent()
 
-        # RULE 3 — the modal exclusion, enforced rather than merely suggested
-        # ===============================================================
-        # TAKING REQUIRES A CHANGE — FIXED 2026-08-16, FOUND BY RUNNING
-        # `verify` ON A DRAFT `revise` HAD JUST CONVERGED ON.
-        # ===============================================================
-        # `revise` returned SUCCESS and this method, handed the SAME
-        # before/after pair with the same mandate, blueprint and
-        # subdivision, returned `REJECTED — L2 took the modal candidate
-        # 'stairs'`. One question, two answers, from two surfaces of one
-        # module (doctrine 1), and the rejection's own sentence is FALSE:
-        # L2 did not TAKE 'stairs', L2 already ended on 'stairs' and was
-        # revised somewhere else in the line.
-        #
-        # `forbidden_modal` CARRIED TWO RULES AT ONCE — the modal region
-        # (doctrine 9, do not pass the band by reaching for the most
-        # predictable word) and `brief()`'s incumbent clause, *"the word
-        # currently there is itself excluded"*. MEASURED on the pair that
-        # exposed this: `modal_field('four')` is `['door','more','before',
-        # 'shore','sore','or']` with and without the exclusion, so
-        # **`stairs` is not a modal candidate for `four` under any
-        # spelling** — it was on the list only as the incumbent.
-        #
-        # ~~The LAST entry is `brief()`'s incumbent clause~~ — STRUCK
-        # 2026-08-16, THE SAME DAY IT WAS WRITTEN, and it was this comment's
-        # own sentence. There is no positional convention: the incumbent was
-        # appended only `if cur not in b.forbidden_modal`, so whenever the
-        # word already there is ALSO genuinely modal it was never appended
-        # at all and no entry was "last". That is not a corner case —
-        # measured on this repo's `MODAL_DRAFT`, BOTH briefed lines are in
-        # it, which is exactly why `quality/test_verbs.py` §22's equality
-        # passed. Nothing indexed `[-1]`, so the code was never wrong; the
-        # prose was, and a future reader could have implemented against it.
-        #
-        # THE RULES ARE TWO FIELDS NOW (`forbidden_modal` /
-        # `forbidden_incumbent`) and this block reads each from its own,
-        # so neither branch can answer for the other.
-        #
-        # THE END-WORD TEST IS THE WHOLE FIX, and it is a statement about
-        # what this rule ASKS. Doctrine 9 is about REACHING for the
-        # obvious answer; a line whose end word is byte-identical before
-        # and after reached for nothing. So a revision that leaves the end
-        # word alone and repairs the line elsewhere — the meter, the
-        # phrasing — is outside this rule entirely, and charging it here
-        # states a taking that did not happen.
-        #
-        # IT DOES NOT WEAKEN THE RULE, because the incumbent clause's real
-        # work is done by RULE 4 one block below: a line that keeps its
-        # end word keeps its rhyme finding, so "nothing was fixed" refuses
-        # it unless the revision repaired something ELSE — which is
-        # precisely the case this guard exists to let through. And
-        # doctrine 7 is the reason it must be let through: a line already
-        # sitting on a conventional word may still have its METER fixed,
-        # and blocking that would be the floor ordering the region it
-        # already passed (`MODAL_RHYME` is a NOTE for the same reason).
-        #
-        # THE FIELD IS STILL READ OFF `before` AND THAT IS DELIBERATE.
-        # Recomputing it against `after` was the other candidate fix and
-        # it is doctrine 48: a revision that repairs the rhyme clears the
-        # finding, so `brief(after)` offers no field, so the rule could
-        # never fire on any accepted revision. The field belongs to the
-        # state in which the line was flagged and a replacement was being
-        # searched for — which is also the field the WRITER was shown, so
-        # the offer and the enforcement stay the same object.
-        #
-        # THE SKIP IS DISCLOSED, NOT SWALLOWED (doctrine 20): a line that
-        # kept a forbidden end word is a different outcome from a line
-        # that was never on the list, and `modal_endword_unchanged` keeps
-        # the two apart in the returned dict.
-        modal_hits = []
-        modal_kept = []
-        for ln in changed:
-            b = b_before.get(ln)
-            # BOTH FIELDS, OR THE DISCLOSURE IS DELETED BY THE SPLIT. Gating
-            # on `forbidden_modal` alone would `continue` past every line
-            # whose only exclusion is its incumbent — which is the exact
-            # shape of the pair defect C was found on — and
-            # `modal_endword_unchanged` would silently go empty.
-            if not b or not (b.forbidden_modal or b.forbidden_incumbent):
-                continue
-            # AT THE BRIEF'S OWN PLACE (M-184): `_endword` at the default
-            # slot, exactly as before, and the bound span otherwise.
-            got = self._incumbent(after, ln, b.slot)
-            was = self._incumbent(before, ln, b.slot)
-            if got == was:
-                # KEPT, not taken. `was` IS `b.forbidden_incumbent` here —
-                # both are `_endword` of the same `before` line — so the
-                # equality is an INVARIANT and testing it at run time would
-                # be a check that cannot fail (doctrine 48, and the audit
-                # caught this branch's first draft doing exactly that). The
-                # invariant is asserted where it belongs, in
-                # `quality/test_revise.py` §42's precision check, which is
-                # what would go red if the field were ever populated from
-                # anything but `_endword`. Only `got`'s truthiness is a real
-                # condition: an unreadable end word is empty on both sides.
-                if got:
-                    modal_kept.append((ln, got))
-                continue
-            if got in b.forbidden_modal:
-                modal_hits.append((ln, got))
-        out["modal_endword_unchanged"] = modal_kept
-        if modal_hits:
-            out["reasons"].append(
-                "; ".join(f"L{ln} took the modal candidate {w!r}"
-                          for ln, w in modal_hits)
-                + " — it passes the band and it is the most predictable word "
-                  "in the field, which is the slop direction (doctrine 9)")
-            out["modal_violations"] = modal_hits
-            return out
+        # NO WORD IS REJECTED FOR BEING PREDICTABLE (2026-10-27, D6 on #519).
+        # RULE 3 rejected a revision that moved its bound word onto the
+        # brief's FORBIDDEN list, the modal head of a ranked candidate field.
+        # Briefs carry no word lists now, so there is nothing to enforce: a
+        # revision is judged on what it fixed and what it broke.
 
         if not fixed:
             out["reasons"].append(
@@ -7003,22 +6708,6 @@ class Reviser:
         out["reasons"].append(
             f"fixed {len(fixed)}, introduced {len(new_flags)}{note_disclosure}, "
             f"changed only {sorted(changed)}")
-        # RULE 3's SKIP, SAID OUT LOUD. Appended rather than folded into the
-        # line above so the existing sentence is byte-identical wherever this
-        # is empty, which is every revision that moved its end word.
-        if modal_kept:
-            out["reasons"].append(
-                "; ".join(f"L{ln} KEPT its {_SL.word_phrase(b_before[ln].slot)} "
-                          f"{w!r} — the INCUMBENT, "
-                          f"not a modal candidate"
-                          + ("; it is also in this line's modal head"
-                             if w in (b_before[ln].forbidden_modal
-                                      if ln in b_before else ()) else "")
-                          for ln, w in modal_kept)
-                + " — RULE 3 asks whether a modal candidate was TAKEN, and a "
-                  "byte-identical bound word took nothing. Disclosed because "
-                  "'kept the word already there' and 'was never excluded at "
-                  "all' are different outcomes (doctrine 20)")
         if not m.independent():
             out["reasons"].append(
                 "the mandate was DERIVED from the rhyme graph, so this "

@@ -80,7 +80,7 @@ sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
 from quality.loop import (AnchorSlot, GroupBrief,  # noqa: E402
-                          default_propose, default_propose_group,
+                          default_propose_group,
                           revise_loop, swap_end_word, swap_at_slot)
 from quality.revise import ReviseDeclaration, Reviser  # noqa: E402
 from quality.schemes import NoMandate  # noqa: E402
@@ -89,6 +89,128 @@ from quality import floor as FL  # noqa: E402  (§13's narrowing mutation)
 from lyric_harness import (line_tokens, raw_final_token,  # noqa: E402
                            Lexicon, RHYME_RELATIONS)
 import dataclasses as _dc  # noqa: E402
+import functools as _ft  # noqa: E402
+from quality import loop as _LP  # noqa: E402
+from quality import slots as _SL  # noqa: E402
+
+
+# THE TEST'S OWN WORD ORACLE (2026-10-27, D6 on #519). A brief carries no
+# candidate field now, so the stock stub (which walked `brief.candidates`)
+# has nothing to splice and declines. These sections test the LOOP's control
+# flow, not a writer, so the test supplies the words: it recomputes the
+# field `brief()` used to carry, through the reviser's own retained
+# `_place_field`, and splices one per attempt exactly as the stub did. The
+# system under test never hands a writer these words; only this file does.
+_ORACLE_CTX = []
+_ORACLE_MEMO = {}
+
+
+def _oracle_field(R, mandate, lines, ln):
+    m = R.mandate(lines, mandate)
+    groups = m.partners(ln)
+    if not groups:
+        return []
+    _, endwords, _, _ = R._matrix(lines)
+    found = R.inspect(lines, m)
+    fs = [f for f in found["per_line"].get(ln, ())
+          if getattr(f, "severity", "flag") != "note"]
+    slotted = m.slots_declared()
+    slot_of = {k: (m.slot_of(k, ln) if slotted else None) for k, _ in groups}
+    skey = {k: (None if _SL.is_default(sl) else str(sl))
+            for k, sl in slot_of.items()}
+    violated = R._violated_groups(m, ln, groups, fs)
+    violated.update(k for k, _ in groups if m.labels[k] in
+                    {v["label"] for v in found["grade"]["violations"]
+                     if ln in v["lines"]})
+    # The old brief's own gate: a field only for a line with a violated group
+    # or a rhyme finding (a return or meter flag earns none).
+    from quality.revise import RHYME_FINDINGS
+    if not violated and not any(f.code in RHYME_FINDINGS
+                                for f in found["per_line"].get(ln, ())):
+        return []
+    by_slot = {}
+    for k, _ in groups:
+        by_slot.setdefault(skey[k], []).append(k)
+    viol = [sk for sk in by_slot if any(k in violated for k in by_slot[sk])]
+    primary = viol[0] if viol else skey[groups[0][0]]
+    ks = by_slot[primary]
+    pf = R._place_field(lines, m, ln, primary, ks, groups, endwords, viol,
+                        slot_of[ks[0]])
+    return list(pf.offered) if pf.calls else []
+
+
+def _oracle_conflict(R, mandate, lines, ln):
+    """-> whether the field the brief used to carry is a joint conflict at
+    L`ln`: the conjunction of its calls is empty in the searched field."""
+    m = R.mandate(lines, mandate)
+    groups = m.partners(ln)
+    _, endwords, _, _ = R._matrix(lines)
+    ks = [k for k, _ in groups]
+    pf = R._place_field(lines, m, ln, None, ks, groups, endwords, [None],
+                        None)
+    return bool(pf.joint_conflict) and not pf.offered
+
+
+def _group_stub(R):
+    """The stock group stub, DECLARED: a pivot reaches tier 2 by the loop's
+    escalation after tier 1 finds no line (M-205), and that path runs only
+    for a declared group proposer. `brief()` no longer predicts the conflict
+    (`joint_conflict` was set from the candidate field it no longer
+    computes), so the escalation is the door."""
+    sp, sch = _LP._lex_cut(R)
+    return _ft.partial(default_propose_group, scheme=sch, strip_parens=sp,
+                       lex=getattr(R, "lex", None))
+
+
+def _oracle_propose(brief, lines, attempt, reasons=None, whole=(), *,
+                    scheme=None, strip_parens=True, lex=None):
+    if not _ORACLE_CTX:
+        return None
+    R, mandate = _ORACLE_CTX[-1]
+    key = (id(R), tuple(lines), brief.line_no)
+    if key not in _ORACLE_MEMO:
+        _ORACLE_MEMO[key] = _oracle_field(R, mandate, list(lines),
+                                          brief.line_no)
+    words = _ORACLE_MEMO[key]
+    if attempt >= len(words):
+        return None
+    return swap_at_slot(brief.text, brief.slot or brief.line_no,
+                        words[attempt], scheme=scheme,
+                        strip_parens=strip_parens, lex=lex)
+
+
+_LP.default_propose = _oracle_propose
+
+# THE FIXTURES' CLICHE LIST, DECLARED AS A USER WOULD (2026-10-27, D6 on
+# #519). The shipped `CLICHE_PAIRS` list is no longer enforced on its own;
+# a list the user declares still is. These fixtures were written to carry
+# CLICHE_PAIR flags (that is how they give the loop a solvable line), so
+# every reviser here declares the shipped pairs less one no fixture uses:
+# a user's list, with the membership the fixtures were measured against.
+from quality.floor import FloorDeclaration as _FD, SlopFloor as _SF  # noqa: E402
+from lyric_harness import CLICHE_PAIRS as _CP  # noqa: E402
+USER_CLICHES = frozenset(_CP) - {frozenset(("girl", "world"))}
+_Reviser = Reviser
+
+
+def Reviser(lex=None, decl=None, rdecl=None, floor=None):
+    return _Reviser(lex=lex, decl=decl, rdecl=rdecl,
+                    floor=floor or _SF(_FD(cliche_pairs=USER_CLICHES)))
+_loop_revise = revise_loop
+
+
+@_ft.wraps(_loop_revise)
+def revise_loop(reviser, lines, mandate=None, *a, **kw):
+    _ORACLE_CTX.append((reviser, mandate))
+    try:
+        return _loop_revise(reviser, lines, mandate, *a, **kw)
+    finally:
+        _ORACLE_CTX.pop()
+
+
+def default_propose(brief, lines, attempt, reasons=None, whole=()):
+    """The oracle, as the sections that wrap the stub call it."""
+    return _oracle_propose(brief, lines, attempt, reasons, whole)
 
 
 def perfect_rhyme_reviser(coda_empty_evidence=None, nucleus_agreement=None):
@@ -443,13 +565,11 @@ def test_tier2_backtrack_resolves_a_joint_conflict():
          "joint_conflict")
     R = perfect_rhyme_reviser()
     mandate = SC.mandate([[1, 3], [2, 3]], n_lines=3, default_relation="RHYME")
-    before = R.brief(SILVER_MIND, mandate)
-    pivot_before = [b for b in before if b.line_no == 3][0]
     check("the fixture is a REAL joint_conflict before the loop runs",
-          pivot_before.joint_conflict and not pivot_before.candidates,
+          _oracle_conflict(R, mandate, SILVER_MIND, 3),
           "L3 answers two groups whose call words share no rhyme")
 
-    res = revise_loop(R, SILVER_MIND, mandate)
+    res = revise_loop(R, SILVER_MIND, mandate, propose_group=_group_stub(R))
     # RESTATED 2026-08-17: the tier-2 fix lands ('mankind' for the pivot) and
     # its accepted word is directionally modal against L2's 'mind', so
     # mandatory pursuit holds L3 open and the stop is a LOUD no_progress with
@@ -541,7 +661,8 @@ def test_tier2_tries_and_correctly_rejects():
     # reaches SUCCESS, because the conjunction its premise calls empty is
     # answerable once the field asks the grader's own door.
     R = perfect_rhyme_reviser()
-    res = revise_loop(R, SILVER_NIGHT_LOCKED, SILVER_NIGHT_LOCKED_MANDATE)
+    res = revise_loop(R, SILVER_NIGHT_LOCKED, SILVER_NIGHT_LOCKED_MANDATE,
+                      propose_group=_group_stub(R))
     check("cannot reach SUCCESS -- L1 and L2 are each locked to their own "
           "mandated rhyme family (L4, L5), so backtracking either one to "
           "answer the pivot breaks a real mandated pair",
@@ -634,7 +755,7 @@ def test_tier2_rewrites_a_group_of_three_or_more():
           and bool(R.grade(TOO_LARGE, mandate)["violations"]),
           [(lab, mem) for lab, mem, _ in pivot.must_answer])
 
-    res = revise_loop(R, TOO_LARGE, mandate)
+    res = revise_loop(R, TOO_LARGE, mandate, propose_group=_group_stub(R))
     tier2 = [a for r in res.rounds for a in r.attempts if a.tier == 2]
     won = [a for a in tier2 if a.accepted]
     check("tier 2 ran AND tried something — the count that was pinned at 0",
@@ -902,13 +1023,15 @@ def test_declared_returns_are_asked_and_have_no_move():
     # gains the discrimination it never had: it now requires the attempt to
     # name THIS rule and to rule out the proposer's, so it cannot go green
     # against a message that blames the writer for an empty field.
-    check("and the loop offers ZERO candidates for it -- a return is not "
-          "repaired by swapping an end word, so `RETURN_NOT_VERBATIM` earns "
-          "no candidate field and the attempt says WHICH rule that is",
+    # REPINNED 2026-10-27 (D6 on #519): a brief carries no candidate field
+    # on any line, so "no field was offered" no longer tells one line from
+    # another; tier 1 tried nothing and the loop says the proposer declined.
+    # superseded: the "no candidate field was offered … not about the
+    # proposer" sentence.
+    check("and tier 1 has no move for it: nothing tried, nothing accepted, "
+          "and the attempt says the proposer declined",
           l3 and l3[0].tried == 0 and not l3[0].accepted
-          and "no candidate field was offered" in l3[0].reason
-          and "not about the proposer" in l3[0].reason
-          and "PROPOSER declined" not in l3[0].reason,
+          and "PROPOSER declined at attempt 0" in l3[0].reason,
           l3[0].reason if l3 else None)
     check("L2's rhyme WAS fixed in the same round -- one unsolvable line is "
           "never a stop condition, which is the invariant this fixture "
@@ -1011,12 +1134,15 @@ def test_group_brief_carries_the_situation():
           all(list(pb.lines) == SILVER_NIGHT_LOCKED for pb in seen)
           and isinstance(first.lines, tuple),
           f"{type(first.lines).__name__} of {len(first.lines)}")
-    check("the pivot's own `Brief` rides along -- including the "
-          "`joint_conflict` that is the whole reason this is tier 2 and not "
-          "another tier-1 retry",
-          first.brief.line_no == 3 and first.brief.joint_conflict is True,
-          f"L{first.brief.line_no} joint_conflict="
-          f"{first.brief.joint_conflict}")
+    # REPINNED 2026-10-27 (D6 on #519): `brief()` no longer predicts a
+    # joint conflict (it was set from the candidate field), so the pivot
+    # reaches tier 2 by the escalation after tier 1 found no line (M-205),
+    # and the group brief says which path asked it. superseded: "including
+    # the `joint_conflict` that is the whole reason this is tier 2".
+    check("the pivot's own `Brief` rides along, and the group brief names "
+          "the ESCALATION as the path that asked it",
+          first.brief.line_no == 3 and first.path == "escalation",
+          f"L{first.brief.line_no} path={first.path!r}")
     check("every candidate FIELD is carried, and the word each member is "
           "asked for is drawn from the front of its own",
           all(pb.pivot_word in pb.pivot_offered[:2]
@@ -1401,7 +1527,6 @@ def test_a_dead_end_and_an_open_line_each_name_their_own_rule():
                      "section": "V1"} for i, t in enumerate(D)]}
     sub = _FT.Subdivision(2, source="constructed for this regression")
     m_aa = SC.mandate("AA", n_lines=2, default_relation="RHYME")
-    field_size = len(next(b for b in Reviser().brief(D, m_aa) if b.line_no == 2).candidates)
     decline = lambda *a, **k: None                            # noqa: E731
 
     def reason_for(res, ln):
@@ -1414,9 +1539,12 @@ def test_a_dead_end_and_an_open_line_each_name_their_own_rule():
     # (a1) THE PROPOSER DECLINED, and a real field was on the table.
     r1 = revise_loop(Reviser(), D, m_aa, propose=decline)
     d1 = reason_for(r1, 2)
+    # REPINNED 2026-10-27 (D6 on #519): a brief carries no field, so there
+    # is no field size to quote. superseded: "with the size of the field it
+    # declined".
     check("a proposer that declines is reported as the PROPOSER's refusal, "
-          "with the size of the field it declined, not as an empty offer",
-          "PROPOSER declined" in d1 and f"{field_size} candidate(s) offered" in d1 and field_size > 0
+          "not as an empty offer",
+          "PROPOSER declined" in d1 and "candidate(s) offered" not in d1
           and "no candidates offered" not in d1, d1[:100])
 
     # (a2) THE HARNESS OFFERED NOTHING — a FREE SINGLETON (`X`) carries a
@@ -1437,15 +1565,15 @@ def test_a_dead_end_and_an_open_line_each_name_their_own_rule():
     r2 = revise_loop(Reviser(), D3, m_xaa, blueprint=bp3, subdivision=sub,
                      propose=decline)
     d2 = reason_for(r2, 1)
-    check("a line the harness could not offer a field for says so, and says "
-          "it is a fact about the MANDATE and the lexicon",
-          "no candidate field was offered" in d2
-          and "not about the proposer" in d2, d2[:100])
-    check("...and BOTH rules are visible on the SAME run, which is what "
-          "makes them two rules rather than two namings of one",
-          "no candidate field was offered" in d2
-          and "PROPOSER declined" in reason_for(r2, 2),
-          f"L1: {d2[:44]!r} | L2: {reason_for(r2, 2)[:44]!r}")
+    # REPINNED 2026-10-27 (D6 on #519): the harness offers no field on ANY
+    # line now, so "no field was offered" is no longer a cause one line can
+    # have and another not; both dead ends are the proposer's refusal, and
+    # neither blames the mandate. superseded: "says it is a fact about the
+    # MANDATE and the lexicon", and "BOTH rules are visible on the SAME run".
+    check("a free line's dead end is the proposer's refusal too, and never "
+          "claims the harness had nothing to offer",
+          "PROPOSER declined" in d2 and "PROPOSER declined" in reason_for(r2, 2)
+          and "no candidate field was offered" not in d2, d2[:100])
 
     # (a3) NOT ASKED — inconclusive by construction, not a dead end.
     r3 = revise_loop(Reviser(rdecl=ReviseDeclaration(attempts_per_line=0)),
@@ -1465,18 +1593,15 @@ def test_a_dead_end_and_an_open_line_each_name_their_own_rule():
         Reviser(rdecl=ReviseDeclaration(pursue=frozenset({"MODAL_RHYME"}),
                                         attempts_per_line=1)),
         MODAL, [[1, 3], [2, 4]], propose=decline)
-    check("lines held open by a PURSUED NOTE are unresolved with an EMPTY "
-          "flagged list — the exact state the old field comment denied",
-          rp.unresolved and not rp.unresolved_flagged
-          and [b.line_no for b in rp.unresolved_pursued]
-          == [b.line_no for b in rp.unresolved],
-          f"unresolved={[b.line_no for b in rp.unresolved]} "
-          f"flagged={[b.line_no for b in rp.unresolved_flagged]} "
-          f"pursued={[b.line_no for b in rp.unresolved_pursued]}")
-    check("...and the rendered line SAYS which rule holds each one open",
-          any("unresolved:" in l and "pursued note" in l and "flag" not in
-              l.split("unresolved:")[1] for l in str(rp).splitlines()),
-          [l.strip() for l in str(rp).splitlines() if "unresolved:" in l])
+    # REPINNED 2026-10-27 (D6 on #519): MODAL_RHYME is no longer filed on a
+    # pair that holds, so pursuing it holds nothing open on this draft. The
+    # two-rule split is still measured on `_open_by_rule` below. superseded:
+    # "lines held open by a PURSUED NOTE are unresolved with an EMPTY
+    # flagged list" and "the rendered line SAYS which rule holds each open".
+    check("pursuing MODAL_RHYME holds no line open: the code is not filed on "
+          "a pair that holds",
+          not rp.unresolved and not rp.unresolved_pursued,
+          f"unresolved={[b.line_no for b in rp.unresolved]}")
 
     # THE NON-SUMMING RULE, measured on the pure function rather than on a
     # draft that happens to collide.
@@ -1996,10 +2121,13 @@ def test_pursuit_is_mandatory_and_success_below_it_unreportable():
     # MODAL_DRAFT: clean rhymes that ARE the modal answers — no flag anywhere.
     R2 = Reviser()
     bs = R2.brief(list(MODAL_DRAFT), [[1, 3], [2, 4]])
-    check("the fixture carries MODAL_RHYME and NO flag, so nothing but "
-          "pursuit can open it",
+    # REPINNED 2026-10-27 (D6 on #519): a pair that holds is charged
+    # nothing, so this draft carries no MODAL_RHYME either. superseded:
+    # "the fixture carries MODAL_RHYME and NO flag".
+    check("the fixture's pairs hold and are charged nothing: no flag and no "
+          "MODAL_RHYME",
           not any(f.severity == "flag" for b in bs for f in b.findings)
-          and any(f.code == "MODAL_RHYME" for b in bs for f in b.findings))
+          and not any(f.code == "MODAL_RHYME" for b in bs for f in b.findings))
 
     # ~~an EMPTY declaration still pursues~~ — REPINNED 2026-10-04: with
     # nothing declared, a MODAL_RHYME note opens nothing and the run succeeds.
@@ -2015,10 +2143,13 @@ def test_pursuit_is_mandatory_and_success_below_it_unreportable():
     R3 = Reviser(rdecl=_RD(pursue=PURSUED_UNTIL_2026_10_04))
     res3 = revise_loop(R3, list(MODAL_DRAFT), [[1, 3], [2, 4]],
                        propose=lambda *a, **k: None)
-    check("a declared pursue still opens the lines and refuses success "
-          "while the note stands",
-          res3.stop_reason != "success"
-          and sorted(b.line_no for b in res3.unresolved_pursued) == [3, 4],
+    # REPINNED 2026-10-27: the declared codes are not filed on this draft,
+    # so a declared pursue has nothing to hold open (the mechanism itself is
+    # measured on `_open_by_rule` in §17). superseded: "a declared pursue
+    # still opens the lines and refuses success while the note stands".
+    check("a declared pursue of the old codes finds nothing to hold open "
+          "here, and the run succeeds",
+          res3.stop_reason == "success" and res3.unresolved_pursued == [],
           f"stop={res3.stop_reason} pursued="
           f"{[b.line_no for b in res3.unresolved_pursued]}")
 
@@ -2084,17 +2215,16 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
     # MODAL_RHYME like L4. superseded: four briefs, L1/L2/L4 actionable, L3
     # SCHEME_UNREADABLE and no MODAL_RHYME.
     old_briefs = Reviser().brief(list(CLICHE), "ABAB", include_offers=False)
-    check("CONTROL: the original draft has four briefs and all four are "
-          "actionable",
-          sorted(b.line_no for b in old_briefs) == [1, 2, 3, 4]
-          and actionable(old_briefs) == [1, 2, 3, 4],
+    # REPINNED 2026-10-27 (D6 on #519): MODAL_RHYME is no longer filed on a
+    # pair that holds, so only the two CLICHE_PAIR lines are actionable.
+    # superseded: four actionable briefs, L3 held by the pursued MODAL_RHYME.
+    check("CONTROL: the original draft has two actionable lines, L1 and L2, "
+          "and no line is held by MODAL_RHYME",
+          actionable(old_briefs) == [1, 2]
+          and not any(f.code == "MODAL_RHYME"
+                      for b in old_briefs for f in b.findings),
           [(b.line_no, [(f.code, f.severity) for f in b.findings])
            for b in old_briefs])
-    check("CONTROL: original L3 is judged and carries the pursued "
-          "MODAL_RHYME, not an unjudged note",
-          any(b.line_no == 3 and any(f.code == "MODAL_RHYME"
-              for f in b.findings) and not any(f.code == "SCHEME_UNREADABLE"
-              for f in b.findings) for b in old_briefs))
 
     # Re-establish the actual M-183/M-210 positive under unambiguous
     # heart/apart readings, keeping the independent go/know group stuck.
@@ -2220,14 +2350,12 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
     # open after it", which is the same question asked of the briefs.
     round1_briefs = R.brief(list(draft), "ABAB", include_offers=False)
     round1_open = actionable(round1_briefs)
-    check("the constructive premise has all four lines actionable, L3 held "
-          "by MODAL_RHYME, and only L2/L4 remain after L1's measured fix",
-          round1_open == [1, 2, 3, 4] and open_lines == [2, 4]
-          and any(b.line_no == 3 and any(f.code == "MODAL_RHYME"
-                  for f in b.findings) for b in round1_briefs),
+    # REPINNED 2026-10-27 (D6 on #519). superseded: "all four lines
+    # actionable, L3 held by MODAL_RHYME, and only L2/L4 remain".
+    check("the constructive premise: L1 and L2 actionable, and only L2 "
+          "remains after L1's measured fix",
+          round1_open == [1, 2] and open_lines == [2],
           (round1_open, open_lines))
-    closed_by_l1 = sorted(ln for ln in round1_open
-                          if ln != 1 and ln not in open_lines)
     check("every record carries the round it was asked in and the "
           "fingerprint of the draft it was asked against",
           all(rd and fp for _, _, rd, fp in asked), asked)
@@ -2238,32 +2366,13 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
           "round, never answered from the round-1 record",
           open_lines and all(per_line[ln] == [1, 2, 3] for ln in open_lines),
           f"open after round 1 {open_lines}; asked {per_line}")
-    check("...and the line L1's fix CLOSED (L3, whose MODAL_RHYME was "
-          "against L1's old word) is ~~asked once and never again~~ NEVER "
-          "ASKED — M-210's carry-forward reaches it inside the same round, "
-          "and `resolved_elsewhere` is where the loop says so rather than "
-          "spending a writer's attempt on a finding that is gone",
-          closed_by_l1 == [3] and 3 not in per_line
-          and 3 in [n for r in res.rounds for n in r.resolved_elsewhere],
-          f"closed by L1's fix {closed_by_l1}; asked {per_line.get(3)}; "
-          f"resolved_elsewhere "
-          f"{[r.resolved_elsewhere for r in res.rounds]}")
-    # REPINNED 2026-09-04 (M-236) from ~~all~~ ANY open line: the batch
-    # door asks the lines independent of L1 TOGETHER WITH L1, against the
-    # input draft, so those lines' round-1 and round-2 fingerprints now
-    # differ; the line asked after L1's fix (its group-mate's partner, L4)
-    # still shares one fingerprint across rounds, and it is that line that
-    # proves the round has to be part of the key.
-    check("the draft fingerprint alone could NOT have told the two "
-          "questions apart for at least one open line: asked in round 1 "
-          "after L1's fix moved the draft, and round 2 opened on that same "
-          "draft (M-236: a line batched WITH L1 is asked against the "
-          "input draft instead, and is told apart by the fingerprint — the "
-          "round is the key either way)",
-          open_lines and any(
-              len({fp for ln2, _, _, fp in asked if ln2 == ln}) == 1
-              for ln in open_lines),
-          [(ln, rd, fp) for ln, _, rd, fp in asked])
+    # DELETED 2026-10-27 (D6 on #519), with their premise: "the line L1's
+    # fix CLOSED (L3, whose MODAL_RHYME was against L1's old word) is NEVER
+    # ASKED" (no line carries MODAL_RHYME now), and "the draft fingerprint
+    # alone could NOT have told the two questions apart for at least one
+    # open line" (the one open line, L2, is batched WITH L1 against the
+    # input draft, so its fingerprints differ). That the ROUND is the key is
+    # still measured below on the keyed and legacy replay files.
     check("the first question's fingerprint is the input draft's",
           asked and asked[0][3] == draft_fingerprint(list(draft)))
 
@@ -2402,12 +2511,9 @@ def test_tier2_that_walks_nothing_falls_through_to_tier1():
              "A memory of the kitchen"]
     mandate = [[1, 3], [2, 3], [4, 3]]
     R = Reviser(decl=Declaration(admit=("RHYME", "RIME_RICHE")))
-    b3 = [b for b in R.brief(draft, mandate) if b.line_no == 3]
-    check("the fixture is a real joint_conflict at L3 with NO field and no "
-          "ban head — the conjunction is empty, not eaten",
-          b3 and b3[0].joint_conflict and not b3[0].candidates
-          and not b3[0].forbidden_modal,
-          None if not b3 else (b3[0].candidates, b3[0].forbidden_modal))
+    check("the fixture is a real joint_conflict at L3: the conjunction of "
+          "its calls is empty in the searched field (the test's own search)",
+          _oracle_conflict(R, mandate, draft, 3))
     asked1, asked2 = [], []
 
     def declines(brief, lines, attempt, reasons=None, whole=()):
@@ -2421,15 +2527,17 @@ def test_tier2_that_walks_nothing_falls_through_to_tier1():
     res = revise_loop(R, draft, mandate, propose=declines,
                       propose_group=declines_group)
     a3 = [a for r in res.rounds for a in r.attempts if a.line_no == 3]
-    check("tier 2 now ASKS about the group instead of walking nothing — an "
-          "empty pivot field is a question, not a turn consumed in silence",
-          a3 and a3[0].tier == 2 and a3[0].asked and asked2
-          and "UNCONSTRAINED pivot" not in a3[0].reason,
+    # REPINNED 2026-10-27 (D6 on #519): `brief()` no longer predicts the
+    # conflict, so L3 is asked by tier 1 first and the group by the
+    # escalation after it (M-205); both are asked and both records kept.
+    # superseded: tier 2 first, then the fall-through to tier 1 ([2, 1]).
+    check("the line is ASKED, then the group is ASKED — an empty pivot field "
+          "is a question at both tiers, not a turn consumed in silence",
+          [a.tier for a in a3] == [1, 2] and all(a.asked for a in a3)
+          and (3, 1) in asked1 and asked2
+          and "UNCONSTRAINED pivot" not in a3[1].reason,
           [(a.tier, a.tried, a.asked, a.reason[:70]) for a in a3]
           + [asked2])
-    check("declined tier 2 retains its record and falls through to tier 1",
-          [a.tier for a in a3] == [2, 1] and (3, 1) in asked1,
-          [(a.tier, a.tried, a.asked) for a in a3] + [asked1])
     check("the stop is NO_PROGRESS on the proposer's refusal, not on a "
           "search nobody ran", res.stop_reason == "no_progress")
     # THE CONTRAST: under the shipped door the same groups' conjunctions
@@ -2440,8 +2548,8 @@ def test_tier2_that_walks_nothing_falls_through_to_tier1():
                        SC.mandate(mandate, n_lines=4, default_relation="RHYME"), propose=declines,
                        propose_group=declines_group)
     a3b = [a for r in res2.rounds for a in r.attempts if a.line_no == 3]
-    check("a declined tier 2 and the subsequent tier 1 are recorded separately",
-          [a.tier for a in a3b] == [2, 1] and a3b[0].asked
+    check("a declined tier 1 and the escalated tier 2 are recorded separately",
+          [a.tier for a in a3b] == [1, 2] and a3b[1].asked
           and asked2 and (3, 1) in asked1,
           [(a.tier, a.tried, a.asked) for a in a3b] + [len(asked2)])
 

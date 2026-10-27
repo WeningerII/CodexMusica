@@ -1165,16 +1165,18 @@ class LoopSwaps(unittest.TestCase):
         def recording(brief, lines, attempt, reasons=None, whole=(), **kw):
             seen.append(kw)
             return real(brief, lines, attempt, reasons, whole, **kw)
-        lines = ["The candle burned and set the room on fire",
-                 "He said the word and he turned to go",
-                 "And all night long she nursed a small desire",
-                 "She never asked the thing she had to know"]
+        # A draft the loop asks a line question about: the kitchen fixture's
+        # own two lines under AA. The four-line draft this used carried only
+        # the shipped CLICHE_PAIR as a line flag, which is not filed since
+        # 2026-10-27 (D6 on #519), so no line was asked anything.
+        lines = json.loads((HERE / "fixtures" / "reader_v1_checkpoint.json")
+                           .read_text(encoding="utf-8"))["draft"]
         try:
             LP.default_propose = recording
             for sp in (True, False):
                 seen.clear()
                 lex = LH.Lexicon(strip_parens=sp, reader_scheme="v2")
-                LP.revise_loop(Reviser(lex=lex), lines, "ABAB")
+                LP.revise_loop(Reviser(lex=lex), lines, "AA")
                 self.assertTrue(seen)
                 self.assertEqual({(k["scheme"], k["strip_parens"]) for k in seen},
                                  {("v2", sp)})
@@ -2284,6 +2286,43 @@ class LegacyReplay(unittest.TestCase):
             return {k: v for k, v in rec.items()
                     if k not in ("reader_scheme", "cursor") and not k.startswith("cursor_")}
 
+        # THE RECORDED QUESTION OFFERED WORD LISTS, AND THIS BUILD PRINTS NONE
+        # (2026-10-27, D6 on #519). The pre-batch harness rendered OFFERED,
+        # FORBIDDEN and THE WORD ALREADY THERE blocks and a third rule about
+        # moving onto a FORBIDDEN word. Exactly those are set aside on the
+        # RECORDED side, the rules after it renumbered, and the rest of the
+        # question must still match byte for byte.
+        def without_d6(text):
+            out, skip, rule3 = [], False, False
+            for line in text.split("\n"):
+                if line.startswith(("OFFERED — ", "FORBIDDEN — ",
+                                    "THE WORD ALREADY THERE — ")):
+                    skip = True
+                    continue
+                if skip:
+                    skip = line != ""
+                    continue
+                if line.startswith("  3. The end word L") and "FORBIDDEN" in line:
+                    rule3 = True
+                    continue
+                if rule3:
+                    if not line.startswith("  4. "):
+                        continue
+                    rule3 = False
+                if line.startswith("  4. The line must FIX"):
+                    line = "  3." + line[4:]
+                elif line.startswith("  5. It may not trade"):
+                    line = "  4." + line[4:]
+                out.append(line)
+            return "\n".join(out)
+
+        def recorded(rec):
+            rec = dict(rec)
+            if isinstance(rec.get("pending"), dict) and "prompt" in rec["pending"]:
+                rec["pending"] = {**rec["pending"],
+                                  "prompt": without_d6(rec["pending"]["prompt"])}
+            return rec
+
         def norm(stdout):
             out = []
             for line in stdout.splitlines():
@@ -2315,7 +2354,7 @@ class LegacyReplay(unittest.TestCase):
             with self.subTest(state=rec["name"]):
                 self.assertEqual(r.returncode, rec["replay_exit"], r.stdout[-600:])
                 got = norm(r.stdout.replace(str(work), "<WORK>"))
-                self.assertEqual(got, norm(rec["replay_stdout"]))
+                self.assertEqual(got, norm(without_d6(rec["replay_stdout"])))
                 result = json.loads([l for l in r.stdout.splitlines()
                                      if l.startswith("  lyric result: ")][-1]
                                     [len("  lyric result: "):])
@@ -2329,7 +2368,7 @@ class LegacyReplay(unittest.TestCase):
                     self.assertEqual((result["cursor_resumed"], result["cursor_stripped"]),
                                      (False, "run_key"))
                     # ... so the identical-file resume is not what it equals
-                    self.assertNotEqual(got, norm(rec["resume_stdout"]))
+                    self.assertNotEqual(got, norm(without_d6(rec["resume_stdout"])))
                 else:
                     self.assertEqual(norm(rec["resume_stdout"]), norm(rec["replay_stdout"]))
                 self.assertIn('"reader_scheme":"v1"', r.stdout)
@@ -2337,7 +2376,8 @@ class LegacyReplay(unittest.TestCase):
                 written = json.loads(state.read_text(encoding="utf-8"))
                 self.assertEqual(written["reader_scheme"], "v1")
                 self.assertNotIn("reader_scheme", written["answered"])
-                self.assertEqual(strip(written), strip(json.loads(rec["replay_written"])))
+                self.assertEqual(strip(written),
+                                 strip(recorded(json.loads(rec["replay_written"]))))
 
     def test_an_explicit_other_scheme_refuses_to_resume(self):
         import contextlib
@@ -2568,14 +2608,24 @@ class LegacyReplay(unittest.TestCase):
                 else:
                     out.append(line)
             return out
+        # NOT BYTE FOR BYTE SINCE 2026-10-27 (D6 on #519). The checkpoint's
+        # journal pins the question it asked, and the pre-batch question
+        # offered word lists this build never prints, so the replay refuses
+        # on the question by name rather than hand a recorded answer to a
+        # different question. What the reader scheme owes still holds: the
+        # checkpoint is read as v1 with no flag and with --reader-scheme=v1
+        # (no READER_SCHEME_MISMATCH), no new writer request is made, and the
+        # checkpoint is left exactly as it was.
         for flags in ((), ("--reader-scheme=v1",)):
             ck = work / "ck.json"
             ck.write_text(fx["checkpoint"], encoding="utf-8")
             r = run(ck, *flags)
             with self.subTest(flags=flags):
-                self.assertEqual(r.returncode, fx["resume_exit"], r.stdout[-600:])
-                self.assertEqual(norm(r.stdout), norm(fx["resume_stdout"]))
-                self.assertEqual(ck.read_text(encoding="utf-8"), fx["resumed_checkpoint"])
+                self.assertEqual(r.returncode, 2, r.stdout[-600:])
+                self.assertIn("checkpoint replay question differs", r.stdout)
+                self.assertIn("no new writer request was made", r.stdout)
+                self.assertNotIn("READER_SCHEME_MISMATCH", r.stdout)
+                self.assertEqual(ck.read_text(encoding="utf-8"), fx["checkpoint"])
         ck.write_text(fx["checkpoint"], encoding="utf-8")
         r = run(ck, "--reader-scheme=v2")
         self.assertEqual(r.returncode, 2)

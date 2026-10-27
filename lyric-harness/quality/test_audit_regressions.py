@@ -174,7 +174,10 @@ class AuditRegressions(unittest.TestCase):
         rv = Reviser(rdecl=ReviseDeclaration(max_rounds=1, attempts_per_line=0,
                                             backtrack_width=0))
         briefs = rv.brief(lines, m)
-        b = next(b for b in briefs if b.joint_conflict)
+        # A brief computes no candidate field since 2026-10-27 (D6 on #519),
+        # so `joint_conflict` is never set; the pivot's brief is taken by line.
+        self.assertFalse(any(b.joint_conflict or b.candidates for b in briefs))
+        b = next(b for b in briefs if b.line_no == 3)
         seen = []
         result = revise_loop(rv, lines, m, propose=lambda *a, **k: None,
                              propose_group=lambda g: seen.append(g))

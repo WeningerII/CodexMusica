@@ -257,8 +257,10 @@ def test_mutation(rv):
     mut = list(lines)
     mut[3] = mut[3].replace("cussed", "trust", 1)
     got = BC.measure_lines(rv, mut, m)
-    check("the ban fires on the mutated pair (banned_in_final 0 -> >=1)",
-          base["banned_in_final"] == 0 and got["banned_in_final"] >= 1,
+    # 2026-10-27, D6 on #519: a pair that holds is no longer charged a ban,
+    # so moving the partner into the modal head files nothing.
+    check("no ban fires on the mutated pair either (banned_in_final 0 -> 0)",
+          base["banned_in_final"] == 0 and got["banned_in_final"] == 0,
           (base["banned_in_final"], got["banned_in_final"]))
     check("the partner is now in the HEAD bucket (rank_head 0 -> 1)",
           base["rank_head"] == 0 and got["rank_head"] == 1,
