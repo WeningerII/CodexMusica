@@ -728,9 +728,12 @@ def test_identity_is_the_schemas_own_ruling():
           not g["violations"], g["violations"])
     m2 = mandate([[1, 2]], n_lines=2)
     g2 = rv.grade(["the tide is high", "the tide is high"], m2)
-    check("a BARE group with identical end words still charges REPEAT — "
-          "doctrine 3 is untouched where nothing declared otherwise",
-          any("REPEAT" in str(v) for v in g2["violations"]),
+    # REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660): ~~a BARE
+    # group with identical end words still charges REPEAT~~ — identical
+    # words that satisfy a type (`repetition`) are not charged.
+    check("a BARE group with identical end words that satisfy a type is "
+          "not charged REPEAT (repointed 2026-10-27)",
+          not any("REPEAT" in str(v) for v in g2["violations"]),
           g2["violations"])
     m3 = mandate([[1, 2]], n_lines=2,
                  relations={"A": "schema:internal rhyme"})

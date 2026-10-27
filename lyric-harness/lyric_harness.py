@@ -6466,6 +6466,24 @@ SCREEN_PAIR_CODES = ("HOMEOTELEUTON", "MODAL_RHYME")
 #: scaffold. The pair checks themselves read end words only.
 _SCREEN_CARRIERS = ("we carry the evening to the {w}",
                     "and no one had to tell us about {w}")
+#: Carriers for a NAMED schema whose placement two line ends cannot meet
+#: (2026-10-27, end-of-day plan, #519 6448819660: the screen tests the
+#: positions each type uses, not last words only). Keyed by the
+#: `relations.placement_bindable` position each member is tried at.
+_SCREEN_POSITION_CARRIERS = {
+    "end": _SCREEN_CARRIERS,
+    "head": ("{w} we carry the evening on",
+             "{w} and no one had to tell us"),
+    "internal": ("we carry the {w} to the evening",
+                 "and no one told us {w} at all"),
+}
+#: The positions tried, in order; the first the schema's own placement
+#: rules can meet is the one the screen judges at.
+_SCREEN_POSITIONS = (("end", "end"), ("head", "head"),
+                     ("internal", "internal"), ("head", "end"),
+                     ("end", "head"), ("internal", "end"),
+                     ("end", "internal"), ("head", "internal"),
+                     ("internal", "head"))
 
 
 def door_chance_note(door="any", entry=None):
@@ -6966,19 +6984,44 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
                     # route, which enforces it: a schema two line ends
                     # cannot place would read SATISFIES here and
                     # SCHEME_VIOLATION at grade, for the same two words.
-                    if not _RL.placement_bindable(_schema, ("end", "end")):
+                    # THE POSITIONS THE TYPE USES (2026-10-27, end-of-day
+                    # plan): the first member positions the schema's own
+                    # placement rules can meet, line ends first. Each word
+                    # is set at that position in its carrier and the judge
+                    # is asked there.
+                    _pos = next((pp for pp in _SCREEN_POSITIONS
+                                 if _RL.placement_bindable(_schema, pp)),
+                                None)
+                    if _pos is None:
                         _ans = _wit = None
                         row["named"] = None
                         row["named_reason"] = (
-                            f"the placement of {_schema.name!r} cannot be met by "
-                            f"two line ends, so a line-end mandate declaring "
-                            f"it is charged whatever the words — declare it "
-                            f"at the slots its placement names")
+                            f"the placement of {_schema.name!r} cannot be met "
+                            f"by two words at a line's start, inside it or "
+                            f"at its end on two lines")
                     else:
+                        row["named_positions"] = list(_pos)
+                        _carriers = [
+                            _SCREEN_POSITION_CARRIERS[_pos[0]][0].format(w=a),
+                            _SCREEN_POSITION_CARRIERS[_pos[1]][1].format(w=b)]
+                        _stream = _RL.build_stream(_carriers, _phon)
+
+                        def _at(li, w, where):
+                            if where == "end":
+                                return -1
+                            if where == "head":
+                                return 0
+                            toks = [str(t).lower() for t in
+                                    (_stream.lexical_tokens[li]
+                                     if _stream.lexical_tokens else
+                                     _RL.tokenise(_stream.text_lines[li]))]
+                            return toks.index(str(w).lower())
                         _ans, _wit = _RL.pair_satisfies_any(
-                            _schema, _stream, (0, -1), (1, -1),
+                            _schema, _stream, (0, _at(0, a, _pos[0])),
+                            (1, _at(1, b, _pos[1])),
                             _RL.cached_builder(
-                                lambda ph: _RL.build_stream(_carriers, ph)))
+                                lambda ph, _c=_carriers:
+                                _RL.build_stream(_c, ph)))
                     if _wit:
                         row["named_readings"] = _wit
                     if row["named_reason"] is not None:
@@ -11163,11 +11206,14 @@ def main():
         for r in rows:
             pair = f"{r['a']} ~ {r['b']}".ljust(w)
             named_status = ""
+            _at = (f" at {'/'.join(r['named_positions'])}"
+                   if r.get("named_positions")
+                   and r["named_positions"] != ["end", "end"] else "")
             if screen_rel:
                 if r["named"] is True:
-                    named_status = f"  |  SATISFIES {screen_rel}"
+                    named_status = f"  |  SATISFIES {screen_rel}{_at}"
                 elif r["named"] is False:
-                    named_status = (f"  |  VIOLATES {screen_rel} — a "
+                    named_status = (f"  |  VIOLATES {screen_rel}{_at} — a "
                                     f"mandate declaring it will charge "
                                     f"this pair")
                 else:
@@ -11227,7 +11273,9 @@ def main():
              "codes": list(r["codes"]), "refused": r["refused"],
              "reason": r["reason"], "why": r["why"],
              **({"named": r["named"], "named_reason": r["named_reason"]}
-                if screen_rel else {})}
+                if screen_rel else {}),
+             **({"named_positions": r["named_positions"]}
+                if screen_rel and r.get("named_positions") else {})}
             for r in rows])
         # AFTER EVERYTHING, AND THAT POSITION IS THE POINT. The block is
         # appended below the verdict table and below the summary counts so

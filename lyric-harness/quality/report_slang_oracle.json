@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "date": "2026-10-02",
+  "date": "2026-10-27",
   "baseline_commit": "08adfcff",
   "report_ids": ["C-1", "P9"],
   "population": "battery.parse_sonnets: 152 fourteen-line sonnets, ABABCDCDEFEFGG; sonnet_index is the filtered battery index",
@@ -14,9 +14,9 @@
     "mandated": 1064,
     "judged": 1012,
     "refused": 52,
-    "violations": 40
+    "violations": 36
   },
-  "meaning": "the bound words (MISSING.md M-317, owner ruling): a mandated pair is judged at the two words its group binds",
+  "meaning": "end-of-day plan (#519 6448819660): identical words that satisfy a registry type are not charged as REPEAT",
   "newly_judged_pairs": [
     {
       "sonnet_index": 33,
@@ -420,15 +420,12 @@
     "violations": [
       [5, 10, 12],
       [7, 6, 8],
-      [9, 10, 12],
       [12, 6, 8],
       [13, 6, 8],
       [17, 2, 4],
       [18, 2, 4],
-      [26, 6, 8],
       [33, 2, 4],
       [38, 9, 11],
-      [42, 6, 8],
       [49, 5, 7],
       [49, 10, 12],
       [54, 5, 7],
@@ -456,28 +453,24 @@
       [136, 2, 4],
       [138, 5, 7],
       [140, 6, 8],
-      [150, 5, 7],
       [152, 10, 12]
     ]
   },
   "span_attribution": {
-    "date": "2026-10-02",
+    "date": "2026-10-27",
     "current": {
       "claimed": 633,
       "ties": 121,
-      "violations_claimed": 9,
-      "violation_ties": 5
+      "violations_claimed": 8,
+      "violation_ties": 2
     },
-    "mosaic_violations": 6,
+    "mosaic_violations": 3,
     "mosaic_coordinates": [
-      [9, 10, 12],
-      [26, 6, 8],
       [33, 2, 4],
       [54, 5, 7],
-      [102, 1, 3],
-      [150, 5, 7]
+      [102, 1, 3]
     ],
-    "severe_violations": 6,
+    "severe_violations": 3,
     "pair_kinds": [
       {
         "kinds": ["exact", "exact"],
@@ -511,7 +504,7 @@
     "viol_kinds": [
       {
         "kinds": ["exact", "exact"],
-        "n": 9
+        "n": 8
       },
       {
         "kinds": ["exact", "part"],
@@ -528,10 +521,6 @@
       {
         "kinds": ["part", "reach"],
         "n": 1
-      },
-      {
-        "kinds": ["reach", "reach"],
-        "n": 3
       }
     ],
     "violation_rows": [
@@ -550,23 +539,6 @@
         "relations": [],
         "claim": false,
         "kinds": ["exact", "part"]
-      },
-      {
-        "sonnet": 9,
-        "lines": [10, 12],
-        "endwords": ["it", "it"],
-        "relations": [
-          "ASSONANCE",
-          "CONSONANCE",
-          "REPEAT",
-          "RHYME",
-          "compound / phrasal rhyme",
-          "mosaic rhyme",
-          "multisyllabic rhyme",
-          "repetition"
-        ],
-        "claim": false,
-        "kinds": ["reach", "reach"]
       },
       {
         "sonnet": 12,
@@ -601,23 +573,6 @@
         "kinds": ["part", "exact"]
       },
       {
-        "sonnet": 26,
-        "lines": [6, 8],
-        "endwords": ["it", "it"],
-        "relations": [
-          "ASSONANCE",
-          "CONSONANCE",
-          "REPEAT",
-          "RHYME",
-          "compound / phrasal rhyme",
-          "mosaic rhyme",
-          "multisyllabic rhyme",
-          "repetition"
-        ],
-        "claim": false,
-        "kinds": ["reach", "reach"]
-      },
-      {
         "sonnet": 33,
         "lines": [2, 4],
         "endwords": ["eye", "alchemy"],
@@ -630,14 +585,6 @@
         "lines": [9, 11],
         "endwords": ["worth", "forth"],
         "relations": [],
-        "claim": true,
-        "kinds": ["exact", "exact"]
-      },
-      {
-        "sonnet": 42,
-        "lines": [6, 8],
-        "endwords": ["her", "her"],
-        "relations": ["ASSONANCE", "CONSONANCE", "REPEAT", "RHYME", "mosaic rhyme", "repetition"],
         "claim": true,
         "kinds": ["exact", "exact"]
       },
@@ -858,22 +805,6 @@
         "kinds": ["part", "exact"]
       },
       {
-        "sonnet": 150,
-        "lines": [5, 7],
-        "endwords": ["thee", "thee"],
-        "relations": [
-          "ASSONANCE",
-          "CONSONANCE",
-          "REPEAT",
-          "RHYME",
-          "mosaic rhyme",
-          "multisyllabic rhyme",
-          "repetition"
-        ],
-        "claim": false,
-        "kinds": ["reach", "reach"]
-      },
-      {
         "sonnet": 152,
         "lines": [10, 12],
         "endwords": ["perpetual", "thrall"],
@@ -922,6 +853,15 @@
         "judged": 1007,
         "refused": 57,
         "violations": 15
+      }
+    },
+    {
+      "date": "2026-10-02",
+      "current": {
+        "mandated": 1064,
+        "judged": 1012,
+        "refused": 52,
+        "violations": 40
       }
     }
   ]

@@ -116,9 +116,12 @@ def test_honesty_and_the_split():
           "REPEAT" in r["relations"] and "RHYME" in r["relations"],
           r["relations"])
     r = rows_for("haiku", "haiku")[0]
-    check("...and the identity machinery answers it with the grader's why",
-          "REPEAT" in r["relations"] and "identical" in (r["why"] or ""),
-          r["why"])
+    # REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660): ~~the
+    # identity machinery answers it with the grader's REPEAT why~~ —
+    # identical words that satisfy a type (repetition) are not charged.
+    check("...and identical words that satisfy a type are not charged: "
+          "REPEAT is recorded, the grader's why is empty",
+          "REPEAT" in r["relations"] and r["why"] is None, r["why"])
     r = rows_for("stone", "xzqwv")[0]
     check("an unreadable word is the grader's OWN refusal, naming the "
           "word and the reason — UNKNOWN is not absent",
@@ -281,9 +284,9 @@ def test_clean_answers_one_question():
           and "default relation remains unresolved" not in out
           and "undecided at the pair" in out)
     rc, out, _ = run("screen", "haiku", "haiku")
-    check("an identity pair lists REPEAT among its relations and carries "
-          "the grader's own reason", rc == 0 and "REPEAT" in out
-          and "grade: REPEAT not rhyme (identical word)" in out)
+    check("an identity pair lists REPEAT among its relations and is not "
+          "charged for it (repointed 2026-10-27)", rc == 0 and "REPEAT" in out
+          and "grade: REPEAT not rhyme (identical word)" not in out)
     rc, out, _ = run("screen", "gasoline", "tambourine", "stone", "rain")
     m = re.search(r"(\d+) banned, (\d+) refused, (\d+) standing in at "
                   r"least one relation, (\d+) standing in none", out)
@@ -340,14 +343,24 @@ def test_the_screen_asks_the_grades_question():
     # at exit 0 (M-189 stands), but a schema whose placement two line ends
     # cannot meet answers REFUSED with that reason; one they can place is
     # judged exactly as before.
+    # REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660: the screen
+    # tests the positions each type uses, not last words only): ~~a schema
+    # whose placement two line ends cannot meet answers REFUSED~~ — it is
+    # judged at the first positions its own placement rules can meet, and
+    # the answer names them, so it is never read as a line-end verdict.
     rc, out, err = run("screen", "cellar", "seller",
                        "--relation=schema:anaphora")
-    check("a pair-bindable schema whose placement two line ends cannot meet "
-          "answers REFUSED per pair, naming the placement, at exit 0 — never "
-          "SATISFIES for a pair the grade charges",
-          rc == 0 and "schema:anaphora REFUSED" in out
-          and "cannot be met by two line ends" in out
-          and "SATISFIES schema:anaphora" not in out, f"rc {rc}")
+    check("a schema whose placement two line ends cannot meet is judged at "
+          "the positions it uses (line heads for anaphora), named, at exit "
+          "0 — never an unqualified line-end SATISFIES",
+          rc == 0 and "schema:anaphora at head/head" in out
+          and "SATISFIES schema:anaphora |" not in out
+          and "SATISFIES schema:anaphora\n" not in out, out[-600:])
+    rc, out, err = run("screen", "cellar", "cellar",
+                       "--relation=schema:anaphora")
+    check("...and identical heads SATISFY it there",
+          rc == 0 and "SATISFIES schema:anaphora at head/head" in out,
+          out[-400:])
     rc, out, err = run("screen", "hair", "chair",
                        "--relation=schema:perfect rhyme")
     check("...while a schema two line ends CAN place is still judged at the "
