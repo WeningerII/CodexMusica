@@ -87,9 +87,23 @@ class HarnessProduction(unittest.TestCase):
             brief.assert_not_called()
 
     def test_global_relation_feasibility(self):
-        for relation in ("schema:semirhyme", "schema:internal rhyme", "schema:anaphora"):
-            with self.subTest(relation=relation), self.assertRaises(plan.PlanRefused):
-                plan.make_plan(1, lines=24, relation=relation)
+        # 2026-10-27 (owner-approved plan, D3): the declared type places its
+        # own members, so these three plan now — semirhyme's groups are cut
+        # to pairs, internal rhyme binds a word inside a line, anaphora the
+        # first words — where every group was once bound at its line ends
+        # and all three refused.
+        wants = {"schema:semirhyme": lambda g: len(g) == 2,
+                 "schema:internal rhyme": lambda g: any("." in m for m in g),
+                 "schema:anaphora": lambda g: all(m.endswith(".head") for m in g)}
+        for relation, shaped in wants.items():
+            with self.subTest(relation=relation):
+                p = plan.make_plan(1, lines=24, relation=relation)
+                groups = [g.split(",") for g in p["groups"].split(";")]
+                self.assertTrue(groups and all(shaped(g) for g in groups))
+                self.assertEqual(set(p["relations"].values()), {relation})
+        # A type the grader can never pass is refused, naming why.
+        with self.assertRaisesRegex(plan.PlanRefused, "marks it forbidden"):
+            plan.make_plan(1, lines=24, relation="schema:homoioteleuton")
         p = plan.make_plan(0, lines=24)
         p.update(relations={}, relation="schema:semirhyme", groups="1,2,3")
         self.assertIn("GROUP_CONTRADICTS_ITSELF", {r[0] for r in plan.joint_findings(p)})

@@ -4975,6 +4975,114 @@ def test_satisfied_wants_remain_in_the_request():
           make_plan(**conditioned["request"]) == conditioned)
 
 
+def test_the_type_draw():
+    """Owner-approved plan, 2026-10-27: D1 (each group draws one type, equal
+    odds over the eligible set), D3 (the type places its words), D5 (the
+    writer sees a rule from the type's fields, no names), D7 (no form or
+    length pressure)."""
+    print("\n27. THE TYPE DRAW — each group's type first, placed by its "
+          "fields, shown as a rule")
+    import inspect as _insp
+    from quality import relations as _R
+    ok, refused = PLN.type_eligibility()
+    disowned = sorted(n for n, s in _R.REGISTRY.items()
+                      if s.normative in PLN.DISOWNED_NORMATIVE)
+    check("the disowned types are exactly the four the owner named, selected "
+          "by the registry's `normative` field, and none is eligible",
+          disowned == sorted(["homoioteleuton", "trite rhyme",
+                              "cynghanedd sain drosgl",
+                              "fourth lift must not alliterate"])
+          and not set(disowned) & set(ok), disowned)
+    src = "".join(_insp.getsource(f) for f in (
+        PLN.type_eligibility, PLN.fit_type, PLN._assign_types, PLN._carve,
+        PLN._line_reach, PLN._domain_cap, PLN.type_rule))
+    check("eligibility, odds, placement and the rule read no name, alias, "
+          "tradition or note",
+          not any(t in src for t in (".aka", ".traditions", ".note",
+                                     "REGISTRY[\"", "REGISTRY['")))
+    check("every refused type carries a reason, and eligible + refused is "
+          "the whole registry",
+          set(ok) | set(refused) == set(_R.REGISTRY)
+          and all(refused.values()), len(ok))
+    # The capability table is the grade stream's own answer.
+    from quality.phonology import get as _get
+    secs = ["verse", "verse", "chorus", "chorus"]
+    st = _R.build_stream(["cold rain came down", "the night was long",
+                          "we walked the road", "the light was gone"],
+                         _get("eng"), sections=secs,
+                         stanzas=_R.stanzas_from_sections(secs),
+                         stanza_source="declared_sections",
+                         declaration={"language": "eng"})
+    caps = {c for s in _R.REGISTRY.values() for c in s.capabilities()}
+    check("GRADE_STREAM_CAPABILITIES equals what the grade stream provides",
+          {c for c in caps if st.provides(c)}
+          == set(PLN.GRADE_STREAM_CAPABILITIES["eng"]),
+          sorted(c for c in caps if st.provides(c)))
+    names = [n for n in _R.REGISTRY] + [a for s in _R.REGISTRY.values()
+                                        for a in s.aka]
+    banned = ("rhyme", "e.g.", "such as", "for example", "for instance",
+              "etc.", "and the rest", "end (default)", "heard as")
+    leaks, unlabeled, unplaced = [], [], []
+    for seed in range(1, 31):
+        p = make_plan(seed)
+        brief = p["writer_brief"].lower()
+        leaks += [(seed, w) for w in banned if w in brief]
+        leaks += [(seed, n) for n in names if len(n) > 4 and n.lower() in brief]
+        groups = p["groups"].split(";")
+        if len(p["relations"]) != len(groups) or not all(
+                v.split(":", 1)[1] in ok for v in p["relations"].values()):
+            unlabeled.append(seed)
+        for gi, g in enumerate(groups):
+            sch = _R.REGISTRY[p["relations"][PLN.SC.label((gi,))][7:]]
+            loci = {sch.spans[0].locus, sch.spans[-1].locus}
+            for m in g.split(","):
+                place = m.partition(".")[2]
+                if place == "head" and "line_initial_token" not in loci \
+                        and "any_token" not in loci:
+                    unplaced.append((seed, m))
+                if place.startswith("T") and "any_token" not in loci:
+                    unplaced.append((seed, m))
+    check("the brief names no type, alias or example marker and never says "
+          "'rhyme' for the basic types", not leaks, leaks[:5])
+    check("every group carries one eligible type, handed to the grader as "
+          "schema:<name> in plan['relations']", not unlabeled, unlabeled)
+    check("each member's place is one its type's spans allow", not unplaced,
+          unplaced[:5])
+    try:
+        make_plan(1, lines=16, relation="schema:trite rhyme")
+        check("a disowned type is refused when requested, naming why", False)
+    except PlanRefused as e:
+        check("a disowned type is refused when requested, naming why",
+              "deprecated" in str(e), str(e)[:100])
+    try:
+        make_plan(1, lines=16, relation="schema:alliteration")
+        check("a type the grader can never pass is refused, naming why",
+              False)
+    except PlanRefused as e:
+        check("a type the grader can never pass is refused, naming why",
+              "inside one line" in str(e), str(e)[:100])
+    p = make_plan(3, lines=16, relations={"A": "schema:perfect rhyme"})
+    check("an explicit per-group choice is kept", p["relations"]["A"]
+          == "schema:perfect rhyme", p["relations"].get("A"))
+    # D7: the default form requires nothing; the length is drawn once.
+    check("the default form is open and requires no section function",
+          PLN.DEFAULT_FORM == "open" and not PLN.FORM_REQUIRES.get("open")
+          and not PLN.FORM_RECURS.get("open")
+          and make_plan(5)["request"]["form"] == "open")
+    first = []
+    for seed in range(1, 41):
+        p = make_plan(seed)
+        if "seed_redraw" in p["choices"]:
+            continue
+        want = random.Random(seed).choice(sorted(PLN.fillable_line_counts()))
+        first.append(p["total_lines"] == want)
+    check("the delivered length is the first length drawn: a rejected shape "
+          "redraws the shape, never the total", first and all(first),
+          f"{sum(first)} of {len(first)}")
+    check("planner output carries no 'plan fewer lines' advice",
+          "fewer lines" not in _insp.getsource(PLN))
+
+
 _SECTIONS = (
     test_satisfied_wants_remain_in_the_request,
     test_a_request_refusal_is_the_requests,
@@ -5001,6 +5109,7 @@ _SECTIONS = (
     test_the_legend_states_the_whole_schema,
     test_the_published_vocabulary_names_no_ticket,
     test_the_seed_redraw,
+    test_the_type_draw,
 )
 
 if __name__ == "__main__":

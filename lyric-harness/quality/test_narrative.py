@@ -317,17 +317,25 @@ def test_measured_seeds():
     # return exactly to their 2026-09-05 counts above. Measured 1..100:
     # sixteen zeros. Every historical exemplar keeps its current count and
     # every measured current zero is pinned; no moved class is discarded.
-    ZEROS = (2, 6, 13, 38, 41, 42, 52, 59, 60, 67, 69, 73, 75, 81, 89, 95)
-    pins = {1:13602816, 4:94679040000, 6:0, 7:26818560, 9:6367248,
-            15:394496, 19:7344, 23:4625856, 24:102336, 25:170560,
-            27:8273920, 28:23762003558400, 30:97202617712640, 31:63232,
-            34:226391040, 39:798031872, 77:24440832, 89:0,
+    # REPINNED 2026-10-27 (owner-approved plan, D7): the planner draws the
+    # song's length ONCE and redraws only the shape, so a seed whose first
+    # total used to be rejected now keeps it and re-deals its roster. The
+    # pins are asked under `form="verse-chorus"` (the default form is now
+    # `open`, which requires no function). Measured over seeds 1-100:
+    # ~~sixteen zeros (2, 6, 13, 38, 41, 42, 52, 59, 60, 67, 69, 73, 75,
+    # 81, 89, 95)~~ -> thirteen; ~~6: 0, 7: 26818560, 9: 6367248, 19: 7344,
+    # 27: 8273920, 30: 97202617712640, 34: 226391040, 39: 798031872~~.
+    ZEROS = (38, 41, 42, 52, 56, 58, 59, 60, 67, 73, 81, 86, 89)
+    pins = {1:13602816, 4:94679040000, 6:24938496, 7:173260800,
+            9:10849383088128, 15:394496, 19:417600, 23:4625856, 24:102336,
+            25:170560, 27:6240, 28:23762003558400, 30:391680000, 31:63232,
+            34:499008090931200, 39:15206400, 77:24440832, 89:0,
             **{seed: 0 for seed in ZEROS}}
     got = {}
     for seed, want in sorted(pins.items()):
-        fns = [s["function"] for s in P.make_plan(seed)["sections"]]
+        fns = [s["function"] for s in P.make_plan(seed, form="verse-chorus")["sections"]]
         got[seed] = N.count_lineups(fns)
-    check("all eighteen historical seeds and all sixteen current zero "
+    check("all eighteen historical seeds and all thirteen current zero "
           "exemplars re-derive exactly under the plan envelope",
           got == pins and set(historical_pins_2026_09_05) <= set(pins), got)
     # A SEED THE JOINT GATE REFUSES FOR `NO_FREE_WORD` ALONE HAS NO PLAN
@@ -340,7 +348,7 @@ def test_measured_seeds():
     for seed in range(1, 101):
         try:
             fns = [section["function"]
-                   for section in P.make_plan(seed)["sections"]]
+                   for section in P.make_plan(seed, form="verse-chorus")["sections"]]
         except P.PlanRefused as exc:
             if set(re.findall(r"^  L\d+ (\w+): ", str(exc), re.M)) \
                     != {"NO_FREE_WORD"}:
@@ -352,11 +360,11 @@ def test_measured_seeds():
     # 55 refuses here~~ — since option (b) (2026-10-22) a draw the joint gate
     # refuses is redrawn, so NO seed refuses and the denominator is all 100
     # again; any refusal fails this check.
-    check("the complete current 100-seed denominator has exactly sixteen "
-          "zero shapes, four of them among the first forty, over all 100 "
+    check("the complete current 100-seed denominator has exactly thirteen "
+          "zero shapes, one of them among the first forty, over all 100 "
           "plans with no seed refused",
           {seed for seed, count in sweep.items() if count == 0} == set(ZEROS)
-          and sum(sweep[seed] > 0 for seed in range(1,41)) == 36
+          and sum(sweep[seed] > 0 for seed in range(1,41)) == 39
           and refused == [],
           f"{len(sweep)} plans of 100 seeds; refused NO_FREE_WORD: "
           f"{refused or 'none'}")
@@ -365,7 +373,7 @@ def test_measured_seeds():
     #: described: an opening refusal collapses at prefix length 1, and
     #: the two RESOLVE-clause zeros do not — at DIFFERENT depths.
     def collapse_at(seed):
-        fns = [s["function"] for s in P.make_plan(seed)["sections"]]
+        fns = [s["function"] for s in P.make_plan(seed, form="verse-chorus")["sections"]]
         return next((k for k in range(1, len(fns) + 1)
                      if N.count_lineups(fns[:k]) == 0), None)
     #: REPINNED 2026-09-05 (`MISSING.md` M-239), AND THE CHECK IS
@@ -381,10 +389,13 @@ def test_measured_seeds():
     #: wordless section, whose length-1 prefix counts 0 for a reason that
     #: is not a refusal (the premise repair in the header).
     at = {seed: collapse_at(seed) for seed in ZEROS}
+    # REPINNED 2026-10-27 (D7's single length draw): no seed in 1-100
+    # collapses at the fourth section now (~~69: 4, 95: 4~~); that depth is
+    # covered by the declared shapes below.
     check("actual current zeros distinguish opening refusals from refusals "
-          "at the second, third and fourth sections",
-          at == {2: 1, 6: 2, 13: 2, 38: 1, 41: 2, 42: 3, 52: 3, 59: 1,
-                 60: 1, 67: 1, 69: 4, 73: 1, 75: 1, 81: 1, 89: 1, 95: 4},
+          "at the second and third sections",
+          at == {38: 1, 41: 2, 42: 3, 52: 3, 56: 1, 58: 1, 59: 1, 60: 1,
+                 67: 1, 73: 1, 81: 1, 86: 1, 89: 1},
           at)
     # The old seeded depth 3/4/5 exemplars no longer belong to the zero class.
     # Keep the actual semantic clauses covered at each missing depth with
@@ -403,7 +414,7 @@ def test_the_wired_draw():
           "(M-121), entropy last, declared-silences-drawn")
     import random
     from quality import plan as P
-    pl = P.make_plan(31)
+    pl = P.make_plan(31, form="verse-chorus")
     # REPINNED 2026-08-25 under M-122 and again under M-123: each gate
     # widening changes some group's ACCEPTED pool, and a moved pool
     # moves that group's randrange and every draw downstream, so these
@@ -494,12 +505,15 @@ def test_the_wired_draw():
     #: (was A head rhyme, D pararhyme, F/J bare) and the choice record says
     #: why. Measured: lines 12, 79 groups, 0 labels; the narrative draw
     #: (34112 line-ups, 7 atoms, 6 junctions) held.
-    check("seed 31 draws NO relation: no group carries a label and the "
-          "choice record says every group is judged against every relation",
-          pl["relations"] == {}
+    #: REPINNED 2026-10-27 (owner-approved plan, D1): THE PLANNER DRAWS ONE
+    #: TYPE PER GROUP again, equal odds over the eligible set, so every
+    #: group of seed 31 carries a label and the choice record says how it
+    #: was drawn.
+    check("seed 31 draws one type per group: every group carries a label "
+          "and the choice record says each was drawn with equal odds",
+          len(pl["relations"]) == len(pl["groups"].split(";"))
           and pl["choices"]["relations"]["chosen_from"].startswith(
-              "NOT DRAWN — every group is judged against the whole "
-              "vocabulary"),
+              "one type per group, equal odds"),
           {"relations": pl["relations"],
            "chosen_from": pl["choices"]["relations"]["chosen_from"][:60]})
     #: REPINNED A SIXTH TIME 2026-08-30 (`MISSING.md` M-174), and this move
@@ -527,11 +541,15 @@ def test_the_wired_draw():
     #: ~~'1,3,4,6;2,7;12,13,14,15;17,18'~~ -> '1,2,4,5;3,7;13,14;17,18',
     #: 29 -> 23 characters; lines, labels and the narrative draw do not
     #: move (the roster is drawn before the meter).
-    check("seed 31 draws 18 lines again, with a 23-character groups "
-          "spelling (end rhyme only) and 0 labels; the capped 12/79/0 draw "
-          "is recorded above",
+    #: REPINNED 2026-10-27 (D1, D3): each group's type places its members,
+    #: so the spelling carries in-line places again: 23 -> 29 characters
+    #: ('2,4;1,5;3,7;13,14;17.T3,18.T4') and 0 -> 5 labels; the lines and the
+    #: narrative draw do not move (the types draw on a stream of their own).
+    check("seed 31 draws 18 lines, with a 29-character groups spelling "
+          "placed by type and 5 labels; the capped 12/79/0 draw is recorded "
+          "above",
           pl["total_lines"] == 18
-          and len(pl["groups"]) == 23 and len(pl["relations"]) == 0,
+          and len(pl["groups"]) == 29 and len(pl["relations"]) == 5,
           f"lines {pl['total_lines']}, groups {len(pl['groups'])}, labels {len(pl['relations'])}")
     nar = pl["narrative"]
     #: REPINNED 2026-09-05 (M-239) WITH THE LENGTH: seed 31's roster is
@@ -548,7 +566,7 @@ def test_the_wired_draw():
           N.validate_lineup([sec["function"] for sec in pl["sections"]],
                             nar["atoms"], nar["junctions"]) == [])
     check("the draw is deterministic with the seed",
-          P.make_plan(31)["narrative"] == nar)
+          P.make_plan(31, form="verse-chorus")["narrative"] == nar)
     check("the brief carries the story plan in writer's words, nothing "
           "about the harness",
           "Story plan" in pl["writer_brief"]
@@ -573,7 +591,7 @@ def test_the_wired_draw():
     # ~~seed 20~~ -> seed 89 (2026-09-28): the current sweep's sung
     # false-ending opening refusal (roster opens false_ending, prechorus,
     # chorus; collapse depth 1).
-    pzero = P.make_plan(89)
+    pzero = P.make_plan(89, form="verse-chorus")
     check("a zero-shape seed DISCLOSES and still ships: mode none, "
           "lineups 0, the brief says nothing is asked of the meaning "
           "axis, and the sound plan is intact",
@@ -581,19 +599,19 @@ def test_the_wired_draw():
           and pzero["narrative"]["lineups"] == 0
           and "NO STORY PLAN" in pzero["writer_brief"] and pzero["groups"])
     lu = {"atoms": nar["atoms"], "junctions": nar["junctions"]}
-    pd = P.make_plan(31, narrative=lu)
+    pd = P.make_plan(31, form="verse-chorus", narrative=lu)
     check("a DECLARED line-up is carried, never resampled",
           pd["narrative"]["mode"] == "declared"
           and pd["narrative"]["atoms"] == nar["atoms"])
     try:
         bad = {"atoms": [[a[0], a[1], "TURN"] for a in nar["atoms"]],
                "junctions": nar["junctions"]}
-        P.make_plan(31, narrative=bad)
+        P.make_plan(31, form="verse-chorus", narrative=bad)
         check("an illegal declared line-up refuses", False, "accepted")
     except P.PlanRefused:
         check("an illegal declared line-up REFUSES at plan time, while "
               "the writer is still holding the declaration", True)
-    poff = P.make_plan(31, narrative="off")
+    poff = P.make_plan(31, form="verse-chorus", narrative="off")
     check("narrative='off' silences the layer and moves nothing else",
           poff["narrative"]["mode"] == "off"
           and poff["relations"] == pl["relations"]
@@ -674,11 +692,16 @@ def test_the_wired_draw():
     # ~~19..21 around seed 20~~ -> 1..3 around seed 2 (2026-09-28): the
     # current sweep's bridge-first opening refusal (roster opens bridge,
     # interlude, build; collapse depth 1) between two positive shapes.
-    res = P.sweep(range(1, 4),
-                  wants=[P.parse_sweep_want("story_lineups>=1")])
-    check("the seed filter actually accepts 1 and 3 and rejects 2, the current "
-          "bridge-first opening refusal; both positive and negative arms execute",
-          res["accepted"] == [1, 3], res["accepted"])
+    # ~~1..3 around seed 2~~ -> 37..39 around seed 38 (2026-10-27, D7's
+    # single length draw re-dealt seed 2): seed 38 opens on false_ending, a
+    # sung opener whose every face is illegal at the opening (RESOLVE).
+    res = P.sweep(range(37, 40),
+                  wants=[P.parse_sweep_want("story_lineups>=1")],
+                  form="verse-chorus")
+    check("the seed filter actually accepts 37 and 39 and rejects 38, the "
+          "current false_ending-first opening refusal; both positive and "
+          "negative arms execute",
+          res["accepted"] == [37, 39], res["accepted"])
 
 
 

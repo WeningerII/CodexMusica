@@ -227,7 +227,13 @@ REDRAW_BOUND = 64
 #: The declared forms. ONE for now, plus a named refusal — `ghazal` is listed
 #: so the refusal can say "declared but blocked" instead of "unknown", which
 #: are different answers (doctrine 28).
-PLAN_FORMS = ("verse-chorus",)
+PLAN_FORMS = ("open", "verse-chorus")
+
+#: THE FORM A REQUEST GETS WHEN IT NAMES NONE (owner-approved plan, D7,
+#: 2026-10-27): `open` requires no section function and no return. A
+#: verse-chorus shape, and the chorus coming back, are planned only when the
+#: request asks for `verse-chorus`.
+DEFAULT_FORM = "open"
 BLOCKED_FORMS = {
     "ghazal": ("a ghazal's radif is a LICENSED repeat "
                "(ReviseDeclaration.repeat_licence='refrain'), and no CLI "
@@ -319,7 +325,7 @@ def form_min_sections(form):
     return sum(need.values())
 
 
-def fillable_line_counts(form="verse-chorus"):
+def fillable_line_counts(form=DEFAULT_FORM):
     """-> `song_line_counts()` restricted to the totals whose stanza-sized
     cell ceiling (`total // stanza_line_floor()`, the bound `make_plan`
     hands the pattern draw) can hold `form_min_sections(form)` sections.
@@ -329,8 +335,10 @@ def fillable_line_counts(form="verse-chorus"):
     envelope is a range the planner can actually fill."""
     stanza = stanza_line_floor()
     need = form_min_sections(form)
+    # Two lines at least: every plan carries one group, and a group is two
+    # lines (the `any(ks[f] >= 2)` acceptance in `_make_plan_candidate`).
     return frozenset(t for t in song_line_counts()
-                     if max(1, t // stanza) >= need)
+                     if t >= 2 and max(1, t // stanza) >= need)
 
 #: MEASURED, DECLARED, AND DELIBERATELY NOT ENFORCED (doctrine 16/22: an
 #: uncalibrated cut is a rate before it is a rule). Each row is a rate over
@@ -1199,6 +1207,9 @@ def _abs_groups(code, first_line):
 def _place_group(group, rng, max_token, used):
     """-> the group's members, each bound at the END of its line.
 
+    NOT CALLED SINCE 2026-10-27 (owner-approved plan, D3): a group's places
+    come from its drawn type (`fit_type`). Kept for the history below.
+
     END RHYME ONLY (2026-10-04, the owner's ruling, reversing 2026-08-23's
     below). A 104-line plan drawn under the old rule tied up to seven words of
     a line to words of other lines — 67 groups, 1,668 mandated pairs — and one
@@ -1246,6 +1257,631 @@ def _PLACE_POOL(max_token):
     length admits. Cached because it is a pure function of one integer."""
     return tuple(_SL.PLANNABLE_PLACEMENTS) + tuple(
         f"T{n}" for n in range(1, max_token + 1))
+
+
+# ------------------------------------------- per-group type draw (D1, D3, D5)
+#
+# THE PLAN PICKS EACH GROUP'S TYPE FIRST (owner-approved plan, 2026-10-27,
+# D1): every group the scheme draws gets ONE registry type, drawn with equal
+# odds from the types this song can use, and the type's own registry fields
+# then decide where its words go (D3). The writer is shown the type as a rule
+# generated from those same fields, with variables and no names (D5); the
+# grader receives the type through the mandate's per-group `relations`, spelled
+# `schema:<registry name>`.
+#
+# ELIGIBILITY READS FORMAL FIELDS ONLY. A type's `name`, `aka`, `traditions`
+# and `note` are never read to decide whether it is drawn or how often. The
+# four types the system disowns (homoioteleuton, trite rhyme, cynghanedd sain
+# drosgl, fourth lift must not alliterate) are exactly the registry rows whose
+# `normative` field is `forbidden` or `deprecated`; they leave the eligible set
+# through that field, never through their names, and test_plan pins that the
+# field selects those four and only those.
+
+#: The `normative` values that disown a type: never drawn, and refused when
+#: requested.
+DISOWNED_NORMATIVE = ("forbidden", "deprecated")
+
+#: THE CAPABILITIES THE GRADE STREAM OF A PLANNED SONG PROVIDES, per language.
+#: `Reviser.grade` builds one stream per draft (`build_stream` with the
+#: blueprint's sections as stanzas, `declaration={"language": "eng"}`); these
+#: are the capabilities that stream reports `provides` for. A declared table
+#: and not a probe at import, because building the stream loads the lexicon;
+#: test_plan builds the grade stream and holds this table equal to it.
+#: NOT `refrain_tail`: `Reviser.grade` marks it from the UNION of every
+#: mandated group's lines (`mark_refrain_tail`, at least 60% of them sharing
+#: one tail), so one group's own repeated ending is not provided in a plan
+#: with other groups, and a type reading it would be refused at grade.
+GRADE_STREAM_CAPABILITIES = {
+    "eng": frozenset({"lexicon", "morphology", "prominence",
+                      "quotient:manner", "quotient:trite", "stanza"}),
+}
+
+_LANGUAGE_NAMES = {"eng": "English"}
+
+#: Placement kinds the planner realises by choosing WHICH LINES a group binds.
+_LINE_KINDS = frozenset({"different_lines", "adjacent_lines",
+                         "line_gap_at_most", "across_line_break"})
+#: Kinds realised by choosing WHERE IN ITS LINE each member binds; asked
+#: through `relations.placement_bindable`, never respelled.
+_IN_LINE_KINDS = frozenset(_RL.POSITION_PLACEMENT_KINDS) - {"same_token"}
+#: Kinds the bound words themselves meet; the rule states them.
+_WORD_KINDS = frozenset({"both_multiword", "word_count_differs"})
+PLANNABLE_PLACEMENT_KINDS = _LINE_KINDS | _IN_LINE_KINDS | _WORD_KINDS
+
+#: Why a placement kind the planner cannot realise keeps a type out.
+_UNPLANNABLE_KIND_REASON = {
+    "same_line": ("its members sit inside one line, and the grader judges a "
+                  "group between lines"),
+    "same_token": ("its members are two halves of one word, and the grader "
+                   "judges a group between lines"),
+    "adjacent_stanzas": ("its members sit in adjacent sections, and the "
+                         "planner draws each group inside one section"),
+    "a_is_split_token": ("its first member is a word split across the line "
+                         "break, which the grading stream has no reading for"),
+}
+
+#: The loci a declared token can stand in for (`relations._TOKEN_LOCI`).
+_TOKEN_LOCI = ("line_final_token", "line_initial_token", "any_token")
+
+
+def _schema_of(name):
+    """'schema:X' or 'X' -> (registry name, schema) or (None, None)."""
+    bare = str(name or "").split(":", 1)[1] if str(name or "").startswith(
+        "schema:") else str(name or "")
+    sch = _RL.REGISTRY.get(bare)
+    return (bare, sch) if sch is not None else (None, None)
+
+
+def _domain_cap(sch):
+    """-> (largest group this type's Differ claims allow, reason) — a
+    pairwise Differ on a channel with d values is a clique needing d distinct
+    values (`relations.CHANNEL_DOMAINS`); a present/absent rule is binary."""
+    cap, why = None, ""
+    for c in sch.channels or ():
+        if not c.required:
+            continue
+        kind = type(c.predicate).__name__
+        dom = None
+        if kind == "PresentVsAbsent":
+            dom = 2
+        elif kind == "Differ" and c.channel in _RL.CHANNEL_DOMAINS:
+            dom = len(_RL.CHANNEL_DOMAINS[c.channel])
+        if dom is not None and (cap is None or dom < cap):
+            cap = dom
+            why = (f"its rule asks every two members to differ on "
+                   f"{_CHANNEL_WORDS.get(c.channel, c.channel)}, which has "
+                   f"{dom} values")
+    if _RL.overhang_member(sch) is not None and (cap is None or cap > 2):
+        cap = 2
+        why = ("its rule asks the later member of every pair to run on past "
+               "the earlier one, which three members cannot all do")
+    return cap, why
+
+
+@lru_cache(maxsize=None)
+def _bindable_at(name, pos_a, pos_b):
+    """`relations.placement_bindable` for one registry type at two in-line
+    positions, cached: it builds a probe stream per call, and the answer is a
+    pure function of the type and the two positions."""
+    return _RL.placement_bindable(_RL.REGISTRY[name], (pos_a, pos_b))
+
+
+def _member_options(locus, max_token):
+    """-> the in-line places a member of this locus may take."""
+    if locus == "line_final_token":
+        return ["end"]
+    if locus == "line_initial_token":
+        return ["head"]
+    return ["end", "head"] + [f"T{n}" for n in range(2, max_token + 1)]
+
+
+def _position(place):
+    return ("end" if place == "end" else "head" if place == "head"
+            else "internal")
+
+
+def fit_type(sch, lines, rng, max_token, section_lines=None, tries=48,
+             head_cap=None):
+    """-> (members, None) when the type can bind this group, else
+    (None, reason). `lines` are the group's line numbers in text order,
+    `section_lines` every line of the section the group sits in.
+
+    THE TYPE'S PLACEMENT DECIDES (D3). Line facts first — adjacency, gap,
+    a figure quantified over a whole section, how many members its Differ
+    claims and overhang allow — then where in each line: a member whose locus
+    is a token takes a place its locus allows, and every pair is asked
+    through `relations.placement_bindable`; a member whose locus is not a
+    token (a searched run, a syllable index, a whole line) is the bare line
+    number, judged by the grader at the type's own loci. Only the drawn
+    type's positions are bound."""
+    k = len(lines)
+    if k < 2:
+        return None, "a group needs two members"
+    for p in sch.placement or ():
+        if not p.polarity:
+            continue
+        if p.kind in ("adjacent_lines", "across_line_break") and (
+                k != 2 or lines[1] - lines[0] != 1):
+            return None, "its members are two lines, the second directly after the first"
+        if p.kind == "line_gap_at_most" and lines[-1] - lines[0] > p.args[0]:
+            return None, f"its members lie at most {p.args[0]} line(s) apart"
+    cap, why = _domain_cap(sch)
+    if cap is not None and k > cap:
+        return None, why
+    if (head_cap is not None and _RL.identity_forced(sch)
+            and all(r.locus == "line_initial_token"
+                    for r in (sch.spans[0], sch.spans[-1]))
+            and k > head_cap):
+        return None, (f"its identity rule starts every member line with the "
+                      f"same word, and the floor allows {head_cap} such "
+                      f"line(s) in a song this long")
+    loci = (sch.spans[0].locus, sch.spans[-1].locus)
+    if not all(lc in _TOKEN_LOCI for lc in loci):
+        if _RL.identity_forced(sch):
+            return None, ("its identity rule makes the members the same word at "
+                          "the line end, which the floor charges as a repeat")
+        return [str(ln) for ln in lines], None
+    opts = [_member_options(loci[0], max_token)] + [
+        _member_options(loci[-1], max_token)] * (k - 1)
+    last = "no in-line places satisfy its placement"
+    for _ in range(tries):
+        places = [rng.choice(o) for o in opts]
+        if (_RL.identity_forced(sch)
+                and sum(1 for p in places if p == "end") >= 2):
+            last = ("its identity rule makes the members the same word at the "
+                    "line end, which the floor charges as a repeat")
+            if all(o == ["end"] for o in opts):
+                break
+            continue
+        if any(p != "end" for p in places) and not _RL.pair_bindable(sch):
+            last = "the grader cannot judge it at a declared word"
+            break
+        if all(_bindable_at(sch.name, _position(places[i]),
+                            _position(places[j]))
+               for i in range(k) for j in range(i + 1, k)):
+            return [str(ln) if pl == "end" else f"{ln}.{pl}"
+                    for ln, pl in zip(lines, places)], None
+        if all(len(o) == 1 for o in opts):
+            break
+    return None, last
+
+
+@lru_cache(maxsize=None)
+def type_eligibility(language="eng"):
+    """-> (eligible names, {refused name: reason}) for a song in `language`.
+
+    D1: a registry type is eligible when (1) the registry does not disown it
+    (`normative`), (2) every capability it needs (`capabilities()`, read from
+    `channels`, `spans`, `placement`, `identity`, `figure` and `requires`) is
+    provided by the grade stream of a song in this language, (3) its figure
+    is a pair, (4) every placement kind it declares is one the planner can
+    realise, and (5) `fit_type` can bind it on two consecutive lines of a
+    two-line section. No name, alias, tradition or note is read."""
+    have = GRADE_STREAM_CAPABILITIES.get(language)
+    ok, refused = [], {}
+    for name in sorted(_RL.REGISTRY):
+        sch = _RL.REGISTRY[name]
+        if sch.normative in DISOWNED_NORMATIVE:
+            refused[name] = (f"the registry marks it {sch.normative}; a "
+                             f"disowned type is never planned")
+            continue
+        if have is None:
+            refused[name] = (f"no grade stream is declared for language "
+                             f"{language!r}")
+            continue
+        missing = [c for c in sch.capabilities() if c not in have]
+        if missing:
+            refused[name] = (f"it needs {', '.join(missing)}, which the "
+                             f"grading stream of a song in "
+                             f"{_LANGUAGE_NAMES.get(language, language)} "
+                             f"does not provide")
+            continue
+        fig = sch.figure
+        if fig.template is not None or fig.nodes != 2:
+            refused[name] = (f"its figure joins {fig.nodes} members through "
+                             f"{len(fig.edges)} separate relation(s), and a "
+                             f"group is judged pair by pair under one rule")
+            continue
+        pair = _RL.declared_pair_schema(sch).figure
+        if not _RL.pair_scope_representable(_RL.declared_pair_schema(sch)):
+            refused[name] = (f"its rule is quantified '{pair.quantifier}' over "
+                             f"a whole {pair.frame}, and the grader judges a "
+                             f"group pair by pair")
+            continue
+        bad = [p.kind for p in sch.placement or ()
+               if p.kind not in PLANNABLE_PLACEMENT_KINDS]
+        if bad:
+            refused[name] = _UNPLANNABLE_KIND_REASON.get(
+                bad[0], f"its placement {bad[0]} is not one the planner can "
+                        f"place")
+            continue
+        members, why = fit_type(sch, [1, 2], random.Random(0), 4,
+                                section_lines=[1, 2], tries=256)
+        if members is None:
+            refused[name] = why
+            continue
+        ok.append(name)
+    return tuple(ok), refused
+
+
+def eligible_types(language="eng"):
+    """-> the registry names a group of a `language` song may be drawn."""
+    return type_eligibility(language)[0]
+
+
+def refuse_ineligible(name, language="eng"):
+    """Raise `PlanRefused` naming why a requested registry type cannot be
+    planned (D1, item 4); a non-registry relation (a coarse class) passes."""
+    bare, sch = _schema_of(name)
+    if sch is None:
+        return
+    why = type_eligibility(language)[1].get(bare)
+    if why:
+        raise PlanRefused(f"the requested type {bare!r} cannot be planned for "
+                          f"a song in {_LANGUAGE_NAMES.get(language, language)}"
+                          f": {why}. The grader could never "
+                          f"pass a group bound to it, so it is refused rather "
+                          f"than accepted.")
+
+
+def _line_reach(sch, head_cap=None):
+    """-> (most members, widest line gap, consecutive?) the type's own fields
+    allow a group: its Differ/overhang cap and head-repeat cap, its gap
+    placement, and whether its members must be two consecutive lines."""
+    cap, _ = _domain_cap(sch)
+    if (head_cap is not None and _RL.identity_forced(sch)
+            and all(r.locus == "line_initial_token"
+                    for r in (sch.spans[0], sch.spans[-1]))):
+        cap = head_cap if cap is None else min(cap, head_cap)
+    gap, consecutive = None, False
+    for p in sch.placement or ():
+        if not p.polarity:
+            continue
+        if p.kind in ("adjacent_lines", "across_line_break"):
+            consecutive, gap, cap = True, 1, 2
+        elif p.kind == "line_gap_at_most":
+            gap = p.args[0] if gap is None else min(gap, p.args[0])
+    return cap, gap, consecutive
+
+
+def _carve(sch, block, free, trng, max_token, head_cap):
+    """-> (members, lines used) for the largest group of this type the block
+    can hold, else a pair of consecutive unbound lines of the section, else
+    (None, reason). THE TYPE SHAPES ITS GROUP (D2's skew fix, 2026-10-27):
+    a type whose own fields cap its group (two members, consecutive lines, a
+    gap) takes the part of the drawn block it can bind, and the rest of the
+    block draws its own type; it is rejected only when no part of the section
+    can carry it."""
+    block = sorted(block)
+    members, why = fit_type(sch, block, trng, max_token, head_cap=head_cap)
+    if members is not None:
+        return members, block
+    cap, gap, consecutive = _line_reach(sch, head_cap)
+    for source in (block, sorted(set(block) | set(free))):
+        starts = list(range(len(source)))
+        trng.shuffle(starts)
+        for i in starts:
+            take = [x for x in source[i:]
+                    if gap is None or x - source[i] <= gap]
+            if cap is not None:
+                take = take[:cap]
+            if consecutive and (len(take) < 2 or take[1] - take[0] != 1):
+                continue
+            if len(take) < 2:
+                continue
+            got, w = fit_type(sch, take, trng, max_token, head_cap=head_cap)
+            if got is not None:
+                return got, take
+            why = w
+    return None, why
+
+
+def _assign_types(section_blocks, trng, max_token, declared=None,
+                  language="eng", per_group=None, head_cap=None):
+    """-> (groups as member lists, {label: 'schema:name'}, records, unplaced).
+
+    `section_blocks` is one (section lines, drawn blocks) per sung section.
+    D1: each block without an explicit choice draws one type, equal odds over
+    the eligible set, and the type's placements are tried. A type the block
+    cannot carry whole takes the part of the section's unbound lines it can
+    bind (`_carve`), and the rest of the block draws again.
+
+    D2'S SKEW FIX (2026-10-27). A type some fields confine — two consecutive
+    lines, a short gap, two members — fits fewer drawn blocks, so redrawing
+    on rejection alone delivered those types at a third of the others'
+    rate (measured over 1,000 plans). So a type no part of the section can
+    carry is REJECTED for that block, counted, and CARRIED: every later block
+    tries the carried types, oldest first, before it draws a fresh one, so a
+    draw is delivered later rather than discarded. A type still carried when
+    the song runs out of blocks is returned as `unplaced` and counted.
+
+    An explicit choice (`declared` for the whole song, `per_group` by label,
+    in group order) is kept, never redrawn: a group it cannot bind refuses
+    the candidate (`JointRefused`, redrawn by seed)."""
+    pool = list(eligible_types(language))
+    per_group = dict(per_group or {})
+    groups, rels, records = [], {}, []
+    carried = []
+    for sec_lines, blocks in section_blocks:
+        queue = [list(b) for b in blocks]
+        used = {ln for b in queue for ln in b}
+        free = [ln for ln in sec_lines if ln not in used]
+        while queue:
+            block = queue.pop(0)
+            label = SC.label((len(groups),))
+            want = per_group.get(label) or declared
+            explicit = bool(want) and str(want).strip().lower() not in (
+                "draw", "any", "")
+            proposed, rejected, took = [], [], None
+            if explicit:
+                bare, sch = _schema_of(want)
+                if sch is None:
+                    # A coarse class (`RHYME`, `ASSONANCE`, ...): carried as
+                    # declared, bound at the line ends it is judged at.
+                    groups.append([str(ln) for ln in block])
+                    rels[label] = want
+                    records.append({"group": label, "lines": list(block),
+                                    "type": want, "chosen_from": "declared",
+                                    "proposed": [], "rejected": []})
+                    continue
+                unbound = sorted(set(free).union(*queue))
+                members, took = _carve(sch, block, unbound, trng, max_token,
+                                       head_cap)
+                if members is None:
+                    raise JointRefused(
+                        f"the declared type {bare!r} cannot bind group "
+                        f"{label} (lines {block}): {took}",
+                        codes=("TYPE_DOES_NOT_FIT",),
+                        findings=[{"code": "TYPE_DOES_NOT_FIT",
+                                   "line": block[0], "detail": took}])
+                name, chosen_from = bare, "declared"
+                proposed = [bare]
+            else:
+                name = None
+                unbound = sorted(set(free).union(*queue))
+                for cand in list(carried):
+                    members, took = _carve(_RL.REGISTRY[cand], block, unbound,
+                                           trng, max_token, head_cap)
+                    if members is not None:
+                        carried.remove(cand)
+                        name, chosen_from = cand, ("carried from an earlier "
+                                                   "group's equal-odds draw")
+                        break
+                left = list(pool)
+                while name is None and left:
+                    cand = left.pop(trng.randrange(len(left)))
+                    proposed.append(cand)
+                    members, took = _carve(_RL.REGISTRY[cand], block, unbound,
+                                           trng, max_token, head_cap)
+                    if members is None:
+                        rejected.append({"type": cand, "reason": took})
+                        carried.append(cand)
+                        continue
+                    name = cand
+                    chosen_from = f"equal odds over {len(pool)} eligible types"
+                if name is None:
+                    raise JointRefused(
+                        f"no eligible type can bind group {label} (lines "
+                        f"{block})", codes=("TYPE_DOES_NOT_FIT",),
+                        findings=[{"code": "TYPE_DOES_NOT_FIT",
+                                   "line": block[0],
+                                   "detail": "every eligible type was "
+                                             "rejected"}])
+            # The lines the type took leave every pool; what is left of the
+            # drawn block draws again, and a lone line is unbound.
+            taken = set(took)
+            free = [ln for ln in free if ln not in taken]
+            rest = [ln for ln in block if ln not in taken]
+            kept = []
+            for b in queue:
+                b2 = [ln for ln in b if ln not in taken]
+                if len(b2) >= 2:
+                    kept.append(b2)
+                else:
+                    free.extend(b2)
+            queue = kept
+            if len(rest) >= 2:
+                queue.insert(0, rest)
+            else:
+                free.extend(rest)
+            free.sort()
+            groups.append(members)
+            rels[label] = f"schema:{name}"
+            records.append({"group": label, "lines": sorted(taken),
+                            "drawn_block": list(block), "type": name,
+                            "chosen_from": chosen_from,
+                            "proposed": proposed, "rejected": rejected})
+    return groups, rels, records, carried
+
+
+# ------------------------------------------------ the rule a writer is shown
+#
+# D5. Each group's line in the brief states only a rule GENERATED from its
+# type's formal fields (`spans`, `align`, `channels`, `unmatched`,
+# `placement`, `identity`, `figure`, `requires`), written with variables:
+# P is the bound span on line N, Q the bound span on line M. No type name,
+# alias or example word is printed.
+
+_CHANNEL_WORDS = {
+    "onset": "consonant sound(s) before the vowel",
+    "nucleus": "vowel sound",
+    "coda": "consonant sound(s) after the vowel",
+    "prominence": "stress",
+    "moras": "vowel length",
+    "consonants": "consonant sounds in order",
+    "phones": "sounds in order",
+    "token": "words",
+    "grapheme": "spelling",
+}
+
+#: The capabilities a type `requires`, in a writer's words.
+_REQUIRES_WORDS = {
+    "refrain_tail": ("the repeated run of end words is read off the group's "
+                     "own lines"),
+    "stanza": "sections count as stanzas",
+}
+
+_SCOPE_WORDS = {
+    "each": "at every lined-up syllable",
+    "anchor": "at the stressed syllable",
+    "post_anchor": "after the stressed syllable",
+    "first": "at the first syllable",
+    "last": "at the last syllable",
+    "sequence": "taken as one sequence",
+    "cluster": "taken as the whole cluster after the vowel",
+    "class_skeleton": "taken as a sequence of consonant classes",
+    "unmatched_a": "in P's extra material",
+    "unmatched_b": "in Q's extra material",
+}
+
+_CLASS_WORDS = {
+    "manner": ("the same manner of articulation (stop, affricate, fricative, "
+               "nasal, liquid, glide)"),
+}
+
+
+def _span_words(rule, var):
+    locus, anchor, mag = rule.locus, rule.anchor, rule.magnitude
+    if locus == "free_run":
+        lo, hi = mag if isinstance(mag, tuple) else (mag, mag)
+        return f"{var} is a run of {lo} to {hi} consecutive syllables"
+    if locus == "line_head_index":
+        return f"{var} is syllable {mag} counted from the start of its line"
+    if locus == "line":
+        return f"{var} is the whole line, every syllable in order"
+    if locus == "line_refrain_tail":
+        return (f"{var} is the run of words that ends its line and ends the "
+                f"group's other lines too")
+    if locus == "line_final_before_refrain":
+        return (f"{var} is the last word before the run of words that ends "
+                f"every line of the group")
+    where = {"line_final_token": "the last word of its line",
+             "line_initial_token": "the first word of its line",
+             "any_token": "the word at its stated position"}.get(locus, locus)
+    read = {("last_stressed", "to_word_end"):
+                "from its last stressed syllable to the end of the word",
+            ("word_start", "to_word_end"): "whole",
+            ("word_start", "whole"): "whole",
+            ("word_end", "whole"): "whole",
+            ("word_start", 1): "at its first syllable",
+            ("word_end", 1): "at its last syllable",
+            ("final_unstressed", 1): "at its final unstressed syllable",
+            ("penult", 1): "at its second-to-last syllable",
+            ("word_start", "to_frame_edge"):
+                "from its first syllable to the end of the line",
+            }.get((anchor, mag), f"from {anchor} over {mag}")
+    return f"{var} is {where}, read {read}"
+
+
+def _channel_clause(c):
+    what = _CHANNEL_WORDS.get(c.channel, c.channel)
+    where = _SCOPE_WORDS.get(c.scope, c.scope)
+    pred = c.predicate
+    kind = type(pred).__name__
+    if kind in ("Agree", "SequenceEqual"):
+        s = f"P and Q have the same {what} {where}"
+    elif kind == "Differ":
+        s = f"P and Q have different {what} {where}"
+    elif kind == "PrefixAgree":
+        s = (f"the {what} {where} of the shorter of P and Q is the start of "
+             f"the longer one's")
+    elif kind == "ClassEqual":
+        cls = _CLASS_WORDS.get(getattr(pred, "resource", ""),
+                               f"the same class ({getattr(pred, 'label', '')})")
+        s = f"the {what} of P and Q {where} belong to {cls}"
+    elif kind == "PresentVsAbsent":
+        on = "Q" if getattr(pred, "on", 1) == 1 else "P"
+        off = "P" if on == "Q" else "Q"
+        s = f"the {what} {where} is present in {on} and absent in {off}"
+    elif kind == "SequenceSuffix":
+        s = f"the {what} of one of P and Q {where} end the other's"
+    elif kind == "SubsequenceOf":
+        s = f"the {what} of P {where} occur, in order, within Q's"
+    else:
+        s = (f"the {what} of P and Q {where} are judged by "
+             f"{getattr(pred, 'name', kind)}")
+    if c.surface != "phonemic":
+        s += f" (as {c.surface})"
+    if not c.required:
+        s += " (reported, not required)"
+    return s
+
+
+_ALIGN_WORDS = {
+    "anchor": "P and Q are lined up at their stressed syllables",
+    "flush_left": "P and Q are lined up from their first syllables",
+    "flush_right": "P and Q are lined up from their last syllables",
+    "none": "P and Q are compared whole, without lining up syllables",
+}
+
+_PLACE_WORDS = {
+    ("both_line_final", True): "P and Q each end their line",
+    ("both_line_final", False): "P and Q do not both end their lines",
+    ("a_line_final", True): "P ends its line",
+    ("both_line_initial", True): "P and Q each begin their line",
+    ("neither_line_final", True): "neither P nor Q ends its line",
+    ("exactly_one_line_final", True): "exactly one of P and Q ends its line",
+    ("different_lines", True): "N and M are different lines",
+    ("adjacent_lines", True): "line M directly follows line N",
+    ("across_line_break", True): ("P ends line N and Q begins line M, the "
+                                  "line directly after it"),
+    ("both_multiword", True): "P and Q each span more than one word",
+    ("word_count_differs", True): "P and Q span different numbers of words",
+}
+
+_IDENTITY_WORDS = {
+    ("token", "Differ"): "P and Q are different words",
+    ("token", "Agree"): "P and Q are the same word",
+    ("morpheme_root", "Agree"): "P and Q share a root",
+    ("morpheme_root", "Differ"): "P and Q have different roots",
+    ("morpheme_affix", "Agree"): "P and Q share an ending (affix)",
+    ("morpheme_affix", "Differ"): "P and Q have different endings (affixes)",
+    ("lexeme_sequence", "Differ"): "lines N and M are made of different words",
+    ("lexeme", "Differ"): "P and Q are different words",
+    ("sense", "Differ"): "P and Q carry different meanings",
+}
+
+
+def type_rule(sch):
+    """-> the clauses of one type's rule, generated from its formal fields.
+    Variables: N and M are two lines of the group (N first), P the bound
+    span on line N, Q the bound span on line M."""
+    out = [_span_words(sch.spans[0], "P"), _span_words(sch.spans[-1], "Q"),
+           _ALIGN_WORDS.get(sch.align, f"P and Q are aligned by {sch.align}")]
+    out += [_channel_clause(c) for c in sch.channels or ()]
+    out += [{"forbid": "neither P nor Q runs on past the lined-up part",
+             "require_a": ("P runs on with one or more syllables past the "
+                           "lined-up part, and Q does not"),
+             "require_b": ("Q runs on with one or more syllables past the "
+                           "lined-up part, and P does not")}[sch.unmatched]
+            ] if sch.unmatched != "exclude" else []
+    for p in sch.placement or ():
+        if p.kind == "line_gap_at_most":
+            out.append(f"line M comes at most {p.args[0]} line(s) after line N")
+            continue
+        out.append(_PLACE_WORDS.get((p.kind, bool(p.polarity)),
+                                    f"{'not ' if not p.polarity else ''}{p.kind}"))
+    for i in sch.identity or ():
+        out.append(_IDENTITY_WORDS.get((i.level, type(i.predicate).__name__),
+                                       f"{i.level} {type(i.predicate).__name__}"))
+    fig = sch.figure
+    if fig.canonical_quantifier() == "forall":
+        out.append("this holds for every two lines of the group"
+                   + (", and the group is a whole section"
+                      if fig.frame == "stanza" else ""))
+    for r in sch.requires or ():
+        out.append(_REQUIRES_WORDS.get(r, f"it is judged with {r}"))
+    return out
+
+
+def _member_words(member, token=True):
+    ln, _, place = str(member).partition(".")
+    if not place:
+        return (f"line {ln} at its last word" if token
+                else f"line {ln}")
+    if place == "head":
+        return f"line {ln} at its first word"
+    return f"line {ln} at word {place[1:]}"
 
 
 # -------------------------------- joint satisfiability (M-79 / M-80)
@@ -1506,7 +2142,10 @@ def bound_placements(plan):
 
 
 def end_rhyme_groups(plan):
-    """-> ([[line, ...]], disclosure) — END-bound groups realising each sung
+    """NOT CALLED BY THE PLANNER SINCE 2026-10-27 (D3: only the drawn type's
+    positions are bound, with no extra obligations); kept as a reading.
+
+    -> ([[line, ...]], disclosure) — END-bound groups realising each sung
     section's OWN declared scheme at the line ends, wherever the end is free.
 
     THE OWNER'S ASK, 2026-08-24: *"would it not be possible to take what we
@@ -1816,7 +2455,13 @@ def joint_findings(plan):
         # naming the slot IS the override), so the question is asked here
         # only of the all-default case — the exact complement of the
         # `pair_bindable` condition one screen up.
+        # A type whose spans are not token-shaped (a searched run, a whole
+        # line, a syllable index) is judged at its own loci, where a bare
+        # line number names the line and not its last word (D3).
         if not all(_SL.is_default_spelling(_m4) for _m4 in _mem):
+            pass
+        elif not all(_r.locus in _TOKEN_LOCI
+                     for _r in (_s.spans[0], _s.spans[-1])):
             pass
         elif not _RL.placement_bindable(_s, ("end", "end")):
             _pl = ", ".join(
@@ -2613,8 +3258,9 @@ def _want_candidates(seed, kw):
             yield candidate_seed, exc
 
 
-def make_plan(seed, form="verse-chorus", lines=None, relation=None,
-              functions=None, title=None, narrative=None, wants=(), melody=None):
+def make_plan(seed, form=None, lines=None, relation=None,
+              functions=None, title=None, narrative=None, wants=(), melody=None,
+              relations=None):
     """Plan under explicit brief predicates; never supply aesthetic defaults.
 
     The existing closed sweep vocabulary is also accepted at the generation
@@ -2628,8 +3274,10 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         wants = [p for p in wants.split(";") if p.strip()]
     parsed = [parse_sweep_want(w) if isinstance(w, str) else
               parse_sweep_want("".join(w)) for w in wants]
+    form = form or DEFAULT_FORM
     kw = dict(form=form, lines=lines, relation=relation, functions=functions,
-              title=title, narrative=narrative, _wants=parsed, melody=melody)
+              title=title, narrative=narrative, _wants=parsed, melody=melody,
+              relations=relations)
     if not parsed:
         if melody is not None:
             return _make_plan_candidate(seed, **kw)
@@ -2645,7 +3293,8 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
     try:
         base = make_plan(seed, form=form, lines=lines, relation=relation,
                          functions=functions, title=title,
-                         narrative=narrative, melody=melody)
+                         narrative=narrative, melody=melody,
+                         relations=relations)
     except SeedRefused:
         base = None
     if base is not None and all(sweep_holds(base, w) for w in parsed):
@@ -2766,19 +3415,22 @@ def _redraw_past_joint_gate(seed, kw):
         f"be built — try another seed; outcomes={refused}")
 
 
-def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
-                         functions=None, title=None, narrative=None, _wants=(), melody=None):
+def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
+                         functions=None, title=None, narrative=None, _wants=(), melody=None,
+                         relations=None):
     """A request -> the plan dict. Refuses rather than guessing.
 
     `relation`, `functions` and `title` are THE WRITER'S DECLARATION
     (`MISSING.md` M-55) and none of them is sampled. ~~The planner does
     not pick a relation: doing so would put `type:pararhyme` on a group
     nobody asked for, which is the "move 37" ban pointed at rhyme instead
-    of at shape.~~ The planner picks no relation: a group the writer
-    declared nothing for is judged against EVERY relation (every coarse
-    relation and every registry schema), and a writer's declaration is
-    CARRIED into the plan artifact, so the one command that grades the
-    draft names the relation the writer chose.
+    of at shape.~~ ~~The planner picks no relation: a group the writer
+    declared nothing for is judged against EVERY relation~~ — superseded
+    2026-10-27 (owner-approved plan, D1): each group the writer declared
+    nothing for DRAWS one type, equal odds over `eligible_types()`, and a
+    declaration (`relation` for the song, `relations` by group label) is
+    carried unchanged, so the one command that grades the draft names each
+    group's type.
 
     THREE LAYERS, AND ONLY THE MIDDLE ONE IS HERE (design doc §2):
     the VOCABULARY says a prechorus requires a chorus and that is
@@ -2831,29 +3483,15 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
         except _SC.NoMandate as e:
             raise PlanRefused(f"--relation={relation!r} is not declarable: "
                               f"{e}")
-        # A SCHEMA NO PLANNED GROUP CAN CARRY refuses the request here. Every
-        # group binds each member at its line end (`_place_group`, 2026-10-04)
-        # and has two members or more, so the binding draw's end/end
-        # placement and identity checks answer the same for every seed; left
-        # to that draw, they read as a seed refusal ("cannot bind group A")
-        # on every seed of a sweep.
-        if relation.startswith("schema:"):
-            from quality import relations as _RL
-            _sch = _RL.REGISTRY.get(relation.split(":", 1)[1])
-            if _sch is not None and (
-                    not _RL.placement_bindable(_sch, ("end", "end"))
-                    or _RL.identity_forced(_sch)):
-                raise PlanRefused(
-                    f"--relation={relation!r} cannot bind two line ends, and "
-                    f"every group this planner draws is bound at its line "
-                    f"ends: "
-                    + ("its identity rule makes both lines end on the same "
-                       "word, which floor.REPEAT_IN_VERSE flags whatever "
-                       "words are chosen (M-175)"
-                       if _RL.identity_forced(_sch) else
-                       "its placement rule needs a member that is not "
-                       "line-final")
-                    + ". Declare a relation that holds between line ends.")
+        # A TYPE THE GRADER COULD NEVER PASS refuses the request here, saying
+        # why (owner-approved plan, item 4): the reason is read off the type's
+        # formal fields by `type_eligibility`, the same predicate the draw
+        # uses, so a requested type and a drawn one answer one question.
+        refuse_ineligible(relation)
+    for _lab, _want in sorted((relations or {}).items()):
+        if str(_want).strip().lower() in ("draw", "any", ""):
+            continue
+        refuse_ineligible(_want)
 
     # THE DECLARED ROSTER. A song may ask for the functions it wants, and the
     # request is CHECKED against the vocabulary's own definitional
@@ -2961,6 +3599,14 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
     if _max_sections < 1 or _max_group < 2:
         raise PlanRefused("declared section/group bounds cannot carry the required song mandate")
     k_lo, k_hi = ENVELOPE["lines_per_section"]
+    # THE LENGTH IS DRAWN ONCE (owner-approved plan, D7, 2026-10-27). Until
+    # now every rejected shape redrew the TOTAL as well, and a long total is
+    # rejected more often than a short one (fewer of its patterns and
+    # partitions survive), so the delivered length was the uniform draw
+    # conditioned on acceptance: first draws averaged about 229 lines and
+    # delivered plans about 199. The total is now kept and only the shape is
+    # redrawn, so the delivered length is the uniform draw itself.
+    total = lines if lines is not None else rng.choice(sorted(_GRADEABLE))
     for _attempt in range(500):
         # THE LENGTH FIRST. It is the coordinate that decides what the floor
         # can grade, so it is drawn from the gradeable set before anything
@@ -2987,7 +3633,6 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
         # away. `lines=None` is byte-identical — it consumes the stream
         # exactly as before. A logged plan reproduces at its `harness_commit`,
         # which `song_log.py`'s HEADER stamps on every step.
-        total = lines if lines is not None else rng.choice(sorted(_GRADEABLE))
         # THE CELL CEILING IS WHAT THIS SONG CAN AFFORD AT THE CALIBRATED
         # STANZA SIZE, not what it can afford at one line each (M-106).
         # `total` alone is a SOUND bound — a song of T lines cannot hold more
@@ -3264,6 +3909,7 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
     counts = {}
     first_seen = {}
     groups, returns = [], []
+    _section_blocks = []
     for fn in funcs:
         counts[fn] = counts.get(fn, 0) + 1
         name = f"{fn.upper()}{counts[fn]}"
@@ -3294,8 +3940,11 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
         else:
             if fn in VERBATIM_RETURNERS:
                 first_seen[fn] = first
-            for _g in _abs_groups(by_func[fn], first):
-                groups.append(_place_group(_g, rng, _max_token, used))
+            # Lines only: the TYPE decides the places (D3), and may take part
+            # of a drawn block, in `_assign_types` below.
+            _section_blocks.append((list(range(first, first + k)),
+                                    [list(_g) for _g in
+                                     _abs_groups(by_func[fn], first)]))
             # OVERLAPPING GROUPS, DRAWN AND NOT ONLY DECLARABLE (2026-08-23).
             #
             # Doctrine 2's own sentence is that maximal cliques MAY OVERLAP —
@@ -3405,10 +4054,29 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
         name = spool[0] if len(spool) == 1 else rng.choice(spool)
         struct_meta[fn] = {"name": name, "chosen_from": list(spool)}
 
+    # EACH GROUP'S TYPE, THEN ITS PLACES (D1, D3). A stream of its own, seeded
+    # from the plan's seed, so the shape above is the same whichever types a
+    # writer declares for which groups; drawn after the shape, and before the
+    # narrative and the denominator, which keep the main stream.
+    # The floor's cap on lines opening with one word, at this song's length:
+    # the same reading the declared-relation gate made before 2026-10-27.
+    _aprof = next(p for p in _FL.PROFILES
+                  if p.n_lines == 0 and not p.superseded_by)
+    _tlo, _thi = tokens_per_line_band()
+    _atok = min(max(max(1, int(round(total * (_tlo + _thi) / 2))),
+                    _aprof.lo), _aprof.hi)
+    _head_cap = max(1, int(_FL.FloorDeclaration().resolve(
+        "anaphora_max", _aprof, _atok) * total + 1e-9))
+    groups, _type_rels, _type_records, _unplaced = _assign_types(
+        _section_blocks, random.Random(f"{seed}/types"), _max_token,
+        declared=relation, per_group=relations,
+        head_cap=_head_cap)
+
     plan = {
         "plan_version": 3,
         "request": {"form": form, "lines": lines, "seed": seed,
-                    "relation": relation, "functions": functions, "title": title,
+                    "relation": relation, "relations": dict(relations or {}),
+                    "functions": functions, "title": title,
                     "narrative": narrative, "wants": ["".join(w) for w in _wants]},
         "envelope": {k: (list(v) if isinstance(v, tuple) else v)
                      for k, v in ENVELOPE.items()},
@@ -3458,26 +4126,13 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
                                      f"it: the weighted proposal "
                                      f"conditioned on acceptance, not "
                                      f"exactly per doubling"},
-            # WHERE EACH REQUIREMENT BINDS, and the MEASURE it was drawn
-            # under — disclosed because it is the coordinate that stopped
-            # this generator being end-rhyme-only, and because the measure
-            # is a ruling the owner has not made yet.
-            #
-            # UNIFORM OVER THE POOL means `end` is one placement among the
-            # ones this harness can grade rather than the axis everything
-            # else is measured against. The consequence is stated rather
-            # than buried: a two-member group is all-ends with probability
-            # 1/|pool|^2, so a plain end-rhyme plan becomes RARE. That is
-            # the correction taken literally; whether a song's placements
-            # should instead be drawn with end as a first-class outcome is a
-            # taste question, and the pool and its measure are printed here
-            # so the answer can be given to a coordinate rather than to a
-            # rewrite.
-            "placements": {"pool": ["end"],
-                           "words": [str(placement_word("end"))],
-                           "measure": "every member is bound at the end of "
-                                      "its line (owner's ruling 2026-10-04: "
-                                      "rhymes tie only line ends)"},
+            # WHERE EACH GROUP BINDS: decided by its type's registry
+            # placement (D3), never drawn apart from the type.
+            "placements": {"pool": "by type",
+                           "measure": "each group's members are placed where "
+                                      "its type's spans and placement rules "
+                                      "put them; only that type's positions "
+                                      "are bound"},
             "schemes": scheme_meta,
             "structures": struct_meta,
             "anacrusis": {fn: {"value": v, "chosen_from": ana_choices}
@@ -3515,342 +4170,23 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
         "returns": ";".join(f"{a},{b}" for a, b in returns),
         "subdivision": sub,
     }
-    # THE END-RHYME PASS (`MISSING.md` M-107, the owner's ask). A SECOND
-    # realisation of each sung section's own already-drawn scheme, written at
-    # the line ENDS wherever the end is free — additive, seedless, and
-    # touching no coordinate the placement draw produced. It runs HERE, on
-    # the finished dict and before the joint gate, for the two reasons that
-    # gate itself runs where it does: it is then a pure function of what the
-    # plan says rather than of what the loop had in scope, and whatever it
-    # adds is put through the SAME refusal everything else passed.
-    _end_add, _end_say = end_rhyme_groups(plan)
-    if _end_add:
-        groups = list(groups) + _end_add
-        plan["groups"] = ";".join(",".join(str(x) for x in g)
-                                  for g in groups)
-    plan["choices"]["end_rhyme"] = dict(
-        _end_say,
-        chosen_from="NOT A DRAW — each sung section's own `schemes[fn].rgs` "
-                    "re-realised at the line ends, so this consumes no seed "
-                    "entropy and the placement draw above is untouched. "
-                    "Three counts, never summed (doctrine 79): `added` "
-                    "groups emitted; `blocked` blocks whose ends the "
-                    "placement draw had already spent; `narrow` blocks whose "
-                    "lines cannot carry one more DISTINCT word.")
-
-    # NO RELATION IS DRAWN. A group with no declared relation is judged
-    # against EVERY relation the vocabulary has — every coarse relation and
-    # every registry schema — so the plan picks none of them for it. Only a
-    # schema the writer DECLARED is carried, and it is checked here for
-    # feasibility on every group at once (M-118/M-122/M-123/M-125/M-149a/
-    # M-174/M-175/M-206): placement, gap, overhang order and budget, forced
-    # identity at line ends, and the claim ledger over the schema's own
-    # channel rules (Agree edges union per (channel, coordinate) key, Differ
-    # edges are disequalities, a binary domain is a parity union-find).
-    # Every Differ a registry schema carries is part of its definition, so
-    # the ledger never charges an overlap between relations as a
-    # contradiction. No randomness is consumed.
-    declared_relations = {}
-    if relation and relation.startswith("schema:"):
-        _traits = _RL.planning_traits((relation.split(":", 1)[1],))
-        _grp_lines = [sorted({int(str(m).split(".")[0])
-                              for m in g.split(",")})
-                      for g in ";".join(
-                          ",".join(str(x) for x in g) for g in groups
-                      ).split(";")]
-        # M-119 widened the claim ledger to two stores; M-122 REBUILT IT
-        # AS A GRAPH, found designing the first paired-experiment song:
-        # `adjacent_lines` is a gap constraint spelled as a placement
-        # KIND (interlaced rhyme drew onto non-adjacent groups on 117
-        # pairs over sixty seeds), and EQUALITY IS TRANSITIVE where a
-        # per-pair ledger is not — rime riche equated an anchor coda,
-        # semirhyme equated it one pair over, and assonance demanded the
-        # chain's two ends differ (32 such contradictions over the same
-        # sixty seeds; 53 of 60 seeds carried one shape or the other).
-        # Claims now ride (channel, syllable-coordinate) keys from
-        # `planning_traits`; Agree edges union per key, Differ edges are
-        # checked against the closure, and everything that is neither
-        # keeps the old exact-match rule per pair.
-        # M-123, found the hour the M-122 gate first emitted seed 32's
-        # demand sheet: a DIFFER CLAIM IS A DISEQUALITY CLIQUE AND A
-        # CLIQUE NEEDS ONE VALUE PER MEMBER, so a channel's finite value
-        # domain caps the group — light rhyme's `prominence Differ`
-        # rides a channel the eng phonology constructs BINARY, capping
-        # its groups at TWO, and the draw had put it on a group of
-        # seven (74 impossible cliques over seeds 1-60, 40 of 60 seeds;
-        # the production judge confirmed the pigeonhole on a declared
-        # 3-member group before the repair was designed). The cap reads
-        # `relations.CHANNEL_DOMAINS` (adopted, measured over the full
-        # lexicon), and for a BINARY domain the closure is a PARITY
-        # union-find — Agree is a parity-0 edge, Differ a parity-1
-        # edge, and a cycle that forces both refuses the candidate —
-        # which also catches cross-group odd cycles no clique cap sees.
-        # A channel absent from the table stays a plain disequality
-        # edge, so the gate can only miss a cap, never invent one.
-        # M-125(b): THE FLOOR'S OWN CEILING BOUNDS THE DRAW. An anaphora
-        # group forces every one of its lines to OPEN with one word — the
-        # schema judges line-initial tokens, whatever the slots say — and
-        # groups sharing a line UNION into one forced-opener class, so the
-        # draw was able to force 9 of 21 identical openers while the
-        # floor's calibrated ANAPHORA_OVERLOAD (a FLAG at the human 95th
-        # percentile) refuses anything past its `anaphora_max` share: a
-        # demand sheet no writing could pass, found on this seed 32 draft.
-        # The ceiling is READ from the floor's lyric-sheet profile — the
-        # one identified by its own n_lines == 0, never by name (M-106) —
-        # so there is exactly one definition of the threshold, and the
-        # forced-opener classes are the (token, head) Agree components the
-        # claim ledger already carries (M-119's head claims).
-        _aprof = next(p for p in _FL.PROFILES
-                      if p.n_lines == 0 and not p.superseded_by)
-        # A curve profile (M-239) needs a LENGTH IN TOKENS, and a plan has
-        # only lines. The length is derived from the total times a point in
-        # the measured tokens-per-line band (`tokens_per_line_band`, the
-        # same band that turns the profile's token limits into this
-        # envelope). ~~A derivation, disclosed here, not a number chosen.~~
-        # REPINNED 2026-09-05 (M-239), two corrections to that sentence.
-        # (a) THE MIDPOINT IS A CHOICE, not a derivation. The band has two
-        # ends and the cap differs between them: measured, at 40 lines the
-        # cap is 11 at `lo` and 10 at `hi`, at 100 lines 24 and 23, at 447
-        # lines 105 and 107. The midpoint is disclosed as the point chosen,
-        # and it is one point among the band's many.
-        # (b) THE ESTIMATE IS CLAMPED TO THE PROFILE'S REACH. `total * mid`
-        # crosses the `lyric` row's `hi` of 3,245 tokens at total 394 and
-        # reaches 3,688 at 447, and `Profile.threshold` evaluates its
-        # polynomial with no range check — so without the clamp the planner
-        # would take a threshold at a length the floor itself refuses to
-        # grade (`covers(3688)` is False), which is exactly the
-        # extrapolation the floor says the gate never performs. Clamped, the
-        # cap at 447 lines is 105 rather than 106.
-        _tlo, _thi = tokens_per_line_band()
-        _atok = max(1, int(round(total * (_tlo + _thi) / 2)))
-        _atok = min(max(_atok, _aprof.lo), _aprof.hi)
-        _acap = int(_FL.FloorDeclaration().resolve("anaphora_max", _aprof,
-                                                   _atok)
-                    * total + 1e-9)
-        _pairc = {}
-        _eqp = {}
-        _nep = {}
-        _bound = bound_placements(plan)
-        _spans_by_line = {s["line"]: float(s["duration"]) * plan["subdivision"]
-                          for s in plan["line_slots"]}
-        _overhangs = {}
-
-        def _pfind(par, x):
-            p = 0
-            while True:
-                nx, xp = par.get(x, (x, 0))
-                if nx == x:
-                    return x, p
-                x, p = nx, p ^ xp
-
-        for _gi in range(len(groups)):
-            _lines = _grp_lines[_gi]
-            _pairs = [(a, b) for i2, a in enumerate(_lines)
-                      for b in _lines[i2 + 1:]]
-            # M-149(a): A GROUP BINDING DECLARED TOKENS IS JUDGED BY THE
-            # PAIR ROUTE, and that route refuses by name every schema whose
-            # member spans cannot bind ONE token (`free_run` searches
-            # windows, `line_head_index` reads its own magnitude, a
-            # searched anchor carries k hypotheses no mandated pair can
-            # correct for). Seed 28 drew 8 of its 25 groups into exactly
-            # that conjunction — disclosed refusals no writing can close
-            # and no writer asked for. The draw consults the judge's own
-            # predicate (`relations.pair_bindable`, the ONE definition —
-            # doctrine 1), so a shape-refused (draw, placement) pair is
-            # unsampleable BY CONSTRUCTION; the unbindable schemas stay
-            # drawable at DEFAULT slots, where the instances route judges
-            # them at their own loci. A member spelled `<line>.end` IS the
-            # default slot in a different coat and does not restrict.
-            # M-206: `_SL.is_default` IS THE PREDICATE, not a spelling of
-            # it. `<line>.end` is the default slot in a different coat and
-            # `<line>.endword` is NOT — it anchors at `word_start`, so
-            # `grade()` routes it through the PAIR route, which strips
-            # placement. The hand-written `!= "end"` happened to agree here
-            # and the joint gate below spelled the same question a third way
-            # (`in ("end", "endword")`), which disagreed on 7 of 120 seeds:
-            # the draw let a placement-refused schema through and the gate
-            # then refused the plan.
-            _slotted_g = any(not _SL.is_default_spelling(_m2)
-                             for _m2 in groups[_gi])
-            _ok = []
-            for _cand in (relation.split(":", 1)[1],):
-                if _cand not in _traits:
-                    raise PlanRefused(
-                        f"declared relation schema:{_cand} is not in the "
-                        "registry")
-                if _slotted_g and not _RL.pair_bindable(
-                        _RL.REGISTRY[_cand]):
-                    continue
-                # M-206: AND THE OTHER HALF OF THE SAME CONJUNCTION, AT THE
-                # SLOTS THE COMMENT ABOVE HANDS BACK. An all-default group
-                # is judged by the INSTANCES route, which enforces
-                # `schema.placement` — so a schema whose placement rule two
-                # LINE ENDS cannot satisfy is unwritable there at any
-                # length, in any words. `internal rhyme` declares
-                # `both_line_final` with polarity FALSE; `anaphora`, `head
-                # rhyme (positional)` and `interlaced rhyme` demand a
-                # line-initial or a non-final member. Measured over seeds
-                # 1-120 before this filter: 99 of 681 all-default groups
-                # (14.5%) across 63 of 120 seeds (52.5%) carried one, and
-                # the revise loop then ground tier 1 against a line no word
-                # could fix — found by writing seed 3014's song, group H.
-                # The draw consults the judge's own predicate
-                # (`relations.placement_bindable`, the ONE definition the
-                # joint gate below also calls, doctrine 1), so the pair is
-                # unsampleable BY CONSTRUCTION rather than disclosed.
-                if not _slotted_g and not _RL.placement_bindable(
-                        _RL.REGISTRY[_cand], ("end", "end")):
-                    continue
-                # M-174: AND A SCHEME DEMANDING AN OVERHANG ORDERS THE WHOLE
-                # GROUP, so on three members or more it contradicts itself —
-                # the middle member must overhang the one before it and not
-                # overhang the one after, and it is one word. That is true at
-                # every line length, so no writer closes it and no seed should
-                # carry it. Same shape as the filter above and the same one
-                # definition (`relations.group_satisfiable`, which the joint
-                # gate below also calls), so a group this refuses is
-                # unsampleable BY CONSTRUCTION. The schema stays drawable on
-                # PAIRS, where it is exactly the figure it is named for.
-                if not _RL.group_satisfiable(
-                        _RL.REGISTRY[_cand], len(_lines)):
-                    continue
-                # M-174's remaining half: reserve the extra syllable before
-                # drawing the relation. Previously accepted groups spend
-                # the SAME line budget, so checking each pair alone fails.
-                _binding = _overhang_binding(_RL.REGISTRY[_cand], groups[_gi])
-                if _binding is not None:
-                    _ln, _word = _binding
-                    if not _overhang_budget(
-                            _bound.get(_ln, []),
-                            _overhangs.get(_ln, set()) | {_word},
-                            _spans_by_line.get(_ln, 0))[2]:
-                        continue
-                # M-175: AND A SCHEMA WHOSE IDENTITY RULE DEMANDS THE SAME
-                # TOKEN MAY NOT BIND TWO LINE ENDS. `anaphora` is the one
-                # drawable schema that does, and satisfying it at two
-                # end/endword slots means the two lines END ON THE SAME WORD
-                # — which `floor.REPEAT_IN_VERSE` charges as a FLAG, on a
-                # layer that does not read the mandate at all. The writer is
-                # then handed a demand whose only legal answer trips another
-                # gate, which no choice of words can clear (the whole draft
-                # measured: 39 of 39 mandated pairs satisfied, 0 scheme
-                # violations, and that one flag still standing). The figure
-                # itself is not refused — anaphora keeps every non-final
-                # slot, and the same word ending two lines has its own name
-                # in this registry (`epistrophe / radif`), which is the
-                # schema a writer asking for that should draw.
-                if (_RL.identity_forced(_RL.REGISTRY[_cand])
-                        and sum(1 for _m3 in groups[_gi]
-                                if (str(_m3).split(".", 1)[1]
-                                    if "." in str(_m3) else "end")
-                                in ("end", "endword")) >= 2):
-                    continue
-                _t = _traits[_cand]
-                if _t["gap"] is not None and any(
-                        b - a > _t["gap"] for a, b in _pairs):
-                    continue
-                _bad = False
-                for _ch, _co, _pr in _t["claims"]:
-                    if any(_pairc.get((_p, _ch, _co)) not in (None, _pr)
-                           for _p in _pairs):
-                        _bad = True
-                        break
-                    _dom = _RL.CHANNEL_DOMAINS.get(_ch)
-                    if (_pr == "Differ" and _dom is not None
-                            and len(_lines) > len(_dom)):
-                        _bad = True
-                        break
-                if _bad:
-                    continue
-                _by = {}
-                for _ch, _co, _pr in _t["claims"]:
-                    if _pr in ("Agree", "Differ"):
-                        _by.setdefault((_ch, _co), set()).add(_pr)
-                for _key, _prs in sorted(_by.items()):
-                    _par = dict(_eqp.get(_key, ()))
-                    _ne2 = list(_nep.get(_key, ()))
-                    _dom = _RL.CHANNEL_DOMAINS.get(_key[0])
-                    _binary = _dom is not None and len(_dom) == 2
-                    for _w, _on in ((0, "Agree" in _prs),
-                                    (1, "Differ" in _prs and _binary)):
-                        if _bad or not _on:
-                            continue
-                        for _a, _b in _pairs:
-                            _ra, _pa = _pfind(_par, _a)
-                            _rb, _pb = _pfind(_par, _b)
-                            if _ra == _rb:
-                                if _pa ^ _pb != _w:
-                                    _bad = True
-                                    break
-                            else:
-                                _par[_ra] = (_rb, _pa ^ _pb ^ _w)
-                    if _bad:
-                        break
-                    if "Differ" in _prs and not _binary:
-                        _ne2.extend(_pairs)
-                    for _a, _b in _ne2:
-                        _ra, _pa = _pfind(_par, _a)
-                        _rb, _pb = _pfind(_par, _b)
-                        if _ra == _rb and not (_pa ^ _pb):
-                            _bad = True
-                            break
-                    if _bad:
-                        break
-                    if _key == ("token", "head") and "Agree" in _prs:
-                        # M-125(b): forced-opener classes may not outgrow
-                        # the floor's own ANAPHORA_OVERLOAD share. A root
-                        # appears only as a parent VALUE, so the node set
-                        # is keys + parents + this candidate's endpoints.
-                        _nodes = (set(_par)
-                                  | {pp[0] for pp in _par.values()}
-                                  | {x for pp in _pairs for x in pp})
-                        _sz = {}
-                        for _n in _nodes:
-                            _r, _ = _pfind(_par, _n)
-                            _sz[_r] = _sz.get(_r, 0) + 1
-                        if _sz and max(_sz.values()) > _acap:
-                            _bad = True
-                            break
-                if _bad:
-                    continue
-                _ok.append(_cand)
-            if not _ok:
-                raise SeedRefused(
-                    f"declared relation {relation!r} cannot bind group "
-                    f"{SC.label((_gi,))} ({groups[_gi]}) together with this "
-                    "plan's placement, cardinality and channel constraints")
-            _pick = _ok[0]
-            if _pick:
-                _binding = _overhang_binding(_RL.REGISTRY[_pick], groups[_gi])
-                if _binding is not None:
-                    _ln, _word = _binding
-                    _overhangs.setdefault(_ln, set()).add(_word)
-                for _ch, _co, _pr in _traits[_pick]["claims"]:
-                    for _p in _pairs:
-                        _pairc[(_p, _ch, _co)] = _pr
-                    _key = (_ch, _co)
-                    _dom = _RL.CHANNEL_DOMAINS.get(_ch)
-                    _binary = _dom is not None and len(_dom) == 2
-                    if _pr == "Agree" or (_pr == "Differ" and _binary):
-                        _w = 0 if _pr == "Agree" else 1
-                        _par = _eqp.setdefault(_key, {})
-                        for _a, _b in _pairs:
-                            _ra, _pa = _pfind(_par, _a)
-                            _rb, _pb = _pfind(_par, _b)
-                            if _ra != _rb:
-                                _par[_ra] = (_rb, _pa ^ _pb ^ _w)
-                    elif _pr == "Differ":
-                        _nep.setdefault(_key, []).extend(_pairs)
-    plan["relations"] = declared_relations
+    # NO SECOND PASS ADDS END GROUPS (D3, 2026-10-27): `end_rhyme_groups`
+    # re-realised each section's scheme at the line ends, an obligation no
+    # type asked for. Only the drawn type's positions are bound now.
+    #
+    # EACH GROUP CARRIES ITS TYPE (D1), handed to the grader through the
+    # mandate's per-group `relations`, spelled `schema:<registry name>` —
+    # internal plan data; the writer is shown the generated rule (D5).
+    plan["relations"] = dict(_type_rels)
     plan["choices"]["relations"] = {
         "chosen_from": (
-            "NOT DRAWN — the writer declared --relation and a declared "
-            "coordinate is carried, never sampled over (M-55)" if relation
-            else "NOT DRAWN — every group is judged against the whole "
-                 "vocabulary: every coarse relation and every registry "
-                 "schema; a pair satisfies a group when it stands in any "
-                 "of them"),
-        "value": dict(declared_relations)}
+            f"one type per group, equal odds over the "
+            f"{len(eligible_types())} eligible types (`type_eligibility`); "
+            f"a type with no valid placement for its group is rejected and "
+            f"the group redraws; an explicit choice is kept"),
+        "value": dict(_type_rels),
+        "groups": _type_records,
+        "unplaced": list(_unplaced)}
 
     # THE JOINT GATE (`MISSING.md` M-80). Every constraint above is
     # individually legal and their CONJUNCTION is what nothing held. Asked of
@@ -3860,11 +4196,6 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
     # writer reads, and handing one out is the moment the plan stops costing
     # a seed and starts costing a draft.
     #
-    # AND IT IS WHAT GATES THE END PASS TOO. That pass proposes; this
-    # refuses. Its own precondition is arranged to satisfy this by
-    # construction — the same relationship the placement draw has — so a
-    # finding here from an added end group is a defect in the pass and not a
-    # property of the seed.
     joint = joint_findings(plan)
     if joint:
         codes = sorted({c for c, _, _ in joint})
@@ -3950,7 +4281,6 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
             f"other draw but the denominator's, choices.unit)"),
         "value": {k: v for k, v in plan["narrative"].items()
                   if k != "reason"}}
-    plan["choices"]["audible"] = audible_share(plan)
     plan["choices"]["shape_attempts"] = _attempt + 1
     if melody is None:
         from quality.melody import NOTE_DENOMINATORS
@@ -4307,21 +4637,7 @@ def writer_brief(plan):
     if plan.get("melody"):
         from quality.melody import melody_brief
         out.extend(melody_brief(plan["melody"]))
-    if plan["groups"]:
-        rels = plan.get("relations") or {}
-        out.append("Rhyme plan (line numbers over the whole song):")
-        for gi, g in enumerate(plan["groups"].split(";")):
-            name = rels.get(SC.label((gi,))) or plan.get("relation")
-            if name:
-                out.append(f"  lines {g.replace(',', ' & ')} must stand in "
-                           f"{name.split(':', 1)[1]} (the lines may stand "
-                           f"in other relations as well; this one is "
-                           f"required)")
-            else:
-                out.append(f"  lines {g.replace(',', ' & ')} must stand in "
-                           f"at least one relation — any coarse relation "
-                           f"(rhyme, rime riche, assonance, consonance) or "
-                           f"any registry schema")
+    out.extend(group_rules(plan))
     nar = plan.get("narrative") or {}
     if nar.get("mode") in ("drawn", "declared"):
         atom_say = {
@@ -4332,7 +4648,7 @@ def writer_brief(plan):
             "ANCHOR": "is the fixed claim the song keeps returning to",
             "JUDGE": "is a compressed verdict on what has happened",
             "RESOLVE": "cashes the standing pressure",
-            "DEPART": "is the leave-taking — the walk home"}
+            "DEPART": "is the leave-taking"}
         junc_say = {
             "THEREFORE": "because of", "BUT": "against",
             "AND_THEN": "after", "MEANWHILE": "elsewhere during",
@@ -4358,11 +4674,10 @@ def writer_brief(plan):
         out.append(f"Every {fn} after the first repeats the first {fn} "
                    f"word for word, line for line.")
     if plan.get("hook_slot"):
-        out.append(f"Line {plan['hook_slot']} is the hook — make it the "
-                   f"line someone leaves humming.")
+        out.append(f"Line {plan['hook_slot']} is the hook line; it comes "
+                   f"back with its section.")
     elif plan.get("hook_slot_refused"):
         out.append(f"NO HOOK IS DECLARED: {plan['hook_slot_refused']}.")
-    out.extend(brief_legend(plan))
     return "\n".join(out)
 
 
@@ -4483,53 +4798,57 @@ def schema_asks(sch):
     return bits
 
 
+def group_rules(plan):
+    """-> the brief's group lines and the rules they cite (D5).
+
+    Each group is stated as a rule GENERATED from its type's formal fields
+    (`type_rule`), with variables: N and M are two lines of the group, P the
+    bound span on line N, Q the bound span on line M. No type name, alias or
+    example word is printed. Rules are numbered in order of first use; two
+    groups of one type cite one rule."""
+    groups = [g for g in str(plan.get("groups") or "").split(";") if g.strip()]
+    if not groups:
+        return []
+    rels = plan.get("relations") or {}
+    rule_no, rules, lines = {}, [], []
+    lines.append("Sound plan (line numbers over the whole song). Each group "
+                 "must satisfy its rule; N and M are any two lines of the "
+                 "group, N first, P the bound span on line N and Q the bound "
+                 "span on line M:")
+    for gi, g in enumerate(groups):
+        name = rels.get(SC.label((gi,))) or plan.get("relation") or ""
+        bare, sch = _schema_of(name)
+        members = [m.strip() for m in g.split(",") if m.strip()]
+        if sch is None:
+            key = name or "any"
+            if key not in rule_no:
+                rule_no[key] = len(rule_no) + 1
+                rules.append((rule_no[key], [
+                    f"P and Q stand in the declared relation {name}"
+                    if name else "P and Q stand in any one relation the "
+                                 "grader judges"]))
+        else:
+            key = bare
+            if key not in rule_no:
+                rule_no[key] = len(rule_no) + 1
+                rules.append((rule_no[key], type_rule(sch)))
+        token = sch is None or all(r.locus in _TOKEN_LOCI
+                                   for r in (sch.spans[0], sch.spans[-1]))
+        lines.append(f"  group {SC.label((gi,))}: "
+                     + ", ".join(_member_words(m, token) for m in members)
+                     + f" must satisfy rule R{rule_no[key]}")
+    lines.append("Rules:")
+    for n, clauses in rules:
+        lines.append(f"  R{n}: " + "; ".join(clauses) + ".")
+    return lines
+
+
 def brief_legend(plan):
-    """-> the legend the rhyme plan needs to be READ (`MISSING.md` M-192):
-    what each place a group names binds, and what each declared relation
-    asks, one line apiece, derived from the slot vocabulary and the
-    registry rather than typed. The brief used to name `T5`, `headrime`
-    and `Scots vowel-length rhyme (Aitken's Law)` with no gloss anywhere
-    a writer could reach, and the connector returns only this text."""
-    from quality import relations as _RLb
-    out = []
-    places = []
-    for g in (plan.get("groups") or "").split(";"):
-        for m in g.split(","):
-            m = m.strip()
-            if "." in m:
-                pl = m.split(".", 1)[1]
-                if pl not in places:
-                    places.append(pl)
-    if places:
-        out.append("Where a binding sits (a bare line number is its end "
-                   "word, read as a rhyme span):")
-        for pl in places:
-            out.append(f"  {pl}: {place_gloss(pl)}")
-    names = []
-    for name in list((plan.get("relations") or {}).values()) + [plan.get("relation") or ""]:
-        if not name.startswith("schema:"):
-            continue
-        sname = name.split(":", 1)[1]
-        if sname not in names:
-            names.append(sname)
-    if names:
-        out.append("What each named relation asks of the bound words:")
-        for sname in names:
-            sch = _RLb.REGISTRY.get(sname)
-            if sch is None:
-                continue
-            loci = {r.locus for r in (sch.spans[0], sch.spans[-1])}
-            where = ("at the line end" if loci == {"line_final_token"}
-                     else "at the line head" if loci == {"line_initial_token"}
-                     else "inside the line")
-            bits = schema_asks(sch)
-            aka = f" (also: {sch.aka[0]})" if sch.aka else ""
-            out.append(f"  {sname}{aka}: the bound words "
-                       f"{'; '.join(bits) or 'stand in the schema'}, "
-                       f"judged {where}"
-                       + ("" if _RLb.audible_as_end_rhyme(sch)
-                          else " — NOT heard as end rhyme"))
-    return out
+    """-> nothing since 2026-10-27 (D5): the rule each group cites is stated
+    in `group_rules`, generated from its type's fields, so no separate legend
+    names a placement or a type. Kept as a function so callers that extend a
+    brief with it still compose."""
+    return []
 
 
 def grading_command(plan, draft_path="DRAFT.txt", bp_path="BP.json", input_format="literal"):
