@@ -98,23 +98,18 @@ def _pinned():
 #: superseded (policed), 0.758 -> retired, 0.760 in; the gap 0.206 ->
 #: superseded, 0.209 -> retired, 0.207 in. Exp 2 derives 0.967 again (5880 ->
 #: 5878 concordant pairs of 6080, under the printed digit), so its row stays.
+#: EXP 2'S ROW AND THE GAP ROW ARE DELETED 2026-10-27, with the instrument
+#: that measured them: the owner approved deleting the tool that compares
+#: AI-written poems with human ones (`discriminate.py`'s generated arm), so
+#: `test_discriminate.PINNED` no longer holds `abs_exp2` and neither row has
+#: a pin to derive from. The Exp 2 figures RESULTS.md quotes (0.967 and the
+#: 0.207 gap) are now records of a deleted measurement, policed by nothing.
 TRACKED = (
     {"name": "joint held-out AUC, Exp 1 (selection)",
      "derive": lambda p: p["abs_exp1"]["joint_all"],
      "precision": 3, "current_spelling": "0.760",
      "superseded": ("0.761",),
      "retired": ("0.758", "0.723", "0.717", "0.716809", "0.659", "0.709")},
-    {"name": "joint held-out AUC, Exp 2 (rejection)",
-     "derive": lambda p: p["abs_exp2"]["joint_all"],
-     "precision": 3, "current_spelling": "0.967",
-     "superseded": ("0.960",),
-     "retired": ("0.964", "0.975", "0.971")},
-    {"name": "the gap, rejection minus selection",
-     "derive": lambda p: (p["abs_exp2"]["joint_all"]
-                          - p["abs_exp1"]["joint_all"]),
-     "precision": 3, "current_spelling": "0.207",
-     "superseded": ("0.206",),
-     "retired": ("0.209", "0.237", "0.247", "0.262", "0.015", "0.025")},
 )
 
 #: The documents in scope.  Per-document, declared, extendable.

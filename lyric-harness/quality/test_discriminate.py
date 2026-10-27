@@ -14,8 +14,15 @@ fresh checkout it grades nothing.
 
 WHAT IS PINNED
 --------------
-FORTY-FOUR numbers, in three tiers, all from one pass over the same 384
-feature vectors:
+2026-10-27: EXPERIMENT 2 (human against model-generated sonnets) IS DELETED,
+with `discriminate.py`'s generated arm and `quality/audit_joint_auc_null.py`
+(owner-approved deletion of the tool that compares AI-written poems with
+human ones). What is pinned now is Experiment 1 alone: FOUR joint AUCs,
+EIGHTEEN per-feature AUCs and the shapes (15 vs 117, 10 and 8 features, 264
+vectors). The paragraph below is the record of the suite as it stood before.
+
+~~FORTY-FOUR numbers, in three tiers, all from one pass over the same 384
+feature vectors:~~
 
   * the EIGHT joint held-out AUCs -- 2 feature sets x 2 experiments x
     (all features, predictability only). These are the numbers the record is
@@ -29,7 +36,7 @@ feature vectors:
   * the SHAPES -- 15 vs 117, 152 vs 40, 10 and 8 features, 384 vectors.
     Without them a moved AUC cannot be told from a moved corpus, and those
     have completely different remedies. Same reasoning, same counts, as
-    `audit_joint_auc_null.PINNED`.
+    `audit_joint_auc_null.PINNED` (deleted 2026-10-27).
 
 
 COLD vs WARM -- THE THING THIS TEST HAD TO GET RIGHT FIRST
@@ -209,8 +216,7 @@ import math                                                      # noqa: E402
 import re                                                        # noqa: E402
 from contextlib import redirect_stdout                           # noqa: E402
 
-from quality.corpus import (SONNET_SCHEME, labelled_sonnets,     # noqa: E402
-                            load_generated, load_sonnets)
+from quality.corpus import SONNET_SCHEME, labelled_sonnets  # noqa: E402
 from quality.discriminate import (_clean, _ranks,                # noqa: E402
                                   auc_from_ranks, cache_identity,
                                   compute, fingerprint, joint_classifier,
@@ -615,6 +621,13 @@ def close(name, got, want, note=""):
 #: ruling and is untouched; what is fixed is that two nightly-only
 #: instruments were left measuring the comparator they used to be in.
 #:
+#: EXP 2 (`abs_exp2`, `wi_exp2`: Shakespeare against model-generated
+#: sonnets) IS DELETED 2026-10-27 with the generated arm of
+#: `discriminate.py`: the owner approved deleting the tool that compares
+#: AI-written poems with human ones, and `corpus/generated/` with it. The
+#: dated blocks above keep quoting its figures as the record of what was
+#: measured; nothing measures them now. Experiment 1 (human against human)
+#: is pinned exactly as before.
 PINNED = {
     "abs_exp1": {
         "label": "ABSOLUTE (original ten) / Exp 1  survived vs forgotten",
@@ -640,39 +653,6 @@ PINNED = {
             "content_word_freq_mean": 0.5834757834757834,
         },
     },
-    "abs_exp2": {
-        "label": "ABSOLUTE (original ten) / Exp 2  human vs generated",
-        "n_pos": 152, "n_neg": 40, "n_features": 10,
-        "joint_all": 0.9667763157894737, "joint_solo": 0.6453947368421052,
-        "features": {
-            "rhyme_predictability_mean": 0.3412828947368421,
-            "rhyme_predictability_min": 0.3491776315789474,
-            "concreteness_mean": 0.24638157894736842,
-            "concreteness_p90": 0.20748355263157894,
-            "abstract_noun_ratio": 0.8078125,
-            "pos_binding_diversity": 0.5055921052631579,
-            # SAME COORDINATE, and this is the cell the 2026-08-14 window
-            # sweep was run against: `mattr` alone, Exp 2, at each window.
-            #     window   20     25     30     40     50     60     80   100
-            #     AUC     .928   .915   .907   .891   .870   .850   .811  .750
-            # 0.8695723684210527 was the window-50 entry, reproduced to the
-            # last digit by an independent instrument; that sweep was run on
-            # the pre-normalization token stream and has NOT been re-run, so
-            # at the 2026-09-14 tokenizer the window-50 reading is 0.884375
-            # and the other seven columns are unmeasured. The column is
-            # MONOTONE, so this pin sits on a slope: the shipped window costs
-            # ~0.06 AUC against the sweep's best and is kept because an
-            # in-sample argmax over the same 152-vs-40 corpus is not a
-            # calibration (doctrine 19). Any future move must land inside
-            # [1,22] u [40,93] -- outside that a profile's calibration set
-            # straddles `_mattr`'s plain-TTR fallback. Do not tune the window
-            # to move this number; repin it with a date and an argument.
-            "mattr": 0.884375,
-            "function_word_ratio": 0.17105263157894737,
-            "syntactic_inversion_rate": 0.780016447368421,
-            "content_word_freq_mean": 0.8738486842105263,
-        },
-    },
     "wi_exp1": {
         "label": "WITHIN-ITEM (respecified eight) / Exp 1  survived vs "
                  "forgotten",
@@ -689,27 +669,13 @@ PINNED = {
             "wi_conc_spread": 0.4846153846153846,
         },
     },
-    "wi_exp2": {
-        "label": "WITHIN-ITEM (respecified eight) / Exp 2  human vs generated",
-        "n_pos": 152, "n_neg": 40, "n_features": 8,
-        "joint_all": 0.8981907894736842, "joint_solo": 0.6513157894736841,
-        "features": {
-            "wi_predictability_advantage": 0.3412828947368421,
-            "wi_concreteness_delta": 0.4072368421052632,
-            "wi_abstract_delta": 0.4176809210526316,
-            "wi_freq_delta": 0.5493421052631579,
-            "wi_function_delta": 0.6347861842105263,
-            "wi_binding_excess": 0.5835526315789473,
-            "wi_type_ratio": 0.09884868421052631,
-            "wi_conc_spread": 0.3555921052631579,
-        },
-    },
 }
 
-#: Vectors a cold run computes. 152 sonnets + 40 generated, per feature set.
-#: Experiment 1's 15 + 117 are a SUBSET of the 152 and share their cache keys,
-#: which is why this is 384 and not 648.
-PINNED_VECTORS = 384
+#: Vectors a cold run computes: Experiment 1's 15 + 117 sonnets, per feature
+#: set. ~~384~~ (152 sonnets + 40 generated, per feature set) until
+#: 2026-10-27, when Experiment 2 was deleted; the 20 sonnets in neither
+#: Experiment 1 class were only ever computed for Experiment 2's human side.
+PINNED_VECTORS = 264
 
 #: The "predictability only" column, per feature set. NOT re-declared for its
 #: own sake -- `report_joint` hard-codes this list, and the check below
@@ -745,19 +711,13 @@ def feature_auc(rows_a, rows_b, name):
 def measure(cache, stats):
     """One pass over both feature sets -> {key: measured quantities}."""
     survived, forgotten = labelled_sonnets()
-    generated = load_generated()
-    human = [(n, l) for n, l in sorted(load_sonnets().items())]
     out = {}
     for pfx, feats in (("abs", QualityFeatures), ("wi", WithinItemFeatures)):
         qf = feats()
         rs = compute(qf, survived, SONNET_SCHEME, cache, f"{pfx}son", stats)
         rf = compute(qf, forgotten, SONNET_SCHEME, cache, f"{pfx}son", stats)
-        rh = compute(qf, human, SONNET_SCHEME, cache, f"{pfx}son", stats)
-        rg = compute(qf, generated, SONNET_SCHEME, cache, f"{pfx}gen", stats)
         for key, ra, rb, la, lb in ((f"{pfx}_exp1", rs, rf, "survived",
-                                     "forgotten"),
-                                    (f"{pfx}_exp2", rh, rg, "human",
-                                     "generated")):
+                                     "forgotten"),):
             # `report_joint` is called rather than reimplemented: it is the
             # function that PRINTS the two numbers RESULTS.md quotes, and a
             # reimplementation would pin a number this module does not
@@ -795,8 +755,8 @@ def main(argv=None):
     t_wall, t_cpu = time.perf_counter(), time.process_time()
 
     print("=" * 74)
-    print("DISCRIMINATE — the eight joint AUCs and the thirty-six per-feature "
-          "AUCs")
+    print("DISCRIMINATE — the four Experiment 1 joint AUCs and the eighteen "
+          "per-feature AUCs")
     print("=" * 74)
 
     identity = cache_identity()
@@ -859,7 +819,7 @@ def main(argv=None):
     # evidence said "measured NOTHING" and then tracebacked, so the real
     # cause — an absent dependency — appeared nowhere in the output. It
     # says so now, and refuses at 2.
-    _no_joint = [k for k in ("abs_exp1", "abs_exp2", "wi_exp1", "wi_exp2")
+    _no_joint = [k for k in ("abs_exp1", "wi_exp1")
                  if got[k]["joint_all"] is None or got[k]["joint_solo"] is None]
     if _no_joint:
         print("\n  REFUSED — no joint AUC was computed for: %s."
@@ -874,7 +834,7 @@ def main(argv=None):
               "measured and stand; it is the JOINT half that has no answer.")
         return 2
 
-    for key in ("abs_exp1", "abs_exp2", "wi_exp1", "wi_exp2"):
+    for key in ("abs_exp1", "wi_exp1"):
         pin, arm = PINNED[key], got[key]
         print(f"\n-- {key}   {pin['label']}")
 

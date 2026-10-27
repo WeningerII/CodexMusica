@@ -208,67 +208,40 @@ def test_the_two_false_verdicts_the_first_full_run_produced():
           "rule cannot swallow a real MOVED",
           not PS._SAYS_REFUSED.search(
               "RESULT: FAIL\n  [FAIL] committed 84, measured 86"), None)
-    # END TO END, on the two real instruments.
-    #
-    # THIS ARM USED TO ASSERT `CANNOT RUN` UNCONDITIONALLY, AND THAT WAS A
-    # FACT ABOUT A GITIGNORED FILE (found 2026-08-22 by the mutation sweep,
-    # which filed it BASELINE-RED). `audit_joint_auc_null.py --check` refuses
-    # only when `data/feature_cache.json` is cold or fingerprint-mismatched;
-    # warm, it runs and returns a real verdict. The cache is gitignored, so CI
-    # is always cold and this assertion was permanently, accidentally green --
-    # while anyone who had just run the discrimination suite got a red for a
-    # reason that had nothing to do with the sweep. A suite that can only pass
-    # in one environment is not testing the thing it names.
-    #
-    # BOTH ARMS ARE PINNED, AND NEITHER IS A SKIP. The cache state is read
-    # FIRST, from the same loader the instrument uses, so this is a prediction
-    # and not a tautology: cold MUST refuse (the rule under test -- an
-    # instrument's own word for inconclusive beats its exit code), and warm
-    # MUST NOT refuse (the rule cannot swallow an instrument that ran).
-    from quality.discriminate import cache_identity, load_cache
-    _ent, _fp, _status = load_cache(cache_identity())
-    warm = _status == "fingerprint match" and bool(_ent)
-    print("     (feature cache is %s: %s)"
-          % ("WARM" if warm else "COLD", _status))
-    row = PS.run_one("quality/audit_joint_auc_null.py", timeout=900)
-    if warm:
-        check("audit_joint_auc_null RAN — warm, it returns a real verdict "
-              "and the refusal rule does NOT swallow it",
-              row["verdict"] in ("HOLDS", "MOVED"),
-              (row["verdict"], row["evidence"][:1]))
-    elif row["evidence_kind"] == "missing dependency":
-        # A THIRD ARM, AND CI IS WHERE IT LIVES (2026-08-23). This instrument
-        # reaches numpy AND scikit-learn; the harness is stdlib-only and CI
-        # installs third-party packages per JOB, so on the `suites` runner it
-        # dies at import with ModuleNotFoundError and exit 1 — which
-        # `verdict_for` read as MOVED, and this section then failed asserting
-        # CANNOT RUN. A figure nobody measured, reported as a figure that
-        # changed. `pin_sweep` types it CANNOT RUN now and NAMES the module,
-        # and this arm is separate from the refusal arm below because "the
-        # instrument said inconclusive" and "the instrument could not start"
-        # have different remedies (doctrine 20/44).
-        check("a MISSING THIRD-PARTY MODULE reads CANNOT RUN and names the "
-              "module — never MOVED, which would be a claim about figures "
-              "that were never computed",
-              row["verdict"] == "CANNOT RUN" and row["evidence"]
-              and "module" in row["evidence"][0],
-              (row["verdict"], row["evidence"][:1]))
-    elif row["evidence_kind"] == "bound":
-        # Same split as §5's: cold, this instrument computes the whole feature
-        # set, and under a loaded four-wide pool that can reach the sweep's
-        # bound. The bound is the sweep's, so it is reported and not read as
-        # the instrument's own word for inconclusive — which is the exact
-        # distinction the arm below is testing.
-        check("the sweep hit its OWN bound on the cold path — reported as a "
-              "fact about the sweep, never as the instrument's refusal",
-              row["exit"] is None and row["evidence"]
-              and "bound" in row["evidence"][0],
-              (row["exit"], row["seconds"], row["evidence"][:1]))
-    else:
-        check("audit_joint_auc_null reads CANNOT RUN and carries its own "
-              "words as the reason",
+    # END TO END. Until 2026-10-27 this drove the real
+    # `audit_joint_auc_null.py --check`, the instrument that produced (b).
+    # That instrument is DELETED with Experiment 2 (the owner-approved
+    # deletion of the tool that compares AI-written poems with human ones),
+    # so the arm now drives a PLANTED instrument in a scratch tree that says
+    # (b)'s exact words and exits 2, and a planted twin that exits 2 WITHOUT
+    # them. The rule under test is unchanged: an instrument's own word for
+    # inconclusive beats its exit code, and the rule cannot swallow a red
+    # instrument that never said it.
+    import tempfile
+    with tempfile.TemporaryDirectory() as tmp:
+        os.makedirs(os.path.join(tmp, "quality"))
+        body = ('import sys\n'
+                'if "--check" in sys.argv:\n'
+                '    print("  a warm cache is needed")\n'
+                '    print(%r)\n'
+                '    sys.exit(2)\n')
+        with open(os.path.join(tmp, "quality", "planted_refuser.py"),
+                  "w", encoding="utf-8") as fh:
+            fh.write(body % "RESULT: REFUSED (not a pass, not a failure "
+                            "-- doctrine 20)")
+        with open(os.path.join(tmp, "quality", "planted_red.py"),
+                  "w", encoding="utf-8") as fh:
+            fh.write(body % "RESULT: FAIL  committed 84, measured 86")
+        row = PS.run_one("quality/planted_refuser.py", root=tmp, timeout=60)
+        check("a planted instrument that REFUSES in (b)'s words reads CANNOT "
+              "RUN and carries its own words as the reason",
               row["verdict"] == "CANNOT RUN" and row["evidence"],
               (row["verdict"], row["evidence"][:1]))
+        red = PS.run_one("quality/planted_red.py", root=tmp, timeout=60)
+        check("...and its twin, red at the same exit code without those "
+              "words, is NOT swallowed by the refusal rule",
+              red["verdict"] != "CANNOT RUN",
+              (red["verdict"], red["evidence"][:1]))
 
 
 def test_it_runs_one_instrument_end_to_end():

@@ -63,21 +63,21 @@ def _run(args):
 def test_population():
     print("\n1. one definition of the population, one spelling of the "
           "content partition")
-    from quality.song_record import songs as _songs
-    check("the population IS song_record's (a lyric with a blueprint) — "
-          "the same reach `ban_convergence.songs()` takes, never a second "
-          "copy (doctrine 1)",
-          CS.songs() == _songs(), len(CS.songs()))
-    check("sixteen songs banked at the pin",
-          len(CS.songs()) == CS.PINNED["bank_songs"], len(CS.songs()))
+    # 2026-10-27: the bank (sixteen AI-written songs) is DELETED with
+    # `song_record.py` and `ban_convergence.py`, the two other readers of
+    # this population; the bank-count pin went with it. What stays: the
+    # population is read in ONE place and is empty now.
+    check("the bank is empty — its songs were deleted 2026-10-27",
+          CS.songs() == [], len(CS.songs()))
     src = ast.parse(open(os.path.join(HERE, "cross_song.py"),
                          encoding="utf-8").read())
     globs = [n for n in ast.walk(src)
              if isinstance(n, ast.Call)
              and isinstance(n.func, ast.Attribute) and n.func.attr == "glob"]
-    check("this module globs the HUMAN corpus and nothing else — it never "
-          "enumerates songs/ itself",
-          len(globs) == 1, f"{len(globs)} glob call(s)")
+    check("this module globs in exactly two places: the HUMAN corpus, and "
+          "the bank's one definition in `songs()` (moved here from the "
+          "deleted song_record.py)",
+          len(globs) == 2, f"{len(globs)} glob call(s)")
     names = {n.name for n in ast.walk(src) if isinstance(n, ast.FunctionDef)}
     check("and it defines no content-partition of its own: the partition "
           "is imported from narrative_bands (panel run 5 measured two hand "
@@ -89,7 +89,25 @@ def test_population():
 
 
 def test_depth():
-    print("\n2. the depth measurement, derived live from the committed bytes")
+    print("\n2. the depth measurement over the (now empty) bank")
+    # ~~The pinned spectrum, `light`'s depth 7 and the panel6/after_panel
+    # partition were re-derived here from the sixteen banked songs.~~ Those
+    # checks are DELETED 2026-10-27 with the bank they measured (an
+    # AI-written bank the owner approved deleting); what an empty bank can
+    # still be held to is below.
+    types_by_song, refused = CS.bank()
+    check("an empty bank reads as zero songs and zero refusals, never as an "
+          "error", types_by_song == {} and refused == [],
+          (len(types_by_song), refused))
+    check("and its depth table is empty", CS.depth(types_by_song) == {})
+    import subprocess as _sp
+    r = _sp.run([sys.executable, os.path.join(HERE, "cross_song.py"),
+                 "--check"], capture_output=True, text=True, timeout=120)
+    check("`--check` REFUSES at exit 2 on the empty bank, in its own words, "
+          "rather than reporting the deleted bank's pins as drift",
+          r.returncode == 2 and "RESULT: REFUSED" in r.stdout,
+          (r.returncode, r.stdout[-160:]))
+    return
     types_by_song, refused = CS.bank()
     check("every banked song read; refusals counted apart (doctrine 79)",
           len(types_by_song) == CS.PINNED["bank_songs"] and refused == [],
@@ -153,8 +171,12 @@ def test_the_refusal_is_mechanical():
     print("\n3. THE MECHANICAL REFUSAL — the bank may be OBSERVED and may "
           "not be SAMPLED")
     raised = None
+    # The bank is empty since 2026-10-27, so a glob of songs/ finds nothing
+    # to refuse; the guard is driven with a planted path under songs/ (no
+    # file is written), the path it would refuse on any later bank.
     try:
-        CS.human_population(root=os.path.join(ROOT, "songs"), pattern="*.txt")
+        CS._refuse_bank_as_population(
+            [os.path.join(ROOT, "songs", "planted.txt")])
     except CS.BankIsNotCorpus as e:
         raised = str(e)
     check("pointing the NULL population at songs/ raises BankIsNotCorpus "
@@ -204,11 +226,14 @@ def test_no_threshold():
           "and names the command that re-derives it, never left blank",
           "no pinned null at depth 19" in grown[1]
           and "--check" in grown[1], grown[1][-90:])
-    check("`light` at depth 7 is disclosed BESIDE the null's own reading of "
-          "depth 7, so the reader is not invited to read depth as defect",
-          rows[0]["depth"] == 7
-          and rows[0]["pinned_null_median"] == CS.PINNED["spectrum"][7][1],
-          (rows[0]["pinned_at_depth"], rows[0]["pinned_null_median"]))
+    # ~~`light` at depth 7, disclosed beside the null's reading of depth 7~~
+    # — a reading of the deleted bank (2026-10-27). On the empty bank every
+    # word reads 0, and a depth under 2 quotes no null at all.
+    check("on the empty bank `light` reads depth 0 and quotes no pinned "
+          "null, because depth 0 or 1 is not a cross-song fact",
+          rows[0]["depth"] == 0
+          and "not a cross-song fact" in CS.disclosure_lines(rows)[1],
+          (rows[0]["depth"], rows[0]["pinned_null_median"]))
     text = open(os.path.join(HERE, "cross_song.py"), encoding="utf-8").read()
     check("the module names no ceiling, floor or max of its own — a "
           "threshold on a statistic that is not scale-invariant would ask "
@@ -263,8 +288,10 @@ def test_the_prefix_pin():
           tail.strip().startswith("BANK   :"), tail.strip()[:60])
     check("the appended block says out loud that it moves nothing above it",
           "moves no verdict" in tail and "no threshold" in tail)
-    check("and it discloses the depth with the null beside it",
-          "7 of 16" in tail and "matched-null median" in tail, tail[:200])
+    # ~~"7 of 16" with the matched-null median~~ until 2026-10-27; the
+    # bank is empty now, so the disclosure reads depth 0 of 0.
+    check("and it discloses the depth over the empty bank",
+          "0 of 0" in tail and "not a cross-song fact" in tail, tail[:200])
     # The summary counts are the line a gate would have to move, and the
     # prefix property already forbids that; this states the consequence in
     # the counts' own words so a reader does not have to derive it.

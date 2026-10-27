@@ -20,7 +20,7 @@ on:
         default: '130'
         required: false
       mode:
-        description: 'raw drives the plain ask "Write a song" with "keep going" as the only continuation — the honest measure of whether the product works for a person; probe drives the five feature briefs with process coaching (M-274)'
+        description: 'raw drives the plain ask "Write a song" with "keep going" as the only continuation — the honest measure of whether the product works for a person; probe drives the same plain ask with process coaching (the five feature briefs were deleted 2026-10-27; M-274)'
         type: choice
         options: [raw, probe]
         default: raw

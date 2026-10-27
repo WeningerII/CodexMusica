@@ -5032,7 +5032,7 @@ class Reviser:
         every process-level memo on this class must carry (M-217), or None
         when the lexicon cannot be described — a miss, never a wrong hit."""
         try:
-            from quality.discriminate import declaration_tuple
+            from quality.field_store import declaration_tuple
             from quality.pronunciation import fingerprint
             from lyric_harness import CMUDICT_PATH as _cmudict_path
             import lyric_harness as _LH

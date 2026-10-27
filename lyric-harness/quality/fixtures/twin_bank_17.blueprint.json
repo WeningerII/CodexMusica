@@ -1,0 +1,279 @@
+{
+ "hooks": [
+  "Fro on. I'll reap the tight."
+ ],
+ "lines": [
+  {
+   "bar": 1,
+   "beat": 1.0,
+   "duration": 6.0,
+   "section": "VERSE1",
+   "text": "Rolled it lie. I'll do the lor."
+  },
+  {
+   "bar": 3,
+   "beat": 1.0,
+   "duration": 6.0,
+   "section": "VERSE1",
+   "text": "Clone in the flowed where the crossed four"
+  },
+  {
+   "bar": 5,
+   "beat": 1.0,
+   "duration": 6.0,
+   "section": "VERSE1",
+   "text": "The krauss we spilt is meaning blye, and tet it sewn"
+  },
+  {
+   "bar": 7,
+   "beat": 1.0,
+   "duration": 6.0,
+   "section": "VERSE1",
+   "text": "Some watts I sever spurned to wai"
+  },
+  {
+   "bar": 9,
+   "beat": 2.0,
+   "duration": 5.0,
+   "section": "PRECHORUS1",
+   "text": "Brags by the pep, and the maxie's gate"
+  },
+  {
+   "bar": 11,
+   "beat": 1.0,
+   "duration": 6.0,
+   "section": "CHORUS1",
+   "text": "Fro on. I'll reap the tight."
+  },
+  {
+   "bar": 13,
+   "beat": 1.5,
+   "duration": 5.5,
+   "section": "FALSE_ENDING1",
+   "text": "And that was the vast of it. Merely."
+  },
+  {
+   "bar": 15,
+   "beat": 2.0,
+   "duration": 5.0,
+   "section": "PRECHORUS2",
+   "text": "You byrne at the warner. You doorways byrne."
+  },
+  {
+   "bar": 17,
+   "beat": 1.0,
+   "duration": 6.0,
+   "section": "CHORUS2",
+   "text": "Fro on. I'll reap the tight."
+  },
+  {
+   "bar": 19,
+   "beat": 1.5,
+   "duration": 5.5,
+   "section": "TAG1",
+   "text": "I have watching vent to stare"
+  },
+  {
+   "bar": 21,
+   "beat": 1.5,
+   "duration": 5.5,
+   "section": "TAG1",
+   "text": "Bake the bloat. It bossed me watching."
+  },
+  {
+   "bar": 23,
+   "beat": 1.5,
+   "duration": 5.5,
+   "section": "TAG1",
+   "text": "You lost the chard and goode at the square"
+  },
+  {
+   "bar": 25,
+   "beat": 2.0,
+   "duration": 5.0,
+   "section": "PRECHORUS3",
+   "text": "The kristen earning over in the bark"
+  },
+  {
+   "bar": 27,
+   "beat": 1.0,
+   "duration": 6.0,
+   "section": "CHORUS3",
+   "text": "Fro on. I'll reap the tight."
+  },
+  {
+   "bar": 29,
+   "beat": 1.5,
+   "duration": 5.5,
+   "section": "POSTCHORUS1",
+   "text": "Brake folds the zqqbgx, bier my qui"
+  },
+  {
+   "bar": 31,
+   "beat": 1.5,
+   "duration": 5.5,
+   "section": "POSTCHORUS1",
+   "text": "Tread tight, rake in the sass, down to the prix"
+  },
+  {
+   "bar": 33,
+   "beat": 1.5,
+   "duration": 5.5,
+   "section": "POSTCHORUS1",
+   "text": "Stead the tea wine down to the quake"
+  },
+  {
+   "bar": 35,
+   "beat": 1.0,
+   "duration": 6.0,
+   "section": "CODA1",
+   "text": "And the tight daze on all dwight."
+  }
+ ],
+ "sections": [
+  {
+   "bars": 8,
+   "function": "verse",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "VERSE1",
+   "start_bar": 1
+  },
+  {
+   "bars": 2,
+   "function": "prechorus",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "PRECHORUS1",
+   "start_bar": 9
+  },
+  {
+   "bars": 2,
+   "function": "chorus",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "CHORUS1",
+   "start_bar": 11
+  },
+  {
+   "bars": 2,
+   "function": "false_ending",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "FALSE_ENDING1",
+   "start_bar": 13
+  },
+  {
+   "bars": 2,
+   "function": "prechorus",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "PRECHORUS2",
+   "start_bar": 15
+  },
+  {
+   "bars": 2,
+   "function": "chorus",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "CHORUS2",
+   "start_bar": 17
+  },
+  {
+   "bars": 6,
+   "function": "tag",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "TAG1",
+   "start_bar": 19
+  },
+  {
+   "bars": 2,
+   "function": "prechorus",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "PRECHORUS3",
+   "start_bar": 25
+  },
+  {
+   "bars": 2,
+   "function": "chorus",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "CHORUS3",
+   "start_bar": 27
+  },
+  {
+   "bars": 6,
+   "function": "postchorus",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "POSTCHORUS1",
+   "start_bar": 29
+  },
+  {
+   "bars": 2,
+   "function": "coda",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "CODA1",
+   "start_bar": 35
+  }
+ ],
+ "title": "reap the tight"
+}

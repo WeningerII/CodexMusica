@@ -25,18 +25,21 @@ from quality import check_render_form as C          # noqa: E402
 
 FAILURES = []
 
-#: THE SHIPPED DEFECT, VERBATIM in shape: what was presented for `carry_it_over`.
+#: THE SHIPPED DEFECT, VERBATIM in shape: what was presented for a banked song.
+#: The lyric words are MECHANICAL TOKENS since 2026-10-27: they quoted an
+#: AI-written bank song deleted with the bank (owner-approved), and this gate
+#: reads the headers and stamps, never the words.
 FLATTENED = ("Here it is:\n\n"
-             "[INTRO]         Freight, grey water, low in the hold\n"
+             "[INTRO]         Tok01, tok02 tok03, tok04 tok05 tok06 tok07\n"
              "[INTERLUDE]     (instrumental)\n"
-             "[VAMP]          Down in the engine, counting strokes\n"
-             "[CHORUS]        Carry it. Don't look down.\n")
+             "[VAMP]          Tok08 tok09 tok10 tok11, tok12 tok13\n"
+             "[CHORUS]        Tok14 tok15. Tok16 tok17 tok18.\n")
 #: What `plan.section_header` actually builds.
 CORRECT = ("[INTRO — 2 lines — 2 bars of 8/8]\n"
-           "Freight, grey water, low in the hold\n"
+           "Tok01, tok02 tok03, tok04 tok05 tok06 tok07\n"
            "[INTERLUDE — instrumental — 2 bars of 8/8, no words]\n"
            "[VAMP — 2 lines — 2 bars of 8/8]\n"
-           "Down in the engine, counting strokes\n")
+           "Tok08 tok09 tok10 tok11, tok12 tok13\n")
 #: The built form WITH its convergence state declared — what a finished
 #: presentation looks like under ALL THREE gates (M-97's apparatus, M-150's
 #: operator seam, M-243's provenance). CORRECT alone is the §7 defect:
@@ -57,7 +60,7 @@ CORRECT_BARE_EXIT = CORRECT + "\nsong: exit 0 — revise SUCCESS in 0 rounds\n"
 
 def receipt_records(text=CORRECT_STATED, *, call_id="revise-1", result_id=None,
                     name="mcp__musica__lyric_revise", envelope="direct", overrides=None):
-    draft = ["Freight, grey water, low in the hold", "Down in the engine, counting strokes"]
+    draft = ["Tok01, tok02 tok03, tok04 tok05 tok06 tok07", "Tok08 tok09 tok10 tok11, tok12 tok13"]
     verdict = {"exit_code": 0, "status": "finished_clean", "certified": True,
                "coverage": {"certified": True}, "loop_stop_reason": "SUCCESS",
                "loop_unresolved_lines": [], "loop_whole_flags": 0,
@@ -335,19 +338,16 @@ def test_graded_is_not_finished():
           rc == 1 and "[FINISHED — seed N" in err and "[GRADED — seed N" in err
           and "BARE \"exit N\" IS NOT ACCEPTED (M-243)" in err,
           err.strip().splitlines()[-1][:70] if err else "no stderr")
-    # ONE DEFINITION OF THE FINISHED STAMP (doctrine 1): song_log.py PARSES
-    # it for the bank, this module RECOGNISES it for the gate. Hold both to
-    # the same samples — each must accept both shipped FINISHED shapes and
-    # each must reject the GRADED stamp — so they cannot drift apart.
-    from quality import song_log as SL
+    # ~~ONE DEFINITION OF THE FINISHED STAMP: song_log.py's `_STAMP` parser
+    # held to this gate's `STAMP_FINISHED`.~~ song_log.py is DELETED
+    # 2026-10-27 with the song bank it logged; this gate's own recogniser is
+    # still held to both shipped FINISHED shapes and the GRADED stamp.
     samples_yes = (FINISHED_STAMP,
                    "[FINISHED — declared mandate — exit 3 — ROUND_LIMIT "
                    "after 8 round(s) — UNRESOLVED: L4]")
-    check("song_log's `_STAMP` parser and this gate's `STAMP_FINISHED` agree "
-          "on both shipped FINISHED shapes and both reject the GRADED stamp",
-          all(SL._STAMP.search(x) and C.STAMP_FINISHED.search(x)
-              for x in samples_yes)
-          and not SL._STAMP.search(GRADED_STAMP)
+    check("this gate's `STAMP_FINISHED` accepts both shipped FINISHED shapes "
+          "and rejects the GRADED stamp",
+          all(C.STAMP_FINISHED.search(x) for x in samples_yes)
           and not C.STAMP_FINISHED.search(GRADED_STAMP))
     # THE MUTATION, hand-proven: put the pre-M-243 rule back (bare exit
     # accepted) and the bare-exit turn PASSES — so the refusal above is the
@@ -387,7 +387,7 @@ def test_finished_requires_a_paired_exact_receipt():
         check("a non-revision tool cannot issue a revision receipt",
               run(receipt_records(name="mcp__musica__lyric_grade") + [assistant_record(CORRECT_STATED)]) == 1)
         check("changing lyric bytes while keeping the actual stamp is rejected",
-              run(receipt_records() + [assistant_record(CORRECT_STATED.replace("Freight", "Weight"))]) == 1)
+              run(receipt_records() + [assistant_record(CORRECT_STATED.replace("Tok01", "Tok99"))]) == 1)
         check("a false clean status cannot overrule unknown required coverage",
               run(receipt_records(overrides={"coverage": {"certified": False}})
                   + [assistant_record(CORRECT_STATED)]) == 1)
@@ -536,7 +536,7 @@ def test_short_session_verdict():
         check("block 0 may go on past the stamp; the presentation is read through the stamp",
               run(short_records(tail="\n\nSTANDING AT THE STOP — none") + shown) == 0)
         check("a song whose bytes differ from the digest is refused",
-              run(short_records(digest_of=CORRECT_STATED.replace("Freight", "Weight")) + shown) == 1)
+              run(short_records(digest_of=CORRECT_STATED.replace("Tok01", "Tok99")) + shown) == 1)
         check("exit 0 without the connector's finished_clean status is refused",
               run(short_records(overrides={"status": "parked_open_lines"}) + shown) == 1)
         check("exit 0 with an open line is refused",
@@ -547,7 +547,7 @@ def test_short_session_verdict():
         check("a short verdict with no digest is not a receipt",
               run(short_records(overrides={"presentation_sha256": None}) + shown) == 1)
         check("the presented text must still be the digest-checked presentation",
-              run(short_records() + [assistant_record(CORRECT_STATED.replace("Freight", "Weight"))])
+              run(short_records() + [assistant_record(CORRECT_STATED.replace("Tok01", "Tok99"))])
               == 1)
 
 

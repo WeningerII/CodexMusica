@@ -84,20 +84,6 @@ def labelled_sonnets(path=None):
     return survived, forgotten
 
 
-def load_generated(path=None):
-    """Model-generated sonnets for Experiment 2, '---'-delimited."""
-    path = path or os.path.join(CORPUS, "generated", "sonnets_generated.txt")
-    if not os.path.exists(path):
-        return []
-    blocks = open(path, encoding="utf-8").read().split("---")
-    out = []
-    for i, b in enumerate(blocks, 1):
-        lines = [l.strip() for l in b.strip().splitlines() if l.strip()]
-        if len(lines) == 14:
-            out.append((f"gen{i:03d}", lines))
-    return out
-
-
 if __name__ == "__main__":
     s, f = labelled_sonnets()
     allsn = load_sonnets()

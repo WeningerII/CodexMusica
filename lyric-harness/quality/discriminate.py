@@ -35,8 +35,7 @@ sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
 from lyric_harness import Declaration  # noqa: E402
-from quality.corpus import (SONNET_SCHEME, labelled_sonnets,  # noqa: E402
-                            load_generated, load_sonnets)
+from quality.corpus import SONNET_SCHEME, labelled_sonnets  # noqa: E402
 from quality.features import DATA as STAGED_DATA, QualityFeatures  # noqa: E402
 from quality.within_item import WithinItemFeatures  # noqa: E402
 
@@ -199,136 +198,11 @@ def _digest_file(path, n=16):
     return h.hexdigest()[:n]
 
 
-#: Node types Python attaches a docstring to. A docstring is the FIRST
-#: statement and only the first; a string expression anywhere else is left
-#: standing, because there it is a statement like any other.
-_DOCSTRING_HOLDERS = (ast.Module, ast.ClassDef, ast.FunctionDef,
-                      ast.AsyncFunctionDef)
-
-
-def _strip_docstrings(tree):
-    """Remove every module/class/function docstring from `tree`, in place.
-
-    An emptied body becomes `pass` rather than `[]`, so the stripped tree is
-    still a WELL-FORMED AST -- `ast.Module.body` and friends are non-empty in
-    the grammar, and a tree that cannot be compiled or unparsed is a trap for
-    the next reader who tries. It also makes `def f(): "doc"` digest as
-    `def f(): pass`, which is what those two functions actually are.
-
-    The substituted `pass` INHERITS THE DOCSTRING'S LOCATION, which costs the
-    digest nothing -- `_digest_source` dumps without attributes, so no
-    `lineno` reaches it either way -- and buys the sentence above being true.
-    A bare `ast.Pass()` carries no `lineno`, and `compile()` on a tree
-    containing one raises `TypeError: required field "lineno" missing from
-    stmt` unless the caller knows to run `ast.fix_missing_locations` first.
-    MEASURED, not assumed: that TypeError is what a bare `ast.Pass()` gave
-    here, on a module whose only function body was a docstring.
-    """
-    for node in ast.walk(tree):
-        if not isinstance(node, _DOCSTRING_HOLDERS):
-            continue
-        body = node.body
-        if (body and isinstance(body[0], ast.Expr)
-                and isinstance(body[0].value, ast.Constant)
-                and isinstance(body[0].value.value, str)):
-            node.body = (body[1:]
-                         or [ast.copy_location(ast.Pass(), body[0])])
-    return tree
-
-
-def _digest_source(path, n=16):
-    """Digest of a SOURCE file's CODE -- docstrings and comments excluded.
-
-    Returns `ast:<sha>`, or `raw:<sha>` when the file could not be parsed, or
-    `ABSENT`. The prefix is part of the value on purpose; see below.
-
-    WHY THIS IS NOT `_digest_file` (CHANGED 2026-08-13; doctrine 17, the
-    superseded behaviour is stated rather than removed). Until this date every
-    entry of `SOURCE_FILES` was keyed on `_digest_file`, a sha256 of the file's
-    BYTES. That is a conservative over-approximation of "everything that, if
-    changed, makes a stored vector a different number", and it was correct in
-    the direction that matters -- it never wrongly REUSES. It was also
-    expensive in the other direction, and the price was measured rather than
-    argued: a discard rebuilds this module's 384 vectors at **1,050 CPU-s,
-    MEASURED 2026-08-13 twice (1049.5 s and 1067.8 s)** plus
-    `song_profile_calibration`'s predictability cache at ~7,400 CPU-s, so
-    ~8,450 CPU-s / ~2.3 CPU-hours per discard. `quality/features.py` paid it
-    THREE times in one session and the third payment was 94 bytes of
-    docstring (`b8047e8 -> ef21639`) with not one executable byte moved.
-    The consequence is a perverse incentive rather than merely a slow run: the
-    cheapest way to preserve a 2.3-CPU-hour cache becomes leaving a wrong
-    comment in place, in a repo whose own record-adversary has found four
-    stale records in a week. `quality/RESULTS_CACHE_IDENTITY.md` is the
-    measurement and the argument.
-
-    `ast.dump` is taken WITHOUT attributes (the default, spelled out below
-    because it is the whole mechanism): `lineno`/`col_offset` are excluded, so
-    adding a line to a docstring does not shift the digest of every function
-    beneath it. Comments never reach `ast.parse` at all, so they come free.
-
-    STILL AN OVER-APPROXIMATION, NARROWED AND NOT ELIMINATED. `ast.dump`
-    carries identifiers, so a pure variable rename registers as a change;
-    reordering two independent function definitions registers; and the dump
-    format is a coordinate of the PYTHON VERSION, so the same file can digest
-    differently under a different interpreter. All three discard when they did
-    not have to. None of them reuses when it should not, which is the
-    direction this key exists to protect.
-
-    ON A FILE THAT DOES NOT PARSE, the byte digest is used and the value says
-    so. Raising here would turn a broken edit into a `SyntaxError` three
-    frames down inside a cache-key builder, naming this module rather than the
-    file the writer just broke. Falling back is also the CONSERVATIVE answer
-    on its own terms: a file we cannot read the structure of is the case where
-    we know least, and the byte digest is the strictest key available. Through
-    this module's own path the fallback is nearly unreachable -- all three
-    `SOURCE_FILES` are imported at the top of this file, so a file that does
-    not parse has already killed the import. The case it is really for is the
-    one `audit_joint_auc_null.py` recorded: a concurrent cell editing
-    `features.py` under a running rebuild, where a half-written working-tree
-    state gets read (digest `2efbffbe`, a state that is in no commit). The
-    mode rides IN the digest so the degradation cannot be silent -- `main`
-    prints these values on every run, and `raw:` on a source line is a
-    reader's notice that the structure was never consulted. It also means a
-    cache written while the file was broken can never be served to a run in
-    which it parses, since `ast:` and `raw:` are different strings.
-
-    Read whole rather than chunked: `_digest_file`'s 1 MiB loop is there for
-    `cmudict.dict` at 3.6 MB, and the largest file on THIS path is
-    `lyric_harness.py` at 236 KB. `ast.parse` wants the whole buffer anyway.
-    """
-    if not os.path.exists(path):
-        return "ABSENT"
-    with open(path, "rb") as f:
-        raw = f.read()
-    try:
-        # include_attributes=False is the DEFAULT and is spelled out because
-        # it is the thing being relied on: with attributes the digest would
-        # move whenever a docstring changed line count, which is the defect.
-        blob = ast.dump(_strip_docstrings(ast.parse(raw)),
-                        include_attributes=False).encode("utf-8")
-        tag = "ast"
-    except (SyntaxError, ValueError, RecursionError):
-        # SyntaxError: a broken edit. ValueError: a NUL byte, which is what a
-        # partially-flushed write looks like. RecursionError: `ast.dump` on a
-        # pathologically nested expression -- it recurses, and a cache key is
-        # not the place to discover that.
-        blob, tag = raw, "raw"
-    return f"{tag}:{hashlib.sha256(blob).hexdigest()[:n]}"
-
-
-def declaration_tuple(decl):
-    """The declared coordinates of the rhyme comparator, as a stable mapping.
-
-    Doctrine 1. `theta_rhyme` moving by a hundredth changes every rhyme field
-    and therefore every predictability value; if the cache cannot see that, the
-    band is a setting nobody wrote down (doctrine 58).
-    """
-    import dataclasses
-    if dataclasses.is_dataclass(decl):
-        return {f.name: repr(getattr(decl, f.name))
-                for f in dataclasses.fields(decl)}
-    return {k: repr(v) for k, v in sorted(vars(decl).items())
-            if not k.startswith("_")}
+# `_strip_docstrings`, `_digest_source` and `declaration_tuple` live in
+# `quality/field_store.py` since 2026-10-27 (moved, unchanged); the reviser's
+# process memo and the field store key on them too.
+from quality.field_store import (_digest_source,  # noqa: E402,F401
+                                 _strip_docstrings, declaration_tuple)
 
 
 def cache_identity(feature_classes=(QualityFeatures, WithinItemFeatures),
@@ -616,11 +490,12 @@ def main(argv=None):
     print(f"  loaded       {loaded} entries")
 
     survived, forgotten = labelled_sonnets()
-    generated = load_generated()
-    allsn = load_sonnets()
-    human = [(n, l) for n, l in sorted(allsn.items())]
     summary = {}
 
+    # EXPERIMENT 2 (Shakespeare against model-generated sonnets) IS DELETED,
+    # 2026-10-27: the owner approved deleting the tool that compares
+    # AI-written poems with human ones, and `corpus/generated/` with it.
+    # Experiment 1 compares human sonnets with human sonnets and stays.
     for tag, feats, solo in (
             ("ABSOLUTE (original ten)", QualityFeatures, None),
             ("WITHIN-ITEM (respecified eight)", WithinItemFeatures,
@@ -640,36 +515,14 @@ def main(argv=None):
                   "eliminated by construction; power is the cost"),
             feats=feats)
         a1 = report_joint(rows_s, rows_f, "survived", "forgotten", feats, solo)
-
-        a2 = h2 = w2 = None
-        if generated:
-            rows_h = compute(qf, human, SONNET_SCHEME, cache, f"{pfx}son",
-                             stats)
-            rows_g = compute(qf, generated, SONNET_SCHEME, cache, f"{pfx}gen",
-                             stats)
-            res2, keep2, h2 = run_experiment(
-                "EXPERIMENT 2 — Shakespeare vs model-generated sonnets",
-                rows_h, rows_g, "human", "generated",
-                note=("CONFOUNDED: generation-in-imitation leaves pastiche "
-                      "artifacts; a hit here may detect imitation, not slop"),
-                feats=feats)
-            a2 = report_joint(rows_h, rows_g, "human", "generated", feats,
-                              solo)
-            w2 = sum(1 for (n, auc, p, ok, _, _), sig in zip(res2, keep2)
-                     if sig and not ok)
-        summary[tag] = (h1, a1, h2, a2, w2)
+        summary[tag] = (h1, a1)
 
     print(f"\n\n{'=' * 78}\nHEAD TO HEAD\n{'=' * 78}")
-    print(f"  {'':34s} {'Exp1 hits':>10s} {'Exp1 AUC':>9s} "
-          f"{'Exp2 hits':>10s} {'Exp2 AUC':>9s} {'Exp2 wrong':>11s}")
-    for tag, (h1, a1, h2, a2, w2) in summary.items():
+    print(f"  {'':34s} {'Exp1 hits':>10s} {'Exp1 AUC':>9s}")
+    for tag, (h1, a1) in summary.items():
         f = lambda x, d=3: ("--" if x is None else f"{x:.{d}f}")
-        print(f"  {tag:34s} {h1:>10d} {f(a1):>9s} "
-              f"{'--' if h2 is None else h2:>10} {f(a2):>9s} "
-              f"{'--' if w2 is None else w2:>11}")
-    print("\n  P1 (pre-registered): Exp2 AUC must FALL substantially under "
-          "within-item.\n  P2: Exp1 AUC must hold or improve."
-          "\n  P3: Exp2 wrong-sign count must fall below five.")
+        print(f"  {tag:34s} {h1:>10d} {f(a1):>9s}")
+    print("\n  P2 (pre-registered): Exp1 AUC must hold or improve.")
 
     # Doctrine 79: report the counts behind the run, not just its verdicts.
     # `reused` is the number of vectors this run did NOT recompute, and it is

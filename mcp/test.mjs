@@ -9083,11 +9083,15 @@ try {
     // (fixed 1, changed only [2]), no-op REJECTED, targeted flips the
     // untargeted-rewrite verdict.
     const V_RELATION = 'class:RHYME';
+    // MECHANICAL FIXTURE since 2026-10-27: the lines quoted an AI-written
+    // bank song deleted with the bank (owner-approved). Seeded dictionary
+    // words (quality/fixtures/seeded_lines.py's noun pool, seed
+    // '20261027:mcp-verify') before the three end words under test.
     const vBefore = [
-      'Lights cut, and the bass came down in a pour',
-      'Half the room gone quiet where the sound stone',
+      'Interview pleasant mill owes pour',
+      'Choice tunnel yoga semester stone',
     ];
-    const vGood = [vBefore[0], 'Half the room gone quiet where the sound tore'];
+    const vGood = [vBefore[0], 'Choice tunnel yoga semester tore'];
     const ok = await callText('lyric_verify', {
       before: vBefore,
       after: vGood,
@@ -9123,7 +9127,7 @@ try {
     );
     // TARGETED IS THE SOLE GATE on the untargeted-rewrite rejection, and
     // the only shape that proves it is read is OPPOSITE verdicts on one diff.
-    const untargeted = [vGood[0].replace('Lights cut', 'Lights fell'), vGood[1]];
+    const untargeted = [vGood[0].replace('Interview pleasant', 'Interview tunnel'), vGood[1]];
     const free = await callText('lyric_verify', {
       before: vBefore,
       after: untargeted,

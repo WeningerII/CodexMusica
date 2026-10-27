@@ -1,5 +1,13 @@
 # The bytes a grading verb was handed
 
+**DELETED 2026-10-27 (owner-approved).** The draft lyrics this directory
+held were AI-written and are deleted with the song bank, together with
+`quality/song_log.py`, the tool that banked them (the paths below are gone on
+purpose). Three `*.state.json` files keep their non-lyric record (line
+numbers, attempts, draft hashes, stop status) with each proposed line's
+`text` removed; `before_i_did.state.json` never held a lyric string and is
+unchanged. The text below is the directory's record as it stood.
+
 `<song>.<md5>.draft.txt` — the `load_lyric_lines` text a `song`, `brief`,
 `revise` or `finish` run was graded on, banked by
 `quality/song_log.py --record` and named by the md5 **the verb itself

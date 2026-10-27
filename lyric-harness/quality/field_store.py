@@ -52,8 +52,9 @@ THE KEY, IN FULL. A row is addressed by (fingerprint, word.lower()), where the
 fingerprint folds:
 
   1. `store_version` -- this file's own format number.
-  2. `declaration` -- `discriminate.declaration_tuple(decl)` over EVERY entry
-     of `dataclasses.fields(Declaration)`, all ~~21~~ **22** of them
+  2. `declaration` -- `declaration_tuple(decl)` (below; moved here from
+     `discriminate.py` 2026-10-27) over EVERY entry of
+     `dataclasses.fields(Declaration)`, all ~~21~~ **22** of them
      (REPINNED 2026-09-18: `search` entered under `MISSING.md` M-135, and
      this sentence is the count doctrine 58 warns about -- the only reason
      it did not go stale silently is that `declaration_tuple` is DERIVED, so
@@ -73,7 +74,7 @@ fingerprint folds:
      so a re-fetched frequency table rescales every field in the store while
      the path it lives at says nothing at all (doctrine 58).
   4. `comparator` -- the docstring-stripped digests of `lyric_harness.py` and
-     `quality/features.py`, in `discriminate._digest_source`'s shape.
+     `quality/features.py`, in `_digest_source`'s shape (below).
      `NUC_FLOOR`, the vowel and consonant tables, `anchor`, `syllabify`,
      `vowel_sim` and every line of `score` are constants no declaration names
      and no lexicon carries; a key that skipped them would serve a field
@@ -105,6 +106,7 @@ in the key.
 and `LYRIC_PAIR_MEMO`. `disclosure()` is the one line a caller prints: served,
 scored and held, three counts and never a sum (doctrine 79).
 """
+import ast
 import hashlib
 import os
 import sqlite3
@@ -204,6 +206,149 @@ def _digest_content(path):
     return h.hexdigest()
 
 
+# ---------------------------------------------------------------------------
+# Source digest and declaration spelling, MOVED HERE FROM
+# `quality/discriminate.py` 2026-10-27 (owner-approved deletion of the
+# human-versus-model comparison, PR "EOD deletions"). This store, the
+# reviser's process memo (`quality/revise.py` `_decl_lex_key`) and
+# discriminate.py's remaining feature cache all key on these two, so they live
+# with the store that outlives the process. Where the docstrings below say
+# "this module", they describe the feature cache in discriminate.py they were
+# written for; the functions are unchanged byte for byte.
+# ---------------------------------------------------------------------------
+
+#: Node types Python attaches a docstring to. A docstring is the FIRST
+#: statement and only the first; a string expression anywhere else is left
+#: standing, because there it is a statement like any other.
+_DOCSTRING_HOLDERS = (ast.Module, ast.ClassDef, ast.FunctionDef,
+                      ast.AsyncFunctionDef)
+
+
+def _strip_docstrings(tree):
+    """Remove every module/class/function docstring from `tree`, in place.
+
+    An emptied body becomes `pass` rather than `[]`, so the stripped tree is
+    still a WELL-FORMED AST -- `ast.Module.body` and friends are non-empty in
+    the grammar, and a tree that cannot be compiled or unparsed is a trap for
+    the next reader who tries. It also makes `def f(): "doc"` digest as
+    `def f(): pass`, which is what those two functions actually are.
+
+    The substituted `pass` INHERITS THE DOCSTRING'S LOCATION, which costs the
+    digest nothing -- `_digest_source` dumps without attributes, so no
+    `lineno` reaches it either way -- and buys the sentence above being true.
+    A bare `ast.Pass()` carries no `lineno`, and `compile()` on a tree
+    containing one raises `TypeError: required field "lineno" missing from
+    stmt` unless the caller knows to run `ast.fix_missing_locations` first.
+    MEASURED, not assumed: that TypeError is what a bare `ast.Pass()` gave
+    here, on a module whose only function body was a docstring.
+    """
+    for node in ast.walk(tree):
+        if not isinstance(node, _DOCSTRING_HOLDERS):
+            continue
+        body = node.body
+        if (body and isinstance(body[0], ast.Expr)
+                and isinstance(body[0].value, ast.Constant)
+                and isinstance(body[0].value.value, str)):
+            node.body = (body[1:]
+                         or [ast.copy_location(ast.Pass(), body[0])])
+    return tree
+
+
+def _digest_source(path, n=16):
+    """Digest of a SOURCE file's CODE -- docstrings and comments excluded.
+
+    Returns `ast:<sha>`, or `raw:<sha>` when the file could not be parsed, or
+    `ABSENT`. The prefix is part of the value on purpose; see below.
+
+    WHY THIS IS NOT `_digest_file` (CHANGED 2026-08-13; doctrine 17, the
+    superseded behaviour is stated rather than removed). Until this date every
+    entry of `SOURCE_FILES` was keyed on `_digest_file`, a sha256 of the file's
+    BYTES. That is a conservative over-approximation of "everything that, if
+    changed, makes a stored vector a different number", and it was correct in
+    the direction that matters -- it never wrongly REUSES. It was also
+    expensive in the other direction, and the price was measured rather than
+    argued: a discard rebuilds this module's 384 vectors at **1,050 CPU-s,
+    MEASURED 2026-08-13 twice (1049.5 s and 1067.8 s)** plus
+    `song_profile_calibration`'s predictability cache at ~7,400 CPU-s, so
+    ~8,450 CPU-s / ~2.3 CPU-hours per discard. `quality/features.py` paid it
+    THREE times in one session and the third payment was 94 bytes of
+    docstring (`b8047e8 -> ef21639`) with not one executable byte moved.
+    The consequence is a perverse incentive rather than merely a slow run: the
+    cheapest way to preserve a 2.3-CPU-hour cache becomes leaving a wrong
+    comment in place, in a repo whose own record-adversary has found four
+    stale records in a week. `quality/RESULTS_CACHE_IDENTITY.md` is the
+    measurement and the argument.
+
+    `ast.dump` is taken WITHOUT attributes (the default, spelled out below
+    because it is the whole mechanism): `lineno`/`col_offset` are excluded, so
+    adding a line to a docstring does not shift the digest of every function
+    beneath it. Comments never reach `ast.parse` at all, so they come free.
+
+    STILL AN OVER-APPROXIMATION, NARROWED AND NOT ELIMINATED. `ast.dump`
+    carries identifiers, so a pure variable rename registers as a change;
+    reordering two independent function definitions registers; and the dump
+    format is a coordinate of the PYTHON VERSION, so the same file can digest
+    differently under a different interpreter. All three discard when they did
+    not have to. None of them reuses when it should not, which is the
+    direction this key exists to protect.
+
+    ON A FILE THAT DOES NOT PARSE, the byte digest is used and the value says
+    so. Raising here would turn a broken edit into a `SyntaxError` three
+    frames down inside a cache-key builder, naming this module rather than the
+    file the writer just broke. Falling back is also the CONSERVATIVE answer
+    on its own terms: a file we cannot read the structure of is the case where
+    we know least, and the byte digest is the strictest key available. Through
+    this module's own path the fallback is nearly unreachable -- all three
+    `SOURCE_FILES` are imported at the top of this file, so a file that does
+    not parse has already killed the import. The case it is really for is the
+    one `audit_joint_auc_null.py` recorded: a concurrent cell editing
+    `features.py` under a running rebuild, where a half-written working-tree
+    state gets read (digest `2efbffbe`, a state that is in no commit). The
+    mode rides IN the digest so the degradation cannot be silent -- `main`
+    prints these values on every run, and `raw:` on a source line is a
+    reader's notice that the structure was never consulted. It also means a
+    cache written while the file was broken can never be served to a run in
+    which it parses, since `ast:` and `raw:` are different strings.
+
+    Read whole rather than chunked: `_digest_file`'s 1 MiB loop is there for
+    `cmudict.dict` at 3.6 MB, and the largest file on THIS path is
+    `lyric_harness.py` at 236 KB. `ast.parse` wants the whole buffer anyway.
+    """
+    if not os.path.exists(path):
+        return "ABSENT"
+    with open(path, "rb") as f:
+        raw = f.read()
+    try:
+        # include_attributes=False is the DEFAULT and is spelled out because
+        # it is the thing being relied on: with attributes the digest would
+        # move whenever a docstring changed line count, which is the defect.
+        blob = ast.dump(_strip_docstrings(ast.parse(raw)),
+                        include_attributes=False).encode("utf-8")
+        tag = "ast"
+    except (SyntaxError, ValueError, RecursionError):
+        # SyntaxError: a broken edit. ValueError: a NUL byte, which is what a
+        # partially-flushed write looks like. RecursionError: `ast.dump` on a
+        # pathologically nested expression -- it recurses, and a cache key is
+        # not the place to discover that.
+        blob, tag = raw, "raw"
+    return f"{tag}:{hashlib.sha256(blob).hexdigest()[:n]}"
+
+
+def declaration_tuple(decl):
+    """The declared coordinates of the rhyme comparator, as a stable mapping.
+
+    Doctrine 1. `theta_rhyme` moving by a hundredth changes every rhyme field
+    and therefore every predictability value; if the cache cannot see that, the
+    band is a setting nobody wrote down (doctrine 58).
+    """
+    import dataclasses
+    if dataclasses.is_dataclass(decl):
+        return {f.name: repr(getattr(decl, f.name))
+                for f in dataclasses.fields(decl)}
+    return {k: repr(v) for k, v in sorted(vars(decl).items())
+            if not k.startswith("_")}
+
+
 def comparator_sources():
     """-> the source files whose CODE decides what a field answers.
 
@@ -234,7 +379,6 @@ def _module_digest(value):
     source is already in `comparator`.
     """
     import inspect
-    from quality.discriminate import _digest_source
     try:
         path = inspect.getfile(type(value))
     except TypeError as error:                      # a builtin/extension type
@@ -311,7 +455,6 @@ def store_identity(rhyme_field):
     beside it, so the identity cannot drift from the object whose cache it is
     about to key. That is the whole of M-244's open defect in one line.
     """
-    from quality.discriminate import _digest_source, declaration_tuple
     from quality.features import RhymeField
     # A SUBCLASS MAY OVERRIDE `field`, `NUC_FLOOR` OR THE BUCKETING and this
     # key describes none of that. `type(...) is not` rather than
