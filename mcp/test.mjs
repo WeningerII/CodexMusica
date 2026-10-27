@@ -8747,29 +8747,17 @@ try {
       lines: ['we carry the evening to the mass', 'and no one had to tell us about pass'],
       scheme: 'AA',
     });
-    assert.equal(checked.exit_code, 0, 'the pair rhymes — no flag stands');
-    // The revision lane stops the harness filing this ban (2026-10-27, D6):
-    // until it lands the pair is counted here; after it, nothing is. Either
-    // way the count is the harness's own findings, and a counted pair names
-    // its code and lines.
-    assert.equal(typeof checked.banned_pairs, 'number', 'the count is a number');
-    assert.equal(checked.banned.length, checked.banned_pairs, 'each counted pair is named');
-    for (const b of checked.banned) {
-      assert.equal(b.code, 'HOMEOTELEUTON', 'named by the code that caught it');
-      assert.deepEqual(b.lines, [1, 2], 'with its lines');
-    }
+    assert.equal(checked.exit_code, 0, 'the banned pair rhymes — no flag stands');
+    assert.equal(checked.banned_pairs, 1, 'exactly one banned pair is surfaced');
+    assert.equal(checked.banned[0].code, 'HOMEOTELEUTON', 'named by the ban tier that caught it');
+    assert.deepEqual(checked.banned[0].lines, [1, 2], 'with the lines to revise');
     // REPINNED 2026-10-04 (owner's ruling): a banned pair is reported, not
     // standing — ~~`standing` carries it~~, ~~the contract says "unskippable
     // at any exit code"~~.
     assert.ok(!checked.standing.some((s) => s.includes('HOMEOTELEUTON')));
-    // The advertised contract no longer describes a system ban to the writer
-    // (the revision lane stops filing it); the verdict field above is the
-    // harness's, unchanged here.
     assert.ok(
-      !/HOMEOTELEUTON|MODAL_RHYME|two-tier ban/i.test(
-        lyric.find((t) => t.name === 'lyric_check').description
-      ),
-      'the advertised lyric_check contract still describes the system ban'
+      /reported as notes/i.test(lyric.find((t) => t.name === 'lyric_check').description),
+      'the advertised tool contract says the ban is reported as notes'
     );
     console.log('  ok  lyric_check live: banned_pairs surfaces the ban at exit 0');
     passed++;

@@ -3664,7 +3664,7 @@ export function registerLyricTools(server, tool) {
         'and get the same grading and slop floor the full pipeline runs. After lyric_recover, pass its `lines` ' +
         'with its mandate, so the line numbers name the same lines. A declaration is REQUIRED: nothing declared means ' +
         'nothing mandated, and "nothing flagged" about that would be a vacuous pass. FLAGS are defects with line ' +
-        'numbers; NOTES are measurements. THE EXIT CODE IS NOT THE VERDICT: this verb ' +
+        'numbers; everything else is reported as notes, which are measurements. THE EXIT CODE IS NOT THE VERDICT: this verb ' +
         'exits 0 whenever it answers, with flags standing or coverage incomplete. Read `flags` and `whole_flags` for ' +
         'what stands, `certified` and `coverage` for whether every declared pair and requested layer was judged ' +
         '(coverage.refused_obligations names what was not), and `unreadable` (a count) with `unreadable_findings` ' +
