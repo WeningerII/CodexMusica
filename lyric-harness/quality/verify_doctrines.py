@@ -286,8 +286,11 @@ REGISTRY = {
     10: (ASSERTED, None, None,
          "the AUCs are now PINNED cold -- quality/test_discriminate.py grades "
          "Exp 1 at 0.638 with n=15 and Exp 2 at 0.891 against committed "
-         "values, and quality/audit_joint_auc_null.py grades four of them "
-         "against a null and a 200-seed sweep (REPINNED 2026-08-13 from the "
+         "values, and the joint-AUC null audit graded four of them against "
+         "a null and a 200-seed sweep (that audit and Exp 2, the "
+         "human-versus-model comparison, were DELETED 2026-10-27 with the "
+         "owner's approval; quality/test_discriminate.py pins Exp 1 alone "
+         "now) (REPINNED 2026-08-13 from the "
          "warm 0.604/0.877 this row quoted). The doctrine is still ASSERTED "
          "and not MECHANICAL, because what those commands pin is the "
          "measurement, not the RULE: the '1/8 hits' tally is warm and no "

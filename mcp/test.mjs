@@ -9087,10 +9087,7 @@ try {
     // bank song deleted with the bank (owner-approved). Seeded dictionary
     // words (quality/fixtures/seeded_lines.py's noun pool, seed
     // '20261027:mcp-verify') before the three end words under test.
-    const vBefore = [
-      'Interview pleasant mill owes pour',
-      'Choice tunnel yoga semester stone',
-    ];
+    const vBefore = ['Interview pleasant mill owes pour', 'Choice tunnel yoga semester stone'];
     const vGood = [vBefore[0], 'Choice tunnel yoga semester tore'];
     const ok = await callText('lyric_verify', {
       before: vBefore,

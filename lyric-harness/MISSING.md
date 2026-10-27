@@ -1546,7 +1546,7 @@ quatrains~~ — and never measured the discontinuity, which is the interesting p
 > failure after it.
 
 ### H-3 · No structural cliché beyond the grid `PARTIAL`
-**TESTED WHILE OPEN.** `quality/test_song_shape.py` names this entry and the
+**TESTED WHILE OPEN.** `quality/test_song_shape.py` (was deleted 2026-10-27) names this entry and the
 entry stays PARTIAL, which is the honest state rather than a bookkeeping
 convenience: the suite gates the FIRST of four items — clichéd section orders,
 measured below — and the other three are untouched. A part delivery with tests
@@ -1570,7 +1570,7 @@ NAMED and at most five can FIRE on any one song** — which is what
 91: the count is a coordinate of the question. Say which one is being asked.
 **THE FIRST ITEM IS MEASURED NOW — 2026-09-19 — AND IT COULD ONLY BE ANSWERED
 ONE WAY.** *Clichéd section orders* had been a phrase with no measurement
-behind it. `quality/song_shape.py` answers it, and the two routes it does NOT
+behind it. `quality/song_shape.py` (was deleted 2026-10-27) answers it, and the two routes it does NOT
 take are why the answer is worth having:
 
   **THE CORPUS CANNOT CALIBRATE IT.** E-4 measured `grid`'s 22 declared
@@ -1595,7 +1595,7 @@ songs each**:
     the_frost_ledger, the_river_keeps_the_score
         intro-drop-verse-chorus-postchorus
 
-**AND THE REGISTER WAS BLIND TO IT BY CONSTRUCTION.** `songs/RESULTS.tsv`
+**AND THE REGISTER WAS BLIND TO IT BY CONSTRUCTION.** `songs/RESULTS.tsv` (was deleted 2026-10-27)
 banks `n_sections` — a COUNT — so two songs with byte-identical orders are
 INDISTINGUISHABLE in it, and their counts merely agree with each other. Both
 pairs above match on `n_sections` (8 and 5) and nothing said more.
@@ -1606,7 +1606,7 @@ duplicates are DISCLOSED and `--check` gates the CENSUS against its own banked
 counts the way `gate_census.py` does — the series moving is an answer,
 reported, never a charge against a song. The population is
 `song_record.songs()` and not a second glob (doctrine 1), which
-`quality/test_song_shape.py` §1 proves by SHRINKING that function and
+`quality/test_song_shape.py` (was deleted 2026-10-27) §1 proves by SHRINKING that function and
 requiring the census to follow; §3 verifies each duplicate group against the
 RAW marks, so a shared order cannot be an artefact of stripping instance
 digits.
@@ -1631,13 +1631,13 @@ say is that neither duplicate is independent evidence. It says so now —
 prints `CONFOUNDED` beside each group, so the qualification is MECHANICAL and
 cannot go stale the way this paragraph did.
 
-**THE SEED IS READ, NEVER RE-DERIVED.** `quality/song_log.py`'s `seed` fact is
+**THE SEED IS READ, NEVER RE-DERIVED.** `quality/song_log.py` (was deleted 2026-10-27)'s `seed` fact is
 the declaration; re-running `make_plan` at HEAD answers a different question,
 because the planner has been re-derived many times since these songs were
 written — measured, **seed 1 at HEAD gives
 `intro-verse-chorus-tag-prechorus-chorus-tag-build-outro`, which neither
 seed-1 song has.** `oar_lair` logs no seed at all and comes back REFUSED
-rather than zero or guessed (doctrine 20). `quality/test_song_shape.py` §6/§7,
+rather than zero or guessed (doctrine 20). `quality/test_song_shape.py` (was deleted 2026-10-27) §6/§7,
 with the MUTATION: erasing the seeds recovers the pre-seed reading exactly, so
 the coordinate is proven load-bearing.
 
@@ -7384,7 +7384,7 @@ count became a threshold nobody wrote down, and then the recording moved. All
 three of that document's predictions have now had their comparator withdrawn.
 
 **AND A FOURTH SITE, IN CODE, FOUND BY THE MUTATION SWEEP AND NOT BY ANY
-GREP.** `quality/audit_joint_auc_null.py` carried all four observed AUCs as
+GREP.** `quality/audit_joint_auc_null.py` (was deleted 2026-10-27) carried all four observed AUCs as
 string literals — `"0.717", "0.964"` and `"0.638", "0.891"` — every one
 superseded by M-31. The sweep filed `test_pin_sweep.py` BASELINE-RED, and the
 evidence line was the instrument's own: `[FAIL] observed AUC RECORDED 0.717,
@@ -13276,11 +13276,11 @@ nothing.
 ### M-94 · the planner writes a blueprint the repository's own formatter rejects ~~`OPEN`~~ `CLOSED` 2026-09-01 — moot since `2833312` (2026-08-25), recorded by the triage audit
 **`plan --out=PATH` WRITES `json.dump(payload, fh, indent=1, sort_keys=True)`,
 AND `prettier --check .` REFUSES IT.** Caught by the `gate` job on the very
-commit that added `songs/stay_awake.blueprint.json` — the one job that failed
+commit that added `songs/stay_awake.blueprint.json` (was deleted 2026-10-27) — the one job that failed
 in an otherwise green run, on that one file. This is not the song's problem
 and it is not new: **all four blueprints in `songs/` are prettier-formatted
 and none of them is what its own documented `--out` command writes**, so
-re-running any of the four reproduction commands in `songs/README.md` dirties
+re-running any of the four reproduction commands in `songs/README.md` (was deleted 2026-10-27) dirties
 the tree against a gate.
 
 **AND `.prettierignore` HAS ALREADY RULED ON THE QUESTION**, in as many words:
@@ -13422,7 +13422,7 @@ had no jurisdiction, and *the renderer is correct* is not the same claim as
 *the shipped song is correct* — doctrine 1's shape one step out: two
 artifacts, one of them checked.
 
-**`quality/test_songs.py`, AND IT WAS WRITTEN RED.** Four sections: the
+**`quality/test_songs.py` (was deleted 2026-10-27), AND IT WAS WRITTEN RED.** Four sections: the
 population is non-empty and every song has its blueprint; every song carries
 markers; the markers ARE the blueprint's sections in order with each
 section's line count; and a MUTATION that strips a good song's brackets and
@@ -13493,10 +13493,10 @@ QUALITY. They are not, and the proof is in this repository: **BOTH drafts of
 the one written as speech — and no gate in this tree separates them. A bit
 that cannot tell those two apart cannot support a sentence containing "best".
 
-**`quality/song_record.py`, THREE VERBS.** `--write` banks the ten
+**`quality/song_record.py` (was deleted 2026-10-27), THREE VERBS.** `--write` banks the ten
 pre-registered features per song, keyed on **(song, harness commit, date)`.
 `--check` re-derives and FAILS on any moved value. `--claims` reads
-`songs/README.md` and fails on a comparison with no `[RESULTS: column song]`
+`songs/README.md` (was deleted 2026-10-27) and fails on a comparison with no `[RESULTS: column song]`
 citation that resolves.
 
 **THE COMMIT IS A KEY COLUMN BECAUSE THE SONGS ARE FIXED WITNESSES.** Their
@@ -13544,10 +13544,10 @@ DRIFT and can refuse an uncited claim; it still cannot show MERIT.
 Filed and closed 2026-08-24.
 
 **M-98 BANKED WHAT A SONG IS AND NOTHING BANKED HOW IT GOT THERE.**
-`songs/RESULTS.tsv` carries ten features over the committed bytes; the making
+`songs/RESULTS.tsv` (was deleted 2026-10-27) carries ten features over the committed bytes; the making
 of the song — which pairs `screen` refused, which seed the sweep accepted,
 what `song` said on the first pass, how many rounds `revise` took — lived
-entirely in `songs/README.md` as PROSE, written from a session's memory. The
+entirely in `songs/README.md` (was deleted 2026-10-27) as PROSE, written from a session's memory. The
 owner asked for exactly this half: *"are you proposing that you also record
 the process you took along with and assumed successes and known failures you
 had to solve along the way?"*
@@ -13559,7 +13559,7 @@ half that matters most here: the zero-ceiling rhyme families. `-old` and
 through this harness's own ban, and it was a table in a README that no command
 could re-derive.
 
-**`quality/song_log.py` — THREE VERBS, AND IT GRADES NOTHING.**
+**`quality/song_log.py` (was deleted 2026-10-27) — THREE VERBS, AND IT GRADES NOTHING.**
 
     --record SONG -- CMD...   run a verb, bank what it PRINTED
     --show SONG               render one song's log
@@ -13569,7 +13569,7 @@ could re-derive.
 keeps the exit code, and parses stdout with a parser DECLARED for that verb.
 It cannot record an intention, a reason or a regret — everything a session
 BELIEVES stays in the README, where `--verdicts` can charge it against a row.
-`quality/test_songs_log.py` §5 checks by ABSENCE that the module reaches no
+`quality/test_songs_log.py` (was deleted 2026-10-27) §5 checks by ABSENCE that the module reaches no
 grader: no `discriminate`, no `floor`, no `Reviser`, no `QualityFeatures`.
 Every verdict it holds arrives through `subprocess`, which is the only route
 that cannot become a second opinion about the draft (doctrine 1).
@@ -13608,7 +13608,7 @@ so `--verdicts` REFUSES those claims rather than failing them, and says how
 many it refused.
 
 **AND IT FOUND A DEFECT IN THE PROSE IT WAS BUILT TO GATE, ON ITS FIRST RUN.**
-`songs/README.md` carried an eleven-row table headed
+`songs/README.md` (was deleted 2026-10-27) carried an eleven-row table headed
 ~~`| family | clean pairs of 15 |`~~ — one denominator over eleven
 populations. 15 is `C(6, 2)`, the pair count of a SIX-member family, and five
 of the eleven rows name four or five members, where the pair count is 6 or 10:
@@ -13677,7 +13677,7 @@ in the species the tree cannot see: a TUPLE OF STRINGS is a threshold nobody
 wrote down (doctrine 58), and every instrument here that hunts hard numbers
 hunts integers.
 
-**AND IT ALREADY STEERED A PLAN.** `songs/carry_it_over.txt` was planned from
+**AND IT ALREADY STEERED A PLAN.** `songs/carry_it_over.txt` (was deleted 2026-10-27) was planned from
 a seed accepted by `--want=uses=bridge;...`, and the note above fires on a
 song with no bridge. Whether that predicate was written to silence the note
 cannot be established from the record — what IS established is that the note
@@ -14206,7 +14206,7 @@ already given.
 
 ### M-108 · the plainest mandate spelling never said how much it mandated `CLOSED`
 Filed and closed 2026-08-25, found by BANKING a song rather than by reading
-the code — `songs/long_bridge.txt` is the first delivered song whose plan
+the code — `songs/long_bridge.txt` (was deleted 2026-10-27) is the first delivered song whose plan
 draws NO returns, so its grading command is `--groups=` and nothing else.
 
 **MEASURED, on a four-line fixture, one cover, two spellings:**
@@ -14243,7 +14243,7 @@ a mandate is MENTIONED, which both branches did. The sentence was correct
 about the axis and was never checked on the next one over (doctrine 17).
 
 **IT COST A LOG ROW ITS FACTS, SILENTLY, WHICH IS HOW IT SURFACED.**
-`quality/song_log.py`'s DECLARED `song` parser reads
+`quality/song_log.py` (was deleted 2026-10-27)'s DECLARED `song` parser reads
 `mandate_groups` / `lines` / `mandated_pairs` / `mandate_source` off that one
 line with a regex written to the long shape. Against the short shape it
 matched nothing and banked none of the four — and the row was NOT refused for
@@ -14273,23 +14273,23 @@ check and the invariance check both fail.
 
 **WHAT THIS DOES NOT CHANGE.** No verdict, no finding, no exit code: the
 header is disclosure and nothing reads it but a person and `song_log.py`'s
-parser. `song`'s report on `songs/long_bridge.txt` is byte-identical either
+parser. `song`'s report on `songs/long_bridge.txt` (was deleted 2026-10-27) is byte-identical either
 side of the fix apart from that one line, and the four facts it newly banks
 were true of the run before they were printed.
 
 ### M-109 · the gate aimed at the narrator could not see `highest` or `lowest` `CLOSED`
-Filed and closed 2026-08-25, in the sitting that banked `songs/long_bridge.txt`
+Filed and closed 2026-08-25, in the sitting that banked `songs/long_bridge.txt` (was deleted 2026-10-27)
 — found by trying to write a superlative and checking whether the gate would
 catch it if the citation were left off.
 
 **`song_record.cmd_claims` IS THE CHECK AIMED AT THE NARRATOR** (M-98): a line
-of `songs/README.md` that COMPARES songs must carry a `[RESULTS: <column>
+of `songs/README.md` (was deleted 2026-10-27) that COMPARES songs must carry a `[RESULTS: <column>
 <song>]` citation that resolves, or the run fails. Its vocabulary is
 `COMPARATIVE`, a declared alternation of fourteen words — and neither
 `highest` nor `lowest` was in it.
 
 **THOSE ARE THE TWO WORDS THE CLAIM ACTUALLY REACHES FOR, AND THE FILE WAS
-ALREADY USING ONE OF THEM.** `songs/README.md` §*What the first measurement
+ALREADY USING ONE OF THEM.** `songs/README.md` (was deleted 2026-10-27) §*What the first measurement
 says* has said *"is the lowest of the five"* and *"sits lowest at"* since it
 was written, with `[RESULTS:]` citations beside both — supplied VOLUNTARILY,
 which is precisely the property a gate exists so that nobody has to supply
@@ -14344,7 +14344,7 @@ sitting recorded in `quality/RESULTS_PANEL.md`.
 
 **THE DEFECT.** Every enforcement layer in this tree checks SOUND — rhyme,
 meter, the calibrated syllable and prominence bands, predictability, density.
-None asked whether a line is an utterance, so `songs/long_bridge.txt`
+None asked whether a line is an utterance, so `songs/long_bridge.txt` (was deleted 2026-10-27)
 satisfied every constraint while its lines were comma-spliced noun
 inventories, shipped at exit 0, was banked, and was caught by the OWNER'S
 EAR — the only instrument in existence that could. A five-judge blind panel
@@ -14452,8 +14452,8 @@ unmatched **p 0.1063**, which does not separate at all, against matched
 variants by lift over a MATCHED control, and record the table.
 **SO THE CASE FOR A GATE FAILS TWICE, ON THE MEASUREMENT AND ON THE
 DOCTRINE.** Doctrine 34: reading `songs/` does NOT make it corpus, and this
-tree had already ruled that twice without saying so — `quality/song_record.py`
-and `quality/ban_convergence.py` both read this bank and neither carries a
+tree had already ruled that twice without saying so — `quality/song_record.py` (was deleted 2026-10-27)
+and `quality/ban_convergence.py` (was deleted 2026-10-27) both read this bank and neither carries a
 `data/sources.tsv` row, because neither CALIBRATES on it. What makes a
 directory corpus is the JOB and not the READ: a population you sample from,
 fit on, or draw a null from. Here the bank is the OBSERVATION and the null
@@ -14643,7 +14643,7 @@ scaffold. `screen_pairs` rows now carry `schema_scaffold` (read from
 `grade()`'s own `pairs_schema_satisfied`, the rescue set — one
 definition, doctrine 1) and the CLI renders a rescued pair `CLEAN — DOES
 NOT RHYME as a pair (the schema default answered on the SCAFFOLD:
-<names>)`. The log splits with the verb: `quality/song_log.py`'s screen
+<names>)`. The log splits with the verb: `quality/song_log.py` (was deleted 2026-10-27)'s screen
 parser banks `clean_rhyming` and `clean_non_rhyme` as two facts (the
 pre-split transcript shape still parses to its own `clean_or_non_rhyme`,
 so banked logs stay citable). **THE GATE**: `quality/test_screen.py` §6 —
@@ -14651,7 +14651,7 @@ both sides asserted (a true rhyme must read RHYMES, the measured
 scaffold-rescue pair must read DOES NOT RHYME with the schema names, a
 door-failed pair carries the grader's why, and the tail line names both
 counts), so the section cannot pass by relabelling everything one way;
-`quality/test_songs_log.py` §3 repointed at the two facts. The banked
+`quality/test_songs_log.py` (was deleted 2026-10-27) §3 repointed at the two facts. The banked
 songs' logs are historical records of the pre-split verb, unedited.
 
 ### M-114 · a whole-word locus in a rime family refuses nothing at declaration time `RESOLVED` 2026-08-28
@@ -14863,7 +14863,7 @@ against 28 on the unpatched connector.
 Law)` is one of the 22 `DRAWABLE_SCHEMAS` and its apostrophe CLOSES the
 hand-rolled `'--relations=...'`. `bash -n` gives `syntax error near unexpected
 token ')'`. **AND THE DEFECT HAD BEEN MET BEFORE AND FIXED IN THE WRONG
-PLACE**: `songs/README.md` carries a hand-escaped `(Aitken'"'"'s Law)`, so
+PLACE**: `songs/README.md` (was deleted 2026-10-27) carries a hand-escaped `(Aitken'"'"'s Law)`, so
 somebody hit this, repaired the DOCUMENT and left the INSTRUMENT emitting it —
 standing rule 3's own shape. Repaired with `shlex.quote`, **48 -> 0 of 100**,
 byte-identical for every value with no apostrophe so no other printed command
@@ -14883,7 +14883,7 @@ Attributed to a lane; the argv drop, the byte-identical spelling and the 48-of-
 **AND TWO THINGS THAT LANE COULD NOT SETTLE ARE RECORDED AS UNSETTLED**
 (doctrine 20): the MANUFACTURED direction is bounded by ONE observation — no
 census of which of the 22 `DRAWABLE_SCHEMAS` demand identity was built — and
-`songs/README.md`'s banked `crooked_waltz` plan command **no longer
+`songs/README.md` (was deleted 2026-10-27)'s banked `crooked_waltz` plan command **no longer
 round-trips** (it declares 22 lines today against the banked 17, and `--fill`
 REFUSES at exit 2). That is consistent with M-133's `17..55 -> 22..55` band
 move and **was not bisected**, and only one banked song was checked.
@@ -17378,7 +17378,7 @@ that promises the song's OWN structure**, where the grader accepts 73%.
 
 **THE ONE-LINE WIDENING IS PRICED AND IT IS NOT A ROUNDING ERROR.** On
 `quality/fixtures/mandate_song.txt` (41 lines) the cover goes **19 -> 41 groups
-and 242 -> 10,626 mandated pair-slots**; on `songs/matinee.txt` (32 lines)
+and 242 -> 10,626 mandated pair-slots**; on `songs/matinee.txt` (was deleted 2026-10-27) (32 lines)
 **19 -> 206 groups**; on sonnet 1, **9 -> 21 groups and 13 -> 253 pair-slots**.
 `brief()` would then ask nearly every line to answer nearly every other, and
 doctrine 2's *"maximal cliques may OVERLAP"* stops being a structural
@@ -18003,7 +18003,7 @@ TO ASK THE SAME QUESTION.
 
 **THE GAP IS NOT ZERO, MEASURED ON FIFTEEN DRAFTS UNDER THEIR OWN COMMITTED
 MANDATES** (the four fixtures with their suites' mandates, eleven songs with
-the exact `--groups=` / `--relations=` strings from `songs/README.md`):
+the exact `--groups=` / `--relations=` strings from `songs/README.md` (was deleted 2026-10-27)):
 **452 mandated / 452 judged / 0 refused, 0 violations — and 15 pairs (3.32%)
 accepted ONLY by the 77-schema route, on 3 of 15 drafts.** Cross-checked
 against the shipped verb rather than a reconstruction: the banked
@@ -18087,7 +18087,7 @@ pair is never counted as refused.
 **MEASURED over the 11 slot-declaring drafts: 57 of 422 mandated pairs (13.5%)
 bind at a declared slot resolving to NO ANCHOR, and every one is reported
 `judged`, with `refused = 0`.** `crooked_waltz` 22 of 47,
-`the_frost_ledger` 35 of 71 — and `songs/README.md` records both as
+`the_frost_ledger` 35 of 71 — and `songs/README.md` (was deleted 2026-10-27) records both as
 `N mandated / N judged / 0 refused`.
 
 **IT IS DOCTRINE 79 IN A SHIPPED HEADLINE COUNT.** A refusal in the judged
@@ -18123,14 +18123,14 @@ branch is never entered. `test_revise`, `test_slots`, `test_recover`,
 and not this one. `song_record.py --check` re-derives FEATURES against the
 current tree and there was **no verdict equivalent**, which is how a 13.5%
 miscount sat inside a headline triple with every gate green.
-`quality/regrade_verdicts.py` is that arm: it re-derives every banked
-mandated/judged/refused triple in `songs/README.md` against THIS tree.
+`quality/regrade_verdicts.py` (was deleted 2026-10-27) is that arm: it re-derives every banked
+mandated/judged/refused triple in `songs/README.md` (was deleted 2026-10-27) against THIS tree.
 **11 HOLDS, 0 MOVED, 0 CANNOT RUN** — three verdicts, never summed. Nightly.
 
 **AND IT IS ITS OWN MODULE BECAUSE THE FIRST DRAFT WAS AN ARM OF
 `song_log.py` AND TURNED THAT MODULE'S OWN GUARD RED.** `song_log.py` reaches
 every verdict through `subprocess` and **imports no grader at all** — asserted
-BY ABSENCE in `quality/test_songs_log.py` §5, which bans `Reviser`,
+BY ABSENCE in `quality/test_songs_log.py` (was deleted 2026-10-27) §5, which bans `Reviser`,
 `discriminate`, `floor` and `QualityFeatures` from its source, because a
 RECORD that grades has become a second grader. Adding a re-derivation there
 imported `Reviser` and the check said so. **That is the guard working**, and
@@ -18238,7 +18238,7 @@ let a mistyped `--placements=T4x` silently NARROW the search and report the
 smaller web as the text's (doctrine 20).
 
 **MEASURED, and the flag is read rather than tolerated** — over 12 lines of
-`songs/crooked_waltz.txt`: default **41 binding sites / 113 edges, 0 naming a
+`songs/crooked_waltz.txt` (was deleted 2026-10-27): default **41 binding sites / 113 edges, 0 naming a
 `T<n>`**; with `T2,T3,T4` declared, **60 sites / 256 edges, 143 naming one**.
 `render()` now prints the set it swept, because a placement not searched is
 not a placement the text lacks.
@@ -18689,7 +18689,7 @@ consumed refusal PAIRS, which is M-144's refusal-in-the-judged-column
 shape surviving at the sharing seam.
 
 **WHAT THE REPAIR REVEALED, measured on the one banked song whose mandate
-is a slot web.** `songs/the_long_way_back.txt`'s recorded triple
+is a slot web.** `songs/the_long_way_back.txt` (was deleted 2026-10-27)'s recorded triple
 65/27/38 (returns excluded) reads honestly as **65 mandated / 16 judged /
 49 refused** — eleven group-pairs sat silently skipped in the judged
 column — and of the newly-asked questions **TEN were real unsatisfied
@@ -20067,7 +20067,7 @@ gave on 08-29 — the daily spend window carrying rounds 9-10 — has lapsed
 and cannot be re-derived: the counter is in-memory and every deploy since
 reset it (AUDIT.md F128), so whether a round fits the window is a
 judgement at dispatch time, not a reading.
-**TESTED WHILE OPEN.** `quality/test_songs_log.py` §8 names this entry at
+**TESTED WHILE OPEN.** `quality/test_songs_log.py` (was deleted 2026-10-27) §8 names this entry at
 the one place its ban-against-the-bank addendum became a code change — the
 draft-banking mechanism that ends the "provable md5, unreadable bytes"
 state it measured — and that half is BUILT. What stays open here is not in
@@ -20133,7 +20133,7 @@ whose own commit says it passed every gate and was not a song; the_long_way
 _back's bank-day bytes before the M-149(b) re-bank). And every banked
 `revise` row has `md5_in == md5_out` at 0 rounds — the loop never rewrote
 a banked line; the ban did its work at the SCREEN, before a line existed,
-and there the bank CAN be read. `quality/ban_convergence.py` reads it, and
+and there the bank CAN be read. `quality/ban_convergence.py` (was deleted 2026-10-27) reads it, and
 is a checked-in instrument rather than a scratch script (standing rule 3):
 population from `song_record.songs()`; mandate from the README's `song`
 command, else the newest `plan` log row, else REFUSED by name; grading
@@ -20695,7 +20695,7 @@ writer has: the registry's own schema definitions open, the committed
 probe instrument (`brief` on two-line fixtures at the real slots), the
 `candidates --modal` verb for the ban's own heads, and unlimited local
 resumes. Every measurement went through committed verbs (standing rule
-3); the draft is `songs/oar_lair.txt`; nineteen `finish` runs and ~30
+3); the draft is `songs/oar_lair.txt` (was deleted 2026-10-27); nineteen `finish` runs and ~30
 probes drove it from 5 flags + ~6 pursued notes to the terminal state:
 **`[FINISHED — seed 88291 — exit 3 — NO_PROGRESS — UNRESOLVED: L7,
 L12]` — 61 mandated pairs, 57 judged, 53 satisfied across 24 declared
@@ -22320,7 +22320,7 @@ accepted pattern untouched, so the rule costs no seed whose draw already
 recurred. **100 of 100** seeds now recur the chorus, `plan --sweep=1-100
 --want=uses=verse,chorus;returns>=1` accepts **99 of 99**, and **40 of 40**
 plans carry a hook slot where the old sweep's `None` branch was ordinary.
-`songs/README.md` records the one banked consequence: seed 22 plans 30 lines
+`songs/README.md` (was deleted 2026-10-27) records the one banked consequence: seed 22 plans 30 lines
 at HEAD, so `wheat_mane`'s recorded shape no longer reproduces from its seed.
 **THE PINS THAT MOVED, and why each is a repin and not a deletion.**
 `test_plan.py` §5's hook-slot check asserted BOTH branches over the sweep;
@@ -22628,7 +22628,7 @@ intersects the gradeable set with the totals whose cell ceiling holds it,
 and both `ENVELOPE["total_lines"]` and `make_plan`'s draw read that:
 ~~**(12, 55), 43 values.**~~ Every seed's drawn length re-rolls, as it did at
 M-133; `test_plan.py` §14 pins the derivation and that every plan in the
-sweep drew a fillable total. `songs/README.md` says the banked seeds no
+sweep drew a fillable total. `songs/README.md` (was deleted 2026-10-27) says the banked seeds no
 longer reproduce their shapes from HEAD.
 
 **REPINNED 2026-09-05 (M-239, adopted 2026-09-04).** The length-curve profile
@@ -22673,7 +22673,7 @@ and this sentence is where that is said.
 
 ### M-196 · The song bank's record is stamped on commits that do not exist, the log had no parser for the working order's LAST verb, and two songs sit in the bank with no entry ~~`PARTIAL`~~ `CLOSED` 2026-09-06 — the recovery verb is built and the one recoverable draft is banked through it 2026-09-01 — found by the 2026-09-01 triage audit (finding C27) counting the rows; the parser ships, the rest is recorded with its cost
 **ADDENDUM 2026-09-17 — THE DEFERRED BAN-CONVERGENCE READER IS BUILT.**
-`quality/ban_convergence.py` now reads the invocation facts banked by
+`quality/ban_convergence.py` (was deleted 2026-10-27) now reads the invocation facts banked by
 `song_log.record`. It chooses the newest grading step whose INPUT fingerprint
 matches the lyric being measured, borrowing `load_lyric_lines` and
 `draft_fingerprint`; facts from different steps never mix. The matching
@@ -22689,7 +22689,7 @@ structures and the default relation reach `schemes.mandate`. The report names
 the selected step and md5 and counts `mandate_banked` separately. A recorded
 `--cliques` invocation refuses: it does not contain the historical derived
 groups, and deriving them with today's comparator would invent that evidence.
-`quality/test_ban_convergence.py` section 4 exercises these paths through the
+`quality/test_ban_convergence.py` (was deleted 2026-10-27) section 4 exercises these paths through the
 actual grader and command-line instrument, including conflicting and missing
 declarations, different drafts, omitted coordinates and numeric group labels.
 
@@ -22710,10 +22710,10 @@ OUTSIDE of 9 / 162 / 286. The stale September 2 grader pins are replaced as
 a complete descriptive set, with the old reading preserved in the receipts.
 No comparator input, threshold or calibration row changes.
 
-**CLOSED 2026-09-06 — `--bank-draft SONG MD5 FILE` IS BUILT, AND THE ONE DRAFT GIT COULD GIVE BACK WENT THROUGH IT.** `song_log.bank_draft_file` refuses on three conditions, each checked and none assumed: the song's log must HOLD the md5 (on an `md5`, `md5_in` or `md5_out` row — a fingerprint the log never printed is not a draft of this song, whatever the file holds); the file must FINGERPRINT to it through the same borrowed pair `bank_draft` uses (`load_lyric_lines`, `draft_fingerprint`), never a second hash; and the destination must be empty or hold these exact bytes. It looks nothing up for the caller — the md5 is typed, the file is named, and a `--bank-draft` that searched git history itself would be the backfill `drafts()` refuses to perform. Then `git show 8d7b3f18:lyric-harness/songs/the_long_way_back.txt` was handed to it under `687eaa34c949`: the two wrong-md5 probes REFUSED at exit 2 (a foreign md5 names the two the log does hold; the right file under the wrong md5 names what it does fingerprint), the right pair BANKED `songs/drafts/the_long_way_back.687eaa34c949.draft.txt`, and a second run answered the same path without writing. **Reading after: 3 BANKED, 44 RECOVERABLE, 3 LOST, 0 FAILING** — the three rows of the recovered draft moved from LOST to BANKED and nothing else moved; the three genuinely lost drafts (crooked_waltz 19, matinee 54 and 55) stay LOST because no copy of their bytes exists anywhere, which is the honest count and not a defect this verb can reach. `quality/test_songs_log.py` §9 (10 checks): the three refusals on a probe log, the acceptance byte for byte, idempotence, the overwrite refusal, both CLI exit codes, no residue, and the committed recovery file re-fingerprinting to the md5 in its own name; §8's LOST set and its `3 LOST` mutation reading are repinned with it. The `ban_convergence` third-mandate-source consequence below is still deliberately not taken and is not this entry's.
+**CLOSED 2026-09-06 — `--bank-draft SONG MD5 FILE` IS BUILT, AND THE ONE DRAFT GIT COULD GIVE BACK WENT THROUGH IT.** `song_log.bank_draft_file` refuses on three conditions, each checked and none assumed: the song's log must HOLD the md5 (on an `md5`, `md5_in` or `md5_out` row — a fingerprint the log never printed is not a draft of this song, whatever the file holds); the file must FINGERPRINT to it through the same borrowed pair `bank_draft` uses (`load_lyric_lines`, `draft_fingerprint`), never a second hash; and the destination must be empty or hold these exact bytes. It looks nothing up for the caller — the md5 is typed, the file is named, and a `--bank-draft` that searched git history itself would be the backfill `drafts()` refuses to perform. Then `git show 8d7b3f18:lyric-harness/songs/the_long_way_back.txt` was handed to it under `687eaa34c949`: the two wrong-md5 probes REFUSED at exit 2 (a foreign md5 names the two the log does hold; the right file under the wrong md5 names what it does fingerprint), the right pair BANKED `songs/drafts/the_long_way_back.687eaa34c949.draft.txt` (was deleted 2026-10-27), and a second run answered the same path without writing. **Reading after: 3 BANKED, 44 RECOVERABLE, 3 LOST, 0 FAILING** — the three rows of the recovered draft moved from LOST to BANKED and nothing else moved; the three genuinely lost drafts (crooked_waltz 19, matinee 54 and 55) stay LOST because no copy of their bytes exists anywhere, which is the honest count and not a defect this verb can reach. `quality/test_songs_log.py` (was deleted 2026-10-27) §9 (10 checks): the three refusals on a probe log, the acceptance byte for byte, idempotence, the overwrite refusal, both CLI exit codes, no residue, and the committed recovery file re-fingerprinting to the md5 in its own name; §8's LOST set and its `3 LOST` mutation reading are repinned with it. The `ban_convergence` third-mandate-source consequence below is still deliberately not taken and is not this entry's.
 
 
-**MEASURED AT `54650e5`, clean tree.** `songs/RESULTS.tsv` holds 164 rows
+**MEASURED AT `54650e5`, clean tree.** `songs/RESULTS.tsv` (was deleted 2026-10-27) holds 164 rows
 and **124 carry `-WORKING`**; 11 of its 15 distinct harness stamps are
 dirty, and **all 16 songs' LATEST rows are `8e37fd6-WORKING`** (banked in
 `e3fde86` on 2026-08-30 — the same chicken-and-egg `6ff41e9` named on
@@ -22724,7 +22724,7 @@ says `-WORKING` on purpose) and nothing reads it: no gate refuses a
 dirty row, no check asks whether a song's latest row is clean, so a
 measurement keyed to "the tree as of commit X" is keyed to a tree that
 never existed as a commit. Two songs — `i_am_not_leaving`, `oar_lair` —
-sit in the bank at exit 3 with no `songs/README.md` section, and the
+sit in the bank at exit 3 with no `songs/README.md` (was deleted 2026-10-27) section, and the
 README-versus-log gate (`--verdicts`) charges the 12 of 16 songs it can
 see and cannot see a song with no section.
 **WHAT SHIPS: THE `finish` PARSER.** `song_log.py`'s `PARSERS` had
@@ -22741,7 +22741,7 @@ parser plus the stamp, `revise` gains the stamp facts when it prints one,
 and the README claim gate learns `` `finish` exit N `` and `` `finish`
 STOP in R rounds ``. `test_songs_log.py` pins the parser on a fixture
 stamp in each spelling.
-**TESTED WHILE OPEN.** `quality/test_songs_log.py` §7 names this entry at
+**TESTED WHILE OPEN.** `quality/test_songs_log.py` (was deleted 2026-10-27) §7 names this entry at
 the one place the finding became a code change — the `finish` parser and
 the stamp facts — and that half is BUILT; what stays open is below, and it
 is a re-bank sitting's, not a parser's.
@@ -22824,7 +22824,7 @@ file banks facts about the INVOCATION as well as about the output, the two
 are kept apart by name, and it has always banked one of them (`exit`, which
 is not emitted text either).
 **THE DESIGN'S FILENAME IS AMENDED, AND THE AMENDMENT IS MEASURED.** The
-addendum above says `songs/<name>.<md5>.draft.txt`; `quality/test_songs.py`
+addendum above says `songs/<name>.<md5>.draft.txt`; `quality/test_songs.py` (was deleted 2026-10-27)
 §1 globs `songs/*.txt` and FAILS on any file there with no
 `.blueprint.json` beside it, so that spelling turns a green population gate
 red — and the alternative, an exclusion carved into that gate, is how a real
@@ -24005,7 +24005,7 @@ note), `quality/SHORT_SONG_FLOOR_PREREGISTRATION.md` §0, `quality/plan.py`
 person's reaction to it, is not evidence for a threshold, a band, a draw
 or a ruling. A complaint about the output is a request for a MEASUREMENT
 of the cause; the measurement is what gets recorded, in the corpus's terms
-and never in the banked songs'. `songs/RESULTS.tsv` stays what M-98 made
+and never in the banked songs'. `songs/RESULTS.tsv` (was deleted 2026-10-27) stays what M-98 made
 it — features over committed bytes keyed on the harness commit, a
 regression witness — and is not a quality record.
 
@@ -26566,7 +26566,7 @@ check("every baseline detector completed successfully", not red, str(red))
 **324** with this entry (2026-09-10).
 
 ### M-270 · The within-item extractor loaded no concreteness norms for two days and said nothing — a gate keyed on the base class's feature names met a subclass that had its own, and the nightly's within-item AUCs moved off their pins on a five-feature fit `CLOSED` 2026-09-10 (built; the next nightly measures) — under the owner's standing order: *"get us to production"*
-**WHAT MOVED, EXACTLY, AND WHAT DID NOT.** The nightly's `audit_joint_auc_null.py --check` failed on both within-item arms and neither absolute arm: `wi_exp1` recorded **0.621**, measured **0.654** (seed median 0.623 → 0.655); `wi_exp2` recorded **0.896**, measured **0.877** (0.906 → 0.894); `abs_exp1` 0.723 and `abs_exp2` 0.960 held to the digit. Reproduced locally at 12:46Z the same day with the cache warmed first, which is what CI's step 8 does before step 9 fails. Three independent read-only probes and twenty-nine verifications (workflow wf_3dce6b37-38d) ruled out every population cause — both arms are fed by the same four item lists, `corpus/sonnets.txt` and `corpus/generated/sonnets_generated.txt` are byte-identical to the pin, `data/calibration_manifest.tsv` and the labels have not moved, the norms file's digest is the one the 2026-08-13 pin recorded — and landed on one commit.
+**WHAT MOVED, EXACTLY, AND WHAT DID NOT.** The nightly's `audit_joint_auc_null.py --check` failed on both within-item arms and neither absolute arm: `wi_exp1` recorded **0.621**, measured **0.654** (seed median 0.623 → 0.655); `wi_exp2` recorded **0.896**, measured **0.877** (0.906 → 0.894); `abs_exp1` 0.723 and `abs_exp2` 0.960 held to the digit. Reproduced locally at 12:46Z the same day with the cache warmed first, which is what CI's step 8 does before step 9 fails. Three independent read-only probes and twenty-nine verifications (workflow wf_3dce6b37-38d) ruled out every population cause — both arms are fed by the same four item lists, `corpus/sonnets.txt` and `corpus/generated/sonnets_generated.txt` (was deleted 2026-10-27) are byte-identical to the pin, `data/calibration_manifest.tsv` and the labels have not moved, the norms file's digest is the one the 2026-08-13 pin recorded — and landed on one commit.
 **THE CAUSE: A GATE KEYED ON THE WRONG CLASS'S NAMES.** Commit a75da39f (2026-09-08, *"Enforce production workflow, recovery, and explicit pronunciation contracts"*, the M-188 refusal-first constructor) made `QualityFeatures.__init__` load the Brysbaert norms only when `requested_features & CONCRETENESS_FEATURES` is non-empty, with `CONCRETENESS_FEATURES` the three ABSOLUTE names `concreteness_mean`, `concreteness_p90`, `abstract_noun_ratio`. `WithinItemFeatures` overrides `NAMES` with eight `wi_*` names and inherited that set, so for it the intersection was empty, `self.conc` was `{}`, and `wi_concreteness_delta`, `wi_abstract_delta` and `wi_conc_spread` — the three of its eight that read the norms — came back NaN on **192 of 192** items. MEASURED live at HEAD before the fix: `len(WithinItemFeatures().conc) == 0` against 39,954 for `QualityFeatures()`, the three features NaN on a quatrain and finite the moment the norms are set on the same instance. The audit's median imputer drops an all-NaN column, so the "all eight features" joint model was fitted on five; splicing norm-backed values for just those three into the current cache reproduces all four pins to the digit, and NaN-ing them reproduces all four failures to the digit — nothing else moved. The nightly's own per-feature step had said so: the three wi features were reported *measured NOTHING* while every other pin matched to six decimals.
 **WHY NOTHING CHEAP WENT RED.** The extractor raised nothing: an empty norm table is a legal state for an extractor whose declaration asks for no norms, and the gate could not tell "asks for none" from "asks in names I did not check". The feature cache's fingerprint changed with the commit and the same nightly rebuilt all 384 vectors under the broken gate, so `--check` compared against a cache its own commit had just written; a fingerprint match never meant a match with the pin. And `test_discriminate.py`, the one suite that pins the eight joint AUCs, is cold and heavy (~1,055 CPU-s) and lives outside the cheap job by design. So the tree was green for two days with three features silently absent.
 **WHAT SHIPS.** `WithinItemFeatures.CONCRETENESS_FEATURES` declares the three `wi_*` names that read the norms — an extractor that overrides `NAMES` declares which of ITS names need them. `QualityFeatures.__init__` refuses, before any resource is touched, a norm set that is not a subset of the extractor's own `NAMES`: the gate that could never open is now a `ValueError` at construction rather than a NaN at extraction, which is the structural half — a future subclass that overrides `NAMES` and forgets the set cannot construct. `quality/test_within_item.py` is the cheap suite that would have gone red the same hour: it pins the declared set, the norm count equal to the absolute extractor's, all three features finite on a quatrain, the refusal of a subclass that overrides `NAMES` without a set, and the legitimate case of a subclass declaring an empty set. It joins the cheap job's list in the same commit (label 88 → 89), so it never enters the orphan census.
@@ -28613,7 +28613,7 @@ and the menu reads 68/68. (c) THE CEILING-TIE RULE IS SETTLED: both halves at
 a saturated instrument cannot show "denser", and the remedy then is a new
 reference, never a looser comparison.
 
-**THE BANK (`quality/ban_convergence.py`), MEASURED PER PAIR BOTH SIDES.**
+**THE BANK (`quality/ban_convergence.py` (was deleted 2026-10-27)), MEASURED PER PAIR BOTH SIDES.**
 The pin had been written from the WIP commit `599a5d96` as ~~banned 4, head 4,
 tail 240, outside 214~~ and never held: `f58ecf59` measured banned 5, head 5,
 tail 241, outside 212 (rc=1), and a per-pair run on `be0529b5` reproduces it.
@@ -29124,7 +29124,7 @@ its own M-311 and #398 takes M-312.
 
 **WHAT MOVED.** `check_comparator_pin.py`: MOVED — 1 of 7 inputs, `lyric_harness.py closure`; the other six byte-identical. `1e2d0c2dc62c` -> `6a0dd9c1004e`. The predictability memo was rebuilt FROM NOTHING over twelve shards of `length_curve_calibration.py compute --shard I/12` at commit `1028d8a6` — four in this session, eight on two cloud workers — 8,536 items, every CACHE line "new (no file yet)", 37,194 CPU-s (10.3 CPU-hours; twelve processes each warm their own `RhymeField`, so the sharding bought wall-clock and cost CPU). `check --rows` over the twelve: **RESULT: HOLDS**, mattr/fwr/anaphora to every digit, cv and predictability at 21 knots each. Item by item, all 8,536 rows equal the rows banked at the old pin (`quality/results/n_relation_2026-09-22/calibration-rows.tsv`) in all five statistics to the printed repr — 0 items changed. Warm on the merged memo, `song_profile_calibration.py --check` (`song`) and `--check --profile short` each answer 21 of 21 and reproduce every shipped constant, and `expected_drift.py song_profile_calibration-fast` observes 0 drift. Nothing moved, so nothing is re-adopted and nothing was tuned (doctrine 58); the pin advances on `quality/results/comparator_repin_2026-09-26/curve-check.txt`, with the twelve shards' rows, sidecars and COMPUTE logs banked beside it.
 
-**WHAT ELSE MOVED, EACH RE-DERIVED BY ITS OWN INSTRUMENT.** `audit_corpus.py --verify-shape`: NOTE ~~1193~~ -> **1195**, Check J alone — with `'t` out of the set an attached `o't` stops counting as attached-convention evidence, the partition goes attached-only 1049 -> 1067 / spaced-only 0 / both 245 -> 226, and two editions become spaced-DOMINANT (`eng_celtic_msm_andrew_scott` 43/39, `eng_celtic_msm_robert_lochore` 40/29); every other finding is line-identical to an `origin/main` run. `mutate.py` M22 was STALE (its anchor was the fold line the joiner replaced) and is RE-ANCHORED on the line that now carries the decision; its mutant keeps the join and drops only the fold (`norm = _SPACED_ENCLITIC.sub(r"\1\2", text)`), so it plants doctrine 26's defect and nothing of the enclitic change, and `test_mut_oracle.py` §6 still catches it (`mutate.py --only M22`: 1/1 caught). `counters.py`'s public-symbol row moves one symbol from NOWHERE to tests-only (`join_spaced_enclitics`, now pinned by `test_readability.py` §17). `capacity.certification_identity` MOVES — `lyric_harness.py`'s module-level statements and reached definitions are hashed as AST — so CI's `capacity-proof` job re-proves it. **`narrative_bands.py --check` (the nightly runs it) — ADDED 2026-09-26 on the review of #416, which found it exiting 3 on the branch and 0 on `origin/main` 3909fa89:** `content_types` tokenises with `line_tokens`, so a seam's content-type sets gain `there's` where they held `there` and `'s`. Re-derived by its own `--check` and repinned in `PINNED` with a dated note naming the joiner: `p1_nonzero_rate` ~~0.5916~~ -> **0.5914**, `p1_null_median_rate` ~~0.5869~~ -> **0.5868** (draws 0.5832–0.5886, excess +0.47 -> +0.46 pp, still above every draw; verse->verse 0.6149 -> 0.6148); songs, seams and all of P2 unchanged. `RESULTS_NARRATIVE_BANDS.md` carries a dated block above the 2026-09-26 one, and `NARRATIVE_BANDS_PREREGISTRATION.md`'s outcome line strikes the figures it quoted. **Every other pinned instrument CI or the nightly runs, run on the branch:** `structure_census`, `sentencehood`, `search_null`, `audit_spans`, `prasa_rate`, `positive_control`, `schema_window`, `schema_end_reading`, `mark_coverage`, `hafez_rate`, `gate_census`, `frequency`, `eval_matrix`, `door_census`, `cynghanedd_rate`, `cym_rhyme_rate`, `meter_bands`, `chance_rate` (both `--check` and `--null --check`), `battery_rounds`, `audit_time_pooled_null`, `audit_kalevala_null`, `audit_hafez_radif`, `audit_fwer_fpr`, `audit_band_control`, `triage`, `kalevala_rate`, `kalevala_calibration`, `e5_coda_adoption`, `regrade_verdicts`, `check_data_rows`, `pin_sweep.py --verify-argv`, `test_readings_seam.py --eng` and `test_g2p.py --slow` (§21 still rebuilds the letter rules byte-identical), plus `length_curve_calibration` and `song_profile_calibration` above — all HOLD; `audit_tang_null` and `run_positive_control` exit 2 (their corpora live outside the repo, CANNOT RUN in CI too). `discriminate.py`/`audit_joint_auc_null.py` are not re-run: their only inputs, `corpus/sonnets.txt` and `corpus/generated/sonnets_generated.txt`, carry zero spaced enclitics and zero non-curly apostrophes, so every `line_tokens` call over them returns what it returned on main. **`cross_song.py --check` is ALREADY RED ON `origin/main`** (`human_songs` pinned 8666, measured 8651 — the K-1 population change — and the k=2..8 null spectrum moved with it), and the wiring shifts that null further — measured on `origin/main` 3909fa89 and on the branch, (null median, null max): k=2 (195.5, 231) -> (196.0, 241), k=4 (34.0, 56) -> (33.0, 50), k=6 (10.0, 18) -> (10.0, 22), k=7 (6.0, 14) -> (5.0, 16); the observed bank column does not move. NOTHING in CI or the nightly runs it — only the manual `pin_sweep.py` sweep discovers it — so it is NOT repinned here: both causes are named here for whoever repins it, and the next repin must argue both. **A stored pronunciation choice keyed to a spaced-enclitic line is now REFUSED LOUDLY:** `pronunciation.validate_choices` checks `line_tokens(line)[token-1] == word`, so a choice written against the old split (`'s` as its own token, or any later index on that line) raises `pronunciation token/word must match the exact sung token` rather than binding the wrong word.
+**WHAT ELSE MOVED, EACH RE-DERIVED BY ITS OWN INSTRUMENT.** `audit_corpus.py --verify-shape`: NOTE ~~1193~~ -> **1195**, Check J alone — with `'t` out of the set an attached `o't` stops counting as attached-convention evidence, the partition goes attached-only 1049 -> 1067 / spaced-only 0 / both 245 -> 226, and two editions become spaced-DOMINANT (`eng_celtic_msm_andrew_scott` 43/39, `eng_celtic_msm_robert_lochore` 40/29); every other finding is line-identical to an `origin/main` run. `mutate.py` M22 was STALE (its anchor was the fold line the joiner replaced) and is RE-ANCHORED on the line that now carries the decision; its mutant keeps the join and drops only the fold (`norm = _SPACED_ENCLITIC.sub(r"\1\2", text)`), so it plants doctrine 26's defect and nothing of the enclitic change, and `test_mut_oracle.py` §6 still catches it (`mutate.py --only M22`: 1/1 caught). `counters.py`'s public-symbol row moves one symbol from NOWHERE to tests-only (`join_spaced_enclitics`, now pinned by `test_readability.py` §17). `capacity.certification_identity` MOVES — `lyric_harness.py`'s module-level statements and reached definitions are hashed as AST — so CI's `capacity-proof` job re-proves it. **`narrative_bands.py --check` (the nightly runs it) — ADDED 2026-09-26 on the review of #416, which found it exiting 3 on the branch and 0 on `origin/main` 3909fa89:** `content_types` tokenises with `line_tokens`, so a seam's content-type sets gain `there's` where they held `there` and `'s`. Re-derived by its own `--check` and repinned in `PINNED` with a dated note naming the joiner: `p1_nonzero_rate` ~~0.5916~~ -> **0.5914**, `p1_null_median_rate` ~~0.5869~~ -> **0.5868** (draws 0.5832–0.5886, excess +0.47 -> +0.46 pp, still above every draw; verse->verse 0.6149 -> 0.6148); songs, seams and all of P2 unchanged. `RESULTS_NARRATIVE_BANDS.md` carries a dated block above the 2026-09-26 one, and `NARRATIVE_BANDS_PREREGISTRATION.md`'s outcome line strikes the figures it quoted. **Every other pinned instrument CI or the nightly runs, run on the branch:** `structure_census`, `sentencehood`, `search_null`, `audit_spans`, `prasa_rate`, `positive_control`, `schema_window`, `schema_end_reading`, `mark_coverage`, `hafez_rate`, `gate_census`, `frequency`, `eval_matrix`, `door_census`, `cynghanedd_rate`, `cym_rhyme_rate`, `meter_bands`, `chance_rate` (both `--check` and `--null --check`), `battery_rounds`, `audit_time_pooled_null`, `audit_kalevala_null`, `audit_hafez_radif`, `audit_fwer_fpr`, `audit_band_control`, `triage`, `kalevala_rate`, `kalevala_calibration`, `e5_coda_adoption`, `regrade_verdicts`, `check_data_rows`, `pin_sweep.py --verify-argv`, `test_readings_seam.py --eng` and `test_g2p.py --slow` (§21 still rebuilds the letter rules byte-identical), plus `length_curve_calibration` and `song_profile_calibration` above — all HOLD; `audit_tang_null` and `run_positive_control` exit 2 (their corpora live outside the repo, CANNOT RUN in CI too). `discriminate.py`/`audit_joint_auc_null.py` are not re-run: their only inputs, `corpus/sonnets.txt` and `corpus/generated/sonnets_generated.txt` (was deleted 2026-10-27), carry zero spaced enclitics and zero non-curly apostrophes, so every `line_tokens` call over them returns what it returned on main. **`cross_song.py --check` is ALREADY RED ON `origin/main`** (`human_songs` pinned 8666, measured 8651 — the K-1 population change — and the k=2..8 null spectrum moved with it), and the wiring shifts that null further — measured on `origin/main` 3909fa89 and on the branch, (null median, null max): k=2 (195.5, 231) -> (196.0, 241), k=4 (34.0, 56) -> (33.0, 50), k=6 (10.0, 18) -> (10.0, 22), k=7 (6.0, 14) -> (5.0, 16); the observed bank column does not move. NOTHING in CI or the nightly runs it — only the manual `pin_sweep.py` sweep discovers it — so it is NOT repinned here: both causes are named here for whoever repins it, and the next repin must argue both. **A stored pronunciation choice keyed to a spaced-enclitic line is now REFUSED LOUDLY:** `pronunciation.validate_choices` checks `line_tokens(line)[token-1] == word`, so a choice written against the old split (`'s` as its own token, or any later index on that line) raises `pronunciation token/word must match the exact sung token` rather than binding the wrong word.
 
 **WHAT DID NOT MOVE, AND WHY IT COULD NOT.** MATTR, FWR and the token count read `features._tokens`; CV and anaphora read `str.split`; none reads `line_tokens`, and all 8,536 calibration items' five cheap statistics are byte-identical to the rows banked at the old pin — F-5's "and the MATTR/CV calibrations with it" is struck as measured false. No line in `corpus/song/` ends in a joinable enclitic, so no END word, end-rhyme table or end-word readability rate moves (`test_readability.py` §5 passes unchanged). ~~That is the whole of what the wiring could move~~ — **NARROWED 2026-09-26 on the independent review of #416: every INTERIOR-token reader of `line_tokens` moves.** 2,010 lines of `corpus/song/eng_*` in 224 files change their `line_tokens` COUNT (every line of each file, apparatus included; 31 more change token text only), so any instrument that reads a line's interior words — a content-type set, a syllable map, a token index — can move where a compositor spaced an apostrophe. The one CI-run pin that did is `narrative_bands.py` (below); every other `--check` CI or the nightly runs was run on the branch and HOLDS (below). `discriminate.py`'s corpora (`corpus/sonnets.txt`, `corpus/whitman.txt`, `corpus/generated/`) carry zero spaced enclitics and zero non-curly apostrophes, so its AUCs are unmoved by construction; its feature cache (keyed on the whole `lyric_harness.py`) re-warms cold.
 
@@ -29134,7 +29134,7 @@ its own M-311 and #398 takes M-312.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~369~~ -> **370**.
 
-### M-316 · A DECLARED `schema:chain rhyme (rap)` pair was judged by a whole-song figure that never assembles, so every declared chain-rhyme pair was VIOLATED however it rhymed; a declared pair is now judged at the pair, and the whole-vocabulary default is deliberately unchanged `CLOSED` 2026-09-27 — found grading `songs/crooked_waltz.txt` (group Q, `stir~carpenter`, flagged while the pair chains); the scope is the owner's ruling of 2026-09-27
+### M-316 · A DECLARED `schema:chain rhyme (rap)` pair was judged by a whole-song figure that never assembles, so every declared chain-rhyme pair was VIOLATED however it rhymed; a declared pair is now judged at the pair, and the whole-vocabulary default is deliberately unchanged `CLOSED` 2026-09-27 — found grading `songs/crooked_waltz.txt` (was deleted 2026-10-27) (group Q, `stir~carpenter`, flagged while the pair chains); the scope is the owner's ruling of 2026-09-27
 
 **THE DEFECT.** `chain rhyme (rap)` is declared `Figure(quantifier="forall", frame="song")`. Since `a75da39f` `line_pairs_for` sends every schema failing `pair_scope_representable` through `assemble()`, whose `forall` branch keeps a frame only when the surviving edges form ONE connected component covering every line of the song. The overlapping `free_run` spans of even one line pair form several components, so the figure never assembles and `line_pairs_for` returns the empty set on every text — M-311 F3 recorded it as a grader finding on the constructed exhibit ("fading fast"~"sailing past" graded `[False, False]`). A mandate that DECLARES the schema on a group asks, of each pair, whether THOSE TWO LINES chain, and was answered by that figure: `crooked_waltz` group Q `[1, 2]` was a SCHEME_VIOLATION on a pair the same judge reads as a chain.
 
@@ -29142,7 +29142,7 @@ its own M-311 and #398 takes M-312.
 
 **THE DEFAULT RULE IS UNCHANGED, BY RULING.** The REGISTRY figure stays `forall`/song, and `whole_vocabulary_pairs` — the rescue route for an undeclared group, and `battery.py`'s and `check_scheme`'s route — reads REGISTRY, so a group that never named chain rhyme gains no new leniency from it. The first repair (the REGISTRY figure itself made `exists_k` k=2) was measured by the helper that drafted it to move three pinned oracles because chain rhyme then rescued undeclared pairs — the sonnet battery, `relation_shapes`' figure profile, and `test_relations.py` X2 on `metidja.txt` — and the owner ruled the fix be scoped to the declaration instead. `quality/test_production_relations.py` pins the scope by mutation: Sonnet 105's L10/L12 `words~affords` stays flagged by `check_scheme`, and with the declared figure written into REGISTRY chain rhyme rescues exactly that pair.
 
-**MEASURED ON THIS TREE.** `crooked_waltz` graded by `songs/README.md`'s command with `--input-format=source`: ~~11 FLAG~~ -> **10 FLAG**, group Q `[1, 2]` HOLDS (L1 `stir`), every other finding unchanged. The M-311 F3 row answers `[True, False]` through `Reviser.grade` and has moved from `WITNESS_FINDINGS` to `DRAWABLE_EXHIBITS` (doctrine 17: a repaired finding is not evidence), so `test_mandate_relation.py` §10 and §13 grade it with the other drawable names. NOT MOVED, each by its own instrument: the sonnet battery (`battery.py`, read by `counters.py --check`) 9/936 violations, `mandated 1064, judged 936, refused 128`, as pinned; `counters.py --check` passes every other row, and its public-symbol row moves only by the one def this entry adds (`declared_pair_schema`, outside `relations.__all__` beside `pair_scope_representable`: outside-count ~~92~~ -> **93**), written by `counters.py --write`; `relation_shapes.py --check` PASS and `test_relation_shapes.py` pass (the REGISTRY figure profile, `PINNED_ARITY` included, is unchanged); `test_relations.py` X2 on `metidja.txt` REFUSED 27 · RAN AND FOUND NOTHING 29 · RAN AND FIRED 22, as pinned; `check_comparator_pin.py` HOLDS (`relations.py`, `revise.py` and `schema_census.py` are outside the comparator's closure).
+**MEASURED ON THIS TREE.** `crooked_waltz` graded by `songs/README.md` (was deleted 2026-10-27)'s command with `--input-format=source`: ~~11 FLAG~~ -> **10 FLAG**, group Q `[1, 2]` HOLDS (L1 `stir`), every other finding unchanged. The M-311 F3 row answers `[True, False]` through `Reviser.grade` and has moved from `WITNESS_FINDINGS` to `DRAWABLE_EXHIBITS` (doctrine 17: a repaired finding is not evidence), so `test_mandate_relation.py` §10 and §13 grade it with the other drawable names. NOT MOVED, each by its own instrument: the sonnet battery (`battery.py`, read by `counters.py --check`) 9/936 violations, `mandated 1064, judged 936, refused 128`, as pinned; `counters.py --check` passes every other row, and its public-symbol row moves only by the one def this entry adds (`declared_pair_schema`, outside `relations.__all__` beside `pair_scope_representable`: outside-count ~~92~~ -> **93**), written by `counters.py --write`; `relation_shapes.py --check` PASS and `test_relation_shapes.py` pass (the REGISTRY figure profile, `PINNED_ARITY` included, is unchanged); `test_relations.py` X2 on `metidja.txt` REFUSED 27 · RAN AND FOUND NOTHING 29 · RAN AND FIRED 22, as pinned; `check_comparator_pin.py` HOLDS (`relations.py`, `revise.py` and `schema_census.py` are outside the comparator's closure).
 
 **NOT CLAIMED.** That the rap chain is fully modelled: a declared pair is judged as a pair, and "each new member laid against the ESTABLISHED CHAIN" (the schema's note) over three or more members is still asked by no route. Nor that the default rule is right to ignore chain rhyme — that is the owner's ruling, recorded here, and changing it moves the three oracles above.
 
@@ -29268,7 +29268,7 @@ Either one changes verdicts on every song that holds such a pair, and neither is
 
 **MEASURED, `python3 lyric_harness.py screen sea company reality harmony memory money degree "--relation=schema:perfect rhyme"`:** NAMED COUNTS ~~6 satisfies, 15 violates, 0 refused~~ -> **18 satisfies, 3 violates, 0 refused**. The 12 pairs that move are *sea*, *company*, *reality* and *degree* against *harmony* / *memory* / *money* (except *company ~ harmony* and *company ~ money*), plus *harmony ~ memory* and *memory ~ money*. The three that still violate are *company ~ harmony*, *company ~ money* and *harmony ~ money*. Each pair's two finals share the onset `N` at the anchor, and perfect rhyme's onset must differ. That is the verdict the IY2 pair *company ~ britney* (`N IY2` / `N IY2`) always got, so the promoted final behaves exactly as an IY2 final does and is no looser. *sea ~ hit*, *sea ~ harmonize* (a lexical AY2 final, nothing promoted), *harmony ~ symphony* and *city ~ liberty* still violate. A token bound MID-LINE is not promoted: `harmony` at L2.T1 against `sea` violates, while `company` there holds on its lexical IY2. `check_comparator_pin.py` HOLDS before and after the merge of `main`'s re-pin (`d8f5a5b1…`, then `9d5d8146…`). `relations.py` and `revise.py` are outside the comparator's closure, and the `lyric_harness.py` change is in `screen_pairs`.
 
-**IMPACT, measured by a one-off scratch counterfactual that is not in the tree, so not re-derivable (standing rule 3):** each pair was asked `pair_satisfies_any` under the REGISTRY row and under the declared row. On the sonnet battery's 1,064 mandated end pairs, if each group declared perfect rhyme, **21 move, all False -> True**. They are mostly unstressed *-y* finals (*memory ~ eternity*, *liberty ~ injury*, *usury ~ thee*), and also *open ~ broken*, *granting ~ wanting*, *character ~ register*, *remember'd ~ tender'd* and *excellence ~ difference*. The ruling therefore reaches every promoted unstressed final (-en, -ing, -er, -ed, a syllabic -le), not only -y. On the song bank (`songs/*.txt`, 1,268 line-end pairs within four lines) **6 move, all False -> True**: *stir ~ carpenter*, *metal ~ vigil*, *candle ~ lull*, *scandal ~ lull*, *keeping ~ returning*, *kettle ~ hull*. No banked song's actual grade moves. The only one that declares perfect rhyme is `the_frost_ledger` (groups A, G, H), and its `songs/README.md` command graded with `--input-format=source` gives the same output before and after; the README command as written refuses on `main` (blueprint 21 lines, 26 handed in), unrelated to this entry. The reference song (`map/song.txt`, seed 0) declares no relation, so by construction no changed route runs for it; it was not re-traced. The sonnet battery itself declares no schema and is not moved.
+**IMPACT, measured by a one-off scratch counterfactual that is not in the tree, so not re-derivable (standing rule 3):** each pair was asked `pair_satisfies_any` under the REGISTRY row and under the declared row. On the sonnet battery's 1,064 mandated end pairs, if each group declared perfect rhyme, **21 move, all False -> True**. They are mostly unstressed *-y* finals (*memory ~ eternity*, *liberty ~ injury*, *usury ~ thee*), and also *open ~ broken*, *granting ~ wanting*, *character ~ register*, *remember'd ~ tender'd* and *excellence ~ difference*. The ruling therefore reaches every promoted unstressed final (-en, -ing, -er, -ed, a syllabic -le), not only -y. On the song bank (`songs/*.txt`, 1,268 line-end pairs within four lines) **6 move, all False -> True**: *stir ~ carpenter*, *metal ~ vigil*, *candle ~ lull*, *scandal ~ lull*, *keeping ~ returning*, *kettle ~ hull*. No banked song's actual grade moves. The only one that declares perfect rhyme is `the_frost_ledger` (groups A, G, H), and its `songs/README.md` (was deleted 2026-10-27) command graded with `--input-format=source` gives the same output before and after; the README command as written refuses on `main` (blueprint 21 lines, 26 handed in), unrelated to this entry. The reference song (`map/song.txt`, seed 0) declares no relation, so by construction no changed route runs for it; it was not re-traced. The sonnet battery itself declares no schema and is not moved.
 
 **TESTS.** `test_mandate_relation.py` §16 pins the ruling: the screen's 21 verdicts, both grade routes, `final_promotion` off, the mid-line token, the onset-identity failures and the span builder. REPINNED, an intended change: `test_loop_redesign.py`'s `SILVER` fixture needed a declared perfect rhyme with an EMPTY offer, and *silver*'s promoted -er now answers 17 verified words, so 3 checks failed on the premise. The line now ends on *ninth* (0 offered), and the suite is ALL PASS. Passing unchanged: `test_screen`, `test_relations`, `test_relation_index`, `test_production_relations`, `test_slots`, `test_relation_shapes`, `test_loop`, `test_plan`, `test_revise`, `test_verbs`, `test_production_revision`, `test_homograph`, `test_readings_seam`, `test_taxonomy`, `test_capabilities`, `test_pronunciation_choices`, `test_lexicon_supplement`, `test_replay_memo`, `test_readability`, `test_rhyme_organization`, `test_narrative`, `test_nucleus`, `test_homeoteleuton`, `test_null_shapes`, `test_relations_null`, `test_fwer`, `test_mut_band`.
 

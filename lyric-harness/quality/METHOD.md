@@ -337,7 +337,8 @@ looking right.
    cold Experiment 1 seed MEDIAN. Two statistics that land on the same three
    decimals; the recorded absolute draw sitting well above its own median is
    this doctrine's whole point. Medians pinned in
-   `quality/audit_joint_auc_null.py`'s `PINNED` (`seed_median`), observations
+   `quality/audit_joint_auc_null.py` (was deleted 2026-10-27, with Exp 2)'s
+   `PINNED` (`seed_median`), observations
    in `quality/test_discriminate.py`'s `PINNED` (`joint_all`);
    `quality/RESULTS_WITHIN_ITEM.md` P1/P2 carries both readings.
 
@@ -470,7 +471,8 @@ without them.
    ten-feature twins are 0.717 and 0.964 and are a different feature set, not a
    different reading of these. Pinned as `wi_exp1`/`wi_exp2` `joint_all` in
    `quality/test_discriminate.py` and RECORDED in
-   `quality/audit_joint_auc_null.py`; `quality/RESULTS_WITHIN_ITEM.md` carries
+   `quality/audit_joint_auc_null.py` (was deleted 2026-10-27, with Exp 2);
+   `quality/RESULTS_WITHIN_ITEM.md` carries
    both readings side by side.
 
    **"1/8 hits in each experiment" IS NOT RE-DERIVED COLD AND MAY NOT BE

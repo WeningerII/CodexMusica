@@ -2879,7 +2879,7 @@ jobs:
       #   pairs, every other apostrophe read as written, the elision list against the data, source
       #   spans, and declared pronunciations bound only where the source quote was removed; about
       #   20 s; label 110 to 111
-      - name: The 111 cheap suites (their history is the comment above)
+      - name: The 106 cheap suites (their history is the comment above; 111 until 2026-10-27, when the five bank suites were deleted with the song bank)
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'

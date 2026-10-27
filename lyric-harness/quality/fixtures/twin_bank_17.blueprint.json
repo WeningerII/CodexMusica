@@ -1,279 +1,255 @@
 {
- "hooks": [
-  "Fro on. I'll jeep the slight."
- ],
- "lines": [
-  {
-   "bar": 1,
-   "beat": 1.0,
-   "duration": 6.0,
-   "section": "VERSE1",
-   "text": "Told it spry. I'll do the four."
-  },
-  {
-   "bar": 3,
-   "beat": 1.0,
-   "duration": 6.0,
-   "section": "VERSE1",
-   "text": "Bone in the goad where the lost lore"
-  },
-  {
-   "bar": 5,
-   "beat": 1.0,
-   "duration": 6.0,
-   "section": "VERSE1",
-   "text": "The louse we spilt is meaning bligh, and pet it sloan"
-  },
-  {
-   "bar": 7,
-   "beat": 1.0,
-   "duration": 6.0,
-   "section": "VERSE1",
-   "text": "Some watts I ever spurned to pie"
-  },
-  {
-   "bar": 9,
-   "beat": 2.0,
-   "duration": 5.0,
-   "section": "PRECHORUS1",
-   "text": "Brags by the yep, and the maxi's slate"
-  },
-  {
-   "bar": 11,
-   "beat": 1.0,
-   "duration": 6.0,
-   "section": "CHORUS1",
-   "text": "Fro on. I'll jeep the slight."
-  },
-  {
-   "bar": 13,
-   "beat": 1.5,
-   "duration": 5.5,
-   "section": "FALSE_ENDING1",
-   "text": "And that was the vast of it. Merely."
-  },
-  {
-   "bar": 15,
-   "beat": 2.0,
-   "duration": 5.0,
-   "section": "PRECHORUS2",
-   "text": "You burn at the warner. You ashtrays burn."
-  },
-  {
-   "bar": 17,
-   "beat": 1.0,
-   "duration": 6.0,
-   "section": "CHORUS2",
-   "text": "Fro on. I'll jeep the slight."
-  },
-  {
-   "bar": 19,
-   "beat": 1.5,
-   "duration": 5.5,
-   "section": "TAG1",
-   "text": "I have watching tense to snare"
-  },
-  {
-   "bar": 21,
-   "beat": 1.5,
-   "duration": 5.5,
-   "section": "TAG1",
-   "text": "Blake the bloat. It dost me watching."
-  },
-  {
-   "bar": 23,
-   "beat": 1.5,
-   "duration": 5.5,
-   "section": "TAG1",
-   "text": "You tossed the guard and hood at the nair"
-  },
-  {
-   "bar": 25,
-   "beat": 2.0,
-   "duration": 5.0,
-   "section": "PRECHORUS3",
-   "text": "The falsone earning over in the stark"
-  },
-  {
-   "bar": 27,
-   "beat": 1.0,
-   "duration": 6.0,
-   "section": "CHORUS3",
-   "text": "Fro on. I'll jeep the slight."
-  },
-  {
-   "bar": 29,
-   "beat": 1.5,
-   "duration": 5.5,
-   "section": "POSTCHORUS1",
-   "text": "Brake folds the zqqbgx, bier my tea"
-  },
-  {
-   "bar": 31,
-   "beat": 1.5,
-   "duration": 5.5,
-   "section": "POSTCHORUS1",
-   "text": "Zed slight, snake in the mass, down to the prix"
-  },
-  {
-   "bar": 33,
-   "beat": 1.5,
-   "duration": 5.5,
-   "section": "POSTCHORUS1",
-   "text": "Tread the smee vine down to the shake"
-  },
-  {
-   "bar": 35,
-   "beat": 1.0,
-   "duration": 6.0,
-   "section": "CODA1",
-   "text": "And the slight hays on all dwight."
-  }
- ],
- "sections": [
-  {
-   "bars": 8,
-   "function": "verse",
-   "meter": {
-    "beats": 3,
-    "groups": [
-     3
-    ],
-    "unit": 8
-   },
-   "name": "VERSE1",
-   "start_bar": 1
-  },
-  {
-   "bars": 2,
-   "function": "prechorus",
-   "meter": {
-    "beats": 3,
-    "groups": [
-     3
-    ],
-    "unit": 8
-   },
-   "name": "PRECHORUS1",
-   "start_bar": 9
-  },
-  {
-   "bars": 2,
-   "function": "chorus",
-   "meter": {
-    "beats": 3,
-    "groups": [
-     3
-    ],
-    "unit": 8
-   },
-   "name": "CHORUS1",
-   "start_bar": 11
-  },
-  {
-   "bars": 2,
-   "function": "false_ending",
-   "meter": {
-    "beats": 3,
-    "groups": [
-     3
-    ],
-    "unit": 8
-   },
-   "name": "FALSE_ENDING1",
-   "start_bar": 13
-  },
-  {
-   "bars": 2,
-   "function": "prechorus",
-   "meter": {
-    "beats": 3,
-    "groups": [
-     3
-    ],
-    "unit": 8
-   },
-   "name": "PRECHORUS2",
-   "start_bar": 15
-  },
-  {
-   "bars": 2,
-   "function": "chorus",
-   "meter": {
-    "beats": 3,
-    "groups": [
-     3
-    ],
-    "unit": 8
-   },
-   "name": "CHORUS2",
-   "start_bar": 17
-  },
-  {
-   "bars": 6,
-   "function": "tag",
-   "meter": {
-    "beats": 3,
-    "groups": [
-     3
-    ],
-    "unit": 8
-   },
-   "name": "TAG1",
-   "start_bar": 19
-  },
-  {
-   "bars": 2,
-   "function": "prechorus",
-   "meter": {
-    "beats": 3,
-    "groups": [
-     3
-    ],
-    "unit": 8
-   },
-   "name": "PRECHORUS3",
-   "start_bar": 25
-  },
-  {
-   "bars": 2,
-   "function": "chorus",
-   "meter": {
-    "beats": 3,
-    "groups": [
-     3
-    ],
-    "unit": 8
-   },
-   "name": "CHORUS3",
-   "start_bar": 27
-  },
-  {
-   "bars": 6,
-   "function": "postchorus",
-   "meter": {
-    "beats": 3,
-    "groups": [
-     3
-    ],
-    "unit": 8
-   },
-   "name": "POSTCHORUS1",
-   "start_bar": 29
-  },
-  {
-   "bars": 2,
-   "function": "coda",
-   "meter": {
-    "beats": 3,
-    "groups": [
-     3
-    ],
-    "unit": 8
-   },
-   "name": "CODA1",
-   "start_bar": 35
-  }
- ],
- "title": "jeep the slight"
+  "hooks": ["Fro on. I'll jeep the slight."],
+  "lines": [
+    {
+      "bar": 1,
+      "beat": 1.0,
+      "duration": 6.0,
+      "section": "VERSE1",
+      "text": "Told it spry. I'll do the four."
+    },
+    {
+      "bar": 3,
+      "beat": 1.0,
+      "duration": 6.0,
+      "section": "VERSE1",
+      "text": "Bone in the goad where the lost lore"
+    },
+    {
+      "bar": 5,
+      "beat": 1.0,
+      "duration": 6.0,
+      "section": "VERSE1",
+      "text": "The louse we spilt is meaning bligh, and pet it sloan"
+    },
+    {
+      "bar": 7,
+      "beat": 1.0,
+      "duration": 6.0,
+      "section": "VERSE1",
+      "text": "Some watts I ever spurned to pie"
+    },
+    {
+      "bar": 9,
+      "beat": 2.0,
+      "duration": 5.0,
+      "section": "PRECHORUS1",
+      "text": "Brags by the yep, and the maxi's slate"
+    },
+    {
+      "bar": 11,
+      "beat": 1.0,
+      "duration": 6.0,
+      "section": "CHORUS1",
+      "text": "Fro on. I'll jeep the slight."
+    },
+    {
+      "bar": 13,
+      "beat": 1.5,
+      "duration": 5.5,
+      "section": "FALSE_ENDING1",
+      "text": "And that was the vast of it. Merely."
+    },
+    {
+      "bar": 15,
+      "beat": 2.0,
+      "duration": 5.0,
+      "section": "PRECHORUS2",
+      "text": "You burn at the warner. You ashtrays burn."
+    },
+    {
+      "bar": 17,
+      "beat": 1.0,
+      "duration": 6.0,
+      "section": "CHORUS2",
+      "text": "Fro on. I'll jeep the slight."
+    },
+    {
+      "bar": 19,
+      "beat": 1.5,
+      "duration": 5.5,
+      "section": "TAG1",
+      "text": "I have watching tense to snare"
+    },
+    {
+      "bar": 21,
+      "beat": 1.5,
+      "duration": 5.5,
+      "section": "TAG1",
+      "text": "Blake the bloat. It dost me watching."
+    },
+    {
+      "bar": 23,
+      "beat": 1.5,
+      "duration": 5.5,
+      "section": "TAG1",
+      "text": "You tossed the guard and hood at the nair"
+    },
+    {
+      "bar": 25,
+      "beat": 2.0,
+      "duration": 5.0,
+      "section": "PRECHORUS3",
+      "text": "The falsone earning over in the stark"
+    },
+    {
+      "bar": 27,
+      "beat": 1.0,
+      "duration": 6.0,
+      "section": "CHORUS3",
+      "text": "Fro on. I'll jeep the slight."
+    },
+    {
+      "bar": 29,
+      "beat": 1.5,
+      "duration": 5.5,
+      "section": "POSTCHORUS1",
+      "text": "Brake folds the zqqbgx, bier my tea"
+    },
+    {
+      "bar": 31,
+      "beat": 1.5,
+      "duration": 5.5,
+      "section": "POSTCHORUS1",
+      "text": "Zed slight, snake in the mass, down to the prix"
+    },
+    {
+      "bar": 33,
+      "beat": 1.5,
+      "duration": 5.5,
+      "section": "POSTCHORUS1",
+      "text": "Tread the smee vine down to the shake"
+    },
+    {
+      "bar": 35,
+      "beat": 1.0,
+      "duration": 6.0,
+      "section": "CODA1",
+      "text": "And the slight hays on all dwight."
+    }
+  ],
+  "sections": [
+    {
+      "bars": 8,
+      "function": "verse",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "VERSE1",
+      "start_bar": 1
+    },
+    {
+      "bars": 2,
+      "function": "prechorus",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "PRECHORUS1",
+      "start_bar": 9
+    },
+    {
+      "bars": 2,
+      "function": "chorus",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "CHORUS1",
+      "start_bar": 11
+    },
+    {
+      "bars": 2,
+      "function": "false_ending",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "FALSE_ENDING1",
+      "start_bar": 13
+    },
+    {
+      "bars": 2,
+      "function": "prechorus",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "PRECHORUS2",
+      "start_bar": 15
+    },
+    {
+      "bars": 2,
+      "function": "chorus",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "CHORUS2",
+      "start_bar": 17
+    },
+    {
+      "bars": 6,
+      "function": "tag",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "TAG1",
+      "start_bar": 19
+    },
+    {
+      "bars": 2,
+      "function": "prechorus",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "PRECHORUS3",
+      "start_bar": 25
+    },
+    {
+      "bars": 2,
+      "function": "chorus",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "CHORUS3",
+      "start_bar": 27
+    },
+    {
+      "bars": 6,
+      "function": "postchorus",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "POSTCHORUS1",
+      "start_bar": 29
+    },
+    {
+      "bars": 2,
+      "function": "coda",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "CODA1",
+      "start_bar": 35
+    }
+  ],
+  "title": "jeep the slight"
 }

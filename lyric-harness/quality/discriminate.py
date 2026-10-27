@@ -22,7 +22,6 @@ written, silently. Doctrine 1: the declaration is part of the identity of any
 measurement, and a cache key that omits the declaration is not a cache key.
 """
 
-import ast
 import hashlib
 import json
 import math
