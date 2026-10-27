@@ -1384,11 +1384,48 @@ def test_m319_declared_perfect_rhyme_admits_the_promoted_final():
           and [s.promoted for s in end] == [False, True]
           and len(end[1].idx) == 1, ([s.idx for s in mid],
                                      [s.idx for s in end]))
-    check("promote=False and every other schema keep the REGISTRY row "
-          "itself (no promoted rule anywhere else)",
+    # WIDENED 2026-10-27 (end-of-day plan, #519): ~~only `perfect rhyme`
+    # takes the promoted rule~~ — every schema with an END_ANCHOR member
+    # does, and a schema without one keeps its REGISTRY row.
+    _end = {n for n, s in RL.REGISTRY.items() if RL.END_ANCHOR in s.spans}
+    check("promote=False keeps the REGISTRY row; a schema WITHOUT an "
+          "END_ANCHOR member keeps it too; every schema WITH one is promoted",
           off_row is RL.REGISTRY["perfect rhyme"]
           and all(RL.declared_token_schema(s) is s
-                  for n, s in RL.REGISTRY.items() if n != "perfect rhyme"))
+                  for n, s in RL.REGISTRY.items() if n not in _end)
+          and all(RL.END_ANCHOR_PROMOTED in RL.declared_token_schema(s).spans
+                  for n, s in RL.REGISTRY.items() if n in _end)
+          and len(_end) == 28, sorted(_end))
+
+    def gr(r, rel2, lines):
+        x = r.grade(lines, mandate([[1, 2]], n_lines=2,
+                                   default_relation=rel2))
+        return len(x["violations"]), len(x["refusals"])
+
+    # BEFORE -> AFTER: these failed while the allowance was perfect rhyme's
+    # alone (measured on 3e4d7e3f7: (1, 0) each) and hold now.
+    check("other END_ANCHOR types take the promoted final: assonance, "
+          "family rhyme and consonance hold sea~harmony",
+          all(gr(rv, r2, pair("sea", "harmony")) == (0, 0)
+              for r2 in ("schema:assonance", "schema:family rhyme",
+                         "schema:consonance")))
+    check("...and with final_promotion OFF they fail again",
+          all(gr(rv_off, r2, pair("sea", "harmony")) == (1, 0)
+              for r2 in ("schema:assonance", "schema:family rhyme",
+                         "schema:consonance")))
+    # NEGATIVE: nothing else is weakened.
+    check("NOT WEAKENED: sea~hit still fails under every END_ANCHOR type "
+          "asked; rime riche, semirhyme and pararhyme still fail "
+          "sea~harmony (their other channels decide); alliteration (no "
+          "END_ANCHOR member) answers exactly as before",
+          all(gr(rv, r2, pair("sea", "hit")) == (1, 0)
+              for r2 in ("schema:perfect rhyme", "schema:assonance",
+                         "schema:family rhyme", "schema:consonance"))
+          and all(gr(rv, r2, pair("sea", "harmony")) == (1, 0)
+                  for r2 in ("schema:rime riche", "schema:semirhyme",
+                             "schema:pararhyme"))
+          and gr(rv, "schema:alliteration", pair("sea", "harmony"))
+          == gr(rv_off, "schema:alliteration", pair("sea", "harmony")))
 
 if __name__ == "__main__":
     for fn in (test_vocabulary, test_judge, test_mandate_coordinate,
