@@ -889,7 +889,7 @@ function SKIPPED_STEPS_NOTE(record) {
     lyric_sweep:
       'lyric_sweep chooses the seed by declaring the shape you want — a hand-round seed is a guess the sweep exists to replace',
     lyric_screen:
-      'lyric_screen checks candidate end-word pairs BEFORE you write — a banned pair (HOMEOTELEUTON / MODAL_RHYME) is an answer, pick other words',
+      'lyric_screen reports the relations of the word pairs you mean to write, BEFORE you write',
   };
   return (
     'WORKING ORDER (mechanical reminder): this conversation has no successful ' +
@@ -900,7 +900,7 @@ function SKIPPED_STEPS_NOTE(record) {
     (planned
       ? 'lyric_plan has already been called without ' +
         (missing.length === 2 ? 'them' : 'it') +
-        ': screen your end words before writing a line, and sweep before planning again. '
+        ': screen the word pairs you mean to write before writing a line, and sweep before planning again. '
       : '') +
     'This note goes away once ' +
     (missing.length === 2 ? 'both are' : 'it is') +
@@ -964,7 +964,7 @@ function PARKED_RUN_NOTE(lyr) {
     '. The song is NOT finished and cannot be presented as finished.' +
     standing +
     ' No question is pending. The ONLY way forward: ' +
-    'REWRITE the flagged line(s) yourself (new words, new end words — screen them with ' +
+    'REWRITE the flagged line(s) yourself (new words — screen the pairs with ' +
     'lyric_screen first), keep every other line byte-identical, and call lyric_revise ' +
     `again with \`seed\` and \`draft_text\`: the FULL song as ONE plain string, one line per row, newline-separated${n ? ` (all ${n} lines, in order)` : ''} — ` +
     'a string, NOT an array (the array is where your calls have broken). ' +

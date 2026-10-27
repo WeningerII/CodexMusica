@@ -103,8 +103,8 @@ pipeline plans and grades songs whose every line you write; no connector call re
   every signal-chain stage are rendered, whole, from that card (`envCardOf` in
   `scripts/_recipe_stack.js`, mirrored in the browser, whose Recording environment panel edits the
   same card) — in all four formats. Instruments come from every card; the environment comes from
-  one, and every response names it in `render_scope.environment_card`. So "record the whole thing
-  in a cathedral" is a SINGLE `set_environment` edit, and `card` is optional there — omit it and it
+  one, and every response names it in `render_scope.environment_card`. So a space for the whole
+  recording is a SINGLE `set_environment` edit, and `card` is optional there — omit it and it
   lands on that card. Setting an environment on any other card writes fields nothing renders, and
   the response says so (`ENVIRONMENT_NOT_RENDERED`). The environment lives on its card: removing or
   moving that card hands the environment to the next card that has one, and a `set_preface` on it
@@ -173,32 +173,27 @@ Map intent to edits — each mapping below is one `edit_recipe` op:
 
 | The user said… | Do this |
 |---|---|
-| a mood / feel / aesthetic word ("bitter", "dreamy", "face-melting") | `search_prefaces` → `set_preface` on **each** instrument it should color — this re-derives that instrument's physical settings toward the word |
-| specific gear / material / technique ("brushes", "mahogany", "fingerpicked") | `get_instrument` → `set_variant` |
-| a space, era, or medium ("in a cathedral", "1950s broadcast", "on wax") | `set_environment` with no `card` — one edit for the whole recording; any room, tuning, or chain stage |
+| a mood / feel / aesthetic word | `search_prefaces` → `set_preface` on **each** instrument it should color — this re-derives that instrument's physical settings toward the word |
+| specific gear / material / technique | `get_instrument` → `set_variant` |
+| a space, era, or medium | `set_environment` with no `card` — one edit for the whole recording; any room, tuning, or chain stage |
 | an instrument to add or drop | `add_instrument` / `remove_instrument` — any instrument fits any tradition |
 | another style to fold in | `add_tradition` / `remove_tradition` |
 
 **There are no coherence fences.** Nothing is anachronistic, out-of-region, or
-physically impossible here — recipes are *words for audio generation*, so a
-Delta-blues igil through a cathedral chain onto shellac is exactly as renderable
-as the period-correct default. The catalog's researched defaults are flavor to
+physically impossible here — recipes are *words for audio generation*, so any
+combination of instrument, tradition, room and chain is exactly as renderable as
+the period-correct default. The catalog's researched defaults are flavor to
 keep or override, never a wall. Every id-valid combination renders; an edit is
 refused only for an unknown id, a misspelled field, or doing nothing (a tradition
 already in the recipe, an environment edit with nothing to set, a batch that
 leaves no cards), and the refusal names what to do instead.
 
-A typical exchange ("haunted Appalachian murder ballad, banjo drowned in reverb, recorded
-like it's underwater"):
-`search_catalog "appalachian ballad"` → `start_recipe {traditions:["appalachian_folk"]}`
-→ `search_prefaces "haunted"` (→ `haunting`), `search_prefaces "submerged"` (→ `drowning`) and
-`search_catalog "underwater"` (→ `hydrophone_piezo`, stage `mic`)
-→ one `edit_recipe` with `[{action:"set_preface", card:"voice", preface:"haunting"},
-{action:"set_preface", card:"banjo_5_string", preface:"drowning"},
-{action:"set_environment", chain:{mic:"hydrophone_piezo"}}]` — the environment edit last, and
-with no `card`, because it is the whole recording's
-→ present the returned `recipe` verbatim. One search per user-word, one batched
-edit call, done.
+The order of a typical exchange: `search_catalog` with the user's style words →
+`start_recipe` with the tradition ids it returns → one `search_prefaces` per mood word and
+one `search_catalog` per gear, space or medium word → one `edit_recipe` holding every
+`set_preface`, `set_variant` and `set_environment` they resolve to — the environment edit last,
+and with no `card`, because it is the whole recording's → present the returned `recipe`
+verbatim. One search per user-word, one batched edit call, done.
 
 Use the connector for *composition*; the static JSON above is the browse layer —
 read it when you only need a tradition's default recipe as reference.

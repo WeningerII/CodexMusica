@@ -297,7 +297,10 @@ function unitEndIdentity() {
   const n1 = notices(mig);
   check(
     n1.length === 2 &&
-      n1.some((x) => /^rhyme groups:/.test(x.id) && /line 1 · last rhyme/.test(x.title)) &&
+      n1.some(
+        (x) =>
+          /^rhyme groups:/.test(x.id) && /line 1 · last word, from its last stress/.test(x.title)
+      ) &&
       n1.some((x) => /^returns:/.test(x.id) && /line 1 · first word/.test(x.title)),
     `Review notices: ${JSON.stringify(n1.map((x) => x.title))}`
   );
@@ -640,6 +643,114 @@ print(json.dumps([n for n, _ in (_sections_from_marks(sys.stdin.read().split('\\
       `the harness recovered sections ${JSON.stringify(names)}, not the draft's`
     );
   }
+}
+
+// ── T. the per-link type menu, its payload, and clean starts ────────────────
+// The menu lists every registry type an English song can use (the list is
+// the registry's, checked by scripts/lyric_type_menu.py --check), in name
+// order, never the four disowned types, with the planner's draw as the
+// default that is not a type. A link's chosen type reaches the writer as its
+// registry index alone. A new song carries no saved brief or notes unless the
+// person ticks the box for it.
+function unitTypeMenu() {
+  stage = 'T. type menu';
+  const { run, draft, app } = lyricsUnitContext();
+  const listed = Array.from(run('LY_TYPES_SHOWN.map((t) => t[1])'));
+  const indexes = Array.from(run('LY_TYPES.map((t) => t[0])'));
+  check(listed.length === indexes.length && listed.length > 4, 'the type menu is empty or short');
+  for (const gone of [
+    'homoioteleuton',
+    'trite rhyme',
+    'cynghanedd sain drosgl',
+    'fourth lift must not alliterate',
+  ])
+    check(!listed.includes(gone), `the type menu offers the disowned type ${gone}`);
+  const sorted = [...listed].sort((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' }));
+  check(JSON.stringify(listed) === JSON.stringify(sorted), 'the type menu is not in name order');
+  check(
+    JSON.stringify(Array.from(run('LY_TYPES.map((t) => t[1])'))) !== JSON.stringify(listed),
+    'the type menu is shown in registry order'
+  );
+  check(!listed.includes(run('LY_TYPE_DRAWN')), "the planner's draw is listed as a type");
+  try {
+    execFileSync('python3', [path.join(ROOT, 'scripts/lyric_type_menu.py'), '--check'], {
+      stdio: 'pipe',
+    });
+  } catch (e) {
+    check(false, `LY_TYPES differs from the registry: ${String(e.stdout || e.message).trim()}`);
+  }
+  // The view: a searchable menu, nothing preselected, no Advanced section.
+  const song = `[SETUP — rhyme groups — 1,2;3.head,4.head]\n\n[VERSE — 4 lines]\none\ntwo\nthree\nfour`;
+  draft.value = song;
+  app.lyricMeta = { version: 1, brief: '', notes: {}, drafts: {}, ui: {} };
+  const view = run('lyToolRhymes(lyParse(__t))', {
+    __t: song,
+    esc: (v) => String(v).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`),
+    icon: () => '',
+  });
+  check(
+    /id="ly-type-find"/.test(view) && /type="search"/.test(view),
+    'the type menu has no search'
+  );
+  check(!/Advanced/.test(view), 'the Rhymes tool still has an Advanced section');
+  check(
+    !/End of line|last rhyme|Link endings|rhyme options/.test(view),
+    'the Rhymes tool still uses end-of-line labels'
+  );
+  check(
+    /<select id="ly-type-new"[^>]*><option value="" selected>The planner draws<\/option>/.test(
+      view
+    ),
+    'a new link does not default to the planner draw'
+  );
+  check(
+    !/<select id="ly-type-new"[^>]*>(?:(?!<\/select>).)*<option value="\d+" selected/.test(view),
+    'a type is preselected for a new link'
+  );
+  check(/Placed by the type/.test(view), 'the default placement is not the type’s own');
+  // A chosen type travels as its index only; the other link is the planner's.
+  const pick = Array.from(run('LY_TYPES_SHOWN[0]'));
+  const typed = run('lySetGroupType(__t, "3.head,4.head", __i)', { __t: song, __i: pick[0] });
+  check(
+    typed.includes(`[SETUP — group types — 3.head,4.head=${pick[0]}]`),
+    `the chosen type was not kept with its link: ${typed.split('\n')[1]}`
+  );
+  const decl = JSON.parse(JSON.stringify(run('lyDeclarationsOf(lyParse(__t))', { __t: typed })));
+  check(
+    JSON.stringify(decl.group_types) === JSON.stringify([{ group: 2, type: pick[0] }]),
+    `group_types sent ${JSON.stringify(decl.group_types)}`
+  );
+  check(!JSON.stringify(decl).includes(pick[1]), 'a type name reached the writer');
+  check(!('relation' in decl), 'a relation was declared for a per-link type');
+  // Removing the link takes its type with it.
+  const removed = run(
+    'lySetGroupType(lySetSetup("rhyme groups", ["1,2"], __t), "3.head,4.head", null)',
+    { __t: typed }
+  );
+  check(!/group types/.test(removed), 'a removed link left its type behind');
+  // Clean starts: the saved brief and notes go with a new song only when chosen.
+  const model = run('lyParse(__t)', { __t: song });
+  app.lyricMeta = {
+    version: 1,
+    brief: 'A saved brief',
+    notes: { [model.sections[0].title]: 'A saved note' },
+    drafts: {},
+    ui: {},
+  };
+  const fresh = run('lyContext(__m, { document: false })', { __m: model });
+  check(
+    fresh.brief === '' && fresh.notes.length === 0,
+    `a new song carried the saved brief or notes: ${JSON.stringify([fresh.brief, fresh.notes])}`
+  );
+  run('LY.reuseBrief = true');
+  const chosen = run('lyContext(__m, { document: false })', { __m: model });
+  check(
+    chosen.brief === 'A saved brief' && chosen.notes.length === 1,
+    `a chosen brief did not go with the new song: ${JSON.stringify([chosen.brief, chosen.notes])}`
+  );
+  run('LY.reuseBrief = false');
+  const editing = run('lyContext(__m, { document: true })', { __m: model });
+  check(editing.brief === 'A saved brief', 'editing the current draft lost its brief');
 }
 
 // ── R. readings saved before the reader's v2 cut, unit-level ──────────────
@@ -3285,8 +3396,8 @@ async function browserChecks(chromium) {
         `Back to tools does not return to the Rhythm row: ${JSON.stringify(w)}`
       );
       await page.evaluate(() => LY_ACTIONS['ly-tool']('rhymes'));
-      w = await press('[data-ui="ly-relation"][aria-pressed="false"]');
-      check(w.ui === 'ly-relation', `a rhyme filter drops focus: ${JSON.stringify(w)}`);
+      w = await press('[data-ui="ly-link-add"]');
+      check(w.ui === 'ly-link-add', `adding a link member drops focus: ${JSON.stringify(w)}`);
       await page.evaluate(() => LY_ACTIONS['ly-line-tool']('pronunciation:3'));
       w = await press('[data-ui="ly-reading-pick"]:not([aria-pressed="true"])');
       check(
@@ -3590,9 +3701,7 @@ async function browserChecks(chromium) {
       );
       await choose('attach-recipe');
       check(
-        (await page.inputValue('#chat-input')).startsWith(
-          'Write lyrics for this recording recipe:\n'
-        ),
+        (await page.inputValue('#chat-input')).startsWith('Recording recipe:\n'),
         'Use current recipe lost its explicit prefill'
       );
       await choose('new-lyrics');
@@ -4105,7 +4214,7 @@ async function browserChecks(chromium) {
         LY.picks.formSec = 0;
         LY_ACTIONS['ly-tool']('form-story');
       });
-      await page.fill('#ly-f-note', 'Arrival and kindness');
+      await page.fill('#ly-f-note', 'Section note text');
       // The person clicks Move down: focus leaves the note field.
       await page.evaluate(() => {
         document.activeElement.blur();
@@ -4873,7 +4982,7 @@ async function browserChecks(chromium) {
         'a partial placement row was written'
       );
       await page.evaluate(() => LY_ACTIONS['ly-draft-discard']('rhythm'));
-      // Ask writer for rhyme options: one request, a result card, nothing declared.
+      // Ask writer for word options: one request, a result card, nothing declared.
       await page.evaluate(() => {
         LY_ACTIONS['ly-tool']('');
         lyScrollToLine(1);
@@ -4918,7 +5027,7 @@ async function browserChecks(chromium) {
       await page.evaluate(() => LY_ACTIONS['ly-tab']('tools'));
       check(
         await page.evaluate(() => document.querySelector('[data-ui="ly-rhyme-options"]')?.disabled),
-        'Ask writer for rhyme options is not disabled while the writer works'
+        'Ask writer for word options is not disabled while the writer works'
       );
       await sent;
       await page.waitForFunction(() => !chatState.busy, null, { timeout: 20000 });
@@ -6601,6 +6710,7 @@ async function browserChecks(chromium) {
 (async () => {
   if (!flags['browser-only']) {
     unitWriterPayload();
+    unitTypeMenu();
     await unitSavedReadings();
     await unitVoicesBasis();
     await unitPolicyA();

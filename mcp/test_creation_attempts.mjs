@@ -131,9 +131,10 @@ test('an overflowing grade tells the next revise of that draft, and only that dr
   assert.match(told, /exit 2, measurement_status no_authenticated_verdict/);
   assert.match(told, /printed more than this connector can carry/);
   assert.match(told, /Grading this same draft again returns the same result/);
-  assert.match(told, /plan fewer lines \(lyric_sweep declaring `lines`, then lyric_plan/);
+  assert.match(told, /that limit is this session's, not the song's/);
   assert.match(told, /a different draft of this plan's 2 lines/);
-  assert.doesNotMatch(told, /shorter draft/);
+  // The song's length is the user's: no message asks for a shorter song.
+  assert.doesNotMatch(told, /shorter draft|plan fewer lines/);
   // Another draft of the plan was never graded: the plain text, no attempt.
   assert.equal(
     revise(t, other),
@@ -222,7 +223,8 @@ test('the store refusing a measured grade as too large is told, and the next rev
   assert.match(text, /^SESSION_RESULT_NOT_KEPT: lyric_grade ran/);
   assert.match(text, /over the 9437184-byte limit this session can keep/);
   assert.match(text, /nothing the call produced was kept/);
-  assert.match(text, /plan fewer lines \(lyric_sweep declaring `lines`, then lyric_plan/);
+  assert.match(text, /that limit is this session's, not the song's/);
+  assert.doesNotMatch(text, /shorter draft|plan fewer lines/);
   assert.match(text, /A different draft of this plan may be too large as well/);
   // The kept session is the pre-call one: no grade receipt, an attempt marked.
   const kept = sessions.record(read.session_id, 'lyrics').session.native.task.workflow;
@@ -242,5 +244,5 @@ test('the store refusing a measured grade as too large is told, and the next rev
   assert.match(refusal, /measured this exact draft \(exit 3, measurement_status graded\)/);
   assert.match(refusal, /nothing it produced was kept/);
   assert.match(refusal, /Grading this same draft again returns the same result/);
-  assert.doesNotMatch(refusal, /shorter draft/);
+  assert.doesNotMatch(refusal, /shorter draft|plan fewer lines/);
 });

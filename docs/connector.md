@@ -46,12 +46,6 @@ practices, and rasas, and the math touches **every** setting of an instrument.
 
 ## Try these
 
-> *outlaw country satirical, desert blues bitter, face-melting sitar*
-
-→ Claude seeds the traditions, then re-picks each instrument's preface —
-`…satirical voice: …`, `…face-melting sitar: …` — each one deterministically
-re-deriving that instrument's variants, tuning, room, and chain.
-
 > *blend afrobeat and highlife*
 
 > *garage rock, but give the voice a "worn" sound and drop the organ*
@@ -82,14 +76,14 @@ Beside the recipes — and never touching them — the `lyric_*` family plans an
 
 | Tool | What it does |
 |---|---|
-| `lyric_screen` | Screen 2–12 candidate end words: every pair judged by the song grader itself — CLEAN, BANNED (`HOMEOTELEUTON` / `MODAL_RHYME`), an honest non-rhyme, or the grader's own refusal. Use BEFORE writing. |
-| `lyric_plan` | A declared integer seed → a complete, reproducible song shape: sections with bars/meter/pickup, rhyme plan, verbatim returns, hook slot, and a writer brief. Writes no words. |
+| `lyric_screen` | Screen 2–12 words you mean to pair: every pair judged by the song grader itself — each relation it stands in, none, or the grader's own refusal. Use BEFORE writing. |
+| `lyric_plan` | A declared integer seed → a complete, reproducible song shape: sections with bars/meter/pickup, each group's relation and placement, verbatim returns, hook slot, and a writer brief. Writes no words. |
 | `lyric_grade` | The whole-song verdict: re-derives the plan from the same seed, fills it with the draft, grades rhyme/returns/meter/functions/floor, and returns the rendered song (performance order, bracket headers) + the report. |
 | `lyric_revise` | The finishing step: drives the revise loop over a graded draft (same seed and declarations, or a pasted song's mandate) and asks you one question per call — you write every answer — until a stop condition; only its `[FINISHED …]` song is finished. |
 | `lyric_recover` | The first step for pasted lyrics: counts sung lines and syllables, reads sections, and recovers the rhyme groups and returns the text actually carries, as the `mandate` to pass to `lyric_check` and `lyric_revise`; names the coordinates you must declare (always the meter). |
-| `lyric_check` | Grade pasted lyrics without a plan: declare a letter scheme (`ABAB`) or line-number groups (`1,3;2,4`), optional verbatim-return classes. |
-| `lyric_sweep` | Find seeds whose shape matches a declared want (`uses=bridge`, `before=verse,chorus`; declare a target length in `lines`) over a bounded window of consecutive seeds. Returns seeds in SEED ORDER and does not rank; its counts (swept, planned, planner-refused, accepted) are never summed; windows compose, so continue from `next_seed_from`. Pass its `want` list to `lyric_plan` as `wants`. |
-| `lyric_verify` | Did this revision earn it? Hand it a draft BEFORE and AFTER under the same mandate and it reports what the change FIXED and INTRODUCED, including bans it introduced. Read `accepted`, not `exit_code` — both verdicts exit 0. A DIFF, not a grade: it says nothing about defects the change left untouched. |
+| `lyric_check` | Grade pasted lyrics without a plan: declare a letter scheme (one letter per line) or line-number groups (`N,N;N,N`), optional verbatim-return classes. |
+| `lyric_sweep` | Find seeds whose shape matches a declared want (`uses=F`, `before=F,G`; a length the user asked for goes in `lines`) over a bounded window of consecutive seeds. Returns seeds in SEED ORDER and does not rank; its counts (swept, planned, planner-refused, accepted) are never summed; windows compose, so continue from `next_seed_from`. Pass its `want` list to `lyric_plan` as `wants`. |
+| `lyric_verify` | Did this revision earn it? Hand it a draft BEFORE and AFTER under the same mandate and it reports what the change FIXED and INTRODUCED. Read `accepted`, not `exit_code` — both verdicts exit 0. A DIFF, not a grade: it says nothing about defects the change left untouched. |
 | `lyric_types` | The 9-axis rhyme-type coordinate for one word pair (taxonomy; for usable-or-banned use `lyric_screen`). |
 
 On `/mcp` the server keeps each workflow in a session, and the lyric calls run as background

@@ -1246,7 +1246,7 @@ export function getInstrument({ id, part, query, limit } = {}) {
           : '';
       rec.hint = terms.length
         ? `${matched.length} of ${all.length} variants match "${query}"; showing ${shown.length}. Raise \`limit\` or refine \`query\`.${borrowedNote}`
-        : `${all.length} variants; showing ${shown.length}. Pass \`query\` to filter (e.g. "mahogany"), \`part\` to focus one part, or raise \`limit\`.${borrowedNote}`;
+        : `${all.length} variants; showing ${shown.length}. Pass \`query\` to filter by name or descriptor, \`part\` to focus one part, or raise \`limit\`.${borrowedNote}`;
     }
     return rec;
   });

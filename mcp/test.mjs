@@ -592,43 +592,54 @@ await check('edits that would do nothing, or undo the recipe, are refused with a
   assert.ok(swap.recipe.startsWith('Bluegrass, '));
 });
 
-await check('the AGENTS.md worked example runs as written', () => {
-  // Its ids once named a tradition and an instrument that never existed, and one
-  // of its searches returned nothing. Each id and search below is quoted from the
-  // example, and the example must still quote them.
-  const doc = readFileSync(new URL('../AGENTS.md', import.meta.url), 'utf8');
-  const example = doc.slice(doc.indexOf('A typical exchange'), doc.indexOf('edit call, done.'));
-  for (const quoted of [
-    'search_catalog "appalachian ballad"',
-    'traditions:["appalachian_folk"]',
-    'search_prefaces "haunted"',
-    'search_prefaces "submerged"',
-    'search_catalog "underwater"',
-    'card:"banjo_5_string", preface:"drowning"',
-    'chain:{mic:"hydrophone_piezo"}',
-  ])
-    assert.ok(example.includes(quoted), `the worked example no longer says ${quoted}`);
-  assert.ok(
-    E.searchCatalog({ query: 'appalachian ballad' }).items.some((x) => x.id === 'appalachian_folk')
-  );
-  assert.equal(E.searchPrefaces({ query: 'haunted' }).items[0].id, 'haunting');
-  assert.equal(E.searchPrefaces({ query: 'submerged' }).items[0].id, 'drowning');
-  const mic = E.searchCatalog({ query: 'underwater' }).items[0];
-  assert.deepEqual([mic.id, mic.stage], ['hydrophone_piezo', 'mic']);
-  const s = E.startRecipe({ traditions: ['appalachian_folk'] });
-  const r = E.editRecipe({
-    workspace: thread(s.workspace),
-    edits: [
-      { action: 'set_preface', card: 'voice', preface: 'haunting' },
-      { action: 'set_preface', card: 'banjo_5_string', preface: 'drowning' },
-      { action: 'set_environment', chain: { mic: 'hydrophone_piezo' } },
-    ],
-  });
-  assert.match(r.recipe, /haunting voice/);
-  assert.match(r.recipe, /drowning five-string-banjo/);
-  assert.match(r.recipe, /hydrophone/);
-  assert.deepEqual(r.render_warnings, []);
-});
+await check(
+  'the AGENTS.md working order names real steps, and the batched edit it describes works',
+  () => {
+    // The guide once carried a worked example whose ids named a tradition and an
+    // instrument that never existed. It now states the order with no example
+    // request (agents writing lyrics read it too), so this pins the order it
+    // states and runs one batched edit of that shape against the engine.
+    const doc = readFileSync(new URL('../AGENTS.md', import.meta.url), 'utf8');
+    const order = doc.slice(
+      doc.indexOf('The order of a typical exchange'),
+      doc.indexOf('edit call, done.')
+    );
+    for (const quoted of [
+      '`search_catalog`',
+      '`start_recipe`',
+      '`search_prefaces`',
+      '`edit_recipe`',
+      '`set_environment`',
+      'the environment edit last',
+      'with no `card`',
+    ])
+      assert.ok(order.includes(quoted), `the working order no longer says ${quoted}`);
+    for (const example of ['murder ballad', '"bitter"', '"dreamy"', 'haunted'])
+      assert.ok(!doc.includes(example), `AGENTS.md carries the recipe example ${example}`);
+    assert.ok(
+      E.searchCatalog({ query: 'appalachian ballad' }).items.some(
+        (x) => x.id === 'appalachian_folk'
+      )
+    );
+    assert.equal(E.searchPrefaces({ query: 'haunted' }).items[0].id, 'haunting');
+    assert.equal(E.searchPrefaces({ query: 'submerged' }).items[0].id, 'drowning');
+    const mic = E.searchCatalog({ query: 'underwater' }).items[0];
+    assert.deepEqual([mic.id, mic.stage], ['hydrophone_piezo', 'mic']);
+    const s = E.startRecipe({ traditions: ['appalachian_folk'] });
+    const r = E.editRecipe({
+      workspace: thread(s.workspace),
+      edits: [
+        { action: 'set_preface', card: 'voice', preface: 'haunting' },
+        { action: 'set_preface', card: 'banjo_5_string', preface: 'drowning' },
+        { action: 'set_environment', chain: { mic: 'hydrophone_piezo' } },
+      ],
+    });
+    assert.match(r.recipe, /haunting voice/);
+    assert.match(r.recipe, /drowning five-string-banjo/);
+    assert.match(r.recipe, /hydrophone/);
+    assert.deepEqual(r.render_warnings, []);
+  }
+);
 
 await check('`changed` reports what shows: no preface noise, no empty fx on a new card', () => {
   const s = E.startRecipe({ traditions: ['garage_rock'] });
@@ -8744,9 +8755,14 @@ try {
     // standing — ~~`standing` carries it~~, ~~the contract says "unskippable
     // at any exit code"~~.
     assert.ok(!checked.standing.some((s) => s.includes('HOMEOTELEUTON')));
+    // The advertised contract no longer describes a system ban to the writer
+    // (the revision lane stops filing it); the verdict field above is the
+    // harness's, unchanged here.
     assert.ok(
-      /reported as notes/i.test(lyric.find((t) => t.name === 'lyric_check').description),
-      'the advertised tool contract says the ban is reported as notes'
+      !/HOMEOTELEUTON|MODAL_RHYME|two-tier ban/i.test(
+        lyric.find((t) => t.name === 'lyric_check').description
+      ),
+      'the advertised lyric_check contract still describes the system ban'
     );
     console.log('  ok  lyric_check live: banned_pairs surfaces the ban at exit 0');
     passed++;

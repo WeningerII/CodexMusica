@@ -138,7 +138,7 @@ const resultNotKept = (name, task, error) => {
   return (
     `SESSION_RESULT_NOT_KEPT: ${name} ran, but its result is over the ${limit ? `${limit}-byte ` : ''}limit this session can keep, so it was not saved and nothing the call produced was kept. ` +
     (name === 'lyric_grade' && task.phase !== 'edit'
-      ? 'Grading the same draft again returns the same result: plan fewer lines (lyric_sweep declaring `lines`, then lyric_plan on a seed it accepts) and grade a draft of that plan. A different draft of this plan may be too large as well.'
+      ? "Grading the same draft again returns the same result: that limit is this session's, not the song's: report it to the user with the song's length unchanged. A different draft of this plan may be too large as well."
       : `Send ${name} again with a smaller request.`)
   );
 };
@@ -522,7 +522,7 @@ export class WorkflowSessions {
     if (jsonBytes(args) > HTTP_REQUEST_BYTES - 4096)
       throw fail(
         'SESSION_INPUT_LIMIT',
-        'Arguments exceed the recoverable request allowance. Send a smaller request, such as fewer edits or a shorter draft per call.'
+        'Arguments exceed the recoverable request allowance. Send a smaller request per call.'
       );
     if ((domain === 'lyrics') !== tool.startsWith('lyric_'))
       throw fail(

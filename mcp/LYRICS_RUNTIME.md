@@ -307,7 +307,7 @@ pre-batch v1 state rows or their fingerprints.
       follow the text into a new Library working copy, which is a new draft.
       A `.txt` import replaces the text of the same draft, so its entries join
       the same list.
-    - A form that rewrites a rhyme groups or returns row (Link endings,
+    - A form that rewrites a rhyme groups or returns row (Save link,
       Remove link, a placed return, Declare exact repeat, removing links that
       bind no word, Keep / Remove on a carried member) first reads every
       unmarked row of that kind exactly as a boundary would (rebound by span,
@@ -392,7 +392,7 @@ pre-batch v1 state rows or their fingerprints.
     placement; it is not an alias for bare `N`. The harness semantics are
     distinct, and mixed whole-line/placed classes are refused. Both forms
     are exempt from word-offset migration: neither is carried, annotated,
-    labelled "last rhyme" or shown with an endpoint word. Other placed
+    labelled with a word place or shown with an endpoint word. Other placed
     returns (`N.end`, `N.endword`, `N.head`, `N.headrime`, `N.T<k>`) follow
     the word-place migration rules below. Review drops an unnecessary
     word-cut note on bare `N` or `N.line` when Keep is chosen; that shared

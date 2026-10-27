@@ -272,7 +272,7 @@ export const TOOL_SCHEMAS = {
       .string()
       .max(MAX_QUERY_CHARS)
       .describe(
-        `Words from the request, e.g. "garage rock fuzz" (at most ${MAX_QUERY_CHARS} characters and ${MAX_QUERY_TERMS} words).`
+        `Words from the request (at most ${MAX_QUERY_CHARS} characters and ${MAX_QUERY_TERMS} words).`
       ),
     types: z
       .array(z.enum(SEARCH_TYPES))
@@ -294,7 +294,7 @@ export const TOOL_SCHEMAS = {
       .string()
       .max(MAX_QUERY_CHARS)
       .describe(
-        `Mood/feel words, e.g. "worn bitter struggling" (at most ${MAX_QUERY_CHARS} characters and ${MAX_QUERY_TERMS} words).`
+        `Mood/feel words from the request (at most ${MAX_QUERY_CHARS} characters and ${MAX_QUERY_TERMS} words).`
       ),
     limit: z
       .number()
@@ -314,7 +314,7 @@ export const TOOL_SCHEMAS = {
       .string()
       .max(MAX_QUERY_CHARS)
       .optional()
-      .describe('Filter variants by name/descriptor words, e.g. "mahogany" or "nylon gut".'),
+      .describe('Filter variants by name/descriptor words from the request.'),
     limit: z
       .number()
       .int()
