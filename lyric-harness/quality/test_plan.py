@@ -5183,6 +5183,29 @@ def test_a_chosen_type_reaches_the_grader():
     check("...and a pair that breaks the chosen type fails under it",
           any(not v["satisfied_by"] for v in failed),
           [(v["lines"], v["satisfied_by"]) for v in failed])
+    # "PLACED BY THE TYPE": a member with no written place (a bare line
+    # number) is judged where its group's type puts it, not at the line's
+    # last word. A line-start type passes on matching first words whatever
+    # the line ends are, and fails when the first words differ; an in-line
+    # type passes on words inside the lines.
+    def bare(rel, a, b):
+        g = R.grade([a, b], SC.mandate([["1", "2"]], n_lines=2,
+                                       relations={"A": rel}))
+        return [v["satisfied_by"] for v in g["verdicts"]], g["refusals"]
+    on_heads = bare("schema:anaphora", "never say the word aloud",
+                    "never leave the room")
+    off_heads = bare("schema:anaphora", "never say the word aloud",
+                     "always leave the room")
+    inside = bare("schema:internal rhyme",
+                  "the cat sat on the old wooden chair",
+                  "a hat lay by the door")
+    check("a bare member is placed by its group's type: line-start words "
+          "for a line-start type, words inside the line for an in-line "
+          "type, never defaulted to the line end",
+          on_heads == ([["schema:anaphora"]], [])
+          and off_heads == ([[]], [])
+          and inside == ([["schema:internal rhyme"]], []),
+          (on_heads, off_heads, inside))
     # A DRAWN type travels the same way: every group's drawn type is in the
     # GRADE IT line, and nothing but that type is credited for any pair.
     q = make_plan(5, lines=24)
