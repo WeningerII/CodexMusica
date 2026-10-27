@@ -79,7 +79,14 @@ const catalog = await resolver.probe();
 // 6d6b4314 since the Gutenberg notice ranges were measured on the committed
 // CRLF files (#609): the notices sit in every sonnets and Whitman reading, so
 // the canonical snapshot moved. library/data is projected from the same one.
-const pinnedSnapshot = '6d6b4314aa57901757ce456e6a3ba6b5223db23a58eedb195201060cd4ec8377';
+// 80a88e5a since 2026-10-27, when the owner-approved deletion removed the
+// model-generated sonnets (corpus/generated/sonnets_generated.txt) and their
+// data/sources.tsv row. That file was ONE research-only collection (0
+// readable units, 1 research-only unit); against a rebuild of 6d6b4314 the
+// snapshot differs only by that collection, its work, edition and reading and
+// the sources.tsv digest. Readable units stay 25512, and the cases below and
+// the retained 5226b4fb snapshot are unchanged.
+const pinnedSnapshot = '80a88e5a80c378e3bef9ab2b382ed08411fa38b62954ae1715fa137d7814ff92';
 const retainedSnapshot = '5226b4fbe427848759a626560b18b361990ef8c80debece031d770e363febc9e';
 const retainedImage =
   'ghcr.io/weningerii/codexmusica/lyrics@sha256:3a9ad3711a338653cb1dc97e81badae2ab9a330eb624ae154e0c8b33e805e7f7';
