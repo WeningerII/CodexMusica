@@ -23,10 +23,12 @@ MAX_BYTES = 262144
 MAX_CANDIDATES_PER_SCHEMA = None
 #: THE TIME GUARD THAT REPLACES THE CAP. Uncapped, a 104-line fixed-seed
 #: draw took 189 s (4.8 s capped), inside a tool's 10-minute limit; the cost
-#: grows with the song. Types are counted in turn until this many seconds
-#: have passed; every type not reached is reported by name with reason
-#: `time_budget` and the coverage says the count is incomplete. Nothing is
-#: capped silently.
+#: grows with the song. Types are counted in turn, and this is checked
+#: BEFORE each type: once the budget has passed, every type not yet started
+#: is reported by name with reason `time_budget` and the coverage says the
+#: count is incomplete. It is not a hard runtime limit: a type already
+#: started is counted and serialized to the end, so a call can run past it
+#: by that one type's time (#519 finding d). Nothing is capped silently.
 COUNT_TIME_BUDGET_S = 300
 
 

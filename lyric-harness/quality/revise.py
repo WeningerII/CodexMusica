@@ -2523,7 +2523,15 @@ class Reviser:
                                      or not self._repeat_declared_violation(
                                          m, *v["lines"])):
                         v["why"] = None
-                elif v["why"] and "REPEAT" not in v["relations"]:
+                # A REPEAT pair goes on to the bound-word and any-reading
+                # routes below like any other failed pair (#519 finding b,
+                # 2026-10-27): `sea`~`sea` bound at `1.T4`/`2.T4` satisfies
+                # `repetition` there, and the instance route above reads only
+                # line ends. A mandate that DECLARED the repeat a violation
+                # keeps it.
+                elif v["why"] and ("REPEAT" not in v["relations"]
+                                   or not self._repeat_declared_violation(
+                                       m, *v["lines"])):
                     if _moot and (*v["lines"], v["group"]) in _moot:
                         _open_n = [n for n in (getattr(_wvp, "undecided", {})
                                                .get(tuple(sorted(v["lines"])))

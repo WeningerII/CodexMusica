@@ -1469,6 +1469,25 @@ def test_eod_assigned_type_and_identical_words():
           == [])
     check("NOT WEAKENED: a pair that stands in no type still fails",
           len(g(None, pair("sea", "ash"))[0]) == 1)
+    # #519 finding b (2026-10-27): the same at words bound off the line end.
+    mid = ["we saw the sea today", "they crossed the sea again"]
+
+    def gm(rel, lines):
+        x = rv.grade(lines, mandate([["1.T4", "2.T4"]], n_lines=2,
+                                    **({"default_relation": rel} if rel
+                                       else {})))
+        return [v["why"] for v in x["violations"]], len(x["refusals"])
+    check("identical words bound at 1.T4/2.T4, no assigned type: they "
+          "satisfy repetition there, so no REPEAT is charged",
+          gm(None, mid) == ([], 0), gm(None, mid))
+    check("...as assigning schema:repetition already answered",
+          gm("schema:repetition", mid) == ([], 0))
+    check("...and the trial grade agrees",
+          rv.grade(mid, mandate([["1.T4", "2.T4"]], n_lines=2),
+                   _verdicts_only=True)["violations"] == [])
+    check("NOT WEAKENED: different words bound there still fail",
+          len(gm(None, ["we saw the sea today",
+                        "they crossed the ash again"])[0]) == 1)
 
 
 if __name__ == "__main__":

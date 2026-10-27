@@ -3205,7 +3205,7 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=None,
             return derived
         stream = derived
     if not figure_pair_representable(schema) and \
-            schema.name not in LINE_MEMBER_SHAPES:
+            schema.judge not in LINE_MEMBER_JUDGES:
         # A token-member or template figure: its EDGES are the instances,
         # each with its own verdict; `assemble()` re-judges the whole figure.
         shapes = _full_shape(schema, stream)
@@ -8608,12 +8608,19 @@ class FigureMembers(list):
 #: LINES; members of the three sain figures are TOKENS of one line; the tonal
 #: template has one member, a line, read against a declared pattern.
 #: Read off each row's declared `judge` (2026-10-27), not listed by name.
+#: The judges themselves decide every dispatch below, so a row renamed or
+#: built with `replace()` keeps its judge (#519 finding c); the name tuples
+#: are the registry's rows with those judges, for readers that list them.
+LINE_MEMBER_JUDGES = ("symploce", "crossed", "aab")
+TOKEN_MEMBER_JUDGES = ("token_members",)
+TEMPLATE_JUDGES = ("tonal_template",)
+FULL_JUDGES = LINE_MEMBER_JUDGES + TOKEN_MEMBER_JUDGES + TEMPLATE_JUDGES
 LINE_MEMBER_SHAPES = tuple(n for n, r in REGISTRY.items()
-                           if r.judge in ("symploce", "crossed", "aab"))
+                           if r.judge in LINE_MEMBER_JUDGES)
 TOKEN_MEMBER_SHAPES = tuple(n for n, r in REGISTRY.items()
-                            if r.judge == "token_members")
+                            if r.judge in TOKEN_MEMBER_JUDGES)
 TEMPLATE_SHAPES = tuple(n for n, r in REGISTRY.items()
-                        if r.judge == "tonal_template")
+                        if r.judge in TEMPLATE_JUDGES)
 FULL_SHAPES = LINE_MEMBER_SHAPES + TOKEN_MEMBER_SHAPES + TEMPLATE_SHAPES
 
 
@@ -8800,12 +8807,12 @@ def _full_shape(schema, stream):
     `FULL_SHAPES` has no member bindings and refuses by name."""
     import itertools
     import math
-    if schema.name not in FULL_SHAPES:
+    if schema.judge not in FULL_JUDGES:
         return Refusal(schema.name, "figure",
                        "The declared multi-member graph/template has no "
                        "executable member bindings; a pair projection cannot "
                        "certify the full figure.", kind="unsupported_shape")
-    if schema.name in TOKEN_MEMBER_SHAPES + TEMPLATE_SHAPES:
+    if schema.judge in TOKEN_MEMBER_JUDGES + TEMPLATE_JUDGES:
         sup = {c: stream.supply(c) for c in schema.capabilities()}
         miss = tuple(c for c, v in sup.items() if v.state != "present")
         if miss:
@@ -8818,7 +8825,7 @@ def _full_shape(schema, stream):
                            kind=("vacuous_frame" if len(vac) == len(miss)
                                  else "capability"))
         return (_token_figures(schema, stream)
-                if schema.name in TOKEN_MEMBER_SHAPES
+                if schema.judge in TOKEN_MEMBER_JUDGES
                 else _template_figures(schema, stream))
     if schema.figure.frame == "stanza" and not stream.provides("stanza"):
         return Refusal(schema.name, "stanza", "A full figure requires a "
@@ -8990,7 +8997,7 @@ def line_pairs_for(schema, stream, keep_refusal=True, requested_pairs=None,
         assemblies = _full_shape(schema, stream)
         if isinstance(assemblies, Refusal):
             return assemblies if keep_refusal else LinePairResults()
-        if schema.name not in LINE_MEMBER_SHAPES:
+        if schema.judge not in LINE_MEMBER_JUDGES:
             held, open_ = set(), set()
             for li, _, verdict in assemblies:
                 if verdict is not False:

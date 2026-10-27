@@ -4062,6 +4062,16 @@ def admitted_relations(s, theta, relations=None, cuts=None):
                      if r in allowed and t >= cuts.get(r, theta))
 
 
+#: The default-admit tail `unadmitted_reason` printed before 2026-10-27, and
+#: the one it prints now. A held run's journal hashes the question it asked,
+#: and that question quotes this tail (`LEGACY_QUESTION_RENDERINGS`).
+_UNADMITTED_DEFAULT_TAIL = ("no registry type holds at its bound words, and "
+                            "none of the relations it stands in is admitted")
+_UNADMITTED_DEFAULT_TAIL_BEFORE = (
+    "none of the relations it stands in is in the declared admit set "
+    f"{sorted(ADMITTABLE_RELATIONS)}")
+
+
 def unadmitted_reason(s, decl):
     """-> the sentence for a pair that stands in NO admitted relation at its
     cut, saying WHICH of the two it is: none of the relations the pair
@@ -4077,8 +4087,7 @@ def unadmitted_reason(s, decl):
         # relations it stands in is in the declared admit set [the five
         # basic names]"~~ — under the default every registry type is asked
         # too, so the failure is stated over all of them, not as five names.
-        return (f"{head} — no registry type holds at its bound words, and "
-                f"none of the relations it stands in is admitted")
+        return f"{head} — {_UNADMITTED_DEFAULT_TAIL}"
     if not adm:
         return (f"{head} — none of the relations it stands in is in the "
                 f"declared admit set {sorted(decl.admit)}")
@@ -8097,6 +8106,22 @@ def _group_lookup(groups, group_brief):
     key = _brief_key(group_brief)
     hit = groups.get(key)
     if hit is None:
+        # A question journalled under an earlier wording
+        # (`LEGACY_QUESTION_RENDERINGS`), hashed as `_brief_key` hashes it.
+        import hashlib
+        from quality.propose import render_group
+        for older in legacy_question_texts("propose_group",
+                                           render_group(group_brief)):
+            digest = hashlib.sha256(json.dumps([
+                getattr(group_brief, "pivot_line_no", None),
+                getattr(group_brief, "label", None), older
+            ], ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+            ).hexdigest()
+            hit = groups.pop(key[:5] + (digest,), None)
+            if hit is not None:
+                groups[key] = hit
+                break
+    if hit is None:
         for legacy in (key[:5] + (None,), key[:4] + (None, None),
                        key[:3] + (None, None, None)):
             if legacy == key:
@@ -9404,6 +9429,51 @@ def _defer_proposer(path, lines=None):
     return propose, propose_group, disclosure
 
 
+def _legacy_unadmitted_tail(kind, prompt):
+    """-> the question as worded before 2026-10-27's default-admit tail."""
+    if _UNADMITTED_DEFAULT_TAIL not in prompt:
+        return None
+    return prompt.replace(_UNADMITTED_DEFAULT_TAIL,
+                          _UNADMITTED_DEFAULT_TAIL_BEFORE)
+
+
+#: HOW A HELD RUN'S QUESTIONS WERE WORDED BEFORE, oldest change first
+#: (2026-10-27, #519 finding f). A checkpoint stores the hash of each question
+#: it asked and replays an answer only to the same question, so a change to a
+#: question's wording would strand every run held across the deploy. Each
+#: entry is (date and change, fn(kind, prompt) -> the prompt as that change
+#: found it, or None when the change did not touch it). Replay accepts a
+#: recorded hash that matches the current question, or the question with the
+#: newest changes undone in turn (newest first, so a run held between two
+#: changes matches after undoing only the later one). A new question is
+#: always journalled under its current hash. Undoing a change must restore
+#: the old bytes exactly; a change that cannot be undone that way does not
+#: belong here.
+LEGACY_QUESTION_RENDERINGS = (
+    ("2026-10-27 grader: default-admit NO_RELATION tail",
+     _legacy_unadmitted_tail),
+)
+
+
+def legacy_question_texts(kind, prompt):
+    """-> each earlier wording of this question, newest first."""
+    out, text = [], prompt
+    for _name, undo in reversed(LEGACY_QUESTION_RENDERINGS):
+        older = undo(kind, text)
+        if older is None or older == text:
+            continue
+        text = older
+        out.append(text)
+    return out
+
+
+def legacy_question_identities(kind, prompt):
+    """-> the sha256 of each earlier wording of this question, newest first."""
+    import hashlib
+    return [hashlib.sha256(t.encode("utf-8")).hexdigest()
+            for t in legacy_question_texts(kind, prompt)]
+
+
 def _checkpoint_proposer(one, two, lines, config_key, spec):
     """Journal the call: seam before grading can fail or a worker can die.
 
@@ -9602,7 +9672,10 @@ def _checkpoint_proposer(one, two, lines, config_key, spec):
                   "current": list(current), "question_sha256": identity}
         if cursor < replay_count:
             event = state["proposals"][cursor]
-            if event.get("kind") != kind or event.get("question_sha256") != identity:
+            if (event.get("kind") != kind
+                    or (event.get("question_sha256") != identity
+                        and event.get("question_sha256")
+                        not in legacy_question_identities(kind, prompt))):
                 raise ProposerUnavailable(
                     "checkpoint replay question differs; no new writer request was made")
             cursor += 1

@@ -92,6 +92,35 @@ class EvidenceTests(unittest.TestCase):
         self.assertEqual(cut["coverage"]["status"], "partial")
         self.assertIsNone(cut["coverage"]["total_records"])
         self.assertEqual(cut["limits"]["count_time_budget_s"], 5)
+    def test_counts_past_the_old_4096_cap(self):
+        # #519 finding a (2026-10-27): the boundary itself. 92 lines give
+        # 4,186 line-end pairs (perfect rhyme) and 12,650 token pairs
+        # (internal rhyme), both past the 4,096 that capped every type before;
+        # uncapped they are counted in full, and an explicit 4,096 still
+        # refuses each by name.
+        words = ["cat", "bat", "hat", "mat", "rat", "sat", "pat", "vat", "fat", "tat"]
+        lines = [f"{words[i % 10]} {words[(i + 3) % 10]}" for i in range(92)]
+        st = R.build_stream(lines, self.phon, declaration={"language": "eng"})
+        names = ["internal rhyme", "perfect rhyme"]
+
+        def run(**kw):
+            return from_stream(st, self.phon, declarations={"voices": True},
+                               provenance={"reader_scheme": "v2"}, schemas=names, **kw)
+        full = run()
+        totals = {m["schema_name"]: sum(m["counts"].values())
+                  for m in full["coverage"]["methods"]}
+        self.assertEqual(totals, {"internal rhyme": 12650, "perfect rhyme": 4186})
+        self.assertTrue(all(m["status"] in ("answered", "partial")
+                            and m.get("reason") != "candidate_limit"
+                            for m in full["coverage"]["methods"]))
+        self.assertIsNone(full["limits"]["candidates_per_schema"])
+        capped = run(max_candidates=4096)
+        self.assertEqual([(m["schema_name"], m["status"], m.get("reason"))
+                          for m in capped["coverage"]["methods"]],
+                         [(n, "partial", "candidate_limit") for n in names])
+        self.assertIsNone(capped["coverage"]["total_records"])
+        self.assertEqual(capped["limits"]["candidates_per_schema"], 4096)
+
     def test_limits_are_honest(self):
         got = self.report(max_records=0)
         self.assertFalse(got['coverage']['complete'])
