@@ -67,9 +67,20 @@ async function checkTypePlacement() {
       null,
       { timeout: 10000 }
     );
+    await page.evaluate(() => LY_ACTIONS['ly-tool'](''));
     await page.waitForTimeout(500);
     await page.reload();
     await page.waitForFunction(() => UI.ready && !!LY.model);
+    assert.equal(await page.evaluate(() => LY.tool), '');
+    await page.waitForFunction(
+      () =>
+        [...document.querySelectorAll('#ly-overlay .ly-end')]
+          .map((e) => e.textContent)
+          .join('|') === 'never|never',
+      null,
+      { timeout: 10000 }
+    );
+    console.log('PASS: cold reload highlights typed links with Rhymes closed');
     await page.evaluate(() => LY_ACTIONS['ly-tool']('rhymes'));
     await page.locator('.ly-links').waitFor({ timeout: 10000 });
     await page.waitForFunction(

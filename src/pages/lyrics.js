@@ -4780,6 +4780,7 @@ function lyRhymeMarks(model) {
   const groups = lySetupOf(model, 'rhyme groups').flatMap((d) => lyRowGroups(d));
   const pending = LY.tool === 'rhymes' ? lyVal('rhymes', 'song', 'members', []) || [] : [];
   const types = lyGroupTypes(model);
+  if (types.size) lyTypesLoad(); // Saved typed links need their places even with Rhymes closed.
   const keys = lyGroupKeys(groups);
   const all = [
     ...groups.map((g, k) => ({ g, type: types.get(keys[k]) })),
