@@ -1613,7 +1613,7 @@ const groupTypesField = z
   .max(MAX_LINES)
   .optional()
   .describe(
-    "One type per group, each written {group, type}: the group is judged by that type alone, and a member with no written place is judged where that type places it. On lyric_plan, lyric_grade and a planned song's lyric_revise the group is the plan's N-th group and its type is kept, never drawn; a type the planner cannot plan for the song's language is refused with its reason. On lyric_check, lyric_verify and a pasted song's lyric_revise the group is the N-th group of `groups` or `scheme`. A whole number only: anything else is refused, never rounded. Carry it unchanged from plan to grade and revise."
+    "One type per group, each written {group, type}: the group is judged by that type alone, and a member with no written place is judged where that type places it. On lyric_plan, lyric_grade and a planned song's lyric_revise the group is the plan's N-th group and its type is kept, never drawn; a type the planner cannot plan for the song's language is refused with its reason. On lyric_check, lyric_verify and a pasted song's lyric_revise the group is the N-th group written in `groups`, a repeated group counted again, and two groups on the same lines with different types are two requirements, both judged; it is refused beside a letter `scheme`. A whole number only: anything else is refused, never rounded. Carry it unchanged from plan to grade and revise."
   );
 
 const functionsField = z

@@ -13407,20 +13407,27 @@ def main():
             st = _structs(by["--structures="]) if "--structures=" in by \
                 else None
             rl = _rels(by["--relations="]) if "--relations=" in by else None
+            gt = None
             if "--group-types=" in by:
-                # THE WEBSITE'S PER-LINK TYPES: group N (the N-th declared
-                # group) is judged by registry type `type` alone, exactly as
-                # `--relations=` would declare it. The index is read by the
-                # planner's own definition, which refuses a bad entry by name.
+                # THE WEBSITE'S PER-LINK TYPES: group N, the N-th group
+                # `--groups=` writes (a repeated group counted again, as the
+                # page numbers its links), is judged by registry type `type`
+                # alone. The index is read by the planner's own definition,
+                # which refuses a bad entry by name. The type rides ON its
+                # group (M-35's edge label) below, before the mandate
+                # collapses a repeated group: a label keyed after that
+                # collapse refused a later type or moved it onto the next
+                # surviving group (3PO, #519).
                 from quality import plan as _PLN
+                _gt = _parse_group_types_flag(by["--group-types="])
                 try:
-                    rl = _PLN.group_types_to_relations(
-                        _parse_group_types_flag(by["--group-types="]), rl)
+                    _by_label = _PLN.group_types_to_relations(_gt)
                 except _PLN.PlanRefused as e:
                     _refuse(str(e))
+                gt = {e["group"]: _by_label[SC.label((e["group"] - 1,))]
+                      for e in _gt}
             if tail and not tail[0].lstrip("-").replace(",", "").isdigit():
-                if set(by) <= {"--structures=", "--relations=",
-                               "--group-types="} and set(by):
+                if set(by) <= {"--structures=", "--relations="} and set(by):
                     # A letter string WITH --structures= is expressible and
                     # NOT the conflict the refusal below closes: the letter
                     # fully determines the cover and its labels, and
@@ -13451,6 +13458,17 @@ def main():
                     _refuse(f"{flag} was handed in with no groups to "
                             f"annotate — declare the mandate it speaks about "
                             f"(a letter scheme, --groups= and/or --returns=)")
+            if gt is not None:
+                far = sorted(k for k in gt if k > len(g))
+                if far:
+                    _refuse(f"--group-types names group "
+                            f"{', '.join(map(str, far))}, and --groups= "
+                            f"sends {len(g)} group(s)",
+                            detail=["a group is numbered by its place in "
+                                    "--groups=, a repeated group counted "
+                                    "again"])
+                g = [{"members": grp, "relation": gt[k + 1]} if k + 1 in gt
+                     else grp for k, grp in enumerate(g)]
             # `--returns=` groups are REQUIRE_RETURN — identity REQUIRED,
             # REPEAT is the requirement and not a violation (doctrine 3's
             # second half). `--groups=` groups are plain REQUIRE_RHYME. Both
@@ -13463,7 +13481,7 @@ def main():
                                           returns=r, structures=st,
                                           relations=rl),
                                tail)
-            if st is not None or rl is not None:
+            if st is not None or rl is not None or gt is not None:
                 # --groups= with --structures= / --relations=: built here for
                 # the same reason the returns branch builds here.
                 return _finish(SC.mandate(g, n_lines=len(lines),

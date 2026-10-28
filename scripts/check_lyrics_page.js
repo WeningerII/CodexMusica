@@ -956,7 +956,36 @@ function unitTypeEndToEnd() {
       `${c.what}: the request context does not carry the picked type: ${JSON.stringify(c.context.declarations)}`
     );
   }
-  const calls = cases.map((c) => ({
+  // Repeated links (3PO, #519 6470833052): the page numbers each link by its
+  // place in the groups it sends, a repeat counted again, and each type
+  // stays on its own occurrence: two types on one pair of lines are two
+  // requirements, and a type on a repeat's second occurrence does not move
+  // to the next link.
+  const repeated = [
+    [
+      'two links on the same lines, each with its own type',
+      `[SETUP — rhyme groups — 1,2;1,2]\n[SETUP — group types — 1,2=${anaphora};1,2#2=${perfect}]\n\n[VERSE — 2 lines]\nwe walked along the road all day\nwe sang the songs along the way`,
+      [
+        { group: 1, type: anaphora },
+        { group: 2, type: perfect },
+      ],
+    ],
+    [
+      "a type on a repeated link's second occurrence",
+      `[SETUP — rhyme groups — 1,2;1,2;3,4]\n[SETUP — group types — 1,2#2=${anaphora}]\n\n[VERSE — 4 lines]\nnever say the word aloud\nnever leave the room\nthe cat\nthe hat`,
+      [{ group: 2, type: anaphora }],
+    ],
+  ].map(([what, text, sent]) => ({
+    what,
+    sent,
+    context: JSON.parse(JSON.stringify(run('lyContext(lyParse(__t))', { __t: text }))),
+  }));
+  for (const r of repeated)
+    check(
+      JSON.stringify(r.context.declarations.group_types) === JSON.stringify(r.sent),
+      `${r.what}: the page sent ${JSON.stringify(r.context.declarations.group_types)}`
+    );
+  const calls = [...cases, ...repeated].map((c) => ({
     tool: 'lyric_check',
     args: {
       lines: c.context.document.split('\n').filter((l) => l.trim() && !/^\[.*\]$/.test(l.trim())),
@@ -990,7 +1019,8 @@ for (const { tool, args } of JSON.parse(process.env.T2_CALLS)) {
   const r = await h[tool](args);
   const v = r.content ? JSON.parse(r.content[r.content.length - 1].text) : r;
   out.push({ exit: v.exit_code, refusal: v.refusal || null, standing: v.standing || [],
-    relations: v.plan?.relations || null, request: v.plan?.request || null });
+    relations: v.plan?.relations || null, request: v.plan?.request || null,
+    mandate: v.schema_instance_evidence?.identity?.declarations?.mandate || null });
 }
 process.stdout.write(JSON.stringify(out));
 process.exit(0);`,
@@ -1003,7 +1033,7 @@ process.exit(0);`,
     return;
   }
   const violated = (r) => r.standing.some((f) => /SCHEME_VIOLATION/.test(f));
-  const [held, other, heads, plan, refused] = out;
+  const [held, other, heads, twinTypes, secondOccurrence, plan, refused] = out;
   check(
     held.exit === 0 && !held.refusal && !violated(held),
     `a link whose type reads the first word failed on lines whose first words agree: ${JSON.stringify(held)}`
@@ -1015,6 +1045,67 @@ process.exit(0);`,
   check(
     heads.exit === 0 && violated(heads),
     `lines whose first words differ passed under the first-word type: ${JSON.stringify(heads)}`
+  );
+  const judged = (r) => JSON.stringify([r.mandate?.groups, r.mandate?.relations]);
+  check(
+    twinTypes.exit === 0 &&
+      !violated(twinTypes) &&
+      judged(twinTypes) ===
+        JSON.stringify([
+          [
+            [1, 2],
+            [1, 2],
+          ],
+          ['schema:anaphora', 'schema:perfect rhyme'],
+        ]),
+    `two links on the same lines did not keep a type each: ${JSON.stringify(twinTypes)}`
+  );
+  check(
+    secondOccurrence.exit === 0 &&
+      judged(secondOccurrence) ===
+        JSON.stringify([
+          [
+            [1, 2],
+            [1, 2],
+            [3, 4],
+          ],
+          ['', 'schema:anaphora', ''],
+        ]),
+    `the type on a repeated link's second occurrence moved: ${judged(secondOccurrence)}`
+  );
+  // A type beside a --relations= entry for the same group: the CLI (the
+  // connector publishes no per-group relation field) refuses it alike under
+  // the group's letter and its number, never keeping one in silence.
+  const parityDraft = path.join(fs.mkdtempSync(path.join(require('os').tmpdir(), 't2-')), 'd.txt');
+  fs.writeFileSync(
+    parityDraft,
+    'never say the word aloud\nnever leave the room\nthe cat\nthe hat\n'
+  );
+  const parity = ['A', '1'].map((key) => {
+    try {
+      execFileSync(
+        'python3',
+        [
+          path.join(ROOT, 'lyric-harness/lyric_harness.py'),
+          'brief',
+          parityDraft,
+          '--groups=1,2;3,4',
+          `--relations=${key}:schema:perfect rhyme`,
+          `--group-types=${JSON.stringify([{ group: 1, type: anaphora }])}`,
+        ],
+        { cwd: path.join(ROOT, 'lyric-harness'), stdio: 'pipe' }
+      );
+      return 'accepted';
+    } catch (e) {
+      const row = String(e.stdout)
+        .split('\n')
+        .find((l) => l.includes('lyric result: '));
+      return row ? JSON.parse(row.split('lyric result: ')[1]).refusal : String(e.message);
+    }
+  });
+  check(
+    parity[0] === parity[1] && /stated twice/.test(parity[0] || ''),
+    `a type beside --relations= is not refused alike under a letter and a number: ${JSON.stringify(parity)}`
   );
   check(
     plan.exit === 0 &&
