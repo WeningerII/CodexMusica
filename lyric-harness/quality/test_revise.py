@@ -1825,6 +1825,25 @@ def test_grade_asks_the_mandate_before_the_switch():
     check("mandated/judged agree — nothing was silently dropped, only "
           "reclassified",
           (rep["pairs_mandated"], rep["pairs_judged"]) == (93, 93))
+    # WHERE THE MANDATE'S ANSWER IS STILL THE DECIDING ONE (2026-10-28,
+    # #519: mutation QR5 escaped its declared suites and timed out shard
+    # 11/16). Since #626 an identical pair that satisfies a type
+    # (`repetition`) is cleared before the REPEAT gate under the default
+    # admit set, so the check above passes whether the gate asks the
+    # mandate or the song-wide switch. Under an admit set the caller
+    # NARROWED, a type does not satisfy a group, the refrain REPEATs reach
+    # the gate, and only the mandate's per-pair answer licenses them:
+    # asking the switch instead charges all 12.
+    narrow = Reviser(lex=R.lex,
+                     decl=Declaration(admit=frozenset(
+                         (RHYME_RELATIONS | NEAR_RELATIONS) - {"RIME_RICHE"})),
+                     rdecl=R.rdecl, floor=R.floor)
+    nrep = narrow.grade(VILLANELLE, m)
+    check("...and under a NARROWED admit set (rime riche refused), where a "
+          "type cannot license the refrain REPEATs, the correct villanelle "
+          "still has ZERO violations: the mandate licenses all 12",
+          nrep["violations"] == [] and len(nrep["repeats"]) == 12,
+          (len(nrep["violations"]), len(nrep["repeats"])))
 
     found = R.inspect(VILLANELLE, m)
     refrain_notes = [(ln, f) for ln, fs in found["per_line"].items()
