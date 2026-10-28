@@ -25,7 +25,9 @@ const draft = ['My kettle whistles by the stove', 'Your fingers brush my heavy c
 function planReceipt(seed = 16) {
   const request = {
     seed,
-    form: 'verse-chorus',
+    // The planner echoes the form it planned: `open` when the request
+    // names none (2026-10-27, D7).
+    form: 'open',
     lines: null,
     relation: '',
     functions: null,
@@ -818,7 +820,7 @@ test('a refused plan says what the recorded sweeps hold, bounded, and never prin
   assert.match(differs, /^CREATION_PLAN: plan a seed an accepted lyric_sweep returned, /);
   assert.ok(
     differs.includes(
-      'Recorded sweeps that accepted seed 16, newest first: (1) form verse-chorus, lines none, ' +
+      'Recorded sweeps that accepted seed 16, newest first: (1) form open, lines none, ' +
         'functions none, melody none, want ["lines<=30"]; this call differs in lines, ' +
         "wants (the sweep's `want`)."
     ),
@@ -838,9 +840,9 @@ test('a refused plan says what the recorded sweeps hold, bounded, and never prin
   assert.ok(
     none.includes(
       'No recorded sweep accepted seed 99. Recorded sweeps, newest first: ' +
-        '(1) accepted seeds [21,22,23,24,25] and 2 more; form verse-chorus, lines 12, ' +
+        '(1) accepted seeds [21,22,23,24,25] and 2 more; form open, lines 12, ' +
         'functions ["chorus","verse"], melody declared, want ["a=b,c"]; ' +
-        '(2) accepted seeds [16,17]; form verse-chorus, lines none, functions none, ' +
+        '(2) accepted seeds [16,17]; form open, lines none, functions none, ' +
         'melody none, want ["lines<=30"].'
     ),
     none

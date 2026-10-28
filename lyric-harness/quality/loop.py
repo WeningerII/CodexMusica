@@ -855,10 +855,11 @@ def default_propose(brief, lines, attempt, reasons=None, whole=(), *, scheme=Non
                     strip_parens=True, lex=None):
     """-> a replacement line for `brief.line_no`, or `None` to give up.
 
-    The MECHANICAL stub tier 1 ships with: walk `brief.candidates` in the
-    order `joint_field` already ranked them (modal region excluded, so this
-    is already "not the obvious one" before this function does anything),
-    one per attempt. `reasons` (the previous attempt's rejection, `None` on
+    The MECHANICAL stub tier 1 ships with: walk `brief.candidates`, one per
+    attempt. Since 2026-10-27 (D6 on #519) a brief carries no candidates, so
+    on a brief from `Reviser.brief` this stub declines at once: the system
+    does not choose the writer's words. A caller (a test) that fills
+    `candidates` itself still gets the splice. `reasons` (the previous attempt's rejection, `None` on
     the first try) and `whole` (the draft-level findings `verify()` grades
     this proposal against — see the module docstring) are both accepted and
     both ignored here. A proposer that actually WRITES would read them; this
@@ -1521,40 +1522,12 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                       f"the proposer for this line. This is inconclusive by "
                       f"construction, not a line the loop could not fix "
                       f"(doctrine 20)")
-        elif not b.candidates and b.forbidden_modal:
-            # THE FOURTH RULE, ADDED 2026-08-26 (`MISSING.md` M-139). The
-            # branch below states a CAUSE — "a fact about the MANDATE and the
-            # lexicon" — and it is FALSE whenever the field was non-empty and
-            # the two-tier ban took all of it: the lexicon answered, and
-            # doctrine 9's own exclusion is what emptied the offer. Measured
-            # on three pivots, `joint_field` returning `offered=0` with
-            # `forbidden` NON-empty every time — `['find','one']` at 2 of 2
-            # banned, `['sorrow','pleasure']` at 1 of 1 — because
-            # `modal_exclusion` is an ABSOLUTE count (6) applied to a field of
-            # any size, so a field smaller than the cut is eaten whole.
-            #
-            # `joint_conflict` cannot cover this: it requires
-            # `not b.forbidden_modal`, so the case where the ban ate the
-            # field is precisely the case it excludes. Same family as
-            # `BACKLOG.md` §4.8 — one message over several rules — with the
-            # third rule never entering the enumeration.
-            detail = (f"the candidate field was EMPTIED BY THE BAN, not by "
-                      f"the lexicon — {len(b.forbidden_modal)} word(s) "
-                      f"answered every call and all of them are forbidden "
-                      f"(homoeoteleuton, or inside the top "
-                      f"{rdecl.modal_exclusion} most predictable). This is a "
-                      f"fact about `modal_exclusion` meeting a field smaller "
-                      f"than itself, NOT about the mandate being "
-                      f"unsatisfiable: {', '.join(b.forbidden_modal[:6])}")
-        elif not b.candidates:
-            detail = ("no candidate field was offered — the harness had "
-                      "nothing for the proposer to choose from, so this is "
-                      "a fact about the MANDATE and the lexicon, not about "
-                      "the proposer")
         else:
-            detail = (f"the PROPOSER declined at attempt 0 with "
-                      f"{len(b.candidates)} candidate(s) offered — its "
-                      f"refusal, not an empty field")
+            # A brief carries no candidate field (2026-10-27, D6 on #519),
+            # so an empty offer is no longer a cause: the writer returned no
+            # line. Whether any rewrite could have fixed it (a verbatim
+            # return cannot be fixed by a swap) is the findings' to say.
+            detail = "the PROPOSER declined at attempt 0"
     return LineAttempt(b.line_no, 1, False, tried, detail, (),
                        asked=rdecl.attempts_per_line > 0), lines
 
@@ -1914,22 +1887,17 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                                               exclude=(m_current,),
                                               profile=profile)
                           if m_other else ([], []))
-                # THE ONE-MOVE MENU (LOOP_REDESIGN.md §2.4, §2.8 G). On the
-                # escalation path the pivot's own line question already
-                # failed; a member whose coupled menu is empty is shown the
-                # words a line question would offer it with every other line
-                # (the pivot included) keeping its words. On the group-first
-                # path nothing is added, and the prompt says so.
-                _one = None
-                if escalated and not _mf:
-                    _pf1 = reviser.member_place_field(
-                        list(lines), mandate, m_line, gi, profile=profile,
-                        blueprint=blueprint)
-                    _one = tuple(_pf1.offered) if _pf1 is not None else ()
+                # NO ONE-MOVE MENU (2026-10-27, D6 on #519; R2's timing and
+                # 3PO's trace on #627). This built `member_place_field`, a
+                # line question's field for each member whose coupled menu
+                # was empty, grading a trial song per candidate word -- and
+                # `render_group` prints no `one_move` since D6, so it cost
+                # minutes (test_verbs §59 ran 8 min 4 s) for words nobody
+                # saw. The question the writer reads is unchanged.
                 _anchors.append(AnchorSlot(
                     line_no=m_line, text=lines[m_line - 1], word="",
                     offered=tuple(_mf), calls=tuple(m_other),
-                    slot=_slot_for(mandate, gi, m_line), one_move=_one))
+                    slot=_slot_for(mandate, gi, m_line), one_move=None))
             got = propose_group(GroupBrief(
                 pivot_line_no=b.line_no, pivot_text=b.text,
                 pivot_word="", pivot_offered=(),

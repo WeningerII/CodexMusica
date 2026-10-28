@@ -70,12 +70,14 @@ test('a redrawn seed keeps its 64-bit candidates exact through sweep, plan and g
   // choices.seed_redraw; with wants, the wants path discloses its draws in brief_selection.
   // Candidates are 64-bit integers, past what a JSON double holds, so both disclose seeds as
   // strings: the verdict block (JSON.parse of plan.json) must name exactly what the report
-  // prints (Jony, #519 6347921225; 3PO 6348036141). At 12 lines seed 32 needs one redraw and
-  // seed 1204 two; seed 32 with a want takes the wants path.
+  // prints (Jony, #519 6347921225; 3PO 6348036141). ~~At 12 lines seed 32 needs one redraw and
+  // seed 1204 two~~ — RE-MEASURED 2026-10-27 under the per-group type draw (D1) and the
+  // `open` default form (D7): at 12 lines seeds 21 and 89 each need one redraw, no seed in
+  // 0..2999 needs two, and seed 21 with a want takes the wants path.
   for (const { seed, want, grade } of [
-    { seed: 32, grade: true },
-    { seed: 1204 },
-    { seed: 32, want: 'group<=99' },
+    { seed: 21, grade: true },
+    { seed: 89 },
+    { seed: 21, want: 'group<=99' },
   ]) {
     const c = await connect();
     try {

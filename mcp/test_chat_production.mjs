@@ -1344,6 +1344,122 @@ test('signed lyrics with missing or changed semantic identity refuse before any 
   }
 });
 
+// THE WEBSITE'S RECOVERY PATH FOR A RUN HELD ACROSS A DEPLOY (3PO on #627,
+// agreed with BB8 for #626). Any deploy that changes the scorer changes the
+// semantic identity, so the held run is refused before any provider call (the
+// test above). What makes that a path and not a dead end: the refusal hands
+// back the accepted draft, and "Start new work from current draft" opens a new
+// lyrics task whose page context carries that draft and the page's own
+// requirements. Nothing the held run's writer already answered is replayed.
+test('a run held across a deploy continues as new work from its accepted draft and requirements', async () => {
+  const fixtureSecret = 'offline-held-run-recovery-key';
+  const oldSecret = process.env.CHAT_SECRET;
+  let create;
+  try {
+    process.env.CHAT_SECRET = fixtureSecret;
+    create = (await import('./chat.js?held-run-recovery-fixture')).createChatRouter;
+  } finally {
+    if (oldSecret === undefined) delete process.env.CHAT_SECRET;
+    else process.env.CHAT_SECRET = oldSecret;
+  }
+  const { lyricContext } = await import('./task_contract.js');
+  const makeServer = () => {
+    const mcp = new McpServer({ name: 'held-run-fixture', version: '1' }, { instructions });
+    mcp.registerTool('lyric_types', { inputSchema: {} }, async () => ({
+      content: [{ type: 'text', text: 'types' }],
+    }));
+    return mcp;
+  };
+  const router = await create({
+    buildServer: makeServer,
+    Client,
+    InMemoryTransport,
+    apiKey: 'offline',
+    limits: { ...CHAT_LIMITS, perIpPerMinute: 1000, perIpPerHour: 1000 },
+    turnLimits: { ...LIMITS, maxSteps: 1 },
+  });
+  const app = express();
+  app.use(express.json({ limit: '2mb' }));
+  app.use(router);
+  const server = app.listen(0, '127.0.0.1');
+  await once(server, 'listening');
+  const systems = [];
+  globalThis.fetch = async (_url, init) => {
+    systems.push(
+      JSON.parse(init.body)
+        .systemInstruction?.parts?.map((p) => p.text)
+        .join('\n') || ''
+    );
+    return response([{ text: 'working' }]);
+  };
+  const post = async (body) => {
+    const res = await nativeFetch(`http://127.0.0.1:${server.address().port}/chat`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    return { status: res.status, body: await res.json() };
+  };
+  const accepted = ['I leave the porch light on', 'For you to find your way'];
+  const declarations = { title: 'Porch Light' };
+  try {
+    const held = await post({ message: 'new love song', task: { domain: 'lyrics' } });
+    assert.equal(held.status, 200);
+    // The held run, as a pre-deploy build signed it: an older identity.
+    const envelope = { history: held.body.history, workspace: held.body.workspace };
+    if (held.body.lyric != null) envelope.lyric = held.body.lyric;
+    envelope.task = {
+      ...held.body.task,
+      connector_semantic_identity: '0'.repeat(64),
+      artifact: { final_draft: accepted, certified: false },
+    };
+    const sig = crypto
+      .createHmac('sha256', fixtureSecret)
+      .update(JSON.stringify(envelope))
+      .digest('hex');
+    const before = systems.length;
+    const refused = await post({ message: 'continue', ...envelope, sig });
+    assert.equal(refused.status, 409);
+    assert.equal(refused.body.code, 'CONTINUATION_MIGRATION_REQUIRED');
+    assert.deepEqual(refused.body.artifact.final_draft, accepted, 'the accepted draft comes back');
+    assert.equal(systems.length, before, 'the refusal reaches no writer');
+    // New work from that draft, with the page's requirements.
+    const document = `[VERSE — 2 lines]\n${refused.body.artifact.final_draft.join('\n')}`;
+    const context = {
+      version: 1,
+      document,
+      declarations,
+      brief: '',
+      notes: [],
+      binding: { document_sha256: 'a'.repeat(64), context_sha256: 'b'.repeat(64) },
+    };
+    const next = await post({
+      message: 'Continue from the current draft: ',
+      request_id: crypto.randomBytes(32).toString('hex'),
+      task: { domain: 'lyrics', phase: 'edit' },
+      lyric_context: context,
+    });
+    assert.equal(next.status, 200, JSON.stringify(next.body).slice(0, 300));
+    assert.deepEqual(next.body.task.lyric_context, lyricContext(context));
+    assert.deepEqual(
+      next.body.task.lyric_context.declarations,
+      declarations,
+      'requirements carry over'
+    );
+    assert.equal(
+      systems.length,
+      before + 1,
+      'one new writer request: the new work, nothing replayed'
+    );
+    for (const line of accepted)
+      assert.ok(systems.at(-1).includes(line), 'the writer starts from the accepted draft');
+  } finally {
+    globalThis.fetch = nativeFetch;
+    server.close();
+    server.closeAllConnections();
+  }
+});
+
 test('lyric output allowance is reserved at 32768 and truncation cannot certify a song', async () => {
   let body, reserved;
   const budget = {

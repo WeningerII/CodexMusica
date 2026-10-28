@@ -255,19 +255,31 @@ def test_shared_suffix_needs_a_real_stem():
 
 
 def test_cliche_pair():
-    print("\n6. the stock-pair list still fires")
+    print("\n6. the shipped stock-pair list is not enforced; a user's own is")
     lines = ["She stood alone and watched the falling rain",
              "And every year she carried all the pain"]
     f = find(lines, "CLICHE_PAIR", "AA")
-    check("rain/pain fires", f is not None,
-          f.evidence if f else "no CLICHE_PAIR finding")
+    # 2026-10-27, D6 on #519: the shipped list was a system lexical ban.
+    check("the SHIPPED list no longer fires: rain/pain files nothing",
+          f is None, f.evidence if f else "")
     # The list is a DECLARED COORDINATE (doctrine 1), not a module constant
     # the caller has to argue with. Until 2026-08-14 it was the only floor
     # threshold with no field to disagree in.
     d = FloorDeclaration()
-    check("the stock list is a declared coordinate",
-          isinstance(d.cliche_pairs, frozenset) and len(d.cliche_pairs) == 30,
-          f"FloorDeclaration.cliche_pairs, {len(d.cliche_pairs)} pairs")
+    check("the stock list is a declared coordinate, ABSENT by default",
+          isinstance(d.cliche_pairs, frozenset) and len(d.cliche_pairs) == 0,
+          f"FloorDeclaration.cliche_pairs, {len(d.cliche_pairs)} pairs "
+          "(2026-10-27: was the shipped 30, which made an explicit equal "
+          "list indistinguishable from no list)")
+    # 3PO's finding on #627: the check compared CONTENTS against the shipped
+    # list, so a user who declared exactly those 30 pairs was ignored. Absent
+    # and explicit are told apart by the default now, not by the contents.
+    equal = SlopFloor(decl=FloorDeclaration(
+        cliche_pairs=frozenset(_lh.CLICHE_PAIRS)), qf=FLOOR.qf)
+    e = [x for x in equal.check(lines, "AA") if x.code == "CLICHE_PAIR"]
+    check("a user list EQUAL to the shipped 30 is enforced",
+          bool(e) and "rain/pain" in e[0].evidence,
+          e[0].evidence[:120] if e else "the explicit list was ignored")
     check("...and it is DEFINITIONAL, not a measured threshold",
           "cliche_pairs" in CALIBRATION.get("definitional", []),
           "there is no percentile to move: the only disagreement available "
@@ -282,10 +294,10 @@ def test_cliche_pair():
             [frozenset(("rain", "pain")), frozenset(("moon", "june"))])),
         qf=FLOOR.qf)
     g = [x for x in swapped.check(lines, "AA") if x.code == "CLICHE_PAIR"]
-    check("a swapped list does not inherit the shipped list's FPR",
+    check("a list the USER declares still fires, and does not inherit the "
+          "shipped list's FPR",
           bool(g) and "does not describe it" in g[0].evidence
-          and "no measured rate behind it at all" in g[0].evidence
-          and f is not None and "does not describe it" not in f.evidence,
+          and "no measured rate behind it at all" in g[0].evidence,
           "the measured rate is a property of THIS set on THIS corpus "
           "(doctrine 22), so the finding disowns it the moment the set is "
           "replaced. Repinned 2026-09-05 (M-239): this line named ~~the "
@@ -297,6 +309,7 @@ def test_cliche_pair():
     # WHAT THE FLAG IS NOT. The rate licenses it to fire; it does not make
     # the list a cliche detector, and the finding a writer reads has to say
     # so where they will see it.
+    f = g[0] if g else None
     check("the finding states what it is NOT, not only what fired",
           f is not None and "WHAT IT IS NOT" in f.evidence
           and "13.3%" in f.evidence and "#254 of 15,409" in f.evidence,
@@ -311,7 +324,16 @@ def test_cliche_pair():
 
 
 def test_cliche_pair_may_only_reject_where_it_was_measured():
-    print("\n6b. CLICHE_PAIR runs at every length and rejects at one")
+    print("\n6b. a declared CLICHE_PAIR list runs at every length and rejects at one")
+    # The shipped list is silent since 2026-10-27 (D6 on #519), so the length
+    # rules are read off a list the user declared: the shipped pairs plus one.
+    user = SlopFloor(decl=FloorDeclaration(
+        cliche_pairs=frozenset(_lh.CLICHE_PAIRS) | {frozenset(("x1", "x2"))}),
+        qf=FLOOR.qf)
+
+    def find(lines, code, scheme=None):
+        return next((x for x in user.check(lines, scheme) if x.code == code),
+                    None)
     # 34 tokens -> the `section` profile EXACTLY.
     inband = ["She stood alone and watched the falling rain",
               "And every year she carried all the pain",
@@ -331,7 +353,7 @@ def test_cliche_pair_may_only_reject_where_it_was_measured():
     huge = inband + ["word " * 40] * 90
     m = sum(len(FLOOR.qf._tokens(x)) for x in huge)
     pr, ex = declaration_for(m)
-    fs = FLOOR.check(huge, None)
+    fs = user.check(huge, None)
     g = [x for x in fs if x.code == "CLICHE_PAIR"]
     check("past every profile's reach it still RUNS",
           pr is None and g,
@@ -1461,10 +1483,14 @@ def test_the_radif_licence_says_which_layer_it_speaks_for():
           "RADIF_LICENSED" in codes and rad is not None
           and "15 of 15" in rad.message,
           rad.message if rad else "not emitted")
-    check("...and the MANDATE layer flags every one of those pairs anyway, "
-          "because it reads a DIFFERENT declared coordinate",
-          viol == 15, f"{viol} SCHEME_VIOLATION(s) at the default "
-                      f"repeat_licence='unlicensed'")
+    # REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660): ~~the MANDATE
+    # layer flags every one of those pairs anyway~~ — the repeated radif
+    # satisfies a registry type (`epistrophe / radif`), and identical words
+    # that satisfy a type are not charged, so it flags none.
+    check("...and the MANDATE layer charges none of those pairs: the "
+          "repeated radif satisfies a type, so it is not charged as REPEAT",
+          viol == 0, f"{viol} SCHEME_VIOLATION(s) at the default "
+                     f"repeat_licence='unlicensed'")
     check("the note now says WHICH check it suppressed, and its evidence "
           "names the coordinate that governs the other one",
           "THIS FLOOR's self-rhyme check" in rad.message

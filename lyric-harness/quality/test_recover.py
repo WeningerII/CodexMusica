@@ -232,30 +232,52 @@ def test_the_doctrine_14_claim_is_GRADED_not_grepped():
     from quality import schemes as SC
     from quality.revise import Reviser
 
-    def _violations(spec):
+    def _violations(spec, decl=None):
         """The SAME judge `brief FILE --groups=SPEC` runs, reached the same
         way the CLI reaches it: one `Mandate` off the spec, one `inspect`."""
         if not spec:
             return 0
         m = SC.mandate([g.split(",") for g in spec.split(";")],
                        n_lines=len(lines))
-        rv = Reviser(LH.Lexicon(), LH.Declaration())
+        rv = Reviser(LH.Lexicon(), decl or LH.Declaration())
         found = rv.inspect(list(lines), mandate=m)["per_line"]
         return sum(1 for fs in found.values() for f in fs
                    if getattr(f, "code", "") == "SCHEME_VIOLATION")
 
     # The WHOLE web is what the module used to hand over, and it is the
-    # control: if this is 0 the fixture cannot discriminate and the check
-    # below examined nothing (doctrine 48's own failure mode).
+    # control: if it charged nothing the fixture could not discriminate and
+    # the check below examined nothing (doctrine 48's own failure mode).
+    # REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660; #519 finding e):
+    # ~~graded under the default `Declaration()`, the WHOLE web DOES charge
+    # violations~~. Under the default, identical words that satisfy a type
+    # (`repetition`) are no longer charged, so the whole web and the cover
+    # both charge 0 there and that control could not see the split undone.
+    # The control is graded where a type does NOT satisfy, so REPEAT is a
+    # violation again: an admit set the caller NARROWED (here, rime riche
+    # refused; `admit_is_default` is then false). There the whole web charges
+    # exactly its REPEAT edges more than the cover's `--groups=` does, so
+    # restoring `rhymes = list(edges)` in `recover` takes it red.
     whole = ";".join(f"{e['a']},{e['b']}" for e in r["web"])
-    check("the WHOLE web DOES charge violations — this is the defect, "
-          "measured, and it is the control that makes the next check "
-          "non-vacuous",
-          _violations(whole) > 0, f"{_violations(whole)} SCHEME_VIOLATION")
-    check("and `mandate_spelling['--groups=']` charges NONE, which is the "
-          "doctrine-14 sentence made TRUE rather than asserted",
+    narrowed = LH.Declaration(admit=frozenset(LH.ADMITTABLE_RELATIONS
+                                              - {"RIME_RICHE"}))
+    _w, _g = _violations(whole, narrowed), _violations(ms["--groups="], narrowed)
+    check("the WHOLE web DOES charge violations where REPEAT is one (a "
+          "narrowed admit set): exactly its REPEAT edges more than the "
+          "cover's `--groups=` — this is the defect, measured, and it is the "
+          "control that makes the next checks non-vacuous",
+          _w - _g == len(reps) > 0, f"whole {_w}, cover {_g}, {len(reps)} REPEAT")
+    check("no REPEAT edge is handed to `--groups=`: the split, read directly",
+          not ({(str(e["a"]), str(e["b"])) for e in reps}
+               & {tuple(g.split(",")) for g in ms["--groups="].split(";")}),
+          ms["--groups="])
+    check("and `mandate_spelling['--groups=']` charges NONE under the "
+          "default, which is the doctrine-14 sentence made TRUE rather than "
+          "asserted",
           _violations(ms["--groups="]) == 0,
           f"{_violations(ms['--groups='])} SCHEME_VIOLATION")
+    check("...and identical words that satisfy a type are not charged under "
+          "the default: the whole web, REPEAT edges included, charges none",
+          _violations(whole) == 0, f"{_violations(whole)} SCHEME_VIOLATION")
 
     placed = [e for e in reps
               if "." in str(e["a"]) or "." in str(e["b"])]

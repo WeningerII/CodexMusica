@@ -78,7 +78,9 @@ const SHAPES = {
 function planReceipt(shape, seed) {
   const request = {
     seed,
-    form: 'verse-chorus',
+    // The planner echoes the form it planned: `open` when the request
+    // names none (2026-10-27, D7).
+    form: 'open',
     lines: null,
     relation: '',
     functions: null,

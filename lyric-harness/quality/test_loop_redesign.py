@@ -161,228 +161,54 @@ def _m(scheme_or_groups, n, relation=None):
     return SC.mandate(m, default_relation=relation) if relation else m
 
 
-def _verify_old(R, before, after, mandate, **kw):
-    """`verify` exactly as it was before §2.6: its internal brief built the
-    full offer. Run by dropping the new keyword on the way in."""
-    real = RV.Reviser.brief
-
-    def full(self, *a, **k):
-        k.pop("_verify_fields_only", None)
-        return real(self, *a, **k)
-    RV.Reviser.brief = full
-    try:
-        return R.verify(before, after, mandate, **kw)
-    finally:
-        RV.Reviser.brief = real
-
-
-def _strip(d):
-    """A verify dict, comparable: every value as it is, nothing dropped."""
-    return {k: d[k] for k in sorted(d)}
-
-
 # ---------------------------------------------------------------------------
-# 1. verify builds no offer it does not read
+# 1. verify builds no brief and no offer (D6 on #519, 2026-10-27)
 # ---------------------------------------------------------------------------
-
-def _fixture_pairs():
-    """(name, before, after, mandate, targeted) pairs that each reach a rule-3
-    branch. Built from the fixtures above; the words are read off the briefs
-    rather than typed, so a lexicon change moves the pair, not the premise."""
-    R = Reviser()
-    pairs = []
-    m_cl = _m("ABAB", 4)
-    b2 = [b for b in R.brief(CLICHE, m_cl) if b.line_no == 2][0]
-    modal = [w for w in b2.forbidden_modal if w != b2.forbidden_incumbent]
-    after = list(CLICHE)
-    after[1] = f"He said the word and turned to face the {modal[0]}"
-    pairs.append(("CLICHE takes a modal word (default branch)",
-                  CLICHE, after, m_cl, {2}))
-    after = list(CLICHE)
-    after[1] = "He said the word and he turned to go again"
-    pairs.append(("CLICHE moves off its incumbent (default branch)",
-                  CLICHE, after, m_cl, {2}))
-
-    m_st = _m("AA", 2, "class:RHYME")
-    pairs.append(("STAIR takes 'door' (declared, in forbidden_modal)",
-                  STAIR, [STAIR[0], "and my brother came back to open the door"],
-                  m_st, {2}))
-    pairs.append(("STAIR takes 'tour' (declared, raw head only)",
-                  STAIR, [STAIR[0], "and my brother came back from the tour"],
-                  m_st, {2}))
-    pairs.append(("STAIR keeps its incumbent 'stair'",
-                  STAIR, [STAIR[0], "and my brother climbed the stair"],
-                  m_st, {2}))
-    m_ab = _m("AABB", 4, "class:RHYME")
-    pairs.append(("AABB answers L4 from its own offer",
-                  AABB, AABB[:3] + ["and left its footprints near the drawer"],
-                  m_ab, {4}))
-    pairs.append(("AABB answers L2 with a miss",
-                  AABB, [AABB[0], "and walked out to the empty field"] + AABB[2:],
-                  m_ab, {2}))
-    m_sv = _m("AA", 2, "schema:perfect rhyme")
-    pairs.append(("SILVER rewrites L2 (declared schema, empty offer)",
-                  SILVER, [SILVER[0], "we waited there for half a year"],
-                  m_sv, {2}))
-    pairs.append(("AABB rewrites two lines at once (no targets)",
-                  AABB, [AABB[0], "and walked out to the empty cove",
-                         AABB[2], "and left its footprints near the drawer"],
-                  m_ab, None))
-    return pairs
-
-
-def _harvest_loop_verifies():
-    """Every `verify` a stub-driven `revise_loop` makes on the fixtures, as
-    (name, before, after, mandate, kwargs). The stub is the loop's own
-    `default_propose`, so the pairs are the ones the loop really asks about."""
-    out = []
-    real = RV.Reviser.verify
-
-    def record(self, before, after, mandate=None, **kw):
-        out.append((f"loop verify #{len(out) + 1}", list(before), list(after),
-                    mandate, dict(kw)))
-        return real(self, before, after, mandate, **kw)
-    RV.Reviser.verify = record
-    try:
-        for lines, mand in ((CLICHE, _m("ABAB", 4)),
-                            (AABB, _m("AABB", 4, "class:RHYME")),
-                            (LIVE, _m(LIVE_GROUPS, 4, "class:RHYME"))):
-            rd = RV.ReviseDeclaration(max_rounds=2, attempts_per_line=2,
-                                      backtrack_width=1)
-            LP.revise_loop(Reviser(rdecl=rd), list(lines), mand,
-                           propose_group=LP.default_propose_group)
-    finally:
-        RV.Reviser.verify = real
-    return out
-
 
 def test_verify_reads_no_offer():
-    print("\n1. verify builds no offer it does not read (LOOP_REDESIGN.md §2.6, T8)")
-    pairs = _fixture_pairs()
+    print("\n1. verify builds no brief and no offer (D6, 2026-10-27)")
+    m_cl, m_st = _m("ABAB", 4), _m("AA", 2, "class:RHYME")
+    pairs = [("CLICHE moves off its incumbent", CLICHE,
+              [CLICHE[0], "He said the word and he turned to go again"]
+              + CLICHE[2:], m_cl, {2}),
+             ("STAIR takes 'door', the old FORBIDDEN head", STAIR,
+              [STAIR[0], "and my brother came back to open the door"],
+              m_st, {2}),
+             ("STAIR keeps its incumbent 'stair'", STAIR,
+              [STAIR[0], "and my brother climbed the stair"], m_st, {2})]
+    seen = {"brief": 0, "widen": 0, "schema_widen": 0, "limited": 0}
+    real = (RV.Reviser.brief, RV.Reviser._widen_pool,
+            RV.Reviser.schema_widened_field, RV.Reviser.declared_offer)
 
-    # (a) THE FAILING HALF.
-    seen = {"brief_kwargs": [], "widen": 0, "schema_widen": 0, "limited": 0}
-    real_brief = RV.Reviser.brief
-    real_widen = RV.Reviser._widen_pool
-    real_sw = RV.Reviser.schema_widened_field
-    real_do = RV.Reviser.declared_offer
-
-    def brief(self, *a, **k):
-        seen["brief_kwargs"].append(dict(k))
-        return real_brief(self, *a, **k)
-
-    def widen(self, *a, **k):
-        seen["widen"] += 1
-        return real_widen(self, *a, **k)
-
-    def sw(self, *a, **k):
-        seen["schema_widen"] += 1
-        return real_sw(self, *a, **k)
-
-    def do(self, *a, **k):
-        if k.get("limit") is not None:
-            seen["limited"] += 1
-        return real_do(self, *a, **k)
-    RV.Reviser.brief, RV.Reviser._widen_pool = brief, widen
-    RV.Reviser.schema_widened_field, RV.Reviser.declared_offer = sw, do
+    def counted(key, fn, when=lambda k: True):
+        def wrap(self, *a, **k):
+            if when(k):
+                seen[key] += 1
+            return fn(self, *a, **k)
+        return wrap
+    RV.Reviser.brief = counted("brief", real[0])
+    RV.Reviser._widen_pool = counted("widen", real[1])
+    RV.Reviser.schema_widened_field = counted("schema_widen", real[2])
+    RV.Reviser.declared_offer = counted(
+        "limited", real[3], lambda k: k.get("limit") is not None)
     try:
         R = Reviser()
-        for _name, before, after, mand, tg in pairs:
-            R.verify(before, after, mand, targeted=tg)
+        results = [(name, R.verify(b, a, m, targeted=tg))
+                   for name, b, a, m, tg in pairs]
     finally:
-        RV.Reviser.brief, RV.Reviser._widen_pool = real_brief, real_widen
-        RV.Reviser.schema_widened_field, RV.Reviser.declared_offer = real_sw, real_do
-    targeted_briefs = [k for k in seen["brief_kwargs"] if "target_lines" in k]
-    check("inside verify, every per-line brief asks for the verify fields only "
-          "(`_verify_fields_only=True`) — before the redesign it asked for the "
-          "full offer, so this fails there",
-          targeted_briefs and all(k.get("_verify_fields_only") is True
-                                  for k in targeted_briefs),
-          f"{len(targeted_briefs)} briefs: "
-          f"{[k.get('_verify_fields_only') for k in targeted_briefs]}")
-    # PREMISE for the next check: the SAME pairs through the old full brief
-    # do run the offer searches, so "zero" below is a measurement, not the
-    # absence of an occasion (doctrine 20).
-    seen_new = {k: seen[k] for k in ("widen", "schema_widen", "limited")}
-    seen.update(widen=0, schema_widen=0, limited=0)
-    RV.Reviser._widen_pool, RV.Reviser.declared_offer = widen, do
-    RV.Reviser.schema_widened_field = sw
-    try:
-        R = Reviser()
-        for _name, before, after, mand, tg in pairs:
-            _verify_old(R, before, after, mand, targeted=tg)
-    finally:
-        RV.Reviser._widen_pool, RV.Reviser.declared_offer = real_widen, real_do
-        RV.Reviser.schema_widened_field = real_sw
-    seen_old = {k: seen[k] for k in ("widen", "schema_widen", "limited")}
-    seen.update(seen_new)
-    check("PREMISE: the old full brief, on the same pairs, DOES run the offer "
-          "searches (whole-lexicon widening, a limited declared_offer)",
-          seen_old["widen"] > 0 and seen_old["limited"] > 0, str(seen_old))
-    check("...and no offer-building search runs inside verify: zero calls to "
-          "`_widen_pool`, `schema_widened_field`, or `declared_offer` with a "
-          "`limit`",
-          seen["widen"] == 0 and seen["schema_widen"] == 0
-          and seen["limited"] == 0, str({k: v for k, v in seen.items()
-                                         if k != "brief_kwargs"}))
-
-    # (b) THE EQUALITY HALF, on the fixture pairs and the loop's own pairs.
-    corpus = [(n, b, a, m, {"targeted": tg}) for n, b, a, m, tg in pairs]
-    corpus += _harvest_loop_verifies()
-    R = Reviser()
-    diffs = []
-    rule3_fired = kept_disclosed = 0
-    for name, before, after, mand, kw in corpus:
-        new = R.verify(before, after, mand, **kw)
-        old = _verify_old(R, before, after, mand, **kw)
-        if _strip(new) != _strip(old):
-            diffs.append(name)
-        rule3_fired += bool(old.get("modal_violations"))
-        kept_disclosed += bool(old.get("modal_endword_unchanged"))
-    check(f"the new verify returns the old verify's dict on all {len(corpus)} "
-          f"pairs, key for key and `reasons` byte for byte",
-          not diffs, f"differ: {diffs[:5]}")
-    check("PREMISE: the corpus reaches both rule-3 outcomes — a modal word "
-          "TAKEN and an incumbent KEPT — so (b) examined rule 3 and not only "
-          "its absence",
-          rule3_fired >= 2 and kept_disclosed >= 1,
-          f"taken={rule3_fired} kept={kept_disclosed}")
-
-    # (c) THE MUTANTS.
-    def mutant_drop_rule3(self, *a, **k):
-        out = real_brief(self, *a, **k)
-        if k.get("_verify_fields_only"):
-            for b in out:
-                b.forbidden_modal = []
-        return out
-
-    def mutant_skip_filter(self, *a, **k):
-        if not k.get("_verify_fields_only"):
-            return real_brief(self, *a, **k)
-
-        def passthrough(_self, candidates, *a2, **k2):
-            return list(dict.fromkeys(candidates)), []
-        RV.Reviser.declared_offer = passthrough
-        try:
-            return real_brief(self, *a, **k)
-        finally:
-            RV.Reviser.declared_offer = real_do
-
-    for label, mutant in (("drop rule 3", mutant_drop_rule3),
-                          ("skip the filter", mutant_skip_filter)):
-        caught = []
-        for name, before, after, mand, kw in corpus[:len(pairs)]:
-            old = _verify_old(R, before, after, mand, **kw)
-            RV.Reviser.brief = mutant
-            try:
-                mut = Reviser().verify(before, after, mand, **kw)
-            finally:
-                RV.Reviser.brief = real_brief
-            if _strip(mut) != _strip(old):
-                caught.append(name)
-        check(f"MUTANT '{label}' in the verify mode is caught by the equality "
-              f"half (it changes at least one fixture's verdict)",
-              bool(caught), "the mutant passed every fixture")
+        (RV.Reviser.brief, RV.Reviser._widen_pool,
+         RV.Reviser.schema_widened_field, RV.Reviser.declared_offer) = real
+    # Until 2026-10-27 verify built a per-line brief for RULE 3's FORBIDDEN
+    # head, so this count was one or more per pair.
+    check("verify builds no brief and runs no offer search: zero calls to "
+          "`brief`, `_widen_pool`, `schema_widened_field`, or a limited "
+          "`declared_offer`", not any(seen.values()), str(seen))
+    check("no verify dict carries RULE 3's keys, and no reason names a "
+          "modal word", all("modal_violations" not in r
+                            and "modal_endword_unchanged" not in r
+                            and "modal" not in " ".join(r["reasons"])
+                            for _n, r in results),
+          str([(n, r["reasons"][:1]) for n, r in results]))
 
 
 # ---------------------------------------------------------------------------
@@ -535,9 +361,8 @@ COUPLET = ["I left the kettle on the stove",
 
 
 def test_group_questions_offer_words():
-    print("\n3. group questions offer words (§2.4, §2.8 G, T6)")
+    print("\n3. group questions offer NO words (D6 on #519, 2026-10-27)")
     from quality.propose import render_group
-    # (a) the couplet escalation, through the real verb.
     run = _Deferred(COUPLET, "AA", "--relation=class:RHYME", "--attempts=1",
                     "--backtrack=1")
     run.call()
@@ -546,37 +371,21 @@ def test_group_questions_offer_words():
     prompt = (st.get("pending") or {}).get("prompt", "")
     check("PREMISE: the rejected line answer escalated to a group question "
           "on L1+L2", run.asked() == ("propose_group", [1, 2]), str(run.asked()))
-    m = _m("AA", 2, "class:RHYME")
-    R = Reviser()
-    pf = R.member_place_field(COUPLET, m, 1, 0)
-    want = list(pf.offered) if pf is not None else None
-    block = prompt.split("IF EVERY OTHER LINE KEEPS ITS WORDS, L1's end word could be:", 1)
-    printed = (block[1].split("\n")[2].strip().split(", ")
-               if len(block) == 2 else None)
-    check("L1 (no per-line finding) is shown its one-move menu, and the "
-          "printed words are exactly `member_place_field`'s — before the "
-          "redesign the prompt said `(none offered)`, so this fails there",
-          want and printed == want, f"printed={printed} want={want}")
-    check("...and L2's own line-question lists are reprinted, citing the "
-          "question that was really asked on this draft",
-          "L2 ON ITS OWN — as offered in L2's line question (attempt 1, round 1)"
-          in prompt and "  OFFERED: tov" in prompt, prompt[:0])
+    # Until 2026-10-27 this prompt printed L1's one-move menu, L2's line-
+    # question OFFERED/FORBIDDEN lists and the search's proposed set.
+    check("the group prompt prints no menu: no one-move list, no line-"
+          "question lists, no OFFERED, OPTIONS or proposed set",
+          prompt and not any(t in prompt for t in (
+              "IF EVERY OTHER LINE KEEPS", "ON ITS OWN", "OFFERED",
+              "OPTIONS", "SEARCH IS PROPOSING", "FORBIDDEN")),
+          [l for l in prompt.splitlines()
+           if any(t in l for t in ("OFFERED", "OPTIONS", "FORBIDDEN"))][:4])
 
-    # (b) the shared function is brief()'s own per-place code.
     m_ab = _m("AABB", 4, "class:RHYME")
-    b2 = [b for b in R.brief(AABB, m_ab) if b.line_no == 2][0]
-    sk = next(iter(b2.fields_by_slot))
-    gi = next(k for k, _ in m_ab.partners(2))
-    pf2 = R.member_place_field(AABB, m_ab, 2, gi)
-    mine, theirs = pf2, b2.fields_by_slot[sk]
-    check("on a line brief() does brief, `member_place_field` returns the "
-          "brief's own offer, forbidden head, calls and incumbent",
-          (list(mine.offered), list(mine.forbidden), mine.calls, mine.incumbent)
-          == (list(theirs.offered), list(theirs.forbidden), theirs.calls,
-              theirs.incumbent),
-          f"{mine.offered[:5]} vs {theirs.offered[:5]}")
+    b2 = [b for b in Reviser().brief(AABB, m_ab) if b.line_no == 2][0]
+    check("the line brief builds no place field to print",
+          not b2.fields_by_slot and not b2.candidates, str(b2.fields_by_slot))
 
-    # (c) the group-first path: no menu, and the prompt says why.
     seen = []
     rd = RV.ReviseDeclaration(max_rounds=1, attempts_per_line=1,
                               backtrack_width=1)
@@ -585,22 +394,80 @@ def test_group_questions_offer_words():
                    propose=lambda *a, **k: None,
                    propose_group=lambda gb: seen.append(gb))
     gf = [gb for gb in seen if getattr(gb, "path", "") == "group_first"]
-    text = render_group(gf[0]) if gf else ""
-    check("PREMISE: SILVER's empty field sends it to tier 2 group-first",
-          bool(gf), str([getattr(gb, "path", "?") for gb in seen]))
-    check("on the group-first path no one-move menu is computed and the "
-          "member's empty menu says why; the pivot's line-question block is "
-          "absent",
-          bool(gf) and all(a.one_move is None for a in gf[0].anchors)
-          and "asked before any line question" in text
-          and "ON ITS OWN" not in text
-          and "IF EVERY OTHER LINE KEEPS" not in text,
-          text[text.find("OPTIONS"):text.find("OPTIONS") + 300])
+    # Group-first was dispatched on an EMPTY offer field; with no field
+    # computed, SILVER is asked its line question first.
+    check("SILVER is no longer sent group-first on an empty offer field, and "
+          "any group question it reaches prints no menu",
+          not gf and all("OPTIONS" not in render_group(gb)
+                         and "OFFERED" not in render_group(gb) for gb in seen),
+          str([getattr(gb, "path", "?") for gb in seen]))
 
 
-# ---------------------------------------------------------------------------
-# 4. resume from the saved position equals replay (in-process)
-# ---------------------------------------------------------------------------
+
+def test_escalation_asks_without_the_one_move_menu():
+    print("\n3b. the escalation asks the same group question without building "
+          "a one-move menu, and verify() still decides (#627, 2026-10-28)")
+    # R2 measured test_verbs §59 at 8 min 4 s: tier 2 built
+    # `member_place_field` (a trial song graded per candidate word) for
+    # every member whose coupled menu was empty, and since D6 the group
+    # question prints no `one_move`. On this couplet the previous loop.py
+    # called it twice and rendered the same question bytes.
+    from quality.propose import render_group
+    calls = []
+    real = RV.Reviser.member_place_field
+
+    def counting(self, *a, **k):
+        calls.append(a[2:4])
+        return real(self, *a, **k)
+    verifies = []
+    real_verify = RV.Reviser.verify
+
+    def counting_verify(self, *a, **k):
+        out = real_verify(self, *a, **k)
+        verifies.append(bool(out["accepted"]))
+        return out
+    RV.Reviser.member_place_field = counting
+    RV.Reviser.verify = counting_verify
+    rd = RV.ReviseDeclaration(max_rounds=1, attempts_per_line=1,
+                              backtrack_width=1)
+    rhyming = (COUPLET[0], "and walked out through the cove")
+    still = (COUPLET[0], "and walked out to the empty field")
+    outcomes = {}
+    try:
+        for name, answer in (("accepted", rhyming), ("refused", still)):
+            asked = []
+            verifies.clear()
+
+            def pg(gb, answer=answer):
+                asked.append((gb.path, tuple(gb.members), render_group(gb)))
+                return answer
+            res = LP.revise_loop(Reviser(rdecl=rd), list(COUPLET),
+                                 _m("AA", 2, "class:RHYME"),
+                                 propose=lambda *a, **k: still[1],
+                                 propose_group=pg)
+            outcomes[name] = (asked, list(res.lines), list(verifies))
+    finally:
+        RV.Reviser.member_place_field = real
+        RV.Reviser.verify = real_verify
+    acc, ref = outcomes["accepted"], outcomes["refused"]
+    check("PREMISE: the line answer failed and the loop escalated to one "
+          "group question on L1+L2",
+          [a[:2] for a in acc[0]] == [("escalation", (1, 2))]
+          and [a[:2] for a in ref[0]] == [("escalation", (1, 2))],
+          str([a[:2] for a in acc[0] + ref[0]]))
+    check("no one-move menu is built: member_place_field is never called",
+          calls == [], str(calls))
+    check("the question still carries the group's constraint: both members "
+          "and the declared relation are in it",
+          all("L1" in q and "L2" in q and "RHYME" in q
+              for _p, _m2, q in acc[0] + ref[0]),
+          acc[0][0][2][:300] if acc[0] else "")
+    check("a rhyming answer is ACCEPTED by verify() and applied",
+          acc[1] == list(rhyming) and True in acc[2], str(acc[1:]))
+    check("a non-rhyming answer is REFUSED by verify() and the draft is kept",
+          ref[1] == list(COUPLET) and ref[2] and not any(ref[2][-1:]),
+          str(ref[1:]))
+
 
 class _Suspend(Exception):
     def __init__(self, key, draft):
@@ -1098,67 +965,26 @@ TWO_PLACES_GROUPS = [["1.T2", 2], [1, 3]]
 
 
 def test_menus_resume_place_by_place():
-    """Option B (owner ruling 2026-10-03): a stop may fall between two places
-    of ONE line's menu. The first place is saved; the next call builds only
-    the second; the finished menu, and the question rendered from it, are
-    exactly the uninterrupted ones. Before option B a menu was one step, so
-    no stop could fall inside it and nothing of it was saved."""
+    """Option B (owner ruling 2026-10-03) saved a line's menu place by place,
+    so a stop between two places lost nothing. Since 2026-10-27 (D6 on #519)
+    a brief builds no menu at all, so there is no place step to stop between
+    and nothing of a menu to save; this pins that, and that the question is
+    the same whether or not a cache stands in between."""
     from quality.propose import render_line
-    print("\n9. a menu is saved place by place, and a stop between two "
-          "places loses nothing (§2.3b; owner ruling 2026-10-03, option B)")
+    print("\n9. a brief builds no menu, so no place step is taken or saved "
+          "(D6, 2026-10-27; was §2.3b option B)")
     lines, mand = TWO_PLACES, _m(TWO_PLACES_GROUPS, 3, "class:RHYME")
     want = Reviser().brief(list(lines), mand, target_lines={1})
-    first = LP._VerdictCache(Reviser(), {}, {}, deadline=_StopAt(3))
-    try:
-        first.brief(list(lines), mand, target_lines={1})
-        stopped = None
-    except LP.SafePointStop as stop:
-        stopped = stop.step
-    saved = json.loads(json.dumps(first.menus_on(lines)))
-    check("the stop falls between the line's two places, and the first "
-          "place is saved", stopped == "place" and len(saved) == 1
-          and "'place'" in saved[0][0], f"stopped {stopped}, saved "
-          f"{[k for k, _ in saved]}")
-    second = LP._VerdictCache(Reviser(), {}, {}, deadline=_StopAt(None))
-    second.load_menus(saved)
-    got = second.brief(list(lines), mand, target_lines={1})
-    check("...the next call builds only the missing place (steps: the menu, "
-          "then one place)", second._deadline.steps == ["menu", "place"],
-          str(second._deadline.steps))
-    check("...and the finished menu equals the uninterrupted one, field for "
-          "field", got == want)
-    check("...and so does the question rendered from it, byte for byte",
-          render_line(got[0], list(lines)) == render_line(want[0], list(lines)))
-    rows = second.menus_on(lines)
-    check("...and once the whole menu is saved, its places are not saved a "
-          "second time", len(rows) == 1 and "'brief'" in rows[0][0],
-          str([k for k, _ in rows]))
-    # A KILL between the two places, through the real deferred proposer: the
-    # first place was checkpointed when it was saved, so the next call builds
-    # only the second. Before each save printed a checkpoint, the kill kept
-    # the last unit-start checkpoint and the next call rebuilt both.
-    rd = RV.ReviseDeclaration(max_rounds=1, attempts_per_line=1,
-                              backtrack_width=1)
-    base = _inproc(lines, mand, rd, calls=12)
-    at = next(((c["call"], i + 1) for c in base
-               for i in range(1, len(c["steps"]))
-               if c["steps"][i] == "place" and c["steps"][i - 1] == "place"),
-              None)
-    check("PREMISE: the run builds this line's menu as two places in a row",
-          at is not None, str([c["steps"] for c in base]))
-    if at is not None:
-        run = _inproc(lines, mand, rd, plan={at[0]: (at[1], True)}, calls=12)
-        killed, nxt = run[at[0]], run[at[0] + 1]
-        kept = [k for k, _ in ((killed["after"] or {}).get("cursor", {})
-                               .get("loop", {}).get("menus") or ())]
-        check("a call killed between the two places keeps the first place "
-              "in its last checkpoint", killed["kind"] == "killed"
-              and any("'place'" in k for k in kept), str(kept))
-        check("...and the next call builds only the second place",
-              nxt["steps"].count("place") == 1, str(nxt["steps"]))
-        check("...and the run asks the same questions as without the kill",
-              _prompts(run) == _prompts(base))
-
+    cache = LP._VerdictCache(Reviser(), {}, {}, deadline=_StopAt(None))
+    got = cache.brief(list(lines), mand, target_lines={1})
+    check("no place step is taken and no place menu is saved",
+          "place" not in cache._deadline.steps
+          and not any("'place'" in k for k, _ in cache.menus_on(lines)),
+          f"steps {cache._deadline.steps}")
+    check("...and the question is byte-identical with or without the cache",
+          got and want
+          and render_line(got[0], list(lines)) == render_line(want[0],
+                                                              list(lines)))
 
 def test_kills_keep_the_run():
     print("\n7. a killed call keeps the run; repeated kills at one position "
@@ -1228,6 +1054,7 @@ if __name__ == "__main__":
     _SECTIONS = (test_verify_reads_no_offer,
                  test_every_batch_answer_has_a_standing,
                  test_group_questions_offer_words,
+                 test_escalation_asks_without_the_one_move_menu,
                  test_resume_equals_replay,
                  test_resume_through_the_verb,
                  test_safe_point_stops,

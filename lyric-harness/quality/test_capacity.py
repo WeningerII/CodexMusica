@@ -268,9 +268,15 @@ def test_the_anchor():
 
 def test_tier1():
     print("\n2. tier 1 is the grader's tier 1, not a re-implementation")
-    _, codes = pair_verdict("hair", "chair")
-    check("a same-class pair carries HOMEOTELEUTON in a REAL grade",
-          "HOMEOTELEUTON" in codes)
+    v_hc, codes = pair_verdict("hair", "chair")
+    # 2026-10-27, D6 on #519: a pair that holds is not charged in a real
+    # grade any more; capacity measures with `earned_pair_ban` directly.
+    check("a same-class pair is NOT charged in a REAL grade",
+          "HOMEOTELEUTON" not in codes, codes)
+    ban = R.earned_pair_ban(v_hc) if v_hc is not None else None
+    check("...and `earned_pair_ban`, capacity's accessor, still classes it "
+          "HOMEOTELEUTON", ban is not None and ban.code == "HOMEOTELEUTON",
+          ban and ban.code)
     _, codes = pair_verdict("bone", "sown")
     check("different classes of one family do not (bone -one / sown "
           "-own)", "HOMEOTELEUTON" not in codes)
