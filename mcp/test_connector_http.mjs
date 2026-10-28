@@ -843,6 +843,13 @@ test(
         assert.match(body.error.message, new RegExp(`^BATCH_TOO_LARGE: .*at most 8 .*has ${n}\\.`));
       }
 
+      // The limiter's windows are fixed wall-clock minutes (ratelimit.js), so
+      // the 24 counted messages below must all land in one of them: a run that
+      // crosses a minute boundary starts the third batch in a fresh window and
+      // gets 200. Start the count at least 30 s before the next boundary.
+      const toBoundary = 60_000 - (Date.now() % 60_000);
+      if (toBoundary < 30_000) await new Promise((resolve) => setTimeout(resolve, toBoundary + 50));
+
       // /health answers while a batch of the heaviest searches runs: the
       // batch's messages run one at a time with the event loop free between,
       // so a probe waits for one call, not for the batch (measured: without
