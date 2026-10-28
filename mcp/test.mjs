@@ -1197,16 +1197,27 @@ await check('validation: actionable errors', () => {
       });
       assert.ok(AV.planArgs({ seed: 3, melody }).includes(`--melody=${melody}`));
     });
+    // The form is always sent (2026-10-27, D7): the raw CLI still defaults
+    // to verse-chorus, and the connector's default is `open`.
     await check('planArgs carries --narrative= exactly as it carries --title=', () => {
-      assert.deepEqual(AV.planArgs({ seed: 7 }), ['--seed=7']);
-      assert.deepEqual(AV.planArgs({ seed: 7, narrative: 'off' }), ['--seed=7', '--narrative=off']);
+      assert.deepEqual(AV.planArgs({ seed: 7 }), ['--seed=7', '--form=open']);
+      assert.deepEqual(AV.planArgs({ seed: 7, form: 'verse-chorus' }), [
+        '--seed=7',
+        '--form=verse-chorus',
+      ]);
+      assert.deepEqual(AV.planArgs({ seed: 7, narrative: 'off' }), [
+        '--seed=7',
+        '--form=open',
+        '--narrative=off',
+      ]);
       assert.deepEqual(
         AV.planArgs({ seed: 7, narrative: '' }),
-        ['--seed=7'],
+        ['--seed=7', '--form=open'],
         'an empty string emits no bare flag'
       );
       assert.deepEqual(AV.planArgs({ seed: 7, title: 'Ledger', narrative: 'ESTABLISH,TURN/BUT' }), [
         '--seed=7',
+        '--form=open',
         '--title=Ledger',
         '--narrative=ESTABLISH,TURN/BUT',
       ]);
@@ -1520,7 +1531,7 @@ await check('validation: actionable errors', () => {
             new_run: true,
             lines: 20,
           }),
-          { seed: 1, lines: 20, form: 'verse-chorus', voices: false, writer: 'interview' }
+          { seed: 1, lines: 20, form: 'open', voices: false, writer: 'interview' }
         );
       }
     );
@@ -1840,7 +1851,7 @@ await check('validation: actionable errors', () => {
           {
             seed: 7,
             relation: 'type:pararhyme',
-            form: 'verse-chorus',
+            form: 'open',
             voices: false,
             writer: 'interview',
           },
@@ -8060,12 +8071,22 @@ try {
     // 1..5 declares a hook at this length, so the loop below now confirms
     // the premise rather than searching for it.
     const LIVE_LINES = 24;
-    const withLines = (extra) => ({ seed: planSeed, lines: LIVE_LINES, ...extra });
+    // A HOOK AND A CHORUS RETURN ARE PLANNED ONLY FOR A RETURNING FORM
+    // (2026-10-27, D7: the default `open` form asks for neither), and this
+    // block's title checks need a hook, so every call declares
+    // `verse-chorus` — the plan, the grade and the revision one shape.
+    const LIVE_FORM = 'verse-chorus';
+    const withLines = (extra) => ({
+      seed: planSeed,
+      lines: LIVE_LINES,
+      form: LIVE_FORM,
+      ...extra,
+    });
     let plannedRes = null;
     let planSeed = null;
     for (const candidate of [1, 2, 3, 4, 5]) {
       const tryRes = await client.callTool(
-        { name: 'lyric_plan', arguments: { seed: candidate, lines: LIVE_LINES } },
+        { name: 'lyric_plan', arguments: { seed: candidate, lines: LIVE_LINES, form: LIVE_FORM } },
         undefined,
         LIVE_OPTS
       );
@@ -8199,32 +8220,23 @@ try {
     console.log('  ok  lyric_grade live: two blocks — the song plain, the verdict JSON');
     passed++;
 
-    // NO RELATION IS DRAWN, AND NONE REACHES THE GRADE UNDECLARED (the
-    // N-relation model, 2026-09-22; M-117's per-group draw is removed). The
-    // brief tells the writer every group must stand in AT LEAST ONE
-    // relation, and the grade — with no `--relations=` off the plan — judges
-    // every group against every relation, so it announces no per-group
-    // RELATION row. Pinned as an equality between the harness's own two
-    // reports: the brief's group rows against the grade's, both read off
-    // text already in hand.
-    const namedInBrief = (planReport.match(/a NAMED relation/g) || []).length;
-    const anyInBrief = (planReport.match(/must stand in at least one relation/g) || []).length;
+    // EACH GROUP DRAWS ONE TYPE (owner-approved plan, 2026-10-27, D1). The
+    // brief states each group's rule with no type name ("must satisfy rule
+    // R<n>"), and the grade — with `--relations=` off the plan — judges each
+    // group under the type it drew, so it announces one RELATION row per
+    // group. Pinned as an equality between the harness's own two reports.
+    const groupsInBrief = (planReport.match(/must satisfy rule R\d+/g) || []).length;
+    const oldWording = /must stand in at least one relation|any coarse relation/.test(planReport);
     const judgedInGrade = (gradeVerdict.report.match(/RELATION: group /g) || []).length;
-    assert.equal(namedInBrief, 0, 'the planner drew no per-group relation');
-    assert.ok(
-      anyInBrief > 0,
-      'the brief tells the writer each group must stand in at least one relation'
-    );
+    assert.ok(groupsInBrief > 0, 'the brief states a rule for each group');
+    assert.ok(!oldWording, 'the four-type wording is gone from the brief');
     assert.equal(
       judgedInGrade,
-      0,
-      'the grade judged no group under a drawn relation — every group is ' +
-        'judged against every relation'
+      groupsInBrief,
+      'the grade judges every group under the type the plan drew for it'
     );
     console.log(
-      '  ok  lyric_grade live: no relation drawn; ' +
-        anyInBrief +
-        ' group(s) briefed to stand in at least one relation'
+      '  ok  lyric_grade live: ' + groupsInBrief + ' group(s), each judged under its drawn type'
     );
     passed++;
 
@@ -8295,8 +8307,8 @@ try {
       LIVE_OPTS
     );
     splitRes = await resumeStopped(client, splitRes, LIVE_OPTS);
-    assert.ok(!splitRes.isError);
-    assert.equal(splitRes.content.length, 2);
+    assert.ok(!splitRes.isError, String(splitRes.content?.[0]?.text).slice(0, 800));
+    assert.equal(splitRes.content.length, 2, String(splitRes.content?.[0]?.text).slice(0, 800));
     let splitVerdict = JSON.parse(splitRes.content[1].text);
     assert.equal(splitVerdict.status, 'awaiting_proposal');
     assert.equal(splitVerdict.exit_code, 4);
@@ -8368,10 +8380,15 @@ try {
     // ended on L2's 'June' while L2 shared L1's group; RE-MEASURED
     // 2026-10-21, L1's partner is L3 now (1,3 above) and 'June' finishes
     // clean, so L1 ends on L3's 'afternoon' instead, the same defect.
+    // 2026-10-27 (D7): the returns and hook this draft is written for are
+    // planned only for a returning form, so every seed-176 call declares
+    // `verse-chorus`; under it the plan is unchanged (1,3;4,5;6,7, returns
+    // 6,8;7,9, hook L6).
     revisionDraft[0] = 'Bone buttons gleam beneath the rain all afternoon';
     const withRevision = (extra) => ({
       seed: revisionSeed,
       lines: 12,
+      form: 'verse-chorus',
       relation: 'class:RHYME',
       title: 'wakes the rain',
       ...extra,
@@ -8698,6 +8715,7 @@ try {
           arguments: {
             seed: 176,
             lines: 12,
+            form: 'verse-chorus',
             draft: qualifiedDraft,
             relation: 'class:RHYME',
             title,

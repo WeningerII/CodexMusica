@@ -8,6 +8,12 @@ import { buildServer } from './tools.js';
 // test_session_repairs.mjs: together they run about 90 s on the real harness,
 // which pushed that file past production-offline's 120 s per-file limit. This
 // file runs beside test_chatgpt_parked.mjs, outside that limit.
+// The chorus returns and reprises these cases need are planned only for a
+// returning form (2026-10-27, D7: the default `open` form asks none), so
+// every call declares verse-chorus; under it each seed plans the shape the
+// comments below describe.
+const VC = 'verse-chorus';
+
 async function connect(session) {
   const server = buildServer({ task: { domain: 'lyrics' } });
   const [a, b] = InMemoryTransport.createLinkedPair();
@@ -28,17 +34,19 @@ test('two checks refusing one end word leave unique coverage ids and a grade rec
           }
         })
         .find((value) => Number.isInteger(value.exit_code));
-    const sw = verdict(await c.call('lyric_sweep', { seed_from: 16, count: 1, lines: 24 }));
+    const sw = verdict(
+      await c.call('lyric_sweep', { seed_from: 16, count: 1, lines: 24, form: VC })
+    );
     assert.deepEqual(sw.accepted_shown, [16]);
     await c.call('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' });
-    await c.call('lyric_plan', { seed: 16, lines: 24 });
+    await c.call('lyric_plan', { seed: 16, lines: 24, form: VC });
     // Seed 16 at 24 lines: drop, verse, chorus (L3-L5), prechorus, chorus, outro. Only L3,
     // the first chorus line, ends on a word the phonology cannot read.
     const draft = Array.from(
       { length: 24 },
       (_, i) => `the road I remember turns again ${i === 2 ? 'zorblax' : 'tonight'}`
     );
-    const grade = verdict(await c.call('lyric_grade', { seed: 16, draft }));
+    const grade = verdict(await c.call('lyric_grade', { seed: 16, form: VC, draft }));
     assert.equal(grade.measurement_status, 'graded');
     // The chorus return and the outro's reprise both refuse L3 ...
     const refusing = grade.findings.filter(
@@ -54,7 +62,7 @@ test('two checks refusing one end word leave unique coverage ids and a grade rec
     assert(c.snapshot().task.workflow.grade, JSON.stringify(grade.coverage.refused_obligations));
     // ... and revision starts on that exact draft: the user-visible symptom was
     // CREATION_GRADE here (3PO 6345764378). attempts 0 stops at the first stop.
-    const revised = await c.call('lyric_revise', { seed: 16, draft, attempts: 0 });
+    const revised = await c.call('lyric_revise', { seed: 16, form: VC, draft, attempts: 0 });
     assert(!revised.isError, JSON.stringify(revised.content?.[0]?.text).slice(0, 400));
     assert(Number.isInteger(verdict(revised).exit_code));
   } finally {
@@ -88,10 +96,12 @@ test('an end word refused by two or three overlapping checks keeps one id', asyn
             }
           })
           .find((value) => Number.isInteger(value.exit_code));
-      const sw = verdict(await c.call('lyric_sweep', { seed_from: seed, count: 1, lines: 24 }));
+      const sw = verdict(
+        await c.call('lyric_sweep', { seed_from: seed, count: 1, lines: 24, form: VC })
+      );
       assert.deepEqual(sw.accepted_shown, [seed]);
       await c.call('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' });
-      const { plan } = verdict(await c.call('lyric_plan', { seed, lines: 24 }));
+      const { plan } = verdict(await c.call('lyric_plan', { seed, lines: 24, form: VC }));
       assert.equal(plan.line_slots.find((l) => l.line === line).function, fn, `seed ${seed}`);
       const fns = plan.sections.map((x) => x.function);
       for (const f of new Set(needs))
@@ -103,7 +113,7 @@ test('an end word refused by two or three overlapping checks keeps one id', asyn
         { length: 24 },
         (_, i) => `the road I remember turns again ${i === line - 1 ? 'zorblax' : 'tonight'}`
       );
-      const grade = verdict(await c.call('lyric_grade', { seed, draft }));
+      const grade = verdict(await c.call('lyric_grade', { seed, form: VC, draft }));
       assert.equal(grade.measurement_status, 'graded');
       const rows = grade.coverage.obligations.filter(
         (row) => row.id === `function:END_WORD_UNREADABLE:L${line}`
@@ -117,7 +127,7 @@ test('an end word refused by two or three overlapping checks keeps one id', asyn
         `seed ${seed}`
       );
       assert(c.snapshot().task.workflow.grade, `seed ${seed}: no grade receipt`);
-      const revised = await c.call('lyric_revise', { seed, draft, attempts: 0 });
+      const revised = await c.call('lyric_revise', { seed, form: VC, draft, attempts: 0 });
       assert(!revised.isError, JSON.stringify(revised.content?.[0]?.text).slice(0, 400));
       assert(Number.isInteger(verdict(revised).exit_code));
     } finally {

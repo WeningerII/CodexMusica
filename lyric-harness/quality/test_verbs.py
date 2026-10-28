@@ -5623,7 +5623,12 @@ def test_the_plan_report_discloses_density_and_audibility():
     rc, out, _ = run("plan", "--seed=31", f"--out={bp}", expect_rc=0)
     with open(bp, encoding="utf-8") as fh:
         plan = _json.load(fh)
-    au = plan["choices"]["audible"]
+    # ~~au = plan["choices"]["audible"]~~ — REPINNED 2026-10-27 (owner-
+    # approved plan, D5): the audible / END RHYME record is gone from planner
+    # output ("NOT heard as end rhyme" was one of the labels removed), so
+    # the plan carries no `audible` choice and the report prints no AUDIBLE
+    # line. What replaced it is the per-group type draw, disclosed in
+    # `choices.relations`.
     # ~~the report prints the density cap the plan drew~~ — REPINNED
     # 2026-10-04: the density draw is gone (owner's ruling: rhymes tie only
     # line ends), so the plan carries no `density` and prints no DENSITY line.
@@ -5632,39 +5637,34 @@ def test_the_plan_report_discloses_density_and_audibility():
           rc == 0 and "density" not in plan["choices"]
           and not re.search(r"^\s*DENSITY:", out, re.M),
           f"rc {rc}")
-    m2 = re.search(r"^\s*AUDIBLE: (\d+) of (\d+) end-bound group\(s\) require a "
-                   r"schema heard as END RHYME", out, re.M)
-    check("...and the AUDIBLE line partitions the end-bound groups with the "
-          "plan's own counts — audible of end-bound, then the bare default "
-          "and the inaudible and unclassified declarations apart (doctrine 79)",
-          m2 is not None and int(m2.group(1)) == au["audible"]
-          and int(m2.group(2)) == au["end_bound"]
-          and f"{au['bare']} on the bare default" in out
-          and f"{len(au['inaudible'])} on a relation heard as something else"
-          in out
-          and f"{len(au['unclassified'])} explicit class/type declaration(s)" in out
-          and au['end_bound'] == (au['audible'] + au['bare']
-                                 + len(au['inaudible']) + len(au['unclassified'])),
-          f"{m2.group(0)[:90] if m2 else 'no AUDIBLE line'}")
-    check("...and says it is a record, not a gate, and that no relation is "
-          "drawn — a bare group is judged against every relation",
-          "A record, not a gate" in out and "no relation is drawn" in out
-          and "RELATION: none declared and none drawn" in out)
-    # An explicit global relation was previously called a bare default and
-    # described as drawn. Exercise the actual CLI with that different route.
+    check("...and no AUDIBLE / END RHYME record: the plan carries no "
+          "`audible` choice and the report prints no AUDIBLE line (D5, "
+          "2026-10-27)",
+          "audible" not in plan["choices"]
+          and not re.search(r"^\s*AUDIBLE:", out, re.M)
+          and "END RHYME" not in out, f"rc {rc}")
+    _rels = plan["choices"]["relations"]
+    check("...and each group's type is disclosed where the draw is recorded: "
+          "one schema:<name> per group, each with its proposals and "
+          "rejections",
+          len(plan["relations"]) == len(plan["groups"].split(";"))
+          and all(v.startswith("schema:") for v in plan["relations"].values())
+          and len(_rels["groups"]) == len(plan["relations"])
+          and all("proposed" in g and "rejected" in g
+                  for g in _rels["groups"]),
+          str(plan["relations"])[:120])
+    # A declared global relation is carried, and named as declared.
     rc_declared, out_declared, _ = run(
         'plan', '--seed=31', '--relation=class:CONSONANCE', f'--out={bp}', expect_rc=0)
     with open(bp, encoding='utf-8') as fh:
-        declared = _json.load(fh)['choices']['audible']
-    check('an explicit global class is disclosed outside the schema inventory, '
-          'never as bare or sampled',
-          rc_declared == 0 and declared['end_bound'] > 0
-          and declared['bare'] == declared['audible'] == 0
-          and declared['unclassified'] == ['class:CONSONANCE'] * declared['end_bound']
-          and '0 on the bare default' in out_declared
+        declared = _json.load(fh)
+    check('an explicit global class is carried to every group and printed as '
+          'declared, never as sampled',
+          rc_declared == 0
+          and set(declared['relations'].values()) == {'class:CONSONANCE'}
           and 'DECLARED, not sampled' in out_declared
           and 'none declared and none drawn' not in out_declared,
-          str(declared))
+          str(declared['relations'])[:120])
     brief = plan.get("writer_brief", "")
     # REPINNED 2026-10-04 from ~~"Where a binding sits" in brief~~: the plan
     # binds every member at its line's end now (owner's ruling), and the
@@ -5673,10 +5673,12 @@ def test_the_plan_report_discloses_density_and_audibility():
           "the writer reads (M-192), and no placement legend when every "
           "binding is a line end",
           "Where a binding sits" not in brief
-          # No relation is drawn (N-relation model): the bare plan names
-          # none, and each group is briefed to stand in at least one.
+          # ~~No relation is drawn (N-relation model)~~ — 2026-10-27 (D1,
+          # D5): each group draws a type, and the brief states its rule
+          # with no type name.
           and "What each named relation asks" not in brief
-          and "must stand in at least one relation" in brief
+          and "must stand in at least one relation" not in brief
+          and re.search(r"must satisfy rule R\d+", brief) is not None
           and re.search(r"^\s+up to \d+ syllables a line after the pickup$",
                         brief, re.M) is not None
           # The syllable band is deleted (owner ruling 2026-09-28), so the

@@ -549,7 +549,8 @@ test('lyric_plan block 0 is the plan and brief, without the server path or CLI c
   try {
     const response = await client.callTool({ name: 'lyric_plan', arguments: { seed: 1 } });
     const block0 = response.content[0].text;
-    assert.match(block0, /PLAN: form=verse-chorus seed=1/);
+    // The connector sends the default form, `open` (2026-10-27, D7).
+    assert.match(block0, /PLAN: form=open seed=1/);
     assert.doesNotMatch(block0, /\/tmp\/|python3|WROTE plan|GRADE IT/);
     assert.equal(verdictIn(response).exit_code, 0);
   } finally {

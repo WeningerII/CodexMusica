@@ -34,6 +34,7 @@ import { draftFromText, normalizeDraftLines } from './lyric_text.js';
 export { draftFromText } from './lyric_text.js';
 import {
   assessmentCoverageValid,
+  DEFAULT_FORM,
   gradeVerdictQualifies,
   PLAN_FIELDS,
   READING_FIELDS,
@@ -105,7 +106,9 @@ export const MAX_LINES = 463;
 const MAX_LINE_CHARS = 200;
 // Two closed vocabularies the schemas enumerate, checked the same way:
 // `quality/plan.py` PLAN_FORMS and `quality/rhyme_types.py` POSITION.
-export const PLAN_FORMS = ['verse-chorus'];
+export const PLAN_FORMS = ['open', 'verse-chorus'];
+// The raw CLI's own default form is still verse-chorus, so the connector
+// always sends one: DEFAULT_FORM (`lyric_workflow.js`) when none is named.
 export const TYPE_POSITIONS = ['end', 'internal', 'leonine', 'cross', 'head', 'holorhyme'];
 // The plan declarations lyric_grade and lyric_revise must repeat, and the
 // reading declarations a revision carries from its grade — named from the
@@ -1374,16 +1377,13 @@ function globalsFor(a) {
 }
 
 function planArgs(a) {
-  const args = [`--seed=${a.seed}`];
-  if (a.form) args.push(`--form=${a.form}`);
+  const args = [`--seed=${a.seed}`, `--form=${a.form || DEFAULT_FORM}`];
   if (a.lines != null) args.push(`--lines=${a.lines}`);
   // THE WRITER'S DECLARATION (MISSING.md M-55). Neither FIELD is sampled
   // here: this flag is a CARRY of what the caller declared.
-  // The planner never picks a relation, it carries the one that was
-  // declared. (It DREW one schema per group from 2026-08-25 (M-117) until
-  // 2026-09-22; the N-relation model removed the draw, so `plan.relations`
-  // is empty unless declared and every group is judged against every
-  // relation.)
+  // A declared relation applies to every group; without one the planner
+  // draws one type per group (2026-10-27, owner-approved plan D1) and the
+  // plan carries them in `plan.relations`.
   // Without these two lines every relation and every roster the CLI accepts
   // is unreachable from this connector -- which is what `--structures` was
   // from the day it shipped, and what makes a coordinate built-and-tested
@@ -1533,7 +1533,9 @@ const seedField = z
 const formField = z
   .enum(PLAN_FORMS)
   .optional()
-  .describe(`The song form: ${PLAN_FORMS.join(', ')} (the planner's forms; default verse-chorus).`);
+  .describe(
+    `The song form: ${PLAN_FORMS.join(', ')} (the planner's forms; default ${DEFAULT_FORM}, which requires no section function and no return).`
+  );
 
 const linesField = z
   .number()
@@ -1543,11 +1545,14 @@ const linesField = z
   // them by name (MEASURED: `--lines=4`, `=8`, `=11` all answer "outside the
   // planner's envelope [12, 447]"). 4 was reachable when the volunteered set
   // still carried the {4, 5} island; the derived envelope has no island now.
-  .min(12)
+  // ~~.min(12)~~ -> 2 (2026-10-27, D7): 12 was the verse-chorus form's
+  // floor, and the default form `open` plans any total from 2 (one group of
+  // two lines); a verse-chorus request below 12 is refused by the planner.
+  .min(2)
   .max(MAX_LINES)
   .optional()
   .describe(
-    `Exact total line count to request, at least 12 and at most ${MAX_LINES} (the planner's envelope). Every plan can be written, graded and revised. Omit to let the planner choose.`
+    `Exact total line count to request, at least 2 and at most ${MAX_LINES} (the planner's envelope; the verse-chorus form needs at least 12). Every plan can be written, graded and revised. Omit to let the planner choose.`
   );
 
 // THE WRITER'S DECLARATION (MISSING.md M-55). Neither field is sampled here
@@ -2568,12 +2573,10 @@ export function registerLyricTools(server, tool) {
         // that records what was asked for, and grading against anything else
         // would be a second statement of the mandate (doctrine 1).
         if (plan.relation) songArgs.push(`--relation=${plan.relation}`);
-        // PER-GROUP RELATIONS, ONLY WHEN THE PLAN CARRIES DECLARED ONES.
-        // The planner draws none (the N-relation model, 2026-09-22), so a
-        // plan with no declaration emits no `--relations=` and the grade
-        // judges every group against every relation. When the plan DOES
-        // carry them they go through byte-identical to `quality/plan.py`'s
-        // `grading_command()` spelling, sorted by label (doctrine 1).
+        // PER-GROUP RELATIONS: the type each group drew (2026-10-27, D1),
+        // or the declared one. They go through byte-identical to
+        // `quality/plan.py`'s `grading_command()` spelling, sorted by label
+        // (doctrine 1).
         // `execFile` passes ONE argv token and there is no shell, so a name's
         // parentheses and apostrophes need no quoting here.
         if (plan.relations && Object.keys(plan.relations).length)
@@ -3516,7 +3519,7 @@ export function registerLyricTools(server, tool) {
       // by construction rather than by validation.
       const args = ['plan', `--sweep=${from}-${from + n}`];
       if (wants.length) args.push(`--want=${wants.join(';')}`);
-      if (a.form) args.push(`--form=${a.form}`);
+      args.push(`--form=${a.form || DEFAULT_FORM}`);
       if (a.lines != null) args.push(`--lines=${a.lines}`);
       if (a.functions) args.push(`--functions=${a.functions}`);
       if (a.melody !== undefined) args.push(`--melody=${a.melody}`);

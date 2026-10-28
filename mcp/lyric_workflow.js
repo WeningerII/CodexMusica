@@ -3,6 +3,10 @@
 import { createHash } from 'node:crypto';
 import { draftFromText, normalizeDraftLines } from './lyric_text.js';
 
+// The form a plan request gets when it names none (`quality/plan.py`
+// DEFAULT_FORM): `open` requires no section function and no return.
+export const DEFAULT_FORM = 'open';
+
 const hash = (value) => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const list = (value) =>
   (Array.isArray(value) ? value : String(value || '').split(','))
@@ -110,7 +114,7 @@ const norm = (key, value) =>
     : key === 'functions' || key === 'wants'
       ? list(value)
       : key === 'form'
-        ? value || 'verse-chorus'
+        ? value || DEFAULT_FORM
         : key === 'narrative'
           ? narrative(value)
           : value === ''

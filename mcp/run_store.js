@@ -18,6 +18,7 @@
 import { createHash, randomBytes } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { DEFAULT_FORM } from './lyric_workflow.js';
 
 export const RUN_TTL_MS = 6 * 60 * 60 * 1000;
 export const RUN_CAP = 64;
@@ -66,7 +67,7 @@ export function runKeyOf(args) {
 export function declarationsOf(args) {
   const out = {
     writer: args?.writer ?? 'interview',
-    form: args?.form ?? 'verse-chorus',
+    form: args?.form ?? DEFAULT_FORM,
     voices: args?.voices ?? false,
   };
   for (const [k, v] of Object.entries(args || {}))
