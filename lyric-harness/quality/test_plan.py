@@ -4682,11 +4682,14 @@ def test_the_seed_redraw():
           in p["choices"]["meter"]["chosen_from"]
           and "brief_selection when wants are declared"
           in p["choices"]["meter"]["chosen_from"], "")
-    direct = PLN._make_plan_candidate(int(cand))
+    # The candidate keeps the length the refused first draw drew (D7, 3PO's
+    # review of #630), so it is planned directly at that length.
+    direct = PLN._make_plan_candidate(int(cand), _total=red.get("length_kept"))
     strip = lambda d: {k: v for k, v in d.items()
                        if k not in ("request", "writer_brief", "choices")}
     check("...and it IS that candidate's plan: the same sections, meter and "
-          "lines as planning the candidate seed directly",
+          "lines as planning the candidate seed directly at the length the "
+          "first draw kept",
           strip(p) == strip(direct)
           and {k: v for k, v in p["choices"].items() if k != "seed_redraw"}
           == direct["choices"], "")
@@ -4705,14 +4708,16 @@ def test_the_seed_redraw():
           f"{sw}")
     # TWO REFUSED CANDIDATES (Jony 6347921225): a mutant keeping only the
     # last refusal passed every check above, so pin a seed that needs two.
-    # ~~2025 (two refusals)~~ -> 6417 (2026-10-27, D7's re-dealt stream):
-    # no default seed in 0-6416 needs more than one redraw; 6417 needs three.
-    p2 = make_plan(seed=6417)
+    # ~~2025 (two refusals)~~ -> ~~6417~~ (2026-10-27, D7's re-dealt
+    # stream) -> 2330 (the same day, once a redraw keeps the first draw's
+    # length): no default seed in 0-2329 needs more than one redraw; 2330
+    # needs two (measured over 0-11999: 323 seeds need one, 9 need two).
+    p2 = make_plan(seed=2330)
     r2 = (p2["choices"].get("seed_redraw") or {}).get("refused", [])
     check("...a seed needing several redraws discloses EVERY refused "
           "candidate, in order, the first being the caller's own seed",
-          len(r2) == 3 and r2[0]["seed"] == "6417"
-          and len({x["seed"] for x in r2}) == 3
+          len(r2) == 2 and r2[0]["seed"] == "2330"
+          and len({x["seed"] for x in r2}) == 2
           and all(x["codes"] and x["findings"] for x in r2),
           f"refused {[(x['seed'], x['codes']) for x in r2]}")
     a = json.dumps(make_plan(seed=7), sort_keys=True)
@@ -5072,16 +5077,25 @@ def test_the_type_draw():
           PLN.DEFAULT_FORM == "open" and not PLN.FORM_REQUIRES.get("open")
           and not PLN.FORM_RECURS.get("open")
           and make_plan(5)["request"]["form"] == "open")
-    first = []
-    for seed in range(1, 41):
+    # ~~seed_redraw cases skipped~~ (3PO's review of #630): a joint-gate
+    # redraw now keeps the first candidate's length too, so every seed is
+    # asked, and the sweep must contain redraws for the claim to be tested.
+    first, redrawn = [], []
+    for seed in range(1, 81):
         p = make_plan(seed)
-        if "seed_redraw" in p["choices"]:
-            continue
         want = random.Random(seed).choice(sorted(PLN.fillable_line_counts()))
         first.append(p["total_lines"] == want)
+        if "seed_redraw" in p["choices"]:
+            redrawn.append((seed, p["total_lines"] == want
+                            and p["choices"]["seed_redraw"]["length_kept"]
+                            == want))
     check("the delivered length is the first length drawn: a rejected shape "
           "redraws the shape, never the total", first and all(first),
           f"{sum(first)} of {len(first)}")
+    check("...and so does a joint-gate redraw: the candidate the gate accepts "
+          "keeps the length the refused first candidate drew, and the plan "
+          "discloses it as `length_kept`",
+          redrawn and all(ok for _, ok in redrawn), redrawn)
     check("planner output carries no 'plan fewer lines' advice",
           "fewer lines" not in _insp.getsource(PLN))
     # D7: a chorus return and a hook only when the request asks for a
@@ -5118,7 +5132,15 @@ def test_the_type_draw():
     for gt, why in (([{"group": 1, "type": len(_names)}], "indices run"),
                     ([{"group": 1,
                        "type": _names.index("homoioteleuton")}], "forbidden"),
-                    ([{"group": 0, "type": 0}], "numbered from 1")):
+                    ([{"group": 0, "type": 0}], "numbered from 1"),
+                    # Never coerced (3PO's review of #630): 1.7 is not
+                    # group 1, and JSON true is not type 1.
+                    ([{"group": 1.7, "type": 0}], "must be a whole number"),
+                    ([{"group": 1, "type": 1.0}], "must be a whole number"),
+                    ([{"group": True, "type": 0}], "must be a whole number"),
+                    ([{"group": 1, "type": True}], "must be a whole number"),
+                    ([{"group": "1", "type": 0}], "must be a whole number"),
+                    ([{"group": 1}], "is not {group: N, type: INDEX}")):
         try:
             make_plan(5, group_types=gt)
             check(f"group_types {gt} is refused, naming why", False)

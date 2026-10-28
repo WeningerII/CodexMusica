@@ -325,6 +325,9 @@ try {
   // ~~[1, 2, 3, 4, 5, 6, 7, 14, 15, 17, 19, 21, 23]~~ -> the thirteen below
   // (2026-10-27, per-group type draw and `open` default form; measured): each
   // group is judged under the type it drew, so the flagged lines move.
+  // Measured with #627 (revise without the word-offer field) merged: this
+  // branch alone omits L14 from the first batch (CI, state 289578 bytes);
+  // the merge order puts #627 first, so the pin is the merged reading.
   assert.deepEqual(firstSubset, [1, 2, 4, 8, 10, 11, 12, 13, 14, 18, 19, 20, 24]);
   const omittedTail = originalIndependent.filter((n) => !firstSubset.includes(n));
   // ~~[21, 23]~~ ~~[21, 24]~~ (M-305) [21, 23] (2026-09-24; measured)

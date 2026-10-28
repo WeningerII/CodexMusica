@@ -3394,11 +3394,21 @@ def group_types_to_relations(group_types, relations=None):
     out = dict(relations or {})
     names = list(_RL.REGISTRY)
     for e in group_types or ():
-        try:
-            g, t = int(e["group"]), int(e["type"])
-        except (KeyError, TypeError, ValueError):
+        if not isinstance(e, dict) or "group" not in e or "type" not in e:
             raise PlanRefused(f"group_types entry {e!r} is not "
                               f"{{group: N, type: INDEX}}")
+        # INTEGERS ONLY, NEVER COERCED (3PO's review of #630): `int()` would
+        # read 1.7 as group 1 and JSON `true` as type 1, a different choice
+        # from the one sent. A boolean is refused although Python counts it
+        # an int.
+        for key in ("group", "type"):
+            v = e[key]
+            if isinstance(v, bool) or not isinstance(v, int):
+                raise PlanRefused(
+                    f"group_types entry {e!r}: `{key}` must be a whole number "
+                    f"(got {type(v).__name__} {v!r}); it is not rounded or "
+                    f"coerced")
+        g, t = e["group"], e["type"]
         if g < 1:
             raise PlanRefused(f"group_types names group {g}; groups are "
                               f"numbered from 1")
@@ -3546,10 +3556,17 @@ def _redraw_past_joint_gate(seed, kw):
     that the request cannot be built."""
     rng = random.Random(seed)
     refused = []
+    # THE LENGTH THE FIRST CANDIDATE DREW IS KEPT (D7, 3PO's review of #630):
+    # with no declared `lines`, every later candidate is handed the first
+    # draw's total, so a redraw re-deals the shape and never the length.
+    drawn = {}
     for attempt in range(REDRAW_BOUND):
         candidate_seed = seed if attempt == 0 else rng.getrandbits(64)
         try:
-            plan = _make_plan_candidate(candidate_seed, **kw)
+            plan = _make_plan_candidate(
+                candidate_seed, **kw,
+                _total=(drawn.get("total") if attempt else None),
+                _drawn=(drawn if attempt == 0 else None))
         except JointRefused as exc:
             refused.append({"seed": str(candidate_seed), "status": "refused",
                             "codes": list(exc.codes),
@@ -3561,10 +3578,13 @@ def _redraw_past_joint_gate(seed, kw):
         plan["choices"]["seed_redraw"] = {
             "refused": refused, "candidate_seed": str(candidate_seed),
             "bound": REDRAW_BOUND,
+            "length_kept": (drawn.get("total")
+                            if kw.get("lines") is None else None),
             "policy": ("the joint gate refused the requested seed's draw; "
                        "candidates follow random.Random(seed).getrandbits(64), "
                        "and the first the gate accepts is the plan; no "
-                       "ranking")}
+                       "ranking; with no declared length every candidate "
+                       "keeps the length the first one drew")}
         plan["writer_brief"] = writer_brief(plan)
         return plan
     raise SeedRefused(
@@ -3575,7 +3595,7 @@ def _redraw_past_joint_gate(seed, kw):
 
 def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
                          functions=None, title=None, narrative=None, _wants=(), melody=None,
-                         relations=None):
+                         relations=None, _total=None, _drawn=None):
     """A request -> the plan dict. Refuses rather than guessing.
 
     `relation`, `functions` and `title` are THE WRITER'S DECLARATION
@@ -3776,7 +3796,19 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     # conditioned on acceptance: first draws averaged about 229 lines and
     # delivered plans about 199. The total is now kept and only the shape is
     # redrawn, so the delivered length is the uniform draw itself.
-    total = lines if lines is not None else rng.choice(sorted(_GRADEABLE))
+    # AND ONCE ACROSS JOINT-GATE REDRAWS (3PO's review of #630): a candidate
+    # the joint gate refuses is redrawn under a new candidate seed, and that
+    # candidate keeps the length the first one drew (`_total`, handed in by
+    # `_redraw_past_joint_gate`), so a redraw re-deals the shape, never the
+    # length. `_drawn` reports the length drawn here back to that caller.
+    if lines is not None:
+        total = lines
+    elif _total is not None:
+        total = _total
+    else:
+        total = rng.choice(sorted(_GRADEABLE))
+    if _drawn is not None:
+        _drawn["total"] = total
     for _attempt in range(500):
         # THE LENGTH FIRST. It is the coordinate that decides what the floor
         # can grade, so it is drawn from the gradeable set before anything
