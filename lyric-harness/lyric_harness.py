@@ -10072,6 +10072,27 @@ def _parse_melody_flag(raw):
         _refuse(f"--melody requires a valid phrase JSON object: {exc}")
 
 
+def _parse_group_types_flag(raw):
+    """`--group-types=JSON` -> the `group_types` list `quality/plan.py` takes.
+
+    The website's per-link choice (`[{group, type}]`, `type` a registry
+    index). This reads the JSON and nothing more: each entry is checked by
+    `plan.group_types_to_relations`, the one definition, which refuses a
+    non-integer, an index outside the registry or a group below 1 by name.
+    `None` in, `None` out."""
+    if raw is None:
+        return None
+    try:
+        value = json.loads(raw)
+    except ValueError as exc:
+        _refuse(f"--group-types requires a JSON list of {{group, type}}: "
+                f"{exc}")
+    if not isinstance(value, list):
+        _refuse(f"--group-types requires a JSON list of {{group, type}}; got "
+                f"{type(value).__name__}")
+    return value
+
+
 def _parse_narrative_flag(raw):
     """`--narrative=`'s value -> what `make_plan(narrative=)` accepts.
 
@@ -11536,6 +11557,11 @@ def main():
         # pointed at rhyme. What it does is CARRY what the writer declared
         # into the plan artifact and into the GRADE IT line.
         relation = _flag_value(rest, "--relation")
+        # THE WEBSITE'S PER-GROUP CHOICE, `[{group, type}]` with `type` a
+        # registry index: each entry becomes that group's explicit type
+        # (`plan.group_types_to_relations`), carried like `--relation`.
+        group_types_raw = _flag_value(rest, "--group-types")
+        rest = _strip_flag(rest, "--group-types")
         melody_raw = _flag_value(rest, "--melody")
         rest = _strip_flag(rest, "--melody")
         funcs_raw = _flag_value(rest, "--functions")
@@ -11576,6 +11602,7 @@ def main():
             _refuse(f"plan does not take {rest[0]!r}",
                     detail=["usage: plan --seed=N [--form=verse-chorus] "
                             "[--lines=N] [--relation=NAME] "
+                            "[--group-types=JSON] "
                             "[--functions=a,b,c] [--title=TEXT] "
                             "[--narrative=off|ATOM,ATOM/JUNCTION,...] "
                             "[--want=PRED;PRED] [--melody=JSON] "
@@ -11598,6 +11625,7 @@ def main():
             form=form,
             lines=parsed_nlines,
             relation=relation,
+            group_types=_parse_group_types_flag(group_types_raw),
             title=title,
             narrative=narrative,
             melody=_parse_melody_flag(melody_raw),
@@ -11732,8 +11760,9 @@ def main():
                   # Every declaration the sweep planned under, or the
                   # printed seed plans something the sweep never judged.
                   + "".join(f" {_shlex.quote(f'--{k}={v}')}" for k, v in (
-                      ("relation", relation), ("title", title),
-                      ("narrative", narrative_raw), ("melody", melody_raw))
+                      ("relation", relation), ("group-types", group_types_raw),
+                      ("title", title), ("narrative", narrative_raw),
+                      ("melody", melody_raw))
                       if v is not None))
             _lyric_result(status="swept", exit=0,
                           sweep={**record, "outcome": "accepted"})
@@ -11772,13 +11801,18 @@ def main():
         # over.
         if the_plan.get("relation"):
             print(f"  RELATION: every mandated group is judged under "
-                  f"{the_plan['relation']!r} — DECLARED, not sampled; the "
-                  f"planner never picks a relation.")
+                  f"{the_plan['relation']!r} — DECLARED, not sampled; no "
+                  f"group draws a type of its own.")
+        elif the_plan.get("relations"):
+            _chosen = [r for r in the_plan["choices"]["relations"]["groups"]
+                       if r["chosen_from"] == "declared"]
+            _n = len(the_plan["relations"])
+            print(f"  RELATION: each of the {_n} mandated group(s) is judged "
+                  f"by its own type alone ({len(_chosen)} chosen by the "
+                  f"request, {_n - len(_chosen)} drawn).")
         else:
-            print("  RELATION: none declared and none drawn — every "
-                  "mandated group is judged against EVERY relation (each "
-                  "coarse relation and every registry schema) and is "
-                  "satisfied by any one its pairs stand in.")
+            print("  RELATION: this plan mandates no group, so no type is "
+                  "judged.")
         if the_plan.get("functions"):
             print(f"  ROSTER: {', '.join(the_plan['functions'])} — an "
                   f"ALLOW-LIST, checked against each function's own "
@@ -11907,6 +11941,9 @@ def main():
                 _refill.append(f"--lines={nlines}")
             if relation:
                 _refill.append(_shlex.quote(f"--relation={relation}"))
+            if group_types_raw:
+                _refill.append(
+                    _shlex.quote(f"--group-types={group_types_raw}"))
             if funcs_raw:
                 _refill.append(_shlex.quote(f"--functions={funcs_raw}"))
             if title:
@@ -12629,8 +12666,8 @@ def main():
                                     "declare a different shape by "
                                     "declaring a different plan — the "
                                     "flags are --form, --lines, "
-                                    "--relation, --functions, --title, "
-                                    "--narrative"])
+                                    "--relation, --group-types, "
+                                    "--functions, --title, --narrative"])
             _fseed = _flag_value(args, "--seed")
             _fform = _flag_value(args, "--form") or "verse-chorus"
             _fnlines = _flag_value(args, "--lines")
@@ -12639,6 +12676,7 @@ def main():
             # same spelling as a mandate coordinate — it comes back through
             # the plan artifact, which is the point.
             _frel = _flag_value(args, "--relation", eq_only=True)
+            _fgtypes = _flag_value(args, "--group-types")
             _ffuncs = _flag_value(args, "--functions")
             _ftitle = _flag_value(args, "--title")
             _fmelody = _flag_value(args, "--melody")
@@ -12646,7 +12684,8 @@ def main():
             _fnarr = _flag_value(args, "--narrative")
             _fwant = _flag_value(args, "--want")
             for _f in ("--seed", "--form", "--lines", "--relation",
-                       "--functions", "--title", "--narrative", "--want"):
+                       "--group-types", "--functions", "--title",
+                       "--narrative", "--want"):
                 args = _strip_flag(args, _f)
             if _fseed is None:
                 _refuse("finish requires --seed=N — the plan is the "
@@ -12654,8 +12693,8 @@ def main():
                         "function of its seed",
                         detail=["usage: finish DRAFT --seed=N "
                                 "[--form=verse-chorus] [--lines=N] "
-                                "[--relation=NAME] [--functions=a,b,c] "
-                                "[--title=TEXT] "
+                                "[--relation=NAME] [--group-types=JSON] "
+                                "[--functions=a,b,c] [--title=TEXT] "
                                 "[--narrative=off|ATOM,ATOM/JUNCTION,...] "
                                 "[--propose=stub|replay:PATH|defer:PATH|"
                                 "call:MODULE:FACTORY] [--pursue=CODE,CODE] "
@@ -12671,6 +12710,7 @@ def main():
                     form=_fform,
                     lines=int(_fnlines) if _fnlines is not None else None,
                     relation=_frel,
+                    group_types=_parse_group_types_flag(_fgtypes),
                     title=_ftitle,
                     narrative=_parse_narrative_flag(_fnarr),
                     melody=_parse_melody_flag(_fmelody),
@@ -13096,13 +13136,14 @@ def main():
             [a for a in args
              if a.split("=", 1)[0] not in ("--groups", "--returns",
                                            "--cliques", "--structures",
-                                           "--relations", "--relation")],
+                                           "--relations", "--relation",
+                                           "--group-types")],
             ("--blueprint=B", "--profile=" + "|".join(sorted(PROFILES)),
              "--subdivision N", "--isochronous",
              "--propose=stub|replay:PATH|defer:PATH|call:MODULE:FACTORY",
              "--pursue=CODE,CODE", "--groups=", "--returns=", "--cliques",
              "--structures=LABEL:NAME,...", "--relations=LABEL:NAME,...",
-             "--relation=NAME"),
+             "--group-types=JSON", "--relation=NAME"),
             cmd)
 
         def _mandate_arg(args, at, lines):
@@ -13182,6 +13223,8 @@ def main():
                     flags.append(("--structures=", tok.split("=", 1)[1]))
                 elif tok.startswith("--relations="):
                     flags.append(("--relations=", tok.split("=", 1)[1]))
+                elif tok.startswith("--group-types="):
+                    flags.append(("--group-types=", tok.split("=", 1)[1]))
                 elif tok.startswith("--relation="):
                     flags.append(("--relation=", tok.split("=", 1)[1]))
                 else:
@@ -13353,8 +13396,20 @@ def main():
             st = _structs(by["--structures="]) if "--structures=" in by \
                 else None
             rl = _rels(by["--relations="]) if "--relations=" in by else None
+            if "--group-types=" in by:
+                # THE WEBSITE'S PER-LINK TYPES: group N (the N-th declared
+                # group) is judged by registry type `type` alone, exactly as
+                # `--relations=` would declare it. The index is read by the
+                # planner's own definition, which refuses a bad entry by name.
+                from quality import plan as _PLN
+                try:
+                    rl = _PLN.group_types_to_relations(
+                        _parse_group_types_flag(by["--group-types="]), rl)
+                except _PLN.PlanRefused as e:
+                    _refuse(str(e))
             if tail and not tail[0].lstrip("-").replace(",", "").isdigit():
-                if set(by) <= {"--structures=", "--relations="} and set(by):
+                if set(by) <= {"--structures=", "--relations=",
+                               "--group-types="} and set(by):
                     # A letter string WITH --structures= is expressible and
                     # NOT the conflict the refusal below closes: the letter
                     # fully determines the cover and its labels, and
@@ -15458,8 +15513,8 @@ def cli():
                         "56 s, 108 lines 330 s, 144 lines refused.",
                         "declare a relation per group (`--relation=` / "
                         "`--relations=`) so the registry is not searched "
-                        "song-wide, or grade a shorter draft. A whole-"
-                        "vocabulary judgment that scales "
+                        "song-wide; the song keeps the length it was asked "
+                        "for. A whole-vocabulary judgment that scales "
                         "is `MISSING.md` M-240, open."])
     except LexicalAssetUnavailable as e:
         _refuse(str(e))

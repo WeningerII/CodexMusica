@@ -3442,7 +3442,19 @@ def make_plan(seed, form=None, lines=None, relation=None,
               parse_sweep_want("".join(w)) for w in wants]
     form = form or DEFAULT_FORM
     if group_types:
-        relations = group_types_to_relations(group_types, relations) or None
+        # THE REQUEST RECORDS WHAT WAS SENT. The plan is drawn from the
+        # choices resolved into `relations`; the request also keeps
+        # `group_types` as given, so the connector's receipts can hold a later
+        # grade or revise to the same choice and put it back on a call that
+        # leaves it out. A plan with no `group_types` is unchanged.
+        plan = make_plan(seed, form=form, lines=lines, relation=relation,
+                         functions=functions, title=title,
+                         narrative=narrative, wants=wants, melody=melody,
+                         relations=group_types_to_relations(
+                             group_types, relations) or None)
+        plan["request"]["group_types"] = [
+            {"group": e["group"], "type": e["type"]} for e in group_types]
+        return plan
     kw = dict(form=form, lines=lines, relation=relation, functions=functions,
               title=title, narrative=narrative, _wants=parsed, melody=melody,
               relations=relations)

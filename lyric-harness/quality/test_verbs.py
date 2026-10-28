@@ -5665,6 +5665,36 @@ def test_the_plan_report_discloses_density_and_audibility():
           and 'DECLARED, not sampled' in out_declared
           and 'none declared and none drawn' not in out_declared,
           str(declared['relations'])[:120])
+    # THE WEBSITE'S PER-GROUP TYPE (2026-10-28): `--group-types=JSON` reaches
+    # `make_plan(group_types=...)`, the request records it, the report says
+    # how many groups were chosen, and the planner's refusals stay refusals.
+    from quality import relations as _RL
+    _perfect = list(_RL.REGISTRY).index("perfect rhyme")
+    _gt = _json.dumps([{"group": 1, "type": _perfect}])
+    rc_gt, out_gt, _ = run('plan', '--seed=31', f'--group-types={_gt}',
+                           f'--out={bp}', expect_rc=0)
+    with open(bp, encoding='utf-8') as fh:
+        typed = _json.load(fh)
+    check('--group-types makes group A the chosen type, the request records '
+          'it, and the RELATION line counts it as chosen',
+          rc_gt == 0
+          and typed['relations'].get('A') == 'schema:perfect rhyme'
+          and typed['request'].get('group_types')
+          == [{"group": 1, "type": _perfect}]
+          and re.search(r"RELATION: each of the \d+ mandated group\(s\) is "
+                        r"judged by its own type alone \(1 chosen", out_gt)
+          and f"--group-types={_gt}" in out_gt,
+          str(typed['relations'])[:120])
+    refused_gt = [run('plan', '--seed=31', f'--group-types={v}')
+                  for v in ('[{"group": 1, "type": 1.5}]', '{"group": 1}',
+                            '[{"group": 1, "type": 9999}]')]
+    check('...and a bad --group-types entry is refused by name, never '
+          'coerced or dropped',
+          all(rc == 2 for rc, _, _ in refused_gt)
+          and "not rounded or coerced" in refused_gt[0][1]
+          and "JSON list" in refused_gt[1][1]
+          and "registry's indices" in refused_gt[2][1],
+          str([o[-200:] for _, o, _ in refused_gt])[:300])
     brief = plan.get("writer_brief", "")
     # REPINNED 2026-10-04 from ~~"Where a binding sits" in brief~~: the plan
     # binds every member at its line's end now (owner's ruling), and the
