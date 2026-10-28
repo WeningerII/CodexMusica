@@ -106,12 +106,13 @@ export function lyricContext(value) {
   const L = LYRIC_CONTEXT_LIMITS;
   if (typeof value !== 'object' || Array.isArray(value) || value.version !== 1)
     refuse('must be a version 1 object.');
-  const known = ['version', 'document', 'declarations', 'brief', 'notes', 'binding'];
+  const known = ['version', 'document', 'declarations', 'brief', 'notes', 'binding', 'intent'];
   const extra = Object.keys(value).filter((k) => !known.includes(k));
   if (extra.length) refuse(`unknown field ${extra[0]}.`);
   if (typeof value.document !== 'string') refuse('document must be the draft text.');
   if (value.document.length > L.documentChars)
     refuse(`document is longer than ${L.documentChars} characters.`);
+  if (value.intent != null && value.intent !== 'review') refuse('intent must be review.');
   const brief = value.brief ?? '';
   if (typeof brief !== 'string' || brief.length > L.briefChars)
     refuse(`brief must be text of at most ${L.briefChars} characters.`);
@@ -146,6 +147,7 @@ export function lyricContext(value) {
     refuse('binding holds the document_sha256 (and context_sha256) as 64 hex characters.');
   return {
     version: 1,
+    ...(value.intent === 'review' ? { intent: 'review' } : {}),
     document: value.document.replace(/\r\n?/g, '\n'),
     declarations: structuredClone(declarations),
     brief,
@@ -165,10 +167,18 @@ export function lyricContextText(context) {
   const parts = [
     'PAGE CONTEXT (from the Lyrics page, version 1; the host holds it for this whole task).',
   ];
+  if (context.intent === 'review')
+    parts.push(
+      'REVIEW ONLY: call lyric_recover then lyric_check. Do not revise or produce replacement lyrics. Report findings and missing coverage; a review is not a finished song.'
+    );
   if (context.brief?.trim() || context.notes?.length) {
     parts.push(
       'CREATIVE GUIDANCE — what the song is for. Guidance only: nothing grades a draft against it.'
     );
+    if (context.intent === 'review')
+      parts.push(
+        'REVIEW ONLY: call lyric_recover then lyric_check. Do not revise or produce replacement lyrics. Report findings and missing coverage; a review is not a finished song.'
+      );
     if (context.brief?.trim()) parts.push(`Brief: ${context.brief.trim()}`);
     for (const n of context.notes || []) parts.push(`Section note — ${n.section}: ${n.note}`);
   }
