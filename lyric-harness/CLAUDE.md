@@ -29,7 +29,7 @@ Slowest call per tool on the 16-line reference song (2026-10-22, limit 600s per 
 | `map/song-path.md` | which functions run for each tool, and where the time goes | 3.6k |
 | `map/rules.md` | every finding code, its severity, and whether it can stop a song | 1.4k |
 | `map/limits.md` | every numeric cap, budget and time limit, with its file | 1.7k |
-| `map/files.md` | which files the song program uses, which it never loads, sizes | 3.4k |
+| `map/files.md` | which files the song program uses, which it never loads, sizes | 3.3k |
 | `map/timings.md` | seconds per tool call on the reference song | <1k |
 
 ## Reading code without filling the context
@@ -51,7 +51,7 @@ Slowest call per tool on the 16-line reference song (2026-10-22, limit 600s per 
   - The doctrine index — every number, and where it lives (3k)
 - `MISSING.md` (640k): the defect register, entries `M-<n>`. Grep for the entry number.
 - `BACKLOG.md` (51k): open work, by tier.
-- `corpus/`, `data/`, `quality/results/`: measurement inputs and outputs, millions of tokens. In the traced run the song program opened 73 data files and 0 under `corpus/` (`map/files.md` lists them).
+- `corpus/`, `data/`, `quality/results/`: measurement inputs and outputs, millions of tokens. In the traced run the song program opened 71 data files and 0 under `corpus/` (`map/files.md` lists them).
 
 ## Keeping this map true
 

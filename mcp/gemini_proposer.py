@@ -55,8 +55,9 @@ CONFIGURATION IS ENVIRONMENT, DECLARED BY THE CONNECTOR AT WORKER SPAWN:
                                rejected line is re-asked with its rejection
                                quoted, and at 0 the re-ask returns the same
                                bytes and spends the attempt for nothing
-  LYRIC_PROPOSER_MAX_TOKENS    default 1024 per requested line, up to 31;
-                               an explicit lower allowance refuses dispatch
+  LYRIC_PROPOSER_MAX_TOKENS    default 1024 per requested line, capped at
+                               the provider's 65536 output tokens; an
+                               explicit lower allowance refuses dispatch
 
 THE TRANSIENT POLICY RESTATES `gemini_agent.js`'s (RETRY_TRANSIENT
 500/502/503/504, three retries at 1 / 2 / 4 s); `mcp/test.mjs` pins the two
@@ -90,7 +91,10 @@ from email.utils import parsedate_to_datetime
 
 DEFAULT_API_BASE = "https://generativelanguage.googleapis.com/v1beta"
 MAX_RESPONSE_BYTES = 1024 * 1024
-MAX_PROPOSAL_LINES = 31
+#: No line ceiling (2026-10-27, D7 on #519): a group question can be as long
+#: as any group the planner draws. The provider's output ceiling bounds the
+#: token allowance instead (`required_tokens` in `_post`).
+MAX_OUTPUT_TOKENS = 65536
 MAX_PROPOSAL_BYTES_PER_LINE = 200 * 4 + 16  # UTF-8 lyric plus L<number> marker
 OUTPUT_TOKENS_PER_LINE = 1024
 MAX_TOKEN_COUNT = 9007199254740991  # same integer domain as the JS ledger
@@ -112,19 +116,20 @@ RATE_RETRIES = 32
 MIN_RATE_WAIT_S = 0.25
 
 #: What the writer is, in one breath. The brief itself (rendered by
-#: quality/propose.py) carries the whole question, the forbidden words and
-#: HOW TO ANSWER; this only fixes the role and the reply shape.
+#: quality/propose.py) carries the whole question and HOW TO ANSWER; this
+#: only fixes the role and the reply shape. No word is steered here
+#: (2026-10-27, D5/D6 on #519): the brief names no forbidden or predictable
+#: words, so neither does this.
 SYSTEM_INSTRUCTION = (
     "You are the WRITER inside a songwriting harness. Each message is one "
     "question from the harness's own grader: a brief for ONE line, or for one "
-    "GROUP of lines that must rhyme together. Answer with the line(s) and "
+    "GROUP of lines that must satisfy their group's rule together. Answer with "
+    "the line(s) and "
     "nothing else, exactly in the shape the brief's HOW TO ANSWER section "
     "asks for: a single-line question gets one bare line (no quotation marks, "
     "no line number, no commentary, no code fence); a group question gets one "
     "`L<n>: text` row per asked line and nothing else. Never repeat the whole "
-    "song. Never use a word the brief marks FORBIDDEN. Prefer the "
-    "unexpected-but-earned word over the predictable one — the brief tells you "
-    "which words are too predictable, and the grader rejects them."
+    "song."
 )
 
 
@@ -311,11 +316,12 @@ class _Kitchen:
         base = _env("LYRIC_PROPOSER_API_BASE", DEFAULT_API_BASE).rstrip("/")
         try:
             temperature = float(_env("LYRIC_PROPOSER_TEMPERATURE", "0.8"))
-            required_tokens = OUTPUT_TOKENS_PER_LINE * self._max_lines
+            required_tokens = min(OUTPUT_TOKENS_PER_LINE * self._max_lines,
+                                  MAX_OUTPUT_TOKENS)
             max_tokens = int(_env("LYRIC_PROPOSER_MAX_TOKENS", str(required_tokens)))
             budget = float(_env("LYRIC_PROPOSER_WAIT_BUDGET_S", str(WAIT_BUDGET_DEFAULT_S)))
             if not (math.isfinite(temperature) and 0 <= temperature <= 2 and
-                    required_tokens <= max_tokens <= 65536 and math.isfinite(budget) and budget >= 0):
+                    required_tokens <= max_tokens <= MAX_OUTPUT_TOKENS and math.isfinite(budget) and budget >= 0):
                 raise ValueError("out of bounds")
         except ValueError:
             self._refuse("PROPOSER_CONFIG", "invalid kitchen generation or wait configuration")
@@ -469,8 +475,8 @@ class _Kitchen:
         return self.with_capacity(prompt, max_lines=1)
 
     def with_capacity(self, prompt, *, max_lines):
-        if type(max_lines) is not int or not 1 <= max_lines <= MAX_PROPOSAL_LINES:
-            self._refuse("PROPOSER_CONFIG", "proposal line capacity must be an integer from 1 to 31")
+        if type(max_lines) is not int or max_lines < 1:
+            self._refuse("PROPOSER_CONFIG", "proposal line capacity must be a positive integer")
         self._max_lines = max_lines
         self._call_started = time.monotonic()
         self.finish_reason = self.prompt_feedback = self.failure_code = None
