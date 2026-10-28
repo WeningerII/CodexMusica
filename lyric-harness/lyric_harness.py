@@ -4062,6 +4062,16 @@ def admitted_relations(s, theta, relations=None, cuts=None):
                      if r in allowed and t >= cuts.get(r, theta))
 
 
+#: The default-admit tail `unadmitted_reason` printed before 2026-10-27, and
+#: the one it prints now. A held run's journal hashes the question it asked,
+#: and that question quotes this tail (`LEGACY_QUESTION_RENDERINGS`).
+_UNADMITTED_DEFAULT_TAIL = ("no registry type holds at its bound words, and "
+                            "none of the relations it stands in is admitted")
+_UNADMITTED_DEFAULT_TAIL_BEFORE = (
+    "none of the relations it stands in is in the declared admit set "
+    f"{sorted(ADMITTABLE_RELATIONS)}")
+
+
 def unadmitted_reason(s, decl):
     """-> the sentence for a pair that stands in NO admitted relation at its
     cut, saying WHICH of the two it is: none of the relations the pair
@@ -4072,6 +4082,12 @@ def unadmitted_reason(s, decl):
             f"{dict(decl.theta_by_relation)})")
     rt = relation_totals(s)
     adm = sorted(r for r in rt if r in decl.admit)
+    if not adm and admit_is_default(decl):
+        # 2026-10-27 (end-of-day plan, #519 6448819660): ~~"none of the
+        # relations it stands in is in the declared admit set [the five
+        # basic names]"~~ — under the default every registry type is asked
+        # too, so the failure is stated over all of them, not as five names.
+        return f"{head} — {_UNADMITTED_DEFAULT_TAIL}"
     if not adm:
         return (f"{head} — none of the relations it stands in is in the "
                 f"declared admit set {sorted(decl.admit)}")
@@ -5036,13 +5052,16 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                     schema_satisfied.append({"lines": pr,
                                              "satisfied_by": _sat})
         _kept = []
+        _sat_pairs = {tuple(d["lines"]) for d in schema_satisfied}
         for v in violations:
             pr = (v[0], v[1])
-            if v[3].startswith("REPEAT"):
-                _kept.append(v)
-            elif pr in {tuple(d["lines"]) for d in schema_satisfied} \
-                    and admit_is_default(decl):
+            if pr in _sat_pairs and admit_is_default(decl):
+                # Satisfied by a type — identical words included
+                # (2026-10-27, end-of-day plan, #519 6448819660: identical
+                # words that satisfy a type are not charged as REPEAT).
                 continue
+            elif v[3].startswith("REPEAT"):
+                _kept.append(v)
             elif admit_is_default(decl) and [
                     n for n in _wvp.undecided.get(pr, ())
                     if _REG[n].normative not in ("forbidden", "deprecated")]:
@@ -6453,7 +6472,11 @@ def _rel_show(stream, inst):
 #: Pair-scoped finding codes `screen` relays. Everything else the carrier
 #: lines provoke is about the SCAFFOLD, not the pair, and relaying it
 #: would teach a caller to distrust the instrument.
-SCREEN_PAIR_CODES = ("HOMEOTELEUTON", "MODAL_RHYME")
+#: ~~("HOMEOTELEUTON", "MODAL_RHYME")~~ -> (), 2026-10-27 (end-of-day plan,
+#: #519 6448819660, D6: no unsolicited system bans). Both were system
+#: lexical bans; the revision lane stops filing them, and the screen no
+#: longer relays them as bans on a pair.
+SCREEN_PAIR_CODES = ()
 
 #: Two DIFFERENT carrier lines, every word CMUdict-readable, ending in the
 #: screened words. Different on purpose: with identical carriers the
@@ -6463,6 +6486,24 @@ SCREEN_PAIR_CODES = ("HOMEOTELEUTON", "MODAL_RHYME")
 #: scaffold. The pair checks themselves read end words only.
 _SCREEN_CARRIERS = ("we carry the evening to the {w}",
                     "and no one had to tell us about {w}")
+#: Carriers for a NAMED schema whose placement two line ends cannot meet
+#: (2026-10-27, end-of-day plan, #519 6448819660: the screen tests the
+#: positions each type uses, not last words only). Keyed by the
+#: `relations.placement_bindable` position each member is tried at.
+_SCREEN_POSITION_CARRIERS = {
+    "end": _SCREEN_CARRIERS,
+    "head": ("{w} we carry the evening on",
+             "{w} and no one had to tell us"),
+    "internal": ("we carry the {w} to the evening",
+                 "and no one told us {w} at all"),
+}
+#: The positions tried, in order; the first the schema's own placement
+#: rules can meet is the one the screen judges at.
+_SCREEN_POSITIONS = (("end", "end"), ("head", "head"),
+                     ("internal", "internal"), ("head", "end"),
+                     ("end", "head"), ("internal", "end"),
+                     ("end", "internal"), ("head", "internal"),
+                     ("internal", "head"))
 
 
 def door_chance_note(door="any", entry=None):
@@ -6963,19 +7004,44 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
                     # route, which enforces it: a schema two line ends
                     # cannot place would read SATISFIES here and
                     # SCHEME_VIOLATION at grade, for the same two words.
-                    if not _RL.placement_bindable(_schema, ("end", "end")):
+                    # THE POSITIONS THE TYPE USES (2026-10-27, end-of-day
+                    # plan): the first member positions the schema's own
+                    # placement rules can meet, line ends first. Each word
+                    # is set at that position in its carrier and the judge
+                    # is asked there.
+                    _pos = next((pp for pp in _SCREEN_POSITIONS
+                                 if _RL.placement_bindable(_schema, pp)),
+                                None)
+                    if _pos is None:
                         _ans = _wit = None
                         row["named"] = None
                         row["named_reason"] = (
-                            f"the placement of {_schema.name!r} cannot be met by "
-                            f"two line ends, so a line-end mandate declaring "
-                            f"it is charged whatever the words — declare it "
-                            f"at the slots its placement names")
+                            f"the placement of {_schema.name!r} cannot be met "
+                            f"by two words at a line's start, inside it or "
+                            f"at its end on two lines")
                     else:
+                        row["named_positions"] = list(_pos)
+                        _carriers = [
+                            _SCREEN_POSITION_CARRIERS[_pos[0]][0].format(w=a),
+                            _SCREEN_POSITION_CARRIERS[_pos[1]][1].format(w=b)]
+                        _stream = _RL.build_stream(_carriers, _phon)
+
+                        def _at(li, w, where):
+                            if where == "end":
+                                return -1
+                            if where == "head":
+                                return 0
+                            toks = [str(t).lower() for t in
+                                    (_stream.lexical_tokens[li]
+                                     if _stream.lexical_tokens else
+                                     _RL.tokenise(_stream.text_lines[li]))]
+                            return toks.index(str(w).lower())
                         _ans, _wit = _RL.pair_satisfies_any(
-                            _schema, _stream, (0, -1), (1, -1),
+                            _schema, _stream, (0, _at(0, a, _pos[0])),
+                            (1, _at(1, b, _pos[1])),
                             _RL.cached_builder(
-                                lambda ph: _RL.build_stream(_carriers, ph)))
+                                lambda ph, _c=_carriers:
+                                _RL.build_stream(_c, ph)))
                     if _wit:
                         row["named_readings"] = _wit
                     if row["named_reason"] is not None:
@@ -8039,6 +8105,22 @@ def _group_lookup(groups, group_brief):
     this compatibility path serves standalone native replay journals."""
     key = _brief_key(group_brief)
     hit = groups.get(key)
+    if hit is None:
+        # A question journalled under an earlier wording
+        # (`LEGACY_QUESTION_RENDERINGS`), hashed as `_brief_key` hashes it.
+        import hashlib
+        from quality.propose import render_group
+        for older in legacy_question_texts("propose_group",
+                                           render_group(group_brief)):
+            digest = hashlib.sha256(json.dumps([
+                getattr(group_brief, "pivot_line_no", None),
+                getattr(group_brief, "label", None), older
+            ], ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+            ).hexdigest()
+            hit = groups.pop(key[:5] + (digest,), None)
+            if hit is not None:
+                groups[key] = hit
+                break
     if hit is None:
         for legacy in (key[:5] + (None,), key[:4] + (None, None),
                        key[:3] + (None, None, None)):
@@ -9347,6 +9429,51 @@ def _defer_proposer(path, lines=None):
     return propose, propose_group, disclosure
 
 
+def _legacy_unadmitted_tail(kind, prompt):
+    """-> the question as worded before 2026-10-27's default-admit tail."""
+    if _UNADMITTED_DEFAULT_TAIL not in prompt:
+        return None
+    return prompt.replace(_UNADMITTED_DEFAULT_TAIL,
+                          _UNADMITTED_DEFAULT_TAIL_BEFORE)
+
+
+#: HOW A HELD RUN'S QUESTIONS WERE WORDED BEFORE, oldest change first
+#: (2026-10-27, #519 finding f). A checkpoint stores the hash of each question
+#: it asked and replays an answer only to the same question, so a change to a
+#: question's wording would strand every run held across the deploy. Each
+#: entry is (date and change, fn(kind, prompt) -> the prompt as that change
+#: found it, or None when the change did not touch it). Replay accepts a
+#: recorded hash that matches the current question, or the question with the
+#: newest changes undone in turn (newest first, so a run held between two
+#: changes matches after undoing only the later one). A new question is
+#: always journalled under its current hash. Undoing a change must restore
+#: the old bytes exactly; a change that cannot be undone that way does not
+#: belong here.
+LEGACY_QUESTION_RENDERINGS = (
+    ("2026-10-27 grader: default-admit NO_RELATION tail",
+     _legacy_unadmitted_tail),
+)
+
+
+def legacy_question_texts(kind, prompt):
+    """-> each earlier wording of this question, newest first."""
+    out, text = [], prompt
+    for _name, undo in reversed(LEGACY_QUESTION_RENDERINGS):
+        older = undo(kind, text)
+        if older is None or older == text:
+            continue
+        text = older
+        out.append(text)
+    return out
+
+
+def legacy_question_identities(kind, prompt):
+    """-> the sha256 of each earlier wording of this question, newest first."""
+    import hashlib
+    return [hashlib.sha256(t.encode("utf-8")).hexdigest()
+            for t in legacy_question_texts(kind, prompt)]
+
+
 def _checkpoint_proposer(one, two, lines, config_key, spec):
     """Journal the call: seam before grading can fail or a worker can die.
 
@@ -9545,7 +9672,10 @@ def _checkpoint_proposer(one, two, lines, config_key, spec):
                   "current": list(current), "question_sha256": identity}
         if cursor < replay_count:
             event = state["proposals"][cursor]
-            if event.get("kind") != kind or event.get("question_sha256") != identity:
+            if (event.get("kind") != kind
+                    or (event.get("question_sha256") != identity
+                        and event.get("question_sha256")
+                        not in legacy_question_identities(kind, prompt))):
                 raise ProposerUnavailable(
                     "checkpoint replay question differs; no new writer request was made")
             cursor += 1
@@ -11144,8 +11274,10 @@ def main():
         print(f"  SCREEN: {len(rows)} pair(s) from {len(words)} word(s) — "
               f"each pair listed with EVERY relation it stands in: the "
               f"coarse relations its end words hold at their cuts and "
-              f"every registry schema judged at the two end tokens; bans "
-              f"({', '.join(SCREEN_PAIR_CODES)}) are relayed separately")
+              f"every registry schema judged at the two end tokens; "
+              + (f"bans ({', '.join(SCREEN_PAIR_CODES)}) are relayed "
+                 f"separately" if SCREEN_PAIR_CODES
+                 else "no system ban is relayed"))
         _na = sorted(_screen_not_applicable())
         print(f"  NOT APPLICABLE to two line-final end words "
               f"({len(_na)} schemas — stream, stanza, figure or placement "
@@ -11160,11 +11292,14 @@ def main():
         for r in rows:
             pair = f"{r['a']} ~ {r['b']}".ljust(w)
             named_status = ""
+            _at = (f" at {'/'.join(r['named_positions'])}"
+                   if r.get("named_positions")
+                   and r["named_positions"] != ["end", "end"] else "")
             if screen_rel:
                 if r["named"] is True:
-                    named_status = f"  |  SATISFIES {screen_rel}"
+                    named_status = f"  |  SATISFIES {screen_rel}{_at}"
                 elif r["named"] is False:
-                    named_status = (f"  |  VIOLATES {screen_rel} — a "
+                    named_status = (f"  |  VIOLATES {screen_rel}{_at} — a "
                                     f"mandate declaring it will charge "
                                     f"this pair")
                 else:
@@ -11224,7 +11359,9 @@ def main():
              "codes": list(r["codes"]), "refused": r["refused"],
              "reason": r["reason"], "why": r["why"],
              **({"named": r["named"], "named_reason": r["named_reason"]}
-                if screen_rel else {})}
+                if screen_rel else {}),
+             **({"named_positions": r["named_positions"]}
+                if screen_rel and r.get("named_positions") else {})}
             for r in rows])
         # AFTER EVERYTHING, AND THAT POSITION IS THE POINT. The block is
         # appended below the verdict table and below the summary counts so

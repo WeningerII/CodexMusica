@@ -7936,12 +7936,14 @@ try {
       return JSON.parse(res.content[0].text);
     };
     const screened = await callText('lyric_screen', { words: ['hair', 'chair'] });
-    assert.equal(screened.exit_code, 0, 'screen exit 0 — a banned pair is an ANSWER');
+    assert.equal(screened.exit_code, 0, 'screen exit 0 — the pair is an ANSWER');
+    // REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660, D6: no
+    // unsolicited system bans): the screen relays no system ban.
     assert.ok(
-      screened.report.includes('BANNED: HOMEOTELEUTON'),
-      'the control pair is banned through the whole stack'
+      !screened.report.includes('BANNED'),
+      'no system ban is relayed through the whole stack'
     );
-    console.log('  ok  lyric_screen live: hair/chair BANNED: HOMEOTELEUTON, exit 0');
+    console.log('  ok  lyric_screen live: hair/chair answered with no system ban, exit 0');
     passed++;
     // EVERY RELATION THE PAIR STANDS IN, structured (the N-relation model):
     // hair/chair is a perfect rhyme, so it stands in RHYME AND ASSONANCE AND
@@ -7956,7 +7958,7 @@ try {
         hc.schema_relations.every((n) => hc.relations.includes(n)),
       'the relation list carries the registry schemas beside the coarse relations'
     );
-    assert.deepEqual(hc.codes, ['HOMEOTELEUTON'], 'the ban rides beside the relations');
+    assert.deepEqual(hc.codes, [], 'no system ban rides beside the relations');
     assert.ok(!/CLEAN —/.test(screened.report), 'no CLEAN — RHYMES / DOES NOT RHYME verdict');
     console.log('  ok  lyric_screen live: the pair carries every relation it stands in');
     passed++;

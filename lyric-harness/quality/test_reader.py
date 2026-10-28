@@ -2593,6 +2593,48 @@ class LegacyReplay(unittest.TestCase):
         fresh.write_text(saved, encoding="utf-8")
         self.assertIn("READER_SCHEME_MISMATCH", run(fresh, "--reader-scheme=v1").stdout)
 
+    def test_a_checkpoint_held_across_a_rewording_resumes(self):
+        # #519 finding f (2026-10-27). The fixture's `checkpoint` is the bytes
+        # a run wrote before the NO_RELATION reason's default-admit tail was
+        # reworded, and its first question quotes that tail. It resumes above
+        # through `LEGACY_QUESTION_RENDERINGS`; with that entry gone the same
+        # bytes refuse before any writer request, so the resume is the entry's
+        # doing and not a question that happens to be unchanged.
+        import hashlib
+        fx = json.loads((HERE / "fixtures" / "reader_v1_checkpoint.json").read_text(encoding="utf-8"))
+        self.assertTrue(hashlib.sha256(fx["checkpoint"].encode("utf-8")).hexdigest()
+                        .startswith("b76495d8"))
+        now = "x — " + LH._UNADMITTED_DEFAULT_TAIL + "\nL2"
+        self.assertEqual(LH.legacy_question_texts("propose", now),
+                         ["x — " + LH._UNADMITTED_DEFAULT_TAIL_BEFORE + "\nL2"])
+        self.assertEqual(LH.legacy_question_texts("propose", "no tail here"), [])
+        work = Path(tempfile.mkdtemp())
+        self.addCleanup(__import__("shutil").rmtree, work, True)
+        (work / "stubwriter.py").write_text(
+            "def factory():\n    def call(prompt):\n        return %r\n    return call\n"
+            % fx["stub_answer"], encoding="utf-8")
+        draft = work / "draft.txt"
+        draft.write_text("\n".join(fx["draft"]) + "\n", encoding="utf-8")
+        ck = work / "ck.json"
+        ck.write_text(fx["checkpoint"], encoding="utf-8")
+        env = {k: v for k, v in os.environ.items() if k != "LYRIC_CONTROL_TOKEN"}
+        env.update(PYTHONPATH=str(work), LYRIC_CHECKPOINT_PATH=str(ck))
+        code = ("import sys; sys.path.insert(0, %r); import lyric_harness as L; "
+                "L.LEGACY_QUESTION_RENDERINGS = (); "
+                "sys.argv = ['lyric_harness.py', 'revise', %r, 'AA', "
+                "'--propose=call:stubwriter:factory']; L.cli()" % (str(ROOT), str(draft)))
+        r = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True,
+                           env=env, cwd=ROOT, timeout=900)
+        # Without the entry it stops before any writer request: the dead-end
+        # refusal (exit 2) on this branch, or #627's typed new-run park
+        # (exit 3, QUESTION_CHANGED) once that lands; never a resume.
+        out = r.stdout + r.stderr
+        self.assertIn(r.returncode, (2, 3), r.stdout[-600:])
+        self.assertTrue("checkpoint replay question differs" in out
+                        or "QUESTION_CHANGED" in out, r.stdout[-600:])
+        self.assertNotIn("SUCCESS", r.stdout)
+        self.assertEqual(ck.read_text(encoding="utf-8"), fx["checkpoint"])
+
     def test_a_call_checkpoints_answered_block_replays_on_its_scheme(self):
         # A kitchen checkpoint's `answered` block is a replay file, as a
         # deferred state's is (quality/test_verbs.py, the answered journal

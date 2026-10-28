@@ -735,9 +735,13 @@ def test_the_song_the_loop_could_not_grade():
           "doctrine 14 — every clique band-passes by construction, so a "
           "clean rhyme result against it is an identity, not a verdict")
     drep = R.grade(overlap_lines, dm)
-    check("grading it is not vacuous: the graph admits REPEAT edges that a "
-          "mandate rejects",
-          len(drep["violations"]) == len(drep["repeats"]) > 0,
+    # REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660): ~~the graph
+    # admits REPEAT edges that a mandate rejects~~ — identical words that
+    # satisfy a type (`repetition`) are not charged, so the REPEAT edges
+    # are still RECORDED (`repeats`) and no longer violate.
+    check("grading it is not vacuous: the REPEAT edges are recorded, and "
+          "identical words that satisfy a type are not charged",
+          len(drep["repeats"]) > 0 and not drep["violations"],
           f"{len(drep['violations'])} violation(s), all REPEAT: "
           + ", ".join(f"L{v['lines'][0]}/L{v['lines'][1]} "
                       f"{v['endwords'][0]!r}" for v in drep["violations"][:4]))
@@ -1927,15 +1931,18 @@ def test_grade_asks_the_mandate_before_the_switch():
           not res["accepted"] and (18, "RETURN_NOT_VERBATIM") in res["new"],
           res["reasons"])
 
-    check("a PLAIN letter scheme (no Return objects) is completely "
-          "unaffected — the fallback to rdecl.repeat_licence still "
-          "applies exactly as before this fix",
-          R.grade(["a cat sat on the mat", "a cat sat on the mat",
-                  "a bird flew off the sill", "a bird flew off the sill"],
-                 "AABB")["violations"].__len__() == 2,
-          "AABB with two identical-word pairs and NO declared mandate "
-          "returns still reports both as violations under the default "
-          "'unlicensed' setting")
+    # REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660): ~~a plain
+    # letter scheme's two identical-word pairs violate under the default
+    # 'unlicensed' setting~~ — identical words that satisfy a type
+    # (`repetition`) are not charged; the pairs are still recorded as
+    # repeats.
+    _plain = R.grade(["a cat sat on the mat", "a cat sat on the mat",
+                      "a bird flew off the sill", "a bird flew off the sill"],
+                     "AABB")
+    check("a PLAIN letter scheme (no Return objects): its two identical-word "
+          "pairs satisfy a type and are recorded as repeats, not charged",
+          not _plain["violations"] and len(_plain["repeats"]) == 2,
+          (_plain["violations"], len(_plain["repeats"])))
 
 
 def test_song_function_folds_into_the_same_finding_set():

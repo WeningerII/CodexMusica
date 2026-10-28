@@ -109,15 +109,19 @@ def test_the_row_is_what_the_verb_printed():
     check("...and the parser reads that verdict VERBATIM off the stdout",
           facts.get("pair:hair~chair") == printed.group(1).strip(),
           f"{facts.get('pair:hair~chair')!r}")
-    check("...and it is the BANNED answer, so this section cannot pass on a "
-          "pair the ban never looks at",
-          "HOMEOTELEUTON" in facts.get("pair:hair~chair", ""))
+    # REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660, D6: no
+    # unsolicited system bans): ~~it is the BANNED answer~~ — the screen
+    # relays no system ban, so the control pair is a relation row.
+    check("...and it is the relation answer, with no system ban relayed",
+          "relation(s):" in facts.get("pair:hair~chair", "")
+          and "BANNED" not in facts.get("pair:hair~chair", ""))
     counts = {k: v for k, v in facts.items() if not k.startswith("pair:")}
     check("...and the summary counts come off the verb's own tail line, "
-          "never re-counted here (doctrine 1): one banned, every other "
-          "bucket zero, whatever the verb names its buckets",
-          counts.get("banned") == "1" and len(counts) >= 3
-          and all(v == "0" for k, v in counts.items() if k != "banned"),
+          "never re-counted here (doctrine 1): one pair standing in a "
+          "relation, every other bucket zero",
+          counts.get("standing_in_some") == "1" and len(counts) >= 3
+          and all(v == "0" for k, v in counts.items()
+                  if k != "standing_in_some"),
           f"{counts}")
 
 
