@@ -404,6 +404,71 @@ def test_group_questions_offer_words():
 
 
 
+def test_escalation_asks_without_the_one_move_menu():
+    print("\n3b. the escalation asks the same group question without building "
+          "a one-move menu, and verify() still decides (#627, 2026-10-28)")
+    # R2 measured test_verbs §59 at 8 min 4 s: tier 2 built
+    # `member_place_field` (a trial song graded per candidate word) for
+    # every member whose coupled menu was empty, and since D6 the group
+    # question prints no `one_move`. On this couplet the previous loop.py
+    # called it twice and rendered the same question bytes.
+    from quality.propose import render_group
+    calls = []
+    real = RV.Reviser.member_place_field
+
+    def counting(self, *a, **k):
+        calls.append(a[2:4])
+        return real(self, *a, **k)
+    verifies = []
+    real_verify = RV.Reviser.verify
+
+    def counting_verify(self, *a, **k):
+        out = real_verify(self, *a, **k)
+        verifies.append(bool(out["accepted"]))
+        return out
+    RV.Reviser.member_place_field = counting
+    RV.Reviser.verify = counting_verify
+    rd = RV.ReviseDeclaration(max_rounds=1, attempts_per_line=1,
+                              backtrack_width=1)
+    rhyming = (COUPLET[0], "and walked out through the cove")
+    still = (COUPLET[0], "and walked out to the empty field")
+    outcomes = {}
+    try:
+        for name, answer in (("accepted", rhyming), ("refused", still)):
+            asked = []
+            verifies.clear()
+
+            def pg(gb, answer=answer):
+                asked.append((gb.path, tuple(gb.members), render_group(gb)))
+                return answer
+            res = LP.revise_loop(Reviser(rdecl=rd), list(COUPLET),
+                                 _m("AA", 2, "class:RHYME"),
+                                 propose=lambda *a, **k: still[1],
+                                 propose_group=pg)
+            outcomes[name] = (asked, list(res.lines), list(verifies))
+    finally:
+        RV.Reviser.member_place_field = real
+        RV.Reviser.verify = real_verify
+    acc, ref = outcomes["accepted"], outcomes["refused"]
+    check("PREMISE: the line answer failed and the loop escalated to one "
+          "group question on L1+L2",
+          [a[:2] for a in acc[0]] == [("escalation", (1, 2))]
+          and [a[:2] for a in ref[0]] == [("escalation", (1, 2))],
+          str([a[:2] for a in acc[0] + ref[0]]))
+    check("no one-move menu is built: member_place_field is never called",
+          calls == [], str(calls))
+    check("the question still carries the group's constraint: both members "
+          "and the declared relation are in it",
+          all("L1" in q and "L2" in q and "RHYME" in q
+              for _p, _m2, q in acc[0] + ref[0]),
+          acc[0][0][2][:300] if acc[0] else "")
+    check("a rhyming answer is ACCEPTED by verify() and applied",
+          acc[1] == list(rhyming) and True in acc[2], str(acc[1:]))
+    check("a non-rhyming answer is REFUSED by verify() and the draft is kept",
+          ref[1] == list(COUPLET) and ref[2] and not any(ref[2][-1:]),
+          str(ref[1:]))
+
+
 class _Suspend(Exception):
     def __init__(self, key, draft):
         super().__init__(str(key))
@@ -989,6 +1054,7 @@ if __name__ == "__main__":
     _SECTIONS = (test_verify_reads_no_offer,
                  test_every_batch_answer_has_a_standing,
                  test_group_questions_offer_words,
+                 test_escalation_asks_without_the_one_move_menu,
                  test_resume_equals_replay,
                  test_resume_through_the_verb,
                  test_safe_point_stops,

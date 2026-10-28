@@ -1887,22 +1887,17 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                                               exclude=(m_current,),
                                               profile=profile)
                           if m_other else ([], []))
-                # THE ONE-MOVE MENU (LOOP_REDESIGN.md §2.4, §2.8 G). On the
-                # escalation path the pivot's own line question already
-                # failed; a member whose coupled menu is empty is shown the
-                # words a line question would offer it with every other line
-                # (the pivot included) keeping its words. On the group-first
-                # path nothing is added, and the prompt says so.
-                _one = None
-                if escalated and not _mf:
-                    _pf1 = reviser.member_place_field(
-                        list(lines), mandate, m_line, gi, profile=profile,
-                        blueprint=blueprint)
-                    _one = tuple(_pf1.offered) if _pf1 is not None else ()
+                # NO ONE-MOVE MENU (2026-10-27, D6 on #519; R2's timing and
+                # 3PO's trace on #627). This built `member_place_field`, a
+                # line question's field for each member whose coupled menu
+                # was empty, grading a trial song per candidate word -- and
+                # `render_group` prints no `one_move` since D6, so it cost
+                # minutes (test_verbs §59 ran 8 min 4 s) for words nobody
+                # saw. The question the writer reads is unchanged.
                 _anchors.append(AnchorSlot(
                     line_no=m_line, text=lines[m_line - 1], word="",
                     offered=tuple(_mf), calls=tuple(m_other),
-                    slot=_slot_for(mandate, gi, m_line), one_move=_one))
+                    slot=_slot_for(mandate, gi, m_line), one_move=None))
             got = propose_group(GroupBrief(
                 pivot_line_no=b.line_no, pivot_text=b.text,
                 pivot_word="", pivot_offered=(),
