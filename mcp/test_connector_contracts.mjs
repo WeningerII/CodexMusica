@@ -81,9 +81,12 @@ test('a sweep says what happened from its own record: four outcomes, counts and 
   const sweep = async (args) =>
     JSON.parse((await c.client.callTool({ name: 'lyric_sweep', arguments: args })).content[0].text);
   try {
+    // Measured on the verse-chorus form, which requires a verse and a
+    // chorus; the default `open` form requires none (2026-10-27, D7).
     const empty = await sweep({
       seed_from: 0,
       count: 28,
+      form: 'verse-chorus',
       want: ['lines<=24', 'uses=verse,chorus', 'before=verse,chorus', 'group<=4'],
     });
     assert.equal(empty.exit_code, 2);

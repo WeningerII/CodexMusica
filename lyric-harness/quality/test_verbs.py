@@ -723,8 +723,11 @@ def test_brief_refuses_instead_of_tracebacking():
           and any(f["code"] == "SCHEME_VIOLATION" and f["locations"] == [2, 4]
                   for f in unread_report.get("findings", [])),
           str(unread_report.get("coverage", {}).get("refused_obligations")))
-    check("the modal exclusion is still printed for an explicitly judged rhyme violation",
-          "FORBIDDEN (modal" in mod_out
+    # NO WORD LISTS (2026-10-27, D6 on #519): an explicitly judged rhyme
+    # violation is still briefed, and no FORBIDDEN or offered list is printed.
+    check("an explicitly judged rhyme violation is briefed with no FORBIDDEN "
+          "or offered word list",
+          "FORBIDDEN" not in mod_out and "offered:" not in mod_out
           and any(f["code"] == "SCHEME_VIOLATION" and f["severity"] == "flag"
                   for f in explicit_report.get("findings", []))
           and not any(x.startswith("rhyme:") for x in explicit_report.get("coverage", {}).get("refused_obligations", [])),
@@ -753,9 +756,13 @@ def test_brief_refuses_instead_of_tracebacking():
         refrain_path = fh.name
     try:
         rc3, out3, _ = run("brief", refrain_path, "--groups=3,5")
-        check("--groups= on an IDENTICAL pair charges it a violation -- "
-              "identity is FORBIDDEN under the default REQUIRE_RHYME",
-              rc3 == 0 and "SCHEME_VIOLATION" in out3, out3[:200])
+        # REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660): ~~--groups=
+        # on an IDENTICAL pair charges it a violation~~ — identical words
+        # that satisfy a type (`repetition`) are not charged; a declared
+        # `--returns=` violation still is.
+        check("--groups= on an IDENTICAL pair is not charged: the identical "
+              "words satisfy a type (repetition)",
+              rc3 == 0 and "SCHEME_VIOLATION" not in out3, out3[:200])
         rc4, out4, _ = run("brief", refrain_path, "--returns=3,5")
         result4 = _machine_result(out4)
         check("--returns= on the SAME pair judges the full-line return without inventing a rhyme group",
@@ -2404,15 +2411,18 @@ def test_propose_selects_who_writes_the_line():
     # loop converges certified: `SUCCESS after 1 round(s)`. superseded: rc 2,
     # coverage uncertified with rhyme:1:3:0 refused. The subject is still the
     # disclosure.
-    rc, out, err = run("revise", quat, "ABAB")
+    # rc 3 SINCE 2026-10-27 (D6 on #519): a brief carries no candidate field,
+    # so the stub (a splice from that field) has nothing to splice and
+    # declines; L3 and L4 stay open and the loop stops NO_PROGRESS.
+    # superseded: rc 0, SUCCESS after 1 round. The subject is still the
+    # disclosure.
+    rc, out, err = run("revise", quat, "ABAB", expect_rc=3)
     default_result = _machine_result(out)
     check("with no --propose at all, the stub is selected and named",
           default_result.get("status") == "finished"
           and default_result.get("exit") == rc
-          and rc == 0 and default_result.get("stop_reason") == "SUCCESS"
-          and default_result.get("coverage", {}).get("certified") is True
-          and default_result.get("coverage", {}).get("refused_obligations") == []
-          and default_result.get("unresolved_lines") == []
+          and rc == 3 and default_result.get("stop_reason") == "NO_PROGRESS"
+          and default_result.get("unresolved_lines") == [3, 4]
           and "PROPOSER: stub (the default)" in out,
           [l for l in out.splitlines() if "PROPOSER" in l][:1])
     check("and says out loud that nothing outside the process was reached",
@@ -2468,16 +2478,20 @@ def test_propose_selects_who_writes_the_line():
     rc, out, err = run("revise", quat, "ABAB", f"--propose=replay:{rp}",
                        *driver_flags, expect_rc=3)
     check("replay: drives the loop and the recorded text reaches it",
-          rc == 3 and "left to rot" in out and "Traceback" not in err,
-          [l for l in out.splitlines() if "L4" in l][-1:])
+          rc == 3 and "muddy lawn" in out and "Traceback" not in err,
+          [l for l in out.splitlines() if "L3" in l][-1:])
     check("it discloses how much of its record was CONSULTED and how much "
           "was asked for and missing — a miss is a give-up, never the stub",
           "consulted and answered" in out and "NOT recorded" in out,
           [l for l in out.splitlines() if "PROPOSER: replay" in l][-1:])
-    check("doctrine 9 still holds over replayed text: the modal candidate "
-          "is rejected even when a proposer proposed it",
-          "modal candidate 'lawn'" in out,
-          [l for l in out.splitlines() if "modal candidate" in l][:1])
+    # NO WORD IS REJECTED FOR BEING PREDICTABLE (2026-10-27, D6 on #519):
+    # until today 'lawn' was refused as the modal candidate; it fixes L3 and
+    # is accepted. superseded: "doctrine 9 still holds over replayed text".
+    check("a replayed word is judged on what it fixes, not rejected as "
+          "predictable: L3's 'lawn' is accepted",
+          "modal candidate" not in out and "[OK] L3 tier1" in out
+          and "* L3: the cattle waded past the muddy lawn" in out,
+          [l for l in out.splitlines() if "L3" in l][:2])
 
     bad = os.path.join(d, "bad.json")
     with open(bad, "w") as fh:
@@ -2909,9 +2923,13 @@ def test_the_loop_pursues_a_note_it_can_brief():
     mand = "--groups=1,3;2,4"
 
     rc0, out0, _ = run("brief", draft, mand)
-    check("the fixture carries MODAL_RHYME and NO flag at all",
-          "MODAL_RHYME" in out0 and "[FLAG]" not in out0,
-          "so nothing but `pursue` can make the loop look at it")
+    # NO BAN ON A PAIR THAT HOLDS (2026-10-27, D6 on #519): both pairs rhyme,
+    # and until today each carried MODAL_RHYME. superseded: "the fixture
+    # carries MODAL_RHYME and NO flag at all".
+    check("the fixture's pairs hold and are charged nothing: no MODAL_RHYME, "
+          "no flag",
+          "MODAL_RHYME" not in out0 and "[FLAG]" not in out0,
+          "a pair that holds is not charged for the word it landed on")
 
     # ~~WITHOUT --pursue the loop stops and changes nothing~~ RESTATED
     # 2026-08-17: that check pinned the OPT-IN behaviour, and the opt-in
@@ -2930,30 +2948,16 @@ def test_the_loop_pursues_a_note_it_can_brief():
           rc1 == 0 and "PURSUING" not in base,
           "the flagless-but-modal draft is left as written on a bare invocation")
 
+    # NAMING THE OLD CODES PURSUES NOTHING HERE (2026-10-27): no line
+    # carries one, so the loop asks nothing and changes nothing.
+    # superseded: "naming the codes turns pursuit on — the loop revises the
+    # note", its changed-lines check and the exit-3 give-up on this fixture.
     rc2, out2, _ = run("revise", draft, mand, PURSUE_OLD)
-    check("naming the codes turns pursuit on — the loop revises the note",
-          rc2 == 0 and "FINAL DRAFT" in out2 and "PURSUING" in out2,
-          "the declared codes are pursued")
     changed = [l for l in out2.splitlines() if l.strip().startswith("* L")]
-    check("and the lines it changed are the ones carrying the note",
-          len(changed) == 2 and "L3" in changed[0] and "L4" in changed[1],
-          f"{len(changed)} line(s) changed")
-    # EXIT 3 WHEN THE LOOP GIVES UP WITH A PURSUED LINE STANDING — the other
-    # half of the order: "the loop gave up" must be distinguishable from
-    # "the draft is clean" by a caller reading only the exit code. The
-    # proposer is a declared `call:` adapter that DECLINES every ask, so the
-    # pursued lines survive to the stop and the exit says so.
-    decl_mod = os.path.join(d, "declining_adapter.py")
-    with open(decl_mod, "w") as fh:
-        fh.write("def make():\n"
-                 "    return lambda prompt: 'no.'\n")
-    rc3, out3, _ = run("revise", draft, mand, PURSUE_OLD,
-                       "--propose=call:declining_adapter:make",
-                       expect_rc=3, env={"PYTHONPATH": d})
-    check("a run ending with pursued lines UNRESOLVED exits 3, not 0 — "
-          "success below 100% is unreportable",
-          rc3 == 3 and "unresolved" in out3.lower(),
-          f"rc {rc3}")
+    check("naming the old codes finds nothing to pursue: SUCCESS after 0 "
+          "rounds, no line changed",
+          rc2 == 0 and "SUCCESS after 0 round(s)" in out2 and not changed,
+          f"rc {rc2}, {len(changed)} line(s) changed")
 
     # THE SEPARATION THAT MAKES THIS LEGAL. Pursuing changes what the loop
     # ASKS for; it must never change what verify() REJECTS, or a note would
@@ -3082,13 +3086,13 @@ def test_the_candidate_field_says_which_ordering_it_is():
     bline = [l for l in bout.splitlines() if "FORBIDDEN (modal" in l]
     bforb = {w.strip() for w in bline[0].split(":", 1)[1].split(",")
              } if bline else set()
-    _, cout, _ = run("candidates", "town", "7", "--modal")
-    cforb = {w.strip() for w in
-             cout.split("modal_exclusion=")[1].split(":\n")[1]
-             .splitlines()[0].split(",") if w.strip()}
-    check("what the verb forbids is what brief() forbids, same word",
-          bforb and bforb == cforb,
-          f"brief {sorted(bforb)} vs candidates {sorted(cforb)}")
+    # NO WORD LIST IN A BRIEF (2026-10-27, D6 on #519): `brief` forbids
+    # nothing now, so there is no set for the `candidates --modal` verb to
+    # agree with. superseded: "what the verb forbids is what brief()
+    # forbids, same word".
+    check("`brief` prints no FORBIDDEN or offered word list",
+          not bforb and "FORBIDDEN" not in bout and "offered:" not in bout,
+          f"brief forbids {sorted(bforb)}")
     # THIS EQUALITY PASSED FOR AN UNSTATED REASON UNTIL 2026-08-16, and the
     # reason was a property of THIS FIXTURE rather than of the code. `brief()`
     # used to APPEND the incumbent to the same list the verb prints, so the
@@ -3525,8 +3529,18 @@ def test_the_named_pair_disclosure_survives_the_module_boundary():
     # time -- directly beneath the missing banner that says the same fact
     # loudly. One is the invariant on the other.
     fix = os.path.join(ROOT, "quality", "fixtures")
+    # REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660): ~~`--cliques`~~.
+    # The disclosure's population is the fixture's identical pair L6~L14
+    # (counting/counting), and under a mandate that says nothing about
+    # repeats, identical words that satisfy a type (`repetition`) are no
+    # longer charged, so `--cliques` left nothing to disclose. The same cover,
+    # spelled out, with the song's other verbatim pair declared a return
+    # (L7 = L15): a mandate that declares its returns charges an undeclared
+    # identical pair (doctrine 3), so L6~L14 is charged again and its mosaic
+    # span is disclosed exactly as before. `--cliques` cannot take `--returns=`.
+    cover = ("--groups=2,4;6,14;7,15;8,9;10,11;3,13;13,16", "--returns=7,15")
     rc, out, _ = run("song", os.path.join(fix, "song.blueprint.json"),
-                     os.path.join(fix, "song.txt"), "--cliques", expect_rc=3)
+                     os.path.join(fix, "song.txt"), *cover, expect_rc=3)
     lines = out.splitlines()
     mosaic = [i for i, ln in enumerate(lines) if "MOSAIC (" in ln]
     check("the fixture still carries a mosaic span to disclose", mosaic,
@@ -3551,7 +3565,7 @@ def test_the_named_pair_disclosure_survives_the_module_boundary():
 
     # THE SAME PAIR THROUGH `brief`, which reaches `Reviser` by a different
     # route and was equally blind. Two verbs, one boundary.
-    rc, out, _ = run("brief", os.path.join(fix, "song.txt"), "--cliques")
+    rc, out, _ = run("brief", os.path.join(fix, "song.txt"), *cover)
     check("`brief` discloses it too", rc == 0
           and "NAMED PAIR IS NOT THE EVIDENCE" in out, f"rc {rc}")
 
@@ -4327,10 +4341,15 @@ def test_what_the_command_line_prints_is_what_it_means():
           "--relation=type:assonance" in nxt and "'--title=Two Rivers'" in nxt
           and "--narrative=off" in nxt, nxt)
     rc, out, _ = run("screen", "love", "dove", "--relation=schema:internal rhyme")
-    check("screen answers REFUSED, not SATISFIES, for a schema two line ends "
-          "cannot place (the grade charges a line-end mandate declaring it)",
-          rc == 0 and "schema:internal rhyme REFUSED" in out
-          and "SATISFIES schema:internal rhyme" not in out, out[-300:])
+    # REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660: the screen
+    # tests the positions each type uses): ~~REFUSED for a schema two line
+    # ends cannot place~~ — it is judged at the positions its placement
+    # meets, and the answer NAMES them, so it is never an unqualified
+    # line-end SATISFIES.
+    check("screen judges a schema two line ends cannot place at the positions "
+          "it uses and names them — never an unqualified line-end SATISFIES",
+          rc == 0 and "schema:internal rhyme at head/head" in out
+          and "SATISFIES schema:internal rhyme |" not in out, out[-300:])
     with tempfile.TemporaryDirectory() as d:
         song = os.path.join(d, "my song.txt")
         with open(song, "w") as fh:
@@ -4666,9 +4685,12 @@ def test_the_ban_is_unskippable_at_the_grading_verb_too():
         rc, out, err = run("song", bpath, _draft(banned), "--groups=1,2",
                            expect_rc=0)
         blob = out + err
-        check("a draft carrying a TIER-1 banned pair exits 0 from the GRADING "
-              "verb and the ban is still NAMED, as a note",
-              rc == 0 and "HOMEOTELEUTON" in blob
+        # REPINNED 2026-10-27 (D6 on #519): a same-spelled pair that holds is
+        # charged nothing, so the grading verb no longer names it either.
+        # superseded: "the ban is still NAMED, as a note".
+        check("a same-spelled pair that holds exits 0 from the GRADING verb "
+              "and is charged nothing: no HOMEOTELEUTON is named",
+              rc == 0 and "HOMEOTELEUTON" not in blob
               and "the two-tier ban STANDS" not in blob, f"rc={rc}")
         # THE CONTROL, and it must pass on BOTH trees: an unbanned pair on the
         # identical fixture still exits 0. Without it this section would pass
@@ -5389,11 +5411,16 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
     # the mandatory pursue set, so the note is pursued only when asked for.
     rc2, out2, _ = run("revise", banned, "--groups=1,2", "--attempts=0",
                        "--backtrack=0", "--pursue=HOMEOTELEUTON")
-    m2 = re.search(r"FINDING \[NOTE\] HOMEOTELEUTON: L1/L2", out2)
-    check("a pursued note standing at the stop is printed as "
-          "`FINDING [NOTE] HOMEOTELEUTON: L1/L2 …` — the spelling the "
-          "connector's `extractBannedPairs` reads — and the exit is 3",
-          rc2 == 3 and m2 is not None and "STANDING AT THE STOP" in out2,
+    m2 = re.search(r"FINDING \[NOTE\] HOMEOTELEUTON", out2)
+    # NO SAME-SPELLING BAN (2026-10-27, D6 on #519): the pair holds, so even
+    # with the code pursued nothing is filed and no line is held open; the
+    # stop still prints what does stand (a whole-draft flag on this
+    # two-liner). superseded: the pursued note standing at the stop as
+    # `FINDING [NOTE] HOMEOTELEUTON: L1/L2 …`.
+    check("a same-spelled pair that holds files no HOMEOTELEUTON, pursued or "
+          "not, and holds no line open",
+          m2 is None and "unresolved: L" not in out2
+          and "STANDING AT THE STOP" in out2,
           f"rc {rc2}; " + out2[out2.find("STANDING"):][:200])
 
 
@@ -5605,7 +5632,12 @@ def test_the_plan_report_discloses_density_and_audibility():
     rc, out, _ = run("plan", "--seed=31", f"--out={bp}", expect_rc=0)
     with open(bp, encoding="utf-8") as fh:
         plan = _json.load(fh)
-    au = plan["choices"]["audible"]
+    # ~~au = plan["choices"]["audible"]~~ — REPINNED 2026-10-27 (owner-
+    # approved plan, D5): the audible / END RHYME record is gone from planner
+    # output ("NOT heard as end rhyme" was one of the labels removed), so
+    # the plan carries no `audible` choice and the report prints no AUDIBLE
+    # line. What replaced it is the per-group type draw, disclosed in
+    # `choices.relations`.
     # ~~the report prints the density cap the plan drew~~ — REPINNED
     # 2026-10-04: the density draw is gone (owner's ruling: rhymes tie only
     # line ends), so the plan carries no `density` and prints no DENSITY line.
@@ -5614,39 +5646,34 @@ def test_the_plan_report_discloses_density_and_audibility():
           rc == 0 and "density" not in plan["choices"]
           and not re.search(r"^\s*DENSITY:", out, re.M),
           f"rc {rc}")
-    m2 = re.search(r"^\s*AUDIBLE: (\d+) of (\d+) end-bound group\(s\) require a "
-                   r"schema heard as END RHYME", out, re.M)
-    check("...and the AUDIBLE line partitions the end-bound groups with the "
-          "plan's own counts — audible of end-bound, then the bare default "
-          "and the inaudible and unclassified declarations apart (doctrine 79)",
-          m2 is not None and int(m2.group(1)) == au["audible"]
-          and int(m2.group(2)) == au["end_bound"]
-          and f"{au['bare']} on the bare default" in out
-          and f"{len(au['inaudible'])} on a relation heard as something else"
-          in out
-          and f"{len(au['unclassified'])} explicit class/type declaration(s)" in out
-          and au['end_bound'] == (au['audible'] + au['bare']
-                                 + len(au['inaudible']) + len(au['unclassified'])),
-          f"{m2.group(0)[:90] if m2 else 'no AUDIBLE line'}")
-    check("...and says it is a record, not a gate, and that no relation is "
-          "drawn — a bare group is judged against every relation",
-          "A record, not a gate" in out and "no relation is drawn" in out
-          and "RELATION: none declared and none drawn" in out)
-    # An explicit global relation was previously called a bare default and
-    # described as drawn. Exercise the actual CLI with that different route.
+    check("...and no AUDIBLE / END RHYME record: the plan carries no "
+          "`audible` choice and the report prints no AUDIBLE line (D5, "
+          "2026-10-27)",
+          "audible" not in plan["choices"]
+          and not re.search(r"^\s*AUDIBLE:", out, re.M)
+          and "END RHYME" not in out, f"rc {rc}")
+    _rels = plan["choices"]["relations"]
+    check("...and each group's type is disclosed where the draw is recorded: "
+          "one schema:<name> per group, each with its proposals and "
+          "rejections",
+          len(plan["relations"]) == len(plan["groups"].split(";"))
+          and all(v.startswith("schema:") for v in plan["relations"].values())
+          and len(_rels["groups"]) == len(plan["relations"])
+          and all("proposed" in g and "rejected" in g
+                  for g in _rels["groups"]),
+          str(plan["relations"])[:120])
+    # A declared global relation is carried, and named as declared.
     rc_declared, out_declared, _ = run(
         'plan', '--seed=31', '--relation=class:CONSONANCE', f'--out={bp}', expect_rc=0)
     with open(bp, encoding='utf-8') as fh:
-        declared = _json.load(fh)['choices']['audible']
-    check('an explicit global class is disclosed outside the schema inventory, '
-          'never as bare or sampled',
-          rc_declared == 0 and declared['end_bound'] > 0
-          and declared['bare'] == declared['audible'] == 0
-          and declared['unclassified'] == ['class:CONSONANCE'] * declared['end_bound']
-          and '0 on the bare default' in out_declared
+        declared = _json.load(fh)
+    check('an explicit global class is carried to every group and printed as '
+          'declared, never as sampled',
+          rc_declared == 0
+          and set(declared['relations'].values()) == {'class:CONSONANCE'}
           and 'DECLARED, not sampled' in out_declared
           and 'none declared and none drawn' not in out_declared,
-          str(declared))
+          str(declared['relations'])[:120])
     brief = plan.get("writer_brief", "")
     # REPINNED 2026-10-04 from ~~"Where a binding sits" in brief~~: the plan
     # binds every member at its line's end now (owner's ruling), and the
@@ -5655,10 +5682,12 @@ def test_the_plan_report_discloses_density_and_audibility():
           "the writer reads (M-192), and no placement legend when every "
           "binding is a line end",
           "Where a binding sits" not in brief
-          # No relation is drawn (N-relation model): the bare plan names
-          # none, and each group is briefed to stand in at least one.
+          # ~~No relation is drawn (N-relation model)~~ — 2026-10-27 (D1,
+          # D5): each group draws a type, and the brief states its rule
+          # with no type name.
           and "What each named relation asks" not in brief
-          and "must stand in at least one relation" in brief
+          and "must stand in at least one relation" not in brief
+          and re.search(r"must satisfy rule R\d+", brief) is not None
           and re.search(r"^\s+up to \d+ syllables a line after the pickup$",
                         brief, re.M) is not None
           # The syllable band is deleted (owner ruling 2026-09-28), so the
@@ -5730,16 +5759,19 @@ def test_the_batch_door_asks_independent_lines_together():
           "rows it did get", rc2 == 2 and "REFUSED" in out2
           and "L<n>: line" in out2, f"rc {rc2}")
 
-    # Every member answered — with the MODAL candidate each time, which the
-    # grader rejects (doctrine 9) — under ONE attempt per line and no
-    # backtrack: the batch folds as four records, verify's verdict on each
-    # is on the record, and round 2 asks the same four lines again, each
-    # carrying its round-1 rejection.
-    st["pending"]["answer"] = ("L2: the morning light was thin and hit us "
-                               "hard\nL4: she reached inside the drawer "
-                               "and found a door\nL6: the kettle hummed "
+    # Every member answered with ITS OWN LINE, which verify rejects as
+    # "nothing was fixed", under ONE attempt per line and no backtrack: the
+    # batch folds as four records, verify's verdict on each is on the record,
+    # and round 2 asks the same four lines again, each carrying its round-1
+    # rejection. REPINNED 2026-10-27 (D6 on #519): the answers were the
+    # modal candidates, which the grader no longer rejects for being
+    # predictable, so three of four were accepted and the round was not
+    # barren.
+    st["pending"]["answer"] = ("L2: the morning light was thin and cold as "
+                               "tea\nL4: the radio was playing to the "
+                               "moon\nL6: the kettle hummed "
                                "along beside the drum\nL8: and nobody "
-                               "remembered where the light")
+                               "remembered where the soap")
     json.dump(st, open(state, "w"))
     one = os.path.join(d, "one.json")
     shutil.copy(state, one)
@@ -5766,10 +5798,13 @@ def test_the_batch_door_asks_independent_lines_together():
           and [r["line"] for r in p3["record"]["records"]] == [2, 4, 6, 8]
           and p3["record"]["round"] == 2,
           f"rc {rc3} pending {p3['kind']} round {p3['record'].get('round')}")
-    check("...and each member's brief quotes its ROUND-1 rejection, "
-          "verbatim, since no re-ask inside the round could",
-          p3["prompt"].count("in ROUND 1 was REJECTED") == 4
-          and "hit us hard" in p3["prompt"]
+    # REPINNED 2026-10-27 (D8 on #519): the rejection's REASONS reach the
+    # next round, the rejected TEXT does not. superseded: "quotes its
+    # ROUND-1 rejection, verbatim" (the rejected line was quoted).
+    check("...and each member's brief carries its ROUND-1 rejection reasons, "
+          "and never quotes the rejected text",
+          p3["prompt"].count("in ROUND 1 was REJECTED.") == 4
+          and "was REJECTED: '" not in p3["prompt"]
           and "PREVIOUS attempt was REJECTED" not in p3["prompt"],
           p3["prompt"].count("in ROUND 1 was REJECTED"))
 
@@ -5802,16 +5837,17 @@ def test_brief_prints_the_group_backtrack_pointer():
                        "--relation=schema:perfect rhyme")
     empty = out.split("  L2:", 1)[1].split("  L3:", 1)[0] if "  L2:" in out else ""
     offered = out.split("  L5:", 1)[1].split("  WHOLE DRAFT", 1)[0] if "  L5:" in out else ""
-    flat = " ".join(empty.split())
-    check("the actual help/yelp conjunction has forbidden answers but no offer; "
-          "the CLI prints its group, tier2 and connector backtrack coordinate",
-          rc == 0 and "FORBIDDEN" in empty and "offered:" not in empty
-          and "NOTHING OFFERED" in flat and "joint backtrack" in flat
-          and "tier 2" in flat and "backtrack=1" in flat,
-          f"rc {rc}; {empty or err[-300:]}")
-    check("the independent throat field actually offers wrote/quote and has no empty-field pointer",
-          "offered: wrote, quote" in offered and "joint backtrack" not in offered,
-          offered[:500])
+    # REPINNED 2026-10-27 (D6 on #519): a brief carries no word lists, so
+    # neither line prints a FORBIDDEN list, an offer, or the ban-emptied
+    # pointer that named the backtrack. superseded: "the actual help/yelp
+    # conjunction has forbidden answers but no offer …" and "the independent
+    # throat field actually offers wrote/quote …".
+    check("neither the help/yelp conjunction nor the independent throat line "
+          "prints a word list or the ban-emptied pointer",
+          rc == 0 and "  L2:" in out and "  L5:" in out
+          and not any(t in empty + offered for t in
+                      ("FORBIDDEN", "offered:", "NOTHING OFFERED")),
+          f"rc {rc}; {(empty + offered)[:400] or err[-300:]}")
 
 
 def test_a_slotted_pair_is_rendered_on_its_own_spans():
@@ -6287,9 +6323,12 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # draws 11-beat lines in 11/64 (~~99~~) with the same sections, and the
     # ends tie 4,5;6,8,9 under the declared relation: L9 stands with L6 and
     # L8 and leaves the batch, ~~[3, 5, 9]~~ [3, 5].
+    # RE-MEASURED 2026-10-27 (D6 on #519): a note no longer makes a group
+    # violated, so L8 is independent of L3 and L5 again and joins the batch:
+    # ~~[3, 5]~~ [3, 5, 8].
     check("the loop suspends on the fixture with a batch open",
           rc == 4 and pend.get("kind") == "propose_batch"
-          and members == [3, 5],
+          and members == [3, 5, 8],
           f"{rc} {pend.get('kind')} {members}")
     # while nothing has moved, the state and the file are the same draft.
     # ~~'Stay by the door and pray'~~ — 'pray' is in L5's forbidden modal
@@ -6302,9 +6341,9 @@ def test_tryline_is_the_loops_own_acceptance_decision():
           "that nothing has moved yet",
           rc == 0 and row.get("against") == "state"
           and row.get("moved_since_handed_in") == []
-          and row.get("open_question") == [3, 5]
+          and row.get("open_question") == [3, 5, 8]
           and "AGAINST: the loop's CURRENT draft" in out
-          and "OPEN   : the loop's open question is L3, L5" in out,
+          and "OPEN   : the loop's open question is L3, L5, L8" in out,
           out[-600:])
     l5_before = bool(row.get("accepted"))
     rc, out, _ = run("tryline", draft, "3", "nothing here is very still",
@@ -6335,8 +6374,13 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # the fold below is unchanged: L3 and L5 accepted, L2 riding with L3.
     # ~~"L9: carry the cold stones out"~~ — L9 left the batch 2026-10-21
     # (above), so its row goes; the fold is unchanged (measured).
+    # L8 joined the batch 2026-10-27; it is answered with its own line,
+    # which verify rejects as fixing nothing, so the fold is L3 and L5.
+    with _io.open(draft, encoding="utf-8") as fh:
+        l8_own = fh.read().splitlines()[7]
     stj["pending"]["answer"] = ("L3: nothing here is very still\n"
-                                "L5: Stay by the door until the holiday")
+                                "L5: Stay by the door until the holiday\n"
+                                f"L8: {l8_own}")
     with _io.open(st, "w", encoding="utf-8") as fh:
         json.dump(stj, fh)
     rc, out, _ = run("finish", draft, "--seed=7", "--lines=12", REL,
@@ -6394,13 +6438,18 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # the group on [6, 8, 9] (the 6,8,9 end tie above); L6 is still a member,
     # so the tamper is unchanged and its text is the one pinned.
     post = stj.get("pending") or {}
-    check("after the fold the open question is the GROUP on [6, 8, 9], "
-          "which is what the tamper below relies on",
-          post.get("kind") == "propose_group"
-          and (post.get("record") or {}).get("members") == [6, 8, 9]
-          and "say what the river wrote"
-          in ((post.get("record") or {}).get("texts") or []),
-          f"{post.get('kind')} {(post.get('record') or {}).get('members')}")
+    # RE-MEASURED 2026-10-27 (D6 on #519): L8 joined the batch and was
+    # answered with its own line, so after the fold the open question is
+    # L8's re-ask (attempt 2), not the group; its record names the draft by
+    # fingerprint, so the tamper on L6 below still moves it. superseded:
+    # "the open question is the GROUP on [6, 8, 9]".
+    check("after the fold the open question is L8's re-ask, keyed on the "
+          "draft's fingerprint, which is what the tamper below relies on",
+          post.get("kind") == "propose"
+          and (post.get("record") or {}).get("line") == 8
+          and (post.get("record") or {}).get("attempt") == 1
+          and len((post.get("record") or {}).get("draft") or "") == 12,
+          f"{post.get('kind')} {(post.get('record') or {}).get('line')}")
     bj["accepted_lines"][5] = "a line nobody accepted"
     with _io.open(bad, "w", encoding="utf-8") as fh:
         json.dump(bj, fh)

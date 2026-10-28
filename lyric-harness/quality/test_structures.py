@@ -320,10 +320,11 @@ def test_laziness_scope_and_disclosure():
                    structures={"B": "perfect-rhyme"})
     f = R.inspect(lines, m)
     per = {(ln, x.code) for ln, fs in f["per_line"].items() for x in fs}
-    check("the DEFAULT pair in the same draft is still charged — "
-          "bright/tight is HOMEOTELEUTON on group A, so the skip is "
-          "scoped to the declared structure and not a hole in the ban",
-          (2, "HOMEOTELEUTON") in per, sorted(per))
+    # 2026-10-27, D6 on #519: a pair that holds is charged no ban under
+    # any declaration, the default included.
+    check("the DEFAULT pair in the same draft is not charged either — "
+          "bright/tight files no HOMEOTELEUTON on group A",
+          (2, "HOMEOTELEUTON") not in per, sorted(per))
     check("hair/chair under the declared perfect-rhyme row is NOT charged "
           "HOMEOTELEUTON or MODAL_RHYME — those are end-rhyme "
           "calibrations and this pair's question is a different row",
@@ -341,11 +342,10 @@ def test_laziness_scope_and_disclosure():
     m0 = SC.mandate([[1, 2], [3, 4]], n_lines=4)
     f0 = R.inspect(lines, m0)
     check("CONTROL — no structures declared: no disclosure, and "
-          "hair/chair is charged HOMEOTELEUTON exactly as the owner's "
-          "rule requires",
+          "hair/chair is not charged HOMEOTELEUTON",
           "STRUCTURE_UNCALIBRATED" not in [x.code for x in f0["whole"]]
-          and any(x.code == "HOMEOTELEUTON"
-                  for x in f0["per_line"].get(4, [])))
+          and not any(x.code == "HOMEOTELEUTON"
+                      for x in f0["per_line"].get(4, [])))
     # DOCTRINE 8, MECHANICAL (2026-08-18): kalevala-alliteration IS
     # calibrated — for FINNISH — and this Reviser grades English, so the
     # disclosure still fires on an English draft declaring it. A regime

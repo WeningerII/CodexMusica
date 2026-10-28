@@ -69,7 +69,7 @@ class ProductionRevisionTests(unittest.TestCase):
         self.assertEqual(asked, [2])
         self.assertEqual(reverse_result.lines, [before[1], after[0]])
 
-    def test_internal_rhyme_does_not_charge_unmandated_line_end_cliches(self):
+    def test_shipped_cliche_list_charges_no_pair(self):
         lines = ['Cats in the cellar burn with fire',
                  'Bats in the rafters wake desire']
         internal = mandate([['1.head', '2.head']], n_lines=2,
@@ -80,7 +80,9 @@ class ProductionRevisionTests(unittest.TestCase):
             found = r.inspect(lines, m)
             return [f for fs in found['per_line'].values() for f in fs
                     if f.code == 'CLICHE_PAIR']
-        self.assertTrue(cliches(end))
+        # The shipped stock list is not enforced since 2026-10-27 (D6 on
+        # #519): not at line ends, not at an internal place.
+        self.assertFalse(cliches(end))
         self.assertFalse(cliches(internal))
         # A schema can declare a different locus even with bare line numbers.
         onset = mandate('AA', n_lines=2, default_relation='schema:anaphora')
@@ -118,10 +120,14 @@ class ProductionRevisionTests(unittest.TestCase):
                                                   include_offers=False)
                      if any(f.code == 'PREDICTABLE_RHYME' for f in b.findings))
         ln = brief.line_no
-        self.assertTrue(slots.is_default(brief.slot))
-        self.assertTrue(brief.violated_groups)
+        # A note never makes a group violated (2026-10-27, D6 on #519): the
+        # predictability charge is reported in `noted_groups`, apart, and
+        # every group it names is end-bound.
+        noted = set(brief.noted_groups)
+        self.assertTrue(noted)
+        self.assertFalse(noted & set(brief.violated_groups))
         self.assertTrue(all(slots.is_default(m.slot_of(m.labels.index(label), ln))
-                            for label in brief.violated_groups))
+                            for label in noted))
         verdict = self.reviser.verify(case['before_last_answer'], case['final_retained'],
                                       m, targeted={5, 10})
         # The internal-only edit clears NO end-bound predictability charge.
@@ -147,32 +153,28 @@ class ProductionRevisionTests(unittest.TestCase):
                     returns=[list(map(int, g.split(',')))
                              for g in plan['returns'].split(';')])
         r, lines = self.reviser, case['retained']
-        b = next(b for b in r.brief(lines, m, target_lines={6}) if b.line_no == 6)
+        bs = [b for b in r.brief(lines, m, target_lines={6}) if b.line_no == 6]
         # REPINNED for relation SETS: a rhyme of `waits` also stands in
         # ASSONANCE, so the ordinary field answers `class:ASSONANCE` and no
         # expanded search runs (it ran while the rhyme's one label excluded
         # it). Every word offered is the declared judge's.
-        self.assertEqual(b.field_widened, 0)
-        self.assertTrue(b.candidates)
-        from quality.loop import swap_at_slot
-        for word in b.candidates[:6]:
-            trial = list(lines)
-            trial[5] = swap_at_slot(lines[5], b.slot, word, lex=r.lex)
-            g = r.grade(trial, m, _only_groups={m.labels.index('D')})
-            self.assertFalse([v for v in g['violations'] if 6 in v['lines']], word)
-        # The offered words are the declared judge's own; nothing claims an
-        # exact-vowel pool the grade did not consult.
+        # No candidate field is computed for a brief since 2026-10-27 (D6 on
+        # #519), so nothing is offered and nothing is widened.
+        self.assertFalse([b for b in bs if b.field_widened or b.candidates])
+        # The declared judge still decides; nothing claims an exact-vowel
+        # pool the grade did not consult.
         have = r._word_anchors('have')[0][0][0]['nucleus']
         waits = r._word_anchors('waits')[0][0][0]['nucleus']
         self.assertNotEqual(have, waits)
         # ASSONANCE is vowel IDENTITY now (the near-vowel band no longer
         # rounds up), so the declared judge refuses `have` against `waits`.
-        kept, refused = r.declared_offer(['have'], lines, m, 6, b.slot,
+        kept, refused = r.declared_offer(['have'], lines, m, 6, m.slot_of(m.labels.index('D'), 6),
                                          [m.labels.index('D')])
         self.assertEqual((kept, refused), ([], ['have']))
-        prompt = render_line(b, lines)
-        self.assertNotIn('OFFERED FROM THE VOWEL BAND', prompt)
-        self.assertNotIn("words below share the call's", prompt)
+        for b in bs:
+            prompt = render_line(b, lines)
+            self.assertNotIn('OFFERED FROM THE VOWEL BAND', prompt)
+            self.assertNotIn("words below share the call's", prompt)
 
     def test_default_admission_disclosure_uses_production_line_numbers(self):
         from lyric_harness import near_relation_default_disclosure
@@ -220,7 +222,7 @@ class ProductionRevisionTests(unittest.TestCase):
         self.assertNotIn('ASSONANCE 0.82', report)
         self.assertIn('chance rate is not established', report)
 
-    def test_empty_single_partner_menu_can_start_with_a_verified_joint_repair(self):
+    def test_no_menu_line_question_escalates_to_a_verified_joint_repair(self):
         case = json.loads((Path(__file__).parent / 'results' /
                            'continuation_audit_2026-09-20' /
                            'spare_key_case.json').read_text())
@@ -232,18 +234,14 @@ class ProductionRevisionTests(unittest.TestCase):
                              for g in plan['returns'].split(';')])
         r = Reviser(rdecl=ReviseDeclaration(max_rounds=1, attempts_per_line=2,
                                             backtrack_width=1))
-        # THE PRECONDITION IS AN EMPTY SINGLE-PARTNER MENU. The recorded case
-        # had one while CONSONANCE excluded perfect rhymes; under relation
-        # sets L2's menu is legitimately non-empty, so the empty menu is set
-        # up directly (the declared judge refuses every word): what this
-        # test pins is what the LOOP does with an empty menu, not which
-        # words the field holds.
-        r.declared_offer = lambda candidates, *a, **k: ([], list(candidates))
+        # NO MENU AT ALL since 2026-10-27 (D6 on #519): the brief computes
+        # no field, so the loop asks the line question first and escalates
+        # to the group only when the writer cannot close it alone.
         b = next(b for b in r.brief(lines, m, target_lines={2}) if b.line_no == 2)
-        self.assertTrue(b.field_computed)
+        self.assertFalse(b.field_computed)
         self.assertTrue(b.violated_groups)
         self.assertFalse(b.candidates)
-        self.assertFalse(b.joint_conflict)  # each place has only one partner
+        self.assertFalse(b.joint_conflict)
         after = list(lines)
         # The case's lines and these two repairs are PHONOLOGICAL TWINS since
         # 2026-10-27 (`fixtures/phonological_twin.py`, seed 20261027, one
@@ -262,10 +260,11 @@ class ProductionRevisionTests(unittest.TestCase):
             calls.append('group')
             return [after[n - 1] for n in g.members]
         result = revise_loop(r, lines, m, propose=single, propose_group=group)
-        self.assertEqual(calls[0], 'group', calls)
+        self.assertEqual(calls[0], 'single', calls)
+        self.assertIn('group', calls)
         self.assertEqual(result.lines, after)
-        # Empty menus are not impossibility proofs. Declining the group must
-        # leave both original single-line attempts available to the writer.
+        # Declining the group leaves the draft as it was, after both
+        # single-line attempts were offered to the writer.
         order, single_attempts = [], []
         def declined(g):
             order.append('group')
@@ -275,13 +274,17 @@ class ProductionRevisionTests(unittest.TestCase):
             single_attempts.append((b.line_no, attempt))
             return b.text
         parked = revise_loop(r, lines, m, propose=unchanged, propose_group=declined)
-        self.assertEqual(order[0], 'group')
+        self.assertEqual(order[0], 'single')
+        self.assertEqual(order[-1], 'group')
         self.assertEqual([a for n, a in single_attempts if n == 2], [0, 1])
         self.assertEqual(parked.lines, lines)
 
     def test_audible_plan_disclosure_resolves_the_declared_global_relation(self):
         from quality.plan import make_plan, audible_share
+        # A return is planned only for a returning form (2026-10-27, D7:
+        # the default `open` form asks none), so the request names one.
         plan = make_plan(20261001, lines=12, relation='class:CONSONANCE',
+                         form='verse-chorus',
                          functions=['verse', 'chorus', 'outro'],
                          wants=['uses=verse,chorus', 'sections>=3', 'returns>=1'])
         share = audible_share(plan)
@@ -386,24 +389,12 @@ class ProductionRevisionTests(unittest.TestCase):
                     returns=[[8, 9]])
         b = next(b for b in r.brief(lines, m, target_lines={2})
                  if b.line_no == 2)
-        self.assertTrue(b.joint_conflict)
-        # REPINNED for relation SETS: `york` was excluded while Dark/york
-        # carried one label other than CONSONANCE; its coda agrees, so it
-        # stands in CONSONANCE among its relations and the declared judge
-        # accepts it. What binds is below: every word offered for a call
-        # passes the declared relation through `grade()`.
-        self.assertTrue(dict(b.partial_by_call).get('Dark'))
-        from quality.loop import swap_at_slot
-        for call, words in b.partial_by_call:
-            mates = [ln for ln in m.groups[0] if ln != 2 and
-                     r._slot_word(lines, m, 0, ln, {}) == call]
-            for word in words:
-                trial = list(lines)
-                trial[1] = swap_at_slot(lines[1], b.slot, word, lex=r.lex)
-                g = r.grade(trial, m, _only_groups={0})
-                self.assertFalse([v for v in g['violations']
-                                  if 2 in v['lines'] and any(ln in v['lines'] for ln in mates)],
-                                 (call, word))
+        # No per-call word lists since 2026-10-27 (D6 on #519): the pivot is
+        # briefed with its groups and no search result, and the prompt
+        # prints none.
+        self.assertTrue(b.violated_groups)
+        self.assertFalse(b.joint_conflict or b.partial_by_call)
+        self.assertNotIn('ANSWERED BY ON ITS OWN', render_line(b, lines))
 
     def test_partial_offer_can_leave_an_existing_failure_open(self):
         # REPINNED for relation SETS: bud/red stands in RHYME and therefore
@@ -423,7 +414,7 @@ class ProductionRevisionTests(unittest.TestCase):
                                     requested_obligations={(1, 2, 0)})
         self.assertEqual(failed, [])
 
-    def test_kept_anchor_disclosure_names_its_actual_position(self):
+    def test_kept_anchor_is_accepted_without_a_modal_disclosure(self):
         # REPINNED for relation SETS: the recorded last-bus case violated its
         # first-word place only while `class:CONSONANCE` was one exclusive
         # label; judged by membership that place holds and the case no
@@ -436,9 +427,10 @@ class ProductionRevisionTests(unittest.TestCase):
                     relations={'A': 'class:ASSONANCE', 'B': 'class:RHYME'})
         v = self.reviser.verify(before, after, m, targeted={2})
         self.assertTrue(v['accepted'], v['reasons'])
-        kept = next(s for s in v['reasons'] if 'KEPT' in s)
-        self.assertIn("KEPT its first word 'Rain'", kept)
-        self.assertNotIn('end word', kept)
+        # verify() has no modal rule since 2026-10-27 (D6 on #519), so a
+        # kept word needs no disclosure and no RULE 3 keys are returned.
+        self.assertFalse([s for s in v['reasons'] if 'KEPT' in s or 'RULE 3' in s])
+        self.assertNotIn('modal_endword_unchanged', v)
 
     def test_revision_can_retire_an_occurrence_reading_without_transferring_it(self):
         from quality import pronunciation as P, replay_memo as RM
@@ -509,8 +501,10 @@ class ProductionRevisionTests(unittest.TestCase):
         repaired = list(lines)
         repaired[2] = 'The whole thing felt like twilight'
         self.assertTrue(r.verify(lines, repaired, m, targeted={3})['accepted'])
-        self.assertTrue(next(b for b in r.brief(lines, m)
-                             if b.line_no == 3).joint_conflict)
+        # No bounded search runs for a brief since 2026-10-27 (D6 on #519),
+        # so nothing marks the pivot as a joint conflict.
+        self.assertFalse(next(b for b in r.brief(lines, m)
+                              if b.line_no == 3).joint_conflict)
         for decline in (True, False):
             asked = []
             def group(g):
@@ -525,7 +519,7 @@ class ProductionRevisionTests(unittest.TestCase):
                 records = [a for rd in result.rounds for a in rd.attempts
                            if a.line_no == 3]
                 self.assertEqual([(a.tier, a.accepted) for a in records],
-                                 [(2, False), (1, True)])
+                                 [(1, True)])
                 self.assertTrue(records[0].asked)
                 # A partial repair must not be promoted to finished.
                 self.assertNotEqual(result.stop_reason, 'success')
@@ -612,17 +606,17 @@ class ProductionRevisionTests(unittest.TestCase):
                              for f in stopped.findings))
         self.assertTrue(r.inspect(CLEAN, self.m)['coverage']['certified'])
 
-    def test_named_relation_offers_match_exact_grade(self):
+    def test_named_relation_briefs_offer_no_words(self):
+        # No system word list under any named relation (2026-10-27, D6 on
+        # #519): the brief states the rule and offers nothing to pick from.
         lines = [CLEAN[0], 'Your fingers brush a little leaf']
         for relation in ['class:CONSONANCE', 'class:ASSONANCE', 'type:masculine rhyme']:
             with self.subTest(relation=relation):
                 m = mandate('AA', n_lines=2, default_relation=relation)
                 b = next(b for b in self.reviser.brief(lines, m) if b.line_no == 2)
-                self.assertTrue(b.candidates, relation)
-                for word in b.candidates:
-                    g = self.reviser.grade([lines[0], 'Your fingers brush a little ' + word], m)
-                    self.assertFalse(g['violations'], (relation, word))
-                    self.assertEqual(g['pairs_refused'], 0, (relation, word))
+                self.assertTrue(b.violated_groups, relation)
+                self.assertFalse(b.candidates or b.forbidden_modal
+                                 or b.field_computed, relation)
 
     def test_candidate_projection_keeps_exact_selected_verdicts(self):
         from unittest.mock import patch

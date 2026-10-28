@@ -51,7 +51,7 @@ Slowest call per tool on the 16-line reference song (2026-10-22, limit 600s per 
   - The doctrine index — every number, and where it lives (3k)
 - `MISSING.md` (640k): the defect register, entries `M-<n>`. Grep for the entry number.
 - `BACKLOG.md` (51k): open work, by tier.
-- `corpus/`, `data/`, `quality/results/`: measurement inputs and outputs, millions of tokens. In the traced run the song program opened 73 data files and 0 under `corpus/` (`map/files.md` lists them).
+- `corpus/`, `data/`, `quality/results/`: measurement inputs and outputs, millions of tokens. In the traced run the song program opened 71 data files and 0 under `corpus/` (`map/files.md` lists them).
 
 ## Keeping this map true
 

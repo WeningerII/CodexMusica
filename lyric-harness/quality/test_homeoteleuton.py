@@ -43,7 +43,7 @@ from lyric_harness import (ADMITTABLE_RELATIONS, Declaration,  # noqa: E402
                            check_scheme, Lexicon, spelled_rime)
 from quality.loop import MANDATORY_PURSUE  # noqa: E402
 from quality import frequency as FREQ  # noqa: E402
-from quality.revise import EMPTY_HEAD_CAUSES, RHYME_FINDINGS, Reviser  # noqa: E402
+from quality.revise import RHYME_FINDINGS, Reviser  # noqa: E402
 
 FAILURES = []
 
@@ -126,27 +126,18 @@ def test_pair_verdicts():
         for f in fs:
             if f.code in ("HOMEOTELEUTON", "MODAL_RHYME"):
                 codes[tuple(f.locations)] = f.code
-    check("hair/chair is HOMEOTELEUTON — same spelled -air, caught by the "
-          "pair's own spellings with no field consulted",
-          codes.get((1, 3)) == "HOMEOTELEUTON", codes)
-    check("cove/wove is HOMEOTELEUTON — the -ove class the old cliff let "
-          "through at rank 7", codes.get((4, 5)) == "HOMEOTELEUTON")
-    # 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5):
-    # `prayer` has a one-syllable reading (P R EH1 R) that rhymes with
-    # `hair`, so the pair is JUDGED and satisfied rather than refused, and
-    # the ban then reaches it: hair/prayer is a tier-2 modal pair.
-    # superseded: "hair/prayer remains unjudged when permitted
-    # pronunciations disagree" (a refusal, and no code).
-    check("hair/prayer is judged under one of prayer's own readings, and "
-          "is MODAL_RHYME — the differently-spelled tier catches it",
-          codes.get((1, 2)) == "MODAL_RHYME"
-          and not any(tuple(r['lines']) == (1, 2)
-                      for r in found['grade']['refusals']), codes)
+    # NO BAN ON A PAIR THAT PASSES (2026-10-27, D6 on #519). These three
+    # groups all hold; until today inspect() filed HOMEOTELEUTON on
+    # hair/chair and cove/wove and MODAL_RHYME on hair/prayer, telling the
+    # writer to change a word its group had already satisfied.
+    check("no pair that holds is charged a predictability or same-spelling "
+          "note: inspect() files neither code on any of these groups",
+          not codes, codes)
     modal = R.inspect(["we bend our will and then obey",
                        "and watch the silent night away"], mandate=[[1, 2]])
-    check("obey/away is MODAL_RHYME — a determinate differently-spelled tier2 contrast",
-          any(f.code == 'MODAL_RHYME' and tuple(f.locations) == (1, 2)
-              for findings in modal['per_line'].values() for f in findings))
+    check("obey/away files no MODAL_RHYME either",
+          not any(f.code == 'MODAL_RHYME'
+                  for findings in modal['per_line'].values() for f in findings))
     check("bone/sown carries NEITHER — different spelling ('one'/'own') "
           "and below the frequency tier: silence still means clean",
           (6, 7) not in codes, codes)
@@ -418,26 +409,18 @@ def test_tier_two_is_evidence_gated():
           it_ok and not modal_counts(it),
           f"satisfied as {sorted(it_ok[0]['relations']) if it_ok else None}"
           f"; MODAL_RHYME {modal_counts(it)}")
-    ob = modal_counts(R.inspect(["we bend our will and then obey",
-                                 "and watch the silent night away"],
-                                mandate=[[1, 2]]))
-    check("every MODAL_RHYME names the realised count behind it, and every "
-          "count is above zero (obey/away, a determinate tier-2 pair)",
-          ob and all(ns and all(n > 0 for n in ns) for _m, ns in ob),
-          ob)
     bs = R.brief(["I kept it in the window", "the night was cold and fast"],
                  [[1, 2]])
     b2 = [b for b in bs if b.line_no == 2]
     b2 = b2[0] if b2 else None
-    check("a brief whose call (`window`) the song table has never seen "
-          "comes back with an EMPTY head, a FULL offer and the cause "
-          "UNEVIDENCED — one cause, stated, not a list (doctrine 28)",
-          b2 is not None and b2.field_computed and not b2.forbidden_modal
-          and b2.candidates and b2.empty_head_cause == "UNEVIDENCED"
-          and b2.empty_head_cause in EMPTY_HEAD_CAUSES,
+    # NO SYSTEM WORD LIST IN A BRIEF (2026-10-27, D6 on #519): until today
+    # this brief carried a ranked offer and a FORBIDDEN head.
+    check("a brief carries no word lists: no field computed, no offer, no "
+          "FORBIDDEN head, no incumbent rule",
+          b2 is not None and not b2.field_computed and not b2.candidates
+          and not b2.forbidden_modal and not b2.forbidden_incumbent,
           None if b2 is None else
-          f"head {b2.forbidden_modal}, offer {len(b2.candidates)}, cause "
-          f"{b2.empty_head_cause!r}")
+          f"head {b2.forbidden_modal}, offer {len(b2.candidates)}")
 
 
 def test_evidenced_head_is_the_same_head():
@@ -476,4 +459,4 @@ if __name__ == "__main__":
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")
         sys.exit(1)
-    print("the lazy class is banned, the taxonomy is the palette")
+    print("no pair that holds is charged a ban; the taxonomy is the palette")

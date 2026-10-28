@@ -203,7 +203,8 @@ sys.path.insert(0, os.path.join(HERE, "..", ".."))
 import lyric_harness  # noqa: E402
 import quality.features  # noqa: E402
 from quality.features import FUNCTION_TAGS, QualityFeatures, _tagger  # noqa: E402
-from quality.floor import FloorDeclaration, PROFILES, SlopFloor  # noqa: E402
+from quality.floor import (CLICHE_PAIRS, FloorDeclaration,  # noqa: E402
+                           PROFILES, SlopFloor)
 
 ROOT = os.path.join(HERE, "..")
 
@@ -884,8 +885,13 @@ def cliche_fires(body, _floor=[]):
     ALLOWED to emit it as a flag is a length question `sev()` answers, and
     inside this band the two coincide by construction.
     """
+    # THE SHIPPED 30, DECLARED (2026-10-27, D6 on #519). The declaration's
+    # default is empty now, so the default floor fires nothing; the rate this
+    # row ships is the rate of the shipped list AS A USER WHO DECLARES IT
+    # gets, which is the rate the finding quotes when they do.
     if not _floor:
-        _floor.append(SlopFloor())
+        _floor.append(SlopFloor(decl=FloorDeclaration(
+            cliche_pairs=frozenset(CLICHE_PAIRS))))
     f = _floor[0]
     return any(x.code == "CLICHE_PAIR"
                for x in f._relation_findings(body, _couplet_pairs(body)))

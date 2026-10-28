@@ -666,6 +666,12 @@ def sweep_record(lex, decl, verbose=True):
 #: word elsewhere held them open (5); no former violation left the set.
 #: `battery.py` names them. Measured by `--check`; partition rewritten by
 #: `--write-oracle`.
+#: REPINNED 2026-10-27, END-OF-DAY PLAN (#519 6448819660): identical words
+#: that satisfy a registry type are not charged as REPEAT. 1012/52/40 ->
+#: 1012/52/36; violations_claimed 9 -> 8, violation_ties 5 -> 2; claimed and
+#: ties unchanged. The four pairs that left are identical end words (sonnet
+#: 9 and 26 it/it, 42 her/her, 150 thee/thee). Measured by `--check`;
+#: partition rewritten by `--write-oracle`.
 PINNED = {
     "mandated": 1064, "judged": 1012, "refused": 52,
     #: ~~82~~ under the two-name door; ~~35~~ when it widened to all four
@@ -679,7 +685,7 @@ PINNED = {
     #: 0 stopped, inside a preregistered ceiling of 20). THE FIRST THREE
     #: STEPS WIDENED THE DOOR AND THIS ONE TIGHTENED IT, which is why the
     #: count rose where it had fallen three times.
-    "violations": 40,
+    "violations": 36,
     #: report lines that name the two words that actually produced the number
     "claimed": 633,
     #: the same question asked of the violations alone.
@@ -689,9 +695,9 @@ PINNED = {
     #: backwards: a widening retires ordinary end-word comparisons first
     #: (the population that DOES name its own words), and a tightening adds
     #: them back. Both new pairs are ordinary end-word assonance.
-    "violations_claimed": 9,
+    "violations_claimed": 8,
     "ties": 121,
-    "violation_ties": 5,
+    "violation_ties": 2,
 }
 
 

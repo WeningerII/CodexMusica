@@ -367,7 +367,9 @@ def main():
             srv.shutdown()
 
     print("\n7. provider capacity is declared before spending and bounded before journaling")
-    for width in (1, 31):
+    # No line ceiling (D7 on #519): 135 lines is a planner-sized group, and
+    # past 64 lines the allowance is the provider's 65536-token ceiling.
+    for width in (1, 31, 135):
         sc = Script([(200, {}, ok_body("L1: a line")),
                      (200, {}, ok_body("x" * (width * GP.MAX_PROPOSAL_BYTES_PER_LINE + 1)))])
         srv = serve(sc)
@@ -384,8 +386,8 @@ def main():
             except GP.ProposerUnavailable as error:
                 failure = error
         check(f"{width}-line capacity is reserved and oversized known response never replayed",
-              len(sc.seen) == 2 and sc.seen[0]["generationConfig"]["maxOutputTokens"] == width * GP.OUTPUT_TOKENS_PER_LINE
-              and settlements[0][1]["maxOutputTokens"] == width * GP.OUTPUT_TOKENS_PER_LINE
+              len(sc.seen) == 2 and sc.seen[0]["generationConfig"]["maxOutputTokens"] == min(width * GP.OUTPUT_TOKENS_PER_LINE, GP.MAX_OUTPUT_TOKENS)
+              and settlements[0][1]["maxOutputTokens"] == min(width * GP.OUTPUT_TOKENS_PER_LINE, GP.MAX_OUTPUT_TOKENS)
               and settlements[-1][0] == "settle" and settlements[-1][1]["status"] == "success"
               and getattr(failure, "code", None) == "PROVIDER_PROPOSAL_TOO_LARGE" and not writer.unknown_attempts)
         srv.shutdown()
@@ -399,6 +401,17 @@ def main():
             except GP.ProposerUnavailable as error:
                 failure = error
     check("configured insufficient group output allowance refuses before any reservation",
+          getattr(failure, "code", None) == "PROPOSER_CONFIG" and writer.attempts == 0)
+    env(GEMINI_API_KEY="k", LYRIC_PROPOSER_MODEL="m")
+    writer = GP.make()
+    with patch.object(GP.urllib.request, "urlopen", side_effect=AssertionError("must refuse before network")):
+        with redirect_stdout(io.StringIO()):
+            try:
+                writer.with_capacity("no lines", max_lines=0)
+                failure = None
+            except GP.ProposerUnavailable as error:
+                failure = error
+    check("a zero-line capacity still refuses before any reservation",
           getattr(failure, "code", None) == "PROPOSER_CONFIG" and writer.attempts == 0)
 
     print("\n8. a request that never left the machine is no spend: refused and unresolved settle rejected")

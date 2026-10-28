@@ -420,20 +420,20 @@ test('recover numbers its mandate over sung lines, and every refusal carries its
   }
 });
 
-test('a ban names the bound words and their places, and an unknown name lists the vocabulary', async () => {
+test('a pair that holds at its bound place is charged no ban, and an unknown name lists the vocabulary', async () => {
   const { server, client } = await connect({ task: { domain: 'lyrics' } });
   const call = caller(client);
   try {
-    // The group binds the FIRST words; the end words (town/room) are not banned.
+    // The group binds the FIRST words. REPOINTED 2026-10-27 (end-of-day plan,
+    // #519 6448819660, D6: no unsolicited system bans): the harness no longer
+    // files HOMEOTELEUTON or MODAL_RHYME, so a pair that holds, at any place,
+    // surfaces no banned pair.
     const placed = await call('lyric_check', {
       lines: ['Night falls on the quiet town', 'Light fills the empty room'],
       groups: '1.head,2.head',
     });
-    assert.equal(placed.banned_pairs, 1);
-    assert.deepEqual(placed.banned[0].binding, [
-      { line: 1, word: 'Night', place: '1.head', what: 'first word' },
-      { line: 2, word: 'Light', place: '2.head', what: 'first word' },
-    ]);
+    assert.equal(placed.banned_pairs, 0);
+    assert.deepEqual(placed.banned, []);
     const relation = await call('lyric_check', {
       lines: ['Night falls on the quiet town', 'Light fills the empty room'],
       groups: '1,2',
@@ -549,7 +549,8 @@ test('lyric_plan block 0 is the plan and brief, without the server path or CLI c
   try {
     const response = await client.callTool({ name: 'lyric_plan', arguments: { seed: 1 } });
     const block0 = response.content[0].text;
-    assert.match(block0, /PLAN: form=verse-chorus seed=1/);
+    // The connector sends the default form, `open` (2026-10-27, D7).
+    assert.match(block0, /PLAN: form=open seed=1/);
     assert.doesNotMatch(block0, /\/tmp\/|python3|WROTE plan|GRADE IT/);
     assert.equal(verdictIn(response).exit_code, 0);
   } finally {

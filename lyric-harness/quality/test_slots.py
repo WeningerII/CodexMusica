@@ -452,10 +452,13 @@ def test_the_writer_facing_spelling():
     check("`propose.slot_phrase` DELEGATES here rather than carrying a "
           "second table", slot_phrase(b_t4) == SL.word_phrase(b_t4.slot)
           == "word 4", f"{slot_phrase(b_t4)!r}")
-    check("`Brief.__str__` — the OTHER renderer of the same sentence — reads "
-          "it too, and said 'end word' whatever the mandate bound until M-91",
-          "word 4" in str(b_t4) and "end word" in str(b_end),
-          f"{[l for l in str(b_t4).splitlines() if 'ALREADY THERE' in l]}")
+    # 2026-10-27, D6 on #519: `Brief.__str__` no longer renders the word
+    # already there, so it carries no slot phrase to check; it must name no
+    # word list at all, even from a brief that still holds an incumbent.
+    check("`Brief.__str__` prints no word list: no ALREADY THERE line and "
+          "no incumbent, at either placement",
+          all("ALREADY THERE" not in str(b) and "stair" not in str(b)
+              for b in (b_end, b_t4)), str(b_t4))
 
 
 def test_the_span_kind_is_disclosed():

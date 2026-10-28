@@ -728,9 +728,12 @@ def test_identity_is_the_schemas_own_ruling():
           not g["violations"], g["violations"])
     m2 = mandate([[1, 2]], n_lines=2)
     g2 = rv.grade(["the tide is high", "the tide is high"], m2)
-    check("a BARE group with identical end words still charges REPEAT — "
-          "doctrine 3 is untouched where nothing declared otherwise",
-          any("REPEAT" in str(v) for v in g2["violations"]),
+    # REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660): ~~a BARE
+    # group with identical end words still charges REPEAT~~ — identical
+    # words that satisfy a type (`repetition`) are not charged.
+    check("a BARE group with identical end words that satisfy a type is "
+          "not charged REPEAT (repointed 2026-10-27)",
+          not any("REPEAT" in str(v) for v in g2["violations"]),
           g2["violations"])
     m3 = mandate([[1, 2]], n_lines=2,
                  relations={"A": "schema:internal rhyme"})
@@ -1384,11 +1387,108 @@ def test_m319_declared_perfect_rhyme_admits_the_promoted_final():
           and [s.promoted for s in end] == [False, True]
           and len(end[1].idx) == 1, ([s.idx for s in mid],
                                      [s.idx for s in end]))
-    check("promote=False and every other schema keep the REGISTRY row "
-          "itself (no promoted rule anywhere else)",
+    # WIDENED 2026-10-27 (end-of-day plan, #519): ~~only `perfect rhyme`
+    # takes the promoted rule~~ — every schema with an END_ANCHOR member
+    # does, and a schema without one keeps its REGISTRY row.
+    _end = {n for n, s in RL.REGISTRY.items() if RL.END_ANCHOR in s.spans}
+    check("promote=False keeps the REGISTRY row; a schema WITHOUT an "
+          "END_ANCHOR member keeps it too; every schema WITH one is promoted",
           off_row is RL.REGISTRY["perfect rhyme"]
           and all(RL.declared_token_schema(s) is s
-                  for n, s in RL.REGISTRY.items() if n != "perfect rhyme"))
+                  for n, s in RL.REGISTRY.items() if n not in _end)
+          and all(RL.END_ANCHOR_PROMOTED in RL.declared_token_schema(s).spans
+                  for n, s in RL.REGISTRY.items() if n in _end)
+          and len(_end) == 28, sorted(_end))
+
+    def gr(r, rel2, lines):
+        x = r.grade(lines, mandate([[1, 2]], n_lines=2,
+                                   default_relation=rel2))
+        return len(x["violations"]), len(x["refusals"])
+
+    # BEFORE -> AFTER: these failed while the allowance was perfect rhyme's
+    # alone (measured on 3e4d7e3f7: (1, 0) each) and hold now.
+    check("other END_ANCHOR types take the promoted final: assonance, "
+          "family rhyme and consonance hold sea~harmony",
+          all(gr(rv, r2, pair("sea", "harmony")) == (0, 0)
+              for r2 in ("schema:assonance", "schema:family rhyme",
+                         "schema:consonance")))
+    check("...and with final_promotion OFF they fail again",
+          all(gr(rv_off, r2, pair("sea", "harmony")) == (1, 0)
+              for r2 in ("schema:assonance", "schema:family rhyme",
+                         "schema:consonance")))
+    # NEGATIVE: nothing else is weakened.
+    check("NOT WEAKENED: sea~hit still fails under every END_ANCHOR type "
+          "asked; rime riche, semirhyme and pararhyme still fail "
+          "sea~harmony (their other channels decide); alliteration (no "
+          "END_ANCHOR member) answers exactly as before",
+          all(gr(rv, r2, pair("sea", "hit")) == (1, 0)
+              for r2 in ("schema:perfect rhyme", "schema:assonance",
+                         "schema:family rhyme", "schema:consonance"))
+          and all(gr(rv, r2, pair("sea", "harmony")) == (1, 0)
+                  for r2 in ("schema:rime riche", "schema:semirhyme",
+                             "schema:pararhyme"))
+          and gr(rv, "schema:alliteration", pair("sea", "harmony"))
+          == gr(rv_off, "schema:alliteration", pair("sea", "harmony")))
+
+def test_eod_assigned_type_and_identical_words():
+    """End-of-day plan (#519 6448819660), grader workstream: a group is held
+    to its assigned type alone, an extra relation neither rescues nor
+    charges it, and identical words that satisfy a type are not charged
+    as REPEAT on the default route."""
+    print("\nEOD. a group is held to its assigned type; identical words that "
+          "satisfy a type are not charged")
+    from quality.revise import Reviser
+    from lyric_harness import check_scheme, Declaration
+    rv = Reviser()
+
+    def g(rel, lines):
+        x = rv.grade(lines, mandate([[1, 2]], n_lines=2,
+                                    **({"default_relation": rel} if rel
+                                       else {})))
+        return [v["why"] for v in x["violations"]], len(x["refusals"])
+
+    def pair(a, b):
+        return [f"we walked down to the {a}", f"and all we found was {b}"]
+
+    check("an assigned type that does not hold FAILS though the pair is a "
+          "basic rhyme: pararhyme on tree~sea (vowels agree, so it is not "
+          "pararhyme) — no basic relation rescues it",
+          len(g("schema:pararhyme", pair("tree", "sea"))[0]) == 1)
+    check("an assigned type that holds PASSES and the extra relations the "
+          "pair also stands in are not charged: assonance on tree~sea",
+          g("schema:assonance", pair("tree", "sea")) == ([], 0))
+    same = pair("sea", "sea")
+    check("identical end words, no assigned type: they satisfy a type "
+          "(repetition), so grade() charges no REPEAT (it did on 3e4d7e3f7)",
+          g(None, same) == ([], 0), g(None, same))
+    check("...the trial grade agrees",
+          rv.grade(same, mandate([[1, 2]], n_lines=2),
+                   _verdicts_only=True)["violations"] == [])
+    check("...and check_scheme agrees",
+          check_scheme(rv.lex, same, "AA", Declaration())["violations"]
+          == [])
+    check("NOT WEAKENED: a pair that stands in no type still fails",
+          len(g(None, pair("sea", "ash"))[0]) == 1)
+    # #519 finding b (2026-10-27): the same at words bound off the line end.
+    mid = ["we saw the sea today", "they crossed the sea again"]
+
+    def gm(rel, lines):
+        x = rv.grade(lines, mandate([["1.T4", "2.T4"]], n_lines=2,
+                                    **({"default_relation": rel} if rel
+                                       else {})))
+        return [v["why"] for v in x["violations"]], len(x["refusals"])
+    check("identical words bound at 1.T4/2.T4, no assigned type: they "
+          "satisfy repetition there, so no REPEAT is charged",
+          gm(None, mid) == ([], 0), gm(None, mid))
+    check("...as assigning schema:repetition already answered",
+          gm("schema:repetition", mid) == ([], 0))
+    check("...and the trial grade agrees",
+          rv.grade(mid, mandate([["1.T4", "2.T4"]], n_lines=2),
+                   _verdicts_only=True)["violations"] == [])
+    check("NOT WEAKENED: different words bound there still fail",
+          len(gm(None, ["we saw the sea today",
+                        "they crossed the ash again"])[0]) == 1)
+
 
 if __name__ == "__main__":
     for fn in (test_vocabulary, test_judge, test_mandate_coordinate,
@@ -1403,7 +1503,8 @@ if __name__ == "__main__":
                test_every_drawable_schema_answers_its_own_example,
                test_e2_default_grade_reaches_the_registry,
                test_the_edge_label_carries_two_relations_over_one_pair,
-               test_m319_declared_perfect_rhyme_admits_the_promoted_final):
+               test_m319_declared_perfect_rhyme_admits_the_promoted_final,
+               test_eod_assigned_type_and_identical_words):
         fn()
     print("=" * 62)
     if FAILURES:
