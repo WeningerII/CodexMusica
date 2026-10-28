@@ -13467,6 +13467,20 @@ def main():
                             detail=["a group is numbered by its place in "
                                     "--groups=, a repeated group counted "
                                     "again"])
+                # A group on fewer than two lines mandates nothing, and
+                # `_normalise_groups` lets it go FREE without a word -- which
+                # took a chosen type with it (3PO, #519). A type someone chose
+                # is refused by name, never discarded.
+                lone = [k for k in sorted(gt)
+                        if len({str(m).split(".")[0] for m in g[k - 1]}) < 2]
+                if lone:
+                    _refuse("--group-types chooses a type for "
+                            + "; ".join(f"group {k} ({','.join(g[k - 1])})"
+                                        for k in lone)
+                            + ", which names fewer than two lines",
+                            detail=["a group binds two or more lines; a "
+                                    "group on one line is free and carries "
+                                    "no type"])
                 g = [{"members": grp, "relation": gt[k + 1]} if k + 1 in gt
                      else grp for k, grp in enumerate(g)]
             # `--returns=` groups are REQUIRE_RETURN — identity REQUIRED,

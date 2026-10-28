@@ -1009,7 +1009,18 @@ function unitTypeEndToEnd() {
     {
       tool: 'lyric_plan',
       args: { seed: 3, lines: 16, group_types: [{ group: 1, type: unlisted }] },
-    }
+    },
+    // A typed link on one line beside a valid one (3PO, #519 6471846289):
+    // pasted setup text reaches the connector unchanged, and the type was
+    // dropped with the one-line group. It is refused by name.
+    ...['1;2,3', '1,1;2,3'].map((groups) => ({
+      tool: 'lyric_check',
+      args: {
+        lines: ['never say the word aloud', 'never leave the room', 'the cat'],
+        groups,
+        group_types: [{ group: 1, type: anaphora }],
+      },
+    }))
   );
   let out;
   try {
@@ -1041,7 +1052,7 @@ process.exit(0);`,
     return;
   }
   const violated = (r) => r.standing.some((f) => /SCHEME_VIOLATION/.test(f));
-  const [held, other, heads, twinTypes, secondOccurrence, plan, refused] = out;
+  const [held, other, heads, twinTypes, secondOccurrence, plan, refused, ...lone] = out;
   check(
     held.exit === 0 && !held.refusal && !violated(held),
     `a link whose type reads the first word failed on lines whose first words agree: ${JSON.stringify(held)}`
@@ -1080,6 +1091,11 @@ process.exit(0);`,
           ['', 'schema:anaphora', ''],
         ]),
     `the type on a repeated link's second occurrence moved: ${judged(secondOccurrence)}`
+  );
+  check(
+    lone.length === 2 &&
+      lone.every((r) => r.exit === 2 && /group 1 .*fewer than two lines/.test(r.refusal || '')),
+    `a type on a one-line link was not refused by name: ${JSON.stringify(lone)}`
   );
   // A type beside a --relations= entry for the same group: the CLI (the
   // connector publishes no per-group relation field) refuses it alike under

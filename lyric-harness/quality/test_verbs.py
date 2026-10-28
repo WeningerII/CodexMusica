@@ -6739,6 +6739,20 @@ def test_group_types_land_on_the_group_the_page_meant():
               and refusals[0][1] == refusals[1][1]
               and "stated twice" in (refusals[0][1] or ""),
               str(refusals)[:300])
+        # 3PO's reproduction (#519 6471846289): a typed group on one line,
+        # beside a valid group, was dropped as free and took its type with
+        # it, grading exit 0. It is refused by name, whether the one line is
+        # written once or twice.
+        lone = []
+        for groups in ("1;2,3", "1,1;2,3"):
+            rc7, out7, res7 = grade(heads[:3], groups,
+                                    [{"group": 1, "type": anaphora}])
+            lone.append((groups, rc7, res7.get("refusal") or ""))
+        check("...and a type on a group that names fewer than two lines is "
+              "refused by name, not dropped with the group",
+              all(rc == 2 and "group 1" in why
+                  and "fewer than two lines" in why for _, rc, why in lone),
+              str(lone)[:400])
     finally:
         shutil.rmtree(d, ignore_errors=True)
 
