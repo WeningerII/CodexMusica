@@ -1617,8 +1617,8 @@ function lyRowGroups(d) {
 // member spelling, and a link spelled like an earlier one by that spelling and
 // `#n`, its n-th occurrence (lyGroupKeys), so two links with the same members
 // keep a type each. A link that changes or goes away never hands its type to
-// another: an entry naming no current link binds nothing, and that link is
-// drawn by the planner. A rewrite that respells or removes links carries each
+// another: an entry naming no current link binds nothing, and that link has
+// no chosen type. A rewrite that respells or removes links carries each
 // type to its own link (lyCarryGroupTypes).
 const lyLinksOf = (model) => lySetupOf(model, 'rhyme groups').flatMap((d) => lyRowGroups(d));
 function lyGroupKeys(groups) {
@@ -1860,8 +1860,9 @@ function lyDeclarationsOf(model) {
       if (open.length) d[`${field}_need_decision`] = open.map((g) => lyGroupsText([g]));
     }
     // Each link's chosen type goes as its registry index alone (never its
-    // name), with `group` the link's 1-based place in `groups`; a link with
-    // no entry is drawn by the planner.
+    // name), with `group` the link's 1-based place in `groups`, a repeated
+    // link counted again; a link with no entry is checked at its lines' last
+    // words against any relation.
     if (field === 'groups') {
       const types = lyGroupTypes(model);
       const keys = lyGroupKeys(groups);
@@ -4063,7 +4064,7 @@ const LY_FORMS = {
       if (type !== '') text = lySetGroupType(text, groups.length - 1, Number(type));
       return {
         text,
-        message: `Link saved${type !== '' ? ` with the type ${lyTypeName(Number(type))}` : ', its type drawn by the planner'}.`,
+        message: `Link saved${type !== '' ? ` with the type ${lyTypeName(Number(type))}` : ', with no chosen type'}.`,
         migrated: base.done,
       };
     },
@@ -5524,7 +5525,7 @@ function lyToolRhymes(model) {
   const legacyNote = legacy
     ? `<p class="ly-help">An earlier song-wide relation is declared: ${esc(legacy)}. It still applies to every link. ${lyBtn('ly-relation-clear', 'Remove it', '', { cls: 'cm-btn ly-link-btn' })}</p>`
     : '';
-  return `<div class="ly-tool-view"><div class="ly-inline-field"><label class="ly-label" for="ly-type-find">Find a type</label><input type="search" id="ly-type-find" class="cm-input" value="${esc(find)}" placeholder="Search types" autocomplete="off"></div><p class="ly-help">Each link has its own type. A link with no chosen type is drawn by the planner.</p><p class="ly-help" id="ly-types-note" role="status" hidden>Types could not load. Reopen Rhymes to try again.</p>${legacyNote}
+  return `<div class="ly-tool-view"><div class="ly-inline-field"><label class="ly-label" for="ly-type-find">Find a type</label><input type="search" id="ly-type-find" class="cm-input" value="${esc(find)}" placeholder="Search types" autocomplete="off"></div><p class="ly-help">Each link has its own type. On a draft, a link with no chosen type is checked at its lines’ last words against any relation; a new song’s planner draws its type.</p><p class="ly-help" id="ly-types-note" role="status" hidden>Types could not load. Reopen Rhymes to try again.</p>${legacyNote}
 <h4 class="ly-label">New link</h4>
 <div class="ly-inline-field"><label class="ly-label" for="ly-type-new">Type</label><select id="ly-type-new" class="cm-select ly-type-select" data-draft="${T}" data-target="${G}" data-field="type"${lyErr(d, 'type')}>${lyTypeOptions(newType)}</select></div>${lyErrText(d, 'type')}
 <div class="ly-inline-field"><label class="ly-label" for="ly-link-place">Placement</label><select id="ly-link-place" class="cm-select">${lyOpts(places, place, null)}</select></div>
@@ -7972,7 +7973,7 @@ function lyWire(surface) {
       const index = t.value === '' ? null : Number(t.value);
       lyCommit(
         lySetGroupType(model.text, LY.picks.linkGroup, index),
-        `Link ${lyFamilyLabel(LY.picks.linkGroup)}: ${index == null ? 'type drawn by the planner' : `type ${lyTypeName(index) || index}`}.`
+        `Link ${lyFamilyLabel(LY.picks.linkGroup)}: ${index == null ? 'no chosen type' : `type ${lyTypeName(index) || index}`}.`
       );
       uiFocus($ui('ly-type-group'));
     } else if (t.dataset.draft && t.tagName === 'SELECT') {

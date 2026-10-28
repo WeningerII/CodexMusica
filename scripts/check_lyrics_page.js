@@ -733,6 +733,14 @@ function unitTypeMenu() {
     'a type is preselected for a new link'
   );
   check(/Placed by the type/.test(view), 'the default placement is not the type’s own');
+  // What a draft check does with an untyped link (agreed with 3PO, #629):
+  // no planner runs there, so the page does not say one draws its type.
+  check(
+    /On a draft, a link with no chosen type is checked at its lines’ last words against any relation; a new song’s planner draws its type\./.test(
+      view
+    ) && !/drawn by the planner/.test(view),
+    'the Rhymes tool misstates what happens to a link with no chosen type'
+  );
   // Jony's note on #629: a failed fetch is said, not shown as an empty menu.
   check(
     /id="ly-types-note" role="status" hidden>Types could not load\. Reopen Rhymes to try again\.</.test(
