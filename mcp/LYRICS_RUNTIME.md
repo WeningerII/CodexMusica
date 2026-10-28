@@ -386,8 +386,9 @@ pre-batch v1 state rows or their fingerprints.
     section reorder, export/import and what the tools receive, sibling groups
     included; `.end` is never added to a bare member. A member the page itself
     makes for the end is bare. The two do not always mean the same thing. In
-    a rhyme groups row a bare `N` is the default end. In a RETURNS row a bare
-    `N` is a whole-line return judged by `returns_check`. Explicit `N.line`
+    a rhyme groups row a bare `N` is placed by its group's type (`group_types`
+    or `relation`), and is the end only in a group with no type. In a RETURNS
+    row a bare `N` is a whole-line return judged by `returns_check`. Explicit `N.line`
     is a placed return judged by `placed_returns_check` through the `line`
     placement; it is not an alias for bare `N`. The harness semantics are
     distinct, and mixed whole-line/placed classes are refused. Both forms

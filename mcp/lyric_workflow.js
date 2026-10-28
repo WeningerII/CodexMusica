@@ -22,6 +22,7 @@ export const PLAN_FIELDS = [
   'form',
   'lines',
   'relation',
+  'group_types',
   'functions',
   'title',
   'narrative',
@@ -108,18 +109,25 @@ const melodyValue = (value) => {
     return value;
   }
 };
+// Each group's chosen type, as the plan's request records it.
+const groupTypes = (value) =>
+  Array.isArray(value) && value.length
+    ? value.map((e) => ({ group: e?.group, type: e?.type }))
+    : null;
 const norm = (key, value) =>
   key === 'melody'
     ? melodyValue(value)
-    : key === 'functions' || key === 'wants'
-      ? list(value)
-      : key === 'form'
-        ? value || DEFAULT_FORM
-        : key === 'narrative'
-          ? narrative(value)
-          : value === ''
-            ? null
-            : (value ?? null);
+    : key === 'group_types'
+      ? groupTypes(value)
+      : key === 'functions' || key === 'wants'
+        ? list(value)
+        : key === 'form'
+          ? value || DEFAULT_FORM
+          : key === 'narrative'
+            ? narrative(value)
+            : value === ''
+              ? null
+              : (value ?? null);
 const create = (task) => task?.domain === 'lyrics' && task.phase !== 'edit';
 const answered = (v) => v && Number.isInteger(v.exit_code) && [0, 3].includes(v.exit_code);
 // A screen or grade that ran but left no receipt is kept as an ATTEMPT beside

@@ -1219,7 +1219,9 @@ const declared = (value) =>
   value !== '' &&
   !(Array.isArray(value) && value.length === 0);
 // The declarations a PLAN is drawn from, which a pasted song's run has none of.
-const PLAN_ONLY_FIELDS = PLAN_FIELDS.filter((f) => !['seed', 'relation'].includes(f));
+const PLAN_ONLY_FIELDS = PLAN_FIELDS.filter(
+  (f) => !['seed', 'relation', 'group_types'].includes(f)
+);
 // The lines an interview answer carries, labels stripped (`L3: …`, `LINE: …`).
 function answeredLines(answer) {
   return String(answer)
@@ -1376,6 +1378,10 @@ function globalsFor(a) {
   return out;
 }
 
+// Each group's chosen type as the harness reads it, one argv token of JSON.
+const groupTypesArg = (types) =>
+  `--group-types=${JSON.stringify(types.map(({ group, type }) => ({ group, type })))}`;
+
 function planArgs(a) {
   const args = [`--seed=${a.seed}`, `--form=${a.form || DEFAULT_FORM}`];
   if (a.lines != null) args.push(`--lines=${a.lines}`);
@@ -1396,6 +1402,7 @@ function planArgs(a) {
   // coordinate off the tool call while groups and returns come off the plan
   // artifact -- a second statement of the mandate (doctrine 1).
   if (a.relation) args.push(`--relation=${a.relation}`);
+  if (a.group_types?.length) args.push(groupTypesArg(a.group_types));
   if (a.functions) args.push(`--functions=${a.functions}`);
   // The `=` spelling is mandatory here and not a style choice: the harness's
   // `--title X` form takes exactly ONE argv token, so a multi-word title is
@@ -1576,7 +1583,10 @@ const linesField = z
 // pair stands in all of them its sound supports at once. A group is satisfied
 // when its pairs stand in at least one. ~~the PLANNER DRAWS a relation per
 // group (M-117)~~ -- STRUCK: the planner draws none; `plan.relations` is empty
-// unless the writer declared one.
+// unless the writer declared one. ~~the planner draws none~~ -- STRUCK
+// 2026-10-28: since D1 (2026-10-27) every planned group carries one type,
+// declared or drawn, in `plan.relations`, and "nobody said" is the pasted
+// song's case only.
 const relationField = z
   .string()
   // 64 CHARS IS THE RELATION NAME'S OWN BOUND, not a line count: the longest
@@ -1585,7 +1595,25 @@ const relationField = z
   .max(64)
   .optional()
   .describe(
-    "Declare ONE relation every mandated group must stand in, written NAMESPACE:NAME. Namespace it (type: / class: / schema:); overlapping bare names refuse. class: is a coarse relation (a pair stands in every class its sound supports), type: is the named-cell engine, and schema: is a registry schema, which requires the complete declared figure and its placement. An intra-line figure cannot stand in for a pair of lines; missing topology or placement refuses instead of accepting partial edges. With no declaration, every pair is judged against EVERY relation — each coarse relation at its own cut and every registry schema — and a group is satisfied when, for each pair, the two words the group binds stand in at least one (another word in the line relating does not count); each pair's relations are all reported, and unresolved obligations are disclosed; an unsupported shape never counts as success. Planning draws no relation. Declaring one narrows the requirement to that relation. An unknown name refuses and the refusal lists the declarable names by namespace; for one pair, lyric_types reports its type names, coarse relations and registry schemas."
+    "Declare ONE relation every mandated group must stand in, written NAMESPACE:NAME. Namespace it (type: / class: / schema:); overlapping bare names refuse. class: is a coarse relation (a pair stands in every class its sound supports), type: is the named-cell engine, and schema: is a registry schema, which requires the complete declared figure and its placement. An intra-line figure cannot stand in for a pair of lines; missing topology or placement refuses instead of accepting partial edges. A plan gives every group one type, declared or drawn with equal odds, and lyric_grade judges each group by its own type alone. A pasted song's group with no declaration (no relation and no group_types entry) is judged against EVERY relation — each coarse relation at its own cut and every registry schema — and is satisfied when, for each pair, the two words the group binds stand in at least one (another word in the line relating does not count); each pair's relations are all reported, and unresolved obligations are disclosed; an unsupported shape never counts as success. Declaring one narrows the requirement to that relation. An unknown name refuses and the refusal lists the declarable names by namespace; for one pair, lyric_types reports its type names, coarse relations and registry schemas."
+  );
+
+// THE LYRICS PAGE'S PER-LINK TYPE MENU (2026-10-28): a type travels as its
+// registry index, never its name, and the harness turns it into that group's
+// `schema:<name>` (`quality/plan.py` group_types_to_relations), the one
+// reading of the index, which refuses a bad entry by name. Integers only: a
+// float or a string is refused here and never coerced.
+const groupTypesField = z
+  .array(
+    z.object({
+      group: z.number().int().min(1).max(MAX_LINES).describe("The group's 1-based number."),
+      type: z.number().int().min(0).describe('The type, as its index in the relation registry.'),
+    })
+  )
+  .max(MAX_LINES)
+  .optional()
+  .describe(
+    "One type per group, each written {group, type}: the group is judged by that type alone, and a member with no written place is judged where that type places it. On lyric_plan, lyric_grade and a planned song's lyric_revise the group is the plan's N-th group and its type is kept, never drawn; a type the planner cannot plan for the song's language is refused with its reason. On lyric_check, lyric_verify and a pasted song's lyric_revise the group is the N-th group of `groups` or `scheme`. A whole number only: anything else is refused, never rounded. Carry it unchanged from plan to grade and revise."
   );
 
 const functionsField = z
@@ -1922,6 +1950,7 @@ export const LYRIC_TOOL_SCHEMAS = {
     form: formField,
     lines: linesField,
     relation: relationField,
+    group_types: groupTypesField,
     functions: functionsField,
     title: titleField,
     narrative: narrativeField,
@@ -1939,6 +1968,7 @@ export const LYRIC_TOOL_SCHEMAS = {
     form: formField,
     lines: linesField,
     relation: relationField,
+    group_types: groupTypesField,
     functions: functionsField,
     title: titleField,
     narrative: narrativeField,
@@ -2004,6 +2034,7 @@ export const LYRIC_TOOL_SCHEMAS = {
     form: seededOnly(formField),
     lines: seededOnly(linesField),
     relation: relationField,
+    group_types: groupTypesField,
     functions: seededOnly(functionsField),
     title: seededOnly(titleField),
     narrative: seededOnly(narrativeField),
@@ -2165,7 +2196,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_MANDATE_CHARS)
       .optional()
       .describe(
-        "Groups by 1-based line numbers, written N,N;N,N. A member may name WHERE in its line it binds, written N.PLACE. Places: end, endword, head, headrime, line, T<n>; a member with no place binds at end (its line's last word, from its last stress), whatever the group's relation."
+        "Groups by 1-based line numbers, written N,N;N,N. A member may name WHERE in its line it binds, written N.PLACE. Places: end, endword, head, headrime, line, T<n>. A member with no place is judged where its group's type places it (the type group_types or relation gives the group); in a group with no type it binds at end (its line's last word, from its last stress)."
       ),
     returns: z
       .string()
@@ -2175,6 +2206,7 @@ export const LYRIC_TOOL_SCHEMAS = {
         'Verbatim returns: whole lines written N,N;N,N, or word identity at placements written N.PLACE,N.PLACE. Optional.'
       ),
     relation: relationField,
+    group_types: groupTypesField,
     // THE SAME MANDATE lyric_check GRADES UNDER (M-189): `verify` accepted
     // `--structures=` on the CLI while this schema had no field for it, so
     // a structured round was verified under a DIFFERENT mandate from the
@@ -2247,13 +2279,14 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_MANDATE_CHARS)
       .optional()
       .describe(
-        "Groups by 1-based line numbers, written N,N;N,N — the lines of each group must satisfy that group's relation. Alternative to scheme. A member may also name WHERE in its line it binds, written N.PLACE; places are end, endword, head, headrime, line, or T<n> for the n-th word, and a member with no place binds at end (its line's last word, from its last stress), whatever the group's relation."
+        "Groups by 1-based line numbers, written N,N;N,N — the lines of each group must satisfy that group's relation. Alternative to scheme. A member may also name WHERE in its line it binds, written N.PLACE; places are end, endword, head, headrime, line, or T<n> for the n-th word. A member with no place is judged where its group's type places it (the type group_types or relation gives the group); in a group with no type it binds at end (its line's last word, from its last stress)."
       ),
     // `lyric_check` builds its own mandate rather than reading a plan, so
     // the relation is a DIRECT parameter here where `lyric_grade` takes it
     // off the plan artifact. Same coordinate, and the difference is which
     // object is the mandate (doctrine 1).
     relation: relationField,
+    group_types: groupTypesField,
     // `--structures` WAS THE ARCHETYPE THIS FILE NAMES (see planArgs's
     // comment): a coordinate built, tested, and reachable from the outermost
     // layer by nothing. It lands HERE and not on lyric_plan/lyric_grade
@@ -3026,6 +3059,7 @@ export function registerLyricTools(server, tool) {
                 if (hasGroups) args.push(`--groups=${a.groups}`);
                 if (a.returns) args.push(`--returns=${a.returns}`);
                 if (a.relation) args.push(`--relation=${a.relation}`);
+                if (a.group_types?.length) args.push(groupTypesArg(a.group_types));
                 if (a.structures) args.push(`--structures=${a.structures}`);
                 if (a.blueprint != null) {
                   const bpPath = path.join(dir, 'blueprint.json');
@@ -3567,6 +3601,7 @@ export function registerLyricTools(server, tool) {
         if (hasGroups) args.push(`--groups=${a.groups}`);
         if (a.returns) args.push(`--returns=${a.returns}`);
         if (a.relation) args.push(`--relation=${a.relation}`);
+        if (a.group_types?.length) args.push(groupTypesArg(a.group_types));
         if (a.structures) args.push(`--structures=${a.structures}`);
         // TARGETED IS A TRAILING POSITIONAL, and it is the sole gate on the
         // untargeted-rewrite rejection. This repo has already recorded what
@@ -3719,6 +3754,7 @@ export function registerLyricTools(server, tool) {
         if (hasGroups) args.push(`--groups=${a.groups}`);
         if (a.returns) args.push(`--returns=${a.returns}`);
         if (a.relation) args.push(`--relation=${a.relation}`);
+        if (a.group_types?.length) args.push(groupTypesArg(a.group_types));
         // A song-wide relation beside a structure is judged BY THE HARNESS
         // as a conjunction (`quality/test_verbs.py` §44, repointed from the
         // M-102 refusal on 2026-09-22): a structured group's pairs must

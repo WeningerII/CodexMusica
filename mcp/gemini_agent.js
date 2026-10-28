@@ -1003,7 +1003,15 @@ export function declarationArgs(args) {
 // The fields that KEY a run (stateKey's coordinates) — the only declaration
 // fields the model still sees while a run is suspended, so a continuing call
 // can name the run it continues and nothing else.
-const RUN_KEY_FIELDS = new Set(['seed', 'scheme', 'groups', 'returns', 'relation', 'structures']);
+const RUN_KEY_FIELDS = new Set([
+  'seed',
+  'scheme',
+  'groups',
+  'returns',
+  'relation',
+  'group_types',
+  'structures',
+]);
 
 // KITCHEN COOKS (owner ruling 2026-09-06, M-254). On THIS surface the chat
 // model never answers a revise question: every lyric_revise call it makes is
@@ -1282,6 +1290,9 @@ function stateKey(args) {
       args.returns ?? null,
       args.relation ?? null,
       args.structures ?? null,
+      // Each link's chosen type keys the run too; a run declared without
+      // one keeps the key it always had.
+      ...(args.group_types?.length ? [args.group_types] : []),
     ])
   );
 }
