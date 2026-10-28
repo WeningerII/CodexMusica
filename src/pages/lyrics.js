@@ -1446,7 +1446,13 @@ function lyTypesLoad() {
       lyTypesSet(data.types);
       // Filled in place, never redrawn: focus and an open menu stay put.
       lyTypeFill();
-      lyRefreshTypeBindings();
+      if (LY.model) {
+        for (const el of document.querySelectorAll('#surface-lyrics [data-ly-binding]')) {
+          const [m, type] = JSON.parse(el.dataset.lyBinding);
+          lyMemberBinding(LY.model, m, type, el);
+        }
+        lyRenderEditor();
+      }
       for (const el of document.querySelectorAll('#surface-lyrics [data-type]'))
         el.textContent = lyTypeLabel(Number(el.dataset.type));
     })
@@ -1681,23 +1687,21 @@ function lyMemberPlace(m, type) {
   if (m.explicit || m.place !== 'end' || type == null || type === '') return m.place;
   return LY_TYPES.find((t) => t[0] === Number(type))?.[2] || null;
 }
-function lyMemberDisplay(model, m, type) {
-  return (
+// The same text paints new bindings and updates existing spans without replacing controls.
+function lyMemberBinding(model, m, type, el) {
+  const text = (
     lyMemberWord(model, m, type) ?? (lyMemberPlace(m, type) == null ? LY_PLACE_BY_TYPE : 'missing')
   ).slice(0, 40);
+  if (el) el.textContent = text;
+  else return `<span data-ly-binding="${esc(JSON.stringify([m, type]))}">${esc(text)}</span>`;
 }
-function lyMemberBinding(model, m, type) {
-  return `<span data-ly-binding="${esc(JSON.stringify([m, type ?? null]))}">${esc(lyMemberDisplay(model, m, type))}</span>`;
-}
-// Refresh only the binding text and editor paint when the menu loads, without
-// replacing the focused select or discarding pending members.
-function lyRefreshTypeBindings() {
-  if (!LY.model) return;
-  for (const el of document.querySelectorAll('#surface-lyrics [data-ly-binding]')) {
-    const [m, type] = JSON.parse(el.dataset.lyBinding);
-    el.textContent = lyMemberDisplay(LY.model, m, type);
-  }
-  lyRenderEditor();
+// One 1-based token coordinate for both the displayed word and its highlight.
+function lyPlaceToken(place, length) {
+  return /^T\d+$/.test(place)
+    ? Number(place.slice(1))
+    : place === 'head' || place === 'headrime'
+      ? 1
+      : length;
 }
 function lyMemberWord(model, m, type) {
   const place = lyMemberPlace(m, type);
@@ -1707,10 +1711,7 @@ function lyMemberWord(model, m, type) {
   const row = model.sung[m.line - 1];
   if (!row) return null;
   const toks = lyTokens(row.text, model.voices);
-  if (/^T\d+$/.test(place)) return toks[Number(place.slice(1)) - 1] || null;
-  if (place === 'head' || place === 'headrime') return toks[0] || null;
-  if (place === 'line') return row.text;
-  return toks[toks.length - 1] || null;
+  return place === 'line' ? row.text : toks[lyPlaceToken(place, toks.length) - 1] || null;
 }
 // A member's place in words. In a returns row a bare `N` is a whole-line
 // return (lyWholeLineReturn); in a rhyme groups row a bare `N` names no place,
@@ -4782,14 +4783,16 @@ function lyRhymeMarks(model) {
   const types = lyGroupTypes(model);
   if (types.size) lyTypesLoad(); // Saved typed links need their places even with Rhymes closed.
   const keys = lyGroupKeys(groups);
-  const all = [
-    ...groups.map((g, k) => ({ g, type: types.get(keys[k]) })),
-    ...(pending.length
-      ? [{ g: pending, pending: true, type: lyVal('rhymes', 'song', 'type', '') }]
-      : []),
-  ];
-  all.forEach(({ g, pending = false, type }, k) => {
+  [...groups, pending].forEach((g, k) => {
+    if (!g.length) return;
+    const pending = k === groups.length;
+    const type = pending ? lyVal('rhymes', 'song', 'type', '') : types.get(keys[k]);
     const letter = lyFamilyLabel(k);
+    const add = (map, key) => {
+      const list = map.get(key) || [];
+      if (!list.some((x) => x.k === k)) list.push({ k, letter, pending });
+      map.set(key, list);
+    };
     for (const m of g) {
       // A word place kept under its earlier number marks no word.
       if (m.bad || m.undecided) continue;
@@ -4797,19 +4800,12 @@ function lyRhymeMarks(model) {
       if (!row) continue;
       const toks = lyTokens(row.text, model.voices);
       const place = lyMemberPlace(m, type);
-      let t = toks.length;
-      if (/^T\d+$/.test(place)) t = Number(place.slice(1));
-      else if (place === 'head' || place === 'headrime') t = 1;
+      const t = lyPlaceToken(place, toks.length);
       if (place != null && place !== 'line') {
         if (!Number.isInteger(t) || t < 1 || t > toks.length) continue;
-        const key = `${m.line}:${t}`;
-        const memberships = ends.get(key) || [];
-        if (!memberships.some((item) => item.k === k)) memberships.push({ k, letter, pending });
-        ends.set(key, memberships);
+        add(ends, `${m.line}:${t}`);
       }
-      const list = letters.get(m.line) || [];
-      if (!list.some((x) => x.letter === letter)) list.push({ k, letter, pending });
-      letters.set(m.line, list);
+      add(letters, m.line);
     }
   });
   return { ends, letters };

@@ -692,6 +692,14 @@ function unitTypePlacement() {
     JSON.stringify(marks(duplicate)) === JSON.stringify(['1:1', '2:1', '1:5', '2:4']),
     'duplicate links keep their own display placements'
   );
+  const many =
+    '[SETUP — rhyme groups — ' +
+    Array(27).fill('1.head,1.head,2.head').join(';') +
+    ']\n[VERSE]\nnever say the word aloud\nnever leave the room';
+  const membership = run('lyRhymeMarks(lyParse(__t))', { __t: many });
+  check(membership.ends.get('1:1').length === 27, 'repeated members keep one word mark per link');
+  check(membership.letters.get(1).length === 27, 'line labels keep every distinct link');
+  check(membership.letters.get(1)[26].letter === 'AA', 'links beyond Z retain their label');
   const m = run('lyParse(__t)', { __t: text });
   check(
     run('lyMemberWord(__m, lyLinksOf(__m)[0][0], 43)', { __m: m }) === 'never',
