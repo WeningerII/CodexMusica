@@ -3556,9 +3556,10 @@ def _redraw_past_joint_gate(seed, kw):
     that the request cannot be built."""
     rng = random.Random(seed)
     refused = []
-    # THE LENGTH THE FIRST CANDIDATE DREW IS KEPT (D7, 3PO's review of #630):
-    # with no declared `lines`, every later candidate is handed the first
-    # draw's total, so a redraw re-deals the shape and never the length.
+    # THE LENGTH THE FIRST CANDIDATE DREW IS KEPT (D7, 3PO's review of #630),
+    # on this default (no-wants) path only: with no declared `lines`, every
+    # later candidate is handed the first draw's total, so a redraw re-deals
+    # the shape and never the length. The wants path is unchanged.
     drawn = {}
     for attempt in range(REDRAW_BOUND):
         candidate_seed = seed if attempt == 0 else rng.getrandbits(64)
@@ -3796,11 +3797,14 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     # conditioned on acceptance: first draws averaged about 229 lines and
     # delivered plans about 199. The total is now kept and only the shape is
     # redrawn, so the delivered length is the uniform draw itself.
-    # AND ONCE ACROSS JOINT-GATE REDRAWS (3PO's review of #630): a candidate
-    # the joint gate refuses is redrawn under a new candidate seed, and that
-    # candidate keeps the length the first one drew (`_total`, handed in by
-    # `_redraw_past_joint_gate`), so a redraw re-deals the shape, never the
-    # length. `_drawn` reports the length drawn here back to that caller.
+    # AND ONCE ACROSS THE DEFAULT PATH'S JOINT-GATE REDRAWS (3PO's review of
+    # #630): with no wants, a candidate the joint gate refuses is redrawn
+    # under a new candidate seed, and that candidate keeps the length the
+    # first one drew (`_total`, handed in by `_redraw_past_joint_gate`), so
+    # such a redraw re-deals the shape, never the length. `_drawn` reports
+    # the length drawn here back to that caller. NOT the wants path: a
+    # declared want conditions the draw (`_want_candidates`), and each of
+    # its candidates still draws its own length, unchanged by this.
     if lines is not None:
         total = lines
     elif _total is not None:
