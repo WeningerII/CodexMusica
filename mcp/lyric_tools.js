@@ -1219,7 +1219,9 @@ const declared = (value) =>
   value !== '' &&
   !(Array.isArray(value) && value.length === 0);
 // The declarations a PLAN is drawn from, which a pasted song's run has none of.
-const PLAN_ONLY_FIELDS = PLAN_FIELDS.filter((f) => !['seed', 'relation'].includes(f));
+const PLAN_ONLY_FIELDS = PLAN_FIELDS.filter(
+  (f) => !['seed', 'relation', 'group_types'].includes(f)
+);
 // The lines an interview answer carries, labels stripped (`L3: …`, `LINE: …`).
 function answeredLines(answer) {
   return String(answer)
@@ -1376,6 +1378,10 @@ function globalsFor(a) {
   return out;
 }
 
+// Each group's chosen type as the harness reads it, one argv token of JSON.
+const groupTypesArg = (types) =>
+  `--group-types=${JSON.stringify(types.map(({ group, type }) => ({ group, type })))}`;
+
 function planArgs(a) {
   const args = [`--seed=${a.seed}`, `--form=${a.form || DEFAULT_FORM}`];
   if (a.lines != null) args.push(`--lines=${a.lines}`);
@@ -1396,6 +1402,7 @@ function planArgs(a) {
   // coordinate off the tool call while groups and returns come off the plan
   // artifact -- a second statement of the mandate (doctrine 1).
   if (a.relation) args.push(`--relation=${a.relation}`);
+  if (a.group_types?.length) args.push(groupTypesArg(a.group_types));
   if (a.functions) args.push(`--functions=${a.functions}`);
   // The `=` spelling is mandatory here and not a style choice: the harness's
   // `--title X` form takes exactly ONE argv token, so a multi-word title is
@@ -1576,7 +1583,10 @@ const linesField = z
 // pair stands in all of them its sound supports at once. A group is satisfied
 // when its pairs stand in at least one. ~~the PLANNER DRAWS a relation per
 // group (M-117)~~ -- STRUCK: the planner draws none; `plan.relations` is empty
-// unless the writer declared one.
+// unless the writer declared one. ~~the planner draws none~~ -- STRUCK
+// 2026-10-28: since D1 (2026-10-27) every planned group carries one type,
+// declared or drawn, in `plan.relations`, and "nobody said" is the pasted
+// song's case only.
 const relationField = z
   .string()
   // 64 CHARS IS THE RELATION NAME'S OWN BOUND, not a line count: the longest
@@ -1585,7 +1595,25 @@ const relationField = z
   .max(64)
   .optional()
   .describe(
-    'Declare ONE rhyme relation every mandated group must stand in, e.g. "type:rime riche", "type:pararhyme", "class:ASSONANCE", "schema:perfect rhyme". Namespace it (type: / class: / schema:); overlapping bare names refuse. class: is a coarse relation (membership: a perfect rhyme stands in class:RHYME and class:ASSONANCE, and in class:CONSONANCE only when it closes on a consonant — heart/start does, sky/fly does not), type: is the named-cell engine, and schema: is a registry schema, which requires the complete declared figure and its placement. An intra-line figure cannot stand in for a pair of lines; missing topology or placement refuses instead of accepting partial edges. With no declaration, every pair is judged against EVERY relation — each coarse relation at its own cut and every registry schema — and a group is satisfied when, for each pair, the two words the group binds stand in at least one (another word in the line relating does not count); each pair\'s relations are all reported, and unresolved obligations are disclosed; an unsupported shape never counts as success. Planning draws no relation. Declaring one narrows the requirement to that relation. An unknown name refuses and the refusal lists the declarable names by namespace; for one pair, lyric_types reports its type names, coarse relations and registry schemas.'
+    "Declare ONE relation every mandated group must stand in, written NAMESPACE:NAME. Namespace it (type: / class: / schema:); overlapping bare names refuse. class: is a coarse relation (a pair stands in every class its sound supports), type: is the named-cell engine, and schema: is a registry schema, which requires the complete declared figure and its placement. An intra-line figure cannot stand in for a pair of lines; missing topology or placement refuses instead of accepting partial edges. A plan gives every group one type, declared or drawn with equal odds, and lyric_grade judges each group by its own type alone. A pasted song's group with no declaration (no relation and no group_types entry) is judged against EVERY relation — each coarse relation at its own cut and every registry schema — and is satisfied when, for each pair, the two words the group binds stand in at least one (another word in the line relating does not count); each pair's relations are all reported, and unresolved obligations are disclosed; an unsupported shape never counts as success. Declaring one narrows the requirement to that relation. An unknown name refuses and the refusal lists the declarable names by namespace; for one pair, lyric_types reports its type names, coarse relations and registry schemas."
+  );
+
+// THE LYRICS PAGE'S PER-LINK TYPE MENU (2026-10-28): a type travels as its
+// registry index, never its name, and the harness turns it into that group's
+// `schema:<name>` (`quality/plan.py` group_types_to_relations), the one
+// reading of the index, which refuses a bad entry by name. Integers only: a
+// float or a string is refused here and never coerced.
+const groupTypesField = z
+  .array(
+    z.object({
+      group: z.number().int().min(1).max(MAX_LINES).describe("The group's 1-based number."),
+      type: z.number().int().min(0).describe('The type, as its index in the relation registry.'),
+    })
+  )
+  .max(MAX_LINES)
+  .optional()
+  .describe(
+    "One type per group, each written {group, type}: the group is judged by that type alone, and a member with no written place is judged where that type places it. On lyric_plan, lyric_grade and a planned song's lyric_revise the group is the plan's N-th group and its type is kept, never drawn; a type the planner cannot plan for the song's language is refused with its reason. On lyric_check, lyric_verify and a pasted song's lyric_revise the group is the N-th group written in `groups`, a repeated group counted again, and two groups on the same lines with different types are two requirements, both judged; it is refused beside a letter `scheme`. A whole number only: anything else is refused, never rounded. Carry it unchanged from plan to grade and revise."
   );
 
 const functionsField = z
@@ -1593,7 +1621,7 @@ const functionsField = z
   .max(200)
   .optional()
   .describe(
-    'Comma-separated ALLOW-LIST of section functions this song may use, e.g. "verse,chorus,bridge,outro". Checked against each function\'s own definition BEFORE any shape is drawn: asking for a prechorus without a chorus REFUSES, because the word means before-the-chorus. A roster permits, it does not compel — functions the draw did not use are reported. Omit to let the planner use its whole roster.'
+    "Comma-separated ALLOW-LIST of section functions this song may use, written F1,F2,…. Checked against each function's own definition BEFORE any shape is drawn: asking for a prechorus without a chorus REFUSES, because the word means before-the-chorus. A roster permits, it does not compel — functions the draw did not use are reported. Omit to let the planner use its whole roster."
   );
 
 // THE TITLE IS THE THIRD OF THAT FAMILY (MISSING.md M-93), and it is the one
@@ -1640,7 +1668,7 @@ const lexiconSupplementField = z
   .enum(LEXICON_CHOICES)
   .optional()
   .describe(
-    `Which reviewed lexicon supplement is read beside CMUdict: a frozen version id, or '${LEXICON_CHOICES[0]}' for CMUdict alone. Omit it: new work reads the current default (${LEXICON_MANIFEST.default}), and a continued run keeps the version it was graded under — a run recorded before this field existed stays on '${LEXICON_CHOICES[0]}'. The supplement adds reviewed pronunciations CMUdict lacks (e.g. hyphenated number words like sixty-six). A version this build does not ship refuses (LEXICON_SUPPLEMENT_UNAVAILABLE); no other version is substituted.`
+    `Which reviewed lexicon supplement is read beside CMUdict: a frozen version id, or '${LEXICON_CHOICES[0]}' for CMUdict alone. Omit it: new work reads the current default (${LEXICON_MANIFEST.default}), and a continued run keeps the version it was graded under — a run recorded before this field existed stays on '${LEXICON_CHOICES[0]}'. The supplement adds reviewed pronunciations CMUdict lacks. A version this build does not ship refuses (LEXICON_SUPPLEMENT_UNAVAILABLE); no other version is substituted.`
   );
 const lexiconSupplementShaField = z
   .string()
@@ -1702,7 +1730,7 @@ const pronunciationField = z
           .min(1)
           .max(1000)
           .describe(
-            'Who chose this reading and why (e.g. writer: record means the disc), or the supplied pronunciation source. Never silently guess.'
+            'Who chose this reading and why, or the supplied pronunciation source. Never silently guess.'
           ),
       })
       .strict()
@@ -1718,7 +1746,7 @@ const melodyField = z
   .max(65536)
   .optional()
   .describe(
-    'Declared repeating monophonic phrase as JSON text, e.g. {"meter":{"beats":4,"unit":4,"groups":[2,2]},"bars":2,"subdivision":1,"notes":[{"pitch_hz":440,"ticks":8}]}. Repeat once per lyric line. Hz permits any tuning; null pitch is a rest. It is a plan declaration: the same seed can draw a different shape with a melody than without, so carry it unchanged to grade and revise. Underlay and pitch performance are not certified.'
+    'Declared repeating monophonic phrase as JSON text of the shape {"meter":{"beats":B,"unit":U,"groups":[G,…]},"bars":N,"subdivision":S,"notes":[{"pitch_hz":HZ,"ticks":T},…]}. Repeat once per lyric line. Hz permits any tuning; null pitch is a rest. It is a plan declaration: the same seed can draw a different shape with a melody than without, so carry it unchanged to grade and revise. Underlay and pitch performance are not certified.'
   );
 
 const narrativeField = z
@@ -1916,12 +1944,13 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_WANTS)
       .optional()
       .describe(
-        'Declared structural predicates that CONDITION the planner\'s draw — the same NAME<=N / NAME>=N / NAME=VALUE vocabulary as lyric_sweep\'s `want`, in a different role: the planner draws until they hold, so a seed planned with wants can be a different shape from the same seed planned without them. Carry unchanged to grade and revise; the plan discloses selection. In a creation session, pass the accepted sweep\'s `want` list here unchanged. Example: ["lines<=30", "group<=4"].'
+        "Declared structural predicates that CONDITION the planner's draw — the same NAME<=N / NAME>=N / NAME=VALUE vocabulary as lyric_sweep's `want`, in a different role: the planner draws until they hold, so a seed planned with wants can be a different shape from the same seed planned without them. Carry unchanged to grade and revise; the plan discloses selection. In a creation session, pass the accepted sweep's `want` list here unchanged."
       ),
     seed: seedField,
     form: formField,
     lines: linesField,
     relation: relationField,
+    group_types: groupTypesField,
     functions: functionsField,
     title: titleField,
     narrative: narrativeField,
@@ -1939,6 +1968,7 @@ export const LYRIC_TOOL_SCHEMAS = {
     form: formField,
     lines: linesField,
     relation: relationField,
+    group_types: groupTypesField,
     functions: functionsField,
     title: titleField,
     narrative: narrativeField,
@@ -1976,7 +2006,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_LINES)
       .optional()
       .describe(
-        "For a pasted song (no seed): the letter rhyme scheme over the lines, e.g. 'ABAB' (X = free)."
+        'For a pasted song (no seed): the letter scheme over the lines, one letter per line (X = free).'
       ),
     numbering: numberingField,
     groups: z
@@ -1984,13 +2014,13 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_MANDATE_CHARS)
       .optional()
       .describe(
-        "For a pasted song (no seed): rhyme groups by 1-based line number, e.g. '1,3;2,4', a member optionally naming its place ('1,3.head'). The mandate lyric_check graded under — pass the SAME one here, so the loop revises against what was checked."
+        'For a pasted song (no seed): groups by 1-based line number, written N,N;N,N, a member optionally naming its place (N.PLACE). The mandate lyric_check graded under — pass the SAME one here, so the loop revises against what was checked.'
       ),
     returns: z
       .string()
       .max(MAX_MANDATE_CHARS)
       .optional()
-      .describe("For a pasted song: verbatim-return classes by line number, e.g. '5,13;6,14'."),
+      .describe('For a pasted song: verbatim-return classes by line number, written N,N;N,N.'),
     structures: z
       .string()
       .max(MAX_MANDATE_CHARS)
@@ -2004,6 +2034,7 @@ export const LYRIC_TOOL_SCHEMAS = {
     form: seededOnly(formField),
     lines: seededOnly(linesField),
     relation: relationField,
+    group_types: groupTypesField,
     functions: seededOnly(functionsField),
     title: seededOnly(titleField),
     narrative: seededOnly(narrativeField),
@@ -2104,7 +2135,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(8)
       .optional()
       .describe(
-        "Tier-2 backtrack width (this connector's default is 1: when tier 1 fails on a line, ONE group rewrite is asked of you that round — the whole rhyme group at once, which is the only move when every single-word answer is banned; 0 shuts it). Declared once per run, like max_rounds."
+        "Tier-2 backtrack width (this connector's default is 1: when tier 1 fails on a line, ONE group rewrite is asked of you that round — the whole group at once; 0 shuts it). Declared once per run, like max_rounds."
       ),
   },
   lyric_sweep: {
@@ -2129,7 +2160,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_WANTS)
       .optional()
       .describe(
-        "What you want the shape to be, as predicates: NAME<=N, NAME>=N, or NAME=VALUE. A FILTER over each seed's plan as drawn without these predicates — not lyric_plan's `wants`, which conditions the draw itself. The vocabulary is CLOSED and an undeclared name refuses BY NAME, printing the whole table. Function-specific counts: sections.verse=5, min_lines.verse=4, max_lines.verse=4 (replace verse with any declared section function; absence reads zero). Counts (answer <=, >=, =): lines, sections, lines_per_section (smallest SUNG section), group (deepest rhyme group), n_sounds (how many DISTINCT rhyme sounds the drawn scheme asks the song to find), adjacencies (how many adjacent line pairs the scheme asks to share a sound), crossings (how many pairs INTERLEAVE — ABAB rather than the nested ABBA), bars_per_line, beats_per_line, slots_per_line, hook (line number, 0 if none), returns (how many verbatim-return classes), pins_per_line (most words any line is bound at), bound_words_per_line (the MEAN words bound per line, over every line — the DENSITY coordinate, and the one that answers a fraction: `pins_per_line` is a per-line CAP, so it asks whether EVERY line is under k and at song length nearly every draw puts some line at the ceiling), story_lineups (how many legal story line-ups the shape admits — story_lineups>=1 filters for shapes that can carry a story at all). Function-valued (answer '=' only, comma-separated names): uses=verse,chorus means BOTH were drawn; before=verse,chorus means the first verse precedes the first chorus, and is FALSE rather than an error if either is absent. Omit entirely and every seed that plans is accepted, which is honest and useless — there is no default, because a sweep does not decide what you want."
+        "What you want the shape to be, as predicates: NAME<=N, NAME>=N, or NAME=VALUE. A FILTER over each seed's plan as drawn without these predicates — not lyric_plan's `wants`, which conditions the draw itself. The vocabulary is CLOSED and an undeclared name refuses BY NAME, printing the whole table. Function-specific counts: sections.F=N, min_lines.F=N, max_lines.F=N, for F any declared section function (absence reads zero). Counts (answer <=, >=, =): lines, sections, lines_per_section (smallest SUNG section), group (deepest rhyme group), n_sounds (how many DISTINCT rhyme sounds the drawn scheme asks the song to find), adjacencies (how many adjacent line pairs the scheme asks to share a sound), crossings (how many pairs INTERLEAVE — ABAB rather than the nested ABBA), bars_per_line, beats_per_line, slots_per_line, hook (line number, 0 if none), returns (how many verbatim-return classes), pins_per_line (most words any line is bound at), bound_words_per_line (the MEAN words bound per line, over every line — the DENSITY coordinate, and the one that answers a fraction: `pins_per_line` is a per-line CAP, so it asks whether EVERY line is under k and at song length nearly every draw puts some line at the ceiling), story_lineups (how many legal story line-ups the shape admits — story_lineups>=1 filters for shapes that can carry a story at all). Function-valued (answer '=' only, comma-separated names): uses=F,G means BOTH were drawn; before=F,G means the first F precedes the first G, and is FALSE rather than an error if either is absent. Omit entirely and every seed that plans is accepted, which is honest and useless — there is no default, because a sweep does not decide what you want."
       ),
     form: formField,
     lines: linesField,
@@ -2158,23 +2189,24 @@ export const LYRIC_TOOL_SCHEMAS = {
       // on a route whose draft ceiling is 447.
       .max(MAX_LINES)
       .optional()
-      .describe("Letter rhyme scheme over the lines, e.g. 'ABAB' (X = free line)."),
+      .describe('Letter scheme over the lines, one letter per line (X = free line).'),
     numbering: numberingField,
     groups: z
       .string()
       .max(MAX_MANDATE_CHARS)
       .optional()
       .describe(
-        "Rhyme groups by 1-based line numbers, e.g. '1,3;2,4'. A member may name WHERE in its line the rhyme binds: '1,3.head'. Places: end (default), endword, head, headrime, line, T<n>."
+        "Groups by 1-based line numbers, written N,N;N,N. A member may name WHERE in its line it binds, written N.PLACE. Places: end, endword, head, headrime, line, T<n>. A member with no place is judged where its group's type places it (the type group_types or relation gives the group); in a group with no type it binds at end (its line's last word, from its last stress)."
       ),
     returns: z
       .string()
       .max(MAX_MANDATE_CHARS)
       .optional()
       .describe(
-        "Verbatim returns: whole lines '5,13;6,14' or word identity at placements '1.head,3.head'. Optional."
+        'Verbatim returns: whole lines written N,N;N,N, or word identity at placements written N.PLACE,N.PLACE. Optional.'
       ),
     relation: relationField,
+    group_types: groupTypesField,
     // THE SAME MANDATE lyric_check GRADES UNDER (M-189): `verify` accepted
     // `--structures=` on the CLI while this schema had no field for it, so
     // a structured round was verified under a DIFFERENT mandate from the
@@ -2184,7 +2216,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_MANDATE_CHARS)
       .optional()
       .describe(
-        "Declare a catalog STRUCTURE per group, e.g. 'B:kalevala-alliteration' — exactly the field lyric_check takes, so a structured draft is VERIFIED under the mandate it was CHECKED under. Comma-separated for several: 'A:pararhyme,B:skothending'. An unknown name refuses BY NAME. Beside a song-wide `relation` both are judged: a structured group's pairs must satisfy the relation AND the row's own judge."
+        "Declare a catalog STRUCTURE per group, written LABEL:NAME — exactly the field lyric_check takes, so a structured draft is VERIFIED under the mandate it was CHECKED under. Comma-separated for several groups. An unknown name refuses BY NAME. Beside a song-wide `relation` both are judged: a structured group's pairs must satisfy the relation AND the row's own judge."
       ),
     voices: voicesField,
     fallback: fallbackField,
@@ -2240,20 +2272,21 @@ export const LYRIC_TOOL_SCHEMAS = {
       // on a route whose draft ceiling is 447.
       .max(MAX_LINES)
       .optional()
-      .describe("Letter rhyme scheme over the lines, e.g. 'ABAB' (X = free line)."),
+      .describe('Letter scheme over the lines, one letter per line (X = free line).'),
     numbering: numberingField,
     groups: z
       .string()
       .max(MAX_MANDATE_CHARS)
       .optional()
       .describe(
-        "Rhyme groups by 1-based line numbers, e.g. '1,3;2,4' — lines 1&3 rhyme and 2&4 rhyme. Alternative to scheme. A member may also name WHERE in its line the rhyme binds: '1,3.head' asks line 3's first word to answer line 1's last; places are end (default), endword, head, headrime, line, or T<n> for the n-th word."
+        "Groups by 1-based line numbers, written N,N;N,N — the lines of each group must satisfy that group's relation. Alternative to scheme. A member may also name WHERE in its line it binds, written N.PLACE; places are end, endword, head, headrime, line, or T<n> for the n-th word. A member with no place is judged where its group's type places it (the type group_types or relation gives the group); in a group with no type it binds at end (its line's last word, from its last stress)."
       ),
     // `lyric_check` builds its own mandate rather than reading a plan, so
     // the relation is a DIRECT parameter here where `lyric_grade` takes it
     // off the plan artifact. Same coordinate, and the difference is which
     // object is the mandate (doctrine 1).
     relation: relationField,
+    group_types: groupTypesField,
     // `--structures` WAS THE ARCHETYPE THIS FILE NAMES (see planArgs's
     // comment): a coordinate built, tested, and reachable from the outermost
     // layer by nothing. It lands HERE and not on lyric_plan/lyric_grade
@@ -2267,7 +2300,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_MANDATE_CHARS)
       .optional()
       .describe(
-        "Declare a catalog STRUCTURE per group, e.g. 'B:kalevala-alliteration' — the group's pairs are then judged by that row's own judge at its own anchors, not by the end-rhyme comparator. Comma-separated for several: 'A:pararhyme,B:skothending'. An unknown name refuses, and the refusal lists the catalog's rows and aliases. TWO CONSEQUENCES a caller must expect: the two-tier ban is NOT ASKED of a pair judged under a non-default structure (the ban's tables are end-rhyme instruments) — the verdict lists those pairs in ban_not_asked, and banned_pairs is null when no pair was asked; and a row with no laziness calibration for the draft's language is named in structures_uncalibrated — correctness is judged, laziness is not. Beside a song-wide `relation` the two are a CONJUNCTION: a structured group's pairs must satisfy both, so neither coordinate wins in silence — a pair its structure accepts is still charged when the relation fails it."
+        "Declare a catalog STRUCTURE per group, written LABEL:NAME — the group's pairs are then judged by that row's own judge at its own anchors. Comma-separated for several groups. An unknown name refuses, and the refusal lists the catalog's rows and aliases. A row with no laziness calibration for the draft's language is named in structures_uncalibrated — correctness is judged, laziness is not. Beside a song-wide `relation` the two are a CONJUNCTION: a structured group's pairs must satisfy both, so neither coordinate wins in silence — a pair its structure accepts is still charged when the relation fails it."
       ),
     voices: voicesField,
     fallback: fallbackField,
@@ -2281,7 +2314,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_MANDATE_CHARS)
       .optional()
       .describe(
-        "Verbatim-return classes by line numbers, e.g. '5,13;6,14' — line 13 must repeat line 5 word for word. Optional, joins groups."
+        'Verbatim-return classes by line numbers, written N,N;N,N — each later line must repeat the first of its class word for word. Optional, joins groups.'
       ),
   },
   lyric_types: {
@@ -2314,7 +2347,7 @@ export const KITCHEN_REVISE_SCHEMA = Object.freeze({
     `Tier-1 attempts per flagged line. When the service writer answers, the default is ${KITCHEN_ATTEMPTS}: a rejected line is re-asked at once with its rejection quoted. Declared once per run, like max_rounds.`
   ),
   backtrack: LYRIC_TOOL_SCHEMAS.lyric_revise.backtrack.describe(
-    "Tier-2 backtrack width (this connector's default is 1: when tier 1 fails on a line, ONE group rewrite is asked of the service writer that round — the whole rhyme group at once; 0 shuts it). Declared once per run, like max_rounds."
+    "Tier-2 backtrack width (this connector's default is 1: when tier 1 fails on a line, ONE group rewrite is asked of the service writer that round — the whole group at once; 0 shuts it). Declared once per run, like max_rounds."
   ),
 });
 for (const key of KITCHEN_ONLY_FIELDS) delete LYRIC_TOOL_SCHEMAS.lyric_revise[key];
@@ -2355,15 +2388,14 @@ function reviseDescription({ kitchen = false } = {}) {
     'names the flags. Exit 2 means coverage was not certified (`coverage` and `certified` say which pairs ' +
     'went unjudged); when its stamp also names UNRESOLVED lines, the song is parked as well. Present an exit ' +
     '2 or 3 stop as parked or uncertified, never as finished — its note says what to do next. ' +
-    'Banned pairs (the two-tier ban) are reported as notes and hold no line open. Budget fields (max_rounds, attempts, backtrack) are declared once per run; a ' +
+    'Budget fields (max_rounds, attempts, backtrack) are declared once per run; a ' +
     `moved declaration is refused. Writer execution enforces ${MAX_LINE_CHARS} characters per sung line. ` +
     'A journal_capacity stop preserves ' +
     'the exact journal and accepted draft and cannot resume; reduce the requested scope before independent ' +
     'new_run work. ';
   const interview =
     "YOU WRITE EVERY LINE. A suspended call returns [AWAITING PROPOSAL] and the writer's brief for ONE " +
-    'question as its first text block — which lines, what they must answer, which words are FORBIDDEN as ' +
-    'too predictable — and no song. Answer by calling lyric_revise again with only `answer` (exactly one ' +
+    'question as its first text block — which lines and what they must answer — and no song. Answer by calling lyric_revise again with only `answer` (exactly one ' +
     'line of song text) or `answers` (one {line, text} per asked line — the shape for a batch or a group ' +
     'question): the run keeps its declarations and the draft it opened on, and the call names the run the ' +
     'way this connection carries it. Each call resumes from its saved, sealed position, or replays its ' +
@@ -2405,15 +2437,12 @@ export function registerLyricTools(server, tool) {
     server,
     'lyric_screen',
     {
-      title: 'Screen rhyme pairs before writing',
+      title: 'Screen word pairs before writing',
       description:
-        'Is this rhyme pair USABLE? Every unordered pair among the words is listed with EVERY relation it stands in — ' +
-        'each coarse relation (RHYME, RIME_RICHE, PROMOTED_RHYME, ASSONANCE, CONSONANCE) at its own cut and every registry ' +
-        'schema judged at the two end words (a perfect rhyme is also assonance, and consonance when it closes on a ' +
-        'consonant — heart/start, not sky/fly; rain/reign is RHYME and RIME_RICHE) — plus the schemas that could not ' +
-        "decide at the pair, and the song grader's bans on a minimal mandated " +
-        'pair: BANNED (HOMEOTELEUTON — same spelled ending, the laziest true rhyme; MODAL_RHYME — the most predictable ' +
-        "partner), or the grader's own refusal for an unreadable word. A banned pair is an ANSWER, not an error. A pair " +
+        'Which relations does each word pair stand in? Every unordered pair among the words is listed with EVERY ' +
+        'relation it stands in — each coarse relation (RHYME, RIME_RICHE, PROMOTED_RHYME, ASSONANCE, CONSONANCE) at its ' +
+        'own cut and every registry schema judged at the two words — plus the schemas that could not decide at the ' +
+        "pair, or the grader's own refusal for an unreadable word. A pair " +
         'standing in no relation is reported as standing in none. USE THIS BEFORE WRITING to check proposed pairs against ' +
         'the declared requirements. Pass `relation` to ask the question a mandate declaring it will ask (SATISFIES / ' +
         'VIOLATES / REFUSED per pair), reported independently beside the relation list. ' +
@@ -2506,7 +2535,7 @@ export function registerLyricTools(server, tool) {
       description:
         'The whole-song verdict: re-derives the plan from the SAME seed and the same plan declarations given to ' +
         `lyric_plan (${PLAN_DECLARATIONS} — every one that was declared there must be declared here, or a DIFFERENT ` +
-        'plan is graded), fills it with the draft, and grades — rhyme mandate, verbatim returns, meter fit, section ' +
+        "plan is graded), fills it with the draft, and grades — each group's relation, verbatim returns, meter fit, section " +
         `functions, the slop floor — under the reading declarations (${READING_DECLARATIONS}), which lyric_revise then ` +
         "carries unchanged. THE TOOL RESULT'S FIRST TEXT BLOCK IS THE GRADED DRAFT rendered in performance order — an " +
         'INTERIM artifact, never a finished song (finishing is lyric_revise, whose [FINISHED …] stamp only exists past a ' +
@@ -2516,13 +2545,10 @@ export function registerLyricTools(server, tool) {
         'stamp line under the song is part of the block. The second block is the verdict — READ IT, NOT THE EXIT CODE: ' +
         'measurement_status "graded" means the draft was measured; certified and coverage say whether every mandated ' +
         'pair and requested layer was judged (coverage.refused_obligations names what was not); flags and whole_flags ' +
-        'count the FLAGS standing (defects); banned_pairs counts mandated pairs on the two-tier ban (HOMEOTELEUTON / ' +
-        'MODAL_RHYME), and banned[] names each pair by its lines and, in binding, the bound word and its place on each ' +
-        'line — often not the end word. The code follows from those: 0 is measured and certified with no flag; ' +
+        'count the FLAGS standing (defects). The code follows from those: 0 is measured and certified with no flag; ' +
         '3 is measured and certified with a flag or a whole-draft flag standing; 2 is either ' +
         'measured with coverage incomplete (flags may stand too) or refused with nothing measured (refusal names why). ' +
-        'The stamp says which. Banned pairs are notes: rewrite one only if you want to. Other NOTES are ' +
-        'measurements, not defects. ' +
+        'The stamp says which. NOTES are measurements, not defects. ' +
         (server.kitchen
           ? 'To finish the song or fix flagged lines, send this exact graded draft, unchanged, to ' +
             'lyric_revise with the same seed and declarations; the service writer revises. If you ' +
@@ -2987,7 +3013,7 @@ export function registerLyricTools(server, tool) {
                   "without a seed, declare one of 'scheme' or 'groups', or a returns-only mandate — a pasted song's mandate is a declaration, not a default"
                 );
               if (!seeded && hasScheme && !SCHEME_RE.test(a.scheme))
-                throw refuse("scheme must be letters only, e.g. 'ABAB'");
+                throw refuse('scheme must be letters only, one per line (X = free line)');
               if (!seeded && hasGroups && !MANDATE_RE.test(a.groups))
                 throw refuse(
                   "groups must be line numbers like '1,3;2,4', optionally naming a place"
@@ -2995,9 +3021,7 @@ export function registerLyricTools(server, tool) {
               if (!seeded && a.returns && !RETURNS_RE.test(a.returns))
                 throw refuse("returns must be members like '5,13;6,14' or '1.head,3.head'");
               if (!seeded && a.structures && !STRUCTURES_RE.test(a.structures))
-                throw refuse(
-                  "structures must be 'LABEL:name' pairs, comma-separated, e.g. 'A:pararhyme'"
-                );
+                throw refuse("structures must be 'LABEL:name' pairs, comma-separated");
               if (a.blueprint != null && a.subdivision == null)
                 throw refuse(
                   '`blueprint` needs `subdivision` — the slot questions refuse rather than assume a grid'
@@ -3035,6 +3059,7 @@ export function registerLyricTools(server, tool) {
                 if (hasGroups) args.push(`--groups=${a.groups}`);
                 if (a.returns) args.push(`--returns=${a.returns}`);
                 if (a.relation) args.push(`--relation=${a.relation}`);
+                if (a.group_types?.length) args.push(groupTypesArg(a.group_types));
                 if (a.structures) args.push(`--structures=${a.structures}`);
                 if (a.blueprint != null) {
                   const bpPath = path.join(dir, 'blueprint.json');
@@ -3538,12 +3563,11 @@ export function registerLyricTools(server, tool) {
         'The other half of a revision round. lyric_check briefs a draft; this judges a CHANGE to one — hand it the ' +
         'lines BEFORE and AFTER under the same mandate and it answers whether the revision earned its place. Three ' +
         'ways a revision goes wrong and all three are silent: it fixes the flagged line and breaks another, it ' +
-        'fixes the rhyme by taking the most predictable word in the field, or it quietly rewrites lines nobody ' +
+        'satisfies the group with a word that changes what the line says, or it quietly rewrites lines nobody ' +
         'asked about. Declare `targeted` to turn the third one on. READ `accepted`, NOT `exit_code`: this verb ' +
         'exits 0 for ACCEPTED and REJECTED alike, because the verdict is an answer and not an error. IT IS A DIFF, ' +
-        'NOT A GRADE — it reports what this change fixed and what it introduced (a banned pair the change creates ' +
-        'is in `new`), and says nothing about a defect that survived it untouched, so a banned pair that was ' +
-        "already there is not reported. Whether a whole draft is clean is lyric_grade's question (planned) or " +
+        'NOT A GRADE — it reports what this change fixed and what it introduced (in `new`), and says nothing ' +
+        "about a defect that survived it untouched. Whether a whole draft is clean is lyric_grade's question (planned) or " +
         "lyric_check's (pasted); a song is finished only at a lyric_revise stop condition. " +
         EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_verify,
@@ -3561,7 +3585,7 @@ export function registerLyricTools(server, tool) {
             "declare one of 'scheme' or 'groups', or a returns-only mandate — a verify with no mandate has nothing to judge the change against"
           );
         if (hasScheme && !SCHEME_RE.test(a.scheme))
-          throw refuse("scheme must be letters only, e.g. 'ABAB'");
+          throw refuse('scheme must be letters only, one per line (X = free line)');
         if (hasGroups && !MANDATE_RE.test(a.groups))
           throw refuse("groups must be line numbers like '1,3;2,4', optionally naming a place");
         if (a.returns && !RETURNS_RE.test(a.returns))
@@ -3571,14 +3595,13 @@ export function registerLyricTools(server, tool) {
         await writeFile(bPath, a.before.join('\n') + '\n', 'utf8');
         await writeFile(aPath, a.after.join('\n') + '\n', 'utf8');
         if (a.structures && !STRUCTURES_RE.test(a.structures))
-          throw refuse(
-            "structures must be 'LABEL:name' pairs, comma-separated, e.g. 'A:pararhyme'"
-          );
+          throw refuse("structures must be 'LABEL:name' pairs, comma-separated");
         const args = [...globalsFor(a), 'verify', bPath, aPath];
         if (hasScheme) args.push(a.scheme);
         if (hasGroups) args.push(`--groups=${a.groups}`);
         if (a.returns) args.push(`--returns=${a.returns}`);
         if (a.relation) args.push(`--relation=${a.relation}`);
+        if (a.group_types?.length) args.push(groupTypesArg(a.group_types));
         if (a.structures) args.push(`--structures=${a.structures}`);
         // TARGETED IS A TRAILING POSITIONAL, and it is the sole gate on the
         // untargeted-rewrite rejection. This repo has already recorded what
@@ -3625,10 +3648,10 @@ export function registerLyricTools(server, tool) {
         'reason — a work order, never a guess. The meter is always refused (counting gives syllables, not a bar ' +
         'grid — declare one with a blueprint), so exit 3 is the ordinary result; a REPEAT edge that binds at a ' +
         'placement is refused with the reason the cover does not spell it — declare the placed returns you mean in ' +
-        "`returns` ('1.head,3.head'). Derived coordinates are NOT independent of the grader: a recovered web graded " +
+        '`returns` (N.PLACE,N.PLACE). Derived coordinates are NOT independent of the grader: a recovered web graded ' +
         'at the same cut cannot fail on rhyme, and the report says so. `placements` narrows the cover: the default ' +
         "placement set's cover grows with the square of the line count and grading it can take much of the shared " +
-        "deadline, so `placements: 'end'` is the practical cover for anything longer than a few lines. " +
+        'deadline, so naming fewer places in `placements` is the practical cover for a long paste. ' +
         EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_recover,
     },
@@ -3672,16 +3695,14 @@ export function registerLyricTools(server, tool) {
     server,
     'lyric_check',
     {
-      title: 'Check pasted lyrics against a declared rhyme plan',
+      title: 'Check pasted lyrics against a declared plan',
       description:
         'For lyrics that were NOT written to a lyric_plan (a human pasting their own song): declare what the lyrics claim — a ' +
-        "letter scheme ('ABAB', X = free) OR rhyme groups by line number ('1,3;2,4'), optionally verbatim-return classes — " +
-        'and get the same rhyme grading and slop floor the full pipeline runs. After lyric_recover, pass its `lines` ' +
+        'letter scheme (one letter per line, X = free) OR groups by line number (N,N;N,N), optionally verbatim-return classes — ' +
+        'and get the same grading and slop floor the full pipeline runs. After lyric_recover, pass its `lines` ' +
         'with its mandate, so the line numbers name the same lines. A declaration is REQUIRED: nothing declared means ' +
         'nothing mandated, and "nothing flagged" about that would be a vacuous pass. FLAGS are defects with line ' +
-        'numbers; banned_pairs counts declared pairs on the two-tier ban (HOMEOTELEUTON / MODAL_RHYME), reported as ' +
-        'notes, and banned[] names each pair by its lines and, in binding, the bound word and its place on ' +
-        'each line — rewrite that word; other NOTES are measurements. THE EXIT CODE IS NOT THE VERDICT: this verb ' +
+        'numbers; everything else is reported as notes, which are measurements. THE EXIT CODE IS NOT THE VERDICT: this verb ' +
         'exits 0 whenever it answers, with flags standing or coverage incomplete. Read `flags` and `whole_flags` for ' +
         'what stands, `certified` and `coverage` for whether every declared pair and requested layer was judged ' +
         '(coverage.refused_obligations names what was not), and `unreadable` (a count) with `unreadable_findings` ' +
@@ -3700,7 +3721,7 @@ export function registerLyricTools(server, tool) {
             "declare one of 'scheme' or 'groups', or a returns-only mandate — the mandate is a choice, not a default"
           );
         if (hasScheme && !SCHEME_RE.test(a.scheme))
-          throw refuse("scheme must be letters only, e.g. 'ABAB'");
+          throw refuse('scheme must be letters only, one per line (X = free line)');
         if (hasGroups && !MANDATE_RE.test(a.groups))
           throw refuse(
             "groups must be line numbers like '1,3;2,4', each optionally " +
@@ -3718,8 +3739,7 @@ export function registerLyricTools(server, tool) {
         // argv safety: a leading '-' would become a flag.
         if (a.structures && !STRUCTURES_RE.test(a.structures))
           throw refuse(
-            'structures must be LABEL:NAME entries, e.g. ' +
-              "'B:kalevala-alliteration' or 'A:pararhyme,B:skothending' — a " +
+            'structures must be LABEL:NAME entries, comma-separated — a ' +
               'label is a group letter or a 1-based index, and a name is a ' +
               'catalog row or world alias (an unknown name is refused with the catalog listed)'
           );
@@ -3734,6 +3754,7 @@ export function registerLyricTools(server, tool) {
         if (hasGroups) args.push(`--groups=${a.groups}`);
         if (a.returns) args.push(`--returns=${a.returns}`);
         if (a.relation) args.push(`--relation=${a.relation}`);
+        if (a.group_types?.length) args.push(groupTypesArg(a.group_types));
         // A song-wide relation beside a structure is judged BY THE HARNESS
         // as a conjunction (`quality/test_verbs.py` §44, repointed from the
         // M-102 refusal on 2026-09-22): a structured group's pairs must
@@ -3824,17 +3845,15 @@ export function lyricInstructions({ kitchen = false } = {}) {
     (kitchen
       ? "on this chat surface the service's own writer answers the revise loop's questions. "
       : 'you write every line — the service never writes lyrics for an outside caller. ') +
-    'A pair stands in EVERY relation its sound supports (a perfect rhyme is also assonance, and consonance when ' +
-    'it closes on a consonant; rime riche is also rhyme): the default judges every pair against every coarse ' +
+    'A pair stands in EVERY relation its sound supports: the default judges every pair against every coarse ' +
     'relation and every registry schema, and a group is satisfied when the words it binds stand in at least ' +
     'one (another word in the line relating does not count); planning ' +
     'draws none. Full figures and refused obligations remain explicit. The working order that produces ' +
-    'one-draft songs: (0) lyric_sweep to CHOOSE the seed rather than guess it — declare `lines`, `functions` and what else you want the shape ' +
-    'to be (`want`, a filter) and it returns the seeds that hold, in seed order, unranked; (1) lyric_screen ' +
-    'candidate end-word pairs BEFORE writing — a banned pair (HOMEOTELEUTON/MODAL_RHYME) is an answer, pick ' +
-    "different words; (2) lyric_plan with an accepted seed and the sweep's form, lines, functions and melody " +
+    'one-draft songs: (0) lyric_sweep to CHOOSE the seed rather than guess it — declare what the user asked the shape ' +
+    'to be (`lines`, `functions`, `want` as a filter), and nothing they did not ask for, and it returns the seeds that hold, in seed order, unranked; (1) lyric_screen ' +
+    "the word pairs you mean to write BEFORE writing; (2) lyric_plan with an accepted seed and the sweep's form, lines, functions and melody " +
     '(and its `want` list as `wants`, which conditions the draw) for a complete shape (sections, meter — often ' +
-    'not 4/4, rhyme plan, hook slot) and write to its brief, honoring the verbatim returns — declare the `title` ' +
+    "not 4/4, each group's relation and placement, hook slot) and write to its brief, honoring the verbatim returns — declare the `title` " +
     'here if the song has one, because an undeclared title leaves "is the title in the hook?" REFUSED and a ' +
     'declared one that is not a run of words inside the hook line is a FLAG; (3) lyric_grade with the SAME seed ' +
     `AND THE SAME PLAN DECLARATIONS (${PLAN_DECLARATIONS} — ` +
@@ -3854,27 +3873,25 @@ export function lyricInstructions({ kitchen = false } = {}) {
     'a song presented without its [FINISHED …] stamp is an interim draft and must be presented as one, a stop ' +
     'at exit 2 or 3 is parked or uncertified (its note says what to do next), and stopping at step (3) ' +
     'because the draft "looks done" is the exact hand-wash the loop exists to end — the loop, not you, ' +
-    'says when revision is over. Banned pairs (banned_pairs, banned[]) are reported as notes: they hold no ' +
-    'line open and do not stop a song from finishing. ' +
+    'says when revision is over. ' +
     'PRESENTATION IS PART OF THE CONTRACT: the first text block of a lyric_grade result, and of a lyric_revise ' +
     'result at a stop condition, is the song under its bracket headers and stamp — reproduce the song and its ' +
-    'stamp character for character, exactly as you reproduce a recipe string; the bracket headers ([CHORUS — 3 ' +
-    'lines — 6 bars of 6/8, half-beat pickup]) are measurements, restyling them to bare [CHORUS] deletes what the ' +
+    'stamp character for character, exactly as you reproduce a recipe string; the bracket headers ([NAME — N ' +
+    'lines — B bars of METER, PICKUP]) are measurements, restyling them to a bare [NAME] deletes what the ' +
     "format exists to carry, and the stamp line under the song reaches the user with it. lyric_plan's first block " +
     'is its plan report and brief: keep its bracket header rows exactly as written when you show the shape. For ' +
     'lyrics a user pastes, the SAME steps as a planned song: lyric_recover FIRST to structure them (blank stanza ' +
-    "breaks as empty entries, [SECTION] rows as they are; `placements: 'end'` for anything longer than a few " +
-    'lines) — it hands back the sung `lines`, the `mandate` (groups/returns) numbered over them, and the ' +
+    'breaks as empty entries, [SECTION] rows as they are; fewer `placements` for a long paste) — ' +
+    'it hands back the sung `lines`, the `mandate` (groups/returns) numbered over them, and the ' +
     'coordinates it REFUSED with their reasons (the meter, always) for the user to declare — then lyric_check ' +
     'with those lines and that mandate (and a declared blueprint + subdivision when the user gives the grid), ' +
     'then lyric_revise WITHOUT a seed, with the same lines and mandate, to drive the loop to a stop condition; a ' +
     'bare lyric_check on a paste is the rhyme and floor layers only, and its verdict says so. lyric_verify ' +
     'judges a CHANGE to one, which is the other half of a revision round: read its `accepted`, not its exit ' +
-    'code, and remember it is a DIFF that cannot report banned pairs surviving untouched. FLAGS are defects; ' +
-    'banned pairs and other NOTES are measurements and are not to be ' +
+    'code, and remember it is a DIFF that cannot report a defect surviving untouched. FLAGS are defects; ' +
+    'NOTES are measurements and are not to be ' +
     '"fixed". A verdict carrying structures_uncalibrated is the third thing to read: correctness IS graded for ' +
-    'that declared structure and laziness is NOT; the two-tier ban is not asked of pairs judged under a declared ' +
-    'structure — ban_not_asked lists them, and banned_pairs is null when no pair was asked. For unresolved ' +
+    'that declared structure and laziness is NOT. For unresolved ' +
     'pronunciation, read pronunciation_options from grade/check (it lists the lines a refused obligation names; ' +
     'total counts every ambiguous word), select the intended dictionary reading or ' +
     "supply ARPABET with an honest source in pronunciations, then regrade. Copy each option's numbering marker unchanged with its token; never invent one for held unmarked choices. Choices bind exact line text and " +

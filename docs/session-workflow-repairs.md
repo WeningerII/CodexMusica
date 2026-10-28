@@ -47,8 +47,7 @@ or a successful paid forty-minute kitchen qualification.
 * Final recipe renderers enforce even limits smaller than their genre header.
 * Sweep predicates accept `sections.verse`, `min_lines.verse`, and
   `max_lines.verse`, and corresponding names for every declared section function.
-  For example, `sections.verse=5`, `min_lines.verse=4`, `max_lines.verse=4` asks
-  for five four-line verses. These filter generated plans; they do not rank them,
+  These filter generated plans; they do not rank them,
   privilege a meter, or derive lyrics from a recipe.
 * The test corpus reader closes its input file explicitly.
 

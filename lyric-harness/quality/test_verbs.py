@@ -5674,6 +5674,64 @@ def test_the_plan_report_discloses_density_and_audibility():
           and 'DECLARED, not sampled' in out_declared
           and 'none declared and none drawn' not in out_declared,
           str(declared['relations'])[:120])
+    # THE WEBSITE'S PER-GROUP TYPE (2026-10-28): `--group-types=JSON` reaches
+    # `make_plan(group_types=...)`, the request records it, the report says
+    # how many groups were chosen, and the planner's refusals stay refusals.
+    from quality import relations as _RL
+    _perfect = list(_RL.REGISTRY).index("perfect rhyme")
+    _gt = _json.dumps([{"group": 1, "type": _perfect}])
+    rc_gt, out_gt, _ = run('plan', '--seed=31', f'--group-types={_gt}',
+                           f'--out={bp}', expect_rc=0)
+    with open(bp, encoding='utf-8') as fh:
+        typed = _json.load(fh)
+    check('--group-types makes group A the chosen type, the request records '
+          'it, and the RELATION line counts it as chosen',
+          rc_gt == 0
+          and typed['relations'].get('A') == 'schema:perfect rhyme'
+          and typed['request'].get('group_types')
+          == [{"group": 1, "type": _perfect}]
+          and re.search(r"RELATION: each of the \d+ mandated group\(s\) is "
+                        r"judged by its own type alone \(1 chosen", out_gt)
+          and f"--group-types={_gt}" in out_gt,
+          str(typed['relations'])[:120])
+    refused_gt = [run('plan', '--seed=31', f'--group-types={v}')
+                  for v in ('[{"group": 1, "type": 1.5}]', '{"group": 1}',
+                            '[{"group": 1, "type": 9999}]')]
+    check('...and a bad --group-types entry is refused by name, never '
+          'coerced or dropped',
+          all(rc == 2 for rc, _, _ in refused_gt)
+          and "not rounded or coerced" in refused_gt[0][1]
+          and "JSON list" in refused_gt[1][1]
+          and "registry's indices" in refused_gt[2][1],
+          str([o[-200:] for _, o, _ in refused_gt])[:300])
+    # BOTH DECLARED (BB8, #519): a group the request typed keeps its own
+    # type over the song-wide relation (`Mandate.relation_of`), and the
+    # RELATION line names it as the exception instead of saying "every".
+    _asson = list(_RL.REGISTRY).index("assonance")
+    rc_both, out_both, _ = run(
+        'plan', '--seed=7', '--relation=schema:pararhyme',
+        f'--group-types=[{{"group":1,"type":{_asson}}}]', f'--out={bp}',
+        expect_rc=0)
+    with open(bp, encoding='utf-8') as fh:
+        both = _json.load(fh)
+    _rel_line = next((ln for ln in out_both.splitlines()
+                      if ln.strip().startswith("RELATION:")), "")
+    check('with --relation and --group-types both given, the RELATION line '
+          'names the typed group as the exception to the song-wide relation',
+          rc_both == 0
+          and both['relations'].get('A') == 'schema:assonance'
+          and "except 1 group(s) the request chose: A under "
+              "'schema:assonance'" in _rel_line
+          and "judged under 'schema:pararhyme'" in _rel_line,
+          _rel_line[:200])
+    rc_far, out_far, _ = run('plan', '--seed=7',
+                             f'--group-types=[{{"group":99,"type":{_asson}}}]')
+    check('...and a type chosen for a group no draw reaches is refused naming '
+          'the group and the most groups any candidate drew',
+          rc_far == 2 and re.search(r"group\(s\) 99, and no candidate draw "
+                                    r"for seed 7 has that many groups \(the "
+                                    r"most any drew: \d+\)", out_far),
+          out_far[-300:])
     brief = plan.get("writer_brief", "")
     # REPINNED 2026-10-04 from ~~"Where a binding sits" in brief~~: the plan
     # binds every member at its line's end now (owner's ruling), and the
@@ -6592,6 +6650,122 @@ def test_a_proposer_that_cannot_reach_its_writer_refuses_by_name():
         shutil.rmtree(tmpd, ignore_errors=True)
 
 
+def test_group_types_land_on_the_group_the_page_meant():
+    """`--group-types` on a pasted song numbers the groups AS SENT (3PO,
+    #519). The website numbers each link by its place in the `groups` it
+    sends (`lyDeclarationsOf`), duplicates included, and the mandate
+    collapses a repeated untyped group. A type keyed by a label computed
+    after that collapse was refused, or landed on the next surviving group.
+    Each type now rides its own group before the collapse, so two links
+    with the same members keep a type each, and a type for a group past
+    the ones sent is refused by name."""
+    print("\n61. `--group-types` lands on the group the page sent")
+    import tempfile
+    from quality import relations as _RL
+    names = list(_RL.REGISTRY)
+    perfect, anaphora = names.index("perfect rhyme"), names.index("anaphora")
+    d = tempfile.mkdtemp()
+
+    def grade(lines, groups, types):
+        path = os.path.join(d, "draft.txt")
+        with open(path, "w", encoding="utf-8") as fh:
+            fh.write("\n".join(lines) + "\n")
+        rc, out, _ = run("brief", path, f"--groups={groups}",
+                         f"--group-types={json.dumps(types)}")
+        return rc, out, _machine_result(out)
+
+    def flags(result):
+        return sorted((f.get("code"), f.get("line"))
+                      for f in result.get("findings", [])
+                      if f.get("code") == "SCHEME_VIOLATION")
+
+    try:
+        # A duplicate BEFORE the typed group: group 3 is lines 3 and 4 as
+        # sent. The words at 5 and 6 stand in assonance and not in perfect
+        # rhyme, so a type that slid onto them would charge them.
+        song = ["we walked along the road all day",
+                "and sang the songs along the way",
+                "a sleeping cat", "beneath a hat",
+                "he wore a cap", "the news was bad"]
+        rc, out, res = grade(song, "1,2;1,2;3,4;5,6",
+                             [{"group": 3, "type": perfect}])
+        check("a type for the group after a duplicate is judged on that "
+              "group, not refused and not moved onto the next one",
+              rc in (0, 3) and res.get("status") == "graded"
+              and not flags(res)
+              and "judged under 'schema:perfect rhyme'" in out,
+              f"rc {rc} {res.get('refusal') or flags(res)}")
+        # Two links with the same members, each with its own type.
+        twin = ["we walked along the road all day",
+                "we sang the songs along the way"]
+        rc2, out2, res2 = grade(twin, "1,2;1,2",
+                                [{"group": 1, "type": perfect},
+                                 {"group": 2, "type": anaphora}])
+        rc3, _, res3 = grade([twin[0], "and sang the songs along the way"],
+                             "1,2;1,2", [{"group": 1, "type": perfect},
+                                         {"group": 2, "type": anaphora}])
+        check("...two links with the same members keep a type each: both "
+              "hold, and the second fails alone when its own type fails",
+              res2.get("status") == "graded" and not flags(res2)
+              and res3.get("status") == "graded" and len(flags(res3)) >= 1
+              and "'schema:anaphora'" in out2,
+              f"{res2.get('refusal') or flags(res2)} / "
+              f"{res3.get('refusal') or flags(res3)}")
+        rc4, out4, _ = grade(twin, "1,2;1,2", [{"group": 3, "type": perfect}])
+        check("...and a type for a group past the ones sent is refused, "
+              "naming the group and how many were sent",
+              rc4 == 2 and "group 3" in out4 and "2 group(s)" in out4,
+              out4[-300:])
+        # 3PO's reproduction (#519 6470833052): the type meant for the
+        # second `1,2` stays on it and does not move onto `3,4`.
+        heads = ["never say the word aloud", "never leave the room",
+                 "the cat", "the hat"]
+        _, _, res5 = grade(heads, "1,2;1,2;3,4",
+                           [{"group": 2, "type": anaphora}])
+        m5 = (res5.get("schema_instance_evidence", {}).get("identity", {})
+              .get("declarations", {}).get("mandate", {}))
+        check("...a type for a repeated group's second occurrence stays on "
+              "that occurrence: three groups, the type on the second",
+              m5.get("groups") == [[1, 2], [1, 2], [3, 4]]
+              and m5.get("relations") == ["", "schema:anaphora", ""],
+              str((res5.get("refusal"), m5.get("groups"),
+                   m5.get("relations"))))
+        # A type and a `--relations=` entry on one group are refused alike
+        # whether the group is spelled by its letter or its number.
+        refusals = []
+        for key in ("A", "1"):
+            path = os.path.join(d, "draft.txt")
+            with open(path, "w", encoding="utf-8") as fh:
+                fh.write("\n".join(heads) + "\n")
+            rc6, out6, _ = run("brief", path, "--groups=1,2;3,4",
+                               f"--relations={key}:schema:perfect rhyme",
+                               "--group-types="
+                               + json.dumps([{"group": 1, "type": anaphora}]))
+            refusals.append((rc6, _machine_result(out6).get("refusal")))
+        check("...and a type beside a --relations= entry for the same group "
+              "refuses the same way under its letter and its number",
+              all(rc == 2 for rc, _ in refusals)
+              and refusals[0][1] == refusals[1][1]
+              and "stated twice" in (refusals[0][1] or ""),
+              str(refusals)[:300])
+        # 3PO's reproduction (#519 6471846289): a typed group on one line,
+        # beside a valid group, was dropped as free and took its type with
+        # it, grading exit 0. It is refused by name, whether the one line is
+        # written once or twice.
+        lone = []
+        for groups in ("1;2,3", "1,1;2,3"):
+            rc7, out7, res7 = grade(heads[:3], groups,
+                                    [{"group": 1, "type": anaphora}])
+            lone.append((groups, rc7, res7.get("refusal") or ""))
+        check("...and a type on a group that names fewer than two lines is "
+              "refused by name, not dropped with the group",
+              all(rc == 2 and "group 1" in why
+                  and "fewer than two lines" in why for _, rc, why in lone),
+              str(lone)[:400])
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
+
+
 if __name__ == "__main__":
     # COST-ORDERED, SLOWEST FIRST — 2026-09-05 (`MISSING.md` M-244), from a
     # full local run of all 53 sections (3,782.9 s): the seed sweep 533.5 s,
@@ -6663,6 +6837,7 @@ if __name__ == "__main__":
         test_density_declares_its_line_window,
         test_a_proposer_that_cannot_reach_its_writer_refuses_by_name,
         test_tryline_is_the_loops_own_acceptance_decision,
+        test_group_types_land_on_the_group_the_page_meant,
     )
     # SHARDING (2026-08-18) AND THE PER-SECTION PROFILE (2026-09-01) LIVED
     # INLINE HERE and are ONE idiom in `quality/shard.py` since 2026-09-05

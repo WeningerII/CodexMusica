@@ -300,7 +300,7 @@ function parseNext(text, ctx) {
   let line = m[1];
   const calls = [];
   if (line.startsWith('lyric_sweep')) return [['lyric_sweep', clone(ctx.sweepArgs)]];
-  if (line.startsWith('lyric_screen with the end-word pairs you mean to write, then ')) {
+  if (line.startsWith('lyric_screen with the word pairs you mean to write, then ')) {
     calls.push(['lyric_screen', { words: ['stove', 'coat'] }]);
     line = line.slice(line.indexOf(', then ') + ', then '.length);
   }
@@ -416,7 +416,7 @@ test('the derivation reads the receipts: plan coordinates, later pages, re-plans
   // A sweep and no screen: the screen, then the plan with every coordinate.
   assert.equal(
     formatNextCall(nextCreationCall(clone(at.swept), null, 'lyric_plan')),
-    'NEXT: lyric_screen with the end-word pairs you mean to write, then lyric_plan with seed 16, ' +
+    'NEXT: lyric_screen with the word pairs you mean to write, then lyric_plan with seed 16, ' +
       'form "aaba", lines 2, functions "verse,chorus", wants ["before=verse,chorus","lines<=30"], ' +
       "melody: the sweep's melody unchanged."
   );
@@ -438,7 +438,7 @@ test('the derivation reads the receipts: plan coordinates, later pages, re-plans
   const none = states('none');
   assert.equal(
     formatNextCall(nextCreationCall(clone(none.at.swept), null, 'lyric_plan')),
-    'NEXT: lyric_screen with the end-word pairs you mean to write, then lyric_plan with seed 16.'
+    'NEXT: lyric_screen with the word pairs you mean to write, then lyric_plan with seed 16.'
   );
   assert.equal(
     formatNextCall(nextCreationCall(clone(none.at.empty), null, 'lyric_screen')),
@@ -496,7 +496,7 @@ test('edit sessions, recipe tasks, other texts and raw results pass through unch
   const got = withSweepNext(clone(at.swept), 'lyric_sweep', sweep, null);
   assert.equal(
     JSON.parse(got.content[0].text).report,
-    'ACCEPTED\n    NEXT: lyric_screen with the end-word pairs you mean to write, then lyric_plan with seed 16, ' +
+    'ACCEPTED\n    NEXT: lyric_screen with the word pairs you mean to write, then lyric_plan with seed 16, ' +
       'wants ["lines<=30"].\n'
   );
 });
@@ -798,7 +798,7 @@ test('/chat: a sweep result shows the derived NEXT to the model', async () => {
   }
   assert.equal(
     seen.report,
-    'ACCEPTED\n      16, 17\n    NEXT: lyric_screen with the end-word pairs you mean to write, then lyric_plan ' +
+    'ACCEPTED\n      16, 17\n    NEXT: lyric_screen with the word pairs you mean to write, then lyric_plan ' +
       'with seed 16, form "aaba", lines 2, functions "verse,chorus", wants ["before=verse,chorus","lines<=30"], ' +
       "melody: the sweep's melody unchanged.\n"
   );
@@ -862,7 +862,7 @@ test(
     const rawLine = /NEXT: lyric_plan with seed (\d+)$/m.exec(rawReport);
     assert(rawLine, rawReport);
     const seed = Number(rawLine[1]);
-    const expected = `NEXT: lyric_screen with the end-word pairs you mean to write, then lyric_plan with seed ${seed}, lines 12.`;
+    const expected = `NEXT: lyric_screen with the word pairs you mean to write, then lyric_plan with seed ${seed}, lines 12.`;
     const ctx = { sweepArgs };
 
     // /chat: the same real sweep through runTurn, whose wrapper rewrites the

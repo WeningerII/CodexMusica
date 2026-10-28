@@ -201,7 +201,9 @@ word screens went through the public tool.
 
 The connector declares a 447-line ceiling; the current public plan reports a
 463-line structural envelope. Neither is executable capacity: writer admission
-currently reaches **31 lines at up to 12 syllables per line**, derived from the
+~~currently reaches **31 lines at up to 12 syllables per line**~~ then reached 31
+lines at up to 12 syllables per line (superseded: that limit was removed on
+2026-09-28 and is not current guidance on song length), derived from the
 2,000,000 candidate-pair ceiling. The 17-line plan reports 585,225 projected
 candidates; the 28-line plan reports 1,587,600. These are admission projections,
 not measured CPU, latency or memory promises. The 128-line request cannot reach

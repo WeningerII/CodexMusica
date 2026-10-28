@@ -22,6 +22,7 @@ export const PLAN_FIELDS = [
   'form',
   'lines',
   'relation',
+  'group_types',
   'functions',
   'title',
   'narrative',
@@ -108,18 +109,25 @@ const melodyValue = (value) => {
     return value;
   }
 };
+// Each group's chosen type, as the plan's request records it.
+const groupTypes = (value) =>
+  Array.isArray(value) && value.length
+    ? value.map((e) => ({ group: e?.group, type: e?.type }))
+    : null;
 const norm = (key, value) =>
   key === 'melody'
     ? melodyValue(value)
-    : key === 'functions' || key === 'wants'
-      ? list(value)
-      : key === 'form'
-        ? value || DEFAULT_FORM
-        : key === 'narrative'
-          ? narrative(value)
-          : value === ''
-            ? null
-            : (value ?? null);
+    : key === 'group_types'
+      ? groupTypes(value)
+      : key === 'functions' || key === 'wants'
+        ? list(value)
+        : key === 'form'
+          ? value || DEFAULT_FORM
+          : key === 'narrative'
+            ? narrative(value)
+            : value === ''
+              ? null
+              : (value ?? null);
 const create = (task) => task?.domain === 'lyrics' && task.phase !== 'edit';
 const answered = (v) => v && Number.isInteger(v.exit_code) && [0, 3].includes(v.exit_code);
 // A screen or grade that ran but left no receipt is kept as an ATTEMPT beside
@@ -149,15 +157,16 @@ const screenAttemptNote = (a) =>
   (a.cause === 'overflow'
     ? ': it printed more than this connector can carry, so screening the same request again returns the same result. A plan needs one lyric_screen that answers (exit 0 or 3): call lyric_screen again with a smaller request.'
     : '; its report names why. A plan needs one lyric_screen that answers (exit 0 or 3): call lyric_screen again once that cause is fixed.');
-// Never a shorter draft of the same plan: the line-count gate refuses it.
+// The song's length is the user's: a size limit is reported as this
+// session's limit, never answered by asking for a shorter song.
 const gradeAttemptNote = (a, lines) => {
   const facts = attemptFacts(a) ? ` (${attemptFacts(a)})` : '';
-  const fewer =
-    'plan fewer lines (lyric_sweep declaring `lines`, then lyric_plan on a seed it accepts) and grade a draft of that plan';
+  const limit =
+    "that limit is this session's, not the song's: report it to the user with the song's length unchanged";
   if (a.cause === 'not_kept')
-    return ` lyric_grade measured this exact draft${facts}, but its result was over the size this session can keep, so nothing it produced was kept and no grade receipt was written. Grading this same draft again returns the same result: ${fewer}. A different draft of this plan may be too large as well.`;
+    return ` lyric_grade measured this exact draft${facts}, but its result was over the size this session can keep, so nothing it produced was kept and no grade receipt was written. Grading this same draft again returns the same result: ${limit}, or call lyric_grade on a different draft of this plan (it may be too large as well).`;
   if (a.cause === 'overflow')
-    return ` lyric_grade ran on this exact draft but did not answer with a grade receipt${facts}: it printed more than this connector can carry. Grading this same draft again returns the same result: ${fewer}, or grade a different draft of this plan's ${lines} lines. Neither is known to be the only cure.`;
+    return ` lyric_grade ran on this exact draft but did not answer with a grade receipt${facts}: it printed more than this connector can carry. Grading this same draft again returns the same result: ${limit}, or grade a different draft of this plan's ${lines} lines. Neither is known to be a cure.`;
   return ` lyric_grade ran on this exact draft but did not answer with a grade receipt${facts}; its report names why. Read that report for the cause, then call lyric_grade again on this draft once it is fixed.`;
 };
 // The handler validates the original envelope and forbids all execution fields.
@@ -617,7 +626,7 @@ export function formatNextCall(next) {
     if (next.melody) parts.push("melody: the sweep's melody unchanged");
     const plan = `lyric_plan with ${parts.join(', ')}.`;
     return next.first
-      ? `NEXT: lyric_screen with the end-word pairs you mean to write, then ${plan}`
+      ? `NEXT: lyric_screen with the word pairs you mean to write, then ${plan}`
       : `NEXT: ${plan}`;
   }
   if (tool === 'lyric_grade')

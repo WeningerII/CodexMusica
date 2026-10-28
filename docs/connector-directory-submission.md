@@ -110,7 +110,7 @@ listed under **Read / write** above.
 | `list_options` | Enumerate a catalog list | Rooms and tunings (ids `set_environment` takes), chain stage names, tradition families, and reference-only lists. |
 | `begin_lyrics` | Begin a lyric task | Open a lyrics session: `create` for a new song, `edit` for lyrics the user supplied. |
 | `lyric_sweep` | Find seeds whose shape matches what you want | Plan a bounded window of seeds and return those whose song shape meets declared predicates. |
-| `lyric_screen` | Screen rhyme pairs before writing | Judge candidate end-word pairs, including the two-tier ban on lazy rhymes. |
+| `lyric_screen` | Screen word pairs before writing | Judge the word pairs a writer means to use against every relation they stand in. |
 | `lyric_plan` | Plan a song shape | A seeded, reproducible shape: sections, meter, rhyme plan, returns, hook — and a writer brief. Writes no words. |
 | `lyric_grade` | Grade a draft against its plan | Grade the host's draft against the same plan; returns the rendered draft and the verdict. |
 | `lyric_revise` | Drive the revise loop to a stop condition | Asks the host one question per call until the loop stops; only its stamped song is finished. |

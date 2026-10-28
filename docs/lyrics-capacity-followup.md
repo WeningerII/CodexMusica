@@ -62,9 +62,11 @@ the repair. The candidate memory regression also failed on the original code.
 ## Writing and remaining scope
 
 The public creation runner reproduced admission refusal for 128 requested
-lines. No smaller request substitutes for that run. The derived executable
-limit remains 31 lines at 12 syllables per line. Neither a lower allocation
-measurement nor passing equivalence tests establishes support beyond it.
+lines. No smaller request substitutes for that run. ~~The derived executable
+limit remains 31 lines at 12 syllables per line.~~ (Superseded: that writer
+limit was removed on 2026-09-28; it is not current guidance on song length.)
+Neither a lower allocation measurement nor passing equivalence tests
+established support beyond it at the time.
 M-240 remains open for scalable admission and end-to-end qualification.
 
 The Last Casting stopped during public screening when the missing attribution

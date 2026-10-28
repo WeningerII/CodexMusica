@@ -1789,11 +1789,11 @@ notes: Pending values live in controlled drafts (app.lyricMeta.drafts) and never
 name: lyrics-rhyme-links
 kind: data-action
 selector: '[data-ui="ly-tool"][data-id="rhymes"]'
-surface: Lyrics — Rhymes: relation (Any, Rhyme, Assonance, Consonance; custom under Advanced), placement, selected members, Link endings, Remove link, declared links lettered A, B… with "declared {relation}", Ask writer for rhyme options (matched / partial / refused)
-implementation: lyToolRhymes / LY_FORMS.rhymes / ly-rhyme-options in src/pages/lyrics.js
+surface: Lyrics — Rhymes: a searchable type menu per link (every registry type an English song can use, in name order; "The planner draws" by default, not a type), placement ("Placed by the type" by default), selected members, Save link, Remove link, declared links lettered A, B… with each link's type, Ask writer for word options (matched / partial / refused)
+implementation: lyToolRhymes / LY_FORMS.rhymes / LY_TYPES / ly-rhyme-options in src/pages/lyrics.js
 status: reachable
 precondition: empty
-notes: Written as [SETUP — …] lines in the harness's own spelling. The relation is song-wide in the engine, so every link shares it. Rhyme options never insert a word or declare a link.
+notes: Written as [SETUP — …] lines in the harness's own spelling; a link's type is kept as [SETUP — group types — <members>=<registry index>] and reaches the writer as the index alone. The type list is not in the page: it is fetched from api/lyric_types.json when the menu first draws. Word options never insert a word or declare a link.
 ```
 
 ```yaml
