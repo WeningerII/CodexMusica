@@ -23,9 +23,8 @@ arguments and nothing else: no clock, no environment, no filesystem, no
 randomness. The same inputs render byte-identically, across processes and
 across `PYTHONHASHSEED` — anything that arrives as a `set` is sorted before
 it is printed (doctrine 66: a tie broken by iterating a set does not
-reproduce). Ranked lists (`candidates`, `forbidden_modal`) are printed in
-the order they arrive, because that order is the field's own ranking and
-sorting it would destroy information rather than stabilise it.
+reproduce). No word list is printed at all (2026-10-27, D6 on #519): a
+prompt states the rule and the findings, never which words to use or avoid.
 
 DUCK-TYPED ON PURPOSE, IN BOTH DIRECTIONS. This module imports neither
 `quality.revise` nor `quality.loop`. `loop.py` imports a proposer, so
@@ -71,15 +70,7 @@ reports, and a corrupted line is not.
 import re
 
 __all__ = ["render_line", "parse_line", "render_group", "parse_group",
-           "ModelProposer", "OFFERED_SHOWN"]
-
-#: How many words of the offered candidate field are printed. A cap on what
-#: a prompt shows is a threshold (doctrine 58), so it is declared here and
-#: DISCLOSED in the prompt whenever it bites ("24 of 61 shown"), rather than
-#: silently truncating a field a writer would have read to the end.
-#: `ReviseDeclaration.offered` is 24 by default, so on a default `Reviser`
-#: this cap never fires; it exists for a caller who raised that one.
-OFFERED_SHOWN = 40
+           "ModelProposer"]
 
 #: The longest line a writer's answer may carry. The connector admits no
 #: longer sung line, so the brief states the bound where the writer reads
@@ -230,21 +221,6 @@ def _draft_block(lines, focus=(), indent="  "):
     return out
 
 
-def _offered_block(candidates, declaration, indent="  "):
-    """-> [str]. The candidate field, capped at `OFFERED_SHOWN` and SAYING SO
-    when the cap bites, plus the coordinates it was read at. The ONE
-    renderer of a candidate field in this module (tier-1 offer, tier-2
-    pivot options, each tier-2 member's options)."""
-    cands = _ordered(candidates)
-    shown = cands[:OFFERED_SHOWN]
-    head = f"{len(shown)} word(s)"
-    if len(shown) < len(cands):
-        head = (f"{len(shown)} of {len(cands)} shown, highest-ranked first "
-                f"(the field is larger than this prompt prints)")
-    return [f"{indent}{head}; field read at {declaration}",
-            f"{indent}  " + ", ".join(str(c) for c in shown)]
-
-
 def _whole_block(whole, indent="  "):
     """Whole-draft measurements remain constraints on a permitted edit.
 
@@ -285,12 +261,11 @@ def _mandate_block(brief, indent="  "):
     gslots = dict(getattr(brief, "group_slots", {}) or {})
     violated = set(getattr(brief, "violated_groups", ()) or ())
     unjudged = set(getattr(brief, "unjudged_groups", ()) or ())
-    # A GROUP WHOSE PAIR HOLDS BUT CARRIES A PURSUED NOTE (2026-10-02). It
-    # is in `violated` because the loop still asks for this word to change,
-    # and until 2026-10-02 it was told "VIOLATED, this is the word to change"
-    # under a report of 0 flags. The word to change is the same; the label
-    # now says the pair holds. `quality/revise.held_note_standing` is the
-    # same sentence in the other two renderers.
+    # A GROUP WHOSE PAIR HOLDS AND CARRIES A NOTE. Since 2026-10-27 (D6 on
+    # #519) a note never asks for a word to change, so the group is not in
+    # `violated`; it is reported as holding, with its note codes.
+    # `quality/revise.held_note_standing` is the same sentence in the other
+    # two renderers.
     noted = dict(getattr(brief, "noted_groups", {}) or {})
     for lab, mem, calls in must_answer:
         rhyme_calls = [(n, w) for n, w in calls if n not in return_members]
@@ -309,13 +284,9 @@ def _mandate_block(brief, indent="  "):
                         else " — UNJUDGED")
             standing += "; unresolved readings are not evidence that this word holds"
         elif lab in noted:
-            _codes = tuple(noted[lab])
-            _what = ("its rhyme is a predictable one"
-                     if {"MODAL_RHYME", "PREDICTABLE_RHYME"} & set(_codes)
-                     else "it carries a note")
-            standing = (f" — HOLDS, but {_what} (NOTE {', '.join(_codes)}), "
-                        f"which the loop still asks to change: this is the "
-                        f"word to change")
+            standing = (f" — HOLDS as written (NOTE "
+                        f"{', '.join(tuple(noted[lab]))}); leave that word "
+                        f"alone")
         elif violated:
             standing = (" — VIOLATED, this is the word to change"
                         if lab in violated else
@@ -346,69 +317,13 @@ def _mandate_block(brief, indent="  "):
             out.append(f"{indent}This line binds at {len(places)} "
                        f"PLACES, listed above: each place is its own word "
                        f"answering its own group(s), so fix the "
-                       + ("place marked to change" if noted else
-                          "violated place")
-                       + " and keep the word at any place that holds"
-                       + (" as written." if noted else "."))
+                       f"violated place and keep the word at any place "
+                       f"that holds.")
         else:
             out.append(f"{indent}This line is a PIVOT: it is in "
                        f"{len(must_answer)} groups and must answer EVERY "
                        f"one of them at once (conjunctive; doctrine 2). "
                        f"Answering one and breaking another is not a fix.")
-    if getattr(brief, "joint_conflict", False):
-        out.append(
-            f"{indent}NO JOINT CANDIDATE at "
-            f"{getattr(brief, 'field_declaration', '?')}: this bounded search found no "
-            f"word that answers all of those groups at once; no impossibility is proved.")
-        # THE SENTENCE THAT USED TO END THIS BLOCK IS STRUCK, NOT DELETED
-        # (doctrine 17). It read: "The MANDATE, not the line, is what needs
-        # revising — a one-line rewrite here is re-running a search that has
-        # already come back empty." Both halves were measured FALSE on
-        # 2026-09-03, seed 443 L5 (`MISSING.md` M-202): the conjunction over
-        # the calls `Walk`, `gait` and `here` is empty because those three do
-        # not rhyme with EACH OTHER, while `grade()` had flagged exactly ONE
-        # pair — and `Talk down at the stair` was ACCEPTED by `verify()` on
-        # the first attempt. The writer was told to stop searching in front
-        # of a field of 40 answers.
-        _bc = tuple(getattr(brief, "partial_by_call", ()) or ())
-        # THE CALLS AT *THIS PLACE*, not every call the line answers
-        # anywhere: `must_answer` spans every group the line is in, and a
-        # line bound at two places would make this count name a place the
-        # sentence is not about (M-184's own defect, one renderer over).
-        # Read off the SlotField the flag came from.
-        _sf = next((f for f in
-                    (getattr(brief, "fields_by_slot", None) or {}).values()
-                    if getattr(f, "joint_conflict", False)), None)
-        _calls_here = tuple(getattr(_sf, "calls", ()) or ())
-        out.append(
-            f"{indent}  ~~The MANDATE, not the line, is what needs revising "
-            f"— a one-line rewrite here is re-running a search that has "
-            f"already come back empty.~~ STRUCK 2026-09-03 (M-202): the "
-            f"grader flags PAIRS, not the conjunction, so a word that "
-            f"answers the VIOLATED call and leaves the others standing is "
-            f"accepted — measured, first try.")
-        if _bc:
-            out.append(f"{indent}  WHAT EACH CALL CAN BE ANSWERED BY ON ITS "
-                       f"OWN ({len(_bc)} of {len(_calls_here)} call(s) here "
-                       f"answerable):")
-            for _c1, _ws in _bc:
-                _sh = list(_ws)[:OFFERED_SHOWN]
-                _head = (f"{len(_sh)} of {len(_ws)} shown"
-                         if len(_sh) < len(_ws) else f"{len(_sh)} word(s)")
-                out.append(f"{indent}    {_c1} — {_head}: "
-                           + ", ".join(str(w) for w in _sh))
-            out.append(f"{indent}  Read the mandate above for WHICH call is "
-                       f"VIOLATED and which HOLDS. Answering a violated "
-                       f"call")
-            out.append(f"{indent}  trades nothing; answering one that holds "
-                       f"breaks the other pair and is rejected as a new "
-                       f"flag.")
-        else:
-            out.append(f"{indent}  Every call here was ALSO asked on its "
-                       f"own and the pool came back empty for each, so "
-                       f"this place")
-            out.append(f"{indent}  has no offered answer in those searched pools. "
-                       f"Unsearched words and whole-line rewrites remain possible.")
     mrw = getattr(brief, "must_rhyme_with", None)
     if mrw and not must_answer:
         out.append(f"{indent}must stand in at least one relation with "
@@ -424,8 +339,7 @@ def _enforced_block(line_no, n_lines, indent="  ", word_name="end word",
     method applies them, and NOTHING ELSE.
 
     Each numbered item below is one early return in `verify()`: line count,
-    untargeted lines, RULE 3 (the modal exclusion), "nothing was fixed",
-    net-new flags. `allow_net_new` is named rather than quoted as a number —
+    untargeted lines, "nothing was fixed", net-new flags. `allow_net_new` is named rather than quoted as a number —
     it is a `ReviseDeclaration` coordinate and a `Brief` does not carry it,
     so this file cannot see the value the caller actually set.
 
@@ -445,25 +359,10 @@ def _enforced_block(line_no, n_lines, indent="  ", word_name="end word",
         f"changes (declared returns are mirrored). Any other line that comes back "
         f"different is rejected",
         f"{indent}   outright, whatever else the revision achieved.",
-        # ITEM 3 WAS FALSE TWICE OVER — corrected 2026-08-16. It said "the
-        # end word is NOT one of the FORBIDDEN words above … rejects on its
-        # own", and `verify()` RULE 3 rejects only for MOVING TO a modal
-        # word. A line that KEEPS its end word takes nothing and is not
-        # rejected here at all, whether or not that word is on the list —
-        # so the sentence was false for the incumbent, and false for a head
-        # word that is also the incumbent. Two items now, because RULE 3 has
-        # two behaviours and this block's own docstring promises one item
-        # per early return.
-        f"{indent}3. The {word_name} L{line_no} MOVES TO is not one of the "
-        f"FORBIDDEN words above. That is",
-        f"{indent}   checked before anything else about the line and rejects "
-        f"on its own. KEEPING the",
-        f"{indent}   word already there is not a move and is not rejected "
-        f"here — see item 4.",
-        f"{indent}4. The line must FIX at least one finding. A rewrite that "
+        f"{indent}3. The line must FIX at least one finding. A rewrite that "
         f"is differently defective",
         f"{indent}   is rejected as 'nothing was fixed'.",
-        f"{indent}5. It may not trade one defect for another: new FLAG "
+        f"{indent}4. It may not trade one defect for another: new FLAG "
         f"findings anywhere in the draft",
         f"{indent}   — including on lines you did not touch — reject it once "
         f"they exceed the declared",
@@ -505,10 +404,12 @@ def _attempt_block(attempt, reasons, indent="  ", prior=None,
         _pr = prior.get("round")
         # `what` names the thing rejected: a line, or (M-253) a whole group
         # rewrite — one renderer for both, so the sentence cannot drift.
+        # THE REJECTED TEXT IS NOT QUOTED (2026-10-27, D8 on #519): a
+        # revision carries the current draft and the requirements, never a
+        # rejected attempt. The grader's reasons name findings, not lyrics.
         out.append(f"{indent}Your {what} in ROUND "
-                   f"{_pr if _pr is not None else '?'} was REJECTED"
-                   + (f": {prior['text']!r}" if prior.get("text") else "")
-                   + ". The grader's reasons, verbatim:")
+                   f"{_pr if _pr is not None else '?'} was REJECTED. "
+                   f"The grader's reasons, verbatim:")
         for r in [str(x) for x in _ordered(prior.get("reasons") or ())]:
             out.append(f"{indent}  - {r}")
         out.append(f"{indent}The draft has been re-read since; do not send "
@@ -595,43 +496,6 @@ def slot_phrase(brief):
         return "end word"
 
 
-#: WHAT EACH EMPTY-HEAD CAUSE SAYS (`revise.EMPTY_HEAD_CAUSES`, 2026-09-24).
-#: Keyed by the brief's own `empty_head_cause`, so the prompt states the
-#: cause that holds and no other (doctrine 28). Spelled here rather than
-#: imported because this module imports only `re`.
-_EMPTY_HEAD_SAYS = {
-    "NO_ANSWER": (
-        "This bounded search reached no word that answers every call at "
-        "this place and can",
-        "be offered — see the mandate block above — so there is no field "
-        "for a head to lead.",
-    ),
-    "DECLARED_ZERO": (
-        "The modal exclusion is declared at 0, which forbids nothing by "
-        "design, and no word in",
-        "this field shares a call word's spelled ending.",
-    ),
-    "UNEVIDENCED": (
-        "No word in this field has been seen realised as these calls' "
-        "rhyme partner in the",
-        "song corpus, and none shares a call word's spelled ending. The "
-        "head holds only",
-        "partners the song table has evidence for, so it has nothing to "
-        "hold.",
-    ),
-    "DECLARED_RELATION": (
-        "Every word the head held fails the relation this place declares, "
-        "so none of them",
-        "could be taken here and none is listed.",
-    ),
-}
-#: A brief that does not carry a cause (a hand-built stand-in, or one from
-#: before 2026-09-24) is told so — never handed a list of guesses.
-_EMPTY_HEAD_UNSTATED = (
-    "The brief did not record which cause emptied it.",
-)
-
-
 def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
                 heading=True, shared=False, question=()):
     """-> str, the tier-1 prompt: rewrite ONE flagged line.
@@ -652,7 +516,7 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
     process (see `_ordered` for the set-iteration case doctrine 66 names).
 
     `brief` is duck-typed on `quality.revise.Brief`: `line_no`, `text`,
-    `findings`, `candidates`, `forbidden_modal`, `keep`, `must_answer`,
+    `findings`, `keep`, `must_answer`,
     `must_rhyme_with`, `joint_conflict`, `field_declaration`. Every one is
     read with a `getattr` default, so a partial stand-in renders.
 
@@ -666,9 +530,6 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
     line_no = getattr(brief, "line_no", 0)
     text = getattr(brief, "text", "")
     lines = _ordered(lines)
-    candidates = _ordered(getattr(brief, "candidates", ()) or ())
-    forbidden = _ordered(getattr(brief, "forbidden_modal", ()) or ())
-    incumbent = getattr(brief, "forbidden_incumbent", "") or ""
     targets = tuple(getattr(brief, "return_members", ()) or (line_no,))
     # THE PROTECTED SET IS EVERY LINE OUTSIDE THE QUESTION (2026-10-18). It
     # was `brief.keep`, the lines the grader found NOTHING on, so a line
@@ -691,7 +552,6 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
              if n not in asked]
     findings = _ordered(getattr(brief, "findings", ()) or ())
     whole = _ordered(whole or ())
-    decl = getattr(brief, "field_declaration", "field_depth=?, field_band=?")
     #: WHICH WORD this brief is about. Read ONCE and threaded, never
     #: re-derived per block — see `slot_phrase`.
     word_name = slot_phrase(brief)
@@ -772,221 +632,10 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
     out.extend(_mandate_block(brief))
     out.append("")
 
-    out.append(f"OFFERED — words for the {word_name} that answer every "
-               f"group bound there")
-    screened = _ordered(getattr(brief, "screened_out", ()) or ())
-    if screened:
-        # THE MENU IS SHORT BECAUSE THE BAN IS (`MISSING.md` M-185). Said
-        # before the list, because a writer reading a list of near rhymes
-        # under a call like `desire` needs to know that every true rhyme
-        # was refused from the rhyme's own side, not that none exists.
-        out.append(f"  {len(screened)} rhyming word(s) are NOT offered: the "
-                   f"call word sits in their own modal head, so taking one")
-        out.append(f"  files MODAL_RHYME from that side and re-opens this "
-                   f"line ({', '.join(str(w) for w in screened[:6])}"
-                   + (", …" if len(screened) > 6 else "") + ").")
-        if not candidates:
-            out.append("  No clean answer survived this searched field. A joint "
-                       "rewrite of the partner lines may open another field;")
-            out.append("  any near relation must still satisfy the unchanged declaration.")
-    _sref = tuple(getattr(brief, "schema_refused", ()) or ())
-    if _sref:
-        # WHY THE OFFER IS SHORT (`MISSING.md` M-204). Said BEFORE the list,
-        # for the reason M-185's own screen note is said before it: a writer
-        # reading four words needs to know the band found more and the
-        # DECLARED RELATION refused them — otherwise a narrowed offer reads
-        # as an exhausted lexicon, and the next move (widen the search) is
-        # the wrong one.
-        out.append(f"  {len(_sref)} word(s) the band admitted are NOT "
-                   f"offered: this place is judged by its group's declared")
-        out.append(f"  relation, and it did not certify them "
-                   f"({', '.join(str(w) for w in _sref[:8])}"
-                   + (", …" if len(_sref) > 8 else "") + ").")
-        out.append("  The list below is what that relation accepts — the "
-                   "same judge the verdict uses.")
-    _gref = tuple(getattr(brief, "grader_refused", ()) or ())
-    if _gref:
-        # WHY THE OFFER IS SHORT WHERE NO RELATION IS DECLARED
-        # (`MISSING.md` M-315), and it is a DIFFERENT sentence from M-204's
-        # above (doctrine 79): nothing declined to certify these words. The
-        # grader could not COMPARE the pair once one of them stood at this
-        # place, so taking one costs the measurement, and the loop rejects
-        # that the same way it rejects a new flag. A writer told only "not
-        # offered" would widen the search, which is the wrong next move.
-        out.append(f"  {len(_gref)} word(s) the band admitted are NOT "
-                   f"offered: with one of them here the grader could no")
-        out.append(f"  longer JUDGE this pair at all "
-                   f"({', '.join(str(w) for w in _gref[:8])}"
-                   + (", …" if len(_gref) > 8 else "") + ").")
-        out.append("  Losing a measurement is refused like breaking a rhyme, "
-                   "so the list below is screened through the verdict's own "
-                   "grade.")
-    _wid = int(getattr(brief, "field_widened", 0) or 0)
-    if candidates and _wid:
-        # M-257 originally supplied only an exact-vowel pool. The later
-        # declared-offer fallback also searches ranked words and comparator
-        # candidates; `field_widened` counts either route, not vowel identity.
-        out.append("  OFFERED FROM AN EXPANDED CANDIDATE POOL: the ordinary "
-                   "rhyme menu was empty.")
-        out.append("  These suggestions were screened against the declared "
-                   "relation at this place using the production grader.")
-        out.append("  The expanded search does not require identical vowel "
-                   "nuclei; the declared relation decides what holds.")
-    if candidates:
-        out.extend(_offered_block(candidates, decl))
-        out.append("  Offered, NOT required. The grader re-grades the rhyme "
-                   "itself; it never checks whether")
-        out.append(f"  your {word_name} came off this list. A word that is "
-                   f"not here and rhymes is accepted, and")
-        out.append("  a word that is here is not accepted for being here.")
-    else:
-        # THREE CAUSES, AND THIS ENUMERATED TWO — fixed 2026-08-16, and the
-        # split above is what made the third one SAYABLE. `candidates == []`
-        # can mean (a) no rhyme finding earned a field, (b) nothing in the
-        # lexicon answers the groups, or (c) everything that answers is
-        # inside the modal head and was excluded. In case (c) both of the
-        # stated causes were false in the same breath. It could not be named
-        # before, because `forbidden_modal` also held the incumbent, so a
-        # renderer could not say "every answering word is modal" without
-        # implicating a word that is on the list for another reason.
-        if forbidden and getattr(brief, "offer_emptied_by_ban", ""):
-            # THE POINTER (`MISSING.md` M-246): case (c) named its cause
-            # and no move — "the mandate, not the lexicon, is the binding
-            # constraint" — and a writer hand-edited the line three times
-            # into the same ban. The sentence is `revise.ban_emptied_note`'s
-            # and travels on the brief as data (this module imports `re`
-            # and nothing else); it names the group backtrack and the
-            # coordinate that opens it on the connector path.
-            out.extend("  " + ln for ln in
-                       str(brief.offer_emptied_by_ban).split("\n"))
-        elif forbidden:
-            out.append("  (no candidate field was offered — and it is NOT "
-                       "that nothing answers this line:")
-            out.append("  every surviving word in this searched field is in the "
-                       "FORBIDDEN list below. A bounded empty offer")
-            out.append("  does not establish that every legal rewrite is unavailable.)")
-        elif getattr(brief, "partial_by_call", ()):
-            # A FOURTH CAUSE, AND IT IS NOT "NOTHING ANSWERS THIS LINE"
-            # (`MISSING.md` M-202). The joint offer is empty because the
-            # calls at this place do not rhyme with each other, and the
-            # per-call lists in the mandate block above are non-empty. The
-            # branch below would have said the lexicon had no answer, ten
-            # lines under a block naming dozens.
-            out.append("  (no JOINT candidate field was offered — and that "
-                       "is NOT 'nothing answers this line'. The")
-            out.append("  searched fields yielded no joint offer. WHAT EACH CALL "
-                       "CAN BE ANSWERED BY ON ITS OWN is listed")
-            out.append("  above as suggestions; a rewrite must fix a finding without "
-                       "breaking or losing coverage of another obligation.)")
-        else:
-            out.append("  (no candidate field was offered for this line — "
-                       "either no rhyme finding is what")
-            out.append("  flagged it, or this bounded search found no certified "
-                       "candidate. Read the findings above:")
-            out.append("  a meter, return or anaphora finding is not "
-                       "repaired by swapping an end word.)")
-    out.append("")
-
-    # TWO BLOCKS, TWO RULES, TWO COUNTS — split 2026-08-16. This was ONE
-    # block over `forbidden_modal`, which carried the modal head AND the
-    # incumbent, and it attached ONE consequence sentence to both. Three
-    # things were wrong at once and each is repaired below:
-    #   - the heading said "do not END on any of these", which is false of a
-    #     word the line KEEPS: `verify()` RULE 3 asks whether a word was
-    #     TAKEN, so it is now "do not MOVE TO";
-    #   - "REJECTED OUTRIGHT" is true of the modal head and false of the
-    #     incumbent, which RULE 3 does not reject for at all;
-    #   - the count `({len(forbidden)})` summed two rules into one integer
-    #     the writer reads (doctrine 79).
-    # The clause "plus the word that is there now" was the ONLY thing in the
-    # whole prompt that hinted at rule 2, so it is moved into rule 2's own
-    # block rather than deleted.
-    out.append(f"FORBIDDEN — do not MOVE L{line_no} TO any of these "
-               f"({len(forbidden)})")
-    if forbidden:
-        out.append("  " + ", ".join(str(w) for w in forbidden))
-        out.append("  These are the most predictable answers in this field. "
-                   "MOVING to one of them is")
-        out.append("  REJECTED OUTRIGHT — before the grader looks at whether "
-                   "the line fixed anything at")
-        out.append("  all. Passing the rhyme band by reaching for the most "
-                   "predictable word in it is the")
-        out.append("  slop direction, and it is the one move this loop "
-                   "refuses mechanically rather than")
-        out.append("  merely discouraging (doctrine 9).")
-    else:
-        # THREE STATES, NOT TWO — fixed 2026-08-16, and the two-field split
-        # is what made the third one reachable rather than what caused it.
-        # "no modal head was computed" is FALSE wherever `joint_field` RAN
-        # and returned nothing, and there are two such populations: a
-        # joint-conflict pivot (where this same prompt already says "nothing
-        # in the lexicon answers all of those groups at once" eleven lines
-        # up, so it contradicted itself) and `modal_exclusion=0`, where
-        # `ranked[:0]` is empty on every line while the field is fully
-        # computed. Before the split BOTH printed the incumbent under "the
-        # most predictable answers in this field" instead, so one false
-        # sentence was simply traded for another until `field_computed`
-        # existed to tell them apart.
-        # A THIRD POPULATION SINCE 2026-09-24: the head is EVIDENCE-GATED
-        # (`revise.Reviser._rank_field_compute`), so a field no member of
-        # which the song table has seen answer these calls, with no
-        # same-spelled member, comes back with an empty head and a full
-        # offer. ~~"Either nothing in the lexicon answers this line's groups
-        # at all ... or the modal exclusion is declared at 0"~~ listed ~~the
-        # possible causes~~ two causes (NO_ANSWER, DECLARED_ZERO) and said
-        # none of them applied — it never listed DECLARED_RELATION, which
-        # predates the gate (corrected 2026-09-25); a sentence that offers
-        # causes joined by "either ... or" is "cannot tell" dressed as an
-        # answer (doctrine 28), and the brief KNOWS which one it is. So it now carries the
-        # cause as data (`Brief.empty_head_cause`, one of
-        # `revise.EMPTY_HEAD_CAUSES`) and this states THAT one.
-        if getattr(brief, "field_computed", False):
-            out.append("  (none — the modal head was COMPUTED for this line "
-                       "and came back EMPTY, which is not")
-            out.append("  the same as it not having been asked.")
-            cause = getattr(brief, "empty_head_cause", "")
-            for _l in _EMPTY_HEAD_SAYS.get(cause, _EMPTY_HEAD_UNSTATED):
-                out.append("  " + _l)
-            out.append("  Doctrine 9 is not being applied to you here; it "
-                       "found nothing to apply.)")
-        else:
-            out.append("  (none — no modal head was computed for this line)")
-    out.append("")
-
-    out.append(f"THE WORD ALREADY THERE — a DIFFERENT rule from the one "
-               f"above ({1 if incumbent else 0})")
-    if incumbent:
-        out.append(f"  {incumbent}")
-        out.append(f"  This is the {word_name} L{line_no} already has. "
-                   f"Re-proposing it is not a revision — but it")
-        out.append("  is NOT rejected outright the way the list above is: "
-                   "the grader asks whether a modal")
-        out.append("  candidate was TAKEN, and keeping the word you were "
-                   "given takes nothing. A line that")
-        out.append("  keeps it is refused by rule 4 below ('nothing was "
-                   "fixed') UNLESS the rewrite repaired")
-        out.append("  something else — a meter finding, say — in which case "
-                   "keeping it is accepted.")
-    else:
-        # THE SAME FALSE-CAUSE BUG AS THE HEAD'S BRANCH, one block down —
-        # found 2026-08-16 by the rung-1 blind run, in the prompt handed to
-        # the writer before they had answered anything. L1 of that draft ends
-        # on 'four', which is perfectly readable; this block said "no readable
-        # end word to keep" because the INCUMBENT IS ONLY RECORDED WHERE THE
-        # FIELD IS COMPUTED, and L1 carried a meter flag and no rhyme finding.
-        # An empty value stated the wrong reason for being empty, which is the
-        # whole of defect D one rule over.
-        if getattr(brief, "field_computed", False):
-            out.append(f"  (none — this line's {word_name} could not be "
-                       f"read, so there is no incumbent to keep)")
-        else:
-            out.append("  (none recorded — no candidate field was computed "
-                       "for this line, and the incumbent is only recorded")
-            out.append("  where one is. This says nothing about whether the "
-                       "end word is readable: it very likely is, and it is")
-            out.append("  still the word you would be replacing.)")
-    out.append("")
-
+    # NO WORD LISTS (2026-10-27, D6 on #519). The OFFERED, FORBIDDEN and
+    # "word already there" blocks are gone with the candidate field they
+    # rendered: the writer is given the rule and the findings, never which
+    # words to use or avoid.
     out.append("LINES THAT MUST NOT CHANGE")
     if keep and keep == clean:
         out.append("  " + ", ".join(f"L{n}" for n in keep)
@@ -1168,15 +817,12 @@ def render_group(group_brief):
         return "\n".join(out)
     p_no = getattr(g, "pivot_line_no", 0)
     p_text = getattr(g, "pivot_text", "")
-    p_word = getattr(g, "pivot_word", "")
-    p_off = _ordered(getattr(g, "pivot_offered", ()) or ())
     anchors = _ordered(getattr(g, "anchors", ()) or ())
     label = getattr(g, "label", "?")
     members = _ordered(getattr(g, "members", ()) or ())
     lines = _ordered(getattr(g, "lines", ()) or ())
     whole = _ordered(getattr(g, "whole", ()) or ())
     inner = getattr(g, "brief", None)
-    decl = getattr(inner, "field_declaration", "field_depth=?, field_band=?")
     findings = _ordered(getattr(inner, "findings", ()) or ())
     a_nos = [getattr(a, "line_no", 0) for a in anchors]
     a_list = ", ".join(f"L{n}" for n in a_nos) or "(none)"
@@ -1211,37 +857,10 @@ def render_group(group_brief):
                    f"{getattr(a, 'text', '')}")
     out.append("")
 
-    # THE `word` FIELDS ARE THE PROPOSAL, NOT THE STATUS QUO, and this block
-    # used to say the opposite. It rendered them as `(ends on 'mankind')`
-    # beside a line ending on "dream" — so on a real `revise_loop` run the
-    # prompt told the writer what each line currently ended on and was WRONG
-    # ON BOTH. One field, two readings, in two modules (doctrine 1);
-    # `quality/loop.py`'s `GroupBrief` states the intended one in its own
-    # docstring under a heading, and this is the side that had misread it.
-    # NOT repaired by deriving the current end word here: that is
-    # `lyric_harness.raw_final_token`'s one job, this module imports `re` and
-    # nothing else on purpose, and a second spelling of "the end word" is the
-    # defect one layer down. The line text is already printed directly above
-    # — a writer can see where it ends — so the fix is to label the words for
-    # what they are and claim nothing about what is being replaced.
-    proposed = [(p_no, p_word)] + [(getattr(a, "line_no", 0),
-                                    getattr(a, "word", "")) for a in anchors]
-    if any(w for _n, w in proposed):
-        out.append("THE SET THE GRADER'S OWN SEARCH IS PROPOSING")
-        for n, w in proposed:
-            if w:
-                out.append(f"  L{n} to bind on {w!r}")
-        out.append("  Offered, not required — they are the set the "
-                   "mechanical search believes makes")
-        out.append("  the mandate hold, and they are MUTUALLY rhyming by "
-                   "construction: each was")
-        out.append("  searched against the pivot's word AND every member "
-                   "listed above it. Binding")
-        out.append("  elsewhere is allowed; the grader re-derives the "
-                   "findings either way and rejects")
-        out.append("  a set that does not actually hold.")
-        out.append("")
-
+    # NO WORD LISTS IN THE GROUP QUESTION EITHER (2026-10-27, D6 on #519):
+    # the search's proposed set, the pivot and member option menus and the
+    # one-move menus are not shown. The writer gets the lines, the rules
+    # each must keep and the findings.
     out.append(f"THE WHOLE DRAFT (context — only {', '.join(f'L{n}' for n in members)} may change)")
     out.extend(_draft_block(lines, focus=tuple(members)))
     out.append("")
@@ -1263,33 +882,6 @@ def render_group(group_brief):
                else ["  (not supplied)"])
     out.append("")
 
-    out.append(f"PIVOT OPTIONS — words L{p_no} could bind on once the rest "
-               f"of the group moves")
-    if p_off:
-        out.extend(_offered_block(p_off, decl))
-    else:
-        out.append("  (none offered)")
-    out.append("")
-
-    # THE PIVOT'S OWN LINE-QUESTION LISTS, ON THE ESCALATION PATH
-    # (LOOP_REDESIGN.md §2.4, S10; 2026-10-02). One rendering, from the
-    # pivot's own brief on this draft: what the grader enforces now. The
-    # line question is cited only when it was asked on this same draft.
-    path = getattr(g, "path", "")
-    if path == "escalation":
-        cite = getattr(g, "pivot_line_question", "")
-        out.append(f"L{p_no} ON ITS OWN — "
-                   + (f"as offered in {cite}" if cite else
-                      "no line question was asked on this draft; these are "
-                      "the lists the grader enforces now"))
-        p_line_off = _ordered(getattr(g, "pivot_line_offered", ()) or ())
-        p_line_forb = _ordered(getattr(g, "pivot_line_forbidden", ()) or ())
-        out.append("  OFFERED: " + (", ".join(p_line_off) if p_line_off
-                                    else "(none)"))
-        out.append("  FORBIDDEN (rule 3 below): " + (", ".join(p_line_forb)
-                                                     if p_line_forb else "(none)"))
-        out.append("")
-
     # EACH MEMBER'S OWN MANDATE. This block did not exist until 2026-08-17
     # and its absence was defect F: the prompt printed THE RHYME MANDATE ON
     # THE PIVOT, told the writer to move the other line's bound word, and
@@ -1299,7 +891,6 @@ def render_group(group_brief):
     # anchor was the tier's bound and not the shape of the question.
     for a in anchors:
         a_no = getattr(a, "line_no", 0)
-        a_off = _ordered(getattr(a, "offered", ()) or ())
         a_calls = list(getattr(a, "calls", ()) or ())
         if a_calls:
             shown = ", ".join(repr(w) for w in a_calls)
@@ -1311,54 +902,13 @@ def render_group(group_brief):
                        f"still hold: whatever L{a_no} moves")
             out.append(f"  to has to answer them as well, and a new bound "
                        f"word that breaks one of them is")
-            out.append(f"  a new FLAG under item 4 below. The options list "
-                       f"below already has them folded in.")
+            out.append("  a new FLAG under item 3 below.")
             out.append("")
-        out.append(f"L{a_no} OPTIONS — words L{a_no} could bind on instead "
-                   f"of what it binds on now")
-        if a_off:
-            out.extend(_offered_block(a_off, decl))
-        elif a_calls:
-            out.append(f"  (none offered — NOTHING answers group {label} "
-                       f"{list(members)} AND L{a_no}'s own group(s) at once, "
-                       f"so the conjunction")
-            out.append("   was not solved by this bounded search; no impossibility is established)")
-        elif path == "group_first":
-            out.append(f"  (none offered — this group was asked before any "
-                       f"line question, because L{p_no}'s own field was "
-                       f"empty;")
-            out.append("   no single-line menu was computed for this member)")
-        else:
-            out.append("  (none offered)")
-        # THE ONE-MOVE MENU (LOOP_REDESIGN.md §2.4, §2.8 G; defect 4): the
-        # words a line question would offer this member at its place while
-        # every other line, the pivot included, keeps its words.
-        one = getattr(a, "one_move", None)
-        if not a_off and one is not None:
-            a_name = _place_phrase(_slot_key(getattr(a, "slot", None)))
-            out.append(f"  IF EVERY OTHER LINE KEEPS ITS WORDS, L{a_no}'s "
-                       f"{a_name} could be:")
-            if one:
-                out.extend(_offered_block(_ordered(one), decl))
-            else:
-                out.append(f"  (none — no single word at L{a_no}'s {a_name} "
-                           f"answers every group bound there with the other "
-                           f"lines unchanged; no impossibility is established)")
-        out.append("")
 
-    out.append(f"  Every list is OFFERED, not required, and the {k} picks "
-               f"are COUPLED: whatever each")
-    out.append(f"  line binds on must stand in a relation with what every OTHER member "
-               f"binds on, because group")
-    out.append(f"  {label} {list(members)} still holds after the rewrite. "
-               f"The offered lists are ORDERED —")
-    out.append(f"  each was searched against the pivot's word and every "
-               f"member listed BEFORE it, and")
-    out.append(f"  against none listed after — so the loop's own picks above "
-               f"are mutually rhyming,")
-    out.append(f"  and reaching past them into two late lists at once is the "
-               f"one way to pick a set")
-    out.append(f"  that answers the pivot and not itself.")
+    out.append(f"  The {k} lines are COUPLED: whatever each binds on must "
+               f"stand in a relation with what")
+    out.append(f"  every OTHER member binds on, because group {label} "
+               f"{list(members)} still holds after the rewrite.")
     out.append("")
 
     out.append("WHAT THE GRADER ENFORCES ON YOUR ANSWER")
@@ -1368,32 +918,7 @@ def render_group(group_brief):
     out.append(f"  2. ONLY {', '.join(f'L{n}' for n in members)} change. "
                f"Every other line must come back")
     out.append("     byte-identical, or the revision is rejected outright.")
-    # ITEM 3, MADE HONEST ABOUT ITS OWN SCOPE — 2026-08-16. It said "neither
-    # end word may be a forbidden modal one for its own line", which reads as
-    # a live constraint on all of them. It is not, for the PIVOT: tier 2
-    # fires only on `Brief.joint_conflict`, and that flag is `len(calls) > 1
-    # and not candidates and not forbidden_modal` — so the pivot's modal head
-    # is EMPTY BY CONSTRUCTION every time this prompt is rendered, and item 3
-    # could only ever bind the other members. No list is printed here at all.
-    # Stated rather than quietly left, because a rule a writer cannot see and
-    # that cannot fire is decoration (doctrine 48).
-    out.append("  3. No bound word may be the most predictable answer in its "
-               "own field (doctrine 9),")
-    out.append(f"     and this is checked only for a word a line MOVES TO. "
-               f"For L{p_no} the modal head is")
-    if path == "escalation":
-        # C13 (2026-10-02): on this path the pivot HAD a field, and its
-        # forbidden list (printed above under "L{p} ON ITS OWN") still binds.
-        out.append("     the FORBIDDEN list printed above under its line "
-                   "question: a word it MOVES TO")
-        out.append(f"     may not be on it. For {a_list} it applies only to a "
-                   f"line that carries a")
-        out.append("     finding of its own, against that line's own head.")
-    else:
-        out.append("     empty by construction — this tier runs precisely "
-                   "because nothing answered all of")
-        out.append(f"     its groups — so in practice item 3 binds {a_list}.")
-    out.append("  4. The rewrite must FIX something. It may not trade one "
+    out.append("  3. The rewrite must FIX something. It may not trade one "
                "defect for another: new FLAG")
     out.append("     findings anywhere in the draft reject it (new NOTES do "
                "not).")

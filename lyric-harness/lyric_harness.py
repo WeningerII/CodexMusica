@@ -8394,6 +8394,28 @@ class _JournalCapacity(Exception):
         self.path, self.code = path, code
 
 
+class _QuestionChanged(_JournalCapacity):
+    """A held run whose next replayed question is no longer the one it asked.
+
+    The journal pins each completed writer question by the sha256 of its
+    prompt, so an update that rewords the questions (2026-10-27: D6 removed
+    the word lists they offered) makes a run held across it unreplayable.
+    Replaying its old answers under new questions would carry the old
+    prompts' steering forward, and asking again would re-dispatch completed
+    writer calls. Neither happens: the run parks the way a capacity stop
+    does -- its accepted draft kept, `new_run_required`, no writer request --
+    and the user continues it as new work from that draft and their own
+    requirements, which the website already offers on this park. `path` is
+    None on purpose: the input checkpoint is left byte-identical."""
+    def __init__(self, state):
+        super().__init__(state, state.get("accepted_lines"), None,
+                         "QUESTION_CHANGED")
+        Exception.__init__(self, "QUESTION_CHANGED: this run was held across "
+                           "an update that changed its questions; the "
+                           "accepted draft and requirements are kept; "
+                           "continue as new work from that draft")
+
+
 def _journal_admit(state, reserve=0, *, lines=None, path=None,
                    ceiling=JOURNAL_WORK_BYTES, prior=None):
     if _journal_bytes(state) + reserve > ceiling:
@@ -8441,10 +8463,17 @@ def _journal_stop(error, machine=None, plan=None):
     if plan is not None:
         from quality.plan import render_song
         text = render_song(plan, error.lines).rstrip()
-    text += ("\n\n[STOPPED — " + error.code + " — accepted draft preserved; "
-             "not certified. Keep the journal. This run cannot resume; an "
-             "identical restart can reach the same limit. Reduce the requested "
-             "scope explicitly before starting independent work.]")
+    if isinstance(error, _QuestionChanged):
+        text += ("\n\n[STOPPED — " + error.code + " — accepted draft preserved; "
+                 "not certified. This run was held across an update that "
+                 "changed its questions, so it cannot replay them. No writer "
+                 "request was made. Continue as new work from the accepted "
+                 "draft; your requirements carry over.]")
+    else:
+        text += ("\n\n[STOPPED — " + error.code + " — accepted draft preserved; "
+                 "not certified. Keep the journal. This run cannot resume; an "
+                 "identical restart can reach the same limit. Reduce the requested "
+                 "scope explicitly before starting independent work.]")
     _lyric_result(**_lexicon_kw(), status="journal_capacity", exit=3, stop_reason=error.code,
                   code=error.code, input_draft=st.get("input_draft", error.lines),
                   accepted_lines=error.lines, final_draft=error.lines,
@@ -9665,6 +9694,24 @@ def _checkpoint_proposer(one, two, lines, config_key, spec):
         if applied is not None:
             confirmed[active["index"]] = applied
 
+    def _same_question_coordinates(event, kind, record):
+        if event.get("kind") != kind or event.get("answer") is None:
+            return False
+        k = sum(1 for e in state["proposals"][:cursor]
+                if e.get("kind") == kind and e.get("answer") is not None)
+        recorded = state.get("answered", {}).get(kind, [])
+        if k >= len(recorded) or not isinstance(recorded[k], dict):
+            return False
+        # The question's IDENTITY, never its wording: a group record also
+        # carries `question_sha256`, the hash of its rendered text, which is
+        # exactly what a rewording moves (3PO on #627). A group's draft is
+        # read through its members' `texts`; group records carry no
+        # whole-draft fingerprint.
+        keys = [x for x in record
+                if x not in ("text", "new", "batch", "question_sha256")]
+        return bool(keys) and all(recorded[k].get(x) == record.get(x)
+                                  for x in keys)
+
     def ask(kind, prompt, current, round_no, call, record):
         nonlocal cursor, active, replayed_completed
         identity = hashlib.sha256(prompt.encode("utf-8")).hexdigest()
@@ -9672,10 +9719,23 @@ def _checkpoint_proposer(one, two, lines, config_key, spec):
                   "current": list(current), "question_sha256": identity}
         if cursor < replay_count:
             event = state["proposals"][cursor]
-            if (event.get("kind") != kind
-                    or (event.get("question_sha256") != identity
-                        and event.get("question_sha256")
-                        not in legacy_question_identities(kind, prompt))):
+            recorded = event.get("question_sha256")
+            if event.get("kind") != kind or (
+                    recorded != identity
+                    and recorded not in legacy_question_identities(kind, prompt)):
+                # In this order (agreed by BB8 and Don on #519):
+                # 1. an exact undo of a dated rewording matched -> replay
+                #    (the condition above, BB8's `legacy_question_identities`);
+                # 2. SAME QUESTION, NEW WORDING -> park: the recorded answer's
+                #    identity (line or members, attempt, round, draft
+                #    fingerprint or member texts) matches this question's, so
+                #    only the prompt text moved, which is what an update that
+                #    rewords the questions does and no undo restores. The
+                #    accepted draft is the way forward;
+                # 3. anything else is a replay that diverged (another draft,
+                #    another line), and that stays a refusal by name.
+                if _same_question_coordinates(event, kind, record):
+                    raise _QuestionChanged(state)
                 raise ProposerUnavailable(
                     "checkpoint replay question differs; no new writer request was made")
             cursor += 1
