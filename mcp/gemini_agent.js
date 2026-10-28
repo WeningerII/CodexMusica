@@ -1739,6 +1739,13 @@ export async function runTurn({
     task?.domain === 'lyrics' && task.phase === 'edit' && task.lyric_context?.intent === 'review'
       ? task.lyric_context
       : null;
+  const checkProperties =
+    (surface.tools || []).find((t) => t.name === 'lyric_check')?.inputSchema?.properties ||
+    (surface.declarations || []).find((t) => t.name === 'lyric_check')?.parameters?.properties ||
+    {};
+  const uncheckedDeclarations = reviewContext
+    ? Object.keys(reviewContext.declarations).filter((key) => !Object.hasOwn(checkProperties, key))
+    : [];
   let reviewLines = null;
   let assessment = null;
   let artifact = task?.artifact ? { ...task.artifact, certified: false } : null;
@@ -2204,7 +2211,11 @@ export async function runTurn({
             ])
               if (reviewContext.declarations[key] !== undefined)
                 args[key] = reviewContext.declarations[key];
-          } else Object.assign(args, reviewContext.declarations, { lines: [...reviewLines] });
+          } else {
+            for (const [key, value] of Object.entries(reviewContext.declarations))
+              if (Object.hasOwn(checkProperties, key)) args[key] = value;
+            args.lines = [...reviewLines];
+          }
         }
         if (task && (task.domain === 'lyrics') !== fc.name.startsWith('lyric_')) {
           result = {
@@ -2554,6 +2565,7 @@ export async function runTurn({
           if (reviewContext && fc.name === 'lyric_check') {
             const v = lyricVerdict;
             const refused =
+              uncheckedDeclarations.length > 0 ||
               isError ||
               v?.exit_code === 2 ||
               v?.coverage?.refused_obligations?.length > 0 ||
@@ -2571,6 +2583,19 @@ export async function runTurn({
                     : 'failed',
               certified: false,
               binding: reviewContext.binding,
+              coverage: uncheckedDeclarations.length
+                ? {
+                    certified: false,
+                    obligations: [
+                      ...(v?.coverage?.obligations || []),
+                      ...uncheckedDeclarations.map((key) => ({
+                        id: `declaration:${key}`,
+                        status: 'refused',
+                        reason: `The declaration ${key} is preserved in the request but lyric_check does not support judging it.`,
+                      })),
+                    ],
+                  }
+                : (v?.coverage ?? null),
               standing: v?.standing?.length
                 ? v.standing
                 : flags > 0

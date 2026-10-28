@@ -7,8 +7,7 @@ import path from 'node:path';
 import { createRequire } from 'node:module';
 import { once } from 'node:events';
 import express from 'express';
-import { z } from 'zod';
-import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import { buildServer as buildRealServer } from './tools.js';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { createChatRouter, CHAT_LIMITS } from './chat.js';
@@ -33,16 +32,9 @@ const sandbox = {
 vm.runInNewContext(source, sandbox, { filename: helper });
 const { run } = sandbox.page;
 run('globalThis.lyInspectionReceive=()=>{}; lyRefresh=()=>{}; lyFocusQuestionSoon=()=>{};');
-const document = '[SETUP — groups: 1,2]\n[VERSE]\nnever say the word aloud\nnever leave the room';
+const baseDocument =
+  '[SETUP — rhyme groups — 1,2]\n[VERSE]\nnever say the word aloud\nnever leave the room';
 const lines = ['never say the word aloud', 'never leave the room'];
-const context = JSON.parse(
-  JSON.stringify(
-    run("app.lyricMeta={version:1,brief:'',notes:{},ui:{}}; lyContext(lyParse(__text))", {
-      __text: document,
-    })
-  )
-);
-context.intent = 'review';
 const flag = 'L1/L2: FINDING [FLAG] SCHEME_VIOLATION: fixture violation';
 
 test('actual /chat review reaches the page without rewriting or certifying a song', async () => {
@@ -50,7 +42,30 @@ test('actual /chat review reaches the page without rewriting or certifying a son
     ? await chromium.launch({ executablePath: process.env.CHROMIUM_PATH, args: ['--no-sandbox'] })
     : null;
   try {
-    for (const mode of ['clear', 'flagged', 'refused', 'missing', 'no-check', 'rewrite']) {
+    for (const mode of [
+      'clear',
+      'flagged',
+      'refused',
+      'missing',
+      'no-check',
+      'rewrite',
+      'unsupported',
+    ]) {
+      const document =
+        mode === 'unsupported'
+          ? '[SETUP — title — "Never"]\n[SETUP — narrative — arrival]\n[SETUP — require — never]\n[SETUP — avoid — always]\n' +
+            baseDocument
+          : baseDocument;
+      const context = JSON.parse(
+        JSON.stringify(
+          run("app.lyricMeta={version:1,brief:'',notes:{},ui:{}}; lyContext(lyParse(__text))", {
+            __text: document,
+          })
+        )
+      );
+      context.intent = 'review';
+      assert.equal(context.declarations.groups, '1,2');
+      if (mode === 'unsupported') assert.equal(context.declarations.title, 'Never');
       const called = [];
       const verdict = {
         exit_code: 0,
@@ -67,22 +82,13 @@ test('actual /chat review reaches the page without rewriting or certifying a son
           coverage: { certified: false, obligations: [{ id: 'rhyme:1:2:0', status: 'refused' }] },
         });
       if (mode === 'missing') delete verdict.coverage;
-      const buildServer = () => {
-        const server = new McpServer(
-          { name: 'review-fixture', version: '1' },
-          { instructions: '=== RECIPE TASK === Recipe. === LYRICS TASK === Existing lyrics.' }
-        );
+      const buildServer = (options) => {
+        const server = buildRealServer(options);
+        // Keep actual registration, schema parsing and unknown-key validation;
+        // replace only execution so no model or native grading work is dispatched.
         for (const name of ['lyric_recover', 'lyric_check', 'lyric_revise'])
-          server.registerTool(
-            name,
-            {
-              inputSchema: {
-                lines: z.array(z.string()).optional(),
-                lines_text: z.string().optional(),
-                groups: z.string().optional(),
-              },
-            },
-            async (args) => {
+          server._registeredTools[name].update({
+            callback: async (args) => {
               called.push({ name, args });
               assert.notEqual(name, 'lyric_revise');
               if (name === 'lyric_recover') assert.equal(args.lines_text, context.document);
@@ -102,8 +108,8 @@ test('actual /chat review reaches the page without rewriting or certifying a son
                   },
                 ],
               };
-            }
-          );
+            },
+          });
         return server;
       };
       const router = await createChatRouter({
@@ -169,9 +175,19 @@ test('actual /chat review reaches the page without rewriting or certifying a son
           missing: 'failed',
           'no-check': 'failed',
           rewrite: 'assessed_clear',
+          unsupported: 'input',
         }[mode];
         assert.equal(payload.assessment?.status, expected, JSON.stringify(payload));
         assert.equal(payload.assessment.certified, false);
+        if (mode === 'unsupported') {
+          assert.deepEqual(payload.task.lyric_context.declarations, context.declarations);
+          for (const key of ['title', 'narrative', 'must_include', 'avoid'])
+            assert.ok(
+              payload.assessment.coverage.obligations.some(
+                (o) => o.id === 'declaration:' + key && o.status === 'refused'
+              )
+            );
+        }
         assert.equal(payload.artifact, null);
         assert.equal(payload.completion, null);
         assert.equal(payload.stopped, null);
@@ -231,6 +247,7 @@ test('actual /chat review reaches the page without rewriting or certifying a son
           assert.equal(await browserPage.locator('#lyrics-draft').inputValue(), document);
           const panel = await browserPage.locator('#ly-panel-review').innerText();
           if (mode === 'flagged') assert.match(panel, /SCHEME_VIOLATION/);
+          if (mode === 'unsupported') assert.match(panel, /Not judged: declaration:title/);
           assert.doesNotMatch(panel, /Finished · certified/);
           await browserPage.locator('#lyrics-draft').fill(document + ' changed');
           assert.equal(await browserPage.evaluate(() => lyAnalysis().state), 'stale');

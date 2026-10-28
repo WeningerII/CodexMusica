@@ -6258,7 +6258,8 @@ function lyReceive(payload, request) {
     lyric: payload.lyric || chatState.lyric || null,
     task: task || null,
     tools,
-    coverage: coverageTool?.coverage || payload.lyric?.coverage || null,
+    coverage:
+      payload.assessment?.coverage || coverageTool?.coverage || payload.lyric?.coverage || null,
     stopped: payload.stopped || null,
     reply:
       typeof payload.reply === 'string' && !payload.artifact ? payload.reply.slice(0, 1200) : null,
