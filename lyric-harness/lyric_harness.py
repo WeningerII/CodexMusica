@@ -11799,7 +11799,18 @@ def main():
         # where the relation happens not to change the sampled shape — the
         # byte-identical shape `_say_relation` was written to end one verb
         # over.
-        if the_plan.get("relation"):
+        # A GROUP'S OWN RELATION WINS (`Mandate.relation_of`), so a group the
+        # request typed beside a song-wide `--relation` is named as the
+        # exception it is, never folded into "every group" (BB8, #519).
+        _own = {k: v for k, v in (the_plan.get("relations") or {}).items()
+                if the_plan.get("relation") and v != the_plan["relation"]}
+        if the_plan.get("relation") and _own:
+            print(f"  RELATION: every mandated group is judged under "
+                  f"{the_plan['relation']!r} — DECLARED, not sampled — "
+                  f"except {len(_own)} group(s) the request chose: "
+                  + "; ".join(f"{k} under {v!r}" for k, v in _own.items())
+                  + ". No group draws a type of its own.")
+        elif the_plan.get("relation"):
             print(f"  RELATION: every mandated group is judged under "
                   f"{the_plan['relation']!r} — DECLARED, not sampled; no "
                   f"group draws a type of its own.")

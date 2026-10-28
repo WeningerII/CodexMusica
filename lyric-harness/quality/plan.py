@@ -1776,7 +1776,12 @@ def _assign_types(section_blocks, trng, max_token, declared=None,
             f"plan draws {len(groups)} group(s)",
             codes=("TYPE_GROUP_ABSENT",),
             findings=[{"code": "TYPE_GROUP_ABSENT", "line": 0,
-                       "detail": f"groups chosen: {', '.join(absent)}"}])
+                       "detail": f"groups chosen: {', '.join(absent)}",
+                       # A label back to the group number the request sent
+                       # (`SC.label`: a letter, then a multiple of 26).
+                       "groups": [ord(x[0]) - 64 + 26 * int(x[1:] or 0)
+                                  for x in absent],
+                       "drawn": len(groups)}])
     return groups, rels, records, carried
 
 
@@ -3600,6 +3605,18 @@ def _redraw_past_joint_gate(seed, kw):
                        "keeps the length the first one drew")}
         plan["writer_brief"] = writer_brief(plan)
         return plan
+    # A chosen group no candidate drew is the REQUEST's cause, named first
+    # (BB8, #519): the group number and the most groups any candidate drew.
+    absent = [f for r in refused for f in r["findings"]
+              if f.get("code") == "TYPE_GROUP_ABSENT"]
+    if absent and len(absent) == len(refused):
+        nums = sorted({g for f in absent for g in f.get("groups", ())})
+        raise SeedRefused(
+            f"a type is chosen for group(s) {', '.join(map(str, nums))}, and "
+            f"no candidate draw for seed {seed} has that many groups (the "
+            f"most any drew: {max(f['drawn'] for f in absent)}) — choose a "
+            f"type for a group the plan draws, or try another seed; "
+            f"outcomes={refused}")
     raise SeedRefused(
         f"the joint gate refused all {REDRAW_BOUND} candidate draws for seed "
         f"{seed}; this is a bounded sample, not proof that the request cannot "

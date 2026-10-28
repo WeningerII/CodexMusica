@@ -5695,6 +5695,34 @@ def test_the_plan_report_discloses_density_and_audibility():
           and "JSON list" in refused_gt[1][1]
           and "registry's indices" in refused_gt[2][1],
           str([o[-200:] for _, o, _ in refused_gt])[:300])
+    # BOTH DECLARED (BB8, #519): a group the request typed keeps its own
+    # type over the song-wide relation (`Mandate.relation_of`), and the
+    # RELATION line names it as the exception instead of saying "every".
+    _asson = list(_RL.REGISTRY).index("assonance")
+    rc_both, out_both, _ = run(
+        'plan', '--seed=7', '--relation=schema:pararhyme',
+        f'--group-types=[{{"group":1,"type":{_asson}}}]', f'--out={bp}',
+        expect_rc=0)
+    with open(bp, encoding='utf-8') as fh:
+        both = _json.load(fh)
+    _rel_line = next((ln for ln in out_both.splitlines()
+                      if ln.strip().startswith("RELATION:")), "")
+    check('with --relation and --group-types both given, the RELATION line '
+          'names the typed group as the exception to the song-wide relation',
+          rc_both == 0
+          and both['relations'].get('A') == 'schema:assonance'
+          and "except 1 group(s) the request chose: A under "
+              "'schema:assonance'" in _rel_line
+          and "judged under 'schema:pararhyme'" in _rel_line,
+          _rel_line[:200])
+    rc_far, out_far, _ = run('plan', '--seed=7',
+                             f'--group-types=[{{"group":99,"type":{_asson}}}]')
+    check('...and a type chosen for a group no draw reaches is refused naming '
+          'the group and the most groups any candidate drew',
+          rc_far == 2 and re.search(r"group\(s\) 99, and no candidate draw "
+                                    r"for seed 7 has that many groups \(the "
+                                    r"most any drew: \d+\)", out_far),
+          out_far[-300:])
     brief = plan.get("writer_brief", "")
     # REPINNED 2026-10-04 from ~~"Where a binding sits" in brief~~: the plan
     # binds every member at its line's end now (owner's ruling), and the
