@@ -30,6 +30,12 @@ MAX_CANDIDATES_PER_SCHEMA = None
 #: started is counted and serialized to the end, so a call can run past it
 #: by that one type's time (#519 finding d). Nothing is capped silently.
 COUNT_TIME_BUDGET_S = 300
+#: How many admissible (not False) instances of one type the census holds
+#: while it counts the rest, so it can admit them once that type's counts are
+#: final. Past this, the type is enumerated a second time instead
+#: (`from_stream`). 2,243 was the most any type had on the capacity matrix's
+#: 31-line draft (2026-10-28, #519).
+MAX_PENDING_INSTANCES = 4096
 
 
 class _Serializer(AnalysisSession):
@@ -118,15 +124,27 @@ def from_stream(stream, phon, *, declarations, provenance, schemas=None,
             cov["remaining_records_unknown"] = True
             continue
         counts = {"true": 0, "false": 0, "undecided": 0}
+        pending, overflow = [], [False]
 
-        def take(inst, method=method, counts=counts):
-            # ONE INSTANCE AT A TIME (2026-10-28, #519): counted, serialized
-            # while the record and byte limits allow, then dropped. Collecting
-            # the population first held 297,102 instances of one type on a
-            # 31-line draft and took the grade past its 2 GiB envelope.
-            nonlocal record_bytes
+        def take(inst, counts=counts, pending=pending, overflow=overflow):
+            # COUNT EVERY INSTANCE, HOLD ONLY THE FEW THAT ARE ADMISSIBLE
+            # (2026-10-28, #519). Collecting the whole population held
+            # 297,102 instances of one type on a 31-line draft and took the
+            # grade past its 2 GiB envelope; 2,243 of them were not False.
             counts["true" if inst.verdict is True else
                    "false" if inst.verdict is False else "undecided"] += 1
+            if inst.verdict is not False and not overflow[0]:
+                if len(pending) < MAX_PENDING_INSTANCES:
+                    pending.append(inst)
+                else:
+                    overflow[0] = True
+                    pending.clear()
+
+        def admit(inst, method=method):
+            # Admission exactly as before streaming: this type's FINAL counts
+            # are already in the envelope that `_report_bytes` sizes, so the
+            # byte limit admits the same records (#519 6459690813).
+            nonlocal record_bytes
             if inst.verdict is False:
                 return
             if len(result["records"]) >= max_records:
@@ -146,7 +164,6 @@ def from_stream(stream, phon, *, declarations, provenance, schemas=None,
                 return
             record_bytes += candidate_bytes
             method["emitted"] += 1
-        mark = (len(result["records"]), cov["omitted_records"], record_bytes)
         try:
             got = RL.realise(RL.REGISTRY[name], stream, keep="all",
                              max_pairs=max_candidates, sink=take)
@@ -157,11 +174,7 @@ def from_stream(stream, phon, *, declarations, provenance, schemas=None,
             cov["remaining_records_unknown"] = True
             continue
         if isinstance(got, RL.Refusal):
-            # A refusal returns before any instance reaches the sink; keep
-            # the report exactly as if none had been taken.
-            del result["records"][mark[0]:]
-            cov["omitted_records"], record_bytes = mark[1], mark[2]
-            method.update(status="refused", refusal=json_safe(got), emitted=0)
+            method.update(status="refused", refusal=json_safe(got))
             cov["remaining_records_unknown"] = True
             continue
         for inst in got:
@@ -169,6 +182,16 @@ def from_stream(stream, phon, *, declarations, provenance, schemas=None,
             # instances is consumed the same way.
             take(inst)
         method["counts"] = counts
+        if not overflow[0]:
+            for inst in pending:
+                admit(inst)
+        else:
+            # More admissible instances than are held: enumerate the type a
+            # second time, now that its counts are known, admitting in the
+            # same order. Exact, and still one instance at a time.
+            RL.realise(RL.REGISTRY[name], stream, keep=("true", "none"),
+                       max_pairs=max_candidates, sink=admit)
+        pending.clear()
     cov["complete"] = bool(requested) and all(m["status"] == "answered" for m in cov["methods"])
     cov["status"] = ("not_requested" if not requested else
                      "complete" if cov["complete"] else "partial")
