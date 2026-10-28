@@ -1080,7 +1080,7 @@ return {
     view.update(sub || '/works');
     return view;
   },
-  // Leaving the top-level Library hides rather than removes this view.
+  // Leaving Works can hide this view or leave it connected while a chunk loads.
   // Re-entry creates a fresh view from the last committed Library route.
   leave: () => {
     if (ACTIVE && !ACTIVE.disposed) ACTIVE.dispose();
