@@ -33,7 +33,7 @@ import sys
 BRACKET = re.compile(r"^\s*(?:#{1,6}\s+)?(?:\*\*|__)?\[([A-Z][A-Z0-9_]*)([^\]]*)\]")
 #: The apparatus separator `section_header` builds with. An em dash, spaced.
 #: Tested against the bracket's INSIDE, never the whole line — otherwise
-#: `[INTRO]   Freight — grey water` would pass on a dash in the lyric.
+#: `[INTRO]   Tok01 — tok02 tok03` would pass on a dash in the lyric.
 APPARATUS = " — "
 #: Declared in the TEXT, so the escape is visible to whoever reads the text
 #: rather than hidden in this file (doctrine 48).

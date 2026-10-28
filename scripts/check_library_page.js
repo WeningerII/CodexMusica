@@ -834,8 +834,11 @@ const SECTIONS = {
       JSON.stringify(amp)
     );
     // A LISTED collection with nothing readable has no head file; it is
-    // held, not missing (BB8's W1: 48 such, e.g. "sonnets generated").
-    const held = await outcome('/works?collection=collection_9edc5f69-bf21-5946-bb46-27d95903804c');
+    // held, not missing (BB8's W1: 48 such). The example was "sonnets
+    // generated" until 2026-10-27, when that collection was deleted with the
+    // AI-written text; "san dcs verse" (0 of 1930 units readable) is held the
+    // same way, and 46 such remain.
+    const held = await outcome('/works?collection=collection_3675f60a-d858-5597-b656-93c572751ec8');
     check(
       `${tag} works: a held-only collection says Nothing here is readable, not No such collection`,
       held.tone !== 'danger' &&
@@ -858,7 +861,9 @@ const SECTIONS = {
       JSON.stringify(empty)
     );
     // A row with no recorded count is not a count of zero: it stays held.
-    const HELD_ROW = 'collection_9edc5f69-bf21-5946-bb46-27d95903804c';
+    // The same held collection as above ("sonnets generated" until its
+    // deletion on 2026-10-27).
+    const HELD_ROW = 'collection_3675f60a-d858-5597-b656-93c572751ec8';
     await page.route('**/library/data/collections.json', async (route) => {
       const response = await route.fetch();
       const body = await response.json();

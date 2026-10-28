@@ -28,7 +28,7 @@
 //
 // Usage:
 //   node scripts/flash_battery.mjs --out=DIR [--base=URL] [--songs=N]
-//     [--turns=N] [--pace=SECONDS] [--brief=INDEX] [--raw] [--smoke]
+//     [--turns=N] [--pace=SECONDS] [--raw] [--smoke]
 //     [--stop-on=malformed,idle|none]   (default for one song: malformed,idle)
 //     [--retry-after-cap=S]              (default 600; the longest Retry-After honoured)
 //     [--reask=N]                        (default for one song: 2)
@@ -37,11 +37,14 @@
 //     [--require-remote-recovery]          (Actions encrypted capability before every dispatch)
 //     [--max-runtime=SECONDS] [--delivery-reserve=SECONDS] (default 18000 / 30)
 //     [--resume]                         (same --out; reuse receipts and signed checkpoints)
-//   --raw: the brief is exactly "Write a song" and every continuation is
-//     exactly "keep going" — no length, no form, no "finish it", no process
-//     coaching. The plainest ask a person types is the honest test of whether
-//     the product works for a person; the five briefs below stay as feature
-//     PROBES and are never the pass/fail truth on their own (M-274).
+//   Every song opens with the plain ask "Write a song". The five probe
+//     briefs (lighthouse keeper, ABAB quatrains, night driving, tin roof,
+//     drinking song) are DELETED 2026-10-27 at the owner's instruction
+//     ("delete the five test briefs (including the lighthouse keeper one)"),
+//     and `--brief=INDEX` now refuses.
+//   --raw: every continuation is exactly "keep going" — no process coaching.
+//     Without it the continuations are the process-steering messages below
+//     (M-274: the plainest ask is the honest test).
 //
 // Output: song<i>.jsonl, summary.json, run.json, atomic song checkpoints and
 // fsynced attempt/receipt journals. The latter contain continuation capabilities;
@@ -238,19 +241,9 @@ const STOP_ON = new Set(
 // (the recover door). Plain language on purpose — the site's users write
 // plain language, and a brief written in the tools' own vocabulary would be
 // the driver quietly doing the model's job.
-const BRIEFS = [
-  // The size ask is DERIVED, not taste (M-166): round 9's transcript
-  // measured single revise folds at 340-515s by answer ~6 on whatever large
-  // shape the model drew, crossing the 600s budget by turn 6 — while round
-  // 6's 22-line shape folded at ~90s, far inside it. A user who watched
-  // their song time out asks for a shorter one; the brief stays plain
-  // language and names no tool.
-  'Write me a short song about a lighthouse keeper who falls asleep — a couple of verses and a chorus, twenty-odd lines, nothing sprawling. Take it all the way to finished — I want the final, checked version.',
-  'I want a song in ABAB quatrains about packing up a childhood home. Use assonance as the rhyme feel, and finish it properly — revised until it passes.',
-  'Write a song with a chorus and a bridge about driving at night. No prechorus. Finish it — do not stop at a draft.',
-  'Write a short song about rain on a tin roof, then revise it until every check passes. Show me the finished version only when it is actually finished.',
-  'Write me a drinking song with a verbatim refrain that comes back three times. Take it through the whole process to a finished song.',
-];
+// ~~const BRIEFS = [...]~~ — the five probe briefs, DELETED 2026-10-27 at the
+// owner's instruction: "delete the five test briefs (including the lighthouse
+// keeper one)". The plain ask below is what every song opens with now.
 // THE RAW ASK (M-274, owner's rule, 2026-09-11: "the prompt you give it
 // should be no more complicated than 'Write a song' ... does it not bias our
 // entire efforts if it's anything more than that?"). Every brief above tells
@@ -260,8 +253,8 @@ const BRIEFS = [
 // is the plainest ask and the only continuation is the plainest nudge; if
 // the model stops at a draft without being told to finish, that is a finding
 // about the product, and the record shows it instead of the driver talking
-// the model past it. The probes above keep their job — a refrain, a rhyme
-// relation, a roster — and stop being the truth.
+// the model past it. (The five probe briefs that sat above this are deleted;
+// see the note there.)
 const RAW_BRIEF = 'Write a song';
 const RAW_CONTINUE = 'keep going';
 // M-166's other half: rounds 8 and 9 both relapsed into ONE answered
@@ -487,15 +480,14 @@ function post(body, { path = '/chat', method = 'POST', timeoutMs = CLIENT_DEADLI
 }
 
 const RAW = args.raw === true || args.raw === 'true';
-if (RAW && args.brief != null) {
-  throw new Error('--raw drives the plain ask and takes no --brief index');
+if (args.brief != null) {
+  throw new Error(
+    '--brief: the five probe briefs were deleted (2026-10-27); every song opens with the plain ask'
+  );
 }
-const only = args.brief != null ? [parseInt(args.brief, 10)] : null;
-// Under --raw every song is the same plain ask; the index is kept at 0 so the
-// resume and coverage checks that count songs by brief index still hold.
-const indices = RAW
-  ? Array.from({ length: N_SONGS }, () => 0)
-  : (only ?? Array.from({ length: N_SONGS }, (_, i) => i % BRIEFS.length));
+// Every song is the same plain ask; the index is kept at 0 so the resume and
+// coverage checks that count songs by brief index still hold.
+const indices = Array.from({ length: N_SONGS }, () => 0);
 const MODE = RAW ? 'raw' : 'probe';
 for (const [name, value] of Object.entries({
   N_SONGS,
@@ -511,9 +503,6 @@ for (const [name, value] of Object.entries({
 })) {
   if (!Number.isFinite(value) || value < 0)
     throw new Error(`invalid numeric battery option: ${name}`);
-}
-if (indices.some((i) => !Number.isInteger(i) || i < 0 || i >= BRIEFS.length)) {
-  throw new Error('--brief must name an existing brief index');
 }
 
 const { mkdirSync, appendFileSync } = await import('node:fs');
@@ -567,8 +556,8 @@ summary.delivery_reserve_ms = DELIVERY_RESERVE_MS;
 delete summary.finished;
 atomicJSON(join(OUT, 'summary.json'), summary);
 
-for (const [songNo, briefIdx] of indices.entries()) {
-  const brief = RAW ? RAW_BRIEF : BRIEFS[briefIdx];
+for (const [songNo] of indices.entries()) {
+  const brief = RAW_BRIEF;
   const file = `${OUT}/song${songNo}.jsonl`;
   const checkpointFile = join(OUT, `song${songNo}.checkpoint.json`);
   const attemptsFile = join(OUT, `song${songNo}.attempts.jsonl`);

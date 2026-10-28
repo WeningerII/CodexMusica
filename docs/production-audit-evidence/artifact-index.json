@@ -12,12 +12,12 @@
   },
   "raw_copy_policy": "Raw artifacts are byte-for-byte copies. Existing differing destinations are refused. Index excludes its own recursive hash.",
   "artifact_count": 570,
-  "total_bytes": 4834963,
+  "total_bytes": 4837731,
   "artifacts": [
     {
       "path": "README.md",
-      "sha256": "e0b7e968fe23c49c3d6aa49f8d273542e50b0f5abc032d70abc0bd45d017b41f",
-      "bytes": 4188,
+      "sha256": "652c0ab3c12155358b69ad378d06149951d58e201657ae7a37ed42e8b200ea08",
+      "bytes": 4655,
       "classification": "bundle_explanation_generated"
     },
     {
@@ -346,10 +346,12 @@
     },
     {
       "path": "connector-native-tail-probe.json",
-      "sha256": "aa2a6092d1693cd73487e627274868b85b46ada0c12e4e3c9b07e51ebea40ee0",
-      "bytes": 40189,
+      "sha256": "4bbefc6800d0965286e931d998a0149ed2d070b2b9f2543e9c3f2132993e0c87",
+      "bytes": 42490,
       "original_path": "/workspace/scratch/b0544e4bbdd6/production-fix-results/connector-native-tail-probe.json",
-      "classification": "partial_verdict_scope_counterexample_and_repair"
+      "classification": "partial_verdict_scope_counterexample_and_repair",
+      "raw_copy": false,
+      "redaction": "2026-10-27: not a raw copy. The verify and noOp final_draft lines are synthetic replacements for deleted AI-written text, and the file says so in `redaction` and in each record's `final_draft_redaction`. Those records' stored hashes, verdicts and certified/verified claims describe the original executed drafts, not the text shown. sha256/bytes here measure the redacted file."
     },
     {
       "path": "connector-partial-verdict-scope-repair.json",

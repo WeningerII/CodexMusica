@@ -285,5 +285,6 @@
   ],
   "missing": "No per-tool duration, harness/Gemini split, LoopResult round records, tier2 tried counts or accepted-attempt reasons are present in these logged rows. Archived artifact contains only summary.json and song0.jsonl (job reports two uploaded files).",
   "job_log_file": "round10-job.log.gz",
-  "job_log_sha256": "8cc8610bd70cfe52b1a4fa323db183b17b45d0633091f2dbee1295e2dd3c4574"
+  "job_log_redaction": "2026-10-27: round10-job.log.gz is REDACTED, not the raw job log. Three model replies (each a full AI-written song) and two copies of a deleted test brief were removed. `job_log_sha256` measures the redacted file; the raw log's was 8cc8610bd70cfe52b1a4fa323db183b17b45d0633091f2dbee1295e2dd3c4574. The selected rows above are unchanged.",
+  "job_log_sha256": "38b9f520122dda1c30fc3cb5c7fc44ddefebf16302256cb444b3bc5eae738407"
 }

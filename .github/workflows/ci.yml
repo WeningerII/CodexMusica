@@ -2879,7 +2879,7 @@ jobs:
       #   pairs, every other apostrophe read as written, the elision list against the data, source
       #   spans, and declared pronunciations bound only where the source quote was removed; about
       #   20 s; label 110 to 111
-      - name: The 111 cheap suites (their history is the comment above)
+      - name: The 106 cheap suites (their history is the comment above; 111 until 2026-10-27, when the five bank suites were deleted with the song bank)
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -2960,21 +2960,21 @@ jobs:
           fi
           echo "shard ${SUITES_SHARD:-1}/${SUITES_SHARDS:-1}:" \
                "solo='${_mine:-none}' pool=${_pool_k}/${_pool_n}"
-          for f in relations_null songs_record screen g2p spans readability \
+          for f in relations_null screen g2p spans readability \
                    recover replay_memo grid propose gate_census floor fwer homograph \
                    mut_oracle msa_fin corpus_audit provenance homeoteleuton null_shapes \
                    phrase_commonplace mandate_relation meter_bands sentencehood \
                    fit nc_census structure_census placement structures align slots \
                    relations crosslinguistic capabilities declared_inputs door_census \
-                   suite_sweep ltc songs_log cym positive_control song_function \
+                   suite_sweep ltc cym positive_control song_function \
                    chance_rate time_layer rhyme_organization readings_seam narrative pin_sweep taxonomy \
                    section_marks phonology nucleus corpus_taxonomy mut_band coda \
                    band relation_shapes matrix render_form verify_entries register_audit \
                    phon_msa mandate_language phon_fas phon_non phon_san staging \
                    controls data_row_claims english_text stub_resolution melody meter tempo verify_figures expected_drift \
-                   songs ban_convergence cross_song brief_provenance shard \
+                   cross_song brief_provenance shard \
                    battery_rounds comparator_pin audit_regressions production_harness production_relations high_report \
-                   production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window within_item computational_audit interlocking_chain field_store type_canon song_shape backlog_status source_identity figure_exhibits relation_index lexicon_supplement reader reader_quotes moby_convert coverage_split coverage_queue pilot_frame schema_instance_evidence; do
+                   production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window within_item computational_audit interlocking_chain field_store type_canon backlog_status source_identity figure_exhibits relation_index lexicon_supplement reader reader_quotes moby_convert coverage_split coverage_queue pilot_frame schema_instance_evidence; do
             # SHARDED ACROSS RUNNERS, 2026-09-01. The list above is already
             # run FOUR-WIDE on one runner (below), so this job was 5,612
             # CPU-s packed into 4 lanes = 1,403s wall — the measured
@@ -4191,18 +4191,16 @@ jobs:
         run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
 
       # The one instrument that needs the quality-layer resources: concreteness
-      # norms and the frequency list. `record` deliberately does NOT run this,
-      # which is why audit_joint_auc_null.py refuses there.
+      # norms and the frequency list. `record` deliberately does NOT run this.
       - name: Fetch the quality-layer resources
         working-directory: lyric-harness
         run: python3 quality/fetch_data.py --research
 
-      # ORDER IS LOAD-BEARING and this is the only place the chain is complete.
-      # discriminate.py is the ONLY caller of save_cache, data/feature_cache.json
-      # is gitignored, and audit_joint_auc_null.py --check REFUSES at exit 2
-      # without a warm cache -- correctly, per doctrine 20, but it means that
-      # check currently grades nothing anywhere else in this file. Here it
-      # grades something.
+      # discriminate.py is the ONLY caller of save_cache, and
+      # data/feature_cache.json is gitignored. Its consumer here was
+      # audit_joint_auc_null.py --check, DELETED 2026-10-27 with Experiment 2
+      # (the owner-approved deletion of the tool that compares AI-written poems
+      # with human ones); discriminate.py now runs Experiment 1 only.
       - name: Warm the feature cache (the only save_cache caller)
         working-directory: lyric-harness
         env:
@@ -4211,19 +4209,11 @@ jobs:
           OPENBLAS_NUM_THREADS: '1'
         run: python3 quality/discriminate.py
 
-      - name: Joint AUC null against its cold pins (needs the warm cache above)
-        if: always()
-        working-directory: lyric-harness
-        env:
-          OMP_NUM_THREADS: '1'
-          MKL_NUM_THREADS: '1'
-          OPENBLAS_NUM_THREADS: '1'
-        run: python3 quality/audit_joint_auc_null.py --check
-
-      # 44 AUCs pinned FULL-PRECISION at a 0.0005 tolerance, cold. ~1055 CPU-s,
-      # and none of it is shortenable: 99.8% is the 384 feature extractions,
-      # and the extractions ARE the cold guarantee.
-      - name: Every discrimination AUC against its cold pin (~17.6 CPU-min)
+      # 22 AUCs (Experiment 1; ~~44~~ until Experiment 2 was deleted
+      # 2026-10-27) pinned FULL-PRECISION at a 0.0005 tolerance, cold. Nearly
+      # all of it is the 264 feature extractions, and the extractions ARE the
+      # cold guarantee.
+      - name: Every discrimination AUC against its cold pin
         if: always()
         working-directory: lyric-harness
         env:
@@ -4385,27 +4375,12 @@ jobs:
         working-directory: lyric-harness
         run: python3 quality/chance_rate.py --null --check
 
-      # EVERY BANKED VERDICT, RE-DERIVED AGAINST THIS TREE (`MISSING.md`
-      # M-144). `song_log.py --verdicts` already charges the narrator's prose
-      # against a BANKED ROW — did the narrator report what the verb SAID —
-      # and that is the right question and not this one. Nothing re-derived a
-      # banked VERDICT against the current tree: `song_record.py --check` does
-      # exactly that for FEATURES and there was no verdict equivalent, which
-      # is how a 13.5% miscount sat inside a headline triple with every gate
-      # green. Exits 3 on a fresh move; a KNOWN move is adopted in
-      # `REGRADE_MOVED` with its cause, never by editing the banked prose,
-      # which `--verdicts` reads as history (doctrine 17).
-      # `if: always()` for the reason the paragraph above the proof-staging
-      # steps gives: an unrelated earlier failure must not turn this into a
-      # question nobody asked. MEASURED, run 34413319893: steps 9, 10, 13 and
-      # 14 failed and these three were SKIPPED, so a nightly that reported four
-      # problems was actually hiding an unknown number of them behind them.
-      - name: Every banked song verdict, re-derived
-        if: always()
-        working-directory: lyric-harness
-        run: python3 quality/regrade_verdicts.py
-
-      - name: Sentencehood calibration check (M-110 — ceiling + the six banked witnesses)
+      # ~~EVERY BANKED VERDICT, RE-DERIVED AGAINST THIS TREE (M-144):
+      # `quality/regrade_verdicts.py`.~~ DELETED 2026-10-27 with the song bank
+      # it re-graded (sixteen AI-written songs; owner-approved deletion),
+      # together with song_record.py, song_log.py, ban_convergence.py and
+      # song_shape.py and their suites.
+      - name: Sentencehood calibration check (M-110 — ceiling + the mechanical witnesses)
         if: always()
         working-directory: lyric-harness
         run: python3 quality/sentencehood.py --check

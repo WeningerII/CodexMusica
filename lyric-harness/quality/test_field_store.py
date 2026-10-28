@@ -37,6 +37,9 @@ Sections:
      fields are unchanged.
   6. The kill switch, the decoded-cache bound (a persistent row outlives an
      in-memory eviction), and the disclosure line.
+  7. The reviser's process-memo key is not None: `declaration_tuple` moved
+     here from `quality/discriminate.py`, and its importer in `revise.py`
+     swallows an ImportError as a memo miss.
 """
 
 import copy
@@ -488,6 +491,24 @@ check("it reports served, scored and held as THREE counts and sums none of "
 check("and it says warm, because this process inherited rows an earlier "
       "process wrote — not merely because it answered its own second ask",
       "FIELD STORE: warm" in line, line)
+
+# 7. THE REVISER'S PROCESS-MEMO KEY STILL SPELLS ITS DECLARATION.
+# `declaration_tuple` moved here from `quality/discriminate.py` on 2026-10-27.
+# `Reviser._decl_lex_key` imports it inside `except Exception: return None`,
+# so a stale import would not raise: every process memo would silently miss.
+from quality.revise import Reviser  # noqa: E402
+_reviser = Reviser()
+_dl = _reviser._decl_lex_key()
+check("the reviser's memo key is not None (its declaration_tuple import "
+      "resolves; a broken import would read as a silent miss)",
+      _dl is not None)
+check("and it carries field_store.declaration_tuple's spelling of the "
+      "reviser's declaration",
+      _dl is not None
+      and _dl[0] == tuple(sorted(FS.declaration_tuple(_reviser.decl).items())),
+      repr(_dl and _dl[0][:2]))
+check("the field memo key is built on it", _reviser._field_memo_key(("w",))
+      is not None)
 
 print(f"\n{'ALL PASS' if not FAILS else f'{len(FAILS)} FAILURE(S)'}")
 sys.exit(1 if FAILS else 0)

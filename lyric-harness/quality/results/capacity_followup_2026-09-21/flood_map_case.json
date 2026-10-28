@@ -1,22 +1,23 @@
 {
+  "lyric_text_replaced": "2026-10-27: SYNTHETIC REPLACEMENT, not the recorded run's text. Every lyric line in this file (and each pronunciation entry's `line`) is a phonological twin made by lyric-harness/quality/fixtures/phonological_twin.py (seed 20261027), replacing AI-written text the owner approved deleting. The plan, groups, returns, relations, pronunciation declarations and every other field are the recorded run's. Any description of these lines as frozen, exact or retained drafts describes the original lines, not these. This file is a regression fixture that keeps each tested condition; it does not claim the twins are phonologically equivalent to the originals in general. See README.md.",
   "writer": "interview",
   "draft": [
-    "Dark ink stains red charts",
-    "We float past the cork board",
-    "Red flags show the road",
-    "I mark mud on each wall",
-    "She sends us to work late",
-    "Dead reeds hide the bridge",
-    "She draws the town's last mark",
-    "The flood map leaves us out",
-    "The flood map leaves us out",
-    "Back home, rain eats the steps",
-    "My boots track silt and loss",
-    "We name what none can save"
+    "Dark think rains zed tarts",
+    "We moat hast the mork lord",
+    "Zed rags low the goad",
+    "I ark spud on each stall",
+    "She ends us to smirk slate",
+    "Tread pleads ide the fridge",
+    "She jaws the crown's past ark",
+    "The blood pap greaves us out",
+    "The blood pap greaves us out",
+    "Quack dome, sprain tweets the reps",
+    "My roots slack milt and cross",
+    "We mame what dunne can brave"
   ],
   "pronunciations": [
     {
-      "line": "She sends us to work late",
+      "line": "She ends us to smirk slate",
       "token": 3,
       "word": "us",
       "phones": [
@@ -27,7 +28,7 @@
       "source": "writer: pronoun us, one syllable"
     },
     {
-      "line": "The flood map leaves us out",
+      "line": "The blood pap greaves us out",
       "token": 5,
       "word": "us",
       "phones": [

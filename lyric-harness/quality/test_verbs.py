@@ -5302,18 +5302,23 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
     # `lyric_revise` result and the chat surface could not count the ban on
     # the finishing verb (M-168's drift into night/light/sight/might).
     #
-    # THE WHOLE-FLAG HALF, on the bank's own song: `keep_the_light.txt` under
-    # its committed blueprint retitled to a phrase its hook does not carry.
-    # The mandate is the README's, verbatim (doctrine 1: one statement).
-    bp = json.load(open(os.path.join(HERE, "..", "songs",
-                                     "keep_the_light.blueprint.json"),
+    # THE WHOLE-FLAG HALF, on a banked song's shape: until 2026-10-27 this
+    # read the bank's `keep_the_light.txt`, an AI-written song deleted with
+    # the bank (owner-approved). It reads its PHONOLOGICAL TWIN now,
+    # `fixtures/twin_bank_17.txt` (`fixtures/phonological_twin.py`: every
+    # content word a seeded dictionary draw with the same syllables, stress
+    # and rime; the same sections, returns and blueprint), under its
+    # blueprint retitled to a phrase its hook does not carry. The mandate is
+    # the bank README's, unchanged, because the twin keeps every position.
+    bp = json.load(open(os.path.join(HERE, "fixtures",
+                                     "twin_bank_17.blueprint.json"),
                         encoding="utf-8"))
     bp["title"] = "zebra confetti"
     d = tempfile.mkdtemp()
     bpath = os.path.join(d, "retitled.blueprint.json")
     with open(bpath, "w", encoding="utf-8") as fh:
         json.dump(bp, fh)
-    song = os.path.join(HERE, "..", "songs", "keep_the_light.txt")
+    song = os.path.join(HERE, "fixtures", "twin_bank_17.txt")
     mand = ("--groups=1.T3,3.T7,4.T7;2.headrime,3;1.T7,2;11.T5,12.T2;"
             "10.T6,12.endword;16.head,17.T1;15.T7,16,17.T3;"
             "15.headrime,16.T3,17")
@@ -5347,13 +5352,15 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
     # rhyme:16:17:6 refused. The subject needs a genuinely unresolved
     # reading target BESIDE the whole-draft flag, so L16's end word is
     # replaced by one no dictionary reads (`qzzxv`) in a copy; both runs
-    # below grade that same copy and differ only in the title.
+    # below grade that same copy and differ only in the title. (On the twin
+    # the words are 'bier', 'prix' and the tree line's twin; L16 ends
+    # `down to the prix`.)
     with open(song, encoding="utf-8") as fh:
         _song_text = fh.read()
-    _swapped = _song_text.count("down to the quay\n")
-    song_q = os.path.join(d, "keep_the_light.unread.txt")
+    _swapped = _song_text.count("down to the prix\n")
+    song_q = os.path.join(d, "twin_bank_17.unread.txt")
     with open(song_q, "w", encoding="utf-8") as fh:
-        fh.write(_song_text.replace("down to the quay\n",
+        fh.write(_song_text.replace("down to the prix\n",
                                     "down to the qzzxv\n"))
     st = os.path.join(d, "state.json")
     rc3, out3, _ = run("revise", song_q, mand, "--returns=6,9;6,14",
@@ -5380,7 +5387,7 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
           <= set(_R3.get('coverage', {}).get('refused_obligations') or ()),
           m3.group(0) if m3 else out3[-300:])
     st0 = os.path.join(d, "state0.json")
-    bp0 = os.path.join(HERE, "..", "songs", "keep_the_light.blueprint.json")
+    bp0 = os.path.join(HERE, "fixtures", "twin_bank_17.blueprint.json")
     rc4, out4, _ = run("revise", song_q, mand, "--returns=6,9;6,14",
                        f"--blueprint={bp0}", "--subdivision", "2",
                        "--max-rounds=1", "--attempts=0", "--backtrack=0",
@@ -5547,7 +5554,9 @@ def test_the_pasted_song_has_the_same_door_as_a_planned_one():
     # could be LOOPED (`revise --propose=defer:`) but never FINISHED: only
     # `finish` rendered and stamped, and `finish` needs a seed.
     d = tempfile.mkdtemp()
-    song = os.path.join(HERE, "..", "songs", "keep_the_light.txt")
+    # The bank song this read is deleted (2026-10-27); its phonological twin
+    # keeps the sections, the returns (6,9;6,14) and the shape.
+    song = os.path.join(HERE, "fixtures", "twin_bank_17.txt")
     rc, out, _ = run("recover", song)
     check("`recover` on a banked song exits 3 — the meter is REFUSED, a "
           "work order and not a failure — and prints the two CLI flags",

@@ -6,9 +6,9 @@
 
 WHY THIS EXISTS. Every enforcement layer in this tree checks SOUND — rhyme,
 meter, syllable bands, predictability, density. None asked whether a line has
-a verb in it, so `songs/long_bridge.txt` satisfied every constraint while its
-lines were comma-spliced inventories ("Spark, full height, cinder, ash,
-sleeve") and shipped at exit 0. A blind five-judge panel (2026-08-25, run 1,
+a verb in it, so `songs/long_bridge.txt` (an AI-written bank song, deleted on
+purpose 2026-10-27) satisfied every constraint while its lines were
+comma-spliced noun inventories, and shipped at exit 0. A blind five-judge panel (2026-08-25, run 1,
 `quality/RESULTS_PANEL.md`) rejected it 5/5 — every lens converging on one
 cause: lines without verbs, "no phrase a melody could carry."
 
@@ -266,32 +266,22 @@ def main(argv=None):
             ok = False
             print("  DRIFT: the sample's p99 no longer equals the adopted "
                   "ceiling — re-adopt deliberately, do not average")
-        # the banked songs are fixed witnesses (their bytes never move),
-        # so their readings are pinned here the way `song_record --check`
-        # pins their features: a moved reading means the INSTRUMENT moved.
-        from lyric_harness import load_lyric_lines
-        witness = {"long_bridge": 4, "one_more": 0, "turn_the_wheel": 0,
-                   "stay_awake": 0, "carry_it_over": 0, "keep_the_light": 0,
-                   # the forward-validation song (M-110): written WITH the
-                   # gate live, banked at 0 stacked lines — the pinned proof
-                   # the gate changed the writing and not only the grading.
-                   "taught_me_time": 0,
-                   # series song #3 (seed 2), written screen-first under the
-                   # same live gate: 0 stacked lines on its first grading.
-                   "wheat_mane": 0,
-                   # series song #4 (seed 3), screen-first under the same
-                   # live gate: 2 stacked lines (L7, L21) at green — 0.0625,
-                   # under the 0.125 ceiling. The first banked song to carry
-                   # any stacked line since the gate shipped, which is the
-                   # ceiling doing its job rather than the predicate never
-                   # firing: both lines carry a real verb and the fraction
-                   # is the coordinate that decides.
-                   "matinee": 2}
+        # FIXED WITNESSES, pinned so a moved reading means the INSTRUMENT
+        # moved. Until 2026-10-27 these were the bank's songs; those were
+        # AI-written and are deleted (owner-approved), so the witnesses are
+        # mechanical drafts of seeded dictionary words in fixed frames
+        # (`quality/fixtures/seeded_lines.py`): one with four noun stacks in
+        # 25 lines, five with none. The bank's readings, for the record:
+        #   ~~long_bridge 4, one_more 0, turn_the_wheel 0,
+        #   stay_awake 0, carry_it_over 0, keep_the_light 0, taught_me_time
+        #   0, wheat_mane 0, matinee 2~~
+        from quality.fixtures import seeded_lines as SL
+        drafts = {"stacked_25": SL.draft(100, 25, (8, 14, 23, 25))}
+        drafts.update({f"plain_{i}": SL.draft(i, 12) for i in range(1, 6)})
+        witness = {"stacked_25": 4, "plain_1": 0, "plain_2": 0,
+                   "plain_3": 0, "plain_4": 0, "plain_5": 0}
         for s, want in sorted(witness.items()):
-            p = os.path.join(ROOT, "songs", s + ".txt")
-            if not os.path.exists(p):
-                continue
-            got = len(report(load_lyric_lines(p))["stacked"])
+            got = len(report(drafts[s])["stacked"])
             mark = "ok" if got == want else "MOVED"
             if got != want:
                 ok = False

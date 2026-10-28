@@ -1,131 +1,131 @@
 {
-  "hooks": ["Go on. I'll keep the light."],
+  "hooks": ["Fro on. I'll jeep the slight."],
   "lines": [
     {
       "bar": 1,
       "beat": 1.0,
       "duration": 6.0,
       "section": "VERSE1",
-      "text": "Hold it dry. I'll do the pour."
+      "text": "Told it spry. I'll do the four."
     },
     {
       "bar": 3,
       "beat": 1.0,
       "duration": 6.0,
       "section": "VERSE1",
-      "text": "Stone in the road where the frost tore"
+      "text": "Bone in the goad where the lost lore"
     },
     {
       "bar": 5,
       "beat": 1.0,
       "duration": 6.0,
       "section": "VERSE1",
-      "text": "The house we built is leaning nigh, and let it groan"
+      "text": "The louse we spilt is meaning bligh, and pet it sloan"
     },
     {
       "bar": 7,
       "beat": 1.0,
       "duration": 6.0,
       "section": "VERSE1",
-      "text": "Some knots I never learned to tie"
+      "text": "Some watts I ever spurned to pie"
     },
     {
       "bar": 9,
       "beat": 2.0,
       "duration": 5.0,
       "section": "PRECHORUS1",
-      "text": "Bags by the step, and the taxi's late"
+      "text": "Brags by the yep, and the maxi's slate"
     },
     {
       "bar": 11,
       "beat": 1.0,
       "duration": 6.0,
       "section": "CHORUS1",
-      "text": "Go on. I'll keep the light."
+      "text": "Fro on. I'll jeep the slight."
     },
     {
       "bar": 13,
       "beat": 1.5,
       "duration": 5.5,
       "section": "FALSE_ENDING1",
-      "text": "And that was the last of it. Nearly."
+      "text": "And that was the vast of it. Merely."
     },
     {
       "bar": 15,
       "beat": 2.0,
       "duration": 5.0,
       "section": "PRECHORUS2",
-      "text": "You turn at the corner. You always turn."
+      "text": "You burn at the warner. You ashtrays burn."
     },
     {
       "bar": 17,
       "beat": 1.0,
       "duration": 6.0,
       "section": "CHORUS2",
-      "text": "Go on. I'll keep the light."
+      "text": "Fro on. I'll jeep the slight."
     },
     {
       "bar": 19,
       "beat": 1.5,
       "duration": 5.5,
       "section": "TAG1",
-      "text": "I have nothing else to spare"
+      "text": "I have watching tense to snare"
     },
     {
       "bar": 21,
       "beat": 1.5,
       "duration": 5.5,
       "section": "TAG1",
-      "text": "Take the coat. It cost me nothing."
+      "text": "Blake the bloat. It dost me watching."
     },
     {
       "bar": 23,
       "beat": 1.5,
       "duration": 5.5,
       "section": "TAG1",
-      "text": "You crossed the yard and stood at the stair"
+      "text": "You tossed the guard and hood at the nair"
     },
     {
       "bar": 25,
       "beat": 2.0,
       "duration": 5.0,
       "section": "PRECHORUS3",
-      "text": "The engine turning over in the dark"
+      "text": "The falsone earning over in the stark"
     },
     {
       "bar": 27,
       "beat": 1.0,
       "duration": 6.0,
       "section": "CHORUS3",
-      "text": "Go on. I'll keep the light."
+      "text": "Fro on. I'll jeep the slight."
     },
     {
       "bar": 29,
       "beat": 1.5,
       "duration": 5.5,
       "section": "POSTCHORUS1",
-      "text": "Ache holds the doorframe, hear my plea"
+      "text": "Brake folds the zqqbgx, bier my tea"
     },
     {
       "bar": 31,
       "beat": 1.5,
       "duration": 5.5,
       "section": "POSTCHORUS1",
-      "text": "Red light, quake in the glass, down to the quay"
+      "text": "Zed slight, snake in the mass, down to the prix"
     },
     {
       "bar": 33,
       "beat": 1.5,
       "duration": 5.5,
       "section": "POSTCHORUS1",
-      "text": "Thread the tree line down to the stake"
+      "text": "Tread the smee vine down to the shake"
     },
     {
       "bar": 35,
       "beat": 1.0,
       "duration": 6.0,
       "section": "CODA1",
-      "text": "And the light stays on all night."
+      "text": "And the slight hays on all dwight."
     }
   ],
   "sections": [
@@ -251,5 +251,5 @@
       "start_bar": 35
     }
   ],
-  "title": "keep the light"
+  "title": "jeep the slight"
 }

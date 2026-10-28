@@ -10,8 +10,17 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, ROOT)
 
-from lyric_harness import load_lyric_lines            # noqa: E402
 from quality import sentencehood as SH                # noqa: E402
+from quality.fixtures import seeded_lines as SL       # noqa: E402
+
+# THE WITNESS DRAFTS ARE MECHANICAL SINCE 2026-10-27. This suite read the
+# bank's `long_bridge` (four stacked lines at 8, 14, 23, 25) and five songs
+# the panel passed; those were AI-written songs, deleted with the bank
+# (owner-approved). `fixtures/seeded_lines.py` builds the same shapes from
+# seeded dictionary words in fixed frames: a 25-line draft with noun stacks
+# at 8, 14, 23 and 25 (seed 100), and five drafts with none.
+WITNESS = SL.draft(100, 25, (8, 14, 23, 25))
+PLAIN = [SL.draft(seed, 12) for seed in range(1, 6)]
 
 FAILURES = []
 
@@ -25,25 +34,25 @@ def check(msg, ok, detail=""):
 
 
 def test_the_witness():
-    print("\n1. the banked witness — the song this layer was built to hear")
-    lb = load_lyric_lines(os.path.join(ROOT, "songs/long_bridge.txt"))
+    print("\n1. the witness — a 25-line draft with four noun stacks")
+    lb = WITNESS
     rep = SH.report(lb)
     check("the tagger is available in this environment (the sections below "
           "examine nothing without it)", rep["available"])
     if not rep["available"]:
         return
     flags = [f for f in rep["findings"] if f.severity == "flag"]
-    check("`long_bridge` trips STACKED_DRAFT — the draft every sound-layer "
-          "gate passed at exit 0",
+    check("the witness trips STACKED_DRAFT (4 of 25 is over the 0.125 "
+          "ceiling)",
           [f.code for f in flags] == ["STACKED_DRAFT"],
           f"flags: {[f.code for f in flags]}")
-    check("its four stacked lines are the ones the blind panel quoted "
-          "(8, 14, 23, 25)", rep["stacked"] == [8, 14, 23, 25],
+    check("its four stacked lines are exactly the four stacks it was built "
+          "with (8, 14, 23, 25)", rep["stacked"] == [8, 14, 23, 25],
           f"stacked: {rep['stacked']}")
-    for s in ("one_more", "turn_the_wheel", "stay_awake", "carry_it_over",
-              "keep_the_light"):
-        r = SH.report(load_lyric_lines(os.path.join(ROOT, f"songs/{s}.txt")))
-        check(f"`{s}` — the five the panel passed carry ZERO stacked lines",
+    for i, d in enumerate(PLAIN, 1):
+        r = SH.report(d)
+        check(f"plain draft {i} (clauses and prepositional phrases) carries "
+              "ZERO stacked lines",
               r["stacked"] == [] and not r["findings"],
               f"stacked: {r['stacked']}")
 
@@ -56,18 +65,17 @@ def test_the_boundary():
     check("a prepositional verbless line is not a stack",
           not SH.line_is_stacked("Down by the river in the morning light"))
     check("a comma-spliced noun inventory is",
-          SH.line_is_stacked("Spark, full height, cinder, ash, sleeve"))
+          SH.line_is_stacked(SL.stack(7)), SL.stack(7))
     check("a short fragment is beneath the predicate's notice",
           not SH.line_is_stacked("Almost."))
-    check("an imperative is finite — 'Carry it. Don't look down.' is a "
-          "sentence", not SH.line_is_stacked("Carry it, boy, don't look down"))
+    check("an imperative is finite — a comma-spliced imperative is a "
+          "sentence", not SH.line_is_stacked(SL.imperative(7)),
+          SL.imperative(7))
 
 
 def test_the_gate_asks_nothing_of_small_drafts():
     print("\n3. the calibration population's own floor")
-    stack = "Spark, full height, cinder, ash, sleeve"
-    rep = SH.report([stack, "I know the road home and I do not take it",
-                     "He never said a word", "The light stays on"])
+    rep = SH.report([SL.stack(7), SL.clause(8), SL.clause(9), SL.phrase(10)])
     check("a 4-line draft with one stacked line gets the NOTE and no flag — "
           "the ceiling was calibrated on songs of >= 8 lines and asks "
           "nothing below its own population",
@@ -77,7 +85,7 @@ def test_the_gate_asks_nothing_of_small_drafts():
 
 def test_the_mutation():
     print("\n4. MUTATION — the ceiling is load-bearing")
-    lb = load_lyric_lines(os.path.join(ROOT, "songs/long_bridge.txt"))
+    lb = WITNESS
     kept = SH.ADOPTED["STACKED_FRACTION_MAX"]
     try:
         SH.ADOPTED["STACKED_FRACTION_MAX"] = 1.1
@@ -93,7 +101,7 @@ def test_the_wiring():
     print("\n5. the wiring — inspect() carries the layer and says so")
     from quality.revise import Reviser
     rv = Reviser()
-    lb = load_lyric_lines(os.path.join(ROOT, "songs/long_bridge.txt"))
+    lb = WITNESS
     out = rv.inspect(lb, [[1, 3]])
     check("inspect() discloses `sentencehood_checked` beside "
           "`blueprint_declared`", "sentencehood_checked" in out)

@@ -74,3 +74,21 @@ node --test --test-concurrency=1 ../mcp/test_continuation_audit.mjs
 To import local history from a full repository checkout:
 `git fetch lyric-harness/quality/results/capacity_followup_2026-09-21/local-history.bundle refs/heads/fix/lyrics-capacity-investigation:refs/remotes/audit/capacity-local`.
 The bundle predates its own addition and cannot contain itself.
+
+## 2026-10-27: AI-written lyric text replaced
+
+The owner approved deleting every AI-written song in the repository. The lyric
+arrays in the `*_case.json` files here (and each pronunciation entry's `line`)
+are now PHONOLOGICAL TWINS made by
+`lyric-harness/quality/fixtures/phonological_twin.py` (seed 20261027, one
+mapping per case): every content word is a seeded dictionary word with the
+original's syllable count, stress pattern and rime (and, where a candidate
+allows, its last two letters); function words, punctuation, line order,
+returns, the plans, the constraints, the pronunciation declarations and every
+other non-lyric field are unchanged. `good`, `flour` and `dark` are kept (a
+declared reading or a test's subject word), and `dead_letter_case.json` keeps
+each line's end word, because its regression is about end-rhyme
+predictability. `artifact-index.json` is re-measured for the changed files.
+The archives (`interviews.zip`, `verification.zip`, `baseline.zip` where
+present, `local-history.bundle`) are NOT rewritten and still hold the
+original session text; see the deletion PR for why.

@@ -471,8 +471,10 @@ def test_every_declared_source_reaches_a_row():
     # Next ten Library collections: 76 author files and source declarations.
     # Previous 2790 declarations / 2201 files retained above as history.
     # Third ten Library imports: 51 more files/declarations, 2866/2277 -> 2917/2328.
-    check("2917 id-shaped `# source:` declarations are checked, over 2328 "
-          "files", total == 2917 and len(files) == 2328, (total, len(files)))
+    # 2026-10-27: the generated sonnets were deleted. That file declared no
+    # `# source:`, so declarations stay 2917 and files go 2328 -> 2327.
+    check("2917 id-shaped `# source:` declarations are checked, over 2327 "
+          "files", total == 2917 and len(files) == 2327, (total, len(files)))
     # REPINNED 2026-08-20 (Tier-1): 62 -> 70 — eight of the 18 topped-up
     # files gained their first second source citation.
     # 70 -> 73 same sitting: three twin merges gave their keepers a second

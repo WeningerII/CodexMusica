@@ -1,7 +1,7 @@
 {
   "README.md": {
-    "sha256": "688403568fec0901b1dd3beca44f46f69acdb8dffb8979dee193f3b6dce06c70",
-    "bytes": 4933
+    "sha256": "70183fbed0fe3c79c25db2e765c542d34cb9eca9d5907b8270d53e6e7c48d722",
+    "bytes": 6037
   },
   "calibration-rows.zip": {
     "sha256": "74ba92c454f43b790727a1d6450e2749028a1d83e57d31244d0b51fd5ecbd0f6",
@@ -16,16 +16,16 @@
     "bytes": 1027
   },
   "flood_map_case.json": {
-    "sha256": "570459b981a004e018e31f9a426169459c243577bc2d3137c08f0bff99888ad4",
-    "bytes": 1121
+    "sha256": "4e31be07481c2d8c144b1217f1c0a33447a509098624bb61b92a848ec8a40986",
+    "bytes": 1836
   },
   "interviews.zip": {
     "sha256": "2749612e83c517058cff39ec66876c5087dc7c998828d3adaf1ba7c8472b11f7",
     "bytes": 294766
   },
   "last_bus_case.json": {
-    "sha256": "059005f1247144b92e1600971cdbf477885734ab5fa3b1bf7349abeb2dc8dfbd",
-    "bytes": 16216
+    "sha256": "8d1dd7c6adcec0fc54597d240020f4d29ea52ef40f3bb80c67a785d0048df1d3",
+    "bytes": 16957
   },
   "local-history.bundle": {
     "sha256": "c5a6cf6339059e2d04d103866de0243b9a7315bac21d741d0a19f2699ce9bfde",
@@ -36,8 +36,8 @@
     "bytes": 4744
   },
   "spare_apron_case.json": {
-    "sha256": "16f117d55e89ef9d722f29d188530e21cf035443fa062b23a865ecdaff6b3f1c",
-    "bytes": 1200
+    "sha256": "3e5f559de6e7a3d2972fb9093aa7acea5aaf95eea6acfb4cba461c755693e565",
+    "bytes": 1918
   },
   "verification.zip": {
     "sha256": "c301008e600b8e689aa5aa5ac4177b633fcb0b9f60590472b6a1d5164f977d28",

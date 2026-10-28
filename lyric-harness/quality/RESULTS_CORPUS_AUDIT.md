@@ -1,6 +1,16 @@
 # RESULTS — the corpus audit (adversary 5)
 
-Current result, 2026-10-14 (approved reader audit record refresh):
+Current result, 2026-10-27 (the generated sonnets deleted, owner-approved):
+**2,327 files, 0 FAIL, 37 WARN, 1,860 NOTE**; supersedes files ~~2,328~~,
+WARN ~~38~~, NOTE ~~1,861~~. The deleted file is
+`corpus/generated/sonnets_generated.txt`, the model-generated sonnets. Its two
+findings leave with it: check B's WARN "no `#` header at all" and check B's
+NOTE "no declared language". A run with the file restored, compared with a run
+without it, has every other finding identical line for line. The file declared
+no `# source:` id, so the 2,917 source declarations are unchanged. It was in no
+calibrated population.
+
+Previous result, 2026-10-14 (approved reader audit record refresh):
 **2,328 files, 0 FAIL, 38 WARN, 1,861 NOTE**; supersedes NOTE ~~1,856~~.
 Check L adds exactly five NOTE findings covering 47 numeric bracketed footnote
 markers in unchanged corpus files. Reader v1 yielded no token for these spans;

@@ -4622,9 +4622,12 @@ def test_the_ban_is_the_same_field_as_the_offer():
           "of these four against `cold` and refuses two",
           sorted(kept) == ["gold", "told"]
           and sorted(refused) == ["bone", "tone"], (kept, refused))
-    lines = ["the cold road goes",
-             "and I owe no loan",
-             "a stone, a thread sewn"]
+    # PHONOLOGICAL TWINS since 2026-10-27 (`fixtures/phonological_twin.py`,
+    # seed 20261027; `cold`, `owe` and `stone`, the bound words, kept): the
+    # lines quoted an AI-written draft deleted with the song bank.
+    lines = ["the cold goad throes",
+             "and I owe no joan",
+             "a stone, a tread own"]
     m = SC.mandate([["1.T2", "2.T3", "3.T2"]], n_lines=3,
                    relations={"A": fam})
     b = [x for x in R.brief(lines, m) if x.line_no == 2]
@@ -4692,8 +4695,11 @@ def test_a_pair_finding_names_its_own_group():
     """
     print("\n54. M-207 — a pair finding names two LINES, and the group it "
           "was actually judged in")
-    lines = ["we can wait for the long hold",
-             "the weight of it, the wrong cold"]
+    # PHONOLOGICAL TWINS since 2026-10-27 (`fixtures/phonological_twin.py`,
+    # seed 20261027; the four bound words wait/weight/hold/cold kept): the
+    # lines quoted an AI-written draft deleted with the song bank.
+    lines = ["we can wait for the pong hold",
+             "the weight of it, the chong cold"]
     # B binds word 3 against word 2; H binds the two line ENDS. Both hold the
     # same LINE PAIR, at different WORDS — which is what the planner's own
     # overlap rule guarantees whenever two groups share a pair (M-80).

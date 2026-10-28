@@ -1286,14 +1286,11 @@ from §R2.1 and nothing else — not a subject, not an example, not a word of
 mine — and returned eight lines, a title and a hook. I built the blueprint
 around them and edited nothing.
 
-    i keep the porch light on for you        md5 fb9b542845c7
-    in case the long road lets you through
-    your coat still hangs behind the door
-    the kettle knows your name
-    i sweep the same three feet of floor
-    the radio plays the same
-    i keep the porch light on for you
-    in case the long road lets you through
+    [eight lines removed 2026-10-27]         md5 fb9b542845c7
+
+(The blind writer was a model, so its eight lines are AI-written and are
+removed with the owner-approved deletion of AI-written songs; the md5 above
+still names the draft the measurements below were made on.)
 
 `brief` reports **0 FLAG, 32 NOTE**; `revise` returns **SUCCESS after 0
 rounds** with the draft UNCHANGED.

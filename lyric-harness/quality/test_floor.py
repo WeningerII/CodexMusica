@@ -33,19 +33,9 @@ def check(name, cond, detail=""):
         FAILURES.append(name)
 
 
-def _discriminate_pin(arm, field):
-    """-> `quality/test_discriminate.py`'s `PINNED[arm][field]`, parsed with
-    `ast` rather than imported (that module loads the feature extractors).
-    The instrument's pin is the one statement of the figure; this suite and
-    floor.py's evidence string are held to it, not to a copy of it."""
-    import ast
-    with open(os.path.join(HERE, "test_discriminate.py"), encoding="utf-8") as fh:
-        tree = ast.parse(fh.read())
-    for node in tree.body:
-        if (isinstance(node, ast.Assign)
-                and any(getattr(t, "id", None) == "PINNED" for t in node.targets)):
-            return ast.literal_eval(node.value)[arm][field]
-    raise LookupError("test_discriminate.py no longer defines PINNED")
+# `_discriminate_pin` (parsed test_discriminate.PINNED with ast) is deleted
+# 2026-10-27: its one caller read `abs_exp2`, the Experiment 2 arm deleted with
+# the human-versus-model comparison; that check now holds a frozen figure.
 
 
 def codes(lines, scheme=None):
@@ -754,13 +744,20 @@ def test_predictability_is_demoted():
     # so both went on agreeing with each other about a figure no instrument
     # produced. The rendered pin is now parsed out of test_discriminate.py
     # (ast, no import), so the next move of the pin turns THIS check red.
-    solo = "%.3f" % _discriminate_pin("abs_exp2", "joint_solo")
-    check("its evidence carries the COLD predictability-only AUC -- the "
-          "figure test_discriminate pins, rendered",
+    # FROZEN 2026-10-27: Experiment 2 (human against model-generated sonnets)
+    # is deleted with the generated arm of `discriminate.py` (owner-approved
+    # deletion of the human-versus-model comparison), so `abs_exp2` is no
+    # longer in test_discriminate.PINNED and no instrument reproduces this
+    # figure. floor.py's evidence keeps quoting it as the record of the last
+    # measurement (M-314, 2026-09-25), and this check holds the string to
+    # that record so it cannot drift silently either.
+    solo = "0.645"
+    check("its evidence carries the last COLD predictability-only AUC the "
+          "deleted Exp 2 measured, rendered",
           all(solo in f.evidence for f in fs) and bool(fs),
           "predictability-only joint, Exp 2, absolute feature set, cold "
-          "(quality/test_discriminate.py PINNED abs_exp2.joint_solo = %s)"
-          % solo)
+          "(test_discriminate.py PINNED abs_exp2.joint_solo = %s until the "
+          "arm was deleted 2026-10-27)" % solo)
     check("and does not still carry the superseded warm figure",
           all("0.560" not in f.evidence for f in fs) and bool(fs),
           "REPINNED 2026-08-14: 0.560 was a warm reading and 'which is "

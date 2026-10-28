@@ -1,4 +1,5 @@
 {
+  "lyric_text_replaced": "2026-10-27: SYNTHETIC REPLACEMENT, not the recorded run's text. Every lyric line in this file (and each pronunciation entry's `line`) is a phonological twin made by lyric-harness/quality/fixtures/phonological_twin.py (seed 20261027), replacing AI-written text the owner approved deleting. The plan, groups, returns, relations, pronunciation declarations and every other field are the recorded run's. Any description of these lines as frozen, exact or retained drafts describes the original lines, not these. This file is a regression fixture that keeps each tested condition; it does not claim the twins are phonologically equivalent to the originals in general. See README.md.",
   "plan": {
     "choices": {
       "anacrusis": {
@@ -344,18 +345,18 @@
     "writer_brief": "Write a song: 12 lines, 4 sections, in this order:\n  [CHORUS \u2014 2 lines \u2014 8 bars of 2/4, one-beat pickup]\n      up to 12 syllables a line after the pickup; the calibrated band asks at least 5\n  [VERSE \u2014 5 lines \u2014 20 bars of 2/4, three-quarter-beat pickup]\n      up to 12 syllables a line after the pickup; the calibrated band asks at least 5\n  [CHORUS \u2014 2 lines \u2014 8 bars of 2/4, one-beat pickup]\n      up to 12 syllables a line after the pickup; the calibrated band asks at least 5\n  [OUTRO \u2014 3 lines \u2014 12 bars of 2/4, three-quarter-beat pickup]\n      up to 12 syllables a line after the pickup; the calibrated band asks at least 5\nFeel: 2/4 grouped 2.\nRhyme plan (line numbers over the whole song):\n  lines 1.T5 & 2.T3 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 4.T7 & 5.T3 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 6.head & 7.headrime stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 3.T6 & 5.endword & 7.T2 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 10.T6 & 11.head & 12.T5 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 10.T5 & 12.headrime stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 1 & 2 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 6 & 7 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 10 & 11 & 12 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\nStory plan (one job per sung section; each enters from the section before it as stated):\n  CHORUS1 is the fixed claim the song keeps returning to\n  VERSE1 puts the world and its cast in place \u2014 because of CHORUS1\n  CHORUS2 is the fixed claim the song keeps returning to \u2014 set beside (connection unstated) VERSE1\n  OUTRO1 is the leave-taking \u2014 the walk home \u2014 set beside (connection unstated) CHORUS2\nEvery chorus after the first repeats the first chorus word for word, line for line.\nLine 1 is the hook \u2014 make it the line someone leaves humming.\nWhere a binding sits (a bare line number is its end word, read as a rhyme span):\n  T5: word 5, read as a rhyme span \u2014 from its last stressed syllable to its end\n  T3: word 3, read as a rhyme span \u2014 from its last stressed syllable to its end\n  T7: word 7, read as a rhyme span \u2014 from its last stressed syllable to its end\n  head: the first word, its first syllable \u2014 the head-rhyme / alliteration reading\n  headrime: the first word, read as a rhyme span \u2014 from its last stressed syllable to its end\n  T6: word 6, read as a rhyme span \u2014 from its last stressed syllable to its end\n  endword: the end word, read whole, from its first syllable\n  T2: word 2, read as a rhyme span \u2014 from its last stressed syllable to its end"
   },
   "initial": [
-    "The spare key keeps dark off the porch",
-    "Come when work has knocked you from your perch",
-    "I watched you fold the shop receipts",
-    "Your boots had holes; I left hot soup",
-    "I kept heat low to guard your sleep",
-    "Clock hands crept while I watched the rain",
-    "Luke, soup will keep you warm till dawn",
-    "The spare key keeps dark off the porch",
-    "Come when work has knocked you from your perch",
-    "I turn the worn wood block; crumbs drop",
-    "Squeak of the hinge pulls me from sleep",
-    "Wide eyes scan the book while I heat soup"
+    "The snare wee sweeps dark off the torch",
+    "Crumb when smirk has stocked you from your church",
+    "I botched you gold the chop defeats",
+    "Your roots had knowles; I deft got loup",
+    "I crept cheat know to hard your sheep",
+    "Bock strands wept while I botched the sprain",
+    "Puke, loup will jeep you dorm shrill yawn",
+    "The snare wee sweeps dark off the torch",
+    "Crumb when smirk has stocked you from your church",
+    "I burn the zorn hood jock; thumbs shop",
+    "Teak of the inge bulls me from sheep",
+    "Bride pies ran the shook while I cheat loup"
   ],
   "frozen_at": 7,
   "reason": "Repeated single-line request with no certified candidates at either violated place; investigate group-first fallback for a single fixed partner."

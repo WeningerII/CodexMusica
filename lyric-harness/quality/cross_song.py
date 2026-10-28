@@ -187,6 +187,11 @@ MATCH_POOL_MIN = 30
 #: THRESHOLDS — nothing in this tree compares a draft, a word or a song
 #: against any of them, and `test_cross_song.py` §4 is what holds that.
 #: `--check` re-derives them and exits 3 on drift.
+#: THE RECORD OF THE DELETED BANK (2026-10-27). These figures were measured
+#: over the sixteen AI-written songs the owner approved deleting; nothing can
+#: re-derive them now, so `--check` refuses on an empty bank instead of
+#: reporting drift, and `disclose` quotes the spectrum only for a depth >= 2,
+#: which an empty bank never reaches.
 PINNED = {
     "bank_songs": 16,
     "bank_types": 951,
@@ -242,13 +247,20 @@ def _refuse_bank_as_population(paths):
 # ------------------------------------------------------------- the bank
 
 def songs():
-    """The ONE definition of the banked population: a lyric with a
-    blueprint, `song_record.songs()`. Reached the same way
-    `ban_convergence.songs()` reaches it, and pinned equal to it by
-    `test_cross_song.py` §1 — a second copy of a population is a second
-    answer waiting to disagree (doctrine 1)."""
-    from quality.song_record import songs as _songs
-    return _songs()
+    """The banked population: a lyric under `songs/` with a blueprint beside
+    it.
+
+    ~~`song_record.songs()`, reached the way `ban_convergence.songs()`
+    reached it.~~ Both modules are DELETED 2026-10-27 with the bank itself:
+    the sixteen banked songs were AI-written and the owner approved deleting
+    them, so this is the one definition again, and the bank is EMPTY. A
+    `screen --bank` over an empty bank discloses depth 0 for every word; the
+    PINNED block below is the record of the deleted bank and `--check`
+    refuses rather than re-deriving it."""
+    if not os.path.isdir(SONGS):
+        return []
+    return sorted(p for p in glob.glob(os.path.join(SONGS, "*.txt"))
+                  if os.path.exists(p[: -len(".txt")] + ".blueprint.json"))
 
 
 def _tag():
@@ -591,6 +603,13 @@ def main(argv=None):
     # spectrum's null median and max were measured at NULL_DRAWS, so
     # re-deriving them at another draw count and calling the difference
     # DRIFT would charge the tree for the caller's own coordinate.
+    if a.check and not songs():
+        print("  REFUSED — the song bank is empty: the sixteen banked songs "
+              "PINNED was measured on were AI-written and were deleted "
+              "2026-10-27 (owner-approved), so there is nothing to "
+              "re-derive. PINNED stays as the record of that bank. "
+              "RESULT: REFUSED (not a pass, not a failure — doctrine 20)")
+        return 2
     if a.check and a.draws != NULL_DRAWS:
         print(f"  REFUSED — --check is pinned at {NULL_DRAWS} draws and "
               f"you asked for {a.draws}. A null measured at another "

@@ -1,4 +1,5 @@
 {
+  "lyric_text_replaced": "2026-10-27: SYNTHETIC REPLACEMENT, not the recorded run's text. Every lyric line in this file (and each pronunciation entry's `line`) is a phonological twin made by lyric-harness/quality/fixtures/phonological_twin.py (seed 20261027), replacing AI-written text the owner approved deleting. The plan, groups, returns, relations, pronunciation declarations and every other field are the recorded run's. Any description of these lines as frozen, exact or retained drafts describes the original lines, not these. This file is a regression fixture that keeps each tested condition; it does not claim the twins are phonologically equivalent to the originals in general. See README.md.",
   "plan": {
     "choices": {
       "anacrusis": {
@@ -345,50 +346,50 @@
     "writer_brief": "Write a song: 12 lines, 4 sections, in this order:\n  [CHORUS \u2014 2 lines \u2014 12 bars of 2/4, quarter-beat pickup]\n      up to 12 syllables a line after the pickup; the calibrated band asks at least 5\n  [VERSE \u2014 7 lines \u2014 42 bars of 2/4, half-beat pickup]\n      up to 12 syllables a line after the pickup; the calibrated band asks at least 5\n  [CHORUS \u2014 2 lines \u2014 12 bars of 2/4, quarter-beat pickup]\n      up to 12 syllables a line after the pickup; the calibrated band asks at least 5\n  [OUTRO \u2014 1 line \u2014 6 bars of 2/4, half-beat pickup]\n      up to 12 syllables a line after the pickup; the calibrated band asks at least 5\nFeel: 2/4 grouped 2.\nRhyme plan (line numbers over the whole song):\n  lines 1.head & 2.T2 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 3.T4 & 5 & 6.T2 & 7.headrime stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 4 & 8.T6 & 9.T2 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 5.head & 9.T6 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 1 & 2 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 3 & 6 & 7 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\n  lines 8 & 9 stand in CONSONANCE \u2014 a NAMED relation, judged as itself, not as plain rhyme\nStory plan (one job per sung section; each enters from the section before it as stated):\n  CHORUS1 is the fixed claim the song keeps returning to\n  VERSE1 is a compressed verdict on what has happened \u2014 set beside (connection unstated) CHORUS1\n  CHORUS2 is the fixed claim the song keeps returning to \u2014 against VERSE1\n  OUTRO1 is the leave-taking \u2014 the walk home \u2014 after CHORUS2\nEvery chorus after the first repeats the first chorus word for word, line for line.\nLine 1 is the hook \u2014 make it the line someone leaves humming.\nWhere a binding sits (a bare line number is its end word, read as a rhyme span):\n  head: the first word, its first syllable \u2014 the head-rhyme / alliteration reading\n  T2: word 2, read as a rhyme span \u2014 from its last stressed syllable to its end\n  T4: word 4, read as a rhyme span \u2014 from its last stressed syllable to its end\n  headrime: the first word, read as a rhyme span \u2014 from its last stressed syllable to its end\n  T6: word 6, read as a rhyme span \u2014 from its last stressed syllable to its end"
   },
   "initial": [
-    "Glass rain gauge, tell me what the clouds still keep",
-    "The geese cry while I lift your dented cup",
-    "I sowed each seed where you had marked our home",
-    "Our girl still plants as if the rows held hope",
-    "Black beans burst through the crust of drying mud",
-    "The road gleams; water climbs the window seam",
-    "Wide rings of rust mark where you held your thumb",
-    "You said the land could sleep through droughts",
-    "Her cup has one thin leak; it wets my boots",
-    "Glass rain gauge, tell me what the clouds still keep",
-    "The geese cry while I lift your dented cup",
-    "I tip the gauge; one drop clings to the rim"
+    "Mass sprain cage, dell me what the shrouds chill jeep",
+    "The grease fry while I gift your vented yup",
+    "I wowed each feed where you had barked our dome",
+    "Our shirl chill grants as if the sows meld nope",
+    "Zack cleans hearst through the gust of spying spud",
+    "The goad dreams; slaughter rhymes the lindo beam",
+    "Bride wings of trust ark where you meld your crumb",
+    "You bread the stand could steep through bouts",
+    "Her yup has tonne qin peak; it zqcbzq my roots",
+    "Mass sprain cage, dell me what the shrouds chill jeep",
+    "The grease fry while I gift your vented yup",
+    "I trip the cage; tonne shop sings to the lim"
   ],
   "before": [
-    "Glass rain gauge, what can we keep",
-    "The goose cries while I lift your dented cup",
-    "I sowed each seed where you had marked our home",
-    "Our girl still plants as if the rows held hope",
-    "Black beans burst through the crust of drying mud",
-    "The road gleams; water climbs the window seam",
-    "Wide rings of rust mark where you held your thumb",
-    "You said the land could sleep through droughts",
-    "Her cup has one thin leak; it wets my boots",
-    "Glass rain gauge, what can we keep",
-    "The goose cries while I lift your dented cup",
-    "I tip the gauge; one drop clings to the rim"
+    "Mass sprain cage, what can we jeep",
+    "The moose pies while I gift your vented yup",
+    "I wowed each feed where you had barked our dome",
+    "Our shirl chill grants as if the sows meld nope",
+    "Zack cleans hearst through the gust of spying spud",
+    "The goad dreams; slaughter rhymes the lindo beam",
+    "Bride wings of trust ark where you meld your crumb",
+    "You bread the stand could steep through bouts",
+    "Her yup has tonne qin peak; it zqcbzq my roots",
+    "Mass sprain cage, what can we jeep",
+    "The moose pies while I gift your vented yup",
+    "I trip the cage; tonne shop sings to the lim"
   ],
   "after": [
-    "Glass rain gauge, what can we keep",
-    "The goose cries while I lift your dented cup",
-    "I sowed each seed beside the walls of home",
-    "Our girl still plants as if the rows held hope",
-    "Black beans burst through the crust of drying mud",
-    "The road gleams; water climbs the window seam",
-    "Wide rings of rust mark where you held your thumb",
-    "You said the land could sleep through droughts",
-    "Her cup has one thin leak; it wets my boots",
-    "Glass rain gauge, what can we keep",
-    "The goose cries while I lift your dented cup",
-    "I tip the gauge; one drop clings to the rim"
+    "Mass sprain cage, what can we jeep",
+    "The moose pies while I gift your vented yup",
+    "I wowed each feed beside the hauls of dome",
+    "Our shirl chill grants as if the sows meld nope",
+    "Zack cleans hearst through the gust of spying spud",
+    "The goad dreams; slaughter rhymes the lindo beam",
+    "Bride wings of trust ark where you meld your crumb",
+    "You bread the stand could steep through bouts",
+    "Her yup has tonne qin peak; it zqcbzq my roots",
+    "Mass sprain cage, what can we jeep",
+    "The moose pies while I gift your vented yup",
+    "I trip the cage; tonne shop sings to the lim"
   ],
   "pronunciations": [
     {
-      "line": "I sowed each seed where you had marked our home",
+      "line": "I wowed each feed where you had barked our dome",
       "token": 9,
       "word": "our",
       "phones": ["AW1", "R"],
@@ -396,7 +397,7 @@
       "source": "writer: one-syllable stressed our in the intended performance"
     },
     {
-      "line": "Our girl still plants as if the rows held hope",
+      "line": "Our shirl chill grants as if the sows meld nope",
       "token": 1,
       "word": "Our",
       "phones": ["AW1", "R"],

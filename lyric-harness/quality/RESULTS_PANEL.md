@@ -77,7 +77,7 @@ are re-derived nightly by `python3 quality/sentencehood.py --check`.
   dark, groan, hold, stair, stone ...). Matched null — 300 draws of six
   human songs from six different files — median **1**, max **8**, so ours
   sits outside the null's entire range. At >= 3 of 6: ours 28, null median
-  7, max 22. Whole phrases recur: "ache in the wrist" in two songs, "say
+  7, max 22. Whole phrases recur: "[lyric removed 2026-10-27]" in two songs, "say
   it" in three.
 - **The funnel has receipts.** 16 of the 50 words screened during
   `carry_it_over`'s session are SUNG in `long_bridge` — a different song,
@@ -141,12 +141,12 @@ nor last).
 **Section lens (3 judges — sentences, imagery, prosody — every ballot
 quoting its section):** no unanimous rejection anywhere, which run 2's three
 3/3 rejections make worth saying. Majority rejection: CHORUS1 at 2/3 —
-sentences ("Sheet, row, read dune grain — three verbs crammed ... forcing a
+sentences ("[lyric removed 2026-10-27] — three verbs crammed ... forcing a
 guess") and imagery ("'dune grain' and 'wheat mane' import a desert/farmland
 landscape into a rain-lashed sailing scene; the chain reads as
 sound-matching"). Minority rejections: DROP1 1/3 (prosody: "stacked
 stop-consonant collisions ... no vowel space anywhere in the section") and
-PRECHORUS1 1/3 (imagery: "Zeal pulls more than praise" as an abstract maxim
+PRECHORUS1 1/3 (imagery: "[lyric removed 2026-10-27]" as an abstract maxim
 present for its sound). CHORUS1 is the song's densest section by bound
 members per line (23 bound words over 6 lines against a song mean of 2.6 per
 line) — the local-density pressure of §4 reproducing on a fresh song, on a
@@ -200,8 +200,7 @@ returned; nothing above this sentence moved after launch.
 
 **Section lens (3 judges — sentences, imagery, prosody — every ballot
 quoting its section):** VAMP1 REJECTED **3/3** — the first unanimous
-section rejection since run 2's three. Sentences: "Prayer kites, curator
-quips, and all July" — "a three-item noun list with no verb anywhere in
+section rejection since run 2's three. Sentences: "[lyric removed 2026-10-27]" — "a three-item noun list with no verb anywhere in
 the line". Imagery: "'ballet receipt' is a nonsense object, and the
 section as a whole strings in dukes, an heir, a museum curator, an arcade,
 and a hotel suite ... words chosen to hit the -ay/-eat sound family rather
@@ -281,7 +280,7 @@ moved after launch.
 **Section lens (3 judges — sentences, imagery, prosody — every ballot
 quoting its section):** POSTCHORUS1 REJECTED **3/3** — the second unanimous
 section rejection of the measured series (run 4's VAMP1 was the first).
-Sentences: "We suit up in spades, a liter down, the etch" — "'a liter
+Sentences: "[lyric removed 2026-10-27]" — "'a liter
 down' and 'the etch' trail off as verbless fragments strung together like
 a catalogue". Imagery: the same line — "'spades,' 'a liter down,' and
 'the etch' don't resolve into any single readable object or place; they
@@ -292,8 +291,7 @@ carrying the drawn anaphora quartet, the internal-rhyme triple, the pantun
 pair, the family-rhyme pair and their slot web at once — so this is
 M-112's local-binding pressure reproducing for the FOURTH consecutive
 measured song, at its sharpest yet. Majority rejections: INTRO1 2/3
-(sentences and imagery both quoting "Come to the square, the charmer, the
-carpenter" — a verbless trade-figure list) and CHORUS1 2/3 (sentences:
+(sentences and imagery both quoting "[lyric removed 2026-10-27]" — a verbless trade-figure list) and CHORUS1 2/3 (sentences:
 "the inverted 'the scales, we tell' forces a listener to guess whether
 the scales are telling or being told" — a construction written to service
 the drawn chain and pararhyme at once; prosody: "'Sky wheels' and 'stilt
@@ -309,9 +307,9 @@ lines an unresolved inventory.
 — and all three evidence lists confine the core bank (iron, groan, ache,
 cinder, stair, thread, brake, spare, cost, crossed, quay, stone, tide,
 freight, salt) to the pre-gate songs, with two judges independently
-producing PHRASE-level funnel receipts: "ache in the wrist" near-verbatim
-in turn_the_wheel and long_bridge, and "Thread the brake ... cost" /
-"Thread of it thin, brake crossed" as a near-duplicate line pair in
+producing PHRASE-level funnel receipts: "[lyric removed 2026-10-27]" near-verbatim
+in turn_the_wheel and long_bridge, and "[lyric removed 2026-10-27]" /
+"[lyric removed 2026-10-27]" as a near-duplicate line pair in
 keep_the_light and turn_the_wheel. D (crooked_waltz) touches the bank
 only at common song-stock ("wheel", "home", "bells") — the mechanical
 half below agrees. Odd-one-out: J (matinee) **3/3**, the same 3/3 it took

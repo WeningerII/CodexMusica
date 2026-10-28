@@ -49,9 +49,12 @@ def check(name, ok, note=""):
 #: labelled narrative beside 0.723, 0.960 stays policed as Exp 2's (that row
 #: derives 0.967 again, so its ladder is again not walked), and 0.760 / 0.967
 #: is the current pair.
+#: 2026-10-27: `abs_exp2` is GONE from the pin with the generated arm it
+#: measured (owner-approved deletion of the human-versus-model comparison),
+#: and `verify_figures.TRACKED` tracks Exp 1 alone. §2 and §3 now plant
+#: Exp 1's own ladder (0.760 current, 0.761 policed, older rungs retired).
 FAKE_PIN = {
     "abs_exp1": {"joint_all": 0.7601139601139602},
-    "abs_exp2": {"joint_all": 0.9667763157894737},
 }
 
 
@@ -87,50 +90,43 @@ def s2_the_declared_form_is_the_whole_rule(tmp):
             # entry's table), which is the measured reason keyword marking
             # is refused: the word is about a DIFFERENT figure's
             # supersession and must not rescue this one.
-            "SUPERSEDED 2026-08-22; cold it is 0.960 today.\n"
+            "SUPERSEDED 2026-08-22; cold it is 0.761 today.\n"
             # the two declared history forms
             "The cold reading was ~~0.761~~ before the N-relation repin.\n"
-            "> cold 0.960 against 0.761, recorded as history.\n"
+            "> cold 0.761 against 0.709, recorded as history.\n"
             # the current value, quotable anywhere
-            "The standing pair is 0.760 / 0.967.\n"
+            "The standing figure is 0.760.\n"
             # retired values in labelled narrative — listed, never policed.
             # 0.723 retired on 2026-09-17 when 0.758 took the superseded
             # rung, and 0.758 retired on 2026-09-26 when 0.761 took it, so
             # this line also proves the rung BELOW the policed one stops
             # being charged the moment the ladder walks.
-            "pre-fix it read 0.971 against 0.709, M-31 0.723, E-5 0.758.\n"
+            "pre-fix it read 0.709, M-31 0.723, E-5 0.758.\n"
             # the standalone-decimal guard: a longer number must not match
-            # (this section's own first draft wrote "the superseded
-            # 0.964's business" here and went red on its own fixture —
-            # an apostrophe is not a digit, so that mention MATCHES, and
-            # correctly: the guard is against longer NUMBERS, not against
-            # possessives)
-            "an unrelated 0.9600 in a run id draws no row at all\n")
+            "an unrelated 0.7610 in a run id draws no row at all\n")
     rows, _d = VF.survey(root=tmp, pinned=FAKE_PIN, docs=("planted.md",))
     by = {}
     for _doc, _name, sp, ln, cls in rows:
         by.setdefault((ln, cls), []).append(sp)
     check("§2 the live leak is a VIOLATION — the word SUPERSEDED beside it "
-          "rescues nothing", "0.960" in by.get((1, "VIOLATION"), []),
+          "rescues nothing", "0.761" in by.get((1, "VIOLATION"), []),
           str(sorted(by)))
     check("§2 a struck value is HISTORY",
           "0.761" in by.get((2, "history"), []))
     check("§2 a blockquote line is HISTORY for every value on it",
-          "0.960" in by.get((3, "history"), [])
-          and "0.761" in by.get((3, "history"), []))
-    check("§2 the current pair is counted as current, never charged",
-          "0.760" in by.get((4, "current"), [])
-          and "0.967" in by.get((4, "current"), []))
+          "0.761" in by.get((3, "history"), [])
+          and "0.709" in by.get((3, "retired"), []))
+    check("§2 the current figure is counted as current, never charged",
+          "0.760" in by.get((4, "current"), []))
     check("§2 a RETIRED value in labelled narrative is listed and not a "
           "violation — the lifecycle's unpoliced tier, and 0.723 reaching "
           "it is the 2026-09-17 walk: a rung that stops being policed the "
           "moment a newer spelling takes its place",
-          "0.971" in by.get((5, "retired"), [])
-          and "0.709" in by.get((5, "retired"), [])
+          "0.709" in by.get((5, "retired"), [])
           and "0.723" in by.get((5, "retired"), [])
           and "0.758" in by.get((5, "retired"), [])
           and not any(c == "VIOLATION" for (l, c) in by if l == 5))
-    check("§2 a longer decimal does not match a tracked spelling — 0.9600 "
+    check("§2 a longer decimal does not match a tracked spelling — 0.7610 "
           "yields no row for line 6",
           not any(l == 6 for (l, _c) in by), str(sorted(by)))
 
@@ -138,14 +134,12 @@ def s2_the_declared_form_is_the_whole_rule(tmp):
 def s3_the_relation_to_the_pin_is_load_bearing():
     print("\n§3 the derivation check IS the relation to the pin (the half "
           "M-33 found missing)")
-    moved = {"abs_exp1": {"joint_all": 0.750},
-             "abs_exp2": {"joint_all": 0.9671052631578947}}
+    moved = {"abs_exp1": {"joint_all": 0.750}}
     _rows, deriv = VF.survey(pinned=moved)
     check("§3 a moved measurement reds the derivation for the moved "
-          "quantity AND the gap it feeds — the prose cannot stay quiet "
-          "under a repin",
-          len(deriv) == 2 and any("0.750" in d for d in deriv)
-          and any("gap" in d for d in deriv), "; ".join(deriv))
+          "quantity — the prose cannot stay quiet under a repin",
+          len(deriv) == 1 and any("0.750" in d for d in deriv),
+          "; ".join(deriv))
     _rows, deriv0 = VF.survey(pinned=FAKE_PIN)
     check("§3 ...and the real pin derives every declared spelling exactly "
           "(the control)", not deriv0, "; ".join(deriv0))

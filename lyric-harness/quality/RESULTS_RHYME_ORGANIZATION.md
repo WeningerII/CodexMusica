@@ -84,6 +84,10 @@ python3 quality/test_rhyme_organization.py
 python3 quality/rhyme_organization.py songs/stay_awake.txt
 ```
 
+(The third command CANNOT RUN FROM A CLEAN CHECKOUT: `songs/stay_awake.txt` was an AI-written
+bank song, deleted on purpose 2026-10-27 with the bank. Any one lyric file
+stands in for it.)
+
 The last command analyzes one supplied lyric item and prints JSON. A collection
 refuses rather than silently treating multiple songs as one family. Exit 2
 means both strata could not answer or the request was invalid; exit 0 means

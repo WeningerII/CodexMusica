@@ -4,8 +4,8 @@
   "files": [
     {
       "path": "README.md",
-      "bytes": 5643,
-      "sha256": "6559ef0f8eb4bd0a2179f8d120fb998dc642022ece799134c3ba19c11db2a9ec"
+      "bytes": 6747,
+      "sha256": "576241cdf60efe16f9e2b8c4e048e0adcc6e6a80dcdde51453a8ceea22832f3a"
     },
     {
       "path": "baseline.zip",
@@ -14,8 +14,8 @@
     },
     {
       "path": "bell_foundry_case.json",
-      "bytes": 18551,
-      "sha256": "b7a441b4ccd7cfe87516a3d2f0ad1cbbc2f464efa54b5ed2e30c95352c8bae95"
+      "bytes": 19274,
+      "sha256": "44c95c7ec2590c2fd941f5c5e8446ca873cbedc6ecf94b73fa0a3ab47cd74680"
     },
     {
       "path": "calibration-rows.zip",
@@ -39,8 +39,8 @@
     },
     {
       "path": "dead_letter_case.json",
-      "bytes": 22974,
-      "sha256": "396e0312b24a83237c55db462d6af6e6cf8059906c3a68630d0ac66becddb8c1"
+      "bytes": 23841,
+      "sha256": "c32f401461e42f221779dc41bb45b53fbef658c1da3797c963ed0ad329987147"
     },
     {
       "path": "deployed-health-before.json",
@@ -49,8 +49,8 @@
     },
     {
       "path": "greenhouse_case.json",
-      "bytes": 20343,
-      "sha256": "193efccd523d958780e06069da054aac3412709d4a3187ae635ab029cfca58fb"
+      "bytes": 21091,
+      "sha256": "7c193b309cbe81546f64e4258d9ac1ec706a0ca17b88453c638abbb51b647711"
     },
     {
       "path": "interviews.zip",
@@ -64,8 +64,8 @@
     },
     {
       "path": "rain_gauge_case.json",
-      "bytes": 15404,
-      "sha256": "28e0ef1e067fb7a848170c5ff40e88834cb12f3a92c5a4d70c3b98ddcaabbbc9"
+      "bytes": 16138,
+      "sha256": "edfe3cdeef0305890ac9d11bc2f81b9cc21fc287861cd115e8048555de177246"
     },
     {
       "path": "session-metrics.json",
@@ -74,13 +74,13 @@
     },
     {
       "path": "signal_flags_case.json",
-      "bytes": 12480,
-      "sha256": "024103e15fdd2267ad1db17d0dfa08a6acd273dadf0da93045189c20ebfa446f"
+      "bytes": 13204,
+      "sha256": "243a511cb5b6f4beaead6183a4b1ab2b88b1bbb4887e29fcf977ff26f685fe38"
     },
     {
       "path": "spare_key_case.json",
-      "bytes": 14139,
-      "sha256": "430902dfbfa70fd161683f3eff4b83de4a8c96d491f98671f46755c6f555ca14"
+      "bytes": 14858,
+      "sha256": "f94581fe779be29e6d726b2445d93ff7d2c184d63f4d2052315a4db086ad8ba5"
     },
     {
       "path": "ticket-source-after.json",
