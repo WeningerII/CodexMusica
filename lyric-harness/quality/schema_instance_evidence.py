@@ -117,42 +117,58 @@ def from_stream(stream, phon, *, declarations, provenance, schemas=None,
             method.update(status="partial", reason="time_budget")
             cov["remaining_records_unknown"] = True
             continue
-        try:
-            instances = RL.realise(RL.REGISTRY[name], stream, keep="all",
-                                   max_pairs=max_candidates)
-        except RuntimeError as exc:
-            if str(exc) != "candidate explosion; tighten the schema":
-                raise
-            method.update(status="partial", reason="candidate_limit")
-            cov["remaining_records_unknown"] = True
-            continue
-        if isinstance(instances, RL.Refusal):
-            method.update(status="refused", refusal=json_safe(instances))
-            cov["remaining_records_unknown"] = True
-            continue
-        method["counts"] = {"true": sum(e.verdict is True for e in instances),
-                            "false": sum(e.verdict is False for e in instances),
-                            "undecided": sum(e.verdict is None for e in instances)}
-        for inst in instances:
+        counts = {"true": 0, "false": 0, "undecided": 0}
+
+        def take(inst, method=method, counts=counts):
+            # ONE INSTANCE AT A TIME (2026-10-28, #519): counted, serialized
+            # while the record and byte limits allow, then dropped. Collecting
+            # the population first held 297,102 instances of one type on a
+            # 31-line draft and took the grade past its 2 GiB envelope.
+            nonlocal record_bytes
+            counts["true" if inst.verdict is True else
+                   "false" if inst.verdict is False else "undecided"] += 1
             if inst.verdict is False:
-                continue
+                return
+            if len(result["records"]) >= max_records:
+                cov["omitted_records"] += 1
+                method.update(status="partial", reason="record_limit")
+                return
             record = serializer._edge_record(inst, stream)
             # The fields above already serialize the instance. Avoid duplicating
             # that entire structure as engine_edge in this bounded inline report.
             record.pop("engine_edge", None)
-            if len(result["records"]) >= max_records:
-                cov["omitted_records"] += 1
-                method.update(status="partial", reason="record_limit")
-                continue
             candidate_bytes = len(canonical_json(record).encode("utf-8"))
             result["records"].append(record)
             if _report_bytes(result, record_bytes + candidate_bytes) > max_bytes - 32768:
                 result["records"].pop()
                 cov["omitted_records"] += 1
                 method.update(status="partial", reason="byte_limit")
-                continue
+                return
             record_bytes += candidate_bytes
             method["emitted"] += 1
+        mark = (len(result["records"]), cov["omitted_records"], record_bytes)
+        try:
+            got = RL.realise(RL.REGISTRY[name], stream, keep="all",
+                             max_pairs=max_candidates, sink=take)
+        except RuntimeError as exc:
+            if str(exc) != "candidate explosion; tighten the schema":
+                raise
+            method.update(status="partial", reason="candidate_limit")
+            cov["remaining_records_unknown"] = True
+            continue
+        if isinstance(got, RL.Refusal):
+            # A refusal returns before any instance reaches the sink; keep
+            # the report exactly as if none had been taken.
+            del result["records"][mark[0]:]
+            cov["omitted_records"], record_bytes = mark[1], mark[2]
+            method.update(status="refused", refusal=json_safe(got), emitted=0)
+            cov["remaining_records_unknown"] = True
+            continue
+        for inst in got:
+            # `realise` with a sink returns []; a stand-in that returns its
+            # instances is consumed the same way.
+            take(inst)
+        method["counts"] = counts
     cov["complete"] = bool(requested) and all(m["status"] == "answered" for m in cov["methods"])
     cov["status"] = ("not_requested" if not requested else
                      "complete" if cov["complete"] else "partial")

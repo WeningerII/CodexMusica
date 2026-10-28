@@ -121,6 +121,34 @@ class EvidenceTests(unittest.TestCase):
         self.assertIsNone(capped["coverage"]["total_records"])
         self.assertEqual(capped["limits"]["candidates_per_schema"], 4096)
 
+    def test_the_census_streams_instances_and_holds_none(self):
+        # 2026-10-28 (#519, the capacity matrix on #626): the census collected
+        # every instance of a type (`keep="all"`) only to count verdicts and
+        # serialize a bounded few, and one type's 297,102 instances on a
+        # 31-line draft took the grade past its 2 GiB envelope. A `sink`
+        # receives exactly what the collected list held, in the same order,
+        # and the call accumulates nothing.
+        for name in ("internal rhyme", "perfect rhyme", "assonance"):
+            listed = R.realise(R.REGISTRY[name], self.stream, keep="all")
+            seen = []
+            self.assertEqual(R.realise(R.REGISTRY[name], self.stream,
+                                       keep="all", sink=seen.append), [])
+            self.assertEqual([(i.a.idx, i.b.idx, i.verdict) for i in seen],
+                             [(i.a.idx, i.b.idx, i.verdict) for i in listed])
+        calls = []
+        real = R.realise
+
+        def spy(*args, **kwargs):
+            calls.append(kwargs.get("sink"))
+            return real(*args, **kwargs)
+        with patch.object(R, "realise", spy):
+            got = self.report(schemas=["internal rhyme", "perfect rhyme"])
+        self.assertTrue(calls and all(callable(c) for c in calls))
+        want = {n: len(real(R.REGISTRY[n], self.stream, keep="all"))
+                for n in ("internal rhyme", "perfect rhyme")}
+        self.assertEqual({m["schema_name"]: sum(m["counts"].values())
+                          for m in got["coverage"]["methods"]}, want)
+
     def test_limits_are_honest(self):
         got = self.report(max_records=0)
         self.assertFalse(got['coverage']['complete'])
