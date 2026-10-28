@@ -3132,7 +3132,7 @@ def _candidate_pairs(schema, layout, stream, a_keys, b_keys,
 
 def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=None,
             keep=("true", "none"), tally=None, skip_line_pairs=None,
-            requested_line_pairs=None, bind=None, bind_side=None):
+            requested_line_pairs=None, bind=None, bind_side=None, sink=None):
     """Find every instance of `schema` in the song.  -> [Instance] or Refusal.
 
     THE ALGORITHM
@@ -3163,6 +3163,14 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=None,
     minus infinity and belongs in the DENOMINATOR, not out of the sample. The
     first family-wise correction in this repo dropped exactly those and got 0%
     saturation on every corpus.
+
+    `sink(instance)`, when given, receives every instance `keep` admits as
+    it is judged, and nothing is accumulated: the call returns []. A caller
+    that counts or serializes instances one at a time (the report census,
+    `schema_instance_evidence`) then holds one instance, not the whole
+    population; 297,102 instances of `multisyllabic rhyme` on a 31-line
+    draft were 574 MiB traced when collected (2026-10-28, #519). Refusals
+    are still RETURNED, so a caller must still test the return value.
 
     `skip_line_pairs` is a set of 0-based (line_a, line_b) pairs, unordered
     (min, max), whose CROSS-LINE candidates are not evaluated -- the caller
@@ -3220,7 +3228,10 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=None,
                 seen.add(k)
                 tag = {True: "true", False: "false", None: "none"}[e.verdict]
                 if keep == "all" or tag in keep:
-                    out.append(e)
+                    if sink is not None:
+                        sink(e)
+                    else:
+                        out.append(e)
         return out
     # THE WHOLE SET, not the first name.  This loop used to `return` inside the
     # `for`, so the answer was whichever missing capability sorted first and a
@@ -3374,7 +3385,10 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=None,
                 tally["recovered_true"] = tally.get("recovered_true", 0) + 1
         tag = {True: "true", False: "false", None: "none"}[inst.verdict]
         if keep == "all" or tag in keep:
-            out.append(inst)
+            if sink is not None:
+                sink(inst)
+            else:
+                out.append(inst)
     return out
 
 

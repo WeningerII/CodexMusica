@@ -30,6 +30,12 @@ MAX_CANDIDATES_PER_SCHEMA = None
 #: started is counted and serialized to the end, so a call can run past it
 #: by that one type's time (#519 finding d). Nothing is capped silently.
 COUNT_TIME_BUDGET_S = 300
+#: How many admissible (not False) instances of one type the census holds
+#: while it counts the rest, so it can admit them once that type's counts are
+#: final. Past this, the type is enumerated a second time instead
+#: (`from_stream`). 2,243 was the most any type had on the capacity matrix's
+#: 31-line draft (2026-10-28, #519).
+MAX_PENDING_INSTANCES = 4096
 
 
 class _Serializer(AnalysisSession):
@@ -117,42 +123,75 @@ def from_stream(stream, phon, *, declarations, provenance, schemas=None,
             method.update(status="partial", reason="time_budget")
             cov["remaining_records_unknown"] = True
             continue
-        try:
-            instances = RL.realise(RL.REGISTRY[name], stream, keep="all",
-                                   max_pairs=max_candidates)
-        except RuntimeError as exc:
-            if str(exc) != "candidate explosion; tighten the schema":
-                raise
-            method.update(status="partial", reason="candidate_limit")
-            cov["remaining_records_unknown"] = True
-            continue
-        if isinstance(instances, RL.Refusal):
-            method.update(status="refused", refusal=json_safe(instances))
-            cov["remaining_records_unknown"] = True
-            continue
-        method["counts"] = {"true": sum(e.verdict is True for e in instances),
-                            "false": sum(e.verdict is False for e in instances),
-                            "undecided": sum(e.verdict is None for e in instances)}
-        for inst in instances:
+        counts = {"true": 0, "false": 0, "undecided": 0}
+        pending, overflow = [], [False]
+
+        def take(inst, counts=counts, pending=pending, overflow=overflow):
+            # COUNT EVERY INSTANCE, HOLD ONLY THE FEW THAT ARE ADMISSIBLE
+            # (2026-10-28, #519). Collecting the whole population held
+            # 297,102 instances of one type on a 31-line draft and took the
+            # grade past its 2 GiB envelope; 2,243 of them were not False.
+            counts["true" if inst.verdict is True else
+                   "false" if inst.verdict is False else "undecided"] += 1
+            if inst.verdict is not False and not overflow[0]:
+                if len(pending) < MAX_PENDING_INSTANCES:
+                    pending.append(inst)
+                else:
+                    overflow[0] = True
+                    pending.clear()
+
+        def admit(inst, method=method):
+            # Admission exactly as before streaming: this type's FINAL counts
+            # are already in the envelope that `_report_bytes` sizes, so the
+            # byte limit admits the same records (#519 6459690813).
+            nonlocal record_bytes
             if inst.verdict is False:
-                continue
+                return
+            if len(result["records"]) >= max_records:
+                cov["omitted_records"] += 1
+                method.update(status="partial", reason="record_limit")
+                return
             record = serializer._edge_record(inst, stream)
             # The fields above already serialize the instance. Avoid duplicating
             # that entire structure as engine_edge in this bounded inline report.
             record.pop("engine_edge", None)
-            if len(result["records"]) >= max_records:
-                cov["omitted_records"] += 1
-                method.update(status="partial", reason="record_limit")
-                continue
             candidate_bytes = len(canonical_json(record).encode("utf-8"))
             result["records"].append(record)
             if _report_bytes(result, record_bytes + candidate_bytes) > max_bytes - 32768:
                 result["records"].pop()
                 cov["omitted_records"] += 1
                 method.update(status="partial", reason="byte_limit")
-                continue
+                return
             record_bytes += candidate_bytes
             method["emitted"] += 1
+        try:
+            got = RL.realise(RL.REGISTRY[name], stream, keep="all",
+                             max_pairs=max_candidates, sink=take)
+        except RuntimeError as exc:
+            if str(exc) != "candidate explosion; tighten the schema":
+                raise
+            method.update(status="partial", reason="candidate_limit")
+            cov["remaining_records_unknown"] = True
+            continue
+        if isinstance(got, RL.Refusal):
+            method.update(status="refused", refusal=json_safe(got))
+            cov["remaining_records_unknown"] = True
+            continue
+        for inst in got:
+            # `realise` with a sink returns []; a stand-in that returns its
+            # instances is consumed the same way.
+            take(inst)
+        method["counts"] = counts
+        if not overflow[0]:
+            for inst in pending:
+                admit(inst)
+        else:
+            # More admissible instances than are held: enumerate the type a
+            # second time, now that its counts are known, admitting in the
+            # same order. Exact, and still one instance at a time.
+            RL.realise(RL.REGISTRY[name], stream, keep=("true", "none"),
+                       max_pairs=max_candidates, sink=admit)
+        pending.clear()
     cov["complete"] = bool(requested) and all(m["status"] == "answered" for m in cov["methods"])
     cov["status"] = ("not_requested" if not requested else
                      "complete" if cov["complete"] else "partial")

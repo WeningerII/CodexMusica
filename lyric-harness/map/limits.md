@@ -49,6 +49,7 @@ Numeric caps and budgets: module-level constants in the harness files that ran f
 | MAX_RECORDS | 256 | `quality/schema_instance_evidence.py` |
 | MAX_BYTES | 262,144 (256 KB) | `quality/schema_instance_evidence.py` |
 | COUNT_TIME_BUDGET_S | 300 | `quality/schema_instance_evidence.py` |
+| MAX_PENDING_INSTANCES | 4,096 | `quality/schema_instance_evidence.py` |
 
 Connector:
 

@@ -121,6 +121,79 @@ class EvidenceTests(unittest.TestCase):
         self.assertIsNone(capped["coverage"]["total_records"])
         self.assertEqual(capped["limits"]["candidates_per_schema"], 4096)
 
+    def test_the_census_streams_instances_and_holds_none(self):
+        # 2026-10-28 (#519, the capacity matrix on #626): the census collected
+        # every instance of a type (`keep="all"`) only to count verdicts and
+        # serialize a bounded few, and one type's 297,102 instances on a
+        # 31-line draft took the grade past its 2 GiB envelope. A `sink`
+        # receives exactly what the collected list held, in the same order,
+        # and the call accumulates nothing.
+        for name in ("internal rhyme", "perfect rhyme", "assonance"):
+            listed = R.realise(R.REGISTRY[name], self.stream, keep="all")
+            seen = []
+            self.assertEqual(R.realise(R.REGISTRY[name], self.stream,
+                                       keep="all", sink=seen.append), [])
+            self.assertEqual([(i.a.idx, i.b.idx, i.verdict) for i in seen],
+                             [(i.a.idx, i.b.idx, i.verdict) for i in listed])
+        calls = []
+        real = R.realise
+
+        def spy(*args, **kwargs):
+            calls.append(kwargs.get("sink"))
+            return real(*args, **kwargs)
+        with patch.object(R, "realise", spy):
+            got = self.report(schemas=["internal rhyme", "perfect rhyme"])
+        self.assertTrue(calls and all(callable(c) for c in calls))
+        want = {n: len(real(R.REGISTRY[n], self.stream, keep="all"))
+                for n in ("internal rhyme", "perfect rhyme")}
+        self.assertEqual({m["schema_name"]: sum(m["counts"].values())
+                          for m in got["coverage"]["methods"]}, want)
+
+    def test_byte_limit_admits_what_the_collecting_census_admitted(self):
+        # #519 6459690813: streaming must not move the byte boundary. Before
+        # streaming, a type's complete counts sat in the envelope
+        # `_report_bytes` sizes when its records were admitted; they still
+        # must. Checked two ways over limits that cut through the records:
+        # every admission is sized with the type's FINAL counts present, and
+        # the report equals the collecting one (`realise` returning its whole
+        # list, no sink), held-instance path and second-pass path alike.
+        lines = ["cat bat cat hat mat", "hat rat sat", "pat vat fat tat", "cat"]
+        st = R.build_stream(lines, self.phon, declaration={"language": "eng"})
+        names = ["assonance", "internal rhyme", "perfect rhyme"]
+        real = R.realise
+
+        def run(**kw):
+            return from_stream(st, self.phon, declarations={"voices": True},
+                               provenance={"reader_scheme": "v2"}, schemas=names, **kw)
+
+        def collecting(schema, stream, *a, sink=None, **kw):
+            return real(schema, stream, *a, **kw)
+        full = run(max_bytes=1 << 22)
+        full_bytes = len(canonical_json(full).encode())
+        final = {m["schema_name"]: dict(m["counts"]) for m in full["coverage"]["methods"]}
+        seen = []
+        size = E._report_bytes
+
+        def spy(result, record_bytes):
+            m = result["coverage"]["methods"][-1]
+            seen.append(m["counts"] == final[m["schema_name"]])
+            return size(result, record_bytes)
+        cuts = sorted({max(1024, full_bytes - 32768 + d) for d in
+                       range(-full_bytes // 2, 2048, max(1, full_bytes // 40))})
+        omitted = set()
+        for cut in [b + 32768 for b in cuts]:
+            with patch.object(E, "_report_bytes", spy):
+                got = run(max_bytes=cut)
+            with patch.object(R, "realise", collecting):
+                want = run(max_bytes=cut)
+            with patch.object(E, "MAX_PENDING_INSTANCES", 0):
+                second = run(max_bytes=cut)
+            self.assertEqual(got, want, cut)
+            self.assertEqual(second, want, cut)
+            omitted.add(got["coverage"]["omitted_records"])
+        self.assertTrue(seen and all(seen))
+        self.assertGreater(len(omitted), 2, "the limits never cut through the records")
+
     def test_limits_are_honest(self):
         got = self.report(max_records=0)
         self.assertFalse(got['coverage']['complete'])
