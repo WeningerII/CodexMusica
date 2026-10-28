@@ -319,12 +319,17 @@ def coverage_refusal_sections(cov):
     # supplies), and a figure with no member bindings is STILL sent to
     # IMPLEMENT — exercised through the real judge on a copy of a figure
     # under a name outside FULL_SHAPES, since no registry schema is one now.
+    # 2026-10-27 (#519 finding c): ~~a name outside FULL_SHAPES~~ — the
+    # member bindings are the row's declared `judge`, read by every whole-
+    # figure dispatch, so a renamed copy KEEPS its bindings and judges. A
+    # figure with none is the copy with no judge.
     sain = ("cynghanedd sain", "cynghanedd sain gadwynog",
             "cynghanedd sain lafarog")
     tmpl = by["平仄 tonal template"]
     unbound = replace(R.REGISTRY["cynghanedd sain"],
-                      name="a figure with no member bindings (test)")
+                      name="a figure with no member bindings (test)", judge="")
     assert unbound.name not in R.FULL_SHAPES
+    assert unbound.judge not in R.FULL_JUDGES
     got, refusal = N.ledger_slice()
     assert refusal is None, refusal
     ledger_lines, ledger_phon, lang = got

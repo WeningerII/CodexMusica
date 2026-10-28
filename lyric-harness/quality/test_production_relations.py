@@ -177,6 +177,23 @@ class ProductionRelations(unittest.TestCase):
             rv._matrix([f'the cat {i}'])
         self.assertLessEqual(len(rv._line_read_cache), 256)
 
+    def test_a_renamed_figure_keeps_its_judge(self):
+        # #519 finding c (2026-10-27): the whole-figure judge is the row's
+        # declared `judge`, so a symploce row under another name (`replace`)
+        # is judged as symploce, not refused as an unsupported shape.
+        from dataclasses import replace
+        renamed = replace(R.REGISTRY['symploce'], name='renamed symploce')
+        good = ['we hold the cat', 'we warm the cat']
+        got = R.line_pairs_for(renamed, stream(good))
+        self.assertNotIsInstance(got, R.Refusal)
+        self.assertIs(got.verdict((1, 2)), True)
+        bad = R.line_pairs_for(renamed, stream(['we hold the cat',
+                                                'we warm the moon']))
+        self.assertIs(bad.verdict((1, 2)), False)
+        plain = replace(renamed, judge='')
+        self.assertEqual(getattr(R.line_pairs_for(plain, stream(good), keep_refusal=True),
+                                 'kind', None), 'unsupported_shape')
+
     def test_named_figures_require_every_edge(self):
         good = ['we hold the cat', 'we warm the cat']
         self.assertIs(pair('symploce', good).verdict((1, 2)), True)

@@ -756,9 +756,13 @@ def test_brief_refuses_instead_of_tracebacking():
         refrain_path = fh.name
     try:
         rc3, out3, _ = run("brief", refrain_path, "--groups=3,5")
-        check("--groups= on an IDENTICAL pair charges it a violation -- "
-              "identity is FORBIDDEN under the default REQUIRE_RHYME",
-              rc3 == 0 and "SCHEME_VIOLATION" in out3, out3[:200])
+        # REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660): ~~--groups=
+        # on an IDENTICAL pair charges it a violation~~ — identical words
+        # that satisfy a type (`repetition`) are not charged; a declared
+        # `--returns=` violation still is.
+        check("--groups= on an IDENTICAL pair is not charged: the identical "
+              "words satisfy a type (repetition)",
+              rc3 == 0 and "SCHEME_VIOLATION" not in out3, out3[:200])
         rc4, out4, _ = run("brief", refrain_path, "--returns=3,5")
         result4 = _machine_result(out4)
         check("--returns= on the SAME pair judges the full-line return without inventing a rhyme group",
@@ -3525,8 +3529,18 @@ def test_the_named_pair_disclosure_survives_the_module_boundary():
     # time -- directly beneath the missing banner that says the same fact
     # loudly. One is the invariant on the other.
     fix = os.path.join(ROOT, "quality", "fixtures")
+    # REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660): ~~`--cliques`~~.
+    # The disclosure's population is the fixture's identical pair L6~L14
+    # (counting/counting), and under a mandate that says nothing about
+    # repeats, identical words that satisfy a type (`repetition`) are no
+    # longer charged, so `--cliques` left nothing to disclose. The same cover,
+    # spelled out, with the song's other verbatim pair declared a return
+    # (L7 = L15): a mandate that declares its returns charges an undeclared
+    # identical pair (doctrine 3), so L6~L14 is charged again and its mosaic
+    # span is disclosed exactly as before. `--cliques` cannot take `--returns=`.
+    cover = ("--groups=2,4;6,14;7,15;8,9;10,11;3,13;13,16", "--returns=7,15")
     rc, out, _ = run("song", os.path.join(fix, "song.blueprint.json"),
-                     os.path.join(fix, "song.txt"), "--cliques", expect_rc=3)
+                     os.path.join(fix, "song.txt"), *cover, expect_rc=3)
     lines = out.splitlines()
     mosaic = [i for i, ln in enumerate(lines) if "MOSAIC (" in ln]
     check("the fixture still carries a mosaic span to disclose", mosaic,
@@ -3551,7 +3565,7 @@ def test_the_named_pair_disclosure_survives_the_module_boundary():
 
     # THE SAME PAIR THROUGH `brief`, which reaches `Reviser` by a different
     # route and was equally blind. Two verbs, one boundary.
-    rc, out, _ = run("brief", os.path.join(fix, "song.txt"), "--cliques")
+    rc, out, _ = run("brief", os.path.join(fix, "song.txt"), *cover)
     check("`brief` discloses it too", rc == 0
           and "NAMED PAIR IS NOT THE EVIDENCE" in out, f"rc {rc}")
 
@@ -4327,10 +4341,15 @@ def test_what_the_command_line_prints_is_what_it_means():
           "--relation=type:assonance" in nxt and "'--title=Two Rivers'" in nxt
           and "--narrative=off" in nxt, nxt)
     rc, out, _ = run("screen", "love", "dove", "--relation=schema:internal rhyme")
-    check("screen answers REFUSED, not SATISFIES, for a schema two line ends "
-          "cannot place (the grade charges a line-end mandate declaring it)",
-          rc == 0 and "schema:internal rhyme REFUSED" in out
-          and "SATISFIES schema:internal rhyme" not in out, out[-300:])
+    # REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660: the screen
+    # tests the positions each type uses): ~~REFUSED for a schema two line
+    # ends cannot place~~ — it is judged at the positions its placement
+    # meets, and the answer NAMES them, so it is never an unqualified
+    # line-end SATISFIES.
+    check("screen judges a schema two line ends cannot place at the positions "
+          "it uses and names them — never an unqualified line-end SATISFIES",
+          rc == 0 and "schema:internal rhyme at head/head" in out
+          and "SATISFIES schema:internal rhyme |" not in out, out[-300:])
     with tempfile.TemporaryDirectory() as d:
         song = os.path.join(d, "my song.txt")
         with open(song, "w") as fh:

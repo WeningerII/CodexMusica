@@ -1483,10 +1483,14 @@ def test_the_radif_licence_says_which_layer_it_speaks_for():
           "RADIF_LICENSED" in codes and rad is not None
           and "15 of 15" in rad.message,
           rad.message if rad else "not emitted")
-    check("...and the MANDATE layer flags every one of those pairs anyway, "
-          "because it reads a DIFFERENT declared coordinate",
-          viol == 15, f"{viol} SCHEME_VIOLATION(s) at the default "
-                      f"repeat_licence='unlicensed'")
+    # REPOINTED 2026-10-27 (end-of-day plan, #519 6448819660): ~~the MANDATE
+    # layer flags every one of those pairs anyway~~ — the repeated radif
+    # satisfies a registry type (`epistrophe / radif`), and identical words
+    # that satisfy a type are not charged, so it flags none.
+    check("...and the MANDATE layer charges none of those pairs: the "
+          "repeated radif satisfies a type, so it is not charged as REPEAT",
+          viol == 0, f"{viol} SCHEME_VIOLATION(s) at the default "
+                     f"repeat_licence='unlicensed'")
     check("the note now says WHICH check it suppressed, and its evidence "
           "names the coordinate that governs the other one",
           "THIS FLOOR's self-rhyme check" in rad.message

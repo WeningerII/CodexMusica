@@ -2329,6 +2329,18 @@ PAIR = Figure()
 #:   'require_b'  member 2 MUST overhang and member 1 must not (semirhyme)
 UNMATCHED = ("exclude", "forbid", "require_a", "require_b")
 
+#: The whole-figure judges a row may declare (`RelationSchema.judge`):
+#:   'onset_fraction'  a common onset over a fraction of a line's words
+#:   'symploce'        two LINE members: same first and last word, a
+#:                     differing interior
+#:   'crossed'         LINE members whose vowel and consonant edges cross
+#:   'aab'             three LINE members: the first two lines the same, each
+#:                     answered at its end by the third
+#:   'token_members'   TOKEN members of one line (the sain figures)
+#:   'tonal_template'  one LINE member read against a declared pattern
+JUDGES = ("", "onset_fraction", "symploce", "crossed", "aab",
+          "token_members", "tonal_template")
+
 
 @dataclass(frozen=True)
 class RelationSchema:
@@ -2345,6 +2357,12 @@ class RelationSchema:
     traditions: tuple = ()
     requires: tuple = ()
     note: str = ""
+    #: WHICH WHOLE-FIGURE JUDGE answers this row, when the generic edge
+    #: judge cannot: "" for every row the pair/edge machinery answers, else
+    #: one of JUDGES. Declared on the row (end-of-day plan, #519
+    #: 6448819660) — until 2026-10-27 the judge was chosen by comparing
+    #: `name` against literals, so a label decided behaviour.
+    judge: str = ""
 
     def __post_init__(self):
         # `unmatched` had FOUR implemented values and its own comment named
@@ -2359,6 +2377,9 @@ class RelationSchema:
                 f"material the alignment left over; a MUST-DIFFER on the "
                 f"matched material is a CHANNEL rule (pararhyme states it as "
                 f"ChannelRule('nucleus', DIFFER)) and never this field.")
+        if self.judge not in JUDGES:
+            raise ValueError(f"judge must be one of {JUDGES}, not "
+                             f"{self.judge!r}")
 
     def capabilities(self):
         need = set(self.requires)
@@ -3184,7 +3205,7 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=None,
             return derived
         stream = derived
     if not figure_pair_representable(schema) and \
-            schema.name not in LINE_MEMBER_SHAPES:
+            schema.judge not in LINE_MEMBER_JUDGES:
         # A token-member or template figure: its EDGES are the instances,
         # each with its own verdict; `assemble()` re-judges the whole figure.
         shapes = _full_shape(schema, stream)
@@ -3474,7 +3495,7 @@ def assemble(schema, edges, stream):
         return _full_shape(schema, stream)
     if isinstance(edges, Refusal):
         return edges
-    if schema.name == "paroemion" and fig.quantifier == "fraction":
+    if schema.judge == "onset_fraction" and fig.quantifier == "fraction":
         return _common_onset_fraction(schema, edges, stream)
     by = {}
     for e in edges:
@@ -4849,6 +4870,7 @@ declare(RelationSchema(
 
 declare(RelationSchema(
     name="paroemion",
+    judge="onset_fraction",
     spans=(HEAD_ANY, HEAD_ANY), align="flush_left",
     channels=(ChannelRule("onset", AGREE, "first"),),
     placement=(Placement("same_line"),),
@@ -5265,6 +5287,7 @@ declare(RelationSchema(
 
 declare(RelationSchema(
     name="symploce",
+    judge="symploce",
     spans=(HEAD_LINE, HEAD_LINE), align="flush_left",
     channels=(ChannelRule("token", AGREE, "first"),),
     placement=(Placement("both_line_initial"), Placement("different_lines")),
@@ -5292,6 +5315,7 @@ declare(RelationSchema(
 
 declare(RelationSchema(
     name="analysed rhyme",
+    judge="crossed",
     spans=(END_ANCHOR, END_ANCHOR), align="anchor",
     channels=(ChannelRule("nucleus", AGREE, "anchor"),
               ChannelRule("coda", DIFFER, "anchor")),
@@ -5399,16 +5423,23 @@ END_ANCHOR_PROMOTED = PromotedFinalRule(
 #: whole-vocabulary default, the screen's relation list and the bound-token
 #: route read — is unchanged. Readers: every route that judges a DECLARED
 #: `schema:` relation (`declared_token_schema`, `declared_pair_schema`).
-DECLARED_PROMOTED_FINAL = frozenset({"perfect rhyme"})
+#: WIDENED 2026-10-27 (end-of-day plan, #519 6448819660, grader workstream):
+#: ~~`frozenset({"perfect rhyme"})`~~ — a name list gave the allowance to one
+#: type. It now follows the span itself: every schema with an `END_ANCHOR`
+#: member is the shape the promoted final rewrites, so every such schema
+#: takes it, and no schema is singled out by name. The allowance only ADDS
+#: an anchoring (the pair stands if either works), so no type is tightened,
+#: and a schema without an `END_ANCHOR` member is returned unchanged. The
+#: test is `END_ANCHOR in schema.spans`, read in `declared_token_schema`.
 
 
 def declared_token_schema(schema, promote=True):
     """-> the schema a DECLARED relation is judged under at two declared
-    tokens (`pair_satisfies`): `schema` itself, unless
-    `DECLARED_PROMOTED_FINAL` names it AND `promote` (the declaration's
-    `final_promotion`) is true, in which case every `END_ANCHOR` member
-    becomes `END_ANCHOR_PROMOTED`. The figure is left as declared."""
-    if not promote or schema.name not in DECLARED_PROMOTED_FINAL:
+    tokens (`pair_satisfies`): `schema` itself, unless it has an
+    `END_ANCHOR` member AND `promote` (the declaration's `final_promotion`)
+    is true, in which case every `END_ANCHOR` member becomes
+    `END_ANCHOR_PROMOTED`. The figure is left as declared."""
+    if not promote or END_ANCHOR not in schema.spans:
         return schema
     return replace(schema, spans=tuple(
         END_ANCHOR_PROMOTED if r == END_ANCHOR else r for r in schema.spans))
@@ -5504,6 +5535,7 @@ declare(RelationSchema(
 
 declare(RelationSchema(
     name="cynghanedd sain",
+    judge="token_members",
     spans=(SpanRule("any_token", "word_end", 1, 1),) * 2, align="anchor",
     channels=(ChannelRule("nucleus", AGREE, "first"),
               ChannelRule("coda", AGREE, "first")),
@@ -5516,6 +5548,7 @@ declare(RelationSchema(
 
 declare(RelationSchema(
     name="cynghanedd sain gadwynog",
+    judge="token_members",
     spans=(SpanRule("any_token", "word_end", 1, 1),) * 2, align="anchor",
     channels=(ChannelRule("nucleus", AGREE, "first"),
               ChannelRule("coda", AGREE, "first")),
@@ -5528,6 +5561,7 @@ declare(RelationSchema(
 
 declare(RelationSchema(
     name="cynghanedd sain lafarog",
+    judge="token_members",
     spans=(SpanRule("any_token", "word_start", 1, 1),) * 2, align="flush_left",
     channels=(ChannelRule("onset", AGREE, "first"),),
     placement=(Placement("same_line"),),
@@ -5540,6 +5574,7 @@ declare(RelationSchema(
 
 declare(RelationSchema(
     name="cynghanedd sain drosgl",
+    judge="token_members",
     spans=(SpanRule("any_token", "word_start", 1, 1),
            SpanRule("any_token", "last_stressed", 1, 1)),
     align="flush_left",
@@ -5621,6 +5656,7 @@ declare(RelationSchema(
 
 declare(RelationSchema(
     name="平仄 tonal template",
+    judge="tonal_template",
     spans=(WHOLE_LINE, WHOLE_LINE), align="flush_left",
     channels=(ChannelRule("prominence", AGREE, "each"),),
     requires=("tonal_template", "tone"),
@@ -5647,6 +5683,7 @@ declare(RelationSchema(
 
 declare(RelationSchema(
     name="blues AAB stanza",
+    judge="aab",
     spans=(WHOLE_LINE, WHOLE_LINE), align="flush_left",
     channels=(ChannelRule("token", AGREE, "each"),),
     placement=(Placement("adjacent_lines"),),
@@ -8570,10 +8607,20 @@ class FigureMembers(list):
 #: Every figure `_full_shape` judges whole. Members of the first three are
 #: LINES; members of the three sain figures are TOKENS of one line; the tonal
 #: template has one member, a line, read against a declared pattern.
-LINE_MEMBER_SHAPES = ("symploce", "analysed rhyme", "blues AAB stanza")
-TOKEN_MEMBER_SHAPES = ("cynghanedd sain", "cynghanedd sain gadwynog",
-                       "cynghanedd sain lafarog", "cynghanedd sain drosgl")
-TEMPLATE_SHAPES = ("平仄 tonal template",)
+#: Read off each row's declared `judge` (2026-10-27), not listed by name.
+#: The judges themselves decide every dispatch below, so a row renamed or
+#: built with `replace()` keeps its judge (#519 finding c); the name tuples
+#: are the registry's rows with those judges, for readers that list them.
+LINE_MEMBER_JUDGES = ("symploce", "crossed", "aab")
+TOKEN_MEMBER_JUDGES = ("token_members",)
+TEMPLATE_JUDGES = ("tonal_template",)
+FULL_JUDGES = LINE_MEMBER_JUDGES + TOKEN_MEMBER_JUDGES + TEMPLATE_JUDGES
+LINE_MEMBER_SHAPES = tuple(n for n, r in REGISTRY.items()
+                           if r.judge in LINE_MEMBER_JUDGES)
+TOKEN_MEMBER_SHAPES = tuple(n for n, r in REGISTRY.items()
+                            if r.judge in TOKEN_MEMBER_JUDGES)
+TEMPLATE_SHAPES = tuple(n for n, r in REGISTRY.items()
+                        if r.judge in TEMPLATE_JUDGES)
 FULL_SHAPES = LINE_MEMBER_SHAPES + TOKEN_MEMBER_SHAPES + TEMPLATE_SHAPES
 
 
@@ -8760,12 +8807,12 @@ def _full_shape(schema, stream):
     `FULL_SHAPES` has no member bindings and refuses by name."""
     import itertools
     import math
-    if schema.name not in FULL_SHAPES:
+    if schema.judge not in FULL_JUDGES:
         return Refusal(schema.name, "figure",
                        "The declared multi-member graph/template has no "
                        "executable member bindings; a pair projection cannot "
                        "certify the full figure.", kind="unsupported_shape")
-    if schema.name in TOKEN_MEMBER_SHAPES + TEMPLATE_SHAPES:
+    if schema.judge in TOKEN_MEMBER_JUDGES + TEMPLATE_JUDGES:
         sup = {c: stream.supply(c) for c in schema.capabilities()}
         miss = tuple(c for c, v in sup.items() if v.state != "present")
         if miss:
@@ -8778,7 +8825,7 @@ def _full_shape(schema, stream):
                            kind=("vacuous_frame" if len(vac) == len(miss)
                                  else "capability"))
         return (_token_figures(schema, stream)
-                if schema.name in TOKEN_MEMBER_SHAPES
+                if schema.judge in TOKEN_MEMBER_JUDGES
                 else _template_figures(schema, stream))
     if schema.figure.frame == "stanza" and not stream.provides("stanza"):
         return Refusal(schema.name, "stanza", "A full figure requires a "
@@ -8790,7 +8837,7 @@ def _full_shape(schema, stream):
                      stream.line_stanzas[li] if schema.figure.frame == "stanza" and stream.line_stanzas else
                      li // 2 if schema.figure.frame == "line_pair" else None)
             frames.setdefault(frame, []).append(li)
-    n = 2 if schema.name == "symploce" else schema.figure.nodes
+    n = 2 if schema.judge == "symploce" else schema.figure.nodes
     result = []
     edge_memo = {}
     for frame, ls in frames.items():
@@ -8828,7 +8875,7 @@ def _full_shape(schema, stream):
                 if e is not None:
                     edges.append(e)
                     values.append(e.verdict)
-            if schema.name == "symploce":
+            if schema.judge == "symploce":
                 a, b = members
                 wa = (stream.lexical_tokens[a] if stream.lexical_tokens else tokenise(stream.text_lines[a]))
                 wb = (stream.lexical_tokens[b] if stream.lexical_tokens else tokenise(stream.text_lines[b]))
@@ -8846,7 +8893,7 @@ def _full_shape(schema, stream):
                 ep = replace(REGISTRY["anaphora"], spans=(END_WORD, END_WORD),
                              placement=(), figure=PAIR)
                 edge(ep, 0, 1)
-            elif schema.name == "analysed rhyme":
+            elif schema.judge == "crossed":
                 # THE CROSSING IS THE DEFINITION: the vowel pairs are NOT
                 # also consonant pairs and the consonant pairs NOT also
                 # vowel pairs (four full rhymes are rhyme, not analysed
@@ -8950,7 +8997,7 @@ def line_pairs_for(schema, stream, keep_refusal=True, requested_pairs=None,
         assemblies = _full_shape(schema, stream)
         if isinstance(assemblies, Refusal):
             return assemblies if keep_refusal else LinePairResults()
-        if schema.name not in LINE_MEMBER_SHAPES:
+        if schema.judge not in LINE_MEMBER_JUDGES:
             held, open_ = set(), set()
             for li, _, verdict in assemblies:
                 if verdict is not False:

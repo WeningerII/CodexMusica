@@ -213,7 +213,10 @@ def _p_screen(out):
         tail = m.group(3).strip()
         # `a ~ b  SCORE  VERDICT` since the relation-set screen (every
         # relation listed); `a ~ b  LABEL SCORE  VERDICT` before it.
-        scored = re.match(r"(?:\S+\s+)?[\d.]+\s{2,}(.+)$", tail)
+        # The optional LABEL is never a number (2026-10-27): with no ban in
+        # front, `1.000  10 relation(s): ...` let `\S+` swallow the score and
+        # read the relation count as one.
+        scored = re.match(r"(?:(?![\d.]+\s)\S+\s+)?[\d.]+\s+(.+)$", tail)
         if scored:
             verdict = scored.group(1).strip()
         elif tail.startswith("REFUSED"):

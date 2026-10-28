@@ -402,6 +402,14 @@ def whitman_battery():
 # they are the period's rhymes (-age, -ity, word/afford) and the declared
 # dialect does not hear them. Measured per (sonnet, line_i, line_j) against
 # the same tree with the binding dropped.
+# REPINNED 2026-10-27, END-OF-DAY PLAN (#519 6448819660, grader workstream):
+# identical words that satisfy a registry type (`repetition`, `epistrophe /
+# radif`) are not charged as REPEAT. Layer: band -- what a mandated pair of
+# identical end words is. ~~violations 40~~ -> violations 36: sonnet 9
+# (it/it, lines 10/12), 26 (it/it, 6/8), 42 (her/her, 6/8) and 150
+# (thee/thee, 5/7) leave the violated set; none joins it, and judged and
+# refused do not move. Measured by `audit_spans.py --check`; the partition is
+# rewritten by `--write-oracle`.
 from quality.battery_pin import EXPECTED  # noqa: E402
 
 

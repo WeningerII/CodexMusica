@@ -105,8 +105,14 @@ SONNET_SCHEME = "ABABCDCDEFEFGG"
 #: NOT audible -- they held through other words of the two lines -- and they
 #: are 20 of the battery's 25 new violations. H STILL HOLDS: 2 of 23
 #: schema-only satisfactions (8.7%) are AUDIBLE and 21 (91.3%) are not.
+#: REPINNED 2026-10-27 -> (953, 2, 21), END-OF-DAY PLAN (#519 6448819660):
+#: identical words that satisfy a registry type are not charged as REPEAT.
+#: The four identical-end-word pairs (sonnet 9 and 26 it/it, 42 her/her, 150
+#: thee/thee) leave the violations and are coarse passes; the schema-only
+#: split does not move. 953 + 23 + 36 = 1012 judged against 52 refused, the
+#: battery's own repin.
 PINNED = {
-    "sonnets": (949, 2, 21),
+    "sonnets": (953, 2, 21),
 }
 
 

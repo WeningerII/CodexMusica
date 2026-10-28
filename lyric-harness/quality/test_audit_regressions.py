@@ -254,6 +254,61 @@ class AuditRegressions(unittest.TestCase):
                     LH._checkpoint_proposer(writer, None, initial, 'config', 'fake')
             self.assertEqual(len(called), 1)
 
+    def test_replay_order_undo_then_park_then_refuse(self):
+        # THE COMBINED ORDER in `ask()` (#626 + #627, agreed on #519), on one
+        # real line checkpoint. A question recorded under the wording before
+        # #626's NO_RELATION rewording:
+        #   1. replays its answer when the ONLY change is that rewording --
+        #      `LEGACY_QUESTION_RENDERINGS` restores the old bytes exactly;
+        #   2. parks (QUESTION_CHANGED) when the wording moved in a way no
+        #      undo restores, as #627's removed word lists do;
+        #   3. refuses by name when the replay diverged (another draft).
+        # No branch makes a writer request or rewrites the checkpoint.
+        import quality.propose as PRM
+        initial = ['original cat', 'original dog']
+        accepted = ['original cat', 'accepted log']
+        b = Brief(2, initial[1])
+        b.round_no = 1
+        real_render = PRM.render_line
+        old_tail = LH._UNADMITTED_DEFAULT_TAIL_BEFORE
+        new_tail = LH._UNADMITTED_DEFAULT_TAIL
+        held = lambda *a, **k: real_render(*a, **k) + '\nwhy: x — ' + old_tail
+        now = lambda *a, **k: real_render(*a, **k) + '\nwhy: x — ' + new_tail
+        unrestorable = lambda *a, **k: now(*a, **k) + '\n(no word list)'
+        calls = []
+        def writer(*args, **kwargs):
+            calls.append(True)
+            return accepted[1]
+        with tempfile.TemporaryDirectory() as tmp, \
+             patch.dict(os.environ, {'LYRIC_CHECKPOINT_PATH': str(Path(tmp)/'cp.json')}), \
+             contextlib.redirect_stdout(io.StringIO()):
+            with patch.object(PRM, 'render_line', held):
+                one, _ = LH._checkpoint_proposer(writer, None, initial, 'config', 'fake')
+                one.checkpoint(initial, 0, 'started')
+                self.assertEqual(one(b, initial, 0), accepted[1])
+                one.checkpoint(accepted, 1, 'accepted')
+            self.assertEqual(len(calls), 1)
+            cp = Path(tmp)/'cp.json'
+            with patch.object(PRM, 'render_line', now):
+                undone, _ = LH._checkpoint_proposer(writer, None, initial, 'config', 'fake')
+                self.assertEqual(undone(b, initial, 0), accepted[1],
+                                 '1. the exact undo replays the recorded answer')
+            self.assertEqual(len(calls), 1)
+            with patch.object(PRM, 'render_line', unrestorable):
+                parked_run, _ = LH._checkpoint_proposer(writer, None, initial, 'config', 'fake')
+                before = cp.read_bytes()
+                with self.assertRaises(LH._QuestionChanged) as parked:
+                    parked_run(b, initial, 0)
+                self.assertEqual(parked.exception.lines, accepted, '2. parks with the accepted draft')
+                self.assertEqual(cp.read_bytes(), before)
+                diverged_run, _ = LH._checkpoint_proposer(writer, None, initial, 'config', 'fake')
+                with self.assertRaises(ProposerUnavailable) as diverged:
+                    diverged_run(b, ['different cat', initial[1]], 0)
+                self.assertNotIsInstance(diverged.exception, LH._QuestionChanged,
+                                         '3. a diverged replay refuses by name')
+                self.assertEqual(cp.read_bytes(), before)
+            self.assertEqual(len(calls), 1, 'no branch made a writer request')
+
     def test_group_question_reworded_parks_and_a_diverged_group_refuses(self):
         # 3PO on #627: a group question whose only change is its WORDING
         # parks like a line question does; changed members or a changed
