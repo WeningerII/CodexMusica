@@ -1412,7 +1412,7 @@ const LY_JUNCTION_LABELS = {
   JUXTAPOSE: 'Contrast',
 };
 // The type menu: every type the planner may draw for an English song, as
-// [registry index, name]. Not inlined into the page: scripts/lyric_type_menu.py
+// [registry index, name, fixed display place or null]. Not inlined into the page: scripts/lyric_type_menu.py
 // writes the planner's eligible set (`type_eligibility`, quality/plan.py) to
 // src/pages/lyric_types.json (and --check
 // holds it there), the API build copies it to api/lyric_types.json, and the
@@ -1446,6 +1446,7 @@ function lyTypesLoad() {
       lyTypesSet(data.types);
       // Filled in place, never redrawn: focus and an open menu stay put.
       lyTypeFill();
+      lyRefreshTypeBindings();
       for (const el of document.querySelectorAll('#surface-lyrics [data-type]'))
         el.textContent = lyTypeLabel(Number(el.dataset.type));
     })
@@ -1674,15 +1675,41 @@ function lyCarryGroupTypes(before, after, removed = []) {
     })
   );
 }
-function lyMemberWord(model, m) {
+// Display only: explicit places win. A selected type without a fixed locus
+// (or not loaded yet) names no particular word; the grader searches its spans.
+function lyMemberPlace(m, type) {
+  if (m.explicit || m.place !== 'end' || type == null || type === '') return m.place;
+  return LY_TYPES.find((t) => t[0] === Number(type))?.[2] || null;
+}
+function lyMemberDisplay(model, m, type) {
+  return (
+    lyMemberWord(model, m, type) ?? (lyMemberPlace(m, type) == null ? LY_PLACE_BY_TYPE : 'missing')
+  ).slice(0, 40);
+}
+function lyMemberBinding(model, m, type) {
+  return `<span data-ly-binding="${esc(JSON.stringify([m, type ?? null]))}">${esc(lyMemberDisplay(model, m, type))}</span>`;
+}
+// Refresh only the binding text and editor paint when the menu loads, without
+// replacing the focused select or discarding pending members.
+function lyRefreshTypeBindings() {
+  if (!LY.model) return;
+  for (const el of document.querySelectorAll('#surface-lyrics [data-ly-binding]')) {
+    const [m, type] = JSON.parse(el.dataset.lyBinding);
+    el.textContent = lyMemberDisplay(LY.model, m, type);
+  }
+  lyRenderEditor();
+}
+function lyMemberWord(model, m, type) {
+  const place = lyMemberPlace(m, type);
+  if (place == null) return null;
   // A word place kept under its earlier number binds no word of this text.
   if (m.undecided) return null;
   const row = model.sung[m.line - 1];
   if (!row) return null;
   const toks = lyTokens(row.text, model.voices);
-  if (/^T\d+$/.test(m.place)) return toks[Number(m.place.slice(1)) - 1] || null;
-  if (m.place === 'head' || m.place === 'headrime') return toks[0] || null;
-  if (m.place === 'line') return row.text;
+  if (/^T\d+$/.test(place)) return toks[Number(place.slice(1)) - 1] || null;
+  if (place === 'head' || place === 'headrime') return toks[0] || null;
+  if (place === 'line') return row.text;
   return toks[toks.length - 1] || null;
 }
 // A member's place in words. In a returns row a bare `N` is a whole-line
@@ -4752,11 +4779,15 @@ function lyRhymeMarks(model) {
     letters = new Map();
   const groups = lySetupOf(model, 'rhyme groups').flatMap((d) => lyRowGroups(d));
   const pending = LY.tool === 'rhymes' ? lyVal('rhymes', 'song', 'members', []) || [] : [];
+  const types = lyGroupTypes(model);
+  const keys = lyGroupKeys(groups);
   const all = [
-    ...groups.map((g) => ({ g })),
-    ...(pending.length ? [{ g: pending, pending: true }] : []),
+    ...groups.map((g, k) => ({ g, type: types.get(keys[k]) })),
+    ...(pending.length
+      ? [{ g: pending, pending: true, type: lyVal('rhymes', 'song', 'type', '') }]
+      : []),
   ];
-  all.forEach(({ g, pending = false }, k) => {
+  all.forEach(({ g, pending = false, type }, k) => {
     const letter = lyFamilyLabel(k);
     for (const m of g) {
       // A word place kept under its earlier number marks no word.
@@ -4764,10 +4795,11 @@ function lyRhymeMarks(model) {
       const row = model.sung[m.line - 1];
       if (!row) continue;
       const toks = lyTokens(row.text, model.voices);
+      const place = lyMemberPlace(m, type);
       let t = toks.length;
-      if (/^T\d+$/.test(m.place)) t = Number(m.place.slice(1));
-      else if (m.place === 'head' || m.place === 'headrime') t = 1;
-      if (m.place !== 'line') {
+      if (/^T\d+$/.test(place)) t = Number(place.slice(1));
+      else if (place === 'head' || place === 'headrime') t = 1;
+      if (place != null && place !== 'line') {
         if (!Number.isInteger(t) || t < 1 || t > toks.length) continue;
         const key = `${m.line}:${t}`;
         const memberships = ends.get(key) || [];
@@ -5500,12 +5532,12 @@ function lyToolRhymes(model) {
     ? `<ul class="ly-links">${groups
         .map((g, k) => {
           const letter = lyFamilyLabel(k);
-          return `<li><label class="ly-check"><input type="radio" name="ly-link-group" value="${k}"${k === selGroup ? ' checked' : ''}><span class="ly-letter" data-g="${k % 6}">${letter}</span><span><strong>${letter} · ${lyTypeSpan(types.get(keys[k]))}</strong><small>${g.map((m) => (m.bad || m.undecided ? esc(m.raw) : `Line ${m.line} · ${esc(String(lyMemberWord(model, m) ?? 'missing').slice(0, 30))}`)).join(LY_PAIR_SEP)}</small></span></label></li>`;
+          return `<li><label class="ly-check"><input type="radio" name="ly-link-group" value="${k}"${k === selGroup ? ' checked' : ''}><span class="ly-letter" data-g="${k % 6}">${letter}</span><span><strong>${letter} · ${lyTypeSpan(types.get(keys[k]))}</strong><small>${g.map((m) => (m.bad || m.undecided ? esc(m.raw) : `Line ${m.line} · ${lyMemberBinding(model, m, types.get(keys[k]))}`)).join(LY_PAIR_SEP)}</small></span></label></li>`;
         })
         .join('')}</ul>`
     : '<p class="ly-help">No links declared.</p>';
   const memberList = members.length
-    ? `<ul class="ly-members">${members.map((m, i) => `<li><span>Line ${m.line}</span><span>${esc(lyMemberLabel(m))}</span><strong>“${esc(String(lyMemberWord(model, m) ?? '').slice(0, 40))}”</strong>${lyBtn('ly-member-remove', `Remove line ${m.line}`, 'x', { id: i, cls: 'cm-btn cm-btn-icon', hideLabel: true })}</li>`).join('')}</ul>`
+    ? `<ul class="ly-members">${members.map((m, i) => `<li><span>Line ${m.line}</span><span>${esc(lyMemberLabel(m))}</span><strong>“${lyMemberBinding(model, m, newType)}”</strong>${lyBtn('ly-member-remove', `Remove line ${m.line}`, 'x', { id: i, cls: 'cm-btn cm-btn-icon', hideLabel: true })}</li>`).join('')}</ul>`
     : '<p class="ly-help">Select a line in the document, then add it.</p>';
   // One search narrows every type list on this view; the planner's draw is
   // always offered and is not a type.

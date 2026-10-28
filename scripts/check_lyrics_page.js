@@ -655,6 +655,54 @@ print(json.dumps([n for n, _ in (_sections_from_marks(sys.stdin.read().split('\\
 // the menu first draws, so the unit loads it as that fetch would. A link's
 // chosen type reaches the writer as its registry index alone. A new song
 // carries no saved brief or notes unless the person ticks the box for it.
+function unitTypePlacement() {
+  stage = 'TP. type placement';
+  const { run } = lyricsUnitContext();
+  run('lyTypesSet(__r)', {
+    __r: JSON.parse(fs.readFileSync(path.join(ROOT, 'src/pages/lyric_types.json'))).types,
+  });
+  const text =
+    '[SETUP — rhyme groups — 1,2]\n[SETUP — group types — 1,2=43]\n[VERSE]\nnever say the word aloud\nnever leave the room';
+  const marks = (t) => Array.from(run('lyRhymeMarks(lyParse(__t)).ends.keys()', { __t: t }));
+  check(
+    JSON.stringify(marks(text)) === JSON.stringify(['1:1', '2:1']),
+    'anaphora highlights its first words'
+  );
+  check(
+    JSON.stringify(marks(text.replace('=43', '=0'))) === JSON.stringify(['1:5', '2:4']),
+    'perfect rhyme keeps the last words'
+  );
+  check(
+    JSON.stringify(marks(text.replaceAll('1,2', '1.T3,2.endword'))) ===
+      JSON.stringify(['1:3', '2:4']),
+    'explicit placements override the type'
+  );
+  check(
+    marks(text.replace('=43', '=9999')).length === 0,
+    'unknown type must not invent a last-word binding'
+  );
+  check(
+    marks(text.replace('=43', '=37')).length === 0,
+    'a searched internal-rhyme span is not guessed at the end'
+  );
+  const duplicate = text
+    .replace('groups — 1,2]', 'groups — 1,2;1,2]')
+    .replace('1,2=43]', '1,2=43;1,2#2=0]');
+  check(
+    JSON.stringify(marks(duplicate)) === JSON.stringify(['1:1', '2:1', '1:5', '2:4']),
+    'duplicate links keep their own display placements'
+  );
+  const m = run('lyParse(__t)', { __t: text });
+  check(
+    run('lyMemberWord(__m, lyLinksOf(__m)[0][0], 43)', { __m: m }) === 'never',
+    'member text follows the selected type'
+  );
+  check(
+    run('lyDeclarationsOf(__m).groups', { __m: m }) === '1,2',
+    'display does not rewrite bare members'
+  );
+}
+
 function unitTypeMenu() {
   stage = 'T. type menu';
   const { run, draft, app } = lyricsUnitContext();
@@ -7152,6 +7200,7 @@ async function browserChecks(chromium) {
 (async () => {
   if (!flags['browser-only']) {
     unitWriterPayload();
+    unitTypePlacement();
     unitTypeMenu();
     unitTypeEndToEnd();
     await unitSavedReadings();
@@ -7183,6 +7232,13 @@ async function browserChecks(chromium) {
     process.exit(2);
   }
   await browserChecks(chromium);
+  if (!flags['browser-filter']) {
+    try {
+      await require('./check_lyric_type_placement')();
+    } catch (e) {
+      failures.push('type placement browser: ' + e.message);
+    }
+  }
   if (failures.length) {
     console.error(`LYRICS PAGE: FAIL — ${failures.length} problem(s):`);
     for (const f of failures) console.error('  ✗ ' + f);
