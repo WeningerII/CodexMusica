@@ -1474,6 +1474,16 @@ class Reviser:
             origin=origin or (f"maximal cliques of the rhyme graph at "
                               f"theta={theta}, promote={self._promote()}"))
 
+    @staticmethod
+    def _repeat_declared_violation(m, i, j):
+        """-> True only when the mandate's own `Return` declarations say an
+        identical word on lines (i, j) is a violation."""
+        if not m.returns:
+            return False
+        declared, is_violation = m.requirement(i, j).decided(
+            "repeat_is_violation")
+        return bool(declared and is_violation)
+
     def _promote(self):
         p = self.rdecl.promote
         return self.decl.final_promotion if p is None else p
@@ -2444,8 +2454,9 @@ class Reviser:
         # those only where the group's route is open and the coarse
         # relations failed it. The same judge answers those pairs; the
         # reporting-only schema sets of every other pair are not computed.
-        _asked = ([v for v in _open
-                   if v["why"] and "REPEAT" not in v["relations"]]
+        # REPEAT pairs are asked too (2026-10-27, end-of-day plan, #519):
+        # identical bound words that satisfy a type are not charged.
+        _asked = ([v for v in _open if v["why"]]
                   if _verdicts_only else verdicts)
         # `_moot` (a trial grade only): obligations (i, j, group) whose
         # answer the caller reads the same satisfied or undecided -- it left
@@ -2503,9 +2514,24 @@ class Reviser:
                     v["satisfied_by"] = sorted(set(v["satisfied_by"])
                                                | set(v["admitted"])
                                                | set(_sat))
-                    if v["why"] and "REPEAT" not in v["relations"]:
+                    # IDENTICAL WORDS THAT SATISFY A TYPE ARE NOT CHARGED AS
+                    # REPEAT (2026-10-27, end-of-day plan, #519 6448819660):
+                    # a pair the whole vocabulary satisfies passes whatever
+                    # else it stands in. A mandate that DECLARED the repeat a
+                    # violation (`Return`) keeps that requirement.
+                    if v["why"] and ("REPEAT" not in v["relations"]
+                                     or not self._repeat_declared_violation(
+                                         m, *v["lines"])):
                         v["why"] = None
-                elif v["why"] and "REPEAT" not in v["relations"]:
+                # A REPEAT pair goes on to the bound-word and any-reading
+                # routes below like any other failed pair (#519 finding b,
+                # 2026-10-27): `sea`~`sea` bound at `1.T4`/`2.T4` satisfies
+                # `repetition` there, and the instance route above reads only
+                # line ends. A mandate that DECLARED the repeat a violation
+                # keeps it.
+                elif v["why"] and ("REPEAT" not in v["relations"]
+                                   or not self._repeat_declared_violation(
+                                       m, *v["lines"])):
                     if _moot and (*v["lines"], v["group"]) in _moot:
                         _open_n = [n for n in (getattr(_wvp, "undecided", {})
                                                .get(tuple(sorted(v["lines"])))
