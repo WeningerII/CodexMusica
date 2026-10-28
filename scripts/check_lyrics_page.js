@@ -646,8 +646,9 @@ print(json.dumps([n for n, _ in (_sections_from_marks(sys.stdin.read().split('\\
 }
 
 // ── T. the per-link type menu, its payload, and clean starts ────────────────
-// The menu lists every registry type an English song can use (the list is
-// the registry's, checked by scripts/lyric_type_menu.py --check), in name
+// The menu lists exactly the types the planner may draw for an English song
+// (`type_eligibility` in lyric-harness/quality/plan.py, imported by
+// scripts/lyric_type_menu.py and checked by its --check), in name
 // order, never the four non-attested types, with the planner's draw as the
 // default that is not a type. The list is not in the page: it is
 // src/pages/lyric_types.json, served as api/lyric_types.json and fetched when
@@ -672,6 +673,16 @@ function unitTypeMenu() {
   const listed = Array.from(run('LY_TYPES_SHOWN.map((t) => t[1])'));
   const indexes = Array.from(run('LY_TYPES.map((t) => t[0])'));
   check(listed.length === indexes.length && listed.length > 4, 'the type menu is empty or short');
+  const planned = JSON.parse(
+    execFileSync('python3', [
+      '-c',
+      `import sys, json; sys.path.insert(0, ${JSON.stringify(path.join(ROOT, 'lyric-harness'))}); from quality.plan import type_eligibility; print(json.dumps(sorted(type_eligibility("eng")[0])))`,
+    ]).toString()
+  );
+  check(
+    JSON.stringify([...listed].sort()) === JSON.stringify(planned),
+    `the type menu is not the planner's eligible set: ${listed.length} listed, ${planned.length} eligible`
+  );
   for (const gone of [
     'homoioteleuton',
     'trite rhyme',
@@ -722,6 +733,13 @@ function unitTypeMenu() {
     'a type is preselected for a new link'
   );
   check(/Placed by the type/.test(view), 'the default placement is not the type’s own');
+  // Jony's note on #629: a failed fetch is said, not shown as an empty menu.
+  check(
+    /id="ly-types-note" role="status" hidden>Types could not load\. Reopen Rhymes to try again\.</.test(
+      view
+    ),
+    'the Rhymes tool has no note for a type list that could not load'
+  );
   // A chosen type travels as its index only; the other link is the planner's.
   const pick = Array.from(run('LY_TYPES_SHOWN[0]'));
   const typed = run('lySetGroupType(__t, 1, __i)', { __t: song, __i: pick[0] });
@@ -864,6 +882,150 @@ function unitTypeMenu() {
   run('LY.reuseBrief = false');
   const editing = run('lyContext(__m, { document: true })', { __m: model });
   check(editing.brief === 'A saved brief', 'editing the current draft lost its brief');
+}
+
+// ── T2. a type picked on the page is the grader's judge of its link ─────────
+// End to end, with nothing stood in: a link saved through the Rhymes form with
+// its members unplaced ("Placed by the type") and a type picked, the page's own
+// request context (lyContext), the connector's real lyric_check handler
+// (mcp/lyric_tools.js) given that context's draft and declarations as the
+// writer is told to send them, the CLI it runs, and the grader's verdict. The
+// same two lines pass when the link's type is one read at the first word and
+// fail when it is one read at the last word, and fail again when the first
+// words differ: the type, not a default place, decides. lyric_plan carries the
+// same field to the planner, and refuses a type it cannot plan, by name.
+function unitTypeEndToEnd() {
+  stage = 'T2. type end to end';
+  const { run, draft, app } = lyricsUnitContext();
+  run('lyTypesSet(__r)', {
+    __r: JSON.parse(fs.readFileSync(path.join(ROOT, 'src/pages/lyric_types.json'), 'utf8')).types,
+  });
+  const index = (name) => Array.from(run('LY_TYPES.find((t) => t[1] === __n)', { __n: name }))[0];
+  const [anaphora, perfect] = [index('anaphora'), index('perfect rhyme')];
+  // A registry index the menu leaves out is one the planner refuses.
+  const listed = new Set(Array.from(run('LY_TYPES.map((t) => t[0])')));
+  let unlisted = 0;
+  while (listed.has(unlisted)) unlisted++;
+  const picked = (lines, type) => {
+    const text = `[VERSE — 2 lines]\n${lines.join('\n')}`;
+    draft.value = text;
+    app.lyricMeta = { version: 1, brief: '', notes: {}, drafts: {}, ui: {} };
+    const saved = run('LY_FORMS.rhymes.apply(lyParse(__t), "song", __v, ["members", "type"])', {
+      __t: text,
+      __v: {
+        type: String(type),
+        members: [
+          { line: 1, place: 'auto' },
+          { line: 2, place: 'auto' },
+        ],
+      },
+    }).text;
+    const context = JSON.parse(JSON.stringify(run('lyContext(lyParse(__t))', { __t: saved })));
+    return { saved, context };
+  };
+  const cases = [
+    [
+      'first words agree, under a first-word type',
+      ['never say the word aloud', 'never leave the room'],
+      anaphora,
+    ],
+    [
+      'the same lines, under a last-word type',
+      ['never say the word aloud', 'never leave the room'],
+      perfect,
+    ],
+    [
+      'first words differ, under the first-word type',
+      ['never say the word aloud', 'always leave the room'],
+      anaphora,
+    ],
+  ].map(([what, lines, type]) => ({ what, type, ...picked(lines, type) }));
+  for (const c of cases) {
+    check(
+      /\[SETUP — rhyme groups — 1,2(?: — [^\]]*)?\]/.test(c.saved) &&
+        run(
+          'lyMemberLabel(lyParseGroups(lySetupOf(lyParse(__t), "rhyme groups")[0].value)[0][0])',
+          { __t: c.saved }
+        ) === run('LY_PLACE_BY_TYPE'),
+      `${c.what}: the link was not saved with its members placed by the type: ${c.saved.split('\n')[0]}`
+    );
+    check(
+      c.context.declarations.groups === '1,2' &&
+        JSON.stringify(c.context.declarations.group_types) ===
+          JSON.stringify([{ group: 1, type: c.type }]),
+      `${c.what}: the request context does not carry the picked type: ${JSON.stringify(c.context.declarations)}`
+    );
+  }
+  const calls = cases.map((c) => ({
+    tool: 'lyric_check',
+    args: {
+      lines: c.context.document.split('\n').filter((l) => l.trim() && !/^\[.*\]$/.test(l.trim())),
+      groups: c.context.declarations.groups,
+      group_types: c.context.declarations.group_types,
+    },
+  }));
+  calls.push(
+    {
+      tool: 'lyric_plan',
+      args: { seed: 3, lines: 16, group_types: [{ group: 1, type: perfect }] },
+    },
+    {
+      tool: 'lyric_plan',
+      args: { seed: 3, lines: 16, group_types: [{ group: 1, type: unlisted }] },
+    }
+  );
+  let out;
+  try {
+    out = JSON.parse(
+      execFileSync(
+        process.execPath,
+        [
+          '--input-type=module',
+          '-e',
+          `const { registerLyricTools } = await import(${JSON.stringify(path.join(ROOT, 'mcp/lyric_tools.js'))});
+const h = {};
+registerLyricTools({}, (_s, name, _c, fn) => { h[name] = fn; });
+const out = [];
+for (const { tool, args } of JSON.parse(process.env.T2_CALLS)) {
+  const r = await h[tool](args);
+  const v = r.content ? JSON.parse(r.content[r.content.length - 1].text) : r;
+  out.push({ exit: v.exit_code, refusal: v.refusal || null, standing: v.standing || [],
+    relations: v.plan?.relations || null, request: v.plan?.request || null });
+}
+process.stdout.write(JSON.stringify(out));
+process.exit(0);`,
+        ],
+        { env: { ...process.env, T2_CALLS: JSON.stringify(calls) }, maxBuffer: 1 << 26 }
+      ).toString()
+    );
+  } catch (e) {
+    check(false, `the connector could not be run: ${String(e.stderr || e.message).slice(0, 400)}`);
+    return;
+  }
+  const violated = (r) => r.standing.some((f) => /SCHEME_VIOLATION/.test(f));
+  const [held, other, heads, plan, refused] = out;
+  check(
+    held.exit === 0 && !held.refusal && !violated(held),
+    `a link whose type reads the first word failed on lines whose first words agree: ${JSON.stringify(held)}`
+  );
+  check(
+    other.exit === 0 && violated(other),
+    `the same lines passed under a type read at the last word: ${JSON.stringify(other)}`
+  );
+  check(
+    heads.exit === 0 && violated(heads),
+    `lines whose first words differ passed under the first-word type: ${JSON.stringify(heads)}`
+  );
+  check(
+    plan.exit === 0 &&
+      plan.relations?.A === 'schema:perfect rhyme' &&
+      JSON.stringify(plan.request?.group_types) === JSON.stringify([{ group: 1, type: perfect }]),
+    `lyric_plan did not keep the picked type for group 1: ${JSON.stringify(plan)}`
+  );
+  check(
+    refused.exit === 2 && /cannot be planned/.test(refused.refusal || ''),
+    `a type the planner cannot plan was not refused by name: ${JSON.stringify(refused)}`
+  );
 }
 
 // ── R. readings saved before the reader's v2 cut, unit-level ──────────────
@@ -6876,6 +7038,7 @@ async function browserChecks(chromium) {
   if (!flags['browser-only']) {
     unitWriterPayload();
     unitTypeMenu();
+    unitTypeEndToEnd();
     await unitSavedReadings();
     await unitVoicesBasis();
     await unitPolicyA();

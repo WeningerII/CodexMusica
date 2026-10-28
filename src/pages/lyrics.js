@@ -1411,13 +1411,14 @@ const LY_JUNCTION_LABELS = {
   ELABORATE: 'Expand',
   JUXTAPOSE: 'Contrast',
 };
-// The type menu: every registry type an English song can use, as
+// The type menu: every type the planner may draw for an English song, as
 // [registry index, name]. Not inlined into the page: scripts/lyric_type_menu.py
-// derives it from the registry into src/pages/lyric_types.json (and --check
+// writes the planner's eligible set (`type_eligibility`, quality/plan.py) to
+// src/pages/lyric_types.json (and --check
 // holds it there), the API build copies it to api/lyric_types.json, and the
 // first draw of the Rhymes tool fetches it (lyTypesLoad). The person sees the
 // name; the writer is sent the index only (lyDeclarationsOf), and the planner
-// turns the index into the type's rule. A group with no chosen type is drawn
+// and the grader turn the index into the type's rule. A group with no chosen type is drawn
 // by the planner, which is not a type and is not listed among them.
 let LY_TYPES = [];
 // Shown in name order, never registry order, with nothing preselected.
@@ -1430,7 +1431,8 @@ function lyTypesSet(rows) {
     .sort((a, b) => a[1].localeCompare(b[1], 'en', { sensitivity: 'base' }));
 }
 // Asked once, when the menu first draws; a failed ask is asked again at the
-// next draw, and until then the menu offers the planner's draw alone.
+// next draw, and until then the menu offers the planner's draw alone and says
+// the types could not load.
 function lyTypesLoad() {
   if (LY_TYPES.length || lyTypesAsk || typeof fetch !== 'function') return;
   lyTypesAsk = fetch(
@@ -1447,7 +1449,10 @@ function lyTypesLoad() {
       for (const el of document.querySelectorAll('#surface-lyrics [data-type]'))
         el.textContent = lyTypeLabel(Number(el.dataset.type));
     })
-    .catch(() => (lyTypesAsk = null));
+    .catch(() => {
+      lyTypesAsk = null;
+      document.getElementById('ly-types-note')?.removeAttribute('hidden');
+    });
 }
 const LY_TYPE_DRAWN = 'The planner draws';
 const lyTypeName = (index) => LY_TYPES.find((t) => t[0] === index)?.[1] || null;
@@ -1493,7 +1498,8 @@ const lySectionOfLine = (model, n) => model.sung[n - 1]?.section || null;
 // Each member remembers whether its place was WRITTEN (`explicit`): `2.end`
 // names the end explicitly, a bare `2` names none. They are different
 // declarations, and they do not always bind alike: in a rhyme groups row
-// the grader reads a bare `2` at the default end, as it reads `2.end`; in a
+// the grader places a bare `2` where its group's type puts it (at the end
+// only in a group with no type) and reads `2.end` at the end; in a
 // returns row a bare `2` is a WHOLE-LINE return (the line returns, no word
 // named) while `2.end` is a PLACED return (the word at the end returns), and
 // the harness refuses one class holding both (lyWholeLineReturn). So every
@@ -5518,7 +5524,7 @@ function lyToolRhymes(model) {
   const legacyNote = legacy
     ? `<p class="ly-help">An earlier song-wide relation is declared: ${esc(legacy)}. It still applies to every link. ${lyBtn('ly-relation-clear', 'Remove it', '', { cls: 'cm-btn ly-link-btn' })}</p>`
     : '';
-  return `<div class="ly-tool-view"><div class="ly-inline-field"><label class="ly-label" for="ly-type-find">Find a type</label><input type="search" id="ly-type-find" class="cm-input" value="${esc(find)}" placeholder="Search types" autocomplete="off"></div><p class="ly-help">Each link has its own type. A link with no chosen type is drawn by the planner.</p>${legacyNote}
+  return `<div class="ly-tool-view"><div class="ly-inline-field"><label class="ly-label" for="ly-type-find">Find a type</label><input type="search" id="ly-type-find" class="cm-input" value="${esc(find)}" placeholder="Search types" autocomplete="off"></div><p class="ly-help">Each link has its own type. A link with no chosen type is drawn by the planner.</p><p class="ly-help" id="ly-types-note" role="status" hidden>Types could not load. Reopen Rhymes to try again.</p>${legacyNote}
 <h4 class="ly-label">New link</h4>
 <div class="ly-inline-field"><label class="ly-label" for="ly-type-new">Type</label><select id="ly-type-new" class="cm-select ly-type-select" data-draft="${T}" data-target="${G}" data-field="type"${lyErr(d, 'type')}>${lyTypeOptions(newType)}</select></div>${lyErrText(d, 'type')}
 <div class="ly-inline-field"><label class="ly-label" for="ly-link-place">Placement</label><select id="ly-link-place" class="cm-select">${lyOpts(places, place, null)}</select></div>
