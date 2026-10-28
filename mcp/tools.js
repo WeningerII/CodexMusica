@@ -276,8 +276,8 @@ export function registerTools(server) {
         'The parts of one instrument and the variant ids valid for set_variant, with labels and which is ' +
         'the default. Wide parts are SAMPLED, not dumped — shared materials tables give some parts hundreds ' +
         `of variants (the widest has ${E.WIDEST_PART_VARIANTS}), so each part reports its full \`variant_count\` and sets ` +
-        '`truncated` when you are seeing a slice. Narrow it rather than raising `limit`: `query` filters variants by name and descriptor ' +
-        '("mahogany", "phosphor bronze"), `part` focuses one part. The default variant is always included.',
+        '`truncated` when you are seeing a slice. Narrow it rather than raising `limit`: `query` filters variants by name and descriptor, ' +
+        '`part` focuses one part. The default variant is always included.',
       inputSchema: TOOL_SCHEMAS.get_instrument.shape,
     },
     (a) => E.getInstrument(a)

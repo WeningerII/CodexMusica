@@ -51,7 +51,7 @@ row only if a section carrying the wrong one is mislabelled.
 | ANCHOR | the invariant claim — the fixed point the song returns to | an anchor that varies its words is a verse wearing a chorus mark |
 | JUDGE | a compressed verdict on what has happened | judgment before anything has happened is an epigraph, not a section |
 | RESOLVE | the standing pressure is cashed or settled | resolution with no prior COMPLICATE resolves nothing — vacuous, refused |
-| DEPART | leave-taking; aftermath; the walk home | departure is not resolution — a song may leave with everything unsettled |
+| DEPART | leave-taking; aftermath | departure is not resolution — a song may leave with everything unsettled |
 
 ## B · Candidate atoms per section function
 
@@ -67,7 +67,7 @@ hesitation deliberately left for the red pen, Greimas-style.
 | bridge | "appears once and CONTRASTS" | TURN | the strongest single-atom row in the table |
 | intro | "opens the song; may state material that returns later" | ESTABLISH | |
 | outro | "closes the song and does not recur" | DEPART | |
-| coda | "a closing section with its own material" | RESOLVE, DEPART, JUDGE | new material at the close = verdict or walk home |
+| coda | "a closing section with its own material" | RESOLVE, DEPART, JUDGE | new material at the close = verdict or departure |
 | build | "raises tension toward a return" | COMPLICATE | |
 | drop | "the arrival a build points at" | ANCHOR?, RESOLVE? | arrival is payoff-shaped and recurring at once — both readings kept for the red pen |
 | vamp | "a repeating figure held open" | DWELL | |

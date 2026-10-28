@@ -449,7 +449,7 @@ export async function createChatRouter({
         ? progress.connector_declarations
         : Object.fromEntries(
             Object.entries(progress.connector_declarations).filter(
-              ([k]) => !PLAN_FIELDS.includes(k) || k === 'seed' || k === 'relation'
+              ([k]) => !PLAN_FIELDS.includes(k) || ['seed', 'relation', 'group_types'].includes(k)
             )
           );
     const key = runKeyOf(decl);

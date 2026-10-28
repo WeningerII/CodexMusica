@@ -736,7 +736,13 @@ const runtimeBlock = runtimeParts.join('\n');
 // substituted, so only the template's markup is matched; the other <style>
 // holds nothing but the marker the shell and page stylesheets replace.
 const WORKBENCH_STYLE_MARKER = '<!--@WORKBENCH_STYLE-->';
-const html = template
+// The template's own comments are notes for whoever edits it, not for the
+// browser: a minified build drops them, as it drops every JS and CSS comment
+// (1,553 B of the page's gzip when they shipped). Kept: the markers
+// (<!--@…-->), replaced below, and the AGENTS banner, which a truncated fetch
+// is meant to find in the page's first kilobyte.
+const markup = MINIFY ? template.replace(/[ \t]*<!--(?!@| AGENTS)[\s\S]*?-->\n?/g, '') : template;
+const html = markup
   .replace(/<style>([\s\S]*?)<\/style>/g, (block, css) =>
     css.includes(WORKBENCH_STYLE_MARKER)
       ? block

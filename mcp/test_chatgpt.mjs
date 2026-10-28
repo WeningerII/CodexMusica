@@ -700,10 +700,13 @@ test('one connection exposes both workflows, preserving independent sessions acr
     /NO coherence fences/,
     /never guess ids/,
     // ~~/UNSKIPPABLE/~~ — the ban is report-only since 2026-10-04 (owner's ruling).
-    /reported as notes: they hold no/,
+    // ~~/reported as notes: they hold no/~~ — the guide names no system ban
+    // to the writer (2026-10-27, D6).
+    /NOTES are measurements/,
     /lyric_recover FIRST/,
   ])
     assert.match(client.getInstructions(), phrase);
+  assert.doesNotMatch(client.getInstructions(), /HOMEOTELEUTON|MODAL_RHYME|banned pair/i);
   const recipe = data(await call(client, 'start_recipe', { traditions: ['delta_blues'] }));
   const lyrics = data(await call(client, 'begin_lyrics', {}));
   const wrong = await call(client, 'render_recipe', { session_id: lyrics.session_id });

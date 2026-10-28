@@ -339,7 +339,7 @@ test('a lyrics task carries the page context: validated, signed into the task, s
     document,
     declarations: { title: 'Porch Light' },
     brief: 'A love ballad to a city that let me go.',
-    notes: [{ section: 'Verse 1', note: 'Arrival and kindness' }],
+    notes: [{ section: 'Verse 1', note: 'Section note text' }],
     binding: { document_sha256: 'a'.repeat(64), context_sha256: 'b'.repeat(64) },
   };
   // The validator refuses what it cannot hold exactly.

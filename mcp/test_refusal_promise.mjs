@@ -649,7 +649,7 @@ row({
   code: 'SESSION_RESULT_NOT_KEPT',
   where: 'workflow_sessions.js run(): the store refuses a finished result as too large (F8)',
   shape: 'receipt',
-  phrases: ['lyric_sweep declaring `lines`', 'lyric_plan'],
+  phrases: ['call lyric_grade on a different draft of this plan'],
   rig: oversized,
   reach: async (r) =>
     r.call('lyric_grade', { session_id: r.seed('lyrics', lyrics(planned)), seed: 16, draft }),
@@ -658,7 +658,7 @@ row({
   code: 'CREATION_GRADE',
   where: 'lyric_workflow.js: revise after a grade measured but not kept (F8)',
   shape: 'receipt',
-  phrases: ['lyric_sweep declaring `lines`', 'lyric_plan'],
+  phrases: ['call lyric_grade on a different draft of this plan'],
   rig: oversized,
   // The refusal is the next call's, in the same session.
   reach: async (r) => {

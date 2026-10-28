@@ -36,14 +36,17 @@ const LY_SETUP = /^\[SETUP\s+—\s+/i;
 const LY_BRACKET = /^\[[^\]]*\]$/;
 const LY_ARPABET_VOWELS = 'AA AE AH AO AW AY EH ER EY IH IY OW OY UH UW'.split(' ');
 const LY_ARPABET_CONSONANTS = 'B CH D DH F G HH JH K L M N NG P R S SH T TH V W Y Z ZH'.split(' ');
-// The harness's placement vocabulary for a rhyme-group member (quality/slots.py).
+// The harness's placement vocabulary for a rhyme-group member (quality/slots.py),
+// in neutral words. A member with no written place (a bare line number) is
+// placed by its group's type, and is labelled so (lyMemberLabel).
 const LY_PLACES = {
-  end: 'last rhyme',
-  endword: 'last word',
-  head: 'first word',
-  headrime: 'first rhyme',
+  end: 'last word, from its last stress',
+  endword: 'last word, whole',
+  head: 'first word, whole',
+  headrime: 'first word, from its last stress',
   line: 'whole line',
 };
+const LY_PLACE_BY_TYPE = 'placed by the type';
 const LY_SECTION_NAMES = [
   'Verse',
   'Pre-chorus',
@@ -498,7 +501,8 @@ function lyMigrateSavedReadings(text, keys = null) {
       if (respelled.size)
         rows[d.i] = lyRespellGroupRow(rows[d.i], d.value, respelled, model.voices);
     }
-  out.text = rows.join('\n');
+  // A link's type moves with the link it names (lyCarryGroupTypes).
+  out.text = lyCarryGroupTypes(model.text, rows.join('\n'));
   return out;
 }
 // One rhyme groups / returns row with the members `respelled` names (member
@@ -1407,13 +1411,76 @@ const LY_JUNCTION_LABELS = {
   ELABORATE: 'Expand',
   JUXTAPOSE: 'Contrast',
 };
-// Rhyme relation: the friendly choice → the exact declared relation.
-const LY_RELATIONS = [
-  ['', 'Any'],
-  ['class:RHYME', 'Rhyme'],
-  ['class:ASSONANCE', 'Assonance'],
-  ['class:CONSONANCE', 'Consonance'],
-];
+// The type menu: every type the planner may draw for an English song, as
+// [registry index, name]. Not inlined into the page: scripts/lyric_type_menu.py
+// writes the planner's eligible set (`type_eligibility`, quality/plan.py) to
+// src/pages/lyric_types.json (and --check
+// holds it there), the API build copies it to api/lyric_types.json, and the
+// first draw of the Rhymes tool fetches it (lyTypesLoad). The person sees the
+// name; the writer is sent the index only (lyDeclarationsOf), and the planner
+// and the grader turn the index into the type's rule. A group with no chosen type is drawn
+// by the planner, which is not a type and is not listed among them.
+let LY_TYPES = [];
+// Shown in name order, never registry order, with nothing preselected.
+let LY_TYPES_SHOWN = [];
+let lyTypesAsk = null;
+function lyTypesSet(rows) {
+  LY_TYPES = rows;
+  LY_TYPES_SHOWN = rows
+    .slice()
+    .sort((a, b) => a[1].localeCompare(b[1], 'en', { sensitivity: 'base' }));
+}
+// Asked once, when the menu first draws; a failed ask is asked again at the
+// next draw, and until then the menu offers the planner's draw alone and says
+// the types could not load.
+function lyTypesLoad() {
+  if (LY_TYPES.length || lyTypesAsk || typeof fetch !== 'function') return;
+  lyTypesAsk = fetch(
+    (typeof CODEX_LAZY_API === 'undefined' ? 'api/' : CODEX_LAZY_API) + 'lyric_types.json'
+  )
+    .then((res) => {
+      if (!res.ok) throw new Error(`lyric types: ${res.status}`);
+      return res.json();
+    })
+    .then((data) => {
+      lyTypesSet(data.types);
+      // Filled in place, never redrawn: focus and an open menu stay put.
+      lyTypeFill();
+      for (const el of document.querySelectorAll('#surface-lyrics [data-type]'))
+        el.textContent = lyTypeLabel(Number(el.dataset.type));
+    })
+    .catch(() => {
+      lyTypesAsk = null;
+      document.getElementById('ly-types-note')?.removeAttribute('hidden');
+    });
+}
+const LY_TYPE_DRAWN = 'The planner draws';
+const lyTypeName = (index) => LY_TYPES.find((t) => t[0] === index)?.[1] || null;
+const lyTypeSpan = (index) =>
+  index == null ? LY_TYPE_DRAWN : `<span data-type="${index}">${esc(lyTypeLabel(index))}</span>`;
+const lyTypeLabel = (index) =>
+  index == null ? LY_TYPE_DRAWN : lyTypeName(index) || `registry type ${index}`;
+// Each type menu on the page refilled in place (its choice kept).
+function lyTypeFill() {
+  for (const el of document.querySelectorAll('#surface-lyrics .ly-type-select'))
+    el.innerHTML = lyTypeOptions(el.value);
+}
+// A type menu's options, `value` chosen and the rest filtered by the search.
+function lyTypeOptions(value) {
+  const find = String(LY.picks.typeFind || '')
+    .trim()
+    .toLowerCase();
+  return (
+    `<option value=""${value === '' ? ' selected' : ''}>${esc(LY_TYPE_DRAWN)}</option>` +
+    LY_TYPES_SHOWN.map(
+      ([index, name]) =>
+        `<option value="${index}"${String(index) === value ? ' selected' : ''}${!find || name.toLowerCase().includes(find) || String(index) === value ? '' : ' hidden'}>${esc(name)}</option>`
+    ).join('') +
+    (value !== '' && lyTypeName(Number(value)) === null
+      ? `<option value="${esc(value)}" selected>${esc(lyTypeLabel(Number(value)))}</option>`
+      : '')
+  );
+}
 
 const lyDraft = () => $ui('lyrics-draft');
 const lySungTexts = (model) => model.sung.map((r) => r.text);
@@ -1431,7 +1498,8 @@ const lySectionOfLine = (model, n) => model.sung[n - 1]?.section || null;
 // Each member remembers whether its place was WRITTEN (`explicit`): `2.end`
 // names the end explicitly, a bare `2` names none. They are different
 // declarations, and they do not always bind alike: in a rhyme groups row
-// the grader reads a bare `2` at the default end, as it reads `2.end`; in a
+// the grader places a bare `2` where its group's type puts it (at the end
+// only in a group with no type) and reads `2.end` at the end; in a
 // returns row a bare `2` is a WHOLE-LINE return (the line returns, no word
 // named) while `2.end` is a PLACED return (the word at the end returns), and
 // the harness refuses one class holding both (lyWholeLineReturn). So every
@@ -1544,6 +1612,68 @@ function lyRowGroups(d) {
       if (!m.bad && !m.unknownCut) Object.assign(m, { undecided: true, unknownCut: d.unknownCut });
   return groups;
 }
+// The type a person chose for a link, kept in the draft as
+// [SETUP — group types — <link>=<registry index>;…]. A link is named by its
+// member spelling, and a link spelled like an earlier one by that spelling and
+// `#n`, its n-th occurrence (lyGroupKeys), so two links with the same members
+// keep a type each. A link that changes or goes away never hands its type to
+// another: an entry naming no current link binds nothing, and that link has
+// no chosen type. A rewrite that respells or removes links carries each
+// type to its own link (lyCarryGroupTypes).
+const lyLinksOf = (model) => lySetupOf(model, 'rhyme groups').flatMap((d) => lyRowGroups(d));
+function lyGroupKeys(groups) {
+  const seen = new Map();
+  return groups.map((g) => {
+    const wire = lyGroupsWire([g]);
+    const n = (seen.get(wire) || 0) + 1;
+    seen.set(wire, n);
+    return n > 1 ? `${wire}#${n}` : wire;
+  });
+}
+function lyGroupTypes(model) {
+  const map = new Map();
+  for (const row of lySetupOf(model, 'group types'))
+    for (const part of String(row.value).split(';')) {
+      const m = /^(.+)=(\d+)$/.exec(part.trim());
+      if (m) map.set(m[1].trim(), Number(m[2]));
+    }
+  return map;
+}
+const lyTypesRow = (text, entries) =>
+  lySetSetup('group types', entries.length ? [entries.join(';')] : [], text);
+// `text` with link k's type set (or, with null, left to the planner), keeping
+// only entries that name a link the text declares.
+function lySetGroupType(text, k, index) {
+  const model = lyParse(text);
+  const keys = lyGroupKeys(lyLinksOf(model));
+  const types = lyGroupTypes(model);
+  return lyTypesRow(
+    text,
+    keys.flatMap((key, j) => {
+      const t = j === k ? index : types.get(key);
+      return t == null ? [] : [`${key}=${t}`];
+    })
+  );
+}
+// `after` (a rewrite of `before` that respelled links, or removed the links
+// at the places in `removed`) with each link's type moved from its old name
+// to its new one, `#n` allocated afresh where links come to be spelled alike.
+function lyCarryGroupTypes(before, after, removed = []) {
+  const was = lyParse(before);
+  const types = lyGroupTypes(was);
+  if (!types.size) return after;
+  const from = lyGroupKeys(lyLinksOf(was)).filter((_, j) => !removed.includes(j));
+  const to = lyGroupKeys(lyLinksOf(lyParse(after)));
+  if (from.length !== to.length || (!removed.length && from.every((key, j) => key === to[j])))
+    return after;
+  return lyTypesRow(
+    after,
+    to.flatMap((key, j) => {
+      const t = types.get(from[j]);
+      return t == null ? [] : [`${key}=${t}`];
+    })
+  );
+}
 function lyMemberWord(model, m) {
   // A word place kept under its earlier number binds no word of this text.
   if (m.undecided) return null;
@@ -1556,13 +1686,16 @@ function lyMemberWord(model, m) {
   return toks[toks.length - 1] || null;
 }
 // A member's place in words. In a returns row a bare `N` is a whole-line
-// return, never "last rhyme" (lyWholeLineReturn).
+// return (lyWholeLineReturn); in a rhyme groups row a bare `N` names no place,
+// so its group's type places it.
 const lyMemberLabel = (m, key = 'rhyme groups') =>
   lyWholeLineReturn(key, m)
     ? LY_PLACES.line
     : /^T\d+$/.test(m.place)
       ? `word ${m.place.slice(1)}`
-      : LY_PLACES[m.place] || m.place;
+      : m.place === 'end' && !m.explicit
+        ? LY_PLACE_BY_TYPE
+        : LY_PLACES[m.place] || m.place;
 
 // A declared melody (lyric-harness/MELODY.md), written in the draft without
 // brackets inside the line: '4/4 — groups 2+2 — 2 bars — subdivision 2 —
@@ -1702,6 +1835,8 @@ function lyDeclarationsOf(model) {
   if (one('narrative')) d.narrative = one('narrative');
   const mel = one('melody') && lyParseMelody(one('melody'));
   if (mel?.melody) d.melody = mel.melody; // the tools take this object as a JSON string
+  // A song-wide relation row written before the type menu became per link
+  // still travels as the writer declared it; this page no longer writes one.
   if (one('relation')) d.relation = one('relation');
   // A link holding a word place kept under its earlier number, or marked
   // with a cut this page does not read, is never sent as if it bound a word:
@@ -1717,11 +1852,24 @@ function lyDeclarationsOf(model) {
     if (!value) continue;
     const groups = lyRowGroups(row);
     const open = groups.filter((g) => g.some((m) => m.undecided));
+    let sent = groups;
     if (!open.length && !groups.some((g) => g.some((m) => m.carried))) d[field] = value;
     else {
-      const kept = groups.filter((g) => !g.some((m) => m.undecided));
+      const kept = (sent = groups.filter((g) => !g.some((m) => m.undecided)));
       if (kept.length) d[field] = lyGroupsWire(kept);
       if (open.length) d[`${field}_need_decision`] = open.map((g) => lyGroupsText([g]));
+    }
+    // Each link's chosen type goes as its registry index alone (never its
+    // name), with `group` the link's 1-based place in `groups`, a repeated
+    // link counted again; a link with no entry is checked at its lines' last
+    // words against any relation.
+    if (field === 'groups') {
+      const types = lyGroupTypes(model);
+      const keys = lyGroupKeys(groups);
+      const chosen = sent
+        .map((g, k) => ({ group: k + 1, type: types.get(keys[groups.indexOf(g)]) }))
+        .filter((x) => x.type != null);
+      if (chosen.length) d.group_types = chosen;
     }
   }
   if ([d.groups, d.returns].some((value) => /\b\d+\.T\d+\b/i.test(value || '')))
@@ -2960,6 +3108,10 @@ function lyAssemble({ prefix, blocks, suffix }) {
     if (r.n && !map.has(r.n)) map.set(r.n, n);
   }
   let dropped = 0;
+  // Each link's type follows its own link by its place among the links (the
+  // order the rows keep), even where two links come to be spelled alike
+  // (lyCarryGroupTypes); `links` holds null for a link that no longer stands.
+  const links = [];
   const rows = out.map((r) => {
     const t = r.raw.trim();
     if (!LY_SETUP.test(t)) return r.raw;
@@ -2990,6 +3142,7 @@ function lyAssemble({ prefix, blocks, suffix }) {
           return true;
         })
       )
+      .map((g) => (item.key === 'rhyme groups' && links.push(g.length > 1 ? g : null), g))
       .filter((g) => g.length > 1);
     // The row keeps the cut it was numbered under (renumbering lines moves no
     // word place); an unmarked row is left for the migration to read.
@@ -2997,7 +3150,14 @@ function lyAssemble({ prefix, blocks, suffix }) {
       ? `[SETUP${LY_DASH}${item.key}${LY_DASH}${lyGroupsText(groups)}${item.numbering ? `${LY_DASH}numbering ${item.numbering}` : ''}${item.cut ? `${LY_DASH}cut ${item.cut}` : ''}]`
       : null;
   });
-  return { text: rows.filter((r) => r !== null).join('\n'), dropped };
+  return {
+    text: lyCarryGroupTypes(
+      out.map((r) => r.raw).join('\n'),
+      rows.filter((r) => r !== null).join('\n'),
+      links.flatMap((g, j) => (g ? [] : [j]))
+    ),
+    dropped,
+  };
 }
 function lyCarriedDecide(id, keep) {
   const [key, i, gi, mi] = String(id).split('|');
@@ -3015,9 +3175,15 @@ function lyCarriedDecide(id, keep) {
     g.splice(Number(mi), 1);
     if (g.length < 2) groups.splice(Number(gi), 1);
   }
-  const rows = model.text.split('\n');
+  let rows = model.text.split('\n');
   if (groups.length) rows[d.i] = lyGroupRow(key, groups, model.voices);
   else rows.splice(d.i, 1);
+  if (key === 'rhyme groups') {
+    const own = lySetupOf(model, key);
+    const at = own.slice(0, own.indexOf(d)).reduce((n, r) => n + lyRowGroups(r).length, 0);
+    const gone = groups[Number(gi)] === g ? [] : [at + Number(gi)];
+    rows = lyCarryGroupTypes(model.text, rows.join('\n'), gone).split('\n');
+  }
   const what = key === 'returns' ? 'declared return' : 'rhyme link';
   lyCommit(
     rows.join('\n'),
@@ -3854,21 +4020,22 @@ const LY_FORMS = {
     },
   },
   rhymes: {
-    committed(model) {
-      return { relation: lySetupOf(model, 'relation')[0]?.value || '', members: [] };
+    // A new link: its members and its type ('' is the planner's draw).
+    committed() {
+      return { type: '', members: [] };
     },
     fp(model) {
       return JSON.stringify([
-        lySetupOf(model, 'relation').map((d) => d.value),
+        lySetupOf(model, 'group types').map((d) => d.value),
         lySetupOf(model, 'rhyme groups').map((d) => d.value),
       ]);
     },
     apply(model, _t, v, dirty) {
       const errors = {};
       let text = model.text;
-      const rel = String(v.relation || '').trim();
-      if (dirty.includes('relation') && rel && !/^(type|class|schema):\S/.test(rel))
-        errors.relation = 'Name the relation with its namespace: type:, class: or schema:.';
+      const type = String(v.type ?? '').trim();
+      if (type !== '' && lyTypeName(Number(type)) === null)
+        errors.type = 'Choose a type from the list.';
       const members = Array.isArray(v.members) ? v.members : [];
       if (dirty.includes('members')) {
         const seen = new Set();
@@ -3879,25 +4046,27 @@ const LY_FORMS = {
           if (!model.sung[m.line - 1]) errors.members = `Line ${m.line} is not in the draft.`;
         }
         if (members.length < 2) errors.members = 'A link needs at least two members.';
-      }
+      } else errors.members = 'Add at least two members.';
       if (Object.keys(errors).length) return { errors };
-      const out = [];
-      if (dirty.includes('relation')) {
-        text = lySetSetup('relation', rel ? [rel] : [], text);
-        out.push(rel ? `Relation declared: ${rel}.` : 'Relation no longer declared.');
-      }
-      let migrated = null;
-      if (dirty.includes('members')) {
-        // The existing rows read under the unmarked-row policy first
-        // (lyFormBase), then marked.
-        const base = lyFormBase('rhyme groups', text);
-        const groups = base.groups;
-        groups.push(members.map((m) => ({ line: m.line, place: m.place })));
-        text = lySetSetup('rhyme groups', [lyGroupsText(groups)], base.text);
-        migrated = base.done;
-        out.push('Rhyme link saved.');
-      }
-      return { text, message: out.join(' '), migrated };
+      // The existing rows read under the unmarked-row policy first
+      // (lyFormBase), then marked.
+      const base = lyFormBase('rhyme groups', text);
+      const groups = base.groups;
+      // A member whose place is the type's own is written bare; one the
+      // person placed keeps its written place.
+      const added = members.map((m) => ({
+        line: m.line,
+        place: m.place === 'auto' ? 'end' : m.place,
+        ...(m.explicit ? { explicit: true } : {}),
+      }));
+      groups.push(added);
+      text = lySetSetup('rhyme groups', [lyGroupsText(groups)], base.text);
+      if (type !== '') text = lySetGroupType(text, groups.length - 1, Number(type));
+      return {
+        text,
+        message: `Link saved${type !== '' ? ` with the type ${lyTypeName(Number(type))}` : ', with no chosen type'}.`,
+        migrated: base.done,
+      };
     },
   },
   pronunciation: {
@@ -4191,7 +4360,7 @@ function lyMountMarkup() {
         <div class="ly-editor" id="ly-editor">
           <div class="ly-overlay" id="ly-overlay" aria-hidden="true"></div>
           <label for="lyrics-draft" class="ly-sr">Lyrics document. A line in [brackets] starts a section.</label>
-          <textarea id="lyrics-draft" class="ly-input" spellcheck="true" autocapitalize="sentences" placeholder="Write here. A line in [brackets] starts a section, e.g. [Verse 1] or [CHORUS — 4 lines — 4 bars of 4/4]."></textarea>
+          <textarea id="lyrics-draft" class="ly-input" spellcheck="true" autocapitalize="sentences" placeholder="Write here. A line in [brackets] starts a section."></textarea>
           <div class="ly-linebar" id="ly-linebar" role="toolbar" hidden></div>
         </div>
       </div>
@@ -4672,7 +4841,7 @@ function lyRenderEditor() {
   if (!box.hidden)
     box.innerHTML = uiEmptyState({
       title: 'Start your lyrics',
-      text: 'Write here, bring in a text file, or work with the writer. Add headers such as [Verse 1] to organize sections.',
+      text: 'Write here, bring in a text file, or work with the writer. A line in [brackets] starts a section.',
       actions:
         lyBtn('ly-focus-doc', 'Write myself', 'pencil', { cls: 'cm-btn cm-btn-outline' }) +
         lyBtn('new-lyrics', 'Write with the writer', 'sparkles', {
@@ -5168,7 +5337,7 @@ function lyToolFormStory(model) {
                 : ''
             }`
           : ''
-      }<div class="ly-field ly-field-wide"><label class="ly-label" for="ly-f-note">Section note</label><textarea id="ly-f-note" class="cm-input" rows="2" maxlength="400" data-draft="${T}" data-target="${G}" data-field="${f('note')}" placeholder="This section’s creative job, e.g. Arrival and kindness"${lyErr(d, f('note'))}>${esc(v(f('note')))}</textarea>${lyErrText(d, f('note'))}</div></div>`
+      }<div class="ly-field ly-field-wide"><label class="ly-label" for="ly-f-note">Section note</label><textarea id="ly-f-note" class="cm-input" rows="2" maxlength="400" data-draft="${T}" data-target="${G}" data-field="${f('note')}" placeholder="This section’s creative job"${lyErr(d, f('note'))}>${esc(v(f('note')))}</textarea>${lyErrText(d, f('note'))}</div></div>`
     : '';
   const headerless = model.sections.length && model.sections.every((x) => !x.header);
   return `<div class="ly-tool-view"><div class="ly-view-head">${icon('book-open', 22)}<div><h3 class="ly-h3" tabindex="-1">Form & story</h3><p class="ly-help">Section order and story jobs</p></div></div>${headerless ? `<p class="ly-help">These stanzas have no headers. ${lyBtn('ly-label-stanzas', 'Add a header to each stanza', 'plus', { cls: 'cm-btn ly-link-btn' })}</p>` : ''}${
@@ -5304,43 +5473,48 @@ function lyToolRhymes(model) {
   const T = 'rhymes',
     G = 'song';
   const d = lyDraftOf(T, G);
-  const c = LY_FORMS[T].committed(model);
-  const rel = lyVal(T, G, 'relation', c.relation);
   const members = lyVal(T, G, 'members', []) || [];
-  const known = LY_RELATIONS.map((r) => r[0]);
-  const custom = rel && !known.includes(rel);
-  const relName = (r) => LY_RELATIONS.find((x) => x[0] === r)?.[1] || r || 'any relation';
-  const seg = LY_RELATIONS.map(
-    ([val, label]) =>
-      `<button type="button" data-ui="ly-relation" data-id="${esc(val)}" aria-pressed="${!custom && rel === val}">${esc(label)}</button>`
-  ).join('');
+  const newType = String(lyVal(T, G, 'type', '') ?? '');
+  const legacy = lySetupOf(model, 'relation')[0]?.value || '';
+  const types = lyGroupTypes(model);
+  lyTypesLoad();
   const line =
     LY.picks.linkLine && model.sung[LY.picks.linkLine - 1]
       ? LY.picks.linkLine
       : LY.activeLine || model.sung[0]?.n || 0;
   const toks = line ? lyTokens(model.sung[line - 1].text, model.voices) : [];
-  const place = LY.picks.linkPlace || 'end';
+  const place = LY.picks.linkPlace || 'auto';
   const places = [
-    ['end', 'End of line'],
-    ['endword', 'Last word'],
-    ['head', 'First word'],
-    ['headrime', 'First rhyme'],
+    ['auto', 'Placed by the type'],
+    ['end', 'Last word, from its last stress'],
+    ['endword', 'Last word, whole'],
+    ['head', 'First word, whole'],
+    ['headrime', 'First word, from its last stress'],
     ['line', 'Whole line'],
     ...toks.map((t, i) => [`T${i + 1}`, `Word ${i + 1} · ${t}`]),
   ];
-  const groups = lySetupOf(model, 'rhyme groups').flatMap((dd) => lyRowGroups(dd));
+  const groups = lyLinksOf(model);
+  const keys = lyGroupKeys(groups);
   const selGroup = groups[LY.picks.linkGroup] ? LY.picks.linkGroup : -1;
   const committedList = groups.length
     ? `<ul class="ly-links">${groups
         .map((g, k) => {
           const letter = lyFamilyLabel(k);
-          return `<li><label class="ly-check"><input type="radio" name="ly-link-group" value="${k}"${k === selGroup ? ' checked' : ''}><span class="ly-letter" data-g="${k % 6}">${letter}</span><span><strong>${letter} · declared ${esc(relName(c.relation))}</strong><small>${g.map((m) => (m.bad || m.undecided ? esc(m.raw) : `Line ${m.line} · ${esc(String(lyMemberWord(model, m) ?? 'missing').slice(0, 30))}`)).join(LY_PAIR_SEP)}</small></span></label></li>`;
+          return `<li><label class="ly-check"><input type="radio" name="ly-link-group" value="${k}"${k === selGroup ? ' checked' : ''}><span class="ly-letter" data-g="${k % 6}">${letter}</span><span><strong>${letter} · ${lyTypeSpan(types.get(keys[k]))}</strong><small>${g.map((m) => (m.bad || m.undecided ? esc(m.raw) : `Line ${m.line} · ${esc(String(lyMemberWord(model, m) ?? 'missing').slice(0, 30))}`)).join(LY_PAIR_SEP)}</small></span></label></li>`;
         })
         .join('')}</ul>`
-    : '<p class="ly-help">No rhyme links declared.</p>';
+    : '<p class="ly-help">No links declared.</p>';
   const memberList = members.length
     ? `<ul class="ly-members">${members.map((m, i) => `<li><span>Line ${m.line}</span><span>${esc(lyMemberLabel(m))}</span><strong>“${esc(String(lyMemberWord(model, m) ?? '').slice(0, 40))}”</strong>${lyBtn('ly-member-remove', `Remove line ${m.line}`, 'x', { id: i, cls: 'cm-btn cm-btn-icon', hideLabel: true })}</li>`).join('')}</ul>`
     : '<p class="ly-help">Select a line in the document, then add it.</p>';
+  // One search narrows every type list on this view; the planner's draw is
+  // always offered and is not a type.
+  const find = String(LY.picks.typeFind || '');
+  const selType = selGroup >= 0 ? types.get(keys[selGroup]) : undefined;
+  const groupPicker =
+    selGroup >= 0
+      ? `<div class="ly-inline-field"><label class="ly-label" for="ly-type-group">Type for link ${lyFamilyLabel(selGroup)}</label><select id="ly-type-group" class="cm-select ly-type-select">${lyTypeOptions(selType == null ? '' : String(selType))}</select></div>`
+      : '';
   const busy = chatState.busy;
   const status = groups.length
     ? lyPill(
@@ -5348,13 +5522,18 @@ function lyToolRhymes(model) {
         `Links declared · ${LY.state?.state === 'assessed_clear' || LY.state?.state === 'assessed_findings' ? 'reviewed' : 'not reviewed'}`
       )
     : '';
-  return `<div class="ly-tool-view"><h4 class="ly-label">Relation</h4><div class="cm-segmented ly-seg" role="group" aria-label="Relation">${seg}</div><details class="ly-adv"${custom ? ' open' : ''}><summary>Advanced: custom relation</summary><div class="ly-inline-field"><input class="cm-input" id="ly-rel-custom" data-draft="${T}" data-target="${G}" data-field="relation" value="${esc(custom ? rel : '')}" placeholder="type:…, class:… or schema:…" aria-label="Custom relation"${lyErr(d, 'relation')}></div>${lyErrText(d, 'relation')}</details><p class="ly-help">The relation applies to every link in the song.</p>
+  const legacyNote = legacy
+    ? `<p class="ly-help">An earlier song-wide relation is declared: ${esc(legacy)}. It still applies to every link. ${lyBtn('ly-relation-clear', 'Remove it', '', { cls: 'cm-btn ly-link-btn' })}</p>`
+    : '';
+  return `<div class="ly-tool-view"><div class="ly-inline-field"><label class="ly-label" for="ly-type-find">Find a type</label><input type="search" id="ly-type-find" class="cm-input" value="${esc(find)}" placeholder="Search types" autocomplete="off"></div><p class="ly-help">Each link has its own type. On a draft, a link with no chosen type is checked at its lines’ last words against any relation; a new song’s planner draws its type.</p><p class="ly-help" id="ly-types-note" role="status" hidden>Types could not load. Reopen Rhymes to try again.</p>${legacyNote}
+<h4 class="ly-label">New link</h4>
+<div class="ly-inline-field"><label class="ly-label" for="ly-type-new">Type</label><select id="ly-type-new" class="cm-select ly-type-select" data-draft="${T}" data-target="${G}" data-field="type"${lyErr(d, 'type')}>${lyTypeOptions(newType)}</select></div>${lyErrText(d, 'type')}
 <div class="ly-inline-field"><label class="ly-label" for="ly-link-place">Placement</label><select id="ly-link-place" class="cm-select">${lyOpts(places, place, null)}</select></div>
 <div class="ly-inline-field"><label class="ly-label" for="ly-link-line">Line</label><select id="ly-link-line" class="cm-select">${lyLineOptions(model, line)}</select>${lyBtn('ly-link-add', 'Add', 'plus', { cls: 'cm-btn cm-btn-outline', extra: line ? '' : 'disabled' })}</div>
 <h4 class="ly-label">Selected members</h4>${memberList}${lyErrText(d, 'members')}
-<div class="ly-actions">${lyBtn('ly-draft-apply', 'Link endings', 'link', { id: T, cls: 'cm-btn cm-btn-primary', extra: members.length >= 2 && !lyDraftStale(d) ? '' : 'disabled' })}${lyBtn('ly-link-remove', 'Remove link', 'link', { cls: 'cm-btn cm-btn-outline', extra: selGroup >= 0 ? '' : 'disabled' })}</div>
-<h4 class="ly-label">Declared links</h4>${committedList}
-${lyToolRequestAction('ly-rhyme-options', 'Ask writer for rhyme options', 'pencil')}${busy ? '<p class="ly-help" id="ly-busy-note">Writer is working. You can keep editing.</p>' : ''}${lyRhymeResults()}${status ? `<p class="ly-status-line">${status}</p>` : ''}${lyPendingStrip(T)}</div>`;
+<div class="ly-actions">${lyBtn('ly-draft-apply', 'Save link', 'link', { id: T, cls: 'cm-btn cm-btn-primary', extra: members.length >= 2 && !lyDraftStale(d) ? '' : 'disabled' })}${lyBtn('ly-link-remove', 'Remove link', 'link', { cls: 'cm-btn cm-btn-outline', extra: selGroup >= 0 ? '' : 'disabled' })}</div>
+<h4 class="ly-label">Declared links</h4>${committedList}${groupPicker}
+${lyToolRequestAction('ly-rhyme-options', 'Ask writer for word options', 'pencil')}${busy ? '<p class="ly-help" id="ly-busy-note">Writer is working. You can keep editing.</p>' : ''}${lyRhymeResults()}${status ? `<p class="ly-status-line">${status}</p>` : ''}${lyPendingStrip(T)}</div>`;
 }
 // A screen's pair verdicts as options; nothing is inserted or declared.
 function lyRhymeResults() {
@@ -5694,7 +5873,7 @@ function lyRenderWriter() {
   } else if (w.parked)
     html += `<section class="ly-card" data-tone="warning"><p><strong>Parked with ${esc(uiCount((w.lyric.open || []).length, 'open line'))}</strong></p><p class="ly-help">The run stopped with lines unresolved. Answer in the conversation below, or start new work.</p></section>`;
   else if (!run)
-    html += `<section class="ly-card"><p>The writer is idle. Nothing is sent until you choose an action.</p><div class="ly-actions ly-stack">${lyBtn('new-lyrics', 'New song', 'file-plus', { cls: 'cm-btn cm-btn-outline' })}${lyBtn('edit-lyrics', 'Edit this draft', 'pencil', { cls: 'cm-btn cm-btn-outline' })}${lyBtn('attach-recipe', 'Use current recipe', 'layers', { cls: 'cm-btn cm-btn-outline' })}</div></section>`;
+    html += `<section class="ly-card"><p>The writer is idle. Nothing is sent until you choose an action.</p>${lyHasGuidance() ? `<label class="ly-check"><input type="checkbox" id="ly-reuse-brief"${LY.reuseBrief ? ' checked' : ''}><span>Send the saved brief and section notes with a new song</span></label>` : ''}<div class="ly-actions ly-stack">${lyBtn('new-lyrics', 'New song', 'file-plus', { cls: 'cm-btn cm-btn-outline' })}${lyBtn('edit-lyrics', 'Edit this draft', 'pencil', { cls: 'cm-btn cm-btn-outline' })}${lyBtn('attach-recipe', 'Use current recipe', 'layers', { cls: 'cm-btn cm-btn-outline' })}</div></section>`;
   else {
     const st = lyRunStatus(run);
     html += `<section class="ly-card"><p>${lyPill(st.tone || '', `Last reply: ${st.word}`)}</p><p class="ly-help">${esc(new Date(run.at).toLocaleTimeString())} · ${run.final ? esc(uiCount(run.final.length, 'line')) : 'no draft in this reply'}</p></section>`;
@@ -6169,30 +6348,41 @@ const lyDraftForWriter = (text = lyDraft().value) =>
 // never a synthetic click on the conversation form. A waiting, parked or
 // unknown-outcome run is never reset behind the person's back: the Writer
 // tab offers Resume current work / Start independent work instead.
+// A new song starts clean: the saved brief and section notes go with it only
+// when the person ticks "Send the saved brief and section notes with a new
+// song" (LY.reuseBrief). Work on the current draft carries them as before.
+const lyHasGuidance = () => {
+  const meta = lyMeta();
+  return !!meta.brief.trim() || Object.values(meta.notes || {}).some((n) => String(n).trim());
+};
 function lyContext(model, { document = true } = {}) {
   const meta = lyMeta();
-  const notes = model.sections
-    .filter((s) => (meta.notes[s.title] || '').trim())
-    .slice(0, 120)
-    .map((s) => ({ section: s.title.slice(0, 80), note: meta.notes[s.title].slice(0, 400) }));
+  const guidance = document || LY.reuseBrief === true;
+  const notes = guidance
+    ? model.sections
+        .filter((s) => (meta.notes[s.title] || '').trim())
+        .slice(0, 120)
+        .map((s) => ({ section: s.title.slice(0, 80), note: meta.notes[s.title].slice(0, 400) }))
+    : [];
+  const brief = guidance ? meta.brief : '';
   const decl = lyDeclarationsOf(model);
   return {
     version: 1,
     document: document ? lyWriterText(model.text) : '',
     declarations: document ? decl : {},
-    brief: meta.brief.slice(0, 4000),
+    brief: brief.slice(0, 4000),
     notes,
     binding: {
       document_sha256: lyIdentity(model),
-      context_sha256: lySha256(JSON.stringify({ brief: meta.brief, notes })),
+      context_sha256: lySha256(JSON.stringify({ brief, notes })),
     },
   };
 }
 const LY_ACTION_TEXT = {
   review: () =>
     'Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.',
-  'rhyme-options': ({ word, n, relation }) =>
-    `Suggest rhyme options for “${word}” (line ${n}) that fit this song, then screen them with lyric_screen together with “${word}”${relation ? ` under the relation ${relation}` : ''}. Report each pair as matched, partial or refused. Do not change the draft and do not declare anything.`,
+  'rhyme-options': ({ word, n, type }) =>
+    `Suggest words that could pair with “${word}” (line ${n}) in this song${type != null ? ` under type ${type} of the relation registry` : ''}, then screen each with “${word}” using lyric_screen. Report each pair as matched, partial or refused. Do not change the draft and do not declare anything.`,
   'pronunciation-options': ({ word, token, n }) =>
     `Check the committed document in the page context and list the dictionary pronunciation options (pronunciation_options) for “${word}”, word ${token} of line ${n}. Do not choose a reading and do not rewrite anything.`,
   recheck: ({ n, proposal }) =>
@@ -6330,7 +6520,8 @@ async function lyStartConversation(choice, prefill = '', { force = false } = {})
   return true;
 }
 // The page context every new lyrics task typed in the conversation carries:
-// the committed document for an edit, the brief and notes for a new song.
+// the committed document for an edit; for a new song, the brief and notes
+// only when the person chose to send them (lyContext).
 if (typeof window !== 'undefined')
   window.uiLyricContext = (choice) => {
     if (!LY.model) return null;
@@ -6593,11 +6784,13 @@ const LY_ACTIONS = {
   'edit-lyrics'() {
     return lyStartConversation('lyrics-edit', 'Edit this draft: ');
   },
+  // The recipe reaches a lyrics request only through this explicit pick: it
+  // is placed in the composer for the person to word their own request
+  // around, and nothing is sent until they send it.
   'attach-recipe'() {
     return lyStartConversation(
       'lyrics',
-      'Write lyrics for this recording recipe:\n' +
-        compileRecipeStack(app.cards, 'rich', { ceiling: 1000 })
+      'Recording recipe:\n' + compileRecipeStack(app.cards, 'rich', { ceiling: 1000 })
     );
   },
   'copy-lyrics'() {
@@ -6987,18 +7180,22 @@ const LY_ACTIONS = {
     LY.picks.rhythmCopy = false;
     lyCommit(text, `Copied meter, bars and pickup to ${uiCount(targets.length, 'section')}.`);
   },
-  'ly-relation'(id) {
-    lyDraftSet('rhymes', 'song', 'relation', id);
-    lyRefresh(true);
+  'ly-relation-clear'() {
+    lySetupCommit(
+      'relation',
+      [],
+      'Song-wide relation removed. Each link keeps its own type. Undo restores it.'
+    );
   },
   'ly-link-add'() {
     const line = Number($ui('ly-link-line')?.value) || LY.activeLine;
-    const place = $ui('ly-link-place')?.value || 'end';
+    const place = $ui('ly-link-place')?.value || 'auto';
     if (!line) return;
     const members = lyDraftList('rhymes', 'members');
-    if (members.some((m) => m.line === line && m.place === place))
+    if (members.some((m) => m.line === line && m.place === (place === 'auto' ? 'end' : place)))
       return showToast('That member is already selected.', 'error');
-    members.push({ line, place });
+    // "Placed by the type" is a bare member; any other pick is written out.
+    members.push(place === 'auto' ? { line, place: 'end' } : { line, place, explicit: true });
     lyDraftSet('rhymes', 'song', 'members', members);
     lyRefresh(true);
     uiFocus(document.querySelector('[data-ui="ly-link-add"]'));
@@ -7018,11 +7215,14 @@ const LY_ACTIONS = {
     if (!groups[k]) return;
     groups.splice(k, 1);
     LY.picks.linkGroup = -1;
-    lySetupCommit(
-      'rhyme groups',
-      groups.length ? [lyGroupsText(groups)] : [],
-      lyFormMigrated(base.done, 'Rhyme link removed. Undo restores it.'),
-      base.text
+    // Its type goes with it, and every other link keeps its own.
+    lyCommit(
+      lyCarryGroupTypes(
+        base.text,
+        lySetSetup('rhyme groups', groups.length ? [lyGroupsText(groups)] : [], base.text),
+        [k]
+      ),
+      lyFormMigrated(base.done, 'Link removed. Undo restores it.')
     );
   },
   'ly-rhyme-options'() {
@@ -7031,10 +7231,11 @@ const LY_ACTIONS = {
     const m = members[0] || (LY.activeLine ? { line: LY.activeLine, place: 'end' } : null);
     const word = m && lyMemberWord(model, m);
     if (!word) return showToast('Select a line in the document first.', 'error');
+    const type = String(lyVal('rhymes', 'song', 'type', '') ?? '');
     return lySubmitLyricsAction('rhyme-options', {
       word,
       n: m.line,
-      relation: lySetupOf(model, 'relation')[0]?.value || '',
+      type: type === '' ? null : Number(type),
     });
   },
   'ly-reading-pick'(id) {
@@ -7240,14 +7441,19 @@ const LY_ACTIONS = {
         : []),
     ];
     const noun = key === 'returns' ? 'declared return' : 'rhyme link';
-    lySetupCommit(
-      key,
-      groups.length ? [lyGroupsText(groups)] : [],
+    const text = lySetSetup(key, groups.length ? [lyGroupsText(groups)] : [], base.text);
+    lyCommit(
+      key === 'returns'
+        ? text
+        : lyCarryGroupTypes(
+            base.text,
+            text,
+            all.flatMap((g, k) => (drop(g, k) ? [k] : []))
+          ),
       lyFormMigrated(
         base.done,
         `Removed ${uiCount(gone.length, noun)} whose word place binds no word: ${why.join('; and ')}. Undo restores ${gone.length === 1 ? 'it' : 'them'}.`
-      ),
-      base.text
+      )
     );
   },
   // The renumbering card is a record for the writer: dismissing it changes
@@ -7724,6 +7930,12 @@ function lyWire(surface) {
   // Tool fields write only to their draft; the pending strip follows.
   surface.addEventListener('input', (e) => {
     const t = e.target;
+    if (t.id === 'ly-type-find') {
+      // Narrows the type lists in place; the chosen type always stays shown.
+      LY.picks.typeFind = t.value;
+      lyTypeFill();
+      return;
+    }
     if (t.dataset.draft) {
       let value = t.value;
       if (t.dataset.unit === 'bars' && value.trim() !== '' && Number.isFinite(Number(value)))
@@ -7750,9 +7962,20 @@ function lyWire(surface) {
       LY.picks.durUnit = t.value;
       lyRefresh(true);
       uiFocus($ui('ly-dur-unit'));
-    } else if (t.name === 'ly-link-group') {
+    } else if (t.id === 'ly-reuse-brief') LY.reuseBrief = t.checked;
+    else if (t.name === 'ly-link-group') {
       LY.picks.linkGroup = Number(t.value);
       lyRefresh(true);
+    } else if (t.id === 'ly-type-group') {
+      // A declared link's type is committed at once (Undo restores it).
+      const model = lyParse(lyDraft().value);
+      if (!lyLinksOf(model)[LY.picks.linkGroup]) return;
+      const index = t.value === '' ? null : Number(t.value);
+      lyCommit(
+        lySetGroupType(model.text, LY.picks.linkGroup, index),
+        `Link ${lyFamilyLabel(LY.picks.linkGroup)}: ${index == null ? 'no chosen type' : `type ${lyTypeName(index) || index}`}.`
+      );
+      uiFocus($ui('ly-type-group'));
     } else if (t.dataset.draft && t.tagName === 'SELECT') {
       const id = t.id;
       t.blur();

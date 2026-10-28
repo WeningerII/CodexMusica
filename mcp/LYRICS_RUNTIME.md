@@ -307,7 +307,7 @@ pre-batch v1 state rows or their fingerprints.
       follow the text into a new Library working copy, which is a new draft.
       A `.txt` import replaces the text of the same draft, so its entries join
       the same list.
-    - A form that rewrites a rhyme groups or returns row (Link endings,
+    - A form that rewrites a rhyme groups or returns row (Save link,
       Remove link, a placed return, Declare exact repeat, removing links that
       bind no word, Keep / Remove on a carried member) first reads every
       unmarked row of that kind exactly as a boundary would (rebound by span,
@@ -386,13 +386,14 @@ pre-batch v1 state rows or their fingerprints.
     section reorder, export/import and what the tools receive, sibling groups
     included; `.end` is never added to a bare member. A member the page itself
     makes for the end is bare. The two do not always mean the same thing. In
-    a rhyme groups row a bare `N` is the default end. In a RETURNS row a bare
-    `N` is a whole-line return judged by `returns_check`. Explicit `N.line`
+    a rhyme groups row a bare `N` is placed by its group's type (`group_types`
+    or `relation`), and is the end only in a group with no type. In a RETURNS
+    row a bare `N` is a whole-line return judged by `returns_check`. Explicit `N.line`
     is a placed return judged by `placed_returns_check` through the `line`
     placement; it is not an alias for bare `N`. The harness semantics are
     distinct, and mixed whole-line/placed classes are refused. Both forms
     are exempt from word-offset migration: neither is carried, annotated,
-    labelled "last rhyme" or shown with an endpoint word. Other placed
+    labelled with a word place or shown with an endpoint word. Other placed
     returns (`N.end`, `N.endword`, `N.head`, `N.headrime`, `N.T<k>`) follow
     the word-place migration rules below. Review drops an unnecessary
     word-cut note on bare `N` or `N.line` when Keep is chosen; that shared

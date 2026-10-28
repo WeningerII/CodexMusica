@@ -297,7 +297,10 @@ function unitEndIdentity() {
   const n1 = notices(mig);
   check(
     n1.length === 2 &&
-      n1.some((x) => /^rhyme groups:/.test(x.id) && /line 1 · last rhyme/.test(x.title)) &&
+      n1.some(
+        (x) =>
+          /^rhyme groups:/.test(x.id) && /line 1 · last word, from its last stress/.test(x.title)
+      ) &&
       n1.some((x) => /^returns:/.test(x.id) && /line 1 · first word/.test(x.title)),
     `Review notices: ${JSON.stringify(n1.map((x) => x.title))}`
   );
@@ -640,6 +643,504 @@ print(json.dumps([n for n, _ in (_sections_from_marks(sys.stdin.read().split('\\
       `the harness recovered sections ${JSON.stringify(names)}, not the draft's`
     );
   }
+}
+
+// ── T. the per-link type menu, its payload, and clean starts ────────────────
+// The menu lists exactly the types the planner may draw for an English song
+// (`type_eligibility` in lyric-harness/quality/plan.py, imported by
+// scripts/lyric_type_menu.py and checked by its --check), in name
+// order, never the four non-attested types, with the planner's draw as the
+// default that is not a type. The list is not in the page: it is
+// src/pages/lyric_types.json, served as api/lyric_types.json and fetched when
+// the menu first draws, so the unit loads it as that fetch would. A link's
+// chosen type reaches the writer as its registry index alone. A new song
+// carries no saved brief or notes unless the person ticks the box for it.
+function unitTypeMenu() {
+  stage = 'T. type menu';
+  const { run, draft, app } = lyricsUnitContext();
+  const served = fs.readFileSync(path.join(ROOT, 'src/pages/lyric_types.json'), 'utf8');
+  check(
+    fs.existsSync(path.join(ROOT, 'api/lyric_types.json')) &&
+      fs.readFileSync(path.join(ROOT, 'api/lyric_types.json'), 'utf8') === served,
+    'api/lyric_types.json is not src/pages/lyric_types.json (npm run build:api)'
+  );
+  check(
+    !/perfect rhyme/.test(fs.readFileSync(path.resolve(ROOT, HTML), 'utf8')),
+    'the type list is inlined into the page again'
+  );
+  check(run('LY_TYPES.length') === 0, 'the type list is in the page before it is fetched');
+  run('lyTypesSet(__r)', { __r: JSON.parse(served).types });
+  const listed = Array.from(run('LY_TYPES_SHOWN.map((t) => t[1])'));
+  const indexes = Array.from(run('LY_TYPES.map((t) => t[0])'));
+  check(listed.length === indexes.length && listed.length > 4, 'the type menu is empty or short');
+  const planned = JSON.parse(
+    execFileSync('python3', [
+      '-c',
+      `import sys, json; sys.path.insert(0, ${JSON.stringify(path.join(ROOT, 'lyric-harness'))}); from quality.plan import type_eligibility; print(json.dumps(sorted(type_eligibility("eng")[0])))`,
+    ]).toString()
+  );
+  check(
+    JSON.stringify([...listed].sort()) === JSON.stringify(planned),
+    `the type menu is not the planner's eligible set: ${listed.length} listed, ${planned.length} eligible`
+  );
+  for (const gone of [
+    'homoioteleuton',
+    'trite rhyme',
+    'cynghanedd sain drosgl',
+    'fourth lift must not alliterate',
+  ])
+    check(!listed.includes(gone), `the type menu offers the non-attested type ${gone}`);
+  const sorted = [...listed].sort((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' }));
+  check(JSON.stringify(listed) === JSON.stringify(sorted), 'the type menu is not in name order');
+  check(
+    JSON.stringify(Array.from(run('LY_TYPES.map((t) => t[1])'))) !== JSON.stringify(listed),
+    'the type menu is shown in registry order'
+  );
+  check(!listed.includes(run('LY_TYPE_DRAWN')), "the planner's draw is listed as a type");
+  try {
+    execFileSync('python3', [path.join(ROOT, 'scripts/lyric_type_menu.py'), '--check'], {
+      stdio: 'pipe',
+    });
+  } catch (e) {
+    check(false, `LY_TYPES differs from the registry: ${String(e.stdout || e.message).trim()}`);
+  }
+  // The view: a searchable menu, nothing preselected, no Advanced section.
+  const song = `[SETUP — rhyme groups — 1,2;3.head,4.head]\n\n[VERSE — 4 lines]\none\ntwo\nthree\nfour`;
+  draft.value = song;
+  app.lyricMeta = { version: 1, brief: '', notes: {}, drafts: {}, ui: {} };
+  const view = run('lyToolRhymes(lyParse(__t))', {
+    __t: song,
+    esc: (v) => String(v).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`),
+    icon: () => '',
+  });
+  check(
+    /id="ly-type-find"/.test(view) && /type="search"/.test(view),
+    'the type menu has no search'
+  );
+  check(!/Advanced/.test(view), 'the Rhymes tool still has an Advanced section');
+  check(
+    !/End of line|last rhyme|Link endings|rhyme options/.test(view),
+    'the Rhymes tool still uses end-of-line labels'
+  );
+  check(
+    /<select id="ly-type-new"[^>]*><option value="" selected>The planner draws<\/option>/.test(
+      view
+    ),
+    'a new link does not default to the planner draw'
+  );
+  check(
+    !/<select id="ly-type-new"[^>]*>(?:(?!<\/select>).)*<option value="\d+" selected/.test(view),
+    'a type is preselected for a new link'
+  );
+  check(/Placed by the type/.test(view), 'the default placement is not the type’s own');
+  // What a draft check does with an untyped link (agreed with 3PO, #629):
+  // no planner runs there, so the page does not say one draws its type.
+  check(
+    /On a draft, a link with no chosen type is checked at its lines’ last words against any relation; a new song’s planner draws its type\./.test(
+      view
+    ) && !/drawn by the planner/.test(view),
+    'the Rhymes tool misstates what happens to a link with no chosen type'
+  );
+  // Jony's note on #629: a failed fetch is said, not shown as an empty menu.
+  check(
+    /id="ly-types-note" role="status" hidden>Types could not load\. Reopen Rhymes to try again\.</.test(
+      view
+    ),
+    'the Rhymes tool has no note for a type list that could not load'
+  );
+  // A chosen type travels as its index only; the other link is the planner's.
+  const pick = Array.from(run('LY_TYPES_SHOWN[0]'));
+  const typed = run('lySetGroupType(__t, 1, __i)', { __t: song, __i: pick[0] });
+  check(
+    typed.includes(`[SETUP — group types — 3.head,4.head=${pick[0]}]`),
+    `the chosen type was not kept with its link: ${typed.split('\n')[1]}`
+  );
+  const decl = JSON.parse(JSON.stringify(run('lyDeclarationsOf(lyParse(__t))', { __t: typed })));
+  check(
+    JSON.stringify(decl.group_types) === JSON.stringify([{ group: 2, type: pick[0] }]),
+    `group_types sent ${JSON.stringify(decl.group_types)}`
+  );
+  check(!JSON.stringify(decl).includes(pick[1]), 'a type name reached the writer');
+  check(!('relation' in decl), 'a relation was declared for a per-link type');
+  // Removing the link takes its type with it.
+  draft.value = typed;
+  run(`LY.picks.linkGroup = 1; LY_ACTIONS['ly-link-remove']()`);
+  check(!/group types/.test(draft.value), 'a removed link left its type behind');
+  // Two links with the same members keep a type each (3PO, #629): saved one
+  // after the other through the form, removed through the action.
+  const twin = `[SETUP — rhyme groups — 3.head,4.head]\n\n[VERSE — 4 lines]\none\ntwo\nthree\nfour`;
+  const save = (text, type) =>
+    run('LY_FORMS.rhymes.apply(lyParse(__t), "song", __v, ["members", "type"])', {
+      __t: text,
+      __v: {
+        type: String(type),
+        members: [
+          { line: 1, place: 'auto' },
+          { line: 2, place: 'auto' },
+        ],
+      },
+    }).text;
+  const [perfect, assonance] = [0, 4];
+  const twins = save(save(twin, perfect), assonance);
+  const twinDecl = JSON.parse(
+    JSON.stringify(run('lyDeclarationsOf(lyParse(__t))', { __t: twins }))
+  );
+  check(
+    JSON.stringify(twinDecl.group_types) ===
+      JSON.stringify([
+        { group: 2, type: perfect },
+        { group: 3, type: assonance },
+      ]),
+    `two links with the same members share a type: ${JSON.stringify(twinDecl.group_types)}`
+  );
+  const removeLink = (text, k) => {
+    draft.value = text;
+    run(`LY.picks.linkGroup = ${k}; LY_ACTIONS['ly-link-remove']()`);
+    return JSON.parse(JSON.stringify(run('lyDeclarationsOf(lyParse(__t))', { __t: draft.value })))
+      .group_types;
+  };
+  check(
+    JSON.stringify(removeLink(twins, 2)) === JSON.stringify([{ group: 2, type: perfect }]),
+    'removing the second of two like links took the first one’s type'
+  );
+  check(
+    JSON.stringify(removeLink(twins, 1)) === JSON.stringify([{ group: 2, type: assonance }]),
+    'removing the first of two like links did not leave the second its own type'
+  );
+  // A legacy row's migration moves the link and its type together (3PO,
+  // #629): the unmarked `1.T4` is rebound under the current cut, and the type
+  // keyed to it follows, so the declarations still carry it.
+  const legacy = `[SETUP — rhyme groups — 1.T4,2]\n[SETUP — group types — 1.T4,2=${perfect}]\n\n[VERSE — 2 lines]\nOh--oh, oh my love\nyou were above`;
+  draft.value = legacy;
+  run("lyEnsureTokenScheme('page')");
+  const moved = run('lySetupOf(lyParse(__t), "rhyme groups")[0].value', { __t: draft.value });
+  const movedDecl = JSON.parse(
+    JSON.stringify(run('lyDeclarationsOf(lyParse(__t))', { __t: draft.value }))
+  );
+  check(
+    moved !== '1.T4,2',
+    `the legacy link was not migrated (${moved}), so the case proves nothing`
+  );
+  check(
+    JSON.stringify(movedDecl.group_types) === JSON.stringify([{ group: 1, type: perfect }]),
+    `the migrated link lost its type: ${JSON.stringify(movedDecl.group_types)} (${draft.value.split('\n')[1]})`
+  );
+  // A structural edit that makes two links spell alike keeps each link's type
+  // (3PO, #629): `1,2;1,2,3` typed 0 and 4 loses line 3 with its section, and
+  // becomes `1,2;1,2` typed 0 and 4, not 4 and none. Each route that
+  // rebuilds the text (removing a section, a section made to return) and the
+  // Run review boundary after it are held to that, and the saved text read
+  // back fresh (a reload) and the text before the edit (Undo) answer alike.
+  const typesOf = (text, at = run) =>
+    JSON.parse(JSON.stringify(at('lyDeclarationsOf(lyParse(__t))', { __t: text }))).group_types;
+  const both = JSON.stringify([
+    { group: 1, type: perfect },
+    { group: 2, type: assonance },
+  ]);
+  const converge = `[SETUP — rhyme groups — 1,2;1,2,3]\n[SETUP — group types — 1,2=${perfect};1,2,3=${assonance}]\n\n[VERSE — 2 lines]\none\ntwo\n\n[CHORUS — 1 line]\nthree`;
+  for (const [route, edit] of [
+    ['a removed section', 'lyEditSections(({ blocks }) => { blocks.splice(1, 1); }, "")'],
+    ['a section made to return', "LY_ACTIONS['ly-make-return']('1:0')"],
+  ]) {
+    draft.value = converge;
+    run(edit);
+    const edited = draft.value;
+    check(
+      /rhyme groups — 1,2;1,2\b/.test(edited),
+      `${route}: the links did not come to spell alike, so the case proves nothing: ${edited.split('\n')[0]}`
+    );
+    check(
+      typesOf(edited) && JSON.stringify(typesOf(edited)) === both,
+      `${route}: two links spelled alike lost a type: ${JSON.stringify(typesOf(edited))} (${edited.split('\n')[1]})`
+    );
+    run("lyEnsureTokenScheme('page')");
+    check(
+      JSON.stringify(typesOf(draft.value)) === both,
+      `${route}, then Run review: ${JSON.stringify(typesOf(draft.value))}`
+    );
+    check(
+      JSON.stringify(typesOf(draft.value, lyricsUnitContext().run)) === both,
+      `${route}, read back fresh: ${JSON.stringify(typesOf(draft.value, lyricsUnitContext().run))}`
+    );
+    check(
+      JSON.stringify(typesOf(converge)) === both,
+      `${route}, undone: ${JSON.stringify(typesOf(converge))}`
+    );
+  }
+  // Clean starts: the saved brief and notes go with a new song only when chosen.
+  const model = run('lyParse(__t)', { __t: song });
+  app.lyricMeta = {
+    version: 1,
+    brief: 'A saved brief',
+    notes: { [model.sections[0].title]: 'A saved note' },
+    drafts: {},
+    ui: {},
+  };
+  const fresh = run('lyContext(__m, { document: false })', { __m: model });
+  check(
+    fresh.brief === '' && fresh.notes.length === 0,
+    `a new song carried the saved brief or notes: ${JSON.stringify([fresh.brief, fresh.notes])}`
+  );
+  run('LY.reuseBrief = true');
+  const chosen = run('lyContext(__m, { document: false })', { __m: model });
+  check(
+    chosen.brief === 'A saved brief' && chosen.notes.length === 1,
+    `a chosen brief did not go with the new song: ${JSON.stringify([chosen.brief, chosen.notes])}`
+  );
+  run('LY.reuseBrief = false');
+  const editing = run('lyContext(__m, { document: true })', { __m: model });
+  check(editing.brief === 'A saved brief', 'editing the current draft lost its brief');
+}
+
+// ── T2. a type picked on the page is the grader's judge of its link ─────────
+// End to end, with nothing stood in: a link saved through the Rhymes form with
+// its members unplaced ("Placed by the type") and a type picked, the page's own
+// request context (lyContext), the connector's real lyric_check handler
+// (mcp/lyric_tools.js) given that context's draft and declarations as the
+// writer is told to send them, the CLI it runs, and the grader's verdict. The
+// same two lines pass when the link's type is one read at the first word and
+// fail when it is one read at the last word, and fail again when the first
+// words differ: the type, not a default place, decides. lyric_plan carries the
+// same field to the planner, and refuses a type it cannot plan, by name.
+function unitTypeEndToEnd() {
+  stage = 'T2. type end to end';
+  const { run, draft, app } = lyricsUnitContext();
+  run('lyTypesSet(__r)', {
+    __r: JSON.parse(fs.readFileSync(path.join(ROOT, 'src/pages/lyric_types.json'), 'utf8')).types,
+  });
+  const index = (name) => Array.from(run('LY_TYPES.find((t) => t[1] === __n)', { __n: name }))[0];
+  const [anaphora, perfect] = [index('anaphora'), index('perfect rhyme')];
+  // A registry index the menu leaves out is one the planner refuses.
+  const listed = new Set(Array.from(run('LY_TYPES.map((t) => t[0])')));
+  let unlisted = 0;
+  while (listed.has(unlisted)) unlisted++;
+  const picked = (lines, type) => {
+    const text = `[VERSE — 2 lines]\n${lines.join('\n')}`;
+    draft.value = text;
+    app.lyricMeta = { version: 1, brief: '', notes: {}, drafts: {}, ui: {} };
+    const saved = run('LY_FORMS.rhymes.apply(lyParse(__t), "song", __v, ["members", "type"])', {
+      __t: text,
+      __v: {
+        type: String(type),
+        members: [
+          { line: 1, place: 'auto' },
+          { line: 2, place: 'auto' },
+        ],
+      },
+    }).text;
+    const context = JSON.parse(JSON.stringify(run('lyContext(lyParse(__t))', { __t: saved })));
+    return { saved, context };
+  };
+  const cases = [
+    [
+      'first words agree, under a first-word type',
+      ['never say the word aloud', 'never leave the room'],
+      anaphora,
+    ],
+    [
+      'the same lines, under a last-word type',
+      ['never say the word aloud', 'never leave the room'],
+      perfect,
+    ],
+    [
+      'first words differ, under the first-word type',
+      ['never say the word aloud', 'always leave the room'],
+      anaphora,
+    ],
+  ].map(([what, lines, type]) => ({ what, type, ...picked(lines, type) }));
+  for (const c of cases) {
+    check(
+      /\[SETUP — rhyme groups — 1,2(?: — [^\]]*)?\]/.test(c.saved) &&
+        run(
+          'lyMemberLabel(lyParseGroups(lySetupOf(lyParse(__t), "rhyme groups")[0].value)[0][0])',
+          { __t: c.saved }
+        ) === run('LY_PLACE_BY_TYPE'),
+      `${c.what}: the link was not saved with its members placed by the type: ${c.saved.split('\n')[0]}`
+    );
+    check(
+      c.context.declarations.groups === '1,2' &&
+        JSON.stringify(c.context.declarations.group_types) ===
+          JSON.stringify([{ group: 1, type: c.type }]),
+      `${c.what}: the request context does not carry the picked type: ${JSON.stringify(c.context.declarations)}`
+    );
+  }
+  // Repeated links (3PO, #519 6470833052): the page numbers each link by its
+  // place in the groups it sends, a repeat counted again, and each type
+  // stays on its own occurrence: two types on one pair of lines are two
+  // requirements, and a type on a repeat's second occurrence does not move
+  // to the next link.
+  const repeated = [
+    [
+      'two links on the same lines, each with its own type',
+      `[SETUP — rhyme groups — 1,2;1,2]\n[SETUP — group types — 1,2=${anaphora};1,2#2=${perfect}]\n\n[VERSE — 2 lines]\nwe walked along the road all day\nwe sang the songs along the way`,
+      [
+        { group: 1, type: anaphora },
+        { group: 2, type: perfect },
+      ],
+    ],
+    [
+      "a type on a repeated link's second occurrence",
+      `[SETUP — rhyme groups — 1,2;1,2;3,4]\n[SETUP — group types — 1,2#2=${anaphora}]\n\n[VERSE — 4 lines]\nnever say the word aloud\nnever leave the room\nthe cat\nthe hat`,
+      [{ group: 2, type: anaphora }],
+    ],
+  ].map(([what, text, sent]) => ({
+    what,
+    sent,
+    context: JSON.parse(JSON.stringify(run('lyContext(lyParse(__t))', { __t: text }))),
+  }));
+  for (const r of repeated)
+    check(
+      JSON.stringify(r.context.declarations.group_types) === JSON.stringify(r.sent),
+      `${r.what}: the page sent ${JSON.stringify(r.context.declarations.group_types)}`
+    );
+  const calls = [...cases, ...repeated].map((c) => ({
+    tool: 'lyric_check',
+    args: {
+      lines: c.context.document.split('\n').filter((l) => l.trim() && !/^\[.*\]$/.test(l.trim())),
+      groups: c.context.declarations.groups,
+      group_types: c.context.declarations.group_types,
+    },
+  }));
+  calls.push(
+    {
+      tool: 'lyric_plan',
+      args: { seed: 3, lines: 16, group_types: [{ group: 1, type: perfect }] },
+    },
+    {
+      tool: 'lyric_plan',
+      args: { seed: 3, lines: 16, group_types: [{ group: 1, type: unlisted }] },
+    },
+    // A typed link on one line beside a valid one (3PO, #519 6471846289):
+    // pasted setup text reaches the connector unchanged, and the type was
+    // dropped with the one-line group. It is refused by name.
+    ...['1;2,3', '1,1;2,3'].map((groups) => ({
+      tool: 'lyric_check',
+      args: {
+        lines: ['never say the word aloud', 'never leave the room', 'the cat'],
+        groups,
+        group_types: [{ group: 1, type: anaphora }],
+      },
+    }))
+  );
+  let out;
+  try {
+    out = JSON.parse(
+      execFileSync(
+        process.execPath,
+        [
+          '--input-type=module',
+          '-e',
+          `const { registerLyricTools } = await import(${JSON.stringify(path.join(ROOT, 'mcp/lyric_tools.js'))});
+const h = {};
+registerLyricTools({}, (_s, name, _c, fn) => { h[name] = fn; });
+const out = [];
+for (const { tool, args } of JSON.parse(process.env.T2_CALLS)) {
+  const r = await h[tool](args);
+  const v = r.content ? JSON.parse(r.content[r.content.length - 1].text) : r;
+  out.push({ exit: v.exit_code, refusal: v.refusal || null, standing: v.standing || [],
+    relations: v.plan?.relations || null, request: v.plan?.request || null,
+    mandate: v.schema_instance_evidence?.identity?.declarations?.mandate || null });
+}
+process.stdout.write(JSON.stringify(out));
+process.exit(0);`,
+        ],
+        { env: { ...process.env, T2_CALLS: JSON.stringify(calls) }, maxBuffer: 1 << 26 }
+      ).toString()
+    );
+  } catch (e) {
+    check(false, `the connector could not be run: ${String(e.stderr || e.message).slice(0, 400)}`);
+    return;
+  }
+  const violated = (r) => r.standing.some((f) => /SCHEME_VIOLATION/.test(f));
+  const [held, other, heads, twinTypes, secondOccurrence, plan, refused, ...lone] = out;
+  check(
+    held.exit === 0 && !held.refusal && !violated(held),
+    `a link whose type reads the first word failed on lines whose first words agree: ${JSON.stringify(held)}`
+  );
+  check(
+    other.exit === 0 && violated(other),
+    `the same lines passed under a type read at the last word: ${JSON.stringify(other)}`
+  );
+  check(
+    heads.exit === 0 && violated(heads),
+    `lines whose first words differ passed under the first-word type: ${JSON.stringify(heads)}`
+  );
+  const judged = (r) => JSON.stringify([r.mandate?.groups, r.mandate?.relations]);
+  check(
+    twinTypes.exit === 0 &&
+      !violated(twinTypes) &&
+      judged(twinTypes) ===
+        JSON.stringify([
+          [
+            [1, 2],
+            [1, 2],
+          ],
+          ['schema:anaphora', 'schema:perfect rhyme'],
+        ]),
+    `two links on the same lines did not keep a type each: ${JSON.stringify(twinTypes)}`
+  );
+  check(
+    secondOccurrence.exit === 0 &&
+      judged(secondOccurrence) ===
+        JSON.stringify([
+          [
+            [1, 2],
+            [1, 2],
+            [3, 4],
+          ],
+          ['', 'schema:anaphora', ''],
+        ]),
+    `the type on a repeated link's second occurrence moved: ${judged(secondOccurrence)}`
+  );
+  check(
+    lone.length === 2 &&
+      lone.every((r) => r.exit === 2 && /group 1 .*fewer than two lines/.test(r.refusal || '')),
+    `a type on a one-line link was not refused by name: ${JSON.stringify(lone)}`
+  );
+  // A type beside a --relations= entry for the same group: the CLI (the
+  // connector publishes no per-group relation field) refuses it alike under
+  // the group's letter and its number, never keeping one in silence.
+  const parityDraft = path.join(fs.mkdtempSync(path.join(require('os').tmpdir(), 't2-')), 'd.txt');
+  fs.writeFileSync(
+    parityDraft,
+    'never say the word aloud\nnever leave the room\nthe cat\nthe hat\n'
+  );
+  const parity = ['A', '1'].map((key) => {
+    try {
+      execFileSync(
+        'python3',
+        [
+          path.join(ROOT, 'lyric-harness/lyric_harness.py'),
+          'brief',
+          parityDraft,
+          '--groups=1,2;3,4',
+          `--relations=${key}:schema:perfect rhyme`,
+          `--group-types=${JSON.stringify([{ group: 1, type: anaphora }])}`,
+        ],
+        { cwd: path.join(ROOT, 'lyric-harness'), stdio: 'pipe' }
+      );
+      return 'accepted';
+    } catch (e) {
+      const row = String(e.stdout)
+        .split('\n')
+        .find((l) => l.includes('lyric result: '));
+      return row ? JSON.parse(row.split('lyric result: ')[1]).refusal : String(e.message);
+    }
+  });
+  check(
+    parity[0] === parity[1] && /stated twice/.test(parity[0] || ''),
+    `a type beside --relations= is not refused alike under a letter and a number: ${JSON.stringify(parity)}`
+  );
+  check(
+    plan.exit === 0 &&
+      plan.relations?.A === 'schema:perfect rhyme' &&
+      JSON.stringify(plan.request?.group_types) === JSON.stringify([{ group: 1, type: perfect }]),
+    `lyric_plan did not keep the picked type for group 1: ${JSON.stringify(plan)}`
+  );
+  check(
+    refused.exit === 2 && /cannot be planned/.test(refused.refusal || ''),
+    `a type the planner cannot plan was not refused by name: ${JSON.stringify(refused)}`
+  );
 }
 
 // ── R. readings saved before the reader's v2 cut, unit-level ──────────────
@@ -3285,8 +3786,8 @@ async function browserChecks(chromium) {
         `Back to tools does not return to the Rhythm row: ${JSON.stringify(w)}`
       );
       await page.evaluate(() => LY_ACTIONS['ly-tool']('rhymes'));
-      w = await press('[data-ui="ly-relation"][aria-pressed="false"]');
-      check(w.ui === 'ly-relation', `a rhyme filter drops focus: ${JSON.stringify(w)}`);
+      w = await press('[data-ui="ly-link-add"]');
+      check(w.ui === 'ly-link-add', `adding a link member drops focus: ${JSON.stringify(w)}`);
       await page.evaluate(() => LY_ACTIONS['ly-line-tool']('pronunciation:3'));
       w = await press('[data-ui="ly-reading-pick"]:not([aria-pressed="true"])');
       check(
@@ -3590,9 +4091,7 @@ async function browserChecks(chromium) {
       );
       await choose('attach-recipe');
       check(
-        (await page.inputValue('#chat-input')).startsWith(
-          'Write lyrics for this recording recipe:\n'
-        ),
+        (await page.inputValue('#chat-input')).startsWith('Recording recipe:\n'),
         'Use current recipe lost its explicit prefill'
       );
       await choose('new-lyrics');
@@ -4105,7 +4604,7 @@ async function browserChecks(chromium) {
         LY.picks.formSec = 0;
         LY_ACTIONS['ly-tool']('form-story');
       });
-      await page.fill('#ly-f-note', 'Arrival and kindness');
+      await page.fill('#ly-f-note', 'Section note text');
       // The person clicks Move down: focus leaves the note field.
       await page.evaluate(() => {
         document.activeElement.blur();
@@ -4873,7 +5372,7 @@ async function browserChecks(chromium) {
         'a partial placement row was written'
       );
       await page.evaluate(() => LY_ACTIONS['ly-draft-discard']('rhythm'));
-      // Ask writer for rhyme options: one request, a result card, nothing declared.
+      // Ask writer for word options: one request, a result card, nothing declared.
       await page.evaluate(() => {
         LY_ACTIONS['ly-tool']('');
         lyScrollToLine(1);
@@ -4918,7 +5417,7 @@ async function browserChecks(chromium) {
       await page.evaluate(() => LY_ACTIONS['ly-tab']('tools'));
       check(
         await page.evaluate(() => document.querySelector('[data-ui="ly-rhyme-options"]')?.disabled),
-        'Ask writer for rhyme options is not disabled while the writer works'
+        'Ask writer for word options is not disabled while the writer works'
       );
       await sent;
       await page.waitForFunction(() => !chatState.busy, null, { timeout: 20000 });
@@ -5322,6 +5821,58 @@ async function browserChecks(chromium) {
         !/rhyme groups/.test(await page.evaluate(() => $ui('lyrics-draft').value)) &&
           st.items.length === 0,
         `Remove did not remove the link: ${st.row}`
+      );
+      await ctx.close();
+    });
+
+    // ── 9e. link types through a removed section, in the shipped page: two
+    // links that come to spell alike keep a type each, through Run review,
+    // a reload and Undo (3PO, #629) ─────────────────────────────────────
+    await step('9e. link types survive a removed section', async () => {
+      const { ctx, page, q } = await boot();
+      const pre = `[SETUP — rhyme groups — 1,2;1,2,3]\n[SETUP — group types — 1,2=0;1,2,3=4]\n\n[VERSE — 2 lines]\none\ntwo\n\n[CHORUS — 1 line]\nthree`;
+      const both = JSON.stringify([
+        { group: 1, type: 0 },
+        { group: 2, type: 4 },
+      ]);
+      const types = () =>
+        page.evaluate(
+          () => lyDeclarationsOf(lyParse($ui('lyrics-draft').value)).group_types || null
+        );
+      await setDraft(page, pre);
+      await page.evaluate(() => LY_ACTIONS['ly-sec-remove']('1'));
+      const row = await page.evaluate(() => $ui('lyrics-draft').value.split('\n')[0]);
+      check(/1,2;1,2\b/.test(row), `the removed section left ${row}`);
+      check(
+        JSON.stringify(await types()) === both,
+        `after the removal: ${JSON.stringify(await types())}`
+      );
+      await page.evaluate(() => $ui('btn-undo').click());
+      await page.evaluate(() => lyRefresh(true));
+      const undone = await page.evaluate(() => $ui('lyrics-draft').value);
+      check(
+        /1,2;1,2,3/.test(undone.split('\n')[0]) && JSON.stringify(await types()) === both,
+        `Undo did not restore both links and their types: ${undone.split('\n').slice(0, 2).join(' / ')}`
+      );
+      await page.evaluate(() => $ui('btn-redo').click());
+      await page.evaluate(() => lyRefresh(true));
+      check(JSON.stringify(await types()) === both, `after Redo: ${JSON.stringify(await types())}`);
+      const calls = q.calls.length;
+      q.replies.push({ reply: 'ok', history: [], sig: 'x' });
+      await page.evaluate(async () => LY_ACTIONS['ly-run-review']());
+      await page.waitForFunction(() => !chatState.busy, null, { timeout: 20000 });
+      const sent = q.calls.slice(calls).map((c) => c.lyric_context?.declarations?.group_types);
+      check(
+        sent.length === 1 && JSON.stringify(sent[0]) === both,
+        `Run review sent ${JSON.stringify(sent)}`
+      );
+      await page.reload();
+      await page.waitForFunction(() => typeof UI !== 'undefined' && UI.ready && !!LY.model, null, {
+        timeout: 60000,
+      });
+      check(
+        JSON.stringify(await types()) === both,
+        `after a reload: ${JSON.stringify(await types())}`
       );
       await ctx.close();
     });
@@ -6601,6 +7152,8 @@ async function browserChecks(chromium) {
 (async () => {
   if (!flags['browser-only']) {
     unitWriterPayload();
+    unitTypeMenu();
+    unitTypeEndToEnd();
     await unitSavedReadings();
     await unitVoicesBasis();
     await unitPolicyA();
