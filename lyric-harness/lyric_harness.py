@@ -9575,7 +9575,13 @@ def _checkpoint_proposer(one, two, lines, config_key, spec):
         recorded = state.get("answered", {}).get(kind, [])
         if k >= len(recorded) or not isinstance(recorded[k], dict):
             return False
-        keys = [x for x in record if x not in ("text", "new", "batch")]
+        # The question's IDENTITY, never its wording: a group record also
+        # carries `question_sha256`, the hash of its rendered text, which is
+        # exactly what a rewording moves (3PO on #627). A group's draft is
+        # read through its members' `texts`; group records carry no
+        # whole-draft fingerprint.
+        keys = [x for x in record
+                if x not in ("text", "new", "batch", "question_sha256")]
         return bool(keys) and all(recorded[k].get(x) == record.get(x)
                                   for x in keys)
 

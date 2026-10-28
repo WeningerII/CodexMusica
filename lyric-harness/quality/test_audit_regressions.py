@@ -254,6 +254,48 @@ class AuditRegressions(unittest.TestCase):
                     LH._checkpoint_proposer(writer, None, initial, 'config', 'fake')
             self.assertEqual(len(called), 1)
 
+    def test_group_question_reworded_parks_and_a_diverged_group_refuses(self):
+        # 3PO on #627: a group question whose only change is its WORDING
+        # parks like a line question does; changed members or a changed
+        # draft under the members is a diverged replay and still refuses.
+        from types import SimpleNamespace
+        initial = ['first cat', 'second dog', 'third fox']
+        answer = ['first hat', 'second log']
+
+        def group(members, texts=None):
+            texts = texts or initial
+            return SimpleNamespace(members=tuple(members), lines=list(texts),
+                                   brief=SimpleNamespace(round_no=1),
+                                   proposal_for=lambda n: (texts[n - 1], 'word'))
+        calls = []
+        writer = lambda b: calls.append(True) or answer
+        with tempfile.TemporaryDirectory() as tmp, \
+             patch.dict(os.environ, {'LYRIC_CHECKPOINT_PATH': str(Path(tmp)/'cp.json')}), \
+             contextlib.redirect_stdout(io.StringIO()):
+            with patch('quality.propose.render_group', return_value='group question'):
+                one, two = LH._checkpoint_proposer(None, writer, initial, 'config', 'fake')
+                self.assertEqual(two(group((1, 2))), answer)
+                one.checkpoint(answer + initial[2:], 1, 'accepted')
+                _, same = LH._checkpoint_proposer(None, writer, initial, 'config', 'fake')
+                self.assertEqual(same(group((1, 2))), answer, 'unchanged wording replays')
+            self.assertEqual(len(calls), 1)
+            with patch('quality.propose.render_group',
+                       return_value='group question, reworded'):
+                cases = (('only the wording', group((1, 2)), True),
+                         ('changed members', group((1, 3)), False),
+                         ('changed draft', group((1, 2), ['other cat'] + initial[1:]), False))
+                for name, g, parks in cases:
+                    with self.subTest(name):
+                        _, replay = LH._checkpoint_proposer(None, writer, initial, 'config', 'fake')
+                        before = (Path(tmp)/'cp.json').read_bytes()
+                        with self.assertRaises((ProposerUnavailable, LH._QuestionChanged)) as raised:
+                            replay(g)
+                        self.assertIs(isinstance(raised.exception, LH._QuestionChanged), parks)
+                        if parks:
+                            self.assertEqual(raised.exception.lines, answer + initial[2:])
+                        self.assertEqual((Path(tmp)/'cp.json').read_bytes(), before)
+            self.assertEqual(len(calls), 1, 'no case made a writer request')
+
     def test_interrupted_real_loop_preserves_accepted_edit_before_next_request(self):
         # A real mandated-assonance violation (door/coat share no nucleus)
         # with one deterministic legal repair; neither end word has a second
