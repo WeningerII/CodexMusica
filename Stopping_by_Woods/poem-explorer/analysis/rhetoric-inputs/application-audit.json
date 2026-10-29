@@ -1,0 +1,49 @@
+{
+  "format": "frost-rhetoric-application-audit-v1",
+  "checks_passed": {
+    "exactly_91_unique_scoped_method_ids": true,
+    "method_ids_match_the_research_inventory_direct_method_entries": true,
+    "structural_40_and_interpretive_51_are_disjoint_and_complete": true,
+    "all_rows_use_one_of_the_five_declared_states": true,
+    "all_row_finding_references_resolve": true,
+    "all_finding_word_and_token_id_lists_reference_canonical_poem_tokens": true,
+    "all_rows_have_source_urls": true,
+    "all_evidence_files_exist": true,
+    "remaining_324_unique_ids_are_disjoint_from_the_91": true,
+    "total_inventory_accounted_for_is_415": true
+  },
+  "counts": {
+    "observed": 17,
+    "checked_no_match": 25,
+    "interpretation_or_component_only": 14,
+    "out_of_scope": 23,
+    "not_executed": 12
+  },
+  "findings": {
+    "structural_cards": 16,
+    "interpretive_cards": 17,
+    "not_a_count_of_independent_devices": true
+  },
+  "manual_audit_reminders": [
+    "Source stop filters, alternate grammatical units and native exceptions remain visible in the raw PRD output.",
+    "A complete final-line repetition is one event with overlapping descriptions, not multiple independent discoveries.",
+    "Sound matches require nonempty positive features; empty codas or shared spelling do not create a phonetic match.",
+    "The all-dictionary mode includes pronunciation alternatives that may be inappropriate to the poem's context.",
+    "Homoioteleuton ending-schema matches do not by themselves establish shared grammatical suffixes.",
+    "First-phone /s/ matching for sound's / sweep is an explicit adaptation; native full-onset E9 differs.",
+    "Punctuation, grammatical continuation and performed pauses are separate layers; no performance has been heard in this run.",
+    "Human-procedure positives do not claim exhaustive lexical dictionary auditing or a classifier execution.",
+    "An inventory ID on a supported grouped card can still have component-only method status; the ledger is authoritative for counts.",
+    "No Site or CodexMusica edits were made by this coverage-accounting task."
+  ],
+  "input_sha256": {
+    "poem.json": "5f75df9dbf5a1b0333f6d51fe203d68e062255ae83f6fbcf10e43ee528e675f8",
+    "coverage/method_plan.json": "6fc78df8b55f2c9a92748d82fb4c1dae23b396cb4ddd82cda280352922138acd",
+    "structural/method_application.json": "017a9bd358f92e1c724f86d612e4f1ec002efee910ede76407719b8c908a0830",
+    "interpretive/method_decisions.json": "3c901cda386c61146aa1d2be0ea939dfe84a73934f724ade1e6411586048a5d5",
+    "structural/findings.json": "1121dd58cfa6feae319183e243d07bbd120b1d348240afd71cd931a15d5d4989",
+    "interpretive/findings.json": "dbc302ea45c8943132fd2ececa6bf230986da6e368233c21a2e275ab560b9066"
+  },
+  "ledger_sha256": "798d3ac13a93434128da12a1ab522b12116f4c324cb78f58cf95002325a15c0c",
+  "research_inventory_sha256": "e1ec18fae254d515394a9bea2debc2931bc8a39eeb60c246a94da466693f15b9"
+}

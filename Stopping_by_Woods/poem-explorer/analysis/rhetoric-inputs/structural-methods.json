@@ -1,0 +1,684 @@
+{
+  "format": "frost-method-application-v1",
+  "records": [
+    {
+      "inventory_id": "01.01",
+      "id": "01.01",
+      "label": "Alliteration",
+      "status": "observed",
+      "execution_mode": "existing_code",
+      "action": "Reran pinned CodexMusica plus the existing audited English contract on all 5778 occurrence pairs, in annotated and all-dictionary modes; retained positive-evidence alliteration witnesses.",
+      "finding_ids": [
+        "S01"
+      ],
+      "limitation": "",
+      "source_urls": [
+        "https://github.com/WeningerII/CodexMusica/blob/022fb015a9c567712e873fbf63f8e19a0ae2b417/lyric-harness/quality/relations.py"
+      ],
+      "research_method": "Phonological onset agreement",
+      "research_scope": "Native alliteration relation and audited English pair contracts; positive consonant evidence required. Pronunciation selection remains contextual."
+    },
+    {
+      "inventory_id": "01.02",
+      "id": "01.02",
+      "label": "Assonance",
+      "status": "observed",
+      "execution_mode": "existing_code",
+      "action": "Reran pinned CodexMusica plus the existing audited English contract on all 5778 occurrence pairs, in annotated and all-dictionary modes; retained positive-evidence assonance witnesses.",
+      "finding_ids": [
+        "S02"
+      ],
+      "limitation": "",
+      "source_urls": [
+        "https://github.com/WeningerII/CodexMusica/blob/022fb015a9c567712e873fbf63f8e19a0ae2b417/lyric-harness/quality/relations.py"
+      ],
+      "research_method": "Vowel agreement",
+      "research_scope": "Native assonance relation; retain nonempty vowel evidence and pronunciation alternatives. Does not imply exclusivity with consonance."
+    },
+    {
+      "inventory_id": "01.03",
+      "id": "01.03",
+      "label": "Consonance",
+      "status": "observed",
+      "execution_mode": "existing_code",
+      "action": "Reran pinned CodexMusica plus the existing audited English contract on all 5778 occurrence pairs, in annotated and all-dictionary modes; retained positive-evidence coda consonance witnesses.",
+      "finding_ids": [
+        "S03"
+      ],
+      "limitation": "",
+      "source_urls": [
+        "https://github.com/WeningerII/CodexMusica/blob/022fb015a9c567712e873fbf63f8e19a0ae2b417/lyric-harness/quality/relations.py"
+      ],
+      "research_method": "Consonant/coda agreement",
+      "research_scope": "Native consonance relation with positive consonant evidence; empty codas must not produce a match."
+    },
+    {
+      "inventory_id": "01.12",
+      "id": "01.12",
+      "label": "Rhyme",
+      "status": "observed",
+      "execution_mode": "existing_code",
+      "action": "Reran pinned CodexMusica plus the existing audited English contract on all 5778 occurrence pairs, in annotated and all-dictionary modes; retained positive-evidence rhyme witnesses.",
+      "finding_ids": [
+        "S04"
+      ],
+      "limitation": "",
+      "source_urls": [
+        "https://github.com/WeningerII/CodexMusica/blob/022fb015a9c567712e873fbf63f8e19a0ae2b417/lyric-harness/quality/relations.py"
+      ],
+      "research_method": "Stress-anchored phonological rhyme relations",
+      "research_scope": "Existing rhyme schemas and corrected complete-rime comparisons. This confirms methods for rhyme, not universal support for every historical/performance-dependent subtype; missing judges remain missing."
+    },
+    {
+      "inventory_id": "01.04",
+      "id": "01.04",
+      "label": "Paroemion",
+      "status": "checked_no_match",
+      "execution_mode": "this_run_adaptation",
+      "action": "Computed the source-declared nonempty onset fraction for every line; all 16 fractions are below 0.8.",
+      "finding_ids": [],
+      "limitation": "Annotated selected pronunciation; onset_fraction rule reimplemented transparently in this-run adapter, not native full figure grader.",
+      "source_urls": [
+        "https://github.com/WeningerII/CodexMusica/blob/022fb015a9c567712e873fbf63f8e19a0ae2b417/lyric-harness/quality/relations.py",
+        "https://rhetoric.byu.edu/Figures/Groupings/of%20Repetition.htm"
+      ],
+      "research_method": "Native schema measures the fraction of line words sharing a phonological onset.",
+      "research_scope": "Threshold 0.8 implements a nearly-every-word reading; reject or explicitly treat empty onsets and choose pronunciation alternatives before deployment."
+    },
+    {
+      "inventory_id": "01.06",
+      "id": "01.06",
+      "label": "Homoioteleuton (homoeoteleuton, homeoteleuton)",
+      "status": "observed",
+      "execution_mode": "existing_code",
+      "action": "Reran the existing E63 bound-pair route on all 5778 pairs; five positive-evidence pairs remain.",
+      "finding_ids": [
+        "S06"
+      ],
+      "limitation": "Source-declared morphology scope; grammatical-affix identity is not thereby established.",
+      "source_urls": [
+        "https://github.com/WeningerII/CodexMusica/blob/022fb015a9c567712e873fbf63f8e19a0ae2b417/lyric-harness/quality/relations.py"
+      ],
+      "research_method": "Matching endings with declared morphology",
+      "research_scope": "Native homoioteleuton schema plus existing bound-pair route; final nucleus, coda, prominence and declared affix condition. The chosen ending/morphological scope is explicit."
+    },
+    {
+      "inventory_id": "02.01",
+      "id": "02.01",
+      "label": "Anaphora",
+      "status": "observed",
+      "execution_mode": "existing_code_and_this_run_adaptation",
+      "action": "Executed PRD on all lines and all six sentences, with default and empty stop filters. Verified the full repeated line with bounded comparison.",
+      "finding_ids": [
+        "R01"
+      ],
+      "limitation": "Line-unit label; native no-stop line anaphora raises IndexError at the final duplicated lines.",
+      "source_urls": [
+        "https://github.com/priscian/rhetorica/blob/dc3367c138d266001cbd1b6a2dd5bc715c74eabd/code/RhetoricalFigure.cs"
+      ],
+      "research_method": "Repeated beginnings",
+      "research_scope": "Rhetorica FindAnaphora and PRD repeated-prefix rules; sentence/line units and thresholds require adaptation."
+    },
+    {
+      "inventory_id": "02.02",
+      "id": "02.02",
+      "label": "Epistrophe / epiphora",
+      "status": "observed",
+      "execution_mode": "existing_code",
+      "action": "Executed PRD epiphora in both unit modes and stop policies; line ends sleep / sleep match.",
+      "finding_ids": [
+        "R01"
+      ],
+      "limitation": "Verse-line units, not two independent sentences.",
+      "source_urls": [
+        "https://github.com/priscian/rhetorica/blob/dc3367c138d266001cbd1b6a2dd5bc715c74eabd/code/RhetoricalFigure.cs"
+      ],
+      "research_method": "Repeated endings",
+      "research_scope": "Rhetorica FindEpistrophe and PRD terminal recurrence rules."
+    },
+    {
+      "inventory_id": "02.03",
+      "id": "02.03",
+      "label": "Symploce",
+      "status": "interpretation_or_component_only",
+      "execution_mode": "existing_code",
+      "action": "Executed PRD combined anaphora/epiphora rule; it emits a line-unit symploce for the duplicate ending.",
+      "finding_ids": [
+        "R01"
+      ],
+      "limitation": "No variable middle. This is not unqualified symploce under narrower definitions.",
+      "source_urls": [
+        "https://github.com/priscian/rhetorica/blob/dc3367c138d266001cbd1b6a2dd5bc715c74eabd/code/RhetoricalFigure.cs"
+      ],
+      "research_method": "Combined beginning and ending repetition",
+      "research_scope": "Rhetorica FindSymploce and PRD combination; simultaneous component labels were exercised in the first run."
+    },
+    {
+      "inventory_id": "02.04",
+      "id": "02.04",
+      "label": "Anadiplosis",
+      "status": "checked_no_match",
+      "execution_mode": "existing_code",
+      "action": "Executed PRD anadiplosis on the whole poem with line and sentence units and both stop policies; all four outputs are empty.",
+      "finding_ids": [],
+      "limitation": "Scoped to the native boundary rule.",
+      "source_urls": [
+        "https://github.com/priscian/rhetorica/blob/dc3367c138d266001cbd1b6a2dd5bc715c74eabd/code/RhetoricalFigure.cs"
+      ],
+      "research_method": "Ending-to-beginning recurrence",
+      "research_scope": "Rhetorica FindAnadiplosis and PRD; excludes the weaker unordered-quarter shortcut in another package."
+    },
+    {
+      "inventory_id": "02.05",
+      "id": "02.05",
+      "label": "Epanalepsis",
+      "status": "checked_no_match",
+      "execution_mode": "existing_code",
+      "action": "Executed PRD epanalepsis on the whole poem with line and sentence units and both stop policies; all four outputs are empty.",
+      "finding_ids": [],
+      "limitation": "Scoped to the native boundary rule.",
+      "source_urls": [
+        "https://github.com/priscian/rhetorica/blob/dc3367c138d266001cbd1b6a2dd5bc715c74eabd/code/RhetoricalFigure.cs"
+      ],
+      "research_method": "Beginning-to-ending recurrence",
+      "research_scope": "Rhetorica FindEpanalepsis and PRD bounded recurrence."
+    },
+    {
+      "inventory_id": "02.06",
+      "id": "02.06",
+      "label": "Epizeuxis",
+      "status": "observed",
+      "execution_mode": "existing_code_and_this_run_adaptation",
+      "action": "Executed PRD phrase-capable epizeuxis; no-stop runs find final-line doubling. Bounded adapter verifies all 14 occurrences. Also checked all 107 adjacent word pairs: no single-word doubling.",
+      "finding_ids": [
+        "R01"
+      ],
+      "limitation": "Observed under phrase-inclusive source rule; strict single-word definition has no match. Native output context can extend one index past poem end; exact witness tokens were separately validated.",
+      "source_urls": [
+        "https://github.com/priscian/rhetorica/blob/dc3367c138d266001cbd1b6a2dd5bc715c74eabd/code/RhetoricalFigure.cs"
+      ],
+      "research_method": "Adjacent word repetition",
+      "research_scope": "Rhetorica FindEpizeuxis and PRD. Known span-handling defects in one implementation require repair, not invention of the method."
+    },
+    {
+      "inventory_id": "02.08",
+      "id": "02.08",
+      "label": "Diacope",
+      "status": "interpretation_or_component_only",
+      "execution_mode": "existing_code",
+      "action": "Executed PRD diacope in all four modes and reviewed raw outputs. I think I and repeated final-line content words are formal matches.",
+      "finding_ids": [
+        "R03",
+        "R01"
+      ],
+      "limitation": "Function-word matches and constituents of complete line repetition do not automatically establish a separate emphatic device.",
+      "source_urls": [
+        "https://github.com/text-processing/prose-rhythm-detector/tree/6ca3e48612f5bc6c9df80e3d84bcad8ee46f4179"
+      ],
+      "research_method": "Recurrence separated by intervening words",
+      "research_scope": "Inspected diacope methods with explicit windows and witnesses."
+    },
+    {
+      "inventory_id": "02.11",
+      "id": "02.11",
+      "label": "Ploce",
+      "status": "observed",
+      "execution_mode": "this_run_adaptation",
+      "action": "Enumerated all exact word recurrences and source-inspired content-word recurrence within two-sentence windows.",
+      "finding_ids": [
+        "R02"
+      ],
+      "limitation": "This-run exact lexical adapter. Rhetorica’s full tokenizer, stoplist and subsequence engine were not executed; rhetorical emphasis is not classified.",
+      "source_urls": [
+        "https://journals.sagepub.com/doi/full/10.3233/AAC-170030",
+        "https://github.com/priscian/rhetorica/blob/dc3367c138d266001cbd1b6a2dd5bc715c74eabd/code/RhetoricalFigure.cs",
+        "https://rhetoric.byu.edu/Figures/Groupings/of%20Repetition.htm"
+      ],
+      "research_method": "Rhetorica FindPloce enumerates recurring one-token content-word witnesses. This qualifies for the explicitly formal, unconstrained lexical-repetition sense.",
+      "research_scope": "Default two-sentence window; stop words filtered. Does not establish emphasis, changed meaning, or every historical ploce sense."
+    },
+    {
+      "inventory_id": "02.12",
+      "id": "02.12",
+      "label": "Conduplicatio",
+      "status": "interpretation_or_component_only",
+      "execution_mode": "this_run_adaptation",
+      "action": "Applied explicitly bounded 2–8 token, two-sentence, nonadjacent repeated-phrase enumeration; retained raw candidates from the final repetition.",
+      "finding_ids": [
+        "R01"
+      ],
+      "limitation": "The complete repeated lines are adjacent, so fail the source nonadjacency condition. Shorter subphrases can pass but are contained in the primary line repetition. Native Rhetorica was not executed.",
+      "source_urls": [
+        "https://ceur-ws.org/Vol-2969/paper42-CAOS.pdf",
+        "https://github.com/priscian/rhetorica/blob/dc3367c138d266001cbd1b6a2dd5bc715c74eabd/code/RhetoricalFigure.cs",
+        "https://rhetoric.byu.edu/Figures/Groupings/of%20Repetition.htm"
+      ],
+      "research_method": "FindConduplicatio finds repeated nonadjacent subsequences under the source-defined unpatterned lexical-repetition sense.",
+      "research_scope": "Default minimum two tokens and two-sentence window; all-stop-word spans excluded. No emphasis or semantic-change decision."
+    },
+    {
+      "inventory_id": "02.14",
+      "id": "02.14",
+      "label": "Polyptoton",
+      "status": "observed",
+      "execution_mode": "manual_rule_application",
+      "action": "Reviewed word forms throughout poem; manually checked stop/stopping and dark/darkest and anchored both occurrence pairs.",
+      "finding_ids": [
+        "R04"
+      ],
+      "limitation": "An inflection-inclusive sense is applied. Rhetorica WordNet derivational-family lookup was not executed.",
+      "source_urls": [
+        "https://github.com/priscian/rhetorica/blob/dc3367c138d266001cbd1b6a2dd5bc715c74eabd/code/RhetoricalFigure.cs"
+      ],
+      "research_method": "Different forms from a common derivational family",
+      "research_scope": "FindPolyptoton compares derivational-form sets and excludes identical forms."
+    },
+    {
+      "inventory_id": "03.07",
+      "id": "03.07",
+      "label": "Pleonasm",
+      "status": "not_executed",
+      "execution_mode": "manual_rule_application",
+      "action": "Did not execute the LanguageTool English redundancy phrase rule.",
+      "finding_ids": [],
+      "limitation": "A finite source phrase list was researched; complete configured Java/runtime execution is unavailable here. No poem-wide absence claim.",
+      "source_urls": [
+        "https://github.com/languagetool-org/languagetool/blob/e241b381d8b622c7e8bdd8ead7e14022ea0ee3de/languagetool-language-modules/en/src/main/java/org/languagetool/rules/en/EnglishRedundancyRule.java",
+        "https://rhetoric.byu.edu/Figures/Groupings/Vices.htm"
+      ],
+      "research_method": "An inspected English phrase list and rule class detect specified semantically redundant expressions.",
+      "research_scope": "A finite lexical subset of pleonasm, disabled by default; context may make repetition deliberate or useful."
+    },
+    {
+      "inventory_id": "04.01",
+      "id": "04.01",
+      "label": "Parallelism",
+      "status": "observed",
+      "execution_mode": "manual_rule_application",
+      "action": "Manually compared promises to keep and miles to go; both have plural-noun + infinitival-clause form.",
+      "finding_ids": [
+        "G01"
+      ],
+      "limitation": "Exact repeated final line supplies additional trivial parallelism. The external parser-based algorithm was not executed.",
+      "source_urls": [
+        "https://uwspace.uwaterloo.ca/bitstreams/73963787-4564-44b2-8bca-169f3abb9cc8/download",
+        "https://arxiv.org/html/2312.00100v1",
+        "https://uwspace.uwaterloo.ca/items/754efadc-3aa6-4793-8d5e-a911794dbc24",
+        "https://aclanthology.org/C16-1076/"
+      ],
+      "research_method": "An English parison algorithm supplies a scoped method for syntactic parallelism.",
+      "research_scope": "Structural repetition only; broad semantic parallelism remains open. The separate Song2016 method is Chinese, not English evidence."
+    },
+    {
+      "inventory_id": "04.02",
+      "id": "04.02",
+      "label": "Isocolon",
+      "status": "interpretation_or_component_only",
+      "execution_mode": "manual_rule_application",
+      "action": "Compared the three-word noun-infinitive phrases and the identical final lines.",
+      "finding_ids": [
+        "G01",
+        "R01"
+      ],
+      "limitation": "Three-word phrases differ in syllabic length (five versus three); exact duplicated lines do not independently establish an equal-cola construction. Rhetorica/Webis isocolon routines were not executed.",
+      "source_urls": [
+        "https://github.com/priscian/rhetorica/blob/dc3367c138d266001cbd1b6a2dd5bc715c74eabd/code/RhetoricalFigure.cs"
+      ],
+      "research_method": "Comparison of grammatical structures and lengths",
+      "research_scope": "Rhetorica and Webis isocolon methods; equal-colon interpretation follows the selected implementation."
+    },
+    {
+      "inventory_id": "04.03",
+      "id": "04.03",
+      "label": "Parison",
+      "status": "interpretation_or_component_only",
+      "execution_mode": "manual_rule_application",
+      "action": "Supplied manually reviewed grammatical shape for the two parallel noun-infinitive phrases.",
+      "finding_ids": [
+        "G01"
+      ],
+      "limitation": "The published full phrase-policy/constituent-tree algorithm was not run; this is supporting syntactic analysis, not a claim of native Parison detection.",
+      "source_urls": [
+        "https://uwspace.uwaterloo.ca/bitstreams/73963787-4564-44b2-8bca-169f3abb9cc8/download",
+        "https://github.com/priscian/rhetorica/blob/dc3367c138d266001cbd1b6a2dd5bc715c74eabd/code/RhetoricalFigure.cs",
+        "https://arxiv.org/html/2312.00100v1",
+        "https://uwspace.uwaterloo.ca/items/754efadc-3aa6-4793-8d5e-a911794dbc24"
+      ],
+      "research_method": "The published English procedure matches constituent-branch structure and grammatical tags between eligible phrases.",
+      "research_scope": "Exact syntactic matching under the paper's phrase policy; parser errors and nonexact parallelism remain limitations."
+    },
+    {
+      "inventory_id": "04.04",
+      "id": "04.04",
+      "label": "Bicolon",
+      "status": "interpretation_or_component_only",
+      "execution_mode": "manual_rule_application",
+      "action": "Reviewed the two final repeated units and the parallel noun-infinitive phrases.",
+      "finding_ids": [
+        "R01",
+        "G01"
+      ],
+      "limitation": "A broad two-part description is available; the Webis two-isocolon branch was not executed and equal independent cola were not established.",
+      "source_urls": [
+        "https://github.com/webis-de/argmining20-rhetorical-devices/blob/1386886fb7aec949473c7c5357e0edc0cc6bdc04/src/rhetoricDetection/SyntacticRhetoricSimpleAnnotator.java"
+      ],
+      "research_method": "Two-part isocolon branch",
+      "research_scope": "Actual annotateIsocolon branch. Common Isocolon output needs subtype mapping; nested-result suppression needs adaptation."
+    },
+    {
+      "inventory_id": "04.05",
+      "id": "04.05",
+      "label": "Tricolon",
+      "status": "checked_no_match",
+      "execution_mode": "manual_rule_application",
+      "action": "Manually reviewed every sentence for the researched equal-structure three-colon construction; none established.",
+      "finding_ids": [],
+      "limitation": "Lovely, dark and deep is a three-adjective list, not three equal clauses. A loose three-part-list use of tricolon remains a possible terminology choice; the Webis branch was not executed.",
+      "source_urls": [
+        "https://github.com/webis-de/argmining20-rhetorical-devices/blob/1386886fb7aec949473c7c5357e0edc0cc6bdc04/src/rhetoricDetection/SyntacticRhetoricSimpleAnnotator.java"
+      ],
+      "research_method": "Three-part isocolon branch",
+      "research_scope": "Actual annotateIsocolon branch, not merely the weaker comma-only tricolon cue in another project."
+    },
+    {
+      "inventory_id": "04.06",
+      "id": "04.06",
+      "label": "Tetracolon",
+      "status": "checked_no_match",
+      "execution_mode": "manual_rule_application",
+      "action": "Manually reviewed every sentence for the researched equal-structure four-colon construction; none established.",
+      "finding_ids": [],
+      "limitation": "A quatrain is not automatically tetracolon. The Webis branch was not executed.",
+      "source_urls": [
+        "https://github.com/webis-de/argmining20-rhetorical-devices/blob/1386886fb7aec949473c7c5357e0edc0cc6bdc04/src/rhetoricDetection/SyntacticRhetoricSimpleAnnotator.java"
+      ],
+      "research_method": "Four-part isocolon branch",
+      "research_scope": "Actual annotateIsocolon branch. Counted separately because the master lists tetracolon separately."
+    },
+    {
+      "inventory_id": "04.09",
+      "id": "04.09",
+      "label": "Chiasmus",
+      "status": "checked_no_match",
+      "execution_mode": "existing_code_and_manual_rule_application",
+      "action": "Executed PRD’s lexical chiasmus candidate rule in all four modes (no outputs), then manually reviewed clause/phrase structure for grammatical reversal.",
+      "finding_ids": [],
+      "limitation": "The PRD rule is a lexical candidate routine, not proof of broad grammatical coverage; Rhetorica structural chiasmus was not run. No local grammatical ABBA structure was established.",
+      "source_urls": [
+        "https://github.com/priscian/rhetorica/blob/dc3367c138d266001cbd1b6a2dd5bc715c74eabd/code/RhetoricalFigure.cs"
+      ],
+      "research_method": "Grammatical-structure reversal",
+      "research_scope": "FindChiasmus targets structural reversal; this does not claim coverage of every conceptual chiasmus."
+    },
+    {
+      "inventory_id": "04.10",
+      "id": "04.10",
+      "label": "Antimetabole",
+      "status": "checked_no_match",
+      "execution_mode": "this_run_adaptation",
+      "action": "Enumerated strict one-sentence content-word ABBA candidates over all six sentences; no candidate survives.",
+      "finding_ids": [],
+      "limitation": "Declared one-word A/B units and local stoplist. This does not exhaust multiword or conceptual reversal; native Rhetorica not run.",
+      "source_urls": [
+        "https://github.com/priscian/rhetorica/blob/dc3367c138d266001cbd1b6a2dd5bc715c74eabd/code/RhetoricalFigure.cs"
+      ],
+      "research_method": "Lexical reversal",
+      "research_scope": "Separate antimetabole implementation; additional ABBA candidate/ranking research was inspected."
+    },
+    {
+      "inventory_id": "06.01",
+      "id": "06.01",
+      "label": "Ellipsis",
+      "status": "interpretation_or_component_only",
+      "execution_mode": "manual_rule_application",
+      "action": "Reviewed the ending’s shared I have construction and sound’s contraction.",
+      "finding_ids": [
+        "G01"
+      ],
+      "limitation": "Shared-verb noun-phrase coordination and sound is contraction do not by themselves establish the researched VP-ellipsis subtype. ViPER was not available; broader literary omission remains open.",
+      "source_urls": [
+        "https://aclanthology.org/2016.lilt-13.1.pdf",
+        "https://universaldependencies.org/u/dep/orphan.html"
+      ],
+      "research_method": "Explicit English knowledge-based rules detect selected VP ellipsis; UD supplies an annotation representation for additional grammatical ellipsis.",
+      "research_scope": "This confirms scoped methods, not all rhetorical omission, reliable poem-wide recall or publicly runnable ViPER software."
+    },
+    {
+      "inventory_id": "06.04",
+      "id": "06.04",
+      "label": "Polysyndeton",
+      "status": "interpretation_or_component_only",
+      "execution_mode": "existing_code_and_manual_rule_application",
+      "action": "Executed PRD polysyndeton. Sentence mode emits and in L13, L15, L16; manual scope review separates adjective and noun-phrase coordination.",
+      "finding_ids": [
+        "R01"
+      ],
+      "limitation": "The raw mixed-level match is not presented as proven excessive same-level conjunction repetition. Repeated And at final line openings belongs to the exact doubling.",
+      "source_urls": [
+        "https://github.com/priscian/rhetorica/blob/dc3367c138d266001cbd1b6a2dd5bc715c74eabd/code/RhetoricalFigure.cs"
+      ],
+      "research_method": "Repeated conjunctions",
+      "research_scope": "Concrete polysyndeton methods in Rhetorica, PRD and Webis; unit/threshold policies remain explicit."
+    },
+    {
+      "inventory_id": "06.12",
+      "id": "06.12",
+      "label": "Apposition",
+      "status": "checked_no_match",
+      "execution_mode": "manual_rule_application",
+      "action": "Applied the reviewed apposition diagnostics manually throughout the poem; no co-referring noun-phrase apposition established.",
+      "finding_ids": [],
+      "limitation": "The darkest evening of the year is a temporal adjunct, not a renaming of frozen lake. No parser run.",
+      "source_urls": [
+        "https://universaldependencies.org/u/dep/appos.html"
+      ],
+      "research_method": "Explicit apposition diagnostics and a typed dependency provide a repeatable English annotation procedure.",
+      "research_scope": "Restricted syntactic apposition; excludes title/name and other constructions the guidelines distinguish."
+    },
+    {
+      "inventory_id": "07.13",
+      "id": "07.13",
+      "label": "Parataxis",
+      "status": "observed",
+      "execution_mode": "manual_rule_application",
+      "action": "Applied the juxtaposed independent-clause diagnostic to the L2 semicolon and L3–4 clause.",
+      "finding_ids": [
+        "G02"
+      ],
+      "limitation": "Manual structural reading, not an automatic UD parse.",
+      "source_urls": [
+        "https://universaldependencies.org/u/dep/parataxis.html"
+      ],
+      "research_method": "Official guidelines identify paratactic clause relations and encode them with a typed edge.",
+      "research_scope": "Only the juxtaposed-clause subtype is confirmed; UD also uses this edge for bylines, reporting parentheticals and tag questions."
+    },
+    {
+      "inventory_id": "07.14",
+      "id": "07.14",
+      "label": "Hypotaxis",
+      "status": "observed",
+      "execution_mode": "manual_rule_application",
+      "action": "Identified finite before-clauses, the embedded if-question, and nonfinite dependent purpose/extraposed clauses with exact spans.",
+      "finding_ids": [
+        "G03"
+      ],
+      "limitation": "Manual structural annotation. CorpusSearch requires trees and was not executed.",
+      "source_urls": [
+        "https://walkden.space/Walkden_2025_Parataxis_and_hypotaxis.pdf",
+        "https://github.com/gwalkden/hypotaxis/tree/a5c7f3796947d1741b37f283538c27c4d291e05f",
+        "https://universaldependencies.org/u/overview/complex-syntax.html"
+      ],
+      "research_method": "CorpusSearch queries identify a declared set of finite subordinate and infinitival clauses in Penn-style trees.",
+      "research_scope": "Structural hypotaxis given annotated input; English historical corpora are supported. Not a raw-text parser or a verdict about literary style."
+    },
+    {
+      "inventory_id": "08.06",
+      "id": "08.06",
+      "label": "Syncope",
+      "status": "not_executed",
+      "execution_mode": "manual_rule_application",
+      "action": "No LaROS lexical lookup was run.",
+      "finding_ids": [],
+      "limitation": "The published method depends on a finite prelisted cut-form lexicon; the complete English list and runnable implementation were not recovered. No absence claim follows.",
+      "source_urls": [
+        "https://computationalrhetoricworkshop.uwaterloo.ca/wp-content/uploads/2016/06/LassoingRhetoricWithOWLAndSWRL.pdf",
+        "https://aclanthology.org/W16-2409.pdf"
+      ],
+      "research_method": "Published LaROS procedure scans raw text for prelisted medial-cut forms and applies the Syncope rule.",
+      "research_scope": "Finite lexical lookup only; no general deletion detector, complete lexicon or runnable package recovered."
+    },
+    {
+      "inventory_id": "08.07",
+      "id": "08.07",
+      "label": "Apocope",
+      "status": "not_executed",
+      "execution_mode": "manual_rule_application",
+      "action": "No LaROS lexical lookup was run.",
+      "finding_ids": [],
+      "limitation": "The published method depends on a finite prelisted cut-form lexicon; the complete English list and runnable implementation were not recovered. No absence claim follows.",
+      "source_urls": [
+        "https://computationalrhetoricworkshop.uwaterloo.ca/wp-content/uploads/2016/06/LassoingRhetoricWithOWLAndSWRL.pdf",
+        "https://aclanthology.org/W16-2409.pdf"
+      ],
+      "research_method": "Published LaROS procedure scans raw text for prelisted final-cut forms and applies the Apocope rule.",
+      "research_scope": "Finite lexical lookup only; no general deletion detector, complete lexicon or runnable package recovered."
+    },
+    {
+      "inventory_id": "23.03",
+      "id": "23.03",
+      "label": "Enjambment",
+      "status": "observed",
+      "execution_mode": "existing_code_component_and_manual_rule_application",
+      "action": "Executed the unchanged JaDe punctuation gate on every line, then manually reviewed each candidate’s actual grammar; all 15 boundaries have punctuation/grammar/pause fields.",
+      "finding_ids": [
+        "G04"
+      ],
+      "limitation": "Upstream POS/dependency classifier was not run. Strong and loose continuation are distinguished; no performed-pause claim.",
+      "source_urls": [
+        "https://tei-c.org/release/doc/tei-p5-doc/en/html/VE.html",
+        "https://publication-theses.unistra.fr/public/memoires/2020/FLCE/2020_monget_eulalie.pdf",
+        "https://github.com/MongetE/JaDe"
+      ],
+      "research_method": "JaDe implements English enjambment rules over POS tags and dependency edges crossing marked line boundaries.",
+      "research_scope": "A bounded English verse prototype: punctuation-ending lines are skipped; selected grammatical patterns are recognized; priority logic suppresses alternatives. In addition, processor constructs dependency_dict with token.text as key, so repeated word occurrences can overwrite one another and corrupt positional reasoning. This is a source-level inference, not an executed failure claim."
+    },
+    {
+      "inventory_id": "23.07",
+      "id": "23.07",
+      "label": "Rhythmic patterning",
+      "status": "interpretation_or_component_only",
+      "execution_mode": "this_run_adaptation",
+      "action": "Counted vowels in the preserved pronunciation realization at every line; retained the existing editorial metrical grid.",
+      "finding_ids": [],
+      "limitation": "This is syllable-count/input verification. Prosodic automated scansion was not executed; it is not a new metrical analysis.",
+      "source_urls": [
+        "https://github.com/quadrismegistus/prosodic",
+        "https://github.com/quadrismegistus/prosodic/blob/07016977b449a43c866d0fb75f9f7037cad243ad/prosodic/analysis/feet.py",
+        "https://tei-c.org/release/doc/tei-p5-doc/en/html/VE.html"
+      ],
+      "research_method": "Inspected code derives weak/strong patterns, foot spans and substituted foot direction relative to line headedness.",
+      "research_scope": "Scansion is pronunciation/reading dependent; code not run here and does not resolve every legitimate alternative."
+    },
+    {
+      "inventory_id": "23.08",
+      "id": "23.08",
+      "label": "Metrical variation",
+      "status": "not_executed",
+      "execution_mode": "manual_rule_application",
+      "action": "Preserved the existing editorial pronunciation and metrical alternatives without rerunning Prosodic.",
+      "finding_ids": [],
+      "limitation": "The external scansion runtime/model dependencies are unavailable. This run does not claim exhaustive performance alternatives.",
+      "source_urls": [
+        "https://github.com/quadrismegistus/prosodic",
+        "https://github.com/quadrismegistus/prosodic/blob/07016977b449a43c866d0fb75f9f7037cad243ad/prosodic/analysis/feet.py",
+        "https://tei-c.org/release/doc/tei-p5-doc/en/html/VE.html"
+      ],
+      "research_method": "Inspected code derives weak/strong patterns, foot spans and substituted foot direction relative to line headedness.",
+      "research_scope": "Scansion is pronunciation/reading dependent; code not run here and does not resolve every legitimate alternative."
+    },
+    {
+      "inventory_id": "24.01",
+      "id": "24.01",
+      "label": "Acrostic",
+      "status": "interpretation_or_component_only",
+      "execution_mode": "this_run_adaptation",
+      "action": "Extracted all 16 line initials as WHHTMTBTHTTOTBAA.",
+      "finding_ids": [],
+      "limitation": "AcrosticSleuth meaningfulness ranking and English resources were not executed. Initial extraction alone is not an acrostic finding.",
+      "source_urls": [
+        "https://aclanthology.org/2025.findings-naacl.414.pdf",
+        "https://github.com/acrostics/acrostic-sleuth/tree/10c90b04bcf20a6442c85f1d8f4f709c3ba6870b",
+        "https://github.com/Yomguithereal/rhetorical/blob/c9a167399563162e617b62312d7b3f672f98b5d8/src/poetry/acrostic.js",
+        "https://aclanthology.org/2025.findings-naacl.414/"
+      ],
+      "research_method": "Initial-letter candidates are ranked for meaningfulness using unigram token probabilities versus a chance-character model.",
+      "research_scope": "English LINE/WORD modes; statistical ranking is not proof of authorial intention. Length and repetition filters limit recall."
+    },
+    {
+      "inventory_id": "24.05",
+      "id": "24.05",
+      "label": "Anagram",
+      "status": "checked_no_match",
+      "execution_mode": "this_run_adaptation",
+      "action": "Compared exact normalized letter multisets for all 5778 word-occurrence pairs, excluding identical spellings; no nontrivial distinct-word anagram pair.",
+      "finding_ids": [],
+      "limitation": "Scope is complete individual words, not every arbitrary phrase/subsequence in the poem. Source-predicate adaptation, not the upstream JavaScript package.",
+      "source_urls": [
+        "https://github.com/Yomguithereal/rhetorical/tree/c9a167399563162e617b62312d7b3f672f98b5d8"
+      ],
+      "research_method": "Exact anagram predicate",
+      "research_scope": "Letter multiset/count comparison on selected sequences; normalization and candidate enumeration remain implementation choices."
+    },
+    {
+      "inventory_id": "24.06",
+      "id": "24.06",
+      "label": "Palindrome",
+      "status": "checked_no_match",
+      "execution_mode": "this_run_adaptation",
+      "action": "Checked every whole word of at least two letters, all full lines, and the full poem for normalized reversal equality; no match.",
+      "finding_ids": [],
+      "limitation": "One-letter I and a are deliberately excluded as trivial. Arbitrary cross-word substrings are not exhaustively enumerated. Source-predicate adaptation.",
+      "source_urls": [
+        "https://github.com/Yomguithereal/rhetorical/tree/c9a167399563162e617b62312d7b3f672f98b5d8"
+      ],
+      "research_method": "Exact palindrome predicate",
+      "research_scope": "Sequence reversal/equality on selected strings, under an explicit normalization policy."
+    },
+    {
+      "inventory_id": "24.07",
+      "id": "24.07",
+      "label": "Lipogram",
+      "status": "interpretation_or_component_only",
+      "execution_mode": "this_run_adaptation",
+      "action": "Computed the exact absent ASCII-letter set for the whole poem, excluding title: j, x.",
+      "finding_ids": [],
+      "limitation": "A physical letter omission is established; there is no evidence it was an intended lipogram. New set-comparison implementation, not upstream Rust execution.",
+      "source_urls": [
+        "https://github.com/TheAlgorithms/Rust/blob/fed66cb0c74c4a939ec5163648458a8c2b46fd4c/src/string/pangram.rs"
+      ],
+      "research_method": "An inspected function checks the exact set of absent English letters.",
+      "research_scope": "Use a nonempty declared omission set and a punctuation policy; physical absence does not prove intentional constraint."
+    },
+    {
+      "inventory_id": "24.08",
+      "id": "24.08",
+      "label": "Pangram",
+      "status": "checked_no_match",
+      "execution_mode": "this_run_adaptation",
+      "action": "Computed the whole-poem ASCII-letter set; missing j, x means it is not a pangram.",
+      "finding_ids": [],
+      "limitation": "Case-folded a–z, punctuation ignored, title excluded. New exact-predicate implementation.",
+      "source_urls": [
+        "https://github.com/TheAlgorithms/Rust/blob/fed66cb0c74c4a939ec5163648458a8c2b46fd4c/src/string/pangram.rs"
+      ],
+      "research_method": "Inspected code verifies all 26 English letters and separately identifies one-occurrence perfect pangrams.",
+      "research_scope": "ASCII English alphabet, case-folded; this checks a formal property without claiming literary intent."
+    }
+  ],
+  "status_counts": {
+    "observed": 14,
+    "checked_no_match": 11,
+    "interpretation_or_component_only": 11,
+    "not_executed": 4
+  }
+}

@@ -1,0 +1,1197 @@
+{
+  "title": "Stopping by Woods on a Snowy Evening",
+  "author": "Robert Frost",
+  "text": "Whose woods these are I think I know.\nHis house is in the village though;\nHe will not see me stopping here\nTo watch his woods fill up with snow.\nMy little horse must think it queer\nTo stop without a farmhouse near\nBetween the woods and frozen lake\nThe darkest evening of the year.\nHe gives his harness bells a shake\nTo ask if there is some mistake.\nThe only other sound’s the sweep\nOf easy wind and downy flake.\nThe woods are lovely, dark and deep,\nBut I have promises to keep,\nAnd miles to go before I sleep,\nAnd miles to go before I sleep.",
+  "lines": [
+    {
+      "line": 1,
+      "text": "Whose woods these are I think I know.",
+      "words": [
+        "Whose",
+        "woods",
+        "these",
+        "are",
+        "I",
+        "think",
+        "I",
+        "know."
+      ],
+      "wordIds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "prior_rhetoric": "Inversion + hedge: ownership comes first; “I think” qualifies certainty. Whose / His also share /h…z/ across the line openings.",
+      "grammar": "Sentence closes; the fronted clause ends after “are”.",
+      "punctuation": ". at the end",
+      "delivery": "Flow, or pause after are ‖ before the statement of knowledge."
+    },
+    {
+      "line": 2,
+      "text": "His house is in the village though;",
+      "words": [
+        "His",
+        "house",
+        "is",
+        "in",
+        "the",
+        "village",
+        "though;"
+      ],
+      "wordIds": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prior_rhetoric": "Alliteration: His / house share /h/. The owner is associated with the village. Whose / His: pararhyme; E5 · E7 · E9 · E10.",
+      "grammar": "Main clause closes; the sentence continues through line 4.",
+      "punctuation": "; at the end",
+      "delivery": "A small reset; “though” may sound like an afterthought."
+    },
+    {
+      "line": 3,
+      "text": "He will not see me stopping here",
+      "words": [
+        "He",
+        "will",
+        "not",
+        "see",
+        "me",
+        "stopping",
+        "here"
+      ],
+      "wordIds": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "prior_rhetoric": "Internal rhyme: He / see / me share EE. will / fill links lines 3–4.",
+      "grammar": "Line 4 adds the purpose of stopping →",
+      "punctuation": "no end mark",
+      "delivery": "Carry into To watch, or briefly suspend after here."
+    },
+    {
+      "line": 4,
+      "text": "To watch his woods fill up with snow.",
+      "words": [
+        "To",
+        "watch",
+        "his",
+        "woods",
+        "fill",
+        "up",
+        "with",
+        "snow."
+      ],
+      "wordIds": [
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "prior_rhetoric": "Alliteration: watch / woods, /w/. Snow filling the woods supplies visual imagery.",
+      "grammar": "Purpose phrase and sentence close.",
+      "punctuation": ". at the end",
+      "delivery": "Close the thought; stanza silence has no fixed duration."
+    },
+    {
+      "line": 5,
+      "text": "My little horse must think it queer",
+      "words": [
+        "My",
+        "little",
+        "horse",
+        "must",
+        "think",
+        "it",
+        "queer"
+      ],
+      "wordIds": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "prior_rhetoric": "Anthropomorphism: the speaker attributes “think it queer” to the horse.",
+      "grammar": "“It” is explained by the following “To stop…” →",
+      "punctuation": "no end mark",
+      "delivery": "Flow onward, or briefly suspend the horse’s imagined judgment."
+    },
+    {
+      "line": 6,
+      "text": "To stop without a farmhouse near",
+      "words": [
+        "To",
+        "stop",
+        "without",
+        "a",
+        "farmhouse",
+        "near"
+      ],
+      "wordIds": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "prior_rhetoric": "Contrast develops: an expected farmhouse is absent from this stopping place.",
+      "grammar": "The stopping gains circumstances; location follows →",
+      "punctuation": "no end mark",
+      "delivery": "Flow into Between, or lightly separate the added setting."
+    },
+    {
+      "line": 7,
+      "text": "Between the woods and frozen lake",
+      "words": [
+        "Between",
+        "the",
+        "woods",
+        "and",
+        "frozen",
+        "lake"
+      ],
+      "wordIds": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "prior_rhetoric": "Spatial and visual imagery: woods / frozen lake place the speaker between landmarks.",
+      "grammar": "The place phrase ends; the time phrase follows →",
+      "punctuation": "no end mark",
+      "delivery": "Possible caesura after woods ‖; a small reset before line 8."
+    },
+    {
+      "line": 8,
+      "text": "The darkest evening of the year.",
+      "words": [
+        "The",
+        "darkest",
+        "evening",
+        "of",
+        "the",
+        "year."
+      ],
+      "wordIds": [
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "prior_rhetoric": "Superlative: “darkest” intensifies the setting; it does not by itself establish hyperbole.",
+      "grammar": "Time phrase and the four-line sentence close.",
+      "punctuation": ". at the end",
+      "delivery": "Close or linger on year. Do not add a syllable to evening."
+    },
+    {
+      "line": 9,
+      "text": "He gives his harness bells a shake",
+      "words": [
+        "He",
+        "gives",
+        "his",
+        "harness",
+        "bells",
+        "a",
+        "shake"
+      ],
+      "wordIds": [
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62
+      ],
+      "prior_rhetoric": "Auditory imagery: harness bells interrupt the scene. he / his / harness echo /h/.",
+      "grammar": "Main-clause core; the attributed purpose follows →",
+      "punctuation": "no end mark",
+      "delivery": "Flow into To ask, or briefly let the bell action register."
+    },
+    {
+      "line": 10,
+      "text": "To ask if there is some mistake.",
+      "words": [
+        "To",
+        "ask",
+        "if",
+        "there",
+        "is",
+        "some",
+        "mistake."
+      ],
+      "wordIds": [
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69
+      ],
+      "prior_rhetoric": "Personification: “To ask” turns the bell shake into a practical objection.",
+      "grammar": "The purpose and indirect question close the sentence.",
+      "punctuation": ". at the end",
+      "delivery": "A completed thought; no direct question mark is printed."
+    },
+    {
+      "line": 11,
+      "text": "The only other sound’s the sweep",
+      "words": [
+        "The",
+        "only",
+        "other",
+        "sound’s",
+        "the",
+        "sweep"
+      ],
+      "wordIds": [
+        70,
+        71,
+        72,
+        73,
+        74,
+        75
+      ],
+      "prior_rhetoric": "Alliteration + sibilance: sound’s / sweep repeat /s/; /z/ adds a voiced hiss.",
+      "grammar": "“sweep / Of…” continues one noun phrase →",
+      "punctuation": "apostrophe in sound’s; no end mark",
+      "delivery": "Carry sweep into Of; a suspension must preserve their link."
+    },
+    {
+      "line": 12,
+      "text": "Of easy wind and downy flake.",
+      "words": [
+        "Of",
+        "easy",
+        "wind",
+        "and",
+        "downy",
+        "flake."
+      ],
+      "wordIds": [
+        76,
+        77,
+        78,
+        79,
+        80,
+        81
+      ],
+      "prior_rhetoric": "Metaphorical, tactile imagery: “downy” likens the flake’s softness to down feathers.",
+      "grammar": "The Of-phrase and sentence close.",
+      "punctuation": ". at the end",
+      "delivery": "A gentle or distinct close; whispering is a reader’s choice."
+    },
+    {
+      "line": 13,
+      "text": "The woods are lovely, dark and deep,",
+      "words": [
+        "The",
+        "woods",
+        "are",
+        "lovely,",
+        "dark",
+        "and",
+        "deep,"
+      ],
+      "wordIds": [
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88
+      ],
+      "prior_rhetoric": "Three-part description: lovely, dark, deep; dark / deep alliterate on /d/.",
+      "grammar": "Description ends; But introduces a counterstatement →",
+      "punctuation": "commas after lovely and deep",
+      "delivery": "lovely ‖ dark is optional; the endpoint pause may be light or strong."
+    },
+    {
+      "line": 14,
+      "text": "But I have promises to keep,",
+      "words": [
+        "But",
+        "I",
+        "have",
+        "promises",
+        "to",
+        "keep,"
+      ],
+      "wordIds": [
+        89,
+        90,
+        91,
+        92,
+        93,
+        94
+      ],
+      "prior_rhetoric": "Turn / antithesis at But. Parallel noun + infinitive: promises to keep / miles to go.",
+      "grammar": "“I have” also governs the following “miles…” phrases →",
+      "punctuation": ", at the end",
+      "delivery": "Light pause, or continue to let obligations accumulate."
+    },
+    {
+      "line": 15,
+      "text": "And miles to go before I sleep,",
+      "words": [
+        "And",
+        "miles",
+        "to",
+        "go",
+        "before",
+        "I",
+        "sleep,"
+      ],
+      "wordIds": [
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101
+      ],
+      "prior_rhetoric": "Anaphoric opening + repeated ending begin the final pair. go recalls rhyme family A.",
+      "grammar": "The miles-phrase ends and is immediately repeated →",
+      "punctuation": ", at the end",
+      "delivery": "Optional pause after go ‖; a short or long gap before line 16."
+    },
+    {
+      "line": 16,
+      "text": "And miles to go before I sleep.",
+      "words": [
+        "And",
+        "miles",
+        "to",
+        "go",
+        "before",
+        "I",
+        "sleep."
+      ],
+      "wordIds": [
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108
+      ],
+      "prior_rhetoric": "Immediate full-line repetition (epizeuxis); identical sleep / sleep inside monorhyme.",
+      "grammar": "Repeated phrase and the entire sentence close.",
+      "punctuation": ". at the end",
+      "delivery": "Firm fall, fading weariness or reflective slowing; none is compulsory."
+    }
+  ],
+  "tokens": [
+    {
+      "id": "L01W01",
+      "numericId": 1,
+      "word": "Whose",
+      "line": 1,
+      "wordIndex": 1
+    },
+    {
+      "id": "L01W02",
+      "numericId": 2,
+      "word": "woods",
+      "line": 1,
+      "wordIndex": 2
+    },
+    {
+      "id": "L01W03",
+      "numericId": 3,
+      "word": "these",
+      "line": 1,
+      "wordIndex": 3
+    },
+    {
+      "id": "L01W04",
+      "numericId": 4,
+      "word": "are",
+      "line": 1,
+      "wordIndex": 4
+    },
+    {
+      "id": "L01W05",
+      "numericId": 5,
+      "word": "I",
+      "line": 1,
+      "wordIndex": 5
+    },
+    {
+      "id": "L01W06",
+      "numericId": 6,
+      "word": "think",
+      "line": 1,
+      "wordIndex": 6
+    },
+    {
+      "id": "L01W07",
+      "numericId": 7,
+      "word": "I",
+      "line": 1,
+      "wordIndex": 7
+    },
+    {
+      "id": "L01W08",
+      "numericId": 8,
+      "word": "know",
+      "line": 1,
+      "wordIndex": 8
+    },
+    {
+      "id": "L02W01",
+      "numericId": 9,
+      "word": "His",
+      "line": 2,
+      "wordIndex": 1
+    },
+    {
+      "id": "L02W02",
+      "numericId": 10,
+      "word": "house",
+      "line": 2,
+      "wordIndex": 2
+    },
+    {
+      "id": "L02W03",
+      "numericId": 11,
+      "word": "is",
+      "line": 2,
+      "wordIndex": 3
+    },
+    {
+      "id": "L02W04",
+      "numericId": 12,
+      "word": "in",
+      "line": 2,
+      "wordIndex": 4
+    },
+    {
+      "id": "L02W05",
+      "numericId": 13,
+      "word": "the",
+      "line": 2,
+      "wordIndex": 5
+    },
+    {
+      "id": "L02W06",
+      "numericId": 14,
+      "word": "village",
+      "line": 2,
+      "wordIndex": 6
+    },
+    {
+      "id": "L02W07",
+      "numericId": 15,
+      "word": "though",
+      "line": 2,
+      "wordIndex": 7
+    },
+    {
+      "id": "L03W01",
+      "numericId": 16,
+      "word": "He",
+      "line": 3,
+      "wordIndex": 1
+    },
+    {
+      "id": "L03W02",
+      "numericId": 17,
+      "word": "will",
+      "line": 3,
+      "wordIndex": 2
+    },
+    {
+      "id": "L03W03",
+      "numericId": 18,
+      "word": "not",
+      "line": 3,
+      "wordIndex": 3
+    },
+    {
+      "id": "L03W04",
+      "numericId": 19,
+      "word": "see",
+      "line": 3,
+      "wordIndex": 4
+    },
+    {
+      "id": "L03W05",
+      "numericId": 20,
+      "word": "me",
+      "line": 3,
+      "wordIndex": 5
+    },
+    {
+      "id": "L03W06",
+      "numericId": 21,
+      "word": "stopping",
+      "line": 3,
+      "wordIndex": 6
+    },
+    {
+      "id": "L03W07",
+      "numericId": 22,
+      "word": "here",
+      "line": 3,
+      "wordIndex": 7
+    },
+    {
+      "id": "L04W01",
+      "numericId": 23,
+      "word": "To",
+      "line": 4,
+      "wordIndex": 1
+    },
+    {
+      "id": "L04W02",
+      "numericId": 24,
+      "word": "watch",
+      "line": 4,
+      "wordIndex": 2
+    },
+    {
+      "id": "L04W03",
+      "numericId": 25,
+      "word": "his",
+      "line": 4,
+      "wordIndex": 3
+    },
+    {
+      "id": "L04W04",
+      "numericId": 26,
+      "word": "woods",
+      "line": 4,
+      "wordIndex": 4
+    },
+    {
+      "id": "L04W05",
+      "numericId": 27,
+      "word": "fill",
+      "line": 4,
+      "wordIndex": 5
+    },
+    {
+      "id": "L04W06",
+      "numericId": 28,
+      "word": "up",
+      "line": 4,
+      "wordIndex": 6
+    },
+    {
+      "id": "L04W07",
+      "numericId": 29,
+      "word": "with",
+      "line": 4,
+      "wordIndex": 7
+    },
+    {
+      "id": "L04W08",
+      "numericId": 30,
+      "word": "snow",
+      "line": 4,
+      "wordIndex": 8
+    },
+    {
+      "id": "L05W01",
+      "numericId": 31,
+      "word": "My",
+      "line": 5,
+      "wordIndex": 1
+    },
+    {
+      "id": "L05W02",
+      "numericId": 32,
+      "word": "little",
+      "line": 5,
+      "wordIndex": 2
+    },
+    {
+      "id": "L05W03",
+      "numericId": 33,
+      "word": "horse",
+      "line": 5,
+      "wordIndex": 3
+    },
+    {
+      "id": "L05W04",
+      "numericId": 34,
+      "word": "must",
+      "line": 5,
+      "wordIndex": 4
+    },
+    {
+      "id": "L05W05",
+      "numericId": 35,
+      "word": "think",
+      "line": 5,
+      "wordIndex": 5
+    },
+    {
+      "id": "L05W06",
+      "numericId": 36,
+      "word": "it",
+      "line": 5,
+      "wordIndex": 6
+    },
+    {
+      "id": "L05W07",
+      "numericId": 37,
+      "word": "queer",
+      "line": 5,
+      "wordIndex": 7
+    },
+    {
+      "id": "L06W01",
+      "numericId": 38,
+      "word": "To",
+      "line": 6,
+      "wordIndex": 1
+    },
+    {
+      "id": "L06W02",
+      "numericId": 39,
+      "word": "stop",
+      "line": 6,
+      "wordIndex": 2
+    },
+    {
+      "id": "L06W03",
+      "numericId": 40,
+      "word": "without",
+      "line": 6,
+      "wordIndex": 3
+    },
+    {
+      "id": "L06W04",
+      "numericId": 41,
+      "word": "a",
+      "line": 6,
+      "wordIndex": 4
+    },
+    {
+      "id": "L06W05",
+      "numericId": 42,
+      "word": "farmhouse",
+      "line": 6,
+      "wordIndex": 5
+    },
+    {
+      "id": "L06W06",
+      "numericId": 43,
+      "word": "near",
+      "line": 6,
+      "wordIndex": 6
+    },
+    {
+      "id": "L07W01",
+      "numericId": 44,
+      "word": "Between",
+      "line": 7,
+      "wordIndex": 1
+    },
+    {
+      "id": "L07W02",
+      "numericId": 45,
+      "word": "the",
+      "line": 7,
+      "wordIndex": 2
+    },
+    {
+      "id": "L07W03",
+      "numericId": 46,
+      "word": "woods",
+      "line": 7,
+      "wordIndex": 3
+    },
+    {
+      "id": "L07W04",
+      "numericId": 47,
+      "word": "and",
+      "line": 7,
+      "wordIndex": 4
+    },
+    {
+      "id": "L07W05",
+      "numericId": 48,
+      "word": "frozen",
+      "line": 7,
+      "wordIndex": 5
+    },
+    {
+      "id": "L07W06",
+      "numericId": 49,
+      "word": "lake",
+      "line": 7,
+      "wordIndex": 6
+    },
+    {
+      "id": "L08W01",
+      "numericId": 50,
+      "word": "The",
+      "line": 8,
+      "wordIndex": 1
+    },
+    {
+      "id": "L08W02",
+      "numericId": 51,
+      "word": "darkest",
+      "line": 8,
+      "wordIndex": 2
+    },
+    {
+      "id": "L08W03",
+      "numericId": 52,
+      "word": "evening",
+      "line": 8,
+      "wordIndex": 3
+    },
+    {
+      "id": "L08W04",
+      "numericId": 53,
+      "word": "of",
+      "line": 8,
+      "wordIndex": 4
+    },
+    {
+      "id": "L08W05",
+      "numericId": 54,
+      "word": "the",
+      "line": 8,
+      "wordIndex": 5
+    },
+    {
+      "id": "L08W06",
+      "numericId": 55,
+      "word": "year",
+      "line": 8,
+      "wordIndex": 6
+    },
+    {
+      "id": "L09W01",
+      "numericId": 56,
+      "word": "He",
+      "line": 9,
+      "wordIndex": 1
+    },
+    {
+      "id": "L09W02",
+      "numericId": 57,
+      "word": "gives",
+      "line": 9,
+      "wordIndex": 2
+    },
+    {
+      "id": "L09W03",
+      "numericId": 58,
+      "word": "his",
+      "line": 9,
+      "wordIndex": 3
+    },
+    {
+      "id": "L09W04",
+      "numericId": 59,
+      "word": "harness",
+      "line": 9,
+      "wordIndex": 4
+    },
+    {
+      "id": "L09W05",
+      "numericId": 60,
+      "word": "bells",
+      "line": 9,
+      "wordIndex": 5
+    },
+    {
+      "id": "L09W06",
+      "numericId": 61,
+      "word": "a",
+      "line": 9,
+      "wordIndex": 6
+    },
+    {
+      "id": "L09W07",
+      "numericId": 62,
+      "word": "shake",
+      "line": 9,
+      "wordIndex": 7
+    },
+    {
+      "id": "L10W01",
+      "numericId": 63,
+      "word": "To",
+      "line": 10,
+      "wordIndex": 1
+    },
+    {
+      "id": "L10W02",
+      "numericId": 64,
+      "word": "ask",
+      "line": 10,
+      "wordIndex": 2
+    },
+    {
+      "id": "L10W03",
+      "numericId": 65,
+      "word": "if",
+      "line": 10,
+      "wordIndex": 3
+    },
+    {
+      "id": "L10W04",
+      "numericId": 66,
+      "word": "there",
+      "line": 10,
+      "wordIndex": 4
+    },
+    {
+      "id": "L10W05",
+      "numericId": 67,
+      "word": "is",
+      "line": 10,
+      "wordIndex": 5
+    },
+    {
+      "id": "L10W06",
+      "numericId": 68,
+      "word": "some",
+      "line": 10,
+      "wordIndex": 6
+    },
+    {
+      "id": "L10W07",
+      "numericId": 69,
+      "word": "mistake",
+      "line": 10,
+      "wordIndex": 7
+    },
+    {
+      "id": "L11W01",
+      "numericId": 70,
+      "word": "The",
+      "line": 11,
+      "wordIndex": 1
+    },
+    {
+      "id": "L11W02",
+      "numericId": 71,
+      "word": "only",
+      "line": 11,
+      "wordIndex": 2
+    },
+    {
+      "id": "L11W03",
+      "numericId": 72,
+      "word": "other",
+      "line": 11,
+      "wordIndex": 3
+    },
+    {
+      "id": "L11W04",
+      "numericId": 73,
+      "word": "sound's",
+      "line": 11,
+      "wordIndex": 4
+    },
+    {
+      "id": "L11W05",
+      "numericId": 74,
+      "word": "the",
+      "line": 11,
+      "wordIndex": 5
+    },
+    {
+      "id": "L11W06",
+      "numericId": 75,
+      "word": "sweep",
+      "line": 11,
+      "wordIndex": 6
+    },
+    {
+      "id": "L12W01",
+      "numericId": 76,
+      "word": "Of",
+      "line": 12,
+      "wordIndex": 1
+    },
+    {
+      "id": "L12W02",
+      "numericId": 77,
+      "word": "easy",
+      "line": 12,
+      "wordIndex": 2
+    },
+    {
+      "id": "L12W03",
+      "numericId": 78,
+      "word": "wind",
+      "line": 12,
+      "wordIndex": 3
+    },
+    {
+      "id": "L12W04",
+      "numericId": 79,
+      "word": "and",
+      "line": 12,
+      "wordIndex": 4
+    },
+    {
+      "id": "L12W05",
+      "numericId": 80,
+      "word": "downy",
+      "line": 12,
+      "wordIndex": 5
+    },
+    {
+      "id": "L12W06",
+      "numericId": 81,
+      "word": "flake",
+      "line": 12,
+      "wordIndex": 6
+    },
+    {
+      "id": "L13W01",
+      "numericId": 82,
+      "word": "The",
+      "line": 13,
+      "wordIndex": 1
+    },
+    {
+      "id": "L13W02",
+      "numericId": 83,
+      "word": "woods",
+      "line": 13,
+      "wordIndex": 2
+    },
+    {
+      "id": "L13W03",
+      "numericId": 84,
+      "word": "are",
+      "line": 13,
+      "wordIndex": 3
+    },
+    {
+      "id": "L13W04",
+      "numericId": 85,
+      "word": "lovely",
+      "line": 13,
+      "wordIndex": 4
+    },
+    {
+      "id": "L13W05",
+      "numericId": 86,
+      "word": "dark",
+      "line": 13,
+      "wordIndex": 5
+    },
+    {
+      "id": "L13W06",
+      "numericId": 87,
+      "word": "and",
+      "line": 13,
+      "wordIndex": 6
+    },
+    {
+      "id": "L13W07",
+      "numericId": 88,
+      "word": "deep",
+      "line": 13,
+      "wordIndex": 7
+    },
+    {
+      "id": "L14W01",
+      "numericId": 89,
+      "word": "But",
+      "line": 14,
+      "wordIndex": 1
+    },
+    {
+      "id": "L14W02",
+      "numericId": 90,
+      "word": "I",
+      "line": 14,
+      "wordIndex": 2
+    },
+    {
+      "id": "L14W03",
+      "numericId": 91,
+      "word": "have",
+      "line": 14,
+      "wordIndex": 3
+    },
+    {
+      "id": "L14W04",
+      "numericId": 92,
+      "word": "promises",
+      "line": 14,
+      "wordIndex": 4
+    },
+    {
+      "id": "L14W05",
+      "numericId": 93,
+      "word": "to",
+      "line": 14,
+      "wordIndex": 5
+    },
+    {
+      "id": "L14W06",
+      "numericId": 94,
+      "word": "keep",
+      "line": 14,
+      "wordIndex": 6
+    },
+    {
+      "id": "L15W01",
+      "numericId": 95,
+      "word": "And",
+      "line": 15,
+      "wordIndex": 1
+    },
+    {
+      "id": "L15W02",
+      "numericId": 96,
+      "word": "miles",
+      "line": 15,
+      "wordIndex": 2
+    },
+    {
+      "id": "L15W03",
+      "numericId": 97,
+      "word": "to",
+      "line": 15,
+      "wordIndex": 3
+    },
+    {
+      "id": "L15W04",
+      "numericId": 98,
+      "word": "go",
+      "line": 15,
+      "wordIndex": 4
+    },
+    {
+      "id": "L15W05",
+      "numericId": 99,
+      "word": "before",
+      "line": 15,
+      "wordIndex": 5
+    },
+    {
+      "id": "L15W06",
+      "numericId": 100,
+      "word": "I",
+      "line": 15,
+      "wordIndex": 6
+    },
+    {
+      "id": "L15W07",
+      "numericId": 101,
+      "word": "sleep",
+      "line": 15,
+      "wordIndex": 7
+    },
+    {
+      "id": "L16W01",
+      "numericId": 102,
+      "word": "And",
+      "line": 16,
+      "wordIndex": 1
+    },
+    {
+      "id": "L16W02",
+      "numericId": 103,
+      "word": "miles",
+      "line": 16,
+      "wordIndex": 2
+    },
+    {
+      "id": "L16W03",
+      "numericId": 104,
+      "word": "to",
+      "line": 16,
+      "wordIndex": 3
+    },
+    {
+      "id": "L16W04",
+      "numericId": 105,
+      "word": "go",
+      "line": 16,
+      "wordIndex": 4
+    },
+    {
+      "id": "L16W05",
+      "numericId": 106,
+      "word": "before",
+      "line": 16,
+      "wordIndex": 5
+    },
+    {
+      "id": "L16W06",
+      "numericId": 107,
+      "word": "I",
+      "line": 16,
+      "wordIndex": 6
+    },
+    {
+      "id": "L16W07",
+      "numericId": 108,
+      "word": "sleep",
+      "line": 16,
+      "wordIndex": 7
+    }
+  ],
+  "globalNotes": {
+    "rhymeOverlap": [
+      "Perfect / full rhyme matches the last stressed vowel and every sound after it. End / internal locate the match. Masculine classifies the stressed ending. Monorhyme describes a stanza using one rhyme family.",
+      "“Masculine” means the rhyme ends on a stressed syllable: mis-TAKE qualifies even though the word has two syllables. In D, different words rhyme perfectly; sleep / sleep is the more specific identical-word case. One repeated pair also belongs to a masculine, end-rhymed, monorhymed stanza.",
+      "Smaller echoes: His / is can share IZ in full speech; house returns inside farmhouse. only / easy / downy / lovely share a weak final EE, a vowel echo rather than a full rhyme. These interior echoes do not change the end-rhyme scheme. know / though / snow rhyme by sound despite unlike spellings."
+    ],
+    "boundaries": [
+      "PUNCTUATION, SYNTAX AND SILENCE",
+      "The six sentences span lines 1 | 2–4 | 5–8 | 9–10 | 11–12 | 13–16. A semicolon ends a clause in line 2; a comma ends the main clause in line 13. Neither ends its sentence in this supplied text.",
+      "Enjambment: syntax continues through unpunctuated ends at 3, 5, 6, 7, 9 and 11. The tightest noun–modifier link is “sweep / Of…”. Some other line ends already complete a smaller unit, even while the sentence continues.",
+      "Caesura: an audible pause within a line. After are (1), woods (7), lovely (13) or go (15–16), a reader can pause or flow. Only lovely has a printed comma at that internal position. Lengthening or a pitch change can mark a boundary without silence.",
+      "Dotted feet in 8 and 14 separate the expected beat from light speech. EEV-ning has two syllables; PRAH-mi-siz has three. A metrical position, word stress and emotional emphasis are related but distinct."
+    ],
+    "rhetoric": [
+      "WHAT THE RHETORIC DOES",
+      "Observation and ownership (1–4) → imagined practical objection (5–10) → renewed sensory attention (11–13) → obligation and self-address (14–16). “But” is the explicit turn. Repeated woods links the opening, middle and final assessment.",
+      "Sound devices overlap too: sound’s / sweep is both alliteration and sibilance; the EE of see, sweep, easy, deep, keep and sleep supplies assonance across the poem. Whose begins with /h/, so Whose woods is not /w/ alliteration.",
+      "The last two lines are one repeated event viewed several ways: full-line repetition / epizeuxis; anaphoric beginning; repeated ending; identical end rhyme. A second delivery can renew resolve, expose weariness, or make the statement newly reflective.",
+      "Interpretive alternatives: literal travel before sleep; duties before rest; a larger life-journey or mortality association. These readings may coexist. The words do not establish “sleep = death” or prove that the two sleeps change meaning. The poem does not narrate a departure."
+    ],
+    "attribution": [
+      "Wording and punctuation follow the supplied poem, including deep, in line 13. Stress alternatives, grammar labels and device-to-effect connections are close readings offered here; they are not attributed to a recording by Frost. Device labels describe evidence; suggested effects and symbolic readings remain interpretations."
+    ]
+  }
+}

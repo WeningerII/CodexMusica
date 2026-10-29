@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f2ea">
+  <meta name="description" content="Explore the existing annotations of Robert Frost’s Stopping by Woods on a Snowy Evening: select words, follow rhyme connections, and reveal meter, pronunciation, and rhetorical readings.">
+  <title>Stopping by Woods — Interactive Reading</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="rhetoric.css">
+  <script src="data.js" defer></script>
+  <script src="scope-refinement-data.js" defer></script>
+  <script src="scope-refinement.js" defer></script>
+  <script src="rhetoric-data.js" defer></script>
+  <script src="model.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="rhetoric.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#poem">Skip to the poem</a>
+  <div class="app-shell">
+    <header class="masthead">
+      <div class="heading-copy">
+        <p class="eyebrow">Robert Frost · An interactive reading</p>
+        <h1>Stopping by Woods<br><span>on a Snowy Evening</span></h1>
+        <p class="intro" id="reading-intro">Select a word. Follow its connections. Select another to compare.</p>
+      </div>
+      <div class="header-tools">
+        <span class="scope-note">One poem · 108 words</span>
+        <button class="text-button" id="key-open" type="button">Pronunciation key <span aria-hidden="true">↗</span></button>
+        <button class="text-button" id="about-open" type="button">About this reading <span aria-hidden="true">↗</span></button>
+      </div>
+    </header>
+    <div class="toolbar">
+      <nav class="view-switch" aria-label="Reading view">
+        <button id="view-rhetoric" class="view-button" type="button" aria-pressed="false">Rhetoric</button>
+        <button id="view-poem" class="view-button active" type="button" aria-pressed="true">Sound & meter</button>
+        <button id="view-map" class="view-button" type="button" aria-pressed="false">Connection map</button>
+      </nav>
+      <div class="rhyme-legend" aria-label="End rhyme families">
+        <span class="legend-label">End rhymes</span>
+        <span class="rhyme-legend-item family-a">A <small>OH</small></span>
+        <span class="rhyme-legend-item family-b">B <small>EER</small></span>
+        <span class="rhyme-legend-item family-c">C <small>AYK</small></span>
+        <span class="rhyme-legend-item family-d">D <small>EEP</small></span>
+      </div>
+      <details class="layer-menu" id="layer-menu">
+        <summary>Annotation layers <span aria-hidden="true">⌄</span></summary>
+        <fieldset>
+          <legend class="sr-only">Show or hide annotations</legend>
+          <label><input id="layer-meter" type="checkbox" checked> Meter</label>
+          <label><input id="layer-pronunciation" type="checkbox" checked> Pronunciation</label>
+          <label><input id="layer-alternatives" type="checkbox"> Alternative emphasis</label>
+          <label><input id="layer-rhetoric" type="checkbox"> Rhetorical devices</label>
+          <label><input id="layer-grammar" type="checkbox"> Grammar</label>
+          <label><input id="layer-punctuation" type="checkbox"> Punctuation notes</label>
+          <label><input id="layer-pauses" type="checkbox"> Performed pauses</label>
+          <label><input id="layer-rhyme" type="checkbox" checked> End-rhyme colors</label>
+        </fieldset>
+      </details>
+    </div>
+    <div class="reading-scope">
+      <div class="scope-control"><label for="reading-scope">Compare using</label><select id="reading-scope"><option value="annotated">Pronunciation shown</option><option value="all">Dictionary alternatives</option></select></div>
+      <p id="reading-scope-note">Uses the displayed vowel and consonant sounds, with lexical stress. The meter grid marks a suggested delivery. Repeated words count as separate occurrences.</p>
+    </div>
+    <section class="rhetoric-overview" id="rhetoric-overview" aria-label="Rhetorical analysis overview" hidden>
+      <div><p class="eyebrow">The research, applied</p><h2>Follow a device through the poem.</h2><p id="rhetoric-overview-copy"></p><div class="rhetoric-examples" aria-label="Example findings"><span>Try a passage</span><button type="button" data-rhetoric-example="H04">downy flake ↗</button><button type="button" data-rhetoric-example="S01b">sound’s / sweep ↗</button><button type="button" data-rhetoric-example="R01">The repeated ending ↗</button></div></div>
+      <button type="button" class="coverage-button" id="coverage-open"><strong>91</strong><span>methods accounted for<br><u>Open the application record ↗</u></span></button>
+    </section>
+    <div class="workspace" id="workspace">
+      <main class="reading-surface">
+        <section id="poem-view" aria-label="Annotated poem">
+          <div class="reading-guide"><span id="selection-guide"><i class="selection-dot" aria-hidden="true"></i> Selected words</span><span id="connection-guide"><i class="connection-line" aria-hidden="true"></i><span id="connection-guide-label">Connected words, wherever they occur</span></span><button type="button" class="overview-button" id="show-all-matches">All matching words</button><span class="guide-count" id="connection-summary"></span></div>
+          <div class="rhetoric-guide" id="rhetoric-guide" hidden><span><i aria-hidden="true"></i> Evidence for the selected finding</span><span>Click any word to inspect its findings</span></div>
+          <div id="poem" tabindex="-1"></div>
+        </section>
+        <section id="map-view" aria-label="Word-pair connection map" hidden>
+          <div class="map-heading">
+            <div><p class="eyebrow">All 5,778 comparisons</p><h2>Every word, in relation.</h2></div>
+            <label class="zoom-control">Zoom <select id="map-zoom"><option value="1">1×</option><option value="1.6">1.6×</option><option value="2.4">2.4×</option></select></label>
+          </div>
+          <p class="map-instruction">Hover or tap a cell to inspect its words. Select it to compare. Darker cells have more matching labels.</p>
+          <div class="map-live" id="map-live" aria-live="polite">Whose · line 1 ↔ His · line 2</div>
+          <div class="map-scroll" id="map-scroll"><canvas id="rhyme-map" tabindex="0" role="img" aria-label="Upper-triangle map of all 5,778 word pairs. Use arrow keys to move between cells, and Enter to inspect a pair."></canvas></div>
+          <div class="map-scale" id="map-scale"></div>
+          <p class="map-footnote">A cell counts categories, not rhyme strength, under the selected pronunciation setting. Blank cells have no displayed match.</p>
+          <button type="button" class="text-button" id="map-return">Return to the selected words in the poem <span aria-hidden="true">↗</span></button>
+        </section>
+      </main>
+      <aside class="inspector" aria-label="Selected words and rhyme filters">
+        <button id="inspector-toggle" class="mobile-inspector-toggle" type="button" aria-expanded="true">Selected connection <span aria-hidden="true">⌄</span></button>
+        <section id="rhetoric-panel" aria-label="Rhetorical findings" hidden>
+          <div class="rhetoric-panel-heading"><p class="selection-kicker">Explore the findings</p><button type="button" class="text-button" id="rhetoric-reset">Show all</button></div>
+          <label class="sr-only" for="rhetoric-search">Find a device or phrase</label><input id="rhetoric-search" type="search" placeholder="Find a device or phrase…" autocomplete="off">
+          <label class="sr-only" for="rhetoric-filter">Evidence filter</label><select id="rhetoric-filter"><option value="all">All evidence and readings</option><option value="finding">Textual findings</option><option value="interpretation">Interpretations</option></select>
+          <div id="rhetoric-word-context" hidden></div>
+          <div id="rhetoric-selection" aria-live="polite"></div>
+          <div class="rhetoric-list-heading"><h3>Findings in reading order</h3><span id="rhetoric-result-count"></span></div>
+          <div id="rhetoric-findings-list"></div>
+          <button type="button" class="rhetoric-review-link" id="rhetoric-review-open">Labels we checked but did not confirm ↗</button>
+        </section>
+        <div id="selection-detail" aria-live="polite"></div>
+        <details class="filter-panel" id="filter-panel">
+          <summary><span>Rhyme types</span><span class="filter-status" id="filter-status">All available</span></summary>
+          <div class="filter-intro">Highlight connections with the selected types. Every matching label can appear together.</div>
+          <div class="filter-actions"><button id="types-all" type="button">Select all</button><button id="types-none" type="button">Clear</button><label>Match <select id="match-mode"><option value="any">any</option><option value="all">all</option></select></label></div>
+          <div id="type-filters"></div>
+        </details>
+        <div class="inspector-note">Labels describe what occurs in this poem. Homeoteleuton and trite rhyme remain visible alongside other matching types.</div>
+      </aside>
+    </div>
+    <footer class="app-footer"><span>16 lines · Four interlocking quatrains · Iambic tetrameter</span><button type="button" class="text-button" id="source-open">Sources & method</button></footer>
+  </div>
+  <dialog id="info-dialog" aria-labelledby="dialog-title"><div class="dialog-header"><h2 id="dialog-title"></h2><button type="button" id="dialog-close" class="icon-button" aria-label="Close dialog">×</button></div><div id="dialog-content"></div></dialog>
+  <div class="sr-only" id="announcement" aria-live="polite"></div>
+</body>
+</html>

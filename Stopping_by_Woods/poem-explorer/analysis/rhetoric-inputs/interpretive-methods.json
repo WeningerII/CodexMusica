@@ -1,0 +1,858 @@
+[
+  {
+    "id": "01.08",
+    "label": "Onomatopoeia",
+    "state": "checked_no_match",
+    "actionActuallyTaken": "Read all words for direct sound imitation or imitation of a referent-associated sound.",
+    "result": "No clear lexical imitator identified; bells names a source and sweep need not imitate its sound.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Human lexical identification, not a ready poem-wide automatic recognizer; acoustic resemblance scores alone are insufficient.",
+    "resourceIds": [
+      "FS-ONO",
+      "esther",
+      "enrhoot"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "09.01",
+    "label": "Metaphor",
+    "state": "observed",
+    "actionActuallyTaken": "Applied contextual/basic-meaning comparison manually to candidate content words and inspected dictionary senses.",
+    "result": "Downy flake supplies a feather-to-snow resemblance; keep and sweep remain lexical/interpretive alternatives. This is not a complete lexicographic audit of every function word.",
+    "findingIds": [
+      "H04",
+      "I02",
+      "I03",
+      "I06"
+    ],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Explicit contextual/basic-meaning human procedure. MetaNet supplies additional code, but this row qualifies on the verified procedure.",
+    "resourceIds": [],
+    "source": "https://www.vismet.org/metcor/manual/index.php",
+    "classifierExecuted": false
+  },
+  {
+    "id": "09.02",
+    "label": "Extended metaphor",
+    "state": "interpretation_or_component_only",
+    "actionActuallyTaken": "Tested whether multiple candidate expressions share one source–target mapping.",
+    "result": "Life-as-journey requires an optional mortality reading; literal travel alone does not establish the mapping.",
+    "findingIds": [
+      "I04"
+    ],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Human protocol confirmed; the paper’s transformer experiments are outside this recommendation.",
+    "resourceIds": [
+      "sem_extended_annotation"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "09.08",
+    "label": "Simile",
+    "state": "checked_no_match",
+    "actionActuallyTaken": "Checked for a figurative comparison construction with marker, tenor and vehicle.",
+    "result": "No clear explicit simile construction. Downy is a metaphorical adjective, not an overt comparison clause.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Human judgments are required; the existing parser matcher alone also retrieves literal comparisons.",
+    "resourceIds": [
+      "sem_simile_annotation",
+      "sem_known_comparison_pattern",
+      "esther",
+      "enrhoot"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "10.01",
+    "label": "Personification",
+    "state": "observed",
+    "actionActuallyTaken": "Resolved the horse referent and compared literal bell shaking with the attributed human-style question.",
+    "result": "The purpose clause asks a propositional question through the horse’s action; think alone is weaker evidence.",
+    "findingIds": [
+      "H03"
+    ],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Human annotation procedure for personification. Does not rely on an anthropomorphism score or a language model.",
+    "resourceIds": [],
+    "source": "https://www.vismet.org/metcor/manual/index.php",
+    "classifierExecuted": false
+  },
+  {
+    "id": "10.03",
+    "label": "Anthropomorphism",
+    "state": "out_of_scope",
+    "actionActuallyTaken": "Checked the confirmed protocol’s input domain.",
+    "result": "Its claims must concern AI reporting. A horse passage cannot be counted as that protocol’s successful output.",
+    "findingIds": [
+      "I07"
+    ],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "English AI-reporting claims; subjective human judgment remains part of the method. The uninspected separate full guideline document is not claimed recovered, and general literary transfer is unverified.",
+    "resourceIds": [
+      "sem_extended_annotation",
+      "sem_known_mipvu",
+      "enrhoot",
+      "FSE-05"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "10.05",
+    "label": "Pathetic fallacy",
+    "state": "interpretation_or_component_only",
+    "actionActuallyTaken": "Checked entity, surroundings, emotion and projection/mirroring relation.",
+    "result": "Entity and scene are present; a specific projected emotion depends on interpretation.",
+    "findingIds": [
+      "I08"
+    ],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Entity, emotion and surroundings, followed by contextual projection/mirroring analysis. No verified complete automatic implementation.",
+    "resourceIds": [],
+    "source": "https://journals.sagepub.com/doi/10.1177/09639470221106021",
+    "classifierExecuted": false
+  },
+  {
+    "id": "10.08",
+    "label": "Reification",
+    "state": "out_of_scope",
+    "actionActuallyTaken": "Checked the source-category annotation’s topic and object-mapping scope.",
+    "result": "The confirmed war/corruption study does not provide a validated general poem reification procedure; abstract promises do not by themselves establish reification.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Topic-limited human annotation; no general automatic reification detector verified.",
+    "resourceIds": [
+      "sem_reification"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "10.09",
+    "label": "Synesthesia / synaesthesia",
+    "state": "checked_no_match",
+    "actionActuallyTaken": "Manually inspected the candidate sensory combinations and their grammatical relations.",
+    "result": "No clear cross-sensory transfer after rejecting physical texture and sound-source co-occurrence; no dependency pipeline was executed.",
+    "findingIds": [
+      "H07",
+      "H08"
+    ],
+    "researchMethodKind": "published_rule_procedure",
+    "scopeLimit": "Dictionary polysemy and literal co-occurrence require manual rejection; executable source was not verified.",
+    "resourceIds": [
+      "sem_synesthesia",
+      "sem_known_wordtangible",
+      "enrhoot"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "11.01",
+    "label": "Metonymy",
+    "state": "out_of_scope",
+    "actionActuallyTaken": "Checked whether the poem supplies location-name tokens required by the verified procedure.",
+    "result": "Woods, village and lake are ordinary nouns here, not the named locations covered by the annotation protocol.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Location-name subset; no claim of all metonymy or a ready trained Java detector.",
+    "resourceIds": [
+      "sem_metonym_annotation",
+      "sem_known_metonym_java",
+      "esther",
+      "enrhoot"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "11.04",
+    "label": "Antonomasia",
+    "state": "not_executed",
+    "actionActuallyTaken": "Manually screened for a Vossian source/target expression; did not run the legacy extractor.",
+    "result": "No obvious the-X-of-Y antonomasia candidate; inspected code is not an executed negative result.",
+    "findingIds": [],
+    "researchMethodKind": "code",
+    "scopeLimit": "Subtype-limited legacy Python2 code; source inspected but not executed.",
+    "resourceIds": [
+      "sem_vossanto",
+      "esther",
+      "enrhoot"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "11.09",
+    "label": "Euphemism",
+    "state": "out_of_scope",
+    "actionActuallyTaken": "Checked the classifier’s three-topic scope.",
+    "result": "The verified firing/lying/stealing phrase classifier does not evaluate this poem’s possible death/rest interpretation.",
+    "findingIds": [],
+    "researchMethodKind": "published_statistical_method",
+    "scopeLimit": "Topic-relative phrase classification on three evaluated topics; not a contextual judgment for every occurrence in poetry.",
+    "resourceIds": [
+      "sem_known_xphemisms",
+      "esther",
+      "enrhoot",
+      "FSE-03"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "11.10",
+    "label": "Dysphemism",
+    "state": "out_of_scope",
+    "actionActuallyTaken": "Checked the classifier’s three-topic scope.",
+    "result": "The verified firing/lying/stealing phrase classifier does not evaluate this poem’s possible death/rest interpretation.",
+    "findingIds": [],
+    "researchMethodKind": "published_statistical_method",
+    "scopeLimit": "Same three-topic phrase-classification scope; harsh sentiment alone is not established as a universal dysphemism test.",
+    "resourceIds": [
+      "sem_known_xphemisms",
+      "enrhoot",
+      "FSE-03"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "12.01",
+    "label": "Pun",
+    "state": "not_executed",
+    "actionActuallyTaken": "Read for obvious double-sense or alternate-word candidates; no benchmark classifier executed.",
+    "result": "No positive claim made. Symbolic associations of sleep are not automatically a pun, and absence cannot be attributed to an unrun classifier.",
+    "findingIds": [],
+    "researchMethodKind": "published_statistical_method",
+    "scopeLimit": "Type-conditioned benchmark classifiers, not one verified open-domain router.",
+    "resourceIds": [
+      "sem_known_pun_task",
+      "FSE-02"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "12.02",
+    "label": "Homographic pun",
+    "state": "not_executed",
+    "actionActuallyTaken": "Read for obvious double-sense or alternate-word candidates; no benchmark classifier executed.",
+    "result": "No positive claim made. Symbolic associations of sleep are not automatically a pun, and absence cannot be attributed to an unrun classifier.",
+    "findingIds": [],
+    "researchMethodKind": "published_statistical_method",
+    "scopeLimit": "Detects puns in the supplied homographic task setting; no claim of deciding homographic versus heterographic type.",
+    "resourceIds": [
+      "sem_known_pun_task",
+      "FSE-02"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "12.03",
+    "label": "Heterographic pun",
+    "state": "not_executed",
+    "actionActuallyTaken": "Read for obvious double-sense or alternate-word candidates; no benchmark classifier executed.",
+    "result": "No positive claim made. Symbolic associations of sleep are not automatically a pun, and absence cannot be attributed to an unrun classifier.",
+    "findingIds": [],
+    "researchMethodKind": "published_statistical_method",
+    "scopeLimit": "Typed dataset setting; semantic feature evidence is not itself a phonetic proof or pun interpretation.",
+    "resourceIds": [
+      "sem_known_pun_task",
+      "FSE-02"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "12.20",
+    "label": "Portmanteau / lexical blend",
+    "state": "checked_no_match",
+    "actionActuallyTaken": "Checked the poem’s lexical forms for a recoverable blend of source words before character-provenance annotation.",
+    "result": "No clear blend candidate. Farmhouse is transparent compounding; sound’s is contraction, not blending.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Annotation confirmed; transformer experiments and unreleased segmentation models are not required or promoted.",
+    "resourceIds": [
+      "sem_paxobs",
+      "sem_blend_patterns"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "13.01",
+    "label": "Verbal irony",
+    "state": "checked_no_match",
+    "actionActuallyTaken": "Applied the inspected irony diagnostics to evaluations and contextual facts.",
+    "result": "No clear statement/state-of-affairs contradiction or covert reversed evaluation. This is a cautious poem adaptation of a social-media human diagnostic.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Human procedure confirmed for English social media; code baseline not a validated poem detector.",
+    "resourceIds": [
+      "sem_irony_manual",
+      "sem_isarcasm",
+      "sem_known_irony_baseline",
+      "esther"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "13.03",
+    "label": "Sarcasm / sarcasmus",
+    "state": "checked_no_match",
+    "actionActuallyTaken": "Checked contradiction, critical attitude and an addressee.",
+    "result": "The horse’s puzzlement is not a clear sarcastic utterance; no applicable critical-addressee configuration is established.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "This is one declared taxonomy; harshness/polarity-clash definitions differ, and tweets are not all literary sarcasm.",
+    "resourceIds": [
+      "sem_isarcasm",
+      "sem_irony_manual",
+      "sem_known_sarcasm_contrast",
+      "esther",
+      "enrhoot"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "14.01",
+    "label": "Hyperbole",
+    "state": "checked_no_match",
+    "actionActuallyTaken": "Compared darkest and only with the contextual exaggeration criterion.",
+    "result": "No demonstrably unrealistic increase; intensity alone is insufficient.",
+    "findingIds": [
+      "H09"
+    ],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Human procedure confirmed; broad hyperbole need not be ironic or propagandistic, and no universal ready detector is claimed.",
+    "resourceIds": [
+      "sem_isarcasm",
+      "sem_propaganda_manual",
+      "sem_known_hypo",
+      "esther",
+      "enrhoot"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "14.05",
+    "label": "Understatement",
+    "state": "checked_no_match",
+    "actionActuallyTaken": "Examined little and some mistake for reduced weight against an established severity.",
+    "result": "No independently established greater magnitude or seriousness makes these clear understatements.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Social-media and news settings; not a complete detector of understatement in poetry.",
+    "resourceIds": [
+      "sem_isarcasm",
+      "sem_propaganda_manual"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "14.14",
+    "label": "Oxymoron",
+    "state": "not_executed",
+    "actionActuallyTaken": "Manually checked the tempting lovely/dark/deep candidate; no JANTOR WordNet/dependency execution.",
+    "result": "The qualities are compatible. This manual objection must not be reported as an executed classifier result.",
+    "findingIds": [],
+    "researchMethodKind": "published_rule",
+    "scopeLimit": "Prototype for dependency-selected English word pairs and configured relation paths. No contextual or community-specific contradiction guarantee; no recovered runnable implementation.",
+    "resourceIds": [
+      "esther",
+      "enrhoot",
+      "FSE-04"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "15.10",
+    "label": "Merismus / merism",
+    "state": "checked_no_match",
+    "actionActuallyTaken": "Applied the necessary part-to-whole interpretation test to coordinations and named landmarks.",
+    "result": "Woods and frozen lake specify two features rather than a larger implied totality; no clear merism.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "A scoped human procedure in this cognitive account; no code, automated domain inference, or poem benchmark.",
+    "resourceIds": [
+      "disc_merism2022"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "16.07",
+    "label": "Anacephalaeosis",
+    "state": "checked_no_match",
+    "actionActuallyTaken": "Compared possible later spans with prior multi-unit content under RST Summary.",
+    "result": "No briefer restatement of a larger multi-unit span. Repeating the final line is not a condensed recap.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Recapitulation sense: a shorter span restates the content of a larger multi-unit span. Does not adopt the conflicting symploce sense from an ambiguous terminology record.",
+    "resourceIds": [],
+    "source": "https://www.sfu.ca/rst/01intro/definitions.html",
+    "classifierExecuted": false
+  },
+  {
+    "id": "16.08",
+    "label": "Complexio, concluding sense",
+    "state": "checked_no_match",
+    "actionActuallyTaken": "Applied Summary conditions plus concluding position.",
+    "result": "The ending repeats one line; it does not summarize the larger preceding description in briefer form.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Requires a concluding recap as a human scope check; RST Summary supplies the recap relation but not conclusion position. Excludes symploce/coenotes.",
+    "resourceIds": [
+      "disc_silva_complexio",
+      "rst_definitions"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "16.15",
+    "label": "Proverb / adage / paroemia",
+    "state": "not_executed",
+    "actionActuallyTaken": "Read for an obvious cited saying; the published inventory and complete rule system were not run.",
+    "result": "A familiar or memorable final line is not thereby an occurrence of a pre-existing proverb.",
+    "findingIds": [],
+    "researchMethodKind": "published_rule",
+    "scopeLimit": "A known-expression retrieval method; the full 680-rule file and complete analysis pipeline were not obtained, and novel/paraphrased sayings remain outside scope.",
+    "resourceIds": [
+      "hurskainen_proverbs",
+      "beta"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "18.01",
+    "label": "Rhetorical question / erotema / erotesis / interrogatio",
+    "state": "not_executed",
+    "actionActuallyTaken": "Manually parsed Whose and ask if; the conversation-domain SVM was not executed.",
+    "result": "No standalone interrogative speech act is supplied by those embedded clauses; no classifier-derived absence claim.",
+    "findingIds": [],
+    "researchMethodKind": "published_statistical_method",
+    "scopeLimit": "Existence of a researched method is confirmed; modest conversation-domain F1 and absent runnable artifact prevent a claim of ready poem analysis.",
+    "resourceIds": [
+      "disc_rq2015",
+      "esther",
+      "enrhoot"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "19.01",
+    "label": "Enthymeme",
+    "state": "out_of_scope",
+    "actionActuallyTaken": "Checked for the let-alone scalar-argument construction.",
+    "result": "No let-alone argument; broad implicit self-reasoning lies outside the confirmed construction-limited protocol.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Confirmed for let-alone scalar arguments; broader enthymemes still need work.",
+    "resourceIds": [
+      "root_enthymeme2017",
+      "root_implicit2020"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "19.05",
+    "label": "Contrarium",
+    "state": "out_of_scope",
+    "actionActuallyTaken": "Checked for an identified premise–conclusion relation of the required kind.",
+    "result": "The literal narrated scene supplies no explicit contrary-case inference or example-to-generalization argument for ASK classification.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Scoped to the contrary-case argument sense; not every juxtaposed opposition.",
+    "resourceIds": [
+      "root_ask2019",
+      "root_silva_reasoning"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "19.17",
+    "label": "Exemplum / paradigma",
+    "state": "out_of_scope",
+    "actionActuallyTaken": "Checked for an identified premise–conclusion relation of the required kind.",
+    "result": "The literal narrated scene supplies no explicit contrary-case inference or example-to-generalization argument for ASK classification.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Illustrative narratives without argumentative generalization need additional handling.",
+    "resourceIds": [
+      "root_ask2019",
+      "root_rst",
+      "esther",
+      "enrhoot"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "20.01",
+    "label": "Paromologia / concessio",
+    "state": "interpretation_or_component_only",
+    "actionActuallyTaken": "Applied RST Concession’s acknowledged-satellite and preferred-nucleus tests to the last stanza.",
+    "result": "Plausible if the stanza is self-directed justification; its conclusion and argumentative force are reconstructed.",
+    "findingIds": [
+      "I01"
+    ],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Scoped to an acknowledged contrary point supporting a preferred claim.",
+    "resourceIds": [
+      "root_rst",
+      "root_silva_reasoning"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "21.02",
+    "label": "Dehortatio",
+    "state": "out_of_scope",
+    "actionActuallyTaken": "Checked the required mapped argument and intended appeal.",
+    "result": "No supplied persuasive premise–conclusion map or danger/emotional appeal is established; evocative narration is insufficient.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Human identification of consequence-based dissuasion in supplied argument maps; broader dehortatio remains uncovered.",
+    "resourceIds": [
+      "root_ditpp52",
+      "root_rst",
+      "FAR-PATHOS",
+      "FAR-INTENT"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "21.03",
+    "label": "Apagoresis",
+    "state": "out_of_scope",
+    "actionActuallyTaken": "Checked the required mapped argument and intended appeal.",
+    "result": "No supplied persuasive premise–conclusion map or danger/emotional appeal is established; evocative narration is insufficient.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Human classification of mapped, consequence-based inhibitions; no general prohibition detector or evidence of persuasive success.",
+    "resourceIds": [
+      "root_ditpp52",
+      "root_rst",
+      "FAR-PATHOS",
+      "FAR-INTENT"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "21.08",
+    "label": "Pathopoeia",
+    "state": "out_of_scope",
+    "actionActuallyTaken": "Checked the required mapped argument and intended appeal.",
+    "result": "No supplied persuasive premise–conclusion map or danger/emotional appeal is established; evocative narration is insufficient.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Argumentative attempts at pathopoeia in supplied maps; not proof of actual audience response or the narrower self-display subtype.",
+    "resourceIds": [
+      "root_rhetfig_pathopoeia",
+      "root_poemo",
+      "FAR-PATHOS",
+      "FAR-INTENT"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "21.12",
+    "label": "Perclusio",
+    "state": "checked_no_match",
+    "actionActuallyTaken": "Checked speaker, addressee, harmful action and speaker commitment.",
+    "result": "No speaker-committed threat of harm toward an addressee appears in the poem.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Scoped to speaker-committed harmful action toward an addressee; other threat forms remain open.",
+    "resourceIds": [
+      "root_ditpp52",
+      "root_perclusio"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "23.12",
+    "label": "Situational irony",
+    "state": "checked_no_match",
+    "actionActuallyTaken": "Checked described events for an ironic reversal of contextual expectation.",
+    "result": "An unusual stopping place or imagined horse puzzlement is not a demonstrated ironic reversal.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "English short-text human decisions, not complete event/world-knowledge automation.",
+    "resourceIds": [
+      "sem_irony_manual"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "23.15",
+    "label": "Satire",
+    "state": "checked_no_match",
+    "actionActuallyTaken": "Checked apparent support for concealed criticism under the inspected human taxonomy.",
+    "result": "No clear mocking support or target of satire. News-source classifiers were not run.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Sentence-level ironic satire and news-source satire are restricted senses, not all literary satire.",
+    "resourceIds": [
+      "sem_isarcasm",
+      "sem_satire_svm"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "25.01",
+    "label": "Ethos",
+    "state": "out_of_scope",
+    "actionActuallyTaken": "Checked whether argumentative premises had been identified for the persuasion-mode protocol.",
+    "result": "No explicit persuasive premise segmentation; a possible self-reasoning reading is insufficient to silently assign ethos/pathos/logos.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Confirmed in argumentative English discussions; not all literary uses.",
+    "resourceIds": [
+      "root_persuasion2017",
+      "root_newethos"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "25.02",
+    "label": "Pathos",
+    "state": "out_of_scope",
+    "actionActuallyTaken": "Checked whether argumentative premises had been identified for the persuasion-mode protocol.",
+    "result": "No explicit persuasive premise segmentation; a possible self-reasoning reading is insufficient to silently assign ethos/pathos/logos.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Confirmed in argumentative English discussions; not all literary uses.",
+    "resourceIds": [
+      "root_persuasion2017"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "25.03",
+    "label": "Logos",
+    "state": "out_of_scope",
+    "actionActuallyTaken": "Checked whether argumentative premises had been identified for the persuasion-mode protocol.",
+    "result": "No explicit persuasive premise segmentation; a possible self-reasoning reading is insufficient to silently assign ethos/pathos/logos.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Confirmed in argumentative English discussions; not all literary uses.",
+    "resourceIds": [
+      "root_persuasion2017"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "25.05",
+    "label": "Common-ground appeal",
+    "state": "out_of_scope",
+    "actionActuallyTaken": "Checked for a generally accepted proposition used as an argumentative premise.",
+    "result": "Promises may suggest a familiar duty, but no explicit public-knowledge premise is supplied; the editorial common-ground protocol is not transferred silently.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "General public-knowledge or self-evident propositions used in English editorial argumentation. Class Fleiss kappa is 0.114; private shared beliefs and claims merely presented as common knowledge need additional treatment.",
+    "resourceIds": [
+      "root_appraisal",
+      "root_ask2019",
+      "FAR-WEBIS",
+      "FAR-CG"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "25.06",
+    "label": "Appeal to authority",
+    "state": "out_of_scope",
+    "actionActuallyTaken": "Checked for the relevant identified premise–conclusion relation before ASK classification.",
+    "result": "No authority/testimony/example/definition/causal/analogical/inductive argument of the required type is explicitly established. Narrative sequence or description alone is insufficient.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Authority must support a claim, not merely be named.",
+    "resourceIds": [
+      "root_ask2019",
+      "root_ask2020",
+      "root_rust_schemes"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "25.07",
+    "label": "Testimonial appeal",
+    "state": "out_of_scope",
+    "actionActuallyTaken": "Checked for the relevant identified premise–conclusion relation before ASK classification.",
+    "result": "No authority/testimony/example/definition/causal/analogical/inductive argument of the required type is explicitly established. Narrative sequence or description alone is insufficient.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Witness testimony is a scoped testimonial form, not every endorsement.",
+    "resourceIds": [
+      "root_ask2019",
+      "root_ask2020",
+      "root_rust_schemes"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "25.08",
+    "label": "Exemplification",
+    "state": "out_of_scope",
+    "actionActuallyTaken": "Checked for the relevant identified premise–conclusion relation before ASK classification.",
+    "result": "No authority/testimony/example/definition/causal/analogical/inductive argument of the required type is explicitly established. Narrative sequence or description alone is insufficient.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Nonargumentative illustrations remain outside the confirmed scope.",
+    "resourceIds": [
+      "root_ask2019",
+      "root_ask2020"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "25.09",
+    "label": "Definition",
+    "state": "out_of_scope",
+    "actionActuallyTaken": "Checked for the relevant identified premise–conclusion relation before ASK classification.",
+    "result": "No authority/testimony/example/definition/causal/analogical/inductive argument of the required type is explicitly established. Narrative sequence or description alone is insufficient.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Scoped to argumentative uses of definition.",
+    "resourceIds": [
+      "root_ask2019",
+      "root_ask2020"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "25.11",
+    "label": "Cause-and-effect reasoning",
+    "state": "out_of_scope",
+    "actionActuallyTaken": "Checked for the relevant identified premise–conclusion relation before ASK classification.",
+    "result": "No authority/testimony/example/definition/causal/analogical/inductive argument of the required type is explicitly established. Narrative sequence or description alone is insufficient.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Requires reconstruction of the relevant premise/conclusion.",
+    "resourceIds": [
+      "root_ask2019",
+      "root_ask2020",
+      "root_rust_schemes"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "25.12",
+    "label": "Analogical reasoning",
+    "state": "out_of_scope",
+    "actionActuallyTaken": "Checked for the relevant identified premise–conclusion relation before ASK classification.",
+    "result": "No authority/testimony/example/definition/causal/analogical/inductive argument of the required type is explicitly established. Narrative sequence or description alone is insufficient.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Literal or poetic comparison without argumentative force is outside scope.",
+    "resourceIds": [
+      "root_ask2019",
+      "root_ask2020",
+      "root_rust_schemes"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "25.14",
+    "label": "Induction",
+    "state": "out_of_scope",
+    "actionActuallyTaken": "Checked for the relevant identified premise–conclusion relation before ASK classification.",
+    "result": "No authority/testimony/example/definition/causal/analogical/inductive argument of the required type is explicitly established. Narrative sequence or description alone is insufficient.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "This is a scoped inductive form, not a general induction detector.",
+    "resourceIds": [
+      "root_ask2019",
+      "root_ask2020"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "25.16",
+    "label": "Qualification",
+    "state": "observed",
+    "actionActuallyTaken": "Applied Appraisal Entertain decisions to cognitive and modal expressions.",
+    "result": "I think qualifies knowing; must think marks inferential access to the horse’s supposed perspective.",
+    "findingIds": [
+      "H01",
+      "H02"
+    ],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Scoped to epistemic/category-strength qualification; not every limiting exception.",
+    "resourceIds": [
+      "root_appraisal",
+      "root_ditpp52"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "25.17",
+    "label": "Loaded diction / slanted language",
+    "state": "out_of_scope",
+    "actionActuallyTaken": "Distinguished evaluative words from a demonstrated audience-influencing news technique.",
+    "result": "Lovely and queer express evaluations; polarity alone cannot establish the scoped loaded-language category.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "News-domain criterion includes audience influence; polarity alone is insufficient.",
+    "resourceIds": [
+      "root_semeval2020"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  },
+  {
+    "id": "25.18",
+    "label": "Connotation",
+    "state": "not_executed",
+    "actionActuallyTaken": "Identified potentially applicable transitive predicates and participants, but did not complete the connotation-frame questions or perform a lexicon lookup.",
+    "result": "The participant/predicate protocol may apply to have/keep promises or give a shake; its actual frame analysis was not performed. Broader death/rest/woods symbolism remains outside what generic subject–verb–object connotation frames establish.",
+    "findingIds": [],
+    "researchMethodKind": "human_procedure",
+    "scopeLimit": "Scoped to participant/predicate connotations; full literary associations remain open.",
+    "resourceIds": [
+      "root_connotation",
+      "root_riveter"
+    ],
+    "source": null,
+    "classifierExecuted": false
+  }
+]

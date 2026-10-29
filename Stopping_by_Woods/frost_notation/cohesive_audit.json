@@ -1,0 +1,562 @@
+[
+  {
+    "line": 1,
+    "text": "Whose woods these are I think I know.",
+    "syllables": [
+      "Whose",
+      "woods",
+      "these",
+      "are",
+      "I",
+      "think",
+      "I",
+      "know."
+    ],
+    "marks": [
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/"
+    ],
+    "rhyme": "A",
+    "mark_centres": [
+      232.01171875,
+      374.23828125,
+      500.03515625,
+      591.7578125,
+      640.3125,
+      710.40625,
+      780.5,
+      854.2421875
+    ]
+  },
+  {
+    "line": 2,
+    "text": "His house is in the village though;",
+    "syllables": [
+      "His",
+      "house",
+      "is",
+      "in",
+      "the",
+      "vil",
+      "lage",
+      "though;"
+    ],
+    "marks": [
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/"
+    ],
+    "rhyme": "A",
+    "mark_centres": [
+      199.03515625,
+      302.01953125,
+      386.69921875,
+      432.63671875,
+      493.625,
+      560.68359375,
+      625.078125,
+      745.2890625
+    ]
+  },
+  {
+    "line": 3,
+    "text": "He will not see me stopping here",
+    "syllables": [
+      "He",
+      "will",
+      "not",
+      "see",
+      "me",
+      "stop",
+      "ping",
+      "here"
+    ],
+    "marks": [
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/"
+    ],
+    "rhyme": "B",
+    "mark_centres": [
+      193.84375,
+      271.28515625,
+      351.60546875,
+      424.734375,
+      496.10546875,
+      578.1875,
+      663.5703125,
+      761.3203125
+    ]
+  },
+  {
+    "line": 4,
+    "text": "To watch his woods fill up with snow.",
+    "syllables": [
+      "To",
+      "watch",
+      "his",
+      "woods",
+      "fill",
+      "up",
+      "with",
+      "snow."
+    ],
+    "marks": [
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/"
+    ],
+    "rhyme": "A",
+    "mark_centres": [
+      188.33984375,
+      280.1875,
+      377.23046875,
+      480.98046875,
+      582.30859375,
+      645.91015625,
+      728.43359375,
+      836.34375
+    ]
+  },
+  {
+    "line": 5,
+    "text": "My little horse must think it queer",
+    "syllables": [
+      "My",
+      "lit",
+      "tle",
+      "horse",
+      "must",
+      "think",
+      "it",
+      "queer"
+    ],
+    "marks": [
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/"
+    ],
+    "rhyme": "B",
+    "mark_centres": [
+      197.18359375,
+      260.34375,
+      304.76171875,
+      393.5546875,
+      506.74609375,
+      618.265625,
+      694.51953125,
+      774.18359375
+    ]
+  },
+  {
+    "line": 6,
+    "text": "To stop without a farmhouse near",
+    "syllables": [
+      "To",
+      "stop",
+      "with",
+      "out",
+      "a",
+      "farm",
+      "house",
+      "near"
+    ],
+    "marks": [
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/"
+    ],
+    "rhyme": "B",
+    "mark_centres": [
+      188.33984375,
+      263.796875,
+      360.94921875,
+      438.43359375,
+      492.8828125,
+      561.30078125,
+      665.66796875,
+      777.5
+    ]
+  },
+  {
+    "line": 7,
+    "text": "Between the woods and frozen lake",
+    "syllables": [
+      "Be",
+      "tween",
+      "the",
+      "woods",
+      "and",
+      "fro",
+      "zen",
+      "lake"
+    ],
+    "marks": [
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/"
+    ],
+    "rhyme": "C",
+    "mark_centres": [
+      188.98046875,
+      271.90234375,
+      372.625,
+      478.62109375,
+      591.08203125,
+      667.1796875,
+      728.8671875,
+      813.48046875
+    ]
+  },
+  {
+    "line": 8,
+    "text": "The darkest evening of the year.",
+    "syllables": [
+      "The",
+      "dark",
+      "est",
+      "eve",
+      "ning",
+      "of",
+      "the",
+      "year."
+    ],
+    "marks": [
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "u",
+      "u",
+      "/"
+    ],
+    "rhyme": "B",
+    "mark_centres": [
+      202.13671875,
+      294.7109375,
+      365.375,
+      434.921875,
+      511.08984375,
+      585.2734375,
+      646.390625,
+      729.796875
+    ]
+  },
+  {
+    "line": 9,
+    "text": "He gives his harness bells a shake",
+    "syllables": [
+      "He",
+      "gives",
+      "his",
+      "har",
+      "ness",
+      "bells",
+      "a",
+      "shake"
+    ],
+    "marks": [
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/"
+    ],
+    "rhyme": "C",
+    "mark_centres": [
+      193.84375,
+      283.20703125,
+      372.26171875,
+      444.29296875,
+      519.05078125,
+      616.83984375,
+      683.3671875,
+      760.875
+    ]
+  },
+  {
+    "line": 10,
+    "text": "To ask if there is some mistake.",
+    "syllables": [
+      "To",
+      "ask",
+      "if",
+      "there",
+      "is",
+      "some",
+      "mis",
+      "take."
+    ],
+    "marks": [
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/"
+    ],
+    "rhyme": "C",
+    "mark_centres": [
+      188.33984375,
+      254.73046875,
+      311.5078125,
+      386.15625,
+      462.80859375,
+      540.84375,
+      638.3046875,
+      713.74609375
+    ]
+  },
+  {
+    "line": 11,
+    "text": "The only other sound’s the sweep",
+    "syllables": [
+      "The",
+      "on",
+      "ly",
+      "oth",
+      "er",
+      "sound’s",
+      "the",
+      "sweep"
+    ],
+    "marks": [
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/"
+    ],
+    "rhyme": "D",
+    "mark_centres": [
+      202.13671875,
+      275.08984375,
+      317.96875,
+      379.01953125,
+      430.23828125,
+      536.1953125,
+      653.703125,
+      756.4921875
+    ]
+  },
+  {
+    "line": 12,
+    "text": "Of easy wind and downy flake.",
+    "syllables": [
+      "Of",
+      "ea",
+      "sy",
+      "wind",
+      "and",
+      "down",
+      "y",
+      "flake."
+    ],
+    "marks": [
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/"
+    ],
+    "rhyme": "C",
+    "mark_centres": [
+      189.6171875,
+      246.62109375,
+      289.41015625,
+      372.8515625,
+      472.13671875,
+      576.37109375,
+      643.6640625,
+      712.71875
+    ]
+  },
+  {
+    "line": 13,
+    "text": "The woods are lovely, dark and deep,",
+    "syllables": [
+      "The",
+      "woods",
+      "are",
+      "love",
+      "ly,",
+      "dark",
+      "and",
+      "deep,"
+    ],
+    "marks": [
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/"
+    ],
+    "rhyme": "D",
+    "mark_centres": [
+      202.13671875,
+      314.48828125,
+      419.84375,
+      500.9140625,
+      558.59765625,
+      638.125,
+      730.80859375,
+      826.796875
+    ]
+  },
+  {
+    "line": 14,
+    "text": "But I have promises to keep,",
+    "syllables": [
+      "But",
+      "I",
+      "have",
+      "prom",
+      "is",
+      "es",
+      "to",
+      "keep,"
+    ],
+    "marks": [
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "u",
+      "u",
+      "/"
+    ],
+    "rhyme": "D",
+    "mark_centres": [
+      198.87890625,
+      251.171875,
+      314.62109375,
+      423.83203125,
+      492.73828125,
+      528.26953125,
+      577.98828125,
+      654.04296875
+    ]
+  },
+  {
+    "line": 15,
+    "text": "And miles to go before I sleep,",
+    "syllables": [
+      "And",
+      "miles",
+      "to",
+      "go",
+      "be",
+      "fore",
+      "I",
+      "sleep,"
+    ],
+    "marks": [
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/"
+    ],
+    "rhyme": "D",
+    "mark_centres": [
+      208.36328125,
+      314.7578125,
+      396.70703125,
+      450.31640625,
+      507.7109375,
+      568.2734375,
+      624.546875,
+      692.9921875
+    ]
+  },
+  {
+    "line": 16,
+    "text": "And miles to go before I sleep.",
+    "syllables": [
+      "And",
+      "miles",
+      "to",
+      "go",
+      "be",
+      "fore",
+      "I",
+      "sleep."
+    ],
+    "marks": [
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/",
+      "u",
+      "/"
+    ],
+    "rhyme": "D",
+    "mark_centres": [
+      208.36328125,
+      314.7578125,
+      396.70703125,
+      450.31640625,
+      507.7109375,
+      568.2734375,
+      624.546875,
+      692.9921875
+    ]
+  }
+]

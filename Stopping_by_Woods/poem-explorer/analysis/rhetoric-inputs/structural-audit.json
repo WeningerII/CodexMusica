@@ -1,0 +1,1264 @@
+{
+  "format": "frost-structural-audit-v1",
+  "poem_words": 108,
+  "lines": 16,
+  "stanzas": 4,
+  "grammatical_sentence_units": [
+    [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+    ],
+    [
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55
+    ],
+    [
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69
+    ],
+    [
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81
+    ],
+    [
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108
+    ]
+  ],
+  "all_lexical_recurrences": [
+    {
+      "wordIds": [
+        2,
+        26,
+        46,
+        83
+      ],
+      "token_ids": [
+        "L01W02",
+        "L04W04",
+        "L07W03",
+        "L13W02"
+      ],
+      "lines": [
+        1,
+        4,
+        7,
+        13
+      ],
+      "text": "woods woods woods woods",
+      "normalized_word": "woods"
+    },
+    {
+      "wordIds": [
+        4,
+        84
+      ],
+      "token_ids": [
+        "L01W04",
+        "L13W03"
+      ],
+      "lines": [
+        1,
+        13
+      ],
+      "text": "are are",
+      "normalized_word": "are"
+    },
+    {
+      "wordIds": [
+        5,
+        7,
+        90,
+        100,
+        107
+      ],
+      "token_ids": [
+        "L01W05",
+        "L01W07",
+        "L14W02",
+        "L15W06",
+        "L16W06"
+      ],
+      "lines": [
+        1,
+        14,
+        15,
+        16
+      ],
+      "text": "I I I I I",
+      "normalized_word": "i"
+    },
+    {
+      "wordIds": [
+        6,
+        35
+      ],
+      "token_ids": [
+        "L01W06",
+        "L05W05"
+      ],
+      "lines": [
+        1,
+        5
+      ],
+      "text": "think think",
+      "normalized_word": "think"
+    },
+    {
+      "wordIds": [
+        9,
+        25,
+        58
+      ],
+      "token_ids": [
+        "L02W01",
+        "L04W03",
+        "L09W03"
+      ],
+      "lines": [
+        2,
+        4,
+        9
+      ],
+      "text": "His his his",
+      "normalized_word": "his"
+    },
+    {
+      "wordIds": [
+        11,
+        67
+      ],
+      "token_ids": [
+        "L02W03",
+        "L10W05"
+      ],
+      "lines": [
+        2,
+        10
+      ],
+      "text": "is is",
+      "normalized_word": "is"
+    },
+    {
+      "wordIds": [
+        13,
+        45,
+        50,
+        54,
+        70,
+        74,
+        82
+      ],
+      "token_ids": [
+        "L02W05",
+        "L07W02",
+        "L08W01",
+        "L08W05",
+        "L11W01",
+        "L11W05",
+        "L13W01"
+      ],
+      "lines": [
+        2,
+        7,
+        8,
+        11,
+        13
+      ],
+      "text": "the the The the The the The",
+      "normalized_word": "the"
+    },
+    {
+      "wordIds": [
+        16,
+        56
+      ],
+      "token_ids": [
+        "L03W01",
+        "L09W01"
+      ],
+      "lines": [
+        3,
+        9
+      ],
+      "text": "He He",
+      "normalized_word": "he"
+    },
+    {
+      "wordIds": [
+        23,
+        38,
+        63,
+        93,
+        97,
+        104
+      ],
+      "token_ids": [
+        "L04W01",
+        "L06W01",
+        "L10W01",
+        "L14W05",
+        "L15W03",
+        "L16W03"
+      ],
+      "lines": [
+        4,
+        6,
+        10,
+        14,
+        15,
+        16
+      ],
+      "text": "To To To to to to",
+      "normalized_word": "to"
+    },
+    {
+      "wordIds": [
+        41,
+        61
+      ],
+      "token_ids": [
+        "L06W04",
+        "L09W06"
+      ],
+      "lines": [
+        6,
+        9
+      ],
+      "text": "a a",
+      "normalized_word": "a"
+    },
+    {
+      "wordIds": [
+        47,
+        79,
+        87,
+        95,
+        102
+      ],
+      "token_ids": [
+        "L07W04",
+        "L12W04",
+        "L13W06",
+        "L15W01",
+        "L16W01"
+      ],
+      "lines": [
+        7,
+        12,
+        13,
+        15,
+        16
+      ],
+      "text": "and and and And And",
+      "normalized_word": "and"
+    },
+    {
+      "wordIds": [
+        53,
+        76
+      ],
+      "token_ids": [
+        "L08W04",
+        "L12W01"
+      ],
+      "lines": [
+        8,
+        12
+      ],
+      "text": "of Of",
+      "normalized_word": "of"
+    },
+    {
+      "wordIds": [
+        96,
+        103
+      ],
+      "token_ids": [
+        "L15W02",
+        "L16W02"
+      ],
+      "lines": [
+        15,
+        16
+      ],
+      "text": "miles miles",
+      "normalized_word": "miles"
+    },
+    {
+      "wordIds": [
+        98,
+        105
+      ],
+      "token_ids": [
+        "L15W04",
+        "L16W04"
+      ],
+      "lines": [
+        15,
+        16
+      ],
+      "text": "go go",
+      "normalized_word": "go"
+    },
+    {
+      "wordIds": [
+        99,
+        106
+      ],
+      "token_ids": [
+        "L15W05",
+        "L16W05"
+      ],
+      "lines": [
+        15,
+        16
+      ],
+      "text": "before before",
+      "normalized_word": "before"
+    },
+    {
+      "wordIds": [
+        101,
+        108
+      ],
+      "token_ids": [
+        "L15W07",
+        "L16W07"
+      ],
+      "lines": [
+        15,
+        16
+      ],
+      "text": "sleep sleep",
+      "normalized_word": "sleep"
+    }
+  ],
+  "adjacent_line_duplicates": [
+    [
+      [
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101
+      ],
+      [
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108
+      ]
+    ]
+  ],
+  "adjacent_identical_word_pairs": [],
+  "ploce_nearby_content_pairs": [
+    {
+      "word": "woods",
+      "pairs": [
+        [
+          2,
+          26
+        ],
+        [
+          26,
+          46
+        ]
+      ]
+    },
+    {
+      "word": "miles",
+      "pairs": [
+        [
+          96,
+          103
+        ]
+      ]
+    },
+    {
+      "word": "go",
+      "pairs": [
+        [
+          98,
+          105
+        ]
+      ]
+    },
+    {
+      "word": "sleep",
+      "pairs": [
+        [
+          101,
+          108
+        ]
+      ]
+    }
+  ],
+  "conduplicatio_adapter_candidates": [
+    {
+      "phrase": "and miles",
+      "spans": [
+        [
+          95,
+          96
+        ],
+        [
+          102,
+          103
+        ]
+      ]
+    },
+    {
+      "phrase": "miles to",
+      "spans": [
+        [
+          96,
+          97
+        ],
+        [
+          103,
+          104
+        ]
+      ]
+    },
+    {
+      "phrase": "to go",
+      "spans": [
+        [
+          97,
+          98
+        ],
+        [
+          104,
+          105
+        ]
+      ]
+    },
+    {
+      "phrase": "go before",
+      "spans": [
+        [
+          98,
+          99
+        ],
+        [
+          105,
+          106
+        ]
+      ]
+    },
+    {
+      "phrase": "i sleep",
+      "spans": [
+        [
+          100,
+          101
+        ],
+        [
+          107,
+          108
+        ]
+      ]
+    },
+    {
+      "phrase": "and miles to",
+      "spans": [
+        [
+          95,
+          96,
+          97
+        ],
+        [
+          102,
+          103,
+          104
+        ]
+      ]
+    },
+    {
+      "phrase": "miles to go",
+      "spans": [
+        [
+          96,
+          97,
+          98
+        ],
+        [
+          103,
+          104,
+          105
+        ]
+      ]
+    },
+    {
+      "phrase": "to go before",
+      "spans": [
+        [
+          97,
+          98,
+          99
+        ],
+        [
+          104,
+          105,
+          106
+        ]
+      ]
+    },
+    {
+      "phrase": "go before i",
+      "spans": [
+        [
+          98,
+          99,
+          100
+        ],
+        [
+          105,
+          106,
+          107
+        ]
+      ]
+    },
+    {
+      "phrase": "before i sleep",
+      "spans": [
+        [
+          99,
+          100,
+          101
+        ],
+        [
+          106,
+          107,
+          108
+        ]
+      ]
+    },
+    {
+      "phrase": "and miles to go",
+      "spans": [
+        [
+          95,
+          96,
+          97,
+          98
+        ],
+        [
+          102,
+          103,
+          104,
+          105
+        ]
+      ]
+    },
+    {
+      "phrase": "miles to go before",
+      "spans": [
+        [
+          96,
+          97,
+          98,
+          99
+        ],
+        [
+          103,
+          104,
+          105,
+          106
+        ]
+      ]
+    },
+    {
+      "phrase": "to go before i",
+      "spans": [
+        [
+          97,
+          98,
+          99,
+          100
+        ],
+        [
+          104,
+          105,
+          106,
+          107
+        ]
+      ]
+    },
+    {
+      "phrase": "go before i sleep",
+      "spans": [
+        [
+          98,
+          99,
+          100,
+          101
+        ],
+        [
+          105,
+          106,
+          107,
+          108
+        ]
+      ]
+    },
+    {
+      "phrase": "and miles to go before",
+      "spans": [
+        [
+          95,
+          96,
+          97,
+          98,
+          99
+        ],
+        [
+          102,
+          103,
+          104,
+          105,
+          106
+        ]
+      ]
+    },
+    {
+      "phrase": "miles to go before i",
+      "spans": [
+        [
+          96,
+          97,
+          98,
+          99,
+          100
+        ],
+        [
+          103,
+          104,
+          105,
+          106,
+          107
+        ]
+      ]
+    },
+    {
+      "phrase": "to go before i sleep",
+      "spans": [
+        [
+          97,
+          98,
+          99,
+          100,
+          101
+        ],
+        [
+          104,
+          105,
+          106,
+          107,
+          108
+        ]
+      ]
+    },
+    {
+      "phrase": "and miles to go before i",
+      "spans": [
+        [
+          95,
+          96,
+          97,
+          98,
+          99,
+          100
+        ],
+        [
+          102,
+          103,
+          104,
+          105,
+          106,
+          107
+        ]
+      ]
+    },
+    {
+      "phrase": "miles to go before i sleep",
+      "spans": [
+        [
+          96,
+          97,
+          98,
+          99,
+          100,
+          101
+        ],
+        [
+          103,
+          104,
+          105,
+          106,
+          107,
+          108
+        ]
+      ]
+    }
+  ],
+  "conduplicatio_scope": "case-folded token phrases length 2–8; all-stop spans rejected; within one or two consecutive period-delimited sentences; nonoverlapping nonadjacent repeated spans. Rhetorica source-inspired adaptation, not native execution. Maximal adjacent seven-word repetition is deliberately not Conduplicatio under this rule.",
+  "paroemion": [
+    {
+      "line": 1,
+      "onset": [
+        "HH"
+      ],
+      "count": 1,
+      "word_count": 8,
+      "fraction": 0.125,
+      "threshold": 0.8,
+      "match": false
+    },
+    {
+      "line": 2,
+      "onset": [
+        "HH"
+      ],
+      "count": 2,
+      "word_count": 7,
+      "fraction": 0.2857142857142857,
+      "threshold": 0.8,
+      "match": false
+    },
+    {
+      "line": 3,
+      "onset": [
+        "HH"
+      ],
+      "count": 2,
+      "word_count": 7,
+      "fraction": 0.2857142857142857,
+      "threshold": 0.8,
+      "match": false
+    },
+    {
+      "line": 4,
+      "onset": [
+        "W"
+      ],
+      "count": 3,
+      "word_count": 8,
+      "fraction": 0.375,
+      "threshold": 0.8,
+      "match": false
+    },
+    {
+      "line": 5,
+      "onset": [
+        "M"
+      ],
+      "count": 2,
+      "word_count": 7,
+      "fraction": 0.2857142857142857,
+      "threshold": 0.8,
+      "match": false
+    },
+    {
+      "line": 6,
+      "onset": [
+        "T"
+      ],
+      "count": 1,
+      "word_count": 6,
+      "fraction": 0.16666666666666666,
+      "threshold": 0.8,
+      "match": false
+    },
+    {
+      "line": 7,
+      "onset": [
+        "B"
+      ],
+      "count": 1,
+      "word_count": 6,
+      "fraction": 0.16666666666666666,
+      "threshold": 0.8,
+      "match": false
+    },
+    {
+      "line": 8,
+      "onset": [
+        "DH"
+      ],
+      "count": 2,
+      "word_count": 6,
+      "fraction": 0.3333333333333333,
+      "threshold": 0.8,
+      "match": false
+    },
+    {
+      "line": 9,
+      "onset": [
+        "HH"
+      ],
+      "count": 3,
+      "word_count": 7,
+      "fraction": 0.42857142857142855,
+      "threshold": 0.8,
+      "match": false
+    },
+    {
+      "line": 10,
+      "onset": [
+        "T"
+      ],
+      "count": 1,
+      "word_count": 7,
+      "fraction": 0.14285714285714285,
+      "threshold": 0.8,
+      "match": false
+    },
+    {
+      "line": 11,
+      "onset": [
+        "DH"
+      ],
+      "count": 2,
+      "word_count": 6,
+      "fraction": 0.3333333333333333,
+      "threshold": 0.8,
+      "match": false
+    },
+    {
+      "line": 12,
+      "onset": [
+        "W"
+      ],
+      "count": 1,
+      "word_count": 6,
+      "fraction": 0.16666666666666666,
+      "threshold": 0.8,
+      "match": false
+    },
+    {
+      "line": 13,
+      "onset": [
+        "D"
+      ],
+      "count": 2,
+      "word_count": 7,
+      "fraction": 0.2857142857142857,
+      "threshold": 0.8,
+      "match": false
+    },
+    {
+      "line": 14,
+      "onset": [
+        "B"
+      ],
+      "count": 1,
+      "word_count": 6,
+      "fraction": 0.16666666666666666,
+      "threshold": 0.8,
+      "match": false
+    },
+    {
+      "line": 15,
+      "onset": [
+        "M"
+      ],
+      "count": 1,
+      "word_count": 7,
+      "fraction": 0.14285714285714285,
+      "threshold": 0.8,
+      "match": false
+    },
+    {
+      "line": 16,
+      "onset": [
+        "M"
+      ],
+      "count": 1,
+      "word_count": 7,
+      "fraction": 0.14285714285714285,
+      "threshold": 0.8,
+      "match": false
+    }
+  ],
+  "distinct_word_anagram_pairs": [],
+  "palindrome_words_at_least_two_letters": [],
+  "palindrome_full_lines": [],
+  "palindrome_full_poem": false,
+  "letter_normalization": "lowercase ASCII a–z; all punctuation/whitespace removed; no title",
+  "missing_letters": [
+    "j",
+    "x"
+  ],
+  "pangram": false,
+  "line_initials": "WHHTMTBTHTTOTBAA",
+  "acrostic_status": "initial-letter extraction component only; AcrosticSleuth ranking not executed; no meaningfulness or intent decision",
+  "antimetabole_lexical_abba_candidates": [],
+  "antimetabole_scope": "whole 108-token poem, six sentences separately; case-folded single content words and strict a<b<c<d; A and B distinct; declared local stoplist. Broader separated multiword patterns and conceptual reversals are not covered.",
+  "line_boundaries": [
+    {
+      "after_line": 1,
+      "punctuation": "full_stop",
+      "grammar": "sentence closes",
+      "relation": "end-stopped",
+      "wordIds": [
+        8,
+        9
+      ],
+      "performed_pause": "not inferable from text; existing optional delivery annotation retained"
+    },
+    {
+      "after_line": 2,
+      "punctuation": "semicolon",
+      "grammar": "independent clause closes; next independent clause follows",
+      "relation": "clause boundary",
+      "wordIds": [
+        15,
+        16
+      ],
+      "performed_pause": "not inferable from text; existing optional delivery annotation retained"
+    },
+    {
+      "after_line": 3,
+      "punctuation": "none",
+      "grammar": "purpose adjunct follows stopping",
+      "relation": "continuation across optional adjunct boundary",
+      "wordIds": [
+        22,
+        23
+      ],
+      "performed_pause": "not inferable from text; existing optional delivery annotation retained"
+    },
+    {
+      "after_line": 4,
+      "punctuation": "full_stop",
+      "grammar": "sentence closes",
+      "relation": "end-stopped",
+      "wordIds": [
+        30,
+        31
+      ],
+      "performed_pause": "not inferable from text; existing optional delivery annotation retained"
+    },
+    {
+      "after_line": 5,
+      "punctuation": "none",
+      "grammar": "extraposed infinitive explains it",
+      "relation": "strong grammatical continuation",
+      "wordIds": [
+        37,
+        38
+      ],
+      "performed_pause": "not inferable from text; existing optional delivery annotation retained"
+    },
+    {
+      "after_line": 6,
+      "punctuation": "none",
+      "grammar": "place adjunct follows",
+      "relation": "continuation across adjunct boundary",
+      "wordIds": [
+        43,
+        44
+      ],
+      "performed_pause": "not inferable from text; existing optional delivery annotation retained"
+    },
+    {
+      "after_line": 7,
+      "punctuation": "none",
+      "grammar": "time adjunct follows the place adjunct",
+      "relation": "loose continuation",
+      "wordIds": [
+        49,
+        50
+      ],
+      "performed_pause": "not inferable from text; existing optional delivery annotation retained"
+    },
+    {
+      "after_line": 8,
+      "punctuation": "full_stop",
+      "grammar": "sentence closes",
+      "relation": "end-stopped",
+      "wordIds": [
+        55,
+        56
+      ],
+      "performed_pause": "not inferable from text; existing optional delivery annotation retained"
+    },
+    {
+      "after_line": 9,
+      "punctuation": "none",
+      "grammar": "purpose adjunct follows shake",
+      "relation": "continuation across optional adjunct boundary",
+      "wordIds": [
+        62,
+        63
+      ],
+      "performed_pause": "not inferable from text; existing optional delivery annotation retained"
+    },
+    {
+      "after_line": 10,
+      "punctuation": "full_stop",
+      "grammar": "sentence closes",
+      "relation": "end-stopped",
+      "wordIds": [
+        69,
+        70
+      ],
+      "performed_pause": "not inferable from text; existing optional delivery annotation retained"
+    },
+    {
+      "after_line": 11,
+      "punctuation": "none",
+      "grammar": "head noun sweep takes of-phrase across boundary",
+      "relation": "strong noun-phrase continuation",
+      "wordIds": [
+        75,
+        76
+      ],
+      "performed_pause": "not inferable from text; existing optional delivery annotation retained"
+    },
+    {
+      "after_line": 12,
+      "punctuation": "full_stop",
+      "grammar": "sentence closes",
+      "relation": "end-stopped",
+      "wordIds": [
+        81,
+        82
+      ],
+      "performed_pause": "not inferable from text; existing optional delivery annotation retained"
+    },
+    {
+      "after_line": 13,
+      "punctuation": "comma",
+      "grammar": "adjective list and main clause close; but coordinates next clause",
+      "relation": "local closure within continuing sentence",
+      "wordIds": [
+        88,
+        89
+      ],
+      "performed_pause": "not inferable from text; existing optional delivery annotation retained"
+    },
+    {
+      "after_line": 14,
+      "punctuation": "comma",
+      "grammar": "promises to keep closes; and adds miles to go",
+      "relation": "local phrase closure within continuing sentence",
+      "wordIds": [
+        94,
+        95
+      ],
+      "performed_pause": "not inferable from text; existing optional delivery annotation retained"
+    },
+    {
+      "after_line": 15,
+      "punctuation": "comma",
+      "grammar": "complete repeated phrase boundary",
+      "relation": "local closure within continuing sentence",
+      "wordIds": [
+        101,
+        102
+      ],
+      "performed_pause": "not inferable from text; existing optional delivery annotation retained"
+    }
+  ],
+  "jade_punctuation_gate_lines": [
+    3,
+    5,
+    6,
+    7,
+    9,
+    11
+  ],
+  "pronunciation_syllables_by_line": [
+    {
+      "line": 1,
+      "syllables": 8
+    },
+    {
+      "line": 2,
+      "syllables": 8
+    },
+    {
+      "line": 3,
+      "syllables": 8
+    },
+    {
+      "line": 4,
+      "syllables": 8
+    },
+    {
+      "line": 5,
+      "syllables": 8
+    },
+    {
+      "line": 6,
+      "syllables": 8
+    },
+    {
+      "line": 7,
+      "syllables": 8
+    },
+    {
+      "line": 8,
+      "syllables": 8
+    },
+    {
+      "line": 9,
+      "syllables": 8
+    },
+    {
+      "line": 10,
+      "syllables": 8
+    },
+    {
+      "line": 11,
+      "syllables": 8
+    },
+    {
+      "line": 12,
+      "syllables": 8
+    },
+    {
+      "line": 13,
+      "syllables": 8
+    },
+    {
+      "line": 14,
+      "syllables": 8
+    },
+    {
+      "line": 15,
+      "syllables": 8
+    },
+    {
+      "line": 16,
+      "syllables": 8
+    }
+  ],
+  "native_prd_file": "native_prd_results.json",
+  "pair_files": [
+    "annotated_pairs_rerun.json",
+    "all_pairs_rerun.json",
+    "annotated_addon_rerun.json",
+    "all_addon_rerun.json"
+  ],
+  "input_sha256": "5f75df9dbf5a1b0333f6d51fe203d68e062255ae83f6fbcf10e43ee528e675f8",
+  "script_sha256": "5a63ad15498c3bdc4db36e1740a7647cba09ebb70b5995aca10bddcaf73c5179",
+  "sanity_checks": {
+    "all_108_global_ids_preserved": true,
+    "whole_line_repeat_is_7_plus_7_words": true,
+    "no_are_village_positive_relation": true,
+    "whose_his_not_perfect": true,
+    "whose_his_pararhyme_present": true,
+    "sleep_sleep_identity_not_distinct_word_perfect": true,
+    "no_empty_onset_can_make_paroemion": true,
+    "all_display_spans_valid": true
+  }
+}

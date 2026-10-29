@@ -1,0 +1,1836 @@
+{
+  "repo": "https://github.com/text-processing/prose-rhythm-detector",
+  "commit": "6ca3e48612f5bc6c9df80e3d84bcad8ee46f4179",
+  "execution_mode": "unmodified_upstream_rule_functions_with_manual_token_and_unit_adapter",
+  "input_scope": "Entire supplied poem:16lines,108word occurrences. Lines and six period-delimited grammatical sentences tested separately. Punctuation retained in native models; lexical indices exclude it.",
+  "tokens": [
+    {
+      "id": "L01W01",
+      "line": 1,
+      "position": 1,
+      "word": "Whose",
+      "global_id": 1,
+      "char_start": 0,
+      "char_end": 5
+    },
+    {
+      "id": "L01W02",
+      "line": 1,
+      "position": 2,
+      "word": "woods",
+      "global_id": 2,
+      "char_start": 6,
+      "char_end": 11
+    },
+    {
+      "id": "L01W03",
+      "line": 1,
+      "position": 3,
+      "word": "these",
+      "global_id": 3,
+      "char_start": 12,
+      "char_end": 17
+    },
+    {
+      "id": "L01W04",
+      "line": 1,
+      "position": 4,
+      "word": "are",
+      "global_id": 4,
+      "char_start": 18,
+      "char_end": 21
+    },
+    {
+      "id": "L01W05",
+      "line": 1,
+      "position": 5,
+      "word": "I",
+      "global_id": 5,
+      "char_start": 22,
+      "char_end": 23
+    },
+    {
+      "id": "L01W06",
+      "line": 1,
+      "position": 6,
+      "word": "think",
+      "global_id": 6,
+      "char_start": 24,
+      "char_end": 29
+    },
+    {
+      "id": "L01W07",
+      "line": 1,
+      "position": 7,
+      "word": "I",
+      "global_id": 7,
+      "char_start": 30,
+      "char_end": 31
+    },
+    {
+      "id": "L01W08",
+      "line": 1,
+      "position": 8,
+      "word": "know",
+      "global_id": 8,
+      "char_start": 32,
+      "char_end": 36
+    },
+    {
+      "id": "L02W01",
+      "line": 2,
+      "position": 1,
+      "word": "His",
+      "global_id": 9,
+      "char_start": 0,
+      "char_end": 3
+    },
+    {
+      "id": "L02W02",
+      "line": 2,
+      "position": 2,
+      "word": "house",
+      "global_id": 10,
+      "char_start": 4,
+      "char_end": 9
+    },
+    {
+      "id": "L02W03",
+      "line": 2,
+      "position": 3,
+      "word": "is",
+      "global_id": 11,
+      "char_start": 10,
+      "char_end": 12
+    },
+    {
+      "id": "L02W04",
+      "line": 2,
+      "position": 4,
+      "word": "in",
+      "global_id": 12,
+      "char_start": 13,
+      "char_end": 15
+    },
+    {
+      "id": "L02W05",
+      "line": 2,
+      "position": 5,
+      "word": "the",
+      "global_id": 13,
+      "char_start": 16,
+      "char_end": 19
+    },
+    {
+      "id": "L02W06",
+      "line": 2,
+      "position": 6,
+      "word": "village",
+      "global_id": 14,
+      "char_start": 20,
+      "char_end": 27
+    },
+    {
+      "id": "L02W07",
+      "line": 2,
+      "position": 7,
+      "word": "though",
+      "global_id": 15,
+      "char_start": 28,
+      "char_end": 34
+    },
+    {
+      "id": "L03W01",
+      "line": 3,
+      "position": 1,
+      "word": "He",
+      "global_id": 16,
+      "char_start": 0,
+      "char_end": 2
+    },
+    {
+      "id": "L03W02",
+      "line": 3,
+      "position": 2,
+      "word": "will",
+      "global_id": 17,
+      "char_start": 3,
+      "char_end": 7
+    },
+    {
+      "id": "L03W03",
+      "line": 3,
+      "position": 3,
+      "word": "not",
+      "global_id": 18,
+      "char_start": 8,
+      "char_end": 11
+    },
+    {
+      "id": "L03W04",
+      "line": 3,
+      "position": 4,
+      "word": "see",
+      "global_id": 19,
+      "char_start": 12,
+      "char_end": 15
+    },
+    {
+      "id": "L03W05",
+      "line": 3,
+      "position": 5,
+      "word": "me",
+      "global_id": 20,
+      "char_start": 16,
+      "char_end": 18
+    },
+    {
+      "id": "L03W06",
+      "line": 3,
+      "position": 6,
+      "word": "stopping",
+      "global_id": 21,
+      "char_start": 19,
+      "char_end": 27
+    },
+    {
+      "id": "L03W07",
+      "line": 3,
+      "position": 7,
+      "word": "here",
+      "global_id": 22,
+      "char_start": 28,
+      "char_end": 32
+    },
+    {
+      "id": "L04W01",
+      "line": 4,
+      "position": 1,
+      "word": "To",
+      "global_id": 23,
+      "char_start": 0,
+      "char_end": 2
+    },
+    {
+      "id": "L04W02",
+      "line": 4,
+      "position": 2,
+      "word": "watch",
+      "global_id": 24,
+      "char_start": 3,
+      "char_end": 8
+    },
+    {
+      "id": "L04W03",
+      "line": 4,
+      "position": 3,
+      "word": "his",
+      "global_id": 25,
+      "char_start": 9,
+      "char_end": 12
+    },
+    {
+      "id": "L04W04",
+      "line": 4,
+      "position": 4,
+      "word": "woods",
+      "global_id": 26,
+      "char_start": 13,
+      "char_end": 18
+    },
+    {
+      "id": "L04W05",
+      "line": 4,
+      "position": 5,
+      "word": "fill",
+      "global_id": 27,
+      "char_start": 19,
+      "char_end": 23
+    },
+    {
+      "id": "L04W06",
+      "line": 4,
+      "position": 6,
+      "word": "up",
+      "global_id": 28,
+      "char_start": 24,
+      "char_end": 26
+    },
+    {
+      "id": "L04W07",
+      "line": 4,
+      "position": 7,
+      "word": "with",
+      "global_id": 29,
+      "char_start": 27,
+      "char_end": 31
+    },
+    {
+      "id": "L04W08",
+      "line": 4,
+      "position": 8,
+      "word": "snow",
+      "global_id": 30,
+      "char_start": 32,
+      "char_end": 36
+    },
+    {
+      "id": "L05W01",
+      "line": 5,
+      "position": 1,
+      "word": "My",
+      "global_id": 31,
+      "char_start": 0,
+      "char_end": 2
+    },
+    {
+      "id": "L05W02",
+      "line": 5,
+      "position": 2,
+      "word": "little",
+      "global_id": 32,
+      "char_start": 3,
+      "char_end": 9
+    },
+    {
+      "id": "L05W03",
+      "line": 5,
+      "position": 3,
+      "word": "horse",
+      "global_id": 33,
+      "char_start": 10,
+      "char_end": 15
+    },
+    {
+      "id": "L05W04",
+      "line": 5,
+      "position": 4,
+      "word": "must",
+      "global_id": 34,
+      "char_start": 16,
+      "char_end": 20
+    },
+    {
+      "id": "L05W05",
+      "line": 5,
+      "position": 5,
+      "word": "think",
+      "global_id": 35,
+      "char_start": 21,
+      "char_end": 26
+    },
+    {
+      "id": "L05W06",
+      "line": 5,
+      "position": 6,
+      "word": "it",
+      "global_id": 36,
+      "char_start": 27,
+      "char_end": 29
+    },
+    {
+      "id": "L05W07",
+      "line": 5,
+      "position": 7,
+      "word": "queer",
+      "global_id": 37,
+      "char_start": 30,
+      "char_end": 35
+    },
+    {
+      "id": "L06W01",
+      "line": 6,
+      "position": 1,
+      "word": "To",
+      "global_id": 38,
+      "char_start": 0,
+      "char_end": 2
+    },
+    {
+      "id": "L06W02",
+      "line": 6,
+      "position": 2,
+      "word": "stop",
+      "global_id": 39,
+      "char_start": 3,
+      "char_end": 7
+    },
+    {
+      "id": "L06W03",
+      "line": 6,
+      "position": 3,
+      "word": "without",
+      "global_id": 40,
+      "char_start": 8,
+      "char_end": 15
+    },
+    {
+      "id": "L06W04",
+      "line": 6,
+      "position": 4,
+      "word": "a",
+      "global_id": 41,
+      "char_start": 16,
+      "char_end": 17
+    },
+    {
+      "id": "L06W05",
+      "line": 6,
+      "position": 5,
+      "word": "farmhouse",
+      "global_id": 42,
+      "char_start": 18,
+      "char_end": 27
+    },
+    {
+      "id": "L06W06",
+      "line": 6,
+      "position": 6,
+      "word": "near",
+      "global_id": 43,
+      "char_start": 28,
+      "char_end": 32
+    },
+    {
+      "id": "L07W01",
+      "line": 7,
+      "position": 1,
+      "word": "Between",
+      "global_id": 44,
+      "char_start": 0,
+      "char_end": 7
+    },
+    {
+      "id": "L07W02",
+      "line": 7,
+      "position": 2,
+      "word": "the",
+      "global_id": 45,
+      "char_start": 8,
+      "char_end": 11
+    },
+    {
+      "id": "L07W03",
+      "line": 7,
+      "position": 3,
+      "word": "woods",
+      "global_id": 46,
+      "char_start": 12,
+      "char_end": 17
+    },
+    {
+      "id": "L07W04",
+      "line": 7,
+      "position": 4,
+      "word": "and",
+      "global_id": 47,
+      "char_start": 18,
+      "char_end": 21
+    },
+    {
+      "id": "L07W05",
+      "line": 7,
+      "position": 5,
+      "word": "frozen",
+      "global_id": 48,
+      "char_start": 22,
+      "char_end": 28
+    },
+    {
+      "id": "L07W06",
+      "line": 7,
+      "position": 6,
+      "word": "lake",
+      "global_id": 49,
+      "char_start": 29,
+      "char_end": 33
+    },
+    {
+      "id": "L08W01",
+      "line": 8,
+      "position": 1,
+      "word": "The",
+      "global_id": 50,
+      "char_start": 0,
+      "char_end": 3
+    },
+    {
+      "id": "L08W02",
+      "line": 8,
+      "position": 2,
+      "word": "darkest",
+      "global_id": 51,
+      "char_start": 4,
+      "char_end": 11
+    },
+    {
+      "id": "L08W03",
+      "line": 8,
+      "position": 3,
+      "word": "evening",
+      "global_id": 52,
+      "char_start": 12,
+      "char_end": 19
+    },
+    {
+      "id": "L08W04",
+      "line": 8,
+      "position": 4,
+      "word": "of",
+      "global_id": 53,
+      "char_start": 20,
+      "char_end": 22
+    },
+    {
+      "id": "L08W05",
+      "line": 8,
+      "position": 5,
+      "word": "the",
+      "global_id": 54,
+      "char_start": 23,
+      "char_end": 26
+    },
+    {
+      "id": "L08W06",
+      "line": 8,
+      "position": 6,
+      "word": "year",
+      "global_id": 55,
+      "char_start": 27,
+      "char_end": 31
+    },
+    {
+      "id": "L09W01",
+      "line": 9,
+      "position": 1,
+      "word": "He",
+      "global_id": 56,
+      "char_start": 0,
+      "char_end": 2
+    },
+    {
+      "id": "L09W02",
+      "line": 9,
+      "position": 2,
+      "word": "gives",
+      "global_id": 57,
+      "char_start": 3,
+      "char_end": 8
+    },
+    {
+      "id": "L09W03",
+      "line": 9,
+      "position": 3,
+      "word": "his",
+      "global_id": 58,
+      "char_start": 9,
+      "char_end": 12
+    },
+    {
+      "id": "L09W04",
+      "line": 9,
+      "position": 4,
+      "word": "harness",
+      "global_id": 59,
+      "char_start": 13,
+      "char_end": 20
+    },
+    {
+      "id": "L09W05",
+      "line": 9,
+      "position": 5,
+      "word": "bells",
+      "global_id": 60,
+      "char_start": 21,
+      "char_end": 26
+    },
+    {
+      "id": "L09W06",
+      "line": 9,
+      "position": 6,
+      "word": "a",
+      "global_id": 61,
+      "char_start": 27,
+      "char_end": 28
+    },
+    {
+      "id": "L09W07",
+      "line": 9,
+      "position": 7,
+      "word": "shake",
+      "global_id": 62,
+      "char_start": 29,
+      "char_end": 34
+    },
+    {
+      "id": "L10W01",
+      "line": 10,
+      "position": 1,
+      "word": "To",
+      "global_id": 63,
+      "char_start": 0,
+      "char_end": 2
+    },
+    {
+      "id": "L10W02",
+      "line": 10,
+      "position": 2,
+      "word": "ask",
+      "global_id": 64,
+      "char_start": 3,
+      "char_end": 6
+    },
+    {
+      "id": "L10W03",
+      "line": 10,
+      "position": 3,
+      "word": "if",
+      "global_id": 65,
+      "char_start": 7,
+      "char_end": 9
+    },
+    {
+      "id": "L10W04",
+      "line": 10,
+      "position": 4,
+      "word": "there",
+      "global_id": 66,
+      "char_start": 10,
+      "char_end": 15
+    },
+    {
+      "id": "L10W05",
+      "line": 10,
+      "position": 5,
+      "word": "is",
+      "global_id": 67,
+      "char_start": 16,
+      "char_end": 18
+    },
+    {
+      "id": "L10W06",
+      "line": 10,
+      "position": 6,
+      "word": "some",
+      "global_id": 68,
+      "char_start": 19,
+      "char_end": 23
+    },
+    {
+      "id": "L10W07",
+      "line": 10,
+      "position": 7,
+      "word": "mistake",
+      "global_id": 69,
+      "char_start": 24,
+      "char_end": 31
+    },
+    {
+      "id": "L11W01",
+      "line": 11,
+      "position": 1,
+      "word": "The",
+      "global_id": 70,
+      "char_start": 0,
+      "char_end": 3
+    },
+    {
+      "id": "L11W02",
+      "line": 11,
+      "position": 2,
+      "word": "only",
+      "global_id": 71,
+      "char_start": 4,
+      "char_end": 8
+    },
+    {
+      "id": "L11W03",
+      "line": 11,
+      "position": 3,
+      "word": "other",
+      "global_id": 72,
+      "char_start": 9,
+      "char_end": 14
+    },
+    {
+      "id": "L11W04",
+      "line": 11,
+      "position": 4,
+      "word": "sound’s",
+      "global_id": 73,
+      "char_start": 15,
+      "char_end": 22
+    },
+    {
+      "id": "L11W05",
+      "line": 11,
+      "position": 5,
+      "word": "the",
+      "global_id": 74,
+      "char_start": 23,
+      "char_end": 26
+    },
+    {
+      "id": "L11W06",
+      "line": 11,
+      "position": 6,
+      "word": "sweep",
+      "global_id": 75,
+      "char_start": 27,
+      "char_end": 32
+    },
+    {
+      "id": "L12W01",
+      "line": 12,
+      "position": 1,
+      "word": "Of",
+      "global_id": 76,
+      "char_start": 0,
+      "char_end": 2
+    },
+    {
+      "id": "L12W02",
+      "line": 12,
+      "position": 2,
+      "word": "easy",
+      "global_id": 77,
+      "char_start": 3,
+      "char_end": 7
+    },
+    {
+      "id": "L12W03",
+      "line": 12,
+      "position": 3,
+      "word": "wind",
+      "global_id": 78,
+      "char_start": 8,
+      "char_end": 12
+    },
+    {
+      "id": "L12W04",
+      "line": 12,
+      "position": 4,
+      "word": "and",
+      "global_id": 79,
+      "char_start": 13,
+      "char_end": 16
+    },
+    {
+      "id": "L12W05",
+      "line": 12,
+      "position": 5,
+      "word": "downy",
+      "global_id": 80,
+      "char_start": 17,
+      "char_end": 22
+    },
+    {
+      "id": "L12W06",
+      "line": 12,
+      "position": 6,
+      "word": "flake",
+      "global_id": 81,
+      "char_start": 23,
+      "char_end": 28
+    },
+    {
+      "id": "L13W01",
+      "line": 13,
+      "position": 1,
+      "word": "The",
+      "global_id": 82,
+      "char_start": 0,
+      "char_end": 3
+    },
+    {
+      "id": "L13W02",
+      "line": 13,
+      "position": 2,
+      "word": "woods",
+      "global_id": 83,
+      "char_start": 4,
+      "char_end": 9
+    },
+    {
+      "id": "L13W03",
+      "line": 13,
+      "position": 3,
+      "word": "are",
+      "global_id": 84,
+      "char_start": 10,
+      "char_end": 13
+    },
+    {
+      "id": "L13W04",
+      "line": 13,
+      "position": 4,
+      "word": "lovely",
+      "global_id": 85,
+      "char_start": 14,
+      "char_end": 20
+    },
+    {
+      "id": "L13W05",
+      "line": 13,
+      "position": 5,
+      "word": "dark",
+      "global_id": 86,
+      "char_start": 22,
+      "char_end": 26
+    },
+    {
+      "id": "L13W06",
+      "line": 13,
+      "position": 6,
+      "word": "and",
+      "global_id": 87,
+      "char_start": 27,
+      "char_end": 30
+    },
+    {
+      "id": "L13W07",
+      "line": 13,
+      "position": 7,
+      "word": "deep",
+      "global_id": 88,
+      "char_start": 31,
+      "char_end": 35
+    },
+    {
+      "id": "L14W01",
+      "line": 14,
+      "position": 1,
+      "word": "But",
+      "global_id": 89,
+      "char_start": 0,
+      "char_end": 3
+    },
+    {
+      "id": "L14W02",
+      "line": 14,
+      "position": 2,
+      "word": "I",
+      "global_id": 90,
+      "char_start": 4,
+      "char_end": 5
+    },
+    {
+      "id": "L14W03",
+      "line": 14,
+      "position": 3,
+      "word": "have",
+      "global_id": 91,
+      "char_start": 6,
+      "char_end": 10
+    },
+    {
+      "id": "L14W04",
+      "line": 14,
+      "position": 4,
+      "word": "promises",
+      "global_id": 92,
+      "char_start": 11,
+      "char_end": 19
+    },
+    {
+      "id": "L14W05",
+      "line": 14,
+      "position": 5,
+      "word": "to",
+      "global_id": 93,
+      "char_start": 20,
+      "char_end": 22
+    },
+    {
+      "id": "L14W06",
+      "line": 14,
+      "position": 6,
+      "word": "keep",
+      "global_id": 94,
+      "char_start": 23,
+      "char_end": 27
+    },
+    {
+      "id": "L15W01",
+      "line": 15,
+      "position": 1,
+      "word": "And",
+      "global_id": 95,
+      "char_start": 0,
+      "char_end": 3
+    },
+    {
+      "id": "L15W02",
+      "line": 15,
+      "position": 2,
+      "word": "miles",
+      "global_id": 96,
+      "char_start": 4,
+      "char_end": 9
+    },
+    {
+      "id": "L15W03",
+      "line": 15,
+      "position": 3,
+      "word": "to",
+      "global_id": 97,
+      "char_start": 10,
+      "char_end": 12
+    },
+    {
+      "id": "L15W04",
+      "line": 15,
+      "position": 4,
+      "word": "go",
+      "global_id": 98,
+      "char_start": 13,
+      "char_end": 15
+    },
+    {
+      "id": "L15W05",
+      "line": 15,
+      "position": 5,
+      "word": "before",
+      "global_id": 99,
+      "char_start": 16,
+      "char_end": 22
+    },
+    {
+      "id": "L15W06",
+      "line": 15,
+      "position": 6,
+      "word": "I",
+      "global_id": 100,
+      "char_start": 23,
+      "char_end": 24
+    },
+    {
+      "id": "L15W07",
+      "line": 15,
+      "position": 7,
+      "word": "sleep",
+      "global_id": 101,
+      "char_start": 25,
+      "char_end": 30
+    },
+    {
+      "id": "L16W01",
+      "line": 16,
+      "position": 1,
+      "word": "And",
+      "global_id": 102,
+      "char_start": 0,
+      "char_end": 3
+    },
+    {
+      "id": "L16W02",
+      "line": 16,
+      "position": 2,
+      "word": "miles",
+      "global_id": 103,
+      "char_start": 4,
+      "char_end": 9
+    },
+    {
+      "id": "L16W03",
+      "line": 16,
+      "position": 3,
+      "word": "to",
+      "global_id": 104,
+      "char_start": 10,
+      "char_end": 12
+    },
+    {
+      "id": "L16W04",
+      "line": 16,
+      "position": 4,
+      "word": "go",
+      "global_id": 105,
+      "char_start": 13,
+      "char_end": 15
+    },
+    {
+      "id": "L16W05",
+      "line": 16,
+      "position": 5,
+      "word": "before",
+      "global_id": 106,
+      "char_start": 16,
+      "char_end": 22
+    },
+    {
+      "id": "L16W06",
+      "line": 16,
+      "position": 6,
+      "word": "I",
+      "global_id": 107,
+      "char_start": 23,
+      "char_end": 24
+    },
+    {
+      "id": "L16W07",
+      "line": 16,
+      "position": 7,
+      "word": "sleep",
+      "global_id": 108,
+      "char_start": 25,
+      "char_end": 30
+    }
+  ],
+  "sentence_units": [
+    "Whose woods these are I think I know.",
+    "His house is in the village though; He will not see me stopping here To watch his woods fill up with snow.",
+    "My little horse must think it queer To stop without a farmhouse near Between the woods and frozen lake The darkest evening of the year.",
+    "He gives his harness bells a shake To ask if there is some mistake.",
+    "The only other sound’s the sweep Of easy wind and downy flake.",
+    "The woods are lovely, dark and deep, But I have promises to keep, And miles to go before I sleep, And miles to go before I sleep."
+  ],
+  "results": [
+    {
+      "unit": "line",
+      "stop_policy": "source_default",
+      "figure": "anaphora",
+      "outputs": [
+        {
+          "type": "anaphora",
+          "words": [
+            94,
+            101,
+            95,
+            102
+          ],
+          "context": [
+            94,
+            107
+          ],
+          "letters": {},
+          "transcription": null,
+          "token_ids": [
+            "L15W01",
+            "L16W01",
+            "L15W02",
+            "L16W02"
+          ],
+          "selected_words": [
+            "And",
+            "And",
+            "miles",
+            "miles"
+          ]
+        }
+      ]
+    },
+    {
+      "unit": "line",
+      "stop_policy": "source_default",
+      "figure": "epistrophe",
+      "outputs": [
+        {
+          "type": "epiphora",
+          "words": [
+            100,
+            107
+          ],
+          "context": [
+            94,
+            107
+          ],
+          "letters": {},
+          "transcription": null,
+          "token_ids": [
+            "L15W07",
+            "L16W07"
+          ],
+          "selected_words": [
+            "sleep",
+            "sleep"
+          ]
+        }
+      ]
+    },
+    {
+      "unit": "line",
+      "stop_policy": "source_default",
+      "figure": "anadiplosis",
+      "outputs": []
+    },
+    {
+      "unit": "line",
+      "stop_policy": "source_default",
+      "figure": "epanalepsis",
+      "outputs": []
+    },
+    {
+      "unit": "line",
+      "stop_policy": "source_default",
+      "figure": "epizeuxis",
+      "outputs": []
+    },
+    {
+      "unit": "line",
+      "stop_policy": "source_default",
+      "figure": "diacope",
+      "outputs": []
+    },
+    {
+      "unit": "line",
+      "stop_policy": "source_default",
+      "figure": "polysyndeton",
+      "outputs": []
+    },
+    {
+      "unit": "line",
+      "stop_policy": "source_default",
+      "figure": "chiasmus",
+      "outputs": []
+    },
+    {
+      "unit": "line",
+      "stop_policy": "source_default",
+      "figure": "symploce",
+      "outputs": [
+        {
+          "type": "symploce",
+          "words": [
+            94,
+            95,
+            100,
+            101,
+            102,
+            107
+          ],
+          "context": [
+            94,
+            107
+          ],
+          "letters": {},
+          "transcription": null,
+          "token_ids": [
+            "L15W01",
+            "L15W02",
+            "L15W07",
+            "L16W01",
+            "L16W02",
+            "L16W07"
+          ]
+        }
+      ]
+    },
+    {
+      "unit": "line",
+      "stop_policy": "no_lexical_stop_filter",
+      "figure": "anaphora",
+      "error": "IndexError: list index out of range"
+    },
+    {
+      "unit": "line",
+      "stop_policy": "no_lexical_stop_filter",
+      "figure": "epistrophe",
+      "outputs": [
+        {
+          "type": "epiphora",
+          "words": [
+            100,
+            107
+          ],
+          "context": [
+            94,
+            107
+          ],
+          "letters": {},
+          "transcription": null,
+          "token_ids": [
+            "L15W07",
+            "L16W07"
+          ],
+          "selected_words": [
+            "sleep",
+            "sleep"
+          ]
+        }
+      ]
+    },
+    {
+      "unit": "line",
+      "stop_policy": "no_lexical_stop_filter",
+      "figure": "anadiplosis",
+      "outputs": []
+    },
+    {
+      "unit": "line",
+      "stop_policy": "no_lexical_stop_filter",
+      "figure": "epanalepsis",
+      "outputs": []
+    },
+    {
+      "unit": "line",
+      "stop_policy": "no_lexical_stop_filter",
+      "figure": "epizeuxis",
+      "outputs": [
+        {
+          "type": "epizeuxis",
+          "words": [
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107
+          ],
+          "context": [
+            94,
+            108
+          ],
+          "letters": {},
+          "transcription": null,
+          "token_ids": [
+            "L15W01",
+            "L15W02",
+            "L15W03",
+            "L15W04",
+            "L15W05",
+            "L15W06",
+            "L15W07",
+            "L16W01",
+            "L16W02",
+            "L16W03",
+            "L16W04",
+            "L16W05",
+            "L16W06",
+            "L16W07"
+          ],
+          "selected_words": [
+            "And",
+            "miles",
+            "to",
+            "go",
+            "before",
+            "I",
+            "sleep",
+            "And",
+            "miles",
+            "to",
+            "go",
+            "before",
+            "I",
+            "sleep"
+          ]
+        }
+      ]
+    },
+    {
+      "unit": "line",
+      "stop_policy": "no_lexical_stop_filter",
+      "figure": "diacope",
+      "outputs": [
+        {
+          "type": "diacope",
+          "words": [
+            4,
+            6
+          ],
+          "context": [
+            0,
+            7
+          ],
+          "letters": {},
+          "transcription": null,
+          "token_ids": [
+            "L01W05",
+            "L01W07"
+          ],
+          "selected_words": [
+            "I",
+            "I"
+          ]
+        },
+        {
+          "type": "diacope",
+          "words": [
+            49,
+            53
+          ],
+          "context": [
+            49,
+            54
+          ],
+          "letters": {},
+          "transcription": null,
+          "token_ids": [
+            "L08W01",
+            "L08W05"
+          ],
+          "selected_words": [
+            "The",
+            "the"
+          ]
+        },
+        {
+          "type": "diacope",
+          "words": [
+            69,
+            73
+          ],
+          "context": [
+            69,
+            74
+          ],
+          "letters": {},
+          "transcription": null,
+          "token_ids": [
+            "L11W01",
+            "L11W05"
+          ],
+          "selected_words": [
+            "The",
+            "the"
+          ]
+        }
+      ]
+    },
+    {
+      "unit": "line",
+      "stop_policy": "no_lexical_stop_filter",
+      "figure": "polysyndeton",
+      "outputs": []
+    },
+    {
+      "unit": "line",
+      "stop_policy": "no_lexical_stop_filter",
+      "figure": "chiasmus",
+      "outputs": []
+    },
+    {
+      "unit": "line",
+      "stop_policy": "no_lexical_stop_filter",
+      "figure": "symploce",
+      "not_run": "Required anaphora/epistrophe call failed."
+    },
+    {
+      "unit": "grammatical_sentence",
+      "stop_policy": "source_default",
+      "figure": "anaphora",
+      "outputs": []
+    },
+    {
+      "unit": "grammatical_sentence",
+      "stop_policy": "source_default",
+      "figure": "epistrophe",
+      "outputs": []
+    },
+    {
+      "unit": "grammatical_sentence",
+      "stop_policy": "source_default",
+      "figure": "anadiplosis",
+      "outputs": []
+    },
+    {
+      "unit": "grammatical_sentence",
+      "stop_policy": "source_default",
+      "figure": "epanalepsis",
+      "outputs": []
+    },
+    {
+      "unit": "grammatical_sentence",
+      "stop_policy": "source_default",
+      "figure": "epizeuxis",
+      "outputs": []
+    },
+    {
+      "unit": "grammatical_sentence",
+      "stop_policy": "source_default",
+      "figure": "diacope",
+      "outputs": [
+        {
+          "type": "diacope",
+          "words": [
+            95,
+            102
+          ],
+          "context": [
+            81,
+            107
+          ],
+          "letters": {},
+          "transcription": null,
+          "token_ids": [
+            "L15W02",
+            "L16W02"
+          ],
+          "selected_words": [
+            "miles",
+            "miles"
+          ]
+        },
+        {
+          "type": "diacope",
+          "words": [
+            97,
+            104
+          ],
+          "context": [
+            81,
+            107
+          ],
+          "letters": {},
+          "transcription": null,
+          "token_ids": [
+            "L15W04",
+            "L16W04"
+          ],
+          "selected_words": [
+            "go",
+            "go"
+          ]
+        },
+        {
+          "type": "diacope",
+          "words": [
+            100,
+            107
+          ],
+          "context": [
+            81,
+            107
+          ],
+          "letters": {},
+          "transcription": null,
+          "token_ids": [
+            "L15W07",
+            "L16W07"
+          ],
+          "selected_words": [
+            "sleep",
+            "sleep"
+          ]
+        }
+      ]
+    },
+    {
+      "unit": "grammatical_sentence",
+      "stop_policy": "source_default",
+      "figure": "polysyndeton",
+      "outputs": [
+        {
+          "type": "polysyndeton",
+          "words": [
+            86,
+            94,
+            101
+          ],
+          "context": [
+            81,
+            107
+          ],
+          "letters": {},
+          "transcription": null,
+          "token_ids": [
+            "L13W06",
+            "L15W01",
+            "L16W01"
+          ],
+          "selected_words": [
+            "and",
+            "And",
+            "And"
+          ]
+        }
+      ]
+    },
+    {
+      "unit": "grammatical_sentence",
+      "stop_policy": "source_default",
+      "figure": "chiasmus",
+      "outputs": []
+    },
+    {
+      "unit": "grammatical_sentence",
+      "stop_policy": "source_default",
+      "figure": "symploce",
+      "outputs": []
+    },
+    {
+      "unit": "grammatical_sentence",
+      "stop_policy": "no_lexical_stop_filter",
+      "figure": "anaphora",
+      "outputs": [
+        {
+          "type": "anaphora",
+          "words": [
+            69,
+            81
+          ],
+          "context": [
+            69,
+            107
+          ],
+          "letters": {},
+          "transcription": null,
+          "token_ids": [
+            "L11W01",
+            "L13W01"
+          ],
+          "selected_words": [
+            "The",
+            "The"
+          ]
+        }
+      ]
+    },
+    {
+      "unit": "grammatical_sentence",
+      "stop_policy": "no_lexical_stop_filter",
+      "figure": "epistrophe",
+      "outputs": []
+    },
+    {
+      "unit": "grammatical_sentence",
+      "stop_policy": "no_lexical_stop_filter",
+      "figure": "anadiplosis",
+      "outputs": []
+    },
+    {
+      "unit": "grammatical_sentence",
+      "stop_policy": "no_lexical_stop_filter",
+      "figure": "epanalepsis",
+      "outputs": []
+    },
+    {
+      "unit": "grammatical_sentence",
+      "stop_policy": "no_lexical_stop_filter",
+      "figure": "epizeuxis",
+      "outputs": [
+        {
+          "type": "epizeuxis",
+          "words": [
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107
+          ],
+          "context": [
+            81,
+            107
+          ],
+          "letters": {},
+          "transcription": null,
+          "token_ids": [
+            "L15W01",
+            "L15W02",
+            "L15W03",
+            "L15W04",
+            "L15W05",
+            "L15W06",
+            "L15W07",
+            "L16W01",
+            "L16W02",
+            "L16W03",
+            "L16W04",
+            "L16W05",
+            "L16W06",
+            "L16W07"
+          ],
+          "selected_words": [
+            "And",
+            "miles",
+            "to",
+            "go",
+            "before",
+            "I",
+            "sleep",
+            "And",
+            "miles",
+            "to",
+            "go",
+            "before",
+            "I",
+            "sleep"
+          ]
+        }
+      ]
+    },
+    {
+      "unit": "grammatical_sentence",
+      "stop_policy": "no_lexical_stop_filter",
+      "figure": "diacope",
+      "outputs": [
+        {
+          "type": "diacope",
+          "words": [
+            4,
+            6
+          ],
+          "context": [
+            0,
+            7
+          ],
+          "letters": {},
+          "transcription": null,
+          "token_ids": [
+            "L01W05",
+            "L01W07"
+          ],
+          "selected_words": [
+            "I",
+            "I"
+          ]
+        },
+        {
+          "type": "diacope",
+          "words": [
+            8,
+            24
+          ],
+          "context": [
+            8,
+            29
+          ],
+          "letters": {},
+          "transcription": null,
+          "token_ids": [
+            "L02W01",
+            "L04W03"
+          ],
+          "selected_words": [
+            "His",
+            "his"
+          ]
+        },
+        {
+          "type": "diacope",
+          "words": [
+            44,
+            49,
+            53
+          ],
+          "context": [
+            30,
+            54
+          ],
+          "letters": {},
+          "transcription": null,
+          "token_ids": [
+            "L07W02",
+            "L08W01",
+            "L08W05"
+          ],
+          "selected_words": [
+            "the",
+            "The",
+            "the"
+          ]
+        },
+        {
+          "type": "diacope",
+          "words": [
+            69,
+            73
+          ],
+          "context": [
+            69,
+            80
+          ],
+          "letters": {},
+          "transcription": null,
+          "token_ids": [
+            "L11W01",
+            "L11W05"
+          ],
+          "selected_words": [
+            "The",
+            "the"
+          ]
+        },
+        {
+          "type": "diacope",
+          "words": [
+            89,
+            99,
+            106
+          ],
+          "context": [
+            81,
+            107
+          ],
+          "letters": {},
+          "transcription": null,
+          "token_ids": [
+            "L14W02",
+            "L15W06",
+            "L16W06"
+          ],
+          "selected_words": [
+            "I",
+            "I",
+            "I"
+          ]
+        },
+        {
+          "type": "diacope",
+          "words": [
+            92,
+            96,
+            103
+          ],
+          "context": [
+            81,
+            107
+          ],
+          "letters": {},
+          "transcription": null,
+          "token_ids": [
+            "L14W05",
+            "L15W03",
+            "L16W03"
+          ],
+          "selected_words": [
+            "to",
+            "to",
+            "to"
+          ]
+        },
+        {
+          "type": "diacope",
+          "words": [
+            95,
+            102
+          ],
+          "context": [
+            81,
+            107
+          ],
+          "letters": {},
+          "transcription": null,
+          "token_ids": [
+            "L15W02",
+            "L16W02"
+          ],
+          "selected_words": [
+            "miles",
+            "miles"
+          ]
+        },
+        {
+          "type": "diacope",
+          "words": [
+            97,
+            104
+          ],
+          "context": [
+            81,
+            107
+          ],
+          "letters": {},
+          "transcription": null,
+          "token_ids": [
+            "L15W04",
+            "L16W04"
+          ],
+          "selected_words": [
+            "go",
+            "go"
+          ]
+        },
+        {
+          "type": "diacope",
+          "words": [
+            100,
+            107
+          ],
+          "context": [
+            81,
+            107
+          ],
+          "letters": {},
+          "transcription": null,
+          "token_ids": [
+            "L15W07",
+            "L16W07"
+          ],
+          "selected_words": [
+            "sleep",
+            "sleep"
+          ]
+        }
+      ]
+    },
+    {
+      "unit": "grammatical_sentence",
+      "stop_policy": "no_lexical_stop_filter",
+      "figure": "polysyndeton",
+      "outputs": [
+        {
+          "type": "polysyndeton",
+          "words": [
+            86,
+            94,
+            101
+          ],
+          "context": [
+            81,
+            107
+          ],
+          "letters": {},
+          "transcription": null,
+          "token_ids": [
+            "L13W06",
+            "L15W01",
+            "L16W01"
+          ],
+          "selected_words": [
+            "and",
+            "And",
+            "And"
+          ]
+        }
+      ]
+    },
+    {
+      "unit": "grammatical_sentence",
+      "stop_policy": "no_lexical_stop_filter",
+      "figure": "chiasmus",
+      "outputs": []
+    },
+    {
+      "unit": "grammatical_sentence",
+      "stop_policy": "no_lexical_stop_filter",
+      "figure": "symploce",
+      "outputs": []
+    }
+  ],
+  "source_hashes": {
+    "epizeuxis_finder.py": "e0a572b0040c404024ffdc0f63ef13acd0d7d8fc18002144a7e33fc04ea9ccf8",
+    "chiasmus_finder.py": "062b8774c5e9a65910a5e1bd4cc1434fddac3791f957a24ce75c1dfd23451c96",
+    "diacope_finder.py": "ca580704df6f91a0151a4ee1fd7fcb4439f8124fa8ab10943a4c5d3f630ec6b2",
+    "exclamatory_interrogative_sequences_finder.py": "5bc4839a4e918819717b1feef60a7f54a23eb7fafb065cb34a65d42a4c90ea81",
+    "epiphora_finder.py": "d24bc6a1e14cd0b7771b7440ea1cc348e23d6634b28e2c29461b87ea958c8c1b",
+    "polysyndeton_finder.py": "d0bd490fb196ed7f497629a99b24a276d6f65a699ae3683e3dc99f17a5b09077",
+    "repeating_ending_punct_finder.py": "4db43f7f2eb083c79b42a765fd14caf4d97cdf3fb3c1feaca1fd092485a9592e",
+    "epanalepsis_finder.py": "fddc8d4732248072a4581ebf0e66d618a05623c6e3e4b56cd32e72c4741e4ded",
+    "anaphora_finder.py": "11ae9828c9581365289650cdb16c26377e343203151a8b644a4103325bea9f43",
+    "assonance_finder.py": "fc13117916d02d5aa0b265eb39cddaf1957c0ff2cc839f9ced207de11cdd1e54",
+    "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "symploce_finder.py": "ce04ee95dd9cf3b0a114f5eba1cd7b0a0b63a3cca2862ff8acc34f2ea771836e",
+    "anadiplosis_finder.py": "5eb4a106324e26e6a88a396082a058e1ba6a2a304d98ae950c2ce36487197666",
+    "alliteration_finder.py": "6f00ed2f26fd6d5c644856897c6d4abca5169569a952b230107b4945ee5a1969",
+    "aposiopesis_finder.py": "8a7f2a981633f4b14a16568301f4c75252c35f8a2dbbf78c5c7184257e29a470"
+  }
+}

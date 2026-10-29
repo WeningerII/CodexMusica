@@ -1,0 +1,2621 @@
+{
+  "title": "Frost poem: evidence-bounded human rhetorical application",
+  "poemSource": "frost-rhetoric-application/poem.json",
+  "inventorySource": "rhetoric-followup-research/coverage.json",
+  "coverage": {
+    "linesRead": 16,
+    "orthographicTokens": 108,
+    "humanMethodLedgerRows": 51
+  },
+  "execution": {
+    "mode": "assistant-applied human decision procedures and declared close reading",
+    "externalClassifiersExecuted": false,
+    "independentHumanAgreementMeasured": false,
+    "wholePoemRead": true,
+    "completeDictionaryAuditOfEveryLexicalUnit": false,
+    "meaningOfSupported": "A directly supported observation under the stated manual procedure; not a claim of machine certainty or independent human validation.",
+    "meaningOfInterpretive": "A coherent optional reading with a literal or competing reading retained.",
+    "meaningOfUnresolved": "A required condition remains unstated or depends on added interpretation.",
+    "overlapPolicy": "One span may have several labels; aliases and broader/narrower labels do not become independent discoveries."
+  },
+  "sources": {
+    "mipvu_application": {
+      "url": "https://aclanthology.org/2024.lrec-main.982.pdf",
+      "title": "Metaphors in Online Religious Communication",
+      "inspected": "Sections 2.1 and 3.3: contextual/basic meaning decisions; multiple related expressions for extended metaphor.",
+      "webRefs": [
+        "turn590view1",
+        "turn593view3"
+      ],
+      "limit": "This application uses the inspected decision steps manually. The complete MIPVU manual returned an access error this turn; no certified full MIPVU annotation or metaphor classifier execution is claimed."
+    },
+    "pathetic_fallacy": {
+      "url": "https://journals.sagepub.com/doi/10.1177/09639470221106021",
+      "title": "Linking Emotions to Surroundings: A Stylistic Model of Pathetic Fallacy",
+      "inspected": "Distinguishes personification from emotion projected onto surroundings; requires entity, emotion and surroundings with a contextual relation.",
+      "webRefs": [
+        "turn590view2",
+        "turn592view6",
+        "turn593view2"
+      ]
+    },
+    "appraisal": {
+      "url": "https://link.springer.com/article/10.1007/s10579-010-9135-7",
+      "title": "Annotating expressions of Appraisal in English",
+      "inspected": "Section 2: Entertain includes cognitive reports and modal auxiliaries; Counter marks contrary expectations; Graduation covers degree.",
+      "webRefs": [
+        "turn591view1",
+        "turn592view5"
+      ]
+    },
+    "rst": {
+      "url": "https://www.sfu.ca/rst/01intro/definitions.html",
+      "title": "RST relation definitions",
+      "inspected": "Concession requires an acknowledged apparently incompatible point and a preferred nucleus; Summary requires a briefer restatement of a larger multi-unit span.",
+      "webRefs": [
+        "turn592view0",
+        "turn593view0"
+      ]
+    },
+    "antithesis_definition": {
+      "url": "https://rhetoric.byu.edu/Figures/A/antithesis.htm",
+      "title": "Silva Rhetoricae: antithesis",
+      "inspected": "The definition permits contrast of ideas as well as words; parallel form is frequent but not compulsory.",
+      "webRefs": [
+        "turn597view0"
+      ],
+      "limit": "Definition-based literary interpretation; no antithesis detector executed."
+    },
+    "irony_taxonomy": {
+      "url": "https://aclanthology.org/2022.semeval-1.111.pdf",
+      "title": "SemEval-2022 Task 6: iSarcasmEval",
+      "inspected": "Section 3.2 defines contextual understatement, overstatement, sarcasm and satire.",
+      "webRefs": [
+        "turn592view1",
+        "turn593view1"
+      ],
+      "limit": "The diagnostic definitions are applied manually. Author-intention judgments and the source task classifiers were not reproduced."
+    },
+    "downy_dictionary": {
+      "url": "https://www.merriam-webster.com/dictionary/downy",
+      "title": "Merriam-Webster: downy",
+      "webRefs": [
+        "turn591view2"
+      ]
+    },
+    "keep_dictionary": {
+      "url": "https://www.merriam-webster.com/dictionary/keep",
+      "title": "Merriam-Webster: keep",
+      "webRefs": [
+        "turn591view4"
+      ]
+    },
+    "have_dictionary": {
+      "url": "https://www.merriam-webster.com/dictionary/have",
+      "title": "Merriam-Webster: have",
+      "webRefs": [
+        "turn595view0"
+      ]
+    },
+    "sweep_dictionary": {
+      "url": "https://www.merriam-webster.com/dictionary/sweep",
+      "title": "Merriam-Webster: sweep",
+      "webRefs": [
+        "turn591view3"
+      ]
+    },
+    "easy_dictionary": {
+      "url": "https://www.merriam-webster.com/dictionary/easy",
+      "title": "Merriam-Webster: easy",
+      "webRefs": [
+        "turn592view3"
+      ]
+    },
+    "ask_dictionary": {
+      "url": "https://www.merriam-webster.com/dictionary/ask",
+      "title": "Merriam-Webster: ask",
+      "webRefs": [
+        "turn592view4"
+      ]
+    }
+  },
+  "findings": [
+    {
+      "id": "H01",
+      "label": "Epistemic qualification: I think",
+      "inventoryIds": [
+        "25.16"
+      ],
+      "inventoryLabels": [
+        "Qualification"
+      ],
+      "researchCoverage": {
+        "25.16": "direct_method"
+      },
+      "status": "supported",
+      "provenance": "human_method",
+      "wordIds": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "lineNumbers": [
+        1
+      ],
+      "spans": [
+        {
+          "start": "L01W05",
+          "end": "L01W08",
+          "wordIds": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "lineStart": 1,
+          "lineEnd": 1,
+          "quote": "I think I know"
+        }
+      ],
+      "explanation": "The speaker presents knowing the owner through the qualifying phrase “I think”. This makes the assertion less categorical; it does not by itself establish ignorance, deception or dramatic self-doubt.",
+      "sourceIds": [
+        "appraisal"
+      ],
+      "sourceUrls": [
+        "https://link.springer.com/article/10.1007/s10579-010-9135-7"
+      ],
+      "stepsActuallyApplied": [
+        "Identify the proposition I know.",
+        "Identify the first-person cognitive report I think governing that proposition.",
+        "Classify it as Entertain: an epistemic position leaving alternatives available."
+      ],
+      "alternativeReadings": []
+    },
+    {
+      "id": "H02",
+      "label": "Epistemic inference: must think",
+      "inventoryIds": [
+        "25.16"
+      ],
+      "inventoryLabels": [
+        "Qualification"
+      ],
+      "researchCoverage": {
+        "25.16": "direct_method"
+      },
+      "status": "supported",
+      "provenance": "human_method",
+      "wordIds": [
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "lineNumbers": [
+        5
+      ],
+      "spans": [
+        {
+          "start": "L05W03",
+          "end": "L05W07",
+          "wordIds": [
+            33,
+            34,
+            35,
+            36,
+            37
+          ],
+          "lineStart": 5,
+          "lineEnd": 5,
+          "quote": "horse must think it queer"
+        }
+      ],
+      "explanation": "Must expresses the speaker’s inference about what the horse thinks. It is an assertion with inferential rather than directly witnessed access, and it is not a command that the horse must obey.",
+      "sourceIds": [
+        "appraisal"
+      ],
+      "sourceUrls": [
+        "https://link.springer.com/article/10.1007/s10579-010-9135-7"
+      ],
+      "stepsActuallyApplied": [
+        "Resolve must in its clause.",
+        "Distinguish inferred belief from obligation.",
+        "Record an epistemic Entertain expression and preserve the attributed horse viewpoint."
+      ],
+      "alternativeReadings": [
+        "The strength of must is compatible with confidence; qualification here does not mean that every qualifier is weak."
+      ]
+    },
+    {
+      "id": "H03",
+      "label": "Personification in the horse’s attributed question",
+      "inventoryIds": [
+        "10.01"
+      ],
+      "inventoryLabels": [
+        "Personification"
+      ],
+      "researchCoverage": {
+        "10.01": "direct_method"
+      },
+      "status": "supported",
+      "provenance": "human_method",
+      "wordIds": [
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69
+      ],
+      "lineNumbers": [
+        9,
+        10
+      ],
+      "spans": [
+        {
+          "start": "L09W01",
+          "end": "L09W07",
+          "wordIds": [
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62
+          ],
+          "lineStart": 9,
+          "lineEnd": 9,
+          "quote": "He gives his harness bells a shake"
+        },
+        {
+          "start": "L10W01",
+          "end": "L10W07",
+          "wordIds": [
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69
+          ],
+          "lineStart": 10,
+          "lineEnd": 10,
+          "quote": "To ask if there is some mistake"
+        }
+      ],
+      "explanation": "The physical bell shake is described as asking whether the stop is a mistake. The human-style question is supplied by the speaker and is the clearest personifying construction. The poem’s word think alone would be insufficient, because thinking and reacting are not exclusively human.",
+      "sourceIds": [
+        "mipvu_application",
+        "pathetic_fallacy",
+        "ask_dictionary"
+      ],
+      "sourceUrls": [
+        "https://aclanthology.org/2024.lrec-main.982.pdf",
+        "https://journals.sagepub.com/doi/10.1177/09639470221106021",
+        "https://www.merriam-webster.com/dictionary/ask"
+      ],
+      "stepsActuallyApplied": [
+        "Resolve He in line 9 to the horse.",
+        "Separate the literal action of shaking harness bells from the purpose clause.",
+        "Compare a human question with the nonhuman animal action represented as that question.",
+        "Retain the narrator’s attribution rather than treating the horse’s actual mental content as observed."
+      ],
+      "alternativeReadings": [
+        "A naturalistic reading can hear the bell shake as animal communication that the speaker paraphrases; the degree of anthropomorphism remains interpretive."
+      ],
+      "limitations": "Manual literary judgment using the inspected human/nonhuman mapping criteria. The separate AI-reporting anthropomorphism protocol was not applied to an animal."
+    },
+    {
+      "id": "H04",
+      "label": "Metaphor: downy flake",
+      "inventoryIds": [
+        "09.01"
+      ],
+      "inventoryLabels": [
+        "Metaphor"
+      ],
+      "researchCoverage": {
+        "09.01": "direct_method"
+      },
+      "status": "supported",
+      "provenance": "human_method",
+      "wordIds": [
+        80,
+        81
+      ],
+      "lineNumbers": [
+        12
+      ],
+      "spans": [
+        {
+          "start": "L12W05",
+          "end": "L12W06",
+          "wordIds": [
+            80,
+            81
+          ],
+          "lineStart": 12,
+          "lineEnd": 12,
+          "quote": "downy flake"
+        }
+      ],
+      "explanation": "Downy describes the snowflake by resemblance to soft, light bird’s down. The feather comparison and tactile suggestion overlap in the same phrase; they are not separate word occurrences.",
+      "sourceIds": [
+        "mipvu_application",
+        "downy_dictionary"
+      ],
+      "sourceUrls": [
+        "https://aclanthology.org/2024.lrec-main.982.pdf",
+        "https://www.merriam-webster.com/dictionary/downy"
+      ],
+      "stepsActuallyApplied": [
+        "Establish that flake refers to falling snow in context.",
+        "Compare the adjective’s bird-down meaning with the contextual texture/appearance of snow.",
+        "Identify a resemblance between different referents and record indirect metaphor-related wording."
+      ],
+      "alternativeReadings": [
+        "The wording is conventional and understandable without actively picturing a bird; conventionality does not by itself erase the comparison."
+      ]
+    },
+    {
+      "id": "H05",
+      "label": "Counter-expectation and the final turn",
+      "inventoryIds": [],
+      "inventoryLabels": [],
+      "researchCoverage": {},
+      "status": "supported",
+      "provenance": "human_method",
+      "wordIds": [
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94
+      ],
+      "lineNumbers": [
+        13,
+        14
+      ],
+      "spans": [
+        {
+          "start": "L13W01",
+          "end": "L13W07",
+          "wordIds": [
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88
+          ],
+          "lineStart": 13,
+          "lineEnd": 13,
+          "quote": "The woods are lovely, dark and deep"
+        },
+        {
+          "start": "L14W01",
+          "end": "L14W06",
+          "wordIds": [
+            89,
+            90,
+            91,
+            92,
+            93,
+            94
+          ],
+          "lineStart": 14,
+          "lineEnd": 14,
+          "quote": "But I have promises to keep"
+        }
+      ],
+      "explanation": "But explicitly shifts from the attractiveness of the woods to the speaker’s obligations. The contrast is secure. A broad antithesis reading is available for the contrasted ideas (I01), although the conjunction alone would not prove that label or a stricter balanced-opposites construction.",
+      "sourceIds": [
+        "appraisal",
+        "rst"
+      ],
+      "sourceUrls": [
+        "https://link.springer.com/article/10.1007/s10579-010-9135-7",
+        "https://www.sfu.ca/rst/01intro/definitions.html"
+      ],
+      "stepsActuallyApplied": [
+        "Locate But and the two clauses it connects.",
+        "Identify the interrupted expectation that an attractive stopping place invites lingering.",
+        "Record the counter-expectation without imposing a balanced opposite-word construction."
+      ],
+      "alternativeReadings": [],
+      "limitations": "Counter-expectation is an Appraisal/discourse observation, not an additional invented entry in the 415-device inventory."
+    },
+    {
+      "id": "H06",
+      "label": "Visual setting and imagery",
+      "inventoryIds": [
+        "17.01",
+        "17.02"
+      ],
+      "inventoryLabels": [
+        "Imagery",
+        "Visual imagery"
+      ],
+      "researchCoverage": {
+        "17.01": "supporting_component",
+        "17.02": "supporting_component"
+      },
+      "status": "supported",
+      "provenance": "human_descriptive_component",
+      "wordIds": [
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88
+      ],
+      "lineNumbers": [
+        4,
+        7,
+        8,
+        13
+      ],
+      "spans": [
+        {
+          "start": "L04W02",
+          "end": "L04W08",
+          "wordIds": [
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
+          "lineStart": 4,
+          "lineEnd": 4,
+          "quote": "watch his woods fill up with snow"
+        },
+        {
+          "start": "L07W01",
+          "end": "L07W06",
+          "wordIds": [
+            44,
+            45,
+            46,
+            47,
+            48,
+            49
+          ],
+          "lineStart": 7,
+          "lineEnd": 7,
+          "quote": "Between the woods and frozen lake"
+        },
+        {
+          "start": "L08W01",
+          "end": "L08W06",
+          "wordIds": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55
+          ],
+          "lineStart": 8,
+          "lineEnd": 8,
+          "quote": "The darkest evening of the year"
+        },
+        {
+          "start": "L13W02",
+          "end": "L13W07",
+          "wordIds": [
+            83,
+            84,
+            85,
+            86,
+            87,
+            88
+          ],
+          "lineStart": 13,
+          "lineEnd": 13,
+          "quote": "woods are lovely, dark and deep"
+        }
+      ],
+      "explanation": "The poem supplies visible setting details: accumulating snow, a frozen lake, darkness and the depth of the woods. These are descriptive observations. The research ledger has supporting components for imagery, so this is human annotation rather than a newly verified automatic imagery detector.",
+      "sourceIds": [],
+      "sourceUrls": [],
+      "stepsActuallyApplied": [
+        "Read each setting description in context.",
+        "Mark explicit visual properties and locations.",
+        "Keep symbolic interpretations separate from what the scene directly describes."
+      ],
+      "alternativeReadings": []
+    },
+    {
+      "id": "H07",
+      "label": "Auditory imagery",
+      "inventoryIds": [
+        "17.01",
+        "17.03"
+      ],
+      "inventoryLabels": [
+        "Imagery",
+        "Auditory imagery"
+      ],
+      "researchCoverage": {
+        "17.01": "supporting_component",
+        "17.03": "supporting_component"
+      },
+      "status": "supported",
+      "provenance": "human_descriptive_component",
+      "wordIds": [
+        59,
+        60,
+        61,
+        62,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81
+      ],
+      "lineNumbers": [
+        9,
+        11,
+        12
+      ],
+      "spans": [
+        {
+          "start": "L09W04",
+          "end": "L09W07",
+          "wordIds": [
+            59,
+            60,
+            61,
+            62
+          ],
+          "lineStart": 9,
+          "lineEnd": 9,
+          "quote": "harness bells a shake"
+        },
+        {
+          "start": "L11W01",
+          "end": "L12W06",
+          "wordIds": [
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81
+          ],
+          "lineStart": 11,
+          "lineEnd": 12,
+          "quote": "The only other sound’s the sweep / Of easy wind and downy flake"
+        }
+      ],
+      "explanation": "The harness bells and the sound attributed to wind and falling snow organize the heard scene. Sound’s means sound is. Naming a bell or describing a sound does not automatically make a word onomatopoeic.",
+      "sourceIds": [],
+      "sourceUrls": [],
+      "stepsActuallyApplied": [
+        "Identify the sound-producing action and the explicit word sound.",
+        "Resolve sound’s as sound is.",
+        "Annotate auditory description without substituting sound imitation or cross-sensory transfer."
+      ],
+      "alternativeReadings": []
+    },
+    {
+      "id": "H08",
+      "label": "Tactile imagery overlapping metaphor",
+      "inventoryIds": [
+        "17.01",
+        "17.06"
+      ],
+      "inventoryLabels": [
+        "Imagery",
+        "Tactile imagery"
+      ],
+      "researchCoverage": {
+        "17.01": "supporting_component",
+        "17.06": "supporting_component"
+      },
+      "status": "supported",
+      "provenance": "human_descriptive_component",
+      "wordIds": [
+        80,
+        81
+      ],
+      "lineNumbers": [
+        12
+      ],
+      "spans": [
+        {
+          "start": "L12W05",
+          "end": "L12W06",
+          "wordIds": [
+            80,
+            81
+          ],
+          "lineStart": 12,
+          "lineEnd": 12,
+          "quote": "downy flake"
+        }
+      ],
+      "explanation": "Downy invites a sense of softness while describing the flake. The speaker need not literally touch it. This overlaps H04’s feather-based metaphor; it is not proof of synesthesia.",
+      "sourceIds": [
+        "downy_dictionary"
+      ],
+      "sourceUrls": [
+        "https://www.merriam-webster.com/dictionary/downy"
+      ],
+      "stepsActuallyApplied": [
+        "Identify the texture meaning evoked by downy.",
+        "Record tactile imagery at the same span as the metaphor.",
+        "Do not convert a physical object’s imaginable texture into a cross-sensory transfer."
+      ],
+      "alternativeReadings": []
+    },
+    {
+      "id": "H09",
+      "label": "Superlative intensity without demonstrated exaggeration",
+      "inventoryIds": [],
+      "inventoryLabels": [],
+      "researchCoverage": {},
+      "status": "supported",
+      "provenance": "human_method",
+      "wordIds": [
+        51,
+        52
+      ],
+      "lineNumbers": [
+        8
+      ],
+      "spans": [
+        {
+          "start": "L08W02",
+          "end": "L08W03",
+          "wordIds": [
+            51,
+            52
+          ],
+          "lineStart": 8,
+          "lineEnd": 8,
+          "quote": "darkest evening"
+        }
+      ],
+      "explanation": "Darkest places the evening at an extreme of darkness. The text does not show that the description is unrealistically exaggerated, nor does it settle a calendar date.",
+      "sourceIds": [
+        "appraisal",
+        "irony_taxonomy"
+      ],
+      "sourceUrls": [
+        "https://link.springer.com/article/10.1007/s10579-010-9135-7",
+        "https://aclanthology.org/2022.semeval-1.111.pdf"
+      ],
+      "stepsActuallyApplied": [
+        "Identify the superlative form.",
+        "Check for an incompatible or implausibly inflated contextual baseline.",
+        "Record intensity while withholding hyperbole."
+      ],
+      "alternativeReadings": []
+    },
+    {
+      "id": "I01",
+      "label": "Possible concession and broad antithesis",
+      "inventoryIds": [
+        "20.01",
+        "04.07"
+      ],
+      "inventoryLabels": [
+        "Paromologia / concessio",
+        "Antithesis"
+      ],
+      "researchCoverage": {
+        "20.01": "direct_method",
+        "04.07": "structured_definition"
+      },
+      "status": "interpretive",
+      "provenance": "interpretation",
+      "wordIds": [
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101
+      ],
+      "lineNumbers": [
+        13,
+        14,
+        15
+      ],
+      "spans": [
+        {
+          "start": "L13W01",
+          "end": "L13W07",
+          "wordIds": [
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88
+          ],
+          "lineStart": 13,
+          "lineEnd": 13,
+          "quote": "The woods are lovely, dark and deep"
+        },
+        {
+          "start": "L14W01",
+          "end": "L15W07",
+          "wordIds": [
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101
+          ],
+          "lineStart": 14,
+          "lineEnd": 15,
+          "quote": "But I have promises to keep, / And miles to go before I sleep"
+        }
+      ],
+      "explanation": "The attraction of the woods and the claims of obligation can form antithesis under the broad definition covering contrasted ideas; exact parallel wording is not required. If the speaker is also read as persuading himself to continue, the beauty is an acknowledged counterconsideration and the obligations are the preferred reason, making Concession plausible. That further self-directed argument has an implicit rather than stated conclusion.",
+      "sourceIds": [
+        "rst",
+        "antithesis_definition"
+      ],
+      "sourceUrls": [
+        "https://www.sfu.ca/rst/01intro/definitions.html",
+        "https://rhetoric.byu.edu/Figures/A/antithesis.htm"
+      ],
+      "stepsActuallyApplied": [
+        "Apply the broad contrasted-ideas definition separately from any balanced-opposite-word pattern.",
+        "Choose the acknowledged attractiveness as a possible concession satellite.",
+        "Choose obligation and remaining travel as a possible nucleus.",
+        "Test apparent incompatibility and the preference for the nucleus.",
+        "Keep the reconstructed self-directed argument conditional."
+      ],
+      "alternativeReadings": [
+        "Read contrast/antithesis without reconstructing a persuasive argument.",
+        "Read the lines as description followed by a counterstatement, retaining the attraction–obligation opposition as interpretive."
+      ]
+    },
+    {
+      "id": "I02",
+      "label": "Possible conventional possession and retention metaphors",
+      "inventoryIds": [
+        "09.01"
+      ],
+      "inventoryLabels": [
+        "Metaphor"
+      ],
+      "researchCoverage": {
+        "09.01": "direct_method"
+      },
+      "status": "interpretive",
+      "provenance": "interpretation",
+      "wordIds": [
+        91,
+        92,
+        93,
+        94
+      ],
+      "lineNumbers": [
+        14
+      ],
+      "spans": [
+        {
+          "start": "L14W03",
+          "end": "L14W06",
+          "wordIds": [
+            91,
+            92,
+            93,
+            94
+          ],
+          "lineStart": 14,
+          "lineEnd": 14,
+          "quote": "have promises to keep"
+        }
+      ],
+      "explanation": "Have can express possessing something or bearing an obligation; keep can express physical retention or fulfilling a promise. A lexical analysis may connect these abstract uses with possession and retention. The constructions are also familiar conventional expressions, and the dictionary’s have sense groups tangible and intangible possession together. A declared lexical-unit and sense-selection policy is needed before counting these as separate metaphor-related words.",
+      "sourceIds": [
+        "mipvu_application",
+        "have_dictionary",
+        "keep_dictionary"
+      ],
+      "sourceUrls": [
+        "https://aclanthology.org/2024.lrec-main.982.pdf",
+        "https://www.merriam-webster.com/dictionary/have",
+        "https://www.merriam-webster.com/dictionary/keep"
+      ],
+      "stepsActuallyApplied": [
+        "Compare have as physical possession with have plus a remaining obligation.",
+        "Compare keep as physical retention with fulfillment of a promise.",
+        "Recognize conventional collocations and the dictionary’s grouped senses.",
+        "Preserve the lexical-unit and sense-selection decisions as unresolved rather than silently excluding or forcing either word."
+      ],
+      "alternativeReadings": [
+        "A conventional metaphor analysis can mark having obligations and keeping promises.",
+        "A construction-level analysis may treat the familiar have-X-to-do and keep-a-promise expressions without separately annotating both verbs."
+      ]
+    },
+    {
+      "id": "I03",
+      "label": "Literal sleep and possible mortality symbolism",
+      "inventoryIds": [
+        "09.01",
+        "09.15",
+        "12.16"
+      ],
+      "inventoryLabels": [
+        "Metaphor",
+        "Symbolism",
+        "Ambiguity"
+      ],
+      "researchCoverage": {
+        "09.01": "direct_method",
+        "09.15": "structured_definition",
+        "12.16": "supporting_component"
+      },
+      "status": "interpretive",
+      "provenance": "interpretation",
+      "wordIds": [
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108
+      ],
+      "lineNumbers": [
+        15,
+        16
+      ],
+      "spans": [
+        {
+          "start": "L15W01",
+          "end": "L15W07",
+          "wordIds": [
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101
+          ],
+          "lineStart": 15,
+          "lineEnd": 15,
+          "quote": "And miles to go before I sleep"
+        },
+        {
+          "start": "L16W01",
+          "end": "L16W07",
+          "wordIds": [
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108
+          ],
+          "lineStart": 16,
+          "lineEnd": 16,
+          "quote": "And miles to go before I sleep"
+        }
+      ],
+      "explanation": "Sleep can mean ordinary rest after the remaining journey. A reader can also connect it with death or final rest, encouraged by the dark setting and the closing repetition. The second reading is an interpretive possibility, not a meaning forced by the text or a verified detector result.",
+      "sourceIds": [
+        "mipvu_application"
+      ],
+      "sourceUrls": [
+        "https://aclanthology.org/2024.lrec-main.982.pdf"
+      ],
+      "stepsActuallyApplied": [
+        "Keep the literal contextual meaning available.",
+        "State the proposed rest-to-death mapping explicitly.",
+        "Distinguish evidence that permits an interpretation from evidence that compels it."
+      ],
+      "alternativeReadings": [
+        "Both occurrences mean ordinary sleep.",
+        "Both occurrences carry literal and mortality associations together.",
+        "A performance may shift emphasis between occurrences, but repeated wording alone proves no change of sense."
+      ]
+    },
+    {
+      "id": "I04",
+      "label": "Possible extended journey reading",
+      "inventoryIds": [
+        "09.02",
+        "09.15"
+      ],
+      "inventoryLabels": [
+        "Extended metaphor",
+        "Symbolism"
+      ],
+      "researchCoverage": {
+        "09.02": "direct_method",
+        "09.15": "structured_definition"
+      },
+      "status": "interpretive",
+      "provenance": "interpretation",
+      "wordIds": [
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108
+      ],
+      "lineNumbers": [
+        14,
+        15,
+        16
+      ],
+      "spans": [
+        {
+          "start": "L14W01",
+          "end": "L16W07",
+          "wordIds": [
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108
+          ],
+          "lineStart": 14,
+          "lineEnd": 16,
+          "quote": "But I have promises to keep, / And miles to go before I sleep, / And miles to go before I sleep"
+        }
+      ],
+      "explanation": "If travel is read as living and sleep as death, the obligations, remaining miles and final rest can participate in one extended mapping. On the literal reading they are simply promises, travel and sleep; the required shared target domain is supplied by the interpretation.",
+      "sourceIds": [
+        "mipvu_application"
+      ],
+      "sourceUrls": [
+        "https://aclanthology.org/2024.lrec-main.982.pdf"
+      ],
+      "stepsActuallyApplied": [
+        "Require multiple related expressions and one coherent source–target mapping.",
+        "Test travel-to-life and sleep-to-death together.",
+        "Reject the claim that repeated travel words alone establish extended metaphor."
+      ],
+      "alternativeReadings": [
+        "A literal traveler considers actual commitments and the journey home."
+      ]
+    },
+    {
+      "id": "I05",
+      "label": "Possible symbolism of the woods",
+      "inventoryIds": [
+        "09.15"
+      ],
+      "inventoryLabels": [
+        "Symbolism"
+      ],
+      "researchCoverage": {
+        "09.15": "structured_definition"
+      },
+      "status": "interpretive",
+      "provenance": "interpretation",
+      "wordIds": [
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94
+      ],
+      "lineNumbers": [
+        13,
+        14
+      ],
+      "spans": [
+        {
+          "start": "L13W01",
+          "end": "L14W06",
+          "wordIds": [
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94
+          ],
+          "lineStart": 13,
+          "lineEnd": 14,
+          "quote": "The woods are lovely, dark and deep, / But I have promises to keep"
+        }
+      ],
+      "explanation": "The attractive woods can be read as rest, retreat or withdrawal from obligations. Their symbolic value depends on a reader’s larger interpretation; the scene does not select a single compulsory meaning.",
+      "sourceIds": [],
+      "sourceUrls": [],
+      "stepsActuallyApplied": [
+        "Identify the explicit attraction/obligation relation.",
+        "Keep the concrete woods as the referent.",
+        "Record suggested additional significance as interpretation rather than substituting it for the literal scene."
+      ],
+      "alternativeReadings": [
+        "The woods are a beautiful literal stopping place with no further symbolic commitment."
+      ],
+      "limitations": "The research inventory has a structured representation for symbolism, not a tested symbolism recognizer."
+    },
+    {
+      "id": "I06",
+      "label": "Sweep: physical movement or a brushing image",
+      "inventoryIds": [
+        "09.01"
+      ],
+      "inventoryLabels": [
+        "Metaphor"
+      ],
+      "researchCoverage": {
+        "09.01": "direct_method"
+      },
+      "status": "interpretive",
+      "provenance": "interpretation",
+      "wordIds": [
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81
+      ],
+      "lineNumbers": [
+        11,
+        12
+      ],
+      "spans": [
+        {
+          "start": "L11W04",
+          "end": "L12W06",
+          "wordIds": [
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81
+          ],
+          "lineStart": 11,
+          "lineEnd": 12,
+          "quote": "sound’s the sweep / Of easy wind and downy flake"
+        }
+      ],
+      "explanation": "Sweep can name the movement of wind and snow directly. It can also invite the image of a broad brushing motion. The ordinary physical-motion sense remains sufficient, so metaphor is optional here. The construction does not give the wind a human emotion.",
+      "sourceIds": [
+        "mipvu_application",
+        "sweep_dictionary",
+        "easy_dictionary"
+      ],
+      "sourceUrls": [
+        "https://aclanthology.org/2024.lrec-main.982.pdf",
+        "https://www.merriam-webster.com/dictionary/sweep",
+        "https://www.merriam-webster.com/dictionary/easy"
+      ],
+      "stepsActuallyApplied": [
+        "Resolve sound’s as sound is.",
+        "Check ordinary movement senses of sweep and gentle/easy senses of easy.",
+        "Keep the brushing analogy separate from the adequate physical reading."
+      ],
+      "alternativeReadings": [
+        "The heard sweep is the literal motion and sound of wind through the scene."
+      ]
+    },
+    {
+      "id": "I07",
+      "label": "Horse perspective and the broader anthropomorphism label",
+      "inventoryIds": [
+        "10.03"
+      ],
+      "inventoryLabels": [
+        "Anthropomorphism"
+      ],
+      "researchCoverage": {
+        "10.03": "direct_method"
+      },
+      "status": "interpretive",
+      "provenance": "interpretation",
+      "wordIds": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69
+      ],
+      "lineNumbers": [
+        5,
+        10
+      ],
+      "spans": [
+        {
+          "start": "L05W01",
+          "end": "L05W07",
+          "wordIds": [
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37
+          ],
+          "lineStart": 5,
+          "lineEnd": 5,
+          "quote": "My little horse must think it queer"
+        },
+        {
+          "start": "L10W01",
+          "end": "L10W07",
+          "wordIds": [
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69
+          ],
+          "lineStart": 10,
+          "lineEnd": 10,
+          "quote": "To ask if there is some mistake"
+        }
+      ],
+      "explanation": "The speaker imagines the horse evaluating the unusual stop and questioning it. Anthropomorphism is a reasonable broader literary label for that presentation, but thinking or finding a situation unfamiliar is not by itself an exclusively human capacity.",
+      "sourceIds": [
+        "pathetic_fallacy"
+      ],
+      "sourceUrls": [
+        "https://journals.sagepub.com/doi/10.1177/09639470221106021"
+      ],
+      "stepsActuallyApplied": [
+        "Identify the narrator’s inferred horse viewpoint.",
+        "Use the attributed question as stronger support than think alone.",
+        "Keep the separate AI-specific research protocol out of this animal example."
+      ],
+      "alternativeReadings": [],
+      "limitations": "The inventory’s confirmed anthropomorphism procedure applies to AI-related claims. This is a literary interpretation, not a successful application of that scoped procedure."
+    },
+    {
+      "id": "I08",
+      "label": "Possible mood-setting, not established pathetic fallacy",
+      "inventoryIds": [
+        "10.05"
+      ],
+      "inventoryLabels": [
+        "Pathetic fallacy"
+      ],
+      "researchCoverage": {
+        "10.05": "direct_method"
+      },
+      "status": "unresolved",
+      "provenance": "interpretation",
+      "wordIds": [
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88
+      ],
+      "lineNumbers": [
+        8,
+        12,
+        13
+      ],
+      "spans": [
+        {
+          "start": "L08W01",
+          "end": "L08W06",
+          "wordIds": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55
+          ],
+          "lineStart": 8,
+          "lineEnd": 8,
+          "quote": "The darkest evening of the year"
+        },
+        {
+          "start": "L12W01",
+          "end": "L13W07",
+          "wordIds": [
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88
+          ],
+          "lineStart": 12,
+          "lineEnd": 13,
+          "quote": "Of easy wind and downy flake. / The woods are lovely, dark and deep"
+        }
+      ],
+      "explanation": "The scene can feel peaceful, ominous or inviting. The speaker, surroundings and descriptive qualities are present, but the poem does not explicitly name an emotion that is projected into the weather or woods. An emotion-mirroring reading needs that extra interpretation.",
+      "sourceIds": [
+        "pathetic_fallacy",
+        "easy_dictionary"
+      ],
+      "sourceUrls": [
+        "https://journals.sagepub.com/doi/10.1177/09639470221106021",
+        "https://www.merriam-webster.com/dictionary/easy"
+      ],
+      "stepsActuallyApplied": [
+        "Locate the experiencing entity and surroundings.",
+        "Look for a stated or strongly contextually recoverable emotion.",
+        "Test a specific projection or mirroring relation rather than treating all nature description as pathetic fallacy."
+      ],
+      "alternativeReadings": [
+        "Treat the natural descriptions literally, allowing the reader’s mood response without attributing it to the wind or woods."
+      ]
+    }
+  ],
+  "temptingLabelsChecked": [
+    {
+      "label": "Automatic antithesis from But alone",
+      "inventoryIds": [
+        "04.07"
+      ],
+      "wordIds": [
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94
+      ],
+      "decision": "Conjunction alone is insufficient; broader reading retained in I01",
+      "reason": "A balanced opposing-word construction is not demonstrated. The attraction–obligation contrast can still satisfy the broader contrasted-ideas definition of antithesis."
+    },
+    {
+      "label": "Hyperbole from darkest or only",
+      "inventoryIds": [
+        "14.01"
+      ],
+      "wordIds": [
+        51,
+        71
+      ],
+      "decision": "No clear match under the applied human diagnostic",
+      "reason": "No unrealistic exaggeration is established by the context."
+    },
+    {
+      "label": "Understatement / meiosis",
+      "inventoryIds": [
+        "14.05",
+        "14.06"
+      ],
+      "wordIds": [
+        32,
+        68,
+        69
+      ],
+      "decision": "No clear match",
+      "reason": "Little can describe size; some mistake lacks an independently established larger severity that is being reduced."
+    },
+    {
+      "label": "Oxymoron in lovely, dark and deep",
+      "inventoryIds": [
+        "14.14"
+      ],
+      "wordIds": [
+        85,
+        86,
+        88
+      ],
+      "decision": "Manual semantic objection; classifier not executed",
+      "reason": "Beauty, darkness and depth can coexist; the phrase does not supply a contradiction."
+    },
+    {
+      "label": "Synesthesia from combined sound and texture",
+      "inventoryIds": [
+        "10.09"
+      ],
+      "wordIds": [
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81
+      ],
+      "decision": "No clear transfer under manual checking",
+      "reason": "Sound arises from moving physical things; downy describes the flake, not a tactile quality transferred directly to sound."
+    },
+    {
+      "label": "Rhetorical question from Whose or ask if",
+      "inventoryIds": [
+        "18.01"
+      ],
+      "wordIds": [
+        1,
+        2,
+        3,
+        4,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69
+      ],
+      "decision": "Manual grammar check; researched classifier not executed",
+      "reason": "These are an embedded ownership clause and an indirect question, not a standalone rhetorical-question speech act."
+    },
+    {
+      "label": "Merism in woods and frozen lake",
+      "inventoryIds": [
+        "15.10"
+      ],
+      "wordIds": [
+        46,
+        47,
+        48,
+        49
+      ],
+      "decision": "No clear match under the scoped human procedure",
+      "reason": "The pair identifies two landmarks; no larger whole beyond the named items is represented by them."
+    },
+    {
+      "label": "Onomatopoeia from bells or sweep",
+      "inventoryIds": [
+        "01.08"
+      ],
+      "wordIds": [
+        60,
+        75
+      ],
+      "decision": "No clear lexical imitator identified",
+      "reason": "Naming a sound source or movement does not establish imitation of the associated sound."
+    },
+    {
+      "label": "Antanaclasis from the two occurrences of sleep",
+      "inventoryIds": [
+        "12.09"
+      ],
+      "wordIds": [
+        101,
+        108
+      ],
+      "decision": "Not established",
+      "reason": "The repeated word need not change meaning; interpretive change is possible but not proved by repetition."
+    },
+    {
+      "label": "Pathos from an evocative scene alone",
+      "inventoryIds": [
+        "21.08",
+        "25.02"
+      ],
+      "wordIds": [
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108
+      ],
+      "decision": "Outside the confirmed argument-annotation scope",
+      "reason": "The descriptive effect does not provide an identified emotional premise in an explicit persuasive argument."
+    },
+    {
+      "label": "Litotes from not see or without a farmhouse",
+      "inventoryIds": [
+        "14.08"
+      ],
+      "wordIds": [
+        17,
+        18,
+        19,
+        40,
+        41,
+        42
+      ],
+      "decision": "Not established",
+      "reason": "These negate seeing and the presence of a farmhouse; they do not affirm a proposition by denying its contrary."
+    }
+  ],
+  "lineNotes": [
+    {
+      "line": 1,
+      "note": "The ownership clause is prominent; “I think” qualifies “I know”. This is an embedded ownership clause, not a standalone question.",
+      "findingIds": [
+        "H01"
+      ]
+    },
+    {
+      "line": 2,
+      "note": "The owner’s house is placed in the village. “Though” signals a qualification or counter-expectation; the house is not automatically a metonym for its owner.",
+      "findingIds": []
+    },
+    {
+      "line": 3,
+      "note": "The speaker predicts that the owner will not see the stop. Negation here is not automatically litotes.",
+      "findingIds": []
+    },
+    {
+      "line": 4,
+      "note": "Watching snow accumulate provides visual imagery. Its wider symbolism remains optional.",
+      "findingIds": [
+        "H06"
+      ]
+    },
+    {
+      "line": 5,
+      "note": "“Must think” marks an inference about the horse. The wider passage permits anthropomorphic interpretation; thought alone does not prove it.",
+      "findingIds": [
+        "H02",
+        "I07"
+      ]
+    },
+    {
+      "line": 6,
+      "note": "The absent farmhouse makes the stopping place unusual within the imagined horse perspective. No rhetorical contrast formula is forced by absence alone.",
+      "findingIds": [
+        "I07"
+      ]
+    },
+    {
+      "line": 7,
+      "note": "Two landmarks locate the scene. They do not by themselves stand for a larger whole as a merism would.",
+      "findingIds": [
+        "H06"
+      ]
+    },
+    {
+      "line": 8,
+      "note": "“Darkest” is a superlative. Exaggeration, a specific calendar date and emotional projection remain unproved.",
+      "findingIds": [
+        "H06",
+        "H09",
+        "I08"
+      ]
+    },
+    {
+      "line": 9,
+      "note": "The horse shakes the bells: a physical action with auditory imagery. Line 10 supplies the personifying interpretation of its purpose.",
+      "findingIds": [
+        "H03",
+        "H07"
+      ]
+    },
+    {
+      "line": 10,
+      "note": "The speaker turns the bell shake into a question about a mistake. It is an indirect attributed question, not automatically a rhetorical question.",
+      "findingIds": [
+        "H03",
+        "I07"
+      ]
+    },
+    {
+      "line": 11,
+      "note": "“Sound’s” means “sound is”. The statement describes what is heard; sweep can be ordinary movement or invite a brushing analogy.",
+      "findingIds": [
+        "H07",
+        "I06"
+      ]
+    },
+    {
+      "line": 12,
+      "note": "“Downy flake” combines a feather-based metaphor and tactile imagery. “Easy wind” does not by itself give the wind a human emotion.",
+      "findingIds": [
+        "H04",
+        "H07",
+        "H08",
+        "I06",
+        "I08"
+      ]
+    },
+    {
+      "line": 13,
+      "note": "The three compatible qualities make the woods attractive and deep/dark. They do not form an oxymoron.",
+      "findingIds": [
+        "H05",
+        "H06",
+        "I01",
+        "I05"
+      ]
+    },
+    {
+      "line": 14,
+      "note": "“But” turns from attraction to obligation. Broad antithesis fits that contrasted-ideas reading; concession additionally requires a possible self-reasoning analysis. Balanced opposing wording is not required by every antithesis definition.",
+      "findingIds": [
+        "H05",
+        "I01",
+        "I02",
+        "I04",
+        "I05"
+      ]
+    },
+    {
+      "line": 15,
+      "note": "Remaining travel and sleep have a complete literal reading. Life-journey and mortality associations are alternatives.",
+      "findingIds": [
+        "I03",
+        "I04"
+      ]
+    },
+    {
+      "line": 16,
+      "note": "The line repeats exactly apart from final punctuation. Emphasis, resolve or weariness are possible effects; a changed meaning of sleep is not proved.",
+      "findingIds": [
+        "I03",
+        "I04"
+      ]
+    }
+  ],
+  "methodDecisions": [
+    {
+      "id": "01.08",
+      "label": "Onomatopoeia",
+      "state": "checked_no_match",
+      "actionActuallyTaken": "Read all words for direct sound imitation or imitation of a referent-associated sound.",
+      "result": "No clear lexical imitator identified; bells names a source and sweep need not imitate its sound.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Human lexical identification, not a ready poem-wide automatic recognizer; acoustic resemblance scores alone are insufficient.",
+      "resourceIds": [
+        "FS-ONO",
+        "esther",
+        "enrhoot"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "09.01",
+      "label": "Metaphor",
+      "state": "observed",
+      "actionActuallyTaken": "Applied contextual/basic-meaning comparison manually to candidate content words and inspected dictionary senses.",
+      "result": "Downy flake supplies a feather-to-snow resemblance; keep and sweep remain lexical/interpretive alternatives. This is not a complete lexicographic audit of every function word.",
+      "findingIds": [
+        "H04",
+        "I02",
+        "I03",
+        "I06"
+      ],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Explicit contextual/basic-meaning human procedure. MetaNet supplies additional code, but this row qualifies on the verified procedure.",
+      "resourceIds": [],
+      "source": "https://www.vismet.org/metcor/manual/index.php",
+      "classifierExecuted": false
+    },
+    {
+      "id": "09.02",
+      "label": "Extended metaphor",
+      "state": "interpretation_or_component_only",
+      "actionActuallyTaken": "Tested whether multiple candidate expressions share one source–target mapping.",
+      "result": "Life-as-journey requires an optional mortality reading; literal travel alone does not establish the mapping.",
+      "findingIds": [
+        "I04"
+      ],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Human protocol confirmed; the paper’s transformer experiments are outside this recommendation.",
+      "resourceIds": [
+        "sem_extended_annotation"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "09.08",
+      "label": "Simile",
+      "state": "checked_no_match",
+      "actionActuallyTaken": "Checked for a figurative comparison construction with marker, tenor and vehicle.",
+      "result": "No clear explicit simile construction. Downy is a metaphorical adjective, not an overt comparison clause.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Human judgments are required; the existing parser matcher alone also retrieves literal comparisons.",
+      "resourceIds": [
+        "sem_simile_annotation",
+        "sem_known_comparison_pattern",
+        "esther",
+        "enrhoot"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "10.01",
+      "label": "Personification",
+      "state": "observed",
+      "actionActuallyTaken": "Resolved the horse referent and compared literal bell shaking with the attributed human-style question.",
+      "result": "The purpose clause asks a propositional question through the horse’s action; think alone is weaker evidence.",
+      "findingIds": [
+        "H03"
+      ],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Human annotation procedure for personification. Does not rely on an anthropomorphism score or a language model.",
+      "resourceIds": [],
+      "source": "https://www.vismet.org/metcor/manual/index.php",
+      "classifierExecuted": false
+    },
+    {
+      "id": "10.03",
+      "label": "Anthropomorphism",
+      "state": "out_of_scope",
+      "actionActuallyTaken": "Checked the confirmed protocol’s input domain.",
+      "result": "Its claims must concern AI reporting. A horse passage cannot be counted as that protocol’s successful output.",
+      "findingIds": [
+        "I07"
+      ],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "English AI-reporting claims; subjective human judgment remains part of the method. The uninspected separate full guideline document is not claimed recovered, and general literary transfer is unverified.",
+      "resourceIds": [
+        "sem_extended_annotation",
+        "sem_known_mipvu",
+        "enrhoot",
+        "FSE-05"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "10.05",
+      "label": "Pathetic fallacy",
+      "state": "interpretation_or_component_only",
+      "actionActuallyTaken": "Checked entity, surroundings, emotion and projection/mirroring relation.",
+      "result": "Entity and scene are present; a specific projected emotion depends on interpretation.",
+      "findingIds": [
+        "I08"
+      ],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Entity, emotion and surroundings, followed by contextual projection/mirroring analysis. No verified complete automatic implementation.",
+      "resourceIds": [],
+      "source": "https://journals.sagepub.com/doi/10.1177/09639470221106021",
+      "classifierExecuted": false
+    },
+    {
+      "id": "10.08",
+      "label": "Reification",
+      "state": "out_of_scope",
+      "actionActuallyTaken": "Checked the source-category annotation’s topic and object-mapping scope.",
+      "result": "The confirmed war/corruption study does not provide a validated general poem reification procedure; abstract promises do not by themselves establish reification.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Topic-limited human annotation; no general automatic reification detector verified.",
+      "resourceIds": [
+        "sem_reification"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "10.09",
+      "label": "Synesthesia / synaesthesia",
+      "state": "checked_no_match",
+      "actionActuallyTaken": "Manually inspected the candidate sensory combinations and their grammatical relations.",
+      "result": "No clear cross-sensory transfer after rejecting physical texture and sound-source co-occurrence; no dependency pipeline was executed.",
+      "findingIds": [
+        "H07",
+        "H08"
+      ],
+      "researchMethodKind": "published_rule_procedure",
+      "scopeLimit": "Dictionary polysemy and literal co-occurrence require manual rejection; executable source was not verified.",
+      "resourceIds": [
+        "sem_synesthesia",
+        "sem_known_wordtangible",
+        "enrhoot"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "11.01",
+      "label": "Metonymy",
+      "state": "out_of_scope",
+      "actionActuallyTaken": "Checked whether the poem supplies location-name tokens required by the verified procedure.",
+      "result": "Woods, village and lake are ordinary nouns here, not the named locations covered by the annotation protocol.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Location-name subset; no claim of all metonymy or a ready trained Java detector.",
+      "resourceIds": [
+        "sem_metonym_annotation",
+        "sem_known_metonym_java",
+        "esther",
+        "enrhoot"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "11.04",
+      "label": "Antonomasia",
+      "state": "not_executed",
+      "actionActuallyTaken": "Manually screened for a Vossian source/target expression; did not run the legacy extractor.",
+      "result": "No obvious the-X-of-Y antonomasia candidate; inspected code is not an executed negative result.",
+      "findingIds": [],
+      "researchMethodKind": "code",
+      "scopeLimit": "Subtype-limited legacy Python2 code; source inspected but not executed.",
+      "resourceIds": [
+        "sem_vossanto",
+        "esther",
+        "enrhoot"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "11.09",
+      "label": "Euphemism",
+      "state": "out_of_scope",
+      "actionActuallyTaken": "Checked the classifier’s three-topic scope.",
+      "result": "The verified firing/lying/stealing phrase classifier does not evaluate this poem’s possible death/rest interpretation.",
+      "findingIds": [],
+      "researchMethodKind": "published_statistical_method",
+      "scopeLimit": "Topic-relative phrase classification on three evaluated topics; not a contextual judgment for every occurrence in poetry.",
+      "resourceIds": [
+        "sem_known_xphemisms",
+        "esther",
+        "enrhoot",
+        "FSE-03"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "11.10",
+      "label": "Dysphemism",
+      "state": "out_of_scope",
+      "actionActuallyTaken": "Checked the classifier’s three-topic scope.",
+      "result": "The verified firing/lying/stealing phrase classifier does not evaluate this poem’s possible death/rest interpretation.",
+      "findingIds": [],
+      "researchMethodKind": "published_statistical_method",
+      "scopeLimit": "Same three-topic phrase-classification scope; harsh sentiment alone is not established as a universal dysphemism test.",
+      "resourceIds": [
+        "sem_known_xphemisms",
+        "enrhoot",
+        "FSE-03"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "12.01",
+      "label": "Pun",
+      "state": "not_executed",
+      "actionActuallyTaken": "Read for obvious double-sense or alternate-word candidates; no benchmark classifier executed.",
+      "result": "No positive claim made. Symbolic associations of sleep are not automatically a pun, and absence cannot be attributed to an unrun classifier.",
+      "findingIds": [],
+      "researchMethodKind": "published_statistical_method",
+      "scopeLimit": "Type-conditioned benchmark classifiers, not one verified open-domain router.",
+      "resourceIds": [
+        "sem_known_pun_task",
+        "FSE-02"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "12.02",
+      "label": "Homographic pun",
+      "state": "not_executed",
+      "actionActuallyTaken": "Read for obvious double-sense or alternate-word candidates; no benchmark classifier executed.",
+      "result": "No positive claim made. Symbolic associations of sleep are not automatically a pun, and absence cannot be attributed to an unrun classifier.",
+      "findingIds": [],
+      "researchMethodKind": "published_statistical_method",
+      "scopeLimit": "Detects puns in the supplied homographic task setting; no claim of deciding homographic versus heterographic type.",
+      "resourceIds": [
+        "sem_known_pun_task",
+        "FSE-02"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "12.03",
+      "label": "Heterographic pun",
+      "state": "not_executed",
+      "actionActuallyTaken": "Read for obvious double-sense or alternate-word candidates; no benchmark classifier executed.",
+      "result": "No positive claim made. Symbolic associations of sleep are not automatically a pun, and absence cannot be attributed to an unrun classifier.",
+      "findingIds": [],
+      "researchMethodKind": "published_statistical_method",
+      "scopeLimit": "Typed dataset setting; semantic feature evidence is not itself a phonetic proof or pun interpretation.",
+      "resourceIds": [
+        "sem_known_pun_task",
+        "FSE-02"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "12.20",
+      "label": "Portmanteau / lexical blend",
+      "state": "checked_no_match",
+      "actionActuallyTaken": "Checked the poem’s lexical forms for a recoverable blend of source words before character-provenance annotation.",
+      "result": "No clear blend candidate. Farmhouse is transparent compounding; sound’s is contraction, not blending.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Annotation confirmed; transformer experiments and unreleased segmentation models are not required or promoted.",
+      "resourceIds": [
+        "sem_paxobs",
+        "sem_blend_patterns"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "13.01",
+      "label": "Verbal irony",
+      "state": "checked_no_match",
+      "actionActuallyTaken": "Applied the inspected irony diagnostics to evaluations and contextual facts.",
+      "result": "No clear statement/state-of-affairs contradiction or covert reversed evaluation. This is a cautious poem adaptation of a social-media human diagnostic.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Human procedure confirmed for English social media; code baseline not a validated poem detector.",
+      "resourceIds": [
+        "sem_irony_manual",
+        "sem_isarcasm",
+        "sem_known_irony_baseline",
+        "esther"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "13.03",
+      "label": "Sarcasm / sarcasmus",
+      "state": "checked_no_match",
+      "actionActuallyTaken": "Checked contradiction, critical attitude and an addressee.",
+      "result": "The horse’s puzzlement is not a clear sarcastic utterance; no applicable critical-addressee configuration is established.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "This is one declared taxonomy; harshness/polarity-clash definitions differ, and tweets are not all literary sarcasm.",
+      "resourceIds": [
+        "sem_isarcasm",
+        "sem_irony_manual",
+        "sem_known_sarcasm_contrast",
+        "esther",
+        "enrhoot"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "14.01",
+      "label": "Hyperbole",
+      "state": "checked_no_match",
+      "actionActuallyTaken": "Compared darkest and only with the contextual exaggeration criterion.",
+      "result": "No demonstrably unrealistic increase; intensity alone is insufficient.",
+      "findingIds": [
+        "H09"
+      ],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Human procedure confirmed; broad hyperbole need not be ironic or propagandistic, and no universal ready detector is claimed.",
+      "resourceIds": [
+        "sem_isarcasm",
+        "sem_propaganda_manual",
+        "sem_known_hypo",
+        "esther",
+        "enrhoot"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "14.05",
+      "label": "Understatement",
+      "state": "checked_no_match",
+      "actionActuallyTaken": "Examined little and some mistake for reduced weight against an established severity.",
+      "result": "No independently established greater magnitude or seriousness makes these clear understatements.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Social-media and news settings; not a complete detector of understatement in poetry.",
+      "resourceIds": [
+        "sem_isarcasm",
+        "sem_propaganda_manual"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "14.14",
+      "label": "Oxymoron",
+      "state": "not_executed",
+      "actionActuallyTaken": "Manually checked the tempting lovely/dark/deep candidate; no JANTOR WordNet/dependency execution.",
+      "result": "The qualities are compatible. This manual objection must not be reported as an executed classifier result.",
+      "findingIds": [],
+      "researchMethodKind": "published_rule",
+      "scopeLimit": "Prototype for dependency-selected English word pairs and configured relation paths. No contextual or community-specific contradiction guarantee; no recovered runnable implementation.",
+      "resourceIds": [
+        "esther",
+        "enrhoot",
+        "FSE-04"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "15.10",
+      "label": "Merismus / merism",
+      "state": "checked_no_match",
+      "actionActuallyTaken": "Applied the necessary part-to-whole interpretation test to coordinations and named landmarks.",
+      "result": "Woods and frozen lake specify two features rather than a larger implied totality; no clear merism.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "A scoped human procedure in this cognitive account; no code, automated domain inference, or poem benchmark.",
+      "resourceIds": [
+        "disc_merism2022"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "16.07",
+      "label": "Anacephalaeosis",
+      "state": "checked_no_match",
+      "actionActuallyTaken": "Compared possible later spans with prior multi-unit content under RST Summary.",
+      "result": "No briefer restatement of a larger multi-unit span. Repeating the final line is not a condensed recap.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Recapitulation sense: a shorter span restates the content of a larger multi-unit span. Does not adopt the conflicting symploce sense from an ambiguous terminology record.",
+      "resourceIds": [],
+      "source": "https://www.sfu.ca/rst/01intro/definitions.html",
+      "classifierExecuted": false
+    },
+    {
+      "id": "16.08",
+      "label": "Complexio, concluding sense",
+      "state": "checked_no_match",
+      "actionActuallyTaken": "Applied Summary conditions plus concluding position.",
+      "result": "The ending repeats one line; it does not summarize the larger preceding description in briefer form.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Requires a concluding recap as a human scope check; RST Summary supplies the recap relation but not conclusion position. Excludes symploce/coenotes.",
+      "resourceIds": [
+        "disc_silva_complexio",
+        "rst_definitions"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "16.15",
+      "label": "Proverb / adage / paroemia",
+      "state": "not_executed",
+      "actionActuallyTaken": "Read for an obvious cited saying; the published inventory and complete rule system were not run.",
+      "result": "A familiar or memorable final line is not thereby an occurrence of a pre-existing proverb.",
+      "findingIds": [],
+      "researchMethodKind": "published_rule",
+      "scopeLimit": "A known-expression retrieval method; the full 680-rule file and complete analysis pipeline were not obtained, and novel/paraphrased sayings remain outside scope.",
+      "resourceIds": [
+        "hurskainen_proverbs",
+        "beta"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "18.01",
+      "label": "Rhetorical question / erotema / erotesis / interrogatio",
+      "state": "not_executed",
+      "actionActuallyTaken": "Manually parsed Whose and ask if; the conversation-domain SVM was not executed.",
+      "result": "No standalone interrogative speech act is supplied by those embedded clauses; no classifier-derived absence claim.",
+      "findingIds": [],
+      "researchMethodKind": "published_statistical_method",
+      "scopeLimit": "Existence of a researched method is confirmed; modest conversation-domain F1 and absent runnable artifact prevent a claim of ready poem analysis.",
+      "resourceIds": [
+        "disc_rq2015",
+        "esther",
+        "enrhoot"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "19.01",
+      "label": "Enthymeme",
+      "state": "out_of_scope",
+      "actionActuallyTaken": "Checked for the let-alone scalar-argument construction.",
+      "result": "No let-alone argument; broad implicit self-reasoning lies outside the confirmed construction-limited protocol.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Confirmed for let-alone scalar arguments; broader enthymemes still need work.",
+      "resourceIds": [
+        "root_enthymeme2017",
+        "root_implicit2020"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "19.05",
+      "label": "Contrarium",
+      "state": "out_of_scope",
+      "actionActuallyTaken": "Checked for an identified premise–conclusion relation of the required kind.",
+      "result": "The literal narrated scene supplies no explicit contrary-case inference or example-to-generalization argument for ASK classification.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Scoped to the contrary-case argument sense; not every juxtaposed opposition.",
+      "resourceIds": [
+        "root_ask2019",
+        "root_silva_reasoning"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "19.17",
+      "label": "Exemplum / paradigma",
+      "state": "out_of_scope",
+      "actionActuallyTaken": "Checked for an identified premise–conclusion relation of the required kind.",
+      "result": "The literal narrated scene supplies no explicit contrary-case inference or example-to-generalization argument for ASK classification.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Illustrative narratives without argumentative generalization need additional handling.",
+      "resourceIds": [
+        "root_ask2019",
+        "root_rst",
+        "esther",
+        "enrhoot"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "20.01",
+      "label": "Paromologia / concessio",
+      "state": "interpretation_or_component_only",
+      "actionActuallyTaken": "Applied RST Concession’s acknowledged-satellite and preferred-nucleus tests to the last stanza.",
+      "result": "Plausible if the stanza is self-directed justification; its conclusion and argumentative force are reconstructed.",
+      "findingIds": [
+        "I01"
+      ],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Scoped to an acknowledged contrary point supporting a preferred claim.",
+      "resourceIds": [
+        "root_rst",
+        "root_silva_reasoning"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "21.02",
+      "label": "Dehortatio",
+      "state": "out_of_scope",
+      "actionActuallyTaken": "Checked the required mapped argument and intended appeal.",
+      "result": "No supplied persuasive premise–conclusion map or danger/emotional appeal is established; evocative narration is insufficient.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Human identification of consequence-based dissuasion in supplied argument maps; broader dehortatio remains uncovered.",
+      "resourceIds": [
+        "root_ditpp52",
+        "root_rst",
+        "FAR-PATHOS",
+        "FAR-INTENT"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "21.03",
+      "label": "Apagoresis",
+      "state": "out_of_scope",
+      "actionActuallyTaken": "Checked the required mapped argument and intended appeal.",
+      "result": "No supplied persuasive premise–conclusion map or danger/emotional appeal is established; evocative narration is insufficient.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Human classification of mapped, consequence-based inhibitions; no general prohibition detector or evidence of persuasive success.",
+      "resourceIds": [
+        "root_ditpp52",
+        "root_rst",
+        "FAR-PATHOS",
+        "FAR-INTENT"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "21.08",
+      "label": "Pathopoeia",
+      "state": "out_of_scope",
+      "actionActuallyTaken": "Checked the required mapped argument and intended appeal.",
+      "result": "No supplied persuasive premise–conclusion map or danger/emotional appeal is established; evocative narration is insufficient.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Argumentative attempts at pathopoeia in supplied maps; not proof of actual audience response or the narrower self-display subtype.",
+      "resourceIds": [
+        "root_rhetfig_pathopoeia",
+        "root_poemo",
+        "FAR-PATHOS",
+        "FAR-INTENT"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "21.12",
+      "label": "Perclusio",
+      "state": "checked_no_match",
+      "actionActuallyTaken": "Checked speaker, addressee, harmful action and speaker commitment.",
+      "result": "No speaker-committed threat of harm toward an addressee appears in the poem.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Scoped to speaker-committed harmful action toward an addressee; other threat forms remain open.",
+      "resourceIds": [
+        "root_ditpp52",
+        "root_perclusio"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "23.12",
+      "label": "Situational irony",
+      "state": "checked_no_match",
+      "actionActuallyTaken": "Checked described events for an ironic reversal of contextual expectation.",
+      "result": "An unusual stopping place or imagined horse puzzlement is not a demonstrated ironic reversal.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "English short-text human decisions, not complete event/world-knowledge automation.",
+      "resourceIds": [
+        "sem_irony_manual"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "23.15",
+      "label": "Satire",
+      "state": "checked_no_match",
+      "actionActuallyTaken": "Checked apparent support for concealed criticism under the inspected human taxonomy.",
+      "result": "No clear mocking support or target of satire. News-source classifiers were not run.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Sentence-level ironic satire and news-source satire are restricted senses, not all literary satire.",
+      "resourceIds": [
+        "sem_isarcasm",
+        "sem_satire_svm"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "25.01",
+      "label": "Ethos",
+      "state": "out_of_scope",
+      "actionActuallyTaken": "Checked whether argumentative premises had been identified for the persuasion-mode protocol.",
+      "result": "No explicit persuasive premise segmentation; a possible self-reasoning reading is insufficient to silently assign ethos/pathos/logos.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Confirmed in argumentative English discussions; not all literary uses.",
+      "resourceIds": [
+        "root_persuasion2017",
+        "root_newethos"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "25.02",
+      "label": "Pathos",
+      "state": "out_of_scope",
+      "actionActuallyTaken": "Checked whether argumentative premises had been identified for the persuasion-mode protocol.",
+      "result": "No explicit persuasive premise segmentation; a possible self-reasoning reading is insufficient to silently assign ethos/pathos/logos.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Confirmed in argumentative English discussions; not all literary uses.",
+      "resourceIds": [
+        "root_persuasion2017"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "25.03",
+      "label": "Logos",
+      "state": "out_of_scope",
+      "actionActuallyTaken": "Checked whether argumentative premises had been identified for the persuasion-mode protocol.",
+      "result": "No explicit persuasive premise segmentation; a possible self-reasoning reading is insufficient to silently assign ethos/pathos/logos.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Confirmed in argumentative English discussions; not all literary uses.",
+      "resourceIds": [
+        "root_persuasion2017"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "25.05",
+      "label": "Common-ground appeal",
+      "state": "out_of_scope",
+      "actionActuallyTaken": "Checked for a generally accepted proposition used as an argumentative premise.",
+      "result": "Promises may suggest a familiar duty, but no explicit public-knowledge premise is supplied; the editorial common-ground protocol is not transferred silently.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "General public-knowledge or self-evident propositions used in English editorial argumentation. Class Fleiss kappa is 0.114; private shared beliefs and claims merely presented as common knowledge need additional treatment.",
+      "resourceIds": [
+        "root_appraisal",
+        "root_ask2019",
+        "FAR-WEBIS",
+        "FAR-CG"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "25.06",
+      "label": "Appeal to authority",
+      "state": "out_of_scope",
+      "actionActuallyTaken": "Checked for the relevant identified premise–conclusion relation before ASK classification.",
+      "result": "No authority/testimony/example/definition/causal/analogical/inductive argument of the required type is explicitly established. Narrative sequence or description alone is insufficient.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Authority must support a claim, not merely be named.",
+      "resourceIds": [
+        "root_ask2019",
+        "root_ask2020",
+        "root_rust_schemes"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "25.07",
+      "label": "Testimonial appeal",
+      "state": "out_of_scope",
+      "actionActuallyTaken": "Checked for the relevant identified premise–conclusion relation before ASK classification.",
+      "result": "No authority/testimony/example/definition/causal/analogical/inductive argument of the required type is explicitly established. Narrative sequence or description alone is insufficient.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Witness testimony is a scoped testimonial form, not every endorsement.",
+      "resourceIds": [
+        "root_ask2019",
+        "root_ask2020",
+        "root_rust_schemes"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "25.08",
+      "label": "Exemplification",
+      "state": "out_of_scope",
+      "actionActuallyTaken": "Checked for the relevant identified premise–conclusion relation before ASK classification.",
+      "result": "No authority/testimony/example/definition/causal/analogical/inductive argument of the required type is explicitly established. Narrative sequence or description alone is insufficient.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Nonargumentative illustrations remain outside the confirmed scope.",
+      "resourceIds": [
+        "root_ask2019",
+        "root_ask2020"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "25.09",
+      "label": "Definition",
+      "state": "out_of_scope",
+      "actionActuallyTaken": "Checked for the relevant identified premise–conclusion relation before ASK classification.",
+      "result": "No authority/testimony/example/definition/causal/analogical/inductive argument of the required type is explicitly established. Narrative sequence or description alone is insufficient.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Scoped to argumentative uses of definition.",
+      "resourceIds": [
+        "root_ask2019",
+        "root_ask2020"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "25.11",
+      "label": "Cause-and-effect reasoning",
+      "state": "out_of_scope",
+      "actionActuallyTaken": "Checked for the relevant identified premise–conclusion relation before ASK classification.",
+      "result": "No authority/testimony/example/definition/causal/analogical/inductive argument of the required type is explicitly established. Narrative sequence or description alone is insufficient.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Requires reconstruction of the relevant premise/conclusion.",
+      "resourceIds": [
+        "root_ask2019",
+        "root_ask2020",
+        "root_rust_schemes"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "25.12",
+      "label": "Analogical reasoning",
+      "state": "out_of_scope",
+      "actionActuallyTaken": "Checked for the relevant identified premise–conclusion relation before ASK classification.",
+      "result": "No authority/testimony/example/definition/causal/analogical/inductive argument of the required type is explicitly established. Narrative sequence or description alone is insufficient.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Literal or poetic comparison without argumentative force is outside scope.",
+      "resourceIds": [
+        "root_ask2019",
+        "root_ask2020",
+        "root_rust_schemes"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "25.14",
+      "label": "Induction",
+      "state": "out_of_scope",
+      "actionActuallyTaken": "Checked for the relevant identified premise–conclusion relation before ASK classification.",
+      "result": "No authority/testimony/example/definition/causal/analogical/inductive argument of the required type is explicitly established. Narrative sequence or description alone is insufficient.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "This is a scoped inductive form, not a general induction detector.",
+      "resourceIds": [
+        "root_ask2019",
+        "root_ask2020"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "25.16",
+      "label": "Qualification",
+      "state": "observed",
+      "actionActuallyTaken": "Applied Appraisal Entertain decisions to cognitive and modal expressions.",
+      "result": "I think qualifies knowing; must think marks inferential access to the horse’s supposed perspective.",
+      "findingIds": [
+        "H01",
+        "H02"
+      ],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Scoped to epistemic/category-strength qualification; not every limiting exception.",
+      "resourceIds": [
+        "root_appraisal",
+        "root_ditpp52"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "25.17",
+      "label": "Loaded diction / slanted language",
+      "state": "out_of_scope",
+      "actionActuallyTaken": "Distinguished evaluative words from a demonstrated audience-influencing news technique.",
+      "result": "Lovely and queer express evaluations; polarity alone cannot establish the scoped loaded-language category.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "News-domain criterion includes audience influence; polarity alone is insufficient.",
+      "resourceIds": [
+        "root_semeval2020"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    },
+    {
+      "id": "25.18",
+      "label": "Connotation",
+      "state": "not_executed",
+      "actionActuallyTaken": "Identified potentially applicable transitive predicates and participants, but did not complete the connotation-frame questions or perform a lexicon lookup.",
+      "result": "The participant/predicate protocol may apply to have/keep promises or give a shake; its actual frame analysis was not performed. Broader death/rest/woods symbolism remains outside what generic subject–verb–object connotation frames establish.",
+      "findingIds": [],
+      "researchMethodKind": "human_procedure",
+      "scopeLimit": "Scoped to participant/predicate connotations; full literary associations remain open.",
+      "resourceIds": [
+        "root_connotation",
+        "root_riveter"
+      ],
+      "source": null,
+      "classifierExecuted": false
+    }
+  ],
+  "countsAreNotDeviceTotals": true
+}

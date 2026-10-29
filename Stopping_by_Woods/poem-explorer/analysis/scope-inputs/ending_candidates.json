@@ -1,0 +1,7683 @@
+{
+  "format": "frost-audible-endings-v1",
+  "selection": "All 108 existing annotated pronunciations; no dictionary-union trials.",
+  "rule": "Compare actual final syllable nucleus plus its entire coda. Preserve schwa and declared pre-R normalization. Stress is metadata, not a candidate gate. Empty coda is valid when the nucleus matches; an empty nucleus is not. Retain identical words with a repeated_word flag.",
+  "scope_note": "Exact-match sound candidates only. Position labels are explicit audited scopes, not exhaustive semantic detection. Morphology and authorial intention are not inferred.",
+  "counts": {
+    "occurrences": 108,
+    "unordered_pairs_checked": 5778,
+    "ending_agreements_including_repeated_words": 213,
+    "distinct_word_pairs": 145,
+    "repeated_word_pairs": 68,
+    "distinct_word_same_lexical_stress": 124,
+    "distinct_word_both_weak": 83,
+    "distinct_word_immediately_adjacent": 2,
+    "distinct_word_both_line_final": 24,
+    "distinct_word_explicit_parallel_adjectives": 1,
+    "distinct_word_any_declared_position_evidence": 27
+  },
+  "tokens": [
+    {
+      "id": 1,
+      "line": 1,
+      "position": 1,
+      "word": "Whose",
+      "annotation": "hooz",
+      "phones": [
+        "HH",
+        "UW1",
+        "Z"
+      ],
+      "nucleus": "UW",
+      "coda": [
+        "Z"
+      ],
+      "onset": [
+        "HH"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 2,
+      "line": 1,
+      "position": 2,
+      "word": "woods",
+      "annotation": "WUUDZ",
+      "phones": [
+        "W",
+        "UH1",
+        "D",
+        "Z"
+      ],
+      "nucleus": "UH",
+      "coda": [
+        "D",
+        "Z"
+      ],
+      "onset": [
+        "W"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 3,
+      "line": 1,
+      "position": 3,
+      "word": "these",
+      "annotation": "dheez",
+      "phones": [
+        "DH",
+        "IY1",
+        "Z"
+      ],
+      "nucleus": "IY",
+      "coda": [
+        "Z"
+      ],
+      "onset": [
+        "DH"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 4,
+      "line": 1,
+      "position": 4,
+      "word": "are",
+      "annotation": "AHR",
+      "phones": [
+        "AA1",
+        "R"
+      ],
+      "nucleus": "AA",
+      "coda": [
+        "R"
+      ],
+      "onset": [],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 5,
+      "line": 1,
+      "position": 5,
+      "word": "I",
+      "annotation": "eye",
+      "phones": [
+        "AY1"
+      ],
+      "nucleus": "AY",
+      "coda": [],
+      "onset": [],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 6,
+      "line": 1,
+      "position": 6,
+      "word": "think",
+      "annotation": "THINGK",
+      "phones": [
+        "TH",
+        "IH1",
+        "NG",
+        "K"
+      ],
+      "nucleus": "IH",
+      "coda": [
+        "NG",
+        "K"
+      ],
+      "onset": [
+        "TH"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 7,
+      "line": 1,
+      "position": 7,
+      "word": "I",
+      "annotation": "eye",
+      "phones": [
+        "AY1"
+      ],
+      "nucleus": "AY",
+      "coda": [],
+      "onset": [],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 8,
+      "line": 1,
+      "position": 8,
+      "word": "know",
+      "annotation": "NOH",
+      "phones": [
+        "N",
+        "OW1"
+      ],
+      "nucleus": "OW",
+      "coda": [],
+      "onset": [
+        "N"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 9,
+      "line": 2,
+      "position": 1,
+      "word": "His",
+      "annotation": "hiz",
+      "phones": [
+        "HH",
+        "IH0",
+        "Z"
+      ],
+      "nucleus": "IH",
+      "coda": [
+        "Z"
+      ],
+      "onset": [
+        "HH"
+      ],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 10,
+      "line": 2,
+      "position": 2,
+      "word": "house",
+      "annotation": "HOWS",
+      "phones": [
+        "HH",
+        "AW1",
+        "S"
+      ],
+      "nucleus": "AW",
+      "coda": [
+        "S"
+      ],
+      "onset": [
+        "HH"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 11,
+      "line": 2,
+      "position": 3,
+      "word": "is",
+      "annotation": "iz",
+      "phones": [
+        "IH0",
+        "Z"
+      ],
+      "nucleus": "IH",
+      "coda": [
+        "Z"
+      ],
+      "onset": [],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 12,
+      "line": 2,
+      "position": 4,
+      "word": "in",
+      "annotation": "IN",
+      "phones": [
+        "IH1",
+        "N"
+      ],
+      "nucleus": "IH",
+      "coda": [
+        "N"
+      ],
+      "onset": [],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 13,
+      "line": 2,
+      "position": 5,
+      "word": "the",
+      "annotation": "dhuh",
+      "phones": [
+        "DH",
+        "AH0"
+      ],
+      "nucleus": "AH0",
+      "coda": [],
+      "onset": [
+        "DH"
+      ],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 14,
+      "line": 2,
+      "position": 6,
+      "word": "village",
+      "annotation": "VIL-ij",
+      "phones": [
+        "V",
+        "IH1",
+        "L",
+        "IH0",
+        "JH"
+      ],
+      "nucleus": "IH",
+      "coda": [
+        "JH"
+      ],
+      "onset": [
+        "L"
+      ],
+      "stress": 0,
+      "syllables": 2
+    },
+    {
+      "id": 15,
+      "line": 2,
+      "position": 7,
+      "word": "though",
+      "annotation": "DHOH",
+      "phones": [
+        "DH",
+        "OW1"
+      ],
+      "nucleus": "OW",
+      "coda": [],
+      "onset": [
+        "DH"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 16,
+      "line": 3,
+      "position": 1,
+      "word": "He",
+      "annotation": "hee",
+      "phones": [
+        "HH",
+        "IY1"
+      ],
+      "nucleus": "IY",
+      "coda": [],
+      "onset": [
+        "HH"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 17,
+      "line": 3,
+      "position": 2,
+      "word": "will",
+      "annotation": "WIL",
+      "phones": [
+        "W",
+        "IH1",
+        "L"
+      ],
+      "nucleus": "IH",
+      "coda": [
+        "L"
+      ],
+      "onset": [
+        "W"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 18,
+      "line": 3,
+      "position": 3,
+      "word": "not",
+      "annotation": "naht",
+      "phones": [
+        "N",
+        "AA1",
+        "T"
+      ],
+      "nucleus": "AA",
+      "coda": [
+        "T"
+      ],
+      "onset": [
+        "N"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 19,
+      "line": 3,
+      "position": 4,
+      "word": "see",
+      "annotation": "SEE",
+      "phones": [
+        "S",
+        "IY1"
+      ],
+      "nucleus": "IY",
+      "coda": [],
+      "onset": [
+        "S"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 20,
+      "line": 3,
+      "position": 5,
+      "word": "me",
+      "annotation": "mee",
+      "phones": [
+        "M",
+        "IY1"
+      ],
+      "nucleus": "IY",
+      "coda": [],
+      "onset": [
+        "M"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 21,
+      "line": 3,
+      "position": 6,
+      "word": "stopping",
+      "annotation": "STAH-ping",
+      "phones": [
+        "S",
+        "T",
+        "AA1",
+        "P",
+        "IH0",
+        "NG"
+      ],
+      "nucleus": "IH",
+      "coda": [
+        "NG"
+      ],
+      "onset": [
+        "P"
+      ],
+      "stress": 0,
+      "syllables": 2
+    },
+    {
+      "id": 22,
+      "line": 3,
+      "position": 7,
+      "word": "here",
+      "annotation": "HEER",
+      "phones": [
+        "HH",
+        "IY1",
+        "R"
+      ],
+      "nucleus": "IH",
+      "coda": [
+        "R"
+      ],
+      "onset": [
+        "HH"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 23,
+      "line": 4,
+      "position": 1,
+      "word": "To",
+      "annotation": "tuh",
+      "phones": [
+        "T",
+        "AH0"
+      ],
+      "nucleus": "AH0",
+      "coda": [],
+      "onset": [
+        "T"
+      ],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 24,
+      "line": 4,
+      "position": 2,
+      "word": "watch",
+      "annotation": "WAHCH",
+      "phones": [
+        "W",
+        "AA1",
+        "CH"
+      ],
+      "nucleus": "AA",
+      "coda": [
+        "CH"
+      ],
+      "onset": [
+        "W"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 25,
+      "line": 4,
+      "position": 3,
+      "word": "his",
+      "annotation": "hiz",
+      "phones": [
+        "HH",
+        "IH0",
+        "Z"
+      ],
+      "nucleus": "IH",
+      "coda": [
+        "Z"
+      ],
+      "onset": [
+        "HH"
+      ],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 26,
+      "line": 4,
+      "position": 4,
+      "word": "woods",
+      "annotation": "WUUDZ",
+      "phones": [
+        "W",
+        "UH1",
+        "D",
+        "Z"
+      ],
+      "nucleus": "UH",
+      "coda": [
+        "D",
+        "Z"
+      ],
+      "onset": [
+        "W"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 27,
+      "line": 4,
+      "position": 5,
+      "word": "fill",
+      "annotation": "fil",
+      "phones": [
+        "F",
+        "IH1",
+        "L"
+      ],
+      "nucleus": "IH",
+      "coda": [
+        "L"
+      ],
+      "onset": [
+        "F"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 28,
+      "line": 4,
+      "position": 6,
+      "word": "up",
+      "annotation": "UP",
+      "phones": [
+        "AH1",
+        "P"
+      ],
+      "nucleus": "AH",
+      "coda": [
+        "P"
+      ],
+      "onset": [],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 29,
+      "line": 4,
+      "position": 7,
+      "word": "with",
+      "annotation": "widh",
+      "phones": [
+        "W",
+        "IH0",
+        "DH"
+      ],
+      "nucleus": "IH",
+      "coda": [
+        "DH"
+      ],
+      "onset": [
+        "W"
+      ],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 30,
+      "line": 4,
+      "position": 8,
+      "word": "snow",
+      "annotation": "SNOH",
+      "phones": [
+        "S",
+        "N",
+        "OW1"
+      ],
+      "nucleus": "OW",
+      "coda": [],
+      "onset": [
+        "S",
+        "N"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 31,
+      "line": 5,
+      "position": 1,
+      "word": "My",
+      "annotation": "meye",
+      "phones": [
+        "M",
+        "AY1"
+      ],
+      "nucleus": "AY",
+      "coda": [],
+      "onset": [
+        "M"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 32,
+      "line": 5,
+      "position": 2,
+      "word": "little",
+      "annotation": "LIT-uhl",
+      "phones": [
+        "L",
+        "IH1",
+        "T",
+        "AH0",
+        "L"
+      ],
+      "nucleus": "AH0",
+      "coda": [
+        "L"
+      ],
+      "onset": [
+        "T"
+      ],
+      "stress": 0,
+      "syllables": 2
+    },
+    {
+      "id": 33,
+      "line": 5,
+      "position": 3,
+      "word": "horse",
+      "annotation": "HORS",
+      "phones": [
+        "HH",
+        "AO1",
+        "R",
+        "S"
+      ],
+      "nucleus": "AO",
+      "coda": [
+        "R",
+        "S"
+      ],
+      "onset": [
+        "HH"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 34,
+      "line": 5,
+      "position": 4,
+      "word": "must",
+      "annotation": "must",
+      "phones": [
+        "M",
+        "AH1",
+        "S",
+        "T"
+      ],
+      "nucleus": "AH",
+      "coda": [
+        "S",
+        "T"
+      ],
+      "onset": [
+        "M"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 35,
+      "line": 5,
+      "position": 5,
+      "word": "think",
+      "annotation": "THINGK",
+      "phones": [
+        "TH",
+        "IH1",
+        "NG",
+        "K"
+      ],
+      "nucleus": "IH",
+      "coda": [
+        "NG",
+        "K"
+      ],
+      "onset": [
+        "TH"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 36,
+      "line": 5,
+      "position": 6,
+      "word": "it",
+      "annotation": "it",
+      "phones": [
+        "IH0",
+        "T"
+      ],
+      "nucleus": "IH",
+      "coda": [
+        "T"
+      ],
+      "onset": [],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 37,
+      "line": 5,
+      "position": 7,
+      "word": "queer",
+      "annotation": "KWEER",
+      "phones": [
+        "K",
+        "W",
+        "IH1",
+        "R"
+      ],
+      "nucleus": "IH",
+      "coda": [
+        "R"
+      ],
+      "onset": [
+        "K",
+        "W"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 38,
+      "line": 6,
+      "position": 1,
+      "word": "To",
+      "annotation": "tuh",
+      "phones": [
+        "T",
+        "AH0"
+      ],
+      "nucleus": "AH0",
+      "coda": [],
+      "onset": [
+        "T"
+      ],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 39,
+      "line": 6,
+      "position": 2,
+      "word": "stop",
+      "annotation": "STAHP",
+      "phones": [
+        "S",
+        "T",
+        "AA1",
+        "P"
+      ],
+      "nucleus": "AA",
+      "coda": [
+        "P"
+      ],
+      "onset": [
+        "S",
+        "T"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 40,
+      "line": 6,
+      "position": 3,
+      "word": "without",
+      "annotation": "widh-OWT",
+      "phones": [
+        "W",
+        "IH0",
+        "DH",
+        "AW1",
+        "T"
+      ],
+      "nucleus": "AW",
+      "coda": [
+        "T"
+      ],
+      "onset": [
+        "DH"
+      ],
+      "stress": 1,
+      "syllables": 2
+    },
+    {
+      "id": 41,
+      "line": 6,
+      "position": 4,
+      "word": "a",
+      "annotation": "uh",
+      "phones": [
+        "AH0"
+      ],
+      "nucleus": "AH0",
+      "coda": [],
+      "onset": [],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 42,
+      "line": 6,
+      "position": 5,
+      "word": "farmhouse",
+      "annotation": "FAHRM-hows",
+      "phones": [
+        "F",
+        "AA1",
+        "R",
+        "M",
+        "HH",
+        "AW2",
+        "S"
+      ],
+      "nucleus": "AW",
+      "coda": [
+        "S"
+      ],
+      "onset": [
+        "HH"
+      ],
+      "stress": 2,
+      "syllables": 2
+    },
+    {
+      "id": 43,
+      "line": 6,
+      "position": 6,
+      "word": "near",
+      "annotation": "NEER",
+      "phones": [
+        "N",
+        "IH1",
+        "R"
+      ],
+      "nucleus": "IH",
+      "coda": [
+        "R"
+      ],
+      "onset": [
+        "N"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 44,
+      "line": 7,
+      "position": 1,
+      "word": "Between",
+      "annotation": "bi-TWEEN",
+      "phones": [
+        "B",
+        "IH0",
+        "T",
+        "W",
+        "IY1",
+        "N"
+      ],
+      "nucleus": "IY",
+      "coda": [
+        "N"
+      ],
+      "onset": [
+        "T",
+        "W"
+      ],
+      "stress": 1,
+      "syllables": 2
+    },
+    {
+      "id": 45,
+      "line": 7,
+      "position": 2,
+      "word": "the",
+      "annotation": "dhuh",
+      "phones": [
+        "DH",
+        "AH0"
+      ],
+      "nucleus": "AH0",
+      "coda": [],
+      "onset": [
+        "DH"
+      ],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 46,
+      "line": 7,
+      "position": 3,
+      "word": "woods",
+      "annotation": "WUUDZ",
+      "phones": [
+        "W",
+        "UH1",
+        "D",
+        "Z"
+      ],
+      "nucleus": "UH",
+      "coda": [
+        "D",
+        "Z"
+      ],
+      "onset": [
+        "W"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 47,
+      "line": 7,
+      "position": 4,
+      "word": "and",
+      "annotation": "uhnd",
+      "phones": [
+        "AH0",
+        "N",
+        "D"
+      ],
+      "nucleus": "AH0",
+      "coda": [
+        "N",
+        "D"
+      ],
+      "onset": [],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 48,
+      "line": 7,
+      "position": 5,
+      "word": "frozen",
+      "annotation": "FROH-zuhn",
+      "phones": [
+        "F",
+        "R",
+        "OW1",
+        "Z",
+        "AH0",
+        "N"
+      ],
+      "nucleus": "AH0",
+      "coda": [
+        "N"
+      ],
+      "onset": [
+        "Z"
+      ],
+      "stress": 0,
+      "syllables": 2
+    },
+    {
+      "id": 49,
+      "line": 7,
+      "position": 6,
+      "word": "lake",
+      "annotation": "LAYK",
+      "phones": [
+        "L",
+        "EY1",
+        "K"
+      ],
+      "nucleus": "EY",
+      "coda": [
+        "K"
+      ],
+      "onset": [
+        "L"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 50,
+      "line": 8,
+      "position": 1,
+      "word": "The",
+      "annotation": "dhuh",
+      "phones": [
+        "DH",
+        "AH0"
+      ],
+      "nucleus": "AH0",
+      "coda": [],
+      "onset": [
+        "DH"
+      ],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 51,
+      "line": 8,
+      "position": 2,
+      "word": "darkest",
+      "annotation": "DAHRK-ist",
+      "phones": [
+        "D",
+        "AA1",
+        "R",
+        "K",
+        "IH0",
+        "S",
+        "T"
+      ],
+      "nucleus": "IH",
+      "coda": [
+        "S",
+        "T"
+      ],
+      "onset": [
+        "K"
+      ],
+      "stress": 0,
+      "syllables": 2
+    },
+    {
+      "id": 52,
+      "line": 8,
+      "position": 3,
+      "word": "evening",
+      "annotation": "EEV-ning",
+      "phones": [
+        "IY1",
+        "V",
+        "N",
+        "IH0",
+        "NG"
+      ],
+      "nucleus": "IH",
+      "coda": [
+        "NG"
+      ],
+      "onset": [
+        "N"
+      ],
+      "stress": 0,
+      "syllables": 2
+    },
+    {
+      "id": 53,
+      "line": 8,
+      "position": 4,
+      "word": "of",
+      "annotation": "uhv",
+      "phones": [
+        "AH0",
+        "V"
+      ],
+      "nucleus": "AH0",
+      "coda": [
+        "V"
+      ],
+      "onset": [],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 54,
+      "line": 8,
+      "position": 5,
+      "word": "the",
+      "annotation": "dhuh",
+      "phones": [
+        "DH",
+        "AH0"
+      ],
+      "nucleus": "AH0",
+      "coda": [],
+      "onset": [
+        "DH"
+      ],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 55,
+      "line": 8,
+      "position": 6,
+      "word": "year",
+      "annotation": "YEER",
+      "phones": [
+        "Y",
+        "IH1",
+        "R"
+      ],
+      "nucleus": "IH",
+      "coda": [
+        "R"
+      ],
+      "onset": [
+        "Y"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 56,
+      "line": 9,
+      "position": 1,
+      "word": "He",
+      "annotation": "hee",
+      "phones": [
+        "HH",
+        "IY1"
+      ],
+      "nucleus": "IY",
+      "coda": [],
+      "onset": [
+        "HH"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 57,
+      "line": 9,
+      "position": 2,
+      "word": "gives",
+      "annotation": "GIVZ",
+      "phones": [
+        "G",
+        "IH1",
+        "V",
+        "Z"
+      ],
+      "nucleus": "IH",
+      "coda": [
+        "V",
+        "Z"
+      ],
+      "onset": [
+        "G"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 58,
+      "line": 9,
+      "position": 3,
+      "word": "his",
+      "annotation": "hiz",
+      "phones": [
+        "HH",
+        "IH0",
+        "Z"
+      ],
+      "nucleus": "IH",
+      "coda": [
+        "Z"
+      ],
+      "onset": [
+        "HH"
+      ],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 59,
+      "line": 9,
+      "position": 4,
+      "word": "harness",
+      "annotation": "HAHR-nuhs",
+      "phones": [
+        "HH",
+        "AA1",
+        "R",
+        "N",
+        "AH0",
+        "S"
+      ],
+      "nucleus": "AH0",
+      "coda": [
+        "S"
+      ],
+      "onset": [
+        "N"
+      ],
+      "stress": 0,
+      "syllables": 2
+    },
+    {
+      "id": 60,
+      "line": 9,
+      "position": 5,
+      "word": "bells",
+      "annotation": "BELZ",
+      "phones": [
+        "B",
+        "EH1",
+        "L",
+        "Z"
+      ],
+      "nucleus": "EH",
+      "coda": [
+        "L",
+        "Z"
+      ],
+      "onset": [
+        "B"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 61,
+      "line": 9,
+      "position": 6,
+      "word": "a",
+      "annotation": "uh",
+      "phones": [
+        "AH0"
+      ],
+      "nucleus": "AH0",
+      "coda": [],
+      "onset": [],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 62,
+      "line": 9,
+      "position": 7,
+      "word": "shake",
+      "annotation": "SHAYK",
+      "phones": [
+        "SH",
+        "EY1",
+        "K"
+      ],
+      "nucleus": "EY",
+      "coda": [
+        "K"
+      ],
+      "onset": [
+        "SH"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 63,
+      "line": 10,
+      "position": 1,
+      "word": "To",
+      "annotation": "tuh",
+      "phones": [
+        "T",
+        "AH0"
+      ],
+      "nucleus": "AH0",
+      "coda": [],
+      "onset": [
+        "T"
+      ],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 64,
+      "line": 10,
+      "position": 2,
+      "word": "ask",
+      "annotation": "ASK",
+      "phones": [
+        "AE1",
+        "S",
+        "K"
+      ],
+      "nucleus": "AE",
+      "coda": [
+        "S",
+        "K"
+      ],
+      "onset": [],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 65,
+      "line": 10,
+      "position": 3,
+      "word": "if",
+      "annotation": "if",
+      "phones": [
+        "IH0",
+        "F"
+      ],
+      "nucleus": "IH",
+      "coda": [
+        "F"
+      ],
+      "onset": [],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 66,
+      "line": 10,
+      "position": 4,
+      "word": "there",
+      "annotation": "DHAIR",
+      "phones": [
+        "DH",
+        "EH1",
+        "R"
+      ],
+      "nucleus": "EH",
+      "coda": [
+        "R"
+      ],
+      "onset": [
+        "DH"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 67,
+      "line": 10,
+      "position": 5,
+      "word": "is",
+      "annotation": "iz",
+      "phones": [
+        "IH0",
+        "Z"
+      ],
+      "nucleus": "IH",
+      "coda": [
+        "Z"
+      ],
+      "onset": [],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 68,
+      "line": 10,
+      "position": 6,
+      "word": "some",
+      "annotation": "SUM",
+      "phones": [
+        "S",
+        "AH1",
+        "M"
+      ],
+      "nucleus": "AH",
+      "coda": [
+        "M"
+      ],
+      "onset": [
+        "S"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 69,
+      "line": 10,
+      "position": 7,
+      "word": "mistake",
+      "annotation": "mis-TAYK",
+      "phones": [
+        "M",
+        "IH0",
+        "S",
+        "T",
+        "EY1",
+        "K"
+      ],
+      "nucleus": "EY",
+      "coda": [
+        "K"
+      ],
+      "onset": [
+        "S",
+        "T"
+      ],
+      "stress": 1,
+      "syllables": 2
+    },
+    {
+      "id": 70,
+      "line": 11,
+      "position": 1,
+      "word": "The",
+      "annotation": "dhee",
+      "phones": [
+        "DH",
+        "IY0"
+      ],
+      "nucleus": "IY",
+      "coda": [],
+      "onset": [
+        "DH"
+      ],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 71,
+      "line": 11,
+      "position": 2,
+      "word": "only",
+      "annotation": "OHN-lee",
+      "phones": [
+        "OW1",
+        "N",
+        "L",
+        "IY0"
+      ],
+      "nucleus": "IY",
+      "coda": [],
+      "onset": [
+        "L"
+      ],
+      "stress": 0,
+      "syllables": 2
+    },
+    {
+      "id": 72,
+      "line": 11,
+      "position": 3,
+      "word": "other",
+      "annotation": "UDH-er",
+      "phones": [
+        "AH1",
+        "DH",
+        "ER0"
+      ],
+      "nucleus": "ER",
+      "coda": [],
+      "onset": [
+        "DH"
+      ],
+      "stress": 0,
+      "syllables": 2
+    },
+    {
+      "id": 73,
+      "line": 11,
+      "position": 4,
+      "word": "sound's",
+      "annotation": "SOWNDZ",
+      "phones": [
+        "S",
+        "AW1",
+        "N",
+        "D",
+        "Z"
+      ],
+      "nucleus": "AW",
+      "coda": [
+        "N",
+        "D",
+        "Z"
+      ],
+      "onset": [
+        "S"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 74,
+      "line": 11,
+      "position": 5,
+      "word": "the",
+      "annotation": "dhuh",
+      "phones": [
+        "DH",
+        "AH0"
+      ],
+      "nucleus": "AH0",
+      "coda": [],
+      "onset": [
+        "DH"
+      ],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 75,
+      "line": 11,
+      "position": 6,
+      "word": "sweep",
+      "annotation": "SWEEP",
+      "phones": [
+        "S",
+        "W",
+        "IY1",
+        "P"
+      ],
+      "nucleus": "IY",
+      "coda": [
+        "P"
+      ],
+      "onset": [
+        "S",
+        "W"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 76,
+      "line": 12,
+      "position": 1,
+      "word": "Of",
+      "annotation": "uhv",
+      "phones": [
+        "AH0",
+        "V"
+      ],
+      "nucleus": "AH0",
+      "coda": [
+        "V"
+      ],
+      "onset": [],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 77,
+      "line": 12,
+      "position": 2,
+      "word": "easy",
+      "annotation": "EE-zee",
+      "phones": [
+        "IY1",
+        "Z",
+        "IY0"
+      ],
+      "nucleus": "IY",
+      "coda": [],
+      "onset": [
+        "Z"
+      ],
+      "stress": 0,
+      "syllables": 2
+    },
+    {
+      "id": 78,
+      "line": 12,
+      "position": 3,
+      "word": "wind",
+      "annotation": "WIND",
+      "phones": [
+        "W",
+        "IH1",
+        "N",
+        "D"
+      ],
+      "nucleus": "IH",
+      "coda": [
+        "N",
+        "D"
+      ],
+      "onset": [
+        "W"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 79,
+      "line": 12,
+      "position": 4,
+      "word": "and",
+      "annotation": "uhnd",
+      "phones": [
+        "AH0",
+        "N",
+        "D"
+      ],
+      "nucleus": "AH0",
+      "coda": [
+        "N",
+        "D"
+      ],
+      "onset": [],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 80,
+      "line": 12,
+      "position": 5,
+      "word": "downy",
+      "annotation": "DOW-nee",
+      "phones": [
+        "D",
+        "AW1",
+        "N",
+        "IY0"
+      ],
+      "nucleus": "IY",
+      "coda": [],
+      "onset": [
+        "N"
+      ],
+      "stress": 0,
+      "syllables": 2
+    },
+    {
+      "id": 81,
+      "line": 12,
+      "position": 6,
+      "word": "flake",
+      "annotation": "FLAYK",
+      "phones": [
+        "F",
+        "L",
+        "EY1",
+        "K"
+      ],
+      "nucleus": "EY",
+      "coda": [
+        "K"
+      ],
+      "onset": [
+        "F",
+        "L"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 82,
+      "line": 13,
+      "position": 1,
+      "word": "The",
+      "annotation": "dhuh",
+      "phones": [
+        "DH",
+        "AH0"
+      ],
+      "nucleus": "AH0",
+      "coda": [],
+      "onset": [
+        "DH"
+      ],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 83,
+      "line": 13,
+      "position": 2,
+      "word": "woods",
+      "annotation": "WUUDZ",
+      "phones": [
+        "W",
+        "UH1",
+        "D",
+        "Z"
+      ],
+      "nucleus": "UH",
+      "coda": [
+        "D",
+        "Z"
+      ],
+      "onset": [
+        "W"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 84,
+      "line": 13,
+      "position": 3,
+      "word": "are",
+      "annotation": "er",
+      "phones": [
+        "ER0"
+      ],
+      "nucleus": "ER",
+      "coda": [],
+      "onset": [],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 85,
+      "line": 13,
+      "position": 4,
+      "word": "lovely",
+      "annotation": "LUV-lee",
+      "phones": [
+        "L",
+        "AH1",
+        "V",
+        "L",
+        "IY0"
+      ],
+      "nucleus": "IY",
+      "coda": [],
+      "onset": [
+        "L"
+      ],
+      "stress": 0,
+      "syllables": 2
+    },
+    {
+      "id": 86,
+      "line": 13,
+      "position": 5,
+      "word": "dark",
+      "annotation": "DAHRK",
+      "phones": [
+        "D",
+        "AA1",
+        "R",
+        "K"
+      ],
+      "nucleus": "AA",
+      "coda": [
+        "R",
+        "K"
+      ],
+      "onset": [
+        "D"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 87,
+      "line": 13,
+      "position": 6,
+      "word": "and",
+      "annotation": "uhnd",
+      "phones": [
+        "AH0",
+        "N",
+        "D"
+      ],
+      "nucleus": "AH0",
+      "coda": [
+        "N",
+        "D"
+      ],
+      "onset": [],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 88,
+      "line": 13,
+      "position": 7,
+      "word": "deep",
+      "annotation": "DEEP",
+      "phones": [
+        "D",
+        "IY1",
+        "P"
+      ],
+      "nucleus": "IY",
+      "coda": [
+        "P"
+      ],
+      "onset": [
+        "D"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 89,
+      "line": 14,
+      "position": 1,
+      "word": "But",
+      "annotation": "but",
+      "phones": [
+        "B",
+        "AH1",
+        "T"
+      ],
+      "nucleus": "AH",
+      "coda": [
+        "T"
+      ],
+      "onset": [
+        "B"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 90,
+      "line": 14,
+      "position": 2,
+      "word": "I",
+      "annotation": "EYE",
+      "phones": [
+        "AY1"
+      ],
+      "nucleus": "AY",
+      "coda": [],
+      "onset": [],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 91,
+      "line": 14,
+      "position": 3,
+      "word": "have",
+      "annotation": "hav",
+      "phones": [
+        "HH",
+        "AE1",
+        "V"
+      ],
+      "nucleus": "AE",
+      "coda": [
+        "V"
+      ],
+      "onset": [
+        "HH"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 92,
+      "line": 14,
+      "position": 4,
+      "word": "promises",
+      "annotation": "PRAH-mi-siz",
+      "phones": [
+        "P",
+        "R",
+        "AA1",
+        "M",
+        "IH0",
+        "S",
+        "IH0",
+        "Z"
+      ],
+      "nucleus": "IH",
+      "coda": [
+        "Z"
+      ],
+      "onset": [
+        "S"
+      ],
+      "stress": 0,
+      "syllables": 3
+    },
+    {
+      "id": 93,
+      "line": 14,
+      "position": 5,
+      "word": "to",
+      "annotation": "tuh",
+      "phones": [
+        "T",
+        "AH0"
+      ],
+      "nucleus": "AH0",
+      "coda": [],
+      "onset": [
+        "T"
+      ],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 94,
+      "line": 14,
+      "position": 6,
+      "word": "keep",
+      "annotation": "KEEP",
+      "phones": [
+        "K",
+        "IY1",
+        "P"
+      ],
+      "nucleus": "IY",
+      "coda": [
+        "P"
+      ],
+      "onset": [
+        "K"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 95,
+      "line": 15,
+      "position": 1,
+      "word": "And",
+      "annotation": "uhnd",
+      "phones": [
+        "AH0",
+        "N",
+        "D"
+      ],
+      "nucleus": "AH0",
+      "coda": [
+        "N",
+        "D"
+      ],
+      "onset": [],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 96,
+      "line": 15,
+      "position": 2,
+      "word": "miles",
+      "annotation": "MEYELZ",
+      "phones": [
+        "M",
+        "AY1",
+        "L",
+        "Z"
+      ],
+      "nucleus": "AY",
+      "coda": [
+        "L",
+        "Z"
+      ],
+      "onset": [
+        "M"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 97,
+      "line": 15,
+      "position": 3,
+      "word": "to",
+      "annotation": "tuh",
+      "phones": [
+        "T",
+        "AH0"
+      ],
+      "nucleus": "AH0",
+      "coda": [],
+      "onset": [
+        "T"
+      ],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 98,
+      "line": 15,
+      "position": 4,
+      "word": "go",
+      "annotation": "GOH",
+      "phones": [
+        "G",
+        "OW1"
+      ],
+      "nucleus": "OW",
+      "coda": [],
+      "onset": [
+        "G"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 99,
+      "line": 15,
+      "position": 5,
+      "word": "before",
+      "annotation": "bi-FOR",
+      "phones": [
+        "B",
+        "IH0",
+        "F",
+        "AO1",
+        "R"
+      ],
+      "nucleus": "AO",
+      "coda": [
+        "R"
+      ],
+      "onset": [
+        "F"
+      ],
+      "stress": 1,
+      "syllables": 2
+    },
+    {
+      "id": 100,
+      "line": 15,
+      "position": 6,
+      "word": "I",
+      "annotation": "eye",
+      "phones": [
+        "AY1"
+      ],
+      "nucleus": "AY",
+      "coda": [],
+      "onset": [],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 101,
+      "line": 15,
+      "position": 7,
+      "word": "sleep",
+      "annotation": "SLEEP",
+      "phones": [
+        "S",
+        "L",
+        "IY1",
+        "P"
+      ],
+      "nucleus": "IY",
+      "coda": [
+        "P"
+      ],
+      "onset": [
+        "S",
+        "L"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 102,
+      "line": 16,
+      "position": 1,
+      "word": "And",
+      "annotation": "uhnd",
+      "phones": [
+        "AH0",
+        "N",
+        "D"
+      ],
+      "nucleus": "AH0",
+      "coda": [
+        "N",
+        "D"
+      ],
+      "onset": [],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 103,
+      "line": 16,
+      "position": 2,
+      "word": "miles",
+      "annotation": "MEYELZ",
+      "phones": [
+        "M",
+        "AY1",
+        "L",
+        "Z"
+      ],
+      "nucleus": "AY",
+      "coda": [
+        "L",
+        "Z"
+      ],
+      "onset": [
+        "M"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 104,
+      "line": 16,
+      "position": 3,
+      "word": "to",
+      "annotation": "tuh",
+      "phones": [
+        "T",
+        "AH0"
+      ],
+      "nucleus": "AH0",
+      "coda": [],
+      "onset": [
+        "T"
+      ],
+      "stress": 0,
+      "syllables": 1
+    },
+    {
+      "id": 105,
+      "line": 16,
+      "position": 4,
+      "word": "go",
+      "annotation": "GOH",
+      "phones": [
+        "G",
+        "OW1"
+      ],
+      "nucleus": "OW",
+      "coda": [],
+      "onset": [
+        "G"
+      ],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 106,
+      "line": 16,
+      "position": 5,
+      "word": "before",
+      "annotation": "bi-FOR",
+      "phones": [
+        "B",
+        "IH0",
+        "F",
+        "AO1",
+        "R"
+      ],
+      "nucleus": "AO",
+      "coda": [
+        "R"
+      ],
+      "onset": [
+        "F"
+      ],
+      "stress": 1,
+      "syllables": 2
+    },
+    {
+      "id": 107,
+      "line": 16,
+      "position": 6,
+      "word": "I",
+      "annotation": "eye",
+      "phones": [
+        "AY1"
+      ],
+      "nucleus": "AY",
+      "coda": [],
+      "onset": [],
+      "stress": 1,
+      "syllables": 1
+    },
+    {
+      "id": 108,
+      "line": 16,
+      "position": 7,
+      "word": "sleep",
+      "annotation": "SLEEP",
+      "phones": [
+        "S",
+        "L",
+        "IY1",
+        "P"
+      ],
+      "nucleus": "IY",
+      "coda": [
+        "P"
+      ],
+      "onset": [
+        "S",
+        "L"
+      ],
+      "stress": 1,
+      "syllables": 1
+    }
+  ],
+  "pairs": [
+    {
+      "ids": [
+        2,
+        26
+      ],
+      "words": [
+        "woods",
+        "woods"
+      ],
+      "lines": [
+        1,
+        4
+      ],
+      "ending": [
+        "UH",
+        "D",
+        "Z"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        2,
+        46
+      ],
+      "words": [
+        "woods",
+        "woods"
+      ],
+      "lines": [
+        1,
+        7
+      ],
+      "ending": [
+        "UH",
+        "D",
+        "Z"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        2,
+        83
+      ],
+      "words": [
+        "woods",
+        "woods"
+      ],
+      "lines": [
+        1,
+        13
+      ],
+      "ending": [
+        "UH",
+        "D",
+        "Z"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        5,
+        7
+      ],
+      "words": [
+        "I",
+        "I"
+      ],
+      "lines": [
+        1,
+        1
+      ],
+      "ending": [
+        "AY"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        5,
+        31
+      ],
+      "words": [
+        "I",
+        "My"
+      ],
+      "lines": [
+        1,
+        5
+      ],
+      "ending": [
+        "AY"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        5,
+        90
+      ],
+      "words": [
+        "I",
+        "I"
+      ],
+      "lines": [
+        1,
+        14
+      ],
+      "ending": [
+        "AY"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        5,
+        100
+      ],
+      "words": [
+        "I",
+        "I"
+      ],
+      "lines": [
+        1,
+        15
+      ],
+      "ending": [
+        "AY"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        5,
+        107
+      ],
+      "words": [
+        "I",
+        "I"
+      ],
+      "lines": [
+        1,
+        16
+      ],
+      "ending": [
+        "AY"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        6,
+        35
+      ],
+      "words": [
+        "think",
+        "think"
+      ],
+      "lines": [
+        1,
+        5
+      ],
+      "ending": [
+        "IH",
+        "NG",
+        "K"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        7,
+        31
+      ],
+      "words": [
+        "I",
+        "My"
+      ],
+      "lines": [
+        1,
+        5
+      ],
+      "ending": [
+        "AY"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        7,
+        90
+      ],
+      "words": [
+        "I",
+        "I"
+      ],
+      "lines": [
+        1,
+        14
+      ],
+      "ending": [
+        "AY"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        7,
+        100
+      ],
+      "words": [
+        "I",
+        "I"
+      ],
+      "lines": [
+        1,
+        15
+      ],
+      "ending": [
+        "AY"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        7,
+        107
+      ],
+      "words": [
+        "I",
+        "I"
+      ],
+      "lines": [
+        1,
+        16
+      ],
+      "ending": [
+        "AY"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        8,
+        15
+      ],
+      "words": [
+        "know",
+        "though"
+      ],
+      "lines": [
+        1,
+        2
+      ],
+      "ending": [
+        "OW"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "verse_line_endings"
+      ]
+    },
+    {
+      "ids": [
+        8,
+        30
+      ],
+      "words": [
+        "know",
+        "snow"
+      ],
+      "lines": [
+        1,
+        4
+      ],
+      "ending": [
+        "OW"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "verse_line_endings"
+      ]
+    },
+    {
+      "ids": [
+        8,
+        98
+      ],
+      "words": [
+        "know",
+        "go"
+      ],
+      "lines": [
+        1,
+        15
+      ],
+      "ending": [
+        "OW"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        8,
+        105
+      ],
+      "words": [
+        "know",
+        "go"
+      ],
+      "lines": [
+        1,
+        16
+      ],
+      "ending": [
+        "OW"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        9,
+        11
+      ],
+      "words": [
+        "His",
+        "is"
+      ],
+      "lines": [
+        2,
+        2
+      ],
+      "ending": [
+        "IH",
+        "Z"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        9,
+        25
+      ],
+      "words": [
+        "His",
+        "his"
+      ],
+      "lines": [
+        2,
+        4
+      ],
+      "ending": [
+        "IH",
+        "Z"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        9,
+        58
+      ],
+      "words": [
+        "His",
+        "his"
+      ],
+      "lines": [
+        2,
+        9
+      ],
+      "ending": [
+        "IH",
+        "Z"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        9,
+        67
+      ],
+      "words": [
+        "His",
+        "is"
+      ],
+      "lines": [
+        2,
+        10
+      ],
+      "ending": [
+        "IH",
+        "Z"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        9,
+        92
+      ],
+      "words": [
+        "His",
+        "promises"
+      ],
+      "lines": [
+        2,
+        14
+      ],
+      "ending": [
+        "IH",
+        "Z"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        10,
+        42
+      ],
+      "words": [
+        "house",
+        "farmhouse"
+      ],
+      "lines": [
+        2,
+        6
+      ],
+      "ending": [
+        "AW",
+        "S"
+      ],
+      "stress": [
+        1,
+        2
+      ],
+      "both_weak": false,
+      "same_stress": false,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        11,
+        25
+      ],
+      "words": [
+        "is",
+        "his"
+      ],
+      "lines": [
+        2,
+        4
+      ],
+      "ending": [
+        "IH",
+        "Z"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        11,
+        58
+      ],
+      "words": [
+        "is",
+        "his"
+      ],
+      "lines": [
+        2,
+        9
+      ],
+      "ending": [
+        "IH",
+        "Z"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        11,
+        67
+      ],
+      "words": [
+        "is",
+        "is"
+      ],
+      "lines": [
+        2,
+        10
+      ],
+      "ending": [
+        "IH",
+        "Z"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        11,
+        92
+      ],
+      "words": [
+        "is",
+        "promises"
+      ],
+      "lines": [
+        2,
+        14
+      ],
+      "ending": [
+        "IH",
+        "Z"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        13,
+        23
+      ],
+      "words": [
+        "the",
+        "To"
+      ],
+      "lines": [
+        2,
+        4
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        13,
+        38
+      ],
+      "words": [
+        "the",
+        "To"
+      ],
+      "lines": [
+        2,
+        6
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        13,
+        41
+      ],
+      "words": [
+        "the",
+        "a"
+      ],
+      "lines": [
+        2,
+        6
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        13,
+        45
+      ],
+      "words": [
+        "the",
+        "the"
+      ],
+      "lines": [
+        2,
+        7
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        13,
+        50
+      ],
+      "words": [
+        "the",
+        "The"
+      ],
+      "lines": [
+        2,
+        8
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        13,
+        54
+      ],
+      "words": [
+        "the",
+        "the"
+      ],
+      "lines": [
+        2,
+        8
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        13,
+        61
+      ],
+      "words": [
+        "the",
+        "a"
+      ],
+      "lines": [
+        2,
+        9
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        13,
+        63
+      ],
+      "words": [
+        "the",
+        "To"
+      ],
+      "lines": [
+        2,
+        10
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        13,
+        74
+      ],
+      "words": [
+        "the",
+        "the"
+      ],
+      "lines": [
+        2,
+        11
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        13,
+        82
+      ],
+      "words": [
+        "the",
+        "The"
+      ],
+      "lines": [
+        2,
+        13
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        13,
+        93
+      ],
+      "words": [
+        "the",
+        "to"
+      ],
+      "lines": [
+        2,
+        14
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        13,
+        97
+      ],
+      "words": [
+        "the",
+        "to"
+      ],
+      "lines": [
+        2,
+        15
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        13,
+        104
+      ],
+      "words": [
+        "the",
+        "to"
+      ],
+      "lines": [
+        2,
+        16
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        15,
+        30
+      ],
+      "words": [
+        "though",
+        "snow"
+      ],
+      "lines": [
+        2,
+        4
+      ],
+      "ending": [
+        "OW"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "verse_line_endings"
+      ]
+    },
+    {
+      "ids": [
+        15,
+        98
+      ],
+      "words": [
+        "though",
+        "go"
+      ],
+      "lines": [
+        2,
+        15
+      ],
+      "ending": [
+        "OW"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        15,
+        105
+      ],
+      "words": [
+        "though",
+        "go"
+      ],
+      "lines": [
+        2,
+        16
+      ],
+      "ending": [
+        "OW"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        16,
+        19
+      ],
+      "words": [
+        "He",
+        "see"
+      ],
+      "lines": [
+        3,
+        3
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        16,
+        20
+      ],
+      "words": [
+        "He",
+        "me"
+      ],
+      "lines": [
+        3,
+        3
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        16,
+        56
+      ],
+      "words": [
+        "He",
+        "He"
+      ],
+      "lines": [
+        3,
+        9
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        16,
+        70
+      ],
+      "words": [
+        "He",
+        "The"
+      ],
+      "lines": [
+        3,
+        11
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        0
+      ],
+      "both_weak": false,
+      "same_stress": false,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        16,
+        71
+      ],
+      "words": [
+        "He",
+        "only"
+      ],
+      "lines": [
+        3,
+        11
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        0
+      ],
+      "both_weak": false,
+      "same_stress": false,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        16,
+        77
+      ],
+      "words": [
+        "He",
+        "easy"
+      ],
+      "lines": [
+        3,
+        12
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        0
+      ],
+      "both_weak": false,
+      "same_stress": false,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        16,
+        80
+      ],
+      "words": [
+        "He",
+        "downy"
+      ],
+      "lines": [
+        3,
+        12
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        0
+      ],
+      "both_weak": false,
+      "same_stress": false,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        16,
+        85
+      ],
+      "words": [
+        "He",
+        "lovely"
+      ],
+      "lines": [
+        3,
+        13
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        0
+      ],
+      "both_weak": false,
+      "same_stress": false,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        17,
+        27
+      ],
+      "words": [
+        "will",
+        "fill"
+      ],
+      "lines": [
+        3,
+        4
+      ],
+      "ending": [
+        "IH",
+        "L"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        19,
+        20
+      ],
+      "words": [
+        "see",
+        "me"
+      ],
+      "lines": [
+        3,
+        3
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "immediately_adjacent_words"
+      ]
+    },
+    {
+      "ids": [
+        19,
+        56
+      ],
+      "words": [
+        "see",
+        "He"
+      ],
+      "lines": [
+        3,
+        9
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        19,
+        70
+      ],
+      "words": [
+        "see",
+        "The"
+      ],
+      "lines": [
+        3,
+        11
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        0
+      ],
+      "both_weak": false,
+      "same_stress": false,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        19,
+        71
+      ],
+      "words": [
+        "see",
+        "only"
+      ],
+      "lines": [
+        3,
+        11
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        0
+      ],
+      "both_weak": false,
+      "same_stress": false,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        19,
+        77
+      ],
+      "words": [
+        "see",
+        "easy"
+      ],
+      "lines": [
+        3,
+        12
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        0
+      ],
+      "both_weak": false,
+      "same_stress": false,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        19,
+        80
+      ],
+      "words": [
+        "see",
+        "downy"
+      ],
+      "lines": [
+        3,
+        12
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        0
+      ],
+      "both_weak": false,
+      "same_stress": false,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        19,
+        85
+      ],
+      "words": [
+        "see",
+        "lovely"
+      ],
+      "lines": [
+        3,
+        13
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        0
+      ],
+      "both_weak": false,
+      "same_stress": false,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        20,
+        56
+      ],
+      "words": [
+        "me",
+        "He"
+      ],
+      "lines": [
+        3,
+        9
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        20,
+        70
+      ],
+      "words": [
+        "me",
+        "The"
+      ],
+      "lines": [
+        3,
+        11
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        0
+      ],
+      "both_weak": false,
+      "same_stress": false,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        20,
+        71
+      ],
+      "words": [
+        "me",
+        "only"
+      ],
+      "lines": [
+        3,
+        11
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        0
+      ],
+      "both_weak": false,
+      "same_stress": false,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        20,
+        77
+      ],
+      "words": [
+        "me",
+        "easy"
+      ],
+      "lines": [
+        3,
+        12
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        0
+      ],
+      "both_weak": false,
+      "same_stress": false,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        20,
+        80
+      ],
+      "words": [
+        "me",
+        "downy"
+      ],
+      "lines": [
+        3,
+        12
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        0
+      ],
+      "both_weak": false,
+      "same_stress": false,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        20,
+        85
+      ],
+      "words": [
+        "me",
+        "lovely"
+      ],
+      "lines": [
+        3,
+        13
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        0
+      ],
+      "both_weak": false,
+      "same_stress": false,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        21,
+        52
+      ],
+      "words": [
+        "stopping",
+        "evening"
+      ],
+      "lines": [
+        3,
+        8
+      ],
+      "ending": [
+        "IH",
+        "NG"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        22,
+        37
+      ],
+      "words": [
+        "here",
+        "queer"
+      ],
+      "lines": [
+        3,
+        5
+      ],
+      "ending": [
+        "IH",
+        "R"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "verse_line_endings"
+      ]
+    },
+    {
+      "ids": [
+        22,
+        43
+      ],
+      "words": [
+        "here",
+        "near"
+      ],
+      "lines": [
+        3,
+        6
+      ],
+      "ending": [
+        "IH",
+        "R"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "verse_line_endings"
+      ]
+    },
+    {
+      "ids": [
+        22,
+        55
+      ],
+      "words": [
+        "here",
+        "year"
+      ],
+      "lines": [
+        3,
+        8
+      ],
+      "ending": [
+        "IH",
+        "R"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "verse_line_endings"
+      ]
+    },
+    {
+      "ids": [
+        23,
+        38
+      ],
+      "words": [
+        "To",
+        "To"
+      ],
+      "lines": [
+        4,
+        6
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        23,
+        41
+      ],
+      "words": [
+        "To",
+        "a"
+      ],
+      "lines": [
+        4,
+        6
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        23,
+        45
+      ],
+      "words": [
+        "To",
+        "the"
+      ],
+      "lines": [
+        4,
+        7
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        23,
+        50
+      ],
+      "words": [
+        "To",
+        "The"
+      ],
+      "lines": [
+        4,
+        8
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        23,
+        54
+      ],
+      "words": [
+        "To",
+        "the"
+      ],
+      "lines": [
+        4,
+        8
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        23,
+        61
+      ],
+      "words": [
+        "To",
+        "a"
+      ],
+      "lines": [
+        4,
+        9
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        23,
+        63
+      ],
+      "words": [
+        "To",
+        "To"
+      ],
+      "lines": [
+        4,
+        10
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        23,
+        74
+      ],
+      "words": [
+        "To",
+        "the"
+      ],
+      "lines": [
+        4,
+        11
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        23,
+        82
+      ],
+      "words": [
+        "To",
+        "The"
+      ],
+      "lines": [
+        4,
+        13
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        23,
+        93
+      ],
+      "words": [
+        "To",
+        "to"
+      ],
+      "lines": [
+        4,
+        14
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        23,
+        97
+      ],
+      "words": [
+        "To",
+        "to"
+      ],
+      "lines": [
+        4,
+        15
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        23,
+        104
+      ],
+      "words": [
+        "To",
+        "to"
+      ],
+      "lines": [
+        4,
+        16
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        25,
+        58
+      ],
+      "words": [
+        "his",
+        "his"
+      ],
+      "lines": [
+        4,
+        9
+      ],
+      "ending": [
+        "IH",
+        "Z"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        25,
+        67
+      ],
+      "words": [
+        "his",
+        "is"
+      ],
+      "lines": [
+        4,
+        10
+      ],
+      "ending": [
+        "IH",
+        "Z"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        25,
+        92
+      ],
+      "words": [
+        "his",
+        "promises"
+      ],
+      "lines": [
+        4,
+        14
+      ],
+      "ending": [
+        "IH",
+        "Z"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        26,
+        46
+      ],
+      "words": [
+        "woods",
+        "woods"
+      ],
+      "lines": [
+        4,
+        7
+      ],
+      "ending": [
+        "UH",
+        "D",
+        "Z"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        26,
+        83
+      ],
+      "words": [
+        "woods",
+        "woods"
+      ],
+      "lines": [
+        4,
+        13
+      ],
+      "ending": [
+        "UH",
+        "D",
+        "Z"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        30,
+        98
+      ],
+      "words": [
+        "snow",
+        "go"
+      ],
+      "lines": [
+        4,
+        15
+      ],
+      "ending": [
+        "OW"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        30,
+        105
+      ],
+      "words": [
+        "snow",
+        "go"
+      ],
+      "lines": [
+        4,
+        16
+      ],
+      "ending": [
+        "OW"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        31,
+        90
+      ],
+      "words": [
+        "My",
+        "I"
+      ],
+      "lines": [
+        5,
+        14
+      ],
+      "ending": [
+        "AY"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        31,
+        100
+      ],
+      "words": [
+        "My",
+        "I"
+      ],
+      "lines": [
+        5,
+        15
+      ],
+      "ending": [
+        "AY"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        31,
+        107
+      ],
+      "words": [
+        "My",
+        "I"
+      ],
+      "lines": [
+        5,
+        16
+      ],
+      "ending": [
+        "AY"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        37,
+        43
+      ],
+      "words": [
+        "queer",
+        "near"
+      ],
+      "lines": [
+        5,
+        6
+      ],
+      "ending": [
+        "IH",
+        "R"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "verse_line_endings"
+      ]
+    },
+    {
+      "ids": [
+        37,
+        55
+      ],
+      "words": [
+        "queer",
+        "year"
+      ],
+      "lines": [
+        5,
+        8
+      ],
+      "ending": [
+        "IH",
+        "R"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "verse_line_endings"
+      ]
+    },
+    {
+      "ids": [
+        38,
+        41
+      ],
+      "words": [
+        "To",
+        "a"
+      ],
+      "lines": [
+        6,
+        6
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        38,
+        45
+      ],
+      "words": [
+        "To",
+        "the"
+      ],
+      "lines": [
+        6,
+        7
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        38,
+        50
+      ],
+      "words": [
+        "To",
+        "The"
+      ],
+      "lines": [
+        6,
+        8
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        38,
+        54
+      ],
+      "words": [
+        "To",
+        "the"
+      ],
+      "lines": [
+        6,
+        8
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        38,
+        61
+      ],
+      "words": [
+        "To",
+        "a"
+      ],
+      "lines": [
+        6,
+        9
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        38,
+        63
+      ],
+      "words": [
+        "To",
+        "To"
+      ],
+      "lines": [
+        6,
+        10
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        38,
+        74
+      ],
+      "words": [
+        "To",
+        "the"
+      ],
+      "lines": [
+        6,
+        11
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        38,
+        82
+      ],
+      "words": [
+        "To",
+        "The"
+      ],
+      "lines": [
+        6,
+        13
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        38,
+        93
+      ],
+      "words": [
+        "To",
+        "to"
+      ],
+      "lines": [
+        6,
+        14
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        38,
+        97
+      ],
+      "words": [
+        "To",
+        "to"
+      ],
+      "lines": [
+        6,
+        15
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        38,
+        104
+      ],
+      "words": [
+        "To",
+        "to"
+      ],
+      "lines": [
+        6,
+        16
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        41,
+        45
+      ],
+      "words": [
+        "a",
+        "the"
+      ],
+      "lines": [
+        6,
+        7
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        41,
+        50
+      ],
+      "words": [
+        "a",
+        "The"
+      ],
+      "lines": [
+        6,
+        8
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        41,
+        54
+      ],
+      "words": [
+        "a",
+        "the"
+      ],
+      "lines": [
+        6,
+        8
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        41,
+        61
+      ],
+      "words": [
+        "a",
+        "a"
+      ],
+      "lines": [
+        6,
+        9
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        41,
+        63
+      ],
+      "words": [
+        "a",
+        "To"
+      ],
+      "lines": [
+        6,
+        10
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        41,
+        74
+      ],
+      "words": [
+        "a",
+        "the"
+      ],
+      "lines": [
+        6,
+        11
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        41,
+        82
+      ],
+      "words": [
+        "a",
+        "The"
+      ],
+      "lines": [
+        6,
+        13
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        41,
+        93
+      ],
+      "words": [
+        "a",
+        "to"
+      ],
+      "lines": [
+        6,
+        14
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        41,
+        97
+      ],
+      "words": [
+        "a",
+        "to"
+      ],
+      "lines": [
+        6,
+        15
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        41,
+        104
+      ],
+      "words": [
+        "a",
+        "to"
+      ],
+      "lines": [
+        6,
+        16
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        43,
+        55
+      ],
+      "words": [
+        "near",
+        "year"
+      ],
+      "lines": [
+        6,
+        8
+      ],
+      "ending": [
+        "IH",
+        "R"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "verse_line_endings"
+      ]
+    },
+    {
+      "ids": [
+        45,
+        50
+      ],
+      "words": [
+        "the",
+        "The"
+      ],
+      "lines": [
+        7,
+        8
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        45,
+        54
+      ],
+      "words": [
+        "the",
+        "the"
+      ],
+      "lines": [
+        7,
+        8
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        45,
+        61
+      ],
+      "words": [
+        "the",
+        "a"
+      ],
+      "lines": [
+        7,
+        9
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        45,
+        63
+      ],
+      "words": [
+        "the",
+        "To"
+      ],
+      "lines": [
+        7,
+        10
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        45,
+        74
+      ],
+      "words": [
+        "the",
+        "the"
+      ],
+      "lines": [
+        7,
+        11
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        45,
+        82
+      ],
+      "words": [
+        "the",
+        "The"
+      ],
+      "lines": [
+        7,
+        13
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        45,
+        93
+      ],
+      "words": [
+        "the",
+        "to"
+      ],
+      "lines": [
+        7,
+        14
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        45,
+        97
+      ],
+      "words": [
+        "the",
+        "to"
+      ],
+      "lines": [
+        7,
+        15
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        45,
+        104
+      ],
+      "words": [
+        "the",
+        "to"
+      ],
+      "lines": [
+        7,
+        16
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        46,
+        83
+      ],
+      "words": [
+        "woods",
+        "woods"
+      ],
+      "lines": [
+        7,
+        13
+      ],
+      "ending": [
+        "UH",
+        "D",
+        "Z"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        47,
+        79
+      ],
+      "words": [
+        "and",
+        "and"
+      ],
+      "lines": [
+        7,
+        12
+      ],
+      "ending": [
+        "AH0",
+        "N",
+        "D"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        47,
+        87
+      ],
+      "words": [
+        "and",
+        "and"
+      ],
+      "lines": [
+        7,
+        13
+      ],
+      "ending": [
+        "AH0",
+        "N",
+        "D"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        47,
+        95
+      ],
+      "words": [
+        "and",
+        "And"
+      ],
+      "lines": [
+        7,
+        15
+      ],
+      "ending": [
+        "AH0",
+        "N",
+        "D"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        47,
+        102
+      ],
+      "words": [
+        "and",
+        "And"
+      ],
+      "lines": [
+        7,
+        16
+      ],
+      "ending": [
+        "AH0",
+        "N",
+        "D"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        49,
+        62
+      ],
+      "words": [
+        "lake",
+        "shake"
+      ],
+      "lines": [
+        7,
+        9
+      ],
+      "ending": [
+        "EY",
+        "K"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "verse_line_endings"
+      ]
+    },
+    {
+      "ids": [
+        49,
+        69
+      ],
+      "words": [
+        "lake",
+        "mistake"
+      ],
+      "lines": [
+        7,
+        10
+      ],
+      "ending": [
+        "EY",
+        "K"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "verse_line_endings"
+      ]
+    },
+    {
+      "ids": [
+        49,
+        81
+      ],
+      "words": [
+        "lake",
+        "flake"
+      ],
+      "lines": [
+        7,
+        12
+      ],
+      "ending": [
+        "EY",
+        "K"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "verse_line_endings"
+      ]
+    },
+    {
+      "ids": [
+        50,
+        54
+      ],
+      "words": [
+        "The",
+        "the"
+      ],
+      "lines": [
+        8,
+        8
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        50,
+        61
+      ],
+      "words": [
+        "The",
+        "a"
+      ],
+      "lines": [
+        8,
+        9
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        50,
+        63
+      ],
+      "words": [
+        "The",
+        "To"
+      ],
+      "lines": [
+        8,
+        10
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        50,
+        74
+      ],
+      "words": [
+        "The",
+        "the"
+      ],
+      "lines": [
+        8,
+        11
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        50,
+        82
+      ],
+      "words": [
+        "The",
+        "The"
+      ],
+      "lines": [
+        8,
+        13
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        50,
+        93
+      ],
+      "words": [
+        "The",
+        "to"
+      ],
+      "lines": [
+        8,
+        14
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        50,
+        97
+      ],
+      "words": [
+        "The",
+        "to"
+      ],
+      "lines": [
+        8,
+        15
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        50,
+        104
+      ],
+      "words": [
+        "The",
+        "to"
+      ],
+      "lines": [
+        8,
+        16
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        53,
+        76
+      ],
+      "words": [
+        "of",
+        "Of"
+      ],
+      "lines": [
+        8,
+        12
+      ],
+      "ending": [
+        "AH0",
+        "V"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        54,
+        61
+      ],
+      "words": [
+        "the",
+        "a"
+      ],
+      "lines": [
+        8,
+        9
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        54,
+        63
+      ],
+      "words": [
+        "the",
+        "To"
+      ],
+      "lines": [
+        8,
+        10
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        54,
+        74
+      ],
+      "words": [
+        "the",
+        "the"
+      ],
+      "lines": [
+        8,
+        11
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        54,
+        82
+      ],
+      "words": [
+        "the",
+        "The"
+      ],
+      "lines": [
+        8,
+        13
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        54,
+        93
+      ],
+      "words": [
+        "the",
+        "to"
+      ],
+      "lines": [
+        8,
+        14
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        54,
+        97
+      ],
+      "words": [
+        "the",
+        "to"
+      ],
+      "lines": [
+        8,
+        15
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        54,
+        104
+      ],
+      "words": [
+        "the",
+        "to"
+      ],
+      "lines": [
+        8,
+        16
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        56,
+        70
+      ],
+      "words": [
+        "He",
+        "The"
+      ],
+      "lines": [
+        9,
+        11
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        0
+      ],
+      "both_weak": false,
+      "same_stress": false,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        56,
+        71
+      ],
+      "words": [
+        "He",
+        "only"
+      ],
+      "lines": [
+        9,
+        11
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        0
+      ],
+      "both_weak": false,
+      "same_stress": false,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        56,
+        77
+      ],
+      "words": [
+        "He",
+        "easy"
+      ],
+      "lines": [
+        9,
+        12
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        0
+      ],
+      "both_weak": false,
+      "same_stress": false,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        56,
+        80
+      ],
+      "words": [
+        "He",
+        "downy"
+      ],
+      "lines": [
+        9,
+        12
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        0
+      ],
+      "both_weak": false,
+      "same_stress": false,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        56,
+        85
+      ],
+      "words": [
+        "He",
+        "lovely"
+      ],
+      "lines": [
+        9,
+        13
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        1,
+        0
+      ],
+      "both_weak": false,
+      "same_stress": false,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        58,
+        67
+      ],
+      "words": [
+        "his",
+        "is"
+      ],
+      "lines": [
+        9,
+        10
+      ],
+      "ending": [
+        "IH",
+        "Z"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        58,
+        92
+      ],
+      "words": [
+        "his",
+        "promises"
+      ],
+      "lines": [
+        9,
+        14
+      ],
+      "ending": [
+        "IH",
+        "Z"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        61,
+        63
+      ],
+      "words": [
+        "a",
+        "To"
+      ],
+      "lines": [
+        9,
+        10
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        61,
+        74
+      ],
+      "words": [
+        "a",
+        "the"
+      ],
+      "lines": [
+        9,
+        11
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        61,
+        82
+      ],
+      "words": [
+        "a",
+        "The"
+      ],
+      "lines": [
+        9,
+        13
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        61,
+        93
+      ],
+      "words": [
+        "a",
+        "to"
+      ],
+      "lines": [
+        9,
+        14
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        61,
+        97
+      ],
+      "words": [
+        "a",
+        "to"
+      ],
+      "lines": [
+        9,
+        15
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        61,
+        104
+      ],
+      "words": [
+        "a",
+        "to"
+      ],
+      "lines": [
+        9,
+        16
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        62,
+        69
+      ],
+      "words": [
+        "shake",
+        "mistake"
+      ],
+      "lines": [
+        9,
+        10
+      ],
+      "ending": [
+        "EY",
+        "K"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "verse_line_endings"
+      ]
+    },
+    {
+      "ids": [
+        62,
+        81
+      ],
+      "words": [
+        "shake",
+        "flake"
+      ],
+      "lines": [
+        9,
+        12
+      ],
+      "ending": [
+        "EY",
+        "K"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "verse_line_endings"
+      ]
+    },
+    {
+      "ids": [
+        63,
+        74
+      ],
+      "words": [
+        "To",
+        "the"
+      ],
+      "lines": [
+        10,
+        11
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        63,
+        82
+      ],
+      "words": [
+        "To",
+        "The"
+      ],
+      "lines": [
+        10,
+        13
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        63,
+        93
+      ],
+      "words": [
+        "To",
+        "to"
+      ],
+      "lines": [
+        10,
+        14
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        63,
+        97
+      ],
+      "words": [
+        "To",
+        "to"
+      ],
+      "lines": [
+        10,
+        15
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        63,
+        104
+      ],
+      "words": [
+        "To",
+        "to"
+      ],
+      "lines": [
+        10,
+        16
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        67,
+        92
+      ],
+      "words": [
+        "is",
+        "promises"
+      ],
+      "lines": [
+        10,
+        14
+      ],
+      "ending": [
+        "IH",
+        "Z"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        69,
+        81
+      ],
+      "words": [
+        "mistake",
+        "flake"
+      ],
+      "lines": [
+        10,
+        12
+      ],
+      "ending": [
+        "EY",
+        "K"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "verse_line_endings"
+      ]
+    },
+    {
+      "ids": [
+        70,
+        71
+      ],
+      "words": [
+        "The",
+        "only"
+      ],
+      "lines": [
+        11,
+        11
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "immediately_adjacent_words"
+      ]
+    },
+    {
+      "ids": [
+        70,
+        77
+      ],
+      "words": [
+        "The",
+        "easy"
+      ],
+      "lines": [
+        11,
+        12
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        70,
+        80
+      ],
+      "words": [
+        "The",
+        "downy"
+      ],
+      "lines": [
+        11,
+        12
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        70,
+        85
+      ],
+      "words": [
+        "The",
+        "lovely"
+      ],
+      "lines": [
+        11,
+        13
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        71,
+        77
+      ],
+      "words": [
+        "only",
+        "easy"
+      ],
+      "lines": [
+        11,
+        12
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        71,
+        80
+      ],
+      "words": [
+        "only",
+        "downy"
+      ],
+      "lines": [
+        11,
+        12
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        71,
+        85
+      ],
+      "words": [
+        "only",
+        "lovely"
+      ],
+      "lines": [
+        11,
+        13
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        72,
+        84
+      ],
+      "words": [
+        "other",
+        "are"
+      ],
+      "lines": [
+        11,
+        13
+      ],
+      "ending": [
+        "ER"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        74,
+        82
+      ],
+      "words": [
+        "the",
+        "The"
+      ],
+      "lines": [
+        11,
+        13
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        74,
+        93
+      ],
+      "words": [
+        "the",
+        "to"
+      ],
+      "lines": [
+        11,
+        14
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        74,
+        97
+      ],
+      "words": [
+        "the",
+        "to"
+      ],
+      "lines": [
+        11,
+        15
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        74,
+        104
+      ],
+      "words": [
+        "the",
+        "to"
+      ],
+      "lines": [
+        11,
+        16
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        75,
+        88
+      ],
+      "words": [
+        "sweep",
+        "deep"
+      ],
+      "lines": [
+        11,
+        13
+      ],
+      "ending": [
+        "IY",
+        "P"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "verse_line_endings"
+      ]
+    },
+    {
+      "ids": [
+        75,
+        94
+      ],
+      "words": [
+        "sweep",
+        "keep"
+      ],
+      "lines": [
+        11,
+        14
+      ],
+      "ending": [
+        "IY",
+        "P"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "verse_line_endings"
+      ]
+    },
+    {
+      "ids": [
+        75,
+        101
+      ],
+      "words": [
+        "sweep",
+        "sleep"
+      ],
+      "lines": [
+        11,
+        15
+      ],
+      "ending": [
+        "IY",
+        "P"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "verse_line_endings"
+      ]
+    },
+    {
+      "ids": [
+        75,
+        108
+      ],
+      "words": [
+        "sweep",
+        "sleep"
+      ],
+      "lines": [
+        11,
+        16
+      ],
+      "ending": [
+        "IY",
+        "P"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "verse_line_endings"
+      ]
+    },
+    {
+      "ids": [
+        77,
+        80
+      ],
+      "words": [
+        "easy",
+        "downy"
+      ],
+      "lines": [
+        12,
+        12
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "parallel_adjectives_easy_wind_and_downy_flake"
+      ]
+    },
+    {
+      "ids": [
+        77,
+        85
+      ],
+      "words": [
+        "easy",
+        "lovely"
+      ],
+      "lines": [
+        12,
+        13
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        79,
+        87
+      ],
+      "words": [
+        "and",
+        "and"
+      ],
+      "lines": [
+        12,
+        13
+      ],
+      "ending": [
+        "AH0",
+        "N",
+        "D"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        79,
+        95
+      ],
+      "words": [
+        "and",
+        "And"
+      ],
+      "lines": [
+        12,
+        15
+      ],
+      "ending": [
+        "AH0",
+        "N",
+        "D"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        79,
+        102
+      ],
+      "words": [
+        "and",
+        "And"
+      ],
+      "lines": [
+        12,
+        16
+      ],
+      "ending": [
+        "AH0",
+        "N",
+        "D"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        80,
+        85
+      ],
+      "words": [
+        "downy",
+        "lovely"
+      ],
+      "lines": [
+        12,
+        13
+      ],
+      "ending": [
+        "IY"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        82,
+        93
+      ],
+      "words": [
+        "The",
+        "to"
+      ],
+      "lines": [
+        13,
+        14
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        82,
+        97
+      ],
+      "words": [
+        "The",
+        "to"
+      ],
+      "lines": [
+        13,
+        15
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        82,
+        104
+      ],
+      "words": [
+        "The",
+        "to"
+      ],
+      "lines": [
+        13,
+        16
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        87,
+        95
+      ],
+      "words": [
+        "and",
+        "And"
+      ],
+      "lines": [
+        13,
+        15
+      ],
+      "ending": [
+        "AH0",
+        "N",
+        "D"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        87,
+        102
+      ],
+      "words": [
+        "and",
+        "And"
+      ],
+      "lines": [
+        13,
+        16
+      ],
+      "ending": [
+        "AH0",
+        "N",
+        "D"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        88,
+        94
+      ],
+      "words": [
+        "deep",
+        "keep"
+      ],
+      "lines": [
+        13,
+        14
+      ],
+      "ending": [
+        "IY",
+        "P"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "verse_line_endings"
+      ]
+    },
+    {
+      "ids": [
+        88,
+        101
+      ],
+      "words": [
+        "deep",
+        "sleep"
+      ],
+      "lines": [
+        13,
+        15
+      ],
+      "ending": [
+        "IY",
+        "P"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "verse_line_endings"
+      ]
+    },
+    {
+      "ids": [
+        88,
+        108
+      ],
+      "words": [
+        "deep",
+        "sleep"
+      ],
+      "lines": [
+        13,
+        16
+      ],
+      "ending": [
+        "IY",
+        "P"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "verse_line_endings"
+      ]
+    },
+    {
+      "ids": [
+        90,
+        100
+      ],
+      "words": [
+        "I",
+        "I"
+      ],
+      "lines": [
+        14,
+        15
+      ],
+      "ending": [
+        "AY"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        90,
+        107
+      ],
+      "words": [
+        "I",
+        "I"
+      ],
+      "lines": [
+        14,
+        16
+      ],
+      "ending": [
+        "AY"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        93,
+        97
+      ],
+      "words": [
+        "to",
+        "to"
+      ],
+      "lines": [
+        14,
+        15
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        93,
+        104
+      ],
+      "words": [
+        "to",
+        "to"
+      ],
+      "lines": [
+        14,
+        16
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        94,
+        101
+      ],
+      "words": [
+        "keep",
+        "sleep"
+      ],
+      "lines": [
+        14,
+        15
+      ],
+      "ending": [
+        "IY",
+        "P"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "verse_line_endings"
+      ]
+    },
+    {
+      "ids": [
+        94,
+        108
+      ],
+      "words": [
+        "keep",
+        "sleep"
+      ],
+      "lines": [
+        14,
+        16
+      ],
+      "ending": [
+        "IY",
+        "P"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": false,
+      "position_evidence": [
+        "verse_line_endings"
+      ]
+    },
+    {
+      "ids": [
+        95,
+        102
+      ],
+      "words": [
+        "And",
+        "And"
+      ],
+      "lines": [
+        15,
+        16
+      ],
+      "ending": [
+        "AH0",
+        "N",
+        "D"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        96,
+        103
+      ],
+      "words": [
+        "miles",
+        "miles"
+      ],
+      "lines": [
+        15,
+        16
+      ],
+      "ending": [
+        "AY",
+        "L",
+        "Z"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        97,
+        104
+      ],
+      "words": [
+        "to",
+        "to"
+      ],
+      "lines": [
+        15,
+        16
+      ],
+      "ending": [
+        "AH0"
+      ],
+      "stress": [
+        0,
+        0
+      ],
+      "both_weak": true,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        98,
+        105
+      ],
+      "words": [
+        "go",
+        "go"
+      ],
+      "lines": [
+        15,
+        16
+      ],
+      "ending": [
+        "OW"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        99,
+        106
+      ],
+      "words": [
+        "before",
+        "before"
+      ],
+      "lines": [
+        15,
+        16
+      ],
+      "ending": [
+        "AO",
+        "R"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        100,
+        107
+      ],
+      "words": [
+        "I",
+        "I"
+      ],
+      "lines": [
+        15,
+        16
+      ],
+      "ending": [
+        "AY"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": []
+    },
+    {
+      "ids": [
+        101,
+        108
+      ],
+      "words": [
+        "sleep",
+        "sleep"
+      ],
+      "lines": [
+        15,
+        16
+      ],
+      "ending": [
+        "IY",
+        "P"
+      ],
+      "stress": [
+        1,
+        1
+      ],
+      "both_weak": false,
+      "same_stress": true,
+      "repeated_word": true,
+      "position_evidence": [
+        "verse_line_endings"
+      ]
+    }
+  ]
+}

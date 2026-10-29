@@ -1,0 +1,999 @@
+{
+  "format": "frost-homeoteleuton-scope-audit-v1",
+  "date": "2026-10-29",
+  "scope": "Read-only bounded audit of all108 poem occurrences and all5778 pairs in both existing annotated-pronunciation and dictionary-union modes, plus the five original E63 displayed matches. No repository or Site edits and no model training.",
+  "source_inputs": [
+    {
+      "path": "/workspace/scratch/d1a7756f6d59/frost-rhetoric-application/poem.json",
+      "sha256": "5f75df9dbf5a1b0333f6d51fe203d68e062255ae83f6fbcf10e43ee528e675f8"
+    },
+    {
+      "path": "/workspace/scratch/d1a7756f6d59/frost_pair_analysis/add_frost_classifications.py",
+      "sha256": "4ebcafaba7fec29605159ffb91cc7551905e9c09303cd48e1851f71260736092"
+    },
+    {
+      "path": "/workspace/scratch/d1a7756f6d59/frost_pair_analysis/english_schema_contracts.py",
+      "sha256": "4abce7544ef13cb061df6b9116e896c8f42434ae71023c64cfe7280ef93c8de6"
+    },
+    {
+      "path": "/workspace/scratch/d1a7756f6d59/frost_pair_analysis/CodexMusica/lyric-harness/quality/relations.py",
+      "sha256": "a2be3949d5f9368534e1aadc27a29b8c165f4cdb6786b581979ea01ce09227ad"
+    },
+    {
+      "path": "/workspace/scratch/d1a7756f6d59/frost_pair_analysis/CodexMusica/lyric-harness/quality/morphology.py",
+      "sha256": "cb47385ec3107e9a56a8e6cf5afa7ef7230950391c151d3bbfae3525b14de633"
+    },
+    {
+      "path": "/workspace/scratch/d1a7756f6d59/frost_pair_analysis/CodexMusica/lyric-harness/quality/test_homeoteleuton.py",
+      "sha256": "9b557303a6976468584b2b57d95cf517f9e67eaf858f208883b0cd27dd980dc9"
+    },
+    {
+      "path": "/workspace/scratch/d1a7756f6d59/frost_pair_analysis/poem_readings.py",
+      "sha256": "15314126a3bac6fbd179b5f3bfe688b3a5ef8ee09a1cec902fb17c5dcbe6d689"
+    }
+  ],
+  "definitions": {
+    "homeoteleuton": {
+      "source": "S1",
+      "core": "Similar audible word endings in adjacent or parallel positions.",
+      "phonetic_candidate_is_not_complete_figure": true
+    },
+    "homoioptoton": {
+      "source": "S2",
+      "core": "Historically a grammatical/case-ending figure; English adaptations must declare which inflectional features count.",
+      "english_output_label": "Shared English inflection",
+      "automatic_latin_case_analysis": false
+    },
+    "not_equivalent": [
+      "matching final letters",
+      "matching a suffix-shaped string",
+      "matching a genuine derivational suffix",
+      "matching a genuine grammatical inflection",
+      "matching final syllable sounds",
+      "a rhetorically placed repeated ending"
+    ]
+  },
+  "existing_implementation": {
+    "E63": "Native last nucleus+coda+prominence agreement AND declared morphological-affix string agreement AND different words. Pair adapter removes line-final placement, not morphology.",
+    "sources": [
+      "add_frost_classifications.py:92-134,214-218",
+      "relations.py:5042-5051"
+    ],
+    "known_native_fault": "relations.py:8450-8478 already documents spurious inflectional segmentation (flatter/matter) and empty-affix equality (day/May). It was removed from validated findings (8515-8517).",
+    "english_adapter_scope": "english_schema_contracts.py corrects E1-E22, not E63.",
+    "H1": "test_homeoteleuton.py documents a same-spelled-rime writing-quality rule. H1 is spelling evidence, not an independent validated literary-figure definition.",
+    "old_counts": {
+      "unordered_pairs": 5778,
+      "raw_E63_true": 108,
+      "empty_affix_agreements_excluded": 103,
+      "displayed_E63": 5
+    },
+    "diagnosis": "Both definition scope and resource implementation: E63 conflates homeoteleuton with a morphology-dependent subtype, and the suffix guesser does not identify context-sensitive morphemes; the poem adapter then drops native placement."
+  },
+  "old_five_decisions": [
+    {
+      "pairs": [
+        [
+          9,
+          92
+        ],
+        [
+          25,
+          92
+        ],
+        [
+          58,
+          92
+        ]
+      ],
+      "words": [
+        "his",
+        "promises"
+      ],
+      "shared_sound": "/ɪz/",
+      "sound_candidate": true,
+      "same_productive_inflection": false,
+      "reason_code": "POSSESSIVE_PRONOMINAL_FORM_VS_NOUN_PLURAL",
+      "placement_evidence": [],
+      "action": "Preserve actual E18 sound relation; retire authoritative E63 morphology claim."
+    },
+    {
+      "pairs": [
+        [
+          21,
+          52
+        ]
+      ],
+      "words": [
+        "stopping",
+        "evening"
+      ],
+      "shared_sound": "/ɪŋ/",
+      "sound_candidate": true,
+      "same_productive_inflection": false,
+      "reason_code": "PRESENT_PARTICIPLE_VS_TIME_OF_DAY_NOUN",
+      "placement_evidence": [],
+      "action": "Preserve actual E18 sound relation; do not strip -ing mechanically."
+    },
+    {
+      "pairs": [
+        [
+          71,
+          85
+        ]
+      ],
+      "words": [
+        "only",
+        "lovely"
+      ],
+      "shared_sound": "/li/ (full final syllable), /i/ (final rime)",
+      "sound_candidate": true,
+      "same_productive_inflection": false,
+      "shared_historical_derivation": "adjectival -ly",
+      "reason_code": "DERIVATION_IS_NOT_INFLECTION",
+      "placement_evidence": [],
+      "action": "Preserve actual E18 sound relation and optional sourced derivation note; no automatic complete-figure label."
+    }
+  ],
+  "sound_predicate": {
+    "code_file": "calculate_endings.py",
+    "data_file": "ending_candidates.json",
+    "expression": "ending(a) == ending(b), where ending is nonempty final nucleus plus complete final coda",
+    "stress_policy": "No stress-equality gate for broad sound candidates; retain lexical stress values and both-weak flags. Weak final matches may overlap E18. A stricter same-stress view has124 distinct-word pairs.",
+    "identity_policy": "Keep repeated words with a repeated_word flag so overlap with repetition is observable; distinct-word counts are also reported.",
+    "vowel_policy": "Reuse selected annotation and declared normalization: schwa remains AH0; declared pre-R vowel normalization is retained. No spelling-based sound identity.",
+    "minimum_extent": "A vowel plus all following consonants, not merely any shared final consonant. Open-syllable endings may therefore match one vowel.",
+    "limitations": "Exact final-rime equality is a deliberately declared operational subset of similarity, not an exhaustive universal literary definition. Its final-nucleus minimum will not recognize a bare shared plural /z/ unless the preceding rime also agrees.",
+    "counts": {
+      "occurrences": 108,
+      "unordered_pairs_checked": 5778,
+      "ending_agreements_including_repeated_words": 213,
+      "distinct_word_pairs": 145,
+      "repeated_word_pairs": 68,
+      "distinct_word_same_lexical_stress": 124,
+      "distinct_word_both_weak": 83,
+      "distinct_word_immediately_adjacent": 2,
+      "distinct_word_both_line_final": 24,
+      "distinct_word_explicit_parallel_adjectives": 1,
+      "distinct_word_any_declared_position_evidence": 27
+    },
+    "positioned_distinct_word_pairs": [
+      [
+        8,
+        15
+      ],
+      [
+        8,
+        30
+      ],
+      [
+        15,
+        30
+      ],
+      [
+        19,
+        20
+      ],
+      [
+        22,
+        37
+      ],
+      [
+        22,
+        43
+      ],
+      [
+        22,
+        55
+      ],
+      [
+        37,
+        43
+      ],
+      [
+        37,
+        55
+      ],
+      [
+        43,
+        55
+      ],
+      [
+        49,
+        62
+      ],
+      [
+        49,
+        69
+      ],
+      [
+        49,
+        81
+      ],
+      [
+        62,
+        69
+      ],
+      [
+        62,
+        81
+      ],
+      [
+        69,
+        81
+      ],
+      [
+        70,
+        71
+      ],
+      [
+        75,
+        88
+      ],
+      [
+        75,
+        94
+      ],
+      [
+        75,
+        101
+      ],
+      [
+        75,
+        108
+      ],
+      [
+        77,
+        80
+      ],
+      [
+        88,
+        94
+      ],
+      [
+        88,
+        101
+      ],
+      [
+        88,
+        108
+      ],
+      [
+        94,
+        101
+      ],
+      [
+        94,
+        108
+      ]
+    ],
+    "position_notes": [
+      {
+        "pairs": [
+          [
+            19,
+            20
+          ]
+        ],
+        "type": "immediate adjacency",
+        "words": "see me",
+        "status": "observable formal ending recurrence"
+      },
+      {
+        "pairs": [
+          [
+            70,
+            71
+          ]
+        ],
+        "type": "immediate adjacency",
+        "words": "The only",
+        "status": "depends on the selected /ði/ pronunciation; formal recurrence does not prove deliberate artistic emphasis"
+      },
+      {
+        "pairs": [
+          [
+            77,
+            80
+          ]
+        ],
+        "type": "parallel syntactic modifiers",
+        "words": "easy wind and downy flake",
+        "status": "adjective slots in coordinated noun phrases; shared weak /i/; no common grammatical inflection inferred"
+      },
+      {
+        "groups": [
+          [
+            8,
+            15,
+            30
+          ],
+          [
+            22,
+            37,
+            43,
+            55
+          ],
+          [
+            49,
+            62,
+            69,
+            81
+          ],
+          [
+            75,
+            88,
+            94,
+            101,
+            108
+          ]
+        ],
+        "type": "parallel verse-line endings",
+        "distinct_word_pair_count": 24,
+        "status": "broad homeoteleuton view overlaps the already-observed rhyme families; repeated sleep separately flagged"
+      }
+    ],
+    "unpositioned_policy": "Retain nonlocal ending matches as sound evidence; do not silently promote each to a complete rhetorical figure.",
+    "scope_note": "The exploratory sound-only list is intentionally broader than the active E63 rule; integration_choice gives the active positional rule and both reading modes."
+  },
+  "grammatical_predicate": {
+    "expression": "Both tokens have verified nonempty inflections with equal grammatical feature and same morpheme identity. Surface allomorph equality and adjacent/parallel placement are separate fields.",
+    "feature_not_letters": "Noun Number=Plural is different from Verb Person=3 Number=Sing Tense=Pres even when both end in spelled -s and pronounced /z/.",
+    "annotation_scope": "Poem-specific contextual grammar, manually checked; executable comparisons over these annotations, not a claim of a general automatic morphological parser.",
+    "positive_shared_class": {
+      "feature": "NOUN:Number=Plural",
+      "morpheme": "plural -s",
+      "ids": [
+        2,
+        26,
+        46,
+        60,
+        83,
+        92,
+        96,
+        103
+      ],
+      "surface_allomorphs": {
+        "z": [
+          2,
+          26,
+          46,
+          60,
+          83,
+          96,
+          103
+        ],
+        "ɪz": [
+          92
+        ]
+      },
+      "distinct_lexeme_pairs": [
+        [
+          2,
+          60
+        ],
+        [
+          2,
+          92
+        ],
+        [
+          2,
+          96
+        ],
+        [
+          2,
+          103
+        ],
+        [
+          26,
+          60
+        ],
+        [
+          26,
+          92
+        ],
+        [
+          26,
+          96
+        ],
+        [
+          26,
+          103
+        ],
+        [
+          46,
+          60
+        ],
+        [
+          46,
+          92
+        ],
+        [
+          46,
+          96
+        ],
+        [
+          46,
+          103
+        ],
+        [
+          60,
+          83
+        ],
+        [
+          60,
+          92
+        ],
+        [
+          60,
+          96
+        ],
+        [
+          60,
+          103
+        ],
+        [
+          83,
+          92
+        ],
+        [
+          83,
+          96
+        ],
+        [
+          83,
+          103
+        ],
+        [
+          92,
+          96
+        ],
+        [
+          92,
+          103
+        ]
+      ],
+      "distinct_lexeme_pair_count": 21,
+      "same_surface_allomorph_pair_count": 14
+    },
+    "evidenced_parallel_pairs": [
+      {
+        "ids": [
+          92,
+          96
+        ],
+        "spans": [
+          "promises to keep",
+          "miles to go"
+        ],
+        "feature": "NOUN:Number=Plural",
+        "surface_allomorphs": [
+          "ɪz",
+          "z"
+        ],
+        "same_full_final_rime": false
+      },
+      {
+        "ids": [
+          92,
+          103
+        ],
+        "spans": [
+          "promises to keep",
+          "miles to go"
+        ],
+        "feature": "NOUN:Number=Plural",
+        "surface_allomorphs": [
+          "ɪz",
+          "z"
+        ],
+        "same_full_final_rime": false
+      }
+    ],
+    "singletons_not_recurrence": {
+      "stopping21": "VERB:present participle -ing",
+      "gives57": "VERB:present third-person singular -s",
+      "darkest51": "ADJECTIVE:superlative -est",
+      "frozen48": "past-participial adjective; no other same-feature suffix match"
+    },
+    "display_caution": "The two promises/miles relationships support parallel shared English plural inflection. Call them an English grammatical-ending interpretation if connecting them to homoioptoton; do not claim classical case-ending identity or force them into the chosen final-rime predicate."
+  },
+  "negative_controls": [
+    {
+      "words": [
+        "are",
+        "village"
+      ],
+      "ids": [
+        4,
+        14
+      ],
+      "sound": false,
+      "reason": "actual final rimes /ɑr/ versus /ɪdʒ/ differ"
+    },
+    {
+      "words": [
+        "stop",
+        "stopping"
+      ],
+      "ids": [
+        39,
+        21
+      ],
+      "sound": false,
+      "reason": "a shared stem is not shared final rime"
+    },
+    {
+      "words": [
+        "his",
+        "promises"
+      ],
+      "ids": [
+        9,
+        92
+      ],
+      "grammatical": false,
+      "sound": true,
+      "reason": "lexical possessive form is not plural -s"
+    },
+    {
+      "words": [
+        "gives",
+        "bells"
+      ],
+      "ids": [
+        57,
+        60
+      ],
+      "grammatical": false,
+      "reason": "same surface /z/ serves different grammatical features"
+    },
+    {
+      "words": [
+        "sound's",
+        "bells"
+      ],
+      "ids": [
+        73,
+        60
+      ],
+      "grammatical": false,
+      "reason": "sound’s means sound is here; the contraction is not a plural suffix"
+    },
+    {
+      "words": [
+        "stopping",
+        "evening"
+      ],
+      "ids": [
+        21,
+        52
+      ],
+      "grammatical": false,
+      "sound": true,
+      "reason": "noun evening is not the present participle of even in this context"
+    },
+    {
+      "words": [
+        "only",
+        "lovely"
+      ],
+      "ids": [
+        71,
+        85
+      ],
+      "grammatical_inflection": false,
+      "historical_derivation": true,
+      "sound": true,
+      "reason": "shared derivation is not grammatical inflection"
+    },
+    {
+      "words": [
+        "easy",
+        "downy"
+      ],
+      "ids": [
+        77,
+        80
+      ],
+      "grammatical_inflection": false,
+      "sound": true,
+      "reason": "both adjectives is insufficient to posit the same inflection"
+    },
+    {
+      "words": [
+        "know",
+        "snow"
+      ],
+      "ids": [
+        8,
+        30
+      ],
+      "grammatical": false,
+      "sound": true,
+      "reason": "absence of any affix on both sides never counts as shared morphology"
+    }
+  ],
+  "recommendation": "Preserve the original5 E63 results in the audit and their valid sound relations. Replace authoritative E63 figure labeling with explicit sound-ending and placement evidence; keep grammatical-inflection evidence separately named. Label H1 as spelling evidence rather than treating a writing-quality ban as an exhaustive rhetorical definition.",
+  "sources": [
+    {
+      "id": "S1",
+      "url": "https://rhetoric.byu.edu/Figures/H/homoioteleuton.htm",
+      "supports": "Silva Rhetoricae: similar endings in adjacent or parallel words; grammatical suffix identity is not required."
+    },
+    {
+      "id": "S2",
+      "url": "https://rhetoric.byu.edu/Figures/H/homoioptoton.htm",
+      "supports": "Silva Rhetoricae: similar case endings in adjacent/parallel positions; notes historical overlap with homoioteleuton. This audit does not import classical case morphology into English."
+    },
+    {
+      "id": "S3",
+      "url": "https://stella.glasgow.ac.uk/grammar/unit-4-3-affixes.html",
+      "supports": "University of Glasgow: distinguishes derivation from grammatical inflection; noun plural and verb third-person singular are separate inflection categories."
+    },
+    {
+      "id": "S4",
+      "url": "https://opentextbooks.rug.nl/americanenglishphonetics2/chapter/2-1-the-plural-third-person-singular-and-genitive-endings/",
+      "supports": "Broeders and Gussenhoven: English plural allomorphs /s/, /z/, /ɪz/; same surface allomorphs also occur in third-person singular and genitive, without making their grammatical meanings identical."
+    },
+    {
+      "id": "S5",
+      "url": "https://dictionary.cambridge.org/dictionary/english/his",
+      "supports": "His is possessive determiner/pronoun, the possessive form of he; the suffix heuristic hi + -s does not recover its grammatical identity."
+    },
+    {
+      "id": "S6",
+      "url": "https://dictionary.cambridge.org/dictionary/english/evening",
+      "supports": "Evening denotes the time-of-day noun used in this poem, not a present participle of the verb even."
+    },
+    {
+      "id": "S7",
+      "url": "https://www.dictionary.com/browse/only",
+      "supports": "Only has historical adjectival -ly derivation; the poem uses the sole/exclusive modifier."
+    },
+    {
+      "id": "S8",
+      "url": "https://www.dictionary.com/browse/lovely",
+      "supports": "Lovely is an adjective with historical love + -ly derivation; no shared grammatical inflection follows merely from this ending."
+    },
+    {
+      "id": "S9",
+      "url": "https://dictionary.cambridge.org/us/dictionary/english/woods",
+      "supports": "Woods in the woodland sense is a plural noun, including the plural agreement shown by the poem itself."
+    },
+    {
+      "id": "S10",
+      "url": "https://www.dictionary.com/browse/easy",
+      "supports": "Easy is an adjective; this dictionary gives a French participial origin, so this audit does not infer a common productive English suffix merely from its final letter y."
+    },
+    {
+      "id": "S11",
+      "url": "https://www.dictionary.com/browse/downy",
+      "supports": "Downy is an adjective formed with derivational -y; derivation is not plural/tense/degree inflection."
+    }
+  ],
+  "integration_choice": {
+    "active_code": "E63",
+    "rule_source": "Explicit adaptation of broad English word-ending definition S1; replaces the native suffix heuristic in this poem only.",
+    "expression": "same final nucleus and complete coda AND (same-line adjacent OR verse-line-final OR evidenced easy/downy parallel adjective slots OR aligned word slots in the repeated final line)",
+    "morphology_gate": false,
+    "stress_agreement_gate": false,
+    "different_word_gate": false,
+    "position_scope_is_declared": true,
+    "same_word_policy": "Preserve identical-word matches when a declared position scope holds; seven final-line slot pairs overlap exact repetition. Sleep101/sleep108 also occupies line ends and is counted once.",
+    "weak_form_policy": "The70/only71 is a formal sound-ending candidate for selected /ði/; the alternative /ðə/ does not support that edge. This is pronunciation evidence, not an inferred artistic intention.",
+    "H1_label": "same spelled rhyme ending",
+    "grammatical_output": "Contextual evidence only; not an additional inflated pair category.",
+    "machine_data": "active_endings.json",
+    "reproducer": "active_endings.py",
+    "counts": {
+      "annotated": {
+        "unordered_pairs_checked": 5778,
+        "unrestricted_ending_agreements": 213,
+        "unrestricted_distinct_word_agreements": 145,
+        "active_pairs": 34,
+        "active_distinct_word_pairs": 27,
+        "active_repeated_word_pairs": 7,
+        "unique_witnesses": 31
+      },
+      "dictionary_union": {
+        "unordered_pairs_checked": 5778,
+        "unrestricted_ending_agreements": 278,
+        "unrestricted_distinct_word_agreements": 203,
+        "active_pairs": 34,
+        "active_distinct_word_pairs": 27,
+        "active_repeated_word_pairs": 7,
+        "unique_witnesses": 38
+      }
+    },
+    "positive_pairs": [
+      [
+        8,
+        15,
+        [
+          "L"
+        ],
+        false
+      ],
+      [
+        8,
+        30,
+        [
+          "L"
+        ],
+        false
+      ],
+      [
+        15,
+        30,
+        [
+          "L"
+        ],
+        false
+      ],
+      [
+        19,
+        20,
+        [
+          "A"
+        ],
+        false
+      ],
+      [
+        22,
+        37,
+        [
+          "L"
+        ],
+        false
+      ],
+      [
+        22,
+        43,
+        [
+          "L"
+        ],
+        false
+      ],
+      [
+        22,
+        55,
+        [
+          "L"
+        ],
+        false
+      ],
+      [
+        37,
+        43,
+        [
+          "L"
+        ],
+        false
+      ],
+      [
+        37,
+        55,
+        [
+          "L"
+        ],
+        false
+      ],
+      [
+        43,
+        55,
+        [
+          "L"
+        ],
+        false
+      ],
+      [
+        49,
+        62,
+        [
+          "L"
+        ],
+        false
+      ],
+      [
+        49,
+        69,
+        [
+          "L"
+        ],
+        false
+      ],
+      [
+        49,
+        81,
+        [
+          "L"
+        ],
+        false
+      ],
+      [
+        62,
+        69,
+        [
+          "L"
+        ],
+        false
+      ],
+      [
+        62,
+        81,
+        [
+          "L"
+        ],
+        false
+      ],
+      [
+        69,
+        81,
+        [
+          "L"
+        ],
+        false
+      ],
+      [
+        70,
+        71,
+        [
+          "A"
+        ],
+        false
+      ],
+      [
+        75,
+        88,
+        [
+          "L"
+        ],
+        false
+      ],
+      [
+        75,
+        94,
+        [
+          "L"
+        ],
+        false
+      ],
+      [
+        75,
+        101,
+        [
+          "L"
+        ],
+        false
+      ],
+      [
+        75,
+        108,
+        [
+          "L"
+        ],
+        false
+      ],
+      [
+        77,
+        80,
+        [
+          "P"
+        ],
+        false
+      ],
+      [
+        88,
+        94,
+        [
+          "L"
+        ],
+        false
+      ],
+      [
+        88,
+        101,
+        [
+          "L"
+        ],
+        false
+      ],
+      [
+        88,
+        108,
+        [
+          "L"
+        ],
+        false
+      ],
+      [
+        94,
+        101,
+        [
+          "L"
+        ],
+        false
+      ],
+      [
+        94,
+        108,
+        [
+          "L"
+        ],
+        false
+      ],
+      [
+        95,
+        102,
+        [
+          "R"
+        ],
+        true
+      ],
+      [
+        96,
+        103,
+        [
+          "R"
+        ],
+        true
+      ],
+      [
+        97,
+        104,
+        [
+          "R"
+        ],
+        true
+      ],
+      [
+        98,
+        105,
+        [
+          "R"
+        ],
+        true
+      ],
+      [
+        99,
+        106,
+        [
+          "R"
+        ],
+        true
+      ],
+      [
+        100,
+        107,
+        [
+          "R"
+        ],
+        true
+      ],
+      [
+        101,
+        108,
+        [
+          "L",
+          "R"
+        ],
+        true
+      ]
+    ],
+    "positive_columns": [
+      "a",
+      "b",
+      "position_flags",
+      "repeated_word"
+    ],
+    "position_flags": {
+      "A": "same-line immediately adjacent words",
+      "L": "verse-line endings",
+      "P": "parallel adjectives: easy wind and downy flake",
+      "R": "aligned word slots in the exactly repeated final line"
+    },
+    "witness_note": "Both modes have exactly the same34 positive endpoints. Annotated mode31 unique interned witnesses; dictionary union38. All whole pronunciation combinations checked; no mixing phones across readings.",
+    "label_scope_warning": "This exact-match operationalization is a declared subset of similarity, not a claim to exhaust every literary use of the term or all possible semantic parallelism."
+  }
+}

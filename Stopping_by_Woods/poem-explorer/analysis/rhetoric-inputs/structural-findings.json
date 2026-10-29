@@ -1,0 +1,3028 @@
+{
+  "format": "frost-grouped-structural-findings-v1",
+  "scope": {
+    "lines": 16,
+    "word_occurrences": 108,
+    "pair_comparisons": 5778
+  },
+  "findings": [
+    {
+      "id": "S01",
+      "title": "Local alliteration: /h/, /w/, /d/",
+      "inventory_ids": [
+        "01.01"
+      ],
+      "status": "observed",
+      "execution_mode": "existing_code",
+      "badge": "Code",
+      "wordIds": [
+        9,
+        10,
+        24,
+        26,
+        29,
+        56,
+        58,
+        59,
+        86,
+        88
+      ],
+      "numeric_token_ids": [
+        9,
+        10,
+        24,
+        26,
+        29,
+        56,
+        58,
+        59,
+        86,
+        88
+      ],
+      "token_ids": [
+        "L02W01",
+        "L02W02",
+        "L04W02",
+        "L04W04",
+        "L04W07",
+        "L09W01",
+        "L09W03",
+        "L09W04",
+        "L13W05",
+        "L13W07"
+      ],
+      "lines": [
+        2,
+        4,
+        9,
+        13
+      ],
+      "description": "Repeated consonant onsets occur within words in the lines, including His house; He, his, harness; watch, woods, with; and dark, deep.",
+      "witnesses": [
+        {
+          "wordIds": [
+            9,
+            10
+          ],
+          "token_ids": [
+            "L02W01",
+            "L02W02"
+          ],
+          "lines": [
+            2
+          ],
+          "text": "His house",
+          "sound": "/h/",
+          "pairs": [
+            {
+              "pair": [
+                9,
+                10
+              ],
+              "labels": [
+                "E9"
+              ]
+            }
+          ]
+        },
+        {
+          "wordIds": [
+            56,
+            58,
+            59
+          ],
+          "token_ids": [
+            "L09W01",
+            "L09W03",
+            "L09W04"
+          ],
+          "lines": [
+            9
+          ],
+          "text": "He his harness",
+          "sound": "/h/",
+          "pairs": [
+            {
+              "pair": [
+                56,
+                58
+              ],
+              "labels": [
+                "E9"
+              ]
+            },
+            {
+              "pair": [
+                56,
+                59
+              ],
+              "labels": [
+                "E9"
+              ]
+            },
+            {
+              "pair": [
+                58,
+                59
+              ],
+              "labels": [
+                "E9"
+              ]
+            }
+          ]
+        },
+        {
+          "wordIds": [
+            24,
+            26,
+            29
+          ],
+          "token_ids": [
+            "L04W02",
+            "L04W04",
+            "L04W07"
+          ],
+          "lines": [
+            4
+          ],
+          "text": "watch woods with",
+          "sound": "/w/",
+          "pairs": [
+            {
+              "pair": [
+                24,
+                26
+              ],
+              "labels": [
+                "E9"
+              ]
+            },
+            {
+              "pair": [
+                24,
+                29
+              ],
+              "labels": [
+                "E9"
+              ]
+            },
+            {
+              "pair": [
+                26,
+                29
+              ],
+              "labels": [
+                "E9"
+              ]
+            }
+          ]
+        },
+        {
+          "wordIds": [
+            86,
+            88
+          ],
+          "token_ids": [
+            "L13W05",
+            "L13W07"
+          ],
+          "lines": [
+            13
+          ],
+          "text": "dark deep",
+          "sound": "/d/",
+          "pairs": [
+            {
+              "pair": [
+                86,
+                88
+              ],
+              "labels": [
+                "E9"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_urls": [
+        "https://github.com/WeningerII/CodexMusica/blob/022fb015a9c567712e873fbf63f8e19a0ae2b417/lyric-harness/quality/relations.py"
+      ],
+      "limitations": "These are grouped local witnesses, not all 147 positive alliteration pairs. The complete existing word-pair view retains every qualifying occurrence pair. He/his have different referents in different passages; sound agreement does not establish reference identity.",
+      "overlap_labels": [],
+      "priority": "headline"
+    },
+    {
+      "id": "S01b",
+      "title": "Shared initial /s/: sound’s / sweep",
+      "inventory_ids": [
+        "01.01"
+      ],
+      "status": "observed",
+      "execution_mode": "this_run_adaptation",
+      "badge": "Code",
+      "wordIds": [
+        73,
+        75
+      ],
+      "numeric_token_ids": [
+        73,
+        75
+      ],
+      "token_ids": [
+        "L11W04",
+        "L11W06"
+      ],
+      "lines": [
+        11
+      ],
+      "description": "Sound’s and sweep begin with /s/, giving a local sibilant echo. Their full onsets differ: /s/ versus /sw/.",
+      "witnesses": [
+        {
+          "wordIds": [
+            73,
+            75
+          ],
+          "token_ids": [
+            "L11W04",
+            "L11W06"
+          ],
+          "lines": [
+            11
+          ],
+          "text": "sound's sweep",
+          "initial_phone": "S",
+          "complete_onsets": [
+            [
+              "S"
+            ],
+            [
+              "S",
+              "W"
+            ]
+          ],
+          "native_pair_labels": []
+        }
+      ],
+      "source_urls": [
+        "https://github.com/WeningerII/CodexMusica/blob/022fb015a9c567712e873fbf63f8e19a0ae2b417/lyric-harness/quality/relations.py"
+      ],
+      "limitations": "This first-consonant comparison is an explicit broader adaptation. The existing E9 schema requires entire-onset equality and therefore does not return this pair. The broader English alliteration reading and the narrower implemented predicate are kept separate.",
+      "overlap_labels": [],
+      "priority": "headline"
+    },
+    {
+      "id": "S02",
+      "title": "Vowel echoes inside and across lines",
+      "inventory_ids": [
+        "01.02"
+      ],
+      "status": "observed",
+      "execution_mode": "existing_code",
+      "badge": "Code",
+      "wordIds": [
+        8,
+        15,
+        16,
+        17,
+        19,
+        20,
+        27,
+        30,
+        49,
+        62,
+        69,
+        81,
+        98,
+        105
+      ],
+      "numeric_token_ids": [
+        8,
+        15,
+        16,
+        17,
+        19,
+        20,
+        27,
+        30,
+        49,
+        62,
+        69,
+        81,
+        98,
+        105
+      ],
+      "token_ids": [
+        "L01W08",
+        "L02W07",
+        "L03W01",
+        "L03W02",
+        "L03W04",
+        "L03W05",
+        "L04W05",
+        "L04W08",
+        "L07W06",
+        "L09W07",
+        "L10W07",
+        "L12W06",
+        "L15W04",
+        "L16W04"
+      ],
+      "lines": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        9,
+        10,
+        12,
+        15,
+        16
+      ],
+      "description": "Assonance includes He / see / me, will / fill, the lake / shake / mistake / flake group, and know / though / snow / go. It can overlap perfect rhyme.",
+      "witnesses": [
+        {
+          "wordIds": [
+            16,
+            19,
+            20
+          ],
+          "token_ids": [
+            "L03W01",
+            "L03W04",
+            "L03W05"
+          ],
+          "lines": [
+            3
+          ],
+          "text": "He see me",
+          "sound": "/iː/",
+          "pairs": [
+            {
+              "pair": [
+                16,
+                19
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                16,
+                20
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                19,
+                20
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E10",
+                "E11"
+              ]
+            }
+          ]
+        },
+        {
+          "wordIds": [
+            17,
+            27
+          ],
+          "token_ids": [
+            "L03W02",
+            "L04W05"
+          ],
+          "lines": [
+            3,
+            4
+          ],
+          "text": "will fill",
+          "sound": "/ɪ/",
+          "pairs": [
+            {
+              "pair": [
+                17,
+                27
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            }
+          ]
+        },
+        {
+          "wordIds": [
+            49,
+            62,
+            69,
+            81
+          ],
+          "token_ids": [
+            "L07W06",
+            "L09W07",
+            "L10W07",
+            "L12W06"
+          ],
+          "lines": [
+            7,
+            9,
+            10,
+            12
+          ],
+          "text": "lake shake mistake flake",
+          "sound": "/eɪ/",
+          "pairs": [
+            {
+              "pair": [
+                49,
+                62
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                49,
+                69
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                49,
+                81
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                62,
+                69
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                62,
+                81
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                69,
+                81
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            }
+          ]
+        },
+        {
+          "wordIds": [
+            8,
+            15,
+            30,
+            98,
+            105
+          ],
+          "token_ids": [
+            "L01W08",
+            "L02W07",
+            "L04W08",
+            "L15W04",
+            "L16W04"
+          ],
+          "lines": [
+            1,
+            2,
+            4,
+            15,
+            16
+          ],
+          "text": "know though snow go go",
+          "sound": "/oʊ/",
+          "pairs": [
+            {
+              "pair": [
+                8,
+                15
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                8,
+                30
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                8,
+                98
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                8,
+                105
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                15,
+                30
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                15,
+                98
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                15,
+                105
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                30,
+                98
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                30,
+                105
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E10",
+                "E11"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_urls": [
+        "https://github.com/WeningerII/CodexMusica/blob/022fb015a9c567712e873fbf63f8e19a0ae2b417/lyric-harness/quality/relations.py"
+      ],
+      "limitations": "The selected annotated pronunciation yields 563 positive assonance pairs. Many are ordinary vowel recurrence rather than conspicuous rhetorical constructions; the pair view preserves them without making hundreds of figure cards.",
+      "overlap_labels": [],
+      "priority": "headline"
+    },
+    {
+      "id": "S03",
+      "title": "Whose / His: consonant agreement with different vowels",
+      "inventory_ids": [
+        "01.01",
+        "01.03",
+        "01.12"
+      ],
+      "status": "observed",
+      "execution_mode": "existing_code",
+      "badge": "Code",
+      "wordIds": [
+        1,
+        9
+      ],
+      "numeric_token_ids": [
+        1,
+        9
+      ],
+      "token_ids": [
+        "L01W01",
+        "L02W01"
+      ],
+      "lines": [
+        1,
+        2
+      ],
+      "description": "The first words of lines 1 and 2 share initial /h/ and final /z/, while their vowels differ. The audited schema recognizes alliteration, coda consonance, pararhyme, and the inclusive slant-rhyme umbrella; it does not label them perfect rhyme.",
+      "witnesses": [
+        {
+          "wordIds": [
+            1,
+            9
+          ],
+          "token_ids": [
+            "L01W01",
+            "L02W01"
+          ],
+          "lines": [
+            1,
+            2
+          ],
+          "text": "Whose His",
+          "pronunciations": [
+            "/huːz/",
+            "/hɪz/"
+          ],
+          "labels": [
+            "E5",
+            "E7",
+            "E9",
+            "E10"
+          ]
+        }
+      ],
+      "source_urls": [
+        "https://github.com/WeningerII/CodexMusica/blob/022fb015a9c567712e873fbf63f8e19a0ae2b417/lyric-harness/quality/relations.py"
+      ],
+      "limitations": "This is the declared American annotated reading. Overlapping labels describe different properties of the same pair.",
+      "overlap_labels": [
+        "alliteration",
+        "consonance",
+        "pararhyme",
+        "slant-rhyme umbrella"
+      ],
+      "priority": "headline"
+    },
+    {
+      "id": "S04",
+      "title": "Interlocking end-rhyme: AABA BBCB CCDC DDDD",
+      "inventory_ids": [
+        "01.12"
+      ],
+      "status": "observed",
+      "execution_mode": "existing_code",
+      "badge": "Code",
+      "wordIds": [
+        8,
+        15,
+        22,
+        30,
+        37,
+        43,
+        49,
+        55,
+        62,
+        69,
+        75,
+        81,
+        88,
+        94,
+        101,
+        108
+      ],
+      "numeric_token_ids": [
+        8,
+        15,
+        22,
+        30,
+        37,
+        43,
+        49,
+        55,
+        62,
+        69,
+        75,
+        81,
+        88,
+        94,
+        101,
+        108
+      ],
+      "token_ids": [
+        "L01W08",
+        "L02W07",
+        "L03W07",
+        "L04W08",
+        "L05W07",
+        "L06W06",
+        "L07W06",
+        "L08W06",
+        "L09W07",
+        "L10W07",
+        "L11W06",
+        "L12W06",
+        "L13W07",
+        "L14W06",
+        "L15W07",
+        "L16W07"
+      ],
+      "lines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "description": "The third-line rhyme of each of the first three stanzas becomes the main rhyme of the following stanza. The final stanza closes with one rhyme family and an exact repeated ending.",
+      "witnesses": [
+        {
+          "wordIds": [
+            8,
+            15,
+            30
+          ],
+          "token_ids": [
+            "L01W08",
+            "L02W07",
+            "L04W08"
+          ],
+          "lines": [
+            1,
+            2,
+            4
+          ],
+          "text": "know though snow",
+          "group": "A",
+          "pairs": [
+            {
+              "pair": [
+                8,
+                15
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                8,
+                30
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                15,
+                30
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E10",
+                "E11"
+              ]
+            }
+          ]
+        },
+        {
+          "wordIds": [
+            22,
+            37,
+            43,
+            55
+          ],
+          "token_ids": [
+            "L03W07",
+            "L05W07",
+            "L06W06",
+            "L08W06"
+          ],
+          "lines": [
+            3,
+            5,
+            6,
+            8
+          ],
+          "text": "here queer near year",
+          "group": "B",
+          "pairs": [
+            {
+              "pair": [
+                22,
+                37
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                22,
+                43
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                22,
+                55
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                37,
+                43
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                37,
+                55
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                43,
+                55
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            }
+          ]
+        },
+        {
+          "wordIds": [
+            49,
+            62,
+            69,
+            81
+          ],
+          "token_ids": [
+            "L07W06",
+            "L09W07",
+            "L10W07",
+            "L12W06"
+          ],
+          "lines": [
+            7,
+            9,
+            10,
+            12
+          ],
+          "text": "lake shake mistake flake",
+          "group": "C",
+          "pairs": [
+            {
+              "pair": [
+                49,
+                62
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                49,
+                69
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                49,
+                81
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                62,
+                69
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                62,
+                81
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                69,
+                81
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            }
+          ]
+        },
+        {
+          "wordIds": [
+            75,
+            88,
+            94,
+            101,
+            108
+          ],
+          "token_ids": [
+            "L11W06",
+            "L13W07",
+            "L14W06",
+            "L15W07",
+            "L16W07"
+          ],
+          "lines": [
+            11,
+            13,
+            14,
+            15,
+            16
+          ],
+          "text": "sweep deep keep sleep sleep",
+          "group": "D",
+          "pairs": [
+            {
+              "pair": [
+                75,
+                88
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                75,
+                94
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                75,
+                101
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                75,
+                108
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                88,
+                94
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                88,
+                101
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                88,
+                108
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                94,
+                101
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                94,
+                108
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E5",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                101,
+                108
+              ],
+              "labels": [
+                "E3"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_urls": [
+        "https://github.com/WeningerII/CodexMusica/blob/022fb015a9c567712e873fbf63f8e19a0ae2b417/lyric-harness/quality/relations.py"
+      ],
+      "limitations": "The sleep / sleep pair is lexical identity under the schema, not a distinct-word perfect-rhyme discovery. The pattern groups phonological endings while preserving that distinction.",
+      "overlap_labels": [
+        "end rhyme",
+        "perfect rhyme for distinct eligible words",
+        "assonance",
+        "same-word repetition for sleep / sleep"
+      ],
+      "priority": "headline"
+    },
+    {
+      "id": "S05",
+      "title": "Rhyme away from the line endings",
+      "inventory_ids": [
+        "01.12"
+      ],
+      "status": "observed",
+      "execution_mode": "existing_code",
+      "badge": "Code",
+      "wordIds": [
+        8,
+        16,
+        17,
+        19,
+        20,
+        27,
+        98,
+        105
+      ],
+      "numeric_token_ids": [
+        8,
+        16,
+        17,
+        19,
+        20,
+        27,
+        98,
+        105
+      ],
+      "token_ids": [
+        "L01W08",
+        "L03W01",
+        "L03W02",
+        "L03W04",
+        "L03W05",
+        "L04W05",
+        "L15W04",
+        "L16W04"
+      ],
+      "lines": [
+        1,
+        3,
+        4,
+        15,
+        16
+      ],
+      "description": "He / see / me rhyme inside line 3; will / fill links interior words in lines 3–4; know / go links an ending to interior words in the last two lines.",
+      "witnesses": [
+        {
+          "wordIds": [
+            16,
+            19,
+            20
+          ],
+          "token_ids": [
+            "L03W01",
+            "L03W04",
+            "L03W05"
+          ],
+          "lines": [
+            3
+          ],
+          "text": "He see me",
+          "pairs": [
+            {
+              "pair": [
+                16,
+                19
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                16,
+                20
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                19,
+                20
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E10",
+                "E11"
+              ]
+            }
+          ]
+        },
+        {
+          "wordIds": [
+            17,
+            27
+          ],
+          "token_ids": [
+            "L03W02",
+            "L04W05"
+          ],
+          "lines": [
+            3,
+            4
+          ],
+          "text": "will fill",
+          "labels": [
+            "E1",
+            "E4",
+            "E5",
+            "E10",
+            "E11"
+          ]
+        },
+        {
+          "wordIds": [
+            8,
+            98,
+            105
+          ],
+          "token_ids": [
+            "L01W08",
+            "L15W04",
+            "L16W04"
+          ],
+          "lines": [
+            1,
+            15,
+            16
+          ],
+          "text": "know go go",
+          "pairs": [
+            {
+              "pair": [
+                8,
+                98
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E10",
+                "E11"
+              ]
+            },
+            {
+              "pair": [
+                8,
+                105
+              ],
+              "labels": [
+                "E1",
+                "E4",
+                "E10",
+                "E11"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_urls": [
+        "https://github.com/WeningerII/CodexMusica/blob/022fb015a9c567712e873fbf63f8e19a0ae2b417/lyric-harness/quality/relations.py"
+      ],
+      "limitations": "Placement and phonological class are independent: an interior rhyme may simultaneously be perfect rhyme and assonance.",
+      "overlap_labels": [],
+      "priority": "headline"
+    },
+    {
+      "id": "S06",
+      "title": "Homeoteleuton under the declared ending schema",
+      "inventory_ids": [
+        "01.06"
+      ],
+      "status": "observed",
+      "execution_mode": "existing_code",
+      "badge": "Code",
+      "wordIds": [
+        9,
+        21,
+        25,
+        52,
+        58,
+        71,
+        85,
+        92
+      ],
+      "numeric_token_ids": [
+        9,
+        21,
+        25,
+        52,
+        58,
+        71,
+        85,
+        92
+      ],
+      "token_ids": [
+        "L02W01",
+        "L03W06",
+        "L04W03",
+        "L08W03",
+        "L09W03",
+        "L11W02",
+        "L13W04",
+        "L14W04"
+      ],
+      "lines": [
+        2,
+        3,
+        4,
+        8,
+        9,
+        11,
+        13,
+        14
+      ],
+      "description": "The audited ending-and-declared-morphology route returns five positive occurrence pairs: His / promises (three separate His occurrences), stopping / evening, and only / lovely.",
+      "witnesses": [
+        {
+          "wordIds": [
+            9,
+            92
+          ],
+          "token_ids": [
+            "L02W01",
+            "L14W04"
+          ],
+          "lines": [
+            2,
+            14
+          ],
+          "text": "His promises",
+          "schema": "E63",
+          "additional_sound_labels": [
+            "E18"
+          ]
+        },
+        {
+          "wordIds": [
+            21,
+            52
+          ],
+          "token_ids": [
+            "L03W06",
+            "L08W03"
+          ],
+          "lines": [
+            3,
+            8
+          ],
+          "text": "stopping evening",
+          "schema": "E63",
+          "additional_sound_labels": [
+            "E18"
+          ]
+        },
+        {
+          "wordIds": [
+            25,
+            92
+          ],
+          "token_ids": [
+            "L04W03",
+            "L14W04"
+          ],
+          "lines": [
+            4,
+            14
+          ],
+          "text": "his promises",
+          "schema": "E63",
+          "additional_sound_labels": [
+            "E18"
+          ]
+        },
+        {
+          "wordIds": [
+            58,
+            92
+          ],
+          "token_ids": [
+            "L09W03",
+            "L14W04"
+          ],
+          "lines": [
+            9,
+            14
+          ],
+          "text": "his promises",
+          "schema": "E63",
+          "additional_sound_labels": [
+            "E18"
+          ]
+        },
+        {
+          "wordIds": [
+            71,
+            85
+          ],
+          "token_ids": [
+            "L11W02",
+            "L13W04"
+          ],
+          "lines": [
+            11,
+            13
+          ],
+          "text": "only lovely",
+          "schema": "E63",
+          "additional_sound_labels": [
+            "E18"
+          ]
+        }
+      ],
+      "source_urls": [
+        "https://github.com/WeningerII/CodexMusica/blob/022fb015a9c567712e873fbf63f8e19a0ae2b417/lyric-harness/quality/relations.py"
+      ],
+      "limitations": "These are source-defined ending matches under the existing declared affix rule. They are not proof that every pair shares a productive grammatical suffix: evening is a lexical noun here, and the words in each pair have different functions. A narrower grammatical homeoteleuton definition would require a separate morphology audit.",
+      "overlap_labels": [],
+      "priority": "detail"
+    },
+    {
+      "id": "S07",
+      "title": "Trite-rhyme list membership: know / go",
+      "inventory_ids": [
+        "01.12"
+      ],
+      "status": "observed",
+      "execution_mode": "existing_code",
+      "badge": "Code",
+      "wordIds": [
+        8,
+        98,
+        105
+      ],
+      "numeric_token_ids": [
+        8,
+        98,
+        105
+      ],
+      "token_ids": [
+        "L01W08",
+        "L15W04",
+        "L16W04"
+      ],
+      "lines": [
+        1,
+        15,
+        16
+      ],
+      "description": "The native declared trite-rhyme list recognizes know / go twice because go occurs in both final lines.",
+      "witnesses": [
+        {
+          "wordIds": [
+            8,
+            98
+          ],
+          "token_ids": [
+            "L01W08",
+            "L15W04"
+          ],
+          "lines": [
+            1,
+            15
+          ],
+          "text": "know go",
+          "schema": "E66",
+          "additional_sound_labels": [
+            "E1",
+            "E4",
+            "E10",
+            "E11"
+          ]
+        },
+        {
+          "wordIds": [
+            8,
+            105
+          ],
+          "token_ids": [
+            "L01W08",
+            "L16W04"
+          ],
+          "lines": [
+            1,
+            16
+          ],
+          "text": "know go",
+          "schema": "E66",
+          "additional_sound_labels": [
+            "E1",
+            "E4",
+            "E10",
+            "E11"
+          ]
+        }
+      ],
+      "source_urls": [
+        "https://github.com/WeningerII/CodexMusica/blob/022fb015a9c567712e873fbf63f8e19a0ae2b417/lyric-harness/quality/relations.py"
+      ],
+      "limitations": "Trite is membership in the existing declared list, not an automatic judgment that Frost’s use is poor or a claim to a complete historical cliché census.",
+      "overlap_labels": [],
+      "priority": "detail"
+    },
+    {
+      "id": "R01",
+      "title": "The complete final line is repeated immediately",
+      "inventory_ids": [
+        "02.01",
+        "02.02",
+        "02.03",
+        "02.06",
+        "02.12"
+      ],
+      "status": "observed",
+      "execution_mode": "this_run_adaptation",
+      "badge": "Code",
+      "wordIds": [
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108
+      ],
+      "numeric_token_ids": [
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108
+      ],
+      "token_ids": [
+        "L15W01",
+        "L15W02",
+        "L15W03",
+        "L15W04",
+        "L15W05",
+        "L15W06",
+        "L15W07",
+        "L16W01",
+        "L16W02",
+        "L16W03",
+        "L16W04",
+        "L16W05",
+        "L16W06",
+        "L16W07"
+      ],
+      "lines": [
+        15,
+        16
+      ],
+      "description": "All seven words of “And miles to go before I sleep” recur in the same order on the next line. A bounded comparison verifies the complete span; punctuation changes from comma to full stop.",
+      "witnesses": [
+        {
+          "wordIds": [
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101
+          ],
+          "token_ids": [
+            "L15W01",
+            "L15W02",
+            "L15W03",
+            "L15W04",
+            "L15W05",
+            "L15W06",
+            "L15W07"
+          ],
+          "lines": [
+            15
+          ],
+          "text": "And miles to go before I sleep",
+          "role": "first occurrence"
+        },
+        {
+          "wordIds": [
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108
+          ],
+          "token_ids": [
+            "L16W01",
+            "L16W02",
+            "L16W03",
+            "L16W04",
+            "L16W05",
+            "L16W06",
+            "L16W07"
+          ],
+          "lines": [
+            16
+          ],
+          "text": "And miles to go before I sleep",
+          "role": "second occurrence"
+        }
+      ],
+      "source_urls": [
+        "https://github.com/text-processing/prose-rhythm-detector/tree/6ca3e48612f5bc6c9df80e3d84bcad8ee46f4179",
+        "https://github.com/priscian/rhetorica/blob/dc3367c138d266001cbd1b6a2dd5bc715c74eabd/code/RhetoricalFigure.cs"
+      ],
+      "limitations": "The full-line repetition is certain. Anaphora and epistrophe hold when the units are verse lines. The PRD source-default rules emit only “And miles” and “sleep”; no-stop anaphora crashes on the identical final lines. Symploce is a source-permitted formal overlap, but definitions requiring a changing middle would not count it. PRD calls phrase doubling epizeuxis, whereas a strict adjacent-single-word definition does not. The seven-word blocks are adjacent, so they fail Rhetorica’s nonadjacent Conduplicatio condition; shorter repeated subphrases can pass that condition. A recurring stanza refrain is not established.",
+      "overlap_labels": [
+        {
+          "label": "anaphora",
+          "status": "observed under line-unit definition"
+        },
+        {
+          "label": "epistrophe",
+          "status": "observed under line-unit definition"
+        },
+        {
+          "label": "symploce",
+          "status": "formal source output; definition-sensitive"
+        },
+        {
+          "label": "epizeuxis",
+          "status": "source permits adjacent phrase repetition; no adjacent single-word doubling"
+        },
+        {
+          "label": "parallelism",
+          "status": "complete syntactic identity caused by exact repetition"
+        }
+      ],
+      "priority": "headline"
+    },
+    {
+      "id": "R02",
+      "title": "Recurring content words and the return to woods",
+      "inventory_ids": [
+        "02.11"
+      ],
+      "status": "observed",
+      "execution_mode": "this_run_adaptation",
+      "badge": "Code",
+      "wordIds": [
+        2,
+        6,
+        26,
+        35,
+        46,
+        83,
+        96,
+        98,
+        99,
+        101,
+        103,
+        105,
+        106,
+        108
+      ],
+      "numeric_token_ids": [
+        2,
+        6,
+        26,
+        35,
+        46,
+        83,
+        96,
+        98,
+        99,
+        101,
+        103,
+        105,
+        106,
+        108
+      ],
+      "token_ids": [
+        "L01W02",
+        "L01W06",
+        "L04W04",
+        "L05W05",
+        "L07W03",
+        "L13W02",
+        "L15W02",
+        "L15W04",
+        "L15W05",
+        "L15W07",
+        "L16W02",
+        "L16W04",
+        "L16W05",
+        "L16W07"
+      ],
+      "lines": [
+        1,
+        4,
+        5,
+        7,
+        13,
+        15,
+        16
+      ],
+      "description": "Woods occurs four times, including the first and final stanzas. Think occurs in the speaker’s self-qualification and in attributed horse cognition. Miles, go, before, and sleep recur as part of the final line’s repetition.",
+      "witnesses": [
+        {
+          "wordIds": [
+            2,
+            26,
+            46,
+            83
+          ],
+          "token_ids": [
+            "L01W02",
+            "L04W04",
+            "L07W03",
+            "L13W02"
+          ],
+          "lines": [
+            1,
+            4,
+            7,
+            13
+          ],
+          "text": "woods woods woods woods",
+          "normalized_word": "woods"
+        },
+        {
+          "wordIds": [
+            6,
+            35
+          ],
+          "token_ids": [
+            "L01W06",
+            "L05W05"
+          ],
+          "lines": [
+            1,
+            5
+          ],
+          "text": "think think",
+          "normalized_word": "think"
+        },
+        {
+          "wordIds": [
+            96,
+            103
+          ],
+          "token_ids": [
+            "L15W02",
+            "L16W02"
+          ],
+          "lines": [
+            15,
+            16
+          ],
+          "text": "miles miles",
+          "normalized_word": "miles"
+        },
+        {
+          "wordIds": [
+            98,
+            105
+          ],
+          "token_ids": [
+            "L15W04",
+            "L16W04"
+          ],
+          "lines": [
+            15,
+            16
+          ],
+          "text": "go go",
+          "normalized_word": "go"
+        },
+        {
+          "wordIds": [
+            99,
+            106
+          ],
+          "token_ids": [
+            "L15W05",
+            "L16W05"
+          ],
+          "lines": [
+            15,
+            16
+          ],
+          "text": "before before",
+          "normalized_word": "before"
+        },
+        {
+          "wordIds": [
+            101,
+            108
+          ],
+          "token_ids": [
+            "L15W07",
+            "L16W07"
+          ],
+          "lines": [
+            15,
+            16
+          ],
+          "text": "sleep sleep",
+          "normalized_word": "sleep"
+        }
+      ],
+      "source_urls": [
+        "https://github.com/priscian/rhetorica/blob/dc3367c138d266001cbd1b6a2dd5bc715c74eabd/code/RhetoricalFigure.cs"
+      ],
+      "limitations": "This adapts the formal lexical-recurrence sense of ploce, not a semantic emphasis classifier. The full recurrence table retains function words but does not promote every article or pronoun to a rhetorical device. The whole-poem woods group exceeds Rhetorica’s default two-sentence window; its nearby pairs are separately recorded in the audit. He/His change referents and are not treated as semantic identity.",
+      "overlap_labels": [],
+      "priority": "headline"
+    },
+    {
+      "id": "R03",
+      "title": "Separated recurrence in “I think I”",
+      "inventory_ids": [
+        "02.08"
+      ],
+      "status": "interpretation_or_component_only",
+      "execution_mode": "existing_code",
+      "badge": "Code",
+      "wordIds": [
+        5,
+        6,
+        7
+      ],
+      "numeric_token_ids": [
+        5,
+        6,
+        7
+      ],
+      "token_ids": [
+        "L01W05",
+        "L01W06",
+        "L01W07"
+      ],
+      "lines": [
+        1
+      ],
+      "description": "I recurs with think between the occurrences. The no-stop PRD run detects this formal diacope pattern.",
+      "witnesses": [
+        {
+          "wordIds": [
+            5,
+            6,
+            7
+          ],
+          "token_ids": [
+            "L01W05",
+            "L01W06",
+            "L01W07"
+          ],
+          "lines": [
+            1
+          ],
+          "text": "I think I",
+          "repeated_wordIds": [
+            5,
+            7
+          ],
+          "intervening_wordIds": [
+            6
+          ]
+        }
+      ],
+      "source_urls": [
+        "https://github.com/text-processing/prose-rhythm-detector/tree/6ca3e48612f5bc6c9df80e3d84bcad8ee46f4179"
+      ],
+      "limitations": "This is ordinary clause nesting as well as a literal recurrence. The source-default stop filter suppresses it. Rhetorical emphasis is not established by the pattern alone.",
+      "overlap_labels": [],
+      "priority": "detail"
+    },
+    {
+      "id": "R04",
+      "title": "Different forms of a shared word: stop / stopping; dark / darkest",
+      "inventory_ids": [
+        "02.14"
+      ],
+      "status": "observed",
+      "execution_mode": "manual_rule_application",
+      "badge": "Human review",
+      "wordIds": [
+        21,
+        39,
+        51,
+        86
+      ],
+      "numeric_token_ids": [
+        21,
+        39,
+        51,
+        86
+      ],
+      "token_ids": [
+        "L03W06",
+        "L06W02",
+        "L08W02",
+        "L13W05"
+      ],
+      "lines": [
+        3,
+        6,
+        8,
+        13
+      ],
+      "description": "Stopping and stop share the verb stop; darkest and dark share the adjective dark. The actual forms and their positions are retained.",
+      "witnesses": [
+        {
+          "wordIds": [
+            21,
+            39
+          ],
+          "token_ids": [
+            "L03W06",
+            "L06W02"
+          ],
+          "lines": [
+            3,
+            6
+          ],
+          "text": "stopping stop",
+          "manually_reviewed_family": "stop"
+        },
+        {
+          "wordIds": [
+            51,
+            86
+          ],
+          "token_ids": [
+            "L08W02",
+            "L13W05"
+          ],
+          "lines": [
+            8,
+            13
+          ],
+          "text": "darkest dark",
+          "manually_reviewed_family": "dark"
+        }
+      ],
+      "source_urls": [
+        "https://github.com/priscian/rhetorica/blob/dc3367c138d266001cbd1b6a2dd5bc715c74eabd/code/RhetoricalFigure.cs"
+      ],
+      "limitations": "The common roots and inflectional differences were checked manually, then exact occurrences were located by code. Rhetorica’s WordNet derivational-family machinery was not run; its resource may not reproduce this inflection-inclusive polyptoton reading. The cases are formal morphology, not proof of deliberate emphasis.",
+      "overlap_labels": [],
+      "priority": "headline"
+    },
+    {
+      "id": "G01",
+      "title": "Parallel noun-plus-infinitive phrases",
+      "inventory_ids": [
+        "04.01",
+        "04.03"
+      ],
+      "status": "observed",
+      "execution_mode": "manual_rule_application",
+      "badge": "Human review",
+      "wordIds": [
+        92,
+        93,
+        94,
+        96,
+        97,
+        98,
+        103,
+        104,
+        105
+      ],
+      "numeric_token_ids": [
+        92,
+        93,
+        94,
+        96,
+        97,
+        98,
+        103,
+        104,
+        105
+      ],
+      "token_ids": [
+        "L14W04",
+        "L14W05",
+        "L14W06",
+        "L15W02",
+        "L15W03",
+        "L15W04",
+        "L16W02",
+        "L16W03",
+        "L16W04"
+      ],
+      "lines": [
+        14,
+        15,
+        16
+      ],
+      "description": "Promises to keep and miles to go repeat the shape plural noun + to + verb. The second construction is then repeated. This connects obligations with distance still to travel.",
+      "witnesses": [
+        {
+          "wordIds": [
+            92,
+            93,
+            94
+          ],
+          "token_ids": [
+            "L14W04",
+            "L14W05",
+            "L14W06"
+          ],
+          "lines": [
+            14
+          ],
+          "text": "promises to keep",
+          "shape": "NNS TO VB"
+        },
+        {
+          "wordIds": [
+            96,
+            97,
+            98
+          ],
+          "token_ids": [
+            "L15W02",
+            "L15W03",
+            "L15W04"
+          ],
+          "lines": [
+            15
+          ],
+          "text": "miles to go",
+          "shape": "NNS TO VB"
+        },
+        {
+          "wordIds": [
+            103,
+            104,
+            105
+          ],
+          "token_ids": [
+            "L16W02",
+            "L16W03",
+            "L16W04"
+          ],
+          "lines": [
+            16
+          ],
+          "text": "miles to go",
+          "shape": "NNS TO VB"
+        }
+      ],
+      "source_urls": [
+        "https://uwspace.uwaterloo.ca/bitstreams/73963787-4564-44b2-8bca-169f3abb9cc8/download",
+        "https://github.com/priscian/rhetorica/blob/dc3367c138d266001cbd1b6a2dd5bc715c74eabd/code/RhetoricalFigure.cs"
+      ],
+      "limitations": "The grammatical tags are human annotations, not parser output. These are selected phrase spans; the full final lines have different amounts of material. Exact tree comparison under the published parison phrase policy was not executed. Equal three-word spans are not automatically equal-length cola: promises to keep has five syllables in the existing reading, miles to go has three.",
+      "overlap_labels": [],
+      "priority": "headline"
+    },
+    {
+      "id": "G02",
+      "title": "Juxtaposed independent clauses across the semicolon",
+      "inventory_ids": [
+        "07.13"
+      ],
+      "status": "observed",
+      "execution_mode": "manual_rule_application",
+      "badge": "Human review",
+      "wordIds": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "numeric_token_ids": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "token_ids": [
+        "L02W01",
+        "L02W02",
+        "L02W03",
+        "L02W04",
+        "L02W05",
+        "L02W06",
+        "L02W07",
+        "L03W01",
+        "L03W02",
+        "L03W03",
+        "L03W04",
+        "L03W05",
+        "L03W06",
+        "L03W07",
+        "L04W01",
+        "L04W02",
+        "L04W03",
+        "L04W04",
+        "L04W05",
+        "L04W06",
+        "L04W07",
+        "L04W08"
+      ],
+      "lines": [
+        2,
+        3,
+        4
+      ],
+      "description": "His house is in the village though and He will not see me stopping here are independent clauses placed side by side across the semicolon. The following To watch phrase adds subordinate purpose.",
+      "witnesses": [
+        {
+          "wordIds": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "token_ids": [
+            "L02W01",
+            "L02W02",
+            "L02W03",
+            "L02W04",
+            "L02W05",
+            "L02W06",
+            "L02W07"
+          ],
+          "lines": [
+            2
+          ],
+          "text": "His house is in the village though",
+          "role": "first independent clause"
+        },
+        {
+          "wordIds": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
+          "token_ids": [
+            "L03W01",
+            "L03W02",
+            "L03W03",
+            "L03W04",
+            "L03W05",
+            "L03W06",
+            "L03W07",
+            "L04W01",
+            "L04W02",
+            "L04W03",
+            "L04W04",
+            "L04W05",
+            "L04W06",
+            "L04W07",
+            "L04W08"
+          ],
+          "lines": [
+            3,
+            4
+          ],
+          "text": "He will not see me stopping here To watch his woods fill up with snow",
+          "role": "second independent clause with purpose adjunct"
+        }
+      ],
+      "source_urls": [
+        "https://universaldependencies.org/en/dep/parataxis.html"
+      ],
+      "limitations": "This is manual application of the juxtaposed-clause diagnostic. No UD parser ran. Parataxis here coexists with embedded subordination; it is not a classification of the whole poem as exclusively paratactic.",
+      "overlap_labels": [],
+      "priority": "headline"
+    },
+    {
+      "id": "G03",
+      "title": "Subordination: embedded questions, purposes, and before-clauses",
+      "inventory_ids": [
+        "07.14"
+      ],
+      "status": "observed",
+      "execution_mode": "manual_rule_application",
+      "badge": "Human review",
+      "wordIds": [
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        99,
+        100,
+        101,
+        106,
+        107,
+        108
+      ],
+      "numeric_token_ids": [
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        99,
+        100,
+        101,
+        106,
+        107,
+        108
+      ],
+      "token_ids": [
+        "L04W01",
+        "L04W02",
+        "L04W03",
+        "L04W04",
+        "L04W05",
+        "L04W06",
+        "L04W07",
+        "L04W08",
+        "L06W01",
+        "L06W02",
+        "L06W03",
+        "L06W04",
+        "L06W05",
+        "L06W06",
+        "L07W01",
+        "L07W02",
+        "L07W03",
+        "L07W04",
+        "L07W05",
+        "L07W06",
+        "L08W01",
+        "L08W02",
+        "L08W03",
+        "L08W04",
+        "L08W05",
+        "L08W06",
+        "L10W01",
+        "L10W02",
+        "L10W03",
+        "L10W04",
+        "L10W05",
+        "L10W06",
+        "L10W07",
+        "L15W05",
+        "L15W06",
+        "L15W07",
+        "L16W05",
+        "L16W06",
+        "L16W07"
+      ],
+      "lines": [
+        4,
+        6,
+        7,
+        8,
+        10,
+        15,
+        16
+      ],
+      "description": "The poem contains grammatical dependence as well as independent clauses: To watch supplies purpose; To stop explains the horse’s it; To ask introduces an embedded if-question; before I sleep is a temporal subordinate clause in each final line.",
+      "witnesses": [
+        {
+          "wordIds": [
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
+          "token_ids": [
+            "L04W01",
+            "L04W02",
+            "L04W03",
+            "L04W04",
+            "L04W05",
+            "L04W06",
+            "L04W07",
+            "L04W08"
+          ],
+          "lines": [
+            4
+          ],
+          "text": "To watch his woods fill up with snow",
+          "role": "nonfinite purpose clause"
+        },
+        {
+          "wordIds": [
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55
+          ],
+          "token_ids": [
+            "L06W01",
+            "L06W02",
+            "L06W03",
+            "L06W04",
+            "L06W05",
+            "L06W06",
+            "L07W01",
+            "L07W02",
+            "L07W03",
+            "L07W04",
+            "L07W05",
+            "L07W06",
+            "L08W01",
+            "L08W02",
+            "L08W03",
+            "L08W04",
+            "L08W05",
+            "L08W06"
+          ],
+          "lines": [
+            6,
+            7,
+            8
+          ],
+          "text": "To stop without a farmhouse near Between the woods and frozen lake The darkest evening of the year",
+          "role": "extraposed infinitival clause with circumstances"
+        },
+        {
+          "wordIds": [
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69
+          ],
+          "token_ids": [
+            "L10W01",
+            "L10W02",
+            "L10W03",
+            "L10W04",
+            "L10W05",
+            "L10W06",
+            "L10W07"
+          ],
+          "lines": [
+            10
+          ],
+          "text": "To ask if there is some mistake",
+          "role": "purpose clause containing an embedded interrogative"
+        },
+        {
+          "wordIds": [
+            99,
+            100,
+            101
+          ],
+          "token_ids": [
+            "L15W05",
+            "L15W06",
+            "L15W07"
+          ],
+          "lines": [
+            15
+          ],
+          "text": "before I sleep",
+          "role": "finite temporal subordinate clause"
+        },
+        {
+          "wordIds": [
+            106,
+            107,
+            108
+          ],
+          "token_ids": [
+            "L16W05",
+            "L16W06",
+            "L16W07"
+          ],
+          "lines": [
+            16
+          ],
+          "text": "before I sleep",
+          "role": "repeated finite temporal subordinate clause"
+        }
+      ],
+      "source_urls": [
+        "https://github.com/gwalkden/hypotaxis/tree/a5c7f3796947d1741b37f283538c27c4d291e05f"
+      ],
+      "limitations": "This is a manually checked structural application. CorpusSearch and a Penn-tree parser were not run. If there is some mistake is an embedded question after ask; it is not an if–then conditional claim.",
+      "overlap_labels": [],
+      "priority": "headline"
+    },
+    {
+      "id": "G04",
+      "title": "Line breaks and grammatical continuation",
+      "inventory_ids": [
+        "23.03"
+      ],
+      "status": "observed",
+      "execution_mode": "manual_rule_application",
+      "badge": "Human review",
+      "wordIds": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81
+      ],
+      "numeric_token_ids": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81
+      ],
+      "token_ids": [
+        "L03W01",
+        "L03W02",
+        "L03W03",
+        "L03W04",
+        "L03W05",
+        "L03W06",
+        "L03W07",
+        "L04W01",
+        "L04W02",
+        "L04W03",
+        "L04W04",
+        "L04W05",
+        "L04W06",
+        "L04W07",
+        "L04W08",
+        "L05W01",
+        "L05W02",
+        "L05W03",
+        "L05W04",
+        "L05W05",
+        "L05W06",
+        "L05W07",
+        "L06W01",
+        "L06W02",
+        "L06W03",
+        "L06W04",
+        "L06W05",
+        "L06W06",
+        "L07W01",
+        "L07W02",
+        "L07W03",
+        "L07W04",
+        "L07W05",
+        "L07W06",
+        "L08W01",
+        "L08W02",
+        "L08W03",
+        "L08W04",
+        "L08W05",
+        "L08W06",
+        "L09W01",
+        "L09W02",
+        "L09W03",
+        "L09W04",
+        "L09W05",
+        "L09W06",
+        "L09W07",
+        "L10W01",
+        "L10W02",
+        "L10W03",
+        "L10W04",
+        "L10W05",
+        "L10W06",
+        "L10W07",
+        "L11W01",
+        "L11W02",
+        "L11W03",
+        "L11W04",
+        "L11W05",
+        "L11W06",
+        "L12W01",
+        "L12W02",
+        "L12W03",
+        "L12W04",
+        "L12W05",
+        "L12W06"
+      ],
+      "lines": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "description": "The unchanged JaDe punctuation gate selects breaks after lines 3, 5, 6, 7, 9, and 11. Manual grammar review distinguishes the strong sweep / Of noun-phrase break and queer / To continuation from looser purpose, place, and time additions.",
+      "witnesses": [
+        {
+          "wordIds": [
+            22,
+            23
+          ],
+          "token_ids": [
+            "L03W07",
+            "L04W01"
+          ],
+          "lines": [
+            3,
+            4
+          ],
+          "text": "here To",
+          "after_line": 3,
+          "grammar": "purpose adjunct follows stopping",
+          "strength": "continuation across optional adjunct boundary"
+        },
+        {
+          "wordIds": [
+            37,
+            38
+          ],
+          "token_ids": [
+            "L05W07",
+            "L06W01"
+          ],
+          "lines": [
+            5,
+            6
+          ],
+          "text": "queer To",
+          "after_line": 5,
+          "grammar": "extraposed infinitive explains it",
+          "strength": "strong grammatical continuation"
+        },
+        {
+          "wordIds": [
+            43,
+            44
+          ],
+          "token_ids": [
+            "L06W06",
+            "L07W01"
+          ],
+          "lines": [
+            6,
+            7
+          ],
+          "text": "near Between",
+          "after_line": 6,
+          "grammar": "place adjunct follows",
+          "strength": "continuation across adjunct boundary"
+        },
+        {
+          "wordIds": [
+            49,
+            50
+          ],
+          "token_ids": [
+            "L07W06",
+            "L08W01"
+          ],
+          "lines": [
+            7,
+            8
+          ],
+          "text": "lake The",
+          "after_line": 7,
+          "grammar": "time adjunct follows the place adjunct",
+          "strength": "loose continuation"
+        },
+        {
+          "wordIds": [
+            62,
+            63
+          ],
+          "token_ids": [
+            "L09W07",
+            "L10W01"
+          ],
+          "lines": [
+            9,
+            10
+          ],
+          "text": "shake To",
+          "after_line": 9,
+          "grammar": "purpose adjunct follows shake",
+          "strength": "continuation across optional adjunct boundary"
+        },
+        {
+          "wordIds": [
+            75,
+            76
+          ],
+          "token_ids": [
+            "L11W06",
+            "L12W01"
+          ],
+          "lines": [
+            11,
+            12
+          ],
+          "text": "sweep Of",
+          "after_line": 11,
+          "grammar": "head noun sweep takes of-phrase across boundary",
+          "strength": "strong noun-phrase continuation"
+        }
+      ],
+      "source_urls": [
+        "https://github.com/MongetE/JaDe/blob/76a925e81cca60a1de4e404d31f697b5876deeaf/JaDe/jade/processing.py"
+      ],
+      "limitations": "Only the upstream punctuation gate was executed. JaDe’s POS/dependency classifier was not run because its language-model dependencies are unavailable. A missing end mark is a candidate, not proof of a particular enjambment type. Printed punctuation, grammar, and performed pause remain separate; a comma can occur in a continuing sentence, and a reader may pause at an unpunctuated break.",
+      "overlap_labels": [],
+      "priority": "headline"
+    }
+  ]
+}

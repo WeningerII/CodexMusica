@@ -1,0 +1,4441 @@
+{
+  "schemaVersion": 1,
+  "title": "Stopping by Woods on a Snowy Evening",
+  "author": "Robert Frost",
+  "scope": {
+    "lines": 16,
+    "words": 108,
+    "unorderedPairs": 5778,
+    "distinctRecurringWords": 16
+  },
+  "provenance": {
+    "code": "Pinned source functions and explicitly declared bounded adaptations were executed.",
+    "manual": "Manual review means the assistant applied a published decision procedure or declared close reading. No independent human adjudication was measured.",
+    "interpretation": "Possible readings remain distinct from directly observed structure; a missing label is not proof of absence."
+  },
+  "findings": [
+    {
+      "id": "S03",
+      "title": "Whose / His: consonant agreement with different vowels",
+      "kind": "computed",
+      "labels": [
+        {
+          "name": "Alliteration",
+          "scope": "Initial /h/ agrees."
+        },
+        {
+          "name": "Consonance",
+          "scope": "Final /z/ agrees."
+        },
+        {
+          "name": "Pararhyme",
+          "scope": "The /h…z/ consonant frame agrees while the vowels differ."
+        },
+        {
+          "name": "Slant rhyme · umbrella",
+          "scope": "The existing schema uses an inclusive assonance-or-consonance umbrella; it overlaps more specific labels."
+        }
+      ],
+      "summary": "The first words of lines 1 and 2 share initial /h/ and final /z/, while their vowels differ. The audited schema recognizes alliteration, coda consonance, pararhyme, and the inclusive slant-rhyme umbrella; it does not label them perfect rhyme.",
+      "spans": [
+        {
+          "words": [
+            1,
+            9
+          ],
+          "quote": "Whose … His",
+          "label": "Lines 1, 2"
+        }
+      ],
+      "limit": "This is the declared American annotated reading. Overlapping labels describe different properties of the same pair.",
+      "method": {
+        "name": "Executed existing rules, with declared poem inputs",
+        "description": "The selected occurrences come from the recorded whole-poem application. Sound rules used the displayed pronunciation across all 5,778 word pairs; the existing Sound & meter view retains the full pair results."
+      },
+      "sources": [
+        "source-13"
+      ],
+      "inventoryIds": [
+        "01.01",
+        "01.03",
+        "01.12"
+      ],
+      "applicationState": "observed",
+      "recordIds": [
+        "S03"
+      ]
+    },
+    {
+      "id": "R02",
+      "title": "Recurring content words and the return to woods",
+      "kind": "computed",
+      "labels": [
+        {
+          "name": "Ploce · lexical recurrence",
+          "scope": "The formal recurrence is verified. Its emphasis and effect remain matters of reading."
+        }
+      ],
+      "summary": "Woods occurs four times, including the first and final stanzas. Think occurs in the speaker’s self-qualification and in attributed horse cognition. Miles, go, before, and sleep recur as part of the final line’s repetition.",
+      "spans": [
+        {
+          "words": [
+            2,
+            26,
+            46,
+            83
+          ],
+          "quote": "woods … woods … woods … woods",
+          "label": "Lines 1, 4, 7, 13"
+        },
+        {
+          "words": [
+            6,
+            35
+          ],
+          "quote": "think … think",
+          "label": "Lines 1, 5"
+        },
+        {
+          "words": [
+            96,
+            103
+          ],
+          "quote": "miles … miles",
+          "label": "Lines 15, 16"
+        },
+        {
+          "words": [
+            98,
+            105
+          ],
+          "quote": "go … go",
+          "label": "Lines 15, 16"
+        },
+        {
+          "words": [
+            99,
+            106
+          ],
+          "quote": "before … before",
+          "label": "Lines 15, 16"
+        },
+        {
+          "words": [
+            101,
+            108
+          ],
+          "quote": "sleep … sleep",
+          "label": "Lines 15, 16"
+        }
+      ],
+      "limit": "This adapts the formal lexical-recurrence sense of ploce, not a semantic emphasis classifier. The full recurrence table retains function words but does not promote every article or pronoun to a rhetorical device. The whole-poem woods group exceeds Rhetorica’s default two-sentence window; its nearby pairs are separately recorded in the audit. He/His change referents and are not treated as semantic identity.",
+      "method": {
+        "name": "Executed bounded adaptation of the researched rule",
+        "description": "The selected occurrences come from the recorded whole-poem application. This adapts the formal lexical-recurrence sense of ploce, not a semantic emphasis classifier. The full recurrence table retains function words but does not promote every article or pronoun to a rhetorical device. The whole-poem woods group exceeds Rhetorica’s default two-sentence window; its nearby pairs are separately recorded in the audit. He/His change referents and are not treated as semantic identity."
+      },
+      "sources": [
+        "source-15"
+      ],
+      "inventoryIds": [
+        "02.11"
+      ],
+      "applicationState": "observed",
+      "recordIds": [
+        "R02"
+      ]
+    },
+    {
+      "id": "R05",
+      "title": "Exact word recurrence, including I / the / to",
+      "kind": "computed",
+      "labels": [
+        {
+          "name": "Lexical repetition",
+          "scope": "Equal words are grouped without a stop-word filter, preserving every occurrence."
+        }
+      ],
+      "summary": "Every repeated spelling is inspectable, including ordinary articles and pronouns. Select a word in the poem to isolate that word’s occurrences in this group.",
+      "spans": [
+        {
+          "words": [
+            2,
+            26,
+            46,
+            83
+          ],
+          "quote": "woods × 4",
+          "label": "Lines 1, 4, 7, 13"
+        },
+        {
+          "words": [
+            4,
+            84
+          ],
+          "quote": "are × 2",
+          "label": "Lines 1, 13"
+        },
+        {
+          "words": [
+            5,
+            7,
+            90,
+            100,
+            107
+          ],
+          "quote": "i × 5",
+          "label": "Lines 1, 14, 15, 16"
+        },
+        {
+          "words": [
+            6,
+            35
+          ],
+          "quote": "think × 2",
+          "label": "Lines 1, 5"
+        },
+        {
+          "words": [
+            9,
+            25,
+            58
+          ],
+          "quote": "his × 3",
+          "label": "Lines 2, 4, 9"
+        },
+        {
+          "words": [
+            11,
+            67
+          ],
+          "quote": "is × 2",
+          "label": "Lines 2, 10"
+        },
+        {
+          "words": [
+            13,
+            45,
+            50,
+            54,
+            70,
+            74,
+            82
+          ],
+          "quote": "the × 7",
+          "label": "Lines 2, 7, 8, 11, 13"
+        },
+        {
+          "words": [
+            16,
+            56
+          ],
+          "quote": "he × 2",
+          "label": "Lines 3, 9"
+        },
+        {
+          "words": [
+            23,
+            38,
+            63,
+            93,
+            97,
+            104
+          ],
+          "quote": "to × 6",
+          "label": "Lines 4, 6, 10, 14, 15, 16"
+        },
+        {
+          "words": [
+            41,
+            61
+          ],
+          "quote": "a × 2",
+          "label": "Lines 6, 9"
+        },
+        {
+          "words": [
+            47,
+            79,
+            87,
+            95,
+            102
+          ],
+          "quote": "and × 5",
+          "label": "Lines 7, 12, 13, 15, 16"
+        },
+        {
+          "words": [
+            53,
+            76
+          ],
+          "quote": "of × 2",
+          "label": "Lines 8, 12"
+        },
+        {
+          "words": [
+            96,
+            103
+          ],
+          "quote": "miles × 2",
+          "label": "Lines 15, 16"
+        },
+        {
+          "words": [
+            98,
+            105
+          ],
+          "quote": "go × 2",
+          "label": "Lines 15, 16"
+        },
+        {
+          "words": [
+            99,
+            106
+          ],
+          "quote": "before × 2",
+          "label": "Lines 15, 16"
+        },
+        {
+          "words": [
+            101,
+            108
+          ],
+          "quote": "sleep × 2",
+          "label": "Lines 15, 16"
+        }
+      ],
+      "limit": "These are formal recurrences, not automatic claims about emphasis or authorial intention. He and his can refer to different characters. The contraction sound’s is one orthographic word, meaning sound is.",
+      "method": {
+        "name": "Executed whole-poem occurrence grouping",
+        "description": "The recorded bounded adapter case-folds the 108 supplied word occurrences and removes terminal punctuation. It retains all 16 recurring word types and every token ID; nothing is removed for being a function word."
+      },
+      "sources": [
+        "source-15"
+      ],
+      "inventoryIds": [
+        "02.11"
+      ],
+      "applicationState": "observed",
+      "recordIds": [
+        "all_lexical_recurrences"
+      ]
+    },
+    {
+      "id": "H01",
+      "title": "Epistemic qualification: I think",
+      "kind": "reviewed",
+      "labels": [
+        {
+          "name": "Qualification",
+          "scope": ""
+        },
+        {
+          "name": "Epistemic stance",
+          "scope": ""
+        }
+      ],
+      "summary": "The speaker presents knowing the owner through the qualifying phrase “I think”. This makes the assertion less categorical; it does not by itself establish ignorance, deception or dramatic self-doubt.",
+      "spans": [
+        {
+          "words": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "quote": "I think I know",
+          "label": "Line 1"
+        }
+      ],
+      "limit": "",
+      "method": {
+        "name": "Assistant-applied published decision steps",
+        "description": "Identify the proposition I know. Identify the first-person cognitive report I think governing that proposition. Classify it as Entertain: an epistemic position leaving alternatives available."
+      },
+      "sources": [
+        "source-3"
+      ],
+      "inventoryIds": [
+        "25.16"
+      ],
+      "applicationState": "supported",
+      "recordIds": [
+        "H01"
+      ]
+    },
+    {
+      "id": "R03",
+      "title": "Separated recurrence in “I think I”",
+      "kind": "computed",
+      "labels": [
+        {
+          "name": "Diacope · formal pattern",
+          "scope": "I is repeated with think between its two occurrences. Ordinary clause nesting also explains the form."
+        }
+      ],
+      "summary": "I recurs with think between the occurrences. The no-stop PRD run detects this formal diacope pattern.",
+      "spans": [
+        {
+          "words": [
+            5,
+            6,
+            7
+          ],
+          "quote": "I think I",
+          "label": "Line 1"
+        }
+      ],
+      "limit": "This is ordinary clause nesting as well as a literal recurrence. The source-default stop filter suppresses it. Rhetorical emphasis is not established by the pattern alone.",
+      "method": {
+        "name": "Executed existing rules, with declared poem inputs",
+        "description": "The selected occurrences come from the recorded whole-poem application. This is ordinary clause nesting as well as a literal recurrence. The source-default stop filter suppresses it. Rhetorical emphasis is not established by the pattern alone."
+      },
+      "sources": [
+        "source-14"
+      ],
+      "inventoryIds": [
+        "02.08"
+      ],
+      "applicationState": "interpretation_or_component_only",
+      "recordIds": [
+        "R03"
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "Vowel echoes inside and across lines",
+      "kind": "computed",
+      "labels": [
+        {
+          "name": "Assonance",
+          "scope": "The selected vowel nuclei agree. Some pairs also have a complete matching rhyme ending."
+        }
+      ],
+      "summary": "Assonance includes He / see / me, will / fill, the lake / shake / mistake / flake group, and know / though / snow / go. It can overlap perfect rhyme.",
+      "spans": [
+        {
+          "words": [
+            16,
+            19,
+            20
+          ],
+          "quote": "He … see me",
+          "label": "Line 3 · /iː/"
+        },
+        {
+          "words": [
+            17,
+            27
+          ],
+          "quote": "will … fill",
+          "label": "Lines 3, 4 · /ɪ/"
+        },
+        {
+          "words": [
+            49,
+            62,
+            69,
+            81
+          ],
+          "quote": "lake … shake … mistake … flake",
+          "label": "Lines 7, 9, 10, 12 · /eɪ/"
+        },
+        {
+          "words": [
+            8,
+            15,
+            30,
+            98,
+            105
+          ],
+          "quote": "know … though … snow … go … go",
+          "label": "Lines 1, 2, 4, 15, 16 · /oʊ/"
+        }
+      ],
+      "limit": "The selected annotated pronunciation yields 563 positive assonance pairs. Many are ordinary vowel recurrence rather than conspicuous rhetorical constructions; the pair view preserves them without making hundreds of figure cards.",
+      "method": {
+        "name": "Executed existing rules, with declared poem inputs",
+        "description": "The selected occurrences come from the recorded whole-poem application. Sound rules used the displayed pronunciation across all 5,778 word pairs; the existing Sound & meter view retains the full pair results."
+      },
+      "sources": [
+        "source-13"
+      ],
+      "inventoryIds": [
+        "01.02"
+      ],
+      "applicationState": "observed",
+      "recordIds": [
+        "S02"
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "Interlocking end-rhyme: AABA BBCB CCDC DDDD",
+      "kind": "computed",
+      "labels": [
+        {
+          "name": "End rhyme",
+          "scope": "The line-ending families form AABA BBCB CCDC DDDD."
+        },
+        {
+          "name": "Linked stanza rhymes",
+          "scope": "The third-line family carries into the following stanza."
+        },
+        {
+          "name": "Final monorhyme",
+          "scope": "The final stanza uses one rhyme family; its two sleeps are identical words."
+        }
+      ],
+      "summary": "The third-line rhyme of each of the first three stanzas becomes the main rhyme of the following stanza. The final stanza closes with one rhyme family and an exact repeated ending.",
+      "spans": [
+        {
+          "words": [
+            8,
+            15,
+            30
+          ],
+          "quote": "know … though … snow",
+          "label": "Lines 1, 2, 4"
+        },
+        {
+          "words": [
+            22,
+            37,
+            43,
+            55
+          ],
+          "quote": "here … queer … near … year",
+          "label": "Lines 3, 5, 6, 8"
+        },
+        {
+          "words": [
+            49,
+            62,
+            69,
+            81
+          ],
+          "quote": "lake … shake … mistake … flake",
+          "label": "Lines 7, 9, 10, 12"
+        },
+        {
+          "words": [
+            75,
+            88,
+            94,
+            101,
+            108
+          ],
+          "quote": "sweep … deep … keep … sleep … sleep",
+          "label": "Lines 11, 13, 14, 15, 16"
+        }
+      ],
+      "limit": "The sleep / sleep pair is lexical identity under the schema, not a distinct-word perfect-rhyme discovery. The pattern groups phonological endings while preserving that distinction.",
+      "method": {
+        "name": "Executed existing rules, with declared poem inputs",
+        "description": "The selected occurrences come from the recorded whole-poem application. Sound rules used the displayed pronunciation across all 5,778 word pairs; the existing Sound & meter view retains the full pair results."
+      },
+      "sources": [
+        "source-13"
+      ],
+      "inventoryIds": [
+        "01.12"
+      ],
+      "applicationState": "observed",
+      "recordIds": [
+        "S04"
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "Rhyme away from the line endings",
+      "kind": "computed",
+      "labels": [
+        {
+          "name": "Internal / cross-line rhyme",
+          "scope": "The evidence includes interior words and an ending-to-interior connection."
+        },
+        {
+          "name": "Perfect rhyme",
+          "scope": "The selected distinct-word pairs have matching stressed rhyme endings."
+        },
+        {
+          "name": "Assonance",
+          "scope": "Their vowel agreement remains visible alongside perfect rhyme."
+        }
+      ],
+      "summary": "He / see / me rhyme inside line 3; will / fill links interior words in lines 3–4; know / go links an ending to interior words in the last two lines.",
+      "spans": [
+        {
+          "words": [
+            16,
+            19,
+            20
+          ],
+          "quote": "He … see me",
+          "label": "Line 3"
+        },
+        {
+          "words": [
+            17,
+            27
+          ],
+          "quote": "will … fill",
+          "label": "Lines 3, 4"
+        },
+        {
+          "words": [
+            8,
+            98,
+            105
+          ],
+          "quote": "know … go … go",
+          "label": "Lines 1, 15, 16"
+        }
+      ],
+      "limit": "Placement and phonological class are independent: an interior rhyme may simultaneously be perfect rhyme and assonance.",
+      "method": {
+        "name": "Executed existing rules, with declared poem inputs",
+        "description": "The selected occurrences come from the recorded whole-poem application. Sound rules used the displayed pronunciation across all 5,778 word pairs; the existing Sound & meter view retains the full pair results."
+      },
+      "sources": [
+        "source-13"
+      ],
+      "inventoryIds": [
+        "01.12"
+      ],
+      "applicationState": "observed",
+      "recordIds": [
+        "S05"
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "Homeoteleuton: matching endings in position",
+      "kind": "combined",
+      "labels": [
+        {
+          "name": "Homeoteleuton · bounded sound-and-position check",
+          "scope": "Matching final vowel and complete coda, in declared adjacent or parallel positions."
+        },
+        {
+          "name": "Rhyme overlap",
+          "scope": "Line-ending cases also carry their existing rhyme labels; see / me is internal rhyme, and easy / downy is a weak ending echo."
+        },
+        {
+          "name": "Exact repetition overlap",
+          "scope": "Corresponding words of the repeated final line contribute seven pairs, including sleep / sleep."
+        }
+      ],
+      "summary": "The corrected check finds 34 occurrence pairs: 27 between different words and seven from the repeated final line. Easy / downy and see / me show interior examples; the end-rhyme families also qualify under the declared parallel-position rule.",
+      "spans": [
+        {
+          "words": [
+            77,
+            80
+          ],
+          "quote": "easy … downy",
+          "label": "Parallel adjectives · final /i/"
+        },
+        {
+          "words": [
+            19,
+            20
+          ],
+          "quote": "see me",
+          "label": "Neighboring words · final /i/"
+        },
+        {
+          "words": [
+            70,
+            71
+          ],
+          "quote": "The only",
+          "label": "Neighboring words · pronunciation-dependent /i/"
+        },
+        {
+          "words": [
+            8,
+            15,
+            30
+          ],
+          "quote": "know … though … snow",
+          "label": "Line endings · OH"
+        },
+        {
+          "words": [
+            22,
+            37,
+            43,
+            55
+          ],
+          "quote": "here … queer … near … year",
+          "label": "Line endings · EER"
+        },
+        {
+          "words": [
+            49,
+            62,
+            69,
+            81
+          ],
+          "quote": "lake … shake … mistake … flake",
+          "label": "Line endings · AYK"
+        },
+        {
+          "words": [
+            75,
+            88,
+            94,
+            101,
+            108
+          ],
+          "quote": "sweep … deep … keep … sleep … sleep",
+          "label": "Line endings · EEP"
+        },
+        {
+          "words": [
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101
+          ],
+          "quote": "And miles to go before I sleep",
+          "label": "Corresponding words · first occurrence"
+        },
+        {
+          "words": [
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108
+          ],
+          "quote": "And miles to go before I sleep",
+          "label": "Corresponding words · repeated occurrence"
+        }
+      ],
+      "limit": "The / only is a weak formal candidate in the displayed “dhee” reading; “dhuh” would not match. The rule records structure and sound, not authorial intention. It does not claim to find every possible semantic parallel. Shared grammatical inflection is checked separately.",
+      "method": {
+        "name": "Executed ending rule + explicit grammatical placement review",
+        "description": "Compared all 5,778 pairs in both pronunciation modes. Final vowel and entire coda must agree; lexical stress is retained as evidence but need not agree. Positions are same-line neighbors, verse-line ends, the reviewed easy/downy adjective positions, or aligned words in the identical final line. Repeated words are included. Both modes give 34 pairs. This replaces E63’s affix guess for this poem. The five previous E63 pairs remain in the audit and retain their valid E18 sound labels; none has a declared adjacent or parallel position. His is not hi plus -s, evening is the time-of-day noun, and -ly derivation does not establish shared inflection."
+      },
+      "sources": [
+        "source-13",
+        "source-21",
+        "source-22",
+        "source-23",
+        "source-24"
+      ],
+      "inventoryIds": [
+        "01.06"
+      ],
+      "applicationState": "observed",
+      "recordIds": [
+        "S06"
+      ],
+      "soundCategory": "E63",
+      "soundPairCount": 34
+    },
+    {
+      "id": "S07",
+      "title": "Trite-rhyme list membership: know / go",
+      "kind": "computed",
+      "labels": [
+        {
+          "name": "Trite rhyme · list match",
+          "scope": "Know / go appears in the declared source list; each go is a separate occurrence."
+        },
+        {
+          "name": "Perfect rhyme / assonance",
+          "scope": "The sound classifications also hold; list membership does not replace them."
+        }
+      ],
+      "summary": "The native declared trite-rhyme list recognizes know / go twice because go occurs in both final lines.",
+      "spans": [
+        {
+          "words": [
+            8,
+            98
+          ],
+          "quote": "know … go",
+          "label": "Lines 1, 15"
+        },
+        {
+          "words": [
+            8,
+            105
+          ],
+          "quote": "know … go",
+          "label": "Lines 1, 16"
+        }
+      ],
+      "limit": "Trite is membership in the existing declared list, not an automatic judgment that Frost’s use is poor or a claim to a complete historical cliché census.",
+      "method": {
+        "name": "Executed existing rules, with declared poem inputs",
+        "description": "The selected occurrences come from the recorded whole-poem application. Sound rules used the displayed pronunciation across all 5,778 word pairs; the existing Sound & meter view retains the full pair results."
+      },
+      "sources": [
+        "source-13"
+      ],
+      "inventoryIds": [
+        "01.12"
+      ],
+      "applicationState": "observed",
+      "recordIds": [
+        "S07"
+      ]
+    },
+    {
+      "id": "G02",
+      "title": "Juxtaposed independent clauses across the semicolon",
+      "kind": "reviewed",
+      "labels": [
+        {
+          "name": "Parataxis",
+          "scope": "Two independent clauses are juxtaposed across the semicolon."
+        }
+      ],
+      "summary": "His house is in the village though and He will not see me stopping here are independent clauses placed side by side across the semicolon. The following To watch phrase adds subordinate purpose.",
+      "spans": [
+        {
+          "words": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "quote": "His house is in the village though",
+          "label": "Line 2"
+        },
+        {
+          "words": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
+          "quote": "He will not see me stopping here / To watch his woods fill up with snow",
+          "label": "Lines 3, 4"
+        }
+      ],
+      "limit": "This is manual application of the juxtaposed-clause diagnostic. No UD parser ran. Parataxis here coexists with embedded subordination; it is not a classification of the whole poem as exclusively paratactic.",
+      "method": {
+        "name": "Assistant-applied grammatical or morphological review",
+        "description": "The selected occurrences come from the recorded whole-poem application. This is manual application of the juxtaposed-clause diagnostic. No UD parser ran. Parataxis here coexists with embedded subordination; it is not a classification of the whole poem as exclusively paratactic."
+      },
+      "sources": [
+        "source-17"
+      ],
+      "inventoryIds": [
+        "07.13"
+      ],
+      "applicationState": "observed",
+      "recordIds": [
+        "G02"
+      ]
+    },
+    {
+      "id": "S01",
+      "title": "Local alliteration: /h/, /w/, /d/",
+      "kind": "computed",
+      "labels": [
+        {
+          "name": "Alliteration",
+          "scope": "The complete consonant onset agrees in each selected local group."
+        }
+      ],
+      "summary": "Repeated consonant onsets occur within words in the lines, including His house; He, his, harness; watch, woods, with; and dark, deep.",
+      "spans": [
+        {
+          "words": [
+            9,
+            10
+          ],
+          "quote": "His house",
+          "label": "Line 2 · /h/"
+        },
+        {
+          "words": [
+            56,
+            58,
+            59
+          ],
+          "quote": "He … his harness",
+          "label": "Line 9 · /h/"
+        },
+        {
+          "words": [
+            24,
+            26,
+            29
+          ],
+          "quote": "watch … woods … with",
+          "label": "Line 4 · /w/"
+        },
+        {
+          "words": [
+            86,
+            88
+          ],
+          "quote": "dark … deep",
+          "label": "Line 13 · /d/"
+        }
+      ],
+      "limit": "These are grouped local witnesses, not all 147 positive alliteration pairs. The complete existing word-pair view retains every qualifying occurrence pair. He/his have different referents in different passages; sound agreement does not establish reference identity.",
+      "method": {
+        "name": "Executed existing rules, with declared poem inputs",
+        "description": "The selected occurrences come from the recorded whole-poem application. Sound rules used the displayed pronunciation across all 5,778 word pairs; the existing Sound & meter view retains the full pair results."
+      },
+      "sources": [
+        "source-13"
+      ],
+      "inventoryIds": [
+        "01.01"
+      ],
+      "applicationState": "observed",
+      "recordIds": [
+        "S01"
+      ]
+    },
+    {
+      "id": "S01b",
+      "title": "Alliteration by first consonant",
+      "kind": "computed",
+      "labels": [
+        {
+          "name": "Alliteration · first consonant",
+          "scope": "A1 accepts shared first consonants even when the complete consonant clusters differ."
+        },
+        {
+          "name": "Repetition overlap",
+          "scope": "Repeated words can carry the same initial sound; the narrower E9 rule excludes identical spellings."
+        }
+      ],
+      "summary": "Sound’s / sweep and see / stopping share initial /s/. The complete check finds 235 occurrence pairs throughout the poem: 147 also meet the narrower E9 rule, 37 more join different words, and 51 involve repeated words. These passages show all 15 same-line pair matches.",
+      "spans": [
+        {
+          "words": [
+            73,
+            75
+          ],
+          "quote": "sound's … sweep",
+          "label": "Line 11 · /s/"
+        },
+        {
+          "words": [
+            13,
+            15
+          ],
+          "quote": "the … though",
+          "label": "Line 2 · /ð/"
+        },
+        {
+          "words": [
+            9,
+            10
+          ],
+          "quote": "His house",
+          "label": "Line 2 · /h/"
+        },
+        {
+          "words": [
+            16,
+            22
+          ],
+          "quote": "He … here",
+          "label": "Line 3 · /h/"
+        },
+        {
+          "words": [
+            19,
+            21
+          ],
+          "quote": "see … stopping",
+          "label": "Line 3 · /s/"
+        },
+        {
+          "words": [
+            24,
+            26,
+            29
+          ],
+          "quote": "watch … woods … with",
+          "label": "Line 4 · /w/"
+        },
+        {
+          "words": [
+            31,
+            34
+          ],
+          "quote": "My … must",
+          "label": "Line 5 · /m/"
+        },
+        {
+          "words": [
+            50,
+            54
+          ],
+          "quote": "The … the",
+          "label": "Line 8 · /ð/"
+        },
+        {
+          "words": [
+            56,
+            58,
+            59
+          ],
+          "quote": "He … his harness",
+          "label": "Line 9 · /h/"
+        },
+        {
+          "words": [
+            70,
+            74
+          ],
+          "quote": "The … the",
+          "label": "Line 11 · /ð/"
+        },
+        {
+          "words": [
+            86,
+            88
+          ],
+          "quote": "dark … deep",
+          "label": "Line 13 · /d/"
+        }
+      ],
+      "limit": "First-sound agreement is recorded wherever it occurs. Distance, prominence and context determine whether a particular recurrence is a conspicuous rhetorical effect. All 235 pairs are available under A1 in Sound & meter and Connection map.",
+      "method": {
+        "name": "Executed whole-poem first-consonant adaptation",
+        "description": "Compared all 5,778 pairs under both pronunciation modes, retaining complete pronunciation witnesses. A1 requires the actual first phoneme to be the same consonant; it does not skip an initial vowel or equate two absent onsets. The native E9 results remain unchanged at 147. The dictionary alternatives produce the same 235 endpoints here."
+      },
+      "sources": [
+        "source-13",
+        "source-20"
+      ],
+      "inventoryIds": [
+        "01.01"
+      ],
+      "applicationState": "observed",
+      "recordIds": [
+        "S01b"
+      ],
+      "soundCategory": "A1",
+      "soundPairCount": 235
+    },
+    {
+      "id": "R04",
+      "title": "Different forms of a shared word: stop / stopping; dark / darkest",
+      "kind": "reviewed",
+      "labels": [
+        {
+          "name": "Polyptoton · inflectional reading",
+          "scope": "Stop / stopping and dark / darkest are different grammatical forms of a shared word."
+        }
+      ],
+      "summary": "Stopping and stop share the verb stop; darkest and dark share the adjective dark. The actual forms and their positions are retained.",
+      "spans": [
+        {
+          "words": [
+            21,
+            39
+          ],
+          "quote": "stopping … stop",
+          "label": "Lines 3, 6"
+        },
+        {
+          "words": [
+            51,
+            86
+          ],
+          "quote": "darkest … dark",
+          "label": "Lines 8, 13"
+        }
+      ],
+      "limit": "The common roots and inflectional differences were checked manually, then exact occurrences were located by code. Rhetorica’s WordNet derivational-family machinery was not run; its resource may not reproduce this inflection-inclusive polyptoton reading. The cases are formal morphology, not proof of deliberate emphasis.",
+      "method": {
+        "name": "Assistant-applied grammatical or morphological review",
+        "description": "The selected occurrences come from the recorded whole-poem application. The common roots and inflectional differences were checked manually, then exact occurrences were located by code. Rhetorica’s WordNet derivational-family machinery was not run; its resource may not reproduce this inflection-inclusive polyptoton reading. The cases are formal morphology, not proof of deliberate emphasis."
+      },
+      "sources": [
+        "source-15"
+      ],
+      "inventoryIds": [
+        "02.14"
+      ],
+      "applicationState": "observed",
+      "recordIds": [
+        "R04"
+      ]
+    },
+    {
+      "id": "G04",
+      "title": "Line breaks and grammatical continuation",
+      "kind": "combined",
+      "labels": [
+        {
+          "name": "Enjambment · reviewed candidates",
+          "scope": "Punctuation gives six candidates; grammar distinguishes strong breaks from looser continuations."
+        }
+      ],
+      "summary": "The unchanged JaDe punctuation gate selects breaks after lines 3, 5, 6, 7, 9, and 11. Manual grammar review distinguishes the strong sweep / Of noun-phrase break and queer / To continuation from looser purpose, place, and time additions.",
+      "spans": [
+        {
+          "words": [
+            22,
+            23
+          ],
+          "quote": "here / To",
+          "label": "Lines 3, 4"
+        },
+        {
+          "words": [
+            37,
+            38
+          ],
+          "quote": "queer / To",
+          "label": "Lines 5, 6"
+        },
+        {
+          "words": [
+            43,
+            44
+          ],
+          "quote": "near / Between",
+          "label": "Lines 6, 7"
+        },
+        {
+          "words": [
+            49,
+            50
+          ],
+          "quote": "lake / The",
+          "label": "Lines 7, 8"
+        },
+        {
+          "words": [
+            62,
+            63
+          ],
+          "quote": "shake / To",
+          "label": "Lines 9, 10"
+        },
+        {
+          "words": [
+            75,
+            76
+          ],
+          "quote": "sweep / Of",
+          "label": "Lines 11, 12"
+        }
+      ],
+      "limit": "Only the upstream punctuation gate was executed. JaDe’s POS/dependency classifier was not run because its language-model dependencies are unavailable. A missing end mark is a candidate, not proof of a particular enjambment type. Printed punctuation, grammar, and performed pause remain separate; a comma can occur in a continuing sentence, and a reader may pause at an unpunctuated break.",
+      "method": {
+        "name": "Assistant-applied grammatical or morphological review",
+        "description": "Ran the unchanged JaDe punctuation gate on every line ending, then manually reviewed grammatical dependence at its six candidate breaks. The parser-dependent JaDe classifier was not executed."
+      },
+      "sources": [
+        "source-19"
+      ],
+      "inventoryIds": [
+        "23.03"
+      ],
+      "applicationState": "observed",
+      "recordIds": [
+        "G04"
+      ]
+    },
+    {
+      "id": "G03",
+      "title": "Subordination: embedded questions, purposes, and before-clauses",
+      "kind": "reviewed",
+      "labels": [
+        {
+          "name": "Hypotaxis",
+          "scope": "Purpose, explanatory and temporal clauses depend on other grammatical material."
+        }
+      ],
+      "summary": "The poem contains grammatical dependence as well as independent clauses: To watch supplies purpose; To stop explains the horse’s it; To ask introduces an embedded if-question; before I sleep is a temporal subordinate clause in each final line.",
+      "spans": [
+        {
+          "words": [
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
+          "quote": "To watch his woods fill up with snow",
+          "label": "Line 4"
+        },
+        {
+          "words": [
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55
+          ],
+          "quote": "To stop without a farmhouse near / Between the woods and frozen lake / The darkest evening of the year",
+          "label": "Lines 6, 7, 8"
+        },
+        {
+          "words": [
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69
+          ],
+          "quote": "To ask if there is some mistake",
+          "label": "Line 10"
+        },
+        {
+          "words": [
+            99,
+            100,
+            101
+          ],
+          "quote": "before I sleep",
+          "label": "Line 15"
+        },
+        {
+          "words": [
+            106,
+            107,
+            108
+          ],
+          "quote": "before I sleep",
+          "label": "Line 16"
+        }
+      ],
+      "limit": "This is a manually checked structural application. CorpusSearch and a Penn-tree parser were not run. If there is some mistake is an embedded question after ask; it is not an if–then conditional claim.",
+      "method": {
+        "name": "Assistant-applied grammatical or morphological review",
+        "description": "The selected occurrences come from the recorded whole-poem application. This is a manually checked structural application. CorpusSearch and a Penn-tree parser were not run. If there is some mistake is an embedded question after ask; it is not an if–then conditional claim."
+      },
+      "sources": [
+        "source-18"
+      ],
+      "inventoryIds": [
+        "07.14"
+      ],
+      "applicationState": "observed",
+      "recordIds": [
+        "G03"
+      ]
+    },
+    {
+      "id": "H06",
+      "title": "Visual setting and imagery",
+      "kind": "reviewed",
+      "labels": [
+        {
+          "name": "Imagery",
+          "scope": ""
+        },
+        {
+          "name": "Visual imagery",
+          "scope": ""
+        }
+      ],
+      "summary": "The poem supplies visible setting details: accumulating snow, a frozen lake, darkness and the depth of the woods. These are descriptive observations. The research ledger has supporting components for imagery, so this is human annotation rather than a newly verified automatic imagery detector.",
+      "spans": [
+        {
+          "words": [
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
+          "quote": "watch his woods fill up with snow",
+          "label": "Line 4"
+        },
+        {
+          "words": [
+            44,
+            45,
+            46,
+            47,
+            48,
+            49
+          ],
+          "quote": "Between the woods and frozen lake",
+          "label": "Line 7"
+        },
+        {
+          "words": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55
+          ],
+          "quote": "The darkest evening of the year",
+          "label": "Line 8"
+        },
+        {
+          "words": [
+            83,
+            84,
+            85,
+            86,
+            87,
+            88
+          ],
+          "quote": "woods are lovely, dark and deep",
+          "label": "Line 13"
+        }
+      ],
+      "limit": "",
+      "method": {
+        "name": "Assistant close reading · descriptive component",
+        "description": "Read each setting description in context. Mark explicit visual properties and locations. Keep symbolic interpretations separate from what the scene directly describes."
+      },
+      "sources": [],
+      "inventoryIds": [
+        "17.01",
+        "17.02"
+      ],
+      "applicationState": "supported",
+      "recordIds": [
+        "H06"
+      ]
+    },
+    {
+      "id": "I07",
+      "title": "Horse perspective and the broader anthropomorphism label",
+      "kind": "interpretation",
+      "labels": [
+        {
+          "name": "Anthropomorphism",
+          "scope": ""
+        }
+      ],
+      "summary": "The speaker imagines the horse evaluating the unusual stop and questioning it. Anthropomorphism is a reasonable broader literary label for that presentation, but thinking or finding a situation unfamiliar is not by itself an exclusively human capacity.",
+      "spans": [
+        {
+          "words": [
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37
+          ],
+          "quote": "My little horse must think it queer",
+          "label": "Line 5"
+        },
+        {
+          "words": [
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69
+          ],
+          "quote": "To ask if there is some mistake",
+          "label": "Line 10"
+        }
+      ],
+      "limit": "The inventory’s confirmed anthropomorphism procedure applies to AI-related claims. This is a literary interpretation, not a successful application of that scoped procedure.",
+      "method": {
+        "name": "Assistant close reading · competing interpretations retained",
+        "description": "Identify the narrator’s inferred horse viewpoint. Use the attributed question as stronger support than think alone. Keep the separate AI-specific research protocol out of this animal example."
+      },
+      "sources": [
+        "source-2"
+      ],
+      "inventoryIds": [
+        "10.03"
+      ],
+      "applicationState": "interpretive",
+      "recordIds": [
+        "I07"
+      ]
+    },
+    {
+      "id": "H02",
+      "title": "Epistemic inference: must think",
+      "kind": "reviewed",
+      "labels": [
+        {
+          "name": "Qualification",
+          "scope": ""
+        },
+        {
+          "name": "Epistemic stance",
+          "scope": ""
+        }
+      ],
+      "summary": "Must expresses the speaker’s inference about what the horse thinks. It is an assertion with inferential rather than directly witnessed access, and it is not a command that the horse must obey.",
+      "spans": [
+        {
+          "words": [
+            33,
+            34,
+            35,
+            36,
+            37
+          ],
+          "quote": "horse must think it queer",
+          "label": "Line 5"
+        }
+      ],
+      "limit": "",
+      "method": {
+        "name": "Assistant-applied published decision steps",
+        "description": "Resolve must in its clause. Distinguish inferred belief from obligation. Record an epistemic Entertain expression and preserve the attributed horse viewpoint. Alternative reading: The strength of must is compatible with confidence; qualification here does not mean that every qualifier is weak."
+      },
+      "sources": [
+        "source-3"
+      ],
+      "inventoryIds": [
+        "25.16"
+      ],
+      "applicationState": "supported",
+      "recordIds": [
+        "H02"
+      ]
+    },
+    {
+      "id": "I08",
+      "title": "Possible mood-setting, not established pathetic fallacy",
+      "kind": "interpretation",
+      "labels": [
+        {
+          "name": "Pathetic fallacy",
+          "scope": ""
+        }
+      ],
+      "summary": "The scene can feel peaceful, ominous or inviting. The speaker, surroundings and descriptive qualities are present, but the poem does not explicitly name an emotion that is projected into the weather or woods. An emotion-mirroring reading needs that extra interpretation.",
+      "spans": [
+        {
+          "words": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55
+          ],
+          "quote": "The darkest evening of the year",
+          "label": "Line 8"
+        },
+        {
+          "words": [
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88
+          ],
+          "quote": "Of easy wind and downy flake. / The woods are lovely, dark and deep",
+          "label": "Lines 12, 13"
+        }
+      ],
+      "limit": "",
+      "method": {
+        "name": "Assistant close reading · competing interpretations retained",
+        "description": "Locate the experiencing entity and surroundings. Look for a stated or strongly contextually recoverable emotion. Test a specific projection or mirroring relation rather than treating all nature description as pathetic fallacy. Alternative reading: Treat the natural descriptions literally, allowing the reader’s mood response without attributing it to the wind or woods."
+      },
+      "sources": [
+        "source-2",
+        "source-11"
+      ],
+      "inventoryIds": [
+        "10.05"
+      ],
+      "applicationState": "unresolved",
+      "recordIds": [
+        "I08"
+      ]
+    },
+    {
+      "id": "H09",
+      "title": "Superlative intensity without demonstrated exaggeration",
+      "kind": "reviewed",
+      "labels": [
+        {
+          "name": "Superlative intensity",
+          "scope": ""
+        }
+      ],
+      "summary": "Darkest places the evening at an extreme of darkness. The text does not show that the description is unrealistically exaggerated, nor does it settle a calendar date.",
+      "spans": [
+        {
+          "words": [
+            51,
+            52
+          ],
+          "quote": "darkest evening",
+          "label": "Line 8"
+        }
+      ],
+      "limit": "",
+      "method": {
+        "name": "Assistant-applied published decision steps",
+        "description": "Identify the superlative form. Check for an incompatible or implausibly inflated contextual baseline. Record intensity while withholding hyperbole."
+      },
+      "sources": [
+        "source-3",
+        "source-6"
+      ],
+      "inventoryIds": [],
+      "applicationState": "supported",
+      "recordIds": [
+        "H09"
+      ]
+    },
+    {
+      "id": "H03",
+      "title": "Personification in the horse’s attributed question",
+      "kind": "reviewed",
+      "labels": [
+        {
+          "name": "Personification",
+          "scope": ""
+        }
+      ],
+      "summary": "The physical bell shake is described as asking whether the stop is a mistake. The human-style question is supplied by the speaker and is the clearest personifying construction. The poem’s word think alone would be insufficient, because thinking and reacting are not exclusively human.",
+      "spans": [
+        {
+          "words": [
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62
+          ],
+          "quote": "He gives his harness bells a shake",
+          "label": "Line 9"
+        },
+        {
+          "words": [
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69
+          ],
+          "quote": "To ask if there is some mistake",
+          "label": "Line 10"
+        }
+      ],
+      "limit": "Manual literary judgment using the inspected human/nonhuman mapping criteria. The separate AI-reporting anthropomorphism protocol was not applied to an animal.",
+      "method": {
+        "name": "Assistant-applied published decision steps",
+        "description": "Resolve He in line 9 to the horse. Separate the literal action of shaking harness bells from the purpose clause. Compare a human question with the nonhuman animal action represented as that question. Retain the narrator’s attribution rather than treating the horse’s actual mental content as observed. The inspected paper’s contextual/basic-meaning steps were applied manually to candidate words; this was not a full dictionary audit of all lexical units or an executed metaphor classifier. Alternative reading: A naturalistic reading can hear the bell shake as animal communication that the speaker paraphrases; the degree of anthropomorphism remains interpretive."
+      },
+      "sources": [
+        "source-1",
+        "source-2",
+        "source-12"
+      ],
+      "inventoryIds": [
+        "10.01"
+      ],
+      "applicationState": "supported",
+      "recordIds": [
+        "H03"
+      ]
+    },
+    {
+      "id": "H07",
+      "title": "Auditory imagery",
+      "kind": "reviewed",
+      "labels": [
+        {
+          "name": "Imagery",
+          "scope": ""
+        },
+        {
+          "name": "Auditory imagery",
+          "scope": ""
+        }
+      ],
+      "summary": "The harness bells and the sound attributed to wind and falling snow organize the heard scene. Sound’s means sound is. Naming a bell or describing a sound does not automatically make a word onomatopoeic.",
+      "spans": [
+        {
+          "words": [
+            59,
+            60,
+            61,
+            62
+          ],
+          "quote": "harness bells a shake",
+          "label": "Line 9"
+        },
+        {
+          "words": [
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81
+          ],
+          "quote": "The only other sound’s the sweep / Of easy wind and downy flake",
+          "label": "Lines 11, 12"
+        }
+      ],
+      "limit": "",
+      "method": {
+        "name": "Assistant close reading · descriptive component",
+        "description": "Identify the sound-producing action and the explicit word sound. Resolve sound’s as sound is. Annotate auditory description without substituting sound imitation or cross-sensory transfer."
+      },
+      "sources": [],
+      "inventoryIds": [
+        "17.01",
+        "17.03"
+      ],
+      "applicationState": "supported",
+      "recordIds": [
+        "H07"
+      ]
+    },
+    {
+      "id": "I06",
+      "title": "Sweep: physical movement or a brushing image",
+      "kind": "interpretation",
+      "labels": [
+        {
+          "name": "Metaphor",
+          "scope": ""
+        }
+      ],
+      "summary": "Sweep can name the movement of wind and snow directly. It can also invite the image of a broad brushing motion. The ordinary physical-motion sense remains sufficient, so metaphor is optional here. The construction does not give the wind a human emotion.",
+      "spans": [
+        {
+          "words": [
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81
+          ],
+          "quote": "sound’s the sweep / Of easy wind and downy flake",
+          "label": "Lines 11, 12"
+        }
+      ],
+      "limit": "",
+      "method": {
+        "name": "Assistant close reading · competing interpretations retained",
+        "description": "Resolve sound’s as sound is. Check ordinary movement senses of sweep and gentle/easy senses of easy. Keep the brushing analogy separate from the adequate physical reading. The inspected paper’s contextual/basic-meaning steps were applied manually to candidate words; this was not a full dictionary audit of all lexical units or an executed metaphor classifier. Alternative reading: The heard sweep is the literal motion and sound of wind through the scene."
+      },
+      "sources": [
+        "source-1",
+        "source-10",
+        "source-11"
+      ],
+      "inventoryIds": [
+        "09.01"
+      ],
+      "applicationState": "interpretive",
+      "recordIds": [
+        "I06"
+      ]
+    },
+    {
+      "id": "H04",
+      "title": "Metaphor: downy flake",
+      "kind": "reviewed",
+      "labels": [
+        {
+          "name": "Metaphor",
+          "scope": "Snow is described through resemblance to bird’s down."
+        },
+        {
+          "name": "Tactile imagery",
+          "scope": "The same adjective suggests softness; this descriptive annotation is not an executed imagery classifier."
+        }
+      ],
+      "summary": "Downy describes the snowflake by resemblance to soft, light bird’s down. The feather comparison and tactile suggestion overlap in the same phrase; they are not separate word occurrences.",
+      "spans": [
+        {
+          "words": [
+            80,
+            81
+          ],
+          "quote": "downy flake",
+          "label": "Line 12"
+        }
+      ],
+      "limit": "",
+      "method": {
+        "name": "Assistant-applied published decision steps",
+        "description": "Establish that flake refers to falling snow in context. Compare the adjective’s bird-down meaning with the contextual texture/appearance of snow. Identify a resemblance between different referents and record indirect metaphor-related wording. The inspected paper’s contextual/basic-meaning steps were applied manually to candidate words; this was not a full dictionary audit of all lexical units or an executed metaphor classifier. Alternative reading: The wording is conventional and understandable without actively picturing a bird; conventionality does not by itself erase the comparison."
+      },
+      "sources": [
+        "source-1",
+        "source-7"
+      ],
+      "inventoryIds": [
+        "09.01"
+      ],
+      "applicationState": "supported",
+      "recordIds": [
+        "H04",
+        "H08"
+      ]
+    },
+    {
+      "id": "H05",
+      "title": "Counter-expectation and the final turn",
+      "kind": "reviewed",
+      "labels": [
+        {
+          "name": "Contrast",
+          "scope": ""
+        },
+        {
+          "name": "Counter-expectation",
+          "scope": ""
+        },
+        {
+          "name": "Turn toward obligation",
+          "scope": ""
+        }
+      ],
+      "summary": "But explicitly shifts from the attractiveness of the woods to the speaker’s obligations. The contrast is secure. A broad antithesis reading is available for the contrasted ideas (I01), although the conjunction alone would not prove that label or a stricter balanced-opposites construction.",
+      "spans": [
+        {
+          "words": [
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88
+          ],
+          "quote": "The woods are lovely, dark and deep",
+          "label": "Line 13"
+        },
+        {
+          "words": [
+            89,
+            90,
+            91,
+            92,
+            93,
+            94
+          ],
+          "quote": "But I have promises to keep",
+          "label": "Line 14"
+        }
+      ],
+      "limit": "Counter-expectation is an Appraisal/discourse observation, not an additional invented entry in the 415-device inventory.",
+      "method": {
+        "name": "Assistant-applied published decision steps",
+        "description": "Locate But and the two clauses it connects. Identify the interrupted expectation that an attractive stopping place invites lingering. Record the counter-expectation without imposing a balanced opposite-word construction."
+      },
+      "sources": [
+        "source-3",
+        "source-4"
+      ],
+      "inventoryIds": [],
+      "applicationState": "supported",
+      "recordIds": [
+        "H05"
+      ]
+    },
+    {
+      "id": "I01",
+      "title": "Possible concession and broad antithesis",
+      "kind": "interpretation",
+      "labels": [
+        {
+          "name": "Concession · possible",
+          "scope": "A self-persuasion reading acknowledges attraction, then gives priority to obligations."
+        },
+        {
+          "name": "Antithesis · broad reading",
+          "scope": "Attraction and obligation can be read as contrasting ideas. Parallel form is not required by every definition; But alone would be insufficient."
+        }
+      ],
+      "summary": "The attraction of the woods and the claims of obligation can form antithesis under the broad definition covering contrasted ideas; exact parallel wording is not required. If the speaker is also read as persuading himself to continue, the beauty is an acknowledged counterconsideration and the obligations are the preferred reason, making Concession plausible. That further self-directed argument has an implicit rather than stated conclusion.",
+      "spans": [
+        {
+          "words": [
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88
+          ],
+          "quote": "The woods are lovely, dark and deep",
+          "label": "Line 13"
+        },
+        {
+          "words": [
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101
+          ],
+          "quote": "But I have promises to keep, / And miles to go before I sleep",
+          "label": "Lines 14, 15"
+        }
+      ],
+      "limit": "",
+      "method": {
+        "name": "Assistant close reading · competing interpretations retained",
+        "description": "Apply the broad contrasted-ideas definition separately from any balanced-opposite-word pattern. Choose the acknowledged attractiveness as a possible concession satellite. Choose obligation and remaining travel as a possible nucleus. Test apparent incompatibility and the preference for the nucleus. Keep the reconstructed self-directed argument conditional. Alternative reading: Read contrast/antithesis without reconstructing a persuasive argument. Read the lines as description followed by a counterstatement, retaining the attraction–obligation opposition as interpretive."
+      },
+      "sources": [
+        "source-4",
+        "source-5"
+      ],
+      "inventoryIds": [
+        "20.01",
+        "04.07"
+      ],
+      "applicationState": "interpretive",
+      "recordIds": [
+        "I01"
+      ]
+    },
+    {
+      "id": "I05",
+      "title": "Possible symbolism of the woods",
+      "kind": "interpretation",
+      "labels": [
+        {
+          "name": "Symbolism",
+          "scope": ""
+        }
+      ],
+      "summary": "The attractive woods can be read as rest, retreat or withdrawal from obligations. Their symbolic value depends on a reader’s larger interpretation; the scene does not select a single compulsory meaning.",
+      "spans": [
+        {
+          "words": [
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94
+          ],
+          "quote": "The woods are lovely, dark and deep, / But I have promises to keep",
+          "label": "Lines 13, 14"
+        }
+      ],
+      "limit": "The research inventory has a structured representation for symbolism, not a tested symbolism recognizer.",
+      "method": {
+        "name": "Assistant close reading · competing interpretations retained",
+        "description": "Identify the explicit attraction/obligation relation. Keep the concrete woods as the referent. Record suggested additional significance as interpretation rather than substituting it for the literal scene. Alternative reading: The woods are a beautiful literal stopping place with no further symbolic commitment."
+      },
+      "sources": [],
+      "inventoryIds": [
+        "09.15"
+      ],
+      "applicationState": "interpretive",
+      "recordIds": [
+        "I05"
+      ]
+    },
+    {
+      "id": "I04",
+      "title": "Possible extended journey reading",
+      "kind": "interpretation",
+      "labels": [
+        {
+          "name": "Extended metaphor",
+          "scope": ""
+        },
+        {
+          "name": "Symbolism",
+          "scope": ""
+        }
+      ],
+      "summary": "If travel is read as living and sleep as death, the obligations, remaining miles and final rest can participate in one extended mapping. On the literal reading they are simply promises, travel and sleep; the required shared target domain is supplied by the interpretation.",
+      "spans": [
+        {
+          "words": [
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108
+          ],
+          "quote": "But I have promises to keep, / And miles to go before I sleep, / And miles to go before I sleep",
+          "label": "Lines 14, 15, 16"
+        }
+      ],
+      "limit": "",
+      "method": {
+        "name": "Assistant close reading · competing interpretations retained",
+        "description": "Require multiple related expressions and one coherent source–target mapping. Test travel-to-life and sleep-to-death together. Reject the claim that repeated travel words alone establish extended metaphor. The inspected paper’s contextual/basic-meaning steps were applied manually to candidate words; this was not a full dictionary audit of all lexical units or an executed metaphor classifier. Alternative reading: A literal traveler considers actual commitments and the journey home."
+      },
+      "sources": [
+        "source-1"
+      ],
+      "inventoryIds": [
+        "09.02",
+        "09.15"
+      ],
+      "applicationState": "interpretive",
+      "recordIds": [
+        "I04"
+      ]
+    },
+    {
+      "id": "I02",
+      "title": "Possible conventional possession and retention metaphors",
+      "kind": "interpretation",
+      "labels": [
+        {
+          "name": "Metaphor",
+          "scope": ""
+        }
+      ],
+      "summary": "Have can express possessing something or bearing an obligation; keep can express physical retention or fulfilling a promise. A lexical analysis may connect these abstract uses with possession and retention. The constructions are also familiar conventional expressions, and the dictionary’s have sense groups tangible and intangible possession together. A declared lexical-unit and sense-selection policy is needed before counting these as separate metaphor-related words.",
+      "spans": [
+        {
+          "words": [
+            91,
+            92,
+            93,
+            94
+          ],
+          "quote": "have promises to keep",
+          "label": "Line 14"
+        }
+      ],
+      "limit": "",
+      "method": {
+        "name": "Assistant close reading · competing interpretations retained",
+        "description": "Compare have as physical possession with have plus a remaining obligation. Compare keep as physical retention with fulfillment of a promise. Recognize conventional collocations and the dictionary’s grouped senses. Preserve the lexical-unit and sense-selection decisions as unresolved rather than silently excluding or forcing either word. The inspected paper’s contextual/basic-meaning steps were applied manually to candidate words; this was not a full dictionary audit of all lexical units or an executed metaphor classifier. Alternative reading: A conventional metaphor analysis can mark having obligations and keeping promises. A construction-level analysis may treat the familiar have-X-to-do and keep-a-promise expressions without separately annotating both verbs."
+      },
+      "sources": [
+        "source-1",
+        "source-9",
+        "source-8"
+      ],
+      "inventoryIds": [
+        "09.01"
+      ],
+      "applicationState": "interpretive",
+      "recordIds": [
+        "I02"
+      ]
+    },
+    {
+      "id": "G01",
+      "title": "Parallel noun-plus-infinitive phrases",
+      "kind": "reviewed",
+      "labels": [
+        {
+          "name": "Parallelism",
+          "scope": "Plural noun + to + verb recurs in the selected phrases."
+        },
+        {
+          "name": "Parison · candidate only",
+          "scope": "The phrases have three words each, but different syllable counts; the published parse-tree test was not run."
+        },
+        {
+          "name": "Shared English inflection",
+          "scope": "Promises and miles are plural nouns in parallel NOUN + to + VERB constructions. Their plural sounds differ: /ɪz/ and /z/."
+        }
+      ],
+      "summary": "Promises to keep and miles to go repeat the shape plural noun + to + verb. The second construction is then repeated. This connects obligations with distance still to travel.",
+      "spans": [
+        {
+          "words": [
+            92,
+            93,
+            94
+          ],
+          "quote": "promises to keep",
+          "label": "Line 14"
+        },
+        {
+          "words": [
+            96,
+            97,
+            98
+          ],
+          "quote": "miles to go",
+          "label": "Line 15"
+        },
+        {
+          "words": [
+            103,
+            104,
+            105
+          ],
+          "quote": "miles to go",
+          "label": "Line 16"
+        }
+      ],
+      "limit": "The grammatical tags are human annotations, not parser output. These are selected phrase spans; the full final lines have different amounts of material. Exact tree comparison under the published parison phrase policy was not executed. Equal three-word spans are not automatically equal-length cola: promises to keep has five syllables in the existing reading, miles to go has three.",
+      "method": {
+        "name": "Assistant-applied grammatical or morphological review",
+        "description": "The selected occurrences come from the recorded whole-poem application. The grammatical tags are human annotations, not parser output. These are selected phrase spans; the full final lines have different amounts of material. Exact tree comparison under the published parison phrase policy was not executed. Equal three-word spans are not automatically equal-length cola: promises to keep has five syllables in the existing reading, miles to go has three. Morphology was reviewed in context: promises and miles share noun-plural inflection, but their different final rimes do not satisfy the adapted E63 sound rule. No classical case-ending pattern is imposed on this English passage."
+      },
+      "sources": [
+        "source-16",
+        "source-15",
+        "source-25"
+      ],
+      "inventoryIds": [
+        "04.01",
+        "04.03"
+      ],
+      "applicationState": "observed",
+      "recordIds": [
+        "G01"
+      ]
+    },
+    {
+      "id": "R01",
+      "title": "The complete final line is repeated immediately",
+      "kind": "combined",
+      "labels": [
+        {
+          "name": "Exact phrase repetition",
+          "scope": "All seven words repeat in immediately adjacent verse lines; final punctuation differs."
+        },
+        {
+          "name": "Anaphora",
+          "scope": "The verse-line beginnings repeat."
+        },
+        {
+          "name": "Epistrophe",
+          "scope": "The verse-line endings repeat."
+        },
+        {
+          "name": "Symploce · scoped overlap",
+          "scope": "The tested source combines repeated beginnings and endings. A definition requiring a changing middle would exclude this case."
+        },
+        {
+          "name": "Epizeuxis · phrase scope",
+          "scope": "The tested source permits adjacent phrase doubling. A single-word-only rule would not match."
+        },
+        {
+          "name": "Parallelism",
+          "scope": "Exact repetition also reproduces the grammatical structure."
+        }
+      ],
+      "summary": "All seven words of “And miles to go before I sleep” recur in the same order on the next line. A bounded comparison verifies the complete span; punctuation changes from comma to full stop.",
+      "spans": [
+        {
+          "words": [
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101
+          ],
+          "quote": "And miles to go before I sleep",
+          "label": "Line 15"
+        },
+        {
+          "words": [
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108
+          ],
+          "quote": "And miles to go before I sleep",
+          "label": "Line 16"
+        }
+      ],
+      "limit": "One repeated passage has several overlapping descriptions. Symploce and phrase-level epizeuxis depend on the chosen definition. A changed meaning of sleep is not proved by repetition.",
+      "method": {
+        "name": "Executed bounded adaptation of the researched rule",
+        "description": "Compared all adjacent complete lines after case and terminal-punctuation normalization. Independently ran the original ProseRhythmDetector functions with line and sentence units, with and without their stop filters. The full-line equality is secure; the overlap names depend on their declared units. The no-stop line-anaphora function raised IndexError on the identical ending; the separate bounded comparison verifies all seven words. Raw outputs are retained in the downloadable audit."
+      },
+      "sources": [
+        "source-14",
+        "source-15"
+      ],
+      "inventoryIds": [
+        "02.01",
+        "02.02",
+        "02.03",
+        "02.06",
+        "02.12"
+      ],
+      "applicationState": "observed",
+      "recordIds": [
+        "R01"
+      ]
+    },
+    {
+      "id": "I03",
+      "title": "Literal sleep and possible mortality symbolism",
+      "kind": "interpretation",
+      "labels": [
+        {
+          "name": "Metaphor",
+          "scope": ""
+        },
+        {
+          "name": "Symbolism",
+          "scope": ""
+        },
+        {
+          "name": "Ambiguity",
+          "scope": ""
+        }
+      ],
+      "summary": "Sleep can mean ordinary rest after the remaining journey. A reader can also connect it with death or final rest, encouraged by the dark setting and the closing repetition. The second reading is an interpretive possibility, not a meaning forced by the text or a verified detector result.",
+      "spans": [
+        {
+          "words": [
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101
+          ],
+          "quote": "And miles to go before I sleep",
+          "label": "Line 15"
+        },
+        {
+          "words": [
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108
+          ],
+          "quote": "And miles to go before I sleep",
+          "label": "Line 16"
+        }
+      ],
+      "limit": "",
+      "method": {
+        "name": "Assistant close reading · competing interpretations retained",
+        "description": "Keep the literal contextual meaning available. State the proposed rest-to-death mapping explicitly. Distinguish evidence that permits an interpretation from evidence that compels it. The inspected paper’s contextual/basic-meaning steps were applied manually to candidate words; this was not a full dictionary audit of all lexical units or an executed metaphor classifier. Alternative reading: Both occurrences mean ordinary sleep. Both occurrences carry literal and mortality associations together. A performance may shift emphasis between occurrences, but repeated wording alone proves no change of sense."
+      },
+      "sources": [
+        "source-1"
+      ],
+      "inventoryIds": [
+        "09.01",
+        "09.15",
+        "12.16"
+      ],
+      "applicationState": "interpretive",
+      "recordIds": [
+        "I03"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "source-1",
+      "url": "https://aclanthology.org/2024.lrec-main.982.pdf",
+      "label": "Metaphors in Online Religious Communication"
+    },
+    {
+      "id": "source-2",
+      "url": "https://journals.sagepub.com/doi/10.1177/09639470221106021",
+      "label": "Linking Emotions to Surroundings: A Stylistic Model of Pathetic Fallacy"
+    },
+    {
+      "id": "source-3",
+      "url": "https://link.springer.com/article/10.1007/s10579-010-9135-7",
+      "label": "Annotating expressions of Appraisal in English"
+    },
+    {
+      "id": "source-4",
+      "url": "https://www.sfu.ca/rst/01intro/definitions.html",
+      "label": "RST relation definitions"
+    },
+    {
+      "id": "source-5",
+      "url": "https://rhetoric.byu.edu/Figures/A/antithesis.htm",
+      "label": "Silva Rhetoricae: antithesis"
+    },
+    {
+      "id": "source-6",
+      "url": "https://aclanthology.org/2022.semeval-1.111.pdf",
+      "label": "SemEval-2022 Task 6: iSarcasmEval"
+    },
+    {
+      "id": "source-7",
+      "url": "https://www.merriam-webster.com/dictionary/downy",
+      "label": "Merriam-Webster: downy"
+    },
+    {
+      "id": "source-8",
+      "url": "https://www.merriam-webster.com/dictionary/keep",
+      "label": "Merriam-Webster: keep"
+    },
+    {
+      "id": "source-9",
+      "url": "https://www.merriam-webster.com/dictionary/have",
+      "label": "Merriam-Webster: have"
+    },
+    {
+      "id": "source-10",
+      "url": "https://www.merriam-webster.com/dictionary/sweep",
+      "label": "Merriam-Webster: sweep"
+    },
+    {
+      "id": "source-11",
+      "url": "https://www.merriam-webster.com/dictionary/easy",
+      "label": "Merriam-Webster: easy"
+    },
+    {
+      "id": "source-12",
+      "url": "https://www.merriam-webster.com/dictionary/ask",
+      "label": "Merriam-Webster: ask"
+    },
+    {
+      "id": "source-13",
+      "url": "https://github.com/WeningerII/CodexMusica/blob/022fb015a9c567712e873fbf63f8e19a0ae2b417/lyric-harness/quality/relations.py",
+      "label": "Codex Musica · pinned English sound rules"
+    },
+    {
+      "id": "source-14",
+      "url": "https://github.com/text-processing/prose-rhythm-detector/tree/6ca3e48612f5bc6c9df80e3d84bcad8ee46f4179",
+      "label": "ProseRhythmDetector · pinned repetition rules"
+    },
+    {
+      "id": "source-15",
+      "url": "https://github.com/priscian/rhetorica/blob/dc3367c138d266001cbd1b6a2dd5bc715c74eabd/code/RhetoricalFigure.cs",
+      "label": "Rhetorica · formal figure definitions in code"
+    },
+    {
+      "id": "source-16",
+      "url": "https://uwspace.uwaterloo.ca/bitstreams/73963787-4564-44b2-8bca-169f3abb9cc8/download",
+      "label": "University of Waterloo · rhetorical figure research"
+    },
+    {
+      "id": "source-17",
+      "url": "https://universaldependencies.org/en/dep/parataxis.html",
+      "label": "Universal Dependencies · clause relations"
+    },
+    {
+      "id": "source-18",
+      "url": "https://github.com/gwalkden/hypotaxis/tree/a5c7f3796947d1741b37f283538c27c4d291e05f",
+      "label": "Hypotaxis · published tree-query project"
+    },
+    {
+      "id": "source-19",
+      "url": "https://github.com/MongetE/JaDe/blob/76a925e81cca60a1de4e404d31f697b5876deeaf/JaDe/jade/processing.py",
+      "label": "JaDe · punctuation and syntactic processing"
+    },
+    {
+      "id": "source-20",
+      "url": "https://poets.org/glossary/alliteration",
+      "label": "Academy of American Poets · Alliteration"
+    },
+    {
+      "id": "source-21",
+      "url": "https://rhetoric.byu.edu/Figures/H/homoioteleuton.htm",
+      "label": "BYU · Homoioteleuton"
+    },
+    {
+      "id": "source-22",
+      "url": "https://rhetoric.byu.edu/Figures/H/homoioptoton.htm",
+      "label": "BYU · Homoioptoton"
+    },
+    {
+      "id": "source-23",
+      "url": "https://dictionary.cambridge.org/dictionary/english/his",
+      "label": "Cambridge · His"
+    },
+    {
+      "id": "source-24",
+      "url": "https://dictionary.cambridge.org/dictionary/english/evening",
+      "label": "Cambridge · Evening"
+    },
+    {
+      "id": "source-25",
+      "url": "https://stella.glasgow.ac.uk/grammar/unit-4-3-affixes.html",
+      "label": "University of Glasgow · English affixes"
+    },
+    {
+      "id": "source-26",
+      "url": "https://rhetoric.byu.edu/Figures/Groupings/of%20Repetition.htm",
+      "label": "rhetoric.byu.edu/Figures/Groupings/of%20Repetition.htm"
+    },
+    {
+      "id": "source-27",
+      "url": "https://link.springer.com/article/10.3758/s13423-024-02630-0",
+      "label": "link.springer.com/article/10.3758/s13423-024-02630-0"
+    },
+    {
+      "id": "source-28",
+      "url": "https://github.com/Andrea-de-Varda/iconicity-datadriven",
+      "label": "github.com/Andrea-de-Varda/iconicity-datadriven"
+    },
+    {
+      "id": "source-29",
+      "url": "https://github.com/kuehnram/ESTHER-Ontology/blob/ceec363d16f46efe1cf52ac2b69ba173d32dae9e/esther.owl",
+      "label": "github.com/kuehnram/ESTHER-Ontology/blob/ceec363d16f46efe1cf52ac2b69ba173d32dae9e/esther.owl"
+    },
+    {
+      "id": "source-30",
+      "url": "https://github.com/kyleiwaniec/ENRhOOT-Ontology/blob/e6b28b7226eb9464f96cca75302e75156182a0d5/en-rhoot.owl",
+      "label": "github.com/kyleiwaniec/ENRhOOT-Ontology/blob/e6b28b7226eb9464f96cca75302e75156182a0d5/en-rhoot.owl"
+    },
+    {
+      "id": "source-31",
+      "url": "https://journals.sagepub.com/doi/full/10.3233/AAC-170030",
+      "label": "journals.sagepub.com/doi/full/10.3233/AAC-170030"
+    },
+    {
+      "id": "source-32",
+      "url": "https://ceur-ws.org/Vol-2969/paper42-CAOS.pdf",
+      "label": "ceur-ws.org/Vol-2969/paper42-CAOS.pdf"
+    },
+    {
+      "id": "source-33",
+      "url": "https://github.com/languagetool-org/languagetool/blob/e241b381d8b622c7e8bdd8ead7e14022ea0ee3de/languagetool-language-modules/en/src/main/java/org/languagetool/rules/en/EnglishRedundancyRule.java",
+      "label": "github.com/languagetool-org/languagetool/blob/e241b381d8b622c7e8bdd8ead7e14022ea0ee3de/languagetool-language-modules/en/src/main/java/org/languagetool/rules/en/EnglishRedundancyRule.java"
+    },
+    {
+      "id": "source-34",
+      "url": "https://rhetoric.byu.edu/Figures/Groupings/Vices.htm",
+      "label": "rhetoric.byu.edu/Figures/Groupings/Vices.htm"
+    },
+    {
+      "id": "source-35",
+      "url": "https://rhetoric.byu.edu/Figures/B/bomphiologia.htm",
+      "label": "rhetoric.byu.edu/Figures/B/bomphiologia.htm"
+    },
+    {
+      "id": "source-36",
+      "url": "https://rhetoric.byu.edu/Figures/A/aschematiston.htm",
+      "label": "rhetoric.byu.edu/Figures/A/aschematiston.htm"
+    },
+    {
+      "id": "source-37",
+      "url": "https://rhetoric.byu.edu/Figures/A/acyron.htm",
+      "label": "rhetoric.byu.edu/Figures/A/acyron.htm"
+    },
+    {
+      "id": "source-38",
+      "url": "https://arxiv.org/html/2312.00100v1",
+      "label": "arxiv.org/html/2312.00100v1"
+    },
+    {
+      "id": "source-39",
+      "url": "https://uwspace.uwaterloo.ca/items/754efadc-3aa6-4793-8d5e-a911794dbc24",
+      "label": "University of Waterloo · rhetorical figure research"
+    },
+    {
+      "id": "source-40",
+      "url": "https://aclanthology.org/C16-1076/",
+      "label": "aclanthology.org/C16-1076/"
+    },
+    {
+      "id": "source-41",
+      "url": "https://aclanthology.org/C16-1076.pdf",
+      "label": "aclanthology.org/C16-1076.pdf"
+    },
+    {
+      "id": "source-42",
+      "url": "https://github.com/webis-de/argmining20-rhetorical-devices/blob/1386886fb7aec949473c7c5357e0edc0cc6bdc04/src/rhetoricDetection/SyntacticRhetoricSimpleAnnotator.java",
+      "label": "github.com/webis-de/argmining20-rhetorical-devices/blob/1386886fb7aec949473c7c5357e0edc0cc6bdc04/src/rhetoricDetection/SyntacticRhetoricSimpleAnnotator.java"
+    },
+    {
+      "id": "source-43",
+      "url": "https://aclanthology.org/2016.lilt-13.1.pdf",
+      "label": "aclanthology.org/2016.lilt-13.1.pdf"
+    },
+    {
+      "id": "source-44",
+      "url": "https://universaldependencies.org/u/dep/orphan.html",
+      "label": "Universal Dependencies · clause relations"
+    },
+    {
+      "id": "source-45",
+      "url": "https://universaldependencies.org/u/overview/enhanced-syntax.html",
+      "label": "Universal Dependencies · clause relations"
+    },
+    {
+      "id": "source-46",
+      "url": "https://universaldependencies.org/u/dep/appos.html",
+      "label": "Universal Dependencies · clause relations"
+    },
+    {
+      "id": "source-47",
+      "url": "https://universaldependencies.org/u/dep/parataxis.html",
+      "label": "Universal Dependencies · clause relations"
+    },
+    {
+      "id": "source-48",
+      "url": "https://universaldependencies.org/u/overview/specific-syntax.html",
+      "label": "Universal Dependencies · clause relations"
+    },
+    {
+      "id": "source-49",
+      "url": "https://universaldependencies.org/u/overview/complex-syntax.html",
+      "label": "Universal Dependencies · clause relations"
+    },
+    {
+      "id": "source-50",
+      "url": "https://walkden.space/Walkden_2025_Parataxis_and_hypotaxis.pdf",
+      "label": "walkden.space/Walkden_2025_Parataxis_and_hypotaxis.pdf"
+    },
+    {
+      "id": "source-51",
+      "url": "https://doi.org/10.1353/lan.2025.a978279",
+      "label": "doi.org/10.1353/lan.2025.a978279"
+    },
+    {
+      "id": "source-52",
+      "url": "https://computationalrhetoricworkshop.uwaterloo.ca/wp-content/uploads/2016/06/LassoingRhetoricWithOWLAndSWRL.pdf",
+      "label": "University of Waterloo · rhetorical figure research"
+    },
+    {
+      "id": "source-53",
+      "url": "https://aclanthology.org/W16-2409.pdf",
+      "label": "aclanthology.org/W16-2409.pdf"
+    },
+    {
+      "id": "source-54",
+      "url": "https://www.vismet.org/metcor/manual/index.php",
+      "label": "www.vismet.org/metcor/manual/index.php"
+    },
+    {
+      "id": "source-55",
+      "url": "https://aclanthology.org/W17-7403.pdf",
+      "label": "aclanthology.org/W17-7403.pdf"
+    },
+    {
+      "id": "source-56",
+      "url": "https://github.com/vene/comparison-pattern",
+      "label": "github.com/vene/comparison-pattern"
+    },
+    {
+      "id": "source-57",
+      "url": "https://vene.ro/papers.html",
+      "label": "vene.ro/papers.html"
+    },
+    {
+      "id": "source-58",
+      "url": "https://github.com/vene/comparison-pattern/blob/master/compattern/dependency/seed_patterns.py",
+      "label": "github.com/vene/comparison-pattern/blob/master/compattern/dependency/seed_patterns.py"
+    },
+    {
+      "id": "source-59",
+      "url": "https://github.com/vene/comparison-pattern/blob/master/compattern/dependency/dep_pattern.py",
+      "label": "github.com/vene/comparison-pattern/blob/master/compattern/dependency/dep_pattern.py"
+    },
+    {
+      "id": "source-60",
+      "url": "https://www.vismet.org/metcor/about.html",
+      "label": "www.vismet.org/metcor/about.html"
+    },
+    {
+      "id": "source-61",
+      "url": "https://www.vismet.org/metcor/documentation/home.html",
+      "label": "www.vismet.org/metcor/documentation/home.html"
+    },
+    {
+      "id": "source-62",
+      "url": "https://www.vismet.org/metcor/license.html",
+      "label": "www.vismet.org/metcor/license.html"
+    },
+    {
+      "id": "source-63",
+      "url": "https://aclanthology.org/2025.findings-acl.926.pdf",
+      "label": "aclanthology.org/2025.findings-acl.926.pdf"
+    },
+    {
+      "id": "source-64",
+      "url": "https://github.com/mattshardlow/Anthropomorphism_Corpus",
+      "label": "github.com/mattshardlow/Anthropomorphism_Corpus"
+    },
+    {
+      "id": "source-65",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1111/weng.12703",
+      "label": "onlinelibrary.wiley.com/doi/10.1111/weng.12703"
+    },
+    {
+      "id": "source-66",
+      "url": "https://benjamins.com/catalog/fol.22.1.04str",
+      "label": "benjamins.com/catalog/fol.22.1.04str"
+    },
+    {
+      "id": "source-67",
+      "url": "https://www.researchgate.net/publication/275719670_Synaesthesia_A_corpus-based_study_of_cross-modal_directionality",
+      "label": "www.researchgate.net/publication/275719670_Synaesthesia_A_corpus-based_study_of_cross-modal_directionality"
+    },
+    {
+      "id": "source-68",
+      "url": "https://github.com/jrrobison1/wordtangible",
+      "label": "github.com/jrrobison1/wordtangible"
+    },
+    {
+      "id": "source-69",
+      "url": "https://github.com/jrrobison1/wordtangible/blob/d2bc4319ef93b19b349b578000fea1135920a3c0/wordtangible/concrete.py",
+      "label": "github.com/jrrobison1/wordtangible/blob/d2bc4319ef93b19b349b578000fea1135920a3c0/wordtangible/concrete.py"
+    },
+    {
+      "id": "source-70",
+      "url": "https://github.com/jrrobison1/wordtangible/blob/d2bc4319ef93b19b349b578000fea1135920a3c0/wordtangible/sensory.py",
+      "label": "github.com/jrrobison1/wordtangible/blob/d2bc4319ef93b19b349b578000fea1135920a3c0/wordtangible/sensory.py"
+    },
+    {
+      "id": "source-71",
+      "url": "https://github.com/jrrobison1/wordtangible/blob/d2bc4319ef93b19b349b578000fea1135920a3c0/LICENSE",
+      "label": "github.com/jrrobison1/wordtangible/blob/d2bc4319ef93b19b349b578000fea1135920a3c0/LICENSE"
+    },
+    {
+      "id": "source-72",
+      "url": "https://github.com/jrrobison1/wordtangible/blob/d2bc4319ef93b19b349b578000fea1135920a3c0/README.md",
+      "label": "github.com/jrrobison1/wordtangible/blob/d2bc4319ef93b19b349b578000fea1135920a3c0/README.md"
+    },
+    {
+      "id": "source-73",
+      "url": "https://aclanthology.org/L02-1011.pdf",
+      "label": "aclanthology.org/L02-1011.pdf"
+    },
+    {
+      "id": "source-74",
+      "url": "https://github.com/weizh/metonym",
+      "label": "github.com/weizh/metonym"
+    },
+    {
+      "id": "source-75",
+      "url": "https://www.cs.cmu.edu/~gelern/pdfs/Metaphor.pdf",
+      "label": "www.cs.cmu.edu/~gelern/pdfs/Metaphor.pdf"
+    },
+    {
+      "id": "source-76",
+      "url": "https://github.com/weltliteratur/vossanto",
+      "label": "github.com/weltliteratur/vossanto"
+    },
+    {
+      "id": "source-77",
+      "url": "https://vossanto.weltliteratur.net/first/",
+      "label": "vossanto.weltliteratur.net/first/"
+    },
+    {
+      "id": "source-78",
+      "url": "https://aclanthology.org/D19-1647.pdf",
+      "label": "aclanthology.org/D19-1647.pdf"
+    },
+    {
+      "id": "source-79",
+      "url": "https://aclanthology.org/2020.figlang-1.20/",
+      "label": "aclanthology.org/2020.figlang-1.20/"
+    },
+    {
+      "id": "source-80",
+      "url": "https://www2.cs.arizona.edu/~riloff/resources.html",
+      "label": "www2.cs.arizona.edu/~riloff/resources.html"
+    },
+    {
+      "id": "source-81",
+      "url": "https://www2.cs.arizona.edu/~riloff/publications_chron.html",
+      "label": "www2.cs.arizona.edu/~riloff/publications_chron.html"
+    },
+    {
+      "id": "source-82",
+      "url": "http://www2.cs.arizona.edu/~riloff/code/BASILISKJava-v2.0.zip",
+      "label": "www2.cs.arizona.edu/~riloff/code/BASILISKJava-v2.0.zip"
+    },
+    {
+      "id": "source-83",
+      "url": "https://www2.cs.arizona.edu/~riloff/data-sets/Xphemisms/Xphemisms.tar.gz",
+      "label": "www2.cs.arizona.edu/~riloff/data-sets/Xphemisms/Xphemisms.tar.gz"
+    },
+    {
+      "id": "source-84",
+      "url": "https://aclanthology.org/2020.figlang-1.20.pdf",
+      "label": "aclanthology.org/2020.figlang-1.20.pdf"
+    },
+    {
+      "id": "source-85",
+      "url": "https://alt.qcri.org/semeval2017/task7/",
+      "label": "alt.qcri.org/semeval2017/task7/"
+    },
+    {
+      "id": "source-86",
+      "url": "https://alt.qcri.org/semeval2017/task7/index.php?id=data-and-resources",
+      "label": "alt.qcri.org/semeval2017/task7/index.php?id=data-and-resources"
+    },
+    {
+      "id": "source-87",
+      "url": "https://aclanthology.org/S17-2005/",
+      "label": "aclanthology.org/S17-2005/"
+    },
+    {
+      "id": "source-88",
+      "url": "https://aclanthology.org/S17-2078.pdf",
+      "label": "aclanthology.org/S17-2078.pdf"
+    },
+    {
+      "id": "source-89",
+      "url": "https://aclanthology.org/2020.findings-emnlp.138.pdf",
+      "label": "aclanthology.org/2020.findings-emnlp.138.pdf"
+    },
+    {
+      "id": "source-90",
+      "url": "https://github.com/yuvalpinter/unblend",
+      "label": "github.com/yuvalpinter/unblend"
+    },
+    {
+      "id": "source-91",
+      "url": "https://euralex.org/publications/using-social-media-to-find-english-lexical-blends/",
+      "label": "euralex.org/publications/using-social-media-to-find-english-lexical-blends/"
+    },
+    {
+      "id": "source-92",
+      "url": "https://biblio.ugent.be/publication/7106393",
+      "label": "biblio.ugent.be/publication/7106393"
+    },
+    {
+      "id": "source-93",
+      "url": "https://biblio.ugent.be/publication/7106393/file/8561076.pdf",
+      "label": "biblio.ugent.be/publication/7106393/file/8561076.pdf"
+    },
+    {
+      "id": "source-94",
+      "url": "https://github.com/Cyvhee/SemEval2018-Task3",
+      "label": "github.com/Cyvhee/SemEval2018-Task3"
+    },
+    {
+      "id": "source-95",
+      "url": "https://aclanthology.org/S18-1005/",
+      "label": "aclanthology.org/S18-1005/"
+    },
+    {
+      "id": "source-96",
+      "url": "https://aclanthology.org/D13-1066/",
+      "label": "aclanthology.org/D13-1066/"
+    },
+    {
+      "id": "source-97",
+      "url": "https://aclanthology.org/2020.semeval-1.186.pdf",
+      "label": "aclanthology.org/2020.semeval-1.186.pdf"
+    },
+    {
+      "id": "source-98",
+      "url": "https://aclanthology.org/D18-1367/",
+      "label": "aclanthology.org/D18-1367/"
+    },
+    {
+      "id": "source-99",
+      "url": "https://aclanthology.org/D18-1367.pdf",
+      "label": "aclanthology.org/D18-1367.pdf"
+    },
+    {
+      "id": "source-100",
+      "url": "https://computationalrhetoricworkshop.uwaterloo.ca/wp-content/uploads/2016/06/Automated-Annotation-and-Visualization-of-Rhetorical-Figures.pdf",
+      "label": "University of Waterloo · rhetorical figure research"
+    },
+    {
+      "id": "source-101",
+      "url": "https://investigacion.unirioja.es/documentos/62c27c08af66e27e1a0684d2/f/68640a73df88ce0e2207d60f.pdf",
+      "label": "investigacion.unirioja.es/documentos/62c27c08af66e27e1a0684d2/f/68640a73df88ce0e2207d60f.pdf"
+    },
+    {
+      "id": "source-102",
+      "url": "https://rhetoric.byu.edu/Figures/C/complexio.htm",
+      "label": "rhetoric.byu.edu/Figures/C/complexio.htm"
+    },
+    {
+      "id": "source-103",
+      "url": "https://researchportal.helsinki.fi/en/publications/three-methods-for-retrieving-proverbs-application-to-english-lang/",
+      "label": "researchportal.helsinki.fi/en/publications/three-methods-for-retrieving-proverbs-application-to-english-lang/"
+    },
+    {
+      "id": "source-104",
+      "url": "https://www.researchgate.net/publication/384355042_Three_methods_for_retrieving_proverbs_Application_to_English_language",
+      "label": "www.researchgate.net/publication/384355042_Three_methods_for_retrieving_proverbs_Application_to_English_language"
+    },
+    {
+      "id": "source-105",
+      "url": "https://github.com/koskenni/beta",
+      "label": "github.com/koskenni/beta"
+    },
+    {
+      "id": "source-106",
+      "url": "https://aclanthology.org/P15-2122.pdf",
+      "label": "aclanthology.org/P15-2122.pdf"
+    },
+    {
+      "id": "source-107",
+      "url": "https://api.repository.cam.ac.uk/server/api/core/bitstreams/9bac7924-bd33-4ea6-a42b-7ad9a27e183f/content",
+      "label": "api.repository.cam.ac.uk/server/api/core/bitstreams/9bac7924-bd33-4ea6-a42b-7ad9a27e183f/content"
+    },
+    {
+      "id": "source-108",
+      "url": "https://aclanthology.org/2020.lrec-1.282.pdf",
+      "label": "aclanthology.org/2020.lrec-1.282.pdf"
+    },
+    {
+      "id": "source-109",
+      "url": "https://aclanthology.org/W19-4012.pdf",
+      "label": "aclanthology.org/W19-4012.pdf"
+    },
+    {
+      "id": "source-110",
+      "url": "https://aclanthology.org/W19-4012/",
+      "label": "aclanthology.org/W19-4012/"
+    },
+    {
+      "id": "source-111",
+      "url": "http://ova.arg.tech",
+      "label": "ova.arg.tech"
+    },
+    {
+      "id": "source-112",
+      "url": "https://rhetoric.byu.edu/Figures/Groupings/of%20Reasoning.htm",
+      "label": "rhetoric.byu.edu/Figures/Groupings/of%20Reasoning.htm"
+    },
+    {
+      "id": "source-113",
+      "url": "https://dit.uvt.nl/",
+      "label": "dit.uvt.nl/"
+    },
+    {
+      "id": "source-114",
+      "url": "https://dit.uvt.nl/AnnoGuide.html",
+      "label": "dit.uvt.nl/AnnoGuide.html"
+    },
+    {
+      "id": "source-115",
+      "url": "https://link.springer.com/article/10.1007/s10503-024-09631-2",
+      "label": "link.springer.com/article/10.1007/s10503-024-09631-2"
+    },
+    {
+      "id": "source-116",
+      "url": "https://rhetoric.byu.edu/Figures/P/pathopoeia.htm",
+      "label": "rhetoric.byu.edu/Figures/P/pathopoeia.htm"
+    },
+    {
+      "id": "source-117",
+      "url": "https://rhetoric.byu.edu/Figures/A/adhortatio.htm",
+      "label": "rhetoric.byu.edu/Figures/A/adhortatio.htm"
+    },
+    {
+      "id": "source-118",
+      "url": "https://rhetoric.byu.edu/Figures/D/dehortatio.htm",
+      "label": "rhetoric.byu.edu/Figures/D/dehortatio.htm"
+    },
+    {
+      "id": "source-119",
+      "url": "https://rhetoric.byu.edu/Figures/A/apagoresis.htm",
+      "label": "rhetoric.byu.edu/Figures/A/apagoresis.htm"
+    },
+    {
+      "id": "source-120",
+      "url": "https://rhetfig.appspot.com/view?id=ag1zfnJoZXRmaWctaHJkchgLEhBSaGV0b3JpY2FsRmlndXJlGP_SAQw",
+      "label": "rhetfig.appspot.com/view?id=ag1zfnJoZXRmaWctaHJkchgLEhBSaGV0b3JpY2FsRmlndXJlGP_SAQw"
+    },
+    {
+      "id": "source-121",
+      "url": "https://aclanthology.org/2020.lrec-1.205/",
+      "label": "aclanthology.org/2020.lrec-1.205/"
+    },
+    {
+      "id": "source-122",
+      "url": "https://aclanthology.org/2020.lrec-1.205.pdf",
+      "label": "aclanthology.org/2020.lrec-1.205.pdf"
+    },
+    {
+      "id": "source-123",
+      "url": "https://github.com/tnhaider/poetry-emotion",
+      "label": "github.com/tnhaider/poetry-emotion"
+    },
+    {
+      "id": "source-124",
+      "url": "https://github.com/tnhaider/poetry-emotion/blob/92fcc105bed0a46649306680cd91ebe3f793b822/code/simplereader.py",
+      "label": "github.com/tnhaider/poetry-emotion/blob/92fcc105bed0a46649306680cd91ebe3f793b822/code/simplereader.py"
+    },
+    {
+      "id": "source-125",
+      "url": "https://github.com/tnhaider/poetry-emotion/blob/92fcc105bed0a46649306680cd91ebe3f793b822/tsv/poemo.english.emotion.tsv",
+      "label": "github.com/tnhaider/poetry-emotion/blob/92fcc105bed0a46649306680cd91ebe3f793b822/tsv/poemo.english.emotion.tsv"
+    },
+    {
+      "id": "source-126",
+      "url": "https://github.com/tnhaider/poetry-emotion/blob/92fcc105bed0a46649306680cd91ebe3f793b822/annotationGuidelines/Labelling_aesthetic_emotions_in_poetry_Guidelines.pdf",
+      "label": "github.com/tnhaider/poetry-emotion/blob/92fcc105bed0a46649306680cd91ebe3f793b822/annotationGuidelines/Labelling_aesthetic_emotions_in_poetry_Guidelines.pdf"
+    },
+    {
+      "id": "source-127",
+      "url": "https://rhetoric.byu.edu/Figures/P/perclusio.htm",
+      "label": "rhetoric.byu.edu/Figures/P/perclusio.htm"
+    },
+    {
+      "id": "source-128",
+      "url": "https://tei-c.org/release/doc/tei-p5-doc/en/html/VE.html",
+      "label": "tei-c.org/release/doc/tei-p5-doc/en/html/VE.html"
+    },
+    {
+      "id": "source-129",
+      "url": "https://publication-theses.unistra.fr/public/memoires/2020/FLCE/2020_monget_eulalie.pdf",
+      "label": "publication-theses.unistra.fr/public/memoires/2020/FLCE/2020_monget_eulalie.pdf"
+    },
+    {
+      "id": "source-130",
+      "url": "https://github.com/MongetE/JaDe",
+      "label": "JaDe · punctuation and syntactic processing"
+    },
+    {
+      "id": "source-131",
+      "url": "https://github.com/quadrismegistus/prosodic",
+      "label": "github.com/quadrismegistus/prosodic"
+    },
+    {
+      "id": "source-132",
+      "url": "https://github.com/quadrismegistus/prosodic/blob/07016977b449a43c866d0fb75f9f7037cad243ad/prosodic/analysis/feet.py",
+      "label": "github.com/quadrismegistus/prosodic/blob/07016977b449a43c866d0fb75f9f7037cad243ad/prosodic/analysis/feet.py"
+    },
+    {
+      "id": "source-133",
+      "url": "https://ijcai.org/proceedings/2015/175",
+      "label": "ijcai.org/proceedings/2015/175"
+    },
+    {
+      "id": "source-134",
+      "url": "https://github.com/Yomguithereal/rhetorical/blob/c9a167399563162e617b62312d7b3f672f98b5d8/src/poetry/acrostic.js",
+      "label": "github.com/Yomguithereal/rhetorical/blob/c9a167399563162e617b62312d7b3f672f98b5d8/src/poetry/acrostic.js"
+    },
+    {
+      "id": "source-135",
+      "url": "https://aclanthology.org/2025.findings-naacl.414/",
+      "label": "aclanthology.org/2025.findings-naacl.414/"
+    },
+    {
+      "id": "source-136",
+      "url": "https://github.com/acrostics/acrostic-sleuth/tree/10c90b04bcf20a6442c85f1d8f4f709c3ba6870b",
+      "label": "github.com/acrostics/acrostic-sleuth/tree/10c90b04bcf20a6442c85f1d8f4f709c3ba6870b"
+    },
+    {
+      "id": "source-137",
+      "url": "https://aclanthology.org/2025.findings-naacl.414.pdf",
+      "label": "aclanthology.org/2025.findings-naacl.414.pdf"
+    },
+    {
+      "id": "source-138",
+      "url": "https://github.com/Yomguithereal/rhetorical/tree/c9a167399563162e617b62312d7b3f672f98b5d8",
+      "label": "github.com/Yomguithereal/rhetorical/tree/c9a167399563162e617b62312d7b3f672f98b5d8"
+    },
+    {
+      "id": "source-139",
+      "url": "https://github.com/TheAlgorithms/Rust/blob/fed66cb0c74c4a939ec5163648458a8c2b46fd4c/src/string/pangram.rs",
+      "label": "github.com/TheAlgorithms/Rust/blob/fed66cb0c74c4a939ec5163648458a8c2b46fd4c/src/string/pangram.rs"
+    },
+    {
+      "id": "source-140",
+      "url": "https://aclanthology.org/W17-5102.pdf",
+      "label": "aclanthology.org/W17-5102.pdf"
+    },
+    {
+      "id": "source-141",
+      "url": "https://aclanthology.org/W17-5102/",
+      "label": "aclanthology.org/W17-5102/"
+    },
+    {
+      "id": "source-142",
+      "url": "https://newethos.org/resources/",
+      "label": "newethos.org/resources/"
+    },
+    {
+      "id": "source-143",
+      "url": "https://www.sfu.ca/~mtaboada/appraisal.html",
+      "label": "www.sfu.ca/~mtaboada/appraisal.html"
+    },
+    {
+      "id": "source-144",
+      "url": "https://aclanthology.org/C16-1324.pdf",
+      "label": "aclanthology.org/C16-1324.pdf"
+    },
+    {
+      "id": "source-145",
+      "url": "https://aclanthology.org/2023.findings-emnlp.551.pdf",
+      "label": "aclanthology.org/2023.findings-emnlp.551.pdf"
+    },
+    {
+      "id": "source-146",
+      "url": "https://link.springer.com/article/10.1007/s10503-020-09519-x",
+      "label": "link.springer.com/article/10.1007/s10503-020-09519-x"
+    },
+    {
+      "id": "source-147",
+      "url": "https://discovery.dundee.ac.uk/ws/files/49200545/Visser2020_Article_AnnotatingArgumentSchemes.pdf",
+      "label": "discovery.dundee.ac.uk/ws/files/49200545/Visser2020_Article_AnnotatingArgumentSchemes.pdf"
+    },
+    {
+      "id": "source-148",
+      "url": "https://github.com/patricker/argumentation/tree/7d60264acbd34c5e1b3547d9980aadf34fba32d8/crates/argumentation-schemes/src/catalog",
+      "label": "github.com/patricker/argumentation/tree/7d60264acbd34c5e1b3547d9980aadf34fba32d8/crates/argumentation-schemes/src/catalog"
+    },
+    {
+      "id": "source-149",
+      "url": "https://argumentation.dev/concepts/walton-schemes/",
+      "label": "argumentation.dev/concepts/walton-schemes/"
+    },
+    {
+      "id": "source-150",
+      "url": "https://aclanthology.org/P16-1030.pdf",
+      "label": "aclanthology.org/P16-1030.pdf"
+    },
+    {
+      "id": "source-151",
+      "url": "https://hrashkin.github.io/connframe.html",
+      "label": "hrashkin.github.io/connframe.html"
+    },
+    {
+      "id": "source-152",
+      "url": "https://github.com/maartensap/riveter-nlp/blob/eef4f12472816563a825d5bb32012e5c0f058191/riveter/riveter.py",
+      "label": "github.com/maartensap/riveter-nlp/blob/eef4f12472816563a825d5bb32012e5c0f058191/riveter/riveter.py"
+    },
+    {
+      "id": "source-153",
+      "url": "https://github.com/maartensap/riveter-nlp",
+      "label": "github.com/maartensap/riveter-nlp"
+    }
+  ],
+  "lineNotes": {
+    "1": "The ownership clause is prominent; “I think” qualifies “I know”. This is an embedded ownership clause, not a standalone question. Whose / His share /h…z/ with different vowels.",
+    "2": "The owner’s house is placed in the village. “Though” signals a qualification or counter-expectation; the house is not automatically a metonym for its owner. His / house share initial /h/.",
+    "3": "The speaker predicts that the owner will not see the stop. Negation here is not automatically litotes. He / see / me rhyme within this line; will / fill links lines 3–4.",
+    "4": "Watching snow accumulate provides visual imagery. Its wider symbolism remains optional. Watch / woods / with share /w/.",
+    "5": "“Must think” marks an inference about the horse. The wider passage permits anthropomorphic interpretation; thought alone does not prove it.",
+    "6": "The absent farmhouse makes the stopping place unusual within the imagined horse perspective. No rhetorical contrast formula is forced by absence alone.",
+    "7": "Two landmarks locate the scene. They do not by themselves stand for a larger whole as a merism would. The sentence continues into its time phrase on line 8.",
+    "8": "“Darkest” is a superlative. Exaggeration, a specific calendar date and emotional projection remain unproved.",
+    "9": "The horse shakes the bells: a physical action with auditory imagery. Line 10 supplies the personifying interpretation of its purpose. He / his / harness share /h/.",
+    "10": "The speaker turns the bell shake into a question about a mistake. It is an indirect attributed question, not automatically a rhetorical question.",
+    "11": "“Sound’s” means “sound is”. The statement describes what is heard; sweep can be ordinary movement or invite a brushing analogy. Sound’s / sweep share first /s/, although the strict complete-onset rule differs.",
+    "12": "“Downy flake” combines a feather-based metaphor and tactile imagery. “Easy wind” does not by itself give the wind a human emotion.",
+    "13": "The three compatible qualities make the woods attractive and deep/dark. They do not form an oxymoron. Lovely, dark and deep form a three-part description; dark / deep share /d/.",
+    "14": "“But” turns from attraction to obligation. Broad antithesis fits that contrasted-ideas reading; concession additionally requires a possible self-reasoning analysis. Balanced opposing wording is not required by every antithesis definition. Promises to keep / miles to go repeat a grammatical shape and noun-plural inflection, although their final sounds differ.",
+    "15": "Remaining travel and sleep have a complete literal reading. Life-journey and mortality associations are alternatives. Line-unit anaphora and epistrophe overlap with the exact final-line repetition.",
+    "16": "The line repeats exactly apart from final punctuation. Emphasis, resolve or weariness are possible effects; a changed meaning of sleep is not proved. Phrase-level epizeuxis and formal symploce are definition-sensitive overlapping descriptions."
+  },
+  "globalNotes": [
+    "Rhetorical readings",
+    "All 16 lines and 108 occurrences were reviewed. Rhetoric cards link exact words to code checks, assistant-applied manual review, or interpretations.",
+    "The final line repeats as a complete seven-word span. Line-unit anaphora and epistrophe overlap; symploce and phrase-level epizeuxis depend on the stated definition.",
+    "The horse’s attributed question is the strongest personifying construction. Downy flake supports a feather-based metaphor and tactile imagery.",
+    "But marks a clear contrast. Broad antithesis and concession remain possible readings of the attraction–obligation relation, with their conditions stated.",
+    "Literal travel and sleep remain available alongside life-journey and mortality interpretations. The poem does not narrate an actual departure.",
+    "The new application record distinguishes observed evidence, scoped no-matches, partial/interpretive work, outside-scope methods, and methods not run. It does not claim 415 working automatic detectors."
+  ],
+  "reviewedLabels": [
+    {
+      "label": "Automatic antithesis from But alone",
+      "quote": "The woods are lovely dark and deep But I have promises to keep",
+      "reason": "A balanced opposing-word construction is not demonstrated. The attraction–obligation contrast can still satisfy the broader contrasted-ideas definition of antithesis.",
+      "sources": []
+    },
+    {
+      "label": "Hyperbole from darkest or only",
+      "quote": "darkest … only",
+      "reason": "No unrealistic exaggeration is established by the context.",
+      "sources": []
+    },
+    {
+      "label": "Understatement / meiosis",
+      "quote": "little … some mistake",
+      "reason": "Little can describe size; some mistake lacks an independently established larger severity that is being reduced.",
+      "sources": []
+    },
+    {
+      "label": "Oxymoron in lovely, dark and deep",
+      "quote": "lovely dark … deep",
+      "reason": "Beauty, darkness and depth can coexist; the phrase does not supply a contradiction.",
+      "sources": []
+    },
+    {
+      "label": "Synesthesia from combined sound and texture",
+      "quote": "The only other sound's the sweep Of easy wind and downy flake",
+      "reason": "Sound arises from moving physical things; downy describes the flake, not a tactile quality transferred directly to sound.",
+      "sources": []
+    },
+    {
+      "label": "Rhetorical question from Whose or ask if",
+      "quote": "Whose woods these are … To ask if there is some mistake",
+      "reason": "These are an embedded ownership clause and an indirect question, not a standalone rhetorical-question speech act.",
+      "sources": []
+    },
+    {
+      "label": "Merism in woods and frozen lake",
+      "quote": "woods and frozen lake",
+      "reason": "The pair identifies two landmarks; no larger whole beyond the named items is represented by them.",
+      "sources": []
+    },
+    {
+      "label": "Onomatopoeia from bells or sweep",
+      "quote": "bells … sweep",
+      "reason": "Naming a sound source or movement does not establish imitation of the associated sound.",
+      "sources": []
+    },
+    {
+      "label": "Antanaclasis from the two occurrences of sleep",
+      "quote": "sleep … sleep",
+      "reason": "The repeated word need not change meaning; interpretive change is possible but not proved by repetition.",
+      "sources": []
+    },
+    {
+      "label": "Pathos from an evocative scene alone",
+      "quote": "The only other sound's the sweep Of easy wind and downy flake The woods are lovely dark and deep But I have promises to keep And miles to go before I sleep And miles to go befor…",
+      "reason": "The descriptive effect does not provide an identified emotional premise in an explicit persuasive argument.",
+      "sources": []
+    },
+    {
+      "label": "Litotes from not see or without a farmhouse",
+      "quote": "will not see … without a farmhouse",
+      "reason": "These negate seeing and the presence of a farmhouse; they do not affirm a proposition by denying its contrary.",
+      "sources": []
+    },
+    {
+      "label": "Polysyndeton from every and in the final sentence",
+      "quote": "lovely, dark and deep … And miles … And miles",
+      "reason": "The original repetition function combines conjunctions at different grammatical levels. The adjective-list conjunction and repeated line-opening conjunctions do not automatically constitute one excessive series. The raw candidate remains available for inspection.",
+      "sources": [
+        "source-14"
+      ]
+    },
+    {
+      "label": "Homeoteleuton inferred from an affix guess",
+      "quote": "His … promises; stopping … evening; only … lovely",
+      "reason": "These words share audible endings, which remain visible in the sound analysis. The original affix heuristic does not verify their grammatical roles or the adjacent/parallel placement required by the revised figure check. His is not hi plus -s; evening is a noun here; only/lovely has a derivational history, not shared grammatical inflection. All five original occurrence-pair results are retained in the refinement audit.",
+      "sources": [
+        "source-13",
+        "source-21",
+        "source-22",
+        "source-23",
+        "source-24"
+      ]
+    }
+  ],
+  "coverage": {
+    "inventoryTotal": 415,
+    "methodEntries": 91,
+    "researchOnlyEntries": 324,
+    "entries": [
+      {
+        "id": "01.01",
+        "name": "Alliteration",
+        "status": "observed",
+        "mode": "existing whole-onset rule + executed first-consonant adaptation",
+        "note": "All 5,778 pairs checked in each pronunciation mode. A1 has 235 first-consonant pairs, including all 147 unchanged E9 whole-onset pairs, 37 other distinct-word pairs and 51 repeated-word pairs. Local witnesses are displayed; remote sound agreement alone is not a claim of rhetorical prominence.",
+        "sources": [
+          "source-13",
+          "source-20"
+        ],
+        "findingIds": [
+          "S01",
+          "S01b"
+        ]
+      },
+      {
+        "id": "01.02",
+        "name": "Assonance",
+        "status": "observed",
+        "mode": "existing code",
+        "note": "Reran pinned CodexMusica plus the existing audited English contract on all 5778 occurrence pairs, in annotated and all-dictionary modes; retained positive-evidence assonance witnesses.",
+        "sources": [
+          "source-13"
+        ],
+        "findingIds": [
+          "S02"
+        ]
+      },
+      {
+        "id": "01.03",
+        "name": "Consonance",
+        "status": "observed",
+        "mode": "existing code",
+        "note": "Reran pinned CodexMusica plus the existing audited English contract on all 5778 occurrence pairs, in annotated and all-dictionary modes; retained positive-evidence coda consonance witnesses.",
+        "sources": [
+          "source-13"
+        ],
+        "findingIds": [
+          "S03"
+        ]
+      },
+      {
+        "id": "01.04",
+        "name": "Paroemion",
+        "status": "checked_no_match",
+        "mode": "this run adaptation",
+        "note": "Computed the source-declared nonempty onset fraction for every line; all 16 fractions are below 0.8. Annotated selected pronunciation; onset_fraction rule reimplemented transparently in this-run adapter, not native full figure grader.",
+        "sources": [
+          "source-13",
+          "source-26"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "01.06",
+        "name": "Homoioteleuton (homoeoteleuton, homeoteleuton)",
+        "status": "observed",
+        "mode": "executed ending adaptation + reviewed placement",
+        "note": "All 5,778 pairs checked in each mode; 34 pairs have matching final vowel and coda plus a declared adjacent/parallel position. The original five affix-heuristic positives are archived, with sound labels retained. Morphological identity is not inferred from a spelling suffix.",
+        "sources": [
+          "source-13",
+          "source-21",
+          "source-22",
+          "source-23",
+          "source-24"
+        ],
+        "findingIds": [
+          "S06"
+        ]
+      },
+      {
+        "id": "01.08",
+        "name": "Onomatopoeia",
+        "status": "checked_no_match",
+        "mode": "assistant applied human procedure",
+        "note": "No clear lexical imitator identified; bells names a source and sweep need not imitate its sound. Human lexical identification, not a ready poem-wide automatic recognizer; acoustic resemblance scores alone are insufficient.",
+        "sources": [
+          "source-27",
+          "source-28",
+          "source-29",
+          "source-30"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "01.12",
+        "name": "Rhyme",
+        "status": "observed",
+        "mode": "existing code",
+        "note": "Reran pinned CodexMusica plus the existing audited English contract on all 5778 occurrence pairs, in annotated and all-dictionary modes; retained positive-evidence rhyme witnesses.",
+        "sources": [
+          "source-13"
+        ],
+        "findingIds": [
+          "S04"
+        ]
+      },
+      {
+        "id": "02.01",
+        "name": "Anaphora",
+        "status": "observed",
+        "mode": "existing code and this run adaptation",
+        "note": "Executed PRD on all lines and all six sentences, with default and empty stop filters. Verified the full repeated line with bounded comparison. Line-unit label; native no-stop line anaphora raises IndexError at the final duplicated lines.",
+        "sources": [
+          "source-15",
+          "source-14"
+        ],
+        "findingIds": [
+          "R01"
+        ]
+      },
+      {
+        "id": "02.02",
+        "name": "Epistrophe / epiphora",
+        "status": "observed",
+        "mode": "existing code",
+        "note": "Executed PRD epiphora in both unit modes and stop policies; line ends sleep / sleep match. Verse-line units, not two independent sentences.",
+        "sources": [
+          "source-15",
+          "source-14"
+        ],
+        "findingIds": [
+          "R01"
+        ]
+      },
+      {
+        "id": "02.03",
+        "name": "Symploce",
+        "status": "interpretation_component",
+        "mode": "existing code",
+        "note": "Executed PRD combined anaphora/epiphora rule; it emits a line-unit symploce for the duplicate ending. No variable middle. This is not unqualified symploce under narrower definitions.",
+        "sources": [
+          "source-15",
+          "source-14"
+        ],
+        "findingIds": [
+          "R01"
+        ]
+      },
+      {
+        "id": "02.04",
+        "name": "Anadiplosis",
+        "status": "checked_no_match",
+        "mode": "existing code",
+        "note": "Executed PRD anadiplosis on the whole poem with line and sentence units and both stop policies; all four outputs are empty. Scoped to the native boundary rule.",
+        "sources": [
+          "source-15",
+          "source-14"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "02.05",
+        "name": "Epanalepsis",
+        "status": "checked_no_match",
+        "mode": "existing code",
+        "note": "Executed PRD epanalepsis on the whole poem with line and sentence units and both stop policies; all four outputs are empty. Scoped to the native boundary rule.",
+        "sources": [
+          "source-15",
+          "source-14"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "02.06",
+        "name": "Epizeuxis",
+        "status": "observed",
+        "mode": "existing code and this run adaptation",
+        "note": "Executed PRD phrase-capable epizeuxis; no-stop runs find final-line doubling. Bounded adapter verifies all 14 occurrences. Also checked all 107 adjacent word pairs: no single-word doubling. Observed under phrase-inclusive source rule; strict single-word definition has no match. Native output context can extend one index past poem end; exact witness tokens were separately validated.",
+        "sources": [
+          "source-15",
+          "source-14"
+        ],
+        "findingIds": [
+          "R01"
+        ]
+      },
+      {
+        "id": "02.08",
+        "name": "Diacope",
+        "status": "interpretation_component",
+        "mode": "existing code",
+        "note": "Executed PRD diacope in all four modes and reviewed raw outputs. I think I and repeated final-line content words are formal matches. Function-word matches and constituents of complete line repetition do not automatically establish a separate emphatic device.",
+        "sources": [
+          "source-14"
+        ],
+        "findingIds": [
+          "R03",
+          "R01"
+        ]
+      },
+      {
+        "id": "02.11",
+        "name": "Ploce",
+        "status": "observed",
+        "mode": "this run adaptation",
+        "note": "Enumerated all exact word recurrences and source-inspired content-word recurrence within two-sentence windows. This-run exact lexical adapter. Rhetorica’s full tokenizer, stoplist and subsequence engine were not executed; rhetorical emphasis is not classified.",
+        "sources": [
+          "source-15",
+          "source-26",
+          "source-30",
+          "source-29",
+          "source-31"
+        ],
+        "findingIds": [
+          "R02"
+        ]
+      },
+      {
+        "id": "02.12",
+        "name": "Conduplicatio",
+        "status": "interpretation_component",
+        "mode": "this run adaptation",
+        "note": "Applied explicitly bounded 2–8 token, two-sentence, nonadjacent repeated-phrase enumeration; retained raw candidates from the final repetition. The complete repeated lines are adjacent, so fail the source nonadjacency condition. Shorter subphrases can pass but are contained in the primary line repetition. Native Rhetorica was not executed.",
+        "sources": [
+          "source-15",
+          "source-26",
+          "source-29",
+          "source-32"
+        ],
+        "findingIds": [
+          "R01"
+        ]
+      },
+      {
+        "id": "02.14",
+        "name": "Polyptoton",
+        "status": "observed",
+        "mode": "manual rule application",
+        "note": "Reviewed word forms throughout poem; manually checked stop/stopping and dark/darkest and anchored both occurrence pairs. An inflection-inclusive sense is applied. Rhetorica WordNet derivational-family lookup was not executed.",
+        "sources": [
+          "source-15"
+        ],
+        "findingIds": [
+          "R04"
+        ]
+      },
+      {
+        "id": "03.07",
+        "name": "Pleonasm",
+        "status": "not_executed",
+        "mode": "not executed",
+        "note": "Did not execute the LanguageTool English redundancy phrase rule. A finite source phrase list was researched; complete configured Java/runtime execution is unavailable here. No poem-wide absence claim.",
+        "sources": [
+          "source-33",
+          "source-34",
+          "source-35",
+          "source-36",
+          "source-37",
+          "source-29"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "04.01",
+        "name": "Parallelism",
+        "status": "observed",
+        "mode": "manual rule application",
+        "note": "Manually compared promises to keep and miles to go; both have plural-noun + infinitival-clause form. Exact repeated final line supplies additional trivial parallelism. The external parser-based algorithm was not executed.",
+        "sources": [
+          "source-38",
+          "source-29",
+          "source-30",
+          "source-39",
+          "source-16",
+          "source-40",
+          "source-41"
+        ],
+        "findingIds": [
+          "G01"
+        ]
+      },
+      {
+        "id": "04.02",
+        "name": "Isocolon",
+        "status": "interpretation_component",
+        "mode": "manual rule application",
+        "note": "Compared the three-word noun-infinitive phrases and the identical final lines. Three-word phrases differ in syllabic length (five versus three); exact duplicated lines do not independently establish an equal-cola construction. Rhetorica/Webis isocolon routines were not executed.",
+        "sources": [
+          "source-15"
+        ],
+        "findingIds": [
+          "G01",
+          "R01"
+        ]
+      },
+      {
+        "id": "04.03",
+        "name": "Parison",
+        "status": "interpretation_component",
+        "mode": "manual rule application",
+        "note": "Supplied manually reviewed grammatical shape for the two parallel noun-infinitive phrases. The published full phrase-policy/constituent-tree algorithm was not run; this is supporting syntactic analysis, not a claim of native Parison detection.",
+        "sources": [
+          "source-15",
+          "source-38",
+          "source-39",
+          "source-16"
+        ],
+        "findingIds": [
+          "G01"
+        ]
+      },
+      {
+        "id": "04.04",
+        "name": "Bicolon",
+        "status": "interpretation_component",
+        "mode": "manual rule application",
+        "note": "Reviewed the two final repeated units and the parallel noun-infinitive phrases. A broad two-part description is available; the Webis two-isocolon branch was not executed and equal independent cola were not established.",
+        "sources": [
+          "source-42"
+        ],
+        "findingIds": [
+          "R01",
+          "G01"
+        ]
+      },
+      {
+        "id": "04.05",
+        "name": "Tricolon",
+        "status": "checked_no_match",
+        "mode": "manual rule application",
+        "note": "Manually reviewed every sentence for the researched equal-structure three-colon construction; none established. Lovely, dark and deep is a three-adjective list, not three equal clauses. A loose three-part-list use of tricolon remains a possible terminology choice; the Webis branch was not executed.",
+        "sources": [
+          "source-42"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "04.06",
+        "name": "Tetracolon",
+        "status": "checked_no_match",
+        "mode": "manual rule application",
+        "note": "Manually reviewed every sentence for the researched equal-structure four-colon construction; none established. A quatrain is not automatically tetracolon. The Webis branch was not executed.",
+        "sources": [
+          "source-42"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "04.09",
+        "name": "Chiasmus",
+        "status": "checked_no_match",
+        "mode": "existing code and manual rule application",
+        "note": "Executed PRD’s lexical chiasmus candidate rule in all four modes (no outputs), then manually reviewed clause/phrase structure for grammatical reversal. The PRD rule is a lexical candidate routine, not proof of broad grammatical coverage; Rhetorica structural chiasmus was not run. No local grammatical ABBA structure was established.",
+        "sources": [
+          "source-15",
+          "source-14"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "04.10",
+        "name": "Antimetabole",
+        "status": "checked_no_match",
+        "mode": "this run adaptation",
+        "note": "Enumerated strict one-sentence content-word ABBA candidates over all six sentences; no candidate survives. Declared one-word A/B units and local stoplist. This does not exhaust multiword or conceptual reversal; native Rhetorica not run.",
+        "sources": [
+          "source-15"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "06.01",
+        "name": "Ellipsis",
+        "status": "interpretation_component",
+        "mode": "manual rule application",
+        "note": "Reviewed the ending’s shared I have construction and sound’s contraction. Shared-verb noun-phrase coordination and sound is contraction do not by themselves establish the researched VP-ellipsis subtype. ViPER was not available; broader literary omission remains open.",
+        "sources": [
+          "source-43",
+          "source-44",
+          "source-45",
+          "source-29",
+          "source-30"
+        ],
+        "findingIds": [
+          "G01"
+        ]
+      },
+      {
+        "id": "06.04",
+        "name": "Polysyndeton",
+        "status": "interpretation_component",
+        "mode": "existing code and manual rule application",
+        "note": "Executed PRD polysyndeton. Sentence mode emits and in L13, L15, L16; manual scope review separates adjective and noun-phrase coordination. The raw mixed-level match is not presented as proven excessive same-level conjunction repetition. Repeated And at final line openings belongs to the exact doubling.",
+        "sources": [
+          "source-15",
+          "source-14"
+        ],
+        "findingIds": [
+          "R01"
+        ]
+      },
+      {
+        "id": "06.12",
+        "name": "Apposition",
+        "status": "checked_no_match",
+        "mode": "manual rule application",
+        "note": "Applied the reviewed apposition diagnostics manually throughout the poem; no co-referring noun-phrase apposition established. The darkest evening of the year is a temporal adjunct, not a renaming of frozen lake. No parser run.",
+        "sources": [
+          "source-46"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "07.13",
+        "name": "Parataxis",
+        "status": "observed",
+        "mode": "manual rule application",
+        "note": "Applied the juxtaposed independent-clause diagnostic to the L2 semicolon and L3–4 clause. Manual structural reading, not an automatic UD parse.",
+        "sources": [
+          "source-47",
+          "source-48"
+        ],
+        "findingIds": [
+          "G02"
+        ]
+      },
+      {
+        "id": "07.14",
+        "name": "Hypotaxis",
+        "status": "observed",
+        "mode": "manual rule application",
+        "note": "Identified finite before-clauses, the embedded if-question, and nonfinite dependent purpose/extraposed clauses with exact spans. Manual structural annotation. CorpusSearch requires trees and was not executed.",
+        "sources": [
+          "source-49",
+          "source-50",
+          "source-51",
+          "source-18"
+        ],
+        "findingIds": [
+          "G03"
+        ]
+      },
+      {
+        "id": "08.06",
+        "name": "Syncope",
+        "status": "not_executed",
+        "mode": "not executed",
+        "note": "No LaROS lexical lookup was run. The published method depends on a finite prelisted cut-form lexicon; the complete English list and runnable implementation were not recovered. No absence claim follows.",
+        "sources": [
+          "source-52",
+          "source-53",
+          "source-29",
+          "source-30"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "08.07",
+        "name": "Apocope",
+        "status": "not_executed",
+        "mode": "not executed",
+        "note": "No LaROS lexical lookup was run. The published method depends on a finite prelisted cut-form lexicon; the complete English list and runnable implementation were not recovered. No absence claim follows.",
+        "sources": [
+          "source-52",
+          "source-53",
+          "source-29",
+          "source-30"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "09.01",
+        "name": "Metaphor",
+        "status": "observed",
+        "mode": "assistant applied human procedure",
+        "note": "Downy flake supplies a feather-to-snow resemblance; keep and sweep remain lexical/interpretive alternatives. This is not a complete lexicographic audit of every function word. Explicit contextual/basic-meaning human procedure. MetaNet supplies additional code, but this row qualifies on the verified procedure.",
+        "sources": [
+          "source-54"
+        ],
+        "findingIds": [
+          "H04",
+          "I02",
+          "I03",
+          "I06"
+        ]
+      },
+      {
+        "id": "09.02",
+        "name": "Extended metaphor",
+        "status": "interpretation_component",
+        "mode": "assistant applied partial human procedure",
+        "note": "Life-as-journey requires an optional mortality reading; literal travel alone does not establish the mapping. Human protocol confirmed; the paper’s transformer experiments are outside this recommendation.",
+        "sources": [
+          "source-1"
+        ],
+        "findingIds": [
+          "I04"
+        ]
+      },
+      {
+        "id": "09.08",
+        "name": "Simile",
+        "status": "checked_no_match",
+        "mode": "assistant applied human procedure",
+        "note": "No clear explicit simile construction. Downy is a metaphorical adjective, not an overt comparison clause. Human judgments are required; the existing parser matcher alone also retrieves literal comparisons.",
+        "sources": [
+          "source-55",
+          "source-56",
+          "source-57",
+          "source-58",
+          "source-59",
+          "source-29",
+          "source-30"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "10.01",
+        "name": "Personification",
+        "status": "observed",
+        "mode": "assistant applied human procedure",
+        "note": "The purpose clause asks a propositional question through the horse’s action; think alone is weaker evidence. Human annotation procedure for personification. Does not rely on an anthropomorphism score or a language model.",
+        "sources": [
+          "source-54"
+        ],
+        "findingIds": [
+          "H03"
+        ]
+      },
+      {
+        "id": "10.03",
+        "name": "Anthropomorphism",
+        "status": "out_of_scope",
+        "mode": "scope review only",
+        "note": "Its claims must concern AI reporting. A horse passage cannot be counted as that protocol’s successful output. English AI-reporting claims; subjective human judgment remains part of the method. The uninspected separate full guideline document is not claimed recovered, and general literary transfer is unverified.",
+        "sources": [
+          "source-1",
+          "source-60",
+          "source-61",
+          "source-54",
+          "source-62",
+          "source-30",
+          "source-63",
+          "source-64"
+        ],
+        "findingIds": [
+          "I07"
+        ]
+      },
+      {
+        "id": "10.05",
+        "name": "Pathetic fallacy",
+        "status": "interpretation_component",
+        "mode": "assistant applied partial human procedure",
+        "note": "Entity and scene are present; a specific projected emotion depends on interpretation. Entity, emotion and surroundings, followed by contextual projection/mirroring analysis. No verified complete automatic implementation.",
+        "sources": [
+          "source-2"
+        ],
+        "findingIds": [
+          "I08"
+        ]
+      },
+      {
+        "id": "10.08",
+        "name": "Reification",
+        "status": "out_of_scope",
+        "mode": "scope review only",
+        "note": "The confirmed war/corruption study does not provide a validated general poem reification procedure; abstract promises do not by themselves establish reification. Topic-limited human annotation; no general automatic reification detector verified.",
+        "sources": [
+          "source-65"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "10.09",
+        "name": "Synesthesia / synaesthesia",
+        "status": "checked_no_match",
+        "mode": "assistant applied human procedure",
+        "note": "No clear cross-sensory transfer after rejecting physical texture and sound-source co-occurrence; no dependency pipeline was executed. Dictionary polysemy and literal co-occurrence require manual rejection; executable source was not verified.",
+        "sources": [
+          "source-66",
+          "source-67",
+          "source-68",
+          "source-69",
+          "source-70",
+          "source-71",
+          "source-72",
+          "source-30"
+        ],
+        "findingIds": [
+          "H07",
+          "H08"
+        ]
+      },
+      {
+        "id": "11.01",
+        "name": "Metonymy",
+        "status": "out_of_scope",
+        "mode": "scope review only",
+        "note": "Woods, village and lake are ordinary nouns here, not the named locations covered by the annotation protocol. Location-name subset; no claim of all metonymy or a ready trained Java detector.",
+        "sources": [
+          "source-73",
+          "source-74",
+          "source-75",
+          "source-29",
+          "source-30"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "11.04",
+        "name": "Antonomasia",
+        "status": "not_executed",
+        "mode": "not executed",
+        "note": "No obvious the-X-of-Y antonomasia candidate; inspected code is not an executed negative result. Subtype-limited legacy Python2 code; source inspected but not executed.",
+        "sources": [
+          "source-76",
+          "source-77",
+          "source-78",
+          "source-29",
+          "source-30"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "11.09",
+        "name": "Euphemism",
+        "status": "out_of_scope",
+        "mode": "scope review only",
+        "note": "The verified firing/lying/stealing phrase classifier does not evaluate this poem’s possible death/rest interpretation. Topic-relative phrase classification on three evaluated topics; not a contextual judgment for every occurrence in poetry.",
+        "sources": [
+          "source-79",
+          "source-80",
+          "source-81",
+          "source-82",
+          "source-83",
+          "source-29",
+          "source-30",
+          "source-84"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "11.10",
+        "name": "Dysphemism",
+        "status": "out_of_scope",
+        "mode": "scope review only",
+        "note": "The verified firing/lying/stealing phrase classifier does not evaluate this poem’s possible death/rest interpretation. Same three-topic phrase-classification scope; harsh sentiment alone is not established as a universal dysphemism test.",
+        "sources": [
+          "source-79",
+          "source-80",
+          "source-81",
+          "source-82",
+          "source-83",
+          "source-30",
+          "source-84"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "12.01",
+        "name": "Pun",
+        "status": "not_executed",
+        "mode": "not executed",
+        "note": "No positive claim made. Symbolic associations of sleep are not automatically a pun, and absence cannot be attributed to an unrun classifier. Type-conditioned benchmark classifiers, not one verified open-domain router.",
+        "sources": [
+          "source-85",
+          "source-86",
+          "source-87",
+          "source-88"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "12.02",
+        "name": "Homographic pun",
+        "status": "not_executed",
+        "mode": "not executed",
+        "note": "No positive claim made. Symbolic associations of sleep are not automatically a pun, and absence cannot be attributed to an unrun classifier. Detects puns in the supplied homographic task setting; no claim of deciding homographic versus heterographic type.",
+        "sources": [
+          "source-85",
+          "source-86",
+          "source-87",
+          "source-88"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "12.03",
+        "name": "Heterographic pun",
+        "status": "not_executed",
+        "mode": "not executed",
+        "note": "No positive claim made. Symbolic associations of sleep are not automatically a pun, and absence cannot be attributed to an unrun classifier. Typed dataset setting; semantic feature evidence is not itself a phonetic proof or pun interpretation.",
+        "sources": [
+          "source-85",
+          "source-86",
+          "source-87",
+          "source-88"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "12.20",
+        "name": "Portmanteau / lexical blend",
+        "status": "checked_no_match",
+        "mode": "assistant applied human procedure",
+        "note": "No clear blend candidate. Farmhouse is transparent compounding; sound’s is contraction, not blending. Annotation confirmed; transformer experiments and unreleased segmentation models are not required or promoted.",
+        "sources": [
+          "source-89",
+          "source-90",
+          "source-91"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "13.01",
+        "name": "Verbal irony",
+        "status": "checked_no_match",
+        "mode": "assistant applied human procedure",
+        "note": "No clear statement/state-of-affairs contradiction or covert reversed evaluation. This is a cautious poem adaptation of a social-media human diagnostic. Human procedure confirmed for English social media; code baseline not a validated poem detector.",
+        "sources": [
+          "source-92",
+          "source-93",
+          "source-6",
+          "source-94",
+          "source-95",
+          "source-29"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "13.03",
+        "name": "Sarcasm / sarcasmus",
+        "status": "checked_no_match",
+        "mode": "assistant applied human procedure",
+        "note": "The horse’s puzzlement is not a clear sarcastic utterance; no applicable critical-addressee configuration is established. This is one declared taxonomy; harshness/polarity-clash definitions differ, and tweets are not all literary sarcasm.",
+        "sources": [
+          "source-6",
+          "source-92",
+          "source-93",
+          "source-96",
+          "source-80",
+          "source-29",
+          "source-30"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "14.01",
+        "name": "Hyperbole",
+        "status": "checked_no_match",
+        "mode": "assistant applied human procedure",
+        "note": "No demonstrably unrealistic increase; intensity alone is insufficient. Human procedure confirmed; broad hyperbole need not be ironic or propagandistic, and no universal ready detector is claimed.",
+        "sources": [
+          "source-6",
+          "source-97",
+          "source-98",
+          "source-99",
+          "source-29",
+          "source-30"
+        ],
+        "findingIds": [
+          "H09"
+        ]
+      },
+      {
+        "id": "14.05",
+        "name": "Understatement",
+        "status": "checked_no_match",
+        "mode": "assistant applied human procedure",
+        "note": "No independently established greater magnitude or seriousness makes these clear understatements. Social-media and news settings; not a complete detector of understatement in poetry.",
+        "sources": [
+          "source-6",
+          "source-97"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "14.14",
+        "name": "Oxymoron",
+        "status": "not_executed",
+        "mode": "not executed",
+        "note": "The qualities are compatible. This manual objection must not be reported as an executed classifier result. Prototype for dependency-selected English word pairs and configured relation paths. No contextual or community-specific contradiction guarantee; no recovered runnable implementation.",
+        "sources": [
+          "source-29",
+          "source-30",
+          "source-100"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "15.10",
+        "name": "Merismus / merism",
+        "status": "checked_no_match",
+        "mode": "assistant applied human procedure",
+        "note": "Woods and frozen lake specify two features rather than a larger implied totality; no clear merism. A scoped human procedure in this cognitive account; no code, automated domain inference, or poem benchmark.",
+        "sources": [
+          "source-101"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "16.07",
+        "name": "Anacephalaeosis",
+        "status": "checked_no_match",
+        "mode": "assistant applied human procedure",
+        "note": "No briefer restatement of a larger multi-unit span. Repeating the final line is not a condensed recap. Recapitulation sense: a shorter span restates the content of a larger multi-unit span. Does not adopt the conflicting symploce sense from an ambiguous terminology record.",
+        "sources": [
+          "source-4"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "16.08",
+        "name": "Complexio, concluding sense",
+        "status": "checked_no_match",
+        "mode": "assistant applied human procedure",
+        "note": "The ending repeats one line; it does not summarize the larger preceding description in briefer form. Requires a concluding recap as a human scope check; RST Summary supplies the recap relation but not conclusion position. Excludes symploce/coenotes.",
+        "sources": [
+          "source-102",
+          "source-4"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "16.15",
+        "name": "Proverb / adage / paroemia",
+        "status": "not_executed",
+        "mode": "not executed",
+        "note": "A familiar or memorable final line is not thereby an occurrence of a pre-existing proverb. A known-expression retrieval method; the full 680-rule file and complete analysis pipeline were not obtained, and novel/paraphrased sayings remain outside scope.",
+        "sources": [
+          "source-103",
+          "source-104",
+          "source-105"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "18.01",
+        "name": "Rhetorical question / erotema / erotesis / interrogatio",
+        "status": "not_executed",
+        "mode": "not executed",
+        "note": "No standalone interrogative speech act is supplied by those embedded clauses; no classifier-derived absence claim. Existence of a researched method is confirmed; modest conversation-domain F1 and absent runnable artifact prevent a claim of ready poem analysis.",
+        "sources": [
+          "source-106",
+          "source-29",
+          "source-30"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "19.01",
+        "name": "Enthymeme",
+        "status": "out_of_scope",
+        "mode": "scope review only",
+        "note": "No let-alone argument; broad implicit self-reasoning lies outside the confirmed construction-limited protocol. Confirmed for let-alone scalar arguments; broader enthymemes still need work.",
+        "sources": [
+          "source-107",
+          "source-108"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "19.05",
+        "name": "Contrarium",
+        "status": "out_of_scope",
+        "mode": "scope review only",
+        "note": "The literal narrated scene supplies no explicit contrary-case inference or example-to-generalization argument for ASK classification. Scoped to the contrary-case argument sense; not every juxtaposed opposition.",
+        "sources": [
+          "source-109",
+          "source-110",
+          "source-111",
+          "source-112"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "19.17",
+        "name": "Exemplum / paradigma",
+        "status": "out_of_scope",
+        "mode": "scope review only",
+        "note": "The literal narrated scene supplies no explicit contrary-case inference or example-to-generalization argument for ASK classification. Illustrative narratives without argumentative generalization need additional handling.",
+        "sources": [
+          "source-109",
+          "source-110",
+          "source-111",
+          "source-4",
+          "source-29",
+          "source-30"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "20.01",
+        "name": "Paromologia / concessio",
+        "status": "interpretation_component",
+        "mode": "assistant applied partial human procedure",
+        "note": "Plausible if the stanza is self-directed justification; its conclusion and argumentative force are reconstructed. Scoped to an acknowledged contrary point supporting a preferred claim.",
+        "sources": [
+          "source-4",
+          "source-112"
+        ],
+        "findingIds": [
+          "I01"
+        ]
+      },
+      {
+        "id": "21.02",
+        "name": "Dehortatio",
+        "status": "out_of_scope",
+        "mode": "scope review only",
+        "note": "No supplied persuasive premise–conclusion map or danger/emotional appeal is established; evocative narration is insufficient. Human identification of consequence-based dissuasion in supplied argument maps; broader dehortatio remains uncovered.",
+        "sources": [
+          "source-113",
+          "source-114",
+          "source-4",
+          "source-115",
+          "source-116",
+          "source-117",
+          "source-118",
+          "source-119"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "21.03",
+        "name": "Apagoresis",
+        "status": "out_of_scope",
+        "mode": "scope review only",
+        "note": "No supplied persuasive premise–conclusion map or danger/emotional appeal is established; evocative narration is insufficient. Human classification of mapped, consequence-based inhibitions; no general prohibition detector or evidence of persuasive success.",
+        "sources": [
+          "source-113",
+          "source-114",
+          "source-4",
+          "source-115",
+          "source-116",
+          "source-117",
+          "source-118",
+          "source-119"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "21.08",
+        "name": "Pathopoeia",
+        "status": "out_of_scope",
+        "mode": "scope review only",
+        "note": "No supplied persuasive premise–conclusion map or danger/emotional appeal is established; evocative narration is insufficient. Argumentative attempts at pathopoeia in supplied maps; not proof of actual audience response or the narrower self-display subtype.",
+        "sources": [
+          "source-120",
+          "source-116",
+          "source-121",
+          "source-122",
+          "source-123",
+          "source-124",
+          "source-125",
+          "source-126",
+          "source-115",
+          "source-117",
+          "source-118",
+          "source-119"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "21.12",
+        "name": "Perclusio",
+        "status": "checked_no_match",
+        "mode": "assistant applied human procedure",
+        "note": "No speaker-committed threat of harm toward an addressee appears in the poem. Scoped to speaker-committed harmful action toward an addressee; other threat forms remain open.",
+        "sources": [
+          "source-113",
+          "source-114",
+          "source-127"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "23.03",
+        "name": "Enjambment",
+        "status": "observed",
+        "mode": "existing code component and manual rule application",
+        "note": "Executed the unchanged JaDe punctuation gate on every line, then manually reviewed each candidate’s actual grammar; all 15 boundaries have punctuation/grammar/pause fields. Upstream POS/dependency classifier was not run. Strong and loose continuation are distinguished; no performed-pause claim.",
+        "sources": [
+          "source-128",
+          "source-129",
+          "source-130"
+        ],
+        "findingIds": [
+          "G04"
+        ]
+      },
+      {
+        "id": "23.07",
+        "name": "Rhythmic patterning",
+        "status": "interpretation_component",
+        "mode": "this run adaptation",
+        "note": "Counted vowels in the preserved pronunciation realization at every line; retained the existing editorial metrical grid. This is syllable-count/input verification. Prosodic automated scansion was not executed; it is not a new metrical analysis.",
+        "sources": [
+          "source-131",
+          "source-132",
+          "source-128"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "23.08",
+        "name": "Metrical variation",
+        "status": "not_executed",
+        "mode": "not executed",
+        "note": "Preserved the existing editorial pronunciation and metrical alternatives without rerunning Prosodic. The external scansion runtime/model dependencies are unavailable. This run does not claim exhaustive performance alternatives.",
+        "sources": [
+          "source-131",
+          "source-132",
+          "source-128"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "23.12",
+        "name": "Situational irony",
+        "status": "checked_no_match",
+        "mode": "assistant applied human procedure",
+        "note": "An unusual stopping place or imagined horse puzzlement is not a demonstrated ironic reversal. English short-text human decisions, not complete event/world-knowledge automation.",
+        "sources": [
+          "source-92",
+          "source-93"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "23.15",
+        "name": "Satire",
+        "status": "checked_no_match",
+        "mode": "assistant applied human procedure",
+        "note": "No clear mocking support or target of satire. News-source classifiers were not run. Sentence-level ironic satire and news-source satire are restricted senses, not all literary satire.",
+        "sources": [
+          "source-6",
+          "source-133"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "24.01",
+        "name": "Acrostic",
+        "status": "interpretation_component",
+        "mode": "this run adaptation",
+        "note": "Extracted all 16 line initials as WHHTMTBTHTTOTBAA. AcrosticSleuth meaningfulness ranking and English resources were not executed. Initial extraction alone is not an acrostic finding.",
+        "sources": [
+          "source-134",
+          "source-29",
+          "source-30",
+          "source-135",
+          "source-136",
+          "source-137"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "24.05",
+        "name": "Anagram",
+        "status": "checked_no_match",
+        "mode": "this run adaptation",
+        "note": "Compared exact normalized letter multisets for all 5778 word-occurrence pairs, excluding identical spellings; no nontrivial distinct-word anagram pair. Scope is complete individual words, not every arbitrary phrase/subsequence in the poem. Source-predicate adaptation, not the upstream JavaScript package.",
+        "sources": [
+          "source-138"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "24.06",
+        "name": "Palindrome",
+        "status": "checked_no_match",
+        "mode": "this run adaptation",
+        "note": "Checked every whole word of at least two letters, all full lines, and the full poem for normalized reversal equality; no match. One-letter I and a are deliberately excluded as trivial. Arbitrary cross-word substrings are not exhaustively enumerated. Source-predicate adaptation.",
+        "sources": [
+          "source-138"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "24.07",
+        "name": "Lipogram",
+        "status": "interpretation_component",
+        "mode": "this run adaptation",
+        "note": "Computed the exact absent ASCII-letter set for the whole poem, excluding title: j, x. A physical letter omission is established; there is no evidence it was an intended lipogram. New set-comparison implementation, not upstream Rust execution.",
+        "sources": [
+          "source-139"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "24.08",
+        "name": "Pangram",
+        "status": "checked_no_match",
+        "mode": "this run adaptation",
+        "note": "Computed the whole-poem ASCII-letter set; missing j, x means it is not a pangram. Case-folded a–z, punctuation ignored, title excluded. New exact-predicate implementation.",
+        "sources": [
+          "source-139"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "25.01",
+        "name": "Ethos",
+        "status": "out_of_scope",
+        "mode": "scope review only",
+        "note": "No explicit persuasive premise segmentation; a possible self-reasoning reading is insufficient to silently assign ethos/pathos/logos. Confirmed in argumentative English discussions; not all literary uses.",
+        "sources": [
+          "source-140",
+          "source-141",
+          "source-142"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "25.02",
+        "name": "Pathos",
+        "status": "out_of_scope",
+        "mode": "scope review only",
+        "note": "No explicit persuasive premise segmentation; a possible self-reasoning reading is insufficient to silently assign ethos/pathos/logos. Confirmed in argumentative English discussions; not all literary uses.",
+        "sources": [
+          "source-140",
+          "source-141"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "25.03",
+        "name": "Logos",
+        "status": "out_of_scope",
+        "mode": "scope review only",
+        "note": "No explicit persuasive premise segmentation; a possible self-reasoning reading is insufficient to silently assign ethos/pathos/logos. Confirmed in argumentative English discussions; not all literary uses.",
+        "sources": [
+          "source-140",
+          "source-141"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "25.05",
+        "name": "Common-ground appeal",
+        "status": "out_of_scope",
+        "mode": "scope review only",
+        "note": "Promises may suggest a familiar duty, but no explicit public-knowledge premise is supplied; the editorial common-ground protocol is not transferred silently. General public-knowledge or self-evident propositions used in English editorial argumentation. Class Fleiss kappa is 0.114; private shared beliefs and claims merely presented as common knowledge need additional treatment.",
+        "sources": [
+          "source-3",
+          "source-143",
+          "source-109",
+          "source-110",
+          "source-111",
+          "source-144",
+          "source-145"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "25.06",
+        "name": "Appeal to authority",
+        "status": "out_of_scope",
+        "mode": "scope review only",
+        "note": "No authority/testimony/example/definition/causal/analogical/inductive argument of the required type is explicitly established. Narrative sequence or description alone is insufficient. Authority must support a claim, not merely be named.",
+        "sources": [
+          "source-109",
+          "source-110",
+          "source-111",
+          "source-146",
+          "source-147",
+          "source-148",
+          "source-149"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "25.07",
+        "name": "Testimonial appeal",
+        "status": "out_of_scope",
+        "mode": "scope review only",
+        "note": "No authority/testimony/example/definition/causal/analogical/inductive argument of the required type is explicitly established. Narrative sequence or description alone is insufficient. Witness testimony is a scoped testimonial form, not every endorsement.",
+        "sources": [
+          "source-109",
+          "source-110",
+          "source-111",
+          "source-146",
+          "source-147",
+          "source-148",
+          "source-149"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "25.08",
+        "name": "Exemplification",
+        "status": "out_of_scope",
+        "mode": "scope review only",
+        "note": "No authority/testimony/example/definition/causal/analogical/inductive argument of the required type is explicitly established. Narrative sequence or description alone is insufficient. Nonargumentative illustrations remain outside the confirmed scope.",
+        "sources": [
+          "source-109",
+          "source-110",
+          "source-111",
+          "source-146",
+          "source-147"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "25.09",
+        "name": "Definition",
+        "status": "out_of_scope",
+        "mode": "scope review only",
+        "note": "No authority/testimony/example/definition/causal/analogical/inductive argument of the required type is explicitly established. Narrative sequence or description alone is insufficient. Scoped to argumentative uses of definition.",
+        "sources": [
+          "source-109",
+          "source-110",
+          "source-111",
+          "source-146",
+          "source-147"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "25.11",
+        "name": "Cause-and-effect reasoning",
+        "status": "out_of_scope",
+        "mode": "scope review only",
+        "note": "No authority/testimony/example/definition/causal/analogical/inductive argument of the required type is explicitly established. Narrative sequence or description alone is insufficient. Requires reconstruction of the relevant premise/conclusion.",
+        "sources": [
+          "source-109",
+          "source-110",
+          "source-111",
+          "source-146",
+          "source-147",
+          "source-148",
+          "source-149"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "25.12",
+        "name": "Analogical reasoning",
+        "status": "out_of_scope",
+        "mode": "scope review only",
+        "note": "No authority/testimony/example/definition/causal/analogical/inductive argument of the required type is explicitly established. Narrative sequence or description alone is insufficient. Literal or poetic comparison without argumentative force is outside scope.",
+        "sources": [
+          "source-109",
+          "source-110",
+          "source-111",
+          "source-146",
+          "source-147",
+          "source-148",
+          "source-149"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "25.14",
+        "name": "Induction",
+        "status": "out_of_scope",
+        "mode": "scope review only",
+        "note": "No authority/testimony/example/definition/causal/analogical/inductive argument of the required type is explicitly established. Narrative sequence or description alone is insufficient. This is a scoped inductive form, not a general induction detector.",
+        "sources": [
+          "source-109",
+          "source-110",
+          "source-111",
+          "source-146",
+          "source-147"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "25.16",
+        "name": "Qualification",
+        "status": "observed",
+        "mode": "assistant applied human procedure",
+        "note": "I think qualifies knowing; must think marks inferential access to the horse’s supposed perspective. Scoped to epistemic/category-strength qualification; not every limiting exception.",
+        "sources": [
+          "source-3",
+          "source-143",
+          "source-113",
+          "source-114"
+        ],
+        "findingIds": [
+          "H01",
+          "H02"
+        ]
+      },
+      {
+        "id": "25.17",
+        "name": "Loaded diction / slanted language",
+        "status": "out_of_scope",
+        "mode": "scope review only",
+        "note": "Lovely and queer express evaluations; polarity alone cannot establish the scoped loaded-language category. News-domain criterion includes audience influence; polarity alone is insufficient.",
+        "sources": [
+          "source-97"
+        ],
+        "findingIds": []
+      },
+      {
+        "id": "25.18",
+        "name": "Connotation",
+        "status": "not_executed",
+        "mode": "not executed",
+        "note": "The participant/predicate protocol may apply to have/keep promises or give a shake; its actual frame analysis was not performed. Broader death/rest/woods symbolism remains outside what generic subject–verb–object connotation frames establish. Scoped to participant/predicate connotations; full literary associations remain open.",
+        "sources": [
+          "source-150",
+          "source-151",
+          "source-152",
+          "source-153"
+        ],
+        "findingIds": []
+      }
+    ],
+    "summary": "Code ran where the inputs and dependencies allowed it. Manual review means I applied the stated procedure; it is not independent human validation. Grammar, morphology and meaning judgments are identified separately from software output. The full poem was read, but there was no complete dictionary audit of every lexical unit."
+  },
+  "auditFiles": {
+    "structural": "structural-audit.json",
+    "nativeRepetition": "native-repetition-results.json",
+    "scopeRefinement": "scope-refinement-audit.json"
+  },
+  "soundVerification": {
+    "annotatedPositivePairs": 946,
+    "dictionaryUnionPositivePairs": 1277,
+    "originalAnnotatedPositivePairs": 911,
+    "originalDictionaryUnionPositivePairs": 1248,
+    "comparisonPairsPerScope": 5778,
+    "preservedFeet": 64,
+    "preservedSyllables": 128
+  }
+}

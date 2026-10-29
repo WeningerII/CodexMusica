@@ -1,0 +1,539 @@
+{
+  "dimensions": [
+    4800,
+    23498
+  ],
+  "lines": [
+    {
+      "line": 1,
+      "text": "Whose woods these are I think I know.",
+      "rhyme": "A",
+      "pronunciation": [
+        "hooz",
+        "WUUDZ",
+        "dheez",
+        "AHR",
+        "eye",
+        "THINGK",
+        "eye",
+        "NOH"
+      ],
+      "joins": [],
+      "stress": "u / u / u / u /",
+      "alternatives": [
+        "F1 HOOZ wuudz (/ ˘) or HOOZ WUUDZ (/ /): foreground ownership.",
+        "F2 dheez ahr (˘ ˘) or DHEEZ ahr (/ ˘): soften “are” or emphasize “these”.",
+        "Give THINK or KNOW the chief accent: tentative knowledge or greater assurance."
+      ],
+      "P": ". at the end",
+      "G": "Sentence closes; the fronted clause ends after “are”.",
+      "V": "Flow, or pause after are ‖ before the statement of knowledge.",
+      "R": "Inversion + hedge: ownership comes first; “I think” qualifies certainty. Whose / His also share /h…z/ across the line openings.",
+      "y_top": 1577.44,
+      "y_bottom": 1886.52
+    },
+    {
+      "line": 2,
+      "text": "His house is in the village though;",
+      "rhyme": "A",
+      "pronunciation": [
+        "hiz",
+        "HOWS",
+        "iz",
+        "IN",
+        "dhuh",
+        "VIL",
+        "ij",
+        "DHOH"
+      ],
+      "joins": [
+        5
+      ],
+      "stress": "u / u / u / u /",
+      "alternatives": [
+        "F2 iz in (˘ ˘): a conversational light foot; “in” need not carry a full beat.",
+        "F1 HIZ HOWS (/ /): the owner. Give THOUGH more weight to sharpen the contrast."
+      ],
+      "P": "; at the end",
+      "G": "Main clause closes; the sentence continues through line 4.",
+      "V": "A small reset; “though” may sound like an afterthought.",
+      "R": "Alliteration: His / house share /h/. The owner is associated with the village. Whose / His: pararhyme; E5 · E7 · E9 · E10.",
+      "y_top": 1909.52,
+      "y_bottom": 2218.6000000000004
+    },
+    {
+      "line": 3,
+      "text": "He will not see me stopping here",
+      "rhyme": "B",
+      "pronunciation": [
+        "hee",
+        "WIL",
+        "naht",
+        "SEE",
+        "mee",
+        "STAH",
+        "ping",
+        "HEER"
+      ],
+      "joins": [
+        5
+      ],
+      "stress": "u / u / u / u /",
+      "alternatives": [
+        "F1–2 hee wil | NAHT SEE (˘ ˘ | / /), or hee wil | NAHT see (˘ ˘ | / ˘).",
+        "F3 MEE STAH- (/ /): emphasize who would be seen; HERE can stress the place."
+      ],
+      "P": "no end mark",
+      "G": "Line 4 adds the purpose of stopping →",
+      "V": "Carry into To watch, or briefly suspend after here.",
+      "R": "Internal rhyme: He / see / me share EE. will / fill links lines 3–4.",
+      "y_top": 2241.6000000000004,
+      "y_bottom": 2508.5600000000004
+    },
+    {
+      "line": 4,
+      "text": "To watch his woods fill up with snow.",
+      "rhyme": "A",
+      "pronunciation": [
+        "tuh",
+        "WAHCH",
+        "hiz",
+        "WUUDZ",
+        "fil",
+        "UP",
+        "widh",
+        "SNOH"
+      ],
+      "joins": [],
+      "stress": "u / u / u / u /",
+      "alternatives": [
+        "F3 FIL UP (/ /) or FIL up (/ ˘): weight the filling as well as, or more than, “up”.",
+        "F2 HIZ wuudz (/ ˘) recalls ownership; WATCH foregrounds the act of looking."
+      ],
+      "P": ". at the end",
+      "G": "Purpose phrase and sentence close.",
+      "V": "Close the thought; stanza silence has no fixed duration.",
+      "R": "Alliteration: watch / woods, /w/. Snow filling the woods supplies visual imagery.",
+      "y_top": 2531.5600000000004,
+      "y_bottom": 2798.5200000000004
+    },
+    {
+      "line": 5,
+      "text": "My little horse must think it queer",
+      "rhyme": "B",
+      "pronunciation": [
+        "meye",
+        "LIT",
+        "uhl",
+        "HORS",
+        "must",
+        "THINGK",
+        "it",
+        "KWEER"
+      ],
+      "joins": [
+        1
+      ],
+      "stress": "u / u / u / u /",
+      "alternatives": [
+        "F3 MUST THINGK (/ /): strengthen the speaker’s inference about the horse.",
+        "F1 MEYE LIT- (/ /): personal attachment. The lexical stress stays on LIT-."
+      ],
+      "P": "no end mark",
+      "G": "“It” is explained by the following “To stop…” →",
+      "V": "Flow onward, or briefly suspend the horse’s imagined judgment.",
+      "R": "Anthropomorphism: the speaker attributes “think it queer” to the horse.",
+      "y_top": 3069.5200000000004,
+      "y_bottom": 3336.4800000000005
+    },
+    {
+      "line": 6,
+      "text": "To stop without a farmhouse near",
+      "rhyme": "B",
+      "pronunciation": [
+        "tuh",
+        "STAHP",
+        "widh",
+        "OWT",
+        "uh",
+        "FAHRM",
+        "hows",
+        "NEER"
+      ],
+      "joins": [
+        2,
+        5
+      ],
+      "stress": "u / u / u / u /",
+      "alternatives": [
+        "Same scan; emphasize STOP, with-OUT, FARM-house or NEAR.",
+        "The focus becomes the unusual stop, lack of shelter, human habitation or proximity."
+      ],
+      "P": "no end mark",
+      "G": "The stopping gains circumstances; location follows →",
+      "V": "Flow into Between, or lightly separate the added setting.",
+      "R": "Contrast develops: an expected farmhouse is absent from this stopping place.",
+      "y_top": 3359.4800000000005,
+      "y_bottom": 3638.8000000000006
+    },
+    {
+      "line": 7,
+      "text": "Between the woods and frozen lake",
+      "rhyme": "C",
+      "pronunciation": [
+        "bi",
+        "TWEEN",
+        "dhuh",
+        "WUUDZ",
+        "uhnd",
+        "FROH",
+        "zuhn",
+        "LAYK"
+      ],
+      "joins": [
+        0,
+        5
+      ],
+      "stress": "u / u / u / u /",
+      "alternatives": [
+        "Same scan; weight WOODS and LAKE equally to balance the two boundaries.",
+        "Or give FRO-zen the chief accent, foregrounding the condition of the landscape."
+      ],
+      "P": "no end mark",
+      "G": "The place phrase ends; the time phrase follows →",
+      "V": "Possible caesura after woods ‖; a small reset before line 8.",
+      "R": "Spatial and visual imagery: woods / frozen lake place the speaker between landmarks.",
+      "y_top": 3661.8000000000006,
+      "y_bottom": 3941.120000000001
+    },
+    {
+      "line": 8,
+      "text": "The darkest evening of the year.",
+      "rhyme": "B",
+      "pronunciation": [
+        "dhuh",
+        "DAHRK",
+        "ist",
+        "EEV",
+        "ning",
+        "uhv",
+        "dhuh",
+        "YEER"
+      ],
+      "joins": [
+        1,
+        3
+      ],
+      "stress": "u / u / u u u /",
+      "alternatives": [
+        "F3 ning uhv (˘ ˘) is natural speech; ning UV (˘ /) gives “of” a light metrical lift.",
+        "Keep EEV-ning at two syllables. The expected third beat can remain lightly voiced."
+      ],
+      "P": ". at the end",
+      "G": "Time phrase and the four-line sentence close.",
+      "V": "Close or linger on year. Do not add a syllable to evening.",
+      "R": "Superlative: “darkest” intensifies the setting; it does not by itself establish hyperbole.",
+      "y_top": 3964.120000000001,
+      "y_bottom": 4231.08
+    },
+    {
+      "line": 9,
+      "text": "He gives his harness bells a shake",
+      "rhyme": "C",
+      "pronunciation": [
+        "hee",
+        "GIVZ",
+        "hiz",
+        "HAHR",
+        "nuhs",
+        "BELZ",
+        "uh",
+        "SHAYK"
+      ],
+      "joins": [
+        3
+      ],
+      "stress": "u / u / u / u /",
+      "alternatives": [
+        "F1 HEE givz (/ ˘): foreground the horse as the acting subject.",
+        "Or let hee givz (˘ ˘) pass lightly, with BELLS and SHAKE carrying the action."
+      ],
+      "P": "no end mark",
+      "G": "Main-clause core; the attributed purpose follows →",
+      "V": "Flow into To ask, or briefly let the bell action register.",
+      "R": "Auditory imagery: harness bells interrupt the scene. he / his / harness echo /h/.",
+      "y_top": 4502.08,
+      "y_bottom": 4781.4000000000015
+    },
+    {
+      "line": 10,
+      "text": "To ask if there is some mistake.",
+      "rhyme": "C",
+      "pronunciation": [
+        "tuh",
+        "ASK",
+        "if",
+        "DHAIR",
+        "iz",
+        "SUM",
+        "mis",
+        "TAYK"
+      ],
+      "joins": [
+        6
+      ],
+      "stress": "u / u / u / u /",
+      "alternatives": [
+        "F2–3 if dhair | iz suhm (˘ ˘ | ˘ ˘): conversationally light between ASK and TAKE.",
+        "SOME can imply an unspecified error; F3 IZ suhm (/ ˘) asks whether one exists."
+      ],
+      "P": ". at the end",
+      "G": "The purpose and indirect question close the sentence.",
+      "V": "A completed thought; no direct question mark is printed.",
+      "R": "Personification: “To ask” turns the bell shake into a practical objection.",
+      "y_top": 4804.4000000000015,
+      "y_bottom": 5083.720000000003
+    },
+    {
+      "line": 11,
+      "text": "The only other sound’s the sweep",
+      "rhyme": "D",
+      "pronunciation": [
+        "dhee",
+        "OHN",
+        "lee",
+        "UDH",
+        "er",
+        "SOWNDZ",
+        "dhuh",
+        "SWEEP"
+      ],
+      "joins": [
+        1,
+        3
+      ],
+      "stress": "u / u / u / u /",
+      "alternatives": [
+        "Same scan; emphasize ON-ly for exclusion, OTH-er for contrast, or SWEEP for motion.",
+        "sound’s = sound is, contracted to one syllable: SOWNDZ."
+      ],
+      "P": "apostrophe in sound’s; no end mark",
+      "G": "“sweep / Of…” continues one noun phrase →",
+      "V": "Carry sweep into Of; a suspension must preserve their link.",
+      "R": "Alliteration + sibilance: sound’s / sweep repeat /s/; /z/ adds a voiced hiss.",
+      "y_top": 5106.720000000003,
+      "y_bottom": 5373.680000000002
+    },
+    {
+      "line": 12,
+      "text": "Of easy wind and downy flake.",
+      "rhyme": "C",
+      "pronunciation": [
+        "uhv",
+        "EE",
+        "zee",
+        "WIND",
+        "uhnd",
+        "DOW",
+        "nee",
+        "FLAYK"
+      ],
+      "joins": [
+        1,
+        5
+      ],
+      "stress": "u / u / u / u /",
+      "alternatives": [
+        "Same scan; weight WIND and FLAKE to identify the sources of the sound.",
+        "Or weight EA-sy and DOWN-y to foreground gentleness and softness."
+      ],
+      "P": ". at the end",
+      "G": "The Of-phrase and sentence close.",
+      "V": "A gentle or distinct close; whispering is a reader’s choice.",
+      "R": "Metaphorical, tactile imagery: “downy” likens the flake’s softness to down feathers.",
+      "y_top": 5396.680000000002,
+      "y_bottom": 5663.640000000001
+    },
+    {
+      "line": 13,
+      "text": "The woods are lovely, dark and deep,",
+      "rhyme": "D",
+      "pronunciation": [
+        "dhuh",
+        "WUUDZ",
+        "er",
+        "LUV",
+        "lee",
+        "DAHRK",
+        "uhnd",
+        "DEEP"
+      ],
+      "joins": [
+        3
+      ],
+      "stress": "u / u / u / u /",
+      "alternatives": [
+        "Same scan; let LOVE-ly govern the description, with “dark and deep” elaborating it.",
+        "Or give all three adjectives comparable force. A pause after lovely falls inside F3."
+      ],
+      "P": "commas after lovely and deep",
+      "G": "Description ends; But introduces a counterstatement →",
+      "V": "lovely ‖ dark is optional; the endpoint pause may be light or strong.",
+      "R": "Three-part description: lovely, dark, deep; dark / deep alliterate on /d/.",
+      "y_top": 5934.640000000001,
+      "y_bottom": 6213.960000000003
+    },
+    {
+      "line": 14,
+      "text": "But I have promises to keep,",
+      "rhyme": "D",
+      "pronunciation": [
+        "but",
+        "EYE",
+        "hav",
+        "PRAH",
+        "mi",
+        "siz",
+        "tuh",
+        "KEEP"
+      ],
+      "joins": [
+        3,
+        4
+      ],
+      "stress": "u / u / u u u /",
+      "alternatives": [
+        "F1 BUT eye (/ ˘) sharpens the turn; BUT EYE (/ /) also foregrounds the speaker.",
+        "F2 HAV PRAH- (/ /) stresses obligation. Keep F3 mi-siz light (˘ ˘).",
+        "A four-beat recitation can preserve timing without moving the stress off PRAH-."
+      ],
+      "P": ", at the end",
+      "G": "“I have” also governs the following “miles…” phrases →",
+      "V": "Light pause, or continue to let obligations accumulate.",
+      "R": "Turn / antithesis at But. Parallel noun + infinitive: promises to keep / miles to go.",
+      "y_top": 6236.960000000003,
+      "y_bottom": 6541.4000000000015
+    },
+    {
+      "line": 15,
+      "text": "And miles to go before I sleep,",
+      "rhyme": "D",
+      "pronunciation": [
+        "uhnd",
+        "MEYELZ",
+        "tuh",
+        "GOH",
+        "bi",
+        "FOR",
+        "eye",
+        "SLEEP"
+      ],
+      "joins": [
+        4
+      ],
+      "stress": "u / u / u / u /",
+      "alternatives": [
+        "Same scan; MILES / GO / be-FORE / SLEEP shift the focus: distance / action / order / rest.",
+        "F1 AND MEYELZ (/ /) adds insistence; AND is the full form of weak uhnd."
+      ],
+      "P": ", at the end",
+      "G": "The miles-phrase ends and is immediately repeated →",
+      "V": "Optional pause after go ‖; a short or long gap before line 16.",
+      "R": "Anaphoric opening + repeated ending begin the final pair. go recalls rhyme family A.",
+      "y_top": 6564.4000000000015,
+      "y_bottom": 6843.720000000003
+    },
+    {
+      "line": 16,
+      "text": "And miles to go before I sleep.",
+      "rhyme": "D",
+      "pronunciation": [
+        "uhnd",
+        "MEYELZ",
+        "tuh",
+        "GOH",
+        "bi",
+        "FOR",
+        "eye",
+        "SLEEP"
+      ],
+      "joins": [
+        4
+      ],
+      "stress": "u / u / u / u /",
+      "alternatives": [
+        "Keep the same scan, or choose any of line 15’s emphasis variants.",
+        "Renewed resolve, weary repetition, plain restatement or reflective slowing are possible."
+      ],
+      "P": ". at the end",
+      "G": "Repeated phrase and the entire sentence close.",
+      "V": "Firm fall, fading weariness or reflective slowing; none is compulsory.",
+      "R": "Immediate full-line repetition (epizeuxis); identical sleep / sleep inside monorhyme.",
+      "y_top": 6866.720000000003,
+      "y_bottom": 7146.0400000000045
+    }
+  ],
+  "section_bounds": [
+    [
+      1438.44,
+      2892.5200000000004
+    ],
+    [
+      2930.5200000000004,
+      4325.08
+    ],
+    [
+      4363.08,
+      5757.640000000001
+    ],
+    [
+      5795.640000000001,
+      7240.0400000000045
+    ],
+    [
+      9723.740000000005,
+      10605.700000000008
+    ]
+  ],
+  "height": 11749,
+  "sound_map_bounds": [
+    7278.0400000000045,
+    9685.740000000005
+  ],
+  "source_commit": "022fb015a9c567712e873fbf63f8e19a0ae2b417",
+  "pair_data_sha256": "33b70181091a9919bb57d4794bedce48a8de9ad91b61d4ce8b3349db0987b2a5",
+  "occurrences": 108,
+  "pairs": 5778,
+  "displayed_pairs": 1572,
+  "displayed_category_counts": {
+    "E1": 112,
+    "E2": 1,
+    "E3": 75,
+    "E4": 975,
+    "E5": 348,
+    "E6": 0,
+    "E7": 35,
+    "E8": 75,
+    "E9": 147,
+    "E10": 1258,
+    "E11": 224,
+    "E12": 270,
+    "E13": 251,
+    "E14": 62,
+    "E15": 39,
+    "E16": 107,
+    "E17": 0,
+    "E18": 162,
+    "E19": 6,
+    "E20": 44,
+    "E21": 0,
+    "E22": 0
+  },
+  "opening_types": [
+    "E5",
+    "E7",
+    "E9",
+    "E10"
+  ],
+  "max_types_per_pair": 8
+}
