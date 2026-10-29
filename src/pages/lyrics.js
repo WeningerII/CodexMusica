@@ -2603,6 +2603,7 @@ function lyResultModel(asked, final, wholeText, title = null) {
 // What the reply itself reported, with no reference to the current draft.
 function lyRunOutcome(run) {
   if (!run) return null;
+  if (run.assessment) return { tone: 'info', word: 'Review · not certified' };
   const a = run.artifact;
   if (run.recoveryExport) return { tone: 'warning', word: 'Recovered export · not graded' };
   if (a?.certified === true && run.completion?.certified === true)
@@ -2654,7 +2655,7 @@ function lyRunChecks(model) {
   // Findings the reply reported stay; what is live (open lines, a waiting
   // question) is read only while its conversation is still the live one.
   const live = lyRunLive(run);
-  const lyric = run.lyric || {};
+  const lyric = run.assessment || run.lyric || {};
   const standing = Array.isArray(lyric.standing) ? lyric.standing : [];
   const reasonsFor = (n) => standing.filter((s) => new RegExp(`\\bL${n}\\b`).test(String(s)));
   // Suggestions: the writer's accepted lines against the draft it was given.
@@ -4275,6 +4276,7 @@ function lyAnalysis(model = LY.model) {
     lyric.uncertain_proposal
   )
     return out('failed');
+  if (run.assessment) return out(run.assessment.status);
   const refused = (run.coverage?.obligations || []).some((o) => o.status === 'refused');
   if (refused || (lyRunLive(run) && lyLiveWaiting())) return out('input');
   const findings = lyRunChecks(model).filter((i) => i.tone === 'issue' && !i.stale).length;
@@ -6279,12 +6281,14 @@ function lyReceive(payload, request) {
     id: ++lyRunSeq,
     at: Date.now(),
     generation: chatState.generation,
+    assessment: payload.assessment || null,
     artifact: payload.artifact || null,
     completion: payload.completion || null,
     lyric: payload.lyric || chatState.lyric || null,
     task: task || null,
     tools,
-    coverage: coverageTool?.coverage || payload.lyric?.coverage || null,
+    coverage:
+      payload.assessment?.coverage || coverageTool?.coverage || payload.lyric?.coverage || null,
     stopped: payload.stopped || null,
     reply:
       typeof payload.reply === 'string' && !payload.artifact ? payload.reply.slice(0, 1200) : null,
@@ -6491,6 +6495,7 @@ async function lySubmitLyricsAction(kind, args = {}, { force = false } = {}) {
   $ui('chat-domain').value = 'lyrics-edit';
   uiUpdatePrompt();
   const context = lyContext(model);
+  if (kind === 'review') context.intent = 'review';
   const previousRun = LY.run;
   const sent = _chatSend(message, { choice: 'lyrics-edit', context });
   // _chatSend records the request synchronously before it awaits the POST.

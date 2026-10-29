@@ -886,6 +886,7 @@ export async function createChatRouter({
       res.json({
         reply: run.reply,
         completion: run.completion ?? null,
+        assessment: run.assessment ?? null,
         artifact: run.artifact ?? null,
         // WHAT THE TURN COST AND HOW MANY HOPS IT TOOK (2026-09-01, triage
         // finding C11): the battery and the page can record $/turn and

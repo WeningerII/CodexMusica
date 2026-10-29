@@ -1735,6 +1735,19 @@ export async function runTurn({
     task.turns = (task.turns || 0) + 1;
     task.instructions = [...(task.instructions || []), userText];
   }
+  const reviewContext =
+    task?.domain === 'lyrics' && task.phase === 'edit' && task.lyric_context?.intent === 'review'
+      ? task.lyric_context
+      : null;
+  const checkProperties =
+    (surface.tools || []).find((t) => t.name === 'lyric_check')?.inputSchema?.properties ||
+    (surface.declarations || []).find((t) => t.name === 'lyric_check')?.parameters?.properties ||
+    {};
+  const uncheckedDeclarations = reviewContext
+    ? Object.keys(reviewContext.declarations).filter((key) => !Object.hasOwn(checkProperties, key))
+    : [];
+  let reviewLines = null;
+  let assessment = null;
   let artifact = task?.artifact ? { ...task.artifact, certified: false } : null;
   let recoveredDelivery = null;
   if (task?.artifact) task.artifact = artifact;
@@ -2174,6 +2187,36 @@ export async function runTurn({
           }
         }
         let result;
+        // Review authority belongs to the signed page context, never to model arguments.
+        // Recover owns source numbering; a derived rhyme web cannot replace declarations.
+        if (reviewContext) {
+          const allowed = fc.name === 'lyric_recover' || (fc.name === 'lyric_check' && reviewLines);
+          if (!allowed) {
+            const error =
+              'Review only: recover the committed document, then check it. Rewriting is not authorized.';
+            result = { isError: true, content: [{ type: 'text', text: error }] };
+            calls.push({ name: fc.name, args, isError: true, not_run: true, error });
+            responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
+            continue;
+          }
+          for (const key of Object.keys(args)) delete args[key];
+          if (fc.name === 'lyric_recover') {
+            args.lines_text = reviewContext.document;
+            for (const key of [
+              'fallback',
+              'lexicon_supplement',
+              'lexicon_supplement_sha256',
+              'pronunciations',
+              'voices',
+            ])
+              if (reviewContext.declarations[key] !== undefined)
+                args[key] = reviewContext.declarations[key];
+          } else {
+            for (const [key, value] of Object.entries(reviewContext.declarations))
+              if (Object.hasOwn(checkProperties, key)) args[key] = value;
+            args.lines = [...reviewLines];
+          }
+        }
         if (task && (task.domain === 'lyrics') !== fc.name.startsWith('lyric_')) {
           result = {
             isError: true,
@@ -2516,6 +2559,50 @@ export async function runTurn({
           if (!lyricVerdict && payload && typeof payload.exit_code === 'number') {
             lyricVerdict = payload;
           }
+          if (reviewContext && fc.name === 'lyric_recover')
+            reviewLines =
+              !isError && Array.isArray(lyricVerdict?.lines) ? [...lyricVerdict.lines] : null;
+          if (reviewContext && fc.name === 'lyric_check') {
+            const v = lyricVerdict;
+            const refused =
+              uncheckedDeclarations.length > 0 ||
+              isError ||
+              v?.exit_code === 2 ||
+              v?.coverage?.refused_obligations?.length > 0 ||
+              (v?.coverage?.obligations || []).some((o) => o.status === 'refused');
+            const flags = (v?.flags || 0) + (v?.whole_flags || 0);
+            assessment = {
+              status: refused
+                ? 'input'
+                : flags > 0
+                  ? 'assessed_findings'
+                  : v?.coverage?.certified === true &&
+                      typeof v?.flags === 'number' &&
+                      typeof v?.whole_flags === 'number'
+                    ? 'assessed_clear'
+                    : 'failed',
+              certified: false,
+              binding: reviewContext.binding,
+              coverage: uncheckedDeclarations.length
+                ? {
+                    certified: false,
+                    obligations: [
+                      ...(v?.coverage?.obligations || []),
+                      ...uncheckedDeclarations.map((key) => ({
+                        id: `declaration:${key}`,
+                        status: 'refused',
+                        reason: `The declaration ${key} is preserved in the request but lyric_check does not support judging it.`,
+                      })),
+                    ],
+                  }
+                : (v?.coverage ?? null),
+              standing: v?.standing?.length
+                ? v.standing
+                : flags > 0
+                  ? [`${flags} check findings were reported; consult the tool result.`]
+                  : [],
+            };
+          }
           if (
             recoveryOnly &&
             !isError &&
@@ -2567,6 +2654,7 @@ export async function runTurn({
           }
           if (
             !recoveryOnly &&
+            !reviewContext &&
             task?.domain === 'lyrics' &&
             ['lyric_grade', 'lyric_check', 'lyric_revise'].includes(fc.name)
           ) {
@@ -2870,6 +2958,18 @@ export async function runTurn({
   let completion = null;
   if (recoveredDelivery !== null) {
     reply = recoveredDelivery;
+  } else if (reviewContext) {
+    artifact = null;
+    if (task) task.artifact = null;
+    reply = assessment
+      ? 'Review recorded. See the findings and coverage for the submitted draft. This is not song certification.'
+      : 'Review incomplete: no check of the submitted draft was returned.';
+    assessment ||= {
+      status: 'failed',
+      certified: false,
+      binding: reviewContext.binding,
+      standing: [],
+    };
   } else if (task?.domain === 'lyrics') {
     // An interim render (a grade, an unfinished stop) is shown with its own
     // [GRADED]/[FINISHED] stamp on the page; it is never the reply's
@@ -2952,6 +3052,7 @@ export async function runTurn({
     task,
     artifact,
     completion,
+    assessment,
     history: contents,
     workspace: ws,
     lyric: lyr,
