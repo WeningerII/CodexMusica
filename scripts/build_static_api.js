@@ -291,7 +291,7 @@ async function main() {
 
   // ---- lyric_types.json: the Lyrics page's type menu, fetched on demand ----
   // Every relation-registry type an English song can use, as [registry index,
-  // name]. scripts/lyric_type_menu.py derives it from lyric-harness/ (Python,
+  // name, display place]. scripts/lyric_type_menu.py derives it from lyric-harness/ (Python,
   // which no builder runs) into src/pages/lyric_types.json, and --check holds
   // that file to the registry; it is copied here byte for byte. The page
   // fetches it the first time the Rhymes tool draws (lyTypesLoad in

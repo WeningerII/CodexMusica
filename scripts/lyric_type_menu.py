@@ -3,6 +3,9 @@
 
 The page (src/pages/lyrics.js) lists every registry type an English song can
 use, with the type's REGISTRY INDEX (its position in `relations.REGISTRY`).
+Each row also carries a fixed display place (head/end/line), or null when
+its spans must be searched or differ between members. This is derived from
+the registry span loci, not a second table of type-name rules.
 The index is what the page sends to the writer; the name is shown to the
 person only. The list is not inlined into codex.html: this script writes it to
 src/pages/lyric_types.json, scripts/build_static_api.js copies that file to
@@ -36,13 +39,21 @@ def eligible():
     from quality import relations as R
     from quality.plan import type_eligibility
     names = set(type_eligibility("eng")[0])
-    return [(index, name) for index, name in enumerate(R.REGISTRY)
-            if name in names]
+    # Only a uniform, fixed locus has a single display place for every
+    # member. Searched/asymmetric spans must not masquerade as end words.
+    places = {"line_initial_token": "head", "line_final_token": "end", "line": "line"}
+    rows = []
+    for index, (name, schema) in enumerate(R.REGISTRY.items()):
+        if name in names:
+            loci = {span.locus for span in schema.spans}
+            place = places.get(next(iter(loci))) if len(loci) == 1 else None
+            rows.append((index, name, place))
+    return rows
 
 
 def render():
-    rows = ",\n".join("    " + json.dumps([i, n], ensure_ascii=False)
-                      for i, n in eligible())
+    rows = ",\n".join("    " + json.dumps([i, n, place], ensure_ascii=False)
+                      for i, n, place in eligible())
     return ('{\n  "generated_by": "scripts/lyric_type_menu.py",\n'
             f'  "types": [\n{rows}\n  ]\n}}\n')
 
