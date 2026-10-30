@@ -43,11 +43,11 @@
   // Layer labels follow the evidence record's namespace.
   const LAYER_WORDS = Object.freeze({
     registered: 'Registered figure',
-    sound: 'Shared sound',
+    sound: 'Shared sound (not a registered figure)',
   });
   const LAYER_SHORT = Object.freeze({
     registered: 'Registered',
-    sound: 'Shared sound',
+    sound: 'Shared sound (not a registered figure)',
   });
 
   const KINDS = Object.freeze(['occurrence', 'pair', 'binding', 'figure']);

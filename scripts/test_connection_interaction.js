@@ -271,6 +271,27 @@ test('Cell shows offers only checked methods, named with their layer', () => {
   });
 });
 
+test('the shared-sound layer is always named in full', () => {
+  const vowel = { method_id: 'sound:vowel', name: 'Vowel', layer: 'sound' };
+  assert.equal(CI.LAYER_WORDS.sound, 'Shared sound (not a registered figure)');
+  assert.deepEqual(
+    CI.cellShows([vowel], 'sound:vowel').options.map((o) => o.label),
+    ['Shared sound (not a registered figure): Vowel']
+  );
+  const held = CI.cellState({
+    inLocus: true,
+    record: { outcome: true, informative_channels: ['nucleus'] },
+  });
+  assert.match(
+    CI.announce(CI.pair('sound:vowel', 'e-watch-4-2', 'e-woods-4-4'), {
+      occurrence: (id) => BY_ID.get(id),
+      method: () => vowel,
+      state: held,
+    }),
+    /Shared sound \(not a registered figure\) · Vowel holds$/
+  );
+});
+
 test('occurrence labels carry the coordinate, as in r5', () => {
   assert.equal(CI.occurrenceLabel(OCC[0]), 'woods · L1 w2');
   assert.equal(CI.occurrenceLabel(OCC[4]), 'woods · L4 w4');
