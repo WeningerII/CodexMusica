@@ -13,11 +13,14 @@ const interactionPath =
   path.join(__dirname, '../src/connection-interaction.js');
 const marksPath =
   process.env.CONNECTION_MARKS_SOURCE || path.join(__dirname, '../src/library/marks.js');
+const bindingsPath =
+  process.env.CONNECTION_BINDINGS_SOURCE ||
+  path.join(__dirname, '../src/library/connection-bindings.js');
 const source = fs.readFileSync(path.join(__dirname, '../src/library/connection-views.js'), 'utf8');
 function setup() {
   const dom = new JSDOM(
     '<!doctype html><html data-theme="light"><head><meta name="viewport" content="width=device-width, initial-scale=1"></head><body><main id="surface-library"></main></body></html>',
-    { runScripts: 'outside-only' }
+    { runScripts: 'outside-only', url: 'https://example.test/library?keep=1' }
   );
   const w = dom.window;
   const theme = w.document.createElement('style');
@@ -26,8 +29,9 @@ function setup() {
   w.eval(fs.readFileSync(interactionPath, 'utf8'));
   const I = w.CMConnectionInteraction;
   const M = w.eval(`(function(){${fs.readFileSync(marksPath, 'utf8')}\n})()`);
-  const V = w.eval(`(function(){${source}\n})()`).createViews({ interaction: I, marks: M });
-  return { dom, I, M, V, model: authoredFixture(I) };
+  const api = w.eval(`(function(){${source}\n})()`);
+  const V = api.createViews({ interaction: I, marks: M });
+  return { dom, I, M, V, api, model: authoredFixture(I) };
 }
 
 // Authored visual fixture. No engine was run; omitted results stay not supplied.
@@ -312,4 +316,120 @@ test('mixed layers keep explicit words and one-pixel sound marks; no function-wo
   assert.match(root.textContent, /the/);
   assert.equal(root.querySelectorAll('.lib-mk-edge').length, 5);
   assert.match(root.textContent, /Group counts not supplied/);
+});
+
+function actualBindings(dom) {
+  return dom.window.eval(`(function(){${fs.readFileSync(bindingsPath, 'utf8')}\n})()`);
+}
+test('Don controls deliver Cell shows and recovery callbacks without changing selection', () => {
+  const { dom, I, M, api, model } = setup();
+  const B = actualBindings(dom),
+    changes = [],
+    recoveries = [],
+    spoken = [];
+  const V = api.createViews({
+    interaction: I,
+    marks: M,
+    bindings: B,
+    actions: { cellMethod: (id) => changes.push(id), show: (action) => recoveries.push(action) },
+    live: { say: (words) => spoken.push(words) },
+  });
+  const before = I.selectionKey(model.selection);
+  let root = V.render(model, { view: 'matrix' });
+  const select = root.querySelector('.lib-cb-cellshows select');
+  select.value = model.methods[1].method_id;
+  select.dispatchEvent(new dom.window.Event('change', { bubbles: true }));
+  assert.deepEqual(changes, [model.methods[1].method_id]);
+  model.checkedMethods = [model.methods[1].method_id];
+  root = V.render(model, { view: 'matrix' });
+  root.querySelector('.lib-cb-hidden button').click();
+  assert.equal(recoveries[0].method_id, model.selection.method_id);
+  assert.match(spoken[0], /previous method is no longer checked/);
+  assert.equal(I.selectionKey(model.selection), before);
+  dom.window.close();
+});
+test('Don sheet consumes first Escape; second Escape reaches view clear and focus returns', () => {
+  const { dom, I, V, model } = setup(),
+    B = actualBindings(dom);
+  const root = V.render(model, { view: 'matrix' });
+  dom.window.document.querySelector('main').append(root);
+  let cleared = 0;
+  const moves = [];
+  const stop = B.bindKeys(
+    root,
+    I,
+    { clear: () => cleared++, inspect: () => {}, move: (key) => moves.push(key) },
+    { grid: root.querySelector('table') }
+  );
+  const origin = root.querySelector('.cv-phone-row button');
+  const sheet = B.bottomSheet(root, 'Connection inspector');
+  sheet.body.append(root.querySelector('.cv-inspector'));
+  origin.focus();
+  sheet.open(origin);
+  const esc = () =>
+    dom.window.document.activeElement.dispatchEvent(
+      new dom.window.KeyboardEvent('keydown', { key: 'Escape', bubbles: true, cancelable: true })
+    );
+  esc();
+  assert.equal(sheet.isOpen(), false);
+  assert.equal(cleared, 0);
+  assert.equal(dom.window.document.activeElement, origin);
+  esc();
+  assert.equal(cleared, 1);
+  root
+    .querySelector('table button')
+    .dispatchEvent(new dom.window.KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }));
+  assert.deepEqual(moves, ['ArrowRight']);
+  stop();
+  esc();
+  assert.equal(cleared, 1);
+  dom.window.close();
+});
+test('Don URL and live region accept exact rendered occurrence IDs and refuse stale revision', async () => {
+  const { dom, I, V, model } = setup(),
+    B = actualBindings(dom);
+  const root = V.render(model, { view: 'matrix' });
+  dom.window.document.querySelector('main').append(root);
+  const restored = [],
+    refused = [];
+  const sync = B.urlSync(
+    dom.window,
+    I,
+    {
+      analysisIdentity: 'fixture-v1',
+      hasEntity: (id) => model.occurrences.some((o) => o.entity_id === id),
+      hasMethod: (id) => model.methods.some((m) => m.method_id === id),
+      hasEvidence: () => false,
+    },
+    (sel) => restored.push(sel),
+    (reason) => refused.push(reason)
+  );
+  sync.write(model.selection);
+  sync.read();
+  assert.equal(
+    I.selectionKey(restored[0]),
+    root.querySelector('table .cv-selected').dataset.selection
+  );
+  assert.match(dom.window.location.search, /keep=1/);
+  const live = B.liveRegion(root);
+  live.say(
+    I.announce(model.selection, {
+      occurrence: (id) => model.occurrences.find((o) => o.entity_id === id),
+      method: (id) => model.methods.find((m) => m.method_id === id),
+      state: I.cellState(model.cells[0]),
+    })
+  );
+  await new Promise((resolve) => setTimeout(resolve, 10));
+  assert.match(live.el.textContent, /watch L4 w2/);
+  assert.match(live.el.textContent, /woods L4 w4/);
+  dom.window.history.replaceState(
+    null,
+    '',
+    '?cv=stale&sel=' + encodeURIComponent(I.selectionKey(model.selection))
+  );
+  dom.window.dispatchEvent(new dom.window.PopStateEvent('popstate'));
+  assert.equal(refused[0].reason, 'revision');
+  assert.equal(restored.length, 1);
+  sync.stop();
+  dom.window.close();
 });

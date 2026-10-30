@@ -14,7 +14,13 @@
 // data-view, data-action=cell_method and data-recovery hooks for Don's bindings.
 // The owner updates the immutable model and rerenders after an action; no event,
 // URL, live-region or lifecycle ownership is claimed here.
-function createViews({ interaction: I, marks: M }) {
+function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
+  // Optional composed controls use Don's handlers, never local replacements.
+  if (
+    B &&
+    (!actions || typeof actions.cellMethod !== 'function' || typeof actions.show !== 'function')
+  )
+    throw new TypeError('bindings require cellMethod and show callbacks');
   if (!I || !M) throw new TypeError('connection views require interaction and marks');
   const el = (tag, text, cls) => {
     const node = document.createElement(tag);
@@ -91,7 +97,17 @@ function createViews({ interaction: I, marks: M }) {
       menu.append(group);
     }
     box.append(menu);
-    if (view === 'matrix') {
+    if (view === 'matrix' && B) {
+      const control = B.cellShowsControl(
+        document,
+        I,
+        checked(model),
+        model.cellMethod,
+        actions.cellMethod,
+        live
+      );
+      box.append(control.el);
+    } else if (view === 'matrix') {
       const choice = I.cellShows(checked(model), model.cellMethod);
       const label = el('label', 'Cell shows '),
         select = el('select');
@@ -441,7 +457,9 @@ function createViews({ interaction: I, marks: M }) {
       methodName: (id) => getMethod(model, id).name,
       hiddenByFilter: () => model.hiddenByFilter || null,
     });
-    if (notice) {
+    if (notice && B) {
+      root.append(B.hiddenNotice(document, notice, actions.show));
+    } else if (notice) {
       const panel = el('p', notice.text);
       const show = el('button', notice.action.label);
       show.dataset.recovery = JSON.stringify(notice.action);
