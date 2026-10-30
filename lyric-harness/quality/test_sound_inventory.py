@@ -255,9 +255,15 @@ def test_readings_pair_within_an_accent():
            for ti, w in enumerate(toks)}
     combos, _ = R.reading_combos(st, {tok["car"], tok["far"]})
     check("the any-reading search keeps a pinned token in the accent check",
-          combos is not None and all(
+          bool(combos) and all(
               tuple(c[tok["far"]][2]) != ("F", "AA1") for c in combos),
           str([c.get(tok["far"]) for c in combos or []]))
+    check("...and still offers far's rhotic reading beside the pinned car",
+          any(tuple(c[tok["far"]][2]) == ("F", "AA1", "R") for c in combos or []))
+    from quality.rhyme_types import coarse_relation_consensus as consensus
+    check("a collision with car pinned rhotic still holds (consensus, every reading)",
+          consensus(pinned, line, "dark and far", DECL,
+                    min_score=L.THETA_COLLISION, quantifier="all") is True)
     for a, b in (("I drove your old car", "dark and far"),
                  ("we climb the stairs", "hanging on the stairs"),
                  ("so we go", "and so"), ("the floor", "behind the door"),
