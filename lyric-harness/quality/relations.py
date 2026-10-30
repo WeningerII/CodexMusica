@@ -9984,6 +9984,69 @@ def _stream_lexicon(stream):
         else None
 
 
+def _reading_syllables(phones):
+    """How many syllables a whole dictionary reading has: its stressed or
+    unstressed vowels, the digit the lexicon writes on each."""
+    return sum(1 for p in phones if p and p[-1].isdigit())
+
+
+def _unrepresented_tokens(stream, tokens):
+    """-> the tokens among `tokens` with a whole dictionary reading the
+    stream cannot represent (M-324).
+
+    A merged stream holds one syllable shape per token: the readings that
+    share it are folded into knowledge sets, and its verdicts are sound for
+    those. A reading of ANOTHER syllable count is not in the stream at all --
+    `miles` M AY1 L Z against M AY1 AH0 L Z, read under its first reading or
+    not read at all -- so a False there says nothing about it. Discovered
+    from the lexicon's own whole readings, never from the verdict's
+    `unknown_channels`, which cannot name a reading the stream never held.
+    Memoised per line on the stream."""
+    lex = _stream_lexicon(stream)
+    if lex is None or not tokens or not stream.lexical_tokens:
+        return set()
+    from quality.pronunciation import occurrence_readings
+    memo = stream.__dict__.setdefault("_unrepresented_memo", {})
+    out = set()
+    for li, ti in tokens:
+        key = (li, ti)
+        if key not in memo:
+            hit = False
+            if 0 <= li < len(stream.text_lines) and \
+                    li < len(stream.lexical_tokens):
+                got = occurrence_readings(lex, stream.text_lines[li],
+                                          stream.lexical_tokens[li], ti)
+                if got is not None and len(got[2]) > 1:
+                    have = len(stream.tokens.get((li, ti), ()))
+                    hit = any(_reading_syllables(r) != have for r in got[2])
+            memo[key] = hit
+        if memo[key]:
+            out.add(key)
+    return out
+
+
+def _pair_scope_tokens(schema, stream, pair):
+    """-> {(line, token)} a member of `schema` can cover on the 1-based line
+    `pair`: the last word for a line-final locus, the first for a
+    line-initial one, every word otherwise."""
+    out = set()
+    loci = {r.locus for r in getattr(schema, "spans", ()) or ()}
+    for li in {p - 1 for p in pair}:
+        if not (0 <= li < len(stream.lexical_tokens or ())):
+            continue
+        n = len(stream.lexical_tokens[li])
+        if not n:
+            continue
+        for locus in loci:
+            if locus == "line_final_token":
+                out.add((li, n - 1))
+            elif locus == "line_initial_token":
+                out.add((li, 0))
+            else:
+                out |= {(li, t) for t in range(n)}
+    return out
+
+
 def reading_combos(stream, tokens, cap=READING_COMBO_CAP):
     """-> ([{(line, token): (tok, word, phones)}], complete), or (None, False)
     when a cause token cannot be varied (unlocatable, or no reading at all)."""
@@ -10101,8 +10164,31 @@ def resolve_line_pair(schema, stream, pair, build, cap=READING_COMBO_CAP,
     if isinstance(got, Refusal):
         return None, None
     verdict = got.verdict(pair)
-    if verdict is not None:
-        return verdict, None
+    if verdict is True:
+        return True, None
+    # A WORD THE MERGED STREAM CANNOT HOLD (M-324). The merged stream keeps
+    # one syllable shape per word, so its False says nothing about a reading
+    # of another shape (`miles` M AY1 AH0 L Z, under which I ~ miles is an
+    # internal rhyme). Those words are found from the lexicon and their
+    # readings searched like any other: a witness is True, a search the cap
+    # cut short is undecided, and False stands only when every combination
+    # was judged False.
+    alt = _unrepresented_tokens(stream, _pair_scope_tokens(schema, stream,
+                                                           pair))
+    if verdict is False:
+        if not alt:
+            return False, None
+        return _resolve_over(schema, stream, pair, build, cap, bmap, alt,
+                             _SYL_FIELDS)
+    got = _resolve_undecided(schema, stream, pair, build, cap, bmap, causes)
+    if got[0] is True or not (alt - set(causes.get(pair, ()))):
+        return got
+    return _resolve_over(schema, stream, pair, build, cap, bmap,
+                         set(causes.get(pair, ())) | alt, _SYL_FIELDS)
+
+
+def _resolve_undecided(schema, stream, pair, build, cap, bmap, causes):
+    """`resolve_line_pair`'s search for a pair the merged stream left None."""
     # FIRST the words whose readings differ on what the schema reads (general
     # consonance reads no vowel, so `the`, `to`, `carry` need not be varied
     # and six varied words a line no longer exceed the cap); a None there is
@@ -10183,12 +10269,18 @@ def pair_satisfies_any(schema, stream, at_a, at_b, build,
     resolved over each combination of those readings.
     """
     out = pair_satisfies(schema, stream, at_a, at_b, chans)
-    if out is not None:
+    if out is not None and out is not False:
         return out, None
     toks = set()
     for li, t in (at_a, at_b):
-        words = stream.lexical_tokens[li] if stream.lexical_tokens else ()
+        words = (stream.lexical_tokens[li]
+                 if stream.lexical_tokens and 0 <= li < len(
+                     stream.lexical_tokens) else ())
         toks.add((li, t if t >= 0 else len(words) + t))
+    # A confident False is asked again when a bound word has a whole reading
+    # the merged stream cannot hold (M-324, `_unrepresented_tokens`).
+    if out is False and not _unrepresented_tokens(stream, toks):
+        return False, None
     combos, complete = reading_combos(stream, toks, cap)
     if not combos:
         return None, None

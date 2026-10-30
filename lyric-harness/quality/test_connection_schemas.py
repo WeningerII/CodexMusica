@@ -481,10 +481,123 @@ def test_pair_channel_reads():
           == snapshot, blocked)
 
 
+
+FROST = ["Whose woods these are I think I know.",
+         "His house is in the village though;",
+         "He will not see me stopping here",
+         "To watch his woods fill up with snow.",
+         "My little horse must think it queer",
+         "To stop without a farmhouse near",
+         "Between the woods and frozen lake",
+         "The darkest evening of the year.",
+         "He gives his harness bells a shake",
+         "To ask if there is some mistake.",
+         "The only other sound's the sweep",
+         "Of easy wind and downy flake.",
+         "The woods are lovely, dark and deep,",
+         "But I have promises to keep,",
+         "And miles to go before I sleep,",
+         "And miles to go before I sleep."]
+
+
+def frost(first=False, lexicon=None):
+    """Frost's poem on the plain reader (a word whose readings differ in
+    syllable count is left out of the stream) or, with `first`, read under
+    its first-listed reading. -> (stream, build)."""
+    from quality.phonology.eng import English
+    ph = PHON
+    if first or lexicon is not None:
+        ph = English(fallback=PHON.fallback, lexicon=lexicon,
+                     syllable_disputes="first" if first else "refuse")
+    build = R.cached_builder(lambda p: R.build_stream(
+        FROST, p, declaration={"language": "eng"}))
+    return build(ph), build
+
+
+def test_writer_route_reads_every_shape():
+    print("\n-- 9. the writer route searches readings the merged stream "
+          "cannot hold (M-324) --")
+    IR = R.REGISTRY["internal rhyme"]
+    st, build = frost(first=True)
+    lex = R._stream_lexicon(st)
+    check("the repro: under its first reading `miles` is M AY1 L Z, one "
+          "syllable, so the merged I ~ miles is a confident False",
+          R.pair_satisfies(IR, st, (14, 5), (14, 1)) is False)
+    check("...and the lexicon says miles has a two-syllable reading the "
+          "stream does not hold",
+          R._unrepresented_tokens(st, {(14, 1), (14, 5)}) == {(14, 1)})
+    I_at = [(0, 4), (0, 6), (4, 0), (13, 1), (14, 5), (15, 5)]
+    miles = [(14, 1), (15, 1)]
+    got = {(a, m): R.pair_satisfies_any(IR, st, a, m, build)
+           for a in I_at for m in miles}
+    check("pair_satisfies_any: all 12 I/My ~ miles pairs hold, each on the "
+          "witness miles = M AY1 AH0 L Z",
+          all(v[0] is True and "miles = M AY1 AH0 L Z" in v[1]
+              for v in got.values()),
+          str({k: v[0] for k, v in got.items() if v[0] is not True}))
+    for first in (True, False):
+        s2, b2 = frost(first=first)
+        res = {p: R.resolve_line_pair(IR, s2, p, b2)[0]
+               for p in ((14, 15), (14, 16), (15, 16))}
+        check(f"resolve_line_pair ({'first reading' if first else 'plain'} "
+              f"reader): lines 14~15, 14~16, 15~16 hold (I ~ miles)",
+              all(v is True for v in res.values()), res)
+
+    # READING ORDER: the same answer whichever reading the lexicon lists
+    # first, though the merged stream then holds the other shape.
+    import lyric_harness as LH
+
+    class Reversed(LH.Lexicon):
+        def pronunciation_variants(self, word):
+            got = super().pronunciation_variants(word)
+            return list(reversed(got)) if word.lower() == "miles" else got
+
+    rlex = Reversed()
+    s3, b3 = frost(first=True, lexicon=rlex)
+    check("reading-order independence: with miles' readings listed the "
+          "other way round, both APIs still hold I ~ miles",
+          R.pair_satisfies_any(IR, s3, (14, 5), (14, 1), b3)[0] is True
+          and R.resolve_line_pair(IR, s3, (14, 15), b3)[0] is True)
+
+    # THE CAP: I has one reading and miles two, so two combinations; the
+    # first (M AY1 L Z) fails and the second holds.
+    one = R.pair_satisfies_any(IR, st, (14, 5), (14, 1), build, cap=1)
+    two = R.pair_satisfies_any(IR, st, (14, 5), (14, 1), build, cap=2)
+    check("cap boundary: cap=1 tries only the failing reading and the search "
+          "is incomplete -> undecided (None), never False; cap=2 -> True",
+          one[0] is None and two[0] is True, (one, two))
+    st_r, b_r = frost(first=True)
+    lp1 = R.resolve_line_pair(IR, st_r, (14, 15), b_r, cap=1)[0]
+    check("...and resolve_line_pair under a cap the search exceeds is "
+          "undecided, not False", lp1 is None, lp1)
+    sl2 = R.pair_satisfies_any(IR, st, (14, 6), (14, 1), build, cap=2)
+    sl1 = R.pair_satisfies_any(IR, st, (14, 6), (14, 1), build, cap=1)
+    check("sleep ~ miles holds under no reading: False after the complete "
+          "search, undecided when the cap cuts it short",
+          sl2[0] is False and sl1[0] is None, (sl2, sl1))
+
+    # CONTROLS: pairs over words the stream holds whole do not move.
+    PR, AL = R.REGISTRY["perfect rhyme"], R.REGISTRY["alliteration"]
+    check("control: perfect rhyme keep ~ sleep holds, I ~ miles does not "
+          "(the second reading leaves an overhang perfect rhyme forbids)",
+          R.pair_satisfies_any(PR, st, (13, -1), (14, -1), build)[0] is True
+          and R.pair_satisfies_any(PR, st, (14, 5), (14, 1), build)[0]
+          is False)
+    check("control: alliteration watch ~ woods holds and miles ~ go does "
+          "not, before and after the search",
+          R.pair_satisfies_any(AL, st, (3, 1), (3, 3), build)[0] is True
+          and R.pair_satisfies_any(AL, st, (14, 1), (14, 3), build)[0]
+          is False)
+    check("a pair with no word the stream cannot hold answers its merged "
+          "verdict with no search",
+          R._unrepresented_tokens(st, {(3, 1), (3, 3)}) == set())
+
+
 if __name__ == "__main__":
     for fn in (test_both_present, test_declarations, test_assonance,
                test_consonance, test_alliteration, test_pruning_is_sound,
-               test_planner, test_pair_channel_reads):
+               test_planner, test_pair_channel_reads,
+               test_writer_route_reads_every_shape):
         fn()
     print("=" * 70)
     if FAILURES:
