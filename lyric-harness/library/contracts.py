@@ -39,6 +39,43 @@ class EvidenceRecord(TypedDict, total=False):
     basis: str
     source_ranges: list[CoordinateRange]
     detail: str
+    # relation_instance: the syllables each member was judged on, the reading
+    # quantifier, what the any-reading search did, and (undecided only) why.
+    compared: dict[str, list[dict[str, Any]]]
+    quantifier: Literal["exists_compatible_reading", "first_listed_reading"]
+    reading_search: ReadingSearch
+    undecided_reason: UndecidedReason
+    # method_result (schema): which occurrence pairs the method's loci bind.
+    domain: MethodDomain
+
+
+ReadingSearchState = Literal["not_needed", "exhaustive", "partial", "unavailable"]
+UndecidedReason = Literal["combination_cap", "rebuild_unavailable", "locus_unmatched",
+                          "readings_not_searched_in_scope", "no_reading_combination",
+                          "placement_unknown", "identity_unknown", "channel_unknown",
+                          "judge_unknown"]
+
+
+class ReadingSearch(TypedDict):
+    state: ReadingSearchState
+    combinations_examined: int
+    combination_limit: int
+    reason: NotRequired[UndecidedReason]
+
+
+class MethodDomain(TypedDict):
+    """`exact_token_pair`: every listed pair is inside the method's loci and
+    placement; on an answered method a listed pair with no true or undecided
+    record is a judged False. `none`: no pair is claimed (`reason` says why).
+    `pairs` maps a token's index in `tokens` to runs [first, last] of its
+    partners' indices; `unordered` lists each pair once, first index lower."""
+    projection: Literal["exact_token_pair", "none"]
+    reason: NotRequired[str]
+    cap: NotRequired[int]
+    ordering: NotRequired[Literal["unordered", "role_ordered"]]
+    tokens: NotRequired[list[str]]
+    pairs: NotRequired[dict[str, list[list[int]]]]
+    pair_count: NotRequired[int]
 
 
 class ReaderCheckpoint(TypedDict):

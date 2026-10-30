@@ -398,6 +398,12 @@ class AnalysisSession:
         # it. `_disputed` is those tokens; `_mini` the one or two lines a pair
         # covers, rebuilt under one combination of their readings.
         self._disputed = self._disputed_tokens()
+        # A MERGED word's readings share a syllable count and are read as
+        # knowledge sets, so its syllables stay the work's own; a check those
+        # sets leave undecided is judged again under each whole reading
+        # (standing rule 5), never left open for want of trying them.
+        from quality.phonology import MERGED
+        self._merged = self._disputed_tokens(MERGED)
         self._work_unit = {(u.line, u.token, u.tok_syl): u.i for u in self.stream.units}
         self._mini, self._span_index, self._incomplete = collections.OrderedDict(), {}, {}
         # Line readings the rebuilt streams share (`RL._line_read_scope`'s
@@ -487,10 +493,13 @@ class AnalysisSession:
         self._apply_declarations(st, rows)
         return st, rows
 
-    def _disputed_tokens(self):
+    def _disputed_tokens(self, status=None):
         """-> {(line, token)} read under a first-listed reading their other
-        readings, of another syllable count, may overturn."""
+        readings, of another syllable count, may overturn. With `status`,
+        the tokens of that reading status instead (MERGED: readings of one
+        syllable count, folded into knowledge sets)."""
         from quality.phonology import DISPUTED
+        status = status or DISPUTED
         if not hasattr(self.phon, "reading_status"):
             return frozenset()
         out = set()
@@ -500,7 +509,7 @@ class AnalysisSession:
                 if (li, ti) not in self.stream.tokens:
                     continue
                 tph = ph.for_token(ti) if hasattr(ph, "for_token") else ph
-                if tph.reading_status(word)[0] == DISPUTED:
+                if tph.reading_status(word)[0] == status:
                     out.add((li, ti))
         return frozenset(out)
 
@@ -611,8 +620,21 @@ class AnalysisSession:
         return (not self._any_reading_off and self._varies(schema)
                 and (st is self.stream or getattr(st, "any_reading_combo", None) is not None))
 
+    def _merged_touched(self, st, *spans):
+        """-> {(line, token)} merged words the spans cover."""
+        return {(st.units[i].line, st.units[i].token) for span in spans for i in span.idx
+                if (st.units[i].line, st.units[i].token) in self._merged}
+
+    def _search(self, state, examined=0, reason=None):
+        """The per-edge record of the any-reading search (`reading_search`)."""
+        out = {"state": state, "combinations_examined": examined,
+               "combination_limit": self.EDGE_COMBOS}
+        if reason:
+            out["reason"] = reason
+        return out
+
     def _any_reading(self, name, a, b, st):
-        """-> (inst, stream, witness, first_only).
+        """-> (inst, stream, witness, first_only, search).
 
         THE RULE (owner ruling 2026-10-23): a check holds when ANY reading of
         its disputed words holds it -- every combination of the readings of
@@ -621,21 +643,46 @@ class AnalysisSession:
         (its readings are the witness); False only when every combination is
         judged False; otherwise the first-listed verdict, or None where a
         combination stayed open. `first_only` marks a pair over a disputed
-        word in a scope this search does not reach (`_varies`)."""
+        word in a scope this search does not reach (`_varies`).
+
+        A merged word is read as a knowledge set, which settles a check every
+        reading agrees on and leaves the rest undecided. Only that undecided
+        verdict is searched over the merged word's readings, together with
+        any disputed word's: a set that answers True or False has answered
+        for every reading already. `search` says what the search did
+        (`reading_search` on the record): not needed, exhaustive, partial
+        (past EDGE_COMBOS), or unavailable (no combination could be built,
+        or the scope keeps first-listed readings), with the reason."""
         RL = self.RL
         schema = RL.REGISTRY[name]
         inst = RL.evaluate(schema, a, b, st)
         touched = self._touched(st, a, b)
         searchable = bool(touched) and self._searchable(schema, st)
         first_only = bool(touched) and not searchable
+        merged = (self._merged_touched(st, a, b)
+                  if inst is not None and inst.verdict is None else set())
         if inst is not None and inst.verdict is True:
-            return inst, st, self._witness(st, touched), first_only
-        if not searchable:
-            return inst, st, None, first_only
-        combos, complete = RL.reading_combos(self.stream, touched, self.EDGE_COMBOS)
+            return inst, st, self._witness(st, touched), first_only, self._search("not_needed")
+        if merged and not self._searchable(schema, st):
+            return inst, st, None, first_only, self._search(
+                "unavailable", reason="readings_not_searched_in_scope")
+        if not searchable and not merged:
+            return inst, st, None, first_only, self._search(
+                "unavailable" if first_only else "not_needed",
+                reason="readings_not_searched_in_scope" if first_only else None)
+        cause = touched | merged
+        combos, complete = RL.reading_combos(self.stream, cause, self.EDGE_COMBOS)
         if not combos:
-            return inst, st, None, first_only
-        if not complete and name not in self._incomplete:
+            return inst, st, None, first_only, self._search(
+                "unavailable" if merged else "not_needed",
+                reason="no_reading_combination" if merged else None)
+        # A capped search over MERGED words alone leaves its edge undecided
+        # and nothing else: a merged word forms no bucket key, so every pair
+        # over it is a candidate and none goes missing. Only a disputed word's
+        # cap can hide a pair, and only that refuses the method.
+        disputed_complete = complete if not merged else (
+            not touched or RL.reading_combos(self.stream, touched, self.EDGE_COMBOS)[1])
+        if not disputed_complete and name not in self._incomplete:
             # Judged here, per candidate, outside the candidate generator, so
             # a resumed traversal that fast-forwards past this candidate never
             # meets it again: the reason rides in the checkpoint, or the
@@ -645,13 +692,21 @@ class AnalysisSession:
         lines = sorted({st.units[i].line for span in (a, b) for i in span.idx})
         own = self._combo_key({t: c for t, c in (getattr(st, "any_reading_combo", None) or {}).items()
                                if t in touched})
-        open_ = not complete or inst is not None and inst.verdict is None
+        # Over a merged word `inst` was judged on its knowledge set, never on
+        # one reading, so every combination is judged and an undecided set
+        # whose every reading is judged False is False. Without one, an
+        # undecided first-listed verdict stays undecided, as before.
+        open_ = not complete or (not merged and inst is not None and inst.verdict is None)
+        reasons = [] if complete else ["combination_cap"]
+        examined = 0
         for combo in combos:
-            if st is self.stream and combo is combos[0] or self._combo_key(combo) == own:
+            if not merged and (st is self.stream and combo is combos[0] or self._combo_key(combo) == own):
                 continue                 # the reading `inst` was judged under
+            examined += 1
             alt = self._line_stream(lines, combo)
             if alt is None:
                 open_ = True
+                reasons.append("rebuild_unavailable")
                 continue
             sides = []
             for rule, span in ((schema.spans[0], a), (schema.spans[1], b)):
@@ -667,17 +722,29 @@ class AnalysisSession:
                 # cannot pair: open, never a confident False.
                 if not found and index.get(("locus", self._origin(span, st), span.direction)):
                     open_ = True
+                    reasons.append("locus_unmatched")
                 sides.append(found)
             for x in sides[0]:
                 for y in sides[1]:
                     got = RL.evaluate(schema, x, y, alt)
                     if got is not None and got.verdict is True:
-                        return got, alt, self._witness(alt, touched), first_only
+                        return got, alt, self._witness(alt, cause), first_only, self._search(
+                            "partial" if not complete else "exhaustive", examined)
                     if got is not None and got.verdict is None:
                         open_ = True
+        state = "partial" if not complete else "exhaustive"
         if inst is not None and open_ and inst.verdict is False:
             inst = replace(inst, verdict=None)
-        return inst, st, None, first_only
+        elif inst is not None and merged and not open_ and inst.verdict is None:
+            # Every whole reading of the merged (and disputed) words judged,
+            # and every one False: the set's open verdict was only the set.
+            inst = replace(inst, verdict=False)
+        # The search's own reason an edge stayed open; one the judge gave
+        # (an unknown channel, placement or identity) is read off the
+        # instance by `_undecided_reason`.
+        reason = next((r for r in ("combination_cap", "rebuild_unavailable", "locus_unmatched")
+                       if r in reasons), None) if inst is not None and inst.verdict is None else None
+        return inst, st, None, first_only, self._search(state, examined, reason)
 
     def _witness(self, st, touched):
         """-> the readings a verdict rests on: those of `touched` words a
@@ -1158,7 +1225,93 @@ class AnalysisSession:
                 "source_ranges": ranges, "normalized_ranges": normalized,
                 "precision": "token"}
 
-    def _edge_record(self, inst, st, witness=None):
+    #: Candidate pairs one schema's domain may enumerate. Past it the domain
+    #: is refused (`projection: none`), never sampled.
+    DOMAIN_CAP = 262144
+
+    def _domain(self, name):
+        """-> WHICH OCCURRENCE PAIRS THIS SCHEMA'S LOCI CAN BIND, so a view can
+        tell "does not hold" from "not examined" (design contract, BB8 O2).
+
+        Only true and undecided edges are recorded: a False is counted, and a
+        candidate the engine's bucket pruning drops is neither. The domain is
+        the engine's own candidate set (`_candidate_pairs`, unpruned, in the
+        order it evaluates) less every pair a placement rule refuses -- the
+        one thing `evaluate` answers None for. Inside it, a pair with no
+        record on an answered method is a judged False; outside it the method
+        does not apply. Projected to token pairs only where every member span
+        is one token; a whole figure, a multi-token span or a span with no
+        referent is `projection: none` with its reason, so no cell is claimed.
+        Built on the work's first-listed spans: an edge another reading
+        discovers may fall outside it, and is shown by its own record."""
+        RL, st = self.RL, self.stream
+        schema = RL.REGISTRY[name]
+        if name in RL.FULL_SHAPES or not RL.pair_scope_representable(schema):
+            return {"projection": "none", "reason": "whole_figure"}
+        if "stub_resolution" in schema.capabilities():
+            return {"projection": "none", "reason": "derived_stream"}
+        try:
+            aa = list(RL.enumerate_spans(schema.spans[0], st))
+            bb = aa if schema.spans[0] == schema.spans[1] else list(RL.enumerate_spans(schema.spans[1], st))
+        except RL.NoReferent:
+            return {"projection": "none", "reason": "no_referent"}
+
+        def token(span):
+            cells = {(st.units[i].line, st.units[i].token) for i in span.idx}
+            return next(iter(cells)) if len(cells) == 1 else None
+        if any(token(s) is None for s in aa) or any(token(s) is None for s in bb):
+            return {"projection": "none", "reason": "multi_token_spans"}
+        if len(aa) * len(bb) > self.DOMAIN_CAP:
+            return {"projection": "none", "reason": "domain_cap", "cap": self.DOMAIN_CAP}
+        unordered = schema.spans[0] == schema.spans[1]
+        layout = [(a, (bb,)) for a in aa]
+        cells = set()
+        for n, (a, b, _) in enumerate(RL._candidate_pairs(schema, layout, st, {s.idx for s in aa},
+                                                           {s.idx for s in bb}, None)):
+            if n % 4096 == 4095:
+                _resource_guard("relation domain")
+            if any(p.holds(a, b, st) is False for p in schema.placement):
+                continue
+            ta, tb = token(a), token(b)
+            if ta != tb:
+                cells.add(tuple(sorted((ta, tb))) if unordered else (ta, tb))
+        ids = sorted({t for pair in cells for t in pair})
+        index = {t: i for i, t in enumerate(ids)}
+        rows = {}
+        for ta, tb in sorted(cells):
+            rows.setdefault(index[ta], []).append(index[tb])
+        # Partners as [first, last] runs: a same-line or whole-song locus is
+        # a few runs per row, not one entry per pair.
+        runs = {}
+        for i, partners in rows.items():
+            out = []
+            for j in sorted(partners):
+                if out and out[-1][1] == j - 1:
+                    out[-1][1] = j
+                else:
+                    out.append([j, j])
+            runs[str(i)] = out
+        return {"projection": "exact_token_pair", "ordering": "unordered" if unordered else "role_ordered",
+                "tokens": [f"{self._line_id(li)}:token:{ti}" for li, ti in ids],
+                "pairs": runs, "pair_count": len(cells)}
+
+    def _undecided_reason(self, inst, search):
+        """-> why an edge stayed undecided, most specific first: the search's
+        own reason (the cap, a rebuild or locus it could not make, readings
+        its scope keeps first-listed), else what the judge could not read --
+        a placement, an identity resource, or a channel (`unknown_channels`
+        names which)."""
+        if search.get("reason"):
+            return search["reason"]
+        if any(v is None for _, v in inst.placement_reads):
+            return "placement_unknown"
+        if any(r.value is None for _, r in inst.identity_reads):
+            return "identity_unknown"
+        if inst.unknown_channels:
+            return "channel_unknown"
+        return "judge_unknown"
+
+    def _edge_record(self, inst, st, witness=None, search=None, first_only=False):
         RL = self.RL
         mid = method_id("schema", inst.schema)
         a, b = self._span(inst.a, st), self._span(inst.b, st)
@@ -1185,9 +1338,23 @@ class AnalysisSession:
             extra["reading"] = {"rule": "any_reading", "witness": witness or []}
         elif witness:
             extra["reading"] = {"rule": "any_reading", "witness": witness}
+        search = search or self._search("not_needed")
+        if inst.verdict is None:
+            extra["undecided_reason"] = self._undecided_reason(inst, search)
         return self._record("relation_instance", mid, key,
             namespace="schema", schema_name=inst.schema, verdict=verdict(inst.verdict),
             a=a, b=b, **extra, alignment=json_safe(inst.alignment),
+            # WHAT WAS COMPARED, AS JUDGED: each member's syllables in the
+            # stream the verdict was reached on -- the witness reading's
+            # syllables when another reading held, the work's knowledge sets
+            # otherwise (a merged word shows every reading it may take).
+            compared={"a": [json_safe(st.units[i].syl) for i in inst.a.idx],
+                      "b": [json_safe(st.units[i].syl) for i in inst.b.idx]},
+            # Rule 5 quantifies over whole readings; a scope `_varies` keeps
+            # on first-listed readings says so on the edge, not only in a
+            # method count.
+            quantifier="first_listed_reading" if first_only else "exists_compatible_reading",
+            reading_search=search,
             channel_reads=json_safe(inst.reads), placement_reads=json_safe(inst.placement_reads),
             identity_reads=json_safe(inst.identity_reads), unknown_channels=json_safe(inst.unknown_channels),
             informative_channels=list(inst.informative), scope=RL.tradition_scope(RL.schema_named(inst.schema), self.language),
@@ -1197,6 +1364,7 @@ class AnalysisSession:
         mid = method_id("schema", name) if name in self.RL.REGISTRY else name
         return self._record("method_result", mid, "result", coverage="refused", verdict="undecided",
                             namespace="schema" if name in self.RL.REGISTRY else "native", schema_name=name,
+                            domain={"projection": "none", "reason": "refused"},
                             refusal=json_safe(refusal), counts={"true": 0, "false": 0, "undecided": 0},
                             availability="needs_declaration" if getattr(refusal, "missing", ()) else "unsupported")
 
@@ -1619,6 +1787,7 @@ class AnalysisSession:
                               + ". Findings over the combinations searched do not answer the rest."}
             rows.append(self._record("method_result", mid, "result", namespace="schema", schema_name=name,
                                     coverage=counts["coverage"], counts=counts,
+                                    domain=self._domain(name) if phase == "schema" else {"projection": "none", "reason": "whole_figure"},
                                     refusal=counts.get("refusal"), availability="available" if counts["coverage"] == "answered" else "unknown_members",
                                     supply={c: json_safe(self.stream.supply(c))
                                                                        for c in RL.REGISTRY[name].capabilities()}))
@@ -1631,7 +1800,17 @@ class AnalysisSession:
                             [frame, [(e.a.idx, e.b.idx) for e in edges], getattr(edges, "members", ())],
                             namespace="schema", schema_name=name, frame=json_safe(frame),
                             verdict=verdict(value), member_lines=list(getattr(edges, "members", ())),
-                            edges=[self._edge_record(e, self._schema_stream or self.stream) for e in edges])
+                            edges=[self._figure_edge(e, self._schema_stream or self.stream) for e in edges])
+
+    def _figure_edge(self, e, st):
+        """A whole figure's member edge. Whole figures keep first-listed
+        readings (`_varies`), so an edge over a disputed word says so, and an
+        open edge over a merged word names the readings left unsearched."""
+        first_only = bool(self._touched(st, e.a, e.b))
+        unsearched = e.verdict is None and (first_only or self._merged_touched(st, e.a, e.b))
+        search = (self._search("unavailable", reason="readings_not_searched_in_scope")
+                  if first_only or unsearched else self._search("not_needed"))
+        return self._edge_record(e, st, search=search, first_only=first_only)
 
     def _advance(self):
         self.checkpoint["method_index"] += 1
@@ -1693,12 +1872,12 @@ class AnalysisSession:
                 kind, value = binding
                 if kind in ("edge", "alt_edge"):
                     a, b, found = value if kind == "alt_edge" else (*value, self._schema_stream)
-                    inst, judged, witness, first_only = self._any_reading(name, a, b, found)
+                    inst, judged, witness, first_only, search = self._any_reading(name, a, b, found)
                     if inst is not None:
                         delta[verdict(inst.verdict)] += 1
                         delta["first_reading_only"] += first_only
                         if inst.verdict is not False:
-                            record = self._edge_record(inst, judged, witness)
+                            record = self._edge_record(inst, judged, witness, search, first_only)
                             new.append(record)
                             if not RL.pair_scope_representable(RL.REGISTRY[name]):
                                 self._local_records.setdefault(self._task_mid(phase, name), []).append(record)

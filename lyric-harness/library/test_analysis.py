@@ -287,7 +287,10 @@ class ReaderAcceptance(unittest.TestCase):
         for end, expected in (("suck", "true"), ("zorbleth", "undecided")):
             with self.subTest(end=end):
                 _, rows, _ = complete(source(stanza.format(end)), schemas=["analysed rhyme"])
-                figures = [r for r in rows if r["kind"] == "relation_figure"]
+                # A figure's edges are a field like any other: past the detail
+                # threshold they travel as detail parts, read back as a reader
+                # reads them.
+                figures = [r for r in resolve_detail_records(rows) if r["kind"] == "relation_figure"]
                 self.assertEqual([f["verdict"] for f in figures], [expected])
                 names = set()
                 for edge in figures[0]["edges"]:
@@ -887,6 +890,166 @@ class ResumeKeepsRefusals(unittest.TestCase):
         hints = typing.get_type_hints(ReaderCheckpoint, include_extras=True)
         self.assertLessEqual(set(last["checkpoint"]), set(hints))
         self.assertIs(typing.get_origin(hints["incomplete"]), typing.NotRequired)
+
+
+def _with_words(words):
+    """Patch the lexicon with fixture words: {word: [phones, ...]}."""
+    import lyric_harness as LH
+    original = LH.Lexicon.__init__
+
+    def init(self, *args, **kwargs):
+        original(self, *args, **kwargs)
+        for word, readings in words.items():
+            self.entries[word] = [list(r) for r in readings]
+    return patch.object(LH.Lexicon, "__init__", init)
+
+
+def _edge(rows, a, b):
+    """The relation_instance between token coordinates `a` and `b`, or None."""
+    want = {f"line:{a[0]}:token:{a[1]}", f"line:{b[0]}:token:{b[1]}"}
+    return next((r for r in rows if r["kind"] == "relation_instance"
+                 and {r["a"]["token_ids"][0], r["b"]["token_ids"][0]} == want), None)
+
+
+def _domain_cells(domain):
+    toks = domain["tokens"]
+    return {(toks[int(i)], toks[j]) for i, runs in domain["pairs"].items()
+            for first, last in runs for j in range(first, last + 1)}
+
+
+class ConnectionEvidence(unittest.TestCase):
+    """The evidence the connection views read (design contract, 2026-10-30):
+    merged readings searched, per-edge search and quantifier, a reason on
+    every undecided edge, the syllables compared, and each method's domain."""
+
+    # `zee` is MERGED: two readings of one syllable, folded into knowledge
+    # sets. `zeed`'s readings disagree on nucleus AND coda, so the sets leave
+    # zeed~beet open while each whole reading fails one channel.
+    WORDS = {"zee": [["Z", "IY1"], ["Z", "AH0"]], "zeed": [["Z", "IY1", "D"], ["Z", "UW1", "T"]]}
+
+    def test_an_open_merged_set_is_settled_under_whole_readings(self):
+        reading = source("zee is home\nand bee is too")
+        with _with_words(self.WORDS):
+            session, rows, _ = complete(reading, schemas=["internal rhyme"])
+            self.assertIn((0, 0), session._merged)
+            edge = _edge(rows, (0, 0), (1, 1))
+            self.assertEqual(edge["verdict"], "true")
+            self.assertEqual(edge["reading"], {"rule": "any_reading", "witness": ["zee = Z IY1"]})
+            self.assertEqual(edge["reading_search"]["state"], "exhaustive")
+            self.assertEqual(edge["quantifier"], "exists_compatible_reading")
+            # What was compared is the witness reading's syllable, not the set.
+            self.assertEqual(edge["compared"]["a"][0]["nucleus"], "IY")
+            # Unsearched, the same pair stays open on the set: the check above
+            # is what the merged search changed.
+            with patch.object(AnalysisSession, "_merged_touched", lambda self, st, *spans: set()):
+                _, before, _ = complete(reading, schemas=["internal rhyme"])
+            self.assertEqual(_edge(before, (0, 0), (1, 1))["verdict"], "undecided")
+            self.assertEqual(_edge(before, (0, 0), (1, 1))["undecided_reason"], "channel_unknown")
+
+    def test_an_open_merged_set_every_reading_fails_is_false(self):
+        reading = source("zeed is home\nand beet is too")
+        with _with_words(self.WORDS):
+            _, rows, _ = complete(reading, schemas=["internal rhyme"])
+            # False is counted, never recorded.
+            self.assertIsNone(_edge(rows, (0, 0), (1, 1)))
+            self.assertFalse([r for r in rows if r["kind"] == "relation_instance" and r["verdict"] == "undecided"])
+            with patch.object(AnalysisSession, "_merged_touched", lambda self, st, *spans: set()):
+                _, before, _ = complete(reading, schemas=["internal rhyme"])
+            self.assertEqual(_edge(before, (0, 0), (1, 1))["verdict"], "undecided")
+
+    def test_a_capped_merged_search_is_partial_on_the_edge_only(self):
+        # A merged word forms no bucket key, so a cap on its readings can
+        # leave an edge undecided but never hide a pair: the edge says
+        # `partial` and the method stays answered. A disputed word's cap,
+        # which can hide a pair, still refuses the method (the tests above).
+        reading = source("zeed is home\nand beet is too")
+        with _with_words(self.WORDS), patch.object(AnalysisSession, "EDGE_COMBOS", 1):
+            _, rows, _ = complete(reading, schemas=["internal rhyme"])
+            edge = _edge(rows, (0, 0), (1, 1))
+            self.assertEqual(edge["verdict"], "undecided")
+            self.assertEqual(edge["undecided_reason"], "combination_cap")
+            self.assertEqual(edge["reading_search"], {"state": "partial", "combinations_examined": 1,
+                                                      "combination_limit": 1, "reason": "combination_cap"})
+            result = next(r for r in rows if r["kind"] == "method_result")
+            self.assertEqual(result["coverage"], "answered")
+
+    def test_every_undecided_edge_names_a_declared_reason(self):
+        import typing
+        from library.contracts import UndecidedReason
+        allowed = set(typing.get_args(UndecidedReason))
+        reading = source("fire every hour flower power\nour family evening fire flower\nthe cat is in the hat")
+        _, rows, _ = complete(reading, schemas=["internal rhyme", "perfect rhyme", "multisyllabic rhyme"])
+        edges = [r for r in rows if r["kind"] == "relation_instance"]
+        self.assertTrue(edges)
+        for r in edges:
+            self.assertIn(r["quantifier"], ("exists_compatible_reading", "first_listed_reading"))
+            self.assertIn(r["reading_search"]["state"], ("not_needed", "exhaustive", "partial", "unavailable"))
+            self.assertEqual(r["verdict"] == "undecided", "undecided_reason" in r, r["id"])
+            if "undecided_reason" in r:
+                self.assertIn(r["undecided_reason"], allowed)
+
+    def test_first_listed_scopes_say_so_on_the_edge(self):
+        # `every` is disputed and multisyllabic rhyme is a searched rule, kept
+        # on first-listed readings: its edges over `every` say so.
+        session, rows, _ = complete(source("every day\nheavy clay"), schemas=["multisyllabic rhyme"])
+        over = [r for r in rows if r["kind"] == "relation_instance"
+                and "line:0:token:0" in r["a"]["token_ids"] + r["b"]["token_ids"]]
+        self.assertTrue(over)
+        self.assertEqual({r["quantifier"] for r in over}, {"first_listed_reading"})
+
+    def test_compared_syllables_are_the_judged_ones(self):
+        _, rows, _ = complete(source("I know the snow\nwill go below"), schemas=["perfect rhyme"])
+        syllables = {r["unit_id"]: r["syllable"] for r in rows if r["kind"] == "syllable"}
+        edges = [r for r in rows if r["kind"] == "relation_instance"]
+        self.assertTrue(edges)
+        for r in edges:
+            if "reading" not in r:
+                self.assertEqual(r["compared"]["a"], [syllables[u] for u in r["a"]["unit_ids"]])
+                self.assertEqual(r["compared"]["b"], [syllables[u] for u in r["b"]["unit_ids"]])
+
+    def test_domain_is_the_loci_the_method_binds(self):
+        reading = source("watch his woods\nthe snow will fall")
+        _, rows, _ = complete(reading, schemas=["alliteration", "perfect rhyme", "multisyllabic rhyme"])
+        domains = {r["schema_name"]: r["domain"] for r in rows if r["kind"] == "method_result"}
+        alliteration = _domain_cells(domains["alliteration"])
+        # Same-line pairs only: three on line 0, six on line 1, none across.
+        self.assertEqual(len(alliteration), 9)
+        self.assertTrue(all(a.split(":")[1] == b.split(":")[1] for a, b in alliteration))
+        self.assertEqual(_domain_cells(domains["perfect rhyme"]), {("line:0:token:2", "line:1:token:3")})
+        self.assertEqual(domains["multisyllabic rhyme"], {"projection": "none", "reason": "multi_token_spans"})
+        # Every record of a projected method lies inside its domain.
+        for r in rows:
+            if r["kind"] == "relation_instance" and r["schema_name"] in ("alliteration", "perfect rhyme"):
+                pair = tuple(sorted((r["a"]["token_ids"][0], r["b"]["token_ids"][0])))
+                self.assertIn(pair, _domain_cells(domains[r["schema_name"]]))
+
+    def test_inside_the_domain_a_missing_record_is_the_engines_false(self):
+        # The equality test (R2 B7.1), on the reference route's own answers:
+        # every domain pair's Library verdict -- its record, or False where
+        # there is none -- is what the engine's any-reading pair judge says.
+        from quality.phonology.eng import _reading_scope
+        reading = source("watch the white wave wash\nwe will walk away\nthe snow is low below")
+        for name in ("alliteration", "perfect rhyme"):
+            with self.subTest(schema=name):
+                session, rows, _ = complete(reading, schemas=[name])
+                st = session.stream
+                domain = next(r for r in rows if r["kind"] == "method_result")["domain"]
+                held = {tuple(sorted((r["a"]["token_ids"][0], r["b"]["token_ids"][0]))): r["verdict"]
+                        for r in rows if r["kind"] == "relation_instance"}
+
+                def rebuild(phon):
+                    return RL.build_stream(st.text_lines, phon, line_status=st.line_status)
+
+                def at(token_id):
+                    parts = token_id.split(":")
+                    return int(parts[1]), int(parts[3])
+                cells = _domain_cells(domain)
+                self.assertTrue(cells)
+                with _reading_scope(), RL._line_read_scope():
+                    for a, b in cells:
+                        engine, _ = RL.pair_satisfies_any(RL.REGISTRY[name], st, at(a), at(b), rebuild)
+                        self.assertEqual(held.get((a, b), "false"),
+                                         {True: "true", False: "false", None: "undecided"}[engine], (a, b))
 
 
 if __name__ == "__main__":
