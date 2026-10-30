@@ -44,8 +44,69 @@ function checkRuntimeMinify() {
     'data identifiers unchanged'
   );
   assert.equal(minifyJs(blocks[0], 'runtime: test'), transformed[0], 'deterministic output');
+  // Library factories are registered without executing, then consumed by
+  // other chunks through named export properties. Exercise that boundary,
+  // including shorthand properties and a reflected callback/class name.
+  const factories = [
+    `CMLibraryDefine('core', function () {
+       factoryRuns++;
+       const descriptivePrivateValue = SHARED_VALUE + 5;
+       function readValue() { return descriptivePrivateValue; }
+       const arrowExport = () => descriptivePrivateValue;
+       class Reading { value() { return descriptivePrivateValue; } }
+       return { readValue, arrowExport, Reading, 'public-key': descriptivePrivateValue };
+     });`,
+    `CMLibraryDefine('reader', function () {
+       const dependencyExports = registeredFactories.core();
+       const dynamicExportKey = 'readValue';
+       const visibleToEval = 19;
+       return [dependencyExports[dynamicExportKey](), dependencyExports['public-key'],
+         dependencyExports.readValue.name, dependencyExports.arrowExport.name,
+         dependencyExports.Reading.name, new dependencyExports.Reading().value(),
+         eval('visibleToEval')];
+     });`,
+  ];
+  const runFactories = (code) => {
+    const context = vm.createContext({});
+    vm.runInContext(
+      `const SHARED_VALUE = 7;
+      let factoryRuns = 0;
+      const registeredFactories = {};
+      function CMLibraryDefine(name, factory) { registeredFactories[name] = factory; }`,
+      context
+    );
+    for (const factory of code) vm.runInContext(factory, context);
+    assert.equal(vm.runInContext('factoryRuns', context), 0, 'registration stays lazy');
+    const result = vm.runInContext('JSON.stringify(registeredFactories.reader())', context);
+    assert.equal(vm.runInContext('factoryRuns', context), 1);
+    return result;
+  };
+  const shortenedFactories = factories.map((code) =>
+    minifyJs(code, 'runtime: library chunk: fixture')
+  );
+  assert.equal(runFactories(shortenedFactories), runFactories(factories));
+  assert.equal(
+    runFactories(shortenedFactories),
+    '[12,12,"readValue","arrowExport","Reading",12,19]'
+  );
+  assert.ok(!shortenedFactories[0].includes('descriptivePrivateValue'), 'factory locals shorten');
+  assert.ok(
+    shortenedFactories[0].includes('CMLibraryDefine'),
+    'registration global retains its name'
+  );
+  assert.ok(
+    shortenedFactories[0].includes('SHARED_VALUE'),
+    'external lexical global retains its name'
+  );
+  // Exercise the production classification too: reverting only the build's
+  // label must fail this control rather than leave a green synthetic fixture.
+  const build = require('fs').readFileSync(
+    require('path').join(__dirname, 'build_html.js'),
+    'utf8'
+  );
+  assert.ok(build.includes('`runtime: library chunk: src/library/${file}`'));
   console.log(
-    'RUNTIME MINIFY: PASS — globals, properties, callback/class names, eval and determinism'
+    'RUNTIME MINIFY: PASS — globals, properties, callback/class names, eval, lazy factories and determinism'
   );
 }
 if (require.main === module) checkRuntimeMinify();
