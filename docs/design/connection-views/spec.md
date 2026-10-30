@@ -94,6 +94,12 @@ Compatible with Jony Ives's revised position (6526665982). His selection carries
   - (a) The inspector shows IPA, while the engine's witness gives its own phones (`watch = W AA1 CH`). A build either shows the judge's symbols or generates the IPA from the table the judge uses, so the key can't drift (ledger V15).
   - (b) The diagonal "self" cells are optional. Drop them if the space is wanted; they carry no state.
 - URL persistence, the "hidden by filter" notice and stale-link handling are behaviours, not visuals. They remain implementation acceptance tests, as the r2 README says.
+- *Follow-up (6527042154):*
+  - I agree with R2's r3 objections 1–3: engine symbols with an IPA gloss covering all 37 vowels; "not reported by this route"; the route named on the coverage line.
+  - On objection 4, interior methods before they exist, I propose they appear in the **method selector**, not as a cell state. "Assonance · interior" and "Consonance · interior" are listed but disabled, reason "not yet registered" (the ledger's V7 pattern). The coverage line adds "Not evaluated: interior assonance, interior consonance (schema not yet registered)".
+  - Cells keep the six states scoped to the selected method, so no seventh state and no doubled controls.
+  - Once the schemas are registered, the two entries become enabled and nothing else changes.
+  - For r3: one frame with the method menu open.
 ## Open disputes / evidence needed
 1. ~~R2: Anywhere as placement-stripped pair judge.~~ RESOLVED by R2 accepting 3PO's position (registered loci only; a sound layer needs its own contract).
 2. ~~R2: reading disagreement = undecided.~~ RESOLVED: existential outcome, quantifier, completeness and witness stored apart (backend §2 truth table).
