@@ -44,6 +44,7 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
     value == null ? 'not supplied' : typeof value === 'string' ? value : JSON.stringify(value);
   const action = (node, selection) => {
     node.dataset.selection = I.selectionKey(selection);
+    node.classList.add('lib-mk-focus');
     return node;
   };
   const button = (text, selection) => action(el('button', text), selection);
@@ -541,7 +542,7 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
 const CSS = `
 .cv-root{font-family:var(--cm-font,Arial,sans-serif);color:var(--cm-text,#242a28);background:var(--cm-surface,#fff);padding:24px;line-height:1.5}
 .cv-root *{box-sizing:border-box}.cv-root button,.cv-root select,.cv-root summary{font:inherit;color:inherit;background:var(--cm-surface,#fff);border:1px solid var(--cm-border,#bfc7c3);border-radius:6px;padding:8px;cursor:pointer}
-.cv-root button:focus-visible,.cv-root select:focus-visible,.cv-root summary:focus-visible,.cv-root g:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.cv-root button:not(.lib-mk-focus):focus-visible,.cv-root select:focus-visible,.cv-root summary:focus-visible{outline:2px solid currentColor;outline-offset:3px}
 .cv-root nav{display:flex;gap:16px;margin:20px 0}.cv-root nav button{border:0;border-radius:0}.cv-root [aria-current=true]{border-bottom:3px solid currentColor;font-weight:bold}
 .cv-controls{display:flex;gap:16px;align-items:start;margin-bottom:16px;flex-wrap:wrap}.cv-controls label{display:block}.cv-controls fieldset{border:0}.cv-controls details[open]{border:1px solid var(--cm-border,#bfc7c3);padding:8px}
 .cv-layout{align-items:start;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:24px;margin-top:20px}.cv-inspector,.cv-group{border:1px solid var(--cm-border,#dce2df);border-radius:10px;padding:20px}.cv-inspector h4{font-size:12px;text-transform:uppercase;margin-bottom:6px}.cv-inspector p{overflow-wrap:anywhere}.cv-inspector button{display:block;margin:8px 0}.cv-scroll{overflow:auto}.cv-scroll>svg{display:block}.cv-poem-line{font:24px Georgia,serif;fill:var(--cm-text,#242a28)}
