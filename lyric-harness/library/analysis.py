@@ -1417,11 +1417,17 @@ class AnalysisSession:
         figure."""
         spans = self._sound_spans(SHARED_SOUND_METHODS[key][0], self.stream)
         toks = sorted(spans)
-        if len(toks) * (len(toks) - 1) // 2 > self.SOUND_PAIR_CAP:
+        missing = [] if self._any_reading_off else self._sound_unspanned(spans)
+        # The cap is over every pair the method would ask, the pairs over
+        # words with no span included (3PO, #646): counted before any is
+        # asked, so a method past it never answers over the ones it reached.
+        total = (len(toks) * (len(toks) - 1) // 2 + len(missing) * len(toks)
+                 + len(missing) * (len(missing) - 1) // 2)
+        if total > self.SOUND_PAIR_CAP:
             raise _Refused(self.RL.Refusal(
                 shared_sound_name(key), "pair_cap",
-                f"{len(toks)} words make more than {self.SOUND_PAIR_CAP} pairs; shared sound is not "
-                "answered over the pairs it would reach before the cap", kind="capability"))
+                f"{len(toks) + len(missing)} words make {total} pairs, more than {self.SOUND_PAIR_CAP}; "
+                "shared sound is not answered over the pairs it would reach before the cap", kind="capability"))
         for i, ta in enumerate(toks):
             for tb in toks[i + 1:]:
                 for a in spans[ta]:
@@ -1430,8 +1436,7 @@ class AnalysisSession:
         # A varying word with no span on the work's own reading (a merged
         # word whose readings disagree on stress) is asked about under each
         # of its whole readings, against every other word (3PO, #646).
-        missing = self._sound_unspanned(spans)
-        if not self._any_reading_off:
+        if missing:
             for ta in missing:
                 for tb in sorted(set(toks) | set(missing)):
                     if tb != ta and (tb not in missing or ta < tb):

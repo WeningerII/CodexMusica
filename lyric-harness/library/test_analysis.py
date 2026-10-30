@@ -1394,3 +1394,18 @@ class SharedSound(unittest.TestCase):
         result = next(r for r in rows if r["kind"] == "method_result")
         self.assertEqual((result["coverage"], result["domain"]), ("refused", {"projection": "none", "reason": "refused"}))
         self.assertFalse(last["summary"]["coverage"]["certified"])
+
+    def test_the_pair_cap_counts_pairs_over_words_without_a_span(self):
+        # 3PO's probe (#637 6534358951): zanchor has no span on the work's
+        # reading, so its pairs were added after the cap was checked, and a
+        # cap of 1 answered over 3 pairs.
+        with _with_words(self.UNANCHORED), patch.object(AnalysisSession, "SOUND_PAIR_CAP", 1):
+            _, rows, _ = _sound(source("zanchor banchor cat"), ["vowel"])
+        result = next(r for r in rows if r["kind"] == "method_result")
+        self.assertEqual((result["coverage"], result["domain"]), ("refused", {"projection": "none", "reason": "refused"}))
+        self.assertFalse(_sound_edges(rows, "vowel"))
+        # Exactly at the cap it answers, over all three pairs.
+        with _with_words(self.UNANCHORED), patch.object(AnalysisSession, "SOUND_PAIR_CAP", 3):
+            _, rows, _ = _sound(source("zanchor banchor cat"), ["vowel"])
+        result = next(r for r in rows if r["kind"] == "method_result")
+        self.assertEqual((result["coverage"], result["domain"]["pair_count"]), ("answered", 3))
