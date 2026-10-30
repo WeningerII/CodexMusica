@@ -173,6 +173,17 @@
     throw new RangeError('malformed selection');
   }
 
+  // A selection back from its key (a view's data-selection), or null when the
+  // key cannot be read. Existence is not checked here; decodeSelection does
+  // that for links.
+  function selectionFromKey(key) {
+    try {
+      return key ? parseKey(key) : null;
+    } catch {
+      return null;
+    }
+  }
+
   // current: { analysisIdentity, hasEntity(id), hasMethod(id), hasEvidence(id) }.
   // Returns { ok: true, selection } or { ok: false, reason, message }, where
   // reason is 'none', 'malformed', 'revision' or 'missing'. A refusal never
@@ -391,6 +402,7 @@
     binding,
     figure,
     selectionKey,
+    selectionFromKey,
     sameSelection,
     selectionOccurrences,
     encodeSelection,

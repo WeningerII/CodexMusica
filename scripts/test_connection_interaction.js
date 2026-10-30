@@ -83,6 +83,18 @@ test('URL round-trips every selection kind, including ids with separators', () =
   }
 });
 
+test('a view key reads back to the same selection; a bad key reads as none', () => {
+  for (const sel of [
+    CI.occurrence('e-woods-4-4'),
+    CI.pair(ALLIT, 'e-watch-4-2', 'e-woods-4-4'),
+    CI.figure('ev-stanza-rhyme'),
+  ]) {
+    assert.equal(CI.sameSelection(CI.selectionFromKey(CI.selectionKey(sel)), sel), true);
+  }
+  assert.equal(CI.selectionFromKey('p:only-one'), null);
+  assert.equal(CI.selectionFromKey(''), null);
+});
+
 test('a link from another revision is refused, never remapped', () => {
   const qs = CI.encodeSelection('analysis-rev-0', CI.pair(ALLIT, 'e-watch-4-2', 'e-woods-4-4'));
   const r = CI.decodeSelection(qs, current);
