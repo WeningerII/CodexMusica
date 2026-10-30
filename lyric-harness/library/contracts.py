@@ -85,6 +85,10 @@ class MethodDomain(TypedDict):
     pairs: NotRequired[dict[str, list[list[int]]]]
     pair_count: NotRequired[int]
     reading_dependent_tokens: NotRequired[list[str]]
+    # What a listed pair's absence quantifies over. `first_listed_reading`:
+    # readings were not searched (a first-listed scope, or a work with
+    # sound declarations), and every disputed word is reading-dependent.
+    reading_policy: NotRequired[Literal["exists_compatible_reading", "first_listed_reading"]]
 
 
 class ReaderCheckpoint(TypedDict):

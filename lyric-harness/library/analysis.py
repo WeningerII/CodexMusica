@@ -1329,9 +1329,22 @@ class AnalysisSession:
                     out.append([j, j])
             runs[str(i)] = out
         tid = lambda t: f"{self._line_id(t[0])}:token:{t[1]}"
+        dependent = set(self._reading_dependent(schema, aa, bb))
+        searched = not self._any_reading_off and self._varies(schema)
+        if not searched:
+            # Readings not searched (a scope `_varies` keeps first-listed, or
+            # a work with sound declarations): a disputed word's missing
+            # record is only its first reading's False (3PO, #646).
+            dependent |= {t for pair in cells for t in pair if t in self._disputed}
         return {"projection": "exact_token_pair", "ordering": "role_ordered",
                 "tokens": [tid(t) for t in ids], "pairs": runs, "pair_count": len(cells),
-                "reading_dependent_tokens": [tid(t) for t in sorted(self._reading_dependent(schema, aa, bb))]}
+                "reading_policy": self._reading_policy(searched),
+                "reading_dependent_tokens": [tid(t) for t in sorted(dependent)]}
+
+    def _reading_policy(self, searched):
+        """What a cell's absence quantifies over: every compatible whole
+        reading, or the first-listed reading of a disputed word only."""
+        return "exists_compatible_reading" if searched else "first_listed_reading"
 
     def _reading_dependent(self, schema, aa, bb):
         """-> {(line, token)} whose membership in this schema's loci changes
