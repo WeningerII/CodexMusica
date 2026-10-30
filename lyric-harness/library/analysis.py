@@ -1318,8 +1318,20 @@ class AnalysisSession:
                 cells.add((ta, tb))
         # Pairs only another reading binds (`_alternate_edges`), as judged.
         cells.update((tuple(a), tuple(b)) for a, b in alt_cells)
-        return {**self._project(cells, "role_ordered"),
-                "reading_dependent_tokens": [self._token_id(t) for t in sorted(self._reading_dependent(schema, aa, bb))]}
+        dependent = set(self._reading_dependent(schema, aa, bb))
+        searched = not self._any_reading_off and self._varies(schema)
+        if not searched:
+            # Readings not searched (a scope `_varies` keeps first-listed, or
+            # a work with sound declarations): a disputed word's missing
+            # record is only its first reading's False (3PO, #646).
+            dependent |= {t for pair in cells for t in pair if t in self._disputed}
+        return {**self._project(cells, "role_ordered"), "reading_policy": self._reading_policy(searched),
+                "reading_dependent_tokens": [self._token_id(t) for t in sorted(dependent)]}
+
+    def _reading_policy(self, searched):
+        """What a cell's absence quantifies over: every compatible whole
+        reading, or the first-listed reading of a disputed word only."""
+        return "exists_compatible_reading" if searched else "first_listed_reading"
 
     def _token_id(self, tok):
         return f"{self._line_id(tok[0])}:token:{tok[1]}"
@@ -1629,8 +1641,14 @@ class AnalysisSession:
             return {"projection": "none", "reason": "domain_cap", "cap": self.DOMAIN_CAP}
         cells = {(x, y) for i, x in enumerate(toks) for y in toks[i + 1:]}
         cells.update((tuple(x), tuple(y)) for x, y in alt_cells)
-        dependent = self._sound_unspanned(set(toks)) if self._any_reading_off else []
+        dependent = []
+        if self._any_reading_off:
+            # First-listed readings only: a word with no span was never
+            # asked, and a disputed word's missing record is its first
+            # reading's False alone (3PO, #646).
+            dependent = sorted(set(self._sound_unspanned(set(toks))) | {t for t in toks if t in self._disputed})
         return {**self._project(cells, "unordered"),
+                "reading_policy": self._reading_policy(not self._any_reading_off),
                 "reading_dependent_tokens": [self._token_id(t) for t in dependent]}
 
     def _sound_result(self, key, mid, counts):

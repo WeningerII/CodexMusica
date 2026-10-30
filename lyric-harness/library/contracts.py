@@ -11,6 +11,7 @@ import dataclasses
 import hashlib
 import json
 import math
+from collections.abc import Mapping
 from fractions import Fraction
 from typing import Any, Literal, NotRequired, TypedDict
 
@@ -94,6 +95,10 @@ class MethodDomain(TypedDict):
     pairs: NotRequired[dict[str, list[list[int]]]]
     pair_count: NotRequired[int]
     reading_dependent_tokens: NotRequired[list[str]]
+    # What a listed pair's absence quantifies over. `first_listed_reading`:
+    # readings were not searched (a first-listed scope, or a work with
+    # sound declarations), and every disputed word is reading-dependent.
+    reading_policy: NotRequired[Literal["exists_compatible_reading", "first_listed_reading"]]
 
 
 class ReaderCheckpoint(TypedDict):
@@ -127,7 +132,10 @@ def json_safe(value: Any) -> Any:
                                                 sorted(value, key=repr)]}
     if isinstance(value, set):
         return [json_safe(v) for v in sorted(value, key=repr)]
-    if isinstance(value, dict):
+    # Any mapping, not only a dict: the engine hands out read-only views
+    # (`MappingProxyType`, `relations.pair_channel_reads`) so a caller
+    # cannot corrupt what it caches. Serialized exactly as a dict is.
+    if isinstance(value, Mapping):
         return {str(k): json_safe(v) for k, v in value.items()}
     if isinstance(value, (list, tuple)):
         return [json_safe(v) for v in value]

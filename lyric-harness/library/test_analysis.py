@@ -1205,7 +1205,7 @@ class SharedSound(unittest.TestCase):
         self.assertEqual((cat_sat["namespace"], cat_sat["layer"]),
                          ("shared_sound", "Shared sound (not a registered figure)"))
         self.assertEqual([cat_sat["compared"]["a"][0]["nucleus"], cat_sat["compared"]["b"][0]["nucleus"]], ["AE", "AE"])
-        self.assertEqual(cat_sat["reading_context"], {"type": "merged"})
+        self.assertEqual(cat_sat["reading_context"], {"type": "merged", "members": [{"pinned": False}] * 2})
         self.assertEqual(cat_sat["channel_versions"]["channel_reads"], RL.CHANNEL_READ_VERSION)
         self.assertFalse(cat_sat["same_spelling"])
         # cat~the share no vowel: a judged False is counted, not recorded.
@@ -1213,6 +1213,23 @@ class SharedSound(unittest.TestCase):
         # on~in: different vowels, the same closed coda.
         self.assertIsNone(_edge(_sound_edges(rows, "vowel"), (0, 3), (1, 2)))
         self.assertEqual(_edge(_sound_edges(rows, "coda"), (0, 3), (1, 2))["verdict"], "true")
+
+    def test_a_record_from_the_read_only_primitive_serializes(self):
+        # The primitive hands out read-only mappings all the way down, so a
+        # caller cannot corrupt its cache; a sound record built from one
+        # serializes exactly as from plain dicts (3PO, #646).
+        from types import MappingProxyType
+        session, rows, _ = _sound(source(self.TEXT), ["vowel"])
+        st = session.stream
+        spans = session._sound_spans("last_stressed", st)
+        read = RL.pair_channel_reads(st, spans[(0, 1)][0], spans[(0, 2)][0], "last_stressed")
+        self.assertIsInstance(read["reading_context"], MappingProxyType)
+        self.assertIsInstance(read["syllables"][0][0], MappingProxyType)
+        with self.assertRaises(TypeError):
+            read["versions"]["channel_reads"] = 0
+        value, record, _ = session._sound_pair("vowel", spans[(0, 1)][0], spans[(0, 2)][0])
+        self.assertTrue(value)
+        self.assertEqual(json.loads(canonical_json(record)), _edge(_sound_edges(rows, "vowel"), (0, 1), (0, 2)))
 
     def test_empty_sounds_are_not_shared(self):
         _, rows, _ = _sound(source(self.TEXT), ["onset", "stressed_onset", "coda"])
@@ -1280,7 +1297,8 @@ class SharedSound(unittest.TestCase):
                 edge = _edge(_sound_edges(rows, key), (0, 0), partner)
                 self.assertEqual(edge["verdict"], "true", key)
                 self.assertIn("zanchor = Z IY1 T AH0", edge["reading"]["witness"])
-                self.assertEqual(edge["reading_context"]["type"], "pinned")
+                # Only zanchor is pinned; its partner keeps its own reading.
+                self.assertEqual(edge["reading_context"]["type"], "partial")
                 result = next(r for r in rows if r["kind"] == "method_result"
                               and r["method_name"] == key + "@v1")
                 # Inside the domain, and nothing left reading-dependent: every
@@ -1294,6 +1312,35 @@ class SharedSound(unittest.TestCase):
             # restarted traversal keeps them.
             _, resumed, _ = _sound(reading, ["vowel", "stressed_onset"], batch=1, restart=True)
             self.assertEqual(canonical_json(resumed), canonical_json(rows))
+
+    def test_a_domain_names_its_reading_policy(self):
+        # A work with sound declarations keeps first-listed readings, so a
+        # disputed word's missing record is only its first reading's False:
+        # the domain says so, and lists the word, for both namespaces (3PO,
+        # #646). Searched, the same word is answered for every reading.
+        reading = source("zyre is here\nthe bar")
+        declared = {"sound": {"caesura": {"source": "caller-owned empty map", "positions": {}}}}
+        with _with_words(self.WORDS):
+            for declarations, policy, dependent in ((None, "exists_compatible_reading", False),
+                                                    (declared, "first_listed_reading", True)):
+                with patch("library.analysis.runtime_identity", return_value=_FIXTURE_RUNTIME):
+                    _, schema_rows, _ = complete(reading, declarations, ["internal rhyme"])
+                    from library.registry import shared_sound_name
+                    session = AnalysisSession(reading, declarations, {"layers": ["sound"]},
+                        requested_methods=[method_id("shared_sound", shared_sound_name("coda"))])
+                rows = []
+                while True:
+                    last = session.step(256)
+                    rows += last["records"]
+                    if last["done"]:
+                        break
+                for row in (schema_rows, list(resolve_detail_records(rows))):
+                    domain = next(r for r in row if r["kind"] == "method_result")["domain"]
+                    self.assertEqual(domain["reading_policy"], policy)
+                    self.assertEqual("line:0:token:0" in domain["reading_dependent_tokens"], dependent, policy)
+                # The hold under zyre's second reading exists only when searched.
+                held = _edge(_sound_edges(list(resolve_detail_records(rows)), "coda"), (0, 0), (1, 1))
+                self.assertEqual(held is not None and held["verdict"] == "true", not dependent)
 
     def test_inside_the_domain_a_missing_record_is_a_judged_false(self):
         session, rows, last = _sound(source(self.TEXT), ["vowel"])
