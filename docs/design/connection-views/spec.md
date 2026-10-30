@@ -117,6 +117,47 @@ Compatible with Jony Ives's revised position (6526665982). His selection carries
   - **Jony's J1–J7.** I accept them, including the flat light-grey outside-locus cell.
   - **Per-method display default (John's function-word ruling).** No word filter and no word list. Interior methods are not pre-selected. Any future filter is computed, named on the coverage line with a hidden count, and off by default.
   - **Inspector.** It names the anchor syllable compared ("last stressed: watch /AA1 CH/ · woods /UH1 D Z/").
+## Interior schema contract (proposed; target design, unassigned)
+Written by R2 from #519 6527045886, 6527177748, 6527199559, BB8 6527091795 and 6527324162, 3PO 6527127340 and 6527170651, Don Norman 6527324954, and John's rulings (O1 widened; "keep function words, option 1"). This is a contract proposal. No engine work starts from it, and nobody is assigned.
+
+**Two new schema IDs: `internal assonance` and `internal consonance`.** They take their shape from the registry's `internal rhyme`.
+- **Spans:** `SpanRule("any_token", "last_stressed", 1, "to_word_end")` for both members, `align="anchor"`.
+- **`unmatched="exclude"`, stated explicitly in the declaration.** Overhang syllables on the longer suffix are outside the comparison. It is not whole-suffix equality.
+- **Channels:** assonance has nucleus `AGREE` `each`. Consonance has coda `AGREE` `each`, plus the guard below.
+- **Placement:** `Placement("both_line_final", polarity=False)`, so at least one member is not line-final. Same-line pairs are included. Pairs where both members are line-final stay with the existing `assonance` and `consonance`, which are unchanged, so no pair is counted twice.
+- **Identity:** `DISTINCT` is `IdentityRule("token", DIFFER)` over lower-cased token text, a difference in normalised spelling. It is a separate rule from the earlier requirement of two distinct occurrence IDs (B1).
+
+**The consonance guard: a new named predicate, `BothPresent`, on the coda channel.**
+- **Scope:** the codas at the *last aligned syllable pair*, the last position that both members' alignment covers. For suffixes of equal length, that is each word's final coda. It never reads the excluded overhang.
+- **Unknown is not empty.** If either coda is unknown under the reading being tried, the result is undecided, with `coda` in `unknown_channels`.
+- **Rule 5:** the pair holds when one whole reading has both codas present and agreeing.
+- **Pruning:** the guard narrows what coda Agree admits and can never add a hold, so existing Agree bucket pruning stays sound. The guard is evaluator-only at first, and a test asserts that pruned and unpruned runs give identical results. `_bucket_key` and `planning_traits` (`test_plan.py` §14) must learn the predicate. Until then, the planner refuses the schema loudly.
+- **E-5 is untouched.** Line-final `consonance` keeps empty/empty agreement. The guard is a stated contract difference between the two consonance IDs.
+- **A stated limit (BB8):** in a mixed-length pair, the last aligned pair is the stressed syllable of the longer word. Its coda depends on syllabification. village (`V IH1 | L AH0 JH`) against fill (coda `L`) does not hold, because the stressed-syllable coda is empty after syllabification and the word-final L is excluded by alignment. A word-end-anchored consonance (`word_end` spans) would be a separately named variant ID, never a silent change.
+
+**Function words (John: "keep function words, option 1").** The schemas use dictionary stress, with no lexical stop list. Function-word holds stay in the evidence. Any reduction in what is drawn is a disclosed display filter, never an engine exclusion. A meter-stress source would be a separately named variant ID.
+
+**Reading policy and route.** Both schemas are judged under rule 5 by the declared reading search. The witness is `reading_witness`'s `word = PHONES` at the compared anchor syllable. The inspector names that anchor syllable, for example "last stressed: watch /AA1 CH/ · woods /UH1 D Z/" (Don Norman). The reference route is the Library `AnalysisSession` schema namespace. Equality tests assert "undecided" with its `unknown_channels` for merged-reading pairs that the reference route doesn't resolve, so the merged-reading search fix arrives as a deliberate repin (O3).
+
+**Shared reads and the sound layer.**
+- **The reusable primitive:** channel reads keyed by (span pair, span rule, alignment, pinned whole-reading combination), bound to the resource, schema and policy versions. Each schema quantifies over the combinations itself. Per-channel existential results are never combined, so nucleus-under-A plus coda-under-B never makes a hold.
+- **Sharing:** reads are shared only within one span family. Today that is `internal rhyme` and the two interior schemas. The cache fills lazily, from whichever consumer asks first.
+- **The sound layer** (`layer: sound`, separately versioned, never called a figure) consumes these reads. Word-initial onset (`word_start`) and last-stressed onset are different span families, so they get different keys and are recorded as two separate observations.
+
+**Reference tests.**
+- **Inventory:** each test names the vowel inventory it runs on. The positive "shares the stressed vowel" fixture avoids NEAR/KIT and every other pair that the sound-inventory branch splits. On that branch, his~queer is a pinned negative.
+- **Assonance:** a positive interior pair sharing the stressed vowel. A negative pair where both members are line-final, so the new schema must not fire. A negative with the same spelling.
+- **Consonance:**
+  - positive: two closed final codas that agree;
+  - negative: both codas open;
+  - negative: one open, one closed;
+  - negative: a medial coda with open word ends;
+  - negative: village~fill, with BB8's reason stated;
+  - unequal suffix lengths: the overhang goes unread;
+  - undecided: a merged-reading word whose coda varies by reading.
+- **Equality:** each verdict equals the direct Library schema-namespace call.
+- **Pruning soundness:** pruned and unpruned runs are identical.
+
 ## Open disputes / evidence needed
 1. ~~R2: Anywhere as placement-stripped pair judge.~~ RESOLVED by R2 accepting 3PO's position (registered loci only; a sound layer needs its own contract).
 2. ~~R2: reading disagreement = undecided.~~ RESOLVED: existential outcome, quantifier, completeness and witness stored apart (backend §2 truth table).
