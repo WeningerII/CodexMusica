@@ -260,6 +260,29 @@
   //   domainCertified the domain descriptor certifies that an absent record
   //                   means false (completed, non-refused, pruning proven safe)
   // Returns { state, reason, absenceOnly }.
+  // Why a record is undecided, in words, by the evidence contract's declared
+  // reasons (library/contracts.py UndecidedReason).
+  const UNDECIDED_WORDS = Object.freeze({
+    combination_cap: 'reading search reached its cap',
+    rebuild_unavailable: 'an alternate reading could not be rebuilt',
+    locus_unmatched: 'locus not matched under every reading',
+    readings_not_searched_in_scope: 'only the first-listed reading was judged',
+    no_reading_combination: 'no compatible reading combination',
+    placement_unknown: 'placement not settled',
+    identity_unknown: 'identity not settled',
+    channel_unknown: 'a sound channel not settled',
+    judge_unknown: 'the judge gave no answer',
+    member_edges_undecided: 'member pairs undecided',
+  });
+
+  function undecidedReason(rec) {
+    const unknown = rec.unknown_channels;
+    if (Array.isArray(unknown) && unknown.length) {
+      return `${unknown.map((u) => (Array.isArray(u) ? u[1] : u)).join(', ')} not settled`;
+    }
+    return UNDECIDED_WORDS[rec.undecided_reason] || 'reason not reported';
+  }
+
   function cellState(cell) {
     if (!cell.inLocus) return { state: 'not_examined', reason: null, absenceOnly: false };
     const rec = cell.record;
@@ -271,7 +294,12 @@
           absenceOnly: false,
         };
       }
-      if (rec.outcome === true || rec.outcome === 'true') {
+      if (rec.coverage === 'not_requested') {
+        return { state: 'not_examined', reason: 'not requested', absenceOnly: false };
+      }
+      // The evidence contract calls it `verdict` ("true" | "false" | "undecided").
+      const verdict = rec.verdict !== undefined ? rec.verdict : rec.outcome;
+      if (verdict === true || verdict === 'true') {
         const informative = rec.informative_channels;
         return {
           state: 'holds',
@@ -279,15 +307,10 @@
           absenceOnly: Array.isArray(informative) && informative.length === 0,
         };
       }
-      if (rec.outcome === false || rec.outcome === 'false') {
+      if (verdict === false || verdict === 'false') {
         return { state: 'does_not_hold', reason: null, absenceOnly: false };
       }
-      const unknown = rec.unknown_channels;
-      const reason =
-        Array.isArray(unknown) && unknown.length
-          ? `${unknown.map((u) => (Array.isArray(u) ? u[1] : u)).join(', ')} not settled`
-          : 'reason not reported';
-      return { state: 'undecided', reason, absenceOnly: false };
+      return { state: 'undecided', reason: undecidedReason(rec), absenceOnly: false };
     }
     if (!cell.jobComplete) return { state: 'not_yet_computed', reason: null, absenceOnly: false };
     if (cell.domainCertified) return { state: 'does_not_hold', reason: null, absenceOnly: false };
@@ -409,6 +432,7 @@
     decodeSelection,
     hiddenNotice,
     cellState,
+    UNDECIDED_WORDS,
     stateWords,
     matrixMove,
     keyAction,
