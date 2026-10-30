@@ -9815,12 +9815,13 @@ def reading_combos(stream, tokens, cap=READING_COMBO_CAP):
             fixed.append((lex, word, readings[0]))
     if not per:
         return None, False
-    import lyric_harness as lh
     # One speaker sings the whole stream: readings combine within an accent,
     # and a token with one reading (a declared pin) takes part in that check.
+    # The check is the lexicon's own (`Lexicon.accents_agree`); a lexicon
+    # without accent rules has nothing to disagree on.
+    same = getattr(lex, "accents_agree", None) or (lambda _r: True)
     agree = (c for c in itertools.product(*per)
-             if lh.accents_agree(fixed + [(lex, word, r)
-                                          for _, (tok, word, r) in c]))
+             if same(fixed + [(lex, word, r) for _, (tok, word, r) in c]))
     combos = [dict(c) for c in itertools.islice(agree, cap + 1)]
     return combos[:cap], len(combos) <= cap
 

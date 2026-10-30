@@ -1328,6 +1328,10 @@ def accents_agree(readings):
 
 
 class Lexicon:
+    # Reached through the lexicon, so `quality/relations.py` checks one
+    # speaker's readings without importing this module (P10).
+    accents_agree = staticmethod(accents_agree)
+
     def __init__(self, fallback=None, strip_parens=True, pronunciations=None,
                  reader_scheme=None):
         """`fallback` is a DECLARED coordinate, `None` by default -- omitting

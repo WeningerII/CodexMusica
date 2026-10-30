@@ -5706,11 +5706,19 @@ class Reviser:
                     # so the frame here is the capability gate and nothing
                     # else (M-39(b) is about a figure quantified over a
                     # frame nobody declared, which this route does not run).
-                    st = _RL.build_stream(["the %s one" % c,
-                                           "it was %s" % w], lex,
+                    pair = ["the %s one" % c, "it was %s" % w]
+                    st = _RL.build_stream(pair, lex,
                                           declaration={"language": "eng"},
                                           stanzas=False)
-                    got = _RL.pair_satisfies(sch, st, (0, 1), (1, -1))
+                    # STANDING RULE 5, as `grade()` judges the same pair: a
+                    # None the two words' readings leave is asked again under
+                    # each whole reading, paired within one accent.
+                    build = _RL.cached_builder(
+                        lambda ph, pair=pair: _RL.build_stream(
+                            pair, ph, declaration={"language": "eng"},
+                            stanzas=False))
+                    got, _ = _RL.pair_satisfies_any(sch, st, (0, 1), (1, -1),
+                                                    build)
                 except Exception:
                     got = False         # unknown cannot be a verified offer
                 if isinstance(got, _RL.Refusal):
