@@ -18,6 +18,8 @@ reading's syllable count.
 
 import os
 import re
+import json
+import subprocess
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -86,9 +88,15 @@ def test_the_inventory_has_one_definition():
     js = open(os.path.join(HERE, "..", "..", "src", "pages", "lyrics.js")).read()
 
     def js_list(name):
-        # one string or several joined with +, as Prettier lays it out
-        m = re.search(name + r" =\s*\(?\s*((?:'[^']*'\s*\+?\s*)+)\)?\.split", js)
-        return set("".join(re.findall(r"'([^']*)'", m.group(1))).split()) if m else set()
+        # The page's own definition, evaluated as written (the vowel list is
+        # generated: every pair of A E I O U, plus the ARPABET rest).
+        m = re.search(r"const " + name + r" =[^;]*;", js)
+        if not m:
+            return set()
+        out = subprocess.run(
+            ["node", "-e", m.group(0) + "process.stdout.write(JSON.stringify(" + name + "))"],
+            capture_output=True, text=True, timeout=60)
+        return set(json.loads(out.stdout)) if out.returncode == 0 else set()
     check("the Lyrics page's vowel list == lyric_harness.VOWELS",
           js_list("LY_ARPABET_VOWELS") == set(L.VOWELS))
     check("the Lyrics page's consonant list == lyric_harness.CONSONANTS",

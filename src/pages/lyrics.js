@@ -34,12 +34,9 @@ const LY_DASH = ' — ';
 const LY_STAMP = /^\[(FINISHED|GRADED)\b/i;
 const LY_SETUP = /^\[SETUP\s+—\s+/i;
 const LY_BRACKET = /^\[[^\]]*\]$/;
-// The harness's inventory (lyric_harness.VOWELS / CONSONANTS): ARPABET plus
-// the extended English vowels and consonants (accent readings, 2026-10-30).
-const LY_ARPABET_VOWELS = (
-  'AA AE AH AO AW AY EH ER EY IH IY OW OY UH UW ' +
-  'IA EA UA OA OO EU OE EE IE IU UI OU AI EI UU EO AU II UO IO UE OI'
-).split(' ');
+const LY_ARPABET_VOWELS = [...'AEIOU']
+  .flatMap((a) => [...'AEIOU'].map((b) => a + b))
+  .concat('AH AW AY EH ER EY IH IY OW OY UH UW'.split(' '));
 const LY_ARPABET_CONSONANTS =
   'B CH D DH F G HH JH K L M N NG P R S SH T TH V W Y Z ZH KH CX LH Q'.split(' ');
 // The harness's placement vocabulary for a rhyme-group member (quality/slots.py),
