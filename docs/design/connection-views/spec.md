@@ -118,7 +118,7 @@ Compatible with Jony Ives's revised position (6526665982). His selection carries
   - **Per-method display default (John's function-word ruling).** No word filter and no word list. Interior methods are not pre-selected. Any future filter is computed, named on the coverage line with a hidden count, and off by default.
   - **Inspector.** It names the anchor syllable compared ("last stressed: watch /AA1 CH/ · woods /UH1 D Z/").
 ## Interior schema contract (proposed; target design, unassigned)
-Written by R2 from #519 6527045886, 6527177748, 6527199559, BB8 6527091795 and 6527324162, 3PO 6527127340 and 6527170651, Don Norman 6527324954, and John's rulings (O1 widened; "keep function words, option 1"). This is a contract proposal. No engine work starts from it, and nobody is assigned.
+Written by R2 from #519 6527045886, corrected per 3PO 6527437000, 6527177748, 6527199559, BB8 6527091795 and 6527324162, 3PO 6527127340 and 6527170651, Don Norman 6527324954, and John's rulings (O1 widened; "keep function words, option 1"). This is a contract proposal. No engine work starts from it, and nobody is assigned.
 
 **Two new schema IDs: `internal assonance` and `internal consonance`.** They take their shape from the registry's `internal rhyme`.
 - **Spans:** `SpanRule("any_token", "last_stressed", 1, "to_word_end")` for both members, `align="anchor"`.
@@ -133,11 +133,12 @@ Written by R2 from #519 6527045886, 6527177748, 6527199559, BB8 6527091795 and 6
 - **Rule 5:** the pair holds when one whole reading has both codas present and agreeing.
 - **Pruning:** the guard narrows what coda Agree admits and can never add a hold, so existing Agree bucket pruning stays sound. The guard is evaluator-only at first, and a test asserts that pruned and unpruned runs give identical results. `_bucket_key` and `planning_traits` (`test_plan.py` §14) must learn the predicate. Until then, the planner refuses the schema loudly.
 - **E-5 is untouched.** Line-final `consonance` keeps empty/empty agreement. The guard is a stated contract difference between the two consonance IDs.
-- **A stated limit (BB8):** in a mixed-length pair, the last aligned pair is the stressed syllable of the longer word. Its coda depends on syllabification. village (`V IH1 | L AH0 JH`) against fill (coda `L`) does not hold, because the stressed-syllable coda is empty after syllabification and the word-final L is excluded by alignment. A word-end-anchored consonance (`word_end` spans) would be a separately named variant ID, never a silent change.
+- **Which pair is last.** `align_anchor` pairs syllables from the anchor outward, so the last aligned pair is at tail index `min(len(suffix a), len(suffix b)) − 1`. It is the anchor only when the shorter suffix has one syllable (3PO 6527437000, correcting the earlier wording here).
+- **A stated limit (BB8, corrected by 3PO).** The guard reads codas as the syllabifier assigns them, so it depends on syllabification. village (`V IH1 | L AH0 JH`) against fill (coda `L`) does not hold. The shorter suffix has one syllable, so the compared pair is the anchors, and village's anchor coda is empty against fill's `L`. That already fails coda Agree. village's word-final coda is `JH`, and its `L` is the onset of the excluded second syllable. A word-end-anchored consonance (`word_end` spans) would be a separately named variant ID, never a silent change.
 
 **Function words (John: "keep function words, option 1").** The schemas use dictionary stress, with no lexical stop list. Function-word holds stay in the evidence. Any reduction in what is drawn is a disclosed display filter, never an engine exclusion. A meter-stress source would be a separately named variant ID.
 
-**Reading policy and route.** Both schemas are judged under rule 5 by the declared reading search. The witness is `reading_witness`'s `word = PHONES` at the compared anchor syllable. The inspector names that anchor syllable, for example "last stressed: watch /AA1 CH/ · woods /UH1 D Z/" (Don Norman). The reference route is the Library `AnalysisSession` schema namespace. Equality tests assert "undecided" with its `unknown_channels` for merged-reading pairs that the reference route doesn't resolve, so the merged-reading search fix arrives as a deliberate repin (O3).
+**Reading policy and route.** Both schemas are judged under rule 5 by the declared reading search. The witness is `reading_witness`'s `word = PHONES`, which gives each word's *whole-word* phones under the reading the verdict rests on, not the compared span. The compared span and anchor are separate metadata, derived from the alignment: the anchor index and the aligned pairs. The inspector shows the two separately and labels each, for example "witness: watch = W AA1 CH · woods = W UH1 D Z" and "compared: last stressed, aligned pairs (0,0)" (Don Norman's request, with 3PO's correction 6527437000). The reference route is the Library `AnalysisSession` schema namespace. Equality tests assert "undecided" with its `unknown_channels` for merged-reading pairs that the reference route doesn't resolve, so the merged-reading search fix arrives as a deliberate repin (O3).
 
 **Shared reads and the sound layer.**
 - **The reusable primitive:** channel reads keyed by (span pair, span rule, alignment, pinned whole-reading combination), bound to the resource, schema and policy versions. Each schema quantifies over the combinations itself. Per-channel existential results are never combined, so nucleus-under-A plus coda-under-B never makes a hold.
@@ -152,8 +153,10 @@ Written by R2 from #519 6527045886, 6527177748, 6527199559, BB8 6527091795 and 6
   - negative: both codas open;
   - negative: one open, one closed;
   - negative: a medial coda with open word ends;
-  - negative: village~fill, with BB8's reason stated;
+  - negative: village~fill. The anchor codas are empty against `L`, so coda Agree already fails. The reason is stated without any word-final-L claim;
   - unequal suffix lengths: the overhang goes unread;
+  - a 3-syllable suffix against a 2-syllable suffix: the last aligned pair is tail index 1, not the anchor. The test pins that the guard reads index 1;
+  - witness against compared span: the witness shows whole-word phones, and the compared-span metadata names the aligned positions;
   - undecided: a merged-reading word whose coda varies by reading.
 - **Equality:** each verdict equals the direct Library schema-namespace call.
 - **Pruning soundness:** pruned and unpruned runs are identical.
