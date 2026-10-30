@@ -174,7 +174,7 @@ def test_both_directions():
               RS.needs_arity_extension(s) is want)
 
     # -- THE GENEROSITY CONTROL.  Over the REAL registry each predicate must
-    #    return both answers. A predicate that answered one way for all ~~77~~ 78
+    #    return both answers. A predicate that answered one way for all ~~77~~ ~~78~~ 80
     #    would satisfy every count in this file and have looked at nothing.
     sh = RS.shapes()
     for key in ("pair_shaped", "arity_extension", "span_shaped"):

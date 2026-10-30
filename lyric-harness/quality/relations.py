@@ -1668,6 +1668,54 @@ class PresentVsAbsent(Predicate):
         return Read(False, True)
 
 
+def _presence(x):
+    """True when every reading of the channel is non-empty, False when every
+    reading is empty, None when the readings disagree or one is unreadable.
+    An unknown is never read as empty."""
+    alts = _alts(x)
+    if any(v is None for v in alts):
+        return None
+    if all(not _empty(v) for v in alts):
+        return True
+    if all(_empty(v) for v in alts):
+        return False
+    return None
+
+
+@dataclass(frozen=True)
+class BothPresent(Predicate):
+    """The channel carries material on BOTH members (2026-10-30, `MISSING.md`
+    M-323).  It says nothing about whether the two agree; a schema pairs it
+    with an Agree on the same channel.
+
+    Interior consonance needs it because two OPEN codas agree (doctrine 25:
+    `see`/`free` agree on coda and carry no evidence), and an interior pair
+    of open syllables -- the~today -- is not consonance.  Alliteration needs
+    it on the onset because two vowel-initial words agree on an empty onset,
+    and the owner ruled that are~I is not alliteration ("Require a real
+    consonant").  Line-final `consonance` does NOT carry it: E-5's
+    empty/empty agreement stands there, a stated difference between the two.
+
+    Certain on both sides and non-empty -> True.  Certainly empty on either
+    side -> False, even when the other side is uncertain.  Anything else is
+    undecided: a set whose readings disagree on presence is not empty.
+    """
+    name: str = "BOTH-PRESENT"
+
+    def __call__(self, x, y):
+        if x is None or y is None:
+            return Read(None, False, "unreadable")
+        px, py = _presence(x), _presence(y)
+        if px is False or py is False:
+            side = "both members" if px is False and py is False else (
+                "member 1" if px is False else "member 2")
+            return Read(False, True, f"absent on {side}")
+        if px and py:
+            return Read(True, True, "present on both members")
+        return Read(None, False,
+                    "uncertain reading; presence undecidable")
+
+
 @dataclass(frozen=True)
 class SequenceEqual(Predicate):
     """Total, ordered, exhaustive on both sides -- cynghanedd groes.
@@ -1725,6 +1773,7 @@ class SubsequenceOf(Predicate):
 
 AGREE, DIFFER, FREE = Agree(), Differ(), Free()
 PREFIX_AGREE = PrefixAgree()
+BOTH_PRESENT = BothPresent()
 
 
 # ---------------------------------------------------------------------------
@@ -2298,7 +2347,7 @@ class Figure:
     template: object = None        # 平仄: one member against a declared pattern
 
     def __post_init__(self):
-        # Validated HERE, at the declaration, so a typo in one of ~~77~~ 78
+        # Validated HERE, at the declaration, so a typo in one of ~~77~~ ~~78~~ 80
         # schemas refuses at import rather than falling through `assemble()`'s
         # if/elif chain to silent no-op (the shape `unmatched` was fixed for
         # in `RelationSchema.__post_init__`, defect P15).
@@ -2316,7 +2365,7 @@ PAIR = Figure()
 #: What `unmatched` may say about the material the alignment left over, and
 #: THE LIST IS MEASURED AGAINST `evaluate()` RATHER THAN RECALLED (defect P15).
 #: The field's own comment used to read `exclude | differ | forbid`: 'differ'
-#: is implemented by nothing and declared by none of the ~~77~~ 78 schemas, while
+#: is implemented by nothing and declared by none of the ~~77~~ ~~78~~ 80 schemas, while
 #: 'require_a' and 'require_b' -- the two values `evaluate()` actually branches
 #: on, and the only thing keeping semirhyme and apocopated rhyme from
 #: collapsing into perfect rhyme -- were absent from the vocabulary they
@@ -2363,11 +2412,18 @@ class RelationSchema:
     #: 6448819660) — until 2026-10-27 the judge was chosen by comparing
     #: `name` against literals, so a label decided behaviour.
     judge: str = ""
+    #: WHY A REGISTERED TYPE IS NOT PLANNED, stated on the row (2026-10-30,
+    #: `MISSING.md` M-323): "" for every type the planner may draw, else the
+    #: reason it refuses this one (`plan.type_eligibility` rule (g)). A
+    #: schema registered for the views is not thereby drawn into songs:
+    #: entering the draw re-deals every seed's types, which is its own
+    #: decision. Neither compared nor printed, so no existing row moves.
+    unplanned: str = field(default="", compare=False, repr=False)
 
     def __post_init__(self):
         # `unmatched` had FOUR implemented values and its own comment named
         # three, one of which -- 'differ' -- is implemented nowhere and
-        # declared by none of the ~~77~~ 78 schemas (defect P15).  An undeclared value
+        # declared by none of the ~~77~~ ~~78~~ 80 schemas (defect P15).  An undeclared value
         # silently took the 'exclude' path, so a typo and a policy read the
         # same.  Refuse at construction, where the declaration is written.
         if self.unmatched not in UNMATCHED:
@@ -4851,13 +4907,16 @@ declare(RelationSchema(
     name="alliteration",
     aka=("stave rhyme", "stuðlar", "higaad", "mōnai", "anuprāsa (onset case)"),
     spans=(HEAD_ANY, HEAD_ANY), align="flush_left",
-    channels=(ChannelRule("onset", AGREE, "first"),),
+    channels=(ChannelRule("onset", AGREE, "first"),
+              ChannelRule("onset", BOTH_PRESENT, "first")),
     placement=(Placement("same_line"),),
     identity=(DISTINCT,),
     figure=Figure(quantifier="exists", frame="line"),
     note="THE CONCRETE FAILURE. anchor=word_start, magnitude=1, and the "
          "alignment is flush_LEFT. The missing thing was an ANCHOR axis, not "
-         "a longer suffix."))
+         "a longer suffix. The onset must be a REAL consonant on both words "
+         "(the owner's ruling, 2026-10-30, M-323): two vowel-initial words "
+         "agree on an empty onset, and are~I is not alliteration."))
 
 declare(RelationSchema(
     name="Kalevala alliteration (weak)",
@@ -5820,6 +5879,52 @@ declare(RelationSchema(
          "measured: a pre-1931 table cannot say what is over-familiar to a "
          "living listener."))
 
+# THE INTERIOR SOUND SCHEMAS (2026-10-30, `MISSING.md` M-323; the "Interior
+# schema contract" of docs/design/connection-views/spec.md). Each takes its
+# shape from `internal rhyme`: last-stressed syllable to the word end, any
+# token, anchor-aligned, at least one member not line-final. A pair whose
+# members BOTH end their lines stays with `assonance` / `consonance`, so no
+# pair is counted twice. Declared LAST, so every existing registry index
+# (the website's type menu keys on it) stays where it was.
+_INTERIOR = SpanRule("any_token", "last_stressed", 1, "to_word_end")
+
+declare(RelationSchema(
+    name="internal assonance",
+    spans=(_INTERIOR, _INTERIOR), align="anchor",
+    channels=(ChannelRule("nucleus", AGREE, "each"),),
+    unmatched="exclude",
+    placement=(Placement("both_line_final", polarity=False),),
+    identity=(DISTINCT,),
+    unplanned=("it is registered for the connection views (the owner's "
+               "O1 ruling, 2026-10-30); drawing it into song plans would "
+               "re-deal every seed's types and has not been decided"),
+    note="The vowels agree from the last stress to the word end, with at "
+         "least one member inside its line. The overhang of the longer "
+         "suffix is EXCLUDED, not compared. Function words are kept (the "
+         "owner's ruling: \"keep function words, option 1\"): stress is the "
+         "dictionary's, with no stop list, and any narrowing of what is "
+         "drawn is a display filter, never this schema."))
+
+declare(RelationSchema(
+    name="internal consonance",
+    spans=(_INTERIOR, _INTERIOR), align="anchor",
+    channels=(ChannelRule("coda", AGREE, "each"),
+              ChannelRule("coda", BOTH_PRESENT, "last")),
+    unmatched="exclude",
+    placement=(Placement("both_line_final", polarity=False),),
+    identity=(DISTINCT,),
+    note="The codas agree at every aligned syllable and BOTH are present at "
+         "the last aligned pair, tail index min(len a, len b) - 1 (the anchor "
+         "only when the shorter suffix has one syllable). The guard is a "
+         "stated contract difference from line-final `consonance`, which "
+         "keeps E-5's empty/empty agreement. A STATED LIMIT: codas are read "
+         "as the syllabifier assigns them, so the compared pair depends on "
+         "syllabification; village~fill does not hold (village's anchor coda "
+         "is empty against fill's L, and its L is the onset of the excluded "
+         "syllable). A word-end-anchored consonance would be a separately "
+         "named variant, never a silent change here. Function words are "
+         "kept, as in internal assonance."))
+
 
 # NOT A TYPE, and recorded so nothing stores it as one.
 QUERIES = {
@@ -6778,6 +6883,13 @@ _SOURCED = {
         ("Korean 첩어", "kor"))),
     "internal rhyme": (("R71",), (
         ("English internal rhyme", "eng"),)),
+    # The RELATION is R5 / R9; the interior placement is internal rhyme's.
+    # The canon's English entries (E4, E5) do not restrict either to the
+    # line end, so the English row is the one cited and no other.
+    "internal assonance": (("R5",), (
+        ("English assonance (interior placement)", "eng"),)),
+    "internal consonance": (("R9",), (
+        ("English consonance (interior placement)", "eng"),)),
     "leonine rhyme": (("R72",), (
         ("English leonine rhyme", "eng"),
         ("German Zäsurreim / Otfrid's end rhyme", "deu"),
@@ -9330,7 +9442,7 @@ _PAIR_MEMO = collections.OrderedDict()
 #: oldest rows go and the pair is re-scored.  The CAP IS NOT CHANGED HERE —
 #: changing it is a behaviour change with its own record — and the scaling
 #: question is filed under M-240 (OPEN), the grader's own pair guard, which
-#: is where the cost of long drafts is being priced.  Slots: the ~~77~~ 78
+#: is where the cost of long drafts is being priced.  Slots: the ~~77~~ ~~78~~ 80
 #: registered schemas plus the declared ones a mandate can name, under one
 #: declaration, with room for a second declaration in the same process.
 PAIR_MEMO_CAP = 4_096         # (line pair, signature) rows per (schema, stream) slot
@@ -10101,7 +10213,8 @@ __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
            "Placement", "ChannelRule", "IdentityRule", "Figure",
            "RelationSchema", "Instance", "Refusal", "NoReferent",
            "Predicate", "Agree", "Differ", "Free", "ClassEqual",
-           "DirectedDiffer", "PresentVsAbsent", "SequenceEqual",
+           "DirectedDiffer", "PresentVsAbsent", "BothPresent",
+           "BOTH_PRESENT", "SequenceEqual",
            "SequenceSuffix", "SubsequenceOf", "Read", "ChannelSet",
            "DEFAULT_CHANNELS", "evaluate", "realise", "assemble",
            "mirrored", "order_burden", "Inert", "INERT", "check_inert",

@@ -158,7 +158,7 @@ def main():
 
     print("\n3b. the ONE-HOP call resolution is exactly one hop")
     # A site can reach the judge through a HELPER — `Reviser.group_merges`
-    # asks the ~~77~~ 78 via `Reviser._schema_satisfies`, memoised, and a scope-chain
+    # asks the ~~77~~ ~~78~~ 80 via `Reviser._schema_satisfies`, memoised, and a scope-chain
     # detector reported it blind. Unlimited depth would credit half the module
     # through any path, so the bound is asserted here rather than trusted.
     check("3b", "a helper the site CALLS counts",

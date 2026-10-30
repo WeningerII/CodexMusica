@@ -44,7 +44,7 @@ WHAT IT DOES, in the order the errors were actually found:
      where two entries quote incompatible sizes for what they call one corpus.
 
   4. PROVENANCE.  `quality/RHYME_CANON.md` records 117 named structures with
-     `from:` lines, and `quality/relations.py` hangs ~~298~~ 299 Tradition rows off ~~77~~ 78
+     `from:` lines, and `quality/relations.py` hangs ~~298~~ 299 Tradition rows off ~~77~~ ~~78~~ 80
      schemas. For each name: is there a witness that is not this project? An
      honest "unsourced" is the deliverable. A plausible fill is the
      `gabay higaad` error — a name reconstructed from this repo's own modules
@@ -2058,12 +2058,14 @@ PINNED = {
     # -- quality/relations.py -----------------------------------------------
     # M-40 (2026-09-16): 77/75/298/319/60 -> 78/76/299/320/61.
     # E44 is survey-scoped; its external witness remains unrecorded.
-    "schemas": 78,
-    "schemas_with_traditions": 76,
+    # M-323 (2026-10-30): 78/76/299/320/212 -> 80/78/301/322/214, the two
+    # interior schemas, each with one English row (R5, R9).
+    "schemas": 80,  # ~~78~~
+    "schemas_with_traditions": 78,  # ~~76~~
     "schemas_no_tradition": 2,
-    "traditions_distinct": 299,
-    "traditions_attachments": 320,
-    "traditions_external": 212,
+    "traditions_distinct": 301,  # ~~299~~
+    "traditions_attachments": 322,  # ~~320~~
+    "traditions_external": 214,  # ~~212~~
     "traditions_project": 26,
     "traditions_cannot_tell": 61,
     # -- the two phonology censuses, THREE COUNTS EACH, never summed --------
@@ -2443,7 +2445,7 @@ PINNED = {
     # `pins_per_line` is a MAXIMUM and accepted 0 of 39 seeds. The
     # calibration that would reopen the band is an owner ruling and is left
     # OPEN), pin told in the entry's own sitting.
-    "coverage_entries": 377,  # REPINNED 2026-10-30: M-322 the English sound inventory and rule-derived accent readings; from ~~376~~ (2026-10-12: M-321 the lexicon supplement does not reach lyric_types or the screen's schema column; from ~~375~~ (2026-10-11: M-320 the NEAR vowel licensed before a coda R (PR #527 ruling); from ~~374~~ (2026-10-08: main's M-317 (PR #460, a group judged at the words it binds) joins this branch's M-318 and M-319 when PR #497 merges main; from ~~373~~ (2026-10-05: M-319 the dictionary's IY2 on an unstressed final -y read as stress; from ~~372~~ (2026-10-04: M-318 (opened as 317, renumbered 2026-10-05 so PR #460's own 317 cannot collide) the superseded band profiles parked; from ~~371~~ (2026-09-27: M-316 a declared chain-rhyme pair judged at the pair; from ~~370~~ (2026-09-26: M-315 the batched comparator re-pin (enclitic joiner wired, nucleus_agrees docstring); from ~~369~~ (same day: M-314 the N-relation repin of the two nightly-only AUC instruments; from ~~368~~ (2026-09-25: M-313 the repetition-figure and non-English pair witnesses; from ~~367~~ (M-312 the field asks the judge only the schemas it found, same day; from ~~366~~ (M-311 the English pair-rhyme witnesses, same day; from ~~365~~ (2026-09-24: M-310 the evidence-gated modal ban; from ~~364~~ (2026-09-23: M-309 the N-relation model; from ~~363~~ (2026-09-22: M-308 the two connector addresses; from ~~362~~ (M-307 the cancelled nightlies, same day); from ~~361~~; previously 2026-09-21: M-306 session refusal + own onset; from ~~360~~ (M-305, same day); previously 2026-09-20 (M-304) from ~~358~~, 2026-09-19 from ~~357~~ ~~356~~ ~~355~~ ~~354~~ ~~353~~ ~~352~~ ~~351~~ ~~349~~ ~~350~~ ~~240~~ ~~253~~ ~~254~~ ~~255~~ ~~256~~ ~~257~~ ~~259~~ ~~260~~ ~~261~~ ~~262~~ ~~263~~ ~~264~~ ~~265~~ ~~266~~ ~~267~~ ~~268~~ ~~269~~ ~~270~~ ~~274~~ ~~275~~ ~~276~~ ~~277~~ ~~278~~ ~~279~~ ~~280~~ ~~281~~ ~~283~~ ~~284~~ ~~285~~ ~~286~~ ~~287~~ ~~288~~ ~~289~~ ~~290~~ ~~291~~ ~~292~~ ~~293~~ ~~296~~ ~~297~~ ~~298~~ ~~299~~ ~~300~~ ~~301~~ ~~302~~ ~~303~~ ~~304~~ ~~305~~ ~~306~~ ~~307~~ ~~308~~ ~~309~~ ~~310~~ ~~311~~ ~~312~~ ~~313~~ ~~314~~ ~~315~~ ~~316~~ ~~317~~ ~~318~~ ~~320~~ ~~321~~ ~~323~~ ~~324~~ ~~325~~ ~~326~~ ~~327~~ ~~328~~ ~~329~~ ~~330~~ ~~331~~ ~~332~~ ~~333~~ ~~335~~ ~~336~~ ~~337~~ ~~338~~ ~~339~~ ~~340~~ ~~341~~ ~~342~~ ~~343~~ ~~344~~ ~~345~~ ~~346~~ ~~347~~ ~~348~~: M-183..M-296 (M-205 entered late)))))))))))
+    "coverage_entries": 378,  # REPINNED 2026-10-30: M-323 the interior assonance and consonance schemas, BOTH-PRESENT, real-consonant alliteration; from ~~377~~ (2026-10-30: M-322 the English sound inventory and rule-derived accent readings; from ~~376~~ (2026-10-12: M-321 the lexicon supplement does not reach lyric_types or the screen's schema column; from ~~375~~ (2026-10-11: M-320 the NEAR vowel licensed before a coda R (PR #527 ruling); from ~~374~~ (2026-10-08: main's M-317 (PR #460, a group judged at the words it binds) joins this branch's M-318 and M-319 when PR #497 merges main; from ~~373~~ (2026-10-05: M-319 the dictionary's IY2 on an unstressed final -y read as stress; from ~~372~~ (2026-10-04: M-318 (opened as 317, renumbered 2026-10-05 so PR #460's own 317 cannot collide) the superseded band profiles parked; from ~~371~~ (2026-09-27: M-316 a declared chain-rhyme pair judged at the pair; from ~~370~~ (2026-09-26: M-315 the batched comparator re-pin (enclitic joiner wired, nucleus_agrees docstring); from ~~369~~ (same day: M-314 the N-relation repin of the two nightly-only AUC instruments; from ~~368~~ (2026-09-25: M-313 the repetition-figure and non-English pair witnesses; from ~~367~~ (M-312 the field asks the judge only the schemas it found, same day; from ~~366~~ (M-311 the English pair-rhyme witnesses, same day; from ~~365~~ (2026-09-24: M-310 the evidence-gated modal ban; from ~~364~~ (2026-09-23: M-309 the N-relation model; from ~~363~~ (2026-09-22: M-308 the two connector addresses; from ~~362~~ (M-307 the cancelled nightlies, same day); from ~~361~~; previously 2026-09-21: M-306 session refusal + own onset; from ~~360~~ (M-305, same day); previously 2026-09-20 (M-304) from ~~358~~, 2026-09-19 from ~~357~~ ~~356~~ ~~355~~ ~~354~~ ~~353~~ ~~352~~ ~~351~~ ~~349~~ ~~350~~ ~~240~~ ~~253~~ ~~254~~ ~~255~~ ~~256~~ ~~257~~ ~~259~~ ~~260~~ ~~261~~ ~~262~~ ~~263~~ ~~264~~ ~~265~~ ~~266~~ ~~267~~ ~~268~~ ~~269~~ ~~270~~ ~~274~~ ~~275~~ ~~276~~ ~~277~~ ~~278~~ ~~279~~ ~~280~~ ~~281~~ ~~283~~ ~~284~~ ~~285~~ ~~286~~ ~~287~~ ~~288~~ ~~289~~ ~~290~~ ~~291~~ ~~292~~ ~~293~~ ~~296~~ ~~297~~ ~~298~~ ~~299~~ ~~300~~ ~~301~~ ~~302~~ ~~303~~ ~~304~~ ~~305~~ ~~306~~ ~~307~~ ~~308~~ ~~309~~ ~~310~~ ~~311~~ ~~312~~ ~~313~~ ~~314~~ ~~315~~ ~~316~~ ~~317~~ ~~318~~ ~~320~~ ~~321~~ ~~323~~ ~~324~~ ~~325~~ ~~326~~ ~~327~~ ~~328~~ ~~329~~ ~~330~~ ~~331~~ ~~332~~ ~~333~~ ~~335~~ ~~336~~ ~~337~~ ~~338~~ ~~339~~ ~~340~~ ~~341~~ ~~342~~ ~~343~~ ~~344~~ ~~345~~ ~~346~~ ~~347~~ ~~348~~: M-183..M-296 (M-205 entered late))))))))))))
                               # (the delegation sitting: the loop trio, the
                               # whole-draft exit, the deploy, the staged
                               # resources, the connector coordinates, the

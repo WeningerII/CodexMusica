@@ -1827,7 +1827,7 @@ The traditions whose only witness is this project, listed for the same reason as
    any kind and a neighbour's was read onto them.
 4. **It does not touch `gabay higaad`.** §0 records that Somali appears in no inventory cell and
    that the name entered the canon from repo doctrine alone. There is no index to inline and no
-   witness to recover; `relations.py` scopes Somali to zero of the ~~77~~ 78 schemas, which is what the
+   witness to recover; `relations.py` scopes Somali to zero of the ~~77~~ ~~78~~ 80 schemas, which is what the
    source says, and the mechanical form of that is a zero rather than a plausible list.
 5. **It does not check its own CONSTRUCTION, and re-running it never will.** Every figure above
    is computed, which closes the transcription defect and no other. `--render` reproduced this

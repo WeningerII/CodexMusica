@@ -359,7 +359,7 @@ def _innermost(tree):
     function, which filed every `Reviser` method under `Reviser` and made the
     77-consult column a per-CLASS fact. `Reviser` holds both of the tree's
     two complete-default sites and eight others, so that reading reported all
-    ten as consulting the ~~77~~ 78.
+    ten as consulting the ~~77~~ ~~78~~ 80.
     """
     out = {}
 
@@ -382,7 +382,7 @@ def _callees(tree, enc):
     """-> {qualified function name: {names it calls}}.
 
     ONE HOP, and the bound is the point. A site can reach the judge through a
-    HELPER rather than in its own body — `Reviser.group_merges` asks the ~~77~~ 78
+    HELPER rather than in its own body — `Reviser.group_merges` asks the ~~77~~ ~~78~~ 80
     through `Reviser._schema_satisfies`, which is the right shape (the stream
     is memoised across candidate merges) and which a scope-chain detector
     cannot see. Following the call graph to unlimited depth would credit half
@@ -402,7 +402,7 @@ def _callees(tree, enc):
 
 
 def _reaches_judge(func, sees, calls=None, bare=None):
-    """Does this site's scope reach the ~~77~~ 78 judge — its own, an ENCLOSING
+    """Does this site's scope reach the ~~77~~ ~~78~~ 80 judge — its own, an ENCLOSING
     one's, or a HELPER it calls (one hop)?
 
     A NESTED function sees its enclosing scope, and the first draft of this

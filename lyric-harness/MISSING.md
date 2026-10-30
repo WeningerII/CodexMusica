@@ -727,7 +727,7 @@ when the grading path consults the registry, which is the relation ladder's
 own destination and not a fix this entry can make alone.
 
 2026-09-25: the two paragraphs above are kept as written. The registry is now
-~~77~~ 78 schemas since M-40 (`chain rhyme (interlocking scheme)`, a61fe4e69),
+~~77~~ ~~78~~ 80 schemas since M-40 (`chain rhyme (interlocking scheme)`, a61fe4e69),
 and `quality/test_relations.py:148` (§0, `test_inventory`) pins that size; the
 schemas declaring a `Tradition(lang='eng')` are now ~~58~~ 59, measured, with
 no check pinning that count.
@@ -29394,3 +29394,41 @@ Every copy of the inventory agrees, and the test holds them equal: `quality/pron
 8. ~~**The schema door's audible half reads empty**~~ **FIXED 2026-10-30** by item 5's listing: `check_scheme` lists every schema some whole reading holds for a pair a definite schema already satisfies, so 27 tir'd/expired and 122 admire/desire name their audible schemas again. `schema_end_reading.py --check` measures (952, 2, 34), repinned from (952, 0, 36) with the old value kept; nothing judged moved (952 + 36 + 25 = 1013 judged, 51 refused), and E2 no longer fires.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` 376 -> **377**.
+
+### M-323 · no interior assonance or consonance was registered, so the connection views could not examine either family inside a line; and two vowel-initial words "alliterated" on an empty onset (are~I, ask~if) `CLOSED` 2026-10-30 (built on `claude/connection-engine`; regressions in `quality/test_connection_schemas.py`; the comparator answer is in the commit report, and no re-pin is written here) — John's rulings of 2026-10-30: O1 "(b), register interior assonance and consonance schemas", widened to "(b) and (c)"; "keep function words, option 1"; on empty-onset alliteration, "Require a real consonant"
+
+**THE CONTRACT** is the "Interior schema contract" section of `docs/design/connection-views/spec.md` (branch `design/connection-views-consensus`). Three changes, one batch (standing rule 4):
+
+1. **`BothPresent`** (`quality/relations.py`, name `BOTH-PRESENT`, constant `BOTH_PRESENT`): True when every reading of both members' channel is non-empty; False when every reading of either member's is empty; otherwise undecided. An unknown is never read as empty: a set whose readings disagree on presence, or an unreadable channel, is None.
+2. **`internal assonance`** and **`internal consonance`**, shaped like `internal rhyme`: `SpanRule("any_token", "last_stressed", 1, "to_word_end")` for both members, `align="anchor"`, `unmatched="exclude"` written out, `Placement("both_line_final", polarity=False)`, identity `DISTINCT`. Assonance: nucleus AGREE `each`. Consonance: coda AGREE `each` plus coda BOTH-PRESENT `last`, the last aligned pair (tail index `min(len a, len b) - 1`, the anchor only when the shorter suffix has one syllable). Declared at the END of the registry, so every existing registry index (the website's type menu keys on it) stays put. Sourced to R5 / R9 with one English row each.
+3. **`alliteration`** gains onset BOTH-PRESENT `first`. Only the schema named `alliteration`; the Kalevala rows, paroemion and the rest are untouched.
+
+**STATED CONTRACT DIFFERENCES AND LIMITS.** Line-final `consonance` keeps E-5's empty/empty agreement; the guard is on the interior schema only. village~fill does not hold: the shorter suffix has one syllable, so the compared pair is the anchors, and village's anchor coda is empty against fill's L (its L is the onset of the excluded syllable); a word-end-anchored consonance would be a separately named variant. Function words are kept: dictionary stress, no stop list (is~his holds as interior assonance).
+
+**PRUNING.** `_bucket_key` keys only on required AGREE rules, so BOTH-PRESENT never narrows a bucket; the guard can only refuse a pair Agree admitted. `test_connection_schemas.py` §6 runs the three schemas with every span a wildcard and gets the same True/None instances.
+
+**THE PLANNER.** `planning_traits` emits no claims for either interior schema (neither line-final nor line-initial, the same as `internal rhyme`). `plan.type_eligibility` refuses both loudly, with the reason: `internal consonance` by new rule (f), a required channel judged by a predicate the feasibility gate has not learned (`GATE_UNREAD_PREDICATES = ("BothPresent",)`); `internal assonance` by new rule (g), the reason written on its row in the new `RelationSchema.unplanned` field (not compared, not printed). Admitting it would re-deal every seed's drawn types (measured: 8 of 8 seeds changed), which is its own decision, not this entry's. The eligible set stays 31 and `scripts/lyric_type_menu.py --check` passes unchanged. `plan._channel_clause` and the legend bits say "the {what} {where} is present in both P and Q" / "{channel} present on both words".
+
+**WHAT MOVED** (every pin keeps its superseded value visible, dated 2026-10-30; doctrine 17):
+
+- **Alliteration, Frost "Stopping by Woods"** (this branch's inventory): 24 -> 11 holds. Lost, all vowel-initial: are~I (1), is~in (2), evening~of (8), ask~if, ask~is, if~is (10), only~other (11), Of~and, Of~easy, easy~and (12), are~and (13), And~I (15, 16). watch~woods still holds.
+- **Alliteration, `metidja.txt`**: 26 -> 4 holds (22 lost: As/as~I on seven lines, Is~untried, and~Allied, Or~are). The undecided count (1) did not move.
+- **`cynghanedd sain gadwynog`** on `Y gŵr wrth y dŵr a'i dyrau` (`test_relations.py` X11): line 1 held -> does not hold. Its (1,3) edge is the registry's `alliteration`, and the only edges that closed it were empty onsets (wrth~a'i, y~a'i). Flagged, not settled here: a Welsh figure inherits an English ruling through the edge name. If cynghanedd should keep vowel-answers-vowel, the edge needs its own name (`cynghanedd sain lafarog` already reads empty onsets by its own channels and did not move).
+- **Registry size** 78 -> 80, member rules 156 -> 160 (`last_stressed` 61 -> 65): every prose site struck and re-read (`test_relations.py` §0 now skips struck intermediates in its read-back).
+- **`test_relations.py`**: the quatrain inventory 49 of 78 run -> 51 of 80; the `metidja` verb declared 78 -> 80, RAN AND FIRED 22 -> 24; the staged vacuity split (30, 27, 21) -> (30, 27, 23) and its mutant (30, 21, 27) -> (30, 21, 29); the SOURCED partition 78 -> 80; the member-rule census 156 -> 160.
+- **Sonnet 93, lines 5~7** (`test_production_relations.py`): unbound, the pair now stands in `internal consonance` (two words inside the lines) and in nothing else definite; it stood in no definite schema before. Bound at the end words, as `check_scheme` and `Reviser.grade` bind a letter scheme, neither interior schema can stand (at least one member must not be line-final), so no scheme verdict moved.
+- **The pair memo's diagnostic** on the v1 replay fixture (`test_reader.py`, `reader_v1_defer_states.json`, unchanged): 42 judged / 70 schema slots / 42 rows -> 44 / 72 / 44; the test advances the recorded line by two and nothing else.
+- **`relation_shapes.PINNED`**: not_pair_shaped 52 -> 54, span slots 156 -> 160, placement slots 95 -> 97, `any_token` loci 28 -> 32, `both_line_final (forbidden)` 1 -> 3, song/2/exists figures 58 -> 60.
+- **`test_readings_seam.py`**: schemas reading a patched channel 63 -> 64 (`internal consonance` reads coda; `internal assonance` reads nucleus alone).
+- **`relations_null.EXTENSION_LEDGER`**: two rows, both EXTENDABLE with an 8-pair menu and no arm; extendable 27 -> 29. `alliteration`'s row did not move.
+- **`test_plan.py` §18**: the token-bindable schemas a pair of line ends cannot satisfy gain the two interior schemas (internal rhyme's placement).
+- **`test_verbs.py`**: the `relations` verb's denominators 78 -> 80 (the 'rhyme' filter's selection is unchanged; neither new name contains it).
+- **`audit_register.PINNED`**: schemas 78 -> 80, with traditions 76 -> 78, traditions distinct 299 -> 301, attachments 320 -> 322, external 212 -> 214.
+
+**WHAT IT DOES NOT REACH** (open):
+
+1. The contract's `compared` engine field (aligned syllables under the whole reading that held) is not built here; the shared channel-read primitive (`pair_channel_reads`, the next commit) carries the same syllable records for a caller that asks.
+2. The equality test against the Library `AnalysisSession` schema namespace is not written.
+3. The writer route's confident False over a word the merged stream cannot hold is M-324.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` 377 -> **378**.
