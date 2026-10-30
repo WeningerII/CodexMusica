@@ -1,0 +1,411 @@
+/* exported CMConnectionInteraction */
+/* global module */
+/* Interaction model for the three connection views (poem + arcs, matrix,
+   grouped network), as agreed in docs/design/connection-views/spec.md and
+   frozen in drafts/r5. No DOM and no dependencies: the views bind it.
+
+   What lives here, and the rule each part keeps:
+   - selection: one object shared by every view. It is an occurrence, an
+     unordered pair under a symmetric method, a role-ordered binding under a
+     directed method, or a figure. It is keyed by the backend contract's ids
+     (entity_id, method_id + members, evidence_id), never by spelling.
+   - URL: the selection is written with the analysis_identity that binds the
+     revision. A link from another revision, or one naming an id that is gone,
+     is refused with its reason; it is never remapped to another occurrence.
+   - hidden selection: changing the checked methods or a display filter never
+     moves or clears the selection; the views say it is hidden and offer Show.
+   - states: the six presentation states. An absent record reads as "does not
+     hold" only after a completed, non-refused evaluation of a certified
+     domain; anything else is a different state with its reason.
+   - keyboard: arrows over the upper-triangle matrix, Tab in poem order, Enter
+     inspects, Esc clears.
+   - announcements: the words the live region speaks for a selection.
+   - Cell shows: one checked method per matrix cell, named with its layer. */
+(function (root) {
+  const STATES = Object.freeze([
+    'holds',
+    'undecided',
+    'not_yet_computed',
+    'refused',
+    'does_not_hold',
+    'not_examined',
+  ]);
+
+  const STATE_WORDS = Object.freeze({
+    holds: 'holds',
+    undecided: 'undecided',
+    not_yet_computed: 'not yet computed',
+    refused: 'refused',
+    does_not_hold: 'does not hold',
+    not_examined: 'outside this method’s locus',
+  });
+
+  // Layer labels follow the evidence record's namespace.
+  const LAYER_WORDS = Object.freeze({
+    registered: 'Registered figure',
+    sound: 'Shared sound',
+  });
+  const LAYER_SHORT = Object.freeze({
+    registered: 'Registered',
+    sound: 'Shared sound',
+  });
+
+  const KINDS = Object.freeze(['occurrence', 'pair', 'binding', 'figure']);
+
+  function requireId(value, what) {
+    if (typeof value !== 'string' || value === '') {
+      throw new TypeError(`${what} must be a non-empty string`);
+    }
+    return value;
+  }
+
+  // ---- selection --------------------------------------------------------
+
+  function occurrence(entityId) {
+    return Object.freeze({ kind: 'occurrence', entity_id: requireId(entityId, 'entity_id') });
+  }
+
+  // A symmetric method's pair: the members are sorted, so a and b in either
+  // order are one selection. Two members must be two distinct occurrences.
+  function pair(methodId, a, b) {
+    requireId(methodId, 'method_id');
+    requireId(a, 'entity_id');
+    requireId(b, 'entity_id');
+    if (a === b) throw new RangeError('a pair needs two distinct occurrences');
+    const members = a < b ? [a, b] : [b, a];
+    return Object.freeze({ kind: 'pair', method_id: methodId, members: Object.freeze(members) });
+  }
+
+  // A directed method's binding keeps its roles: a->b and b->a are different
+  // questions and different selections.
+  function binding(methodId, members) {
+    requireId(methodId, 'method_id');
+    if (!Array.isArray(members) || members.length < 2) {
+      throw new RangeError('a binding needs at least two role-labelled members');
+    }
+    const roles = new Set();
+    const seen = new Set();
+    const out = members.map((m) => {
+      const role = requireId(m && m.role, 'role');
+      const id = requireId(m && m.entity_id, 'entity_id');
+      if (roles.has(role)) throw new RangeError(`role ${role} appears twice`);
+      if (seen.has(id)) throw new RangeError(`occurrence ${id} appears twice`);
+      roles.add(role);
+      seen.add(id);
+      return Object.freeze({ role, entity_id: id });
+    });
+    return Object.freeze({ kind: 'binding', method_id: methodId, members: Object.freeze(out) });
+  }
+
+  function figure(evidenceId) {
+    return Object.freeze({ kind: 'figure', evidence_id: requireId(evidenceId, 'evidence_id') });
+  }
+
+  // Each id is percent-encoded, so ids may themselves contain the separators
+  // (method ids are "schema:<id>").
+  const enc = encodeURIComponent;
+  function selectionKey(sel) {
+    if (!sel) return '';
+    switch (sel.kind) {
+      case 'occurrence':
+        return `o:${enc(sel.entity_id)}`;
+      case 'pair':
+        return `p:${enc(sel.method_id)}:${sel.members.map(enc).join(',')}`;
+      case 'binding':
+        return `b:${enc(sel.method_id)}:${sel.members.map((m) => `${enc(m.role)}=${enc(m.entity_id)}`).join(',')}`;
+      case 'figure':
+        return `f:${enc(sel.evidence_id)}`;
+      default:
+        throw new RangeError(`unknown selection kind ${sel.kind}`);
+    }
+  }
+
+  function sameSelection(a, b) {
+    return selectionKey(a) === selectionKey(b);
+  }
+
+  // Every occurrence the selection touches, for rings, ports and dimming.
+  function selectionOccurrences(sel) {
+    if (!sel) return [];
+    if (sel.kind === 'occurrence') return [sel.entity_id];
+    if (sel.kind === 'pair') return sel.members.slice();
+    if (sel.kind === 'binding') return sel.members.map((m) => m.entity_id);
+    return [];
+  }
+
+  // ---- URL --------------------------------------------------------------
+
+  const PARAM_REVISION = 'cv';
+  const PARAM_SELECTION = 'sel';
+
+  function encodeSelection(analysisIdentity, sel) {
+    requireId(analysisIdentity, 'analysis_identity');
+    const params = new URLSearchParams();
+    params.set(PARAM_REVISION, analysisIdentity);
+    if (sel) params.set(PARAM_SELECTION, selectionKey(sel));
+    return params.toString();
+  }
+
+  function parseKey(key) {
+    const dec = decodeURIComponent;
+    const kind = key.slice(0, 2);
+    const rest = key.slice(2);
+    if (kind === 'o:') return occurrence(dec(rest));
+    if (kind === 'f:') return figure(dec(rest));
+    const cut = rest.indexOf(':');
+    if (cut <= 0) throw new RangeError('malformed selection');
+    const method = dec(rest.slice(0, cut));
+    const body = rest.slice(cut + 1).split(',');
+    if (kind === 'p:') {
+      if (body.length !== 2) throw new RangeError('malformed pair');
+      return pair(method, dec(body[0]), dec(body[1]));
+    }
+    if (kind === 'b:') {
+      return binding(
+        method,
+        body.map((part) => {
+          const eq = part.indexOf('=');
+          if (eq <= 0) throw new RangeError('malformed binding');
+          return { role: dec(part.slice(0, eq)), entity_id: dec(part.slice(eq + 1)) };
+        })
+      );
+    }
+    throw new RangeError('malformed selection');
+  }
+
+  // current: { analysisIdentity, hasEntity(id), hasMethod(id), hasEvidence(id) }.
+  // Returns { ok: true, selection } or { ok: false, reason, message }, where
+  // reason is 'none', 'malformed', 'revision' or 'missing'. A refusal never
+  // carries a substitute selection.
+  function decodeSelection(search, current) {
+    const params = new URLSearchParams(search || '');
+    const key = params.get(PARAM_SELECTION);
+    if (!key) return { ok: false, reason: 'none', message: '' };
+    let sel;
+    try {
+      sel = parseKey(key);
+    } catch {
+      return {
+        ok: false,
+        reason: 'malformed',
+        message: 'This link’s selection could not be read.',
+      };
+    }
+    const noun =
+      sel.kind === 'occurrence' ? 'occurrence' : sel.kind === 'figure' ? 'figure' : 'pair';
+    const gone = {
+      ok: false,
+      reason: 'missing',
+      message: `This ${noun} no longer exists in the current revision.`,
+    };
+    if (params.get(PARAM_REVISION) !== current.analysisIdentity) {
+      return { ok: false, reason: 'revision', message: gone.message };
+    }
+    if (sel.kind === 'figure')
+      return current.hasEvidence(sel.evidence_id) ? { ok: true, selection: sel } : gone;
+    if (sel.method_id !== undefined && !current.hasMethod(sel.method_id)) return gone;
+    for (const id of selectionOccurrences(sel)) if (!current.hasEntity(id)) return gone;
+    return { ok: true, selection: sel };
+  }
+
+  // ---- hidden selection --------------------------------------------------
+
+  // scope: { checkedMethods: Set<method_id>, methodName(id), hiddenByFilter(sel) }
+  // hiddenByFilter returns a filter's name, or null. The selection is never
+  // changed here; the caller keeps it and shows the notice.
+  function hiddenNotice(sel, scope) {
+    if (!sel) return null;
+    const noun =
+      sel.kind === 'occurrence' ? 'occurrence' : sel.kind === 'figure' ? 'figure' : 'pair';
+    if (
+      (sel.kind === 'pair' || sel.kind === 'binding') &&
+      !scope.checkedMethods.has(sel.method_id)
+    ) {
+      return {
+        text: `Selected ${noun} hidden by current methods`,
+        action: {
+          type: 'check_method',
+          method_id: sel.method_id,
+          label: `Show ${scope.methodName(sel.method_id)}`,
+        },
+      };
+    }
+    const filter = scope.hiddenByFilter ? scope.hiddenByFilter(sel) : null;
+    if (filter) {
+      return {
+        text: `Selected ${noun} hidden by current filter`,
+        action: { type: 'clear_filter', filter, label: 'Show selected pair' },
+      };
+    }
+    return null;
+  }
+
+  // ---- states -----------------------------------------------------------
+
+  // cell: { inLocus, record, jobComplete, domainCertified }
+  //   inLocus        the method's declared domain covers this binding
+  //   record         the evidence record, if one exists
+  //   jobComplete    the evaluation of this method's population finished
+  //   domainCertified the domain descriptor certifies that an absent record
+  //                   means false (completed, non-refused, pruning proven safe)
+  // Returns { state, reason, absenceOnly }.
+  function cellState(cell) {
+    if (!cell.inLocus) return { state: 'not_examined', reason: null, absenceOnly: false };
+    const rec = cell.record;
+    if (rec) {
+      if (rec.coverage === 'refused') {
+        return {
+          state: 'refused',
+          reason: (rec.refusal && rec.refusal.reason) || 'reason not reported',
+          absenceOnly: false,
+        };
+      }
+      if (rec.outcome === true || rec.outcome === 'true') {
+        const informative = rec.informative_channels;
+        return {
+          state: 'holds',
+          reason: null,
+          absenceOnly: Array.isArray(informative) && informative.length === 0,
+        };
+      }
+      if (rec.outcome === false || rec.outcome === 'false') {
+        return { state: 'does_not_hold', reason: null, absenceOnly: false };
+      }
+      const unknown = rec.unknown_channels;
+      const reason =
+        Array.isArray(unknown) && unknown.length
+          ? `${unknown.map((u) => (Array.isArray(u) ? u[1] : u)).join(', ')} not settled`
+          : 'reason not reported';
+      return { state: 'undecided', reason, absenceOnly: false };
+    }
+    if (!cell.jobComplete) return { state: 'not_yet_computed', reason: null, absenceOnly: false };
+    if (cell.domainCertified) return { state: 'does_not_hold', reason: null, absenceOnly: false };
+    return {
+      state: 'undecided',
+      reason: 'absence not certified for this method',
+      absenceOnly: false,
+    };
+  }
+
+  function stateWords(result) {
+    if (result.state === 'holds' && result.absenceOnly) return 'holds · only empty onsets compared';
+    const words = STATE_WORDS[result.state];
+    return result.reason && (result.state === 'undecided' || result.state === 'refused')
+      ? `${words} · ${result.reason}`
+      : words;
+  }
+
+  // ---- keyboard ---------------------------------------------------------
+
+  // The matrix shows each unordered pair once, above the diagonal: row < col.
+  function matrixMove(pos, key, n) {
+    let { row, col } = pos;
+    if (key === 'ArrowRight' && col + 1 < n) col += 1;
+    else if (key === 'ArrowLeft' && col - 1 > row) col -= 1;
+    else if (key === 'ArrowDown' && row + 1 < col) row += 1;
+    else if (key === 'ArrowUp' && row - 1 >= 0) row -= 1;
+    return { row, col };
+  }
+
+  function keyAction(key) {
+    if (key === 'Enter') return 'inspect';
+    if (key === 'Escape') return 'clear';
+    if (key.startsWith('Arrow')) return 'move';
+    return null;
+  }
+
+  // occurrences: [{ entity_id, line, token }]. Tab follows the poem.
+  function readingOrder(occurrences) {
+    return occurrences.slice().sort((a, b) => a.line - b.line || a.token - b.token);
+  }
+
+  function nextInReadingOrder(occurrences, currentId, backwards) {
+    const order = readingOrder(occurrences);
+    if (!order.length) return null;
+    const at = order.findIndex((o) => o.entity_id === currentId);
+    if (at < 0) return order[backwards ? order.length - 1 : 0].entity_id;
+    const next = at + (backwards ? -1 : 1);
+    return next < 0 || next >= order.length ? null : order[next].entity_id;
+  }
+
+  // ---- words ------------------------------------------------------------
+
+  function occurrenceLabel(o) {
+    return `${o.text} · L${o.line} w${o.token}`;
+  }
+
+  // ctx: { occurrence(id) -> {text,line,token}, method(id) -> {name, layer},
+  //        state: cellState result (pairs and bindings), counts (occurrences),
+  //        hidden: hiddenNotice result or null }
+  function announce(sel, ctx) {
+    if (!sel) return 'Selection cleared';
+    const spoken = (id) => {
+      const o = ctx.occurrence(id);
+      return `${o.text} L${o.line} w${o.token}`;
+    };
+    let text;
+    if (sel.kind === 'occurrence') {
+      const counts = ctx.counts || {};
+      const parts = STATES.filter((s) => counts[s]).map((s) => `${counts[s]} ${STATE_WORDS[s]}`);
+      text = `${spoken(sel.entity_id)} selected${parts.length ? `: ${parts.join(', ')}` : ''}`;
+    } else if (sel.kind === 'figure') {
+      text = `Figure selected`;
+    } else {
+      const m = ctx.method(sel.method_id);
+      const who =
+        sel.kind === 'pair'
+          ? `${spoken(sel.members[0])} – ${spoken(sel.members[1])}`
+          : sel.members.map((x) => spoken(x.entity_id)).join(' → ');
+      text = `${who}: ${LAYER_WORDS[m.layer] || m.layer} · ${m.name} ${stateWords(ctx.state)}`;
+    }
+    if (ctx.hidden) text += `; ${ctx.hidden.text.toLowerCase().replace(/^selected \w+ /, '')}`;
+    return text;
+  }
+
+  // ---- Cell shows ---------------------------------------------------------
+
+  // checked: [{ method_id, name, layer }] in menu order. Returns the options,
+  // the method the matrix shows, and a notice when that had to change.
+  function cellShows(checked, currentId) {
+    const options = checked.map((m) => ({
+      method_id: m.method_id,
+      label: `${LAYER_SHORT[m.layer] || m.layer}: ${m.name}`,
+    }));
+    if (!options.length) return { options, selected: null, notice: 'No method checked' };
+    if (options.some((o) => o.method_id === currentId))
+      return { options, selected: currentId, notice: null };
+    const notice =
+      currentId == null
+        ? null
+        : `Cell shows changed to ${options[0].label}: the previous method is no longer checked`;
+    return { options, selected: options[0].method_id, notice };
+  }
+
+  const api = {
+    STATES,
+    STATE_WORDS,
+    LAYER_WORDS,
+    KINDS,
+    occurrence,
+    pair,
+    binding,
+    figure,
+    selectionKey,
+    sameSelection,
+    selectionOccurrences,
+    encodeSelection,
+    decodeSelection,
+    hiddenNotice,
+    cellState,
+    stateWords,
+    matrixMove,
+    keyAction,
+    readingOrder,
+    nextInReadingOrder,
+    occurrenceLabel,
+    announce,
+    cellShows,
+  };
+  root.CMConnectionInteraction = api;
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+})(typeof globalThis !== 'undefined' ? globalThis : this);
