@@ -1394,10 +1394,6 @@ class AnalysisSession:
     #: Occurrence pairs one shared-sound method judges at most. Past it the
     #: method is refused, never answered over the pairs it reached.
     SOUND_PAIR_CAP = 262144
-    #: Entries the shared channel read may cache on one stream before the
-    #: table starts again: it keeps every pair asked, and all pairs of a
-    #: long work are many. A cache, so no read depends on it.
-    SOUND_READ_CACHE = 4096
 
     def _sound_spans(self, family, st):
         """-> {(line, token): [span]}: the family's own canonical spans on
@@ -1510,9 +1506,6 @@ class AnalysisSession:
         knowledge sets."""
         RL = self.RL
         family, channel, position, present = SHARED_SOUND_METHODS[key]
-        cache = st.__dict__.get("_channel_read_cache")
-        if cache is not None and len(cache) >= self.SOUND_READ_CACHE:
-            cache.clear()
         rec = RL.pair_channel_reads(st, a, b, family)
         if isinstance(rec, RL.Refusal):
             return None, None, None
