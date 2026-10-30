@@ -173,3 +173,13 @@ test('a selected cell keeps its glyph: the ring is not the cell background', () 
   assert.equal(glyph.textContent, 'A');
   assert.equal(ring.getAttribute('class'), 'lib-mk-select');
 });
+
+test('hover and focus preview is a lighter ring in the selection’s place', () => {
+  const sel = M.selectionRing(50, 50, 37);
+  const pre = M.previewRing(50, 50, 37);
+  assert.equal(pre.getAttribute('r'), sel.getAttribute('r'));
+  assert.equal(pre.getAttribute('class'), 'lib-mk-preview');
+  const rect = M.previewRect(0, 0, 20, 10, 2);
+  assert.equal(rect.getAttribute('class'), 'lib-mk-preview');
+  assert.equal(rect.getAttribute('width'), M.selectionRect(0, 0, 20, 10, 2).getAttribute('width'));
+});
