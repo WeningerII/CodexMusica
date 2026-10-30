@@ -38,8 +38,10 @@ AL = R.REGISTRY["alliteration"]
 
 def check(name, cond, detail=""):
     print(f"  {'PASS' if cond else 'FAIL'}  {name}")
-    if detail:
+    if detail is not None and not isinstance(detail, R.Refusal) and detail:
         print(f"          {detail}")
+    elif isinstance(detail, R.Refusal):
+        print(f"          {detail.detail}")
     if not cond:
         FAILURES.append(name)
 
@@ -294,10 +296,121 @@ def test_planner():
           in words, words)
 
 
+
+def test_pair_channel_reads():
+    print("\n-- 8. the shared channel read --")
+    lines = ["the star was far from washing washington",
+             "to watch the water in the woods"]
+    st = stream(lines)
+
+    def sp(rule, text):
+        return [s for s in R.enumerate_spans(rule, st)
+                if word(st, s) == text][0]
+    LS = R.CHANNEL_READ_FAMILIES["last_stressed"][0]
+    WS = R.CHANNEL_READ_FAMILIES["word_start"][0]
+    a, b = sp(LS, "washing"), sp(LS, "washington")
+    rec = R.pair_channel_reads(st, a, b, "last_stressed")
+    check("the record names its family, alignment, anchors, occurrences, "
+          "reading context and versions",
+          rec["family"] == "last_stressed"
+          and rec["align"] == ((0, 0), (1, 1))
+          and rec["anchors"] == (a.anchor_pos, b.anchor_pos)
+          and rec["occurrences"][0]["idx"] == a.idx
+          and rec["occurrences"][1]["origin"] == b.origin
+          and rec["reading_context"] == {"type": "merged"}
+          and rec["versions"]["channel_reads"] == R.CHANNEL_READ_VERSION,
+          {k: v for k, v in rec.items() if k not in ("reads", "syllables")})
+    check("overhang absent: washington's third syllable is in no read and "
+          "no syllable record",
+          all(qb in (0, 1) for vals in rec["reads"].values()
+              for _qa, qb, _va, _vb in vals)
+          and len(rec["syllables"]) == 2)
+    inst = R.evaluate(R.REGISTRY["internal consonance"], a, b, st)
+    judge_coda = [(q, r) for c, q, r in inst.reads][:2]
+    check("values are exactly what the judge reads: coda AGREE over the "
+          "record's coda pairs gives the instance's reads",
+          [R.AGREE(va, vb).value for _qa, _qb, va, vb in rec["reads"]["coda"]]
+          == [r.value for _q, r in judge_coda])
+    check("each syllable record carries onset, nucleus, coda and prominence, "
+          "equal to the channel reads",
+          all(set(sa) == set(sb) == set(R.CHANNEL_READ_CHANNELS)
+              for sa, sb in rec["syllables"])
+          and rec["syllables"][1][0]["coda"] == rec["reads"]["coda"][1][2])
+
+    # SUBSET ORDER: asking nucleus first and coda later tells the coda
+    # caller exactly what a fresh coda request on a fresh stream does.
+    st2 = stream(lines)
+    a2, b2 = [s for s in R.enumerate_spans(LS, st2)
+              if word(st2, s) in ("washing", "washington")]
+    first = R.pair_channel_reads(st2, a2, b2, "last_stressed",
+                                 channels=("nucleus",))
+    later = R.pair_channel_reads(st2, a2, b2, "last_stressed",
+                                 channels=("coda",))
+    st3 = stream(lines)
+    a3, b3 = [s for s in R.enumerate_spans(LS, st3)
+              if word(st3, s) in ("washing", "washington")]
+    fresh = R.pair_channel_reads(st3, a3, b3, "last_stressed",
+                                 channels=("coda",))
+    check("subset order: coda asked after nucleus equals a fresh coda, and "
+          "each caller sees only what it asked for",
+          later["reads"] == fresh["reads"] and set(first["reads"])
+          == {"nucleus"} and set(later["reads"]) == {"coda"})
+    check("...and the cache holds one COMPLETE record for the pair, not one "
+          "per caller", len(st2._channel_read_cache) == 1)
+
+    # FAMILY SEPARATION.
+    wl, wt = sp(LS, "water"), sp(LS, "watch")
+    ref = R.pair_channel_reads(st, wl, wt, "word_start")
+    check("a last-stressed span of a polysyllable is refused by the "
+          "word_start family, naming the family's rule",
+          isinstance(ref, R.Refusal) and "word_start" in ref.detail, ref)
+    hw, ht = sp(WS, "water"), sp(WS, "washington")
+    ref2 = R.pair_channel_reads(st, hw, ht, "last_stressed")
+    check("...and a word_start span is refused by last_stressed",
+          isinstance(ref2, R.Refusal), ref2)
+    check("an unknown family is refused",
+          isinstance(R.pair_channel_reads(st, a, b, "rime"), R.Refusal))
+    ma, mb = sp(LS, "watch"), sp(LS, "woods")
+    na, nb = sp(WS, "watch"), sp(WS, "woods")
+    before = len(st._channel_read_cache)
+    one = R.pair_channel_reads(st, ma, mb, "last_stressed")
+    two = R.pair_channel_reads(st, na, nb, "word_start")
+    check("family separation: the same two monosyllables under the two "
+          "families are two records under two keys",
+          len(st._channel_read_cache) == before + 2
+          and one["family"] == "last_stressed"
+          and two["family"] == "word_start", len(st._channel_read_cache))
+
+    # UNCERTAIN STAYS A SET.
+    sa_, sf = sp(LS, "star"), sp(LS, "far")
+    cod = R.pair_channel_reads(st, sa_, sf, "last_stressed")["reads"]["coda"]
+    check("uncertain preserved: star ~ far's rhotic coda comes back as the "
+          "set of its readings, not one value",
+          R.uncertain(cod[0][2]) and R.uncertain(cod[0][3])
+          and cod[0][2] == frozenset({("R",), ()}), cod)
+
+    # A PINNED WHOLE READING: the record says which readings it was read
+    # under, and the uncertain coda becomes the one that reading has.
+    tok = (0, 1)
+    combos, _complete = R.reading_combos(st, {tok})
+    phon = R.pinned_phonology(st, combos[-1])
+    pst = R.build_stream(lines, phon, declaration={"language": "eng"})
+    pa = [s for s in R.enumerate_spans(LS, pst) if word(pst, s) == "star"][0]
+    pf = [s for s in R.enumerate_spans(LS, pst) if word(pst, s) == "far"][0]
+    prec = R.pair_channel_reads(pst, pa, pf, "last_stressed")
+    check("reading context: a stream built under a pinned whole reading says "
+          "'pinned' and names the reading; the merged stream says 'merged'",
+          prec["reading_context"]["type"] == "pinned"
+          and any(w.startswith("star = ")
+                  for w in prec["reading_context"]["combo"])
+          and not R.uncertain(prec["reads"]["coda"][0][2]),
+          prec["reading_context"])
+
+
 if __name__ == "__main__":
     for fn in (test_both_present, test_declarations, test_assonance,
                test_consonance, test_alliteration, test_pruning_is_sound,
-               test_planner):
+               test_planner, test_pair_channel_reads):
         fn()
     print("=" * 70)
     if FAILURES:

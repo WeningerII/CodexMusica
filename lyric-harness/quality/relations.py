@@ -10207,6 +10207,159 @@ def pair_satisfies_any(schema, stream, at_a, at_b, build,
                 saw_none = True
     return (None if saw_none else False), None
 
+
+# ---------------------------------------------------------------------------
+# THE SHARED CHANNEL READ (2026-10-30; the contract agreed on PR #637, and
+# the "Shared reads" part of the interior schema contract). One span pair's
+# channel values, aligned exactly as the judge aligns them, read once and
+# shared by every consumer of the same span FAMILY: `internal rhyme`,
+# `internal assonance` and `internal consonance` share `last_stressed`;
+# alliteration's word onsets are `word_start`. The two families never share
+# a key, so a word-initial onset and a last-stressed onset are two
+# observations, never one.
+#
+# The values are what `evaluate` reads (`_span_read`): an uncertain channel
+# stays a set, an unreadable one is None, and the overhang the alignment
+# leaves over is not returned. A schema quantifies over whole readings by
+# asking this on each pinned stream; per-channel results from different
+# readings are never combined here.
+# ---------------------------------------------------------------------------
+
+#: family -> (the member rule both spans must come from, the alignment).
+CHANNEL_READ_FAMILIES = {
+    "last_stressed": (SpanRule("any_token", "last_stressed", 1,
+                               "to_word_end"), "anchor"),
+    "word_start": (HEAD_ANY, "flush_left"),
+}
+#: Every channel a complete record holds; a caller's `channels` projects it.
+CHANNEL_READ_CHANNELS = ("onset", "nucleus", "coda", "prominence")
+#: Bumped whenever what a record holds changes shape or meaning.
+CHANNEL_READ_VERSION = 1
+
+
+def _declaration_digest(stream):
+    try:
+        text = json.dumps(stream.phon.declaration(), sort_keys=True,
+                          default=repr)
+    except (AttributeError, TypeError):
+        text = repr(getattr(stream, "declaration", None))
+    text += "|" + json.dumps(getattr(stream, "declaration", None) or {},
+                             sort_keys=True, default=repr)
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()[:16]
+
+
+def _canonical_span(stream, span, rule):
+    """Is `span` one the family's rule builds at its own token?"""
+    if not span.idx or span.idx[0] >= len(stream.units):
+        return False
+    u = stream.units[span.idx[0]]
+    ids = stream.tokens.get((u.line, u.token))
+    if not ids:
+        return False
+    try:
+        built = list(_spans_at(rule, stream, tuple(ids),
+                               f"L{u.line}.T{u.token}"))
+    except NoReferent:
+        return False
+    return any(sp.idx == span.idx and sp.anchor_pos == span.anchor_pos
+               and sp.direction == span.direction for sp in built)
+
+
+def _reading_context(stream):
+    combo = getattr(stream, "any_reading_combo", None)
+    if combo:
+        return {"type": "pinned", "combo": tuple(reading_witness(combo))}
+    if getattr(stream.phon, "any_reading_trial", False):
+        rows = getattr(getattr(stream.phon, "lexicon", None),
+                       "pronunciations", ()) or ()
+        return {"type": "pinned",
+                "combo": tuple(f"{r['word']} = {' '.join(r['phones'])}"
+                               for r in rows)}
+    return {"type": "merged"}
+
+
+def pair_channel_reads(stream, a, b, family, chans=DEFAULT_CHANNELS,
+                       channels=None):
+    """-> the aligned channel reads of the span pair `a`, `b` in `family`,
+    or a `Refusal` when either span is not that family's own.
+
+    {"family", "align": ((qa, qb), ...), "reads": {channel: ((qa, qb, va,
+    vb), ...)}, "syllables": (({onset, nucleus, coda, prominence}, {...}),
+    ...) per aligned pair, "anchors": (a.anchor_pos, b.anchor_pos),
+    "occurrences": ({"idx", "origin", "line", "token"}, {...}),
+    "reading_context": {"type": "pinned", "combo": ...} or {"type":
+    "merged"}, "versions": {...}}.
+
+    `channels` names the channels the caller wants from `reads` (all four
+    when None). The cache holds the COMPLETE record per stream (its
+    declaration digest included), span pair, family and ChannelSet, and
+    projects it per caller, so the order callers ask in cannot change what
+    any of them is told."""
+    fam = CHANNEL_READ_FAMILIES.get(family)
+    if fam is None:
+        return Refusal("pair_channel_reads", "family",
+                       f"no channel-read family {family!r}; the families are "
+                       f"{', '.join(sorted(CHANNEL_READ_FAMILIES))}",
+                       kind="span")
+    want = CHANNEL_READ_CHANNELS if channels is None else tuple(channels)
+    bad = [c for c in want if c not in CHANNEL_READ_CHANNELS]
+    if bad:
+        return Refusal("pair_channel_reads", bad[0],
+                       f"channel {bad[0]!r} is not in a channel record "
+                       f"({', '.join(CHANNEL_READ_CHANNELS)})", kind="span")
+    rule, align_name = fam
+    cache = stream.__dict__.setdefault("_channel_read_cache", {})
+    key = (_declaration_digest(stream),
+           (a.idx, a.origin, a.anchor_pos, a.direction),
+           (b.idx, b.origin, b.anchor_pos, b.direction),
+           family, id(chans))
+    hit = cache.get(key)
+    if hit is None:
+        for side, sp in (("a", a), ("b", b)):
+            if not _canonical_span(stream, sp, rule):
+                return Refusal(
+                    "pair_channel_reads", "span",
+                    f"member {side} is not a {family!r} span: the family "
+                    f"reads spans its own rule ({rule.locus}, {rule.anchor}, "
+                    f"{rule.magnitude}) builds at the member's token",
+                    kind="span")
+        hit = (chans, _channel_record(stream, a, b, family, align_name,
+                                      chans))
+        cache[key] = hit
+    rec = hit[1]
+    out = dict(rec)
+    out["reads"] = {c: rec["reads"][c] for c in want}
+    return out
+
+
+def _channel_record(stream, a, b, family, align_name, chans):
+    al = ALIGNERS[align_name](a, b, stream)
+    reads = {c: [] for c in CHANNEL_READ_CHANNELS}
+    syllables = []
+    for qa, qb in al.pairs:
+        sa, sb = {}, {}
+        for c in CHANNEL_READ_CHANNELS:
+            va = _span_read(a, qa, c, stream, chans, "phonemic")
+            vb = _span_read(b, qb, c, stream, chans, "phonemic")
+            sa[c], sb[c] = va, vb
+            reads[c].append((qa, qb, va, vb))
+        syllables.append((sa, sb))
+
+    def occ(sp):
+        u = stream.units[sp.idx[0]]
+        return {"idx": sp.idx, "origin": sp.origin, "line": u.line,
+                "token": u.token}
+    return {"family": family,
+            "align": tuple(al.pairs),
+            "reads": {c: tuple(v) for c, v in reads.items()},
+            "syllables": tuple(syllables),
+            "anchors": (a.anchor_pos, b.anchor_pos),
+            "occurrences": (occ(a), occ(b)),
+            "reading_context": _reading_context(stream),
+            "versions": {"channel_reads": CHANNEL_READ_VERSION,
+                         "declaration": _declaration_digest(stream)}}
+
+
 __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
            "stanzas_from_blank_lines",
            "Span", "SpanRule", "enumerate_spans", "Alignment", "ALIGNERS",
@@ -10220,6 +10373,8 @@ __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
            "mirrored", "order_burden", "Inert", "INERT", "check_inert",
            "line_pairs_for", "pair_satisfies", "pair_bindable",
            "resolve_line_pair", "pair_satisfies_any", "reading_combos",
+           "pair_channel_reads", "CHANNEL_READ_FAMILIES",
+           "CHANNEL_READ_CHANNELS", "CHANNEL_READ_VERSION",
            "pinned_phonology", "reading_witness", "cached_builder",
            "READING_COMBO_CAP",
            "overhang_member", "unsatisfiable_pairs", "group_satisfiable",
