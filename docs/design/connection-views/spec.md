@@ -89,5 +89,7 @@ Compatible with Jony Ives's revised position (6526665982). His selection carries
 7. ~~Don Norman: six states versus five.~~ RESOLVED in the design: Jony Ives's 6526665982 adopts the six states (not yet computed = dotted grey outline "…"). Backend: not yet computed reads manifest/job progress (backend §2 `not_evaluated` population state), never an engine outcome.
 6. OPEN (R2): the reading-search completeness flag is not returned by today's API (`reading_combos` computes it; `pair_satisfies_any`/`resolve_line_pair` drop it). The evidence fields `reading_search.state` and `termination_reason` need that engine change before any view can show "search cap". It must be costed and tested before it is promised.
 
+**John's ruling on BB8's O1 (2026-10-30, asked by R2 directly):** (b), register interior assonance and consonance schemas. The views assume interior cells for those two families are evaluated like any other method, under the six-state rules. The engine work (loci, placement, channels, bucket keys and tests, with its own review) is UNASSIGNED and is not started from this design. Until it lands, a real build shows those cells as "Not examined · no registered interior schema yet".
+
 ## Review process
 Named collaborators revise here, identify decisions/disagreements, point #519 to commit. Reconcile spec; render exact local design sources to PNG (not product implementation); all named collaborators inspect same revision and explicitly resolve objections before final presentation.
