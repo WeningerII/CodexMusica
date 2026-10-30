@@ -203,3 +203,9 @@ test('a dimmed edge dims its stroke, never its glyph: text never dims', () => {
   );
   assert.equal(e.querySelector('text').parentNode, e);
 });
+
+test('node coordinates carry the same surface halo, so an edge never strikes through them', () => {
+  const { document } = load();
+  const css = document.getElementById('lib-mk-style').textContent;
+  assert.match(css, /\.lib-mk-node-coord\{paint-order:stroke;stroke:var\(--cm-surface\)/);
+});

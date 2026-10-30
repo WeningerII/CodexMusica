@@ -92,7 +92,7 @@ ${S}.lib-mk-cell-not_yet_computed .lib-mk-bg{stroke:var(--cm-text-muted)}
 ${S}.lib-mk-cell-holds .lib-mk-bg{stroke:var(--lib-mk-hue);stroke-width:1.5}
 ${S}.lib-mk-glyph{font:600 13px/1 var(--cm-font);fill:var(--cm-text-muted)}
 ${S}.lib-mk-cell-holds .lib-mk-glyph,${S}.lib-mk-edge-glyph{fill:var(--lib-mk-hue);font-weight:700}
-${S}.lib-mk-edge-glyph{paint-order:stroke;stroke:var(--cm-surface);stroke-width:8px;stroke-linejoin:round}
+${S}.lib-mk-edge-glyph,${S}.lib-mk-node-coord{paint-order:stroke;stroke:var(--cm-surface);stroke-width:8px;stroke-linejoin:round}
 ${S}.lib-mk-select{fill:none;stroke:var(--cm-text);stroke-width:2}
 ${S}.lib-mk-preview{fill:none;stroke:var(--cm-text);stroke-width:1;stroke-dasharray:3 2}
 ${S}.lib-mk-focus:is(:hover,:focus-visible){outline:1px dashed var(--cm-text);outline-offset:3px}
