@@ -201,6 +201,52 @@ test('undecided names its reason from unknown_channels, else says it was not rep
   assert.doesNotMatch(CI.stateWords(bare), /search cap/);
 });
 
+test('records in the evidence contract’s shape: verdict, undecided_reason, not_requested', () => {
+  const st = (record) => CI.cellState({ inLocus: true, record });
+  assert.equal(
+    st({ coverage: 'answered', verdict: 'true', informative_channels: ['onset'] }).state,
+    'holds'
+  );
+  assert.equal(st({ coverage: 'answered', verdict: 'false' }).state, 'does_not_hold');
+  assert.equal(
+    CI.stateWords(
+      st({ coverage: 'answered', verdict: 'undecided', undecided_reason: 'combination_cap' })
+    ),
+    'undecided · reading search reached its cap'
+  );
+  assert.equal(
+    CI.stateWords(
+      st({
+        coverage: 'answered',
+        verdict: 'undecided',
+        undecided_reason: 'readings_not_searched_in_scope',
+      })
+    ),
+    'undecided · only the first-listed reading was judged'
+  );
+  assert.equal(
+    CI.stateWords(
+      st({ coverage: 'answered', verdict: 'undecided', undecided_reason: 'something_new' })
+    ),
+    'undecided · reason not reported'
+  );
+  assert.equal(st({ coverage: 'not_requested' }).state, 'not_examined');
+  // Every declared reason has words.
+  for (const r of [
+    'combination_cap',
+    'rebuild_unavailable',
+    'locus_unmatched',
+    'readings_not_searched_in_scope',
+    'no_reading_combination',
+    'placement_unknown',
+    'identity_unknown',
+    'channel_unknown',
+    'judge_unknown',
+    'member_edges_undecided',
+  ])
+    assert.ok(CI.UNDECIDED_WORDS[r], r);
+});
+
 test('a hold on empty onsets only is labelled, never hidden', () => {
   const r = CI.cellState({ inLocus: true, record: { outcome: true, informative_channels: [] } });
   assert.equal(r.state, 'holds');
