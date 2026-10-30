@@ -1081,6 +1081,22 @@ class ConnectionEvidence(unittest.TestCase):
             if "undecided_reason" in r:
                 self.assertIn(r["undecided_reason"], allowed)
 
+    def test_a_domain_names_its_reading_policy(self):
+        # A work with sound declarations keeps first-listed readings, so a
+        # disputed word's missing record is only its first reading's False:
+        # the domain says so and lists the word (3PO, #646). Searched, the
+        # same word is answered for every reading.
+        words = {"zyre": [["Z", "AY1", "ER0"], ["Z", "AY1", "R"]]}
+        reading = source("zyre is here\nthe bar")
+        declared = {"sound": {"caesura": {"source": "caller-owned empty map", "positions": {}}}}
+        with _with_words(words):
+            for declarations, policy, dependent in ((None, "exists_compatible_reading", False),
+                                                    (declared, "first_listed_reading", True)):
+                _, rows, _ = complete(reading, declarations, ["internal rhyme"])
+                domain = next(r for r in rows if r["kind"] == "method_result")["domain"]
+                self.assertEqual(domain["reading_policy"], policy)
+                self.assertEqual("line:0:token:0" in domain["reading_dependent_tokens"], dependent, policy)
+
     def test_first_listed_scopes_say_so_on_the_edge(self):
         # `every` is disputed and multisyllabic rhyme is a searched rule, kept
         # on first-listed readings: its edges over `every` say so.
