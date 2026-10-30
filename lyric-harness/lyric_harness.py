@@ -5430,7 +5430,10 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
         _wvp = _WVP(list(lines), _PH.get("eng"),
                     bearing={x for pr in mandated for x in pr},
                     requested_pairs=_asked,
-                    bound={pr: (-1, -1) for pr in _asked})
+                    bound={pr: (-1, -1) for pr in _asked}).listed(_asked)
+        # THE RULE-5 LISTING (M-322, 2026-10-30): every schema some whole
+        # reading of the words holds is listed, with its readings, whether
+        # or not a definite one already satisfies the pair.
         from quality.relations import REGISTRY as _REG
         for pr in sorted(_asked):
             if pr in _wvp:
@@ -5442,8 +5445,11 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                         if _REG[n].normative not in ("forbidden",
                                                      "deprecated")]
                 if _sat:
-                    schema_satisfied.append({"lines": pr,
-                                             "satisfied_by": _sat})
+                    _rd = {n: w for n, w in _wvp.readings.get(pr, {}).items()
+                           if n in _sat}
+                    schema_satisfied.append(
+                        {"lines": pr, "satisfied_by": _sat,
+                         **({"readings": _rd} if _rd else {})})
         _kept = []
         _sat_pairs = {tuple(d["lines"]) for d in schema_satisfied}
         for v in violations:

@@ -189,8 +189,10 @@ def main():
     small = CR.Sampler(shipped.seed, 60, shipped.population, shipped.reader)
     ms = CR.measure(small, lex, L.Declaration())
     phon = _relation_phonology()
+    # The same rule-5 listing the instrument counts (M-322, 2026-10-30): a
+    # schema some whole reading holds is held (8 -> 14 of these 60 pairs).
     held = sum(1 for a, b in small.pairs(lex)
-               if RF.whole_vocabulary_pairs([a, b], phon).get((1, 2)))
+               if RF.whole_vocabulary_pairs([a, b], phon).listed().get((1, 2)))
     check("5", "the instrument COUNTS disowned answers and never lets one "
           "satisfy: every pair where a schema holds is in SCHEMA or in the "
           "only-disowned count, never both",
