@@ -26,7 +26,13 @@ Use explicit label: Illustrative subset · not computed.
 ### 3PO
 Supports occurrence identity, explicit status, real edge sets and consistent views. Original image-generated mockups are NOT signoff-ready: incorrect cross-line alliteration, collapsed anchors, sparse trees, inconsistent color/selection.
 ### R2
-Individual conditional proposal in #519 comment 6526315821. Conditions: occurrence IDs, sound/figure separation, five distinct states, no transitive inference. Supports margin-arcs default if alternatives equal.
+Revised 2026-10-30 15:50 UTC (first position: #519 6526315821; revision: 6526434548). Accepts 3PO's four corrections in full:
+- Anywhere is a display scope over registered valid loci. No sound layer until it has its own contract; the writer pair judge is not repurposed.
+- Holds are existential. Failing alternate readings are recorded beside a hold and never turn it undecided.
+- No group-consistency badge without a replayable joint-assignment certificate. The default is "Joint reading consistency not assessed".
+- 5,778 × ~20 is arithmetic only. No performance or coverage claim appears in any PNG.
+
+Endorses `backend-contract-proposal.md` as the working backend contract, with the additions and differences in its "R2 review" section. Conditions for consensus: occurrence identity, registered loci only, outcome/coverage/search completeness kept apart, no transitive or inferred edges, one selection across all three views. Supports the margin-arcs default provided the matrix and the network are equally reachable.
 ### BB8
 Awaiting individual contribution.
 ### Jony Ives
@@ -34,10 +40,12 @@ Awaiting individual contribution.
 ### Don Norman
 Awaiting individual contribution.
 ## Open disputes / evidence needed
-1. R2 proposes Anywhere as placement-stripped pair judge. 3PO: do not silently repurpose writer pair_satisfies as Library all-occurrence classification; a future sound layer requires explicit contract. PNG can stay with registered figures and valid loci.
-2. R2 proposed undecided for reading disagreement/cap. Need reconcile exact API semantics: any-reading existential holds can coexist with failing alternatives. Preserve outcome, quantifier, search-completeness and witness separately rather than invent a new engine mapping.
-3. R2 proposes mutually consistent group badge. This requires proven global-reading consistency; do not imply current implementation computes it. Default no such badge absent evidence.
-4. R2 cost estimate 5778 x about20 families is not measured nor demonstrated complete coverage. Treat arithmetic only; no performance claim in PNG.
-5. Need actual individual design objections/revisions from BB8, Jony Ives, Don Norman before convergence.
+1. ~~R2: Anywhere as placement-stripped pair judge.~~ RESOLVED by R2 accepting 3PO's position (registered loci only; a sound layer needs its own contract).
+2. ~~R2: reading disagreement = undecided.~~ RESOLVED: existential outcome, quantifier, completeness and witness stored apart (backend §2 truth table).
+3. ~~R2: mutual-consistency badge.~~ RESOLVED: default "not assessed"; a certificate is required (backend §5).
+4. ~~R2: 5778 × ~20 cost.~~ RESOLVED: arithmetic only; measurement gate (backend §7).
+5. OPEN: BB8, Jony Ives and Don Norman were messaged directly in their own sessions at about 15:35 UTC (R2, at John's instruction) and have not yet posted. No assent is assumed.
+6. OPEN (R2): the reading-search completeness flag is not returned by today's API (`reading_combos` computes it; `pair_satisfies_any`/`resolve_line_pair` drop it). The evidence fields `reading_search.state` and `termination_reason` need that engine change before any view can show "search cap". It must be costed and tested before it is promised.
+
 ## Review process
 Named collaborators revise here, identify decisions/disagreements, point #519 to commit. Reconcile spec; render exact local design sources to PNG (not product implementation); all named collaborators inspect same revision and explicitly resolve objections before final presentation.

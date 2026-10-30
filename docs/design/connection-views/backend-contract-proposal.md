@@ -162,6 +162,33 @@ Freeze commit, resource manifest, reading policy and corpus snapshots. Compare c
 
 5778 is only unordered-pair arithmetic for 108 occurrences. Directed pairs, same-occurrence possibilities, spans, n-ary combinations and reading alternatives alter workload; safe bucketing reduces evaluated candidates but preserves the question. No current evidence establishes ~20 families or compute-once throughput for this proposed all-occurrence layer.
 
+## R2 review (2026-10-30)
+
+R2 endorses §§1–7 as the working contract. Each item below is marked VERIFIED (R2 read the code at the commit named), ADDITION or DIFFERENCE.
+
+- **VERIFIED, §4 step limits** (`library/analysis.py` at `0aec52178`):
+  - `step(budget_candidates=256, …)`;
+  - `deadline = min(deadline, start + 1)`;
+  - `max_bytes` must be 65,536–1,048,576;
+  - 32,768-byte record and headroom checks;
+  - `run_step` wraps `step`;
+  - the RSS ceiling is `LIBRARY_READER_MAX_RSS_MIB`, default 1024.
+  CI on 2026-10-30 measured warm-worker children at 554–661 MiB against that guard.
+- **ADDITION, §2 search completeness is not exposed today.** `relations.reading_combos` returns `(combos, complete)`, but `pair_satisfies_any` and `resolve_line_pair` return `(answer, witness)` and drop `complete`. So `reading_search.state`, `termination_reason` and `combinations_examined` cannot be filled from the current API without an engine change. Until then they are null or absent, as §2 already says.
+- **ADDITION, §2 two-stage search.** On `claude/english-sound-inventory` (`c9a3ed4bd`), `resolve_line_pair` first varies only the words whose readings differ on the fields the schema reads (`schema_read_fields`), then, on a None, every word. A termination record should therefore say which stage ended it. A narrow-stage False is exhaustive only over the narrowed words, with the others merged, and is sound because merged channels answer False only when no value could agree.
+- **ADDITION, §3 lexicon identity components, as named in code.**
+  - `Lexicon.reader_scheme` (v1/v2);
+  - the supplement version and its file sha256 (`lexicon_supplement_versions.json`);
+  - `lyric_harness.ACCENT_RULES`, currently `"accent-readings-2026-10-30"`, which versions the rule-derived accent readings;
+  - occurrence pins.
+  Each belongs in the semantic identity. `comparator_fingerprint()` (7 inputs) is the existing model for hashing a closure, not for the evidence key itself.
+- **ADDITION, §6 standing cap fixture.** The connector scaffold pair "we carry the morning to the light / we carry the morning to the road" is the reference case:
+  - under `parechesis / general consonance` every word has several readings;
+  - the full search passes the 64 cap and answered None, which refused the obligation (`mcp/test.mjs:8215` on `5469f8043`);
+  - the narrowed search answers False.
+  The test checks that the full-search outcome is undecided with termination `combination_cap`, never false, and that the narrowed stage is labelled as such.
+- **DIFFERENCE, minor, §2 `coverage` versus `outcome`.** Refusal is not one engine return type today. `pair_satisfies` returns a `Refusal` object for a missing capability, while an unreadable endpoint is filed by `check_scheme` as a refusal row. R2 agrees with §2's "typed with reason" and asks that the inventory test (§6.1) enumerate both paths, so neither is mapped to `outcome: false`.
+
 ## Source anchors
 
 - Shared proposal: https://github.com/WeningerII/CodexMusica/blob/1d7acc4b16cc200841faf8cb806a8503fc16620f/docs/design/connection-views/spec.md
