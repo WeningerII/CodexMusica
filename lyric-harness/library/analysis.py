@@ -404,6 +404,17 @@ class AnalysisSession:
         # (standing rule 5), never left open for want of trying them.
         from quality.phonology import MERGED
         self._merged = self._disputed_tokens(MERGED)
+        # A merged word of more than one syllable whose readings disagree on
+        # stress has no single last-stressed syllable on its knowledge set,
+        # so the engine enumerates no anchored span over it and no pair ever
+        # reaches the search (3PO, #641). Its spans vary with its reading as
+        # a disputed word's do, so it is discovered the same way: each of its
+        # readings rebuilds its line (`_alternate_edges`).
+        self._restressed = frozenset(
+            tok for tok in self._merged
+            if len(self.stream.tokens.get(tok, ())) > 1
+            and any(RL.uncertain(self.stream.units[i].syl.prominence) for i in self.stream.tokens[tok]))
+        self._varying = self._disputed | self._restressed
         self._work_unit = {(u.line, u.token, u.tok_syl): u.i for u in self.stream.units}
         self._mini, self._span_index, self._incomplete = collections.OrderedDict(), {}, {}
         # Line readings the rebuilt streams share (`RL._line_read_scope`'s
@@ -575,9 +586,10 @@ class AnalysisSession:
         return st
 
     def _touched(self, st, *spans):
-        """-> {(line, token)} disputed words the spans cover."""
+        """-> {(line, token)} words the spans cover whose spans vary with
+        their reading: disputed, or merged and restressed."""
         return {(st.units[i].line, st.units[i].token) for span in spans for i in span.idx
-                if (st.units[i].line, st.units[i].token) in self._disputed}
+                if (st.units[i].line, st.units[i].token) in self._varying}
 
     def _origin(self, span, st):
         """The span's provenance with any unit number (`@c`, a caesura's
@@ -625,10 +637,15 @@ class AnalysisSession:
         return {(st.units[i].line, st.units[i].token) for span in spans for i in span.idx
                 if (st.units[i].line, st.units[i].token) in self._merged}
 
-    def _search(self, state, examined=0, reason=None):
-        """The per-edge record of the any-reading search (`reading_search`)."""
+    def _search(self, state, examined=0, reason=None, termination=None):
+        """The per-edge record of the any-reading search (`reading_search`):
+        `state` is what was JUDGED (exhaustive only when every combination
+        was), `termination_reason` why the search stopped (a witness found,
+        every combination exhausted, or the cap)."""
         out = {"state": state, "combinations_examined": examined,
                "combination_limit": self.EDGE_COMBOS}
+        if termination:
+            out["termination_reason"] = termination
         if reason:
             out["reason"] = reason
         return out
@@ -699,9 +716,10 @@ class AnalysisSession:
         open_ = not complete or (not merged and inst is not None and inst.verdict is None)
         reasons = [] if complete else ["combination_cap"]
         examined = 0
-        for combo in combos:
-            if not merged and (st is self.stream and combo is combos[0] or self._combo_key(combo) == own):
-                continue                 # the reading `inst` was judged under
+        # The reading `inst` was judged under is not judged again.
+        to_judge = [c for c in combos if merged or not (
+            st is self.stream and c is combos[0] or self._combo_key(c) == own)]
+        for combo in to_judge:
             examined += 1
             alt = self._line_stream(lines, combo)
             if alt is None:
@@ -728,11 +746,16 @@ class AnalysisSession:
                 for y in sides[1]:
                     got = RL.evaluate(schema, x, y, alt)
                     if got is not None and got.verdict is True:
+                        # A witness ends the search: what was JUDGED is
+                        # exhaustive only if nothing was left unjudged (3PO,
+                        # #641), whatever the cap allowed.
+                        whole = complete and examined == len(to_judge)
                         return got, alt, self._witness(alt, cause), first_only, self._search(
-                            "partial" if not complete else "exhaustive", examined)
+                            "exhaustive" if whole else "partial", examined, termination="witness_found")
                     if got is not None and got.verdict is None:
                         open_ = True
         state = "partial" if not complete else "exhaustive"
+        termination = "combination_cap" if not complete else "exhausted"
         if inst is not None and open_ and inst.verdict is False:
             inst = replace(inst, verdict=None)
         elif inst is not None and merged and not open_ and inst.verdict is None:
@@ -744,7 +767,7 @@ class AnalysisSession:
         # instance by `_undecided_reason`.
         reason = next((r for r in ("combination_cap", "rebuild_unavailable", "locus_unmatched")
                        if r in reasons), None) if inst is not None and inst.verdict is None else None
-        return inst, st, None, first_only, self._search(state, examined, reason)
+        return inst, st, None, first_only, self._search(state, examined, reason, termination)
 
     def _witness(self, st, touched):
         """-> the readings a verdict rests on: those of `touched` words a
@@ -788,13 +811,13 @@ class AnalysisSession:
         the changed words. Deterministic: lines, combinations and targets
         are sorted. Over the caps the method is marked incomplete."""
         RL = self.RL
-        if not self._disputed or self._schema_stream is not self.stream or not self._searchable(schema, self.stream):
+        if not self._varying or self._schema_stream is not self.stream or not self._searchable(schema, self.stream):
             return
         rules = schema.spans
         variants = [[], []]
         same_rule = rules[1] is rules[0]
-        for li in sorted({li for li, _ in self._disputed}):
-            toks = {t for t in self._disputed if t[0] == li}
+        for li in sorted({li for li, _ in self._varying}):
+            toks = {t for t in self._varying if t[0] == li}
             combos, complete = RL.reading_combos(self.stream, toks, self.EDGE_COMBOS)
             if not combos:
                 continue
@@ -802,11 +825,15 @@ class AnalysisSession:
                 self._incomplete.setdefault(name, f"a line's words take more than {self.EDGE_COMBOS} "
                                                   f"combinations of readings")
             first = combos[0]
-            for combo in combos[1:]:
+            # The work reads a disputed word under its first reading, so that
+            # combination is the work's own; a restressed word is read as a
+            # knowledge set, so even its first reading is a variant.
+            restressed = toks & self._restressed
+            for combo in (combos if restressed else combos[1:]):
                 mini = self._line_stream([li], combo)
                 if mini is None:
                     continue
-                changed = {t for t, c in combo.items() if tuple(c[2]) != tuple(first[t][2])}
+                changed = {t for t, c in combo.items() if tuple(c[2]) != tuple(first[t][2])} | restressed
                 for side in ((0,) if same_rule else (0, 1)):
                     try:
                         index = self._spans_by_key(mini, rules[side])
@@ -1229,7 +1256,7 @@ class AnalysisSession:
     #: is refused (`projection: none`), never sampled.
     DOMAIN_CAP = 262144
 
-    def _domain(self, name):
+    def _domain(self, name, alt_cells=()):
         """-> WHICH OCCURRENCE PAIRS THIS SCHEMA'S LOCI CAN BIND, so a view can
         tell "does not hold" from "not examined" (design contract, BB8 O2).
 
@@ -1263,7 +1290,6 @@ class AnalysisSession:
             return {"projection": "none", "reason": "multi_token_spans"}
         if len(aa) * len(bb) > self.DOMAIN_CAP:
             return {"projection": "none", "reason": "domain_cap", "cap": self.DOMAIN_CAP}
-        unordered = schema.spans[0] == schema.spans[1]
         layout = [(a, (bb,)) for a in aa]
         cells = set()
         for n, (a, b, _) in enumerate(RL._candidate_pairs(schema, layout, st, {s.idx for s in aa},
@@ -1274,7 +1300,14 @@ class AnalysisSession:
                 continue
             ta, tb = token(a), token(b)
             if ta != tb:
-                cells.add(tuple(sorted((ta, tb))) if unordered else (ta, tb))
+                # In the order the engine asks it (role a, role b). Equal
+                # span rules do not make a predicate symmetric (a required
+                # overhang, PresentVsAbsent), and the engine asks each pair
+                # of a mirrored rule once, in this order: the reverse
+                # question is never asked, so it is never claimed (3PO, #641).
+                cells.add((ta, tb))
+        # Pairs only another reading binds (`_alternate_edges`), as judged.
+        cells.update((tuple(a), tuple(b)) for a, b in alt_cells)
         ids = sorted({t for pair in cells for t in pair})
         index = {t: i for i, t in enumerate(ids)}
         rows = {}
@@ -1291,9 +1324,42 @@ class AnalysisSession:
                 else:
                     out.append([j, j])
             runs[str(i)] = out
-        return {"projection": "exact_token_pair", "ordering": "unordered" if unordered else "role_ordered",
-                "tokens": [f"{self._line_id(li)}:token:{ti}" for li, ti in ids],
-                "pairs": runs, "pair_count": len(cells)}
+        tid = lambda t: f"{self._line_id(t[0])}:token:{t[1]}"
+        return {"projection": "exact_token_pair", "ordering": "role_ordered",
+                "tokens": [tid(t) for t in ids], "pairs": runs, "pair_count": len(cells),
+                "reading_dependent_tokens": [tid(t) for t in sorted(self._reading_dependent(schema, aa, bb))]}
+
+    def _reading_dependent(self, schema, aa, bb):
+        """-> {(line, token)} whose membership in this schema's loci changes
+        with its reading: a disputed word whose other syllable count brings a
+        locus in or out, or a merged word whose readings disagree on stress,
+        so its anchor -- and with it the span -- exists under some readings
+        only (3PO, #641). Each such word's line is rebuilt under every reading
+        of it alone; a word is reading-dependent when any reading's spans
+        cover it under a role the work's spans do not, or the reverse, or
+        when its line cannot be rebuilt. A cell touching one is neither a
+        judged False nor outside the method: its own record, if any, is all
+        that answers for it."""
+        RL = self.RL
+        rules = (schema.spans[0], schema.spans[1])
+
+        def covered(st, rule, base):
+            try:
+                spans = base if base is not None else list(RL.enumerate_spans(rule, st))
+            except RL.NoReferent:
+                return set()
+            return {(st.units[i].line, st.units[i].token) for span in spans for i in span.idx}
+        work = [covered(self.stream, rule, base) for rule, base in zip(rules, (aa, bb))]
+        out = set()
+        for tok in sorted(self._disputed | self._merged):
+            combos, _ = RL.reading_combos(self.stream, {tok}, self.EDGE_COMBOS)
+            for combo in combos or ():
+                alt = self._line_stream([tok[0]], combo)
+                if alt is None or any((tok in covered(alt, rule, None)) != (tok in base)
+                                      for rule, base in zip(rules, work)):
+                    out.add(tok)
+                    break
+        return out
 
     def _undecided_reason(self, inst, search):
         """-> why an edge stayed undecided, most specific first: the search's
@@ -1751,6 +1817,10 @@ class AnalysisSession:
                 [frame, [(e.a.idx, e.b.idx) for e in members], getattr(members, "members", ())],
                 namespace="schema", schema_name=name, frame=json_safe(frame), verdict=verdict(value),
                 member_lines=list(getattr(members, "members", ())))
+            if value is None:
+                # Assembled from committed edges, which carry their own
+                # reasons; the figure says only that some member is open.
+                record["undecided_reason"] = "member_edges_undecided"
             record["edge_count"] = len(ids)
             yield record
             for i in range(0, len(ids), 128):
@@ -1787,7 +1857,8 @@ class AnalysisSession:
                               + ". Findings over the combinations searched do not answer the rest."}
             rows.append(self._record("method_result", mid, "result", namespace="schema", schema_name=name,
                                     coverage=counts["coverage"], counts=counts,
-                                    domain=self._domain(name) if phase == "schema" else {"projection": "none", "reason": "whole_figure"},
+                                    domain=self._domain(name, counts.pop("alt_cells", [])) if phase == "schema"
+                                    else {"projection": "none", "reason": "whole_figure"},
                                     refusal=counts.get("refusal"), availability="available" if counts["coverage"] == "answered" else "unknown_members",
                                     supply={c: json_safe(self.stream.supply(c))
                                                                        for c in RL.REGISTRY[name].capabilities()}))
@@ -1796,11 +1867,18 @@ class AnalysisSession:
         return rows
 
     def _figure_record(self, name, frame, edges, value):
+        rows = [self._figure_edge(e, self._schema_stream or self.stream) for e in edges]
+        extra = {}
+        if value is None:
+            # An open figure names why, as an open edge does: the first
+            # reason its own open members give, else the judge's.
+            extra["undecided_reason"] = next((r["undecided_reason"] for r in rows if "undecided_reason" in r),
+                                             "judge_unknown")
         return self._record("relation_figure", method_id("schema", name),
                             [frame, [(e.a.idx, e.b.idx) for e in edges], getattr(edges, "members", ())],
                             namespace="schema", schema_name=name, frame=json_safe(frame),
                             verdict=verdict(value), member_lines=list(getattr(edges, "members", ())),
-                            edges=[self._figure_edge(e, self._schema_stream or self.stream) for e in edges])
+                            edges=rows, **extra)
 
     def _figure_edge(self, e, st):
         """A whole figure's member edge. Whole figures keep first-listed
@@ -1873,6 +1951,15 @@ class AnalysisSession:
                 if kind in ("edge", "alt_edge"):
                     a, b, found = value if kind == "alt_edge" else (*value, self._schema_stream)
                     inst, judged, witness, first_only, search = self._any_reading(name, a, b, found)
+                    if inst is not None and kind == "alt_edge":
+                        # A pair only another reading binds is inside the
+                        # method's loci too: the domain must not call it
+                        # outside (3PO, #641). Kept with the method's counts
+                        # so a resumed traversal keeps it.
+                        cells = [sorted({(found.units[i].line, found.units[i].token) for i in m.idx})
+                                 for m in (a, b)]
+                        if all(len(c) == 1 for c in cells) and cells[0] != cells[1]:
+                            delta["alt_cells"] = delta.get("alt_cells", []) + [[list(cells[0][0]), list(cells[1][0])]]
                     if inst is not None:
                         delta[verdict(inst.verdict)] += 1
                         delta["first_reading_only"] += first_only
@@ -1938,7 +2025,7 @@ class AnalysisSession:
             except StopIteration:
                 for key, value in event["delta"].items():
                     if value:
-                        counts[key] = counts.get(key, 0) + value
+                        counts[key] = counts.get(key, [] if isinstance(value, list) else 0) + value
                         if key in cp["counters"]:
                             cp["counters"][key] += value
                 if event["action"] == "advance":

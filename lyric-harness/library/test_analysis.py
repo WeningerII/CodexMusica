@@ -935,7 +935,10 @@ class ConnectionEvidence(unittest.TestCase):
             edge = _edge(rows, (0, 0), (1, 1))
             self.assertEqual(edge["verdict"], "true")
             self.assertEqual(edge["reading"], {"rule": "any_reading", "witness": ["zee = Z IY1"]})
-            self.assertEqual(edge["reading_search"]["state"], "exhaustive")
+            # Both readings were AVAILABLE (inside the cap) but the search
+            # stopped at its first witness: one of two judged, so partial.
+            self.assertEqual(edge["reading_search"], {"state": "partial", "combinations_examined": 1,
+                                                      "combination_limit": 64, "termination_reason": "witness_found"})
             self.assertEqual(edge["quantifier"], "exists_compatible_reading")
             # What was compared is the witness reading's syllable, not the set.
             self.assertEqual(edge["compared"]["a"][0]["nucleus"], "IY")
@@ -969,9 +972,58 @@ class ConnectionEvidence(unittest.TestCase):
             self.assertEqual(edge["verdict"], "undecided")
             self.assertEqual(edge["undecided_reason"], "combination_cap")
             self.assertEqual(edge["reading_search"], {"state": "partial", "combinations_examined": 1,
-                                                      "combination_limit": 1, "reason": "combination_cap"})
+                                                      "combination_limit": 1, "reason": "combination_cap",
+                                                      "termination_reason": "combination_cap"})
             result = next(r for r in rows if r["kind"] == "method_result")
             self.assertEqual(result["coverage"], "answered")
+
+    def test_a_search_stopped_at_its_witness_is_exhaustive_only_if_nothing_was_left(self):
+        # Available-combination completeness is not evaluated completeness
+        # (3PO, #641): `zee`'s witness is its FIRST reading (one of two
+        # judged, partial); `zea`'s is its LAST (both judged, exhaustive).
+        words = {"zee": [["Z", "IY1"], ["Z", "AH0"]], "zea": [["Z", "AH0"], ["Z", "IY1"]]}
+        with _with_words(words):
+            for word, state, examined in (("zee", "partial", 1), ("zea", "exhaustive", 2)):
+                with self.subTest(word=word):
+                    _, rows, _ = complete(source(f"{word} is home\nand bee is too"), schemas=["internal rhyme"])
+                    search = _edge(rows, (0, 0), (1, 1))["reading_search"]
+                    self.assertEqual((search["state"], search["combinations_examined"],
+                                      search["termination_reason"]), (state, examined, "witness_found"))
+
+    def test_a_locus_only_some_readings_have_is_never_certified(self):
+        # `zeeta`'s readings share a syllable count (MERGED) but not their
+        # stress, so its last-stressed anchor -- and its internal-rhyme span --
+        # exists under each reading and not on the knowledge set. The domain
+        # must not certify its cells False or outside (3PO, #641): it names
+        # the occurrence as reading-dependent.
+        words = {"zeeta": [["Z", "IY1", "T", "AH0"], ["Z", "IY0", "T", "AH1"]]}
+        with _with_words(words):
+            session, rows, _ = complete(source("the zeeta came\nwe bring the beta home"),
+                                        schemas=["internal rhyme"])
+            self.assertIn((0, 1), session._merged)
+            domain = next(r for r in rows if r["kind"] == "method_result")["domain"]
+            self.assertIn("line:0:token:1", domain["reading_dependent_tokens"])
+            # Not merely absent: `the` is merged too, but its one syllable
+            # is the anchor under every reading, so it stays certified.
+            self.assertNotIn("line:0:token:0", domain["reading_dependent_tokens"])
+
+    def test_a_restressed_merged_word_is_discovered_under_its_readings(self):
+        # `zanchor`'s readings share a syllable count but not their stress:
+        # its knowledge set has no last-stressed syllable, so no span over it
+        # is enumerated and no pair reaches the search. Its readings rebuild
+        # its line, as a disputed word's do, and the rhyme one of them makes
+        # is found -- inside the domain (3PO's #641 fixture).
+        words = {"zanchor": [["Z", "IY1", "T", "AH0"], ["Z", "IY0", "T", "AH1"]],
+                 "banchor": [["B", "IY1", "T", "AH0"]]}
+        with _with_words(words):
+            session, rows, _ = complete(source("zanchor\nbanchor\ncat\nhat"), schemas=["perfect rhyme"])
+            self.assertIn((0, 0), session._restressed)
+            edge = _edge(rows, (0, 0), (1, 0))
+            self.assertEqual(edge["verdict"], "true")
+            self.assertEqual(edge["reading"]["witness"], ["zanchor = Z IY1 T AH0"])
+            domain = next(r for r in rows if r["kind"] == "method_result")["domain"]
+            self.assertIn(("line:0:token:0", "line:1:token:0"), _domain_cells(domain))
+            self.assertIn("line:0:token:0", domain["reading_dependent_tokens"])
 
     def test_every_undecided_edge_names_a_declared_reason(self):
         import typing
@@ -979,6 +1031,15 @@ class ConnectionEvidence(unittest.TestCase):
         allowed = set(typing.get_args(UndecidedReason))
         reading = source("fire every hour flower power\nour family evening fire flower\nthe cat is in the hat")
         _, rows, _ = complete(reading, schemas=["internal rhyme", "perfect rhyme", "multisyllabic rhyme"])
+        # Whole figures too: Frost's L13 leaves cynghanedd sain open.
+        _, sain, _ = complete(source("The only other sound's the sweep\nOf easy wind and downy flake."),
+                              schemas=["cynghanedd sain"])
+        figures = [r for r in resolve_detail_records(sain) if r["kind"] == "relation_figure"]
+        self.assertIn("undecided", [r["verdict"] for r in figures])
+        for r in figures:
+            self.assertEqual(r["verdict"] == "undecided", "undecided_reason" in r, r["id"])
+            if "undecided_reason" in r:
+                self.assertIn(r["undecided_reason"], allowed)
         edges = [r for r in rows if r["kind"] == "relation_instance"]
         self.assertTrue(edges)
         for r in edges:
@@ -1016,11 +1077,13 @@ class ConnectionEvidence(unittest.TestCase):
         self.assertEqual(len(alliteration), 9)
         self.assertTrue(all(a.split(":")[1] == b.split(":")[1] for a, b in alliteration))
         self.assertEqual(_domain_cells(domains["perfect rhyme"]), {("line:0:token:2", "line:1:token:3")})
+        self.assertEqual(domains["alliteration"]["ordering"], "role_ordered")
         self.assertEqual(domains["multisyllabic rhyme"], {"projection": "none", "reason": "multi_token_spans"})
-        # Every record of a projected method lies inside its domain.
+        # Every record of a projected method lies inside its domain, in the
+        # same roles: the domain is the question the engine asked.
         for r in rows:
             if r["kind"] == "relation_instance" and r["schema_name"] in ("alliteration", "perfect rhyme"):
-                pair = tuple(sorted((r["a"]["token_ids"][0], r["b"]["token_ids"][0])))
+                pair = (r["a"]["token_ids"][0], r["b"]["token_ids"][0])
                 self.assertIn(pair, _domain_cells(domains[r["schema_name"]]))
 
     def test_inside_the_domain_a_missing_record_is_the_engines_false(self):
@@ -1034,7 +1097,7 @@ class ConnectionEvidence(unittest.TestCase):
                 session, rows, _ = complete(reading, schemas=[name])
                 st = session.stream
                 domain = next(r for r in rows if r["kind"] == "method_result")["domain"]
-                held = {tuple(sorted((r["a"]["token_ids"][0], r["b"]["token_ids"][0]))): r["verdict"]
+                held = {(r["a"]["token_ids"][0], r["b"]["token_ids"][0]): r["verdict"]
                         for r in rows if r["kind"] == "relation_instance"}
 
                 def rebuild(phon):
@@ -1043,7 +1106,9 @@ class ConnectionEvidence(unittest.TestCase):
                 def at(token_id):
                     parts = token_id.split(":")
                     return int(parts[1]), int(parts[3])
-                cells = _domain_cells(domain)
+                # A reading-dependent cell is certified neither way.
+                dependent = set(domain["reading_dependent_tokens"])
+                cells = {c for c in _domain_cells(domain) if not dependent & set(c)}
                 self.assertTrue(cells)
                 with _reading_scope(), RL._line_read_scope():
                     for a, b in cells:

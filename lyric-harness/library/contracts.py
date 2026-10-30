@@ -53,29 +53,37 @@ ReadingSearchState = Literal["not_needed", "exhaustive", "partial", "unavailable
 UndecidedReason = Literal["combination_cap", "rebuild_unavailable", "locus_unmatched",
                           "readings_not_searched_in_scope", "no_reading_combination",
                           "placement_unknown", "identity_unknown", "channel_unknown",
-                          "judge_unknown"]
+                          "judge_unknown", "member_edges_undecided"]
 
 
 class ReadingSearch(TypedDict):
+    """`state` is what was JUDGED: exhaustive only when every combination
+    was. A search that stops at its first witness is `partial` with
+    `termination_reason: witness_found` unless that witness was the last."""
     state: ReadingSearchState
     combinations_examined: int
     combination_limit: int
+    termination_reason: NotRequired[Literal["witness_found", "exhausted", "combination_cap"]]
     reason: NotRequired[UndecidedReason]
 
 
 class MethodDomain(TypedDict):
     """`exact_token_pair`: every listed pair is inside the method's loci and
     placement; on an answered method a listed pair with no true or undecided
-    record is a judged False. `none`: no pair is claimed (`reason` says why).
-    `pairs` maps a token's index in `tokens` to runs [first, last] of its
-    partners' indices; `unordered` lists each pair once, first index lower."""
+    record is a judged False -- unless it touches a `reading_dependent_tokens`
+    occurrence, whose locus changes with its reading: such a cell is neither
+    False nor outside, and only its own record answers for it. `none`: no
+    pair is claimed (`reason` says why). `pairs` maps a token's index in
+    `tokens` (role a) to runs [first, last] of its partners' indices (role
+    b), in the order the engine asks: the reverse question is not asked."""
     projection: Literal["exact_token_pair", "none"]
     reason: NotRequired[str]
     cap: NotRequired[int]
-    ordering: NotRequired[Literal["unordered", "role_ordered"]]
+    ordering: NotRequired[Literal["role_ordered"]]
     tokens: NotRequired[list[str]]
     pairs: NotRequired[dict[str, list[list[int]]]]
     pair_count: NotRequired[int]
+    reading_dependent_tokens: NotRequired[list[str]]
 
 
 class ReaderCheckpoint(TypedDict):
