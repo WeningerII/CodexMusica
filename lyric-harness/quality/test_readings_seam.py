@@ -65,7 +65,9 @@ WHAT THE PRODUCT INHERITS, STATED BECAUSE IT IS A REAL LOSS (section 5)
 `merge_readings` folds PER CHANNEL, so the correlation between channels is
 already gone by the time a reader sees the syllable. `or` is /AO R/ and /ER/;
 merged, it is nucleus {AO, ER} and coda {('R',), ()}, and the product of those
-is FOUR sequences, two of which no pronunciation declares. That is
+is FOUR sequences, two of which no pronunciation declares (SIX since the
+2026-10-30 accent readings add AO and AH: nucleus {AO, ER, AH}, still two
+undeclared). That is
 `Syllable.readings()`'s own behaviour and not something a reader can undo —
 the information is not on the unit. It is conservative in the safe direction:
 a superset of readings can only turn a verdict into a refusal, never a refusal
@@ -452,7 +454,9 @@ def test_the_classifier_seam():
     phon = eng.English()
     pins = {
         ("read", "seed"): ((False, None, True),),     # nucleus IY|EH vs IY
-        ("don't", "won't"): ((False, True, None),),   # coda {N T}|{N} vs N T
+        # 2026-10-30: was ((False, True, None),). Both words now also carry
+        # the toe reading (OW|OE), so the vowel is a set on both sides too.
+        ("don't", "won't"): ((False, None, None),),   # coda {N T}|{N} vs N T
         ("reed", "seed"): ((False, True, True),),     # control: no set
         ("bed", "fed"): ((False, True, True),),       # control: no set
     }
@@ -535,8 +539,12 @@ def test_declared_reading_settles_a_structure():
                 for x in res.get("findings", []) if x["code"].startswith("SCHEME")}
     try:
         none = scheme_findings(None)
-        check("nothing declared: read/seed under perfect-rhyme is UNDECIDED",
-              ("SCHEME_UNREADABLE", (1, 2)) in none, f"{sorted(none)}")
+        # 2026-10-30, standing rule 5: was "is UNDECIDED" (SCHEME_UNREADABLE
+        # at (1, 2)). The structure judge now asks again under each whole
+        # reading, and read R IY1 D holds, so nothing stands at (1, 2).
+        check("nothing declared: read/seed under perfect-rhyme holds under "
+              "one whole reading (read R IY1 D)",
+              not any(loc == (1, 2) for _, loc in none), f"{sorted(none)}")
         ee = scheme_findings(["R", "IY1", "D"])
         check("read declared R IY1 D: the pair is judged, and holds",
               not any(loc == (1, 2) for _, loc in ee), f"{sorted(ee)}")
@@ -583,12 +591,17 @@ def test_the_product_over_generates_conservatively():
     # `or` is /AO R/ and /ER/.  merge_readings folds each channel separately.
     merged = E_UNC.syllabify("or")
     seqs = _read(merged[0], "phones")
-    check("`or` merges to nucleus {AO, ER} x coda {('R',), ()} and the "
-          "product is FOUR sequences, two of them undeclared",
-          len(seqs) == 4 and ("AO", "R") in seqs and ("ER",) in seqs
-          and ("AO",) in seqs and ("ER", "R") in seqs,
-          f"{sorted(seqs)!r}. The declared readings are ('AO','R') and "
-          f"('ER',); ('AO',) and ('ER','R') are artefacts of folding the "
+    # 2026-10-30: was FOUR sequences over nucleus {AO, ER}. The accent
+    # rules add `or`'s non-rhotic readings AO and AH (ER0 -> AH0), so the
+    # nucleus is {AO, ER, AH} and the product SIX; two are still undeclared.
+    check("`or` merges to nucleus {AO, ER, AH} x coda {('R',), ()} and the "
+          "product is SIX sequences, two of them undeclared",
+          len(seqs) == 6 and ("AO", "R") in seqs and ("ER",) in seqs
+          and ("AO",) in seqs and ("AH",) in seqs
+          and ("ER", "R") in seqs and ("AH", "R") in seqs,
+          f"{sorted(seqs)!r}. The readings are ('AO','R'), ('ER',) and the "
+          f"derived ('AO',), ('AH',); ('ER','R') and ('AH','R') are "
+          f"artefacts of folding the "
           f"channels independently. `Syllable.readings()` does exactly the "
           f"same product for the same reason: once merge_readings has run, "
           f"the correlation between channels is not on the unit any more.")
@@ -949,9 +962,13 @@ def _report(label, tally, exposed, pairs, expect):
 def test_corpus_counts():
     print("\n8. THE COUNTS — three of them, on both corpora (doctrine 79)")
     t, e, n = _corpus_moves([os.path.join(CORPUS, "sonnets.txt")], E_UNC)
+    # REPINNED 2026-10-30, a lexicon change (M-322): the accent readings
+    # give most words a second reading, so more confident channel verdicts
+    # become refusals. ~~coda (2, 18), consonants (2, 1), phones (2, 1)~~;
+    # onset, nucleus and prominence unchanged, and nothing moves the other way.
     _report("ENGLISH corpus/sonnets.txt", t, e, n,
-            {"onset": (0, 5), "coda": (2, 18), "consonants": (2, 1),
-             "phones": (2, 1), "nucleus": (0, 0), "prominence": (0, 0)})
+            {"onset": (0, 5), "coda": (16, 78), "consonants": (3, 4),
+             "phones": (7, 1), "nucleus": (0, 0), "prominence": (0, 0)})
     t, e, n = _corpus_moves(
         [os.path.join(CORPUS, "song", "ltc_huajianji.txt")], L_UNC)
     _report("MIDDLE CHINESE 花間集", t, e, n,
@@ -990,8 +1007,13 @@ def test_corpus_counts():
 #: opening-quote rule, ~~340871 pairs~~, -1; the moves are unchanged.
 ENG_CORPUS_FILES = 1344
 ENG_CORPUS_PAIRS = 340870
-ENG_CORPUS_MOVES = {"onset": (105, 390), "coda": (72, 1536),
-                    "consonants": (113, 168), "phones": (446, 277),
+#: REPINNED 2026-10-30, a lexicon change, corpus unchanged (M-322): the
+#: accent readings give most words a second reading, so more confident
+#: channel verdicts become refusals. ~~coda (72, 1536), consonants (113,
+#: 168), phones (446, 277)~~; onset, nucleus and prominence unchanged, and
+#: nothing moves the other way.
+ENG_CORPUS_MOVES = {"onset": (105, 390), "coda": (5353, 12231),
+                    "consonants": (294, 545), "phones": (2032, 383),
                     "nucleus": (0, 0), "prominence": (0, 0)}
 
 

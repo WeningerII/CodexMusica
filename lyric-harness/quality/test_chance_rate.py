@@ -133,10 +133,13 @@ def main():
     # E-5, 2026-09-15: python3 quality/test_chance_rate.py measured 71,
     # previously 69, after empty-coda evidence was omitted. Same draw.
     # 2026-09-22: compared on the relation SET (N-relation model); still 71.
-    check("3", "the two readers disagree on 71 of the 300 pairs' SCORE or "
+    # 2026-10-30 (M-322): ~~71~~ -> 136, same draw. The word reader reads a
+    # word's first reading; the line reader searches every reading, and the
+    # accent readings gave most words a second one.
+    check("3", "the two readers disagree on 136 of the 300 pairs' SCORE or "
           "RELATION SET — the reader is a real coordinate, measured on the "
           "judgement and not on a count that happens to coincide",
-          _reader_disagreements(lex, shipped) == 71,
+          _reader_disagreements(lex, shipped) == 136,
           f"{_reader_disagreements(lex, shipped)} of {N}")
     check("3", "...and at the ADOPTED cut those disagreements no longer "
           "move the ADMIT count, which is a fact about this draw and NOT "

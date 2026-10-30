@@ -4009,8 +4009,14 @@ def test_every_schema_judges_and_no_differ_only_excludes():
     check("cynghanedd sain lafarog JUDGES: eight ~ ate is odl and ate ~ in "
           "is the zero-onset link; the Welsh line, whose answering words "
           "carry onsets, does not hold",
-          laf.lines == {1} and laf_cym.lines == set(),
-          f"eng {sorted(laf.lines)}; cym {sorted(laf_cym.lines)}")
+          # 2026-10-30 (M-322): was `laf.lines == {1}`. `ate` now also has
+          # the pane reading EE1 T (`eight`, spelled ei, keeps EY1), so the
+          # line figure is UNDECIDED over the readings, not failed; it still
+          # never holds of the Welsh line.
+          (laf.lines | laf.undecided_lines) == {1}
+          and laf_cym.lines == set() and laf_cym.undecided_lines == set(),
+          f"eng {sorted(laf.lines)} undecided {sorted(laf.undecided_lines)}; "
+          f"cym {sorted(laf_cym.lines)}")
 
     # -- THE 平仄 TEMPLATE, over a tone-bearing phonology and a DECLARED
     #    pattern. 登鸛雀樓: 白日依山盡 is 仄仄平平仄.
@@ -4093,13 +4099,20 @@ def test_every_schema_judges_and_no_differ_only_excludes():
               for n in R.REGISTRY)
           and all(isinstance(v, R.Refusal) for v in res.refused.values()),
           f"{len(res.refused)} refused by name")
+    # 2026-10-30 (M-322), STANDING RULE 5: cold/bold now also read with the
+    # toe vowel (K OE1 L D), so perfect rhyme, assonance and homoioteleuton
+    # are UNDECIDED across the readings and hold under one whole reading;
+    # was `set(res.get((1, 2), ()))` alone. What the pair stands in is what
+    # it holds plus what its readings resolve.
+    held = set(res.get((1, 2), ())) | set(res.resolve_readings(
+        (1, 2), res.undecided.get((1, 2), ()))[0])
     check("...and a pair stands in several schemas at once (night/light: "
           "perfect rhyme, assonance, consonance)",
-          {"perfect rhyme", "assonance", "consonance"} <= set(res.get((1, 2), ())),
-          str(res.get((1, 2))))
+          {"perfect rhyme", "assonance", "consonance"} <= held,
+          str(sorted(held)))
     check("...including a forbidden or deprecated one — banning is a "
           "separate layer from standing in a relation",
-          "homoioteleuton" in res.get((1, 2), ())
+          "homoioteleuton" in held
           and R.REGISTRY["homoioteleuton"].normative == "forbidden",
           str(res.get((1, 2))))
     wst = R.whole_vocabulary_pairs(["Y gŵr wrth y dŵr a'i dyrau",

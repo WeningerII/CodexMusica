@@ -477,7 +477,12 @@ class ProductionRelations(unittest.TestCase):
             res = lh.check_scheme(lex, sonnet, 'ABABCDCDEFEFGG', decl)
             return {(v[0], v[1]) for v in res['violations']}
         sch = R.REGISTRY['chain rhyme (rap)']
-        self.assertIn((10, 12), flagged())
+        # REPOINTED 2026-10-30 (M-322): words~affords now holds as consonance
+        # (D Z) in one consistent non-rhotic accent, so L10/L12 is no longer
+        # flagged by either figure. The pair still flagged under both, and so
+        # the one this check can watch, is L9/L11 argument~spent.
+        # superseded: assertIn((10, 12), flagged()) at all three points.
+        self.assertIn((9, 11), flagged())
         R.REGISTRY['chain rhyme (rap)'] = R.declared_pair_schema(sch)
         try:
             # REPINNED 2026-10-02 (`MISSING.md` M-317, the bound words): the
@@ -488,11 +493,11 @@ class ProductionRelations(unittest.TestCase):
             # now stops this rescue on its own. MEASURED over the whole
             # battery: 40 violations with the swap and without it.
             # superseded: assertNotIn((10, 12), flagged()).
-            self.assertIn((10, 12), flagged())
+            self.assertIn((9, 11), flagged())
         finally:
             R.REGISTRY['chain rhyme (rap)'] = sch
             R._WVP_MEMO.clear()
-        self.assertIn((10, 12), flagged())
+        self.assertIn((9, 11), flagged())
 
     def test_scalar_pronunciation_consensus(self):
         import lyric_harness as lh

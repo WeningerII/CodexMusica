@@ -152,9 +152,12 @@ def test_plain_lexicon_untouched():
     finally:
         del S.SOURCES["test:fixture"]
         os.remove(path)
+    # 2026-10-30 (M-322): the row now brings its own rule-derived
+    # non-rhotic reading (R EH1 K AO2 D) after it; was the row alone.
     check("a supplement reading on a CMUdict word comes after CMUdict's readings",
           fixture.entries["record"] == PLAIN.entries["record"]
-          + [["R", "EH1", "K", "AO2", "R", "D"]], str(fixture.entries["record"]))
+          + [["R", "EH1", "K", "AO2", "R", "D"], ["R", "EH1", "K", "AO2", "D"]],
+          str(fixture.entries["record"]))
     check("and CMUdict's own list is not written into",
           fixture.cmu_entries["record"] == PLAIN.entries["record"]
           and fixture.cmu_entries["record"] is not fixture.entries["record"])
@@ -398,7 +401,10 @@ def test_consumer_paths():
               "CMUdict readings, each with its source",
               offered.get(("R", "IY1", "K", "AO0", "R", "D")) == "test:fixture"
               and offered.get(("R", "EH1", "K", "ER0", "D")) == "cmudict"
-              and len(offered) == 4, str(offered))
+              # 2026-10-30 (M-322): was 4. Each of the four now has its
+              # non-rhotic reading on the menu too, sourced rule:non-rhotic.
+              and offered.get(("R", "IY1", "K", "AO0", "D")) == "rule:non-rhotic"
+              and len(offered) == 8, str(offered))
         check("and it is exactly the set the lexicon itself considers",
               set(offered) == {tuple(p) for p in fxr.pronunciation_variants("'record")})
         choice = {"line": line, "token": 2, "word": "'record",
@@ -604,12 +610,18 @@ def test_reviewed_v2():
     new = S.SupplementedLexicon(version="v2", expected_sha256=v2["sha256"])
     old = S.SupplementedLexicon(version="v1", expected_sha256=v1["sha256"])
     phones = "S T R IY1 T L AY2 T".split()
-    for word, reading, source in [
-            ("streetlight", phones, "moby:3205:attested"),
-            ("streetlights", phones + ["S"], "reviewed:moby-3205:plural")]:
+    # 2026-10-30 (M-322): `dictionary_readings` was `[reading]`; the
+    # reviewed row now also carries its rule-derived raising reading (AY
+    # before a voiceless T -> UI) after it. The first reading is unchanged.
+    raised = "S T R IY1 T L UI2 T".split()
+    for word, reading, source, alt in [
+            ("streetlight", phones, "moby:3205:attested", raised),
+            ("streetlights", phones + ["S"], "reviewed:moby-3205:plural",
+             raised + ["S"])]:
         check(f"{word} reads exactly the reviewed phones and stress under v2",
               new.transcribe_word(word) == (reading, False)
-              and new.dictionary_readings(word) == [reading])
+              and new.dictionary_readings(word) == [reading, alt],
+              str(new.dictionary_readings(word)))
         check(f"{word} retains its own attested/derived provenance",
               new.reading_source(word, reading) == source)
         check(f"{word} stays absent and unread in v1 and plain CMUdict",

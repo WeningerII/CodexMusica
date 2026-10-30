@@ -608,8 +608,11 @@ class Normalisation(unittest.TestCase):
         sv1 = LS.SupplementedLexicon(version=LS.canonical_version("v2"), reader_scheme="v1")
         source = sv2.reading_source("streetlight", row)
         self.assertTrue(source and source != "cmudict", source)
+        # 2026-10-30 (M-322): was `[row]`. The row now also carries its
+        # rule-derived raising reading (AY before a voiceless T -> UI), after it.
+        raised = ["S", "T", "R", "IY1", "T", "L", "UI2", "T"]
         for spelling in ("street\u00adlight", "streetli\u00adght"):
-            self.assertEqual(sv2.pronunciation_variants(spelling), [row], spelling)
+            self.assertEqual(sv2.pronunciation_variants(spelling), [row, raised], spelling)
             self.assertEqual(sv2.reading_source(spelling, row), source, spelling)
             self.assertEqual(sv2.whole_reading(spelling), (row, source), spelling)
             self.assertEqual(sv1.pronunciation_variants(spelling), [], spelling)
@@ -3298,9 +3301,9 @@ class NamedPlaceLookup(unittest.TestCase):
             with LH.reader_scheme_scope(scheme):
                 cls.lex[scheme] = eng._lexicon()
 
-    def end(self, scheme, line):
+    def end(self, scheme, line, lexicon=None):
         with LH.reader_scheme_scope(scheme):
-            anchors, label, _ = LH.line_anchors(self.lex[scheme], line)
+            anchors, label, _ = LH.line_anchors(self.lex[lexicon or scheme], line)
         return ([[(s["nucleus"], tuple(s["coda"]), tuple(s["onset"]), s["stress"]) for s in a]
                  for a in anchors], label)
 
@@ -3337,9 +3340,14 @@ class NamedPlaceLookup(unittest.TestCase):
         quiet = [x["line"] for x in self.r["lookup_differs"] if not x["end_changed"]]
         self.assertEqual(len(quiet), len(self.r["lookup_differs"]) - len(
             [x for x in self.r["end_changed"] if x["lookup_differs"]]))
+        # 2026-10-30 (M-322): the two cuts are compared over ONE lexicon. The
+        # v2 lexicon now also carries the accent readings v1 replays without,
+        # so comparing each cut over its own lexicon measured the lexicon,
+        # not the cut (`answer` gains its non-rhotic reading under v2 only).
         for line in quiet:
             self.assertTrue(self.lookup_differs(line), line)
-            self.assertEqual(self.end("v1", line), self.end("v2", line), line)
+            self.assertEqual(self.end("v1", line, lexicon="v2"),
+                             self.end("v2", line), line)
 
     def test_identical_cut_controls_do_not_fire(self):
         for line in ["we sing it plain tonight", "You are the one I dream of",
