@@ -10331,6 +10331,10 @@ CHANNEL_READ_FAMILIES = {
 CHANNEL_READ_CHANNELS = ("onset", "nucleus", "coda", "prominence")
 #: Bumped whenever what a record holds changes shape or meaning.
 CHANNEL_READ_VERSION = 1
+#: Records one stream keeps at once. Past it the least recently used record
+#: is dropped and recomputed on its next request, identically: the cache
+#: never decides a value, so a long-lived stream cannot grow without limit.
+CHANNEL_READ_CACHE = 4096
 
 
 def _declaration_digest(stream):
@@ -10357,8 +10361,11 @@ def _canonical_span(stream, span, rule):
                                f"L{u.line}.T{u.token}"))
     except NoReferent:
         return False
+    # The origin is part of the occurrence's identity (the engine's own spans
+    # set it, and the record copies it), so a changed one is refused too.
     return any(sp.idx == span.idx and sp.anchor_pos == span.anchor_pos
-               and sp.direction == span.direction for sp in built)
+               and sp.direction == span.direction and sp.origin == span.origin
+               for sp in built)
 
 
 def _token_pin(stream, li, ti):
@@ -10435,7 +10442,11 @@ def pair_channel_reads(stream, a, b, family, chans=DEFAULT_CHANNELS,
     when None). The cache holds the COMPLETE record per stream (its
     declaration digest included), span pair, family and ChannelSet, and
     projects it per caller, so the order callers ask in cannot change what
-    any of them is told."""
+    any of them is told.
+
+    LIFECYCLE: the cache lives on the stream and dies with it; nothing
+    outside the stream holds a record. It is bounded per stream by
+    `CHANNEL_READ_CACHE`, least recently used first out."""
     fam = CHANNEL_READ_FAMILIES.get(family)
     if fam is None:
         return Refusal("pair_channel_reads", "family",
@@ -10449,13 +10460,18 @@ def pair_channel_reads(stream, a, b, family, chans=DEFAULT_CHANNELS,
                        f"channel {bad[0]!r} is not in a channel record "
                        f"({', '.join(CHANNEL_READ_CHANNELS)})", kind="span")
     rule, align_name = fam
-    cache = stream.__dict__.setdefault("_channel_read_cache", {})
+    cache = stream.__dict__.get("_channel_read_cache")
+    if cache is None:
+        cache = stream.__dict__["_channel_read_cache"] = \
+            collections.OrderedDict()
     key = (_declaration_digest(stream),
            (a.idx, a.origin, a.anchor_pos, a.direction),
            (b.idx, b.origin, b.anchor_pos, b.direction),
            family, id(chans))
     hit = cache.get(key)
-    if hit is None:
+    if hit is not None:
+        cache.move_to_end(key)
+    else:
         for side, sp in (("a", a), ("b", b)):
             if not _canonical_span(stream, sp, rule):
                 return Refusal(
@@ -10467,6 +10483,8 @@ def pair_channel_reads(stream, a, b, family, chans=DEFAULT_CHANNELS,
         hit = (chans, _channel_record(stream, a, b, family, align_name,
                                       chans))
         cache[key] = hit
+        while len(cache) > CHANNEL_READ_CACHE:
+            cache.popitem(last=False)
     rec = hit[1]
     # Every value in a record is immutable (tuples, read-only mappings), so
     # what one caller is handed cannot change what the cache tells the next.
@@ -10537,6 +10555,7 @@ __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
            "resolve_line_pair", "pair_satisfies_any", "reading_combos",
            "pair_channel_reads", "CHANNEL_READ_FAMILIES",
            "CHANNEL_READ_CHANNELS", "CHANNEL_READ_VERSION",
+           "CHANNEL_READ_CACHE",
            "pinned_phonology", "reading_witness", "cached_builder",
            "READING_COMBO_CAP",
            "overhang_member", "unsatisfiable_pairs", "group_satisfiable",

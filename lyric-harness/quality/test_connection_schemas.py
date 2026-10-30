@@ -387,6 +387,12 @@ def test_pair_channel_reads():
     ref2 = R.pair_channel_reads(st, hw, ht, "last_stressed")
     check("...and a word_start span is refused by last_stressed",
           isinstance(ref2, R.Refusal), ref2)
+    from dataclasses import replace as _replace
+    forged = R.pair_channel_reads(st, _replace(a, origin="invented"), b,
+                                  "last_stressed")
+    check("a span whose origin is not the engine's own is refused (origin is "
+          "part of the occurrence identity; 3PO, #637 6533582422)",
+          isinstance(forged, R.Refusal), forged)
     check("an unknown family is refused",
           isinstance(R.pair_channel_reads(st, a, b, "rime"), R.Refusal))
     ma, mb = sp(LS, "watch"), sp(LS, "woods")
@@ -474,6 +480,25 @@ def test_pair_channel_reads():
             blocked += 1
     got["family"] = "mutated"
     again = R.pair_channel_reads(st, a, b, "last_stressed")
+    # THE BOUND (BB8, #637 6533216090): least recently used out, and an
+    # evicted record recomputes identically.
+    bst = stream(lines)
+    pairs = [(sp2, sp3) for sp2 in R.enumerate_spans(LS, bst)
+             for sp3 in R.enumerate_spans(LS, bst) if sp2.idx < sp3.idx][:5]
+    first_rec = R.pair_channel_reads(bst, *pairs[0], "last_stressed")
+    saved = R.CHANNEL_READ_CACHE
+    R.CHANNEL_READ_CACHE = 3
+    try:
+        for pa_, pb_ in pairs[1:]:
+            R.pair_channel_reads(bst, pa_, pb_, "last_stressed")
+        held_n = len(bst._channel_read_cache)
+        again_rec = R.pair_channel_reads(bst, *pairs[0], "last_stressed")
+    finally:
+        R.CHANNEL_READ_CACHE = saved
+    check("the cache is bounded per stream (3 of 5 records held under a "
+          "bound of 3), and the evicted first record recomputes identically",
+          held_n == 3 and again_rec == first_rec
+          and again_rec["syllables"] == first_rec["syllables"], held_n)
     check("a returned record is read-only below the top level, and mutating "
           "the top level does not change a later call",
           blocked == 4 and again["family"] == "last_stressed"
