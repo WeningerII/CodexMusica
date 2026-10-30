@@ -105,6 +105,25 @@ def test_both_present():
           "uncertain -> False", r.value is False and r.informative, r)
     r = bp(frozenset({("R",), None}), ("T",))
     check("an unreadable reading inside a set -> None", r.value is None, r)
+    # ONE TRUTH TABLE (3PO's review, #637 6532626626): None is unknown
+    # whether it arrives bare or inside a set.
+    U = Readings({("R",), ()})
+    table = (
+        ("None ~ empty", None, (), False),
+        ("empty ~ None", (), None, False),
+        ("None ~ present", None, ("T",), None),
+        ("present ~ None", ("T",), None, None),
+        ("{None} ~ empty", frozenset({None}), (), False),
+        ("empty ~ {None}", (), frozenset({None}), False),
+        ("{None} ~ present", frozenset({None}), ("T",), None),
+        ("uncertain set ~ empty", U, (), False),
+        ("uncertain set ~ present", U, ("T",), None),
+        ("None ~ None", None, None, None),
+    )
+    for label, x, y, want in table:
+        r = bp(x, y)
+        check(f"truth table: {label} -> {want}", r.value is want
+              and r.informative is (want is not None), r)
     check("a predicate, never an Agree: `_bucket_key` keys only on Agree, so "
           "the guard cannot narrow a bucket",
           not isinstance(bp, R.Agree))
@@ -317,7 +336,7 @@ def test_pair_channel_reads():
           and rec["anchors"] == (a.anchor_pos, b.anchor_pos)
           and rec["occurrences"][0]["idx"] == a.idx
           and rec["occurrences"][1]["origin"] == b.origin
-          and rec["reading_context"] == {"type": "merged"}
+          and rec["reading_context"]["type"] == "merged"
           and rec["versions"]["channel_reads"] == R.CHANNEL_READ_VERSION,
           {k: v for k, v in rec.items() if k not in ("reads", "syllables")})
     check("overhang absent: washington's third syllable is in no read and "
@@ -391,20 +410,75 @@ def test_pair_channel_reads():
 
     # A PINNED WHOLE READING: the record says which readings it was read
     # under, and the uncertain coda becomes the one that reading has.
-    tok = (0, 1)
-    combos, _complete = R.reading_combos(st, {tok})
-    phon = R.pinned_phonology(st, combos[-1])
-    pst = R.build_stream(lines, phon, declaration={"language": "eng"})
-    pa = [s for s in R.enumerate_spans(LS, pst) if word(pst, s) == "star"][0]
-    pf = [s for s in R.enumerate_spans(LS, pst) if word(pst, s) == "far"][0]
-    prec = R.pair_channel_reads(pst, pa, pf, "last_stressed")
-    check("reading context: a stream built under a pinned whole reading says "
-          "'pinned' and names the reading; the merged stream says 'merged'",
-          prec["reading_context"]["type"] == "pinned"
-          and any(w.startswith("star = ")
-                  for w in prec["reading_context"]["combo"])
-          and not R.uncertain(prec["reads"]["coda"][0][2]),
-          prec["reading_context"])
+    # READING CONTEXT, PER MEMBER (3PO's review, #637 6532644831): "pinned"
+    # only when both members are read under a pinned whole reading.
+    def ctx_under(tokens):
+        combos, _complete = R.reading_combos(st, set(tokens))
+        pick = [c for c in combos
+                if all(c[t][2][-1] == "R" for t in tokens)][0]
+        pst = R.build_stream(lines, R.pinned_phonology(st, pick),
+                             declaration={"language": "eng"})
+        pa = [x for x in R.enumerate_spans(LS, pst)
+              if word(pst, x) == "star"][0]
+        pf = [x for x in R.enumerate_spans(LS, pst)
+              if word(pst, x) == "far"][0]
+        return R.pair_channel_reads(pst, pa, pf, "last_stressed")
+    both = ctx_under([(0, 1), (0, 3)])
+    one = ctx_under([(0, 1)])
+    none = R.pair_channel_reads(st, sa_, sf, "last_stressed")
+    bc, oc, nc = (r["reading_context"] for r in (both, one, none))
+    check("both members pinned -> 'pinned', each member naming its witness, "
+          "and neither coda is a set any more",
+          bc["type"] == "pinned"
+          and [m["pinned"] for m in bc["members"]] == [True, True]
+          and bc["members"][0]["witness"] == "star = S T AA1 R"
+          and bc["members"][1]["witness"] == "far = F AA1 R"
+          and not R.uncertain(both["reads"]["coda"][0][2])
+          and not R.uncertain(both["reads"]["coda"][0][3]), bc)
+    check("one member pinned -> 'partial': star names its witness, far is "
+          "unpinned and keeps its residual reading set",
+          oc["type"] == "partial"
+          and [m["pinned"] for m in oc["members"]] == [True, False]
+          and "witness" not in oc["members"][1]
+          and not R.uncertain(one["reads"]["coda"][0][2])
+          and R.uncertain(one["reads"]["coda"][0][3]), oc)
+    check("no member pinned -> 'merged'",
+          nc["type"] == "merged"
+          and [m["pinned"] for m in nc["members"]] == [False, False], nc)
+
+    # VERSIONS name the family's span rule and alignment, the ChannelSet,
+    # the resource and the reading policy.
+    v = rec["versions"]
+    check("versions name the span rule, the aligner, the ChannelSet, the "
+          "declaration digest and the reading policy",
+          v["span_rule"]["locus"] == "any_token"
+          and v["span_rule"]["anchor"] == "last_stressed"
+          and v["span_rule"]["magnitude"] == "to_word_end"
+          and v["align"] == "anchor" and v["channel_set"]
+          and v["declaration"] and "readings" in v["policy"]
+          and R.pair_channel_reads(st, na, nb, "word_start")["versions"][
+              "align"] == "flush_left", dict(v))
+
+    # IMMUTABLE: a caller cannot corrupt what the cache tells the next one.
+    got = R.pair_channel_reads(st, a, b, "last_stressed")
+    snapshot = (got["syllables"], tuple(got["reads"].items()))
+    blocked = 0
+    import operator
+    for poke in (lambda: operator.setitem(got["syllables"][0][0], "coda", 1),
+                 lambda: operator.setitem(got["reads"], "coda", ()),
+                 lambda: operator.setitem(got["occurrences"][0], "line", 9),
+                 lambda: operator.setitem(got["versions"], "align", "x")):
+        try:
+            poke()
+        except TypeError:
+            blocked += 1
+    got["family"] = "mutated"
+    again = R.pair_channel_reads(st, a, b, "last_stressed")
+    check("a returned record is read-only below the top level, and mutating "
+          "the top level does not change a later call",
+          blocked == 4 and again["family"] == "last_stressed"
+          and (again["syllables"], tuple(again["reads"].items()))
+          == snapshot, blocked)
 
 
 if __name__ == "__main__":
