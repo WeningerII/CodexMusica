@@ -86,7 +86,8 @@ def test_the_inventory_has_one_definition():
     js = open(os.path.join(HERE, "..", "..", "src", "pages", "lyrics.js")).read()
 
     def js_list(name):
-        m = re.search(name + r" = \(\s*((?:'[^']*'\s*\+?\s*)+)\)", js)
+        # one string or several joined with +, as Prettier lays it out
+        m = re.search(name + r" =\s*\(?\s*((?:'[^']*'\s*\+?\s*)+)\)?\.split", js)
         return set("".join(re.findall(r"'([^']*)'", m.group(1))).split()) if m else set()
     check("the Lyrics page's vowel list == lyric_harness.VOWELS",
           js_list("LY_ARPABET_VOWELS") == set(L.VOWELS))

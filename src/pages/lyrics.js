@@ -40,9 +40,8 @@ const LY_ARPABET_VOWELS = (
   'AA AE AH AO AW AY EH ER EY IH IY OW OY UH UW ' +
   'IA EA UA OA OO EU OE EE IE IU UI OU AI EI UU EO AU II UO IO UE OI'
 ).split(' ');
-const LY_ARPABET_CONSONANTS = (
-  'B CH D DH F G HH JH K L M N NG P R S SH T TH V W Y Z ZH KH CX LH Q'
-).split(' ');
+const LY_ARPABET_CONSONANTS =
+  'B CH D DH F G HH JH K L M N NG P R S SH T TH V W Y Z ZH KH CX LH Q'.split(' ');
 // The harness's placement vocabulary for a rhyme-group member (quality/slots.py),
 // in neutral words. A member with no written place (a bare line number) is
 // placed by its group's type, and is labelled so (lyMemberLabel).
