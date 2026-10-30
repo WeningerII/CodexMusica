@@ -9758,15 +9758,41 @@ _READING_SOURCE = ("any-reading check: one of this word's own dictionary "
                    "readings (owner ruling 2026-10-01)")
 
 
-def _uncertain_tokens(stream, ids):
+_SYL_FIELDS = ("onset", "nucleus", "coda", "prominence")
+# The syllable fields each channel reads. A channel not named here reads
+# all four, so a new channel is varied in full until it is listed.
+_CHANNEL_FIELDS = {"onset": ("onset",), "coda": ("coda",),
+                   "nucleus": ("nucleus",), "prominence": ("prominence",),
+                   "consonants": ("onset", "coda"),
+                   "phones": ("onset", "nucleus", "coda"),
+                   "grapheme": (), "token": ()}
+# Anchors placed without reading stress.
+_STRESS_FREE_ANCHORS = frozenset({"word_start", "word_end", "none"})
+
+
+def schema_read_fields(schema):
+    """-> the syllable fields `schema` reads: those its channels read, and
+    prominence when an anchor is placed by stress.  The any-reading search
+    varies words that differ here first; a judge can still wait on another
+    field (a merged vowel can hold a consonant span open), so a None from
+    that search is asked again over every field (`resolve_line_pair`)."""
+    fields = set()
+    for c in getattr(schema, "channels", ()) or ():
+        fields.update(_CHANNEL_FIELDS.get(c.channel, _SYL_FIELDS))
+    if any(r.anchor not in _STRESS_FREE_ANCHORS
+           for r in getattr(schema, "spans", ()) or ()):
+        fields.add("prominence")
+    return tuple(f for f in _SYL_FIELDS if f in fields)
+
+
+def _uncertain_tokens(stream, ids, fields=_SYL_FIELDS):
     """-> {(line, token)} for the units in `ids` whose syllable holds more
-    than one reading on any channel."""
+    than one reading on any of `fields` (every channel by default)."""
     out = set()
     for i in ids:
         u = stream.units[i]
         syl = u.syl
-        if any(uncertain(getattr(syl, f, None))
-               for f in ("onset", "nucleus", "coda", "prominence")):
+        if any(uncertain(getattr(syl, f, None)) for f in fields):
             out.add((u.line, u.token))
     return out
 
@@ -9912,9 +9938,38 @@ def resolve_line_pair(schema, stream, pair, build, cap=READING_COMBO_CAP,
     verdict = got.verdict(pair)
     if verdict is not None:
         return verdict, None
+    # FIRST the words whose readings differ on what the schema reads (general
+    # consonance reads no vowel, so `the`, `to`, `carry` need not be varied
+    # and six varied words a line no longer exceed the cap); a None there is
+    # asked again over every varied word, so nothing the full search judges
+    # is lost (cluster consonance reads consonants and still waits on a
+    # vowel: advance/ignorance).
+    fields = schema_read_fields(schema)
+    every = set(causes.get(pair, ()))
+    if fields != _SYL_FIELDS:
+        narrow = _narrow_tokens(stream, every, fields)
+        if narrow and narrow != every:
+            got = _resolve_over(schema, stream, pair, build, cap, bmap,
+                                narrow, fields)
+            if got[0] is not None:
+                return got
+    return _resolve_over(schema, stream, pair, build, cap, bmap, every,
+                         _SYL_FIELDS)
+
+
+def _narrow_tokens(stream, tokens, fields):
+    """`tokens` kept to those with a syllable uncertain on `fields`."""
+    return {(u.line, u.token) for u in stream.units
+            if (u.line, u.token) in tokens
+            and any(uncertain(getattr(u.syl, f, None)) for f in fields)}
+
+
+def _resolve_over(schema, stream, pair, build, cap, bmap, tokens, fields):
+    """`resolve_line_pair`'s search over `tokens`, grown to a fixpoint with
+    the varied words each undecided combination reveals on `fields`."""
     # The cause tokens grow to a fixpoint: a word whose readings matter only
     # once another is pinned (monuments, after contents) is varied too.
-    tokens = set(causes.get(pair, ()))
+    tokens = set(tokens)
     while True:
         combos, complete = reading_combos(stream, tokens, cap)
         if not combos:
@@ -9926,7 +9981,8 @@ def resolve_line_pair(schema, stream, pair, build, cap=READING_COMBO_CAP,
                 if phon2 is None:
                     return None, None
                 causes2 = {}
-                got2 = line_pairs_for(schema, build(phon2), keep_refusal=True,
+                s2 = build(phon2)
+                got2 = line_pairs_for(schema, s2, keep_refusal=True,
                                       requested_pairs={pair}, causes=causes2,
                                       bound=bmap)
                 if isinstance(got2, Refusal):
@@ -9937,7 +9993,9 @@ def resolve_line_pair(schema, stream, pair, build, cap=READING_COMBO_CAP,
                     return True, reading_witness(combo)
                 if v2 is None:
                     saw_none = True
-                    revealed |= set(causes2.get(pair, ()))
+                    found = set(causes2.get(pair, ()))
+                    revealed |= (found if fields == _SYL_FIELDS
+                                 else _narrow_tokens(s2, found, fields))
         if not complete or not (revealed - tokens):
             return (None if saw_none else False), None
         tokens |= revealed

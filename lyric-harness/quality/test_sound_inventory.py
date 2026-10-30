@@ -295,6 +295,22 @@ def test_readings_pair_within_an_accent():
           "masculine rhyme" in names, str(names))
     check("a silent e before a final s or d is set aside (gates, named)",
           gains("gates", "EE") and gains("named", "EE") and not gains("pains", "EE"))
+    # The connector's scaffold pair (mcp/test.mjs): six words a line hold
+    # more than one reading, so varying every one exceeds the search cap and
+    # the pair was refused. General consonance reads consonants only; only
+    # `morning` (coda R or none) differs there, and the pair is judged.
+    from quality import relations as R
+    pair = ["we carry the morning to the light", "we carry the morning to the road"]
+    mk = lambda ph: R.build_stream(pair, ph, declaration={"language": "eng"},  # noqa: E731
+                                   stanzas=False)
+    pc = R.schema_named("parechesis / general consonance")
+    check("a whole-line consonance pair varies only the words that differ in consonants",
+          R.schema_read_fields(pc) == ("onset", "coda")
+          and R.resolve_line_pair(pc, mk(PH.get("eng")), (1, 2),
+                                  R.cached_builder(mk))[0] is False)
+    check("a rhyme schema still reads every field (perfect rhyme)",
+          R.schema_read_fields(R.schema_named("perfect rhyme"))
+          == ("onset", "nucleus", "coda", "prominence"))
 
 
 if __name__ == "__main__":

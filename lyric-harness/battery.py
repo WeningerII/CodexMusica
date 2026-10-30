@@ -422,6 +422,12 @@ def whitman_battery():
 # were/bear 13 and were/near 138 -- open question (c), the owner's to rule.
 # Measured by `audit_spans.py --check`; the partition is rewritten by
 # `--write-oracle`.
+# REPINNED AGAIN 2026-10-30, the same entry (M-322). Layer: the any-reading
+# search -- it varies first the words whose readings differ on what a schema
+# reads, then every word. ~~judged 1012, refused 52, violations 24~~ ->
+# judged 1013, refused 51, violations 25: sonnet 1 ornament/content (9/11),
+# refused while every word on the two lines was varied and the combinations
+# passed the cap, is judged and violates. Nothing else moves.
 from quality.battery_pin import EXPECTED  # noqa: E402
 
 

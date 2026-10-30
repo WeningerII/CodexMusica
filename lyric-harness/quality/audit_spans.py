@@ -684,8 +684,13 @@ def sweep_record(lex, decl, verbose=True):
 #: parallel spans that score equal, so more maxima are shared. No span or
 #: threshold rule changed. Measured by `--check`; partition rewritten by
 #: `--write-oracle=2026-10-30:...`.
+#: 2026-10-30, the same day, second step (M-322): the any-reading search
+#: first varies only the words that differ on what a schema reads, then every
+#: word. Sonnet 1 ornament/content (9/11), refused while every word was
+#: varied and the combinations passed the cap, is judged and violates:
+#: ~~judged 1012, refused 52, violations 24~~ -> 1013 / 51 / 25.
 PINNED = {
-    "mandated": 1064, "judged": 1012, "refused": 52,
+    "mandated": 1064, "judged": 1013, "refused": 51,
     #: ~~82~~ under the two-name door; ~~35~~ when it widened to all four
     #: relations (M-59); ~~12~~ when the whole schema vocabulary joined the
     #: default (M-116, owner ruling 2026-08-25 — 23 pairs stopped
@@ -697,8 +702,9 @@ PINNED = {
     #: 0 stopped, inside a preregistered ceiling of 20). THE FIRST THREE
     #: STEPS WIDENED THE DOOR AND THIS ONE TIGHTENED IT, which is why the
     #: count rose where it had fallen three times.
-    #: ~~40~~ ~~36~~ -> 24 on 2026-10-30 (M-322, the twelve pairs above).
-    "violations": 24,
+    #: ~~40~~ ~~36~~ ~~24~~ -> 25 on 2026-10-30 (M-322: the twelve pairs
+    #: above leave; ornament/content, sonnet 1, is judged and joins).
+    "violations": 25,
     #: report lines that name the two words that actually produced the number
     "claimed": 633,
     #: the same question asked of the violations alone.
