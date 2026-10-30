@@ -9907,26 +9907,35 @@ def resolve_line_pair(schema, stream, pair, build, cap=READING_COMBO_CAP,
     verdict = got.verdict(pair)
     if verdict is not None:
         return verdict, None
-    combos, complete = reading_combos(stream, causes.get(pair, ()), cap)
-    if not combos:
-        return None, None
-    saw_none = not complete
-    with _line_read_scope():
-        for combo in combos:
-            phon2 = pinned_phonology(stream, combo)
-            if phon2 is None:
-                return None, None
-            got2 = line_pairs_for(schema, build(phon2), keep_refusal=True,
-                                  requested_pairs={pair}, bound=bmap)
-            if isinstance(got2, Refusal):
-                saw_none = True
-                continue
-            v2 = got2.verdict(pair)
-            if v2 is True:
-                return True, reading_witness(combo)
-            if v2 is None:
-                saw_none = True
-    return (None if saw_none else False), None
+    # The cause tokens grow to a fixpoint: a word whose readings matter only
+    # once another is pinned (monuments, after contents) is varied too.
+    tokens = set(causes.get(pair, ()))
+    while True:
+        combos, complete = reading_combos(stream, tokens, cap)
+        if not combos:
+            return None, None
+        saw_none, revealed = not complete, set()
+        with _line_read_scope():
+            for combo in combos:
+                phon2 = pinned_phonology(stream, combo)
+                if phon2 is None:
+                    return None, None
+                causes2 = {}
+                got2 = line_pairs_for(schema, build(phon2), keep_refusal=True,
+                                      requested_pairs={pair}, causes=causes2,
+                                      bound=bmap)
+                if isinstance(got2, Refusal):
+                    saw_none = True
+                    continue
+                v2 = got2.verdict(pair)
+                if v2 is True:
+                    return True, reading_witness(combo)
+                if v2 is None:
+                    saw_none = True
+                    revealed |= set(causes2.get(pair, ()))
+        if not complete or not (revealed - tokens):
+            return (None if saw_none else False), None
+        tokens |= revealed
 
 
 def _remap_token(stream, other, li, t):
