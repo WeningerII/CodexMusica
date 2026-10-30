@@ -2415,11 +2415,35 @@ def _member_readings(text, phon):
 
 def _member_reading_combos(a, b, pa, pb, cap=MEMBER_READING_CAP):
     """-> ([(phon_a, phon_b)], complete) over both members' readings."""
+    import lyric_harness as lh
     ra, rb = _member_readings(a, pa), _member_readings(b, pb)
-    pairs = list(itertools.islice(itertools.product(ra, rb), cap))
+
+    def reading_of(lex, word, parse):
+        # The whole reading a parse was made from (`English.parses`).
+        key = tuple((tuple(x.onset), x.nucleus, tuple(x.coda), x.prominence)
+                    for x in parse)
+        word = lh.fold_apostrophes(word).lower().strip("'\".,;:!?()[]")
+        for p in lex.entries.get(word, ()):
+            if tuple((tuple(y["onset"]), y["nucleus"], tuple(y["coda"]),
+                      1 if y["stress"] in (1, 2) else 0)
+                     for y in lh.syllabify(p)) == key:
+                return p
+        return None
+
+    def spoken(text, phon, pins):
+        lex = phon._lexicon() if hasattr(phon, "_lexicon") else None
+        if lex is None:
+            return []
+        toks = str(text).split()
+        return [(lex, toks[i], reading_of(lex, toks[i], parse))
+                for i, parse in pins.items() if parse and i < len(toks)]
+    # One speaker sings both members: readings pair within an accent.
+    agree = (pair for pair in itertools.product(ra, rb)
+             if lh.accents_agree(spoken(a, pa, pair[0]) + spoken(b, pb, pair[1])))
+    pairs = list(itertools.islice(agree, cap + 1))
     return ([(_PinnedReading(pa, x) if x else pa,
-              _PinnedReading(pb, y) if y else pb) for x, y in pairs],
-            len(ra) * len(rb) <= cap)
+              _PinnedReading(pb, y) if y else pb) for x, y in pairs[:cap]],
+            len(pairs) <= cap)
 
 
 def _named_verdict(canon, a, b, phon, preset, position, member_phons):
@@ -2648,7 +2672,7 @@ def coarse_relation_consensus(lex, line_a, line_b, decl, relation=None,
                 ancs, label, _ = lh.line_anchors(reader, line, promote=promote,
                                                 small_end=end)
                 if ancs:
-                    out.append((ancs, label))
+                    out.append((ancs, label, (end_reader, key, None)))
             return out
         out = []
         for pron in prons:
@@ -2658,16 +2682,19 @@ def coarse_relation_consensus(lex, line_a, line_b, decl, relation=None,
                     endpoint_pronunciations=[pron], small_end=end)
                 if not ancs:
                     return []
-                out.append((ancs, label))
+                out.append((ancs, label, (end_reader, key, pron)))
         return out
     la, lb = member_lexicons or (lex, lex)
     aa, bb = candidates(line_a, la), candidates(line_b, lb)
+    # One speaker sings both end words: readings pair within an accent.
+    pairs = [((x[0], x[1]), (y[0], y[1])) for x, y in itertools.product(aa, bb)
+             if lh.accents_agree((x[2], y[2]))]
     if per_relation:
         names = tuple(sorted(decl.admit))
         if not aa or not bb:
             return {n: None for n in names}
         seen = {n: set() for n in names}
-        for (anc_a, word_a), (anc_b, word_b) in itertools.product(aa, bb):
+        for (anc_a, word_a), (anc_b, word_b) in pairs:
             score = lh.best_score(anc_a, anc_b, decl, word_a, word_b,
                                   profile=profile)
             held = lh.admitted_relations(score, decl.theta_rhyme,
@@ -2683,7 +2710,7 @@ def coarse_relation_consensus(lex, line_a, line_b, decl, relation=None,
         raise ValueError(f"quantifier {quantifier!r} is not one of "
                          f"'any', 'all', 'unanimous'")
     values = set()
-    for (anc_a, word_a), (anc_b, word_b) in itertools.product(aa, bb):
+    for (anc_a, word_a), (anc_b, word_b) in pairs:
         score = lh.best_score(anc_a, anc_b, decl, word_a, word_b, profile=profile)
         # MEMBERSHIP, NEVER EQUALITY: a reading satisfies a named class when
         # the class is AMONG the relations that reading stands in; a set of

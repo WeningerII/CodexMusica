@@ -218,11 +218,39 @@ def test_the_rulings_hold_under_any_reading():
     check("father/bother still rhyme", "RHYME" in any_reading("father", "bother"))
 
 
+# ---------------------------------------------------------------------------
+# 5. ONE SPEAKER SINGS BOTH WORDS: READINGS PAIR WITHIN AN ACCENT
+# ---------------------------------------------------------------------------
+
+def test_readings_pair_within_an_accent():
+    print("\n5. Readings pair within an accent, never one rhotic with one not")
+    from quality.rhyme_types import coarse_relation_consensus as consensus
+    check("car rhotic with far non-rhotic is not one speaker",
+          not L.accents_agree([(LEX, "car", ["K", "AA1", "R"]), (LEX, "far", ["F", "AA1"])]))
+    check("a word the rule never touches agrees with either answer (car/spa)",
+          L.accents_agree([(LEX, "car", ["K", "AA1"]), (LEX, "spa", ["S", "P", "AA1"])])
+          and L.accents_agree([(LEX, "toe", ["T", "OE1"]), (LEX, "tow", ["T", "OW1"])]))
+    for a, b in (("I drove your old car", "dark and far"),
+                 ("we climb the stairs", "hanging on the stairs"),
+                 ("so we go", "and so"), ("the floor", "behind the door"),
+                 ("a bird", "a word")):
+        check(f"{a!r}/{b!r} still collides under every reading (a prohibition)",
+              consensus(LEX, a, b, DECL, min_score=L.THETA_COLLISION,
+                        quantifier="all") is True)
+    lake = L.screen_pairs(["lake", "shake"])[0]
+    check("lake/shake is not an eye rhyme (both take the pane reading together)",
+          "eye rhyme" not in lake["schema_relations"]
+          and "perfect rhyme" in lake["schema_relations"])
+    check("a silent e before a final s or d is set aside (gates, named)",
+          gains("gates", "EE") and gains("named", "EE") and not gains("pains", "EE"))
+
+
 if __name__ == "__main__":
     for fn in (test_the_inventory_has_one_definition,
                test_every_rule_has_positive_and_negative_cases,
                test_provenance_and_shape,
-               test_the_rulings_hold_under_any_reading):
+               test_the_rulings_hold_under_any_reading,
+               test_readings_pair_within_an_accent):
         fn()
     print("=" * 70)
     if FAILURES:

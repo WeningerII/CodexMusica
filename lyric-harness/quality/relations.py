@@ -7942,7 +7942,7 @@ def planning_traits(names=None):
 #: all 126,052 syllabifiable words of the shipped lexicon: prominence
 #: emits exactly {0, 1} — binary BY CONSTRUCTION, the eng adapter's own
 #: `prominence=1 if s["stress"] in (1, 2) else 0` — and nucleus exactly
-#: the 15 ARPABET vowels, plus the extended-inventory vowels reader scheme v3
+#: the 15 ARPABET vowels, plus the extended-inventory vowels every reader scheme but v1
 #: writes (27 in all). A channel ABSENT here is unbounded on purpose
 #: (onset/coda/consonants are sequences over an open combinatorial space,
 #: token is the vocabulary): absence can only make the gate MISS a cap,
@@ -7953,7 +7953,7 @@ CHANNEL_DOMAINS = {
     "prominence": (0, 1),
     "nucleus": ("AA", "AE", "AH", "AO", "AW", "AY", "EH", "ER",
                 "EY", "IH", "IY", "OW", "OY", "UH", "UW",
-                # Reader scheme v3 (`derive_accent_readings`) also emits
+                # Every reader scheme but v1 (`derive_accent_readings`) also emits
                 # these, the extended-inventory vowels its rules write.
                 # The symbol-only ones (no rule writes them yet) are absent.
                 "IA", "EA", "UA", "OA", "OO", "EU", "OE", "EE", "IE", "IU",
@@ -9813,11 +9813,12 @@ def reading_combos(stream, tokens, cap=READING_COMBO_CAP):
             per.append([((li, ti), (tok, word, r)) for r in readings])
     if not per:
         return None, False
-    total = 1
-    for opts in per:
-        total *= len(opts)
-    combos = [dict(c) for c in itertools.islice(itertools.product(*per), cap)]
-    return combos, total <= cap
+    import lyric_harness as lh
+    # One speaker sings the whole stream: readings combine within an accent.
+    agree = (c for c in itertools.product(*per)
+             if lh.accents_agree((lex, word, r) for _, (tok, word, r) in c))
+    combos = [dict(c) for c in itertools.islice(agree, cap + 1)]
+    return combos[:cap], len(combos) <= cap
 
 
 def pinned_phonology(stream, combo):

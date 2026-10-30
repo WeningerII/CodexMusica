@@ -189,7 +189,7 @@ VOWELS = {
     # vowel", "add /x/ and the New York a too along with all of the rare
     # regional distinctions"). Wells's lexical sets, written as two vowel
     # letters so no name can be read as a vowel plus a consonant. Rule-derived
-    # readings use them under reader scheme v3 (`derive_accent_readings`).
+    # readings use them under every reader scheme but v1 (`derive_accent_readings`).
     "IA": (0.15, 0.30, 0, "@", 0),   # NEAR      here, near (ɪə)
     "EA": (0.50, 0.30, 0, "@", 0),   # SQUARE    there, hair (ɛə)
     "UA": (0.20, 0.70, 1, "@", 0),   # CURE      poor, tour (ʊə)
@@ -1122,12 +1122,12 @@ _VOWEL_GROUPS = re.compile(r"[aeiouy]+")
 
 def _vowel_letters(word, phones):
     """-> [(vowel index in phones, start, group)] when the word's vowel letter
-    groups line up one to one with its vowels (a final silent e is set
-    aside), else None."""
+    groups line up one to one with its vowels (a silent e at the end, or
+    before a final s or d as in gates and named, is set aside), else None."""
     groups = [(m.start(), m.group()) for m in _VOWEL_GROUPS.finditer(word)]
     vidx = [i for i, ph in enumerate(phones) if _is_vowel(ph)]
     if (len(groups) == len(vidx) + 1 and groups[-1][1] == "e"
-            and groups[-1][0] == len(word) - 1):
+            and word[groups[-1][0] + 1:] in ("", "s", "d")):
         groups = groups[:-1]
     if len(groups) != len(vidx):
         return None
@@ -1274,6 +1274,41 @@ def _derived_accent_entries(entries):
                 by_reading[(word, phones)] = rule
         _DERIVED_ACCENT_ENTRIES[key] = (out, by_reading)
     return _DERIVED_ACCENT_ENTRIES[key]
+
+
+#: The accent rules that write ALTERNATE readings, as `reading_rules` names
+#: them. The NEAR/SQUARE/CURE respellings apply in every reading and are not
+#: an accent choice.
+ACCENT_CHOICES = frozenset(("non-rhotic", "cure-force", "force", "lot", "toe",
+                            "pane", "meat", "dew", "raising"))
+
+
+def _reading_accent(lex, word, phones):
+    rule = lex.reading_rules.get((word, tuple(phones))) or ""
+    return {t for t in rule.replace("+", " ").split() if t in ACCENT_CHOICES}
+
+
+def accents_agree(readings):
+    """True when the (lex, word, phones) readings could come from one
+    speaker: no accent rule is used by one reading and refused by another.
+    A rule bears on a word when some reading of the word carries it, so a
+    word the rule never touches (`spa`, `tow`) agrees with either answer.
+    Pairing each word's readings independently would let a collision escape
+    through one rhotic and one non-rhotic reading that no singer produces
+    together (car/far)."""
+    seen = {}
+    for lex, word, phones in readings:
+        if lex is None or phones is None or not getattr(lex, "reading_rules", None):
+            continue
+        word = fold_apostrophes(str(word)).lower().strip("'\".,;:!?()[]")
+        has = _reading_accent(lex, word, phones)
+        bears = set()
+        for p in lex.entries.get(word, ()):
+            bears |= _reading_accent(lex, word, p)
+        for rule in bears:
+            if seen.setdefault(rule, rule in has) != (rule in has):
+                return False
+    return True
 
 
 class Lexicon:
@@ -5398,8 +5433,6 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                 # (2026-10-27, end-of-day plan, #519 6448819660: identical
                 # words that satisfy a type are not charged as REPEAT).
                 continue
-            elif v[3].startswith("REPEAT"):
-                _kept.append(v)
             elif admit_is_default(decl) and [
                     n for n in _wvp.undecided.get(pr, ())
                     if _REG[n].normative not in ("forbidden", "deprecated")]:
@@ -5420,7 +5453,9 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                     pair_schemas[pr] = sorted(set(pair_schemas.get(pr, ()))
                                               | set(_sat))
                     continue
-                if not names:
+                # An identical word no reading clears stays a REPEAT; it is
+                # resolved first, as `Reviser.grade` does (her/her).
+                if not names or v[3].startswith("REPEAT"):
                     _kept.append(v)
                     continue
                 refusals.append({"lines": pr,
