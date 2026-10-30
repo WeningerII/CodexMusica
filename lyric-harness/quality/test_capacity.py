@@ -506,11 +506,17 @@ def test_the_relation_is_a_coordinate():
     # M-41's OWN COMPARISON TABLE, re-derived over the identical
     # population — the measurement that carried the entry is a command
     # now (`--families=RELATION`) and these are its pinned rows.
+    # REPINNED 2026-10-30 (M-322, the English sound inventory): the vowel
+    # before a coda R is respelled in every first reading -- IH/IY -> IA,
+    # EH/AE/EY -> EA, UH/UW -> UA -- so the families those vowels split now
+    # merge. RHYME ~~(12387, 8131, 399, 1)~~, ASSONANCE ~~(15, 0, 5269,
+    # 2382)~~, RIME_RICHE ~~(37462, 35471, 7, 1)~~. CONSONANCE and
+    # PROMOTED_RHYME do not move (neither keys the vowel).
     for rel, want in (
-            ("RHYME", (12387, 8131, 399, 1)),
-            ("ASSONANCE", (15, 0, 5269, 2382)),
+            ("RHYME", (12381, 8130, 399, 1)),
+            ("ASSONANCE", (18, 0, 5052, 2279)),
             ("CONSONANCE", (3527, 1905, 2002, 1)),
-            ("RIME_RICHE", (37462, 35471, 7, 1)),
+            ("RIME_RICHE", (37459, 35466, 7, 1)),
             # 2026-09-22: PROMOTED_RHYME joined ADMITTABLE_RELATIONS; its
             # key is the final UNSTRESSED syllable's rime (words ending on
             # a stressed vowel cannot stand in it). Measured by
@@ -524,15 +530,20 @@ def test_the_relation_is_a_coordinate():
                  "of magnitude away" if rel == "ASSONANCE" else
                  "declared key, measured here"),
               got == want, f"{got}")
-    check("fifteen assonance families is about the stressed vowel "
+    # ~~fifteen~~ -> eighteen, 2026-10-30 (M-322): the key reads the FIRST
+    # reading, whose stressed vowels are now the 15 ARPABET ones plus NEAR
+    # (IA), SQUARE (EA) and CURE (UA), respelled in place. The other new
+    # vowels appear only in appended alternates, which the key does not read.
+    check("eighteen assonance families is about the stressed vowel "
           "inventory of English — the sanity check that the key is the "
-          "right one rather than an artefact (M-41's own words)",
-          CAP.family_summary(R, "ASSONANCE")["families"] == 15)
+          "right one rather than an artefact (M-41's own words; the 15 "
+          "ARPABET stressed vowels plus NEAR, SQUARE and CURE)",
+          CAP.family_summary(R, "ASSONANCE")["families"] == 18)
 
     check("the default partition IS the adopted relation's — "
           "families() with nothing declared reproduces families("
           "relation='RHYME') family-for-family",
-          len(CAP.families(R)) == 12387)
+          len(CAP.families(R)) == 12381)  # ~~12387~~ 2026-10-30, M-322
 
     # THE ARTIFACT CARRIES THE COORDINATE ON EVERY ROW, and a table
     # WITHOUT the column is unreadable rather than silently read as

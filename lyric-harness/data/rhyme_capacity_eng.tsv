@@ -1,5 +1,5 @@
 #judge	data/song_endword_en.tsv=85283645e989be61d0f05abc09b32c4d	data/song_rhymepair_en.tsv=fb851397681b69c06284e27c158d83f0
-#certification-source	4f148d25b5ef026a85fdb7568256408eff89bad2b3795e7d88092af1aa08be2e
+#certification-source	64f7e93ba4fd158b0553dadcb426d0aa74b9bd7c1d781acb7ac75f4e5fe4bb3f
 relation	family	words	classes	chain_hi	certified	chain_lo	witness	examples
 RHYME	IY	342	228	228	1	35	ve lee company key tea agree reality ricky maggie library ability guarantee identity marie degree jeremy kenny apology thirty li petty shitty hawaii yi pony louie cd dvd dc cory oui crappy enquiry nypd debris	we see probably nobody company tv key sea
 RHYME	EY-T	259	192	192	1	14	plait hate weight appreciate concentrate investigate roommate communicate eliminate congratulate hesitate participate demonstrate activate	wait great late straight eight appreciate create celebrate
@@ -28,7 +28,7 @@ RHYME	OW-Z	104	50	50	1	38	those rows toes photos shadows owes kilos studios froz
 RHYME	AO-L	81	49	49	1	13	mall paul football recall crawl overall wormhole nightfall awol lol neanderthal gaulle ethanol	all paul football recall basketball crawl overall montreal
 RHYME	AY-Z-D	94	49	49	1	11	surprised idealized recognized realised compromised authorized apologized traumatized supervised criticized jeopardized	surprised realized recognized organized realised compromised authorized civilized
 RHYME	AA	89	48	48	1	35	ah ma ya grandpa ahh raw sonia yah sonja panama francois sakura moi terra dada omaha arkansas wilhelmina gabriella baja katana gabriela ottawa ogata ishida waah coleslaw ishikawa toyama baccarat joie carrera hsia chutzpah qua	ah ma ya grandpa ahh raw sonia yah
-RHYME	EH-R	109	47	47	1	39	ere their share unfair somewhere wear anywhere everywhere nowhere square claire nightmare underwear herr pierre welfare software wheelchair javier hardware warfare alistair fanfare cher silverware delaware daycare healthcare armchair mayfair eyre footwear tupperware alastair medicare extraordinaire malware childcare guerre	there their care hair somewhere wear anywhere everywhere
+RHYME	EA-R	111	48	48	1	39	ere their share unfair somewhere wear anywhere everywhere nowhere square claire nightmare underwear herr pierre welfare software wheelchair javier hardware warfare alistair fanfare cher silverware delaware daycare healthcare armchair mayfair eyre footwear tupperware alastair medicare extraordinaire malware childcare guerre	there their care hair somewhere wear anywhere everywhere
 RHYME	UH-D	59	47	47	1	9	understood neighborhood hollywood osgood lockwood eastwood redwood deadwood dagwood	good would neighborhood hollywood childhood neighbourhood brotherhood firewood
 RHYME	EH-L	134	44	44	1	17	smell hotel michelle doorbell yell miguel noel parallel maxwell stairwell carousel citadel nfl rockwell daniele treadwell cantwell	well hotel michelle doorbell yell miguel isabel danielle
 RHYME	EY-T-AH-D	46	44	44	1	17	created complicated hated isolated frustrated investigated fascinated motivated estimated confiscated irritated integrated compensated consolidated constipated hydrated calibrated	created complicated hated located isolated frustrated investigated fascinated
@@ -80,6 +80,7 @@ RHYME	AW-N	38	23	23	1	7	crown hometown showdown browne noun hoedown godown	down 
 RHYME	OW-T	47	23	23	1	9	float wrote unquote antidote scapegoat raincoat lifeboat cutthroat keynote	boat wrote quote antidote scapegoat raincoat lifeboat overcoat
 RHYME	IY-L-D	36	22	22	1	4	wield sealed battlefield windshield	field sealed battlefield yield springfield windshield garfield airfield
 RHYME	UW-D	56	22	22	1	11	food dude screwed interviewed altitude sued booed feud shrewd prelude barbecued	food dude screwed attitude gratitude interviewed altitude solitude
+RHYME	IA-R	91	21	21	1	19	mere hear beer atmosphere shakespeare pier queer souvenir reindeer premiere weir stratosphere headgear mountaineer zaire lincolnshire yesteryear casimir biosphere	here hear year beer atmosphere shakespeare pier queer
 RHYME	IY-D	61	20	20	1	17	agreed plead reid siegfried seaweed meade rashid concede nosebleed pitied centipede keyed saeed airspeed lockheed skied aristide	need plead reid siegfried seaweed meade rashid concede
 RHYME	IY-S	40	20	20	1	11	police decrease denise luis reese greece vietnamese masterpiece cece pilates gees	police piece peace release denise luis reese greece
 RHYME	AW	60	19	19	0			now somehow thou anyhow ciao meow mao frau
@@ -94,7 +95,6 @@ RHYME	AH-N	51	18	18	0			one won someone everyone run anyone grandson shotgun
 RHYME	AO-L-Z	31	18	18	0			calls eyeballs protocols meatballs neanderthals overalls waterfalls crawls
 RHYME	AW-N-D	44	18	18	0			around background underground drowned playground greyhound turnaround southbound
 RHYME	ER	53	18	18	0			her were sir monsieur fur amateur chauffeur yer
-RHYME	IH-R	78	18	18	0			year dear beer atmosphere interfere pier queer souvenir
 RHYME	UH-K	40	18	18	0			look facebook brooke textbook overlook yearbook outlook checkbook
 RHYME	AE-F	26	17	17	0			half laugh staff photograph autograph telegraph paragraph giraffe
 RHYME	AO-N	38	17	17	0			gone dawn sean von anton vaughn shaun coupon
@@ -163,6 +163,7 @@ RHYME	IY-M	40	12	12	0			team seem theme regime mainstream ibrahim bloodstream di
 RHYME	OW-M	21	12	12	0			home syndrome comb foam shalom genome holm ohm
 RHYME	OW-N-IY	30	12	12	0			tony ceremony testimony toni alimony bologna matrimony baloney
 RHYME	OW-S-T	20	12	12	0			most almost toast diagnosed utmost foremost outpost overdosed
+RHYME	UA-R	47	12	12	0			sure poor tour moore miniature grandeur muir doer
 RHYME	AA-IY	13	11	11	0			rai sakai desai nagai adlai nicolai sakurai kawai
 RHYME	AA-SH	19	11	11	0			wash gosh squash goulash mouthwash brainwash hogwash whitewash
 RHYME	AE-M-Z	22	11	11	0			slams programs milligrams lambs programmes kilograms telegrams yams
@@ -211,9 +212,9 @@ RHYME	AY-AH-S	10	9	9	0			darius tobias elias pious bias himalayas mathias prius
 RHYME	AY-L-D	17	9	9	0			child filed grandchild exiled wilde reconciled fairchild rothschild
 RHYME	AY-T-ER	14	9	9	0			writer fighter typewriter firefighter songwriter screenwriter bullfighter gunfighter
 RHYME	AY-T-IH-D	18	9	9	0			united sighted indicted highlighted unrequited extradited expedited nearsighted
+RHYME	EA-R-Z	47	9	9	0			upstairs cares tears prayers theirs nightmares wheelchairs somewheres
 RHYME	EH-N-D	38	9	9	0			friend end girlfriend boyfriend weekend godsend penned dividend
 RHYME	EH-N-IY	18	9	9	0			any jenny jennie antennae leonie jenni yevgeny beni
-RHYME	EH-R-Z	47	9	9	0			upstairs cares tears prayers theirs nightmares wheelchairs somewheres
 RHYME	ER-D-Z	11	9	9	0			words birds nerds passwords kurds crosswords thunderbirds hummingbirds
 RHYME	EY-D-Z	29	9	9	0			decades aids mermaids bridesmaids barricades everglades renegades escapades
 RHYME	EY-ER	16	9	9	0			mayor player taxpayer surveyor conveyor dreyer ballplayer bricklayer
@@ -254,22 +255,20 @@ RHYME	EY-B-AH-L	17	8	8	0			able unable label unstable enable disable timetable t
 RHYME	EY-K-ER-Z	13	8	8	0			acres makers filmmakers breakers troublemakers undertakers caretakers lawmakers
 RHYME	EY-L-IY	15	8	8	0			daily bailey haley daly hayley israeli kaylie ukulele
 RHYME	EY-M	34	8	8	0			name claim nickname surname mainframe graeme timeframe username
+RHYME	IA-R-Z	41	8	8	0			years cheers ears souvenirs piers queers spheres atmospheres
 RHYME	IH-D	27	8	8	0			did quid syd overdid kidd eyelid outbid outdid
 RHYME	IH-R-IY	16	8	8	0			theory eerie weary siri cheery erie cavaliere wiry
 RHYME	IH-R-IY-AH	8	8	8	0			bacteria cafeteria syria siberia algeria criteria nigeria gaviria
 RHYME	IH-R-IY-AH-L	9	8	8	0			material imperial cereal bacterial arterial ethereal venereal managerial
-RHYME	IH-R-Z	35	8	8	0			years cheers ears souvenirs piers queers spheres atmospheres
 RHYME	IH-T-S	37	8	8	0			its fritz outfits quits hypocrites armpits mitts misfits
 RHYME	IH-Z	13	8	8	0			is liz ms quiz pisses axes fizz chandeliers
 RHYME	IY-IH-NG	12	8	8	0			being seeing skiing agreeing sightseeing overseeing wellbeing guaranteeing
 RHYME	IY-T-ER-Z	11	8	8	0			meters metres liters centimeters eaters centimetres millimeters millimetres
 RHYME	UH-L	10	8	8	0			full handful wool mouthful spoonful turnbull roomful pocketful
 RHYME	UH-M-AH-N	8	8	8	0			woman catwoman policewoman congresswoman businesswoman councilwoman chairwoman saleswoman
-RHYME	UH-R	35	8	8	0			sure tour moore miniature moor muir lumpur contour
 RHYME	UW-AH-L	12	8	8	0			unusual cruel spiritual jewel dual renewal refuel newell
 RHYME	UW-K	15	8	8	0			luke luc spook archduke marmaduke baruch farouk duque
 RHYME	UW-L-IY	13	8	8	0			truly julie newly dooley cruelly juli coolly tulley
-RHYME	UW-R	12	8	8	0			poor grandeur amour doer voyeur mcclure coeur darfur
 RHYME	UW-T-ER	14	8	8	0			computer prosecutor shooter tutor suitor recruiter router neuter
 RHYME	UW-T-IY	10	8	8	0			duty beauty booty cutie fruity tutti maruti bootie
 RHYME	UW-Z-IY	10	8	8	0			susie suzy jacuzzi woozy choosy uzi susy bluesy
@@ -322,7 +321,6 @@ RHYME	IY-CH-IY	9	7	7	0			peachy nietzsche koichi shinichi ricci yoichi keiichi
 RHYME	IY-L-IY	12	7	7	0			freely healy ideally swahili healey seeley demille
 RHYME	IY-L-Z	23	7	7	0			feels deals squeals niels automobiles cartwheels newsreels
 RHYME	IY-N-AH	73	7	7	0			tina lena subpoena hyena sheena reina shiina
-RHYME	IY-R	13	7	7	0			here hear shakespeare weir tier seer casimir
 RHYME	OW-D-ER	9	7	7	0			odor odour fyodor schroeder loader decoder freeloader
 RHYME	OW-D-Z	14	7	7	0			roads codes episodes crossroads railroads downloads inroads
 RHYME	OW-K-IY	12	7	7	0			karaoke smokey smoky aoki gnocchi oki okie
@@ -413,8 +411,8 @@ RHYME	OW-N-IY-AH-N	6	6	6	0			smithsonian jeffersonian estonian babylonian amazon
 RHYME	OW-P-S	10	6	6	0			hopes envelopes telescopes soaps horoscopes isotopes
 RHYME	OY-D-Z	7	6	6	0			asteroids droids hemorrhoids androids polaroids humanoids
 RHYME	OY-IH-NG	6	6	6	0			enjoying annoying destroying toying employing deploying
+RHYME	UA-R-Z	12	6	6	0			yours tours cures moors contours overtures
 RHYME	UH-L-F	6	6	6	0			wolf werewolf wolfe beowulf wolff woolf
-RHYME	UH-R-Z	12	6	6	0			yours tours cures moors contours overtures
 RHYME	UW-ER	12	6	6	0			sewer interviewer viewer truer dewar rescuer
 RHYME	UW-F	13	6	6	0			proof bulletproof foolproof waterproof fireproof sunroof
 RHYME	UW-G-AH-L	6	6	6	0			google bugle dougal frugal macdougall centrifugal
@@ -749,6 +747,7 @@ RHYME	EY-P-ER-Z	5	4	4	0			papers newspapers skyscrapers vapors
 RHYME	EY-S-AH-N	5	4	4	0			jason grayson basin hasten
 RHYME	EY-Z-ER-Z	4	4	4	0			lasers razors blazers fundraisers
 RHYME	EY-Z-IY	6	4	4	0			crazy daisy maisie bolognese
+RHYME	IA-R-D	25	4	4	0			weird disappeared beard bluebeard
 RHYME	IH-CH	22	4	4	0			which bitch niche kitsch
 RHYME	IH-D-Z	9	4	4	0			kids grandkids eyelids squids
 RHYME	IH-K-ER	15	4	4	0			liquor quicker vicar sticker
@@ -798,7 +797,6 @@ RHYME	IY-N-AH-Z	4	4	4	0			hyenas arenas subpoenas ballerinas
 RHYME	IY-P	23	4	4	0			keep cheap felipe upkeep
 RHYME	IY-P-ER-Z	7	4	4	0			keepers peacekeepers shopkeepers reapers
 RHYME	IY-P-IH-NG	15	4	4	0			sleeping housekeeping leaping bookkeeping
-RHYME	IY-R-Z	6	4	4	0			hears musketeers tiers heres
 RHYME	IY-SH-AH-N	6	4	4	0			completion venetian grecian phoenician
 RHYME	IY-T-AH-D	8	4	4	0			cheated completed greeted conceited
 RHYME	IY-T-IH-D	12	4	4	0			treated depleted tweeted overheated
@@ -1171,6 +1169,8 @@ RHYME	EY-Z-AH-Z	5	3	3	0			raises phrases gazes
 RHYME	EY-Z-IH-NG	9	3	3	0			amazing raising phrasing
 RHYME	EY-ZH-AH-N-Z	5	3	3	0			occasions equations asians
 RHYME	EY-ZH-ER	3	3	3	0			frasier frazier fraiser
+RHYME	IA-R-D-AH-N	3	3	3	0			reardon riordan rearden
+RHYME	IA-R-L-IY	7	3	3	0			clearly merely yearly
 RHYME	IH-CH-IY	5	3	3	0			richie itchy ritchie
 RHYME	IH-D-AH-L	9	3	3	0			middle rydell liddell
 RHYME	IH-D-IY	7	3	3	0			giddy kiddie bridie
@@ -1202,11 +1202,8 @@ RHYME	IH-P-SH-AH-N	8	3	3	0			description egyptian encryption
 RHYME	IH-P-T-S	3	3	3	0			scripts transcripts manuscripts
 RHYME	IH-R-AH-N	3	3	3	0			shirin viren mirren
 RHYME	IH-R-AH-N-S	5	3	3	0			appearance interference perseverance
-RHYME	IH-R-D	23	3	3	0			weird disappeared beard
-RHYME	IH-R-D-AH-N	3	3	3	0			reardon riordan rearden
 RHYME	IH-R-IY-AH-L-Z	3	3	3	0			materials cereals serials
 RHYME	IH-R-IY-AH-S	3	3	3	0			serious mysterious delirious
-RHYME	IH-R-L-IY	7	3	3	0			clearly merely yearly
 RHYME	IH-R-OW	10	3	3	0			hero hiro fierro
 RHYME	IH-S-AH	9	3	3	0			melissa marisa alyssa
 RHYME	IH-S-AH-B-AH-L	4	3	3	0			inexplicable inadmissible permissible
@@ -2008,6 +2005,11 @@ RHYME	AY-V-AH-N	2	2	2	0			ivan liven
 RHYME	AY-V-D	9	2	2	0			arrived archived
 RHYME	AY-V-ER-Z	3	2	2	0			survivors drivers
 RHYME	AY-V-Z	17	2	2	0			wives archives
+RHYME	EA-R-D	22	2	2	0			scared laird
+RHYME	EA-R-L-AH-S	2	2	2	0			careless hairless
+RHYME	EA-R-L-IY	5	2	2	0			barely fairly
+RHYME	EA-R-M-AH-N	3	2	2	0			chairman herrmann
+RHYME	EA-R-N-AH-S	2	2	2	0			awareness fairness
 RHYME	EH-B-AH-L-Z	2	2	2	0			rebels pebbles
 RHYME	EH-B-ER	2	2	2	0			webber weber
 RHYME	EH-B-IY	2	2	2	0			debbie debby
@@ -2153,7 +2155,6 @@ RHYME	EH-R-AH-L-Z	2	2	2	0			carols perils
 RHYME	EH-R-AH-N-T-S	2	2	2	0			parents grandparents
 RHYME	EH-R-AH-S-T	2	2	2	0			embarrassed rarest
 RHYME	EH-R-AH-T-IH-V	2	2	2	0			imperative comparative
-RHYME	EH-R-D	22	2	2	0			scared laird
 RHYME	EH-R-EH-Z	2	2	2	0			perez gutierrez
 RHYME	EH-R-ER-Z	3	2	2	0			errors bearers
 RHYME	EH-R-IH-G-AH-N	2	2	2	0			kerrigan harrigan
@@ -2164,10 +2165,6 @@ RHYME	EH-R-IH-M-AH-N	2	2	2	0			harriman merriman
 RHYME	EH-R-IH-NG-Z	2	2	2	0			bearings herrings
 RHYME	EH-R-IY-ER	4	2	2	0			scarier merrier
 RHYME	EH-R-IY-OW	2	2	2	0			scenario ontario
-RHYME	EH-R-L-AH-S	2	2	2	0			careless hairless
-RHYME	EH-R-L-IY	5	2	2	0			barely fairly
-RHYME	EH-R-M-AH-N	3	2	2	0			chairman herrmann
-RHYME	EH-R-N-AH-S	2	2	2	0			awareness fairness
 RHYME	EH-R-OW-AH-N	2	2	2	0			heroin heroine
 RHYME	EH-R-OW-Z	3	2	2	0			narrows pharaohs
 RHYME	EH-S-AH-L	2	2	2	0			vessel wrestle
@@ -2329,7 +2326,6 @@ RHYME	EY-N-T-IH-D	6	2	2	0			painted acquainted
 RHYME	EY-P-AH-L	3	2	2	0			maple papal
 RHYME	EY-P-AH-N	2	2	2	0			misshapen saipan
 RHYME	EY-P-S	12	2	2	0			tapes landscapes
-RHYME	EY-R	2	2	2	0			meir menswear
 RHYME	EY-S-AH	2	2	2	0			mesa raisa
 RHYME	EY-S-ER	5	2	2	0			racer chaser
 RHYME	EY-S-ER-Z	3	2	2	0			racers chasers
@@ -2365,6 +2361,10 @@ RHYME	EY-V-IY-AH-N	2	2	2	0			scandinavian avian
 RHYME	EY-V-Y-ER-Z	3	2	2	0			behaviors behaviours
 RHYME	EY-Z-IY-Z	2	2	2	0			daisies crazies
 RHYME	EY-ZH-AH	6	2	2	0			asia malaysia
+RHYME	IA-R-F-AH-L	3	2	2	0			cheerful fearful
+RHYME	IA-R-F-AH-L-IY	2	2	2	0			cheerfully tearfully
+RHYME	IA-R-S	3	2	2	0			pierce pearce
+RHYME	IA-R-S-AH-N	2	2	2	0			pearson pierson
 RHYME	IH-B	10	2	2	0			rib gibb
 RHYME	IH-B-AH-L	7	2	2	0			nibble quibble
 RHYME	IH-B-AH-N	3	2	2	0			ribbon ibn
@@ -2485,16 +2485,12 @@ RHYME	IH-R-AH-L	2	2	2	0			cyril virile
 RHYME	IH-R-AH-M	2	2	2	0			serum theorem
 RHYME	IH-R-AH-Z	2	2	2	0			liras eras
 RHYME	IH-R-ER	4	2	2	0			mirror clearer
-RHYME	IH-R-F-AH-L	3	2	2	0			cheerful fearful
-RHYME	IH-R-F-AH-L-IY	2	2	2	0			cheerfully tearfully
 RHYME	IH-R-IH-K-AH-L	2	2	2	0			lyrical empirical
 RHYME	IH-R-IH-N	2	2	2	0			hearin kirin
 RHYME	IH-R-IY-AH-D	2	2	2	0			period myriad
 RHYME	IH-R-IY-AH-S-L-IY	2	2	2	0			seriously mysteriously
 RHYME	IH-R-IY-ER-Z	2	2	2	0			superiors interiors
 RHYME	IH-R-OW-Z	3	2	2	0			heroes zeros
-RHYME	IH-R-S	3	2	2	0			pierce pearce
-RHYME	IH-R-S-AH-N	2	2	2	0			pearson pierson
 RHYME	IH-S-AH-L-IY	2	2	2	0			sicily cicely
 RHYME	IH-S-AH-L-Z	3	2	2	0			whistles missiles
 RHYME	IH-S-AH-M	2	2	2	0			grissom cataclysm
@@ -2618,7 +2614,6 @@ RHYME	IY-N-Y-AH-S	2	2	2	0			genius ingenious
 RHYME	IY-P-AH-S-T	2	2	2	0			deepest cheapest
 RHYME	IY-P-L-IY	2	2	2	0			deeply cheaply
 RHYME	IY-P-S	12	2	2	0			keeps leaps
-RHYME	IY-R-D	2	2	2	0			engineered bluebeard
 RHYME	IY-R-IH-NG	5	2	2	0			hearing jeering
 RHYME	IY-R-OW	2	2	2	0			superhero piero
 RHYME	IY-S-AH-L	2	2	2	0			diesel cecil
@@ -2730,6 +2725,8 @@ RHYME	OY-N-Z	6	2	2	0			coins moines
 RHYME	OY-S-T	4	2	2	0			moist voiced
 RHYME	OY-S-T-ER	2	2	2	0			oyster cloister
 RHYME	OY-Z-IY	2	2	2	0			noisy boise
+RHYME	UA-R-L-IY	5	2	2	0			surely poorly
+RHYME	UA-R-M-AH-N	2	2	2	0			boorman fuhrman
 RHYME	UH-D-IY	3	2	2	0			woody goodie
 RHYME	UH-D-L-IY	2	2	2	0			goodly woodley
 RHYME	UH-K-ER-Z	2	2	2	0			hookers onlookers
@@ -2748,7 +2745,6 @@ RHYME	UH-R-AH-T-IY	6	2	2	0			security surety
 RHYME	UH-R-IH-K	2	2	2	0			zurich sulfuric
 RHYME	UH-R-IH-S-T	2	2	2	0			surest purist
 RHYME	UH-R-IY-AH-S	4	2	2	0			curious injurious
-RHYME	UH-R-M-AH-N	2	2	2	0			boorman fuhrman
 RHYME	UH-R-OW	2	2	2	0			bureau arturo
 RHYME	UH-SH-IH-NG	3	2	2	0			pushing ambushing
 RHYME	UH-SH-T	2	2	2	0			pushed ambushed
@@ -3894,7 +3890,7 @@ RHYME	AA-R-T-N-IY	1	1	1	0			mccartney
 RHYME	AA-R-T-R-AH	1	1	1	0			sartre
 RHYME	AA-R-T-R-AH-JH	2	1	1	0			partridge
 RHYME	AA-R-T-R-AH-JH-AH-Z	1	1	1	0			cartridges
-RHYME	AA-R-T-UH-R	1	1	1	0			artur
+RHYME	AA-R-T-UA-R	1	1	1	0			artur
 RHYME	AA-R-TH-AH	1	1	1	0			martha
 RHYME	AA-R-TH-AH-JH	1	1	1	0			carthage
 RHYME	AA-R-TH-ER	2	1	1	0			arthur
@@ -4195,7 +4191,7 @@ RHYME	AE-D-AH-L-IH-N	1	1	1	0			madeline
 RHYME	AE-D-AH-L-IH-NG	1	1	1	0			paddling
 RHYME	AE-D-AH-L-Z	2	1	1	0			paddles
 RHYME	AE-D-AH-M-AH-N-T	1	1	1	0			adamant
-RHYME	AE-D-AH-M-IH-R	1	1	1	0			vladimir
+RHYME	AE-D-AH-M-IA-R	1	1	1	0			vladimir
 RHYME	AE-D-AH-M-IY	1	1	1	0			academy
 RHYME	AE-D-AH-M-IY-Z	1	1	1	0			academies
 RHYME	AE-D-AH-M-S-AH-N	1	1	1	0			adamson
@@ -4655,7 +4651,7 @@ RHYME	AE-M-AH-L-AH	1	1	1	0			pamela
 RHYME	AE-M-AH-L-IY	1	1	1	0			family
 RHYME	AE-M-AH-L-IY-Z	1	1	1	0			families
 RHYME	AE-M-AH-L-T-AH-N	1	1	1	0			hamilton
-RHYME	AE-M-AH-M-B-EH-R	1	1	1	0			camembert
+RHYME	AE-M-AH-M-B-EA-R	1	1	1	0			camembert
 RHYME	AE-M-AH-N-AH	1	1	1	0			stamina
 RHYME	AE-M-AH-N-AH-T	1	1	1	0			laminate
 RHYME	AE-M-AH-N-ER	1	1	1	0			examiner
@@ -5217,7 +5213,6 @@ RHYME	AE-R-IY-IH-NG	1	1	1	0			carrying
 RHYME	AE-R-IY-Z	1	1	1	0			carries
 RHYME	AE-R-OW	3	1	1	0			arrow
 RHYME	AE-R-OW-Z	2	1	1	0			arrows
-RHYME	AE-R-T-R-AH	1	1	1	0			montmartre
 RHYME	AE-S-AH-D-ER	1	1	1	0			ambassador
 RHYME	AE-S-AH-D-ER-Z	1	1	1	0			ambassadors
 RHYME	AE-S-AH-D-Z	1	1	1	0			acids
@@ -5345,7 +5340,7 @@ RHYME	AE-SH-IH-SH	1	1	1	0			hashish
 RHYME	AE-SH-IY	2	1	1	0			flashy
 RHYME	AE-SH-L-AH-N-D	1	1	1	0			ashland
 RHYME	AE-SH-L-IY	1	1	1	0			ashley
-RHYME	AE-SH-M-IH-R	1	1	1	0			kashmir
+RHYME	AE-SH-M-IA-R	1	1	1	0			kashmir
 RHYME	AE-SH-R-AA-M	1	1	1	0			ashram
 RHYME	AE-SH-T	14	1	1	0			crashed
 RHYME	AE-SH-T-AH-N	1	1	1	0			ashton
@@ -5519,7 +5514,7 @@ RHYME	AE-ZH-AH-W-AH-L-IY	1	1	1	0			casually
 RHYME	AE-ZH-AH-W-AH-L-T-IY	1	1	1	0			casualty
 RHYME	AE-ZH-AH-W-AH-L-T-IY-Z	1	1	1	0			casualties
 RHYME	AE-ZH-ER	1	1	1	0			azure
-RHYME	AE-ZH-M-IH-R	1	1	1	0			cashmere
+RHYME	AE-ZH-M-IA-R	1	1	1	0			cashmere
 RHYME	AH-B-AH-B	1	1	1	0			hubbub
 RHYME	AH-B-AH-K	1	1	1	0			lubbock
 RHYME	AH-B-AH-K-ER	1	1	1	0			brubaker
@@ -7314,6 +7309,31 @@ RHYME	AY-Z-L-IY	1	1	1	0			wisely
 RHYME	AY-Z-M-AH-N-T	1	1	1	0			advisement
 RHYME	AY-Z-M-AH-N-T-S	1	1	1	0			advertisements
 RHYME	AY-Z-M-IH-K	1	1	1	0			seismic
+RHYME	EA-R-B-AH-NG-K-S	1	1	1	0			fairbanks
+RHYME	EA-R-B-UA-R-G	1	1	1	0			cherbourg
+RHYME	EA-R-D-ER	1	1	1	0			herder
+RHYME	EA-R-D-IY	1	1	1	0			verdi
+RHYME	EA-R-F-AH-L	1	1	1	0			careful
+RHYME	EA-R-F-AH-L-IY	1	1	1	0			carefully
+RHYME	EA-R-JH-IY	1	1	1	0			sergey
+RHYME	EA-R-L-AH-S-L-IY	1	1	1	0			carelessly
+RHYME	EA-R-L-AH-S-N-AH-S	1	1	1	0			carelessness
+RHYME	EA-R-M-AH	1	1	1	0			verma
+RHYME	EA-R-M-AH-N-T	1	1	1	0			impairment
+RHYME	EA-R-M-OW	2	1	1	0			palermo
+RHYME	EA-R-N	1	1	1	0			cairn
+RHYME	EA-R-N-OW	2	1	1	0			salerno
+RHYME	EA-R-N-Z	1	1	1	0			cairns
+RHYME	EA-R-P-L-EY-N-Z	1	1	1	0			airplanes
+RHYME	EA-R-S	1	1	1	0			scarce
+RHYME	EA-R-S-EY	1	1	1	0			daresay
+RHYME	EA-R-S-IH-T-IY	1	1	1	0			scarcity
+RHYME	EA-R-S-L-IY	1	1	1	0			scarcely
+RHYME	EA-R-T-IY	1	1	1	0			flaherty
+RHYME	EA-R-T-OW	2	1	1	0			roberto
+RHYME	EA-R-T-R-AH	1	1	1	0			montmartre
+RHYME	EA-R-T-S	1	1	1	0			hertz
+RHYME	EA-R-ZH	1	1	1	0			concierge
 RHYME	EH-B-AH	1	1	1	0			ebba
 RHYME	EH-B-AH-N	1	1	1	0			eben
 RHYME	EH-B-AH-N-AH-N	1	1	1	0			lebanon
@@ -8408,15 +8428,9 @@ RHYME	EH-R-AH-T-IH-NG	1	1	1	0			inheriting
 RHYME	EH-R-AH-T-IH-V-L-IY	1	1	1	0			comparatively
 RHYME	EH-R-AH-T-IY-Z	3	1	1	0			similarities
 RHYME	EH-R-AO-L	1	1	1	0			karol
-RHYME	EH-R-B-AH-NG-K-S	1	1	1	0			fairbanks
-RHYME	EH-R-B-UW-R-G	1	1	1	0			cherbourg
-RHYME	EH-R-D-ER	1	1	1	0			herder
-RHYME	EH-R-D-IY	1	1	1	0			verdi
 RHYME	EH-R-ER-AH-S-T-S	1	1	1	0			terrorists
 RHYME	EH-R-ER-IH-S-T	1	1	1	0			terrorist
 RHYME	EH-R-EY-T-ER	1	1	1	0			narrator
-RHYME	EH-R-F-AH-L	1	1	1	0			careful
-RHYME	EH-R-F-AH-L-IY	1	1	1	0			carefully
 RHYME	EH-R-IH-D	1	1	1	0			jared
 RHYME	EH-R-IH-D-AH-N	1	1	1	0			sheridan
 RHYME	EH-R-IH-D-IH-TH	1	1	1	0			meredith
@@ -8453,30 +8467,12 @@ RHYME	EH-R-IY-M-AH-N	1	1	1	0			ferryman
 RHYME	EH-R-IY-NG	1	1	1	0			faring
 RHYME	EH-R-IY-OW-Z	1	1	1	0			scenarios
 RHYME	EH-R-IY-S	1	1	1	0			therese
-RHYME	EH-R-JH-IY	1	1	1	0			sergey
-RHYME	EH-R-L-AH-S-L-IY	1	1	1	0			carelessly
-RHYME	EH-R-L-AH-S-N-AH-S	1	1	1	0			carelessness
-RHYME	EH-R-M-AH	1	1	1	0			verma
-RHYME	EH-R-M-AH-N-T	1	1	1	0			impairment
-RHYME	EH-R-M-OW	2	1	1	0			palermo
-RHYME	EH-R-N	1	1	1	0			cairn
-RHYME	EH-R-N-OW	2	1	1	0			salerno
-RHYME	EH-R-N-Z	1	1	1	0			cairns
 RHYME	EH-R-OW-D	1	1	1	0			narrowed
 RHYME	EH-R-OW-ER	1	1	1	0			narrower
 RHYME	EH-R-OW-IH-NG	2	1	1	0			narrowing
 RHYME	EH-R-OW-L-IY	1	1	1	0			narrowly
 RHYME	EH-R-OY-D-Z	1	1	1	0			steroids
-RHYME	EH-R-P-L-EY-N-Z	1	1	1	0			airplanes
-RHYME	EH-R-S	1	1	1	0			scarce
-RHYME	EH-R-S-EY	1	1	1	0			daresay
-RHYME	EH-R-S-IH-T-IY	1	1	1	0			scarcity
-RHYME	EH-R-S-L-IY	1	1	1	0			scarcely
-RHYME	EH-R-T-IY	1	1	1	0			flaherty
-RHYME	EH-R-T-OW	2	1	1	0			roberto
-RHYME	EH-R-T-S	1	1	1	0			hertz
 RHYME	EH-R-UW-AE-K	1	1	1	0			kerouac
-RHYME	EH-R-ZH	1	1	1	0			concierge
 RHYME	EH-S-AH	4	1	1	0			vanessa
 RHYME	EH-S-AH-B-AH-L	2	1	1	0			accessible
 RHYME	EH-S-AH-B-AH-L-Z	1	1	1	0			decibels
@@ -9024,12 +9020,12 @@ RHYME	ER-M-D	3	1	1	0			confirmed
 RHYME	ER-M-ER-IH-NG	1	1	1	0			murmuring
 RHYME	ER-M-ER-IY	1	1	1	0			infirmary
 RHYME	ER-M-ER-Z	1	1	1	0			murmurs
+RHYME	ER-M-IA-R	1	1	1	0			vermeer
 RHYME	ER-M-IH-K	1	1	1	0			hypodermic
 RHYME	ER-M-IH-N	2	1	1	0			vermin
 RHYME	ER-M-IH-N-AH-S	1	1	1	0			terminus
 RHYME	ER-M-IH-N-D	2	1	1	0			predetermined
 RHYME	ER-M-IH-N-IH-T	1	1	1	0			indeterminate
-RHYME	ER-M-IH-R	1	1	1	0			vermeer
 RHYME	ER-M-IH-SH	1	1	1	0			skirmish
 RHYME	ER-M-IH-SH-IH-Z	1	1	1	0			skirmishes
 RHYME	ER-M-IH-T	1	1	1	0			kermit
@@ -9635,6 +9631,31 @@ RHYME	EY-ZH	1	1	1	0			beige
 RHYME	EY-ZH-AH-N-AH-L	1	1	1	0			occasional
 RHYME	EY-ZH-AH-N-AH-L-IY	1	1	1	0			occasionally
 RHYME	EY-ZH-IH-N	1	1	1	0			eurasian
+RHYME	IA-R-D-AH-D	1	1	1	0			bearded
+RHYME	IA-R-D-AH-S-T	1	1	1	0			weirdest
+RHYME	IA-R-D-ER	1	1	1	0			weirder
+RHYME	IA-R-D-L-IY	1	1	1	0			weirdly
+RHYME	IA-R-D-N-AH-S	1	1	1	0			weirdness
+RHYME	IA-R-D-OW	1	1	1	0			weirdo
+RHYME	IA-R-D-OW-Z	1	1	1	0			weirdos
+RHYME	IA-R-D-R-AH	1	1	1	0			deirdre
+RHYME	IA-R-D-Z	1	1	1	0			beards
+RHYME	IA-R-HH-AA-R-T	1	1	1	0			earhart
+RHYME	IA-R-L-AH-S	1	1	1	0			fearless
+RHYME	IA-R-L-IH-S	1	1	1	0			peerless
+RHYME	IA-R-M-AH-N-T	1	1	1	0			endearment
+RHYME	IA-R-N-IY	1	1	1	0			tierney
+RHYME	IA-R-P-IY-S	1	1	1	0			earpiece
+RHYME	IA-R-S-AH-M	1	1	1	0			fearsome
+RHYME	IA-R-S-AH-S-T	1	1	1	0			fiercest
+RHYME	IA-R-S-IH-NG	1	1	1	0			piercing
+RHYME	IA-R-S-IH-NG-Z	1	1	1	0			piercings
+RHYME	IA-R-S-IH-Z	1	1	1	0			pierces
+RHYME	IA-R-S-L-IY	1	1	1	0			fiercely
+RHYME	IA-R-S-T	1	1	1	0			pierced
+RHYME	IA-R-V-Y-UW	1	1	1	0			rearview
+RHYME	IA-R-Y-ER	1	1	1	0			posterior
+RHYME	IA-R-Z-F-ER-D	1	1	1	0			beresford
 RHYME	IH-AE-P-S-IH-Z	1	1	1	0			synapses
 RHYME	IH-AH-S	1	1	1	0			sirius
 RHYME	IH-B-AH-L-D	1	1	1	0			scribbled
@@ -10603,19 +10624,10 @@ RHYME	IH-R-AH-T	1	1	1	0			spirit
 RHYME	IH-R-AH-T-AH-B-AH-L	1	1	1	0			irritable
 RHYME	IH-R-AH-T-ER	1	1	1	0			conspirator
 RHYME	IH-R-AH-T-ER-Z	1	1	1	0			conspirators
-RHYME	IH-R-D-AH-D	1	1	1	0			bearded
-RHYME	IH-R-D-AH-S-T	1	1	1	0			weirdest
-RHYME	IH-R-D-ER	1	1	1	0			weirder
-RHYME	IH-R-D-L-IY	1	1	1	0			weirdly
-RHYME	IH-R-D-N-AH-S	1	1	1	0			weirdness
-RHYME	IH-R-D-OW	1	1	1	0			weirdo
-RHYME	IH-R-D-OW-Z	1	1	1	0			weirdos
-RHYME	IH-R-D-Z	1	1	1	0			beards
 RHYME	IH-R-EH-Z	1	1	1	0			ramirez
 RHYME	IH-R-ER-D	1	1	1	0			mirrored
 RHYME	IH-R-ER-Z	1	1	1	0			mirrors
 RHYME	IH-R-EY	1	1	1	0			aguirre
-RHYME	IH-R-HH-AA-R-T	1	1	1	0			earhart
 RHYME	IH-R-IH-K	1	1	1	0			lyric
 RHYME	IH-R-IH-K-S	1	1	1	0			lyrics
 RHYME	IH-R-IH-NG-AH-N	1	1	1	0			swearengen
@@ -10636,22 +10648,7 @@ RHYME	IH-R-IY-AH-S-N-AH-S	1	1	1	0			seriousness
 RHYME	IH-R-IY-N-AH-S	1	1	1	0			weariness
 RHYME	IH-R-IY-OW	1	1	1	0			cheerio
 RHYME	IH-R-IY-OW-S	1	1	1	0			cheerios
-RHYME	IH-R-L-AH-S	1	1	1	0			fearless
-RHYME	IH-R-L-IH-S	1	1	1	0			peerless
-RHYME	IH-R-M-AH-N-T	1	1	1	0			endearment
-RHYME	IH-R-N-IY	1	1	1	0			tierney
 RHYME	IH-R-OW-D	1	1	1	0			zeroed
-RHYME	IH-R-P-IY-S	1	1	1	0			earpiece
-RHYME	IH-R-S-AH-M	1	1	1	0			fearsome
-RHYME	IH-R-S-AH-S-T	1	1	1	0			fiercest
-RHYME	IH-R-S-IH-NG	1	1	1	0			piercing
-RHYME	IH-R-S-IH-NG-Z	1	1	1	0			piercings
-RHYME	IH-R-S-IH-Z	1	1	1	0			pierces
-RHYME	IH-R-S-L-IY	1	1	1	0			fiercely
-RHYME	IH-R-S-T	1	1	1	0			pierced
-RHYME	IH-R-V-Y-UW	1	1	1	0			rearview
-RHYME	IH-R-Y-ER	1	1	1	0			posterior
-RHYME	IH-R-Z-F-ER-D	1	1	1	0			beresford
 RHYME	IH-S-AH-D-AH-N-T	1	1	1	0			dissident
 RHYME	IH-S-AH-D-AH-N-T-S	1	1	1	0			dissidents
 RHYME	IH-S-AH-L-D	1	1	1	0			whistled
@@ -11258,7 +11255,6 @@ RHYME	IY-P-OW-Z	1	1	1	0			depots
 RHYME	IY-P-T	6	1	1	0			steeped
 RHYME	IY-R-AH	2	1	1	0			akira
 RHYME	IY-R-AH-N	1	1	1	0			kieran
-RHYME	IY-R-D-R-AH	1	1	1	0			deirdre
 RHYME	IY-R-IH-NG-Z	1	1	1	0			hearings
 RHYME	IY-R-IY	1	1	1	0			query
 RHYME	IY-R-IY-AH	1	1	1	0			valeria
@@ -11884,6 +11880,15 @@ RHYME	OY-Z-AH-N-IH-NG	1	1	1	0			poisoning
 RHYME	OY-Z-AH-N-Z	1	1	1	0			poisons
 RHYME	OY-Z-D	1	1	1	0			poised
 RHYME	OY-Z-IH-Z	1	1	1	0			noises
+RHYME	UA-R-D	14	1	1	0			cured
+RHYME	UA-R-F-IY-L-D	1	1	1	0			muirfield
+RHYME	UA-R-HH-IY-Z	1	1	1	0			voorhees
+RHYME	UA-R-M-AH-N-T	1	1	1	0			procurement
+RHYME	UA-R-N-AA-B	1	1	1	0			doorknob
+RHYME	UA-R-N-AA-B-Z	1	1	1	0			doorknobs
+RHYME	UA-R-N-AH-M-AH-N-T	1	1	1	0			tournament
+RHYME	UA-R-T	1	1	1	0			yurt
+RHYME	UA-R-V-OW	1	1	1	0			cuervo
 RHYME	UH	2	1	1	0			milieu
 RHYME	UH-CH	1	1	1	0			butch
 RHYME	UH-CH-ER	1	1	1	0			butcher
@@ -11977,12 +11982,9 @@ RHYME	UH-R-AH-T-AH-N-Z	1	1	1	0			puritans
 RHYME	UH-R-AH-T-IH-V-L-IY	1	1	1	0			figuratively
 RHYME	UH-R-AH-T-IY-Z	2	1	1	0			securities
 RHYME	UH-R-AH-Z	1	1	1	0			duras
-RHYME	UH-R-D	14	1	1	0			cured
 RHYME	UH-R-EH-K	1	1	1	0			jurek
 RHYME	UH-R-EH-S	1	1	1	0			duress
 RHYME	UH-R-ER-Z	1	1	1	0			jurors
-RHYME	UH-R-F-IY-L-D	1	1	1	0			muirfield
-RHYME	UH-R-HH-IY-Z	1	1	1	0			voorhees
 RHYME	UH-R-IH-N	1	1	1	0			turin
 RHYME	UH-R-IH-SH	1	1	1	0			boorish
 RHYME	UH-R-IH-T-IY	1	1	1	0			insecurity
@@ -11994,11 +11996,6 @@ RHYME	UH-R-IY-AH-N-Z	1	1	1	0			centurions
 RHYME	UH-R-IY-AH-S-ER	1	1	1	0			curiouser
 RHYME	UH-R-IY-AH-S-L-IY	2	1	1	0			curiously
 RHYME	UH-R-IY-Z	1	1	1	0			juries
-RHYME	UH-R-L-IY	4	1	1	0			surely
-RHYME	UH-R-M-AH-N-T	1	1	1	0			procurement
-RHYME	UH-R-N-AH-M-AH-N-T	1	1	1	0			tournament
-RHYME	UH-R-T	1	1	1	0			yurt
-RHYME	UH-R-V-OW	1	1	1	0			cuervo
 RHYME	UH-S-IY	1	1	1	0			pussy
 RHYME	UH-S-IY-Z	1	1	1	0			pussies
 RHYME	UH-S-T-AA-F	1	1	1	0			gustav
@@ -12254,9 +12251,6 @@ RHYME	UW-R-AH-K	1	1	1	0			burak
 RHYME	UW-R-AH-N-AH-S	1	1	1	0			uranus
 RHYME	UW-R-ER	1	1	1	0			poorer
 RHYME	UW-R-IH-S-T	1	1	1	0			poorest
-RHYME	UW-R-L-IY	1	1	1	0			poorly
-RHYME	UW-R-N-AA-B	1	1	1	0			doorknob
-RHYME	UW-R-N-AA-B-Z	1	1	1	0			doorknobs
 RHYME	UW-R-UW	1	1	1	0			mitsuru
 RHYME	UW-S-AA-N	1	1	1	0			pusan
 RHYME	UW-S-AH	2	1	1	0			medusa

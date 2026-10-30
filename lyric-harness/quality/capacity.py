@@ -135,19 +135,32 @@ CERTIFY_ATTEMPT_CAP = 40
 #: order, so re-sorting the artifact would flip this string with no
 #: measurement having changed. `validate_rows` re-derives both from the table
 #: on every check, which is what keeps the tie honest rather than remembered.
+#: RE-MEASURED 2026-10-30, THE ENGLISH SOUND INVENTORY (M-322). The vowel
+#: before a coda R is respelled in every first reading (IH/IY -> IA, EH/AE/EY
+#: -> EA, UH/UW -> UA), so the families those vowels split merge: families
+#: ~~12387~~ -> 12381, and the >=2/5/8/12 tiers move with them. IA-R (the old
+#: IH-R and IY-R) crosses the 20-class floor: certified ~~81~~ -> 82, its
+#: witness CONSTRUCTED at 19 words. All 81 earlier witnesses were re-graded by
+#: `recertify_capacity.py --reverify-from` under the new judge and every one
+#: still certifies unchanged; EH-R's 39-word witness now certifies as EA-R, so
+#: max_chain_lo stays 39 and only the family's NAME moves ~~"EH-R"~~ -> "EA-R".
 ADOPTED = {
     "population": 39969,
-    "families": 12387,
-    "chain_hi_at_least": {2: 2817, 5: 593, 8: 272, 12: 162, 16: 106,
-                          20: 81},
-    "certified": 81,
+    "families": 12381,             # ~~12387~~ 2026-10-30
+    # ~~{2: 2817, 5: 593, 8: 272, 12: 162, 16: 106, 20: 81}~~ 2026-10-30
+    "chain_hi_at_least": {2: 2813, 5: 591, 8: 271, 12: 163, 16: 106,
+                          20: 82},
+    "certified": 82,               # ~~81~~ 2026-10-30 (IA-R joins)
     "max_chain_lo": 39,            # REPINNED 2026-09-23 ~~22~~ ~~38~~ (N-relation)
-    "max_chain_lo_family": "EH-R", # REPINNED 2026-09-23 ~~"IY"~~ ~~"EY"~~
+    "max_chain_lo_family": "EA-R", # ~~"IY"~~ ~~"EY"~~ ~~"EH-R"~~ 2026-10-30
 }
 
 #: Families the per-push crown re-certifies (test_capacity §3) — the
 #: deepest, one mid-tail, and the two the density conversation named.
-CHECK_SAMPLE = ("IY", "AY-ER", "EH-R", "UW-Z", "EY-N", "AO-R")
+#: RENAMED 2026-10-30 (M-322): ~~"EH-R"~~ -> "EA-R". The SQUARE vowel before a
+#: coda R is its own symbol now, so the family the sample named is keyed EA-R;
+#: the same words, read by their first reading.
+CHECK_SAMPLE = ("IY", "AY-ER", "EA-R", "UW-Z", "EY-N", "AO-R")
 
 
 #: Largest actually witnessed class:RHYME group in the current artifact.
