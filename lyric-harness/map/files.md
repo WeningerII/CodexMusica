@@ -9,7 +9,7 @@ Everything tracked under `lyric-harness/`, sized in tokens (bytes ÷ 3.6, rounde
 | other files | 181 | 11,000k |
 | data tables (read at run time) | 39 | 7,500k |
 | notes and records (.md) | 129 | 1,500k |
-| Python: tests | 154 | 1,500k |
+| Python: tests | 155 | 1,500k |
 | Python: song program (ran) | 55 | 1,300k |
 | Python: research and record tools (never loaded) | 156 | 900k |
 | Python: loadable by the song program, not loaded | 13 | 89k |
