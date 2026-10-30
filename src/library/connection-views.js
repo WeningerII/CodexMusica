@@ -8,7 +8,9 @@
 // {method_id,name,layer,family,ordering,member_roles,matrix_projection,coverage,
 // disabledReason}; cells {selection,inLocus,record,jobComplete,domainCertified}.
 // counts/groupCounts and provenance describe supplied populations, not inferred
-// totals. poem contains full lines plus caller-measured token boxes. Figures
+// totals. hiddenCount is {count: nonnegative integer, by: nonempty string};
+// partial counts stay unknown, never inferred from visible nodes or edges.
+// poem contains full lines plus caller-measured token boxes. Figures
 // retain native members and evidence_id. This is not a backend schema adapter.
 // Returned DOM carries data-selection (Don's selectionKey), data-method,
 // data-view, data-action=cell_method and data-recovery hooks for Don's bindings.
@@ -34,6 +36,8 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
     if (text != null) node.textContent = text;
     return node;
   };
+  const suppliedCount = (value) => Number.isInteger(value) && value >= 0;
+  const countText = (value) => (suppliedCount(value) ? String(value) : 'not supplied');
   const layerName = (m) => I.LAYER_WORDS[m.layer];
   const methodName = (m) => `${layerName(m)} · ${m.name}`;
   const describe = (value) =>
@@ -368,13 +372,34 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
       const group = el('section', null, 'cv-group');
       group.append(el('h3', methodName(m)));
       const counts = model.groupCounts?.[m.method_id];
-      if (counts)
-        group.append(M.hullLabel({ ...counts, family: m.family, fixture: !!model.fixture }));
-      else
+      if (
+        counts &&
+        ['occurrences', 'shown', 'examined'].every((key) => suppliedCount(counts[key]))
+      ) {
         group.append(
-          el('p', 'Group counts not supplied'),
-          el('p', 'Joint reading consistency not assessed')
+          M.hullLabel({
+            occurrences: counts.occurrences,
+            shown: counts.shown,
+            examined: counts.examined,
+            pending: suppliedCount(counts.pending) ? counts.pending : undefined,
+            hidden: suppliedCount(counts.hidden) ? counts.hidden : undefined,
+            family: m.family,
+            fixture: !!model.fixture,
+          })
         );
+      } else {
+        group.append(el('p', 'Group counts not supplied in full'));
+        if (counts)
+          for (const [key, label] of [
+            ['occurrences', 'Occurrences'],
+            ['shown', 'Holds shown'],
+            ['examined', 'Eligible pairs examined'],
+            ['pending', 'Pending'],
+            ['hidden', 'Hidden'],
+          ])
+            group.append(el('p', `${label}: ${countText(counts[key])}`));
+        group.append(el('p', 'Joint reading consistency not assessed'));
+      }
       const canvas = svg('svg', { viewBox: '0 0 440 340', 'aria-label': methodName(m) });
       const positions = new Map(
         ids.map((id, i) => [
@@ -443,14 +468,24 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
       tabs.append(tab);
     }
     root.append(tabs, controls(model, view));
+    const hidden = model.hiddenCount;
+    const validHidden =
+      hidden && suppliedCount(hidden.count) && typeof hidden.by === 'string' && hidden.by.trim();
     root.append(
       M.countStrip(model.counts || {}, {
         words: I.STATE_WORDS,
         provenance: model.provenance,
-        hidden: model.hiddenCount,
+        hidden: validHidden ? hidden : undefined,
         emptyOnset: model.emptyOnset,
       })
     );
+    if (!validHidden && (hidden != null || model.hiddenByFilter))
+      root.append(
+        el(
+          'p',
+          `Hidden count: ${countText(hidden?.count)} · filter: ${typeof hidden?.by === 'string' && hidden.by.trim() ? hidden.by : 'not supplied'}`
+        )
+      );
     root.append(el('p', 'Counts cover all checked methods; Cell shows displays one method.'));
     const notice = I.hiddenNotice(model.selection, {
       checkedMethods: new Set(model.checkedMethods),

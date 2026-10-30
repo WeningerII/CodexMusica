@@ -433,3 +433,56 @@ test('Don URL and live region accept exact rendered occurrence IDs and refuse st
   sync.stop();
   dom.window.close();
 });
+
+test('partial and invalid group counts remain unknown without crashing or inferred totals', () => {
+  const { V, model } = setup();
+  const id = model.methods[0].method_id;
+  for (const counts of [
+    { shown: 1 },
+    { occurrences: 2, shown: 1, examined: null },
+    { occurrences: 2, shown: 1, examined: -1 },
+    { occurrences: 2, shown: 1, examined: '3' },
+  ]) {
+    model.groupCounts[id] = counts;
+    const group = V.network(model).querySelector('.cv-group');
+    assert.match(group.textContent, /Holds shown: 1/);
+    assert.match(group.textContent, /Eligible pairs examined: not supplied/);
+    assert.doesNotMatch(group.textContent, /of 0|examined: 0/);
+    assert.match(group.textContent, /Joint reading consistency not assessed/);
+    assert.equal(group.querySelectorAll('.lib-mk-node').length, 2);
+  }
+  model.groupCounts[id] = { occurrences: 2, shown: 1, examined: 3, pending: 2, hidden: 4 };
+  assert.match(
+    V.network(model).textContent,
+    /1 of 3 eligible pairs illustrated · 2 pending · 4 hidden/
+  );
+  model.groupCounts[id] = { occurrences: 0, shown: 0, examined: 0 };
+  assert.match(V.network(model).textContent, /0 occurrences · 0 of 0 eligible pairs illustrated/);
+});
+test('hiddenCount passes the exact marks contract and incomplete metadata never invents zero', () => {
+  const { V, model } = setup();
+  model.hiddenCount = { count: 3, by: 'declared display filter' };
+  assert.match(
+    V.render(model).querySelector('.lib-mk-count').textContent,
+    /3 hidden by declared display filter/
+  );
+  model.hiddenCount = { count: 3 };
+  let root = V.render(model);
+  assert.match(root.textContent, /Hidden count: 3 · filter: not supplied/);
+  assert.doesNotMatch(root.textContent, /hidden by undefined/);
+  for (const bad of [
+    3,
+    {},
+    { count: null, by: 'filter' },
+    { count: -1, by: 'filter' },
+    { count: '3', by: 'filter' },
+  ]) {
+    model.hiddenCount = bad;
+    root = V.render(model);
+    assert.match(root.textContent, /Hidden count: not supplied/);
+    assert.doesNotMatch(root.querySelector('.lib-mk-count').textContent, /0 hidden|3 hidden/);
+  }
+  delete model.hiddenCount;
+  model.hiddenByFilter = 'filter';
+  assert.match(V.render(model).textContent, /Hidden count: not supplied/);
+});
