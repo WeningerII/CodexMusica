@@ -175,10 +175,10 @@ const LIBRARY_BUDGETS = {
   'library-works': 12288,
   'library-rights': 12288,
   'library-readertools': 12288,
-  // The connection views' DOM bindings (live region, keys, URL, phone sheet):
-  // measured 1,506 B gzip on 2026-10-30 (1,739 before #640's factory
-  // minifier), so 3 KiB with room to grow.
-  'library-connection-bindings': 3072,
+  // The connection views' DOM bindings and their owner (live region, keys,
+  // URL, phone sheet, mount): measured 2,792 B gzip on 2026-10-30 with #640's
+  // factory minifier, so 4 KiB with room to grow. A new row, unmerged.
+  'library-connection-bindings': 4096,
   // ~~393216~~ raised 2026-10-25 to 400,640 (the merged interface batch
   // measured 399,587 B, plus ~1 KB headroom). Owner-authorised ship ("merge
   // the built fixes and get them live"). Lighthouse evidence on #519 comment

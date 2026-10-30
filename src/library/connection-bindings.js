@@ -185,4 +185,185 @@ function bottomSheet(container, title) {
   return { el: sheet, body, open, close, isOpen: () => !body.hidden };
 }
 
-return { liveRegion, bindKeys, urlSync, hiddenNotice, cellShowsControl, bottomSheet };
+// What the live region says for a selection, from the model the views drew.
+function announceFor(ci, model) {
+  const sel = model.selection;
+  if (!sel) return ci.announce(null, {});
+  const occ = (id) => model.occurrences.find((o) => o.entity_id === id);
+  const method = (id) => model.methods.find((m) => m.method_id === id);
+  const cellOf = (s) => model.cells.find((c) => ci.sameSelection(c.selection, s));
+  const hidden = ci.hiddenNotice(sel, {
+    checkedMethods: new Set(model.checkedMethods),
+    methodName: (id) => (method(id) || { name: id }).name,
+    hiddenByFilter: () => model.hiddenByFilter || null,
+  });
+  const ctx = { occurrence: occ, method, hidden };
+  if (sel.kind === 'pair' || sel.kind === 'binding') {
+    const cell = cellOf(sel);
+    if (!cell) {
+      const who = ci.selectionOccurrences(sel).map((id) => {
+        const o = occ(id);
+        return `${o.text} L${o.line} w${o.token}`;
+      });
+      return `${who.join(sel.kind === 'pair' ? ' – ' : ' → ')}: not supplied`;
+    }
+    ctx.state = ci.cellState(cell);
+  } else if (sel.kind === 'occurrence') {
+    const counts = {};
+    for (const c of model.cells) {
+      if (!model.checkedMethods.includes(c.selection.method_id)) continue;
+      if (!ci.selectionOccurrences(c.selection).includes(sel.entity_id)) continue;
+      const st = ci.cellState(c).state;
+      counts[st] = (counts[st] || 0) + 1;
+    }
+    ctx.counts = counts;
+  }
+  return ci.announce(sel, ctx);
+}
+
+// The owner of one mounted set of views: it holds the model, draws it with
+// the views, and wires every interaction above to it. The views stay pure
+// renderers; the selection, the URL and the announcements live here.
+// opts: { ci, marks, createViews, model, current, view, win, narrow }
+//   current  what decodeSelection needs (analysisIdentity, hasEntity, ...)
+//   narrow   () => boolean, true at phone width (the inspector goes in a sheet)
+function mount(host, opts) {
+  const { ci, current } = opts;
+  const doc = host.ownerDocument;
+  const win = opts.win || doc.defaultView;
+  const narrow =
+    opts.narrow || (() => !!(win.matchMedia && win.matchMedia('(max-width: 600px)').matches));
+  let model = opts.model;
+  let view = opts.view || 'poem';
+  const live = liveRegion(host);
+  const stage = doc.createElement('div');
+  host.append(stage);
+  let sheet = null;
+  const actions = {
+    cellMethod: (id) => update({ cellMethod: id }),
+    show: (action) => {
+      if (action.type === 'check_method') {
+        update({ checkedMethods: model.checkedMethods.concat(action.method_id) });
+      } else if (action.type === 'clear_filter') update({ hiddenByFilter: null });
+    },
+  };
+  const views = opts.createViews({
+    interaction: ci,
+    marks: opts.marks,
+    bindings: api,
+    actions,
+    live,
+  });
+
+  function draw(focusKey) {
+    const root = views.render(model, { view });
+    stage.replaceChildren(root);
+    if (sheet) sheet.el.remove();
+    sheet = null;
+    const pane = root.querySelector('.cv-inspector');
+    if (pane && narrow()) {
+      sheet = bottomSheet(root, 'Pair inspector');
+      sheet.body.append(pane);
+    }
+    if (focusKey) {
+      for (const node of root.querySelectorAll('[data-selection]')) {
+        if (node.dataset.selection === focusKey) {
+          node.focus();
+          break;
+        }
+      }
+    }
+    return root;
+  }
+  function update(patch, focusKey) {
+    model = { ...model, ...patch };
+    draw(focusKey);
+  }
+  function select(sel, { fromUrl, inspect } = {}) {
+    const key = sel ? ci.selectionKey(sel) : '';
+    const rowOccurrence =
+      sel && sel.kind === 'occurrence' ? sel.entity_id : sel ? model.rowOccurrence : null;
+    update({ selection: sel, rowOccurrence, notice: null }, key);
+    if (!fromUrl) url.write(sel);
+    live.say(announceFor(ci, model));
+    if (inspect && sheet) sheet.open(doc.activeElement);
+  }
+
+  const url = urlSync(
+    win,
+    ci,
+    current,
+    (sel) => select(sel, { fromUrl: true }),
+    (refused) => update({ selection: null, notice: refused.message })
+  );
+
+  stage.addEventListener('click', (ev) => {
+    const t = ev.target.closest('[data-selection],[data-view]');
+    if (!t || !stage.contains(t)) return;
+    if (t.dataset.view) {
+      view = t.dataset.view;
+      draw();
+      const tab = stage.querySelector(`[data-view="${t.dataset.view}"]`);
+      if (tab) tab.focus();
+      return;
+    }
+    // A click (or Enter or Space on a button, which the browser turns into a
+    // click) selects; at phone width it also opens the inspector sheet.
+    const sel = ci.selectionFromKey(t.dataset.selection);
+    if (sel) select(sel, { inspect: true });
+  });
+  stage.addEventListener('change', (ev) => {
+    const box = ev.target;
+    if (!box.dataset || !box.dataset.method) return;
+    const id = box.dataset.method;
+    const rest = model.checkedMethods.filter((m) => m !== id);
+    update({ checkedMethods: box.checked ? rest.concat(id) : rest });
+  });
+  const unbind = bindKeys(
+    stage,
+    ci,
+    {
+      clear: () => select(null),
+      inspect: () => {
+        const t = doc.activeElement && doc.activeElement.closest('[data-selection]');
+        const sel = t && ci.selectionFromKey(t.dataset.selection);
+        if (sel) select(sel, { inspect: true });
+      },
+      move: (key) => {
+        const t = doc.activeElement;
+        const grid = t.closest('table');
+        const n = grid ? grid.querySelectorAll('tr').length - 1 : 0;
+        const pos = ci.matrixMove({ row: +t.dataset.row, col: +t.dataset.col }, key, n);
+        const next = grid && grid.querySelector(`[data-row="${pos.row}"][data-col="${pos.col}"]`);
+        if (next) next.focus();
+      },
+    },
+    { grid: stage }
+  );
+
+  draw();
+  url.read();
+  return {
+    model: () => model,
+    view: () => view,
+    select,
+    destroy() {
+      unbind();
+      url.stop();
+      stage.remove();
+      live.el.remove();
+    },
+  };
+}
+
+const api = {
+  liveRegion,
+  bindKeys,
+  urlSync,
+  hiddenNotice,
+  cellShowsControl,
+  bottomSheet,
+  announceFor,
+  mount,
+};
+return api;
