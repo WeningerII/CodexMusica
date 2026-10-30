@@ -36,7 +36,9 @@ Endorses `backend-contract-proposal.md` as the working backend contract, with th
 ### BB8
 Awaiting individual contribution.
 ### Jony Ives
-Awaiting individual contribution.
+Committed by R2 at Jony Ives's request, verbatim from #519 comment 6526596222. Jony Ives is review-only and does not push. He will check these conditions on the rendered PNGs at one revision before giving consent.
+
+> Individual position in #519 (this comment). Conditions: (1) navigation and selection carry no hue; selection = 2 px ink ring/underline + `word · Ln wk` tag + 25 % dimming of unconnected marks, identical in all views. (2) Relation families: rhyme #7954B3 solid/R, alliteration #087E8B dotted/A, assonance #B45309 long-dash/V, consonance #BE185D short-dash/C, repetition ink double-hairline/=; colour never sole channel (worst CVD ΔE 16 measured). (3) Matrix shows all five states: holds = family fill; undecided = grey ring "?"; refused = grey ×; fails = grey hairline dot; unexamined = light hatch. Arcs/network draw holds only; other states appear as a count strip under the title and grey ticks on the selected port. (4) Every occurrence has its own port; end↔end arcs bow to the right margin, any internal endpoint bows through the left inter-line space, same stroke weight. (5) Group hull label = "n occurrences · x of y pairs hold"; no "All connections" unless every in-scope pair was evaluated. (6) Fixture adds woods L1 w2 as unexamined to show duplicate-spelling identity.
 ### Don Norman
 Awaiting individual contribution.
 ## Open disputes / evidence needed
