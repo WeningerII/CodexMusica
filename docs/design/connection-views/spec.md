@@ -80,6 +80,20 @@ Conditions for consensus:
 7. The fixture includes woods L1·2.
 
 Compatible with Jony Ives's revised position (6526665982). His selection carries no hue, using an ink ring plus a tag. He uses the same six states, with not yet computed drawn as a dotted grey outline "…". That replaces my proposed striped mark, so I defer to his treatment.
+
+**Don Norman's review of candidate r2** (checked against the PNG bytes in `drafts/r2/manifest-sha256.json`; all four hashes match):
+- All seven of my conditions are met in the frames.
+  - Six states, each with its own glyph or mark.
+  - One selection in all four frames.
+  - The inspector shows the verdict, phonemes, witness, alternates, licence, locus and layer.
+  - A coverage line in every view.
+  - The matrix defaults to one method.
+  - Keyboard, screen-reader and phone paths are shown.
+  - The fixture includes woods L1·2.
+- I consent to r2's design, with two non-blocking notes for the build:
+  - (a) The inspector shows IPA, while the engine's witness gives its own phones (`watch = W AA1 CH`). A build either shows the judge's symbols or generates the IPA from the table the judge uses, so the key can't drift (ledger V15).
+  - (b) The diagonal "self" cells are optional. Drop them if the space is wanted; they carry no state.
+- URL persistence, the "hidden by filter" notice and stale-link handling are behaviours, not visuals. They remain implementation acceptance tests, as the r2 README says.
 ## Open disputes / evidence needed
 1. ~~R2: Anywhere as placement-stripped pair judge.~~ RESOLVED by R2 accepting 3PO's position (registered loci only; a sound layer needs its own contract).
 2. ~~R2: reading disagreement = undecided.~~ RESOLVED: existential outcome, quantifier, completeness and witness stored apart (backend §2 truth table).
