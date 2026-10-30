@@ -100,6 +100,13 @@ Compatible with Jony Ives's revised position (6526665982). His selection carries
   - Cells keep the six states scoped to the selected method, so no seventh state and no doubled controls.
   - Once the schemas are registered, the two entries become enabled and nothing else changes.
   - For r3: one frame with the method menu open.
+- *Sound layer (6527064678), after John widened O1:*
+  - **No separate Layer control.** One method selector with two headed groups, "Registered figures" and "Shared sound (not a registered figure)". Each method belongs to exactly one layer. The default is registered figures only.
+  - **Matrix.** It shows one method, so its title and coverage line name the layer.
+  - **Arcs and network.** A shared-sound hold uses an outline in the family hue, a thinner stroke and a lowercase glyph. A figure keeps its solid mark and capital glyph. Jony Ives to settle.
+  - **Inspector.** Its header names the layer first. A pair holding in both layers shows the figure mark and lists both.
+  - **Coverage line.** It names each layer with its route and version.
+  - **Condition.** The sound layer waits if its evidence records can't carry their own version and route.
 ## Open disputes / evidence needed
 1. ~~R2: Anywhere as placement-stripped pair judge.~~ RESOLVED by R2 accepting 3PO's position (registered loci only; a sound layer needs its own contract).
 2. ~~R2: reading disagreement = undecided.~~ RESOLVED: existential outcome, quantifier, completeness and witness stored apart (backend §2 truth table).
