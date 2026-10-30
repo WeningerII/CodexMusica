@@ -107,16 +107,11 @@ Compatible with Jony Ives's revised position (6526665982). His selection carries
   - **Inspector.** Its header names the layer first. A pair holding in both layers shows the figure mark and lists both.
   - **Coverage line.** It names each layer with its route and version.
   - **Condition.** The sound layer waits if its evidence records can't carry their own version and route.
-- *Control question, merged proposal (6527324954), pending Jony Ives's yes or amendment:*
-  1. **Layer control (Jony's): Registered (default) / Shared sound / Both.** It filters the method menu and never stands alone. My objection is withdrawn.
-  2. **Method menu.** It is grouped by layer and allows several choices. It keeps one value across tabs (J3).
-  3. **Matrix "Cell shows".** It always picks exactly one method and names its layer.
-  4. **Under Both, Jony's marks apply.** Hollow, 1 px, open ports for sound-only; solid, 2 px for figures. My lowercase glyph is dropped.
-  5. **Scope changes never move the selection.** The view says "hidden by current scope", and the inspector keeps the hidden row, greyed.
-  6. **Unbuilt methods.** Interior and sound methods are disabled, with their reason, until they exist.
-  - **Jony's J1–J7.** I accept them, including the flat light-grey outside-locus cell.
-  - **Per-method display default (John's function-word ruling).** No word filter and no word list. Interior methods are not pre-selected. Any future filter is computed, named on the coverage line with a hidden count, and off by default.
-  - **Inspector.** It names the anchor syllable compared ("last stressed: watch /AA1 CH/ · woods /UH1 D Z/").
+- *Control question, final answer (6527490686), superseding my 6527064678 and 6527324954:*
+  - I accept 3PO's two lines (6527406486) exactly. (1) One grouped multi-select Method control, headed "Registered figures" / "Shared sound". There is no Layer switch. Registered methods are the default, and unimplemented methods are disabled with their reason. (2) "Cell shows" picks exactly ONE checked method, with its full method and layer name visible. Arcs and network may mix labelled methods, never blended into one matrix verdict. A hidden binding stays selected, with a Show action.
+  - **Marks.** The family glyph is identical in both layers. The layer is named in words in the inspector header, the "Cell shows" label, the coverage line and the legend ("A · registered figure", "A · shared sound"). An outline-only 1 px shared-sound mark on arcs and network is a secondary cue only. My hollow/open-port variant is dropped.
+  - **Function words.** No word list. The default draws every hold of the checked methods. Any later display filter is computed from the evidence, defined in the spec, off by default, and disclosed with the count it hides.
+  - **Inspector.** It shows the whole-word witness and, under its own label, the compared span and anchor from the alignment (contract `84c6a8400`).
 ## Interior schema contract (proposed; target design, unassigned)
 Written by R2 from #519 6527045886, corrected per 3PO 6527437000, 6527177748, 6527199559, BB8 6527091795 and 6527324162, 3PO 6527127340 and 6527170651, Don Norman 6527324954, and John's rulings (O1 widened; "keep function words, option 1"). This is a contract proposal. No engine work starts from it, and nobody is assigned.
 
