@@ -53,7 +53,11 @@ function bindKeys(root, ci, handlers, opts) {
     if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (t && t.isContentEditable)) {
       if (ev.key !== 'Escape') return;
     }
-    const action = ci.keyAction(ev.key);
+    // Space activates a non-native role="button" (the poem's and network's
+    // SVG marks), as it does a real button.
+    const roleButton =
+      t && t.getAttribute && t.getAttribute('role') === 'button' && tag !== 'BUTTON';
+    const action = ev.key === ' ' && roleButton ? 'inspect' : ci.keyAction(ev.key);
     if (action === 'clear') {
       handlers.clear();
     } else if (action === 'inspect') {
