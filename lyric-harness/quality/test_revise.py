@@ -687,8 +687,11 @@ def test_the_song_the_loop_could_not_grade():
     # overlapping graph, a non-letter-representable cover, and REPEAT edges
     # a partition-style mandate would reject. The LETTER and PARTITION
     # checks above stay on the real song -- they were never about overlap.
+    # REPOINTED 2026-10-30 (M-322): ~~"tiny lights"~~. The raising reading
+    # (L UI1 T S) lets lights clear with bits AND gates, so the graph became
+    # one clique (AAAA). `boots` restores an overlap, now pivoting at L3.
     overlap_lines = [
-        "I saw a thousand tiny lights",
+        "I saw a thousand tiny boots",
         "I opened up the rusted gates",
         "I missed it by a couple bits",
         "I opened up the rusted gates",
@@ -1416,8 +1419,15 @@ def test_the_collision_set_is_partitioned_not_silenced():
           # and F/G, which it does not name, stays DERIVED. MEASURED: merges
           # A/E, D/H, F/G (was A/E, C/F, C/G, D/H, F/G). superseded:
           # GROUPS_DECLARED_RETURN count == 3 (A/E, C/G, D/H).
+          #
+          # REPINNED 2026-10-30 (M-322): F/G no longer merges either. L34
+          # `flame` and L36 `name` gained the pane-type reading (EE1), which
+          # reaches the collision cut against neither `plain` nor `rain`
+          # (spelled ai, so EY1 only), and a collision needs every reading.
+          # MEASURED: merges A/E, D/H. superseded:
+          # MANDATE_GROUPS_INDISTINGUISHABLE count == 1 (F/G).
           got.count("GROUPS_DECLARED_RETURN") == 2
-          and got.count("MANDATE_GROUPS_INDISTINGUISHABLE") == 1
+          and got.count("MANDATE_GROUPS_INDISTINGUISHABLE") == 0
           and sorted(f.message.split(" are the same")[0] for f in dins["whole"]
                      if f.code == "GROUPS_DECLARED_RETURN")
           == ["groups A [13, 17] and E [33, 37]",
@@ -1425,7 +1435,8 @@ def test_the_collision_set_is_partitioned_not_silenced():
           f"{got} -- A/E and D/H are declared and still merge; C/G is "
           f"declared but no longer merges (L15 'again' has a reading that "
           f"collides with neither 'plain' nor 'rain'); F/G is not declared "
-          f"and stays derived. B[14,16]/F[34,36] cross-"
+          f"and no longer merges (flame/name's EE1 reading collides with "
+          f"neither 'plain' nor 'rain'). B[14,16]/F[34,36] cross-"
           f"collides with NEITHER of its counterparts at all (L14 ends "
           f"'night', L34 ends 'flame' -- not even an accidental near-rhyme), "
           f"so it never reaches `group_merges`'s gate in either reading. The "
@@ -2369,19 +2380,30 @@ def test_scope_reaches_the_collision_loop():
     # carried through them -- 13~37, 17~33, 18~40, 19~35, 20~38, 33~37,
     # 34~36, 35~39, 38~40 (REQUIRE_RHYME). No out-of-scope pair moved, so
     # the 41 UNDECLARED are exactly the 41 they were. superseded: 61.
+    # REPINNED 2026-10-30, THE SOUND INVENTORY (M-322): 47 -> 30, 41 -> 30
+    # UNDECLARED. 17 near-relations left and none joined: frame, name and
+    # flame gained the pane-type reading (EE1) and no longer collide under
+    # every reading with rain or plain (spelled ai, EY1 only); floor and
+    # door gained non-rhotic and FORCE readings against wall; told gained
+    # the toe-type reading against showed. 11 touched a line outside the
+    # scope (L1/L19, L1/L35, L1/L39, L3/L19, L3/L35, L3/L39, L4/L11, L9/L29,
+    # L9/L31, L25/L29, L25/L31) and 6 sat inside it (L19/L34, L19/L36,
+    # L34/L35, L34/L39, L35/L36, L36/L39), so every collision left is
+    # outside the scope. superseded: 47, 41 UNDECLARED.
     und = [c for c in rep_s["collisions"] if c.get("undeclared")]
     check("the scoped run marks the collisions that touch a line the mandate "
           "does not speak about",
-          len(rep_s["collisions"]) == 47 and len(und) == 41,
+          len(rep_s["collisions"]) == 30 and len(und) == 30,
           f"{len(und)} of {len(rep_s['collisions'])} collisions are "
           f"UNDECLARED; the mandate speaks about {len(scoped.scope)} of 41 "
           f"lines. Before 2026-08-13 `grade()`'s collision loop never asked "
           f"`Mandate.scope` at all and this was 0 of 73 (~~49 of 73~~ "
-          f"before 2026-10-01's any-reading rule)")
+          f"before 2026-10-01's any-reading rule, ~~41 of 47~~ before "
+          f"2026-10-30's sound inventory)")
     check("and the UNSCOPED mandate marks none of them — the default path is "
           "the one every production mandate takes",
           not any(c.get("undeclared") for c in rep_p["collisions"])
-          and len(rep_p["collisions"]) == 47)
+          and len(rep_p["collisions"]) == 30)
 
     # (2) RELABEL, NEVER DELETE (doctrine 24). The SET is the same set.
     check("the collision SET is unchanged by the scope — same 73 pairs",
@@ -2400,10 +2422,13 @@ def test_scope_reaches_the_collision_loop():
     # the first check of this section) leave the fourth code with them.
     # MEASURED: unscoped 32+21+8 = 61 -> scoped 41 UNDECLARED + 10 + 6 + 4.
     # superseded: COLLISION_UNDECLARED == 49.
+    # 2026-10-30 (M-322): the 11 out-of-scope near-relations named in the
+    # first check leave the fourth code. MEASURED: unscoped 22+4+4 = 30 ->
+    # scoped 30 UNDECLARED. superseded: COLLISION_UNDECLARED == 41.
     check("every collision finding the scoped run drops it RE-EMITS under the "
           "fourth code — the partition is exact, nothing is silenced",
           sum(by_p.values()) == sum(by_s.values())
-          and by_s["COLLISION_UNDECLARED"] == 41
+          and by_s["COLLISION_UNDECLARED"] == 30
           and by_p["COLLISION_UNDECLARED"] == 0,
           f"unscoped {dict(by_p)}  ->  scoped {dict(by_s)}")
     # REPINNED 2026-09-24, #375's N-relation model: ~~(25, 20, 4)~~ ->
@@ -2418,14 +2443,18 @@ def test_scope_reaches_the_collision_loop():
     # F AA1 L) and 6 near-relations (L1/L15, L3/L15, L7/L15, L7/L41,
     # L27/L29, L27/L31); no repeat moved, and no pair changed kind. Still
     # all three kinds.
+    # REPINNED 2026-10-30 (M-322): ~~(22, 15, 4)~~ -> (22, 4, 4). The 11
+    # out-of-scope pairs that left were all near-relations; no rhyme or
+    # repeat moved. Still all three kinds.
     check("...and it is drawn from ALL THREE relation types, so the code is "
           "not a rename of one of them",
           (by_p["SCHEME_COLLISION"] - by_s["SCHEME_COLLISION"],
            by_p["NEAR_COLLISION"] - by_s["NEAR_COLLISION"],
            by_p["REPEAT_ACROSS_GROUPS"] - by_s["REPEAT_ACROSS_GROUPS"])
-          == (22, 15, 4),
-          "22 rhymes + 15 near-relations + 4 repeats = the 41 "
-          "(~~24 + 21 + 4 = 49~~ before 2026-10-01's any-reading rule; "
+          == (22, 4, 4),
+          "22 rhymes + 4 near-relations + 4 repeats = the 30 "
+          "(~~22 + 15 + 4 = 41~~ before 2026-10-30's sound inventory; "
+          "~~24 + 21 + 4 = 49~~ before 2026-10-01's any-reading rule; "
           "~~25 + 20 + 4~~ before 2026-09-24's licensed nucleus)")
 
     # (3) WHAT THE FINDING SAYS. `FREE` is the word doctrine 28 exists to keep
@@ -2462,11 +2491,14 @@ def test_scope_reaches_the_collision_loop():
     # REPINNED 2026-10-18: the 14 declared-return pairs listed in this
     # section's first check were all inside the scope, so "of its 61, 20
     # inside" -> "of its 47, 6 inside"; the 41 outside do not move.
+    # REPINNED 2026-10-30 (M-322): the 17 pairs named in the first check
+    # leave both counts: "of its 47, 6 inside, 41 outside" -> "of its 30, 0
+    # inside, 30 outside". The two counts are still printed separately.
     check("the scope itself is disclosed once, with the two counts kept "
           "SEPARATE (doctrine 79)",
           len(disc) == 1 and "16 of 41" in disc[0].message
-          and "47 collision(s), 6 are inside that scope" in disc[0].message
-          and "41 touch a line it does not speak about" in disc[0].message,
+          and "30 collision(s), 0 are inside that scope" in disc[0].message
+          and "30 touch a line it does not speak about" in disc[0].message,
           disc[0].message if disc else "not emitted")
     check("and an unscoped mandate discloses nothing, because it has nothing "
           "to disclose — it speaks about every line",
@@ -2498,12 +2530,18 @@ def test_scope_reaches_the_collision_loop():
 
     # (7) THE SMALL CASE, checkable in one step (doctrine 94's shape: a
     # constructed fixture beside the real one).
+    # REPOINTED 2026-10-30 (M-322): ~~CLICHE~~ (go/know). `go` gained the
+    # toe-type reading (G OE1) and `know`, spelled ow, did not, so the pair
+    # no longer collides under every reading and both runs were empty.
+    # away/say carry no derived reading.
+    small = [CLICHE[0], "He said the word and then he turned away",
+             CLICHE[2], "She never asked the thing she had to say"]
     m4 = SC.mandate([[1, 3]], n_lines=4, scope=[1, 3])
-    ins4 = R.inspect(CLICHE, m4)
+    ins4 = R.inspect(small, m4)
     got = [f.code for fs in ins4["per_line"].values() for f in fs
            if f.code in COLLISION_FINDINGS]
-    plain4 = [f.code for fs in R.inspect(CLICHE, SC.mandate([[1, 3]],
-                                                            n_lines=4))
+    plain4 = [f.code for fs in R.inspect(small, SC.mandate([[1, 3]],
+                                                           n_lines=4))
               ["per_line"].values() for f in fs
               if f.code in COLLISION_FINDINGS]
     check("four lines: L2/L4 rhyme, the mandate speaks only about L1/L3, so "

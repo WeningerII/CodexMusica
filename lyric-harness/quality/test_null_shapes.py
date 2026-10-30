@@ -460,7 +460,11 @@ def forced_gap_sections():
 
     # The original proposed table row is false at the actual enumeration
     # boundary: mosaic rhyme can accept two different spans on one line.
-    overlap = R.build_stream(["door the door"], phon,
+    # 2026-10-30: was "door the door". Since M-322 `door` carries rhotic,
+    # non-rhotic and FORCE readings read independently per occurrence, so
+    # the pair is undecided (2x2 readings) rather than a true instance; the
+    # claim is about the span boundary, so a word with one reading carries it.
+    overlap = R.build_stream(["day the day"], phon,
                              declaration={"language": "eng"})
     mosaic = R.REGISTRY["mosaic rhyme"]
     found = R.realise(mosaic, overlap)

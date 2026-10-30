@@ -25,6 +25,19 @@ build is `refrain by reference` (`stub_resolution`). `EXTENSION_LEDGER` and
 were themselves already one M-40 schema behind: the ledger read 30 / 34 /
 (29, 5) before this repin.)
 
+**Superseded in part, 2026-10-30 (the English sound inventory, M-322).**
+Re-measured on the same ledger: 3 controlled, ~~33~~ **27** extendable,
+~~11~~ **8** no-instance, ~~31~~ **39** cannot-obtain, split ~~30~~ **38**
+input-resolvable and 1 implementation-required, and **1** cannot-fail. The
+Raven's -oor/-ore words now carry four readings each (rhotic and
+non-rhotic, AO and FORCE), so rime riche, repetition, reverse rhyme,
+semirhyme, compound/phrasal rhyme, cynghanedd lusg, additive and apocopated
+rhyme find only candidates their readings leave undecided: they ask for a
+reading, which the slice does not declare. `rhyming reduplication` moved
+NO INSTANCE -> CANNOT FAIL; that verdict exposes the open `_bucket_key` gap
+(G1 in M-322), not a new property of the schema. `EXTENSION_LEDGER` and
+`LEDGER_CANNOT_OBTAIN` carry the same repin.
+
 This correction validates the coverage census and its refusal remedies.
 “Controlled” here records membership in the historical arm inventory;
 it does **not** qualify the historical effect sizes for the current judge.

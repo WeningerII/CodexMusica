@@ -617,9 +617,14 @@ def test_brief_refuses_instead_of_tracebacking():
     # channel plays no part) rhymes with BOTH neighbours and they do not
     # rhyme with each other -- the exact non-transitive shape that makes a
     # single letter impossible.
-    pivot_body = ("I saw a thousand tiny lights\n"
-                  "I opened up the rusted gates\n"
-                  "I missed it by a couple bits\n")
+    # REPOINTED 2026-10-30 (M-322): ~~lights / gates / bits~~. The raising
+    # reading (lights L UI1 T S, PRICE raised before a voiceless consonant)
+    # has UI~IH 0.535, so lights/bits cleared the cut under the any-reading
+    # rule and the graph became one 3-clique. A voiced coda (-nz) takes no
+    # raising and no spelled alternate; the AY~EY~IH chain is unchanged.
+    pivot_body = ("I saw a thousand tiny lines\n"
+                  "I opened up the rusted chains\n"
+                  "I dropped a couple silver pins\n")
     with tempfile.NamedTemporaryFile("w", suffix=".txt",
                                      delete=False) as fh:
         fh.write(pivot_body)

@@ -768,7 +768,10 @@ def s15_named_nulls_are_not_independent_evidence():
     import random
 
     print("\n§15 M-42 named algorithms are not independent controls")
-    lines = ["the door", "a floor", "we adore", "I see more", "the night", "a light"]
+    # 2026-10-30: was the door/floor/adore/more set. Since M-322 those words
+    # carry accent alternates and both nulls refuse on `reading`; the claim
+    # is about the null algorithms, so words with fewer readings carry it.
+    lines = ["the day", "a play", "we stay", "I see grey", "the night", "a light"]
     toks = [R.tokenise(line) for line in lines]
     pairs = [(N.NULLS["line_permutation"].fn(toks, random.Random(N.SEED + 1 + k)),
               N.NULLS["line_final_permutation"].fn(toks, random.Random(N.SEED + 1 + k)))

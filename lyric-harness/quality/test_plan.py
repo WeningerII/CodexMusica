@@ -3584,10 +3584,13 @@ def test_the_relation_draw():
           not in traits["semirhyme"]["claims"]
           and ("coda", "final", "Agree") in traits["light rhyme"]["claims"],
           f"semirhyme {traits['semirhyme']}, light {traits['light rhyme']}")
-    check("M-123: prominence is BINARY, nucleus the 15-vowel inventory, and "
-          "light rhyme's DEFINITIONAL prominence-Differ caps its groups at 2",
+    # 2026-10-30: the nucleus domain was the 15 CMUdict vowels; the sound
+    # inventory (M-322) made it the 27 vowels the lexicon emits.
+    check("M-123: prominence is BINARY, nucleus the 27 vowels the lexicon "
+          "emits, and light rhyme's DEFINITIONAL prominence-Differ caps its "
+          "groups at 2",
           len(RL.CHANNEL_DOMAINS["prominence"]) == 2
-          and len(RL.CHANNEL_DOMAINS["nucleus"]) == 15
+          and len(RL.CHANNEL_DOMAINS["nucleus"]) == 27
           and ("prominence", "final", "Differ")
           in traits["light rhyme"]["claims"],
           f"domains {[(k, len(v)) for k, v in RL.CHANNEL_DOMAINS.items()]}")

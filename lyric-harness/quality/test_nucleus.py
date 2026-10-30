@@ -12,9 +12,9 @@ THE COIN FLIP, STILL FLIPPING
 -----------------------------
 `five`/`of` is typed RHYME at a nucleus similarity of 0.603 against a hand-set
 threshold of 0.600. `bed`/`bead` "agree" on the nucleus at 0.758. Those are not
-anecdotes: the vowel space is 15 symbols and 105 unordered non-identical pairs,
-so `theta_nucleus = 0.60` has an exhaustive reading — it is a LIST of 40 pairs,
-printed below.
+anecdotes: the vowel space was 15 symbols and 105 unordered non-identical pairs (37 and
+666 since the sound inventory, M-322), so `theta_nucleus = 0.60` has an
+exhaustive reading — it is a LIST (40 pairs then, 260 now), printed below.
 
 WHY IT IS NOT SIMPLY RAISED
 ---------------------------
@@ -103,6 +103,10 @@ N_SONNETS = 60
 
 FAILURES = []
 LEX = Lexicon()
+#: The pre-batch dictionary, byte for byte. Since M-322 the default reader
+#: respells IH/IY before a coda R as NEAR (IA), so the licence below is
+#: load-bearing only here.
+V1 = Lexicon(reader_scheme="v1")
 DECL = Declaration()
 #: The scalar SHAPE, declared. It was the default until the N-relation model
 #: (#375) moved `nucleus_agreement` to "licensed"; the checks that price the
@@ -119,16 +123,16 @@ def check(name, cond, detail=""):
         FAILURES.append(name)
 
 
-def anchor_of(word):
-    phones, oov = LEX.transcribe_word(word)
+def anchor_of(word, lex=None):
+    phones, oov = (lex or LEX).transcribe_word(word)
     if oov or not phones:
         return None
     return anchor(syllabify(phones))
 
 
-def rel(a, b, decl=None):
+def rel(a, b, decl=None, lex=None):
     d = decl or DECL
-    aa, bb = anchor_of(a), anchor_of(b)
+    aa, bb = anchor_of(a, lex), anchor_of(b, lex)
     # EVERY coarse relation the pair stands in: a set, never one label.
     return score(aa, bb, d, a, b)["relations"]
 
@@ -149,19 +153,25 @@ def test_the_threshold_is_a_list_not_an_intuition():
                    for a, b in itertools.combinations(sorted(L.VOWELS), 2)),
                   reverse=True)
     admitted = [r for r in rows if r[0] >= DECL.theta_nucleus]
-    check("the vowel space is 15 symbols and 105 unordered non-identical "
+    # 2026-10-30: 15 symbols / 105 pairs, 40 admitted, cut AH~AY 0.603 |
+    # AA~UH 0.598 before the sound inventory (M-322) added 22 vowels. The
+    # old cut still decides `five`/`of` (section 2); the thinnest admitted
+    # pair of the whole space now sits ON the line.
+    check("the vowel space is 37 symbols and 666 unordered non-identical "
           "pairs",
-          len(L.VOWELS) == 15 and len(rows) == 105,
+          len(L.VOWELS) == 37 and len(rows) == 666,
           f"{len(L.VOWELS)} vowels, {len(rows)} pairs")
-    check("0.60 admits 40 of them (38%) as AGREEING",
-          len(admitted) == 40,
+    check("0.60 admits 260 of them (39%) as AGREEING",
+          len(admitted) == 260,
           "  ".join(f"{a}~{b}" for _, a, b in admitted))
     lo = min(admitted)
     hi = max(r for r in rows if r[0] < DECL.theta_nucleus)
-    check("the cut lands between AH~AY at 0.603 and AA~UH at 0.598",
-          abs(lo[0] - 0.603) < 5e-4 and abs(hi[0] - 0.598) < 5e-4,
+    check("the cut lands between EE~IU at 0.600 and ER~II at 0.5975",
+          lo[1:] == ("EE", "IU") and abs(lo[0] - 0.600) < 5e-4
+          and hi[1:] == ("ER", "II") and abs(hi[0] - 0.5975) < 5e-4,
           f"thinnest ADMITTED {lo[1]}~{lo[2]} {lo[0]:.3f}; widest refused "
-          f"{hi[1]}~{hi[2]} {hi[0]:.3f}. A 0.005 gap decides them, and no "
+          f"{hi[1]}~{hi[2]} {hi[0]:.4f}. A 0.0025 gap (0.005 over the 15 "
+          f"CMUdict vowels) decides them, and no "
           f"measurement ever put the cut there — it was hand-set at the first "
           f"commit and never moved.")
 
@@ -300,7 +310,9 @@ def test_the_shape_is_declared():
 def test_the_licence_is_a_fact_about_the_dictionary():
     print("\n4. AH0~IH0 is CMUdict spelling one reduced vowel two ways")
     both = same = 0
-    for prons in LEX.entries.values():
+    # CMUdict's own readings: since M-322 `entries` also holds the derived
+    # accent readings, and this is a fact about the dictionary.
+    for prons in LEX.cmu_raw_entries.values():
         raw = {tuple(p) for p in prons}
         if len(raw) < 2:
             continue
@@ -421,13 +433,13 @@ def test_the_near_licence_before_a_coda_r():
     # The ingestion fact, asked of the dictionary with no poem: ONE vowel, two
     # spellings, and the everyday words sit on both sides of the split.
     coda = {"IY": 0, "IH": 0}
-    for prs in LEX.entries.values():
+    for prs in LEX.cmu_raw_entries.values():
         for p in prs:
             for s in syllabify(p):
                 if s["nucleus"] in coda and s["stress"] == 1 \
                         and s["coda"][:1] == ["R"]:
                     coda[s["nucleus"]] += 1
-    spelled = {w: LEX.entries[w][0] for w in ("here", "hear", "fear", "near")}
+    spelled = {w: LEX.cmu_raw_entries[w][0] for w in ("here", "hear", "fear", "near")}
     check("CMUdict writes the stressed vowel before a coda R both ways",
           coda["IY"] > 0 and coda["IH"] > coda["IY"]
           and "IY1" in spelled["here"] and "IY1" in spelled["hear"]
@@ -455,12 +467,20 @@ def test_the_near_licence_before_a_coda_r():
                                 d)[0],
           "coda first: merging before an onset R varies by dialect "
           "(mirror/nearer) and is a separate ruling")
+    # Under v1 (CMUdict's spelling, here IY1 / fear IH1) the licence is what
+    # decides the pair. Since M-322 the default reader writes both IA1, so
+    # the respelling subsumes it; these two ask v1 (2026-10-30, were asked
+    # of the default reader).
     off = Declaration(nucleus_licence_before_r=())
-    check("emptying the licence restores the identity answer",
-          "RHYME" not in rel("here", "fear", off), f"{rel('here', 'fear', off)}")
-    check("`identity` is unaffected by the licence",
+    check("emptying the licence restores the identity answer (v1 readings)",
+          "RHYME" not in rel("here", "fear", off, V1),
+          f"{rel('here', 'fear', off, V1)}")
+    check("`identity` is unaffected by the licence (v1 readings)",
           "RHYME" not in rel("here", "fear",
-                             Declaration(nucleus_agreement="identity")))
+                             Declaration(nucleus_agreement="identity"), V1))
+    check("...and under the default reader here/fear share one vowel, so "
+          "they rhyme with the licence emptied",
+          "RHYME" in rel("here", "fear", off), f"{rel('here', 'fear', off)}")
     check("`scalar` is unaffected by the licence (IH~IY already clears 0.60)",
           rel("here", "fear", SCALAR) == rel(
               "here", "fear", Declaration(nucleus_agreement="scalar",

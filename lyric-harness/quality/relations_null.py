@@ -1687,7 +1687,7 @@ LEDGER_BUDGET = None
 # DECLARABLE — it now asks for `tonal_template`/`tone`, which a caller
 # declares (`relations.declare_tonal_template`). The one left needing a
 # build is `refrain by reference` (`stub_resolution`, NEVER_PROVIDED).
-LEDGER_CANNOT_OBTAIN = (30, 1)  # M-40: was (28, 5); stanza input missing on ledger slice. Then (29, 5) until 2026-09-24.
+LEDGER_CANNOT_OBTAIN = (38, 1)  # M-40: was (28, 5); stanza input missing on ledger slice. Then (29, 5) until 2026-09-24, (30, 1) until 2026-10-30 (M-322: eight schemas' candidates now unresolved).
 
 
 def ledger_slice(root=None):
@@ -1817,28 +1817,38 @@ def menu_pairs(cov):
 # extendable, because #375 made the full figures judge instead of refusing
 # as `unsupported_shape`. Ledger now: 3 controlled, ~~30~~ 33 extendable,
 # 11 no-instance, ~~34~~ 31 cannot-obtain (~~29 / 5~~ 30 / 1).
+# 2026-10-30 (M-322, the sound inventory): re-read with `ledger_census()`.
+# NINE ROWS MOVED, verdict-only. The Poe slice's -oor/-ore and other common
+# words now carry rhotic, non-rhotic and FORCE readings read independently
+# per token, so eight schemas find only unresolved candidates: `additive`,
+# `apocopated` ~~no_instance~~ and `compound / phrasal`, `cynghanedd lusg`,
+# `repetition`, `reverse`, `rime riche`, `semirhyme` ~~extendable~~ ->
+# cannot_obtain. `rhyming reduplication` ~~no_instance~~ -> cannot_fail: the
+# uncertain read exposes G1 (`_bucket_key` prunes flush_right pairs the judge
+# accepts), which stays open. Ledger now: 3 controlled, ~~33~~ 27 extendable,
+# ~~11~~ 8 no-instance, ~~31~~ 39 cannot-obtain (~~30 / 1~~ 38 / 1).
 EXTENSION_LEDGER = (
     # M-40: measured on the unchanged ledger slice, 2026-09-16.
     ('chain rhyme (interlocking scheme)',         'cannot_obtain',   7,  0),
     ('perfect rhyme',                           'controlled',      6,  4),
-    ('rime riche',                              'extendable',      6,  0),
-    ('repetition',                              'extendable',      3,  0),
+    ('rime riche',                              'cannot_obtain',   6,  0),  # ~~extendable~~ 2026-10-30, M-322 accent readings: candidates unresolved, not absent
+    ('repetition',                              'cannot_obtain',   3,  0),  # ~~extendable~~ 2026-10-30, M-322 accent readings: candidates unresolved, not absent
     ('antanaclasis',                            'cannot_obtain',   4,  0),
     ('assonance',                               'extendable',      6,  0),
     ('consonance',                              'extendable',      6,  0),
     ('cluster consonance / skothending span',   'extendable',      3,  0),
     ('parechesis / general consonance',         'cannot_obtain',   2,  0),
     ('pararhyme',                               'extendable',      6,  0),
-    ('reverse rhyme',                           'extendable',      6,  0),
+    ('reverse rhyme',                           'cannot_obtain',   6,  0),  # ~~extendable~~ 2026-10-30, M-322 accent readings: candidates unresolved, not absent
     ('alliteration',                            'extendable',      1,  0),
     ('Kalevala alliteration (weak)',            'controlled',      2,  3),
     ('Kalevala alliteration (strong)',          'extendable',      2,  0),
     ('paroemion',                               'extendable',      2,  0),
     ('family rhyme',                            'extendable',      6,  0),
-    ('additive rhyme',                          'no_instance',     6,  0),
+    ('additive rhyme',                          'cannot_obtain',   6,  0),  # ~~no_instance~~ 2026-10-30, M-322 accent readings: candidates unresolved, not absent
     ('subtractive rhyme',                       'extendable',      6,  0),
-    ('semirhyme',                               'extendable',      6,  0),
-    ('apocopated rhyme',                        'no_instance',     6,  0),
+    ('semirhyme',                               'cannot_obtain',   6,  0),  # ~~extendable~~ 2026-10-30, M-322 accent readings: candidates unresolved, not absent
+    ('apocopated rhyme',                        'cannot_obtain',   6,  0),  # ~~no_instance~~ 2026-10-30, M-322 accent readings: candidates unresolved, not absent
     ('light rhyme',                             'no_instance',     6,  0),
     ('wrenched rhyme',                          'cannot_obtain',   6,  0),
     ('syllabic rhyme',                          'extendable',      6,  0),
@@ -1850,11 +1860,11 @@ EXTENSION_LEDGER = (
     ('polyptoton',                              'extendable',      4,  0),
     ('multisyllabic rhyme',                     'extendable',      6,  0),
     ('mosaic rhyme',                            'extendable',      8,  0),
-    ('compound / phrasal rhyme',                'extendable',      8,  0),
+    ('compound / phrasal rhyme',                'cannot_obtain',   8,  0),  # ~~extendable~~ 2026-10-30, M-322 accent readings: candidates unresolved, not absent
     ('holorhyme',                               'no_instance',     2,  0),
     ('broken rhyme',                            'no_instance',     8,  0),
     ('enjambed rhyme',                          'cannot_obtain',   4,  0),
-    ('rhyming reduplication',                   'no_instance',     0,  0),
+    ('rhyming reduplication',                   'cannot_fail',     0,  0),  # ~~no_instance~~ 2026-10-30, M-322 accent readings; exposes G1 (`_bucket_key` keys flush_right spans at the word start), still open
     ('ablaut reduplication',                    'no_instance',     0,  0),
     ('exact reduplication',                     'no_instance',     0,  0),
     ('internal rhyme',                          'controlled',      8,  6),
@@ -1883,7 +1893,7 @@ EXTENSION_LEDGER = (
     ('cynghanedd sain gadwynog',                'extendable',      1,  0),  # ~~cannot_obtain~~ 2026-09-24, #375
     ('cynghanedd sain lafarog',                 'extendable',      1,  0),  # ~~cannot_obtain~~ 2026-09-24, #375
     ('cynghanedd sain drosgl',                  'extendable',      1,  0),
-    ('cynghanedd lusg',                         'extendable',      1,  0),
+    ('cynghanedd lusg',                         'cannot_obtain',   1,  0),  # ~~extendable~~ 2026-10-30, M-322 accent readings: candidates unresolved, not absent
     ('proest',                                  'cannot_obtain',   6,  0),
     ("Scots vowel-length rhyme (Aitken's Law)", 'extendable',      6,  0),
     ('Middle Chinese end rhyme (同用 group)',     'cannot_obtain',   6,  0),
