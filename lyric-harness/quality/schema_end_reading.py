@@ -131,8 +131,16 @@ SONNET_SCHEME = "ABABCDCDEFEFGG"
 #: the split is (952, 2, 34) and H still holds; this route measures
 #: (952, 0, 36), and the pin records what the route measures. The gap is an
 #: open item in `MISSING.md` M-322's open list.
+#: ~~(952, 0, 36)~~ REPINNED 2026-10-30 -> (952, 2, 34), THE RULE-5 LISTING
+#: (`MISSING.md` M-322 item 8, fixed; layer: reporting only). `check_scheme`
+#: now lists every schema some whole reading holds
+#: (`VocabularyPairResults.listed`), for a pair a definite schema already
+#: satisfies too, so 27 tir'd/expired and 122 admire/desire name their
+#: audible schemas again and E2 no longer fires. Nothing judged moved:
+#: 952 + 36 + 25 = 1013 judged against 51 refused, as before. H HOLDS: 2 of
+#: 36 schema-only satisfactions (5.6%) are AUDIBLE and 34 (94.4%) are not.
 PINNED = {
-    "sonnets": (952, 0, 36),
+    "sonnets": (952, 2, 34),
 }
 
 

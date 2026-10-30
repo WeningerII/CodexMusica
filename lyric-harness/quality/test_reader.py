@@ -901,9 +901,11 @@ class OneCoordinate(unittest.TestCase):
             lines = ["I see the " + a, "You hear the " + b]
             for lex in (plain, selected):
                 with self.subTest(words=(a, b), selected=lex is selected):
+                    # The rule-5 listing recovery reports (M-322 item 5).
                     expected = dict(RL.whole_vocabulary_pairs(
                         lines, relation_phonology_for(lex),
-                        requested_pairs={(1, 2)}, bound={(1, 2): (-1, -1)}))
+                        requested_pairs={(1, 2)},
+                        bound={(1, 2): (-1, -1)}).listed())
                     self.assertEqual(schemas(lines, lex),
                                      set(expected.get((1, 2), ())))
             # THE SELECTED LEXICON REACHES RECOVERY: a supplement-only word
@@ -916,10 +918,12 @@ class OneCoordinate(unittest.TestCase):
             # rhyme. That is recovery's reporting (it drops the undecided
             # set: M-322's open list), not a lost lexicon; sixty-six/tricks,
             # with no raised reading, still carries it.
+            # FIXED the same day (M-322 item 5): recovery reports the rule-5
+            # listing, so the pair whose two accents each rhyme carries
+            # perfect rhyme under one whole reading, all three pairs again.
             if a in ("streetlight", "streetlights", "sixty-six") and b != "seat":
                 self.assertTrue(schemas(lines, selected))
                 self.assertEqual(schemas(lines, plain), set())
-            if a == "sixty-six":
                 self.assertIn("perfect rhyme", schemas(lines, selected))
         self.assertNotIn("perfect rhyme", schemas(["streetlights", "seat"], selected))
         self.assertEqual(schemas(["zzqxqzz", "night"], selected), set())

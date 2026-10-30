@@ -313,12 +313,145 @@ def test_readings_pair_within_an_accent():
           == ("onset", "nucleus", "coda", "prominence"))
 
 
+# ---------------------------------------------------------------------------
+# 6. EVERY LISTING REPORTS THE RULE-5 ANSWER, NOT THE DEFINITE SUBSET
+# ---------------------------------------------------------------------------
+
+#: What main (94ac9c2cc, before the accent readings) listed for each pair at
+#: its two end words (`whole_vocabulary_pairs`, bound at (-1, -1)), measured
+#: 2026-10-30. Under the readings the end words gain an APPENDED alternate
+#: (raising, the non-rhotic r, LOT), the merged nucleus reads undecided, and
+#: every listing that read only the definite set dropped all but consonance
+#: (M-322 items 5 and 8). Under standing rule 5 each still holds under one
+#: whole reading, so the branch must list every one of them.
+MAIN_LISTS = {
+    ("I walked out in the night", "and saw the light"): (
+        "Scots vowel-length rhyme (Aitken's Law)", "assonance",
+        "cluster consonance / skothending span", "consonance", "family rhyme",
+        "homoioteleuton", "mosaic rhyme", "pantun ABAB", "perfect rhyme",
+        "trite rhyme"),
+    ("I sat down to write", "the sky was bright"): (
+        "Scots vowel-length rhyme (Aitken's Law)", "assonance",
+        "cluster consonance / skothending span", "consonance", "family rhyme",
+        "homoioteleuton", "mosaic rhyme", "pantun ABAB", "perfect rhyme"),
+    ("what is it about", "the lights went out"): (
+        "Scots vowel-length rhyme (Aitken's Law)", "assonance",
+        "cluster consonance / skothending span", "consonance", "family rhyme",
+        "homoioteleuton", "mosaic rhyme", "pantun ABAB", "perfect rhyme"),
+    ("we left the house", "as quiet as a mouse"): (
+        "Scots vowel-length rhyme (Aitken's Law)", "assonance",
+        "cluster consonance / skothending span", "consonance", "family rhyme",
+        "homoioteleuton", "mosaic rhyme", "pantun ABAB", "perfect rhyme"),
+    ("I gave my life", "he held the knife"): (
+        "Scots vowel-length rhyme (Aitken's Law)", "assonance",
+        "cluster consonance / skothending span", "consonance", "family rhyme",
+        "homoioteleuton", "mosaic rhyme", "pantun ABAB", "perfect rhyme"),
+    ("I drove your old car", "we travelled far"): (
+        "Scots vowel-length rhyme (Aitken's Law)", "assonance",
+        "cluster consonance / skothending span", "consonance", "family rhyme",
+        "homoioteleuton", "mosaic rhyme", "pantun ABAB", "perfect rhyme"),
+    # price/nice and cot/lot: main left these undecided itself (nice and lot
+    # already had two dictionary readings); the branch must list them too.
+    ("I paid the price", "it was not nice"): (
+        "cluster consonance / skothending span", "consonance"),
+    ("he slept on the cot", "we lost a lot"): (
+        "cluster consonance / skothending span", "consonance"),
+}
+
+#: EXEMPT, named: the vowel GENUINELY changed. `here` is NEAR (IA), its own
+#: sound by the owner's ruling, so it no longer shares see's vowel: main's
+#: assonance and subtractive rhyme were the ruling's target, not a loss.
+EXEMPT_VOWEL_CHANGED = {
+    ("I came to be here", "the sea I see"): {"assonance", "subtractive rhyme"},
+}
+
+#: NOT A LISTING DEFECT, named: `relations._bucket_key` (M-322 item 4, G1)
+#: keys mosaic rhyme's free run on its FIRST syllable while flush_right
+#: compares the LAST, so main found mosaic rhyme only where a function word
+#: in the run (`to`, `was`, `the`) had two readings and the key was a
+#: wildcard. Every whole reading pins that word, so the judge prunes the
+#: pair under each one. The same pair loses it on main with a definite word
+#: there (`what is it about` / `my lights went out`). G1 is its own work.
+G1_MASKED = {"mosaic rhyme"}
+
+
+def test_listings_report_every_schema_some_reading_holds():
+    print("\n6. Every listing reports the schemas some whole reading holds")
+    from quality import relations as R
+    from quality import phonology as PH
+    eng = PH.get("eng")
+
+    def listed(a, b):
+        w = R.whole_vocabulary_pairs([a, b], eng, requested_pairs={(1, 2)},
+                                     bound={(1, 2): (-1, -1)}).listed()
+        return set(w.get((1, 2), ())), set(w.undecided.get((1, 2), ())), w
+
+    for (a, b), main in MAIN_LISTS.items():
+        held, open_, w = listed(a, b)
+        lost = set(main) - held - G1_MASKED
+        check(f"{a.split()[-1]}/{b.split()[-1]} lists every schema main lists",
+              not lost, f"lost {sorted(lost)}; held {sorted(held)}")
+        absent = (set(main) & G1_MASKED) - held - open_
+        if absent:
+            # The tripwire: once G1 is fixed this branch is never taken for
+            # these pairs, and the carve-out above must go.
+            check(f"{a.split()[-1]}/{b.split()[-1]}: only mosaic rhyme is "
+                  f"missing, and main misses it too with a definite word (G1)",
+                  absent == {"mosaic rhyme"})
+    for (a, b), gone in EXEMPT_VOWEL_CHANGED.items():
+        held, _, _ = listed(a, b)
+        check(f"{a.split()[-1]}/{b.split()[-1]} (exempt: NEAR is its own vowel) "
+              f"no longer lists {sorted(gone)}", not (held & gone), str(sorted(held)))
+    held, open_, w = listed("I walked out in the night", "and saw the light")
+    check("night/light names the readings perfect rhyme holds under",
+          w.readings.get((1, 2), {}).get("perfect rhyme")
+          == ["night = N AY1 T", "light = L AY1 T"],
+          str(w.readings.get((1, 2), {}).get("perfect rhyme")))
+    check("...and a whole-song schema it did not resolve stays undecided, "
+          "never absent (chain rhyme (rap))", "chain rhyme (rap)" in open_,
+          str(sorted(open_)))
+    _, _, raw = listed("I sat down to write", "the sky was bright")
+    raw0 = R.whole_vocabulary_pairs(["I sat down to write", "the sky was bright"],
+                                    eng, requested_pairs={(1, 2)},
+                                    bound={(1, 2): (-1, -1)})
+    check("the listing leaves the definite result it was made from unchanged",
+          sorted(raw0.get((1, 2), ())) == ["cluster consonance / skothending span",
+                                          "consonance"])
+    held_my, _, _ = listed("what is it about", "my lights went out")
+    check("G1 witness: with `my` (one reading) mosaic rhyme is absent here, "
+          "as on main", "mosaic rhyme" not in held_my)
+    # The consumers read the same listing.
+    lines = ["I walked out in the night", "and saw the light"]
+    cs = L.check_scheme(LEX, lines, "AA", DECL)
+    rels = set(cs["pair_scores"][0]["relations"])
+    sat = cs["pairs_schema_satisfied"][0]
+    check("check_scheme's pair relations list perfect rhyme for night/light",
+          {"perfect rhyme", "assonance", "trite rhyme"} <= rels, str(sorted(rels)))
+    check("...and its satisfied record names the readings",
+          "perfect rhyme" in sat["satisfied_by"]
+          and "perfect rhyme" in (sat.get("readings") or {}))
+    from quality.recover import recover
+    web = recover(lines, lex=LEX)["web"]
+    end = [e for e in web if (e["a"], e["b"]) == ("1", "2")]
+    check("recover's end edge lists perfect rhyme for night/light",
+          bool(end) and {"perfect rhyme", "trite rhyme"} <= set(end[0]["relations"]),
+          str(end[0]["relations"] if end else web))
+    from quality.revise import Reviser
+    from quality import schemes as SC
+    g = Reviser().grade(lines, SC.mandate([[1, 2]], n_lines=2))
+    v = [x for x in g.get("verdicts", ()) if tuple(x["lines"]) == (1, 2)]
+    check("Reviser.grade's schemas list perfect rhyme for night/light",
+          bool(v) and "perfect rhyme" in v[0]["schemas"],
+          str(v[0]["schemas"] if v else g.keys()))
+
+
 if __name__ == "__main__":
     for fn in (test_the_inventory_has_one_definition,
                test_every_rule_has_positive_and_negative_cases,
                test_provenance_and_shape,
                test_the_rulings_hold_under_any_reading,
-               test_readings_pair_within_an_accent):
+               test_readings_pair_within_an_accent,
+               test_listings_report_every_schema_some_reading_holds):
         fn()
     print("=" * 70)
     if FAILURES:

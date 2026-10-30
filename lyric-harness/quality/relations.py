@@ -7525,6 +7525,8 @@ class VocabularyPairResults(dict):
         self._resolve_key = None
         self._resolve_full = None
         self._bound = {}
+        # pair -> {schema: reading witness} for the names `listed` resolved.
+        self.readings = {}
 
     def _full_resolve_key(self):
         """-> the memo key for this call's resolutions, or None. The
@@ -7610,6 +7612,53 @@ class VocabularyPairResults(dict):
             elif verdict is None:
                 still.append(name)
         return satisfied, still
+
+    def listed(self, pairs=None):
+        """THE RULE-5 LISTING -> a copy of these results in which every
+        undecided schema some whole reading holds is HELD (its readings on
+        `.readings[pair][name]`), and `.undecided` keeps only what stays
+        open. `pairs` (1-based, any order) limits the resolving to those
+        pairs; the others are copied as they are.
+
+        Every caller that REPORTS which schemas a pair stands in reads this
+        (`check_scheme`'s `pair_schemas`, `recover`'s schema column,
+        `Reviser.grade`'s `schemas`): the definite set alone dropped every
+        schema whose nucleus the accent readings left uncertain -- night ~
+        light listed consonance and cluster consonance only, where one whole
+        reading holds perfect rhyme and seven more (M-322, 2026-10-30).
+
+        Only the PAIR-LOCAL schemas are resolved. A whole-song schema left
+        undecided by a reading is reported UNDECIDED, never absent and never
+        resolved here: it re-reads the whole draft under every combination
+        of readings (`resolve_readings` names its cost), and a listing asks
+        every pair. A pass/fail caller that needs it asks `resolve_readings`.
+        """
+        want = (None if pairs is None
+                else {tuple(sorted(p)) for p in pairs})
+        out = VocabularyPairResults(self, self.undecided, self.refused,
+                                    self.lines)
+        out._resolve_ctx, out._resolve_key = self._resolve_ctx, self._resolve_key
+        out._resolve_full, out._bound = self._resolve_full, self._bound
+        out.readings = {k: dict(v) for k, v in self.readings.items()}
+        for pair, names in self.undecided.items():
+            if want is not None and pair not in want:
+                continue
+            local = [n for n in names
+                     if pair_scope_representable(REGISTRY[n])]
+            if not local:
+                continue
+            sat, still = self.resolve_readings(pair, local)
+            if sat:
+                out[pair] = sorted(set(out.get(pair, ())) | set(sat))
+                out.readings.setdefault(pair, {}).update(sat)
+            rest = [n for n in names if n not in sat]
+            # A name decided False under every reading leaves the list.
+            rest = [n for n in rest if n in still or n not in local]
+            if rest:
+                out.undecided[pair] = rest
+            else:
+                out.undecided.pop(pair, None)
+        return out
 
     def can_stay_open(self, pair, names):
         """-> True when the any-reading search for `pair` cannot answer False

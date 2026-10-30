@@ -2405,6 +2405,11 @@ class Reviser:
                     # A trial grade reads pass/fail only: stop asking a pair
                     # once one satisfier holds it (the answer cannot move).
                     settle=_verdicts_only, bound=rnd)
+                if not _verdicts_only and hasattr(_wvps[id(rnd)], "listed"):
+                    # THE RULE-5 LISTING (M-322, 2026-10-30): `schemas`
+                    # names every schema some whole reading holds, not only
+                    # the definite ones.
+                    _wvps[id(rnd)] = _wvps[id(rnd)].listed()
             _open_ids = {id(v) for v in _open}
             _fan_unknown = set()
             for v in _asked:
@@ -2423,6 +2428,12 @@ class Reviser:
                     v["satisfied_by"] = sorted(set(v["satisfied_by"])
                                                | set(v["admitted"])
                                                | set(_sat))
+                    _rd = (getattr(_wvp, "readings", {})
+                           .get(tuple(sorted(v["lines"]))) or {})
+                    if _rd and all(n in _rd for n in _sat):
+                        # Held only under a whole reading: the readings are
+                        # named, as on the any-reading route below.
+                        v["readings"] = {n: _rd[n] for n in _sat}
                     # IDENTICAL WORDS THAT SATISFY A TYPE ARE NOT CHARGED AS
                     # REPEAT (2026-10-27, end-of-day plan, #519 6448819660):
                     # a pair the whole vocabulary satisfies passes whatever
