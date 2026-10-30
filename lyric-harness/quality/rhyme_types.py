@@ -2568,6 +2568,23 @@ def names_at(a, b, phon, position, preset=None):
     if position not in POSITION:
         raise ValueError(f"position {position!r} is not in the declared "
                          f"vocabulary {list(POSITION)}")
+    # THE ANY-READING RULE (owner ruling 2026-10-01): a name holds when one
+    # whole reading of each member, paired within one accent, holds it --
+    # merging the readings channel by channel leaves the commonest rhymes
+    # (go/no, night/light) undecided once a word has an accent alternate.
+    combos, _ = _member_reading_combos(a, b, phon, phon)
+    found, skipped = [], []
+    for pa, pb in combos or [(phon, phon)]:
+        got = _names_at_reading(a, b, phon, position, preset, (pa, pb))
+        if got is None:
+            return None
+        found += [n for n in got[0] if n not in found]
+        skipped += [n for n in got[1] if n not in skipped]
+    return tuple(found), tuple(n for n in skipped if n not in found)
+
+
+def _names_at_reading(a, b, phon, position, preset, member_phons):
+    """`names_at` under one pinned reading of each member."""
     import dataclasses as _dc
     kw = {"preset": preset} if preset else {}
     found, skipped = [], []
@@ -2591,7 +2608,8 @@ def names_at(a, b, phon, position, preset=None):
             continue
         try:
             t = classify_pair(a, b, phon, boundary=key[4], realisation=key[6],
-                              anchor_a=key[7], anchor_b=key[8], **kw)
+                              anchor_a=key[7], anchor_b=key[8],
+                              member_phons=member_phons, **kw)
         except Indeterminate:
             skipped.extend(n for n in names_here if n not in skipped)
             continue

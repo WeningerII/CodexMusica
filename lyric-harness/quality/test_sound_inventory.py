@@ -241,6 +241,16 @@ def test_readings_pair_within_an_accent():
     check("lake/shake is not an eye rhyme (both take the pane reading together)",
           "eye rhyme" not in lake["schema_relations"]
           and "perfect rhyme" in lake["schema_relations"])
+    from quality import structures as ST
+    from quality import phonology as PH
+    from quality import rhyme_types as RT
+    check("a declared structure is judged over whole readings (go/no, here/near)",
+          ST.judge("perfect-rhyme", "go", "no") is True
+          and ST.judge("perfect-rhyme", "here", "near") is True
+          and ST.judge("perfect-rhyme", "go", "near") is False)
+    names, _ = RT.names_at("night", "light", PH.get("eng"), "end")
+    check("night/light is still named a masculine rhyme at the line end",
+          "masculine rhyme" in names, str(names))
     check("a silent e before a final s or d is set aside (gates, named)",
           gains("gates", "EE") and gains("named", "EE") and not gains("pains", "EE"))
 

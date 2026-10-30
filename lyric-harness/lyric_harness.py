@@ -11472,9 +11472,24 @@ def main():
                   f"members. That is a refusal, not a non-rhyme.")
             _lyric_result(**_lexicon_kw(), status="unreadable", exit=0)
             return
+        # THE ANY-READING RULE (owner ruling 2026-10-01): where the merged
+        # readings leave a channel undecided, each whole reading of each
+        # word, paired within one accent, is classified on its own.
+        per_reading = []
+        if any(v is None for syl in t.agreement for v in syl):
+            combos, _ = RT._member_reading_combos(w1, w2, phon, phon)
+            for pinned in combos:
+                try:
+                    tt = RT.classify_pair(w1, w2, phon, member_phons=pinned, **kw)
+                except RT.Indeterminate:
+                    continue
+                if tt is not None:
+                    per_reading.append(tt)
         print(f"  phonology: {lang} — {phon.name}")
         print(f"  agreement (onset,nucleus,coda) per syllable: {t.agreement}")
         print(f"  cells: {t.cells()}")
+        for k, tt in enumerate(per_reading, 1):
+            print(f"  whole reading {k}: agreement {tt.agreement}, cells {tt.cells()}")
         for side, a in (("A", t.anchor_a), ("B", t.anchor_b)):
             print(f"  anchor {side}: {a.rule} / {a.determinacy} / span "
                   f"{a.span}" + (f" / index {a.index}" if a.index is not None
@@ -11498,6 +11513,8 @@ def main():
             # EVERY name the pair supports, over EVERY alignment
             # `classify_pair` tried — not the one alignment it kept.
             names = t.every_name()
+            for tt in per_reading:
+                names += tuple(n for n in tt.every_name() if n not in names)
         if position is None:
             # An INCOMPLETE coordinate is not an unnamed one. Say which axis
             # is missing and how many names need it, derived from the table
