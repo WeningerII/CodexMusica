@@ -1,0 +1,488 @@
+#!/usr/bin/env node
+'use strict';
+const assert = require('node:assert/strict');
+const test = require('node:test');
+const fs = require('node:fs');
+const path = require('node:path');
+const { JSDOM } = require('jsdom');
+
+// Integration seam: use the actual teammate sources, not substitute logic.
+// Before their branches land, point these env vars at extracted source files.
+const interactionPath =
+  process.env.CONNECTION_INTERACTION_SOURCE ||
+  path.join(__dirname, '../src/connection-interaction.js');
+const marksPath =
+  process.env.CONNECTION_MARKS_SOURCE || path.join(__dirname, '../src/library/marks.js');
+const bindingsPath =
+  process.env.CONNECTION_BINDINGS_SOURCE ||
+  path.join(__dirname, '../src/library/connection-bindings.js');
+const source = fs.readFileSync(path.join(__dirname, '../src/library/connection-views.js'), 'utf8');
+function setup() {
+  const dom = new JSDOM(
+    '<!doctype html><html data-theme="light"><head><meta name="viewport" content="width=device-width, initial-scale=1"></head><body><main id="surface-library"></main></body></html>',
+    { runScripts: 'outside-only', url: 'https://example.test/library?keep=1' }
+  );
+  const w = dom.window;
+  const theme = w.document.createElement('style');
+  theme.textContent = fs.readFileSync(path.join(__dirname, '../src/theme.css'), 'utf8');
+  w.document.head.append(theme);
+  w.eval(fs.readFileSync(interactionPath, 'utf8'));
+  const I = w.CMConnectionInteraction;
+  const M = w.eval(`(function(){${fs.readFileSync(marksPath, 'utf8')}\n})()`);
+  const api = w.eval(`(function(){${source}\n})()`);
+  const V = api.createViews({ interaction: I, marks: M });
+  return { dom, I, M, V, api, model: authoredFixture(I) };
+}
+
+// Authored visual fixture. No engine was run; omitted results stay not supplied.
+function authoredFixture(I) {
+  const occurrences = [
+    ['woods1', 'woods', 1, 2, false],
+    ['know', 'know', 1, 8, true],
+    ['though', 'though', 2, 7, true],
+    ['watch', 'watch', 4, 2, false],
+    ['woods4', 'woods', 4, 4, false],
+    ['snow', 'snow', 4, 8, true],
+  ].map(([entity_id, text, line, token, final]) => ({ entity_id, text, line, token, final }));
+  const methods = [
+    {
+      method_id: 'schema:alliteration@fixture',
+      name: 'Alliteration',
+      family: 'alliteration',
+      layer: 'registered',
+      ordering: 'unordered',
+      matrix_projection: 'exact_token_pair',
+      coverage:
+        'Same-line occurrences · illustrative reading · target route Library schema analysis · no runtime search',
+    },
+    {
+      method_id: 'schema:rhyme@fixture',
+      name: 'Perfect rhyme',
+      family: 'rhyme',
+      layer: 'registered',
+      ordering: 'unordered',
+      matrix_projection: 'exact_token_pair',
+      coverage:
+        'Line endings · illustrative reading · target route Library schema analysis · no runtime search',
+    },
+    {
+      method_id: 'future:interior',
+      name: 'Interior assonance',
+      layer: 'registered',
+      disabledReason: 'Not registered yet',
+    },
+    {
+      method_id: 'future:sound',
+      name: 'Shared onset',
+      layer: 'sound',
+      disabledReason: 'Sound layer not implemented',
+    },
+  ];
+  const allit = methods[0].method_id,
+    rhyme = methods[1].method_id;
+  const hold = (m, a, b) => ({
+    selection: I.pair(m, a, b),
+    inLocus: true,
+    record: {
+      outcome: true,
+      witness: 'Authored illustrative witness only',
+      quantifier: 'illustrative compatible-reading witness',
+    },
+  });
+  const cells = [
+    hold(allit, 'watch', 'woods4'),
+    hold(rhyme, 'know', 'though'),
+    hold(rhyme, 'know', 'snow'),
+    hold(rhyme, 'though', 'snow'),
+  ];
+  for (const a of occurrences)
+    for (const b of occurrences)
+      if (a.entity_id < b.entity_id && a.line !== b.line)
+        cells.push({ selection: I.pair(allit, a.entity_id, b.entity_id), inLocus: false });
+  cells[0].record.witness = 'watch = W AA1 CH · woods = W UH1 D Z (illustrative)';
+  return {
+    title: 'Stopping by Woods on a Snowy Evening',
+    fixture: true,
+    provenance: 'authored fixture only · not computed',
+    occurrences,
+    methods,
+    cells,
+    checkedMethods: [allit, rhyme],
+    cellMethod: allit,
+    selection: I.pair(allit, 'watch', 'woods4'),
+    rowOccurrence: 'watch',
+    counts: { holds: 4 },
+    groupCounts: {
+      [allit]: { occurrences: 2, shown: 1, examined: 1 },
+      [rhyme]: { occurrences: 3, shown: 3, examined: 3 },
+    },
+    poem: {
+      width: 850,
+      height: 420,
+      lines: [
+        { y: 70, text: 'Whose woods these are I think I know.' },
+        { y: 170, text: 'His house is in the village though;' },
+        { y: 270, text: 'He will not see me stopping here' },
+        { y: 370, text: 'To watch his woods fill up with snow.' },
+      ],
+      boxes: {
+        woods1: { x: 120, y: 70, width: 66 },
+        know: { x: 365, y: 70, width: 60 },
+        though: { x: 296, y: 170, width: 78 },
+        watch: { x: 80, y: 370, width: 65 },
+        woods4: { x: 183, y: 370, width: 67 },
+        snow: { x: 373, y: 370, width: 60 },
+      },
+    },
+  };
+}
+
+test('all layouts consume the same selection, coverage, six-state marks and inspector', () => {
+  const { V, model, dom } = setup();
+  for (const view of ['poem', 'matrix', 'network']) {
+    const root = V.render(model, { view });
+    assert.match(root.textContent, /Illustrative subset · not computed/);
+    assert.match(root.textContent, /Whole-word witness/);
+    assert.match(root.textContent, /compared syllable not reported for this reading/);
+    assert.match(root.textContent, /target route Library schema analysis/);
+    assert.equal(root.querySelectorAll('.lib-mk-legend-item').length, 6);
+    assert.equal(root.querySelectorAll('details').length, 1);
+    assert.equal(root.querySelectorAll('input:disabled').length, 2);
+    assert.match(root.textContent, /Shared sound \(not a registered figure\)/);
+  }
+  dom.window.close();
+});
+test('full occurrence triangle distinguishes duplicate spellings and never makes missing records false', () => {
+  const { V, I, model } = setup();
+  const root = V.matrix(model);
+  assert.equal(root.querySelectorAll('table button').length, 15);
+  const key = I.selectionKey(I.pair(model.cellMethod, 'woods1', 'watch'));
+  const cell = [...root.querySelectorAll('table button')].find((b) => b.dataset.selection === key);
+  assert.match(cell.getAttribute('aria-label'), /outside this method/);
+  assert.equal(root.querySelectorAll('.lib-mk-cell-does_not_hold').length, 0);
+  assert.match(root.textContent, /woods · L1 w2/);
+  assert.match(root.textContent, /woods · L4 w4/);
+  assert.ok([...root.querySelectorAll('table button')].some((b) => b.textContent === 'NS'));
+});
+test('phone row exposes every other occurrence and a real Cell shows select', () => {
+  const { V, model } = setup();
+  const root = V.render(model, { view: 'matrix' });
+  assert.equal(root.querySelectorAll('.cv-phone-row button').length, 5);
+  assert.equal(root.querySelectorAll('select option').length, 2);
+  assert.match(root.querySelector('.cv-phone-row').textContent, /Matrix row · watch · L4 w2/);
+  assert.equal(root.querySelectorAll('.cv-phone-row .cv-selected').length, 1);
+});
+test('poem retains full text, independent ports and only supplied holding arcs', () => {
+  const { V, model } = setup();
+  const root = V.poem(model);
+  assert.equal(root.querySelectorAll('.lib-mk-port').length, 6);
+  assert.equal(root.querySelectorAll('.lib-mk-arc').length, 4);
+  assert.match(root.textContent, /He will not see me stopping here/);
+  assert.equal(root.querySelectorAll('.lib-mk-select').length, 2);
+});
+test('network draws exact edges, equal radii and no inferred clique or group certificate', () => {
+  const { V, model } = setup();
+  const root = V.network(model);
+  assert.equal(root.querySelectorAll('.lib-mk-edge').length, 4);
+  assert.equal(root.querySelectorAll('.lib-mk-node').length, 5);
+  assert.ok(
+    [...root.querySelectorAll('.lib-mk-node > circle:first-child')].every(
+      (c) => c.getAttribute('r') === '37'
+    )
+  );
+  assert.match(root.textContent, /Joint reading consistency not assessed/);
+  assert.match(root.textContent, /woods · L1 w2 · No holding edge supplied/);
+});
+test('six explicit states come from Don, including unknown reasons and no absent false inference', () => {
+  const { V, I, model } = setup();
+  const selection = model.selection;
+  const checks = [
+    [{ inLocus: false }, 'not_examined'],
+    [{ inLocus: true }, 'not_yet_computed'],
+    [{ inLocus: true, jobComplete: true }, 'undecided'],
+    [
+      { inLocus: true, record: { coverage: 'refused', refusal: { reason: 'missing frame' } } },
+      'refused',
+    ],
+    [{ inLocus: true, record: { outcome: false } }, 'does_not_hold'],
+    [{ inLocus: true, record: { outcome: true } }, 'holds'],
+  ];
+  for (const [facts, state] of checks) {
+    model.cells = [{ selection, ...facts }];
+    assert.equal(V.matrix(model).querySelector(`[data-state="${state}"]`) !== null, true);
+    assert.match(V.inspector(model).textContent, new RegExp(I.STATE_WORDS[state]));
+  }
+  model.cells = [
+    { selection, inLocus: true, record: { outcome: 'undecided', unknown_channels: ['nucleus'] } },
+  ];
+  assert.match(V.inspector(model).textContent, /nucleus not settled/);
+});
+test('directed roles render square cells and native arrows; spans never create pair edges', () => {
+  const { V, I, model } = setup();
+  const m = {
+    ...model.methods[0],
+    method_id: 'schema:directed',
+    ordering: 'directed',
+    member_roles: ['end', 'head'],
+  };
+  model.methods.push(m);
+  model.checkedMethods = [m.method_id];
+  model.cellMethod = m.method_id;
+  model.selection = I.binding(m.method_id, [
+    { role: 'end', entity_id: 'know' },
+    { role: 'head', entity_id: 'woods4' },
+  ]);
+  model.cells = [
+    {
+      selection: model.selection,
+      inLocus: true,
+      record: { outcome: true, compared: { anchors: [0, 1] } },
+    },
+  ];
+  assert.equal(V.matrix(model).querySelectorAll('table button').length, 30);
+  const root = V.render(model, { view: 'network' });
+  assert.match(
+    root.querySelector('.cv-native').textContent,
+    /end: know · L1 w8 → head: woods · L4 w4/
+  );
+  assert.equal(root.querySelectorAll('.lib-mk-edge').length, 0);
+  assert.match(V.inspector(model).textContent, /"anchors":\[0,1\]/);
+  model.figures = [
+    {
+      evidence_id: 'span1',
+      method_id: m.method_id,
+      members: ['know', 'woods4', 'snow'],
+      inLocus: true,
+      record: { outcome: true },
+    },
+  ];
+  model.selection = I.figure('span1');
+  assert.match(V.inspector(model).textContent, /Figure \/ span · span1/);
+  assert.equal(V.network(model).querySelectorAll('.lib-mk-edge').length, 0);
+});
+test('hidden binding retains selection and exposes Don recovery action only when needed', () => {
+  const { V, I, model } = setup();
+  const before = I.selectionKey(model.selection);
+  assert.equal(V.render(model).querySelector('[data-recovery]'), null);
+  model.checkedMethods = [model.methods[1].method_id];
+  const root = V.render(model);
+  assert.match(root.textContent, /Selected pair hidden by current methods/);
+  assert.equal(
+    JSON.parse(root.querySelector('[data-recovery]').dataset.recovery).type,
+    'check_method'
+  );
+  assert.equal(I.selectionKey(model.selection), before);
+});
+test('text is escaped by DOM construction and source remains unmounted', () => {
+  const { V, model } = setup();
+  model.title = '<img src=x onerror=alert(1)>';
+  assert.equal(V.render(model).querySelector('img'), null);
+  assert.doesNotMatch(source, /fetch\(|addEventListener\(|syllabif\w*\(/);
+});
+
+// Optional review output of the actual components, never a production fixture.
+if (process.env.CONNECTION_PREVIEW_DIR) {
+  fs.mkdirSync(process.env.CONNECTION_PREVIEW_DIR, { recursive: true });
+  for (const view of ['poem', 'matrix', 'network']) {
+    const { V, model, dom } = setup();
+    dom.window.document.querySelector('main').append(V.render(model, { view }));
+    fs.writeFileSync(
+      path.join(process.env.CONNECTION_PREVIEW_DIR, `${view}.html`),
+      dom.serialize()
+    );
+    dom.window.close();
+  }
+}
+
+test('mixed layers keep explicit words and one-pixel sound marks; no function-word filter', () => {
+  const { V, I, model } = setup();
+  const m = {
+    ...model.methods[0],
+    method_id: 'sound:onset@fixture',
+    layer: 'sound',
+    name: 'Shared onset',
+  };
+  model.methods.push(m);
+  model.checkedMethods.push(m.method_id);
+  model.occurrences.find((o) => o.entity_id === 'know').text = 'the';
+  model.cells.push({
+    selection: I.pair(m.method_id, 'know', 'though'),
+    inLocus: true,
+    record: { outcome: true },
+  });
+  const root = V.render(model, { view: 'network' });
+  assert.match(root.textContent, /Shared sound \(not a registered figure\) · Shared onset/);
+  assert.equal(root.querySelector('.lib-mk-layer-sound path').getAttribute('stroke-width'), '1');
+  assert.match(root.textContent, /the/);
+  assert.equal(root.querySelectorAll('.lib-mk-edge').length, 5);
+  assert.match(root.textContent, /Group counts not supplied/);
+});
+
+function actualBindings(dom) {
+  return dom.window.eval(`(function(){${fs.readFileSync(bindingsPath, 'utf8')}\n})()`);
+}
+test('Don controls deliver Cell shows and recovery callbacks without changing selection', () => {
+  const { dom, I, M, api, model } = setup();
+  const B = actualBindings(dom),
+    changes = [],
+    recoveries = [],
+    spoken = [];
+  const V = api.createViews({
+    interaction: I,
+    marks: M,
+    bindings: B,
+    actions: { cellMethod: (id) => changes.push(id), show: (action) => recoveries.push(action) },
+    live: { say: (words) => spoken.push(words) },
+  });
+  const before = I.selectionKey(model.selection);
+  let root = V.render(model, { view: 'matrix' });
+  const select = root.querySelector('.lib-cb-cellshows select');
+  select.value = model.methods[1].method_id;
+  select.dispatchEvent(new dom.window.Event('change', { bubbles: true }));
+  assert.deepEqual(changes, [model.methods[1].method_id]);
+  model.checkedMethods = [model.methods[1].method_id];
+  root = V.render(model, { view: 'matrix' });
+  root.querySelector('.lib-cb-hidden button').click();
+  assert.equal(recoveries[0].method_id, model.selection.method_id);
+  assert.match(spoken[0], /previous method is no longer checked/);
+  assert.equal(I.selectionKey(model.selection), before);
+  dom.window.close();
+});
+test('Don sheet consumes first Escape; second Escape reaches view clear and focus returns', () => {
+  const { dom, I, V, model } = setup(),
+    B = actualBindings(dom);
+  const root = V.render(model, { view: 'matrix' });
+  dom.window.document.querySelector('main').append(root);
+  let cleared = 0;
+  const moves = [];
+  const stop = B.bindKeys(
+    root,
+    I,
+    { clear: () => cleared++, inspect: () => {}, move: (key) => moves.push(key) },
+    { grid: root.querySelector('table') }
+  );
+  const origin = root.querySelector('.cv-phone-row button');
+  const sheet = B.bottomSheet(root, 'Connection inspector');
+  sheet.body.append(root.querySelector('.cv-inspector'));
+  origin.focus();
+  sheet.open(origin);
+  const esc = () =>
+    dom.window.document.activeElement.dispatchEvent(
+      new dom.window.KeyboardEvent('keydown', { key: 'Escape', bubbles: true, cancelable: true })
+    );
+  esc();
+  assert.equal(sheet.isOpen(), false);
+  assert.equal(cleared, 0);
+  assert.equal(dom.window.document.activeElement, origin);
+  esc();
+  assert.equal(cleared, 1);
+  root
+    .querySelector('table button')
+    .dispatchEvent(new dom.window.KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }));
+  assert.deepEqual(moves, ['ArrowRight']);
+  stop();
+  esc();
+  assert.equal(cleared, 1);
+  dom.window.close();
+});
+test('Don URL and live region accept exact rendered occurrence IDs and refuse stale revision', async () => {
+  const { dom, I, V, model } = setup(),
+    B = actualBindings(dom);
+  const root = V.render(model, { view: 'matrix' });
+  dom.window.document.querySelector('main').append(root);
+  const restored = [],
+    refused = [];
+  const sync = B.urlSync(
+    dom.window,
+    I,
+    {
+      analysisIdentity: 'fixture-v1',
+      hasEntity: (id) => model.occurrences.some((o) => o.entity_id === id),
+      hasMethod: (id) => model.methods.some((m) => m.method_id === id),
+      hasEvidence: () => false,
+    },
+    (sel) => restored.push(sel),
+    (reason) => refused.push(reason)
+  );
+  sync.write(model.selection);
+  sync.read();
+  assert.equal(
+    I.selectionKey(restored[0]),
+    root.querySelector('table .cv-selected').dataset.selection
+  );
+  assert.match(dom.window.location.search, /keep=1/);
+  const live = B.liveRegion(root);
+  live.say(
+    I.announce(model.selection, {
+      occurrence: (id) => model.occurrences.find((o) => o.entity_id === id),
+      method: (id) => model.methods.find((m) => m.method_id === id),
+      state: I.cellState(model.cells[0]),
+    })
+  );
+  await new Promise((resolve) => setTimeout(resolve, 10));
+  assert.match(live.el.textContent, /watch L4 w2/);
+  assert.match(live.el.textContent, /woods L4 w4/);
+  dom.window.history.replaceState(
+    null,
+    '',
+    '?cv=stale&sel=' + encodeURIComponent(I.selectionKey(model.selection))
+  );
+  dom.window.dispatchEvent(new dom.window.PopStateEvent('popstate'));
+  assert.equal(refused[0].reason, 'revision');
+  assert.equal(restored.length, 1);
+  sync.stop();
+  dom.window.close();
+});
+
+test('partial and invalid group counts remain unknown without crashing or inferred totals', () => {
+  const { V, model } = setup();
+  const id = model.methods[0].method_id;
+  for (const counts of [
+    { shown: 1 },
+    { occurrences: 2, shown: 1, examined: null },
+    { occurrences: 2, shown: 1, examined: -1 },
+    { occurrences: 2, shown: 1, examined: '3' },
+  ]) {
+    model.groupCounts[id] = counts;
+    const group = V.network(model).querySelector('.cv-group');
+    assert.match(group.textContent, /Holds shown: 1/);
+    assert.match(group.textContent, /Eligible pairs examined: not supplied/);
+    assert.doesNotMatch(group.textContent, /of 0|examined: 0/);
+    assert.match(group.textContent, /Joint reading consistency not assessed/);
+    assert.equal(group.querySelectorAll('.lib-mk-node').length, 2);
+  }
+  model.groupCounts[id] = { occurrences: 2, shown: 1, examined: 3, pending: 2, hidden: 4 };
+  assert.match(
+    V.network(model).textContent,
+    /1 of 3 eligible pairs illustrated · 2 pending · 4 hidden/
+  );
+  model.groupCounts[id] = { occurrences: 0, shown: 0, examined: 0 };
+  assert.match(V.network(model).textContent, /0 occurrences · 0 of 0 eligible pairs illustrated/);
+});
+test('hiddenCount passes the exact marks contract and incomplete metadata never invents zero', () => {
+  const { V, model } = setup();
+  model.hiddenCount = { count: 3, by: 'declared display filter' };
+  assert.match(
+    V.render(model).querySelector('.lib-mk-count').textContent,
+    /3 hidden by declared display filter/
+  );
+  model.hiddenCount = { count: 3 };
+  let root = V.render(model);
+  assert.match(root.textContent, /Hidden count: 3 · filter: not supplied/);
+  assert.doesNotMatch(root.textContent, /hidden by undefined/);
+  for (const bad of [
+    3,
+    {},
+    { count: null, by: 'filter' },
+    { count: -1, by: 'filter' },
+    { count: '3', by: 'filter' },
+  ]) {
+    model.hiddenCount = bad;
+    root = V.render(model);
+    assert.match(root.textContent, /Hidden count: not supplied/);
+    assert.doesNotMatch(root.querySelector('.lib-mk-count').textContent, /0 hidden|3 hidden/);
+  }
+  delete model.hiddenCount;
+  model.hiddenByFilter = 'filter';
+  assert.match(V.render(model).textContent, /Hidden count: not supplied/);
+});
