@@ -1419,6 +1419,77 @@ class AnalysisSession:
                 for a in spans[ta]:
                     for b in spans[tb]:
                         yield a, b
+        # A varying word with no span on the work's own reading (a merged
+        # word whose readings disagree on stress) is asked about under each
+        # of its whole readings, against every other word (3PO, #646).
+        missing = self._sound_unspanned(spans)
+        if not self._any_reading_off:
+            for ta in missing:
+                for tb in sorted(set(toks) | set(missing)):
+                    if tb != ta and (tb not in missing or ta < tb):
+                        yield ("alt",) + tuple(sorted((ta, tb)))
+
+    def _sound_unspanned(self, spans):
+        """-> varying words with no span in the family on the work stream."""
+        return sorted(t for t in self.stream.tokens if t in self._varying and t not in spans)
+
+    def _sound_member(self, tok):
+        """A word as a member, by the work's own syllables: what a record
+        names when the span it was judged on belongs to another reading."""
+        from types import SimpleNamespace
+        # Its anchor is the reading's, so the member has none of its own;
+        # `compared` holds the syllables and anchors as judged.
+        return SimpleNamespace(idx=tuple(self.stream.tokens[tok]), anchor_pos=None, direction=None,
+                               origin="word_under_reading", search_k=None)
+
+    def _sound_alt_pair(self, key, ta, tb):
+        """-> (value, record, cell): a pair over a word that has no span on
+        the work's reading, judged under each whole reading of the pair's
+        varying words. `value` "outside" when no reading gives both words a
+        span -- the method does not apply to the pair; `cell` says whether
+        the pair is inside the method's domain."""
+        RL, st = self.RL, self.stream
+        family = SHARED_SOUND_METHODS[key][0]
+        varying = {t for t in (ta, tb) if t in self._disputed or t in self._merged}
+        combos, complete = RL.reading_combos(st, varying, self.EDGE_COMBOS)
+        examined, open_, located, reasons = 0, False, False, []
+        a, b = self._sound_member(ta), self._sound_member(tb)
+        for combo in combos or ():
+            alt = self._line_stream(sorted({ta[0], tb[0]}), combo)
+            if alt is None:
+                open_ = True
+                reasons.append("rebuild_unavailable")
+                continue
+            examined += 1
+            found = self._sound_spans(family, alt)
+            if ta not in found or tb not in found:
+                continue
+            located = True
+            v, r, x = self._sound_judge(key, found[ta][0], found[tb][0], alt)
+            if v is True:
+                whole = complete and examined == len(combos)
+                search = self._search("exhaustive" if whole else "partial", examined, termination="witness_found")
+                return True, self._sound_record(key, a, b, True, r, x, alt, self._witness(alt, varying),
+                                                search, False), True
+            if v is None:
+                open_ = True
+        whole = bool(combos) and complete and examined == len(combos)
+        if not combos:
+            reasons.append("no_reading_combination")
+        elif not complete:
+            reasons.append("combination_cap")
+        if not located and whole:
+            return "outside", None, False
+        value = None if open_ or not whole else False
+        reason = next((r for r in ("combination_cap", "rebuild_unavailable", "no_reading_combination")
+                       if r in reasons), None) if value is None else None
+        search = self._search("unavailable" if not combos else "exhaustive" if whole else "partial",
+                              examined, reason,
+                              None if not combos else "combination_cap" if not complete else
+                              "exhausted" if whole else "rebuild_unavailable")
+        if value is False:
+            return False, None, True
+        return None, self._sound_record(key, a, b, None, None, None, st, None, search, False), True
 
     def _sound_judge(self, key, a, b, st):
         """-> (value, channel record or None, (position, predicate reads) or
@@ -1543,21 +1614,22 @@ class AnalysisSession:
             quantifier="first_listed_reading" if first_only else "exists_compatible_reading",
             reading_search=search, same_spelling=text(a) == text(b))
 
-    def _sound_domain(self, key):
+    def _sound_domain(self, key, alt_cells=()):
         """Every unordered pair of distinct words with a span in the family,
-        exactly the pairs the method asks. A varying word with no span on
-        the work's own reading (a merged word whose stress varies) is asked
-        about under no reading: it is reading-dependent, and a cell touching
-        one is answered only by its own record. A disputed word that has a
-        span is not: every pair over it is judged under each of its readings,
-        so its missing records are judged Falses."""
+        exactly the pairs the method asks, and every pair over a word with
+        no span on the work's reading that some whole reading gives one
+        (`alt_cells`, as judged). Every pair is judged under each reading of
+        its varying words, so a missing record is a judged False. Only when
+        readings are not searched (a work with sound declarations) is a
+        word with no span reading-dependent: a cell touching one is
+        answered only by its own record."""
         family = SHARED_SOUND_METHODS[key][0]
         toks = sorted(self._sound_spans(family, self.stream))
         if len(toks) * (len(toks) - 1) // 2 > self.DOMAIN_CAP:
             return {"projection": "none", "reason": "domain_cap", "cap": self.DOMAIN_CAP}
         cells = {(x, y) for i, x in enumerate(toks) for y in toks[i + 1:]}
-        have = set(toks)
-        dependent = sorted(t for t in self.stream.tokens if t in self._varying and t not in have)
+        cells.update((tuple(x), tuple(y)) for x, y in alt_cells)
+        dependent = self._sound_unspanned(set(toks)) if self._any_reading_off else []
         return {**self._project(cells, "unordered"),
                 "reading_dependent_tokens": [self._token_id(t) for t in dependent]}
 
@@ -1570,7 +1642,8 @@ class AnalysisSession:
         return self._record("method_result", mid, "result", namespace="shared_sound",
                             method_name=shared_sound_name(key), layer=SHARED_SOUND_LAYER,
                             coverage=counts["coverage"], counts=counts,
-                            domain=self._sound_domain(key) if counts["coverage"] == "answered"
+                            domain=self._sound_domain(key, counts.pop("alt_cells", []))
+                            if counts["coverage"] == "answered"
                             else {"projection": "none", "reason": "refused"},
                             refusal=counts.get("refusal"),
                             availability="available" if counts["coverage"] == "answered" else "unknown_members")
@@ -2205,11 +2278,20 @@ class AnalysisSession:
                         delta["first_reading_only"] += first_only
                         new.append(self._figure_record(name, frame, edges, v))
             elif phase == "shared_sound":
-                value, record, first_only = self._sound_pair(name, *binding)
-                delta[verdict(value)] += 1
-                delta["first_reading_only"] += first_only
-                if value is not False:
-                    new.append(record)
+                if binding[0] == "alt":
+                    value, record, cell = self._sound_alt_pair(name, *binding[1:])
+                    first_only = 0
+                    if cell:
+                        # Kept with the method's counts, so a resumed
+                        # traversal keeps it.
+                        delta["alt_cells"] = delta.get("alt_cells", []) + [[list(binding[1]), list(binding[2])]]
+                else:
+                    value, record, first_only = self._sound_pair(name, *binding)
+                if value != "outside":
+                    delta[verdict(value)] += 1
+                    delta["first_reading_only"] += first_only
+                    if value is not False:
+                        new.append(record)
             else:
                 new = [binding]
             delta["candidates"] = 1

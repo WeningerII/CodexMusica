@@ -1263,6 +1263,38 @@ class SharedSound(unittest.TestCase):
             self.assertEqual((edge["verdict"], edge["undecided_reason"]), ("undecided", "no_reading_combination"))
             self.assertEqual(edge["reading_search"]["state"], "unavailable")
 
+    # 3PO's fixture (#646): zanchor's readings share a syllable count and
+    # disagree on stress, so its knowledge set has no last-stressed anchor
+    # and no span on the work's reading. Under its first whole reading it
+    # stresses IY, as banchor does, and starts with Z, as zeal does.
+    UNANCHORED = {"zanchor": [["Z", "IY1", "T", "AH0"], ["Z", "IY0", "T", "AH1"]],
+                  "banchor": [["B", "IY1", "T", "AH0"]], "zeal": [["Z", "IY1", "L"]]}
+
+    def test_a_word_unanchored_on_the_set_is_discovered_under_its_readings(self):
+        reading = source("zanchor is here\nthe banchor zeal")
+        with _with_words(self.UNANCHORED):
+            session, rows, _ = _sound(reading, ["vowel", "stressed_onset"])
+            self.assertIn((0, 0), session._merged)
+            self.assertNotIn((0, 0), session._sound_spans("last_stressed", session.stream))
+            for key, partner in (("vowel", (1, 1)), ("stressed_onset", (1, 2))):
+                edge = _edge(_sound_edges(rows, key), (0, 0), partner)
+                self.assertEqual(edge["verdict"], "true", key)
+                self.assertIn("zanchor = Z IY1 T AH0", edge["reading"]["witness"])
+                self.assertEqual(edge["reading_context"]["type"], "pinned")
+                result = next(r for r in rows if r["kind"] == "method_result"
+                              and r["method_name"] == key + "@v1")
+                # Inside the domain, and nothing left reading-dependent: every
+                # pair over zanchor was judged under its readings.
+                self.assertIn(("line:0:token:0", "line:%d:token:%d" % partner), _domain_cells(result["domain"]))
+                self.assertEqual(result["domain"]["reading_dependent_tokens"], [])
+            # zanchor~is: IY or AH against IH under either reading -- judged,
+            # and counted False.
+            self.assertIsNone(_edge(_sound_edges(rows, "vowel"), (0, 0), (0, 1)))
+            # The discovered cells live in the method's counts, so a
+            # restarted traversal keeps them.
+            _, resumed, _ = _sound(reading, ["vowel", "stressed_onset"], batch=1, restart=True)
+            self.assertEqual(canonical_json(resumed), canonical_json(rows))
+
     def test_inside_the_domain_a_missing_record_is_a_judged_false(self):
         session, rows, last = _sound(source(self.TEXT), ["vowel"])
         result = next(r for r in rows if r["kind"] == "method_result")
