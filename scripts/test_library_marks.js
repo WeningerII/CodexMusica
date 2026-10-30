@@ -165,3 +165,11 @@ test('styles load once with the chunk, scoped to the Library surface', () => {
     assert.ok(rule.startsWith('#surface-library '), rule);
   assert.match(style.textContent, /:root\[data-theme='dark'\]/);
 });
+
+test('a selected cell keeps its glyph: the ring is not the cell background', () => {
+  const g = M.stateCell({ state: 'holds', family: 'alliteration', selected: true });
+  const [bg, glyph, ring] = g.children;
+  assert.equal(bg.getAttribute('class'), 'lib-mk-bg');
+  assert.equal(glyph.textContent, 'A');
+  assert.equal(ring.getAttribute('class'), 'lib-mk-select');
+});

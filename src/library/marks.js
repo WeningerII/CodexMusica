@@ -86,12 +86,13 @@ const CSS = `
 ${Object.keys(FAMILIES)
   .map((id) => `${S}.lib-mk-fam-${id}{--lib-mk-hue:var(--lib-mk-${id},var(--cm-text))}`)
   .join('\n')}
-${S}.lib-mk-cell rect{fill:var(--cm-surface);stroke:var(--cm-border);stroke-width:1}
-${S}.lib-mk-cell-not_examined rect{fill:var(--cm-surface-sunken);stroke:none}
-${S}.lib-mk-cell-not_yet_computed rect{stroke:var(--cm-text-muted)}
-${S}.lib-mk-cell-holds rect{stroke:var(--lib-mk-hue);stroke-width:1.5}
+${S}.lib-mk-cell .lib-mk-bg{fill:var(--cm-surface);stroke:var(--cm-border);stroke-width:1}
+${S}.lib-mk-cell-not_examined .lib-mk-bg{fill:var(--cm-surface-sunken);stroke:none}
+${S}.lib-mk-cell-not_yet_computed .lib-mk-bg{stroke:var(--cm-text-muted)}
+${S}.lib-mk-cell-holds .lib-mk-bg{stroke:var(--lib-mk-hue);stroke-width:1.5}
 ${S}.lib-mk-glyph{font:600 13px/1 var(--cm-font);fill:var(--cm-text-muted)}
 ${S}.lib-mk-cell-holds .lib-mk-glyph,${S}.lib-mk-edge-glyph{fill:var(--lib-mk-hue);font-weight:700}
+${S}.lib-mk-edge-glyph{paint-order:stroke;stroke:var(--cm-surface);stroke-width:8px;stroke-linejoin:round}
 ${S}.lib-mk-select{fill:none;stroke:var(--cm-text);stroke-width:2}
 ${S}.lib-mk-tag,${S}.lib-mk-strong{font-weight:700}
 ${S}.lib-mk-arc path{stroke:var(--lib-mk-hue)}
@@ -126,6 +127,7 @@ function stateCell({ state, family: fam, x = 0, y = 0, size = 24, selected = fal
     y: y + inset,
     width: size - 2 * inset,
     height: size - 2 * inset,
+    class: 'lib-mk-bg',
   });
   if (state === 'not_yet_computed') rect.setAttribute('stroke-dasharray', '2 2');
   g.append(rect);
