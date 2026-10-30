@@ -247,6 +247,59 @@ test('records in the evidence contract’s shape: verdict, undecided_reason, not
     assert.ok(CI.UNDECIDED_WORDS[r], r);
 });
 
+test('a method domain decides locus, certification and reading dependence', () => {
+  const domain = {
+    projection: 'exact_token_pair',
+    tokens: ['e-woods-1-2', 'e-know-1-8', 'e-watch-4-2', 'e-woods-4-4', 'e-snow-4-8'],
+    pairs: { 0: [[1, 1]], 2: [[3, 4]] },
+    reading_dependent_tokens: ['e-snow-4-8'],
+  };
+  const facts = (a, b, answered = true) => CI.domainFacts(domain, a, b, answered);
+  // Listed pair on an answered method: an absent record is a judged negative.
+  assert.equal(
+    CI.cellState({ ...facts('e-watch-4-2', 'e-woods-4-4'), jobComplete: true }).state,
+    'does_not_hold'
+  );
+  // Either order for a symmetric method.
+  assert.equal(facts('e-woods-4-4', 'e-watch-4-2').inLocus, true);
+  // Unlisted pair: outside the method's locus.
+  assert.equal(
+    CI.cellState({ ...facts('e-woods-1-2', 'e-watch-4-2'), jobComplete: true }).state,
+    'not_examined'
+  );
+  // Reading-dependent, no record: not certified, in the not-examined family.
+  const dep = CI.cellState({ ...facts('e-watch-4-2', 'e-snow-4-8'), jobComplete: true });
+  assert.deepEqual(
+    [dep.state, CI.stateWords(dep)],
+    ['not_examined', 'not certified · locus depends on the reading']
+  );
+  assert.equal(dep.reason, 'locus depends on the reading');
+  // ... but a record still decides.
+  assert.equal(
+    CI.cellState({
+      ...facts('e-watch-4-2', 'e-snow-4-8'),
+      record: { verdict: 'true', informative_channels: ['coda'] },
+    }).state,
+    'holds'
+  );
+  // Unanswered method: absence is not a negative.
+  assert.equal(
+    CI.cellState({ ...facts('e-watch-4-2', 'e-woods-4-4', false), jobComplete: true }).state,
+    'undecided'
+  );
+  // Role-ordered: only the asked direction is in the domain.
+  assert.equal(
+    CI.domainFacts({ ...domain, ordering: 'role_ordered' }, 'e-woods-4-4', 'e-watch-4-2', true)
+      .inLocus,
+    false
+  );
+  // No projection: outside, with the method's reason.
+  const none = CI.cellState({
+    ...CI.domainFacts({ projection: 'none', reason: 'whole-line figure' }, 'a', 'b', true),
+  });
+  assert.deepEqual([none.state, none.reason], ['not_examined', 'whole-line figure']);
+});
+
 test('a hold on empty onsets only is labelled, never hidden', () => {
   const r = CI.cellState({ inLocus: true, record: { outcome: true, informative_channels: [] } });
   assert.equal(r.state, 'holds');
