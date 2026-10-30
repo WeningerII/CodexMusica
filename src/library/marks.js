@@ -95,6 +95,7 @@ ${S}.lib-mk-cell-holds .lib-mk-glyph,${S}.lib-mk-edge-glyph{fill:var(--lib-mk-hu
 ${S}.lib-mk-edge-glyph{paint-order:stroke;stroke:var(--cm-surface);stroke-width:8px;stroke-linejoin:round}
 ${S}.lib-mk-select{fill:none;stroke:var(--cm-text);stroke-width:2}
 ${S}.lib-mk-preview{fill:none;stroke:var(--cm-text);stroke-width:1;stroke-dasharray:3 2}
+${S}.lib-mk-focus:is(:hover,:focus-visible){outline:1px dashed var(--cm-text);outline-offset:3px}
 ${S}.lib-mk-tag,${S}.lib-mk-strong{font-weight:700}
 ${S}.lib-mk-arc path{stroke:var(--lib-mk-hue)}
 ${S}.lib-mk-arc path.lib-mk-gap{stroke:var(--cm-surface)}
@@ -174,7 +175,9 @@ function selectionRing(cx, cy, r) {
 }
 // The preview: what hover shows, and keyboard focus shows the same. A lighter
 // ring in the selection's place (1 px, dashed ink), so a preview never reads as
-// a choice already made.
+// a choice already made. A view gives any focusable mark the class
+// `lib-mk-focus` and the stylesheet draws it on :hover and :focus-visible;
+// these builders are for a view that draws the preview itself.
 function previewRect(x, y, w, h, offset = 0) {
   const r = selectionRect(x, y, w, h, offset);
   r.setAttribute('class', 'lib-mk-preview');

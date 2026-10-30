@@ -183,3 +183,10 @@ test('hover and focus preview is a lighter ring in the selection’s place', () 
   assert.equal(rect.getAttribute('class'), 'lib-mk-preview');
   assert.equal(rect.getAttribute('width'), M.selectionRect(0, 0, 20, 10, 2).getAttribute('width'));
 });
+
+test('focus and hover share the dashed 1 px preview, lighter than selection', () => {
+  const { document } = load();
+  const css = document.getElementById('lib-mk-style').textContent;
+  assert.match(css, /\.lib-mk-focus:is\(:hover,:focus-visible\)\{outline:1px dashed/);
+  assert.match(css, /\.lib-mk-select\{fill:none;stroke:var\(--cm-text\);stroke-width:2\}/);
+});
