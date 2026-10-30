@@ -4048,8 +4048,11 @@ def test_the_placement_route(FAILURES=None):
           sorted(n for n in RL.REGISTRY
                  if RL.pair_bindable(RL.REGISTRY[n])
                  and not RL.placement_bindable(RL.REGISTRY[n], ("end", "end")))
+          # 2026-10-30 (`MISSING.md` M-323): `internal assonance` and
+          # `internal consonance` join, with internal rhyme's placement.
           == ["anadiplosis", "anaphora", "cross rhyme",
               "head rhyme (positional)", "interlaced rhyme",
+              "internal assonance", "internal consonance",
               "internal rhyme", "linked rhyme"])
     check("...and the predicate is not a blanket refusal — the SAME four "
           "answer True at the placements their own definitions name, and "

@@ -1730,18 +1730,21 @@ def test_no_flag_silently_changes_a_measurement():
     # protect -- a filter that silently changes the population the two counts
     # below it are taken over is the defect -- so they are pinned to the real
     # registry size and move with it deliberately, in the commit that moves it.
+    # 78 -> 80, 2026-10-30 (`MISSING.md` M-323): `internal assonance` and
+    # `internal consonance`; neither name contains 'rhyme', so the filtered
+    # selection below keeps its count and only the denominator moves.
     rc_all, allout, _ = run("relations", EXAMPLE_TXT)
     check("the unfiltered run states that NO filter was declared, and over "
           "how many schemas the two counts below it were taken",
           rc_all == 0 and "schema filter: NONE DECLARED" in allout
-          and "78 schemas asked" in allout)
+          and "80 schemas asked" in allout)
 
     rc, out, _ = run("relations", EXAMPLE_TXT, "--schema=rhyme")
     check("a filter that matches states HOW MANY of the registry it "
           "selected — `found`/`refused` are counts over a POPULATION and "
           "the flag silently changed the denominator",
           rc == 0 and "schema filter: 'rhyme'" in out
-          and "of 78 schemas asked" in out,
+          and "of 80 schemas asked" in out,
           [l for l in out.splitlines() if "schema filter" in l][:1])
 
     rc, out, err = run("relations", EXAMPLE_TXT, "--schema=bogus")
@@ -1753,7 +1756,7 @@ def test_no_flag_silently_changes_a_measurement():
     check("a filter matching NOTHING REFUSES at exit 2 instead of printing "
           "`schemas finding something: 0`, which is a null's shape",
           rc == 2 and out.lstrip().startswith("REFUSED")
-          and "matched 0 of 78" in out
+          and "matched 0 of 80" in out
           and "TWO THINGS THESE COUNTS ARE NOT" not in out
           and "refusing on a capability" not in out
           and "Traceback" not in err,

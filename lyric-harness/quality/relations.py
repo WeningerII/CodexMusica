@@ -1668,6 +1668,54 @@ class PresentVsAbsent(Predicate):
         return Read(False, True)
 
 
+def _presence(x):
+    """True when every reading of the channel is non-empty, False when every
+    reading is empty, None when the readings disagree or one is unreadable.
+    An unknown is never read as empty."""
+    alts = _alts(x)
+    if any(v is None for v in alts):
+        return None
+    if all(not _empty(v) for v in alts):
+        return True
+    if all(_empty(v) for v in alts):
+        return False
+    return None
+
+
+@dataclass(frozen=True)
+class BothPresent(Predicate):
+    """The channel carries material on BOTH members (2026-10-30, `MISSING.md`
+    M-323).  It says nothing about whether the two agree; a schema pairs it
+    with an Agree on the same channel.
+
+    Interior consonance needs it because two OPEN codas agree (doctrine 25:
+    `see`/`free` agree on coda and carry no evidence), and an interior pair
+    of open syllables -- the~today -- is not consonance.  Alliteration needs
+    it on the onset because two vowel-initial words agree on an empty onset,
+    and the owner ruled that are~I is not alliteration ("Require a real
+    consonant").  Line-final `consonance` does NOT carry it: E-5's
+    empty/empty agreement stands there, a stated difference between the two.
+
+    Certain on both sides and non-empty -> True.  Certainly empty on either
+    side -> False, even when the other side is uncertain.  Anything else is
+    undecided: a set whose readings disagree on presence is not empty.
+    """
+    name: str = "BOTH-PRESENT"
+
+    def __call__(self, x, y):
+        if x is None or y is None:
+            return Read(None, False, "unreadable")
+        px, py = _presence(x), _presence(y)
+        if px is False or py is False:
+            side = "both members" if px is False and py is False else (
+                "member 1" if px is False else "member 2")
+            return Read(False, True, f"absent on {side}")
+        if px and py:
+            return Read(True, True, "present on both members")
+        return Read(None, False,
+                    "uncertain reading; presence undecidable")
+
+
 @dataclass(frozen=True)
 class SequenceEqual(Predicate):
     """Total, ordered, exhaustive on both sides -- cynghanedd groes.
@@ -1725,6 +1773,7 @@ class SubsequenceOf(Predicate):
 
 AGREE, DIFFER, FREE = Agree(), Differ(), Free()
 PREFIX_AGREE = PrefixAgree()
+BOTH_PRESENT = BothPresent()
 
 
 # ---------------------------------------------------------------------------
@@ -2298,7 +2347,7 @@ class Figure:
     template: object = None        # 平仄: one member against a declared pattern
 
     def __post_init__(self):
-        # Validated HERE, at the declaration, so a typo in one of ~~77~~ 78
+        # Validated HERE, at the declaration, so a typo in one of ~~77~~ ~~78~~ 80
         # schemas refuses at import rather than falling through `assemble()`'s
         # if/elif chain to silent no-op (the shape `unmatched` was fixed for
         # in `RelationSchema.__post_init__`, defect P15).
@@ -2316,7 +2365,7 @@ PAIR = Figure()
 #: What `unmatched` may say about the material the alignment left over, and
 #: THE LIST IS MEASURED AGAINST `evaluate()` RATHER THAN RECALLED (defect P15).
 #: The field's own comment used to read `exclude | differ | forbid`: 'differ'
-#: is implemented by nothing and declared by none of the ~~77~~ 78 schemas, while
+#: is implemented by nothing and declared by none of the ~~77~~ ~~78~~ 80 schemas, while
 #: 'require_a' and 'require_b' -- the two values `evaluate()` actually branches
 #: on, and the only thing keeping semirhyme and apocopated rhyme from
 #: collapsing into perfect rhyme -- were absent from the vocabulary they
@@ -2363,11 +2412,18 @@ class RelationSchema:
     #: 6448819660) — until 2026-10-27 the judge was chosen by comparing
     #: `name` against literals, so a label decided behaviour.
     judge: str = ""
+    #: WHY A REGISTERED TYPE IS NOT PLANNED, stated on the row (2026-10-30,
+    #: `MISSING.md` M-323): "" for every type the planner may draw, else the
+    #: reason it refuses this one (`plan.type_eligibility` rule (g)). A
+    #: schema registered for the views is not thereby drawn into songs:
+    #: entering the draw re-deals every seed's types, which is its own
+    #: decision. Neither compared nor printed, so no existing row moves.
+    unplanned: str = field(default="", compare=False, repr=False)
 
     def __post_init__(self):
         # `unmatched` had FOUR implemented values and its own comment named
         # three, one of which -- 'differ' -- is implemented nowhere and
-        # declared by none of the ~~77~~ 78 schemas (defect P15).  An undeclared value
+        # declared by none of the ~~77~~ ~~78~~ 80 schemas (defect P15).  An undeclared value
         # silently took the 'exclude' path, so a typo and a policy read the
         # same.  Refuse at construction, where the declaration is written.
         if self.unmatched not in UNMATCHED:
@@ -4851,13 +4907,16 @@ declare(RelationSchema(
     name="alliteration",
     aka=("stave rhyme", "stuðlar", "higaad", "mōnai", "anuprāsa (onset case)"),
     spans=(HEAD_ANY, HEAD_ANY), align="flush_left",
-    channels=(ChannelRule("onset", AGREE, "first"),),
+    channels=(ChannelRule("onset", AGREE, "first"),
+              ChannelRule("onset", BOTH_PRESENT, "first")),
     placement=(Placement("same_line"),),
     identity=(DISTINCT,),
     figure=Figure(quantifier="exists", frame="line"),
     note="THE CONCRETE FAILURE. anchor=word_start, magnitude=1, and the "
          "alignment is flush_LEFT. The missing thing was an ANCHOR axis, not "
-         "a longer suffix."))
+         "a longer suffix. The onset must be a REAL consonant on both words "
+         "(the owner's ruling, 2026-10-30, M-323): two vowel-initial words "
+         "agree on an empty onset, and are~I is not alliteration."))
 
 declare(RelationSchema(
     name="Kalevala alliteration (weak)",
@@ -5820,6 +5879,52 @@ declare(RelationSchema(
          "measured: a pre-1931 table cannot say what is over-familiar to a "
          "living listener."))
 
+# THE INTERIOR SOUND SCHEMAS (2026-10-30, `MISSING.md` M-323; the "Interior
+# schema contract" of docs/design/connection-views/spec.md). Each takes its
+# shape from `internal rhyme`: last-stressed syllable to the word end, any
+# token, anchor-aligned, at least one member not line-final. A pair whose
+# members BOTH end their lines stays with `assonance` / `consonance`, so no
+# pair is counted twice. Declared LAST, so every existing registry index
+# (the website's type menu keys on it) stays where it was.
+_INTERIOR = SpanRule("any_token", "last_stressed", 1, "to_word_end")
+
+declare(RelationSchema(
+    name="internal assonance",
+    spans=(_INTERIOR, _INTERIOR), align="anchor",
+    channels=(ChannelRule("nucleus", AGREE, "each"),),
+    unmatched="exclude",
+    placement=(Placement("both_line_final", polarity=False),),
+    identity=(DISTINCT,),
+    unplanned=("it is registered for the connection views (the owner's "
+               "O1 ruling, 2026-10-30); drawing it into song plans would "
+               "re-deal every seed's types and has not been decided"),
+    note="The vowels agree from the last stress to the word end, with at "
+         "least one member inside its line. The overhang of the longer "
+         "suffix is EXCLUDED, not compared. Function words are kept (the "
+         "owner's ruling: \"keep function words, option 1\"): stress is the "
+         "dictionary's, with no stop list, and any narrowing of what is "
+         "drawn is a display filter, never this schema."))
+
+declare(RelationSchema(
+    name="internal consonance",
+    spans=(_INTERIOR, _INTERIOR), align="anchor",
+    channels=(ChannelRule("coda", AGREE, "each"),
+              ChannelRule("coda", BOTH_PRESENT, "last")),
+    unmatched="exclude",
+    placement=(Placement("both_line_final", polarity=False),),
+    identity=(DISTINCT,),
+    note="The codas agree at every aligned syllable and BOTH are present at "
+         "the last aligned pair, tail index min(len a, len b) - 1 (the anchor "
+         "only when the shorter suffix has one syllable). The guard is a "
+         "stated contract difference from line-final `consonance`, which "
+         "keeps E-5's empty/empty agreement. A STATED LIMIT: codas are read "
+         "as the syllabifier assigns them, so the compared pair depends on "
+         "syllabification; village~fill does not hold (village's anchor coda "
+         "is empty against fill's L, and its L is the onset of the excluded "
+         "syllable). A word-end-anchored consonance would be a separately "
+         "named variant, never a silent change here. Function words are "
+         "kept, as in internal assonance."))
+
 
 # NOT A TYPE, and recorded so nothing stores it as one.
 QUERIES = {
@@ -6778,6 +6883,13 @@ _SOURCED = {
         ("Korean 첩어", "kor"))),
     "internal rhyme": (("R71",), (
         ("English internal rhyme", "eng"),)),
+    # The RELATION is R5 / R9; the interior placement is internal rhyme's.
+    # The canon's English entries (E4, E5) do not restrict either to the
+    # line end, so the English row is the one cited and no other.
+    "internal assonance": (("R5",), (
+        ("English assonance (interior placement)", "eng"),)),
+    "internal consonance": (("R9",), (
+        ("English consonance (interior placement)", "eng"),)),
     "leonine rhyme": (("R72",), (
         ("English leonine rhyme", "eng"),
         ("German Zäsurreim / Otfrid's end rhyme", "deu"),
@@ -9330,7 +9442,7 @@ _PAIR_MEMO = collections.OrderedDict()
 #: oldest rows go and the pair is re-scored.  The CAP IS NOT CHANGED HERE —
 #: changing it is a behaviour change with its own record — and the scaling
 #: question is filed under M-240 (OPEN), the grader's own pair guard, which
-#: is where the cost of long drafts is being priced.  Slots: the ~~77~~ 78
+#: is where the cost of long drafts is being priced.  Slots: the ~~77~~ ~~78~~ 80
 #: registered schemas plus the declared ones a mandate can name, under one
 #: declaration, with room for a second declaration in the same process.
 PAIR_MEMO_CAP = 4_096         # (line pair, signature) rows per (schema, stream) slot
@@ -10095,18 +10207,174 @@ def pair_satisfies_any(schema, stream, at_a, at_b, build,
                 saw_none = True
     return (None if saw_none else False), None
 
+
+# ---------------------------------------------------------------------------
+# THE SHARED CHANNEL READ (2026-10-30; the contract agreed on PR #637, and
+# the "Shared reads" part of the interior schema contract). One span pair's
+# channel values, aligned exactly as the judge aligns them, read once and
+# shared by every consumer of the same span FAMILY: `internal rhyme`,
+# `internal assonance` and `internal consonance` share `last_stressed`;
+# alliteration's word onsets are `word_start`. The two families never share
+# a key, so a word-initial onset and a last-stressed onset are two
+# observations, never one.
+#
+# The values are what `evaluate` reads (`_span_read`): an uncertain channel
+# stays a set, an unreadable one is None, and the overhang the alignment
+# leaves over is not returned. A schema quantifies over whole readings by
+# asking this on each pinned stream; per-channel results from different
+# readings are never combined here.
+# ---------------------------------------------------------------------------
+
+#: family -> (the member rule both spans must come from, the alignment).
+CHANNEL_READ_FAMILIES = {
+    "last_stressed": (SpanRule("any_token", "last_stressed", 1,
+                               "to_word_end"), "anchor"),
+    "word_start": (HEAD_ANY, "flush_left"),
+}
+#: Every channel a complete record holds; a caller's `channels` projects it.
+CHANNEL_READ_CHANNELS = ("onset", "nucleus", "coda", "prominence")
+#: Bumped whenever what a record holds changes shape or meaning.
+CHANNEL_READ_VERSION = 1
+
+
+def _declaration_digest(stream):
+    try:
+        text = json.dumps(stream.phon.declaration(), sort_keys=True,
+                          default=repr)
+    except (AttributeError, TypeError):
+        text = repr(getattr(stream, "declaration", None))
+    text += "|" + json.dumps(getattr(stream, "declaration", None) or {},
+                             sort_keys=True, default=repr)
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()[:16]
+
+
+def _canonical_span(stream, span, rule):
+    """Is `span` one the family's rule builds at its own token?"""
+    if not span.idx or span.idx[0] >= len(stream.units):
+        return False
+    u = stream.units[span.idx[0]]
+    ids = stream.tokens.get((u.line, u.token))
+    if not ids:
+        return False
+    try:
+        built = list(_spans_at(rule, stream, tuple(ids),
+                               f"L{u.line}.T{u.token}"))
+    except NoReferent:
+        return False
+    return any(sp.idx == span.idx and sp.anchor_pos == span.anchor_pos
+               and sp.direction == span.direction for sp in built)
+
+
+def _reading_context(stream):
+    combo = getattr(stream, "any_reading_combo", None)
+    if combo:
+        return {"type": "pinned", "combo": tuple(reading_witness(combo))}
+    if getattr(stream.phon, "any_reading_trial", False):
+        rows = getattr(getattr(stream.phon, "lexicon", None),
+                       "pronunciations", ()) or ()
+        return {"type": "pinned",
+                "combo": tuple(f"{r['word']} = {' '.join(r['phones'])}"
+                               for r in rows)}
+    return {"type": "merged"}
+
+
+def pair_channel_reads(stream, a, b, family, chans=DEFAULT_CHANNELS,
+                       channels=None):
+    """-> the aligned channel reads of the span pair `a`, `b` in `family`,
+    or a `Refusal` when either span is not that family's own.
+
+    {"family", "align": ((qa, qb), ...), "reads": {channel: ((qa, qb, va,
+    vb), ...)}, "syllables": (({onset, nucleus, coda, prominence}, {...}),
+    ...) per aligned pair, "anchors": (a.anchor_pos, b.anchor_pos),
+    "occurrences": ({"idx", "origin", "line", "token"}, {...}),
+    "reading_context": {"type": "pinned", "combo": ...} or {"type":
+    "merged"}, "versions": {...}}.
+
+    `channels` names the channels the caller wants from `reads` (all four
+    when None). The cache holds the COMPLETE record per stream (its
+    declaration digest included), span pair, family and ChannelSet, and
+    projects it per caller, so the order callers ask in cannot change what
+    any of them is told."""
+    fam = CHANNEL_READ_FAMILIES.get(family)
+    if fam is None:
+        return Refusal("pair_channel_reads", "family",
+                       f"no channel-read family {family!r}; the families are "
+                       f"{', '.join(sorted(CHANNEL_READ_FAMILIES))}",
+                       kind="span")
+    want = CHANNEL_READ_CHANNELS if channels is None else tuple(channels)
+    bad = [c for c in want if c not in CHANNEL_READ_CHANNELS]
+    if bad:
+        return Refusal("pair_channel_reads", bad[0],
+                       f"channel {bad[0]!r} is not in a channel record "
+                       f"({', '.join(CHANNEL_READ_CHANNELS)})", kind="span")
+    rule, align_name = fam
+    cache = stream.__dict__.setdefault("_channel_read_cache", {})
+    key = (_declaration_digest(stream),
+           (a.idx, a.origin, a.anchor_pos, a.direction),
+           (b.idx, b.origin, b.anchor_pos, b.direction),
+           family, id(chans))
+    hit = cache.get(key)
+    if hit is None:
+        for side, sp in (("a", a), ("b", b)):
+            if not _canonical_span(stream, sp, rule):
+                return Refusal(
+                    "pair_channel_reads", "span",
+                    f"member {side} is not a {family!r} span: the family "
+                    f"reads spans its own rule ({rule.locus}, {rule.anchor}, "
+                    f"{rule.magnitude}) builds at the member's token",
+                    kind="span")
+        hit = (chans, _channel_record(stream, a, b, family, align_name,
+                                      chans))
+        cache[key] = hit
+    rec = hit[1]
+    out = dict(rec)
+    out["reads"] = {c: rec["reads"][c] for c in want}
+    return out
+
+
+def _channel_record(stream, a, b, family, align_name, chans):
+    al = ALIGNERS[align_name](a, b, stream)
+    reads = {c: [] for c in CHANNEL_READ_CHANNELS}
+    syllables = []
+    for qa, qb in al.pairs:
+        sa, sb = {}, {}
+        for c in CHANNEL_READ_CHANNELS:
+            va = _span_read(a, qa, c, stream, chans, "phonemic")
+            vb = _span_read(b, qb, c, stream, chans, "phonemic")
+            sa[c], sb[c] = va, vb
+            reads[c].append((qa, qb, va, vb))
+        syllables.append((sa, sb))
+
+    def occ(sp):
+        u = stream.units[sp.idx[0]]
+        return {"idx": sp.idx, "origin": sp.origin, "line": u.line,
+                "token": u.token}
+    return {"family": family,
+            "align": tuple(al.pairs),
+            "reads": {c: tuple(v) for c, v in reads.items()},
+            "syllables": tuple(syllables),
+            "anchors": (a.anchor_pos, b.anchor_pos),
+            "occurrences": (occ(a), occ(b)),
+            "reading_context": _reading_context(stream),
+            "versions": {"channel_reads": CHANNEL_READ_VERSION,
+                         "declaration": _declaration_digest(stream)}}
+
+
 __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
            "stanzas_from_blank_lines",
            "Span", "SpanRule", "enumerate_spans", "Alignment", "ALIGNERS",
            "Placement", "ChannelRule", "IdentityRule", "Figure",
            "RelationSchema", "Instance", "Refusal", "NoReferent",
            "Predicate", "Agree", "Differ", "Free", "ClassEqual",
-           "DirectedDiffer", "PresentVsAbsent", "SequenceEqual",
+           "DirectedDiffer", "PresentVsAbsent", "BothPresent",
+           "BOTH_PRESENT", "SequenceEqual",
            "SequenceSuffix", "SubsequenceOf", "Read", "ChannelSet",
            "DEFAULT_CHANNELS", "evaluate", "realise", "assemble",
            "mirrored", "order_burden", "Inert", "INERT", "check_inert",
            "line_pairs_for", "pair_satisfies", "pair_bindable",
            "resolve_line_pair", "pair_satisfies_any", "reading_combos",
+           "pair_channel_reads", "CHANNEL_READ_FAMILIES",
+           "CHANNEL_READ_CHANNELS", "CHANNEL_READ_VERSION",
            "pinned_phonology", "reading_witness", "cached_builder",
            "READING_COMBO_CAP",
            "overhang_member", "unsatisfiable_pairs", "group_satisfiable",

@@ -2345,6 +2345,25 @@ class LegacyReplay(unittest.TestCase):
                 out.append(line)
             return "\n".join(out)
 
+        # THE REGISTRY GREW BY TWO AFTER THIS CAPTURE (2026-10-30, `MISSING.md`
+        # M-323: `internal assonance`, `internal consonance`). The pair memo's
+        # diagnostic line counts what it judged, and on this build each of
+        # its three counts reads two higher where the recorded run judged
+        # anything: recorded `42 judged and recorded (70 schema slot(s), 42
+        # row(s) held)`, this build 44 / 72 / 44. The fixture is unchanged;
+        # only that line is advanced on the recorded side, and nothing else.
+        _memo_line = re.compile(r"(\d+) judged and recorded \((\d+) schema "
+                                r"slot\(s\), (\d+) row\(s\) held\)")
+
+        def with_m323(text):
+            def bump(m):
+                n, s, h = (int(x) for x in m.groups())
+                if not n:
+                    return m.group(0)
+                return (f"{n + 2} judged and recorded ({s + 2} schema "
+                        f"slot(s), {h + 2} row(s) held)")
+            return _memo_line.sub(bump, text)
+
         def recorded(rec):
             rec = dict(rec)
             if isinstance(rec.get("pending"), dict) and "prompt" in rec["pending"]:
@@ -2383,7 +2402,8 @@ class LegacyReplay(unittest.TestCase):
             with self.subTest(state=rec["name"]):
                 self.assertEqual(r.returncode, rec["replay_exit"], r.stdout[-600:])
                 got = norm(r.stdout.replace(str(work), "<WORK>"))
-                self.assertEqual(got, norm(without_d6(rec["replay_stdout"])))
+                self.assertEqual(got, norm(with_m323(without_d6(
+                    rec["replay_stdout"]))))
                 result = json.loads([l for l in r.stdout.splitlines()
                                      if l.startswith("  lyric result: ")][-1]
                                     [len("  lyric result: "):])

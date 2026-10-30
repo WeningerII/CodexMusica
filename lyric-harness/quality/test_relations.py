@@ -232,7 +232,9 @@ def stale_registry_count_sites(root, extra=None):
 def test_inventory():
     print("\n0. the inventory — DECLARED, REACHABLE and RUNNING are three "
           "different numbers")
-    check("78 schemas are declared", len(R.REGISTRY) == 78,
+    # REPINNED 2026-10-30 (`MISSING.md` M-323): ~~78~~ 80, after `internal
+    # assonance` and `internal consonance` were declared.
+    check("80 schemas are declared", len(R.REGISTRY) == 80,
           f"{len(R.REGISTRY)} in REGISTRY; all_schemas() is the accessor. "
           f"There is no SCHEMAS attribute and never was.")
     # THE PROSE THAT STATES THE REGISTRY'S SIZE IS HELD TO IT (2026-09-25,
@@ -244,18 +246,21 @@ def test_inventory():
     # this reads each current figure back, so the next declared schema turns
     # this red at every site that must be re-read, not at none of them.
     _n = len(R.REGISTRY)
+    # 2026-10-30 (M-323): a site may strike more than one superseded
+    # figure before the current one (`~~77~~ ~~78~~ 80`); `_S` skips them.
+    _S = r"(?:~~\d+~~\s+(?:#:\s+)?)*"
     _sites = {
-        "lyric_harness.py": r"~~77~~ (\d+) named relation",
-        "HANDBOOK.md": r"~~77~~ (\d+)",
-        "MISSING.md": r"~~77~~ (\d+) schemas since",
-        "quality/figures.py": r"~~77~~ (\d+)",
-        "quality/plan.py": r"~~77~~ (\d+)",
-        "quality/relations.py": r"~~77~~ (\d+)",
-        "quality/relations_null.py": r"~~77~~\s+(?:#:\s+)?(\d+)",
-        "quality/rhyme_types.py": r"~~77~~ (\d+)",
-        "quality/slots.py": r"~~77~~ (\d+)",
-        "quality/test_capabilities.py": r"~~77~~ (\d+)",
-        "quality/test_null_shapes.py": r"~~77~~ (\d+)",
+        "lyric_harness.py": r"~~77~~ " + _S + r"(\d+) named relation",
+        "HANDBOOK.md": r"~~77~~ " + _S + r"(\d+)",
+        "MISSING.md": r"~~77~~ " + _S + r"(\d+) schemas since",
+        "quality/figures.py": r"~~77~~ " + _S + r"(\d+)",
+        "quality/plan.py": r"~~77~~ " + _S + r"(\d+)",
+        "quality/relations.py": r"~~77~~ " + _S + r"(\d+)",
+        "quality/relations_null.py": r"~~77~~\s+(?:#:\s+)?" + _S + r"(\d+)",
+        "quality/rhyme_types.py": r"~~77~~ " + _S + r"(\d+)",
+        "quality/slots.py": r"~~77~~ " + _S + r"(\d+)",
+        "quality/test_capabilities.py": r"~~77~~ " + _S + r"(\d+)",
+        "quality/test_null_shapes.py": r"~~77~~ " + _S + r"(\d+)",
         "quality/schema_census.py": r"which is (\d+)\s+since",
     }
     _root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -329,8 +334,10 @@ def test_inventory():
                        and R.realise(s, st).kind == "unsupported_shape"]
     check("no schema refuses as an unsupported shape",
           _shape_refusals == [], str(_shape_refusals))
-    check("49 of 78 run; the rest refuse for capabilities and spans",
-          ran == 49 and refused == 29,
+    # REPINNED 2026-10-30 (`MISSING.md` M-323) from ~~49 of 78~~: the two
+    # interior schemas run on the quatrain; nothing else moved.
+    check("51 of 80 run; the rest refuse for capabilities and spans",
+          ran == 51 and refused == 29,
           f"ran={ran} refused={refused}; capability_report says "
           f"{len(rep['reachable'])} reachable "
           f"(2 of those refuse at the SPAN, which is correct: 'penult' and "
@@ -1461,7 +1468,8 @@ def test_traditions():
     sourced = [n for n, s in R.REGISTRY.items() if s.traditions]
     check(f"every one of the {len(R.REGISTRY)} schemas is either SOURCED "
           "or listed in UNSOURCED with a reason",
-          len(sourced) + len(R.UNSOURCED) == 78
+          # 2026-10-30 (M-323): ~~78~~ 80.
+          len(sourced) + len(R.UNSOURCED) == 80
           and not (set(sourced) & set(R.UNSOURCED))
           and all(R.UNSOURCED.values()),
           f"{len(sourced)} sourced, {len(R.UNSOURCED)} honestly empty "
@@ -1826,7 +1834,8 @@ def test_known_open_defects():
     check("P2 CLOSED by DELETION: SpanRule has no `terminator`, and nothing "
           "in the registry lost a distinction",
           "terminator" not in R.SpanRule.__dataclass_fields__
-          and len(_rules) == 156
+          # 2026-10-30 (M-323): ~~156~~ 160, two interior schemas.
+          and len(_rules) == 160
           and all(len(v) == 1 for v in _mags.values())
           and "terminator" not in R.__dict__["_spans_at"].__code__.co_names,
           f"{len(_rules)} member rules over {len(R.REGISTRY)} schemas. Before "
@@ -2296,11 +2305,15 @@ def test_relation_report_renderer_runs():
     rc, out = _capture(R.main, [METIDJA])
     check("`python3 quality/relations.py metidja.txt` RUNS end to end and "
           "exits 0",
-          rc == 0 and "phonology eng   schemas declared 78" in out
+          rc == 0 and "phonology eng   schemas declared 80" in out
           and "REFUSED 27 (capability 27 · EMPTY DECLARED FRAME 0 · OTHER 0)"
           in out and "RAN AND FOUND NOTHING 29" in out
-          and "RAN AND FIRED 22" in out,
-          "REFUSED 27 · RAN AND FOUND NOTHING 29 · RAN AND FIRED 22, "
+          and "RAN AND FIRED 24" in out,
+          "REFUSED 27 · RAN AND FOUND NOTHING 29 · RAN AND FIRED 24, "
+          "REPINNED 2026-10-30 (`MISSING.md` M-323) from declared ~~78~~ and "
+          "FIRED ~~22~~: `internal assonance` and `internal consonance` are "
+          "declared and both fire on Browning's lines; alliteration still "
+          "fires (4 instances), so no count moved out of FIRED. "
           "REPINNED 2026-09-25 from 27 · 28 · 23 on both trees: cynghanedd sain drosgl stopped firing: since 2026-09-25 it is sain's three-node figure with the answering edge relocated to a non-initial stressed syllable, where it was the bare onset edge that any two words of an English line could satisfy. "
           "REPINNED 2026-09-22 by running this verb on both trees: at "
           "f05dbf71 it read REFUSED 30 (4 OTHER — the unsupported shapes) · "
@@ -2706,8 +2719,10 @@ def test_vacuous_frame_is_not_a_null():
     # the unsupported-shape refusal to a capability refusal.
     # REPINNED 2026-09-25 (31, 27, 20) -> (30, 27, 21), measured on both
     # trees: cynghanedd sain drosgl stopped firing: since 2026-09-25 it is sain's three-node figure with the answering edge relocated to a non-initial stressed syllable, where it was the bare onset edge that any two words of an English line could satisfy.
-    check("the staged item reproduces the measured split (30, 27, 21)",
-          before == (30, 27, 21),
+    # REPINNED 2026-10-30 (30, 27, 21) -> (30, 27, 23), `MISSING.md` M-323:
+    # `internal assonance` and `internal consonance` are declared and fire.
+    check("the staged item reproduces the measured split (30, 27, 23)",
+          before == (30, 27, 23),
           f"{before} on corpus/{VACUITY_ITEM}: {len(raw)} raw lines, "
           f"{len(st.units)} units. PREMISE — it must hold on both trees.")
 
@@ -2754,9 +2769,10 @@ def test_vacuous_frame_is_not_a_null():
           == {"caesura", "refrain_tail"},
           _shown)
     after = _split(st)
+    # 2026-10-30 (M-323): ~~30/27/21~~ ~~30/21/27~~, two fired schemas more.
     check("...so calling both markers moves NOTHING: the split is still "
-          "30/27/21, where it used to become 30/21/27",
-          after == before == (30, 27, 21),
+          "30/27/23, where it used to become 30/21/29",
+          after == before == (30, 27, 23),
           f"before {before} after {after}. Six schemas crossing from REFUSED "
           f"to RAN AND FOUND NOTHING is the collapse; the counts are the "
           f"cheapest place to see it.")
@@ -2769,7 +2785,8 @@ def test_vacuous_frame_is_not_a_null():
           and rep["refused_other"] == 0
           and rep["refused"] == 27
           and (rep["refused"] + rep["ran_found_nothing"]
-               + rep["ran_and_fired"]) == rep["declared"] == 78
+               # 2026-10-30 (M-323): ~~78~~ 80.
+               + rep["ran_and_fired"]) == rep["declared"] == 80
           and {r[0] for r in rep["vacuous_refusals"]} == set(VACUOUS_SIX)
           and all(len(r) == 4 for r in rep["refusals"]),
           f"refused {rep['refused']} = capability "
@@ -2850,11 +2867,12 @@ def test_vacuous_frame_is_not_a_null():
         mut_rep = R.relation_report(st)
         mut_state = st.supply("caesura").state
     check("MUTANT: with `provides` reading the SOURCE again, all six stop "
-          "refusing and return an empty list, the split moves to 30/21/27, "
+          "refusing and return an empty list, the split moves to 30/21/29 "
+          "(~~30/21/27~~ before M-323's two schemas, 2026-10-30), "
           "and the fourth count goes to zero",
           all(not isinstance(o, R.Refusal) and len(o) == 0
               for o in mut_outs.values())
-          and mut_split == (30, 21, 27) and mut_rep["refused_vacuous"] == 0
+          and mut_split == (30, 21, 29) and mut_rep["refused_vacuous"] == 0
           and mut_state == "present",
           f"{mut_split} under the mutant against {after} at head; "
           f"{ {n: len(o) for n, o in mut_outs.items()} }. Six schemas, six "
@@ -3998,9 +4016,15 @@ def test_every_schema_judges_and_no_differ_only_excludes():
           and sain.lines == {1} and (0, (1, 4, 6), True) in fig,
           f"lines {sorted(sain.lines)}; figures {fig[:3]}")
     gad = R.line_pairs_for(R.REGISTRY["cynghanedd sain gadwynog"], st)
+    # REPINNED 2026-10-30 (`MISSING.md` M-323) from `gad.lines == {1}`: the
+    # figure's (1,3) edge is the registry's `alliteration`, which now needs a
+    # real onset consonant on both words. Line 1 held only through
+    # vowel-initial edges (wrth ~ a'i, y ~ a'i: empty onsets agreeing), so it
+    # no longer holds. The figure still JUDGES; it is not refused.
     check("cynghanedd sain gadwynog JUDGES its interleaved figure (0,2) odl "
-          "+ (1,3) alliteration",
-          not isinstance(gad, R.Refusal) and gad.lines == {1},
+          "+ (1,3) alliteration, and line 1 no longer holds (its only "
+          "alliteration edges were empty onsets)",
+          not isinstance(gad, R.Refusal) and gad.lines == set(),
           f"{sorted(gad.lines)}")
     est = R.build_stream(["old eight ate in arms", "the cat sat by the door"],
                          eng, declaration={"language": "eng"})

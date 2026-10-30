@@ -516,7 +516,7 @@ def test_reopen_carries_what_it_is_not_declaring():
 
 
 def test_the_schema_namespace_is_judged():
-    """§8 — the ~~77~~ 78 `schema:` names, live since 2026-08-22.
+    """§8 — the ~~77~~ ~~78~~ 80 `schema:` names, live since 2026-08-22.
 
     These resolved 77/77 through the vocabulary and refused 77/77 at the
     judge, for two stated reasons. One was real — a `RelationSchema` is
@@ -766,7 +766,7 @@ def test_the_drawable_pool_holds_through_the_grade_route():
         slots, which is the check that would have gone red the day M-117
         shipped (kills restoring the whole-syllable `_seq` flatten), and
         `day~sea` VIOLATED (kills dropping the empty-cluster rule, without
-        which the ~~77~~ 78-schema default door goes vacuous-true on every pair
+        which the ~~77~~ ~~78~~ 80-schema default door goes vacuous-true on every pair
         of open syllables);
       * the DECLARED-TOKEN half (P2) — the schema judge reads the slot the
         writer bound, proven by CONTRAST: the same schema on the same
@@ -834,7 +834,7 @@ def test_the_drawable_pool_holds_through_the_grade_route():
     check("`day~sea` is VIOLATED, not vacuously satisfied — two open "
           "syllables share an EMPTY post-vocalic cluster, and a cluster "
           "relation over zero consonants must answer False with the reason, "
-          "or the ~~77~~ 78-schema default door satisfies every such pair silently",
+          "or the ~~77~~ ~~78~~ 80-schema default door satisfies every such pair silently",
           _sk("day", "sea") == "violated", _sk("day", "sea"))
 
     # THE DECLARED-TOKEN HALF (P2), BY CONTRAST. One draft, one schema,
