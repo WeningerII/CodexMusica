@@ -190,3 +190,22 @@ test('focus and hover share the dashed 1 px preview, lighter than selection', ()
   assert.match(css, /\.lib-mk-focus:is\(:hover,:focus-visible\)\{outline:1px dashed/);
   assert.match(css, /\.lib-mk-select\{fill:none;stroke:var\(--cm-text\);stroke-width:2\}/);
 });
+
+test('a dimmed edge dims its stroke, never its glyph: text never dims', () => {
+  const { document } = load();
+  const css = document.getElementById('lib-mk-style').textContent;
+  assert.match(css, /\.lib-mk-dim>path\{opacity:\.25\}/);
+  assert.doesNotMatch(css, /\.lib-mk-dim\{opacity/);
+  const e = M.edge(
+    { cx: 0, cy: 0 },
+    { cx: 200, cy: 0 },
+    { family: 'rhyme', dim: true, glyph: true }
+  );
+  assert.equal(e.querySelector('text').parentNode, e);
+});
+
+test('node coordinates carry the same surface halo, so an edge never strikes through them', () => {
+  const { document } = load();
+  const css = document.getElementById('lib-mk-style').textContent;
+  assert.match(css, /\.lib-mk-node-coord\{paint-order:stroke;stroke:var\(--cm-surface\)/);
+});
