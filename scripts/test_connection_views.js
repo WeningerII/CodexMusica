@@ -486,3 +486,21 @@ test('hiddenCount passes the exact marks contract and incomplete metadata never 
   model.hiddenByFilter = 'filter';
   assert.match(V.render(model).textContent, /Hidden count: not supplied/);
 });
+
+test('selectable marks use Jony single dashed hover/focus treatment; selection stays solid', () => {
+  const { V, model } = setup();
+  for (const view of ['poem', 'matrix', 'network']) {
+    const root = V.render(model, { view });
+    assert.ok(
+      [...root.querySelectorAll('[data-selection]')].every((node) =>
+        node.classList.contains('lib-mk-focus')
+      )
+    );
+    assert.ok(root.querySelector('.lib-mk-select') || root.querySelector('.cv-selected'));
+    assert.doesNotMatch(root.querySelector('style').textContent, /\.cv-root g:focus-visible/);
+    assert.match(
+      root.querySelector('style').textContent,
+      /button:not\(\.lib-mk-focus\):focus-visible/
+    );
+  }
+});
