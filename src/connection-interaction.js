@@ -50,6 +50,14 @@
     sound: 'Shared sound (not a registered figure)',
   });
 
+  // An evidence record's namespace names its layer; display text never does.
+  const NAMESPACE_LAYER = Object.freeze({ schema: 'registered', shared_sound: 'sound' });
+  function layerOfNamespace(namespace) {
+    return Object.prototype.hasOwnProperty.call(NAMESPACE_LAYER, namespace)
+      ? NAMESPACE_LAYER[namespace]
+      : null;
+  }
+
   const KINDS = Object.freeze(['occurrence', 'pair', 'binding', 'figure']);
 
   function requireId(value, what) {
@@ -314,7 +322,7 @@
     if (!rec && cell.readingDependent) {
       return {
         state: 'not_examined',
-        reason: 'locus depends on the reading',
+        reason: 'across readings',
         absenceOnly: false,
         uncertified: true,
       };
@@ -356,7 +364,7 @@
 
   function stateWords(result) {
     if (result.state === 'holds' && result.absenceOnly) return 'holds · only empty onsets compared';
-    if (result.uncertified) return `not certified · ${result.reason}`;
+    if (result.uncertified) return 'Not certified across readings';
     const words = STATE_WORDS[result.state];
     return result.reason && result.state !== 'holds' && result.state !== 'does_not_hold'
       ? `${words} · ${result.reason}`
@@ -453,6 +461,8 @@
     STATES,
     STATE_WORDS,
     LAYER_WORDS,
+    NAMESPACE_LAYER,
+    layerOfNamespace,
     KINDS,
     occurrence,
     pair,

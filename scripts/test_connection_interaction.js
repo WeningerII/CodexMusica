@@ -271,9 +271,9 @@ test('a method domain decides locus, certification and reading dependence', () =
   const dep = CI.cellState({ ...facts('e-watch-4-2', 'e-snow-4-8'), jobComplete: true });
   assert.deepEqual(
     [dep.state, CI.stateWords(dep)],
-    ['not_examined', 'not certified · locus depends on the reading']
+    ['not_examined', 'Not certified across readings']
   );
-  assert.equal(dep.reason, 'locus depends on the reading');
+  assert.equal(dep.reason, 'across readings');
   // ... but a record still decides.
   assert.equal(
     CI.cellState({
@@ -401,6 +401,18 @@ test('the shared-sound layer is always named in full', () => {
     }),
     /Shared sound \(not a registered figure\) · Vowel holds$/
   );
+});
+
+test('a record’s namespace names its layer; other namespaces are not guessed', () => {
+  assert.equal(CI.layerOfNamespace('schema'), 'registered');
+  assert.equal(CI.layerOfNamespace('shared_sound'), 'sound');
+  assert.equal(
+    CI.LAYER_WORDS[CI.layerOfNamespace('shared_sound')],
+    'Shared sound (not a registered figure)'
+  );
+  // The Library's existing Sound reader layer is not the shared-sound namespace.
+  assert.equal(CI.layerOfNamespace('sound'), null);
+  assert.equal(CI.layerOfNamespace('toString'), null);
 });
 
 test('occurrence labels carry the coordinate, as in r5', () => {
