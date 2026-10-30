@@ -1944,8 +1944,9 @@ def test_known_open_defects():
           len(_asym) == 17
           # REPINNED 2026-09-25 from 103 / 65 over four schemas: cynghanedd sain drosgl stopped firing: since 2026-09-25 it is sain's three-node figure with the answering edge relocated to a non-initial stressed syllable, where it was the bare onset edge that any two words of an English line could satisfy, and
           # a full figure has no text-order skip to recover from.
-          and sum(b["recovered_instances"] for b in _burd.values()) == 88
-          and sum(b["recovered_true"] for b in _burd.values()) == 62
+          # REPINNED 2026-10-30 from 88 / 62 (M-322 item 4, G1): `_bucket_key` keyed a flush_right `each` channel at the span's FIRST unit, so mosaic rhyme's free run was filed under its first syllable and every pair the judge accepts on the last was pruned before it was judged. Keyed at the last unit, mosaic rhyme recovers 383 (was 62); amphisbaenic rhyme (22 / 0) and cynghanedd lusg (4 / 0) are unmoved.
+          and sum(b["recovered_instances"] for b in _burd.values()) == 409
+          and sum(b["recovered_true"] for b in _burd.values()) == 383
           and not any(b["symmetric"] for b in _rec.values()),
           f"metidja.txt, all {len(R.REGISTRY)} schemas: "
           f"{sum(b['recovered_instances'] for b in _burd.values())} "
@@ -1961,9 +1962,10 @@ def test_known_open_defects():
     check("...and the concrete case: `mosaic rhyme` recovered its ENTIRE "
           "TRUE set, because every one of those pairs had the single word "
           "print SECOND",
-          _burd["mosaic rhyme"]["recovered_true"] == 62
-          and sum(1 for i in _mos if i.verdict is True) == 112,
-          "62 of the schema's 112 TRUE instances existed only because the "
+          # REPINNED 2026-10-30 from 62 / 112 (G1, the pin above).
+          _burd["mosaic rhyme"]["recovered_true"] == 383
+          and sum(1 for i in _mos if i.verdict is True) == 714,
+          "383 of the schema's 714 TRUE instances existed only because the "
           "positional skip was removed — every one of them a real rhyme "
           "where the single-word member happened to print after the "
           "multi-word run that rhymed with it. A schema's recall was a "
@@ -3910,8 +3912,14 @@ def test_the_pair_guard_refuses_before_it_evaluates():
     with _EvaluateSpy() as spy:
         ref = _realise_pre_guard_move(sch, st, keep="all")
     exact = spy.calls
-    check("the fixture reaches 2,961 candidate pairs on `chain rhyme (rap)` "
-          "— enough to test a cap against", exact == 2961,
+    # REPINNED 2026-10-30 from 2,961 (G1, M-322 item 4): `_bucket_key` now
+    # keys this schema's flush_right `each` nucleus at the LAST unit every
+    # partner aligns, not the first. Net 677 fewer candidates: every pair the
+    # sharper key drops was judged False, and the pairs the first-syllable key
+    # had wrongly split now reach the judge. No TRUE instance is lost
+    # (48 -> 142 TRUE on this fixture); the instances are 1,403 -> 1,233.
+    check("the fixture reaches 2,284 candidate pairs on `chain rhyme (rap)` "
+          "— enough to test a cap against", exact == 2284,
           f"{exact} candidates, {len(ref)} instances")
 
     # (i) OVER THE CAP: the same refusal, and not one evaluation paid for it.
@@ -3931,14 +3939,16 @@ def test_the_pair_guard_refuses_before_it_evaluates():
           "number this check could have failed to reach)", old.calls == 50,
           f"{old.calls} evaluations before the raise")
 
-    # (ii) THE BOUNDARY. The cheap upper bound (5,637 here) is the candidate
+    # (ii) THE BOUNDARY. The cheap upper bound (5,637 here before G1, not
+    # re-derived since) is the candidate
     # count BEFORE de-duplication, so it is never below the exact count —
     # a cap between the two must NOT refuse, or the guard would have started
     # refusing inputs it used to answer.
     # 2026-10-02 superseded: `spy.calls == exact`. The evaluating pass now
     # skips a candidate whose required line gap fails, which `evaluate`
     # answered None; `chain rhyme (rap)`'s only placement is that gap, so
-    # it evaluates exactly the candidates it keeps (1,403 of 2,961 here).
+    # it evaluates exactly the candidates it keeps (~~1,403 of 2,961~~ 1,233
+    # of 2,284 here since G1, 2026-10-30).
     with _EvaluateSpy() as spy:
         at_cap = R.realise(sch, st, keep="all", max_pairs=exact)
     check("a cap ABOVE the exact count and BELOW the bound answers in full, "

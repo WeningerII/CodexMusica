@@ -2899,8 +2899,17 @@ def _bucket_key(schema, span, stream, chans, rule=None):
         if cr.scope == "sequence":
             v = _seq(span, stream, cr.channel, chans, cr.surface, rule=rule)
         else:
-            pos = span.anchor_pos if cr.scope in ("anchor", "each") else \
-                (len(span) - 1 if cr.scope == "last" else 0)
+            # G1 (M-322 item 4): an `each` channel is judged at every ALIGNED
+            # pair, so the key must sit at a position every partner aligns.
+            # Under flush_right that is the LAST unit, whatever the lengths;
+            # the anchor of a word_start or searched span is its FIRST, which
+            # filed mosaic rhyme's free run under its first syllable and
+            # pruned every pair the judge accepts on the last.
+            if cr.scope == "each" and schema.align == "flush_right":
+                pos = len(span) - 1
+            else:
+                pos = span.anchor_pos if cr.scope in ("anchor", "each") else \
+                    (len(span) - 1 if cr.scope == "last" else 0)
             if pos >= len(span):
                 return None
             v = _span_read(span, pos, cr.channel, stream, chans, cr.surface)
