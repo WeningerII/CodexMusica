@@ -49,7 +49,7 @@ Slowest call per tool on the 16-line reference song (2026-10-22, limit 600s per 
   - Quality layer (quality/) (<1k)
   - Known gaps, priority order (13k)
   - The doctrine index — every number, and where it lives (3k)
-- `MISSING.md` (640k): the defect register, entries `M-<n>`. Grep for the entry number.
+- `MISSING.md` (650k): the defect register, entries `M-<n>`. Grep for the entry number.
 - `BACKLOG.md` (51k): open work, by tier.
 - `corpus/`, `data/`, `quality/results/`: measurement inputs and outputs, millions of tokens. In the traced run the song program opened 71 data files and 0 under `corpus/` (`map/files.md` lists them).
 

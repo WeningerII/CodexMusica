@@ -363,11 +363,20 @@ CANON_RATE = CANON_VIOLATIONS / CANON_JUDGED
 # admit (89, 99), rhyme (8, 9)~~; schema held.
 # And once more after ASSONANCE was re-cut 0.82 -> 0.75 (2026-09-23):
 # ~~any (900, 925), admit (48, 52)~~; rhyme and schema held.
+# REPINNED 2026-10-30, THE ENGLISH SOUND INVENTORY (`MISSING.md` M-322;
+# layer: the lexicon's accent readings -- NEAR/SQUARE/CURE respelled, the
+# non-rhotic, FORCE, raising and spelling alternates -- and the any-reading
+# search). ~~any (903, 926), admit (65, 74), rhyme (1, 6), schema (896,
+# 921)~~ -> the values below, measured by `--check` over GRID at the same
+# seed. Fewer random pairs pass: NEAR and SQUARE no longer share a vowel with
+# FLEECE/KIT and DRESS/TRAP, and a pair is held only within one accent. The
+# admit band widens at the line-anchor cells (88). This records the
+# instrument's new result, not a relaxed acceptance band.
 ADOPTED = {
-    "any": (903, 926),
-    "admit": (65, 74),
-    "rhyme": (1, 6),
-    "schema": (896, 921),
+    "any": (785, 809),
+    "admit": (64, 88),
+    "rhyme": (1, 7),
+    "schema": (764, 782),
 }
 
 

@@ -155,11 +155,27 @@ PER_K_BUCKETS = ((3, 4), (5, 8), (9, 16), (17, None))
 #: Prior rows, unrounded results and immutable receipts are preserved in
 #: `../docs/reader-calibration-adoption-2026-10-14.md` (repository root docs/).
 #: Thresholds and song-arm rows are unchanged.
+#: RE-BANKED 2026-10-30, THE ENGLISH SOUND INVENTORY (`MISSING.md` M-322;
+#: layer: the lexicon's accent readings and the any-reading search), both
+#: sonnet rows whole from ONE run of the banked estimator (`per_k.py` from
+#: `quality/results/any_reading_pins_2026-10-01/RECEIPT.txt`, sha256
+#: a61394f115e8b089..., run on this tree as `per_k.py ROOT`):
+#:   k=3-4   pairs ~~808~~ 382   crossover ~~0.7590~~ 0.8152   buys ~~-0.16~~ -0.50   NO, ~~4~~ 1 of 10
+#:   k=5-8   pairs ~~207~~ 314   crossover ~~0.6424~~ 0.7510   buys ~~+5.30~~ -0.04   ~~yes, 10 of 10~~ NO, 4 of 10
+#: THE k=5-8 VERDICT CHANGES: it no longer clears theta -- its crossover
+#: rises above `theta_rhyme` 0.75 and the search buys nothing there. The
+#: modal bucket is still k=3-4 (382 pairs, 34.7%, down from 73%), and its
+#: crossover sits further above theta. Every accent alternate adds span
+#: candidates, so `search_k` grows and pairs leave k=4 for k=8 and k=16 (k=9-16
+#: now 294, k=17+ 105). The all-pairs crossover is 0.7505 (was 0.7161)
+#: against the adopted 0.72. CROSSOVER and theta_rhyme are untouched; the
+#: margin is an open item (M-322's open list). The song rows stay the
+#: 2026-09-18 record, unremeasured.
 PER_K_CROSSOVER = {
-    ("sonnets", (3, 4)): {"pairs": 808, "crossover": 0.7590,
-                          "buys_pp": -0.16, "clears": "NO, 4 of 10"},
-    ("sonnets", (5, 8)): {"pairs": 207, "crossover": 0.6424,
-                          "buys_pp": +5.30, "clears": "yes, 10 of 10"},
+    ("sonnets", (3, 4)): {"pairs": 382, "crossover": 0.8152,
+                          "buys_pp": -0.50, "clears": "NO, 1 of 10"},
+    ("sonnets", (5, 8)): {"pairs": 314, "crossover": 0.7510,
+                          "buys_pp": -0.04, "clears": "NO, 4 of 10"},
     ("song", (3, 4)): {"pairs": 162711, "crossover": 0.6901,
                        "buys_pp": +0.13, "clears": "yes, 10 of 10"},
     ("song", (5, 8)): {"pairs": 35021, "crossover": 0.7261,
@@ -263,12 +279,30 @@ def bucket_populations(ks):
 #: the remedy doctrine 58 prescribes once the question has been argued: the
 #: drift was a QUESTION, the question has an answer with a name on it, and the
 #: answer is banked with the superseded values visible.
+#: REPINNED 2026-10-30, THE ENGLISH SOUND INVENTORY (`MISSING.md` M-322;
+#: layer: the lexicon's accent readings -- every alternate adds span
+#: candidates, so mean k rises to 11.08 and the realized-k mode moves off 4
+#: -- and the any-reading search), re-banked whole from one run:
+#:             REAL lift                    NULL lift
+#:   0.60   ~~+12.55~~ +16.61          ~~+15.31~~ +19.34
+#:   0.70    ~~+6.14~~  +8.71           ~~+7.06~~ +10.65
+#:   0.75    ~~+4.96~~  +5.99           ~~+3.93~~  +6.00
+#:   0.80    ~~+3.88~~  +4.54           ~~+2.12~~  +3.41
+#:   0.90    ~~+2.89~~  +3.09           ~~+0.54~~  +0.87
+#: THE MEASURED CROSSOVER IS NOW AT THE SHIPPED THETA. What the search buys
+#: is -1.93 at 0.70, -0.01 at 0.75 and +1.13 at 0.80, so the sign flips
+#: between 0.75 and 0.80 (before: between 0.70 and 0.75); the interpolated
+#: crossover is ~0.750 against `theta_rhyme` 0.75. The gate below still
+#: passes because it compares against the adopted `CROSSOVER` (0.72), which
+#: this repin does not touch. Recorded as an open item in `MISSING.md`
+#: M-322's open list, not retuned (doctrine 58). `PER_K_CROSSOVER`'s sonnet
+#: rows are re-banked the same day (see the note there).
 PINNED_SONNET = {
-    0.60: (+12.55, +15.31),  # REPINNED 2026-09-16 from ~~(+14.98, +18.30)~~
-    0.70: (+6.14, +7.06),    # REPINNED 2026-09-16 from ~~(+7.40, +8.51)~~
-    0.75: (+4.96, +3.93),    # REPINNED 2026-09-16 from ~~(+5.42, +4.53)~~
-    0.80: (+3.88, +2.12),    # REPINNED 2026-09-16 from ~~(+4.33, +2.49)~~
-    0.90: (+2.89, +0.54),    # real UNMOVED; null from ~~+0.50~~ (not E-5)
+    0.60: (+16.61, +19.34),  # REPINNED 2026-10-30 from ~~(+12.55, +15.31)~~
+    0.70: (+8.71, +10.65),   # REPINNED 2026-10-30 from ~~(+6.14, +7.06)~~
+    0.75: (+5.99, +6.00),    # REPINNED 2026-10-30 from ~~(+4.96, +3.93)~~
+    0.80: (+4.54, +3.41),    # REPINNED 2026-10-30 from ~~(+3.88, +2.12)~~
+    0.90: (+3.09, +0.87),    # REPINNED 2026-10-30 from ~~(+2.89, +0.54)~~
 }
 TOLERANCE_PP = 1.5
 
