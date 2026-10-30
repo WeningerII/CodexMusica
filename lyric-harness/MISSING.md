@@ -29335,3 +29335,58 @@ Screen and grade agree on a supplement-only word under a declared schema: `stree
 **TESTS.** `quality/test_lexicon_supplement.py` §14 (one helper for both readers; screen = grade, both directions, on `streetlights`; `perfect rhyme` in the screen's schema column; `sixty-six ~ tricks`; CMUdict alone still refuses; the `night ~ light` control identical with and without the supplement; the `types` record carries the basis under v2 and a null basis with `unreadable` on CMUdict alone). `mcp/test_lexicon_basis.mjs`: `lyric_types` joins the readers whose schema declares the basis, and a new end-to-end test drives it on the raw and session surfaces (default v2, `none`, a forged sha256, an unshipped id). `mcp/test_lookup_queue.mjs`'s stand-in Python recognises `types` after the globals the handler now spells ahead of it.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` 375 -> **376**.
+
+### M-322 · the English sound inventory had 15 vowels and 24 consonants, so NEAR, SQUARE, CURE, FORCE, LOT, the non-rhotic NURSE and the regional vowels had no symbol, and every word had only the readings CMUdict happened to list (`poor` P UW1 R only) `CLOSED` 2026-10-30 (built on `claude/english-sound-inventory`; regressions in `quality/test_sound_inventory.py`; the comparator re-pin follows the CI rebuild, as on 2026-10-18) — the owner's rulings of 2026-10-29: "treat near as its own vowel"; "The here/near vowel is its own sound, so it echoes neither see nor his ... It needs every check to treat that vowel as its own sound"; "poor for example has at least 2 different pronunciations and they all need to be accounted for"; "tell the team we need to cover every English vowel"; "add /x/ and the New York a too along with all of the rare regional distinctions"; and no outside lexicon, nothing hand-picked
+
+**FOUND** in the Woods prototype review (#519). `here` HH IY1 R shared the FLEECE symbol with `see`, so `here`/`sleep` scored 0.731 ASSONANCE on bare IY=IY, and M-320's pairwise licence (IY~IH before a coda R) could not deliver "echoes neither". The same shape held for every vowel CMUdict writes with a neighbour's symbol before R, and for every accent reading CMUdict does not list.
+
+**THE INVENTORY.** `lyric_harness.VOWELS` gains 22 rows and `CONSONANTS` 4, every feature tuple distinct (so no two symbols score 1.0 on the scalar shape). Names are two vowel letters, so the qafiya concatenation and the page's `[A-Z]{1,2}` reader take them unchanged.
+
+- Written by rule: IA NEAR, EA SQUARE, UA CURE, OA FORCE, OO LOT, EU non-rhotic NURSE, OE toe-type GOAT, EE pane-type FACE, IE MEAT, IU DEW, UI raised PRICE, OU raised MOUTH.
+- In the inventory, written by no rule yet (no regular spelling decides them; a supplement row or a declared reading can use them): AI long TRAP, EI New York tense TRAP, UU Scottish long GOOSE, EO Scottish centralised vowel, AU II UO IO the French nasals, UE OI the front rounded loans; KH /x/, CX /ç/, LH /ɬ/, Q the glottal stop.
+
+Every copy of the inventory agrees, and the test holds them equal: `quality/pronunciation.py`, `quality/quotients.py` (manner of each new consonant), `quality/g2p.py` `VOICELESS`, `quality/relations.py` `CHANNEL_DOMAINS["nucleus"]` (27, exactly the vowels the lexicon emits) and `ABLAUT_ORDER`, `src/pages/lyrics.js`. `RIDF_CLASS` (the English imitation of qafiya) gives IE, EE, UI, OE and IU the class of the vowel they are derived from.
+
+**THE READINGS** (`derive_accent_readings`, `ACCENT_RULES = "accent-readings-2026-10-30"`), from CMUdict alone, for every `reader_scheme` but `v1`:
+
+- Respelled in place, in every reading including the first: IH/IY before a coda R -> IA, EH/AE/EY -> EA, UH/UW -> UA. The coda is `syllabify`'s, so `hearing`, `mirror`, `carry`, `jury` are untouched.
+- Appended alternates, never replacing a reading: non-rhotic (coda R dropped, ER1/2 -> EU, ER0 -> AH0); cure-force (UA -> AO, not after Y: `poor`, `sure`, `tour`, not `cure`, `pure`); force (AO before a coda R -> OA when the spelling is oar/oor/our/ore: `hoarse`, `four`, `more`, not `horse`, `for`); the spelling-decided lot/toe/pane/meat/dew splits (`bother` not `father`, `toe` not `tow`, `pane` not `pain`, `meat` not `meet`, `dew` not `blue`); raising (AY/AW before a voiceless consonant: `write` not `ride`, `about` not `loud`).
+- A derived reading keeps its source reading's syllable count; a word whose spelling does not align with its phones gets no spelled alternate; no word is added.
+
+77,737 derived readings over 60,603 words; 210,716 readings in all. `Lexicon.reading_source` names the rule (`rule:near`, `rule:cure-force`, ...) and never says `cmudict` for a derived reading; `dictionary_readings` still accepts CMUdict's own spelling (`here` HH IY1 R) as a dictionary choice. The supplement's rows go through the same rules. `v1` replays the pre-batch dictionary byte for byte.
+
+**WHAT MOVES** under standing rule 5: `here`/`near`/`year` rhyme on IA; `here`/`see` and `here`/`his` share no vowel; `poor` rhymes with `sure`/`tour` (CURE) and with `more` (its FORCE reading); `car`/`spa` rhyme through the non-rhotic reading; `horse`/`hoarse` and `father`/`bother` still rhyme through the General American readings.
+
+**WHAT MOVED, MEASURED** (every pin keeps its superseded value visible, dated 2026-10-30; doctrine 17):
+
+- **Sonnet battery** (`battery_pin.py`, the partition by `audit_spans.py --write-oracle`): 1064/1012/52/~~36~~ **24**. The refused set is unchanged; none joins the violated set. Ten pairs leave because they hold as consonance in one non-rhotic reading: herd/beard 12, deserts/parts 17, worth/forth 38, 72 and 102, desert/part 49, desert/impart 72, word/afford 79, words/affords 85 and 104. Two pass the registry `consonance` on two empty codas, were/bear 13 and were/near 138: open question (c) below. Span attribution: ties 121 -> 357 (the alternates give equal-scoring spans), violations_claimed 8 -> 3, violation_ties 2 -> 5, mosaic violations 3 -> 2.
+- **Band control** (`audit_band_control.py`): whitman off 43 -> 42, sonnet off 442 -> 440, on 432 -> 430; chains that bridged across the vowel before R split where NEAR/SQUARE is its own vowel (air/their/begin, repair/pen/fair/men, tear/appear/live/give).
+- **Inventory sizes**: coda 24 -> 28 consonants (276 -> 378 pairs, 36 -> 50 agreeing at 0.80); nucleus 15 -> 37 vowels (105 -> 666 pairs, 40 -> 260 admitted at 0.60, the cut now EE~IU 0.600 | ER~II 0.5975); the M-123 nucleus domain 15 -> 27, the vowels the lexicon emits.
+- **Readings seam** (`test_readings_seam.py`): the sonnet move counts coda (2,18) -> (16,78), consonants (2,1) -> (3,4), phones (2,1) -> (7,1); the eng_* corpus coda (72,1536) -> (5353,12231), consonants (113,168) -> (294,545), phones (446,277) -> (2032,383) -- the non-rhotic and FORCE alternates are the bulk; `or` reads 6 sequences, not 4; don't/won't agreement ((False,None,None),), both words gaining the toe reading.
+- **Rulings now held under one whole reading**: office/color and read/seed are masculine rhyme (K AO1 L ER0, R IY1 D); read/seed holds with nothing declared; cold/bold stand in perfect rhyme, assonance, consonance and homoioteleuton; words/affords holds as consonance in one accent.
+- **Collisions** (`test_revise.py` §33): 47 -> 30, all 30 undeclared, 0 inside the scope; 17 near-relations left (frame/name/flame against rain/plain through the pane reading, wall against floor/door, told against showed) and none joined. INDISTINGUISHABLE groups 1 -> 0 (flame/name gained EE1).
+- **Ledger** (`relations_null.py`): eight schemas EXTENDABLE/NO INSTANCE -> CANNOT OBTAIN (the Raven's -oor/-ore words carry four readings, so their candidates are undecided and ask for a reading); rhyming reduplication NO INSTANCE -> CANNOT FAIL, which is G1's exposure; LEDGER_CANNOT_OBTAIN (30,1) -> (38,1).
+- **Reader agreement** (`test_chance_rate.py`): the word and line readers disagree on 136 of 300 pairs, not 71 (the word reader reads reading 0; the line reader searches every reading).
+- **Fixtures moved** where a word's new reading changed what the check tests, each named in its test: door the door -> day the day; the relations_null door/floor set; the Raven grid counts read true-or-undecided; revise lights -> boots and go/know -> away/say; verbs lights/gates/bits -> lines/chains/pins; production_relations words/affords -> argument/spent.
+
+**DEFECTS FOUND IN THIS BUILD AND FIXED** (the first full run, before any pin moved):
+
+1. Mixed-accent pairing: a prohibition quantified over every reading pair paired one word's rhotic reading with the other's non-rhotic one, so no -R rhyme could collide (floor/door, car/far). Readings now combine within one accent (`accents_agree`; rule applicability read from the whole `reading_rules`).
+2. `check_scheme` charged REPEAT before resolving readings (her/her, sonnet 42).
+3. A v1 view of a v2 lexicon kept the v2 readings (`with_reader_scheme` now re-reads them across the v1 line); the supplement's `--check` compared against derived entries; an apostrophe row's own accent readings were unreachable.
+4. Declared structures and rhyme names folded readings per channel and called night/light undecided; `structures.judge` and `names_at` now ask under whole reading pairs.
+5. `resolve_line_pair` varied only the first-reported tokens; it now grows them to a fixpoint (monuments/contents, temperate/date).
+6. The family-rhyme screen and the figures route did not ask again under whole readings (cold/told struck; so-so and helter-skelter graded False).
+7. `relations.py` imported `lyric_harness` for the accent check (P10); it reaches it through the lexicon.
+
+
+**WHAT IT DOES NOT REACH** (open, named so nobody reads them as covered):
+
+1. `CandidateEngine`, the identity rime keys (`quality/grid.py`, `quality/capacity.py`, `build_song_frequency.rime_key`) and the features index read the first reading only. The first reading carries the in-place respelling, so NEAR/SQUARE/CURE are keyed apart; the appended alternates are not.
+2. The g2p fallback's readings and a writer's declared readings are not run through the rules.
+3. `Declaration.dialect` text is unchanged.
+4. **G1, pre-existing, now exposed:** `relations._bucket_key` keys an "each"-scope channel at the span's anchor while `flush_right` alignment compares the last syllables, so the index prunes pairs the judge accepts (`unbutton` as rhyming reduplication, on main too). A fix was built and backed out: it changed v1's frozen output and moved t_relations' instance counts from 88/62 to 409/383. It needs its own entry.
+5. **Owner decision:** `recover`'s end-schema list (`whole_vocabulary_pairs`) names only schemas decided on the default reading, so streetlight/night loses perfect rhyme there (`test_reader.py` `test_recovery_end_schemas_use_the_selected_lexicon`, red). Resolving every end pair under whole readings costs time per call.
+6. **Owner decision, question (c):** the registry `consonance` passes when both codas are empty (were/bear, were/near, harmony~sea with promotion off, bay~pier). Red until ruled: `test_mandate_relation.py` (final_promotion off), `test_revise.py` §36.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` 376 -> **377**.
