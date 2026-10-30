@@ -410,6 +410,18 @@ def whitman_battery():
 # (thee/thee, 5/7) leave the violated set; none joins it, and judged and
 # refused do not move. Measured by `audit_spans.py --check`; the partition is
 # rewritten by `--write-oracle`.
+# REPINNED 2026-10-30, THE ENGLISH SOUND INVENTORY (`MISSING.md` M-322).
+# Layer: lexicon -- every word gains the readings the accent rules derive
+# from CMUdict, and a pair holds if one whole reading in one accent holds
+# (standing rule 5). ~~violations 36~~ -> violations 24; judged 1012 and
+# refused 52 do not move, and the refused set is unchanged. 12 pairs leave
+# the violated set and none joins it. Ten hold as consonance in one
+# non-rhotic reading: herd/beard 12, deserts/parts 17, worth/forth 38, 72
+# and 102, desert/part 49, desert/impart 72, word/afford 79, words/affords
+# 85 and 104. Two pass the registry `consonance` on two empty codas,
+# were/bear 13 and were/near 138 -- open question (c), the owner's to rule.
+# Measured by `audit_spans.py --check`; the partition is rewritten by
+# `--write-oracle`.
 from quality.battery_pin import EXPECTED  # noqa: E402
 
 

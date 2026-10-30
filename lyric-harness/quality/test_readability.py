@@ -1331,8 +1331,10 @@ def test_a_spaced_enclitic_joins_its_word_and_an_elided_word_does_not():
     _ph, words, _oov = LEX.transcribe(joined)
     check("transcribe cuts it the same way (its token INDEX keys for_token)",
           words == LH.line_tokens(joined), words)
-    check("and reads `there's` (DH EH1 R Z), not the letter S after `there`",
-          _ph[:4] == ["DH", "EH1", "R", "Z"] and _ph[4] == "HH", _ph)
+    # REPINNED 2026-10-30: ~~DH EH1 R Z~~ -> DH EA1 R Z, the SQUARE vowel
+    # before a coda R is respelled in place (M-322); the token cut is unmoved.
+    check("and reads `there's` (DH EA1 R Z), not the letter S after `there`",
+          _ph[:4] == ["DH", "EA1", "R", "Z"] and _ph[4] == "HH", _ph)
     check("every clitic form joins: 'll 're 've 'd 'm 's",
           LH.join_spaced_enclitics("Wha 'll ye 're we 've I 'd I 'm she 's")
           == "Wha'll ye're we've I'd I'm she's",
