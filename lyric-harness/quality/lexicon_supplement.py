@@ -455,19 +455,37 @@ class SupplementedLexicon(LH.Lexicon):
         # `basis: dictionary` reading of a supplement word is recognised.
         super().__init__(fallback=fallback, strip_parens=strip_parens,
                          pronunciations=None, reader_scheme=reader_scheme)
+        self._supplement_raw = {}
         rows = load_rows(supplement_path)
         cmu = self.entries
-        problems = check_rows(rows, cmu)
+        # The frozen rows are checked against CMUdict AS SHIPPED, before the
+        # accent readings (`LH.derive_accent_readings`) respelled anything:
+        # the number-compound rule rebuilds rows from those readings.
+        problems = check_rows(rows, self.cmu_raw_entries)
         if problems:
             raise SupplementError("; ".join(problems[:5]))
         merged = dict(cmu)
         sources = {}
+        rules = dict(self.reading_rules)
+        derive = self.reader_scheme != "v1"
         for row in rows:
             word = row["word"]
             if word in cmu and merged[word] is cmu[word]:
                 merged[word] = list(cmu[word])      # never append into CMUdict's list
-            merged.setdefault(word, []).append(list(row["phones"]))
-            sources[(word, tuple(row["phones"]))] = row["source"]
+            phones = list(row["phones"])
+            sources[(word, tuple(phones))] = row["source"]
+            readings, row_rules = (LH.derive_accent_readings(word, [phones])
+                                   if derive else ([phones], {}))
+            for reading in readings:
+                if reading not in merged.setdefault(word, []):
+                    merged[word].append(reading)
+                if tuple(reading) in row_rules:
+                    rules[(word, tuple(reading))] = row_rules[tuple(reading)]
+            if derive and readings[0] != phones:
+                # The row's own phones respelled: still reachable for a
+                # `basis: dictionary` choice through `dictionary_readings`.
+                self._supplement_raw.setdefault(word, []).append(phones)
+        self.reading_rules = rules
         self.cmu_entries = cmu
         self.entries = merged
         self.supplement_path = supplement_path
@@ -503,7 +521,10 @@ class SupplementedLexicon(LH.Lexicon):
         for k in keys:
             if (k, phones) in self._reading_sources:
                 return self._reading_sources[(k, phones)]
-        if any(tuple(p) == phones for k in keys for p in self.cmu_entries.get(k, ())):
+        for k in keys:
+            if (k, phones) in self.reading_rules:
+                return f"rule:{self.reading_rules[(k, phones)]}"
+        if any(tuple(p) == phones for k in keys for p in self.cmu_raw_entries.get(k, ())):
             return "cmudict"
         return None
 
@@ -539,7 +560,11 @@ class SupplementedLexicon(LH.Lexicon):
         groups = ([p for p in self.entries.get(key, ())
                    if (key, tuple(p)) in self._reading_sources] if key != bare else [],
                   self.entries.get(bare, ()),
-                  self.cmu_entries.get(key, ()) if key != bare else ())
+                  self.cmu_entries.get(key, ()) if key != bare else (),
+                  # CMUdict's and the rows' own readings that the accent
+                  # respelling rewrote, so a choice saved before it validates.
+                  self.cmu_raw_entries.get(bare, ()),
+                  self._supplement_raw.get(bare, ()))
         for group in groups:
             for p in group:
                 if list(p) not in out:

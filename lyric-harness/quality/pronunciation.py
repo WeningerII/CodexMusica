@@ -10,8 +10,14 @@ import hashlib
 import json
 from collections import ChainMap
 
-VOWELS = frozenset('AA AE AH AO AW AY EH ER EY IH IY OW OY UH UW'.split())
-CONSONANTS = frozenset('B CH D DH F G HH JH K L M N NG P R S SH T TH V W Y Z ZH'.split())
+# The ARPABET inventory plus the extended English inventory, the same
+# symbols as lyric_harness.VOWELS / CONSONANTS (test_sound_inventory.py holds
+# the two equal). Kept literal so this module imports without the harness.
+VOWELS = frozenset('AA AE AH AO AW AY EH ER EY IH IY OW OY UH UW '
+                   'IA EA UA OA OO EU OE EE IE IU UI OU AI EI UU EO '
+                   'AU II UO IO UE OI'.split())
+CONSONANTS = frozenset('B CH D DH F G HH JH K L M N NG P R S SH T TH V W Y Z ZH '
+                       'KH CX LH Q'.split())
 MAX_CHOICES = 128
 
 

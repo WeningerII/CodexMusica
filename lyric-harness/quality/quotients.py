@@ -36,7 +36,11 @@ refusal at that channel, not as a False.
 #: 25th symbol refuses here instead of silently sorting it to `None`.
 ARPABET_CONSONANTS = (
     "B", "CH", "D", "DH", "F", "G", "HH", "JH", "K", "L", "M", "N", "NG",
-    "P", "R", "S", "SH", "T", "TH", "V", "W", "Y", "Z", "ZH")
+    "P", "R", "S", "SH", "T", "TH", "V", "W", "Y", "Z", "ZH",
+    # The extended English inventory (lyric_harness.CONSONANTS, 2026-10-30):
+    # /x/ loch, /ç/, /ɬ/ Welsh Ll-, the glottal stop. Not in CMUdict; carried
+    # by rule-derived readings and declared readings.
+    "KH", "CX", "LH", "Q")
 
 #: MANNER, the standard six-way articulatory partition. This is descriptive
 #: phonetics and not a calibration: it is the same grouping in Ladefoged &
@@ -68,6 +72,7 @@ MANNER = {
     "M": "nasal",      "N": "nasal",      "NG": "nasal",
     "L": "liquid",     "R": "liquid",
     "W": "glide",      "Y": "glide",
+    "KH": "fricative", "CX": "fricative", "LH": "liquid",   "Q": "stop",
 }
 
 MANNER_CLASSES = ("stop", "affricate", "fricative", "nasal", "liquid", "glide")

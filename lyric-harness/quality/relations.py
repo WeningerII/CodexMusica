@@ -5159,7 +5159,8 @@ declare(RelationSchema(
 #: written in a notation some shipped phonology emits. AA sits with O: in
 #: the declared dialect `tock`, `hop`, `flop` are AA, and the A slot of the
 #: canonical words (dang, zag, chat, flap) is AE.
-ABLAUT_ORDER = (("i", "IH", "IY"), ("a", "AE"), ("o", "AO", "AA", "OW"))
+ABLAUT_ORDER = (("i", "IH", "IY"), ("a", "AE", "AI", "EI"),
+                ("o", "AO", "AA", "OW", "OO", "OA", "OE"))
 
 declare(RelationSchema(
     name="ablaut reduplication",
@@ -7941,7 +7942,8 @@ def planning_traits(names=None):
 #: all 126,052 syllabifiable words of the shipped lexicon: prominence
 #: emits exactly {0, 1} — binary BY CONSTRUCTION, the eng adapter's own
 #: `prominence=1 if s["stress"] in (1, 2) else 0` — and nucleus exactly
-#: the 15 ARPABET vowels. A channel ABSENT here is unbounded on purpose
+#: the 15 ARPABET vowels, plus the extended-inventory vowels reader scheme v3
+#: writes (27 in all). A channel ABSENT here is unbounded on purpose
 #: (onset/coda/consonants are sequences over an open combinatorial space,
 #: token is the vocabulary): absence can only make the gate MISS a cap,
 #: never invent one, so the table errs toward emitting a plan and the
@@ -7950,7 +7952,12 @@ def planning_traits(names=None):
 CHANNEL_DOMAINS = {
     "prominence": (0, 1),
     "nucleus": ("AA", "AE", "AH", "AO", "AW", "AY", "EH", "ER",
-                "EY", "IH", "IY", "OW", "OY", "UH", "UW"),
+                "EY", "IH", "IY", "OW", "OY", "UH", "UW",
+                # Reader scheme v3 (`derive_accent_readings`) also emits
+                # these, the extended-inventory vowels its rules write.
+                # The symbol-only ones (no rule writes them yet) are absent.
+                "IA", "EA", "UA", "OA", "OO", "EU", "OE", "EE", "IE", "IU",
+                "UI", "OU"),
     # A derived channel: `planning_traits` translates PresentVsAbsent to
     # Differ on `<channel>_presence`, and a presence bit is binary BY
     # CONSTRUCTION — nothing to measure, a coda is there or it is not.
