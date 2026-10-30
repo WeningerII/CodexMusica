@@ -1545,19 +1545,21 @@ class AnalysisSession:
 
     def _sound_domain(self, key):
         """Every unordered pair of distinct words with a span in the family,
-        exactly the pairs the method asks. A word whose span exists under
-        some readings only (a merged word whose stress varies, a disputed
-        word) is reading-dependent: a cell touching one is answered only by
-        its own record."""
+        exactly the pairs the method asks. A varying word with no span on
+        the work's own reading (a merged word whose stress varies) is asked
+        about under no reading: it is reading-dependent, and a cell touching
+        one is answered only by its own record. A disputed word that has a
+        span is not: every pair over it is judged under each of its readings,
+        so its missing records are judged Falses."""
         family = SHARED_SOUND_METHODS[key][0]
         toks = sorted(self._sound_spans(family, self.stream))
         if len(toks) * (len(toks) - 1) // 2 > self.DOMAIN_CAP:
             return {"projection": "none", "reason": "domain_cap", "cap": self.DOMAIN_CAP}
         cells = {(x, y) for i, x in enumerate(toks) for y in toks[i + 1:]}
-        dependent = sorted(t for t in self.stream.tokens if t in self._varying and t not in set(toks))
-        dependent += sorted(t for t in toks if t in self._disputed)
+        have = set(toks)
+        dependent = sorted(t for t in self.stream.tokens if t in self._varying and t not in have)
         return {**self._project(cells, "unordered"),
-                "reading_dependent_tokens": [self._token_id(t) for t in sorted(set(dependent))]}
+                "reading_dependent_tokens": [self._token_id(t) for t in dependent]}
 
     def _sound_result(self, key, mid, counts):
         if self.stream.unreadable and counts["coverage"] == "answered":

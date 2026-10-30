@@ -1251,6 +1251,10 @@ class SharedSound(unittest.TestCase):
             self.assertEqual(edge["verdict"], "true")
             self.assertIn("zyre = Z AY1 R", edge["reading"]["witness"])
             self.assertEqual(edge["compared"]["a"][0]["coda"], ["R"])
+            # Every pair over zyre is judged under each reading, so its
+            # missing records are judged Falses: not reading-dependent.
+            domain = next(r for r in rows if r["kind"] == "method_result")["domain"]
+            self.assertNotIn("line:0:token:0", domain["reading_dependent_tokens"])
             # With no reading to search, the first reading's False is not
             # certified: undecided, and says why.
             with patch.object(RL, "reading_combos", lambda st, toks, cap: ([], True)):
