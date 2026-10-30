@@ -63,7 +63,8 @@ class ReadingSearch(TypedDict):
     state: ReadingSearchState
     combinations_examined: int
     combination_limit: int
-    termination_reason: NotRequired[Literal["witness_found", "exhausted", "combination_cap"]]
+    termination_reason: NotRequired[Literal["witness_found", "exhausted", "combination_cap",
+                                            "rebuild_unavailable"]]
     reason: NotRequired[UndecidedReason]
 
 

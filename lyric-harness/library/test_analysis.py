@@ -990,6 +990,36 @@ class ConnectionEvidence(unittest.TestCase):
                     self.assertEqual((search["state"], search["combinations_examined"],
                                       search["termination_reason"]), (state, examined, "witness_found"))
 
+    def test_a_failed_rebuild_is_never_counted_as_judged(self):
+        # Fault injection (3PO, #641): the first of `zee`'s two readings
+        # cannot be rebuilt. Only the second is judged, so the search is
+        # never `exhaustive`, whether that reading holds (witness, partial)
+        # or fails (undecided, partial, rebuild_unavailable).
+        original = AnalysisSession._line_stream
+        failed = []
+
+        def first_fails(self, lines, combo):
+            # The first-listed reading's rebuild fails; every other builds.
+            if any(tuple(c[2]) == tuple(fail) for c in combo.values()):
+                failed.append(self._combo_key(combo))
+                return None
+            return original(self, lines, combo)
+        for words, verdict_ in (({"zee": [["Z", "IY1"], ["Z", "AH0"]]}, "undecided"),
+                                ({"zee": [["Z", "UW1"], ["Z", "IY1"]]}, "true")):
+            failed.clear()
+            fail = words["zee"][0]
+            with self.subTest(readings=words["zee"]), _with_words(words), \
+                    patch.object(AnalysisSession, "_line_stream", first_fails):
+                _, rows, _ = complete(source("zee is home\nand bee is too"), schemas=["internal rhyme"])
+                edge = _edge(rows, (0, 0), (1, 1))
+                self.assertEqual(edge["verdict"], verdict_)
+                self.assertEqual(edge["reading_search"]["state"], "partial")
+                self.assertEqual(edge["reading_search"]["combinations_examined"], 1)
+                self.assertTrue(failed)
+                if verdict_ == "undecided":
+                    self.assertEqual(edge["undecided_reason"], "rebuild_unavailable")
+                    self.assertEqual(edge["reading_search"]["termination_reason"], "rebuild_unavailable")
+
     def test_a_locus_only_some_readings_have_is_never_certified(self):
         # `zeeta`'s readings share a syllable count (MERGED) but not their
         # stress, so its last-stressed anchor -- and its internal-rhyme span --

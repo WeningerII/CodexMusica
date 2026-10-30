@@ -720,12 +720,14 @@ class AnalysisSession:
         to_judge = [c for c in combos if merged or not (
             st is self.stream and c is combos[0] or self._combo_key(c) == own)]
         for combo in to_judge:
-            examined += 1
             alt = self._line_stream(lines, combo)
             if alt is None:
+                # Not judged: a combination whose lines could not be rebuilt
+                # is neither counted nor allows `exhaustive` (3PO, #641).
                 open_ = True
                 reasons.append("rebuild_unavailable")
                 continue
+            examined += 1
             sides = []
             for rule, span in ((schema.spans[0], a), (schema.spans[1], b)):
                 try:
@@ -749,13 +751,15 @@ class AnalysisSession:
                         # A witness ends the search: what was JUDGED is
                         # exhaustive only if nothing was left unjudged (3PO,
                         # #641), whatever the cap allowed.
-                        whole = complete and examined == len(to_judge)
+                        whole = complete and examined == len(to_judge)  # no rebuild failed
                         return got, alt, self._witness(alt, cause), first_only, self._search(
                             "exhaustive" if whole else "partial", examined, termination="witness_found")
                     if got is not None and got.verdict is None:
                         open_ = True
-        state = "partial" if not complete else "exhaustive"
-        termination = "combination_cap" if not complete else "exhausted"
+        whole = complete and examined == len(to_judge)
+        state = "exhaustive" if whole else "partial"
+        termination = ("combination_cap" if not complete else
+                       "exhausted" if whole else "rebuild_unavailable")
         if inst is not None and open_ and inst.verdict is False:
             inst = replace(inst, verdict=None)
         elif inst is not None and merged and not open_ and inst.verdict is None:
