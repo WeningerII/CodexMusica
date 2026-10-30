@@ -44,7 +44,14 @@ Committed by Don Norman after John confirmed the push. Full text: `reviews/don-6
 
 - **Ledger rows.** V6 (triangle map) is adopted as the Matrix tab: one cell per unordered occurrence pair, and the square layout only while a directed method is selected. N3 (108×108 heatmap) stays declined, merged into V6. Neither row has an owner or a build until John assigns one.
 - **D1. Discovery starts from a word.** Focusing an occurrence lists its partners by family, with a count for each state. Every view carries a fixed coverage line saying what was examined (methods, loci, reading policy, scope still computing), fed by the method manifest.
-- **D2. One selection object,** keyed by `entity_id`: either one occurrence or one occurrence pair. It is the same in every tab and is written to the URL. A filter never moves it silently ("Selected pair hidden by current filter · Show"). Repeated spellings carry their coordinate ("woods · L1·2"). The inspector names member roles for directed methods.
+- **D2. One selection object,** shared by every tab and written to the URL. A filter never moves it silently ("Selected pair hidden by current filter · Show"). Repeated spellings carry their coordinate ("woods · L1·2").
+  - *Revised after 3PO 6526635399 (point 3):* the selection is discriminated, the evidence binding of R2's 6526661152:
+    - occurrence (`entity_id`);
+    - unordered pair for a symmetric method (`method_id` plus `members`);
+    - role-ordered binding for a directed method (`method_id` plus role-labelled `members`, a→b);
+    - figure or span (`evidence_id`).
+  - The URL carries `analysis_identity` plus that binding.
+  - My earlier "selection stays unordered" is withdrawn.
 - **D3. Six states, never told apart by colour alone.**
   - The five states R2 and Jony Ives listed, with "unexamined" split in two: **not examined** (no evaluated method's locus covers the pair) and **not yet computed** (in scope, but the job is partial, cancelled or pending). The reader acts differently on each.
   - The inspector states the verdict in words ("Holds if sung as …"), with the phonemes compared, any licence applied, the locus and whether it held, and the layer.
@@ -59,7 +66,7 @@ Committed by Don Norman after John confirmed the push. Full text: `reviews/don-6
   - Tab moves in reading order; the arrow keys move within the matrix.
   - A live region announces each selection.
   - On a 390 px phone, the Matrix tab becomes the selected occurrence's row as a list.
-- **D6. Fixture.** Add woods L1·2 (agreeing with Jony Ives's condition 6). Undecided, refused and not-yet-computed appear only as labelled legend samples, never attached to real words.
+- **D6. Fixture.** Add woods L1·2 (agreeing with Jony Ives's condition 6). It is "not examined" only for same-line alliteration with watch L4·2. Every state and count attaches to a method and a binding, never to a word on its own (3PO point 2). Undecided, refused and not-yet-computed appear only as labelled legend samples, never attached to real words.
 
 Conditions for consensus:
 1. All six states are legible without colour. Not examined and not yet computed never share a treatment with does not hold.
