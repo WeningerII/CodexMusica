@@ -10,12 +10,21 @@
 // counts/groupCounts and provenance describe supplied populations, not inferred
 // totals. hiddenCount is {count: nonnegative integer, by: nonempty string};
 // partial counts stay unknown, never inferred from visible nodes or edges.
-// poem contains full lines plus caller-measured token boxes. Figures
+// poem contains full lines and ranges keyed by occurrence ID: {start,end}
+// (UTF-16 offsets into that occurrence’s 1-based line). Figures
 // retain native members and evidence_id. This is not a backend schema adapter.
 // Returned DOM carries data-selection (Don's selectionKey), data-method,
 // data-view, data-action=cell_method and data-recovery hooks for Don's bindings.
 // The owner updates the immutable model and rerenders after an action; no event,
-// URL, live-region or lifecycle ownership is claimed here.
+// URL or live-region ownership is claimed here. After mounting, the owner awaits
+// document.fonts.ready and calls layoutPoem(root) before binding/focusing controls;
+// repeat layout after font changes. Detached/unmeasurable text has no guessed marks.
+// layoutPoem(root) returns {poems:[{status,measured,fixture,issues}]}; status is
+// ready/partial/unavailable; measured/fixture contain occurrence IDs; issues are
+// {entity_id,reason}: missing_range, invalid_range, detached, measurement_unavailable.
+// No matching poem returns {poems:[]}. Visible role=note diagnostics have no live
+// region: the binding owner decides announcements, cancellation and focus ordering.
+// Authored non-browser fixtures may explicitly set poem.fixtureBoxes=true.
 function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
   // Optional composed controls use Don's handlers, never local replacements.
   if (
@@ -305,56 +314,153 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
         result(c).state === 'holds'
     );
   }
+  const poemLayouts = new WeakMap();
+  function layoutPoem(root) {
+    const poems = [...root.querySelectorAll('svg.cv-poem')]
+      .map((canvas) => poemLayouts.get(canvas)?.())
+      .filter(Boolean);
+    return { poems };
+  }
   function poem(model) {
     const box = el('div', null, 'cv-scroll'),
-      points = new Map(),
       active = touched(model);
-    // Token boxes are presentation geometry, supplied by the caller after text
-    // layout. A full source line stays intact, including unselected function words.
+    // A full source line stays intact, including unselected function words.
     const canvas = svg('svg', {
       viewBox: `0 0 ${model.poem.width} ${model.poem.height}`,
       width: model.poem.width,
       height: model.poem.height,
       'aria-label': 'Poem and supplied holding connections',
+      class: 'cv-poem',
     });
     for (const line of model.poem.lines)
-      canvas.append(svg('text', { x: 48, y: line.y, class: 'cv-poem-line' }, line.text));
-    for (const o of model.occurrences) {
-      const p = model.poem.boxes[o.entity_id];
-      if (!p) continue;
-      points.set(o.entity_id, { x: p.x + p.width / 2, y: p.y - 24, line: o.line, final: o.final });
-    }
-    for (const m of checked(model))
-      for (const cell of holds(model, m)) {
-        const [a, b] = cell.selection.members.map((id) => points.get(id));
-        if (!a || !b) continue;
-        const arc = M.arc(M.arcGeometry(a, b, { margin: model.poem.width - 90, gutter: 10 }), {
-          family: m.family,
-          layer: m.layer,
-          dim: active.size > 0 && !cell.selection.members.some((id) => active.has(id)),
-        });
-        action(arc, cell.selection);
-        arc.setAttribute('tabindex', '0');
-        arc.setAttribute('role', 'button');
-        arc.setAttribute('aria-label', `${methodName(m)} · ${stateText(cell)}`);
-        arc.append(svg('title', {}, `${methodName(m)} · ${stateText(cell)}`));
-        canvas.append(arc);
+      canvas.append(
+        svg('text', { x: 48, y: line.y, class: 'cv-poem-line', 'xml:space': 'preserve' }, line.text)
+      );
+    const marks = svg('g'),
+      notice = el('p', null, 'cv-geometry-notice');
+    notice.setAttribute('role', 'note');
+    box.append(notice);
+    canvas.append(marks);
+    const draw = () => {
+      const boxes = {},
+        points = new Map();
+      const lines = canvas.querySelectorAll('.cv-poem-line');
+      const report = { status: 'ready', measured: [], fixture: [], issues: [] };
+      for (const o of model.occurrences) {
+        const range = model.poem.ranges?.[o.entity_id],
+          line = lines[o.line - 1];
+        let reason;
+        if (!range) reason = 'missing_range';
+        else if (
+          !line ||
+          !Number.isInteger(range.start) ||
+          !Number.isInteger(range.end) ||
+          range.start < 0 ||
+          range.end <= range.start ||
+          range.end > line.textContent.length ||
+          line.textContent.slice(range.start, range.end) !== o.text
+        )
+          reason = 'invalid_range';
+        else if (!canvas.isConnected) reason = 'detached';
+        else {
+          try {
+            // DOM Text ranges use UTF-16 offsets; no SVG character-index conversion.
+            // Convert viewport bounds back into this SVG's local coordinate system.
+            const selection = document.createRange();
+            selection.setStart(line.firstChild, range.start);
+            selection.setEnd(line.firstChild, range.end);
+            const rect = selection.getBoundingClientRect(),
+              matrix = canvas.getScreenCTM().inverse();
+            const corners = [
+              [rect.left, rect.top],
+              [rect.right, rect.top],
+              [rect.right, rect.bottom],
+              [rect.left, rect.bottom],
+            ].map(([x, y]) => {
+              const p = canvas.createSVGPoint();
+              p.x = x;
+              p.y = y;
+              return p.matrixTransform(matrix);
+            });
+            const x = Math.min(...corners.map((p) => p.x)),
+              y = Math.min(...corners.map((p) => p.y));
+            const width = Math.max(...corners.map((p) => p.x)) - x;
+            const height = Math.max(...corners.map((p) => p.y)) - y;
+            if ([x, y, width, height].every(Number.isFinite) && width > 0 && height > 0) {
+              boxes[o.entity_id] = { x, y, width, height };
+              report.measured.push(o.entity_id);
+            }
+          } catch {
+            /* Unsupported or unlaid-out text is reported below. */
+          }
+          if (!boxes[o.entity_id]) reason = 'measurement_unavailable';
+        }
+        if (!boxes[o.entity_id] && model.fixture === true && model.poem.fixtureBoxes === true) {
+          const p = model.poem.boxes?.[o.entity_id];
+          if (p && [p.x, p.y, p.width].every(Number.isFinite) && p.width > 0) {
+            boxes[o.entity_id] = { ...p, y: p.y - 23, height: 30 };
+            report.fixture.push(o.entity_id);
+            reason = null;
+          }
+        }
+        if (reason) report.issues.push({ entity_id: o.entity_id, reason });
       }
-    for (const o of model.occurrences) {
-      const p = model.poem.boxes[o.entity_id],
-        port = points.get(o.entity_id);
-      if (!p) continue;
-      const g = action(
-        svg('g', { tabindex: 0, role: 'button', 'aria-label': I.occurrenceLabel(o) }),
-        I.occurrence(o.entity_id)
-      );
-      g.append(M.port(port.x, port.y));
-      g.append(
-        svg('rect', { x: p.x, y: p.y - 23, width: p.width, height: 30, fill: 'transparent' })
-      );
-      if (active.has(o.entity_id)) g.append(M.selectionRect(p.x, p.y - 23, p.width, 30, 2));
-      canvas.append(g);
-    }
+      report.status = report.issues.length
+        ? report.measured.length + report.fixture.length
+          ? 'partial'
+          : 'unavailable'
+        : 'ready';
+      notice.hidden = !report.issues.length;
+      notice.textContent = report.issues.length
+        ? 'Poem connection geometry unavailable: ' +
+          report.issues
+            .map(
+              ({ entity_id, reason }) =>
+                `${I.occurrenceLabel(getOcc(model, entity_id))} (${entity_id}): ${reason.replaceAll('_', ' ')}`
+            )
+            .join('; ')
+        : '';
+      marks.replaceChildren();
+      for (const o of model.occurrences) {
+        const p = boxes[o.entity_id];
+        if (!p) continue;
+        points.set(o.entity_id, { x: p.x + p.width / 2, y: p.y - 1, line: o.line, final: o.final });
+      }
+      for (const m of checked(model))
+        for (const cell of holds(model, m)) {
+          const [a, b] = cell.selection.members.map((id) => points.get(id));
+          if (!a || !b) continue;
+          const arc = M.arc(M.arcGeometry(a, b, { margin: model.poem.width - 90, gutter: 10 }), {
+            family: m.family,
+            layer: m.layer,
+            dim: active.size > 0 && !cell.selection.members.some((id) => active.has(id)),
+          });
+          action(arc, cell.selection);
+          arc.setAttribute('tabindex', '0');
+          arc.setAttribute('role', 'button');
+          arc.setAttribute('aria-label', `${methodName(m)} · ${stateText(cell)}`);
+          arc.append(svg('title', {}, `${methodName(m)} · ${stateText(cell)}`));
+          marks.append(arc);
+        }
+      for (const o of model.occurrences) {
+        const p = boxes[o.entity_id],
+          port = points.get(o.entity_id);
+        if (!p) continue;
+        const g = action(
+          svg('g', { tabindex: 0, role: 'button', 'aria-label': I.occurrenceLabel(o) }),
+          I.occurrence(o.entity_id)
+        );
+        g.append(M.port(port.x, port.y));
+        g.append(
+          svg('rect', { x: p.x, y: p.y, width: p.width, height: p.height, fill: 'transparent' })
+        );
+        if (active.has(o.entity_id)) g.append(M.selectionRect(p.x, p.y, p.width, p.height, 2));
+        marks.append(g);
+      }
+      return report;
+    };
+    poemLayouts.set(canvas, draw);
+    draw();
     box.append(canvas);
     for (const id of active) {
       const o = getOcc(model, id);
@@ -536,7 +642,7 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
     root.append(coverage, M.legendRow({ words: I.STATE_WORDS, examples: !!model.fixture }));
     return root;
   }
-  return { render, inspector, matrix, poem, network, controls };
+  return { render, inspector, matrix, poem, layoutPoem, network, controls };
 }
 
 const CSS = `
@@ -545,7 +651,7 @@ const CSS = `
 .cv-root button:not(.lib-mk-focus):focus-visible,.cv-root select:focus-visible,.cv-root summary:focus-visible{outline:2px solid currentColor;outline-offset:3px}
 .cv-root nav{display:flex;gap:16px;margin:20px 0}.cv-root nav button{border:0;border-radius:0}.cv-root [aria-current=true]{border-bottom:3px solid currentColor;font-weight:bold}
 .cv-controls{display:flex;gap:16px;align-items:start;margin-bottom:16px;flex-wrap:wrap}.cv-controls label{display:block}.cv-controls fieldset{border:0}.cv-controls details[open]{border:1px solid var(--cm-border,#bfc7c3);padding:8px}
-.cv-layout{align-items:start;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:24px;margin-top:20px}.cv-inspector,.cv-group{border:1px solid var(--cm-border,#dce2df);border-radius:10px;padding:20px}.cv-inspector h4{font-size:12px;text-transform:uppercase;margin-bottom:6px}.cv-inspector p{overflow-wrap:anywhere}.cv-inspector button{display:block;margin:8px 0}.cv-scroll{overflow:auto}.cv-scroll>svg{display:block}.cv-poem-line{font:24px Georgia,serif;fill:var(--cm-text,#242a28)}
+.cv-layout{align-items:start;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:24px;margin-top:20px}.cv-inspector,.cv-group{border:1px solid var(--cm-border,#dce2df);border-radius:10px;padding:20px}.cv-inspector h4{font-size:12px;text-transform:uppercase;margin-bottom:6px}.cv-inspector p{overflow-wrap:anywhere}.cv-inspector button{display:block;margin:8px 0}.cv-scroll{overflow:auto}.cv-scroll>svg{display:block}.cv-poem-line{white-space:pre;font:24px Georgia,serif;fill:var(--cm-text,#242a28)}
 .cv-network{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}.cv-network>button{grid-column:1/-1;text-align:left}.cv-group svg{width:100%}.cv-root .cv-selected{outline:2px solid var(--cm-text,#242a28);outline-offset:-2px}.cv-root table{border-collapse:collapse}.cv-root th{font-size:12px;font-weight:normal;padding:10px;min-width:75px}.cv-root td{text-align:center;padding:0}.cv-root td button{border:0;padding:3px;border-radius:0;min-width:40px}.cv-root footer{border-bottom:1px solid var(--cm-border,#dce2df);padding:12px 0;margin-bottom:16px}.cv-phone-row{display:none}.cv-native button{display:block;margin:8px 0}.lib-mk-tag{display:inline-block;margin:8px}.cv-fixture{font-weight:bold}
 @media(max-width:600px){.cv-root{padding:16px}.cv-layout{display:block}.cv-desktop-matrix{display:none}.cv-phone-row{display:block}.cv-phone-row button{display:block;text-align:left;width:100%;margin:8px 0}.cv-phone-row span{display:block;font-size:12px}.cv-inspector{margin-top:20px}.cv-controls{display:block}.cv-controls select{max-width:100%}.cv-root nav{gap:2px}.cv-network{display:block}}
 `;

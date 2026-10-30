@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 'use strict';
+/* global window, document, views, model, root, CMConnectionInteraction */
 const assert = require('node:assert/strict');
 const test = require('node:test');
 const fs = require('node:fs');
@@ -31,7 +32,9 @@ function setup() {
   const M = w.eval(`(function(){${fs.readFileSync(marksPath, 'utf8')}\n})()`);
   const api = w.eval(`(function(){${source}\n})()`);
   const V = api.createViews({ interaction: I, marks: M });
-  return { dom, I, M, V, api, model: authoredFixture(I) };
+  const model = authoredFixture(I);
+  model.poem.fixtureBoxes = true;
+  return { dom, I, M, V, api, model };
 }
 
 // Authored visual fixture. No engine was run; omitted results stay not supplied.
@@ -125,6 +128,14 @@ function authoredFixture(I) {
         { y: 270, text: 'He will not see me stopping here' },
         { y: 370, text: 'To watch his woods fill up with snow.' },
       ],
+      ranges: {
+        woods1: { start: 6, end: 11 },
+        know: { start: 32, end: 36 },
+        though: { start: 28, end: 34 },
+        watch: { start: 3, end: 8 },
+        woods4: { start: 13, end: 18 },
+        snow: { start: 32, end: 36 },
+      },
       boxes: {
         woods1: { x: 120, y: 70, width: 66 },
         know: { x: 365, y: 70, width: 60 },
@@ -503,4 +514,198 @@ test('selectable marks use Jony single dashed hover/focus treatment; selection s
       /button:not\(\.lib-mk-focus\):focus-visible/
     );
   }
+});
+
+test('browser poem geometry follows rendered fallback-font words, not fixture boxes', async () => {
+  const { chromium } = require('playwright');
+  const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH });
+  try {
+    const page = await browser.newPage();
+    await page.setContent(
+      '<html data-theme="light"><body><main id="surface-library"></main></body></html>'
+    );
+    await page.addStyleTag({
+      content: fs.readFileSync(path.join(__dirname, '../src/theme.css'), 'utf8'),
+    });
+    await page.addScriptTag({ content: fs.readFileSync(interactionPath, 'utf8') });
+    await page.addScriptTag({
+      content: `window.marks = (function(){${fs.readFileSync(marksPath, 'utf8')} })(); window.views = (function(){${source} })().createViews({interaction: CMConnectionInteraction, marks}); window.model = (${authoredFixture.toString()})(CMConnectionInteraction);`,
+    });
+    await page.evaluate(() => {
+      window.root = views.render(model, { view: 'poem' });
+      document.querySelector('main').append(root);
+    });
+    await page.addStyleTag({
+      content:
+        '.cv-poem-line{font-family:"Missing Georgia Fixture", "DejaVu Serif", serif !important}',
+    });
+    const checkGeometry = async () =>
+      page.evaluate(() => {
+        if (views.layoutPoem) views.layoutPoem(root);
+        return model.occurrences.map((o) => {
+          const line = root.querySelectorAll('.cv-poem-line')[o.line - 1];
+          const start = line.textContent.indexOf(o.text);
+          const first = line.getExtentOfChar(start),
+            last = line.getExtentOfChar(start + o.text.length - 1);
+          const g = [...root.querySelectorAll('g[data-selection]')].find(
+            (g) =>
+              g.dataset.selection ===
+              CMConnectionInteraction.selectionKey(CMConnectionInteraction.occurrence(o.entity_id))
+          );
+          if (!g) throw new Error('Missing occurrence geometry: ' + o.entity_id);
+          const rect = g.querySelector('rect'),
+            port = g.querySelector('circle');
+          const selected = g.querySelector('.lib-mk-select');
+          return {
+            id: o.entity_id,
+            x: first.x,
+            width: last.x + last.width - first.x,
+            y: first.y,
+            height: first.height,
+            actualY: +rect.getAttribute('y'),
+            actualHeight: +rect.getAttribute('height'),
+            portY: +port.getAttribute('cy'),
+            actualX: +rect.getAttribute('x'),
+            actualWidth: +rect.getAttribute('width'),
+            portX: +port.getAttribute('cx'),
+            selectionX: selected && +selected.getAttribute('x'),
+            selectionWidth: selected && +selected.getAttribute('width'),
+          };
+        });
+      });
+    await page.evaluate(() => document.fonts.ready);
+    for (const font of ['"Missing Georgia Fixture", "DejaVu Serif", serif', 'monospace']) {
+      await page.addStyleTag({ content: `.cv-poem-line{font-family:${font} !important}` });
+      const geometry = await checkGeometry();
+      for (const g of geometry) {
+        assert.ok(
+          Math.abs(g.actualX - g.x) < 0.1,
+          `${font} ${g.id}: box x ${g.actualX}, text x ${g.x}`
+        );
+        assert.ok(Math.abs(g.actualWidth - g.width) < 0.1, `${font} ${g.id}: width`);
+        assert.ok(
+          Math.abs(g.actualY - g.y) < 0.1 && Math.abs(g.actualHeight - g.height) < 0.1,
+          `${font} ${g.id}: vertical bounds`
+        );
+        assert.ok(Math.abs(g.portY - (g.y - 1)) < 0.1, `${font} ${g.id}: port height`);
+        assert.ok(Math.abs(g.portX - g.x - g.width / 2) < 0.1, `${font} ${g.id}: port`);
+        if (g.selectionX !== null) {
+          assert.ok(Math.abs(g.selectionX - (g.x - 2)) < 0.1, `${font} ${g.id}: selection`);
+          assert.ok(
+            Math.abs(g.selectionWidth - (g.width + 4)) < 0.1,
+            `${font} ${g.id}: selection width`
+          );
+        }
+        const paths = await page
+          .locator('.lib-mk-arc path')
+          .evaluateAll((nodes) => nodes.map((n) => n.getAttribute('d')));
+        assert.ok(
+          paths.some(
+            (d) => d.includes(`M${g.portX},${g.portY}`) || d.endsWith(`${g.portX},${g.portY}`)
+          ) || g.id === 'woods1',
+          `${font} ${g.id}: arc meets port`
+        );
+      }
+    }
+    const ready = await page.evaluate(() => views.layoutPoem(root));
+    assert.equal(ready.poems[0].status, 'ready');
+    assert.equal(ready.poems[0].measured.length, 6);
+    assert.deepEqual(ready.poems[0].fixture, []);
+    assert.deepEqual(ready.poems[0].issues, []);
+    assert.equal(await page.locator('.cv-geometry-notice').isVisible(), false);
+    await page.locator('svg.cv-poem').evaluate((svg) => {
+      svg.style.width = '425px';
+      svg.style.height = '210px';
+    });
+    for (const g of await checkGeometry())
+      assert.ok(
+        Math.abs(g.actualX - g.x) < 0.1 && Math.abs(g.actualWidth - g.width) < 0.1,
+        `${g.id}: scaled SVG`
+      );
+    await page.locator('svg.cv-poem').evaluate((svg) => {
+      svg.style.width = '';
+      svg.style.height = '';
+    });
+    if (process.env.CONNECTION_PREVIEW_DIR) {
+      await page.addStyleTag({
+        content:
+          '.cv-poem-line{font-family:"Missing Georgia Fixture", "DejaVu Serif", serif !important}',
+      });
+      await checkGeometry();
+      await page.screenshot({
+        path: path.join(process.env.CONNECTION_PREVIEW_DIR, 'poem-measured.png'),
+        fullPage: true,
+      });
+    }
+    const partial = await page.evaluate(() => {
+      delete model.poem.ranges.watch;
+      model.poem.ranges.woods4 = { start: 0, end: 5 };
+      window.root.replaceWith((window.root = views.render(model, { view: 'poem' })));
+      return views.layoutPoem(root);
+    });
+    assert.equal(partial.poems[0].status, 'partial');
+    assert.equal(partial.poems[0].measured.length, 4);
+    assert.deepEqual(partial.poems[0].issues, [
+      { entity_id: 'watch', reason: 'missing_range' },
+      { entity_id: 'woods4', reason: 'invalid_range' },
+    ]);
+    const notice = page.locator('.cv-geometry-notice');
+    assert.equal(await notice.getAttribute('role'), 'note');
+    assert.equal(await notice.isVisible(), true);
+    assert.match(await notice.textContent(), /watch.*missing range.*woods4.*invalid range/);
+    assert.equal(await page.locator('.lib-mk-port').count(), 4);
+    assert.equal(await page.locator('.lib-mk-select').count(), 0);
+    const repeated = await page.evaluate(() => {
+      model.poem.lines[3].text = '😀  watch watch';
+      model.occurrences.find((o) => o.entity_id === 'woods4').text = 'watch';
+      model.poem.ranges.watch = { start: 4, end: 9 };
+      model.poem.ranges.woods4 = { start: 10, end: 15 };
+      window.root.replaceWith((window.root = views.render(model, { view: 'poem' })));
+      views.layoutPoem(root);
+      const line = root.querySelectorAll('.cv-poem-line')[3];
+      return ['watch', 'woods4'].map((id, i) => {
+        const key = CMConnectionInteraction.selectionKey(CMConnectionInteraction.occurrence(id));
+        const g = [...root.querySelectorAll('g[data-selection]')].find(
+          (g) => g.dataset.selection === key
+        );
+        return {
+          actual: +g.querySelector('rect').getAttribute('x'),
+          expected: line.getExtentOfChar(i ? 10 : 4).x,
+        };
+      });
+    });
+    assert.notEqual(repeated[0].actual, repeated[1].actual);
+    for (const r of repeated) assert.ok(Math.abs(r.actual - r.expected) < 0.1);
+  } finally {
+    await browser.close();
+  }
+});
+
+test('poem boxes require an explicit authored-fixture override; detached geometry is omitted', () => {
+  const { V, model, dom } = setup();
+  delete model.poem.fixtureBoxes;
+  let root = V.poem(model);
+  const detached = V.layoutPoem(root).poems[0];
+  assert.equal(detached.status, 'unavailable');
+  assert.equal(detached.issues.length, 6);
+  assert.ok(detached.issues.every((i) => i.reason === 'detached'));
+  assert.equal(root.querySelector('.cv-geometry-notice').hidden, false);
+  assert.equal(root.querySelectorAll('.lib-mk-port').length, 0);
+  dom.window.document.querySelector('main').append(root);
+  const unsupported = V.layoutPoem(root).poems[0];
+  assert.ok(unsupported.issues.every((i) => i.reason === 'measurement_unavailable'));
+  assert.deepEqual(Array.from(V.layoutPoem(dom.window.document.createElement('div')).poems), []);
+
+  model.poem.fixtureBoxes = true;
+  model.fixture = false;
+  assert.equal(V.poem(model).querySelectorAll('.lib-mk-port').length, 0);
+  model.fixture = true;
+  const fixtureRoot = V.poem(model);
+  assert.equal(fixtureRoot.querySelectorAll('.lib-mk-port').length, 6);
+  const fixtureStatus = V.layoutPoem(fixtureRoot).poems[0];
+  assert.equal(fixtureStatus.status, 'ready');
+  assert.equal(fixtureStatus.fixture.length, 6);
+  assert.equal(fixtureStatus.measured.length, 0);
+
+  dom.window.close();
 });
