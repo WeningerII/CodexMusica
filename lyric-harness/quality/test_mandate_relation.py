@@ -1408,12 +1408,19 @@ def test_m319_declared_perfect_rhyme_admits_the_promoted_final():
     # BEFORE -> AFTER: these failed while the allowance was perfect rhyme's
     # alone (measured on 3e4d7e3f7: (1, 0) each) and hold now.
     check("other END_ANCHOR types take the promoted final: assonance, "
-          "family rhyme and consonance hold sea~harmony",
-          all(gr(rv, r2, pair("sea", "harmony")) == (0, 0)
+          "family rhyme and consonance hold sea~harmony and sea~symphony",
+          all(gr(rv, r2, pair("sea", w)) == (0, 0)
+              for w in ("harmony", "symphony")
               for r2 in ("schema:assonance", "schema:family rhyme",
                          "schema:consonance")))
-    check("...and with final_promotion OFF they fail again",
-          all(gr(rv_off, r2, pair("sea", "harmony")) == (1, 0)
+    # THE CONTROL IS `symphony` SINCE 2026-10-30 (M-322), ~~`harmony`~~:
+    # harmony's non-rhotic reading (HH AA1 ...) leaves its stressed syllable
+    # without a coda, and two empty codas agree (E-5 keeps empty/empty
+    # agreement), so unpromoted consonance holds sea~harmony under that one
+    # whole reading. symphony's stressed syllable keeps its M in every
+    # reading, so the promoted final is the only thing that can hold it.
+    check("...and with final_promotion OFF they fail again (sea~symphony)",
+          all(gr(rv_off, r2, pair("sea", "symphony")) == (1, 0)
               for r2 in ("schema:assonance", "schema:family rhyme",
                          "schema:consonance")))
     # NEGATIVE: nothing else is weakened.

@@ -3313,7 +3313,13 @@ def test_substituted_end_word_reaches_the_loop():
     # it rhymes with L2's `pier`, so a path that took the last word it could
     # READ would report L4 as answering its group cleanly. `zong` is Barnes's
     # Dorset spelling and CMUdict has no entry for it.
-    draft = ["the harbour lights came on across the bay",
+    # L1 ENDS ON `dock` SINCE 2026-10-30 (M-322), ~~`bay`~~: pier's
+    # non-rhotic reading (P IA1) leaves an empty coda, and two empty codas
+    # agree (E-5 keeps empty/empty agreement), so bay~pier holds as
+    # consonance under that one whole reading and the repair round below had
+    # nothing to repair. dock keeps its K in every reading, so L1/L2 share
+    # no sound again and the loop still has a genuine violation to act on.
+    draft = ["the harbour lights came on across the dock",
              "a bell rang somewhere out beyond the pier",
              "we counted every boat that slipped away",
              "and one more went out sailing to the sheer zong"]
@@ -3383,9 +3389,11 @@ def test_substituted_end_word_reaches_the_loop():
     # 1 mandated = 1 judged + 0 refused. superseded: no_progress after 1
     # round with L1/L2/L3 unjudged and coverage uncertified.
     # 2026-10-02 (MISSING.md M-317, owner ruling: a group is judged at the
-    # words it binds): bay~pier shares no sound, and it held only through
+    # words it binds): bay~pier (dock~pier since 2026-10-30, above) shares
+    # no sound, and it held only through
     # other words of the two lines. It is a violation now, so the stub
-    # repairs L2 in one round (`pier` -> `yea`) before the run certifies.
+    # repairs L2's `pier` in one round before the run certifies (the word it
+    # proposed was `yea` against `bay`; against `dock` it is another).
     # superseded: success in 0 rounds.
     lr = revise_loop(R, draft, m12, propose=_oracle_propose(R))
     check("on the free-L4 mandate nothing the mandate asks is unknown any "

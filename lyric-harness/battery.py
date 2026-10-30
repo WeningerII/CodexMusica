@@ -419,7 +419,8 @@ def whitman_battery():
 # non-rhotic reading: herd/beard 12, deserts/parts 17, worth/forth 38, 72
 # and 102, desert/part 49, desert/impart 72, word/afford 79, words/affords
 # 85 and 104. Two pass the registry `consonance` on two empty codas,
-# were/bear 13 and were/near 138 -- open question (c), the owner's to rule.
+# were/bear 13 and were/near 138: two empty codas agree, which E-5 keeps
+# (MISSING.md E-5, "Empty/empty coda AGREEMENT is unchanged").
 # Measured by `audit_spans.py --check`; the partition is rewritten by
 # `--write-oracle`.
 # REPINNED AGAIN 2026-10-30, the same entry (M-322). Layer: the any-reading

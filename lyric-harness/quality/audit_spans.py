@@ -678,7 +678,8 @@ def sweep_record(lex, decl, verbose=True):
 #: pairs that left: ten hold as consonance in one consistent non-rhotic
 #: reading (herd/beard, deserts/parts, worth/forth x3, desert/part,
 #: desert/impart, word/afford, words/affords x2) and two pass the registry
-#: consonance on two empty codas (were/bear, were/near: open question (c)).
+#: consonance on two empty codas (were/bear, were/near: E-5 keeps empty/empty
+#: agreement).
 #: violations_claimed 8 -> 3 (the claimed pairs were among the twelve);
 #: ties 121 -> 357 and violation_ties 2 -> 5: the accent alternates give
 #: parallel spans that score equal, so more maxima are shared. No span or

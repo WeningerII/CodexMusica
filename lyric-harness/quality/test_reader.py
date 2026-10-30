@@ -906,7 +906,20 @@ class OneCoordinate(unittest.TestCase):
                         requested_pairs={(1, 2)}, bound={(1, 2): (-1, -1)}))
                     self.assertEqual(schemas(lines, lex),
                                      set(expected.get((1, 2), ())))
+            # THE SELECTED LEXICON REACHES RECOVERY: a supplement-only word
+            # is unread by the plain lexicon and stands in relations under the
+            # selected one. 2026-10-30 (M-322): streetlight(s)/night(s) no
+            # longer carry a DEFINITE perfect rhyme, ~~asserted for all three
+            # pairs~~ -- both words gain the raised reading (AY or UI), and
+            # recovery's measurement merges the two channel by channel, so the
+            # vowel reads undecided even though each accent's whole readings
+            # rhyme. That is recovery's reporting (it drops the undecided
+            # set: M-322's open list), not a lost lexicon; sixty-six/tricks,
+            # with no raised reading, still carries it.
             if a in ("streetlight", "streetlights", "sixty-six") and b != "seat":
+                self.assertTrue(schemas(lines, selected))
+                self.assertEqual(schemas(lines, plain), set())
+            if a == "sixty-six":
                 self.assertIn("perfect rhyme", schemas(lines, selected))
         self.assertNotIn("perfect rhyme", schemas(["streetlights", "seat"], selected))
         self.assertEqual(schemas(["zzqxqzz", "night"], selected), set())
@@ -922,9 +935,12 @@ class OneCoordinate(unittest.TestCase):
         self.assertIn("perfect rhyme", schemas(["king-", "wing"], plain))
 
         # The same adapter keeps aside/voices endpoints aligned too.
+        # day/way since 2026-10-30 (M-322), ~~night/light~~: both of those
+        # gain the raised reading, which recovery reads as an undecided vowel
+        # (above); day/way carry no derived reading.
         for strip in (True, False):
             lex = LH.Lexicon(reader_scheme="v2", strip_parens=strip)
-            got = schemas(["I see night (oh)", "You hear light (cat)"], lex)
+            got = schemas(["I see day (oh)", "You hear way (cat)"], lex)
             self.assertEqual("perfect rhyme" in got, strip)
 
         # Fallback remains the REGISTERED relation reader's policy, not a
@@ -940,8 +956,14 @@ class OneCoordinate(unittest.TestCase):
                 self.assertEqual("consonance" in got, mode == "high")
 
         # The passed lexicon's v2 coordinate wins over a warm v1 process.
+        # 2026-10-30 (M-322): asserted as the v2 answer itself, ~~"perfect
+        # rhyme" in it~~ -- under v2 streetlights/nights carry the raised
+        # reading and no definite perfect rhyme (above), so the old label
+        # would now pass only if v1 won. A v1 lexicon answers nothing here.
+        v2_answer = schemas(["streetlights", "nights"], selected)
+        self.assertTrue(v2_answer)
         with LH.reader_scheme_scope("v1"):
-            self.assertIn("perfect rhyme", schemas(["streetlights", "nights"], selected))
+            self.assertEqual(schemas(["streetlights", "nights"], selected), v2_answer)
 
     def test_recovery_preserves_the_legacy_schema_reader(self):
         from quality import recover as REC
