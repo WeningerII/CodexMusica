@@ -9,6 +9,7 @@ tests once implemented. Run from lyric-harness:
 import copy
 import json
 import unittest
+from unittest.mock import patch
 
 from library.analysis import AnalysisSession, run_step
 from library.contracts import canonical_json, method_id
@@ -166,6 +167,163 @@ class ConnectionAcceptance(unittest.TestCase):
         self.assertTrue(result["done"])
         self.assertFalse(result["summary"]["coverage"]["certified"])
         self.assertIn(method_id("schema", name), result["summary"]["coverage"]["refused_obligations"])
+
+
+class ConnectionContractIntegration(unittest.TestCase):
+    """Independent producer-boundary checks, pinned initially to PR641.
+
+    Failing assertions are acceptance blockers, not expected failures. These
+    tests do not implement the view's verdict resolver or a new engine route.
+    """
+
+    def test_equal_length_readings_with_different_anchors_are_discovered(self):
+        from library.test_analysis import _with_words, _edge
+        words = {"zanchor": [["Z", "IY1", "T", "AH0"], ["Z", "IY0", "T", "AH1"]],
+                 "banchor": [["B", "IY1", "T", "AH0"]]}
+        reading = source("zanchor\nbanchor\ncat\nhat")
+        declaration = {"pronunciations": [{"line": "zanchor", "token": 1,
+            "word": "zanchor", "phones": words["zanchor"][0],
+            "basis": "dictionary", "source": "authored fixture"}]}
+        with _with_words(words):
+            session, rows, _ = complete(reading, schemas=["perfect rhyme"])
+            _, pinned, _ = complete(reading, declarations=declaration, schemas=["perfect rhyme"])
+        self.assertIn((0, 0), session._merged)
+        self.assertNotIn((0, 0), session._disputed)
+        self.assertEqual(_edge(pinned, (0, 0), (1, 0))["verdict"], "true",
+                         "positive control: one complete compatible reading holds")
+        self.assertEqual(_edge(rows, (2, 0), (3, 0))["verdict"], "true")
+        edge = _edge(rows, (0, 0), (1, 0))
+        self.assertIsNotNone(edge, "merged anchor disagreement must not silently remove an eligible pair")
+        self.assertEqual(edge["verdict"], "true")
+        self.assertEqual(edge["quantifier"], "exists_compatible_reading")
+
+    def test_equal_span_rules_do_not_certify_role_sensitive_methods_as_unordered(self):
+        from library.test_analysis import _with_words
+        words = {"zopen": [["Z", "IY1"]], "bclosed": [["B", "IY1", "D"]]}
+        fixtures = [("additive rhyme", "zopen\nbclosed"),
+                    ("subtractive rhyme", "bclosed\nzopen"),
+                    ("semirhyme", "grow\ngrowing")]
+        with _with_words(words):
+            for name, text in fixtures:
+                with self.subTest(method=name):
+                    session, rows, _ = complete(source(text), schemas=[name])
+                    schema = session.RL.REGISTRY[name]
+                    self.assertEqual(schema.spans[0], schema.spans[1])
+                    a, b = list(session.RL.enumerate_spans(schema.spans[0], session.stream))[:2]
+                    self.assertIs(session.RL.evaluate(schema, a, b, session.stream).verdict, True)
+                    self.assertIs(session.RL.evaluate(schema, b, a, session.stream).verdict, False)
+                    domain = next(r["domain"] for r in rows if r["kind"] == "method_result")
+                    if domain["projection"] == "none":
+                        self.assertTrue(domain["reason"])
+                    else:
+                        self.assertEqual(domain["ordering"], "role_ordered",
+                                         "identical span rules do not make directional predicates symmetric")
+
+    def test_first_witness_does_not_claim_unexamined_readings_are_exhausted(self):
+        from library.test_analysis import _with_words, _edge
+        words = {"zee": [["Z", "IY1"], ["Z", "AH0"]]}
+        with _with_words(words):
+            session, rows, _ = complete(source("zee is home\nand bee is too"), schemas=["internal rhyme"])
+            combos, complete_population = session.RL.reading_combos(session.stream, {(0, 0)}, 64)
+            edge = _edge(rows, (0, 0), (1, 1))
+        self.assertTrue(complete_population)
+        self.assertEqual(len(combos), 2)
+        self.assertEqual(edge["verdict"], "true")
+        self.assertEqual(edge["quantifier"], "exists_compatible_reading")
+        self.assertEqual(edge["reading"]["witness"], ["zee = Z IY1"])
+        self.assertEqual(edge["reading_search"]["combinations_examined"], 1)
+        self.assertEqual(edge["reading_search"]["state"], "partial",
+                         "a complete candidate population is not a completed search")
+
+    def test_exact_domain_cannot_exclude_a_discovered_alternate_reading_edge(self):
+        from library.test_analysis import _with_words, _domain_cells, _edge
+        words = {"zub": [["Z", "AH1", "B"], ["Z", "IY1", "B", "AH0"]]}
+        with _with_words(words):
+            _, rows, _ = complete(source("bee zub\ncat rabbit"), schemas=["cynghanedd lusg"])
+        edge = _edge(rows, (0, 0), (0, 1))
+        self.assertIsNotNone(edge, "positive control: the alternate penult must be discovered")
+        self.assertEqual(edge["verdict"], "true")
+        self.assertEqual(edge["reading"]["witness"], ["zub = Z IY1 B AH0"])
+        result = next(r for r in rows if r["kind"] == "method_result")
+        domain = result["domain"]
+        if domain["projection"] == "none":
+            self.assertTrue(domain["reason"], "withholding an inexact domain is safe if explicit")
+            return
+        self.assertEqual(domain["ordering"], "role_ordered")
+        self.assertIn(("line:0:token:0", "line:0:token:1"), _domain_cells(domain),
+                      "outside-domain cannot mean outside method locus when this reading holds")
+
+    def test_compared_penult_uses_witness_syllable_and_keeps_source_occurrence(self):
+        from library.test_analysis import _with_words, _edge
+        from library.contracts import json_safe
+        words = {"zub": [["Z", "AH1", "B"], ["Z", "IY1", "B", "AH0"]]}
+        with _with_words(words):
+            session, rows, _ = complete(source("bee zub\ncat rabbit"), schemas=["cynghanedd lusg"])
+        edge = _edge(rows, (0, 0), (0, 1))
+        self.assertEqual(edge["a"]["token_ids"], ["line:0:token:0"])
+        self.assertEqual(edge["b"]["token_ids"], ["line:0:token:1"])
+        self.assertEqual(edge["b"]["anchor_position"], 0)
+        self.assertEqual(edge["b"]["direction"], 1)
+        # The work's one-syllable reading and the judged penult differ. Use
+        # the backend's pinned stream, never a client phone/syllable parser.
+        combos, _ = session.RL.reading_combos(session.stream, {(0, 1)}, 64)
+        pinned = [session._line_stream([0], c) for c in combos]
+        witness = next(st for st in pinned if session._witness(st, {(0, 1)}) == edge["reading"]["witness"])
+        rule = session.RL.REGISTRY["cynghanedd lusg"].spans[1]
+        span = next(s for s in session.RL.enumerate_spans(rule, witness)
+                    if session._span(s, witness)["token_ids"] == edge["b"]["token_ids"])
+        self.assertEqual(edge["compared"]["b"], [json_safe(witness.units[i].syl) for i in span.idx])
+        own = [r["syllable"] for r in rows if r["kind"] == "syllable" and r["token_id"] == "line:0:token:1"]
+        self.assertNotEqual(edge["compared"]["b"], own)
+        self.assertEqual(edge["compared"]["b"][0]["nucleus"], "IY")
+
+    def test_cap_unknown_and_refusal_remain_distinct_from_sparse_false(self):
+        from library.test_analysis import _with_words, _edge, _domain_cells
+        words = {"zeed": [["Z", "IY1", "D"], ["Z", "UW1", "T"]]}
+        reading = source("zeed is home\nand beet is too")
+        with _with_words(words):
+            with patch.object(AnalysisSession, "EDGE_COMBOS", 1):
+                _, capped, _ = complete(reading, schemas=["internal rhyme"])
+            with patch.object(AnalysisSession, "_line_stream", return_value=None):
+                _, unavailable, _ = complete(reading, schemas=["internal rhyme"])
+            _, exhausted, _ = complete(reading, schemas=["internal rhyme"])
+        for rows, reason in ((capped, "combination_cap"), (unavailable, "rebuild_unavailable")):
+            edge = _edge(rows, (0, 0), (1, 1))
+            self.assertEqual(edge["verdict"], "undecided")
+            self.assertEqual(edge["undecided_reason"], reason)
+            result = next(r for r in rows if r["kind"] == "method_result")
+            self.assertEqual(result["coverage"], "answered")
+            self.assertIn(("line:0:token:0", "line:1:token:1"), _domain_cells(result["domain"]))
+        self.assertEqual(_edge(capped, (0, 0), (1, 1))["reading_search"]["state"], "partial")
+        # Neither whole reading has both IY and T. A union of per-channel
+        # successes would fabricate a hold. Absence is usable only with the
+        # terminal answered result and its exact domain, never alone.
+        self.assertIsNone(_edge(exhausted, (0, 0), (1, 1)))
+        result = next(r for r in exhausted if r["kind"] == "method_result")
+        self.assertEqual(result["coverage"], "answered")
+        self.assertIn(("line:0:token:0", "line:1:token:1"), _domain_cells(result["domain"]))
+        _, refused, _ = complete(reading, schemas=["cynghanedd groes"])
+        result = next(r for r in refused if r["kind"] == "method_result")
+        self.assertEqual(result["coverage"], "refused")
+        self.assertEqual(result["domain"], {"projection": "none", "reason": "refused"})
+
+    def test_interruption_and_domain_cap_never_supply_negative_cell_authority(self):
+        reading = source("we will\ncat cold")
+        request = {"layers": ["sound"], "schemas": ["alliteration"]}
+        result = run_step(reading, requested=request, budget_candidates=1)
+        self.assertFalse(result["done"])
+        self.assertTrue(result["summary"]["coverage"]["partial"])
+        self.assertFalse(any(r["kind"] == "method_result" for r in result["records"]))
+        # A worker cancelled at this durable checkpoint has no completed
+        # method/domain to justify filling absent records with False.
+        checkpoint = json.loads(json.dumps(result["checkpoint"]))
+        self.assertFalse(checkpoint["done"])
+        with patch.object(AnalysisSession, "DOMAIN_CAP", 1):
+            _, rows, finished = complete(reading, schemas=["alliteration"])
+        self.assertTrue(finished["done"])
+        terminal = next(r for r in rows if r["kind"] == "method_result")
+        self.assertEqual(terminal["coverage"], "answered")
+        self.assertEqual(terminal["domain"], {"projection": "none", "reason": "domain_cap", "cap": 1})
 
 
 if __name__ == "__main__":
