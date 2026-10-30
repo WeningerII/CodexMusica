@@ -47,6 +47,14 @@ class EvidenceRecord(TypedDict, total=False):
     undecided_reason: UndecidedReason
     # method_result (schema): which occurrence pairs the method's loci bind.
     domain: MethodDomain
+    # shared_sound (#637): "Shared sound (not a registered figure)". The
+    # method's versioned name, the primitive's reading context and versions,
+    # and whether the two occurrences are spelled alike (kept, never dropped).
+    method_name: str
+    layer: str
+    reading_context: dict[str, Any]
+    channel_versions: dict[str, Any]
+    same_spelling: bool
 
 
 ReadingSearchState = Literal["not_needed", "exhaustive", "partial", "unavailable"]
@@ -76,11 +84,12 @@ class MethodDomain(TypedDict):
     False nor outside, and only its own record answers for it. `none`: no
     pair is claimed (`reason` says why). `pairs` maps a token's index in
     `tokens` (role a) to runs [first, last] of its partners' indices (role
-    b), in the order the engine asks: the reverse question is not asked."""
+    b), in the order the engine asks: the reverse question is not asked.
+    `unordered` (shared sound): a listed pair answers for both orders."""
     projection: Literal["exact_token_pair", "none"]
     reason: NotRequired[str]
     cap: NotRequired[int]
-    ordering: NotRequired[Literal["role_ordered"]]
+    ordering: NotRequired[Literal["role_ordered", "unordered"]]
     tokens: NotRequired[list[str]]
     pairs: NotRequired[dict[str, list[list[int]]]]
     pair_count: NotRequired[int]
@@ -211,7 +220,7 @@ RESULT_SCHEMA = {
         "presence": {"enum": ["absent", "empty", "present"]},
         "coverage": {"enum": ["answered", "refused", "not_requested"]},
         "precision": {"enum": ["exact", "span", "row", "token"]},
-        "namespace": {"enum": ["class", "type", "schema", "native", "function"]},
+        "namespace": {"enum": ["class", "type", "schema", "native", "function", "shared_sound"]},
         "range": {"type": "array", "items": {"type": "integer", "minimum": 0}, "minItems": 2, "maxItems": 2},
         "coordinate": {"type": "object", "properties": {
             "codepoint_range": {"$ref": "#/$defs/range"},
