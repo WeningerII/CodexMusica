@@ -31,13 +31,28 @@ function liveRegion(container) {
   const later =
     (win && win.requestAnimationFrame && win.requestAnimationFrame.bind(win)) ||
     ((f) => setTimeout(f, 0));
+  // What one frame will say: the latest words replace earlier ones, and a
+  // note (a poem that could not be laid out) is read after them.
+  let pending = null;
+  function flush() {
+    if (pending) return;
+    pending = { text: '', notes: [] };
+    el.textContent = '';
+    later(() => {
+      el.textContent = [pending.text, ...pending.notes].filter(Boolean).join(' ');
+      pending = null;
+    });
+  }
   return {
     el,
     say(text) {
-      el.textContent = '';
-      later(() => {
-        el.textContent = text;
-      });
+      flush();
+      pending.text = text;
+    },
+    note(text) {
+      if (!text) return;
+      flush();
+      pending.notes.push(text);
     },
   };
 }
@@ -231,6 +246,27 @@ function announceFor(ci, model) {
 // opts: { ci, marks, createViews, model, current, view, win, narrow }
 //   current  what decodeSelection needs (analysisIdentity, hasEntity, ...)
 //   narrow   () => boolean, true at phone width (the inspector goes in a sheet)
+// What a poem that could not be fully laid out says, once. Views report
+// ready, partial or unavailable per poem (layoutPoem); ready says nothing.
+const LAYOUT_RANK = { ready: 0, partial: 1, unavailable: 2 };
+function layoutWords(report) {
+  let worst = 0,
+    placed = 0,
+    missing = 0;
+  for (const p of (report && report.poems) || []) {
+    worst = Math.max(worst, LAYOUT_RANK[p.status] || 0);
+    placed += p.measured.length + p.fixture.length;
+    missing += p.issues.length;
+  }
+  const words =
+    worst === 2
+      ? 'Poem: word positions could not be measured, so no connections are drawn on it. They are listed in the inspector.'
+      : worst === 1
+        ? `Poem: ${missing} of ${placed + missing} words could not be placed, so their connections are not drawn. They are listed in the inspector.`
+        : '';
+  return { rank: worst, words };
+}
+
 function mount(host, opts) {
   const { ci, current } = opts;
   const doc = host.ownerDocument;
@@ -259,8 +295,45 @@ function mount(host, opts) {
     live,
   });
 
+  // Poem geometry (views.layoutPoem) is measured from the rendered text, so
+  // it runs once the fonts are in, on the tree that is still mounted, and
+  // before focus is restored: it replaces the poem's marks. Each render takes
+  // a new generation; a newer render or destroy() cancels an older one's
+  // pending layout. A later font load lays the current tree out again.
+  let gen = 0;
+  let announced = 0;
+  // The selection the latest render asked to focus: before layout the poem
+  // has no marks to take it, so layout() gives it to the mark it draws.
+  let wanted = '';
+  const fonts = doc.fonts;
+  function focusKeyIn(root, key) {
+    if (!key) return false;
+    for (const node of root.querySelectorAll('[data-selection]')) {
+      if (node.dataset.selection === key) {
+        node.focus();
+        return true;
+      }
+    }
+    return false;
+  }
+  function layout(root, g) {
+    if (g !== gen || !root.isConnected || typeof views.layoutPoem !== 'function') return;
+    // A focused mark is put back after layout replaces it. A focus the render
+    // asked for and could not give yet goes to the mark layout draws, unless
+    // the reader has since moved focus somewhere of their own.
+    const a = doc.activeElement;
+    const held = a && stage.contains(a) && a.closest('[data-selection]');
+    const key = held ? held.dataset.selection : !a || a === doc.body ? wanted : '';
+    const { rank, words } = layoutWords(views.layoutPoem(root));
+    if (key && !(doc.activeElement && stage.contains(doc.activeElement))) focusKeyIn(root, key);
+    // Said when it gets worse, not on every redraw; a clean layout resets it.
+    if (rank > announced) live.note(words);
+    announced = rank;
+  }
   function draw(focusKey) {
     const root = views.render(model, { view });
+    const g = ++gen;
+    wanted = focusKey || '';
     stage.replaceChildren(root);
     if (sheet) sheet.el.remove();
     sheet = null;
@@ -269,27 +342,46 @@ function mount(host, opts) {
       sheet = bottomSheet(root, 'Pair inspector');
       sheet.body.append(pane);
     }
-    if (focusKey) {
-      for (const node of root.querySelectorAll('[data-selection]')) {
-        if (node.dataset.selection === focusKey) {
-          node.focus();
-          break;
-        }
-      }
+    if (!fonts || fonts.status === 'loaded') {
+      layout(root, g);
+      focusKeyIn(root, focusKey);
+    } else {
+      // Focus now, so a keyboard reader is never left waiting on a font;
+      // layout() keeps that focus when it replaces the marks.
+      focusKeyIn(root, focusKey);
+      fonts.ready.then(() => layout(root, g));
     }
     return root;
   }
+  let relayout = 0;
+  const later =
+    (win.requestAnimationFrame && win.requestAnimationFrame.bind(win)) || ((f) => setTimeout(f, 0));
+  const cancel = (win.cancelAnimationFrame && win.cancelAnimationFrame.bind(win)) || clearTimeout;
+  function onFonts() {
+    if (relayout) return;
+    relayout = later(() => {
+      relayout = 0;
+      const root = stage.firstElementChild;
+      if (root) layout(root, gen);
+    });
+  }
+  if (fonts && fonts.addEventListener) fonts.addEventListener('loadingdone', onFonts);
   function update(patch, focusKey) {
     model = { ...model, ...patch };
     draw(focusKey);
   }
   function select(sel, { fromUrl, inspect } = {}) {
+    // Back to an address with nothing selected, while nothing is, changes
+    // nothing and says nothing.
+    if (fromUrl && !sel && !model.selection) return;
     const key = sel ? ci.selectionKey(sel) : '';
     const rowOccurrence =
       sel && sel.kind === 'occurrence' ? sel.entity_id : sel ? model.rowOccurrence : null;
     update({ selection: sel, rowOccurrence, notice: null }, key);
     if (!fromUrl) url.write(sel);
-    live.say(announceFor(ci, model));
+    // The address read at mount sets the selection without a word: nobody
+    // has done anything yet.
+    if (!booting) live.say(announceFor(ci, model));
     if (inspect && sheet) sheet.open(doc.activeElement);
   }
 
@@ -345,13 +437,18 @@ function mount(host, opts) {
     { grid: stage }
   );
 
+  let booting = true;
   draw();
   url.read();
+  booting = false;
   return {
     model: () => model,
     view: () => view,
     select,
     destroy() {
+      gen++;
+      if (relayout) cancel(relayout);
+      if (fonts && fonts.removeEventListener) fonts.removeEventListener('loadingdone', onFonts);
       unbind();
       url.stop();
       stage.remove();

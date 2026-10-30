@@ -475,3 +475,170 @@ test('Space and Enter both activate an SVG mark with role="button"', () => {
   key(win, doc.getElementById('real'), ' '); // a real button activates itself
   assert.deepEqual(calls, ['inspect', 'inspect']);
 });
+
+// ─── Poem geometry lifecycle (views.layoutPoem, 3PO's contract) ──────────
+// A font set the test settles by hand, and views whose layoutPoem replaces
+// the occurrence marks, as the real one does, and reports a chosen status.
+function fakeFonts(win) {
+  const listeners = new Set();
+  const fonts = { status: 'loading', addEventListener: (t, f) => listeners.add(f) };
+  fonts.removeEventListener = (t, f) => listeners.delete(f);
+  fonts.ready = new Promise((r) => (fonts.settle = () => ((fonts.status = 'loaded'), r(fonts))));
+  fonts.loadingdone = () => listeners.forEach((f) => f(new win.Event('loadingdone')));
+  fonts.listeners = listeners;
+  return fonts;
+}
+function laidOut({ loaded, status = 'ready' } = {}) {
+  const { B, win, doc } = load();
+  win.requestAnimationFrame = (f) => win.setTimeout(f, 0);
+  const fonts = fakeFonts(win);
+  if (loaded) fonts.settle();
+  Object.defineProperty(doc, 'fonts', { value: fonts });
+  const calls = [];
+  const report = { status };
+  const base = fakeCreateViews(doc);
+  const createViews = (opts) => {
+    const views = base(opts);
+    views.layoutPoem = (root) => {
+      calls.push({ root, connected: root.isConnected });
+      for (const b of [...root.querySelectorAll('button[data-selection]')]) {
+        if (b.closest('table')) continue;
+        const copy = b.cloneNode(true);
+        b.replaceWith(copy);
+      }
+      const ids = fixtureModel().occurrences.map((o) => o.entity_id);
+      const poem =
+        report.status === 'ready'
+          ? { status: 'ready', measured: ids, fixture: [], issues: [] }
+          : report.status === 'partial'
+            ? {
+                status: 'partial',
+                measured: ids.slice(2),
+                fixture: [],
+                issues: ids
+                  .slice(0, 2)
+                  .map((entity_id) => ({ entity_id, reason: 'invalid_range' })),
+              }
+            : {
+                status: 'unavailable',
+                measured: [],
+                fixture: [],
+                issues: ids.map((entity_id) => ({ entity_id, reason: 'measurement_unavailable' })),
+              };
+      return { poems: [poem] };
+    };
+    return views;
+  };
+  const host = doc.getElementById('surface-library');
+  const m = B.mount(host, {
+    ci: CI,
+    marks: {},
+    createViews,
+    model: fixtureModel(),
+    current,
+    narrow: () => false,
+  });
+  return { win, doc, host, m, fonts, calls, report, live: host.querySelector('.lib-cb-live') };
+}
+
+test('layout: waits for fonts, then lays out the mounted tree once', async () => {
+  const { win, fonts, calls, host } = laidOut();
+  assert.equal(calls.length, 0, 'nothing is measured before the fonts are in');
+  fonts.settle();
+  await tick(win);
+  assert.equal(calls.length, 1);
+  assert.equal(calls[0].connected, true);
+  assert.equal(calls[0].root, host.querySelector('section'));
+});
+
+test('layout: with fonts already in, it lays out before focus is restored', async () => {
+  const { win, doc, host, calls } = laidOut({ loaded: true });
+  const occ = keyOf(CI.occurrence('e-woods-1-2'));
+  find(host, occ).click();
+  assert.equal(calls.length, 2, 'mount and the redraw each lay out at once');
+  assert.equal(doc.activeElement.dataset.selection, occ, 'focus lands on the replaced mark');
+  assert.equal(doc.activeElement.isConnected, true);
+  await tick(win);
+});
+
+test('layout: a newer render cancels the older one before the fonts settle', async () => {
+  const { win, host, fonts, calls } = laidOut();
+  find(host, keyOf(CI.occurrence('e-woods-1-2'))).click();
+  find(host, keyOf(CI.occurrence('e-watch-4-2'))).click();
+  fonts.settle();
+  await tick(win);
+  assert.equal(calls.length, 1, 'only the newest render is laid out');
+  assert.equal(calls[0].root, host.querySelector('section'));
+});
+
+test('layout: destroy before the fonts settle measures nothing and stops listening', async () => {
+  const { win, m, fonts, calls } = laidOut();
+  m.destroy();
+  fonts.settle();
+  fonts.loadingdone();
+  await tick(win);
+  await tick(win);
+  assert.equal(calls.length, 0);
+  assert.equal(fonts.listeners.size, 0);
+});
+
+test('layout: focus on a poem mark survives a late layout that replaces it', async () => {
+  const { win, doc, host, fonts } = laidOut();
+  const occ = keyOf(CI.occurrence('e-woods-1-2'));
+  find(host, occ).click();
+  const before = doc.activeElement;
+  assert.equal(before.dataset.selection, occ, 'focus is not held back for the fonts');
+  fonts.settle();
+  await tick(win);
+  assert.notEqual(doc.activeElement, before, 'the mark was replaced');
+  assert.equal(doc.activeElement.dataset.selection, occ);
+});
+
+test('layout: a later font load lays the current tree out again, once per frame', async () => {
+  const { win, doc, host, fonts, calls } = laidOut({ loaded: true });
+  const occ = keyOf(CI.occurrence('e-watch-4-2'));
+  find(host, occ).click();
+  const n = calls.length;
+  fonts.loadingdone();
+  fonts.loadingdone();
+  await tick(win);
+  assert.equal(calls.length, n + 1);
+  assert.equal(doc.activeElement.dataset.selection, occ);
+});
+
+test('layout: partial and unavailable are said once, after the selection; ready is silent', async () => {
+  const ready = laidOut({ loaded: true });
+  await tick(ready.win);
+  assert.equal(ready.live.textContent, '', 'a ready poem says nothing');
+
+  const { win, host, fonts, live, report } = laidOut({ loaded: true, status: 'partial' });
+  await tick(win);
+  assert.equal(
+    live.textContent,
+    'Poem: 2 of 6 words could not be placed, so their connections are not drawn. They are listed in the inspector.'
+  );
+  find(host, keyOf(CI.occurrence('e-woods-1-2'))).click();
+  await tick(win);
+  assert.equal(
+    live.textContent,
+    'woods L1 w2 selected: 1 outside this method’s locus',
+    'the same partial poem is not said again on every redraw'
+  );
+  report.status = 'unavailable';
+  fonts.loadingdone();
+  await tick(win);
+  await tick(win);
+  assert.equal(
+    live.textContent,
+    'Poem: word positions could not be measured, so no connections are drawn on it. They are listed in the inspector.',
+    'getting worse is said'
+  );
+  report.status = 'partial';
+  find(host, keyOf(CI.pair(ALLIT, 'e-watch-4-2', 'e-woods-4-4'))).click();
+  await tick(win);
+  assert.equal(
+    live.textContent,
+    'watch L4 w2 – woods L4 w4: Registered figure · Alliteration holds',
+    'getting better is not announced as a problem'
+  );
+});
