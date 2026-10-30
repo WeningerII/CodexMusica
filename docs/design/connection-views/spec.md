@@ -107,6 +107,16 @@ Compatible with Jony Ives's revised position (6526665982). His selection carries
   - **Inspector.** Its header names the layer first. A pair holding in both layers shows the figure mark and lists both.
   - **Coverage line.** It names each layer with its route and version.
   - **Condition.** The sound layer waits if its evidence records can't carry their own version and route.
+- *Control question, merged proposal (6527324954), pending Jony Ives's yes or amendment:*
+  1. **Layer control (Jony's): Registered (default) / Shared sound / Both.** It filters the method menu and never stands alone. My objection is withdrawn.
+  2. **Method menu.** It is grouped by layer and allows several choices. It keeps one value across tabs (J3).
+  3. **Matrix "Cell shows".** It always picks exactly one method and names its layer.
+  4. **Under Both, Jony's marks apply.** Hollow, 1 px, open ports for sound-only; solid, 2 px for figures. My lowercase glyph is dropped.
+  5. **Scope changes never move the selection.** The view says "hidden by current scope", and the inspector keeps the hidden row, greyed.
+  6. **Unbuilt methods.** Interior and sound methods are disabled, with their reason, until they exist.
+  - **Jony's J1–J7.** I accept them, including the flat light-grey outside-locus cell.
+  - **Per-method display default (John's function-word ruling).** No word filter and no word list. Interior methods are not pre-selected. Any future filter is computed, named on the coverage line with a hidden count, and off by default.
+  - **Inspector.** It names the anchor syllable compared ("last stressed: watch /AA1 CH/ · woods /UH1 D Z/").
 ## Open disputes / evidence needed
 1. ~~R2: Anywhere as placement-stripped pair judge.~~ RESOLVED by R2 accepting 3PO's position (registered loci only; a sound layer needs its own contract).
 2. ~~R2: reading disagreement = undecided.~~ RESOLVED: existential outcome, quantifier, completeness and witness stored apart (backend §2 truth table).
