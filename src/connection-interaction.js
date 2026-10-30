@@ -260,9 +260,65 @@
   //   domainCertified the domain descriptor certifies that an absent record
   //                   means false (completed, non-refused, pruning proven safe)
   // Returns { state, reason, absenceOnly }.
+  // Why a record is undecided, in words, by the evidence contract's declared
+  // reasons (library/contracts.py UndecidedReason).
+  const UNDECIDED_WORDS = Object.freeze({
+    combination_cap: 'reading search reached its cap',
+    rebuild_unavailable: 'an alternate reading could not be rebuilt',
+    locus_unmatched: 'locus not matched under every reading',
+    readings_not_searched_in_scope: 'only the first-listed reading was judged',
+    no_reading_combination: 'no compatible reading combination',
+    placement_unknown: 'placement not settled',
+    identity_unknown: 'identity not settled',
+    channel_unknown: 'a sound channel not settled',
+    judge_unknown: 'the judge gave no answer',
+    member_edges_undecided: 'member pairs undecided',
+  });
+
+  function undecidedReason(rec) {
+    const unknown = rec.unknown_channels;
+    if (Array.isArray(unknown) && unknown.length) {
+      return `${unknown.map((u) => (Array.isArray(u) ? u[1] : u)).join(', ')} not settled`;
+    }
+    return UNDECIDED_WORDS[rec.undecided_reason] || 'reason not reported';
+  }
+
+  // What a method's domain descriptor (library/contracts.py MethodDomain)
+  // says about one occurrence pair, as cellState's inputs. `answered` is the
+  // method's own coverage. A pair touching a reading-dependent occurrence is
+  // neither outside nor a certified negative: only its own record answers.
+  function domainFacts(domain, a, b, answered) {
+    if (!domain || domain.projection !== 'exact_token_pair') {
+      return {
+        inLocus: false,
+        locusReason: (domain && domain.reason) || 'no pair projection for this method',
+      };
+    }
+    const tokens = domain.tokens || [];
+    const listed = (x, y) => {
+      const runs = (domain.pairs || {})[String(tokens.indexOf(x))] || [];
+      const j = tokens.indexOf(y);
+      return j >= 0 && runs.some(([lo, hi]) => j >= lo && j <= hi);
+    };
+    const inLocus = listed(a, b) || (domain.ordering !== 'role_ordered' && listed(b, a));
+    const dependent = (domain.reading_dependent_tokens || []).some((t) => t === a || t === b);
+    if (dependent) return { inLocus: true, readingDependent: true, domainCertified: false };
+    return { inLocus, domainCertified: !!answered };
+  }
+
   function cellState(cell) {
-    if (!cell.inLocus) return { state: 'not_examined', reason: null, absenceOnly: false };
     const rec = cell.record;
+    if (!cell.inLocus) {
+      return { state: 'not_examined', reason: cell.locusReason || null, absenceOnly: false };
+    }
+    if (!rec && cell.readingDependent) {
+      return {
+        state: 'not_examined',
+        reason: 'locus depends on the reading',
+        absenceOnly: false,
+        uncertified: true,
+      };
+    }
     if (rec) {
       if (rec.coverage === 'refused') {
         return {
@@ -271,7 +327,12 @@
           absenceOnly: false,
         };
       }
-      if (rec.outcome === true || rec.outcome === 'true') {
+      if (rec.coverage === 'not_requested') {
+        return { state: 'not_examined', reason: 'not requested', absenceOnly: false };
+      }
+      // The evidence contract calls it `verdict` ("true" | "false" | "undecided").
+      const verdict = rec.verdict !== undefined ? rec.verdict : rec.outcome;
+      if (verdict === true || verdict === 'true') {
         const informative = rec.informative_channels;
         return {
           state: 'holds',
@@ -279,15 +340,10 @@
           absenceOnly: Array.isArray(informative) && informative.length === 0,
         };
       }
-      if (rec.outcome === false || rec.outcome === 'false') {
+      if (verdict === false || verdict === 'false') {
         return { state: 'does_not_hold', reason: null, absenceOnly: false };
       }
-      const unknown = rec.unknown_channels;
-      const reason =
-        Array.isArray(unknown) && unknown.length
-          ? `${unknown.map((u) => (Array.isArray(u) ? u[1] : u)).join(', ')} not settled`
-          : 'reason not reported';
-      return { state: 'undecided', reason, absenceOnly: false };
+      return { state: 'undecided', reason: undecidedReason(rec), absenceOnly: false };
     }
     if (!cell.jobComplete) return { state: 'not_yet_computed', reason: null, absenceOnly: false };
     if (cell.domainCertified) return { state: 'does_not_hold', reason: null, absenceOnly: false };
@@ -300,8 +356,9 @@
 
   function stateWords(result) {
     if (result.state === 'holds' && result.absenceOnly) return 'holds · only empty onsets compared';
+    if (result.uncertified) return `not certified · ${result.reason}`;
     const words = STATE_WORDS[result.state];
-    return result.reason && (result.state === 'undecided' || result.state === 'refused')
+    return result.reason && result.state !== 'holds' && result.state !== 'does_not_hold'
       ? `${words} · ${result.reason}`
       : words;
   }
@@ -409,6 +466,8 @@
     decodeSelection,
     hiddenNotice,
     cellState,
+    domainFacts,
+    UNDECIDED_WORDS,
     stateWords,
     matrixMove,
     keyAction,

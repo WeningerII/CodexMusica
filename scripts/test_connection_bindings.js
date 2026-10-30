@@ -461,3 +461,17 @@ test('mount: destroy removes its listeners and nodes', () => {
   win.dispatchEvent(new win.PopStateEvent('popstate'));
   assert.equal(m.model().selection, null);
 });
+
+test('Space and Enter both activate an SVG mark with role="button"', () => {
+  const { B, win, doc } = load();
+  const root = doc.getElementById('surface-library');
+  root.innerHTML =
+    '<svg><g id="mark" role="button" tabindex="0"></g></svg><button id="real">x</button>';
+  const calls = [];
+  B.bindKeys(root, CI, { clear: () => {}, inspect: () => calls.push('inspect'), move: () => {} });
+  const mark = doc.getElementById('mark');
+  key(win, mark, ' ');
+  key(win, mark, 'Enter');
+  key(win, doc.getElementById('real'), ' '); // a real button activates itself
+  assert.deepEqual(calls, ['inspect', 'inspect']);
+});
