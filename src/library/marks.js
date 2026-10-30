@@ -100,7 +100,7 @@ ${S}.lib-mk-tag,${S}.lib-mk-strong{font-weight:700}
 ${S}.lib-mk-arc path{stroke:var(--lib-mk-hue)}
 ${S}.lib-mk-arc path.lib-mk-gap{stroke:var(--cm-surface)}
 ${S}.lib-mk-port line,${S}.lib-mk-port circle{stroke:var(--lib-mk-hue,var(--cm-text-muted));stroke-width:1.5;fill:var(--cm-surface)}
-${S}.lib-mk-dim{opacity:.25}
+${S}.lib-mk-dim>path{opacity:.25}
 ${S}.lib-mk-node circle:first-child{fill:var(--cm-surface);stroke:var(--cm-text);stroke-width:1.5}
 ${S}.lib-mk-node-word{font:600 17px/1 var(--cm-font);fill:var(--cm-text)}
 ${S}.lib-mk-node-coord,${S}.lib-mk-node-also{font:12px/1 var(--cm-font);fill:var(--cm-text-secondary)}
