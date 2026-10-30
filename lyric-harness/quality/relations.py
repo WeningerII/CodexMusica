@@ -150,6 +150,7 @@ import json
 import os
 import re
 from dataclasses import dataclass, field, replace
+from types import MappingProxyType
 
 # Re-export the original public vocabulary; slots uses the lightweight leaf.
 from quality.span_rules import (
@@ -1696,15 +1697,16 @@ class BothPresent(Predicate):
     consonant").  Line-final `consonance` does NOT carry it: E-5's
     empty/empty agreement stands there, a stated difference between the two.
 
-    Certain on both sides and non-empty -> True.  Certainly empty on either
-    side -> False, even when the other side is uncertain.  Anything else is
-    undecided: a set whose readings disagree on presence is not empty.
+    ONE TRUTH TABLE, with None meaning unknown whether it arrives bare or
+    inside a set (3PO's review, #637 6532626626): either side certainly
+    empty (every reading empty, an unknown never counted as empty) -> False,
+    whatever the other side is; both sides certainly present -> True;
+    anything else -> undecided. So None~empty is False and None~present is
+    undecided, exactly as {None}~empty and {None}~present are.
     """
     name: str = "BOTH-PRESENT"
 
     def __call__(self, x, y):
-        if x is None or y is None:
-            return Read(None, False, "unreadable")
         px, py = _presence(x), _presence(y)
         if px is False or py is False:
             side = "both members" if px is False and py is False else (
@@ -1712,6 +1714,8 @@ class BothPresent(Predicate):
             return Read(False, True, f"absent on {side}")
         if px and py:
             return Read(True, True, "present on both members")
+        if None in _alts(x) or None in _alts(y):
+            return Read(None, False, "unreadable")
         return Read(None, False,
                     "uncertain reading; presence undecidable")
 
@@ -10265,17 +10269,59 @@ def _canonical_span(stream, span, rule):
                and sp.direction == span.direction for sp in built)
 
 
-def _reading_context(stream):
+def _token_pin(stream, li, ti):
+    """-> "word = PHONES" when the stream reads token (li, ti) under one
+    pinned whole reading (an any-reading combination, or a declared
+    occurrence reading), else None."""
     combo = getattr(stream, "any_reading_combo", None)
-    if combo:
-        return {"type": "pinned", "combo": tuple(reading_witness(combo))}
-    if getattr(stream.phon, "any_reading_trial", False):
-        rows = getattr(getattr(stream.phon, "lexicon", None),
-                       "pronunciations", ()) or ()
-        return {"type": "pinned",
-                "combo": tuple(f"{r['word']} = {' '.join(r['phones'])}"
-                               for r in rows)}
-    return {"type": "merged"}
+    if combo is not None:
+        c = combo.get((li, ti))
+        return reading_witness({(li, ti): c})[0] if c else None
+    lex = getattr(stream.phon, "lexicon", None)
+    rows = getattr(lex, "pronunciations", ()) or ()
+    if not rows or not (0 <= li < len(stream.text_lines)) or \
+            li >= len(stream.lexical_tokens or ()):
+        return None
+    from quality.pronunciation import occurrence_readings
+    got = occurrence_readings(lex, stream.text_lines[li],
+                              stream.lexical_tokens[li], ti)
+    if got is None:
+        return None
+    for r in rows:
+        if r["line"] == stream.text_lines[li] and r["token"] == got[0]:
+            return f"{r['word']} = {' '.join(r['phones'])}"
+    return None
+
+
+def _reading_context(stream, a, b):
+    """Per member: pinned (every token it covers is read under one pinned
+    whole reading, named) or not. "pinned" only when both members are,
+    "partial" when one is, "merged" when neither is (3PO's review, #637
+    6532644831): an unpinned member keeps its residual reading sets."""
+    members = []
+    for sp in (a, b):
+        toks = sorted({(stream.units[i].line, stream.units[i].token)
+                       for i in sp.idx})
+        pins = [_token_pin(stream, li, ti) for li, ti in toks]
+        if pins and all(pins):
+            members.append(MappingProxyType(
+                {"pinned": True, "witness": "; ".join(pins)}))
+        else:
+            members.append(MappingProxyType({"pinned": False}))
+    n = sum(1 for m in members if m["pinned"])
+    kind = "pinned" if n == 2 else ("partial" if n else "merged")
+    return MappingProxyType({"type": kind, "members": tuple(members)})
+
+
+def _channel_set_identity(chans):
+    """A ChannelSet named by what it reads: each channel's reader, by module
+    and qualified name, and the channels it declares absent."""
+    readers = tuple(sorted(
+        (ch, f"{getattr(f, '__module__', '')}."
+             f"{getattr(f, '__qualname__', repr(f))}")
+        for ch, f in (getattr(chans, "readers", {}) or {}).items()))
+    text = repr((readers, tuple(getattr(chans, "absent", ()) or ())))
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()[:16]
 
 
 def pair_channel_reads(stream, a, b, family, chans=DEFAULT_CHANNELS,
@@ -10287,8 +10333,11 @@ def pair_channel_reads(stream, a, b, family, chans=DEFAULT_CHANNELS,
     vb), ...)}, "syllables": (({onset, nucleus, coda, prominence}, {...}),
     ...) per aligned pair, "anchors": (a.anchor_pos, b.anchor_pos),
     "occurrences": ({"idx", "origin", "line", "token"}, {...}),
-    "reading_context": {"type": "pinned", "combo": ...} or {"type":
-    "merged"}, "versions": {...}}.
+    "reading_context": {"type": "pinned" | "partial" | "merged",
+    "members": ({"pinned": True, "witness": "word = PHONES"} or {"pinned":
+    False}, ...)}, "versions": {channel_reads, span_rule, align,
+    channel_set, declaration, policy}}. Every nested value is a tuple or a
+    read-only mapping.
 
     `channels` names the channels the caller wants from `reads` (all four
     when None). The cache holds the COMPLETE record per stream (its
@@ -10327,8 +10376,10 @@ def pair_channel_reads(stream, a, b, family, chans=DEFAULT_CHANNELS,
                                       chans))
         cache[key] = hit
     rec = hit[1]
+    # Every value in a record is immutable (tuples, read-only mappings), so
+    # what one caller is handed cannot change what the cache tells the next.
     out = dict(rec)
-    out["reads"] = {c: rec["reads"][c] for c in want}
+    out["reads"] = MappingProxyType({c: rec["reads"][c] for c in want})
     return out
 
 
@@ -10343,21 +10394,40 @@ def _channel_record(stream, a, b, family, align_name, chans):
             vb = _span_read(b, qb, c, stream, chans, "phonemic")
             sa[c], sb[c] = va, vb
             reads[c].append((qa, qb, va, vb))
-        syllables.append((sa, sb))
+        syllables.append((MappingProxyType(sa), MappingProxyType(sb)))
 
     def occ(sp):
         u = stream.units[sp.idx[0]]
-        return {"idx": sp.idx, "origin": sp.origin, "line": u.line,
-                "token": u.token}
+        return MappingProxyType({"idx": sp.idx, "origin": sp.origin,
+                                 "line": u.line, "token": u.token})
+    rule = CHANNEL_READ_FAMILIES[family][0]
+    phon = stream.phon
     return {"family": family,
             "align": tuple(al.pairs),
-            "reads": {c: tuple(v) for c, v in reads.items()},
+            "reads": MappingProxyType({c: tuple(v)
+                                       for c, v in reads.items()}),
             "syllables": tuple(syllables),
             "anchors": (a.anchor_pos, b.anchor_pos),
             "occurrences": (occ(a), occ(b)),
-            "reading_context": _reading_context(stream),
-            "versions": {"channel_reads": CHANNEL_READ_VERSION,
-                         "declaration": _declaration_digest(stream)}}
+            "reading_context": _reading_context(stream, a, b),
+            "versions": MappingProxyType({
+                "channel_reads": CHANNEL_READ_VERSION,
+                # the family's span rule and alignment
+                "span_rule": MappingProxyType({
+                    "locus": rule.locus, "anchor": rule.anchor,
+                    "direction": rule.direction,
+                    "magnitude": rule.magnitude}),
+                "align": align_name,
+                "channel_set": _channel_set_identity(chans),
+                # the resource: the phonology's declaration and the
+                # stream's, as one digest
+                "declaration": _declaration_digest(stream),
+                # the reading policy the values were read under
+                "policy": MappingProxyType({
+                    "readings": getattr(phon, "readings", None),
+                    "syllable_disputes": getattr(phon, "syllable_disputes",
+                                                 None),
+                    "merged_sets_kept": True})})}
 
 
 __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
