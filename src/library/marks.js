@@ -29,22 +29,23 @@ const FAMILIES = {
   repetition: { glyph: '=', label: 'repetition', dash: '', double: true },
 };
 
-// The six pair states, in rank order. `outside` is a flat cell with no glyph:
-// the method's domain reads as the lit shape around it.
+// The six pair states, in rank order, by the ids and words of
+// src/connection-interaction.js (cellState, STATE_WORDS), which owns what each
+// state says; these are only how each one looks. `not_examined` is a flat cell
+// with no glyph: the method's domain reads as the lit shape around it.
 const STATES = {
-  holds: { label: 'Holds', glyph: null },
-  undecided: { label: 'Undecided', glyph: '?' },
-  pending: { label: 'Not yet computed', glyph: '…' },
-  refused: { label: 'Refused', glyph: '×' },
-  fails: { label: 'Does not hold', glyph: '·' },
-  outside: { label: 'Outside method locus', glyph: null },
+  holds: { glyph: null },
+  undecided: { glyph: '?' },
+  not_yet_computed: { glyph: '…' },
+  refused: { glyph: '×' },
+  does_not_hold: { glyph: '·' },
+  not_examined: { glyph: null },
 };
-const STATE_ORDER = ['holds', 'undecided', 'pending', 'refused', 'fails', 'outside'];
+const STATE_ORDER = Object.keys(STATES);
 
-const LAYERS = {
-  registered: { label: 'Registered figure', stroke: 2 },
-  sound: { label: 'Shared sound (not a registered figure)', stroke: 1 },
-};
+// Stroke weight on arcs and edges by layer; the layer's name is words the
+// caller supplies.
+const LAYERS = { registered: { stroke: 2 }, sound: { stroke: 1 } };
 
 function family(id) {
   const f = FAMILIES[id];
@@ -64,6 +65,7 @@ function svg(tag, attrs, text) {
   if (text !== undefined) el.textContent = text;
   return el;
 }
+const cap = (t) => t.charAt(0).toUpperCase() + t.slice(1);
 function html(tag, cls, text) {
   const el = document.createElement(tag);
   if (cls) el.className = cls;
@@ -85,8 +87,8 @@ ${Object.keys(FAMILIES)
   .map((id) => `${S}.lib-mk-fam-${id}{--lib-mk-hue:var(--lib-mk-${id},var(--cm-text))}`)
   .join('\n')}
 ${S}.lib-mk-cell rect{fill:var(--cm-surface);stroke:var(--cm-border);stroke-width:1}
-${S}.lib-mk-cell-outside rect{fill:var(--cm-surface-sunken);stroke:none}
-${S}.lib-mk-cell-pending rect{stroke:var(--cm-text-muted)}
+${S}.lib-mk-cell-not_examined rect{fill:var(--cm-surface-sunken);stroke:none}
+${S}.lib-mk-cell-not_yet_computed rect{stroke:var(--cm-text-muted)}
 ${S}.lib-mk-cell-holds rect{stroke:var(--lib-mk-hue);stroke-width:1.5}
 ${S}.lib-mk-glyph{font:600 13px/1 var(--cm-font);fill:var(--cm-text-muted)}
 ${S}.lib-mk-cell-holds .lib-mk-glyph,${S}.lib-mk-edge-glyph{fill:var(--lib-mk-hue);font-weight:700}
@@ -112,55 +114,20 @@ if (!document.getElementById('lib-mk-style')) {
   document.head.append(style);
 }
 
-// ── Words ───────────────────────────────────────────────────────────────────
-// An occurrence is { line, token, text }: the engine's (line, token ordinal),
-// never the spelling alone.
-function occurrenceTag(occ) {
-  return `${occ.text} · L${occ.line} w${occ.token}`;
-}
-
-// "Registered figure · Alliteration": the layer first, in words.
-function methodLabel(method) {
-  const name = method.name.charAt(0).toUpperCase() + method.name.slice(1);
-  return `${layer(method.layer).label} · ${name}`;
-}
-
-// The verdict line for one pair under one method, from its evidence record.
-// A hold that compared only empty slots says so; an undecided names the
-// channels the record says were unknown, or that none were reported.
-function stateLabel(record) {
-  const state = record.state;
-  if (!STATES[state]) throw Error('Unknown pair state: ' + state);
-  if (
-    state === 'holds' &&
-    Array.isArray(record.informative_channels) &&
-    !record.informative_channels.length
-  )
-    return 'Holds · only empty onsets compared';
-  if (state === 'undecided') {
-    const channels = (record.unknown_channels || []).map((c) => (Array.isArray(c) ? c[1] : c));
-    return channels.length
-      ? `Undecided · ${[...new Set(channels)].join(' and ')} not settled`
-      : 'Undecided · reason not reported';
-  }
-  if (state === 'refused' && record.reason) return `Refused · ${record.reason}`;
-  return STATES[state].label;
-}
-
 // ── Cells ───────────────────────────────────────────────────────────────────
 // One matrix cell, size × size, at (x, y). `family` is required for holds.
 function stateCell({ state, family: fam, x = 0, y = 0, size = 24, selected = false }) {
   const s = STATES[state];
   if (!s) throw Error('Unknown pair state: ' + state);
   const g = svg('g', { class: `lib-mk-cell lib-mk-cell-${state}`, 'data-state': state });
-  const inset = state === 'outside' ? 0 : 0.5;
+  const inset = state === 'not_examined' ? 0 : 0.5;
   const rect = svg('rect', {
     x: x + inset,
     y: y + inset,
     width: size - 2 * inset,
     height: size - 2 * inset,
   });
-  if (state === 'pending') rect.setAttribute('stroke-dasharray', '2 2');
+  if (state === 'not_yet_computed') rect.setAttribute('stroke-dasharray', '2 2');
   g.append(rect);
   let glyph = s.glyph;
   if (state === 'holds') {
@@ -202,8 +169,10 @@ function selectionRect(x, y, w, h, offset = 0) {
 function selectionRing(cx, cy, r) {
   return svg('circle', { cx, cy, r: r + 4, class: 'lib-mk-select' });
 }
-function selectionTagHTML(occ) {
-  return html('span', 'lib-mk-tag', occurrenceTag(occ));
+// `label` is the occurrence's words from connection-interaction.js
+// (occurrenceLabel: "watch · L4 w2"), never the spelling alone.
+function selectionTagHTML(label) {
+  return html('span', 'lib-mk-tag', label);
 }
 
 // ── Arcs ────────────────────────────────────────────────────────────────────
@@ -400,7 +369,9 @@ function hullLabel({
 }
 
 // ── Legend and counts ───────────────────────────────────────────────────────
-function legendRow({ families = Object.keys(FAMILIES), examples = false } = {}) {
+// `words` is STATE_WORDS from connection-interaction.js.
+function legendRow({ words, families = Object.keys(FAMILIES), examples = false } = {}) {
+  if (!words) throw Error('legendRow: words are required');
   const row = html('div', 'lib-mk-legend');
   const states = html('div', 'lib-mk-legend-states');
   if (examples) states.append(html('span', 'lib-mk-legend-note', 'State key · examples only'));
@@ -410,7 +381,7 @@ function legendRow({ families = Object.keys(FAMILIES), examples = false } = {}) 
     box.append(
       stateCell({ state: id, family: id === 'holds' ? families[0] : undefined, size: 24 })
     );
-    item.append(box, html('span', null, STATES[id].label));
+    item.append(box, html('span', null, cap(words[id])));
     states.append(item);
   }
   const fams = html(
@@ -432,8 +403,9 @@ function legendRow({ families = Object.keys(FAMILIES), examples = false } = {}) 
 // The strip under a view's title. `counts` maps state → number; a state with
 // no number is reported as not supplied, never as zero. `provenance` says what
 // produced the numbers ("fixture only", "Library schema analysis at <rev>").
-function countStrip(counts, { provenance, emptyOnset, hidden } = {}) {
+function countStrip(counts, { words, provenance, emptyOnset, hidden } = {}) {
   if (!provenance) throw Error('countStrip: provenance is required');
+  if (!words) throw Error('countStrip: words are required');
   const strip = html('div', 'lib-mk-count');
   const lead = html('div', 'lib-mk-count-lead');
   const holds = counts.holds;
@@ -448,9 +420,9 @@ function countStrip(counts, { provenance, emptyOnset, hidden } = {}) {
   const known = [],
     missing = [];
   for (const id of STATE_ORDER.slice(1)) {
-    if (id === 'outside') continue;
-    if (Number.isInteger(counts[id])) known.push(`${counts[id]} ${STATES[id].label.toLowerCase()}`);
-    else missing.push(STATES[id].label);
+    if (id === 'not_examined') continue;
+    if (Number.isInteger(counts[id])) known.push(`${counts[id]} ${words[id]}`);
+    else missing.push(cap(words[id]));
   }
   const rest = html('div', 'lib-mk-count-rest');
   const bits = [];
@@ -467,9 +439,6 @@ return {
   STATES,
   STATE_ORDER,
   LAYERS,
-  occurrenceTag,
-  methodLabel,
-  stateLabel,
   stateCell,
   selectionRect,
   selectionRing,

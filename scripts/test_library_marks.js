@@ -17,13 +17,17 @@ function load() {
 }
 const { api: M } = load();
 const watch = { line: 4, token: 2, text: 'watch' };
-const woods = { line: 4, token: 4, text: 'woods' };
 const woods1 = { line: 1, token: 2, text: 'woods' };
-
-test('an occurrence is named by its coordinate, so repeated spellings stay apart', () => {
-  assert.equal(M.occurrenceTag(watch), 'watch · L4 w2');
-  assert.notEqual(M.occurrenceTag(woods), M.occurrenceTag(woods1));
-});
+// connection-interaction.js STATE_WORDS (#638): the words are Don Norman's;
+// marks only draws.
+const WORDS = {
+  holds: 'holds',
+  undecided: 'undecided',
+  not_yet_computed: 'not yet computed',
+  refused: 'refused',
+  does_not_hold: 'does not hold',
+  not_examined: 'outside this method’s locus',
+};
 
 test('every family has a glyph, and no two families share a glyph or a stroke', () => {
   const glyphs = new Set(),
@@ -43,19 +47,27 @@ test('the six states differ without colour: glyph, dash or fill', () => {
     const g = M.stateCell({ state, family: 'alliteration' });
     const glyph = g.querySelector('text')?.textContent || '';
     const dash = g.querySelector('rect').getAttribute('stroke-dasharray') || '';
-    const key = `${glyph}|${dash}|${state === 'outside' ? 'flat' : 'cell'}`;
+    const key = `${glyph}|${dash}|${state === 'not_examined' ? 'flat' : 'cell'}`;
     assert.ok(!seen.has(key), `${state} looks like another state`);
     seen.add(key);
   }
   assert.equal(M.STATE_ORDER.length, 6);
 });
 
-test('outside locus is a flat cell with no glyph; holds carries its family glyph', () => {
-  assert.equal(M.stateCell({ state: 'outside' }).querySelector('text'), null);
+test('not examined is a flat cell with no glyph; holds carries its family glyph', () => {
+  assert.equal(M.stateCell({ state: 'not_examined' }).querySelector('text'), null);
   const h = M.stateCell({ state: 'holds', family: 'rhyme' });
   assert.equal(h.querySelector('text').textContent, 'R');
   assert.equal(h.getAttribute('data-family'), 'rhyme');
   assert.throws(() => M.stateCell({ state: 'holds' }), /Unknown relation family/);
+});
+
+test('state ids are exactly connection-interaction.js cellState ids, in rank order', () => {
+  assert.deepEqual([...M.STATE_ORDER], Object.keys(WORDS));
+});
+
+test('the selection tag shows the caller-supplied occurrence label', () => {
+  assert.equal(M.selectionTagHTML('watch · L4 w2').textContent, 'watch · L4 w2');
 });
 
 test('selection is the same ink ring in cells and nodes, never a family class', () => {
@@ -75,17 +87,6 @@ test('network nodes share one radius and carry no hue; selection adds a ring out
   assert.equal(r(a), r(b));
   assert.equal(Number(a.querySelector('.lib-mk-select').getAttribute('r')), r(a) + 4);
   assert.ok(![...a.classList, ...b.classList].some((c) => c.startsWith('lib-mk-fam-')));
-});
-
-test('layer is named in words, registered first', () => {
-  assert.equal(
-    M.methodLabel({ name: 'alliteration', layer: 'registered' }),
-    'Registered figure · Alliteration'
-  );
-  assert.equal(
-    M.methodLabel({ name: 'vowel', layer: 'sound' }),
-    'Shared sound (not a registered figure) · Vowel'
-  );
 });
 
 test('shared-sound arcs are 1 px, registered 2 px, same family pattern', () => {
@@ -119,7 +120,7 @@ test('ports never collapse: close ports spread to the minimum gap, in order', ()
 });
 
 test('count strip prints only supplied counts and says which were not supplied', () => {
-  const s = M.countStrip({ holds: 4 }, { provenance: 'fixture only' });
+  const s = M.countStrip({ holds: 4 }, { words: WORDS, provenance: 'fixture only' });
   assert.match(s.textContent, /4 holds shown · fixture only/);
   assert.match(
     s.textContent,
@@ -127,13 +128,14 @@ test('count strip prints only supplied counts and says which were not supplied',
   );
   assert.doesNotMatch(s.textContent, /\b0 /);
   const t = M.countStrip(
-    { holds: 25, fails: 3 },
-    { provenance: 'run', emptyOnset: 14, hidden: { count: 2, by: 'display filter' } }
+    { holds: 25, does_not_hold: 3 },
+    { words: WORDS, provenance: 'run', emptyOnset: 14, hidden: { count: 2, by: 'display filter' } }
   );
   assert.match(t.textContent, /14 only empty onsets compared/);
   assert.match(t.textContent, /2 hidden by display filter/);
   assert.match(t.textContent, /3 does not hold/);
-  assert.throws(() => M.countStrip({ holds: 1 }), /provenance/);
+  assert.throws(() => M.countStrip({ holds: 1 }, { words: WORDS }), /provenance/);
+  assert.throws(() => M.countStrip({ holds: 1 }, { provenance: 'x' }), /words/);
 });
 
 test('hull label states counts and always says joint consistency is not assessed', () => {
@@ -146,23 +148,10 @@ test('hull label states counts and always says joint consistency is not assessed
   assert.throws(() => M.hullLabel({ family: 'rhyme', occurrences: 3, shown: 3 }), /examined/);
 });
 
-test('verdict wording reads from the evidence record', () => {
-  assert.equal(
-    M.stateLabel({ state: 'holds', informative_channels: [] }),
-    'Holds · only empty onsets compared'
-  );
-  assert.equal(M.stateLabel({ state: 'holds', informative_channels: ['onset'] }), 'Holds');
-  assert.equal(
-    M.stateLabel({ state: 'undecided', unknown_channels: [[0, 'nucleus']] }),
-    'Undecided · nucleus not settled'
-  );
-  assert.equal(M.stateLabel({ state: 'undecided' }), 'Undecided · reason not reported');
-  assert.doesNotMatch(M.stateLabel({ state: 'undecided' }), /search cap/);
-});
-
 test('legend shows all six states and both layers in words', () => {
-  const l = M.legendRow();
-  for (const id of M.STATE_ORDER) assert.match(l.textContent, new RegExp(M.STATES[id].label));
+  const l = M.legendRow({ words: WORDS });
+  for (const id of M.STATE_ORDER) assert.ok(l.textContent.toLowerCase().includes(WORDS[id]), id);
+  assert.throws(() => M.legendRow(), /words/);
   assert.match(l.textContent, /Registered figure/);
   assert.match(l.textContent, /Shared sound/);
   assert.match(l.textContent, /Selection uses ink, never hue/);
