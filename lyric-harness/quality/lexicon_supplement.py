@@ -455,20 +455,38 @@ class SupplementedLexicon(LH.Lexicon):
         # `basis: dictionary` reading of a supplement word is recognised.
         super().__init__(fallback=fallback, strip_parens=strip_parens,
                          pronunciations=None, reader_scheme=reader_scheme)
-        self._supplement_raw = {}
         rows = load_rows(supplement_path)
-        cmu = self.entries
         # The frozen rows are checked against CMUdict AS SHIPPED, before the
         # accent readings (`LH.derive_accent_readings`) respelled anything:
         # the number-compound rule rebuilds rows from those readings.
         problems = check_rows(rows, self.cmu_raw_entries)
         if problems:
             raise SupplementError("; ".join(problems[:5]))
+        self._rows = rows
+        self._merge_rows()
+        self.supplement_path = supplement_path
+        self.supplement_sha256 = file_sha256(supplement_path)
+        self.supplement_rows = len(rows)
+        self.supplement_id = (vrow["id"] if version is not None
+                              else _version_of(supplement_path, self.supplement_sha256))
+        if pronunciations is not None:
+            from quality.pronunciation import validate_choices
+            self.pronunciations = validate_choices(pronunciations, self)
+
+    def _reread_accent_readings(self):
+        LH.Lexicon._reread_accent_readings(self)
+        self._merge_rows()
+
+    def _merge_rows(self):
+        """Join the supplement's rows to `self.entries` (CMUdict, with the
+        accent readings under every scheme but v1)."""
+        self._supplement_raw = {}
+        cmu = self.entries
         merged = dict(cmu)
         sources = {}
         rules = dict(self.reading_rules)
         derive = self.reader_scheme != "v1"
-        for row in rows:
+        for row in self._rows:
             word = row["word"]
             if word in cmu and merged[word] is cmu[word]:
                 merged[word] = list(cmu[word])      # never append into CMUdict's list
@@ -488,15 +506,7 @@ class SupplementedLexicon(LH.Lexicon):
         self.reading_rules = rules
         self.cmu_entries = cmu
         self.entries = merged
-        self.supplement_path = supplement_path
-        self.supplement_sha256 = file_sha256(supplement_path)
-        self.supplement_rows = len(rows)
-        self.supplement_id = (vrow["id"] if version is not None
-                              else _version_of(supplement_path, self.supplement_sha256))
         self._reading_sources = sources
-        if pronunciations is not None:
-            from quality.pronunciation import validate_choices
-            self.pronunciations = validate_choices(pronunciations, self)
 
     def declaration_line(self):
         return (f"lexicon: cmudict + reviewed supplement "
@@ -558,7 +568,8 @@ class SupplementedLexicon(LH.Lexicon):
         bare = _bare(key)
         out = []
         groups = ([p for p in self.entries.get(key, ())
-                   if (key, tuple(p)) in self._reading_sources] if key != bare else [],
+                   if (key, tuple(p)) in self._reading_sources
+                   or (key, tuple(p)) in self.reading_rules] if key != bare else [],
                   self.entries.get(bare, ()),
                   self.cmu_entries.get(key, ()) if key != bare else (),
                   # CMUdict's and the rows' own readings that the accent
@@ -611,7 +622,8 @@ class SupplementedLexicon(LH.Lexicon):
         key = _key(self._entry_word(word))
         bare = _bare(key)
         exact = ([list(p) for p in self.entries.get(key, ())
-                  if (key, tuple(p)) in self._reading_sources]
+                  if (key, tuple(p)) in self._reading_sources
+                   or (key, tuple(p)) in self.reading_rules]
                  if key != bare else [])
         out = exact + [p for p in base if p not in exact]
         for phones in self.entries.get(bare, ()):
@@ -673,7 +685,7 @@ def main(argv=None):
     a = ap.parse_args(argv)
     lex = LH.Lexicon()
     if a.numbers:
-        for word, phones in number_rows(lex.entries):
+        for word, phones in number_rows(lex.cmu_raw_entries):
             print("\t".join((word, " ".join(phones), "rule:number-compound",
                              NUMBER_BASIS, NUMBER_REVIEW)))
         return 0
@@ -682,8 +694,8 @@ def main(argv=None):
     except SupplementError as error:
         print(f"REFUSED: {error}")
         return 1
-    problems = check_rows(rows, lex.entries)
-    matched, differ = number_rule_audit(lex.entries)
+    problems = check_rows(rows, lex.cmu_raw_entries)
+    matched, differ = number_rule_audit(lex.cmu_raw_entries)
     print(f"{len(rows)} readings, {len({r['word'] for r in rows})} words, "
           f"sha256 {file_sha256(a.path)}")
     print(f"number rule against CMUdict's attested compounds: {matched} match, "

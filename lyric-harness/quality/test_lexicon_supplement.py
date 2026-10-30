@@ -78,8 +78,8 @@ def test_shipped_file():
     check("the shipped supplement loads under its contract", len(rows) > 0,
           f"{len(rows)} readings")
     check("every rule row re-derives from CMUdict and nothing repeats a "
-          "CMUdict reading", S.check_rows(rows, PLAIN.entries) == [],
-          "; ".join(S.check_rows(rows, PLAIN.entries)[:3]))
+          "CMUdict reading", S.check_rows(rows, PLAIN.cmu_raw_entries) == [],
+          "; ".join(S.check_rows(rows, PLAIN.cmu_raw_entries)[:3]))
     words = {r["word"] for r in rows if r["source"] == "rule:number-compound"}
     check("the number batch is exactly the 64 cardinals and 71 ordinals CMUdict "
           "lacks", len(words) == 135, f"{len(words)} words")

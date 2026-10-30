@@ -182,6 +182,19 @@ def test_provenance_and_shape():
           set(LEX.entries) == set(V1.entries))
     check("v1 replays the pre-batch dictionary: here is HH IY1 R only",
           V1.pronunciation_variants("here") == [["HH", "IY1", "R"]])
+    down, up = LEX.with_reader_scheme("v1"), V1.with_reader_scheme("v2")
+    check("a v1 view of a v2 lexicon replays CMUdict as shipped",
+          down.entries == V1.entries and not down.reading_rules)
+    check("a v2 view of a v1 lexicon carries the accent readings",
+          up.entries == LEX.entries and up.reading_rules == LEX.reading_rules)
+    check("making a view leaves the lexicon it was made from as it was",
+          LEX.pronunciation_variants("here") == [["HH", "IA1", "R"], ["HH", "IA1"]])
+    from quality.lexicon_supplement import SupplementedLexicon
+    sup = SupplementedLexicon(version="v2")
+    check("a supplemented lexicon's v1 view drops the rows' accent readings too",
+          ["TH", "EU1", "D", "IY0", "W", "AH2", "N"] in sup.pronunciation_variants("thirty-one")
+          and ["TH", "EU1", "D", "IY0", "W", "AH2", "N"]
+          not in sup.with_reader_scheme("v1").pronunciation_variants("thirty-one"))
 
 
 # ---------------------------------------------------------------------------

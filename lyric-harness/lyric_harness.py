@@ -1357,15 +1357,7 @@ class Lexicon:
         # rewritten IN PLACE (the g2p shim above holds this dict), no key is
         # added, and CMUdict's own readings stay reachable for a declared
         # `basis: dictionary` choice through `cmu_raw_entries`.
-        self.reading_rules = {}
-        changed = {}
-        if self.reader_scheme != "v1":
-            derived, self.reading_rules = _derived_accent_entries(self.entries)
-            for word, new in derived.items():
-                prons = self.entries[word]
-                changed[word] = list(prons)
-                prons[:] = new          # phone lists are shared, read-only
-        self.cmu_raw_entries = ChainMap(changed, self.entries)
+        self._derive_cmu_readings()
         _KNOWN_WORDS.update(self.entries.keys())
         # data/opensubtitles_en_50k.tsv: `# ...` provenance comments, then a
         # literal `word\tcount\trank` header, then data rows in descending-
@@ -1408,6 +1400,25 @@ class Lexicon:
         from quality.pronunciation import for_token
         return for_token(self, index)
 
+    def _derive_cmu_readings(self):
+        """Write the accent readings over `self.entries` (CMUdict as shipped)
+        for every scheme but v1; `cmu_raw_entries` keeps the shipped readings."""
+        self.reading_rules = {}
+        changed = {}
+        if self.reader_scheme != "v1":
+            derived, self.reading_rules = _derived_accent_entries(self.entries)
+            for word, new in derived.items():
+                prons = self.entries[word]
+                changed[word] = list(prons)
+                prons[:] = new          # phone lists are shared, read-only
+        self.cmu_raw_entries = ChainMap(changed, self.entries)
+
+    def _reread_accent_readings(self):
+        """Rebuild `entries` from the shipped readings under this
+        lexicon's scheme (a copy made by `with_reader_scheme`)."""
+        self.entries = {w: list(p) for w, p in self.cmu_raw_entries.items()}
+        self._derive_cmu_readings()
+
     def with_reader_scheme(self, scheme):
         """-> this lexicon read under `scheme`, its declared readings validated
         again under that scheme's token positions (raises ValueError when one
@@ -1418,6 +1429,10 @@ class Lexicon:
             return self
         out = copy.copy(self)
         out.reader_scheme = scheme
+        if (scheme == "v1") != (self.reader_scheme == "v1"):
+            # v1 replays CMUdict as shipped; every other scheme reads the
+            # accent readings, so crossing that line re-reads the dictionary.
+            out._reread_accent_readings()
         if getattr(self, "pronunciations", ()):
             from quality.pronunciation import validate_choices
             out.pronunciations = validate_choices(self.pronunciations, out)
