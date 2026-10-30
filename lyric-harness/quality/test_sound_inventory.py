@@ -230,6 +230,34 @@ def test_readings_pair_within_an_accent():
     check("a word the rule never touches agrees with either answer (car/spa)",
           L.accents_agree([(LEX, "car", ["K", "AA1"]), (LEX, "spa", ["S", "P", "AA1"])])
           and L.accents_agree([(LEX, "toe", ["T", "OE1"]), (LEX, "tow", ["T", "OW1"])]))
+    # A PINNED occurrence keeps its word's accent choices visible (3PO
+    # 6515014871): its view narrows `entries` to the chosen reading, but the
+    # rules that bear on the word come from the whole lexicon.
+    line = "I drove your old car"
+    pinned = Lexicon(pronunciations=[{"line": line, "token": 5, "word": "car",
+                                      "phones": ["K", "AA1", "R"],
+                                      "basis": "dictionary",
+                                      "source": "test: rhotic car pinned"}])
+    view = pinned.for_line(line).for_token(4)
+    check("a pinned view narrows car to its one chosen reading",
+          view.entries.get("car") == [["K", "AA1", "R"]])
+    check("pinned rhotic car does not pair with non-rhotic far",
+          not L.accents_agree([(view, "car", ["K", "AA1", "R"]),
+                               (LEX, "far", ["F", "AA1"])]))
+    check("pinned rhotic car pairs with rhotic far",
+          L.accents_agree([(view, "car", ["K", "AA1", "R"]),
+                           (LEX, "far", ["F", "AA1", "R"])]))
+    from quality import relations as R
+    from quality import phonology as PH
+    st = R.build_stream([line, "dark and far"], PH.get("eng").__class__(lexicon=pinned),
+                        declaration={"language": "eng"})
+    tok = {w.lower(): (li, ti) for li, toks in enumerate(st.lexical_tokens)
+           for ti, w in enumerate(toks)}
+    combos, _ = R.reading_combos(st, {tok["car"], tok["far"]})
+    check("the any-reading search keeps a pinned token in the accent check",
+          combos is not None and all(
+              tuple(c[tok["far"]][2]) != ("F", "AA1") for c in combos),
+          str([c.get(tok["far"]) for c in combos or []]))
     for a, b in (("I drove your old car", "dark and far"),
                  ("we climb the stairs", "hanging on the stairs"),
                  ("so we go", "and so"), ("the floor", "behind the door"),

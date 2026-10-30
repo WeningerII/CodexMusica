@@ -1288,6 +1288,25 @@ def _reading_accent(lex, word, phones):
     return {t for t in rule.replace("+", " ").split() if t in ACCENT_CHOICES}
 
 
+_RULES_BY_WORD = {}
+
+
+def _rules_bearing(lex, word):
+    """-> the accent rules some reading of `word` carries, from the
+    lexicon's whole `reading_rules` -- not from `entries`, which a pinned
+    occurrence (`pronunciation.for_token`) narrows to the one chosen
+    reading, hiding the alternatives it was chosen from."""
+    rules = lex.reading_rules
+    index = _RULES_BY_WORD.get(id(rules))
+    if index is None or index[0] is not rules:
+        by_word = {}
+        for (w, _), rule in rules.items():
+            by_word.setdefault(w, set()).update(
+                t for t in rule.replace("+", " ").split() if t in ACCENT_CHOICES)
+        index = _RULES_BY_WORD[id(rules)] = (rules, by_word)
+    return index[1].get(word, set())
+
+
 def accents_agree(readings):
     """True when the (lex, word, phones) readings could come from one
     speaker: no accent rule is used by one reading and refused by another.
@@ -1302,10 +1321,7 @@ def accents_agree(readings):
             continue
         word = fold_apostrophes(str(word)).lower().strip("'\".,;:!?()[]")
         has = _reading_accent(lex, word, phones)
-        bears = set()
-        for p in lex.entries.get(word, ()):
-            bears |= _reading_accent(lex, word, p)
-        for rule in bears:
+        for rule in _rules_bearing(lex, word):
             if seen.setdefault(rule, rule in has) != (rule in has):
                 return False
     return True

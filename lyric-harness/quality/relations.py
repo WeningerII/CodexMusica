@@ -9800,7 +9800,7 @@ def reading_combos(stream, tokens, cap=READING_COMBO_CAP):
     if lex is None or not tokens:
         return None, False
     from quality.pronunciation import occurrence_readings
-    per = []
+    per, fixed = [], []
     for li, ti in sorted(tokens):
         if not (0 <= li < len(stream.text_lines)) or not stream.lexical_tokens:
             return None, False
@@ -9811,12 +9811,16 @@ def reading_combos(stream, tokens, cap=READING_COMBO_CAP):
         tok, word, readings = got
         if len(readings) > 1:
             per.append([((li, ti), (tok, word, r)) for r in readings])
+        else:
+            fixed.append((lex, word, readings[0]))
     if not per:
         return None, False
     import lyric_harness as lh
-    # One speaker sings the whole stream: readings combine within an accent.
+    # One speaker sings the whole stream: readings combine within an accent,
+    # and a token with one reading (a declared pin) takes part in that check.
     agree = (c for c in itertools.product(*per)
-             if lh.accents_agree((lex, word, r) for _, (tok, word, r) in c))
+             if lh.accents_agree(fixed + [(lex, word, r)
+                                          for _, (tok, word, r) in c]))
     combos = [dict(c) for c in itertools.islice(agree, cap + 1)]
     return combos[:cap], len(combos) <= cap
 
