@@ -44,6 +44,53 @@ function row(pane, heading) {
   return label.nextElementSibling.textContent;
 }
 
+test('captured shared-sound witness uses judged anchors despite absent work anchors', () => {
+  const e = setup('shared_sound_alternate');
+  try {
+    const cell = e.model.cells.find(
+      (c) =>
+        c.record.a.token_ids[0] === 'line:0:token:0' && c.record.b.token_ids[0] === 'line:1:token:1'
+    );
+    assert.ok(cell);
+    assert.equal(cell.record.namespace, 'shared_sound');
+    assert.equal(cell.record.a.anchor_position, null);
+    assert.equal(cell.record.judged_under.basis, 'no_span_on_work');
+    assert.equal(cell.record.judged_under.verdict, null);
+    assert.deepEqual(cell.record.compared.anchors, [0, 0]);
+    const pane = e.inspect(cell);
+    const text = row(pane, 'Compared span / anchors (engine supplied)');
+    assert.match(text, /a: anchor position 1 in the judged span; unit 1/);
+    assert.match(text, /b: anchor position 1 in the judged span; unit 1/);
+    assert.match(text, /Judged aligned pair 1: a unit 1 with b unit 1/);
+    assert.match(text, /Aligned positions: a unit 1 with b unit 1; a unit 2 with b unit 2/);
+    assert.match(row(pane, 'Whole-word witness'), /zanchor = Z IY1 T AH0/);
+    assert.equal(pane.querySelector('.cv-verdict').textContent, 'holds');
+  } finally {
+    e.dom.window.close();
+  }
+});
+
+test('authored nonzero shared-sound position indexes the supplied aligned pair, not the slice', () => {
+  const e = setup('shared_sound_alternate', (records) => {
+    const r = records.find((r) => r.kind === 'relation_instance');
+    r.compared.position = 1;
+    r.compared.aligned = [
+      [0, 1],
+      [2, 3],
+    ];
+    r.compared.anchors = [2, 3];
+  });
+  try {
+    const cell = e.model.cells.find((c) => c.record.compared.position === 1);
+    const text = row(e.inspect(cell), 'Compared span / anchors (engine supplied)');
+    assert.match(text, /a: anchor position 3 in the judged span; unit 3/);
+    assert.match(text, /b: anchor position 4 in the judged span; unit 4/);
+    assert.match(text, /Judged aligned pair 2: a unit 3 with b unit 4/);
+  } finally {
+    e.dom.window.close();
+  }
+});
+
 test('captured witness, compared units, locus and partial search have readable rows', () => {
   const e = setup('witness_first');
   try {

@@ -31,11 +31,15 @@ sys.path.insert(0, os.path.join(ROOT, "lyric-harness"))
 os.chdir(os.path.join(ROOT, "lyric-harness"))
 
 from library.analysis import AnalysisSession  # noqa: E402
-from library.test_analysis import _with_words, complete, source  # noqa: E402
+from library.test_analysis import _with_words, _sound, SharedSound, complete, source  # noqa: E402
 
 OUT = os.path.join(ROOT, "scripts", "fixtures", "connection-backend-reading.json")
 
 CASES = {
+    "shared_sound_alternate": dict(
+        words=dict(SharedSound.UNANCHORED,
+                   zanchor=[["Z", "IY0", "T", "AH1"], ["Z", "IY1", "T", "AH0"]]),
+        text="zanchor is here\nthe banchor zeal", sound=["vowel"], patches={}),
     "repeated_words": dict(
         words={"zea": [["Z", "AH0"], ["Z", "IY1"]]},
         text="zea is home\nand bee is too\nzea again", schemas=["internal rhyme"], patches={}),
@@ -63,7 +67,8 @@ def capture(case):
         for p in patches:
             p.start()
         try:
-            _, rows, last = complete(source(case["text"]), schemas=case["schemas"])
+            _, rows, last = (_sound(source(case["text"]), case["sound"]) if "sound" in case
+                             else complete(source(case["text"]), schemas=case["schemas"]))
         finally:
             for p in reversed(patches):
                 p.stop()

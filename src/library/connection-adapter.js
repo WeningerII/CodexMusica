@@ -87,20 +87,25 @@ function _connectionModel(I, { records, registry, report, complete, title }) {
     return 'unrecognized sound metadata';
   };
   const anchors = (r) => {
+    const shared = r.namespace === 'shared_sound';
+    const pairs = shared ? r.compared?.aligned : r.alignment?.pairs;
+    const k = r.compared?.position;
+    const at = Number.isInteger(k) && k >= 0 ? pairs?.[k] : undefined;
+    const index = (n) => Number.isInteger(n) && n >= 0;
     const members = ['a', 'b']
-      .map((role) => {
+      .map((role, side) => {
         const span = r[role],
           units = r.compared?.[role];
-        const position =
-          Number.isInteger(span?.anchor_position) && span.anchor_position >= 0
-            ? `anchor position ${span.anchor_position + 1} in the supplied span`
-            : 'anchor position not supplied';
+        const anchor = shared ? r.compared?.anchors?.[side] : span?.anchor_position;
+        const position = index(anchor)
+          ? `anchor position ${anchor + 1} in the ${shared ? 'judged' : 'supplied'} span`
+          : 'anchor position not supplied';
         const aligned =
           Array.isArray(units) && units.length
             ? units
                 .map(
                   (u, i) =>
-                    `unit ${i + 1}: ${u.text ?? 'text not supplied'}; ${[
+                    `unit ${shared ? (index(at?.[side]) ? at[side] + 1 : 'position not supplied') : i + 1}: ${u.text ?? 'text not supplied'}; ${[
                       'onset',
                       'nucleus',
                       'coda',
@@ -116,7 +121,6 @@ function _connectionModel(I, { records, registry, report, complete, title }) {
         return `${role}: ${position}; ${aligned}`;
       })
       .join(' | ');
-    const pairs = r.alignment?.pairs;
     const alignment = Array.isArray(pairs)
       ? pairs
           .map((pair) =>
@@ -128,7 +132,12 @@ function _connectionModel(I, { records, registry, report, complete, title }) {
           )
           .join('; ') || 'no aligned pairs supplied'
       : 'not supplied';
-    return `${members} | Aligned positions: ${alignment}`;
+    const judged = shared
+      ? Array.isArray(at) && at.length === 2 && at.every(index)
+        ? ` | Judged aligned pair ${k + 1}: a unit ${at[0] + 1} with b unit ${at[1] + 1}`
+        : ' | Judged aligned pair not supplied'
+      : '';
+    return `${members} | Aligned positions: ${alignment}${judged}`;
   };
   const locus = (rows) =>
     Array.isArray(rows)
