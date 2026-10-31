@@ -1632,7 +1632,8 @@ class Reviser:
     # -- grading the mandate ----------------------------------------------
 
     def grade(self, lines, mandate=None, profile=None, sections=None, *,
-              _only_groups=None, _verdicts_only=False, _moot=None):
+              _only_groups=None, _verdicts_only=False, _moot=None,
+              _schema_report=True):
         """The mandate, diffed against the graph. -> dict, group-scoped.
 
         `sections` IS THE STANZA GROUND AND IT IS PASSED, NEVER INVENTED
@@ -2409,7 +2410,21 @@ class Reviser:
                     # THE RULE-5 LISTING (M-322, 2026-10-30): `schemas`
                     # names every schema some whole reading holds, not only
                     # the definite ones.
-                    _wvps[id(rnd)] = _wvps[id(rnd)].listed()
+                    # `_schema_report=False` (a caller that reads verdicts,
+                    # bans and refusals but no pair's schema list --
+                    # `capacity._group_measurement`) resolves only the pairs
+                    # whose verdict the listing can move: an open route the
+                    # coarse relations failed. Every other pair's listing
+                    # only adds names to `schemas`/`relations`. On the
+                    # capacity witness EA-R (39 words, 741 pairs) the full
+                    # listing was 334.5 of the grade's 357.2 s (7,387
+                    # resolutions), with every verdict, ban and count the
+                    # same without it (2026-10-31).
+                    _wvps[id(rnd)] = _wvps[id(rnd)].listed(
+                        None if _schema_report else
+                        {tuple(sorted(v["lines"])) for v in _asked
+                         if v.get("_round") is rnd and v["why"]
+                         and self.schema_route_open(m, v["group"])})
             _open_ids = {id(v) for v in _open}
             _fan_unknown = set()
             for v in _asked:

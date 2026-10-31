@@ -1,0 +1,66 @@
+"""Adopt the re-derived `lyric` predictability knots after the 2026-10-31 batch comparator re-pin.
+
+Kept as a receipt (.txt, as m25_residue_2026-10-15/adopt-lyric-curves.txt is). It was run once from lyric-harness as a .py copy.
+
+Adapted from quality/results/m25_residue_2026-10-15/adopt-lyric-curves.txt, lyric row only.
+The comparator moved 62551b50 -> 8005dddf (one of seven inputs, the lyric_harness.py closure:
+the English sound inventory M-322, the connection engine M-323/M-324, G1 M-325, EA-R M-326).
+`length_curve_calibration.py check` re-derived mattr, fwr, anaphora and cv to the digit and
+refused on predictability alone; the owner's ruling of 2026-10-31 was "Adopt it and merge".
+The rows are the corpus recomputed off the full 8,585-entry memo at 8005dddf; the fit is
+`length_curve_calibration.py fit <rows> --seeds 200 --workers 4 --picks predictability=CK
+--report curve-adoption.json` (curves-measurement.txt). Only `curves`, `held_out_fpr`,
+`held_out_scope`, `source` and `note` change; lo, hi, n_human and the MATTR/TTR population are
+asserted unchanged. Never fits or relaxes a rule.
+"""
+import ast, dataclasses, json, pprint, sys
+from dataclasses import replace
+from pathlib import Path
+ROOT = Path.cwd(); sys.path.insert(0, str(ROOT))
+from quality import floor, length_curve_calibration as LC, song_profile_calibration as C
+out = ROOT / 'quality/results/comparator_repin_2026-10-31'
+rowpath = Path(sys.argv[1])
+provenance = LC.row_provenance(); LC.verify_rows(rowpath, provenance)
+r = json.loads((out / 'curve-adoption.json').read_text())
+assert r['provenance'] == provenance and r['seeds'] == 200
+assert all(not p['partial'] for p in r['picks'].values())
+rows = LC.read_rows([str(rowpath)], verify=True)
+old = next(p for p in floor.PROFILES if p.name == 'lyric')
+assert (r['lo'], r['hi'], r['items']) == (old.lo, old.hi, old.n_human)
+assert old.mattr_ttr_population == {'window': 50, 'items': sum(row['n_tokens'] <= 50 for row in rows)}
+(out / 'profiles-before.json').write_text(json.dumps({'lyric': dataclasses.asdict(old)}, indent=2, ensure_ascii=False, default=list) + '\n')
+path = ROOT / 'quality/floor.py'; source = path.read_text(); lines = source.splitlines(keepends=True)
+def span(node):
+    start = sum(len(l.encode()) for l in lines[:node.lineno - 1]) + node.col_offset
+    end = sum(len(l.encode()) for l in lines[:node.end_lineno - 1]) + node.end_col_offset
+    return start, end
+curves = {C.FLOOR_KEY[k]: tuple(v['coef']) if 'coef' in v else {'knots': [tuple(t) for t in v['knots']]} for k, v in r['curves'].items()}
+for k, v in curves.items():
+    if k != 'predictable_pair_fraction_max':
+        assert v == old.curves[k], k
+fprkeys = {'mattr': 'mattr', 'fwr': 'function_word_ratio', 'anaphora': 'anaphora', 'cv': 'line_length_cv', 'predictability': 'predictability', 'ANY': 'ANY'}
+preview = replace(old, curves=curves)
+active = next(n for n in range(r['lo'], r['hi'] + 1) if preview.threshold('predictable_pair_fraction_max', n) < 1.0)
+update = {
+    'curves': curves,
+    'held_out_fpr': {fprkeys[k]: tuple(v) for k, v in r['held_out_fpr'].items()},
+    'held_out_scope': {'predictability': f". This rate pools all {r['lo']}-{r['hi']}-token works, including lengths through {active - 1} where the threshold equals 1.0 and cannot fire. It is not conditional on lengths where the check can fire."},
+    'source': f"Predictability knots re-adopted 2026-10-31 under comparator 8005dddf (the batch re-pin: M-322, M-323, M-324, M-325, M-326); the four other curves re-derive to the digit and are unchanged. Full precision and input provenance in quality/results/comparator_repin_2026-10-31/curve-adoption.json. " + old.source,
+    'note': 'CURRENT 2026-10-31 predictability knots and held-out rates supersede the values below; the prior full declaration is in quality/results/comparator_repin_2026-10-31/profiles-before.json. ' + old.note,
+}
+replacements = []
+for node in ast.walk(ast.parse(source)):
+    if not isinstance(node, ast.Call) or not isinstance(node.func, ast.Name) or node.func.id != 'Profile':
+        continue
+    kw = {k.arg: k.value for k in node.keywords}
+    if ast.literal_eval(kw['name']) != 'lyric':
+        continue
+    for key, value in update.items():
+        assert key in kw, key
+        a, b = span(kw[key]); replacements.append((a, b, pprint.pformat(value, width=100, sort_dicts=False).encode()))
+raw = source.encode()
+for a, b, rep in sorted(replacements, reverse=True):
+    raw = raw[:a] + rep + raw[b:]
+ast.parse(raw.decode()); path.write_bytes(raw)
+(out / 'adopted-profiles.json').write_text(json.dumps({'version': 1, 'date': '2026-10-31', 'provenance': provenance, 'updates': {'lyric': update}, 'predictability_first_informative_token': active}, indent=2, ensure_ascii=False, default=list) + '\n')
+print(json.dumps({'predictability_first_informative_token': active, 'knots': curves['predictable_pair_fraction_max']['knots'], 'held_out_fpr': update['held_out_fpr']}, indent=2))
