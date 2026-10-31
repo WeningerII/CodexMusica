@@ -572,11 +572,10 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
       hidden && isCount(hidden.count) && typeof hidden.by === 'string' && hidden.by.trim();
     root.append(
       M.countStrip(model.counts || {}, {
+        ...model,
         words: I.STATE_WORDS,
-        provenance: model.provenance,
         population: model.countsPopulation,
         hidden: validHidden ? hidden : undefined,
-        emptyOnset: model.emptyOnset,
       })
     );
     if (!validHidden && (hidden != null || model.hiddenByFilter))

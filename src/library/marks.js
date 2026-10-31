@@ -466,18 +466,19 @@ function countStrip(counts, { words, provenance, emptyOnset, hidden, population 
   // native non-token-pair holds are reported beside it and never added to it.
   const pop = typeof population === 'string' ? `${population} ` : '';
   const figs = counts.native_holds;
-  lead.textContent =
-    (Number.isInteger(holds)
+  const parts = [
+    Number.isInteger(holds)
       ? `${holds} ${pop}hold${holds === 1 ? '' : 's'} ${pop ? 'loaded' : 'shown'}`
-      : 'Holds: not supplied') +
-    (pop && Number.isInteger(figs)
-      ? ` · ${figs} native non-token-pair hold${figs === 1 ? '' : 's'} counted separately`
-      : '') +
-    ` · ${provenance}`;
+      : 'Holds: not supplied',
+  ];
+  if (pop && Number.isInteger(figs))
+    parts.push(`${figs} native non-token-pair hold${figs === 1 ? '' : 's'} counted separately`);
+  parts.push(provenance);
   if (Number.isInteger(emptyOnset) && emptyOnset > 0)
-    lead.textContent += ` · ${emptyOnset} only empty onsets compared`;
+    parts.push(`${emptyOnset} only empty onsets compared`);
   if (hidden && Number.isInteger(hidden.count) && hidden.count > 0)
-    lead.textContent += ` · ${hidden.count} hidden by ${hidden.by}`;
+    parts.push(`${hidden.count} hidden by ${hidden.by}`);
+  lead.textContent = parts.join(' · ');
   const known = [],
     missing = [];
   for (const id of STATE_ORDER.slice(1)) {
@@ -486,11 +487,11 @@ function countStrip(counts, { words, provenance, emptyOnset, hidden, population 
     else missing.push(cap(words[id]));
   }
   const rest = html('div', 'lib-mk-count-rest');
-  const bits = [];
-  if (known.length) bits.push(known.join(' · '));
-  if (missing.length) bits.push(missing.join(' / ') + ': not supplied');
-  bits.push('outside locus is method-specific');
-  rest.textContent = bits.join(' · ');
+  parts.length = 0;
+  if (known.length) parts.push(known.join(' · '));
+  if (missing.length) parts.push(missing.join(' / ') + ': not supplied');
+  parts.push('outside locus is method-specific');
+  rest.textContent = parts.join(' · ');
   strip.append(lead, rest);
   return strip;
 }
