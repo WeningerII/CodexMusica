@@ -10109,18 +10109,34 @@ def reading_witness(combo):
             for (_li, _ti), (_tok, word, phones) in sorted(combo.items())]
 
 
-def cached_builder(build):
-    """Wrap `build(phon) -> stream` so one combination is built once."""
-    memo = {}
+CACHED_BUILDER_CAP = 256
+
+
+def cached_builder(build, cap=CACHED_BUILDER_CAP):
+    """Wrap `build(phon) -> stream` so one combination is built once.
+
+    BOUNDED, least recently used out (2026-10-31): every pinned reading
+    combination is a new key, and `VocabularyPairResults.listed` shares one
+    builder across every pair of a grade, so the unbounded memo kept 50,895
+    whole-song streams alive on the capacity witness EA-R (39 SQUARE words,
+    741 pairs): 7.8 GB, which killed the CI runner (found and profiled by
+    BB8). An evicted combination is rebuilt identically when asked again."""
+    memo = collections.OrderedDict()
 
     def get(phon):
         try:
             key = json.dumps(phon.declaration(), sort_keys=True, default=repr)
         except (AttributeError, TypeError):
             return build(phon)
-        if key not in memo:
-            memo[key] = build(phon)
-        return memo[key]
+        if key in memo:
+            memo.move_to_end(key)
+            return memo[key]
+        stream = build(phon)
+        memo[key] = stream
+        if len(memo) > cap:
+            memo.popitem(last=False)
+        return stream
+    get.memo = memo
     return get
 
 
