@@ -648,6 +648,11 @@ two extra being `chain rhyme (rap)` and `compound / phrasal rhyme`.
 > word before them, which the ruling removes; its real instances run through a
 > function word (`know it`) whose stress is a reading, and the null runs do not
 > search readings, so on the slice its candidates are unresolved, not absent.
+>
+> **Later the same day (Jony Ives's review F1).** A candidate whose member
+> brackets an unread word is undecided for every channel, so the whole-line
+> schemas `holorhyme` and `incremental repetition` move NO INSTANCE -> CANNOT
+> OBTAIN; CANNOT OBTAIN splits ~~38 / 1~~ **40 / 1**, EXTENDABLE stays 29.
 
 > **REPINNED AGAIN 2026-08-22 (M-39).** ~~31~~ **27** budgeted and ~~33~~
 > **29** unbudgeted. A `figure(frame="stanza")` now asks for the frame it

@@ -2703,6 +2703,21 @@ def _post_vocalic(span, stream, chans, surface):
     return tuple(out)
 
 
+def _bracketed_unread(span, stream, rule=None):
+    """The unread tokens `_spans_unreadable` finds inside the member, as
+    (line, token) pairs."""
+    if not stream.unreadable or not span.idx:
+        return set()
+    U = stream.units
+    lines = {}
+    for i in span.idx:
+        lo, hi = lines.get(U[i].line, (U[i].token, U[i].token))
+        lines[U[i].line] = (min(lo, U[i].token), max(hi, U[i].token))
+    whole = rule is not None and rule.locus == "line"
+    return {(li, ti) for li, ti, _ in stream.unreadable
+            if li in lines and (whole or lines[li][0] < ti < lines[li][1])}
+
+
 def _spans_unreadable(span, stream, rule=None):
     """True when an unread token lies inside the member: between its first
     and last unit on a line, or anywhere on the line for a whole-line member
@@ -9509,8 +9524,18 @@ def line_pairs_for(schema, stream, keep_refusal=True, requested_pairs=None,
             continue
         (pairs if inst.verdict is True else undecided).add((min(a, b), max(a, b)))
         if causes is not None and inst.verdict is None:
-            causes.setdefault((min(a, b), max(a, b)), set()).update(
-                _uncertain_tokens(stream, tuple(inst.a.idx) + tuple(inst.b.idx)))
+            # A candidate undecided ONLY because it brackets an unread word
+            # (`evaluate`'s guard runs on a definite verdict) has that word as
+            # its cause, not every uncertain word in its members: varying
+            # those cannot answer it, and they would crowd the search past its
+            # cap (`tell us about`, where `us` has a one- and a two-syllable
+            # reading and so is unread in the merged stream).
+            if any(c == "__unread__" for c, _, _ in inst.reads):
+                why = _bracketed_unread(inst.a, stream, schema.spans[0] if schema.spans else None) \
+                    | _bracketed_unread(inst.b, stream, schema.spans[-1] if schema.spans else None)
+            else:
+                why = _uncertain_tokens(stream, tuple(inst.a.idx) + tuple(inst.b.idx))
+            causes.setdefault((min(a, b), max(a, b)), set()).update(why)
     # Missing material at a required endpoint is unjudged, never an invitation
     # to use the nearest readable token. Interior OOV need not poison end rhyme.
     bad_lines = set()

@@ -1687,7 +1687,7 @@ LEDGER_BUDGET = None
 # DECLARABLE — it now asks for `tonal_template`/`tone`, which a caller
 # declares (`relations.declare_tonal_template`). The one left needing a
 # build is `refrain by reference` (`stub_resolution`, NEVER_PROVIDED).
-LEDGER_CANNOT_OBTAIN = (38, 1)  # M-40: was (28, 5); stanza input missing on ledger slice. Then (29, 5) until 2026-09-24, (30, 1) until 2026-10-30 (M-322: eight schemas' candidates now unresolved), (38, 1) until 2026-10-31 (G1, #647: compound / phrasal rhyme is extendable again)., (37, 1) until later 2026-10-31 (M-311 F1: mosaic rhyme cannot be obtained without a reading search).
+LEDGER_CANNOT_OBTAIN = (40, 1)  # M-40: was (28, 5); stanza input missing on ledger slice. Then (29, 5) until 2026-09-24, (30, 1) until 2026-10-30 (M-322: eight schemas' candidates now unresolved), (38, 1) until 2026-10-31 (G1, #647: compound / phrasal rhyme is extendable again)., (37, 1) until later 2026-10-31 (M-311 F1: mosaic rhyme cannot be obtained without a reading search), (38, 1) until the unread-word guard (holorhyme, incremental repetition).
 
 
 def ledger_slice(root=None):
@@ -1863,7 +1863,7 @@ EXTENSION_LEDGER = (
     #   instances run through a function word (`know it`), whose stress is a reading this
     #   null does not search, so on the slice its candidates are unresolved, not absent.
     ('compound / phrasal rhyme',                'extendable',      8,  0),  # ~~extendable~~ 2026-10-30, M-322 accent readings: candidates unresolved, not absent; ~~cannot_obtain~~ 2026-10-31, G1 (#647): `_bucket_key` keys flush_right `each` at the last unit, so the judge now reaches definite instances
-    ('holorhyme',                               'no_instance',     2,  0),
+    ('holorhyme',                               'cannot_obtain',   2,  0),  # ~~no_instance~~ 2026-10-31, M-311 F1: a whole-line member over an unread word is undecided for every channel
     ('broken rhyme',                            'no_instance',     8,  0),
     ('enjambed rhyme',                          'cannot_obtain',   4,  0),
     ('rhyming reduplication',                   'cannot_fail',     0,  0),  # ~~no_instance~~ 2026-10-30, M-322 accent readings; exposes G1 (`_bucket_key` keys flush_right spans at the word start), still open
@@ -1907,7 +1907,7 @@ EXTENSION_LEDGER = (
     ('transformative / bent rhyme',             'cannot_obtain',   3,  0),
     ('sung-delivery rhyme',                     'cannot_obtain',   3,  0),
     ('refrain by reference',                    'cannot_obtain',   4,  0),
-    ('incremental repetition',                  'no_instance',     5,  0),
+    ('incremental repetition',                  'cannot_obtain',   5,  0),  # ~~no_instance~~ 2026-10-31, the same (whole-line members, unread words on the slice)
     ('trite rhyme',                             'no_instance',     6,  0),
     # M-323, 2026-10-30: the two interior schemas, measured on the unchanged
     # ledger slice with `ledger_census()`. Ledger now: 3 controlled, ~~27~~
@@ -1918,6 +1918,12 @@ EXTENSION_LEDGER = (
     # 2026-10-31 (M-311 F1, R2's mosaic ruling): mosaic rhyme above moves
     # extendable -> cannot_obtain. Ledger now: 3 controlled, ~~30~~ 29
     # extendable, 8 no-instance, ~~38~~ 39 cannot-obtain (~~37 / 1~~ 38 / 1).
+    # The same day (Jony Ives's review F1): a candidate whose member brackets
+    # an unread word is undecided for every channel, so the two whole-line
+    # schemas holorhyme and incremental repetition move no_instance ->
+    # cannot_obtain on the slice's lines with unread words. Ledger now: 3
+    # controlled, 29 extendable, ~~8~~ 6 no-instance, ~~39~~ 41
+    # cannot-obtain (~~38 / 1~~ 40 / 1).
     ('internal assonance',                      'extendable',      8,  0),
     ('internal consonance',                     'extendable',      8,  0),
 )
