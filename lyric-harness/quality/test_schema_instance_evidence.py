@@ -174,10 +174,10 @@ class EvidenceTests(unittest.TestCase):
         seen = []
         size = E._report_bytes
 
-        def spy(result, record_bytes):
+        def spy(result, record_bytes, *fixed):
             m = result["coverage"]["methods"][-1]
             seen.append(m["counts"] == final[m["schema_name"]])
-            return size(result, record_bytes)
+            return size(result, record_bytes, *fixed)
         cuts = sorted({max(1024, full_bytes - 32768 + d) for d in
                        range(-full_bytes // 2, 2048, max(1, full_bytes // 40))})
         omitted = set()
@@ -226,14 +226,16 @@ class EvidenceTests(unittest.TestCase):
         # The pre-optimization check serialized the whole growing result for
         # every candidate. Keep that independent oracle, not a second copy of
         # the arithmetic being tested. All other enumeration behavior is shared.
-        def previous_size(result, _record_bytes):
+        # `fixed_bytes` (the constant part of the envelope) is passed through
+        # to the optimized arithmetic and ignored by the oracle.
+        def previous_size(result, _record_bytes, *_fixed):
             return len(canonical_json(result).encode("utf-8"))
         with patch.object(E, '_report_bytes', side_effect=previous_size):
-            expected = self.report(**kwargs)
+            expected = self.report(_fast=False, **kwargs)
         measured = []
         optimized_size = E._report_bytes
-        def checked_size(result, record_bytes):
-            got = optimized_size(result, record_bytes)
+        def checked_size(result, record_bytes, *fixed):
+            got = optimized_size(result, record_bytes, *fixed)
             self.assertEqual(got, previous_size(result, None))
             measured.append(got)
             return got
@@ -259,7 +261,7 @@ class EvidenceTests(unittest.TestCase):
             low, high = 32768, 262144
             while low < high:
                 mid = (low + high) // 2
-                with patch.object(E, '_report_bytes', side_effect=lambda r, _: len(canonical_json(r).encode('utf-8'))):
+                with patch.object(E, '_report_bytes', side_effect=lambda r, _, *__: len(canonical_json(r).encode('utf-8'))):
                     report = self.report(schemas=['internal rhyme'], max_records=count, max_bytes=mid)
                 if len(report['records']) >= count:
                     high = mid
@@ -312,6 +314,76 @@ class EvidenceTests(unittest.TestCase):
         self.assertGreater(len(got['records']), 1)
         self.assertEqual(full_calls, [len(got['records'])],
                          'only the unchanged final full-size guard walks admitted records')
+
+    def test_a_closed_report_rejects_without_building(self):
+        # #649 (2026-10-31): a grade built 2,254 records to keep 161. Once the
+        # envelope, the held records, their commas and the smallest record
+        # (`{}`) pass the byte limit, nothing more can be admitted, so
+        # `from_stream` stops building records and replaces a type's second
+        # enumeration by the count it would add. Held to the original path
+        # (`_fast=False`), byte for byte, at every limit that closes the
+        # report part-way, with and without the second enumeration.
+        self.stream = R.build_stream(['cat bat cat hat mat', 'hat cat bat sat',
+                                      'bat mat cat hat'], self.phon,
+                                     declaration={'language': 'eng'})
+        built = []
+        original = E._Serializer._edge_record
+        def counted(serializer, inst, st, *a, **k):
+            built.append(inst.schema)
+            return original(serializer, inst, st, *a, **k)
+        full = self.report(_fast=False)
+        self.assertGreater(len(full['records']), 3, 'the fixture must hold records')
+        closed_any = False
+        for pending in (E.MAX_PENDING_INSTANCES, 0):
+            for cut in (1024, 33800, 34500, 36000, 40000, 1 << 22):
+                for records in (E.MAX_RECORDS, 2):
+                    kw = dict(max_bytes=cut, max_records=records)
+                    with self.subTest(pending=pending, **kw), \
+                            patch.object(E, 'MAX_PENDING_INSTANCES', pending), \
+                            patch.object(E._Serializer, '_edge_record', counted):
+                        built.clear()
+                        want = self.report(_fast=False, **kw)
+                        slow = len(built)
+                        built.clear()
+                        got = self.report(**kw)
+                        self.assertEqual(canonical_json(got).encode('utf-8'),
+                                         canonical_json(want).encode('utf-8'))
+                        self.assertLessEqual(len(built), slow)
+                        closed_any = closed_any or len(built) < slow
+        self.assertTrue(closed_any, 'no limit closed the report, so nothing '
+                        'above exercised the shortcut')
+        # Small records of uneven size, so a later, smaller one fits where a
+        # larger one did not: a report closed even a little early would drop
+        # one. Swept through the limits where the records stop fitting.
+        names = sorted(n for n, schema in R.REGISTRY.items()
+                       if R.pair_scope_representable(schema))[:2]
+        small = [SimpleNamespace(verdict=True if i % 3 else None,
+                                 record={'n': i, 'text': 'x' * (5 + (i * 37) % 61)})
+                 for i in range(150)]
+        def realise(schema, *_a, sink=None, **_k):
+            got = small if schema is R.REGISTRY[names[0]] else small[:40]
+            if sink is None:
+                return got
+            for inst in got:
+                sink(inst)
+            return []
+        with patch.object(R, 'realise', side_effect=realise), patch.object(
+                E._Serializer, '_edge_record',
+                side_effect=lambda inst, _st: copy.deepcopy(inst.record)):
+            open_at = len(canonical_json(self.report(
+                schemas=names, max_records=0, _fast=False)).encode('utf-8'))
+            dropped = set()
+            for cut in range(open_at + 32768 - 100, open_at + 32768 + 2500, 13):
+                for pending in (E.MAX_PENDING_INSTANCES, 0):
+                    with self.subTest(cut=cut, pending=pending), \
+                            patch.object(E, 'MAX_PENDING_INSTANCES', pending):
+                        want = self.report(schemas=names, max_bytes=cut, _fast=False)
+                        got = self.report(schemas=names, max_bytes=cut)
+                        self.assertEqual(canonical_json(got).encode('utf-8'),
+                                         canonical_json(want).encode('utf-8'))
+                        dropped.add(want['coverage']['omitted_records'])
+            self.assertGreater(len(dropped), 20, 'the sweep never cut through '
+                               'the small records')
 
     def test_report_failure_does_not_replace_grade(self):
         with patch('quality.schema_instance_evidence._for_grade', side_effect=ValueError('fixture')):
