@@ -673,3 +673,54 @@ test('layout: partial and unavailable are said once, after the selection; ready 
     'getting better is not announced as a problem'
   );
 });
+
+// ─── Lifecycle focus and address (Jony Ives 6544060104, Don 6543967823) ──
+test('lifecycle: Esc clearing a selection keeps focus on the word that held it', async () => {
+  const { win, doc, host, m } = mounted();
+  const occ = keyOf(CI.occurrence('e-woods-1-2'));
+  find(host, occ).click();
+  key(win, doc.activeElement, 'Escape');
+  assert.equal(m.model().selection, null);
+  assert.equal(doc.activeElement.dataset.selection, occ, 'not the page');
+  await tick(win);
+});
+
+test('lifecycle: a stale link is announced, not only shown', async () => {
+  const sel = CI.occurrence('e-woods-1-2');
+  const { win, m, live } = mounted(
+    `https://codexmusica.test/codex.html?${CI.encodeSelection('analysis-rev-0', sel)}`
+  );
+  assert.ok(m.model().notice, 'the notice is shown');
+  await tick(win);
+  assert.equal(live.textContent, m.model().notice);
+});
+
+test('lifecycle: focus on a method checkbox survives an evidence update and its own change', () => {
+  const { win, doc, host, m } = mounted();
+  let box = host.querySelector('[data-method]');
+  box.focus();
+  m.update({ model: fixtureModel(), current: { ...current } });
+  assert.equal(doc.activeElement.dataset.method, ALLIT, 'after update()');
+  box = doc.activeElement;
+  box.checked = !box.checked;
+  box.dispatchEvent(new win.Event('change', { bubbles: true }));
+  assert.equal(doc.activeElement.dataset.method, ALLIT, 'after unchecking it');
+  assert.equal(doc.activeElement.isConnected, true);
+});
+
+test('lifecycle: destroy({ clearAddress }) drops cv and sel without a history entry', () => {
+  const { win, host, m } = mounted();
+  find(host, keyOf(CI.occurrence('e-woods-1-2'))).click();
+  const params = () => new URLSearchParams(win.location.search);
+  assert.ok(params().get('sel'));
+  const depth = win.history.length;
+  m.destroy({ clearAddress: true });
+  assert.equal(params().get('sel'), null);
+  assert.equal(params().get('cv'), null);
+  assert.equal(params().get('tab'), 'library', 'the page keeps its own parameters');
+  assert.equal(win.history.length, depth);
+  const kept = mounted();
+  find(kept.host, keyOf(CI.occurrence('e-woods-1-2'))).click();
+  kept.m.destroy();
+  assert.ok(new URLSearchParams(kept.win.location.search).get('sel'), 'a plain destroy keeps it');
+});

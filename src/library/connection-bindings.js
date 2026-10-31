@@ -116,9 +116,22 @@ function urlSync(win, ci, current, onRestore, onRefused) {
       win.history.pushState(null, '', url);
     }
   }
+  // Drops this view's keys without a history entry: a selection belongs to
+  // its analysis, and a later one would only refuse it.
+  function clear() {
+    const params = new URLSearchParams(win.location.search);
+    if (!KEYS.some((k) => params.has(k))) return;
+    for (const k of KEYS) params.delete(k);
+    const qs = params.toString();
+    win.history.replaceState(
+      win.history.state,
+      '',
+      win.location.pathname + (qs ? '?' + qs : '') + win.location.hash
+    );
+  }
   const onPop = () => read();
   win.addEventListener('popstate', onPop);
-  return { read, write, stop: () => win.removeEventListener('popstate', onPop) };
+  return { read, write, clear, stop: () => win.removeEventListener('popstate', onPop) };
 }
 
 // The hidden-selection notice: the model's text, and its Show action as a
@@ -271,12 +284,18 @@ function mount(host, opts) {
   const { ci, current } = opts;
   const doc = host.ownerDocument;
   const win = opts.win || doc.defaultView;
+  // Phone layout is whatever the views' container query decided: it stacks
+  // .cv-layout (display:block) at 600 px of the view's own width. Reading
+  // that one answer keeps the sheet and the CSS from disagreeing.
   const narrow =
     opts.narrow ||
-    (() =>
-      host.clientWidth
+    (() => {
+      const layout = stage.querySelector('.cv-layout');
+      if (layout && win.getComputedStyle) return win.getComputedStyle(layout).display === 'block';
+      return host.clientWidth
         ? host.clientWidth <= 600
-        : !!(win.matchMedia && win.matchMedia('(max-width: 600px)').matches));
+        : !!(win.matchMedia && win.matchMedia('(max-width: 600px)').matches);
+    });
   let model = opts.model;
   let view = opts.view || 'poem';
   const live = liveRegion(host);
@@ -352,7 +371,32 @@ function mount(host, opts) {
     if (rank > announced) live.note(words);
     announced = rank;
   }
-  function draw(focusKey) {
+  // What has focus inside the view, as something a redraw can find again: a
+  // selection, or a control by the attribute that names it. Every redraw
+  // replaces the whole tree, so without this a checkbox, tab or select the
+  // reader is on is replaced under them and focus falls to the page.
+  const MARKS = ['data-method', 'data-view', 'data-action', 'data-recovery'];
+  function focusMark() {
+    const a = doc.activeElement;
+    if (!a || !stage.contains(a)) return null;
+    const held = a.closest('[data-selection]');
+    if (held) return { key: held.dataset.selection };
+    for (const attr of MARKS) {
+      const n = a.closest(`[${attr}]`);
+      if (n) return { attr, value: n.getAttribute(attr) };
+    }
+    return a.id ? { attr: 'id', value: a.id } : null;
+  }
+  function restoreMark(root, mark) {
+    if (!mark || (doc.activeElement && stage.contains(doc.activeElement))) return;
+    if (mark.key) return focusKeyIn(root, mark.key);
+    const all = [...root.querySelectorAll(`[${mark.attr}]`)].filter(
+      (n) => n.getAttribute(mark.attr) === mark.value
+    );
+    const n = all.find((x) => x.getClientRects().length) || all[0];
+    if (n) n.focus();
+  }
+  function draw(focusKey, mark) {
     const root = views.render(model, { view });
     const g = ++gen;
     wanted = focusKey || '';
@@ -367,11 +411,14 @@ function mount(host, opts) {
     if (!fonts || fonts.status === 'loaded') {
       layout(root, g);
       focusKeyIn(root, focusKey);
+      restoreMark(root, mark);
     } else {
       // Focus now, so a keyboard reader is never left waiting on a font;
       // layout() keeps that focus when it replaces the marks. Not yet a
       // related selection: the exact one may be a mark layout has to draw.
       focusKeyIn(root, focusKey, false);
+      if (mark && !mark.key) restoreMark(root, mark);
+      else if (mark) wanted = mark.key;
       fonts.ready.then(() => layout(root, g));
     }
     return root;
@@ -389,15 +436,19 @@ function mount(host, opts) {
     });
   }
   if (fonts && fonts.addEventListener) fonts.addEventListener('loadingdone', onFonts);
+  // Without a focusKey, whatever had focus keeps it through the redraw.
   function update(patch, focusKey) {
+    const mark = focusKey ? null : focusMark();
     model = { ...model, ...patch };
-    draw(focusKey);
+    draw(focusKey, mark);
   }
   function select(sel, { fromUrl, inspect } = {}) {
     // Back to an address with nothing selected, while nothing is, changes
     // nothing and says nothing.
     if (fromUrl && !sel && !model.selection) return;
-    const key = sel ? ci.selectionKey(sel) : '';
+    // Clearing keeps focus where it is (the word that held the selection),
+    // so a reader is never sent back to the top of the page by Esc.
+    const key = sel ? ci.selectionKey(sel) : undefined;
     const rowOccurrence =
       sel && sel.kind === 'occurrence' ? sel.entity_id : sel ? model.rowOccurrence : null;
     update({ selection: sel, rowOccurrence, notice: null }, key);
@@ -413,7 +464,12 @@ function mount(host, opts) {
     ci,
     current,
     (sel) => select(sel, { fromUrl: true }),
-    (refused) => update({ selection: null, notice: refused.message })
+    (refused) => {
+      update({ selection: null, notice: refused.message });
+      // Said as well as shown, at mount too: the link the reader followed did
+      // not open what it named, and the notice alone is easy to miss.
+      live.say(refused.message);
+    }
   );
 
   stage.addEventListener('click', (ev) => {
@@ -472,7 +528,7 @@ function mount(host, opts) {
       if (next.current.analysisIdentity !== current.analysisIdentity)
         throw Error('A different analysis requires a new mount');
       Object.assign(current, next.current);
-      const held = doc.activeElement?.closest('[data-selection]')?.dataset.selection;
+      const mark = focusMark();
       const { selection, checkedMethods, cellMethod, rowOccurrence } = model;
       const known = new Set(model.methods.filter((m) => !m.disabledReason).map((m) => m.method_id));
       model = {
@@ -485,9 +541,13 @@ function mount(host, opts) {
         cellMethod,
         rowOccurrence,
       };
-      draw(held);
+      draw(undefined, mark);
     },
-    destroy() {
+    // clearAddress: the analysis is going away for good (a different job),
+    // so its selection leaves the address too. Not on a lens switch within
+    // the same job, where Back should still find it.
+    destroy({ clearAddress = false } = {}) {
+      if (clearAddress) url.clear();
       gen++;
       if (relayout) cancel(relayout);
       if (fonts && fonts.removeEventListener) fonts.removeEventListener('loadingdone', onFonts);

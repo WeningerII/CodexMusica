@@ -306,6 +306,49 @@ function aligned(list, label) {
       ok('phone matrix: choosing a word keeps focus with its row after the inspector closes');
       await page.close();
     }
+    // 7. Phone mode is the CSS's own decision. The views stack at 600 px of
+    // their own width (a container query on .cv-root, which pads 24 px a
+    // side), so a 610 px host is a phone layout and must get the sheet; a
+    // 720 px host is desktop and must not. No narrow() override here.
+    {
+      const { page, errors, release } = await open(browser, { preload: false });
+      release();
+      await fontsIn(page);
+      const got = await page.evaluate(() => {
+        const I = window.CMConnectionInteraction;
+        window.m.destroy();
+        const at = (px) => {
+          const host = document.getElementById('surface-library');
+          host.style.width = px + 'px';
+          const m = window.bindings.mount(host, {
+            ci: I,
+            marks: window.marks,
+            createViews: window.views.createViews,
+            model: window.fixture(I),
+            current: {
+              analysisIdentity: 'fixture',
+              hasEntity: () => true,
+              hasMethod: () => true,
+              hasEvidence: () => false,
+            },
+            view: 'matrix',
+          });
+          const r = {
+            sheet: !!host.querySelector('.lib-cb-sheet'),
+            phoneRow:
+              window.getComputedStyle(host.querySelector('.cv-phone-row')).display !== 'none',
+          };
+          m.destroy();
+          return r;
+        };
+        return { 610: at(610), 720: at(720) };
+      });
+      assert.deepEqual(got[610], { sheet: true, phoneRow: true }, '610 px: phone layout and sheet');
+      assert.deepEqual(got[720], { sheet: false, phoneRow: false }, '720 px: desktop, no sheet');
+      assert.deepEqual(errors, []);
+      ok("phone mode follows the views' container query, so layout and sheet always agree");
+      await page.close();
+    }
     // 4. A poem with a missing range says so once, after the selection words.
     {
       const { page, errors, release } = await open(browser, { preload: false });
