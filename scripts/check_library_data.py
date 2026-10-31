@@ -37,7 +37,9 @@ Across the set:
   - every interned rights object, row, notice and metadata header is in the
     shard its hash names, hashes to its key, and is referenced by some head;
   - methods.json and reader-result.schema.json are the library references'
-    exact bytes; artwork.json projects the artwork credits;
+    exact bytes, and those references are what the code declares now
+    (build_registry() and RESULT_SCHEMA, as mcp/Dockerfile writes them);
+    artwork.json projects the artwork credits;
   - budgets: catalog.json <= 4,096 B gz, collections.json <= 98,304 B gz, every
     head <= 24,576 B gz.
 
@@ -90,6 +92,18 @@ class Gate:
         if not ok and len(self.failures) < 200:
             self.failures.append(message)
         return ok
+
+
+def reference_sources():
+    """(file under lyric-harness/library, its live text, the command that writes it),
+    the same generators mcp/Dockerfile runs before it builds the image."""
+    from library.contracts import RESULT_SCHEMA, canonical_json
+    from library.registry import build_registry
+    return (("methods.json", canonical_json(build_registry()) + "\n",
+             "cd lyric-harness && python3 -m library.registry > library/methods.json"),
+            ("schema.json", canonical_json(RESULT_SCHEMA) + "\n",
+             "cd lyric-harness && python3 -c \"from library.contracts import RESULT_SCHEMA, canonical_json; "
+             "open('library/schema.json', 'w', encoding='utf-8').write(canonical_json(RESULT_SCHEMA) + '\\n')\""))
 
 
 def load(path: Path):
@@ -389,6 +403,12 @@ def main(argv=None):
         gate.check((data / target).read_bytes() == (library_dir / source).read_bytes(), f"{target} differs from {source}")
     gate.check(json.loads((data / "methods.json").read_bytes()).get("registry_hash")
                == json.loads((library_dir / "methods.json").read_bytes()).get("registry_hash"), "methods registry_hash")
+    # The two copies agreeing is not enough: both can be stale together, as
+    # they were after #649 (78 schemas committed, 80 live). The references are
+    # also what the code declares now, built by mcp/Dockerfile's own commands.
+    for source, live, regenerate in reference_sources():
+        gate.check((library_dir / source).read_text(encoding="utf-8") == live,
+                   f"{source} is not what the code declares now; regenerate: {regenerate}")
     artwork, _ = load(data / "artwork.json")
     gate.check(artwork["artwork"] == [{"id": a["id"], "title": a["title"], "author": a["author"], "credit": a["imageCredit"],
                                        "source": a["imageSource"], "note": a["imageNote"]}
