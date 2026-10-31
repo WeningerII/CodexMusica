@@ -1338,46 +1338,68 @@ class AnalysisSession:
 
     @staticmethod
     def _domain_tally(delta, record):
-        """Count a recorded edge toward its method's domain outcomes. A true
-        or undecided edge whose members are each one token, and two distinct
-        tokens, is one listed pair of the domain by construction: it was a
-        candidate the placement admitted (or an alternate-reading pair added
-        to the domain as judged). Kept with the method's counts, so a resumed
-        traversal keeps it."""
+        """Note a recorded edge's token pair toward its method's domain
+        outcomes. A true or undecided edge whose members are each one token,
+        and two distinct tokens, names one candidate pair. Several candidate
+        spans can name the same pair (each syllable of a word is a span), so
+        the PAIR is noted, not counted: `_outcomes` reduces the notes to
+        distinct pairs (3PO, #637 6547517269). Kept with the method's counts,
+        so a resumed traversal keeps them, and a replayed note is the same
+        pair again, never a second one."""
         a, b = (record.get(k, {}).get("token_ids") or () for k in ("a", "b"))
         if len(a) == 1 and len(b) == 1 and a[0] != b[0]:
             key = "domain_true" if record.get("verdict") == "true" else "domain_undecided"
-            delta[key] = delta.get(key, 0) + 1
+            delta[key] = delta.get(key, []) + [[a[0], b[0]]]
 
     @staticmethod
     def _outcomes(domain, tally, answered=True):
-        """-> `domain` with `listed_pairs_by_state`: its listed pairs counted
-        by the state their own records give, where the verdicts were reached.
+        """-> `domain` with `listed_pairs_by_state`: its listed pairs by the
+        state their own records give, where the verdicts were reached.
         A WHOLE-METHOD population (3PO, #637 6545638972): never a view's local
         denominator, never a refused or pending pair total, and not the
         population `counts` describes (`counts` counts the engine's bucket
         candidates: pruned candidates are listed and in no count,
-        placement-refused ones are counted and not listed). `judged_false` is
-        null while any listed pair touches a reading-dependent occurrence:
-        such a pair is neither False nor outside, and only its own record
-        answers it (`MethodDomain`). It is null too on a method whose coverage
-        is not `answered` (an unread member, an incomplete reading search):
-        a listed pair with no record there was not shown False."""
+        placement-refused ones are counted and not listed).
+
+        `tally` is the true and undecided records' token pairs, as noted.
+        Each listed pair is counted once (3PO, #637 6547517269): true if any
+        record of it is true (the method is existential), else undecided if
+        any is; so the two populations are disjoint. `judged_false` is the
+        listed pairs with neither, and null when that rest is not shown
+        False: a method whose coverage is not `answered` (an unread member, an
+        incomplete reading search), a listed pair touching a
+        reading-dependent occurrence (only its own record answers it,
+        `MethodDomain`), or a recorded pair the listing does not hold."""
         if domain.get("projection") != "exact_token_pair":
             return domain
-        holds, undecided = tally
         tokens = domain["tokens"]
+        index = {t: i for i, t in enumerate(tokens)}
+        listed = {(int(i), j) for i, runs in domain["pairs"].items() for lo, hi in runs
+                  for j in range(lo, hi + 1)}
+        unordered = domain.get("ordering") == "unordered"
+
+        def pairs(notes):
+            out, stray = set(), False
+            for a, b in notes:
+                i, j = index.get(a), index.get(b)
+                key = None if i is None or j is None else (min(i, j), max(i, j)) if unordered else (i, j)
+                if key in listed:
+                    out.add(key)
+                else:
+                    stray = True
+            return out, stray
+        true, stray_t = pairs(tally[0])
+        undecided, stray_u = pairs(tally[1])
+        undecided -= true
         # A reading-dependent occurrence may list no pair at all (its locus is
         # empty on the first-listed reading): it then touches no listed pair.
-        index = {t: i for i, t in enumerate(tokens)}
         dependent = {index[t] for t in domain.get("reading_dependent_tokens", ()) if t in index}
-        dependent_pairs = sum(1 for i, runs in domain["pairs"].items() for lo, hi in runs
-                              for j in range(lo, hi + 1) if int(i) in dependent or j in dependent)
-        rest = domain["pair_count"] - holds - undecided
-        domain["listed_pairs_by_state"] = {"listed": domain["pair_count"], "true_records": holds,
-                                           "undecided_records": undecided,
+        dependent_pairs = sum(1 for i, j in listed if i in dependent or j in dependent)
+        rest = len(listed) - len(true) - len(undecided)
+        domain["listed_pairs_by_state"] = {"listed": len(listed), "true_pairs": len(true),
+                                           "undecided_pairs": len(undecided),
                                            "judged_false": (rest if answered and not dependent_pairs
-                                                            and rest >= 0 else None),
+                                                            and not (stray_t or stray_u) else None),
                                            "reading_dependent_pairs": dependent_pairs}
         return domain
 
@@ -1695,7 +1717,7 @@ class AnalysisSession:
                 "reading_dependent_tokens": [self._token_id(t) for t in dependent]}
 
     def _sound_result(self, key, mid, counts):
-        tally = (counts.pop("domain_true", 0), counts.pop("domain_undecided", 0))
+        tally = (counts.pop("domain_true", []), counts.pop("domain_undecided", []))
         if self.stream.unreadable and counts["coverage"] == "answered":
             counts["coverage"] = "refused"
             counts["unreadable_tokens"] = len(self.stream.unreadable)
@@ -2204,7 +2226,7 @@ class AnalysisSession:
             return [self._sound_result(name, mid, counts)]
         rows = []
         # Popped before any record is built, so `counts` keeps its shape.
-        tally = (counts.pop("domain_true", 0), counts.pop("domain_undecided", 0))
+        tally = (counts.pop("domain_true", []), counts.pop("domain_undecided", []))
         needs_assembly = phase == "schema" and not RL.pair_scope_representable(RL.REGISTRY[name]) and name not in RL.FULL_SHAPES
         if needs_assembly and counts["coverage"] == "answered":
             counts.pop("coverage", None)

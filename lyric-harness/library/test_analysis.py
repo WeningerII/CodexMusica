@@ -1448,11 +1448,14 @@ class DomainOutcomes(unittest.TestCase):
                         cell = (b[0], a[0])
                     # A recorded single-token pair is a listed pair.
                     self.assertIn(cell, cells, r["method_id"])
-                    states[cell] = e["verdict"]
+                    # One state per listed pair: true if any record of it
+                    # is, else undecided (several spans can name one pair).
+                    if states.get(cell) != "true":
+                        states[cell] = e["verdict"]
             holds = sum(v == "true" for v in states.values())
             undecided = sum(v == "undecided" for v in states.values())
             o = d["listed_pairs_by_state"]
-            self.assertEqual((o["listed"], o["true_records"], o["undecided_records"]),
+            self.assertEqual((o["listed"], o["true_pairs"], o["undecided_pairs"]),
                              (len(cells), holds, undecided), r["method_id"])
             self.assertEqual(o["listed"], d["pair_count"])
             unsure = o["reading_dependent_pairs"] or r["coverage"] != "answered"
@@ -1487,6 +1490,51 @@ class DomainOutcomes(unittest.TestCase):
             self.assertNotEqual(r["coverage"], "answered", r["method_id"])
             self.assertIsNone(r["domain"]["listed_pairs_by_state"]["judged_false"], r["method_id"])
         self.assertEqual(self._check(rows), len(results))
+
+    def test_several_spans_on_one_pair_count_it_once(self):
+        # A merged word is one token whose syllables are each a span, so two
+        # candidates can name one word pair: the pair counts once, on a whole
+        # run and on one restarted from every checkpoint (3PO, #637 6547517269).
+        text = "the afternoon balloon, eighteen seventeen\nthe macaroon and the tambourine"
+        names = ["internal rhyme", "internal assonance", "internal consonance"]
+        _, rows, _ = complete(source(text), schemas=names)
+        self.assertEqual(self._check(rows), len(names))
+        singles = [r for r in rows if r["kind"] == "relation_instance"
+                   and r["schema_name"] == "internal assonance"
+                   and len(r["a"]["token_ids"]) == len(r["b"]["token_ids"]) == 1]
+        pairs = {(r["a"]["token_ids"][0], r["b"]["token_ids"][0]) for r in singles}
+        self.assertGreater(len(singles), len(pairs))
+        _, resumed, _ = complete(source(text), schemas=names, batch=7, restart=True)
+        pick = lambda rows: {r["method_id"]: r["domain"].get("listed_pairs_by_state") for r in rows if r["kind"] == "method_result"}
+        self.assertEqual(pick(rows), pick(resumed))
+
+    def test_outcomes_count_distinct_listed_pairs(self):
+        out = AnalysisSession._outcomes
+        domain = lambda ordering="role_ordered": {
+            "projection": "exact_token_pair", "ordering": ordering, "tokens": ["t0", "t1", "t2"],
+            "pairs": {"0": [[1, 2]], "1": [[2, 2]]}, "pair_count": 3, "reading_dependent_tokens": []}
+        state = lambda d: d["listed_pairs_by_state"]
+        # Duplicate notes, and a pair noted both true and undecided: true wins,
+        # the populations are disjoint, and the rest is judged False.
+        o = state(out(domain(), ([["t0", "t1"], ["t0", "t1"]], [["t0", "t1"], ["t1", "t2"], ["t1", "t2"]])))
+        self.assertEqual((o["listed"], o["true_pairs"], o["undecided_pairs"], o["judged_false"]), (3, 1, 1, 1))
+        # A replayed note (a restarted traversal) is the same pair again.
+        self.assertEqual(state(out(domain(), ([["t0", "t2"]] * 5, [])))["judged_false"], 2)
+        # Unordered: either order of a listed pair is that pair.
+        o = state(out(domain("unordered"), ([["t1", "t0"], ["t0", "t1"]], [])))
+        self.assertEqual((o["true_pairs"], o["judged_false"]), (1, 2))
+        # Role-ordered: the reverse of a listed pair is not listed, so the
+        # rest is not known to be False.
+        o = state(out(domain(), ([["t1", "t0"]], [])))
+        self.assertEqual((o["true_pairs"], o["judged_false"]), (0, None))
+        # Unanswered, or a reading-dependent pair: no judged False.
+        self.assertIsNone(state(out(domain(), ([], []), answered=False))["judged_false"])
+        d = domain()
+        d["reading_dependent_tokens"] = ["t2"]
+        o = state(out(d, ([], [])))
+        self.assertEqual((o["reading_dependent_pairs"], o["judged_false"]), (2, None))
+        # A domain that projects nothing carries no outcomes.
+        self.assertNotIn("listed_pairs_by_state", out({"projection": "none", "reason": "domain_cap"}, ([], [])))
 
     def test_shared_sound_outcomes_match_the_records(self):
         _, rows, _ = _sound(source(self.TEXT), ["vowel", "coda", "onset", "stressed_onset"])
