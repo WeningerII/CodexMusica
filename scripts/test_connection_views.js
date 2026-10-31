@@ -554,8 +554,10 @@ test('browser poem geometry follows rendered fallback-font words, not fixture bo
           );
           if (!g) throw new Error('Missing occurrence geometry: ' + o.entity_id);
           const rect = g.querySelector('rect'),
-            port = g.querySelector('circle');
-          const selected = g.querySelector('.lib-mk-select');
+            port = [...root.querySelectorAll('g[data-selection]')]
+              .find((n) => n.dataset.selection === g.dataset.selection && n.querySelector('circle'))
+              .querySelector('circle');
+          const selected = port.closest('[data-selection]').querySelector('.lib-mk-select');
           return {
             id: o.entity_id,
             x: first.x,
@@ -757,6 +759,74 @@ test('phone matrix with no selection offers occurrences and reaches a pair throu
     await page.setViewportSize({ width: 1280, height: 900 });
     assert.equal(await choices.count(), 0, 'phone choices stay hidden on desktop');
     assert.equal(await page.locator('.cv-desktop-matrix button:visible').count(), 15);
+    await page.evaluate(() => window.m.destroy());
+  } finally {
+    await browser.close();
+  }
+});
+
+test('poem natural Tab order follows readingOrder before accessible arcs', async () => {
+  const { chromium } = require('playwright');
+  const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH });
+  try {
+    const page = await browser.newPage();
+    await page.route('https://connection.test/', (r) =>
+      r.fulfill({ contentType: 'text/html', body: '<main id="surface-library"></main>' })
+    );
+    await page.goto('https://connection.test/');
+    await page.addStyleTag({
+      content: fs.readFileSync(path.join(__dirname, '../src/theme.css'), 'utf8'),
+    });
+    await page.addScriptTag({ content: fs.readFileSync(interactionPath, 'utf8') });
+    await page.addScriptTag({
+      content: `window.marks=(function(){${fs.readFileSync(marksPath, 'utf8')}})();window.views=(function(){${source}})();window.bindings=(function(){${fs.readFileSync(bindingsPath, 'utf8')}})();window.model=(${authoredFixture.toString()})(CMConnectionInteraction);`,
+    });
+    await page.evaluate(async () => {
+      window.model.occurrences.reverse();
+      window.m = window.bindings.mount(document.querySelector('main'), {
+        ci: window.CMConnectionInteraction,
+        marks: window.marks,
+        createViews: window.views.createViews,
+        model: window.model,
+        current: {
+          analysisIdentity: 'fixture',
+          hasEntity: () => true,
+          hasMethod: () => true,
+          hasEvidence: () => false,
+        },
+        view: 'poem',
+        narrow: () => false,
+      });
+      await document.fonts.ready;
+      document.querySelector('svg.cv-poem [tabindex="0"]').focus();
+    });
+    const expected = await page.evaluate(() =>
+      window.CMConnectionInteraction.readingOrder(window.model.occurrences).map((o) =>
+        window.CMConnectionInteraction.selectionKey(
+          window.CMConnectionInteraction.occurrence(o.entity_id)
+        )
+      )
+    );
+    const order = [];
+    for (let i = 0; i < 10; i++) {
+      order.push(await page.evaluate(() => document.activeElement.dataset.selection));
+      if (i < 9) await page.keyboard.press('Tab');
+    }
+    assert.deepEqual(order.slice(0, 6), expected);
+    assert.ok(order.slice(6).every((k) => k.startsWith('p:')));
+    assert.equal(new Set(order.slice(6)).size, 4);
+    assert.equal(
+      await page
+        .locator('svg.cv-poem [tabindex]')
+        .evaluateAll((ns) => ns.some((n) => +n.getAttribute('tabindex') > 0)),
+      false
+    );
+    await page.keyboard.press('Enter');
+    assert.equal(await page.evaluate(() => window.m.model().selection.kind), 'pair');
+    assert.equal(await page.evaluate(() => document.activeElement.dataset.selection), order[9]);
+    assert.match(await page.locator('.cv-inspector').textContent(), /Whole-word witness/);
+    await page.evaluate(() => window.m.select(window.CMConnectionInteraction.occurrence('woods1')));
+    assert.equal(await page.evaluate(() => document.activeElement.dataset.selection), expected[0]);
     await page.evaluate(() => window.m.destroy());
   } finally {
     await browser.close();

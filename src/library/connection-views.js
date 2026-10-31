@@ -429,6 +429,24 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
         if (!p) continue;
         points.set(o.entity_id, { x: p.x + p.width / 2, y: p.y - 1, line: o.line, final: o.final });
       }
+      const top = svg('g');
+      for (const o of I.readingOrder(model.occurrences)) {
+        const p = boxes[o.entity_id],
+          port = points.get(o.entity_id);
+        if (!p) continue;
+        const g = action(
+          svg('g', { tabindex: 0, role: 'button', 'aria-label': I.occurrenceLabel(o) }),
+          I.occurrence(o.entity_id)
+        );
+        const ink = action(svg('g', { 'aria-hidden': 'true' }), I.occurrence(o.entity_id));
+        ink.append(M.port(port.x, port.y));
+        g.append(
+          svg('rect', { x: p.x, y: p.y, width: p.width, height: p.height, fill: 'transparent' })
+        );
+        if (active.has(o.entity_id)) ink.append(M.selectionRect(p.x, p.y, p.width, p.height, 2));
+        marks.append(g);
+        top.append(ink);
+      }
       for (const m of checked(model))
         for (const cell of holds(model, m)) {
           const [a, b] = cell.selection.members.map((id) => points.get(id));
@@ -445,21 +463,7 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
           arc.append(svg('title', {}, `${methodName(m)} · ${stateText(cell)}`));
           marks.append(arc);
         }
-      for (const o of model.occurrences) {
-        const p = boxes[o.entity_id],
-          port = points.get(o.entity_id);
-        if (!p) continue;
-        const g = action(
-          svg('g', { tabindex: 0, role: 'button', 'aria-label': I.occurrenceLabel(o) }),
-          I.occurrence(o.entity_id)
-        );
-        g.append(M.port(port.x, port.y));
-        g.append(
-          svg('rect', { x: p.x, y: p.y, width: p.width, height: p.height, fill: 'transparent' })
-        );
-        if (active.has(o.entity_id)) g.append(M.selectionRect(p.x, p.y, p.width, p.height, 2));
-        marks.append(g);
-      }
+      marks.append(top);
       return report;
     };
     poemLayouts.set(canvas, draw);
