@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "date": "2026-10-30",
+  "date": "2026-10-31",
   "baseline_commit": "08adfcff",
   "report_ids": ["C-1", "P9"],
   "population": "battery.parse_sonnets: 152 fourteen-line sonnets, ABABCDCDEFEFGG; sonnet_index is the filtered battery index",
@@ -12,11 +12,11 @@
   },
   "current": {
     "mandated": 1064,
-    "judged": 1013,
-    "refused": 51,
-    "violations": 25
+    "judged": 1011,
+    "refused": 53,
+    "violations": 23
   },
-  "meaning": "English sound inventory (M-322): accent readings; ten pairs hold as non-rhotic consonance, were/bear and were/near pass on two empty codas (E-5 keeps empty/empty agreement); the narrowed any-reading search judges ornament/content (sonnet 1), which violates",
+  "meaning": "M-311 F1 (R2's mosaic ruling): an unread word inside a member makes the candidate undecided for every channel; the any-reading search varies the words it can",
   "newly_judged_pairs": [
     {
       "sonnet_index": 33,
@@ -364,6 +364,7 @@
   ],
   "current_partition": {
     "refused": [
+      [1, 9, 11],
       [1, 10, 12],
       [3, 1, 3],
       [10, 2, 4],
@@ -401,15 +402,16 @@
       [87, 6, 8],
       [88, 5, 7],
       [89, 2, 4],
-      [95, 13, 14],
       [96, 1, 3],
       [101, 1, 3],
       [103, 13, 14],
       [105, 10, 12],
       [113, 9, 11],
+      [114, 5, 7],
       [114, 9, 11],
       [117, 5, 7],
       [123, 2, 4],
+      [123, 5, 7],
       [124, 2, 4],
       [124, 5, 7],
       [126, 1, 3],
@@ -417,7 +419,6 @@
       [146, 2, 4]
     ],
     "violations": [
-      [1, 9, 11],
       [5, 10, 12],
       [7, 6, 8],
       [18, 2, 4],
@@ -431,13 +432,12 @@
       [86, 6, 8],
       [91, 10, 12],
       [94, 10, 12],
+      [95, 13, 14],
       [99, 6, 8],
       [104, 9, 11],
       [105, 9, 11],
       [106, 6, 8],
       [106, 13, 14],
-      [114, 5, 7],
-      [123, 5, 7],
       [135, 13, 14],
       [136, 2, 4],
       [140, 6, 8],
@@ -445,7 +445,7 @@
     ]
   },
   "span_attribution": {
-    "date": "2026-10-30",
+    "date": "2026-10-31",
     "current": {
       "claimed": 633,
       "ties": 357,
@@ -465,7 +465,7 @@
       },
       {
         "kinds": ["exact", "part"],
-        "n": 286
+        "n": 287
       },
       {
         "kinds": ["exact", "reach"],
@@ -477,7 +477,7 @@
       },
       {
         "kinds": ["part", "part"],
-        "n": 83
+        "n": 80
       },
       {
         "kinds": ["part", "reach"],
@@ -495,7 +495,7 @@
       },
       {
         "kinds": ["exact", "part"],
-        "n": 14
+        "n": 15
       },
       {
         "kinds": ["exact", "reach"],
@@ -503,7 +503,7 @@
       },
       {
         "kinds": ["part", "part"],
-        "n": 6
+        "n": 3
       },
       {
         "kinds": ["part", "reach"],
@@ -511,14 +511,6 @@
       }
     ],
     "violation_rows": [
-      {
-        "sonnet": 1,
-        "lines": [9, 11],
-        "endwords": ["ornament", "content"],
-        "relations": [],
-        "claim": false,
-        "kinds": ["part", "part"]
-      },
       {
         "sonnet": 5,
         "lines": [10, 12],
@@ -624,6 +616,14 @@
         "kinds": ["exact", "part"]
       },
       {
+        "sonnet": 95,
+        "lines": [13, 14],
+        "endwords": ["privilege", "edge"],
+        "relations": [],
+        "claim": false,
+        "kinds": ["part", "exact"]
+      },
+      {
         "sonnet": 99,
         "lines": [6, 8],
         "endwords": ["spent", "argument"],
@@ -664,22 +664,6 @@
         "kinds": ["part", "exact"]
       },
       {
-        "sonnet": 114,
-        "lines": [5, 7],
-        "endwords": ["accidents", "intents"],
-        "relations": [],
-        "claim": false,
-        "kinds": ["part", "part"]
-      },
-      {
-        "sonnet": 123,
-        "lines": [5, 7],
-        "endwords": ["accident", "discontent"],
-        "relations": [],
-        "claim": false,
-        "kinds": ["part", "part"]
-      },
-      {
         "sonnet": 135,
         "lines": [13, 14],
         "endwords": ["err'd", "transferr'd"],
@@ -713,7 +697,11 @@
       }
     ]
   },
-  "uncertainty_refusals": [[95, 13, 14]],
+  "uncertainty_refusals": [
+    [1, 9, 11],
+    [114, 5, 7],
+    [123, 5, 7]
+  ],
   "superseded": [
     {
       "date": "2026-09-22",
@@ -776,6 +764,15 @@
         "judged": 1012,
         "refused": 52,
         "violations": 24
+      }
+    },
+    {
+      "date": "2026-10-30",
+      "current": {
+        "mandated": 1064,
+        "judged": 1013,
+        "refused": 51,
+        "violations": 25
       }
     }
   ]

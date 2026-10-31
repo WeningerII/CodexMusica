@@ -2341,7 +2341,10 @@ class Placement:
             # BOTH prominent -- the phonology's prominence, whose phrase-level
             # demotion already reads an enclitic (`it`, `her`, `a`) as weak --
             # and on at least one side nothing after that start is prominent
-            # (it is that side's last stress). Over an uncertain prominence the
+            # (it is that side's last stress: R2's "the anchor must be the last
+            # stressed syllable of at least one side", 6545666653, so a pair
+            # stressed later on both sides at different positions is not one).
+            # Over an uncertain prominence the
             # answer is the one every reading gives; readings that disagree
             # refuse, so no reading is picked here.
             if len(a.idx) != len(b.idx):
@@ -2910,7 +2913,23 @@ def evaluate(schema, a, b, stream, chans=DEFAULT_CHANNELS):
     vals = [r.value for _, _, r in enforced if r is not None]
     vals += [r.value for _, r in ireads]
     vals += [v for _, v in preads]
-    return Instance(schema.name, a, b, align, tuple(reads), tri_and(vals),
+    verdict = tri_and(vals)
+    # AN UNREAD WORD INSIDE A MEMBER (2026-10-31, M-311 F1/F4, doctrine 79).
+    # It has no units, so the member's syllables, their alignment and every
+    # channel read over them are unknown -- not the shorter member the units
+    # spell. `_seq` refuses such a member for a sequence channel; this is
+    # the same answer for every channel, so a candidate that reaches an
+    # unread word is undecided and one that stops short of it is judged.
+    # Placement excludes first (above): a candidate placement rules out is
+    # not asked.
+    if verdict is not None and any(
+            _spans_unreadable(m, stream, r) for m, r in (
+                (a, schema.spans[0] if schema.spans else None),
+                (b, schema.spans[-1] if schema.spans else None))):
+        reads = reads + [("__unread__", -1, Read(
+            None, False, "an unread word lies inside a member"))]
+        verdict = None
+    return Instance(schema.name, a, b, align, tuple(reads), verdict,
                     tuple(preads), tuple(ireads),
                     search_k=a.search_k * b.search_k)
 
@@ -10408,7 +10427,12 @@ def _resolve_over(schema, stream, pair, build, cap, bmap, tokens, fields):
     tokens = set(tokens)
     while True:
         combos, complete = reading_combos(stream, tokens, cap)
-        if not combos:
+        if combos is not None and not combos:
+            # Accent agreement rejected every combination: no one speaker
+            # reads the line so -- an answer, never a reason to drop words
+            # from the check (Jony Ives's review, F3).
+            return None, None
+        if combos is None:
             # A cause word that cannot be varied (no locatable reading, e.g. a
             # hyphenated compound, or a word the dictionary cannot read) no
             # longer sinks the whole search: the words that CAN be varied are,

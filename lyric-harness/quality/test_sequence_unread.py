@@ -69,7 +69,23 @@ def test_span_reader():
                  rule=R.WHOLE_LINE) is not None)
 
 
+def test_every_scope():
+    # Jony Ives's review (2026-10-31, F1): an `each`-scope channel read the
+    # units either side of unread words as ADJACENT, so a free run across
+    # "brillig toves" made `chain rhyme (rap)` True under the any-reading
+    # search. A member spanning an unread word is undecided in `evaluate`,
+    # for every channel scope, not only in `_seq`.
+    lines = ["the brillig toves did gyre and read",
+             "the slithy wabe on fire instead"]
+    mk = lambda ph: R.build_stream(lines, ph, declaration={"language": "eng"})  # noqa: E731
+    got = R.resolve_line_pair(R.REGISTRY["chain rhyme (rap)"], mk(PH.get("eng")),
+                              (1, 2), R.cached_builder(mk))
+    check("a free run across unread words is undecided on an each-scope "
+          "channel (was True)", got[0] is None, str(got))
+
+
 if __name__ == "__main__":
+    test_every_scope()
     test_span_reader()
     test_symmetric_unknown()
     print("=" * 70)
