@@ -131,8 +131,13 @@ def test_coherent_readings():
     toks = [st.tokens[k] for k in sorted(st.tokens)]
     span = R.Span(tuple(i for t in toks for i in t), 0)
     got = R._seq(span, st, "rime_phones", R.DEFAULT_CHANNELS, "phonemic")
-    check("a sequence over a merged syllable refuses rather than mix readings",
-          got is None, f"got {got}")
+    check("a sequence over a merged syllable is not one reading: it lists the "
+          "per-syllable mixes, for refutation only",
+          isinstance(got, R.PhoneMixes), f"got {got}")
+    bound = R.replace(R.TAIL_PHONES_AGREE, partition=Q.reduced_vowel)
+    v = bound(got, got)
+    check("a mix that agrees never answers True: only a whole reading can",
+          v.value is None, str(v))
     lines = ["In short, when I've a smattering of elemental strategy,",
              "You'll say a better Major-General has never sat a gee."]
     st = stream(lines)
@@ -179,6 +184,18 @@ def test_anchor_is_exact_over_prominence():
     check("no prominence on either side: no anchor", got is False, f"got {got}")
 
 
+def test_refuted_over_every_mix():
+    # #657 (test_schema_report): `to` and `the` carry two prominences and
+    # `record` two stress patterns, so the whole-reading search needs 486
+    # combinations against a cap of 64 and stopped undecided -- a refusal in
+    # the writer's grade. No per-syllable mix of either member's readings
+    # spells a tail the other's can, so no whole reading does: False.
+    lines = ["we carry the evening to the record", "we carry the evening to the night"]
+    got = R.line_pairs_for(MO, stream(lines), keep_refusal=True, requested_pairs={(1, 2)})
+    check("record / night: refuted over every mix of readings, without the search",
+          got.verdict((1, 2)) is False, f"{got.verdict((1, 2))}")
+
+
 def test_predicate():
     bound = R.replace(R.TAIL_PHONES_AGREE, partition=Q.reduced_vowel)
     v = bound(("P", "OW:1", "AH:0", "T"), ("N", "OW:1", "IH:0", "T"))
@@ -197,7 +214,8 @@ def test_predicate():
 
 
 if __name__ == "__main__":
-    for fn in (test_predicate, test_anchor_is_exact_over_prominence, test_coherent_readings,
+    for fn in (test_predicate, test_anchor_is_exact_over_prominence, test_refuted_over_every_mix,
+               test_coherent_readings,
                test_after_set, test_unreadable_member_refuses):
         fn()
     print("=" * 70)

@@ -1795,6 +1795,15 @@ class TailPhonesAgree(Predicate):
                                      "a refusal, not a verdict at the finest grain")
         if x is None or y is None:
             return Read(None, False, "unreadable")
+        if isinstance(x, PhoneMixes) or isinstance(y, PhoneMixes):
+            # Refutation only: True is never taken from a mix of readings.
+            mx = {self._tail(tuple(v)) for v in (x if isinstance(x, PhoneMixes) else (x,))}
+            my = {self._tail(tuple(v)) for v in (y if isinstance(y, PhoneMixes) else (y,))}
+            if not ((mx - {None}) & (my - {None})):
+                return Read(False, True, "no mix of the merged readings agrees, "
+                                         "so no whole reading does")
+            return Read(None, False, "a mix of readings agrees; only a whole "
+                                     "reading can answer")
         tx = {self._tail(tuple(v)) for v in (_alts(x) if uncertain(x) else (x,))}
         ty = {self._tail(tuple(v)) for v in (_alts(y) if uncertain(y) else (y,))}
         if None in tx or None in ty:
@@ -2760,6 +2769,34 @@ def _spans_unreadable(span, stream, rule=None):
     return bool(_bracketed_unread(span, stream, rule))
 
 
+#: The most per-syllable mixes `_seq` lists for a `rime_phones` member;
+#: beyond it the member is refused as before.
+_PHONE_MIX_CAP = 4096
+
+
+class PhoneMixes:
+    """A `rime_phones` member that crosses a merged syllable: every sequence a
+    per-syllable MIX of its readings spells (2026-10-31, #657). A mix is not a
+    reading -- 3PO's rule is that no verdict picks syllables from different
+    readings -- but every whole reading IS one of the mixes, so when no mix of
+    one member agrees with any mix of the other, no whole reading agrees
+    either, and that False is sound. Anything else is undecided here and the
+    any-reading search asks each whole reading (`TailPhonesAgree`)."""
+    __slots__ = ("seqs",)
+
+    def __init__(self, seqs):
+        self.seqs = frozenset(seqs)
+
+    def __iter__(self):
+        return iter(self.seqs)
+
+    def __eq__(self, other):
+        return isinstance(other, PhoneMixes) and self.seqs == other.seqs
+
+    def __hash__(self):
+        return hash(("PhoneMixes", self.seqs))
+
+
 def _seq(span, stream, channel, chans, surface, rule=None):
     """The span's derived element SEQUENCE for a sequence-scoped channel.
 
@@ -2789,18 +2826,33 @@ def _seq(span, stream, channel, chans, surface, rule=None):
         # (doctrine 79).
         return None
     out = []
+    mixes = None
     for i in span.idx:
         v = chans.read(stream.units[i], channel, stream, surface)
         if v is None:
             return None
         if uncertain(v):
+            if channel == "rime_phones":
+                # Mosaic's phone tail (#657): every per-syllable MIX of the
+                # merged readings, for refutation only (`PhoneMixes`).
+                mixes = (mixes if mixes is not None else [tuple(out)])
+                mixes = [m + tuple(x) for m in mixes for x in _alts(v)]
+                if len(mixes) > _PHONE_MIX_CAP:
+                    return None
+                continue
             # P11: one uncertain element makes the whole derived sequence
             # uncertain, and a sequence predicate has no set algebra to fall
             # back on.  Refuse the SEQUENCE rather than pick a reading -- a
             # Welsh skeleton built from one guessed homograph is a skeleton
             # nobody declared.
             return None
-        out.extend(v if isinstance(v, tuple) else [v])
+        add = tuple(v) if isinstance(v, tuple) else (v,)
+        if mixes is not None:
+            mixes = [m + add for m in mixes]
+        else:
+            out.extend(add)
+    if mixes is not None:
+        return PhoneMixes(mixes)
     return tuple(out)
 
 
@@ -2957,21 +3009,6 @@ def evaluate(schema, a, b, stream, chans=DEFAULT_CHANNELS):
     vals += [r.value for _, r in ireads]
     vals += [v for _, v in preads]
     verdict = tri_and(vals)
-    # AN UNREAD WORD INSIDE A MEMBER (2026-10-31, M-311 F1/F4, doctrine 79).
-    # It has no units, so the member's syllables, their alignment and every
-    # channel read over them are unknown -- not the shorter member the units
-    # spell. `_seq` refuses such a member for a sequence channel; this is
-    # the same answer for every channel, so a candidate that reaches an
-    # unread word is undecided and one that stops short of it is judged.
-    # Placement excludes first (above): a candidate placement rules out is
-    # not asked.
-    if verdict is not None and any(
-            _spans_unreadable(m, stream, r) for m, r in (
-                (a, schema.spans[0] if schema.spans else None),
-                (b, schema.spans[-1] if schema.spans else None))):
-        reads = reads + [("__unread__", -1, Read(
-            None, False, "an unread word lies inside a member"))]
-        verdict = None
     return Instance(schema.name, a, b, align, tuple(reads), verdict,
                     tuple(preads), tuple(ireads),
                     search_k=a.search_k * b.search_k)
@@ -9550,18 +9587,8 @@ def line_pairs_for(schema, stream, keep_refusal=True, requested_pairs=None,
             continue
         (pairs if inst.verdict is True else undecided).add((min(a, b), max(a, b)))
         if causes is not None and inst.verdict is None:
-            # A candidate undecided ONLY because it brackets an unread word
-            # (`evaluate`'s guard runs on a definite verdict) has that word as
-            # its cause, not every uncertain word in its members: varying
-            # those cannot answer it, and they would crowd the search past its
-            # cap (`tell us about`, where `us` has a one- and a two-syllable
-            # reading and so is unread in the merged stream).
-            if any(c == "__unread__" for c, _, _ in inst.reads):
-                why = _bracketed_unread(inst.a, stream, schema.spans[0] if schema.spans else None) \
-                    | _bracketed_unread(inst.b, stream, schema.spans[-1] if schema.spans else None)
-            else:
-                why = _uncertain_tokens(stream, tuple(inst.a.idx) + tuple(inst.b.idx))
-            causes.setdefault((min(a, b), max(a, b)), set()).update(why)
+            causes.setdefault((min(a, b), max(a, b)), set()).update(
+                _uncertain_tokens(stream, tuple(inst.a.idx) + tuple(inst.b.idx)))
     # Missing material at a required endpoint is unjudged, never an invitation
     # to use the nearest readable token. Interior OOV need not poison end rhyme.
     bad_lines = set()
