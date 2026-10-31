@@ -51,9 +51,14 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
   const methodName = (m) => `${layerName(m)} · ${m.name}`;
   const describe = (value) =>
     value == null ? 'not supplied' : typeof value === 'string' ? value : JSON.stringify(value);
-  const action = (node, selection) => {
+  const action = (node, selection, label) => {
     node.dataset.selection = I.selectionKey(selection);
     node.classList.add('lib-mk-focus');
+    if (label != null) {
+      node.setAttribute('tabindex', '0');
+      node.setAttribute('role', 'button');
+      node.setAttribute('aria-label', label);
+    }
     return node;
   };
   const button = (text, selection) => action(el('button', text), selection);
@@ -331,8 +336,6 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
       active = touched(model);
     // A full source line stays intact, including unselected function words.
     const canvas = svg('svg', {
-      viewBox: `0 0 ${model.poem.width} ${model.poem.height}`,
-      width: model.poem.width,
       height: model.poem.height,
       'aria-label': 'Poem and supplied holding connections',
       class: 'cv-poem',
@@ -350,6 +353,16 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
       const boxes = {},
         points = new Map();
       const lines = canvas.querySelectorAll('.cv-poem-line');
+      // Whole lines include punctuation and words without usable token ranges.
+      const width = Math.max(
+        model.poem.width,
+        ...[...lines].map((line) => {
+          const b = line.getBBox?.();
+          return b ? b.x + b.width + 114 : 0;
+        })
+      );
+      canvas.setAttribute('width', width);
+      canvas.setAttribute('viewBox', `0 0 ${width} ${model.poem.height}`);
       const report = { status: 'ready', measured: [], fixture: [], issues: [] };
       for (const o of model.occurrences) {
         const range = model.poem.ranges?.[o.entity_id],
@@ -426,20 +439,13 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
             .join('; ')
         : '';
       marks.replaceChildren();
-      for (const o of model.occurrences) {
-        const p = boxes[o.entity_id];
-        if (!p) continue;
-        points.set(o.entity_id, { x: p.x + p.width / 2, y: p.y - 1, line: o.line, final: o.final });
-      }
       const top = svg('g');
       for (const o of I.readingOrder(model.occurrences)) {
-        const p = boxes[o.entity_id],
-          port = points.get(o.entity_id);
+        const p = boxes[o.entity_id];
         if (!p) continue;
-        const g = action(
-          svg('g', { tabindex: 0, role: 'button', 'aria-label': I.occurrenceLabel(o) }),
-          I.occurrence(o.entity_id)
-        );
+        const port = { x: p.x + p.width / 2, y: p.y - 1, line: o.line, final: o.final };
+        points.set(o.entity_id, port);
+        const g = action(svg('g'), I.occurrence(o.entity_id), I.occurrenceLabel(o));
         const ink = action(svg('g', { 'aria-hidden': 'true' }), I.occurrence(o.entity_id));
         ink.append(M.port(port.x, port.y));
         g.append(
@@ -453,15 +459,12 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
         for (const cell of holds(model, m)) {
           const [a, b] = cell.selection.members.map((id) => points.get(id));
           if (!a || !b) continue;
-          const arc = M.arc(M.arcGeometry(a, b, { margin: model.poem.width - 90, gutter: 10 }), {
+          const arc = M.arc(M.arcGeometry(a, b, { margin: width - 90, gutter: 10 }), {
             family: m.family,
             layer: m.layer,
             dim: active.size > 0 && !cell.selection.members.some((id) => active.has(id)),
           });
-          action(arc, cell.selection);
-          arc.setAttribute('tabindex', '0');
-          arc.setAttribute('role', 'button');
-          arc.setAttribute('aria-label', `${methodName(m)} · ${stateText(cell)}`);
+          action(arc, cell.selection, `${methodName(m)} · ${stateText(cell)}`);
           arc.append(svg('title', {}, `${methodName(m)} · ${stateText(cell)}`));
           marks.append(arc);
         }
@@ -494,13 +497,11 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
       ) {
         group.append(
           M.hullLabel({
-            occurrences: counts.occurrences,
-            shown: counts.shown,
-            examined: counts.examined,
+            ...counts,
             pending: suppliedCount(counts.pending) ? counts.pending : undefined,
             hidden: suppliedCount(counts.hidden) ? counts.hidden : undefined,
             family: m.family,
-            fixture: !!model.fixture,
+            fixture: model.fixture,
           })
         );
       } else {
@@ -534,11 +535,9 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
           glyph: true,
           dim: active.size > 0 && !cell.selection.members.some((id) => active.has(id)),
         });
-        action(edge, cell.selection);
-        edge.setAttribute('tabindex', '0');
-        edge.setAttribute('role', 'button');
-        edge.setAttribute(
-          'aria-label',
+        action(
+          edge,
+          cell.selection,
           `${methodName(m)} · ${cell.selection.members.map((id) => I.occurrenceLabel(getOcc(model, id))).join(' ↔ ')} · ${stateText(cell)}`
         );
         edge.append(svg('title', {}, stateText(cell)));
@@ -548,11 +547,9 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
         represented.add(id);
         const node = action(
           M.node(getOcc(model, id), { ...positions.get(id), r: 37, selected: active.has(id) }),
-          I.occurrence(id)
+          I.occurrence(id),
+          I.occurrenceLabel(getOcc(model, id))
         );
-        node.setAttribute('tabindex', '0');
-        node.setAttribute('role', 'button');
-        node.setAttribute('aria-label', I.occurrenceLabel(getOcc(model, id)));
         canvas.append(node);
       }
       group.append(canvas);
@@ -648,20 +645,22 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
     coverage.append(el('h3', 'Coverage'));
     for (const m of checked(model))
       coverage.append(el('p', `${methodName(m)} · ${describe(m.coverage)}`));
-    root.append(coverage, M.legendRow({ words: I.STATE_WORDS, examples: !!model.fixture }));
-    return root;
+    root.append(coverage, M.legendRow({ words: I.STATE_WORDS, examples: model.fixture }));
+    const frame = el('div', null, 'cv-container');
+    frame.append(root);
+    return frame;
   }
   return { render, inspector, matrix, poem, layoutPoem, network, controls };
 }
 
 const CSS = `
-.cv-root{container-type:inline-size;font-family:var(--cm-font,Arial,sans-serif);color:var(--cm-text,#242a28);background:var(--cm-surface,#fff);padding:24px;line-height:1.5}
+.cv-container{container-type:inline-size}.cv-root{font-family:var(--cm-font,Arial,sans-serif);color:var(--cm-text,#242a28);background:var(--cm-surface,#fff);padding:24px;line-height:1.5}
 .cv-root *{box-sizing:border-box}.cv-root button,.cv-root select,.cv-root summary{font:inherit;color:inherit;background:var(--cm-surface,#fff);border:1px solid var(--cm-border,#bfc7c3);border-radius:6px;padding:8px;cursor:pointer}
 .cv-root button:not(.lib-mk-focus):focus-visible,.cv-root select:focus-visible,.cv-root summary:focus-visible{outline:2px solid currentColor;outline-offset:3px}
 .cv-root nav{display:flex;gap:16px;margin:20px 0}.cv-root nav button{border:0;border-radius:0}.cv-root [aria-current=true]{border-bottom:3px solid currentColor;font-weight:bold}
 .cv-controls{display:flex;gap:16px;align-items:start;margin-bottom:16px;flex-wrap:wrap}.cv-controls label{display:block}.cv-controls fieldset{border:0}.cv-controls details[open]{border:1px solid var(--cm-border,#bfc7c3);padding:8px}
-.cv-layout{align-items:start;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:24px;margin-top:20px}.cv-inspector,.cv-group{border:1px solid var(--cm-border,#dce2df);border-radius:10px;padding:20px}.cv-inspector h4{font-size:12px;text-transform:uppercase;margin-bottom:6px}.cv-inspector p{overflow-wrap:anywhere}.cv-inspector button{display:block;margin:8px 0}.cv-scroll{overflow:auto}.cv-scroll>svg{display:block}.cv-poem-line{white-space:pre;font:24px Georgia,serif;fill:var(--cm-text,#242a28)}
-.cv-network{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}.cv-network>button{grid-column:1/-1;text-align:left}.cv-group svg{width:100%}.cv-root .cv-selected{outline:2px solid var(--cm-text,#242a28);outline-offset:-2px}.cv-root table{border-collapse:collapse}.cv-root th{font-size:12px;font-weight:normal;padding:10px;min-width:75px}.cv-root td{text-align:center;padding:0}.cv-root td button{border:0;padding:3px;border-radius:0;min-width:40px}.cv-root footer{border-bottom:1px solid var(--cm-border,#dce2df);padding:12px 0;margin-bottom:16px}.cv-phone-row{display:none}.cv-native button{display:block;margin:8px 0}.lib-mk-tag{display:inline-block;margin:8px}.cv-fixture{font-weight:bold}
-@container(max-width:600px){.cv-layout{display:block}.cv-desktop-matrix{display:none}.cv-phone-row{display:block}.cv-phone-row button{display:block;text-align:left;width:100%;margin:8px 0}.cv-phone-row span{display:block;font-size:12px}.cv-inspector{margin-top:20px}.cv-controls{display:block}.cv-controls select{max-width:100%}.cv-root nav{gap:2px}.cv-network{display:block}}
+.cv-layout{align-items:start;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:24px;margin-top:20px}.cv-inspector,.cv-group{border:1px solid var(--cm-border,#dce2df);border-radius:10px;padding:20px}.cv-inspector h4{font-size:12px;text-transform:uppercase;margin-bottom:6px}.cv-inspector p{overflow-wrap:anywhere}.cv-inspector button,.cv-native button{display:block;margin:8px 0}.cv-scroll{overflow:auto}.cv-scroll>svg{display:block}.cv-poem-line{white-space:pre;font:24px Georgia,serif;fill:var(--cm-text,#242a28)}
+.cv-network{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}.cv-network>button{grid-column:1/-1;text-align:left}.cv-group svg{width:100%}.cv-selected{outline:2px solid var(--cm-text,#242a28);outline-offset:-2px}.cv-root table{border-collapse:collapse}.cv-root th{font-size:12px;font-weight:normal;padding:10px;min-width:75px}.cv-root td{text-align:center;padding:0}.cv-root td button{border:0;padding:3px;border-radius:0;min-width:40px}.cv-root footer{border-bottom:1px solid var(--cm-border,#dce2df);padding:12px 0;margin-bottom:16px}.cv-phone-row{display:none}.lib-mk-tag{display:inline-block;margin:8px}.cv-fixture{font-weight:bold}
+@container(max-width:600px){.cv-root{padding:16px}.cv-layout,.cv-phone-row,.cv-controls,.cv-network{display:block}.cv-desktop-matrix{display:none}.cv-phone-row button{display:block;text-align:left;width:100%;margin:8px 0}.cv-phone-row span{display:block;font-size:12px}.cv-inspector{margin-top:20px}.cv-controls select{max-width:100%}.cv-root nav{gap:2px}}
 `;
 return { createViews };

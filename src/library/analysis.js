@@ -1415,6 +1415,7 @@ function mount(container, input) {
   let alive = true;
   let connections = null,
     connectionJob = null,
+    connectionIdentity = null,
     connectionGeneration = 0;
   let pollTimer = null;
   let pollStarted = 0;
@@ -1455,15 +1456,20 @@ function mount(container, input) {
           st.pending.length
         ),
       });
+      const identity = job + ':' + adapted.current.analysisIdentity;
+      const resetAddress = connectionIdentity !== null && connectionIdentity !== identity;
+      if (resetAddress) clearConnections();
       if (connections) connections.update(adapted);
       else
         connections = bindings.mount(slot('connections'), {
           ...adapted,
+          resetAddress,
           ci: CMConnectionInteraction,
           marks,
           createViews: views.createViews,
         });
       connectionJob = job;
+      connectionIdentity = identity;
     } catch {
       if (alive && generation === connectionGeneration) {
         clearConnections();
@@ -1991,7 +1997,15 @@ function mount(container, input) {
         (el) => (el.dataset.id || '') === held.id
       );
       if (next && !next.disabled) (next.focus(), (held = null));
-      else if (!st.busy) held = null;
+      else if (!st.busy) {
+        if (held.act === 'more' || held.act === 'latest') {
+          const heading = slot('main')
+            .querySelector('.la-cards')
+            ?.parentElement.querySelector('h2');
+          if (heading) ((heading.tabIndex = -1), heading.focus());
+        }
+        held = null;
+      }
     } else held = null;
     if (which.includes('decl')) {
       slot('decl').innerHTML = '';

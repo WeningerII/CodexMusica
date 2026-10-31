@@ -18,7 +18,7 @@
 //   node scripts/check_library_page.js --built=DIR     # check an existing build
 //   node scripts/check_library_page.js --only=reader,compare --headed
 //   node scripts/check_library_page.js --shots=DIR     # screenshot each section
-/* global innerWidth, document, location, getComputedStyle, libraryChunk, indexedDB, window, MutationObserver */ // inside page.evaluate
+/* global innerWidth, document, location, history, getComputedStyle, libraryChunk, indexedDB, window, MutationObserver */ // inside page.evaluate
 'use strict';
 
 const fs = require('fs');
@@ -419,11 +419,12 @@ const SECTIONS = {
             : !body.requested_layers.includes('shared_sound')
         );
         job = {
-          id: 'connection-test',
+          id: posts <= 3 ? 'connection-test' : 'connection-test-4',
           state: 'running',
           identity: {
             reading_unit_id: body.reading_unit_id,
             reading_revision: body.reading_revision,
+            requested_methods: body.requested_methods || [],
           },
           progress: { completed: 1, total: 2 },
         };
@@ -437,12 +438,12 @@ const SECTIONS = {
         hash = digest(manifest);
         return reply({ job }, 202);
       }
-      if (p === '/jobs/connection-test')
+      if (p === `/jobs/${job.id}`)
         return expired
           ? reply({ error: { code: 'EXPIRED' } }, 410)
           : reply({ job: { ...job, state: 'complete', manifest_hash: hash } });
-      if (p === `/jobs/connection-test/manifests/${hash}`) return reply(manifest);
-      if (p === `/jobs/connection-test/manifests/${hash}/pages`) {
+      if (p === `/jobs/${job.id}/manifests/${hash}`) return reply(manifest);
+      if (p === `/jobs/${job.id}/manifests/${hash}/pages`) {
         const i = Number(url.searchParams.get('offset'));
         return reply({
           manifest_hash: hash,
@@ -450,7 +451,7 @@ const SECTIONS = {
           next_offset: i === 0 ? 1 : null,
         });
       }
-      const i = hashes.findIndex((h) => p === `/jobs/connection-test/pages/${h}`);
+      const i = hashes.findIndex((h) => p === `/jobs/${job.id}/pages/${h}`);
       if (i >= 0) return reply(payloads[i]);
       return route.fallback();
     });
@@ -461,6 +462,11 @@ const SECTIONS = {
     await page.click('[data-act="analyze"]');
     await page.waitForSelector('.cv-root', { timeout: 20000 });
     check(`${tag} connections: authorized route mounts actual views`, !!(await page.$('.cv-poem')));
+    await page.evaluate(() => {
+      const u = new URL(location.href);
+      u.searchParams.set('keep', 'connection-test');
+      history.replaceState(null, '', u);
+    });
     await page.click('.cv-root [data-view="matrix"]');
     check(
       `${tag} connections: unloaded evidence is not a negative`,
@@ -474,6 +480,17 @@ const SECTIONS = {
     );
     const target = page.locator('.cv-root [data-selection]:visible').first();
     await target.click();
+    if (await page.isVisible('.lib-cb-sheet-body')) await page.keyboard.press('Escape');
+    await page.keyboard.press('Escape');
+    check(
+      `${tag} connections: clearing selection keeps visible focus`,
+      await page.evaluate(
+        () =>
+          document.activeElement !== document.body &&
+          document.activeElement.getClientRects().length > 0
+      )
+    );
+    await page.locator('.cv-root [data-selection]:visible').first().click();
     if (await page.isVisible('.lib-cb-sheet-body')) await page.keyboard.press('Escape');
     const selectedUrl = page.url();
     await page.click('[data-act="more"]');
@@ -489,6 +506,14 @@ const SECTIONS = {
       `${tag} connections: explicit holds appear after verified page`,
       (await page.textContent('.cv-root')).includes('holds')
     );
+    check(
+      `${tag} connections: final evidence page returns focus to Evidence`,
+      await page.evaluate(
+        () =>
+          document.activeElement?.tagName === 'H2' &&
+          document.activeElement.textContent === 'Evidence'
+      )
+    );
     check(`${tag} connections: display interaction sends no computation`, posts === 1);
     const stale = new URL(selectedUrl);
     stale.hash = `#library/read/${EPI_B}?lens=sound`;
@@ -502,6 +527,10 @@ const SECTIONS = {
       `${tag} connections: old selection URL rejected on a different reading`,
       (await page.textContent('.cv-notice')).includes('no longer exists')
     );
+    check(
+      `${tag} connections: stale link refusal is politely announced`,
+      (await page.textContent('.lib-cb-live')).includes('no longer exists')
+    );
     await page.click('[data-act="methods"]');
     await page.click(`[data-f="reference"] [data-method="${soundId}"] > summary`);
     const sent = page.waitForResponse(
@@ -512,6 +541,26 @@ const SECTIONS = {
     check(
       `${tag} connections: shared sound uses the explicit existing request`,
       JSON.parse(response.request().postData()).requested_methods?.[0] === soundId && posts === 3
+    );
+    await page.waitForFunction(() => !new URLSearchParams(location.search).has('sel'));
+    await page.waitForSelector('.cv-root');
+    check(
+      `${tag} connections: changed identity remounts without stale selection`,
+      !(await page.$('.cv-notice')) &&
+        !(await page.textContent('.la-root')).includes('Connection views unavailable')
+    );
+    await page.click('.cv-root [data-view="matrix"]');
+    await page.click('.cv-phone-row button:visible');
+    // The reference remains open; a subsequent request returns a different job ID.
+    await page.click(`[data-act="analyze-method"][data-id="${soundId}"]`);
+    await page.waitForFunction(() => !new URLSearchParams(location.search).has('sel'));
+    await page.waitForSelector('.cv-root');
+    check(
+      `${tag} connections: new job clears only connection URL state`,
+      posts === 4 &&
+        new URL(await page.url()).hash.includes('/read/') &&
+        new URL(await page.url()).searchParams.get('keep') === 'connection-test' &&
+        !(await page.$('.cv-notice'))
     );
     expired = true;
     await page.click('[data-rd="lens"][data-id="form"]');

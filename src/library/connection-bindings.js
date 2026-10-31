@@ -103,7 +103,7 @@ function urlSync(win, ci, current, onRestore, onRefused) {
     else onRestore(null);
     return result;
   }
-  function write(sel) {
+  function write(sel, replace = false) {
     const params = new URLSearchParams(win.location.search);
     const mine = new URLSearchParams(ci.encodeSelection(current.analysisIdentity, sel));
     for (const k of KEYS) {
@@ -113,7 +113,7 @@ function urlSync(win, ci, current, onRestore, onRefused) {
     const qs = params.toString();
     const url = win.location.pathname + (qs ? '?' + qs : '') + win.location.hash;
     if (url !== win.location.pathname + win.location.search + win.location.hash) {
-      win.history.pushState(null, '', url);
+      win.history[replace ? 'replaceState' : 'pushState'](null, '', url);
     }
   }
   const onPop = () => read();
@@ -271,12 +271,10 @@ function mount(host, opts) {
   const { ci, current } = opts;
   const doc = host.ownerDocument;
   const win = opts.win || doc.defaultView;
+  // Read the same CSS mode that controls the visible matrix, not a second width.
   const narrow =
     opts.narrow ||
-    (() =>
-      host.clientWidth
-        ? host.clientWidth <= 600
-        : !!(win.matchMedia && win.matchMedia('(max-width: 600px)').matches));
+    (() => win.getComputedStyle(stage.querySelector('.cv-layout')).display === 'block');
   let model = opts.model;
   let view = opts.view || 'poem';
   const live = liveRegion(host);
@@ -329,8 +327,7 @@ function mount(host, opts) {
       node = want.length
         ? nodes.find((n) => {
             const other = shown(n) && ci.selectionFromKey(n.dataset.selection);
-            const has = other ? ci.selectionOccurrences(other) : [];
-            return want.every((id) => has.includes(id));
+            return other && want.every((id) => ci.selectionOccurrences(other).includes(id));
           })
         : null;
     }
@@ -353,7 +350,18 @@ function mount(host, opts) {
     announced = rank;
   }
   function draw(focusKey) {
+    const controls =
+      'input[data-method],[data-view],.lib-cb-cellshows select,.lib-cb-hidden button';
+    const signature = (node) =>
+      JSON.stringify([node.tagName, node.dataset.method, node.dataset.view]);
+    const active = doc.activeElement;
+    focusKey ||= stage.contains(active) && active.closest('[data-selection]')?.dataset.selection;
+    const control = stage.contains(active) && active.matches(controls) && signature(active);
+    const opened = sheet?.isOpen();
+    const menuOpen = stage.querySelector('details')?.open;
     const root = views.render(model, { view });
+    const menu = root.querySelector('details');
+    if (menu) menu.open = !!menuOpen;
     const g = ++gen;
     wanted = focusKey || '';
     stage.replaceChildren(root);
@@ -364,6 +372,10 @@ function mount(host, opts) {
       sheet = bottomSheet(root, 'Pair inspector');
       sheet.body.append(pane);
     }
+    if (opened) {
+      focusKeyIn(root, ci.selectionKey(model.selection));
+      sheet?.open(doc.activeElement);
+    }
     if (!fonts || fonts.status === 'loaded') {
       layout(root, g);
       focusKeyIn(root, focusKey);
@@ -373,6 +385,12 @@ function mount(host, opts) {
       // related selection: the exact one may be a mark layout has to draw.
       focusKeyIn(root, focusKey, false);
       fonts.ready.then(() => layout(root, g));
+    }
+    if (control) {
+      const target = [...root.querySelectorAll(controls)].find(
+        (node) => signature(node) === control
+      );
+      (target && !target.disabled ? target : root.querySelector('[aria-current="true"]'))?.focus();
     }
     return root;
   }
@@ -397,7 +415,9 @@ function mount(host, opts) {
     // Back to an address with nothing selected, while nothing is, changes
     // nothing and says nothing.
     if (fromUrl && !sel && !model.selection) return;
-    const key = sel ? ci.selectionKey(sel) : '';
+    const key = ci.selectionKey(
+      sel || (narrow() && model.rowOccurrence && ci.occurrence(model.rowOccurrence))
+    );
     const rowOccurrence =
       sel && sel.kind === 'occurrence' ? sel.entity_id : sel ? model.rowOccurrence : null;
     update({ selection: sel, rowOccurrence, notice: null }, key);
@@ -413,7 +433,10 @@ function mount(host, opts) {
     ci,
     current,
     (sel) => select(sel, { fromUrl: true }),
-    (refused) => update({ selection: null, notice: refused.message })
+    (refused) => {
+      update({ selection: null, notice: refused.message });
+      live.say(refused.message);
+    }
   );
 
   stage.addEventListener('click', (ev) => {
@@ -461,9 +484,16 @@ function mount(host, opts) {
   );
 
   let booting = true;
+  if (opts.resetAddress) url.write(null, true);
   draw();
   url.read();
   booting = false;
+  const resize =
+    win.ResizeObserver &&
+    new win.ResizeObserver(() => {
+      if (!!sheet !== narrow()) draw();
+    });
+  resize?.observe(host);
   return {
     model: () => model,
     view: () => view,
@@ -472,23 +502,30 @@ function mount(host, opts) {
       if (next.current.analysisIdentity !== current.analysisIdentity)
         throw Error('A different analysis requires a new mount');
       Object.assign(current, next.current);
-      const held = doc.activeElement?.closest('[data-selection]')?.dataset.selection;
       const { selection, checkedMethods, cellMethod, rowOccurrence } = model;
+      const lost =
+        selection &&
+        !ci.decodeSelection(ci.encodeSelection(current.analysisIdentity, selection), current).ok;
       const known = new Set(model.methods.filter((m) => !m.disabledReason).map((m) => m.method_id));
       model = {
         ...next.model,
-        selection,
+        selection: lost ? null : selection,
         checkedMethods: [
           ...checkedMethods,
           ...next.model.checkedMethods.filter((id) => !known.has(id)),
         ],
         cellMethod,
-        rowOccurrence,
+        rowOccurrence: current.hasEntity(rowOccurrence) ? rowOccurrence : null,
       };
-      draw(held);
+      draw();
+      if (lost) {
+        url.write(null, true);
+        live.say('Selection cleared: it is not available in the loaded evidence.');
+      }
     },
     destroy() {
       gen++;
+      resize?.disconnect();
       if (relayout) cancel(relayout);
       if (fonts && fonts.removeEventListener) fonts.removeEventListener('loadingdone', onFonts);
       unbind();

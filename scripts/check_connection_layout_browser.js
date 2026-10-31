@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global window, document, requestAnimationFrame, MouseEvent, KeyboardEvent */
+/* global window, document, getComputedStyle, requestAnimationFrame, MouseEvent, KeyboardEvent */
 // The poem geometry lifecycle with the real pieces in Chromium: the actual
 // connection views (layoutPoem, 3PO's contract), marks and interaction model,
 // mounted by the actual bindings (src/library/connection-bindings.js), which
@@ -18,7 +18,13 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { chromium } = require('playwright');
 
-const read = (p) => fs.readFileSync(path.join(__dirname, '..', p), 'utf8');
+const read = (p) =>
+  fs.readFileSync(
+    p === 'src/library/connection-bindings.js' && process.env.CONNECTION_BINDINGS_SOURCE
+      ? process.env.CONNECTION_BINDINGS_SOURCE
+      : path.join(__dirname, '..', p),
+    'utf8'
+  );
 const FONT_FILES = [
   process.env.CONNECTION_SLOW_FONT,
   '/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf',
@@ -304,6 +310,182 @@ function aligned(list, label) {
       );
       assert.deepEqual(errors, []);
       ok('phone matrix: choosing a word keeps focus with its row after the inspector closes');
+      await page.close();
+    }
+    {
+      const { page, release } = await open(browser, { preload: false });
+      release();
+      await fontsIn(page);
+      await page.click('[data-view="matrix"]');
+      await page.click('.cv-controls summary');
+      for (const selector of [
+        'input[data-method]',
+        '[data-view="matrix"]',
+        '.lib-cb-cellshows select',
+      ]) {
+        const kept = await page.evaluate((selector) => {
+          document.querySelector(selector).focus();
+          if (!document.activeElement.matches(selector))
+            throw Error('control was not focusable before update');
+          window.m.update({
+            model: window.m.model(),
+            current: {
+              analysisIdentity: 'fixture',
+              hasEntity: () => true,
+              hasMethod: () => true,
+              hasEvidence: () => false,
+            },
+          });
+          return document.activeElement.matches(selector);
+        }, selector);
+        assert.ok(kept, `${selector} survives evidence redraw`);
+      }
+      await page.evaluate(() =>
+        window.m.select(
+          window.CMConnectionInteraction.pair('schema:alliteration@fixture', 'watch', 'woods4')
+        )
+      );
+      await page.uncheck('input[data-method="schema:alliteration@fixture"]');
+      const kept = await page.evaluate(() => {
+        document.querySelector('.lib-cb-hidden button').focus();
+        window.m.update({
+          model: window.m.model(),
+          current: {
+            analysisIdentity: 'fixture',
+            hasEntity: () => true,
+            hasMethod: () => true,
+            hasEvidence: () => false,
+          },
+        });
+        return document.activeElement.matches('.lib-cb-hidden button');
+      });
+      assert.ok(kept, 'Show survives evidence redraw');
+      await page.click('.lib-cb-hidden button');
+      assert.equal(
+        await page.evaluate(() => document.activeElement.dataset.view),
+        'matrix',
+        'removed Show falls back to current view tab'
+      );
+      ok('actual controls retain focus through evidence redraws');
+      await page.close();
+    }
+    // The same container mode must govern the matrix and inspector.
+    for (const width of [620, 600, 601, 648, 649]) {
+      const { page, errors, release } = await open(browser, { preload: false });
+      release();
+      await fontsIn(page);
+      await page.evaluate((width) => {
+        window.m.destroy();
+        const host = document.getElementById('surface-library');
+        host.style.width = width + 'px';
+        window.m = window.bindings.mount(host, {
+          ci: window.CMConnectionInteraction,
+          marks: window.marks,
+          createViews: window.views.createViews,
+          model: window.fixture(window.CMConnectionInteraction),
+          current: {
+            analysisIdentity: 'fixture',
+            hasEntity: () => true,
+            hasMethod: () => true,
+            hasEvidence: () => false,
+          },
+          view: 'matrix',
+        });
+      }, width);
+      const got = await page.evaluate(() => {
+        const pane = document.querySelector('.cv-inspector');
+        const row = document.querySelector('.cv-phone-row');
+        const body = document.querySelector('.cv-body') || document.querySelector('.cv-root');
+        return {
+          phone: getComputedStyle(row).display !== 'none',
+          sheet: !!pane.closest('.lib-cb-sheet'),
+          padding: getComputedStyle(body).paddingLeft,
+        };
+      });
+      assert.deepEqual(
+        got,
+        { phone: width <= 600, sheet: width <= 600, padding: width <= 600 ? '16px' : '24px' },
+        `container width ${width}`
+      );
+      if (width === 600) {
+        await page.click('.cv-phone-row button:visible');
+        assert.equal(await page.locator('.lib-cb-sheet-body').isVisible(), true);
+        await page.evaluate(
+          () => (document.getElementById('surface-library').style.width = '620px')
+        );
+        await page.waitForFunction(() => !document.querySelector('.lib-cb-sheet'));
+        assert.equal(await page.locator('.cv-desktop-matrix').isVisible(), true);
+        assert.equal(await page.evaluate(() => document.activeElement === document.body), false);
+        await page.evaluate(
+          () => (document.getElementById('surface-library').style.width = '600px')
+        );
+        await page.waitForSelector('.lib-cb-sheet');
+        assert.equal(await page.locator('.cv-phone-row').isVisible(), true);
+        assert.equal(await page.evaluate(() => document.activeElement === document.body), false);
+      }
+      assert.deepEqual(errors, []);
+      ok(`container ${width}px: matrix, inspector and padding agree`);
+      await page.close();
+    }
+    // Whole rendered lines, not token ports or character-count estimates, set the canvas.
+    {
+      const { page, errors, release } = await open(browser, { preload: false });
+      release();
+      await fontsIn(page);
+      await page.evaluate(() => {
+        const model = window.m.model();
+        const prefix = 'WWW punctuation?! '.repeat(18);
+        model.poem.lines[0].text = prefix + model.poem.lines[0].text;
+        // The prefix deliberately has no ports; known words keep exact ranges
+        // and the supplied line-final occurrence remains at the line ending.
+        for (const o of model.occurrences.filter((o) => o.line === 1)) {
+          model.poem.ranges[o.entity_id].start += prefix.length;
+          model.poem.ranges[o.entity_id].end += prefix.length;
+        }
+        window.m.update({
+          model,
+          current: {
+            analysisIdentity: 'fixture',
+            hasEntity: () => true,
+            hasMethod: () => true,
+            hasEvidence: () => false,
+          },
+        });
+      });
+      await frames(page);
+      const got = await page.evaluate(() => {
+        const canvas = document.querySelector('.cv-poem');
+        const right = Math.max(
+          ...[...canvas.querySelectorAll('text')].map((line) => {
+            const b = line.getBBox();
+            return b.x + b.width;
+          })
+        );
+        const arc = [...canvas.querySelectorAll('.lib-mk-arc')].find(
+          (g) => g.querySelectorAll('path').length === 3
+        );
+        const margin = +arc
+          .querySelector('path')
+          .getAttribute('d')
+          .match(/^M([^,]+)/)[1];
+        return {
+          right,
+          margin,
+          width: canvas.viewBox.baseVal.width,
+          actual: canvas.width.baseVal.value,
+          overflow: document.documentElement.scrollWidth > window.innerWidth,
+        };
+      });
+      assert.ok(got.right > 850, 'the actual rendered line exceeds the old canvas');
+      assert.ok(got.margin >= got.right + 24, 'end arcs clear the whole rendered line');
+      assert.ok(got.width >= got.margin + 90, 'canvas retains the full arc bow and outer gutter');
+      assert.equal(got.actual, got.width);
+      assert.equal(got.overflow, false);
+      await press(page, 'know');
+      await frames(page);
+      assert.equal(await page.evaluate(() => document.activeElement?.dataset.selection), 'o:know');
+      assert.deepEqual(errors, []);
+      ok('long rendered lines: text, margin arcs and focus remain inside the scrollable canvas');
       await page.close();
     }
     // 4. A poem with a missing range says so once, after the selection words.

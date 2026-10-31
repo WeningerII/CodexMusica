@@ -16,7 +16,7 @@ function load(url) {
     url: url || 'https://codexmusica.test/codex.html?tab=library',
   });
   const api = dom.window.eval(
-    `(function () {${fs.readFileSync(path.join(__dirname, '../src/library/connection-bindings.js'), 'utf8')}\n})()`
+    `(function () {${fs.readFileSync(process.env.CONNECTION_BINDINGS_SOURCE || path.join(__dirname, '../src/library/connection-bindings.js'), 'utf8')}\n})()`
   );
   return { B: api, win: dom.window, doc: dom.window.document };
 }
@@ -449,6 +449,8 @@ test('mount: a link restores its selection, Back walks history, a stale link is 
   );
   assert.equal(stale.m.model().selection, null);
   assert.equal(stale.m.model().notice, 'This pair no longer exists in the current revision.');
+  await tick(stale.win); // liveRegion deliberately publishes on the next frame.
+  assert.equal(stale.live.textContent, stale.m.model().notice);
 });
 
 test('mount: tabs switch the view and keep the selection', () => {
@@ -672,4 +674,33 @@ test('layout: partial and unavailable are said once, after the selection; ready 
     'watch L4 w2 – woods L4 w4: Registered figure · Alliteration holds',
     'getting better is not announced as a problem'
   );
+});
+
+test('non-append evidence clears an unavailable selection once and preserves unrelated URL state', async () => {
+  const { m, win, live } = mounted();
+  m.select(CI.occurrence('e-watch-4-2'));
+  const model = fixtureModel();
+  model.occurrences = model.occurrences.filter((o) => o.entity_id !== 'e-watch-4-2');
+  const next = {
+    model,
+    current: { ...current, hasEntity: (id) => model.occurrences.some((o) => o.entity_id === id) },
+  };
+  const changes = [];
+  const observer = new win.MutationObserver((rows) => changes.push(...rows));
+  observer.observe(live, { childList: true, subtree: true, characterData: true });
+  m.update(next);
+  await tick(win);
+  assert.equal(m.model().selection, null);
+  assert.equal(m.model().rowOccurrence, null);
+  assert.equal(new URLSearchParams(win.location.search).get('tab'), 'library');
+  assert.equal(new URLSearchParams(win.location.search).has('sel'), false);
+  assert.match(live.textContent, /Selection cleared.*loaded evidence/);
+  const count = changes.length;
+  assert.ok(count > 0);
+  m.update(next);
+  await tick(win);
+  assert.equal(changes.length, count);
+  observer.disconnect();
+  m.destroy();
+  win.close();
 });
