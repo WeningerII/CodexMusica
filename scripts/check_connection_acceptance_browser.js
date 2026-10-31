@@ -312,6 +312,7 @@ async function arrowChecks(page, tag, want, what) {
       return {
         key: owner.dataset.selection || '',
         directed: g.dataset.directed === 'true',
+        headCount: g.querySelectorAll('path.lib-mk-head').length,
         tip: v.length >= 6 ? [v[0], v[1]] : null,
         base: v.length >= 6 ? [(v[2] + v[4]) / 2, (v[3] + v[5]) / 2] : null,
         ends: [...g.querySelectorAll('path:not(.lib-mk-head):not(.lib-mk-gap)')].flatMap((p) =>
@@ -343,7 +344,7 @@ async function arrowChecks(page, tag, want, what) {
   );
   H.check(
     `${tag} directed (${what}): every directed arc carries one ink arrowhead (.lib-mk-head)`,
-    directedArcs.every((a) => a.directed && a.tip),
+    directedArcs.every((a) => a.directed && a.headCount === 1 && a.tip),
     JSON.stringify(directedArcs)
   );
   const dist = (p, q) => (p && q ? Math.hypot(p[0] - q[0], p[1] - q[1]) : Infinity);
@@ -427,6 +428,7 @@ const SECTIONS = {
     );
     H.check(`${tag} directed: opening and selecting sends no computation`, state.posts === 1);
     await arrowChecks(page, tag, want, 'capture');
+    H.check(`${tag} directed: capture viewing sends no computation`, state.posts === 1);
     // A binding asked later-to-earlier stays that way round.
     await page.context().clearCookies();
     await page.unroute(H.API + '/**');
