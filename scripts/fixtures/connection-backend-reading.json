@@ -5,7 +5,7 @@
         "catalog": {},
         "contract_version": 1,
         "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-        "hash": "28a59be77aab7723f19b0657d7af0d9dfd1d6b0b10031ec10dae10c5010c23f3",
+        "hash": "02ce548efffbb76a66a555cdc623cd0cdb04e3f424a0d682064ad7ff634340e3",
         "language": "eng",
         "normalized_sha256": "2282c62a05421519bc37e06d1195a1501931497679df5d08b95e2b2e0561e675",
         "reading_revision": "fixture-v1",
@@ -15,7 +15,7 @@
           "schemas": ["internal rhyme"]
         },
         "runtime": {
-          "engine_hash": "0e0e0b39bc074b837f8aead61109940a47697d93376db7cd8f1cf5d61f2b48a6",
+          "engine_hash": "5d632de00d3051542a3b3f14f616ba9bcb1c75e13963daf7950f90ab978a2150",
           "phonology": {
             "accent_readings": "accent-readings-2026-10-30",
             "fallback": null,
@@ -41,7 +41,7 @@
         {
           "basis": "measured",
           "excluded": false,
-          "id": "line:36f451d669fb61c2dfffa0f10ce038a7",
+          "id": "line:003cdf8b1ae55c3f26a9805c348368e8",
           "kind": "line",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -60,7 +60,7 @@
           "applicable_readings": ["Z IY1 D", "Z UW1 T"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:b51b80c750abc96aa576f334d6d6fa0d",
+          "id": "token:ebe7989867c0bfb21614c2848446fef2",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -109,7 +109,7 @@
           "applicable_readings": ["IH1 Z", "IH0 Z"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:ca7004e99111a9e3a4acbfbcb3df1276",
+          "id": "token:b74b46236d34cf2b5fe2ef2e73ddbcd2",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -158,7 +158,7 @@
           "applicable_readings": ["HH OW1 M", "HH OE1 M"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:98d571a6538ee0778a33ff35ecc0d769",
+          "id": "token:6a966e8535c9b2f3ee27c3a3313631ea",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -206,7 +206,7 @@
         {
           "basis": "measured",
           "excluded": false,
-          "id": "line:76e7b3daace8cbd794307649ad79f150",
+          "id": "line:6e973b104650e8aed77a830c35127d14",
           "kind": "line",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -225,7 +225,7 @@
           "applicable_readings": ["AH0 N D", "AE1 N D"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:cd6833e2234d079b0e572094a5d88f69",
+          "id": "token:af32d1278e6af18086266c8df1a5f7c2",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -274,7 +274,7 @@
           "applicable_readings": ["B IY1 T"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:8b98e67cd4f3da766111329f6a84f4c8",
+          "id": "token:a56b5ebcee1c9660301809d1968c9700",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -318,7 +318,7 @@
           "applicable_readings": ["IH1 Z", "IH0 Z"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:706e9c2ac40719219845394c00641217",
+          "id": "token:a00e8ac9e2818dbaa6123abe8f6979e6",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -367,7 +367,7 @@
           "applicable_readings": ["T UW1"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:3199ca79f941a1c795c84db9f58de13d",
+          "id": "token:36008a38cbee531bb86d41957488bde8",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -410,7 +410,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:36f451d669fb61c2dfffa0f10ce038a7",
+          "id": "syllable:003cdf8b1ae55c3f26a9805c348368e8",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -449,7 +449,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:76e7b3daace8cbd794307649ad79f150",
+          "id": "syllable:6e973b104650e8aed77a830c35127d14",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -485,7 +485,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:8f6bd00840e0649e858d05dbae7b054f",
+          "id": "syllable:250d7c2be74e3b50156062d3ce46a41a",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -521,7 +521,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:2dada0da8941d3811bec8e55406794d5",
+          "id": "syllable:f25b595648c4e2c8336bbe6169ad314c",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -560,7 +560,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:624bb9b692b2960c3e8e622e81031b60",
+          "id": "syllable:ebdc399f1a689e18c24b4d61f71b8135",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -593,7 +593,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:e726f1b550052c78c2956615faef0dab",
+          "id": "syllable:6bab35530e923e19c7af78cb200b04fe",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -629,7 +629,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:83d3f5ff05c7dafa4395f28b6469443e",
+          "id": "syllable:d7421e0823167db185ce26faf6e28855",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -669,7 +669,7 @@
             "RIME_RICHE": "false"
           },
           "coverage": "answered",
-          "id": "native_pair:be6cc1f8fc293c6f72945616f5027cec",
+          "id": "native_pair:0dfbd93d6646e0e7d8f36701913ad40c",
           "kind": "native_pair",
           "language": "eng",
           "line_ids": ["line:0", "line:1"],
@@ -877,7 +877,7 @@
             "search_k": 1,
             "verdict": null
           },
-          "id": "relation_instance:defa1dc8518e33a1e58d99670e1917e0",
+          "id": "relation_instance:5673ff40419168fd414a5731bbcf0b59",
           "identity_reads": [
             [
               "token",
@@ -986,7 +986,7 @@
               "line:1:token:3"
             ]
           },
-          "id": "method_result:632a828b9131025219ffcd14138664de",
+          "id": "method_result:b00703db1e293fe8f1de73a37b1725f3",
           "kind": "method_result",
           "method_id": "schema:1429ae948687ca75ce1cebde",
           "namespace": "schema",
@@ -1277,7 +1277,7 @@
           "catalog": {},
           "contract_version": 1,
           "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-          "hash": "28a59be77aab7723f19b0657d7af0d9dfd1d6b0b10031ec10dae10c5010c23f3",
+          "hash": "02ce548efffbb76a66a555cdc623cd0cdb04e3f424a0d682064ad7ff634340e3",
           "language": "eng",
           "normalized_sha256": "2282c62a05421519bc37e06d1195a1501931497679df5d08b95e2b2e0561e675",
           "reading_revision": "fixture-v1",
@@ -1287,7 +1287,7 @@
             "schemas": ["internal rhyme"]
           },
           "runtime": {
-            "engine_hash": "0e0e0b39bc074b837f8aead61109940a47697d93376db7cd8f1cf5d61f2b48a6",
+            "engine_hash": "5d632de00d3051542a3b3f14f616ba9bcb1c75e13963daf7950f90ab978a2150",
             "phonology": {
               "accent_readings": "accent-readings-2026-10-30",
               "fallback": null,
@@ -1336,7 +1336,7 @@
         "catalog": {},
         "contract_version": 1,
         "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-        "hash": "ddde97ebce3f1452da709a3cddfb4434b1686292aef06a964006b09eadd1ccd7",
+        "hash": "93973d38a5af23a8c5c0ba10bc8ffb9d40e357bfde0c823f53ffe6ac29b63173",
         "language": "eng",
         "normalized_sha256": "db2e51d73a582ed918e4437adbc74f7d8495bf2a669cb5ba8b51a0f43077ad72",
         "reading_revision": "fixture-v1",
@@ -1346,7 +1346,7 @@
           "schemas": ["internal rhyme"]
         },
         "runtime": {
-          "engine_hash": "0e0e0b39bc074b837f8aead61109940a47697d93376db7cd8f1cf5d61f2b48a6",
+          "engine_hash": "5d632de00d3051542a3b3f14f616ba9bcb1c75e13963daf7950f90ab978a2150",
           "phonology": {
             "accent_readings": "accent-readings-2026-10-30",
             "fallback": null,
@@ -1372,7 +1372,7 @@
         {
           "basis": "measured",
           "excluded": false,
-          "id": "line:341dcf8b72592fa442d5d9cbff81d88a",
+          "id": "line:96b8c1acaf267fd19ed30189fe973a6e",
           "kind": "line",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -1391,7 +1391,7 @@
           "applicable_readings": ["DH AH0", "DH AH1", "DH IY0"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:dfef2712c0cd130c5bbe5593f1c3d484",
+          "id": "token:f4fea7fcb78026cad0f73baed82cc7bd",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -1445,7 +1445,7 @@
           "applicable_readings": ["Z IY1 T AH0", "Z IY0 T AH1"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:fb63ca9aa3c32f47efd866a9f6a30331",
+          "id": "token:1a63ad4202df3b11856e19f3c769c71f",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -1494,7 +1494,7 @@
           "applicable_readings": ["K EY1 M", "K EE1 M"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:192f689fb71c6edb1b013b7ea9181d9a",
+          "id": "token:5305b8dbbd30915686463931233f95b5",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -1542,7 +1542,7 @@
         {
           "basis": "measured",
           "excluded": false,
-          "id": "line:d7b1a8e8e3cd0ccce78672b3829f3937",
+          "id": "line:06f56305272637a704e6c5db12aa19f7",
           "kind": "line",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -1561,7 +1561,7 @@
           "applicable_readings": ["W IY1"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:44f59fd5424c916b2050a27a939ffdef",
+          "id": "token:bd230572314ccd8e5b97843791604465",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -1605,7 +1605,7 @@
           "applicable_readings": ["B R IH1 NG"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:05b1f5a98747b4554a87a7db1ca7c61e",
+          "id": "token:d194529647598d67b264e449504bbe8b",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -1649,7 +1649,7 @@
           "applicable_readings": ["DH AH0", "DH AH1", "DH IY0"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:9de372e97ece32fd8ee74f6698e8b204",
+          "id": "token:fca6f62d2aa83b3954c9384f09674038",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -1703,7 +1703,7 @@
           "applicable_readings": ["B EY1 T AH0"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:b548065d9617be2911197b9bc1a8a421",
+          "id": "token:30f907dd8ead4a900536598324137661",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -1747,7 +1747,7 @@
           "applicable_readings": ["HH OW1 M", "HH OE1 M"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:09026f0601d064f443f8c46b863da566",
+          "id": "token:2372da3f6137adb0213bc0c6e266676e",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -1795,7 +1795,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:341dcf8b72592fa442d5d9cbff81d88a",
+          "id": "syllable:96b8c1acaf267fd19ed30189fe973a6e",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -1834,7 +1834,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:d7b1a8e8e3cd0ccce78672b3829f3937",
+          "id": "syllable:06f56305272637a704e6c5db12aa19f7",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -1870,7 +1870,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:73648cb405a0f7f6587aafa95caaad6b",
+          "id": "syllable:fae690c959e8e0b3d455f4f6493ed46d",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -1906,7 +1906,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:7fbf4106ab7f7c4c7a4c6eebb9136cfd",
+          "id": "syllable:a44ac1c7d4aad485c3ec043afaffbda6",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -1942,7 +1942,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:a9fabf9731f77517b77985dbb2c9e261",
+          "id": "syllable:a10d6638d04cce881ff96fb37e62a0da",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -1975,7 +1975,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:44bb321560f81400b0cbbbf8e88b0fa5",
+          "id": "syllable:2a239e6315631842070d1724e1c5227b",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -2008,7 +2008,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:90c0a756901b47951e4268f1a1b78854",
+          "id": "syllable:61c65db05cbb345198a1cd48eaa3536f",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -2047,7 +2047,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:af73aa7b80eeea2b812de6c2a1d6902f",
+          "id": "syllable:8450788e5de0e18f20aa08247f3730d0",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -2080,7 +2080,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:5901b70711e2cd3610f59b6cd8896455",
+          "id": "syllable:d06781b12176c6bc3b77146aa895383c",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -2113,7 +2113,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:e24eac6ed995ac43c910afa93edbf5c0",
+          "id": "syllable:8e8f472fce649560ad24164a9f6f86c5",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -2156,7 +2156,7 @@
             "RIME_RICHE": "false"
           },
           "coverage": "answered",
-          "id": "native_pair:d413a0d5723fcee6d973fd2ee5fbd93f",
+          "id": "native_pair:71a21dd506110dd660408843176eca99",
           "kind": "native_pair",
           "language": "eng",
           "line_ids": ["line:0", "line:1"],
@@ -2358,7 +2358,7 @@
             "search_k": 1,
             "verdict": true
           },
-          "id": "relation_instance:3efb71abe4e1c97963fb696f0a1fada9",
+          "id": "relation_instance:0525e92ea1a4a1ea9af65f77bbf2e03d",
           "identity_reads": [
             [
               "token",
@@ -2624,7 +2624,7 @@
             "search_k": 1,
             "verdict": true
           },
-          "id": "relation_instance:84f037fcc5c1fcb91414e88f08a2785c",
+          "id": "relation_instance:35932c6b910e1830473fe6c6ae3a59b5",
           "identity_reads": [
             [
               "token",
@@ -2890,7 +2890,7 @@
             "search_k": 1,
             "verdict": true
           },
-          "id": "relation_instance:8353b2e68b35c67478f81d5e5e49407a",
+          "id": "relation_instance:af5564de491c2741e317ce5ee2e6bf0b",
           "identity_reads": [
             [
               "token",
@@ -3140,7 +3140,7 @@
             "search_k": 1,
             "verdict": null
           },
-          "id": "relation_instance:a79af5b2f0e7763c3e1c1895d6897b5e",
+          "id": "relation_instance:8272d3fc1b51f88b229c8ec9507fe3ab",
           "identity_reads": [
             [
               "token",
@@ -3381,7 +3381,7 @@
             "search_k": 1,
             "verdict": true
           },
-          "id": "relation_instance:adf3f199c0333a7ef67a94af17bc942c",
+          "id": "relation_instance:891e93be0f29abce8d642f270e70064f",
           "identity_reads": [
             [
               "token",
@@ -3696,7 +3696,7 @@
             "search_k": 1,
             "verdict": null
           },
-          "id": "relation_instance:9673fe9d9e0fd93ca63586fb6bf37ff4",
+          "id": "relation_instance:2c9208789dd8591d74d1716af5bc508c",
           "identity_reads": [
             [
               "token",
@@ -3929,7 +3929,7 @@
             "search_k": 1,
             "verdict": true
           },
-          "id": "relation_instance:ed8994359b8a2752bcd7dc18470eef11",
+          "id": "relation_instance:e817318a6ff565bd0d959c8874780e0c",
           "identity_reads": [
             [
               "token",
@@ -4217,7 +4217,7 @@
             "search_k": 1,
             "verdict": null
           },
-          "id": "relation_instance:28de5efc0c652fa50a922ede96d1caf5",
+          "id": "relation_instance:588918044247608f4789e37a65290a63",
           "identity_reads": [
             [
               "token",
@@ -4458,7 +4458,7 @@
             "search_k": 1,
             "verdict": true
           },
-          "id": "relation_instance:d1110817806c5099d394b9027bee66ef",
+          "id": "relation_instance:bcffc7c1f69978f15536a342fa7a04f2",
           "identity_reads": [
             [
               "token",
@@ -4671,7 +4671,7 @@
             "search_k": 1,
             "verdict": true
           },
-          "id": "relation_instance:aee556288332a2f74b24de01bb19bf02",
+          "id": "relation_instance:f6ce2f3338da540b18c6e195e80a3b0a",
           "identity_reads": [
             [
               "token",
@@ -4948,7 +4948,7 @@
             "search_k": 1,
             "verdict": null
           },
-          "id": "relation_instance:287772362ed5b3464b1a05372e9e4811",
+          "id": "relation_instance:5f7f6f17f16fe815bb2629171676b85f",
           "identity_reads": [
             [
               "token",
@@ -5065,7 +5065,7 @@
               "line:1:token:4"
             ]
           },
-          "id": "method_result:39391431d2756049a24caabf2ec6c592",
+          "id": "method_result:761a97ab2697ff46664d6d44a5d9401c",
           "kind": "method_result",
           "method_id": "schema:1429ae948687ca75ce1cebde",
           "namespace": "schema",
@@ -5356,7 +5356,7 @@
           "catalog": {},
           "contract_version": 1,
           "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-          "hash": "ddde97ebce3f1452da709a3cddfb4434b1686292aef06a964006b09eadd1ccd7",
+          "hash": "93973d38a5af23a8c5c0ba10bc8ffb9d40e357bfde0c823f53ffe6ac29b63173",
           "language": "eng",
           "normalized_sha256": "db2e51d73a582ed918e4437adbc74f7d8495bf2a669cb5ba8b51a0f43077ad72",
           "reading_revision": "fixture-v1",
@@ -5366,7 +5366,7 @@
             "schemas": ["internal rhyme"]
           },
           "runtime": {
-            "engine_hash": "0e0e0b39bc074b837f8aead61109940a47697d93376db7cd8f1cf5d61f2b48a6",
+            "engine_hash": "5d632de00d3051542a3b3f14f616ba9bcb1c75e13963daf7950f90ab978a2150",
             "phonology": {
               "accent_readings": "accent-readings-2026-10-30",
               "fallback": null,
@@ -5415,7 +5415,7 @@
         "catalog": {},
         "contract_version": 1,
         "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-        "hash": "b4108eb917fd40858fd2fdc1fd2558c77f36703d9010ef7de3413b1c9891678f",
+        "hash": "aec629bca3b7cf3590b2e47cc28d09f3d7a34d9ccda122cf39cb6860654047c0",
         "language": "eng",
         "normalized_sha256": "8ba01e3396d9ed748ac8399b87e135b33a4c3ab62032cc09a6c07173c3a7d2b1",
         "reading_revision": "fixture-v1",
@@ -5425,7 +5425,7 @@
           "schemas": ["perfect rhyme"]
         },
         "runtime": {
-          "engine_hash": "0e0e0b39bc074b837f8aead61109940a47697d93376db7cd8f1cf5d61f2b48a6",
+          "engine_hash": "5d632de00d3051542a3b3f14f616ba9bcb1c75e13963daf7950f90ab978a2150",
           "phonology": {
             "accent_readings": "accent-readings-2026-10-30",
             "fallback": null,
@@ -5451,7 +5451,7 @@
         {
           "basis": "measured",
           "excluded": false,
-          "id": "line:90fbf94b37150c723e63a83089ab3685",
+          "id": "line:4655b9154f3d65ede106924f6110d614",
           "kind": "line",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -5470,7 +5470,7 @@
           "applicable_readings": ["AY1"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:bbdeff0a8e88583b925fa331fdef6ed7",
+          "id": "token:5123f3dc6eedb4778e8327a69fffe8bf",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -5514,7 +5514,7 @@
           "applicable_readings": ["S AO1"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:4b3c18d5087daf9623c702d79643a047",
+          "id": "token:d404fd919ab89ba0dbd2f6188ea77013",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -5558,7 +5558,7 @@
           "applicable_readings": ["DH AH0", "DH AH1", "DH IY0"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:37622dcd79f3264fae23227a77a5a61b",
+          "id": "token:7a0a16c25db5c02cbc4bdd5ab6ae44dd",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -5612,7 +5612,7 @@
           "applicable_readings": ["B AH1 T", "AH0 B IY1 T"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:312ea9c2b73bd0e608054353cec94e70",
+          "id": "token:fef6b4c52a68295d687e18db13f1bcbf",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -5660,7 +5660,7 @@
         {
           "basis": "measured",
           "excluded": false,
-          "id": "line:632abd8ec603e5d8ed85e28d14ff4073",
+          "id": "line:4d659f6461302a7f8dc701341f4cd9f0",
           "kind": "line",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -5679,7 +5679,7 @@
           "applicable_readings": ["AH0 N D", "AE1 N D"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:2c3b537eebc31c017594ebc5bd111b41",
+          "id": "token:beb555b0e09066228d3464decb81494a",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -5728,7 +5728,7 @@
           "applicable_readings": ["DH EH1 N"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:e737c5426a0ba18c5fc13502d782008b",
+          "id": "token:747eddc2fd578bcfd11af61e6c24abc8",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -5772,7 +5772,7 @@
           "applicable_readings": ["DH AH0", "DH AH1", "DH IY0"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:43aa0945bbec06ff5da19627eabc0611",
+          "id": "token:9c049ee1a1a72db3279a6bae00a2508f",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -5826,7 +5826,7 @@
           "applicable_readings": ["D EH1 T", "AH0 D IY1 T"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:5cda2739f4b432c799951d7d91d40944",
+          "id": "token:676ec85e34f340ab22b41b396e9f0bf8",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -5874,7 +5874,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:90fbf94b37150c723e63a83089ab3685",
+          "id": "syllable:4655b9154f3d65ede106924f6110d614",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -5907,7 +5907,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:632abd8ec603e5d8ed85e28d14ff4073",
+          "id": "syllable:4d659f6461302a7f8dc701341f4cd9f0",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -5940,7 +5940,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:6a09b0721764ae635fc79a4856bf5cf7",
+          "id": "syllable:7905365b08d2988e85708fafc65888b2",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -5979,7 +5979,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:afc589baa3f7a123eab0c96f338037da",
+          "id": "syllable:3e3db90efab7aacd2b2f96baf6e87691",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -6012,7 +6012,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:07b737036b67fee06444863937bca8c7",
+          "id": "syllable:a79995f034c33e2fb9b2550e36318f47",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -6051,7 +6051,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:87c212f76a808a5342cea0ad3709edab",
+          "id": "syllable:cc58361ed333ef06352d2797c7d9377e",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -6084,7 +6084,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:505ea81ebf10afc772c16cedf61347cf",
+          "id": "syllable:955727dad064b8663bda1a112e675ba1",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -6123,7 +6123,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:557daa4c785908e93fb69ba207328d1f",
+          "id": "syllable:e79c114e432905a5646519ad00a7b28e",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -6163,7 +6163,7 @@
             "RIME_RICHE": "false"
           },
           "coverage": "answered",
-          "id": "native_pair:5d669ad5d52ba97e33240f5b546216fa",
+          "id": "native_pair:2bbbcc27bc02e344b3ff0345f518f857",
           "kind": "native_pair",
           "language": "eng",
           "line_ids": ["line:0", "line:1"],
@@ -6236,7 +6236,7 @@
             "reading_policy": "exists_compatible_reading",
             "tokens": ["line:0:token:3", "line:1:token:3"]
           },
-          "id": "method_result:6a4aac22bb950b138e7c77fc4f337e43",
+          "id": "method_result:97ef528a2aafd2dfa8751b44a8241f9d",
           "kind": "method_result",
           "method_id": "schema:fd8899c7df3627b14d717d01",
           "namespace": "schema",
@@ -6533,7 +6533,7 @@
           "catalog": {},
           "contract_version": 1,
           "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-          "hash": "b4108eb917fd40858fd2fdc1fd2558c77f36703d9010ef7de3413b1c9891678f",
+          "hash": "aec629bca3b7cf3590b2e47cc28d09f3d7a34d9ccda122cf39cb6860654047c0",
           "language": "eng",
           "normalized_sha256": "8ba01e3396d9ed748ac8399b87e135b33a4c3ab62032cc09a6c07173c3a7d2b1",
           "reading_revision": "fixture-v1",
@@ -6543,7 +6543,7 @@
             "schemas": ["perfect rhyme"]
           },
           "runtime": {
-            "engine_hash": "0e0e0b39bc074b837f8aead61109940a47697d93376db7cd8f1cf5d61f2b48a6",
+            "engine_hash": "5d632de00d3051542a3b3f14f616ba9bcb1c75e13963daf7950f90ab978a2150",
             "phonology": {
               "accent_readings": "accent-readings-2026-10-30",
               "fallback": null,
@@ -6595,14 +6595,14 @@
         "provider_calls": 0
       }
     },
-    "witness_first": {
+    "repeated_words": {
       "identity": {
         "catalog": {},
         "contract_version": 1,
         "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-        "hash": "e4ef35e9b9379e7575c40cc1e78141c76401334c7fef24d08892ba3659cadbcd",
+        "hash": "4581e4eede32070cc2bd22854b3b55d58c216002e32e5b4df866f164f1933497",
         "language": "eng",
-        "normalized_sha256": "4dbb7540d4ccdaac93105cd3bf8c32396c8fd115c3a8094de6ca2f11b1438047",
+        "normalized_sha256": "a82da2dd2f5bba009306e243b8c1f486892825bc779b8d8b3544d644bcc84516",
         "reading_revision": "fixture-v1",
         "reading_unit_id": "caller-owned-fixture:eng",
         "requested": {
@@ -6610,7 +6610,7 @@
           "schemas": ["internal rhyme"]
         },
         "runtime": {
-          "engine_hash": "0e0e0b39bc074b837f8aead61109940a47697d93376db7cd8f1cf5d61f2b48a6",
+          "engine_hash": "5d632de00d3051542a3b3f14f616ba9bcb1c75e13963daf7950f90ab978a2150",
           "phonology": {
             "accent_readings": "accent-readings-2026-10-30",
             "fallback": null,
@@ -6636,7 +6636,7 @@
         {
           "basis": "measured",
           "excluded": false,
-          "id": "line:74307c79fd61ff882965d271f4e39e11",
+          "id": "line:555ee6f41768c31cd15e6595d34aad17",
           "kind": "line",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -6649,13 +6649,13 @@
             }
           ],
           "status": "",
-          "text": "zee is home"
+          "text": "zea is home"
         },
         {
-          "applicable_readings": ["Z IY1", "Z AH0"],
+          "applicable_readings": ["Z AH0", "Z IY1"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:8c86cc1e818ebcc0132650e90d6c25a3",
+          "id": "token:a1d1d629b160c44acdff840c5f363926",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -6677,13 +6677,13 @@
                 "syllables": 1
               }
             ],
-            "line": "zee is home",
+            "line": "zea is home",
             "matching_line_ids": ["line:0"],
             "numbering": "v2+voices",
             "requires_source": true,
             "supplied_reading_requires_source": false,
             "token": 1,
-            "word": "zee"
+            "word": "zea"
           },
           "reading_note": "syllable 0 undecided on nucleus/prominence",
           "reading_status": "merged",
@@ -6695,7 +6695,7 @@
               "utf16_range": [0, 3]
             }
           ],
-          "text": "zee",
+          "text": "zea",
           "token": 0,
           "token_id": "line:0:token:0",
           "unit_ids": ["syllable:0"]
@@ -6704,7 +6704,7 @@
           "applicable_readings": ["IH1 Z", "IH0 Z"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:2f650984a1ab82bf01974166e3e63d66",
+          "id": "token:57ae7e081686d74e259f4282e7e99dd0",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -6726,7 +6726,7 @@
                 "syllables": 1
               }
             ],
-            "line": "zee is home",
+            "line": "zea is home",
             "matching_line_ids": ["line:0"],
             "numbering": "v2+voices",
             "requires_source": true,
@@ -6753,7 +6753,7 @@
           "applicable_readings": ["HH OW1 M", "HH OE1 M"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:991b354d5e5668fc01974ce0212cd135",
+          "id": "token:a89b98af1ef764c1a5c46558e70d48f2",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -6775,7 +6775,7 @@
                 "syllables": 1
               }
             ],
-            "line": "zee is home",
+            "line": "zea is home",
             "matching_line_ids": ["line:0"],
             "numbering": "v2+voices",
             "requires_source": true,
@@ -6801,7 +6801,7 @@
         {
           "basis": "measured",
           "excluded": false,
-          "id": "line:d290bca3e25fc1adb2118742974eff0d",
+          "id": "line:7f669047da1d68fdb0007baafc66a245",
           "kind": "line",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -6820,7 +6820,7 @@
           "applicable_readings": ["AH0 N D", "AE1 N D"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:ce7546b8ed32020c8e31fb694be8b4e7",
+          "id": "token:0a0db6f27e89e42378ee4c38c49641c8",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -6869,7 +6869,7 @@
           "applicable_readings": ["B IY1"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:e1cefcce7b74e7828a6420ef13001f0f",
+          "id": "token:ff315c73fbf9f6c69dc10fffae319c29",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -6913,7 +6913,7 @@
           "applicable_readings": ["IH1 Z", "IH0 Z"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:93004939a61975da586de64175b211ab",
+          "id": "token:c74f957a46c5072070c7c555db209837",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -6962,7 +6962,1933 @@
           "applicable_readings": ["T UW1"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:7130edf334cc31d6ed4e618143664c31",
+          "id": "token:57d815e6e7964661fadbb6e6b47cc665",
+          "kind": "token",
+          "line_id": "line:1",
+          "method_id": "coordinates",
+          "normalized_range": {
+            "codepoint_range": [23, 26],
+            "utf16_range": [23, 26]
+          },
+          "readable": true,
+          "reading_choices": {
+            "dictionary_readings": [
+              {
+                "phones": ["T", "UW1"],
+                "stress": [1],
+                "syllables": 1
+              }
+            ],
+            "line": "and bee is too",
+            "matching_line_ids": ["line:1"],
+            "numbering": "v2+voices",
+            "requires_source": true,
+            "supplied_reading_requires_source": false,
+            "token": 4,
+            "word": "too"
+          },
+          "reading_note": "1 readings and they agree everywhere",
+          "reading_status": "certain",
+          "source_ranges": [
+            {
+              "codepoint_range": [23, 26],
+              "physical_line": null,
+              "precision": "exact",
+              "utf16_range": [23, 26]
+            }
+          ],
+          "text": "too",
+          "token": 3,
+          "token_id": "line:1:token:3",
+          "unit_ids": ["syllable:6"]
+        },
+        {
+          "basis": "measured",
+          "excluded": false,
+          "id": "line:97c916a34ffe913af81a52fb78819e72",
+          "kind": "line",
+          "line_id": "line:2",
+          "method_id": "coordinates",
+          "normalized_cp_range": [27, 36],
+          "source_ranges": [
+            {
+              "codepoint_range": [27, 36],
+              "precision": "exact",
+              "utf16_range": [27, 36]
+            }
+          ],
+          "status": "",
+          "text": "zea again"
+        },
+        {
+          "applicable_readings": ["Z AH0", "Z IY1"],
+          "applicable_source": "variants",
+          "basis": "measured",
+          "id": "token:628c2f72bdc9119a7fcc9e64861c0f6d",
+          "kind": "token",
+          "line_id": "line:2",
+          "method_id": "coordinates",
+          "normalized_range": {
+            "codepoint_range": [27, 30],
+            "utf16_range": [27, 30]
+          },
+          "readable": true,
+          "reading_choices": {
+            "dictionary_readings": [
+              {
+                "phones": ["Z", "AH0"],
+                "stress": [0],
+                "syllables": 1
+              },
+              {
+                "phones": ["Z", "IY1"],
+                "stress": [1],
+                "syllables": 1
+              }
+            ],
+            "line": "zea again",
+            "matching_line_ids": ["line:2"],
+            "numbering": "v2+voices",
+            "requires_source": true,
+            "supplied_reading_requires_source": false,
+            "token": 1,
+            "word": "zea"
+          },
+          "reading_note": "syllable 0 undecided on nucleus/prominence",
+          "reading_status": "merged",
+          "source_ranges": [
+            {
+              "codepoint_range": [27, 30],
+              "physical_line": null,
+              "precision": "exact",
+              "utf16_range": [27, 30]
+            }
+          ],
+          "text": "zea",
+          "token": 0,
+          "token_id": "line:2:token:0",
+          "unit_ids": ["syllable:7"]
+        },
+        {
+          "applicable_readings": ["AH0 G EH1 N", "AH0 G EY1 N"],
+          "applicable_source": "variants",
+          "basis": "measured",
+          "id": "token:590d7151b48db967af585d5243bea41b",
+          "kind": "token",
+          "line_id": "line:2",
+          "method_id": "coordinates",
+          "normalized_range": {
+            "codepoint_range": [31, 36],
+            "utf16_range": [31, 36]
+          },
+          "readable": true,
+          "reading_choices": {
+            "dictionary_readings": [
+              {
+                "phones": ["AH0", "G", "EH1", "N"],
+                "stress": [0, 1],
+                "syllables": 2
+              },
+              {
+                "phones": ["AH0", "G", "EY1", "N"],
+                "stress": [0, 1],
+                "syllables": 2
+              }
+            ],
+            "line": "zea again",
+            "matching_line_ids": ["line:2"],
+            "numbering": "v2+voices",
+            "requires_source": true,
+            "supplied_reading_requires_source": false,
+            "token": 2,
+            "word": "again"
+          },
+          "reading_note": "syllable 1 undecided on nucleus",
+          "reading_status": "merged",
+          "source_ranges": [
+            {
+              "codepoint_range": [31, 36],
+              "physical_line": null,
+              "precision": "exact",
+              "utf16_range": [31, 36]
+            }
+          ],
+          "text": "again",
+          "token": 1,
+          "token_id": "line:2:token:1",
+          "unit_ids": ["syllable:8", "syllable:9"]
+        },
+        {
+          "basis": "measured",
+          "grid_unit": "syllable",
+          "id": "syllable:555ee6f41768c31cd15e6595d34aad17",
+          "kind": "syllable",
+          "line_id": "line:0",
+          "method_id": "coordinates",
+          "normalized_range": {
+            "codepoint_range": [0, 3],
+            "utf16_range": [0, 3]
+          },
+          "precision": "token",
+          "prominence_rule": "lexical stress from CMUdict (1 or 2 -> prominent, 0 -> not), with the harness's WEAK_ALWAYS / WEAK_NONFINAL function-word demotion applied at the phrase level -- doctrine 46: a function-word list is part of a phonology, not an optimisation",
+          "source_ranges": [
+            {
+              "codepoint_range": [0, 3],
+              "physical_line": null,
+              "precision": "exact",
+              "utf16_range": [0, 3]
+            }
+          ],
+          "syllable": {
+            "coda": [],
+            "moras": 1,
+            "nucleus": {
+              "kind": "readings",
+              "values": ["AH", "IY"]
+            },
+            "onset": ["Z"],
+            "prominence": {
+              "kind": "readings",
+              "values": [0, 1]
+            },
+            "text": "zea"
+          },
+          "token_id": "line:0:token:0",
+          "token_syllable": 0,
+          "unit_id": "syllable:0"
+        },
+        {
+          "basis": "measured",
+          "grid_unit": "syllable",
+          "id": "syllable:7f669047da1d68fdb0007baafc66a245",
+          "kind": "syllable",
+          "line_id": "line:0",
+          "method_id": "coordinates",
+          "normalized_range": {
+            "codepoint_range": [4, 6],
+            "utf16_range": [4, 6]
+          },
+          "precision": "token",
+          "prominence_rule": "lexical stress from CMUdict (1 or 2 -> prominent, 0 -> not), with the harness's WEAK_ALWAYS / WEAK_NONFINAL function-word demotion applied at the phrase level -- doctrine 46: a function-word list is part of a phonology, not an optimisation",
+          "source_ranges": [
+            {
+              "codepoint_range": [4, 6],
+              "physical_line": null,
+              "precision": "exact",
+              "utf16_range": [4, 6]
+            }
+          ],
+          "syllable": {
+            "coda": ["Z"],
+            "moras": 1,
+            "nucleus": "IH",
+            "onset": [],
+            "prominence": {
+              "kind": "readings",
+              "values": [0, 1]
+            },
+            "text": "is"
+          },
+          "token_id": "line:0:token:1",
+          "token_syllable": 0,
+          "unit_id": "syllable:1"
+        },
+        {
+          "basis": "measured",
+          "grid_unit": "syllable",
+          "id": "syllable:97c916a34ffe913af81a52fb78819e72",
+          "kind": "syllable",
+          "line_id": "line:0",
+          "method_id": "coordinates",
+          "normalized_range": {
+            "codepoint_range": [7, 11],
+            "utf16_range": [7, 11]
+          },
+          "precision": "token",
+          "prominence_rule": "lexical stress from CMUdict (1 or 2 -> prominent, 0 -> not), with the harness's WEAK_ALWAYS / WEAK_NONFINAL function-word demotion applied at the phrase level -- doctrine 46: a function-word list is part of a phonology, not an optimisation",
+          "source_ranges": [
+            {
+              "codepoint_range": [7, 11],
+              "physical_line": null,
+              "precision": "exact",
+              "utf16_range": [7, 11]
+            }
+          ],
+          "syllable": {
+            "coda": ["M"],
+            "moras": 1,
+            "nucleus": {
+              "kind": "readings",
+              "values": ["OE", "OW"]
+            },
+            "onset": ["HH"],
+            "prominence": 1,
+            "text": "home"
+          },
+          "token_id": "line:0:token:2",
+          "token_syllable": 0,
+          "unit_id": "syllable:2"
+        },
+        {
+          "basis": "measured",
+          "grid_unit": "syllable",
+          "id": "syllable:56df33dc92cabec52155cb8df52a2d05",
+          "kind": "syllable",
+          "line_id": "line:1",
+          "method_id": "coordinates",
+          "normalized_range": {
+            "codepoint_range": [12, 15],
+            "utf16_range": [12, 15]
+          },
+          "precision": "token",
+          "prominence_rule": "lexical stress from CMUdict (1 or 2 -> prominent, 0 -> not), with the harness's WEAK_ALWAYS / WEAK_NONFINAL function-word demotion applied at the phrase level -- doctrine 46: a function-word list is part of a phonology, not an optimisation",
+          "source_ranges": [
+            {
+              "codepoint_range": [12, 15],
+              "physical_line": null,
+              "precision": "exact",
+              "utf16_range": [12, 15]
+            }
+          ],
+          "syllable": {
+            "coda": ["N", "D"],
+            "moras": 1,
+            "nucleus": {
+              "kind": "readings",
+              "values": ["AE", "AH"]
+            },
+            "onset": [],
+            "prominence": {
+              "kind": "readings",
+              "values": [0, 1]
+            },
+            "text": "and"
+          },
+          "token_id": "line:1:token:0",
+          "token_syllable": 0,
+          "unit_id": "syllable:3"
+        },
+        {
+          "basis": "measured",
+          "grid_unit": "syllable",
+          "id": "syllable:3d9adde2690f5804abed64d492b30050",
+          "kind": "syllable",
+          "line_id": "line:1",
+          "method_id": "coordinates",
+          "normalized_range": {
+            "codepoint_range": [16, 19],
+            "utf16_range": [16, 19]
+          },
+          "precision": "token",
+          "prominence_rule": "lexical stress from CMUdict (1 or 2 -> prominent, 0 -> not), with the harness's WEAK_ALWAYS / WEAK_NONFINAL function-word demotion applied at the phrase level -- doctrine 46: a function-word list is part of a phonology, not an optimisation",
+          "source_ranges": [
+            {
+              "codepoint_range": [16, 19],
+              "physical_line": null,
+              "precision": "exact",
+              "utf16_range": [16, 19]
+            }
+          ],
+          "syllable": {
+            "coda": [],
+            "moras": 1,
+            "nucleus": "IY",
+            "onset": ["B"],
+            "prominence": 1,
+            "text": "bee"
+          },
+          "token_id": "line:1:token:1",
+          "token_syllable": 0,
+          "unit_id": "syllable:4"
+        },
+        {
+          "basis": "measured",
+          "grid_unit": "syllable",
+          "id": "syllable:d778245937897ac22f0e130e213ab302",
+          "kind": "syllable",
+          "line_id": "line:1",
+          "method_id": "coordinates",
+          "normalized_range": {
+            "codepoint_range": [20, 22],
+            "utf16_range": [20, 22]
+          },
+          "precision": "token",
+          "prominence_rule": "lexical stress from CMUdict (1 or 2 -> prominent, 0 -> not), with the harness's WEAK_ALWAYS / WEAK_NONFINAL function-word demotion applied at the phrase level -- doctrine 46: a function-word list is part of a phonology, not an optimisation",
+          "source_ranges": [
+            {
+              "codepoint_range": [20, 22],
+              "physical_line": null,
+              "precision": "exact",
+              "utf16_range": [20, 22]
+            }
+          ],
+          "syllable": {
+            "coda": ["Z"],
+            "moras": 1,
+            "nucleus": "IH",
+            "onset": [],
+            "prominence": {
+              "kind": "readings",
+              "values": [0, 1]
+            },
+            "text": "is"
+          },
+          "token_id": "line:1:token:2",
+          "token_syllable": 0,
+          "unit_id": "syllable:5"
+        },
+        {
+          "basis": "measured",
+          "grid_unit": "syllable",
+          "id": "syllable:2f35e69e41e2c2e75a60c6336e48616a",
+          "kind": "syllable",
+          "line_id": "line:1",
+          "method_id": "coordinates",
+          "normalized_range": {
+            "codepoint_range": [23, 26],
+            "utf16_range": [23, 26]
+          },
+          "precision": "token",
+          "prominence_rule": "lexical stress from CMUdict (1 or 2 -> prominent, 0 -> not), with the harness's WEAK_ALWAYS / WEAK_NONFINAL function-word demotion applied at the phrase level -- doctrine 46: a function-word list is part of a phonology, not an optimisation",
+          "source_ranges": [
+            {
+              "codepoint_range": [23, 26],
+              "physical_line": null,
+              "precision": "exact",
+              "utf16_range": [23, 26]
+            }
+          ],
+          "syllable": {
+            "coda": [],
+            "moras": 1,
+            "nucleus": "UW",
+            "onset": ["T"],
+            "prominence": 1,
+            "text": "too"
+          },
+          "token_id": "line:1:token:3",
+          "token_syllable": 0,
+          "unit_id": "syllable:6"
+        },
+        {
+          "basis": "measured",
+          "grid_unit": "syllable",
+          "id": "syllable:843ef76111eea88d0ff7bfeffd78530f",
+          "kind": "syllable",
+          "line_id": "line:2",
+          "method_id": "coordinates",
+          "normalized_range": {
+            "codepoint_range": [27, 30],
+            "utf16_range": [27, 30]
+          },
+          "precision": "token",
+          "prominence_rule": "lexical stress from CMUdict (1 or 2 -> prominent, 0 -> not), with the harness's WEAK_ALWAYS / WEAK_NONFINAL function-word demotion applied at the phrase level -- doctrine 46: a function-word list is part of a phonology, not an optimisation",
+          "source_ranges": [
+            {
+              "codepoint_range": [27, 30],
+              "physical_line": null,
+              "precision": "exact",
+              "utf16_range": [27, 30]
+            }
+          ],
+          "syllable": {
+            "coda": [],
+            "moras": 1,
+            "nucleus": {
+              "kind": "readings",
+              "values": ["AH", "IY"]
+            },
+            "onset": ["Z"],
+            "prominence": {
+              "kind": "readings",
+              "values": [0, 1]
+            },
+            "text": "zea"
+          },
+          "token_id": "line:2:token:0",
+          "token_syllable": 0,
+          "unit_id": "syllable:7"
+        },
+        {
+          "basis": "measured",
+          "grid_unit": "syllable",
+          "id": "syllable:bfbf58ed2b6b2ce295ea7d152192c80c",
+          "kind": "syllable",
+          "line_id": "line:2",
+          "method_id": "coordinates",
+          "normalized_range": {
+            "codepoint_range": [31, 36],
+            "utf16_range": [31, 36]
+          },
+          "precision": "token",
+          "prominence_rule": "lexical stress from CMUdict (1 or 2 -> prominent, 0 -> not), with the harness's WEAK_ALWAYS / WEAK_NONFINAL function-word demotion applied at the phrase level -- doctrine 46: a function-word list is part of a phonology, not an optimisation",
+          "source_ranges": [
+            {
+              "codepoint_range": [31, 36],
+              "physical_line": null,
+              "precision": "exact",
+              "utf16_range": [31, 36]
+            }
+          ],
+          "syllable": {
+            "coda": [],
+            "moras": 1,
+            "nucleus": "AH",
+            "onset": [],
+            "prominence": 0,
+            "text": "again"
+          },
+          "token_id": "line:2:token:1",
+          "token_syllable": 0,
+          "unit_id": "syllable:8"
+        },
+        {
+          "basis": "measured",
+          "grid_unit": "syllable",
+          "id": "syllable:515340d11b103c1e98886bf44e419536",
+          "kind": "syllable",
+          "line_id": "line:2",
+          "method_id": "coordinates",
+          "normalized_range": {
+            "codepoint_range": [31, 36],
+            "utf16_range": [31, 36]
+          },
+          "precision": "token",
+          "prominence_rule": "lexical stress from CMUdict (1 or 2 -> prominent, 0 -> not), with the harness's WEAK_ALWAYS / WEAK_NONFINAL function-word demotion applied at the phrase level -- doctrine 46: a function-word list is part of a phonology, not an optimisation",
+          "source_ranges": [
+            {
+              "codepoint_range": [31, 36],
+              "physical_line": null,
+              "precision": "exact",
+              "utf16_range": [31, 36]
+            }
+          ],
+          "syllable": {
+            "coda": ["N"],
+            "moras": 1,
+            "nucleus": {
+              "kind": "readings",
+              "values": ["EH", "EY"]
+            },
+            "onset": ["G"],
+            "prominence": 1,
+            "text": "again"
+          },
+          "token_id": "line:2:token:1",
+          "token_syllable": 1,
+          "unit_id": "syllable:9"
+        },
+        {
+          "basis": "measured",
+          "class_verdicts": {
+            "ASSONANCE": "false",
+            "CONSONANCE": "false",
+            "PROMOTED_RHYME": "false",
+            "RHYME": "false",
+            "RIME_RICHE": "false"
+          },
+          "coverage": "answered",
+          "id": "native_pair:96e0539ff2685e2ae72bd0bfa0b3d712",
+          "kind": "native_pair",
+          "language": "eng",
+          "line_ids": ["line:0", "line:1"],
+          "method_id": "native:54a122b523dc901f54d7abf6",
+          "namespace": "native",
+          "predicates": {},
+          "reason": "No native rhyme predicate is supplied by this profile.",
+          "route": {
+            "alliteration": "channels",
+            "rhyme": "channels"
+          },
+          "type_coordinate": {
+            "agreement": [[false, false, false]],
+            "anchor_a": {
+              "determinacy": "rule-fixed",
+              "index": null,
+              "rule": "last-prominent",
+              "side": null,
+              "span": "to-end"
+            },
+            "anchor_b": {
+              "determinacy": "rule-fixed",
+              "index": null,
+              "rule": "last-prominent",
+              "side": null,
+              "span": "to-end"
+            },
+            "boundary": "simple",
+            "identity": "distinct",
+            "length": "equal",
+            "position": null,
+            "realisation": "phonetic",
+            "stress": "aligned"
+          },
+          "type_names": [],
+          "unknown_channels": [],
+          "whole_reading": {
+            "combination_limit": 64,
+            "verdict": "false",
+            "witness": null
+          },
+          "words": ["home", "too"]
+        },
+        {
+          "basis": "measured",
+          "class_verdicts": {
+            "ASSONANCE": "false",
+            "CONSONANCE": "false",
+            "PROMOTED_RHYME": "false",
+            "RHYME": "false",
+            "RIME_RICHE": "false"
+          },
+          "coverage": "answered",
+          "id": "native_pair:890c277b2494190c305d39da388ab8e4",
+          "kind": "native_pair",
+          "language": "eng",
+          "line_ids": ["line:0", "line:2"],
+          "method_id": "native:54a122b523dc901f54d7abf6",
+          "namespace": "native",
+          "predicates": {},
+          "reason": "No native rhyme predicate is supplied by this profile.",
+          "route": {
+            "alliteration": "channels",
+            "rhyme": "channels"
+          },
+          "type_coordinate": {
+            "agreement": [[false, false, false]],
+            "anchor_a": {
+              "determinacy": "rule-fixed",
+              "index": null,
+              "rule": "last-prominent",
+              "side": null,
+              "span": "to-end"
+            },
+            "anchor_b": {
+              "determinacy": "rule-fixed",
+              "index": null,
+              "rule": "last-prominent",
+              "side": null,
+              "span": "to-end"
+            },
+            "boundary": "simple",
+            "identity": "distinct",
+            "length": "subtractive",
+            "position": null,
+            "realisation": "phonetic",
+            "stress": "aligned"
+          },
+          "type_names": [],
+          "unknown_channels": [],
+          "whole_reading": {
+            "combination_limit": 64,
+            "verdict": "false",
+            "witness": null
+          },
+          "words": ["home", "again"]
+        },
+        {
+          "basis": "measured",
+          "class_verdicts": {
+            "ASSONANCE": "false",
+            "CONSONANCE": "false",
+            "PROMOTED_RHYME": "false",
+            "RHYME": "false",
+            "RIME_RICHE": "false"
+          },
+          "coverage": "answered",
+          "id": "native_pair:a66cf0e60762cb6bff39980a05fd88aa",
+          "kind": "native_pair",
+          "language": "eng",
+          "line_ids": ["line:1", "line:2"],
+          "method_id": "native:54a122b523dc901f54d7abf6",
+          "namespace": "native",
+          "predicates": {},
+          "reason": "No native rhyme predicate is supplied by this profile.",
+          "route": {
+            "alliteration": "channels",
+            "rhyme": "channels"
+          },
+          "type_coordinate": {
+            "agreement": [[false, false, false]],
+            "anchor_a": {
+              "determinacy": "rule-fixed",
+              "index": null,
+              "rule": "last-prominent",
+              "side": null,
+              "span": "to-end"
+            },
+            "anchor_b": {
+              "determinacy": "rule-fixed",
+              "index": null,
+              "rule": "last-prominent",
+              "side": null,
+              "span": "to-end"
+            },
+            "boundary": "simple",
+            "identity": "distinct",
+            "length": "subtractive",
+            "position": null,
+            "realisation": "phonetic",
+            "stress": "aligned"
+          },
+          "type_names": [],
+          "unknown_channels": [],
+          "whole_reading": {
+            "combination_limit": 64,
+            "verdict": "false",
+            "witness": null
+          },
+          "words": ["too", "again"]
+        },
+        {
+          "a": {
+            "anchor_position": 0,
+            "direction": 1,
+            "line_ids": ["line:0"],
+            "normalized_ranges": [
+              {
+                "codepoint_range": [0, 3],
+                "utf16_range": [0, 3]
+              }
+            ],
+            "origin": "L0.T0",
+            "precision": "token",
+            "search_k": 1,
+            "source_ranges": [
+              {
+                "codepoint_range": [0, 3],
+                "physical_line": null,
+                "precision": "exact",
+                "utf16_range": [0, 3]
+              }
+            ],
+            "token_ids": ["line:0:token:0"],
+            "unit_ids": ["syllable:0"]
+          },
+          "alignment": {
+            "kind": "anchor",
+            "pairs": [[0, 0]],
+            "unmatched_a": [],
+            "unmatched_b": []
+          },
+          "b": {
+            "anchor_position": 0,
+            "direction": 1,
+            "line_ids": ["line:1"],
+            "normalized_ranges": [
+              {
+                "codepoint_range": [16, 19],
+                "utf16_range": [16, 19]
+              }
+            ],
+            "origin": "L1.T1",
+            "precision": "token",
+            "search_k": 1,
+            "source_ranges": [
+              {
+                "codepoint_range": [16, 19],
+                "physical_line": null,
+                "precision": "exact",
+                "utf16_range": [16, 19]
+              }
+            ],
+            "token_ids": ["line:1:token:1"],
+            "unit_ids": ["syllable:4"]
+          },
+          "basis": "measured",
+          "channel_reads": [
+            [
+              "nucleus",
+              0,
+              {
+                "informative": true,
+                "note": "",
+                "value": true
+              }
+            ],
+            [
+              "coda",
+              0,
+              {
+                "informative": false,
+                "note": "",
+                "value": true
+              }
+            ]
+          ],
+          "compared": {
+            "a": [
+              {
+                "coda": [],
+                "moras": 1,
+                "nucleus": "IY",
+                "onset": ["Z"],
+                "prominence": 1,
+                "text": "zea"
+              }
+            ],
+            "b": [
+              {
+                "coda": [],
+                "moras": 1,
+                "nucleus": "IY",
+                "onset": ["B"],
+                "prominence": 1,
+                "text": "bee"
+              }
+            ]
+          },
+          "engine_edge": {
+            "a": {
+              "anchor_pos": 0,
+              "direction": 1,
+              "idx": [0],
+              "origin": "L0.T0",
+              "promoted": false,
+              "search_k": 1,
+              "unit": "syllable"
+            },
+            "alignment": {
+              "kind": "anchor",
+              "pairs": [[0, 0]],
+              "unmatched_a": [],
+              "unmatched_b": []
+            },
+            "b": {
+              "anchor_pos": 0,
+              "direction": 1,
+              "idx": [4],
+              "origin": "L1.T1",
+              "promoted": false,
+              "search_k": 1,
+              "unit": "syllable"
+            },
+            "identity_reads": [
+              [
+                "token",
+                {
+                  "informative": true,
+                  "note": "",
+                  "value": true
+                }
+              ]
+            ],
+            "placement_reads": [["both_line_final", true]],
+            "reads": [
+              [
+                "nucleus",
+                0,
+                {
+                  "informative": true,
+                  "note": "",
+                  "value": true
+                }
+              ],
+              [
+                "coda",
+                0,
+                {
+                  "informative": false,
+                  "note": "",
+                  "value": true
+                }
+              ]
+            ],
+            "schema": "internal rhyme",
+            "search_k": 1,
+            "verdict": true
+          },
+          "id": "relation_instance:6cad7f8206c0820cd0f5b512091cec97",
+          "identity_reads": [
+            [
+              "token",
+              {
+                "informative": true,
+                "note": "",
+                "value": true
+              }
+            ]
+          ],
+          "informative_channels": ["nucleus"],
+          "judged_under": {
+            "assignment": [
+              {
+                "display": "zea (merged set)",
+                "held": "merged_set",
+                "occurrence": "line:0:token:0",
+                "phones": null,
+                "role": ["a"]
+              },
+              {
+                "display": "bee = B IY1",
+                "held": "only_reading",
+                "occurrence": "line:1:token:1",
+                "phones": "B IY1",
+                "role": ["b"]
+              }
+            ],
+            "basis": "merged_set",
+            "verdict": "undecided"
+          },
+          "kind": "relation_instance",
+          "method_id": "schema:1429ae948687ca75ce1cebde",
+          "namespace": "schema",
+          "placement_reads": [["both_line_final", true]],
+          "quantifier": "exists_compatible_reading",
+          "reading": {
+            "rule": "any_reading",
+            "witness": ["zea = Z IY1"]
+          },
+          "reading_outcomes": [
+            {
+              "assignment": [
+                {
+                  "display": "zea = Z AH0",
+                  "held": "varied",
+                  "occurrence": "line:0:token:0",
+                  "phones": "Z AH0",
+                  "role": ["a"]
+                },
+                {
+                  "display": "bee = B IY1",
+                  "held": "only_reading",
+                  "occurrence": "line:1:token:1",
+                  "phones": "B IY1",
+                  "role": ["b"]
+                }
+              ],
+              "verdict": "false"
+            }
+          ],
+          "reading_search": {
+            "combination_limit": 64,
+            "combinations_examined": 2,
+            "state": "exhaustive",
+            "termination_reason": "witness_found"
+          },
+          "schema_name": "internal rhyme",
+          "scope": "in_tradition",
+          "unknown_channels": [],
+          "verdict": "true",
+          "witness_assignment": [
+            {
+              "display": "zea = Z IY1",
+              "held": "varied",
+              "occurrence": "line:0:token:0",
+              "phones": "Z IY1",
+              "role": ["a"]
+            },
+            {
+              "display": "bee = B IY1",
+              "held": "only_reading",
+              "occurrence": "line:1:token:1",
+              "phones": "B IY1",
+              "role": ["b"]
+            }
+          ]
+        },
+        {
+          "a": {
+            "anchor_position": 0,
+            "direction": 1,
+            "line_ids": ["line:1"],
+            "normalized_ranges": [
+              {
+                "codepoint_range": [16, 19],
+                "utf16_range": [16, 19]
+              }
+            ],
+            "origin": "L1.T1",
+            "precision": "token",
+            "search_k": 1,
+            "source_ranges": [
+              {
+                "codepoint_range": [16, 19],
+                "physical_line": null,
+                "precision": "exact",
+                "utf16_range": [16, 19]
+              }
+            ],
+            "token_ids": ["line:1:token:1"],
+            "unit_ids": ["syllable:4"]
+          },
+          "alignment": {
+            "kind": "anchor",
+            "pairs": [[0, 0]],
+            "unmatched_a": [],
+            "unmatched_b": []
+          },
+          "b": {
+            "anchor_position": 0,
+            "direction": 1,
+            "line_ids": ["line:2"],
+            "normalized_ranges": [
+              {
+                "codepoint_range": [27, 30],
+                "utf16_range": [27, 30]
+              }
+            ],
+            "origin": "L2.T0",
+            "precision": "token",
+            "search_k": 1,
+            "source_ranges": [
+              {
+                "codepoint_range": [27, 30],
+                "physical_line": null,
+                "precision": "exact",
+                "utf16_range": [27, 30]
+              }
+            ],
+            "token_ids": ["line:2:token:0"],
+            "unit_ids": ["syllable:7"]
+          },
+          "basis": "measured",
+          "channel_reads": [
+            [
+              "nucleus",
+              0,
+              {
+                "informative": true,
+                "note": "",
+                "value": true
+              }
+            ],
+            [
+              "coda",
+              0,
+              {
+                "informative": false,
+                "note": "",
+                "value": true
+              }
+            ]
+          ],
+          "compared": {
+            "a": [
+              {
+                "coda": [],
+                "moras": 1,
+                "nucleus": "IY",
+                "onset": ["B"],
+                "prominence": 1,
+                "text": "bee"
+              }
+            ],
+            "b": [
+              {
+                "coda": [],
+                "moras": 1,
+                "nucleus": "IY",
+                "onset": ["Z"],
+                "prominence": 1,
+                "text": "zea"
+              }
+            ]
+          },
+          "engine_edge": {
+            "a": {
+              "anchor_pos": 0,
+              "direction": 1,
+              "idx": [1],
+              "origin": "L1.T1",
+              "promoted": false,
+              "search_k": 1,
+              "unit": "syllable"
+            },
+            "alignment": {
+              "kind": "anchor",
+              "pairs": [[0, 0]],
+              "unmatched_a": [],
+              "unmatched_b": []
+            },
+            "b": {
+              "anchor_pos": 0,
+              "direction": 1,
+              "idx": [4],
+              "origin": "L2.T0",
+              "promoted": false,
+              "search_k": 1,
+              "unit": "syllable"
+            },
+            "identity_reads": [
+              [
+                "token",
+                {
+                  "informative": true,
+                  "note": "",
+                  "value": true
+                }
+              ]
+            ],
+            "placement_reads": [["both_line_final", true]],
+            "reads": [
+              [
+                "nucleus",
+                0,
+                {
+                  "informative": true,
+                  "note": "",
+                  "value": true
+                }
+              ],
+              [
+                "coda",
+                0,
+                {
+                  "informative": false,
+                  "note": "",
+                  "value": true
+                }
+              ]
+            ],
+            "schema": "internal rhyme",
+            "search_k": 1,
+            "verdict": true
+          },
+          "id": "relation_instance:b08a54b245880be2c9ce1a983b713b93",
+          "identity_reads": [
+            [
+              "token",
+              {
+                "informative": true,
+                "note": "",
+                "value": true
+              }
+            ]
+          ],
+          "informative_channels": ["nucleus"],
+          "judged_under": {
+            "assignment": [
+              {
+                "display": "bee = B IY1",
+                "held": "only_reading",
+                "occurrence": "line:1:token:1",
+                "phones": "B IY1",
+                "role": ["a"]
+              },
+              {
+                "display": "zea (merged set)",
+                "held": "merged_set",
+                "occurrence": "line:2:token:0",
+                "phones": null,
+                "role": ["b"]
+              }
+            ],
+            "basis": "merged_set",
+            "verdict": "undecided"
+          },
+          "kind": "relation_instance",
+          "method_id": "schema:1429ae948687ca75ce1cebde",
+          "namespace": "schema",
+          "placement_reads": [["both_line_final", true]],
+          "quantifier": "exists_compatible_reading",
+          "reading": {
+            "rule": "any_reading",
+            "witness": ["zea = Z IY1"]
+          },
+          "reading_outcomes": [
+            {
+              "assignment": [
+                {
+                  "display": "bee = B IY1",
+                  "held": "only_reading",
+                  "occurrence": "line:1:token:1",
+                  "phones": "B IY1",
+                  "role": ["a"]
+                },
+                {
+                  "display": "zea = Z AH0",
+                  "held": "varied",
+                  "occurrence": "line:2:token:0",
+                  "phones": "Z AH0",
+                  "role": ["b"]
+                }
+              ],
+              "verdict": "false"
+            }
+          ],
+          "reading_search": {
+            "combination_limit": 64,
+            "combinations_examined": 2,
+            "state": "exhaustive",
+            "termination_reason": "witness_found"
+          },
+          "schema_name": "internal rhyme",
+          "scope": "in_tradition",
+          "unknown_channels": [],
+          "verdict": "true",
+          "witness_assignment": [
+            {
+              "display": "bee = B IY1",
+              "held": "only_reading",
+              "occurrence": "line:1:token:1",
+              "phones": "B IY1",
+              "role": ["a"]
+            },
+            {
+              "display": "zea = Z IY1",
+              "held": "varied",
+              "occurrence": "line:2:token:0",
+              "phones": "Z IY1",
+              "role": ["b"]
+            }
+          ]
+        },
+        {
+          "availability": "available",
+          "basis": "measured",
+          "counts": {
+            "candidates": 31,
+            "coverage": "answered",
+            "false": 26,
+            "true": 2,
+            "undecided": 0
+          },
+          "coverage": "answered",
+          "domain": {
+            "ordering": "role_ordered",
+            "pair_count": 33,
+            "pairs": {
+              "0": [[1, 8]],
+              "1": [[2, 8]],
+              "2": [
+                [3, 5],
+                [7, 7]
+              ],
+              "3": [[4, 8]],
+              "4": [[5, 8]],
+              "5": [[6, 8]],
+              "6": [[7, 7]],
+              "7": [[8, 8]]
+            },
+            "projection": "exact_token_pair",
+            "reading_dependent_tokens": [],
+            "reading_policy": "exists_compatible_reading",
+            "tokens": [
+              "line:0:token:0",
+              "line:0:token:1",
+              "line:0:token:2",
+              "line:1:token:0",
+              "line:1:token:1",
+              "line:1:token:2",
+              "line:1:token:3",
+              "line:2:token:0",
+              "line:2:token:1"
+            ]
+          },
+          "id": "method_result:949a5f57db6d27c0e6365e7d8ad7ecbf",
+          "kind": "method_result",
+          "method_id": "schema:1429ae948687ca75ce1cebde",
+          "namespace": "schema",
+          "refusal": null,
+          "schema_name": "internal rhyme",
+          "supply": {
+            "prominence": {
+              "capability": "prominence",
+              "detail": "units whose syllable carries a prominence value",
+              "n": 10,
+              "source": "phonology",
+              "state": "present"
+            }
+          }
+        }
+      ],
+      "summary": {
+        "capabilities": {
+          "reachable": [
+            "Kalevala alliteration (strong)",
+            "Kalevala alliteration (weak)",
+            "Scots vowel-length rhyme (Aitken's Law)",
+            "ablaut reduplication",
+            "additive rhyme",
+            "alliteration",
+            "amphisbaenic rhyme",
+            "anadiplosis",
+            "anaphora",
+            "apocopated rhyme",
+            "assonance",
+            "broken rhyme",
+            "chain rhyme (rap)",
+            "cluster consonance / skothending span",
+            "compound / phrasal rhyme",
+            "consonance",
+            "cross rhyme",
+            "cynghanedd lusg",
+            "cynghanedd sain",
+            "cynghanedd sain drosgl",
+            "cynghanedd sain gadwynog",
+            "cynghanedd sain lafarog",
+            "enjambed rhyme",
+            "epanalepsis",
+            "exact reduplication",
+            "family rhyme",
+            "head rhyme (positional)",
+            "holorhyme",
+            "homoioteleuton",
+            "incremental repetition",
+            "interlaced rhyme",
+            "internal assonance",
+            "internal consonance",
+            "internal rhyme",
+            "light rhyme",
+            "linked rhyme",
+            "mosaic rhyme",
+            "multisyllabic rhyme",
+            "pantun ABAB",
+            "pararhyme",
+            "parechesis / general consonance",
+            "paroemion",
+            "perfect rhyme",
+            "polyptoton",
+            "repetition",
+            "reverse rhyme",
+            "rhyming reduplication",
+            "rime riche",
+            "semirhyme",
+            "subtractive rhyme",
+            "syllabic rhyme",
+            "symploce",
+            "trite rhyme"
+          ],
+          "refused": {
+            "beat": ["offbeat internal rhyme"],
+            "caesura": [
+              "cynghanedd draws",
+              "cynghanedd groes",
+              "cynghanedd groes o gyswllt",
+              "leonine rhyme"
+            ],
+            "delivered": ["transformative / bent rhyme", "wrenched rhyme"],
+            "earlier": ["historical rhyme"],
+            "lifts": ["alliterative long line", "fourth lift must not alliterate"],
+            "orthography": ["eye rhyme"],
+            "poet": ["dialect rhyme"],
+            "quotient:vowel_class": ["proest"],
+            "quotient:同用": ["Middle Chinese end rhyme (同用 group)"],
+            "refrain_tail": ["epistrophe / radif", "qafiya (before the radif)"],
+            "sense": ["antanaclasis"],
+            "slang": ["rhyming slang"],
+            "stanza": [
+              "analysed rhyme",
+              "blues AAB stanza",
+              "chain rhyme (interlocking scheme)",
+              "dvitiyakshara-prasa",
+              "monai",
+              "monorhyme / leash"
+            ],
+            "stub_resolution": ["refrain by reference"],
+            "sung": ["sung-delivery rhyme"],
+            "tonal_template+tone": ["平仄 tonal template"]
+          },
+          "supply": {
+            "beat": {
+              "capability": "beat",
+              "detail": "no source declared: lines carrying a declared beat grid",
+              "n": 0,
+              "source": "none",
+              "state": "absent"
+            },
+            "caesura": {
+              "capability": "caesura",
+              "detail": "no source declared: lines carrying a caesura position",
+              "n": 0,
+              "source": "none",
+              "state": "absent"
+            },
+            "delivered": {
+              "capability": "delivered",
+              "detail": "no second declaration is held under this name",
+              "n": 0,
+              "source": "none",
+              "state": "absent"
+            },
+            "earlier": {
+              "capability": "earlier",
+              "detail": "no second declaration is held under this name",
+              "n": 0,
+              "source": "none",
+              "state": "absent"
+            },
+            "lexicon": {
+              "capability": "lexicon",
+              "detail": "named in declaration['resources'] or phon.resources",
+              "n": 1,
+              "source": "phonology",
+              "state": "present"
+            },
+            "lifts": {
+              "capability": "lifts",
+              "detail": "no source declared: lines carrying a lift template",
+              "n": 0,
+              "source": "none",
+              "state": "absent"
+            },
+            "morphology": {
+              "capability": "morphology",
+              "detail": "named in declaration['resources'] or phon.resources",
+              "n": 1,
+              "source": "phonology",
+              "state": "present"
+            },
+            "orthography": {
+              "capability": "orthography",
+              "detail": "no second declaration is held under this name",
+              "n": 0,
+              "source": "none",
+              "state": "absent"
+            },
+            "poet": {
+              "capability": "poet",
+              "detail": "no second declaration is held under this name",
+              "n": 0,
+              "source": "none",
+              "state": "absent"
+            },
+            "prominence": {
+              "capability": "prominence",
+              "detail": "units whose syllable carries a prominence value",
+              "n": 10,
+              "source": "phonology",
+              "state": "present"
+            },
+            "quotient:manner": {
+              "capability": "quotient:manner",
+              "detail": "a partition callable, from the declaration or the phonology",
+              "n": 1,
+              "source": "declaration",
+              "state": "present"
+            },
+            "quotient:trite": {
+              "capability": "quotient:trite",
+              "detail": "a partition callable, from the declaration or the phonology",
+              "n": 1,
+              "source": "declaration",
+              "state": "present"
+            },
+            "quotient:vowel_class": {
+              "capability": "quotient:vowel_class",
+              "detail": "a partition callable, from the declaration or the phonology",
+              "n": 0,
+              "source": "declaration",
+              "state": "absent"
+            },
+            "quotient:同用": {
+              "capability": "quotient:同用",
+              "detail": "a partition callable, from the declaration or the phonology",
+              "n": 0,
+              "source": "declaration",
+              "state": "absent"
+            },
+            "refrain_tail": {
+              "capability": "refrain_tail",
+              "detail": "no source declared: lines carrying a refrain tail",
+              "n": 0,
+              "source": "none",
+              "state": "absent"
+            },
+            "sense": {
+              "capability": "sense",
+              "detail": "named in declaration['resources'] or phon.resources",
+              "n": 0,
+              "source": "phonology",
+              "state": "absent"
+            },
+            "slang": {
+              "capability": "slang",
+              "detail": "no second declaration is held under this name",
+              "n": 0,
+              "source": "none",
+              "state": "absent"
+            },
+            "stanza": {
+              "capability": "stanza",
+              "detail": "no source declared: distinct stanzas over the stream's units",
+              "n": 0,
+              "source": "none",
+              "state": "absent"
+            },
+            "stub_resolution": {
+              "capability": "stub_resolution",
+              "detail": "no source declared: stub lines resolved to a span",
+              "n": 0,
+              "source": "none",
+              "state": "absent"
+            },
+            "sung": {
+              "capability": "sung",
+              "detail": "no second declaration is held under this name",
+              "n": 0,
+              "source": "none",
+              "state": "absent"
+            },
+            "tonal_template": {
+              "capability": "tonal_template",
+              "detail": "no source declared: lines carrying a declared 平仄 pattern",
+              "n": 0,
+              "source": "none",
+              "state": "absent"
+            },
+            "tone": {
+              "capability": "tone",
+              "detail": "units whose prominence the phonology declares as 平/仄",
+              "n": 0,
+              "source": "phonology",
+              "state": "absent"
+            }
+          },
+          "vacuous": {}
+        },
+        "completion": "complete",
+        "counters": {
+          "candidates": 56,
+          "evidence_records": 28,
+          "false": 26,
+          "true": 2,
+          "undecided": 0
+        },
+        "coverage": {
+          "answered_methods": 2,
+          "certified": true,
+          "not_requested_methods": 79,
+          "partial": false,
+          "pending_methods": 0,
+          "refused_methods": 0,
+          "refused_obligations": [],
+          "requested_methods": 2
+        },
+        "denominators": {
+          "excluded_lines": 0,
+          "raw_tokens": 9,
+          "readable_tokens": 9,
+          "syllables": 10,
+          "unread_tokens": 0
+        },
+        "identity": {
+          "catalog": {},
+          "contract_version": 1,
+          "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "hash": "4581e4eede32070cc2bd22854b3b55d58c216002e32e5b4df866f164f1933497",
+          "language": "eng",
+          "normalized_sha256": "a82da2dd2f5bba009306e243b8c1f486892825bc779b8d8b3544d644bcc84516",
+          "reading_revision": "fixture-v1",
+          "reading_unit_id": "caller-owned-fixture:eng",
+          "requested": {
+            "layers": ["sound"],
+            "schemas": ["internal rhyme"]
+          },
+          "runtime": {
+            "engine_hash": "5d632de00d3051542a3b3f14f616ba9bcb1c75e13963daf7950f90ab978a2150",
+            "phonology": {
+              "accent_readings": "accent-readings-2026-10-30",
+              "fallback": null,
+              "fallback_licenses": "no fallback: a word CMUdict cannot read REFUSES",
+              "grid_unit": "syllable",
+              "language": "eng",
+              "name": "English (General American)",
+              "notation": "ARPAbet, cmusphinx/cmudict master working copy (post-0.7b); stress digits 0/1/2 on vowel phones; under reader scheme v2 the extended English inventory and rule-derived accent readings (lyric_harness.derive_accent_readings)",
+              "prominence_rule": "lexical stress from CMUdict (1 or 2 -> prominent, 0 -> not), with the harness's WEAK_ALWAYS / WEAK_NONFINAL function-word demotion applied at the phrase level -- doctrine 46: a function-word list is part of a phonology, not an optimisation",
+              "reader_scheme": "v2",
+              "readings": "all",
+              "relation": "none declared. An English pair is judged in every relation it stands in -- each coarse relation (score()) and every registry schema (quality/relations.py REGISTRY) -- so `rhymes()` stays the inherited stub and the channels decide -- see this module's docstring",
+              "source": "cmusphinx/cmudict master working copy, md5 5837aa6e49fd070d482b8ca0525f28ef; BSD-2-clause (Carnegie Mellon University), NOT public domain; see data/sources.tsv",
+              "strip_parens": false,
+              "syllable_disputes": "first"
+            },
+            "resources_hash": "bf13b8ae25a7d86fe1ef0ecfa9293265096b54d4d5117518f28b20f54aa705c4"
+          },
+          "source_map_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "source_sha256": null
+        },
+        "language": "eng",
+        "methods": [
+          {
+            "candidates": 3,
+            "coverage": "answered",
+            "false": 0,
+            "method_id": "native:54a122b523dc901f54d7abf6",
+            "true": 0,
+            "undecided": 0
+          },
+          {
+            "candidates": 31,
+            "coverage": "answered",
+            "false": 26,
+            "method_id": "schema:1429ae948687ca75ce1cebde",
+            "true": 2,
+            "undecided": 0
+          }
+        ],
+        "provider_calls": 0
+      }
+    },
+    "witness_first": {
+      "identity": {
+        "catalog": {},
+        "contract_version": 1,
+        "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "hash": "e1da9b3aa2ed40c950e5a0533c64784027fcc16ed8fcc9b101d9a18ef8f3b97a",
+        "language": "eng",
+        "normalized_sha256": "4dbb7540d4ccdaac93105cd3bf8c32396c8fd115c3a8094de6ca2f11b1438047",
+        "reading_revision": "fixture-v1",
+        "reading_unit_id": "caller-owned-fixture:eng",
+        "requested": {
+          "layers": ["sound"],
+          "schemas": ["internal rhyme"]
+        },
+        "runtime": {
+          "engine_hash": "5d632de00d3051542a3b3f14f616ba9bcb1c75e13963daf7950f90ab978a2150",
+          "phonology": {
+            "accent_readings": "accent-readings-2026-10-30",
+            "fallback": null,
+            "fallback_licenses": "no fallback: a word CMUdict cannot read REFUSES",
+            "grid_unit": "syllable",
+            "language": "eng",
+            "name": "English (General American)",
+            "notation": "ARPAbet, cmusphinx/cmudict master working copy (post-0.7b); stress digits 0/1/2 on vowel phones; under reader scheme v2 the extended English inventory and rule-derived accent readings (lyric_harness.derive_accent_readings)",
+            "prominence_rule": "lexical stress from CMUdict (1 or 2 -> prominent, 0 -> not), with the harness's WEAK_ALWAYS / WEAK_NONFINAL function-word demotion applied at the phrase level -- doctrine 46: a function-word list is part of a phonology, not an optimisation",
+            "reader_scheme": "v2",
+            "readings": "all",
+            "relation": "none declared. An English pair is judged in every relation it stands in -- each coarse relation (score()) and every registry schema (quality/relations.py REGISTRY) -- so `rhymes()` stays the inherited stub and the channels decide -- see this module's docstring",
+            "source": "cmusphinx/cmudict master working copy, md5 5837aa6e49fd070d482b8ca0525f28ef; BSD-2-clause (Carnegie Mellon University), NOT public domain; see data/sources.tsv",
+            "strip_parens": false,
+            "syllable_disputes": "first"
+          },
+          "resources_hash": "bf13b8ae25a7d86fe1ef0ecfa9293265096b54d4d5117518f28b20f54aa705c4"
+        },
+        "source_map_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "source_sha256": null
+      },
+      "records": [
+        {
+          "basis": "measured",
+          "excluded": false,
+          "id": "line:e45f0f303d8c4f32b279466193415568",
+          "kind": "line",
+          "line_id": "line:0",
+          "method_id": "coordinates",
+          "normalized_cp_range": [0, 11],
+          "source_ranges": [
+            {
+              "codepoint_range": [0, 11],
+              "precision": "exact",
+              "utf16_range": [0, 11]
+            }
+          ],
+          "status": "",
+          "text": "zee is home"
+        },
+        {
+          "applicable_readings": ["Z IY1", "Z AH0"],
+          "applicable_source": "variants",
+          "basis": "measured",
+          "id": "token:65b595035458ba76869a3b46f5552a4d",
+          "kind": "token",
+          "line_id": "line:0",
+          "method_id": "coordinates",
+          "normalized_range": {
+            "codepoint_range": [0, 3],
+            "utf16_range": [0, 3]
+          },
+          "readable": true,
+          "reading_choices": {
+            "dictionary_readings": [
+              {
+                "phones": ["Z", "AH0"],
+                "stress": [0],
+                "syllables": 1
+              },
+              {
+                "phones": ["Z", "IY1"],
+                "stress": [1],
+                "syllables": 1
+              }
+            ],
+            "line": "zee is home",
+            "matching_line_ids": ["line:0"],
+            "numbering": "v2+voices",
+            "requires_source": true,
+            "supplied_reading_requires_source": false,
+            "token": 1,
+            "word": "zee"
+          },
+          "reading_note": "syllable 0 undecided on nucleus/prominence",
+          "reading_status": "merged",
+          "source_ranges": [
+            {
+              "codepoint_range": [0, 3],
+              "physical_line": null,
+              "precision": "exact",
+              "utf16_range": [0, 3]
+            }
+          ],
+          "text": "zee",
+          "token": 0,
+          "token_id": "line:0:token:0",
+          "unit_ids": ["syllable:0"]
+        },
+        {
+          "applicable_readings": ["IH1 Z", "IH0 Z"],
+          "applicable_source": "variants",
+          "basis": "measured",
+          "id": "token:eef902082b84442d730d82f1ad2243cc",
+          "kind": "token",
+          "line_id": "line:0",
+          "method_id": "coordinates",
+          "normalized_range": {
+            "codepoint_range": [4, 6],
+            "utf16_range": [4, 6]
+          },
+          "readable": true,
+          "reading_choices": {
+            "dictionary_readings": [
+              {
+                "phones": ["IH0", "Z"],
+                "stress": [0],
+                "syllables": 1
+              },
+              {
+                "phones": ["IH1", "Z"],
+                "stress": [1],
+                "syllables": 1
+              }
+            ],
+            "line": "zee is home",
+            "matching_line_ids": ["line:0"],
+            "numbering": "v2+voices",
+            "requires_source": true,
+            "supplied_reading_requires_source": false,
+            "token": 2,
+            "word": "is"
+          },
+          "reading_note": "syllable 0 undecided on prominence",
+          "reading_status": "merged",
+          "source_ranges": [
+            {
+              "codepoint_range": [4, 6],
+              "physical_line": null,
+              "precision": "exact",
+              "utf16_range": [4, 6]
+            }
+          ],
+          "text": "is",
+          "token": 1,
+          "token_id": "line:0:token:1",
+          "unit_ids": ["syllable:1"]
+        },
+        {
+          "applicable_readings": ["HH OW1 M", "HH OE1 M"],
+          "applicable_source": "variants",
+          "basis": "measured",
+          "id": "token:05cae4964ed5e8ac88a9a07ad67a832c",
+          "kind": "token",
+          "line_id": "line:0",
+          "method_id": "coordinates",
+          "normalized_range": {
+            "codepoint_range": [7, 11],
+            "utf16_range": [7, 11]
+          },
+          "readable": true,
+          "reading_choices": {
+            "dictionary_readings": [
+              {
+                "phones": ["HH", "OE1", "M"],
+                "stress": [1],
+                "syllables": 1
+              },
+              {
+                "phones": ["HH", "OW1", "M"],
+                "stress": [1],
+                "syllables": 1
+              }
+            ],
+            "line": "zee is home",
+            "matching_line_ids": ["line:0"],
+            "numbering": "v2+voices",
+            "requires_source": true,
+            "supplied_reading_requires_source": false,
+            "token": 3,
+            "word": "home"
+          },
+          "reading_note": "syllable 0 undecided on nucleus",
+          "reading_status": "merged",
+          "source_ranges": [
+            {
+              "codepoint_range": [7, 11],
+              "physical_line": null,
+              "precision": "exact",
+              "utf16_range": [7, 11]
+            }
+          ],
+          "text": "home",
+          "token": 2,
+          "token_id": "line:0:token:2",
+          "unit_ids": ["syllable:2"]
+        },
+        {
+          "basis": "measured",
+          "excluded": false,
+          "id": "line:763151cbc4012836dab66e692131ab1a",
+          "kind": "line",
+          "line_id": "line:1",
+          "method_id": "coordinates",
+          "normalized_cp_range": [12, 26],
+          "source_ranges": [
+            {
+              "codepoint_range": [12, 26],
+              "precision": "exact",
+              "utf16_range": [12, 26]
+            }
+          ],
+          "status": "",
+          "text": "and bee is too"
+        },
+        {
+          "applicable_readings": ["AH0 N D", "AE1 N D"],
+          "applicable_source": "variants",
+          "basis": "measured",
+          "id": "token:242542a961d23fd665e1149b00e0fc9a",
+          "kind": "token",
+          "line_id": "line:1",
+          "method_id": "coordinates",
+          "normalized_range": {
+            "codepoint_range": [12, 15],
+            "utf16_range": [12, 15]
+          },
+          "readable": true,
+          "reading_choices": {
+            "dictionary_readings": [
+              {
+                "phones": ["AE1", "N", "D"],
+                "stress": [1],
+                "syllables": 1
+              },
+              {
+                "phones": ["AH0", "N", "D"],
+                "stress": [0],
+                "syllables": 1
+              }
+            ],
+            "line": "and bee is too",
+            "matching_line_ids": ["line:1"],
+            "numbering": "v2+voices",
+            "requires_source": true,
+            "supplied_reading_requires_source": false,
+            "token": 1,
+            "word": "and"
+          },
+          "reading_note": "syllable 0 undecided on nucleus/prominence",
+          "reading_status": "merged",
+          "source_ranges": [
+            {
+              "codepoint_range": [12, 15],
+              "physical_line": null,
+              "precision": "exact",
+              "utf16_range": [12, 15]
+            }
+          ],
+          "text": "and",
+          "token": 0,
+          "token_id": "line:1:token:0",
+          "unit_ids": ["syllable:3"]
+        },
+        {
+          "applicable_readings": ["B IY1"],
+          "applicable_source": "variants",
+          "basis": "measured",
+          "id": "token:fcb4649f99b2a27330377a1b59531be7",
+          "kind": "token",
+          "line_id": "line:1",
+          "method_id": "coordinates",
+          "normalized_range": {
+            "codepoint_range": [16, 19],
+            "utf16_range": [16, 19]
+          },
+          "readable": true,
+          "reading_choices": {
+            "dictionary_readings": [
+              {
+                "phones": ["B", "IY1"],
+                "stress": [1],
+                "syllables": 1
+              }
+            ],
+            "line": "and bee is too",
+            "matching_line_ids": ["line:1"],
+            "numbering": "v2+voices",
+            "requires_source": true,
+            "supplied_reading_requires_source": false,
+            "token": 2,
+            "word": "bee"
+          },
+          "reading_note": "1 readings and they agree everywhere",
+          "reading_status": "certain",
+          "source_ranges": [
+            {
+              "codepoint_range": [16, 19],
+              "physical_line": null,
+              "precision": "exact",
+              "utf16_range": [16, 19]
+            }
+          ],
+          "text": "bee",
+          "token": 1,
+          "token_id": "line:1:token:1",
+          "unit_ids": ["syllable:4"]
+        },
+        {
+          "applicable_readings": ["IH1 Z", "IH0 Z"],
+          "applicable_source": "variants",
+          "basis": "measured",
+          "id": "token:92888bf1fa533234a1c8aa2cf1ed2e77",
+          "kind": "token",
+          "line_id": "line:1",
+          "method_id": "coordinates",
+          "normalized_range": {
+            "codepoint_range": [20, 22],
+            "utf16_range": [20, 22]
+          },
+          "readable": true,
+          "reading_choices": {
+            "dictionary_readings": [
+              {
+                "phones": ["IH0", "Z"],
+                "stress": [0],
+                "syllables": 1
+              },
+              {
+                "phones": ["IH1", "Z"],
+                "stress": [1],
+                "syllables": 1
+              }
+            ],
+            "line": "and bee is too",
+            "matching_line_ids": ["line:1"],
+            "numbering": "v2+voices",
+            "requires_source": true,
+            "supplied_reading_requires_source": false,
+            "token": 3,
+            "word": "is"
+          },
+          "reading_note": "syllable 0 undecided on prominence",
+          "reading_status": "merged",
+          "source_ranges": [
+            {
+              "codepoint_range": [20, 22],
+              "physical_line": null,
+              "precision": "exact",
+              "utf16_range": [20, 22]
+            }
+          ],
+          "text": "is",
+          "token": 2,
+          "token_id": "line:1:token:2",
+          "unit_ids": ["syllable:5"]
+        },
+        {
+          "applicable_readings": ["T UW1"],
+          "applicable_source": "variants",
+          "basis": "measured",
+          "id": "token:42c970986ec656cb5d79e331f7d0d760",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -7005,7 +8931,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:74307c79fd61ff882965d271f4e39e11",
+          "id": "syllable:e45f0f303d8c4f32b279466193415568",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -7044,7 +8970,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:d290bca3e25fc1adb2118742974eff0d",
+          "id": "syllable:763151cbc4012836dab66e692131ab1a",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -7080,7 +9006,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:7d68d089a6bd2be9572553223dc56085",
+          "id": "syllable:1112f67cd568b96f4d870f8d02919f52",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -7116,7 +9042,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:0ccc2e1f02a4a561e33df397fff32ef4",
+          "id": "syllable:c6a418e1988816db9697029013701019",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -7155,7 +9081,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:bc45f627e01750f796d433145a7d9a0e",
+          "id": "syllable:927144325c7fa9739d054c3ffffc7e0d",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -7188,7 +9114,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:c95bb9d7b2486b41606af7fdb19a49c0",
+          "id": "syllable:1cce9ed9ee7eb4e46ebdec8f957ce94d",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -7224,7 +9150,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:930d3830ca7587658f17e3f15a9b0720",
+          "id": "syllable:06747a7d8351c224d47d1e83ed6d4a74",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -7264,7 +9190,7 @@
             "RIME_RICHE": "false"
           },
           "coverage": "answered",
-          "id": "native_pair:156f4ac5ca3d3415dbc95f6537dd8874",
+          "id": "native_pair:5e610275a857bb6d64d10b5e05e7c58c",
           "kind": "native_pair",
           "language": "eng",
           "line_ids": ["line:0", "line:1"],
@@ -7466,7 +9392,7 @@
             "search_k": 1,
             "verdict": true
           },
-          "id": "relation_instance:9741ba7d9ffecd04ef413e954714e5a9",
+          "id": "relation_instance:e2902e4fd71860ed17ba605b09d7de5a",
           "identity_reads": [
             [
               "token",
@@ -7570,7 +9496,7 @@
               "line:1:token:3"
             ]
           },
-          "id": "method_result:a85a14e64e63cb7e27d5fc0b3429b97f",
+          "id": "method_result:d95508c745253d93ccb99b8286fac609",
           "kind": "method_result",
           "method_id": "schema:1429ae948687ca75ce1cebde",
           "namespace": "schema",
@@ -7861,7 +9787,7 @@
           "catalog": {},
           "contract_version": 1,
           "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-          "hash": "e4ef35e9b9379e7575c40cc1e78141c76401334c7fef24d08892ba3659cadbcd",
+          "hash": "e1da9b3aa2ed40c950e5a0533c64784027fcc16ed8fcc9b101d9a18ef8f3b97a",
           "language": "eng",
           "normalized_sha256": "4dbb7540d4ccdaac93105cd3bf8c32396c8fd115c3a8094de6ca2f11b1438047",
           "reading_revision": "fixture-v1",
@@ -7871,7 +9797,7 @@
             "schemas": ["internal rhyme"]
           },
           "runtime": {
-            "engine_hash": "0e0e0b39bc074b837f8aead61109940a47697d93376db7cd8f1cf5d61f2b48a6",
+            "engine_hash": "5d632de00d3051542a3b3f14f616ba9bcb1c75e13963daf7950f90ab978a2150",
             "phonology": {
               "accent_readings": "accent-readings-2026-10-30",
               "fallback": null,

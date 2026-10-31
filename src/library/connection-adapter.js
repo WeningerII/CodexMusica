@@ -29,6 +29,92 @@ function _connectionModel(I, { records, registry, report, complete, title }) {
     final: complete ? r.token === last.get(r.line_id) : undefined,
   }));
   const byOccurrence = new Map(occurrences.map((o) => [o.entity_id, o]));
+  // Display only supplied inventories and complete assignments; never enumerate
+  // reading combinations or infer an answer for a combination not disclosed.
+  const inventory = (o) => {
+    const readings = o.applicable_readings;
+    const source =
+      { declared: 'declared', variants: 'variants', unlocatable: 'unavailable' }[
+        o.applicable_source
+      ] || 'not supplied';
+    return `${I.occurrenceLabel(o)} · Applicable readings (${source}): ${
+      Array.isArray(readings) && readings.length ? readings.join(' / ') : 'not supplied'
+    }`;
+  };
+  for (const o of occurrences) o.readingInventory = inventory(o);
+  const held = {
+    varied: 'varied reading',
+    only_reading: 'only applicable reading',
+    first_listed: 'first-listed reading',
+    merged_set: 'merged reading set',
+    unread: 'unread',
+  };
+  const verdict = {
+    true: 'holds',
+    false: 'does not hold',
+    undecided: 'undecided',
+    outside_locus: 'outside locus (not a predicate false)',
+  };
+  const basis = {
+    rebuilt_assignment: 'rebuilt assignment',
+    merged_set: 'merged reading sets',
+    first_listed: 'first-listed readings',
+    no_span_on_work: 'no span on the work reading',
+  };
+  const assignment = (rows) =>
+    Array.isArray(rows) && rows.length
+      ? rows
+          .map((a) => {
+            const o = byOccurrence.get(a.occurrence);
+            return `${(a.role || []).join('/')} · ${o ? I.occurrenceLabel(o) : a.occurrence}: ${
+              a.phones ??
+              (a.held === 'merged_set'
+                ? 'no single pronunciation supplied'
+                : 'pronunciation unavailable')
+            } (${held[a.held] || 'reading status not supplied'})`;
+          })
+          .join('; ')
+      : 'Assignment not supplied';
+  const list = (value) => (Array.isArray(value) ? value : []);
+  const readingDetails = (r) => {
+    if (!r.judged_under && !r.witness_assignment && !r.reading_outcomes) return [];
+    const details = [];
+    if (r.witness_assignment)
+      details.push(['Witness assignment', assignment(r.witness_assignment)]);
+    const base = r.judged_under;
+    if (base)
+      details.push([
+        `Base · ${basis[base.basis] || 'basis not supplied'} · ${verdict[base.verdict] || 'verdict not supplied'}`,
+        assignment(base.assignment),
+      ]);
+    for (const [i, outcome] of list(r.reading_outcomes).entries())
+      details.push([
+        `Judged alternative ${i + 1} · ${verdict[outcome.verdict] || 'verdict not supplied'}`,
+        assignment(outcome.assignment),
+      ]);
+    const ids = new Set([
+      ...(r.a?.token_ids || []),
+      ...(r.b?.token_ids || []),
+      ...list(r.witness_assignment).map((a) => a.occurrence),
+      ...list(base?.assignment).map((a) => a.occurrence),
+      ...list(r.reading_outcomes).flatMap((o) => list(o.assignment).map((a) => a.occurrence)),
+    ]);
+    details.push([
+      'Applicable reading inventory',
+      [...ids]
+        .map((id) => {
+          const o = byOccurrence.get(id);
+          return o ? o.readingInventory : `${id}: inventory not supplied`;
+        })
+        .join('; '),
+    ]);
+    details.push([
+      'Disclosure scope',
+      'Only supplied complete assignments are shown. No verdict is supplied for other combinations; missing pair records do not disclose which readings were judged.',
+    ]);
+    return details;
+  };
+
   const results = new Map(
     records.filter((r) => r.kind === 'method_result').map((r) => [r.method_id, r])
   );
@@ -71,6 +157,7 @@ function _connectionModel(I, { records, registry, report, complete, title }) {
       b = r.b?.token_ids;
     const record = {
       ...r,
+      readingDetails: readingDetails(r),
       witness: r.reading?.witness ?? r.reading_witness,
       compared: r.compared && { ...r.compared, a_anchor: r.a, b_anchor: r.b },
     };
