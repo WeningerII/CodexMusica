@@ -94,16 +94,205 @@
       "retired": "2026-10-30"
     },
     {
-      "id": "b8efdab6bb950cff",
+      "id": "22a7b043a4d52d10",
       "files": [
         "analysis.59ff5bed94.js",
         "compare.dd92747264.js",
+        "connection-bindings.de68c5ef78.js",
         "core.d3af4896ce.js",
         "reader.319c9c4883.js",
         "rights.cb92c759bc.js",
         "works.d450a5dc32.js"
       ],
       "first_published": "2026-10-30",
+      "retired": "2026-10-30"
+    },
+    {
+      "id": "21abed16c2bb38ad",
+      "files": [
+        "analysis.59ff5bed94.js",
+        "compare.dd92747264.js",
+        "connection-bindings.edee5b873c.js",
+        "core.d3af4896ce.js",
+        "reader.319c9c4883.js",
+        "rights.cb92c759bc.js",
+        "works.d450a5dc32.js"
+      ],
+      "first_published": "2026-10-30",
+      "retired": "2026-10-30"
+    },
+    {
+      "id": "f44fcf502377c35e",
+      "files": [
+        "analysis.59ff5bed94.js",
+        "compare.dd92747264.js",
+        "connection-bindings.3d871af084.js",
+        "core.d3af4896ce.js",
+        "reader.319c9c4883.js",
+        "rights.cb92c759bc.js",
+        "works.d450a5dc32.js"
+      ],
+      "first_published": "2026-10-30",
+      "retired": "2026-10-30"
+    },
+    {
+      "id": "95a4805421f51386",
+      "files": [
+        "analysis.59ff5bed94.js",
+        "compare.dd92747264.js",
+        "connection-bindings.3d871af084.js",
+        "connection-views.3493f72790.js",
+        "core.d3af4896ce.js",
+        "marks.7906ac117e.js",
+        "reader.319c9c4883.js",
+        "rights.cb92c759bc.js",
+        "works.d450a5dc32.js"
+      ],
+      "first_published": "2026-10-30",
+      "retired": "2026-10-30"
+    },
+    {
+      "id": "664aaefd27e828a5",
+      "files": [
+        "analysis.59ff5bed94.js",
+        "compare.dd92747264.js",
+        "connection-bindings.b0d888dc5a.js",
+        "connection-views.780a17572e.js",
+        "core.d3af4896ce.js",
+        "marks.7906ac117e.js",
+        "reader.319c9c4883.js",
+        "rights.cb92c759bc.js",
+        "works.d450a5dc32.js"
+      ],
+      "first_published": "2026-10-30",
+      "retired": "2026-10-31"
+    },
+    {
+      "id": "88296f54e8a6f30d",
+      "files": [
+        "analysis.59ff5bed94.js",
+        "compare.dd92747264.js",
+        "connection-bindings.b0d888dc5a.js",
+        "connection-views.780a17572e.js",
+        "core.d3af4896ce.js",
+        "marks.05ef8640b3.js",
+        "reader.319c9c4883.js",
+        "rights.cb92c759bc.js",
+        "works.d450a5dc32.js"
+      ],
+      "first_published": "2026-10-30",
+      "retired": "2026-10-31"
+    },
+    {
+      "id": "d2607e660237fd47",
+      "files": [
+        "analysis.59ff5bed94.js",
+        "compare.dd92747264.js",
+        "connection-bindings.94c58dee25.js",
+        "connection-views.780a17572e.js",
+        "core.d3af4896ce.js",
+        "marks.7906ac117e.js",
+        "reader.319c9c4883.js",
+        "rights.cb92c759bc.js",
+        "works.d450a5dc32.js"
+      ],
+      "first_published": "2026-10-31",
+      "retired": "2026-10-31"
+    },
+    {
+      "id": "137ccc6c4366476e",
+      "files": [
+        "analysis.59ff5bed94.js",
+        "compare.dd92747264.js",
+        "connection-bindings.b28e4b6e35.js",
+        "connection-views.780a17572e.js",
+        "core.d3af4896ce.js",
+        "marks.7906ac117e.js",
+        "reader.319c9c4883.js",
+        "rights.cb92c759bc.js",
+        "works.d450a5dc32.js"
+      ],
+      "first_published": "2026-10-31",
+      "retired": "2026-10-31"
+    },
+    {
+      "id": "b45aac2a2c4caf59",
+      "files": [
+        "analysis.59ff5bed94.js",
+        "compare.dd92747264.js",
+        "connection-bindings.b28e4b6e35.js",
+        "connection-views.780a17572e.js",
+        "core.d3af4896ce.js",
+        "marks.05ef8640b3.js",
+        "reader.319c9c4883.js",
+        "rights.cb92c759bc.js",
+        "works.d450a5dc32.js"
+      ],
+      "first_published": "2026-10-31",
+      "retired": "2026-10-31"
+    },
+    {
+      "id": "761e247ba499dcf6",
+      "files": [
+        "analysis.59ff5bed94.js",
+        "compare.dd92747264.js",
+        "connection-bindings.991f329c0f.js",
+        "connection-views.780a17572e.js",
+        "core.d3af4896ce.js",
+        "marks.7906ac117e.js",
+        "reader.319c9c4883.js",
+        "rights.cb92c759bc.js",
+        "works.d450a5dc32.js"
+      ],
+      "first_published": "2026-10-31",
+      "retired": "2026-10-31"
+    },
+    {
+      "id": "473e10d352669141",
+      "files": [
+        "analysis.59ff5bed94.js",
+        "compare.dd92747264.js",
+        "connection-bindings.991f329c0f.js",
+        "connection-views.f3cf4c2c5d.js",
+        "core.d3af4896ce.js",
+        "marks.05ef8640b3.js",
+        "reader.319c9c4883.js",
+        "rights.cb92c759bc.js",
+        "works.d450a5dc32.js"
+      ],
+      "first_published": "2026-10-31",
+      "retired": "2026-10-31"
+    },
+    {
+      "id": "7afc149211607765",
+      "files": [
+        "analysis.59ff5bed94.js",
+        "compare.dd92747264.js",
+        "connection-bindings.991f329c0f.js",
+        "connection-views.c02a3412e3.js",
+        "core.d3af4896ce.js",
+        "marks.05ef8640b3.js",
+        "reader.319c9c4883.js",
+        "rights.cb92c759bc.js",
+        "works.d450a5dc32.js"
+      ],
+      "first_published": "2026-10-31",
+      "retired": "2026-10-31"
+    },
+    {
+      "id": "e0f8bfade786da20",
+      "files": [
+        "analysis.59ff5bed94.js",
+        "compare.dd92747264.js",
+        "connection-bindings.7c27991d0a.js",
+        "connection-views.c02a3412e3.js",
+        "core.d3af4896ce.js",
+        "marks.05ef8640b3.js",
+        "reader.319c9c4883.js",
+        "rights.cb92c759bc.js",
+        "works.d450a5dc32.js"
+      ],
+      "first_published": "2026-10-31",
       "retired": null
     }
   ]

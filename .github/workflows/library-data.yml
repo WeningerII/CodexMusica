@@ -27,6 +27,23 @@ on:
       - 'lyric-harness/data/lyric_label_prefixes.json'
       - 'lyric-harness/quality/lyric_reader.py'
       - 'lyric-harness/quality/provenance.py'
+      # Live registry inputs: schemas, type/class labels, section functions,
+      # phonology declarations/signatures and their staged lexical resources.
+      - 'lyric-harness/quality/relations.py'
+      - 'lyric-harness/quality/rhyme_types.py'
+      - 'lyric-harness/quality/grid.py'
+      - 'lyric-harness/quality/span_rules.py'
+      - 'lyric-harness/quality/phonology/**'
+      - 'lyric-harness/quality/canon_sources.py'
+      - 'lyric-harness/quality/canon_index.tsv'
+      - 'lyric-harness/lyric_harness.py'
+      - 'lyric-harness/quality/release_assets.py'
+      - 'lyric-harness/data/runtime_assets.json'
+      - 'lyric-harness/data/LICENSE.cmudict'
+      - 'lyric-harness/data/opensubtitles_en_50k.tsv'
+      - 'lyric-harness/data/ltc_rhyme_standards.tsv'
+      - 'lyric-harness/data/qieyun_mc.tsv'
+      - 'lyric-harness/data/qieyun_variants.tsv'
       - 'library/data/**'
       - 'assets/library/**'
       - 'sites/library/lib/artwork.json'
@@ -61,6 +78,11 @@ jobs:
         run: python3 -m unittest library.test_catalog_static_export -v
       - name: Card art renditions are current
         run: node scripts/build_library_art.js --check
+      # build_registry() reads the schema registry, which needs the lexicon;
+      # the gate compares library/methods.json against it.
+      - name: Stage the lexicon
+        working-directory: lyric-harness
+        run: python3 -c "from lyric_harness import fetch_data; fetch_data(); print('lexicon staged')"
       - name: Library data rebuilds, passes its gate and is current
         run: |
           if [ -d library/data ]; then

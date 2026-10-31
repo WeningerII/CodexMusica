@@ -1,18 +1,25 @@
 """Static Library data (catalog_static_export) and its gate (scripts/check_library_data.py),
 on a small catalog built the way library-site.yml builds one; no external resources."""
+import contextlib
+import fnmatch
 import gzip
+import importlib.util
+import io
 import json
+import re
 from pathlib import Path
 import subprocess
-import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 from library.catalog import build, canonical, sha
 from library.catalog_site_export import export_snapshot
 from library.catalog_static_export import PAGE_ROWS, build_static
 
 GATE = Path(__file__).resolve().parents[2] / "scripts/check_library_data.py"
+FIXTURE_METHODS = {"methods": [], "registry_hash": "fixture-registry"}
+FIXTURE_SCHEMA = {"title": "fixture result schema"}
 
 
 def harness(temp, labels=(), author="Fixture Author", evidence="recorded", terms=None, whitman=True,
@@ -46,12 +53,29 @@ def harness(temp, labels=(), author="Fixture Author", evidence="recorded", terms
             {"title_line": len(long_body.splitlines()) + 6, "title": "B", "body_sha256": sha(b"Second witness.")}]}]}))
     (root / "data/lyric_label_prefixes.json").write_bytes(canonical({"version": 1, "prefixes": list(labels)}))
     (root / "library").mkdir()
-    (root / "library/methods.json").write_text('{"methods":[],"registry_hash":"fixture-registry"}\n')
-    (root / "library/schema.json").write_text('{"title":"fixture result schema"}\n')
+    (root / "library/methods.json").write_bytes(canonical(FIXTURE_METHODS) + b"\n")
+    (root / "library/schema.json").write_bytes(canonical(FIXTURE_SCHEMA) + b"\n")
     return root
 
 
 class StaticExportTests(unittest.TestCase):
+    def test_workflow_covers_live_reference_inputs_and_stages_lexicon(self):
+        workflow = (GATE.parent.parent / '.github/workflows/library-data.yml').read_text()
+        patterns = re.findall(r"^      - '([^']+)'$", workflow, re.MULTILINE)
+        inputs = (
+            "library/registry.py", "library/contracts.py", "lyric_harness.py",
+            "quality/relations.py", "quality/rhyme_types.py", "quality/grid.py",
+            "quality/span_rules.py", "quality/phonology/eng.py", "quality/phonology/ltc.py",
+            "quality/canon_sources.py", "quality/canon_index.tsv", "quality/release_assets.py",
+            "data/runtime_assets.json", "data/LICENSE.cmudict", "data/opensubtitles_en_50k.tsv",
+            "data/ltc_rhyme_standards.tsv", "data/qieyun_mc.tsv", "data/qieyun_variants.tsv",
+        )
+        for source in inputs:
+            self.assertTrue(any(fnmatch.fnmatchcase('lyric-harness/' + source, p) for p in patterns), source)
+        self.assertLess(workflow.index('- name: Stage the lexicon'),
+                        workflow.index('- name: Library data rebuilds'))
+        self.assertIn('from lyric_harness import fetch_data; fetch_data()', workflow)
+
     def build(self, temp, labels=(), **fixture):
         root = harness(temp, labels, **fixture)
         snapshot = root / "library/snapshot"
@@ -63,8 +87,54 @@ class StaticExportTests(unittest.TestCase):
         return snapshot, out, result
 
     def gate(self, out, snapshot):
-        return subprocess.run([sys.executable, str(GATE), str(out), "--snapshot", str(snapshot)],
-                              capture_output=True, text=True)
+        spec = importlib.util.spec_from_file_location("check_library_data", GATE)
+        checker = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(checker)
+        stdout, stderr = io.StringIO(), io.StringIO()
+        # This catalog deliberately carries authored synthetic references.
+        # Inject their generators, not a bypass of the real gate. Production
+        # CLI calls still compare against the installed engine unconditionally.
+        with patch("library.registry.build_registry", return_value=FIXTURE_METHODS), \
+             patch("library.contracts.RESULT_SCHEMA", FIXTURE_SCHEMA), \
+             contextlib.redirect_stdout(stdout), contextlib.redirect_stderr(stderr):
+            code = checker.main([str(out), "--snapshot", str(snapshot)])
+        return subprocess.CompletedProcess([], code, stdout.getvalue(), stderr.getvalue())
+
+    def test_stale_identical_references_fail_and_regeneration_passes(self):
+        for source, target, expected, command in (
+            ("methods.json", "methods.json", FIXTURE_METHODS, "python3 -m library.registry"),
+            ("schema.json", "reader-result.schema.json", FIXTURE_SCHEMA, "from library.contracts import RESULT_SCHEMA"),
+        ):
+            with self.subTest(source=source), tempfile.TemporaryDirectory() as temp:
+                snapshot, out, _ = self.build(temp)
+                self.assertEqual(self.gate(out, snapshot).returncode, 0)
+                # Counts and registry_hash stay untouched: a content-only
+                # change in BOTH copies must still be rejected.
+                stale = {**expected, "description": "stale reference content"}
+                for value, fails in ((stale, True), (expected, False)):
+                    raw = canonical(value) + b"\n"
+                    (snapshot.parent / source).write_bytes(raw)
+                    (out / target).write_bytes(raw)
+                    manifest = json.loads((out / "manifest.json").read_bytes())
+                    manifest["files"][target] = {"sha256": sha(raw), "bytes": len(raw)}
+                    (out / "manifest.json").write_bytes(canonical(manifest))
+                    result = self.gate(out, snapshot)
+                    if fails:
+                        self.assertNotEqual(result.returncode, 0, result.stdout)
+                        self.assertIn(f"{source} is not what the code declares now; regenerate:", result.stdout)
+                        self.assertIn(command, result.stdout)
+                    else:
+                        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_reference_copy_mismatches_remain_failures(self):
+        for source, target in (("methods.json", "methods.json"), ("schema.json", "reader-result.schema.json")):
+            with self.subTest(source=source), tempfile.TemporaryDirectory() as temp:
+                snapshot, out, _ = self.build(temp)
+                path = snapshot.parent / source
+                path.write_bytes(path.read_bytes() + b" ")
+                result = self.gate(out, snapshot)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertIn(f"{target} differs from {source}", result.stdout)
 
     def test_build_passes_the_gate_and_pages_carry_their_own_coordinates(self):
         with tempfile.TemporaryDirectory() as temp:

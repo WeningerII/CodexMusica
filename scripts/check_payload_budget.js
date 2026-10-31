@@ -112,7 +112,9 @@
 //                        #surface-library rule of the styles, concatenated
 //   library-<chunk>      each code chunk LIBRARY_CHUNKS names, read beside
 //                        the page: core and reader 20,480, analysis 24,576,
-//                        compare 6,144, inflate 4,096. A chunk with no row
+//                        compare 6,144, inflate 4,096, marks 4,096 (the
+//                        connection views' visual system, measured 3,670 B
+//                        with #640's factory minifier). A chunk with no row
 //                        here fails: a new chunk cannot ship unbudgeted
 //   library-shelves-path codex.html + core + library/data/catalog.json  <= 400,640
 //                        — what the Library's first view waits for. Reported
@@ -172,9 +174,17 @@ const LIBRARY_BUDGETS = {
   'library-analysis': 24576,
   'library-compare': 6144,
   'library-inflate': 4096,
+  'library-marks': 4096,
   'library-works': 12288,
   'library-rights': 12288,
   'library-readertools': 12288,
+  // The connection views' DOM bindings and their owner (live region, keys,
+  // URL, phone sheet, mount): measured 2,792 B gzip on 2026-10-30 with #640's
+  // factory minifier, so 4 KiB with room to grow. A new row, unmerged.
+  'library-connection-bindings': 4096,
+  // Root-approved new component row: 5,321 B gzip measured on the combined
+  // source, 2026-10-30. Existing ceilings are unchanged.
+  'library-connection-views': 6144,
   // ~~393216~~ raised 2026-10-25 to 400,640 (the merged interface batch
   // measured 399,587 B, plus ~1 KB headroom). Owner-authorised ship ("merge
   // the built fixes and get them live"). Lighthouse evidence on #519 comment

@@ -680,6 +680,29 @@ jobs:
       - name: High-severity production dependency advisories
         timeout-minutes: 2
         run: npm --prefix mcp audit --omit=dev --audit-level=high --package-lock-only --fetch-retries=0 --fetch-timeout=20000
+      # Run 41166112852 exhausted disk while copying the assembled runtime.
+      # This job uses Docker, Node/npm, Python and standard shell tools, not
+      # the hosted runner's Android or .NET SDKs. Keep the tool cache, Docker
+      # layers, workspace and all runtime/proof inputs; reclaim only these
+      # disposable preinstalled SDKs before pulling and assembling the image.
+      - name: Reclaim unused hosted runner toolchains
+        if: runner.environment == 'github-hosted'
+        run: |
+          set -euo pipefail
+          mkdir -p image-build-evidence
+          {
+            echo 'Disk bytes before SDK cleanup'
+            df -B1 / /var/lib/docker
+            for sdk in /usr/local/lib/android /usr/share/dotnet; do
+              if [ -d "$sdk" ]; then sudo du -sh -- "$sdk"; fi
+            done
+            sudo rm -rf -- /usr/local/lib/android /usr/share/dotnet
+            echo 'Disk bytes after SDK cleanup'
+            df -B1 / /var/lib/docker
+            for tool in docker node npm python3 git curl tar sha256sum; do
+              command -v "$tool"
+            done
+          } 2>&1 | tee image-build-evidence/disk.txt
       # THE PROOF LAYER WAS 95% OF THE BUILD ON EVERY RUN, AND IT IS A PURE
       # FUNCTION OF WHAT IT READS. MEASURED 2026-09-10 (M-267): the in-image
       # `verify_capacity.py --workers=4` RUN was 619.5s of a 647s build on run

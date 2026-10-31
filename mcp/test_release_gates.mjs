@@ -26,6 +26,29 @@ const run = {
 };
 const jobs = REQUIRED_JOBS.map((name) => ({ name, status: 'completed', conclusion: 'success' }));
 
+test('lyrics image reclaims only unused hosted toolchains before building', () => {
+  const yml = readFileSync(
+    join(import.meta.dirname, '..', '.github', 'workflows', 'ci.yml'),
+    'utf8'
+  );
+  const job = yml.match(/^ {2}lyrics-image:\n[\s\S]*?(?=^ {2}[\w-]+:)/m)?.[0];
+  assert(job, 'lyrics-image job exists');
+  const cleanup = job.match(
+    / {6}- name: Reclaim unused hosted runner toolchains\n[\s\S]*?(?= {6}- )/
+  )?.[0];
+  assert(cleanup, 'disk cleanup must precede the image build');
+  assert(job.indexOf(cleanup) < job.indexOf('- name: Build the deployed lyrics runtime'));
+  assert.match(cleanup, /if: runner\.environment == 'github-hosted'/);
+  assert.deepEqual(cleanup.match(/sudo rm[^\n]+/g), [
+    'sudo rm -rf -- /usr/local/lib/android /usr/share/dotnet',
+  ]);
+  assert.match(cleanup, /for tool in docker node npm python3 git curl tar sha256sum; do/);
+  assert.match(cleanup, /command -v "\$tool"/);
+  assert.equal((cleanup.match(/df -B1 \/ \/var\/lib\/docker/g) || []).length, 2);
+  assert.match(cleanup, /tee image-build-evidence\/disk\.txt/);
+  assert.match(job, /path: image-build-evidence\//);
+});
+
 test('CI completion dispatches only an exact trusted head and preserves existing qualification findings', async () => {
   const yml = readFileSync(
     join(import.meta.dirname, '..', '.github', 'workflows', 'qualification-backstop.yml'),
