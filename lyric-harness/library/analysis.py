@@ -730,7 +730,7 @@ class AnalysisSession:
         roles = self._span_roles(st, a, b)
         outcomes = []
         under = self._judged_under(st, roles, inst.verdict if inst is not None else None,
-                                   "merged_set" if merged else None)
+                                   "merged_set" if self._merged_touched(st, a, b) else None)
         # The reading `inst` was judged under is not judged again.
         to_judge = [c for c in combos if merged or not (
             st is self.stream and c is combos[0] or self._combo_key(c) == own)]

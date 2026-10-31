@@ -5,7 +5,7 @@
         "catalog": {},
         "contract_version": 1,
         "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-        "hash": "166984764f0497dedf82d6776eb1b6c4f91eab21fda4d7fd4322d59e13cb3567",
+        "hash": "28a59be77aab7723f19b0657d7af0d9dfd1d6b0b10031ec10dae10c5010c23f3",
         "language": "eng",
         "normalized_sha256": "2282c62a05421519bc37e06d1195a1501931497679df5d08b95e2b2e0561e675",
         "reading_revision": "fixture-v1",
@@ -15,7 +15,7 @@
           "schemas": ["internal rhyme"]
         },
         "runtime": {
-          "engine_hash": "e37c7005feda27654575261cfd4c99e3d13b3e8566d754b013e3f9b05f241718",
+          "engine_hash": "0e0e0b39bc074b837f8aead61109940a47697d93376db7cd8f1cf5d61f2b48a6",
           "phonology": {
             "accent_readings": "accent-readings-2026-10-30",
             "fallback": null,
@@ -41,7 +41,7 @@
         {
           "basis": "measured",
           "excluded": false,
-          "id": "line:85ec1e21d2ab5cd23319bc41f7fd2e8f",
+          "id": "line:36f451d669fb61c2dfffa0f10ce038a7",
           "kind": "line",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -60,7 +60,7 @@
           "applicable_readings": ["Z IY1 D", "Z UW1 T"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:0ca74bd94ac60ab273e63fc424d6b8b3",
+          "id": "token:b51b80c750abc96aa576f334d6d6fa0d",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -109,7 +109,7 @@
           "applicable_readings": ["IH1 Z", "IH0 Z"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:b66669e540297b921721690a93c0a491",
+          "id": "token:ca7004e99111a9e3a4acbfbcb3df1276",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -158,7 +158,7 @@
           "applicable_readings": ["HH OW1 M", "HH OE1 M"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:ce07dac8bdada33460f65d04f287a2a5",
+          "id": "token:98d571a6538ee0778a33ff35ecc0d769",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -206,7 +206,7 @@
         {
           "basis": "measured",
           "excluded": false,
-          "id": "line:e3ee7fef6fb0b102393275db5b4dc574",
+          "id": "line:76e7b3daace8cbd794307649ad79f150",
           "kind": "line",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -225,7 +225,7 @@
           "applicable_readings": ["AH0 N D", "AE1 N D"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:a19c23c3399da5aff7e5fd8a1fb20f69",
+          "id": "token:cd6833e2234d079b0e572094a5d88f69",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -274,7 +274,7 @@
           "applicable_readings": ["B IY1 T"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:1e4a3290b082b103b28b09ce02d8b7f9",
+          "id": "token:8b98e67cd4f3da766111329f6a84f4c8",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -318,7 +318,7 @@
           "applicable_readings": ["IH1 Z", "IH0 Z"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:f2711698d9c9f16ae12d026e3123ecea",
+          "id": "token:706e9c2ac40719219845394c00641217",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -367,7 +367,7 @@
           "applicable_readings": ["T UW1"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:d3222d0715e12c05a77cc2ecf275f1e0",
+          "id": "token:3199ca79f941a1c795c84db9f58de13d",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -410,7 +410,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:85ec1e21d2ab5cd23319bc41f7fd2e8f",
+          "id": "syllable:36f451d669fb61c2dfffa0f10ce038a7",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -449,7 +449,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:e3ee7fef6fb0b102393275db5b4dc574",
+          "id": "syllable:76e7b3daace8cbd794307649ad79f150",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -485,7 +485,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:a8d9b9b8def9e5ad978f672830353227",
+          "id": "syllable:8f6bd00840e0649e858d05dbae7b054f",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -521,7 +521,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:dbe20778727a4aa33a084bff010299b0",
+          "id": "syllable:2dada0da8941d3811bec8e55406794d5",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -560,7 +560,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:350ccf24dabafbc41c22ce5a2b5d764a",
+          "id": "syllable:624bb9b692b2960c3e8e622e81031b60",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -593,7 +593,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:3cad48ee72f2b4a6a8c2bcb8a4933af0",
+          "id": "syllable:e726f1b550052c78c2956615faef0dab",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -629,7 +629,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:0a8bf952acd33223b0427a93c65754d6",
+          "id": "syllable:83d3f5ff05c7dafa4395f28b6469443e",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -669,7 +669,7 @@
             "RIME_RICHE": "false"
           },
           "coverage": "answered",
-          "id": "native_pair:a7098f45c9744ca578d8000937a7e0d1",
+          "id": "native_pair:be6cc1f8fc293c6f72945616f5027cec",
           "kind": "native_pair",
           "language": "eng",
           "line_ids": ["line:0", "line:1"],
@@ -877,7 +877,7 @@
             "search_k": 1,
             "verdict": null
           },
-          "id": "relation_instance:9e9e815b9d5dc561520d8cbf7844dacd",
+          "id": "relation_instance:defa1dc8518e33a1e58d99670e1917e0",
           "identity_reads": [
             [
               "token",
@@ -986,7 +986,7 @@
               "line:1:token:3"
             ]
           },
-          "id": "method_result:5ddb4dad1425ee4e10f4beebcc8c7188",
+          "id": "method_result:632a828b9131025219ffcd14138664de",
           "kind": "method_result",
           "method_id": "schema:1429ae948687ca75ce1cebde",
           "namespace": "schema",
@@ -1277,7 +1277,7 @@
           "catalog": {},
           "contract_version": 1,
           "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-          "hash": "166984764f0497dedf82d6776eb1b6c4f91eab21fda4d7fd4322d59e13cb3567",
+          "hash": "28a59be77aab7723f19b0657d7af0d9dfd1d6b0b10031ec10dae10c5010c23f3",
           "language": "eng",
           "normalized_sha256": "2282c62a05421519bc37e06d1195a1501931497679df5d08b95e2b2e0561e675",
           "reading_revision": "fixture-v1",
@@ -1287,7 +1287,7 @@
             "schemas": ["internal rhyme"]
           },
           "runtime": {
-            "engine_hash": "e37c7005feda27654575261cfd4c99e3d13b3e8566d754b013e3f9b05f241718",
+            "engine_hash": "0e0e0b39bc074b837f8aead61109940a47697d93376db7cd8f1cf5d61f2b48a6",
             "phonology": {
               "accent_readings": "accent-readings-2026-10-30",
               "fallback": null,
@@ -1336,7 +1336,7 @@
         "catalog": {},
         "contract_version": 1,
         "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-        "hash": "34facdbb18af86269ee9ef7b84e48e5bdd58b6271fe008be428e8b0a9c05f1c1",
+        "hash": "ddde97ebce3f1452da709a3cddfb4434b1686292aef06a964006b09eadd1ccd7",
         "language": "eng",
         "normalized_sha256": "db2e51d73a582ed918e4437adbc74f7d8495bf2a669cb5ba8b51a0f43077ad72",
         "reading_revision": "fixture-v1",
@@ -1346,7 +1346,7 @@
           "schemas": ["internal rhyme"]
         },
         "runtime": {
-          "engine_hash": "e37c7005feda27654575261cfd4c99e3d13b3e8566d754b013e3f9b05f241718",
+          "engine_hash": "0e0e0b39bc074b837f8aead61109940a47697d93376db7cd8f1cf5d61f2b48a6",
           "phonology": {
             "accent_readings": "accent-readings-2026-10-30",
             "fallback": null,
@@ -1372,7 +1372,7 @@
         {
           "basis": "measured",
           "excluded": false,
-          "id": "line:3bff154bafdae77bf1886ae6f7e12d82",
+          "id": "line:341dcf8b72592fa442d5d9cbff81d88a",
           "kind": "line",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -1391,7 +1391,7 @@
           "applicable_readings": ["DH AH0", "DH AH1", "DH IY0"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:4ffdb7c70f7d8f51b66eea57ae06235c",
+          "id": "token:dfef2712c0cd130c5bbe5593f1c3d484",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -1445,7 +1445,7 @@
           "applicable_readings": ["Z IY1 T AH0", "Z IY0 T AH1"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:9a0b15fba49f878d7db4bb95694ade5a",
+          "id": "token:fb63ca9aa3c32f47efd866a9f6a30331",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -1494,7 +1494,7 @@
           "applicable_readings": ["K EY1 M", "K EE1 M"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:8b3cfadc055d5d598b09dfeb791ac2c6",
+          "id": "token:192f689fb71c6edb1b013b7ea9181d9a",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -1542,7 +1542,7 @@
         {
           "basis": "measured",
           "excluded": false,
-          "id": "line:803b90e7d7d3626da8f6ef89a203125b",
+          "id": "line:d7b1a8e8e3cd0ccce78672b3829f3937",
           "kind": "line",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -1561,7 +1561,7 @@
           "applicable_readings": ["W IY1"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:95541e9782aef0a66b00f61dd9be186f",
+          "id": "token:44f59fd5424c916b2050a27a939ffdef",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -1605,7 +1605,7 @@
           "applicable_readings": ["B R IH1 NG"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:98907a57c30d6aad8e94fbac77d713a1",
+          "id": "token:05b1f5a98747b4554a87a7db1ca7c61e",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -1649,7 +1649,7 @@
           "applicable_readings": ["DH AH0", "DH AH1", "DH IY0"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:6103386f0454fa3779f7603d60afb464",
+          "id": "token:9de372e97ece32fd8ee74f6698e8b204",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -1703,7 +1703,7 @@
           "applicable_readings": ["B EY1 T AH0"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:15554132ea03af4bbab24a3a4d3c03ae",
+          "id": "token:b548065d9617be2911197b9bc1a8a421",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -1747,7 +1747,7 @@
           "applicable_readings": ["HH OW1 M", "HH OE1 M"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:39928f345d51a29fb0ba028d1263fa2e",
+          "id": "token:09026f0601d064f443f8c46b863da566",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -1795,7 +1795,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:3bff154bafdae77bf1886ae6f7e12d82",
+          "id": "syllable:341dcf8b72592fa442d5d9cbff81d88a",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -1834,7 +1834,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:803b90e7d7d3626da8f6ef89a203125b",
+          "id": "syllable:d7b1a8e8e3cd0ccce78672b3829f3937",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -1870,7 +1870,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:dfd3f1e5c2cac4bbbe83cf68fb8eb71e",
+          "id": "syllable:73648cb405a0f7f6587aafa95caaad6b",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -1906,7 +1906,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:37347d70a2a646c887fc3b2ed50e04b7",
+          "id": "syllable:7fbf4106ab7f7c4c7a4c6eebb9136cfd",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -1942,7 +1942,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:f271b058fcb90bcbf300ddf3f3d1c9fd",
+          "id": "syllable:a9fabf9731f77517b77985dbb2c9e261",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -1975,7 +1975,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:cbb184b67224167129f1df9150f32dd6",
+          "id": "syllable:44bb321560f81400b0cbbbf8e88b0fa5",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -2008,7 +2008,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:dabf85835c69859cba27f0483fb16332",
+          "id": "syllable:90c0a756901b47951e4268f1a1b78854",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -2047,7 +2047,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:e81dd2bec662ef38814c5c1e5de75472",
+          "id": "syllable:af73aa7b80eeea2b812de6c2a1d6902f",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -2080,7 +2080,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:acce1e6856ae26afcdfee3de56fc4934",
+          "id": "syllable:5901b70711e2cd3610f59b6cd8896455",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -2113,7 +2113,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:b1eb536f77656fabdde158aefb053617",
+          "id": "syllable:e24eac6ed995ac43c910afa93edbf5c0",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -2156,7 +2156,7 @@
             "RIME_RICHE": "false"
           },
           "coverage": "answered",
-          "id": "native_pair:2c452ac7a5ea96f286f6e288fe1de06e",
+          "id": "native_pair:d413a0d5723fcee6d973fd2ee5fbd93f",
           "kind": "native_pair",
           "language": "eng",
           "line_ids": ["line:0", "line:1"],
@@ -2358,7 +2358,7 @@
             "search_k": 1,
             "verdict": true
           },
-          "id": "relation_instance:71874cbdae7c5f6cb74aacc05b445cbf",
+          "id": "relation_instance:3efb71abe4e1c97963fb696f0a1fada9",
           "identity_reads": [
             [
               "token",
@@ -2624,7 +2624,7 @@
             "search_k": 1,
             "verdict": true
           },
-          "id": "relation_instance:c1f52ad24a87bde7a42c4e7e2ace2517",
+          "id": "relation_instance:84f037fcc5c1fcb91414e88f08a2785c",
           "identity_reads": [
             [
               "token",
@@ -2890,7 +2890,7 @@
             "search_k": 1,
             "verdict": true
           },
-          "id": "relation_instance:46c86256648313dc7faac162e534c341",
+          "id": "relation_instance:8353b2e68b35c67478f81d5e5e49407a",
           "identity_reads": [
             [
               "token",
@@ -3140,7 +3140,7 @@
             "search_k": 1,
             "verdict": null
           },
-          "id": "relation_instance:f7ee22cc3194e128543973b86b792376",
+          "id": "relation_instance:a79af5b2f0e7763c3e1c1895d6897b5e",
           "identity_reads": [
             [
               "token",
@@ -3381,7 +3381,7 @@
             "search_k": 1,
             "verdict": true
           },
-          "id": "relation_instance:2f12ec8758ddc644a0c431e68d519241",
+          "id": "relation_instance:adf3f199c0333a7ef67a94af17bc942c",
           "identity_reads": [
             [
               "token",
@@ -3696,7 +3696,7 @@
             "search_k": 1,
             "verdict": null
           },
-          "id": "relation_instance:44afc6bb8d17a1f593676e9379a69063",
+          "id": "relation_instance:9673fe9d9e0fd93ca63586fb6bf37ff4",
           "identity_reads": [
             [
               "token",
@@ -3929,7 +3929,7 @@
             "search_k": 1,
             "verdict": true
           },
-          "id": "relation_instance:b256c4110698fef8e23d7d0ab6a048c7",
+          "id": "relation_instance:ed8994359b8a2752bcd7dc18470eef11",
           "identity_reads": [
             [
               "token",
@@ -4217,7 +4217,7 @@
             "search_k": 1,
             "verdict": null
           },
-          "id": "relation_instance:def6aab4125ca687dfb261a630c6977e",
+          "id": "relation_instance:28de5efc0c652fa50a922ede96d1caf5",
           "identity_reads": [
             [
               "token",
@@ -4458,7 +4458,7 @@
             "search_k": 1,
             "verdict": true
           },
-          "id": "relation_instance:3e774bb9b778fb4169bed25c25ab0b6e",
+          "id": "relation_instance:d1110817806c5099d394b9027bee66ef",
           "identity_reads": [
             [
               "token",
@@ -4671,7 +4671,7 @@
             "search_k": 1,
             "verdict": true
           },
-          "id": "relation_instance:832e37e343a31fee5ba2044581829167",
+          "id": "relation_instance:aee556288332a2f74b24de01bb19bf02",
           "identity_reads": [
             [
               "token",
@@ -4948,7 +4948,7 @@
             "search_k": 1,
             "verdict": null
           },
-          "id": "relation_instance:ca730d59a7f8de7f54b0164449a72371",
+          "id": "relation_instance:287772362ed5b3464b1a05372e9e4811",
           "identity_reads": [
             [
               "token",
@@ -5065,7 +5065,7 @@
               "line:1:token:4"
             ]
           },
-          "id": "method_result:ff9a993d8b670475b2881a8e6cae9dab",
+          "id": "method_result:39391431d2756049a24caabf2ec6c592",
           "kind": "method_result",
           "method_id": "schema:1429ae948687ca75ce1cebde",
           "namespace": "schema",
@@ -5356,7 +5356,7 @@
           "catalog": {},
           "contract_version": 1,
           "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-          "hash": "34facdbb18af86269ee9ef7b84e48e5bdd58b6271fe008be428e8b0a9c05f1c1",
+          "hash": "ddde97ebce3f1452da709a3cddfb4434b1686292aef06a964006b09eadd1ccd7",
           "language": "eng",
           "normalized_sha256": "db2e51d73a582ed918e4437adbc74f7d8495bf2a669cb5ba8b51a0f43077ad72",
           "reading_revision": "fixture-v1",
@@ -5366,7 +5366,7 @@
             "schemas": ["internal rhyme"]
           },
           "runtime": {
-            "engine_hash": "e37c7005feda27654575261cfd4c99e3d13b3e8566d754b013e3f9b05f241718",
+            "engine_hash": "0e0e0b39bc074b837f8aead61109940a47697d93376db7cd8f1cf5d61f2b48a6",
             "phonology": {
               "accent_readings": "accent-readings-2026-10-30",
               "fallback": null,
@@ -5415,7 +5415,7 @@
         "catalog": {},
         "contract_version": 1,
         "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-        "hash": "2b0f2711c025451955092bd89daf91ee3d25dd3af71e77536f4d815908f6c484",
+        "hash": "b4108eb917fd40858fd2fdc1fd2558c77f36703d9010ef7de3413b1c9891678f",
         "language": "eng",
         "normalized_sha256": "8ba01e3396d9ed748ac8399b87e135b33a4c3ab62032cc09a6c07173c3a7d2b1",
         "reading_revision": "fixture-v1",
@@ -5425,7 +5425,7 @@
           "schemas": ["perfect rhyme"]
         },
         "runtime": {
-          "engine_hash": "e37c7005feda27654575261cfd4c99e3d13b3e8566d754b013e3f9b05f241718",
+          "engine_hash": "0e0e0b39bc074b837f8aead61109940a47697d93376db7cd8f1cf5d61f2b48a6",
           "phonology": {
             "accent_readings": "accent-readings-2026-10-30",
             "fallback": null,
@@ -5451,7 +5451,7 @@
         {
           "basis": "measured",
           "excluded": false,
-          "id": "line:01dc217024f5d0194323e2c3b1ad88d4",
+          "id": "line:90fbf94b37150c723e63a83089ab3685",
           "kind": "line",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -5470,7 +5470,7 @@
           "applicable_readings": ["AY1"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:cbea176a0275b2fb669553177039ef23",
+          "id": "token:bbdeff0a8e88583b925fa331fdef6ed7",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -5514,7 +5514,7 @@
           "applicable_readings": ["S AO1"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:901324390b36853629f60bb5dafb1f20",
+          "id": "token:4b3c18d5087daf9623c702d79643a047",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -5558,7 +5558,7 @@
           "applicable_readings": ["DH AH0", "DH AH1", "DH IY0"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:4c628b1282bdf6e02102a7e364414d41",
+          "id": "token:37622dcd79f3264fae23227a77a5a61b",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -5612,7 +5612,7 @@
           "applicable_readings": ["B AH1 T", "AH0 B IY1 T"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:522aa69b0c3b09808586d6a1a1c0163e",
+          "id": "token:312ea9c2b73bd0e608054353cec94e70",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -5660,7 +5660,7 @@
         {
           "basis": "measured",
           "excluded": false,
-          "id": "line:5c48fd7b8e759657b3df482139216888",
+          "id": "line:632abd8ec603e5d8ed85e28d14ff4073",
           "kind": "line",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -5679,7 +5679,7 @@
           "applicable_readings": ["AH0 N D", "AE1 N D"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:988ebfa061e7f7891ad0a83f47293b64",
+          "id": "token:2c3b537eebc31c017594ebc5bd111b41",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -5728,7 +5728,7 @@
           "applicable_readings": ["DH EH1 N"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:d78e88985944eeb690b7ef0b3e7d0644",
+          "id": "token:e737c5426a0ba18c5fc13502d782008b",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -5772,7 +5772,7 @@
           "applicable_readings": ["DH AH0", "DH AH1", "DH IY0"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:f8af5ad0a09b007772512107eaf9fe56",
+          "id": "token:43aa0945bbec06ff5da19627eabc0611",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -5826,7 +5826,7 @@
           "applicable_readings": ["D EH1 T", "AH0 D IY1 T"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:eb787daf61a076add7ffa515970a843f",
+          "id": "token:5cda2739f4b432c799951d7d91d40944",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -5874,7 +5874,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:01dc217024f5d0194323e2c3b1ad88d4",
+          "id": "syllable:90fbf94b37150c723e63a83089ab3685",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -5907,7 +5907,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:5c48fd7b8e759657b3df482139216888",
+          "id": "syllable:632abd8ec603e5d8ed85e28d14ff4073",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -5940,7 +5940,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:7d89f54704dc9c0442edddefb45aaff6",
+          "id": "syllable:6a09b0721764ae635fc79a4856bf5cf7",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -5979,7 +5979,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:3dcf3e096622f53753b5f18d0c92aec2",
+          "id": "syllable:afc589baa3f7a123eab0c96f338037da",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -6012,7 +6012,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:58ab9a4f257cd756965e68d7a4bd4a11",
+          "id": "syllable:07b737036b67fee06444863937bca8c7",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -6051,7 +6051,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:036ea92a71885b828bab1d5132622176",
+          "id": "syllable:87c212f76a808a5342cea0ad3709edab",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -6084,7 +6084,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:11243ce82a8cf902626d742118326b4a",
+          "id": "syllable:505ea81ebf10afc772c16cedf61347cf",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -6123,7 +6123,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:6351800dfc47ce1a25d4592a0aaf510d",
+          "id": "syllable:557daa4c785908e93fb69ba207328d1f",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -6163,7 +6163,7 @@
             "RIME_RICHE": "false"
           },
           "coverage": "answered",
-          "id": "native_pair:c5bb160709bc75c24a39358d70c63390",
+          "id": "native_pair:5d669ad5d52ba97e33240f5b546216fa",
           "kind": "native_pair",
           "language": "eng",
           "line_ids": ["line:0", "line:1"],
@@ -6236,7 +6236,7 @@
             "reading_policy": "exists_compatible_reading",
             "tokens": ["line:0:token:3", "line:1:token:3"]
           },
-          "id": "method_result:f02bdc9299b8747b45b770a76bfcc475",
+          "id": "method_result:6a4aac22bb950b138e7c77fc4f337e43",
           "kind": "method_result",
           "method_id": "schema:fd8899c7df3627b14d717d01",
           "namespace": "schema",
@@ -6533,7 +6533,7 @@
           "catalog": {},
           "contract_version": 1,
           "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-          "hash": "2b0f2711c025451955092bd89daf91ee3d25dd3af71e77536f4d815908f6c484",
+          "hash": "b4108eb917fd40858fd2fdc1fd2558c77f36703d9010ef7de3413b1c9891678f",
           "language": "eng",
           "normalized_sha256": "8ba01e3396d9ed748ac8399b87e135b33a4c3ab62032cc09a6c07173c3a7d2b1",
           "reading_revision": "fixture-v1",
@@ -6543,7 +6543,7 @@
             "schemas": ["perfect rhyme"]
           },
           "runtime": {
-            "engine_hash": "e37c7005feda27654575261cfd4c99e3d13b3e8566d754b013e3f9b05f241718",
+            "engine_hash": "0e0e0b39bc074b837f8aead61109940a47697d93376db7cd8f1cf5d61f2b48a6",
             "phonology": {
               "accent_readings": "accent-readings-2026-10-30",
               "fallback": null,
@@ -6600,7 +6600,7 @@
         "catalog": {},
         "contract_version": 1,
         "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-        "hash": "ccd8a9dc2389ddd96ee1b745505e52a6281cd705b902f15f0f9a23f2eac797f1",
+        "hash": "e4ef35e9b9379e7575c40cc1e78141c76401334c7fef24d08892ba3659cadbcd",
         "language": "eng",
         "normalized_sha256": "4dbb7540d4ccdaac93105cd3bf8c32396c8fd115c3a8094de6ca2f11b1438047",
         "reading_revision": "fixture-v1",
@@ -6610,7 +6610,7 @@
           "schemas": ["internal rhyme"]
         },
         "runtime": {
-          "engine_hash": "e37c7005feda27654575261cfd4c99e3d13b3e8566d754b013e3f9b05f241718",
+          "engine_hash": "0e0e0b39bc074b837f8aead61109940a47697d93376db7cd8f1cf5d61f2b48a6",
           "phonology": {
             "accent_readings": "accent-readings-2026-10-30",
             "fallback": null,
@@ -6636,7 +6636,7 @@
         {
           "basis": "measured",
           "excluded": false,
-          "id": "line:fc05442c7be8e31673a13592792e9266",
+          "id": "line:74307c79fd61ff882965d271f4e39e11",
           "kind": "line",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -6655,7 +6655,7 @@
           "applicable_readings": ["Z IY1", "Z AH0"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:8213faa1c95a7d1702eb63137886de13",
+          "id": "token:8c86cc1e818ebcc0132650e90d6c25a3",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -6704,7 +6704,7 @@
           "applicable_readings": ["IH1 Z", "IH0 Z"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:40bb7275b1be7dc3de42a1445e0acd2a",
+          "id": "token:2f650984a1ab82bf01974166e3e63d66",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -6753,7 +6753,7 @@
           "applicable_readings": ["HH OW1 M", "HH OE1 M"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:f5b47005cd2be6b6cf00af1169de467c",
+          "id": "token:991b354d5e5668fc01974ce0212cd135",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -6801,7 +6801,7 @@
         {
           "basis": "measured",
           "excluded": false,
-          "id": "line:e1e9b9d02c8b3eed2560e1cad510374d",
+          "id": "line:d290bca3e25fc1adb2118742974eff0d",
           "kind": "line",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -6820,7 +6820,7 @@
           "applicable_readings": ["AH0 N D", "AE1 N D"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:da3b5ae136976639696bda7704a8456f",
+          "id": "token:ce7546b8ed32020c8e31fb694be8b4e7",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -6869,7 +6869,7 @@
           "applicable_readings": ["B IY1"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:2ff691561546604223a205f9899afe1c",
+          "id": "token:e1cefcce7b74e7828a6420ef13001f0f",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -6913,7 +6913,7 @@
           "applicable_readings": ["IH1 Z", "IH0 Z"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:83a167801d3eb5577e6c397214c5badd",
+          "id": "token:93004939a61975da586de64175b211ab",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -6962,7 +6962,7 @@
           "applicable_readings": ["T UW1"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:e389a2a559be81238752b35a5d3b5a40",
+          "id": "token:7130edf334cc31d6ed4e618143664c31",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -7005,7 +7005,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:fc05442c7be8e31673a13592792e9266",
+          "id": "syllable:74307c79fd61ff882965d271f4e39e11",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -7044,7 +7044,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:e1e9b9d02c8b3eed2560e1cad510374d",
+          "id": "syllable:d290bca3e25fc1adb2118742974eff0d",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -7080,7 +7080,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:2351a13f0c43c6c01ac17d4db8e6ada2",
+          "id": "syllable:7d68d089a6bd2be9572553223dc56085",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -7116,7 +7116,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:9fad97d8fe8ae452fd874ab8a9ec2f72",
+          "id": "syllable:0ccc2e1f02a4a561e33df397fff32ef4",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -7155,7 +7155,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:1beef32d28d59033ae377c77a7b68198",
+          "id": "syllable:bc45f627e01750f796d433145a7d9a0e",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -7188,7 +7188,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:4021e1029c397975e8e026605f96c57d",
+          "id": "syllable:c95bb9d7b2486b41606af7fdb19a49c0",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -7224,7 +7224,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:d0153b0b32ec7dd63936f6db5a607693",
+          "id": "syllable:930d3830ca7587658f17e3f15a9b0720",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -7264,7 +7264,7 @@
             "RIME_RICHE": "false"
           },
           "coverage": "answered",
-          "id": "native_pair:0afb599ab9089878f8c33db065099393",
+          "id": "native_pair:156f4ac5ca3d3415dbc95f6537dd8874",
           "kind": "native_pair",
           "language": "eng",
           "line_ids": ["line:0", "line:1"],
@@ -7466,7 +7466,7 @@
             "search_k": 1,
             "verdict": true
           },
-          "id": "relation_instance:bb249ee61ce2c1f9daf4e55aa501b557",
+          "id": "relation_instance:9741ba7d9ffecd04ef413e954714e5a9",
           "identity_reads": [
             [
               "token",
@@ -7570,7 +7570,7 @@
               "line:1:token:3"
             ]
           },
-          "id": "method_result:3060873dd6a6183c7d9a6c481046d3c0",
+          "id": "method_result:a85a14e64e63cb7e27d5fc0b3429b97f",
           "kind": "method_result",
           "method_id": "schema:1429ae948687ca75ce1cebde",
           "namespace": "schema",
@@ -7861,7 +7861,7 @@
           "catalog": {},
           "contract_version": 1,
           "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-          "hash": "ccd8a9dc2389ddd96ee1b745505e52a6281cd705b902f15f0f9a23f2eac797f1",
+          "hash": "e4ef35e9b9379e7575c40cc1e78141c76401334c7fef24d08892ba3659cadbcd",
           "language": "eng",
           "normalized_sha256": "4dbb7540d4ccdaac93105cd3bf8c32396c8fd115c3a8094de6ca2f11b1438047",
           "reading_revision": "fixture-v1",
@@ -7871,7 +7871,7 @@
             "schemas": ["internal rhyme"]
           },
           "runtime": {
-            "engine_hash": "e37c7005feda27654575261cfd4c99e3d13b3e8566d754b013e3f9b05f241718",
+            "engine_hash": "0e0e0b39bc074b837f8aead61109940a47697d93376db7cd8f1cf5d61f2b48a6",
             "phonology": {
               "accent_readings": "accent-readings-2026-10-30",
               "fallback": null,

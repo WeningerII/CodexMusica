@@ -1338,6 +1338,22 @@ class ReadingOutcomes(unittest.TestCase):
         self.assertEqual(got, [("Z AY1 ER0", "B AA1 R", "outside_locus"),
                                ("Z AY1 ER0", "B AA1", "outside_locus")])
 
+    def test_a_fixed_merged_partner_is_part_of_the_schema_base_provenance(self):
+        # A confident base False excludes the merged partner from the search
+        # subset, but that partner was still judged as a merged set.
+        with _with_words({"zyre": [["Z", "IY1", "ER0"], ["Z", "AA1", "R"]]}):
+            session, rows, _ = complete(source("zyre is here\nthe bar"), schemas=["internal rhyme"])
+        edge = _edge(rows, (0, 0), (1, 1))
+        self.assertIsNotNone(edge)
+        self.assertIn((0, 0), session._disputed)
+        self.assertIn((1, 1), session._merged)
+        self.assertEqual(edge["verdict"], "undecided")
+        under = edge["judged_under"]
+        self.assertEqual(under["verdict"], "false")
+        partner = self.member(under["assignment"], "line:1:token:1")
+        self.assertEqual((partner["role"], partner["held"]), (["b"], "merged_set"))
+        self.assertEqual(under["basis"], "merged_set")
+
     def test_the_base_provenance_is_the_stream_it_was_judged_on(self):
         # 3PO 6547785583 (4): a rebuilt stream carries its own assignment.
         from types import SimpleNamespace
