@@ -1,5 +1,6 @@
 'use strict';
-// Real backend reading records through the connection adapter. The captures in
+// Backend-generated acceptance-case records through the connection adapter.
+// These authored scenarios patch fixture lexicon entries; they are not corpus evidence. The captures in
 // fixtures/connection-backend-reading.json come from the backend's own
 // acceptance scenarios (scripts/capture_connection_reading_fixtures.py); the
 // older connection fixtures exercise no reading branch at all.
@@ -98,6 +99,7 @@ test('a capped edge names the cap, not its unknown channels', () => {
   assert.doesNotMatch(words, /\b0, 0\b/);
 });
 
+// Synthetic channel_unknown record matching the backend tuple shape.
 test('a channel reason names the channels, not their positions', () => {
   const rec = {
     verdict: 'undecided',
