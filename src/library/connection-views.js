@@ -158,9 +158,8 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
     if (sel.kind === 'occurrence') {
       const o = getOcc(model, sel.entity_id);
       pane.append(el('h3', o ? I.occurrenceLabel(o) : 'Occurrence no longer available'));
-      for (const cell of model.cells.filter((c) =>
-        I.selectionOccurrences(c.selection).includes(sel.entity_id)
-      )) {
+      for (const cell of model.cells) {
+        if (!I.selectionOccurrences(cell.selection).includes(sel.entity_id)) continue;
         const m = getMethod(model, cell.selection.method_id);
         pane.append(
           button(
@@ -326,9 +325,9 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
   }
   const poemLayouts = new WeakMap();
   function layoutPoem(root) {
-    const poems = [...root.querySelectorAll('svg.cv-poem')]
-      .map((canvas) => poemLayouts.get(canvas)?.())
-      .filter(Boolean);
+    const poems = [...root.querySelectorAll('svg.cv-poem')].flatMap(
+      (canvas) => poemLayouts.get(canvas)?.() || []
+    );
     return { poems };
   }
   function poem(model) {
@@ -366,7 +365,7 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
       }
       canvas.setAttribute('width', width || model.poem.width);
       canvas.setAttribute('viewBox', `0 0 ${width || model.poem.width} ${model.poem.height}`);
-      const report = { status: 'ready', measured: [], fixture: [], issues: [] };
+      const report = { measured: [], fixture: [], issues: [] };
       for (const o of model.occurrences) {
         const range = model.poem.ranges?.[o.entity_id],
           line = lines[o.line - 1];
@@ -374,8 +373,7 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
         if (!range) reason = 'missing_range';
         else if (
           !line ||
-          !Number.isInteger(range.start) ||
-          !Number.isInteger(range.end) ||
+          ![range.start, range.end].every(Number.isInteger) ||
           range.start < 0 ||
           range.end <= range.start ||
           range.end > line.textContent.length ||
@@ -393,17 +391,14 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
             selection.setEnd(line.firstChild, range.end);
             const rect = selection.getBoundingClientRect(),
               matrix = canvas.getScreenCTM().inverse();
-            const corners = [
-              [rect.left, rect.top],
-              [rect.right, rect.top],
-              [rect.right, rect.bottom],
-              [rect.left, rect.bottom],
-            ].map(([x, y]) => {
-              const p = canvas.createSVGPoint();
-              p.x = x;
-              p.y = y;
-              return p.matrixTransform(matrix);
-            });
+            const point = canvas.createSVGPoint();
+            const corners = [rect.left, rect.right].flatMap((x) =>
+              [rect.top, rect.bottom].map((y) => {
+                point.x = x;
+                point.y = y;
+                return point.matrixTransform(matrix);
+              })
+            );
             const x = Math.min(...corners.map((p) => p.x)),
               y = Math.min(...corners.map((p) => p.y));
             const width = Math.max(...corners.map((p) => p.x)) - x;
@@ -428,7 +423,7 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
         if (reason) report.issues.push({ entity_id: o.entity_id, reason });
       }
       report.status = report.issues.length
-        ? report.measured.length + report.fixture.length
+        ? Object.keys(boxes).length
           ? 'partial'
           : 'unavailable'
         : 'ready';
@@ -559,13 +554,14 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
       group.append(canvas);
       box.append(group);
     }
-    for (const o of model.occurrences.filter((o) => !represented.has(o.entity_id)))
-      box.append(
-        button(
-          `${I.occurrenceLabel(o)} · No holding edge supplied in checked methods`,
-          I.occurrence(o.entity_id)
-        )
-      );
+    for (const o of model.occurrences)
+      if (!represented.has(o.entity_id))
+        box.append(
+          button(
+            `${I.occurrenceLabel(o)} · No holding edge supplied in checked methods`,
+            I.occurrence(o.entity_id)
+          )
+        );
     return box;
   }
   function render(model, { view = 'poem' } = {}) {
@@ -624,15 +620,17 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
     root.append(layout);
     const native = el('section', null, 'cv-native');
     // Directed and span/figure evidence remains native, never made into cliques.
-    for (const cell of model.cells.filter(
-      (c) => c.selection.kind === 'binding' && model.checkedMethods.includes(c.selection.method_id)
-    ))
-      native.append(
-        button(
-          `${methodName(getMethod(model, cell.selection.method_id))} · ${cell.selection.members.map((m) => `${m.role}: ${I.occurrenceLabel(getOcc(model, m.entity_id))}`).join(' → ')} · ${stateText(cell)}`,
-          cell.selection
-        )
-      );
+    for (const cell of model.cells)
+      if (
+        cell.selection.kind === 'binding' &&
+        model.checkedMethods.includes(cell.selection.method_id)
+      )
+        native.append(
+          button(
+            `${methodName(getMethod(model, cell.selection.method_id))} · ${cell.selection.members.map((m) => `${m.role}: ${I.occurrenceLabel(getOcc(model, m.entity_id))}`).join(' → ')} · ${stateText(cell)}`,
+            cell.selection
+          )
+        );
     for (const f of model.figures || [])
       if (model.checkedMethods.includes(f.method_id))
         native.append(
