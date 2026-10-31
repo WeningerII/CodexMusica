@@ -35,11 +35,11 @@ const READING = require('./fixtures/connection-backend-reading.json').captures;
 const adapterSource = read('src/library/connection-adapter.js');
 
 const LANDED = {
-  counts: false, // model.counts wiring (BB8, #637 6547009973 item 6)
-  groupCounts: false, // model.groupCounts wiring (BB8, same item)
+  counts: true, // landed on #652 at d59dde55b1 (item 6)
+  groupCounts: true, // landed on #652 at d59dde55b1 (item 6)
   familyTable: true, // landed on #652 at c4b0114af6
-  readingDisclosure: false, // inspector reading wording (3PO 6547011992)
-  judgedAlternatives: false, // BB8's bounded outcomes for judged alternatives
+  readingDisclosure: true, // landed on #652 at d59dde55b1 (item 5)
+  judgedAlternatives: true, // landed on #652 at d59dde55b1 (item 5, reading_outcomes)
 };
 for (const k of (process.env.CONNECTION_CONTRACTS_LANDED || '').split(',').filter(Boolean)) {
   if (!(k in LANDED)) throw Error(`CONNECTION_CONTRACTS_LANDED: unknown feature ${k}`);
@@ -49,8 +49,12 @@ for (const k of (process.env.CONNECTION_CONTRACTS_LANDED || '').split(',').filte
 const gate = (feature, waits) => (LANDED[feature] ? {} : { todo: `not landed: ${waits}` });
 // The adapter reads the family table as a page global, as test_connection_adapter.js supplies it.
 const FAMILIES_FILE = path.join(ROOT, 'src/connection-families.js');
-const FAMILIES = fs.existsSync(FAMILIES_FILE) ? require(FAMILIES_FILE).CONNECTION_FAMILIES : undefined;
-const adapt = new Function('CONNECTION_FAMILIES', adapterSource + '\nreturn _connectionModel;')(FAMILIES);
+const FAMILIES = fs.existsSync(FAMILIES_FILE)
+  ? require(FAMILIES_FILE).CONNECTION_FAMILIES
+  : undefined;
+const adapt = new Function('CONNECTION_FAMILIES', adapterSource + '\nreturn _connectionModel;')(
+  FAMILIES
+);
 
 function model(records, { reg = registry, complete = true, report = {} } = {}) {
   return adapt(I, {
@@ -121,7 +125,11 @@ test('a1 progress counters and method candidate counts never become displayed to
 
 test('a2 a count the backend does not emit leaves its slot unpopulated, never zero', () => {
   const m = model(sentinelRecords());
-  for (const [state, value] of Object.entries(m.counts || {}))
+  // `summary` is the strip's own sentence; every other entry is a count.
+  const { summary, ...numbers } = m.counts || {};
+  assert.ok(summary === undefined || typeof summary === 'string', 'summary is text');
+  assert.doesNotMatch(summary || '', /does not hold|not yet computed|refused/i, summary);
+  for (const [state, value] of Object.entries(numbers))
     assert.ok(value === undefined || (Number.isInteger(value) && value >= 0), `${state}: ${value}`);
   // No listed_pairs_by_state on these records: "does not hold" has no source.
   assert.equal(m.counts?.does_not_hold, undefined);
@@ -325,9 +333,16 @@ test(
     // cannot fail this check (3PO 6547341635).
     const { m, text } = inspect('reading_dependent', holdOf());
     const selected = m.cells.find((c) => I.sameSelection(c.selection, m.selection));
-    const alternates = selected.record?.alternates;
-    assert.ok(Array.isArray(alternates) && alternates.length, 'the selected record carries them');
-    for (const a of alternates) assert.ok(text.includes(a.reading || a.text || String(a)), a);
+    // Judged outcomes ride on the record as reading_outcomes (#652 d59dde55b1).
+    const failing = (selected.record?.reading_outcomes || []).filter((o) => o.verdict !== 'true');
+    assert.ok(failing.length, 'the selected record carries judged failing alternatives');
+    // Each is shown with its verdict and every role's phones under it.
+    const shown = text.split(/Judged alternative \d+ · /).slice(1);
+    assert.equal(shown.length, failing.length, 'one entry per judged failing alternative');
+    failing.forEach((o, i) => {
+      assert.match(shown[i], /^does not hold/, `alternative ${i + 1}: ${shown[i].slice(0, 40)}`);
+      for (const r of o.assignment) assert.ok(shown[i].includes(`: ${r.phones}`), r.display);
+    });
   }
 );
 
@@ -345,7 +360,7 @@ test(
     const { text } = inspect('witness_first', holdOf());
     assert.match(
       text,
-      /Not computed under this reading|Other readings not examined|alternative readings were not searched in this scope/i
+      /Not computed under this reading|Other readings not examined|alternative readings were not searched in this scope|No verdict is supplied for other combinations/i
     );
   }
 );
@@ -374,7 +389,7 @@ test('honesty: a feature whose output exists is declared landed, so its gate run
     groupCounts: Object.keys(m.groupCounts || {}).length > 0,
     familyTable: fs.existsSync(path.join(ROOT, 'src/connection-families.js')),
     judgedAlternatives: Object.values(READING).some((c) =>
-      c.records.some((r) => Array.isArray(r.alternates))
+      c.records.some((r) => Array.isArray(r.reading_outcomes) && r.reading_outcomes.length)
     ),
   };
   for (const [feature, present] of Object.entries(seen))
