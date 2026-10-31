@@ -64,6 +64,10 @@ const READER_MODE = argv.includes('--reader-mode');
 const ONLY_SECTION = pick('section');
 const ONLY_WIDTH = Number(pick('width')) || 0;
 const pending = [];
+// The reader is ready: its poem lines, or (a link restored into Connections
+// mode, where the paper is hidden) the mode's bar.
+const READER_SETTLED =
+  '#surface-library .rd-paper .rd-line, #surface-library .rd.rd-conn .rd-connbar';
 const notes = [];
 
 const crypto = require('crypto');
@@ -263,6 +267,111 @@ const closeSheet = async (page) => {
   if (await page.isVisible('.lib-cb-sheet-body')) await page.keyboard.press('Escape');
 };
 
+// The poem's directed arcs against `want` (decodeKey form). `what` names the
+// records in the check text. With no directed arc keyed at all the check is
+// PENDING (or fails under --require-arrows), but an arc marked directed with
+// no binding key is a regression and always fails.
+async function arrowChecks(page, tag, want, what) {
+  await page.click('.cv-root [data-view="poem"]');
+  await settle(page);
+  // Read each drawn arc: its selection, its arrowhead's vertices, and every
+  // endpoint of its route and stems. The head's path is "M tip L corner L
+  // corner Z" (marks.arrowhead), so its tip and base never depend on how the
+  // route is drawn. ends() reads the first and last coordinate pairs, which
+  // assumes absolute commands; a relative path makes reaches* fail, never pass.
+  const drawn = await page.evaluate(() => {
+    const nums = (d) => (d.match(/-?\d+(\.\d+)?/g) || []).map(Number);
+    const ends = (d) => {
+      const n = nums(d);
+      return n.length >= 2
+        ? [
+            [n[0], n[1]],
+            [n[n.length - 2], n[n.length - 1]],
+          ]
+        : [];
+    };
+    const ports = {};
+    for (const c of document.querySelectorAll('.cv-poem g[data-selection^="o:"] circle'))
+      ports[c.closest('[data-selection]').dataset.selection] = [
+        +c.getAttribute('cx'),
+        +c.getAttribute('cy'),
+      ];
+    const arcs = [...document.querySelectorAll('.cv-poem .lib-mk-arc')].map((g) => {
+      const owner = g.closest('[data-selection]') || g;
+      const head = g.querySelector('path.lib-mk-head');
+      const v = head ? nums(head.getAttribute('d')) : [];
+      return {
+        key: owner.dataset.selection || '',
+        directed: g.dataset.directed === 'true',
+        tip: v.length >= 6 ? [v[0], v[1]] : null,
+        base: v.length >= 6 ? [(v[2] + v[4]) / 2, (v[3] + v[5]) / 2] : null,
+        ends: [...g.querySelectorAll('path:not(.lib-mk-head):not(.lib-mk-gap)')].flatMap((p) =>
+          ends(p.getAttribute('d') || '')
+        ),
+      };
+    });
+    return { ports, arcs };
+  });
+  const portOf = (id) => drawn.ports[CI.selectionKey({ kind: 'occurrence', entity_id: id })];
+  const directedArcs = drawn.arcs.filter((a) => a.key.startsWith('b:'));
+  const markedDirected = drawn.arcs.filter((a) => a.directed).length;
+  if (!directedArcs.length) {
+    H.check(
+      `${tag} directed (${what}): no arc is marked directed without a binding key`,
+      markedDirected === 0,
+      JSON.stringify(drawn.arcs)
+    );
+    const note = `${tag} directed (${what}): directed holds are not drawn as poem arcs yet (arrowheads pending)`;
+    if (REQUIRE_ARROWS) H.check(note, false);
+    else pending.push(note);
+    return;
+  }
+  const keys = directedArcs.map((a) => decodeKey(a.key));
+  H.check(
+    `${tag} directed (${what}): the poem draws exactly the supplied directed bindings`,
+    keys.every(Boolean) && sameSet(keys, want) && markedDirected === directedArcs.length,
+    JSON.stringify({ keys, want, markedDirected })
+  );
+  H.check(
+    `${tag} directed (${what}): every directed arc carries one ink arrowhead (.lib-mk-head)`,
+    directedArcs.every((a) => a.directed && a.tip),
+    JSON.stringify(directedArcs)
+  );
+  const dist = (p, q) => (p && q ? Math.hypot(p[0] - q[0], p[1] - q[1]) : Infinity);
+  const runs = directedArcs.map((a) => {
+    const sel = CI.selectionFromKey(a.key);
+    const role = (r) => sel.members.find((m) => m.role === r).entity_id;
+    const pa = portOf(role('a')),
+      pb = portOf(role('b'));
+    // The head points at b: base → tip runs toward b's port, within 60°.
+    let aims = false;
+    if (a.tip && a.base && pb) {
+      const u = [a.tip[0] - a.base[0], a.tip[1] - a.base[1]],
+        w = [pb[0] - a.base[0], pb[1] - a.base[1]];
+      const cos = (u[0] * w[0] + u[1] * w[1]) / (Math.hypot(...u) * Math.hypot(...w) || Infinity);
+      aims = cos >= 0.5 && dist(a.base, pb) > dist(a.tip, pb);
+    }
+    return {
+      key: decodeKey(a.key),
+      toB: dist(a.tip, pb),
+      toA: dist(a.tip, pa),
+      aims,
+      reachesA: a.ends.some((e) => dist(e, pa) < 2),
+      reachesB: a.ends.some((e) => dist(e, pb) < 2),
+    };
+  });
+  H.check(
+    `${tag} directed (${what}): each arrowhead sits at its b word and points into it`,
+    runs.every((r) => r.toB <= 12 && r.toB < r.toA && r.aims),
+    JSON.stringify(runs)
+  );
+  H.check(
+    `${tag} directed (${what}): each route (with its stems) joins the asked a and b ports`,
+    runs.every((r) => r.reachesA && r.reachesB),
+    JSON.stringify(runs)
+  );
+}
+
 const SECTIONS = {
   async directed({ page, base, tag }) {
     let state = await serve(page);
@@ -307,84 +416,8 @@ const SECTIONS = {
       /· holds$/.test((await cellLabel(page, HOLD_KEY)) || ''),
       await cellLabel(page, HOLD_KEY)
     );
-    await page.click('.cv-root [data-view="poem"]');
-    await settle(page);
-    // Read each drawn arc: its selection, its arrowhead's tip, and every
-    // endpoint of its route and stems. The head's path starts at its tip
-    // (marks.arrowhead), so the tip never depends on how the route is drawn.
-    const drawn = await page.evaluate(() => {
-      const ends = (d) => {
-        const n = (d.match(/-?\d+(\.\d+)?/g) || []).map(Number);
-        return n.length >= 2
-          ? [
-              [n[0], n[1]],
-              [n[n.length - 2], n[n.length - 1]],
-            ]
-          : [];
-      };
-      const ports = {};
-      for (const c of document.querySelectorAll('.cv-poem g[data-selection^="o:"] circle'))
-        ports[c.closest('[data-selection]').dataset.selection] = [
-          +c.getAttribute('cx'),
-          +c.getAttribute('cy'),
-        ];
-      const arcs = [...document.querySelectorAll('.cv-poem .lib-mk-arc')].map((g) => {
-        const owner = g.closest('[data-selection]') || g;
-        const head = g.querySelector('path.lib-mk-head');
-        return {
-          key: owner.dataset.selection || '',
-          directed: g.dataset.directed === 'true',
-          tip: head ? ends(head.getAttribute('d'))[0] : null,
-          ends: [...g.querySelectorAll('path:not(.lib-mk-head):not(.lib-mk-gap)')].flatMap((p) =>
-            ends(p.getAttribute('d') || '')
-          ),
-        };
-      });
-      return { ports, arcs };
-    });
-    const portOf = (id) => drawn.ports[CI.selectionKey({ kind: 'occurrence', entity_id: id })];
-    const directedArcs = drawn.arcs.filter((a) => a.key.startsWith('b:'));
-    if (!directedArcs.length) {
-      const note = `${tag} directed: directed holds are not drawn as poem arcs yet (arrowheads pending)`;
-      if (REQUIRE_ARROWS) H.check(note, false);
-      else pending.push(note);
-    } else {
-      const keys = directedArcs.map((a) => decodeKey(a.key));
-      H.check(
-        `${tag} directed: the poem draws exactly the supplied directed bindings`,
-        keys.every(Boolean) && sameSet(keys, want),
-        JSON.stringify({ keys, want })
-      );
-      H.check(
-        `${tag} directed: every directed arc carries one ink arrowhead (.lib-mk-head)`,
-        directedArcs.every((a) => a.directed && a.tip),
-        JSON.stringify(directedArcs)
-      );
-      const dist = (p, q) => (p && q ? Math.hypot(p[0] - q[0], p[1] - q[1]) : Infinity);
-      const runs = directedArcs.map((a) => {
-        const sel = CI.selectionFromKey(a.key);
-        const role = (r) => sel.members.find((m) => m.role === r).entity_id;
-        const pa = portOf(role('a')),
-          pb = portOf(role('b'));
-        return {
-          key: decodeKey(a.key),
-          toB: dist(a.tip, pb),
-          toA: dist(a.tip, pa),
-          reachesA: a.ends.some((e) => dist(e, pa) < 2),
-          reachesB: a.ends.some((e) => dist(e, pb) < 2),
-        };
-      });
-      H.check(
-        `${tag} directed: each arrowhead points into its b word, not its a word`,
-        runs.every((r) => r.toB <= 12 && r.toB < r.toA),
-        JSON.stringify(runs)
-      );
-      H.check(
-        `${tag} directed: each route (with its stems) joins the asked a and b ports`,
-        runs.every((r) => r.reachesA && r.reachesB),
-        JSON.stringify(runs)
-      );
-    }
+    H.check(`${tag} directed: opening and selecting sends no computation`, state.posts === 1);
+    await arrowChecks(page, tag, want, 'capture');
     // A binding asked later-to-earlier stays that way round.
     await page.context().clearCookies();
     await page.unroute(H.API + '/**');
@@ -397,6 +430,8 @@ const SECTIONS = {
         !labels.some((l) => /a: watch[^→]*→ b: woods/.test(l)),
       JSON.stringify(labels)
     );
+    // Once arcs are drawn, the replay's arrow must run into watch (its b).
+    await arrowChecks(page, tag, expectedBindings(reversed()), 'role-swapped replay');
     H.check(`${tag} directed: viewing sends no computation`, state.posts === 1);
   },
 
@@ -517,7 +552,7 @@ const SECTIONS = {
     // no earlier mount survives) on the same reading restores its selection.
     await page.goto('about:blank');
     await page.goto(link);
-    await H.settled(page, 'reader', '#surface-library .rd-paper .rd-line');
+    await H.settled(page, 'reader', READER_SETTLED);
     await analyze(page);
     await page.waitForSelector('.cv-root');
     await page.click('[data-act="more"]');
@@ -535,7 +570,7 @@ const SECTIONS = {
     other.hash = `#library/read/${H.EPI_B}?lens=sound`;
     await page.goto('about:blank');
     await page.goto(other.href);
-    await H.settled(page, 'reader', '#surface-library .rd-paper .rd-line');
+    await H.settled(page, 'reader', READER_SETTLED);
     await analyze(page);
     await page.waitForSelector('.cv-notice');
     await settle(page);
