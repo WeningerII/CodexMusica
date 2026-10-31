@@ -514,6 +514,18 @@ const SECTIONS = {
           document.activeElement.textContent === 'Evidence'
       )
     );
+    await page.click('.cv-root [data-view="poem"]');
+    await page.waitForSelector('.cv-poem [data-directed="true"]');
+    check(
+      `${tag} connections: real backend holds mount directed arcs`,
+      await page
+        .locator('.cv-poem [data-directed="true"]')
+        .evaluateAll((nodes) =>
+          nodes.every(
+            (n) => n.dataset.selection.startsWith('b:') && n.querySelector('.lib-mk-head')
+          )
+        )
+    );
     check(`${tag} connections: display interaction sends no computation`, posts === 1);
     const stale = new URL(selectedUrl);
     stale.hash = `#library/read/${EPI_B}?lens=sound`;

@@ -114,6 +114,71 @@ test('arc routes: same line above, end↔end to the margin, interior through the
   );
 });
 
+test('a role-ordered binding is drawn with one ink arrowhead pointing into b, on every route', () => {
+  // Spec condition (1): role-ordered binding = "ink arrowhead + 'a → b'".
+  const geo = (a, b) => M.arcGeometry(a, b, { margin: 900, gutter: 40 });
+  const tip = (g) => {
+    const heads = g.querySelectorAll('path.lib-mk-head');
+    assert.equal(heads.length, 1);
+    const [x, y] = heads[0].getAttribute('d').slice(1).split(' ')[0].split(',').map(Number);
+    return { x, y };
+  };
+  const near = (p, q, d) => Math.hypot(p.x - q.x, p.y - q.y) <= d;
+  const routes = [
+    [{ x: 10, y: 50, line: 4 }, { x: 90, y: 50, line: 4 }, 'same-line', { x: 90, y: 45 }],
+    [
+      { x: 500, y: 50, line: 1, final: true },
+      { x: 480, y: 350, line: 4, final: true },
+      'margin',
+      // Arriving back from the right margin: the tip is right of b.
+      { x: 485, y: 350 },
+    ],
+    [{ x: 300, y: 50, line: 1 }, { x: 480, y: 350, line: 4 }, 'interline', { x: 475, y: 350 }],
+  ];
+  for (const [a, b, route, want] of routes) {
+    const g = geo(a, b);
+    assert.equal(g.route, route);
+    const directed = M.arc(g, { family: 'rhyme', directed: true });
+    assert.equal(directed.getAttribute('data-directed'), 'true');
+    // The tip sits just outside b's port (r 3.5), never at a.
+    assert.ok(near(tip(directed), want, 0.01), `${route}: ${JSON.stringify(tip(directed))}`);
+    assert.ok(!near(tip(directed), a, 20), route);
+    const plain = M.arc(g, { family: 'rhyme' });
+    assert.equal(plain.querySelectorAll('.lib-mk-head').length, 0);
+    assert.equal(plain.getAttribute('data-directed'), null);
+  }
+  // Reversing the roles moves the head to the other end.
+  const r = M.arc(geo(routes[0][1], routes[0][0]), { family: 'rhyme', directed: true });
+  assert.ok(near(tip(r), { x: 10, y: 45 }, 0.01));
+  assert.throws(() => M.arc({ d: 'M0,0', stems: [] }, { family: 'rhyme', directed: true }), /head/);
+});
+
+test('the arrowhead is ink, not the family hue, and dims with its arc', () => {
+  const css = load().document.getElementById('lib-mk-style').textContent;
+  assert.match(css, /\.lib-mk-arc path\.lib-mk-head\{fill:var\(--cm-text\);stroke:none\}/);
+  // The dim rule reaches every path child of a dimmed arc, the head included.
+  assert.match(css, /\.lib-mk-dim>path\{opacity:\.25\}/);
+  const g = M.arc(M.arcGeometry({ x: 0, y: 0, line: 4 }, { x: 40, y: 0, line: 4 }), {
+    family: 'rhyme',
+    directed: true,
+    dim: true,
+  });
+  assert.equal(g.querySelector('.lib-mk-head').parentNode, g);
+});
+
+test('a directed network edge ends in an arrowhead at b’s node rim', () => {
+  const e = M.edge(
+    { cx: 0, cy: 0 },
+    { cx: 200, cy: 0 },
+    { family: 'rhyme', directed: true, r: 37 }
+  );
+  const d = e.querySelector('path.lib-mk-head').getAttribute('d');
+  const [x, y] = d.slice(1).split(' ')[0].split(',').map(Number);
+  assert.deepEqual([x, y], [200 - 37, 0]);
+  const plain = M.edge({ cx: 0, cy: 0 }, { cx: 200, cy: 0 }, { family: 'rhyme' });
+  assert.equal(plain.querySelectorAll('.lib-mk-head').length, 0);
+});
+
 test('ports never collapse: close ports spread to the minimum gap, in order', () => {
   const xs = M.fanPorts([100, 102, 101, 300], 6);
   assert.deepEqual([...xs], [100, 112, 106, 300]);

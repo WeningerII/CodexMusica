@@ -408,6 +408,10 @@ function aligned(list, label) {
         `container width ${width}`
       );
       if (width === 600) {
+        await page.evaluate(() => {
+          window.resizeErrors = [];
+          window.addEventListener('error', (event) => window.resizeErrors.push(event.message));
+        });
         await page.click('.cv-phone-row button:visible');
         assert.equal(await page.locator('.lib-cb-sheet-body').isVisible(), true);
         await page.evaluate(
@@ -422,6 +426,14 @@ function aligned(list, label) {
         await page.waitForSelector('.lib-cb-sheet');
         assert.equal(await page.locator('.cv-phone-row').isVisible(), true);
         assert.equal(await page.evaluate(() => document.activeElement === document.body), false);
+      }
+      if (width === 600) {
+        await frames(page);
+        assert.deepEqual(
+          await page.evaluate(() => window.resizeErrors),
+          [],
+          'host crossings have no ResizeObserver loop errors'
+        );
       }
       assert.deepEqual(errors, []);
       ok(`container ${width}px: matrix, inspector and padding agree`);

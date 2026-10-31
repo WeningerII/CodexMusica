@@ -28,9 +28,7 @@ function liveRegion(container) {
   el.style.cssText = HIDDEN;
   container.append(el);
   const win = doc.defaultView;
-  const later =
-    (win && win.requestAnimationFrame && win.requestAnimationFrame.bind(win)) ||
-    ((f) => setTimeout(f, 0));
+  const later = win?.requestAnimationFrame?.bind(win) || ((f) => setTimeout(f, 0));
   // What one frame will say: the latest words replace earlier ones, and a
   // note (a poem that could not be laid out) is read after them.
   let pending = null;
@@ -59,22 +57,22 @@ function liveRegion(container) {
 
 // Keys on one view. Esc clears and Enter inspects anywhere in the view;
 // arrows move only inside the matrix grid. Typing in a field is never taken.
+// clear() returns whether it handled Escape; false leaves it to the reader.
 // handlers: { clear(), inspect(), move(key) }. Returns the unbind function.
 function bindKeys(root, ci, handlers, opts) {
   const grid = (opts && opts.grid) || null;
   function onKey(ev) {
     const t = ev.target;
-    const tag = t && t.tagName;
-    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (t && t.isContentEditable)) {
+    const tag = t.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || t.isContentEditable) {
       if (ev.key !== 'Escape') return;
     }
     // Space activates a non-native role="button" (the poem's and network's
     // SVG marks), as it does a real button.
-    const roleButton =
-      t && t.getAttribute && t.getAttribute('role') === 'button' && tag !== 'BUTTON';
+    const roleButton = t.getAttribute?.('role') === 'button' && tag !== 'BUTTON';
     const action = ev.key === ' ' && roleButton ? 'inspect' : ci.keyAction(ev.key);
     if (action === 'clear') {
-      handlers.clear();
+      if (!handlers.clear()) return;
     } else if (action === 'inspect') {
       if (tag === 'BUTTON' || tag === 'A') return; // their own activation
       handlers.inspect();
@@ -249,7 +247,7 @@ function announceFor(ci, model) {
 // What a poem that could not be fully laid out says, once. Views report
 // ready, partial or unavailable per poem (layoutPoem); ready says nothing.
 const LAYOUT_RANK = { ready: 0, partial: 1, unavailable: 2 };
-function layoutWords(report) {
+function wordsOf(report) {
   let worst = 0,
     placed = 0,
     missing = 0;
@@ -308,8 +306,8 @@ function mount(host, opts) {
   // has no marks to take it, so layout() gives it to the mark it draws.
   let wanted = '';
   const fonts = doc.fonts;
-  function focusKeyIn(root, key, related = true) {
-    if (!key) return false;
+  function focus(root, key, related = true) {
+    if (!key) return;
     // The same selection can be drawn twice: at phone width the matrix row's
     // button and the hidden desktop cell share a key. Focus the one on screen;
     // focusing a hidden one does nothing and leaves the reader on the page.
@@ -331,9 +329,8 @@ function mount(host, opts) {
           })
         : null;
     }
-    if (!node) return false;
+    if (!node) return;
     node.focus();
-    return true;
   }
   function layout(root, g) {
     if (g !== gen || !root.isConnected || typeof views.layoutPoem !== 'function') return;
@@ -343,8 +340,8 @@ function mount(host, opts) {
     const a = doc.activeElement;
     const held = a && stage.contains(a) && a.closest('[data-selection]');
     const key = held ? held.dataset.selection : !a || a === doc.body ? wanted : '';
-    const { rank, words } = layoutWords(views.layoutPoem(root));
-    if (key && !(doc.activeElement && stage.contains(doc.activeElement))) focusKeyIn(root, key);
+    const { rank, words } = wordsOf(views.layoutPoem(root));
+    if (key && !(doc.activeElement && stage.contains(doc.activeElement))) focus(root, key);
     // Said when it gets worse, not on every redraw; a clean layout resets it.
     if (rank > announced) live.note(words);
     announced = rank;
@@ -373,17 +370,17 @@ function mount(host, opts) {
       sheet.body.append(pane);
     }
     if (opened) {
-      focusKeyIn(root, ci.selectionKey(model.selection));
+      focus(root, ci.selectionKey(model.selection));
       sheet?.open(doc.activeElement);
     }
     if (!fonts || fonts.status === 'loaded') {
       layout(root, g);
-      focusKeyIn(root, focusKey);
+      focus(root, focusKey);
     } else {
       // Focus now, so a keyboard reader is never left waiting on a font;
       // layout() keeps that focus when it replaces the marks. Not yet a
       // related selection: the exact one may be a mark layout has to draw.
-      focusKeyIn(root, focusKey, false);
+      focus(root, focusKey, false);
       fonts.ready.then(() => layout(root, g));
     }
     if (control) {
@@ -392,21 +389,23 @@ function mount(host, opts) {
       );
       (target && !target.disabled ? target : root.querySelector('[aria-current="true"]'))?.focus();
     }
-    return root;
   }
   let relayout = 0;
-  const later =
-    (win.requestAnimationFrame && win.requestAnimationFrame.bind(win)) || ((f) => setTimeout(f, 0));
-  const cancel = (win.cancelAnimationFrame && win.cancelAnimationFrame.bind(win)) || clearTimeout;
-  function onFonts() {
+  const later = win.requestAnimationFrame?.bind(win) || ((f) => setTimeout(f, 0));
+  const cancel = win.cancelAnimationFrame?.bind(win) || clearTimeout;
+  function onLoad() {
     if (relayout) return;
     relayout = later(() => {
       relayout = 0;
       const root = stage.firstElementChild;
-      if (root) layout(root, gen);
+      if (root?.isConnected) {
+        if (!!sheet !== narrow())
+          draw(doc.activeElement === doc.body && ci.selectionKey(model.selection));
+        else layout(root, gen);
+      }
     });
   }
-  if (fonts && fonts.addEventListener) fonts.addEventListener('loadingdone', onFonts);
+  fonts?.addEventListener?.('loadingdone', onLoad);
   function update(patch, focusKey) {
     model = { ...model, ...patch };
     draw(focusKey);
@@ -465,7 +464,8 @@ function mount(host, opts) {
     stage,
     ci,
     {
-      clear: () => select(null),
+      clear: () =>
+        sheet?.isOpen() ? (sheet.close(), true) : !!model.selection && (select(null), true),
       inspect: () => {
         const t = doc.activeElement && doc.activeElement.closest('[data-selection]');
         const sel = t && ci.selectionFromKey(t.dataset.selection);
@@ -491,7 +491,7 @@ function mount(host, opts) {
   const resize =
     win.ResizeObserver &&
     new win.ResizeObserver(() => {
-      if (!!sheet !== narrow()) draw();
+      if (!!sheet !== narrow()) onLoad();
     });
   resize?.observe(host);
   return {
@@ -527,7 +527,7 @@ function mount(host, opts) {
       gen++;
       resize?.disconnect();
       if (relayout) cancel(relayout);
-      if (fonts && fonts.removeEventListener) fonts.removeEventListener('loadingdone', onFonts);
+      fonts?.removeEventListener?.('loadingdone', onLoad);
       unbind();
       url.stop();
       stage.remove();

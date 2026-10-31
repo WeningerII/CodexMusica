@@ -704,3 +704,110 @@ test('non-append evidence clears an unavailable selection once and preserves unr
   m.destroy();
   win.close();
 });
+
+test('Escape consumes one inner layer per press and leaves empty selection to the reader', () => {
+  for (const narrow of [false, true]) {
+    const { win, doc, host, m } = mounted(undefined, narrow);
+    let exits = 0;
+    host.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !event.defaultPrevented) exits++;
+    });
+    const sel = CI.pair(ALLIT, 'e-watch-4-2', 'e-woods-4-4');
+    find(host, keyOf(sel)).click();
+    if (narrow) {
+      assert.equal(key(win, doc.activeElement, 'Escape'), false);
+      assert.equal(host.querySelector('.lib-cb-sheet-body').hidden, true);
+      assert.ok(CI.sameSelection(m.model().selection, sel));
+      assert.equal(exits, 0);
+    }
+    assert.equal(key(win, doc.activeElement, 'Escape'), false);
+    assert.equal(m.model().selection, null);
+    assert.equal(exits, 0);
+    const address = win.location.href;
+    const stage = host.querySelector('section');
+    assert.equal(key(win, stage, 'Escape'), true);
+    assert.equal(exits, 1);
+    assert.equal(win.location.href, address);
+    m.destroy();
+    win.close();
+  }
+});
+
+test('Escape outside an open sheet closes only the sheet before clearing selection', () => {
+  const { win, host, m } = mounted(undefined, true);
+  const sel = CI.pair(ALLIT, 'e-watch-4-2', 'e-woods-4-4');
+  find(host, keyOf(sel)).click();
+  const outside = host.querySelector('[data-view]');
+  assert.equal(key(win, outside, 'Escape'), false);
+  assert.equal(host.querySelector('.lib-cb-sheet-body').hidden, true);
+  assert.ok(CI.sameSelection(m.model().selection, sel));
+  assert.equal(key(win, outside, 'Escape'), false);
+  assert.equal(m.model().selection, null);
+  m.destroy();
+  win.close();
+});
+
+test('resize mode redraws coalesce on a frame and pending work cannot survive destroy', () => {
+  const { B, win, doc } = load();
+  const frames = new Map();
+  let next = 0,
+    observer,
+    disconnected = false,
+    phone = false;
+  win.requestAnimationFrame = (fn) => {
+    frames.set(++next, fn);
+    return next;
+  };
+  win.cancelAnimationFrame = (id) => frames.delete(id);
+  win.ResizeObserver = class {
+    constructor(fn) {
+      observer = fn;
+    }
+    observe() {}
+    disconnect() {
+      disconnected = true;
+    }
+  };
+  const host = doc.getElementById('surface-library');
+  let renders = 0;
+  const create = fakeCreateViews(doc);
+  const m = B.mount(host, {
+    ci: CI,
+    marks: {},
+    createViews: (options) => {
+      const views = create(options);
+      const render = views.render;
+      return {
+        ...views,
+        render: (...args) => {
+          renders++;
+          return render(...args);
+        },
+      };
+    },
+    model: fixtureModel(),
+    current: { ...current },
+    narrow: () => phone,
+  });
+  phone = true;
+  observer();
+  observer();
+  assert.equal(host.querySelector('.lib-cb-sheet'), null, 'observer does not redraw synchronously');
+  assert.equal(frames.size, 1, 'repeated notifications share one frame');
+  const [id, frame] = [...frames][0];
+  frames.delete(id);
+  frame();
+  assert.ok(host.querySelector('.lib-cb-sheet'));
+  phone = false;
+  observer();
+  const pending = [...frames.values()][0];
+  assert.ok(pending);
+  m.destroy();
+  assert.equal(disconnected, true);
+  assert.equal(frames.size, 0);
+  const before = renders;
+  assert.doesNotThrow(() => pending(), 'a delivered stale callback finds no mounted tree');
+  assert.equal(renders, before, 'stale work cannot redraw a detached tree');
+  assert.equal(host.children.length, 0);
+  win.close();
+});
