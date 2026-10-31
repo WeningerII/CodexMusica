@@ -1,0 +1,5 @@
+CACHE  /tmp/m16-12.tsv
+       fingerprint 8005dddf4d01 | read 800 entries, written 2026-10-31T01:25:45 | hits 0, misses 0
+POPULATION  84 files, 84 distinct authors, 483 items, 14156 sung lines
+COMPUTE  shard 12/16: 84 files, 483 rows -> /tmp/rows-12-of-16.tsv; cache hits 39 misses 444; 1448 CPU-s, 1462 wall-s
+exit 0
