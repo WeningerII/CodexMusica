@@ -692,13 +692,23 @@
   outline-offset: var(--cm-focus-offset);
 }
 .gp-detail-place {
+  /* Optional geo must not move the tabs while a pointer is pressed. */
+  height: 1.5em;
+  line-height: 1.5;
+  min-width: 0;
   display: flex;
   align-items: center;
   gap: 6px;
   color: var(--cm-text-secondary);
   font-size: var(--cm-text-sm);
 }
+.gp-detail-place span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .gp-detail-place svg {
+  flex-shrink: 0;
   color: var(--cm-route-map);
 }
 .gp-crumbs {
