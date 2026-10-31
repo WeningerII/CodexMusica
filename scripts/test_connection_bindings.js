@@ -615,7 +615,7 @@ test('layout: partial and unavailable are said once, after the selection; ready 
   await tick(win);
   assert.equal(
     live.textContent,
-    'Poem: 2 of 6 words could not be placed, so their connections are not drawn. They are listed in the inspector.'
+    'Poem: 2 of 6 words could not be placed, so their connections are not drawn..'
   );
   find(host, keyOf(CI.occurrence('e-woods-1-2'))).click();
   await tick(win);
@@ -630,7 +630,7 @@ test('layout: partial and unavailable are said once, after the selection; ready 
   await tick(win);
   assert.equal(
     live.textContent,
-    'Poem: word positions could not be measured, so no connections are drawn on it. They are listed in the inspector.',
+    'Poem: word positions could not be measured, so no connections are drawn on it..',
     'getting worse is said'
   );
   report.status = 'partial';

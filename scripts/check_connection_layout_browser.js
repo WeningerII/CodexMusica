@@ -232,7 +232,7 @@ function aligned(list, label) {
       const live = page.locator('#surface-library .lib-cb-live');
       assert.equal(
         await live.textContent(),
-        'Poem: 1 of 6 words could not be placed, so their connections are not drawn. They are listed in the inspector.'
+        'Poem: 1 of 6 words could not be placed, so their connections are not drawn..'
       );
       await press(page, 'woods1');
       await frames(page);
