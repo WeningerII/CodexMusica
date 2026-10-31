@@ -384,11 +384,20 @@ CANON_RATE = CANON_VIOLATIONS / CANON_JUDGED
 # It is above the pre-inventory (896, 921) because main undercounted the
 # same way for every word CMUdict already gave two readings. This records
 # the instrument's new result, not a relaxed acceptance band.
+# REPINNED 2026-10-31, G1 (`MISSING.md` M-325; John's ruling relayed on #637,
+# 6536447883, accepted G1's recall rise). ~~any (1086, 1104), schema (1084,
+# 1103)~~ -> the values below, measured by `--check` over GRID at the same
+# seed; admit and rhyme held. `_bucket_key` now keys a flush_right `each`
+# channel at the last unit every partner aligns, so mosaic, compound /
+# phrasal, chain (rap) and enjambed rhyme reach the judge on pairs the first-
+# syllable key had pruned: more random pairs hold some schema. Measured
+# before G1 (45bcce8e36) every band held; after it only these two moved.
+# This records the instrument's new result, not a relaxed acceptance band.
 ADOPTED = {
-    "any": (1086, 1104),
+    "any": (1122, 1144),
     "admit": (64, 88),
     "rhyme": (1, 7),
-    "schema": (1084, 1103),
+    "schema": (1120, 1143),
 }
 
 

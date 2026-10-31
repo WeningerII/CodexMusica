@@ -1881,8 +1881,13 @@ jobs:
     # budget. REPINNED 2026-09-01 from ~~10~~ (`MISSING.md` M-187): the 10
     # was sized in the struck paragraph above as "a runaway guard" over 38 s
     # of work, and 27 checks later it sat 3.8 min from a red that would have
-    # read as a failing check.
-    timeout-minutes: 15
+    # read as a failing check. REPINNED 2026-10-31 from ~~15~~: main measured
+    # 13.4 min (run 41152226298, 0.9 of the guard) and the backend batch
+    # (PR #649) 16.2 min with every step it reached passing (run 41174628419,
+    # cancelled at the guard during its 37th step); the batch's larger schema
+    # registry and rule-5 readings slow `counters` 154 -> 232 s and the span
+    # check 114 -> 176 s. 25 is headroom, not a budget.
+    timeout-minutes: 25
     steps:
       # fetch-depth 0 IS LOAD-BEARING, not hygiene. `verify_entries.py`'s
       # doctrine-17 check asks whether a pin that MOVED left its superseded
