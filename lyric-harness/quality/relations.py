@@ -8721,6 +8721,24 @@ CONTEXT_CONTROLS = {
          "My boyhood’s home, &c."),
         ("1", "3"), ("2", "3")),
     # -- end of the M-313 block --------------------------------------------
+    # -- THE INTERIOR SOUND SCHEMAS (M-323, witnessed 2026-10-31) ----------
+    # Shakespeare, Sonnet 18 (1609), lines 3-5, as `corpus/sonnets.txt`
+    # prints them (:329-331). Slots are token-level and cross-line: the grade
+    # route cannot bind two words of one line (`schemes.mandate`), and each
+    # schema's placement needs only one member inside its line.
+    # shake~date: EY~EY from the last stress, `shake` interior; contrast
+    # darling~date, AA against EY.
+    "internal assonance": (
+        ("Rough winds do shake the darling buds of May,",
+         "And summer’s lease hath all too short a date:"),
+        ("1.T4", "2.T9"), ("1.T6", "2.T9")),
+    # date~hot: coda T~T, both present, `hot` interior and the vowels
+    # differing (EY, AA), so it is consonance and not rhyme; contrast
+    # date~Sometime, whose last stress (`time`, AY2) closes on M.
+    "internal consonance": (
+        ("And summer’s lease hath all too short a date:",
+         "Sometime too hot the eye of heaven shines,"),
+        ("1.T9", "2.T3"), ("1.T9", "2.T1")),
 }
 
 
