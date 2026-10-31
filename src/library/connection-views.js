@@ -574,6 +574,7 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
       M.countStrip(model.counts || {}, {
         words: I.STATE_WORDS,
         provenance: model.provenance,
+        population: model.countsPopulation,
         hidden: validHidden ? hidden : undefined,
         emptyOnset: model.emptyOnset,
       })

@@ -123,16 +123,61 @@ function _connectionModel(I, { records, registry, report, complete, title }) {
         ranges[o.entity_id] = { start, end };
     }
   }
+  // The strip's population (3PO, #637 6547583040): loaded method-token
+  // bindings of the checked methods, native-only ones included, each complete
+  // ordered binding once. Figures are a separate population, never folded in.
+  // Undecided is given only once every page and detail part is verified
+  // loaded and every checked method answered; a binding loaded in two states
+  // gives neither count. Refused, pending and does-not-hold are not supplied
+  // here: no backend total is read and nothing is subtracted.
+  const countsFor = (checked) => {
+    const ids = new Set(checked),
+      seen = new Map();
+    for (const c of cells) {
+      if (!ids.has(c.selection.method_id)) continue;
+      const k = I.selectionKey(c.selection),
+        st = I.cellState(c).state;
+      seen.set(k, seen.has(k) && seen.get(k) !== st ? null : st);
+    }
+    const states = [...seen.values()];
+    const clash = states.includes(null);
+    const n = (s) => (clash ? undefined : states.filter((x) => x === s).length);
+    const answered = complete && [...ids].every((id) => results.get(id)?.coverage === 'answered');
+    const held = new Set(
+      figures
+        .filter((f) => ids.has(f.method_id) && I.cellState(f).state === 'holds')
+        .map((f) => f.evidence_id)
+    );
+    return {
+      holds: n('holds'),
+      undecided: answered ? n('undecided') : undefined,
+      figure_holds: held.size,
+    };
+  };
+  // A hull's own population: the occurrences it draws and the holds it draws.
+  // No hull-local examined population is supplied, so none is given.
+  const groupCounts = {};
+  for (const c of cells) {
+    if (I.cellState(c).state !== 'holds') continue;
+    const g = (groupCounts[c.selection.method_id] ||= { ids: new Set(), shown: 0 });
+    g.shown += 1;
+    for (const id of I.selectionOccurrences(c.selection)) g.ids.add(id);
+  }
+  for (const [id, g] of Object.entries(groupCounts))
+    groupCounts[id] = { occurrences: g.ids.size, shown: g.shown };
+  const checkedMethods = methods.filter((m) => !m.disabledReason).map((m) => m.id);
   const model = {
     title: title || 'Connections',
     occurrences,
     methods,
     cells,
     figures,
-    checkedMethods: methods.filter((m) => !m.disabledReason).map((m) => m.id),
+    checkedMethods,
     selection: null,
-    counts: {},
-    groupCounts: {},
+    counts: countsFor(checkedMethods),
+    countsPopulation: 'method–token binding',
+    countsFor,
+    groupCounts,
     provenance: `Verified loaded evidence · ${complete ? 'all pages loaded' : 'pages or detail parts incomplete'}`,
     poem: {
       width: 850,
