@@ -649,6 +649,15 @@ def test_cached_builder_is_bounded():
           get(P(0)) == ("stream", 0) and len(built) == before + 1)
     check("the default cap is the module constant",
           R.CACHED_BUILDER_CAP == 256)
+    # Least recently USED, not first in: a hit on the oldest resident keeps
+    # it, and the next insert evicts the one after it (3PO, #637 6536326177).
+    lru = R.cached_builder(build, cap=3)
+    for n in (7, 8, 9):
+        lru(P(n))
+    lru(P(7))
+    lru(P(10))
+    check("a hit refreshes the oldest resident, so the next one is evicted",
+          list(lru.memo) == [json.dumps({"n": n}) for n in (9, 7, 10)])
 
 
 if __name__ == "__main__":
