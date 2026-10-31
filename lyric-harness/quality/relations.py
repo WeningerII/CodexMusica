@@ -1160,6 +1160,23 @@ def _rd_phones(u):
                      for oo in _alts(o) for nn in _alts(n) for cc in _alts(c))
 
 
+def _rd_rime_phones(u):
+    """`_rd_phones` with the NUCLEUS TAGGED by its prominence, `AH:0` or
+    `AH:1`, so a sequence predicate can tell the vowels from the consonants
+    and an unprominent vowel from a stressed one without a second stream.
+    The tag is a reading, not a class: which unprominent vowels count as one
+    is the phonology's quotient (`reduced_vowel`), never this reader's.
+    Uncertain on any channel -> the set of tagged sequences the readings
+    permit, as `_rd_phones` does."""
+    o, n, c, p = u.syl.onset, u.syl.nucleus, u.syl.coda, u.syl.prominence
+    tag = lambda nn, pp: (f"{nn}:{0 if not pp else 1}",) if nn else ()
+    if not any(isinstance(v, frozenset) for v in (o, n, c, p)):
+        return tuple(o) + tag(n, p) + tuple(c)
+    return _collapse(tuple(oo) + tag(nn, pp) + tuple(cc)
+                     for oo in _alts(o) for nn in _alts(n) for cc in _alts(c)
+                     for pp in _alts(p))
+
+
 def _rd_grapheme(u):
     return u.syl.text
 
@@ -1172,7 +1189,7 @@ PHONEMIC = {
     "onset": _rd_onset, "nucleus": _rd_nucleus, "coda": _rd_coda,
     "prominence": _rd_prominence, "moras": _rd_moras,
     "consonants": _rd_consonants, "grapheme": _rd_grapheme,
-    "phones": _rd_phones, "token": _rd_token,
+    "phones": _rd_phones, "rime_phones": _rd_rime_phones, "token": _rd_token,
 }
 
 
@@ -1743,6 +1760,51 @@ class SequenceEqual(Predicate):
 
 
 @dataclass(frozen=True)
+class RimeTailAgree(Predicate):
+    """MOSAIC RHYME'S JUDGE (2026-10-31, `MISSING.md` M-311 F1; R2's ruling,
+    #637 6545559338 and its correction 6545635152). Each member is read as
+    ONE phone string (`rime_phones`, sequence scope), the onset before its
+    first vowel dropped, and the rest compared whole -- across word and
+    syllable boundaries, which is the point: `tender` is TEN|DER with coda N
+    and `send her` SEND|HER with coda ND, so a syllable-by-syllable coda
+    comparison asks where the dictionary splits syllables, not what is heard.
+    Vowels compare under the phonology's `reduced_vowel` quotient, which merges
+    unprominent vowels only; a stressed vowel is itself.
+
+    OVER READINGS (rule 5) is NOT this predicate's: the merged stream keeps
+    each channel's readings as separate sets, so a sequence over an uncertain
+    syllable is refused here (`_seq`), and `pair_satisfies_any` asks again on
+    each coherent whole reading of the words the members can reach -- `a` is
+    AH0 or EY1, and `sat a gee` is a mosaic of `strategy` under the first.
+    An unreadable member or a missing quotient is a refusal, never a False."""
+    partition: object = None
+    label: str = "declared reduced-vowel quotient"
+    resource: str = "reduced_vowel"
+    name: str = "RIME-TAIL-AGREE"
+
+    def _tail(self, seq):
+        i = next((k for k, e in enumerate(seq) if ":" in e), None)
+        if i is None:
+            return None
+        return tuple(self.partition(e) if ":" in e else e for e in seq[i:])
+
+    def __call__(self, x, y):
+        if self.partition is None:
+            return Read(None, False, f"no {self.label} (quotient {self.resource!r}); "
+                                     "a refusal, not a verdict at the finest grain")
+        if x is None or y is None:
+            return Read(None, False, "unreadable")
+        tx = {self._tail(tuple(v)) for v in (_alts(x) if uncertain(x) else (x,))}
+        ty = {self._tail(tuple(v)) for v in (_alts(y) if uncertain(y) else (y,))}
+        if None in tx or None in ty:
+            return Read(False, True, "a member has no vowel")
+        return Read(bool(tx & ty), True)
+
+
+RIME_TAIL_AGREE = RimeTailAgree()
+
+
+@dataclass(frozen=True)
 class SequenceSuffix(Predicate):
     """A total over member A, a SUFFIX of member B, the unconsumed prefix of B
     being the pont.  THE DECISIVE CASE FOR PER-MEMBER ANCHORS: a checker that
@@ -2268,6 +2330,34 @@ class Placement:
             wa = len({(U[i].line, U[i].token) for i in a.idx})
             wb = len({(U[i].line, U[i].token) for i in b.idx})
             return wa != wb
+        if k == "either_multiword":
+            wa = len({(U[i].line, U[i].token) for i in a.idx})
+            wb = len({(U[i].line, U[i].token) for i in b.idx})
+            return wa > 1 or wb > 1
+        if k == "mosaic_anchor":
+            # R2's anchor rule for mosaic rhyme (#637 6545666653): the two
+            # members, aligned syllable by syllable from their line ends, start
+            # at the FIRST aligned pair (counting back) whose syllables are
+            # BOTH prominent -- the phonology's prominence, whose phrase-level
+            # demotion already reads an enclitic (`it`, `her`, `a`) as weak --
+            # and on at least one side nothing after that start is prominent
+            # (it is that side's last stress). Over an uncertain prominence the
+            # answer is the one every reading gives; readings that disagree
+            # refuse, so no reading is picked here.
+            if len(a.idx) != len(b.idx):
+                return False
+            vals = [U[i].syl.prominence for i in a.idx] + [U[i].syl.prominence for i in b.idx]
+            choices = [sorted(_alts(v)) if isinstance(v, frozenset) else [v] for v in vals]
+            n = len(a.idx)
+            answers = set()
+            for combo in itertools.islice(itertools.product(*choices), 257):
+                pa, pb = combo[:n], combo[n:]
+                answers.add(bool(pa[0] and pb[0])
+                            and not any(x and y for x, y in zip(pa[1:], pb[1:]))
+                            and (not any(pa[1:]) or not any(pb[1:])))
+                if len(answers) > 1:
+                    return None
+            return answers.pop() if answers else None
         if k == "both_multiword":
             wa = len({(U[i].line, U[i].token) for i in a.idx})
             wb = len({(U[i].line, U[i].token) for i in b.idx})
@@ -5151,16 +5241,24 @@ declare(RelationSchema(
 
 declare(RelationSchema(
     name="mosaic rhyme",
-    spans=(SpanRule("line_final_token", "last_stressed", 1, "to_word_end"),
-           SpanRule("free_run", "searched", 1, (2, 5), cross_word=True)),
+    spans=(SpanRule("free_run", "searched", 1, (1, 5), cross_word=True),) * 2,
     align="flush_right",
-    channels=(ChannelRule("nucleus", AGREE, "each"),
-              ChannelRule("coda", AGREE, "each")),
-    placement=(Placement("both_line_final"), Placement("word_count_differs")),
+    channels=(ChannelRule("rime_phones", RIME_TAIL_AGREE, "sequence"),),
+    unmatched="forbid",
+    placement=(Placement("both_line_final"), Placement("different_lines"),
+               Placement("mosaic_anchor"), Placement("either_multiword")),
     identity=(DISTINCT,),
     note="the JUNCTURE asymmetry is CONSTITUTIVE and is computed: "
          "word_count_differs reads the Units' token coordinates. TERM "
-         "COLLISION: Turco's mosaic vs compound vs hip-hop's 'compound'."))
+         "COLLISION: Turco's mosaic vs compound vs hip-hop's 'compound'. "
+         "2026-10-31 (M-311 F1, R2's ruling on BB8's findings): the one-word "
+         "member runs from its last stress, the other is the SAME NUMBER of "
+         "syllables from its line end (`unmatched='forbid'`), so it crosses a "
+         "word boundary; and the two are compared as ONE phone string from the "
+         "first vowel (`RIME-TAIL-AGREE`), never syllable by syllable. Before "
+         "this, the excluded overhang let any end rhyme with a word before it "
+         "pass (cold ~ story told), and real mosaics failed on where the "
+         "dictionary splits syllables (tender ~ send her)."))
 
 declare(RelationSchema(
     name="compound / phrasal rhyme",
@@ -10266,9 +10364,21 @@ def _resolve_over(schema, stream, pair, build, cap, bmap, tokens, fields):
     tokens = set(tokens)
     while True:
         combos, complete = reading_combos(stream, tokens, cap)
+        fixed = False
         if not combos:
-            return None, None
-        saw_none, revealed = not complete, set()
+            # A cause word that cannot be varied (no locatable reading, e.g. a
+            # hyphenated compound) no longer sinks the whole search: the words
+            # that CAN be varied are, and only a True is kept from it -- a True
+            # is reached on definite reads, so it never rests on the word left
+            # merged; anything else stays undecided (2026-10-31, M-311 F1:
+            # `Major-General` in reach of Gilbert's `sat a gee`).
+            free = {t for t in tokens if reading_combos(stream, {t}, cap)[0] is not None}
+            combos, complete = (reading_combos(stream, free, cap) if free and free != tokens
+                                else (None, False))
+            if not combos:
+                return None, None
+            fixed = True
+        saw_none, revealed = not complete or fixed, set()
         with _line_read_scope():
             for combo in combos:
                 phon2 = pinned_phonology(stream, combo)

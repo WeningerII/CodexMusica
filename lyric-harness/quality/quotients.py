@@ -243,7 +243,26 @@ def trite(value):
     return _trite_index().get(w, w)
 
 
-ENG_QUOTIENTS = {"manner": manner, "trite": trite}
+#: THE ENGLISH REDUCED VOWELS (2026-10-31, `MISSING.md` M-311 F1; R2's
+#: ruling on BB8's mosaic findings, #637 6545559338 (d)). Mosaic rhyme's
+#: `RIME-TAIL-AGREE` compares two spans as one phone string, and an
+#: UNPROMINENT AH or IH is the one reduced vowel the dictionary writes two ways
+#: (`poet` P OW1 AH0 T against `know it` N OW1 IH1 T, `it` demoted by the
+#: phrase-level prominence rule); an unprominent ER is its r-coloured form.
+#: A nucleus arrives tagged `<SYMBOL>:<prominence>` (`relations._rd_rime_phones`).
+#: A prominent vowel is its own class: nothing stressed is merged here.
+REDUCED_VOWELS = {"AH": "@", "IH": "@", "ER": "@R"}
+
+
+def reduced_vowel(value):
+    """`AH:0` -> `@`; `ER:0` -> `@R`; `AH:1` -> `AH`; None stays None."""
+    if value is None:
+        return None
+    sym, _, prom = str(value).partition(":")
+    return REDUCED_VOWELS.get(sym, sym) if prom == "0" else sym
+
+
+ENG_QUOTIENTS = {"manner": manner, "trite": trite, "reduced_vowel": reduced_vowel}
 
 # ---------------------------------------------------------------------------
 # 3. WELSH VOWEL CLASS (proest)
@@ -363,7 +382,7 @@ CYM_QUOTIENTS = {"vowel_class": vowel_class}
 
 
 
-__all__ = ["ARPABET_CONSONANTS", "MANNER", "MANNER_CLASSES", "manner",
+__all__ = ["ARPABET_CONSONANTS", "MANNER", "MANNER_CLASSES", "REDUCED_VOWELS", "reduced_vowel", "manner",
            "trite", "vowel_class", "ENG_QUOTIENTS", "CYM_QUOTIENTS",
            "CYM_LONG_MARKS"]
 
