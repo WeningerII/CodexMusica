@@ -712,6 +712,27 @@ test('poem boxes require an explicit authored-fixture override; detached geometr
   dom.window.close();
 });
 
+test('throwing whole-line measurement reports unavailable without aborting detached render', () => {
+  const { V, model, dom } = setup();
+  delete model.poem.fixtureBoxes;
+  let reads = 0;
+  dom.window.SVGElement.prototype.getBBox = () => {
+    reads++;
+    throw new Error('Geometry unavailable');
+  };
+  const root = V.poem(model);
+  assert.equal(reads, 0, 'detached text must not be measured');
+  assert.equal(V.layoutPoem(root).poems[0].status, 'unavailable');
+  dom.window.document.querySelector('main').append(root);
+  const report = V.layoutPoem(root).poems[0];
+  assert.ok(reads > 0);
+  assert.equal(report.status, 'unavailable');
+  assert.ok(report.issues.every((i) => i.reason === 'measurement_unavailable'));
+  assert.equal(root.querySelectorAll('.lib-mk-port').length, 0);
+  assert.equal(root.querySelector('.cv-geometry-notice').hidden, false);
+  dom.window.close();
+});
+
 test('phone matrix with no selection offers occurrences and reaches a pair through real bindings', async () => {
   const { chromium } = require('playwright');
   const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH });

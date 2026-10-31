@@ -1437,7 +1437,7 @@ function mount(container, input) {
     }
     const job = mem.job.id;
     if (connectionJob && connectionJob !== job) clearConnections();
-    const generation = ++connectionGeneration;
+    let generation = ++connectionGeneration;
     try {
       const [views, bindings, marks] = await Promise.all(
         ['connection-views', 'connection-bindings', 'marks'].map(libraryChunk)
@@ -1458,7 +1458,10 @@ function mount(container, input) {
       });
       const identity = job + ':' + adapted.current.analysisIdentity;
       const resetAddress = connectionIdentity !== null && connectionIdentity !== identity;
-      if (resetAddress) clearConnections();
+      if (resetAddress) {
+        clearConnections();
+        generation = connectionGeneration;
+      }
       if (connections) connections.update(adapted);
       else
         connections = bindings.mount(slot('connections'), {

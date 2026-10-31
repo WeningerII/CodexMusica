@@ -354,15 +354,18 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
         points = new Map();
       const lines = canvas.querySelectorAll('.cv-poem-line');
       // Whole lines include punctuation and words without usable token ranges.
-      const width = Math.max(
-        model.poem.width,
-        ...[...lines].map((line) => {
-          const b = line.getBBox?.();
-          return b ? b.x + b.width + 114 : 0;
-        })
-      );
-      canvas.setAttribute('width', width);
-      canvas.setAttribute('viewBox', `0 0 ${width} ${model.poem.height}`);
+      let width = model.poem.width;
+      try {
+        if (canvas.isConnected)
+          for (const line of lines) {
+            const b = line.getBBox();
+            width = Math.max(width, b.x + b.width + 114);
+          }
+      } catch {
+        width = 0;
+      }
+      canvas.setAttribute('width', width || model.poem.width);
+      canvas.setAttribute('viewBox', `0 0 ${width || model.poem.width} ${model.poem.height}`);
       const report = { status: 'ready', measured: [], fixture: [], issues: [] };
       for (const o of model.occurrences) {
         const range = model.poem.ranges?.[o.entity_id],
@@ -380,6 +383,7 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
         )
           reason = 'invalid_range';
         else if (!canvas.isConnected) reason = 'detached';
+        else if (!width) reason = 'measurement_unavailable';
         else {
           try {
             // DOM Text ranges use UTF-16 offsets; no SVG character-index conversion.

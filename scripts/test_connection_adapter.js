@@ -215,3 +215,58 @@ test('supplied token order identifies line endings and drives actual margin geom
     make(fixture.records.slice(0, 2), false).model.occurrences.every((o) => o.final !== true)
   );
 });
+
+// Exercise the production controller functions with real adaptation and a mount
+// fault; isolate their closure dependencies without duplicating lifecycle logic.
+test('replacement mount failure cleans current identity but superseded loads stay silent', async () => {
+  const source = fs.readFileSync(path.join(__dirname, '../src/library/analysis.js'), 'utf8');
+  const functions = source.slice(
+    source.indexOf('  function clearConnections()'),
+    source.indexOf('  const fail =', source.indexOf('  function clearConnections()'))
+  );
+  const harness = new Function(
+    'adapt',
+    'complete',
+    'I',
+    'records',
+    'registry',
+    functions +
+      `
+    let alive = true, connections = null, connectionJob = null,
+      connectionIdentity = null, connectionGeneration = 0;
+    const host = { textContent: '', replaceChildren() { this.textContent = ''; } };
+    const root = { querySelector: () => host }, slot = () => host;
+    const st = { lens: 'sound', authorized: true, resolved: records, registry, pending: [] };
+    const mem = { job: { id: 'job' }, report: { identity_hash: 'first' }, records, offset: 0, next: null };
+    const _connectionModel = adapt, _connectionComplete = complete, CMConnectionInteraction = I;
+    let mounts = 0, destroys = 0, release, delayed = false;
+    const bindings = { mount() {
+      mounts++;
+      if (mounts > 1) { host.textContent = 'partially mounted'; throw Error('forced mount failure'); }
+      return { destroy() { destroys++; }, update() {} };
+    } };
+    const libraryChunk = async name => {
+      if (delayed && name === 'marks') await new Promise(r => { release = r; });
+      return name === 'connection-bindings' ? bindings : {};
+    };
+    return { drawConnections, clearConnections, host, mem,
+      counts: () => ({ mounts, destroys }), delay: () => { delayed = true; }, release: () => release() };
+  `
+  )(adapt, complete, I, fixture.records, registry);
+  await harness.drawConnections();
+  harness.mem.report.identity_hash = 'second';
+  await harness.drawConnections();
+  assert.deepEqual(harness.counts(), { mounts: 2, destroys: 1 });
+  assert.equal(
+    harness.host.textContent,
+    'Connection views unavailable. Verified evidence remains below.'
+  );
+  harness.delay();
+  const pending = harness.drawConnections();
+  harness.clearConnections();
+  harness.host.textContent = 'new owner';
+  harness.release();
+  await pending;
+  assert.equal(harness.host.textContent, 'new owner');
+  assert.equal(harness.counts().mounts, 2);
+});

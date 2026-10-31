@@ -341,6 +341,22 @@
         "works.d450a5dc32.js"
       ],
       "first_published": "2026-10-31",
+      "retired": "2026-10-31"
+    },
+    {
+      "id": "8b543028f7d35f61",
+      "files": [
+        "analysis.900cf97b25.js",
+        "compare.dd92747264.js",
+        "connection-bindings.d13e1ff4f6.js",
+        "connection-views.7391ec63f3.js",
+        "core.d3af4896ce.js",
+        "marks.05ef8640b3.js",
+        "reader.319c9c4883.js",
+        "rights.cb92c759bc.js",
+        "works.d450a5dc32.js"
+      ],
+      "first_published": "2026-10-31",
       "retired": null
     }
   ]
