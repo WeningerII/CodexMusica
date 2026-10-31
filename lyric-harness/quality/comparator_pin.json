@@ -1,16 +1,16 @@
 {
-  "fingerprint": "62551b50acf64223adedfe0531951f20d138595bfbaba9b22e3150a39cd69dc4",
+  "fingerprint": "8005dddf4d012093a6abdd9742d5919da1b7f2a850f32392b9739cad411a787b",
   "parts": {
     "Declaration()": "5f1ef1c954d2534cdcdcad5f817d5a33b6148ea194e93d2ffd7a34add802bb68",
     "_couplet_pairs": "942c42ed7326bedcc27b0e8b42671b4094c225d7b5773fec1227c3350c8e5a86",
     "cmudict.dict": "449bfdeafc1c748d11f822c78b4a77981a82635f5f6b7729253a9790d3683b85",
     "features.py": "80e6fb9f6df23662f16f61819eb4ee40f55e5fda0974ae20ef92db3e70888db1",
-    "lyric_harness.py closure": "1c0ed3c808866b58ae547e01c3a8d5c9f4dbf1d7ede02dd1df1e775228c433f1",
+    "lyric_harness.py closure": "7c8acf3bafe6de8b5ceefc8a990a81fea641df3773371675c5db0c020ef7ed4a",
     "opensubtitles_en_50k.tsv": "1869ef3c76633403756cd7922c98599567e5a6f1a3f2c6e8eac0b894b955dc09",
     "predictability_frac": "b786e21a6e2d17e283a1829d21f6365524e72c51deaf2b148423d866f778c8c9"
   },
-  "pinned_on": "2026-10-18",
-  "verdict": "RESULT: HOLDS \u2014 the lyric row's 5 curves re-derive from the corpus",
-  "verified_by": "quality/results/comparator_repin_2026-10-18/curve-check.txt",
+  "pinned_on": "",
+  "verdict": "RESULT: HOLDS \u2014 the lyric row's 5 curves re-derive from the corpus, after the owner-ruled re-adoption of predictability's knots (2026-10-31)",
+  "verified_by": "quality/results/comparator_repin_2026-10-31/curve-check.txt",
   "version": 1
 }

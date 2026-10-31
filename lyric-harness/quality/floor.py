@@ -1261,6 +1261,32 @@ PROFILES.append(
 #: 23.80195610554051)~~ are superseded by the tuples below. Receipt:
 #: quality/results/n_relation_2026-09-22/curves-measurement.txt; full
 #: precision and input provenance in that directory's curve-adoption.json.
+#:
+#: WHAT MOVED, AND WHAT DID NOT (2026-10-31). The batch of the English sound
+#: inventory (M-322), the connection engine (M-323, M-324), G1 (M-325) and
+#: EA-R (M-326) moved `comparator_fingerprint()` 62551b50acf6 -> 8005dddf4d01
+#: on one of its seven inputs (the `lyric_harness.py` closure), and
+#: `length_curve_calibration.py check` refused: `RESULT: MOVED --
+#: predictability`. Over the same 8,585 items `mattr`, `fwr`, `anaphora` and
+#: `cv` re-derive to the digit, curves and held-out rates alike; n_human,
+#: lo/hi, the MATTR/TTR population and every knot ABSCISSA are unchanged, and
+#: `song_profile_calibration.py --check` reproduces all 21 `song` constants.
+#: FOUR of predictability's 21 knots moved, all at N >= 265 tokens, two down
+#: and two up; the knots through N=165 and the silence boundary (first under
+#: 1.0 at 141) did not move. Re-derived as a SET by the banked procedure
+#: (`fit --seeds 200 --workers 4 --picks predictability=CK`) and adopted on
+#: the owner's ruling of 2026-10-31, "Adopt it and merge", not tuned
+#: (doctrine 58). THE SUPERSEDED KNOTS, kept legible (doctrine 17), as N:
+#: ~~2026-10-15~~ -> 2026-10-31:
+#:     265  ~~0.9375~~                0.9294642857142854
+#:     346  ~~0.9090909090909091~~    0.9004545454545451
+#:     421  ~~0.8826797385620911~~    0.8888888888888888
+#:     657  ~~0.8385353095030514~~    0.8416842105263157
+#: held_out_fpr predictability ~~(2.9796249517221014, 1.5315827572323166,
+#: 4.672125941447628)~~ and ANY ~~(18.482889484760534, 14.692748156567239,
+#: 23.30859742432087)~~ are superseded by the tuples below. Receipt:
+#: quality/results/comparator_repin_2026-10-31/curve-check.txt; full
+#: precision and input provenance in that directory's curve-adoption.json.
 PROFILES.append(
     Profile(
         name="lyric", unit='whole lyric sheet, 9-3244 tokens, thresholds a function of ln N',
@@ -1291,32 +1317,38 @@ PROFILES.append(
                                              (5.278114659230517, 0.9285714285714286),
                                              (5.3706380281276624, 0.9337254901960781),
                                              (5.476463551931511, 0.9333333333333333),
-                                             (5.579729825986222, 0.9375),
+                                             (5.579729825986222, 0.9294642857142854),
                                              (5.703782474656201, 0.9049783549783548),
-                                             (5.847882818629958, 0.9090909090909091),
-                                             (6.041444479413003, 0.8826797385620911),
-                                             (6.48768401848461, 0.8385353095030514)]}},
+                                             (5.847882818629958, 0.9004545454545451),
+                                             (6.041444479413003, 0.8888888888888888),
+                                             (6.48768401848461, 0.8416842105263157)]}},
         measured_auc={},
-        held_out_fpr={'ANY': (18.482889484760534, 14.692748156567239, 23.30859742432087),
+        held_out_fpr={'ANY': (18.53785570033035, 14.71516622478776, 23.287691000568543),
  'anaphora': (5.033664977759858, 3.4134536505332242, 6.948981880542939),
  'line_length_cv': (5.10604146491997, 4.107251938609697, 6.357106489142334),
  'function_word_ratio': (5.093638271362783, 3.3001132452702655, 7.6197913767614835),
  'mattr': (4.882628110290107, 3.0918370790757983, 7.864804397778608),
- 'predictability': (2.9796249517221014, 1.5315827572323166, 4.672125941447628)},
+ 'predictability': (3.0086361739954173, 1.509628053497828, 4.676858661314768)},
         held_out_scope={'predictability': '. This rate pools all 9-3244-token works, including lengths through 140 where '
                    'the threshold equals 1.0 and cannot fire. It is not conditional on lengths '
                    'where the check can fire.'},
-        source=(((((('Re-adopted 2026-10-15 after the M-25 editorial residue (#564: 33 lyric rows and 14 section marks '
- 'in 13 Lovelace/Browning/Herrick items now apparatus, removing 12 calibration rows): 8585 '
- 'nonempty works / 1343 files, 9-3244 tokens. All five checks pass every length bin over 200 '
- 'author-held-out splits. Preregistered model choices: anaphora C2, cv C2, fwr C1, mattr C1, '
- 'predictability CK. Predictability CK retains the existing anti-vacuity exception to C0 and first '
- 'falls below 1.0 at 141 tokens. The lower bound moved 4 -> 9 because the four shortest works were '
- 'editorial notes; no lyric under 9 tokens remains in the population. Full precision and input '
- 'provenance in quality/results/m25_residue_2026-10-15/curve-adoption.json.')))))),
-        note=(((((('CURRENT 2026-10-15 measurements supersede the historical values below; the prior full '
- 'declaration is in quality/results/m25_residue_2026-10-15/profiles-before.json. CURRENT '
- '2026-10-04 measurements supersede the historical values below; prior full declarations are in '
+        source=((((((('Predictability knots re-adopted 2026-10-31 under comparator 8005dddf (the batch re-pin: M-322, '
+ 'M-323, M-324, M-325, M-326); the four other curves re-derive to the digit and are unchanged. '
+ 'Full precision and input provenance in '
+ 'quality/results/comparator_repin_2026-10-31/curve-adoption.json. Re-adopted 2026-10-15 after the '
+ 'M-25 editorial residue (#564: 33 lyric rows and 14 section marks in 13 Lovelace/Browning/Herrick '
+ 'items now apparatus, removing 12 calibration rows): 8585 nonempty works / 1343 files, 9-3244 '
+ 'tokens. All five checks pass every length bin over 200 author-held-out splits. Preregistered '
+ 'model choices: anaphora C2, cv C2, fwr C1, mattr C1, predictability CK. Predictability CK '
+ 'retains the existing anti-vacuity exception to C0 and first falls below 1.0 at 141 tokens. The '
+ 'lower bound moved 4 -> 9 because the four shortest works were editorial notes; no lyric under 9 '
+ 'tokens remains in the population. Full precision and input provenance in '
+ 'quality/results/m25_residue_2026-10-15/curve-adoption.json.'))))))),
+        note=((((((('CURRENT 2026-10-31 predictability knots and held-out rates supersede the values below; the prior '
+ 'full declaration is in quality/results/comparator_repin_2026-10-31/profiles-before.json. CURRENT '
+ '2026-10-15 measurements supersede the historical values below; the prior full declaration is in '
+ 'quality/results/m25_residue_2026-10-15/profiles-before.json. CURRENT 2026-10-04 measurements '
+ 'supersede the historical values below; prior full declarations are in '
  'quality/results/otterbein_m25_2026-10-04/final/profiles-before.json. CURRENT 2026-10-04 '
  'measurements supersede the historical values below; prior full declarations are in '
  'quality/results/otterbein_m25_2026-10-04/profiles-before.json. CURRENT 2026-09-15 measurements '
@@ -1334,7 +1366,7 @@ PROFILES.append(
  "profile's stage B refusal, carried as a disclosed under-resolved run rather than as an absent "
  'threshold. Historical note: Supersedes `song` (200-400) and `short` (50-150), which stay above '
  'for their own drift checks. A finding under this row names the threshold EVALUATED AT THIS '
- "TEXT'S LENGTH beside the formula, because the number differs at every N.")))))),
+ "TEXT'S LENGTH beside the formula, because the number differs at every N."))))))),
     ))
 
 CALIBRATION["profiles"] = {p.name: p for p in PROFILES}

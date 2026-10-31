@@ -1,0 +1,12 @@
+CACHE  /tmp/claude-0/-home-user-CodexMusica/437a4996-1d93-59e4-89e1-932b527b596c/scratchpad/repin/memo-full-a.tsv
+       fingerprint 8005dddf4d01 | read 8585 entries, written 2026-10-31T02:55:53 | hits 0, misses 0
+POPULATION  1343 files, 1340 distinct authors, 8585 items, 278126 sung lines
+ROWS  computed: 8585 items (memo hits 8585, misses 0)
+MATTR/TTR  527 of 8585 items degenerate at calibration window 50 -> HOLDS
+  mattr          C1  shipped [0.48319711244849844, 0.040082486571361216]  re-derived [0.48319711244849844, 0.040082486571361216]  -> HOLDS
+  fwr            C1  shipped [0.5645396935593514, -0.01483956064252975]  re-derived [0.5645396935593514, -0.01483956064252975]  -> HOLDS
+  anaphora       C2  shipped [1.159351078159644, -0.24565802370055595, 0.0162678855573942]  re-derived [1.159351078159644, -0.24565802370055595, 0.0162678855573942]  -> HOLDS
+  cv             C2  shipped [-0.09554810132361943, 0.059242040873681165, -0.003946093229030391]  re-derived [-0.09554810132361943, 0.059242040873681165, -0.003946093229030391]  -> HOLDS
+  predictability CK  shipped 21 knots, re-derived 21  -> MOVED
+RESULT: MOVED — predictability. Argue it and repin as a SET; do not tune (doctrine 58).
+exit 1

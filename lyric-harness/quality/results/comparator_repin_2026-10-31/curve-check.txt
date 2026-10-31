@@ -1,0 +1,100 @@
+RECEIPT — the batch comparator re-pin of 2026-10-31. One fingerprint move for
+the whole batch, one cold memo rebuilt over 16 shards, and one calibration that
+MOVED: predictability's knot table, re-adopted as a set on the owner's ruling.
+Every other calibration HOLDS unchanged.
+
+WHAT MOVED THE COMPARATOR.  The batch on claude/backend-batch: the English sound
+inventory (M-322, claude/english-sound-inventory 5ea9dc73d7), the connection
+engine (M-323, M-324, claude/connection-engine 45bcce8e36), G1 (M-325, PR #647
+16ab25b8e4) and EA-R (M-326, claude/ea-r-speed fc8faed729), merged at
+335a4829cd with main 7780ade481. `check_comparator_pin.py` reports "THE
+COMPARATOR MOVED" with exactly one of seven inputs moved, `lyric_harness.py
+closure`. `Declaration()`, `_couplet_pairs`, `cmudict.dict`, `features.py`,
+`opensubtitles_en_50k.tsv` and `predictability_frac` are byte-identical to the
+2026-10-18 pin. #647, EA-R and main 7780ade481 move no comparator input over
+45bcce8e36, so one re-pin covers the batch. Fingerprint
+  62551b50acf64223adedfe0531951f20d138595bfbaba9b22e3150a39cd69dc4  (2026-10-18 pin)
+      -> 8005dddf4d012093a6abdd9742d5919da1b7f2a850f32392b9739cad411a787b
+
+HOW THE MEMO WAS REBUILT — FROM NOTHING, ON THE MOVED COMPARATOR.
+`length_curve_calibration.py compute --shard I/K --cache-path <memo>` at
+45bcce8e36 (comparator 8005dddf), every shard log reading "fingerprint
+8005dddf4d01":
+  * shards 1-4 of 4, R2's container, stopped after the first flush: 800 items,
+    merged into a seed memo (pushed as claude/repin-shards-2026-10-31,
+    10af5396c, a scratch data branch that is never merged);
+  * shards 1-8 of 16 in R2's container, nltk 3.10.3, each seeded from those
+    800 items;
+  * shards 9-12 of 16 (claude/repin-shards-2026-10-31-c, 74b8646f0) and 13-16 of
+    16 (claude/repin-shards-2026-10-31-d, 53b841c6b) in two compute-only
+    sessions, nltk 3.10.4, each seeded the same way; their logs, rows and memos
+    are on those branches.
+`merge-cache` of the 16 shard memos: 8,585 entries, the whole population
+(1343 files, 1340 distinct authors, 8585 items, 278126 sung lines). The
+predictability memo does not read the tagger, so the two nltk versions compute
+the same entries; every check below ran on nltk 3.10.4, as
+mcp/requirements-runtime.txt pins it for CI. The shard row files are not
+adopted (their nltk provenance differs); the rows below are the corpus
+recomputed off the merged memo at 335a4829cd: "cache hits 8585 misses 0".
+
+WHAT THE CALIBRATIONS SAID, at 335a4829cd, nltk 3.10.4, memo 8585 hits 0 misses.
+  * `song_profile_calibration.py --check` (profile `song`): "asked 21, answered
+    21, refused 0 ... every shipped constant reproduces", exit 0
+    (song-check.txt).
+  * `song_profile_calibration.py --check --profile short`: "asked 21, answered
+    21, refused 0 ... every shipped constant reproduces", exit 0
+    (short-check.txt).
+  * `length_curve_calibration.py check`: mattr, fwr, anaphora and cv
+    re-derive to the digit and HOLD; the MATTR/TTR population (527 of 8585 at
+    window 50) HOLDS; "predictability CK shipped 21 knots, re-derived 21 ->
+    MOVED", "RESULT: MOVED — predictability", exit 1
+    (check-before-adoption.txt).
+
+THE MOVE.  Four of predictability's 21 knots, all at N >= 265 tokens, two down
+and two up; every abscissa, the knots through N=165 and the first informative
+token (141) are unchanged:
+      N    2026-10-15 (adopted)    2026-10-31 (re-derived)    delta
+     265   0.9375                  0.9294642857142854         -0.0080
+     346   0.9090909090909091      0.9004545454545451         -0.0086
+     421   0.8826797385620911      0.8888888888888888         +0.0062
+     657   0.8385353095030514      0.8416842105263157         +0.0031
+held_out_fpr predictability (2.9796249517221014, 1.5315827572323166,
+4.672125941447628) -> (3.0086361739954173, 1.509628053497828,
+4.676858661314768); ANY (18.482889484760534, 14.692748156567239,
+23.30859742432087) -> (18.53785570033035, 14.71516622478776,
+23.287691000568543). The four other checks' rates are unchanged.
+
+THE RULING.  Put to the owner as an AskUserQuestion in R2's Claude Code
+session, answered 2026-10-31T03:00:38.534Z (transcript event
+e9572287-d514-47ca-bf73-5c158bb08e02), independently confirmed by Jony Ives
+and relayed on PR #637 (6538160485). Question: "The comparator re-pin found
+one real change. The back-end batch (sound inventory, connection engine,
+mosaic fix) slightly moves the lyric-sheet length curve for rhyme
+predictability: 4 of its 21 points shift, the largest by 0.0086, all at the
+long-song end. Every other calibration reproduces exactly: four other curves
+and all 21 song-profile constants. The rule here is never to tweak a number to
+make a check pass, but to adopt the re-derived curve as a whole set, with a
+dated record, if you accept the change. Should I adopt the re-derived curve and
+merge the batch?" Answer: "Adopt it and merge (Recommended)".
+
+THE ADOPTION.  By the banked procedure, as on 2026-09-24 and 2026-10-15:
+`length_curve_calibration.py fit <rows> --seeds 200 --workers 4 --picks
+predictability=CK --report curve-adoption.json` (curves-measurement.txt:
+"every check passes every bin: YES"; mattr, fwr, anaphora and cv re-fit to the
+shipped coefficients). adopt-lyric-curves.txt wrote the lyric row's curves,
+held-out rates, scope, source and note into quality/floor.py and asserted
+lo, hi, n_human and the MATTR/TTR population unchanged; the prior declaration
+is profiles-before.json, the update adopted-profiles.json, and floor.py keeps
+the superseded knots legible beside the row. Adopted as a set, not tuned
+(doctrine 58): the moves run in both directions.
+
+AFTER THE ADOPTION.  `length_curve_calibration.py check --rows <the same rows>`:
+"predictability CK shipped 21 knots, re-derived 21 -> HOLDS", "RESULT: HOLDS —
+the lyric row's 5 curves re-derive from the corpus", exit 0
+(check-after-adoption.txt).
+
+WHAT THIS DOES NOT CLAIM.  The pin says only that the comparator in the tree is
+the one these calibrations ran against. It does not make a row correct, and it
+says nothing about the held-out E2 comparison on `short`
+(quality/RESULTS_LENGTH_CURVE.md §9). The CI nightly rebuilds its own memo
+under 8005dddf over its bounded runs; this receipt does not stand in for it.
