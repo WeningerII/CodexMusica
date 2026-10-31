@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global window, document, views, model, root, CMConnectionInteraction */
+/* global window, document, views, model, root, CMConnectionInteraction, requestAnimationFrame */
 const assert = require('node:assert/strict');
 const test = require('node:test');
 const fs = require('node:fs');
@@ -17,7 +17,10 @@ const marksPath =
 const bindingsPath =
   process.env.CONNECTION_BINDINGS_SOURCE ||
   path.join(__dirname, '../src/library/connection-bindings.js');
-const source = fs.readFileSync(path.join(__dirname, '../src/library/connection-views.js'), 'utf8');
+const source = fs.readFileSync(
+  process.env.CONNECTION_VIEWS_SOURCE || path.join(__dirname, '../src/library/connection-views.js'),
+  'utf8'
+);
 function setup() {
   const dom = new JSDOM(
     '<!doctype html><html data-theme="light"><head><meta name="viewport" content="width=device-width, initial-scale=1"></head><body><main id="surface-library"></main></body></html>',
@@ -271,6 +274,84 @@ test('directed roles render square cells and native arrows; spans never create p
   assert.match(V.inspector(model).textContent, /Figure \/ span · span1/);
   assert.equal(V.network(model).querySelectorAll('.lib-mk-edge').length, 0);
 });
+test('a/b holds preserve asked direction through every route, groups and selection', () => {
+  const { V, I, M, model, api } = setup();
+  const method = model.methods[1];
+  method.ordering = 'role_ordered';
+  method.member_roles = ['a', 'b'];
+  model.checkedMethods = [method.method_id];
+  const routes = [
+    ['woods4', 'watch', 'same-line'],
+    ['snow', 'know', 'margin'],
+    ['woods4', 'woods1', 'interline'],
+  ];
+  model.cells = routes.map(([a, b]) => ({
+    selection: I.binding(method.method_id, [
+      { role: 'a', entity_id: a },
+      { role: 'b', entity_id: b },
+    ]),
+    inLocus: true,
+    record: { outcome: true },
+  }));
+  const seen = [];
+  const views = api.createViews({
+    interaction: I,
+    marks: {
+      ...M,
+      arcGeometry(a, b, options) {
+        const geometry = M.arcGeometry(a, b, options);
+        seen.push({ a, b, geometry });
+        return geometry;
+      },
+    },
+  });
+  const poem = views.poem(model);
+  assert.equal(poem.querySelectorAll('[data-directed="true"]').length, 3);
+  assert.deepEqual(
+    seen.map((s) => s.geometry.route),
+    routes.map((r) => r[2])
+  );
+  routes.forEach(([a, b], i) => {
+    const port = (id) => model.poem.boxes[id];
+    assert.equal(seen[i].a.x, port(a).x + port(a).width / 2);
+    assert.equal(seen[i].b.x, port(b).x + port(b).width / 2);
+    assert.equal(seen[i].geometry.head.x, seen[i].b.x);
+    assert.equal(seen[i].geometry.head.y, seen[i].b.y);
+    const arc = poem.querySelectorAll('[data-directed="true"]')[i];
+    assert.equal(arc.dataset.selection, I.selectionKey(model.cells[i].selection));
+    assert.match(arc.getAttribute('aria-label'), /a: .* → b:/);
+  });
+  const network = V.network(model);
+  assert.equal(network.querySelectorAll('.lib-mk-edge[data-directed="true"]').length, 3);
+  assert.equal(network.querySelectorAll('.lib-mk-node').length, 5);
+  model.selection = I.occurrence('watch');
+  assert.equal(V.network(model).querySelectorAll('.lib-mk-edge.lib-mk-dim').length, 2);
+  for (const cell of model.cells) {
+    model.selection = cell.selection;
+    assert.match(V.inspector(model).textContent, /Asked roles/);
+    assert.match(V.inspector(model).textContent, /a: .* → b:/);
+  }
+  // Roles are looked up by name, never sorted by text or rewritten in the key.
+  model.cells[0].selection = I.binding(
+    method.method_id,
+    [...model.cells[0].selection.members].reverse()
+  );
+  const key = I.selectionKey(model.cells[0].selection);
+  assert.equal(V.poem(model).querySelector('[data-directed="true"]').dataset.selection, key);
+  model.cells.push({
+    ...model.cells[0],
+    selection: I.binding(method.method_id, [
+      { role: 'a', entity_id: 'watch' },
+      { role: 'b', entity_id: 'know' },
+      { role: 'c', entity_id: 'snow' },
+    ]),
+  });
+  assert.equal(V.network(model).querySelectorAll('.lib-mk-edge').length, 3);
+  method.family = undefined;
+  assert.equal(V.network(model).querySelectorAll('.lib-mk-edge').length, 0);
+  assert.equal(V.poem(model).querySelectorAll('.lib-mk-arc').length, 0);
+});
+
 test('hidden binding retains selection and exposes Don recovery action only when needed', () => {
   const { V, I, model } = setup();
   const before = I.selectionKey(model.selection);
@@ -852,4 +933,231 @@ test('poem natural Tab order follows readingOrder before accessible arcs', async
   } finally {
     await browser.close();
   }
+});
+
+test('browser directed holds point into b, keep selection across views and follow words in Tab order', async () => {
+  const { chromium } = require('playwright');
+  const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH });
+  try {
+    const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+    await page.route('https://connection.test/', (r) =>
+      r.fulfill({ contentType: 'text/html', body: '<main id="surface-library"></main>' })
+    );
+    await page.goto('https://connection.test/');
+    await page.addStyleTag({
+      content: fs.readFileSync(path.join(__dirname, '../src/theme.css'), 'utf8'),
+    });
+    await page.addScriptTag({ content: fs.readFileSync(interactionPath, 'utf8') });
+    await page.addScriptTag({
+      content: `window.marks=(function(){${fs.readFileSync(marksPath, 'utf8')}})();window.views=(function(){${source}})();window.bindings=(function(){${fs.readFileSync(bindingsPath, 'utf8')}})();window.model=(${authoredFixture.toString()})(CMConnectionInteraction);`,
+    });
+    await page.evaluate(async () => {
+      const I = window.CMConnectionInteraction,
+        model = window.model;
+      delete model.poem.fixtureBoxes;
+      model.occurrences.reverse();
+      const method = model.methods[1];
+      method.ordering = 'role_ordered';
+      method.member_roles = ['a', 'b'];
+      model.checkedMethods = [method.method_id];
+      model.cellMethod = method.method_id;
+      model.selection = null;
+      model.cells = [
+        ['woods4', 'watch'],
+        ['snow', 'know'],
+        ['woods4', 'woods1'],
+      ].map(([a, b]) => ({
+        selection: I.binding(method.method_id, [
+          { role: 'a', entity_id: a },
+          { role: 'b', entity_id: b },
+        ]),
+        inLocus: true,
+        record: { outcome: true },
+      }));
+      window.m = window.bindings.mount(document.querySelector('main'), {
+        ci: I,
+        marks: window.marks,
+        createViews: window.views.createViews,
+        model,
+        current: {
+          analysisIdentity: 'directed-fixture',
+          hasEntity: () => true,
+          hasMethod: () => true,
+          hasEvidence: () => false,
+        },
+        view: 'poem',
+        narrow: () => false,
+      });
+      await document.fonts.ready;
+    });
+    await page.waitForSelector('.cv-poem [data-directed="true"]');
+    const geometry = await page.evaluate(() => {
+      const I = window.CMConnectionInteraction;
+      const find = (selector, key) =>
+        [...document.querySelectorAll(selector)].find((n) => n.dataset.selection === key);
+      return window.model.cells.map((cell, i) => {
+        const b = cell.selection.members.find((m) => m.role === 'b').entity_id;
+        const rect = find('.cv-poem g[tabindex]', I.selectionKey(I.occurrence(b))).querySelector(
+          'rect'
+        );
+        const x = +rect.getAttribute('x') + +rect.getAttribute('width') / 2,
+          y = +rect.getAttribute('y') - 1;
+        const arc = find('.cv-poem [data-directed]', I.selectionKey(cell.selection));
+        const [hx, hy] = arc
+          .querySelector('.lib-mk-head')
+          .getAttribute('d')
+          .slice(1)
+          .split(' ')[0]
+          .split(',')
+          .map(Number);
+        return {
+          hx,
+          hy,
+          x: x + (i === 1 ? 5 : i === 2 ? -5 : 0),
+          y: y - (i === 0 ? 5 : 0),
+          label: arc.getAttribute('aria-label'),
+        };
+      });
+    });
+    for (const g of geometry) {
+      assert.ok(Math.hypot(g.hx - g.x, g.hy - g.y) < 0.02, JSON.stringify(g));
+      assert.match(g.label, /a: .* → b:/);
+    }
+    const expected = await page.evaluate(() =>
+      window.CMConnectionInteraction.readingOrder(window.model.occurrences).map((o) =>
+        window.CMConnectionInteraction.selectionKey(
+          window.CMConnectionInteraction.occurrence(o.entity_id)
+        )
+      )
+    );
+    await page.locator('.cv-poem g[tabindex]').first().focus();
+    for (const key of expected) {
+      assert.equal(await page.evaluate(() => document.activeElement.dataset.selection), key);
+      await page.keyboard.press('Tab');
+    }
+    const key = await page.evaluate(() => document.activeElement.dataset.selection);
+    assert.ok(key.startsWith('b:'));
+    await page.keyboard.press('Enter');
+    const selectedUrl = page.url();
+    assert.match(await page.locator('.cv-inspector').textContent(), /Asked roles/);
+    for (const view of ['matrix', 'network', 'poem']) {
+      await page.click(`[data-view="${view}"]`);
+      assert.equal(
+        await page.evaluate(() =>
+          window.CMConnectionInteraction.selectionKey(window.m.model().selection)
+        ),
+        key
+      );
+      assert.equal(page.url(), selectedUrl);
+      const matching = await page.locator('[data-selection]').evaluateAll(
+        (ns, key) =>
+          ns
+            .filter((n) => n.dataset.selection === key)
+            .map((n) => ({
+              selected: n.classList.contains('cv-selected'),
+              directed: n.dataset.directed,
+            })),
+        key
+      );
+      assert.ok(matching.some((n) => (view === 'matrix' ? n.selected : n.directed === 'true')));
+      if (view === 'network') {
+        const rims = await page.evaluate(() => {
+          const I = window.CMConnectionInteraction,
+            root = document.querySelector('.cv-network');
+          return window.model.cells.map((cell) => {
+            const b = cell.selection.members.find((m) => m.role === 'b').entity_id;
+            const node = [...root.querySelectorAll('.lib-mk-node')]
+              .find((n) => n.dataset.selection === I.selectionKey(I.occurrence(b)))
+              .querySelector('circle');
+            const edge = [...root.querySelectorAll('.lib-mk-edge')].find(
+              (n) => n.dataset.selection === I.selectionKey(cell.selection)
+            );
+            const [x, y] = edge
+              .querySelector('.lib-mk-head')
+              .getAttribute('d')
+              .slice(1)
+              .split(' ')[0]
+              .split(',')
+              .map(Number);
+            return Math.hypot(x - +node.getAttribute('cx'), y - +node.getAttribute('cy'));
+          });
+        });
+        rims.forEach((r) => assert.ok(Math.abs(r - 37) < 0.02));
+      }
+    }
+    // The compact affine bounds calculation must equal the original four-corner
+    // transform, including rotation, skew and reflection (not only plain scale).
+    for (const transform of ['rotate(7deg)', 'skew(12deg, -5deg)', 'scale(-0.8, 1.2)']) {
+      const errors = await page.evaluate(async (transform) => {
+        const canvas = document.querySelector('.cv-poem');
+        canvas.style.transform = transform;
+        document.fonts.dispatchEvent(new Event('loadingdone'));
+        await new Promise(requestAnimationFrame);
+        const I = window.CMConnectionInteraction;
+        return window.model.occurrences
+          .map((o) => {
+            const line = canvas.querySelectorAll('.cv-poem-line')[o.line - 1];
+            const offsets = window.model.poem.ranges[o.entity_id];
+            const range = document.createRange();
+            range.setStart(line.firstChild, offsets.start);
+            range.setEnd(line.firstChild, offsets.end);
+            const rect = range.getBoundingClientRect(),
+              inverse = canvas.getScreenCTM().inverse();
+            const corners = [
+              [rect.left, rect.top],
+              [rect.right, rect.top],
+              [rect.right, rect.bottom],
+              [rect.left, rect.bottom],
+            ].map(([x, y]) => {
+              const p = canvas.createSVGPoint();
+              p.x = x;
+              p.y = y;
+              return p.matrixTransform(inverse);
+            });
+            const x = Math.min(...corners.map((p) => p.x)),
+              y = Math.min(...corners.map((p) => p.y));
+            const expected = [
+              x,
+              y,
+              Math.max(...corners.map((p) => p.x)) - x,
+              Math.max(...corners.map((p) => p.y)) - y,
+            ];
+            const box = [...canvas.querySelectorAll('g[tabindex]')]
+              .find((n) => n.dataset.selection === I.selectionKey(I.occurrence(o.entity_id)))
+              .querySelector('rect');
+            return ['x', 'y', 'width', 'height'].map((key, i) =>
+              Math.abs(+box.getAttribute(key) - expected[i])
+            );
+          })
+          .flat();
+      }, transform);
+      assert.ok(
+        errors.every((e) => e < 0.02),
+        `${transform}: ${errors}`
+      );
+    }
+    await page.evaluate(() => window.m.destroy());
+  } finally {
+    await browser.close();
+  }
+});
+
+test('unordered poem, network and matrix output remains byte-identical to d2fea651f', () => {
+  // Captured from the actual d2fea651f views + marks with the authored fixture.
+  const hashes = {
+    poem: 'a95047a27a30d0e8aa3cd474b22bf9442d609ad0d59a430347e7701cbbff12b6',
+    network: '3d2a656e9225a52cfab4d0fe29f9c51786802129ae5dff1a3c7553420c353e0c',
+    matrix: '4b9ceef819f725ad766581a006d5d7b2655ab8c3ea929bb875ed95be30e5f51c',
+  };
+  const { V, model, dom } = setup();
+  for (const [view, hash] of Object.entries(hashes)) {
+    const root = V[view](model);
+    assert.equal(root.querySelectorAll('.lib-mk-head,[data-directed]').length, 0);
+    assert.equal(
+      require('node:crypto').createHash('sha256').update(root.outerHTML).digest('hex'),
+      hash,
+      view
+    );
+  }
+  dom.window.close();
 });

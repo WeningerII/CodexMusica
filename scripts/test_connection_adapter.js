@@ -270,3 +270,47 @@ test('replacement mount failure cleans current identity but superseded loads sta
   assert.equal(harness.host.textContent, 'new owner');
   assert.equal(harness.counts().mounts, 2);
 });
+
+test('real backend holds draw directed; explicit reversed-record replay keeps a/b anchors', () => {
+  const dom = new JSDOM('<!doctype html>', { runScripts: 'outside-only' });
+  const views = dom.window
+    .eval(
+      `(function(){${fs.readFileSync(process.env.CONNECTION_VIEWS_SOURCE || path.join(__dirname, '../src/library/connection-views.js'), 'utf8')}\n})()`
+    )
+    .createViews({ interaction: I, marks });
+  for (const reverse of [false, true]) {
+    const records = structuredClone(fixture.records);
+    const raw = records.find((r) => r.kind === 'relation_instance' && r.verdict === 'true');
+    assert.ok(raw);
+    // Deliberate record-orientation replay, not a newly computed engine verdict.
+    // It exercises the adapter boundary without sorting a/b back into text order.
+    if (reverse) [raw.a, raw.b] = [raw.b, raw.a];
+    const { model } = make(records);
+    const cell = model.cells.find((c) => c.record.id === raw.id);
+    const selection = cell.selection;
+    assert.equal(selection.kind, 'binding');
+    assert.deepEqual(
+      selection.members.map((m) => [m.role, m.entity_id]),
+      [
+        ['a', raw.a.token_ids[0]],
+        ['b', raw.b.token_ids[0]],
+      ]
+    );
+    model.selection = selection;
+    const edge = [...views.network(model).querySelectorAll('.lib-mk-edge')].find(
+      (n) => n.dataset.selection === I.selectionKey(selection)
+    );
+    assert.ok(edge);
+    assert.equal(edge.dataset.directed, 'true');
+    assert.equal(edge.querySelectorAll('.lib-mk-head').length, 1);
+    const expected = selection.members
+      .map(
+        (m) =>
+          `${m.role}: ${I.occurrenceLabel(model.occurrences.find((o) => o.entity_id === m.entity_id))}`
+      )
+      .join(' → ');
+    assert.ok(edge.getAttribute('aria-label').includes(expected));
+    assert.ok(views.inspector(model).textContent.includes(expected));
+  }
+  dom.window.close();
+});
