@@ -35,8 +35,24 @@
 // only visible when something fails is a cost nobody sees, and the slowest
 // leaf is the floor no worker count can beat.
 //
-// Usage: node scripts/run_parallel.js <script-name> [--workers=N]
-// Exit 0 if every leaf succeeded, 1 otherwise.
+// SHARDS (2026-10-30). CI's `verify` step was this runner over 89 leaves:
+// 6,310 leaf-seconds, 29.4 min of wall on one four-vCPU machine (run
+// 41118387628), the second-longest job in PR CI. --shard=K/N deals the
+// flattened chain to N machines in a SNAKE (1,2,…,N,N,…,2,1,1,2,…) and keeps
+// the Kth hand. Not round-robin: the chain's costly leaves cluster, and on that
+// run's leaf costs a plain 1,2,1,2 deal gave 14.0 and 19.4 simulated minutes
+// where the snake gives 15.3 and 15.2 (the 748 s mcp/test.mjs is the floor).
+// The chain is still read from package.json, so a leaf added there lands on
+// exactly one shard with no second edit. --record=FILE writes the whole leaf
+// list and the ones this shard ran; `--verify-shards=DIR --shards=N` reads N
+// such records and fails unless the N lists are identical and every leaf ran
+// on exactly one shard, the same claim one unsharded run makes by itself.
+// --list prints the leaves (with --shard, each with its shard) and runs none.
+//
+// Usage: node scripts/run_parallel.js <script-name> [--workers=N] [--shard=K/N]
+//                                     [--record=FILE] [--list]
+//        node scripts/run_parallel.js <script-name> --verify-shards=DIR --shards=N
+// Exit 0 if every leaf succeeded, 1 otherwise, 2 on a bad chain or flag.
 
 'use strict';
 const fs = require('fs');
@@ -56,6 +72,24 @@ const WORKERS = (() => {
   const n = Number((flag && flag.split('=')[1]) || env || 0);
   return n > 0 ? n : Math.min(4, os.cpus().length || 1);
 })();
+
+const flag = (k) => {
+  const a = argv.find((x) => x === `--${k}` || x.startsWith(`--${k}=`));
+  return a === undefined ? undefined : a.includes('=') ? a.slice(a.indexOf('=') + 1) : true;
+};
+const SHARD = (() => {
+  const v = flag('shard');
+  if (v === undefined) return null;
+  const m = /^(\d+)\/(\d+)$/.exec(String(v));
+  const k = m && Number(m[1]),
+    n = m && Number(m[2]);
+  if (!m || n < 1 || k < 1 || k > n) {
+    console.error(`run_parallel: --shard=${v} is not K/N with 1 <= K <= N`);
+    process.exit(2);
+  }
+  return { k, n };
+})();
+const RECORD = typeof flag('record') === 'string' ? path.resolve(flag('record')) : null;
 
 if (!NAME) {
   console.error('run_parallel: name a script to expand, e.g. `test:serial`');
@@ -93,7 +127,70 @@ try {
   process.exit(2);
 }
 
-console.log(`run_parallel: ${leaves.length} leaf command(s) from '${NAME}', ${WORKERS} at a time`);
+const ALL = leaves;
+// The hand leaf i is dealt to, 1-based: a snake over rows of N.
+const hand = (i, n) => {
+  const p = i % n;
+  return Math.floor(i / n) % 2 === 0 ? p + 1 : n - p;
+};
+const dealt = (i) => !SHARD || hand(i, SHARD.n) === SHARD.k;
+
+if (flag('verify-shards') !== undefined) {
+  const dir = String(flag('verify-shards'));
+  const n = Number(flag('shards'));
+  if (!Number.isInteger(n) || n < 1) {
+    console.error('run_parallel: --verify-shards needs --shards=N, the count the workflow dealt');
+    process.exit(2);
+  }
+  const recs = (fs.existsSync(dir) ? fs.readdirSync(dir, { recursive: true }) : [])
+    .filter((f) => String(f).endsWith('.json'))
+    .map((f) => JSON.parse(fs.readFileSync(path.join(dir, String(f)), 'utf8')));
+  const problems = [];
+  const got = recs.map((r) => r.shard).sort();
+  const want = Array.from({ length: n }, (_, i) => `${i + 1}/${n}`).sort();
+  if (JSON.stringify(got) !== JSON.stringify(want))
+    problems.push(`records are for shards [${got.join(', ')}], expected [${want.join(', ')}]`);
+  for (const r of recs) {
+    if (r.name !== NAME) problems.push(`${r.shard} expanded '${r.name}', not '${NAME}'`);
+    if (JSON.stringify(r.leaves) !== JSON.stringify(ALL))
+      problems.push(`${r.shard} saw a different leaf list from this checkout's '${NAME}'`);
+  }
+  const owner = new Map();
+  for (const r of recs)
+    for (const c of r.ran) {
+      if (owner.has(c)) problems.push(`'${c}' ran on both ${owner.get(c)} and ${r.shard}`);
+      else owner.set(c, r.shard);
+    }
+  const unrun = ALL.filter((c) => !owner.has(c));
+  if (unrun.length) problems.push(`no shard ran: ${unrun.join(' | ')}`);
+  for (const r of recs) console.log(`  shard ${r.shard}: ran ${r.ran.length} of ${ALL.length}`);
+  for (const p of problems) console.error(`  ✗ ${p}`);
+  if (problems.length) {
+    console.error(`run_parallel: the ${n} shards of '${NAME}' are not one complete run`);
+    process.exit(1);
+  }
+  console.log(
+    `run_parallel: every one of ${ALL.length} leaves of '${NAME}' ran on exactly one of ${n} shards`
+  );
+  process.exit(0);
+}
+
+if (flag('list')) {
+  ALL.forEach((c, i) => console.log(SHARD ? `${hand(i, SHARD.n)}/${SHARD.n}\t${c}` : c));
+  process.exit(0);
+}
+
+leaves = ALL.filter((_, i) => dealt(i));
+if (SHARD && leaves.length === 0) {
+  console.error(`run_parallel: shard ${SHARD.k}/${SHARD.n} of '${NAME}' was dealt no leaf`);
+  process.exit(2);
+}
+
+console.log(
+  `run_parallel: ${leaves.length} leaf command(s) from '${NAME}'` +
+    (SHARD ? ` (shard ${SHARD.k}/${SHARD.n} of ${ALL.length})` : '') +
+    `, ${WORKERS} at a time`
+);
 
 const results = new Array(leaves.length);
 let next = 0;
@@ -128,6 +225,15 @@ function launch() {
 }
 
 function finish() {
+  if (RECORD)
+    fs.writeFileSync(
+      RECORD,
+      JSON.stringify(
+        { name: NAME, shard: SHARD ? `${SHARD.k}/${SHARD.n}` : null, leaves: ALL, ran: leaves },
+        null,
+        1
+      ) + '\n'
+    );
   const failed = results.filter((r) => r && r.code !== 0);
   console.log('\n' + '='.repeat(62));
   console.log('LEAF COST, slowest first — the top line is the floor a worker count cannot beat:');
