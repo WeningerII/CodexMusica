@@ -1365,7 +1365,10 @@ class AnalysisSession:
             return domain
         holds, undecided = tally
         tokens = domain["tokens"]
-        dependent = {tokens.index(t) for t in domain.get("reading_dependent_tokens", ())}
+        # A reading-dependent occurrence may list no pair at all (its locus is
+        # empty on the first-listed reading): it then touches no listed pair.
+        index = {t: i for i, t in enumerate(tokens)}
+        dependent = {index[t] for t in domain.get("reading_dependent_tokens", ()) if t in index}
         dependent_pairs = sum(1 for i, runs in domain["pairs"].items() for lo, hi in runs
                               for j in range(lo, hi + 1) if int(i) in dependent or j in dependent)
         rest = domain["pair_count"] - holds - undecided
