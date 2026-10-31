@@ -1064,8 +1064,18 @@ def _base(ph):
     return ph[:-1] if ph[-1] in "012" else ph
 
 
+_VOWEL_PHONES = None
+
+
 def _is_vowel(ph):
-    return _base(ph) in VOWELS
+    # A set of every vowel phone, bare and stressed, built on first use: the
+    # derivation asks this ~2M times at load. Same answer as
+    # `_base(ph) in VOWELS` for every phone (a digit outside 0-2 is not
+    # stripped by `_base`, and its phone is not in the set either).
+    global _VOWEL_PHONES
+    if _VOWEL_PHONES is None:
+        _VOWEL_PHONES = frozenset(VOWELS) | {v + d for v in VOWELS for d in "012"}
+    return ph in _VOWEL_PHONES
 
 
 def _with_base(ph, base):
@@ -1227,7 +1237,6 @@ def derive_accent_readings(word, readings):
         add(respelled, rule)
         bases.append(respelled)
     for phones in bases:
-        syll = sum(1 for p in phones if _is_vowel(p))
         present = {_base(p) for p in phones}
         cands = []
         if "R" in present or "ER" in present:
@@ -1246,6 +1255,9 @@ def derive_accent_readings(word, readings):
                 cands.append((name, _spelled(word, phones, letters, vowel, test, new)))
         if "AY" in present or "AW" in present:
             cands.append(("raising", _raising(phones)))
+        if not cands:
+            continue
+        syll = sum(1 for p in phones if _is_vowel(p))
         for name, alt in cands:
             if (alt and alt != phones
                     and sum(1 for p in alt if _is_vowel(p)) == syll):
