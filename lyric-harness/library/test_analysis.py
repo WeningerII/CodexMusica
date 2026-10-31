@@ -40,8 +40,8 @@ def complete(reading, declarations=None, schemas=None, batch=256, restart=False,
 class ReaderAcceptance(unittest.TestCase):
     def test_engine_registry_not_a_second_taxonomy(self):
         registry = build_registry()
-        self.assertEqual(registry["counts"], {"schemas": 78, "types": 76, "type_cells": 49,
-            "classes": 5, "functions": 22, "pair_local": 65, "whole_figures": 13})
+        self.assertEqual(registry["counts"], {"schemas": 80, "types": 76, "type_cells": 49,
+            "classes": 5, "functions": 22, "pair_local": 67, "whole_figures": 13})
         schemas = [m for m in registry["methods"] if m["namespace"] == "schema"]
         self.assertEqual({m["name"] for m in schemas}, set(RL.REGISTRY))
         for row in schemas:
@@ -1061,10 +1061,12 @@ class ConnectionEvidence(unittest.TestCase):
         allowed = set(typing.get_args(UndecidedReason))
         reading = source("fire every hour flower power\nour family evening fire flower\nthe cat is in the hat")
         _, rows, _ = complete(reading, schemas=["internal rhyme", "perfect rhyme", "multisyllabic rhyme"])
-        # Whole figures too: Frost's L13 leaves cynghanedd sain open.
-        _, sain, _ = complete(source("The only other sound's the sweep\nOf easy wind and downy flake."),
-                              schemas=["cynghanedd sain"])
-        figures = [r for r in resolve_detail_records(sain) if r["kind"] == "relation_figure"]
+        # Whole figures too: Frost's L2-3 leave chain rhyme open. (L13 left
+        # cynghanedd sain open only on only~other's empty onsets, which
+        # M-323's real-consonant rule now judges False.)
+        _, chain, _ = complete(source("His house is in the village though;\nHe will not see me stopping here"),
+                               schemas=["chain rhyme (rap)"])
+        figures = [r for r in resolve_detail_records(chain) if r["kind"] == "relation_figure"]
         self.assertIn("undecided", [r["verdict"] for r in figures])
         for r in figures:
             self.assertEqual(r["verdict"] == "undecided", "undecided_reason" in r, r["id"])

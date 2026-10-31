@@ -2,9 +2,10 @@
 """HOW MANY OF THE ~~77~~ SCHEMAS CAN BE ASKED, AND WHAT BLOCKS THE REST.
 
 THE COUNT IS PRINTED, NOT WRITTEN HERE (2026-09-25, doctrine 48): `main()`
-prints `REGISTRY <n> schemas` from `len(relations.REGISTRY)`, which is 78
-since M-40 declared `chain rhyme (interlocking scheme)` (commit a61fe4e69,
-2026-09-15), and `test_relations.py` pins that figure. This title said 77
+prints `REGISTRY <n> schemas` from `len(relations.REGISTRY)`, which is 80
+since M-323 declared `internal assonance` and `internal consonance`
+(2026-10-30; 78 from M-40's `chain rhyme (interlocking scheme)`, commit
+a61fe4e69, 2026-09-15), and `test_relations.py` pins that figure. This title said 77
 for ten days after it stopped being true.
 
 An instrument, not a scratch script (doctrine 69): the figure is quoted in

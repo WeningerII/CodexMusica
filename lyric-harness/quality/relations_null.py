@@ -106,8 +106,8 @@ declaration={'language':la}))['recovered_instances']) \
 for p,la,l,s,_,_ in N.ARMS])"
 
 THREE ARMS IS THREE OF ~~SEVENTY-SEVEN~~ SEVENTY-EIGHT, AND SAYING SO IS
-SECTIONS 6-8.  `R.REGISTRY` declares ~~77~~ 78 schemas (M-40 added the 78th,
-a61fe4e69).  The table above controls three.  The other ~~74~~ 75 shipped a PRINTED INSTANCE COUNT -- `relations FILE`,
+SECTIONS 6-8.  `R.REGISTRY` declares ~~77~~ ~~78~~ 80 schemas (M-40 added the 78th,
+a61fe4e69).  The table above controls three.  The other ~~74~~ ~~75~~ 77 shipped a PRINTED INSTANCE COUNT -- `relations FILE`,
 `python3 quality/relations.py FILE`, both of which print a per-schema count
 and then a paragraph telling the reader that a count is not evidence -- with
 no matched control behind it.  That is the same defect this file was written
@@ -232,7 +232,7 @@ asks the DERIVATION to answer to a MEASUREMENT rather than the other way round
 (doctrine 68).
 
 Run: python3 quality/relations_null.py             (all three arms, ~25 min)
-     python3 quality/relations_null.py --panel     (section 9, all ~~77~~ 78, hours)
+     python3 quality/relations_null.py --panel     (section 9, all ~~77~~ ~~78~~ 80, hours)
      python3 quality/relations_null.py --arm=0 --null=global_redeal
      python3 quality/relations_null.py --coverage  (the census, instant)
      python3 quality/relations_null.py --verify    (the ledger, ~5 s, CI)
@@ -893,7 +893,7 @@ ARMS = (
 )
 
 #: The schemas the hand-written arms above control.  THREE, out of the ~~77~~
-#: 78 in `R.REGISTRY` (M-40, a61fe4e69) -- so ~~74~~ 75 named relations shipped with a printed instance count
+#: ~~78~~ 80 in `R.REGISTRY` (M-40, a61fe4e69) -- so ~~74~~ ~~75~~ 77 named relations shipped with a printed instance count
 #: (`relations FILE`, `quality/relations.py FILE`) and no matched control
 #: behind it.  Sections 6-8 exist because "nobody got to it" is only one of
 #: the four reasons for that, and the four have completely different remedies
@@ -1586,7 +1586,7 @@ def sweep(lines, phon, language, schemas=None, n=25, seed=SEED, chans=None,
 # could not be wrong because nothing compared it to anything: doctrine 48, in
 # the census that was written to enforce doctrine 44.
 #
-# WHAT THIS SECTION MAKES FAIL.  A frozen ledger of the verdict for all ~~77~~ 78
+# WHAT THIS SECTION MAKES FAIL.  A frozen ledger of the verdict for all ~~77~~ ~~78~~ 80
 # schemas on ONE NAMED SLICE, plus the two sets in which the census's
 # NOMINATION and the sweep's MEASUREMENT disagree, plus `verify_extension()`
 # which diffs the recorded against the recomputed and returns a complaint per
@@ -1907,6 +1907,11 @@ EXTENSION_LEDGER = (
     ('refrain by reference',                    'cannot_obtain',   4,  0),
     ('incremental repetition',                  'no_instance',     5,  0),
     ('trite rhyme',                             'no_instance',     6,  0),
+    # M-323, 2026-10-30: the two interior schemas, measured on the unchanged
+    # ledger slice with `ledger_census()`. Ledger now: 3 controlled, ~~27~~
+    # 29 extendable, 8 no-instance, 39 cannot-obtain (38 / 1).
+    ('internal assonance',                      'extendable',      8,  0),
+    ('internal consonance',                     'extendable',      8,  0),
 )
 
 #: THE DERIVATION'S OWN ERROR, FROZEN — DIRECTION ONE.  Pairs the census
@@ -2344,7 +2349,7 @@ def sensitivity(lines, phon, schema, statistic, language, chans=None,
 
 
 # ---------------------------------------------------------------------------
-# 9. THE PANEL — ALL ~~77~~ 78, EACH ASKED IN ITS OWN DECLARED TRADITION
+# 9. THE PANEL — ALL ~~77~~ ~~78~~ 80, EACH ASKED IN ITS OWN DECLARED TRADITION
 # ---------------------------------------------------------------------------
 #
 # WHAT WAS WRONG WITH 34.  Sections 6-8 sort the registry into six verdicts and
@@ -3454,7 +3459,7 @@ USAGE = """quality/relations_null.py - matched controls for relations.py
                          --n=, --limit= and --budget=.
   --sensitivity          the planted-locality detection floor per schema
                          (doctrines 31/76), printed beside the sweep
-  --panel                ALL ~~77~~ 78 schemas over the whole PANEL (section 9): one
+  --panel                ALL ~~77~~ ~~78~~ 80 schemas over the whole PANEL (section 9): one
                          slice per language this repo has a phonology AND a
                          corpus for, with the declarable frames declared and
                          re-declared on every replicate.  Prints the eight-way

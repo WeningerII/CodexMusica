@@ -308,7 +308,14 @@ class ProductionRelations(unittest.TestCase):
         lines = battery.parse_sonnets(battery.corpus_path('sonnets.txt'))[92]
         for _ in range(2):
             got = R.whole_vocabulary_pairs(lines, get('eng'), bearing=set(range(14)))
-            self.assertNotIn((5,7), got)
+            # REPINNED 2026-10-30 (`MISSING.md` M-323) from
+            # `assertNotIn((5,7), got)`: unbound, the pair now stands in
+            # `internal consonance` through two words inside the lines, and
+            # in nothing else definite. The letter scheme binds the END
+            # words, where neither interior schema can stand (at least one
+            # member must not be line-final), so `check_scheme` below is
+            # unchanged.
+            self.assertEqual(sorted(got.get((5,7), ())), ['internal consonance'])
             self.assertIn('consonance', got.undecided[(5,7)])
         # The judge itself still answers None on the merged channels; a
         # grader resolves it over whole readings (standing rule 5): one
