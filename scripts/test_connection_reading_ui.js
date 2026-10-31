@@ -38,6 +38,136 @@ function setup(name, mutate) {
   return { model, dom, inspect, views };
 }
 
+function row(pane, heading) {
+  const label = [...pane.querySelectorAll('h4')].find((h) => h.textContent === heading);
+  assert.ok(label, heading);
+  return label.nextElementSibling.textContent;
+}
+
+test('captured witness, compared units, locus and partial search have readable rows', () => {
+  const e = setup('witness_first');
+  try {
+    const cell = e.model.cells.find((c) => c.record.reading?.witness);
+    assert.ok(cell);
+    const pane = e.inspect(cell);
+    assert.equal(row(pane, 'Whole-word witness'), cell.record.reading.witness.join('; '));
+    const compared = row(pane, 'Compared span / anchors (engine supplied)');
+    assert.match(
+      compared,
+      /a: anchor position 1 in the supplied span; unit 1: zee; onset: Z; nucleus: IY/
+    );
+    assert.match(compared, /b: anchor position 1 in the supplied span; unit 1: bee; onset: B/);
+    assert.match(compared, /Aligned positions: a unit 1 with b unit 1/);
+    assert.equal(row(pane, 'Locus'), 'both members end their lines: true');
+    assert.equal(
+      row(pane, 'Reading search'),
+      'Search: partial; Stopped because a witness was found; combinations examined: 1; search budget: 64'
+    );
+    assert.equal(pane.querySelector('.cv-verdict').textContent, 'holds');
+    assert.deepEqual(
+      cell.record.reading_search,
+      captures.witness_first.records.find((r) => r.id === cell.record.id).reading_search
+    );
+    assert.equal(cell.record.a.anchor_position, 0);
+    assert.equal(cell.record.compared.a[0].nucleus, 'IY');
+  } finally {
+    e.dom.window.close();
+  }
+});
+
+test('captured capped search and merged sounds retain alternatives and budget semantics', () => {
+  const e = setup('combination_cap');
+  try {
+    const cell = e.model.cells.find((c) => c.record.reading_search?.reason === 'combination_cap');
+    assert.ok(cell);
+    const pane = e.inspect(cell);
+    assert.equal(
+      row(pane, 'Reading search'),
+      'Search: partial; Stopped because the search budget was reached; combinations examined: 1; search budget: 1'
+    );
+    assert.match(
+      row(pane, 'Compared span / anchors (engine supplied)'),
+      /nucleus: reading alternatives: IY \/ UW/
+    );
+    assert.match(pane.querySelector('.cv-verdict').textContent, /^undecided/);
+  } finally {
+    e.dom.window.close();
+  }
+});
+
+test('authored unknown metadata replay preserves punctuation and unknown versus false', () => {
+  const e = setup('witness_first', (records) => {
+    const r = records.find((r) => r.kind === 'relation_instance');
+    r.reading.witness = ['word[aside] = Z', 'word:two = B'];
+    r.compared.a[0].text = 'word[aside]';
+    r.a.anchor_position = null;
+    r.placement_reads = [
+      ['same_line', false],
+      ['different_lines', null],
+      ['future_locus', true],
+    ];
+    r.reading_search = {
+      state: 'unavailable',
+      reason: 'rebuild_unavailable',
+      combinations_examined: 0,
+      combination_limit: 64,
+    };
+  });
+  try {
+    const pane = e.inspect(e.model.cells.find((c) => c.record.reading?.witness));
+    assert.equal(row(pane, 'Whole-word witness'), 'word[aside] = Z; word:two = B');
+    assert.match(
+      row(pane, 'Compared span / anchors (engine supplied)'),
+      /a: anchor position not supplied; unit 1: word\[aside\]/
+    );
+    assert.equal(
+      row(pane, 'Locus'),
+      'members are on the same line: false; members are on different lines: unknown; unrecognized value: future_locus: true'
+    );
+    assert.equal(
+      row(pane, 'Reading search'),
+      'Search: unavailable; Reason: reading rebuild unavailable; combinations examined: 0; search budget: 64'
+    );
+  } finally {
+    e.dom.window.close();
+  }
+});
+
+test('authored absent and not-needed search metadata never claims an unjudged verdict', () => {
+  for (const state of [undefined, 'not_needed', 'future_state']) {
+    const e = setup('witness_first', (records) => {
+      const r = records.find((r) => r.kind === 'relation_instance');
+      r.reading_search = state ? { state } : undefined;
+      r.reading.witness = { $detail_ref: 'pending' };
+      delete r.compared;
+      delete r.alignment;
+    });
+    try {
+      const pane = e.inspect(e.model.cells.find((c) => c.record.reading?.witness));
+      assert.equal(row(pane, 'Whole-word witness'), 'Unrecognized witness metadata');
+      assert.match(
+        row(pane, 'Compared span / anchors (engine supplied)'),
+        /compared units not supplied/
+      );
+      assert.match(
+        row(pane, 'Compared span / anchors (engine supplied)'),
+        /Aligned positions: not supplied/
+      );
+      const text = row(pane, 'Reading search');
+      assert.equal(
+        text,
+        state === undefined
+          ? 'Reading search not supplied'
+          : `Search: ${state === 'not_needed' ? 'not needed for this judgment' : 'unrecognized value: future_state'}; combinations examined: not supplied; search budget: not supplied`
+      );
+      assert.equal(pane.querySelector('.cv-verdict').textContent, 'holds');
+      assert.doesNotMatch(pane.textContent, /not judged|unjudged/);
+    } finally {
+      e.dom.window.close();
+    }
+  }
+});
+
 test('real first witness keeps its existential hold and discloses only supplied assignments', () => {
   const e = setup('witness_first');
   try {
@@ -107,7 +237,8 @@ test('real capped search shows its judged assignment without expanding the inven
         .length,
       cell.record.reading_outcomes.length
     );
-    assert.match(pane.textContent, /combination_cap/);
+    assert.match(row(pane, 'Reading search'), /the search budget was reached/);
+    assert.equal(cell.record.reading_search.reason, 'combination_cap');
     assert.match(pane.textContent, /Z IY1 D \/ Z UW1 T/);
     e.model.selection = I.occurrence('line:0:token:0');
     assert.match(e.views.inspector(e.model).textContent, /Applicable readings \(variants\)/);

@@ -76,6 +76,109 @@ function _connectionModel(I, { records, registry, report, complete, title }) {
           .join('; ')
       : 'Assignment not supplied';
   const list = (value) => (Array.isArray(value) ? value : []);
+  const known = (value, labels) =>
+    labels[value] || (value == null ? 'not supplied' : `unrecognized value: ${String(value)}`);
+  const sound = (value) => {
+    if (value == null) return 'unavailable';
+    if (Array.isArray(value)) return value.length ? value.map(sound).join(' ') : 'empty';
+    if (typeof value !== 'object') return String(value);
+    if (value.kind === 'readings' && Array.isArray(value.values))
+      return `reading alternatives: ${value.values.map(sound).join(' / ')}`;
+    return 'unrecognized sound metadata';
+  };
+  const anchors = (r) => {
+    const members = ['a', 'b']
+      .map((role) => {
+        const span = r[role],
+          units = r.compared?.[role];
+        const position =
+          Number.isInteger(span?.anchor_position) && span.anchor_position >= 0
+            ? `anchor position ${span.anchor_position + 1} in the supplied span`
+            : 'anchor position not supplied';
+        const aligned =
+          Array.isArray(units) && units.length
+            ? units
+                .map(
+                  (u, i) =>
+                    `unit ${i + 1}: ${u.text ?? 'text not supplied'}; ${[
+                      'onset',
+                      'nucleus',
+                      'coda',
+                      'prominence',
+                      'moras',
+                    ]
+                      .filter((key) => Object.hasOwn(u, key))
+                      .map((key) => `${key}: ${sound(u[key])}`)
+                      .join('; ')}`
+                )
+                .join('; ')
+            : 'compared units not supplied';
+        return `${role}: ${position}; ${aligned}`;
+      })
+      .join(' | ');
+    const pairs = r.alignment?.pairs;
+    const alignment = Array.isArray(pairs)
+      ? pairs
+          .map((pair) =>
+            Array.isArray(pair) &&
+            pair.length === 2 &&
+            pair.every((p) => Number.isInteger(p) && p >= 0)
+              ? `a unit ${pair[0] + 1} with b unit ${pair[1] + 1}`
+              : 'unrecognized aligned positions'
+          )
+          .join('; ') || 'no aligned pairs supplied'
+      : 'not supplied';
+    return `${members} | Aligned positions: ${alignment}`;
+  };
+  const locus = (rows) =>
+    Array.isArray(rows)
+      ? rows
+          .map(
+            ([key, value]) =>
+              `${known(key, {
+                both_line_final: 'both members end their lines',
+                a_line_final: 'member a ends its line',
+                both_line_initial: 'both members start their lines',
+                neither_line_final: 'neither member ends its line',
+                exactly_one_line_final: 'exactly one member ends its line',
+                same_line: 'members are on the same line',
+                different_lines: 'members are on different lines',
+                adjacent_lines: 'member b is on the next line',
+                adjacent_stanzas: 'member b is in the next stanza',
+              })}: ${value === true ? 'true' : value === false ? 'false' : 'unknown'}`
+          )
+          .join('; ') || 'No locus predicates supplied'
+      : 'Locus predicates not supplied';
+  const search = (s) => {
+    if (!s) return 'Reading search not supplied';
+    const reasons = {
+      witness_found: 'a witness was found',
+      exhausted: 'all combinations were examined',
+      combination_cap: 'the search budget was reached',
+      rebuild_unavailable: 'reading rebuild unavailable',
+      readings_not_searched_in_scope: 'alternative readings were not searched in this scope',
+      no_reading_combination: 'no reading combination available',
+      locus_unmatched: 'no matching locus',
+    };
+    const parts = [
+      `Search: ${known(s.state, {
+        partial: 'partial',
+        exhaustive: 'all combinations examined',
+        unavailable: 'unavailable',
+        not_needed: 'not needed for this judgment',
+      })}`,
+    ];
+    if (s.termination_reason != null)
+      parts.push(`Stopped because ${known(s.termination_reason, reasons)}`);
+    if (s.reason != null && s.reason !== s.termination_reason)
+      parts.push(`Reason: ${known(s.reason, reasons)}`);
+    for (const [key, label] of [
+      ['combinations_examined', 'combinations examined'],
+      ['combination_limit', 'search budget'],
+    ])
+      parts.push(`${label}: ${Number.isInteger(s[key]) && s[key] >= 0 ? s[key] : 'not supplied'}`);
+    return parts.join('; ');
+  };
   const readingDetails = (r) => {
     if (!r.judged_under && !r.witness_assignment && !r.reading_outcomes) return [];
     const details = [];
@@ -160,6 +263,23 @@ function _connectionModel(I, { records, registry, report, complete, title }) {
       readingDetails: readingDetails(r),
       witness: r.reading?.witness ?? r.reading_witness,
       compared: r.compared && { ...r.compared, a_anchor: r.a, b_anchor: r.b },
+    };
+    // Presentation is separate: raw evidence remains unchanged on record.
+    record.display = {
+      quantifier: record.quantifier,
+      licence: record.licence,
+      readingDetails: record.readingDetails,
+      witness:
+        Array.isArray(record.witness) && record.witness.every((w) => typeof w === 'string')
+          ? record.witness.join('; ')
+          : typeof record.witness === 'string'
+            ? record.witness
+            : record.witness == null
+              ? 'Witness not supplied'
+              : 'Unrecognized witness metadata',
+      compared: anchors(r),
+      placement_reads: locus(r.placement_reads),
+      reading_search: search(r.reading_search),
     };
     if (r.kind === 'relation_instance' && a?.length === 1 && b?.length === 1 && a[0] !== b[0]) {
       if (!byOccurrence.has(a[0]) || !byOccurrence.has(b[0])) continue;
