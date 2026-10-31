@@ -550,8 +550,10 @@ const SECTIONS = {
     const link = page.url();
     // The same link opened fresh (a real load, not a fragment navigation, so
     // no earlier mount survives) on the same reading restores its selection.
-    await page.goto('about:blank');
+    // goto + reload, as check_library_page does: an about:blank hop races the
+    // favicon fetch and logs a CORS error (found by Jony Ives).
     await page.goto(link);
+    await page.reload();
     await H.settled(page, 'reader', READER_SETTLED);
     await analyze(page);
     await page.waitForSelector('.cv-root');
@@ -568,8 +570,8 @@ const SECTIONS = {
     // The same selection opened on another reading is refused, shown and said.
     const other = new URL(link);
     other.hash = `#library/read/${H.EPI_B}?lens=sound`;
-    await page.goto('about:blank');
     await page.goto(other.href);
+    await page.reload();
     await H.settled(page, 'reader', READER_SETTLED);
     await analyze(page);
     await page.waitForSelector('.cv-notice');
