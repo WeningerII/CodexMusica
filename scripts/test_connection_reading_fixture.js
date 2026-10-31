@@ -133,3 +133,9 @@ test('an explicit hold and an explicit refusal still answer on partial pages', (
   const refused = load('refused_cap', false).cell('line:0:token:3', 'line:1:token:3');
   assert.equal(I.cellState(refused).state, 'refused');
 });
+
+test('readings not searched in scope read as such, never as first-listed only', () => {
+  const rec = { verdict: 'undecided', undecided_reason: 'readings_not_searched_in_scope' };
+  const result = I.cellState({ inLocus: true, jobComplete: true, record: rec });
+  assert.equal(result.reason, 'alternative readings were not searched in this scope');
+});

@@ -274,7 +274,10 @@
     combination_cap: 'reading search reached its cap',
     rebuild_unavailable: 'an alternate reading could not be rebuilt',
     locus_unmatched: 'locus not matched under every reading',
-    readings_not_searched_in_scope: 'only the first-listed reading was judged',
+    // The backend can emit this after judging a merged knowledge set, so it
+    // does not always mean only the first-listed reading was judged (spec
+    // dispute 6, resolved 2026-10-31).
+    readings_not_searched_in_scope: 'alternative readings were not searched in this scope',
     no_reading_combination: 'no compatible reading combination',
     placement_unknown: 'placement not settled',
     identity_unknown: 'identity not settled',
