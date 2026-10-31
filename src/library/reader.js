@@ -875,8 +875,8 @@ function render() {
   S.onKey = (e) => {
     if (e.key !== 'Escape' || e.defaultPrevented || !S?.root?.isConnected) return;
     if (e.target !== document.body && !S.root.contains(e.target)) return;
+    // Layers, innermost first: the sheet, the line selection, then the mode.
     if (S.root.classList.contains('rd-sheet')) closeSheet();
-    else if (S.conn) setConn(false);
     else if (S.sel.size) {
       // renderBody() replaces the line controls, so keep focus on the one that
       // held it (Jony #130): find it again by its data attributes, else fall
@@ -889,7 +889,13 @@ function render() {
       S.range = S.anchor = null;
       syncSelection();
       renderBody();
-      if (key || !document.activeElement || document.activeElement === document.body) {
+      const a = document.activeElement;
+      if (S.conn) {
+        // The paper is hidden in the mode: focus stays where it is if it can
+        // be seen, else goes to the visible way out.
+        if (!a || a === document.body || !a.getClientRects().length)
+          S.root.querySelector('[data-rd="conn-exit"]')?.focus();
+      } else if (key || !a || a === document.body) {
         const back =
           (key &&
             [...S.root.querySelectorAll(`[data-rd="${key[0]}"]`)].find(
@@ -901,7 +907,7 @@ function render() {
         back?.focus();
       }
       if (typeof libraryAnnounce === 'function') libraryAnnounce('Selection cleared');
-    }
+    } else if (S.conn) setConn(false);
   };
   document.addEventListener('keydown', S.onKey);
   renderAlerts();

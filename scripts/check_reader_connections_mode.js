@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* global document, location, getComputedStyle, requestAnimationFrame */ // inside page.evaluate
+/* global document, location, getComputedStyle, requestAnimationFrame, window */ // inside page.evaluate
 'use strict';
 // The reader's Connections mode (#637 6545739310, contract 6545872516), in
 // Chromium on the production route: the real Library page and reader, the
@@ -170,17 +170,46 @@ const said = (page, text) =>
       () => false
     );
 async function open(page, base, query = '') {
-  // A fresh document: the reader reads view=source on a new load, not on a
-  // hash change to the reading already open.
-  if (query) await page.goto('about:blank');
-  await serve(page);
+  const api = await serve(page);
   await H.go(page, base, `/read/${H.EPI_A}?lens=sound${query}`);
+  // A fresh document: the reader reads view=source on a new load, not on a
+  // hash change to the reading already open. A real reload, not an
+  // about:blank hop (whose opaque origin races the favicon).
+  if (query) await page.reload();
   await H.settled(page, 'reader', '#surface-library .rd-paper .rd-line');
   await reveal(page, '[data-act="analyze"]');
   await page.click('[data-act="analyze"]');
   await page.waitForSelector('.cv-root', { timeout: 20000 });
   await tick(page);
+  return api;
 }
+// The analysis mount and the views' own address, to prove the mode moves
+// neither: the same analysis root (.la-root), the same connections slot and
+// the same bindings mount inside it, no new computation, cv/sel unchanged.
+// (.cv-root itself is the views' render output, rebuilt on every redraw,
+// including the resize the mode causes, so its identity proves nothing.)
+const views = (page) =>
+  page.evaluate(() => {
+    const q = new URLSearchParams(location.search);
+    const m = window.__mount || {};
+    const la = document.querySelector('#surface-library .la-root');
+    const slot = la?.querySelector('[data-slot="connections"]');
+    return {
+      same:
+        !!slot?.firstElementChild &&
+        la === m.la &&
+        slot === m.slot &&
+        slot.firstElementChild === m.stage,
+      cv: q.get('cv') || '',
+      sel: q.get('sel') || '',
+    };
+  });
+const firstText = (page) =>
+  page.evaluate(() =>
+    (
+      document.querySelector('#surface-library .rd-paper .rd-line .rd-text')?.textContent || ''
+    ).trim()
+  );
 
 async function mode({ page, base, tag, width }) {
   const c = (name, ok, detail) => H.check(`${tag} connections mode: ${name}`, ok, detail);
@@ -283,17 +312,98 @@ async function mode({ page, base, tag, width }) {
     !lens.conn && lens.paper && !/conn=1/.test(lens.hash),
     JSON.stringify(lens)
   );
+  // The mode keeps the one analysis and the views' own selection.
+  const api = await open(page, base);
+  await reveal(page, '[data-act="more"]');
+  await page.click('[data-act="more"]');
+  await page.waitForFunction(() =>
+    document.querySelector('.cv-root')?.textContent.includes('all pages loaded')
+  );
+  if (await page.isVisible('#surface-library [data-rd="sheet"][aria-expanded="true"]'))
+    await page.keyboard.press('Escape');
+  await page.click('.cv-native button >> nth=0');
+  if (await page.isVisible('.lib-cb-sheet-body')) await page.keyboard.press('Escape');
+  await tick(page);
+  await page.evaluate(() => {
+    const la = document.querySelector('#surface-library .la-root');
+    const slot = la?.querySelector('[data-slot="connections"]');
+    window.__mount = { la, slot, stage: slot?.firstElementChild };
+  });
+  const picked = await views(page);
+  const posts = api.posts;
+  c('a views selection is in the address before entry', !!picked.sel, JSON.stringify(picked));
+  await reveal(page, '[data-rd="conn"]');
+  await page.click('[data-rd="conn"]');
+  await tick(page);
+  const inMode = await views(page);
+  c(
+    'entering keeps the same analysis root and sends no computation',
+    inMode.same && api.posts === posts,
+    JSON.stringify({ ...inMode, posts: api.posts, before: posts })
+  );
+  c(
+    'entering keeps cv and sel',
+    inMode.cv === picked.cv && inMode.sel === picked.sel,
+    JSON.stringify({ picked, inMode })
+  );
+  await page.click('[data-rd="conn-exit"]');
+  await tick(page);
+  const left = await views(page);
+  c(
+    'leaving keeps the same root, no computation, cv and sel',
+    left.same && api.posts === posts && left.cv === picked.cv && left.sel === picked.sel,
+    JSON.stringify({ picked, left, posts: api.posts })
+  );
+  // A line selected before entering is the inner layer: Esc clears it first,
+  // focus stays visible on the way out, and the next Esc leaves the mode.
+  await open(page, base);
+  // At phone width Analyze was pressed in the reader's sheet, which makes the
+  // paper inert: close it first.
+  if (await page.$('#surface-library .rd.rd-sheet')) {
+    await page.keyboard.press('Escape');
+    await tick(page);
+  }
+  await page.click('.rd-num:not([disabled]) >> nth=0');
+  await tick(page);
+  const lineOn = await page.$$eval('.rd-num[aria-pressed="true"]', (n) => n.length);
+  c('a line is selected before entry', lineOn === 1, String(lineOn));
+  await reveal(page, '[data-rd="conn"]');
+  await page.click('[data-rd="conn"]');
+  await tick(page);
+  await page.focus('[data-rd="conn-exit"]');
+  await page.keyboard.press('Escape');
+  await tick(page);
+  const cleared = await said(page, 'Selection cleared');
+  const esc1 = await state(page);
+  const lineOff = await page.$$eval('.rd-num[aria-pressed="true"]', (n) => n.length);
+  c(
+    'Esc clears the line selection first and stays in the mode, focus visible',
+    esc1.conn && lineOff === 0 && esc1.focus === 'conn-exit' && cleared,
+    JSON.stringify({ ...esc1, lineOff, cleared })
+  );
+  await page.keyboard.press('Escape');
+  await tick(page);
+  const esc2 = await state(page);
+  c('the next Esc leaves the mode', !esc2.conn && esc2.focus === 'conn', JSON.stringify(esc2));
+  // The source view renders the same text before and after a round trip.
   await open(page, base, '&view=source');
+  const srcText = await firstText(page);
   await reveal(page, '[data-rd="conn"]');
   await page.click('[data-rd="conn"]');
   await tick(page);
   await page.click('[data-rd="conn-exit"]');
   await tick(page);
   const src = await state(page);
+  const srcAfter = await firstText(page);
   c(
-    'view=source survives a round trip',
-    src.source && /[?&]view=source\b/.test(src.hash) && !src.conn,
-    JSON.stringify(src)
+    'view=source survives a round trip and renders the same source text',
+    src.source &&
+      /[?&]view=source\b/.test(src.hash) &&
+      !src.conn &&
+      src.paper &&
+      !!srcText &&
+      srcAfter === srcText,
+    JSON.stringify({ ...src, srcText, srcAfter })
   );
 }
 
