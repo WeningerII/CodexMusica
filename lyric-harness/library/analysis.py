@@ -537,8 +537,11 @@ class AnalysisSession:
     #: Past it the method is refused as incomplete, never answered over the
     #: combinations it did not try.
     EDGE_COMBOS = 64
-    #: Line-pair rebuilds one schema's discovery may make, likewise.
-    MINI_CAP = 4096
+    #: Line-pair rebuilds one schema's discovery may make, likewise. Sized
+    #: to the longest single English work in the Library, Whitman's "Song of
+    #: Myself" (1,658 lines): every line and every pair of lines, L(L+1)/2,
+    #: so no work in the corpus is refused for length (John, 2026-10-31).
+    MINI_CAP = 1375311
     #: Line readings kept for the rebuilds at once, one per line text, its
     #: words and the readings pinned on it. Past it the table starts again:
     #: a cache, so what a rebuild reads never depends on it. One rebuild adds
@@ -1263,8 +1266,12 @@ class AnalysisSession:
                 "precision": "token"}
 
     #: Candidate pairs one schema's domain may enumerate. Past it the domain
-    #: is refused (`projection: none`), never sampled.
-    DOMAIN_CAP = 262144
+    #: is refused (`projection: none`), never sampled. Sized to the longest
+    #: single English work in the Library, Whitman's "Song of Myself" (15,769
+    #: words by `relations.tokenise`): n*n, the largest member product
+    #: (`len(aa) * len(bb)`) a word-level domain over it can make, so no work
+    #: in the corpus is refused for length (John, 2026-10-31).
+    DOMAIN_CAP = 248661361
 
     def _domain(self, name, alt_cells=()):
         """-> WHICH OCCURRENCE PAIRS THIS SCHEMA'S LOCI CAN BIND, so a view can
@@ -1392,8 +1399,12 @@ class AnalysisSession:
 
     # -- Shared sound (`namespace: "shared_sound"`; #637) -------------------
     #: Occurrence pairs one shared-sound method judges at most. Past it the
-    #: method is refused, never answered over the pairs it reached.
-    SOUND_PAIR_CAP = 262144
+    #: method is refused, never answered over the pairs it reached. Sized to
+    #: the longest single English work in the Library, Whitman's "Song of
+    #: Myself" (15,769 words by `relations.tokenise`): every pair of its
+    #: words, n(n-1)/2, so no work in the corpus is refused for length
+    #: (John, 2026-10-31).
+    SOUND_PAIR_CAP = 124322796
 
     def _sound_spans(self, family, st):
         """-> {(line, token): [span]}: the family's own canonical spans on
