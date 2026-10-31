@@ -59,7 +59,7 @@ const H = harness.exports;
 const DARK = argv.includes('--dark');
 const REQUIRE_ARROWS = argv.includes('--require-arrows');
 // --reader-mode: run every section inside the reader's full-width Connections
-// mode (the Sound lens's Connections button, address conn=1).
+// mode (the Sound lens's Connections button, conn=1 in the hash route).
 const READER_MODE = argv.includes('--reader-mode');
 const ONLY_SECTION = pick('section');
 const ONLY_WIDTH = Number(pick('width')) || 0;
@@ -234,9 +234,9 @@ async function open(page, base, reading, { complete = false } = {}) {
     if (!(await mode.count()))
       throw Error('--reader-mode: no Connections lens button on this head');
     if ((await mode.first().getAttribute('aria-pressed')) !== 'true') await mode.first().click();
-    await page.waitForFunction(
-      () => new URLSearchParams(window.location.search).get('conn') === '1'
-    );
+    // The reader keeps conn in its hash route (lib.go), beside lens and view;
+    // only the views' own cv and sel live in location.search.
+    await page.waitForFunction(() => /[?&]conn=1\b/.test(window.location.hash));
   }
   if (complete) {
     await page.click('[data-act="more"]');
