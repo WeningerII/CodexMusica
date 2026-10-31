@@ -164,21 +164,27 @@ test('actual native figure membership reaches the existing inspector without pai
 
 test('partial figure edges retain supplied membership and explicit incompleteness', async () => {
   const captured = require('./fixtures/connection-backend-figure.json');
-  const records = structuredClone(captured.records);
+  const complete = await analysis.hydrateEvidence(structuredClone(captured.records));
+  assert.deepEqual(complete.pending, []);
+  const records = complete.records;
   const raw = records.find((r) => r.kind === 'relation_figure');
+  assert.ok(Array.isArray(raw.edges));
+  const edgeCount = raw.edges.length;
+  assert.ok(Number.isSafeInteger(edgeCount) && edgeCount > 0);
   // Exercise the real paged-figure hydrator with the member pages withheld.
-  raw.edge_count = raw.edges.length;
+  raw.edge_count = edgeCount;
   delete raw.edges;
   const hydrated = await analysis.hydrateEvidence(records);
-  assert.ok(hydrated.pending.length);
+  assert.ok(hydrated.pending.includes(`Figure ${raw.id} has 0 of ${edgeCount} verified edges.`));
   const { model } = make(hydrated.records, false);
   const figure = model.figures.find((f) => f.evidence_id === raw.id);
   assert.deepEqual(figure.members.frame, raw.frame);
   assert.deepEqual(figure.members.member_lines, raw.member_lines);
   assert.equal(figure.members.edges, undefined);
   assert.equal(figure.members.edges_incomplete, true);
-  assert.equal(figure.members.edge_count, raw.edge_count);
-  assert.ok(!model.cells.some((c) => c.record.id === raw.id));
+  assert.equal(figure.members.edge_count, edgeCount);
+  assert.ok(Number.isSafeInteger(figure.members.edge_count) && figure.members.edge_count > 0);
+  assert.equal(model.cells.length, 0);
 });
 
 test('supplied token order identifies line endings and drives actual margin geometry', () => {
