@@ -38,7 +38,7 @@ const HARNESS = path.join(__dirname, 'check_library_page.js');
 const src = fs.readFileSync(HARNESS, 'utf8');
 const cut = src.indexOf('\n(async () => {\n  const dir = build();');
 if (cut < 0) throw Error('check_library_page.js runner not found: update the harness hook');
-const mine = new Set(['dark', 'require-arrows']);
+const mine = new Set(['dark', 'require-arrows', 'reader-mode']);
 const pick = (name) => (argv.find((a) => a.startsWith(`--${name}=`)) || '').split('=')[1] || '';
 const argv = process.argv.slice(2);
 process.argv.splice(
@@ -58,6 +58,9 @@ harness._compile(
 const H = harness.exports;
 const DARK = argv.includes('--dark');
 const REQUIRE_ARROWS = argv.includes('--require-arrows');
+// --reader-mode: run every section inside the reader's full-width Connections
+// mode (the Sound lens's Connections button, address conn=1).
+const READER_MODE = argv.includes('--reader-mode');
 const ONLY_SECTION = pick('section');
 const ONLY_WIDTH = Number(pick('width')) || 0;
 const pending = [];
@@ -169,6 +172,17 @@ async function open(page, base, reading, { complete = false } = {}) {
   await H.settled(page, 'reader', '#surface-library .rd-paper .rd-line');
   await analyze(page);
   await page.waitForSelector('.cv-root', { timeout: 20000 });
+  if (READER_MODE) {
+    const mode = page.locator('#surface-library button[aria-pressed]', {
+      hasText: /^\s*Connections\s*$/,
+    });
+    if (!(await mode.count()))
+      throw Error('--reader-mode: no Connections lens button on this head');
+    if ((await mode.first().getAttribute('aria-pressed')) !== 'true') await mode.first().click();
+    await page.waitForFunction(
+      () => new URLSearchParams(window.location.search).get('conn') === '1'
+    );
+  }
   if (complete) {
     await page.click('[data-act="more"]');
     await page.waitForFunction(() =>
