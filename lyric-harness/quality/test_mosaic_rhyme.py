@@ -95,6 +95,11 @@ AFTER_SET = (
     # mosaic holds under the first (rule 5, over readings)
     (True, "In short, when I've a smattering of elemental strategy,",
      "You'll say a better Major-General has never sat a gee."),
+    # content words only, one reading each, the syllable split differing
+    # (P IH1 | L OW0 against S T IH1 L | OW1; W IH1 N | D OW0 against
+    # TH IH1 N | D OW1): the juncture case the coda read used to fail
+    (True, "my pillow", "be still owe"),
+    (True, "my window", "fresh thin dough"),
     # -- HELD: needs the weak-form `her` reading (John) ---------------------
     (False, "her heart was always tender", "the letter I will send her"),
 )
