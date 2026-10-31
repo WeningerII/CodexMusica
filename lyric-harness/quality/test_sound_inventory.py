@@ -365,14 +365,11 @@ EXEMPT_VOWEL_CHANGED = {
     ("I came to be here", "the sea I see"): {"assonance", "subtractive rhyme"},
 }
 
-#: NOT A LISTING DEFECT, named: `relations._bucket_key` (M-322 item 4, G1)
-#: keys mosaic rhyme's free run on its FIRST syllable while flush_right
-#: compares the LAST, so main found mosaic rhyme only where a function word
-#: in the run (`to`, `was`, `the`) had two readings and the key was a
-#: wildcard. Every whole reading pins that word, so the judge prunes the
-#: pair under each one. The same pair loses it on main with a definite word
-#: there (`what is it about` / `my lights went out`). G1 is its own work.
-G1_MASKED = {"mosaic rhyme"}
+#: 2026-10-30: the G1 carve-out (`G1_MASKED`) is gone. `relations._bucket_key`
+#: (M-322 item 4) keyed mosaic rhyme's free run on its FIRST syllable while
+#: flush_right compares the LAST, so main found mosaic rhyme only where a
+#: function word in the run had two readings and the key was a wildcard. The
+#: key now sits at the last unit, so every listing below holds it outright.
 
 
 def test_listings_report_every_schema_some_reading_holds():
@@ -388,16 +385,9 @@ def test_listings_report_every_schema_some_reading_holds():
 
     for (a, b), main in MAIN_LISTS.items():
         held, open_, w = listed(a, b)
-        lost = set(main) - held - G1_MASKED
+        lost = set(main) - held
         check(f"{a.split()[-1]}/{b.split()[-1]} lists every schema main lists",
               not lost, f"lost {sorted(lost)}; held {sorted(held)}")
-        absent = (set(main) & G1_MASKED) - held - open_
-        if absent:
-            # The tripwire: once G1 is fixed this branch is never taken for
-            # these pairs, and the carve-out above must go.
-            check(f"{a.split()[-1]}/{b.split()[-1]}: only mosaic rhyme is "
-                  f"missing, and main misses it too with a definite word (G1)",
-                  absent == {"mosaic rhyme"})
     for (a, b), gone in EXEMPT_VOWEL_CHANGED.items():
         held, _, _ = listed(a, b)
         check(f"{a.split()[-1]}/{b.split()[-1]} (exempt: NEAR is its own vowel) "
@@ -418,8 +408,9 @@ def test_listings_report_every_schema_some_reading_holds():
           sorted(raw0.get((1, 2), ())) == ["cluster consonance / skothending span",
                                           "consonance"])
     held_my, _, _ = listed("what is it about", "my lights went out")
-    check("G1 witness: with `my` (one reading) mosaic rhyme is absent here, "
-          "as on main", "mosaic rhyme" not in held_my)
+    # 2026-10-30: was "absent here, as on main" -- G1's witness, now fixed.
+    check("G1 fixed: with `my` (one reading) mosaic rhyme is held here, "
+          "where main misses it", "mosaic rhyme" in held_my, str(sorted(held_my)))
     # The consumers read the same listing.
     lines = ["I walked out in the night", "and saw the light"]
     cs = L.check_scheme(LEX, lines, "AA", DECL)

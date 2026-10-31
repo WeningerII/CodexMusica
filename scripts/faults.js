@@ -107,8 +107,18 @@
 // number (9x) where it has one, and to its gate-class name, the part of its
 // row before ` -> ` (engine-preload-disagrees). A run with --only is partial,
 // so it never asserts gate-coverage completeness.
+// --shard=K/N runs every Nth class, starting at the Kth, counted in the order
+// each gate-class NAME is first opened (not the order want() is called: class
+// 6 calls it twice when it is skipped, which would deal the shards apart).
+// --list opens every class without running any and prints them in that order
+// (with --shard, each with the shard it is dealt to); it injects nothing.
+// --record=FILE writes the classes this run saw, the ones it ran and their
+// verdicts, as JSON. A sharded run is partial like --only; faults_shards.js
+// reads the N records and asserts what a full run asserts: every class ran
+// exactly once, and every promise-bound gate has a fault class.
 // Exit 0 if every defect was caught, 1 if any gate escaped, 2 if --only names
-// a class that does not exist or selects none that can run.
+// a class that does not exist or selects none that can run, or --shard is
+// malformed, combined with --only, or deals this shard no class.
 // Each class's temp copy is removed once its verdict is recorded (--keep
 // leaves them all in the OS temp dir, codex-fault-*, for inspection).
 
@@ -133,6 +143,24 @@ const KEEP = !!flags.keep;
 const FRESH_API = flags['fresh-api'] ? path.resolve(ROOT, flags['fresh-api']) : null;
 const FRESH_HTML = flags['fresh-html'] ? path.resolve(ROOT, flags['fresh-html']) : null;
 const ONLY = typeof flags.only === 'string' ? flags.only.split(',').filter(Boolean) : null;
+const SHARD = (() => {
+  if (flags.shard === undefined) return null;
+  const m = /^(\d+)\/(\d+)$/.exec(String(flags.shard));
+  const k = m && Number(m[1]),
+    n = m && Number(m[2]);
+  if (!m || n < 1 || k < 1 || k > n || ONLY) {
+    console.error(
+      ONLY
+        ? 'faults: --shard and --only cannot be combined'
+        : `faults: --shard=${flags.shard} is not K/N with 1 <= K <= N`
+    );
+    process.exit(2);
+  }
+  return { k, n };
+})();
+const RECORD = typeof flags.record === 'string' ? path.resolve(flags.record) : null;
+const LIST = !!flags.list;
+const PARTIAL = !!(ONLY || SHARD);
 const q = (s) => JSON.stringify(s);
 
 // Isolated temp copy of just the items a gate needs; node_modules is symlinked.
@@ -279,11 +307,19 @@ function gate(dir, args, { timeout = 300000 } = {}) {
 // gate-class name. It answers whether --only selects the class, and remembers
 // the class so record() can refuse a row under another name.
 const CLASS_IDS = new Set();
+const ORDINAL = new Map(); // gate-class name -> the order it was first opened
+const RAN = new Set();
 let CLASS = null;
 function want(...ids) {
   for (const id of ids) CLASS_IDS.add(id);
   CLASS = ids;
-  return !ONLY || ids.some((id) => ONLY.includes(id));
+  const name = ids[ids.length - 1];
+  if (!ORDINAL.has(name)) ORDINAL.set(name, ORDINAL.size);
+  if (LIST) return false;
+  if (SHARD && ORDINAL.get(name) % SHARD.n !== SHARD.k - 1) return false;
+  const yes = !ONLY || ids.some((id) => ONLY.includes(id));
+  if (yes) RAN.add(name);
+  return yes;
 }
 
 const results = [];
@@ -3104,8 +3140,34 @@ if (ONLY) {
     process.exit(2);
   }
 }
+if (LIST) {
+  for (const [name, i] of ORDINAL)
+    console.log(SHARD ? `${(i % SHARD.n) + 1}/${SHARD.n}\t${name}` : name);
+  process.exit(0);
+}
+if (SHARD && !results.length) {
+  console.error(`faults: --shard=${SHARD.k}/${SHARD.n} was dealt no class that could run here`);
+  process.exit(2);
+}
+if (RECORD) {
+  fs.writeFileSync(
+    RECORD,
+    JSON.stringify(
+      {
+        shard: SHARD ? `${SHARD.k}/${SHARD.n}` : null,
+        only: ONLY,
+        fresh: !!(FRESH_API && FRESH_HTML),
+        classes: [...ORDINAL.keys()],
+        ran: [...RAN],
+        results: results.map(({ cls, caught, reason }) => ({ cls, caught, reason })),
+      },
+      null,
+      1
+    ) + '\n'
+  );
+}
 let uncovered = [];
-if (FRESH_API && FRESH_HTML && !ONLY) {
+if (FRESH_API && FRESH_HTML && !PARTIAL) {
   const PROMISES = require('./_promises.js');
   const faulted = new Set(results.map((r) => r.cls.split('->').pop().trim()));
   uncovered = [...new Set(PROMISES.map((p) => p.gate))].filter(
@@ -3119,11 +3181,13 @@ console.log(
 );
 if (escaped.length === 0 && uncovered.length === 0) {
   console.log(
-    FRESH_API && FRESH_HTML && !ONLY
+    FRESH_API && FRESH_HTML && !PARTIAL
       ? 'PASS — every injected defect was caught AND every promise-bound gate has a fault class. All gates are two-sided.'
       : ONLY
         ? `PASS — every injected defect was caught (partial run: --only=${ONLY.join(',')}).`
-        : 'PASS — every injected defect was caught (partial run; pass --fresh-api/--fresh-html to also assert gate-coverage completeness).'
+        : SHARD
+          ? `PASS — every injected defect was caught (partial run: shard ${SHARD.k}/${SHARD.n}; faults_shards.js asserts completeness over all ${SHARD.n}).`
+          : 'PASS — every injected defect was caught (partial run; pass --fresh-api/--fresh-html to also assert gate-coverage completeness).'
   );
   process.exit(0);
 }
