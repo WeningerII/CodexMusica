@@ -9,7 +9,11 @@ const registry = require('../library/data/methods.json');
 const source =
   process.env.CONNECTION_ADAPTER_SOURCE ||
   path.join(__dirname, '../src/library/connection-adapter.js');
-const adapt = new Function(fs.readFileSync(source, 'utf8') + '\nreturn _connectionModel;')();
+const { CONNECTION_FAMILIES } = require('../src/connection-families');
+const adapt = new Function(
+  'CONNECTION_FAMILIES',
+  fs.readFileSync(source, 'utf8') + '\nreturn _connectionModel;'
+)(CONNECTION_FAMILIES);
 const complete = new Function(fs.readFileSync(source, 'utf8') + '\nreturn _connectionComplete;')();
 test('absence certification requires every manifest page, record and detail part', () => {
   const report = { partial: false, page_count: 2, evidence_count: 15 };
@@ -20,10 +24,10 @@ test('absence certification requires every manifest page, record and detail part
   assert.equal(complete(report, 15, 1, null, 1), false);
   assert.equal(complete({ ...report, partial: true }, 15, 1, null, 0), false);
 });
-const make = (records = fixture.records, complete = true) =>
+const make = (records = fixture.records, complete = true, methodRegistry = registry) =>
   adapt(I, {
     records,
-    registry,
+    registry: methodRegistry,
     report: { identity_hash: fixture.identity.hash },
     complete,
   });
@@ -313,4 +317,90 @@ test('real backend holds draw directed; explicit reversed-record replay keeps a/
     assert.ok(views.inspector(model).textContent.includes(expected));
   }
   dom.window.close();
+});
+
+test('actual adapter families survive registry renames without changing evidence', () => {
+  const renamed = structuredClone(registry);
+  for (const m of renamed.methods) m.name = 'consonance of renamed things';
+  const baseline = make().model;
+  const changed = make(fixture.records, true, renamed).model;
+  assert.deepEqual(
+    changed.methods.map((m) => [m.id, m.family, m.matrix_projection]),
+    baseline.methods.map((m) => [m.id, m.family, m.matrix_projection])
+  );
+  assert.deepEqual(changed.cells, baseline.cells);
+  assert.ok(changed.methods.every((m) => m.name === 'consonance of renamed things'));
+});
+
+test('a new unmapped id keeps native evidence despite a family-looking name', () => {
+  // Authored id mutation of actual captured records, not a new engine result.
+  const unknown = 'schema:unmapped-family-fixture';
+  const records = structuredClone(fixture.records);
+  for (const r of records) if (r.method_id === method) r.method_id = unknown;
+  const raw = records.find((r) => r.kind === 'relation_instance' && r.method_id === unknown);
+  raw.a.token_ids.push('line:1:token:0');
+  const changedRegistry = structuredClone(registry);
+  const entry = changedRegistry.methods.find((m) => m.id === method);
+  entry.id = unknown;
+  entry.name = 'alliteration';
+  const { model } = make(records, true, changedRegistry);
+  const adapted = model.methods.find((m) => m.id === unknown);
+  assert.equal(adapted.family, undefined);
+  assert.equal(adapted.matrix_projection, 'none');
+  assert.equal(adapted.coverage.visual_projection, 'Native bindings only: no agreed visual family');
+  const figure = model.figures.find((f) => f.evidence_id === raw.id);
+  assert.deepEqual(figure.members, { a: raw.a, b: raw.b });
+  assert.deepEqual(figure.record.a, raw.a);
+  assert.ok(!model.cells.some((c) => c.record.id === raw.id));
+});
+
+test('an unknown-family singleton retains its record, asked binding and native control', () => {
+  // Authored method-id mutation of captured singleton evidence; no new engine result.
+  const unknown = 'schema:unmapped-singleton-fixture';
+  const records = structuredClone(fixture.records);
+  const singletons = records.filter(
+    (r) =>
+      r.kind === 'relation_instance' &&
+      r.method_id === method &&
+      r.a?.token_ids.length === 1 &&
+      r.b?.token_ids.length === 1
+  );
+  assert.ok(singletons.length > 0, 'captured fixture must supply singleton bindings');
+  const raw = singletons[0];
+  assert.notEqual(raw.a.token_ids[0], raw.b.token_ids[0]);
+  const baseline = make().model.cells.find((c) => c.record.id === raw.id);
+  assert.ok(baseline, 'captured singleton must be available before the id mutation');
+  for (const r of records) if (r.method_id === method) r.method_id = unknown;
+  const changedRegistry = structuredClone(registry);
+  changedRegistry.methods.find((m) => m.id === method).id = unknown;
+  const { model } = make(records, true, changedRegistry);
+  const cell = model.cells.find((c) => c.record.id === raw.id);
+  assert.ok(cell);
+  assert.deepEqual(cell.record, { ...baseline.record, method_id: unknown });
+  assert.deepEqual(cell.selection, { ...baseline.selection, method_id: unknown });
+  assert.equal(cell.selection.kind, 'binding');
+  assert.equal(model.cell(cell.selection), cell);
+  assert.equal(I.cellState(cell).state, I.cellState(baseline).state);
+  assert.equal(model.methods.find((m) => m.id === unknown).family, undefined);
+  assert.ok(!model.figures.some((f) => f.evidence_id === raw.id));
+  const dom = new JSDOM('<!doctype html>', { runScripts: 'outside-only' });
+  try {
+    const views = dom.window
+      .eval(
+        `(function(){${fs.readFileSync(path.join(__dirname, '../src/library/connection-views.js'), 'utf8')}\n})()`
+      )
+      .createViews({ interaction: I, marks });
+    model.checkedMethods = [unknown];
+    model.selection = cell.selection;
+    const rendered = views.render(model, { view: 'network' });
+    const native = [...rendered.querySelectorAll('.cv-native button')].filter(
+      (button) => button.dataset.selection === I.selectionKey(cell.selection)
+    );
+    assert.equal(native.length, 1, 'the unchanged binding remains natively selectable');
+    assert.ok(native[0].textContent.includes('a:'));
+    assert.ok(native[0].textContent.includes('b:'));
+    assert.equal(rendered.querySelectorAll('.lib-mk-edge').length, 0);
+  } finally {
+    dom.window.close();
+  }
 });

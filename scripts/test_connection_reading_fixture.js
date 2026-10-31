@@ -14,7 +14,11 @@ const { captures } = require('./fixtures/connection-backend-reading.json');
 const source =
   process.env.CONNECTION_ADAPTER_SOURCE ||
   path.join(__dirname, '../src/library/connection-adapter.js');
-const adapt = new Function(fs.readFileSync(source, 'utf8') + '\nreturn _connectionModel;')();
+const { CONNECTION_FAMILIES } = require('../src/connection-families');
+const adapt = new Function(
+  'CONNECTION_FAMILIES',
+  fs.readFileSync(source, 'utf8') + '\nreturn _connectionModel;'
+)(CONNECTION_FAMILIES);
 
 const load = (name, complete = true) => {
   const c = captures[name];
