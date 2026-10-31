@@ -601,6 +601,11 @@ const CSS = `
 #surface-library .rd-compare:empty{display:none}
 #surface-library .rd-compare{background:var(--cm-surface);border:1px solid var(--cm-border-subtle);border-radius:var(--cm-radius-lg);padding:12px}
 #surface-library .rd-mobile{display:none}
+#surface-library .rd-connbar{display:none}
+#surface-library .rd.rd-conn .rd-connbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+#surface-library .rd.rd-conn .rd-cols{grid-template-columns:minmax(0,1fr)}
+#surface-library .rd.rd-conn .rd-paper,#surface-library .rd.rd-conn [data-rd=sheet],#surface-library .rd.rd-conn [data-rd=inspector],#surface-library .rd.rd-conn .rd-insp-head{display:none}
+#surface-library .rd.rd-conn .rd-insp{display:block;position:static;max-height:none;overflow:visible;box-shadow:none;border-radius:var(--cm-radius-lg)}
 @media (max-width:899px){
 #surface-library .rd-cols{grid-template-columns:minmax(0,1fr)}
 #surface-library .rd-mobile{display:inline-flex}
@@ -642,6 +647,7 @@ function route(extra) {
   set('offset', extra.offset);
   set('lens', S.lens !== 'summary' ? S.lens : '');
   set('view', S.source ? 'source' : '');
+  set('conn', S.conn ? '1' : '');
   set('compare', extra.compare);
   const s = q.toString();
   return `/read/${S.R.id}${s ? '?' + s : ''}`;
@@ -662,6 +668,9 @@ async function show(main, sub, lib, { retry = false } = {}) {
   // Our own replace navigation, or a param change on the open reading.
   if (S && S.main === main && S.R?.id === id && main.contains(S.root)) {
     if (sub === S.ownRoute) return;
+    // History moved to another of this reading's addresses: it is now ours,
+    // so Forward to the one the reader last wrote is not taken for an echo.
+    S.ownRoute = sub;
     applyParams(params);
     return;
   }
@@ -677,6 +686,7 @@ async function show(main, sub, lib, { retry = false } = {}) {
     record: null,
     lens: 'summary',
     source: params.get('view') === 'source',
+    conn: false,
     size: Math.min(32, Math.max(16, Number(store('text-size')) || 20)),
     marks: store('marks') || { rep: false, end: false },
     inspector: store('inspector') !== false,
@@ -714,6 +724,7 @@ async function show(main, sub, lib, { retry = false } = {}) {
     S.window = [page, page];
     const lens = params.get('lens');
     if (LENSES.some(([l]) => l === lens)) S.lens = lens;
+    S.conn = S.lens === 'sound' && params.get('conn') === '1';
     const span = params.get('span')?.split(':').map(Number);
     if (span?.length === 2 && span.every(Number.isSafeInteger))
       S.record = {
@@ -774,6 +785,7 @@ function applyParams(params) {
     S.lens = lens;
     renderInspector();
   }
+  setConn(params.get('conn') === '1', false);
   if (params.has('offset')) goToRow(Number(params.get('offset')) || 0);
   if (params.get('compare')) openCompare(null, params.get('compare'));
 }
@@ -804,7 +816,7 @@ function render() {
   const R = S.R,
     h = R.head;
   const inSel = S.lib.selection?.ids?.has?.(R.id);
-  S.main.innerHTML = `<div class="rd${S.inspector ? '' : ' rd-noinsp'}">
+  S.main.innerHTML = `<div class="rd${S.inspector ? '' : ' rd-noinsp'}${S.conn ? ' rd-conn' : ''}">
   <div class="rd-toolbar">
     ${btn('back', 'Works', 'arrow-left', '', 'cm-btn cm-btn-tonal')}
     <span class="cm-chip">${esc(LANGUAGE_NAMES[h.language] || h.language)}</span>
@@ -818,6 +830,7 @@ function render() {
     <button type="button" class="cm-btn cm-btn-icon" data-rd="inspector" aria-label="${S.inspector ? 'Collapse inspector' : 'Open inspector'}" aria-pressed="${S.inspector}">${icon(S.inspector ? 'panel-right-close' : 'panel-right-open', 18) || icon('sidebar', 18)}</button>
   </div>
   <div class="rd-compare" data-rd-compare></div>
+  <div class="rd-connbar">${btn('conn-exit', 'Back to reading', 'arrow-left', '', 'cm-btn cm-btn-tonal')}<b>Connections · ${esc(h.title?.trim() || 'Untitled reading')}</b></div>
   <div class="rd-cols">
     <article class="rd-paper" aria-label="Reading">
       <header>
@@ -862,6 +875,7 @@ function render() {
   S.onKey = (e) => {
     if (e.key !== 'Escape' || e.defaultPrevented || !S?.root?.isConnected) return;
     if (e.target !== document.body && !S.root.contains(e.target)) return;
+    // Layers, innermost first: the sheet, the line selection, then the mode.
     if (S.root.classList.contains('rd-sheet')) closeSheet();
     else if (S.sel.size) {
       // renderBody() replaces the line controls, so keep focus on the one that
@@ -875,7 +889,13 @@ function render() {
       S.range = S.anchor = null;
       syncSelection();
       renderBody();
-      if (key || !document.activeElement || document.activeElement === document.body) {
+      const a = document.activeElement;
+      if (S.conn) {
+        // The paper is hidden in the mode: focus stays where it is if it can
+        // be seen, else goes to the visible way out.
+        if (!a || a === document.body || !a.getClientRects().length)
+          S.root.querySelector('[data-rd="conn-exit"]')?.focus();
+      } else if (key || !a || a === document.body) {
         const back =
           (key &&
             [...S.root.querySelectorAll(`[data-rd="${key[0]}"]`)].find(
@@ -887,7 +907,7 @@ function render() {
         back?.focus();
       }
       if (typeof libraryAnnounce === 'function') libraryAnnounce('Selection cleared');
-    }
+    } else if (S.conn) setConn(false);
   };
   document.addEventListener('keydown', S.onKey);
   renderAlerts();
@@ -1079,7 +1099,9 @@ function renderInspector() {
 <div class="rd-lens cm-segmented" role="group" aria-label="Interpretation lenses">${LENSES.map(
     ([id, label]) =>
       `<button type="button" class="cm-chip${S.lens === id ? ' active' : ''}" data-rd="lens" data-id="${id}" aria-pressed="${S.lens === id}">${label}</button>`
-  ).join('')}</div>`;
+  ).join(
+    ''
+  )}${S.lens === 'sound' ? btn('conn', 'Connections', 'maximize-2', `aria-pressed="${S.conn}"`, 'cm-chip') : ''}</div>`;
   let body = '';
   if (S.lens === 'summary') {
     const c = h.census || {};
@@ -1469,6 +1491,10 @@ function onClick(e) {
       b.setAttribute('aria-pressed', String(S.inspector));
       b.setAttribute('aria-label', S.inspector ? 'Collapse inspector' : 'Open inspector');
       return;
+    case 'conn':
+      return setConn(!S.conn);
+    case 'conn-exit':
+      return setConn(false);
     case 'sheet':
       return openSheet(true);
     case 'sheet-close':
@@ -1498,6 +1524,7 @@ function onClick(e) {
       return page('next');
     case 'lens': {
       S.lens = id;
+      if (id !== 'sound' && S.conn) setConn(false, false);
       renderInspector();
       // The re-render replaced the pressed chip: keep focus on it and name
       // the lens, instead of leaving focus on the page.
@@ -1546,6 +1573,35 @@ function onClick(e) {
       syncSelection();
       return renderBody();
   }
+}
+
+// THE CONNECTIONS MODE (#637 6545739310, contract 6545872516): the Sound
+// lens's analysis -- one controller, every control, the views -- takes the
+// reading's full width, and the reading text it draws again is hidden. No
+// mount moves: the rail itself widens. `push` false when history or a lens
+// change already says so. The sheet's inert is lifted before anything moves.
+function setConn(on, push = true) {
+  on = !!on && S.lens === 'sound';
+  if (on === S.conn || !S.root) return;
+  if (on) closeSheet();
+  S.conn = on;
+  S.root.classList.toggle('rd-conn', on);
+  S.root.querySelector('[data-rd="conn"]')?.setAttribute('aria-pressed', String(on));
+  if (push) {
+    S.ownRoute = route({ offset: S.firstRow() });
+    try {
+      S.lib.go(S.ownRoute);
+    } catch {
+      /* routing is core's */
+    }
+  }
+  // A narrow layout entered from the sheet goes back to it, and closing that
+  // sheet returns to Inspect, which opened it.
+  if (!on && matchMedia('(max-width: 899px)').matches)
+    openSheet(true, S.root.querySelector('[data-rd="sheet"]'));
+  S.root.querySelector(`[data-rd="${on ? 'conn-exit' : 'conn'}"]`)?.focus({ preventScroll: !on });
+  if (typeof libraryAnnounce === 'function')
+    libraryAnnounce(on ? 'Connections, full width' : 'Back to reading');
 }
 
 // `from` is the control that asked. A caller that re-renders the reader first

@@ -111,7 +111,7 @@
 //                        that names library/code/) and every
 //                        #surface-library rule of the styles, concatenated
 //   library-<chunk>      each code chunk LIBRARY_CHUNKS names, read beside
-//                        the page: core and reader 20,480, analysis 24,576,
+//                        the page: core and reader 20,480, analysis 30,720,
 //                        compare 6,144, inflate 4,096, marks 4,096 (the
 //                        connection views' visual system, measured 3,670 B
 //                        with #640's factory minifier). A chunk with no row
@@ -171,7 +171,13 @@ const LIBRARY_BUDGETS = {
   'library-stub': 4096,
   'library-core': 20480,
   'library-reader': 20480,
-  'library-analysis': 24576,
+  // John explicitly approved 30 KiB on 2026-10-31 (Sentinel_216d6218275c8191a7ec41fdeb34b55f).
+  // Owner-approved exception to the Lighthouse citation policy above; not certification.
+  // Family integration measured 25,425 B gzip-6 (before: 24,272). Preliminary local
+  // Chromium 151, 412x823, CPU 4x / Slow-4G, 3 interleaved pairs: median first
+  // Connections use 7,230 -> 7,251 ms; warm revisit 468 -> 441 ms. Captured API
+  // fixture, zero server delay; small cohort, not production latency or Lighthouse.
+  'library-analysis': 30720,
   'library-compare': 6144,
   'library-inflate': 4096,
   'library-marks': 4096,
@@ -181,7 +187,9 @@ const LIBRARY_BUDGETS = {
   // The connection views' DOM bindings and their owner (live region, keys,
   // URL, phone sheet, mount): measured 2,792 B gzip on 2026-10-30 with #640's
   // factory minifier, so 4 KiB with room to grow. A new row, unmerged.
-  'library-connection-bindings': 4096,
+  // John approved this 24-byte increase on 2026-10-31 (Sentinel_4bd356900bb08191b05ddfa56f90483a).
+  // Owner-approved exception to the Lighthouse citation policy; no performance certification.
+  'library-connection-bindings': 4120,
   // Root-approved new component row: 5,321 B gzip measured on the combined
   // source, 2026-10-30. Existing ceilings are unchanged.
   'library-connection-views': 6144,
