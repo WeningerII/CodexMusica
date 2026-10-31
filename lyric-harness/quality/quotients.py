@@ -245,7 +245,7 @@ def trite(value):
 
 #: THE ENGLISH REDUCED VOWELS (2026-10-31, `MISSING.md` M-311 F1; R2's
 #: ruling on BB8's mosaic findings, #637 6545559338 (d)). Mosaic rhyme's
-#: `RIME-TAIL-AGREE` compares two spans as one phone string, and an
+#: `TAIL-PHONES-AGREE` compares two spans as one phone string, and an
 #: UNPROMINENT AH or IH is the one reduced vowel the dictionary writes two ways
 #: (`poet` P OW1 AH0 T against `know it` N OW1 IH1 T, `it` demoted by the
 #: phrase-level prominence rule); an unprominent ER is its r-coloured form.

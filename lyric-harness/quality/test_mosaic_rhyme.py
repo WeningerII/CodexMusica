@@ -20,7 +20,7 @@ THE RULE (R2, #637 6545559338 as corrected by 6545666653):
     (`unmatched='forbid'`).
   * MOSAIC iff at least one member crosses a word boundary.
   * COMPARE: one phone string from the first vowel, across word and syllable
-    boundaries (`RIME-TAIL-AGREE` over `rime_phones`), vowels under the
+    boundaries (`TAIL-PHONES-AGREE` over `rime_phones`), vowels under the
     phonology's `reduced_vowel` quotient (unprominent AH and IH are one
     vowel).
   * OVER READINGS: a member holds under SOME whole reading of its words,
@@ -147,7 +147,7 @@ def test_coherent_readings():
 
 
 def test_predicate():
-    bound = R.replace(R.RIME_TAIL_AGREE, partition=Q.reduced_vowel)
+    bound = R.replace(R.TAIL_PHONES_AGREE, partition=Q.reduced_vowel)
     v = bound(("P", "OW:1", "AH:0", "T"), ("N", "OW:1", "IH:0", "T"))
     check("reduced AH and IH agree, the onset before the first vowel dropped",
           v.value is True, str(v))
@@ -156,7 +156,7 @@ def test_predicate():
     v = bound(("T", "EH:1", "N", "D", "ER:0"), ("S", "EH:1", "N", "D", "HH", "ER:0"))
     check("the /h/ of `her` is compared (the weak form is a reading, held)",
           v.value is False, str(v))
-    v = R.RIME_TAIL_AGREE(("OW:1",), ("OW:1",))
+    v = R.TAIL_PHONES_AGREE(("OW:1",), ("OW:1",))
     check("no reduced-vowel quotient declared: a refusal, not a verdict",
           v.value is None, str(v))
     check("English declares the quotient on its phonology",

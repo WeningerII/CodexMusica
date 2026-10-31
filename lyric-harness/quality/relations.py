@@ -1760,7 +1760,7 @@ class SequenceEqual(Predicate):
 
 
 @dataclass(frozen=True)
-class RimeTailAgree(Predicate):
+class TailPhonesAgree(Predicate):
     """MOSAIC RHYME'S JUDGE (2026-10-31, `MISSING.md` M-311 F1; R2's ruling,
     #637 6545559338 and its correction 6545635152). Each member is read as
     ONE phone string (`rime_phones`, sequence scope), the onset before its
@@ -1780,7 +1780,7 @@ class RimeTailAgree(Predicate):
     partition: object = None
     label: str = "declared reduced-vowel quotient"
     resource: str = "reduced_vowel"
-    name: str = "RIME-TAIL-AGREE"
+    name: str = "TAIL-PHONES-AGREE"
 
     def _tail(self, seq):
         i = next((k for k, e in enumerate(seq) if ":" in e), None)
@@ -1801,7 +1801,7 @@ class RimeTailAgree(Predicate):
         return Read(bool(tx & ty), True)
 
 
-RIME_TAIL_AGREE = RimeTailAgree()
+TAIL_PHONES_AGREE = TailPhonesAgree()
 
 
 @dataclass(frozen=True)
@@ -5267,7 +5267,7 @@ declare(RelationSchema(
     name="mosaic rhyme",
     spans=(SpanRule("free_run", "searched", 1, (1, 5), cross_word=True),) * 2,
     align="flush_right",
-    channels=(ChannelRule("rime_phones", RIME_TAIL_AGREE, "sequence"),),
+    channels=(ChannelRule("rime_phones", TAIL_PHONES_AGREE, "sequence"),),
     unmatched="forbid",
     placement=(Placement("both_line_final"), Placement("different_lines"),
                Placement("mosaic_anchor"), Placement("either_multiword")),
@@ -5279,7 +5279,7 @@ declare(RelationSchema(
          "member runs from its last stress, the other is the SAME NUMBER of "
          "syllables from its line end (`unmatched='forbid'`), so it crosses a "
          "word boundary; and the two are compared as ONE phone string from the "
-         "first vowel (`RIME-TAIL-AGREE`), never syllable by syllable. Before "
+         "first vowel (`TAIL-PHONES-AGREE`), never syllable by syllable. Before "
          "this, the excluded overhang let any end rhyme with a word before it "
          "pass (cold ~ story told), and real mosaics failed on where the "
          "dictionary splits syllables (tender ~ send her)."))
