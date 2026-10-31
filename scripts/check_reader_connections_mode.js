@@ -346,6 +346,38 @@ async function mode({ page, base, tag, width }) {
     inMode.cv === picked.cv && inMode.sel === picked.sel,
     JSON.stringify({ picked, inMode })
   );
+  // History must preserve the same controller/mount and address too, not
+  // merely produce a visually equivalent mode after button entry and exit.
+  for (const [direction, enabled] of [
+    ['Back', false],
+    ['Forward', true],
+  ]) {
+    if (enabled) await page.goForward();
+    else await page.goBack();
+    await tick(page);
+    const restored = await views(page);
+    const modeState = await state(page);
+    c(
+      `${direction} restores the expected fragment mode`,
+      modeState.conn === enabled && /[?&]conn=1\b/.test(modeState.hash) === enabled,
+      JSON.stringify(modeState)
+    );
+    c(
+      `${direction} keeps the same analysis root, connection slot and bindings mount`,
+      restored.same,
+      JSON.stringify(restored)
+    );
+    c(
+      `${direction} sends no new computation`,
+      api.posts === posts,
+      JSON.stringify({ before: posts, after: api.posts })
+    );
+    c(
+      `${direction} keeps cv and sel`,
+      restored.cv === picked.cv && restored.sel === picked.sel,
+      JSON.stringify({ picked, restored })
+    );
+  }
   await page.click('[data-rd="conn-exit"]');
   await tick(page);
   const left = await views(page);
