@@ -105,7 +105,7 @@ test('captured witness, compared units, locus and partial search have readable r
     );
     assert.match(compared, /b: anchor position 1 in the supplied span; unit 1: bee; onset: B/);
     assert.match(compared, /Aligned positions: a unit 1 with b unit 1/);
-    assert.equal(row(pane, 'Locus'), 'both members end their lines: true');
+    assert.equal(row(pane, 'Locus'), 'Line-ending placement rule (both_line_final): satisfied');
     assert.equal(
       row(pane, 'Reading search'),
       'Search: partial; Stopped because a witness was found; combinations examined: 1; search budget: 64'
@@ -169,12 +169,38 @@ test('authored unknown metadata replay preserves punctuation and unknown versus 
     );
     assert.equal(
       row(pane, 'Locus'),
-      'members are on the same line: false; members are on different lines: unknown; unrecognized value: future_locus: true'
+      'Line relationship placement rule (same_line): not satisfied; Line relationship placement rule (different_lines): undetermined; Unrecognized placement rule (future_locus): satisfied'
     );
     assert.equal(
       row(pane, 'Reading search'),
       'Search: unavailable; Reason: reading rebuild unavailable; combinations examined: 0; search budget: 64'
     );
+  } finally {
+    e.dom.window.close();
+  }
+});
+
+test('captured internal rhyme reports the post-polarity rule outcome, not positive geography', () => {
+  const e = setup('witness_first');
+  try {
+    const cell = e.model.cells.find((c) => c.record.schema_name === 'internal rhyme');
+    assert.ok(cell);
+    const members = I.selectionOccurrences(cell.selection).map((id) =>
+      e.model.occurrences.find((o) => o.entity_id === id)
+    );
+    assert.equal(members.length, 2);
+    assert.ok(
+      members.some((o) => o.final === false),
+      'a supplied member must be nonfinal'
+    );
+    assert.deepEqual(cell.record.placement_reads, [['both_line_final', true]]);
+    assert.deepEqual(
+      cell.record.placement_reads,
+      captures.witness_first.records.find((r) => r.id === cell.record.id).placement_reads
+    );
+    const pane = e.inspect(cell);
+    assert.equal(row(pane, 'Locus'), 'Line-ending placement rule (both_line_final): satisfied');
+    assert.equal(pane.querySelector('.cv-verdict').textContent, 'holds');
   } finally {
     e.dom.window.close();
   }

@@ -144,17 +144,19 @@ function _connectionModel(I, { records, registry, report, complete, title }) {
       ? rows
           .map(
             ([key, value]) =>
-              `${known(key, {
-                both_line_final: 'both members end their lines',
-                a_line_final: 'member a ends its line',
-                both_line_initial: 'both members start their lines',
-                neither_line_final: 'neither member ends its line',
-                exactly_one_line_final: 'exactly one member ends its line',
-                same_line: 'members are on the same line',
-                different_lines: 'members are on different lines',
-                adjacent_lines: 'member b is on the next line',
-                adjacent_stanzas: 'member b is in the next stanza',
-              })}: ${value === true ? 'true' : value === false ? 'false' : 'unknown'}`
+              `${
+                {
+                  both_line_final: 'Line-ending placement rule',
+                  a_line_final: 'Line-ending placement rule',
+                  both_line_initial: 'Line-start placement rule',
+                  neither_line_final: 'Line-ending placement rule',
+                  exactly_one_line_final: 'Line-ending placement rule',
+                  same_line: 'Line relationship placement rule',
+                  different_lines: 'Line relationship placement rule',
+                  adjacent_lines: 'Line relationship placement rule',
+                  adjacent_stanzas: 'Stanza relationship placement rule',
+                }[key] || 'Unrecognized placement rule'
+              } (${key}): ${value === true ? 'satisfied' : value === false ? 'not satisfied' : 'undetermined'}`
           )
           .join('; ') || 'No locus predicates supplied'
       : 'Locus predicates not supplied';
