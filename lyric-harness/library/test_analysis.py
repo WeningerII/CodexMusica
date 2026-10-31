@@ -1455,7 +1455,8 @@ class DomainOutcomes(unittest.TestCase):
             self.assertEqual((o["listed"], o["true_records"], o["undecided_records"]),
                              (len(cells), holds, undecided), r["method_id"])
             self.assertEqual(o["listed"], d["pair_count"])
-            self.assertEqual(o["judged_false"], None if o["reading_dependent_pairs"] else len(cells) - holds - undecided)
+            unsure = o["reading_dependent_pairs"] or r["coverage"] != "answered"
+            self.assertEqual(o["judged_false"], None if unsure else len(cells) - holds - undecided)
             self.assertNotIn("domain_true", r["counts"])
             self.assertNotIn("domain_undecided", r["counts"])
         return seen
@@ -1472,6 +1473,20 @@ class DomainOutcomes(unittest.TestCase):
         _, resumed, _ = complete(source(self.TEXT), schemas=self.SCHEMAS, batch=7, restart=True)
         pick = lambda rows: {r["method_id"]: r["domain"].get("listed_pairs_by_state") for r in rows if r["kind"] == "method_result"}
         self.assertEqual(pick(whole), pick(resumed))
+
+    def test_an_unanswered_method_judges_nothing_false(self):
+        # An unread member refuses the method's coverage: a listed pair with
+        # no record there was never shown False, so `judged_false` is null
+        # while the record counts still stand.
+        text = "the cat sat on the zorbleflax mat\na hat and a bat on a flat"
+        _, rows, _ = complete(source(text), schemas=["perfect rhyme", "cross rhyme"])
+        results = [r for r in rows if r["kind"] == "method_result"
+                   and r["domain"].get("projection") == "exact_token_pair"]
+        self.assertTrue(results)
+        for r in results:
+            self.assertNotEqual(r["coverage"], "answered", r["method_id"])
+            self.assertIsNone(r["domain"]["listed_pairs_by_state"]["judged_false"], r["method_id"])
+        self.assertEqual(self._check(rows), len(results))
 
     def test_shared_sound_outcomes_match_the_records(self):
         _, rows, _ = _sound(source(self.TEXT), ["vowel", "coda", "onset", "stressed_onset"])

@@ -1350,7 +1350,7 @@ class AnalysisSession:
             delta[key] = delta.get(key, 0) + 1
 
     @staticmethod
-    def _outcomes(domain, tally):
+    def _outcomes(domain, tally, answered=True):
         """-> `domain` with `listed_pairs_by_state`: its listed pairs counted
         by the state their own records give, where the verdicts were reached.
         A WHOLE-METHOD population (3PO, #637 6545638972): never a view's local
@@ -1360,7 +1360,9 @@ class AnalysisSession:
         placement-refused ones are counted and not listed). `judged_false` is
         null while any listed pair touches a reading-dependent occurrence:
         such a pair is neither False nor outside, and only its own record
-        answers it (`MethodDomain`)."""
+        answers it (`MethodDomain`). It is null too on a method whose coverage
+        is not `answered` (an unread member, an incomplete reading search):
+        a listed pair with no record there was not shown False."""
         if domain.get("projection") != "exact_token_pair":
             return domain
         holds, undecided = tally
@@ -1374,7 +1376,8 @@ class AnalysisSession:
         rest = domain["pair_count"] - holds - undecided
         domain["listed_pairs_by_state"] = {"listed": domain["pair_count"], "true_records": holds,
                                            "undecided_records": undecided,
-                                           "judged_false": rest if not dependent_pairs and rest >= 0 else None,
+                                           "judged_false": (rest if answered and not dependent_pairs
+                                                            and rest >= 0 else None),
                                            "reading_dependent_pairs": dependent_pairs}
         return domain
 
@@ -2218,7 +2221,8 @@ class AnalysisSession:
                               + ". Findings over the combinations searched do not answer the rest."}
             rows.append(self._record("method_result", mid, "result", namespace="schema", schema_name=name,
                                     coverage=counts["coverage"], counts=counts,
-                                    domain=self._outcomes(self._domain(name, counts.pop("alt_cells", [])), tally)
+                                    domain=self._outcomes(self._domain(name, counts.pop("alt_cells", [])), tally,
+                                                          answered=counts["coverage"] == "answered")
                                     if phase == "schema" else {"projection": "none", "reason": "whole_figure"},
                                     refusal=counts.get("refusal"), availability="available" if counts["coverage"] == "answered" else "unknown_members",
                                     supply={c: json_safe(self.stream.supply(c))
