@@ -342,20 +342,25 @@ def grade(name, lines, lang, supply=(), declare=None, whole=False):
     exhibit as one text: True iff every line carries the figure, False iff
     none does, None for a mixed read (doctrine 20).
     """
-    st = R.build_stream(list(lines), get_phonology(lang),
-                        declaration={"language": lang})
-    if declare is not None:
-        kind, arg = declare
-        if kind not in DECLARERS:
-            raise ValueError(f"no sourced declarer for {kind!r}")
-        DECLARERS[kind](st, arg)
-    for cap in supply:
-        if cap == "lifts":
-            R.search_lifts(st)
-        else:
-            raise ValueError(f"no supplier for {cap!r} — add one only with a "
-                             f"finding that says the route lacks it")
-    rep = F.line_figures(st, names=[name])
+    def build(phon):
+        st = R.build_stream(list(lines), phon, declaration={"language": lang})
+        if declare is not None:
+            kind, arg = declare
+            if kind not in DECLARERS:
+                raise ValueError(f"no sourced declarer for {kind!r}")
+            DECLARERS[kind](st, arg)
+        for cap in supply:
+            if cap == "lifts":
+                R.search_lifts(st)
+            else:
+                raise ValueError(f"no supplier for {cap!r} — add one only "
+                                 f"with a finding that says the route lacks "
+                                 f"it")
+        return st
+    st = build(get_phonology(lang))
+    # Standing rule 5: a line the merged readings leave undecided is read
+    # again under each whole reading (`figures.line_figures`' `build`).
+    rep = F.line_figures(st, names=[name], build=build)
     detail = {"unreadable": [t for _, _, t in st.unreadable]}
     if rep["refused"]:
         detail["refused"] = rep["refused"]

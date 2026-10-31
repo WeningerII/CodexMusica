@@ -277,8 +277,31 @@ def get(name):
 
 
 def judge(name, a, b, phon=None, member_phons=None):
-    """Judge one pair under one declared structure, by name or alias."""
-    return get(name).judge(a, b, phon=phon, member_phons=member_phons)
+    """Judge one pair under one declared structure, by name or alias.
+
+    THE ANY-READING RULE (owner ruling 2026-10-01; CLAUDE.md standing rule
+    5): when the merged readings leave the verdict open only because the
+    members' readings disagree, each whole reading of each member is tried,
+    paired within one accent (`rhyme_types._member_reading_combos`). True
+    when one pair holds it, False when every pair fails, None otherwise.
+    """
+    s = get(name)
+    v = s.judge(a, b, phon=phon, member_phons=member_phons)
+    if v is not None or not undecided_by_readings(name, a, b, phon=phon,
+                                                  member_phons=member_phons):
+        return v
+    from quality import rhyme_types as RT
+    from quality import phonology as PH
+    base = member_phons or (phon or PH.get("eng"),) * 2
+    combos, complete = RT._member_reading_combos(a, b, *base)
+    saw_none = not complete
+    for pinned in combos:
+        w = s.judge(a, b, phon=phon, member_phons=pinned)
+        if w is True:
+            return True
+        if w is None:
+            saw_none = True
+    return None if saw_none else False
 
 
 def undecided_by_readings(name, a, b, phon=None, member_phons=None):

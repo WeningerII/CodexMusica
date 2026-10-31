@@ -104,7 +104,9 @@ def test_the_original_bad_report_line():
           sp["mosaic"] and sp["mosaic_a"] and not sp["mosaic_b"])
     note = lh.spans_note(s)
     check("and the printable note names both spans and the search size",
-          "get to go" in note and "receipt" in note and "k=6" in note,
+          # REPINNED 2026-10-30: ~~k=6~~ -> k=12, `go` gains its rule-derived
+          # toe reading G OE1 (M-322), so the search covers twice the readings.
+          "get to go" in note and "receipt" in note and "k=12" in note,
           note)
 
 
@@ -259,7 +261,9 @@ def test_a_tie_at_the_maximum_is_reported():
     s = lh.best_score(aa, bb, DECL, "increase", "die")
     sp = s["spans"]
     check("a real oracle pair with two spans at the maximum reports the tie",
-          sp["search_k"] == 8 and sp["tied_at_max"] == 2,
+          # REPINNED 2026-10-30: ~~search_k == 8~~ -> 16, `increase` gains
+          # rule-derived meat readings (M-322); the tie is unmoved at 2.
+          sp["search_k"] == 16 and sp["tied_at_max"] == 2,
           f"{sp['tied_at_max']} tied of k={sp['search_k']}")
     check("and the printed note says so",
           "tied at the max" in lh.spans_note(s), lh.spans_note(s))

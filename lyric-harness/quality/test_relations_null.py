@@ -768,7 +768,14 @@ def s15_named_nulls_are_not_independent_evidence():
     import random
 
     print("\n§15 M-42 named algorithms are not independent controls")
-    lines = ["the door", "a floor", "we adore", "I see more", "the night", "a light"]
+    # 2026-10-30: was the door/floor/adore/more set. Since M-322 those words
+    # carry accent alternates and both nulls refuse on `reading`; the claim
+    # is about the null algorithms, so words with fewer readings carry it.
+    # 2026-10-30 (G1, M-322 item 4): ~~"a play", "we stay", "a light"~~. With
+    # `_bucket_key` keying mosaic rhyme's run at its last syllable, every run
+    # in that set rhymes under both nulls (20 every draw), so it no longer
+    # separates them. This set does, before G1 and after (3 vs 3/6; 12 vs 9/12).
+    lines = ["the day", "we may", "I see grey", "the night", "my light", "it's right"]
     toks = [R.tokenise(line) for line in lines]
     pairs = [(N.NULLS["line_permutation"].fn(toks, random.Random(N.SEED + 1 + k)),
               N.NULLS["line_final_permutation"].fn(toks, random.Random(N.SEED + 1 + k)))

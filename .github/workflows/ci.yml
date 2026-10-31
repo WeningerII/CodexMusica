@@ -1881,8 +1881,13 @@ jobs:
     # budget. REPINNED 2026-09-01 from ~~10~~ (`MISSING.md` M-187): the 10
     # was sized in the struck paragraph above as "a runaway guard" over 38 s
     # of work, and 27 checks later it sat 3.8 min from a red that would have
-    # read as a failing check.
-    timeout-minutes: 15
+    # read as a failing check. REPINNED 2026-10-31 from ~~15~~: main measured
+    # 13.4 min (run 41152226298, 0.9 of the guard) and the backend batch
+    # (PR #649) 16.2 min with every step it reached passing (run 41174628419,
+    # cancelled at the guard during its 37th step); the batch's larger schema
+    # registry and rule-5 readings slow `counters` 154 -> 232 s and the span
+    # check 114 -> 176 s. 25 is headroom, not a budget.
+    timeout-minutes: 25
     steps:
       # fetch-depth 0 IS LOAD-BEARING, not hygiene. `verify_entries.py`'s
       # doctrine-17 check asks whether a pin that MOVED left its superseded
@@ -3066,7 +3071,15 @@ jobs:
       #   pairs, every other apostrophe read as written, the elision list against the data, source
       #   spans, and declared pronunciations bound only where the source quote was removed; about
       #   20 s; label 110 to 111
-      - name: The 106 cheap suites (their history is the comment above; 111 until 2026-10-27, when the five bank suites were deleted with the song bank)
+      #   connection_schemas joined 2026-10-30 with the interior assonance and
+      #   consonance schemas, BOTH-PRESENT and real-consonant alliteration
+      #   (MISSING.md M-323), added in the same branch as the schemas; about
+      #   15 s; label 107 to 108
+      #   schema_report joined 2026-10-31 with the reduced schema listing
+      #   capacity asks for (`_schema_report=False`, EA-R speed): full against
+      #   reduced on a rescue, an unresolved refusal, repeats and capacity's
+      #   bans (3PO, #637 6537308588); about 23 s; label 108 to 109
+      - name: The 109 cheap suites (their history is the comment above; 111 until 2026-10-27, when the five bank suites were deleted with the song bank; sound_inventory joined 2026-10-30; connection_schemas the same day; schema_report 2026-10-31)
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -3161,7 +3174,7 @@ jobs:
                    controls data_row_claims english_text stub_resolution melody meter tempo verify_figures expected_drift \
                    cross_song brief_provenance shard \
                    battery_rounds comparator_pin audit_regressions production_harness production_relations high_report \
-                   production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window within_item computational_audit interlocking_chain field_store type_canon backlog_status source_identity figure_exhibits relation_index lexicon_supplement reader reader_quotes moby_convert coverage_split coverage_queue pilot_frame schema_instance_evidence; do
+                   production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window within_item computational_audit interlocking_chain field_store type_canon backlog_status source_identity figure_exhibits relation_index lexicon_supplement reader reader_quotes moby_convert coverage_split coverage_queue pilot_frame schema_instance_evidence sound_inventory connection_schemas schema_report; do
             # SHARDED ACROSS RUNNERS, 2026-09-01. The list above is already
             # run FOUR-WIDE on one runner (below), so this job was 5,612
             # CPU-s packed into 4 lanes = 1,403s wall — the measured

@@ -516,7 +516,7 @@ def test_reopen_carries_what_it_is_not_declaring():
 
 
 def test_the_schema_namespace_is_judged():
-    """§8 — the ~~77~~ 78 `schema:` names, live since 2026-08-22.
+    """§8 — the ~~77~~ ~~78~~ 80 `schema:` names, live since 2026-08-22.
 
     These resolved 77/77 through the vocabulary and refused 77/77 at the
     judge, for two stated reasons. One was real — a `RelationSchema` is
@@ -766,7 +766,7 @@ def test_the_drawable_pool_holds_through_the_grade_route():
         slots, which is the check that would have gone red the day M-117
         shipped (kills restoring the whole-syllable `_seq` flatten), and
         `day~sea` VIOLATED (kills dropping the empty-cluster rule, without
-        which the ~~77~~ 78-schema default door goes vacuous-true on every pair
+        which the ~~77~~ ~~78~~ 80-schema default door goes vacuous-true on every pair
         of open syllables);
       * the DECLARED-TOKEN half (P2) — the schema judge reads the slot the
         writer bound, proven by CONTRAST: the same schema on the same
@@ -834,7 +834,7 @@ def test_the_drawable_pool_holds_through_the_grade_route():
     check("`day~sea` is VIOLATED, not vacuously satisfied — two open "
           "syllables share an EMPTY post-vocalic cluster, and a cluster "
           "relation over zero consonants must answer False with the reason, "
-          "or the ~~77~~ 78-schema default door satisfies every such pair silently",
+          "or the ~~77~~ ~~78~~ 80-schema default door satisfies every such pair silently",
           _sk("day", "sea") == "violated", _sk("day", "sea"))
 
     # THE DECLARED-TOKEN HALF (P2), BY CONTRAST. One draft, one schema,
@@ -1408,12 +1408,19 @@ def test_m319_declared_perfect_rhyme_admits_the_promoted_final():
     # BEFORE -> AFTER: these failed while the allowance was perfect rhyme's
     # alone (measured on 3e4d7e3f7: (1, 0) each) and hold now.
     check("other END_ANCHOR types take the promoted final: assonance, "
-          "family rhyme and consonance hold sea~harmony",
-          all(gr(rv, r2, pair("sea", "harmony")) == (0, 0)
+          "family rhyme and consonance hold sea~harmony and sea~symphony",
+          all(gr(rv, r2, pair("sea", w)) == (0, 0)
+              for w in ("harmony", "symphony")
               for r2 in ("schema:assonance", "schema:family rhyme",
                          "schema:consonance")))
-    check("...and with final_promotion OFF they fail again",
-          all(gr(rv_off, r2, pair("sea", "harmony")) == (1, 0)
+    # THE CONTROL IS `symphony` SINCE 2026-10-30 (M-322), ~~`harmony`~~:
+    # harmony's non-rhotic reading (HH AA1 ...) leaves its stressed syllable
+    # without a coda, and two empty codas agree (E-5 keeps empty/empty
+    # agreement), so unpromoted consonance holds sea~harmony under that one
+    # whole reading. symphony's stressed syllable keeps its M in every
+    # reading, so the promoted final is the only thing that can hold it.
+    check("...and with final_promotion OFF they fail again (sea~symphony)",
+          all(gr(rv_off, r2, pair("sea", "symphony")) == (1, 0)
               for r2 in ("schema:assonance", "schema:family rhyme",
                          "schema:consonance")))
     # NEGATIVE: nothing else is weakened.

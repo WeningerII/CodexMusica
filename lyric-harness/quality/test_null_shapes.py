@@ -25,7 +25,7 @@ somebody thought would be nice to have.
 §5-8 are the relations layer, added when `relations_null.py` grew a census
 and a whole-registry sweep. THREE of the schemas in `relations.REGISTRY` (of 77
 then) had a hand-written arm; 74 shipped a printed instance count with no matched
-control (the registry is ~~77~~ 78 since M-40, a61fe4e69, so ~~74~~ 75 now), and the census exists to say WHICH OF FIVE REASONS applies to each,
+control (the registry is ~~77~~ ~~78~~ 80 since M-40, a61fe4e69, so ~~74~~ ~~75~~ 77 now), and the census exists to say WHICH OF FIVE REASONS applies to each,
 because they have five different remedies (doctrine 44).
 
   5. THE GUARDS MUST NOT DISQUALIFY THE ARMS THE FILE ALREADY REPORTS.
@@ -460,7 +460,11 @@ def forced_gap_sections():
 
     # The original proposed table row is false at the actual enumeration
     # boundary: mosaic rhyme can accept two different spans on one line.
-    overlap = R.build_stream(["door the door"], phon,
+    # 2026-10-30: was "door the door". Since M-322 `door` carries rhotic,
+    # non-rhotic and FORCE readings read independently per occurrence, so
+    # the pair is undecided (2x2 readings) rather than a true instance; the
+    # claim is about the span boundary, so a word with one reading carries it.
+    overlap = R.build_stream(["day the day"], phon,
                              declaration={"language": "eng"})
     mosaic = R.REGISTRY["mosaic rhyme"]
     found = R.realise(mosaic, overlap)

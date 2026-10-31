@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "date": "2026-10-27",
+  "date": "2026-10-30",
   "baseline_commit": "08adfcff",
   "report_ids": ["C-1", "P9"],
   "population": "battery.parse_sonnets: 152 fourteen-line sonnets, ABABCDCDEFEFGG; sonnet_index is the filtered battery index",
@@ -12,11 +12,11 @@
   },
   "current": {
     "mandated": 1064,
-    "judged": 1012,
-    "refused": 52,
-    "violations": 36
+    "judged": 1013,
+    "refused": 51,
+    "violations": 25
   },
-  "meaning": "end-of-day plan (#519 6448819660): identical words that satisfy a registry type are not charged as REPEAT",
+  "meaning": "English sound inventory (M-322): accent readings; ten pairs hold as non-rhotic consonance, were/bear and were/near pass on two empty codas (E-5 keeps empty/empty agreement); the narrowed any-reading search judges ornament/content (sonnet 1), which violates",
   "newly_judged_pairs": [
     {
       "sonnet_index": 33,
@@ -364,7 +364,6 @@
   ],
   "current_partition": {
     "refused": [
-      [1, 9, 11],
       [1, 10, 12],
       [3, 1, 3],
       [10, 2, 4],
@@ -418,32 +417,22 @@
       [146, 2, 4]
     ],
     "violations": [
+      [1, 9, 11],
       [5, 10, 12],
       [7, 6, 8],
-      [12, 6, 8],
-      [13, 6, 8],
-      [17, 2, 4],
       [18, 2, 4],
       [33, 2, 4],
-      [38, 9, 11],
       [49, 5, 7],
-      [49, 10, 12],
       [54, 5, 7],
-      [72, 6, 8],
-      [72, 13, 14],
       [74, 1, 3],
       [76, 10, 12],
       [78, 13, 14],
       [79, 5, 7],
-      [79, 9, 11],
-      [85, 5, 7],
       [86, 6, 8],
       [91, 10, 12],
       [94, 10, 12],
       [99, 6, 8],
-      [102, 1, 3],
       [104, 9, 11],
-      [104, 10, 12],
       [105, 9, 11],
       [106, 6, 8],
       [106, 13, 14],
@@ -451,26 +440,24 @@
       [123, 5, 7],
       [135, 13, 14],
       [136, 2, 4],
-      [138, 5, 7],
       [140, 6, 8],
       [152, 10, 12]
     ]
   },
   "span_attribution": {
-    "date": "2026-10-27",
+    "date": "2026-10-30",
     "current": {
       "claimed": 633,
-      "ties": 121,
-      "violations_claimed": 8,
-      "violation_ties": 2
+      "ties": 357,
+      "violations_claimed": 3,
+      "violation_ties": 5
     },
-    "mosaic_violations": 3,
+    "mosaic_violations": 2,
     "mosaic_coordinates": [
       [33, 2, 4],
-      [54, 5, 7],
-      [102, 1, 3]
+      [54, 5, 7]
     ],
-    "severe_violations": 3,
+    "severe_violations": 2,
     "pair_kinds": [
       {
         "kinds": ["exact", "exact"],
@@ -478,11 +465,11 @@
       },
       {
         "kinds": ["exact", "part"],
-        "n": 285
+        "n": 286
       },
       {
         "kinds": ["exact", "reach"],
-        "n": 5
+        "n": 4
       },
       {
         "kinds": ["exact", "substituted"],
@@ -490,7 +477,7 @@
       },
       {
         "kinds": ["part", "part"],
-        "n": 82
+        "n": 83
       },
       {
         "kinds": ["part", "reach"],
@@ -504,15 +491,15 @@
     "viol_kinds": [
       {
         "kinds": ["exact", "exact"],
-        "n": 8
+        "n": 3
       },
       {
         "kinds": ["exact", "part"],
-        "n": 19
+        "n": 14
       },
       {
         "kinds": ["exact", "reach"],
-        "n": 2
+        "n": 1
       },
       {
         "kinds": ["part", "part"],
@@ -524,6 +511,14 @@
       }
     ],
     "violation_rows": [
+      {
+        "sonnet": 1,
+        "lines": [9, 11],
+        "endwords": ["ornament", "content"],
+        "relations": [],
+        "claim": false,
+        "kinds": ["part", "part"]
+      },
       {
         "sonnet": 5,
         "lines": [10, 12],
@@ -539,30 +534,6 @@
         "relations": [],
         "claim": false,
         "kinds": ["exact", "part"]
-      },
-      {
-        "sonnet": 12,
-        "lines": [6, 8],
-        "endwords": ["herd", "beard"],
-        "relations": [],
-        "claim": true,
-        "kinds": ["exact", "exact"]
-      },
-      {
-        "sonnet": 13,
-        "lines": [6, 8],
-        "endwords": ["were", "bear"],
-        "relations": [],
-        "claim": true,
-        "kinds": ["exact", "exact"]
-      },
-      {
-        "sonnet": 17,
-        "lines": [2, 4],
-        "endwords": ["deserts", "parts"],
-        "relations": [],
-        "claim": false,
-        "kinds": ["part", "exact"]
       },
       {
         "sonnet": 18,
@@ -581,14 +552,6 @@
         "kinds": ["reach", "exact"]
       },
       {
-        "sonnet": 38,
-        "lines": [9, 11],
-        "endwords": ["worth", "forth"],
-        "relations": [],
-        "claim": true,
-        "kinds": ["exact", "exact"]
-      },
-      {
         "sonnet": 49,
         "lines": [5, 7],
         "endwords": ["pass", "was"],
@@ -597,36 +560,12 @@
         "kinds": ["exact", "exact"]
       },
       {
-        "sonnet": 49,
-        "lines": [10, 12],
-        "endwords": ["desert", "part"],
-        "relations": [],
-        "claim": false,
-        "kinds": ["part", "exact"]
-      },
-      {
         "sonnet": 54,
         "lines": [5, 7],
         "endwords": ["dye", "wantonly"],
         "relations": [],
         "claim": false,
         "kinds": ["reach", "part"]
-      },
-      {
-        "sonnet": 72,
-        "lines": [6, 8],
-        "endwords": ["desert", "impart"],
-        "relations": [],
-        "claim": false,
-        "kinds": ["part", "part"]
-      },
-      {
-        "sonnet": 72,
-        "lines": [13, 14],
-        "endwords": ["forth", "worth"],
-        "relations": [],
-        "claim": true,
-        "kinds": ["exact", "exact"]
       },
       {
         "sonnet": 74,
@@ -661,22 +600,6 @@
         "kinds": ["part", "part"]
       },
       {
-        "sonnet": 79,
-        "lines": [9, 11],
-        "endwords": ["word", "afford"],
-        "relations": [],
-        "claim": false,
-        "kinds": ["exact", "part"]
-      },
-      {
-        "sonnet": 85,
-        "lines": [5, 7],
-        "endwords": ["words", "affords"],
-        "relations": [],
-        "claim": false,
-        "kinds": ["exact", "part"]
-      },
-      {
         "sonnet": 86,
         "lines": [6, 8],
         "endwords": ["dead", "astonished"],
@@ -709,28 +632,12 @@
         "kinds": ["exact", "part"]
       },
       {
-        "sonnet": 102,
-        "lines": [1, 3],
-        "endwords": ["forth", "worth"],
-        "relations": [],
-        "claim": false,
-        "kinds": ["exact", "reach"]
-      },
-      {
         "sonnet": 104,
         "lines": [9, 11],
         "endwords": ["argument", "spent"],
         "relations": [],
         "claim": false,
         "kinds": ["part", "exact"]
-      },
-      {
-        "sonnet": 104,
-        "lines": [10, 12],
-        "endwords": ["words", "affords"],
-        "relations": [],
-        "claim": false,
-        "kinds": ["exact", "part"]
       },
       {
         "sonnet": 105,
@@ -789,14 +696,6 @@
         "kinds": ["exact", "part"]
       },
       {
-        "sonnet": 138,
-        "lines": [5, 7],
-        "endwords": ["were", "near"],
-        "relations": [],
-        "claim": true,
-        "kinds": ["exact", "exact"]
-      },
-      {
         "sonnet": 140,
         "lines": [6, 8],
         "endwords": ["ornaments", "rents"],
@@ -814,10 +713,7 @@
       }
     ]
   },
-  "uncertainty_refusals": [
-    [1, 9, 11],
-    [95, 13, 14]
-  ],
+  "uncertainty_refusals": [[95, 13, 14]],
   "superseded": [
     {
       "date": "2026-09-22",
@@ -862,6 +758,24 @@
         "judged": 1012,
         "refused": 52,
         "violations": 40
+      }
+    },
+    {
+      "date": "2026-10-27",
+      "current": {
+        "mandated": 1064,
+        "judged": 1012,
+        "refused": 52,
+        "violations": 36
+      }
+    },
+    {
+      "date": "2026-10-30",
+      "current": {
+        "mandated": 1064,
+        "judged": 1012,
+        "refused": 52,
+        "violations": 24
       }
     }
   ]
