@@ -352,8 +352,55 @@ test('a new unmapped id keeps native evidence despite a family-looking name', ()
   assert.deepEqual(figure.members, { a: raw.a, b: raw.b });
   assert.deepEqual(figure.record.a, raw.a);
   assert.ok(!model.cells.some((c) => c.record.id === raw.id));
-  const remaining = records.filter(
-    (r) => r.kind === 'relation_instance' && r.method_id === unknown && r.id !== raw.id
+});
+
+test('an unknown-family singleton retains its record, asked binding and native control', () => {
+  // Authored method-id mutation of captured singleton evidence; no new engine result.
+  const unknown = 'schema:unmapped-singleton-fixture';
+  const records = structuredClone(fixture.records);
+  const singletons = records.filter(
+    (r) =>
+      r.kind === 'relation_instance' &&
+      r.method_id === method &&
+      r.a?.token_ids.length === 1 &&
+      r.b?.token_ids.length === 1
   );
-  for (const r of remaining) assert.ok(model.cells.some((c) => c.record.id === r.id));
+  assert.ok(singletons.length > 0, 'captured fixture must supply singleton bindings');
+  const raw = singletons[0];
+  assert.notEqual(raw.a.token_ids[0], raw.b.token_ids[0]);
+  const baseline = make().model.cells.find((c) => c.record.id === raw.id);
+  assert.ok(baseline, 'captured singleton must be available before the id mutation');
+  for (const r of records) if (r.method_id === method) r.method_id = unknown;
+  const changedRegistry = structuredClone(registry);
+  changedRegistry.methods.find((m) => m.id === method).id = unknown;
+  const { model } = make(records, true, changedRegistry);
+  const cell = model.cells.find((c) => c.record.id === raw.id);
+  assert.ok(cell);
+  assert.deepEqual(cell.record, { ...baseline.record, method_id: unknown });
+  assert.deepEqual(cell.selection, { ...baseline.selection, method_id: unknown });
+  assert.equal(cell.selection.kind, 'binding');
+  assert.equal(model.cell(cell.selection), cell);
+  assert.equal(I.cellState(cell).state, I.cellState(baseline).state);
+  assert.equal(model.methods.find((m) => m.id === unknown).family, undefined);
+  assert.ok(!model.figures.some((f) => f.evidence_id === raw.id));
+  const dom = new JSDOM('<!doctype html>', { runScripts: 'outside-only' });
+  try {
+    const views = dom.window
+      .eval(
+        `(function(){${fs.readFileSync(path.join(__dirname, '../src/library/connection-views.js'), 'utf8')}\n})()`
+      )
+      .createViews({ interaction: I, marks });
+    model.checkedMethods = [unknown];
+    model.selection = cell.selection;
+    const rendered = views.render(model, { view: 'network' });
+    const native = [...rendered.querySelectorAll('.cv-native button')].filter(
+      (button) => button.dataset.selection === I.selectionKey(cell.selection)
+    );
+    assert.equal(native.length, 1, 'the unchanged binding remains natively selectable');
+    assert.ok(native[0].textContent.includes('a:'));
+    assert.ok(native[0].textContent.includes('b:'));
+    assert.equal(rendered.querySelectorAll('.lib-mk-edge').length, 0);
+  } finally {
+    dom.window.close();
+  }
 });
