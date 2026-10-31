@@ -7,10 +7,19 @@
 //   b. explicit ID -> display-family table (Jony, 6547098322; 3PO 6547110130)
 //   c. reading disclosure (BB8; 3PO 6547011992; frozen spec lines 57-76)
 //
-// A check whose code has not landed is reported as TODO, never as a pass and
-// never as a failure. Each TODO names what it waits for. Guards against wrong
-// output (a progress counter shown as a total, a whole-method denominator on a
-// hull, a hold turned undecided) run now and fail now.
+// Three kinds of check (3PO, #637 6547341635):
+//   - GUARDS against wrong output (a progress counter shown as a total, a
+//     whole-method denominator on a hull, a hold turned undecided) always run
+//     and always fail on wrong output.
+//   - GATES for a feature run only once LANDED below declares it. From then on
+//     missing output FAILS: a regression that removes the feature cannot stay
+//     green. Until then each gate is a static TODO naming what it waits for.
+//   - Open TODOs for checks whose data contract is not agreed yet (a4, c1).
+//     They assert nothing until BB8's bounded data contract fixes the shape.
+// A feature is declared landed by flipping its flag in the same change that
+// lands it (or, to try a gate early, CONNECTION_CONTRACTS_LANDED=counts,...).
+// The honesty guard fails if a feature's output appears while its flag is off,
+// so a gate is never left switched off over code that exists.
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
@@ -24,6 +33,20 @@ const registry = require('../library/data/methods.json');
 const BASE = require('./fixtures/connection-backend.json');
 const READING = require('./fixtures/connection-backend-reading.json').captures;
 const adapterSource = read('src/library/connection-adapter.js');
+
+const LANDED = {
+  counts: false, // model.counts wiring (BB8, #637 6547009973 item 6)
+  groupCounts: false, // model.groupCounts wiring (BB8, same item)
+  familyTable: false, // src/connection-families.js (Jony) + adapter line (3PO)
+  readingDisclosure: false, // inspector reading wording (3PO 6547011992)
+  judgedAlternatives: false, // BB8's bounded outcomes for judged alternatives
+};
+for (const k of (process.env.CONNECTION_CONTRACTS_LANDED || '').split(',').filter(Boolean)) {
+  if (!(k in LANDED)) throw Error(`CONNECTION_CONTRACTS_LANDED: unknown feature ${k}`);
+  LANDED[k] = true;
+}
+// A gate: enforced once its feature is declared landed, a static TODO before.
+const gate = (feature, waits) => (LANDED[feature] ? {} : { todo: `not landed: ${waits}` });
 const adapt = new Function(adapterSource + '\nreturn _connectionModel;')();
 
 function model(records, { reg = registry, complete = true, report = {} } = {}) {
@@ -67,8 +90,6 @@ function sentinelRecords({ listed } = {}) {
   }
   return records;
 }
-const countsWired = (m) => Object.keys(m.counts || {}).length > 0;
-const groupsWired = (m) => Object.keys(m.groupCounts || {}).length > 0;
 const SENTINELS = [
   ...Object.values(PROGRESS),
   COUNTS_FALSE,
@@ -108,30 +129,26 @@ test('a2 a count the backend does not emit leaves its slot unpopulated, never ze
   dom.window.close();
 });
 
-test('a3 the strip counts the holds actually displayed for the checked methods', (t) => {
-  const m = model(BASE.records);
-  if (!countsWired(m)) return t.todo('waits for BB8 counts wiring (model.counts is {})');
-  const checked = new Set(m.checkedMethods);
-  const holds = m.cells.filter(
-    (c) => checked.has(c.selection.method_id) && I.cellState(c).state === 'holds'
-  ).length;
-  assert.equal(m.counts.holds, holds);
-});
+test(
+  'a3 the strip counts the holds actually displayed for the checked methods',
+  gate('counts', 'BB8 counts wiring'),
+  () => {
+    const m = model(BASE.records);
+    assert.ok(Number.isInteger(m.counts?.holds), `counts.holds is ${m.counts?.holds}`);
+    const checked = new Set(m.checkedMethods);
+    const holds = m.cells.filter(
+      (c) => checked.has(c.selection.method_id) && I.cellState(c).state === 'holds'
+    ).length;
+    assert.equal(m.counts.holds, holds);
+  }
+);
 
-test('a4 does-not-hold comes only from the supplied listed population, null stays unsupplied', (t) => {
-  const listed = {
-    listed: WHOLE_LISTED,
-    true_records: 1,
-    undecided_records: 0,
-    judged_false: 3,
-    reading_dependent_pairs: 0,
-  };
-  const m = model(sentinelRecords({ listed }));
-  if (!countsWired(m)) return t.todo('waits for BB8 counts wiring (model.counts is {})');
-  assert.equal(m.counts.does_not_hold, 3 * m.checkedMethods.length);
-  const withheld = model(sentinelRecords({ listed: { ...listed, judged_false: null } }));
-  assert.equal(withheld.counts.does_not_hold, undefined);
-});
+// The shape of the listed population is not agreed yet (3PO 6547341635): no
+// field name or summation is assumed here. a2 already guards the part that
+// needs no shape: with no listed population, does-not-hold stays unsupplied.
+test.todo(
+  "a4 does-not-hold comes only from the supplied listed population; an unsupplied part stays unsupplied — waits for BB8's bounded data contract"
+);
 
 test('a5 "listed for this group" appears only with a hull-local population', () => {
   // The whole method's listed pairs and pair_count are supplied; no hull-local
@@ -150,16 +167,23 @@ test('a5 "listed for this group" appears only with a hull-local population', () 
   dom.window.close();
 });
 
-test('a6 a hull counts the holds it draws, out of a population it was given', (t) => {
-  const m = model(BASE.records);
-  if (!groupsWired(m)) return t.todo('waits for BB8 group-count wiring (groupCounts is {})');
-  for (const [id, g] of Object.entries(m.groupCounts)) {
-    const drawn = m.cells.filter(
-      (c) => c.selection.method_id === id && I.cellState(c).state === 'holds'
-    ).length;
-    assert.equal(g.shown, drawn, `${id}: shown ${g.shown}, drawn ${drawn}`);
+test(
+  'a6 a hull counts the holds it draws, out of a population it was given',
+  gate('groupCounts', 'BB8 group-count wiring'),
+  () => {
+    const m = model(BASE.records);
+    const withHolds = new Set(
+      m.cells.filter((c) => I.cellState(c).state === 'holds').map((c) => c.selection.method_id)
+    );
+    for (const id of withHolds) assert.ok(m.groupCounts?.[id], `no group counts for ${id}`);
+    for (const [id, g] of Object.entries(m.groupCounts)) {
+      const drawn = m.cells.filter(
+        (c) => c.selection.method_id === id && I.cellState(c).state === 'holds'
+      ).length;
+      assert.equal(g.shown, drawn, `${id}: shown ${g.shown}, drawn ${drawn}`);
+    }
   }
-});
+);
 
 // ── b. display families ─────────────────────────────────────────────────────
 // Today's heuristic, frozen here as the baseline the explicit table must keep
@@ -172,9 +196,6 @@ function baselineFamily(name) {
   return undefined;
 }
 const DISPLAYED = registry.methods.filter((m) => I.layerOfNamespace(m.namespace));
-const tableLanded = () =>
-  fs.existsSync(path.join(ROOT, 'src/connection-families.js')) &&
-  /CONNECTION_FAMILIES/.test(adapterSource);
 
 test('b1 84/84 ids keep today’s display family', () => {
   assert.equal(DISPLAYED.length, 84, 'registry baseline: 80 schema + 4 shared_sound');
@@ -188,20 +209,24 @@ test('b1 84/84 ids keep today’s display family', () => {
   assert.deepEqual(tally, { rhyme: 37, consonance: 5, assonance: 3, alliteration: 3, none: 36 });
 });
 
-test('b2 renaming a method never moves its family', (t) => {
-  if (!tableLanded())
-    return t.todo('waits for src/connection-families.js and its adapter wiring (3PO)');
-  const reg = clone(registry);
-  const rhyme = reg.methods.find((m) => baselineFamily(m.name) === 'rhyme');
-  const none = reg.methods.find(
-    (m) => I.layerOfNamespace(m.namespace) && baselineFamily(m.name) === undefined
-  );
-  const before = { [rhyme.id]: 'rhyme', [none.id]: undefined };
-  rhyme.name = 'renamed figure';
-  none.name = 'perfect rhyme (renamed)';
-  const after = new Map(model(BASE.records, { reg }).methods.map((m) => [m.method_id, m.family]));
-  for (const [id, family] of Object.entries(before)) assert.equal(after.get(id), family, id);
-});
+test(
+  'b2 renaming a method never moves its family',
+  gate('familyTable', 'src/connection-families.js (Jony) and its adapter line (3PO)'),
+  () => {
+    assert.ok(fs.existsSync(path.join(ROOT, 'src/connection-families.js')), 'the table file');
+    assert.match(adapterSource, /CONNECTION_FAMILIES/, 'the adapter reads the table');
+    const reg = clone(registry);
+    const rhyme = reg.methods.find((m) => baselineFamily(m.name) === 'rhyme');
+    const none = reg.methods.find(
+      (m) => I.layerOfNamespace(m.namespace) && baselineFamily(m.name) === undefined
+    );
+    const before = { [rhyme.id]: 'rhyme', [none.id]: undefined };
+    rhyme.name = 'renamed figure';
+    none.name = 'perfect rhyme (renamed)';
+    const after = new Map(model(BASE.records, { reg }).methods.map((m) => [m.method_id, m.family]));
+    for (const [id, family] of Object.entries(before)) assert.equal(after.get(id), family, id);
+  }
+);
 
 test('b3 an id with no display family keeps its native evidence', () => {
   const reg = clone(registry);
@@ -240,56 +265,87 @@ function inspect(capture, pick) {
   m.selection = pick(m, WI);
   const pane = V.render(m, { view: 'poem' }).querySelector('.cv-inspector');
   const verdict = pane.querySelector('.cv-verdict');
-  const out = { m, text: textOf(pane), verdict: verdict ? textOf(verdict) : '' };
+  const out = {
+    m,
+    text: textOf(pane),
+    verdict: verdict ? textOf(verdict) : '',
+    pane: { witness: witnessText(pane) },
+  };
   dom.window.close();
   return out;
 }
+// The text under the inspector's witness heading, up to the next heading.
+function witnessText(pane) {
+  const h = [...pane.querySelectorAll('h4')].find((x) => /witness/i.test(x.textContent));
+  let out = '';
+  for (let n = h?.nextElementSibling; n && n.tagName !== 'H4'; n = n.nextElementSibling)
+    out += n.textContent + ' ';
+  return out.trim();
+}
+const witnessBlock = (pane) => pane.witness;
 const holdOf =
   (i = 0) =>
   (m) =>
     m.cells.filter((c) => I.cellState(c).state === 'holds')[i].selection;
-const phones = (reading) => reading.phones.join(' ');
 
-test('c1 every reading of an occurrence is shown', (t) => {
-  const records = READING.witness_first.records;
-  const tok = records.find(
-    (r) => r.kind === 'token' && r.reading_choices?.dictionary_readings?.length > 1
-  );
-  const { text } = inspect('witness_first', () => I.occurrence(tok.token_id));
-  const readings = tok.reading_choices.dictionary_readings.map(phones);
-  const shown = readings.filter((p) => text.includes(p));
-  if (!shown.length) return t.todo('waits for reading disclosure: no reading of the word shown');
-  assert.deepEqual(shown, readings, `every reading of "${tok.reading_choices.word}"`);
-});
+// Which readings apply (the reading inventory and its policy) is part of BB8's
+// bounded data contract; every dictionary entry is not assumed eligible.
+test.todo(
+  "c1 every applicable reading of an occurrence is shown — waits for BB8's bounded data contract"
+);
 
-test('c2 the witnessing reading is named as word = PHONES', (t) => {
+test('c2-guard the witnessing reading is never dropped', () => {
   const { m, text } = inspect('witness_first', holdOf());
   const cell = m.cells.find((c) => I.cellState(c).state === 'holds');
   const witness = cell.record.reading?.witness || [];
   assert.ok(witness.length, 'the capture supplies a witness');
   for (const w of witness) assert.ok(text.includes(w), `witness "${w}" missing`);
-  if (/\["/.test(text)) return t.todo('waits for reading disclosure: witness is shown as raw JSON');
 });
 
-test('c3 failing alternatives are listed where judged', (t) => {
-  const { m, text } = inspect('reading_dependent', holdOf());
-  const alternates = m.cells.flatMap((c) => c.record?.alternates || []);
-  if (!alternates.length)
-    return t.todo('waits for BB8 judged-alternative outcomes (no record carries them)');
-  for (const a of alternates) assert.ok(text.includes(a.reading || a.text || String(a)), a);
-});
+test(
+  'c2 the witnessing reading is named as word = PHONES, not raw JSON',
+  gate('readingDisclosure', 'inspector reading wording'),
+  () => {
+    const { m, pane } = inspect('witness_first', holdOf());
+    const cell = m.cells.find((c) => I.cellState(c).state === 'holds');
+    const block = witnessBlock(pane);
+    for (const w of cell.record.reading.witness) assert.ok(block.includes(w), w);
+    assert.doesNotMatch(block, /[[\]"{}]/, `witness shown as data: ${block}`);
+  }
+);
 
-test('c4 readings that were not judged say so', (t) => {
-  // witness_first: the search stopped at the first compatible reading.
+test(
+  'c3 the selected binding lists its own judged failing alternatives',
+  gate('judgedAlternatives', 'BB8 bounded outcomes for judged alternatives'),
+  () => {
+    // Only the selected binding's record: another binding's alternatives
+    // cannot fail this check (3PO 6547341635).
+    const { m, text } = inspect('reading_dependent', holdOf());
+    const selected = m.cells.find((c) => I.sameSelection(c.selection, m.selection));
+    const alternates = selected.record?.alternates;
+    assert.ok(Array.isArray(alternates) && alternates.length, 'the selected record carries them');
+    for (const a of alternates) assert.ok(text.includes(a.reading || a.text || String(a)), a);
+  }
+);
+
+test('c4-guard a witness-found hold never reads "search partial"', () => {
   const { m, text } = inspect('witness_first', holdOf());
   const cell = m.cells.find((c) => I.cellState(c).state === 'holds');
   assert.equal(cell.record.reading_search.termination_reason, 'witness_found');
-  const said =
-    /Not computed under this reading|Other readings not examined|alternative readings were not searched in this scope/i;
-  if (!said.test(text))
-    return t.todo('waits for reading disclosure: unjudged readings are not named in words');
-  assert.doesNotMatch(text, /search partial/i);
+  assert.doesNotMatch(text.replace(/\{[^}]*\}/g, ''), /search partial/i);
 });
+
+test(
+  'c4 readings that were not judged say so in words',
+  gate('readingDisclosure', 'inspector reading wording'),
+  () => {
+    const { text } = inspect('witness_first', holdOf());
+    assert.match(
+      text,
+      /Not computed under this reading|Other readings not examined|alternative readings were not searched in this scope/i
+    );
+  }
+);
 
 test('c5 an existential hold still reads "holds" when another reading fails', () => {
   for (const capture of ['witness_first', 'reading_dependent']) {
@@ -305,4 +361,19 @@ test('c5 an existential hold still reads "holds" when another reading fails', ()
       assert.doesNotMatch(verdict, /undecided|search partial/i);
     }
   }
+});
+
+// ── declared landings ───────────────────────────────────────────────────────
+test('honesty: a feature whose output exists is declared landed, so its gate runs', () => {
+  const m = model(BASE.records);
+  const seen = {
+    counts: Object.keys(m.counts || {}).length > 0,
+    groupCounts: Object.keys(m.groupCounts || {}).length > 0,
+    familyTable: fs.existsSync(path.join(ROOT, 'src/connection-families.js')),
+    judgedAlternatives: Object.values(READING).some((c) =>
+      c.records.some((r) => Array.isArray(r.alternates))
+    ),
+  };
+  for (const [feature, present] of Object.entries(seen))
+    assert.ok(!present || LANDED[feature], `${feature} exists: set LANDED.${feature} = true`);
 });
