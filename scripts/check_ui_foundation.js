@@ -93,7 +93,7 @@
 // Exit 0 if every assertion passes, 1 otherwise.
 
 'use strict';
-/* global document, window, openPrefaceModal, renderPrefaceModalBody, MutationObserver, getComputedStyle, localStorage, location, parent, app, UI, UI_PAGES, innerHeight, Storage, ROOMS, RECIPE_CHAR_CEILING, Inst, Room, Tradition, addCard, compileRecipeStack, envCardOf, pushHistory, renderAll, uiNavigate, uiSync, Catalog, INSTRUMENTS, normalizeSearch, renderGenreDiscovery, gpRenderMain, renderInstrumentDiscovery, computeDistance */
+/* global document, window, openPrefaceModal, renderPrefaceModalBody, MutationObserver, getComputedStyle, requestAnimationFrame, localStorage, location, parent, app, UI, UI_PAGES, innerHeight, Storage, ROOMS, RECIPE_CHAR_CEILING, Inst, Room, Tradition, addCard, compileRecipeStack, envCardOf, pushHistory, renderAll, uiNavigate, uiSync, Catalog, INSTRUMENTS, normalizeSearch, renderGenreDiscovery, gpRenderMain, renderInstrumentDiscovery, computeDistance */
 /* global innerWidth, UITheme, uiInspectInstrument, INSTRUMENT_FAMILIES, uiAddGenre, Engine, saveWS, openModal, ipOverlay */
 const fs = require('fs');
 const http = require('http');
@@ -1549,26 +1549,82 @@ async function loadDelta(page) {
       );
       // The A–Z bar scrolls a row under itself and marks it; the last row,
       // which cannot reach the top, is marked too, and gets its cards.
+      // A jump is read once its scroll has settled: the row's scroller has not
+      // moved for 500 ms, within 15 s. A fixed 1.2 s read a slow runner's
+      // scroll still under way. Settling is not the answer either way: the
+      // checks below still hold the settled page to the row, the mark and
+      // the gap (main CI 41199664511, 2026-10-31).
+      const rowsScroller = (key) => {
+        const sec = document.querySelector(`.cm-rows-group[data-rows="genre:${key}"]`);
+        for (let p = sec.parentElement; p; p = p.parentElement) {
+          const y = getComputedStyle(p).overflowY;
+          if ((y === 'auto' || y === 'scroll') && p.scrollHeight > p.clientHeight) return p;
+        }
+        return document.scrollingElement;
+      };
       const jump = async (k) => {
         await page.click(`[data-ui="rows-jump"][data-id="genre:${k}"]`);
-        await page.waitForTimeout(1200);
-        return page.evaluate((key) => {
-          const nav = document.querySelector('#genre-maintabs .cm-rows-jump');
-          const sec = document.querySelector(`.cm-rows-group[data-rows="genre:${key}"]`);
-          return {
-            gap: Math.round(sec.getBoundingClientRect().top - nav.getBoundingClientRect().bottom),
-            current: nav.querySelector('[aria-current="true"]')?.textContent,
-          };
-        }, k);
+        const settled = await page
+          .waitForFunction(
+            ([key, find]) => {
+              const s = new Function(`return (${find})`)()(key);
+              const now = performance.now();
+              const w = (window.__qSettle ||= { top: NaN, since: now });
+              if (s.scrollTop !== w.top) Object.assign(w, { top: s.scrollTop, since: now });
+              return now - w.since >= 500;
+            },
+            [k, rowsScroller.toString()],
+            { polling: 100, timeout: 15000 }
+          )
+          .then(
+            () => true,
+            () => false
+          );
+        return page.evaluate(
+          ([key, ok]) => {
+            delete window.__qSettle;
+            const nav = document.querySelector('#genre-maintabs .cm-rows-jump');
+            const sec = document.querySelector(`.cm-rows-group[data-rows="genre:${key}"]`);
+            return {
+              settled: ok,
+              gap: Math.round(sec.getBoundingClientRect().top - nav.getBoundingClientRect().bottom),
+              current: nav.querySelector('[aria-current="true"]')?.textContent,
+            };
+          },
+          [k, settled]
+        );
       };
       const z = await jump('Z');
       check(
-        z.current === 'Z' && (await zTiles()) > 0,
+        z.settled && z.current === 'Z' && (await zTiles()) > 0,
         `Q. the A–Z bar did not bring the Z row on screen, filled and marked (${JSON.stringify(z)})`
+      );
+      // A scroll event that arrives late, with the view still where the jump
+      // put it, leaves the mark on Z: the Z row cannot reach the top, so the
+      // rows under the bar there would say Y (main CI 41199664511 read
+      // {"gap":268,"current":"Y"}).
+      const lateMark = await page.evaluate(
+        ([find]) =>
+          new Promise((done) => {
+            new Function(`return (${find})`)()('Z').dispatchEvent(new Event('scroll'));
+            requestAnimationFrame(() =>
+              requestAnimationFrame(() =>
+                done(
+                  document.querySelector('#genre-maintabs .cm-rows-jump [aria-current="true"]')
+                    ?.textContent
+                )
+              )
+            );
+          }),
+        [rowsScroller.toString()]
+      );
+      check(
+        lateMark === 'Z',
+        `Q. a late scroll event where the jump left the view moved the A–Z bar's mark off Z (${lateMark})`
       );
       const m = await jump('M');
       check(
-        m.gap >= 0 && m.gap <= 48 && m.current === 'M',
+        m.settled && m.gap >= 0 && m.gap <= 48 && m.current === 'M',
         `Q. the A–Z bar did not bring the M row just under it, marked (${JSON.stringify(m)})`
       );
       // The jump takes focus to that row, so the next Tab goes on into it.

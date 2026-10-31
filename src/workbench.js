@@ -1862,8 +1862,11 @@ function uiRowsEdges(nav) {
     more && nav.scrollLeft + nav.clientWidth < nav.scrollWidth - 1
   );
 }
-// The jump bar marks the last row whose top has passed under it.
+// The jump bar marks the last row whose top has passed under it, except while
+// a jump is on its way or the view still sits where the jump put it (see
+// uiRowsJump).
 function uiRowsSpy() {
+  if (uiRowsAimed()) return;
   for (const nav of document.querySelectorAll('.cm-rows-jump')) {
     if (!nav.getClientRects().length) continue;
     const line = nav.getBoundingClientRect().bottom + 16;
@@ -1897,14 +1900,28 @@ function uiScrollParent(el) {
   return document.scrollingElement;
 }
 // Scroll so the row's heading sits just under the jump bar (sticky, with
-// whatever sticks with it), wherever the bar is when it is clicked. Until that
-// scroll settles the bar keeps the row it was asked for (the last rows cannot
-// reach the top, and the rows passed on the way are not the answer).
-let uiRowsJumping = 0;
-const uiRowsSettle = (ms) => {
-  clearTimeout(uiRowsJumping);
-  uiRowsJumping = setTimeout(() => (uiRowsJumping = 0), ms);
-};
+// whatever sticks with it), wherever the bar is when it is clicked. The bar
+// keeps the row it was asked for on the way there and for as long as the view
+// stays where the jump put it: the last rows cannot reach the top, and the rows
+// passed on the way are not the answer. The aim is the scroll position itself,
+// not a quiet spell between scroll events: a busy page delivers those events
+// late and far apart, and a timer that ran out between them handed the bar
+// back to the rows passed on the way (main CI 41199664511). A jump that never
+// arrives (the reader scrolled elsewhere first) lets go after 3 s.
+// The aim lives on the function, which is hoisted, so a repaint that runs the
+// spy before this part of the file has run finds no aim rather than a
+// not-yet-declared binding.
+function uiRowsAimed() {
+  const a = uiRowsAimed.aim;
+  if (!a) return false;
+  if (a.scroller.isConnected || a.scroller === document.scrollingElement) {
+    const there = Math.abs(a.scroller.scrollTop - a.top) <= 1;
+    if (there) a.arrived = true;
+    if (there || (!a.arrived && performance.now() < a.until)) return true;
+  }
+  uiRowsAimed.aim = null;
+  return false;
+}
 function uiRowsJump(b) {
   const sec = uiFind('.cm-rows-group', 'rows', b.dataset.id);
   if (!sec) return;
@@ -1920,8 +1937,17 @@ function uiRowsJump(b) {
     nav.getBoundingClientRect().bottom -
     sticky.getBoundingClientRect().top;
   for (const x of nav.children) x.setAttribute('aria-current', String(x === b));
-  uiRowsSettle(400);
-  scroller.scrollBy({ top: sec.getBoundingClientRect().top - stuck - 8, behavior: uiMotion() });
+  const by = sec.getBoundingClientRect().top - stuck - 8;
+  uiRowsAimed.aim = {
+    scroller,
+    top: Math.max(
+      0,
+      Math.min(scroller.scrollTop + by, scroller.scrollHeight - scroller.clientHeight)
+    ),
+    arrived: false,
+    until: performance.now() + 3000,
+  };
+  scroller.scrollBy({ top: by, behavior: uiMotion() });
   // The next Tab goes on into that row.
   sec.querySelector('.cm-rows-label')?.focus({ preventScroll: true });
 }
@@ -2028,7 +2054,7 @@ function uiRowsControls() {
     uiRowsFill(...touched);
     touched.clear();
     document.querySelectorAll('.cm-rows-jump').forEach(uiRowsEdges);
-    if (!uiRowsJumping) uiRowsSpy();
+    uiRowsSpy();
   };
   const later = () => {
     if (!frame) frame = requestAnimationFrame(run);
@@ -2037,7 +2063,6 @@ function uiRowsControls() {
     'scroll',
     (e) => {
       if (e.target.classList?.contains('cm-rows-track')) touched.add(e.target);
-      else if (uiRowsJumping) uiRowsSettle(200);
       later();
     },
     true
