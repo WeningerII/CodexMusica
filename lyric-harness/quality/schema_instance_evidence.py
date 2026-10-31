@@ -5,6 +5,7 @@ not a restatement of mandate satisfaction or an all-figures verdict. Report-time
 recomputation deliberately does not consume reduced schema-name memo answers.
 """
 import hashlib
+import json
 import time
 from pathlib import Path
 
@@ -56,28 +57,70 @@ class _Serializer(AnalysisSession):
             start += len(line) + 1
 
 
-def _report_bytes(result, record_bytes):
+def _report_bytes(result, record_bytes, fixed_bytes=None):
     """Exact canonical UTF-8 size with already measured, detached records.
 
-    Coverage changes while enumerating candidates, so serialize its envelope
-    afresh. _Serializer._record recursively detaches every admitted record;
-    their bytes cannot change as later methods and omission counts advance.
-    The empty array's brackets are in the envelope; only commas are additional.
+    Coverage changes while enumerating candidates, so serialize it afresh.
+    _Serializer._record recursively detaches every admitted record; their bytes
+    cannot change as later methods and omission counts advance. The empty
+    array's brackets are in the envelope; only commas are additional.
+
+    `fixed_bytes` (`_fixed_bytes`) is the envelope with `coverage` null: every
+    other key is constant while `from_stream` enumerates, and a sorted-key
+    compact object's length is the sum of its members', so the envelope is
+    that plus `coverage` in place of `null` -- the same number, without
+    re-serializing the identity, source text and population on every admit.
     """
-    envelope = {**result, "records": []}
-    return (len(canonical_json(envelope).encode("utf-8")) + record_bytes
+    return (_envelope_bytes(result, fixed_bytes) + record_bytes
             + max(0, len(result["records"]) - 1))
+
+
+def _envelope_bytes(result, fixed_bytes=None):
+    """The result's size with no records (`_report_bytes`)."""
+    if fixed_bytes is None:
+        return len(canonical_json({**result, "records": []}).encode("utf-8"))
+    return (fixed_bytes - len("null")
+            + len(_dumps(result["coverage"]).encode("utf-8")))
+
+
+def _fixed_bytes(result):
+    """The envelope's size with `coverage` null (`_report_bytes`)."""
+    return len(canonical_json({**result, "coverage": None,
+                               "records": []}).encode("utf-8"))
+
+
+def _dumps(value):
+    """`canonical_json` of a value `json_safe` already produced.
+
+    `json_safe` is idempotent -- its output holds only str-keyed dicts, lists,
+    finite floats and JSON scalars -- so a second pass changes nothing and is
+    skipped. A detached record and the coverage are both such values.
+    """
+    return json.dumps(value, sort_keys=True, ensure_ascii=False,
+                      separators=(",", ":"), allow_nan=False)
 
 
 def from_stream(stream, phon, *, declarations, provenance, schemas=None,
                 max_records=MAX_RECORDS, max_bytes=MAX_BYTES,
                 max_candidates=MAX_CANDIDATES_PER_SCHEMA,
-                time_budget_s=None, clock=time.monotonic):
+                time_budget_s=None, clock=time.monotonic, _fast=True):
     """Serialize actual instances; all limits apply only to this report census.
 
     False instances are counted but not emitted. Whole figures and alternative
     reading witness searches are outside this bounded census, explicitly named.
     It must never be used as a new verdict on the grade's obligations.
+
+    A CLOSED REPORT REJECTS WITHOUT BUILDING (2026-10-31, #649: on the batch a
+    grade built 2,254 records to keep 161). With no record admitted, the
+    envelope only grows -- omission counts, appended methods, status and
+    reason -- and every record is at least `{}`, two bytes. So once the
+    envelope, the admitted records, their commas and two bytes already pass
+    the byte limit, every later admit would be rejected: it is
+    counted as omitted without building the record, and a type's second
+    enumeration is replaced by the count it would have added. The records,
+    their order and the coverage are byte-identical. `_fast=False` runs the
+    original path (every record built, the whole envelope re-serialized),
+    which `quality/test_schema_instance_evidence.py` holds this one to.
     """
     if max_bytes < 1024 or max_records < 0 or (
             max_candidates is not None and max_candidates < 0):
@@ -112,6 +155,14 @@ def from_stream(stream, phon, *, declarations, provenance, schemas=None,
     serializer = _Serializer(stream, phon, identity)
     cov = result["coverage"]
     record_bytes = 0
+    fixed_bytes = _fixed_bytes(result) if _fast else None
+    ceiling = max_bytes - 32768
+
+    def closed():
+        # The byte test in `admit` for the smallest record there is, `{}`:
+        # appending one more adds it and a comma per record already held.
+        return (_envelope_bytes(result, fixed_bytes) + record_bytes
+                + len("{}") + len(result["records"])) > ceiling
     # Reserve room for the small per-method coverage records. Never detach data
     # into pages: this report has no evidence retrieval endpoint.
     budget = COUNT_TIME_BUDGET_S if time_budget_s is None else time_budget_s
@@ -151,13 +202,19 @@ def from_stream(stream, phon, *, declarations, provenance, schemas=None,
                 cov["omitted_records"] += 1
                 method.update(status="partial", reason="record_limit")
                 return
+            if _fast and closed():
+                cov["omitted_records"] += 1
+                method.update(status="partial", reason="byte_limit")
+                return
             record = serializer._edge_record(inst, stream)
             # The fields above already serialize the instance. Avoid duplicating
             # that entire structure as engine_edge in this bounded inline report.
             record.pop("engine_edge", None)
-            candidate_bytes = len(canonical_json(record).encode("utf-8"))
+            candidate_bytes = len((_dumps(record) if _fast else
+                                   canonical_json(record)).encode("utf-8"))
             result["records"].append(record)
-            if _report_bytes(result, record_bytes + candidate_bytes) > max_bytes - 32768:
+            if _report_bytes(result, record_bytes + candidate_bytes,
+                             fixed_bytes) > ceiling:
                 result["records"].pop()
                 cov["omitted_records"] += 1
                 method.update(status="partial", reason="byte_limit")
@@ -185,6 +242,16 @@ def from_stream(stream, phon, *, declarations, provenance, schemas=None,
         if not overflow[0]:
             for inst in pending:
                 admit(inst)
+        elif _fast and (len(result["records"]) >= max_records or closed()):
+            # Every admit of the second enumeration would be rejected -- at
+            # the record limit, or by a closed report, which stays closed
+            # while nothing is admitted -- so it adds exactly its admissible
+            # count to the omissions, under the reason the first would give.
+            if counts["true"] + counts["undecided"]:
+                cov["omitted_records"] += counts["true"] + counts["undecided"]
+                method.update(status="partial", reason=(
+                    "record_limit" if len(result["records"]) >= max_records
+                    else "byte_limit"))
         else:
             # More admissible instances than are held: enumerate the type a
             # second time, now that its counts are known, admitting in the
