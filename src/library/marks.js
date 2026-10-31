@@ -456,16 +456,24 @@ function legendRow({ words, families = Object.keys(FAMILIES), examples = false }
 // The strip under a view's title. `counts` maps state → number; a state with
 // no number is reported as not supplied, never as zero. `provenance` says what
 // produced the numbers ("fixture only", "Library schema analysis at <rev>").
-function countStrip(counts, { words, provenance, emptyOnset, hidden } = {}) {
+function countStrip(counts, { words, provenance, emptyOnset, hidden, population } = {}) {
   if (!provenance) throw Error('countStrip: provenance is required');
   if (!words) throw Error('countStrip: words are required');
   const strip = html('div', 'lib-mk-count');
   const lead = html('div', 'lib-mk-count-lead');
   const holds = counts.holds;
+  // A named population says what was counted ("method–token binding");
+  // figures, when counted, are reported beside it and never added to it.
+  const pop = typeof population === 'string' ? `${population} ` : '';
+  const figs = counts.figure_holds;
   lead.textContent =
     (Number.isInteger(holds)
-      ? `${holds} hold${holds === 1 ? '' : 's'} shown`
-      : 'Holds: not supplied') + ` · ${provenance}`;
+      ? `${holds} ${pop}hold${holds === 1 ? '' : 's'} ${pop ? 'loaded' : 'shown'}`
+      : 'Holds: not supplied') +
+    (pop && Number.isInteger(figs)
+      ? ` · ${figs} figure hold${figs === 1 ? '' : 's'} counted separately`
+      : '') +
+    ` · ${provenance}`;
   if (Number.isInteger(emptyOnset) && emptyOnset > 0)
     lead.textContent += ` · ${emptyOnset} only empty onsets compared`;
   if (hidden && Number.isInteger(hidden.count) && hidden.count > 0)
