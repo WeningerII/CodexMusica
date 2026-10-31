@@ -636,6 +636,12 @@ day, so `dialect rhyme` is declarable and the count is 2. **EXTENDABLE 31 is a
 census says does not reproduce** — at `budget=None` it is ~~33~~ **29**, the
 two extra being `chain rhyme (rap)` and `compound / phrasal rhyme`.
 
+> **2026-10-31 (G1, #647, approved by John).** The ledger's EXTENDABLE is
+> ~~29~~ **30** and CANNOT OBTAIN splits ~~38 / 1~~ **37 / 1**:
+> `compound / phrasal rhyme` returns to EXTENDABLE once `_bucket_key` keys a
+> flush_right `each` channel at the last unit, so its definite instances
+> reach the judge. The 2026-08 figures above are kept as measured then.
+
 > **REPINNED AGAIN 2026-08-22 (M-39).** ~~31~~ **27** budgeted and ~~33~~
 > **29** unbudgeted. A `figure(frame="stanza")` now asks for the frame it
 > quantifies over, and the ledger slice as `_read` renders it — blank lines
