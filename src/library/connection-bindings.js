@@ -404,6 +404,9 @@ function mount(host, opts) {
   fonts?.addEventListener?.('loadingdone', onLoad);
   function update(patch, focusKey) {
     model = { ...model, ...patch };
+    // The strip counts the checked methods: recount when they change.
+    if (patch.checkedMethods && model.countsFor)
+      model.counts = model.countsFor(model.checkedMethods);
     draw(focusKey);
   }
   function select(sel, { fromUrl, inspect } = {}) {
@@ -513,6 +516,7 @@ function mount(host, opts) {
         cellMethod,
         rowOccurrence: current.hasEntity(rowOccurrence) ? rowOccurrence : null,
       };
+      if (model.countsFor) model.counts = model.countsFor(model.checkedMethods);
       draw();
       if (lost) {
         url.write(null, true);

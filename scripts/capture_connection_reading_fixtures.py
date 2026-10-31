@@ -36,6 +36,9 @@ from library.test_analysis import _with_words, complete, source  # noqa: E402
 OUT = os.path.join(ROOT, "scripts", "fixtures", "connection-backend-reading.json")
 
 CASES = {
+    "repeated_words": dict(
+        words={"zea": [["Z", "AH0"], ["Z", "IY1"]]},
+        text="zea is home\nand bee is too\nzea again", schemas=["internal rhyme"], patches={}),
     "witness_first": dict(
         words={"zee": [["Z", "IY1"], ["Z", "AH0"]]},
         text="zee is home\nand bee is too", schemas=["internal rhyme"], patches={}),

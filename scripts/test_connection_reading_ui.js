@@ -1,0 +1,162 @@
+'use strict';
+// Authored acceptance scenarios captured from the real backend, not corpus evidence.
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const { JSDOM } = require('jsdom');
+const I = require('../src/connection-interaction');
+const { CONNECTION_FAMILIES } = require('../src/connection-families');
+const registry = require('../library/data/methods.json');
+const { captures } = require('./fixtures/connection-backend-reading.json');
+const read = (p) => fs.readFileSync(path.join(__dirname, '..', p), 'utf8');
+const adapt = new Function(
+  'CONNECTION_FAMILIES',
+  read('src/library/connection-adapter.js') + '\nreturn _connectionModel;'
+)(CONNECTION_FAMILIES);
+function setup(name, mutate) {
+  const records = structuredClone(captures[name].records);
+  mutate?.(records);
+  const { model } = adapt(I, {
+    records,
+    registry,
+    report: { identity_hash: captures[name].identity.hash },
+    complete: true,
+  });
+  const dom = new JSDOM('', { runScripts: 'outside-only' });
+  const marks = dom.window.eval(`(function(){${read('src/library/marks.js')}\n})()`);
+  const source = process.env.CONNECTION_VIEWS_SOURCE
+    ? fs.readFileSync(process.env.CONNECTION_VIEWS_SOURCE, 'utf8')
+    : read('src/library/connection-views.js');
+  const views = dom.window
+    .eval(`(function(){${source}\n})()`)
+    .createViews({ interaction: I, marks });
+  const inspect = (cell) => {
+    model.selection = cell.selection;
+    return views.inspector(model);
+  };
+  return { model, dom, inspect, views };
+}
+
+test('real first witness keeps its existential hold and discloses only supplied assignments', () => {
+  const e = setup('witness_first');
+  try {
+    const cell = e.model.cells.find((c) => c.record.witness_assignment);
+    assert.ok(cell);
+    const pane = e.inspect(cell);
+    assert.equal(pane.querySelector('.cv-verdict').textContent, 'holds');
+    assert.match(pane.textContent, /Witness assignment/);
+    assert.match(pane.textContent, /Base · merged reading sets · undecided/);
+    assert.match(pane.textContent, /no single pronunciation supplied \(merged reading set\)/);
+    assert.match(pane.textContent, /bee · L2 w2: B IY1 \(only applicable reading\)/);
+    assert.match(pane.textContent, /Applicable readings \(variants\): Z IY1 \/ Z AH0/);
+    assert.equal(cell.record.reading_search.state, 'partial');
+    assert.equal(cell.record.reading_outcomes.length, 0);
+    assert.doesNotMatch(pane.textContent, /Judged alternative/);
+    assert.match(pane.textContent, /No verdict is supplied for other combinations/);
+    assert.equal(I.cellState(cell).state, 'holds');
+  } finally {
+    e.dom.window.close();
+  }
+});
+
+test('real duplicate words retain distinct occurrence roles and their fixed partner', () => {
+  const e = setup('repeated_words');
+  try {
+    for (const line of [0, 2]) {
+      const id = `line:${line}:token:0`;
+      const cell = e.model.cells.find(
+        (c) =>
+          I.selectionOccurrences(c.selection).includes(id) &&
+          I.selectionOccurrences(c.selection).includes('line:1:token:1')
+      );
+      assert.ok(cell, 'both captured zea occurrences must have an edge to bee');
+      assert.ok(cell.record.reading_outcomes.length > 0);
+      const pane = e.inspect(cell);
+      assert.match(pane.textContent, /Judged alternative 1 · does not hold/);
+      assert.ok(
+        pane.textContent.includes(
+          `${line === 0 ? 'a' : 'b'} · zea · L${line + 1} w1: Z AH0 (varied reading)`
+        )
+      );
+      assert.ok(!pane.textContent.includes(`zea · L${3 - line} w1`));
+      assert.ok(
+        pane.textContent.includes(
+          `${line === 0 ? 'b' : 'a'} · bee · L2 w2: B IY1 (only applicable reading)`
+        )
+      );
+      assert.equal(pane.querySelector('.cv-verdict').textContent, 'holds');
+    }
+  } finally {
+    e.dom.window.close();
+  }
+});
+
+test('real capped search shows its judged assignment without expanding the inventory into verdicts', () => {
+  const e = setup('combination_cap');
+  try {
+    const cell = e.model.cells.find((c) => c.record.reading_outcomes?.length);
+    assert.ok(cell);
+    const pane = e.inspect(cell);
+    assert.equal(
+      pane.querySelector('.cv-verdict').textContent,
+      'undecided · reading search reached its cap'
+    );
+    assert.equal(
+      [...pane.querySelectorAll('h4')].filter((h) => h.textContent.startsWith('Judged alternative'))
+        .length,
+      cell.record.reading_outcomes.length
+    );
+    assert.match(pane.textContent, /combination_cap/);
+    assert.match(pane.textContent, /Z IY1 D \/ Z UW1 T/);
+    e.model.selection = I.occurrence('line:0:token:0');
+    assert.match(e.views.inspector(e.model).textContent, /Applicable readings \(variants\)/);
+  } finally {
+    e.dom.window.close();
+  }
+});
+
+test('authored boundary replay distinguishes outside locus, unavailable inventory and unread members', () => {
+  // Explicit shape replay, not a newly computed verdict. The backend separately
+  // tests outside_locus and unread/merged provenance; no combinations are generated here.
+  const e = setup('combination_cap', (records) => {
+    const r = records.find((r) => r.kind === 'relation_instance');
+    r.reading_outcomes[0].verdict = 'outside_locus';
+    r.reading_outcomes[0].assignment[0].held = 'unread';
+    r.reading_outcomes[0].assignment[0].phones = null;
+    r.reading_outcomes[0].assignment[0].display = '<script>wrong spelling identity</script>';
+    const token = records.find((r) => r.token_id === 'line:0:token:0');
+    token.applicable_source = 'unlocatable';
+    token.applicable_readings = null;
+  });
+  try {
+    const pane = e.inspect(e.model.cells.find((c) => c.record.reading_outcomes?.length));
+    assert.match(pane.textContent, /outside locus \(not a predicate false\)/);
+    assert.match(pane.textContent, /pronunciation unavailable \(unread\)/);
+    assert.match(pane.textContent, /Applicable readings \(unavailable\): not supplied/);
+    assert.doesNotMatch(pane.textContent, /wrong spelling identity/);
+    assert.equal(pane.querySelector('script'), null);
+  } finally {
+    e.dom.window.close();
+  }
+});
+
+test('unresolved assignment details remain not supplied and never become invented alternatives', () => {
+  // Authored pending-detail replay of the real record, not new backend evidence.
+  const e = setup('witness_first', (records) => {
+    const r = records.find((r) => r.kind === 'relation_instance');
+    r.witness_assignment = { $detail_ref: 'pending-witness' };
+    r.reading_outcomes = { $detail_ref: 'pending-outcomes' };
+    r.judged_under.assignment = { $detail_ref: 'pending-base' };
+  });
+  try {
+    const cell = e.model.cells.find((c) => c.record.witness_assignment);
+    const pane = e.inspect(cell);
+    assert.equal(pane.querySelector('.cv-verdict').textContent, 'holds');
+    assert.match(pane.textContent, /Witness assignmentAssignment not supplied/);
+    assert.doesNotMatch(pane.textContent, /Judged alternative/);
+    assert.match(pane.textContent, /No verdict is supplied for other combinations/);
+  } finally {
+    e.dom.window.close();
+  }
+});

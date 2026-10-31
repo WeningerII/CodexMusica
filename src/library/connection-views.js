@@ -177,7 +177,10 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
     }
     if (sel.kind === 'occurrence') {
       const o = word(model, sel.entity_id);
-      pane.append(el('h3', o ? I.occurrenceLabel(o) : 'Occurrence no longer available'));
+      pane.append(
+        el('h3', o ? I.occurrenceLabel(o) : 'Occurrence no longer available'),
+        el('p', o?.readingInventory)
+      );
       for (const cell of model.cells) {
         if (!I.selectionOccurrences(cell.selection).includes(sel.entity_id)) continue;
         pane.append(button(label(model, cell), cell.selection));
@@ -207,7 +210,7 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
       ['Quantifier', record?.quantifier],
       ['Locus', record?.placement_reads],
       ['Licence', record?.licence],
-      ['Alternate reading outcomes', record?.alternates],
+      ...(record?.readingDetails || []),
       ['Reading search', record?.reading_search],
     ]) {
       pane.append(el('h4', label), el('p', describe(value)));
@@ -572,10 +575,9 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
       hidden && isCount(hidden.count) && typeof hidden.by === 'string' && hidden.by.trim();
     root.append(
       M.countStrip(model.counts || {}, {
+        ...model,
         words: I.STATE_WORDS,
-        provenance: model.provenance,
         hidden: validHidden ? hidden : undefined,
-        emptyOnset: model.emptyOnset,
       })
     );
     if (!validHidden && (hidden != null || model.hiddenByFilter))

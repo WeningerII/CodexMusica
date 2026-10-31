@@ -453,6 +453,7 @@ function legendRow({ words, families = Object.keys(FAMILIES), examples = false }
   return row;
 }
 
+// `counts.summary` optionally supplies an adapter-prepared population label.
 // The strip under a view's title. `counts` maps state → number; a state with
 // no number is reported as not supplied, never as zero. `provenance` says what
 // produced the numbers ("fixture only", "Library schema analysis at <rev>").
@@ -463,9 +464,10 @@ function countStrip(counts, { words, provenance, emptyOnset, hidden } = {}) {
   const lead = html('div', 'lib-mk-count-lead');
   const holds = counts.holds;
   lead.textContent =
-    (Number.isInteger(holds)
-      ? `${holds} hold${holds === 1 ? '' : 's'} shown`
-      : 'Holds: not supplied') + ` · ${provenance}`;
+    (counts.summary ??
+      (Number.isInteger(holds)
+        ? `${holds} hold${holds === 1 ? '' : 's'} shown`
+        : 'Holds: not supplied')) + ` · ${provenance}`;
   if (Number.isInteger(emptyOnset) && emptyOnset > 0)
     lead.textContent += ` · ${emptyOnset} only empty onsets compared`;
   if (hidden && Number.isInteger(hidden.count) && hidden.count > 0)
