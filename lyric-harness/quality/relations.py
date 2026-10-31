@@ -8706,12 +8706,18 @@ WITNESS_FINDINGS = {
          ("1", "2", "3"), ("a", "a", "a"), True),)),
     "mosaic rhyme": ("M-311 F1", (
         # Gilbert, "The Pirates of Penzance" (1879), the Major-General's
-        # strategy ~ sat a gee; then Telfer,
-        # eng_celtic_msm_james_telfer.txt:58-59, a one-word rhyme.
+        # strategy ~ sat a gee; then Shakespeare, Sonnet 18's couplet
+        # (`corpus/sonnets.txt` :339-340), see ~ thee, a one-word rhyme with
+        # no boundary in either member. It replaces Telfer's by ~ nigh
+        # (eng_celtic_msm_james_telfer.txt:58-59), whose `cauld` is not in
+        # the dictionary: with the members forbidden an overhang, a span
+        # through an unreadable word cannot be ruled out, so that row
+        # REFUSED -- correctly (doctrine 79), and no contrast (2026-10-31).
         (("In short, when I've a smattering of elemental strategy,",
           "You'll say a better Major-General has never sat a gee."),
          ("1", "2"), None, True),
-        (('"Sweet summer now is by,', "And cauld winter is nigh,"),
+        (("    So long as men can breathe, or eyes can see,",
+          "    So long lives this, and this gives life to thee."),
          ("1", "2"), None, False))),
     "offbeat internal rhyme": ("M-311 F5", ()),
     "parechesis / general consonance": ("M-311 F4", (
