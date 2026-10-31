@@ -80,8 +80,63 @@ const canonical = (v) =>
         '}'
     : JSON.stringify(v);
 const digest = (s) => crypto.createHash('sha256').update(s).digest('hex');
+const CI = require('../src/connection-interaction.js');
 
-// The capture with one binding asked later-to-earlier: woods (b) before watch (a).
+// A selection key with every id decoded, so keys compare by meaning, never by
+// their percent-encoding: "method|a=<id>,b=<id>" for a binding.
+function decodeKey(key) {
+  const sel = CI.selectionFromKey(key || '');
+  if (!sel || sel.kind !== 'binding') return null;
+  return `${sel.method_id}|${sel.members.map((m) => `${m.role}=${m.entity_id}`).join(',')}`;
+}
+// Every holding binding the capture supplies for a role-ordered method, as
+// decodeKey writes it: the complete set the views must offer and draw.
+function expectedBindings(records) {
+  const ordered = new Set(
+    records
+      .filter((r) => r.kind === 'method_result' && r.domain?.ordering === 'role_ordered')
+      .map((r) => r.method_id)
+  );
+  return records
+    .filter(
+      (r) => r.kind === 'relation_instance' && r.verdict === 'true' && ordered.has(r.method_id)
+    )
+    .map((r) => `${r.method_id}|a=${r.a.token_ids[0]},b=${r.b.token_ids[0]}`)
+    .sort();
+}
+const sameSet = (got, want) =>
+  got.length === want.length && [...got].sort().every((k, i) => k === want[i]);
+// The alliteration hold the capture supplies (watch L1 w1 → woods L1 w2), and
+// the cell the matrix draws for it.
+const HOLD_KEY = CI.selectionKey({
+  kind: 'binding',
+  method_id: 'schema:85d0a9d89593c874a7ac0fab',
+  members: [
+    { role: 'a', entity_id: 'line:0:token:0' },
+    { role: 'b', entity_id: 'line:0:token:1' },
+  ],
+});
+// Its negative in the same domain (cat L2 w1 → hat L2 w2): false in the
+// capture, so "does not hold" once the census is complete.
+const FALSE_KEY = CI.selectionKey({
+  kind: 'binding',
+  method_id: 'schema:85d0a9d89593c874a7ac0fab',
+  members: [
+    { role: 'a', entity_id: 'line:1:token:0' },
+    { role: 'b', entity_id: 'line:1:token:1' },
+  ],
+});
+const cellLabel = (page, key) =>
+  page
+    .locator(`.cv-desktop-matrix [data-selection="${key}"]`)
+    .first()
+    .getAttribute('aria-label')
+    .catch(() => null);
+
+// An AUTHORED role-swapped replay of the capture, not a newly computed verdict:
+// the watch → woods record is rewritten by hand as woods (a) → watch (b), so
+// the views can be shown a later-to-earlier binding and must keep it as given.
+// No engine produced this record; it tests the views' handling of roles only.
 function reversed() {
   const records = JSON.parse(JSON.stringify(FIXTURE.records));
   const r = records.find(
@@ -219,12 +274,23 @@ const SECTIONS = {
         labels.some((l) => /a: cat[^→]*→ b: hat/.test(l)),
       JSON.stringify(labels)
     );
+    const want = expectedBindings(FIXTURE.records);
+    const offered = (
+      await page.$$eval('.cv-native button[data-selection]', (bs) =>
+        bs.map((b) => b.dataset.selection)
+      )
+    ).map(decodeKey);
+    H.check(
+      `${tag} directed: the native list offers exactly the supplied directed bindings`,
+      offered.every(Boolean) && sameSet(offered, want),
+      JSON.stringify({ offered, want })
+    );
     await page.click('.cv-native button >> nth=0');
     await closeSheet(page);
     const sel = new URL(page.url()).searchParams.get('sel') || '';
     H.check(
       `${tag} directed: the selection is a role-ordered binding, never an unordered pair`,
-      sel.startsWith('b:') && /a=line%3A0%3Atoken%3A0,b=line%3A0%3Atoken%3A1/.test(sel),
+      decodeKey(sel) === 'schema:85d0a9d89593c874a7ac0fab|a=line:0:token:0,b=line:0:token:1',
       sel
     );
     H.check(
@@ -234,56 +300,88 @@ const SECTIONS = {
     );
     // Arrows: once directed holds are drawn in the poem, each arc runs from
     // its a word to its b word and carries its direction.
+    await page.click('.cv-root [data-view="matrix"]');
+    await settle(page);
+    H.check(
+      `${tag} directed: the supplied hold reads as holding in its own matrix cell`,
+      /· holds$/.test((await cellLabel(page, HOLD_KEY)) || ''),
+      await cellLabel(page, HOLD_KEY)
+    );
     await page.click('.cv-root [data-view="poem"]');
     await settle(page);
-    const arcs = await page.$$eval('.cv-poem .lib-mk-arc', (as) =>
-      as.map((a) => ({
-        key: a.dataset.selection || '',
-        label: a.getAttribute('aria-label') || '',
-        marker: !!(
-          a.querySelector('[marker-end],[marker-start],marker,.lib-mk-arrow') ||
-          a.getAttribute('marker-end')
-        ),
-      }))
-    );
-    const directedArcs = arcs.filter((a) => a.key.startsWith('b:'));
+    // Read each drawn arc: its selection, its arrowhead's tip, and every
+    // endpoint of its route and stems. The head's path starts at its tip
+    // (marks.arrowhead), so the tip never depends on how the route is drawn.
+    const drawn = await page.evaluate(() => {
+      const ends = (d) => {
+        const n = (d.match(/-?\d+(\.\d+)?/g) || []).map(Number);
+        return n.length >= 2
+          ? [
+              [n[0], n[1]],
+              [n[n.length - 2], n[n.length - 1]],
+            ]
+          : [];
+      };
+      const ports = {};
+      for (const c of document.querySelectorAll('.cv-poem g[data-selection^="o:"] circle'))
+        ports[c.closest('[data-selection]').dataset.selection] = [
+          +c.getAttribute('cx'),
+          +c.getAttribute('cy'),
+        ];
+      const arcs = [...document.querySelectorAll('.cv-poem .lib-mk-arc')].map((g) => {
+        const owner = g.closest('[data-selection]') || g;
+        const head = g.querySelector('path.lib-mk-head');
+        return {
+          key: owner.dataset.selection || '',
+          directed: g.dataset.directed === 'true',
+          tip: head ? ends(head.getAttribute('d'))[0] : null,
+          ends: [...g.querySelectorAll('path:not(.lib-mk-head):not(.lib-mk-gap)')].flatMap((p) =>
+            ends(p.getAttribute('d') || '')
+          ),
+        };
+      });
+      return { ports, arcs };
+    });
+    const portOf = (id) => drawn.ports[CI.selectionKey({ kind: 'occurrence', entity_id: id })];
+    const directedArcs = drawn.arcs.filter((a) => a.key.startsWith('b:'));
     if (!directedArcs.length) {
       const note = `${tag} directed: directed holds are not drawn as poem arcs yet (arrowheads pending)`;
       if (REQUIRE_ARROWS) H.check(note, false);
       else pending.push(note);
     } else {
+      const keys = directedArcs.map((a) => decodeKey(a.key));
       H.check(
-        `${tag} directed: every directed arc carries a direction mark`,
-        directedArcs.every((a) => a.marker),
+        `${tag} directed: the poem draws exactly the supplied directed bindings`,
+        keys.every(Boolean) && sameSet(keys, want),
+        JSON.stringify({ keys, want })
+      );
+      H.check(
+        `${tag} directed: every directed arc carries one ink arrowhead (.lib-mk-head)`,
+        directedArcs.every((a) => a.directed && a.tip),
         JSON.stringify(directedArcs)
       );
-      const runs = await page.evaluate(() => {
-        const ports = {};
-        for (const g of document.querySelectorAll('.cv-poem g[data-selection^="o:"] circle'))
-          ports[g.closest('[data-selection]').dataset.selection.slice(2)] = {
-            x: +g.getAttribute('cx'),
-            y: +g.getAttribute('cy'),
-          };
-        return [...document.querySelectorAll('.cv-poem .lib-mk-arc[data-selection^="b:"]')].map(
-          (arc) => {
-            const d = (arc.querySelector('path') || arc).getAttribute('d') || '';
-            const nums = d.match(/-?\d+(\.\d+)?/g)?.map(Number) || [];
-            const roles = Object.fromEntries(
-              arc.dataset.selection
-                .split(':')
-                .slice(2)
-                .join(':')
-                .split(',')
-                .map((m) => m.split('=').map(decodeURIComponent))
-            );
-            return { start: [nums[0], nums[1]], a: ports[roles.a], b: ports[roles.b] };
-          }
-        );
+      const dist = (p, q) => (p && q ? Math.hypot(p[0] - q[0], p[1] - q[1]) : Infinity);
+      const runs = directedArcs.map((a) => {
+        const sel = CI.selectionFromKey(a.key);
+        const role = (r) => sel.members.find((m) => m.role === r).entity_id;
+        const pa = portOf(role('a')),
+          pb = portOf(role('b'));
+        return {
+          key: decodeKey(a.key),
+          toB: dist(a.tip, pb),
+          toA: dist(a.tip, pa),
+          reachesA: a.ends.some((e) => dist(e, pa) < 2),
+          reachesB: a.ends.some((e) => dist(e, pb) < 2),
+        };
       });
-      const near = (p, q) => p && q && Math.hypot(p[0] - q.x, p[1] - q.y) < 20;
       H.check(
-        `${tag} directed: each directed arc starts at its a word, not its b word`,
-        runs.length > 0 && runs.every((r) => near(r.start, r.a) && !near(r.start, r.b)),
+        `${tag} directed: each arrowhead points into its b word, not its a word`,
+        runs.every((r) => r.toB <= 12 && r.toB < r.toA),
+        JSON.stringify(runs)
+      );
+      H.check(
+        `${tag} directed: each route (with its stems) joins the asked a and b ports`,
+        runs.every((r) => r.reachesA && r.reachesB),
         JSON.stringify(runs)
       );
     }
@@ -294,7 +392,7 @@ const SECTIONS = {
     await open(page, base, H.EPI_A, { complete: true });
     labels = await nativeLabels(page);
     H.check(
-      `${tag} directed: a later-to-earlier binding is kept as asked (a: woods → b: watch)`,
+      `${tag} directed: an authored role-swapped replay keeps its roles as given (a: woods → b: watch)`,
       labels.some((l) => /a: woods[^→]*→ b: watch/.test(l)) &&
         !labels.some((l) => /a: watch[^→]*→ b: woods/.test(l)),
       JSON.stringify(labels)
@@ -382,14 +480,29 @@ const SECTIONS = {
     } else {
       await page.click('.cv-root [data-view="matrix"]');
       await settle(page);
-      const first = page.locator('.cv-desktop-matrix [data-row][data-col]').first();
-      await first.focus();
-      await page.keyboard.press('ArrowRight');
-      await page.keyboard.press('ArrowDown');
-      await page.keyboard.press('ArrowLeft');
+      const grid = await page.$$eval('.cv-desktop-matrix [data-row][data-col]', (bs) => ({
+        cells: bs.map((b) => `${b.dataset.row},${b.dataset.col}`),
+        n: bs[0].closest('table').querySelectorAll('tr').length - 1,
+      }));
+      await page.locator('.cv-desktop-matrix [data-row="0"][data-col="1"]').focus();
+      // Where each key must land, from the interaction module's own rule; a
+      // move onto a cell that doesn't exist leaves focus where it is.
+      let at = { row: 0, col: 1 };
+      const steps = [];
+      for (const key of ['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp']) {
+        const to = CI.matrixMove(at, key, grid.n);
+        if (grid.cells.includes(`${to.row},${to.col}`)) at = to;
+        await page.keyboard.press(key);
+        const got = await page.evaluate(() => {
+          const a = document.activeElement;
+          return a.closest('.cv-desktop-matrix') ? `${a.dataset.row},${a.dataset.col}` : null;
+        });
+        steps.push({ key, want: `${at.row},${at.col}`, got });
+      }
       H.check(
-        `${tag} keyboard: matrix arrows move between cells and stay inside the grid`,
-        await page.evaluate(() => !!document.activeElement.closest('.cv-desktop-matrix'))
+        `${tag} keyboard: each matrix arrow lands focus on the expected cell`,
+        steps.every((x) => x.got === x.want),
+        JSON.stringify(steps)
       );
     }
   },
@@ -441,6 +554,12 @@ const SECTIONS = {
     const state = await serve(page);
     await open(page, base, H.EPI_A);
     await page.click('.cv-root [data-view="matrix"]');
+    const early = await cellLabel(page, HOLD_KEY);
+    H.check(
+      `${tag} paging: before the final page the supplied hold's cell reads not yet computed`,
+      /· not yet computed$/.test(early || ''),
+      early
+    );
     const labels = await page
       .locator('.cv-root [data-selection]')
       .evaluateAll((ns) => ns.map((n) => n.getAttribute('aria-label') || ''));
@@ -456,9 +575,17 @@ const SECTIONS = {
     await page.waitForFunction(() =>
       document.querySelector('.cv-root')?.textContent.includes('all pages loaded')
     );
+    const late = await cellLabel(page, HOLD_KEY);
     H.check(
-      `${tag} paging: the final page brings the holds`,
-      /holds/.test(await page.textContent('.cv-root'))
+      `${tag} paging: the final page turns that cell into a hold`,
+      /· holds$/.test(late || ''),
+      late
+    );
+    const negative = await cellLabel(page, FALSE_KEY);
+    H.check(
+      `${tag} paging: and the supplied negative into does not hold`,
+      /· does not hold$/.test(negative || ''),
+      negative
     );
     H.check(
       `${tag} paging: the view and the address are kept`,
