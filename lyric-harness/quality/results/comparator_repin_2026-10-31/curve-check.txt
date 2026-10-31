@@ -1,7 +1,7 @@
 RECEIPT — the batch comparator re-pin of 2026-10-31. One fingerprint move for
 the whole batch, one cold memo rebuilt over 16 shards, and one calibration that
 MOVED: predictability's knot table, re-adopted as a set on the owner's ruling.
-Every other calibration HOLDS unchanged.
+Every other calibration passes with its shipped constants unchanged.
 
 WHAT MOVED THE COMPARATOR.  The batch on claude/backend-batch: the English sound
 inventory (M-322, claude/english-sound-inventory 5ea9dc73d7), the connection
@@ -40,10 +40,12 @@ recomputed off the merged memo at 335a4829cd: "cache hits 8585 misses 0".
 WHAT THE CALIBRATIONS SAID, at 335a4829cd, nltk 3.10.4, memo 8585 hits 0 misses.
   * `song_profile_calibration.py --check` (profile `song`): "asked 21, answered
     21, refused 0 ... every shipped constant reproduces", exit 0
-    (song-check.txt).
+    (song-check.txt). Not numerically identical: two held-out rates are
+    re-measured inside tolerance, predictability 4.91 -> 4.89% and ANY
+    19.39 -> 19.37%; every other compared value equals the shipped one.
   * `song_profile_calibration.py --check --profile short`: "asked 21, answered
     21, refused 0 ... every shipped constant reproduces", exit 0
-    (short-check.txt).
+    (short-check.txt); every compared value equals the shipped one.
   * `length_curve_calibration.py check`: mattr, fwr, anaphora and cv
     re-derive to the digit and HOLD; the MATTR/TTR population (527 of 8585 at
     window 50) HOLDS; "predictability CK shipped 21 knots, re-derived 21 ->

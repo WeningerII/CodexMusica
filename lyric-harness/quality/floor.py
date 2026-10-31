@@ -1270,7 +1270,9 @@ PROFILES.append(
 #: predictability`. Over the same 8,585 items `mattr`, `fwr`, `anaphora` and
 #: `cv` re-derive to the digit, curves and held-out rates alike; n_human,
 #: lo/hi, the MATTR/TTR population and every knot ABSCISSA are unchanged, and
-#: `song_profile_calibration.py --check` reproduces all 21 `song` constants.
+#: `song_profile_calibration.py --check` passes all 21 `song` constants
+#: (two held-out rates re-measure inside tolerance: predictability 4.91 -> 4.89%,
+#: ANY 19.39 -> 19.37%).
 #: FOUR of predictability's 21 knots moved, all at N >= 265 tokens, two down
 #: and two up; the knots through N=165 and the silence boundary (first under
 #: 1.0 at 141) did not move. Re-derived as a SET by the banked procedure
