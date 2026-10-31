@@ -22,11 +22,11 @@ Manner IDENTITY is worth 0.45 of a 1.0 budget while the entire place axis can
 only take away 0.25. So every same-manner same-voicing pair scores >= 0.75 no
 matter how far apart its places are, and `R`~`L` — same manner (liquid), same
 voicing, 0.05 apart on the place axis — comes out at 0.9875, the ARGMAX of the
-whole 276-pair matrix. A cut that refuses it refuses every non-identical
+whole consonant matrix (276 pairs then, 378 since M-322). A cut that refuses it refuses every non-identical
 consonant pair in English, so the leak was never reachable from the threshold.
 
 IT WAS NEVER ONE DEFECT. At `theta_coda` 0.80 the scalar admits 36 of 276
-unordered pairs as agreeing codas: `S`~`TH` (miss/myth), `P`~`T` (cap/cat),
+unordered pairs (50 of 378 since M-322) as agreeing codas: `S`~`TH` (miss/myth), `P`~`T` (cap/cat),
 `M`~`N`, `B`~`D` (rob/rod), `K`~`T` (back/bat). The generosity is not specific
 to liquids and not specific to sonorants — it is general to the construction,
 and the manner class is the axis that buys it.
@@ -157,8 +157,10 @@ def test_no_threshold_could_have_fixed_this():
     rows = sorted(((cons_sim(a, b), a, b)
                    for a, b in itertools.combinations(sorted(L.CONSONANTS), 2)),
                   reverse=True)
-    check("the consonant space is 24 symbols and 276 unordered non-identical "
-          "pairs", len(L.CONSONANTS) == 24 and len(rows) == 276,
+    # 2026-10-30: 24 symbols / 276 pairs before the sound inventory added
+    # KH, CX, LH and Q (M-322); the argmax and the sweep's shape are unchanged.
+    check("the consonant space is 28 symbols and 378 unordered non-identical "
+          "pairs", len(L.CONSONANTS) == 28 and len(rows) == 378,
           f"{len(L.CONSONANTS)} consonants, {len(rows)} pairs")
     check("R~L is the ARGMAX of the entire matrix",
           rows[0][1:] == ("L", "R"),
@@ -174,7 +176,7 @@ def test_no_threshold_could_have_fixed_this():
           f"R~L = {rl:.4f}; theta_coda "
           + ", ".join(f"{t}->{k}" for t, k in sweep)
           + ". The first cut that refuses R~L is 0.99, which admits 0 of "
-            "276 — i.e. identity, reached by the back door and stated as a "
+            "378 — i.e. identity, reached by the back door and stated as a "
             "point on a scale rather than a rate (doctrine 22).")
     d95 = Declaration(coda_agreement="scalar", theta_coda=0.95)
     check("`scalar 0.95` pays the full true-positive cost and STILL admits "
@@ -194,8 +196,9 @@ def test_the_generosity_is_general_to_the_construction():
     rows = [(cons_sim(a, b), a, b)
             for a, b in itertools.combinations(sorted(L.CONSONANTS), 2)]
     adm = [r for r in rows if r[0] >= d80.theta_coda]
-    check("36 of 276 pairs (13%) agree as a singleton coda at 0.80",
-          len(adm) == 36, f"{len(adm)} pairs")
+    # 2026-10-30: 36 of 276 before KH, CX, LH and Q joined (M-322).
+    check("50 of 378 pairs (13%) agree as a singleton coda at 0.80",
+          len(adm) == 50, f"{len(adm)} pairs")
     manners = {}
     for s, a, b in adm:
         ma, mb = L.CONSONANTS[a][2], L.CONSONANTS[b][2]

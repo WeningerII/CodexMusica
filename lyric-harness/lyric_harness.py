@@ -32,7 +32,7 @@ import sys
 import contextlib
 import copy
 import functools
-from collections import namedtuple
+from collections import ChainMap, namedtuple
 import textwrap
 import types
 import http.client
@@ -172,6 +172,10 @@ def fetch_data(download=True):
 # ---------------------------------------------------------------------------
 
 # Vowels: (height 0=high..1=low, frontness 0=front..1=back, round, glide, rhotic)
+# `glide` is the vowel's quality mark: "" none, "j"/"w" an off-glide, "@" a
+# centring glide (NEAR, SQUARE, CURE, FORCE), ":" length (a long monophthong
+# whose short twin shares its place), "~" nasality (loan vowels). Every row
+# below is a distinct tuple, so no two symbols score vowel_sim 1.0.
 VOWELS = {
     "IY": (0.00, 0.05, 0, "",  0), "IH": (0.15, 0.15, 0, "",  0),
     "EY": (0.30, 0.10, 0, "j", 0), "EH": (0.50, 0.20, 0, "",  0),
@@ -181,6 +185,33 @@ VOWELS = {
     "AH": (0.55, 0.60, 0, "",  0), "ER": (0.45, 0.50, 0, "",  1),
     "AY": (1.00, 0.40, 0, "j", 0), "AW": (1.00, 0.50, 0, "w", 0),
     "OY": (0.60, 0.90, 1, "j", 0),
+    # THE EXTENDED ENGLISH INVENTORY (owner, 2026-10-29: "cover every English
+    # vowel", "add /x/ and the New York a too along with all of the rare
+    # regional distinctions"). Wells's lexical sets, written as two vowel
+    # letters so no name can be read as a vowel plus a consonant. Rule-derived
+    # readings use them under every reader scheme but v1 (`derive_accent_readings`).
+    "IA": (0.15, 0.30, 0, "@", 0),   # NEAR      here, near (ɪə)
+    "EA": (0.50, 0.30, 0, "@", 0),   # SQUARE    there, hair (ɛə)
+    "UA": (0.20, 0.70, 1, "@", 0),   # CURE      poor, tour (ʊə)
+    "OA": (0.40, 0.85, 1, "@", 0),   # FORCE     hoarse, four, kept from NORTH (oə)
+    "OO": (0.95, 0.95, 1, "",  0),   # LOT       bother, kept from PALM father (ɒ)
+    "EU": (0.45, 0.50, 0, ":", 0),   # NURSE     bird, non-rhotic (ɜː)
+    "OE": (0.35, 0.90, 1, ":", 0),   # GOAT      toe, nose, kept from tow (oː)
+    "EE": (0.30, 0.10, 0, ":", 0),   # FACE      pane, made, kept from pain (eː)
+    "IE": (0.25, 0.08, 0, ":", 0),   # MEAT      meat, kept from meet (eː)
+    "IU": (0.10, 0.50, 0, "w", 0),   # DEW       blew, threw, kept from blue (ɪu)
+    "UI": (0.60, 0.50, 0, "j", 0),   # PRICE     raised: writer, Scottish tide (ʌɪ)
+    "OU": (0.60, 0.60, 0, "w", 0),   # MOUTH     raised: about (ʌʊ)
+    "AI": (0.80, 0.25, 0, ":", 0),   # TRAP      long: Australian bad (æː)
+    "EI": (0.55, 0.20, 0, "@", 0),   # TRAP      tense: New York can (tin) (eə)
+    "UU": (0.05, 0.95, 1, ":", 0),   # GOOSE     long: Scottish brewed (uː)
+    "EO": (0.50, 0.45, 0, "",  0),   # DRESS     Scottish centralised: never (ɛ̈)
+    "AU": (1.00, 0.85, 0, "~", 0),   # loan      French nasal: en route (ɑ̃)
+    "II": (0.50, 0.20, 0, "~", 0),   # loan      French nasal: vin (ɛ̃)
+    "UO": (0.80, 0.95, 1, "~", 0),   # loan      French nasal: bon (ɔ̃)
+    "IO": (0.50, 0.25, 1, "~", 0),   # loan      French nasal: un (œ̃)
+    "UE": (0.00, 0.05, 1, "",  0),   # loan      front rounded: tu, déjà vu (y)
+    "OI": (0.30, 0.10, 1, "",  0),   # loan      front rounded: deux (ø)
 }
 
 # Consonants: (voiced, place 0=labial..1=glottal, manner)
@@ -197,6 +228,10 @@ CONSONANTS = {
     "M": (1, 0.00, "nasal"), "N": (1, 0.30, "nasal"), "NG": (1, 0.80, "nasal"),
     "L": (1, 0.30, "liquid"), "R": (1, 0.35, "liquid"),
     "W": (1, 0.90, "glide"), "Y": (1, 0.60, "glide"),
+    # The extended inventory (see VOWELS): /x/ loch, /ç/ (German ich), /ɬ/
+    # Welsh Ll-, and the glottal stop. None is in CMUdict.
+    "KH": (0, 0.85, "fricative"), "CX": (0, 0.62, "fricative"),
+    "LH": (0, 0.30, "liquid"), "Q": (0, 1.00, "stop"),
 }
 
 # The English regular -s suffix (plural, 3sg, possessive) has ONE form whose
@@ -219,7 +254,8 @@ CONSONANTS = {
 # `Declaration.nucleus_licence` already declares as one reduced vowel written
 # two ways, so the remainder is absorbed one channel down rather than lost.
 PLURAL_S_SIBILANT = ("S", "Z", "SH", "ZH", "CH", "JH")   # -> a syllable, IH0 Z
-PLURAL_S_VOICELESS = ("P", "T", "K", "F", "TH")          # -> S
+PLURAL_S_VOICELESS = ("P", "T", "K", "F", "TH",          # -> S
+                      "KH", "CX", "LH", "Q")  # extended inventory
 # everything else (voiced obstruents, nasals, liquids, glides, vowels) -> Z
 
 
@@ -991,7 +1027,311 @@ SPELLING_ALIASES = {
 }
 
 
+# ---------------------------------------------------------------------------
+# Accent readings: the extended English inventory, derived by rule
+# ---------------------------------------------------------------------------
+# THE OWNER'S RULINGS (2026-10-29): NEAR "is its own sound, so it echoes
+# neither see nor his ... every check"; "cover every English vowel"; every
+# pronunciation of a word ("poor ... has at least 2") counts under standing
+# rule 5; no outside source, nothing hand-picked. So every rule below is
+# written over CMUdict's own phones and the headword's spelling, and names no
+# word. Two kinds of rule, kept apart:
+#   RESPELLING rewrites a vowel CMUdict writes with a General American symbol
+#     into its own set, IN EVERY READING (reading 0 included, so the routes
+#     that read only reading 0 agree): NEAR, SQUARE, CURE before a coda R.
+#   ALTERNATES are appended after the dictionary's readings: an accent's whole
+#     reading of the same word, never stitched from two readings.
+# A rule's reading keeps the source reading's syllable count, or it is not
+# emitted. Where spelling decides and the vowel letters do not line up one
+# to one with the vowels, the rule emits nothing (refuse, don't guess).
+# Distinctions with no clean rule have symbols (VOWELS, CONSONANTS) but no
+# derived readings yet: the Australian long TRAP (AI), the New York tense
+# TRAP (EI), the Scottish long GOOSE (UU), the Scottish centralised vowel
+# (EO), /x/ (KH), /ɬ/ (LH), the glottal stop (Q), /ç/ (CX) and the loan
+# vowels. They reach a song through a declared reading.
+ACCENT_RULES = "accent-readings-2026-10-30"
+
+_RESPELL_BEFORE_CODA_R = {"IH": "IA", "IY": "IA",              # NEAR
+                          "EH": "EA", "AE": "EA", "EY": "EA",  # SQUARE
+                          "UH": "UA", "UW": "UA"}              # CURE
+_RESPELL_RULE = {"IA": "near", "EA": "square", "UA": "cure"}
+_VOICELESS_AFTER_PRICE = frozenset("P T K F TH S SH CH".split())
+
+
+# Fast phone helpers for the derivation, which runs over every CMUdict
+# reading at load: a phone is BASE plus an optional stress digit.
+def _base(ph):
+    return ph[:-1] if ph[-1] in "012" else ph
+
+
+def _is_vowel(ph):
+    return _base(ph) in VOWELS
+
+
+def _with_base(ph, base):
+    return base + ph[-1] if ph[-1] in "012" else base
+
+
+def _coda_r(phones, i):
+    """phones[i] is an R closing the syllable of the vowel before it (not an
+    R that opens the next syllable: carry, hearing)."""
+    return (phones[i] == "R" and i > 0 and _is_vowel(phones[i - 1])
+            and (i + 1 == len(phones) or not _is_vowel(phones[i + 1])))
+
+
+def _respell(phones):
+    """NEAR, SQUARE and CURE before a coda R: here HH IY1 R -> HH IA1 R."""
+    if "R" not in phones:
+        return list(phones)
+    out = list(phones)
+    for i in range(1, len(out)):
+        if _coda_r(out, i):
+            base = _base(out[i - 1])
+            if base in _RESPELL_BEFORE_CODA_R:
+                out[i - 1] = _with_base(out[i - 1], _RESPELL_BEFORE_CODA_R[base])
+    return out
+
+
+def _non_rhotic(phones):
+    """An accent that drops a coda R: car -> K AA1, here -> HH IA1; stressed
+    NURSE ER1 -> EU1, unstressed lettER ER0 -> AH0. An R before a vowel
+    (carry) stays."""
+    out = []
+    for i, ph in enumerate(phones):
+        if ph == "R" and _coda_r(phones, i):
+            continue
+        if ph[:2] == "ER" and len(ph) == 3:
+            out.append("AH0" if ph[2] == "0" else "EU" + ph[2])
+        else:
+            out.append(ph)
+    return out
+
+
+def _cure_force(phones):
+    """CURE said with the FORCE vowel (poor = pour, sure = shore, tour =
+    tore); not after Y, where it holds (cure, pure)."""
+    out = list(phones)
+    for i, ph in enumerate(out):
+        if ph[:2] == "UA" and (i == 0 or out[i - 1] != "Y"):
+            out[i] = _with_base(ph, "AO")
+    return out
+
+
+_VOWEL_GROUPS = re.compile(r"[aeiouy]+")
+
+
+def _vowel_letters(word, phones):
+    """-> [(vowel index in phones, start, group)] when the word's vowel letter
+    groups line up one to one with its vowels (a silent e at the end, or
+    before a final s or d as in gates and named, is set aside), else None."""
+    groups = [(m.start(), m.group()) for m in _VOWEL_GROUPS.finditer(word)]
+    vidx = [i for i, ph in enumerate(phones) if _is_vowel(ph)]
+    if (len(groups) == len(vidx) + 1 and groups[-1][1] == "e"
+            and word[groups[-1][0] + 1:] in ("", "s", "d")):
+        groups = groups[:-1]
+    if len(groups) != len(vidx):
+        return None
+    return [(vi, start, g) for vi, (start, g) in zip(vidx, groups)]
+
+
+def _spelled(word, phones, letters, vowel, test, new):
+    """Rewrite `vowel` to `new` wherever its letters pass `test`."""
+    if letters is None:
+        return None
+    out = list(phones)
+    for vi, start, g in letters:
+        if _base(out[vi]) == vowel and test(start, g, word, vi, out):
+            out[vi] = _with_base(out[vi], new)
+    return out
+
+
+def _force(word, phones, letters):
+    """FORCE kept from NORTH (hoarse not horse): an AO before a coda R in a
+    word spelled oar, oor, our or ore -> OA. Only when the word has one such
+    AO, so the letters cannot point at the wrong vowel."""
+    if not any(t in word for t in ("oar", "oor", "our", "ore")):
+        return None
+    at = [i for i in range(1, len(phones))
+          if phones[i] == "R" and _coda_r(phones, i) and _base(phones[i - 1]) == "AO"]
+    if len(at) != 1:
+        return None
+    out = list(phones)
+    out[at[0] - 1] = _with_base(out[at[0] - 1], "OA")
+    return out
+
+
+def _lot_test(start, g, w, vi, out):
+    if vi + 1 < len(out) and out[vi + 1] == "R" and _coda_r(out, vi + 1):
+        return False                      # car is START, not LOT
+    return g == "o" or (g == "a" and (w[:start].endswith("w")
+                                      or w[:start].endswith("qu")))
+
+
+def _toe_test(start, g, w, vi, out):
+    return g in ("o", "oa", "oe") and not w[start + len(g):].startswith("w")
+
+
+def _dew_test(start, g, w, vi, out):
+    return g == "eu" or (g == "e" and w[start + 1:].startswith("w"))
+
+
+#: Spelling-decided alternates: (name, vowel, letter test, new vowel).
+#:   lot   LOT kept from PALM (bother, watch; not father, car): AA -> OO
+#:   toe   GOAT spelled o/oa/oe (toe, nose) kept from ow/ou (tow, soul): OW -> OE
+#:   pane  FACE spelled a (pane, made) kept from ai/ay/ei/ey (pain): EY -> EE
+#:   meat  FLEECE spelled ea (meat, sea) kept from ee/ie/e (meet): IY -> IE
+#:   dew   GOOSE spelled ew/eu (dew, threw) kept from oo/ue/o (blue): UW -> IU
+_SPELLED_ALTERNATES = (
+    ("lot", "AA", _lot_test, "OO"),
+    ("toe", "OW", _toe_test, "OE"),
+    ("pane", "EY", lambda s, g, w, vi, o: g == "a", "EE"),
+    ("meat", "IY", lambda s, g, w, vi, o: g == "ea", "IE"),
+    ("dew", "UW", _dew_test, "IU"),
+)
+
+
+def _raising(phones):
+    """PRICE and MOUTH raised before a voiceless consonant (writer, about):
+    AY -> UI, AW -> OU."""
+    out = list(phones)
+    for i in range(len(out) - 1):
+        base = _base(out[i])
+        if base in ("AY", "AW") and out[i + 1] in _VOICELESS_AFTER_PRICE:
+            out[i] = _with_base(out[i], "UI" if base == "AY" else "OU")
+    return out
+
+
+def derive_accent_readings(word, readings):
+    """-> (readings, rules): the word's readings with NEAR/SQUARE/CURE
+    respelled in place, then every alternate reading the rules give, in order
+    and without duplicates; `rules` maps each reading (tuple) that is not one
+    of CMUdict's own to the rule that wrote it. Alternates: non-rhotic,
+    cure-force (+ non-rhotic), force (+ non-rhotic), the spelling-decided
+    ones (`_SPELLED_ALTERNATES`), raising."""
+    out, rules = [], {}
+    word = word.lower()
+
+    def add(phones, rule):
+        if phones and phones not in out:
+            out.append(phones)
+            if rule:
+                rules[tuple(phones)] = rule
+
+    bases = []
+    for phones in readings:
+        respelled = _respell(phones)
+        rule = None
+        if respelled != list(phones):
+            rule = "+".join(sorted({_RESPELL_RULE[_base(p)]
+                                    for p, q in zip(respelled, phones) if p != q}))
+        add(respelled, rule)
+        bases.append(respelled)
+    for phones in bases:
+        syll = sum(1 for p in phones if _is_vowel(p))
+        present = {_base(p) for p in phones}
+        cands = []
+        if "R" in present or "ER" in present:
+            cands.append(("non-rhotic", _non_rhotic(phones)))
+        if "UA" in present:
+            cf = _cure_force(phones)
+            cands += [("cure-force", cf), ("cure-force non-rhotic", _non_rhotic(cf))]
+        if "AO" in present and "R" in present:
+            f = _force(word, phones, None)
+            if f:
+                cands += [("force", f), ("force non-rhotic", _non_rhotic(f))]
+        spelled = [a for a in _SPELLED_ALTERNATES if a[1] in present]
+        if spelled:
+            letters = _vowel_letters(word, phones)
+            for name, vowel, test, new in spelled:
+                cands.append((name, _spelled(word, phones, letters, vowel, test, new)))
+        if "AY" in present or "AW" in present:
+            cands.append(("raising", _raising(phones)))
+        for name, alt in cands:
+            if (alt and alt != phones
+                    and sum(1 for p in alt if _is_vowel(p)) == syll):
+                add(alt, name)
+    return out, rules
+
+
+#: One derivation per process: CMUdict and SPELLING_ALIASES are the same for
+#: every `Lexicon`, so the rules run once and each instance copies the result.
+#: Keyed by the dictionary file and the rule version.
+_DERIVED_ACCENT_ENTRIES = {}
+
+
+def _derived_accent_entries(entries):
+    """-> ({word: readings} for every word the accent rules change,
+    {(word, phones tuple): rule} for every reading a rule wrote). Shared by
+    every `Lexicon` in the process and never mutated."""
+    key = (CMUDICT_PATH, ACCENT_RULES, tuple(sorted(SPELLING_ALIASES.items())))
+    if key not in _DERIVED_ACCENT_ENTRIES:
+        out, by_reading = {}, {}
+        for word, prons in entries.items():
+            new, rules = derive_accent_readings(word, prons)
+            if new != prons:
+                out[word] = new
+            for phones, rule in rules.items():
+                by_reading[(word, phones)] = rule
+        _DERIVED_ACCENT_ENTRIES[key] = (out, by_reading)
+    return _DERIVED_ACCENT_ENTRIES[key]
+
+
+#: The accent rules that write ALTERNATE readings, as `reading_rules` names
+#: them. The NEAR/SQUARE/CURE respellings apply in every reading and are not
+#: an accent choice.
+ACCENT_CHOICES = frozenset(("non-rhotic", "cure-force", "force", "lot", "toe",
+                            "pane", "meat", "dew", "raising"))
+
+
+def _reading_accent(lex, word, phones):
+    rule = lex.reading_rules.get((word, tuple(phones))) or ""
+    return {t for t in rule.replace("+", " ").split() if t in ACCENT_CHOICES}
+
+
+_RULES_BY_WORD = {}
+
+
+def _rules_bearing(lex, word):
+    """-> the accent rules some reading of `word` carries, from the
+    lexicon's whole `reading_rules` -- not from `entries`, which a pinned
+    occurrence (`pronunciation.for_token`) narrows to the one chosen
+    reading, hiding the alternatives it was chosen from."""
+    rules = lex.reading_rules
+    index = _RULES_BY_WORD.get(id(rules))
+    if index is None or index[0] is not rules:
+        by_word = {}
+        for (w, _), rule in rules.items():
+            by_word.setdefault(w, set()).update(
+                t for t in rule.replace("+", " ").split() if t in ACCENT_CHOICES)
+        index = _RULES_BY_WORD[id(rules)] = (rules, by_word)
+    return index[1].get(word, set())
+
+
+def accents_agree(readings):
+    """True when the (lex, word, phones) readings could come from one
+    speaker: no accent rule is used by one reading and refused by another.
+    A rule bears on a word when some reading of the word carries it, so a
+    word the rule never touches (`spa`, `tow`) agrees with either answer.
+    Pairing each word's readings independently would let a collision escape
+    through one rhotic and one non-rhotic reading that no singer produces
+    together (car/far)."""
+    seen = {}
+    for lex, word, phones in readings:
+        if lex is None or phones is None or not getattr(lex, "reading_rules", None):
+            continue
+        word = fold_apostrophes(str(word)).lower().strip("'\".,;:!?()[]")
+        has = _reading_accent(lex, word, phones)
+        for rule in _rules_bearing(lex, word):
+            if seen.setdefault(rule, rule in has) != (rule in has):
+                return False
+    return True
+
+
 class Lexicon:
+    # Reached through the lexicon, so `quality/relations.py` checks one
+    # speaker's readings without importing this module (P10).
+    accents_agree = staticmethod(accents_agree)
+
     def __init__(self, fallback=None, strip_parens=True, pronunciations=None,
                  reader_scheme=None):
         """`fallback` is a DECLARED coordinate, `None` by default -- omitting
@@ -1067,6 +1407,12 @@ class Lexicon:
             for phones in self.entries.get(headword, ()):
                 if phones not in have:
                     have.append(list(phones))
+        # ACCENT READINGS (`derive_accent_readings`) under every scheme but
+        # v1, which replays pre-batch runs byte for byte. Each word's list is
+        # rewritten IN PLACE (the g2p shim above holds this dict), no key is
+        # added, and CMUdict's own readings stay reachable for a declared
+        # `basis: dictionary` choice through `cmu_raw_entries`.
+        self._derive_cmu_readings()
         _KNOWN_WORDS.update(self.entries.keys())
         # data/opensubtitles_en_50k.tsv: `# ...` provenance comments, then a
         # literal `word\tcount\trank` header, then data rows in descending-
@@ -1109,6 +1455,25 @@ class Lexicon:
         from quality.pronunciation import for_token
         return for_token(self, index)
 
+    def _derive_cmu_readings(self):
+        """Write the accent readings over `self.entries` (CMUdict as shipped)
+        for every scheme but v1; `cmu_raw_entries` keeps the shipped readings."""
+        self.reading_rules = {}
+        changed = {}
+        if self.reader_scheme != "v1":
+            derived, self.reading_rules = _derived_accent_entries(self.entries)
+            for word, new in derived.items():
+                prons = self.entries[word]
+                changed[word] = list(prons)
+                prons[:] = new          # phone lists are shared, read-only
+        self.cmu_raw_entries = ChainMap(changed, self.entries)
+
+    def _reread_accent_readings(self):
+        """Rebuild `entries` from the shipped readings under this
+        lexicon's scheme (a copy made by `with_reader_scheme`)."""
+        self.entries = {w: list(p) for w, p in self.cmu_raw_entries.items()}
+        self._derive_cmu_readings()
+
     def with_reader_scheme(self, scheme):
         """-> this lexicon read under `scheme`, its declared readings validated
         again under that scheme's token positions (raises ValueError when one
@@ -1119,6 +1484,10 @@ class Lexicon:
             return self
         out = copy.copy(self)
         out.reader_scheme = scheme
+        if (scheme == "v1") != (self.reader_scheme == "v1"):
+            # v1 replays CMUdict as shipped; every other scheme reads the
+            # accent readings, so crossing that line re-reads the dictionary.
+            out._reread_accent_readings()
         if getattr(self, "pronunciations", ()):
             from quality.pronunciation import validate_choices
             out.pronunciations = validate_choices(self.pronunciations, out)
@@ -1167,6 +1536,30 @@ class Lexicon:
             if phones not in prons:
                 prons.append(phones)
         return prons
+
+    def dictionary_readings(self, word):
+        """-> the readings a `basis: dictionary` choice may name for `word`:
+        this lexicon's own (accent readings included), then any CMUdict
+        reading the respelling rewrote, so a choice saved before the accent
+        readings still validates (`quality.pronunciation.dictionary_readings`)."""
+        key = fold_apostrophes(word).lower()
+        out = [list(p) for p in self.entries.get(key, [])]
+        for p in self.cmu_raw_entries.get(key, ()):
+            if list(p) not in out:
+                out.append(list(p))
+        return out
+
+    def reading_source(self, word, phones):
+        """-> 'cmudict' for one of CMUdict's own readings, 'rule:<name>' for a
+        reading `derive_accent_readings` wrote, None otherwise. A derived
+        reading is never credited to the dictionary."""
+        key, phones = fold_apostrophes(word).lower(), tuple(phones)
+        rule = self.reading_rules.get((key, phones))
+        if rule:
+            return f"rule:{rule}"
+        if any(tuple(p) == phones for p in self.cmu_raw_entries.get(key, ())):
+            return "cmudict"
+        return None
 
     def transcribe_word(self, word):
         """Return (phones, oov_flag). Naive fallback for out-of-vocabulary."""
@@ -5008,7 +5401,7 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                          if s["relations"] & RHYME_RELATIONS
                          else f"unintended {relation_label(s)} across "
                               f"scheme letters, NOT a rhyme"))
-    # ALL ~~77~~ 78 SCHEMAS ARE IN THE DEFAULT (M-116), judged by
+    # ALL ~~77~~ ~~78~~ 80 SCHEMAS ARE IN THE DEFAULT (M-116), judged by
     # `relations.whole_vocabulary_pairs` — THE SAME CALL
     # `quality.revise.grade` makes, so the two readers consult one judge
     # (doctrine 1). REPEAT stays a violation — identity has its own licence
@@ -5037,7 +5430,10 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
         _wvp = _WVP(list(lines), _PH.get("eng"),
                     bearing={x for pr in mandated for x in pr},
                     requested_pairs=_asked,
-                    bound={pr: (-1, -1) for pr in _asked})
+                    bound={pr: (-1, -1) for pr in _asked}).listed(_asked)
+        # THE RULE-5 LISTING (M-322, 2026-10-30): every schema some whole
+        # reading of the words holds is listed, with its readings, whether
+        # or not a definite one already satisfies the pair.
         from quality.relations import REGISTRY as _REG
         for pr in sorted(_asked):
             if pr in _wvp:
@@ -5049,8 +5445,11 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                         if _REG[n].normative not in ("forbidden",
                                                      "deprecated")]
                 if _sat:
-                    schema_satisfied.append({"lines": pr,
-                                             "satisfied_by": _sat})
+                    _rd = {n: w for n, w in _wvp.readings.get(pr, {}).items()
+                           if n in _sat}
+                    schema_satisfied.append(
+                        {"lines": pr, "satisfied_by": _sat,
+                         **({"readings": _rd} if _rd else {})})
         _kept = []
         _sat_pairs = {tuple(d["lines"]) for d in schema_satisfied}
         for v in violations:
@@ -5060,8 +5459,6 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                 # (2026-10-27, end-of-day plan, #519 6448819660: identical
                 # words that satisfy a type are not charged as REPEAT).
                 continue
-            elif v[3].startswith("REPEAT"):
-                _kept.append(v)
             elif admit_is_default(decl) and [
                     n for n in _wvp.undecided.get(pr, ())
                     if _REG[n].normative not in ("forbidden", "deprecated")]:
@@ -5082,7 +5479,9 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                     pair_schemas[pr] = sorted(set(pair_schemas.get(pr, ()))
                                               | set(_sat))
                     continue
-                if not names:
+                # An identical word no reading clears stays a REPEAT; it is
+                # resolved first, as `Reviser.grade` does (her/her).
+                if not names or v[3].startswith("REPEAT"):
                     _kept.append(v)
                     continue
                 refusals.append({"lines": pr,
@@ -5460,7 +5859,11 @@ def parse_lyric_sections(text):
 
 
 
-LONG_VOWELS = {"IY", "UW", "AA", "AO", "ER", "EY", "OW", "AY", "AW", "OY"}
+LONG_VOWELS = {"IY", "UW", "AA", "AO", "ER", "EY", "OW", "AY", "AW", "OY",
+               # extended inventory: the long, centring and diphthongal ones
+               # (LOT OO and the Scottish centralised EO are short).
+               "IA", "EA", "UA", "OA", "EU", "OE", "EE", "IE", "IU", "UI",
+               "OU", "AI", "EI", "UU", "AU", "II", "UO", "IO", "UE", "OI"}
 
 
 def syllable_weight(s):
@@ -6141,7 +6544,9 @@ def check_cynghanedd(lex, text, decl, language="cym", caesura="marked",
 
 
 RIDF_CLASS = {"AA": "alif", "UW": "waw", "OW": "waw",
-              "IY": "ya", "AY": "ya", "EY": "ya"}
+              "IY": "ya", "AY": "ya", "EY": "ya",
+              # a derived accent reading keeps its source vowel's class
+              "IE": "ya", "EE": "ya", "UI": "ya", "OE": "waw", "IU": "waw"}
 
 
 def _qafiya_parts(lex, line):
@@ -7498,7 +7903,7 @@ VERB_LAYERS = (
     ("partition", "quality/schemes.py", "set partitions, Bell numbers"),
     ("refrain", "quality/schemes.py", "A-1 notation: the VERBATIM return"),
     ("cycle", "quality/meter.py", "exact-rational metric cycles"),
-    ("relations", "quality/relations.py", "~~77~~ 78 named relation "
+    ("relations", "quality/relations.py", "~~77~~ ~~78~~ 80 named relation "
      "schemas (`len(relations.REGISTRY)` is the count)"),
     ("brief / verify / song", "quality/revise.py",
      "the revision loop -- song adds a structural pre-check against "
@@ -11093,9 +11498,24 @@ def main():
                   f"members. That is a refusal, not a non-rhyme.")
             _lyric_result(**_lexicon_kw(), status="unreadable", exit=0)
             return
+        # THE ANY-READING RULE (owner ruling 2026-10-01): where the merged
+        # readings leave a channel undecided, each whole reading of each
+        # word, paired within one accent, is classified on its own.
+        per_reading = []
+        if any(v is None for syl in t.agreement for v in syl):
+            combos, _ = RT._member_reading_combos(w1, w2, phon, phon)
+            for pinned in combos:
+                try:
+                    tt = RT.classify_pair(w1, w2, phon, member_phons=pinned, **kw)
+                except RT.Indeterminate:
+                    continue
+                if tt is not None:
+                    per_reading.append(tt)
         print(f"  phonology: {lang} — {phon.name}")
         print(f"  agreement (onset,nucleus,coda) per syllable: {t.agreement}")
         print(f"  cells: {t.cells()}")
+        for k, tt in enumerate(per_reading, 1):
+            print(f"  whole reading {k}: agreement {tt.agreement}, cells {tt.cells()}")
         for side, a in (("A", t.anchor_a), ("B", t.anchor_b)):
             print(f"  anchor {side}: {a.rule} / {a.determinacy} / span "
                   f"{a.span}" + (f" / index {a.index}" if a.index is not None
@@ -11119,6 +11539,8 @@ def main():
             # EVERY name the pair supports, over EVERY alignment
             # `classify_pair` tried — not the one alignment it kept.
             names = t.every_name()
+            for tt in per_reading:
+                names += tuple(n for n in tt.every_name() if n not in names)
         if position is None:
             # An INCOMPLETE coordinate is not an unnamed one. Say which axis
             # is missing and how many names need it, derived from the table
@@ -12116,7 +12538,7 @@ def main():
                              line_status=ground.line_status,
                              exclude_status=ground.exclude_status)
         # --schema= IS A SUBSTRING FILTER OVER THE POPULATION THE TWO COUNTS
-        # BELOW ARE TAKEN FROM, and an unmatched value used to filter all ~~77~~ 78
+        # BELOW ARE TAKEN FROM, and an unmatched value used to filter all ~~77~~ ~~78~~ 80
         # schemas out and print `schemas finding something: 0   refusing on a
         # capability eng does not have: 0` at exit 0 -- the SAME SHAPE as a
         # genuine null, wrapped in the two paragraphs about how to read these
@@ -12136,7 +12558,7 @@ def main():
         #     whose denominator was silently changed is doctrine 91's defect
         #     exactly. The filter stays a substring match on purpose -- it is
         #     how `--schema=rhyme` reaches a family -- so saying HOW MANY of
-        #     the ~~77~~ 78 it selected is the only way a reader can tell a narrow
+        #     the ~~77~~ ~~78~~ 80 it selected is the only way a reader can tell a narrow
         #     filter from a wide one.
         all_schemas = list(RL.all_schemas().values())
         selected = [s for s in all_schemas

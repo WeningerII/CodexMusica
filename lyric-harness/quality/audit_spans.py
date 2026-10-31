@@ -672,8 +672,26 @@ def sweep_record(lex, decl, verbose=True):
 #: ties unchanged. The four pairs that left are identical end words (sonnet
 #: 9 and 26 it/it, 42 her/her, 150 thee/thee). Measured by `--check`;
 #: partition rewritten by `--write-oracle`.
+#: REPINNED 2026-10-30, THE ENGLISH SOUND INVENTORY (`MISSING.md` M-322):
+#: every word carries its rule-derived accent readings. 1012/52/36 ->
+#: 1012/52/24; mandated, judged, refused and claimed unmoved. The twelve
+#: pairs that left: ten hold as consonance in one consistent non-rhotic
+#: reading (herd/beard, deserts/parts, worth/forth x3, desert/part,
+#: desert/impart, word/afford, words/affords x2) and two pass the registry
+#: consonance on two empty codas (were/bear, were/near: E-5 keeps empty/empty
+#: agreement).
+#: violations_claimed 8 -> 3 (the claimed pairs were among the twelve);
+#: ties 121 -> 357 and violation_ties 2 -> 5: the accent alternates give
+#: parallel spans that score equal, so more maxima are shared. No span or
+#: threshold rule changed. Measured by `--check`; partition rewritten by
+#: `--write-oracle=2026-10-30:...`.
+#: 2026-10-30, the same day, second step (M-322): the any-reading search
+#: first varies only the words that differ on what a schema reads, then every
+#: word. Sonnet 1 ornament/content (9/11), refused while every word was
+#: varied and the combinations passed the cap, is judged and violates:
+#: ~~judged 1012, refused 52, violations 24~~ -> 1013 / 51 / 25.
 PINNED = {
-    "mandated": 1064, "judged": 1012, "refused": 52,
+    "mandated": 1064, "judged": 1013, "refused": 51,
     #: ~~82~~ under the two-name door; ~~35~~ when it widened to all four
     #: relations (M-59); ~~12~~ when the whole schema vocabulary joined the
     #: default (M-116, owner ruling 2026-08-25 — 23 pairs stopped
@@ -685,7 +703,9 @@ PINNED = {
     #: 0 stopped, inside a preregistered ceiling of 20). THE FIRST THREE
     #: STEPS WIDENED THE DOOR AND THIS ONE TIGHTENED IT, which is why the
     #: count rose where it had fallen three times.
-    "violations": 36,
+    #: ~~40~~ ~~36~~ ~~24~~ -> 25 on 2026-10-30 (M-322: the twelve pairs
+    #: above leave; ornament/content, sonnet 1, is judged and joins).
+    "violations": 25,
     #: report lines that name the two words that actually produced the number
     "claimed": 633,
     #: the same question asked of the violations alone.
@@ -695,9 +715,12 @@ PINNED = {
     #: backwards: a widening retires ordinary end-word comparisons first
     #: (the population that DOES name its own words), and a tightening adds
     #: them back. Both new pairs are ordinary end-word assonance.
-    "violations_claimed": 8,
-    "ties": 121,
-    "violation_ties": 2,
+    #: ~~9~~ ~~8~~ -> 3 on 2026-10-30 (M-322).
+    "violations_claimed": 3,
+    #: ~~121~~ -> 357 on 2026-10-30 (M-322: equal-scoring accent spans).
+    "ties": 357,
+    #: ~~5~~ ~~2~~ -> 5 on 2026-10-30 (M-322).
+    "violation_ties": 5,
 }
 
 

@@ -2,8 +2,8 @@
 
 Instrument: `quality/capacity.py`; `--check` re-derives tier 1 in full
 and re-grades every sample witness (nightly CI lane). Artifact:
-`data/rhyme_capacity_eng.tsv`, 12,387 rows + header. Derived
-2026-08-19. NOT a corpus measurement: no songs were read, no nulls
+`data/rhyme_capacity_eng.tsv`, 12,381 data rows + header as of 2026-10-30
+(historically 12,387 rows + header). Originally derived 2026-08-19. NOT a corpus measurement: no songs were read, no nulls
 resampled — the inputs are the pronunciation lexicon, the frequency
 population, and the previously-calibrated two-tier ban, and the
 derivation is math over them. The same move that derived the planner's
@@ -51,13 +51,16 @@ answers alone, and `certify()` remains callable on any family).
 
 ## The numbers (`ADOPTED`, re-derived exactly by `--check`)
 
-**Now, re-adopted 2026-09-08:** 39,969 words in 12,387 first-reading construction
-families. The tier 1 counts remain 2,817 pools with at least 2 spelling classes,
-593 with at least 5, 162 with at least 12, and 81 with at least 20. These are
-upper bounds, not proof of earned chains. All 81 required families were
+**Now, re-measured 2026-10-30 (M-322):** 39,969 words in 12,381 first-reading
+construction families (previously 12,387). The tier 1 counts are 2,813 pools
+with at least 2 spelling classes, 591 with at least 5, 163 with at least 12,
+and 82 with at least 20 (previously 2,817 / 593 / 162 / 81). These are
+upper bounds, not proof of earned chains. The original 81 required families were
 reconstructed and actually reverified under explicit class:RHYME, including
-pronunciation uncertainty and the unchanged ban. The deepest verified chain
-is **39**, held by **ONE** family, `EH-R`. REPINNED 2026-09-24 with the
+pronunciation uncertainty and the unchanged ban. Their witnesses still certify;
+the newly merged IA-R family adds a certified 19-word witness, for 82 total.
+The deepest verified chain is **39**, held by **ONE** family, `EA-R`
+(renamed from `EH-R` on 2026-10-30). REPINNED 2026-09-24 with the
 N-relation model's re-certified artifact, superseding ~~**22**, held by
 **TWO** families, `IY` and `IY-Z`~~, which was REPINNED 2026-09-16
 with E-5, superseding a 23 that IY-Z witnessed alone; the entry names the
@@ -149,8 +152,9 @@ of 64 (22%). A deeper family has more pairs for the ban to land on. The three
 families this document quotes by name all moved: `AY-ER` (fire's) 28 → **27**,
 `IY` 37 → **34**, `EH-R` 33 → **31**.
 
-**Now, 2026-09-24 (N-relation model):** `max_chain_lo_family` is `EH-R`;
-the 39-word bound is held by `EH-R` alone. Superseded (doctrine 17):
+**Now, 2026-10-30 (M-322):** `max_chain_lo_family` is `EA-R`;
+the 39-word bound is held by `EA-R` alone. The 2026-09-24 N-relation
+model certified that same depth under the former name `EH-R`. Superseded (doctrine 17):
 ~~2026-09-16 (E-5): `max_chain_lo_family` is `IY`, superseding IY-Z; the
 22-word bound is held jointly by IY and IY-Z~~. It is the largest
 actual witness from bounded construction, not an upper bound on the language.
@@ -246,9 +250,10 @@ cause this time took re-grading the witnesses under both tables.
    PRIMARY and digs a distinct string per word (dictate -ictate, rotate
    -otate). Tier 1 barely binds there; the modal tier is what pinches.
 3. **Current re-adoption, 2026-09-08:** AY-ER (fire's family): 34 classes,
-   certified **16**. IY: attempts 40, certified **35**. EH-R
-   (there/care/hair): 47 classes, certified **39**. (REPINNED 2026-09-24
-   with the N-relation model; superseded ~~IY 22, EH-R 20~~.) The gap now includes
+   certified **16**. IY: attempts 40, certified **35**. EA-R
+   (there/care/hair): 48 classes, certified **39**. (Updated 2026-10-30:
+   formerly EH-R with 47 classes; the certified depth is unchanged. REPINNED
+   2026-09-24 with the N-relation model; superseded ~~IY 22, EH-R 20~~.) The gap now includes
    exact declared-relation and pronunciation refusals as well as the two-tier
    ban; it must not all be attributed to the modal tier.
 
@@ -264,7 +269,8 @@ cause this time took re-grading the witnesses under both tables.
 4. **The witness cliques are usable objects, not just numbers.** Each
    current row carries the actually accepted words. `capacity fire` prints
    the **16**-word clique, re-adopted 2026-09-08. The current-runtime receipt
-   must verify all 81 witnesses before production can claim that acceptance.
+   must verify all 82 witnesses before production can claim that acceptance
+   (81 before the 2026-10-30 IA-R addition).
 
 **Was:** **The witness cliques are usable objects, not just numbers.** Each
    certified row carries the words the grader accepted — `capacity

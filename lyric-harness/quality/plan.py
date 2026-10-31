@@ -1239,7 +1239,7 @@ def _place_group(group, rng, max_token, used):
 
     A PLACEMENT PER MEMBER, uniform over what the grading path can resolve.
     Per member and not per group, because the mixed case is real and is the
-    one no letter scheme can express: ~~8~~ 7 of the registry's ~~77~~ 78 schemas
+    one no letter scheme can express: ~~8~~ 7 of the registry's ~~77~~ ~~78~~ 80 schemas
     anchor their two members differently (`spans[0].anchor !=
     spans[-1].anchor`; `choices.placements.measure` prints the live count),
     and linked rhyme binds a line-final to
@@ -1333,6 +1333,14 @@ _UNPLANNABLE_KIND_REASON = {
     "a_is_split_token": ("its first member is a word split across the line "
                          "break, which the grading stream has no reading for"),
 }
+
+#: Predicates the feasibility gate (`relations.planning_traits`) has not
+#: learned (2026-10-30, `MISSING.md` M-323). A type with a REQUIRED channel
+#: judged by one is refused loudly, never planned as if the rule were not
+#: there: `planning_traits` would emit a claim the gate cannot read, or none.
+#: The interior-schema contract names the planner refusal until the gate
+#: learns the predicate; read off the channel's predicate, never the name.
+GATE_UNREAD_PREDICATES = ("BothPresent",)
 
 #: The loci a declared token can stand in for (`relations._TOKEN_LOCI`).
 _TOKEN_LOCI = ("line_final_token", "line_initial_token", "any_token")
@@ -1512,7 +1520,14 @@ def type_eligibility(language="eng"):
       (e) it is not specifically for another language: excluded only when
           its registry `traditions` name languages and none of them is
           `language`; a type whose traditions name no language is not
-          excluded on that ground.
+          excluded on that ground;
+      (f) no required channel is judged by a predicate the feasibility gate
+          has not learned (`GATE_UNREAD_PREDICATES`, M-323): today that is
+          BOTH-PRESENT, so `internal consonance` is refused by name of its
+          rule until `planning_traits` reads it;
+      (g) its row states no `unplanned` reason (M-323): a type registered
+          for the views and not yet decided for the draw (`internal
+          assonance`) says so on the row, and is refused with those words.
 
     (e) is the owner's ruling (2026-10-27, about 17:35Z), verbatim: "if it's
     not specifically for English then it doesn't count for English", with
@@ -1531,6 +1546,9 @@ def type_eligibility(language="eng"):
         if sch.normative != "attested":
             refused[name] = (f"the registry marks it {sch.normative}; a "
                              f"disowned type is never planned")
+            continue
+        if sch.unplanned:
+            refused[name] = sch.unplanned
             continue
         if have is None:
             refused[name] = (f"no grade stream is declared for language "
@@ -1569,6 +1587,15 @@ def type_eligibility(language="eng"):
             refused[name] = _UNPLANNABLE_KIND_REASON.get(
                 bad[0], f"its placement {bad[0]} is not one the planner can "
                         f"place")
+            continue
+        unread = [c for c in sch.channels or () if c.required
+                  and type(c.predicate).__name__ in GATE_UNREAD_PREDICATES]
+        if unread:
+            c = unread[0]
+            refused[name] = (f"its {c.channel} rule is "
+                             f"{getattr(c.predicate, 'name', '')}, which the "
+                             f"planner's feasibility gate cannot read yet, so "
+                             f"it is refused rather than planned without it")
             continue
         members, why = fit_type(sch, [1, 2], random.Random(0), 4,
                                 section_lines=[1, 2], tries=256)
@@ -1884,6 +1911,8 @@ def _channel_clause(c):
         on = "Q" if getattr(pred, "on", 1) == 1 else "P"
         off = "P" if on == "Q" else "Q"
         s = f"the {what} {where} is present in {on} and absent in {off}"
+    elif kind == "BothPresent":
+        s = f"the {what} {where} is present in both P and Q"
     elif kind == "SequenceSuffix":
         s = f"the {what} of one of P and Q {where} end the other's"
     elif kind == "SubsequenceOf":
@@ -5017,6 +5046,8 @@ def schema_asks(sch):
             bits.append(f"{c.channel} present on the {extra} word and "
                         f"absent on the {bare} (the {extra} runs on where "
                         f"the {bare} stops)")
+        elif isinstance(pred, _RLs.BothPresent):
+            bits.append(f"{c.channel} present on both words")
         elif isinstance(pred, _RLs.ClassEqual):
             label = getattr(pred, "label", "") or "a declared partition"
             bits.append(f"{c.channel} agree by CLASS, not sound "

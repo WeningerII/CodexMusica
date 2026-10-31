@@ -27,6 +27,30 @@ NATIVE_WORK_METHODS = {
     "som": ("higaad", "readability"),
 }
 
+# SHARED SOUND (`namespace: "shared_sound"`; #637, John's O1 widening): what
+# two occurrences' sounds share at one aligned position, read through the
+# engine's shared channel read (`relations.pair_channel_reads`) and judged
+# with the engine's own predicates. Never a registered figure: no locus,
+# placement or identity rule narrows it. Each method's name carries its
+# version, so a changed definition is a new method id.
+SHARED_SOUND_VERSION = 1
+#: method -> (channel-read family, channel, aligned position, both present).
+#: "anchor" is the pair of last-stressed syllables; "first" the word-initial
+#: one. Onset and coda need material on both members (John: "Require a real
+#: consonant"): two empty onsets or two open codas share no sound.
+SHARED_SOUND_METHODS = {
+    "vowel": ("last_stressed", "nucleus", "anchor", False),
+    "coda": ("last_stressed", "coda", "anchor", True),
+    "onset": ("word_start", "onset", "first", True),
+    "stressed_onset": ("last_stressed", "onset", "anchor", True),
+}
+SHARED_SOUND_LAYER = "Shared sound (not a registered figure)"
+
+
+def shared_sound_name(key: str) -> str:
+    return f"{key}@v{SHARED_SOUND_VERSION}"
+
+
 REMEDIES = {
     "prominence": "This method requires the selected phonology's declared prominence channel.",
     "tone": "Supply a phonology that declares 平/仄 tone, not lexical stress.",
@@ -69,6 +93,17 @@ def build_registry() -> dict:
                         "scopes": {lang: RL.tradition_scope(s, lang) for lang in LANGUAGES},
                         "remedies": {c: REMEDIES.get(c, "Supply the installed, versioned quotient named " + c)
                                      for c in s.capabilities()}})
+    for key, (family, channel, position, present) in SHARED_SOUND_METHODS.items():
+        name = shared_sound_name(key)
+        methods.append({"id": method_id("shared_sound", name), "namespace": "shared_sound", "name": name,
+                        "reader_requestable": True, "layer": SHARED_SOUND_LAYER,
+                        "version": SHARED_SOUND_VERSION, "family": family, "channel": channel,
+                        "position": position,
+                        "predicates": ["AGREE"] + (["BOTH-PRESENT"] if present else []),
+                        "definition": f"The two occurrences' {channel} agree at the "
+                                      + ("last-stressed syllables" if position == "anchor" else "word-initial syllables")
+                                      + (", with material on both" if present else "")
+                                      + ", under one whole reading. Not a registered figure."})
     for name in RT.CLASS_RELATIONS:
         methods.append({"id": method_id("class", name), "namespace": "class", "name": name,
                         "reader_requestable": False, "reader_surface": "native_pair.class_verdicts"})
@@ -103,6 +138,7 @@ def build_registry() -> dict:
               "capabilities": capabilities, "counts": {"schemas": len(RL.REGISTRY),
                   "types": len(labels), "type_cells": len(RT.NAMED),
                   "classes": len(RT.CLASS_RELATIONS), "functions": len(functions),
+                  "shared_sound": len(SHARED_SOUND_METHODS),
                   "pair_local": sum(RL.pair_scope_representable(s) for s in RL.REGISTRY.values()),
                   "whole_figures": sum(not RL.pair_scope_representable(s) for s in RL.REGISTRY.values())}}
     result["registry_hash"] = digest(result)

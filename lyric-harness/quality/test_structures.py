@@ -123,8 +123,11 @@ def test_cell_uncertainty():
     for a, b, agreement, want in (
         ("han'", "frocks", ((False, None, False),), False),
         ("fall", "along", ((False, None, False),), False),
-        ("office", "color", ((False, None, True), (False, False, False)), None),
-        ("read", "seed", ((False, None, True),), None),
+        # 2026-10-30, standing rule 5: the merged channels still read None,
+        # and the judge now asks again under each whole reading. was None
+        # for both; color K AO1 L ER0 and read R IY1 D settle them True.
+        ("office", "color", ((False, None, True), (False, False, False)), True),
+        ("read", "seed", ((False, None, True),), True),
         ("reed", "seed", ((False, True, True),), True),
     ):
         check(f"{a}/{b}: actual merged readings are {agreement}",

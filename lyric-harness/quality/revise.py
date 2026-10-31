@@ -1632,7 +1632,8 @@ class Reviser:
     # -- grading the mandate ----------------------------------------------
 
     def grade(self, lines, mandate=None, profile=None, sections=None, *,
-              _only_groups=None, _verdicts_only=False, _moot=None):
+              _only_groups=None, _verdicts_only=False, _moot=None,
+              _schema_report=True):
         """The mandate, diffed against the graph. -> dict, group-scoped.
 
         `sections` IS THE STANZA GROUND AND IT IS PASSED, NEVER INVENTED
@@ -2330,7 +2331,7 @@ class Reviser:
         # mandate itself -- was flagged as a violation under the default
         # "unlicensed" setting, and `revise_loop` would then try to "fix" a
         # refrain that was already correct.
-        # ALL SCHEMAS (~~77~~ 78) ARE IN THE DEFAULT — ruling 2026-08-25, OWNER RULING, the
+        # ALL SCHEMAS (~~77~~ ~~78~~ 80) ARE IN THE DEFAULT — ruling 2026-08-25, OWNER RULING, the
         # second half of the instruction whose first half widened the admit
         # set to all four classes on 2026-08-22 (`MISSING.md` M-116, task
         # #86). A mandated pair that declared NO relation and NO structure is
@@ -2405,6 +2406,25 @@ class Reviser:
                     # A trial grade reads pass/fail only: stop asking a pair
                     # once one satisfier holds it (the answer cannot move).
                     settle=_verdicts_only, bound=rnd)
+                if not _verdicts_only and hasattr(_wvps[id(rnd)], "listed"):
+                    # THE RULE-5 LISTING (M-322, 2026-10-30): `schemas`
+                    # names every schema some whole reading holds, not only
+                    # the definite ones.
+                    # `_schema_report=False` (a caller that reads verdicts,
+                    # bans and refusals but no pair's schema list --
+                    # `capacity._group_measurement`) resolves only the pairs
+                    # whose verdict the listing can move: an open route the
+                    # coarse relations failed. Every other pair's listing
+                    # only adds names to `schemas`/`relations`. On the
+                    # capacity witness EA-R (39 words, 741 pairs) the full
+                    # listing was 334.5 of the grade's 357.2 s (7,387
+                    # resolutions), with every verdict, ban and count the
+                    # same without it (2026-10-31).
+                    _wvps[id(rnd)] = _wvps[id(rnd)].listed(
+                        None if _schema_report else
+                        {tuple(sorted(v["lines"])) for v in _asked
+                         if v.get("_round") is rnd and v["why"]
+                         and self.schema_route_open(m, v["group"])})
             _open_ids = {id(v) for v in _open}
             _fan_unknown = set()
             for v in _asked:
@@ -2423,6 +2443,12 @@ class Reviser:
                     v["satisfied_by"] = sorted(set(v["satisfied_by"])
                                                | set(v["admitted"])
                                                | set(_sat))
+                    _rd = (getattr(_wvp, "readings", {})
+                           .get(tuple(sorted(v["lines"]))) or {})
+                    if _rd and all(n in _rd for n in _sat):
+                        # Held only under a whole reading: the readings are
+                        # named, as on the any-reading route below.
+                        v["readings"] = {n: _rd[n] for n in _sat}
                     # IDENTICAL WORDS THAT SATISFY A TYPE ARE NOT CHARGED AS
                     # REPEAT (2026-10-27, end-of-day plan, #519 6448819660):
                     # a pair the whole vocabulary satisfies passes whatever
@@ -2932,7 +2958,7 @@ class Reviser:
                 # `break`, which made the SCHEMA half of the default
                 # unaskable here: (b) asked `decl.admit` alone, four
                 # relations, while `grade()` accepts on those OR on any of
-                # the ~~77~~ 78 schemas since M-116.
+                # the ~~77~~ ~~78~~ 80 schemas since M-116.
                 #
                 # (a) IS THE CHEAP ONE AND IT IS CHECKED FIRST. A pair that
                 # is not a collision fails outright and no rescue applies --
@@ -2940,7 +2966,7 @@ class Reviser:
                 # already emitting, which is the honesty argument this
                 # method's docstring makes.
                 #
-                # THE ~~77~~ 78 ARE ASKED ONLY FOR (b)'s SURVIVORS, and MEASURED
+                # THE ~~77~~ ~~78~~ 80 ARE ASKED ONLY FOR (b)'s SURVIVORS, and MEASURED
                 # that is almost never: over 400,000 random CMUdict pairs
                 # (seed 20260810) 2,576 clear `THETA_COLLISION`, and of
                 # those exactly **2 (0.08%)** type NO_RELATION -- which is
@@ -5706,11 +5732,19 @@ class Reviser:
                     # so the frame here is the capability gate and nothing
                     # else (M-39(b) is about a figure quantified over a
                     # frame nobody declared, which this route does not run).
-                    st = _RL.build_stream(["the %s one" % c,
-                                           "it was %s" % w], lex,
+                    pair = ["the %s one" % c, "it was %s" % w]
+                    st = _RL.build_stream(pair, lex,
                                           declaration={"language": "eng"},
                                           stanzas=False)
-                    got = _RL.pair_satisfies(sch, st, (0, 1), (1, -1))
+                    # STANDING RULE 5, as `grade()` judges the same pair: a
+                    # None the two words' readings leave is asked again under
+                    # each whole reading, paired within one accent.
+                    build = _RL.cached_builder(
+                        lambda ph, pair=pair: _RL.build_stream(
+                            pair, ph, declaration={"language": "eng"},
+                            stanzas=False))
+                    got, _ = _RL.pair_satisfies_any(sch, st, (0, 1), (1, -1),
+                                                    build)
                 except Exception:
                     got = False         # unknown cannot be a verified offer
                 if isinstance(got, _RL.Refusal):

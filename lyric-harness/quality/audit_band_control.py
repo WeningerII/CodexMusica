@@ -383,13 +383,31 @@ def main(n=200):
 #: chain. The OFF rows moved, and the 2026-09-16 note above already says what
 #: that means now: ingestion, null OR scorer, and here the scorer's anchor set.
 #: NOT TUNED: `captured_lines`, theta 0.82 and both declarations untouched.
+#: REPINNED 2026-10-30, THE ENGLISH SOUND INVENTORY (`MISSING.md` M-322, owner
+#: ruling: the NEAR/SQUARE vowel is its own sound and echoes neither see nor
+#: his). Before a coda R, IH/IY are respelled IA and EH/AE/EY EA, so the
+#: chains that bridged across that vowel split; no chain was added that did
+#: not split from one. MEASURED by diffing `infer_chains` on 94ac9c2cc and
+#: this tree:
+#:   whitman_captured_off   ~~43~~ 42    28.7% -> 28.0%
+#:   whitman_captured_on      33 (UNMOVED)
+#:   sonnet_captured_off    ~~442~~ 440  52.6% -> 52.4%
+#:   sonnet_captured_on     ~~432~~ 430  51.4% -> 51.2%
+#: WHICH LINES. Whitman OFF: [6,7,9] air/their/begin -> [6,7] + [8,9]
+#: same/begin; [146,148] men/somewhere left. Sonnets, both arms: 16
+#: repair/pen/fair/men -> repair/fair (OFF also keeps still/skill joined:
+#: 6 -> 4 lines); 31 tear/appear/live/give -> two pairs (count unmoved); 14
+#: prognosticate/date gains L12 convert'. OFF only: 12 leaves/sheaves/beard
+#: -> leaves/sheaves, go/grow -> make/forsake. ON only: 21 air/well/sell ->
+#: well/sell.
+#: NOT TUNED: `captured_lines`, theta 0.82 and both declarations untouched.
 PINNED = {"whitman_lines": 150,
-          "whitman_captured_off": 43,   # REPINNED 2026-10-01 ~~37~~ ~~36~~
+          "whitman_captured_off": 42,   # REPINNED 2026-10-30 ~~37~~ ~~36~~ ~~43~~
           "whitman_captured_on": 33,    # REPINNED 2026-10-01 ~~16~~ ~~36~~ ~~27~~
           "sonnet_items": 60,
           "sonnet_lines": 840,
-          "sonnet_captured_off": 442,   # REPINNED 2026-10-01 ~~441~~
-          "sonnet_captured_on": 432}    # REPINNED 2026-10-01 ~~406~~ ~~441~~ ~~431~~
+          "sonnet_captured_off": 440,   # REPINNED 2026-10-30 ~~441~~ ~~442~~
+          "sonnet_captured_on": 430}    # REPINNED 2026-10-30 ~~406~~ ~~441~~ ~~431~~ ~~432~~
 
 #: READING ORDER for the check's report only -- shape first, then the two arms
 #: per corpus, so the band-OFF control sits next to the band-ON figure it

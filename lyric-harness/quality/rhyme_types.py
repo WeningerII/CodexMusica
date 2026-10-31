@@ -2052,7 +2052,7 @@ def _reachable_phonetically(canon):
 #: `relations.Refusal`, imported lazily and cached, so `rhyme_types` keeps
 #: costing nothing for a mandate that declares no schema. A module-level
 #: `from quality import relations` here would make every `import rhyme_types`
-#: pay for the ~~77~~ 78-schema registry.
+#: pay for the ~~77~~ ~~78~~ 80-schema registry.
 def _SchemaRefusal_cls():
     from quality import relations as _R
     return _R.Refusal
@@ -2223,7 +2223,7 @@ def satisfies_relation(name, coarse, a=None, b=None, phon=None, preset=None,
         i, j = sorted(lines)
         if not instances and _all_same_line(canon):
             # AN INTRA-LINE FIGURE ASKED AS A PAIR RELATION. 19 of the
-            # ~~77~~ 78 schemas declare `same_line`/`same_token` placement
+            # ~~77~~ ~~78~~ 80 schemas declare `same_line`/`same_token` placement
             # (and 21 answer `_all_same_line`, which also takes the rest
             # of INTRA_LINE_PLACEMENTS and a `line`/`token` frame --
             # `python3 quality/figures.py` prints that count): they are properties of ONE line, so a mandate
@@ -2415,11 +2415,35 @@ def _member_readings(text, phon):
 
 def _member_reading_combos(a, b, pa, pb, cap=MEMBER_READING_CAP):
     """-> ([(phon_a, phon_b)], complete) over both members' readings."""
+    import lyric_harness as lh
     ra, rb = _member_readings(a, pa), _member_readings(b, pb)
-    pairs = list(itertools.islice(itertools.product(ra, rb), cap))
+
+    def reading_of(lex, word, parse):
+        # The whole reading a parse was made from (`English.parses`).
+        key = tuple((tuple(x.onset), x.nucleus, tuple(x.coda), x.prominence)
+                    for x in parse)
+        word = lh.fold_apostrophes(word).lower().strip("'\".,;:!?()[]")
+        for p in lex.entries.get(word, ()):
+            if tuple((tuple(y["onset"]), y["nucleus"], tuple(y["coda"]),
+                      1 if y["stress"] in (1, 2) else 0)
+                     for y in lh.syllabify(p)) == key:
+                return p
+        return None
+
+    def spoken(text, phon, pins):
+        lex = phon._lexicon() if hasattr(phon, "_lexicon") else None
+        if lex is None:
+            return []
+        toks = str(text).split()
+        return [(lex, toks[i], reading_of(lex, toks[i], parse))
+                for i, parse in pins.items() if parse and i < len(toks)]
+    # One speaker sings both members: readings pair within an accent.
+    agree = (pair for pair in itertools.product(ra, rb)
+             if lh.accents_agree(spoken(a, pa, pair[0]) + spoken(b, pb, pair[1])))
+    pairs = list(itertools.islice(agree, cap + 1))
     return ([(_PinnedReading(pa, x) if x else pa,
-              _PinnedReading(pb, y) if y else pb) for x, y in pairs],
-            len(ra) * len(rb) <= cap)
+              _PinnedReading(pb, y) if y else pb) for x, y in pairs[:cap]],
+            len(pairs) <= cap)
 
 
 def _named_verdict(canon, a, b, phon, preset, position, member_phons):
@@ -2544,6 +2568,23 @@ def names_at(a, b, phon, position, preset=None):
     if position not in POSITION:
         raise ValueError(f"position {position!r} is not in the declared "
                          f"vocabulary {list(POSITION)}")
+    # THE ANY-READING RULE (owner ruling 2026-10-01): a name holds when one
+    # whole reading of each member, paired within one accent, holds it --
+    # merging the readings channel by channel leaves the commonest rhymes
+    # (go/no, night/light) undecided once a word has an accent alternate.
+    combos, _ = _member_reading_combos(a, b, phon, phon)
+    found, skipped = [], []
+    for pa, pb in combos or [(phon, phon)]:
+        got = _names_at_reading(a, b, phon, position, preset, (pa, pb))
+        if got is None:
+            return None
+        found += [n for n in got[0] if n not in found]
+        skipped += [n for n in got[1] if n not in skipped]
+    return tuple(found), tuple(n for n in skipped if n not in found)
+
+
+def _names_at_reading(a, b, phon, position, preset, member_phons):
+    """`names_at` under one pinned reading of each member."""
     import dataclasses as _dc
     kw = {"preset": preset} if preset else {}
     found, skipped = [], []
@@ -2567,7 +2608,8 @@ def names_at(a, b, phon, position, preset=None):
             continue
         try:
             t = classify_pair(a, b, phon, boundary=key[4], realisation=key[6],
-                              anchor_a=key[7], anchor_b=key[8], **kw)
+                              anchor_a=key[7], anchor_b=key[8],
+                              member_phons=member_phons, **kw)
         except Indeterminate:
             skipped.extend(n for n in names_here if n not in skipped)
             continue
@@ -2648,7 +2690,7 @@ def coarse_relation_consensus(lex, line_a, line_b, decl, relation=None,
                 ancs, label, _ = lh.line_anchors(reader, line, promote=promote,
                                                 small_end=end)
                 if ancs:
-                    out.append((ancs, label))
+                    out.append((ancs, label, (end_reader, key, None)))
             return out
         out = []
         for pron in prons:
@@ -2658,16 +2700,19 @@ def coarse_relation_consensus(lex, line_a, line_b, decl, relation=None,
                     endpoint_pronunciations=[pron], small_end=end)
                 if not ancs:
                     return []
-                out.append((ancs, label))
+                out.append((ancs, label, (end_reader, key, pron)))
         return out
     la, lb = member_lexicons or (lex, lex)
     aa, bb = candidates(line_a, la), candidates(line_b, lb)
+    # One speaker sings both end words: readings pair within an accent.
+    pairs = [((x[0], x[1]), (y[0], y[1])) for x, y in itertools.product(aa, bb)
+             if lh.accents_agree((x[2], y[2]))]
     if per_relation:
         names = tuple(sorted(decl.admit))
         if not aa or not bb:
             return {n: None for n in names}
         seen = {n: set() for n in names}
-        for (anc_a, word_a), (anc_b, word_b) in itertools.product(aa, bb):
+        for (anc_a, word_a), (anc_b, word_b) in pairs:
             score = lh.best_score(anc_a, anc_b, decl, word_a, word_b,
                                   profile=profile)
             held = lh.admitted_relations(score, decl.theta_rhyme,
@@ -2683,7 +2728,7 @@ def coarse_relation_consensus(lex, line_a, line_b, decl, relation=None,
         raise ValueError(f"quantifier {quantifier!r} is not one of "
                          f"'any', 'all', 'unanimous'")
     values = set()
-    for (anc_a, word_a), (anc_b, word_b) in itertools.product(aa, bb):
+    for (anc_a, word_a), (anc_b, word_b) in pairs:
         score = lh.best_score(anc_a, anc_b, decl, word_a, word_b, profile=profile)
         # MEMBERSHIP, NEVER EQUALITY: a reading satisfies a named class when
         # the class is AMONG the relations that reading stands in; a set of

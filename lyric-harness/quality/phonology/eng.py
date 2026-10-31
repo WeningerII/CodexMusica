@@ -173,7 +173,9 @@ class English(Phonology):
     language = "eng"
     name = "English (General American)"
     notation = ("ARPAbet, cmusphinx/cmudict master working copy (post-0.7b); "
-                "stress digits 0/1/2 on vowel phones")
+                "stress digits 0/1/2 on vowel phones; under reader scheme v2 "
+                "the extended English inventory and rule-derived accent "
+                "readings (lyric_harness.derive_accent_readings)")
     grid_unit = "syllable"
     prominence_rule = (
         "lexical stress from CMUdict (1 or 2 -> prominent, 0 -> not), with the "
@@ -297,6 +299,11 @@ class English(Phonology):
         # scheme (`v1`) is the declaration that carried no such key.
         if self.reader_scheme != "v1":
             d["reader_scheme"] = self.reader_scheme
+            # THE ACCENT READINGS (`lyric_harness.derive_accent_readings`)
+            # are read under every scheme but v1, so a memo keyed by this
+            # declaration moves with their rule version.
+            import lyric_harness as _lh
+            d["accent_readings"] = _lh.ACCENT_RULES
             # Under v2 the aside rule cuts the stream's words, so a reader
             # keeping `(...)` as sung is a different declaration (v1's stream
             # read no aside rule without a lexicon, and declared none).

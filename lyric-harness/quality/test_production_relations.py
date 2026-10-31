@@ -308,7 +308,14 @@ class ProductionRelations(unittest.TestCase):
         lines = battery.parse_sonnets(battery.corpus_path('sonnets.txt'))[92]
         for _ in range(2):
             got = R.whole_vocabulary_pairs(lines, get('eng'), bearing=set(range(14)))
-            self.assertNotIn((5,7), got)
+            # REPINNED 2026-10-30 (`MISSING.md` M-323) from
+            # `assertNotIn((5,7), got)`: unbound, the pair now stands in
+            # `internal consonance` through two words inside the lines, and
+            # in nothing else definite. The letter scheme binds the END
+            # words, where neither interior schema can stand (at least one
+            # member must not be line-final), so `check_scheme` below is
+            # unchanged.
+            self.assertEqual(sorted(got.get((5,7), ())), ['internal consonance'])
             self.assertIn('consonance', got.undecided[(5,7)])
         # The judge itself still answers None on the merged channels; a
         # grader resolves it over whole readings (standing rule 5): one
@@ -477,7 +484,12 @@ class ProductionRelations(unittest.TestCase):
             res = lh.check_scheme(lex, sonnet, 'ABABCDCDEFEFGG', decl)
             return {(v[0], v[1]) for v in res['violations']}
         sch = R.REGISTRY['chain rhyme (rap)']
-        self.assertIn((10, 12), flagged())
+        # REPOINTED 2026-10-30 (M-322): words~affords now holds as consonance
+        # (D Z) in one consistent non-rhotic accent, so L10/L12 is no longer
+        # flagged by either figure. The pair still flagged under both, and so
+        # the one this check can watch, is L9/L11 argument~spent.
+        # superseded: assertIn((10, 12), flagged()) at all three points.
+        self.assertIn((9, 11), flagged())
         R.REGISTRY['chain rhyme (rap)'] = R.declared_pair_schema(sch)
         try:
             # REPINNED 2026-10-02 (`MISSING.md` M-317, the bound words): the
@@ -488,11 +500,11 @@ class ProductionRelations(unittest.TestCase):
             # now stops this rescue on its own. MEASURED over the whole
             # battery: 40 violations with the swap and without it.
             # superseded: assertNotIn((10, 12), flagged()).
-            self.assertIn((10, 12), flagged())
+            self.assertIn((9, 11), flagged())
         finally:
             R.REGISTRY['chain rhyme (rap)'] = sch
             R._WVP_MEMO.clear()
-        self.assertIn((10, 12), flagged())
+        self.assertIn((9, 11), flagged())
 
     def test_scalar_pronunciation_consensus(self):
         import lyric_harness as lh

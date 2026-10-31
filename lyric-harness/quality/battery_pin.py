@@ -29,4 +29,13 @@ unshipped module fails in PR CI rather than in qualification.
 #: that moved and the price in `battery.py`'s repin history.
 #: ~~"violations": 40~~ -> 36, 2026-10-27 (identical words that satisfy a
 #: type are not charged as REPEAT; `battery.py` states the four pairs).
-EXPECTED = {"mandated": 1064, "judged": 1012, "refused": 52, "violations": 36}
+#: ~~"violations": 36~~ -> 24, 2026-10-30 (`MISSING.md` M-322, the English
+#: sound inventory: non-rhotic readings let ten pairs hold as consonance --
+#: herd/beard, deserts/parts, worth/forth x3, desert/part, desert/impart,
+#: word/afford, words/affords x2 -- and were/bear, were/near pass on two
+#: empty codas, which E-5 keeps agreeing; judged and refused unmoved).
+#: ~~"judged": 1012, "refused": 52, "violations": 24~~ -> 1013 / 51 / 25,
+#: the same day (M-322): the any-reading search varies first the words that
+#: differ on what a schema reads, so sonnet 1 ornament/content, refused when
+#: every word's combinations passed the cap, is judged and violates.
+EXPECTED = {"mandated": 1064, "judged": 1013, "refused": 51, "violations": 25}
