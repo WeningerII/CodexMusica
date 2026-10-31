@@ -393,7 +393,9 @@ def _group_measurement(reviser, words):
     lines = [f"we carry the evening to the {w}" for w in words]
     m = SC.mandate([list(range(1, len(words) + 1))], n_lines=len(words),
                    default_relation=f"class:{ADOPTED_RELATION}")
-    found = reviser.grade(lines, m)
+    # Verdicts, bans and refusals are all this reads, so the reporting-only
+    # schema listing is not resolved (`Reviser.grade`, `_schema_report`).
+    found = reviser.grade(lines, m, _schema_report=False)
     bad, incompatible = set(), set()
     for v in found["verdicts"]:
         pair = frozenset(i - 1 for i in v["lines"])
