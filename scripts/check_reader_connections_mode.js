@@ -153,6 +153,9 @@ const state = (page) =>
   });
 // At phone width the lens chips sit in the reader's sheet.
 async function reveal(page, sel) {
+  // The reader's paper can precede its asynchronous analysis mount. Absence
+  // is not a hidden phone control: wait for the requested control first.
+  await page.waitForSelector(sel, { state: 'attached' });
   if (!(await page.isVisible(sel))) await page.click('#surface-library [data-rd="sheet"]');
   await tick(page);
 }
