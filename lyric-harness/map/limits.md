@@ -39,6 +39,7 @@ Numeric caps and budgets: module-level constants in the harness files that ran f
 | PAIR_MEMO_CAP | 4,096 | `quality/relations.py` |
 | _PAIR_SCHEMA_CONSTANTS_CAP | 4,096 | `quality/relations.py` |
 | READING_COMBO_CAP | 64 | `quality/relations.py` |
+| CACHED_BUILDER_CAP | 256 | `quality/relations.py` |
 | FIELD_MEMO_CAP | 512 | `quality/revise.py` |
 | SCORE_MEMO_CAP | 8,192 | `quality/revise.py` |
 | RANK_MEMO_CAP | 2,048 | `quality/revise.py` |
