@@ -619,11 +619,18 @@ if (LIBRARY) {
   const inline = [];
   for (const file of fs
     .readdirSync(path.join(SRC, 'library'))
-    .filter((f) => f.endsWith('.js'))
+    .filter((f) => f.endsWith('.js') && f !== 'connection-adapter.js')
     .sort()) {
     const name = file.slice(0, -3);
+    const prelude =
+      name === 'analysis'
+        ? fs.readFileSync(path.join(SRC, 'connection-interaction.js'), 'utf8') +
+          '\n' +
+          fs.readFileSync(path.join(SRC, 'library/connection-adapter.js'), 'utf8') +
+          '\n'
+        : '';
     const code = squeeze(
-      `CMLibraryDefine(${JSON.stringify(name)}, function () {\n${fs.readFileSync(path.join(SRC, 'library', file), 'utf8')}\n});`,
+      `CMLibraryDefine(${JSON.stringify(name)}, function () {\n${prelude}${fs.readFileSync(path.join(SRC, 'library', file), 'utf8')}\n});`,
       // Factories are runtime code: shorten their private local bindings with
       // the same policy as inline runtime scripts. Public globals, property
       // keys and function/class names stay intact; hashes cover final bytes.

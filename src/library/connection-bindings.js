@@ -28,9 +28,7 @@ function liveRegion(container) {
   el.style.cssText = HIDDEN;
   container.append(el);
   const win = doc.defaultView;
-  const later =
-    (win && win.requestAnimationFrame && win.requestAnimationFrame.bind(win)) ||
-    ((f) => setTimeout(f, 0));
+  const later = win?.requestAnimationFrame?.bind(win) || ((f) => setTimeout(f, 0));
   // What one frame will say: the latest words replace earlier ones, and a
   // note (a poem that could not be laid out) is read after them.
   let pending = null;
@@ -59,22 +57,22 @@ function liveRegion(container) {
 
 // Keys on one view. Esc clears and Enter inspects anywhere in the view;
 // arrows move only inside the matrix grid. Typing in a field is never taken.
+// clear() returns whether it handled Escape; false leaves it to the reader.
 // handlers: { clear(), inspect(), move(key) }. Returns the unbind function.
 function bindKeys(root, ci, handlers, opts) {
   const grid = (opts && opts.grid) || null;
   function onKey(ev) {
     const t = ev.target;
-    const tag = t && t.tagName;
-    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (t && t.isContentEditable)) {
+    const tag = t.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || t.isContentEditable) {
       if (ev.key !== 'Escape') return;
     }
     // Space activates a non-native role="button" (the poem's and network's
     // SVG marks), as it does a real button.
-    const roleButton =
-      t && t.getAttribute && t.getAttribute('role') === 'button' && tag !== 'BUTTON';
+    const roleButton = t.getAttribute?.('role') === 'button' && tag !== 'BUTTON';
     const action = ev.key === ' ' && roleButton ? 'inspect' : ci.keyAction(ev.key);
     if (action === 'clear') {
-      handlers.clear();
+      if (!handlers.clear()) return;
     } else if (action === 'inspect') {
       if (tag === 'BUTTON' || tag === 'A') return; // their own activation
       handlers.inspect();
@@ -103,7 +101,7 @@ function urlSync(win, ci, current, onRestore, onRefused) {
     else onRestore(null);
     return result;
   }
-  function write(sel) {
+  function write(sel, replace = false) {
     const params = new URLSearchParams(win.location.search);
     const mine = new URLSearchParams(ci.encodeSelection(current.analysisIdentity, sel));
     for (const k of KEYS) {
@@ -113,7 +111,7 @@ function urlSync(win, ci, current, onRestore, onRefused) {
     const qs = params.toString();
     const url = win.location.pathname + (qs ? '?' + qs : '') + win.location.hash;
     if (url !== win.location.pathname + win.location.search + win.location.hash) {
-      win.history.pushState(null, '', url);
+      win.history[replace ? 'replaceState' : 'pushState'](null, '', url);
     }
   }
   const onPop = () => read();
@@ -190,7 +188,7 @@ function bottomSheet(container, title) {
   function close() {
     body.hidden = true;
     handle.setAttribute('aria-expanded', 'false');
-    if (returnTo && returnTo.isConnected) returnTo.focus();
+    if (returnTo?.isConnected) returnTo.focus();
     returnTo = null;
   }
   handle.addEventListener('click', () => (body.hidden ? open(handle) : close()));
@@ -249,11 +247,11 @@ function announceFor(ci, model) {
 // What a poem that could not be fully laid out says, once. Views report
 // ready, partial or unavailable per poem (layoutPoem); ready says nothing.
 const LAYOUT_RANK = { ready: 0, partial: 1, unavailable: 2 };
-function layoutWords(report) {
+function wordsOf(report) {
   let worst = 0,
     placed = 0,
     missing = 0;
-  for (const p of (report && report.poems) || []) {
+  for (const p of report?.poems || []) {
     worst = Math.max(worst, LAYOUT_RANK[p.status] || 0);
     placed += p.measured.length + p.fixture.length;
     missing += p.issues.length;
@@ -271,8 +269,10 @@ function mount(host, opts) {
   const { ci, current } = opts;
   const doc = host.ownerDocument;
   const win = opts.win || doc.defaultView;
+  // Read the same CSS mode that controls the visible matrix, not a second width.
   const narrow =
-    opts.narrow || (() => !!(win.matchMedia && win.matchMedia('(max-width: 600px)').matches));
+    opts.narrow ||
+    (() => win.getComputedStyle(stage.querySelector('.cv-layout')).display === 'block');
   let model = opts.model;
   let view = opts.view || 'poem';
   const live = liveRegion(host);
@@ -306,14 +306,14 @@ function mount(host, opts) {
   // has no marks to take it, so layout() gives it to the mark it draws.
   let wanted = '';
   const fonts = doc.fonts;
-  function focusKeyIn(root, key, related = true) {
-    if (!key) return false;
+  function focus(root, key, related = true) {
+    if (!key) return;
     // The same selection can be drawn twice: at phone width the matrix row's
     // button and the hidden desktop cell share a key. Focus the one on screen;
     // focusing a hidden one does nothing and leaves the reader on the page.
     const nodes = [...root.querySelectorAll('[data-selection]')];
     const all = nodes.filter((node) => node.dataset.selection === key);
-    const shown = (n) => n.getClientRects().length > 0;
+    const shown = (n) => n.getClientRects().length;
     let node = all.find(shown) || all[0];
     // A selection a view no longer draws (a phone matrix row replaces the
     // occurrence chooser that picked it) keeps focus with what it chose: the
@@ -325,14 +325,12 @@ function mount(host, opts) {
       node = want.length
         ? nodes.find((n) => {
             const other = shown(n) && ci.selectionFromKey(n.dataset.selection);
-            const has = other ? ci.selectionOccurrences(other) : [];
-            return want.every((id) => has.includes(id));
+            return other && want.every((id) => ci.selectionOccurrences(other).includes(id));
           })
         : null;
     }
-    if (!node) return false;
-    node.focus();
-    return true;
+    node?.focus();
+    return doc.activeElement === node;
   }
   function layout(root, g) {
     if (g !== gen || !root.isConnected || typeof views.layoutPoem !== 'function') return;
@@ -342,14 +340,24 @@ function mount(host, opts) {
     const a = doc.activeElement;
     const held = a && stage.contains(a) && a.closest('[data-selection]');
     const key = held ? held.dataset.selection : !a || a === doc.body ? wanted : '';
-    const { rank, words } = layoutWords(views.layoutPoem(root));
-    if (key && !(doc.activeElement && stage.contains(doc.activeElement))) focusKeyIn(root, key);
+    const { rank, words } = wordsOf(views.layoutPoem(root));
+    if (key && !(doc.activeElement && stage.contains(doc.activeElement))) focus(root, key);
     // Said when it gets worse, not on every redraw; a clean layout resets it.
     if (rank > announced) live.note(words);
     announced = rank;
   }
   function draw(focusKey) {
+    const controls = 'input,select,summary,button';
+    const signature = (node) => JSON.stringify([node.tagName, node.className, node.dataset]);
+    const active = doc.activeElement;
+    const inside = stage.contains(active);
+    focusKey ||= inside && active.closest('[data-selection]')?.dataset.selection;
+    const control = inside && !focusKey && active.matches(controls) && signature(active);
+    const opened = sheet?.isOpen();
+    const menuOpen = stage.querySelector('details')?.open;
     const root = views.render(model, { view });
+    const menu = root.querySelector('details');
+    if (menu) menu.open = !!menuOpen;
     const g = ++gen;
     wanted = focusKey || '';
     stage.replaceChildren(root);
@@ -360,31 +368,40 @@ function mount(host, opts) {
       sheet = bottomSheet(root, 'Pair inspector');
       sheet.body.append(pane);
     }
-    if (!fonts || fonts.status === 'loaded') {
-      layout(root, g);
-      focusKeyIn(root, focusKey);
-    } else {
-      // Focus now, so a keyboard reader is never left waiting on a font;
-      // layout() keeps that focus when it replaces the marks. Not yet a
-      // related selection: the exact one may be a mark layout has to draw.
-      focusKeyIn(root, focusKey, false);
-      fonts.ready.then(() => layout(root, g));
+    if (opened && inside) {
+      focus(root, ci.selectionKey(model.selection));
+      sheet?.open(doc.activeElement);
     }
-    return root;
+    const ready = !fonts || fonts.status === 'loaded';
+    if (ready) layout(root, g);
+    else fonts.ready.then(() => layout(root, g));
+    // Pending fonts allow exact-word focus only; layout restores the mark later.
+    focus(root, focusKey, ready);
+    if (control) {
+      const target = [...root.querySelectorAll(controls)].find(
+        (node) => signature(node) === control
+      );
+      if (target && !target.disabled) target.focus();
+      else if (!focus(root, ci.selectionKey(model.selection)))
+        root.querySelector('[aria-current="true"]')?.focus();
+    }
   }
   let relayout = 0;
-  const later =
-    (win.requestAnimationFrame && win.requestAnimationFrame.bind(win)) || ((f) => setTimeout(f, 0));
-  const cancel = (win.cancelAnimationFrame && win.cancelAnimationFrame.bind(win)) || clearTimeout;
-  function onFonts() {
+  const later = win.requestAnimationFrame?.bind(win) || ((f) => setTimeout(f, 0));
+  const cancel = win.cancelAnimationFrame?.bind(win) || clearTimeout;
+  function onLoad() {
     if (relayout) return;
     relayout = later(() => {
       relayout = 0;
       const root = stage.firstElementChild;
-      if (root) layout(root, gen);
+      if (root?.isConnected) {
+        if (!!sheet !== narrow())
+          draw(doc.activeElement === doc.body && ci.selectionKey(model.selection));
+        else layout(root, gen);
+      }
     });
   }
-  if (fonts && fonts.addEventListener) fonts.addEventListener('loadingdone', onFonts);
+  fonts?.addEventListener?.('loadingdone', onLoad);
   function update(patch, focusKey) {
     model = { ...model, ...patch };
     draw(focusKey);
@@ -393,7 +410,9 @@ function mount(host, opts) {
     // Back to an address with nothing selected, while nothing is, changes
     // nothing and says nothing.
     if (fromUrl && !sel && !model.selection) return;
-    const key = sel ? ci.selectionKey(sel) : '';
+    const key = ci.selectionKey(
+      sel || (narrow() && model.rowOccurrence && ci.occurrence(model.rowOccurrence))
+    );
     const rowOccurrence =
       sel && sel.kind === 'occurrence' ? sel.entity_id : sel ? model.rowOccurrence : null;
     update({ selection: sel, rowOccurrence, notice: null }, key);
@@ -409,7 +428,10 @@ function mount(host, opts) {
     ci,
     current,
     (sel) => select(sel, { fromUrl: true }),
-    (refused) => update({ selection: null, notice: refused.message })
+    (refused) => {
+      update({ selection: null, notice: refused.message });
+      live.say(refused.message);
+    }
   );
 
   stage.addEventListener('click', (ev) => {
@@ -438,7 +460,8 @@ function mount(host, opts) {
     stage,
     ci,
     {
-      clear: () => select(null),
+      clear: () =>
+        sheet?.isOpen() ? (sheet.close(), true) : !!model.selection && (select(null), true),
       inspect: () => {
         const t = doc.activeElement && doc.activeElement.closest('[data-selection]');
         const sel = t && ci.selectionFromKey(t.dataset.selection);
@@ -457,17 +480,50 @@ function mount(host, opts) {
   );
 
   let booting = true;
+  if (opts.resetAddress) url.write(null, true);
   draw();
   url.read();
   booting = false;
+  const resize =
+    win.ResizeObserver &&
+    new win.ResizeObserver(() => {
+      if (!!sheet !== narrow()) onLoad();
+    });
+  resize?.observe(host);
   return {
     model: () => model,
     view: () => view,
     select,
+    update(next) {
+      if (next.current.analysisIdentity !== current.analysisIdentity)
+        throw Error('A different analysis requires a new mount');
+      Object.assign(current, next.current);
+      const { selection, checkedMethods, cellMethod, rowOccurrence } = model;
+      const lost =
+        selection &&
+        !ci.decodeSelection(ci.encodeSelection(current.analysisIdentity, selection), current).ok;
+      const known = new Set(model.methods.filter((m) => !m.disabledReason).map((m) => m.method_id));
+      model = {
+        ...next.model,
+        selection: lost ? null : selection,
+        checkedMethods: [
+          ...checkedMethods,
+          ...next.model.checkedMethods.filter((id) => !known.has(id)),
+        ],
+        cellMethod,
+        rowOccurrence: current.hasEntity(rowOccurrence) ? rowOccurrence : null,
+      };
+      draw();
+      if (lost) {
+        url.write(null, true);
+        live.say('Selection cleared: it is not available in the loaded evidence.');
+      }
+    },
     destroy() {
       gen++;
+      resize?.disconnect();
       if (relayout) cancel(relayout);
-      if (fonts && fonts.removeEventListener) fonts.removeEventListener('loadingdone', onFonts);
+      fonts?.removeEventListener?.('loadingdone', onLoad);
       unbind();
       url.stop();
       stage.remove();

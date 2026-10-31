@@ -450,7 +450,7 @@ function gpDetail(id) {
     : `Adds its ${insts.length}-instrument ensemble`;
   const panel = (key, html) =>
     `<div class="gp-panel" role="tabpanel" id="gp-panel-${key}" aria-labelledby="gp-tab-${key}"${key === tab ? '' : ' hidden'}>${html}</div>`;
-  return `<article class="gp-detail" id="genre-detail" data-gp-id="${esc(id)}" aria-labelledby="gp-detail-title"><div class="gp-detail-head">${m.html}<div class="gp-detail-id"><h2 id="gp-detail-title" tabindex="-1">${esc(t.name)}</h2>${place ? `<div class="gp-detail-place">${icon('map-pin', 14)}<span>${esc(place)}</span></div>` : ''}${crumbs ? `<nav class="gp-crumbs" aria-label="Classification of ${esc(t.name)}">${crumbs}</nav>` : ''}${gpCredit(m)}</div><div class="gp-detail-actions">${listenLink(t.name)}${add}${uiButton('genre-close', 'Close', 'x', `class="cm-btn cm-btn-icon gp-close" aria-label="Close ${esc(t.name)} details" data-tooltip="Close details (Esc)"`)}</div><p class="gp-detail-count">${summary}</p>${gpLedeHTML(id)}</div><div class="gp-tabs" role="tablist" aria-label="${esc(t.name)} details">${GP_TABS.map(
+  return `<article class="gp-detail" id="genre-detail" data-gp-id="${esc(id)}" aria-labelledby="gp-detail-title"><div class="gp-detail-head">${m.html}<div class="gp-detail-id"><h2 id="gp-detail-title" tabindex="-1">${esc(t.name)}</h2><div class="gp-detail-place" title="${esc(place)}">${place ? `${icon('map-pin', 14)}<span>${esc(place)}</span>` : ''}</div>${crumbs ? `<nav class="gp-crumbs" aria-label="Classification of ${esc(t.name)}">${crumbs}</nav>` : ''}${gpCredit(m)}</div><div class="gp-detail-actions">${listenLink(t.name)}${add}${uiButton('genre-close', 'Close', 'x', `class="cm-btn cm-btn-icon gp-close" aria-label="Close ${esc(t.name)} details" data-tooltip="Close details (Esc)"`)}</div><p class="gp-detail-count">${summary}</p>${gpLedeHTML(id)}</div><div class="gp-tabs" role="tablist" aria-label="${esc(t.name)} details">${GP_TABS.map(
     ([k, label]) =>
       `<button type="button" role="tab" class="cm-tab" id="gp-tab-${k}" data-ui="genre-tab" data-id="${k}" aria-controls="gp-panel-${k}" aria-selected="${k === tab}" tabindex="${k === tab ? 0 : -1}">${esc(label)}${k === 'instruments' ? `<span class="gp-tab-count">${insts.length}</span>` : ''}</button>`
   ).join(
@@ -606,13 +606,12 @@ function gpApplyProse() {
 // Refresh only the detail's place line once the map's place names arrive.
 function gpRefreshDetail() {
   const d = $ui('genre-detail');
-  if (!d || d.querySelector('.gp-detail-place')) return;
+  const line = d?.querySelector('.gp-detail-place');
+  if (!line || line.textContent) return;
   const place = gpPlace(d.dataset.gpId);
   if (!place) return;
-  const line = document.createElement('div');
-  line.className = 'gp-detail-place';
+  line.title = place;
   line.innerHTML = `${icon('map-pin', 14)}<span>${esc(place)}</span>`;
-  d.querySelector('#gp-detail-title')?.after(line);
 }
 
 // ── Browse column ────────────────────────────────────────────────────────

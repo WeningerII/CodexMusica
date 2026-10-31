@@ -222,7 +222,7 @@ test('records in the evidence contract’s shape: verdict, undecided_reason, not
         undecided_reason: 'readings_not_searched_in_scope',
       })
     ),
-    'undecided · only the first-listed reading was judged'
+    'undecided · alternative readings were not searched in this scope'
   );
   assert.equal(
     CI.stateWords(
