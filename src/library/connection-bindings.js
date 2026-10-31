@@ -306,15 +306,30 @@ function mount(host, opts) {
   // has no marks to take it, so layout() gives it to the mark it draws.
   let wanted = '';
   const fonts = doc.fonts;
-  function focusKeyIn(root, key) {
+  function focusKeyIn(root, key, related = true) {
     if (!key) return false;
     // The same selection can be drawn twice: at phone width the matrix row's
     // button and the hidden desktop cell share a key. Focus the one on screen;
     // focusing a hidden one does nothing and leaves the reader on the page.
-    const all = [...root.querySelectorAll('[data-selection]')].filter(
-      (node) => node.dataset.selection === key
-    );
-    const node = all.find((n) => n.getClientRects().length) || all[0];
+    const nodes = [...root.querySelectorAll('[data-selection]')];
+    const all = nodes.filter((node) => node.dataset.selection === key);
+    const shown = (n) => n.getClientRects().length > 0;
+    let node = all.find(shown) || all[0];
+    // A selection a view no longer draws (a phone matrix row replaces the
+    // occurrence chooser that picked it) keeps focus with what it chose: the
+    // first selection on screen that involves the same occurrences. Only once
+    // the tree is fully drawn (`related`), never while poem marks are pending.
+    if (!node && related) {
+      const sel = ci.selectionFromKey(key);
+      const want = sel ? ci.selectionOccurrences(sel) : [];
+      node = want.length
+        ? nodes.find((n) => {
+            const other = shown(n) && ci.selectionFromKey(n.dataset.selection);
+            const has = other ? ci.selectionOccurrences(other) : [];
+            return want.every((id) => has.includes(id));
+          })
+        : null;
+    }
     if (!node) return false;
     node.focus();
     return true;
@@ -350,8 +365,9 @@ function mount(host, opts) {
       focusKeyIn(root, focusKey);
     } else {
       // Focus now, so a keyboard reader is never left waiting on a font;
-      // layout() keeps that focus when it replaces the marks.
-      focusKeyIn(root, focusKey);
+      // layout() keeps that focus when it replaces the marks. Not yet a
+      // related selection: the exact one may be a mark layout has to draw.
+      focusKeyIn(root, focusKey, false);
       fonts.ready.then(() => layout(root, g));
     }
     return root;

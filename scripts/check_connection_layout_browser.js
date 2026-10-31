@@ -253,6 +253,59 @@ function aligned(list, label) {
       ok('phone matrix: closing the inspector returns focus to the row button on screen');
       await page.close();
     }
+    // 6. Phone matrix with nothing selected offers a word chooser; choosing a
+    // word replaces the chooser with that word's row. Closing the inspector
+    // then returns focus to the row (a pair with that word), not the page.
+    {
+      const { page, errors, release } = await open(browser, { preload: false });
+      release();
+      await fontsIn(page);
+      await page.setViewportSize({ width: 390, height: 800 });
+      const got = await page.evaluate(() => {
+        const I = window.CMConnectionInteraction;
+        window.m.destroy();
+        window.m = window.bindings.mount(document.getElementById('surface-library'), {
+          ci: I,
+          marks: window.marks,
+          createViews: window.views.createViews,
+          model: window.fixture(I),
+          current: {
+            analysisIdentity: 'fixture',
+            hasEntity: () => true,
+            hasMethod: () => true,
+            hasEvidence: () => false,
+          },
+          view: 'matrix',
+          narrow: () => true,
+        });
+        const choices = [...document.querySelectorAll('.cv-phone-row button[data-selection]')];
+        const pick = choices.find(
+          (b) => b.dataset.selection === I.selectionKey(I.occurrence('watch'))
+        );
+        pick.focus();
+        pick.click();
+        document.activeElement.dispatchEvent(
+          new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })
+        );
+        const a = document.activeElement;
+        const sel = a.dataset.selection && I.selectionFromKey(a.dataset.selection);
+        return {
+          choices: choices.length,
+          inRow: !!a.closest('.cv-phone-row'),
+          visible: a.getClientRects().length > 0,
+          withWatch: !!sel && I.selectionOccurrences(sel).includes('watch'),
+        };
+      });
+      assert.ok(got.choices > 0, 'the empty phone matrix offers words to choose');
+      assert.deepEqual(
+        { inRow: got.inRow, visible: got.visible, withWatch: got.withWatch },
+        { inRow: true, visible: true, withWatch: true },
+        "Esc returns focus to a pair in the chosen word's row"
+      );
+      assert.deepEqual(errors, []);
+      ok('phone matrix: choosing a word keeps focus with its row after the inspector closes');
+      await page.close();
+    }
     // 4. A poem with a missing range says so once, after the selection words.
     {
       const { page, errors, release } = await open(browser, { preload: false });
