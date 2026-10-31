@@ -8574,6 +8574,21 @@ DRAWABLE_EXHIBITS = {
          "1", "2.head"),
         ("I ask no willow where I lie,", "No mourner let the mermaid be,",
          "1", "2.head")),
+    "mosaic rhyme": (
+        # REPAIRED 2026-10-31 (M-311 F1, R2's ruling #637 6545559338 /
+        # 6545666653), moved here from `WITNESS_FINDINGS`. Gilbert, "The
+        # Pirates of Penzance" (1879), the Major-General's song: strategy ~
+        # sat a gee, the second member crossing two word boundaries, held
+        # under the AH0 reading of `a`. QUOTED, not mined. The contrast is
+        # QUOTED too, not constructed: Shakespeare, Sonnet 18's couplet
+        # (`corpus/sonnets.txt` :339-340), see ~ thee, a one-word rhyme with
+        # no boundary in either member. It replaced Telfer's by ~ nigh
+        # (eng_celtic_msm_james_telfer.txt:58-59), whose `cauld` is not in
+        # the dictionary, so that pair correctly REFUSES (doctrine 79).
+        ("In short, when I've a smattering of elemental strategy,",
+         "You'll say a better Major-General has never sat a gee.", "1", "2"),
+        ("    So long as men can breathe, or eyes can see,",
+         "    So long lives this, and this gives life to thee.", "1", "2")),
     "reverse rhyme": (
         # Whittier, "The Ship-Builders" —
         # eng_american_john_greenleaf_whittier.txt:480-481: peel ~ peak,
@@ -8728,21 +8743,6 @@ WITNESS_FINDINGS = {
           "Close to the sun in lonely lands,",
           "Ringed with the azure world, he stands."),
          ("1", "2", "3"), ("a", "a", "a"), True),)),
-    "mosaic rhyme": ("M-311 F1", (
-        # Gilbert, "The Pirates of Penzance" (1879), the Major-General's
-        # strategy ~ sat a gee; then Shakespeare, Sonnet 18's couplet
-        # (`corpus/sonnets.txt` :339-340), see ~ thee, a one-word rhyme with
-        # no boundary in either member. It replaces Telfer's by ~ nigh
-        # (eng_celtic_msm_james_telfer.txt:58-59), whose `cauld` is not in
-        # the dictionary: with the members forbidden an overhang, a span
-        # through an unreadable word cannot be ruled out, so that row
-        # REFUSED -- correctly (doctrine 79), and no contrast (2026-10-31).
-        (("In short, when I've a smattering of elemental strategy,",
-          "You'll say a better Major-General has never sat a gee."),
-         ("1", "2"), None, True),
-        (("    So long as men can breathe, or eyes can see,",
-          "    So long lives this, and this gives life to thee."),
-         ("1", "2"), None, False))),
     "offbeat internal rhyme": ("M-311 F5", ()),
     "parechesis / general consonance": ("M-311 F4", (
         # Kingsley, "The Sands of Dee" —
@@ -10408,21 +10408,25 @@ def _resolve_over(schema, stream, pair, build, cap, bmap, tokens, fields):
     tokens = set(tokens)
     while True:
         combos, complete = reading_combos(stream, tokens, cap)
-        fixed = False
         if not combos:
             # A cause word that cannot be varied (no locatable reading, e.g. a
-            # hyphenated compound) no longer sinks the whole search: the words
-            # that CAN be varied are, and only a True is kept from it -- a True
-            # is reached on definite reads, so it never rests on the word left
-            # merged; anything else stays undecided (2026-10-31, M-311 F1:
-            # `Major-General` in reach of Gilbert's `sat a gee`).
+            # hyphenated compound, or a word the dictionary cannot read) no
+            # longer sinks the whole search: the words that CAN be varied are,
+            # and the word left over stays as the merged stream has it in every
+            # trial stream. Each trial verdict is still three-valued over it --
+            # a merged word a member reaches refuses its sequence (`_seq`), an
+            # overlap of its readings is undecided (`_set_agree`), an unread
+            # word on a free-run line holds the pair open (`line_pairs_for`) --
+            # so a True there never rests on it and a False is False under
+            # every reading it has (2026-10-31, M-311 F1: `Major-General` in
+            # reach of Gilbert's `sat a gee`; Sonnet 93's `outbraves` beside
+            # live and die ~ dignity, whose anchor stops two words short of it).
             free = _locatable_tokens(stream, tokens)
             combos, complete = (reading_combos(stream, free, cap) if free and free != tokens
                                 else (None, False))
             if not combos:
                 return None, None
-            fixed = True
-        saw_none, revealed = not complete or fixed, set()
+        saw_none, revealed = not complete, set()
         with _line_read_scope():
             for combo in combos:
                 phon2 = pinned_phonology(stream, combo)

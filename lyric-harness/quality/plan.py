@@ -1307,7 +1307,8 @@ DISOWNED_NORMATIVE = ("forbidden", "deprecated")
 #: with other groups, and a type reading it would be refused at grade.
 GRADE_STREAM_CAPABILITIES = {
     "eng": frozenset({"lexicon", "morphology", "prominence",
-                      "quotient:manner", "quotient:trite", "stanza"}),
+                      "quotient:manner", "quotient:reduced_vowel",
+                      "quotient:trite", "stanza"}),
 }
 
 _LANGUAGE_NAMES = {"eng": "English"}
@@ -1319,7 +1320,8 @@ _LINE_KINDS = frozenset({"different_lines", "adjacent_lines",
 #: through `relations.placement_bindable`, never respelled.
 _IN_LINE_KINDS = frozenset(_RL.POSITION_PLACEMENT_KINDS) - {"same_token"}
 #: Kinds the bound words themselves meet; the rule states them.
-_WORD_KINDS = frozenset({"both_multiword", "word_count_differs"})
+_WORD_KINDS = frozenset({"both_multiword", "word_count_differs",
+                         "either_multiword", "mosaic_anchor"})
 PLANNABLE_PLACEMENT_KINDS = _LINE_KINDS | _IN_LINE_KINDS | _WORD_KINDS
 
 #: Why a placement kind the planner cannot realise keeps a type out.
@@ -1828,6 +1830,7 @@ _CHANNEL_WORDS = {
     "moras": "vowel length",
     "consonants": "consonant sounds in order",
     "phones": "sounds in order",
+    "rime_phones": "sounds in order, each vowel marked stressed or unstressed",
     "token": "word",
     "grapheme": "spelling",
 }
@@ -1917,6 +1920,11 @@ def _channel_clause(c):
         s = f"the {what} of one of P and Q {where} end the other's"
     elif kind == "SubsequenceOf":
         s = f"the {what} of P {where} occur, in order, within Q's"
+    elif kind == "TailPhonesAgree":
+        # mosaic rhyme's judge (2026-10-31, M-311 F1)
+        s = ("from the first vowel on, P and Q have the same sounds in "
+             "order, read straight across word breaks, with an unstressed "
+             "`uh` and an unstressed `ih` counting as one vowel")
     else:
         s = (f"the {what} of P and Q {where} are judged by "
              f"{getattr(pred, 'name', kind)}")
@@ -1947,6 +1955,12 @@ _PLACE_WORDS = {
                                   "line directly after it"),
     ("both_multiword", True): "P and Q each span more than one word",
     ("word_count_differs", True): "P and Q span different numbers of words",
+    ("either_multiword", True): "P or Q, or both, spans more than one word",
+    # mosaic rhyme's anchor (2026-10-31, M-311 F1, R2's ruling)
+    ("mosaic_anchor", True): ("P and Q start at the first syllable pair, "
+                              "counting back from the line ends, where both "
+                              "syllables are stressed, and after it at least "
+                              "one of P and Q has no stressed syllable"),
 }
 
 _IDENTITY_WORDS = {

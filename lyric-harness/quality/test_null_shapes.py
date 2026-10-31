@@ -464,18 +464,36 @@ def forced_gap_sections():
     # non-rhotic and FORCE readings read independently per occurrence, so
     # the pair is undecided (2x2 readings) rather than a true instance; the
     # claim is about the span boundary, so a word with one reading carries it.
+    # 2026-10-31 (M-311 F1, R2's ruling): the registered mosaic now forbids
+    # an overhang (equal syllables from the line end) and declares
+    # `different_lines`, so two of its members on one line would be ONE span
+    # and it no longer carries this claim. The claim is about the RULE SHAPE
+    # -- `both_line_final` with members that differ in extent -- so the shape
+    # mosaic was declared with until today carries it, built here.
     overlap = R.build_stream(["day the day"], phon,
                              declaration={"language": "eng"})
-    mosaic = R.REGISTRY["mosaic rhyme"]
+    mosaic = replace(
+        R.REGISTRY["mosaic rhyme"],
+        spans=(R.SpanRule("line_final_token", "last_stressed", 1, "to_word_end"),
+               R.SpanRule("free_run", "searched", 1, (2, 5), cross_word=True)),
+        channels=(R.ChannelRule("nucleus", R.AGREE, "each"),
+                  R.ChannelRule("coda", R.AGREE, "each")),
+        placement=(R.Placement("both_line_final"),), unmatched="exclude")
     found = R.realise(mosaic, overlap)
-    check("M-46 the actual mosaic judge admits overlapping line-final spans",
+    check("M-46 a both_line_final judge with unequal members admits "
+          "overlapping line-final spans",
           not isinstance(found, R.Refusal)
           and any(i.verdict is True and i.a.idx != i.b.idx
                   and i.a.tail() == i.b.tail() for i in found))
     check("M-46 multiword schemas keep their same-line statistic",
-          all(N.forced_gap(R.REGISTRY[name]) == (0, None)
-              and N.statistic_degeneracy(R.REGISTRY[name], "local_fraction@0") is None
-              for name in ("mosaic rhyme", "compound / phrasal rhyme")))
+          all(N.forced_gap(s) == (0, None)
+              and N.statistic_degeneracy(s, "local_fraction@0") is None
+              for s in (mosaic, R.REGISTRY["compound / phrasal rhyme"])))
+    check("M-46 the ruled mosaic's gap is its declared different_lines, "
+          "read by forced_gap, not inferred from both_line_final",
+          N.forced_gap(R.REGISTRY["mosaic rhyme"]) == (1, None)
+          and any(p.kind == "different_lines"
+                  for p in R.REGISTRY["mosaic rhyme"].placement))
 
     # Even one endpoint TOKEN can yield several spans when the rule searches,
     # or when the two members use different deterministic anchors.

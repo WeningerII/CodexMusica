@@ -1398,7 +1398,12 @@ def test_m319_declared_perfect_rhyme_admits_the_promoted_final():
                   for n, s in RL.REGISTRY.items() if n not in _end)
           and all(RL.END_ANCHOR_PROMOTED in RL.declared_token_schema(s).spans
                   for n, s in RL.REGISTRY.items() if n in _end)
-          and len(_end) == 28, sorted(_end))
+          # ~~28~~ -> 27, 2026-10-31 (M-311 F1, R2's mosaic ruling): mosaic
+          # rhyme's members are both `free_run` spans read from the line end,
+          # so it has no END_ANCHOR member and takes no promoted final. Its
+          # anchor reads the phonology's prominence; whether a sung (promoted)
+          # final should move that anchor is open for R2, not decided here.
+          and len(_end) == 27 and "mosaic rhyme" not in _end, sorted(_end))
 
     def gr(r, rel2, lines):
         x = r.grade(lines, mandate([[1, 2]], n_lines=2,

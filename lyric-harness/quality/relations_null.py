@@ -1687,7 +1687,7 @@ LEDGER_BUDGET = None
 # DECLARABLE — it now asks for `tonal_template`/`tone`, which a caller
 # declares (`relations.declare_tonal_template`). The one left needing a
 # build is `refrain by reference` (`stub_resolution`, NEVER_PROVIDED).
-LEDGER_CANNOT_OBTAIN = (37, 1)  # M-40: was (28, 5); stanza input missing on ledger slice. Then (29, 5) until 2026-09-24, (30, 1) until 2026-10-30 (M-322: eight schemas' candidates now unresolved), (38, 1) until 2026-10-31 (G1, #647: compound / phrasal rhyme is extendable again).
+LEDGER_CANNOT_OBTAIN = (38, 1)  # M-40: was (28, 5); stanza input missing on ledger slice. Then (29, 5) until 2026-09-24, (30, 1) until 2026-10-30 (M-322: eight schemas' candidates now unresolved), (38, 1) until 2026-10-31 (G1, #647: compound / phrasal rhyme is extendable again)., (37, 1) until later 2026-10-31 (M-311 F1: mosaic rhyme cannot be obtained without a reading search).
 
 
 def ledger_slice(root=None):
@@ -1859,7 +1859,9 @@ EXTENSION_LEDGER = (
     ('homoioteleuton',                          'extendable',      6,  0),
     ('polyptoton',                              'extendable',      4,  0),
     ('multisyllabic rhyme',                     'extendable',      6,  0),
-    ('mosaic rhyme',                            'extendable',      8,  0),
+    ('mosaic rhyme',                            'cannot_obtain',   6,  0),  # ~~extendable, 8~~ 2026-10-31, M-311 F1 (R2's ruling): its real
+    #   instances run through a function word (`know it`), whose stress is a reading this
+    #   null does not search, so on the slice its candidates are unresolved, not absent.
     ('compound / phrasal rhyme',                'extendable',      8,  0),  # ~~extendable~~ 2026-10-30, M-322 accent readings: candidates unresolved, not absent; ~~cannot_obtain~~ 2026-10-31, G1 (#647): `_bucket_key` keys flush_right `each` at the last unit, so the judge now reaches definite instances
     ('holorhyme',                               'no_instance',     2,  0),
     ('broken rhyme',                            'no_instance',     8,  0),
@@ -1913,6 +1915,9 @@ EXTENSION_LEDGER = (
     # 2026-10-31 (G1, #647, approved by John): compound / phrasal rhyme above
     # moves cannot_obtain -> extendable. Ledger now: 3 controlled, ~~29~~ 30
     # extendable, 8 no-instance, ~~39~~ 38 cannot-obtain (~~38 / 1~~ 37 / 1).
+    # 2026-10-31 (M-311 F1, R2's mosaic ruling): mosaic rhyme above moves
+    # extendable -> cannot_obtain. Ledger now: 3 controlled, ~~30~~ 29
+    # extendable, 8 no-instance, ~~38~~ 39 cannot-obtain (~~37 / 1~~ 38 / 1).
     ('internal assonance',                      'extendable',      8,  0),
     ('internal consonance',                     'extendable',      8,  0),
 )
