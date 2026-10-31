@@ -453,32 +453,25 @@ function legendRow({ words, families = Object.keys(FAMILIES), examples = false }
   return row;
 }
 
+// `counts.summary` optionally supplies an adapter-prepared population label.
 // The strip under a view's title. `counts` maps state → number; a state with
 // no number is reported as not supplied, never as zero. `provenance` says what
 // produced the numbers ("fixture only", "Library schema analysis at <rev>").
-function countStrip(counts, { words, provenance, emptyOnset, hidden, population } = {}) {
+function countStrip(counts, { words, provenance, emptyOnset, hidden } = {}) {
   if (!provenance) throw Error('countStrip: provenance is required');
   if (!words) throw Error('countStrip: words are required');
   const strip = html('div', 'lib-mk-count');
   const lead = html('div', 'lib-mk-count-lead');
   const holds = counts.holds;
-  // A named population says what was counted ("method–token binding");
-  // native non-token-pair holds are reported beside it and never added to it.
-  const pop = typeof population === 'string' ? `${population} ` : '';
-  const figs = counts.native_holds;
-  const parts = [
-    Number.isInteger(holds)
-      ? `${holds} ${pop}hold${holds === 1 ? '' : 's'} ${pop ? 'loaded' : 'shown'}`
-      : 'Holds: not supplied',
-  ];
-  if (pop && Number.isInteger(figs))
-    parts.push(`${figs} native non-token-pair hold${figs === 1 ? '' : 's'} counted separately`);
-  parts.push(provenance);
+  lead.textContent =
+    (counts.summary ??
+      (Number.isInteger(holds)
+        ? `${holds} hold${holds === 1 ? '' : 's'} shown`
+        : 'Holds: not supplied')) + ` · ${provenance}`;
   if (Number.isInteger(emptyOnset) && emptyOnset > 0)
-    parts.push(`${emptyOnset} only empty onsets compared`);
+    lead.textContent += ` · ${emptyOnset} only empty onsets compared`;
   if (hidden && Number.isInteger(hidden.count) && hidden.count > 0)
-    parts.push(`${hidden.count} hidden by ${hidden.by}`);
-  lead.textContent = parts.join(' · ');
+    lead.textContent += ` · ${hidden.count} hidden by ${hidden.by}`;
   const known = [],
     missing = [];
   for (const id of STATE_ORDER.slice(1)) {
@@ -487,11 +480,11 @@ function countStrip(counts, { words, provenance, emptyOnset, hidden, population 
     else missing.push(cap(words[id]));
   }
   const rest = html('div', 'lib-mk-count-rest');
-  parts.length = 0;
-  if (known.length) parts.push(known.join(' · '));
-  if (missing.length) parts.push(missing.join(' / ') + ': not supplied');
-  parts.push('outside locus is method-specific');
-  rest.textContent = parts.join(' · ');
+  const bits = [];
+  if (known.length) bits.push(known.join(' · '));
+  if (missing.length) bits.push(missing.join(' / ') + ': not supplied');
+  bits.push('outside locus is method-specific');
+  rest.textContent = bits.join(' · ');
   strip.append(lead, rest);
   return strip;
 }

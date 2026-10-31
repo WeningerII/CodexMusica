@@ -148,8 +148,14 @@ function _connectionModel(I, { records, registry, report, complete, title }) {
         .filter((f) => ids.has(f.method_id) && I.cellState(f).state === 'holds')
         .map((f) => f.evidence_id)
     );
+    const holds = n('holds');
     return {
-      holds: n('holds'),
+      summary:
+        (Number.isInteger(holds)
+          ? `${holds} method–token binding hold${holds === 1 ? '' : 's'} loaded`
+          : 'Holds: not supplied') +
+        ` · ${held.size} native non-token-pair hold${held.size === 1 ? '' : 's'} counted separately`,
+      holds,
       undecided: answered ? n('undecided') : undefined,
       native_holds: held.size,
     };
