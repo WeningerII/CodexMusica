@@ -561,7 +561,11 @@ const SECTIONS = {
     // no earlier mount survives) on the same reading restores its selection.
     // goto + reload, as check_library_page does: an about:blank hop races the
     // favicon fetch and logs a CORS error (found by Jony Ives).
+    // Settle after goto and again after reload: a reload while the reader's
+    // head.json.gz is still in flight makes the old document log the cancelled
+    // fetch (3PO, #637 6547480945).
     await page.goto(link);
+    await readerSettled(page);
     await page.reload();
     await readerSettled(page);
     await analyze(page);
@@ -579,7 +583,15 @@ const SECTIONS = {
     // The same selection opened on another reading is refused, shown and said.
     const other = new URL(link);
     other.hash = `#library/read/${H.EPI_B}?lens=sound`;
+    // The hash change opens the other reading in place: wait until it is
+    // drawn (its first line, not the old one's) before reloading.
+    const was = await page.textContent('#surface-library .rd-paper .rd-line');
     await page.goto(other.href);
+    await page.waitForFunction((old) => {
+      const line = document.querySelector('#surface-library .rd-paper .rd-line');
+      return line && line.getClientRects().length > 0 && line.textContent !== old;
+    }, was);
+    await readerSettled(page);
     await page.reload();
     await readerSettled(page);
     await analyze(page);
