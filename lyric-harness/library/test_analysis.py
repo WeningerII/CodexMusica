@@ -41,7 +41,7 @@ class ReaderAcceptance(unittest.TestCase):
     def test_engine_registry_not_a_second_taxonomy(self):
         registry = build_registry()
         self.assertEqual(registry["counts"], {"schemas": 80, "types": 76, "type_cells": 49,
-            "classes": 5, "functions": 22, "pair_local": 67, "whole_figures": 13})
+            "classes": 5, "functions": 22, "shared_sound": 4, "pair_local": 67, "whole_figures": 13})
         schemas = [m for m in registry["methods"] if m["namespace"] == "schema"]
         self.assertEqual({m["name"] for m in schemas}, set(RL.REGISTRY))
         for row in schemas:
@@ -1167,3 +1167,245 @@ class ConnectionEvidence(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def _sound(reading, keys, batch=256, restart=False):
+    """A whole traversal of the named shared-sound methods, committed as a
+    worker would; restarted from each checkpoint when `restart`."""
+    from library.registry import shared_sound_name
+    mids = [method_id("shared_sound", shared_sound_name(k)) for k in keys]
+    committed, checkpoint, session = [], None, None
+    for _ in range(20000):
+        if session is None or restart:
+            with patch("library.analysis.runtime_identity", return_value=_FIXTURE_RUNTIME):
+                session = AnalysisSession(reading, None, {"layers": ["sound"]}, checkpoint, requested_methods=mids,
+                    load_records=lambda mid: (r for r in committed if r.get("method_id") == mid))
+        last = session.step(batch)
+        committed.extend(last["records"])
+        checkpoint = last["checkpoint"]
+        if last["done"]:
+            return session, list(resolve_detail_records(committed)), last
+    raise AssertionError("reader traversal did not exhaust")
+
+
+def _sound_edges(rows, key):
+    return [r for r in rows if r["kind"] == "relation_instance" and r.get("method_name") == key + "@v1"]
+
+
+class SharedSound(unittest.TestCase):
+    """`namespace: "shared_sound"` (#637): what two occurrences' sounds share
+    at one aligned position, read through `relations.pair_channel_reads`
+    and judged with the engine's own predicates. Never a registered figure."""
+
+    TEXT = "The cat sat on the mat\nA bat in the hat"
+
+    def test_four_versioned_methods_none_run_by_default(self):
+        from library.registry import SHARED_SOUND_METHODS, SHARED_SOUND_LAYER
+        rows = [m for m in build_registry()["methods"] if m["namespace"] == "shared_sound"]
+        self.assertEqual({m["name"] for m in rows}, {k + "@v1" for k in SHARED_SOUND_METHODS})
+        for m in rows:
+            self.assertTrue(m["reader_requestable"])
+            self.assertEqual(m["layer"], SHARED_SOUND_LAYER)
+            self.assertEqual(m["id"], method_id("shared_sound", m["name"]))
+        # The two onsets are two families, never one "onset" read.
+        self.assertEqual({m["name"]: m["family"] for m in rows if m["channel"] == "onset"},
+                         {"onset@v1": "word_start", "stressed_onset@v1": "last_stressed"})
+        # All pairs of a work's words is paid only on request.
+        session, _, _ = complete(source(self.TEXT))
+        self.assertFalse([t for t in session.tasks if t[0] == "shared_sound"])
+
+    def test_a_hold_is_agreement_at_the_compared_position(self):
+        _, rows, _ = _sound(source(self.TEXT), ["vowel", "coda"])
+        cat_sat = _edge(_sound_edges(rows, "vowel"), (0, 1), (0, 2))
+        self.assertEqual(cat_sat["verdict"], "true")
+        self.assertEqual((cat_sat["namespace"], cat_sat["layer"]),
+                         ("shared_sound", "Shared sound (not a registered figure)"))
+        self.assertEqual([cat_sat["compared"]["a"][0]["nucleus"], cat_sat["compared"]["b"][0]["nucleus"]], ["AE", "AE"])
+        self.assertEqual(cat_sat["reading_context"], {"type": "merged", "members": [{"pinned": False}] * 2})
+        self.assertEqual(cat_sat["channel_versions"]["channel_reads"], RL.CHANNEL_READ_VERSION)
+        self.assertFalse(cat_sat["same_spelling"])
+        # cat~the share no vowel: a judged False is counted, not recorded.
+        self.assertIsNone(_edge(_sound_edges(rows, "vowel"), (0, 1), (0, 4)))
+        # on~in: different vowels, the same closed coda.
+        self.assertIsNone(_edge(_sound_edges(rows, "vowel"), (0, 3), (1, 2)))
+        self.assertEqual(_edge(_sound_edges(rows, "coda"), (0, 3), (1, 2))["verdict"], "true")
+
+    def test_a_record_from_the_read_only_primitive_serializes(self):
+        # The primitive hands out read-only mappings all the way down, so a
+        # caller cannot corrupt its cache; a sound record built from one
+        # serializes exactly as from plain dicts (3PO, #646).
+        from types import MappingProxyType
+        session, rows, _ = _sound(source(self.TEXT), ["vowel"])
+        st = session.stream
+        spans = session._sound_spans("last_stressed", st)
+        read = RL.pair_channel_reads(st, spans[(0, 1)][0], spans[(0, 2)][0], "last_stressed")
+        self.assertIsInstance(read["reading_context"], MappingProxyType)
+        self.assertIsInstance(read["syllables"][0][0], MappingProxyType)
+        with self.assertRaises(TypeError):
+            read["versions"]["channel_reads"] = 0
+        value, record, _ = session._sound_pair("vowel", spans[(0, 1)][0], spans[(0, 2)][0])
+        self.assertTrue(value)
+        self.assertEqual(json.loads(canonical_json(record)), _edge(_sound_edges(rows, "vowel"), (0, 1), (0, 2)))
+
+    def test_empty_sounds_are_not_shared(self):
+        _, rows, _ = _sound(source(self.TEXT), ["onset", "stressed_onset", "coda"])
+        # on~in and A~on agree on an EMPTY onset: no real consonant, no hold.
+        for key in ("onset", "stressed_onset"):
+            self.assertIsNone(_edge(_sound_edges(rows, key), (0, 3), (1, 2)))
+            self.assertIsNone(_edge(_sound_edges(rows, key), (1, 0), (0, 3)))
+        # the~A agree on an open coda: no hold either.
+        self.assertIsNone(_edge(_sound_edges(rows, "coda"), (0, 0), (1, 0)))
+        # Spelled alike is kept and flagged, never dropped.
+        the_the = _edge(_sound_edges(rows, "onset"), (0, 0), (0, 4))
+        self.assertEqual((the_the["verdict"], the_the["same_spelling"]), ("true", True))
+
+    def test_a_merged_word_is_judged_under_one_whole_reading(self):
+        _, rows, _ = _sound(source(self.TEXT), ["vowel"])
+        # `the` is merged (AH0 ~ IY0): its set cannot agree with A's AH, so
+        # the pair is judged under each whole reading, and holds under one.
+        edge = _edge(_sound_edges(rows, "vowel"), (0, 0), (1, 0))
+        self.assertEqual(edge["verdict"], "true")
+        self.assertEqual(edge["reading"]["witness"], ["The = DH AH0", "A = AH0"])
+        self.assertEqual(edge["reading_search"]["termination_reason"], "witness_found")
+        self.assertEqual(edge["reading_context"]["type"], "pinned")
+        # What was compared is the witness reading's vowel, not the set.
+        self.assertEqual(edge["compared"]["a"][0]["nucleus"], "AH")
+
+    WORDS = {"zyre": [["Z", "AY1", "ER0"], ["Z", "AY1", "R"]]}
+
+    def test_a_disputed_first_reading_never_answers_false_for_the_others(self):
+        # zyre's first reading is two syllables, its anchor coda open; its
+        # second is one syllable closed by R, as bar is.
+        reading = source("zyre is here\nthe bar")
+        with _with_words(self.WORDS):
+            session, rows, _ = _sound(reading, ["coda"])
+            self.assertIn((0, 0), session._disputed)
+            edge = _edge(_sound_edges(rows, "coda"), (0, 0), (1, 1))
+            self.assertEqual(edge["verdict"], "true")
+            self.assertIn("zyre = Z AY1 R", edge["reading"]["witness"])
+            self.assertEqual(edge["compared"]["a"][0]["coda"], ["R"])
+            # Every pair over zyre is judged under each reading, so its
+            # missing records are judged Falses: not reading-dependent.
+            domain = next(r for r in rows if r["kind"] == "method_result")["domain"]
+            self.assertNotIn("line:0:token:0", domain["reading_dependent_tokens"])
+            # With no reading to search, the first reading's False is not
+            # certified: undecided, and says why.
+            with patch.object(RL, "reading_combos", lambda st, toks, cap: ([], True)):
+                _, unsearched, _ = _sound(reading, ["coda"])
+            edge = _edge(_sound_edges(unsearched, "coda"), (0, 0), (1, 1))
+            self.assertEqual((edge["verdict"], edge["undecided_reason"]), ("undecided", "no_reading_combination"))
+            self.assertEqual(edge["reading_search"]["state"], "unavailable")
+
+    # 3PO's fixture (#646): zanchor's readings share a syllable count and
+    # disagree on stress, so its knowledge set has no last-stressed anchor
+    # and no span on the work's reading. Under its first whole reading it
+    # stresses IY, as banchor does, and starts with Z, as zeal does.
+    UNANCHORED = {"zanchor": [["Z", "IY1", "T", "AH0"], ["Z", "IY0", "T", "AH1"]],
+                  "banchor": [["B", "IY1", "T", "AH0"]], "zeal": [["Z", "IY1", "L"]]}
+
+    def test_a_word_unanchored_on_the_set_is_discovered_under_its_readings(self):
+        reading = source("zanchor is here\nthe banchor zeal")
+        with _with_words(self.UNANCHORED):
+            session, rows, _ = _sound(reading, ["vowel", "stressed_onset"])
+            self.assertIn((0, 0), session._merged)
+            self.assertNotIn((0, 0), session._sound_spans("last_stressed", session.stream))
+            for key, partner in (("vowel", (1, 1)), ("stressed_onset", (1, 2))):
+                edge = _edge(_sound_edges(rows, key), (0, 0), partner)
+                self.assertEqual(edge["verdict"], "true", key)
+                self.assertIn("zanchor = Z IY1 T AH0", edge["reading"]["witness"])
+                # Only zanchor is pinned; its partner keeps its own reading.
+                self.assertEqual(edge["reading_context"]["type"], "partial")
+                result = next(r for r in rows if r["kind"] == "method_result"
+                              and r["method_name"] == key + "@v1")
+                # Inside the domain, and nothing left reading-dependent: every
+                # pair over zanchor was judged under its readings.
+                self.assertIn(("line:0:token:0", "line:%d:token:%d" % partner), _domain_cells(result["domain"]))
+                self.assertEqual(result["domain"]["reading_dependent_tokens"], [])
+            # zanchor~is: IY or AH against IH under either reading -- judged,
+            # and counted False.
+            self.assertIsNone(_edge(_sound_edges(rows, "vowel"), (0, 0), (0, 1)))
+            # The discovered cells live in the method's counts, so a
+            # restarted traversal keeps them.
+            _, resumed, _ = _sound(reading, ["vowel", "stressed_onset"], batch=1, restart=True)
+            self.assertEqual(canonical_json(resumed), canonical_json(rows))
+
+    def test_a_domain_names_its_reading_policy(self):
+        # A work with sound declarations keeps first-listed readings, so a
+        # disputed word's missing record is only its first reading's False:
+        # the domain says so, and lists the word, for both namespaces (3PO,
+        # #646). Searched, the same word is answered for every reading.
+        reading = source("zyre is here\nthe bar")
+        declared = {"sound": {"caesura": {"source": "caller-owned empty map", "positions": {}}}}
+        with _with_words(self.WORDS):
+            for declarations, policy, dependent in ((None, "exists_compatible_reading", False),
+                                                    (declared, "first_listed_reading", True)):
+                with patch("library.analysis.runtime_identity", return_value=_FIXTURE_RUNTIME):
+                    _, schema_rows, _ = complete(reading, declarations, ["internal rhyme"])
+                    from library.registry import shared_sound_name
+                    session = AnalysisSession(reading, declarations, {"layers": ["sound"]},
+                        requested_methods=[method_id("shared_sound", shared_sound_name("coda"))])
+                rows = []
+                while True:
+                    last = session.step(256)
+                    rows += last["records"]
+                    if last["done"]:
+                        break
+                for row in (schema_rows, list(resolve_detail_records(rows))):
+                    domain = next(r for r in row if r["kind"] == "method_result")["domain"]
+                    self.assertEqual(domain["reading_policy"], policy)
+                    self.assertEqual("line:0:token:0" in domain["reading_dependent_tokens"], dependent, policy)
+                # The hold under zyre's second reading exists only when searched.
+                held = _edge(_sound_edges(list(resolve_detail_records(rows)), "coda"), (0, 0), (1, 1))
+                self.assertEqual(held is not None and held["verdict"] == "true", not dependent)
+
+    def test_inside_the_domain_a_missing_record_is_a_judged_false(self):
+        session, rows, last = _sound(source(self.TEXT), ["vowel"])
+        result = next(r for r in rows if r["kind"] == "method_result")
+        counts = next(m for m in last["summary"]["methods"] if m["method_id"] == result["method_id"])
+        domain = result["domain"]
+        self.assertEqual((domain["projection"], domain["ordering"]), ("exact_token_pair", "unordered"))
+        self.assertEqual(domain["pair_count"], counts["true"] + counts["false"] + counts["undecided"])
+        cells = _domain_cells(domain)
+        edges = _sound_edges(rows, "vowel")
+        recorded = {(e["a"]["token_ids"][0], e["b"]["token_ids"][0]) for e in edges}
+        self.assertLessEqual(recorded, cells)
+        # Independently: every unrecorded pair whose vowels are both settled
+        # has different vowels, read straight off the work's syllables.
+        st = session.stream
+        nucleus = {}
+        for tok, ids in st.tokens.items():
+            anchor = [i for i in ids if st.units[i].syl.prominence == 1]
+            nucleus[f"line:{tok[0]}:token:{tok[1]}"] = st.units[anchor[-1]].syl.nucleus if anchor else None
+        for a, b in cells - recorded:
+            if isinstance(nucleus[a], str) and isinstance(nucleus[b], str):
+                self.assertNotEqual(nucleus[a], nucleus[b], (a, b))
+
+    def test_a_restart_from_any_checkpoint_is_identical(self):
+        keys = ["vowel", "onset"]
+        _, whole, _ = _sound(source(self.TEXT), keys)
+        for batch in (1, 7):
+            _, resumed, _ = _sound(source(self.TEXT), keys, batch=batch, restart=True)
+            self.assertEqual(canonical_json(resumed), canonical_json(whole))
+
+    def test_past_the_pair_cap_the_method_is_refused_not_truncated(self):
+        with patch.object(AnalysisSession, "SOUND_PAIR_CAP", 10):
+            _, rows, last = _sound(source(self.TEXT), ["vowel"])
+        self.assertFalse(_sound_edges(rows, "vowel"))
+        result = next(r for r in rows if r["kind"] == "method_result")
+        self.assertEqual((result["coverage"], result["domain"]), ("refused", {"projection": "none", "reason": "refused"}))
+        self.assertFalse(last["summary"]["coverage"]["certified"])
+
+    def test_the_pair_cap_counts_pairs_over_words_without_a_span(self):
+        # 3PO's probe (#637 6534358951): zanchor has no span on the work's
+        # reading, so its pairs were added after the cap was checked, and a
+        # cap of 1 answered over 3 pairs.
+        with _with_words(self.UNANCHORED), patch.object(AnalysisSession, "SOUND_PAIR_CAP", 1):
+            _, rows, _ = _sound(source("zanchor banchor cat"), ["vowel"])
+        result = next(r for r in rows if r["kind"] == "method_result")
+        self.assertEqual((result["coverage"], result["domain"]), ("refused", {"projection": "none", "reason": "refused"}))
+        self.assertFalse(_sound_edges(rows, "vowel"))
+        # Exactly at the cap it answers, over all three pairs.
+        with _with_words(self.UNANCHORED), patch.object(AnalysisSession, "SOUND_PAIR_CAP", 3):
+            _, rows, _ = _sound(source("zanchor banchor cat"), ["vowel"])
+        result = next(r for r in rows if r["kind"] == "method_result")
+        self.assertEqual((result["coverage"], result["domain"]["pair_count"]), ("answered", 3))
