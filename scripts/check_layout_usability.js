@@ -1224,7 +1224,15 @@ async function editorKeyboard(page, where) {
         // The draft's pending 120 ms refresh can arrive after opening. Run
         // that same refresh explicitly so its ordering is deterministic.
         const close = page.locator('#ly-relation-inspector [data-ui="ly-relation-close"]');
-        assert.ok(await close.evaluate((el) => document.activeElement === el));
+        // Resolve and compare in one browser task: the pending refresh can
+        // replace Close between a locator's handle lookup and its evaluation.
+        assert.ok(
+          await page.evaluate(
+            () =>
+              document.activeElement ===
+              document.querySelector('#ly-relation-inspector [data-ui="ly-relation-close"]')
+          )
+        );
         await page.evaluate(() => lyRefresh(true));
         assert.ok(
           await close.evaluate((el) => document.activeElement === el),
