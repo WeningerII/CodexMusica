@@ -260,9 +260,9 @@ function layoutWords(report) {
   }
   const words =
     worst === 2
-      ? 'Poem: word positions could not be measured, so no connections are drawn on it..'
+      ? 'Poem: word positions could not be measured, so no connections are drawn on it.'
       : worst === 1
-        ? `Poem: ${missing} of ${placed + missing} words could not be placed, so their connections are not drawn..`
+        ? `Poem: ${missing} of ${placed + missing} words could not be placed, so their connections are not drawn.`
         : '';
   return { rank: worst, words };
 }
