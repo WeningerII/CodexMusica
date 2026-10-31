@@ -2700,6 +2700,22 @@ def _post_vocalic(span, stream, chans, surface):
     return tuple(out)
 
 
+def _spans_unreadable(span, stream, rule=None):
+    """True when an unread token lies inside the member: between its first
+    and last unit on a line, or anywhere on the line for a whole-line member
+    (`locus='line'`), whose first or last word may be the unread one."""
+    if not stream.unreadable or not span.idx:
+        return False
+    U = stream.units
+    lines = {}
+    for i in span.idx:
+        lo, hi = lines.get(U[i].line, (U[i].token, U[i].token))
+        lines[U[i].line] = (min(lo, U[i].token), max(hi, U[i].token))
+    whole = rule is not None and rule.locus == "line"
+    return any(li in lines and (whole or lines[li][0] < ti < lines[li][1])
+               for li, ti, _ in stream.unreadable)
+
+
 def _seq(span, stream, channel, chans, surface, rule=None):
     """The span's derived element SEQUENCE for a sequence-scoped channel.
 
@@ -2718,6 +2734,14 @@ def _seq(span, stream, channel, chans, surface, rule=None):
     """
     if _cluster_scoped(channel, rule):
         return _post_vocalic(span, stream, chans, surface)
+    if _spans_unreadable(span, stream, rule):
+        # AN UNREAD WORD INSIDE THE MEMBER (2026-10-31, M-311 F4): it has no
+        # units, so it would simply VANISH from the derived sequence -- and a
+        # subsequence test over the shortened skeleton is easier to pass, so
+        # the unknown manufactured a True (Kingsley's `o'er`), while the same
+        # word in the other member refused. Unknown is None on either side
+        # (doctrine 79).
+        return None
     out = []
     for i in span.idx:
         v = chans.read(stream.units[i], channel, stream, surface)
