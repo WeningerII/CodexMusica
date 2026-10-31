@@ -188,7 +188,7 @@ function bottomSheet(container, title) {
   function close() {
     body.hidden = true;
     handle.setAttribute('aria-expanded', 'false');
-    if (returnTo && returnTo.isConnected) returnTo.focus();
+    if (returnTo?.isConnected) returnTo.focus();
     returnTo = null;
   }
   handle.addEventListener('click', () => (body.hidden ? open(handle) : close()));
@@ -251,7 +251,7 @@ function wordsOf(report) {
   let worst = 0,
     placed = 0,
     missing = 0;
-  for (const p of (report && report.poems) || []) {
+  for (const p of report?.poems || []) {
     worst = Math.max(worst, LAYOUT_RANK[p.status] || 0);
     placed += p.measured.length + p.fixture.length;
     missing += p.issues.length;
@@ -313,7 +313,7 @@ function mount(host, opts) {
     // focusing a hidden one does nothing and leaves the reader on the page.
     const nodes = [...root.querySelectorAll('[data-selection]')];
     const all = nodes.filter((node) => node.dataset.selection === key);
-    const shown = (n) => n.getClientRects().length > 0;
+    const shown = (n) => n.getClientRects().length;
     let node = all.find(shown) || all[0];
     // A selection a view no longer draws (a phone matrix row replaces the
     // occurrence chooser that picked it) keeps focus with what it chose: the
@@ -329,8 +329,8 @@ function mount(host, opts) {
           })
         : null;
     }
-    if (!node) return;
-    node.focus();
+    node?.focus();
+    return doc.activeElement === node;
   }
   function layout(root, g) {
     if (g !== gen || !root.isConnected || typeof views.layoutPoem !== 'function') return;
@@ -347,13 +347,12 @@ function mount(host, opts) {
     announced = rank;
   }
   function draw(focusKey) {
-    const controls =
-      'input[data-method],[data-view],.lib-cb-cellshows select,.lib-cb-hidden button';
-    const signature = (node) =>
-      JSON.stringify([node.tagName, node.dataset.method, node.dataset.view]);
+    const controls = 'input,select,summary,button';
+    const signature = (node) => JSON.stringify([node.tagName, node.className, node.dataset]);
     const active = doc.activeElement;
-    focusKey ||= stage.contains(active) && active.closest('[data-selection]')?.dataset.selection;
-    const control = stage.contains(active) && active.matches(controls) && signature(active);
+    const inside = stage.contains(active);
+    focusKey ||= inside && active.closest('[data-selection]')?.dataset.selection;
+    const control = inside && !focusKey && active.matches(controls) && signature(active);
     const opened = sheet?.isOpen();
     const menuOpen = stage.querySelector('details')?.open;
     const root = views.render(model, { view });
@@ -369,25 +368,22 @@ function mount(host, opts) {
       sheet = bottomSheet(root, 'Pair inspector');
       sheet.body.append(pane);
     }
-    if (opened) {
+    if (opened && inside) {
       focus(root, ci.selectionKey(model.selection));
       sheet?.open(doc.activeElement);
     }
-    if (!fonts || fonts.status === 'loaded') {
-      layout(root, g);
-      focus(root, focusKey);
-    } else {
-      // Focus now, so a keyboard reader is never left waiting on a font;
-      // layout() keeps that focus when it replaces the marks. Not yet a
-      // related selection: the exact one may be a mark layout has to draw.
-      focus(root, focusKey, false);
-      fonts.ready.then(() => layout(root, g));
-    }
+    const ready = !fonts || fonts.status === 'loaded';
+    if (ready) layout(root, g);
+    else fonts.ready.then(() => layout(root, g));
+    // Pending fonts allow exact-word focus only; layout restores the mark later.
+    focus(root, focusKey, ready);
     if (control) {
       const target = [...root.querySelectorAll(controls)].find(
         (node) => signature(node) === control
       );
-      (target && !target.disabled ? target : root.querySelector('[aria-current="true"]'))?.focus();
+      if (target && !target.disabled) target.focus();
+      else if (!focus(root, ci.selectionKey(model.selection)))
+        root.querySelector('[aria-current="true"]')?.focus();
     }
   }
   let relayout = 0;

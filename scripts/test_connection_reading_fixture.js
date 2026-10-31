@@ -85,7 +85,8 @@ test('a method refused for its reading cap refuses its cells', () => {
 });
 
 // Contract-fidelity repairs in src/connection-interaction.js (#637 6545487626).
-// Each fails on d2fea651f0 and passes with the repair.
+// Cap reason, unknown channels, refusal detail and partial-loading regressions fail
+// on d2fea651f0. The explicit hold/refusal guard already passed before the repair.
 
 test('a capped edge names the cap, not its unknown channels', () => {
   const { cell } = load('combination_cap');

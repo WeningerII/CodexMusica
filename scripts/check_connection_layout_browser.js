@@ -362,9 +362,11 @@ function aligned(list, label) {
       assert.ok(kept, 'Show survives evidence redraw');
       await page.click('.lib-cb-hidden button');
       assert.equal(
-        await page.evaluate(() => document.activeElement.dataset.view),
-        'matrix',
-        'removed Show falls back to current view tab'
+        await page.evaluate(() => document.activeElement.dataset.selection),
+        await page.evaluate(() =>
+          window.CMConnectionInteraction.selectionKey(window.m.model().selection)
+        ),
+        'removed Show falls back to selected evidence'
       );
       ok('actual controls retain focus through evidence redraws');
       await page.close();
@@ -437,6 +439,84 @@ function aligned(list, label) {
       }
       assert.deepEqual(errors, []);
       ok(`container ${width}px: matrix, inspector and padding agree`);
+      await page.close();
+    }
+    // Breakpoint redraws preserve controls, or fall back within the stage only.
+    {
+      const { page, errors, release } = await open(browser, { preload: false });
+      release();
+      await fontsIn(page);
+      await page.evaluate(() => {
+        window.m.destroy();
+        window.m = window.bindings.mount(document.getElementById('surface-library'), {
+          ci: window.CMConnectionInteraction,
+          marks: window.marks,
+          createViews: window.views.createViews,
+          model: window.fixture(window.CMConnectionInteraction),
+          view: 'matrix',
+          current: {
+            analysisIdentity: 'fixture',
+            hasEntity: () => true,
+            hasMethod: () => true,
+            hasEvidence: () => false,
+          },
+        });
+      });
+      const failures = [];
+      for (const target of ['handle', 'summary', 'empty', 'outside', 'outside-open']) {
+        await page.evaluate(() => {
+          document.getElementById('surface-library').style.width = '600px';
+          window.m.select(window.CMConnectionInteraction.occurrence('watch'));
+        });
+        await page.waitForSelector('.lib-cb-sheet');
+        await page.click('.cv-root [data-view="matrix"]');
+        await page.locator('.cv-phone-row button[data-selection]').nth(1).click();
+        if (target !== 'outside-open') await page.keyboard.press('Escape');
+        if (target === 'empty') await page.evaluate(() => window.m.select(null));
+        const key = await page.evaluate(() =>
+          window.CMConnectionInteraction.selectionKey(window.m.model().selection)
+        );
+        if (target.startsWith('outside'))
+          await page.evaluate(() => {
+            document.getElementById('outside')?.remove();
+            const button = document.createElement('button');
+            button.id = 'outside';
+            button.textContent = 'Outside';
+            document.body.append(button);
+            button.focus();
+          });
+        else
+          await page.focus(target === 'summary' ? '.cv-controls summary' : '.lib-cb-sheet-handle');
+        await page.evaluate(
+          () => (document.getElementById('surface-library').style.width = '620px')
+        );
+        await page.waitForFunction(() => !document.querySelector('.lib-cb-sheet'));
+        const got = await page.evaluate(() => ({
+          key: document.activeElement.dataset.selection,
+          summary: document.activeElement.matches('summary'),
+          outside: document.activeElement.id === 'outside',
+          empty: document.activeElement.dataset.view === 'matrix',
+          visible: document.activeElement.getClientRects().length > 0,
+          body: document.activeElement === document.body,
+        }));
+        if (
+          !(
+            got.visible &&
+            !got.body &&
+            (target === 'handle'
+              ? got.key === key
+              : got[target.startsWith('outside') ? 'outside' : target])
+          )
+        )
+          failures.push({ target, got });
+      }
+      assert.deepEqual(
+        failures,
+        [],
+        'handle falls back to selected evidence, summary survives, outside focus stays outside'
+      );
+      assert.deepEqual(errors, []);
+      ok('breakpoint: inspector handle, method summary and outside focus');
       await page.close();
     }
     // Whole rendered lines, not token ports or character-count estimates, set the canvas.

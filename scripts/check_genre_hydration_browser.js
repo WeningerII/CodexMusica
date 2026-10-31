@@ -6,6 +6,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const http = require('node:http');
 const path = require('node:path');
+const os = require('node:os');
 const { chromium } = require('playwright');
 const root = path.resolve(__dirname, '..');
 const server = http.createServer((req, res) => {
@@ -32,7 +33,7 @@ const server = http.createServer((req, res) => {
 (async () => {
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
   const browser = await chromium.launch({
-    executablePath: process.env.CHROMIUM_PATH || '/usr/bin/chromium',
+    ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {}),
   });
   try {
     for (const width of [390, 1280])
@@ -121,7 +122,7 @@ const server = http.createServer((req, res) => {
           assert.deepEqual(errors, []);
           console.log(`PASS genre geo pointer/label ${width}/${kind}`);
         } catch (error) {
-          const prefix = `/tmp/genre-hydration-${width}-${kind}`;
+          const prefix = path.join(os.tmpdir(), `genre-hydration-${width}-${kind}`);
           fs.writeFileSync(prefix + '.html', await page.content());
           fs.writeFileSync(
             prefix + '.json',
