@@ -40,8 +40,8 @@ def complete(reading, declarations=None, schemas=None, batch=256, restart=False,
 class ReaderAcceptance(unittest.TestCase):
     def test_engine_registry_not_a_second_taxonomy(self):
         registry = build_registry()
-        self.assertEqual(registry["counts"], {"schemas": 78, "types": 76, "type_cells": 49,
-            "classes": 5, "functions": 22, "pair_local": 65, "whole_figures": 13})
+        self.assertEqual(registry["counts"], {"schemas": 80, "types": 76, "type_cells": 49,
+            "classes": 5, "functions": 22, "pair_local": 67, "whole_figures": 13})
         schemas = [m for m in registry["methods"] if m["namespace"] == "schema"]
         self.assertEqual({m["name"] for m in schemas}, set(RL.REGISTRY))
         for row in schemas:
