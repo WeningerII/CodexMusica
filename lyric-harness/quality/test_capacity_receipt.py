@@ -106,6 +106,15 @@ class CapacityReceiptTests(unittest.TestCase):
             with self.subTest(words=words), self.assertRaisesRegex(ValueError, 'CAPACITY_UNVERIFIED'):
                 verify_witness(self.reviser, row)
 
+    def test_boot_admission_identity_is_the_full_reviser_identity(self):
+        # The boot check admits the receipt without building a Lexicon
+        # (`capacity._identity_reviser`); it must name exactly the identity a
+        # default Reviser() does, or a valid receipt would be refused.
+        self.assertEqual(C.certification_identity(C._identity_reviser()),
+                         C.certification_identity(Reviser()))
+        # A Lexicon that gained a supplement would make the two differ.
+        self.assertIsNone(getattr(Reviser().lex, 'supplement_path', None))
+
     def test_missing_receipt_blocks_installed_lookup_not_planning(self):
         # Lookup reads the capacity table and still needs its proof. Planning
         # no longer reads the capacity bound (owner, 2026-09-28: no rhyme-
