@@ -31,7 +31,7 @@ Fetched or staged, not in the repo: `cmudict.dict`, `data/nltk/corpora/` (18 fil
 
 ## Python — loadable, not loaded (13)
 
-`quality/declared_inputs.py` 17k, `library/form.py` 15k, `quality/capacity.py` 14k, `quality/cross_song.py` 8.9k, `battery.py` 7.3k, `quality/build_song_frequency.py` 4.8k, `quality/narrative_bands.py` 4k, `quality/relation_index.py` 3.9k, `quality/metric_complexity.py` 3.8k, `quality/senses.py` 3.4k, `quality/check_data_rows.py` 3.1k, `quality/fixtures/phonological_twin.py` 2.5k, `quality/fixtures/seeded_lines.py` 1.1k
+`quality/declared_inputs.py` 17k, `library/form.py` 15k, `quality/capacity.py` 15k, `quality/cross_song.py` 8.9k, `battery.py` 7.3k, `quality/build_song_frequency.py` 4.8k, `quality/narrative_bands.py` 4k, `quality/relation_index.py` 3.9k, `quality/metric_complexity.py` 3.8k, `quality/senses.py` 3.4k, `quality/check_data_rows.py` 3.1k, `quality/fixtures/phonological_twin.py` 2.5k, `quality/fixtures/seeded_lines.py` 1.1k
 
 ## Python — never loaded by a song (156)
 
