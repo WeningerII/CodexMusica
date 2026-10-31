@@ -704,3 +704,45 @@ test('non-append evidence clears an unavailable selection once and preserves unr
   m.destroy();
   win.close();
 });
+
+test('Escape consumes one inner layer per press and leaves empty selection to the reader', () => {
+  for (const narrow of [false, true]) {
+    const { win, doc, host, m } = mounted(undefined, narrow);
+    let exits = 0;
+    host.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !event.defaultPrevented) exits++;
+    });
+    const sel = CI.pair(ALLIT, 'e-watch-4-2', 'e-woods-4-4');
+    find(host, keyOf(sel)).click();
+    if (narrow) {
+      assert.equal(key(win, doc.activeElement, 'Escape'), false);
+      assert.equal(host.querySelector('.lib-cb-sheet-body').hidden, true);
+      assert.ok(CI.sameSelection(m.model().selection, sel));
+      assert.equal(exits, 0);
+    }
+    assert.equal(key(win, doc.activeElement, 'Escape'), false);
+    assert.equal(m.model().selection, null);
+    assert.equal(exits, 0);
+    const address = win.location.href;
+    const stage = host.querySelector('section');
+    assert.equal(key(win, stage, 'Escape'), true);
+    assert.equal(exits, 1);
+    assert.equal(win.location.href, address);
+    m.destroy();
+    win.close();
+  }
+});
+
+test('Escape outside an open sheet closes only the sheet before clearing selection', () => {
+  const { win, host, m } = mounted(undefined, true);
+  const sel = CI.pair(ALLIT, 'e-watch-4-2', 'e-woods-4-4');
+  find(host, keyOf(sel)).click();
+  const outside = host.querySelector('[data-view]');
+  assert.equal(key(win, outside, 'Escape'), false);
+  assert.equal(host.querySelector('.lib-cb-sheet-body').hidden, true);
+  assert.ok(CI.sameSelection(m.model().selection, sel));
+  assert.equal(key(win, outside, 'Escape'), false);
+  assert.equal(m.model().selection, null);
+  m.destroy();
+  win.close();
+});
