@@ -146,6 +146,7 @@ value took the default path in silence.  See `ClassEqual` and `UNMATCHED`.
 import collections
 import hashlib
 import itertools
+import math
 import json
 import os
 import re
@@ -2211,6 +2212,12 @@ ALIGNERS = {"anchor": align_anchor, "flush_left": align_flush_left,
 # ---------------------------------------------------------------------------
 
 
+#: The most prominence combinations `mosaic_anchor` decides exactly; beyond
+#: it the placement is undecided. 5 syllables a side with three-way
+#: prominence is 3**10 = 59049.
+_MOSAIC_ANCHOR_COMBOS = 59049
+
+
 @dataclass(frozen=True)
 class Placement:
     kind: str
@@ -2346,14 +2353,19 @@ class Placement:
             # stressed later on both sides at different positions is not one).
             # Over an uncertain prominence the
             # answer is the one every reading gives; readings that disagree
-            # refuse, so no reading is picked here.
+            # refuse, so no reading is picked here. Every combination is
+            # tried (a member is at most 5 syllables a side, so 2**10 for
+            # two-way prominence); past the bound the answer is undecided,
+            # never a False from a sample (3PO, #637 6548737712).
             if len(a.idx) != len(b.idx):
                 return False
             vals = [U[i].syl.prominence for i in a.idx] + [U[i].syl.prominence for i in b.idx]
             choices = [sorted(_alts(v)) if isinstance(v, frozenset) else [v] for v in vals]
+            if math.prod(len(c) for c in choices) > _MOSAIC_ANCHOR_COMBOS:
+                return None
             n = len(a.idx)
             answers = set()
-            for combo in itertools.islice(itertools.product(*choices), 257):
+            for combo in itertools.product(*choices):
                 pa, pb = combo[:n], combo[n:]
                 answers.add(bool(pa[0] and pb[0])
                             and not any(x and y for x, y in zip(pa[1:], pb[1:]))

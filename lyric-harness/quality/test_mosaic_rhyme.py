@@ -146,6 +146,39 @@ def test_coherent_readings():
     check("the hyphenated compound in reach has no varied reading", combos is None)
 
 
+def test_anchor_is_exact_over_prominence():
+    # 3PO's reproduction (#637 6548737712): five syllables a side, every
+    # prominence uncertain, so 2**10 combinations. The only fitting one is
+    # index 528, pa = pb = (1, 0, 0, 0, 0), after the 257 the anchor used to
+    # sample, so it answered False. Every combination is tried now: readings
+    # that disagree leave the anchor undecided, and the fitting reading,
+    # pinned, places it.
+    from dataclasses import replace
+    st = stream(["the yellow pillow of a fellow", "the mellow willow of a cello"])
+    both = type(st.units[0].syl.prominence)({0, 1})
+    lines = {}
+    for i, u in enumerate(st.units):
+        lines.setdefault(u.line, []).append(i)
+    a_idx, b_idx = tuple(lines[0][-5:]), tuple(lines[1][-5:])
+
+    def pin(values):
+        for i, v in zip(a_idx + b_idx, values):
+            st.units[i] = replace(st.units[i], syl=replace(st.units[i].syl, prominence=v))
+    anchor = R.Placement("mosaic_anchor")
+    a, b = R.Span(a_idx, 0), R.Span(b_idx, 0)
+    pin([both] * 10)
+    got = anchor.holds(a, b, st)
+    check("every prominence uncertain: the anchor is undecided, never False",
+          got is None, f"got {got}")
+    pin([1, 0, 0, 0, 0] * 2)
+    got = anchor.holds(a, b, st)
+    check("index 528 pinned (pa = pb = (1, 0, 0, 0, 0)): the anchor holds",
+          got is True, f"got {got}")
+    pin([0, 0, 0, 0, 0] * 2)
+    got = anchor.holds(a, b, st)
+    check("no prominence on either side: no anchor", got is False, f"got {got}")
+
+
 def test_predicate():
     bound = R.replace(R.TAIL_PHONES_AGREE, partition=Q.reduced_vowel)
     v = bound(("P", "OW:1", "AH:0", "T"), ("N", "OW:1", "IH:0", "T"))
@@ -164,8 +197,8 @@ def test_predicate():
 
 
 if __name__ == "__main__":
-    for fn in (test_predicate, test_coherent_readings, test_after_set,
-               test_unreadable_member_refuses):
+    for fn in (test_predicate, test_anchor_is_exact_over_prominence, test_coherent_readings,
+               test_after_set, test_unreadable_member_refuses):
         fn()
     print("=" * 70)
     if FAILURES:
