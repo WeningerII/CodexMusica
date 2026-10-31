@@ -99,6 +99,7 @@ ${S}.lib-mk-focus:is(:hover,:focus-visible){outline:1px dashed var(--cm-text);ou
 ${S}.lib-mk-tag,${S}.lib-mk-strong{font-weight:700}
 ${S}.lib-mk-arc path{stroke:var(--lib-mk-hue)}
 ${S}.lib-mk-arc path.lib-mk-gap{stroke:var(--cm-surface)}
+${S}.lib-mk-arc path.lib-mk-head{fill:var(--cm-text);stroke:none}
 ${S}.lib-mk-port line,${S}.lib-mk-port circle{stroke:var(--lib-mk-hue,var(--cm-text-muted));stroke-width:1.5;fill:var(--cm-surface)}
 ${S}.lib-mk-dim>path{opacity:.25}
 ${S}.lib-mk-node circle:first-child{fill:var(--cm-surface);stroke:var(--cm-text);stroke-width:1.5}
@@ -218,6 +219,7 @@ function arcGeometry(a, b, { margin, gutter, lift = 28 } = {}) {
       route: 'same-line',
       d: `M${a.x},${a.y} C${a.x},${a.y - h} ${b.x},${b.y - h} ${b.x},${b.y}`,
       stems: [],
+      head: { x: b.x, y: b.y, angle: 90 },
     };
   }
   if (a.final && b.final) {
@@ -228,6 +230,7 @@ function arcGeometry(a, b, { margin, gutter, lift = 28 } = {}) {
       route: 'margin',
       d: `M${margin},${top.y} C${margin + bow},${top.y} ${margin + bow},${bottom.y} ${margin},${bottom.y}`,
       stems: [`M${a.x},${a.y} H${margin}`, `M${b.x},${b.y} H${margin}`],
+      head: { x: b.x, y: b.y, angle: b.x < margin ? 180 : 0 },
     };
   }
   if (gutter === undefined) throw Error('arcGeometry: gutter is required for interior pairs');
@@ -235,18 +238,44 @@ function arcGeometry(a, b, { margin, gutter, lift = 28 } = {}) {
     route: 'interline',
     d: `M${a.x},${a.y} C${gutter},${a.y} ${gutter},${b.y} ${b.x},${b.y}`,
     stems: [],
+    head: { x: b.x, y: b.y, angle: b.x < gutter ? 180 : 0 },
   };
+}
+
+// A role-ordered binding's ink arrowhead (spec condition 1: "ink arrowhead +
+// 'a → b' in inspector"), its tip just outside b's port, pointing the way the
+// arc arrives. `head` is where it arrives (arcGeometry, edge); `back` sets
+// the tip off a port, and is 0 at a node's rim. Ink, not hue: direction is
+// not a family. A path, so it dims with its arc.
+function arrowhead({ x, y, angle, back = 5 }) {
+  const t = (angle * Math.PI) / 180,
+    ux = Math.cos(t),
+    uy = Math.sin(t);
+  const tx = x - ux * back,
+    ty = y - uy * back;
+  const bx = tx - ux * 8,
+    by = ty - uy * 8;
+  const f = (n) => Math.round(n * 100) / 100;
+  return svg('path', {
+    d: `M${f(tx)},${f(ty)} L${f(bx - uy * 4)},${f(by + ux * 4)} L${f(bx + uy * 4)},${f(by - ux * 4)} Z`,
+    class: 'lib-mk-head',
+  });
 }
 
 // An arc (or network edge path) in its family's hue and pattern, at its
 // layer's weight. Only holds are drawn: an arc says "these connect".
-function arc(geometry, { family: fam, layer: lay = 'registered', dim = false } = {}) {
+function arc(
+  geometry,
+  { family: fam, layer: lay = 'registered', dim = false, directed = false } = {}
+) {
   const f = family(fam);
   const l = layer(lay);
+  if (directed && !geometry.head) throw Error('arc: a directed arc needs its geometry.head');
   const g = svg('g', {
     class: `lib-mk-arc lib-mk-fam-${fam} lib-mk-layer-${lay}${dim ? ' lib-mk-dim' : ''}`,
     'data-family': fam,
     'data-layer': lay,
+    'data-directed': directed ? 'true' : null,
   });
   const paths = [geometry.d, ...(geometry.stems || [])];
   for (const d of paths) {
@@ -269,6 +298,7 @@ function arc(geometry, { family: fam, layer: lay = 'registered', dim = false } =
       );
     }
   }
+  if (directed) g.append(arrowhead(geometry.head));
   return g;
 }
 
@@ -325,7 +355,7 @@ function node(occ, { cx, cy, r = 37, selected = false, alsoIn = [] }) {
 function edge(
   a,
   b,
-  { family: fam, layer: lay = 'registered', dim = false, glyph = false, r = 37 }
+  { family: fam, layer: lay = 'registered', dim = false, glyph = false, r = 37, directed = false }
 ) {
   const dx = b.cx - a.cx,
     dy = b.cy - a.cy,
@@ -333,7 +363,13 @@ function edge(
   const ux = dx / len,
     uy = dy / len;
   const d = `M${a.cx + ux * r},${a.cy + uy * r} L${b.cx - ux * r},${b.cy - uy * r}`;
-  const g = arc({ d, stems: [] }, { family: fam, layer: lay, dim });
+  const head = {
+    x: b.cx - ux * r,
+    y: b.cy - uy * r,
+    angle: (Math.atan2(uy, ux) * 180) / Math.PI,
+    back: 0,
+  };
+  const g = arc({ d, stems: [], head }, { family: fam, layer: lay, dim, directed });
   g.classList.add('lib-mk-edge');
   if (glyph)
     g.append(
@@ -465,6 +501,7 @@ return {
   fanPorts,
   arcGeometry,
   arc,
+  arrowhead,
   port,
   node,
   edge,
