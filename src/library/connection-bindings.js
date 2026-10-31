@@ -28,9 +28,7 @@ function liveRegion(container) {
   el.style.cssText = HIDDEN;
   container.append(el);
   const win = doc.defaultView;
-  const later =
-    (win && win.requestAnimationFrame && win.requestAnimationFrame.bind(win)) ||
-    ((f) => setTimeout(f, 0));
+  const later = win?.requestAnimationFrame?.bind(win) || ((f) => setTimeout(f, 0));
   // What one frame will say: the latest words replace earlier ones, and a
   // note (a poem that could not be laid out) is read after them.
   let pending = null;
@@ -65,13 +63,13 @@ function bindKeys(root, ci, handlers, opts) {
   const grid = (opts && opts.grid) || null;
   function onKey(ev) {
     const t = ev.target;
-    const tag = t?.tagName;
-    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (t && t.isContentEditable)) {
+    const tag = t.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || t.isContentEditable) {
       if (ev.key !== 'Escape') return;
     }
     // Space activates a non-native role="button" (the poem's and network's
     // SVG marks), as it does a real button.
-    const roleButton = t?.getAttribute?.('role') === 'button' && tag !== 'BUTTON';
+    const roleButton = t.getAttribute?.('role') === 'button' && tag !== 'BUTTON';
     const action = ev.key === ' ' && roleButton ? 'inspect' : ci.keyAction(ev.key);
     if (action === 'clear') {
       if (!handlers.clear()) return;
@@ -391,18 +389,20 @@ function mount(host, opts) {
       );
       (target && !target.disabled ? target : root.querySelector('[aria-current="true"]'))?.focus();
     }
-    return root;
   }
   let relayout = 0;
-  const later =
-    (win.requestAnimationFrame && win.requestAnimationFrame.bind(win)) || ((f) => setTimeout(f, 0));
-  const cancel = (win.cancelAnimationFrame && win.cancelAnimationFrame.bind(win)) || clearTimeout;
+  const later = win.requestAnimationFrame?.bind(win) || ((f) => setTimeout(f, 0));
+  const cancel = win.cancelAnimationFrame?.bind(win) || clearTimeout;
   function onLoad() {
     if (relayout) return;
     relayout = later(() => {
       relayout = 0;
       const root = stage.firstElementChild;
-      if (root) layout(root, gen);
+      if (root?.isConnected) {
+        if (!!sheet !== narrow())
+          draw(doc.activeElement === doc.body && ci.selectionKey(model.selection));
+        else layout(root, gen);
+      }
     });
   }
   fonts?.addEventListener?.('loadingdone', onLoad);
@@ -491,7 +491,7 @@ function mount(host, opts) {
   const resize =
     win.ResizeObserver &&
     new win.ResizeObserver(() => {
-      if (!!sheet !== narrow()) draw();
+      if (!!sheet !== narrow()) onLoad();
     });
   resize?.observe(host);
   return {
