@@ -19,6 +19,7 @@ that branch touches; his~queer is pinned as a NEGATIVE here.
 """
 
 import os
+import json
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -618,11 +619,53 @@ def test_writer_route_reads_every_shape():
           R._unrepresented_tokens(st, {(3, 1), (3, 3)}) == set())
 
 
+def test_cached_builder_is_bounded():
+    """The memo keeps at most `cap` streams, least recently used out, and an
+    evicted combination rebuilds identically (the EA-R capacity witness kept
+    50,895 streams alive through an unbounded memo, 2026-10-31)."""
+    print("§10 cached_builder is bounded")
+    built = []
+
+    class P:
+        def __init__(self, n):
+            self.n = n
+
+        def declaration(self):
+            return {"n": self.n}
+
+    def build(p):
+        built.append(p.n)
+        return ("stream", p.n)
+    get = R.cached_builder(build, cap=3)
+    for n in range(10):
+        get(P(n))
+    check("the memo never holds more than cap streams", len(get.memo) == 3)
+    check("it keeps the most recent ones",
+          list(get.memo) == [json.dumps({"n": n}) for n in (7, 8, 9)])
+    before = len(built)
+    check("a recent combination is reused, not rebuilt",
+          get(P(9)) == ("stream", 9) and len(built) == before)
+    check("an evicted combination rebuilds identically",
+          get(P(0)) == ("stream", 0) and len(built) == before + 1)
+    check("the default cap is the module constant",
+          R.CACHED_BUILDER_CAP == 256)
+    # Least recently USED, not first in: a hit on the oldest resident keeps
+    # it, and the next insert evicts the one after it (3PO, #637 6536326177).
+    lru = R.cached_builder(build, cap=3)
+    for n in (7, 8, 9):
+        lru(P(n))
+    lru(P(7))
+    lru(P(10))
+    check("a hit refreshes the oldest resident, so the next one is evicted",
+          list(lru.memo) == [json.dumps({"n": n}) for n in (9, 7, 10)])
+
+
 if __name__ == "__main__":
     for fn in (test_both_present, test_declarations, test_assonance,
                test_consonance, test_alliteration, test_pruning_is_sound,
                test_planner, test_pair_channel_reads,
-               test_writer_route_reads_every_shape):
+               test_writer_route_reads_every_shape,
+               test_cached_builder_is_bounded):
         fn()
     print("=" * 70)
     if FAILURES:
