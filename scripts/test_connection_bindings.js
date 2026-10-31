@@ -607,6 +607,12 @@ test('layout: a later font load lays the current tree out again, once per frame'
 });
 
 test('layout: partial and unavailable are said once, after the selection; ready is silent', async () => {
+  // Each wording is whole sentences: one full stop at the end, no doubled ones.
+  for (const status of ['partial', 'unavailable']) {
+    const t = laidOut({ loaded: true, status });
+    await tick(t.win);
+    assert.match(t.live.textContent, /^Poem: [^.]+\.$/, status + ': ' + t.live.textContent);
+  }
   const ready = laidOut({ loaded: true });
   await tick(ready.win);
   assert.equal(ready.live.textContent, '', 'a ready poem says nothing');
@@ -615,7 +621,7 @@ test('layout: partial and unavailable are said once, after the selection; ready 
   await tick(win);
   assert.equal(
     live.textContent,
-    'Poem: 2 of 6 words could not be placed, so their connections are not drawn. They are listed in the inspector.'
+    'Poem: 2 of 6 words could not be placed, so their connections are not drawn.'
   );
   find(host, keyOf(CI.occurrence('e-woods-1-2'))).click();
   await tick(win);
@@ -630,7 +636,7 @@ test('layout: partial and unavailable are said once, after the selection; ready 
   await tick(win);
   assert.equal(
     live.textContent,
-    'Poem: word positions could not be measured, so no connections are drawn on it. They are listed in the inspector.',
+    'Poem: word positions could not be measured, so no connections are drawn on it.',
     'getting worse is said'
   );
   report.status = 'partial';
