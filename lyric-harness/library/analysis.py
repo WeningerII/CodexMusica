@@ -722,9 +722,18 @@ class AnalysisSession:
         open_ = not complete or (not merged and inst is not None and inst.verdict is None)
         reasons = [] if complete else ["combination_cap"]
         examined = 0
+        # WHAT WAS JUDGED UNDER EACH COMBINATION (item 5, #637 6547011992):
+        # every combination this loop judges is kept with its outcome, so an
+        # alternative judged False or left open is shown as judged, and one
+        # never reached reads "not computed". Nothing is searched for it.
+        outcomes = []
         # The reading `inst` was judged under is not judged again.
         to_judge = [c for c in combos if merged or not (
             st is self.stream and c is combos[0] or self._combo_key(c) == own)]
+        if inst is not None and not merged:
+            # ... and is kept as judged: the work's own first-listed verdict.
+            outcomes.extend(self._outcome(c, cause, inst.verdict) for c in combos
+                            if c not in to_judge)
         for combo in to_judge:
             alt = self._line_stream(lines, combo)
             if alt is None:
@@ -734,6 +743,7 @@ class AnalysisSession:
                 reasons.append("rebuild_unavailable")
                 continue
             examined += 1
+            combo_open = False
             sides = []
             for rule, span in ((schema.spans[0], a), (schema.spans[1], b)):
                 try:
@@ -747,7 +757,7 @@ class AnalysisSession:
                 # Spans at this locus that match none is a key the reader
                 # cannot pair: open, never a confident False.
                 if not found and index.get(("locus", self._origin(span, st), span.direction)):
-                    open_ = True
+                    open_ = combo_open = True
                     reasons.append("locus_unmatched")
                 sides.append(found)
             for x in sides[0]:
@@ -758,10 +768,12 @@ class AnalysisSession:
                         # exhaustive only if nothing was left unjudged (3PO,
                         # #641), whatever the cap allowed.
                         whole = complete and examined == len(to_judge)  # no rebuild failed
-                        return got, alt, self._witness(alt, cause), first_only, self._search(
-                            "exhaustive" if whole else "partial", examined, termination="witness_found")
+                        return got, alt, self._witness(alt, cause), first_only, self._outcome_search(
+                            self._search("exhaustive" if whole else "partial", examined,
+                                         termination="witness_found"), outcomes, merged)
                     if got is not None and got.verdict is None:
-                        open_ = True
+                        open_ = combo_open = True
+            outcomes.append(self._outcome(combo, cause, None if combo_open else False))
         whole = complete and examined == len(to_judge)
         state = "exhaustive" if whole else "partial"
         termination = ("combination_cap" if not complete else
@@ -777,7 +789,56 @@ class AnalysisSession:
         # instance by `_undecided_reason`.
         reason = next((r for r in ("combination_cap", "rebuild_unavailable", "locus_unmatched")
                        if r in reasons), None) if inst is not None and inst.verdict is None else None
-        return inst, st, None, first_only, self._search(state, examined, reason, termination)
+        return inst, st, None, first_only, self._outcome_search(
+            self._search(state, examined, reason, termination), outcomes, merged)
+
+    def _applicable_readings(self, li, ti):
+        """The readings the any-reading search varies for this occurrence
+        (item 5; BB8's shape, #637 6547502531): the declared row when the
+        writer pinned one, else the lexicon's whole-reading variants -- the
+        same `occurrence_readings` the search pins from, which can differ
+        from `dictionary_readings`. Unlocatable: a null list, never a
+        fallback to the dictionary."""
+        from quality.pronunciation import occurrence_readings
+        lex = self.RL._stream_lexicon(self.stream)
+        words = self.stream.lexical_tokens[li] if self.stream.lexical_tokens else ()
+        got = (occurrence_readings(lex, self.stream.text_lines[li], words, ti)
+               if lex is not None else None)
+        if got is None:
+            return {"applicable_readings": None, "applicable_source": "unlocatable"}
+        tok, _word, readings = got
+        declared = any(row["line"] == self.stream.text_lines[li] and row["token"] == tok
+                       for row in (getattr(lex, "pronunciations", ()) or ()))
+        return {"applicable_readings": [" ".join(p) for p in readings],
+                "applicable_source": "declared" if declared else "variants"}
+
+    def _outcome(self, combo, words, value):
+        """One judged combination: its readings of `words`, as a witness
+        names them, and what it was judged (never True: a True is the
+        witness, on `reading`)."""
+        return {"readings": self.RL.reading_witness({t: c for t, c in combo.items() if t in words}),
+                "verdict": "false" if value is False else "undecided"}
+
+    @staticmethod
+    def _outcome_search(search, outcomes, merged):
+        """`search` carrying the loop's judged outcomes and what the work's
+        own verdict was judged under, for the record to lift off: the
+        `reading_search` summary itself keeps its agreed shape."""
+        search["_outcomes"] = outcomes
+        search["_judged_under"] = "merged_set" if merged else "first_listed"
+        return search
+
+    @staticmethod
+    def _lift_outcomes(search, extra):
+        """Move a search's judged outcomes onto the record (`extra`), as
+        `reading_outcomes` and `judged_under`; -> the bare summary."""
+        search = dict(search)
+        outcomes = search.pop("_outcomes", None)
+        under = search.pop("_judged_under", None)
+        if outcomes is not None:
+            extra["reading_outcomes"] = outcomes
+            extra["judged_under"] = under
+        return search
 
     def _witness(self, st, touched):
         """-> the readings a verdict rests on: those of `touched` words a
@@ -1549,7 +1610,7 @@ class AnalysisSession:
                 first_only = disputed
             else:
                 combos, complete = RL.reading_combos(st, varying, self.EDGE_COMBOS)
-                examined, open_, reasons = 0, False, []
+                examined, open_, reasons, outcomes = 0, False, [], []
                 for combo in combos or ():
                     alt = self._line_stream(sorted({ta[0], tb[0]}), combo)
                     if alt is None:
@@ -1561,17 +1622,21 @@ class AnalysisSession:
                     if ta not in found or tb not in found:
                         # No span at the word under this reading (no stressed
                         # syllable to anchor): nothing there to share.
+                        outcomes.append(self._outcome(combo, varying, False))
                         continue
                     v, r, x = self._sound_judge(key, found[ta][0], found[tb][0], alt)
                     if v is True:
                         whole = complete and examined == len(combos)
                         value, rec, at, judged = True, r, x, alt
                         witness = self._witness(alt, varying)
-                        search = self._search("exhaustive" if whole else "partial", examined,
-                                              termination="witness_found")
+                        search = self._outcome_search(
+                            self._search("exhaustive" if whole else "partial", examined,
+                                         termination="witness_found"),
+                            outcomes, varying & self._merged)
                         break
                     if v is None:
                         open_ = True
+                    outcomes.append(self._outcome(combo, varying, v))
                 else:
                     # Nothing to search is not a search: no combination
                     # judged never certifies a False.
@@ -1590,6 +1655,8 @@ class AnalysisSession:
                                           examined, reason,
                                           None if not combos else "combination_cap" if not complete else
                                           "exhausted" if whole else "rebuild_unavailable")
+                    if combos:
+                        search = self._outcome_search(search, outcomes, varying & self._merged)
         if value is False:
             return False, None, first_only
         return value, self._sound_record(key, a, b, value, rec, at, judged, witness, search, first_only), first_only
@@ -1618,6 +1685,7 @@ class AnalysisSession:
         if rec is not None:
             extra["reading_context"] = json_safe(rec["reading_context"])
             extra["channel_versions"] = json_safe(rec["versions"])
+        search = self._lift_outcomes(search, extra)
         return self._record("relation_instance", method_id("shared_sound", name), [a.idx, b.idx],
             namespace="shared_sound", method_name=name, layer=SHARED_SOUND_LAYER, verdict=verdict(value),
             a=self._span(a), b=self._span(b), family=family, channel=channel, position=position, **extra,
@@ -1714,7 +1782,7 @@ class AnalysisSession:
             extra["reading"] = {"rule": "any_reading", "witness": witness or []}
         elif witness:
             extra["reading"] = {"rule": "any_reading", "witness": witness}
-        search = search or self._search("not_needed")
+        search = self._lift_outcomes(search or self._search("not_needed"), extra)
         if inst.verdict is None:
             extra["undecided_reason"] = self._undecided_reason(inst, search)
         return self._record("relation_instance", mid, key,
@@ -1894,6 +1962,7 @@ class AnalysisSession:
                                               "stress": [s["stress"] for s in LH.syllabify(p)]} for p in options],
                     "requires_source": True, "supplied_reading_requires_source": not bool(options),
                     "matching_line_ids": [self._line_id(i) for i, line in enumerate(self.stream.text_lines) if line == raw_line]}
+                out.update(self._applicable_readings(li, ti))
             return out
         u = value
         ranges, normalized = self._token_ranges(u.line, u.token)

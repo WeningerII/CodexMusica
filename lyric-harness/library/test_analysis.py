@@ -1192,6 +1192,86 @@ def _sound_edges(rows, key):
     return [r for r in rows if r["kind"] == "relation_instance" and r.get("method_name") == key + "@v1"]
 
 
+def _token(rows, li, ti):
+    return next(r for r in rows if r["kind"] == "token" and r["token_id"] == f"line:{li}:token:{ti}")
+
+
+class ReadingOutcomes(unittest.TestCase):
+    """Item 5 (#637 6547011992; shapes BB8 6547502531): what the any-reading
+    search already judged, carried on the edge, and the readings it varies,
+    carried on the token, so the views can show the witness, the judged
+    failing alternatives and "not computed" for the rest. No new search."""
+
+    WORDS = ConnectionEvidence.WORDS
+
+    def test_alternatives_judged_before_the_witness_are_kept(self):
+        # `zea`'s witness is its LAST reading: the first was judged and failed.
+        with _with_words({"zea": [["Z", "AH0"], ["Z", "IY1"]]}):
+            _, rows, _ = complete(source("zea is home\nand bee is too"), schemas=["internal rhyme"])
+        edge = _edge(rows, (0, 0), (1, 1))
+        self.assertEqual(edge["verdict"], "true")
+        self.assertEqual(edge["reading"]["witness"], ["zea = Z IY1"])
+        self.assertEqual(edge["reading_outcomes"], [{"readings": ["zea = Z AH0"], "verdict": "false"}])
+        self.assertEqual(edge["judged_under"], "merged_set")
+        # The agreed summary keeps its shape: nothing private leaks into it.
+        self.assertEqual(set(edge["reading_search"]), {"state", "combinations_examined",
+                                                       "combination_limit", "termination_reason"})
+
+    def test_a_first_reading_witness_judged_nothing_else(self):
+        with _with_words(self.WORDS):
+            _, rows, _ = complete(source("zee is home\nand bee is too"), schemas=["internal rhyme"])
+        edge = _edge(rows, (0, 0), (1, 1))
+        self.assertEqual(edge["reading_outcomes"], [])
+        tok = _token(rows, 0, 0)
+        self.assertEqual(tok["applicable_readings"], ["Z IY1", "Z AH0"])
+        self.assertEqual(tok["applicable_source"], "variants")
+        # The other applicable reading was never judged: it is "not computed",
+        # and the hold stays a hold.
+        used = {r for o in edge["reading_outcomes"] for r in o["readings"]} | set(edge["reading"]["witness"])
+        self.assertEqual([p for p in tok["applicable_readings"] if f"zee = {p}" not in used], ["Z AH0"])
+
+    def test_a_capped_search_lists_only_what_it_judged(self):
+        with _with_words(self.WORDS), patch.object(AnalysisSession, "EDGE_COMBOS", 1):
+            _, rows, _ = complete(source("zeed is home\nand beet is too"), schemas=["internal rhyme"])
+        edge = _edge(rows, (0, 0), (1, 1))
+        self.assertEqual(edge["verdict"], "undecided")
+        self.assertEqual(len(edge["reading_outcomes"]), edge["reading_search"]["combinations_examined"])
+        self.assertEqual(edge["reading_outcomes"], [{"readings": ["zeed = Z IY1 D"], "verdict": "false"}])
+
+    def test_an_edge_no_search_reached_carries_no_outcomes(self):
+        _, rows, _ = complete(source("cat is home\nand hat is too"), schemas=["internal rhyme"])
+        for r in rows:
+            if r["kind"] == "relation_instance" and r["reading_search"]["state"] == "not_needed":
+                self.assertNotIn("reading_outcomes", r)
+
+    def test_the_inventory_is_the_declared_row_never_the_dictionary(self):
+        reading = source("wind\nfind")
+        declaration = {"pronunciations": [{"line": "wind", "token": 1, "word": "wind",
+            "phones": ["W", "IH1", "N", "D"], "basis": "dictionary", "source": "caller-owned noun reading"}]}
+        _, rows, _ = complete(reading, declaration, ["perfect rhyme"])
+        tok = _token(rows, 0, 0)
+        self.assertEqual(tok["applicable_source"], "declared")
+        self.assertEqual(tok["applicable_readings"], ["W IH1 N D"])
+        self.assertGreater(len(tok["reading_choices"]["dictionary_readings"]), 1)
+
+    def test_the_shared_sound_search_keeps_its_judged_readings_too(self):
+        # zyre's first reading leaves its anchor coda open; its second, closed
+        # by R as bar is, is the witness: the first is a judged alternative.
+        with _with_words(SharedSound.WORDS):
+            _, rows, _ = _sound(source("zyre is here\nthe bar"), ["coda"])
+        edge = _edge(_sound_edges(rows, "coda"), (0, 0), (1, 1))
+        self.assertEqual(edge["verdict"], "true")
+        self.assertIn("zyre = Z AY1 R", edge["reading"]["witness"])
+        self.assertTrue(edge["reading_outcomes"])
+        self.assertTrue(all(o["verdict"] in ("false", "undecided") for o in edge["reading_outcomes"]))
+        self.assertTrue(all("zyre = Z AY1 R" not in o["readings"] for o in edge["reading_outcomes"]))
+        self.assertIn("zyre = Z AY1 ER0", {r for o in edge["reading_outcomes"] for r in o["readings"]})
+        # `bar` has two readings of one syllable (rhotic or not), so the
+        # work's own verdict was judged on its merged set.
+        self.assertGreater(len(_token(rows, 1, 1)["applicable_readings"]), 1)
+        self.assertEqual(edge["judged_under"], "merged_set")
+
+
 class SharedSound(unittest.TestCase):
     """`namespace: "shared_sound"` (#637): what two occurrences' sounds share
     at one aligned position, read through `relations.pair_channel_reads`
