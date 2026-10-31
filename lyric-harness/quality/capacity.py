@@ -944,6 +944,25 @@ def validate_receipt(receipt, rows, *, table_sha256, source_identity, python_ver
     return receipt
 
 
+def _identity_reviser():
+    """What `certification_identity` reads of a default `Reviser()`, without
+    building its Lexicon.
+
+    The identity reads `decl`, `rdecl` and the lexicon's `supplement_path`;
+    a default Lexicon has none, and neither declaration depends on it. The
+    server's boot check (`mcp/runtime_assets.js` -> `verify_capacity.py
+    --check`) built the whole Lexicon only to read those three, and on one
+    CPU that was most of the check: 8.9-9.4 s, against 2.5-2.8 s without it
+    for the same valid 82/82 receipt (2026-10-31, the qualification startup
+    timeout on 5d02ec47).
+    `quality/test_capacity_receipt.py` holds the two identities equal.
+    """
+    from types import SimpleNamespace
+    from lyric_harness import Declaration
+    from quality.revise import ReviseDeclaration
+    return SimpleNamespace(lex=None, decl=Declaration(), rdecl=ReviseDeclaration())
+
+
 def require_current_proof(*, path=TABLE_PATH, receipt_path=None, reviser=None):
     """Require proof for this installed runtime and exact reviewed table bytes.
 
@@ -967,8 +986,7 @@ def require_current_proof(*, path=TABLE_PATH, receipt_path=None, reviser=None):
         if summary != ADOPTED or summary["max_chain_lo"] != ADOPTED_MAX_GROUP:
             raise ValueError("CAPACITY_UNVERIFIED: adopted generator capacity does not match the verified table")
         if reviser is None:
-            from quality.revise import Reviser
-            reviser = Reviser()
+            reviser = _identity_reviser()
         identity = certification_identity(reviser)
         valid = validate_receipt(receipt, rows,
             table_sha256=hashlib.sha256(Path(path).read_bytes()).hexdigest(),
