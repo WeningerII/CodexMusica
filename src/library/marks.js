@@ -463,15 +463,15 @@ function countStrip(counts, { words, provenance, emptyOnset, hidden, population 
   const lead = html('div', 'lib-mk-count-lead');
   const holds = counts.holds;
   // A named population says what was counted ("method–token binding");
-  // figures, when counted, are reported beside it and never added to it.
+  // native non-token-pair holds are reported beside it and never added to it.
   const pop = typeof population === 'string' ? `${population} ` : '';
-  const figs = counts.figure_holds;
+  const figs = counts.native_holds;
   lead.textContent =
     (Number.isInteger(holds)
       ? `${holds} ${pop}hold${holds === 1 ? '' : 's'} ${pop ? 'loaded' : 'shown'}`
       : 'Holds: not supplied') +
     (pop && Number.isInteger(figs)
-      ? ` · ${figs} figure hold${figs === 1 ? '' : 's'} counted separately`
+      ? ` · ${figs} native non-token-pair hold${figs === 1 ? '' : 's'} counted separately`
       : '') +
     ` · ${provenance}`;
   if (Number.isInteger(emptyOnset) && emptyOnset > 0)

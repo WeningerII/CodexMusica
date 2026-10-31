@@ -125,7 +125,7 @@ function _connectionModel(I, { records, registry, report, complete, title }) {
   }
   // The strip's population (3PO, #637 6547583040): loaded method-token
   // bindings of the checked methods, native-only ones included, each complete
-  // ordered binding once. Figures are a separate population, never folded in.
+  // ordered binding once. Native non-token-pair holds are separate, never folded in.
   // Undecided is given only once every page and detail part is verified
   // loaded and every checked method answered; a binding loaded in two states
   // gives neither count. Refused, pending and does-not-hold are not supplied
@@ -151,7 +151,7 @@ function _connectionModel(I, { records, registry, report, complete, title }) {
     return {
       holds: n('holds'),
       undecided: answered ? n('undecided') : undefined,
-      figure_holds: held.size,
+      native_holds: held.size,
     };
   };
   // A hull's own population: the occurrences it draws and the holds it draws.
