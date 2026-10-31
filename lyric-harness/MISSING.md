@@ -28738,6 +28738,12 @@ added on the review say 2026-09-25.
 
 ### M-311 · Twenty English pair-rhyme schemas carried no semantic evidence; ~~eleven~~ ten now answer a real witness and a minimal contrast, and ~~six~~ five of the rest are GRADER FINDINGS — three rules too generous, ~~one figure that can never assemble,~~ two negatives the route cannot reach — plus four schemas the grade route cannot be handed the declaration they need, and one schema that cannot tell itself from linked rhyme `PARTIAL` 2026-09-25 — the coordinator's split of the 55 unvalidated schemas, English end/pair rhymes
 
+**TESTED WHILE OPEN.** `quality/test_mosaic_rhyme.py` and `quality/test_sequence_unread.py`
+name this entry for its two repaired findings, F1 (mosaic rhyme's rule, #657) and F4
+(an unread word inside a member is undecided), and `quality/test_sound_inventory.py` for
+the mosaic listing F1 moved. The entry stays PARTIAL for its other findings, which those
+tests do not claim.
+
 **THE GAP.** `quality/schema_census.py` printed, at `e08cd207`:
 
     semantic validation (separate from capability): {'unvalidated': 55, 'regression_witness': 5, 'witness_and_contrast': 18}

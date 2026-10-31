@@ -2715,35 +2715,49 @@ def _post_vocalic(span, stream, chans, surface):
     return tuple(out)
 
 
+def _unread_by_line(stream):
+    """{line: [unread token, ...]} for `stream.unreadable`, built once per
+    stream: B1's test runs on every candidate member, so a per-call scan of
+    every unread token was a measurable share of a grade (R2, #657)."""
+    u = stream.unreadable
+    cached = stream.__dict__.get("_unread_by_line")
+    if cached is None or cached[0] is not u or cached[1] != len(u):
+        by_line = {}
+        for li, ti, _ in u:
+            by_line.setdefault(li, []).append(ti)
+        cached = (u, len(u), by_line)
+        stream.__dict__["_unread_by_line"] = cached
+    return cached[2]
+
+
 def _bracketed_unread(span, stream, rule=None):
-    """The unread tokens `_spans_unreadable` finds inside the member, as
-    (line, token) pairs."""
+    """The unread tokens inside the member, as (line, token) pairs: between
+    its first and last unit on a line, or anywhere on the line for a
+    whole-line member (`locus='line'`), whose first or last word may be the
+    unread one."""
     if not stream.unreadable or not span.idx:
         return set()
+    by_line = _unread_by_line(stream)
     U = stream.units
     lines = {}
     for i in span.idx:
-        lo, hi = lines.get(U[i].line, (U[i].token, U[i].token))
-        lines[U[i].line] = (min(lo, U[i].token), max(hi, U[i].token))
+        unit = U[i]
+        li = unit.line
+        if li not in by_line:
+            continue
+        t = unit.token
+        seen = lines.get(li)
+        lines[li] = (t, t) if seen is None else (min(seen[0], t), max(seen[1], t))
+    if not lines:
+        return set()
     whole = rule is not None and rule.locus == "line"
-    return {(li, ti) for li, ti, _ in stream.unreadable
-            if li in lines and (whole or lines[li][0] < ti < lines[li][1])}
+    return {(li, ti) for li, (lo, hi) in lines.items() for ti in by_line[li]
+            if whole or lo < ti < hi}
 
 
 def _spans_unreadable(span, stream, rule=None):
-    """True when an unread token lies inside the member: between its first
-    and last unit on a line, or anywhere on the line for a whole-line member
-    (`locus='line'`), whose first or last word may be the unread one."""
-    if not stream.unreadable or not span.idx:
-        return False
-    U = stream.units
-    lines = {}
-    for i in span.idx:
-        lo, hi = lines.get(U[i].line, (U[i].token, U[i].token))
-        lines[U[i].line] = (min(lo, U[i].token), max(hi, U[i].token))
-    whole = rule is not None and rule.locus == "line"
-    return any(li in lines and (whole or lines[li][0] < ti < lines[li][1])
-               for li, ti, _ in stream.unreadable)
+    """True when an unread token lies inside the member (`_bracketed_unread`)."""
+    return bool(_bracketed_unread(span, stream, rule))
 
 
 def _seq(span, stream, channel, chans, surface, rule=None):

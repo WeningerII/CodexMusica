@@ -3102,7 +3102,10 @@ jobs:
       #   capacity asks for (`_schema_report=False`, EA-R speed): full against
       #   reduced on a rescue, an unresolved refusal, repeats and capacity's
       #   bans (3PO, #637 6537308588); about 23 s; label 108 to 109
-      - name: The 109 cheap suites (their history is the comment above; 111 until 2026-10-27, when the five bank suites were deleted with the song bank; sound_inventory joined 2026-10-30; connection_schemas the same day; schema_report 2026-10-31)
+      #   mosaic_rhyme and sequence_unread joined 2026-10-31 with M-311 F1/F4
+      #   (#657): the mosaic rule and the unread-word guard; seconds each;
+      #   label 109 to 111
+      - name: The 111 cheap suites (their history is the comment above; 111 until 2026-10-27, when the five bank suites were deleted with the song bank; sound_inventory joined 2026-10-30; connection_schemas the same day; schema_report 2026-10-31; mosaic_rhyme and sequence_unread 2026-10-31)
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -3197,7 +3200,7 @@ jobs:
                    controls data_row_claims english_text stub_resolution melody meter tempo verify_figures expected_drift \
                    cross_song brief_provenance shard \
                    battery_rounds comparator_pin audit_regressions production_harness production_relations high_report \
-                   production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window within_item computational_audit interlocking_chain field_store type_canon backlog_status source_identity figure_exhibits relation_index lexicon_supplement reader reader_quotes moby_convert coverage_split coverage_queue pilot_frame schema_instance_evidence sound_inventory connection_schemas schema_report; do
+                   production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window within_item computational_audit interlocking_chain field_store type_canon backlog_status source_identity figure_exhibits relation_index lexicon_supplement reader reader_quotes moby_convert coverage_split coverage_queue pilot_frame schema_instance_evidence sound_inventory connection_schemas schema_report mosaic_rhyme sequence_unread; do
             # SHARDED ACROSS RUNNERS, 2026-09-01. The list above is already
             # run FOUR-WIDE on one runner (below), so this job was 5,612
             # CPU-s packed into 4 lanes = 1,403s wall — the measured
