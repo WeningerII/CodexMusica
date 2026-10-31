@@ -971,11 +971,26 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
-  verify:
+  # SPLIT ACROSS TWO RUNNERS 2026-10-30 (owner-approved on #637, built on a
+  # branch first). One runner spent 29.4 of this job's 31.9 min in
+  # `test:ci` (run 41118387628: 89 leaves, 6,310 leaf-seconds over 4
+  # workers), the second-longest job in PR CI. `run_parallel --shard=K/2`
+  # deals those leaves in a snake (15.3 and 15.2 simulated minutes on that
+  # run's leaf costs; the 748 s mcp/test.mjs is the floor), and the job named
+  # `verify` below is now the fan-in: it proves from the two shards' records
+  # that every leaf ran on exactly one of them, so `verify` still means what
+  # `scripts/verify_ci.mjs`'s REQUIRED_JOBS reads it to mean. The checks
+  # outside `test:ci` run once, on shard 2, which has fewer leaf-seconds.
+  verify-shard:
     needs: [dup, gate]
     # M-250: skip when a pull_request run already tests this commit.
     if: needs.dup.outputs.already_covered != 'true'
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2]
+    name: verify (shard ${{ matrix.shard }}/2)
     # MEASURED at ~8-12 minutes green when first pinned; REPINNED 2026-09-04
     # (M-231 addendum) from ~~30~~ to 45: the job now runs the connector
     # suite's live checks and the regression step, 19 minutes green on a
@@ -1059,21 +1074,26 @@ jobs:
       # which this job depends on — repeating them here would just re-spend 41s.
 
       - name: Static API contract (committed api/ honors promises)
+        if: matrix.shard == 2
         run: npm run check:api
 
       - name: Promise→gate coverage (every promise documented AND gated, 0 orphans)
+        if: matrix.shard == 2
         run: npm run check:promises
 
       # Every doc that lists the connector's tools lists the tools /mcp serves.
       # Needs the connector's dependencies (it builds the surface), so it runs
       # here rather than with check-docs in the gate job.
       - name: Connector tool lists in docs match the served surface
+        if: matrix.shard == 2
         run: npm run check:doc-tools
 
       - name: Preface lexicon hygiene (no dup/empty/production-dead tokens, no dup ids)
+        if: matrix.shard == 2
         run: npm run check:prefaces
 
       - name: Authoring dead-token gate (every preface token reaches a tradition-default card)
+        if: matrix.shard == 2
         run: npm run check:dead-tokens
 
       # Renaming a record must never move a DIFFERENT record's picks. This was a
@@ -1081,6 +1101,7 @@ jobs:
       # merseybeat's scoring context and compiled a 1962-1968 tradition with a
       # 1981 amplifier.
       - name: Name isolation (no tradition's picks depend on another's name)
+        if: matrix.shard == 2
         run: npm run check:names
 
       # The publish workflow is the one piece of this repo no other gate covered,
@@ -1088,9 +1109,11 @@ jobs:
       # before anyone noticed. Its decision now lives in scripts/publish_guard.sh
       # and is exercised against a synthetic replay of that exact race.
       - name: Publish guard (a superseded build can never overwrite the live site)
+        if: matrix.shard == 2
         run: npm run check:publish
 
       - name: Audit data quality
+        if: matrix.shard == 2
         run: npm run audit
 
       # npm test -> test:connector:live -> test:lyrics:runtime ->
@@ -1111,7 +1134,21 @@ jobs:
       # The doctrine-1 property holds: the chain is still ONE definition, read
       # out of package.json, and `npm test` alone still means what it meant.
       - name: Regression (recipes, prefaces, slots, app), locale invariance, edit differential and the CLI pipe -- every leaf concurrently
-        run: npm run test:ci
+        run: >-
+          node scripts/run_parallel.js test:ci:serial --shard=${{ matrix.shard }}/2
+          --record="$RUNNER_TEMP/verify-record.json"
+
+      # The fan-in's evidence: the whole leaf list and the leaves this shard
+      # ran, written even when a leaf failed, so a red shard still proves
+      # which leaves it owned.
+      - name: Upload this shard's leaf record
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: verify-record-${{ matrix.shard }}
+          path: ${{ runner.temp }}/verify-record.json
+          if-no-files-found: error
+          retention-days: 7
 
       # Locale invariance, tested rather than asserted.
       #
@@ -1165,9 +1202,11 @@ jobs:
       # still why it exists and what it catches.
 
       - name: Build codex.html (lazy shell + no-table-leak + byte-ceiling check)
+        if: matrix.shard == 2
         run: npm run build:html
 
       - name: UI reachability
+        if: matrix.shard == 2
         run: npm run reachability
 
       # The embedded build (every table inline: the page check_lazy_app and
@@ -1179,10 +1218,45 @@ jobs:
       # default output path, where the lazy build above is what UI
       # reachability reads.
       - name: Build the embedded codex.html (--check)
+        if: matrix.shard == 2
         run: npm run build:html:embedded -- --out="$RUNNER_TEMP/embedded/codex.html" --quiet
+
+  # The fan-in for `verify-shard`, and the job `scripts/verify_ci.mjs` names.
+  # Green only when both shards were green AND their records prove the split
+  # lost nothing: the same leaf list on both, and every leaf of
+  # `test:ci:serial` (read from this checkout's package.json) run on exactly
+  # one shard.
+  verify:
+    needs: [dup, gate, verify-shard]
+    if: ${{ !cancelled() && needs.dup.outputs.already_covered != 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '22'
+
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          pattern: verify-record-*
+          path: ${{ runner.temp }}/verify-records
+
+      - name: Every leaf ran on exactly one shard
+        run: node scripts/run_parallel.js test:ci:serial --verify-shards="$RUNNER_TEMP/verify-records" --shards=2
+
+      - name: Both shards passed
+        if: ${{ !cancelled() }}
+        run: |
+          result="${{ needs.verify-shard.result }}"
+          echo "verify shards: $result"
+          [ "$result" = "success" ] || { echo "::error::verify shards reported '$result'"; exit 1; }
 
   # Reproducibility + two-sided gates. Separate job so the fresh rebuild runs in
   # parallel with `verify`, and still gates the merge (runs on PRs).
+  # The two-sided gates (fault injection) left this job for `faults` below
+  # on 2026-10-30; `freshness` is now the fan-in that requires both.
   #
   # The rebuild dominates this job: ~~a claimed 30 min of its 34 min~~ a
   # measured 7.7 min of its 11.7 min at 2,503 traditions, against <1s for the
@@ -1196,7 +1270,7 @@ jobs:
   # 1,426-tradition figure is struck rather than corrected because it cannot be
   # re-measured now; linear scaling from 7.7 min at 2,503 puts it near 4.4, so
   # whatever it measured, it was not this build on this runner.
-  freshness:
+  freshness-build:
     needs: [dup, gate]
     # M-250: skip when a pull_request run already tests this commit.
     if: needs.dup.outputs.already_covered != 'true'
@@ -1233,30 +1307,6 @@ jobs:
       # registrations actually load would never run in CI.
       - name: Install connector dependencies
         run: npm ci --prefix mcp
-
-      # faults.js injects a defect into codex.html and asserts check_mobile_layout
-      # catches it — that gate drives a real browser, so this job needs one too.
-      # Same cache + step cap as verify's install, same measured hangs.
-      - name: Cache Playwright browsers
-        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
-        with:
-          path: ~/.cache/ms-playwright
-          key: pw-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-      - name: Install Chromium (for the mobile-layout fault class)
-        timeout-minutes: 20
-        # Same hardening as the verify job's install step, for the same
-        # reason: the apt half of --with-deps flakes on a slow mirror, the
-        # CDN half never has. Split, retry apt up to three times, fail the
-        # step only when all three attempts fail.
-        run: |
-          npx playwright install chromium
-          ok=0
-          for i in 1 2 3; do
-            if npx playwright install-deps chromium; then ok=1; break; fi
-            echo "install-deps attempt $i failed; retrying"
-            sleep 10
-          done
-          [ "$ok" = "1" ]
 
       # M-244: cache only the build, keyed by the existing conservative closure
       # and the runtime. A hit still proves its complete file inventory, then
@@ -1331,6 +1381,100 @@ jobs:
             node scripts/check_payload_budget.js --html=codex.html --api=api
           fi
 
+  # FAULT INJECTION, DEALT ACROSS THREE RUNNERS (2026-10-30, owner-approved on
+  # #637, built on a branch first). It was the last step of `freshness`, one
+  # 29.8-min process after an 11.7-min build (run 41118387628), and that job
+  # was the wall of PR CI. `faults.js --shard=K/3` runs every third class,
+  # dealt by the order each class name is first opened (118 classes, 40/39/39);
+  # each shard restores the build `freshness-build` verified and cached (M-244
+  # key, admitted by bytes), or builds its own when there is none to admit.
+  # A sharded run is partial, so the job named `freshness` below re-asserts
+  # what a full run asserts, over all three records.
+  faults:
+    needs: [dup, gate, freshness-build]
+    if: ${{ !cancelled() && needs.dup.outputs.already_covered != 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3]
+    name: faults (shard ${{ matrix.shard }}/3)
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install connector dependencies
+        run: npm ci --prefix mcp
+
+      # faults.js injects a defect into codex.html and asserts check_mobile_layout
+      # catches it — that gate drives a real browser, so this job needs one too.
+      # Same cache + step cap as verify's install, same measured hangs.
+      - name: Cache Playwright browsers
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: pw-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+      - name: Install Chromium (for the mobile-layout fault class)
+        timeout-minutes: 20
+        # Same hardening as the verify job's install step, for the same
+        # reason: the apt half of --with-deps flakes on a slow mirror, the
+        # CDN half never has. Split, retry apt up to three times, fail the
+        # step only when all three attempts fail.
+        run: |
+          npx playwright install chromium
+          ok=0
+          for i in 1 2 3; do
+            if npx playwright install-deps chromium; then ok=1; break; fi
+            echo "install-deps attempt $i failed; retrying"
+            sleep 10
+          done
+          [ "$ok" = "1" ]
+
+      # M-244: cache only the build, keyed by the existing conservative closure
+      # and the runtime. A hit still proves its complete file inventory, then
+      # runs the ordinary byte comparison and every fault injection. Scheduled
+      # runs rebuild cold. There is deliberately no restore-keys fallback.
+      - name: Identify the complete artifact build inputs
+        id: artifact-key
+        if: needs.gate.outputs.artifacts_affected == 'true'
+        run: |
+          if key=$(node scripts/artifact_build_cache.js key); then
+            echo "key=$key" >> "$GITHUB_OUTPUT"
+          else
+            echo "Could not establish build identity; rebuilding without cache."
+          fi
+
+      - name: Restore an exact artifact build
+        id: artifact-cache
+        if: needs.gate.outputs.artifacts_affected == 'true' && steps.artifact-key.outputs.key != '' && github.event_name != 'schedule'
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: ${{ runner.temp }}/fresh
+          key: artifact-build-v1-${{ steps.artifact-key.outputs.key }}
+
+      - name: Admit the restored build bytes
+        id: artifact-admission
+        if: steps.artifact-cache.outputs.cache-hit == 'true'
+        run: |
+          if node scripts/artifact_build_cache.js admit "$RUNNER_TEMP/fresh"; then
+            echo "reusable=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build a fresh artifact from source
+        if: needs.gate.outputs.artifacts_affected == 'true' && steps.artifact-admission.outputs.reusable != 'true'
+        run: |
+          rm -rf "$RUNNER_TEMP/fresh"
+          node scripts/build_static_api.js --out="$RUNNER_TEMP/fresh/api"
+          node scripts/build_html.js --out="$RUNNER_TEMP/fresh/codex.html" --quiet
+
       # Fault injection runs on EVERY diff, docs-only included, and that is
       # deliberate: several of its classes inject into AGENTS.md / README.md /
       # SKILL.md to prove the promise and doc-drift gates are two-sided. Skipping
@@ -1352,19 +1496,62 @@ jobs:
       # one reports beside it. With no fresh pair to inject against (a step
       # above stopped before the build finished), it says so and fails at
       # once, rather than plant into files that are not there.
-      - name: Fault injection — every gate is two-sided (0 escapes)
+      - name: Fault injection, shard ${{ matrix.shard }}/3 — every gate is two-sided (0 escapes)
         if: ${{ !cancelled() }}
         run: |
+          REC="$RUNNER_TEMP/faults-record.json"
           if [ "${{ needs.gate.outputs.artifacts_affected }}" = "true" ]; then
             if [ ! -f "$RUNNER_TEMP/fresh/codex.html" ] || [ ! -d "$RUNNER_TEMP/fresh/api" ]; then
               echo "No fresh build to inject against: a step above stopped before it was made."
               exit 1
             fi
-            node scripts/faults.js --fresh-api="$RUNNER_TEMP/fresh/api" --fresh-html="$RUNNER_TEMP/fresh/codex.html"
+            node scripts/faults.js --shard=${{ matrix.shard }}/3 --record="$REC" --fresh-api="$RUNNER_TEMP/fresh/api" --fresh-html="$RUNNER_TEMP/fresh/codex.html"
           else
             echo "Docs-only diff — injecting against the committed artifacts."
-            node scripts/faults.js --fresh-api=api --fresh-html=codex.html
+            node scripts/faults.js --shard=${{ matrix.shard }}/3 --record="$REC" --fresh-api=api --fresh-html=codex.html
           fi
+
+      - name: Upload this shard's fault record
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: faults-record-${{ matrix.shard }}
+          path: ${{ runner.temp }}/faults-record.json
+          if-no-files-found: error
+          retention-days: 7
+
+  # The fan-in, and the job `scripts/verify_ci.mjs` names. Green only when the
+  # build job was green, all three fault shards were green, and their records
+  # together are a full run: every class on exactly one shard, every injected
+  # defect caught, every promise-bound gate with a fault class.
+  freshness:
+    needs: [dup, gate, freshness-build, faults]
+    if: ${{ !cancelled() && needs.dup.outputs.already_covered != 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '22'
+
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          pattern: faults-record-*
+          path: ${{ runner.temp }}/faults-records
+
+      - name: The three shards are one full fault-injection run
+        run: node scripts/faults_shards.js "$RUNNER_TEMP/faults-records" 3
+
+      - name: The build job and every fault shard passed
+        if: ${{ !cancelled() }}
+        run: |
+          build="${{ needs.freshness-build.result }}"
+          faults="${{ needs.faults.result }}"
+          echo "freshness-build: $build · faults: $faults"
+          [ "$build" = "success" ] || { echo "::error::freshness-build reported '$build'"; exit 1; }
+          [ "$faults" = "success" ] || { echo "::error::fault shards reported '$faults'"; exit 1; }
 
   # Catalog-wide breadth. `verify` proves depth — 1,171 pinned recipe fixtures —
   # but only smoke.js exercises EVERY tradition, blend and axis-target through the
@@ -3159,6 +3346,12 @@ jobs:
       # two 2.5-minute ones now sit on the other two shards (meter bands on
       # 3, chance rate on 1); each is still done exactly once, and the three
       # shards are within a minute of each other on that run's numbers.
+      # ~~meter bands on 3~~ MOVED TO 2, 2026-10-30, ON THREE RUNS' STEP
+      # TIMES: shard 3 had become the longest job of the three (27.8, 28.0
+      # and 34.6 min on runs 41118387628, 41125996316 and 41069727105) once
+      # E-5 joined it, while shard 2's loop was the shortest each time. With
+      # the 3.7-min meter bands on shard 2 the longest of the three becomes
+      # 23.4, 25.3 and 30.3 on the same step times. Still done exactly once.
       - name: Song-profile calibration, against the drift that is RULED (not silenced)
         if: ${{ always() && matrix.shard == 2 }}
         working-directory: lyric-harness
@@ -3179,7 +3372,7 @@ jobs:
       # mutation set (test_meter_bands section 9 drives the comparison
       # logic; --check is this same comparison over the real sweep).
       - name: Meter-band adoption check, the shipped constants re-derived
-        if: ${{ always() && matrix.shard == 3 }}
+        if: ${{ always() && matrix.shard == 2 }}
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -4099,50 +4292,12 @@ jobs:
           python-version: '3.11.16'
           architecture: 'x64'
 
-      # song_profile_calibration's memo lives OUTSIDE the repo, at
-      # ~/.cache/lyric-harness/song_predictability_v1.tsv, which is what makes
-      # a nightly full --check affordable at all: ~85 CPU-s warm against a
-      # cold cost that is ~~now ~18 CPU-HOURS~~ ~2.4 CPU-HOURS (REPINNED
-      # 2026-09-01, two paragraphs down), and it is explicitly resumable.
-      # Restoring this is the difference between a job that finishes and one
-      # that times out.
-      #
-      # REPINNED 2026-08-20: the cold figure read "2.0-2.2 CPU-HOURS" and was
-      # measured over a 4,930-item corpus. The loading campaign took that to
-      # 8,667 items, ~~and the per-item cost was MEASURED at ~7.5 CPU-s over
-      # two flush intervals -- so cold is ~18 hours, not two,~~ and the step
-      # below pays it in bounded nightly slices rather than pretending it fits.
-      #
-      # REPINNED AGAIN 2026-09-01 (`MISSING.md` M-187), and the 2026-08-20
-      # figure was 7.5x too high by the exact mechanism the `record` job's
-      # 2026-08-14 paragraph warns about: a RATE read over two flush intervals
-      # and multiplied out, then quoted beside a command nobody re-ran. The
-      # 2026-08-30 nightly (run #1165) DISCARDED its memo on a comparator
-      # fingerprint move and recomputed the whole corpus cold — its own PHASE
-      # COST table reads `hits 4, misses 8663`, population 8,718.7 CPU-s
-      # (8,719.5 wall), TOTAL 8,758.6 CPU-s, and the step took 8,764 s: ~1.0
-      # CPU-s per item, ~2.4 CPU-hours, COMPLETE inside one 150-minute slice
-      # with 236 s to spare. Reproduce: that run's step log (`gh run view
-      # 33305249323 --log`, the song-profile step), or `python3
-      # quality/song_profile_calibration.py --check` on a cold memo, which
-      # prints the same table. The bound below stays: 146 of 150 minutes is
-      # not headroom, and the corpus still grows.
-      # RESTORE AND SAVE ARE SPLIT, AND THE SAVE IS `if: always()` — 2026-08-27.
-      # `actions/cache@v4` declares `post-if: success()`, so its save runs ONLY
-      # when the job passed. That turned the memo into a PERMANENT DEADLOCK and
-      # the evidence is run #966 (2026-08-26): the song-profile step banked
-      # `memo: 0 -> 8663 items (+8663 banked this run)` after 146 minutes of
-      # work, the job then failed on the drift the same step reported, the save
-      # was skipped, and the next night started cold and paid the 146 minutes
-      # again. Every scheduled run from 2026-08-15 to 2026-08-26 is red, and
-      # this is why none of them could ever get further than the last.
-      #
-      # THE STEP'S OWN CONTRACT ALREADY ASSUMED THIS AND COULD NOT GET IT: its
-      # `124` arm reads "the run hit its 150m budget with the memo advanced and
-      # banked. The next nightly resumes from it" — true of the file on disk,
-      # false of the cache, because a timeout is not a success either. A
-      # resumable slice whose resume point is discarded on every failure is not
-      # resumable; it is the same first slice, forever.
+      # RESTORE ONLY, SINCE 2026-10-30: the song-profile calibration, the
+      # length-curve check that reads its memo, and the bank step moved to
+      # `nightly-calibration` below. This job still restores the directory
+      # (its steps read the field store kept there) but never saves it, so a
+      # save from here can never become the newest entry and hand tomorrow's
+      # calibration an older memo than the one it banked.
       - name: Restore the predictability memo
         uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
@@ -4445,6 +4600,208 @@ jobs:
       # replacement for that sitting is the placement conversion of the
       # grading spine, and any table it earns arrives with its own step.
 
+      # ─────────── deployment freshness (M-127) ───────────
+      #
+      # THE ONE LOOP NOTHING ABOVE CLOSES. Every step in this file runs against
+      # the TREE; none ever asks the DEPLOYED process what it is actually
+      # serving, so the deployment could drift from main silently — and did:
+      # 2026-08-26, a live server advertising a one-commit-stale lyric_sweep
+      # schema (12-want ceiling, no story_lineups), found by a person reading a
+      # schema rather than by anything that gates. mcp/check_live.mjs asks the
+      # live endpoint for its advertised tool surface and byte-compares it
+      # (canonical key order, tools keyed by name) against the surface this
+      # tree's own buildServer() advertises through the same SDK path.
+      #
+      # IT GATES HERE AND DELIBERATELY NOT IN THE PER-PUSH JOBS: render.yaml
+      # deploys from main, so a feature branch that edits the connector
+      # LEGITIMATELY differs from the deployment until it merges, and a
+      # per-push gate would charge every honest connector change with the
+      # drift it is about to fix. The nightly runs on main, where tree !=
+      # deployment is always a defect: autoDeploy failed, or has not caught up.
+      #
+      # THREE ANSWERS, NEVER COLLAPSED: exit 0 MATCH, exit 3 DRIFT (each
+      # drifted tool named with the coordinate that moved), exit 2 REFUSED —
+      # the server could not be asked, which is a red worth having since a
+      # connector nobody can reach is not a connector that matches.
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        if: always()
+        with:
+          node-version: '22'
+
+      - name: Install connector dependencies (check_live builds the expected surface in-process)
+        if: always()
+        run: npm ci --prefix mcp
+
+      # NO URL AND NO `--commit`, DELIBERATELY, AND IT IS THE POINT OF THE STEP
+      # (M-308). `check_live.mjs` with no argument reads its own DEFAULT_URL —
+      # `https://mcp.codexmusica.com/mcp`, the address `AGENTS.md` publishes
+      # and a client adds as a custom connector. That is a DIFFERENT address
+      # from `vars.CONNECTOR_URL`, which is the Render service the deploy
+      # verifies, so for months this step was the ONLY thing in the repository
+      # asking whether the documented endpoint serves the tree. It found one:
+      # `DRIFT — 3 difference(s)` on 2026-09-22 (`edit_recipe`,
+      # `render_recipe`, `lyric_revise` inputSchemas) eleven hours after a
+      # deploy of the same sha went green against the service.
+      #
+      # DO NOT MAKE THIS NON-BLOCKING. A stale public connector is the one
+      # failure a user of this product experiences directly, and exit 3 here is
+      # the check working. `deploy-connector.yml` now asks the same question at
+      # deploy time (`Verify the address the product documents`), so a red here
+      # means the live service drifted AFTER a verified deploy and the remedy
+      # is a redeploy, not an edit to this step. Exit 2 is REFUSED/unreachable
+      # and is a different answer from exit 3 DRIFT (doctrine 20).
+      - name: Deployment freshness — the live connector's advertised surface against the tree's
+        if: always()
+        working-directory: mcp
+        run: node check_live.mjs
+
+      # ~~CURRENT LIMITATION (BCI-10): the older 77.4m non-song measurement plus
+      # the 150m song and newer 40m curve bounds totals 267.4m before setup/save,
+      # exceeding this 240m job by 27.4m. This is bound arithmetic, not a current
+      # completed-run measurement; cache save may be lost at the job ceiling.~~
+      # CLOSED 2026-09-22, AND IT WAS A COMPLETED-RUN MEASUREMENT ALL ALONG —
+      # THE RUNS WERE JUST NEVER READ. Three nightlies (1651, 2169, 2248) were
+      # CANCELLED at the ceiling, and a cancelled job never reaches the memo
+      # save, so each one threw away the 150 minutes it had just spent. The
+      # arithmetic was also 11m light: the non-song steps are 88.5m today, not
+      # 77.4m. The job ceiling is 350m and the slice 180m; `timeout-minutes`
+      # above carries both measurements and the margin. The paragraph is kept
+      # rather than deleted because "bound arithmetic, not a measurement" is
+      # exactly the hedge that let a live deadlock read as a known limitation.
+      # Production qualification now runs all four explicit mutation shards and
+      # each full calibration component in separate bounded jobs. A green slice
+      # or this historical timing estimate never authorizes production promotion.
+      # Historical budget calculation follows; its positive-margin claim is
+      # superseded by the newly counted curve step above AND by the re-measured
+      # non-song total; read `timeout-minutes` for the live figures.
+      # THE JOB'S OWN TIME BUDGET, MEASURED 2026-08-27 rather than argued,
+      # because three steps joined this job (structure_census, chance_rate
+      # --null, regrade_verdicts) and nothing had re-added it up. Run #966's
+      # wall clock for the steps that were already here is 200m of the 240m
+      # cap, of which the song-profile slice is 147m ON A COLD MEMO. The three
+      # additions measure 0.3m + 8.3m + 8.2m = 16.8m on a 4-vCPU box, so the
+      # cold-memo worst case is ~~~217m and the margin is ~23m~~ — RE-MEASURED
+      # 2026-09-02 (`MISSING.md` M-187, the figure nobody re-ran): the
+      # 2026-09-01 nightly (run #1183, job 99805459600) took 79.0 min WARM —
+      # the song-profile slice 96 s off a banked memo, the other steps 77.4
+      # min (feature cache 1005 s, discrimination 985 s, capacity 589 s,
+      # Kalevala 741 s, 77-schema door 609 s, banked verdicts 621 s, the rest
+      # under a minute each). The cold worst case is therefore 77.4 m + the
+      # 150 m slice bound = ~227 m, and the margin ~13 m of 240 — narrower
+      # than the 2026-08-27 reading because the non-slice steps grew ~7 m,
+      # not because the slice moved. Positive, so the cap stays; the next
+      # step added here needs this paragraph re-measured first, not extended.
+      # Re-read it from the run's job timings (`gh run view <id> --json
+      # jobs`), the same way this figure was.
+      #
+      # ~~THE 150m SLICE BUDGET IS LEFT ALONE ON THAT MARGIN~~ — STRUCK
+      # 2026-09-22, AND THE ARGUMENT IN IT IS THE REASON THE SLICE GREW
+      # RATHER THAN A REASON IT DID NOT. The reason is
+      # the save step above rather than the arithmetic: an overrun now BANKS
+      # its memo, so a night that runs out resumes the next night and
+      # completes, instead of restarting cold forever. Cutting the slice to
+      # buy margin would trade a self-healing overrun for a check that never
+      # reaches its verdict. Re-measure before adding a fourth step here.
+      # WHAT THAT ARGUMENT DID NOT COVER is the case it was written under: a
+      # job CANCELLED at its ceiling banks nothing, so the self-healing
+      # overrun heals only while the job fits. It did not, on three of the
+      # last nine nightlies. The slice is 180m now, which is the corpus's own
+      # cold cost with headroom, and the resume path is the fallback rather
+      # than the design — "advances a slice per nightly until warm" (M-260)
+      # was never true across a moved fingerprint, and M-299 is the entry
+      # that measured why.
+
+  # THE SONG-PROFILE CALIBRATION AND THE LENGTH-CURVE CHECK THAT READS ITS MEMO,
+  # AS THEIR OWN JOB (2026-10-30, owner-approved on #637, built on a branch
+  # first). In one job they ran after every other nightly step: run
+  # 41069727105 spent 204 min in `nightly`, 129.7 of them in this calibration
+  # (its memo cold: the comparator fingerprint had moved, which discards it by
+  # design). Neither step reads anything the other nightly steps write, and
+  # the length-curve check reads only the memo the calibration warms, so the
+  # two run here, in their original order, beside `nightly` instead of after
+  # it. Same commands, same bounds, same exits; the memo is restored and
+  # banked here exactly as it was there.
+  nightly-calibration:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'schedule' && github.event.schedule == '17 3 * * *')
+    runs-on: ubuntu-24.04
+    # The two bounds inside the steps (200m and 40m) plus setup.
+    timeout-minutes: 270
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.11.16'
+          architecture: 'x64'
+
+      # song_profile_calibration's memo lives OUTSIDE the repo, at
+      # ~/.cache/lyric-harness/song_predictability_v1.tsv, which is what makes
+      # a nightly full --check affordable at all: ~85 CPU-s warm against a
+      # cold cost that is ~~now ~18 CPU-HOURS~~ ~2.4 CPU-HOURS (REPINNED
+      # 2026-09-01, two paragraphs down), and it is explicitly resumable.
+      # Restoring this is the difference between a job that finishes and one
+      # that times out.
+      #
+      # REPINNED 2026-08-20: the cold figure read "2.0-2.2 CPU-HOURS" and was
+      # measured over a 4,930-item corpus. The loading campaign took that to
+      # 8,667 items, ~~and the per-item cost was MEASURED at ~7.5 CPU-s over
+      # two flush intervals -- so cold is ~18 hours, not two,~~ and the step
+      # below pays it in bounded nightly slices rather than pretending it fits.
+      #
+      # REPINNED AGAIN 2026-09-01 (`MISSING.md` M-187), and the 2026-08-20
+      # figure was 7.5x too high by the exact mechanism the `record` job's
+      # 2026-08-14 paragraph warns about: a RATE read over two flush intervals
+      # and multiplied out, then quoted beside a command nobody re-ran. The
+      # 2026-08-30 nightly (run #1165) DISCARDED its memo on a comparator
+      # fingerprint move and recomputed the whole corpus cold — its own PHASE
+      # COST table reads `hits 4, misses 8663`, population 8,718.7 CPU-s
+      # (8,719.5 wall), TOTAL 8,758.6 CPU-s, and the step took 8,764 s: ~1.0
+      # CPU-s per item, ~2.4 CPU-hours, COMPLETE inside one 150-minute slice
+      # with 236 s to spare. Reproduce: that run's step log (`gh run view
+      # 33305249323 --log`, the song-profile step), or `python3
+      # quality/song_profile_calibration.py --check` on a cold memo, which
+      # prints the same table. The bound below stays: 146 of 150 minutes is
+      # not headroom, and the corpus still grows.
+      # RESTORE AND SAVE ARE SPLIT, AND THE SAVE IS `if: always()` — 2026-08-27.
+      # `actions/cache@v4` declares `post-if: success()`, so its save runs ONLY
+      # when the job passed. That turned the memo into a PERMANENT DEADLOCK and
+      # the evidence is run #966 (2026-08-26): the song-profile step banked
+      # `memo: 0 -> 8663 items (+8663 banked this run)` after 146 minutes of
+      # work, the job then failed on the drift the same step reported, the save
+      # was skipped, and the next night started cold and paid the 146 minutes
+      # again. Every scheduled run from 2026-08-15 to 2026-08-26 is red, and
+      # this is why none of them could ever get further than the last.
+      #
+      # THE STEP'S OWN CONTRACT ALREADY ASSUMED THIS AND COULD NOT GET IT: its
+      # `124` arm reads "the run hit its 150m budget with the memo advanced and
+      # banked. The next nightly resumes from it" — true of the file on disk,
+      # false of the cache, because a timeout is not a success either. A
+      # resumable slice whose resume point is discarded on every failure is not
+      # resumable; it is the same first slice, forever.
+      - name: Restore the predictability memo
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: ~/.cache/lyric-harness
+          key: lyric-harness-predictability-v1-${{ github.run_id }}
+          restore-keys: lyric-harness-predictability-v1-
+
+      - name: Install the three packages the nightly instruments need
+        run: |
+          python3 -m pip install --disable-pip-version-check --require-hashes -r "$GITHUB_WORKSPACE/mcp/requirements-runtime.txt"
+          python3 -m pip install --disable-pip-version-check numpy scikit-learn
+
+      - name: Stage the pronunciation dictionary
+        working-directory: lyric-harness
+        run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
+
+      # The one instrument that needs the quality-layer resources: concreteness
+      # norms and the frequency list. `record` deliberately does NOT run this.
+      - name: Fetch the quality-layer resources
+        working-directory: lyric-harness
+        run: python3 quality/fetch_data.py --research
+
       # THE FULL ARM IS NOW BOUNDED AND RESUMABLE, HANDED HERE BY THE OWNER
       # 2026-08-20 because it cannot finish anywhere else. The corpus grew
       # 4,930 -> 8,667 items in the loading campaign, and the cold cost grew
@@ -4588,117 +4945,6 @@ jobs:
             124) echo "INCOMPLETE — the memo remains resumable, but the full comparison did not finish."; exit 124 ;;
             *) echo "UNEXPECTED exit $rc"; exit $rc ;;
           esac
-
-      # ─────────── deployment freshness (M-127) ───────────
-      #
-      # THE ONE LOOP NOTHING ABOVE CLOSES. Every step in this file runs against
-      # the TREE; none ever asks the DEPLOYED process what it is actually
-      # serving, so the deployment could drift from main silently — and did:
-      # 2026-08-26, a live server advertising a one-commit-stale lyric_sweep
-      # schema (12-want ceiling, no story_lineups), found by a person reading a
-      # schema rather than by anything that gates. mcp/check_live.mjs asks the
-      # live endpoint for its advertised tool surface and byte-compares it
-      # (canonical key order, tools keyed by name) against the surface this
-      # tree's own buildServer() advertises through the same SDK path.
-      #
-      # IT GATES HERE AND DELIBERATELY NOT IN THE PER-PUSH JOBS: render.yaml
-      # deploys from main, so a feature branch that edits the connector
-      # LEGITIMATELY differs from the deployment until it merges, and a
-      # per-push gate would charge every honest connector change with the
-      # drift it is about to fix. The nightly runs on main, where tree !=
-      # deployment is always a defect: autoDeploy failed, or has not caught up.
-      #
-      # THREE ANSWERS, NEVER COLLAPSED: exit 0 MATCH, exit 3 DRIFT (each
-      # drifted tool named with the coordinate that moved), exit 2 REFUSED —
-      # the server could not be asked, which is a red worth having since a
-      # connector nobody can reach is not a connector that matches.
-      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
-        if: always()
-        with:
-          node-version: '22'
-
-      - name: Install connector dependencies (check_live builds the expected surface in-process)
-        if: always()
-        run: npm ci --prefix mcp
-
-      # NO URL AND NO `--commit`, DELIBERATELY, AND IT IS THE POINT OF THE STEP
-      # (M-308). `check_live.mjs` with no argument reads its own DEFAULT_URL —
-      # `https://mcp.codexmusica.com/mcp`, the address `AGENTS.md` publishes
-      # and a client adds as a custom connector. That is a DIFFERENT address
-      # from `vars.CONNECTOR_URL`, which is the Render service the deploy
-      # verifies, so for months this step was the ONLY thing in the repository
-      # asking whether the documented endpoint serves the tree. It found one:
-      # `DRIFT — 3 difference(s)` on 2026-09-22 (`edit_recipe`,
-      # `render_recipe`, `lyric_revise` inputSchemas) eleven hours after a
-      # deploy of the same sha went green against the service.
-      #
-      # DO NOT MAKE THIS NON-BLOCKING. A stale public connector is the one
-      # failure a user of this product experiences directly, and exit 3 here is
-      # the check working. `deploy-connector.yml` now asks the same question at
-      # deploy time (`Verify the address the product documents`), so a red here
-      # means the live service drifted AFTER a verified deploy and the remedy
-      # is a redeploy, not an edit to this step. Exit 2 is REFUSED/unreachable
-      # and is a different answer from exit 3 DRIFT (doctrine 20).
-      - name: Deployment freshness — the live connector's advertised surface against the tree's
-        if: always()
-        working-directory: mcp
-        run: node check_live.mjs
-
-      # ~~CURRENT LIMITATION (BCI-10): the older 77.4m non-song measurement plus
-      # the 150m song and newer 40m curve bounds totals 267.4m before setup/save,
-      # exceeding this 240m job by 27.4m. This is bound arithmetic, not a current
-      # completed-run measurement; cache save may be lost at the job ceiling.~~
-      # CLOSED 2026-09-22, AND IT WAS A COMPLETED-RUN MEASUREMENT ALL ALONG —
-      # THE RUNS WERE JUST NEVER READ. Three nightlies (1651, 2169, 2248) were
-      # CANCELLED at the ceiling, and a cancelled job never reaches the memo
-      # save, so each one threw away the 150 minutes it had just spent. The
-      # arithmetic was also 11m light: the non-song steps are 88.5m today, not
-      # 77.4m. The job ceiling is 350m and the slice 180m; `timeout-minutes`
-      # above carries both measurements and the margin. The paragraph is kept
-      # rather than deleted because "bound arithmetic, not a measurement" is
-      # exactly the hedge that let a live deadlock read as a known limitation.
-      # Production qualification now runs all four explicit mutation shards and
-      # each full calibration component in separate bounded jobs. A green slice
-      # or this historical timing estimate never authorizes production promotion.
-      # Historical budget calculation follows; its positive-margin claim is
-      # superseded by the newly counted curve step above AND by the re-measured
-      # non-song total; read `timeout-minutes` for the live figures.
-      # THE JOB'S OWN TIME BUDGET, MEASURED 2026-08-27 rather than argued,
-      # because three steps joined this job (structure_census, chance_rate
-      # --null, regrade_verdicts) and nothing had re-added it up. Run #966's
-      # wall clock for the steps that were already here is 200m of the 240m
-      # cap, of which the song-profile slice is 147m ON A COLD MEMO. The three
-      # additions measure 0.3m + 8.3m + 8.2m = 16.8m on a 4-vCPU box, so the
-      # cold-memo worst case is ~~~217m and the margin is ~23m~~ — RE-MEASURED
-      # 2026-09-02 (`MISSING.md` M-187, the figure nobody re-ran): the
-      # 2026-09-01 nightly (run #1183, job 99805459600) took 79.0 min WARM —
-      # the song-profile slice 96 s off a banked memo, the other steps 77.4
-      # min (feature cache 1005 s, discrimination 985 s, capacity 589 s,
-      # Kalevala 741 s, 77-schema door 609 s, banked verdicts 621 s, the rest
-      # under a minute each). The cold worst case is therefore 77.4 m + the
-      # 150 m slice bound = ~227 m, and the margin ~13 m of 240 — narrower
-      # than the 2026-08-27 reading because the non-slice steps grew ~7 m,
-      # not because the slice moved. Positive, so the cap stays; the next
-      # step added here needs this paragraph re-measured first, not extended.
-      # Re-read it from the run's job timings (`gh run view <id> --json
-      # jobs`), the same way this figure was.
-      #
-      # ~~THE 150m SLICE BUDGET IS LEFT ALONE ON THAT MARGIN~~ — STRUCK
-      # 2026-09-22, AND THE ARGUMENT IN IT IS THE REASON THE SLICE GREW
-      # RATHER THAN A REASON IT DID NOT. The reason is
-      # the save step above rather than the arithmetic: an overrun now BANKS
-      # its memo, so a night that runs out resumes the next night and
-      # completes, instead of restarting cold forever. Cutting the slice to
-      # buy margin would trade a self-healing overrun for a check that never
-      # reaches its verdict. Re-measure before adding a fourth step here.
-      # WHAT THAT ARGUMENT DID NOT COVER is the case it was written under: a
-      # job CANCELLED at its ceiling banks nothing, so the self-healing
-      # overrun heals only while the job fits. It did not, on three of the
-      # last nine nightlies. The slice is 180m now, which is the corpus's own
-      # cold cost with headroom, and the resume path is the fallback rather
-      # than the design — "advances a slice per nightly until warm" (M-260)
-      # was never true across a moved fingerprint, and M-299 is the entry
-      # that measured why.
 
       # THE OTHER HALF OF THE SPLIT ABOVE, and it is the half that ends the
       # deadlock: the memo is banked whatever the job's verdict, so a DRIFT
