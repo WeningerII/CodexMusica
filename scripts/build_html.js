@@ -624,7 +624,10 @@ if (LIBRARY) {
     const name = file.slice(0, -3);
     const code = squeeze(
       `CMLibraryDefine(${JSON.stringify(name)}, function () {\n${fs.readFileSync(path.join(SRC, 'library', file), 'utf8')}\n});`,
-      `library chunk: src/library/${file}`
+      // Factories are runtime code: shorten their private local bindings with
+      // the same policy as inline runtime scripts. Public globals, property
+      // keys and function/class names stay intact; hashes cover final bytes.
+      `runtime: library chunk: src/library/${file}`
     );
     const bytes = Buffer.from(code, 'utf8');
     const out = `library/code/${name}.${crypto.createHash('sha256').update(bytes).digest('hex').slice(0, 10)}.js`;
