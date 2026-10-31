@@ -1197,22 +1197,40 @@ def _token(rows, li, ti):
 
 
 class ReadingOutcomes(unittest.TestCase):
-    """Item 5 (#637 6547011992; shapes BB8 6547502531): what the any-reading
-    search already judged, carried on the edge, and the readings it varies,
-    carried on the token, so the views can show the witness, the judged
-    failing alternatives and "not computed" for the rest. No new search."""
+    """Item 5 (#637 6547011992, corrected 6547475463 / 6547751176 /
+    6547785583; shapes BB8 6547502531): what the any-reading search already
+    judged, carried on the edge as complete role-bound assignments, and the
+    readings it varies, carried on the token. Only listed assignments are
+    known; every other combination stays uncomputed. No new search."""
 
     WORDS = ConnectionEvidence.WORDS
 
-    def test_alternatives_judged_before_the_witness_are_kept(self):
+    @staticmethod
+    def member(assignment, occurrence):
+        return next(m for m in assignment if m["occurrence"] == occurrence)
+
+    def test_an_alternative_judged_before_the_witness_is_a_full_assignment(self):
         # `zea`'s witness is its LAST reading: the first was judged and failed.
         with _with_words({"zea": [["Z", "AH0"], ["Z", "IY1"]]}):
             _, rows, _ = complete(source("zea is home\nand bee is too"), schemas=["internal rhyme"])
         edge = _edge(rows, (0, 0), (1, 1))
         self.assertEqual(edge["verdict"], "true")
-        self.assertEqual(edge["reading"]["witness"], ["zea = Z IY1"])
-        self.assertEqual(edge["reading_outcomes"], [{"readings": ["zea = Z AH0"], "verdict": "false"}])
-        self.assertEqual(edge["judged_under"], "merged_set")
+        [judged] = edge["reading_outcomes"]
+        self.assertEqual(judged["verdict"], "false")
+        zea = self.member(judged["assignment"], "line:0:token:0")
+        bee = self.member(judged["assignment"], "line:1:token:1")
+        self.assertEqual((zea["role"], zea["phones"], zea["held"], zea["display"]),
+                         (["a"], "Z AH0", "varied", "zea = Z AH0"))
+        # The fixed partner is part of the assignment, with its own reading.
+        self.assertEqual((bee["role"], bee["held"]), (["b"], "only_reading"))
+        # The witness is bound the same way.
+        w = self.member(edge["witness_assignment"], "line:0:token:0")
+        self.assertEqual((w["phones"], w["held"]), ("Z IY1", "varied"))
+        # The pair's own verdict was judged on zea's merged set.
+        self.assertEqual((edge["judged_under"]["basis"], edge["judged_under"]["verdict"]),
+                         ("merged_set", "undecided"))
+        self.assertEqual(self.member(edge["judged_under"]["assignment"], "line:0:token:0")["held"],
+                         "merged_set")
         # The agreed summary keeps its shape: nothing private leaks into it.
         self.assertEqual(set(edge["reading_search"]), {"state", "combinations_examined",
                                                        "combination_limit", "termination_reason"})
@@ -1225,10 +1243,18 @@ class ReadingOutcomes(unittest.TestCase):
         tok = _token(rows, 0, 0)
         self.assertEqual(tok["applicable_readings"], ["Z IY1", "Z AH0"])
         self.assertEqual(tok["applicable_source"], "variants")
-        # The other applicable reading was never judged: it is "not computed",
-        # and the hold stays a hold.
-        used = {r for o in edge["reading_outcomes"] for r in o["readings"]} | set(edge["reading"]["witness"])
-        self.assertEqual([p for p in tok["applicable_readings"] if f"zee = {p}" not in used], ["Z AH0"])
+
+    def test_repeated_occurrences_of_a_word_are_never_confused(self):
+        # The same word on two lines, each paired with bee: every assignment
+        # names its own occurrence, so the two zea are told apart by id.
+        with _with_words({"zea": [["Z", "AH0"], ["Z", "IY1"]]}):
+            _, rows, _ = complete(source("zea is home\nand bee is too\nzea again"),
+                                  schemas=["internal rhyme"])
+        for line in (0, 2):
+            edge = _edge(rows, (line, 0), (1, 1))
+            occurrences = {m["occurrence"] for o in edge["reading_outcomes"] for m in o["assignment"]}
+            self.assertIn(f"line:{line}:token:0", occurrences)
+            self.assertNotIn(f"line:{2 - line}:token:0", occurrences)
 
     def test_a_capped_search_lists_only_what_it_judged(self):
         with _with_words(self.WORDS), patch.object(AnalysisSession, "EDGE_COMBOS", 1):
@@ -1236,13 +1262,15 @@ class ReadingOutcomes(unittest.TestCase):
         edge = _edge(rows, (0, 0), (1, 1))
         self.assertEqual(edge["verdict"], "undecided")
         self.assertEqual(len(edge["reading_outcomes"]), edge["reading_search"]["combinations_examined"])
-        self.assertEqual(edge["reading_outcomes"], [{"readings": ["zeed = Z IY1 D"], "verdict": "false"}])
+        zeed = self.member(edge["reading_outcomes"][0]["assignment"], "line:0:token:0")
+        self.assertEqual((zeed["phones"], zeed["held"]), ("Z IY1 D", "varied"))
 
     def test_an_edge_no_search_reached_carries_no_outcomes(self):
         _, rows, _ = complete(source("cat is home\nand hat is too"), schemas=["internal rhyme"])
         for r in rows:
             if r["kind"] == "relation_instance" and r["reading_search"]["state"] == "not_needed":
                 self.assertNotIn("reading_outcomes", r)
+                self.assertNotIn("judged_under", r)
 
     def test_the_inventory_is_the_declared_row_never_the_dictionary(self):
         reading = source("wind\nfind")
@@ -1254,22 +1282,74 @@ class ReadingOutcomes(unittest.TestCase):
         self.assertEqual(tok["applicable_readings"], ["W IH1 N D"])
         self.assertGreater(len(tok["reading_choices"]["dictionary_readings"]), 1)
 
-    def test_the_shared_sound_search_keeps_its_judged_readings_too(self):
+    def test_the_shared_sound_search_keeps_its_judged_assignments(self):
         # zyre's first reading leaves its anchor coda open; its second, closed
-        # by R as bar is, is the witness: the first is a judged alternative.
+        # by R as bar is, is the witness.
         with _with_words(SharedSound.WORDS):
             _, rows, _ = _sound(source("zyre is here\nthe bar"), ["coda"])
         edge = _edge(_sound_edges(rows, "coda"), (0, 0), (1, 1))
         self.assertEqual(edge["verdict"], "true")
-        self.assertIn("zyre = Z AY1 R", edge["reading"]["witness"])
-        self.assertTrue(edge["reading_outcomes"])
-        self.assertTrue(all(o["verdict"] in ("false", "undecided") for o in edge["reading_outcomes"]))
-        self.assertTrue(all("zyre = Z AY1 R" not in o["readings"] for o in edge["reading_outcomes"]))
-        self.assertIn("zyre = Z AY1 ER0", {r for o in edge["reading_outcomes"] for r in o["readings"]})
+        got = [(self.member(o["assignment"], "line:0:token:0")["phones"],
+                self.member(o["assignment"], "line:1:token:1")["phones"], o["verdict"])
+               for o in edge["reading_outcomes"]]
+        # zyre's ER0 reading was judged against EACH of bar's readings: two
+        # full assignments, never one per-reading verdict (3PO 6547475463).
+        self.assertEqual(got, [("Z AY1 ER0", "B AA1 R", "false"), ("Z AY1 ER0", "B AA1", "false")])
         # `bar` has two readings of one syllable (rhotic or not), so the
-        # work's own verdict was judged on its merged set.
+        # pair's own verdict was judged on its merged set.
         self.assertGreater(len(_token(rows, 1, 1)["applicable_readings"]), 1)
-        self.assertEqual(edge["judged_under"], "merged_set")
+        self.assertEqual(edge["judged_under"]["basis"], "merged_set")
+
+    def test_a_pair_with_no_span_on_the_work_records_its_judged_assignments(self):
+        # 3PO 6547785583 (2): the _sound_alt_pair route is instrumented too.
+        # zanchor has no span on the work's reading; listed with its AH1
+        # reading first, that reading is judged (against banchor's IY) before
+        # the IY1 witness.
+        words = dict(SharedSound.UNANCHORED, zanchor=[["Z", "IY0", "T", "AH1"], ["Z", "IY1", "T", "AH0"]])
+        with _with_words(words):
+            _, rows, _ = _sound(source("zanchor is here\nthe banchor zeal"), ["vowel"])
+        edge = _edge(_sound_edges(rows, "vowel"), (0, 0), (1, 1))
+        self.assertEqual(edge["verdict"], "true")
+        self.assertEqual(edge["judged_under"]["basis"], "no_span_on_work")
+        self.assertIsNone(edge["judged_under"]["verdict"])
+        [judged] = edge["reading_outcomes"]
+        self.assertEqual(self.member(judged["assignment"], "line:0:token:0")["phones"], "Z IY0 T AH1")
+        self.assertEqual(judged["verdict"], "false")
+
+    def test_a_missing_span_is_outside_the_locus_never_false(self):
+        # 3PO 6547785583 (3): a reading under which a member has no span was
+        # not a candidate there; it is recorded outside the locus, never as a
+        # predicate False. Fault injection: zyre's ER0 reading gives no span.
+        original = AnalysisSession._sound_spans
+
+        def spans(self, family, st):
+            found = original(self, family, st)
+            combo = getattr(st, "any_reading_combo", None) or {}
+            if list(combo.get((0, 0), (None, None, []))[2]) == ["Z", "AY1", "ER0"]:
+                found = {t: v for t, v in found.items() if t != (0, 0)}
+            return found
+        with _with_words(SharedSound.WORDS), patch.object(AnalysisSession, "_sound_spans", spans):
+            _, rows, _ = _sound(source("zyre is here\nthe bar"), ["coda"])
+        edge = _edge(_sound_edges(rows, "coda"), (0, 0), (1, 1))
+        self.assertEqual(edge["verdict"], "true")
+        got = [(self.member(o["assignment"], "line:0:token:0")["phones"],
+                self.member(o["assignment"], "line:1:token:1")["phones"], o["verdict"])
+               for o in edge["reading_outcomes"]]
+        self.assertEqual(got, [("Z AY1 ER0", "B AA1 R", "outside_locus"),
+                               ("Z AY1 ER0", "B AA1", "outside_locus")])
+
+    def test_the_base_provenance_is_the_stream_it_was_judged_on(self):
+        # 3PO 6547785583 (4): a rebuilt stream carries its own assignment.
+        from types import SimpleNamespace
+        with _with_words(self.WORDS):
+            session, _, _ = complete(source("zee is home\nand bee is too"), schemas=["internal rhyme"])
+        roles = {(0, 0): ["a"], (1, 1): ["b"]}
+        rebuilt = SimpleNamespace(any_reading_combo={(0, 0): (1, "zee", ["Z", "AH0"])})
+        got = session._judged_under(rebuilt, roles, False, "merged_set")
+        self.assertEqual((got["basis"], got["verdict"]), ("rebuilt_assignment", "false"))
+        self.assertEqual(self.member(got["assignment"], "line:0:token:0")["phones"], "Z AH0")
+        work = session._judged_under(session.stream, roles, None)
+        self.assertEqual(work["basis"], "first_listed")
 
 
 class SharedSound(unittest.TestCase):

@@ -5,7 +5,7 @@
         "catalog": {},
         "contract_version": 1,
         "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-        "hash": "5fd341cc8e2d4b2d94d6615ca233f9d2c715476f8307f503f9bf8ac619b90d50",
+        "hash": "166984764f0497dedf82d6776eb1b6c4f91eab21fda4d7fd4322d59e13cb3567",
         "language": "eng",
         "normalized_sha256": "2282c62a05421519bc37e06d1195a1501931497679df5d08b95e2b2e0561e675",
         "reading_revision": "fixture-v1",
@@ -15,7 +15,7 @@
           "schemas": ["internal rhyme"]
         },
         "runtime": {
-          "engine_hash": "3dc787431509a430b55d0bfe782d80d13ebcaee01dde3273912cace01f0a86f3",
+          "engine_hash": "e37c7005feda27654575261cfd4c99e3d13b3e8566d754b013e3f9b05f241718",
           "phonology": {
             "accent_readings": "accent-readings-2026-10-30",
             "fallback": null,
@@ -41,7 +41,7 @@
         {
           "basis": "measured",
           "excluded": false,
-          "id": "line:648f0bb83f89b81d2c9ce9a416192624",
+          "id": "line:85ec1e21d2ab5cd23319bc41f7fd2e8f",
           "kind": "line",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -60,7 +60,7 @@
           "applicable_readings": ["Z IY1 D", "Z UW1 T"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:a67d7039c130fca54cbc8aa7c1cd77ee",
+          "id": "token:0ca74bd94ac60ab273e63fc424d6b8b3",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -109,7 +109,7 @@
           "applicable_readings": ["IH1 Z", "IH0 Z"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:a6081a16020dbc56b46613ad2f27577c",
+          "id": "token:b66669e540297b921721690a93c0a491",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -158,7 +158,7 @@
           "applicable_readings": ["HH OW1 M", "HH OE1 M"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:7ce2bb98bddd4a5bf480456f2206c675",
+          "id": "token:ce07dac8bdada33460f65d04f287a2a5",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -206,7 +206,7 @@
         {
           "basis": "measured",
           "excluded": false,
-          "id": "line:55c31c88e8def5249cbc37f12c4221e8",
+          "id": "line:e3ee7fef6fb0b102393275db5b4dc574",
           "kind": "line",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -225,7 +225,7 @@
           "applicable_readings": ["AH0 N D", "AE1 N D"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:47cfadf8b63a353fa0375e2327ec906b",
+          "id": "token:a19c23c3399da5aff7e5fd8a1fb20f69",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -274,7 +274,7 @@
           "applicable_readings": ["B IY1 T"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:c60af1aae27851e209df10ab6ee81cec",
+          "id": "token:1e4a3290b082b103b28b09ce02d8b7f9",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -318,7 +318,7 @@
           "applicable_readings": ["IH1 Z", "IH0 Z"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:bb95028adc10f5085fd81f97728688b9",
+          "id": "token:f2711698d9c9f16ae12d026e3123ecea",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -367,7 +367,7 @@
           "applicable_readings": ["T UW1"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:aa1fcad7d87cd39a7fa5e1198e056b2f",
+          "id": "token:d3222d0715e12c05a77cc2ecf275f1e0",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -410,7 +410,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:648f0bb83f89b81d2c9ce9a416192624",
+          "id": "syllable:85ec1e21d2ab5cd23319bc41f7fd2e8f",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -449,7 +449,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:55c31c88e8def5249cbc37f12c4221e8",
+          "id": "syllable:e3ee7fef6fb0b102393275db5b4dc574",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -485,7 +485,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:c95bcaa86bcaa1443a2caf3ed9f05e12",
+          "id": "syllable:a8d9b9b8def9e5ad978f672830353227",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -521,7 +521,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:a5dd5718448c87a86f93417c8c46fa4e",
+          "id": "syllable:dbe20778727a4aa33a084bff010299b0",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -560,7 +560,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:492bd941dfabb7908f35531b82c38af7",
+          "id": "syllable:350ccf24dabafbc41c22ce5a2b5d764a",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -593,7 +593,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:bccc098cfc5eeadd6e19c89c66c1d361",
+          "id": "syllable:3cad48ee72f2b4a6a8c2bcb8a4933af0",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -629,7 +629,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:c4e62db4c3dd1af4fa4e13b97c1696c7",
+          "id": "syllable:0a8bf952acd33223b0427a93c65754d6",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -669,7 +669,7 @@
             "RIME_RICHE": "false"
           },
           "coverage": "answered",
-          "id": "native_pair:7a9974ee56b96268fcff68d6103355cf",
+          "id": "native_pair:a7098f45c9744ca578d8000937a7e0d1",
           "kind": "native_pair",
           "language": "eng",
           "line_ids": ["line:0", "line:1"],
@@ -877,7 +877,7 @@
             "search_k": 1,
             "verdict": null
           },
-          "id": "relation_instance:bf18295dc4f5b5ab5b29b805c1db5183",
+          "id": "relation_instance:9e9e815b9d5dc561520d8cbf7844dacd",
           "identity_reads": [
             [
               "token",
@@ -889,7 +889,26 @@
             ]
           ],
           "informative_channels": ["nucleus", "coda"],
-          "judged_under": "merged_set",
+          "judged_under": {
+            "assignment": [
+              {
+                "display": "zeed (merged set)",
+                "held": "merged_set",
+                "occurrence": "line:0:token:0",
+                "phones": null,
+                "role": ["a"]
+              },
+              {
+                "display": "beet = B IY1 T",
+                "held": "only_reading",
+                "occurrence": "line:1:token:1",
+                "phones": "B IY1 T",
+                "role": ["b"]
+              }
+            ],
+            "basis": "merged_set",
+            "verdict": "undecided"
+          },
           "kind": "relation_instance",
           "method_id": "schema:1429ae948687ca75ce1cebde",
           "namespace": "schema",
@@ -897,7 +916,22 @@
           "quantifier": "exists_compatible_reading",
           "reading_outcomes": [
             {
-              "readings": ["zeed = Z IY1 D"],
+              "assignment": [
+                {
+                  "display": "zeed = Z IY1 D",
+                  "held": "varied",
+                  "occurrence": "line:0:token:0",
+                  "phones": "Z IY1 D",
+                  "role": ["a"]
+                },
+                {
+                  "display": "beet = B IY1 T",
+                  "held": "only_reading",
+                  "occurrence": "line:1:token:1",
+                  "phones": "B IY1 T",
+                  "role": ["b"]
+                }
+              ],
               "verdict": "false"
             }
           ],
@@ -952,7 +986,7 @@
               "line:1:token:3"
             ]
           },
-          "id": "method_result:e5ad7e207ce85ecfb12fb3c92f5ba279",
+          "id": "method_result:5ddb4dad1425ee4e10f4beebcc8c7188",
           "kind": "method_result",
           "method_id": "schema:1429ae948687ca75ce1cebde",
           "namespace": "schema",
@@ -1243,7 +1277,7 @@
           "catalog": {},
           "contract_version": 1,
           "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-          "hash": "5fd341cc8e2d4b2d94d6615ca233f9d2c715476f8307f503f9bf8ac619b90d50",
+          "hash": "166984764f0497dedf82d6776eb1b6c4f91eab21fda4d7fd4322d59e13cb3567",
           "language": "eng",
           "normalized_sha256": "2282c62a05421519bc37e06d1195a1501931497679df5d08b95e2b2e0561e675",
           "reading_revision": "fixture-v1",
@@ -1253,7 +1287,7 @@
             "schemas": ["internal rhyme"]
           },
           "runtime": {
-            "engine_hash": "3dc787431509a430b55d0bfe782d80d13ebcaee01dde3273912cace01f0a86f3",
+            "engine_hash": "e37c7005feda27654575261cfd4c99e3d13b3e8566d754b013e3f9b05f241718",
             "phonology": {
               "accent_readings": "accent-readings-2026-10-30",
               "fallback": null,
@@ -1302,7 +1336,7 @@
         "catalog": {},
         "contract_version": 1,
         "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-        "hash": "3195ce8d98648c42d0b19e995996829609de8134b1316742efaa31156ca6cbbc",
+        "hash": "34facdbb18af86269ee9ef7b84e48e5bdd58b6271fe008be428e8b0a9c05f1c1",
         "language": "eng",
         "normalized_sha256": "db2e51d73a582ed918e4437adbc74f7d8495bf2a669cb5ba8b51a0f43077ad72",
         "reading_revision": "fixture-v1",
@@ -1312,7 +1346,7 @@
           "schemas": ["internal rhyme"]
         },
         "runtime": {
-          "engine_hash": "3dc787431509a430b55d0bfe782d80d13ebcaee01dde3273912cace01f0a86f3",
+          "engine_hash": "e37c7005feda27654575261cfd4c99e3d13b3e8566d754b013e3f9b05f241718",
           "phonology": {
             "accent_readings": "accent-readings-2026-10-30",
             "fallback": null,
@@ -1338,7 +1372,7 @@
         {
           "basis": "measured",
           "excluded": false,
-          "id": "line:533ac53b8e0ceded988fea742b8eeeb4",
+          "id": "line:3bff154bafdae77bf1886ae6f7e12d82",
           "kind": "line",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -1357,7 +1391,7 @@
           "applicable_readings": ["DH AH0", "DH AH1", "DH IY0"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:f805fa7fe30b6362de9e21f8d8b6adb2",
+          "id": "token:4ffdb7c70f7d8f51b66eea57ae06235c",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -1411,7 +1445,7 @@
           "applicable_readings": ["Z IY1 T AH0", "Z IY0 T AH1"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:5dd0216d60c5c9f5256a6f10ff427200",
+          "id": "token:9a0b15fba49f878d7db4bb95694ade5a",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -1460,7 +1494,7 @@
           "applicable_readings": ["K EY1 M", "K EE1 M"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:ffa9fb58e3eed36d3e3749b5ae2f4cdc",
+          "id": "token:8b3cfadc055d5d598b09dfeb791ac2c6",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -1508,7 +1542,7 @@
         {
           "basis": "measured",
           "excluded": false,
-          "id": "line:045c70bc7d4915057f8c79d6e4f28328",
+          "id": "line:803b90e7d7d3626da8f6ef89a203125b",
           "kind": "line",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -1527,7 +1561,7 @@
           "applicable_readings": ["W IY1"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:59c7b10178989c63f099cc2488a1991d",
+          "id": "token:95541e9782aef0a66b00f61dd9be186f",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -1571,7 +1605,7 @@
           "applicable_readings": ["B R IH1 NG"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:5c3d56158b8de078db6674ff8bf64833",
+          "id": "token:98907a57c30d6aad8e94fbac77d713a1",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -1615,7 +1649,7 @@
           "applicable_readings": ["DH AH0", "DH AH1", "DH IY0"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:eede7e13bfdcec19108c5131778919e2",
+          "id": "token:6103386f0454fa3779f7603d60afb464",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -1669,7 +1703,7 @@
           "applicable_readings": ["B EY1 T AH0"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:299bcce8875f472900021e3cfbf2b15c",
+          "id": "token:15554132ea03af4bbab24a3a4d3c03ae",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -1713,7 +1747,7 @@
           "applicable_readings": ["HH OW1 M", "HH OE1 M"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:2a16715307fc549f757f2580edbe3102",
+          "id": "token:39928f345d51a29fb0ba028d1263fa2e",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -1761,7 +1795,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:533ac53b8e0ceded988fea742b8eeeb4",
+          "id": "syllable:3bff154bafdae77bf1886ae6f7e12d82",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -1800,7 +1834,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:045c70bc7d4915057f8c79d6e4f28328",
+          "id": "syllable:803b90e7d7d3626da8f6ef89a203125b",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -1836,7 +1870,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:e0fd96f635fce2f202bbe448a40169ef",
+          "id": "syllable:dfd3f1e5c2cac4bbbe83cf68fb8eb71e",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -1872,7 +1906,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:7086e8802d65805518d4a91f68f9e391",
+          "id": "syllable:37347d70a2a646c887fc3b2ed50e04b7",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -1908,7 +1942,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:fa4e7fdf817d644f5d9ea48930da2f97",
+          "id": "syllable:f271b058fcb90bcbf300ddf3f3d1c9fd",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -1941,7 +1975,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:b183826bbd70f2b2a8adef9f64731395",
+          "id": "syllable:cbb184b67224167129f1df9150f32dd6",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -1974,7 +2008,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:6bbf0495240283c1019114f1615244e2",
+          "id": "syllable:dabf85835c69859cba27f0483fb16332",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -2013,7 +2047,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:ce2b5e7e23b39219672252d03e7ab672",
+          "id": "syllable:e81dd2bec662ef38814c5c1e5de75472",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -2046,7 +2080,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:697152413e4aa5a964873c277307cb05",
+          "id": "syllable:acce1e6856ae26afcdfee3de56fc4934",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -2079,7 +2113,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:89d053cc8307f384711e5eb0ceb055c9",
+          "id": "syllable:b1eb536f77656fabdde158aefb053617",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -2122,7 +2156,7 @@
             "RIME_RICHE": "false"
           },
           "coverage": "answered",
-          "id": "native_pair:d4ee21f7f73b253f96f76fb1ebdffa57",
+          "id": "native_pair:2c452ac7a5ea96f286f6e288fe1de06e",
           "kind": "native_pair",
           "language": "eng",
           "line_ids": ["line:0", "line:1"],
@@ -2324,7 +2358,7 @@
             "search_k": 1,
             "verdict": true
           },
-          "id": "relation_instance:405e05d51fbade5821571d2b2e5044cb",
+          "id": "relation_instance:71874cbdae7c5f6cb74aacc05b445cbf",
           "identity_reads": [
             [
               "token",
@@ -2336,7 +2370,26 @@
             ]
           ],
           "informative_channels": ["nucleus"],
-          "judged_under": "merged_set",
+          "judged_under": {
+            "assignment": [
+              {
+                "display": "the (merged set)",
+                "held": "merged_set",
+                "occurrence": "line:0:token:0",
+                "phones": null,
+                "role": ["a"]
+              },
+              {
+                "display": "we = W IY1",
+                "held": "only_reading",
+                "occurrence": "line:1:token:0",
+                "phones": "W IY1",
+                "role": ["b"]
+              }
+            ],
+            "basis": "merged_set",
+            "verdict": "undecided"
+          },
           "kind": "relation_instance",
           "method_id": "schema:1429ae948687ca75ce1cebde",
           "namespace": "schema",
@@ -2348,11 +2401,41 @@
           },
           "reading_outcomes": [
             {
-              "readings": ["the = DH AH0"],
+              "assignment": [
+                {
+                  "display": "the = DH AH0",
+                  "held": "varied",
+                  "occurrence": "line:0:token:0",
+                  "phones": "DH AH0",
+                  "role": ["a"]
+                },
+                {
+                  "display": "we = W IY1",
+                  "held": "only_reading",
+                  "occurrence": "line:1:token:0",
+                  "phones": "W IY1",
+                  "role": ["b"]
+                }
+              ],
               "verdict": "false"
             },
             {
-              "readings": ["the = DH AH1"],
+              "assignment": [
+                {
+                  "display": "the = DH AH1",
+                  "held": "varied",
+                  "occurrence": "line:0:token:0",
+                  "phones": "DH AH1",
+                  "role": ["a"]
+                },
+                {
+                  "display": "we = W IY1",
+                  "held": "only_reading",
+                  "occurrence": "line:1:token:0",
+                  "phones": "W IY1",
+                  "role": ["b"]
+                }
+              ],
               "verdict": "false"
             }
           ],
@@ -2365,7 +2448,23 @@
           "schema_name": "internal rhyme",
           "scope": "in_tradition",
           "unknown_channels": [],
-          "verdict": "true"
+          "verdict": "true",
+          "witness_assignment": [
+            {
+              "display": "the = DH IY0",
+              "held": "varied",
+              "occurrence": "line:0:token:0",
+              "phones": "DH IY0",
+              "role": ["a"]
+            },
+            {
+              "display": "we = W IY1",
+              "held": "only_reading",
+              "occurrence": "line:1:token:0",
+              "phones": "W IY1",
+              "role": ["b"]
+            }
+          ]
         },
         {
           "a": {
@@ -2525,7 +2624,7 @@
             "search_k": 1,
             "verdict": true
           },
-          "id": "relation_instance:26963a6172a82b52cad582877083fc08",
+          "id": "relation_instance:c1f52ad24a87bde7a42c4e7e2ace2517",
           "identity_reads": [
             [
               "token",
@@ -2537,7 +2636,26 @@
             ]
           ],
           "informative_channels": ["nucleus"],
-          "judged_under": "merged_set",
+          "judged_under": {
+            "assignment": [
+              {
+                "display": "we = W IY1",
+                "held": "only_reading",
+                "occurrence": "line:1:token:0",
+                "phones": "W IY1",
+                "role": ["a"]
+              },
+              {
+                "display": "the (merged set)",
+                "held": "merged_set",
+                "occurrence": "line:1:token:2",
+                "phones": null,
+                "role": ["b"]
+              }
+            ],
+            "basis": "merged_set",
+            "verdict": "undecided"
+          },
           "kind": "relation_instance",
           "method_id": "schema:1429ae948687ca75ce1cebde",
           "namespace": "schema",
@@ -2549,11 +2667,41 @@
           },
           "reading_outcomes": [
             {
-              "readings": ["the = DH AH0"],
+              "assignment": [
+                {
+                  "display": "we = W IY1",
+                  "held": "only_reading",
+                  "occurrence": "line:1:token:0",
+                  "phones": "W IY1",
+                  "role": ["a"]
+                },
+                {
+                  "display": "the = DH AH0",
+                  "held": "varied",
+                  "occurrence": "line:1:token:2",
+                  "phones": "DH AH0",
+                  "role": ["b"]
+                }
+              ],
               "verdict": "false"
             },
             {
-              "readings": ["the = DH AH1"],
+              "assignment": [
+                {
+                  "display": "we = W IY1",
+                  "held": "only_reading",
+                  "occurrence": "line:1:token:0",
+                  "phones": "W IY1",
+                  "role": ["a"]
+                },
+                {
+                  "display": "the = DH AH1",
+                  "held": "varied",
+                  "occurrence": "line:1:token:2",
+                  "phones": "DH AH1",
+                  "role": ["b"]
+                }
+              ],
               "verdict": "false"
             }
           ],
@@ -2566,7 +2714,23 @@
           "schema_name": "internal rhyme",
           "scope": "in_tradition",
           "unknown_channels": [],
-          "verdict": "true"
+          "verdict": "true",
+          "witness_assignment": [
+            {
+              "display": "we = W IY1",
+              "held": "only_reading",
+              "occurrence": "line:1:token:0",
+              "phones": "W IY1",
+              "role": ["a"]
+            },
+            {
+              "display": "the = DH IY0",
+              "held": "varied",
+              "occurrence": "line:1:token:2",
+              "phones": "DH IY0",
+              "role": ["b"]
+            }
+          ]
         },
         {
           "a": {
@@ -2726,7 +2890,7 @@
             "search_k": 1,
             "verdict": true
           },
-          "id": "relation_instance:46dc2215882e4b8b9d38d9ddc4a8fc08",
+          "id": "relation_instance:46c86256648313dc7faac162e534c341",
           "identity_reads": [
             [
               "token",
@@ -2738,7 +2902,26 @@
             ]
           ],
           "informative_channels": ["nucleus"],
-          "judged_under": "merged_set",
+          "judged_under": {
+            "assignment": [
+              {
+                "display": "the (merged set)",
+                "held": "merged_set",
+                "occurrence": "line:0:token:0",
+                "phones": null,
+                "role": ["b"]
+              },
+              {
+                "display": "zeeta = Z IY0 T AH1",
+                "held": "varied",
+                "occurrence": "line:0:token:1",
+                "phones": "Z IY0 T AH1",
+                "role": ["a"]
+              }
+            ],
+            "basis": "rebuilt_assignment",
+            "verdict": "undecided"
+          },
           "kind": "relation_instance",
           "method_id": "schema:1429ae948687ca75ce1cebde",
           "namespace": "schema",
@@ -2750,7 +2933,22 @@
           },
           "reading_outcomes": [
             {
-              "readings": ["the = DH AH0", "zeeta = Z IY1 T AH0"],
+              "assignment": [
+                {
+                  "display": "the = DH AH0",
+                  "held": "varied",
+                  "occurrence": "line:0:token:0",
+                  "phones": "DH AH0",
+                  "role": ["b"]
+                },
+                {
+                  "display": "zeeta = Z IY1 T AH0",
+                  "held": "varied",
+                  "occurrence": "line:0:token:1",
+                  "phones": "Z IY1 T AH0",
+                  "role": ["a"]
+                }
+              ],
               "verdict": "undecided"
             }
           ],
@@ -2763,7 +2961,23 @@
           "schema_name": "internal rhyme",
           "scope": "in_tradition",
           "unknown_channels": [],
-          "verdict": "true"
+          "verdict": "true",
+          "witness_assignment": [
+            {
+              "display": "the = DH AH0",
+              "held": "varied",
+              "occurrence": "line:0:token:0",
+              "phones": "DH AH0",
+              "role": ["b"]
+            },
+            {
+              "display": "zeeta = Z IY0 T AH1",
+              "held": "varied",
+              "occurrence": "line:0:token:1",
+              "phones": "Z IY0 T AH1",
+              "role": ["a"]
+            }
+          ]
         },
         {
           "a": {
@@ -2926,7 +3140,7 @@
             "search_k": 1,
             "verdict": null
           },
-          "id": "relation_instance:8a334633019ffb922a318795d6bacc8f",
+          "id": "relation_instance:f7ee22cc3194e128543973b86b792376",
           "identity_reads": [
             [
               "token",
@@ -2938,7 +3152,26 @@
             ]
           ],
           "informative_channels": ["nucleus", "coda"],
-          "judged_under": "first_listed",
+          "judged_under": {
+            "assignment": [
+              {
+                "display": "zeeta = Z IY0 T AH1",
+                "held": "varied",
+                "occurrence": "line:0:token:1",
+                "phones": "Z IY0 T AH1",
+                "role": ["a"]
+              },
+              {
+                "display": "came (merged set)",
+                "held": "merged_set",
+                "occurrence": "line:0:token:2",
+                "phones": null,
+                "role": ["b"]
+              }
+            ],
+            "basis": "rebuilt_assignment",
+            "verdict": "false"
+          },
           "kind": "relation_instance",
           "method_id": "schema:1429ae948687ca75ce1cebde",
           "namespace": "schema",
@@ -2950,11 +3183,22 @@
           },
           "reading_outcomes": [
             {
-              "readings": ["zeeta = Z IY0 T AH1"],
-              "verdict": "false"
-            },
-            {
-              "readings": ["zeeta = Z IY1 T AH0"],
+              "assignment": [
+                {
+                  "display": "zeeta = Z IY1 T AH0",
+                  "held": "varied",
+                  "occurrence": "line:0:token:1",
+                  "phones": "Z IY1 T AH0",
+                  "role": ["a"]
+                },
+                {
+                  "display": "came (merged set)",
+                  "held": "merged_set",
+                  "occurrence": "line:0:token:2",
+                  "phones": null,
+                  "role": ["b"]
+                }
+              ],
               "verdict": "undecided"
             }
           ],
@@ -3137,7 +3381,7 @@
             "search_k": 1,
             "verdict": true
           },
-          "id": "relation_instance:72a6a7b777a8c5afd1ef7da2841cddf1",
+          "id": "relation_instance:2f12ec8758ddc644a0c431e68d519241",
           "identity_reads": [
             [
               "token",
@@ -3149,7 +3393,26 @@
             ]
           ],
           "informative_channels": ["nucleus"],
-          "judged_under": "merged_set",
+          "judged_under": {
+            "assignment": [
+              {
+                "display": "the (merged set)",
+                "held": "merged_set",
+                "occurrence": "line:0:token:0",
+                "phones": null,
+                "role": ["b"]
+              },
+              {
+                "display": "zeeta = Z IY1 T AH0",
+                "held": "varied",
+                "occurrence": "line:0:token:1",
+                "phones": "Z IY1 T AH0",
+                "role": ["a"]
+              }
+            ],
+            "basis": "rebuilt_assignment",
+            "verdict": "undecided"
+          },
           "kind": "relation_instance",
           "method_id": "schema:1429ae948687ca75ce1cebde",
           "namespace": "schema",
@@ -3161,19 +3424,79 @@
           },
           "reading_outcomes": [
             {
-              "readings": ["the = DH AH0", "zeeta = Z IY1 T AH0"],
+              "assignment": [
+                {
+                  "display": "the = DH AH0",
+                  "held": "varied",
+                  "occurrence": "line:0:token:0",
+                  "phones": "DH AH0",
+                  "role": ["b"]
+                },
+                {
+                  "display": "zeeta = Z IY1 T AH0",
+                  "held": "varied",
+                  "occurrence": "line:0:token:1",
+                  "phones": "Z IY1 T AH0",
+                  "role": ["a"]
+                }
+              ],
               "verdict": "false"
             },
             {
-              "readings": ["the = DH AH0", "zeeta = Z IY0 T AH1"],
+              "assignment": [
+                {
+                  "display": "the = DH AH0",
+                  "held": "varied",
+                  "occurrence": "line:0:token:0",
+                  "phones": "DH AH0",
+                  "role": ["b"]
+                },
+                {
+                  "display": "zeeta = Z IY0 T AH1",
+                  "held": "varied",
+                  "occurrence": "line:0:token:1",
+                  "phones": "Z IY0 T AH1",
+                  "role": ["a"]
+                }
+              ],
               "verdict": "undecided"
             },
             {
-              "readings": ["the = DH AH1", "zeeta = Z IY1 T AH0"],
+              "assignment": [
+                {
+                  "display": "the = DH AH1",
+                  "held": "varied",
+                  "occurrence": "line:0:token:0",
+                  "phones": "DH AH1",
+                  "role": ["b"]
+                },
+                {
+                  "display": "zeeta = Z IY1 T AH0",
+                  "held": "varied",
+                  "occurrence": "line:0:token:1",
+                  "phones": "Z IY1 T AH0",
+                  "role": ["a"]
+                }
+              ],
               "verdict": "false"
             },
             {
-              "readings": ["the = DH AH1", "zeeta = Z IY0 T AH1"],
+              "assignment": [
+                {
+                  "display": "the = DH AH1",
+                  "held": "varied",
+                  "occurrence": "line:0:token:0",
+                  "phones": "DH AH1",
+                  "role": ["b"]
+                },
+                {
+                  "display": "zeeta = Z IY0 T AH1",
+                  "held": "varied",
+                  "occurrence": "line:0:token:1",
+                  "phones": "Z IY0 T AH1",
+                  "role": ["a"]
+                }
+              ],
               "verdict": "undecided"
             }
           ],
@@ -3186,7 +3509,23 @@
           "schema_name": "internal rhyme",
           "scope": "in_tradition",
           "unknown_channels": [],
-          "verdict": "true"
+          "verdict": "true",
+          "witness_assignment": [
+            {
+              "display": "the = DH IY0",
+              "held": "varied",
+              "occurrence": "line:0:token:0",
+              "phones": "DH IY0",
+              "role": ["b"]
+            },
+            {
+              "display": "zeeta = Z IY1 T AH0",
+              "held": "varied",
+              "occurrence": "line:0:token:1",
+              "phones": "Z IY1 T AH0",
+              "role": ["a"]
+            }
+          ]
         },
         {
           "a": {
@@ -3357,7 +3696,7 @@
             "search_k": 1,
             "verdict": null
           },
-          "id": "relation_instance:262765a506423c01d4c1452ef6d9039d",
+          "id": "relation_instance:44afc6bb8d17a1f593676e9379a69063",
           "identity_reads": [
             [
               "token",
@@ -3369,7 +3708,26 @@
             ]
           ],
           "informative_channels": ["nucleus", "coda"],
-          "judged_under": "first_listed",
+          "judged_under": {
+            "assignment": [
+              {
+                "display": "zeeta = Z IY1 T AH0",
+                "held": "varied",
+                "occurrence": "line:0:token:1",
+                "phones": "Z IY1 T AH0",
+                "role": ["a"]
+              },
+              {
+                "display": "came (merged set)",
+                "held": "merged_set",
+                "occurrence": "line:0:token:2",
+                "phones": null,
+                "role": ["b"]
+              }
+            ],
+            "basis": "rebuilt_assignment",
+            "verdict": "false"
+          },
           "kind": "relation_instance",
           "method_id": "schema:1429ae948687ca75ce1cebde",
           "namespace": "schema",
@@ -3381,11 +3739,22 @@
           },
           "reading_outcomes": [
             {
-              "readings": ["zeeta = Z IY1 T AH0"],
-              "verdict": "false"
-            },
-            {
-              "readings": ["zeeta = Z IY0 T AH1"],
+              "assignment": [
+                {
+                  "display": "zeeta = Z IY0 T AH1",
+                  "held": "varied",
+                  "occurrence": "line:0:token:1",
+                  "phones": "Z IY0 T AH1",
+                  "role": ["a"]
+                },
+                {
+                  "display": "came (merged set)",
+                  "held": "merged_set",
+                  "occurrence": "line:0:token:2",
+                  "phones": null,
+                  "role": ["b"]
+                }
+              ],
               "verdict": "undecided"
             }
           ],
@@ -3560,7 +3929,7 @@
             "search_k": 1,
             "verdict": true
           },
-          "id": "relation_instance:aa519212d3aafc24c81a64c2e8137b2a",
+          "id": "relation_instance:b256c4110698fef8e23d7d0ab6a048c7",
           "identity_reads": [
             [
               "token",
@@ -3572,7 +3941,26 @@
             ]
           ],
           "informative_channels": ["nucleus"],
-          "judged_under": "merged_set",
+          "judged_under": {
+            "assignment": [
+              {
+                "display": "zeeta = Z IY0 T AH1",
+                "held": "varied",
+                "occurrence": "line:0:token:1",
+                "phones": "Z IY0 T AH1",
+                "role": ["a"]
+              },
+              {
+                "display": "the (merged set)",
+                "held": "merged_set",
+                "occurrence": "line:1:token:2",
+                "phones": null,
+                "role": ["b"]
+              }
+            ],
+            "basis": "rebuilt_assignment",
+            "verdict": "undecided"
+          },
           "kind": "relation_instance",
           "method_id": "schema:1429ae948687ca75ce1cebde",
           "namespace": "schema",
@@ -3584,15 +3972,60 @@
           },
           "reading_outcomes": [
             {
-              "readings": ["zeeta = Z IY1 T AH0", "the = DH AH0"],
+              "assignment": [
+                {
+                  "display": "zeeta = Z IY1 T AH0",
+                  "held": "varied",
+                  "occurrence": "line:0:token:1",
+                  "phones": "Z IY1 T AH0",
+                  "role": ["a"]
+                },
+                {
+                  "display": "the = DH AH0",
+                  "held": "varied",
+                  "occurrence": "line:1:token:2",
+                  "phones": "DH AH0",
+                  "role": ["b"]
+                }
+              ],
               "verdict": "undecided"
             },
             {
-              "readings": ["zeeta = Z IY1 T AH0", "the = DH AH1"],
+              "assignment": [
+                {
+                  "display": "zeeta = Z IY1 T AH0",
+                  "held": "varied",
+                  "occurrence": "line:0:token:1",
+                  "phones": "Z IY1 T AH0",
+                  "role": ["a"]
+                },
+                {
+                  "display": "the = DH AH1",
+                  "held": "varied",
+                  "occurrence": "line:1:token:2",
+                  "phones": "DH AH1",
+                  "role": ["b"]
+                }
+              ],
               "verdict": "undecided"
             },
             {
-              "readings": ["zeeta = Z IY1 T AH0", "the = DH IY0"],
+              "assignment": [
+                {
+                  "display": "zeeta = Z IY1 T AH0",
+                  "held": "varied",
+                  "occurrence": "line:0:token:1",
+                  "phones": "Z IY1 T AH0",
+                  "role": ["a"]
+                },
+                {
+                  "display": "the = DH IY0",
+                  "held": "varied",
+                  "occurrence": "line:1:token:2",
+                  "phones": "DH IY0",
+                  "role": ["b"]
+                }
+              ],
               "verdict": "undecided"
             }
           ],
@@ -3605,7 +4038,23 @@
           "schema_name": "internal rhyme",
           "scope": "in_tradition",
           "unknown_channels": [],
-          "verdict": "true"
+          "verdict": "true",
+          "witness_assignment": [
+            {
+              "display": "zeeta = Z IY0 T AH1",
+              "held": "varied",
+              "occurrence": "line:0:token:1",
+              "phones": "Z IY0 T AH1",
+              "role": ["a"]
+            },
+            {
+              "display": "the = DH AH0",
+              "held": "varied",
+              "occurrence": "line:1:token:2",
+              "phones": "DH AH0",
+              "role": ["b"]
+            }
+          ]
         },
         {
           "a": {
@@ -3768,7 +4217,7 @@
             "search_k": 1,
             "verdict": null
           },
-          "id": "relation_instance:430a695f72b55eaf733a5cdc0b5e95a7",
+          "id": "relation_instance:def6aab4125ca687dfb261a630c6977e",
           "identity_reads": [
             [
               "token",
@@ -3780,7 +4229,26 @@
             ]
           ],
           "informative_channels": ["nucleus", "coda"],
-          "judged_under": "first_listed",
+          "judged_under": {
+            "assignment": [
+              {
+                "display": "zeeta = Z IY0 T AH1",
+                "held": "varied",
+                "occurrence": "line:0:token:1",
+                "phones": "Z IY0 T AH1",
+                "role": ["a"]
+              },
+              {
+                "display": "home (merged set)",
+                "held": "merged_set",
+                "occurrence": "line:1:token:4",
+                "phones": null,
+                "role": ["b"]
+              }
+            ],
+            "basis": "rebuilt_assignment",
+            "verdict": "false"
+          },
           "kind": "relation_instance",
           "method_id": "schema:1429ae948687ca75ce1cebde",
           "namespace": "schema",
@@ -3792,11 +4260,22 @@
           },
           "reading_outcomes": [
             {
-              "readings": ["zeeta = Z IY0 T AH1"],
-              "verdict": "false"
-            },
-            {
-              "readings": ["zeeta = Z IY1 T AH0"],
+              "assignment": [
+                {
+                  "display": "zeeta = Z IY1 T AH0",
+                  "held": "varied",
+                  "occurrence": "line:0:token:1",
+                  "phones": "Z IY1 T AH0",
+                  "role": ["a"]
+                },
+                {
+                  "display": "home (merged set)",
+                  "held": "merged_set",
+                  "occurrence": "line:1:token:4",
+                  "phones": null,
+                  "role": ["b"]
+                }
+              ],
               "verdict": "undecided"
             }
           ],
@@ -3979,7 +4458,7 @@
             "search_k": 1,
             "verdict": true
           },
-          "id": "relation_instance:e8486bd475b12bc274fb8d6835314a74",
+          "id": "relation_instance:3e774bb9b778fb4169bed25c25ab0b6e",
           "identity_reads": [
             [
               "token",
@@ -4008,7 +4487,23 @@
           "schema_name": "internal rhyme",
           "scope": "in_tradition",
           "unknown_channels": [],
-          "verdict": "true"
+          "verdict": "true",
+          "witness_assignment": [
+            {
+              "display": "zeeta = Z IY1 T AH0",
+              "held": "varied",
+              "occurrence": "line:0:token:1",
+              "phones": "Z IY1 T AH0",
+              "role": ["a"]
+            },
+            {
+              "display": "we = W IY1",
+              "held": "only_reading",
+              "occurrence": "line:1:token:0",
+              "phones": "W IY1",
+              "role": ["b"]
+            }
+          ]
         },
         {
           "a": {
@@ -4176,7 +4671,7 @@
             "search_k": 1,
             "verdict": true
           },
-          "id": "relation_instance:e4708c9b82c38e8db495cd7a4fae8d4b",
+          "id": "relation_instance:832e37e343a31fee5ba2044581829167",
           "identity_reads": [
             [
               "token",
@@ -4188,7 +4683,26 @@
             ]
           ],
           "informative_channels": ["nucleus"],
-          "judged_under": "merged_set",
+          "judged_under": {
+            "assignment": [
+              {
+                "display": "zeeta = Z IY1 T AH0",
+                "held": "varied",
+                "occurrence": "line:0:token:1",
+                "phones": "Z IY1 T AH0",
+                "role": ["a"]
+              },
+              {
+                "display": "the (merged set)",
+                "held": "merged_set",
+                "occurrence": "line:1:token:2",
+                "phones": null,
+                "role": ["b"]
+              }
+            ],
+            "basis": "rebuilt_assignment",
+            "verdict": "undecided"
+          },
           "kind": "relation_instance",
           "method_id": "schema:1429ae948687ca75ce1cebde",
           "namespace": "schema",
@@ -4200,11 +4714,41 @@
           },
           "reading_outcomes": [
             {
-              "readings": ["zeeta = Z IY1 T AH0", "the = DH AH0"],
+              "assignment": [
+                {
+                  "display": "zeeta = Z IY1 T AH0",
+                  "held": "varied",
+                  "occurrence": "line:0:token:1",
+                  "phones": "Z IY1 T AH0",
+                  "role": ["a"]
+                },
+                {
+                  "display": "the = DH AH0",
+                  "held": "varied",
+                  "occurrence": "line:1:token:2",
+                  "phones": "DH AH0",
+                  "role": ["b"]
+                }
+              ],
               "verdict": "false"
             },
             {
-              "readings": ["zeeta = Z IY1 T AH0", "the = DH AH1"],
+              "assignment": [
+                {
+                  "display": "zeeta = Z IY1 T AH0",
+                  "held": "varied",
+                  "occurrence": "line:0:token:1",
+                  "phones": "Z IY1 T AH0",
+                  "role": ["a"]
+                },
+                {
+                  "display": "the = DH AH1",
+                  "held": "varied",
+                  "occurrence": "line:1:token:2",
+                  "phones": "DH AH1",
+                  "role": ["b"]
+                }
+              ],
               "verdict": "false"
             }
           ],
@@ -4217,7 +4761,23 @@
           "schema_name": "internal rhyme",
           "scope": "in_tradition",
           "unknown_channels": [],
-          "verdict": "true"
+          "verdict": "true",
+          "witness_assignment": [
+            {
+              "display": "zeeta = Z IY1 T AH0",
+              "held": "varied",
+              "occurrence": "line:0:token:1",
+              "phones": "Z IY1 T AH0",
+              "role": ["a"]
+            },
+            {
+              "display": "the = DH IY0",
+              "held": "varied",
+              "occurrence": "line:1:token:2",
+              "phones": "DH IY0",
+              "role": ["b"]
+            }
+          ]
         },
         {
           "a": {
@@ -4388,7 +4948,7 @@
             "search_k": 1,
             "verdict": null
           },
-          "id": "relation_instance:52afb3d75c48ce01f66c6ee949a3993b",
+          "id": "relation_instance:ca730d59a7f8de7f54b0164449a72371",
           "identity_reads": [
             [
               "token",
@@ -4400,7 +4960,26 @@
             ]
           ],
           "informative_channels": ["nucleus", "coda"],
-          "judged_under": "first_listed",
+          "judged_under": {
+            "assignment": [
+              {
+                "display": "zeeta = Z IY1 T AH0",
+                "held": "varied",
+                "occurrence": "line:0:token:1",
+                "phones": "Z IY1 T AH0",
+                "role": ["a"]
+              },
+              {
+                "display": "home (merged set)",
+                "held": "merged_set",
+                "occurrence": "line:1:token:4",
+                "phones": null,
+                "role": ["b"]
+              }
+            ],
+            "basis": "rebuilt_assignment",
+            "verdict": "false"
+          },
           "kind": "relation_instance",
           "method_id": "schema:1429ae948687ca75ce1cebde",
           "namespace": "schema",
@@ -4412,11 +4991,22 @@
           },
           "reading_outcomes": [
             {
-              "readings": ["zeeta = Z IY1 T AH0"],
-              "verdict": "false"
-            },
-            {
-              "readings": ["zeeta = Z IY0 T AH1"],
+              "assignment": [
+                {
+                  "display": "zeeta = Z IY0 T AH1",
+                  "held": "varied",
+                  "occurrence": "line:0:token:1",
+                  "phones": "Z IY0 T AH1",
+                  "role": ["a"]
+                },
+                {
+                  "display": "home (merged set)",
+                  "held": "merged_set",
+                  "occurrence": "line:1:token:4",
+                  "phones": null,
+                  "role": ["b"]
+                }
+              ],
               "verdict": "undecided"
             }
           ],
@@ -4475,7 +5065,7 @@
               "line:1:token:4"
             ]
           },
-          "id": "method_result:5fdf8bf4188e735428f0dabece87f5e5",
+          "id": "method_result:ff9a993d8b670475b2881a8e6cae9dab",
           "kind": "method_result",
           "method_id": "schema:1429ae948687ca75ce1cebde",
           "namespace": "schema",
@@ -4766,7 +5356,7 @@
           "catalog": {},
           "contract_version": 1,
           "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-          "hash": "3195ce8d98648c42d0b19e995996829609de8134b1316742efaa31156ca6cbbc",
+          "hash": "34facdbb18af86269ee9ef7b84e48e5bdd58b6271fe008be428e8b0a9c05f1c1",
           "language": "eng",
           "normalized_sha256": "db2e51d73a582ed918e4437adbc74f7d8495bf2a669cb5ba8b51a0f43077ad72",
           "reading_revision": "fixture-v1",
@@ -4776,7 +5366,7 @@
             "schemas": ["internal rhyme"]
           },
           "runtime": {
-            "engine_hash": "3dc787431509a430b55d0bfe782d80d13ebcaee01dde3273912cace01f0a86f3",
+            "engine_hash": "e37c7005feda27654575261cfd4c99e3d13b3e8566d754b013e3f9b05f241718",
             "phonology": {
               "accent_readings": "accent-readings-2026-10-30",
               "fallback": null,
@@ -4825,7 +5415,7 @@
         "catalog": {},
         "contract_version": 1,
         "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-        "hash": "ed1a6dda451bd79cc1a482993c265aef43fe73d171ff59091f966ce9c1842c91",
+        "hash": "2b0f2711c025451955092bd89daf91ee3d25dd3af71e77536f4d815908f6c484",
         "language": "eng",
         "normalized_sha256": "8ba01e3396d9ed748ac8399b87e135b33a4c3ab62032cc09a6c07173c3a7d2b1",
         "reading_revision": "fixture-v1",
@@ -4835,7 +5425,7 @@
           "schemas": ["perfect rhyme"]
         },
         "runtime": {
-          "engine_hash": "3dc787431509a430b55d0bfe782d80d13ebcaee01dde3273912cace01f0a86f3",
+          "engine_hash": "e37c7005feda27654575261cfd4c99e3d13b3e8566d754b013e3f9b05f241718",
           "phonology": {
             "accent_readings": "accent-readings-2026-10-30",
             "fallback": null,
@@ -4861,7 +5451,7 @@
         {
           "basis": "measured",
           "excluded": false,
-          "id": "line:a5634c3c14a2e6a5bd050f67c035e6b5",
+          "id": "line:01dc217024f5d0194323e2c3b1ad88d4",
           "kind": "line",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -4880,7 +5470,7 @@
           "applicable_readings": ["AY1"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:b4eb1b474ef4dec6303b73b365a4e02a",
+          "id": "token:cbea176a0275b2fb669553177039ef23",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -4924,7 +5514,7 @@
           "applicable_readings": ["S AO1"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:8a9393b718c740b7b52b9a5cbf8b3d25",
+          "id": "token:901324390b36853629f60bb5dafb1f20",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -4968,7 +5558,7 @@
           "applicable_readings": ["DH AH0", "DH AH1", "DH IY0"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:2ff20c414db9847a7ed0d08ae79cbd3c",
+          "id": "token:4c628b1282bdf6e02102a7e364414d41",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -5022,7 +5612,7 @@
           "applicable_readings": ["B AH1 T", "AH0 B IY1 T"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:8c9c3eb23dcd00b03195faba07f0de6e",
+          "id": "token:522aa69b0c3b09808586d6a1a1c0163e",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -5070,7 +5660,7 @@
         {
           "basis": "measured",
           "excluded": false,
-          "id": "line:4f2ebf64edc898574714eea4c082db77",
+          "id": "line:5c48fd7b8e759657b3df482139216888",
           "kind": "line",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -5089,7 +5679,7 @@
           "applicable_readings": ["AH0 N D", "AE1 N D"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:b80be956d96de8b3be85fc683d4e610a",
+          "id": "token:988ebfa061e7f7891ad0a83f47293b64",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -5138,7 +5728,7 @@
           "applicable_readings": ["DH EH1 N"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:47fefe00359b72373157a36d8b76741d",
+          "id": "token:d78e88985944eeb690b7ef0b3e7d0644",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -5182,7 +5772,7 @@
           "applicable_readings": ["DH AH0", "DH AH1", "DH IY0"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:e5746d8b8d1f431b89187c1a56432466",
+          "id": "token:f8af5ad0a09b007772512107eaf9fe56",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -5236,7 +5826,7 @@
           "applicable_readings": ["D EH1 T", "AH0 D IY1 T"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:c0c86c9822b9b7a6fa97ae0a8cc1872e",
+          "id": "token:eb787daf61a076add7ffa515970a843f",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -5284,7 +5874,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:a5634c3c14a2e6a5bd050f67c035e6b5",
+          "id": "syllable:01dc217024f5d0194323e2c3b1ad88d4",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -5317,7 +5907,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:4f2ebf64edc898574714eea4c082db77",
+          "id": "syllable:5c48fd7b8e759657b3df482139216888",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -5350,7 +5940,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:bcf1e194e3c8dd273c7c74e293b54d14",
+          "id": "syllable:7d89f54704dc9c0442edddefb45aaff6",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -5389,7 +5979,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:939c61640d4d4392bee33f8b95510cc0",
+          "id": "syllable:3dcf3e096622f53753b5f18d0c92aec2",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -5422,7 +6012,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:ae6bcffde84ef988082824f96114d127",
+          "id": "syllable:58ab9a4f257cd756965e68d7a4bd4a11",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -5461,7 +6051,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:9e315590840cce7a4ed67aebabbf1320",
+          "id": "syllable:036ea92a71885b828bab1d5132622176",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -5494,7 +6084,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:d46156ccf180b1d4f52f6a28398ae0d4",
+          "id": "syllable:11243ce82a8cf902626d742118326b4a",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -5533,7 +6123,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:f5edb04e6f986cfdaa5b6bc2346f4daa",
+          "id": "syllable:6351800dfc47ce1a25d4592a0aaf510d",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -5573,7 +6163,7 @@
             "RIME_RICHE": "false"
           },
           "coverage": "answered",
-          "id": "native_pair:33417b941093cd8adbaafbe9a26dff7e",
+          "id": "native_pair:c5bb160709bc75c24a39358d70c63390",
           "kind": "native_pair",
           "language": "eng",
           "line_ids": ["line:0", "line:1"],
@@ -5646,7 +6236,7 @@
             "reading_policy": "exists_compatible_reading",
             "tokens": ["line:0:token:3", "line:1:token:3"]
           },
-          "id": "method_result:2596133f281cf85fd3eefa0efe00cbbc",
+          "id": "method_result:f02bdc9299b8747b45b770a76bfcc475",
           "kind": "method_result",
           "method_id": "schema:fd8899c7df3627b14d717d01",
           "namespace": "schema",
@@ -5943,7 +6533,7 @@
           "catalog": {},
           "contract_version": 1,
           "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-          "hash": "ed1a6dda451bd79cc1a482993c265aef43fe73d171ff59091f966ce9c1842c91",
+          "hash": "2b0f2711c025451955092bd89daf91ee3d25dd3af71e77536f4d815908f6c484",
           "language": "eng",
           "normalized_sha256": "8ba01e3396d9ed748ac8399b87e135b33a4c3ab62032cc09a6c07173c3a7d2b1",
           "reading_revision": "fixture-v1",
@@ -5953,7 +6543,7 @@
             "schemas": ["perfect rhyme"]
           },
           "runtime": {
-            "engine_hash": "3dc787431509a430b55d0bfe782d80d13ebcaee01dde3273912cace01f0a86f3",
+            "engine_hash": "e37c7005feda27654575261cfd4c99e3d13b3e8566d754b013e3f9b05f241718",
             "phonology": {
               "accent_readings": "accent-readings-2026-10-30",
               "fallback": null,
@@ -6010,7 +6600,7 @@
         "catalog": {},
         "contract_version": 1,
         "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-        "hash": "42b90d86e48c2f9767edb66076f33a1d822e59506b67f31fbe29f6858df256c0",
+        "hash": "ccd8a9dc2389ddd96ee1b745505e52a6281cd705b902f15f0f9a23f2eac797f1",
         "language": "eng",
         "normalized_sha256": "4dbb7540d4ccdaac93105cd3bf8c32396c8fd115c3a8094de6ca2f11b1438047",
         "reading_revision": "fixture-v1",
@@ -6020,7 +6610,7 @@
           "schemas": ["internal rhyme"]
         },
         "runtime": {
-          "engine_hash": "3dc787431509a430b55d0bfe782d80d13ebcaee01dde3273912cace01f0a86f3",
+          "engine_hash": "e37c7005feda27654575261cfd4c99e3d13b3e8566d754b013e3f9b05f241718",
           "phonology": {
             "accent_readings": "accent-readings-2026-10-30",
             "fallback": null,
@@ -6046,7 +6636,7 @@
         {
           "basis": "measured",
           "excluded": false,
-          "id": "line:597553ff3e8091799ce4f04b004e93b8",
+          "id": "line:fc05442c7be8e31673a13592792e9266",
           "kind": "line",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -6065,7 +6655,7 @@
           "applicable_readings": ["Z IY1", "Z AH0"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:e7b1a25e5d142859737fbadcab3eecaa",
+          "id": "token:8213faa1c95a7d1702eb63137886de13",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -6114,7 +6704,7 @@
           "applicable_readings": ["IH1 Z", "IH0 Z"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:673b2d75772be199020061a9a6866dbe",
+          "id": "token:40bb7275b1be7dc3de42a1445e0acd2a",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -6163,7 +6753,7 @@
           "applicable_readings": ["HH OW1 M", "HH OE1 M"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:33d0520175e5d2628715b00607690395",
+          "id": "token:f5b47005cd2be6b6cf00af1169de467c",
           "kind": "token",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -6211,7 +6801,7 @@
         {
           "basis": "measured",
           "excluded": false,
-          "id": "line:66d7376e6ab87db80dc71492def0214a",
+          "id": "line:e1e9b9d02c8b3eed2560e1cad510374d",
           "kind": "line",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -6230,7 +6820,7 @@
           "applicable_readings": ["AH0 N D", "AE1 N D"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:6d852f700297ffa7f421edefebb948ea",
+          "id": "token:da3b5ae136976639696bda7704a8456f",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -6279,7 +6869,7 @@
           "applicable_readings": ["B IY1"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:66250a9be273a0586e6367e89341ac73",
+          "id": "token:2ff691561546604223a205f9899afe1c",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -6323,7 +6913,7 @@
           "applicable_readings": ["IH1 Z", "IH0 Z"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:69569ff47f8d7e634bfb6772ab03767d",
+          "id": "token:83a167801d3eb5577e6c397214c5badd",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -6372,7 +6962,7 @@
           "applicable_readings": ["T UW1"],
           "applicable_source": "variants",
           "basis": "measured",
-          "id": "token:6adce8effcee2855431a546e10b658cb",
+          "id": "token:e389a2a559be81238752b35a5d3b5a40",
           "kind": "token",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -6415,7 +7005,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:597553ff3e8091799ce4f04b004e93b8",
+          "id": "syllable:fc05442c7be8e31673a13592792e9266",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -6454,7 +7044,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:66d7376e6ab87db80dc71492def0214a",
+          "id": "syllable:e1e9b9d02c8b3eed2560e1cad510374d",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -6490,7 +7080,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:c600424207f2c7b99b0491e77e9b3e3f",
+          "id": "syllable:2351a13f0c43c6c01ac17d4db8e6ada2",
           "kind": "syllable",
           "line_id": "line:0",
           "method_id": "coordinates",
@@ -6526,7 +7116,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:fd6d3683993c42c9cb413987a80fcd10",
+          "id": "syllable:9fad97d8fe8ae452fd874ab8a9ec2f72",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -6565,7 +7155,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:ef16f60c63be61c7883df4dfd2042431",
+          "id": "syllable:1beef32d28d59033ae377c77a7b68198",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -6598,7 +7188,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:580756f62691e06c60261b7b94bfd3f9",
+          "id": "syllable:4021e1029c397975e8e026605f96c57d",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -6634,7 +7224,7 @@
         {
           "basis": "measured",
           "grid_unit": "syllable",
-          "id": "syllable:0dc8f723393478d7112c0b3258e5e068",
+          "id": "syllable:d0153b0b32ec7dd63936f6db5a607693",
           "kind": "syllable",
           "line_id": "line:1",
           "method_id": "coordinates",
@@ -6674,7 +7264,7 @@
             "RIME_RICHE": "false"
           },
           "coverage": "answered",
-          "id": "native_pair:d75abf5820e155fe71e65873c3b45894",
+          "id": "native_pair:0afb599ab9089878f8c33db065099393",
           "kind": "native_pair",
           "language": "eng",
           "line_ids": ["line:0", "line:1"],
@@ -6876,7 +7466,7 @@
             "search_k": 1,
             "verdict": true
           },
-          "id": "relation_instance:128cd29650657da4208b4c06c070b6a5",
+          "id": "relation_instance:bb249ee61ce2c1f9daf4e55aa501b557",
           "identity_reads": [
             [
               "token",
@@ -6888,7 +7478,26 @@
             ]
           ],
           "informative_channels": ["nucleus"],
-          "judged_under": "merged_set",
+          "judged_under": {
+            "assignment": [
+              {
+                "display": "zee (merged set)",
+                "held": "merged_set",
+                "occurrence": "line:0:token:0",
+                "phones": null,
+                "role": ["a"]
+              },
+              {
+                "display": "bee = B IY1",
+                "held": "only_reading",
+                "occurrence": "line:1:token:1",
+                "phones": "B IY1",
+                "role": ["b"]
+              }
+            ],
+            "basis": "merged_set",
+            "verdict": "undecided"
+          },
           "kind": "relation_instance",
           "method_id": "schema:1429ae948687ca75ce1cebde",
           "namespace": "schema",
@@ -6908,7 +7517,23 @@
           "schema_name": "internal rhyme",
           "scope": "in_tradition",
           "unknown_channels": [],
-          "verdict": "true"
+          "verdict": "true",
+          "witness_assignment": [
+            {
+              "display": "zee = Z IY1",
+              "held": "varied",
+              "occurrence": "line:0:token:0",
+              "phones": "Z IY1",
+              "role": ["a"]
+            },
+            {
+              "display": "bee = B IY1",
+              "held": "only_reading",
+              "occurrence": "line:1:token:1",
+              "phones": "B IY1",
+              "role": ["b"]
+            }
+          ]
         },
         {
           "availability": "available",
@@ -6945,7 +7570,7 @@
               "line:1:token:3"
             ]
           },
-          "id": "method_result:a81fea1f430b7a6fb1ae099135474051",
+          "id": "method_result:3060873dd6a6183c7d9a6c481046d3c0",
           "kind": "method_result",
           "method_id": "schema:1429ae948687ca75ce1cebde",
           "namespace": "schema",
@@ -7236,7 +7861,7 @@
           "catalog": {},
           "contract_version": 1,
           "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-          "hash": "42b90d86e48c2f9767edb66076f33a1d822e59506b67f31fbe29f6858df256c0",
+          "hash": "ccd8a9dc2389ddd96ee1b745505e52a6281cd705b902f15f0f9a23f2eac797f1",
           "language": "eng",
           "normalized_sha256": "4dbb7540d4ccdaac93105cd3bf8c32396c8fd115c3a8094de6ca2f11b1438047",
           "reading_revision": "fixture-v1",
@@ -7246,7 +7871,7 @@
             "schemas": ["internal rhyme"]
           },
           "runtime": {
-            "engine_hash": "3dc787431509a430b55d0bfe782d80d13ebcaee01dde3273912cace01f0a86f3",
+            "engine_hash": "e37c7005feda27654575261cfd4c99e3d13b3e8566d754b013e3f9b05f241718",
             "phonology": {
               "accent_readings": "accent-readings-2026-10-30",
               "fallback": null,
