@@ -324,32 +324,36 @@ def test_readings_pair_within_an_accent():
 #: every listing that read only the definite set dropped all but consonance
 #: (M-322 items 5 and 8). Under standing rule 5 each still holds under one
 #: whole reading, so the branch must list every one of them.
+#: 2026-10-31 (`MISSING.md` M-327): ~~"mosaic rhyme"~~ is struck from the six
+#: one-syllable end rhymes below. Main listed it because the free run's
+#: leading syllables were left unmatched ("the light" against "night"); no
+#: rhyme here crosses a word boundary, so it was never a mosaic to keep.
 MAIN_LISTS = {
     ("I walked out in the night", "and saw the light"): (
         "Scots vowel-length rhyme (Aitken's Law)", "assonance",
         "cluster consonance / skothending span", "consonance", "family rhyme",
-        "homoioteleuton", "mosaic rhyme", "pantun ABAB", "perfect rhyme",
+        "homoioteleuton", "pantun ABAB", "perfect rhyme",
         "trite rhyme"),
     ("I sat down to write", "the sky was bright"): (
         "Scots vowel-length rhyme (Aitken's Law)", "assonance",
         "cluster consonance / skothending span", "consonance", "family rhyme",
-        "homoioteleuton", "mosaic rhyme", "pantun ABAB", "perfect rhyme"),
+        "homoioteleuton", "pantun ABAB", "perfect rhyme"),
     ("what is it about", "the lights went out"): (
         "Scots vowel-length rhyme (Aitken's Law)", "assonance",
         "cluster consonance / skothending span", "consonance", "family rhyme",
-        "homoioteleuton", "mosaic rhyme", "pantun ABAB", "perfect rhyme"),
+        "homoioteleuton", "pantun ABAB", "perfect rhyme"),
     ("we left the house", "as quiet as a mouse"): (
         "Scots vowel-length rhyme (Aitken's Law)", "assonance",
         "cluster consonance / skothending span", "consonance", "family rhyme",
-        "homoioteleuton", "mosaic rhyme", "pantun ABAB", "perfect rhyme"),
+        "homoioteleuton", "pantun ABAB", "perfect rhyme"),
     ("I gave my life", "he held the knife"): (
         "Scots vowel-length rhyme (Aitken's Law)", "assonance",
         "cluster consonance / skothending span", "consonance", "family rhyme",
-        "homoioteleuton", "mosaic rhyme", "pantun ABAB", "perfect rhyme"),
+        "homoioteleuton", "pantun ABAB", "perfect rhyme"),
     ("I drove your old car", "we travelled far"): (
         "Scots vowel-length rhyme (Aitken's Law)", "assonance",
         "cluster consonance / skothending span", "consonance", "family rhyme",
-        "homoioteleuton", "mosaic rhyme", "pantun ABAB", "perfect rhyme"),
+        "homoioteleuton", "pantun ABAB", "perfect rhyme"),
     # price/nice and cot/lot: main left these undecided itself (nice and lot
     # already had two dictionary readings); the branch must list them too.
     ("I paid the price", "it was not nice"): (
@@ -370,6 +374,8 @@ EXEMPT_VOWEL_CHANGED = {
 #: flush_right compares the LAST, so main found mosaic rhyme only where a
 #: function word in the run had two readings and the key was a wildcard. The
 #: key now sits at the last unit, so every listing below holds it outright.
+#: (2026-10-31, M-327: and none of those listings was a mosaic; it is struck
+#: from MAIN_LISTS above.)
 
 
 def test_listings_report_every_schema_some_reading_holds():
@@ -407,10 +413,15 @@ def test_listings_report_every_schema_some_reading_holds():
     check("the listing leaves the definite result it was made from unchanged",
           sorted(raw0.get((1, 2), ())) == ["cluster consonance / skothending span",
                                           "consonance"])
-    held_my, _, _ = listed("what is it about", "my lights went out")
     # 2026-10-30: was "absent here, as on main" -- G1's witness, now fixed.
-    check("G1 fixed: with `my` (one reading) mosaic rhyme is held here, "
-          "where main misses it", "mosaic rhyme" in held_my, str(sorted(held_my)))
+    # 2026-10-31 (`MISSING.md` M-327): ~~"what is it about" / "my lights went
+    # out"~~ was never a mosaic: about ~ out is a one-word rhyme, and with no
+    # overhang allowed it is not listed. bracket ~ "pack it" is a real one,
+    # every word with one reading, its rhyme crossing the pack|it boundary.
+    held_my, _, _ = listed("he made a bracket", "and had to pack it")
+    check("a real mosaic with one-reading words (bracket ~ \"pack it\") is "
+          "listed at the two end words", "mosaic rhyme" in held_my,
+          str(sorted(held_my)))
     # The consumers read the same listing.
     lines = ["I walked out in the night", "and saw the light"]
     cs = L.check_scheme(LEX, lines, "AA", DECL)

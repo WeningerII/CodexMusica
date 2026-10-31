@@ -2979,6 +2979,11 @@ def mirrored(a, b, a_keys, b_keys):
     them -- its entire recovered set, not a sample of it: every instance the
     positional rule deleted from that schema on this text was a real rhyme,
     lost because the multi-word run that carried it happened to print second.
+    CORRECTED 2026-10-31 (`MISSING.md` M-327): those were NOT real mosaic
+    rhymes. Each was a one-word end rhyme (ride ~ "my guide") that passed
+    because the run's leading syllables were left unmatched; under
+    `unmatched="forbid"` none is TRUE (test_relations pins 383 recovered
+    instances, 0 TRUE). The ordering finding stands on the instances.
     So the convention was not a naming decision: it made an asymmetric
     schema's recall a function of which member the text prints first.  The
     two counts sit on DIFFERENT denominators -- candidates and instances --
@@ -5153,9 +5158,10 @@ declare(RelationSchema(
     name="mosaic rhyme",
     spans=(SpanRule("line_final_token", "last_stressed", 1, "to_word_end"),
            SpanRule("free_run", "searched", 1, (2, 5), cross_word=True)),
-    align="flush_right",
+    align="flush_right", unmatched="forbid",
     channels=(ChannelRule("nucleus", AGREE, "each"),
-              ChannelRule("coda", AGREE, "each")),
+              ChannelRule("coda", AGREE, "cluster"),
+              ChannelRule("coda", AGREE, "last")),
     placement=(Placement("both_line_final"), Placement("word_count_differs")),
     identity=(DISTINCT,),
     note="the JUNCTURE asymmetry is CONSTITUTIVE and is computed: "
@@ -8498,6 +8504,15 @@ DRAWABLE_EXHIBITS = {
          "Hate of my sin, grounded on sinful loving:", "1.T4", "2.T7"),
         ("Love is my sin, and thy dear virtue hate,",
          "O, but with mine compare thou thine own state,", "1.T4", "2.T9")),
+    # Gilbert, "The Pirates of Penzance" (1879), the Major-General's
+    # strategy ~ sat a gee; the contrast is Telfer,
+    # eng_celtic_msm_james_telfer.txt:58-59, a one-word rhyme. Both rows sat
+    # in `WITNESS_FINDINGS` as M-311 F1 while the free run's leading
+    # syllables were left unmatched, so by ~ "is nigh" passed (M-327).
+    "mosaic rhyme": (
+        ("In short, when I've a smattering of elemental strategy,",
+         "You'll say a better Major-General has never sat a gee.", "1", "2"),
+        ('"Sweet summer now is by,', "And cauld winter is nigh,", "1", "2")),
     "repetition": (
         ("And miles to go before I sleep,",
          "And miles to go before I sleep.", "1", "2"),
@@ -8606,15 +8621,9 @@ WITNESS_FINDINGS = {
           "Close to the sun in lonely lands,",
           "Ringed with the azure world, he stands."),
          ("1", "2", "3"), ("a", "a", "a"), True),)),
-    "mosaic rhyme": ("M-311 F1", (
-        # Gilbert, "The Pirates of Penzance" (1879), the Major-General's
-        # strategy ~ sat a gee; then Telfer,
-        # eng_celtic_msm_james_telfer.txt:58-59, a one-word rhyme.
-        (("In short, when I've a smattering of elemental strategy,",
-          "You'll say a better Major-General has never sat a gee."),
-         ("1", "2"), None, True),
-        (('"Sweet summer now is by,', "And cauld winter is nigh,"),
-         ("1", "2"), None, False))),
+    # ~~"mosaic rhyme": M-311 F1~~ — REPAIRED 2026-10-31 (`MISSING.md`
+    # M-327): the row answers [True, False] as it should, so it has moved to
+    # `DRAWABLE_EXHIBITS` (doctrine 17: a repaired finding is not evidence).
     "offbeat internal rhyme": ("M-311 F5", ()),
     "parechesis / general consonance": ("M-311 F4", (
         # Kingsley, "The Sands of Dee" —
@@ -9349,13 +9358,38 @@ def line_pairs_for(schema, stream, keep_refusal=True, requested_pairs=None,
     bad_lines = set()
     bad_tokens = {}
     loci = {r.locus for r in schema.spans}
+    # A LINE-FINAL WORD AGAINST A LINE-FINAL FREE RUN WITH NO OVERHANG
+    # (`mosaic rhyme`, `MISSING.md` M-327): the two spans have one length, so
+    # an interior unreadable word on the free run's line is reached only when
+    # the partner line's final-word span is longer than the readable
+    # syllables after it. `reach` holds that count per line; such a line holds
+    # open only the pairs whose partner could reach it (`overreach`). Every
+    # other schema keeps the whole-line rule below.
+    no_overhang = (schema.unmatched == "forbid"
+                   and schema.align == "flush_right"
+                   and loci == {"line_final_token", "free_run"}
+                   and any(p.kind == "both_line_final"
+                           for p in schema.placement))
+    reach = {}
     for li, ti, _ in stream.unreadable:
         total = (len(stream.lexical_tokens[li]) if stream.lexical_tokens else 0)
         if (("line_final_token" in loci and ti == total - 1)
                 or ("line_initial_token" in loci and ti == 0)
                 or loci & {"line", "free_run", "line_head_index", "line_final_before_refrain"}):
-            bad_lines.add(li + 1)
+            if no_overhang and ti != total - 1:
+                after = sum(1 for k in stream.lines[li]
+                            if stream.units[k].token > ti)
+                reach[li + 1] = min(reach.get(li + 1, after), after)
+            else:
+                bad_lines.add(li + 1)
             bad_tokens.setdefault(li + 1, set()).add((li, ti))
+
+    def overreach(ln, partner):
+        if ln not in reach or ln in bad_lines:
+            return False
+        ends = [len(sp) for r in schema.spans if r.locus == "line_final_token"
+                for sp in (_spans_on_lines(r, stream, {partner - 1}) or ())]
+        return max(ends, default=0) > reach[ln]
     for rule in schema.spans:
         if rule.anchor in ("last_stressed", "penult_stressed", "final_unstressed"):
             for ids, origin, _ in _loci(rule, stream):
@@ -9379,7 +9413,8 @@ def line_pairs_for(schema, stream, keep_refusal=True, requested_pairs=None,
         return (ln - 1, want) in bad_tokens.get(ln, ())
     undecided.update((i, j) for i in range(1, len(stream.lines)+1)
                      for j in range(i+1, len(stream.lines)+1)
-                     if ((i in bad_lines or j in bad_lines)
+                     if ((i in bad_lines or j in bad_lines
+                          or overreach(i, j) or overreach(j, i))
                          if (i, j) not in bound else
                          (blocks(i, bound[(i, j)][0])
                           or blocks(j, bound[(i, j)][1]))))

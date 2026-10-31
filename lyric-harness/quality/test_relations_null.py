@@ -774,8 +774,15 @@ def s15_named_nulls_are_not_independent_evidence():
     # 2026-10-30 (G1, M-322 item 4): ~~"a play", "we stay", "a light"~~. With
     # `_bucket_key` keying mosaic rhyme's run at its last syllable, every run
     # in that set rhymes under both nulls (20 every draw), so it no longer
-    # separates them. This set does, before G1 and after (3 vs 3/6; 12 vs 9/12).
-    lines = ["the day", "we may", "I see grey", "the night", "my light", "it's right"]
+    # separates them. ~~This set does, before G1 and after (3 vs 3/6; 12 vs
+    # 9/12).~~ 2026-10-31 (`MISSING.md` M-327): ~~"the day", "we may",
+    # "I see grey", "the night", "my light", "it's right"~~ -- every "mosaic"
+    # in it was a one-word end rhyme, and with no overhang allowed the judge
+    # finds none there and both nulls refuse. Two real mosaics (visit ~
+    # "is it", bracket ~ "pack it") separate them: observed 2, line
+    # permutation 2 on every draw, line-final permutation 1 or 2.
+    lines = ["we paid a visit", "now tell me is it", "he made a bracket",
+             "and had to pack it", "I sat to fix it", "we hear it"]
     toks = [R.tokenise(line) for line in lines]
     pairs = [(N.NULLS["line_permutation"].fn(toks, random.Random(N.SEED + 1 + k)),
               N.NULLS["line_final_permutation"].fn(toks, random.Random(N.SEED + 1 + k)))

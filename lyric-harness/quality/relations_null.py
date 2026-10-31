@@ -981,7 +981,8 @@ ARM_SCHEMAS = frozenset(a[3] for a in ARMS)
 #: can share it -- `door` and `the door` end on the same line-final unit --
 #: so the pair is at gap 0 and the reflex is wrong for exactly the multiword
 #: schemas (`mosaic rhyme`, `compound / phrasal rhyme`) where it would have
-#: mattered. `forced_gap` separately reads identical, unsearched endpoint-token
+#: mattered. (Since M-327 `mosaic rhyme` forbids overhang, which does force
+#: different lines; `forced_gap` reads that from `unmatched`, not from here.) `forced_gap` separately reads identical, unsearched endpoint-token
 #: rules: each emits at most one span per line, and candidate enumeration
 #: excludes a span paired with itself. That narrower case forces different
 #: lines without making the false claim about all line-final spans (M-46).
@@ -1006,6 +1007,13 @@ def forced_gap(schema):
         # One identical span per endpoint token; the producer rejects a.idx ==
         # b.idx. Searched or asymmetric rules can emit distinct overlapping
         # spans on that same token and must retain the possibility of gap 0.
+        lo = 1
+    if (schema.unmatched == "forbid" and schema.align == "flush_right"
+            and any(p.polarity and p.kind == "both_line_final"
+                    for p in schema.placement)):
+        # `mosaic rhyme` since M-327: both members end on the line-final
+        # syllable and no overhang is allowed, so on one line a TRUE pair
+        # would be one span twice, which the producer rejects.
         lo = 1
     for p in schema.placement:
         if not p.polarity:
@@ -1827,6 +1835,11 @@ def menu_pairs(cov):
 # uncertain read exposes G1 (`_bucket_key` prunes flush_right pairs the judge
 # accepts), which stays open. Ledger now: 3 controlled, ~~33~~ 27 extendable,
 # ~~11~~ 8 no-instance, ~~31~~ 39 cannot-obtain (~~30 / 1~~ 38 / 1).
+# 2026-10-31 (M-327): re-read with `record_extension()`. ONE ROW MOVED:
+# `mosaic rhyme` ~~extendable~~ -> no_instance, menu 8 -> 6. With no overhang
+# a one-word end rhyme is not a mosaic, and the slice carries no real one;
+# `forced_gap` now reads the no-overhang rule as different lines, so
+# local_fraction@0 leaves the menu. EXTENDABLE ~~30~~ 29 (30 was G1's, #647).
 EXTENSION_LEDGER = (
     # M-40: measured on the unchanged ledger slice, 2026-09-16.
     ('chain rhyme (interlocking scheme)',         'cannot_obtain',   7,  0),
@@ -1859,7 +1872,7 @@ EXTENSION_LEDGER = (
     ('homoioteleuton',                          'extendable',      6,  0),
     ('polyptoton',                              'extendable',      4,  0),
     ('multisyllabic rhyme',                     'extendable',      6,  0),
-    ('mosaic rhyme',                            'extendable',      8,  0),
+    ('mosaic rhyme',                            'no_instance',     6,  0),  # ~~extendable, 8~~ 2026-10-31, M-327: no overhang, so the Poe slice's one-word end rhymes are not mosaics; the forced different-line gap drops local_fraction@0's two nulls
     ('compound / phrasal rhyme',                'extendable',      8,  0),  # ~~extendable~~ 2026-10-30, M-322 accent readings: candidates unresolved, not absent; ~~cannot_obtain~~ 2026-10-31, G1 (#647): `_bucket_key` keys flush_right `each` at the last unit, so the judge now reaches definite instances
     ('holorhyme',                               'no_instance',     2,  0),
     ('broken rhyme',                            'no_instance',     8,  0),

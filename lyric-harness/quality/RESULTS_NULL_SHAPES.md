@@ -642,6 +642,12 @@ two extra being `chain rhyme (rap)` and `compound / phrasal rhyme`.
 > flush_right `each` channel at the last unit, so its definite instances
 > reach the judge. The 2026-08 figures above are kept as measured then.
 
+> **2026-10-31 (`MISSING.md` M-327).** The ledger's EXTENDABLE is ~~30~~
+> **29** and NO INSTANCE gains one: `mosaic rhyme` no longer leaves a free
+> run's leading syllables unmatched, so the slice's one-word end rhymes stop
+> counting as mosaics and none remains (menu 8 -> 6: the no-overhang rule
+> forces different lines, so `local_fraction@0` is dead for it).
+
 > **REPINNED AGAIN 2026-08-22 (M-39).** ~~31~~ **27** budgeted and ~~33~~
 > **29** unbudgeted. A `figure(frame="stanza")` now asks for the frame it
 > quantifies over, and the ledger slice as `_read` renders it — blank lines

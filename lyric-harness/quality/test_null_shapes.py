@@ -464,18 +464,32 @@ def forced_gap_sections():
     # non-rhotic and FORCE readings read independently per occurrence, so
     # the pair is undecided (2x2 readings) rather than a true instance; the
     # claim is about the span boundary, so a word with one reading carries it.
+    # 2026-10-31 (`MISSING.md` M-327): ~~"the actual mosaic judge admits
+    # overlapping line-final spans"~~ -- day ~ "the day" was never a mosaic:
+    # it passed because the run's leading "the" was left unmatched. Under
+    # `unmatched="forbid"` both members end on the line-final syllable with
+    # one length, so on one line they would be one span, and NO same-line
+    # mosaic exists to put here. The judge still ENUMERATES the overlapping
+    # candidates (the span boundary this row is about) and refuses each.
     overlap = R.build_stream(["day the day"], phon,
                              declaration={"language": "eng"})
     mosaic = R.REGISTRY["mosaic rhyme"]
-    found = R.realise(mosaic, overlap)
-    check("M-46 the actual mosaic judge admits overlapping line-final spans",
+    found = R.realise(mosaic, overlap, keep="all")
+    check("M-46 the mosaic judge enumerates overlapping line-final spans and "
+          "admits none of them",
           not isinstance(found, R.Refusal)
-          and any(i.verdict is True and i.a.idx != i.b.idx
-                  and i.a.tail() == i.b.tail() for i in found))
-    check("M-46 multiword schemas keep their same-line statistic",
-          all(N.forced_gap(R.REGISTRY[name]) == (0, None)
-              and N.statistic_degeneracy(R.REGISTRY[name], "local_fraction@0") is None
-              for name in ("mosaic rhyme", "compound / phrasal rhyme")))
+          and any(i.a.idx != i.b.idx and i.a.tail() == i.b.tail()
+                  for i in found)
+          and not any(i.verdict is True for i in found),
+          str([(i.describe(overlap)) for i in found]))
+    check("M-46 compound / phrasal rhyme keeps its same-line statistic",
+          N.forced_gap(R.REGISTRY["compound / phrasal rhyme"]) == (0, None)
+          and N.statistic_degeneracy(R.REGISTRY["compound / phrasal rhyme"],
+                                     "local_fraction@0") is None)
+    check("M-46 mosaic rhyme's no-overhang rule forces different lines, so "
+          "its same-line statistic is dead (M-327)",
+          N.forced_gap(mosaic) == (1, None)
+          and bool(N.statistic_degeneracy(mosaic, "local_fraction@0")))
 
     # Even one endpoint TOKEN can yield several spans when the rule searches,
     # or when the two members use different deterministic anchors.
