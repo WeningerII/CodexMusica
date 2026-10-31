@@ -272,7 +272,11 @@ function mount(host, opts) {
   const doc = host.ownerDocument;
   const win = opts.win || doc.defaultView;
   const narrow =
-    opts.narrow || (() => !!(win.matchMedia && win.matchMedia('(max-width: 600px)').matches));
+    opts.narrow ||
+    (() =>
+      host.clientWidth
+        ? host.clientWidth <= 600
+        : !!(win.matchMedia && win.matchMedia('(max-width: 600px)').matches));
   let model = opts.model;
   let view = opts.view || 'poem';
   const live = liveRegion(host);
@@ -464,6 +468,25 @@ function mount(host, opts) {
     model: () => model,
     view: () => view,
     select,
+    update(next) {
+      if (next.current.analysisIdentity !== current.analysisIdentity)
+        throw Error('A different analysis requires a new mount');
+      Object.assign(current, next.current);
+      const held = doc.activeElement?.closest('[data-selection]')?.dataset.selection;
+      const { selection, checkedMethods, cellMethod, rowOccurrence } = model;
+      const known = new Set(model.methods.filter((m) => !m.disabledReason).map((m) => m.method_id));
+      model = {
+        ...next.model,
+        selection,
+        checkedMethods: [
+          ...checkedMethods,
+          ...next.model.checkedMethods.filter((id) => !known.has(id)),
+        ],
+        cellMethod,
+        rowOccurrence,
+      };
+      draw(held);
+    },
     destroy() {
       gen++;
       if (relayout) cancel(relayout);

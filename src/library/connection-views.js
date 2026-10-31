@@ -60,7 +60,9 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
   // Each cell carries a Don selection plus explicit domain/population facts.
   // A missing cell descriptor is unknown to this adapter, never false.
   const findCell = (model, selection) =>
-    model.cells.find((c) => I.sameSelection(c.selection, selection));
+    model.cell
+      ? model.cell(selection)
+      : model.cells.find((c) => I.sameSelection(c.selection, selection));
   const result = (cell) => (cell ? I.cellState(cell) : null);
   const stateText = (cell) => (cell ? I.stateWords(result(cell)) : 'Not supplied');
   const selected = (model, sel) => I.sameSelection(model.selection, sel);
@@ -653,13 +655,13 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
 }
 
 const CSS = `
-.cv-root{font-family:var(--cm-font,Arial,sans-serif);color:var(--cm-text,#242a28);background:var(--cm-surface,#fff);padding:24px;line-height:1.5}
+.cv-root{container-type:inline-size;font-family:var(--cm-font,Arial,sans-serif);color:var(--cm-text,#242a28);background:var(--cm-surface,#fff);padding:24px;line-height:1.5}
 .cv-root *{box-sizing:border-box}.cv-root button,.cv-root select,.cv-root summary{font:inherit;color:inherit;background:var(--cm-surface,#fff);border:1px solid var(--cm-border,#bfc7c3);border-radius:6px;padding:8px;cursor:pointer}
 .cv-root button:not(.lib-mk-focus):focus-visible,.cv-root select:focus-visible,.cv-root summary:focus-visible{outline:2px solid currentColor;outline-offset:3px}
 .cv-root nav{display:flex;gap:16px;margin:20px 0}.cv-root nav button{border:0;border-radius:0}.cv-root [aria-current=true]{border-bottom:3px solid currentColor;font-weight:bold}
 .cv-controls{display:flex;gap:16px;align-items:start;margin-bottom:16px;flex-wrap:wrap}.cv-controls label{display:block}.cv-controls fieldset{border:0}.cv-controls details[open]{border:1px solid var(--cm-border,#bfc7c3);padding:8px}
 .cv-layout{align-items:start;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:24px;margin-top:20px}.cv-inspector,.cv-group{border:1px solid var(--cm-border,#dce2df);border-radius:10px;padding:20px}.cv-inspector h4{font-size:12px;text-transform:uppercase;margin-bottom:6px}.cv-inspector p{overflow-wrap:anywhere}.cv-inspector button{display:block;margin:8px 0}.cv-scroll{overflow:auto}.cv-scroll>svg{display:block}.cv-poem-line{white-space:pre;font:24px Georgia,serif;fill:var(--cm-text,#242a28)}
 .cv-network{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}.cv-network>button{grid-column:1/-1;text-align:left}.cv-group svg{width:100%}.cv-root .cv-selected{outline:2px solid var(--cm-text,#242a28);outline-offset:-2px}.cv-root table{border-collapse:collapse}.cv-root th{font-size:12px;font-weight:normal;padding:10px;min-width:75px}.cv-root td{text-align:center;padding:0}.cv-root td button{border:0;padding:3px;border-radius:0;min-width:40px}.cv-root footer{border-bottom:1px solid var(--cm-border,#dce2df);padding:12px 0;margin-bottom:16px}.cv-phone-row{display:none}.cv-native button{display:block;margin:8px 0}.lib-mk-tag{display:inline-block;margin:8px}.cv-fixture{font-weight:bold}
-@media(max-width:600px){.cv-root{padding:16px}.cv-layout{display:block}.cv-desktop-matrix{display:none}.cv-phone-row{display:block}.cv-phone-row button{display:block;text-align:left;width:100%;margin:8px 0}.cv-phone-row span{display:block;font-size:12px}.cv-inspector{margin-top:20px}.cv-controls{display:block}.cv-controls select{max-width:100%}.cv-root nav{gap:2px}.cv-network{display:block}}
+@container(max-width:600px){.cv-layout{display:block}.cv-desktop-matrix{display:none}.cv-phone-row{display:block}.cv-phone-row button{display:block;text-align:left;width:100%;margin:8px 0}.cv-phone-row span{display:block;font-size:12px}.cv-inspector{margin-top:20px}.cv-controls{display:block}.cv-controls select{max-width:100%}.cv-root nav{gap:2px}.cv-network{display:block}}
 `;
 return { createViews };

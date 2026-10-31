@@ -15,7 +15,7 @@
 // - evidence renders only after a fresh 200 from GET /jobs/:id on every
 //   activation (mount, evidence-lens switch, return to a tab hidden > 60 s);
 //   a 404 or 410 drops that job's pages at once.
-/* global CMLyricTokens, esc, icon, showToast, uiDownload, uiEmptyState, uiTabIndex, libraryAnnounce */
+/* global CMLyricTokens, CMConnectionInteraction, _connectionModel, _connectionComplete, libraryChunk, esc, icon, showToast, uiDownload, uiEmptyState, uiTabIndex, libraryAnnounce */
 'use strict';
 
 // lyric-harness quality/narrative.py grammar (sites/library/lib/declaration-options.json).
@@ -1413,11 +1413,65 @@ function mount(container, input) {
     inspected: null,
   };
   let alive = true;
+  let connections = null,
+    connectionJob = null,
+    connectionGeneration = 0;
   let pollTimer = null;
   let pollStarted = 0;
   let hiddenAt = 0;
   container.innerHTML = `<div class="la-root" aria-busy="true">${uiEmptyState({ title: 'Loading analysis tools…' })}</div>`;
   const root = container.firstElementChild;
+
+  function clearConnections() {
+    connectionGeneration++;
+    connections?.destroy();
+    connections = null;
+    connectionJob = null;
+    root.querySelector('[data-slot="connections"]')?.replaceChildren();
+  }
+  async function drawConnections() {
+    if (!alive || st.lens !== 'sound' || !st.authorized || !mem.report) {
+      clearConnections();
+      return;
+    }
+    const job = mem.job.id;
+    if (connectionJob && connectionJob !== job) clearConnections();
+    const generation = ++connectionGeneration;
+    try {
+      const [views, bindings, marks] = await Promise.all(
+        ['connection-views', 'connection-bindings', 'marks'].map(libraryChunk)
+      );
+      if (!alive || generation !== connectionGeneration || !st.authorized || mem.job?.id !== job)
+        return;
+      const adapted = _connectionModel(CMConnectionInteraction, {
+        records: st.resolved,
+        registry: st.registry,
+        report: mem.report,
+        complete: _connectionComplete(
+          mem.report,
+          mem.records.length,
+          mem.offset,
+          mem.next,
+          st.pending.length
+        ),
+      });
+      if (connections) connections.update(adapted);
+      else
+        connections = bindings.mount(slot('connections'), {
+          ...adapted,
+          ci: CMConnectionInteraction,
+          marks,
+          createViews: views.createViews,
+        });
+      connectionJob = job;
+    } catch {
+      if (alive && generation === connectionGeneration) {
+        clearConnections();
+        slot('connections').textContent =
+          'Connection views unavailable. Verified evidence remains below.';
+      }
+    }
+  }
 
   const fail = (e) => {
     const p = e?.problem || problemOf(e);
@@ -1426,6 +1480,7 @@ function mount(container, input) {
     draw();
   };
   function lose(status) {
+    clearConnections();
     // Drop the job's in-memory evidence at once; keep only declarations.
     st.lost = status === 404 ? 'session' : 'expired';
     st.authorized = false;
@@ -1436,7 +1491,9 @@ function mount(container, input) {
     stopPoll();
   }
   async function rehydrate() {
-    const result = await hydrateEvidence(mem.records);
+    const records = mem.records;
+    const result = await hydrateEvidence(records);
+    if (!alive || records !== mem.records) return;
     st.resolved = result.records;
     st.pending = result.pending;
   }
@@ -1444,9 +1501,11 @@ function mount(container, input) {
   async function authorize() {
     if (!mem.job) return;
     st.authorized = false;
+    clearConnections();
+    const id = mem.job.id;
     try {
-      const data = await api.job(mem.job.id);
-      if (!alive) return;
+      const data = await api.job(id);
+      if (!alive || mem.job?.id !== id) return;
       mem.job = data.job;
       st.authorized = true;
       st.lost = false;
@@ -1881,7 +1940,7 @@ function mount(container, input) {
   // Slots redraw independently: a poll redraws status (and main when the
   // evidence changed) without touching an open declarations editor.
   root.innerHTML =
-    '<div data-slot="tabs"></div><div data-slot="status"></div><div data-slot="decl"></div><div data-slot="main"></div><div data-slot="ref"></div>';
+    '<div data-slot="tabs"></div><div data-slot="status"></div><div data-slot="decl"></div><div data-slot="connections"></div><div data-slot="main"></div><div data-slot="ref"></div>';
   root.removeAttribute('aria-busy');
   const slot = (name) => root.querySelector(`[data-slot="${name}"]`);
   // The status lines a listener needs to hear when they CHANGE: the job's
@@ -1925,6 +1984,7 @@ function mount(container, input) {
       announceStatus();
     }
     if (which.includes('main')) slot('main').innerHTML = mainHTML();
+    if (which.includes('main')) drawConnections();
     const now = document.activeElement;
     if (held && (!now || now === document.body || !now.isConnected)) {
       const next = [...root.querySelectorAll(`[data-act="${held.act}"]`)].find(
@@ -2119,6 +2179,7 @@ function mount(container, input) {
     },
     destroy() {
       alive = false;
+      clearConnections();
       stopPoll();
       document.removeEventListener('visibilitychange', onVisibility);
       if (LIVE === handle) LIVE = null;

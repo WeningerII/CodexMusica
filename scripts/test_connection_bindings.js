@@ -344,6 +344,31 @@ function mounted(url, narrow) {
   return { B, win, doc, host, m, live };
 }
 const keyOf = (sel) => CI.selectionKey(sel);
+test('mount: evidence update preserves view, selection, URL and unchecked methods', () => {
+  const { m, host, win } = mounted();
+  host.querySelector('[data-view="matrix"]').click();
+  m.select(CI.occurrence('e-watch-4-2'));
+  const box = host.querySelector('[data-method]');
+  box.checked = false;
+  box.dispatchEvent(new win.Event('change', { bubbles: true }));
+  const before = win.location.href;
+  m.update({ model: fixtureModel(), current: { ...current } });
+  assert.equal(m.view(), 'matrix');
+  assert.equal(m.model().selection.entity_id, 'e-watch-4-2');
+  assert.ok(!m.model().checkedMethods.includes(ALLIT));
+  assert.equal(win.location.href, before);
+  assert.throws(
+    () =>
+      m.update({
+        model: fixtureModel(),
+        current: { ...current, analysisIdentity: 'new-revision' },
+      }),
+    /new mount/
+  );
+  m.destroy();
+  assert.equal(host.querySelector('.cv-inspector'), null);
+  win.close();
+});
 const find = (host, key) =>
   [...host.querySelectorAll('[data-selection]')].find((n) => n.dataset.selection === key);
 

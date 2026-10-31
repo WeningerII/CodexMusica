@@ -369,6 +369,158 @@ async function overflow(page) {
 
 // ─── Sections ────────────────────────────────────────────────────────────────
 const SECTIONS = {
+  async connections({ page, base, tag }) {
+    // Real Library route and hashed viewer pages; records are a committed,
+    // bounded two-line AnalysisSession capture, not the illustrative r5 PNG.
+    const fixture = require('./fixtures/connection-backend.json');
+    const soundId = require('../library/data/methods.json').methods.find(
+      (m) => m.namespace === 'shared_sound' && m.name === 'onset@v1'
+    ).id;
+    const crypto = require('node:crypto');
+    const canonical = (v) =>
+      v && typeof v === 'object'
+        ? Array.isArray(v)
+          ? '[' + v.map(canonical).join(',') + ']'
+          : '{' +
+            Object.keys(v)
+              .sort()
+              .map((k) => JSON.stringify(k) + ':' + canonical(v[k]))
+              .join(',') +
+            '}'
+        : JSON.stringify(v);
+    const digest = (s) => crypto.createHash('sha256').update(s).digest('hex');
+    const payloads = [
+      fixture.records.filter((r) => r.kind !== 'relation_instance'),
+      fixture.records.filter((r) => r.kind === 'relation_instance'),
+    ].map((instances) => JSON.stringify({ instances }));
+    const hashes = payloads.map(digest);
+    let job,
+      manifest,
+      hash,
+      expired = false,
+      posts = 0;
+    await page.route(API + '/**', async (route) => {
+      const req = route.request(),
+        url = new URL(req.url()),
+        p = url.pathname.slice('/library/v1'.length);
+      const reply = (value, status = 200) =>
+        route.fulfill({
+          status,
+          contentType: 'application/json',
+          body: typeof value === 'string' ? value : JSON.stringify(value),
+        });
+      if (p === '/analyses' && req.method() === 'POST') {
+        const body = JSON.parse(req.postData());
+        posts++;
+        check(
+          `${tag} connections: shared sound not silently requested`,
+          body.requested_methods
+            ? body.requested_methods.length === 1 && body.requested_methods[0] === soundId
+            : !body.requested_layers.includes('shared_sound')
+        );
+        job = {
+          id: 'connection-test',
+          state: 'running',
+          identity: {
+            reading_unit_id: body.reading_unit_id,
+            reading_revision: body.reading_revision,
+          },
+          progress: { completed: 1, total: 2 },
+        };
+        manifest = JSON.stringify({
+          job_id: job.id,
+          identity_hash: digest(canonical(job.identity)),
+          partial: false,
+          page_count: 2,
+          evidence_count: fixture.records.length,
+        });
+        hash = digest(manifest);
+        return reply({ job }, 202);
+      }
+      if (p === '/jobs/connection-test')
+        return expired
+          ? reply({ error: { code: 'EXPIRED' } }, 410)
+          : reply({ job: { ...job, state: 'complete', manifest_hash: hash } });
+      if (p === `/jobs/connection-test/manifests/${hash}`) return reply(manifest);
+      if (p === `/jobs/connection-test/manifests/${hash}/pages`) {
+        const i = Number(url.searchParams.get('offset'));
+        return reply({
+          manifest_hash: hash,
+          page_refs: [{ sha256: hashes[i] }],
+          next_offset: i === 0 ? 1 : null,
+        });
+      }
+      const i = hashes.findIndex((h) => p === `/jobs/connection-test/pages/${h}`);
+      if (i >= 0) return reply(payloads[i]);
+      return route.fallback();
+    });
+    await go(page, base, `/read/${EPI_A}?lens=sound`);
+    await settled(page, 'reader', '#surface-library .rd-paper .rd-line');
+    if (await page.isVisible('#surface-library [data-rd="sheet"]'))
+      await page.click('#surface-library [data-rd="sheet"]');
+    await page.click('[data-act="analyze"]');
+    await page.waitForSelector('.cv-root', { timeout: 20000 });
+    check(`${tag} connections: authorized route mounts actual views`, !!(await page.$('.cv-poem')));
+    await page.click('.cv-root [data-view="matrix"]');
+    check(
+      `${tag} connections: unloaded evidence is not a negative`,
+      await page
+        .locator('.cv-root [data-selection]')
+        .evaluateAll(
+          (nodes) =>
+            nodes.some((n) => n.getAttribute('aria-label')?.includes('not yet computed')) &&
+            !nodes.some((n) => n.getAttribute('aria-label')?.includes('does not hold'))
+        )
+    );
+    const target = page.locator('.cv-root [data-selection]:visible').first();
+    await target.click();
+    if (await page.isVisible('.lib-cb-sheet-body')) await page.keyboard.press('Escape');
+    const selectedUrl = page.url();
+    await page.click('[data-act="more"]');
+    await page.waitForFunction(() =>
+      document.querySelector('.cv-root')?.textContent.includes('all pages loaded')
+    );
+    check(
+      `${tag} connections: page update keeps matrix and selection URL`,
+      (await page.getAttribute('.cv-root [data-view="matrix"]', 'aria-current')) === 'true' &&
+        page.url() === selectedUrl
+    );
+    check(
+      `${tag} connections: explicit holds appear after verified page`,
+      (await page.textContent('.cv-root')).includes('holds')
+    );
+    check(`${tag} connections: display interaction sends no computation`, posts === 1);
+    const stale = new URL(selectedUrl);
+    stale.hash = `#library/read/${EPI_B}?lens=sound`;
+    await page.goto(stale.href);
+    await settled(page, 'reader', '#surface-library .rd-paper .rd-line');
+    if (await page.isVisible('#surface-library [data-rd="sheet"]'))
+      await page.click('#surface-library [data-rd="sheet"]');
+    await page.click('[data-act="analyze"]');
+    await page.waitForSelector('.cv-notice');
+    check(
+      `${tag} connections: old selection URL rejected on a different reading`,
+      (await page.textContent('.cv-notice')).includes('no longer exists')
+    );
+    await page.click('[data-act="methods"]');
+    await page.click(`[data-f="reference"] [data-method="${soundId}"] > summary`);
+    const sent = page.waitForResponse(
+      (r) => r.url().endsWith('/analyses') && r.request().method() === 'POST'
+    );
+    await page.click(`[data-act="analyze-method"][data-id="${soundId}"]`);
+    const response = await sent;
+    check(
+      `${tag} connections: shared sound uses the explicit existing request`,
+      JSON.parse(response.request().postData()).requested_methods?.[0] === soundId && posts === 3
+    );
+    expired = true;
+    await page.click('[data-rd="lens"][data-id="form"]');
+    await page.click('[data-rd="lens"][data-id="sound"]');
+    await page.waitForFunction(() =>
+      document.querySelector('.la-root')?.textContent.includes('expired')
+    );
+    check(`${tag} connections: expiry destroys mounted evidence`, !(await page.$('.cv-root')));
+  },
   async explore({ page, base, tag }) {
     await go(page, base, '');
     const failed = await settled(page, 'core', '#surface-library .lib-shelf');
@@ -2258,6 +2410,7 @@ const NEEDS = {
   compare: 'compare',
   focus: 'compare',
   analysis: 'analysis',
+  connections: 'analysis',
   declarations: 'analysis',
   retained: 'analysis',
   retry: 'works',
