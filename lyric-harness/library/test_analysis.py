@@ -1409,3 +1409,70 @@ class SharedSound(unittest.TestCase):
             _, rows, _ = _sound(source("zanchor banchor cat"), ["vowel"])
         result = next(r for r in rows if r["kind"] == "method_result")
         self.assertEqual((result["coverage"], result["domain"]["pair_count"]), ("answered", 3))
+
+
+class DomainOutcomes(unittest.TestCase):
+    """`domain.listed_pairs_by_state` (#637, BB8's counts inventory, as 3PO narrowed it in 6545638972): a pair-projecting
+    domain carries its listed pairs by state, counted where the verdicts were
+    reached, because `counts` counts bucket candidates and disagrees with the
+    domain (29 of 40 pair-projecting schemas on this poem). Every count is
+    checked against the committed records cell by cell, on a whole run and on
+    one restarted from every checkpoint."""
+
+    TEXT = ("the cat sat on the mat tonight\nand light falls on the bright hat\n\n"
+            "the night is long and wrong and strong\nso sing the song along")
+    SCHEMAS = ["internal rhyme", "cross rhyme", "perfect rhyme", "amphisbaenic rhyme",
+               "internal consonance", "alliteration"]
+
+    def _check(self, rows):
+        edges = {}
+        for r in rows:
+            if r["kind"] == "relation_instance":
+                edges.setdefault(r["method_id"], []).append(r)
+        seen = 0
+        for r in rows:
+            if r["kind"] != "method_result":
+                continue
+            d = r["domain"]
+            if d["projection"] != "exact_token_pair":
+                self.assertNotIn("listed_pairs_by_state", d)
+                continue
+            seen += 1
+            cells = _domain_cells(d)
+            states = {}
+            for e in edges.get(r["method_id"], []):
+                a, b = e["a"]["token_ids"], e["b"]["token_ids"]
+                if len(a) == 1 and len(b) == 1 and a[0] != b[0]:
+                    cell = (a[0], b[0])
+                    if d["ordering"] == "unordered" and cell not in cells:
+                        cell = (b[0], a[0])
+                    # A recorded single-token pair is a listed pair.
+                    self.assertIn(cell, cells, r["method_id"])
+                    states[cell] = e["verdict"]
+            holds = sum(v == "true" for v in states.values())
+            undecided = sum(v == "undecided" for v in states.values())
+            o = d["listed_pairs_by_state"]
+            self.assertEqual((o["listed"], o["true_records"], o["undecided_records"]),
+                             (len(cells), holds, undecided), r["method_id"])
+            self.assertEqual(o["listed"], d["pair_count"])
+            self.assertEqual(o["judged_false"], None if o["reading_dependent_pairs"] else len(cells) - holds - undecided)
+            self.assertNotIn("domain_true", r["counts"])
+            self.assertNotIn("domain_undecided", r["counts"])
+        return seen
+
+    def test_schema_outcomes_match_the_records_cell_by_cell(self):
+        _, rows, _ = complete(source(self.TEXT), schemas=self.SCHEMAS)
+        self.assertEqual(self._check(rows), len(self.SCHEMAS))
+        # The defect the field exists for: counts and domain disagree here.
+        cross = next(r for r in rows if r["kind"] == "method_result" and r.get("schema_name") == "cross rhyme")
+        self.assertNotEqual(cross["counts"]["candidates"], cross["domain"]["pair_count"])
+
+    def test_outcomes_survive_a_restart_from_every_checkpoint(self):
+        _, whole, _ = complete(source(self.TEXT), schemas=self.SCHEMAS)
+        _, resumed, _ = complete(source(self.TEXT), schemas=self.SCHEMAS, batch=7, restart=True)
+        pick = lambda rows: {r["method_id"]: r["domain"].get("listed_pairs_by_state") for r in rows if r["kind"] == "method_result"}
+        self.assertEqual(pick(whole), pick(resumed))
+
+    def test_shared_sound_outcomes_match_the_records(self):
+        _, rows, _ = _sound(source(self.TEXT), ["vowel", "coda", "onset", "stressed_onset"])
+        self.assertEqual(self._check(rows), 4)

@@ -1336,6 +1336,45 @@ class AnalysisSession:
     def _token_id(self, tok):
         return f"{self._line_id(tok[0])}:token:{tok[1]}"
 
+    @staticmethod
+    def _domain_tally(delta, record):
+        """Count a recorded edge toward its method's domain outcomes. A true
+        or undecided edge whose members are each one token, and two distinct
+        tokens, is one listed pair of the domain by construction: it was a
+        candidate the placement admitted (or an alternate-reading pair added
+        to the domain as judged). Kept with the method's counts, so a resumed
+        traversal keeps it."""
+        a, b = (record.get(k, {}).get("token_ids") or () for k in ("a", "b"))
+        if len(a) == 1 and len(b) == 1 and a[0] != b[0]:
+            key = "domain_true" if record.get("verdict") == "true" else "domain_undecided"
+            delta[key] = delta.get(key, 0) + 1
+
+    @staticmethod
+    def _outcomes(domain, tally):
+        """-> `domain` with `listed_pairs_by_state`: its listed pairs counted
+        by the state their own records give, where the verdicts were reached.
+        A WHOLE-METHOD population (3PO, #637 6545638972): never a view's local
+        denominator, never a refused or pending pair total, and not the
+        population `counts` describes (`counts` counts the engine's bucket
+        candidates: pruned candidates are listed and in no count,
+        placement-refused ones are counted and not listed). `judged_false` is
+        null while any listed pair touches a reading-dependent occurrence:
+        such a pair is neither False nor outside, and only its own record
+        answers it (`MethodDomain`)."""
+        if domain.get("projection") != "exact_token_pair":
+            return domain
+        holds, undecided = tally
+        tokens = domain["tokens"]
+        dependent = {tokens.index(t) for t in domain.get("reading_dependent_tokens", ())}
+        dependent_pairs = sum(1 for i, runs in domain["pairs"].items() for lo, hi in runs
+                              for j in range(lo, hi + 1) if int(i) in dependent or j in dependent)
+        rest = domain["pair_count"] - holds - undecided
+        domain["listed_pairs_by_state"] = {"listed": domain["pair_count"], "true_records": holds,
+                                           "undecided_records": undecided,
+                                           "judged_false": rest if not dependent_pairs and rest >= 0 else None,
+                                           "reading_dependent_pairs": dependent_pairs}
+        return domain
+
     def _project(self, cells, ordering):
         """{(line, token) pairs} -> the exact token-pair projection: tokens,
         and each token's partners as [first, last] index runs."""
@@ -1650,6 +1689,7 @@ class AnalysisSession:
                 "reading_dependent_tokens": [self._token_id(t) for t in dependent]}
 
     def _sound_result(self, key, mid, counts):
+        tally = (counts.pop("domain_true", 0), counts.pop("domain_undecided", 0))
         if self.stream.unreadable and counts["coverage"] == "answered":
             counts["coverage"] = "refused"
             counts["unreadable_tokens"] = len(self.stream.unreadable)
@@ -1658,7 +1698,7 @@ class AnalysisSession:
         return self._record("method_result", mid, "result", namespace="shared_sound",
                             method_name=shared_sound_name(key), layer=SHARED_SOUND_LAYER,
                             coverage=counts["coverage"], counts=counts,
-                            domain=self._sound_domain(key, counts.pop("alt_cells", []))
+                            domain=self._outcomes(self._sound_domain(key, counts.pop("alt_cells", [])), tally)
                             if counts["coverage"] == "answered"
                             else {"projection": "none", "reason": "refused"},
                             refusal=counts.get("refusal"),
@@ -2157,6 +2197,8 @@ class AnalysisSession:
         if phase == "shared_sound":
             return [self._sound_result(name, mid, counts)]
         rows = []
+        # Popped before any record is built, so `counts` keeps its shape.
+        tally = (counts.pop("domain_true", 0), counts.pop("domain_undecided", 0))
         needs_assembly = phase == "schema" and not RL.pair_scope_representable(RL.REGISTRY[name]) and name not in RL.FULL_SHAPES
         if needs_assembly and counts["coverage"] == "answered":
             counts.pop("coverage", None)
@@ -2173,8 +2215,8 @@ class AnalysisSession:
                               + ". Findings over the combinations searched do not answer the rest."}
             rows.append(self._record("method_result", mid, "result", namespace="schema", schema_name=name,
                                     coverage=counts["coverage"], counts=counts,
-                                    domain=self._domain(name, counts.pop("alt_cells", [])) if phase == "schema"
-                                    else {"projection": "none", "reason": "whole_figure"},
+                                    domain=self._outcomes(self._domain(name, counts.pop("alt_cells", [])), tally)
+                                    if phase == "schema" else {"projection": "none", "reason": "whole_figure"},
                                     refusal=counts.get("refusal"), availability="available" if counts["coverage"] == "answered" else "unknown_members",
                                     supply={c: json_safe(self.stream.supply(c))
                                                                        for c in RL.REGISTRY[name].capabilities()}))
@@ -2282,6 +2324,7 @@ class AnalysisSession:
                         if inst.verdict is not False:
                             record = self._edge_record(inst, judged, witness, search, first_only)
                             new.append(record)
+                            self._domain_tally(delta, record)
                             if not RL.pair_scope_representable(RL.REGISTRY[name]):
                                 self._local_records.setdefault(self._task_mid(phase, name), []).append(record)
                 else:
@@ -2308,6 +2351,7 @@ class AnalysisSession:
                     delta["first_reading_only"] += first_only
                     if value is not False:
                         new.append(record)
+                        self._domain_tally(delta, record)
             else:
                 new = [binding]
             delta["candidates"] = 1
