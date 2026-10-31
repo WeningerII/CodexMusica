@@ -303,6 +303,9 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
         if (selected(model, sel)) btn.classList.add('cv-selected');
         phone.append(btn);
       }
+    else
+      for (const o of occurrences)
+        phone.append(button(I.occurrenceLabel(o), I.occurrence(o.entity_id)));
     box.append(phone);
     return box;
   }

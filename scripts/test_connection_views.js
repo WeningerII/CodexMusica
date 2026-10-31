@@ -709,3 +709,56 @@ test('poem boxes require an explicit authored-fixture override; detached geometr
 
   dom.window.close();
 });
+
+test('phone matrix with no selection offers occurrences and reaches a pair through real bindings', async () => {
+  const { chromium } = require('playwright');
+  const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH });
+  try {
+    const page = await browser.newPage({ viewport: { width: 390, height: 800 } });
+    await page.route('https://connection.test/', (route) =>
+      route.fulfill({ contentType: 'text/html', body: '<main id="surface-library"></main>' })
+    );
+    await page.goto('https://connection.test/');
+    await page.addScriptTag({ content: fs.readFileSync(interactionPath, 'utf8') });
+    await page.addScriptTag({
+      content: `window.marks=(function(){${fs.readFileSync(marksPath, 'utf8')} })(); window.views=(function(){${source} })(); window.bindings=(function(){${fs.readFileSync(bindingsPath, 'utf8')} })(); window.model=(${authoredFixture.toString()})(CMConnectionInteraction);`,
+    });
+    await page.evaluate(() => {
+      window.model.selection = null;
+      window.model.rowOccurrence = null;
+      window.m = window.bindings.mount(document.querySelector('main'), {
+        ci: window.CMConnectionInteraction,
+        marks: window.marks,
+        createViews: window.views.createViews,
+        model: window.model,
+        current: {
+          analysisIdentity: 'fixture',
+          hasEntity: () => true,
+          hasMethod: () => true,
+          hasEvidence: () => false,
+        },
+        view: 'matrix',
+      });
+    });
+    const choices = page.locator('.cv-phone-row button:visible');
+    assert.equal(await choices.count(), 6, 'empty phone matrix must offer selectable occurrences');
+    await choices.filter({ hasText: 'watch' }).click();
+    await page.keyboard.press('Escape');
+    assert.equal(await page.locator('.cv-phone-row button:visible').count(), 5);
+    await page.locator('.cv-phone-row button:visible').filter({ hasText: 'woods · L4 w4' }).click();
+    await page.keyboard.press('Escape');
+    assert.equal(await page.evaluate(() => window.m.model().selection.kind), 'pair');
+    assert.equal(
+      await page.evaluate(() => !!document.activeElement.closest('.cv-phone-row')),
+      true
+    );
+    await page.evaluate(() => window.m.select(null));
+    assert.equal(await choices.count(), 6, 'clearing selection restores the entry path');
+    await page.setViewportSize({ width: 1280, height: 900 });
+    assert.equal(await choices.count(), 0, 'phone choices stay hidden on desktop');
+    assert.equal(await page.locator('.cv-desktop-matrix button:visible').count(), 15);
+    await page.evaluate(() => window.m.destroy());
+  } finally {
+    await browser.close();
+  }
+});

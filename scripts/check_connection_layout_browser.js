@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global window, document, requestAnimationFrame, MouseEvent */
+/* global window, document, requestAnimationFrame, MouseEvent, KeyboardEvent */
 // The poem geometry lifecycle with the real pieces in Chromium: the actual
 // connection views (layoutPoem, 3PO's contract), marks and interaction model,
 // mounted by the actual bindings (src/library/connection-bindings.js), which
@@ -202,6 +202,56 @@ function aligned(list, label) {
         ok(`${how}: destroy before the font measures nothing and throws nothing`);
         await page.close();
       }
+    }
+    // 5. Phone matrix: the row's button and the hidden desktop cell share a
+    // selection key. Tapping a row pair opens the inspector sheet; closing it
+    // returns focus to the row button on screen, never to the page.
+    {
+      const { page, errors, release } = await open(browser, { preload: false });
+      release();
+      await fontsIn(page);
+      await page.setViewportSize({ width: 390, height: 800 });
+      const got = await page.evaluate(async () => {
+        const I = window.CMConnectionInteraction;
+        window.m.destroy();
+        window.m = window.bindings.mount(document.getElementById('surface-library'), {
+          ci: I,
+          marks: window.marks,
+          createViews: window.views.createViews,
+          model: window.fixture(I),
+          current: {
+            analysisIdentity: 'fixture',
+            hasEntity: () => true,
+            hasMethod: () => true,
+            hasEvidence: () => false,
+          },
+          view: 'matrix',
+          narrow: () => true,
+        });
+        window.m.select(I.occurrence('watch'));
+        const row = document.querySelectorAll('.cv-phone-row button[data-selection]')[1];
+        const key = row.dataset.selection;
+        row.focus();
+        row.click();
+        const opened = document.activeElement.tagName;
+        document.activeElement.dispatchEvent(
+          new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })
+        );
+        const a = document.activeElement;
+        return {
+          key,
+          opened,
+          active: a.dataset.selection || a.tagName,
+          visible: a.getClientRects().length > 0,
+          inRow: !!a.closest('.cv-phone-row'),
+        };
+      });
+      assert.equal(got.opened, 'H2', 'the sheet takes focus to its heading');
+      assert.equal(got.active, got.key, 'Esc returns focus to the tapped pair');
+      assert.equal(got.visible && got.inRow, true, 'on the phone row button, not the hidden cell');
+      assert.deepEqual(errors, []);
+      ok('phone matrix: closing the inspector returns focus to the row button on screen');
+      await page.close();
     }
     // 4. A poem with a missing range says so once, after the selection words.
     {
