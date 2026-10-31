@@ -38,9 +38,9 @@ unshipped module fails in PR CI rather than in qualification.
 #: the same day (M-322): the any-reading search varies first the words that
 #: differ on what a schema reads, so sonnet 1 ornament/content, refused when
 #: every word's combinations passed the cap, is judged and violates.
-#: ~~"judged": 1013, "refused": 51, "violations": 25~~ -> 1011 / 53 / 23,
+#: ~~"judged": 1013, "refused": 51, "violations": 25~~ -> 1008 / 56 / 20,
 #: 2026-10-31 (`MISSING.md` M-311 F1, R2's mosaic ruling): an unread word
 #: inside a member makes that candidate undecided for every channel, and the
 #: any-reading search no longer sinks on a word it cannot vary; `battery.py`
 #: states the four pairs that moved.
-EXPECTED = {"mandated": 1064, "judged": 1011, "refused": 53, "violations": 23}
+EXPECTED = {"mandated": 1064, "judged": 1008, "refused": 56, "violations": 20}

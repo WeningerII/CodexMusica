@@ -2736,6 +2736,8 @@ def _seq(span, stream, channel, chans, surface, rule=None):
     reading and every pre-M-148 caller's behaviour.
     """
     if _cluster_scoped(channel, rule):
+        # (the unread-word guard below does not run on this path; `evaluate`
+        # applies the same test to every candidate afterwards)
         return _post_vocalic(span, stream, chans, surface)
     if _spans_unreadable(span, stream, rule):
         # AN UNREAD WORD INSIDE THE MEMBER (2026-10-31, M-311 F4): it has no
@@ -10419,6 +10421,14 @@ def _locatable_tokens(stream, tokens):
                                     stream.lexical_tokens[li], ti) is not None}
 
 
+def _one_reading_in_stream(stream, tok):
+    """True when the token has units in the stream and every syllable field
+    of every unit is one reading (no unread word, no merged alternatives)."""
+    us = [u for u in stream.units if (u.line, u.token) == tuple(tok)]
+    return bool(us) and not any(
+        uncertain(getattr(u.syl, f, None)) for u in us for f in _SYL_FIELDS)
+
+
 def _resolve_over(schema, stream, pair, build, cap, bmap, tokens, fields):
     """`resolve_line_pair`'s search over `tokens`, grown to a fixpoint with
     the varied words each undecided combination reveals on `fields`."""
@@ -10450,6 +10460,15 @@ def _resolve_over(schema, stream, pair, build, cap, bmap, tokens, fields):
                                 else (None, False))
             if not combos:
                 return None, None
+            # ...but a False stands only when every word left unvaried is IN
+            # the trial streams with one reading on every field. An unread
+            # word has no units, so a member starting at it is never formed
+            # and "False under every combination" would rest on members never
+            # examined (Jony Ives's review G1: Sonnet 95's `ill-us'd`, M-317);
+            # a merged multi-reading word may hide another syllable shape
+            # (M-324). Otherwise only a True is kept from this search.
+            settled = all(_one_reading_in_stream(stream, t) for t in tokens - free)
+            complete = complete and settled
         saw_none, revealed = not complete, set()
         with _line_read_scope():
             for combo in combos:

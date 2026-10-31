@@ -691,15 +691,12 @@ def sweep_record(lex, decl, verbose=True):
 #: varied and the combinations passed the cap, is judged and violates:
 #: ~~judged 1012, refused 52, violations 24~~ -> 1013 / 51 / 25.
 #: REPINNED 2026-10-31 (`MISSING.md` M-311 F1, R2's mosaic ruling; layer:
-#: doctrine 79 at the candidate span). ~~1013 / 51 / 25~~ -> 1011 / 53 / 23;
-#: mandated, claimed, ties, violations_claimed and violation_ties unmoved.
-#: Sonnets 1 ornament/content, 114 accidents/intents and 123
-#: accident/discontent leave the violations for the refusals (a free-run
-#: member reaches an unread word); 95 privilege/edge is judged and violates
-#: (`battery.py` states why). Measured by `--check`; partition rewritten by
+#: doctrine 79 at the candidate span). ~~1013 / 51 / 25~~ -> 1008 / 56 / 20.
+#: Sonnets 1, 94, 114, 123 and 140 leave the violations for the refusals (a
+#: free-run member can reach an unread word; `battery.py` names them). Measured by `--check`; partition rewritten by
 #: `--write-oracle=2026-10-31:...`.
 PINNED = {
-    "mandated": 1064, "judged": 1011, "refused": 53,
+    "mandated": 1064, "judged": 1008, "refused": 56,
     #: ~~82~~ under the two-name door; ~~35~~ when it widened to all four
     #: relations (M-59); ~~12~~ when the whole schema vocabulary joined the
     #: default (M-116, owner ruling 2026-08-25 — 23 pairs stopped
@@ -713,8 +710,8 @@ PINNED = {
     #: count rose where it had fallen three times.
     #: ~~40~~ ~~36~~ ~~24~~ -> 25 on 2026-10-30 (M-322: the twelve pairs
     #: above leave; ornament/content, sonnet 1, is judged and joins).
-    #: ~~25~~ -> 23 on 2026-10-31 (M-311 F1, above).
-    "violations": 23,
+    #: ~~25~~ -> 20 on 2026-10-31 (M-311 F1, above).
+    "violations": 20,
     #: report lines that name the two words that actually produced the number
     "claimed": 633,
     #: the same question asked of the violations alone.

@@ -430,20 +430,22 @@ def whitman_battery():
 # refused while every word on the two lines was varied and the combinations
 # passed the cap, is judged and violates. Nothing else moves.
 # REPINNED 2026-10-31 (`MISSING.md` M-311 F1, R2's mosaic ruling; Jony
-# Ives's review F1). Layer: doctrine 79 at the candidate span. ~~judged 1013,
-# refused 51, violations 25~~ -> judged 1011, refused 53, violations 23.
+# Ives's review F1 and G1). Layer: doctrine 79 at the candidate span.
+# ~~judged 1013, refused 51, violations 25~~ -> judged 1008, refused 56,
+# violations 20. Five violations become refusals; nothing joins.
 # (1) An unread word INSIDE a member (its token range brackets it) makes that
 # candidate undecided for every channel scope, not only a sequence one: its
 # syllables, and so the alignment, are unknown. Sonnet 1 ornament/content
-# (9/11, `buriest` inside a free run from `content`) and sonnet 123
-# accident/discontent (5/7) now refuse for multisyllabic rhyme (and chain
-# rhyme on sonnet 1) and leave the violations. (2) Mosaic rhyme's ruled
-# anchor: sonnet 114 accidents/intents (5/7) refuses, `sharp'st` lying inside
-# every member of line 7 and deciding where its last stress is. (3) The
-# any-reading search varies the words it can and leaves an unlocatable one
-# (`ill-us'd`) merged in each trial, whose verdict is three-valued over it:
-# sonnet 95 privilege/edge (13/14), refused since 2026-10-02, is judged False
-# under every combination and joins the violations. 25 - 3 + 1 = 23.
+# (9/11, `buriest`) and sonnet 123 accident/discontent (5/7) refuse for
+# multisyllabic rhyme (and chain rhyme on sonnet 1).
+# (2) Mosaic rhyme's ruled rule searches members of up to five syllables from
+# each line end, and the any-reading search keeps a False only when every
+# word it cannot vary is in the stream with one reading. An unread word on
+# the line therefore holds the pair open: sonnets 94 die/dignity
+# (`outbraves`), 114 accidents/intents (`sharp'st`) and 140 ornaments/rents
+# (`profan'd`), and sonnet 1 again. On 94 and 140 the anchor stops short of
+# the unread word, so the refusal is CONSERVATIVE, not wrong -- a precision
+# item, recorded in M-311. Sonnet 95 privilege/edge stays refused (M-317).
 from quality.battery_pin import EXPECTED  # noqa: E402
 
 
