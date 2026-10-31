@@ -39,6 +39,56 @@ class EvidenceRecord(TypedDict, total=False):
     basis: str
     source_ranges: list[CoordinateRange]
     detail: str
+    # relation_instance: the syllables each member was judged on, the reading
+    # quantifier, what the any-reading search did, and (undecided only) why.
+    compared: dict[str, list[dict[str, Any]]]
+    quantifier: Literal["exists_compatible_reading", "first_listed_reading"]
+    reading_search: ReadingSearch
+    undecided_reason: UndecidedReason
+    # method_result (schema): which occurrence pairs the method's loci bind.
+    domain: MethodDomain
+
+
+ReadingSearchState = Literal["not_needed", "exhaustive", "partial", "unavailable"]
+UndecidedReason = Literal["combination_cap", "rebuild_unavailable", "locus_unmatched",
+                          "readings_not_searched_in_scope", "no_reading_combination",
+                          "placement_unknown", "identity_unknown", "channel_unknown",
+                          "judge_unknown", "member_edges_undecided"]
+
+
+class ReadingSearch(TypedDict):
+    """`state` is what was JUDGED: exhaustive only when every combination
+    was. A search that stops at its first witness is `partial` with
+    `termination_reason: witness_found` unless that witness was the last."""
+    state: ReadingSearchState
+    combinations_examined: int
+    combination_limit: int
+    termination_reason: NotRequired[Literal["witness_found", "exhausted", "combination_cap",
+                                            "rebuild_unavailable"]]
+    reason: NotRequired[UndecidedReason]
+
+
+class MethodDomain(TypedDict):
+    """`exact_token_pair`: every listed pair is inside the method's loci and
+    placement; on an answered method a listed pair with no true or undecided
+    record is a judged False -- unless it touches a `reading_dependent_tokens`
+    occurrence, whose locus changes with its reading: such a cell is neither
+    False nor outside, and only its own record answers for it. `none`: no
+    pair is claimed (`reason` says why). `pairs` maps a token's index in
+    `tokens` (role a) to runs [first, last] of its partners' indices (role
+    b), in the order the engine asks: the reverse question is not asked."""
+    projection: Literal["exact_token_pair", "none"]
+    reason: NotRequired[str]
+    cap: NotRequired[int]
+    ordering: NotRequired[Literal["role_ordered"]]
+    tokens: NotRequired[list[str]]
+    pairs: NotRequired[dict[str, list[list[int]]]]
+    pair_count: NotRequired[int]
+    reading_dependent_tokens: NotRequired[list[str]]
+    # What a listed pair's absence quantifies over. `first_listed_reading`:
+    # readings were not searched (a first-listed scope, or a work with
+    # sound declarations), and every disputed word is reading-dependent.
+    reading_policy: NotRequired[Literal["exists_compatible_reading", "first_listed_reading"]]
 
 
 class ReaderCheckpoint(TypedDict):
