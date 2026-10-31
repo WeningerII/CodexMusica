@@ -1622,6 +1622,103 @@ async function loadDelta(page) {
         lateMark === 'Z',
         `Q. a late scroll event where the jump left the view moved the A–Z bar's mark off Z (${lateMark})`
       );
+      // The bar as the spy reads it: the mark, and the last row whose top has
+      // passed under it (what the bar shows once no jump holds it).
+      const barNow = ([find]) => {
+        const nav = document.querySelector('#genre-maintabs .cm-rows-jump');
+        const line = nav.getBoundingClientRect().bottom + 16;
+        let under = null;
+        for (const b of nav.querySelectorAll('button:not(:disabled)')) {
+          const sec = document.querySelector(`.cm-rows-group[data-rows="${b.dataset.id}"]`);
+          if (sec && (!under || sec.getBoundingClientRect().top <= line)) under = b;
+        }
+        return {
+          nav,
+          mark: nav.querySelector('[aria-current="true"]')?.textContent,
+          under: under?.textContent,
+          top: Math.round(new Function(`return (${find})`)()('Z').scrollTop),
+        };
+      };
+      const frames = () =>
+        page.evaluate(
+          () => new Promise((d) => requestAnimationFrame(() => requestAnimationFrame(d)))
+        );
+      // A repaint that replaces the bar and the rows, with the Z row still
+      // where the jump put it, marks Z on the new bar (3PO, #637 6544133122).
+      const repaint = await page.evaluate(
+        ([find, now]) => {
+          const old = document.querySelector('#genre-maintabs .cm-rows-jump');
+          gpRenderMain();
+          const { nav, mark, top } = new Function(`return (${now})`)()([find]);
+          return { replaced: nav !== old && !old.isConnected, mark, top };
+        },
+        [rowsScroller.toString(), barNow.toString()]
+      );
+      await frames();
+      const repainted = await page.evaluate(
+        ([find, now]) => {
+          const { mark, top } = new Function(`return (${now})`)()([find]);
+          return { mark, top };
+        },
+        [rowsScroller.toString(), barNow.toString()]
+      );
+      check(
+        repaint.replaced && repainted.mark === 'Z' && repainted.top === repaint.top,
+        `Q. a repaint where the Z jump left the view did not keep Z marked on the new bar (${JSON.stringify({ repaint, repainted })})`
+      );
+      // A jump the reader stops short of its row, with no scroll event after,
+      // lets go by its 3 s deadline: the bar then marks the row under it.
+      const stopShort = ([find]) => {
+        const s = new Function(`return (${find})`)()('Z');
+        document.querySelector('[data-ui="rows-jump"][data-id="genre:A"]').click();
+        s.scrollTo({ top: Math.max(0, s.scrollTop - 2500), behavior: 'instant' });
+      };
+      await page.evaluate(stopShort, [rowsScroller.toString()]);
+      const shortWait = await page
+        .waitForFunction(
+          ([find, now]) => {
+            const { mark, under } = new Function(`return (${now})`)()([find]);
+            return mark === under && mark !== 'A';
+          },
+          [rowsScroller.toString(), barNow.toString()],
+          { polling: 100, timeout: 6000 }
+        )
+        .then(
+          () => true,
+          () => false
+        );
+      const short = await page.evaluate(
+        ([find, now]) => {
+          const { mark, under } = new Function(`return (${now})`)()([find]);
+          return { mark, under };
+        },
+        [rowsScroller.toString(), barNow.toString()]
+      );
+      check(
+        shortWait,
+        `Q. a jump stopped short of its row still held the A–Z bar on A past its deadline (${JSON.stringify(short)})`
+      );
+      // A scroll away from the row a jump is heading for lets go at once.
+      await page.evaluate(
+        ([find]) => {
+          const s = new Function(`return (${find})`)()('Z');
+          document.querySelector('[data-ui="rows-jump"][data-id="genre:A"]').click();
+          s.scrollTo({ top: s.scrollTop + 600, behavior: 'instant' });
+        },
+        [rowsScroller.toString()]
+      );
+      await frames();
+      const away = await page.evaluate(
+        ([find, now]) => {
+          const { mark, under } = new Function(`return (${now})`)()([find]);
+          return { mark, under };
+        },
+        [rowsScroller.toString(), barNow.toString()]
+      );
+      check(
+        away.mark === away.under && away.mark !== 'A',
+        `Q. a scroll away from the row a jump was heading for left the A–Z bar on A (${JSON.stringify(away)})`
+      );
       const m = await jump('M');
       check(
         m.settled && m.gap >= 0 && m.gap <= 48 && m.current === 'M',
