@@ -187,7 +187,9 @@ const LIBRARY_BUDGETS = {
   // The connection views' DOM bindings and their owner (live region, keys,
   // URL, phone sheet, mount): measured 2,792 B gzip on 2026-10-30 with #640's
   // factory minifier, so 4 KiB with room to grow. A new row, unmerged.
-  'library-connection-bindings': 4096,
+  // John approved this 24-byte increase on 2026-10-31 (Sentinel_4bd356900bb08191b05ddfa56f90483a).
+  // Owner-approved exception to the Lighthouse citation policy; no performance certification.
+  'library-connection-bindings': 4120,
   // Root-approved new component row: 5,321 B gzip measured on the combined
   // source, 2026-10-30. Existing ceilings are unchanged.
   'library-connection-views': 6144,
