@@ -27,9 +27,23 @@ on:
       - 'lyric-harness/data/lyric_label_prefixes.json'
       - 'lyric-harness/quality/lyric_reader.py'
       - 'lyric-harness/quality/provenance.py'
-      # The schema registry: a schema added here changes library/methods.json,
-      # which check_library_data now compares against build_registry().
+      # Live registry inputs: schemas, type/class labels, section functions,
+      # phonology declarations/signatures and their staged lexical resources.
       - 'lyric-harness/quality/relations.py'
+      - 'lyric-harness/quality/rhyme_types.py'
+      - 'lyric-harness/quality/grid.py'
+      - 'lyric-harness/quality/span_rules.py'
+      - 'lyric-harness/quality/phonology/**'
+      - 'lyric-harness/quality/canon_sources.py'
+      - 'lyric-harness/quality/canon_index.tsv'
+      - 'lyric-harness/lyric_harness.py'
+      - 'lyric-harness/quality/release_assets.py'
+      - 'lyric-harness/data/runtime_assets.json'
+      - 'lyric-harness/data/LICENSE.cmudict'
+      - 'lyric-harness/data/opensubtitles_en_50k.tsv'
+      - 'lyric-harness/data/ltc_rhyme_standards.tsv'
+      - 'lyric-harness/data/qieyun_mc.tsv'
+      - 'lyric-harness/data/qieyun_variants.tsv'
       - 'library/data/**'
       - 'assets/library/**'
       - 'sites/library/lib/artwork.json'
