@@ -176,7 +176,7 @@ class Reading:
 # ---------------------------------------------------------------------------
 
 SIBILANTS = frozenset("S Z SH ZH CH JH".split())
-VOICELESS = frozenset("P T K F TH S SH CH HH".split())
+VOICELESS = frozenset("P T K F TH S SH CH HH KH CX LH Q".split())  # + extended inventory
 
 
 def _bare(ph):

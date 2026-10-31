@@ -106,8 +106,8 @@ declaration={'language':la}))['recovered_instances']) \
 for p,la,l,s,_,_ in N.ARMS])"
 
 THREE ARMS IS THREE OF ~~SEVENTY-SEVEN~~ SEVENTY-EIGHT, AND SAYING SO IS
-SECTIONS 6-8.  `R.REGISTRY` declares ~~77~~ 78 schemas (M-40 added the 78th,
-a61fe4e69).  The table above controls three.  The other ~~74~~ 75 shipped a PRINTED INSTANCE COUNT -- `relations FILE`,
+SECTIONS 6-8.  `R.REGISTRY` declares ~~77~~ ~~78~~ 80 schemas (M-40 added the 78th,
+a61fe4e69).  The table above controls three.  The other ~~74~~ ~~75~~ 77 shipped a PRINTED INSTANCE COUNT -- `relations FILE`,
 `python3 quality/relations.py FILE`, both of which print a per-schema count
 and then a paragraph telling the reader that a count is not evidence -- with
 no matched control behind it.  That is the same defect this file was written
@@ -232,7 +232,7 @@ asks the DERIVATION to answer to a MEASUREMENT rather than the other way round
 (doctrine 68).
 
 Run: python3 quality/relations_null.py             (all three arms, ~25 min)
-     python3 quality/relations_null.py --panel     (section 9, all ~~77~~ 78, hours)
+     python3 quality/relations_null.py --panel     (section 9, all ~~77~~ ~~78~~ 80, hours)
      python3 quality/relations_null.py --arm=0 --null=global_redeal
      python3 quality/relations_null.py --coverage  (the census, instant)
      python3 quality/relations_null.py --verify    (the ledger, ~5 s, CI)
@@ -893,7 +893,7 @@ ARMS = (
 )
 
 #: The schemas the hand-written arms above control.  THREE, out of the ~~77~~
-#: 78 in `R.REGISTRY` (M-40, a61fe4e69) -- so ~~74~~ 75 named relations shipped with a printed instance count
+#: ~~78~~ 80 in `R.REGISTRY` (M-40, a61fe4e69) -- so ~~74~~ ~~75~~ 77 named relations shipped with a printed instance count
 #: (`relations FILE`, `quality/relations.py FILE`) and no matched control
 #: behind it.  Sections 6-8 exist because "nobody got to it" is only one of
 #: the four reasons for that, and the four have completely different remedies
@@ -1586,7 +1586,7 @@ def sweep(lines, phon, language, schemas=None, n=25, seed=SEED, chans=None,
 # could not be wrong because nothing compared it to anything: doctrine 48, in
 # the census that was written to enforce doctrine 44.
 #
-# WHAT THIS SECTION MAKES FAIL.  A frozen ledger of the verdict for all ~~77~~ 78
+# WHAT THIS SECTION MAKES FAIL.  A frozen ledger of the verdict for all ~~77~~ ~~78~~ 80
 # schemas on ONE NAMED SLICE, plus the two sets in which the census's
 # NOMINATION and the sweep's MEASUREMENT disagree, plus `verify_extension()`
 # which diffs the recorded against the recomputed and returns a complaint per
@@ -1687,7 +1687,7 @@ LEDGER_BUDGET = None
 # DECLARABLE — it now asks for `tonal_template`/`tone`, which a caller
 # declares (`relations.declare_tonal_template`). The one left needing a
 # build is `refrain by reference` (`stub_resolution`, NEVER_PROVIDED).
-LEDGER_CANNOT_OBTAIN = (30, 1)  # M-40: was (28, 5); stanza input missing on ledger slice. Then (29, 5) until 2026-09-24.
+LEDGER_CANNOT_OBTAIN = (37, 1)  # M-40: was (28, 5); stanza input missing on ledger slice. Then (29, 5) until 2026-09-24, (30, 1) until 2026-10-30 (M-322: eight schemas' candidates now unresolved), (38, 1) until 2026-10-31 (G1, #647: compound / phrasal rhyme is extendable again).
 
 
 def ledger_slice(root=None):
@@ -1817,28 +1817,38 @@ def menu_pairs(cov):
 # extendable, because #375 made the full figures judge instead of refusing
 # as `unsupported_shape`. Ledger now: 3 controlled, ~~30~~ 33 extendable,
 # 11 no-instance, ~~34~~ 31 cannot-obtain (~~29 / 5~~ 30 / 1).
+# 2026-10-30 (M-322, the sound inventory): re-read with `ledger_census()`.
+# NINE ROWS MOVED, verdict-only. The Poe slice's -oor/-ore and other common
+# words now carry rhotic, non-rhotic and FORCE readings read independently
+# per token, so eight schemas find only unresolved candidates: `additive`,
+# `apocopated` ~~no_instance~~ and `compound / phrasal`, `cynghanedd lusg`,
+# `repetition`, `reverse`, `rime riche`, `semirhyme` ~~extendable~~ ->
+# cannot_obtain. `rhyming reduplication` ~~no_instance~~ -> cannot_fail: the
+# uncertain read exposes G1 (`_bucket_key` prunes flush_right pairs the judge
+# accepts), which stays open. Ledger now: 3 controlled, ~~33~~ 27 extendable,
+# ~~11~~ 8 no-instance, ~~31~~ 39 cannot-obtain (~~30 / 1~~ 38 / 1).
 EXTENSION_LEDGER = (
     # M-40: measured on the unchanged ledger slice, 2026-09-16.
     ('chain rhyme (interlocking scheme)',         'cannot_obtain',   7,  0),
     ('perfect rhyme',                           'controlled',      6,  4),
-    ('rime riche',                              'extendable',      6,  0),
-    ('repetition',                              'extendable',      3,  0),
+    ('rime riche',                              'cannot_obtain',   6,  0),  # ~~extendable~~ 2026-10-30, M-322 accent readings: candidates unresolved, not absent
+    ('repetition',                              'cannot_obtain',   3,  0),  # ~~extendable~~ 2026-10-30, M-322 accent readings: candidates unresolved, not absent
     ('antanaclasis',                            'cannot_obtain',   4,  0),
     ('assonance',                               'extendable',      6,  0),
     ('consonance',                              'extendable',      6,  0),
     ('cluster consonance / skothending span',   'extendable',      3,  0),
     ('parechesis / general consonance',         'cannot_obtain',   2,  0),
     ('pararhyme',                               'extendable',      6,  0),
-    ('reverse rhyme',                           'extendable',      6,  0),
+    ('reverse rhyme',                           'cannot_obtain',   6,  0),  # ~~extendable~~ 2026-10-30, M-322 accent readings: candidates unresolved, not absent
     ('alliteration',                            'extendable',      1,  0),
     ('Kalevala alliteration (weak)',            'controlled',      2,  3),
     ('Kalevala alliteration (strong)',          'extendable',      2,  0),
     ('paroemion',                               'extendable',      2,  0),
     ('family rhyme',                            'extendable',      6,  0),
-    ('additive rhyme',                          'no_instance',     6,  0),
+    ('additive rhyme',                          'cannot_obtain',   6,  0),  # ~~no_instance~~ 2026-10-30, M-322 accent readings: candidates unresolved, not absent
     ('subtractive rhyme',                       'extendable',      6,  0),
-    ('semirhyme',                               'extendable',      6,  0),
-    ('apocopated rhyme',                        'no_instance',     6,  0),
+    ('semirhyme',                               'cannot_obtain',   6,  0),  # ~~extendable~~ 2026-10-30, M-322 accent readings: candidates unresolved, not absent
+    ('apocopated rhyme',                        'cannot_obtain',   6,  0),  # ~~no_instance~~ 2026-10-30, M-322 accent readings: candidates unresolved, not absent
     ('light rhyme',                             'no_instance',     6,  0),
     ('wrenched rhyme',                          'cannot_obtain',   6,  0),
     ('syllabic rhyme',                          'extendable',      6,  0),
@@ -1850,11 +1860,11 @@ EXTENSION_LEDGER = (
     ('polyptoton',                              'extendable',      4,  0),
     ('multisyllabic rhyme',                     'extendable',      6,  0),
     ('mosaic rhyme',                            'extendable',      8,  0),
-    ('compound / phrasal rhyme',                'extendable',      8,  0),
+    ('compound / phrasal rhyme',                'extendable',      8,  0),  # ~~extendable~~ 2026-10-30, M-322 accent readings: candidates unresolved, not absent; ~~cannot_obtain~~ 2026-10-31, G1 (#647): `_bucket_key` keys flush_right `each` at the last unit, so the judge now reaches definite instances
     ('holorhyme',                               'no_instance',     2,  0),
     ('broken rhyme',                            'no_instance',     8,  0),
     ('enjambed rhyme',                          'cannot_obtain',   4,  0),
-    ('rhyming reduplication',                   'no_instance',     0,  0),
+    ('rhyming reduplication',                   'cannot_fail',     0,  0),  # ~~no_instance~~ 2026-10-30, M-322 accent readings; exposes G1 (`_bucket_key` keys flush_right spans at the word start), still open
     ('ablaut reduplication',                    'no_instance',     0,  0),
     ('exact reduplication',                     'no_instance',     0,  0),
     ('internal rhyme',                          'controlled',      8,  6),
@@ -1883,7 +1893,7 @@ EXTENSION_LEDGER = (
     ('cynghanedd sain gadwynog',                'extendable',      1,  0),  # ~~cannot_obtain~~ 2026-09-24, #375
     ('cynghanedd sain lafarog',                 'extendable',      1,  0),  # ~~cannot_obtain~~ 2026-09-24, #375
     ('cynghanedd sain drosgl',                  'extendable',      1,  0),
-    ('cynghanedd lusg',                         'extendable',      1,  0),
+    ('cynghanedd lusg',                         'cannot_obtain',   1,  0),  # ~~extendable~~ 2026-10-30, M-322 accent readings: candidates unresolved, not absent
     ('proest',                                  'cannot_obtain',   6,  0),
     ("Scots vowel-length rhyme (Aitken's Law)", 'extendable',      6,  0),
     ('Middle Chinese end rhyme (同用 group)',     'cannot_obtain',   6,  0),
@@ -1897,6 +1907,14 @@ EXTENSION_LEDGER = (
     ('refrain by reference',                    'cannot_obtain',   4,  0),
     ('incremental repetition',                  'no_instance',     5,  0),
     ('trite rhyme',                             'no_instance',     6,  0),
+    # M-323, 2026-10-30: the two interior schemas, measured on the unchanged
+    # ledger slice with `ledger_census()`. Ledger now: 3 controlled, ~~27~~
+    # 29 extendable, 8 no-instance, 39 cannot-obtain (38 / 1).
+    # 2026-10-31 (G1, #647, approved by John): compound / phrasal rhyme above
+    # moves cannot_obtain -> extendable. Ledger now: 3 controlled, ~~29~~ 30
+    # extendable, 8 no-instance, ~~39~~ 38 cannot-obtain (~~38 / 1~~ 37 / 1).
+    ('internal assonance',                      'extendable',      8,  0),
+    ('internal consonance',                     'extendable',      8,  0),
 )
 
 #: THE DERIVATION'S OWN ERROR, FROZEN — DIRECTION ONE.  Pairs the census
@@ -2334,7 +2352,7 @@ def sensitivity(lines, phon, schema, statistic, language, chans=None,
 
 
 # ---------------------------------------------------------------------------
-# 9. THE PANEL — ALL ~~77~~ 78, EACH ASKED IN ITS OWN DECLARED TRADITION
+# 9. THE PANEL — ALL ~~77~~ ~~78~~ 80, EACH ASKED IN ITS OWN DECLARED TRADITION
 # ---------------------------------------------------------------------------
 #
 # WHAT WAS WRONG WITH 34.  Sections 6-8 sort the registry into six verdicts and
@@ -3444,7 +3462,7 @@ USAGE = """quality/relations_null.py - matched controls for relations.py
                          --n=, --limit= and --budget=.
   --sensitivity          the planted-locality detection floor per schema
                          (doctrines 31/76), printed beside the sweep
-  --panel                ALL ~~77~~ 78 schemas over the whole PANEL (section 9): one
+  --panel                ALL ~~77~~ ~~78~~ 80 schemas over the whole PANEL (section 9): one
                          slice per language this repo has a phonology AND a
                          corpus for, with the declarable frames declared and
                          re-declared on every replicate.  Prints the eight-way

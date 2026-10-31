@@ -355,7 +355,7 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
             phon = _RPv() if _scheme_of(lex) == "v1" else _RPfor(lex)
             _schemas_by_lines = dict(_RLv.whole_vocabulary_pairs(
                 lines, phon, requested_pairs=_req,
-                bound={p_: (-1, -1) for p_ in _req}))
+                bound={p_: (-1, -1) for p_ in _req}).listed(_req))
     except Exception:
         _schemas_by_lines = {}
     edges = []

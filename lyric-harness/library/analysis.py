@@ -21,7 +21,8 @@ from typing import Callable, Iterable
 
 from .contracts import (CONTRACT_VERSION, canonical_json, digest, json_safe,
                         method_id, range_pair, semantic_identity, verdict)
-from .registry import LANGUAGES, REMEDIES, NATIVE_WORK_METHODS
+from .registry import (LANGUAGES, REMEDIES, NATIVE_WORK_METHODS, SHARED_SOUND_LAYER,
+                       SHARED_SOUND_METHODS, shared_sound_name)
 
 ROOT = Path(__file__).resolve().parents[1]
 _READER_LANGUAGE = None
@@ -398,6 +399,23 @@ class AnalysisSession:
         # it. `_disputed` is those tokens; `_mini` the one or two lines a pair
         # covers, rebuilt under one combination of their readings.
         self._disputed = self._disputed_tokens()
+        # A MERGED word's readings share a syllable count and are read as
+        # knowledge sets, so its syllables stay the work's own; a check those
+        # sets leave undecided is judged again under each whole reading
+        # (standing rule 5), never left open for want of trying them.
+        from quality.phonology import MERGED
+        self._merged = self._disputed_tokens(MERGED)
+        # A merged word of more than one syllable whose readings disagree on
+        # stress has no single last-stressed syllable on its knowledge set,
+        # so the engine enumerates no anchored span over it and no pair ever
+        # reaches the search (3PO, #641). Its spans vary with its reading as
+        # a disputed word's do, so it is discovered the same way: each of its
+        # readings rebuilds its line (`_alternate_edges`).
+        self._restressed = frozenset(
+            tok for tok in self._merged
+            if len(self.stream.tokens.get(tok, ())) > 1
+            and any(RL.uncertain(self.stream.units[i].syl.prominence) for i in self.stream.tokens[tok]))
+        self._varying = self._disputed | self._restressed
         self._work_unit = {(u.line, u.token, u.tok_syl): u.i for u in self.stream.units}
         self._mini, self._span_index, self._incomplete = collections.OrderedDict(), {}, {}
         # Line readings the rebuilt streams share (`RL._line_read_scope`'s
@@ -437,6 +455,11 @@ class AnalysisSession:
                 self.tasks.append(("schema", name))
                 if not RL.pair_scope_representable(RL.REGISTRY[name]) and name not in RL.FULL_SHAPES:
                     self.tasks.append(("assembly", name))
+            # Shared sound is all pairs of a work's words: never a default,
+            # only what a caller names by id (#637).
+            for key in SHARED_SOUND_METHODS:
+                if allowed is not None and method_id("shared_sound", shared_sound_name(key)) in allowed:
+                    self.tasks.append(("shared_sound", key))
         if checkpoint is not None:
             if checkpoint.get("contract_version") != CONTRACT_VERSION or checkpoint.get("identity_hash") != self.identity["hash"]:
                 raise ValueError("STALE_READING: checkpoint semantic identity differs")
@@ -487,10 +510,13 @@ class AnalysisSession:
         self._apply_declarations(st, rows)
         return st, rows
 
-    def _disputed_tokens(self):
+    def _disputed_tokens(self, status=None):
         """-> {(line, token)} read under a first-listed reading their other
-        readings, of another syllable count, may overturn."""
+        readings, of another syllable count, may overturn. With `status`,
+        the tokens of that reading status instead (MERGED: readings of one
+        syllable count, folded into knowledge sets)."""
         from quality.phonology import DISPUTED
+        status = status or DISPUTED
         if not hasattr(self.phon, "reading_status"):
             return frozenset()
         out = set()
@@ -500,7 +526,7 @@ class AnalysisSession:
                 if (li, ti) not in self.stream.tokens:
                     continue
                 tph = ph.for_token(ti) if hasattr(ph, "for_token") else ph
-                if tph.reading_status(word)[0] == DISPUTED:
+                if tph.reading_status(word)[0] == status:
                     out.add((li, ti))
         return frozenset(out)
 
@@ -566,9 +592,10 @@ class AnalysisSession:
         return st
 
     def _touched(self, st, *spans):
-        """-> {(line, token)} disputed words the spans cover."""
+        """-> {(line, token)} words the spans cover whose spans vary with
+        their reading: disputed, or merged and restressed."""
         return {(st.units[i].line, st.units[i].token) for span in spans for i in span.idx
-                if (st.units[i].line, st.units[i].token) in self._disputed}
+                if (st.units[i].line, st.units[i].token) in self._varying}
 
     def _origin(self, span, st):
         """The span's provenance with any unit number (`@c`, a caesura's
@@ -611,8 +638,26 @@ class AnalysisSession:
         return (not self._any_reading_off and self._varies(schema)
                 and (st is self.stream or getattr(st, "any_reading_combo", None) is not None))
 
+    def _merged_touched(self, st, *spans):
+        """-> {(line, token)} merged words the spans cover."""
+        return {(st.units[i].line, st.units[i].token) for span in spans for i in span.idx
+                if (st.units[i].line, st.units[i].token) in self._merged}
+
+    def _search(self, state, examined=0, reason=None, termination=None):
+        """The per-edge record of the any-reading search (`reading_search`):
+        `state` is what was JUDGED (exhaustive only when every combination
+        was), `termination_reason` why the search stopped (a witness found,
+        every combination exhausted, or the cap)."""
+        out = {"state": state, "combinations_examined": examined,
+               "combination_limit": self.EDGE_COMBOS}
+        if termination:
+            out["termination_reason"] = termination
+        if reason:
+            out["reason"] = reason
+        return out
+
     def _any_reading(self, name, a, b, st):
-        """-> (inst, stream, witness, first_only).
+        """-> (inst, stream, witness, first_only, search).
 
         THE RULE (owner ruling 2026-10-23): a check holds when ANY reading of
         its disputed words holds it -- every combination of the readings of
@@ -621,21 +666,46 @@ class AnalysisSession:
         (its readings are the witness); False only when every combination is
         judged False; otherwise the first-listed verdict, or None where a
         combination stayed open. `first_only` marks a pair over a disputed
-        word in a scope this search does not reach (`_varies`)."""
+        word in a scope this search does not reach (`_varies`).
+
+        A merged word is read as a knowledge set, which settles a check every
+        reading agrees on and leaves the rest undecided. Only that undecided
+        verdict is searched over the merged word's readings, together with
+        any disputed word's: a set that answers True or False has answered
+        for every reading already. `search` says what the search did
+        (`reading_search` on the record): not needed, exhaustive, partial
+        (past EDGE_COMBOS), or unavailable (no combination could be built,
+        or the scope keeps first-listed readings), with the reason."""
         RL = self.RL
         schema = RL.REGISTRY[name]
         inst = RL.evaluate(schema, a, b, st)
         touched = self._touched(st, a, b)
         searchable = bool(touched) and self._searchable(schema, st)
         first_only = bool(touched) and not searchable
+        merged = (self._merged_touched(st, a, b)
+                  if inst is not None and inst.verdict is None else set())
         if inst is not None and inst.verdict is True:
-            return inst, st, self._witness(st, touched), first_only
-        if not searchable:
-            return inst, st, None, first_only
-        combos, complete = RL.reading_combos(self.stream, touched, self.EDGE_COMBOS)
+            return inst, st, self._witness(st, touched), first_only, self._search("not_needed")
+        if merged and not self._searchable(schema, st):
+            return inst, st, None, first_only, self._search(
+                "unavailable", reason="readings_not_searched_in_scope")
+        if not searchable and not merged:
+            return inst, st, None, first_only, self._search(
+                "unavailable" if first_only else "not_needed",
+                reason="readings_not_searched_in_scope" if first_only else None)
+        cause = touched | merged
+        combos, complete = RL.reading_combos(self.stream, cause, self.EDGE_COMBOS)
         if not combos:
-            return inst, st, None, first_only
-        if not complete and name not in self._incomplete:
+            return inst, st, None, first_only, self._search(
+                "unavailable" if merged else "not_needed",
+                reason="no_reading_combination" if merged else None)
+        # A capped search over MERGED words alone leaves its edge undecided
+        # and nothing else: a merged word forms no bucket key, so every pair
+        # over it is a candidate and none goes missing. Only a disputed word's
+        # cap can hide a pair, and only that refuses the method.
+        disputed_complete = complete if not merged else (
+            not touched or RL.reading_combos(self.stream, touched, self.EDGE_COMBOS)[1])
+        if not disputed_complete and name not in self._incomplete:
             # Judged here, per candidate, outside the candidate generator, so
             # a resumed traversal that fast-forwards past this candidate never
             # meets it again: the reason rides in the checkpoint, or the
@@ -645,14 +715,25 @@ class AnalysisSession:
         lines = sorted({st.units[i].line for span in (a, b) for i in span.idx})
         own = self._combo_key({t: c for t, c in (getattr(st, "any_reading_combo", None) or {}).items()
                                if t in touched})
-        open_ = not complete or inst is not None and inst.verdict is None
-        for combo in combos:
-            if st is self.stream and combo is combos[0] or self._combo_key(combo) == own:
-                continue                 # the reading `inst` was judged under
+        # Over a merged word `inst` was judged on its knowledge set, never on
+        # one reading, so every combination is judged and an undecided set
+        # whose every reading is judged False is False. Without one, an
+        # undecided first-listed verdict stays undecided, as before.
+        open_ = not complete or (not merged and inst is not None and inst.verdict is None)
+        reasons = [] if complete else ["combination_cap"]
+        examined = 0
+        # The reading `inst` was judged under is not judged again.
+        to_judge = [c for c in combos if merged or not (
+            st is self.stream and c is combos[0] or self._combo_key(c) == own)]
+        for combo in to_judge:
             alt = self._line_stream(lines, combo)
             if alt is None:
+                # Not judged: a combination whose lines could not be rebuilt
+                # is neither counted nor allows `exhaustive` (3PO, #641).
                 open_ = True
+                reasons.append("rebuild_unavailable")
                 continue
+            examined += 1
             sides = []
             for rule, span in ((schema.spans[0], a), (schema.spans[1], b)):
                 try:
@@ -667,17 +748,36 @@ class AnalysisSession:
                 # cannot pair: open, never a confident False.
                 if not found and index.get(("locus", self._origin(span, st), span.direction)):
                     open_ = True
+                    reasons.append("locus_unmatched")
                 sides.append(found)
             for x in sides[0]:
                 for y in sides[1]:
                     got = RL.evaluate(schema, x, y, alt)
                     if got is not None and got.verdict is True:
-                        return got, alt, self._witness(alt, touched), first_only
+                        # A witness ends the search: what was JUDGED is
+                        # exhaustive only if nothing was left unjudged (3PO,
+                        # #641), whatever the cap allowed.
+                        whole = complete and examined == len(to_judge)  # no rebuild failed
+                        return got, alt, self._witness(alt, cause), first_only, self._search(
+                            "exhaustive" if whole else "partial", examined, termination="witness_found")
                     if got is not None and got.verdict is None:
                         open_ = True
+        whole = complete and examined == len(to_judge)
+        state = "exhaustive" if whole else "partial"
+        termination = ("combination_cap" if not complete else
+                       "exhausted" if whole else "rebuild_unavailable")
         if inst is not None and open_ and inst.verdict is False:
             inst = replace(inst, verdict=None)
-        return inst, st, None, first_only
+        elif inst is not None and merged and not open_ and inst.verdict is None:
+            # Every whole reading of the merged (and disputed) words judged,
+            # and every one False: the set's open verdict was only the set.
+            inst = replace(inst, verdict=False)
+        # The search's own reason an edge stayed open; one the judge gave
+        # (an unknown channel, placement or identity) is read off the
+        # instance by `_undecided_reason`.
+        reason = next((r for r in ("combination_cap", "rebuild_unavailable", "locus_unmatched")
+                       if r in reasons), None) if inst is not None and inst.verdict is None else None
+        return inst, st, None, first_only, self._search(state, examined, reason, termination)
 
     def _witness(self, st, touched):
         """-> the readings a verdict rests on: those of `touched` words a
@@ -721,13 +821,13 @@ class AnalysisSession:
         the changed words. Deterministic: lines, combinations and targets
         are sorted. Over the caps the method is marked incomplete."""
         RL = self.RL
-        if not self._disputed or self._schema_stream is not self.stream or not self._searchable(schema, self.stream):
+        if not self._varying or self._schema_stream is not self.stream or not self._searchable(schema, self.stream):
             return
         rules = schema.spans
         variants = [[], []]
         same_rule = rules[1] is rules[0]
-        for li in sorted({li for li, _ in self._disputed}):
-            toks = {t for t in self._disputed if t[0] == li}
+        for li in sorted({li for li, _ in self._varying}):
+            toks = {t for t in self._varying if t[0] == li}
             combos, complete = RL.reading_combos(self.stream, toks, self.EDGE_COMBOS)
             if not combos:
                 continue
@@ -735,11 +835,15 @@ class AnalysisSession:
                 self._incomplete.setdefault(name, f"a line's words take more than {self.EDGE_COMBOS} "
                                                   f"combinations of readings")
             first = combos[0]
-            for combo in combos[1:]:
+            # The work reads a disputed word under its first reading, so that
+            # combination is the work's own; a restressed word is read as a
+            # knowledge set, so even its first reading is a variant.
+            restressed = toks & self._restressed
+            for combo in (combos if restressed else combos[1:]):
                 mini = self._line_stream([li], combo)
                 if mini is None:
                     continue
-                changed = {t for t, c in combo.items() if tuple(c[2]) != tuple(first[t][2])}
+                changed = {t for t, c in combo.items() if tuple(c[2]) != tuple(first[t][2])} | restressed
                 for side in ((0,) if same_rule else (0, 1)):
                     try:
                         index = self._spans_by_key(mini, rules[side])
@@ -1158,7 +1262,432 @@ class AnalysisSession:
                 "source_ranges": ranges, "normalized_ranges": normalized,
                 "precision": "token"}
 
-    def _edge_record(self, inst, st, witness=None):
+    #: Candidate pairs one schema's domain may enumerate. Past it the domain
+    #: is refused (`projection: none`), never sampled.
+    DOMAIN_CAP = 262144
+
+    def _domain(self, name, alt_cells=()):
+        """-> WHICH OCCURRENCE PAIRS THIS SCHEMA'S LOCI CAN BIND, so a view can
+        tell "does not hold" from "not examined" (design contract, BB8 O2).
+
+        Only true and undecided edges are recorded: a False is counted, and a
+        candidate the engine's bucket pruning drops is neither. The domain is
+        the engine's own candidate set (`_candidate_pairs`, unpruned, in the
+        order it evaluates) less every pair a placement rule refuses -- the
+        one thing `evaluate` answers None for. Inside it, a pair with no
+        record on an answered method is a judged False; outside it the method
+        does not apply. Projected to token pairs only where every member span
+        is one token; a whole figure, a multi-token span or a span with no
+        referent is `projection: none` with its reason, so no cell is claimed.
+        Built on the work's first-listed spans: an edge another reading
+        discovers may fall outside it, and is shown by its own record."""
+        RL, st = self.RL, self.stream
+        schema = RL.REGISTRY[name]
+        if name in RL.FULL_SHAPES or not RL.pair_scope_representable(schema):
+            return {"projection": "none", "reason": "whole_figure"}
+        if "stub_resolution" in schema.capabilities():
+            return {"projection": "none", "reason": "derived_stream"}
+        try:
+            aa = list(RL.enumerate_spans(schema.spans[0], st))
+            bb = aa if schema.spans[0] == schema.spans[1] else list(RL.enumerate_spans(schema.spans[1], st))
+        except RL.NoReferent:
+            return {"projection": "none", "reason": "no_referent"}
+
+        def token(span):
+            cells = {(st.units[i].line, st.units[i].token) for i in span.idx}
+            return next(iter(cells)) if len(cells) == 1 else None
+        if any(token(s) is None for s in aa) or any(token(s) is None for s in bb):
+            return {"projection": "none", "reason": "multi_token_spans"}
+        if len(aa) * len(bb) > self.DOMAIN_CAP:
+            return {"projection": "none", "reason": "domain_cap", "cap": self.DOMAIN_CAP}
+        layout = [(a, (bb,)) for a in aa]
+        cells = set()
+        for n, (a, b, _) in enumerate(RL._candidate_pairs(schema, layout, st, {s.idx for s in aa},
+                                                           {s.idx for s in bb}, None)):
+            if n % 4096 == 4095:
+                _resource_guard("relation domain")
+            if any(p.holds(a, b, st) is False for p in schema.placement):
+                continue
+            ta, tb = token(a), token(b)
+            if ta != tb:
+                # In the order the engine asks it (role a, role b). Equal
+                # span rules do not make a predicate symmetric (a required
+                # overhang, PresentVsAbsent), and the engine asks each pair
+                # of a mirrored rule once, in this order: the reverse
+                # question is never asked, so it is never claimed (3PO, #641).
+                cells.add((ta, tb))
+        # Pairs only another reading binds (`_alternate_edges`), as judged.
+        cells.update((tuple(a), tuple(b)) for a, b in alt_cells)
+        dependent = set(self._reading_dependent(schema, aa, bb))
+        searched = not self._any_reading_off and self._varies(schema)
+        if not searched:
+            # Readings not searched (a scope `_varies` keeps first-listed, or
+            # a work with sound declarations): a disputed word's missing
+            # record is only its first reading's False (3PO, #646).
+            dependent |= {t for pair in cells for t in pair if t in self._disputed}
+        return {**self._project(cells, "role_ordered"), "reading_policy": self._reading_policy(searched),
+                "reading_dependent_tokens": [self._token_id(t) for t in sorted(dependent)]}
+
+    def _reading_policy(self, searched):
+        """What a cell's absence quantifies over: every compatible whole
+        reading, or the first-listed reading of a disputed word only."""
+        return "exists_compatible_reading" if searched else "first_listed_reading"
+
+    def _token_id(self, tok):
+        return f"{self._line_id(tok[0])}:token:{tok[1]}"
+
+    def _project(self, cells, ordering):
+        """{(line, token) pairs} -> the exact token-pair projection: tokens,
+        and each token's partners as [first, last] index runs."""
+        ids = sorted({t for pair in cells for t in pair})
+        index = {t: i for i, t in enumerate(ids)}
+        rows = {}
+        for ta, tb in sorted(cells):
+            rows.setdefault(index[ta], []).append(index[tb])
+        # Partners as [first, last] runs: a same-line or whole-song locus is
+        # a few runs per row, not one entry per pair.
+        runs = {}
+        for i, partners in rows.items():
+            out = []
+            for j in sorted(partners):
+                if out and out[-1][1] == j - 1:
+                    out[-1][1] = j
+                else:
+                    out.append([j, j])
+            runs[str(i)] = out
+        return {"projection": "exact_token_pair", "ordering": ordering,
+                "tokens": [self._token_id(t) for t in ids], "pairs": runs, "pair_count": len(cells)}
+
+    def _reading_dependent(self, schema, aa, bb):
+        """-> {(line, token)} whose membership in this schema's loci changes
+        with its reading: a disputed word whose other syllable count brings a
+        locus in or out, or a merged word whose readings disagree on stress,
+        so its anchor -- and with it the span -- exists under some readings
+        only (3PO, #641). Each such word's line is rebuilt under every reading
+        of it alone; a word is reading-dependent when any reading's spans
+        cover it under a role the work's spans do not, or the reverse, or
+        when its line cannot be rebuilt. A cell touching one is neither a
+        judged False nor outside the method: its own record, if any, is all
+        that answers for it."""
+        RL = self.RL
+        rules = (schema.spans[0], schema.spans[1])
+
+        def covered(st, rule, base):
+            try:
+                spans = base if base is not None else list(RL.enumerate_spans(rule, st))
+            except RL.NoReferent:
+                return set()
+            return {(st.units[i].line, st.units[i].token) for span in spans for i in span.idx}
+        work = [covered(self.stream, rule, base) for rule, base in zip(rules, (aa, bb))]
+        out = set()
+        for tok in sorted(self._disputed | self._merged):
+            combos, _ = RL.reading_combos(self.stream, {tok}, self.EDGE_COMBOS)
+            for combo in combos or ():
+                alt = self._line_stream([tok[0]], combo)
+                if alt is None or any((tok in covered(alt, rule, None)) != (tok in base)
+                                      for rule, base in zip(rules, work)):
+                    out.add(tok)
+                    break
+        return out
+
+    # -- Shared sound (`namespace: "shared_sound"`; #637) -------------------
+    #: Occurrence pairs one shared-sound method judges at most. Past it the
+    #: method is refused, never answered over the pairs it reached.
+    SOUND_PAIR_CAP = 262144
+
+    def _sound_spans(self, family, st):
+        """-> {(line, token): [span]}: the family's own canonical spans on
+        `st` (`relations.CHANNEL_READ_FAMILIES`), each within one token."""
+        RL = self.RL
+        try:
+            spans = list(RL.enumerate_spans(RL.CHANNEL_READ_FAMILIES[family][0], st))
+        except RL.NoReferent:
+            return {}
+        out = {}
+        for span in spans:
+            cells = {(st.units[i].line, st.units[i].token) for i in span.idx}
+            if len(cells) == 1:
+                out.setdefault(next(iter(cells)), []).append(span)
+        return out
+
+    def _sound_candidates(self, key):
+        """Every unordered pair of distinct words with a span in the
+        method's family, in line and token order: no locus, placement or
+        identity rule narrows it, which is what keeps it from being a
+        figure."""
+        spans = self._sound_spans(SHARED_SOUND_METHODS[key][0], self.stream)
+        toks = sorted(spans)
+        missing = [] if self._any_reading_off else self._sound_unspanned(spans)
+        # The cap is over every pair the method would ask, the pairs over
+        # words with no span included (3PO, #646): counted before any is
+        # asked, so a method past it never answers over the ones it reached.
+        total = (len(toks) * (len(toks) - 1) // 2 + len(missing) * len(toks)
+                 + len(missing) * (len(missing) - 1) // 2)
+        if total > self.SOUND_PAIR_CAP:
+            raise _Refused(self.RL.Refusal(
+                shared_sound_name(key), "pair_cap",
+                f"{len(toks) + len(missing)} words make {total} pairs, more than {self.SOUND_PAIR_CAP}; "
+                "shared sound is not answered over the pairs it would reach before the cap", kind="capability"))
+        for i, ta in enumerate(toks):
+            for tb in toks[i + 1:]:
+                for a in spans[ta]:
+                    for b in spans[tb]:
+                        yield a, b
+        # A varying word with no span on the work's own reading (a merged
+        # word whose readings disagree on stress) is asked about under each
+        # of its whole readings, against every other word (3PO, #646).
+        if missing:
+            for ta in missing:
+                for tb in sorted(set(toks) | set(missing)):
+                    if tb != ta and (tb not in missing or ta < tb):
+                        yield ("alt",) + tuple(sorted((ta, tb)))
+
+    def _sound_unspanned(self, spans):
+        """-> varying words with no span in the family on the work stream."""
+        return sorted(t for t in self.stream.tokens if t in self._varying and t not in spans)
+
+    def _sound_member(self, tok):
+        """A word as a member, by the work's own syllables: what a record
+        names when the span it was judged on belongs to another reading."""
+        from types import SimpleNamespace
+        # Its anchor is the reading's, so the member has none of its own;
+        # `compared` holds the syllables and anchors as judged.
+        return SimpleNamespace(idx=tuple(self.stream.tokens[tok]), anchor_pos=None, direction=None,
+                               origin="word_under_reading", search_k=None)
+
+    def _sound_alt_pair(self, key, ta, tb):
+        """-> (value, record, cell): a pair over a word that has no span on
+        the work's reading, judged under each whole reading of the pair's
+        varying words. `value` "outside" when no reading gives both words a
+        span -- the method does not apply to the pair; `cell` says whether
+        the pair is inside the method's domain."""
+        RL, st = self.RL, self.stream
+        family = SHARED_SOUND_METHODS[key][0]
+        varying = {t for t in (ta, tb) if t in self._disputed or t in self._merged}
+        combos, complete = RL.reading_combos(st, varying, self.EDGE_COMBOS)
+        examined, open_, located, reasons = 0, False, False, []
+        a, b = self._sound_member(ta), self._sound_member(tb)
+        for combo in combos or ():
+            alt = self._line_stream(sorted({ta[0], tb[0]}), combo)
+            if alt is None:
+                open_ = True
+                reasons.append("rebuild_unavailable")
+                continue
+            examined += 1
+            found = self._sound_spans(family, alt)
+            if ta not in found or tb not in found:
+                continue
+            located = True
+            v, r, x = self._sound_judge(key, found[ta][0], found[tb][0], alt)
+            if v is True:
+                whole = complete and examined == len(combos)
+                search = self._search("exhaustive" if whole else "partial", examined, termination="witness_found")
+                return True, self._sound_record(key, a, b, True, r, x, alt, self._witness(alt, varying),
+                                                search, False), True
+            if v is None:
+                open_ = True
+        whole = bool(combos) and complete and examined == len(combos)
+        if not combos:
+            reasons.append("no_reading_combination")
+        elif not complete:
+            reasons.append("combination_cap")
+        if not located and whole:
+            return "outside", None, False
+        value = None if open_ or not whole else False
+        reason = next((r for r in ("combination_cap", "rebuild_unavailable", "no_reading_combination")
+                       if r in reasons), None) if value is None else None
+        search = self._search("unavailable" if not combos else "exhaustive" if whole else "partial",
+                              examined, reason,
+                              None if not combos else "combination_cap" if not complete else
+                              "exhausted" if whole else "rebuild_unavailable")
+        if value is False:
+            return False, None, True
+        return None, self._sound_record(key, a, b, None, None, None, st, None, search, False), True
+
+    def _sound_judge(self, key, a, b, st):
+        """-> (value, channel record or None, (position, predicate reads) or
+        None): the method's predicates on the primitive's values at its
+        aligned position, on one stream -- one whole reading, or the work's
+        knowledge sets."""
+        RL = self.RL
+        family, channel, position, present = SHARED_SOUND_METHODS[key]
+        rec = RL.pair_channel_reads(st, a, b, family)
+        if isinstance(rec, RL.Refusal):
+            return None, None, None
+        align = tuple(rec["align"])
+        if position == "anchor":
+            k = align.index(tuple(rec["anchors"])) if tuple(rec["anchors"]) in align else None
+        else:
+            k = 0 if align else None
+        if k is None:
+            return None, rec, None
+        sa, sb = rec["syllables"][k]
+        reads = {"agree": RL.AGREE(sa[channel], sb[channel])}
+        if present:
+            reads["both_present"] = RL.BOTH_PRESENT(sa[channel], sb[channel])
+        values = [r.value for r in reads.values()]
+        value = False if False in values else True if all(v is True for v in values) else None
+        return value, rec, (k, reads)
+
+    def _sound_pair(self, key, a, b):
+        """-> (value, record, first_only) for one pair under rule 5: a
+        confident verdict on the work stands, except that a disputed word's
+        first reading cannot answer False for its others; an open one is
+        judged under each whole reading of the pair's varying words, True
+        with the first that holds, False once every one is judged False.
+        Predicates are never combined across readings."""
+        RL, st = self.RL, self.stream
+        family = SHARED_SOUND_METHODS[key][0]
+        tok = lambda span: (st.units[span.idx[0]].line, st.units[span.idx[0]].token)
+        ta, tb = tok(a), tok(b)
+        value, rec, at = self._sound_judge(key, a, b, st)
+        varying = {t for t in (ta, tb) if t in self._disputed or t in self._merged}
+        disputed = bool(varying & self._disputed)
+        judged, witness, search, first_only = st, None, self._search("not_needed"), False
+        if varying and (value is None or (value is False and disputed)):
+            if self._any_reading_off:
+                first_only = disputed
+            else:
+                combos, complete = RL.reading_combos(st, varying, self.EDGE_COMBOS)
+                examined, open_, reasons = 0, False, []
+                for combo in combos or ():
+                    alt = self._line_stream(sorted({ta[0], tb[0]}), combo)
+                    if alt is None:
+                        open_ = True
+                        reasons.append("rebuild_unavailable")
+                        continue
+                    examined += 1
+                    found = self._sound_spans(family, alt)
+                    if ta not in found or tb not in found:
+                        # No span at the word under this reading (no stressed
+                        # syllable to anchor): nothing there to share.
+                        continue
+                    v, r, x = self._sound_judge(key, found[ta][0], found[tb][0], alt)
+                    if v is True:
+                        whole = complete and examined == len(combos)
+                        value, rec, at, judged = True, r, x, alt
+                        witness = self._witness(alt, varying)
+                        search = self._search("exhaustive" if whole else "partial", examined,
+                                              termination="witness_found")
+                        break
+                    if v is None:
+                        open_ = True
+                else:
+                    # Nothing to search is not a search: no combination
+                    # judged never certifies a False.
+                    whole = bool(combos) and complete and examined == len(combos)
+                    if not combos:
+                        reasons.append("no_reading_combination")
+                    elif not complete:
+                        reasons.append("combination_cap")
+                    if value is False and (open_ or not whole):
+                        value = None
+                    elif value is None and combos and whole and not open_:
+                        value = False
+                    reason = next((r for r in ("combination_cap", "rebuild_unavailable", "no_reading_combination")
+                                   if r in reasons), None) if value is None else None
+                    search = self._search("unavailable" if not combos else "exhaustive" if whole else "partial",
+                                          examined, reason,
+                                          None if not combos else "combination_cap" if not complete else
+                                          "exhausted" if whole else "rebuild_unavailable")
+        if value is False:
+            return False, None, first_only
+        return value, self._sound_record(key, a, b, value, rec, at, judged, witness, search, first_only), first_only
+
+    def _sound_record(self, key, a, b, value, rec, at, st, witness, search, first_only):
+        name = shared_sound_name(key)
+        family, channel, position, present = SHARED_SOUND_METHODS[key]
+        work = self.stream
+        text = lambda span: str(work.lexical_tokens[work.units[span.idx[0]].line][work.units[span.idx[0]].token]).lower()
+        extra = {}
+        if witness:
+            extra["reading"] = {"rule": "any_reading", "witness": witness}
+        if at is not None:
+            k, reads = at
+            sa, sb = rec["syllables"][k]
+            # WHAT WAS COMPARED, AS JUDGED: the primitive's aligned syllables
+            # from the stream the verdict was reached on, at the method's
+            # position; never re-syllabified here.
+            extra["compared"] = {"a": [json_safe(sa)], "b": [json_safe(sb)], "position": k,
+                                 "aligned": json_safe(rec["align"]), "anchors": json_safe(rec["anchors"])}
+            extra["predicate_reads"] = {n: json_safe(r) for n, r in reads.items()}
+        if value is None:
+            unknown = at is not None and any(r.value is None for r in at[1].values())
+            extra["undecided_reason"] = (search.get("reason") or
+                                         ("channel_unknown" if unknown else "locus_unmatched"))
+        if rec is not None:
+            extra["reading_context"] = json_safe(rec["reading_context"])
+            extra["channel_versions"] = json_safe(rec["versions"])
+        return self._record("relation_instance", method_id("shared_sound", name), [a.idx, b.idx],
+            namespace="shared_sound", method_name=name, layer=SHARED_SOUND_LAYER, verdict=verdict(value),
+            a=self._span(a), b=self._span(b), family=family, channel=channel, position=position, **extra,
+            quantifier="first_listed_reading" if first_only else "exists_compatible_reading",
+            reading_search=search, same_spelling=text(a) == text(b))
+
+    def _sound_domain(self, key, alt_cells=()):
+        """Every unordered pair of distinct words with a span in the family,
+        exactly the pairs the method asks, and every pair over a word with
+        no span on the work's reading that some whole reading gives one
+        (`alt_cells`, as judged). Every pair is judged under each reading of
+        its varying words, so a missing record is a judged False. Only when
+        readings are not searched (a work with sound declarations) is a
+        word with no span reading-dependent: a cell touching one is
+        answered only by its own record."""
+        family = SHARED_SOUND_METHODS[key][0]
+        toks = sorted(self._sound_spans(family, self.stream))
+        if len(toks) * (len(toks) - 1) // 2 > self.DOMAIN_CAP:
+            return {"projection": "none", "reason": "domain_cap", "cap": self.DOMAIN_CAP}
+        cells = {(x, y) for i, x in enumerate(toks) for y in toks[i + 1:]}
+        cells.update((tuple(x), tuple(y)) for x, y in alt_cells)
+        dependent = []
+        if self._any_reading_off:
+            # First-listed readings only: a word with no span was never
+            # asked, and a disputed word's missing record is its first
+            # reading's False alone (3PO, #646).
+            dependent = sorted(set(self._sound_unspanned(set(toks))) | {t for t in toks if t in self._disputed})
+        return {**self._project(cells, "unordered"),
+                "reading_policy": self._reading_policy(not self._any_reading_off),
+                "reading_dependent_tokens": [self._token_id(t) for t in dependent]}
+
+    def _sound_result(self, key, mid, counts):
+        if self.stream.unreadable and counts["coverage"] == "answered":
+            counts["coverage"] = "refused"
+            counts["unreadable_tokens"] = len(self.stream.unreadable)
+            counts["refusal"] = {"kind": "unknown_members", "capability": "native_reading", "missing": [], "vacuous": [],
+                "detail": "Unread lexical members remain in the source census. Findings over readable members do not answer those obligations."}
+        return self._record("method_result", mid, "result", namespace="shared_sound",
+                            method_name=shared_sound_name(key), layer=SHARED_SOUND_LAYER,
+                            coverage=counts["coverage"], counts=counts,
+                            domain=self._sound_domain(key, counts.pop("alt_cells", []))
+                            if counts["coverage"] == "answered"
+                            else {"projection": "none", "reason": "refused"},
+                            refusal=counts.get("refusal"),
+                            availability="available" if counts["coverage"] == "answered" else "unknown_members")
+
+    def _sound_refusal(self, key, refusal):
+        return self._record("method_result", method_id("shared_sound", shared_sound_name(key)), "result",
+                            coverage="refused", verdict="undecided", namespace="shared_sound",
+                            method_name=shared_sound_name(key), layer=SHARED_SOUND_LAYER,
+                            domain={"projection": "none", "reason": "refused"}, refusal=json_safe(refusal),
+                            counts={"true": 0, "false": 0, "undecided": 0}, availability="unsupported")
+
+    def _undecided_reason(self, inst, search):
+        """-> why an edge stayed undecided, most specific first: the search's
+        own reason (the cap, a rebuild or locus it could not make, readings
+        its scope keeps first-listed), else what the judge could not read --
+        a placement, an identity resource, or a channel (`unknown_channels`
+        names which)."""
+        if search.get("reason"):
+            return search["reason"]
+        if any(v is None for _, v in inst.placement_reads):
+            return "placement_unknown"
+        if any(r.value is None for _, r in inst.identity_reads):
+            return "identity_unknown"
+        if inst.unknown_channels:
+            return "channel_unknown"
+        return "judge_unknown"
+
+    def _edge_record(self, inst, st, witness=None, search=None, first_only=False):
         RL = self.RL
         mid = method_id("schema", inst.schema)
         a, b = self._span(inst.a, st), self._span(inst.b, st)
@@ -1185,9 +1714,23 @@ class AnalysisSession:
             extra["reading"] = {"rule": "any_reading", "witness": witness or []}
         elif witness:
             extra["reading"] = {"rule": "any_reading", "witness": witness}
+        search = search or self._search("not_needed")
+        if inst.verdict is None:
+            extra["undecided_reason"] = self._undecided_reason(inst, search)
         return self._record("relation_instance", mid, key,
             namespace="schema", schema_name=inst.schema, verdict=verdict(inst.verdict),
             a=a, b=b, **extra, alignment=json_safe(inst.alignment),
+            # WHAT WAS COMPARED, AS JUDGED: each member's syllables in the
+            # stream the verdict was reached on -- the witness reading's
+            # syllables when another reading held, the work's knowledge sets
+            # otherwise (a merged word shows every reading it may take).
+            compared={"a": [json_safe(st.units[i].syl) for i in inst.a.idx],
+                      "b": [json_safe(st.units[i].syl) for i in inst.b.idx]},
+            # Rule 5 quantifies over whole readings; a scope `_varies` keeps
+            # on first-listed readings says so on the edge, not only in a
+            # method count.
+            quantifier="first_listed_reading" if first_only else "exists_compatible_reading",
+            reading_search=search,
             channel_reads=json_safe(inst.reads), placement_reads=json_safe(inst.placement_reads),
             identity_reads=json_safe(inst.identity_reads), unknown_channels=json_safe(inst.unknown_channels),
             informative_channels=list(inst.informative), scope=RL.tradition_scope(RL.schema_named(inst.schema), self.language),
@@ -1197,6 +1740,7 @@ class AnalysisSession:
         mid = method_id("schema", name) if name in self.RL.REGISTRY else name
         return self._record("method_result", mid, "result", coverage="refused", verdict="undecided",
                             namespace="schema" if name in self.RL.REGISTRY else "native", schema_name=name,
+                            domain={"projection": "none", "reason": "refused"},
                             refusal=json_safe(refusal), counts={"true": 0, "false": 0, "undecided": 0},
                             availability="needs_declaration" if getattr(refusal, "missing", ()) else "unsupported")
 
@@ -1506,6 +2050,8 @@ class AnalysisSession:
             return iter(self._candidates(name))
         if phase == "assembly":
             return iter(self._assembly_records(name))
+        if phase == "shared_sound":
+            return iter(self._sound_candidates(name))
         from .form import analyze_form, analyze_language
         result = analyze_form(self.source, self.declarations) if phase == "form" else analyze_language(self.source, self.declarations)
         return iter(self._component_records(phase, result))
@@ -1515,6 +2061,8 @@ class AnalysisSession:
             return method_id("schema", name)
         if phase in ("native_work", "native_pairs"):
             return method_id("native", name)
+        if phase == "shared_sound":
+            return method_id("shared_sound", shared_sound_name(name))
         return phase
 
     def _component_records(self, phase, result, path=()):
@@ -1583,6 +2131,10 @@ class AnalysisSession:
                 [frame, [(e.a.idx, e.b.idx) for e in members], getattr(members, "members", ())],
                 namespace="schema", schema_name=name, frame=json_safe(frame), verdict=verdict(value),
                 member_lines=list(getattr(members, "members", ())))
+            if value is None:
+                # Assembled from committed edges, which carry their own
+                # reasons; the figure says only that some member is open.
+                record["undecided_reason"] = "member_edges_undecided"
             record["edge_count"] = len(ids)
             yield record
             for i in range(0, len(ids), 128):
@@ -1602,6 +2154,8 @@ class AnalysisSession:
             self._local_records.pop(mid, None)
             return []
         counts["coverage"] = "refused" if counts.get("refused_questions") else counts.get("coverage", "answered")
+        if phase == "shared_sound":
+            return [self._sound_result(name, mid, counts)]
         rows = []
         needs_assembly = phase == "schema" and not RL.pair_scope_representable(RL.REGISTRY[name]) and name not in RL.FULL_SHAPES
         if needs_assembly and counts["coverage"] == "answered":
@@ -1619,6 +2173,8 @@ class AnalysisSession:
                               + ". Findings over the combinations searched do not answer the rest."}
             rows.append(self._record("method_result", mid, "result", namespace="schema", schema_name=name,
                                     coverage=counts["coverage"], counts=counts,
+                                    domain=self._domain(name, counts.pop("alt_cells", [])) if phase == "schema"
+                                    else {"projection": "none", "reason": "whole_figure"},
                                     refusal=counts.get("refusal"), availability="available" if counts["coverage"] == "answered" else "unknown_members",
                                     supply={c: json_safe(self.stream.supply(c))
                                                                        for c in RL.REGISTRY[name].capabilities()}))
@@ -1627,11 +2183,28 @@ class AnalysisSession:
         return rows
 
     def _figure_record(self, name, frame, edges, value):
+        rows = [self._figure_edge(e, self._schema_stream or self.stream) for e in edges]
+        extra = {}
+        if value is None:
+            # An open figure names why, as an open edge does: the first
+            # reason its own open members give, else the judge's.
+            extra["undecided_reason"] = next((r["undecided_reason"] for r in rows if "undecided_reason" in r),
+                                             "judge_unknown")
         return self._record("relation_figure", method_id("schema", name),
                             [frame, [(e.a.idx, e.b.idx) for e in edges], getattr(edges, "members", ())],
                             namespace="schema", schema_name=name, frame=json_safe(frame),
                             verdict=verdict(value), member_lines=list(getattr(edges, "members", ())),
-                            edges=[self._edge_record(e, self._schema_stream or self.stream) for e in edges])
+                            edges=rows, **extra)
+
+    def _figure_edge(self, e, st):
+        """A whole figure's member edge. Whole figures keep first-listed
+        readings (`_varies`), so an edge over a disputed word says so, and an
+        open edge over a merged word names the readings left unsearched."""
+        first_only = bool(self._touched(st, e.a, e.b))
+        unsearched = e.verdict is None and (first_only or self._merged_touched(st, e.a, e.b))
+        search = (self._search("unavailable", reason="readings_not_searched_in_scope")
+                  if first_only or unsearched else self._search("not_needed"))
+        return self._edge_record(e, st, search=search, first_only=first_only)
 
     def _advance(self):
         self.checkpoint["method_index"] += 1
@@ -1693,12 +2266,21 @@ class AnalysisSession:
                 kind, value = binding
                 if kind in ("edge", "alt_edge"):
                     a, b, found = value if kind == "alt_edge" else (*value, self._schema_stream)
-                    inst, judged, witness, first_only = self._any_reading(name, a, b, found)
+                    inst, judged, witness, first_only, search = self._any_reading(name, a, b, found)
+                    if inst is not None and kind == "alt_edge":
+                        # A pair only another reading binds is inside the
+                        # method's loci too: the domain must not call it
+                        # outside (3PO, #641). Kept with the method's counts
+                        # so a resumed traversal keeps it.
+                        cells = [sorted({(found.units[i].line, found.units[i].token) for i in m.idx})
+                                 for m in (a, b)]
+                        if all(len(c) == 1 for c in cells) and cells[0] != cells[1]:
+                            delta["alt_cells"] = delta.get("alt_cells", []) + [[list(cells[0][0]), list(cells[1][0])]]
                     if inst is not None:
                         delta[verdict(inst.verdict)] += 1
                         delta["first_reading_only"] += first_only
                         if inst.verdict is not False:
-                            record = self._edge_record(inst, judged, witness)
+                            record = self._edge_record(inst, judged, witness, search, first_only)
                             new.append(record)
                             if not RL.pair_scope_representable(RL.REGISTRY[name]):
                                 self._local_records.setdefault(self._task_mid(phase, name), []).append(record)
@@ -1711,6 +2293,21 @@ class AnalysisSession:
                         delta[verdict(v)] += 1
                         delta["first_reading_only"] += first_only
                         new.append(self._figure_record(name, frame, edges, v))
+            elif phase == "shared_sound":
+                if binding[0] == "alt":
+                    value, record, cell = self._sound_alt_pair(name, *binding[1:])
+                    first_only = 0
+                    if cell:
+                        # Kept with the method's counts, so a resumed
+                        # traversal keeps it.
+                        delta["alt_cells"] = delta.get("alt_cells", []) + [[list(binding[1]), list(binding[2])]]
+                else:
+                    value, record, first_only = self._sound_pair(name, *binding)
+                if value != "outside":
+                    delta[verdict(value)] += 1
+                    delta["first_reading_only"] += first_only
+                    if value is not False:
+                        new.append(record)
             else:
                 new = [binding]
             delta["candidates"] = 1
@@ -1722,7 +2319,8 @@ class AnalysisSession:
             counts["refusal"] = json_safe(exc.refusal)
             if phase == "schema" and name not in cp.setdefault("refused_schemas", []):
                 cp["refused_schemas"].append(name)
-            new, action = [self._refusal(name, exc.refusal)], "advance"
+            new, action = [self._sound_refusal(name, exc.refusal) if phase == "shared_sound"
+                           else self._refusal(name, exc.refusal)], "advance"
         emitted = iter(self._bounded_records(new))
         for _ in range(cp["emission"]):
             try:
@@ -1759,7 +2357,7 @@ class AnalysisSession:
             except StopIteration:
                 for key, value in event["delta"].items():
                     if value:
-                        counts[key] = counts.get(key, 0) + value
+                        counts[key] = counts.get(key, [] if isinstance(value, list) else 0) + value
                         if key in cp["counters"]:
                             cp["counters"][key] += value
                 if event["action"] == "advance":

@@ -312,9 +312,12 @@ ENG_HOMOGRAPHS = ("wind", "live", "read", "bow", "tear")
 
 def test_eng_homographs():
     print("\n4. eng — wind/live/read/bow/tear, and the shipped false positive")
+    # 2026-10-30: counted on `cmu_raw_entries`, CMUdict's own rows; `entries`
+    # now also carries rule-derived accent readings (M-322: read gains R IE1 D,
+    # tear four), which are not what this sentence is about.
     check("CMUdict holds two readings of each of the five",
-          all(len(LEX.entries[w]) == 2 for w in ENG_HOMOGRAPHS),
-          {w: LEX.entries[w] for w in ("wind", "read")})
+          all(len(LEX.cmu_raw_entries[w]) == 2 for w in ENG_HOMOGRAPHS),
+          {w: LEX.cmu_raw_entries[w] for w in ("wind", "read")})
     check("and it lists the VERB first, which is why `prons[0]` was wrong "
           "quietly rather than loudly",
           LEX.entries["wind"][0] == ["W", "AY1", "N", "D"],

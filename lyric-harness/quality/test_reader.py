@@ -608,8 +608,11 @@ class Normalisation(unittest.TestCase):
         sv1 = LS.SupplementedLexicon(version=LS.canonical_version("v2"), reader_scheme="v1")
         source = sv2.reading_source("streetlight", row)
         self.assertTrue(source and source != "cmudict", source)
+        # 2026-10-30 (M-322): was `[row]`. The row now also carries its
+        # rule-derived raising reading (AY before a voiceless T -> UI), after it.
+        raised = ["S", "T", "R", "IY1", "T", "L", "UI2", "T"]
         for spelling in ("street\u00adlight", "streetli\u00adght"):
-            self.assertEqual(sv2.pronunciation_variants(spelling), [row], spelling)
+            self.assertEqual(sv2.pronunciation_variants(spelling), [row, raised], spelling)
             self.assertEqual(sv2.reading_source(spelling, row), source, spelling)
             self.assertEqual(sv2.whole_reading(spelling), (row, source), spelling)
             self.assertEqual(sv1.pronunciation_variants(spelling), [], spelling)
@@ -898,12 +901,29 @@ class OneCoordinate(unittest.TestCase):
             lines = ["I see the " + a, "You hear the " + b]
             for lex in (plain, selected):
                 with self.subTest(words=(a, b), selected=lex is selected):
+                    # The rule-5 listing recovery reports (M-322 item 5).
                     expected = dict(RL.whole_vocabulary_pairs(
                         lines, relation_phonology_for(lex),
-                        requested_pairs={(1, 2)}, bound={(1, 2): (-1, -1)}))
+                        requested_pairs={(1, 2)},
+                        bound={(1, 2): (-1, -1)}).listed())
                     self.assertEqual(schemas(lines, lex),
                                      set(expected.get((1, 2), ())))
+            # THE SELECTED LEXICON REACHES RECOVERY: a supplement-only word
+            # is unread by the plain lexicon and stands in relations under the
+            # selected one. 2026-10-30 (M-322): streetlight(s)/night(s) no
+            # longer carry a DEFINITE perfect rhyme, ~~asserted for all three
+            # pairs~~ -- both words gain the raised reading (AY or UI), and
+            # recovery's measurement merges the two channel by channel, so the
+            # vowel reads undecided even though each accent's whole readings
+            # rhyme. That is recovery's reporting (it drops the undecided
+            # set: M-322's open list), not a lost lexicon; sixty-six/tricks,
+            # with no raised reading, still carries it.
+            # FIXED the same day (M-322 item 5): recovery reports the rule-5
+            # listing, so the pair whose two accents each rhyme carries
+            # perfect rhyme under one whole reading, all three pairs again.
             if a in ("streetlight", "streetlights", "sixty-six") and b != "seat":
+                self.assertTrue(schemas(lines, selected))
+                self.assertEqual(schemas(lines, plain), set())
                 self.assertIn("perfect rhyme", schemas(lines, selected))
         self.assertNotIn("perfect rhyme", schemas(["streetlights", "seat"], selected))
         self.assertEqual(schemas(["zzqxqzz", "night"], selected), set())
@@ -919,9 +939,12 @@ class OneCoordinate(unittest.TestCase):
         self.assertIn("perfect rhyme", schemas(["king-", "wing"], plain))
 
         # The same adapter keeps aside/voices endpoints aligned too.
+        # day/way since 2026-10-30 (M-322), ~~night/light~~: both of those
+        # gain the raised reading, which recovery reads as an undecided vowel
+        # (above); day/way carry no derived reading.
         for strip in (True, False):
             lex = LH.Lexicon(reader_scheme="v2", strip_parens=strip)
-            got = schemas(["I see night (oh)", "You hear light (cat)"], lex)
+            got = schemas(["I see day (oh)", "You hear way (cat)"], lex)
             self.assertEqual("perfect rhyme" in got, strip)
 
         # Fallback remains the REGISTERED relation reader's policy, not a
@@ -937,8 +960,14 @@ class OneCoordinate(unittest.TestCase):
                 self.assertEqual("consonance" in got, mode == "high")
 
         # The passed lexicon's v2 coordinate wins over a warm v1 process.
+        # 2026-10-30 (M-322): asserted as the v2 answer itself, ~~"perfect
+        # rhyme" in it~~ -- under v2 streetlights/nights carry the raised
+        # reading and no definite perfect rhyme (above), so the old label
+        # would now pass only if v1 won. A v1 lexicon answers nothing here.
+        v2_answer = schemas(["streetlights", "nights"], selected)
+        self.assertTrue(v2_answer)
         with LH.reader_scheme_scope("v1"):
-            self.assertIn("perfect rhyme", schemas(["streetlights", "nights"], selected))
+            self.assertEqual(schemas(["streetlights", "nights"], selected), v2_answer)
 
     def test_recovery_preserves_the_legacy_schema_reader(self):
         from quality import recover as REC
@@ -2316,6 +2345,25 @@ class LegacyReplay(unittest.TestCase):
                 out.append(line)
             return "\n".join(out)
 
+        # THE REGISTRY GREW BY TWO AFTER THIS CAPTURE (2026-10-30, `MISSING.md`
+        # M-323: `internal assonance`, `internal consonance`). The pair memo's
+        # diagnostic line counts what it judged, and on this build each of
+        # its three counts reads two higher where the recorded run judged
+        # anything: recorded `42 judged and recorded (70 schema slot(s), 42
+        # row(s) held)`, this build 44 / 72 / 44. The fixture is unchanged;
+        # only that line is advanced on the recorded side, and nothing else.
+        _memo_line = re.compile(r"(\d+) judged and recorded \((\d+) schema "
+                                r"slot\(s\), (\d+) row\(s\) held\)")
+
+        def with_m323(text):
+            def bump(m):
+                n, s, h = (int(x) for x in m.groups())
+                if not n:
+                    return m.group(0)
+                return (f"{n + 2} judged and recorded ({s + 2} schema "
+                        f"slot(s), {h + 2} row(s) held)")
+            return _memo_line.sub(bump, text)
+
         def recorded(rec):
             rec = dict(rec)
             if isinstance(rec.get("pending"), dict) and "prompt" in rec["pending"]:
@@ -2354,7 +2402,8 @@ class LegacyReplay(unittest.TestCase):
             with self.subTest(state=rec["name"]):
                 self.assertEqual(r.returncode, rec["replay_exit"], r.stdout[-600:])
                 got = norm(r.stdout.replace(str(work), "<WORK>"))
-                self.assertEqual(got, norm(without_d6(rec["replay_stdout"])))
+                self.assertEqual(got, norm(with_m323(without_d6(
+                    rec["replay_stdout"]))))
                 result = json.loads([l for l in r.stdout.splitlines()
                                      if l.startswith("  lyric result: ")][-1]
                                     [len("  lyric result: "):])
@@ -3298,9 +3347,9 @@ class NamedPlaceLookup(unittest.TestCase):
             with LH.reader_scheme_scope(scheme):
                 cls.lex[scheme] = eng._lexicon()
 
-    def end(self, scheme, line):
+    def end(self, scheme, line, lexicon=None):
         with LH.reader_scheme_scope(scheme):
-            anchors, label, _ = LH.line_anchors(self.lex[scheme], line)
+            anchors, label, _ = LH.line_anchors(self.lex[lexicon or scheme], line)
         return ([[(s["nucleus"], tuple(s["coda"]), tuple(s["onset"]), s["stress"]) for s in a]
                  for a in anchors], label)
 
@@ -3337,9 +3386,14 @@ class NamedPlaceLookup(unittest.TestCase):
         quiet = [x["line"] for x in self.r["lookup_differs"] if not x["end_changed"]]
         self.assertEqual(len(quiet), len(self.r["lookup_differs"]) - len(
             [x for x in self.r["end_changed"] if x["lookup_differs"]]))
+        # 2026-10-30 (M-322): the two cuts are compared over ONE lexicon. The
+        # v2 lexicon now also carries the accent readings v1 replays without,
+        # so comparing each cut over its own lexicon measured the lexicon,
+        # not the cut (`answer` gains its non-rhotic reading under v2 only).
         for line in quiet:
             self.assertTrue(self.lookup_differs(line), line)
-            self.assertEqual(self.end("v1", line), self.end("v2", line), line)
+            self.assertEqual(self.end("v1", line, lexicon="v2"),
+                             self.end("v2", line), line)
 
     def test_identical_cut_controls_do_not_fire(self):
         for line in ["we sing it plain tonight", "You are the one I dream of",

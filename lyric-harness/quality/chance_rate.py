@@ -234,7 +234,10 @@ def measure(sampler, lex, decl, phon=None, schema=True):
             # Every schema that HOLDS is counted under its name; one the
             # registry disowns (`forbidden`/`deprecated`) holds but never
             # satisfies (M-140), so the door counts only the others.
-            hit = RF.whole_vocabulary_pairs([a, b], phon).get((1, 2)) or ()
+            # Under standing rule 5: a schema some whole reading of the
+            # two lines holds is counted (`listed`, M-322 2026-10-30).
+            hit = RF.whole_vocabulary_pairs([a, b], phon).listed().get(
+                (1, 2)) or ()
             sat = [n for n in hit if n not in disowned]
             for name in hit:
                 out["schema_names"][name] += 1
@@ -363,11 +366,38 @@ CANON_RATE = CANON_VIOLATIONS / CANON_JUDGED
 # admit (89, 99), rhyme (8, 9)~~; schema held.
 # And once more after ASSONANCE was re-cut 0.82 -> 0.75 (2026-09-23):
 # ~~any (900, 925), admit (48, 52)~~; rhyme and schema held.
+# REPINNED 2026-10-30, THE ENGLISH SOUND INVENTORY (`MISSING.md` M-322;
+# layer: the lexicon's accent readings -- NEAR/SQUARE/CURE respelled, the
+# non-rhotic, FORCE, raising and spelling alternates -- and the any-reading
+# search). ~~any (903, 926), admit (65, 74), rhyme (1, 6), schema (896,
+# 921)~~ -> the values below, measured by `--check` over GRID at the same
+# seed. Fewer random pairs pass: NEAR and SQUARE no longer share a vowel with
+# FLEECE/KIT and DRESS/TRAP, and a pair is held only within one accent. The
+# admit band widens at the line-anchor cells (88). This records the
+# instrument's new result, not a relaxed acceptance band.
+# REPINNED 2026-10-30, THE RULE-5 LISTING (`MISSING.md` M-322 item 5; layer:
+# reporting). ~~any (785, 809), schema (764, 782)~~ -> the values below,
+# measured by `--check` over GRID at the same seed; admit and rhyme held.
+# The schema door now counts a schema some whole reading of the two lines
+# holds (`VocabularyPairResults.listed`), where it counted only the definite
+# set: the readings left a merged vowel undecided and the pair uncounted.
+# It is above the pre-inventory (896, 921) because main undercounted the
+# same way for every word CMUdict already gave two readings. This records
+# the instrument's new result, not a relaxed acceptance band.
+# REPINNED 2026-10-31, G1 (`MISSING.md` M-325; John's ruling relayed on #637,
+# 6536447883, accepted G1's recall rise). ~~any (1086, 1104), schema (1084,
+# 1103)~~ -> the values below, measured by `--check` over GRID at the same
+# seed; admit and rhyme held. `_bucket_key` now keys a flush_right `each`
+# channel at the last unit every partner aligns, so mosaic, compound /
+# phrasal, chain (rap) and enjambed rhyme reach the judge on pairs the first-
+# syllable key had pruned: more random pairs hold some schema. Measured
+# before G1 (45bcce8e36) every band held; after it only these two moved.
+# This records the instrument's new result, not a relaxed acceptance band.
 ADOPTED = {
-    "any": (903, 926),
-    "admit": (65, 74),
-    "rhyme": (1, 6),
-    "schema": (896, 921),
+    "any": (1122, 1144),
+    "admit": (64, 88),
+    "rhyme": (1, 7),
+    "schema": (1120, 1143),
 }
 
 
@@ -573,7 +603,7 @@ def _answered(lines, phon, RF, lex=None, decl=None):
     GENERATORS take (`recover`, `--cliques`)~~ -- `--cliques` reads the
     rhyme graph alone (M-145), and `recover` binds its end words."""
     n = len(lines)
-    got = set(RF.whole_vocabulary_pairs(list(lines), phon))
+    got = set(RF.whole_vocabulary_pairs(list(lines), phon).listed())
     if lex is not None:
         ancs = [L.line_anchors(lex, ln, promote=decl.final_promotion)
                 for ln in lines]

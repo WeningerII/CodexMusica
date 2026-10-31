@@ -111,8 +111,36 @@ SONNET_SCHEME = "ABABCDCDEFEFGG"
 #: thee/thee) leave the violations and are coarse passes; the schema-only
 #: split does not move. 953 + 23 + 36 = 1012 judged against 52 refused, the
 #: battery's own repin.
+#: REPINNED 2026-10-30 -> (952, 0, 36), THE ENGLISH SOUND INVENTORY
+#: (`MISSING.md` M-322; layer: the lexicon's accent readings and the
+#: any-reading search; superseded (953, 2, 21) kept above). 952 + 36 + 25 =
+#: 1013 judged against 51 refused, the battery's repin to the pair. 14 pairs
+#: joined the schema-only set (eight from the violations, six from the coarse
+#: passes) and 14 L10-12 art/convert' left it for the coarse passes.
+#: **E2 FIRES ON THIS INSTRUMENT; THE CAUSE IS THE ROUTE, NOT THE DOOR.**
+#: The audible half is EMPTY: the two audible rescues, 27 L2-4 tir'd/expired
+#: (additive, apocopated) and 122 L5-7 admire/desire (semirhyme,
+#: subtractive), now list only `assonance` in `satisfied_by`. Their audible
+#: schemas are UNDECIDED under the merged readings (the rhotic and
+#: non-rhotic AY-ER readings) and HOLD under one whole reading --
+#: `resolve_readings` returns additive rhyme on `expired = IH0 K S P AY1 R D`
+#: and semirhyme on `admire = AE0 D M AY1 R` / `desire = D IH0 Z AY1 ER0`
+#: -- but `check_scheme` resolves a pair's undecided schemas only when no
+#: definite one satisfies it, so a pair already held by assonance reports
+#: none of them, so the audible schemas go unlisted. Under standing rule 5
+#: the split is (952, 2, 34) and H still holds; this route measures
+#: (952, 0, 36), and the pin records what the route measures. The gap is an
+#: open item in `MISSING.md` M-322's open list.
+#: ~~(952, 0, 36)~~ REPINNED 2026-10-30 -> (952, 2, 34), THE RULE-5 LISTING
+#: (`MISSING.md` M-322 item 8, fixed; layer: reporting only). `check_scheme`
+#: now lists every schema some whole reading holds
+#: (`VocabularyPairResults.listed`), for a pair a definite schema already
+#: satisfies too, so 27 tir'd/expired and 122 admire/desire name their
+#: audible schemas again and E2 no longer fires. Nothing judged moved:
+#: 952 + 36 + 25 = 1013 judged against 51 refused, as before. H HOLDS: 2 of
+#: 36 schema-only satisfactions (5.6%) are AUDIBLE and 34 (94.4%) are not.
 PINNED = {
-    "sonnets": (953, 2, 21),
+    "sonnets": (952, 2, 34),
 }
 
 

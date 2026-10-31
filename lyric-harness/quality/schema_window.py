@@ -100,8 +100,17 @@ RETENTION_FLOOR = 0.990
 #: such pairs became violations, the three distance-1 couplet rescues among
 #: them. The same set `schema_end_reading.PINNED` repinned to 2 + 21 = 23
 #: that day. E2 STILL FIRES: the mandate's furthest binding is still 2.
+#: ~~{"rescues": 23, "by_distance": {2: 23}}~~ REPINNED 2026-10-30 ->
+#: {"rescues": 36, "by_distance": {2: 35, 1: 1}}, THE ENGLISH SOUND
+#: INVENTORY (`MISSING.md` M-322; layer: the lexicon's accent readings and
+#: the any-reading search). The same set `schema_end_reading.PINNED` repinned
+#: to 0 + 36 that day: 14 pairs joined (eight from the violations -- the
+#: non-rhotic consonance pairs and were/bear, were/near -- and six from the
+#: coarse passes) and 14 L10-12 art/convert' left. The one distance-1 rescue
+#: is 72 L13-14 forth/worth, a closing couplet. E2 STILL FIRES: the
+#: mandate's furthest binding is still 2.
 PINNED = {
-    "sonnets": {"rescues": 23, "by_distance": {2: 23}},
+    "sonnets": {"rescues": 36, "by_distance": {2: 35, 1: 1}},
 }
 
 

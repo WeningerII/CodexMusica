@@ -2,9 +2,9 @@
 """INTRA-LINE FIGURES — the ~~19~~ ~~21~~ 20 schemas no pair of lines can stand in
 (`intra_line_schemas()`; `python3 quality/figures.py` prints the count).
 
-THE GAP THIS CLOSES. `quality/relations.REGISTRY` holds ~~77~~ 78 schemas and
+THE GAP THIS CLOSES. `quality/relations.REGISTRY` holds ~~77~~ ~~78~~ 80 schemas and
 a mandate can now declare any of them (`MISSING.md` M-59), but a mandate group
-is a set of lines that must relate TO EACH OTHER, and 19 of the ~~77~~ 78
+is a set of lines that must relate TO EACH OTHER, and 19 of the ~~77~~ ~~78~~ 80
 declare `same_line` / `same_token` / `at_caesura` / `at_lift` placement (the
 other ~~two~~ one `intra_line_schemas()` returns ~~are `broken rhyme`, by its
 `a_is_split_token` placement, and~~ is `平仄 tonal template`, by its `line`
@@ -52,7 +52,7 @@ def intra_line_schemas():
     return tuple(sorted(n for n in R.REGISTRY if _all_same_line(n)))
 
 
-def line_figures(stream, names=None, keep_refusals=True):
+def line_figures(stream, names=None, keep_refusals=True, build=None):
     """Every intra-line figure instance in this stream, grouped by LINE.
 
     -> {"lines": {line_no: [Figure...]}, "refused": [Refused...],
@@ -67,6 +67,9 @@ def line_figures(stream, names=None, keep_refusals=True):
     produces zero instances of both, and "this line has no cynghanedd" and
     "nothing here could look for cynghanedd" are different sentences. They are
     kept in separate lists so a caller cannot sum them.
+
+    `build(phon) -> stream` rebuilds this stream under a pinned phonology;
+    given it, an undecided line is resolved under the any-reading rule.
     """
     asked = tuple(names) if names is not None else intra_line_schemas()
     # THE CAESURA FRAME, SUPPLIED BY THE RUN THAT NEEDS IT.
@@ -120,26 +123,79 @@ def line_figures(stream, names=None, keep_refusals=True):
                 refused.append({"schema": name, "kind": assemblies.kind,
                                 "detail": assemblies.detail})
             continue
-        res = [e for _, edges, verdict in assemblies if verdict is True for e in edges]
-        for inst in res:
-            if inst.verdict is not True:
-                continue
-            a, b = R._origin_line(inst.a), R._origin_line(inst.b)
-            if a is None or a != b:
-                # A CROSS-LINE INSTANCE OF AN INTRA-LINE SCHEMA IS DROPPED
-                # HERE, and it is not lost: `line_pairs_for` is the consumer
-                # that keeps those. This module answers "what is IN this
-                # line", so a span pair straddling a break is not its finding
-                # even when the schema that produced it is intra-line by
-                # placement (an unplaced member can still align across one).
-                continue
-            out.setdefault(a, []).append({
-                "schema": name,
-                "placement": _placements_of(name),
-                "a": inst.a.origin, "b": inst.b.origin,
-                "reads": tuple((c, i, r.value) for c, i, r in inst.reads),
-            })
+        held = _true_on_lines(name, assemblies)
+        for a, insts in held.items():
+            out.setdefault(a, []).extend(insts)
+        if build is not None:
+            # STANDING RULE 5: a line whose figure the merged readings leave
+            # undecided is asked again under each whole reading of its
+            # uncertain tokens, paired within one accent; it holds if one
+            # reading holds it, and that reading is reported.
+            for a, insts in _resolve_undecided(sch, name, stream, assemblies,
+                                               set(held), build).items():
+                out.setdefault(a, []).extend(insts)
     return {"lines": out, "refused": refused, "asked": asked}
+
+
+def _true_on_lines(name, assemblies, witness=None):
+    """{line_no: [Figure...]} for the instances in True assemblies."""
+    out = {}
+    res = [e for _, edges, verdict in assemblies if verdict is True for e in edges]
+    for inst in res:
+        if inst.verdict is not True:
+            continue
+        a, b = R._origin_line(inst.a), R._origin_line(inst.b)
+        if a is None or a != b:
+            # A CROSS-LINE INSTANCE OF AN INTRA-LINE SCHEMA IS DROPPED
+            # HERE, and it is not lost: `line_pairs_for` is the consumer
+            # that keeps those. This module answers "what is IN this
+            # line", so a span pair straddling a break is not its finding
+            # even when the schema that produced it is intra-line by
+            # placement (an unplaced member can still align across one).
+            continue
+        fig = {
+            "schema": name,
+            "placement": _placements_of(name),
+            "a": inst.a.origin, "b": inst.b.origin,
+            "reads": tuple((c, i, r.value) for c, i, r in inst.reads),
+        }
+        if witness:
+            fig["readings"] = witness
+        out.setdefault(a, []).append(fig)
+    return out
+
+
+def _resolve_undecided(sch, name, stream, assemblies, held, build):
+    """{line_no: [Figure...]} for lines with an undecided assembly and no
+    held instance, found under one whole reading of the line's uncertain
+    tokens (`relations.reading_combos`, capped at READING_COMBO_CAP)."""
+    ids = {}
+    for _, edges, verdict in assemblies:
+        if verdict is not None:
+            continue
+        for inst in edges:
+            a, b = R._origin_line(inst.a), R._origin_line(inst.b)
+            if a is not None and a == b and a not in held:
+                ids.setdefault(a, set()).update(inst.a.idx + inst.b.idx)
+    out = {}
+    for line, idx in sorted(ids.items()):
+        combos, _ = R.reading_combos(stream, R._uncertain_tokens(stream, idx))
+        for combo in combos or ():
+            phon2 = R.pinned_phonology(stream, combo)
+            if phon2 is None:
+                break
+            s2 = build(phon2)
+            res = R.realise(sch, s2)
+            if isinstance(res, R.Refusal):
+                continue
+            asm = R.assemble(sch, res, s2)
+            if isinstance(asm, R.Refusal):
+                continue
+            got = _true_on_lines(name, asm, R.reading_witness(combo)).get(line)
+            if got:
+                out[line] = got
+                break
+    return out
 
 
 __all__ = ["INTRA_LINE_PLACEMENTS", "intra_line_schemas", "line_figures"]

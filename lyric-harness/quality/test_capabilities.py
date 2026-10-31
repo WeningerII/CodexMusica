@@ -2,7 +2,7 @@
 """Regressions for the DECLARED-COORDINATE CONSTRUCTORS — the seven
 capabilities that stood between `quality/relations.REGISTRY`'s schemas and a
 judge (77 on 2026-08-22), closed 2026-08-22 on the owner's ruling "all 77, no exceptions". The
-registry now holds ~~77~~ 78 (M-40, a61fe4e69); §8 counts it as
+registry now holds ~~77~~ ~~78~~ 80 (M-40, a61fe4e69); §8 counts it as
 `len(R.REGISTRY)`.
 
 WHAT EVERY SECTION HERE ASSERTS, and it is the same shape each time because

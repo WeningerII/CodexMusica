@@ -492,10 +492,14 @@ def test_real_population_against_shakespeares_own_form():
     # 102 (forth/worth), 114 (accidents/intents) and 140 (ornaments/rents)
     # are judged with the fallback OFF and leave this set (each violates in
     # General American). superseded: the five pairs below plus those three.
+    # REPINNED 2026-10-30 (M-322): the any-reading search varies first the
+    # words that differ on what a schema reads, so sonnet 1 ornament/content
+    # is judged (and violates) with the fallback OFF and leaves this set.
+    # superseded: ~~{(1, 9, 11), (95, 13, 14)}~~.
     check("...and resolve exactly the uncertainty an unread INTERIOR word "
-          "caused — two pairs, each with an interior word CMUdict cannot "
+          "caused — one pair, with an interior word CMUdict cannot "
           "read — and no other",
-          interior_newly == {(1, 9, 11), (95, 13, 14)}
+          interior_newly == {(95, 13, 14)}
           and all(_interior_oov(p) for p in interior_newly),
           f"{sorted(interior_newly)}")
     # REPINNED 2026-08-11: 38/39 -> 37/39, one PAIR added, after cell BA's

@@ -2945,11 +2945,17 @@ def test_the_stanza_ground_is_printed_or_refused():
     lines, stanzas, _s, _r, _x = sl.read_grounded(root)
     phon = _get_phon("eng")
     toks = [_R.tokenise(l) for l in lines if l.strip()]
+    # 2026-10-30: counted True instances only (30 True, 0 undecided). Since
+    # M-322 the Raven's -oor/-ore words (door, floor, lore, more) carry
+    # rhotic, non-rhotic and FORCE readings, read independently per token,
+    # so the same 30 pairs are undecided; the claim is about the FRAME (what
+    # the stanza ground admits), so it counts the pairs the judge keeps.
     def _inst(ground):
         st = _N._stream_of(toks, phon, "eng", sl.prepare(), ground)
-        out = _R.realise(_R.REGISTRY["monorhyme / leash"], st, keep="true")
+        out = _R.realise(_R.REGISTRY["monorhyme / leash"], st,
+                         keep=("true", "none"))
         return (out.capability if isinstance(out, _R.Refusal)
-                else sum(1 for i in out if i.verdict is True))
+                else sum(1 for i in out if i.verdict is not False))
     check("monorhyme/leash on Poe: 30 instances inside the printed stanzas",
           _inst(stanzas) == 30,
           "it read 268 over one 40-line block — a leash is a run of ONE rhyme "
@@ -3183,7 +3189,11 @@ def test_the_cli_reads_the_marks_it_used_to_delete():
             out = _R.assemble(sch, _R.realise(sch, st), st)
             if isinstance(out, _R.Refusal):
                 refused.add(name)
-            elif any(verdict is True for _,_,verdict in out):
+            # True or undecided (2026-10-30: True only). Since M-322 accent
+            # alternates leave pairs undecided that a different line grid can
+            # tip either way; this check is about which schemas READ the
+            # frame, so a schema kept on the same evidence counts once.
+            elif any(verdict is not False for _,_,verdict in out):
                 found.add(name)
         return found, refused
     marked, old, absent = inventory(cst), inventory(cold), inventory(fst)
@@ -3207,8 +3217,43 @@ def test_the_cli_reads_the_marks_it_used_to_delete():
     frame_sensitive = {name for name, sch in _R.all_schemas().items()
                        if "stanza" in sch.capabilities() or "section" in sch.capabilities()}
     changed = (marked[0] ^ old[0]) | (marked[1] ^ old[1])
-    check("retaining only the section marks can change only frame-sensitive schemas",
-          changed <= frame_sensitive, sorted(changed))
+
+    # A kept mark row also separates the two lines it stands between, so a
+    # schema that pairs ADJACENT lines (linked rhyme, cross rhyme) can change
+    # without reading a frame. Allowed only where every instance one reader
+    # keeps and the other drops joins two lines a printed mark separates.
+    # 2026-10-30: this used to be `changed <= frame_sensitive` alone; on the
+    # base tree it passed because no adjacency schema held across a mark.
+    # Since M-322 accent alternates leave linked rhyme undecided on
+    # chorus-end/verse-start, a pair the marked reader correctly splits.
+    marks_between = set()
+    kept_rows = [k for k, l in enumerate(ctext) if not _LH.is_apparatus_line(l)]
+    for i in range(len(kept_rows) - 1):
+        if any(_LH.is_apparatus_line(ctext[k])
+               for k in range(kept_rows[i] + 1, kept_rows[i + 1])):
+            marks_between.add((ctext[kept_rows[i]].strip(),
+                               ctext[kept_rows[i + 1]].strip()))
+
+    def kept_pairs(name, st):
+        out = _R.realise(_R.all_schemas()[name], st)
+        if isinstance(out, _R.Refusal):
+            return None
+        text = st.text_lines
+        return {(text[st.units[i.a.head()].line].strip(),
+                 text[st.units[i.b.head()].line].strip())
+                for i in out if i.verdict is not False}
+
+    def across_marks_only(name):
+        a, b = kept_pairs(name, cst), kept_pairs(name, cold)
+        return (a is not None and b is not None
+                and all(tuple(sorted(p)) in {tuple(sorted(q))
+                                             for q in marks_between}
+                        for p in a ^ b))
+    unexplained = sorted(n for n in changed - frame_sensitive
+                         if not across_marks_only(n))
+    check("retaining only the section marks can change only frame-sensitive "
+          "schemas, or an adjacency schema on the lines a mark separates",
+          not unexplained, (sorted(changed), unexplained))
     check("when stanza marks are refused, every stanza-dependent schema refuses",
           frame_sensitive <= absent[1], sorted(frame_sensitive - absent[1]))
 

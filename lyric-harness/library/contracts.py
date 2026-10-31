@@ -11,6 +11,7 @@ import dataclasses
 import hashlib
 import json
 import math
+from collections.abc import Mapping
 from fractions import Fraction
 from typing import Any, Literal, NotRequired, TypedDict
 
@@ -39,6 +40,65 @@ class EvidenceRecord(TypedDict, total=False):
     basis: str
     source_ranges: list[CoordinateRange]
     detail: str
+    # relation_instance: the syllables each member was judged on, the reading
+    # quantifier, what the any-reading search did, and (undecided only) why.
+    compared: dict[str, list[dict[str, Any]]]
+    quantifier: Literal["exists_compatible_reading", "first_listed_reading"]
+    reading_search: ReadingSearch
+    undecided_reason: UndecidedReason
+    # method_result (schema): which occurrence pairs the method's loci bind.
+    domain: MethodDomain
+    # shared_sound (#637): "Shared sound (not a registered figure)". The
+    # method's versioned name, the primitive's reading context and versions,
+    # and whether the two occurrences are spelled alike (kept, never dropped).
+    method_name: str
+    layer: str
+    reading_context: dict[str, Any]
+    channel_versions: dict[str, Any]
+    same_spelling: bool
+
+
+ReadingSearchState = Literal["not_needed", "exhaustive", "partial", "unavailable"]
+UndecidedReason = Literal["combination_cap", "rebuild_unavailable", "locus_unmatched",
+                          "readings_not_searched_in_scope", "no_reading_combination",
+                          "placement_unknown", "identity_unknown", "channel_unknown",
+                          "judge_unknown", "member_edges_undecided"]
+
+
+class ReadingSearch(TypedDict):
+    """`state` is what was JUDGED: exhaustive only when every combination
+    was. A search that stops at its first witness is `partial` with
+    `termination_reason: witness_found` unless that witness was the last."""
+    state: ReadingSearchState
+    combinations_examined: int
+    combination_limit: int
+    termination_reason: NotRequired[Literal["witness_found", "exhausted", "combination_cap",
+                                            "rebuild_unavailable"]]
+    reason: NotRequired[UndecidedReason]
+
+
+class MethodDomain(TypedDict):
+    """`exact_token_pair`: every listed pair is inside the method's loci and
+    placement; on an answered method a listed pair with no true or undecided
+    record is a judged False -- unless it touches a `reading_dependent_tokens`
+    occurrence, whose locus changes with its reading: such a cell is neither
+    False nor outside, and only its own record answers for it. `none`: no
+    pair is claimed (`reason` says why). `pairs` maps a token's index in
+    `tokens` (role a) to runs [first, last] of its partners' indices (role
+    b), in the order the engine asks: the reverse question is not asked.
+    `unordered` (shared sound): a listed pair answers for both orders."""
+    projection: Literal["exact_token_pair", "none"]
+    reason: NotRequired[str]
+    cap: NotRequired[int]
+    ordering: NotRequired[Literal["role_ordered", "unordered"]]
+    tokens: NotRequired[list[str]]
+    pairs: NotRequired[dict[str, list[list[int]]]]
+    pair_count: NotRequired[int]
+    reading_dependent_tokens: NotRequired[list[str]]
+    # What a listed pair's absence quantifies over. `first_listed_reading`:
+    # readings were not searched (a first-listed scope, or a work with
+    # sound declarations), and every disputed word is reading-dependent.
+    reading_policy: NotRequired[Literal["exists_compatible_reading", "first_listed_reading"]]
 
 
 class ReaderCheckpoint(TypedDict):
@@ -72,7 +132,10 @@ def json_safe(value: Any) -> Any:
                                                 sorted(value, key=repr)]}
     if isinstance(value, set):
         return [json_safe(v) for v in sorted(value, key=repr)]
-    if isinstance(value, dict):
+    # Any mapping, not only a dict: the engine hands out read-only views
+    # (`MappingProxyType`, `relations.pair_channel_reads`) so a caller
+    # cannot corrupt what it caches. Serialized exactly as a dict is.
+    if isinstance(value, Mapping):
         return {str(k): json_safe(v) for k, v in value.items()}
     if isinstance(value, (list, tuple)):
         return [json_safe(v) for v in value]
@@ -165,7 +228,7 @@ RESULT_SCHEMA = {
         "presence": {"enum": ["absent", "empty", "present"]},
         "coverage": {"enum": ["answered", "refused", "not_requested"]},
         "precision": {"enum": ["exact", "span", "row", "token"]},
-        "namespace": {"enum": ["class", "type", "schema", "native", "function"]},
+        "namespace": {"enum": ["class", "type", "schema", "native", "function", "shared_sound"]},
         "range": {"type": "array", "items": {"type": "integer", "minimum": 0}, "minItems": 2, "maxItems": 2},
         "coordinate": {"type": "object", "properties": {
             "codepoint_range": {"$ref": "#/$defs/range"},

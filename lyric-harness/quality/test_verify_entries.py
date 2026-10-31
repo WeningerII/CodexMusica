@@ -325,7 +325,8 @@ def test_comma_grouped_counts_are_read_whole():
 _CAP_ROWS = VE.capacity_rows()
 _CAP_AY = _CAP_ROWS["AY-ER"]
 _CAP_IY = _CAP_ROWS["IY"]
-_CAP_EHR = _CAP_ROWS["EH-R"]
+# M-322 (2026-10-30): SQUARE before R is EA; the old EH-R row is EA-R.
+_CAP_EAR = _CAP_ROWS["EA-R"]
 _CAP_DEPTH = max(row["chain_lo"] or 0 for row in _CAP_ROWS.values())
 _CAP_HOLDERS = sorted(f for f, row in _CAP_ROWS.items()
                       if row["certified"] and row["chain_lo"] == _CAP_DEPTH)
@@ -343,9 +344,9 @@ CAPACITY_MUTANTS = [
      f"{_CAP_AY['chain_hi'] + 1} classes,\n   certified **{_CAP_AY['chain_lo']}**",
      "AY-ER's current spelling-class ceiling off by one"),
     ("quality/RESULTS_RHYME_CAPACITY.md",
-     f"{_CAP_EHR['chain_hi']} classes, certified **{_CAP_EHR['chain_lo']}**",
-     f"{_CAP_EHR['chain_hi']} classes, certified **{_CAP_EHR['chain_lo'] + 1}**",
-     "EH-R's current certified floor off by one"),
+     f"{_CAP_EAR['chain_hi']} classes, certified **{_CAP_EAR['chain_lo']}**",
+     f"{_CAP_EAR['chain_hi']} classes, certified **{_CAP_EAR['chain_lo'] + 1}**",
+     "EA-R's current certified floor off by one"),
     ("quality/RESULTS_RHYME_CAPACITY.md",
      f"IY: attempts {_CAP_ATTEMPTS}, certified **{_CAP_IY['chain_lo']}**",
      f"IY: attempts {_CAP_ATTEMPTS + 1}, certified **{_CAP_IY['chain_lo']}**",
