@@ -85,6 +85,7 @@ test('native multi-token bindings are not expanded into arbitrary pair cliques',
   r.a.token_ids.push('line:1:token:0');
   const { model } = make(records);
   assert.ok(model.figures.some((f) => f.evidence_id === r.id && f.record.a.token_ids.length === 2));
+  assert.deepEqual(model.figures.find((f) => f.evidence_id === r.id).members, { a: r.a, b: r.b });
   assert.ok(!model.cells.some((c) => c.record.id === r.id));
 });
 test('an unresolved occurrence does not change a pair into a fabricated figure', () => {
@@ -123,4 +124,88 @@ test('same spelling remains distinct and imprecise source ranges are not guessed
   const { model } = make(records);
   assert.notEqual(model.occurrences[0].entity_id, model.occurrences[1].entity_id);
   assert.equal(model.poem.ranges[tokens[0].token_id], undefined);
+});
+
+const analysis = new Function(
+  'CMLyricTokens',
+  fs.readFileSync(path.join(__dirname, '../src/library/analysis.js'), 'utf8')
+)(require('../src/lyric-tokens'));
+const { JSDOM } = require('jsdom');
+const markDocument = new JSDOM('<!doctype html>').window.document;
+const marks = new Function(
+  'document',
+  fs.readFileSync(path.join(__dirname, '../src/library/marks.js'), 'utf8')
+)(markDocument);
+
+test('actual native figure membership reaches the existing inspector without pair projection', async () => {
+  const captured = require('./fixtures/connection-backend-figure.json');
+  const hydrated = await analysis.hydrateEvidence(captured.records);
+  assert.equal(hydrated.pending.length, 0);
+  const raw = hydrated.records.find((r) => r.kind === 'relation_figure');
+  assert.ok(raw);
+  const { model } = make(hydrated.records);
+  const figure = model.figures.find((f) => f.evidence_id === raw.id);
+  assert.deepEqual(figure.members.frame, raw.frame);
+  assert.deepEqual(figure.members.member_lines, raw.member_lines);
+  assert.deepEqual(figure.members.edges, raw.edges);
+  assert.ok(!model.cells.some((c) => c.record.id === raw.id));
+  const { JSDOM } = require('jsdom');
+  const dom = new JSDOM('<!doctype html>', { runScripts: 'outside-only' });
+  const views = dom.window
+    .eval(
+      `(function(){${fs.readFileSync(path.join(__dirname, '../src/library/connection-views.js'), 'utf8')}\n})()`
+    )
+    .createViews({ interaction: I, marks });
+  model.selection = I.figure(raw.id);
+  const inspector = views.inspector(model);
+  assert.ok(inspector.textContent.includes(JSON.stringify(figure.members)));
+  dom.window.close();
+});
+
+test('partial figure edges retain supplied membership and explicit incompleteness', async () => {
+  const captured = require('./fixtures/connection-backend-figure.json');
+  const records = structuredClone(captured.records);
+  const raw = records.find((r) => r.kind === 'relation_figure');
+  // Exercise the real paged-figure hydrator with the member pages withheld.
+  raw.edge_count = raw.edges.length;
+  delete raw.edges;
+  const hydrated = await analysis.hydrateEvidence(records);
+  assert.ok(hydrated.pending.length);
+  const { model } = make(hydrated.records, false);
+  const figure = model.figures.find((f) => f.evidence_id === raw.id);
+  assert.deepEqual(figure.members.frame, raw.frame);
+  assert.deepEqual(figure.members.member_lines, raw.member_lines);
+  assert.equal(figure.members.edges, undefined);
+  assert.equal(figure.members.edges_incomplete, true);
+  assert.equal(figure.members.edge_count, raw.edge_count);
+  assert.ok(!model.cells.some((c) => c.record.id === raw.id));
+});
+
+test('supplied token order identifies line endings and drives actual margin geometry', () => {
+  const { model } = make();
+  const ends = model.occurrences.filter((o) => o.final);
+  assert.deepEqual(
+    ends.map((o) => o.entity_id),
+    ['line:0:token:1', 'line:1:token:1']
+  );
+  const point = (o) => ({ ...o, x: 100, y: o.line * 70 });
+  const geometry = marks.arcGeometry(...ends.map(point), { margin: 760, gutter: 10 });
+  assert.equal(geometry.route, 'margin');
+  assert.equal(geometry.stems.length, 2);
+  const internal = model.occurrences.find((o) => o.entity_id === 'line:0:token:0');
+  assert.equal(
+    marks.arcGeometry(point(internal), point(ends[1]), { margin: 760, gutter: 10 }).route,
+    'interline'
+  );
+  const shuffled = fixture.records.slice().reverse();
+  assert.deepEqual(
+    make(shuffled)
+      .model.occurrences.filter((o) => o.final)
+      .map((o) => o.entity_id)
+      .sort(),
+    ends.map((o) => o.entity_id).sort()
+  );
+  assert.ok(
+    make(fixture.records.slice(0, 2), false).model.occurrences.every((o) => o.final !== true)
+  );
 });

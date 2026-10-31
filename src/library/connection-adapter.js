@@ -15,11 +15,17 @@ function _connectionModel(I, { records, registry, report, complete, title }) {
   const lines = records.filter((r) => r.kind === 'line');
   const lineIndex = new Map(lines.map((r, i) => [r.line_id, i]));
   const tokens = records.filter((r) => r.kind === 'token' && lineIndex.has(r.line_id));
+  // A partial page can stop mid-line. Only the complete verified census
+  // establishes the final supplied token; never re-tokenize the line text.
+  const last = new Map();
+  if (complete)
+    for (const r of tokens) last.set(r.line_id, Math.max(last.get(r.line_id) ?? -1, r.token));
   const occurrences = tokens.map((r) => ({
     ...r,
     entity_id: r.token_id,
     line: lineIndex.get(r.line_id) + 1,
     token: r.token + 1,
+    final: complete ? r.token === last.get(r.line_id) : undefined,
   }));
   const byOccurrence = new Map(occurrences.map((o) => [o.entity_id, o]));
   const results = new Map(
@@ -89,7 +95,23 @@ function _connectionModel(I, { records, registry, report, complete, title }) {
       cells.push(cell);
       indexed.set(I.selectionKey(selection), cell);
     } else
-      figures.push({ evidence_id: r.id, method_id: m.id, label: m.name, inLocus: true, record });
+      figures.push({
+        evidence_id: r.id,
+        method_id: m.id,
+        label: m.name,
+        inLocus: true,
+        members:
+          r.kind === 'relation_figure'
+            ? {
+                frame: r.frame,
+                member_lines: r.member_lines,
+                edges: r.edges,
+                edge_count: r.edge_count,
+                edges_incomplete: r.edges_incomplete,
+              }
+            : { a: r.a, b: r.b },
+        record,
+      });
   }
   const ranges = {};
   for (const o of occurrences) {
