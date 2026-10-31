@@ -37,7 +37,7 @@ const adapterSource = read('src/library/connection-adapter.js');
 const LANDED = {
   counts: false, // model.counts wiring (BB8, #637 6547009973 item 6)
   groupCounts: false, // model.groupCounts wiring (BB8, same item)
-  familyTable: false, // src/connection-families.js (Jony) + adapter line (3PO)
+  familyTable: true, // landed on #652 at c4b0114af6
   readingDisclosure: false, // inspector reading wording (3PO 6547011992)
   judgedAlternatives: false, // BB8's bounded outcomes for judged alternatives
 };
@@ -47,7 +47,10 @@ for (const k of (process.env.CONNECTION_CONTRACTS_LANDED || '').split(',').filte
 }
 // A gate: enforced once its feature is declared landed, a static TODO before.
 const gate = (feature, waits) => (LANDED[feature] ? {} : { todo: `not landed: ${waits}` });
-const adapt = new Function(adapterSource + '\nreturn _connectionModel;')();
+// The adapter reads the family table as a page global, as test_connection_adapter.js supplies it.
+const FAMILIES_FILE = path.join(ROOT, 'src/connection-families.js');
+const FAMILIES = fs.existsSync(FAMILIES_FILE) ? require(FAMILIES_FILE).CONNECTION_FAMILIES : undefined;
+const adapt = new Function('CONNECTION_FAMILIES', adapterSource + '\nreturn _connectionModel;')(FAMILIES);
 
 function model(records, { reg = registry, complete = true, report = {} } = {}) {
   return adapt(I, {
