@@ -308,13 +308,16 @@ function mount(host, opts) {
   const fonts = doc.fonts;
   function focusKeyIn(root, key) {
     if (!key) return false;
-    for (const node of root.querySelectorAll('[data-selection]')) {
-      if (node.dataset.selection === key) {
-        node.focus();
-        return true;
-      }
-    }
-    return false;
+    // The same selection can be drawn twice: at phone width the matrix row's
+    // button and the hidden desktop cell share a key. Focus the one on screen;
+    // focusing a hidden one does nothing and leaves the reader on the page.
+    const all = [...root.querySelectorAll('[data-selection]')].filter(
+      (node) => node.dataset.selection === key
+    );
+    const node = all.find((n) => n.getClientRects().length) || all[0];
+    if (!node) return false;
+    node.focus();
+    return true;
   }
   function layout(root, g) {
     if (g !== gen || !root.isConnected || typeof views.layoutPoem !== 'function') return;
