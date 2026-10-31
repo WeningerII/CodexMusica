@@ -64,10 +64,19 @@ const READER_MODE = argv.includes('--reader-mode');
 const ONLY_SECTION = pick('section');
 const ONLY_WIDTH = Number(pick('width')) || 0;
 const pending = [];
-// The reader is ready: its poem lines, or (a link restored into Connections
-// mode, where the paper is hidden) the mode's bar.
-const READER_SETTLED =
-  '#surface-library .rd-paper .rd-line, #surface-library .rd.rd-conn .rd-connbar';
+// The reader is ready, in whichever mode its address asked for: the reader
+// landmark attached first, then the surface that mode shows -- the poem lines,
+// or (conn=1 in the hash route, where the paper is hidden) the mode's bar.
+// Never a comma selector, which can settle on the hidden paper (3PO).
+async function readerSettled(page) {
+  await page.waitForSelector('#surface-library .rd', { state: 'attached', timeout: 20000 });
+  const conn = await page.evaluate(() => /[?&]conn=1\b/.test(window.location.hash));
+  return H.settled(
+    page,
+    'reader',
+    conn ? '#surface-library .rd.rd-conn .rd-connbar' : '#surface-library .rd-paper .rd-line'
+  );
+}
 const notes = [];
 
 const crypto = require('crypto');
@@ -554,7 +563,7 @@ const SECTIONS = {
     // favicon fetch and logs a CORS error (found by Jony Ives).
     await page.goto(link);
     await page.reload();
-    await H.settled(page, 'reader', READER_SETTLED);
+    await readerSettled(page);
     await analyze(page);
     await page.waitForSelector('.cv-root');
     await page.click('[data-act="more"]');
@@ -572,7 +581,7 @@ const SECTIONS = {
     other.hash = `#library/read/${H.EPI_B}?lens=sound`;
     await page.goto(other.href);
     await page.reload();
-    await H.settled(page, 'reader', READER_SETTLED);
+    await readerSettled(page);
     await analyze(page);
     await page.waitForSelector('.cv-notice');
     await settle(page);
