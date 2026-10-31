@@ -626,6 +626,8 @@ if (LIBRARY) {
       name === 'analysis'
         ? fs.readFileSync(path.join(SRC, 'connection-interaction.js'), 'utf8') +
           '\n' +
+          fs.readFileSync(path.join(SRC, 'connection-families.js'), 'utf8') +
+          '\n' +
           fs.readFileSync(path.join(SRC, 'library/connection-adapter.js'), 'utf8') +
           '\n'
         : '';

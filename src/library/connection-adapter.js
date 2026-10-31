@@ -1,6 +1,7 @@
 // Bundled with analysis (not a separately loaded chunk). Only verified,
 // hydrated evidence enters here. No requests, tokenization or sound analysis.
 /* exported _connectionModel */
+/* global CONNECTION_FAMILIES */
 function _connectionComplete(report, loaded, offset, next, pending) {
   return (
     !!report &&
@@ -36,16 +37,7 @@ function _connectionModel(I, { records, registry, report, complete, title }) {
     .filter((m) => I.layerOfNamespace(m.namespace))
     .map((m) => {
       const r = results.get(m.id);
-      const family =
-        m.name.includes('assonance') || m.name === 'vowel@v1'
-          ? 'assonance'
-          : m.name.includes('consonance') || m.name === 'coda@v1'
-            ? 'consonance'
-            : m.name === 'alliteration' || /^(stressed_)?onset@/.test(m.name)
-              ? 'alliteration'
-              : m.name.includes('rhyme')
-                ? 'rhyme'
-                : undefined;
+      const family = CONNECTION_FAMILIES[m.id];
       return {
         ...m,
         method_id: m.id,
