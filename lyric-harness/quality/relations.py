@@ -10386,6 +10386,20 @@ def _narrow_tokens(stream, tokens, fields):
             and any(uncertain(getattr(u.syl, f, None)) for f in fields)}
 
 
+def _locatable_tokens(stream, tokens):
+    """The cause tokens whose readings `occurrence_readings` can locate: the
+    ones `reading_combos` can take part in, a one-reading word included (it
+    still joins the accent check). An unlocatable word is left merged."""
+    lex = _stream_lexicon(stream)
+    if lex is None or not stream.lexical_tokens:
+        return set()
+    from quality.pronunciation import occurrence_readings
+    return {(li, ti) for li, ti in tokens
+            if 0 <= li < len(stream.text_lines)
+            and occurrence_readings(lex, stream.text_lines[li],
+                                    stream.lexical_tokens[li], ti) is not None}
+
+
 def _resolve_over(schema, stream, pair, build, cap, bmap, tokens, fields):
     """`resolve_line_pair`'s search over `tokens`, grown to a fixpoint with
     the varied words each undecided combination reveals on `fields`."""
@@ -10402,7 +10416,7 @@ def _resolve_over(schema, stream, pair, build, cap, bmap, tokens, fields):
             # is reached on definite reads, so it never rests on the word left
             # merged; anything else stays undecided (2026-10-31, M-311 F1:
             # `Major-General` in reach of Gilbert's `sat a gee`).
-            free = {t for t in tokens if reading_combos(stream, {t}, cap)[0] is not None}
+            free = _locatable_tokens(stream, tokens)
             combos, complete = (reading_combos(stream, free, cap) if free and free != tokens
                                 else (None, False))
             if not combos:
