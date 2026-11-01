@@ -342,6 +342,8 @@ test('mid-run, refused and capacity outcomes record no key even with a token', a
     uncertified_exit2: { exit_code: 2, status: 'uncertified', checkpoint: 'c' },
     refused_exit2_bare: { exit_code: 2, status: 'refused' },
     uncertified_exit2_bare: { exit_code: 2, status: 'uncertified' },
+    refused_before_work: { exit_code: 2, status: null, measurement_status: 'refused' },
+    crashed_exit1_bare: { exit_code: 1, status: null },
   };
   for (const [label, v] of Object.entries(outcomes)) {
     const { out } = await fakeTurn([args], () => ({ ...v, final_draft: initial }));

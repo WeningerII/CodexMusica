@@ -320,9 +320,10 @@ export function reviseRepeatKey(name, args) {
 // answers a later FRESH identical request too (product decision, #665
 // follow-up): re-running the unchanged draft would pay the writer for the
 // stop it already reached; rewriting the open lines, a changed declaration
-// or an explicit new_run still runs. Exit 2 (a refusal, or an uncertified
-// stop) is not admitted here. Anything else keeps the original rule: finished
-// only when it carries no checkpoint or sealed state to continue from.
+// or an explicit new_run still runs. Any other numeric exit (2: a refusal or an
+// uncertified stop; 1: a crash) is not admitted, token or not. A verdict with no
+// exit code keeps the original rule: finished only when it carries no checkpoint
+// or sealed state to continue from.
 const REVISE_MID_RUN = new Set([
   'interrupted',
   'uncertain_proposal',
@@ -338,10 +339,12 @@ const REVISE_TERMINAL = new Set([
 ]);
 function finishedRevise(verdict) {
   if (!verdict || typeof verdict !== 'object' || REVISE_MID_RUN.has(verdict.status)) return false;
-  // Exit 2 (a refusal, or an uncertified stop) never answers a repeat, token or not.
-  if (verdict.exit_code === 2) return false;
   if ((verdict.exit_code === 0 || verdict.exit_code === 3) && REVISE_TERMINAL.has(verdict.status))
     return true;
+  // Any other exit (a refusal before work, a crash, a mid-run stop) never answers a
+  // repeat, token or not: nothing finished, and a retry pays no writer twice.
+  if (typeof verdict.exit_code === 'number' && verdict.exit_code !== 0 && verdict.exit_code !== 3)
+    return false;
   return verdict.checkpoint == null && verdict[STATE_PROPERTY] == null;
 }
 // Where a lyric_revise functionResponse keeps its verdict: under `verdict`
