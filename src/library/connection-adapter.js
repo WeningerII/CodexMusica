@@ -263,7 +263,8 @@ function _connectionModel(I, { records, registry, report, complete, title }) {
   const byMethod = new Map(methods.map((m) => [m.method_id, m]));
   const cells = [],
     figures = [],
-    indexed = new Map();
+    indexed = new Map(),
+    missingPairOccurrences = new Set();
   for (const r of records) {
     const m = byMethod.get(r.method_id);
     if (!m || !['relation_instance', 'relation_figure'].includes(r.kind)) continue;
@@ -293,7 +294,10 @@ function _connectionModel(I, { records, registry, report, complete, title }) {
       reading_search: search(r.reading_search),
     };
     if (r.kind === 'relation_instance' && a?.length === 1 && b?.length === 1 && a[0] !== b[0]) {
-      if (!byOccurrence.has(a[0]) || !byOccurrence.has(b[0])) continue;
+      if (!byOccurrence.has(a[0]) || !byOccurrence.has(b[0])) {
+        missingPairOccurrences.add(m.id);
+        continue;
+      }
       const selection =
         m.ordering === 'unordered'
           ? I.pair(m.id, a[0], b[0])
@@ -347,16 +351,23 @@ function _connectionModel(I, { records, registry, report, complete, title }) {
   // Undecided is given only once every page and detail part is verified
   // loaded and every checked method answered; a binding loaded in two states
   // gives neither count. Negative totals are the backend's whole-method listed
-  // pairs, only when every checked method supplies an answered total.
+  // pairs, only when every checked method supplies an answered total and its
+  // loaded pair counts agree numerically. This conservative display policy
+  // withholds even legitimate cross-span True/Undecided clashes; it neither
+  // changes backend True precedence nor proves identical pair membership.
   // Refused and pending stay unknown; no complement is inferred here.
   const countsFor = (checked) => {
     const ids = new Set(checked),
-      seen = new Map();
+      seen = new Map(),
+      pairStates = new Map();
     for (const c of cells) {
       if (!ids.has(c.selection.method_id)) continue;
       const k = I.selectionKey(c.selection),
         st = I.cellState(c).state;
       seen.set(k, seen.has(k) && seen.get(k) !== st ? null : st);
+      const id = c.selection.method_id;
+      if (!pairStates.has(id)) pairStates.set(id, new Map());
+      pairStates.get(id).set(k, seen.get(k));
     }
     const states = [...seen.values()];
     const clash = states.includes(null);
@@ -373,13 +384,20 @@ function _connectionModel(I, { records, registry, report, complete, title }) {
     for (const id of ids) {
       const domain = results.get(id)?.domain;
       const totals = domain?.listed_pairs_by_state;
+      const loaded = [...(pairStates.get(id)?.values() || [])];
       if (
         doesNotHold === undefined ||
         domain?.projection !== 'exact_token_pair' ||
+        missingPairOccurrences.has(id) ||
+        !Array.isArray(domain.tokens) ||
+        domain.tokens.some((token) => !byOccurrence.has(token)) ||
+        loaded.includes(null) ||
         !totals ||
         !['listed', 'true_pairs', 'undecided_pairs', 'judged_false'].every((key) =>
           isCount(totals[key])
         ) ||
+        loaded.filter((state) => state === 'holds').length !== totals.true_pairs ||
+        loaded.filter((state) => state === 'undecided').length !== totals.undecided_pairs ||
         totals.reading_dependent_pairs !== 0 ||
         totals.listed !== domain.pair_count ||
         totals.true_pairs + totals.undecided_pairs + totals.judged_false !== totals.listed ||
