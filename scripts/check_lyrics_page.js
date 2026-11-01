@@ -67,7 +67,7 @@
 // Exit 0 if every assertion passes, 1 otherwise, 2 if playwright is missing.
 
 'use strict';
-/* global devicePixelRatio, visualViewport, innerHeight, document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lySyncCaret, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage, uiChatOpen, requestAnimationFrame, LY_ACTION_TEXT, lySubmitLyricsAction, lyWriterState, lyToolRequestAction, lyInspectionSession, Image, InputEvent, MutationObserver, NodeFilter */
+/* global devicePixelRatio, lyIdentity, lyLibraryCapture, lyLibraryRecord, lyDeclarationRefusal, lyItems, visualViewport, innerHeight, document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lySyncCaret, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage, uiChatOpen, requestAnimationFrame, LY_ACTION_TEXT, lySubmitLyricsAction, lyWriterState, lyToolRequestAction, lyInspectionSession, Image, InputEvent, MutationObserver, NodeFilter */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -6414,6 +6414,236 @@ async function browserChecks(chromium) {
         !!c && /a rhyme link on “love”/.test(c) && !/“oh”/.test(c),
         `reopened draft B shows: ${c}`
       );
+      await ctx.close();
+    });
+
+    // ── J14. A Library working copy keeps its review across save and restore ──
+    // A matched reply keeps the request's and the result's parsed documents on
+    // the run; their sections and rows point at each other (a headerless
+    // document too), so the working copy's JSON copy threw: every later save
+    // failed, and so did importing another Library item, which saves this one
+    // first. The copy keeps each document's exact text and a restored run
+    // parses it again, with or without a saved continuation.
+    await step('J14. library working copy keeps its review', async () => {
+      const { ctx, page } = await boot();
+      const LINES = [
+        'The evening wind returns the song',
+        'It carries every hour along',
+        'The river keeps the colour grey',
+        'And night is slower than the day',
+      ];
+      const libraryMeta = (title) => ({
+        version: 1,
+        brief: '',
+        notes: {},
+        drafts: {},
+        ui: {},
+        libraryOrigin: {
+          version: 1,
+          handoffId: 'handoff:' + crypto.randomUUID(),
+          digest: '0'.repeat(64),
+          importedAt: Date.now(),
+          adapted: false,
+          title,
+          language: 'eng',
+          scope: 'whole',
+          provenance: {
+            snapshotId: 'snap:1',
+            unitId: 'unit:' + title.replace(/\W/g, ''),
+            workId: 'work:1',
+            editionId: 'ed:1',
+            revisionId: 'rev:1',
+          },
+          lineage: [],
+          declarations: [],
+        },
+      });
+      // A writer reply matched to the request for the draft as it stands.
+      const reply = (page, id, final, certified) =>
+        page.evaluate(
+          ({ id, final, certified }) => {
+            UI.lyricRequest = {
+              id,
+              revision: UI.lyricRevision,
+              text: $ui('lyrics-draft').value,
+              submittedContext: null,
+            };
+            lyReceive(
+              {
+                reply: 'Done.',
+                task: { domain: 'lyrics', phase: 'edit' },
+                lyric: { standing: [], open: [] },
+                artifact: {
+                  text: final.join('\n'),
+                  final_draft: final,
+                  status: certified ? 'finished' : 'unfinished',
+                  certified,
+                },
+                completion: certified ? { certified: true } : null,
+                stopped: certified ? null : 'LYRICS_UNFINISHED',
+                tools: [{ name: 'lyric_check', exit_code: certified ? 0 : 3 }],
+              },
+              { request_id: id }
+            );
+          },
+          { id, final, certified }
+        );
+      const idA = await page.evaluate(
+        async ({ text, meta }) => {
+          await lyLibraryImport(await CMLibraryImport.makeWorkingCopyEnvelope(text, meta));
+          return lyMeta().draftId;
+        },
+        { text: LINES.join('\n'), meta: libraryMeta('Reading A') }
+      );
+      // Run 1 answers the headerless reading; run 2 the same reading under a header.
+      const final1 = [...LINES];
+      final1[2] = 'The river keeps the evening grey';
+      await reply(page, 'req-j14-1', final1, false);
+      await setDraft(page, `[VERSE]\n${final1.join('\n')}`);
+      const final2 = [...final1];
+      final2[3] = 'And night is longer than the day';
+      await reply(page, 'req-j14-2', final2, true);
+      const before = await page.evaluate(() => {
+        const texts = (r) => [r.baseModel?.text ?? null, r.resultModel?.text ?? null];
+        return {
+          draft: $ui('lyrics-draft').value,
+          past: LY.past.map(texts),
+          run: texts(LY.run),
+          ids: [...LY.past, LY.run].map((r) => [r.baseId, r.resultId]),
+          headerless: !LY.past[0].baseModel.sections.some((s) => s.header),
+        };
+      });
+      check(
+        before.past.length === 1 && before.headerless && before.past[0].every((t) => !!t),
+        `the first run did not keep the headerless request and result: ${JSON.stringify(before.past)}`
+      );
+      check(
+        /^\[VERSE\]\n/.test(before.run[0] || '') && /^\[VERSE\]\n/.test(before.run[1] || ''),
+        `the second run did not keep its headered documents: ${JSON.stringify(before.run)}`
+      );
+      // The working copy saves (the autosave path, then directly).
+      await page.waitForTimeout(800);
+      const saved = await page.evaluate(async (id) => {
+        let save = 'saved';
+        try {
+          await lyLibraryStore.saveDraft(lyLibraryCapture());
+        } catch (e) {
+          save = 'FAIL ' + e.message.split('\n')[0];
+        }
+        const r = await lyLibraryStore.getDraft(id);
+        return {
+          save,
+          toast: document.getElementById('toast')?.innerText || '',
+          run: r?.pageReview?.run
+            ? [r.pageReview.run.baseModel, r.pageReview.run.resultModel]
+            : null,
+        };
+      }, idA);
+      check(saved.save === 'saved', `the Library working copy could not be saved: ${saved.save}`);
+      check(
+        !/could not be saved/.test(saved.toast),
+        `a save failure was announced: ${saved.toast}`
+      );
+      check(
+        JSON.stringify(saved.run) === JSON.stringify(before.run),
+        `the saved run does not hold its documents' text: ${JSON.stringify(saved.run)}`
+      );
+      // Importing another Library item saves this copy first and opens the new one.
+      const second = await page.evaluate(
+        async ({ meta, idA }) => {
+          let err = null;
+          try {
+            await lyLibraryImport(
+              await CMLibraryImport.makeWorkingCopyEnvelope('Another reading\nOf two lines', meta)
+            );
+          } catch (e) {
+            err = e.message.split('\n')[0];
+          }
+          const kept = await lyLibraryStore.getDraft(idA);
+          return {
+            err,
+            idB: lyMeta().draftId,
+            keptText: kept?.text,
+            keptRun: kept?.pageReview?.run?.baseModel ?? null,
+          };
+        },
+        { meta: libraryMeta('Reading B'), idA }
+      );
+      check(
+        second.err === null && second.idB !== idA,
+        `importing a second Library item failed: ${second.err}`
+      );
+      check(
+        second.keptText === before.draft && second.keptRun === before.run[0],
+        'the first working copy was not kept with its review when the second was imported'
+      );
+      // Restore A (with its saved continuation), then again with none.
+      const restore = (id) =>
+        page.evaluate(async (id) => {
+          await LY_ACTIONS['ly-library-restore'](id);
+          const texts = (r) => [r.baseModel?.text ?? null, r.resultModel?.text ?? null];
+          const parsed = (m) => !!m && Array.isArray(m.sections) && Array.isArray(m.sung);
+          return {
+            draftId: lyMeta().draftId,
+            draft: $ui('lyrics-draft').value,
+            unitId: lyMeta().libraryOrigin?.provenance?.unitId,
+            source: $ui('ly-library-source')?.innerText || '',
+            past: (LY.past || []).map(texts),
+            run: LY.run ? texts(LY.run) : null,
+            parsed: [...(LY.past || []), LY.run].every(
+              (r) => r && parsed(r.baseModel) && parsed(r.resultModel)
+            ),
+            ids: [...(LY.past || []), LY.run].map((r) => [
+              r && lyIdentity(r.baseModel),
+              r && lyIdentity(r.resultModel),
+            ]),
+            recordKeepsText: typeof lyLibraryRecord?.pageReview?.run?.baseModel === 'string',
+          };
+        }, id);
+      const restoredChecks = (got, label) => {
+        check(got.draftId === idA, `${label}: draft A was not restored`);
+        check(got.draft === before.draft, `${label}: the restored text differs`);
+        check(
+          got.unitId === 'unit:ReadingA' && !!got.source.trim(),
+          `${label}: the restored copy lost its credits`
+        );
+        check(
+          JSON.stringify([got.past, got.run]) === JSON.stringify([before.past, before.run]),
+          `${label}: the run history's documents are not the ones the runs answered: ${JSON.stringify([got.past, got.run])}`
+        );
+        check(
+          got.parsed && JSON.stringify(got.ids) === JSON.stringify(before.ids),
+          `${label}: the restored runs' documents are not documents with their identities`
+        );
+        check(got.recordKeepsText, `${label}: restoring rewrote the stored record`);
+      };
+      restoredChecks(await restore(idA), 'with a continuation');
+      // Stale and apply still answer from the restored documents.
+      await setDraft(page, before.draft.replace('[VERSE]', '[CHORUS]'));
+      const stale = await page.evaluate(() => ({
+        refusal: lyDeclarationRefusal(LY.run, LY.model),
+        earlier: lyItems().find((i) => i.id === 'certified-earlier')?.text || '',
+        review: (LY_ACTIONS['ly-tab']('review'), $ui('ly-panel-review').innerText),
+      }));
+      check(
+        /section headers changed after you asked the writer/.test(stale.refusal),
+        `Check & apply does not name the change since the request: ${stale.refusal}`
+      );
+      check(
+        /section headers changed since that run/.test(stale.earlier),
+        `the certified run does not name the change since its result: ${stale.earlier}`
+      );
+      check(/Review of this version/.test(stale.review), 'the review panel did not render');
+      // A saved review with no saved continuation restores too.
+      await setDraft(page, before.draft);
+      await page.evaluate(async (id) => {
+        await LY_ACTIONS['ly-library-restore'](id);
+      }, second.idB);
+      await page.evaluate(async (id) => {
+        const r = await lyLibraryStore.getDraft(id);
+        await lyLibraryStore.saveDraft({ ...r, writer: null, text: r.text });
+      }, idA);
+      restoredChecks(await restore(idA), 'without a continuation');
       await ctx.close();
     });
 
