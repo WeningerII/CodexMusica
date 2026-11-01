@@ -194,6 +194,40 @@ def test_refuted_over_every_mix():
     got = R.line_pairs_for(MO, stream(lines), keep_refusal=True, requested_pairs={(1, 2)})
     check("record / night: refuted over every mix of readings, without the search",
           got.verdict((1, 2)) is False, f"{got.verdict((1, 2))}")
+    # R2's condition 1: the False must hold at EVERY anchor a stress reading
+    # can produce, not at one fixed anchor. Every member length is its own
+    # candidate and its tail is compared from its own first vowel, so: each
+    # length is either ruled out by placement under every reading (1: no word
+    # boundary crossed; 4 and 5: no anchor under any stress) or False on its
+    # tail over every mix -- whether its anchor is decided or not (2 and 3,
+    # where `record`'s RE-cord / re-CORD leaves it undecided).
+    st = stream(lines)
+    by = {}
+    for i, u in enumerate(st.units):
+        by.setdefault(u.line, []).append(i)
+    rows = []
+    for n in range(1, 6):
+        a, b = R.Span(tuple(by[0][-n:]), 0), R.Span(tuple(by[1][-n:]), 0)
+        inst = R.evaluate(MO, a, b, st)
+        rows.append((n, R.Placement("mosaic_anchor").holds(a, b, st),
+                     None if inst is None else inst.verdict))
+    check("record / night: every member length is ruled out or False, "
+          "whatever anchor its stress readings give",
+          all(v is False for _, _, v in rows if v is not None)
+          and any(anc is None and v is False for _, anc, v in rows), rows)
+    # The mix path never decides True (R2's condition 3): Gilbert's pair
+    # agrees under SOME mix, so the merged stream leaves it undecided, and
+    # only the whole-reading search, under `a` = AH0, finds the True.
+    gil = ["In short, when I've a smattering of elemental strategy,",
+           "You'll say a better Major-General has never sat a gee."]
+    st = stream(gil)
+    got = R.line_pairs_for(MO, st, keep_refusal=True, requested_pairs={(1, 2)})
+    verdict, witness = R.resolve_line_pair(
+        MO, st, (1, 2), lambda p: R.build_stream(gil, p, declaration={"language": "eng"}))
+    check("a pair that holds under one whole reading is undecided on the mixes "
+          "and True only through the whole-reading search",
+          got.verdict((1, 2)) is None and verdict is True and witness,
+          f"merged {got.verdict((1, 2))}, resolved {verdict} {witness}")
 
 
 def test_predicate():

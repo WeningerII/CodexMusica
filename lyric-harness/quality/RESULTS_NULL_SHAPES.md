@@ -642,17 +642,11 @@ two extra being `chain rhyme (rap)` and `compound / phrasal rhyme`.
 > flush_right `each` channel at the last unit, so its definite instances
 > reach the judge. The 2026-08 figures above are kept as measured then.
 >
-> **2026-10-31 (M-311 F1, R2's mosaic ruling).** EXTENDABLE ~~30~~ **29**,
-> CANNOT OBTAIN ~~37 / 1~~ **38 / 1**: `mosaic rhyme` moves EXTENDABLE ->
-> CANNOT OBTAIN (null menu 8 -> 6). Its old instances were end rhymes with a
-> word before them, which the ruling removes; its real instances run through a
-> function word (`know it`) whose stress is a reading, and the null runs do not
-> search readings, so on the slice its candidates are unresolved, not absent.
->
-> **Later the same day (Jony Ives's review F1).** A candidate whose member
-> brackets an unread word is undecided for every channel, so the whole-line
-> schemas `holorhyme` and `incremental repetition` move NO INSTANCE -> CANNOT
-> OBTAIN; CANNOT OBTAIN splits ~~38 / 1~~ **40 / 1**, EXTENDABLE stays 29.
+> **2026-10-31 (M-311 F1, R2's mosaic ruling, #657).** EXTENDABLE ~~30~~
+> **29**, NO INSTANCE ~~8~~ **9**: `mosaic rhyme` moves EXTENDABLE -> NO
+> INSTANCE (null menu 8 -> 6). Its old instances were end rhymes with a word
+> before them, which the ruling removes, and the slice holds no anchored
+> multi-word tail. CANNOT OBTAIN stays 37 / 1.
 
 > **REPINNED AGAIN 2026-08-22 (M-39).** ~~31~~ **27** budgeted and ~~33~~
 > **29** unbudgeted. A `figure(frame="stanza")` now asks for the frame it

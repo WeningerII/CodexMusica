@@ -12,11 +12,11 @@
   },
   "current": {
     "mandated": 1064,
-    "judged": 1008,
-    "refused": 56,
-    "violations": 20
+    "judged": 1012,
+    "refused": 52,
+    "violations": 24
   },
-  "meaning": "M-311 F1 (R2's mosaic ruling): an unread word inside a member makes the candidate undecided for every channel; the any-reading search keeps a False only over words in the stream with one reading",
+  "meaning": "mosaic rhyme's rule (M-311 F1, #657) with B2's any-reading fallback; B1 removed",
   "newly_judged_pairs": [
     {
       "sonnet_index": 33,
@@ -364,7 +364,6 @@
   ],
   "current_partition": {
     "refused": [
-      [1, 9, 11],
       [1, 10, 12],
       [3, 1, 3],
       [10, 2, 4],
@@ -402,7 +401,6 @@
       [87, 6, 8],
       [88, 5, 7],
       [89, 2, 4],
-      [94, 10, 12],
       [95, 13, 14],
       [96, 1, 3],
       [101, 1, 3],
@@ -413,15 +411,14 @@
       [114, 9, 11],
       [117, 5, 7],
       [123, 2, 4],
-      [123, 5, 7],
       [124, 2, 4],
       [124, 5, 7],
       [126, 1, 3],
       [140, 2, 4],
-      [140, 6, 8],
       [146, 2, 4]
     ],
     "violations": [
+      [1, 9, 11],
       [5, 10, 12],
       [7, 6, 8],
       [18, 2, 4],
@@ -434,13 +431,16 @@
       [79, 5, 7],
       [86, 6, 8],
       [91, 10, 12],
+      [94, 10, 12],
       [99, 6, 8],
       [104, 9, 11],
       [105, 9, 11],
       [106, 6, 8],
       [106, 13, 14],
+      [123, 5, 7],
       [135, 13, 14],
       [136, 2, 4],
+      [140, 6, 8],
       [152, 10, 12]
     ]
   },
@@ -465,7 +465,7 @@
       },
       {
         "kinds": ["exact", "part"],
-        "n": 284
+        "n": 286
       },
       {
         "kinds": ["exact", "reach"],
@@ -477,7 +477,7 @@
       },
       {
         "kinds": ["part", "part"],
-        "n": 80
+        "n": 82
       },
       {
         "kinds": ["part", "reach"],
@@ -495,7 +495,7 @@
       },
       {
         "kinds": ["exact", "part"],
-        "n": 12
+        "n": 14
       },
       {
         "kinds": ["exact", "reach"],
@@ -503,7 +503,7 @@
       },
       {
         "kinds": ["part", "part"],
-        "n": 3
+        "n": 5
       },
       {
         "kinds": ["part", "reach"],
@@ -511,6 +511,14 @@
       }
     ],
     "violation_rows": [
+      {
+        "sonnet": 1,
+        "lines": [9, 11],
+        "endwords": ["ornament", "content"],
+        "relations": [],
+        "claim": false,
+        "kinds": ["part", "part"]
+      },
       {
         "sonnet": 5,
         "lines": [10, 12],
@@ -608,6 +616,14 @@
         "kinds": ["exact", "exact"]
       },
       {
+        "sonnet": 94,
+        "lines": [10, 12],
+        "endwords": ["die", "dignity"],
+        "relations": [],
+        "claim": false,
+        "kinds": ["exact", "part"]
+      },
+      {
         "sonnet": 99,
         "lines": [6, 8],
         "endwords": ["spent", "argument"],
@@ -648,6 +664,14 @@
         "kinds": ["part", "exact"]
       },
       {
+        "sonnet": 123,
+        "lines": [5, 7],
+        "endwords": ["accident", "discontent"],
+        "relations": [],
+        "claim": false,
+        "kinds": ["part", "part"]
+      },
+      {
         "sonnet": 135,
         "lines": [13, 14],
         "endwords": ["err'd", "transferr'd"],
@@ -664,6 +688,14 @@
         "kinds": ["exact", "part"]
       },
       {
+        "sonnet": 140,
+        "lines": [6, 8],
+        "endwords": ["ornaments", "rents"],
+        "relations": [],
+        "claim": false,
+        "kinds": ["part", "exact"]
+      },
+      {
         "sonnet": 152,
         "lines": [10, 12],
         "endwords": ["perpetual", "thrall"],
@@ -674,12 +706,8 @@
     ]
   },
   "uncertainty_refusals": [
-    [1, 9, 11],
-    [94, 10, 12],
     [95, 13, 14],
-    [114, 5, 7],
-    [123, 5, 7],
-    [140, 6, 8]
+    [114, 5, 7]
   ],
   "superseded": [
     {
@@ -761,6 +789,15 @@
         "judged": 1011,
         "refused": 53,
         "violations": 23
+      }
+    },
+    {
+      "date": "2026-10-31",
+      "current": {
+        "mandated": 1064,
+        "judged": 1008,
+        "refused": 56,
+        "violations": 20
       }
     }
   ]

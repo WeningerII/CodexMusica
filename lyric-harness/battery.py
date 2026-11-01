@@ -429,23 +429,13 @@ def whitman_battery():
 # judged 1013, refused 51, violations 25: sonnet 1 ornament/content (9/11),
 # refused while every word on the two lines was varied and the combinations
 # passed the cap, is judged and violates. Nothing else moves.
-# REPINNED 2026-10-31 (`MISSING.md` M-311 F1, R2's mosaic ruling; Jony
-# Ives's review F1 and G1). Layer: doctrine 79 at the candidate span.
-# ~~judged 1013, refused 51, violations 25~~ -> judged 1008, refused 56,
-# violations 20. Five violations become refusals; nothing joins.
-# (1) An unread word INSIDE a member (its token range brackets it) makes that
-# candidate undecided for every channel scope, not only a sequence one: its
-# syllables, and so the alignment, are unknown. Sonnet 1 ornament/content
-# (9/11, `buriest`) and sonnet 123 accident/discontent (5/7) refuse for
-# multisyllabic rhyme (and chain rhyme on sonnet 1).
-# (2) Mosaic rhyme's ruled rule searches members of up to five syllables from
-# each line end, and the any-reading search keeps a False only when every
-# word it cannot vary is in the stream with one reading. An unread word on
-# the line therefore holds the pair open: sonnets 94 die/dignity
-# (`outbraves`), 114 accidents/intents (`sharp'st`) and 140 ornaments/rents
-# (`profan'd`), and sonnet 1 again. On 94 and 140 the anchor stops short of
-# the unread word, so the refusal is CONSERVATIVE, not wrong -- a precision
-# item, recorded in M-311. Sonnet 95 privilege/edge stays refused (M-317).
+# REPINNED 2026-10-31 (`MISSING.md` M-311 F1, R2's mosaic ruling, #657).
+# ~~judged 1013, refused 51, violations 25~~ -> judged 1012, refused 52,
+# violations 24. One pair moves: sonnet 114 accidents/intents (`sharp'st`
+# unread on the line). Mosaic rhyme's members reach up to five syllables from
+# each line end, and the any-reading search varies the words it can and keeps
+# a False only when every word it cannot vary is in the stream with one
+# reading -- so the unread word holds the pair open. Nothing joins.
 from quality.battery_pin import EXPECTED  # noqa: E402
 
 
