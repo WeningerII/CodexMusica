@@ -317,7 +317,7 @@ export function reviseRepeatKey(name, args) {
 // the real tool attaches a checkpoint or a sealed state to it for an explicit
 // resume: that token is provenance, not a pending step, and only a call that
 // SENDS it (no repeat key) continues the run. A parked exit 3 therefore
-// answers a later FRESH identical request too (product decision, #519
+// answers a later FRESH identical request too (product decision, #665
 // follow-up): re-running the unchanged draft would pay the writer for the
 // stop it already reached; rewriting the open lines, a changed declaration
 // or an explicit new_run still runs. Exit 2 (a refusal, or an uncertified
