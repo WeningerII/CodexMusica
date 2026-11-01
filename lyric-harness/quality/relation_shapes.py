@@ -706,7 +706,7 @@ PINNED = {
     #: declared one selective, and either alone is one of the two defects
     #: that schema has had. The gate-only version fired on every internal
     #: rhyme and called it off-beat.
-    "placement_slots": 97,  # ~~95~~ (2026-10-30, M-323)
+    "placement_slots": 99,  # ~~97~~ (2026-10-31, #657 M-311 F1: mosaic rhyme adds `mosaic_anchor` and `either_multiword`) ~~95~~ (2026-10-30, M-323)
     # -- the survey ---------------------------------------------------------
     #    `survey_rows` is NOT here: `audit_register.PINNED["index_rows"]` owns
     #    it (exclusion 1).
@@ -719,8 +719,11 @@ PINNED = {
 #: The 13 span loci over 154 slots, as ((locus, n), ...) descending.
 PINNED_LOCUS_PROFILE = (
     # 2026-10-30 (M-323): any_token ~~28~~ 32.
-    ("line_final_token", 73), ("any_token", 32), ("line", 12),
-    ("line_initial_token", 9), ("free_run", 8), ("half_line_a", 4),
+    # 2026-10-31 (#657, M-311 F1): mosaic rhyme's members are both free runs
+    # to the line end, so line_final_token ~~73~~ 72 and free_run ~~8~~ 9,
+    # which now sorts before line_initial_token on the key.
+    ("line_final_token", 72), ("any_token", 32), ("line", 12),
+    ("free_run", 9), ("line_initial_token", 9), ("half_line_a", 4),
     ("half_line_b", 4), ("lift", 4), ("line_head_index", 4),
     ("token_first_half", 3), ("token_second_half", 3),
     # The 2-tie breaks on the KEY, ascending -- `_profile` sorts by (-n, key)
@@ -736,17 +739,20 @@ PINNED_LOCUS_PROFILE = (
 #: two different demands and are counted apart. A profile that summed them
 #: would read 29 and hide the only negated placement in the registry.
 PINNED_PLACEMENT_PROFILE = (
-    ("both_line_final", 29), ("different_lines", 16), ("same_line", 16),
+    # 2026-10-31 (#657, M-311 F1): mosaic rhyme's placements are now
+    # mosaic_anchor, either_multiword and different_lines, where they were
+    # word_count_differs: different_lines ~~16~~ 17, word_count_differs ~~1~~ 0
+    # (gone), either_multiword and mosaic_anchor 1 each.
+    ("both_line_final", 29), ("different_lines", 17), ("same_line", 16),
     ("adjacent_lines", 5), ("line_gap_at_most", 5), ("across_line_break", 3),
     # 2026-10-30 (M-323): both_line_final (forbidden) ~~1~~ 3, the two
     # interior schemas; it now sorts among the 3s.
     ("at_caesura", 3), ("both_line_final (forbidden)", 3),
     ("both_line_initial", 3), ("same_token", 3),
     ("a_is_split_token", 1), ("a_line_final", 1), ("adjacent_stanzas", 1), ("at_lift", 1),
-    ("both_multiword", 1),
-    ("exactly_one_line_final", 1), ("lift_index", 1),
+    ("both_multiword", 1), ("either_multiword", 1),
+    ("exactly_one_line_final", 1), ("lift_index", 1), ("mosaic_anchor", 1),
     ("neither_line_final", 1), ("off_beat", 1), ("spans_overlap", 1),
-    ("word_count_differs", 1),
 )
 #: `off_beat` ADDED 2026-08-23 (doctrine 17). It is the whole of the
 #: `placement_slots` 91 -> 92 move above, and it is the placement half of

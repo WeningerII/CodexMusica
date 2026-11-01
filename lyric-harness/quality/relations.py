@@ -146,6 +146,7 @@ value took the default path in silence.  See `ClassEqual` and `UNMATCHED`.
 import collections
 import hashlib
 import itertools
+import math
 import json
 import os
 import re
@@ -1160,6 +1161,23 @@ def _rd_phones(u):
                      for oo in _alts(o) for nn in _alts(n) for cc in _alts(c))
 
 
+def _rd_rime_phones(u):
+    """`_rd_phones` with the NUCLEUS TAGGED by its prominence, `AH:0` or
+    `AH:1`, so a sequence predicate can tell the vowels from the consonants
+    and an unprominent vowel from a stressed one without a second stream.
+    The tag is a reading, not a class: which unprominent vowels count as one
+    is the phonology's quotient (`reduced_vowel`), never this reader's.
+    Uncertain on any channel -> the set of tagged sequences the readings
+    permit, as `_rd_phones` does."""
+    o, n, c, p = u.syl.onset, u.syl.nucleus, u.syl.coda, u.syl.prominence
+    tag = lambda nn, pp: (f"{nn}:{0 if not pp else 1}",) if nn else ()
+    if not any(isinstance(v, frozenset) for v in (o, n, c, p)):
+        return tuple(o) + tag(n, p) + tuple(c)
+    return _collapse(tuple(oo) + tag(nn, pp) + tuple(cc)
+                     for oo in _alts(o) for nn in _alts(n) for cc in _alts(c)
+                     for pp in _alts(p))
+
+
 def _rd_grapheme(u):
     return u.syl.text
 
@@ -1172,7 +1190,7 @@ PHONEMIC = {
     "onset": _rd_onset, "nucleus": _rd_nucleus, "coda": _rd_coda,
     "prominence": _rd_prominence, "moras": _rd_moras,
     "consonants": _rd_consonants, "grapheme": _rd_grapheme,
-    "phones": _rd_phones, "token": _rd_token,
+    "phones": _rd_phones, "rime_phones": _rd_rime_phones, "token": _rd_token,
 }
 
 
@@ -1743,6 +1761,85 @@ class SequenceEqual(Predicate):
 
 
 @dataclass(frozen=True)
+class TailPhonesAgree(Predicate):
+    """MOSAIC RHYME'S JUDGE (2026-10-31, `MISSING.md` M-311 F1; R2's ruling,
+    #637 6545559338 and its correction 6545635152). Each member is read as
+    ONE phone string (`rime_phones`, sequence scope), the onset before its
+    first vowel dropped, and the rest compared whole -- across word and
+    syllable boundaries, which is the point: `tender` is TEN|DER with coda N
+    and `send her` SEND|HER with coda ND, so a syllable-by-syllable coda
+    comparison asks where the dictionary splits syllables, not what is heard.
+    Vowels compare under the phonology's `reduced_vowel` quotient, which merges
+    unprominent vowels only; a stressed vowel is itself.
+
+    OVER READINGS (rule 5) is NOT this predicate's: the merged stream keeps
+    each channel's readings as separate sets, so a sequence over an uncertain
+    syllable is refused here (`_seq`), and `pair_satisfies_any` asks again on
+    each coherent whole reading of the words the members can reach -- `a` is
+    AH0 or EY1, and `sat a gee` is a mosaic of `strategy` under the first.
+    An unreadable member or a missing quotient is a refusal, never a False."""
+    partition: object = None
+    label: str = "declared reduced-vowel quotient"
+    resource: str = "reduced_vowel"
+    name: str = "TAIL-PHONES-AGREE"
+
+    def _suffix_read(self, x, y):
+        """Refutation over a member known only after an unread word: every
+        whole tail of it ends with one of its suffixes' vowel-on parts."""
+        def ends(v):
+            out = set()
+            for seq in (v if isinstance(v, PhoneMixes) else (v,)):
+                t = self._tail(tuple(seq))
+                if t is None:
+                    return None      # a suffix with no vowel fixes nothing
+                out.add(t)
+            return out
+        ex, ey = ends(x), ends(y)
+        if ex is None or ey is None:
+            return Read(None, False, "an unread word lies inside a member")
+
+        def compatible(a, b):
+            n = min(len(a), len(b))
+            return a[len(a) - n:] == b[len(b) - n:]
+        if not any(compatible(a, b) for a in ex for b in ey):
+            return Read(False, True, "the readable ends disagree, whatever the "
+                                     "unread word reads as")
+        return Read(None, False, "an unread word lies inside a member")
+
+    def _tail(self, seq):
+        i = next((k for k, e in enumerate(seq) if ":" in e), None)
+        if i is None:
+            return None
+        return tuple(self.partition(e) if ":" in e else e for e in seq[i:])
+
+    def __call__(self, x, y):
+        if self.partition is None:
+            return Read(None, False, f"no {self.label} (quotient {self.resource!r}); "
+                                     "a refusal, not a verdict at the finest grain")
+        if x is None or y is None:
+            return Read(None, False, "unreadable")
+        if isinstance(x, KnownSuffix) or isinstance(y, KnownSuffix):
+            return self._suffix_read(x, y)
+        if isinstance(x, PhoneMixes) or isinstance(y, PhoneMixes):
+            # Refutation only: True is never taken from a mix of readings.
+            mx = {self._tail(tuple(v)) for v in (x if isinstance(x, PhoneMixes) else (x,))}
+            my = {self._tail(tuple(v)) for v in (y if isinstance(y, PhoneMixes) else (y,))}
+            if not ((mx - {None}) & (my - {None})):
+                return Read(False, True, "no mix of the merged readings agrees, "
+                                         "so no whole reading does")
+            return Read(None, False, "a mix of readings agrees; only a whole "
+                                     "reading can answer")
+        tx = {self._tail(tuple(v)) for v in (_alts(x) if uncertain(x) else (x,))}
+        ty = {self._tail(tuple(v)) for v in (_alts(y) if uncertain(y) else (y,))}
+        if None in tx or None in ty:
+            return Read(False, True, "a member has no vowel")
+        return Read(bool(tx & ty), True)
+
+
+TAIL_PHONES_AGREE = TailPhonesAgree()
+
+
+@dataclass(frozen=True)
 class SequenceSuffix(Predicate):
     """A total over member A, a SUFFIX of member B, the unconsumed prefix of B
     being the pont.  THE DECISIVE CASE FOR PER-MEMBER ANCHORS: a checker that
@@ -2149,6 +2246,12 @@ ALIGNERS = {"anchor": align_anchor, "flush_left": align_flush_left,
 # ---------------------------------------------------------------------------
 
 
+#: The most prominence combinations `mosaic_anchor` decides exactly; beyond
+#: it the placement is undecided. 5 syllables a side with three-way
+#: prominence is 3**10 = 59049.
+_MOSAIC_ANCHOR_COMBOS = 59049
+
+
 @dataclass(frozen=True)
 class Placement:
     kind: str
@@ -2268,6 +2371,42 @@ class Placement:
             wa = len({(U[i].line, U[i].token) for i in a.idx})
             wb = len({(U[i].line, U[i].token) for i in b.idx})
             return wa != wb
+        if k == "either_multiword":
+            wa = len({(U[i].line, U[i].token) for i in a.idx})
+            wb = len({(U[i].line, U[i].token) for i in b.idx})
+            return wa > 1 or wb > 1
+        if k == "mosaic_anchor":
+            # R2's anchor rule for mosaic rhyme (#637 6545666653): the two
+            # members, aligned syllable by syllable from their line ends, start
+            # at the FIRST aligned pair (counting back) whose syllables are
+            # BOTH prominent -- the phonology's prominence, whose phrase-level
+            # demotion already reads an enclitic (`it`, `her`, `a`) as weak --
+            # and on at least one side nothing after that start is prominent
+            # (it is that side's last stress: R2's "the anchor must be the last
+            # stressed syllable of at least one side", 6545666653, so a pair
+            # stressed later on both sides at different positions is not one).
+            # Over an uncertain prominence the
+            # answer is the one every reading gives; readings that disagree
+            # refuse, so no reading is picked here. Every combination is
+            # tried (a member is at most 5 syllables a side, so 2**10 for
+            # two-way prominence); past the bound the answer is undecided,
+            # never a False from a sample (3PO, #637 6548737712).
+            if len(a.idx) != len(b.idx):
+                return False
+            vals = [U[i].syl.prominence for i in a.idx] + [U[i].syl.prominence for i in b.idx]
+            choices = [sorted(_alts(v)) if isinstance(v, frozenset) else [v] for v in vals]
+            if math.prod(len(c) for c in choices) > _MOSAIC_ANCHOR_COMBOS:
+                return None
+            n = len(a.idx)
+            answers = set()
+            for combo in itertools.product(*choices):
+                pa, pb = combo[:n], combo[n:]
+                answers.add(bool(pa[0] and pb[0])
+                            and not any(x and y for x, y in zip(pa[1:], pb[1:]))
+                            and (not any(pa[1:]) or not any(pb[1:])))
+                if len(answers) > 1:
+                    return None
+            return answers.pop() if answers else None
         if k == "both_multiword":
             wa = len({(U[i].line, U[i].token) for i in a.idx})
             wb = len({(U[i].line, U[i].token) for i in b.idx})
@@ -2610,6 +2749,88 @@ def _post_vocalic(span, stream, chans, surface):
     return tuple(out)
 
 
+def _unread_by_line(stream):
+    """{line: [unread token, ...]} for `stream.unreadable`, built once per
+    stream: B1's test runs on every candidate member, so a per-call scan of
+    every unread token was a measurable share of a grade (R2, #657)."""
+    u = stream.unreadable
+    cached = stream.__dict__.get("_unread_by_line")
+    if cached is None or cached[0] is not u or cached[1] != len(u):
+        by_line = {}
+        for li, ti, _ in u:
+            by_line.setdefault(li, []).append(ti)
+        cached = (u, len(u), by_line)
+        stream.__dict__["_unread_by_line"] = cached
+    return cached[2]
+
+
+def _bracketed_unread(span, stream, rule=None):
+    """The unread tokens inside the member, as (line, token) pairs: between
+    its first and last unit on a line, or anywhere on the line for a
+    whole-line member (`locus='line'`), whose first or last word may be the
+    unread one."""
+    if not stream.unreadable or not span.idx:
+        return set()
+    by_line = _unread_by_line(stream)
+    U = stream.units
+    lines = {}
+    for i in span.idx:
+        unit = U[i]
+        li = unit.line
+        if li not in by_line:
+            continue
+        t = unit.token
+        seen = lines.get(li)
+        lines[li] = (t, t) if seen is None else (min(seen[0], t), max(seen[1], t))
+    if not lines:
+        return set()
+    whole = rule is not None and rule.locus == "line"
+    return {(li, ti) for li, (lo, hi) in lines.items() for ti in by_line[li]
+            if whole or lo < ti < hi}
+
+
+def _spans_unreadable(span, stream, rule=None):
+    """True when an unread token lies inside the member (`_bracketed_unread`)."""
+    return bool(_bracketed_unread(span, stream, rule))
+
+
+#: The most per-syllable mixes `_seq` lists for a `rime_phones` member;
+#: beyond it the member is refused as before.
+_PHONE_MIX_CAP = 4096
+
+
+class PhoneMixes:
+    """A `rime_phones` member that crosses a merged syllable: every sequence a
+    per-syllable MIX of its readings spells (2026-10-31, #657). A mix is not a
+    reading -- 3PO's rule is that no verdict picks syllables from different
+    readings -- but every whole reading IS one of the mixes, so when no mix of
+    one member agrees with any mix of the other, no whole reading agrees
+    either, and that False is sound. Anything else is undecided here and the
+    any-reading search asks each whole reading (`TailPhonesAgree`)."""
+    __slots__ = ("seqs",)
+
+    def __init__(self, seqs):
+        self.seqs = frozenset(seqs)
+
+    def __iter__(self):
+        return iter(self.seqs)
+
+    def __eq__(self, other):
+        return isinstance(other, PhoneMixes) and self.seqs == other.seqs
+
+    def __hash__(self):
+        return hash(("PhoneMixes", self.seqs))
+
+
+class KnownSuffix(PhoneMixes):
+    """A `rime_phones` member with an unread word inside it: only what follows
+    the last unread word is known (one sequence, or its per-syllable mixes).
+    Whatever the unread word reads as, the member's tail ENDS with that
+    suffix from the suffix's first vowel on, so a tail that does not end so
+    cannot equal it: a sound False. Nothing else is decided (#657)."""
+    __slots__ = ()
+
+
 def _seq(span, stream, channel, chans, surface, rule=None):
     """The span's derived element SEQUENCE for a sequence-scoped channel.
 
@@ -2627,20 +2848,55 @@ def _seq(span, stream, channel, chans, surface, rule=None):
     reading and every pre-M-148 caller's behaviour.
     """
     if _cluster_scoped(channel, rule):
+        # (the unread-word guard below does not run on this path)
         return _post_vocalic(span, stream, chans, surface)
+    if _spans_unreadable(span, stream, rule):
+        # AN UNREAD WORD INSIDE THE MEMBER (2026-10-31, M-311 F4): it has no
+        # units, so it would simply VANISH from the derived sequence -- and a
+        # subsequence test over the shortened skeleton is easier to pass, so
+        # the unknown manufactured a True (Kingsley's `o'er`), while the same
+        # word in the other member refused. Unknown is None on either side
+        # (doctrine 79).
+        if channel == "rime_phones":
+            # Mosaic's phone tail (#657): the READABLE part after the last
+            # unread word, for refutation only (`KnownSuffix`).
+            last = max(_bracketed_unread(span, stream, rule))
+            after = [i for i in span.idx
+                     if (stream.units[i].line, stream.units[i].token) > last]
+            if after:
+                got = _seq(replace(span, idx=tuple(after)), stream, channel,
+                           chans, surface, rule)
+                if got is not None:
+                    return KnownSuffix(got.seqs if isinstance(got, PhoneMixes) else (got,))
+        return None
     out = []
+    mixes = None
     for i in span.idx:
         v = chans.read(stream.units[i], channel, stream, surface)
         if v is None:
             return None
         if uncertain(v):
+            if channel == "rime_phones":
+                # Mosaic's phone tail (#657): every per-syllable MIX of the
+                # merged readings, for refutation only (`PhoneMixes`).
+                mixes = (mixes if mixes is not None else [tuple(out)])
+                mixes = [m + tuple(x) for m in mixes for x in _alts(v)]
+                if len(mixes) > _PHONE_MIX_CAP:
+                    return None
+                continue
             # P11: one uncertain element makes the whole derived sequence
             # uncertain, and a sequence predicate has no set algebra to fall
             # back on.  Refuse the SEQUENCE rather than pick a reading -- a
             # Welsh skeleton built from one guessed homograph is a skeleton
             # nobody declared.
             return None
-        out.extend(v if isinstance(v, tuple) else [v])
+        add = tuple(v) if isinstance(v, tuple) else (v,)
+        if mixes is not None:
+            mixes = [m + add for m in mixes]
+        else:
+            out.extend(add)
+    if mixes is not None:
+        return PhoneMixes(mixes)
     return tuple(out)
 
 
@@ -2796,7 +3052,8 @@ def evaluate(schema, a, b, stream, chans=DEFAULT_CHANNELS):
     vals = [r.value for _, _, r in enforced if r is not None]
     vals += [r.value for _, r in ireads]
     vals += [v for _, v in preads]
-    return Instance(schema.name, a, b, align, tuple(reads), tri_and(vals),
+    verdict = tri_and(vals)
+    return Instance(schema.name, a, b, align, tuple(reads), verdict,
                     tuple(preads), tuple(ireads),
                     search_k=a.search_k * b.search_k)
 
@@ -5151,16 +5408,24 @@ declare(RelationSchema(
 
 declare(RelationSchema(
     name="mosaic rhyme",
-    spans=(SpanRule("line_final_token", "last_stressed", 1, "to_word_end"),
-           SpanRule("free_run", "searched", 1, (2, 5), cross_word=True)),
+    spans=(SpanRule("free_run", "searched", 1, (1, 5), cross_word=True),) * 2,
     align="flush_right",
-    channels=(ChannelRule("nucleus", AGREE, "each"),
-              ChannelRule("coda", AGREE, "each")),
-    placement=(Placement("both_line_final"), Placement("word_count_differs")),
+    channels=(ChannelRule("rime_phones", TAIL_PHONES_AGREE, "sequence"),),
+    unmatched="forbid",
+    placement=(Placement("both_line_final"), Placement("different_lines"),
+               Placement("mosaic_anchor"), Placement("either_multiword")),
     identity=(DISTINCT,),
     note="the JUNCTURE asymmetry is CONSTITUTIVE and is computed: "
          "word_count_differs reads the Units' token coordinates. TERM "
-         "COLLISION: Turco's mosaic vs compound vs hip-hop's 'compound'."))
+         "COLLISION: Turco's mosaic vs compound vs hip-hop's 'compound'. "
+         "2026-10-31 (M-311 F1, R2's ruling on BB8's findings): the one-word "
+         "member runs from its last stress, the other is the SAME NUMBER of "
+         "syllables from its line end (`unmatched='forbid'`), so it crosses a "
+         "word boundary; and the two are compared as ONE phone string from the "
+         "first vowel (`TAIL-PHONES-AGREE`), never syllable by syllable. Before "
+         "this, the excluded overhang let any end rhyme with a word before it "
+         "pass (cold ~ story told), and real mosaics failed on where the "
+         "dictionary splits syllables (tender ~ send her)."))
 
 declare(RelationSchema(
     name="compound / phrasal rhyme",
@@ -8452,6 +8717,21 @@ DRAWABLE_EXHIBITS = {
          "1", "2.head"),
         ("I ask no willow where I lie,", "No mourner let the mermaid be,",
          "1", "2.head")),
+    "mosaic rhyme": (
+        # REPAIRED 2026-10-31 (M-311 F1, R2's ruling #637 6545559338 /
+        # 6545666653), moved here from `WITNESS_FINDINGS`. Gilbert, "The
+        # Pirates of Penzance" (1879), the Major-General's song: strategy ~
+        # sat a gee, the second member crossing two word boundaries, held
+        # under the AH0 reading of `a`. QUOTED, not mined. The contrast is
+        # QUOTED too, not constructed: Shakespeare, Sonnet 18's couplet
+        # (`corpus/sonnets.txt` :339-340), see ~ thee, a one-word rhyme with
+        # no boundary in either member. It replaced Telfer's by ~ nigh
+        # (eng_celtic_msm_james_telfer.txt:58-59), whose `cauld` is not in
+        # the dictionary, so that pair correctly REFUSES (doctrine 79).
+        ("In short, when I've a smattering of elemental strategy,",
+         "You'll say a better Major-General has never sat a gee.", "1", "2"),
+        ("    So long as men can breathe, or eyes can see,",
+         "    So long lives this, and this gives life to thee.", "1", "2")),
     "reverse rhyme": (
         # Whittier, "The Ship-Builders" —
         # eng_american_john_greenleaf_whittier.txt:480-481: peel ~ peak,
@@ -8606,15 +8886,6 @@ WITNESS_FINDINGS = {
           "Close to the sun in lonely lands,",
           "Ringed with the azure world, he stands."),
          ("1", "2", "3"), ("a", "a", "a"), True),)),
-    "mosaic rhyme": ("M-311 F1", (
-        # Gilbert, "The Pirates of Penzance" (1879), the Major-General's
-        # strategy ~ sat a gee; then Telfer,
-        # eng_celtic_msm_james_telfer.txt:58-59, a one-word rhyme.
-        (("In short, when I've a smattering of elemental strategy,",
-          "You'll say a better Major-General has never sat a gee."),
-         ("1", "2"), None, True),
-        (('"Sweet summer now is by,', "And cauld winter is nigh,"),
-         ("1", "2"), None, False))),
     "offbeat internal rhyme": ("M-311 F5", ()),
     "parechesis / general consonance": ("M-311 F4", (
         # Kingsley, "The Sands of Dee" —
@@ -8721,6 +8992,24 @@ CONTEXT_CONTROLS = {
          "My boyhood’s home, &c."),
         ("1", "3"), ("2", "3")),
     # -- end of the M-313 block --------------------------------------------
+    # -- THE INTERIOR SOUND SCHEMAS (M-323, witnessed 2026-10-31) ----------
+    # Shakespeare, Sonnet 18 (1609), lines 3-5, as `corpus/sonnets.txt`
+    # prints them (:329-331). Slots are token-level and cross-line: the grade
+    # route cannot bind two words of one line (`schemes.mandate`), and each
+    # schema's placement needs only one member inside its line.
+    # shake~date: EY~EY from the last stress, `shake` interior; contrast
+    # darling~date, AA against EY.
+    "internal assonance": (
+        ("Rough winds do shake the darling buds of May,",
+         "And summer’s lease hath all too short a date:"),
+        ("1.T4", "2.T9"), ("1.T6", "2.T9")),
+    # date~hot: coda T~T, both present, `hot` interior and the vowels
+    # differing (EY, AA), so it is consonance and not rhyme; contrast
+    # date~Sometime, whose last stress (`time`, AY2) closes on M.
+    "internal consonance": (
+        ("And summer’s lease hath all too short a date:",
+         "Sometime too hot the eye of heaven shines,"),
+        ("1.T9", "2.T3"), ("1.T9", "2.T1")),
 }
 
 
@@ -10240,6 +10529,28 @@ def _narrow_tokens(stream, tokens, fields):
             and any(uncertain(getattr(u.syl, f, None)) for f in fields)}
 
 
+def _locatable_tokens(stream, tokens):
+    """The cause tokens whose readings `occurrence_readings` can locate: the
+    ones `reading_combos` can take part in, a one-reading word included (it
+    still joins the accent check). An unlocatable word is left merged."""
+    lex = _stream_lexicon(stream)
+    if lex is None or not stream.lexical_tokens:
+        return set()
+    from quality.pronunciation import occurrence_readings
+    return {(li, ti) for li, ti in tokens
+            if 0 <= li < len(stream.text_lines)
+            and occurrence_readings(lex, stream.text_lines[li],
+                                    stream.lexical_tokens[li], ti) is not None}
+
+
+def _one_reading_in_stream(stream, tok):
+    """True when the token has units in the stream and every syllable field
+    of every unit is one reading (no unread word, no merged alternatives)."""
+    us = [u for u in stream.units if (u.line, u.token) == tuple(tok)]
+    return bool(us) and not any(
+        uncertain(getattr(u.syl, f, None)) for u in us for f in _SYL_FIELDS)
+
+
 def _resolve_over(schema, stream, pair, build, cap, bmap, tokens, fields):
     """`resolve_line_pair`'s search over `tokens`, grown to a fixpoint with
     the varied words each undecided combination reveals on `fields`."""
@@ -10248,8 +10559,38 @@ def _resolve_over(schema, stream, pair, build, cap, bmap, tokens, fields):
     tokens = set(tokens)
     while True:
         combos, complete = reading_combos(stream, tokens, cap)
-        if not combos:
+        if combos is not None and not combos:
+            # Accent agreement rejected every combination: no one speaker
+            # reads the line so -- an answer, never a reason to drop words
+            # from the check (Jony Ives's review, F3).
             return None, None
+        if combos is None:
+            # A cause word that cannot be varied (no locatable reading, e.g. a
+            # hyphenated compound, or a word the dictionary cannot read) no
+            # longer sinks the whole search: the words that CAN be varied are,
+            # and the word left over stays as the merged stream has it in every
+            # trial stream. Each trial verdict is still three-valued over it --
+            # a merged word a member reaches refuses its sequence (`_seq`), an
+            # overlap of its readings is undecided (`_set_agree`), an unread
+            # word on a free-run line holds the pair open (`line_pairs_for`) --
+            # so a True there never rests on it and a False is False under
+            # every reading it has (2026-10-31, M-311 F1: `Major-General` in
+            # reach of Gilbert's `sat a gee`; Sonnet 93's `outbraves` beside
+            # live and die ~ dignity, whose anchor stops two words short of it).
+            free = _locatable_tokens(stream, tokens)
+            combos, complete = (reading_combos(stream, free, cap) if free and free != tokens
+                                else (None, False))
+            if not combos:
+                return None, None
+            # ...but a False stands only when every word left unvaried is IN
+            # the trial streams with one reading on every field. An unread
+            # word has no units, so a member starting at it is never formed
+            # and "False under every combination" would rest on members never
+            # examined (Jony Ives's review G1: Sonnet 95's `ill-us'd`, M-317);
+            # a merged multi-reading word may hide another syllable shape
+            # (M-324). Otherwise only a True is kept from this search.
+            settled = all(_one_reading_in_stream(stream, t) for t in tokens - free)
+            complete = complete and settled
         saw_none, revealed = not complete, set()
         with _line_read_scope():
             for combo in combos:

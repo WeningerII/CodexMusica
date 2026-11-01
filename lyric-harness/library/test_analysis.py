@@ -46,7 +46,8 @@ class ReaderAcceptance(unittest.TestCase):
         self.assertEqual({m["name"] for m in schemas}, set(RL.REGISTRY))
         for row in schemas:
             self.assertEqual(row["required_capabilities"], list(RL.REGISTRY[row["name"]].capabilities()))
-        self.assertEqual(len(registry["capabilities"]), 22)
+        # 23: mosaic rhyme declares `quotient:reduced_vowel` (#657).
+        self.assertEqual(len(registry["capabilities"]), 23)
         self.assertEqual(len({m["id"] for m in registry["methods"]}), len(registry["methods"]))
 
     def test_nine_profiles_exhaust_all_78_questions(self):
