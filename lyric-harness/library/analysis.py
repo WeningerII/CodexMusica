@@ -1867,7 +1867,7 @@ class AnalysisSession:
                 "reading_dependent_tokens": [self._token_id(t) for t in dependent]}
 
     def _sound_result(self, key, mid, counts):
-        tally = (counts.pop("domain_true", []), counts.pop("domain_undecided", []))
+        tally = (counts.get("domain_true", []), counts.get("domain_undecided", []))
         if self.stream.unreadable and counts["coverage"] == "answered":
             counts["coverage"] = "refused"
             counts["unreadable_tokens"] = len(self.stream.unreadable)
@@ -1875,8 +1875,8 @@ class AnalysisSession:
                 "detail": "Unread lexical members remain in the source census. Findings over readable members do not answer those obligations."}
         return self._record("method_result", mid, "result", namespace="shared_sound",
                             method_name=shared_sound_name(key), layer=SHARED_SOUND_LAYER,
-                            coverage=counts["coverage"], counts=counts,
-                            domain=self._outcomes(self._sound_domain(key, counts.pop("alt_cells", [])), tally)
+                            coverage=counts["coverage"], counts=self._public_counts(counts),
+                            domain=self._outcomes(self._sound_domain(key, counts.get("alt_cells", [])), tally)
                             if counts["coverage"] == "answered"
                             else {"projection": "none", "reason": "refused"},
                             refusal=counts.get("refusal"),
@@ -2380,8 +2380,10 @@ class AnalysisSession:
         if phase == "shared_sound":
             return [self._sound_result(name, mid, counts)]
         rows = []
-        # Popped before any record is built, so `counts` keeps its shape.
-        tally = (counts.pop("domain_true", []), counts.pop("domain_undecided", []))
+        # Read, not popped: the terminal record may be emitted across a
+        # checkpoint (a detached domain's parts), and a restore rebuilds it
+        # from these same inputs. `_advance` drops them once it is out.
+        tally = (counts.get("domain_true", []), counts.get("domain_undecided", []))
         needs_assembly = phase == "schema" and not RL.pair_scope_representable(RL.REGISTRY[name]) and name not in RL.FULL_SHAPES
         if needs_assembly and counts["coverage"] == "answered":
             counts.pop("coverage", None)
@@ -2397,8 +2399,8 @@ class AnalysisSession:
                     "detail": "Not every combination of the disputed words' readings was searched: " + self._incomplete[name]
                               + ". Findings over the combinations searched do not answer the rest."}
             rows.append(self._record("method_result", mid, "result", namespace="schema", schema_name=name,
-                                    coverage=counts["coverage"], counts=counts,
-                                    domain=self._outcomes(self._domain(name, counts.pop("alt_cells", [])), tally,
+                                    coverage=counts["coverage"], counts=self._public_counts(counts),
+                                    domain=self._outcomes(self._domain(name, counts.get("alt_cells", [])), tally,
                                                           answered=counts["coverage"] == "answered")
                                     if phase == "schema" else {"projection": "none", "reason": "whole_figure"},
                                     refusal=counts.get("refusal"), availability="available" if counts["coverage"] == "answered" else "unknown_members",
@@ -2432,7 +2434,20 @@ class AnalysisSession:
                   if first_only or unsearched else self._search("not_needed"))
         return self._edge_record(e, st, search=search, first_only=first_only)
 
+    # A method's terminal inputs: kept in its checkpoint counts until its
+    # terminal record is wholly emitted, and never published.
+    _TERMINAL_INPUTS = ("domain_true", "domain_undecided", "alt_cells")
+
+    @classmethod
+    def _public_counts(cls, counts):
+        return {k: v for k, v in counts.items() if k not in cls._TERMINAL_INPUTS}
+
     def _advance(self):
+        i = self.checkpoint["method_index"]
+        if i < len(self.tasks):
+            done = self.checkpoint["methods"].get(self._task_mid(*self.tasks[i]))
+            for key in self._TERMINAL_INPUTS if done is not None else ():
+                done.pop(key, None)
         self.checkpoint["method_index"] += 1
         self.checkpoint["candidate"] = 0
         self.checkpoint["emission"] = 0

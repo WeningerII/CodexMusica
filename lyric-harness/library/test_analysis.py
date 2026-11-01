@@ -1716,3 +1716,58 @@ class DomainOutcomes(unittest.TestCase):
     def test_shared_sound_outcomes_match_the_records(self):
         _, rows, _ = _sound(source(self.TEXT), ["vowel", "coda", "onset", "stressed_onset"])
         self.assertEqual(self._check(rows), 4)
+
+    def _terminal_restart(self, requested, extra):
+        """An uninterrupted traversal, and one restored from the checkpoint
+        taken after each terminal method_result header, and after each of
+        its detail parts but the last (3PO, #673): the domain is padded past
+        the detail threshold, so the terminal record is emitted in parts and
+        a restore must rebuild exactly the record whose header it already
+        committed. -> (whole, restored, boundaries)."""
+        pad = lambda real: lambda self, *a: {**real(self, *a), "pad": "x" * 20000}
+        def run(restart):
+            committed, cp, session, at, boundaries = [], None, None, False, 0
+            for _ in range(20000):
+                if session is None or (restart and at):
+                    with patch("library.analysis.runtime_identity", return_value=_FIXTURE_RUNTIME):
+                        session = AnalysisSession(source(self.TEXT), None, requested, cp,
+                            load_records=lambda mid: (r for r in committed if r.get("method_id") == mid), **extra)
+                # One record per step, so a checkpoint falls at every boundary.
+                last = session.step(4096, deadline=0)
+                tail = last["records"][-1] if last["records"] else None
+                at = bool(tail and last["checkpoint"]["emission"] and (
+                    (tail["kind"] == "method_result" and "$detail_ref" in tail["domain"])
+                    or (tail["kind"] == "detail_part" and tail["parent_id"].startswith("method_result")
+                        and tail["part"] + 1 < tail["total"])))
+                boundaries += at
+                committed.extend(last["records"])
+                cp = last["checkpoint"]
+                if last["done"]:
+                    return list(resolve_detail_records(committed)), last, boundaries
+            raise AssertionError("reader traversal did not exhaust")
+        with patch.object(AnalysisSession, "_domain", pad(AnalysisSession._domain)), \
+                patch.object(AnalysisSession, "_sound_domain", pad(AnalysisSession._sound_domain)):
+            return run(False), run(True)
+
+    def _assert_terminal_restart_is_exact(self, whole, restored, expected):
+        (rows, last, _), (again, again_last, boundaries) = whole, restored
+        self.assertGreater(boundaries, 0, "no checkpoint fell inside a terminal emission")
+        self.assertEqual(again, rows)
+        self.assertEqual(again_last["summary"], last["summary"])
+        self.assertEqual(again_last["checkpoint"]["methods"], last["checkpoint"]["methods"])
+        self.assertEqual(self._check(again), expected)
+        for m in again_last["checkpoint"]["methods"].values():
+            for key in ("domain_true", "domain_undecided", "alt_cells"):
+                self.assertNotIn(key, m)
+
+    def test_a_schema_terminal_emission_survives_a_restore_inside_it(self):
+        names = ["internal rhyme", "perfect rhyme"]
+        whole, restored = self._terminal_restart({"layers": ["sound"], "schemas": names}, {})
+        self._assert_terminal_restart_is_exact(whole, restored, len(names))
+
+    def test_a_shared_sound_terminal_emission_survives_a_restore_inside_it(self):
+        from library.registry import shared_sound_name
+        keys = ["vowel", "coda"]
+        mids = [method_id("shared_sound", shared_sound_name(k)) for k in keys]
+        whole, restored = self._terminal_restart({"layers": ["sound"]}, {"requested_methods": mids})
+        self._assert_terminal_restart_is_exact(whole, restored, len(keys))
