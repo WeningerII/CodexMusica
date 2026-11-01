@@ -1038,6 +1038,16 @@ test('browser directed holds point into b, keep selection across views and follo
     const key = await page.evaluate(() => document.activeElement.dataset.selection);
     assert.ok(key.startsWith('b:'));
     await page.keyboard.press('Enter');
+    // Enter must complete both selection and its revision-safe address before
+    // capturing the URL that subsequent view changes must preserve.
+    await page.waitForFunction(
+      (key) => window.CMConnectionInteraction.selectionKey(window.m.model().selection) === key,
+      key
+    );
+    await page.waitForURL(
+      (url) =>
+        url.searchParams.get('cv') === 'directed-fixture' && url.searchParams.get('sel') === key
+    );
     const selectedUrl = page.url();
     assert.match(await page.locator('.cv-inspector').textContent(), /Asked roles/);
     for (const view of ['matrix', 'network', 'poem']) {

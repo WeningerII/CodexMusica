@@ -260,7 +260,11 @@ function addUsage(into, meta) {
 // resumes or continues a run — it carries a checkpoint or a sealed state —
 // has no key and always runs, as does an explicit `new_run` restart; and
 // only a FINISHED result is recorded as done (`finishedRevise`), never an
-// interrupted one, so an interrupted run stays resumable. The key rides back on the completed result as `repeat_key`
+// interrupted one, so an interrupted run stays resumable. FINISHED is read
+// from the result's outcome — a terminal loop stop at exit 0 or 3 — never
+// from the absence of a continuation token: the real tool attaches a
+// checkpoint (kitchen) or a provenance state (interview) to every finished
+// result, so the token cannot mean "not finished". The key rides back on the completed result as `repeat_key`
 // (kept by the history stub). The host-owned task also retains compact keys:
 // deleting an old transcript turn must not authorize paying for it again.
 // At capacity, refuse new keyed work rather than silently evict protection.
@@ -305,17 +309,43 @@ export function reviseRepeatKey(name, args) {
       decl[k] = args[k];
   return createHash('sha256').update(canonicalJson({ draft, decl })).digest('hex').slice(0, 32);
 }
-// A revise result that FINISHED: not interrupted, not an uncertain proposal,
-// and carrying no checkpoint or sealed state to continue from. Only such a
-// result answers a later repeat.
+// A revise result that FINISHED. These never are: a pending question
+// (awaiting_proposal, exit 4; the ledger's `suspended`), an interrupted or
+// uncertain-proposal stop (exit 5, resumable), and a journal-capacity stop
+// (not resumable, but not an answer either: its scope must change). A terminal loop stop IS finished — exit 0 or exit 3
+// with the status `loopStatusOf` (mcp/lyric_tools.js) gives it — even though
+// the real tool attaches a checkpoint or a sealed state to it for an explicit
+// resume: that token is provenance, not a pending step, and only a call that
+// SENDS it (no repeat key) continues the run. A parked exit 3 therefore
+// answers a later FRESH identical request too (product decision, #665
+// follow-up): re-running the unchanged draft would pay the writer for the
+// stop it already reached; rewriting the open lines, a changed declaration
+// or an explicit new_run still runs. Any other numeric exit (2: a refusal or an
+// uncertified stop; 1: a crash) is not admitted, token or not. A verdict with no
+// exit code keeps the original rule: finished only when it carries no checkpoint
+// or sealed state to continue from.
+const REVISE_MID_RUN = new Set([
+  'interrupted',
+  'uncertain_proposal',
+  'suspended',
+  'awaiting_proposal',
+  'journal_capacity',
+]);
+const REVISE_TERMINAL = new Set([
+  'finished_clean',
+  'uncertified',
+  'stopped_with_open_lines',
+  'stopped_with_whole_draft_flags',
+]);
 function finishedRevise(verdict) {
-  return (
-    !!verdict &&
-    typeof verdict === 'object' &&
-    !['interrupted', 'uncertain_proposal'].includes(verdict.status) &&
-    verdict.checkpoint == null &&
-    verdict[STATE_PROPERTY] == null
-  );
+  if (!verdict || typeof verdict !== 'object' || REVISE_MID_RUN.has(verdict.status)) return false;
+  if ((verdict.exit_code === 0 || verdict.exit_code === 3) && REVISE_TERMINAL.has(verdict.status))
+    return true;
+  // Any other exit (a refusal before work, a crash, a mid-run stop) never answers a
+  // repeat, token or not: nothing finished, and a retry pays no writer twice.
+  if (typeof verdict.exit_code === 'number' && verdict.exit_code !== 0 && verdict.exit_code !== 3)
+    return false;
+  return verdict.checkpoint == null && verdict[STATE_PROPERTY] == null;
 }
 // Where a lyric_revise functionResponse keeps its verdict: under `verdict`
 // for a two-block result, the response itself for one block or a stub.

@@ -1463,6 +1463,73 @@ class AnalysisSession:
     def _token_id(self, tok):
         return f"{self._line_id(tok[0])}:token:{tok[1]}"
 
+    @staticmethod
+    def _domain_tally(delta, record):
+        """Note a recorded edge's token pair toward its method's domain
+        outcomes. A true or undecided edge whose members are each one token,
+        and two distinct tokens, names one candidate pair. Several candidate
+        spans can name the same pair (each syllable of a word is a span), so
+        the PAIR is noted, not counted: `_outcomes` reduces the notes to
+        distinct pairs (3PO, #637 6547517269). Kept with the method's counts,
+        so a resumed traversal keeps them, and a replayed note is the same
+        pair again, never a second one."""
+        a, b = (record.get(k, {}).get("token_ids") or () for k in ("a", "b"))
+        if len(a) == 1 and len(b) == 1 and a[0] != b[0]:
+            key = "domain_true" if record.get("verdict") == "true" else "domain_undecided"
+            delta[key] = delta.get(key, []) + [[a[0], b[0]]]
+
+    @staticmethod
+    def _outcomes(domain, tally, answered=True):
+        """-> `domain` with `listed_pairs_by_state`: its listed pairs by the
+        state their own records give, where the verdicts were reached.
+        A WHOLE-METHOD population (3PO, #637 6545638972): never a view's local
+        denominator, never a refused or pending pair total, and not the
+        population `counts` describes (`counts` counts the engine's bucket
+        candidates: pruned candidates are listed and in no count,
+        placement-refused ones are counted and not listed).
+
+        `tally` is the true and undecided records' token pairs, as noted.
+        Each listed pair is counted once (3PO, #637 6547517269): true if any
+        record of it is true (the method is existential), else undecided if
+        any is; so the two populations are disjoint. `judged_false` is the
+        listed pairs with neither, and null when that rest is not shown
+        False: a method whose coverage is not `answered` (an unread member, an
+        incomplete reading search), a listed pair touching a
+        reading-dependent occurrence (only its own record answers it,
+        `MethodDomain`), or a recorded pair the listing does not hold."""
+        if domain.get("projection") != "exact_token_pair":
+            return domain
+        tokens = domain["tokens"]
+        index = {t: i for i, t in enumerate(tokens)}
+        listed = {(int(i), j) for i, runs in domain["pairs"].items() for lo, hi in runs
+                  for j in range(lo, hi + 1)}
+        unordered = domain.get("ordering") == "unordered"
+
+        def pairs(notes):
+            out, stray = set(), False
+            for a, b in notes:
+                i, j = index.get(a), index.get(b)
+                key = None if i is None or j is None else (min(i, j), max(i, j)) if unordered else (i, j)
+                if key in listed:
+                    out.add(key)
+                else:
+                    stray = True
+            return out, stray
+        true, stray_t = pairs(tally[0])
+        undecided, stray_u = pairs(tally[1])
+        undecided -= true
+        # A reading-dependent occurrence may list no pair at all (its locus is
+        # empty on the first-listed reading): it then touches no listed pair.
+        dependent = {index[t] for t in domain.get("reading_dependent_tokens", ()) if t in index}
+        dependent_pairs = sum(1 for i, j in listed if i in dependent or j in dependent)
+        rest = len(listed) - len(true) - len(undecided)
+        domain["listed_pairs_by_state"] = {"listed": len(listed), "true_pairs": len(true),
+                                           "undecided_pairs": len(undecided),
+                                           "judged_false": (rest if answered and not dependent_pairs
+                                                            and not (stray_t or stray_u) else None),
+                                           "reading_dependent_pairs": dependent_pairs}
+        return domain
+
     def _project(self, cells, ordering):
         """{(line, token) pairs} -> the exact token-pair projection: tokens,
         and each token's partners as [first, last] index runs."""
@@ -1800,6 +1867,7 @@ class AnalysisSession:
                 "reading_dependent_tokens": [self._token_id(t) for t in dependent]}
 
     def _sound_result(self, key, mid, counts):
+        tally = (counts.get("domain_true", []), counts.get("domain_undecided", []))
         if self.stream.unreadable and counts["coverage"] == "answered":
             counts["coverage"] = "refused"
             counts["unreadable_tokens"] = len(self.stream.unreadable)
@@ -1807,8 +1875,8 @@ class AnalysisSession:
                 "detail": "Unread lexical members remain in the source census. Findings over readable members do not answer those obligations."}
         return self._record("method_result", mid, "result", namespace="shared_sound",
                             method_name=shared_sound_name(key), layer=SHARED_SOUND_LAYER,
-                            coverage=counts["coverage"], counts=counts,
-                            domain=self._sound_domain(key, counts.pop("alt_cells", []))
+                            coverage=counts["coverage"], counts=self._public_counts(counts),
+                            domain=self._outcomes(self._sound_domain(key, counts.get("alt_cells", [])), tally)
                             if counts["coverage"] == "answered"
                             else {"projection": "none", "reason": "refused"},
                             refusal=counts.get("refusal"),
@@ -2312,6 +2380,10 @@ class AnalysisSession:
         if phase == "shared_sound":
             return [self._sound_result(name, mid, counts)]
         rows = []
+        # Read, not popped: the terminal record may be emitted across a
+        # checkpoint (a detached domain's parts), and a restore rebuilds it
+        # from these same inputs. `_advance` drops them once it is out.
+        tally = (counts.get("domain_true", []), counts.get("domain_undecided", []))
         needs_assembly = phase == "schema" and not RL.pair_scope_representable(RL.REGISTRY[name]) and name not in RL.FULL_SHAPES
         if needs_assembly and counts["coverage"] == "answered":
             counts.pop("coverage", None)
@@ -2327,9 +2399,10 @@ class AnalysisSession:
                     "detail": "Not every combination of the disputed words' readings was searched: " + self._incomplete[name]
                               + ". Findings over the combinations searched do not answer the rest."}
             rows.append(self._record("method_result", mid, "result", namespace="schema", schema_name=name,
-                                    coverage=counts["coverage"], counts=counts,
-                                    domain=self._domain(name, counts.pop("alt_cells", [])) if phase == "schema"
-                                    else {"projection": "none", "reason": "whole_figure"},
+                                    coverage=counts["coverage"], counts=self._public_counts(counts),
+                                    domain=self._outcomes(self._domain(name, counts.get("alt_cells", [])), tally,
+                                                          answered=counts["coverage"] == "answered")
+                                    if phase == "schema" else {"projection": "none", "reason": "whole_figure"},
                                     refusal=counts.get("refusal"), availability="available" if counts["coverage"] == "answered" else "unknown_members",
                                     supply={c: json_safe(self.stream.supply(c))
                                                                        for c in RL.REGISTRY[name].capabilities()}))
@@ -2361,7 +2434,20 @@ class AnalysisSession:
                   if first_only or unsearched else self._search("not_needed"))
         return self._edge_record(e, st, search=search, first_only=first_only)
 
+    # A method's terminal inputs: kept in its checkpoint counts until its
+    # terminal record is wholly emitted, and never published.
+    _TERMINAL_INPUTS = ("domain_true", "domain_undecided", "alt_cells")
+
+    @classmethod
+    def _public_counts(cls, counts):
+        return {k: v for k, v in counts.items() if k not in cls._TERMINAL_INPUTS}
+
     def _advance(self):
+        i = self.checkpoint["method_index"]
+        if i < len(self.tasks):
+            done = self.checkpoint["methods"].get(self._task_mid(*self.tasks[i]))
+            for key in self._TERMINAL_INPUTS if done is not None else ():
+                done.pop(key, None)
         self.checkpoint["method_index"] += 1
         self.checkpoint["candidate"] = 0
         self.checkpoint["emission"] = 0
@@ -2437,6 +2523,7 @@ class AnalysisSession:
                         if inst.verdict is not False:
                             record = self._edge_record(inst, judged, witness, search, first_only)
                             new.append(record)
+                            self._domain_tally(delta, record)
                             if not RL.pair_scope_representable(RL.REGISTRY[name]):
                                 self._local_records.setdefault(self._task_mid(phase, name), []).append(record)
                 else:
@@ -2463,6 +2550,7 @@ class AnalysisSession:
                     delta["first_reading_only"] += first_only
                     if value is not False:
                         new.append(record)
+                        self._domain_tally(delta, record)
             else:
                 new = [binding]
             delta["candidates"] = 1

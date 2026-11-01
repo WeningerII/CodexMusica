@@ -200,7 +200,7 @@ function createViews({ interaction: I, marks: M, bindings: B, actions, live }) {
       pane.append(el('h3', (sel.kind === 'binding' ? 'Asked roles · ' : '') + labels(model, sel)));
     }
     pane.append(el('p', state(cell), 'cv-verdict'));
-    const record = cell?.record;
+    const record = cell?.record?.display || cell?.record;
     for (const [label, value] of [
       ['Whole-word witness', record?.witness],
       [

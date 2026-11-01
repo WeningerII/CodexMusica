@@ -641,6 +641,12 @@ two extra being `chain rhyme (rap)` and `compound / phrasal rhyme`.
 > `compound / phrasal rhyme` returns to EXTENDABLE once `_bucket_key` keys a
 > flush_right `each` channel at the last unit, so its definite instances
 > reach the judge. The 2026-08 figures above are kept as measured then.
+>
+> **2026-10-31 (M-311 F1, R2's mosaic ruling, #657).** EXTENDABLE ~~30~~
+> **29**, NO INSTANCE ~~8~~ **9**: `mosaic rhyme` moves EXTENDABLE -> NO
+> INSTANCE (null menu 8 -> 6). Its old instances were end rhymes with a word
+> before them, which the ruling removes, and the slice holds no anchored
+> multi-word tail. CANNOT OBTAIN stays 37 / 1.
 
 > **REPINNED AGAIN 2026-08-22 (M-39).** ~~31~~ **27** budgeted and ~~33~~
 > **29** unbudgeted. A `figure(frame="stanza")` now asks for the frame it
