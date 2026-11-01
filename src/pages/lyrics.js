@@ -2771,7 +2771,22 @@ function lyRunChecks(model) {
         text: 'Reported as notes. They do not stop the song finishing.',
         actions: [],
       });
-    if (t.error)
+    // A call the host answered without running it is not a failed check.
+    // When the run's coverage names what it could not judge, that is the
+    // outcome; otherwise the row says it was not run.
+    if (t.error && t.not_run) {
+      if (!(run.coverage?.obligations || []).some((o) => o.status === 'refused'))
+        add({
+          id: `not-run:${t.name}`,
+          tone: 'input',
+          category: 'Not run',
+          title: `${t.name} was not run`,
+          where: 'Writer run',
+          lines: [],
+          text: String(t.error).slice(0, 300),
+          actions: [],
+        });
+    } else if (t.error)
       add({
         id: `error:${t.name}`,
         tone: 'issue',
@@ -3392,6 +3407,16 @@ const lyLibraryRunOut = (run) =>
     baseModel: lyLibraryModelText(run.baseModel),
     resultModel: lyLibraryModelText(run.resultModel),
   };
+const LY_LIBRARY_ERROR_CATEGORIES = [
+  'TypeError',
+  'DataCloneError',
+  'QuotaExceededError',
+  'InvalidStateError',
+  'NotFoundError',
+  'AbortError',
+];
+const lyLibraryErrorCategory = (error) =>
+  LY_LIBRARY_ERROR_CATEGORIES.find((name) => name === error?.name) || 'UnknownError';
 const lyLibraryRunIn = (run) => {
   if (!run || typeof run !== 'object') return null;
   const parse = (m) => (lyLibraryModelText(m) === null ? null : lyParse(lyLibraryModelText(m)));
@@ -3653,8 +3678,8 @@ function lyLibraryPersist() {
       await lyLibraryStore.saveDraft(lyLibraryCapture());
       lyLibraryDrafts = await lyLibraryStore.listDrafts();
     } catch (error) {
-      // The category only: the capture holds private writer state and lyrics.
-      console.warn('Library working copy save failed:', error?.name || 'Error');
+      // A fixed category only: the capture holds private writer state and lyrics.
+      console.warn('Library working copy save failed:', lyLibraryErrorCategory(error));
       showToast(
         'The Library working copy could not be saved. Export this session to keep its text and credits.',
         'error'

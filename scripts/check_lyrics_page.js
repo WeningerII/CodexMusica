@@ -67,7 +67,7 @@
 // Exit 0 if every assertion passes, 1 otherwise, 2 if playwright is missing.
 
 'use strict';
-/* global devicePixelRatio, lyIdentity, lyLibraryCapture, lyLibraryRecord, lyDeclarationRefusal, lyItems, visualViewport, innerHeight, document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lySyncCaret, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage, uiChatOpen, requestAnimationFrame, LY_ACTION_TEXT, lySubmitLyricsAction, lyWriterState, lyToolRequestAction, lyInspectionSession, Image, InputEvent, MutationObserver, NodeFilter */
+/* global devicePixelRatio, lyAnalysis, lyIdentity, lyLibraryCapture, lyLibraryRecord, lyDeclarationRefusal, lyItems, visualViewport, innerHeight, document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lySyncCaret, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage, uiChatOpen, requestAnimationFrame, LY_ACTION_TEXT, lySubmitLyricsAction, lyWriterState, lyToolRequestAction, lyInspectionSession, Image, InputEvent, MutationObserver, NodeFilter */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -6644,6 +6644,133 @@ async function browserChecks(chromium) {
         await lyLibraryStore.saveDraft({ ...r, writer: null, text: r.text });
       }, idA);
       restoredChecks(await restore(idA), 'without a continuation');
+      // Saved documents in older shapes: an object holding its text, null, absent.
+      await page.evaluate(async (id) => {
+        await LY_ACTIONS['ly-library-restore'](id);
+      }, second.idB);
+      await page.evaluate(
+        async ({ id, text }) => {
+          const r = await lyLibraryStore.getDraft(id);
+          r.pageReview.run.baseModel = { text, rows: [], sections: [] };
+          r.pageReview.run.resultModel = null;
+          delete r.pageReview.past[0].baseModel;
+          delete r.pageReview.past[0].resultModel;
+          await lyLibraryStore.saveDraft(r);
+        },
+        { id: idA, text: before.run[0] }
+      );
+      const legacy = await page.evaluate(async (id) => {
+        await LY_ACTIONS['ly-library-restore'](id);
+        const run = LY.run;
+        let save = 'saved';
+        try {
+          await lyLibraryStore.saveDraft(lyLibraryCapture());
+        } catch (e) {
+          save = 'FAIL ' + e.message.split('\n')[0];
+        }
+        return {
+          draftId: lyMeta().draftId,
+          base: run?.baseModel?.text ?? null,
+          baseParsed: Array.isArray(run?.baseModel?.sung) && run.baseModel.sung.length > 0,
+          baseId: run?.baseModel ? lyIdentity(run.baseModel) === run.baseId : false,
+          result: run?.resultModel,
+          past: (LY.past || []).map((r) => [r.baseModel, r.resultModel]),
+          review: (LY_ACTIONS['ly-tab']('review'), $ui('ly-panel-review').innerText),
+          save,
+        };
+      }, idA);
+      check(legacy.draftId === idA, 'the copy with older document shapes was not restored');
+      check(
+        legacy.base === before.run[0] && legacy.baseParsed && legacy.baseId,
+        `an object with its text did not come back as that document: ${JSON.stringify(legacy.base)}`
+      );
+      check(
+        legacy.result === null,
+        `a null document came back as ${JSON.stringify(legacy.result)}`
+      );
+      check(
+        JSON.stringify(legacy.past) === JSON.stringify([[null, null]]),
+        `absent documents came back as ${JSON.stringify(legacy.past)}`
+      );
+      check(/Review of this version/.test(legacy.review), 'the review panel did not render');
+      check(
+        legacy.save === 'saved',
+        `the copy with older shapes could not be saved: ${legacy.save}`
+      );
+      await ctx.close();
+    });
+
+    // ── J15. A review that needed a declaration reads as needing input ────────
+    // The server answers a mandate-less review's check without running it: the
+    // tool row carries the refusal with not_run, and the assessment's coverage
+    // names the missing declaration. The page shows that input-needed item and
+    // no "lyric_check failed" issue. The reply is the /chat body's shape
+    // (mcp/chat.js tools rows; mcp/test_review_mandate.mjs drives the real one).
+    await step('J15. mandate-less review reads as needing input', async () => {
+      const { ctx, page, q } = await boot();
+      await setDraft(page, DRAFT.replace('[SETUP — rhyme groups — 3,4]\n', ''));
+      const reason =
+        'No rhyme groups or returns are declared; declare them to check. Recovery ran; report the missing declaration.';
+      const row = (name, extra) => ({
+        name,
+        seed: null,
+        error: null,
+        not_run: false,
+        exit_code: null,
+        status: null,
+        certified: null,
+        coverage: null,
+        banned_pairs: null,
+        refusal: null,
+        ...extra,
+      });
+      await sendReview(page, q, {
+        reply:
+          'Review needs input: no rhyme groups or returns are declared, so nothing was checked. Declare them, then review again. This is not song certification.',
+        history: [],
+        sig: 'fixture',
+        task: { domain: 'lyrics', phase: 'edit' },
+        artifact: null,
+        completion: null,
+        stopped: null,
+        assessment: {
+          status: 'input',
+          certified: false,
+          binding: null,
+          coverage: {
+            certified: false,
+            obligations: [{ id: 'declaration:mandate', status: 'refused', reason }],
+          },
+          standing: [],
+        },
+        tools: [
+          row('lyric_recover', { exit_code: 3 }),
+          row('lyric_check', { error: reason, not_run: true }),
+        ],
+      });
+      const shown = await page.evaluate(() => ({
+        badge: $ui('ly-badge').innerText,
+        state: lyAnalysis().state,
+        items: lyItems().map((i) => [i.tone, i.title]),
+        review: (LY_ACTIONS['ly-tab']('review'), $ui('ly-panel-review').innerText),
+      }));
+      check(q.calls.length === 1, `the mandate-less review sent ${q.calls.length} requests`);
+      check(
+        shown.state === 'input' && /Review needs input/.test(shown.badge),
+        `the review does not read as needing input: ${shown.state} | ${shown.badge}`
+      );
+      check(
+        !shown.items.some(([, title]) => /failed/.test(title)) && !/failed/.test(shown.review),
+        `a failed check is shown: ${JSON.stringify(shown.items)}`
+      );
+      check(
+        shown.items.some(
+          ([tone, title]) => tone === 'input' && title === 'Not judged: declaration:mandate'
+        ) &&
+          /Not judged: declaration:mandate/.test(shown.review) &&
+          /declare them to check/.test(shown.review),
+        `the review panel does not name the missing declaration: ${shown.review.slice(0, 400)}`
+      );
       await ctx.close();
     });
 
