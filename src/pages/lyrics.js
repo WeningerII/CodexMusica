@@ -2771,7 +2771,27 @@ function lyRunChecks(model) {
         text: 'Reported as notes. They do not stop the song finishing.',
         actions: [],
       });
-    if (t.error)
+    // A call the host answered without running it is not a failed check.
+    // When a refused coverage obligation carries this very refusal, that item
+    // already says it; any other refusal leaves the row saying it was not run.
+    if (t.error && t.not_run) {
+      const said = String(t.error);
+      if (
+        !(run.coverage?.obligations || []).some(
+          (o) => o.status === 'refused' && String(o.reason ?? '') === said
+        )
+      )
+        add({
+          id: `not-run:${t.name}`,
+          tone: 'input',
+          category: 'Not run',
+          title: `${t.name} was not run`,
+          where: 'Writer run',
+          lines: [],
+          text: String(t.error).slice(0, 300),
+          actions: [],
+        });
+    } else if (t.error)
       add({
         id: `error:${t.name}`,
         tone: 'issue',
@@ -3380,6 +3400,33 @@ let lyLibraryLoadingId = '';
 let lyLibraryDrafts = [];
 let lyLibraryLock = null;
 const lyLibraryCopy = (value) => JSON.parse(JSON.stringify(value));
+// A run keeps its request's and result's parsed documents, whose sections and
+// rows point at each other (headerless documents too): a saved copy keeps
+// each one's exact text, and a restored run parses that text again into its
+// own objects. A model saved as an object is read from its text.
+const lyLibraryModelText = (m) =>
+  typeof m === 'string' ? m : typeof m?.text === 'string' ? m.text : null;
+const lyLibraryRunOut = (run) =>
+  run && {
+    ...run,
+    baseModel: lyLibraryModelText(run.baseModel),
+    resultModel: lyLibraryModelText(run.resultModel),
+  };
+const LY_LIBRARY_ERROR_CATEGORIES = [
+  'TypeError',
+  'DataCloneError',
+  'QuotaExceededError',
+  'InvalidStateError',
+  'NotFoundError',
+  'AbortError',
+];
+const lyLibraryErrorCategory = (error) =>
+  LY_LIBRARY_ERROR_CATEGORIES.find((name) => name === error?.name) || 'UnknownError';
+const lyLibraryRunIn = (run) => {
+  if (!run || typeof run !== 'object') return null;
+  const parse = (m) => (lyLibraryModelText(m) === null ? null : lyParse(lyLibraryModelText(m)));
+  return { ...run, baseModel: parse(run.baseModel), resultModel: parse(run.resultModel) };
+};
 function lyLibraryCapture() {
   const meta = lyricMetaOf(app.lyricMeta);
   const draftId = meta.draftId || 'draft:' + crypto.randomUUID();
@@ -3409,8 +3456,8 @@ function lyLibraryCapture() {
         : uiChatSessions.get('lyrics')?.input || '',
     savedAt: Date.now(),
     pageReview: lyLibraryCopy({
-      run: LY.run,
-      past: LY.past || [],
+      run: lyLibraryRunOut(LY.run),
+      past: (LY.past || []).map(lyLibraryRunOut),
       analysis: LY.analysis,
       outcomes: LY.outcomes,
       results: LY.results,
@@ -3520,7 +3567,15 @@ async function lyLibraryActivate(record, { restored = false, preservedDraftId } 
       });
       _chatSave();
     }
-    Object.assign(LY, record.pageReview || {});
+  }
+  // The saved review comes back with or without a saved continuation, as
+  // copies: the stored record is never the page's working state.
+  if (restored && record.pageReview) {
+    const review = lyLibraryCopy(record.pageReview);
+    Object.assign(LY, review, {
+      run: lyLibraryRunIn(review.run),
+      past: (Array.isArray(review.past) ? review.past : []).map(lyLibraryRunIn).filter(Boolean),
+    });
   }
   lyDraft().value = record.text;
   // An import boundary: the step recorded next holds the migrated text.
@@ -3627,7 +3682,9 @@ function lyLibraryPersist() {
     try {
       await lyLibraryStore.saveDraft(lyLibraryCapture());
       lyLibraryDrafts = await lyLibraryStore.listDrafts();
-    } catch {
+    } catch (error) {
+      // A fixed category only: the capture holds private writer state and lyrics.
+      console.warn('Library working copy save failed:', lyLibraryErrorCategory(error));
       showToast(
         'The Library working copy could not be saved. Export this session to keep its text and credits.',
         'error'

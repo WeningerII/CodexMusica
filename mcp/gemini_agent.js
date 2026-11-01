@@ -76,6 +76,12 @@ export function chatWriter() {
 // Re-measure with `--thinking=low` / default before changing this.
 export const DEFAULT_THINKING = { thinkingLevel: 'low' };
 
+// What a review with no declared pattern answers its lyric_check with.
+const REVIEW_MANDATE_CONFLICT =
+  'Both a rhyme scheme and rhyme groups are declared; lyric_check takes one or the other. Keep one to check. Recovery ran; report the conflicting declarations.';
+const REVIEW_NO_MANDATE =
+  'No rhyme groups or returns are declared; declare them to check. Recovery ran; report the missing declaration.';
+
 // A turn has no limit on how many tools it calls. It ends when the model
 // answers, or at the time and spending limits below.
 export const LIMITS = {
@@ -1777,6 +1783,28 @@ export async function runTurn({
     ? Object.keys(reviewContext.declarations).filter((key) => !Object.hasOwn(checkProperties, key))
     : [];
   let reviewLines = null;
+  // A review whose page declarations lyric_check would refuse (no scheme, no
+  // groups and no returns; or a scheme and groups together: the tool's own
+  // rule) gives it nothing to judge, and a model retrying the refusal would
+  // spend a paid hop each time. Recovery still runs; the first check is
+  // answered here, not dispatched, and ends the turn.
+  const reviewMandateProblem = (() => {
+    if (!reviewContext) return null;
+    const d = reviewContext.declarations || {};
+    const hasScheme = d.scheme != null && d.scheme !== '';
+    const hasGroups = d.groups != null && d.groups !== '';
+    if (hasScheme && hasGroups) return REVIEW_MANDATE_CONFLICT;
+    if (!hasScheme && !hasGroups && !d.returns) return REVIEW_NO_MANDATE;
+    return null;
+  })();
+  // A review turn also ends when it cannot progress: a check asked for after
+  // recovery failed, or a second hop in which nothing ran (only refusals or a
+  // failed recovery). Each refusal is recorded once per turn, however often
+  // the model repeats it. 'mandate' | 'stalled' | false.
+  let reviewHalted = false;
+  let reviewStalls = 0;
+  let reviewRecoverFailed = false;
+  const reviewRefusals = new Set();
   let assessment = null;
   let artifact = task?.artifact ? { ...task.artifact, certified: false } : null;
   let recoveredDelivery = null;
@@ -2202,6 +2230,8 @@ export async function runTurn({
       }
 
       const responses = [];
+      let hopProgress = false;
+      let hopStalled = false;
       let workerProgressSuperseded = false;
       for (const fc of functionCalls) {
         workerProgressSuperseded = false;
@@ -2223,9 +2253,15 @@ export async function runTurn({
           const allowed = fc.name === 'lyric_recover' || (fc.name === 'lyric_check' && reviewLines);
           if (!allowed) {
             const error =
-              'Review only: recover the committed document, then check it. Rewriting is not authorized.';
+              fc.name === 'lyric_check' && reviewRecoverFailed
+                ? 'Review only: the committed document could not be recovered, so it cannot be checked. Report that the review is incomplete.'
+                : 'Review only: recover the committed document, then check it. Rewriting is not authorized.';
             result = { isError: true, content: [{ type: 'text', text: error }] };
-            calls.push({ name: fc.name, args, isError: true, not_run: true, error });
+            if (!reviewRefusals.has(fc.name + '\n' + error))
+              calls.push({ name: fc.name, args, isError: true, not_run: true, error });
+            reviewRefusals.add(fc.name + '\n' + error);
+            hopStalled = true;
+            if (fc.name === 'lyric_check' && reviewRecoverFailed) reviewHalted ||= 'stalled';
             responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
             continue;
           }
@@ -2245,6 +2281,34 @@ export async function runTurn({
             for (const [key, value] of Object.entries(reviewContext.declarations))
               if (Object.hasOwn(checkProperties, key)) args[key] = value;
             args.lines = [...reviewLines];
+            if (reviewMandateProblem) {
+              const error = reviewMandateProblem;
+              result = { isError: true, content: [{ type: 'text', text: error }] };
+              // One row however many checks the model asked for in this hop.
+              if (!reviewRefusals.has(fc.name + '\n' + error))
+                calls.push({ name: fc.name, args, isError: true, not_run: true, error });
+              reviewRefusals.add(fc.name + '\n' + error);
+              reviewHalted = 'mandate';
+              assessment = {
+                status: 'input',
+                certified: false,
+                binding: reviewContext.binding,
+                coverage: {
+                  certified: false,
+                  obligations: [
+                    { id: 'declaration:mandate', status: 'refused', reason: error },
+                    ...uncheckedDeclarations.map((key) => ({
+                      id: `declaration:${key}`,
+                      status: 'refused',
+                      reason: `The declaration ${key} is preserved in the request but lyric_check does not support judging it.`,
+                    })),
+                  ],
+                },
+                standing: [],
+              };
+              responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
+              continue;
+            }
           }
         }
         if (task && (task.domain === 'lyrics') !== fc.name.startsWith('lyric_')) {
@@ -2589,10 +2653,15 @@ export async function runTurn({
           if (!lyricVerdict && payload && typeof payload.exit_code === 'number') {
             lyricVerdict = payload;
           }
-          if (reviewContext && fc.name === 'lyric_recover')
+          if (reviewContext && fc.name === 'lyric_recover') {
             reviewLines =
               !isError && Array.isArray(lyricVerdict?.lines) ? [...lyricVerdict.lines] : null;
+            reviewRecoverFailed = !reviewLines;
+            if (reviewLines) hopProgress = true;
+            else hopStalled = true;
+          }
           if (reviewContext && fc.name === 'lyric_check') {
+            hopProgress = true;
             const v = lyricVerdict;
             const refused =
               uncheckedDeclarations.length > 0 ||
@@ -2935,6 +3004,12 @@ export async function runTurn({
         stopped = null;
         break;
       }
+      // The review's missing declaration is its answer: no further hop. A
+      // second hop that made no progress ends it too (the model has had the
+      // refusal once and cannot get further).
+      if (reviewContext && hopStalled && !hopProgress && ++reviewStalls >= 2)
+        reviewHalted ||= 'stalled';
+      if (reviewHalted) break;
       // M-228: the brief the model just answered leaves the transcript before
       // the next request; the result it has not acted on yet stays whole.
       if (limits.pruneFolded) stubSupersededInPlace(contents);
@@ -2991,9 +3066,14 @@ export async function runTurn({
   } else if (reviewContext) {
     artifact = null;
     if (task) task.artifact = null;
-    reply = assessment
-      ? 'Review recorded. See the findings and coverage for the submitted draft. This is not song certification.'
-      : 'Review incomplete: no check of the submitted draft was returned.';
+    reply =
+      reviewHalted === 'mandate'
+        ? reviewMandateProblem === REVIEW_MANDATE_CONFLICT
+          ? 'Review needs input: both a rhyme scheme and rhyme groups are declared, so nothing was checked. Keep one, then review again. This is not song certification.'
+          : 'Review needs input: no rhyme groups or returns are declared, so nothing was checked. Declare them, then review again. This is not song certification.'
+        : assessment
+          ? 'Review recorded. See the findings and coverage for the submitted draft. This is not song certification.'
+          : 'Review incomplete: no check of the submitted draft was returned.';
     assessment ||= {
       status: 'failed',
       certified: false,
