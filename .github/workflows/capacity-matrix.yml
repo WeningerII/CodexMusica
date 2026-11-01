@@ -81,6 +81,22 @@ jobs:
             cells: 31:20260909,18:20260910,18:20260908
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      # THE SAME RECLAIM `ci.yml`'s image build runs, for the same reason:
+      # `cells pole` died on "No space left on device" while building the
+      # image in Production qualification 41217688592 and 41239850435 (both
+      # attempt 1), before it measured anything. Only the hosted runner's
+      # disposable Android and .NET SDKs go; the tool cache, Docker layers,
+      # workspace and every runtime/proof input stay.
+      - name: Reclaim unused hosted runner toolchains
+        if: runner.environment == 'github-hosted'
+        run: |
+          set -euo pipefail
+          df -B1 / /var/lib/docker
+          for sdk in /usr/local/lib/android /usr/share/dotnet; do
+            if [ -d "$sdk" ]; then sudo du -sh -- "$sdk"; fi
+          done
+          sudo rm -rf -- /usr/local/lib/android /usr/share/dotnet
+          df -B1 / /var/lib/docker
       # The same seed prefix `lyrics-image` uses. It may contain an earlier
       # CI run's receipt; only the image's own Python decides its validity.
       - name: Restore the newest capacity receipt banked on this branch or main

@@ -1,0 +1,133 @@
+{
+  "records": [
+    {
+      "id": "relation_figure:b7f9baacb5b679b70f4aa36d645d0630",
+      "kind": "relation_figure",
+      "method_id": "schema:c6f237b95f5c25155a209dc7",
+      "basis": "measured",
+      "namespace": "schema",
+      "schema_name": "analysed rhyme",
+      "frame": 0,
+      "verdict": "true",
+      "member_lines": [1, 2, 3, 4],
+      "edges": {
+        "$detail_ref": "detail:6381a25b451bfe9caf799ac4057e4a6a",
+        "encoding": "json",
+        "sha256": "810dcd51d7313b3363fd1a344e1451d230d2d9b8e67d00979887a4d54e832afc",
+        "byte_length": 8937,
+        "parts": 3
+      }
+    },
+    {
+      "id": "detail_part:6aa54050595de213d91dd8ff293a95aa",
+      "kind": "detail_part",
+      "method_id": "schema:c6f237b95f5c25155a209dc7",
+      "basis": "measured",
+      "parent_id": "relation_figure:b7f9baacb5b679b70f4aa36d645d0630",
+      "detail_id": "detail:6381a25b451bfe9caf799ac4057e4a6a",
+      "field": "edges",
+      "part": 0,
+      "total": 3,
+      "json_fragment": "[{\"a\":{\"anchor_position\":0,\"direction\":1,\"line_ids\":[\"line:0\"],\"normalized_ranges\":[{\"codepoint_range\":[19,22],\"utf16_range\":[19,22]}],\"origin\":\"L0.T4\",\"precision\":\"token\",\"search_k\":1,\"source_ranges\":[{\"codepoint_range\":[19,22],\"physical_line\":null,\"precision\":\"exact\",\"utf16_range\":[19,22]}],\"token_ids\":[\"line:0:token:4\"],\"unit_ids\":[\"syllable:5\"]},\"alignment\":{\"kind\":\"anchor\",\"pairs\":[[0,0]],\"unmatched_a\":[],\"unmatched_b\":[]},\"b\":{\"anchor_position\":0,\"direction\":1,\"line_ids\":[\"line:3\"],\"normalized_ranges\":[{\"codepoint_range\":[88,92],\"utf16_range\":[88,92]}],\"origin\":\"L3.T4\",\"precision\":\"token\",\"search_k\":1,\"source_ranges\":[{\"codepoint_range\":[88,92],\"physical_line\":null,\"precision\":\"exact\",\"utf16_range\":[88,92]}],\"token_ids\":[\"line:3:token:4\"],\"unit_ids\":[\"syllable:23\"]},\"basis\":\"measured\",\"channel_reads\":[[\"nucleus\",0,{\"informative\":true,\"note\":\"\",\"value\":true}],[\"coda\",0,{\"informative\":true,\"note\":\"\",\"value\":true}]],\"compared\":{\"a\":[{\"coda\":[\"N\"],\"moras\":1,\"nucleus\":\"AH\",\"onset\":[\"S\"],\"prominence\":1,\"text\":\"sun\"}],\"b\":[{\"coda\":[\"K\"],\"moras\":1,\"nucleus\":\"AH\",\"onset\":[\"S\"],\"prominence\":1,\"text\":\"suck\"}]},\"engine_edge\":{\"a\":{\"anchor_pos\":0,\"direction\":1,\"idx\":[5],\"origin\":\"L0.T4\",\"promoted\":false,\"search_k\":1,\"unit\":\"syllable\"},\"alignment\":{\"kind\":\"anchor\",\"pairs\":[[0,0]],\"unmatched_a\":[],\"unmatched_b\":[]},\"b\":{\"anchor_pos\":0,\"direction\":1,\"idx\":[23],\"origin\":\"L3.T4\",\"promoted\":false,\"search_k\":1,\"unit\":\"syllable\"},\"identity_reads\":[[\"token\",{\"informative\":true,\"note\":\"\",\"value\":true}]],\"placement_reads\":[],\"reads\":[[\"nucleus\",0,{\"informative\":true,\"note\":\"\",\"value\":true}],[\"coda\",0,{\"informative\":true,\"note\":\"\",\"value\":true}]],\"schema\":\"assonance (crossed)\",\"search_k\":1,\"verdict\":true},\"id\":\"relation_instance:ba5e983f00c1fa2673716f278adad37a\",\"identity_reads\":[[\"token\",{\"informative\":true,\"note\":\"\",\"value\":true}]],\"informative_channels\":[\"nucleus\",\"coda\"],\"kind\":\"relation_instance\",\"method_id\":\"schema:173f319ea93331982566e151\",\"namespace\":\"schema\",\"placement_reads\":[],\"quantifier\":\"exists_compatible_reading\",\"reading_search\":{\"combination_limit\":64,\"combinations_examined\":0,\"state\":\"not_needed\"},\"schema_name\":\"assonance (crossed)\",\"scope\":\"in_tradition\",\"unknown_channels\":[],\"verdict\":\"true\"},{\"a\":{\"anchor_position\":0,\"direction\":1,\"line_ids\":[\"line:1\"],\"normalized_ranges\":[{\"codepoint_range\":[42,45],\"utf16_range\":[42,45]}],\"origin\":\"L1.T5\",\"precision\":\"token\",\"search_k\":1,\"source_ranges\":[{\"codepoint_range\":[42,45],\"physical_line\":null,\"precision\":\"exact\",\"utf16_range\":[42,45]}],\"token_ids\":[\"line:1:token:5\"],\"unit_ids\":[\"syllable:11\"]},\"alignment\":{\"kind\":\"anchor\",\"pairs\":[[0,0]],\"unmatched_a\":[],\"unmatched_b\":[]},\"b\":{\"anchor_position\":0,\"direction\":1,\"line_ids\":[\"line:2\"],\"normalized_ranges\":[{\"codepoint_range\":[66,70],\"utf16_range\":[66,70]}],\"origin\":\"L2.T4\",\"precision\":\"token\",\"search_k\":1,\"source_ranges\":[{\"codepoint_range\":[66,70],\"physical_line\":null,\"precision\":\"exact\",\"utf16_range\":[66,70]}],\"token_ids\":[\"line:2:token:4\"],\"unit_ids\":[\"syllable:17\"]},\"basis\":\"measured\",\"channel_reads\":[[\"nucleus\",0,{\"informative\":true,\"note\":\"\",\"value\":true}],[\"coda\",0,{\"informative\":true,\"note\":\"\",\"value\":true}]],\"compared\":{\"a\":[{\"coda\":[\"N\"],\"moras\":1,\"nucleus\":\"IH\",\"onset\":[\"T\"],\"prominence\":1,\"text\":\"tin\"}],\"b\":[{\"coda\":[\"K\"],\"moras\":1,\"nucleus\":\"IH\",\"onset\":[\"S\"],\"prominence\":1,\"text\":\"sick\"}]},\"engine_edge\":{\"a\":{\"anchor_pos\":0,\"direction\":1,\"idx\":[11],\"origin\":\"L1.T5\",\"promoted\":false,\"search_k\":1,\"unit\":\"syllable\"},\"alignment\":{\"kind\":\"anchor\",\"pairs\":[[0,0]],\"unmatched_a\":[],\"unmatched_b\":[]},\"b\":{\"anchor_pos\":0,\"direction\":1,\"idx\":[17],\"origin\":\"L2.T4\",\"promoted\":false,\"search_k\":1,\"unit\":\"syllable\"},\"identity_reads\":[[\"token\",{\"informative\":true,\"note\":\"\",\"value\":true}]],\"placement_reads\":[],\"reads\":[[\"nucleus\",0,{\"informative\":true,\"note\":\"\",\"value\":true}],[\"coda\",0,{\"informative\":true,\"note\":\"\",\"value\":true}]],\"schema\":\"assonance (crossed)\",\"search_k\":1,\"verdict\":true},\"id\":\"relation_instance:d91d3f0b05fe7f65dc47dc79e5b76f8f\",\"identity_reads\":[[\"token\",{\"informative\":true,\"note\":\"\",\"value\":true}]],\"informative_ch"
+    },
+    {
+      "id": "detail_part:40841de270b88895d933f42111563641",
+      "kind": "detail_part",
+      "method_id": "schema:c6f237b95f5c25155a209dc7",
+      "basis": "measured",
+      "parent_id": "relation_figure:b7f9baacb5b679b70f4aa36d645d0630",
+      "detail_id": "detail:6381a25b451bfe9caf799ac4057e4a6a",
+      "field": "edges",
+      "part": 1,
+      "total": 3,
+      "json_fragment": "annels\":[\"nucleus\",\"coda\"],\"kind\":\"relation_instance\",\"method_id\":\"schema:173f319ea93331982566e151\",\"namespace\":\"schema\",\"placement_reads\":[],\"quantifier\":\"exists_compatible_reading\",\"reading_search\":{\"combination_limit\":64,\"combinations_examined\":0,\"state\":\"not_needed\"},\"schema_name\":\"assonance (crossed)\",\"scope\":\"in_tradition\",\"unknown_channels\":[],\"verdict\":\"true\"},{\"a\":{\"anchor_position\":0,\"direction\":1,\"line_ids\":[\"line:0\"],\"normalized_ranges\":[{\"codepoint_range\":[19,22],\"utf16_range\":[19,22]}],\"origin\":\"L0.T4\",\"precision\":\"token\",\"search_k\":1,\"source_ranges\":[{\"codepoint_range\":[19,22],\"physical_line\":null,\"precision\":\"exact\",\"utf16_range\":[19,22]}],\"token_ids\":[\"line:0:token:4\"],\"unit_ids\":[\"syllable:5\"]},\"alignment\":{\"kind\":\"anchor\",\"pairs\":[[0,0]],\"unmatched_a\":[],\"unmatched_b\":[]},\"b\":{\"anchor_position\":0,\"direction\":1,\"line_ids\":[\"line:1\"],\"normalized_ranges\":[{\"codepoint_range\":[42,45],\"utf16_range\":[42,45]}],\"origin\":\"L1.T5\",\"precision\":\"token\",\"search_k\":1,\"source_ranges\":[{\"codepoint_range\":[42,45],\"physical_line\":null,\"precision\":\"exact\",\"utf16_range\":[42,45]}],\"token_ids\":[\"line:1:token:5\"],\"unit_ids\":[\"syllable:11\"]},\"basis\":\"measured\",\"channel_reads\":[[\"coda\",0,{\"informative\":true,\"note\":\"\",\"value\":true}],[\"nucleus\",0,{\"informative\":true,\"note\":\"\",\"value\":true}]],\"compared\":{\"a\":[{\"coda\":[\"N\"],\"moras\":1,\"nucleus\":\"AH\",\"onset\":[\"S\"],\"prominence\":1,\"text\":\"sun\"}],\"b\":[{\"coda\":[\"N\"],\"moras\":1,\"nucleus\":\"IH\",\"onset\":[\"T\"],\"prominence\":1,\"text\":\"tin\"}]},\"engine_edge\":{\"a\":{\"anchor_pos\":0,\"direction\":1,\"idx\":[5],\"origin\":\"L0.T4\",\"promoted\":false,\"search_k\":1,\"unit\":\"syllable\"},\"alignment\":{\"kind\":\"anchor\",\"pairs\":[[0,0]],\"unmatched_a\":[],\"unmatched_b\":[]},\"b\":{\"anchor_pos\":0,\"direction\":1,\"idx\":[11],\"origin\":\"L1.T5\",\"promoted\":false,\"search_k\":1,\"unit\":\"syllable\"},\"identity_reads\":[[\"token\",{\"informative\":true,\"note\":\"\",\"value\":true}]],\"placement_reads\":[],\"reads\":[[\"coda\",0,{\"informative\":true,\"note\":\"\",\"value\":true}],[\"nucleus\",0,{\"informative\":true,\"note\":\"\",\"value\":true}]],\"schema\":\"consonance (crossed)\",\"search_k\":1,\"verdict\":true},\"id\":\"relation_instance:f56f7b7888b5c936b3dcd41c3970a6b4\",\"identity_reads\":[[\"token\",{\"informative\":true,\"note\":\"\",\"value\":true}]],\"informative_channels\":[\"coda\",\"nucleus\"],\"kind\":\"relation_instance\",\"method_id\":\"schema:43b1e3632f1d95beb0015ea8\",\"namespace\":\"schema\",\"placement_reads\":[],\"quantifier\":\"exists_compatible_reading\",\"reading_search\":{\"combination_limit\":64,\"combinations_examined\":0,\"state\":\"not_needed\"},\"schema_name\":\"consonance (crossed)\",\"scope\":\"in_tradition\",\"unknown_channels\":[],\"verdict\":\"true\"},{\"a\":{\"anchor_position\":0,\"direction\":1,\"line_ids\":[\"line:2\"],\"normalized_ranges\":[{\"codepoint_range\":[66,70],\"utf16_range\":[66,70]}],\"origin\":\"L2.T4\",\"precision\":\"token\",\"search_k\":1,\"source_ranges\":[{\"codepoint_range\":[66,70],\"physical_line\":null,\"precision\":\"exact\",\"utf16_range\":[66,70]}],\"token_ids\":[\"line:2:token:4\"],\"unit_ids\":[\"syllable:17\"]},\"alignment\":{\"kind\":\"anchor\",\"pairs\":[[0,0]],\"unmatched_a\":[],\"unmatched_b\":[]},\"b\":{\"anchor_position\":0,\"direction\":1,\"line_ids\":[\"line:3\"],\"normalized_ranges\":[{\"codepoint_range\":[88,92],\"utf16_range\":[88,92]}],\"origin\":\"L3.T4\",\"precision\":\"token\",\"search_k\":1,\"source_ranges\":[{\"codepoint_range\":[88,92],\"physical_line\":null,\"precision\":\"exact\",\"utf16_range\":[88,92]}],\"token_ids\":[\"line:3:token:4\"],\"unit_ids\":[\"syllable:23\"]},\"basis\":\"measured\",\"channel_reads\":[[\"coda\",0,{\"informative\":true,\"note\":\"\",\"value\":true}],[\"nucleus\",0,{\"informative\":true,\"note\":\"\",\"value\":true}]],\"compared\":{\"a\":[{\"coda\":[\"K\"],\"moras\":1,\"nucleus\":\"IH\",\"onset\":[\"S\"],\"prominence\":1,\"text\":\"sick\"}],\"b\":[{\"coda\":[\"K\"],\"moras\":1,\"nucleus\":\"AH\",\"onset\":[\"S\"],\"prominence\":1,\"text\":\"suck\"}]},\"engine_edge\":{\"a\":{\"anchor_pos\":0,\"direction\":1,\"idx\":[17],\"origin\":\"L2.T4\",\"promoted\":false,\"search_k\":1,\"unit\":\"syllable\"},\"alignment\":{\"kind\":\"anchor\",\"pairs\":[[0,0]],\"unmatched_a\":[],\"unmatched_b\":[]},\"b\":{\"anchor_pos\":0,\"direction\":1,\"idx\":[23],\"origin\":\"L3.T4\",\"promoted\":false,\"search_k\":1,\"unit\":\"syllable\"},\"identity_reads\":[[\"token\",{\"informative\":true,\"not"
+    },
+    {
+      "id": "detail_part:f4a402b64df0fb6ff02479931e2752aa",
+      "kind": "detail_part",
+      "method_id": "schema:c6f237b95f5c25155a209dc7",
+      "basis": "measured",
+      "parent_id": "relation_figure:b7f9baacb5b679b70f4aa36d645d0630",
+      "detail_id": "detail:6381a25b451bfe9caf799ac4057e4a6a",
+      "field": "edges",
+      "part": 2,
+      "total": 3,
+      "json_fragment": "e\":\"\",\"value\":true}]],\"placement_reads\":[],\"reads\":[[\"coda\",0,{\"informative\":true,\"note\":\"\",\"value\":true}],[\"nucleus\",0,{\"informative\":true,\"note\":\"\",\"value\":true}]],\"schema\":\"consonance (crossed)\",\"search_k\":1,\"verdict\":true},\"id\":\"relation_instance:2aad6f073eb15d1193acb325b6540d5c\",\"identity_reads\":[[\"token\",{\"informative\":true,\"note\":\"\",\"value\":true}]],\"informative_channels\":[\"coda\",\"nucleus\"],\"kind\":\"relation_instance\",\"method_id\":\"schema:43b1e3632f1d95beb0015ea8\",\"namespace\":\"schema\",\"placement_reads\":[],\"quantifier\":\"exists_compatible_reading\",\"reading_search\":{\"combination_limit\":64,\"combinations_examined\":0,\"state\":\"not_needed\"},\"schema_name\":\"consonance (crossed)\",\"scope\":\"in_tradition\",\"unknown_channels\":[],\"verdict\":\"true\"}]"
+    },
+    {
+      "id": "method_result:708fcd3b5f9f12f0fa69010e8aa338ff",
+      "kind": "method_result",
+      "method_id": "schema:c6f237b95f5c25155a209dc7",
+      "basis": "measured",
+      "namespace": "schema",
+      "schema_name": "analysed rhyme",
+      "coverage": "answered",
+      "counts": {
+        "candidates": 1,
+        "true": 1,
+        "false": 0,
+        "undecided": 0,
+        "coverage": "answered"
+      },
+      "domain": {
+        "projection": "none",
+        "reason": "whole_figure"
+      },
+      "refusal": null,
+      "availability": "available",
+      "supply": {
+        "prominence": {
+          "capability": "prominence",
+          "state": "present",
+          "n": 30,
+          "source": "phonology",
+          "detail": "units whose syllable carries a prominence value"
+        },
+        "stanza": {
+          "capability": "stanza",
+          "state": "present",
+          "n": 2,
+          "source": "printed_breaks",
+          "detail": "distinct stanzas over the stream's units"
+        }
+      }
+    }
+  ],
+  "identity": {
+    "contract_version": 1,
+    "reading_unit_id": "caller-owned-fixture:eng",
+    "reading_revision": "fixture-v1",
+    "source_sha256": null,
+    "normalized_sha256": "13d373503de7287cda87d6502005ba5c9cd37b2daebbf87f527e7da38b8bdbc4",
+    "source_map_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "language": "eng",
+    "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "requested": {
+      "layers": ["sound"],
+      "schemas": ["analysed rhyme"]
+    },
+    "runtime": {
+      "engine_hash": "7340978493d084a98c3e911f00d08652b9a9981e800ce0889b7a8f4c1be3b90f",
+      "resources_hash": "bf13b8ae25a7d86fe1ef0ecfa9293265096b54d4d5117518f28b20f54aa705c4",
+      "phonology": {
+        "language": "eng",
+        "name": "English (General American)",
+        "notation": "ARPAbet, cmusphinx/cmudict master working copy (post-0.7b); stress digits 0/1/2 on vowel phones; under reader scheme v2 the extended English inventory and rule-derived accent readings (lyric_harness.derive_accent_readings)",
+        "grid_unit": "syllable",
+        "prominence_rule": "lexical stress from CMUdict (1 or 2 -> prominent, 0 -> not), with the harness's WEAK_ALWAYS / WEAK_NONFINAL function-word demotion applied at the phrase level -- doctrine 46: a function-word list is part of a phonology, not an optimisation",
+        "relation": "none declared. An English pair is judged in every relation it stands in -- each coarse relation (score()) and every registry schema (quality/relations.py REGISTRY) -- so `rhymes()` stays the inherited stub and the channels decide -- see this module's docstring",
+        "source": "cmusphinx/cmudict master working copy, md5 5837aa6e49fd070d482b8ca0525f28ef; BSD-2-clause (Carnegie Mellon University), NOT public domain; see data/sources.tsv",
+        "readings": "all",
+        "syllable_disputes": "first",
+        "reader_scheme": "v2",
+        "accent_readings": "accent-readings-2026-10-30",
+        "strip_parens": false,
+        "fallback": null,
+        "fallback_licenses": "no fallback: a word CMUdict cannot read REFUSES"
+      }
+    },
+    "catalog": {},
+    "hash": "3d33f39d00b5b7b064f10cedd10659abf77b983e72724b7481ad93ef521cd9a3"
+  },
+  "capture_note": "Bounded analysed rhyme AnalysisSession capture; native figure and method-result records only. Coordinate records are omitted because these tests inspect native membership, not pair projection."
+}

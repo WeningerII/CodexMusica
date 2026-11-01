@@ -56,6 +56,18 @@ class EvidenceRecord(TypedDict, total=False):
     reading_context: dict[str, Any]
     channel_versions: dict[str, Any]
     same_spelling: bool
+    # relation_instance where an any-reading search ran (#637 item 5): the
+    # complete role-bound assignments it already judged, and what the pair's
+    # own verdict was judged on. Only listed assignments are known; every
+    # other combination is uncomputed. A pair judged False emits no record,
+    # so its judged assignments are not available -- never read as unjudged.
+    reading_outcomes: list[ReadingOutcome]
+    judged_under: JudgedUnder
+    # beside `reading.witness` (kept as agreed): the witness, role-bound.
+    witness_assignment: list[AssignmentMember]
+    # token (English): the readings the search varies for this occurrence.
+    applicable_readings: list[str] | None
+    applicable_source: Literal["declared", "variants", "unlocatable"]
 
 
 ReadingSearchState = Literal["not_needed", "exhaustive", "partial", "unavailable"]
@@ -87,6 +99,34 @@ class DomainOutcomes(TypedDict):
     undecided_pairs: int
     judged_false: int | None
     reading_dependent_pairs: int
+
+
+class AssignmentMember(TypedDict):
+    """One occurrence of a pair's members under one judged assignment.
+    `occurrence` (the token id) and `role` are the identity; `display`
+    ("word = PHONES") is presentation only."""
+    occurrence: str
+    role: list[Literal["a", "b"]]
+    phones: str | None
+    held: Literal["varied", "only_reading", "first_listed", "merged_set", "unread"]
+    display: str
+
+
+class ReadingOutcome(TypedDict):
+    """One assignment the search judged, never True (a True is the witness,
+    `witness_assignment`). `outside_locus`: a member had no span under
+    it, so the pair was not a candidate there; not a predicate False."""
+    assignment: list[AssignmentMember]
+    verdict: Literal["false", "undecided", "outside_locus"]
+
+
+class JudgedUnder(TypedDict):
+    """The pair's own verdict before any search, and its assignment: a
+    rebuilt stream's own, the merged sets, the first-listed readings, or none
+    when the work's reading gives the pair no span."""
+    basis: Literal["rebuilt_assignment", "merged_set", "first_listed", "no_span_on_work"]
+    verdict: Verdict | None
+    assignment: list[AssignmentMember]
 
 
 class MethodDomain(TypedDict):

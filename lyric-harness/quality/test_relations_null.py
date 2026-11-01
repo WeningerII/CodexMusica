@@ -775,7 +775,15 @@ def s15_named_nulls_are_not_independent_evidence():
     # `_bucket_key` keying mosaic rhyme's run at its last syllable, every run
     # in that set rhymes under both nulls (20 every draw), so it no longer
     # separates them. This set does, before G1 and after (3 vs 3/6; 12 vs 9/12).
-    lines = ["the day", "we may", "I see grey", "the night", "my light", "it's right"]
+    # 2026-10-31 (M-311 F1, R2's mosaic ruling): ~~"the day", "we may",
+    # "I see grey", "the night", "my light", "it's right"~~. A one-syllable
+    # end rhyme with a word before it is no longer a mosaic, so that set reads
+    # 0 under both nulls; and a mosaic through a function word (`know it`)
+    # refuses here, its stress being a reading this null does not search. A
+    # mosaic of content words with one reading each carries the claim:
+    # `window ~ thin dough` (IH1 N D OW0 against IH1 N | D OW1), 1.0 every
+    # draw under line_permutation against 1 of 12 under line_final_permutation.
+    lines = ["my window", "fresh thin dough", "we stay", "I see grey", "she may", "my fun day"]
     toks = [R.tokenise(line) for line in lines]
     pairs = [(N.NULLS["line_permutation"].fn(toks, random.Random(N.SEED + 1 + k)),
               N.NULLS["line_final_permutation"].fn(toks, random.Random(N.SEED + 1 + k)))

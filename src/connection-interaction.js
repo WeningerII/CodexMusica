@@ -274,7 +274,10 @@
     combination_cap: 'reading search reached its cap',
     rebuild_unavailable: 'an alternate reading could not be rebuilt',
     locus_unmatched: 'locus not matched under every reading',
-    readings_not_searched_in_scope: 'only the first-listed reading was judged',
+    // The backend can emit this after judging a merged knowledge set, so it
+    // does not always mean only the first-listed reading was judged (spec
+    // dispute 6, resolved 2026-10-31).
+    readings_not_searched_in_scope: 'alternative readings were not searched in this scope',
     no_reading_combination: 'no compatible reading combination',
     placement_unknown: 'placement not settled',
     identity_unknown: 'identity not settled',
@@ -283,12 +286,24 @@
     member_edges_undecided: 'member pairs undecided',
   });
 
+  // The backend ranks its own reason (library/analysis.py _undecided_reason:
+  // the search's reason first, then placement, identity, channel), so a named
+  // reason is authoritative. Only a channel reason, or none, falls back to the
+  // channels themselves: `unknown_channels` entries are (channel, position)
+  // pairs, and the channel is the string member.
   function undecidedReason(rec) {
-    const unknown = rec.unknown_channels;
-    if (Array.isArray(unknown) && unknown.length) {
-      return `${unknown.map((u) => (Array.isArray(u) ? u[1] : u)).join(', ')} not settled`;
-    }
-    return UNDECIDED_WORDS[rec.undecided_reason] || 'reason not reported';
+    const why = rec.undecided_reason;
+    if (why && why !== 'channel_unknown' && UNDECIDED_WORDS[why]) return UNDECIDED_WORDS[why];
+    const unknown = Array.isArray(rec.unknown_channels) ? rec.unknown_channels : [];
+    const channels = [
+      ...new Set(
+        unknown
+          .map((u) => (Array.isArray(u) ? u.find((x) => typeof x === 'string') : u))
+          .filter((c) => typeof c === 'string' && c)
+      ),
+    ];
+    if (channels.length) return `${channels.join(', ')} not settled`;
+    return UNDECIDED_WORDS[why] || 'reason not reported';
   }
 
   // What a method's domain descriptor (library/contracts.py MethodDomain)
@@ -319,19 +334,15 @@
     if (!cell.inLocus) {
       return { state: 'not_examined', reason: cell.locusReason || null, absenceOnly: false };
     }
-    if (!rec && cell.readingDependent) {
-      return {
-        state: 'not_examined',
-        reason: 'across readings',
-        absenceOnly: false,
-        uncertified: true,
-      };
-    }
     if (rec) {
       if (rec.coverage === 'refused') {
+        // The backend's refusal carries its words in `detail`
+        // (library/analysis.py method_result refusal); `reason` is kept for
+        // any producer that names it so.
+        const refusal = rec.refusal || {};
         return {
           state: 'refused',
-          reason: (rec.refusal && rec.refusal.reason) || 'reason not reported',
+          reason: refusal.reason || refusal.detail || 'reason not reported',
           absenceOnly: false,
         };
       }
@@ -353,7 +364,18 @@
       }
       return { state: 'undecided', reason: undecidedReason(rec), absenceOnly: false };
     }
+    // An absent record on pages still loading is not yet computed, whatever
+    // the domain says; a record that is present answers on its own, partial
+    // pages or not.
     if (!cell.jobComplete) return { state: 'not_yet_computed', reason: null, absenceOnly: false };
+    if (cell.readingDependent) {
+      return {
+        state: 'not_examined',
+        reason: 'across readings',
+        absenceOnly: false,
+        uncertified: true,
+      };
+    }
     if (cell.domainCertified) return { state: 'does_not_hold', reason: null, absenceOnly: false };
     return {
       state: 'undecided',

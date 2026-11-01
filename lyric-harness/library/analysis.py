@@ -537,8 +537,11 @@ class AnalysisSession:
     #: Past it the method is refused as incomplete, never answered over the
     #: combinations it did not try.
     EDGE_COMBOS = 64
-    #: Line-pair rebuilds one schema's discovery may make, likewise.
-    MINI_CAP = 4096
+    #: Line-pair rebuilds one schema's discovery may make, likewise. Sized
+    #: to the longest single English work in the Library, Whitman's "Song of
+    #: Myself" (1,658 lines): every line and every pair of lines, L(L+1)/2,
+    #: so no work in the corpus is refused for length (John, 2026-10-31).
+    MINI_CAP = 1375311
     #: Line readings kept for the rebuilds at once, one per line text, its
     #: words and the readings pinned on it. Past it the table starts again:
     #: a cache, so what a rebuild reads never depends on it. One rebuild adds
@@ -722,6 +725,15 @@ class AnalysisSession:
         open_ = not complete or (not merged and inst is not None and inst.verdict is None)
         reasons = [] if complete else ["combination_cap"]
         examined = 0
+        # WHAT WAS JUDGED UNDER EACH COMBINATION (item 5; 3PO 6547475463,
+        # 6547785583): every combination this loop judges is kept as its
+        # complete role-bound assignment with its outcome. Only these are
+        # known; every other assignment stays uncomputed. Nothing is searched
+        # for it, and the first witness still ends the search.
+        roles = self._span_roles(st, a, b)
+        outcomes = []
+        under = self._judged_under(st, roles, inst.verdict if inst is not None else None,
+                                   "merged_set" if self._merged_touched(st, a, b) else None)
         # The reading `inst` was judged under is not judged again.
         to_judge = [c for c in combos if merged or not (
             st is self.stream and c is combos[0] or self._combo_key(c) == own)]
@@ -734,6 +746,7 @@ class AnalysisSession:
                 reasons.append("rebuild_unavailable")
                 continue
             examined += 1
+            combo_open = False
             sides = []
             for rule, span in ((schema.spans[0], a), (schema.spans[1], b)):
                 try:
@@ -747,7 +760,7 @@ class AnalysisSession:
                 # Spans at this locus that match none is a key the reader
                 # cannot pair: open, never a confident False.
                 if not found and index.get(("locus", self._origin(span, st), span.direction)):
-                    open_ = True
+                    open_ = combo_open = True
                     reasons.append("locus_unmatched")
                 sides.append(found)
             for x in sides[0]:
@@ -758,10 +771,15 @@ class AnalysisSession:
                         # exhaustive only if nothing was left unjudged (3PO,
                         # #641), whatever the cap allowed.
                         whole = complete and examined == len(to_judge)  # no rebuild failed
-                        return got, alt, self._witness(alt, cause), first_only, self._search(
-                            "exhaustive" if whole else "partial", examined, termination="witness_found")
+                        return got, alt, self._witness(alt, cause), first_only, self._outcome_search(
+                            self._search("exhaustive" if whole else "partial", examined,
+                                         termination="witness_found"), outcomes, under)
                     if got is not None and got.verdict is None:
-                        open_ = True
+                        open_ = combo_open = True
+            # A member with no span under this reading was not a candidate
+            # there: outside the locus, never a predicate False.
+            outcomes.append(self._outcome(roles, combo, None if combo_open else
+                                          "outside_locus" if not (sides[0] and sides[1]) else False))
         whole = complete and examined == len(to_judge)
         state = "exhaustive" if whole else "partial"
         termination = ("combination_cap" if not complete else
@@ -777,7 +795,112 @@ class AnalysisSession:
         # instance by `_undecided_reason`.
         reason = next((r for r in ("combination_cap", "rebuild_unavailable", "locus_unmatched")
                        if r in reasons), None) if inst is not None and inst.verdict is None else None
-        return inst, st, None, first_only, self._search(state, examined, reason, termination)
+        return inst, st, None, first_only, self._outcome_search(
+            self._search(state, examined, reason, termination), outcomes, under)
+
+    def _applicable_readings(self, li, ti):
+        """The readings the any-reading search varies for this occurrence
+        (item 5; BB8's shape, #637 6547502531): the declared row when the
+        writer pinned one, else the lexicon's whole-reading variants -- the
+        same `occurrence_readings` the search pins from, which can differ
+        from `dictionary_readings`. Unlocatable: a null list, never a
+        fallback to the dictionary."""
+        memo = self.__dict__.setdefault("_applicable_memo", {})
+        if (li, ti) not in memo:
+            memo[(li, ti)] = self._find_applicable(li, ti)
+        return dict(memo[(li, ti)])
+
+    def _find_applicable(self, li, ti):
+        from quality.pronunciation import occurrence_readings
+        lex = self.RL._stream_lexicon(self.stream)
+        words = self.stream.lexical_tokens[li] if self.stream.lexical_tokens else ()
+        got = (occurrence_readings(lex, self.stream.text_lines[li], words, ti)
+               if lex is not None else None)
+        if got is None:
+            return {"applicable_readings": None, "applicable_source": "unlocatable"}
+        tok, _word, readings = got
+        declared = any(row["line"] == self.stream.text_lines[li] and row["token"] == tok
+                       for row in (getattr(lex, "pronunciations", ()) or ()))
+        return {"applicable_readings": [" ".join(p) for p in readings],
+                "applicable_source": "declared" if declared else "variants"}
+
+    def _span_roles(self, st, a, b):
+        """-> {(line, token): ["a"] | ["b"] | ["a", "b"]}: every occurrence
+        the pair's two members cover on `st`, with its role."""
+        roles = {}
+        for role, span in (("a", a), ("b", b)):
+            for i in span.idx:
+                u = st.units[i]
+                got = roles.setdefault((u.line, u.token), [])
+                if role not in got:
+                    got.append(role)
+        return roles
+
+    def _held_reading(self, tok):
+        """-> (phones or None, how) for an occurrence no combination varied:
+        its only reading, the merged set it is read as, its first-listed
+        reading, or unread."""
+        if tok in self._merged:
+            return None, "merged_set"
+        readings = self._applicable_readings(*tok)["applicable_readings"]
+        if readings is None:
+            return None, "unread"
+        return readings[0], "only_reading" if len(readings) == 1 else "first_listed"
+
+    def _assignment(self, roles, combo):
+        """The complete role-bound assignment of one judged combination: each
+        occurrence of both members, by its token id and role, with the
+        reading it was judged under. `display` is presentation only; the
+        occurrence and role are the identity (3PO 6547751176), so a word
+        repeated in the pair is never confused."""
+        out = []
+        for (li, ti), role in sorted(roles.items()):
+            word = str(self.stream.lexical_tokens[li][ti])
+            if (li, ti) in combo:
+                phones, held = " ".join(combo[(li, ti)][2]), "varied"
+            else:
+                phones, held = self._held_reading((li, ti))
+            out.append({"occurrence": f"{self._line_id(li)}:token:{ti}", "role": role,
+                        "phones": phones, "held": held,
+                        "display": f"{word} = {phones}" if phones else f"{word} ({held.replace('_', ' ')})"})
+        return out
+
+    def _outcome(self, roles, combo, value):
+        """One judged combination and what it was judged: "false",
+        "undecided", or "outside_locus" when a member had no span under it.
+        Never True: a True is the witness, on `reading`."""
+        return {"assignment": self._assignment(roles, combo),
+                "verdict": value if value == "outside_locus" else
+                "false" if value is False else "undecided"}
+
+    def _judged_under(self, st, roles, value, basis=None):
+        """What the pair's own verdict, before any search, was judged on: a
+        rebuilt stream's own assignment, the merged sets, or the first-listed
+        readings; with that verdict and its complete assignment."""
+        combo = {t: c for t, c in (getattr(st, "any_reading_combo", None) or {}).items() if t in roles}
+        return {"basis": "rebuilt_assignment" if combo else basis or "first_listed",
+                "verdict": verdict(value), "assignment": self._assignment(roles, combo)}
+
+    @staticmethod
+    def _outcome_search(search, outcomes, under):
+        """`search` carrying the loop's judged outcomes and the pair's own
+        verdict's basis, for the record to lift off: the `reading_search`
+        summary itself keeps its agreed shape."""
+        search["_outcomes"] = outcomes
+        search["_judged_under"] = under
+        return search
+
+    @staticmethod
+    def _lift_outcomes(search, extra):
+        """Move a search's judged outcomes onto the record (`extra`), as
+        `reading_outcomes` and `judged_under`; -> the bare summary."""
+        search = dict(search)
+        outcomes = search.pop("_outcomes", None)
+        under = search.pop("_judged_under", None)
+        if outcomes is not None:
+            extra["reading_outcomes"] = outcomes
+            extra["judged_under"] = under
+        return search
 
     def _witness(self, st, touched):
         """-> the readings a verdict rests on: those of `touched` words a
@@ -1263,8 +1386,12 @@ class AnalysisSession:
                 "precision": "token"}
 
     #: Candidate pairs one schema's domain may enumerate. Past it the domain
-    #: is refused (`projection: none`), never sampled.
-    DOMAIN_CAP = 262144
+    #: is refused (`projection: none`), never sampled. Sized to the longest
+    #: single English work in the Library, Whitman's "Song of Myself" (15,769
+    #: words by `relations.tokenise`): n*n, the largest member product
+    #: (`len(aa) * len(bb)`) a word-level domain over it can make, so no work
+    #: in the corpus is refused for length (John, 2026-10-31).
+    DOMAIN_CAP = 248661361
 
     def _domain(self, name, alt_cells=()):
         """-> WHICH OCCURRENCE PAIRS THIS SCHEMA'S LOCI CAN BIND, so a view can
@@ -1459,8 +1586,12 @@ class AnalysisSession:
 
     # -- Shared sound (`namespace: "shared_sound"`; #637) -------------------
     #: Occurrence pairs one shared-sound method judges at most. Past it the
-    #: method is refused, never answered over the pairs it reached.
-    SOUND_PAIR_CAP = 262144
+    #: method is refused, never answered over the pairs it reached. Sized to
+    #: the longest single English work in the Library, Whitman's "Song of
+    #: Myself" (15,769 words by `relations.tokenise`): every pair of its
+    #: words, n(n-1)/2, so no work in the corpus is refused for length
+    #: (John, 2026-10-31).
+    SOUND_PAIR_CAP = 124322796
 
     def _sound_spans(self, family, st):
         """-> {(line, token): [span]}: the family's own canonical spans on
@@ -1532,8 +1663,11 @@ class AnalysisSession:
         family = SHARED_SOUND_METHODS[key][0]
         varying = {t for t in (ta, tb) if t in self._disputed or t in self._merged}
         combos, complete = RL.reading_combos(st, varying, self.EDGE_COMBOS)
-        examined, open_, located, reasons = 0, False, False, []
+        examined, open_, located, reasons, outcomes = 0, False, False, [], []
         a, b = self._sound_member(ta), self._sound_member(tb)
+        roles = {ta: ["a"], tb: ["b"]}
+        # The work's own reading gives no span here: nothing was judged on it.
+        under = {"basis": "no_span_on_work", "verdict": None, "assignment": self._assignment(roles, {})}
         for combo in combos or ():
             alt = self._line_stream(sorted({ta[0], tb[0]}), combo)
             if alt is None:
@@ -1543,16 +1677,20 @@ class AnalysisSession:
             examined += 1
             found = self._sound_spans(family, alt)
             if ta not in found or tb not in found:
+                outcomes.append(self._outcome(roles, combo, "outside_locus"))
                 continue
             located = True
             v, r, x = self._sound_judge(key, found[ta][0], found[tb][0], alt)
             if v is True:
                 whole = complete and examined == len(combos)
-                search = self._search("exhaustive" if whole else "partial", examined, termination="witness_found")
+                search = self._outcome_search(
+                    self._search("exhaustive" if whole else "partial", examined, termination="witness_found"),
+                    outcomes, under)
                 return True, self._sound_record(key, a, b, True, r, x, alt, self._witness(alt, varying),
                                                 search, False), True
             if v is None:
                 open_ = True
+            outcomes.append(self._outcome(roles, combo, v))
         whole = bool(combos) and complete and examined == len(combos)
         if not combos:
             reasons.append("no_reading_combination")
@@ -1567,6 +1705,8 @@ class AnalysisSession:
                               examined, reason,
                               None if not combos else "combination_cap" if not complete else
                               "exhausted" if whole else "rebuild_unavailable")
+        if combos:
+            search = self._outcome_search(search, outcomes, under)
         if value is False:
             return False, None, True
         return None, self._sound_record(key, a, b, None, None, None, st, None, search, False), True
@@ -1616,7 +1756,9 @@ class AnalysisSession:
                 first_only = disputed
             else:
                 combos, complete = RL.reading_combos(st, varying, self.EDGE_COMBOS)
-                examined, open_, reasons = 0, False, []
+                examined, open_, reasons, outcomes = 0, False, [], []
+                roles = self._span_roles(st, a, b)
+                under = self._judged_under(st, roles, value, "merged_set" if varying & self._merged else None)
                 for combo in combos or ():
                     alt = self._line_stream(sorted({ta[0], tb[0]}), combo)
                     if alt is None:
@@ -1628,17 +1770,20 @@ class AnalysisSession:
                     if ta not in found or tb not in found:
                         # No span at the word under this reading (no stressed
                         # syllable to anchor): nothing there to share.
+                        outcomes.append(self._outcome(roles, combo, "outside_locus"))
                         continue
                     v, r, x = self._sound_judge(key, found[ta][0], found[tb][0], alt)
                     if v is True:
                         whole = complete and examined == len(combos)
                         value, rec, at, judged = True, r, x, alt
                         witness = self._witness(alt, varying)
-                        search = self._search("exhaustive" if whole else "partial", examined,
-                                              termination="witness_found")
+                        search = self._outcome_search(
+                            self._search("exhaustive" if whole else "partial", examined,
+                                         termination="witness_found"), outcomes, under)
                         break
                     if v is None:
                         open_ = True
+                    outcomes.append(self._outcome(roles, combo, v))
                 else:
                     # Nothing to search is not a search: no combination
                     # judged never certifies a False.
@@ -1657,6 +1802,8 @@ class AnalysisSession:
                                           examined, reason,
                                           None if not combos else "combination_cap" if not complete else
                                           "exhausted" if whole else "rebuild_unavailable")
+                    if combos:
+                        search = self._outcome_search(search, outcomes, under)
         if value is False:
             return False, None, first_only
         return value, self._sound_record(key, a, b, value, rec, at, judged, witness, search, first_only), first_only
@@ -1669,6 +1816,8 @@ class AnalysisSession:
         extra = {}
         if witness:
             extra["reading"] = {"rule": "any_reading", "witness": witness}
+            extra["witness_assignment"] = self._assignment(
+                self._span_roles(self.stream, a, b), getattr(st, "any_reading_combo", None) or {})
         if at is not None:
             k, reads = at
             sa, sb = rec["syllables"][k]
@@ -1685,6 +1834,7 @@ class AnalysisSession:
         if rec is not None:
             extra["reading_context"] = json_safe(rec["reading_context"])
             extra["channel_versions"] = json_safe(rec["versions"])
+        search = self._lift_outcomes(search, extra)
         return self._record("relation_instance", method_id("shared_sound", name), [a.idx, b.idx],
             namespace="shared_sound", method_name=name, layer=SHARED_SOUND_LAYER, verdict=verdict(value),
             a=self._span(a), b=self._span(b), family=family, channel=channel, position=position, **extra,
@@ -1782,7 +1932,11 @@ class AnalysisSession:
             extra["reading"] = {"rule": "any_reading", "witness": witness or []}
         elif witness:
             extra["reading"] = {"rule": "any_reading", "witness": witness}
-        search = search or self._search("not_needed")
+        if witness:
+            # Beside `reading`, which keeps its agreed shape.
+            extra["witness_assignment"] = self._assignment(
+                self._span_roles(st, inst.a, inst.b), getattr(st, "any_reading_combo", None) or {})
+        search = self._lift_outcomes(search or self._search("not_needed"), extra)
         if inst.verdict is None:
             extra["undecided_reason"] = self._undecided_reason(inst, search)
         return self._record("relation_instance", mid, key,
@@ -1962,6 +2116,7 @@ class AnalysisSession:
                                               "stress": [s["stress"] for s in LH.syllabify(p)]} for p in options],
                     "requires_source": True, "supplied_reading_requires_source": not bool(options),
                     "matching_line_ids": [self._line_id(i) for i, line in enumerate(self.stream.text_lines) if line == raw_line]}
+                out.update(self._applicable_readings(li, ti))
             return out
         u = value
         ranges, normalized = self._token_ranges(u.line, u.token)
