@@ -5361,6 +5361,8 @@ await check('validation: actionable errors', () => {
         'offline repeated-revise guard and writer-dispatch count regressions',
       'mcp/test_revise_kitchen_finished.mjs':
         'localhost HTTP repeat-guard regressions on the real kitchen with a stub writer',
+      'mcp/test_review_mandate.mjs':
+        'localhost HTTP review-mode mandate and bound regressions on the real kitchen',
       'mcp/test_lyrics_evidence_binding.mjs':
         'offline authenticated evidence-binding regression suite, not a production entry point',
       'mcp/test_connector_contracts.mjs': 'offline connector and release contract regressions',
