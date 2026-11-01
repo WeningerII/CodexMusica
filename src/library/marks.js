@@ -454,6 +454,8 @@ function legendRow({ words, families = Object.keys(FAMILIES), examples = false }
 }
 
 // `counts.summary` optionally supplies an adapter-prepared population label.
+// `counts.labels` optionally qualifies a known state beside its number; missing
+// states still use the ordinary state words and are never presented as counts.
 // The strip under a view's title. `counts` maps state → number; a state with
 // no number is reported as not supplied, never as zero. `provenance` says what
 // produced the numbers ("fixture only", "Library schema analysis at <rev>").
@@ -476,7 +478,8 @@ function countStrip(counts, { words, provenance, emptyOnset, hidden } = {}) {
     missing = [];
   for (const id of STATE_ORDER.slice(1)) {
     if (id === 'not_examined') continue;
-    if (Number.isInteger(counts[id])) known.push(`${counts[id]} ${words[id]}`);
+    if (Number.isInteger(counts[id]))
+      known.push(`${counts[id]} ${counts.labels?.[id] ?? words[id]}`);
     else missing.push(cap(words[id]));
   }
   const rest = html('div', 'lib-mk-count-rest');
