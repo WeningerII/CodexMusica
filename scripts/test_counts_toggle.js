@@ -81,7 +81,7 @@ function mount(env, built) {
   return { m, host, strip };
 }
 
-test('population: native-only bindings count, figures are separate, negative unwired', () => {
+test('population: native-only bindings count, figures are separate, missing negative totals remain unknown', () => {
   const env = setup();
   const { model } = env.build(records(), true);
   const c = model.countsFor(model.checkedMethods);
@@ -96,7 +96,7 @@ test('population: native-only bindings count, figures are separate, negative unw
   );
   assert.equal(model.countsFor([NATIVE]).holds, 1);
   assert.equal(model.countsFor([NATIVE]).native_holds, 0);
-  // Never wired, even when a backend judged_false is supplied.
+  // An incomplete outcomes object is not a valid supplied backend total.
   const rs = records();
   for (const r of rs)
     if (r.kind === 'method_result')
@@ -226,4 +226,173 @@ test('network captions count the actual rendered nodes and edges without invente
     assert.match(group.textContent, /Joint reading consistency not assessed/);
   }
   env.dom.window.close();
+});
+
+// Authored backend-shaped totals: these are whole-method listed pairs, not
+// a complement computed from the fixture's displayed relation records.
+function withFalseTotals(a = 3, b = 0) {
+  const rs = records();
+  for (const [id, count] of [
+    [ALLIT, a],
+    [RHYME, b],
+  ]) {
+    const r = rs.find((r) => r.kind === 'method_result' && r.method_id === id);
+    r.coverage = 'answered';
+    r.domain = {
+      ...r.domain,
+      projection: 'exact_token_pair',
+      pair_count: count + 2,
+      listed_pairs_by_state: {
+        listed: count + 2,
+        true_pairs: 1,
+        undecided_pairs: 1,
+        judged_false: count,
+        reading_dependent_pairs: 0,
+      },
+    };
+  }
+  return rs;
+}
+
+test('supplied false totals include zero and sum unique checked methods without counting records', () => {
+  const env = setup();
+  const rs = withFalseTotals();
+  const { model } = env.build(rs, true);
+  assert.equal(model.countsFor([RHYME]).does_not_hold, 0);
+  assert.equal(model.countsFor([ALLIT, RHYME, ALLIT]).does_not_hold, 3);
+  assert.match(model.countsFor([ALLIT]).summary, /Does not hold counts whole-method listed pairs/);
+  const duplicate = clone(rs.find((r) => inst(r) && r.method_id === ALLIT));
+  rs.push({ ...duplicate, id: 'duplicate-for-count' });
+  assert.equal(env.build(rs, true).model.countsFor([ALLIT]).does_not_hold, 3);
+  const result = rs.find((r) => r.kind === 'method_result' && r.method_id === ALLIT);
+  result.domain.ordering = 'unordered';
+  // Backend totals count unordered pairs once; the UI must not double them.
+  // A dependent token touching no listed pair does not invalidate the supplied total.
+  result.domain.reading_dependent_tokens = ['unlisted-token'];
+  assert.equal(env.build(rs, true).model.countsFor([ALLIT]).does_not_hold, 3);
+  // Unsupported selected populations cannot silently disappear from a sum.
+  assert.equal(model.countsFor([ALLIT, FIGURE]).does_not_hold, undefined);
+  assert.equal(model.countsFor([]).does_not_hold, undefined);
+  env.dom.window.close();
+});
+
+test('incomplete, unanswered, capped, non-projecting and invalid totals stay unknown', () => {
+  const env = setup();
+  const mutations = [
+    (r) => {
+      delete r.domain.listed_pairs_by_state;
+    },
+    (r) => {
+      delete r.domain.listed_pairs_by_state.judged_false;
+    },
+    ...[null, -1, '3', 1.5, Infinity, Number.MAX_SAFE_INTEGER + 1].map((value) => (r) => {
+      r.domain.listed_pairs_by_state.judged_false = value;
+    }),
+    ...['partial', 'refused', 'unsupported'].map((value) => (r) => {
+      r.coverage = value;
+    }),
+    (r) => {
+      r.domain = { projection: 'none', reason: 'domain_cap', cap: 1 };
+    },
+    (r) => {
+      r.domain.projection = 'none';
+    },
+    (r) => {
+      r.domain.pair_count += 1;
+    },
+    (r) => {
+      r.domain.listed_pairs_by_state.reading_dependent_pairs = 1;
+    },
+  ];
+  for (const mutate of mutations) {
+    const rs = withFalseTotals();
+    mutate(rs.find((r) => r.kind === 'method_result' && r.method_id === ALLIT));
+    assert.equal(env.build(rs, true).model.countsFor([ALLIT, RHYME]).does_not_hold, undefined);
+  }
+  assert.equal(
+    env.build(withFalseTotals(), false).model.countsFor([ALLIT]).does_not_hold,
+    undefined
+  );
+  env.dom.window.close();
+});
+
+test('negative strip survives view switches, recounts toggles and rejects a different source', () => {
+  const env = setup();
+  const built = env.build(withFalseTotals(), true);
+  built.model.checkedMethods = [ALLIT, RHYME];
+  built.model.counts = built.model.countsFor(built.model.checkedMethods);
+  const { m, host, strip } = mount(env, built);
+  assert.match(strip(), /3 does not hold/);
+  for (const view of ['poem', 'network', 'matrix']) {
+    host.querySelector(`[data-view="${view}"]`).click();
+    assert.equal(m.view(), view);
+    assert.match(strip(), /3 does not hold/);
+  }
+  const box = host.querySelector(`input[data-method="${ALLIT}"]`);
+  box.checked = false;
+  box.dispatchEvent(new env.w.Event('change', { bubbles: true }));
+  assert.match(strip(), /0 does not hold/);
+  const other = env.build(withFalseTotals(9, 8), true);
+  other.current.analysisIdentity = 'different-source';
+  assert.throws(() => m.update(other), /different analysis requires a new mount/);
+  assert.match(strip(), /0 does not hold/);
+  m.update(env.build(withFalseTotals(), false));
+  assert.equal(m.model().counts.does_not_hold, undefined);
+  assert.match(strip(), /Does not hold[^:]*: not supplied/);
+  m.update(env.build(withFalseTotals(), true));
+  assert.match(strip(), /0 does not hold/);
+  env.dom.window.close();
+});
+
+test('Chromium renders backend false totals across the connected views', async () => {
+  const { chromium } = require('playwright');
+  const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH });
+  try {
+    const page = await browser.newPage();
+    await page.route('https://counts.test/', (route) =>
+      route.fulfill({ contentType: 'text/html', body: '<main></main>' })
+    );
+    await page.goto('https://counts.test/');
+    const sources = Object.fromEntries(
+      ['marks', 'connection-views', 'connection-bindings'].map((name) => [
+        name,
+        read(`src/library/${name}.js`),
+      ])
+    );
+    await page.addScriptTag({ content: read('src/connection-interaction.js') });
+    await page.addScriptTag({ content: read('src/connection-families.js') });
+    await page.addScriptTag({ content: read('src/library/connection-adapter.js') });
+    await page.evaluate(
+      ({ sources, records, registry, checked }) => {
+        const I = globalThis.CMConnectionInteraction;
+        const load = (name) => new Function(sources[name])();
+        const built = globalThis._connectionModel(I, {
+          records,
+          registry,
+          report: { identity_hash: 'browser-counts' },
+          complete: true,
+        });
+        built.model.checkedMethods = checked;
+        built.model.counts = built.model.countsFor(checked);
+        load('connection-bindings').mount(globalThis.document.querySelector('main'), {
+          ci: I,
+          marks: load('marks'),
+          createViews: load('connection-views').createViews,
+          ...built,
+          view: 'matrix',
+          narrow: () => false,
+        });
+      },
+      { sources, records: withFalseTotals(), registry, checked: [ALLIT, RHYME] }
+    );
+    for (const view of ['poem', 'network', 'matrix']) {
+      await page.locator(`[data-view="${view}"]`).click();
+      assert.match(await page.locator('.lib-mk-count').innerText(), /3 does not hold/);
+    }
+    await page.locator('.cv-controls summary').click();
+    await page.locator(`input[data-method="${ALLIT}"]`).uncheck();
+    assert.match(await page.locator('.lib-mk-count').innerText(), /0 does not hold/);
+  } finally {
+    await browser.close();
+  }
 });

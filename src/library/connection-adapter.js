@@ -346,8 +346,9 @@ function _connectionModel(I, { records, registry, report, complete, title }) {
   // ordered binding once. Native non-token-pair holds are separate, never folded in.
   // Undecided is given only once every page and detail part is verified
   // loaded and every checked method answered; a binding loaded in two states
-  // gives neither count. Refused, pending and does-not-hold are not supplied
-  // here: no backend total is read and nothing is subtracted.
+  // gives neither count. Negative totals are the backend's whole-method listed
+  // pairs, only when every checked method supplies an answered total.
+  // Refused and pending stay unknown; no complement is inferred here.
   const countsFor = (checked) => {
     const ids = new Set(checked),
       seen = new Map();
@@ -367,14 +368,38 @@ function _connectionModel(I, { records, registry, report, complete, title }) {
         .map((f) => f.evidence_id)
     );
     const holds = n('holds');
+    let doesNotHold = answered && ids.size ? 0 : undefined;
+    const isCount = (value) => Number.isSafeInteger(value) && value >= 0;
+    for (const id of ids) {
+      const domain = results.get(id)?.domain;
+      const totals = domain?.listed_pairs_by_state;
+      if (
+        doesNotHold === undefined ||
+        domain?.projection !== 'exact_token_pair' ||
+        !totals ||
+        !['listed', 'true_pairs', 'undecided_pairs', 'judged_false'].every((key) =>
+          isCount(totals[key])
+        ) ||
+        totals.reading_dependent_pairs !== 0 ||
+        totals.listed !== domain.pair_count ||
+        totals.true_pairs + totals.undecided_pairs + totals.judged_false !== totals.listed ||
+        !isCount(doesNotHold + totals.judged_false)
+      ) {
+        doesNotHold = undefined;
+        break;
+      }
+      doesNotHold += totals.judged_false;
+    }
     return {
       summary:
         (Number.isInteger(holds)
           ? `${holds} method–token binding hold${holds === 1 ? '' : 's'} loaded`
           : 'Holds: not supplied') +
-        ` · ${held.size} native non-token-pair hold${held.size === 1 ? '' : 's'} counted separately`,
+        ` · ${held.size} native non-token-pair hold${held.size === 1 ? '' : 's'} counted separately` +
+        (doesNotHold === undefined ? '' : ' · Does not hold counts whole-method listed pairs'),
       holds,
       undecided: answered ? n('undecided') : undefined,
+      does_not_hold: doesNotHold,
       native_holds: held.size,
     };
   };
