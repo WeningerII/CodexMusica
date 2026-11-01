@@ -395,11 +395,13 @@ function _connectionModel(I, { records, registry, report, complete, title }) {
         (Number.isInteger(holds)
           ? `${holds} method–token binding hold${holds === 1 ? '' : 's'} loaded`
           : 'Holds: not supplied') +
-        ` · ${held.size} native non-token-pair hold${held.size === 1 ? '' : 's'} counted separately` +
-        (doesNotHold === undefined ? '' : ' · Does not hold counts whole-method listed pairs'),
+        ` · ${held.size} native non-token-pair hold${held.size === 1 ? '' : 's'} counted separately`,
       holds,
       undecided: answered ? n('undecided') : undefined,
       does_not_hold: doesNotHold,
+      labels: {
+        does_not_hold: `${doesNotHold === 1 ? 'does' : 'do'} not hold (whole-method listed pairs, summed over checked methods)`,
+      },
       native_holds: held.size,
     };
   };

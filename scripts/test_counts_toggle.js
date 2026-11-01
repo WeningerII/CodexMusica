@@ -260,7 +260,7 @@ test('supplied false totals include zero and sum unique checked methods without 
   const { model } = env.build(rs, true);
   assert.equal(model.countsFor([RHYME]).does_not_hold, 0);
   assert.equal(model.countsFor([ALLIT, RHYME, ALLIT]).does_not_hold, 3);
-  assert.match(model.countsFor([ALLIT]).summary, /Does not hold counts whole-method listed pairs/);
+  assert.doesNotMatch(model.countsFor([ALLIT]).summary, /whole-method listed pairs/);
   const duplicate = clone(rs.find((r) => inst(r) && r.method_id === ALLIT));
   rs.push({ ...duplicate, id: 'duplicate-for-count' });
   assert.equal(env.build(rs, true).model.countsFor([ALLIT]).does_not_hold, 3);
@@ -322,25 +322,25 @@ test('negative strip survives view switches, recounts toggles and rejects a diff
   built.model.checkedMethods = [ALLIT, RHYME];
   built.model.counts = built.model.countsFor(built.model.checkedMethods);
   const { m, host, strip } = mount(env, built);
-  assert.match(strip(), /3 does not hold/);
+  assert.match(strip(), /3 do not hold/);
   for (const view of ['poem', 'network', 'matrix']) {
     host.querySelector(`[data-view="${view}"]`).click();
     assert.equal(m.view(), view);
-    assert.match(strip(), /3 does not hold/);
+    assert.match(strip(), /3 do not hold/);
   }
   const box = host.querySelector(`input[data-method="${ALLIT}"]`);
   box.checked = false;
   box.dispatchEvent(new env.w.Event('change', { bubbles: true }));
-  assert.match(strip(), /0 does not hold/);
+  assert.match(strip(), /0 do not hold/);
   const other = env.build(withFalseTotals(9, 8), true);
   other.current.analysisIdentity = 'different-source';
   assert.throws(() => m.update(other), /different analysis requires a new mount/);
-  assert.match(strip(), /0 does not hold/);
+  assert.match(strip(), /0 do not hold/);
   m.update(env.build(withFalseTotals(), false));
   assert.equal(m.model().counts.does_not_hold, undefined);
   assert.match(strip(), /Does not hold[^:]*: not supplied/);
   m.update(env.build(withFalseTotals(), true));
-  assert.match(strip(), /0 does not hold/);
+  assert.match(strip(), /0 do not hold/);
   env.dom.window.close();
 });
 
@@ -348,7 +348,7 @@ test('Chromium renders backend false totals across the connected views', async (
   const { chromium } = require('playwright');
   const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH });
   try {
-    const page = await browser.newPage();
+    const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
     await page.route('https://counts.test/', (route) =>
       route.fulfill({ contentType: 'text/html', body: '<main></main>' })
     );
@@ -387,12 +387,58 @@ test('Chromium renders backend false totals across the connected views', async (
     );
     for (const view of ['poem', 'network', 'matrix']) {
       await page.locator(`[data-view="${view}"]`).click();
-      assert.match(await page.locator('.lib-mk-count').innerText(), /3 does not hold/);
+      assert.match(
+        await page.locator('.lib-mk-count-rest').innerText(),
+        /3 do not hold \(whole-method listed pairs, summed over checked methods\)/
+      );
+      assert.doesNotMatch(await page.locator('.lib-mk-count-lead').innerText(), /whole-method/);
     }
     await page.locator('.cv-controls summary').click();
     await page.locator(`input[data-method="${ALLIT}"]`).uncheck();
-    assert.match(await page.locator('.lib-mk-count').innerText(), /0 does not hold/);
+    assert.match(
+      await page.locator('.lib-mk-count-rest').innerText(),
+      /0 do not hold \(whole-method listed pairs, summed over checked methods\)/
+    );
   } finally {
     await browser.close();
   }
+});
+
+test('negative totals carry adjacent scope and correct plurality in all three views', () => {
+  const env = setup();
+  const views = env.V.createViews({ interaction: env.I, marks: env.M });
+  for (const [count, verb] of [
+    [0, 'do'],
+    [1, 'does'],
+    [3, 'do'],
+  ]) {
+    const { model } = env.build(withFalseTotals(count, 0), true);
+    model.checkedMethods = [ALLIT, RHYME];
+    model.counts = model.countsFor(model.checkedMethods);
+    for (const view of ['poem', 'network', 'matrix']) {
+      const root = views.render(model, { view });
+      const lead = root.querySelector('.lib-mk-count-lead').textContent;
+      const rest = root.querySelector('.lib-mk-count-rest').textContent;
+      assert.ok(
+        rest.includes(
+          `${count} ${verb} not hold (whole-method listed pairs, summed over checked methods)`
+        ),
+        `${view}: ${rest}`
+      );
+      assert.doesNotMatch(lead, /whole-method listed pairs|Does not hold counts/);
+    }
+  }
+  const rs = withFalseTotals();
+  rs.find(
+    (r) => r.kind === 'method_result' && r.method_id === ALLIT
+  ).domain.listed_pairs_by_state.judged_false = null;
+  const { model } = env.build(rs, true);
+  model.checkedMethods = [ALLIT, RHYME];
+  model.counts = model.countsFor(model.checkedMethods);
+  for (const view of ['poem', 'network', 'matrix']) {
+    const rest = views.render(model, { view }).querySelector('.lib-mk-count-rest').textContent;
+    assert.match(rest, /Does not hold[^:]*: not supplied/);
+    assert.doesNotMatch(rest, /0 do not hold|whole-method listed pairs/);
+  }
+  env.dom.window.close();
 });
