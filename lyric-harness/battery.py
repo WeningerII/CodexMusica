@@ -429,13 +429,6 @@ def whitman_battery():
 # judged 1013, refused 51, violations 25: sonnet 1 ornament/content (9/11),
 # refused while every word on the two lines was varied and the combinations
 # passed the cap, is judged and violates. Nothing else moves.
-# REPINNED 2026-10-31 (`MISSING.md` M-311 F1, R2's mosaic ruling, #657).
-# ~~judged 1013, refused 51, violations 25~~ -> judged 1012, refused 52,
-# violations 24. One pair moves: sonnet 114 accidents/intents (`sharp'st`
-# unread on the line). Mosaic rhyme's members reach up to five syllables from
-# each line end, and the any-reading search varies the words it can and keeps
-# a False only when every word it cannot vary is in the stream with one
-# reading -- so the unread word holds the pair open. Nothing joins.
 from quality.battery_pin import EXPECTED  # noqa: E402
 
 

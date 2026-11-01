@@ -496,15 +496,10 @@ def test_real_population_against_shakespeares_own_form():
     # words that differ on what a schema reads, so sonnet 1 ornament/content
     # is judged (and violates) with the fallback OFF and leaves this set.
     # superseded: ~~{(1, 9, 11), (95, 13, 14)}~~.
-    # REPINNED 2026-10-31 (`MISSING.md` M-311 F1, #657): mosaic rhyme's
-    # members reach five syllables from each line end, so sonnet 114
-    # accidents/intents is refused with the fallback OFF (`sharp'st` unread
-    # on the line, `battery.py`), and the fallback's reading of it resolves
-    # the pair again. superseded: ~~{(95, 13, 14)}~~.
     check("...and resolve exactly the uncertainty an unread INTERIOR word "
-          "caused — two pairs, each with an interior word CMUdict cannot "
+          "caused — one pair, with an interior word CMUdict cannot "
           "read — and no other",
-          interior_newly == {(95, 13, 14), (114, 5, 7)}
+          interior_newly == {(95, 13, 14)}
           and all(_interior_oov(p) for p in interior_newly),
           f"{sorted(interior_newly)}")
     # REPINNED 2026-08-11: 38/39 -> 37/39, one PAIR added, after cell BA's

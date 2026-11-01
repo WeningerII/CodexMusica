@@ -415,13 +415,10 @@ def test_nothing_was_lost_on_the_sonnets():
     # any-reading search varies first the words that differ on what a schema
     # reads, so sonnet 1 ornament/content is judged (and violates); sonnet 95
     # privilege/edge is the one unresolved schema answer left.
-    # 2026-10-31 (M-311 F1, #657): ~~51 = 50 + 0 + 1~~ -> 52 = 50 + 0 + 2.
-    # Sonnet 114 accidents/intents joins sonnet 95: mosaic rhyme's members
-    # can reach its unread `sharp'st` (`battery.py` states why).
-    check("52 pairs refuse: 50 lexical gaps, 0 reading disagreements, 2 "
-          "unresolved schema answers (~~57 = 50 + 0 + 7~~, bound words "
-          "2026-10-02; ~~52 = 50 + 0 + 2~~, ~~51 = 50 + 0 + 1~~ 2026-10-30)",
-          ref == battery.EXPECTED["refused"] == 50 + 0 + 2,
+    check("51 pairs refuse: 50 lexical gaps, 0 reading disagreements, 1 "
+          "unresolved schema answer (~~57 = 50 + 0 + 7~~, bound words "
+          "2026-10-02; ~~52 = 50 + 0 + 2~~, 2026-10-30)",
+          ref == battery.EXPECTED["refused"] == 50 + 0 + 1,
           "Unknown pronunciation/schema answers remain outside rhyme failures and judged coverage")
     # 73 -> 81 -> 82: 0.60 -> 0.80 calibrated theta_coda, then scalar ->
     # identity coda_agreement. The count that matters to THIS test is
@@ -441,10 +438,9 @@ def test_nothing_was_lost_on_the_sonnets():
     # elsewhere on the line are judged.
     # REPINNED 2026-10-30: ~~1012~~ -> 1013 = 1064 - 51 (M-322, ornament/
     # content judged, above).
-    # REPINNED 2026-10-31: ~~1013~~ -> 1012 = 1064 - 52 (M-311 F1, above).
-    check("the judged denominator is 1012 (~~958~~, ~~936~~, ~~1007~~, "
-          "~~1012~~, ~~1013~~), and every mandated pair is accounted for",
-          judged == battery.EXPECTED["judged"] == 1012 and judged + ref == mandated,
+    check("the judged denominator is 1013 (~~958~~, ~~936~~, ~~1007~~, "
+          "~~1012~~), and every mandated pair is accounted for",
+          judged == battery.EXPECTED["judged"] == 1013 and judged + ref == mandated,
           f"{judged}: a violation RATE is "
           f"{battery.EXPECTED['violations']}/{battery.EXPECTED['judged']} = "
           f"{battery.EXPECTED['violations']/battery.EXPECTED['judged']:.1%}")
