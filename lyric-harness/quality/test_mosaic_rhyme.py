@@ -230,6 +230,46 @@ def test_refuted_over_every_mix():
           f"merged {got.verdict((1, 2))}, resolved {verdict} {witness}")
 
 
+def test_refuted_on_the_readable_end():
+    # #657 (R2): sonnet 114 accidents/intents, "But reckoning Time, whose
+    # million'd accidents / Tan sacred beauty, blunt the sharp'st intents".
+    # `sharp'st` is unread, so a member reaching it is refused as a sequence
+    # (F4) and the any-reading search cannot vary it. But the member's tail
+    # ENDS with what follows the unread word -- `intents`, IH N T EH:1 N T S
+    # -- whatever the unread word reads as, and `accidents` ends AH:0 N T S:
+    # the stressed EH against a reduced vowel can never agree, so it is False.
+    son = ["But reckoning Time, whose million'd accidents",
+           "Tan sacred beauty, blunt the sharp'st intents,"]
+    # Through the grade route, which binds the end words (an unread word
+    # elsewhere on a line does not hold a BOUND pair open): every member
+    # length is ruled out or False, and 3 -- "the [sharp'st] intents" -- is
+    # False on its readable end.
+    # The writer's default relation (the battery's route): a violation, not
+    # a refusal. (A DECLARED `schema:mosaic rhyme` still refuses any member
+    # the phonology cannot read, as Telfer's does above.)
+    from quality.revise import Reviser
+    from quality.schemes import mandate
+    g = Reviser().grade(son, mandate([["1", "2"]], n_lines=2))
+    check("sonnet 114: refuted on the readable end, whatever `sharp'st` reads as",
+          not g["refusals"] and len(g["violations"]) == 1,
+          f"refusals {g['refusals']}, violations {len(g['violations'])}")
+    st = stream(son)
+    by = {}
+    for i, u in enumerate(st.units):
+        by.setdefault(u.line, []).append(i)
+    inst = R.evaluate(MO, R.Span(tuple(by[0][-3:]), 0), R.Span(tuple(by[1][-3:]), 0), st)
+    check("...the three-syllable member over `sharp'st` is False on its readable end",
+          inst is not None and inst.verdict is False, inst and inst.reads)
+    # ...and when the readable end DOES agree, the unread word decides
+    # nothing: undecided, never True or False.
+    bound = R.replace(R.TAIL_PHONES_AGREE, partition=Q.reduced_vowel)
+    v = bound(R.KnownSuffix([("L", "AY:1", "T")]), ("N", "AY:1", "T"))
+    check("an unread word whose readable end agrees decides nothing: undecided",
+          v.value is None, str(v))
+    v = bound(R.KnownSuffix([("L", "AY:1", "T")]), ("N", "OW:1", "T"))
+    check("...and one whose readable end disagrees is False", v.value is False, str(v))
+
+
 def test_predicate():
     bound = R.replace(R.TAIL_PHONES_AGREE, partition=Q.reduced_vowel)
     v = bound(("P", "OW:1", "AH:0", "T"), ("N", "OW:1", "IH:0", "T"))
@@ -249,6 +289,7 @@ def test_predicate():
 
 if __name__ == "__main__":
     for fn in (test_predicate, test_anchor_is_exact_over_prominence, test_refuted_over_every_mix,
+               test_refuted_on_the_readable_end,
                test_coherent_readings,
                test_after_set, test_unreadable_member_refuses):
         fn()

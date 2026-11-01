@@ -1783,6 +1783,29 @@ class TailPhonesAgree(Predicate):
     resource: str = "reduced_vowel"
     name: str = "TAIL-PHONES-AGREE"
 
+    def _suffix_read(self, x, y):
+        """Refutation over a member known only after an unread word: every
+        whole tail of it ends with one of its suffixes' vowel-on parts."""
+        def ends(v):
+            out = set()
+            for seq in (v if isinstance(v, PhoneMixes) else (v,)):
+                t = self._tail(tuple(seq))
+                if t is None:
+                    return None      # a suffix with no vowel fixes nothing
+                out.add(t)
+            return out
+        ex, ey = ends(x), ends(y)
+        if ex is None or ey is None:
+            return Read(None, False, "an unread word lies inside a member")
+
+        def compatible(a, b):
+            n = min(len(a), len(b))
+            return a[len(a) - n:] == b[len(b) - n:]
+        if not any(compatible(a, b) for a in ex for b in ey):
+            return Read(False, True, "the readable ends disagree, whatever the "
+                                     "unread word reads as")
+        return Read(None, False, "an unread word lies inside a member")
+
     def _tail(self, seq):
         i = next((k for k, e in enumerate(seq) if ":" in e), None)
         if i is None:
@@ -1795,6 +1818,8 @@ class TailPhonesAgree(Predicate):
                                      "a refusal, not a verdict at the finest grain")
         if x is None or y is None:
             return Read(None, False, "unreadable")
+        if isinstance(x, KnownSuffix) or isinstance(y, KnownSuffix):
+            return self._suffix_read(x, y)
         if isinstance(x, PhoneMixes) or isinstance(y, PhoneMixes):
             # Refutation only: True is never taken from a mix of readings.
             mx = {self._tail(tuple(v)) for v in (x if isinstance(x, PhoneMixes) else (x,))}
@@ -2797,6 +2822,15 @@ class PhoneMixes:
         return hash(("PhoneMixes", self.seqs))
 
 
+class KnownSuffix(PhoneMixes):
+    """A `rime_phones` member with an unread word inside it: only what follows
+    the last unread word is known (one sequence, or its per-syllable mixes).
+    Whatever the unread word reads as, the member's tail ENDS with that
+    suffix from the suffix's first vowel on, so a tail that does not end so
+    cannot equal it: a sound False. Nothing else is decided (#657)."""
+    __slots__ = ()
+
+
 def _seq(span, stream, channel, chans, surface, rule=None):
     """The span's derived element SEQUENCE for a sequence-scoped channel.
 
@@ -2814,8 +2848,7 @@ def _seq(span, stream, channel, chans, surface, rule=None):
     reading and every pre-M-148 caller's behaviour.
     """
     if _cluster_scoped(channel, rule):
-        # (the unread-word guard below does not run on this path; `evaluate`
-        # applies the same test to every candidate afterwards)
+        # (the unread-word guard below does not run on this path)
         return _post_vocalic(span, stream, chans, surface)
     if _spans_unreadable(span, stream, rule):
         # AN UNREAD WORD INSIDE THE MEMBER (2026-10-31, M-311 F4): it has no
@@ -2824,6 +2857,17 @@ def _seq(span, stream, channel, chans, surface, rule=None):
         # the unknown manufactured a True (Kingsley's `o'er`), while the same
         # word in the other member refused. Unknown is None on either side
         # (doctrine 79).
+        if channel == "rime_phones":
+            # Mosaic's phone tail (#657): the READABLE part after the last
+            # unread word, for refutation only (`KnownSuffix`).
+            last = max(_bracketed_unread(span, stream, rule))
+            after = [i for i in span.idx
+                     if (stream.units[i].line, stream.units[i].token) > last]
+            if after:
+                got = _seq(replace(span, idx=tuple(after)), stream, channel,
+                           chans, surface, rule)
+                if got is not None:
+                    return KnownSuffix(got.seqs if isinstance(got, PhoneMixes) else (got,))
         return None
     out = []
     mixes = None
