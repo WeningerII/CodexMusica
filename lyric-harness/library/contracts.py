@@ -89,6 +89,18 @@ class ReadingSearch(TypedDict):
     reason: NotRequired[UndecidedReason]
 
 
+class DomainOutcomes(TypedDict):
+    """A pair-projecting domain's listed pairs by the state their own records
+    give (`MethodDomain.listed_pairs_by_state`); a whole-method population.
+    Each listed pair counts once: true if any record of it is true, else
+    undecided if any is, so the two are disjoint and never exceed `listed`."""
+    listed: int
+    true_pairs: int
+    undecided_pairs: int
+    judged_false: int | None
+    reading_dependent_pairs: int
+
+
 class AssignmentMember(TypedDict):
     """One occurrence of a pair's members under one judged assignment.
     `occurrence` (the token id) and `role` are the identity; `display`
@@ -139,6 +151,13 @@ class MethodDomain(TypedDict):
     # readings were not searched (a first-listed scope, or a work with
     # sound declarations), and every disputed word is reading-dependent.
     reading_policy: NotRequired[Literal["exists_compatible_reading", "first_listed_reading"]]
+    # `exact_token_pair` only: the listed pairs by the state their own records
+    # give, counted where the verdicts were reached; whole-method only.
+    # `judged_false` is null on a method not `answered`, while any listed pair
+    # touches a reading-dependent occurrence (`reading_dependent_pairs` > 0),
+    # and when a recorded pair is not listed.
+    listed_pairs_by_state: NotRequired[DomainOutcomes]
+
 
 
 class ReaderCheckpoint(TypedDict):
