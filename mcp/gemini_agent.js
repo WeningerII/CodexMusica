@@ -338,6 +338,8 @@ const REVISE_TERMINAL = new Set([
 ]);
 function finishedRevise(verdict) {
   if (!verdict || typeof verdict !== 'object' || REVISE_MID_RUN.has(verdict.status)) return false;
+  // Exit 2 (a refusal, or an uncertified stop) never answers a repeat, token or not.
+  if (verdict.exit_code === 2) return false;
   if ((verdict.exit_code === 0 || verdict.exit_code === 3) && REVISE_TERMINAL.has(verdict.status))
     return true;
   return verdict.checkpoint == null && verdict[STATE_PROPERTY] == null;
