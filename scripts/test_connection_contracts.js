@@ -40,6 +40,7 @@ const LANDED = {
   familyTable: true, // landed on #652 at c4b0114af6
   readingDisclosure: true, // landed on #652 at d59dde55b1 (item 5)
   judgedAlternatives: true, // landed on #652 at d59dde55b1 (item 5, reading_outcomes)
+  negativeTotals: false, // backend #673 (8eec7302b0); strip wiring is #674 (3PO)
 };
 for (const k of (process.env.CONNECTION_CONTRACTS_LANDED || '').split(',').filter(Boolean)) {
   if (!(k in LANDED)) throw Error(`CONNECTION_CONTRACTS_LANDED: unknown feature ${k}`);
@@ -154,11 +155,60 @@ test(
   }
 );
 
-// The shape of the listed population is not agreed yet (3PO 6547341635): no
-// field name or summation is assumed here. a2 already guards the part that
-// needs no shape: with no listed population, does-not-hold stays unsupplied.
-test.todo(
-  "a4 does-not-hold comes only from the supplied listed population; an unsupplied part stays unsupplied — waits for BB8's bounded data contract"
+// The listed population is `domain.listed_pairs_by_state` on each method's
+// result (#673, contracts.py DomainOutcomes): whole-method listed pairs, with
+// `judged_false` null unless the method answered with no reading-dependent pair.
+const LISTED = [
+  { listed: 2, true_pairs: 1, undecided_pairs: 0, judged_false: 1, reading_dependent_pairs: 0 },
+  { listed: 5, true_pairs: 1, undecided_pairs: 1, judged_false: 3, reading_dependent_pairs: 0 },
+];
+function withListed(edit = () => {}) {
+  const records = clone(BASE.records);
+  records
+    .filter((r) => r.kind === 'method_result')
+    .forEach((r, i) => {
+      r.domain = { ...r.domain, listed_pairs_by_state: clone(LISTED[i]) };
+      edit(r, i);
+    });
+  return records;
+}
+const dnh = (m) => (m.countsFor ? m.countsFor(m.checkedMethods) : m.counts)?.does_not_hold;
+
+test(
+  'a4 does-not-hold comes only from the supplied listed population; an unsupplied part stays unsupplied',
+  gate('negativeTotals', 'does-not-hold strip wiring (#674)'),
+  () => {
+    // Summed over the checked methods' supplied totals: 1 + 3.
+    const m = model(withListed());
+    assert.equal(dnh(m), 4);
+    const { V, dom } = views();
+    const strip = textOf(V.render(m, { view: 'matrix' }).querySelector('.lib-mk-count'));
+    assert.match(strip, /\b4 does not hold/);
+    assert.doesNotMatch(strip, /Does not hold[^·]*: not supplied/);
+    dom.window.close();
+    // A whole-method total, not a count of loaded records: a duplicate
+    // relation record moves nothing.
+    const dup = withListed();
+    const inst = dup.find((r) => r.kind !== 'method_result' && r.method_id);
+    dup.push({ ...clone(inst), id: `${inst.id}:dup` });
+    assert.equal(dnh(model(dup)), 4);
+    // One method with no total, or a null total, leaves the sum unsupplied:
+    // never the other method's part alone and never zero.
+    for (const edit of [
+      (r, i) => i === 1 && delete r.domain.listed_pairs_by_state,
+      (r, i) => i === 1 && (r.domain.listed_pairs_by_state.judged_false = null),
+    ]) {
+      const part = model(withListed(edit));
+      assert.equal(dnh(part), undefined);
+      const { V: V2, dom: d2 } = views();
+      const s2 = textOf(V2.render(part, { view: 'matrix' }).querySelector('.lib-mk-count'));
+      assert.match(s2, /Does not hold[^·]*: not supplied/);
+      assert.doesNotMatch(s2, /\b[01] does not hold/);
+      d2.window.close();
+    }
+    // An incomplete load supplies nothing.
+    assert.equal(dnh(model(withListed(), { complete: false })), undefined);
+  }
 );
 
 test('a5 "listed for this group" appears only with a hull-local population', () => {
@@ -388,6 +438,7 @@ test('honesty: a feature whose output exists is declared landed, so its gate run
     counts: Object.keys(m.counts || {}).length > 0,
     groupCounts: Object.keys(m.groupCounts || {}).length > 0,
     familyTable: fs.existsSync(path.join(ROOT, 'src/connection-families.js')),
+    negativeTotals: dnh(model(withListed())) !== undefined,
     judgedAlternatives: Object.values(READING).some((c) =>
       c.records.some((r) => Array.isArray(r.reading_outcomes) && r.reading_outcomes.length)
     ),
