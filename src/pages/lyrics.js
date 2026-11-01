@@ -2772,10 +2772,15 @@ function lyRunChecks(model) {
         actions: [],
       });
     // A call the host answered without running it is not a failed check.
-    // When the run's coverage names what it could not judge, that is the
-    // outcome; otherwise the row says it was not run.
+    // When a refused coverage obligation carries this very refusal, that item
+    // already says it; any other refusal leaves the row saying it was not run.
     if (t.error && t.not_run) {
-      if (!(run.coverage?.obligations || []).some((o) => o.status === 'refused'))
+      const said = String(t.error);
+      if (
+        !(run.coverage?.obligations || []).some(
+          (o) => o.status === 'refused' && String(o.reason ?? '') === said
+        )
+      )
         add({
           id: `not-run:${t.name}`,
           tone: 'input',

@@ -6774,6 +6774,73 @@ async function browserChecks(chromium) {
       await ctx.close();
     });
 
+    // ── J16. An unrelated refusal never hides a not-run explanation ─────────
+    // A not-run row is folded into coverage only when a refused obligation
+    // carries that same refusal. Here the check was not run for its own reason
+    // and coverage refuses something else: both must show.
+    await step('J16. unrelated refused coverage keeps the not-run row', async () => {
+      const { ctx, page, q } = await boot();
+      await setDraft(page, DRAFT);
+      const notRun = 'Recover the lines first; lyric_check was not run on unrecovered text.';
+      const other = 'The pronunciation of line 2 has more than one reading.';
+      const row = (name, extra) => ({
+        name,
+        seed: null,
+        error: null,
+        not_run: false,
+        exit_code: null,
+        status: null,
+        certified: null,
+        coverage: null,
+        banned_pairs: null,
+        refusal: null,
+        ...extra,
+      });
+      await sendReview(page, q, {
+        reply: 'Review needs input. This is not song certification.',
+        history: [],
+        sig: 'fixture',
+        task: { domain: 'lyrics', phase: 'edit' },
+        artifact: null,
+        completion: null,
+        stopped: null,
+        assessment: {
+          status: 'input',
+          certified: false,
+          binding: null,
+          coverage: {
+            certified: false,
+            obligations: [{ id: 'pronunciation:2', status: 'refused', reason: other }],
+          },
+          standing: [],
+        },
+        tools: [
+          row('lyric_check', { error: notRun, not_run: true }),
+          row('lyric_recover', { exit_code: 3 }),
+        ],
+      });
+      const shown = await page.evaluate(() => ({
+        items: lyItems().map((i) => [i.tone, i.title, i.text]),
+        review: (LY_ACTIONS['ly-tab']('review'), $ui('ly-panel-review').innerText),
+      }));
+      check(
+        shown.items.some(
+          ([tone, title, text]) =>
+            tone === 'input' && title === 'lyric_check was not run' && text === notRun
+        ) && /lyric_check was not run/.test(shown.review),
+        `the not-run explanation is hidden: ${JSON.stringify(shown.items)}`
+      );
+      check(
+        shown.items.some(([tone, , text]) => tone === 'input' && text === other),
+        `the unrelated refusal is missing: ${JSON.stringify(shown.items)}`
+      );
+      check(
+        !shown.items.some(([, title]) => /failed/.test(title)),
+        `a failed check is shown: ${JSON.stringify(shown.items)}`
+      );
+      await ctx.close();
+    });
+
     // 10. A saved request the server no longer keeps never strands the page.
     // The page re-arms the last exchange's receipt on every load; receipts
     // expire, and a 404 used to leave "outcome unknown" forever, hiding
