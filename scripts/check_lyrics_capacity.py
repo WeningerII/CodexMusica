@@ -233,10 +233,14 @@ def process_rss(pid):
 
 
 def events_delta(before, after):
-    """-> {row: after - before} for memory.events, or 'unavailable'."""
+    """-> {row: after - before} for memory.events, or 'unavailable'.
+
+    A row missing from either reading has no delta: it reads 'unavailable',
+    never a number measured from an assumed zero."""
     if not before or not after:
         return 'unavailable'
-    return {key: after[key] - before.get(key, 0) for key in sorted(after)}
+    return {key: after[key] - before[key] if key in before and key in after else 'unavailable'
+            for key in sorted(set(before) | set(after))}
 
 
 def write_result(path, result):
@@ -343,6 +347,7 @@ class MeasurementProgress:
         self.node_pid = node_pid
         self.peak_sample = None
         self.cache_samples = []
+        self.cache_missing = 0
         self.last_sample_at = None
         self.events_before = memory_events() or None
 
@@ -354,8 +359,13 @@ class MeasurementProgress:
         if resident is not None:
             self.samples += 1
             self.last_sample_at = time.monotonic() if now is None else now
-            if current is not None:
+            # Only a reading that subtracted the cache estimates it. The
+            # `cgroup-current` fallback sets resident = current, and its
+            # zero is a missing counter, not an empty cache.
+            if accounting == 'current-minus-reclaimable-file':
                 self.cache_samples.append(current - resident)
+            else:
+                self.cache_missing += 1
             if self.resident_peak is None or resident > self.resident_peak:
                 self.peak_sample = self.describe(resident, current, accounting, stat, self.last_sample_at)
             self.resident_peak = resident if self.resident_peak is None else max(self.resident_peak, resident)
@@ -384,6 +394,7 @@ class MeasurementProgress:
                 'mean_sample_interval_s': (round(elapsed / (self.samples - 1), 3)
                                            if elapsed is not None and self.samples > 1 else 'unavailable'),
                 'cache_estimate_bytes': self.cache_samples,
+                'cache_estimate_unavailable_samples': self.cache_missing,
                 'memory_events_delta': events_delta(self.events_before, memory_events())}
 
     def report_peak(self):

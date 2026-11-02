@@ -552,6 +552,33 @@ class PeakInstrumentation(unittest.TestCase):
         self.assertEqual(peak['node_rss']['bytes'], 'unavailable')
         self.assertEqual(record['memory_events_delta'], 'unavailable')
         self.assertEqual(record['mean_sample_interval_s'], 'unavailable')
+        self.assertEqual(record['cache_estimate_bytes'], [])
+        self.assertEqual(record['cache_estimate_unavailable_samples'], 1)
+
+    def test_fallback_readings_are_not_cache_estimates(self):
+        """A memory.stat without `file` or without `shmem` falls back to
+        resident = current; that zero must not enter the cache median."""
+        import check_lyrics_capacity as matrix
+        samples = [(1_000, {'file': 300, 'shmem': 50}), (1_100, {'shmem': 50}),
+                   (1_200, {'file': 400}), (1_050, {'file': 250, 'shmem': 50})]
+        a, b, c, d = self.readings(matrix, samples)
+        with a, b, c, d:
+            progress = matrix.MeasurementProgress('t')
+            for _ in samples:
+                progress.sample()
+            record = progress.instrumentation()
+        self.assertEqual(record['cache_estimate_bytes'], [250, 200])
+        self.assertEqual(record['cache_estimate_unavailable_samples'], 2)
+        self.assertEqual(record['sample_count'], 4)
+        # The gate's own conservative fallback is unchanged: 1_200 counted whole.
+        self.assertEqual(progress.resident_peak, 1_200)
+
+    def test_events_delta_never_assumes_a_zero_baseline(self):
+        from check_lyrics_capacity import events_delta
+        self.assertEqual(events_delta({'max': 2, 'low': 1}, {'max': 5, 'oom_kill': 1}),
+                         {'low': 'unavailable', 'max': 3, 'oom_kill': 'unavailable'})
+        self.assertEqual(events_delta({}, {'max': 1}), 'unavailable')
+        self.assertEqual(events_delta({'max': 1}, {}), 'unavailable')
 
     def test_no_reading_records_no_peak_sample(self):
         import check_lyrics_capacity as matrix
