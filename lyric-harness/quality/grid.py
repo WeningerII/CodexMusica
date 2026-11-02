@@ -3500,8 +3500,8 @@ def bridge_contrast(song, function="bridge", against=("verse",),
     if not separating and tested:
         findings.append(GridFinding(
             "BRIDGE_IS_A_VERSE",
-            f"the {fn} does not differ from the {'/'.join(against)} on any "
-            f"measured channel",
+            f"no measured channel establishes separation of the {fn} from "
+            f"the {'/'.join(against)}",
             f"channels measured: {tested}; none separated"
             + (f"; not measured: {unmeasured}" if unmeasured else "")
             + (f"; not applicable: {inapplicable}" if inapplicable else "")

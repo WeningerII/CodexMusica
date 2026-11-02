@@ -1472,15 +1472,19 @@ def test_the_contrast_truth_table():
                                  convention=rhyme_only,
                                  rhyme_key=G.rime_cmudict())
     ev = next((x.evidence for x in f if x.code == "BRIDGE_IS_A_VERSE"), "")
+    msg = next((x.message for x in f if x.code == "BRIDGE_IS_A_VERSE"), "")
     rc = ch.get("rhyme_inventory", {})
     check("a shared-but-different rhyme inventory does not separate and is "
           "never described as the same, matching, or label-only",
           rc.get("separates") is False and rc.get("bridge") != rc.get("against")
-          and ev and not any(w in ev.lower() for w in
-                             ("same ", "matches", "is a verse",
-                              "only thing that sets it apart"))
-          and "not identity" in ev,
-          (rc, ev))
+          and ev and msg and not any(w in t.lower() for t in (ev, msg)
+                                     for w in ("same ", "matches",
+                                               "is a verse", "does not differ",
+                                               "only thing that sets it apart"))
+          and "not identity" in ev
+          and msg == ("no measured channel establishes separation of the "
+                      "bridge from the verse"),
+          (rc, msg, ev))
 
     # The rhyme inventory itself keeps its meaning for every other reader:
     # the KNOWN keys, and only those.
