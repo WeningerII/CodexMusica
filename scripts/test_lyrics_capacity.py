@@ -528,6 +528,49 @@ class CapacitySourceClosure(unittest.TestCase):
             'h/pkg/d.py', 'w/m.js', 'w/n.mjs', 'w/s.js']))
 
 
+    def test_launched_scripts_are_in_the_closure(self):
+        """A script the runtime runs as a subprocess or worker is not imported,
+        so neither the import walk nor a sys.modules probe can see it (3PO on
+        #680: runtime_assets.js runs quality/verify_capacity.py)."""
+        from check_lyrics_capacity import source_closure
+        closure = set(source_closure())
+        for name in ('lyric-harness/quality/verify_capacity.py',   # runtime_assets.js spawn
+                     'lyric-harness/quality/release_assets.py',    # runtime_assets.js spawn
+                     'mcp/reader_source_worker.js',                # reader_scheduler.js Worker
+                     'mcp/library_export_worker.js'):              # library export Worker
+            self.assertIn(name, closure)
+
+    def test_a_launched_scripts_bytes_move_the_identity(self):
+        """On a hand-built tree: a script named only as a spawn argument joins
+        the closure, its bytes move the identity, and prose naming a file (a
+        comment, a backticked mention) or a literal naming no file adds nothing."""
+        import tempfile
+        import check_lyrics_capacity as matrix
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            files = {
+                'w/s.js': "import { spawn } from 'node:child_process';\n"
+                          "const root = new URL('../h/', import.meta.url);\n"
+                          "// see `h/q/cited.py` and h/q/cited.py\n"
+                          "spawn('python3', [path.join(root, 'q/v.py'), 'q/missing.py']);\n",
+                'h/q/v.py': 'print(1)\n',
+                'h/q/cited.py': '',
+            }
+            for name, text in files.items():
+                (root / name).parent.mkdir(parents=True, exist_ok=True)
+                (root / name).write_text(text)
+            with patch.object(matrix, 'ROOT', root.resolve()), \
+                 patch.object(matrix, 'SOURCE_ENTRIES', ('w/s.js',)), \
+                 patch.object(matrix, 'PYTHON_ROOTS', ('h',)):
+                closure = matrix.source_closure()
+                before = matrix.source_identity()
+                (root / 'h/q/v.py').write_text('print(2)\n')
+                after = matrix.source_identity()
+        self.assertEqual(closure, ['h/q/v.py', 'w/s.js'])
+        self.assertNotEqual(before['h/q/v.py'], after['h/q/v.py'])
+        self.assertNotEqual(before, after)
+
+
 class ResidentMemoryReading(unittest.TestCase):
     """The envelope is gated on what it has to HOLD, not on what the kernel
     happens to be caching (M-269). The arithmetic is small and the failure

@@ -510,11 +510,51 @@ def _js_imports(path):
     return {(path.parent / spec).resolve() for spec in specs}
 
 
+SCRIPT_PATH = r'[\w.\-/]+\.(?:py|js|mjs|cjs)'
+
+
+def _script_literals(path):
+    """-> repository files a module names as a whole string literal that is a
+    script path: what it launches as a subprocess or worker rather than
+    imports (runtime_assets.js runs 'quality/verify_capacity.py'; the
+    reader's Worker is new URL('./reader_source_worker.js'); python_bridge.js
+    spawns 'lyric_harness.py'). A literal resolves against the module's own
+    folder, each Python root (a launched script's working directory) and the
+    repository root; one that names no file there is not an edge. A quoted
+    literal that only cites a script (lyric_harness.py names the builders of
+    its label tables) also counts: that makes the identity stricter, never
+    weaker. Running prose is never a whole literal of this shape, and a
+    backticked mention is not a quoted literal."""
+    import re
+    text = path.read_text(encoding='utf-8')
+    if path.suffix == '.py':
+        import ast
+        literals = {node.value for node in ast.walk(ast.parse(text, filename=str(path)))
+                    if isinstance(node, ast.Constant) and isinstance(node.value, str)
+                    and re.fullmatch(SCRIPT_PATH, node.value)}
+    else:
+        literals = set(re.findall(rf"""['"]({SCRIPT_PATH})['"]""", text))
+    bases = [path.parent, *(ROOT / root for root in PYTHON_ROOTS), ROOT]
+    found = set()
+    for literal in literals:
+        for base in bases:
+            target = (base / literal).resolve()
+            if target.is_file() and ROOT in target.parents:
+                found.add(target)
+    return found
+
+
 def source_closure():
     """-> sorted repository paths the measured runtime loads from its entry
     points: the Python import closure (static, so imports inside functions
-    count) and the relative JS import closure. Data files are not modules and
-    are not in it."""
+    count), the relative JS import closure, and every script a member
+    launches by a literal path (`_script_literals`).
+
+    THIS IS REPOSITORY-MODULE IDENTITY, NOT DATA OR WORKLOAD IDENTITY. Files a
+    member reads as data are outside it, including the catalog modules
+    `scripts/_loader.js` evaluates from references/*.js with readFileSync and
+    new Function, and every data/ or corpus table. Two shards that agree on
+    this identity ran the same code, not necessarily the same inputs."""
     seen, todo = set(), [ROOT / entry for entry in SOURCE_ENTRIES]
     while todo:
         path = todo.pop().resolve()
@@ -524,8 +564,10 @@ def source_closure():
         if path.suffix == '.py':
             for name in _python_imports(path):
                 todo.extend(_resolve_python(name))
-        elif path.suffix in ('.js', '.mjs'):
+        elif path.suffix in ('.js', '.mjs', '.cjs'):
             todo.extend(p for p in _js_imports(path) if ROOT in p.parents)
+        if path.suffix in ('.py', '.js', '.mjs', '.cjs'):
+            todo.extend(_script_literals(path))
     return sorted(str(p.relative_to(ROOT)) for p in seen)
 
 
