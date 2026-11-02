@@ -2895,6 +2895,10 @@ def _recurrence_policy(wants, roster=None):
     def capacity():
         caps = {f: min(hi, 1) if f in boundary or (f in once and f not in lifted)
                 else hi for f, (lo, hi) in intervals.items()}
+        # Never add arbitrary-size integer caps to floating infinity.
+        # With no unbounded term, all remaining arithmetic stays integer.
+        if any(cap == inf for cap in caps.values()):
+            return inf
         return (sum(cap for f, cap in caps.items() if f not in boundary)
                 + min(1, sum(caps[f] for f in first))
                 + min(1, sum(caps[f] for f in last)))

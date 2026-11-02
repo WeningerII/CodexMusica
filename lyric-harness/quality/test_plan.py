@@ -5352,6 +5352,24 @@ class OnceGeneration(unittest.TestCase):
         self.assertEqual(result['refusals'][0]['scope'], 'request')
         self.assertIn('upper capacity', result['refusals'][0]['reason'])
 
+    def test_large_integer_upper_bound_is_supported(self):
+        # Accepted by the existing integer grammar and by pre-#676 planning.
+        atom = f"sections.verse<={10**309}"
+        kw = dict(seed=11, lines=24, functions=['verse', 'chorus'])
+        p = make_plan(wants=[atom], **kw)
+        self.assertTrue(PLN.sweep_holds(p, PLN.parse_sweep_want(atom)))
+        self.assertEqual(p['request']['wants'], [atom])
+        self.assertEqual(p['sections'], make_plan(**kw)['sections'])
+
+    def test_finite_large_capacities_are_exact(self):
+        # These finite integer caps sum to exactly 2*n, not floating infinity.
+        n = 10**309
+        caps = [f'sections.verse<={n}', f'sections.chorus<={n}']
+        self.assertEqual(self.policy(['verse', 'chorus'], *caps,
+                                     f'sections>={2*n}'), {})
+        with self.assertRaisesRegex(PLN.PlanRefused, 'upper capacity'):
+            self.policy(['verse', 'chorus'], *caps, f'sections>={2*n+1}')
+
     def test_count_grammar_refusals(self):
         self.assertEqual(PLN.parse_sweep_want(' sections.reprise >= 002 '),
                          ('sections.reprise', '>=', '002'))

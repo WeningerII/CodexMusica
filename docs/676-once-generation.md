@@ -99,3 +99,15 @@ return rows. The original eleven generation tests failed twelve assertions
 against the baseline sampler, including deliberate duplicate proposals and real
 generated duplicates; those tests pass with the corrected sampler. Run receipts
 are recorded in the implementation handoff; no full web build is claimed.
+
+## Large integer capacity repair
+
+The full planner suite passed at `a633968286a85a298d72bbcabdf92e3540b14601`,
+but independent review then exposed a test gap: a supported predicate
+`sections.verse<=10**309` (written as its decimal integer) mixed that finite
+cap with floating infinity during capacity summation and raised `OverflowError`.
+The repair detects an unbounded effective term before summing. Otherwise all
+capacity arithmetic remains Python integer arithmetic. The predicate domain is
+unchanged. The exact public `make_plan` regression fails before this repair;
+a second regression distinguishes finite capacity `2*10**309` from that value
+plus one, so large finite caps cannot silently become unbounded.
