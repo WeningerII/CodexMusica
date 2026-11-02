@@ -500,6 +500,32 @@ const SECTIONS = {
         back.key === 'o:line%3A0%3Atoken%3A0' && back.visible,
         JSON.stringify(back)
       );
+      // #656 item 6: reopen the sheet, move focus to a view tab outside it;
+      // Esc closes the sheet and focus stays on the tab, not the opener.
+      await page.keyboard.press('Enter');
+      await settle(page);
+      await page.evaluate(() => {
+        const tab = [...document.querySelectorAll('#surface-library [data-view]')].find(
+          (e) => !e.closest('.lib-cb-sheet') && e.offsetParent
+        );
+        tab?.focus();
+      });
+      await page.keyboard.press('Escape');
+      await settle(page);
+      const kept = await page.evaluate(() => ({
+        view: document.activeElement?.dataset?.view || null,
+        sheetOpen: !!document.querySelector('.lib-cb-sheet-body:not([hidden])'),
+      }));
+      H.check(
+        `${tag} keyboard: Esc on a tab outside the open sheet closes it and focus stays on the tab`,
+        !!kept.view && !kept.sheetOpen,
+        JSON.stringify(kept)
+      );
+      await page.evaluate(() =>
+        document
+          .querySelector('#surface-library [data-selection="o:line%3A0%3Atoken%3A0"]')
+          ?.focus()
+      );
     }
     await page.keyboard.press('Escape');
     await settle(page);
