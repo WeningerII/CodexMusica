@@ -188,7 +188,7 @@ test('real MCP preserves draft coordinates and uses the placed-return judge', as
 const PUBLISHED_MAX_LINES = () => LYRIC_TOOL_SCHEMAS.lyric_plan.lines.unwrap().maxValue;
 // ── The connector audit's lyric findings, each held by a check ─────────────
 
-test('planning instructions distinguish drawn schema relations from undeclared pasted groups', async () => {
+test('planning instructions distinguish drawn schema relations from unplanned undeclared groups', async () => {
   // Independent mechanical contract: a planned group has an obligation even
   // when the user declares none. An explicit schema or coarse relation wins.
   // Four lines is this test's declared input, not a proposed default length.
@@ -237,7 +237,10 @@ test('planning instructions distinguish drawn schema relations from undeclared p
           /Each planned group carries one declared relation or drawn registry schema/
         );
         assert.match(text, /Planning draws no coarse relation/);
-        assert.match(text, /A pasted song's group with no declared relation/);
+        assert.match(
+          text,
+          /A group graded without a plan, with neither a declared song-wide relation nor a group_types entry for that group, is judged against every coarse relation and every registry schema/
+        );
         assert.doesNotMatch(text, /planning draws none/i);
       }
     } finally {

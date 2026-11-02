@@ -3847,7 +3847,7 @@ export function lyricInstructions({ kitchen = false } = {}) {
       : 'you write every line — the service never writes lyrics for an outside caller. ') +
     'A pair stands in EVERY relation its sound supports. Each planned group carries one declared relation or drawn registry schema, ' +
     'and lyric_grade judges it against that relation. Planning draws no coarse relation. ' +
-    "A pasted song's group with no declared relation is judged against every coarse relation and every registry schema, " +
+    'A group graded without a plan, with neither a declared song-wide relation nor a group_types entry for that group, is judged against every coarse relation and every registry schema, ' +
     'and is satisfied when, for each pair, the words it binds stand in at least one ' +
     '(another word in the line relating does not count). Full figures and refused obligations remain explicit. The working order that produces ' +
     'one-draft songs: (0) lyric_sweep to CHOOSE the seed rather than guess it — declare what the user asked the shape ' +
