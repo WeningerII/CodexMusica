@@ -431,15 +431,149 @@ class MeasurementProgress:
         self.last = now
 
 
+#: The measured runtime's entry points. Everything they import from this
+#: repository is part of the identity (`source_closure`), so a change to any
+#: module the workload actually loads changes `source_sha256`.
+#: A HAND-PICKED LIST STOOD HERE (#612/#664, R-3): it named four lyric
+#: modules and missed `quality/grid.py` and eighteen others the verbs load,
+#: so the matrix could measure a changed workload under an unchanged identity.
+SOURCE_ENTRIES = (
+    'lyric-harness/lyric_harness.py', 'mcp/worker.py', 'scripts/measure_verb_memory.py',
+    'scripts/check_lyrics_capacity.py', 'scripts/lyrics_capacity_runtime.py',
+    'mcp/server_http.js', 'scripts/seed_lyrics_capacity_receipts.mjs',
+    'scripts/lyrics_capacity_server.mjs', 'scripts/lyrics_capacity_queue.mjs')
+#: Where the measured Python resolves its own imports: the harness directory
+#: is on sys.path for the verbs and the worker alike.
+PYTHON_ROOTS = ('lyric-harness', 'scripts', 'mcp')
+
+
+def _python_imports(path):
+    """-> the module names a Python file imports, at any depth (lazy imports
+    inside functions included), with relative imports made absolute."""
+    import ast
+    tree = ast.parse(path.read_text(encoding='utf-8'), filename=str(path))
+    package = None
+    for root in PYTHON_ROOTS:
+        try:
+            rel = path.relative_to(ROOT / root)
+        except ValueError:
+            continue
+        parts = list(rel.with_suffix('').parts)
+        package = parts[:-1] if parts[-1] != '__init__' else parts[:-1]
+        break
+    names = set()
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Import):
+            names.update(alias.name for alias in node.names)
+        elif isinstance(node, ast.ImportFrom):
+            if node.level:
+                if package is None:
+                    continue
+                base = package[:len(package) - (node.level - 1)] if node.level > 1 else package
+                stem = '.'.join(base + ([node.module] if node.module else []))
+            else:
+                stem = node.module or ''
+            if stem:
+                names.add(stem)
+            # `from quality import grid` imports the submodule quality.grid.
+            names.update(f'{stem}.{alias.name}' if stem else alias.name for alias in node.names)
+    return names
+
+
+def _resolve_python(name):
+    """-> repository files a dotted module name loads (its package
+    `__init__` files included), or [] for anything outside the repository."""
+    parts = name.split('.')
+    for root in PYTHON_ROOTS:
+        base = ROOT / root
+        found = []
+        for i in range(1, len(parts) + 1):
+            mod = base.joinpath(*parts[:i])
+            if (mod / '__init__.py').is_file():
+                found.append(mod / '__init__.py')
+            elif mod.with_suffix('.py').is_file() and i == len(parts):
+                found.append(mod.with_suffix('.py'))
+            elif i < len(parts) and not mod.is_dir():
+                break
+        if found and (found[-1].stem == parts[-1] or found[-1].name == '__init__.py'
+                      and found[-1].parent.name == parts[-1]):
+            return found
+    return []
+
+
+def _js_imports(path):
+    """-> repository files a JS module imports statically or by literal
+    dynamic import(); bare package specifiers are outside the repository."""
+    import re
+    text = path.read_text(encoding='utf-8')
+    specs = re.findall(r"""(?:\bfrom\s*|\bimport\s*\(\s*|\bimport\s+|\brequire\s*\(\s*)['"](\.{1,2}/[^'"]+)['"]""", text)
+    return {(path.parent / spec).resolve() for spec in specs}
+
+
+SCRIPT_PATH = r'[\w.\-/]+\.(?:py|js|mjs|cjs)'
+
+
+def _script_literals(path):
+    """-> repository files a module names as a whole string literal that is a
+    script path: what it launches as a subprocess or worker rather than
+    imports (runtime_assets.js runs 'quality/verify_capacity.py'; the
+    reader's Worker is new URL('./reader_source_worker.js'); python_bridge.js
+    spawns 'lyric_harness.py'). A literal resolves against the module's own
+    folder, each Python root (a launched script's working directory) and the
+    repository root; one that names no file there is not an edge. A quoted
+    literal that only cites a script (lyric_harness.py names the builders of
+    its label tables) also counts: that makes the identity stricter, never
+    weaker. Running prose is never a whole literal of this shape, and a
+    backticked mention is not a quoted literal."""
+    import re
+    text = path.read_text(encoding='utf-8')
+    if path.suffix == '.py':
+        import ast
+        literals = {node.value for node in ast.walk(ast.parse(text, filename=str(path)))
+                    if isinstance(node, ast.Constant) and isinstance(node.value, str)
+                    and re.fullmatch(SCRIPT_PATH, node.value)}
+    else:
+        literals = set(re.findall(rf"""['"]({SCRIPT_PATH})['"]""", text))
+    bases = [path.parent, *(ROOT / root for root in PYTHON_ROOTS), ROOT]
+    found = set()
+    for literal in literals:
+        for base in bases:
+            target = (base / literal).resolve()
+            if target.is_file() and ROOT in target.parents:
+                found.add(target)
+    return found
+
+
+def source_closure():
+    """-> sorted repository paths the measured runtime loads from its entry
+    points: the Python import closure (static, so imports inside functions
+    count), the relative JS import closure, and every script a member
+    launches by a literal path (`_script_literals`).
+
+    THIS IS REPOSITORY-MODULE IDENTITY, NOT DATA OR WORKLOAD IDENTITY. Files a
+    member reads as data are outside it, including the catalog modules
+    `scripts/_loader.js` evaluates from references/*.js with readFileSync and
+    new Function, and every data/ or corpus table. Two shards that agree on
+    this identity ran the same code, not necessarily the same inputs."""
+    seen, todo = set(), [ROOT / entry for entry in SOURCE_ENTRIES]
+    while todo:
+        path = todo.pop().resolve()
+        if path in seen or not path.is_file():
+            continue
+        seen.add(path)
+        if path.suffix == '.py':
+            for name in _python_imports(path):
+                todo.extend(_resolve_python(name))
+        elif path.suffix in ('.js', '.mjs', '.cjs'):
+            todo.extend(p for p in _js_imports(path) if ROOT in p.parents)
+        if path.suffix in ('.py', '.js', '.mjs', '.cjs'):
+            todo.extend(_script_literals(path))
+    return sorted(str(p.relative_to(ROOT)) for p in seen)
+
+
 def source_identity():
     import hashlib
-    return {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in (
-        'lyric-harness/lyric_harness.py', 'lyric-harness/quality/plan.py', 'lyric-harness/quality/revise.py',
-        'lyric-harness/quality/relations.py', 'mcp/server_http.js', 'mcp/job_store.js',
-        'mcp/run_store.js', 'mcp/state_codec.js', 'mcp/python_bridge.js', 'mcp/worker.py',
-        'scripts/measure_verb_memory.py', 'scripts/check_lyrics_capacity.py',
-        'scripts/lyrics_capacity_runtime.py', 'scripts/seed_lyrics_capacity_receipts.mjs',
-        'scripts/lyrics_capacity_server.mjs', 'scripts/lyrics_capacity_queue.mjs')}
+    return {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in source_closure()}
 
 
 def terminate_measurement(proc):
