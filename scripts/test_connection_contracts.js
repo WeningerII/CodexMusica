@@ -40,7 +40,7 @@ const LANDED = {
   familyTable: true, // landed on #652 at c4b0114af6
   readingDisclosure: true, // landed on #652 at d59dde55b1 (item 5)
   judgedAlternatives: true, // landed on #652 at d59dde55b1 (item 5, reading_outcomes)
-  negativeTotals: false, // backend #673 (8eec7302b0); strip wiring is #674 (3PO)
+  negativeTotals: true, // backend #673 (8eec7302b0); strip wiring #674 (b026f41e3b)
 };
 for (const k of (process.env.CONNECTION_CONTRACTS_LANDED || '').split(',').filter(Boolean)) {
   if (!(k in LANDED)) throw Error(`CONNECTION_CONTRACTS_LANDED: unknown feature ${k}`);
@@ -126,8 +126,10 @@ test('a1 progress counters and method candidate counts never become displayed to
 
 test('a2 a count the backend does not emit leaves its slot unpopulated, never zero', () => {
   const m = model(sentinelRecords());
-  // `summary` is the strip's own sentence; every other entry is a count.
-  const { summary, ...numbers } = m.counts || {};
+  // `summary` is the strip's own sentence and `labels` its wording; every
+  // other entry is a count.
+  const { summary, labels, ...numbers } = m.counts || {};
+  assert.ok(labels === undefined || typeof labels === 'object', 'labels are wording');
   assert.ok(summary === undefined || typeof summary === 'string', 'summary is text');
   assert.doesNotMatch(summary || '', /does not hold|not yet computed|refused/i, summary);
   for (const [state, value] of Object.entries(numbers))
@@ -158,9 +160,12 @@ test(
 // The listed population is `domain.listed_pairs_by_state` on each method's
 // result (#673, contracts.py DomainOutcomes): whole-method listed pairs, with
 // `judged_false` null unless the method answered with no reading-dependent pair.
+// Each total agrees with what the fixture loads for that method (one binding
+// holds, none undecided) and `listed` equals its `pair_count` (2 and 5): the
+// strip shows a negative total only when those agree (#674).
 const LISTED = [
   { listed: 2, true_pairs: 1, undecided_pairs: 0, judged_false: 1, reading_dependent_pairs: 0 },
-  { listed: 5, true_pairs: 1, undecided_pairs: 1, judged_false: 3, reading_dependent_pairs: 0 },
+  { listed: 5, true_pairs: 1, undecided_pairs: 0, judged_false: 4, reading_dependent_pairs: 0 },
 ];
 function withListed(edit = () => {}) {
   const records = clone(BASE.records);
@@ -178,12 +183,12 @@ test(
   'a4 does-not-hold comes only from the supplied listed population; an unsupplied part stays unsupplied',
   gate('negativeTotals', 'does-not-hold strip wiring (#674)'),
   () => {
-    // Summed over the checked methods' supplied totals: 1 + 3.
+    // Summed over the checked methods' supplied totals: 1 + 4.
     const m = model(withListed());
-    assert.equal(dnh(m), 4);
+    assert.equal(dnh(m), 5);
     const { V, dom } = views();
     const strip = textOf(V.render(m, { view: 'matrix' }).querySelector('.lib-mk-count'));
-    assert.match(strip, /\b4 does not hold/);
+    assert.match(strip, /\b5 do not hold/);
     assert.doesNotMatch(strip, /Does not hold[^·]*: not supplied/);
     dom.window.close();
     // A whole-method total, not a count of loaded records: a duplicate
@@ -191,12 +196,21 @@ test(
     const dup = withListed();
     const inst = dup.find((r) => r.kind !== 'method_result' && r.method_id);
     dup.push({ ...clone(inst), id: `${inst.id}:dup` });
-    assert.equal(dnh(model(dup)), 4);
+    assert.equal(dnh(model(dup)), 5);
     // One method with no total, or a null total, leaves the sum unsupplied:
     // never the other method's part alone and never zero.
+    // So does a method whose counts disagree with what is loaded, or with
+    // themselves (each total below still sums to `listed`, except the last).
+    const set = (fields) => (r, i) =>
+      i === 1 && Object.assign(r.domain.listed_pairs_by_state, fields);
     for (const edit of [
       (r, i) => i === 1 && delete r.domain.listed_pairs_by_state,
       (r, i) => i === 1 && (r.domain.listed_pairs_by_state.judged_false = null),
+      set({ true_pairs: 2, judged_false: 3 }),
+      set({ undecided_pairs: 1, judged_false: 3 }),
+      set({ reading_dependent_pairs: 1 }),
+      set({ listed: 6, judged_false: 5 }),
+      set({ judged_false: 5 }),
     ]) {
       const part = model(withListed(edit));
       assert.equal(dnh(part), undefined);
