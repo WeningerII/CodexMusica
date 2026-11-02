@@ -1259,6 +1259,9 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
   }
+  .gp-detail-place[role='button'] span {
+    text-decoration: underline dotted;
+  }
   .gp-detail-place[aria-expanded='true'] {
     height: auto;
   }
