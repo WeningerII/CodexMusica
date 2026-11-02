@@ -17,7 +17,8 @@ import {
 } from './lyric_tools.js';
 import { PLAN_FIELDS, READING_FIELDS } from './lyric_workflow.js';
 import { runRefusal } from './run_store.js';
-import { declarationsFor } from './gemini_agent.js';
+import { buildSurface, declarationsFor } from './gemini_agent.js';
+import { instructionsForTask } from './task_contract.js';
 import { toGeminiDeclarations } from './gemini_tools.js';
 
 const HARNESS = new URL('../lyric-harness/', import.meta.url).pathname;
@@ -186,6 +187,65 @@ test('real MCP preserves draft coordinates and uses the placed-return judge', as
 // The lyric_plan `lines` ceiling, as published in the tool schema.
 const PUBLISHED_MAX_LINES = () => LYRIC_TOOL_SCHEMAS.lyric_plan.lines.unwrap().maxValue;
 // ── The connector audit's lyric findings, each held by a check ─────────────
+
+test('planning instructions distinguish drawn schema relations from undeclared pasted groups', async () => {
+  // Independent mechanical contract: a planned group has an obligation even
+  // when the user declares none. An explicit schema or coarse relation wins.
+  // Four lines is this test's declared input, not a proposed default length.
+  const plans = JSON.parse(
+    execFileSync(
+      'python3',
+      [
+        '-c',
+        'import json\n' +
+          'from quality.plan import make_plan\n' +
+          'print(json.dumps([make_plan(7, lines=4, relation=r) for r in ' +
+          '[None, "schema:perfect rhyme", "class:ASSONANCE"]]))',
+      ],
+      { cwd: HARNESS, encoding: 'utf8' }
+    )
+  );
+  for (const [i, plan] of plans.entries()) {
+    const groups = plan.groups.split(';').filter(Boolean);
+    const relations = Object.values(plan.relations);
+    assert(groups.length > 0, 'exercise actual planned groups');
+    assert.equal(relations.length, groups.length, 'every planned group has a relation');
+    assert.equal(plan.total_lines, 4, 'preserve the explicit length');
+    assert.equal(plan.request.form, 'open', 'preserve the connector/planner open form');
+    if (i === 0) {
+      assert.equal(plan.relation, '', 'no song-wide relation was declared');
+      for (const relation of relations)
+        assert.match(relation, /^schema:/, 'draw schemas, not classes');
+    } else {
+      const declared = i === 1 ? 'schema:perfect rhyme' : 'class:ASSONANCE';
+      assert.equal(plan.relation, declared);
+      assert.deepEqual([...new Set(relations)], [declared], 'preserve the declared relation');
+    }
+  }
+  for (const kitchen of [false, true]) {
+    const { client, server } = await connect({ kitchen });
+    try {
+      // The same live handshake feeds external MCP callers and the website's
+      // buildSurface -> instructionsForTask path. No model call is needed.
+      const surface = await buildSurface(client);
+      for (const text of [
+        client.getInstructions(),
+        instructionsForTask(surface.instructions, 'lyrics'),
+      ]) {
+        assert.match(
+          text,
+          /Each planned group carries one declared relation or drawn registry schema/
+        );
+        assert.match(text, /Planning draws no coarse relation/);
+        assert.match(text, /A pasted song's group with no declared relation/);
+        assert.doesNotMatch(text, /planning draws none/i);
+      }
+    } finally {
+      await client.close();
+      await server.close();
+    }
+  }
+});
 
 // The published text states numbers and enumerates vocabularies the harness
 // owns; each is compared with the harness itself, so a moved value fails here

@@ -3845,10 +3845,11 @@ export function lyricInstructions({ kitchen = false } = {}) {
     (kitchen
       ? "on this chat surface the service's own writer answers the revise loop's questions. "
       : 'you write every line — the service never writes lyrics for an outside caller. ') +
-    'A pair stands in EVERY relation its sound supports: the default judges every pair against every coarse ' +
-    'relation and every registry schema, and a group is satisfied when the words it binds stand in at least ' +
-    'one (another word in the line relating does not count); planning ' +
-    'draws none. Full figures and refused obligations remain explicit. The working order that produces ' +
+    'A pair stands in EVERY relation its sound supports. Each planned group carries one declared relation or drawn registry schema, ' +
+    'and lyric_grade judges it against that relation. Planning draws no coarse relation. ' +
+    "A pasted song's group with no declared relation is judged against every coarse relation and every registry schema, " +
+    'and is satisfied when, for each pair, the words it binds stand in at least one ' +
+    '(another word in the line relating does not count). Full figures and refused obligations remain explicit. The working order that produces ' +
     'one-draft songs: (0) lyric_sweep to CHOOSE the seed rather than guess it — declare what the user asked the shape ' +
     'to be (`lines`, `functions`, `want` as a filter), and nothing they did not ask for, and it returns the seeds that hold, in seed order, unranked; (1) lyric_screen ' +
     "the word pairs you mean to write BEFORE writing; (2) lyric_plan with an accepted seed and the sweep's form, lines, functions and melody " +
