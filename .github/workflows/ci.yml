@@ -3197,7 +3197,7 @@ jobs:
                    section_marks phonology nucleus corpus_taxonomy mut_band coda \
                    band relation_shapes matrix render_form verify_entries register_audit \
                    phon_msa mandate_language phon_fas phon_non phon_san staging \
-                   controls data_row_claims english_text stub_resolution melody meter tempo verify_figures expected_drift \
+                   controls data_row_claims english_text stub_resolution melody meter meter_honesty tempo verify_figures expected_drift \
                    cross_song brief_provenance shard \
                    battery_rounds comparator_pin audit_regressions production_harness production_relations high_report \
                    production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window within_item computational_audit interlocking_chain field_store type_canon backlog_status source_identity figure_exhibits relation_index lexicon_supplement reader reader_quotes moby_convert coverage_split coverage_queue pilot_frame schema_instance_evidence sound_inventory connection_schemas schema_report mosaic_rhyme sequence_unread; do

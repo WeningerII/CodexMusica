@@ -53,7 +53,12 @@ hidden, not declared here:
 - candidates: reverse index over ~~20k common words~~ the 50k-word
   `data/opensubtitles_en_50k.tsv` frequency table (the 20k list was refused
   2026-08-22; re-dated 2026-09-26), perfect/strong/slant tiers
-- ~~check_meter~~ `meter`: syllable count + strong-position agreement vs template
+- ~~check_meter~~ `meter`: syllable count + strong-position agreement vs template,
+  each stated with its limits (#677): every word's reading source (dictionary,
+  rule, guessed, declared or unknown), how far the comparison stays aligned
+  after a word with no reading, strong slots matched/compared/total, and the
+  basis line — first listed reading, function words demoted, primary and
+  secondary stress merged, weak positions not checked, no named meter
 - ~~check_scheme~~ `scheme`: full pairwise score matrix diffed against target letters —
   violations, cross-letter collisions, transitivity-defect triangle count
 - value flags: cliche_pair (30-pair seed list), shared_suffix (stem-checked),
