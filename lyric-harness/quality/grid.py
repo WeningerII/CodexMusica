@@ -3294,14 +3294,30 @@ def reprise_findings(song, later="outro", earlier="intro",
 
 
 def _channel_values(song, sections, rhyme_key=None):
-    """-> per-channel measurement over a set of sections, for contrast."""
+    """-> per-channel measurement over a set of sections, for contrast.
+
+    `rhyme_inventory` is the set of KNOWN end-rhyme keys, and only that: an
+    endpoint the declared reader cannot read is not in it. What the set does
+    not say is said beside it (#676), because a known set with unread
+    endpoints is a different fact from a complete one:
+      * `_end_words` -- how many lines on this side end in a word at all
+        (0 is a side with nothing to rhyme: a wordless span, not missing
+        evidence);
+      * `_rhyme_unread` -- how many of those endpoints the reader returned
+        None for (None when no reader was declared);
+      * `_lines` -- how many lines the side has (0: every line-derived
+        channel is inapplicable rather than unmeasured).
+    The underscored keys are not contrast channels; no convention names them.
+    """
     lines = [l for s in sections for l in song.lines_in(s)]
+    worded = [l for l in lines if _end_word(l.text)]
     if rhyme_key is None:
         ends = None            # CANNOT TELL: no phonology was declared
+        unread = None
     else:
-        ends = {_end_occurrence(l.text, rhyme_key)[2] for l in lines
-                if _end_word(l.text)}
-        ends.discard(None)
+        keys = [_end_occurrence(l.text, rhyme_key)[2] for l in worded]
+        unread = sum(k is None for k in keys)
+        ends = {k for k in keys if k is not None}
     dur = [float(l.duration) for l in lines]
     lens = [len(tokens(l.text)) for l in lines]
     return {
@@ -3314,7 +3330,17 @@ def _channel_values(song, sections, rhyme_key=None):
                                 / len(lines), 3) if lines else None),
         "rhyme_inventory": ends,
         "line_length": round(sum(lens) / len(lens), 3) if lens else None,
+        "_lines": len(lines),
+        "_end_words": len(worded),
+        "_rhyme_unread": unread,
     }
+
+
+#: The contrast channels a side with no lines cannot carry at all. On such a
+#: side they are NOT APPLICABLE (#676, decision D1), never "not measured":
+#: there was nothing to measure, so nothing is missing.
+_LINE_CHANNELS = ("line_duration", "downbeat_rate", "line_length",
+                  "rhyme_inventory")
 
 
 def bridge_contrast(song, function="bridge", against=("verse",),
@@ -3348,8 +3374,26 @@ def bridge_contrast(song, function="bridge", against=("verse",),
     bv = _channel_values(song, br, rhyme_key)
     rv = _channel_values(song, ref, rhyme_key)
     channels, separating, unmeasured = {}, [], []
+    inapplicable, partial = [], []
+    sides = ((fn, bv), ("/".join(against), rv))
     for ch in convention.contrast_channels:
         x, y = bv.get(ch), rv.get(ch)
+        # NOT APPLICABLE (#676 D1): a side with nothing this channel reads --
+        # no lines at all, or (for the rhyme inventory) no line that ends in
+        # a word. An instrumental bridge has no end words to contrast; that is
+        # not missing evidence, so it neither votes nor refuses. Checked
+        # before the reader, because "no phonology was declared" is not the
+        # reason a wordless span has no rhyme inventory.
+        if ch in _LINE_CHANNELS:
+            count = "_end_words" if ch == "rhyme_inventory" else "_lines"
+            empty = [name for name, v in sides if not v[count]]
+            if empty:
+                channels[ch] = {"bridge": None, "against": None,
+                                "separates": None, "applicable": False,
+                                "why": "not applicable: no sung words in "
+                                       f"the {' or the '.join(empty)}"}
+                inapplicable.append(ch)
+                continue
         if x is None or y is None:
             # CANNOT TELL. The rhyme inventory needs a phonology, and reading
             # it off spelling because none was declared would be doctrine 45's
@@ -3360,7 +3404,37 @@ def bridge_contrast(song, function="bridge", against=("verse",),
                                    "this channel"}
             unmeasured.append(ch)
             continue
-        if isinstance(x, set):
+        if ch == "rhyme_inventory":
+            # THE TRUTH TABLE (#676). "Doesn't separate" stands on any KNOWN
+            # shared key, unread endpoints or not: the shared key is a
+            # determinate witness and an unread word cannot un-share it.
+            # "Separates" needs BOTH inventories complete, because an unread
+            # endpoint could be the key they share. Anything else is not
+            # checked, and says how many endpoints it could not read.
+            shared = x & y
+            unread = (bv["_rhyme_unread"] or 0) + (rv["_rhyme_unread"] or 0)
+            row = {"bridge": sorted(map(str, x))[:6],
+                   "against": sorted(map(str, y))[:6],
+                   "shared": sorted(map(str, shared))[:6],
+                   "coverage": "partial" if unread else "complete",
+                   "unread": unread}
+            if shared:
+                row["separates"] = False
+                if unread:
+                    row["witness"] = sorted(map(str, shared))[:6]
+                    partial.append(ch)
+            elif not unread:
+                row["separates"] = bool(x) and bool(y)
+            else:
+                row["separates"] = None
+                row["why"] = (f"not checked: end words not read ({unread}); "
+                              f"the known keys share nothing, and an unread "
+                              f"end word could be the one they share")
+                channels[ch] = row
+                unmeasured.append(ch)
+                continue
+            channels[ch] = row
+        elif isinstance(x, set):
             shared = x & y
             diff = bool(x) and bool(y) and not shared
             channels[ch] = {"bridge": sorted(map(str, x))[:6],
@@ -3373,22 +3447,38 @@ def bridge_contrast(song, function="bridge", against=("verse",),
         if channels[ch]["separates"]:
             separating.append(ch)
 
+    tested = [c for c in convention.contrast_channels
+              if c not in unmeasured and c not in inapplicable]
     if unmeasured:
+        reasons = "; ".join(f"{c}: {channels[c]['why']}" for c in unmeasured)
         refusals.append(Refusal(
             "CHANNEL_NOT_MEASURED",
             f"{len(unmeasured)} contrast channel(s) were not measured",
-            f"{unmeasured}. They are excluded from the verdict rather than "
-            f"scored as 'no difference' -- an unmeasured channel that votes "
-            f"is a guess with a number on it."))
-    if not separating:
-        tested = [c for c in convention.contrast_channels
-                  if c not in unmeasured]
+            f"{unmeasured} ({reasons}). They are excluded from the verdict "
+            f"rather than scored as 'no difference' -- an unmeasured channel "
+            f"that votes is a guess with a number on it."))
+    elif not tested:
+        # NOTHING WAS ASKED (#676 row 8): the convention named no channel, or
+        # every channel it named is inapplicable here. Answering that with a
+        # verdict either way would be a pass -- or a finding -- earned by
+        # asking nothing.
+        refusals.append(Refusal(
+            "CHANNEL_NOT_MEASURED",
+            "no contrast channel could be measured",
+            f"channels requested: {list(convention.contrast_channels)}; "
+            f"not applicable: {inapplicable}. With nothing measured the "
+            f"{fn} is neither shown to contrast nor shown to be a "
+            f"{against[0]}."))
+    if not separating and tested:
         findings.append(GridFinding(
             "BRIDGE_IS_A_VERSE",
             f"the {fn} does not differ from the {'/'.join(against)} on any "
             f"measured channel",
             f"channels measured: {tested}; none separated"
             + (f"; not measured: {unmeasured}" if unmeasured else "")
+            + (f"; not applicable: {inapplicable}" if inapplicable else "")
+            + (f"; measured with partial coverage: {partial}" if partial
+               else "")
             + f". Same meter, same bar count, same line count, same phrase "
               f"length. It is labelled a {fn} and it is a {against[0]}. This "
               f"is a finding about the LABEL, and the label is the only "
