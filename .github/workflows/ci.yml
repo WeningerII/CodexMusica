@@ -3105,7 +3105,7 @@ jobs:
       #   mosaic_rhyme and sequence_unread joined 2026-10-31 with M-311 F1/F4
       #   (#657): the mosaic rule and the unread-word guard; seconds each;
       #   label 109 to 111
-      - name: The 111 cheap suites (their history is the comment above; 111 until 2026-10-27, when the five bank suites were deleted with the song bank; sound_inventory joined 2026-10-30; connection_schemas the same day; schema_report 2026-10-31; mosaic_rhyme and sequence_unread 2026-10-31)
+      - name: The 112 cheap suites (their history is the comment above; 111 until 2026-10-27, when the five bank suites were deleted with the song bank; sound_inventory joined 2026-10-30; connection_schemas the same day; schema_report 2026-10-31; mosaic_rhyme and sequence_unread 2026-10-31; meter_honesty 2026-11-02)
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
