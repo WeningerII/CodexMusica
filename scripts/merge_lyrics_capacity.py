@@ -222,6 +222,8 @@ def main(argv=None):
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('shards', nargs='+')
     ap.add_argument('--out', required=True)
+    ap.add_argument('--provenance', help='select_capacity_shards.py record of which '
+                    'execution and artifact each shard file came from; carried into the receipt')
     args = ap.parse_args(argv)
 
     try:
@@ -230,7 +232,16 @@ def main(argv=None):
         print(f'REFUSED — {error}', file=sys.stderr)
         return 2
 
+    provenance = None
+    if args.provenance:
+        try:
+            provenance = json.loads(Path(args.provenance).read_text())
+        except (OSError, ValueError) as error:
+            print(f'REFUSED — {args.provenance}: unreadable shard provenance: {error}', file=sys.stderr)
+            return 2
     report, failures = merge(shards)
+    if provenance is not None:
+        report['shard_provenance'] = provenance
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     temp = out.with_suffix(out.suffix + '.tmp')

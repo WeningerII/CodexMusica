@@ -210,6 +210,35 @@ def resident_bytes(current=None, stat=None):
     return current, current, 'cgroup-current'
 
 
+#: memory.stat rows recorded beside the gated peak. They OVERLAP (`kernel`
+#: holds the slab rows and the stacks; `file` holds `shmem`), so they are a
+#: breakdown to read, never terms to add up.
+BREAKDOWN_ROWS = ('anon', 'file', 'shmem', 'file_mapped', 'kernel', 'kernel_stack',
+                  'pagetables', 'percpu', 'sock', 'slab', 'slab_reclaimable',
+                  'slab_unreclaimable')
+#: What `node_rss` measures, said once in the record so nobody adds it to the
+#: cgroup's figures: one process's own resident set, not its children's.
+NODE_RSS_SCOPE = 'VmRSS of the resident Node server process only; children excluded'
+
+
+def process_rss(pid):
+    """-> VmRSS bytes of one process from /proc, or None when unreadable."""
+    status = read(f'/proc/{pid}/status') if pid else None
+    for line in (status or '').splitlines():
+        if line.startswith('VmRSS:'):
+            parts = line.split()
+            if len(parts) >= 2 and parts[1].isdigit():
+                return int(parts[1]) * 1024
+    return None
+
+
+def events_delta(before, after):
+    """-> {row: after - before} for memory.events, or 'unavailable'."""
+    if not before or not after:
+        return 'unavailable'
+    return {key: after[key] - before.get(key, 0) for key in sorted(after)}
+
+
 def write_result(path, result):
     path.parent.mkdir(parents=True, exist_ok=True)
     temp = path.with_suffix(path.suffix + '.tmp')
@@ -301,25 +330,78 @@ class MeasurementProgress:
     hold is a sampled quantity, at that cadence; the Python child's own
     peak is measured exactly by its rusage and gated separately.
     """
-    def __init__(self, identity):
+    def __init__(self, identity, node_pid=None):
         self.identity = identity
         self.started = self.last = time.monotonic()
         self.output_bytes = 0
         self.resident_peak = None
         self.accounting = None
         self.samples = 0
+        # INSTRUMENTATION ONLY (#656): nothing below is judged. The gated
+        # peak above is unchanged; these record what was in the cgroup at
+        # the very sample that set it, and every sample's cache estimate.
+        self.node_pid = node_pid
+        self.peak_sample = None
+        self.cache_samples = []
+        self.last_sample_at = None
+        self.events_before = memory_events() or None
 
-    def sample(self):
-        resident, current, accounting = resident_bytes()
+    def sample(self, now=None):
+        current = cgroup_bytes('memory.current')
+        stat = memory_stat()
+        resident, current, accounting = resident_bytes(current=current, stat=stat)
         self.accounting = accounting
         if resident is not None:
             self.samples += 1
+            self.last_sample_at = time.monotonic() if now is None else now
+            if current is not None:
+                self.cache_samples.append(current - resident)
+            if self.resident_peak is None or resident > self.resident_peak:
+                self.peak_sample = self.describe(resident, current, accounting, stat, self.last_sample_at)
             self.resident_peak = resident if self.resident_peak is None else max(self.resident_peak, resident)
         return resident, current
 
+    def describe(self, resident, current, accounting, stat, at):
+        """The cgroup as it stood at one sample; a counter it lacks says so."""
+        pid = self.node_pid() if callable(self.node_pid) else self.node_pid
+        rss = process_rss(pid)
+        peak = cgroup_bytes('memory.peak')
+        return {'elapsed_s': round(at - self.started, 3),
+                'utc': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
+                'resident_bytes': resident, 'current_bytes': current, 'accounting': accounting,
+                'cgroup_peak_bytes': peak if peak is not None else 'unavailable',
+                'memory_stat': {row: stat[row] if row in stat else 'unavailable' for row in BREAKDOWN_ROWS},
+                'node_rss': {'pid': pid if pid else 'unavailable',
+                             'bytes': rss if rss is not None else 'unavailable',
+                             'scope': NODE_RSS_SCOPE}}
+
+    def instrumentation(self):
+        """-> the per-execution record of the samples behind the gated peak."""
+        elapsed = (self.last_sample_at - self.started) if self.last_sample_at is not None else None
+        return {'peak_sample': self.peak_sample if self.peak_sample is not None else 'unavailable',
+                'sample_count': self.samples,
+                'sampled_seconds': round(elapsed, 3) if elapsed is not None else 'unavailable',
+                'mean_sample_interval_s': (round(elapsed / (self.samples - 1), 3)
+                                           if elapsed is not None and self.samples > 1 else 'unavailable'),
+                'cache_estimate_bytes': self.cache_samples,
+                'memory_events_delta': events_delta(self.events_before, memory_events())}
+
+    def report_peak(self):
+        """One log line for the gated peak's sample, beside the activity lines."""
+        peak = self.peak_sample
+        if peak is None:
+            print(f'Capacity peak sample {self.identity}: unavailable', flush=True)
+            return
+        rows = ' '.join(f'{row}={value}' for row, value in peak['memory_stat'].items())
+        node = peak['node_rss']
+        print(f"Capacity peak sample {self.identity}: elapsed={peak['elapsed_s']}s "
+              f"resident_bytes={peak['resident_bytes']} current_bytes={peak['current_bytes']} "
+              f"cgroup_peak_bytes={peak['cgroup_peak_bytes']} {rows} "
+              f"node_rss_bytes={node['bytes']} node_pid={node['pid']} samples={self.samples}", flush=True)
+
     def emit(self, output, final=False):
         now = time.monotonic()
-        resident, current = self.sample()
+        resident, current = self.sample(now)
         if not final and now - self.last < 30:
             return
         raw = output.encode('utf-8') if isinstance(output, str) else (output or b'')
@@ -413,7 +495,9 @@ def main():
                 if mode == 'worker':
                     command += ['--worker', f"--rounds={LIMITS['worker_rounds']}"]
                 print(f'Capacity lines={size} seed={seed} mode={mode}', flush=True)
-                progress = MeasurementProgress(f'{size}/{seed}/{mode}')
+                progress = MeasurementProgress(
+                    f'{size}/{seed}/{mode}',
+                    node_pid=lambda: resident.child.pid if resident.child is not None else None)
                 proc = None
                 try:
                     remaining = deadline - time.monotonic()
@@ -476,6 +560,7 @@ def main():
                 # ride beside them, unjudged, so the record still shows
                 # what the kernel's own counter said.
                 boundary_resident, boundary_current = progress.sample()
+                progress.report_peak()
                 report['memory_trace'].append({
                     'lines': size, 'seed': seed, 'mode': mode,
                     'peak_bytes': progress.resident_peak,
@@ -483,7 +568,8 @@ def main():
                     'samples': progress.samples,
                     'accounting': progress.accounting,
                     'cgroup_peak_bytes': cgroup_bytes('memory.peak'),
-                    'cgroup_current_bytes': boundary_current})
+                    'cgroup_current_bytes': boundary_current,
+                    'instrumentation': progress.instrumentation()})
                 write_result(out, report)
         try:
             if report.get('resident_runtime', {}).get('startup_ok'):

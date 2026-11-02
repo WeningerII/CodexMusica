@@ -166,17 +166,38 @@ jobs:
     if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    # `actions: read` lets the selector read this run's attempts and artifacts.
+    permissions:
+      contents: read
+      actions: read
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: '3.11.16'
           architecture: 'x64'
+      # EVERY ATTEMPT'S SHARD ARTIFACTS, ONE FOLDER EACH. Downloading only
+      # `*-${{ github.run_attempt }}` made "Re-run failed jobs" unable to pass:
+      # the shards it did not re-run keep their earlier attempt's artifact
+      # (run 41352566807 attempt 2 refused for want of capacity-upper.json
+      # with all four shards under the ceiling). Which attempt's evidence
+      # answers for each shard is decided by `select_capacity_shards.py` from
+      # this run's job metadata, never by which folders happen to exist; it
+      # refuses rather than fall back to an older attempt.
       - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
-          pattern: lyrics-capacity-*-${{ github.run_attempt }}
-          path: capacity-evidence
-          merge-multiple: true
+          pattern: lyrics-capacity-*-*
+          path: capacity-artifacts
+      - name: Each shard's evidence from the attempt that ran it
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          ls -l capacity-artifacts
+          python3 scripts/select_capacity_shards.py --repo="$GITHUB_REPOSITORY" \
+            --run-id="$GITHUB_RUN_ID" --attempt="$GITHUB_RUN_ATTEMPT" --sha="$GITHUB_SHA" \
+            --shards=pole,upper,middle,rest --artifacts-dir=capacity-artifacts \
+            --out-dir=capacity-evidence --provenance=capacity-evidence/shard-provenance.json
       - name: One matrix out of every shard, or a refusal that names the shard
         run: |
           set -euo pipefail
@@ -186,6 +207,7 @@ jobs:
             capacity-evidence/capacity-upper.json \
             capacity-evidence/capacity-middle.json \
             capacity-evidence/capacity-rest.json \
+            --provenance=capacity-evidence/shard-provenance.json \
             --out=capacity-evidence/capacity.json
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()

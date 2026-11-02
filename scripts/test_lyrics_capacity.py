@@ -486,13 +486,88 @@ class ResidentMemoryReading(unittest.TestCase):
     def test_the_progress_sampler_keeps_the_largest_resident_reading(self):
         import check_lyrics_capacity as matrix
         readings = iter([(500, 900), (800, 1500), (300, 700)])
-        with patch.object(matrix, 'resident_bytes', side_effect=lambda: (*next(readings), 'current-minus-reclaimable-file')):
+        with patch.object(matrix, 'resident_bytes', side_effect=lambda **_: (*next(readings), 'current-minus-reclaimable-file')):
             progress = matrix.MeasurementProgress('t')
             for _ in range(3):
                 progress.sample()
         self.assertEqual(progress.resident_peak, 800)
         self.assertEqual(progress.samples, 3)
         self.assertEqual(progress.accounting, 'current-minus-reclaimable-file')
+
+
+class PeakInstrumentation(unittest.TestCase):
+    """#656: the breakdown recorded beside the gated peak comes from the very
+    sample that set it, a counter the kernel lacks reads 'unavailable', and the
+    gated number itself is computed exactly as before."""
+
+    def readings(self, matrix, samples):
+        """Patch the cgroup reads so each sample() sees the next (current, stat)."""
+        feed = iter(samples)
+        state = {}
+        def cgroup(name):
+            if name == 'memory.current':
+                state['current'], state['stat'] = next(feed)
+                return state['current']
+            return 2_000_000_000 if name == 'memory.peak' else None
+        return (patch.object(matrix, 'cgroup_bytes', side_effect=cgroup),
+                patch.object(matrix, 'memory_stat', side_effect=lambda: state['stat']),
+                patch.object(matrix, 'memory_events', return_value={'max': 1, 'oom_kill': 0}),
+                patch.object(matrix, 'process_rss', return_value=300 * 2**20))
+
+    def test_breakdown_is_the_peak_samples_own(self):
+        import check_lyrics_capacity as matrix
+        samples = [(1_500, {'file': 600, 'shmem': 100, 'anon': 700, 'kernel': 150, 'slab_reclaimable': 90}),
+                   (1_900, {'file': 500, 'shmem': 100, 'anon': 1_200, 'kernel': 160, 'slab_reclaimable': 95}),
+                   (1_800, {'file': 900, 'shmem': 100, 'anon': 800, 'kernel': 140, 'slab_reclaimable': 80})]
+        a, b, c, d = self.readings(matrix, samples)
+        with a, b, c, d:
+            progress = matrix.MeasurementProgress('t', node_pid=lambda: 4242)
+            for _ in samples:
+                progress.sample()
+            record = progress.instrumentation()
+        self.assertEqual(progress.resident_peak, 1_900 - (500 - 100))   # unchanged rule
+        peak = record['peak_sample']
+        self.assertEqual(peak['resident_bytes'], progress.resident_peak)
+        self.assertEqual(peak['current_bytes'], 1_900)
+        self.assertEqual(peak['memory_stat']['anon'], 1_200)
+        self.assertEqual(peak['memory_stat']['slab_reclaimable'], 95)
+        self.assertEqual(peak['memory_stat']['percpu'], 'unavailable')
+        self.assertEqual(peak['node_rss'], {'pid': 4242, 'bytes': 300 * 2**20, 'scope': matrix.NODE_RSS_SCOPE})
+        self.assertEqual(record['cache_estimate_bytes'], [500, 400, 800])
+        self.assertEqual(record['sample_count'], 3)
+        self.assertEqual(record['memory_events_delta'], {'max': 0, 'oom_kill': 0})
+
+    def test_missing_counters_and_process_read_unavailable_not_zero(self):
+        import check_lyrics_capacity as matrix
+        a, b, c, d = self.readings(matrix, [(1_000, {})])
+        with a, b, c, patch.object(matrix, 'process_rss', return_value=None), \
+             patch.object(matrix, 'memory_events', return_value={}):
+            progress = matrix.MeasurementProgress('t')
+            progress.sample()
+            record = progress.instrumentation()
+        peak = record['peak_sample']
+        self.assertEqual(peak['accounting'], 'cgroup-current')
+        self.assertTrue(all(v == 'unavailable' for v in peak['memory_stat'].values()))
+        self.assertEqual(peak['node_rss']['pid'], 'unavailable')
+        self.assertEqual(peak['node_rss']['bytes'], 'unavailable')
+        self.assertEqual(record['memory_events_delta'], 'unavailable')
+        self.assertEqual(record['mean_sample_interval_s'], 'unavailable')
+
+    def test_no_reading_records_no_peak_sample(self):
+        import check_lyrics_capacity as matrix
+        with patch.object(matrix, 'read', return_value=None):
+            progress = matrix.MeasurementProgress('t')
+            progress.sample()
+            self.assertEqual(progress.instrumentation()['peak_sample'], 'unavailable')
+            self.assertIsNone(progress.resident_peak)
+
+    def test_process_rss_reads_vmrss(self):
+        import check_lyrics_capacity as matrix
+        with patch.object(matrix, 'read', return_value='Name:\tnode\nVmRSS:\t  2048 kB\n'):
+            self.assertEqual(matrix.process_rss(7), 2048 * 1024)
+        with patch.object(matrix, 'read', return_value=None):
+            self.assertIsNone(matrix.process_rss(7))
+        self.assertIsNone(matrix.process_rss(None))
 
 
 class LeakSignature(unittest.TestCase):
