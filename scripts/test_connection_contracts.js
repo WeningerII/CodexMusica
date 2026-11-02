@@ -382,8 +382,19 @@ const SOURCE_WORD = { declared: 'declared', variants: 'variants', unlocatable: '
 
 test('c1 every applicable reading of an occurrence is shown', () => {
   let multi = 0;
+  const seen = { declared: 0, unlocatable: 0 };
   for (const [name, capture] of Object.entries(READING)) {
     for (const t of tokensOf(capture.records)) {
+      if (t.applicable_source in seen) seen[t.applicable_source] += 1;
+      if (t.applicable_source === 'unlocatable') {
+        // A real backend null list (not an edit): it reads "not supplied" under
+        // its source word, and nothing is filled in after it.
+        const text = inspectOccurrence(capture.records, t.token_id);
+        const expected = 'Applicable readings (unavailable): not supplied';
+        assert.ok(text.includes(expected), `${name} ${t.text}: "${expected}" not in "${text}"`);
+        assert.ok(!text.includes(`${expected} / `), `${name} ${t.text}: a reading was filled in`);
+        continue;
+      }
       if (!Array.isArray(t.applicable_readings) || !t.applicable_readings.length) continue;
       if (t.applicable_readings.length > 1) multi += 1;
       const text = inspectOccurrence(capture.records, t.token_id);
@@ -395,6 +406,13 @@ test('c1 every applicable reading of an occurrence is shown', () => {
     }
   }
   assert.ok(multi >= 3, `the fixture supplies tokens with several readings (${multi})`);
+  // Each source word is reached by a real backend record, so neither case can
+  // drop out of the fixture unnoticed.
+  assert.ok(seen.declared >= 1, `the fixture supplies a declared reading (${seen.declared})`);
+  assert.ok(
+    seen.unlocatable >= 1,
+    `the fixture supplies an unlocatable token (${seen.unlocatable})`
+  );
   // A token without a supplied list says so; it is never filled in.
   const records = clone(READING.reading_dependent.records);
   const t = tokensOf(records).find((x) => (x.applicable_readings || []).length > 1);
