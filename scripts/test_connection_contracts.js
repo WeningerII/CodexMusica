@@ -14,7 +14,7 @@
 //   - GATES for a feature run only once LANDED below declares it. From then on
 //     missing output FAILS: a regression that removes the feature cannot stay
 //     green. Until then each gate is a static TODO naming what it waits for.
-//   - Open TODOs for checks whose data contract is not agreed yet (a4, c1).
+//   - No open TODOs: a4 (#673/#674) and c1 (applicable readings) are gates.
 //     They assert nothing until BB8's bounded data contract fixes the shape.
 // A feature is declared landed by flipping its flag in the same change that
 // lands it (or, to try a gate early, CONNECTION_CONTRACTS_LANDED=counts,...).
@@ -363,11 +363,49 @@ const holdOf =
   (m) =>
     m.cells.filter((c) => I.cellState(c).state === 'holds')[i].selection;
 
-// Which readings apply (the reading inventory and its policy) is part of BB8's
-// bounded data contract; every dictionary entry is not assumed eligible.
-test.todo(
-  "c1 every applicable reading of an occurrence is shown — waits for BB8's bounded data contract"
-);
+// Which readings apply is BB8's bounded data contract (bc08089271): each token
+// record carries `applicable_readings` (a list, or null) and `applicable_source`
+// (declared / variants / unlocatable), from analysis.py `_applicable_readings`.
+// The page shows exactly that list; it never adds a dictionary entry the
+// backend did not list, and an absent list reads "not supplied".
+const tokensOf = (records) => records.filter((r) => r.kind === 'token');
+function inspectOccurrence(records, tokenId) {
+  const m = model(records);
+  const { V, dom } = views();
+  m.checkedMethods = m.methods.filter((x) => !x.disabledReason).map((x) => x.method_id);
+  m.selection = { kind: 'occurrence', entity_id: tokenId };
+  const text = textOf(V.render(m, { view: 'poem' }).querySelector('.cv-inspector'));
+  dom.window.close();
+  return text;
+}
+const SOURCE_WORD = { declared: 'declared', variants: 'variants', unlocatable: 'unavailable' };
+
+test('c1 every applicable reading of an occurrence is shown', () => {
+  let multi = 0;
+  for (const [name, capture] of Object.entries(READING)) {
+    for (const t of tokensOf(capture.records)) {
+      if (!Array.isArray(t.applicable_readings) || !t.applicable_readings.length) continue;
+      if (t.applicable_readings.length > 1) multi += 1;
+      const text = inspectOccurrence(capture.records, t.token_id);
+      // The whole supplied list, in order, under its source, and nothing after it.
+      const source = SOURCE_WORD[t.applicable_source] || 'not supplied';
+      const expected = `Applicable readings (${source}): ${t.applicable_readings.join(' / ')}`;
+      assert.ok(text.includes(expected), `${name} ${t.text}: "${expected}" not in "${text}"`);
+      assert.ok(!text.includes(`${expected} / `), `${name} ${t.text}: an unlisted reading follows`);
+    }
+  }
+  assert.ok(multi >= 3, `the fixture supplies tokens with several readings (${multi})`);
+  // A token without a supplied list says so; it is never filled in.
+  const records = clone(READING.reading_dependent.records);
+  const t = tokensOf(records).find((x) => (x.applicable_readings || []).length > 1);
+  for (const edit of [(x) => (x.applicable_readings = null), (x) => delete x.applicable_readings]) {
+    const copy = clone(records);
+    edit(copy.find((x) => x.id === t.id));
+    const text = inspectOccurrence(copy, t.token_id);
+    assert.match(text, /Applicable readings \([^)]*\): not supplied/);
+    for (const r of t.applicable_readings) assert.ok(!text.includes(r), `"${r}" invented`);
+  }
+});
 
 test('c2-guard the witnessing reading is never dropped', () => {
   const { m, text } = inspect('witness_first', holdOf());
