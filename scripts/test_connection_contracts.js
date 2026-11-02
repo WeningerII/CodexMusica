@@ -14,8 +14,8 @@
 //   - GATES for a feature run only once LANDED below declares it. From then on
 //     missing output FAILS: a regression that removes the feature cannot stay
 //     green. Until then each gate is a static TODO naming what it waits for.
-//   - No open TODOs: a4 (#673/#674) and c1 (applicable readings) are gates.
-//     They assert nothing until BB8's bounded data contract fixes the shape.
+//   - No open TODOs remain: a4 (listed totals, #673/#674) and c1 (applicable
+//     readings, BB8's data contract on main bc08089271) are gates that run.
 // A feature is declared landed by flipping its flag in the same change that
 // lands it (or, to try a gate early, CONNECTION_CONTRACTS_LANDED=counts,...).
 // The honesty guard fails if a feature's output appears while its flag is off,
