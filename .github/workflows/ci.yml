@@ -828,7 +828,7 @@ jobs:
         run: node scripts/check_lyrics_image.mjs "${{ steps.image.outputs.image_id }}" "$TESTED_SHA"
 
       - name: Capacity acceptance oracle counterexamples
-        run: python3 scripts/test_lyrics_capacity.py
+        run: python3 scripts/test_lyrics_capacity.py && python3 scripts/test_select_capacity_shards.py
       - name: Qualify the reader against the exact production image
         timeout-minutes: 5
         run: |
