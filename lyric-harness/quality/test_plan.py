@@ -216,11 +216,10 @@ def test_the_denominator_is_drawn():
     # the default form is `open` and the length is drawn once (D7), so every
     # seed's stream re-deals; each seed below is again the first default
     # seed in that meter, re-measured by running `make_plan`.
-    # 2026-11-02 (#676): once-constrained rejection re-deals the stream.
-    # Prior witnesses 5/61/45/199 are historical, not unchanged workloads.
-    # Exhaustive seed scan 0..383 finds these first witnesses for the SAME
-    # independently required meters; no musical expectation was repinned.
-    for k, want in ((43, "3/4"), (103, "2/2"), (383, "5/4"), (282, "7/4")):
+    # #676: seeds 5 and 45 previously repeated once functions. Their stream
+    # must change; scanning 0..302 gives new first witnesses 39 and 302.
+    # Seeds 61 and 199 were valid already and remain unchanged.
+    for k, want in ((39, "3/4"), (61, "2/2"), (302, "5/4"), (199, "7/4")):
         p, m, units = _sig(k)
         check(f"default plan seed {k} is in {want}, and the brief says so",
               f"{m['beats']}/{m['unit']}" == want and len(units) == 1
@@ -236,9 +235,8 @@ def test_the_denominator_is_drawn():
     # ~~(0, 1, 3, 7, 13, 17, 19)~~ — REPINNED 2026-10-27 with the meters
     # above: 0 is /64, 4 /2, 5 /4, 6 /8, 7 /1 (with 2s only), 16 /32 and
     # 18 /16, and among them 4 is /2 with a 3 in its bar.
-    # 2026-11-02: first witnesses are 0 /64, 2 /16, 3 /8 (2s only),
-    # 4 /2 (has 3), 6 /4, 7 /1, 16 /32. Support and independence unchanged.
-    for k in (0, 2, 3, 4, 6, 7, 16):
+    # Only seed 5 changes under #676; seed 11 now witnesses /4.
+    for k in (0, 4, 11, 6, 7, 16, 18):
         p, m, units = _sig(k)
         _units[m["unit"]] = (k, m["beats"], tuple(m["groups"]))
     check("every declarable denominator is reachable from default plans",
@@ -4237,11 +4235,10 @@ def test_the_delegated_rulings(FAILURES=None):
           f"draw one chorus without the rule (refused NO_FREE_WORD: "
           f"{m_refused or 'none'}; redrawn past the joint gate, left out: "
           f"{m_redrawn or 'none'})")
-    # The comparison population must not shrink silently. Historical
-    # 2026-10-27 exclusions were [2, 16]; after registry-once rejection
-    # (2026-11-02) neither arm redraws/refuses any of these 40 seeds.
-    check("...all 40 seeds remain in the comparison, none redrawn or refused",
-          m_redrawn == [] and m_refused == [] and set(mutant) == set(SEEDS),
+    # #676 moves only draws that repeated once functions. Mutant 26 now
+    # redraws too: pin all three exclusions and the remaining population.
+    check("...exactly mutants 2, 16 and 26 redraw, none refuse; 37 compared",
+          m_redrawn == [2, 16, 26] and m_refused == [] and len(mutant) == 37,
           f"compared {len(mutant)}, redrawn {m_redrawn}, refused {m_refused}")
     check("...and EXACTLY the seeds whose first admissible pattern lacked a "
           "second chorus moved — rejection sampling leaves every accepted "
@@ -4721,27 +4718,19 @@ def test_the_seed_redraw():
     check("...and a sweep over that one seed now PLANS it rather than "
           "counting a refusal", sw["planned"] == 1 and sw["refused"] == 0,
           f"{sw}")
-    # TWO REFUSED CANDIDATES (Jony 6347921225): retaining only the last
-    # refusal must fail. Historical seed witnesses 2025 -> 6417 -> 2330
-    # depended on sampler entropy; #676 makes 2330 need only one redraw.
-    # Supply two distinct refusals then a real accepted plan, so this tests
-    # the redraw protocol independently of which generated shapes are unlucky.
-    accepted = make_plan(seed=7, lines=24)
-    errors = [JointRefused("fixture rejection", codes=(code,), findings=(
-        {"code": code, "line": i + 1, "detail": f"fixture rejection {i}"},))
-        for i, code in enumerate(("NO_FREE_WORD", "OVERHANG_EXCEEDS_SPAN"))]
-    with patch.object(PLN, '_make_plan_candidate', side_effect=[*errors, accepted]) as candidate:
-        p2 = make_plan(seed=2330, lines=24)
-    sequence = random.Random(2330)
-    expected = [2330, sequence.getrandbits(64), sequence.getrandbits(64)]
-    r2 = p2["choices"]["seed_redraw"]["refused"]
-    check("...several redraws disclose EVERY refused candidate and its "
-          "findings in order, starting at the caller's seed",
-          [c.args[0] for c in candidate.call_args_list] == expected
-          and r2 == [{"seed": str(k), "status": "refused",
-                      "codes": list(e.codes), "findings": list(e.findings)}
-                     for k, e in zip(expected, errors)]
-          and p2["choices"]["seed_redraw"]["candidate_seed"] == str(expected[2]),
+    # TWO REFUSED CANDIDATES (Jony 6347921225): a mutant keeping only the
+    # last refusal passed every check above, so pin a seed that needs two.
+    # ~~2025 (two refusals)~~ -> ~~6417~~ (2026-10-27, D7's re-dealt
+    # stream) -> 2330 (the same day, once a redraw keeps the first draw's
+    # length): no default seed in 0-2329 needs more than one redraw; 2330
+    # needs two (measured over 0-11999: 323 seeds need one, 9 need two).
+    p2 = make_plan(seed=2330)
+    r2 = (p2["choices"].get("seed_redraw") or {}).get("refused", [])
+    check("...a seed needing several redraws discloses EVERY refused "
+          "candidate, in order, the first being the caller's own seed",
+          len(r2) == 2 and r2[0]["seed"] == "2330"
+          and len({x["seed"] for x in r2}) == 2
+          and all(x["codes"] and x["findings"] for x in r2),
           f"refused {[(x['seed'], x['codes']) for x in r2]}")
     a = json.dumps(make_plan(seed=7), sort_keys=True)
     b = json.dumps(PLN._make_plan_candidate(7), sort_keys=True)
@@ -5312,6 +5301,128 @@ class OnceGeneration(unittest.TestCase):
         counts = Counter(functions)
         self.assertFalse({fn: n for fn, n in counts.items()
                           if G.SECTION_FUNCTIONS[fn].recurrence == 'once' and n > 1})
+
+    def policy(self, roster, *wants):
+        return PLN._recurrence_policy([PLN.parse_sweep_want(w) for w in wants], roster)
+
+    def test_interval_policy_matrix(self):
+        rows = [
+            (['false_ending', 'reprise'], ['sections=4'], {'false_ending', 'reprise'}),
+            (['false_ending', 'reprise'], ['sections=4', 'sections.false_ending<=2', 'sections.reprise<=2'], {'false_ending', 'reprise'}),
+            (['false_ending', 'reprise'], ['sections=4', 'sections.reprise<=1'], {'false_ending'}),
+            (['verse', 'reprise'], ['sections=4'], set()),
+            (['verse', 'reprise'], ['sections=4', 'sections.verse<=1'], {'reprise'}),
+            (['bridge', 'reprise'], ['sections=4'], {'reprise'}),
+            (['bridge', 'reprise'], ['sections=4', 'sections.reprise<=2'], {'bridge', 'reprise'}),
+            (['bridge'], ['sections=4'], {'bridge'}),
+            (['bridge', 'reprise'], ['sections.bridge>=2'], {'bridge'}),
+            (['verse', 'reprise'], ['sections.reprise>=1', 'sections.reprise<=3'], set()),
+            (['verse', 'reprise'], ['sections.reprise>=2', 'sections.reprise<=3'], {'reprise'}),
+            (['reprise'], ['sections<=4'], set()),
+            (['reprise'], ['sections.reprise<=0'], set()),
+        ]
+        for roster, wants, expected in rows:
+            for atoms in (wants, list(reversed(wants)), wants + wants):
+                with self.subTest(roster=roster, wants=atoms):
+                    self.assertEqual(set(self.policy(roster, *atoms)), expected)
+                    self.assertEqual(self.policy(roster, *atoms), self.policy(roster + roster, *atoms))
+
+    def test_proved_count_contradictions(self):
+        rows = [
+            (['false_ending', 'reprise'], ['sections=4', 'sections.false_ending<=2', 'sections.reprise<=1']),
+            (['intro', 'outro', 'coda'], ['sections=3']),
+            (['verse', 'outro', 'coda'], ['sections.outro>=1', 'sections.coda>=1']),
+            (['verse', 'intro'], ['sections.intro>=2']),
+            (['verse'], ['sections.reprise>=1']),
+            (['verse', 'reprise'], ['sections.reprise>=2', 'sections.reprise<=1']),
+            (['verse'], ['sections<=-1']),
+            (['verse'], ['sections.verse=-1']),
+            (['verse', 'reprise'], ['sections<=2', 'sections.verse>=2', 'sections.reprise>=1']),
+        ]
+        for roster, wants in rows:
+            with self.subTest(roster=roster, wants=wants), self.assertRaises(PLN.PlanRefused):
+                self.policy(roster, *wants)
+        self.assertEqual(self.policy(['verse'], 'sections>=-1'), {})
+        wants = [PLN.parse_sweep_want(w) for w in
+                 ('sections=4', 'sections.false_ending<=2', 'sections.reprise<=1')]
+        with patch.object(PLN, '_sample_pattern', side_effect=AssertionError('must prove before sampling')):
+            result = PLN.sweep([11], wants=wants, lines=24,
+                               functions=['false_ending', 'reprise'])
+        self.assertEqual((result['planned'], result['refused']), (0, 1))
+        self.assertEqual(result['refusals'][0]['scope'], 'request')
+        self.assertIn('upper capacity', result['refusals'][0]['reason'])
+
+    def test_count_grammar_refusals(self):
+        self.assertEqual(PLN.parse_sweep_want(' sections.reprise >= 002 '),
+                         ('sections.reprise', '>=', '002'))
+        for atom in ('sections!=2', 'sections<2', 'sections>2', 'sections==2',
+                     'sections=1.5', 'sections=1,2', 'sections=1 OR sections=2',
+                     'sections.Reprise=2', 'sections.reprise=2;sections=4'):
+            with self.subTest(atom=atom), self.assertRaises(PLN.PlanRefused):
+                PLN.parse_sweep_want(atom)
+
+    def test_explicit_counts_and_sweep_reproduction(self):
+        rows = [
+            (11, 'open', ['false_ending', 'reprise'], ['sections=4', 'sections.false_ending<=2', 'sections.reprise<=2']),
+            (11, 'open', ['verse', 'reprise'], ['sections=4', 'sections.verse<=1']),
+            (11, 'open', ['bridge'], ['sections.bridge=4']),
+            (11, 'open', ['verse', 'chorus', 'false_ending', 'reprise'], ['sections.false_ending=2']),
+            (2, 'verse-chorus', ['verse', 'chorus', 'false_ending', 'reprise'], ['sections.reprise=2']),
+        ]
+        paths = set()
+        for seed, form, roster, wants in rows:
+            parsed = [PLN.parse_sweep_want(w) for w in wants]
+            kw = dict(form=form, functions=roster, lines=24)
+            with self.subTest(roster=roster, wants=wants):
+                p = make_plan(seed, wants=wants, **kw)
+                self.assertTrue(all(PLN.sweep_holds(p, w) for w in parsed))
+                self.assertIn('default once preferences lifted', p['choices']['pattern']['chosen_from'])
+                # The sweep's proposal receives recurrence policy but no shape conditioning.
+                base = make_plan(seed, _recurrence_wants=parsed, **kw)
+                outcome = PLN._sweep_one((seed, parsed, kw))
+                self.assertEqual(outcome[2], [PLN.sweep_holds(base, w) for w in parsed])
+                paths.add(all(outcome[2]))
+                swept = PLN.sweep([seed], wants=parsed, **kw)
+                self.assertEqual(swept['accepted'], [seed] if all(outcome[2]) else [])
+                if all(outcome[2]):
+                    for key in p.keys() - {'request', 'choices', 'writer_brief'}:
+                        self.assertEqual(p[key], base[key])
+                    self.assertEqual({k: v for k, v in p['choices'].items() if k != 'brief_selection'},
+                                     base['choices'])
+                    self.assertEqual(p['sections'], base['sections'])
+                    self.assertEqual(p['choices']['pattern'], base['choices']['pattern'])
+                    self.assertIn('not conditioned', p['choices']['brief_selection']['policy'])
+                else:
+                    self.assertEqual(p['choices']['brief_selection']['policy'], 'first satisfying candidate; no ranking')
+        self.assertEqual(paths, {False, True}, 'exercise both proposal and conditioned paths')
+        # Public semicolon input and parsed tuples use the same existing grammar.
+        kw = dict(functions=['false_ending', 'reprise'], lines=24)
+        atoms = ['sections=4', 'sections.reprise<=2', 'sections.false_ending<=2']
+        a = make_plan(11, wants=';'.join(atoms), **kw)
+        b = make_plan(11, wants=[PLN.parse_sweep_want(w) for w in atoms], **kw)
+        self.assertEqual(a, b)
+
+    def test_hook_and_return_coordinates_do_not_lift_once(self):
+        rows = [
+            ('open', ['false_ending', 'reprise'], 11, False),
+            ('open', ['bridge', 'reprise'], 11, False),
+            ('open', ['verse', 'chorus'], 11, False),
+            ('open', ['verse', 'chorus', 'false_ending', 'reprise'], 11, False),
+            ('verse-chorus', ['false_ending', 'reprise'], 11, None),
+            ('verse-chorus', ['verse', 'chorus'], 11, True),
+            ('verse-chorus', ['verse', 'chorus', 'false_ending', 'reprise'], 2, True),
+        ]
+        for form, roster, seed, positive in rows:
+            for atom in ('hook>=1', 'returns>=1'):
+                with self.subTest(form=form, roster=roster, atom=atom):
+                    self.assertEqual(self.policy(roster, atom), {})
+                    if positive is not True:
+                        with self.assertRaises(PLN.PlanRefused):
+                            make_plan(seed, form=form, functions=roster, lines=24, wants=[atom])
+                    else:
+                        p = make_plan(seed, form=form, functions=roster, lines=24, wants=[atom])
+                        self.assertTrue(PLN.sweep_holds(p, PLN.parse_sweep_want(atom)))
+                        self.assert_once(p['choices']['pattern']['functions'])
 
     def test_known_default_duplicates(self):
         for seed in (2, 42):
