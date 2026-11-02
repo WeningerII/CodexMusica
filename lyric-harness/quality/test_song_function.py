@@ -1400,11 +1400,50 @@ def test_the_contrast_truth_table():
               "and the question is refused rather than passed",
               not f and [x.code for x in r] == ["CHANNEL_NOT_MEASURED"],
               ([x.code for x in f], [x.code for x in r]))
-    f, r, _ = G.bridge_contrast(_contrast_song([]), convention=rhyme_only,
+    # D1 meets row 8 (3PO, #685 review): a wordless bridge under a
+    # convention asking ONLY line channels. Every requested channel is
+    # inapplicable, so the question does not arise: no finding, no refusal,
+    # and it is in none of the report's three counts -- unlike a convention
+    # that requests nothing, which is refused above.
+    wordless = _contrast_song([])
+    f, r, ch = G.bridge_contrast(wordless, convention=rhyme_only,
+                                 rhyme_key=G.rime_cmudict())
+    check("D1 x row 8 (every requested channel inapplicable): not "
+          "applicable -- no finding, no refusal",
+          not f and not r and ch.get("_not_applicable") is True
+          and ch.get("rhyme_inventory", {}).get("applicable") is False,
+          ([x.code for x in f], [x.code for x in r], ch))
+    import dataclasses
+    rhyme_only_full = dataclasses.replace(
+        G.POPULAR_SONG, contrast_channels=("rhyme_inventory",))
+    rep_na = G.song_function_report(wordless, rhyme_key=G.rime_cmudict(),
+                                    convention=rhyme_only_full)
+    rep_one = G.song_function_report(_contrast_song(["home", "roam", "sea",
+                                                     "free"]),
+                                     rhyme_key=G.rime_cmudict(),
+                                     convention=rhyme_only_full)
+    check("D1 x row 8: the inapplicable contrast is in none of the three "
+          "counts (one question fewer than the same convention on a worded "
+          "bridge), and refuses nothing",
+          (rep_na["asked"], rep_na["answered"], rep_na["refused"])
+          == (rep_one["asked"] - 1, rep_one["answered"] - 1,
+              rep_one["refused"])
+          and "CHANNEL_NOT_MEASURED" not in
+          [x.code for x in rep_na["refusals"]],
+          ((rep_na["asked"], rep_na["answered"], rep_na["refused"]),
+           (rep_one["asked"], rep_one["answered"], rep_one["refused"])))
+
+    # The finding claims equality only on what was measured (3PO, #685).
+    f, _, _ = G.bridge_contrast(_contrast_song(["day", "way", "night", "light"]),
+                                convention=rhyme_only,
                                 rhyme_key=G.rime_cmudict())
-    check("row 8 (every requested channel inapplicable): nothing asked, "
-          "nothing found",
-          not f and [x.code for x in r] == ["CHANNEL_NOT_MEASURED"])
+    ev = next((x.evidence for x in f if x.code == "BRIDGE_IS_A_VERSE"), "")
+    check("BRIDGE_IS_A_VERSE names only the channels it measured and claims "
+          "nothing about the rest",
+          "channels measured: ['rhyme_inventory']" in ev
+          and "Same meter" not in ev and "same bar count" not in ev
+          and "nothing is claimed about a channel that was not measured" in ev,
+          ev)
 
     # The rhyme inventory itself keeps its meaning for every other reader:
     # the KNOWN keys, and only those.

@@ -3457,18 +3457,23 @@ def bridge_contrast(song, function="bridge", against=("verse",),
             f"{unmeasured} ({reasons}). They are excluded from the verdict "
             f"rather than scored as 'no difference' -- an unmeasured channel "
             f"that votes is a guess with a number on it."))
+    elif not tested and inapplicable:
+        # EVERY REQUESTED CHANNEL IS INAPPLICABLE (#676 D1, advisory): the
+        # convention asked only about what a wordless span does not have.
+        # Nothing is missing, so nothing is refused; the question does not
+        # arise for this song and `song_function_report` counts it in none of
+        # its three counts. A DECLARED contrast would be unjudged instead --
+        # no declaration for one exists yet (#676, residual).
+        channels["_not_applicable"] = True
     elif not tested:
-        # NOTHING WAS ASKED (#676 row 8): the convention named no channel, or
-        # every channel it named is inapplicable here. Answering that with a
-        # verdict either way would be a pass -- or a finding -- earned by
-        # asking nothing.
+        # NOTHING WAS ASKED (#676 row 8): the convention named no channel.
+        # Answering that with a verdict either way would be a pass -- or a
+        # finding -- earned by asking nothing.
         refusals.append(Refusal(
             "CHANNEL_NOT_MEASURED",
-            "no contrast channel could be measured",
-            f"channels requested: {list(convention.contrast_channels)}; "
-            f"not applicable: {inapplicable}. With nothing measured the "
-            f"{fn} is neither shown to contrast nor shown to be a "
-            f"{against[0]}."))
+            "no contrast channel was requested",
+            f"the convention names no contrast channel, so the {fn} is "
+            f"neither shown to contrast nor shown to be a {against[0]}."))
     if not separating and tested:
         findings.append(GridFinding(
             "BRIDGE_IS_A_VERSE",
@@ -3479,10 +3484,11 @@ def bridge_contrast(song, function="bridge", against=("verse",),
             + (f"; not applicable: {inapplicable}" if inapplicable else "")
             + (f"; measured with partial coverage: {partial}" if partial
                else "")
-            + f". Same meter, same bar count, same line count, same phrase "
-              f"length. It is labelled a {fn} and it is a {against[0]}. This "
-              f"is a finding about the LABEL, and the label is the only "
-              f"thing that says otherwise."))
+            + f". On every channel measured it matches the "
+              f"{'/'.join(against)}; nothing is claimed about a channel that "
+              f"was not measured. It is labelled a {fn}, and on this "
+              f"evidence the label is the only thing that sets it apart. "
+              f"This is a finding about the LABEL."))
     channels["_separating"] = separating
     return findings, refusals, channels
 
@@ -3636,7 +3642,11 @@ def song_function_report(song, hooks=(), rhyme_key=None,
         ask_one(pf, [])
     f, r, ch = bridge_contrast(song, convention=convention,
                                rhyme_key=rhyme_key)
-    ask_one(f, r)
+    # A contrast every requested channel of which is inapplicable (a
+    # wordless bridge asked only line channels, #676 D1) is a question that
+    # does not arise: in none of the three counts.
+    if not ch.get("_not_applicable"):
+        ask_one(f, r)
     f, r = hook_findings(song, hooks)
     ask_one(f, r)
     return {"profile": prof, "findings": findings, "refusals": refusals,
