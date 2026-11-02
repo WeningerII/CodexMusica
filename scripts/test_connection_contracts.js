@@ -139,7 +139,7 @@ test('a2 a count the backend does not emit leaves its slot unpopulated, never ze
   const { V, dom } = views();
   const strip = textOf(V.render(m, { view: 'matrix' }).querySelector('.lib-mk-count'));
   assert.match(strip, /Does not hold[^·]*: not supplied/);
-  assert.doesNotMatch(strip, /\b0 does not hold/);
+  assert.doesNotMatch(strip, /\b0 do(?:es)? not hold/);
   dom.window.close();
 });
 
@@ -217,7 +217,7 @@ test(
       const { V: V2, dom: d2 } = views();
       const s2 = textOf(V2.render(part, { view: 'matrix' }).querySelector('.lib-mk-count'));
       assert.match(s2, /Does not hold[^·]*: not supplied/);
-      assert.doesNotMatch(s2, /\b[01] does not hold/);
+      assert.doesNotMatch(s2, /\b\d+ do(?:es)? not hold/);
       d2.window.close();
     }
     // An incomplete load supplies nothing.
@@ -509,6 +509,11 @@ test('honesty: a feature whose output exists is declared landed, so its gate run
     groupCounts: Object.keys(m.groupCounts || {}).length > 0,
     familyTable: fs.existsSync(path.join(ROOT, 'src/connection-families.js')),
     negativeTotals: dnh(model(withListed())) !== undefined,
+    readingDisclosure: Object.values(READING).some((c) =>
+      (model(c.records).occurrences || []).some((o) =>
+        /Applicable readings/.test(o.readingInventory || '')
+      )
+    ),
     judgedAlternatives: Object.values(READING).some((c) =>
       c.records.some((r) => Array.isArray(r.reading_outcomes) && r.reading_outcomes.length)
     ),
