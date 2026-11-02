@@ -612,6 +612,7 @@ function gpRefreshDetail() {
   if (!place) return;
   line.title = place;
   line.innerHTML = `${icon('map-pin', 14)}<span>${esc(place)}</span>`;
+  gpPlaceFit();
 }
 
 // ── Browse column ────────────────────────────────────────────────────────
@@ -1034,9 +1035,19 @@ function gpRestoreScroll() {
   gpScrollers().forEach((el, i) => (el.scrollTop = G.listScroll[i] || 0));
   G.listScroll = null;
 }
+// A place name longer than its reserved lines becomes a button (the line
+// itself) that shows it whole; one that fits gets none (#656 item 7).
+function gpPlaceFit() {
+  const l = $ui('genre-detail')?.querySelector('.gp-detail-place'),
+    s = l?.querySelector('span');
+  if (s?.scrollHeight > s.clientHeight + 1)
+    Object.assign(l, { role: 'button', tabIndex: 0, ariaExpanded: false }).dataset.ui =
+      'genre-place';
+}
 function gpShowDetail() {
   const d = $ui('genre-detail');
   if (!d) return;
+  gpPlaceFit();
   if (d.closest('.gp-pinned')) gpScrollers().forEach((el) => (el.scrollTop = 0));
   else d.scrollIntoView?.({ block: 'nearest' });
 }
@@ -1363,6 +1374,9 @@ uiRegisterPage({
     },
     'genre-select'(id) {
       gpSelect(id);
+    },
+    'genre-place'(_, b) {
+      b.ariaExpanded = b.ariaExpanded !== 'true';
     },
     'genre-close'() {
       uiGenreBack();
