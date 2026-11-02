@@ -163,7 +163,7 @@ function cellShowsControl(doc, ci, checked, currentId, onChange, live) {
 // heading; closing (the handle, or Esc inside it) returns focus to where it
 // came from, or to the view's heading when that is gone or hidden. It is a
 // non-modal region, so the poem stays reachable: closing it while focus is
-// elsewhere (close({ restore: false })) leaves focus where it is (#656 item 6).
+// elsewhere (close(false)) leaves focus where it is (#656 item 6).
 function bottomSheet(container, title) {
   const doc = container.ownerDocument;
   const sheet = doc.createElement('section');
@@ -190,13 +190,14 @@ function bottomSheet(container, title) {
     handle.setAttribute('aria-expanded', 'true');
     heading.focus();
   }
-  function close({ restore = true } = {}) {
+  function close(restore = true) {
     body.hidden = true;
     handle.setAttribute('aria-expanded', 'false');
-    if (restore) {
-      if (returnTo?.isConnected && !returnTo.closest('[hidden]')) returnTo.focus();
-      else focusViewHeading(container);
-    }
+    if (restore)
+      (returnTo?.isConnected && !returnTo.closest('[hidden]')
+        ? returnTo
+        : viewHeading(container)
+      )?.focus();
     returnTo = null;
   }
   handle.addEventListener('click', () => (body.hidden ? open(handle) : close()));
@@ -210,13 +211,12 @@ function bottomSheet(container, title) {
   return { el: sheet, body, open, close, isOpen: () => !body.hidden };
 }
 
-// The view's own heading, made focusable on demand: where focus goes when the
-// element it should return to, or the one it was on, no longer exists.
-function focusViewHeading(root) {
-  const h = root && root.querySelector(':scope > h2');
-  if (!h) return;
-  if (!h.hasAttribute('tabindex')) h.tabIndex = -1;
-  h.focus();
+// The view's own heading, made focusable: where focus goes when the element
+// it should return to, or the one it was on, no longer exists.
+function viewHeading(root) {
+  const h = root?.querySelector(':scope>h2');
+  if (h) h.tabIndex = -1;
+  return h;
 }
 
 // What the live region says for a selection, from the model the views drew.
@@ -433,14 +433,15 @@ function mount(host, opts) {
     // keepFocus: Esc on a control elsewhere in the view clears the selection
     // without pulling focus to a word (#656 item 6); draw keeps the control.
     const key = keepFocus
-      ? undefined
+      ? ''
       : ci.selectionKey(
           sel || (narrow() && model.rowOccurrence && ci.occurrence(model.rowOccurrence))
         );
     const rowOccurrence =
       sel && sel.kind === 'occurrence' ? sel.entity_id : sel ? model.rowOccurrence : null;
     update({ selection: sel, rowOccurrence, notice: null }, key);
-    if (keepFocus && !stage.contains(doc.activeElement)) focusViewHeading(stage.firstElementChild);
+    if (keepFocus && !stage.contains(doc.activeElement))
+      viewHeading(stage.firstElementChild)?.focus();
     if (!fromUrl) url.write(sel);
     // The address read at mount sets the selection without a word: nobody
     // has done anything yet.
@@ -490,14 +491,10 @@ function mount(host, opts) {
       // else in the view it stays where it is (#656 item 6).
       clear: () => {
         const a = doc.activeElement;
-        if (sheet?.isOpen()) {
-          sheet.close({ restore: !!a && sheet.el.contains(a) });
-          return true;
-        }
-        if (!model.selection) return false;
-        const onMark = !!a && stage.contains(a) && !!a.closest('[data-selection]');
-        select(null, { keepFocus: !onMark });
-        return true;
+        return sheet?.isOpen()
+          ? (sheet.close(sheet.el.contains(a)), true)
+          : !!model.selection &&
+              (select(null, { keepFocus: !a.closest('[data-selection]') }), true);
       },
       inspect: () => {
         const t = doc.activeElement && doc.activeElement.closest('[data-selection]');
