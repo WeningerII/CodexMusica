@@ -43,6 +43,9 @@ import random
 import re
 import sys
 import tempfile
+import unittest
+from dataclasses import replace
+from unittest.mock import patch
 from collections import Counter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -54,6 +57,7 @@ from quality.plan import (BLOCKED_FORMS, ENVELOPE,  # noqa: E402
                           ZERO_LINE_FUNCTIONS, PlanRefused, bell, fill_plan,
                           grading_command, make_plan, meter_dims,
                           meter_space_size)
+from quality import grid as G  # noqa: E402
 import quality.plan as PLN  # noqa: E402
 import lyric_harness as LH  # noqa: E402
 from quality import meter_bands as MB  # noqa: E402
@@ -212,7 +216,11 @@ def test_the_denominator_is_drawn():
     # the default form is `open` and the length is drawn once (D7), so every
     # seed's stream re-deals; each seed below is again the first default
     # seed in that meter, re-measured by running `make_plan`.
-    for k, want in ((5, "3/4"), (61, "2/2"), (45, "5/4"), (199, "7/4")):
+    # 2026-11-02 (#676): once-constrained rejection re-deals the stream.
+    # Prior witnesses 5/61/45/199 are historical, not unchanged workloads.
+    # Exhaustive seed scan 0..383 finds these first witnesses for the SAME
+    # independently required meters; no musical expectation was repinned.
+    for k, want in ((43, "3/4"), (103, "2/2"), (383, "5/4"), (282, "7/4")):
         p, m, units = _sig(k)
         check(f"default plan seed {k} is in {want}, and the brief says so",
               f"{m['beats']}/{m['unit']}" == want and len(units) == 1
@@ -228,7 +236,9 @@ def test_the_denominator_is_drawn():
     # ~~(0, 1, 3, 7, 13, 17, 19)~~ — REPINNED 2026-10-27 with the meters
     # above: 0 is /64, 4 /2, 5 /4, 6 /8, 7 /1 (with 2s only), 16 /32 and
     # 18 /16, and among them 4 is /2 with a 3 in its bar.
-    for k in (0, 4, 5, 6, 7, 16, 18):
+    # 2026-11-02: first witnesses are 0 /64, 2 /16, 3 /8 (2s only),
+    # 4 /2 (has 3), 6 /4, 7 /1, 16 /32. Support and independence unchanged.
+    for k in (0, 2, 3, 4, 6, 7, 16):
         p, m, units = _sig(k)
         _units[m["unit"]] = (k, m["beats"], tuple(m["groups"]))
     check("every declarable denominator is reachable from default plans",
@@ -4227,13 +4237,12 @@ def test_the_delegated_rulings(FAILURES=None):
           f"draw one chorus without the rule (refused NO_FREE_WORD: "
           f"{m_refused or 'none'}; redrawn past the joint gate, left out: "
           f"{m_redrawn or 'none'})")
-    # THE EXCLUSIONS ARE PINNED (3PO 6346126883), so the population this
-    # comparison is taken over cannot shrink silently: exactly mutants 2 and
-    # 16 are redrawn, and none refuses.
-    check("...and the mutants left out of that comparison are exactly the "
-          "two the joint gate redraws (2 and 16), none refused",
-          m_redrawn == [2, 16] and m_refused == [],
-          f"redrawn {m_redrawn}, refused {m_refused}")
+    # The comparison population must not shrink silently. Historical
+    # 2026-10-27 exclusions were [2, 16]; after registry-once rejection
+    # (2026-11-02) neither arm redraws/refuses any of these 40 seeds.
+    check("...all 40 seeds remain in the comparison, none redrawn or refused",
+          m_redrawn == [] and m_refused == [] and set(mutant) == set(SEEDS),
+          f"compared {len(mutant)}, redrawn {m_redrawn}, refused {m_refused}")
     check("...and EXACTLY the seeds whose first admissible pattern lacked a "
           "second chorus moved — rejection sampling leaves every accepted "
           "pattern byte-identical, so the rule costs no seed whose draw "
@@ -4712,19 +4721,27 @@ def test_the_seed_redraw():
     check("...and a sweep over that one seed now PLANS it rather than "
           "counting a refusal", sw["planned"] == 1 and sw["refused"] == 0,
           f"{sw}")
-    # TWO REFUSED CANDIDATES (Jony 6347921225): a mutant keeping only the
-    # last refusal passed every check above, so pin a seed that needs two.
-    # ~~2025 (two refusals)~~ -> ~~6417~~ (2026-10-27, D7's re-dealt
-    # stream) -> 2330 (the same day, once a redraw keeps the first draw's
-    # length): no default seed in 0-2329 needs more than one redraw; 2330
-    # needs two (measured over 0-11999: 323 seeds need one, 9 need two).
-    p2 = make_plan(seed=2330)
-    r2 = (p2["choices"].get("seed_redraw") or {}).get("refused", [])
-    check("...a seed needing several redraws discloses EVERY refused "
-          "candidate, in order, the first being the caller's own seed",
-          len(r2) == 2 and r2[0]["seed"] == "2330"
-          and len({x["seed"] for x in r2}) == 2
-          and all(x["codes"] and x["findings"] for x in r2),
+    # TWO REFUSED CANDIDATES (Jony 6347921225): retaining only the last
+    # refusal must fail. Historical seed witnesses 2025 -> 6417 -> 2330
+    # depended on sampler entropy; #676 makes 2330 need only one redraw.
+    # Supply two distinct refusals then a real accepted plan, so this tests
+    # the redraw protocol independently of which generated shapes are unlucky.
+    accepted = make_plan(seed=7, lines=24)
+    errors = [JointRefused("fixture rejection", codes=(code,), findings=(
+        {"code": code, "line": i + 1, "detail": f"fixture rejection {i}"},))
+        for i, code in enumerate(("NO_FREE_WORD", "OVERHANG_EXCEEDS_SPAN"))]
+    with patch.object(PLN, '_make_plan_candidate', side_effect=[*errors, accepted]) as candidate:
+        p2 = make_plan(seed=2330, lines=24)
+    sequence = random.Random(2330)
+    expected = [2330, sequence.getrandbits(64), sequence.getrandbits(64)]
+    r2 = p2["choices"]["seed_redraw"]["refused"]
+    check("...several redraws disclose EVERY refused candidate and its "
+          "findings in order, starting at the caller's seed",
+          [c.args[0] for c in candidate.call_args_list] == expected
+          and r2 == [{"seed": str(k), "status": "refused",
+                      "codes": list(e.codes), "findings": list(e.findings)}
+                     for k, e in zip(expected, errors)]
+          and p2["choices"]["seed_redraw"]["candidate_seed"] == str(expected[2]),
           f"refused {[(x['seed'], x['codes']) for x in r2]}")
     a = json.dumps(make_plan(seed=7), sort_keys=True)
     b = json.dumps(PLN._make_plan_candidate(7), sort_keys=True)
@@ -5252,6 +5269,159 @@ def test_a_chosen_type_reaches_the_grader():
           and not stray and gq["verdicts"], stray[:3])
 
 
+
+# Generation-only recurrence constraints (#676). Authored repeats stay advisory.
+class ScriptedDraw:
+    """Offer a complete hand-built body on every attempt, without seed luck."""
+    def __init__(self, body, opener=None, ending=None):
+        self.body = body
+        self.edges = (opener, ending)
+        self.edge_calls = 0
+        self.cell_calls = 0
+
+    def choice(self, choices):
+        result = self.edges[self.edge_calls % 2]
+        self.edge_calls += 1
+        assert result in choices
+        return result
+
+    def randint(self, lo, hi):
+        assert lo <= len(self.body) <= hi
+        return len(self.body)
+
+    def randrange(self, n):
+        # Tests replace the grammar with these exact singleton cells.
+        result = self.cell_calls % len(self.body)
+        self.cell_calls += 1
+        assert result < n
+        return result
+
+
+def _once_report(functions):
+    bp = {'sections': [
+        {'name': f'S{i}', 'function': fn, 'start_bar': i + 1, 'bars': 1,
+         'meter': {'beats': 4, 'unit': 4},
+         'lines': [{'text': 'one two', 'bar': i + 1, 'beat': 1, 'duration': 1}]}
+        for i, fn in enumerate(functions)]}
+    song, hooks = G.song_from_blueprint(bp)
+    return song, G.song_function_report(song, hooks=hooks)
+
+
+class OnceGeneration(unittest.TestCase):
+    def assert_once(self, functions):
+        counts = Counter(functions)
+        self.assertFalse({fn: n for fn, n in counts.items()
+                          if G.SECTION_FUNCTIONS[fn].recurrence == 'once' and n > 1})
+
+    def test_known_default_duplicates(self):
+        for seed in (2, 42):
+            with self.subTest(seed=seed):
+                self.assert_once(PLN._sample_pattern(random.Random(seed)))
+
+    def test_hand_built_repeated_interior_functions_refuse(self):
+        for fn in ('false_ending', 'reprise'):
+            body = ('verse', fn, fn, 'verse')
+            # Placement alone accepts this sequence. Recurrence must reject it.
+            self.assertEqual(G.placement_findings(list(body)), [])
+            with self.subTest(fn=fn), patch.object(PLN, '_CELLS', tuple((f,) for f in body)), \
+                    patch.object(PLN, 'PATTERN_ATTEMPTS', 2):
+                with self.assertRaisesRegex(PLN.PlanRefused, '2 draws'):
+                    PLN._sample_pattern(ScriptedDraw(body), max_cells=4)
+
+    def test_registry_changes_are_consumed_and_whole_cell_checked(self):
+        # A new once declaration must work without adding a function-name list.
+        spec = replace(G.SECTION_FUNCTIONS['vamp'], recurrence='once')
+        with patch.dict(G.SECTION_FUNCTIONS, vamp=spec), \
+                patch.object(PLN, '_CELLS', (('vamp', 'vamp'),)), \
+                patch.object(PLN, 'PATTERN_ATTEMPTS', 2):
+            with self.assertRaises(PLN.PlanRefused):
+                PLN._sample_pattern(random.Random(0), roster=('vamp',), max_cells=1)
+
+    def test_edges_are_included_in_once_count(self):
+        for fn, opener, ending in (('intro', 'intro', None),
+                                   ('outro', None, 'outro'), ('coda', None, 'coda')):
+            with self.subTest(fn=fn), patch.object(PLN, '_CELLS', ((fn,),)), \
+                    patch.object(PLN, 'PATTERN_ATTEMPTS', 2), \
+                    patch.object(G, 'placement_findings', return_value=[]):
+                # Isolate recurrence from placement's independent boundary rule.
+                with self.assertRaises(PLN.PlanRefused):
+                    PLN._sample_pattern(ScriptedDraw((fn,), opener, ending),
+                                      roster=(fn,), max_cells=1)
+
+    def test_existing_report_convention_override_is_preserved(self):
+        song, _ = _once_report(('verse', 'reprise', 'reprise'))
+        result = G.song_function_report(
+            song, convention=replace(G.POPULAR_SONG, single_use=()))
+        self.assertNotIn('SINGLE_USE_RECURRED', {f.code for f in result['findings']})
+
+    def test_duplicate_allow_list_entries_are_not_occurrence_requests(self):
+        functions = ['verse', 'reprise', 'reprise']
+        p = PLN.make_plan(11, functions=functions, lines=24)
+        self.assertEqual(p['request']['functions'], functions)
+        self.assert_once([s['function'] for s in p['sections']])
+
+    def test_feasible_once_and_open_repeats_are_not_shortened(self):
+        for body in (('verse', 'false_ending', 'reprise', 'verse'),
+                     ('vamp', 'vamp'), ('verse', 'chorus', 'chorus')):
+            with self.subTest(body=body), patch.object(PLN, '_CELLS', tuple((f,) for f in body)):
+                actual = PLN._sample_pattern(ScriptedDraw(body), roster=body,
+                                           max_cells=len(body))
+                self.assertEqual(actual, body)
+        # Singleton once roster still has a feasible one-section plan.
+        self.assertEqual(PLN._sample_pattern(random.Random(0), roster=('bridge',),
+                                          max_cells=1), ('bridge',))
+
+    def test_infeasible_roster_refuses_without_widening(self):
+        # Reprise needs a predecessor, but two reprises violate once.
+        with patch.object(PLN, 'PATTERN_ATTEMPTS', 2):
+            with self.assertRaisesRegex(PLN.PlanRefused, '2 draws.*reprise'):
+                PLN._sample_pattern(random.Random(0), roster=('reprise',), max_cells=2)
+
+    def test_unrestricted_default_plan_report(self):
+        for seed in (2, 42):
+            p = PLN.make_plan(seed)
+            self.assert_once([s['function'] for s in p['sections']])
+            song, hooks = G.song_from_blueprint(
+                PLN.fill_plan(p, ['one two'] * p['total_lines']))
+            self.assertNotIn('SINGLE_USE_RECURRED', {
+                f.code for f in G.song_function_report(song, hooks=hooks)['findings']})
+
+    def test_authored_repeats_survive_and_remain_notes(self):
+        for fn in ('bridge', 'false_ending', 'reprise', 'intro', 'outro', 'coda'):
+            functions = ('verse', fn, fn, 'verse')
+            song, result = _once_report(functions)
+            self.assertEqual(tuple(s.function for s in song.sections), functions)
+            notes = [f for f in result['findings'] if f.code == 'SINGLE_USE_RECURRED']
+            self.assertTrue(notes, fn)
+            self.assertTrue(all(f.severity == 'note' for f in notes))
+
+    def test_default_rostered_and_named_form_generate_then_report(self):
+        for form in ('open', 'verse-chorus'):
+            for roster in (None, ['verse', 'chorus', 'false_ending', 'reprise']):
+                for seed in (2, 42, 11):
+                    with self.subTest(form=form, roster=roster, seed=seed):
+                        p = PLN.make_plan(seed, form=form, functions=roster, lines=24)
+                        functions = [s['function'] for s in p['sections']]
+                        self.assert_once(functions)
+                        if roster:
+                            self.assertLessEqual(set(functions), set(roster))
+                        self.assertEqual(p['total_lines'], 24)
+                        bp = PLN.fill_plan(p, ['one two'] * p['total_lines'])
+                        song, hooks = G.song_from_blueprint(bp)
+                        result = G.song_function_report(song, hooks=hooks)
+                        self.assertNotIn('SINGLE_USE_RECURRED',
+                                         {f.code for f in result['findings']})
+                        self.assertEqual(p, PLN.make_plan(seed, form=form,
+                                                       functions=roster, lines=24))
+
+
+def test_once_generation():
+    result = unittest.TextTestRunner(verbosity=1).run(
+        unittest.defaultTestLoader.loadTestsFromTestCase(OnceGeneration))
+    check("generated once constraints and authored-repeat compatibility",
+          result.wasSuccessful())
+
+
 _SECTIONS = (
     test_satisfied_wants_remain_in_the_request,
     test_a_request_refusal_is_the_requests,
@@ -5280,6 +5450,7 @@ _SECTIONS = (
     test_the_seed_redraw,
     test_the_type_draw,
     test_a_chosen_type_reaches_the_grader,
+    test_once_generation,
 )
 
 if __name__ == "__main__":

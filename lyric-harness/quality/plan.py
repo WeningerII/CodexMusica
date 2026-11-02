@@ -2893,6 +2893,8 @@ def _sample_pattern(rng, roster=None, form=None, max_cells=None):
     first_fns, last_fns = _edges()
     need = set(FORM_REQUIRES.get(form, ()))
     from quality import grid as _GR
+    once = {fn for fn, spec in _GR.SECTION_FUNCTIONS.items()
+            if spec.recurrence == "once"}
     # PRUNE THE PROPOSAL, DO NOT STEER THE DRAW. Drawing uniformly from the
     # cells a roster admits is uniform over the admissible set -- the same
     # argument rejection sampling rests on, with the rejections done once
@@ -2934,20 +2936,8 @@ def _sample_pattern(rng, roster=None, form=None, max_cells=None):
         # only a decay, so the bound comes from the song and the placement
         # layer keeps doing the rejecting.
         n_cells = rng.randint(1, max(1, max_cells))
-        bridge_used = False
         for _ in range(n_cells):
-            eligible = [c for c in cells if not (bridge_used and "bridge" in c)]
-            if not eligible:
-                # A once-only singleton roster has no next cell. Reject this
-                # finite draw; never spin waiting for a cell that cannot exist.
-                funcs = []
-                break
-            cell = eligible[rng.randrange(len(eligible))]
-            if "bridge" in cell:
-                bridge_used = True
-            funcs.extend(cell)
-        if not funcs:
-            continue
+            funcs.extend(cells[rng.randrange(len(cells))])
         # AT MOST ONE CLOSER, and it IS derived after all — measured
         # 2026-09-18 while ruling M-54's open half under the owner's
         # delegation. This comment used to say the bound was not derived,
@@ -2972,6 +2962,13 @@ def _sample_pattern(rng, roster=None, form=None, max_cells=None):
         ending = rng.choice(enders)
         if ending:
             funcs.append(ending)
+        # Reject the WHOLE proposal: do not delete authored-looking repeats,
+        # shorten the draw, or progressively bias the remaining cell choices.
+        # Include both edges and every member of a compound cell. This is a
+        # generation contract only; explicit blueprints keep their advisory
+        # recurrence reporting. Read the registry, not a second name list.
+        if any(funcs.count(fn) > 1 for fn in once):
+            continue
         # THE FORM'S OWN MEMBERSHIP, on the same rejection path as the
         # placement constraints. Pruning the cell grammar instead would be
         # steering the draw rather than pruning the proposal, which is the
@@ -2991,10 +2988,10 @@ def _sample_pattern(rng, roster=None, form=None, max_cells=None):
            f"({', '.join(sorted(need))})" if need else "")
         + (f" and drawing {', '.join(FORM_RECURS[form])} at least twice "
            f"(the form's recurrence)" if FORM_RECURS.get(form) else "")
-        + f". The placement constraints on `grid.SECTION_FUNCTIONS`"
+        + f". The placement and once-recurrence constraints on `grid.SECTION_FUNCTIONS`"
         + (", the declared roster," if roster else "")
         + (", the form's membership," if need else "")
-        + f" and the cell grammar `_CELLS` do not intersect — REFUSED rather "
+        + f" and the cell grammar `_CELLS` yielded no accepted draw within the bound — REFUSED rather "
         f"than returning a pattern the vocabulary's own definitions reject, "
         f"or quietly widening a roster the writer declared (doctrine 20).")
 
