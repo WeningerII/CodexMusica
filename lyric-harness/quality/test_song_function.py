@@ -1418,6 +1418,24 @@ def test_the_contrast_truth_table():
     import dataclasses
     rhyme_only_full = dataclasses.replace(
         G.POPULAR_SONG, contrast_channels=("rhyme_inventory",))
+    check("D1 x row 8: the outcome names the wordless side -- the bridge here",
+          ch.get("_outcome", "").startswith(
+              "not applicable: no sung words in the bridge,"),
+          ch.get("_outcome"))
+    # The comparator wordless, the bridge sung (3PO, #685): the outcome and
+    # every channel reason name the verse, never the bridge.
+    f, r, chv = G.bridge_contrast(
+        _contrast_song(["home", "roam", "sea", "free"], verse_ends=[]),
+        convention=rhyme_only, rhyme_key=G.rime_cmudict())
+    check("D1 x row 8, comparator wordless: not applicable, and the reason "
+          "names the verse, not the bridge",
+          not f and not r and chv.get("_not_applicable") is True
+          and chv.get("_outcome", "").startswith(
+              "not applicable: no sung words in the verse,")
+          and "bridge" not in chv.get("_outcome", "")
+          and "no sung words in the verse" in
+          chv.get("rhyme_inventory", {}).get("why", ""),
+          chv)
     rep_na = G.song_function_report(wordless, rhyme_key=G.rime_cmudict(),
                                     convention=rhyme_only_full)
     rep_one = G.song_function_report(_contrast_song(["home", "roam", "sea",

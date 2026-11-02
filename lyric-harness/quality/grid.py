@@ -3385,7 +3385,7 @@ def bridge_contrast(song, function="bridge", against=("verse",),
     bv = _channel_values(song, br, rhyme_key)
     rv = _channel_values(song, ref, rhyme_key)
     channels, separating, unmeasured = {}, [], []
-    inapplicable, partial = [], []
+    inapplicable, partial, empty_sides = [], [], []
     sides = ((fn, bv), ("/".join(against), rv))
     for ch in convention.contrast_channels:
         x, y = bv.get(ch), rv.get(ch)
@@ -3399,6 +3399,7 @@ def bridge_contrast(song, function="bridge", against=("verse",),
             count = "_end_words" if ch == "rhyme_inventory" else "_lines"
             empty = [name for name, v in sides if not v[count]]
             if empty:
+                empty_sides += [n for n in empty if n not in empty_sides]
                 channels[ch] = {"bridge": None, "against": None,
                                 "separates": None, "applicable": False,
                                 "why": "not applicable: no sung words in "
@@ -3485,7 +3486,8 @@ def bridge_contrast(song, function="bridge", against=("verse",),
         # no declaration for one exists yet (#676, residual).
         channels["_not_applicable"] = True
         channels["_outcome"] = ("not applicable: no sung words in the "
-                                f"{fn} for any requested channel")
+                                f"{' or the '.join(empty_sides)}, and every "
+                                f"requested channel needs them")
     elif not tested:
         # NOTHING WAS ASKED (#676 row 8): the convention named no channel.
         # Answering that with a verdict either way would be a pass -- or a
