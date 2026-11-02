@@ -3304,7 +3304,8 @@ def _channel_values(song, sections, rhyme_key=None):
         (0 is a side with nothing to rhyme: a wordless span, not missing
         evidence);
       * `_rhyme_unread` -- how many of those endpoints the reader returned
-        None for (None when no reader was declared);
+        None for (None when no reader was declared), and
+        `_rhyme_unread_words` which words they are, in line order;
       * `_lines` -- how many lines the side has (0: every line-derived
         channel is inapplicable rather than unmeasured).
     The underscored keys are not contrast channels; no convention names them.
@@ -3314,10 +3315,12 @@ def _channel_values(song, sections, rhyme_key=None):
     if rhyme_key is None:
         ends = None            # CANNOT TELL: no phonology was declared
         unread = None
+        unread_words = []
     else:
-        keys = [_end_occurrence(l.text, rhyme_key)[2] for l in worded]
-        unread = sum(k is None for k in keys)
-        ends = {k for k in keys if k is not None}
+        reads = [_end_occurrence(l.text, rhyme_key) for l in worded]
+        unread = sum(r[2] is None for r in reads)
+        unread_words = [r[0] for r in reads if r[2] is None]
+        ends = {r[2] for r in reads if r[2] is not None}
     dur = [float(l.duration) for l in lines]
     lens = [len(tokens(l.text)) for l in lines]
     return {
@@ -3333,6 +3336,7 @@ def _channel_values(song, sections, rhyme_key=None):
         "_lines": len(lines),
         "_end_words": len(worded),
         "_rhyme_unread": unread,
+        "_rhyme_unread_words": unread_words,
     }
 
 
@@ -3341,6 +3345,13 @@ def _channel_values(song, sections, rhyme_key=None):
 #: there was nothing to measure, so nothing is missing.
 _LINE_CHANNELS = ("line_duration", "downbeat_rate", "line_length",
                   "rhyme_inventory")
+
+#: A plain name per contrast channel, for the one sentence a person reads.
+_CHANNEL_WORDS = {"meter": "meter", "bars": "bar count",
+                  "line_count": "line count", "line_duration": "phrase length",
+                  "downbeat_rate": "downbeats per line",
+                  "rhyme_inventory": "end-rhyme sounds",
+                  "line_length": "words per line"}
 
 
 def bridge_contrast(song, function="bridge", against=("verse",),
@@ -3413,11 +3424,17 @@ def bridge_contrast(song, function="bridge", against=("verse",),
             # checked, and says how many endpoints it could not read.
             shared = x & y
             unread = (bv["_rhyme_unread"] or 0) + (rv["_rhyme_unread"] or 0)
+            unread_words = (bv["_rhyme_unread_words"]
+                            + rv["_rhyme_unread_words"])
             row = {"bridge": sorted(map(str, x))[:6],
                    "against": sorted(map(str, y))[:6],
                    "shared": sorted(map(str, shared))[:6],
                    "coverage": "partial" if unread else "complete",
                    "unread": unread}
+            if unread_words:
+                # The words, so a writer can correct a spelling or declare
+                # a pronunciation; the first few, the count says how many.
+                row["unread_words"] = unread_words[:6]
             if shared:
                 row["separates"] = False
                 if unread:
@@ -3427,7 +3444,9 @@ def bridge_contrast(song, function="bridge", against=("verse",),
                 row["separates"] = bool(x) and bool(y)
             else:
                 row["separates"] = None
-                row["why"] = (f"not checked: end words not read ({unread}); "
+                named = ", ".join(f"'{w}'" for w in unread_words[:6])
+                row["why"] = (f"not checked: end words not read ({unread}"
+                              + (f": {named}" if named else "") + "); "
                               f"the known keys share nothing, and an unread "
                               f"end word could be the one they share")
                 channels[ch] = row
@@ -3465,6 +3484,8 @@ def bridge_contrast(song, function="bridge", against=("verse",),
         # its three counts. A DECLARED contrast would be unjudged instead --
         # no declaration for one exists yet (#676, residual).
         channels["_not_applicable"] = True
+        channels["_outcome"] = ("not applicable: no sung words in the "
+                                f"{fn} for any requested channel")
     elif not tested:
         # NOTHING WAS ASKED (#676 row 8): the convention named no channel.
         # Answering that with a verdict either way would be a pass -- or a
@@ -3484,7 +3505,8 @@ def bridge_contrast(song, function="bridge", against=("verse",),
             + (f"; not applicable: {inapplicable}" if inapplicable else "")
             + (f"; measured with partial coverage: {partial}" if partial
                else "")
-            + f". On every channel measured it matches the "
+            + f". Same {', same '.join(_CHANNEL_WORDS.get(c, c) for c in tested)}"
+              f": on what was measured, it doesn't differ from the "
               f"{'/'.join(against)}; nothing is claimed about a channel that "
               f"was not measured. It is labelled a {fn}, and on this "
               f"evidence the label is the only thing that sets it apart. "

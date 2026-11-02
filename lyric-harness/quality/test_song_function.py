@@ -1363,7 +1363,8 @@ def test_the_contrast_truth_table():
           "'separates' (the unread word could be the shared key): not "
           "checked, refused with the count, and it does not vote",
           rc.get("separates") is None and rc.get("unread") == 1
-          and "end words not read (1)" in rc.get("why", "")
+          and "end words not read (1: 'zorbleflax')" in rc.get("why", "")
+          and rc.get("unread_words") == ["zorbleflax"]
           and r == ["CHANNEL_NOT_MEASURED"] and "rhyme_inventory" not in ch["_separating"]
           and n == (5, 2, 3), (rc, r, n))
 
@@ -1411,6 +1412,7 @@ def test_the_contrast_truth_table():
     check("D1 x row 8 (every requested channel inapplicable): not "
           "applicable -- no finding, no refusal",
           not f and not r and ch.get("_not_applicable") is True
+          and "not applicable" in ch.get("_outcome", "")
           and ch.get("rhyme_inventory", {}).get("applicable") is False,
           ([x.code for x in f], [x.code for x in r], ch))
     import dataclasses
@@ -1441,7 +1443,10 @@ def test_the_contrast_truth_table():
     check("BRIDGE_IS_A_VERSE names only the channels it measured and claims "
           "nothing about the rest",
           "channels measured: ['rhyme_inventory']" in ev
-          and "Same meter" not in ev and "same bar count" not in ev
+          and "Same end-rhyme sounds: on what was measured, it doesn't "
+              "differ from the verse" in ev
+          and "meter" not in ev.split("channels measured")[1]
+          and "it is a verse" not in ev
           and "nothing is claimed about a channel that was not measured" in ev,
           ev)
 
