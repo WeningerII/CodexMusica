@@ -121,16 +121,21 @@ def select(fetch, repo, run_id, attempt, sha, shards, artifacts_dir):
         if len(ran) != 1:
             raise Refusal(f'shard {shard}: its start {lookup["started_at"]} falls in no single attempt')
         ran = ran[0]
+        # Every record from the executing attempt to the current one must
+        # describe the same execution AND agree that it succeeded: one that
+        # keeps the timestamps but says failed, cancelled or running is
+        # contradictory metadata, never a licence to use the older artifact.
         for a in range(ran, attempt + 1):
             same = shard_job(jobs[a], shard, f'attempt {a}')
             if (same.get('started_at'), same.get('completed_at')) != (lookup['started_at'], lookup['completed_at']):
                 raise Refusal(f'shard {shard}: attempt {a} lists a different execution '
                               f'({same.get("started_at")}..{same.get("completed_at")}) than attempt {attempt} '
                               f'({lookup["started_at"]}..{lookup["completed_at"]})')
+            if same.get('status') != 'completed' or same.get('conclusion') != 'success':
+                raise Refusal(f'shard {shard}: its latest execution (attempt {ran}) is recorded in attempt {a} '
+                              f'as job {same.get("id")}, {same.get("status")}/{same.get("conclusion")}, '
+                              f'not completed/success')
         execution = shard_job(jobs[ran], shard, f'attempt {ran}')
-        if execution.get('status') != 'completed' or execution.get('conclusion') != 'success':
-            raise Refusal(f'shard {shard}: its latest execution (attempt {ran}, job {execution.get("id")}) '
-                          f'is {execution.get("status")}/{execution.get("conclusion")}, not completed/success')
 
         name = f'lyrics-capacity-{shard}-{ran}'
         named = [art for art in artifacts if art.get('name') == name]

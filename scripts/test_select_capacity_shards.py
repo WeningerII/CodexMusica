@@ -209,6 +209,22 @@ class Select(unittest.TestCase):
                           for j in api['jobs'][2]]
         self.refuses(api, 'attempt 2 lists a different execution')
 
+    def test_inherited_record_contradicting_success_refuses(self):
+        """Same timestamps as attempt 1's passing execution, but a later record
+        says it did not succeed: contradictory, so refuse, never use pole-1."""
+        def contradict(api, k, **change):
+            api['jobs'][k] = [dict(j, **change) if j['name'].endswith('cells pole') else j
+                              for j in api['jobs'][k]]
+            return api
+        self.refuses(contradict(ladder(2), 2, conclusion='failure'), 'recorded in attempt 2')
+        self.refuses(contradict(ladder(2), 2, conclusion='cancelled'), 'cancelled')
+        self.refuses(contradict(ladder(2), 2, status='in_progress', conclusion=None), 'in_progress')
+        self.refuses(contradict(ladder(3), 2, conclusion='failure'), 'recorded in attempt 2')
+        # The recorded partial re-run's inherited records really are success.
+        api = recorded()
+        contradict(api, 2, conclusion='failure')
+        self.refuses(api, 'shard pole')
+
     def test_start_outside_every_attempt_or_missing_timestamps_refuse(self):
         api = ladder(2)
         for k in (1, 2):
