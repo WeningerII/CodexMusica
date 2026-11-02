@@ -1443,12 +1443,26 @@ def test_the_contrast_truth_table():
     check("BRIDGE_IS_A_VERSE names only the channels it measured and claims "
           "nothing about the rest",
           "channels measured: ['rhyme_inventory']" in ev
-          and "Same end-rhyme sounds: on what was measured, it doesn't "
-              "differ from the verse" in ev
+          and "No measured channel (end-rhyme sounds) establishes "
+              "separation from the verse" in ev
           and "meter" not in ev.split("channels measured")[1]
-          and "it is a verse" not in ev
-          and "nothing is claimed about a channel that was not measured" in ev,
+          and "Channels not measured are not judged" in ev,
           ev)
+    # Shared but not identical (3PO, #685): {EY, IY} against {EY, AY T}
+    # share EY, so the bridge does not separate -- and is not the same.
+    f, _, ch = G.bridge_contrast(_contrast_song(["day", "sea", "free", "way"]),
+                                 convention=rhyme_only,
+                                 rhyme_key=G.rime_cmudict())
+    ev = next((x.evidence for x in f if x.code == "BRIDGE_IS_A_VERSE"), "")
+    rc = ch.get("rhyme_inventory", {})
+    check("a shared-but-different rhyme inventory does not separate and is "
+          "never described as the same, matching, or label-only",
+          rc.get("separates") is False and rc.get("bridge") != rc.get("against")
+          and ev and not any(w in ev.lower() for w in
+                             ("same ", "matches", "is a verse",
+                              "only thing that sets it apart"))
+          and "not identity" in ev,
+          (rc, ev))
 
     # The rhyme inventory itself keeps its meaning for every other reader:
     # the KNOWN keys, and only those.

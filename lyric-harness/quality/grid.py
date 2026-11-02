@@ -3505,12 +3505,13 @@ def bridge_contrast(song, function="bridge", against=("verse",),
             + (f"; not applicable: {inapplicable}" if inapplicable else "")
             + (f"; measured with partial coverage: {partial}" if partial
                else "")
-            + f". Same {', same '.join(_CHANNEL_WORDS.get(c, c) for c in tested)}"
-              f": on what was measured, it doesn't differ from the "
-              f"{'/'.join(against)}; nothing is claimed about a channel that "
-              f"was not measured. It is labelled a {fn}, and on this "
-              f"evidence the label is the only thing that sets it apart. "
-              f"This is a finding about the LABEL."))
+            + f". No measured channel ("
+              f"{', '.join(_CHANNEL_WORDS.get(c, c) for c in tested)}) "
+              f"establishes separation from the {'/'.join(against)}: a "
+              f"shared value, or an overlapping set, is not separation, and "
+              f"it is not identity either. Channels not measured are not "
+              f"judged. This finding concerns the {fn} LABEL under this "
+              f"convention, not full musical equivalence."))
     channels["_separating"] = separating
     return findings, refusals, channels
 
