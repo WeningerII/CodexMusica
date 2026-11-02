@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Cheap adversarial checks for the production capacity qualification oracle."""
 import copy
+import sys
+import json
 import hashlib
 from pathlib import Path
 from lyrics_capacity_runtime import library_evidence_failures, runtime_evidence_failures, run_store_evidence_failures, queue_pressure_failures, ResidentRuntime
@@ -447,6 +449,83 @@ class CapacitySourceIdentity(unittest.TestCase):
         self.assertEqual({k: v for k, v in before.items() if k != 'mcp/worker.py'},
                          {k: v for k, v in after.items() if k != 'mcp/worker.py'})
         self.assertNotEqual(before, after)
+
+
+class CapacitySourceClosure(unittest.TestCase):
+    """The identity is every repository module the measured runtime loads,
+    derived from its entry points, not a hand-picked list (#612/#664 R-3)."""
+
+    def test_the_closure_covers_grid_and_the_old_hand_picked_list(self):
+        from check_lyrics_capacity import source_closure, source_identity
+        closure = set(source_closure())
+        self.assertEqual(set(source_identity()), closure)
+        # The module the hand-picked list missed, which #676/#677 change.
+        self.assertIn('lyric-harness/quality/grid.py', closure)
+        # Every file the old list named stays covered.
+        for name in ('lyric-harness/lyric_harness.py', 'lyric-harness/quality/plan.py',
+                     'lyric-harness/quality/revise.py', 'lyric-harness/quality/relations.py',
+                     'mcp/server_http.js', 'mcp/job_store.js', 'mcp/run_store.js',
+                     'mcp/state_codec.js', 'mcp/python_bridge.js', 'mcp/worker.py',
+                     'scripts/measure_verb_memory.py', 'scripts/check_lyrics_capacity.py',
+                     'scripts/lyrics_capacity_runtime.py', 'scripts/seed_lyrics_capacity_receipts.mjs',
+                     'scripts/lyrics_capacity_server.mjs', 'scripts/lyrics_capacity_queue.mjs'):
+            self.assertIn(name, closure)
+
+    def test_every_module_importing_the_harness_loads_is_in_the_closure(self):
+        """An independent oracle: what Python actually loads when the harness
+        and the verbs' main lyric modules are imported, read from sys.modules,
+        never from the static analyser."""
+        import subprocess
+        from check_lyrics_capacity import ROOT, source_closure
+        probe = (
+            "import os, sys, json\n"
+            "sys.path.insert(0, os.getcwd())\n"
+            "import importlib, lyric_harness\n"
+            "for name in ('quality.plan', 'quality.revise', 'quality.relations', 'quality.grid'):\n"
+            "    importlib.import_module(name)\n"
+            "root = os.path.abspath('..')\n"
+            "print(json.dumps(sorted({os.path.relpath(os.path.abspath(m.__file__), root)\n"
+            "    for m in list(sys.modules.values()) if getattr(m, '__file__', None)\n"
+            "    and os.path.abspath(m.__file__).startswith(root + os.sep)})))\n")
+        out = subprocess.run([sys.executable, '-I', '-c', probe], cwd=ROOT / 'lyric-harness',
+                             capture_output=True, text=True, timeout=120, check=True)
+        loaded = set(json.loads(out.stdout.strip().splitlines()[-1]))
+        self.assertIn('lyric-harness/lyric_harness.py', loaded)
+        self.assertGreater(len(loaded), 5)
+        self.assertEqual(loaded - set(source_closure()), set())
+
+    def test_the_resolver_on_a_hand_built_tree(self):
+        """Lazy, relative, from-package and dynamic JS imports are followed;
+        standard-library and package specifiers are not; data is not a module."""
+        import tempfile
+        import check_lyrics_capacity as matrix
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            files = {
+                'h/main.py': 'import os\nimport pkg.a\ndef late():\n    from pkg import b\n',
+                'h/pkg/__init__.py': '',
+                'h/pkg/a.py': 'from . import c\nfrom .d import thing\n',
+                'h/pkg/b.py': 'import json\n',
+                'h/pkg/c.py': '',
+                'h/pkg/d.py': 'thing = 1\n',
+                'h/pkg/unused.py': '',
+                'h/data.json': '{}',
+                'w/s.js': "import fs from 'node:fs';\nimport { m } from './m.js';\n"
+                          "export async function f() { return import('./n.mjs'); }\n",
+                'w/m.js': "export const m = 1;\n",
+                'w/n.mjs': "export default 2;\n",
+                'w/unused.js': '',
+            }
+            for name, text in files.items():
+                (root / name).parent.mkdir(parents=True, exist_ok=True)
+                (root / name).write_text(text)
+            with patch.object(matrix, 'ROOT', root.resolve()), \
+                 patch.object(matrix, 'SOURCE_ENTRIES', ('h/main.py', 'w/s.js')), \
+                 patch.object(matrix, 'PYTHON_ROOTS', ('h',)):
+                closure = matrix.source_closure()
+        self.assertEqual(closure, sorted([
+            'h/main.py', 'h/pkg/__init__.py', 'h/pkg/a.py', 'h/pkg/b.py', 'h/pkg/c.py',
+            'h/pkg/d.py', 'w/m.js', 'w/n.mjs', 'w/s.js']))
 
 
 class ResidentMemoryReading(unittest.TestCase):
