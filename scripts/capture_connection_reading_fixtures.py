@@ -13,6 +13,9 @@ test_connection_acceptance.py), in the same {records, identity, summary} shape:
   reading_dependent  a merged word named in domain.reading_dependent_tokens (zeeta)
   refused_cap        MINI_CAP=0: method refused, refusal.kind reading_combinations
                      (zibbet / zoddet)
+  declared_reading   a writer-declared pronunciation: applicable_source declared (wind)
+  unlocatable        a word with no reading: applicable_source unlocatable, a null
+                     list (zorbleflax, unpatched)
 
 Fixture words are patched into the lexicon exactly as the backend tests do; no
 corpus, network or model is touched. Re-run from the repository root; the
@@ -58,6 +61,14 @@ CASES = {
                "zoddet": [["D", "EH1", "T"], ["AH0", "D", "IY1", "T"]]},
         text="I saw the zibbet\nAnd then the zoddet", schemas=["perfect rhyme"],
         patches={"MINI_CAP": 0}),
+    "declared_reading": dict(
+        words={}, text="wind\nfind", schemas=["perfect rhyme"], patches={},
+        declarations={"pronunciations": [{"line": "wind", "token": 1, "word": "wind",
+            "phones": ["W", "IH1", "N", "D"], "basis": "dictionary",
+            "source": "caller-owned noun reading"}]}),
+    "unlocatable": dict(
+        words={}, text="the zorbleflax came\nwe bring the beta home",
+        schemas=["internal rhyme"], patches={}),
 }
 
 
@@ -68,7 +79,8 @@ def capture(case):
             p.start()
         try:
             _, rows, last = (_sound(source(case["text"]), case["sound"]) if "sound" in case
-                             else complete(source(case["text"]), schemas=case["schemas"]))
+                             else complete(source(case["text"]), case.get("declarations"),
+                                           schemas=case["schemas"]))
         finally:
             for p in reversed(patches):
                 p.stop()
