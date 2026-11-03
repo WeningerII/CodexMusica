@@ -31,21 +31,34 @@
 //      reviewed list admits that exact fragment, and an admitted fragment is
 //      placeholders and ids only.
 //   2. Every quoted literal is mechanical — a tool name, an input field, an
-//      enum value, a CODE, or text with no words in it — or it is in the
-//      reviewed list with a category the test itself can check.
-//   3. An unquoted "a, b, c, …" list of words is in the reviewed list.
+//      enum value, a CODE, a snake_case or dotted field, a JSON key, or text
+//      with no words in it — or a reviewed row covers THAT occurrence.
+//   3. An unquoted "a, b, c, …" list of words is covered by reviewed rows.
 //   4. No numeric song shape ("N lines", "lines<=N", …) is stated.
 //   5. A stated default form is DEFAULT_FORM, and DEFAULT_FORM is `open`.
 //   6. No word list or ban is stated to the writer (#627).
 //   7. Nothing #629 removed comes back, anywhere in this text.
 //
-// THE REVIEWED LIST (mcp/fixtures/model_visible_provenance.json) records what
-// is admitted under 1–3. It is NOT a way back in for genre, theme or lyric
-// examples (#671 safeguard 3): the categories are closed, each is checked here
-// (an id must resolve, a field must be an identifier, a placeholder must hold
-// one), every entry must still occur in the text it was admitted for, and the
-// #629 removals may not be entered at all. A new system-authored theme fails
-// this test; it cannot be fixed by adding a row.
+// THE REVIEWED LIST (mcp/fixtures/model_visible_provenance.json) admits an
+// OCCURRENCE, never a word: each row binds one literal to the locations it was
+// reviewed at (`at`: "instructions", "systemInstruction", or "<tool> <field
+// path>") and to the reviewed text around it (`contexts`), so the same word in
+// a new sentence, or in another tool, is not covered. It is not a way back in
+// for genre, theme or lyric examples (#671 safeguard 3): the categories are
+// closed and checked here — a field or value must be declared in the source
+// that produces it, an id must resolve, a placeholder must hold one, a quoted
+// check must sit beside what it names, a pending removal must name its issue —
+// every row must still occur where it says, and #629's removals cannot be
+// entered at all.
+//
+// WHAT THIS CATCHES, AND WHAT IT DOES NOT. It is syntactic: example framing,
+// quoted text, "a, b, c, …" lists, numeric shapes, default-form statements,
+// ban phrasing and #629's exact literals. An unframed, unquoted sentence that
+// carries a theme is NOT caught; the source diff is where that is seen.
+//
+// PROVENANCE_PRINT=1 prints a row skeleton (literal, at, contexts) for every
+// uncovered occurrence (PROVENANCE_PRINT=<file> writes them there), so a
+// reviewer sees exactly what a new row would admit.
 //
 // A FAILURE MEANS model-visible text changed in a way this contract asks a
 // person to look at. Fix the text, or — for a genuinely mechanical literal —
@@ -53,7 +66,7 @@
 
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
@@ -106,7 +119,7 @@ const USER_WORDS = 'USER-SUPPLIED-BRIEF-SENTINEL';
 const CHAT_STATES = [
   ['no task', null, null, null],
   ['recipe, browse', null, null, { domain: 'recipe', phase: 'browse' }],
-  ['recipe, customize', null, null, { domain: 'recipe', phase: 'customize' }],
+  ['recipe, create', null, null, { domain: 'recipe', phase: 'create' }],
   ['lyrics, empty transcript', null, new Set(), { domain: 'lyrics', phase: 'create' }],
   [
     'lyrics, page context with a brief',
@@ -118,7 +131,12 @@ const CHAT_STATES = [
       lyric_context: { intent: 'write', brief: USER_WORDS, notes: [USER_WORDS] },
     },
   ],
-  ['lyrics, review', null, new Set(), { domain: 'lyrics', lyric_context: { intent: 'review' } }],
+  [
+    'lyrics, edit (review)',
+    null,
+    new Set(),
+    { domain: 'lyrics', phase: 'edit', lyric_context: { intent: 'review' } },
+  ],
   ['parked run', { parked: true, seed: 7, open: ['3'] }, new Set(), { domain: 'lyrics' }],
   ['uncertain proposal', { uncertain_proposal: true }, new Set(), { domain: 'lyrics' }],
   ['resumable run', { resumable: true }, new Set(), { domain: 'lyrics' }],
@@ -182,12 +200,14 @@ test.before(async () => {
 // ── helpers ─────────────────────────────────────────────────────────────────
 
 const where = (s) => `${s.surface} → ${s.where}`;
-const unique = () => {
+// One entry per (location, text): the same words at two locations are two
+// occurrences a row must each cover.
+const unique = (list = strings) => {
   const by = new Map();
-  for (const s of strings) if (!by.has(s.text)) by.set(s.text, s);
+  for (const s of list)
+    if (!by.has(`${s.where}\u0000${s.text}`)) by.set(`${s.where}\u0000${s.text}`, s);
   return [...by.values()];
 };
-const rows = (category) => REGISTRY.entries.filter((e) => e.category === category);
 
 // A quoted literal: "…", '…' or `…`, where a single quote is not an apostrophe
 // (no letter immediately outside it). No length cap: a long quoted passage is
@@ -220,6 +240,7 @@ function jsonKey(lit, text) {
   }
   return false;
 }
+
 const PLACEHOLDER = /<[^<>]+>|\b[A-Z]\b|…/;
 const mechanical = (lit, text = '') =>
   vocabulary.has(lit) ||
@@ -228,6 +249,43 @@ const mechanical = (lit, text = '') =>
   /^[A-Z][A-Z0-9_]+$/.test(lit) || // a CODE
   !/[a-z]{3,}/.test(lit) || // no word in it: '4/4', '=', '#', '<id>'
   (PLACEHOLDER.test(lit) && lit.split(/[^a-z]+/).every((w) => w.length < 3 || vocabulary.has(w)));
+
+// Does a row cover the occurrence of `lit` at `index` in this string? Only a
+// row for that literal, reviewed at this location, whose reviewed context
+// contains this very occurrence.
+function covered(registry, lit, s, index, categories = null) {
+  return registry.entries.some((r) => {
+    if (r.literal !== lit) return false;
+    if (categories && !categories.includes(r.category)) return false;
+    if (!(r.at || []).includes(s.where)) return false;
+    return (r.contexts || []).some((ctx) => {
+      if (!ctx.includes(lit)) return false;
+      for (let c = s.text.indexOf(ctx); c >= 0; c = s.text.indexOf(ctx, c + 1))
+        if (index >= c && index + lit.length <= c + ctx.length) return true;
+      return false;
+    });
+  });
+}
+
+// The reviewed text around an occurrence, cut at word boundaries, for the
+// row skeleton PROVENANCE_PRINT prints.
+function contextOf(text, index, length) {
+  let a = Math.max(0, index - 40);
+  let b = Math.min(text.length, index + length + 40);
+  while (a > 0 && /\S/.test(text[a - 1])) a--;
+  while (b < text.length && /\S/.test(text[b])) b++;
+  return text.slice(a, b).trim();
+}
+const skeletons = [];
+function report(lit, s, index) {
+  if (process.env.PROVENANCE_PRINT && s.surface !== 'synthetic')
+    skeletons.push({
+      literal: lit,
+      at: [s.where],
+      contexts: [contextOf(s.text, index, lit.length)],
+    });
+  return `${JSON.stringify(lit)} (${where(s)})`;
+}
 
 const FRAMING = /\b(?:e\.g\.|for example|for instance|example:|such as)/gi;
 const WORD_LIST = /(?:\b[a-z][a-z-]+, ){2,}…/g;
@@ -258,6 +316,131 @@ const REMOVED_BY_629 = [
   '"mahogany"',
 ];
 
+// ── the checks, as functions over (strings, registry) ───────────────────────
+// They take their inputs so the negative cases below can run them on a
+// synthetic corpus with the same code the live checks use.
+
+function framingViolations(list, registry) {
+  const bad = [];
+  for (const s of unique(list))
+    for (const m of s.text.matchAll(FRAMING)) {
+      const ok = registry.entries.some(
+        (r) =>
+          r.category === 'framing' &&
+          (r.at || []).includes(s.where) &&
+          s.text.slice(m.index, m.index + 160).includes(r.literal) &&
+          covered(registry, r.literal, s, s.text.indexOf(r.literal, m.index), ['framing'])
+      );
+      if (!ok) bad.push(`${where(s)}: …${s.text.slice(m.index, m.index + 90)}…`);
+    }
+  return bad;
+}
+
+function quotedViolations(list, registry) {
+  const bad = new Set();
+  for (const s of unique(list))
+    for (const m of s.text.matchAll(QUOTED)) {
+      const raw = m[1] ?? m[2] ?? m[3];
+      const lit = raw.trim();
+      const index = m.index + 1 + raw.indexOf(lit);
+      if (!lit || mechanical(lit, s.text) || covered(registry, lit, s, index)) continue;
+      bad.add(report(lit, s, index));
+    }
+  return [...bad];
+}
+
+function wordListViolations(list, registry) {
+  const bad = [];
+  for (const s of unique(list))
+    for (const m of s.text.matchAll(WORD_LIST)) {
+      let offset = m.index;
+      for (const item of m[0].split(', ')) {
+        const at = s.text.indexOf(item, offset);
+        offset = at + item.length;
+        if (!item || item === '…' || vocabulary.has(item)) continue;
+        if (!covered(registry, item, s, at, ['pending-removal'])) bad.push(report(item, s, at));
+      }
+    }
+  return bad;
+}
+
+// Where a field or value is declared: the code that produces what the model
+// is told to read. A row in this category must name something declared here.
+const SOURCES = (() => {
+  const read = (dir, re) =>
+    readdirSync(new URL(dir, import.meta.url))
+      .filter((f) => re.test(f))
+      .map((f) => readFileSync(new URL(dir + f, import.meta.url), 'utf8'));
+  return [
+    ...read('./', /\.js$/),
+    ...read('../lyric-harness/', /^lyric_harness\.py$/),
+    ...read('../lyric-harness/quality/', /\.py$/),
+  ].join('\n');
+})();
+const declared = (lit) => {
+  const e = lit.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`['"\`]${e}['"\`]|(?:^|[\\s{,])${e}\\s*:`, 'm').test(SOURCES);
+};
+
+const CATEGORIES = new Set([
+  'framing',
+  'field-or-value',
+  'placeholder',
+  'pending-removal',
+  'quoted-check',
+]);
+function registryProblems(list, registry) {
+  const bad = [];
+  const prefaces = new Set((C.PREFACE_LEXICON || []).map((p) => p.id));
+  const all = unique(list);
+  for (const e of registry.entries) {
+    const tag = JSON.stringify(e.literal);
+    const fail = (why) => bad.push(`${tag}: ${why}`);
+    if (!CATEGORIES.has(e.category))
+      fail(`category ${e.category} is not one of ${[...CATEGORIES]}`);
+    if (!(typeof e.reason === 'string' && e.reason.length > 10)) fail('needs a reason');
+    if (!Array.isArray(e.at) || !e.at.length) fail('names no location (`at`)');
+    if (!Array.isArray(e.contexts) || !e.contexts.length) fail('names no reviewed context');
+    for (const ctx of e.contexts || []) {
+      if (!ctx.includes(e.literal))
+        fail(`context ${JSON.stringify(ctx)} does not hold the literal`);
+      if (!all.some((s) => (e.at || []).includes(s.where) && s.text.includes(ctx)))
+        fail(
+          `context ${JSON.stringify(ctx)} is no longer at ${JSON.stringify(e.at)} — remove or update the row`
+        );
+    }
+    if (REMOVED_BY_629.some((r) => e.literal.includes(r.replaceAll('"', ''))))
+      fail('#629 removed this; it cannot be re-admitted');
+    if (e.category === 'framing' && !PLACEHOLDER.test(e.literal))
+      fail('a framing row holds no placeholder');
+    if (e.category === 'field-or-value') {
+      if (!/^[a-z_][a-z0-9_.]*$/.test(e.literal)) fail('a field or value is an identifier');
+      else if (!declared(e.literal))
+        fail('is not declared as a field or value in the code that produces it');
+    }
+    if (e.category === 'placeholder' && !PLACEHOLDER.test(e.literal))
+      fail('a placeholder row holds no placeholder');
+    if (e.category === 'pending-removal') {
+      // Pre-existing text the team has decided should go, kept green only
+      // until the text PR removes it.
+      if (!prefaces.has(e.literal)) fail('not a real catalog id');
+      if (!/^#\d+/.test(String(e.tracked || ''))) fail('names no issue tracking its removal');
+    }
+    if (e.category === 'quoted-check') {
+      // A phrase the engine quotes to name one of its own checks or failure
+      // modes: its reviewed context holds the code or field it explains.
+      if (!e.about) fail('a quoted check names what it is about');
+      else if (
+        !(e.contexts || []).every((c) =>
+          c.split(e.literal).join(' ').toLowerCase().includes(e.about.toLowerCase())
+        )
+      )
+        fail(`a reviewed context does not hold ${JSON.stringify(e.about)}`);
+    }
+  }
+  return bad;
+}
+
 // ── the contract ────────────────────────────────────────────────────────────
 
 test('every surface was read (no vacuous pass)', () => {
@@ -274,48 +457,23 @@ test('every surface was read (no vacuous pass)', () => {
 });
 
 test('1. no example framing except reviewed, placeholder-only fragments', () => {
-  const ok = rows('framing');
-  for (const e of ok)
-    assert.ok(
-      PLACEHOLDER.test(e.literal),
-      `framing row ${JSON.stringify(e.literal)} holds no placeholder`
-    );
-  const bad = [];
-  for (const s of unique())
-    for (const m of s.text.matchAll(FRAMING)) {
-      const window = s.text.slice(m.index, m.index + 160);
-      if (!ok.some((e) => window.includes(e.literal)))
-        bad.push(`${where(s)}: …${window.slice(0, 90)}…`);
-    }
-  assert.deepEqual(bad, [], 'example framing reached a model');
+  assert.deepEqual(framingViolations(strings, REGISTRY), [], 'example framing reached a model');
 });
 
-test('2. every quoted literal is mechanical or reviewed', () => {
-  const reviewed = new Set(REGISTRY.entries.map((e) => e.literal));
-  const bad = new Map();
-  for (const s of unique())
-    for (const m of s.text.matchAll(QUOTED)) {
-      const lit = (m[1] ?? m[2] ?? m[3]).trim();
-      if (!lit || mechanical(lit, s.text) || reviewed.has(lit)) continue;
-      if (!bad.has(lit)) bad.set(lit, where(s));
-    }
+test('2. every quoted literal is mechanical or a reviewed occurrence', () => {
   assert.deepEqual(
-    [...bad].map(([lit, at]) => `${JSON.stringify(lit)} (${at})`),
+    quotedViolations(strings, REGISTRY),
     [],
-    'quoted literal with no provenance — fix the text, or add a reviewed row'
+    'quoted literal with no provenance — fix the text, or add a reviewed row (PROVENANCE_PRINT=1 prints one)'
   );
 });
 
-test('3. an unquoted "a, b, c, …" list of words is reviewed', () => {
-  const ok = rows('pending-removal').map((e) => e.literal);
-  const bad = [];
-  for (const s of unique())
-    for (const m of s.text.matchAll(WORD_LIST)) {
-      const items = m[0].split(/,\s*/).filter((w) => w && w !== '…');
-      const loose = items.filter((w) => !vocabulary.has(w) && !ok.includes(w));
-      if (loose.length) bad.push(`${where(s)}: ${m[0]}`);
-    }
-  assert.deepEqual(bad, [], 'a list of example words reached a model');
+test('3. an unquoted "a, b, c, …" list of words is covered by reviewed rows', () => {
+  assert.deepEqual(
+    wordListViolations(strings, REGISTRY),
+    [],
+    'a list of example words reached a model'
+  );
 });
 
 test('4. no numeric song shape is stated', () => {
@@ -335,7 +493,7 @@ test('5. a stated default form is DEFAULT_FORM, and that is open', () => {
     'the undeclared form must be open (no unrequested verse-chorus)'
   );
   const re = new RegExp(
-    `\\bdefaults?(?:\\s+(?:form\\s+)?(?:is|to|of))?:?\\s+[\x60'"]?(${PLAN_FORMS.map((f) => f.replace('-', '\\-')).join('|')})\\b`,
+    `\\bdefaults?(?:\\s+(?:form\\s+)?(?:is|to|of))?:?\\s+[\`'"]?(${PLAN_FORMS.map((f) => f.replace('-', '\\-')).join('|')})\\b`,
     'gi'
   );
   const said = [];
@@ -359,50 +517,76 @@ test('7. nothing #629 removed comes back', () => {
 });
 
 test('the reviewed list is closed, checkable and current', () => {
-  const CATEGORIES = new Set([
-    'framing',
-    'field-or-value',
-    'placeholder',
-    'pending-removal',
-    'quoted-check',
-  ]);
-  const all = unique().map((s) => s.text);
-  const prefaces = new Set((C.PREFACE_LEXICON || []).map((p) => p.id));
-  for (const e of REGISTRY.entries) {
-    const tag = JSON.stringify(e.literal);
-    assert.ok(
-      CATEGORIES.has(e.category),
-      `${tag}: category ${e.category} is not one of ${[...CATEGORIES]}`
-    );
-    assert.ok(typeof e.reason === 'string' && e.reason.length > 10, `${tag}: needs a reason`);
-    assert.ok(
-      all.some((t) => t.includes(e.literal)),
-      `${tag}: no longer in any model-visible text — remove the row`
-    );
-    assert.ok(
-      !REMOVED_BY_629.some((r) => e.literal.includes(r.replaceAll('"', ''))),
-      `${tag}: #629 removed this; it cannot be re-admitted`
-    );
-    if (e.category === 'field-or-value')
-      assert.match(e.literal, /^[a-z_][a-z0-9_.]*$/, `${tag}: a field or value is an identifier`);
-    if (e.category === 'placeholder')
-      assert.ok(PLACEHOLDER.test(e.literal), `${tag}: a placeholder row holds no placeholder`);
-    if (e.category === 'pending-removal') {
-      // Pre-existing text the team has decided should go, kept green only
-      // until the text PR removes it. It must be a real catalog id, and it
-      // must name where its removal is tracked.
-      assert.ok(prefaces.has(e.literal), `${tag}: not a real catalog id`);
-      assert.match(String(e.tracked || ''), /^#\d+/, `${tag}: names no issue tracking its removal`);
-    }
-    if (e.category === 'quoted-check') {
-      // A phrase the engine quotes to name one of its own checks or failure
-      // modes: it must sit beside the code or field it explains, in the same
-      // string, so it cannot drift into free-standing example text.
-      assert.ok(e.about, `${tag}: a quoted check names what it is about`);
-      assert.ok(
-        all.some((t) => t.includes(e.literal) && t.includes(e.about)),
-        `${tag}: never appears beside ${JSON.stringify(e.about)}`
-      );
-    }
-  }
+  assert.deepEqual(registryProblems(strings, REGISTRY), []);
+});
+
+// ── negative cases: a row admits its occurrence, not its word ──────────────
+// The same check functions, run on a synthetic corpus. Each case is a way an
+// exception could be stretched into new writer guidance (#688 review).
+
+test('a reviewed id does not license the same word in a new sentence', () => {
+  const live = strings.find((s) => s.where === 'search_prefaces description');
+  assert.ok(live, 'the justified occurrence is still collected');
+  const corpus = [
+    live, // the reviewed occurrence stays covered
+    {
+      surface: 'synthetic',
+      where: 'lyric_plan description',
+      text: 'Write the song in a "brooding" mood.',
+    },
+    {
+      surface: 'synthetic',
+      where: 'search_prefaces description',
+      text: 'Write the song in a "brooding" mood.',
+    },
+    { surface: 'synthetic', where: 'lyric_plan description', text: 'Moods: dark, brooding, …' },
+  ];
+  assert.deepEqual(wordListViolations([live], REGISTRY), [], 'the justified list is covered');
+  const quoted = quotedViolations(corpus, REGISTRY);
+  assert.equal(quoted.length, 2, `both new quoted uses are uncovered: ${quoted}`);
+  const listed = wordListViolations(corpus, REGISTRY);
+  assert.ok(
+    listed.some((x) => x.includes('"brooding"') && x.includes('lyric_plan')),
+    `${listed}`
+  );
+});
+
+test('a field-or-value row must name something the code declares', () => {
+  const corpus = [
+    {
+      surface: 'synthetic',
+      where: 'lyric_plan description',
+      text: 'The song must concern "lighthouses".',
+    },
+  ];
+  const row = {
+    literal: 'lighthouses',
+    category: 'field-or-value',
+    reason: 'An attempt to admit a theme as if it were a result field.',
+    at: ['lyric_plan description'],
+    contexts: ['The song must concern "lighthouses".'],
+  };
+  const registry = { entries: [...REGISTRY.entries, row] };
+  assert.deepEqual(quotedViolations(corpus, registry), [], 'the row would cover it');
+  assert.ok(
+    registryProblems([...strings, ...corpus], registry).some(
+      (x) => x.startsWith('"lighthouses"') && x.includes('not declared')
+    ),
+    'but the row itself is refused'
+  );
+});
+
+test('a quoted check does not license the same phrase elsewhere', () => {
+  const corpus = [
+    { surface: 'synthetic', where: 'lyric_grade description', text: 'Stop when it "looks done".' },
+  ];
+  assert.equal(quotedViolations(corpus, REGISTRY).length, 1);
+});
+
+test.after(() => {
+  if (!skeletons.length) return;
+  const out = JSON.stringify(skeletons, null, 2);
+  // PROVENANCE_PRINT=<file> writes the skeletons there; =1 prints them.
+  if (process.env.PROVENANCE_PRINT === '1') console.log(out);
+  else writeFileSync(process.env.PROVENANCE_PRINT, out + '\n');
 });
