@@ -1526,6 +1526,112 @@ def test_the_contrast_truth_table_reaches_certification():
                      "row 5": "refused", "row 7": "answered"}, status)
 
 
+def test_the_contrast_witness_names_its_words():
+    print("\n#676 follow-up: the shared rhyme keys come with their words, "
+          "and the CLI prints the contrast table (Jony's repro 6608139471)")
+    import copy
+    import subprocess
+    bp_path = os.path.join(ROOT, "quality", "fixtures",
+                           "moonlight_fixture.blueprint.json")
+    with open(bp_path, encoding="utf-8") as fh:
+        bp = json.load(fh)
+    key = G.rime_cmudict()
+    # Lines 12 and 13 are the bridge: '... no fixed refrain', '... a name'.
+    framed = copy.deepcopy(bp)
+    framed["lines"][12]["text"] = "no line, no bar, no fixed frame"
+    unread = copy.deepcopy(framed)
+    unread["lines"][13]["text"] = "a shape that will not hold a zzqvx"
+    # The expected words are read off the fixture by hand: the verses end in
+    # 'frame' and 'name' (EY M); the bridge ends as each case sets it.
+    for label, obj, want in (
+            ("as is", bp, {"key": "EY M", "bridge": ["name"],
+                           "against": ["frame", "name"]}),
+            ("frame", framed, {"key": "EY M", "bridge": ["frame", "name"],
+                               "against": ["frame", "name"]}),
+            ("zzqvx", unread, {"key": "EY M", "bridge": ["frame"],
+                               "against": ["frame", "name"]})):
+        song, _ = G.song_from_blueprint(obj)
+        row = G.bridge_contrast(song, rhyme_key=key)[2]["rhyme_inventory"]
+        check(f"{label}: the shared key comes with the words on each side",
+              row.get("shared_words") == [want], str(row.get("shared_words")))
+        check(f"{label}: the key lists are unchanged (machines keep them)",
+              row.get("shared") == ["EY M"] and row.get("separates") is False,
+              str(row))
+    for label, obj in (("as is", bp), ("frame", framed), ("zzqvx", unread)):
+        song, _ = G.song_from_blueprint(obj)
+        f = G.bridge_contrast(song, rhyme_key=key)[0]
+        check(f"{label}: no BRIDGE_IS_A_VERSE when another channel separates",
+              "BRIDGE_IS_A_VERSE" not in {x.code for x in f},
+              str([x.code for x in f]))
+    # THE #685 ROWS, UNCHANGED SEMANTICS, NOW WITH WORDS. Row 2 (a shared
+    # key, complete) and row 3 (the same key witnessed beside an unread end
+    # word): the findings, refusals and counts are exactly what the truth
+    # table pins, and the words are read off the fixture by hand -- the
+    # bridge ends in 'day', the verses in 'day' and 'way' (EY).
+    BASE = (5, 3, 2)
+    for label, ends, extra in (
+            ("row 2", ["day", "roam", "sea", "free"], {}),
+            ("row 3", ["day", "zorbleflax", "sea", "free"],
+             {"unread_words": ["zorbleflax"], "witness": ["EY"]})):
+        f, r, ch, n = _row(ends)
+        rc = ch["rhyme_inventory"]
+        check(f"{label}: the shared key names its words on each side",
+              rc.get("shared_words") == [{"key": "EY", "bridge": ["day"],
+                                          "against": ["day", "way"]}],
+              str(rc.get("shared_words")))
+        check(f"{label}: findings, refusals and counts are unchanged",
+              "BRIDGE_IS_A_VERSE" in f and not r and n == BASE
+              and all(rc.get(k) == v for k, v in extra.items()),
+              (f, r, n, rc))
+        check(f"{label}: an unread end word is never listed as a rhyme word",
+              not any("zorbleflax" in sw["bridge"] + sw["against"]
+                      for sw in rc.get("shared_words") or ()))
+    # THE CAP: eight verse words on one key are listed as the first six, in
+    # line order. Hand-built: every one of these ends in EY.
+    eight = ["day", "way", "say", "play", "stay", "ray", "bay", "gray"]
+    capped = G.Song(sections=[
+        G.Section("v1", 16, G.Meter(4, 4), function="verse"),
+        G.Section("br", 8, G.Meter(4, 4), function="bridge")]).layout()
+    capped.lines = (
+        [G.Line(f"we said it all and then the {w}", bar=1 + 2 * k,
+                duration=F(4)) for k, w in enumerate(eight)]
+        + [G.Line(f"we said it all and then the {w}", bar=17 + 2 * k,
+                  duration=F(4)) for k, w in enumerate(
+                      ["gray", "home", "sea", "free"])])
+    rc = G.bridge_contrast(capped, rhyme_key=key)[2]["rhyme_inventory"]
+    check("cap: a key's words are capped at six, in line order",
+          rc.get("shared_words") == [{"key": "EY", "bridge": ["gray"],
+                                      "against": eight[:6]}],
+          str(rc.get("shared_words")))
+    check("zzqvx: the witness keys still stand beside the words",
+          row.get("witness") == ["EY M"]
+          and row.get("unread_words") == ["zzqvx"], str(row))
+    lines = G.contrast_lines(G.bridge_contrast(
+        G.song_from_blueprint(unread)[0], rhyme_key=key)[2])
+    check("the printed table names the words, with the key in brackets",
+          any("shared rhyme: 'frame' (bridge) ~ 'frame', 'name' (verse)"
+              "   [key EY M]" in l for l in lines), "\n".join(lines))
+    check("the printed table names the unread word",
+          any("coverage partial: not read: 'zzqvx'" in l for l in lines),
+          "\n".join(lines))
+    check("no reader declared: the rhyme row says not checked, and no words",
+          any(l.split()[:3] == ["rhyme_inventory", "not", "checked"]
+              for l in G.contrast_lines(G.bridge_contrast(
+                  G.song_from_blueprint(bp)[0])[2]))
+          and not any("shared rhyme" in l for l in G.contrast_lines(
+              G.bridge_contrast(G.song_from_blueprint(bp)[0])[2])))
+    # The CLI `function` verb printed findings and returned; the table never
+    # reached a person at the command line.
+    out = subprocess.run(
+        [sys.executable, "-B", os.path.join(ROOT, "lyric_harness.py"),
+         "function", bp_path, "--rhyme-key=cmudict"],
+        cwd=ROOT, capture_output=True, text=True, timeout=600).stdout
+    check("the CLI `function` verb prints the contrast table and the words",
+          "contrast: the bridge against the verse" in out
+          and "shared rhyme: 'name' (bridge) ~ 'frame', 'name' (verse)" in out,
+          out[-1500:])
+
+
 if __name__ == "__main__":
     for fn in (test_function_is_declared_and_never_inferred,
                test_the_questions_that_needed_a_function,
@@ -1539,7 +1645,8 @@ if __name__ == "__main__":
                test_which_pairs_may_be_asked_is_the_whole_design,
                test_answer_and_call_response_relations,
                test_the_contrast_truth_table,
-               test_the_contrast_truth_table_reaches_certification):
+               test_the_contrast_truth_table_reaches_certification,
+               test_the_contrast_witness_names_its_words):
         fn()
     print("=" * 70)
     if FAILURES:

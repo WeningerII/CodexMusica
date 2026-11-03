@@ -13130,6 +13130,8 @@ def main():
             print(f"  REFUSED {r.code}: {r.message}")
             if getattr(r, "evidence", ""):
                 print(f"      {r.evidence}")
+        for row in GR.contrast_lines(rep.get("contrast")):
+            print(f"  {row}")
         for fn, rets in rep["returns"].items():
             for a, b, ret in rets:
                 print(f"  -- {fn}: {a.name} -> {b.name}")
