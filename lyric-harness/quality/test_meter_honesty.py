@@ -180,6 +180,24 @@ class MeterHonesty(unittest.TestCase):
         self.assertEqual(e.get("template_symbols_read_as_weak"), ["X", "x"])
         self.assertEqual(e.get("missing_positions"), 1)
 
+    def test_dropped_g_is_rederived_and_never_assumed(self):
+        # Jony (#686): the reduced-reading branch must re-derive -ing -> -in'
+        # and claim nothing when it cannot.
+        e = self.one("nothin' is lovin' feelin'", "/./././")
+        src = {w["word"]: (w["source"], w.get("detail", {}).get("from"))
+               for w in e["words"]}
+        self.assertEqual(src["nothin'"], ("rule", "nothing"))
+        self.assertEqual(src["lovin'"], ("rule", "loving"))
+        self.assertEqual(lh._reading_provenance(
+            self.lex, "lovin'", ["L", "AH1", "V", "IH0", "Z"], False),
+            ("unclassified", {}))
+
+    def test_basis_is_not_shared_between_entries(self):
+        a, b = lh.check_meter(self.lex, ["away", "release"], "./")
+        a["basis"]["stress"] = "mutated"
+        self.assertNotEqual(b["basis"]["stress"], "mutated")
+        self.assertNotEqual(lh.METER_BASIS["stress"], "mutated")
+
     # -- contract pins -------------------------------------------------------
 
     def test_legacy_keys_and_signature_unchanged(self):
@@ -210,7 +228,10 @@ class MeterHonesty(unittest.TestCase):
                             for r in rows), rows)
         self.assertEqual(self.one(C1, IAMBIC5)["strong_position_agreement"],
                          0.4)
-        # An aligned line still prints its legacy number.
+        # An aligned line still prints its legacy number (C2, C3).
+        self.assertTrue(any("legacy strong-pos agreement 1.0" in r
+                            for r in lh.meter_report_lines(
+                                self.one(C2, TROCHAIC4))))
         self.assertTrue(any("legacy strong-pos agreement 0.83" in r
                             for r in lh.meter_report_lines(
                                 self.one(C3, HEXAMETER))))

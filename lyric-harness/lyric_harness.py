@@ -5269,7 +5269,15 @@ def _reading_provenance(reader, piece, phones, is_oov):
                                  if src and src.startswith("rule:") else
                                  "lexicon")
             return "dictionary", detail
-        return "rule", {"rule": "dropped g (-in')"}
+        # Not a row: `pronunciation_variants` reduced `-ing` to `-in'`.
+        # Re-derive that reduction exactly, or claim nothing.
+        if w.endswith("in"):
+            for row in entries.get(w + "g", ()):
+                row = list(row)
+                if row[-2:] == ["IH0", "NG"] and row[:-1] + ["N"] == phones:
+                    return "rule", {"rule": "dropped g (-in')",
+                                    "from": w + "g"}
+        return "unclassified", {}
     if not variants:
         for suffix in ("'s", "s"):
             base = w[: -len(suffix)]
@@ -5332,7 +5340,7 @@ def _meter_words(lex, text):
 
 def _meter_honesty(entry, words, template):
     """The additive, honest half of one `check_meter` line (#677 b1)."""
-    entry["basis"] = METER_BASIS
+    entry["basis"] = dict(METER_BASIS)
     entry["words"] = words
     if words is None:
         entry["alignment"] = "unavailable"
