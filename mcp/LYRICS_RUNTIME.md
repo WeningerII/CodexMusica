@@ -337,14 +337,6 @@ regression of the rules above.
   word the grader binds. The v1 replay keeps that wrong edit byte-identical,
   because v1 runs the earlier code verbatim (`lyric-harness/quality/loop.py`
   `swap_at_slot` docstring). (tracking: [#656 L2](https://github.com/WeningerII/CodexMusica/issues/656#issuecomment-6614429602))
-- The reviser can accept a candidate that deletes a word; this is not fixed.
-  On the empty-walk path the stock tier-2 proposer's `GroupBrief` carries an
-  empty pivot (`pivot_word=''`), `default_propose_group` splices that empty
-  string in, and `revise_loop` accepts the result. It is a shared-loop
-  candidate-validity question, separate from which occurrence a splice edits,
-  and changing what the loop accepts needs the owner's bounded approval. The
-  slot receipts splice a non-empty marker, so they cannot see it, and they do
-  not show that production candidates are safe. (tracking: [#656 L3](https://github.com/WeningerII/CodexMusica/issues/656#issuecomment-6614429602))
 - A retained 30-day Library chunk saves declarations without their cut (F2).
   It awaits the owner's scope decision. (tracking: [#656 L4](https://github.com/WeningerII/CodexMusica/issues/656#issuecomment-6614429602))
 - The mixed-version deploy window between page, server and queued jobs (F3)

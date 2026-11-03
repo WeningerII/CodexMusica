@@ -164,6 +164,13 @@ it has not been verified on current main.
 >     (F2), and the mixed-version deploy window between page, server and
 >     queued jobs (F3).
 
+_Later finding (2026-11-03, BB8, #656 6615011687): the empty-pivot deletion
+item above was already fixed on main by `0e849218d6` (the #570 re-land, 16
+Oct). `swap_at_slot` and `swap_end_word` refuse a word with no letter or
+numeral, and `default_propose_group` with an empty pivot returns None under v1
+and v2. `test_loop` on `129afebbd` passed 267/267, including 28 empty-pivot
+checks. It is not listed among the current open limitations._
+
 ### Word numbering: a run resumed under v1 (lines 460–464)
 
 > A state recorded
