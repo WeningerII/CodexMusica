@@ -82,8 +82,9 @@ host's integration.
   be a different, unverified instrument. Full-line anchor-span searches can differ
   from standalone screening, which the tool itself states.
 * Low fallback guesses at a name's pronunciation are not biographical evidence.
-  An unresolved homograph leaves the grade uncertified until its reading is
-  declared. Guessed names are not added to the dictionary merely to get a green
+  An unresolved homograph blocks certification when a requested obligation
+  depends on its reading (it is named in `blocking`); declaring the reading lets
+  that obligation be judged. Guessed names are not added to the dictionary merely to get a green
   result.
 * The legacy FINISHED stamp denotes a loop stop, and includes its exit and
   uncertainty. It is not certification. Consumers must use the authenticated
