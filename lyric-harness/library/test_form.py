@@ -200,6 +200,37 @@ class FormReaderTests(unittest.TestCase):
         self.assertTrue(all(v is None for v in result["shape"].values()))
         self.assertEqual(result["line_count"], 2)
 
+    def _contrast_work(self, bridge):
+        rows = ["we walked along the day", "and talked along the way", *bridge,
+                "we walked along the night", "and talked along the light"]
+        ids = [f"l{i + 1}" for i in range(len(rows))]
+        groups = (("v1", "verse", ids[0:2]), ("br", "bridge", ids[2:2 + len(bridge)]),
+                  ("v2", "verse", ids[2 + len(bridge):]))
+        return source(rows, language="eng"), {
+            "form": {"sections": [{"id": sid, "line_ids": ls, "function": fn, "name": fn,
+                                   "bars": 2, "source": "reader"} for sid, fn, ls in groups]},
+            "setting": {"source": "declared score",
+                        "sections": [{"id": sid, "bars": 2, "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}}
+                                     for sid, _, _ in groups],
+                        "lines": [{"line_id": l, "section_id": sid, "bar": 2 * g + k + 1, "beat": 1, "duration": 4}
+                                  for g, (sid, _, ls) in enumerate(groups) for k, l in enumerate(ls)]},
+            "returns": {"rhyme_key": "orthographic"}}
+
+    def test_bridge_contrast_carries_its_rhyme_coverage(self):
+        # #676: the Library's form output reports the rhyme channel with its
+        # coverage, and a shared key stays the "does not separate" witness.
+        # Hand-read spelling rimes: day/way -> ay, night/light -> ight,
+        # sea -> ea, tree -> ee.
+        rhyme = analyze_form(*self._contrast_work(["the river and the sea", "the willow and the tree"]))
+        self.assertEqual(rhyme["bridge_contrast"]["rhyme_inventory"],
+                         {"bridge": ["ea", "ee"], "against": ["ay", "ight"], "shared": [],
+                          "coverage": "complete", "unread": 0, "separates": True})
+        shared = analyze_form(*self._contrast_work(["the river and the day", "the willow and the tree"]))
+        self.assertEqual(shared["bridge_contrast"]["rhyme_inventory"],
+                         {"bridge": ["ay", "ee"], "against": ["ay", "ight"], "shared": ["ay"],
+                          "coverage": "complete", "unread": 0, "separates": False})
+        self.assertFalse([r for r in shared["refusals"] if r["code"] == "CHANNEL_NOT_MEASURED"])
+
     def test_unavailable_language_features_remain_null(self):
         result = analyze_language(source(["Vaka vanha Väinämöinen"]))
         self.assertTrue(all(v["value"] is None and v["coverage"] == "refused" for v in result["features"].values()))
