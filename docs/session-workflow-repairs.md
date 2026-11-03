@@ -1,15 +1,17 @@
-# Repairs from the Moonshots connector runs
+# Session workflow: integration and verification scope
 
-These changes address reproducible implementation failures exposed by the actual
-recipe and lyric sessions. Local verification is not a hosted deployment receipt
-or a successful paid forty-minute kitchen qualification.
+This document states the current contracts of the connector session workflow
+(the native SDK client, the CLI, lyric grading and revision, and recipe rendering
+and edits), its boundaries, and the scope of its verification. Local verification
+is not a hosted deployment receipt or a successful paid forty-minute kitchen
+qualification.
 
-## Fixes
+## Current contracts
 
 * Native SDK client: new lyrics default to creation mode and use the same
   sweep → screen → program plan → exact-draft grade → revise receipt checks as
   the Gemini host. A model cannot replace the plan with a hand-authored mandate.
-  Discovery is still available, and an explicit host `phase: 'edit'` permits
+  Discovery is available, and an explicit host `phase: 'edit'` permits
   work on an existing song. In the maintained client only the host selects that
   phase; tool arguments cannot. On the shared `/mcp` endpoint a remote host has
   no other channel, so `begin_lyrics`'s `phase` argument selects it for the
@@ -34,7 +36,7 @@ or a successful paid forty-minute kitchen qualification.
 * An authenticated partial grade is described as incomplete measurement, rather
   than as the harness not answering. Certification remains false.
 * Rich compression retains explicitly pinned part descriptors before stock
-  descriptors. Browser technique edits now create pins too; a subsequent material
+  descriptors. Browser technique edits create pins too; a subsequent material
   edit cannot quietly discard that earlier choice. Other formats retain their
   own rendering policies.
 * Recipe responses disclose explicit descriptors/prefaces absent literally from
@@ -76,16 +78,13 @@ host's integration.
 ## Boundaries that must not be disguised as fixes
 
 * `class:ASSONANCE` is the harness's graded nucleus-agreement class. It is not
-  exact vowel identity. The surprising prize/house result reproduced on bare
-  words too; carrier contamination was not established by that observation.
-  Changing the class threshold without recalibration would be a different,
-  unverified instrument. Full-line anchor-span searches can differ from standalone
-  screening, which is now stated on the tool itself.
-* No verified pronunciation declarations for Blundin, Mostaque, or Moonshot were
-  supplied. Low fallback guesses are not biographical evidence. The original replay left the homograph
-  "record" unresolved and correctly remained uncertified. The pronunciation
-  replay now declares the dictionary noun reading and regrades before revision. No guessed names were added
-  to the dictionary merely to get a green result.
+  exact vowel identity. Changing the class threshold without recalibration would
+  be a different, unverified instrument. Full-line anchor-span searches can differ
+  from standalone screening, which the tool itself states.
+* Low fallback guesses at a name's pronunciation are not biographical evidence.
+  An unresolved homograph leaves the grade uncertified until its reading is
+  declared. Guessed names are not added to the dictionary merely to get a green
+  result.
 * The legacy FINISHED stamp denotes a loop stop, and includes its exit and
   uncertainty. It is not certification. Consumers must use the authenticated
   `certified`, coverage, findings, and completion receipt rather than the word
@@ -95,8 +94,8 @@ host's integration.
   performed meter, catchiness, or emotional impact.
 * The 1000-character ceiling cannot preserve an unlimited number of instruments
   and explicit details. Missing literal descriptors are disclosed, not silently
-  called successful customization. Catalog preface IDs (including `conductors`)
-  retain their canonical spelling; no unaudited global rename was made.
+  called successful customization. Catalog preface IDs retain their canonical
+  spelling.
 
 ## Repeatable verification
 
@@ -104,15 +103,16 @@ host's integration.
 reordering, descriptor-loss disclosure, partial measurement status, blueprint
 headers, function-specific predicates, and meter fallback.
 
-`npm run qualify:session:workflow` replays the actual 30-line Moonshots draft
-through the maintained client and real sweep, screen, plan, grade and interview
-revision tools. It uses no paid model and does not alter continuation state.
-Evidence is written beside the checked-in draft. The replay checks that all seven
-section headers survive and the unknown-name lower-bound meter refusals disappear
-under explicitly selected low fallback. It then declares the noun reading of
-"record", regrades, resumes the two actual lyric repairs, and requires exit 0
-with complete requested coverage. The original uncertified replay remains as
-a counterexample; the new evidence uses the `moonshots-pronunciation-replay` prefix.
+`npm run qualify:session:workflow` replays a checked-in draft
+(`docs/session-repair-evidence/`) through the maintained client and real sweep,
+screen, plan, grade and interview revision tools. It uses no paid model and does
+not alter continuation state. Evidence is written beside the checked-in draft.
+The replay checks that every section header survives and that lower-bound meter
+refusals on names with no dictionary entry disappear under explicitly selected
+low fallback. It then declares the draft's homograph reading, regrades, resumes
+the draft's lyric repairs, and requires exit 0 with complete requested coverage.
+Its evidence uses the `moonshots-pronunciation-replay` prefix; an uncertified
+replay of the same draft is kept beside it as a counterexample.
 
 See [pronunciation-choices.md](pronunciation-choices.md) for the occurrence-reading
 implementation, regression evidence, and certification limits.
