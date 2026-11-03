@@ -1,0 +1,157 @@
+{
+  "_doc": "Reviewed provenance for literals in model-visible text (#671 layer 1). Read by mcp/test_prompt_provenance.mjs, which checks every row: categories are closed, ids must resolve, fields must be identifiers, placeholders must hold one, a quoted check must sit beside what it explains, and every row must still occur in the text. Never a way back in for genre, theme or lyric examples (#671 safeguard 3).",
+  "entries": [
+    {
+      "literal": "{\"mic\":\"<id>\",\"medium\":\"<id>\"}",
+      "category": "framing",
+      "reason": "The shape of a chain override, with ids left as <id> placeholders. It names no gear and no sound."
+    },
+    {
+      "literal": "accepted",
+      "category": "field-or-value",
+      "reason": "A field of the tool's own verdict or result (`accepted`), named so the model reads it."
+    },
+    {
+      "literal": "certified",
+      "category": "field-or-value",
+      "reason": "A field of the tool's own verdict or result (`certified`), named so the model reads it."
+    },
+    {
+      "literal": "flags",
+      "category": "field-or-value",
+      "reason": "A field of the tool's own verdict or result (`flags`), named so the model reads it."
+    },
+    {
+      "literal": "lexicon",
+      "category": "field-or-value",
+      "reason": "A field of the tool's own verdict or result (`lexicon`), named so the model reads it."
+    },
+    {
+      "literal": "mandate",
+      "category": "field-or-value",
+      "reason": "A field of the tool's own verdict or result (`mandate`), named so the model reads it."
+    },
+    {
+      "literal": "new",
+      "category": "field-or-value",
+      "reason": "A field of the tool's own verdict or result (`new`), named so the model reads it."
+    },
+    {
+      "literal": "next",
+      "category": "field-or-value",
+      "reason": "A field of the tool's own verdict or result (`next`), named so the model reads it."
+    },
+    {
+      "literal": "recipe",
+      "category": "field-or-value",
+      "reason": "A field of the tool's own verdict or result (`recipe`), named so the model reads it."
+    },
+    {
+      "literal": "refusals",
+      "category": "field-or-value",
+      "reason": "A field of the tool's own verdict or result (`refusals`), named so the model reads it."
+    },
+    {
+      "literal": "stage",
+      "category": "field-or-value",
+      "reason": "A field of the tool's own verdict or result (`stage`), named so the model reads it."
+    },
+    {
+      "literal": "status",
+      "category": "field-or-value",
+      "reason": "A field of the tool's own verdict or result (`status`), named so the model reads it."
+    },
+    {
+      "literal": "truncated",
+      "category": "field-or-value",
+      "reason": "A field of the tool's own verdict or result (`truncated`), named so the model reads it."
+    },
+    {
+      "literal": "unreadable",
+      "category": "field-or-value",
+      "reason": "A field of the tool's own verdict or result (`unreadable`), named so the model reads it."
+    },
+    {
+      "literal": "blocking",
+      "category": "field-or-value",
+      "reason": "A field of the tool's own verdict or result (`blocking`), named so the model reads it."
+    },
+    {
+      "literal": "graded",
+      "category": "field-or-value",
+      "reason": "A value of the verdict's measurement_status field."
+    },
+    {
+      "literal": "off",
+      "category": "field-or-value",
+      "reason": "The value that silences the narrative layer; a declaration, not an example."
+    },
+    {
+      "literal": "hooks",
+      "category": "field-or-value",
+      "reason": "An optional member of the blueprint JSON shape the description spells out."
+    },
+    {
+      "literal": "record the whole thing in X",
+      "category": "placeholder",
+      "reason": "A request shape with its space left as the placeholder X: it says set_environment takes one edit, and names no space."
+    },
+    {
+      "literal": "is the title in the hook?",
+      "category": "quoted-check",
+      "about": "title",
+      "reason": "The engine's own TITLE_UNDECLARED / TITLE_NOT_IN_HOOK question, quoted so the model knows what declaring a title answers."
+    },
+    {
+      "literal": "looks done",
+      "category": "quoted-check",
+      "about": "hand-wash",
+      "reason": "Quotes the stopping mistake the loop exists to prevent; it names no song content."
+    },
+    {
+      "literal": "fixed",
+      "category": "quoted-check",
+      "about": "NOTES are measurements",
+      "reason": "Scare quotes: notes are measurements and are not to be 'fixed'."
+    },
+    {
+      "literal": "nothing flagged",
+      "category": "quoted-check",
+      "about": "vacuous pass",
+      "reason": "Names the vacuous verdict lyric_check refuses to give without a declaration."
+    },
+    {
+      "literal": "you quietly rewrote lines nobody asked about",
+      "category": "quoted-check",
+      "about": "rejection",
+      "reason": "Names lyric_verify's own rejection for untargeted rewrites."
+    },
+    {
+      "literal": "planned 0",
+      "category": "quoted-check",
+      "about": "planner_refused",
+      "reason": "The sweep's own count when the planner refused every seed."
+    },
+    {
+      "literal": "Current Recipe",
+      "category": "quoted-check",
+      "about": "app",
+      "reason": "The app's panel label, so the model knows the recipe string is the one a person sees."
+    },
+    {
+      "literal": "satirical",
+      "category": "catalog-id",
+      "reason": "A real preface id, listed to show what a preface is. Pre-existing (0af50f9684, before #629). Kept by this test only as a catalog id; whether it should stay is put to review on the PR, because they are mood words."
+    },
+    {
+      "literal": "keening",
+      "category": "catalog-id",
+      "reason": "A real preface id, listed to show what a preface is. Pre-existing (0af50f9684, before #629). Kept by this test only as a catalog id; whether it should stay is put to review on the PR, because they are mood words."
+    },
+    {
+      "literal": "brooding",
+      "category": "catalog-id",
+      "reason": "A real preface id, listed to show what a preface is. Pre-existing (0af50f9684, before #629). Kept by this test only as a catalog id; whether it should stay is put to review on the PR, because they are mood words."
+    }
+  ]
+}
