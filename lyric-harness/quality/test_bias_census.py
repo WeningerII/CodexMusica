@@ -10,9 +10,11 @@ every surface:
      calibration moves), so this file pins the derivation's arithmetic with
      its own hand-checked cases, independently of the production helper, and
      then tests the actual draws over a PRE-REGISTERED seed set against a
-     PRE-REGISTERED tolerance: no unexplained mass anywhere, and none at the
-     round numbers 16, 24 and 32 in particular. Zero occurrences is not the
-     claim; "no more than chance" is.
+     PRE-REGISTERED tolerance, for heavy mass anywhere and at the round
+     numbers 16, 24 and 32 in particular. At 600 draws this RULES OUT HEAVY
+     MASS ONLY: a single total drawn about 10x as often as uniform (about
+     92% detection), or a band of the domain about 40% above its share.
+     Smaller preferences are not excluded (Jony's arithmetic, #693).
   2. FORM. Each surface's documented default: `open` for `make_plan` and the
      connector, `verse-chorus` for the raw CLI `plan` and `finish`. The
      Python and CLI paths are executed here; the connector's argv is executed
@@ -54,14 +56,24 @@ SEEDS = range(1, 601)
 ROUND_NUMBERS = (16, 24, 32)
 #: Per value, uniform over ~460 values at 600 draws expects ~1.3. A count of
 #: 9 or more at any one value has probability ~1e-5 per value under uniform,
-#: ~0.005 over the whole domain. So a hit is strong evidence of mass, not
-#: proof: these are fixed-seed regression checks with a stated false-alarm
-#: rate, and passing them does not show every possible length bias is absent.
+#: ~0.005 over the whole domain: a hit is unlikely by chance, so treat it as a
+#: finding to investigate, not a proof. POWER: a value drawn 5x as often as
+#: uniform is caught ~24% of the time, 7x ~60%, 10x ~92%.
 MAX_PER_VALUE = 8
 #: Eight equal-width bins over the domain; each bin's observed share must lie
-#: within 4 binomial standard deviations of its expected share.
+#: within 4 binomial standard deviations of its expected share. POWER: with
+#: sd ~0.0135 a bin is flagged only above a share of ~0.179 against 0.125,
+#: i.e. roughly 40% over its fair share.
 BINS = 8
 BIN_SIGMAS = 4.0
+#: ADDED 2026-11-03 AFTER REVIEW (Don, #693), so NOT part of the original
+#: pre-registration above. The three round numbers TOGETHER expect
+#: 3 * 600 / |domain| ~ 3.9 draws (|domain| 462 open, 452 verse-chorus),
+#: binomial sd ~ 2.0, so 4 sd above the mean is ~11.9. The earlier combined
+#: check (sum <= 3 * MAX_PER_VALUE) could never fail once each value had
+#: passed; this one catches a spread preference such as +5 at each of the
+#: three.
+MAX_ROUND_NUMBERS_TOGETHER = 12
 
 
 def _draws(form):
@@ -126,16 +138,18 @@ class LengthDomain(unittest.TestCase):
         stanza = P.stanza_line_floor()
         song = P.song_line_counts()
         open_, vc = (P.fillable_line_counts(f) for f in ("open", "verse-chorus"))
-        # A group is two lines: one line is never fillable, two always is
-        # when the floor grades it.
+        # A group is two lines: one line is never fillable, two is. Both
+        # edge totals must be in today's gradeable set, or these checks
+        # would pass vacuously; if calibration ever drops one, this fails
+        # here and says so, rather than skipping silently (Don, #693).
+        self.assertIn(2, song, "calibration no longer grades 2 lines")
         self.assertNotIn(1, open_)
-        if 2 in song:
-            self.assertIn(2, open_)
+        self.assertIn(2, open_)
         # verse-chorus needs three stanza-sized cells: 3 * stanza lines is
         # the first total that holds them, one line fewer is not.
         first = 3 * stanza
-        if first in song:
-            self.assertIn(first, vc)
+        self.assertIn(first, song, f"calibration no longer grades {first}")
+        self.assertIn(first, vc)
         self.assertNotIn(first - 1, vc)
         # verse-chorus is the open domain with its short end removed, never
         # a different shape.
@@ -176,10 +190,9 @@ class LengthDraws(unittest.TestCase):
             for r in ROUND_NUMBERS:
                 if r in P.fillable_line_counts(form):
                     self.assertLessEqual(c[r], MAX_PER_VALUE, (form, r))
-            # Together the three round numbers expect 3/|domain| of the
-            # draws; allow the same per-value tolerance, three times over.
+            # Together: see MAX_ROUND_NUMBERS_TOGETHER (added after review).
             self.assertLessEqual(sum(c[r] for r in ROUND_NUMBERS),
-                                 3 * MAX_PER_VALUE, form)
+                                 MAX_ROUND_NUMBERS_TOGETHER, form)
 
     def test_no_band_of_the_domain_is_favoured(self):
         for form, ds in self.draws.items():
@@ -267,8 +280,37 @@ class FrequencyTrace(unittest.TestCase):
 
     def test_no_brief_offers_candidates(self):
         briefs = self.reviser.brief(list(self.LINES), self.mandate)
-        offered = [b for b in briefs if getattr(b, "candidates", None)]
+        # Non-vacuous (Jony, #693): there are briefs, and every one still
+        # HAS the field, so a rename fails here instead of passing silently.
+        self.assertTrue(briefs)
+        self.assertTrue(all(hasattr(b, "candidates") for b in briefs))
+        offered = [b for b in briefs if b.candidates]
         self.assertEqual(offered, [])
+
+    def test_raw_cli_revise_default_changes_nothing(self):
+        # THE CLI PATH (Don, #693): `revise FILE MANDATE` with no --propose
+        # runs the stub. This protects the corrected D6 trace on #671 (the
+        # suspected leak there was withdrawn); it is not a reproduced defect.
+        with tempfile.TemporaryDirectory() as tmp:
+            draft = os.path.join(tmp, "d.txt")
+            body = "\n".join(self.LINES) + "\n"
+            with open(draft, "w", encoding="utf-8") as fh:
+                fh.write(body)
+            r = subprocess.run([sys.executable, "-B",
+                                os.path.join(ROOT, "lyric_harness.py"),
+                                "revise", draft, "AAAA"],
+                               cwd=ROOT, capture_output=True, text=True,
+                               timeout=600)
+            out = r.stdout + r.stderr
+            with open(draft, encoding="utf-8") as fh:
+                self.assertEqual(fh.read(), body)
+        self.assertIn("PROPOSER: stub (the default)", out)
+        m = re.search(r"DRAFT: handed in 4 line\(s\), md5 (\w+) "
+                      r"\u2014 emitted 4 line\(s\), md5 (\w+) \(UNCHANGED\)",
+                      out)
+        self.assertIsNotNone(m, out[-2000:])
+        self.assertEqual(m.group(1), m.group(2))
+        self.assertIn("tier 2 was NOT entered", out)
 
     def test_tier_two_is_not_entered_without_a_declared_writer(self):
         reasons = [a.reason for r in self.result.rounds for a in r.attempts]
