@@ -137,6 +137,23 @@ class GeneratedPrepushTests(unittest.TestCase):
         (self.harness / "cache/input").write_text("local staged data\n")
         self.assertEqual(self.run_check().returncode, 0)
 
+    def test_deleted_then_staged_file(self):
+        path = self.harness / "tracked file.py"
+        path.write_text("# tracked fixture\n")
+        self.git("add", "lyric-harness/tracked file.py")
+        path.unlink()
+        result = self.run_check()
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("lyric-harness/tracked file.py", result.stderr)
+        self.assertIn("git rm", result.stderr)
+        self.assertIn("git restore", result.stderr)
+        self.assertIn("fixture gate: counters", result.stdout)
+        self.assertIn("fixture gate: map", result.stdout)
+        self.assertNotIn("PASS:", result.stdout)
+        self.git("rm", "--", "lyric-harness/tracked file.py")
+        result = self.run_check()
+        self.assertEqual(result.returncode, 0, result.stderr)
+
     def test_unavailable_git_inventory_is_not_a_pass(self):
         shutil.rmtree(self.root / ".git")
         result = self.run_check()

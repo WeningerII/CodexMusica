@@ -5,6 +5,8 @@ Usage: python3 tests/tools/check_generated_prepush.py
 Runs from this script's checkout, regardless of the caller's directory. Requires
 the same Python dependencies and staged lexical inputs as CI's record job; this
 wrapper does not install or fetch them, regenerate files, or install a Git hook.
+Use a full checkout. Both checks use the interpreter that launches this wrapper
+(including its virtual environment); select the CI-compatible Python yourself.
 
 This checks working-tree bytes, not a prospective pushed commit. The map uses
 git ls-files: untracked additions are invisible until added to the index, while
@@ -14,6 +16,7 @@ the final clean checkout before pushing. Later edits, commits or rebases require
 another check. This is only two gates, not a replacement for the record job/CI.
 Non-ignored untracked harness files make this check fail even when both gates
 pass. Ignored inputs are excluded from that inventory; this is not a Git audit.
+Unstaged tracked deletions also fail: stage intended removals or restore them.
 """
 
 from pathlib import Path
@@ -57,6 +60,22 @@ def main():
     except (OSError, subprocess.CalledProcessError) as error:
         failed.append("Git inventory unavailable")
         print(f"FAIL: cannot inspect untracked harness files: {error}", file=sys.stderr)
+    try:
+        inventory = subprocess.run(
+            ["git", "ls-files", "--deleted", "-z", "--", "lyric-harness/"],
+            cwd=root, capture_output=True, check=True)
+        deleted = [p for p in inventory.stdout.split(b"\0") if p]
+        if deleted:
+            failed.append("unstaged tracked deletions")
+            print("FAIL: tracked harness files are missing from disk:", file=sys.stderr)
+            for path in deleted:
+                print(f"  {path.decode(errors='backslashreplace')!r}", file=sys.stderr)
+            print("Stage intended deletions with git rm, or restore unintended deletions "
+                  "with git restore, then rerun from a full checkout. "
+                  "Both checks will still run.", file=sys.stderr)
+    except (OSError, subprocess.CalledProcessError) as error:
+        failed.append("Git deletion inventory unavailable")
+        print(f"FAIL: cannot inspect deleted harness files: {error}", file=sys.stderr)
     for name, script, repair in checks:
         print(f"Running: cd lyric-harness && python3 {script} --check", flush=True)
         try:
