@@ -198,7 +198,11 @@ const LIBRARY_BUDGETS = {
   // the built fixes and get them live"). Lighthouse evidence on #519 comment
   // 6400551234: pooled LCP +3.6% (4,202 -> 4,352 ms), FCP +150 ms from a
   // byte-threshold step (one more simulated round trip), not a code path.
-  'library-shelves-path': 400640,
+  // ~~400640~~ raised 2026-11-03 to 400,720 (+80 B) for #684's genre place
+  // line (#656 item 7), measured at 400,710 B after merging main. John's
+  // approval, relayed by R2 on #684 (comment 6609415589), replacing the earlier
+  // 400,689 figure. Owner-approved exception; no performance certification.
+  'library-shelves-path': 400720,
   'library-growth': 6144,
 };
 
