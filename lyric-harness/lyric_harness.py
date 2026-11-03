@@ -5456,10 +5456,18 @@ def meter_report_lines(e):
     if e.get("words") is None:
         out.append("     per-word readings unavailable on this reader")
     if t is not None:
-        legacy = f"     legacy strong-pos agreement {e.get('strong_position_agreement')}"
-        if cut is not None:
-            legacy += f" (not valid past token {cut})"
-        out.append(legacy)
+        if cut is None:
+            out.append(f"     legacy strong-pos agreement "
+                       f"{e.get('strong_position_agreement')}")
+        else:
+            # The legacy number compares shifted positions past the unread
+            # word, so it is not printed here; it stays in the returned
+            # entry (`strong_position_agreement`) for compatibility only.
+            first = next((w for w in e.get("words") or ()
+                          if w["source"] == "unknown"), {})
+            out.append(f"     full-line strong-position agreement not "
+                       f"computed: alignment stops before token {cut + 1} "
+                       f"'{first.get('word', '?')}' (no reading)")
     if e.get("template_symbols_read_as_weak"):
         out.append("     template symbols read as weak positions: "
                    + " ".join(e["template_symbols_read_as_weak"]))

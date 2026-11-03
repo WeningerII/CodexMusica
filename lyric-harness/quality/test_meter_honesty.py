@@ -202,7 +202,18 @@ class MeterHonesty(unittest.TestCase):
         self.assertIn("strong 2/2 matched of 5", rows[0])
         self.assertTrue(any("'mayst': no reading; alignment stops before it"
                             in r for r in rows))
-        self.assertTrue(any("not valid past token 5" in r for r in rows))
+        # The legacy number is NOT printed once alignment stops (it stays in
+        # the entry for compatibility); the human line says why.
+        self.assertFalse(any("0.4" in r for r in rows), rows)
+        self.assertTrue(any("full-line strong-position agreement not computed:"
+                            " alignment stops before token 6 'mayst'" in r
+                            for r in rows), rows)
+        self.assertEqual(self.one(C1, IAMBIC5)["strong_position_agreement"],
+                         0.4)
+        # An aligned line still prints its legacy number.
+        self.assertTrue(any("legacy strong-pos agreement 0.83" in r
+                            for r in lh.meter_report_lines(
+                                self.one(C3, HEXAMETER))))
         rows = lh.meter_report_lines(self.one(C3, HEXAMETER))
         self.assertIn("[syllables ok: 17/17]", rows[0])
         self.assertTrue(any("rule-derived (plural of 'hemlock')" in r
