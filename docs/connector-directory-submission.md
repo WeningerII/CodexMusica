@@ -54,8 +54,7 @@ CodexMusica is a recording-arrangement engine exposed as MCP tools. Its
 catalog places **7755 recorded-music traditions** in a 13-dimensional parameter
 space alongside **1671 instruments** (decomposed into per-part variants), **256
 rooms**, **122 tunings**, and **740 "prefaces"** — named aesthetic/technique/
-delivery signatures (e.g. `satirical`, `keening`, `jhala-cascading`) that map
-*intent → physical settings*.
+delivery signatures that map *intent → physical settings*.
 
 Ask for a sound in plain language and Claude resolves it to real catalog ids,
 seeds a tradition's deterministic default recipe — identical to what a human sees
