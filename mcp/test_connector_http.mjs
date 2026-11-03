@@ -297,6 +297,14 @@ test(
           lyricNames.includes('lyric_sweep') && !lyricNames.includes('start_recipe'),
           `card taskEndpoints.lyrics serves the lyrics family: ${lyricNames}`
         );
+        // Exactly, both ways: a control the server adds but the card omits
+        // fails as loudly as one the card names but the server dropped.
+        const families = new Set([...recipeNames, ...lyricNames]);
+        assert.deepEqual(
+          sharedNames.filter((n) => !families.has(n)).sort(),
+          [...card.workflowControls].sort(),
+          'card workflowControls are exactly the /mcp tools outside the two task families'
+        );
         const traditions = JSON.parse(
           readFileSync(new URL('../api/index.json', import.meta.url), 'utf8')
         ).counts.traditions;
