@@ -1278,6 +1278,254 @@ def test_answer_and_call_response_relations():
           proc.stderr[-1000:])
 
 
+# ---------------------------------------------------------------------------
+# THE CONTRAST TRUTH TABLE (#676). Every expectation below is read off the
+# table agreed on #664 (rows 1-8 and decision D1), not off the code: each
+# song is built so that the rhyme inventory is the ONLY channel that can
+# separate (same meter, bars, line count, duration, downbeat and words per
+# line on both sides), and every end word is either a plain CMUdict word or
+# a nonsense string no dictionary holds. Hand-judged rhyme keys:
+#   day/way -> EY, night/light -> AY T, home/roam -> OW M, sea/free -> IY.
+NONSENSE = ("zorbleflax", "qwxvzt", "zzqvxl", "vbnmqk")
+VERSE_ENDS = ["day", "way", "night", "light"]
+#: The channels a side with no lines cannot carry (D1), named here from the
+#: table rather than imported from the module under test.
+LINE_CHANNELS = ("line_duration", "downbeat_rate", "line_length",
+                 "rhyme_inventory")
+
+
+def _contrast_song(bridge_ends, verse_ends=VERSE_ENDS):
+    s = G.Song(sections=[G.Section("v1", 8, G.Meter(4, 4), function="verse"),
+                         G.Section("br", 8, G.Meter(4, 4), function="bridge"),
+                         G.Section("v2", 8, G.Meter(4, 4), function="verse")]
+               ).layout()
+    lines = []
+    for start, ends in ((1, verse_ends), (9, bridge_ends), (17, verse_ends)):
+        for k, w in enumerate(ends):
+            lines.append(G.Line(f"we said it all and then the {w}",
+                                bar=start + 2 * k, duration=F(4)))
+    s.lines = lines
+    return s
+
+
+def _row(bridge_ends, key=True, **kw):
+    song = _contrast_song(bridge_ends, **kw)
+    f, r, ch = G.bridge_contrast(song, rhyme_key=G.rime_cmudict() if key
+                                 else None)
+    rep = G.song_function_report(song, rhyme_key=G.rime_cmudict() if key
+                                 else None)
+    return ({x.code for x in f}, [x.code for x in r], ch,
+            (rep["asked"], rep["answered"], rep["refused"]))
+
+
+def test_the_contrast_truth_table():
+    print("\n12. BRIDGE CONTRAST — the rhyme channel's truth table (#676)")
+    for w in NONSENSE:
+        check(f"fixture: {w!r} is unread by the declared reader",
+              G.rime_cmudict()(w) is None)
+    # The report asks five questions of every song below; the two refusals
+    # every one of them carries (no chorus, no hook) are the same and not
+    # about contrast, so the contrast question alone moves the counts.
+    BASE = (5, 3, 2)
+
+    f, r, ch, n = _row(["home", "roam", "sea", "free"], key=False)
+    check("row 1: no reader -> rhyme channel refused, unchanged",
+          ch["rhyme_inventory"].get("separates") is None
+          and r == ["CHANNEL_NOT_MEASURED"] and n == (5, 2, 3), (ch["rhyme_inventory"], r, n))
+
+    f, r, ch, n = _row(["day", "roam", "sea", "free"])
+    rc = ch["rhyme_inventory"]
+    check("row 2: a shared key, every end word read -> does not separate, "
+          "complete, answered",
+          rc.get("separates") is False and rc.get("coverage") == "complete"
+          and rc.get("shared") == ["EY"] and "witness" not in rc and not r
+          and "BRIDGE_IS_A_VERSE" in f and n == BASE, (rc, r, f, n))
+
+    f, r, ch, n = _row(["day", "zorbleflax", "sea", "free"])
+    rc = ch["rhyme_inventory"]
+    check("row 3: a shared key with an unread end word -> STILL does not "
+          "separate (the shared key is a witness), answered with partial "
+          "coverage, never refused",
+          rc.get("separates") is False and rc.get("coverage") == "partial"
+          and rc.get("unread") == 1 and rc.get("witness") == ["EY"] and not r
+          and "BRIDGE_IS_A_VERSE" in f and n == BASE, (rc, r, f, n))
+
+    f, r, ch, n = _row(["home", "roam", "sea", "free"])
+    rc = ch["rhyme_inventory"]
+    check("row 4: disjoint and complete -> separates, answered",
+          rc.get("separates") is True and rc.get("coverage") == "complete"
+          and ch["_separating"] == ["rhyme_inventory"] and not r and not f
+          and n == BASE, (rc, r, f, n))
+
+    f, r, ch, n = _row(["home", "zorbleflax", "sea", "free"])
+    rc = ch["rhyme_inventory"]
+    check("row 5: disjoint known keys plus an unread end word -> NOT "
+          "'separates' (the unread word could be the shared key): not "
+          "checked, refused with the count, and it does not vote",
+          rc.get("separates") is None and rc.get("unread") == 1
+          and "end words not read (1: 'zorbleflax')" in rc.get("why", "")
+          and rc.get("unread_words") == ["zorbleflax"]
+          and r == ["CHANNEL_NOT_MEASURED"] and "rhyme_inventory" not in ch["_separating"]
+          and n == (5, 2, 3), (rc, r, n))
+
+    f, r, ch, n = _row(list(NONSENSE))
+    rc = ch["rhyme_inventory"]
+    check("row 6: every bridge end word unread -> NOT 'does not separate' "
+          "(an empty known set proves nothing): not checked, refused",
+          rc.get("separates") is None and rc.get("unread") == 4
+          and rc["bridge"] == [] and r == ["CHANNEL_NOT_MEASURED"]
+          and n == (5, 2, 3), (rc, r, n))
+    check("rows 5-6: a vote-less rhyme channel leaves the other six to "
+          "speak, and they do not separate -- the finding names the gap",
+          "BRIDGE_IS_A_VERSE" in f)
+
+    for key in (True, False):
+        f, r, ch, n = _row([], key=key)
+        na = [c for c in LINE_CHANNELS if ch.get(c, {}).get("applicable") is False]
+        check(f"row 7 (D1, advisory, reader={key}): a wordless bridge -> every "
+              "line channel is NOT APPLICABLE, with no refusal and no "
+              "'no key was declared' reason",
+              sorted(na) == sorted(LINE_CHANNELS) and not r
+              and all("no sung words in the bridge" in ch[c].get("why", "") for c in na)
+              and ch["_separating"] == ["line_count"] and n == BASE,
+              (ch, r, n))
+
+    rhyme_only = type("RhymeOnly", (), {"name": "rhyme only",
+                                        "contrast_channels": ("rhyme_inventory",)})
+    nothing = type("Nothing", (), {"name": "nothing", "contrast_channels": ()})
+    song = _contrast_song(["day", "way", "night", "light"])
+    for label, conv, key in (("every requested channel unmeasured", rhyme_only, None),
+                             ("no channel requested", nothing, G.rime_cmudict())):
+        f, r, _ = G.bridge_contrast(song, convention=conv, rhyme_key=key)
+        check(f"row 8 ({label}): BRIDGE_IS_A_VERSE is NOT emitted on nothing, "
+              "and the question is refused rather than passed",
+              not f and [x.code for x in r] == ["CHANNEL_NOT_MEASURED"],
+              ([x.code for x in f], [x.code for x in r]))
+    # D1 meets row 8 (3PO, #685 review): a wordless bridge under a
+    # convention asking ONLY line channels. Every requested channel is
+    # inapplicable, so the question does not arise: no finding, no refusal,
+    # and it is in none of the report's three counts -- unlike a convention
+    # that requests nothing, which is refused above.
+    wordless = _contrast_song([])
+    f, r, ch = G.bridge_contrast(wordless, convention=rhyme_only,
+                                 rhyme_key=G.rime_cmudict())
+    check("D1 x row 8 (every requested channel inapplicable): not "
+          "applicable -- no finding, no refusal",
+          not f and not r and ch.get("_not_applicable") is True
+          and "not applicable" in ch.get("_outcome", "")
+          and ch.get("rhyme_inventory", {}).get("applicable") is False,
+          ([x.code for x in f], [x.code for x in r], ch))
+    import dataclasses
+    rhyme_only_full = dataclasses.replace(
+        G.POPULAR_SONG, contrast_channels=("rhyme_inventory",))
+    check("D1 x row 8: the outcome names the wordless side -- the bridge here",
+          ch.get("_outcome", "").startswith(
+              "not applicable: no sung words in the bridge,"),
+          ch.get("_outcome"))
+    # The comparator wordless, the bridge sung (3PO, #685): the outcome and
+    # every channel reason name the verse, never the bridge.
+    f, r, chv = G.bridge_contrast(
+        _contrast_song(["home", "roam", "sea", "free"], verse_ends=[]),
+        convention=rhyme_only, rhyme_key=G.rime_cmudict())
+    check("D1 x row 8, comparator wordless: not applicable, and the reason "
+          "names the verse, not the bridge",
+          not f and not r and chv.get("_not_applicable") is True
+          and chv.get("_outcome", "").startswith(
+              "not applicable: no sung words in the verse,")
+          and "bridge" not in chv.get("_outcome", "")
+          and "no sung words in the verse" in
+          chv.get("rhyme_inventory", {}).get("why", ""),
+          chv)
+    rep_na = G.song_function_report(wordless, rhyme_key=G.rime_cmudict(),
+                                    convention=rhyme_only_full)
+    rep_one = G.song_function_report(_contrast_song(["home", "roam", "sea",
+                                                     "free"]),
+                                     rhyme_key=G.rime_cmudict(),
+                                     convention=rhyme_only_full)
+    check("D1 x row 8: the inapplicable contrast is in none of the three "
+          "counts (one question fewer than the same convention on a worded "
+          "bridge), and refuses nothing",
+          (rep_na["asked"], rep_na["answered"], rep_na["refused"])
+          == (rep_one["asked"] - 1, rep_one["answered"] - 1,
+              rep_one["refused"])
+          and "CHANNEL_NOT_MEASURED" not in
+          [x.code for x in rep_na["refusals"]],
+          ((rep_na["asked"], rep_na["answered"], rep_na["refused"]),
+           (rep_one["asked"], rep_one["answered"], rep_one["refused"])))
+
+    # The finding claims equality only on what was measured (3PO, #685).
+    f, _, _ = G.bridge_contrast(_contrast_song(["day", "way", "night", "light"]),
+                                convention=rhyme_only,
+                                rhyme_key=G.rime_cmudict())
+    ev = next((x.evidence for x in f if x.code == "BRIDGE_IS_A_VERSE"), "")
+    check("BRIDGE_IS_A_VERSE names only the channels it measured and claims "
+          "nothing about the rest",
+          "channels measured: ['rhyme_inventory']" in ev
+          and "No measured channel (end-rhyme sounds) establishes "
+              "separation from the verse" in ev
+          and "meter" not in ev.split("channels measured")[1]
+          and "Channels not measured are not judged" in ev,
+          ev)
+    # Shared but not identical (3PO, #685): {EY, IY} against {EY, AY T}
+    # share EY, so the bridge does not separate -- and is not the same.
+    f, _, ch = G.bridge_contrast(_contrast_song(["day", "sea", "free", "way"]),
+                                 convention=rhyme_only,
+                                 rhyme_key=G.rime_cmudict())
+    ev = next((x.evidence for x in f if x.code == "BRIDGE_IS_A_VERSE"), "")
+    msg = next((x.message for x in f if x.code == "BRIDGE_IS_A_VERSE"), "")
+    rc = ch.get("rhyme_inventory", {})
+    check("a shared-but-different rhyme inventory does not separate and is "
+          "never described as the same, matching, or label-only",
+          rc.get("separates") is False and rc.get("bridge") != rc.get("against")
+          and ev and msg and not any(w in t.lower() for t in (ev, msg)
+                                     for w in ("same ", "matches",
+                                               "is a verse", "does not differ",
+                                               "only thing that sets it apart"))
+          and "not identity" in ev
+          and msg == ("no measured channel establishes separation of the "
+                      "bridge from the verse"),
+          (rc, msg, ev))
+
+    # The rhyme inventory itself keeps its meaning for every other reader:
+    # the KNOWN keys, and only those.
+    br = _contrast_song(["day", "zorbleflax", "sea", "free"])
+    v = G._channel_values(br, br.instances_of("bridge"), G.rime_cmudict())
+    check("the inventory is still the known keys; the unread count rides beside it",
+          v["rhyme_inventory"] == {"EY", "IY"} and v.get("_rhyme_unread") == 1
+          and v.get("_end_words") == 4, v)
+
+
+def test_the_contrast_truth_table_reaches_certification():
+    print("\n13. BRIDGE CONTRAST — what the truth table does to certification")
+    from quality.revise import Reviser
+
+    def bp(bridge_ends):
+        song = _contrast_song(bridge_ends)
+        texts = [l.text for l in song.lines]
+        secs = [dict(name=s.name, function=s.function, bars=s.bars,
+                     start_bar=s.start_bar, meter={"beats": 4, "unit": 4})
+                for s in song.sections]
+        return texts, {"sections": secs,
+                       "lines": [dict(text=l.text, bar=l.bar, beat=1, duration=4)
+                                 for l in song.lines]}
+
+    R = Reviser()
+    status = {}
+    for name, ends in (("row 3", ["day", "zorbleflax", "sea", "free"]),
+                       ("row 4", ["home", "roam", "sea", "free"]),
+                       ("row 5", ["home", "zorbleflax", "sea", "free"]),
+                       ("row 7", [])):
+        texts, blueprint = bp(ends)
+        cov = []
+        R._function_findings(texts, blueprint, coverage_out=cov)
+        status[name] = next(o["status"] for o in cov if o["id"] == "function:draft")
+    check("a witnessed non-separation (row 3), a complete separation (row 4) "
+          "and a wordless advisory bridge (row 7) leave the function layer "
+          "answered; an unjudged one (row 5) withholds it (report Q20)",
+          status == {"row 3": "answered", "row 4": "answered",
+                     "row 5": "refused", "row 7": "answered"}, status)
+
+
 if __name__ == "__main__":
     for fn in (test_function_is_declared_and_never_inferred,
                test_the_questions_that_needed_a_function,
@@ -1289,7 +1537,9 @@ if __name__ == "__main__":
                test_the_report_prints_three_counts,
                test_the_apparatus_rule_is_the_centres_and_its_price_is_named,
                test_which_pairs_may_be_asked_is_the_whole_design,
-               test_answer_and_call_response_relations):
+               test_answer_and_call_response_relations,
+               test_the_contrast_truth_table,
+               test_the_contrast_truth_table_reaches_certification):
         fn()
     print("=" * 70)
     if FAILURES:
