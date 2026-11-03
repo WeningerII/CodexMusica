@@ -105,6 +105,18 @@ def test_refusal_names_the_unread_word():
         check(f"{schema}: a readable pair is judged and names nothing",
               not got["refusals"] and bool(got["violations"]),
               str(got["refusals"]))
+    # Jony (#687): a refusal the unread word did NOT cause names nothing --
+    # a placement or declaration refusal on a pair whose mid-line word is
+    # unread keeps `unreadable: []`.
+    for schema in ("epanalepsis", "monai"):
+        got = Reviser().grade(["the zzqvx cat sat by the door",
+                               "a dog ran by the floor"],
+                              mandate([["1", "2"]], n_lines=2,
+                                      default_relation="schema:" + schema))
+        rows = got["refusals"]
+        check(f"{schema}: refused for its own reason, names no unread word",
+              bool(rows) and all(r["unreadable"] == [] for r in rows),
+              str(rows)[:300])
 
 
 if __name__ == "__main__":

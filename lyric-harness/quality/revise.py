@@ -1676,8 +1676,10 @@ class Reviser:
         def _unread_on(i, j):
             # The words the reader could not read on either line of a pair
             # (`line_readability`'s `unreadable`, every token, not only the
-            # end word). A refusal whose reason names "a member the phonology
-            # refuses" carries them, so the row names the word it blames
+            # end word). Only a refusal whose own cause is an unread member
+            # carries them (Jony, #687: a placement or declaration refusal
+            # does not blame a word, so `Refusal` / `RelationRefused` keep
+            # []), so the row names the word it blames
             # instead of `unreadable: []` (#656 item 4). An empty list still
             # means no unread word on either line; it never moves a verdict.
             return list(dict.fromkeys(
@@ -2141,7 +2143,7 @@ class Reviser:
                             refusals.append({
                                 "lines": (i, j),
                                 "endwords": (ew_i, ew_j),
-                                "unreadable": _unread_on(i, j),
+                                "unreadable": [],
                                 "groups": [m.labels[k]],
                                 "reason": (f"the declared relation {want!r} "
                                            f"cannot be judged at the declared "
@@ -2172,7 +2174,7 @@ class Reviser:
                             refusals.append({
                                 "lines": (i, j),
                                 "endwords": (ew_i, ew_j),
-                                "unreadable": _unread_on(i, j),
+                                "unreadable": [],
                                 "groups": [m.labels[k]],
                                 "reason": (f"the declared relation {want!r} "
                                            f"cannot be judged here: {e} — "
