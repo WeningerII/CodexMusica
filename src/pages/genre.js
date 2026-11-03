@@ -1040,7 +1040,7 @@ function gpRestoreScroll() {
 function gpPlaceFit() {
   const l = $ui('genre-detail')?.querySelector('.gp-detail-place'),
     s = l?.querySelector('span');
-  if (s?.scrollHeight > s.clientHeight + 1)
+  if (s && s.scrollHeight > s.clientHeight + 1)
     Object.assign(l, { role: 'button', tabIndex: 0, ariaExpanded: false }).dataset.ui =
       'genre-place';
 }
