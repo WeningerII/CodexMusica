@@ -91,7 +91,8 @@ same failed selection. The standalone build embedded the overview, loaded
 without page errors and did not load the tile module. Visual inspection checked
 the world extent, land detail and fallback map.
 
-Reproduce the browser check with an installed Playwright Chromium:
+The browser check runs in CI as a leaf of `npm run test:app`. Reproduce it
+with an installed Playwright Chromium:
 
 ```sh
 node scripts/check_atlas_tiles_browser.js
