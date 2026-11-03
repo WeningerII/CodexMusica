@@ -10,7 +10,8 @@
 //
 // Sections: explore, works, rights, reader, compare, focus, analysis,
 // declarations, retained. A section whose
-// chunk is not in the build prints SKIP (not a failure). Every section runs in
+// chunk is not in the build prints SKIP (not a failure); `retained` never
+// SKIPs, because it carries its own pinned copy of the chunk it needs. Every section runs in
 // both themes at 1280 and 390 wide; any console error, uncaught exception,
 // failed same-origin request or horizontal page overflow fails the run.
 //
@@ -1807,15 +1808,61 @@ SECTIONS.declarations = async function ({ page, base, tag, log }) {
 // or a match only under the current cut) and sets aside, naming both
 // readings, a number that names different words under the two cuts, instead
 // of moving it to whichever word the earlier cut would give.
+//
+// THE SCENARIO OUTLIVES THE FILE (#661). The chunk's generation retired on
+// 2026-10-14 and library_chunk_generations.js drops it 30 days later, so the
+// first publish from 2026-11-14 deletes library/code/<chunk>; this section
+// used to turn into a SKIP then, and the old-tab rule would go untested. The
+// test keeps its own gzipped copy (scripts/fixtures/library-retained/), pinned
+// by sha384 to the bytes that generation shipped, and serves those bytes to the
+// simulated old tab. While generations.json still names the chunk the shipped
+// file is required and must be byte-identical to the copy; once the generation
+// has expired the copy alone carries the scenario. It never SKIPs.
 const RETAINED_ANALYSIS = 'analysis.71b110b249.js';
-SECTIONS.retained = async function ({ page, base, tag }) {
-  const file = path.join(ROOT, 'library', 'code', RETAINED_ANALYSIS);
-  if (!fs.existsSync(file)) {
-    results.push(`SKIP ${tag} retained — ${RETAINED_ANALYSIS} is no longer kept`);
-    return;
+const RETAINED_SHA384 = 'sha384-JqtIwA2cF3CYojVUUsniW1mSXHbRXi4S5jw1B4wX1ZyTE8AwKt+iuQJ/U21RJd6R';
+const RETAINED_FIXTURE = path.join(
+  ROOT,
+  'scripts',
+  'fixtures',
+  'library-retained',
+  `${RETAINED_ANALYSIS}.gz`
+);
+const sha384 = (b) => `sha384-${require('crypto').createHash('sha384').update(b).digest('base64')}`;
+// The retained chunk's bytes, or a reason they cannot be trusted.
+function retainedBytes() {
+  if (!fs.existsSync(RETAINED_FIXTURE)) return { error: `${RETAINED_FIXTURE} is missing` };
+  const bytes = zlib.gunzipSync(fs.readFileSync(RETAINED_FIXTURE));
+  if (sha384(bytes) !== RETAINED_SHA384)
+    return { error: `the fixture copy is not the pinned ${RETAINED_SHA384}` };
+  const manifest = path.join(ROOT, 'library', 'code', 'generations.json');
+  const named =
+    fs.existsSync(manifest) && fs.readFileSync(manifest, 'utf8').includes(RETAINED_ANALYSIS);
+  const shipped = path.join(ROOT, 'library', 'code', RETAINED_ANALYSIS);
+  if (named) {
+    if (!fs.existsSync(shipped))
+      return {
+        error: `generations.json names ${RETAINED_ANALYSIS} but library/code has no such file`,
+      };
+    if (sha384(fs.readFileSync(shipped)) !== RETAINED_SHA384)
+      return { error: `library/code/${RETAINED_ANALYSIS} differs from the pinned copy` };
   }
-  const bytes = fs.readFileSync(file);
-  const integrity = `sha384-${require('crypto').createHash('sha384').update(bytes).digest('base64')}`;
+  return {
+    bytes,
+    source: named ? 'shipped (and pinned copy)' : 'pinned copy (generation expired)',
+  };
+}
+SECTIONS.retained = async function ({ page, base, tag }) {
+  const retained = retainedBytes();
+  if (
+    !check(
+      `${tag} retained: the retained chunk's bytes are available and pinned`,
+      !retained.error,
+      retained.error
+    )
+  )
+    return;
+  const { bytes } = retained;
+  const integrity = RETAINED_SHA384;
   const idb = (op, key, value) => idbOp(page, op, key, value);
   const text = (sel) =>
     page.evaluate((q) => document.querySelector(q)?.innerText || '', `#surface-library ${sel}`);
