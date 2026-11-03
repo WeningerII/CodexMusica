@@ -1599,6 +1599,18 @@ def test_the_contrast_witness_names_its_words():
                   duration=F(4)) for k, w in enumerate(
                       ["gray", "home", "sea", "free"])])
     rc = G.bridge_contrast(capped, rhyme_key=key)[2]["rhyme_inventory"]
+    # CAPPED WHILE COLLECTING (3PO, #696): duplicates before the cap do not
+    # use a slot, and the collected list itself never holds more than six.
+    dup = G.Song(sections=[G.Section("v1", 20, G.Meter(4, 4),
+                                     function="verse")]).layout()
+    dup_words = ["day", "day", "way", "way", "say", "play", "stay", "ray",
+                 "bay", "gray"]
+    dup.lines = [G.Line(f"we said it all and then the {w}", bar=1 + 2 * k,
+                        duration=F(4)) for k, w in enumerate(dup_words)]
+    collected = G._channel_values(dup, dup.sections, key)["_rhyme_words"]
+    check("cap: collected while reading -- six distinct, duplicates skipped",
+          collected == {"EY": ["day", "way", "say", "play", "stay", "ray"]},
+          str(collected))
     check("cap: a key's words are capped at six, in line order",
           rc.get("shared_words") == [{"key": "EY", "bridge": ["gray"],
                                       "against": eight[:6]}],
@@ -1616,9 +1628,37 @@ def test_the_contrast_witness_names_its_words():
           "  overall: the bridge stands apart from the verse on bars, "
           "line_count, line_length" in lines, "\n".join(lines))
     row2 = G.contrast_lines(_row(["day", "roam", "sea", "free"])[2])
-    check("row 2: nothing separates, and the aggregate says so",
-          "  overall: no measured channel sets the bridge apart from the "
-          "verse" in row2, "\n".join(row2))
+    check("row 2: measured, nothing separates -> the cautious negative",
+          "  overall: no measured channel establishes separation of the "
+          "bridge from the verse" in row2, "\n".join(row2))
+    # THE AGGREGATE NEVER TURNS "NOT MEASURED" INTO A NEGATIVE (3PO, #696).
+    import dataclasses
+    only = lambda chans: dataclasses.replace(  # noqa: E731
+        G.POPULAR_SONG, contrast_channels=chans)
+
+    def overall(ends, key=True, convention=G.POPULAR_SONG):
+        ch = G.bridge_contrast(_contrast_song(ends), convention=convention,
+                               rhyme_key=G.rime_cmudict() if key else None)[2]
+        return [l for l in G.contrast_lines(ch) if "overall" in l]
+    check("unjudged channels stay named beside a measured negative",
+          overall(["home", "roam", "sea", "free"], key=False)
+          == ["  overall: no measured channel establishes separation of the "
+              "bridge from the verse; not checked: rhyme_inventory"],
+          str(overall(["home", "roam", "sea", "free"], key=False)))
+    check("every requested channel unmeasured -> not checked, not a negative",
+          overall(["home", "roam", "sea", "free"], key=False,
+                  convention=only(("rhyme_inventory",)))
+          == ["  overall: not checked -- no channel was measured"])
+    check("no channel requested -> not checked, not a negative",
+          overall(["day", "roam", "sea", "free"], convention=only(()))
+          == ["  overall: not checked -- no channel was requested"])
+    wordless = G.contrast_lines(G.bridge_contrast(
+        _contrast_song([]), convention=only(("rhyme_inventory",)),
+        rhyme_key=G.rime_cmudict())[2])
+    check("all inapplicable -> the not-applicable outcome, no overall line",
+          not any("overall" in l for l in wordless)
+          and any(l.startswith("  not applicable") for l in wordless),
+          "\n".join(wordless))
     both = copy.deepcopy(unread)
     both["lines"][12]["text"] = "no line, no bar, no fixed qqzzk"
     lines_both = G.contrast_lines(G.bridge_contrast(
@@ -1639,10 +1679,13 @@ def test_the_contrast_witness_names_its_words():
               G.bridge_contrast(G.song_from_blueprint(bp)[0])[2])))
     # The CLI `function` verb printed findings and returned; the table never
     # reached a person at the command line.
-    out = subprocess.run(
+    proc = subprocess.run(
         [sys.executable, "-B", os.path.join(ROOT, "lyric_harness.py"),
          "function", bp_path, "--rhyme-key=cmudict"],
-        cwd=ROOT, capture_output=True, text=True, timeout=600).stdout
+        cwd=ROOT, capture_output=True, text=True, timeout=600)
+    out = proc.stdout
+    check("the CLI `function` verb exits 0, as before (3PO, #696)",
+          proc.returncode == 0, f"rc {proc.returncode}: {proc.stderr[-800:]}")
     check("the CLI `function` verb prints the contrast table and the words",
           "contrast: the bridge against the verse" in out
           and "shared rhyme: 'name' (bridge) ~ 'frame', 'name' (verse)" in out

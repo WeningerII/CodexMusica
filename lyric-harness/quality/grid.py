@@ -3293,6 +3293,11 @@ def reprise_findings(song, later="outro", earlier="intro",
     return findings, refusals, out
 
 
+#: How many end words `shared_words` lists per key and side (the cap every
+#: key list in the contrast row already uses).
+_WORDS_PER_KEY = 6
+
+
 def _channel_values(song, sections, rhyme_key=None):
     """-> per-channel measurement over a set of sections, for contrast.
 
@@ -3327,8 +3332,12 @@ def _channel_values(song, sections, rhyme_key=None):
         ends = {r[2] for r in reads if r[2] is not None}
         for r in reads:
             if r[2] is not None:
+                # CAPPED WHILE COLLECTING (3PO, #696): the report shows the
+                # first six distinct words per key, so the list stops
+                # growing (and being searched) once it holds six. The key
+                # set above is complete either way.
                 ws = words_by_key.setdefault(str(r[2]), [])
-                if r[0] not in ws:
+                if len(ws) < _WORDS_PER_KEY and r[0] not in ws:
                     ws.append(r[0])
     dur = [float(l.duration) for l in lines]
     lens = [len(tokens(l.text)) for l in lines]
@@ -3454,8 +3463,8 @@ def bridge_contrast(song, function="bridge", against=("verse",),
                 # it, capped like the key lists.
                 row["shared_words"] = [
                     {"key": k,
-                     "bridge": bv["_rhyme_words"].get(k, [])[:6],
-                     "against": rv["_rhyme_words"].get(k, [])[:6]}
+                     "bridge": bv["_rhyme_words"].get(k, []),
+                     "against": rv["_rhyme_words"].get(k, [])}
                     for k in row["shared"]]
                 row["separates"] = False
                 if unread:
@@ -3555,15 +3564,33 @@ def contrast_lines(channels, function="bridge", against=("verse",)):
            f"(separates: yes / no / not checked / not applicable)"]
     if channels.get("_outcome"):
         out.append(f"  {channels['_outcome']}")
-    elif "_separating" in channels:
+    else:
         # THE AGGREGATE, kept apart from any one channel (Don's review of
         # #696): one channel's "no" is not the verdict, and on a song where
-        # another channel separates no finding is raised to say so.
-        sep = channels["_separating"]
-        out.append(f"  overall: the {function} stands apart from the "
-                   f"{other} on {', '.join(sep)}" if sep else
-                   f"  overall: no measured channel sets the {function} "
-                   f"apart from the {other}")
+        # another channel separates no finding is raised to say so. An
+        # empty `_separating` is a measured negative ONLY when some channel
+        # was measured (3PO, #696): with none measured, or none requested,
+        # the overall answer is not checked, and unjudged channels stay
+        # named beside a negative.
+        rows = {n: r for n, r in channels.items()
+                if not n.startswith("_") and isinstance(r, dict)}
+        sep = channels.get("_separating") or []
+        measured = [n for n, r in rows.items() if r.get("separates") is not None]
+        unjudged = [n for n, r in rows.items()
+                    if r.get("separates") is None
+                    and r.get("applicable") is not False]
+        if sep:
+            out.append(f"  overall: the {function} stands apart from the "
+                       f"{other} on {', '.join(sep)}")
+        elif measured:
+            out.append(f"  overall: no measured channel establishes "
+                       f"separation of the {function} from the {other}"
+                       + (f"; not checked: {', '.join(unjudged)}"
+                          if unjudged else ""))
+        else:
+            out.append("  overall: not checked -- "
+                       + ("no channel was measured" if rows
+                          else "no channel was requested"))
     for name, row in channels.items():
         if name.startswith("_") or not isinstance(row, dict):
             continue
