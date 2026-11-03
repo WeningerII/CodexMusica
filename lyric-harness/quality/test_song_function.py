@@ -1611,6 +1611,23 @@ def test_the_contrast_witness_names_its_words():
     check("the printed table names the words, with the key in brackets",
           any("shared rhyme: 'frame' (bridge) ~ 'frame', 'name' (verse)"
               "   [key EY M]" in l for l in lines), "\n".join(lines))
+    check("the printed table states the aggregate apart from any channel "
+          "(Don, #696)",
+          "  overall: the bridge stands apart from the verse on bars, "
+          "line_count, line_length" in lines, "\n".join(lines))
+    row2 = G.contrast_lines(_row(["day", "roam", "sea", "free"])[2])
+    check("row 2: nothing separates, and the aggregate says so",
+          "  overall: no measured channel sets the bridge apart from the "
+          "verse" in row2, "\n".join(row2))
+    both = copy.deepcopy(unread)
+    both["lines"][12]["text"] = "no line, no bar, no fixed qqzzk"
+    lines_both = G.contrast_lines(G.bridge_contrast(
+        G.song_from_blueprint(both)[0], rhyme_key=key)[2])
+    check("no 'not checked -- not checked' stutter (Don's nit, #696)",
+          not any("not checked -- not checked" in l for l in lines_both)
+          and any(l.split()[:4] == ["rhyme_inventory", "not", "checked:",
+                                    "end"] for l in lines_both),
+          "\n".join(lines_both))
     check("the printed table names the unread word",
           any("coverage partial: not read: 'zzqvx'" in l for l in lines),
           "\n".join(lines))
@@ -1628,7 +1645,9 @@ def test_the_contrast_witness_names_its_words():
         cwd=ROOT, capture_output=True, text=True, timeout=600).stdout
     check("the CLI `function` verb prints the contrast table and the words",
           "contrast: the bridge against the verse" in out
-          and "shared rhyme: 'name' (bridge) ~ 'frame', 'name' (verse)" in out,
+          and "shared rhyme: 'name' (bridge) ~ 'frame', 'name' (verse)" in out
+          and "overall: the bridge stands apart from the verse on bars, "
+              "line_count, line_length" in out,
           out[-1500:])
 
 

@@ -3555,6 +3555,15 @@ def contrast_lines(channels, function="bridge", against=("verse",)):
            f"(separates: yes / no / not checked / not applicable)"]
     if channels.get("_outcome"):
         out.append(f"  {channels['_outcome']}")
+    elif "_separating" in channels:
+        # THE AGGREGATE, kept apart from any one channel (Don's review of
+        # #696): one channel's "no" is not the verdict, and on a song where
+        # another channel separates no finding is raised to say so.
+        sep = channels["_separating"]
+        out.append(f"  overall: the {function} stands apart from the "
+                   f"{other} on {', '.join(sep)}" if sep else
+                   f"  overall: no measured channel sets the {function} "
+                   f"apart from the {other}")
     for name, row in channels.items():
         if name.startswith("_") or not isinstance(row, dict):
             continue
@@ -3565,7 +3574,14 @@ def contrast_lines(channels, function="bridge", against=("verse",)):
         else:
             verdict = "yes" if row["separates"] else "no"
         why = row.get("why")
-        out.append(f"  {name:<16} {verdict}" + (f" -- {why}" if why else ""))
+        if why and why.startswith(verdict):
+            # The reason already opens with the verdict ("not checked: end
+            # words not read ..."); print it once, not "not checked -- not
+            # checked: ..." (Don's nit on #696).
+            out.append(f"  {name:<16} {why}")
+        else:
+            out.append(f"  {name:<16} {verdict}"
+                       + (f" -- {why}" if why else ""))
         for sw in row.get("shared_words") or ():
             b = ", ".join(f"'{w}'" for w in sw["bridge"])
             a = ", ".join(f"'{w}'" for w in sw["against"])
