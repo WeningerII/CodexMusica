@@ -257,7 +257,7 @@ export function registerTools(server) {
     {
       title: 'Search prefaces (intent → preface id)',
       description:
-        'Search the named prefaces (aesthetic/technique/delivery signatures: satirical, keening, brooding, …) by mood/feel words. ' +
+        "Search the named prefaces (aesthetic, technique or delivery signatures) by mood/feel words from the user's request. " +
         "Ranked like search_catalog: an exact id first, then words in an id, then the preface's note, then its tokens. Reach " +
         'for this whenever the user says ANY stylistic adjective — then realize the winning id on each relevant instrument via ' +
         'edit_recipe set_preface. Any preface can target any instrument. A word with no preface hit may name gear or a space ' +
