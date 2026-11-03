@@ -14,7 +14,9 @@ every surface:
      round numbers 16, 24 and 32 in particular. Zero occurrences is not the
      claim; "no more than chance" is.
   2. FORM. Each surface's documented default: `open` for `make_plan` and the
-     connector, `verse-chorus` for the raw CLI `plan` and `finish`. Pinning
+     connector, `verse-chorus` for the raw CLI `plan` and `finish`. The
+     Python and CLI paths are executed here; the connector's argv is executed
+     by `mcp/test.mjs` and only its source is read here. Pinning
      the CLI default protects the current documented contract; it does not
      endorse it (whether it should change is John's policy call).
   3. FREQUENCY. D6 on #519: no system-chosen word reaches the draft. With
@@ -35,6 +37,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest import mock
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -50,8 +53,10 @@ from quality import plan as P  # noqa: E402
 SEEDS = range(1, 601)
 ROUND_NUMBERS = (16, 24, 32)
 #: Per value, uniform over ~460 values at 600 draws expects ~1.3. A count of
-#: 9 or more at any one value has probability ~1e-5 per value under
-#: uniform, ~0.005 over the whole domain: a hit means mass, not chance.
+#: 9 or more at any one value has probability ~1e-5 per value under uniform,
+#: ~0.005 over the whole domain. So a hit is strong evidence of mass, not
+#: proof: these are fixed-seed regression checks with a stated false-alarm
+#: rate, and passing them does not show every possible length bias is absent.
 MAX_PER_VALUE = 8
 #: Eight equal-width bins over the domain; each bin's observed share must lie
 #: within 4 binomial standard deviations of its expected share.
@@ -77,11 +82,45 @@ class LengthDomain(unittest.TestCase):
         self.assertEqual(P.form_min_sections("verse-chorus"), 3)
 
     def test_domain_recomputed_independently(self):
+        # A restatement over the LIVE calibration: it catches the helper and
+        # its inputs drifting apart, but it shares the helper's predicate, so
+        # it is not the independent oracle. That is the next test.
         stanza = P.stanza_line_floor()
         song = P.song_line_counts()
         for form, need in (("open", 0), ("verse-chorus", 3)):
             mine = {t for t in song if t >= 2 and max(1, t // stanza) >= need}
             self.assertEqual(set(P.fillable_line_counts(form)), mine, form)
+
+    def test_controlled_calibration_cases(self):
+        # THE INDEPENDENT ORACLE (#693, 3PO): the calibration inputs are
+        # replaced by small, explicit fixtures and every expected set below
+        # is worked by hand, not computed. Real calibration stays free to
+        # move; these pin the DERIVATION from inputs to fillable totals.
+        #   gradeable totals G, stanza floor s, form minimum sections m:
+        #   fillable = {t in G : t >= 2 and max(1, t // s) >= m}
+        cases = [
+            # G, s, open expected, verse-chorus expected (m = 3)
+            # s=4: 3*4 = 12 is the first verse-chorus total; 11 // 4 = 2.
+            ({1, 2, 3, 5, 8, 11, 12, 13, 20}, 4,
+             {2, 3, 5, 8, 11, 12, 13, 20}, {12, 13, 20}),
+            # s=3: 3*3 = 9 is the first; 8 // 3 = 2 falls short.
+            ({1, 2, 8, 9, 10}, 3, {2, 8, 9, 10}, {9, 10}),
+            # A hole in G stays a hole: 12 is absent, so verse-chorus starts
+            # at 13 even though 12 // 4 = 3.
+            ({2, 11, 13, 14}, 4, {2, 11, 13, 14}, {13, 14}),
+            # s=1: every t >= 3 holds three one-line cells; 2 does not, and
+            # 1 is never fillable (a group is two lines).
+            ({1, 2, 3, 4}, 1, {2, 3, 4}, {3, 4}),
+        ]
+        for song, stanza, want_open, want_vc in cases:
+            with mock.patch.object(P, "song_line_counts",
+                                   return_value=frozenset(song)), \
+                    mock.patch.object(P, "stanza_line_floor",
+                                      return_value=stanza):
+                self.assertEqual(set(P.fillable_line_counts("open")),
+                                 want_open, (sorted(song), stanza, "open"))
+                self.assertEqual(set(P.fillable_line_counts("verse-chorus")),
+                                 want_vc, (sorted(song), stanza, "vc"))
 
     def test_hand_checked_edges(self):
         stanza = P.stanza_line_floor()
@@ -163,12 +202,21 @@ class FormDefaults(unittest.TestCase):
         self.assertEqual(P.DEFAULT_FORM, "open")
         self.assertEqual(P.make_plan(1)["request"]["form"], "open")
 
-    def test_connector_defaults_to_open(self):
-        # The connector and website pass `--form=${a.form || DEFAULT_FORM}`
-        # explicitly; the constant they read is `lyric_workflow.js`'s.
-        src = open(os.path.join(ROOT, "..", "mcp", "lyric_workflow.js"),
-                   encoding="utf-8").read()
-        self.assertRegex(src, r"export const DEFAULT_FORM = 'open';")
+    def test_connector_source_sends_open(self):
+        # SOURCE-ONLY, and labelled so. What the connector EXECUTES is pinned
+        # in JavaScript, not here: `mcp/test.mjs` (the `planArgs` check, at
+        # about lines 1211-1217) runs `planArgs({seed: 7})` and gets
+        # `--form=open`, and gets `--form=verse-chorus` when one is named.
+        # This file only reads the constant those argv builders use, and the
+        # sweep handler's own line: `lyric_sweep` builds its argv inline
+        # rather than through `planArgs`, and no executed test covers its
+        # omitted-form path, so that path stays a source-only check.
+        mcp = os.path.join(ROOT, "..", "mcp")
+        with open(os.path.join(mcp, "lyric_workflow.js"), encoding="utf-8") as fh:
+            self.assertRegex(fh.read(), r"export const DEFAULT_FORM = 'open';")
+        with open(os.path.join(mcp, "lyric_tools.js"), encoding="utf-8") as fh:
+            tools = fh.read()
+        self.assertIn("args.push(`--form=${a.form || DEFAULT_FORM}`);", tools)
 
     def _cli(self, *args):
         r = subprocess.run([sys.executable, "-B",
