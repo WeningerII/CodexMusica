@@ -242,7 +242,7 @@ legacy v1 state rows or their fingerprints.
   pieces under both cuts, retains its interpretation. Valid only under v1
   rebinds by exact raw pieces with a notice, or refuses if v2 splits the token.
   Neither matching refuses.
-- **The unmarked-voices limitation applies.** An unmarked row does
+- **Unmarked rows do not record voices.** An unmarked row does
   not say whether its producer sang parentheses. The guard compares v1/v2
   under the requested voices setting, not all four coordinates. Marked rows
   preserve their originating voices coordinate; an unsung target refuses.
