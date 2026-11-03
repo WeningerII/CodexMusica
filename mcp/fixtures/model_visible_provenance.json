@@ -134,7 +134,8 @@
         },
         {
           "file": "mcp/task_contract.js",
-          "as": "value"
+          "as": "value",
+          "field": "TASK_DOMAINS"
         }
       ],
       "reason": "A field of the tool's own verdict or result (`recipe`), named so the model reads it."
@@ -240,7 +241,8 @@
       "declared_in": [
         {
           "file": "mcp/lyric_tools.js",
-          "as": "value"
+          "as": "value",
+          "field": "measurement_status"
         }
       ],
       "reason": "A value of the verdict's measurement_status field."
@@ -258,8 +260,9 @@
       ],
       "declared_in": [
         {
-          "file": "lyric-harness/lyric_harness.py",
-          "as": "value"
+          "file": "mcp/lyric_workflow.js",
+          "as": "value",
+          "field": "narrative"
         }
       ],
       "reason": "The value that silences the narrative layer; a declaration, not an example."
@@ -291,7 +294,8 @@
       "declared_in": [
         {
           "file": "mcp/chat.js",
-          "as": "value"
+          "as": "value",
+          "field": "phases"
         }
       ],
       "reason": "A value of the active task's `phase`, chosen by the host and echoed to the chat model as JSON."
@@ -304,7 +308,8 @@
       "declared_in": [
         {
           "file": "mcp/task_contract.js",
-          "as": "value"
+          "as": "value",
+          "field": "TASK_DOMAINS"
         }
       ],
       "reason": "A value of the active task's `domain`, chosen by the host and echoed to the chat model as JSON."

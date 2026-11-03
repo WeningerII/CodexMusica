@@ -56,6 +56,12 @@
 // ban phrasing and #629's exact literals. An unframed, unquoted sentence that
 // carries a theme is NOT caught; the source diff is where that is seen.
 //
+// A `field-or-value` row names its declaring file, its role there, and for a
+// value the field it is a value OF; the test finds the literal in that file
+// in that role. A reviewer still judges whether that occurrence really is the
+// field: a source file can hold demo or example strings that happen to sit
+// near a field name.
+//
 // PROVENANCE_PRINT=1 prints a row skeleton (literal, at, contexts) for every
 // uncovered occurrence (PROVENANCE_PRINT=<file> writes them there), so a
 // reviewer sees exactly what a new row would admit.
@@ -371,7 +377,7 @@ function wordListViolations(list, registry) {
 // a word quoted somewhere in the codebase — a fixture's "love", a test's
 // "river" — is not evidence that it is a field.
 const ROOT = new URL('../', import.meta.url);
-function declaredIn(lit, { file, as }) {
+function declaredIn(lit, { file, as, field }) {
   if (typeof file !== 'string' || !/^(?:mcp|lyric-harness)\/[\w./-]+\.(?:js|mjs|py)$/.test(file))
     return `declared_in names no source file (${JSON.stringify(file)})`;
   if (/(?:^|\/)test_[^/]*$/.test(file)) return `declared_in names a test file (${file})`;
@@ -392,7 +398,19 @@ function declaredIn(lit, { file, as }) {
         ? new RegExp(`(?:===?|!==?|:|=|\\bin\\s*\\[|,|\\[)\\s*(['"])${e}\\1`)
         : null;
   if (!re) return `declared_in.as is ${JSON.stringify(as)}, not key or value`;
-  return re.test(src) ? null : `is not declared as a ${as} in ${file}`;
+  if (as !== 'value') return re.test(src) ? null : `is not declared as a ${as} in ${file}`;
+  // A value is checked as a value OF a named field: the quoted literal must
+  // sit on, or within a few lines after, a line naming that field. Without
+  // it, a file's demo strings ("rain", "day" in lyric_harness.py) qualified.
+  if (typeof field !== 'string' || !/^[A-Za-z_][\w.]*$/.test(field))
+    return `declared_in names no field for the value (as: "value" needs field)`;
+  const lines = src.split('\n');
+  const fieldRe = new RegExp(`\\b${field.replace(/[.]/g, '\\.')}\\b`);
+  for (let i = 0; i < lines.length; i++) {
+    if (!re.test(lines[i])) continue;
+    for (let j = Math.max(0, i - 8); j <= i; j++) if (fieldRe.test(lines[j])) return null;
+  }
+  return `is not declared as a value of ${field} in ${file}`;
 }
 
 const CATEGORIES = new Set([
@@ -615,7 +633,11 @@ test('a word quoted in a test fixture is not a declared field', () => {
   for (const [declared, why] of [
     [[{ file: 'lyric-harness/quality/test_relations.py', as: 'value' }], 'names a test file'],
     [[{ file: 'mcp/lyric_tools.js', as: 'key' }], 'is not declared as a key'],
-    [[{ file: 'mcp/lyric_tools.js', as: 'value' }], 'is not declared as a value'],
+    [[{ file: 'mcp/lyric_tools.js', as: 'value' }], 'needs field'],
+    [
+      [{ file: 'mcp/lyric_tools.js', as: 'value', field: 'measurement_status' }],
+      'is not declared as a value of measurement_status',
+    ],
     [[], 'names no declaring source'],
   ]) {
     const registry = { entries: [...REGISTRY.entries, row(declared)] };
@@ -623,6 +645,41 @@ test('a word quoted in a test fixture is not a declared field', () => {
     const problems = registryProblems([...strings, ...corpus], registry);
     assert.ok(
       problems.some((x) => x.startsWith('"love"') && x.includes(why)),
+      `${JSON.stringify(declared)}: expected "${why}" in ${problems}`
+    );
+  }
+});
+
+test('a demo string in a declaring file is not a value of a named field', () => {
+  // Jony's residual (#688): lyric_harness.py quotes demo and rhyme words
+  // ("rain", "day"). As a bare value they matched; as a value OF a named field
+  // they must sit beside that field, and they do not.
+  const corpus = [
+    {
+      surface: 'synthetic',
+      where: 'lyric_plan description',
+      text: 'The song must concern "rain".',
+    },
+  ];
+  const row = (declared_in) => ({
+    literal: 'rain',
+    category: 'field-or-value',
+    reason: 'An attempt to admit a theme from a demo string in a source file.',
+    at: ['lyric_plan description'],
+    contexts: ['The song must concern "rain".'],
+    declared_in,
+  });
+  for (const [declared, why] of [
+    [[{ file: 'lyric-harness/lyric_harness.py', as: 'value' }], 'needs field'],
+    [
+      [{ file: 'lyric-harness/lyric_harness.py', as: 'value', field: 'measurement_status' }],
+      'is not declared as a value of measurement_status',
+    ],
+  ]) {
+    const registry = { entries: [...REGISTRY.entries, row(declared)] };
+    const problems = registryProblems([...strings, ...corpus], registry);
+    assert.ok(
+      problems.some((x) => x.startsWith('"rain"') && x.includes(why)),
       `${JSON.stringify(declared)}: expected "${why}" in ${problems}`
     );
   }
