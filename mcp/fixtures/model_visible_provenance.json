@@ -92,6 +92,21 @@
       "reason": "An optional member of the blueprint JSON shape the description spells out."
     },
     {
+      "literal": "browse",
+      "category": "field-or-value",
+      "reason": "A value of the active task's `phase`, chosen by the host and echoed to the chat model as JSON."
+    },
+    {
+      "literal": "customize",
+      "category": "field-or-value",
+      "reason": "A value of the active task's `phase`, chosen by the host and echoed to the chat model as JSON."
+    },
+    {
+      "literal": "lyrics",
+      "category": "field-or-value",
+      "reason": "A value of the active task's `domain`, chosen by the host and echoed to the chat model as JSON."
+    },
+    {
       "literal": "record the whole thing in X",
       "category": "placeholder",
       "reason": "A request shape with its space left as the placeholder X: it says set_environment takes one edit, and names no space."
@@ -140,18 +155,21 @@
     },
     {
       "literal": "satirical",
-      "category": "catalog-id",
-      "reason": "A real preface id, listed to show what a preface is. Pre-existing (0af50f9684, before #629). Kept by this test only as a catalog id; whether it should stay is put to review on the PR, because they are mood words."
+      "category": "pending-removal",
+      "reason": "A real preface id in search_prefaces's description, from before #629 (0af50f9684). Mood words of the class #629 removed from that tool's field; the team agreed (#688 review) to remove them in a small #671 text PR. Admitted only until then.",
+      "tracked": "#671"
     },
     {
       "literal": "keening",
-      "category": "catalog-id",
-      "reason": "A real preface id, listed to show what a preface is. Pre-existing (0af50f9684, before #629). Kept by this test only as a catalog id; whether it should stay is put to review on the PR, because they are mood words."
+      "category": "pending-removal",
+      "reason": "A real preface id in search_prefaces's description, from before #629 (0af50f9684). Mood words of the class #629 removed from that tool's field; the team agreed (#688 review) to remove them in a small #671 text PR. Admitted only until then.",
+      "tracked": "#671"
     },
     {
       "literal": "brooding",
-      "category": "catalog-id",
-      "reason": "A real preface id, listed to show what a preface is. Pre-existing (0af50f9684, before #629). Kept by this test only as a catalog id; whether it should stay is put to review on the PR, because they are mood words."
+      "category": "pending-removal",
+      "reason": "A real preface id in search_prefaces's description, from before #629 (0af50f9684). Mood words of the class #629 removed from that tool's field; the team agreed (#688 review) to remove them in a small #671 text PR. Admitted only until then.",
+      "tracked": "#671"
     }
   ]
 }

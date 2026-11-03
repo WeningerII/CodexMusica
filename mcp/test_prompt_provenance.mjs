@@ -190,16 +190,41 @@ const unique = () => {
 const rows = (category) => REGISTRY.entries.filter((e) => e.category === category);
 
 // A quoted literal: "…", '…' or `…`, where a single quote is not an apostrophe
-// (no letter immediately outside it).
-const QUOTED = /"([^"\n]{1,80})"|(?<![A-Za-z])'([^'\n]{1,80})'(?![A-Za-z])|`([^`\n]{1,80})`/g;
+// (no letter immediately outside it). No length cap: a long quoted passage is
+// exactly the kind of text this rule exists to see.
+const QUOTED = /"([^"\n]+)"|(?<![A-Za-z])'([^'\n]+)'(?![A-Za-z])|`([^`\n]+)`/g;
+
+// Is `lit` a KEY in JSON shown to the model? A key is followed by ':' or is a
+// member of a key-list shape ({"a","b"}). A JSON VALUE is never mechanical by
+// position: a worked example's values are where a theme would sit.
+function jsonKey(lit, text) {
+  if (text.includes(`"${lit}":`)) return true;
+  const q = `"${lit}"`;
+  for (let i = text.indexOf(q); i >= 0; i = text.indexOf(q, i + 1)) {
+    const before = text[i - 1];
+    const after = text[i + q.length];
+    if (!'{,'.includes(before) || !',}'.includes(after)) continue;
+    // The innermost open bracket decides: inside [...] it is an array value.
+    let depth = 0;
+    for (let j = i - 1; j >= 0; j--) {
+      const c = text[j];
+      if (c === '}' || c === ']') depth++;
+      else if (c === '{' || c === '[') {
+        if (depth === 0) {
+          if (c === '{') return true;
+          break;
+        }
+        depth--;
+      }
+    }
+  }
+  return false;
+}
 const PLACEHOLDER = /<[^<>]+>|\b[A-Z]\b|…/;
 const mechanical = (lit, text = '') =>
   vocabulary.has(lit) ||
   /^[a-z][a-z0-9]*(?:[_.][a-z0-9]+)+(?:: true)?$/.test(lit) || // a field: snake_case or dotted
-  text.includes(`"${lit}":`) || // a key in JSON shown to the model
-  text.includes(`:"${lit}"`) || // a value in JSON shown to the model
-  text.includes(`{"${lit}"`) || // a member of a JSON shape shown to the model
-  text.includes(`,"${lit}"`) ||
+  jsonKey(lit, text) ||
   /^[A-Z][A-Z0-9_]+$/.test(lit) || // a CODE
   !/[a-z]{3,}/.test(lit) || // no word in it: '4/4', '=', '#', '<id>'
   (PLACEHOLDER.test(lit) && lit.split(/[^a-z]+/).every((w) => w.length < 3 || vocabulary.has(w)));
@@ -282,7 +307,7 @@ test('2. every quoted literal is mechanical or reviewed', () => {
 });
 
 test('3. an unquoted "a, b, c, …" list of words is reviewed', () => {
-  const ok = rows('catalog-id').map((e) => e.literal);
+  const ok = rows('pending-removal').map((e) => e.literal);
   const bad = [];
   for (const s of unique())
     for (const m of s.text.matchAll(WORD_LIST)) {
@@ -310,7 +335,7 @@ test('5. a stated default form is DEFAULT_FORM, and that is open', () => {
     'the undeclared form must be open (no unrequested verse-chorus)'
   );
   const re = new RegExp(
-    `\\bdefault:?\\s+(${PLAN_FORMS.map((f) => f.replace('-', '\\-')).join('|')})\\b`,
+    `\\bdefaults?(?:\\s+(?:form\\s+)?(?:is|to|of))?:?\\s+[\x60'"]?(${PLAN_FORMS.map((f) => f.replace('-', '\\-')).join('|')})\\b`,
     'gi'
   );
   const said = [];
@@ -338,7 +363,7 @@ test('the reviewed list is closed, checkable and current', () => {
     'framing',
     'field-or-value',
     'placeholder',
-    'catalog-id',
+    'pending-removal',
     'quoted-check',
   ]);
   const all = unique().map((s) => s.text);
@@ -362,8 +387,13 @@ test('the reviewed list is closed, checkable and current', () => {
       assert.match(e.literal, /^[a-z_][a-z0-9_.]*$/, `${tag}: a field or value is an identifier`);
     if (e.category === 'placeholder')
       assert.ok(PLACEHOLDER.test(e.literal), `${tag}: a placeholder row holds no placeholder`);
-    if (e.category === 'catalog-id')
+    if (e.category === 'pending-removal') {
+      // Pre-existing text the team has decided should go, kept green only
+      // until the text PR removes it. It must be a real catalog id, and it
+      // must name where its removal is tracked.
       assert.ok(prefaces.has(e.literal), `${tag}: not a real catalog id`);
+      assert.match(String(e.tracked || ''), /^#\d+/, `${tag}: names no issue tracking its removal`);
+    }
     if (e.category === 'quoted-check') {
       // A phrase the engine quotes to name one of its own checks or failure
       // modes: it must sit beside the code or field it explains, in the same
