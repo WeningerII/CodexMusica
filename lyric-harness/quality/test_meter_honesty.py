@@ -192,6 +192,15 @@ class MeterHonesty(unittest.TestCase):
             self.lex, "lovin'", ["L", "AH1", "V", "IH0", "Z"], False),
             ("unclassified", {}))
 
+    def test_both_dropped_g_routes_name_one_rule(self):
+        # Jony (#686 nit): the reduced-variant route (lovin') and the
+        # fallback route (everythin') spell the rule the same way.
+        e = self.one("lovin' everythin'", "/./.")
+        rules = {w["word"]: w.get("detail", {}).get("rule")
+                 for w in e["words"]}
+        self.assertEqual(rules, {"lovin'": "dropped g (-in')",
+                                 "everythin'": "dropped g (-in')"})
+
     def test_basis_is_not_shared_between_entries(self):
         a, b = lh.check_meter(self.lex, ["away", "release"], "./")
         a["basis"]["stress"] = "mutated"
