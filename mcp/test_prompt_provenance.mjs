@@ -66,7 +66,7 @@
 
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
@@ -364,23 +364,36 @@ function wordListViolations(list, registry) {
   return bad;
 }
 
-// Where a field or value is declared: the code that produces what the model
-// is told to read. A row in this category must name something declared here.
-const SOURCES = (() => {
-  const read = (dir, re) =>
-    readdirSync(new URL(dir, import.meta.url))
-      .filter((f) => re.test(f))
-      .map((f) => readFileSync(new URL(dir + f, import.meta.url), 'utf8'));
-  return [
-    ...read('./', /\.js$/),
-    ...read('../lyric-harness/', /^lyric_harness\.py$/),
-    ...read('../lyric-harness/quality/', /\.py$/),
-  ].join('\n');
-})();
-const declared = (lit) => {
+// Where a field or value is declared. A row names the file that produces the
+// field (`declared_in: [{file, as}]`) and the role it has there: `key` (an
+// object or dict key, or an assigned property) or `value` (a compared,
+// assigned or enumerated string). Only that file is read, never a test file:
+// a word quoted somewhere in the codebase — a fixture's "love", a test's
+// "river" — is not evidence that it is a field.
+const ROOT = new URL('../', import.meta.url);
+function declaredIn(lit, { file, as }) {
+  if (typeof file !== 'string' || !/^(?:mcp|lyric-harness)\/[\w./-]+\.(?:js|mjs|py)$/.test(file))
+    return `declared_in names no source file (${JSON.stringify(file)})`;
+  if (/(?:^|\/)test_[^/]*$/.test(file)) return `declared_in names a test file (${file})`;
+  let src;
+  try {
+    src = readFileSync(new URL(file, ROOT), 'utf8');
+  } catch {
+    return `declared_in names a missing file (${file})`;
+  }
   const e = lit.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  return new RegExp(`['"\`]${e}['"\`]|(?:^|[\\s{,])${e}\\s*:`, 'm').test(SOURCES);
-};
+  const re =
+    as === 'key'
+      ? new RegExp(
+          `(['"])${e}\\1\\s*:|(?:^|[\\s{,])${e}\\s*:(?!:)|\\.${e}\\s*=(?!=)|\\[(['"])${e}\\2\\]\\s*=(?!=)`,
+          'm'
+        )
+      : as === 'value'
+        ? new RegExp(`(?:===?|!==?|:|=|\\bin\\s*\\[|,|\\[)\\s*(['"])${e}\\1`)
+        : null;
+  if (!re) return `declared_in.as is ${JSON.stringify(as)}, not key or value`;
+  return re.test(src) ? null : `is not declared as a ${as} in ${file}`;
+}
 
 const CATEGORIES = new Set([
   'framing',
@@ -415,8 +428,12 @@ function registryProblems(list, registry) {
       fail('a framing row holds no placeholder');
     if (e.category === 'field-or-value') {
       if (!/^[a-z_][a-z0-9_.]*$/.test(e.literal)) fail('a field or value is an identifier');
-      else if (!declared(e.literal))
-        fail('is not declared as a field or value in the code that produces it');
+      const where = Array.isArray(e.declared_in) ? e.declared_in : [];
+      if (!where.length) fail('names no declaring source (`declared_in`)');
+      for (const d of where) {
+        const why = declaredIn(e.literal, d);
+        if (why) fail(why);
+      }
     }
     if (e.category === 'placeholder' && !PLACEHOLDER.test(e.literal))
       fail('a placeholder row holds no placeholder');
@@ -565,15 +582,50 @@ test('a field-or-value row must name something the code declares', () => {
     reason: 'An attempt to admit a theme as if it were a result field.',
     at: ['lyric_plan description'],
     contexts: ['The song must concern "lighthouses".'],
+    declared_in: [{ file: 'mcp/lyric_tools.js', as: 'key' }],
   };
   const registry = { entries: [...REGISTRY.entries, row] };
   assert.deepEqual(quotedViolations(corpus, registry), [], 'the row would cover it');
   assert.ok(
     registryProblems([...strings, ...corpus], registry).some(
-      (x) => x.startsWith('"lighthouses"') && x.includes('not declared')
+      (x) => x.startsWith('"lighthouses"') && x.includes('is not declared as a key')
     ),
     'but the row itself is refused'
   );
+});
+
+test('a word quoted in a test fixture is not a declared field', () => {
+  // `love` is quoted in the test suites (a fixture word), which a source-wide
+  // search would have taken as a declaration. Neither declaring file works.
+  const corpus = [
+    {
+      surface: 'synthetic',
+      where: 'lyric_plan description',
+      text: 'The song must concern "love".',
+    },
+  ];
+  const row = (declared_in) => ({
+    literal: 'love',
+    category: 'field-or-value',
+    reason: 'An attempt to admit a theme found in a test fixture.',
+    at: ['lyric_plan description'],
+    contexts: ['The song must concern "love".'],
+    declared_in,
+  });
+  for (const [declared, why] of [
+    [[{ file: 'lyric-harness/quality/test_relations.py', as: 'value' }], 'names a test file'],
+    [[{ file: 'mcp/lyric_tools.js', as: 'key' }], 'is not declared as a key'],
+    [[{ file: 'mcp/lyric_tools.js', as: 'value' }], 'is not declared as a value'],
+    [[], 'names no declaring source'],
+  ]) {
+    const registry = { entries: [...REGISTRY.entries, row(declared)] };
+    assert.deepEqual(quotedViolations(corpus, registry), [], 'the row would cover it');
+    const problems = registryProblems([...strings, ...corpus], registry);
+    assert.ok(
+      problems.some((x) => x.startsWith('"love"') && x.includes(why)),
+      `${JSON.stringify(declared)}: expected "${why}" in ${problems}`
+    );
+  }
 });
 
 test('a quoted check does not license the same phrase elsewhere', () => {

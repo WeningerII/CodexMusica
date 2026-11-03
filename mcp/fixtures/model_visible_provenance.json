@@ -18,6 +18,12 @@
         "other half of a revision round: read its `accepted`, not its exit code, and remember it is",
         "`targeted` to turn the third one on. READ `accepted`, NOT `exit_code`: this verb exits 0 for"
       ],
+      "declared_in": [
+        {
+          "file": "lyric-harness/lyric_harness.py",
+          "as": "key"
+        }
+      ],
       "reason": "A field of the tool's own verdict or result (`accepted`), named so the model reads it."
     },
     {
@@ -28,6 +34,12 @@
         "coverage was not certified (`coverage` and `certified` say which pairs went unjudged); when its",
         "`flags` and `whole_flags` for what stands, `certified` and `coverage` for whether every declared"
       ],
+      "declared_in": [
+        {
+          "file": "lyric-harness/lyric_harness.py",
+          "as": "key"
+        }
+      ],
       "reason": "A field of the tool's own verdict or result (`certified`), named so the model reads it."
     },
     {
@@ -37,6 +49,12 @@
       "contexts": [
         "flags standing or coverage incomplete. Read `flags` and `whole_flags` for what stands, `certified`"
       ],
+      "declared_in": [
+        {
+          "file": "lyric-harness/lyric_harness.py",
+          "as": "key"
+        }
+      ],
       "reason": "A field of the tool's own verdict or result (`flags`), named so the model reads it."
     },
     {
@@ -45,6 +63,12 @@
       "at": ["lyric_types description"],
       "contexts": [
         "lyric_screen reads (the verdict names it as `lexicon`). Taxonomy, not judgement — for bans use"
+      ],
+      "declared_in": [
+        {
+          "file": "lyric-harness/lyric_harness.py",
+          "as": "key"
+        }
       ],
       "reason": "A field of the tool's own verdict or result (`lexicon`), named so the model reads it."
     },
@@ -56,6 +80,12 @@
         "paste) — it hands back the sung `lines`, the `mandate` (groups/returns) numbered over them, and",
         "line number in the cover refers to, and `mandate`, the `groups` and `returns` strings numbered"
       ],
+      "declared_in": [
+        {
+          "file": "mcp/lyric_tools.js",
+          "as": "key"
+        }
+      ],
       "reason": "A field of the tool's own verdict or result (`mandate`), named so the model reads it."
     },
     {
@@ -64,6 +94,12 @@
       "at": ["lyric_verify description"],
       "contexts": [
         "change fixed and what it introduced (in `new`), and says nothing about a defect that"
+      ],
+      "declared_in": [
+        {
+          "file": "lyric-harness/lyric_harness.py",
+          "as": "key"
+        }
       ],
       "reason": "A field of the tool's own verdict or result (`new`), named so the model reads it."
     },
@@ -75,6 +111,12 @@
         "not defects. At exit 0 or 3 the verdict's `next` names the next call: send this exact draft,",
         "ask), and, after a grade at exit 0 or 3, `next` (the call that takes this exact draft on);"
       ],
+      "declared_in": [
+        {
+          "file": "mcp/verdict_view.js",
+          "as": "key"
+        }
+      ],
       "reason": "A field of the tool's own verdict or result (`next`), named so the model reads it."
     },
     {
@@ -85,6 +127,16 @@
         "word the user said, then present the final `recipe` string VERBATIM.",
         "ACTIVE TASK (chosen by the user and held by the host): {\"domain\":\"recipe\""
       ],
+      "declared_in": [
+        {
+          "file": "mcp/engine.js",
+          "as": "key"
+        },
+        {
+          "file": "mcp/task_contract.js",
+          "as": "value"
+        }
+      ],
       "reason": "A field of the tool's own verdict or result (`recipe`), named so the model reads it."
     },
     {
@@ -93,6 +145,12 @@
       "at": ["lyric_recover description"],
       "contexts": [
         "they grade the lines the mandate names. `refusals` lists each refused coordinate with its"
+      ],
+      "declared_in": [
+        {
+          "file": "lyric-harness/lyric_harness.py",
+          "as": "key"
+        }
       ],
       "reason": "A field of the tool's own verdict or result (`refusals`), named so the model reads it."
     },
@@ -103,6 +161,12 @@
       "contexts": [
         "matching some. A chain hit carries the `stage` that takes it. Arrangement and aesthetic"
       ],
+      "declared_in": [
+        {
+          "file": "mcp/engine.js",
+          "as": "key"
+        }
+      ],
       "reason": "A field of the tool's own verdict or result (`stage`), named so the model reads it."
     },
     {
@@ -111,6 +175,12 @@
       "at": ["lyric_revise description"],
       "contexts": [
         "FLAG(S) standing: a PARKED song either way; `status` says which of the two, and `loop_whole_flag_codes`"
+      ],
+      "declared_in": [
+        {
+          "file": "mcp/lyric_tools.js",
+          "as": "key"
+        }
       ],
       "reason": "A field of the tool's own verdict or result (`status`), named so the model reads it."
     },
@@ -121,6 +191,12 @@
       "contexts": [
         "reports its full `variant_count` and sets `truncated` when you are seeing a slice. Narrow it"
       ],
+      "declared_in": [
+        {
+          "file": "mcp/engine.js",
+          "as": "key"
+        }
+      ],
       "reason": "A field of the tool's own verdict or result (`truncated`), named so the model reads it."
     },
     {
@@ -129,6 +205,12 @@
       "at": ["lyric_check description"],
       "contexts": [
         "(coverage.refused_obligations names what was not), and `unreadable` (a count) with `unreadable_findings` (the"
+      ],
+      "declared_in": [
+        {
+          "file": "lyric-harness/lyric_harness.py",
+          "as": "key"
+        }
       ],
       "reason": "A field of the tool's own verdict or result (`unreadable`), named so the model reads it."
     },
@@ -140,6 +222,12 @@
         "meaning, certified, status and stop fields, `blocking` (what stands, one line each, and each line",
         "and a SHORT verdict: its status fields, `blocking` (one line per flag or banned pair standing,"
       ],
+      "declared_in": [
+        {
+          "file": "mcp/verdict_view.js",
+          "as": "key"
+        }
+      ],
       "reason": "A field of the tool's own verdict or result (`blocking`), named so the model reads it."
     },
     {
@@ -148,6 +236,12 @@
       "at": ["lyric_grade description"],
       "contexts": [
         "IT, NOT THE EXIT CODE: measurement_status \"graded\" means the draft was measured; certified"
+      ],
+      "declared_in": [
+        {
+          "file": "mcp/lyric_tools.js",
+          "as": "value"
+        }
       ],
       "reason": "A value of the verdict's measurement_status field."
     },
@@ -162,6 +256,12 @@
       "contexts": [
         "DEPART) and the junction each enters by. 'off' silences the layer. Or declare it: 'ATOM,ATOM/JUNCTION,ATOM/JUNCTION'"
       ],
+      "declared_in": [
+        {
+          "file": "lyric-harness/lyric_harness.py",
+          "as": "value"
+        }
+      ],
       "reason": "The value that silences the narrative layer; a declaration, not an example."
     },
     {
@@ -175,6 +275,12 @@
       "contexts": [
         "{\"sections\":[{\"name\",\"function\",\"bars\",\"start_bar\",\"meter\":{\"beats\",\"unit\",\"groups\":[…]}}],\"lines\":[{\"text\",\"bar\",\"beat\",\"duration\"}], optional \"title\", \"hooks\"}. With it the meter, song-function, hook"
       ],
+      "declared_in": [
+        {
+          "file": "lyric-harness/quality/grid.py",
+          "as": "key"
+        }
+      ],
       "reason": "An optional member of the blueprint JSON shape the description spells out."
     },
     {
@@ -182,6 +288,12 @@
       "category": "field-or-value",
       "at": ["systemInstruction"],
       "contexts": ["{\"domain\":\"recipe\",\"phase\":\"browse\"}"],
+      "declared_in": [
+        {
+          "file": "mcp/chat.js",
+          "as": "value"
+        }
+      ],
       "reason": "A value of the active task's `phase`, chosen by the host and echoed to the chat model as JSON."
     },
     {
@@ -189,6 +301,12 @@
       "category": "field-or-value",
       "at": ["systemInstruction"],
       "contexts": ["ACTIVE TASK (chosen by the user and held by the host): {\"domain\":\"lyrics\""],
+      "declared_in": [
+        {
+          "file": "mcp/task_contract.js",
+          "as": "value"
+        }
+      ],
       "reason": "A value of the active task's `domain`, chosen by the host and echoed to the chat model as JSON."
     },
     {
