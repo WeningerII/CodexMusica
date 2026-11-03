@@ -84,8 +84,44 @@ def test_every_scope():
           "channel (was True)", got[0] is None, str(got))
 
 
+def test_refusal_names_the_unread_word():
+    # #656 item 4: the declared-schema refusal said `unreadable: []` while the
+    # stream named `zzqvx` on both lines. The row names it now; the verdict
+    # (refused, not failed) is unchanged, and a readable pair still names none.
+    from quality.revise import Reviser
+    from quality.schemes import mandate
+    for schema in ("holorhyme", "incremental repetition"):
+        mk = lambda: mandate([["1", "2"]], n_lines=2,  # noqa: E731
+                             default_relation="schema:" + schema)
+        got = Reviser().grade(["the cat sat on the zzqvx today",
+                               "a dog ran in the zzqvx yard"], mk())
+        rows = got["refusals"]
+        check(f"{schema}: the refusal names the unread word",
+              [r["unreadable"] for r in rows] == [["zzqvx"]], str(rows))
+        check(f"{schema}: still refused, not failed",
+              not got["violations"])
+        got = Reviser().grade(["the cat sat on the soft rug today",
+                               "a dog ran in the wet green yard"], mk())
+        check(f"{schema}: a readable pair is judged and names nothing",
+              not got["refusals"] and bool(got["violations"]),
+              str(got["refusals"]))
+    # Jony (#687): a refusal the unread word did NOT cause names nothing --
+    # a placement or declaration refusal on a pair whose mid-line word is
+    # unread keeps `unreadable: []`.
+    for schema in ("epanalepsis", "monai"):
+        got = Reviser().grade(["the zzqvx cat sat by the door",
+                               "a dog ran by the floor"],
+                              mandate([["1", "2"]], n_lines=2,
+                                      default_relation="schema:" + schema))
+        rows = got["refusals"]
+        check(f"{schema}: refused for its own reason, names no unread word",
+              bool(rows) and all(r["unreadable"] == [] for r in rows),
+              str(rows)[:300])
+
+
 if __name__ == "__main__":
     test_every_scope()
+    test_refusal_names_the_unread_word()
     test_span_reader()
     test_symmetric_unknown()
     print("=" * 70)

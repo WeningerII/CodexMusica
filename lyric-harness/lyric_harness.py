@@ -5296,7 +5296,7 @@ def _reading_provenance(reader, piece, phones, is_oov):
             if q and q[-1] == "NG":
                 q[-1] = "N"
             if q == phones:
-                return "rule", {"rule": "dropped g", "from": w + "g"}
+                return "rule", {"rule": "dropped g (-in')", "from": w + "g"}
         if getattr(reader, "g2p_fallback", None) is not None:
             return "guessed", {}
     return "unclassified", {}
