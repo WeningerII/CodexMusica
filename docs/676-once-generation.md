@@ -28,6 +28,10 @@ functions remain capped at one, with one shared first slot and one shared last
 slot. Empty intervals, excessive boundary lower bounds, named lower bounds
 exceeding the total upper bound, and total lower bounds exceeding final upper
 capacity are proved contradictions.
+In particular, requesting both `sections.outro>=1` and `sections.coda>=1`
+is refused by the shared-boundary proof: together they require two sections
+in the single last slot. Proved refusals name the requested count atoms and
+the conflicting numerical bounds; bounded-search exhaustion remains inconclusive.
 
 A non-boundary once function's named lower bound above one lifts its default
 cap, including bridge. Otherwise the default once cap remains preferred. If the

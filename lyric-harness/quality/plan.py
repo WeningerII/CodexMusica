@@ -2867,6 +2867,7 @@ def _recurrence_policy(wants, roster=None):
     allowed = set(GENERATOR_ROSTER if roster is None else roster)
     intervals = {f: [0, inf if f in allowed else 0] for f in GENERATOR_ROSTER}
     total = [0, inf]
+    count_atoms = []
     for name, op, value in wants:
         if name == "sections":
             interval = total
@@ -2874,20 +2875,34 @@ def _recurrence_policy(wants, roster=None):
             interval = intervals[name[9:]]
         else:
             continue
+        count_atoms.append(f"{name}{op}{value}")
         n = int(value)
         if op in ("=", ">="):
             interval[0] = max(interval[0], n)
         if op in ("=", "<="):
             interval[1] = min(interval[1], n)
-    if any(lo > hi for lo, hi in [total, *intervals.values()]):
-        raise PlanRefused("section count intervals have an empty nonnegative intersection")
+    requested = "; ".join(count_atoms)
+    for name, (lo, hi) in [("sections", total), *(
+            (f"sections.{f}", bounds) for f, bounds in intervals.items())]:
+        if lo > hi:
+            absent = ("; the declared roster allows at most 0 of this function"
+                      if name.startswith("sections.") and name[9:] not in allowed else "")
+            raise PlanRefused(
+                f"{requested} can't be met: {name} requires at least {lo} and "
+                f"at most {hi} after applying nonnegative counts and roster limits{absent}")
     first, last = _edges()
     boundary = set(first) | set(last)
-    for edge in (first, last):
+    for position, edge in (("first", first), ("last", last)):
         if sum(intervals[f][0] for f in edge) > 1:
-            raise PlanRefused("section count lower bounds exceed a shared boundary slot")
+            raise PlanRefused(
+                f"{requested} can't be met: the shared {position} boundary slot "
+                f"allows at most 1 section; requested minimum is "
+                f"{sum(intervals[f][0] for f in edge)}")
     if sum(lo for lo, hi in intervals.values()) > total[1]:
-        raise PlanRefused("named section lower bounds exceed the total section upper bound")
+        raise PlanRefused(
+            f"{requested} can't be met: named counts require at least "
+            f"{sum(lo for lo, hi in intervals.values())} sections, "
+            f"but the total allows at most {total[1]}")
     once = {f for f in intervals if G.SECTION_FUNCTIONS[f].recurrence == "once"}
     lifted = {f: "named count lower bound" for f in once - boundary
               if intervals[f][0] > 1}
@@ -2911,7 +2926,10 @@ def _recurrence_policy(wants, roster=None):
         if intervals["bridge"][1] > 1:
             lifted["bridge"] = "total count lower bound after other once preferences"
     if total[0] > capacity():
-        raise PlanRefused("total section lower bound exceeds the declared roster's upper capacity")
+        raise PlanRefused(
+            f"{requested} can't be met: at least {total[0]} sections are required, "
+            f"but this roster and these caps allow at most {capacity()} sections "
+            "(upper capacity)")
     return lifted
 
 

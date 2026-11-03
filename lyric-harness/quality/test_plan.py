@@ -5352,6 +5352,41 @@ class OnceGeneration(unittest.TestCase):
         self.assertEqual(result['refusals'][0]['scope'], 'request')
         self.assertIn('upper capacity', result['refusals'][0]['reason'])
 
+    def test_proved_refusals_name_requested_atoms_and_bounds(self):
+        rows = [
+            (['verse', 'intro'], ['sections.intro=2'], ['first', 'at most 1', 'minimum is 2']),
+            (['verse', 'intro'], ['sections.intro>=2'], ['first', 'at most 1', 'minimum is 2']),
+            (['verse', 'outro', 'coda'], ['sections.outro>=1', 'sections.coda>=1'],
+             ['last', 'at most 1', 'minimum is 2']),
+            (['false_ending', 'reprise'], ['sections=4', 'sections.false_ending<=2', 'sections.reprise<=1'],
+             ['at least 4', 'at most 3']),
+            (['intro', 'outro', 'coda'], ['sections=3'], ['at least 3', 'at most 2']),
+            (['verse'], ['sections.reprise>=1'], ['sections.reprise', 'at least 1', 'at most 0', 'roster']),
+            (['verse', 'bridge'], ['sections.bridge>=2', 'sections.bridge<=1'],
+             ['sections.bridge', 'at least 2', 'at most 1']),
+            (['verse'], ['sections<=-1'], ['at least 0', 'at most -1', 'nonnegative']),
+            (['verse'], ['sections.verse=-1'], ['at least 0', 'at most -1', 'nonnegative']),
+            (['verse', 'reprise'], ['sections<=2', 'sections.verse>=2', 'sections.reprise>=1'],
+             ['at least 3', 'at most 2']),
+        ]
+        for roster, wants, details in rows:
+            with self.subTest(roster=roster, wants=wants):
+                with patch.object(PLN, '_sample_pattern', side_effect=AssertionError('proof before sampling')):
+                    with self.assertRaises(PLN.PlanRefused) as raised:
+                        make_plan(seed=11, lines=24, functions=roster, wants=wants)
+                message = str(raised.exception)
+                for text in wants + details:
+                    self.assertIn(text, message)
+                self.assertNotIn('bounded candidate draws', message)
+        # A huge permitted count is not a proved contradiction: retain the
+        # existing search limit and its explicitly inconclusive wording.
+        atom = 'sections.reprise>=99999999999999999999'
+        with self.assertRaises(PLN.PlanRefused) as raised:
+            make_plan(seed=1, lines=24, wants=[atom])
+        self.assertIn(atom, str(raised.exception))
+        self.assertIn('64 bounded candidate draws', str(raised.exception))
+        self.assertNotIn("can't be met", str(raised.exception))
+
     def test_large_integer_upper_bound_is_supported(self):
         # Accepted by the existing integer grammar and by pre-#676 planning.
         atom = f"sections.verse<={10**309}"
