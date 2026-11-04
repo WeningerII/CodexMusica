@@ -332,6 +332,16 @@
               }
             ]
           }
+        ],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
         ]
       }
     },
@@ -495,6 +505,16 @@
               }
             ]
           }
+        ],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
         ]
       }
     },
@@ -751,6 +771,16 @@
               }
             ]
           }
+        ],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
         ]
       }
     },
@@ -950,6 +980,16 @@
               }
             ]
           }
+        ],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
         ]
       }
     },
@@ -1225,6 +1265,16 @@
               }
             ]
           }
+        ],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
         ]
       }
     },
@@ -1430,6 +1480,16 @@
               }
             ]
           }
+        ],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
         ]
       }
     },
@@ -1582,6 +1642,16 @@
               }
             ]
           }
+        ],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
         ]
       }
     },
@@ -1681,6 +1751,16 @@
             "segmentation": "SW|SW|SW|S(W)",
             "surface": "SWSWSWS"
           }
+        ],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
         ]
       }
     },
@@ -1899,6 +1979,16 @@
               }
             ]
           }
+        ],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
         ]
       }
     },
@@ -1967,6 +2057,16 @@
             "policies_used": [],
             "reading_id": "D1-initial"
           }
+        ],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
         ]
       }
     },
@@ -2053,6 +2153,16 @@
             "policies_used": [],
             "reading_id": "DA3-noun2-device"
           }
+        ],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
         ]
       }
     },
@@ -2103,6 +2213,16 @@
             "policies_used": [],
             "reading_id": "DA4-expanded"
           }
+        ],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
         ]
       }
     },
@@ -2250,6 +2370,16 @@
               }
             ]
           }
+        ],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
         ]
       }
     },
@@ -2326,7 +2456,17 @@
       },
       "expected": {
         "status": "no_candidate_in_searched_space",
-        "candidates": []
+        "candidates": [],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
+        ]
       }
     },
     {
@@ -2414,6 +2554,16 @@
             ],
             "reading_id": "DA9-noun1"
           }
+        ],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
         ]
       }
     },
@@ -2518,6 +2668,16 @@
               }
             ]
           }
+        ],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
         ]
       }
     },
@@ -2744,6 +2904,16 @@
             "reading_id": "Liamb9",
             "segmentation": "WS|WS|WS|WS|WS|WS|WS|WS|WS"
           }
+        ],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
         ]
       }
     },
@@ -2992,6 +3162,16 @@
             "reading_id": "Liamb10",
             "segmentation": "WS|WS|WS|WS|WS|WS|WS|WS|WS|WS"
           }
+        ],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
         ]
       }
     },
@@ -3959,7 +4139,17 @@
       },
       "expected": {
         "status": "no_candidate_in_searched_space",
-        "candidates": []
+        "candidates": [],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
+        ]
       },
       "scope_limit": "The 37 mixed feet (WS|SW|WWS)*12|WS are not a supported family. No recognition claim follows from the prior flat-template receipt."
     },
@@ -3984,7 +4174,17 @@
       },
       "expected": {
         "status": "unsupported",
-        "candidates": []
+        "candidates": [],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
+        ]
       }
     },
     {
@@ -4012,7 +4212,17 @@
       },
       "expected": {
         "status": "unsupported",
-        "candidates": []
+        "candidates": [],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
+        ]
       }
     },
     {
@@ -4040,7 +4250,17 @@
       },
       "expected": {
         "status": "unsupported",
-        "candidates": []
+        "candidates": [],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
+        ]
       }
     },
     {
@@ -4064,7 +4284,17 @@
       },
       "expected": {
         "status": "unsupported",
-        "candidates": []
+        "candidates": [],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
+        ]
       }
     },
     {
@@ -4088,7 +4318,17 @@
       },
       "expected": {
         "status": "unsupported",
-        "candidates": []
+        "candidates": [],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
+        ]
       }
     },
     {
@@ -4124,7 +4364,17 @@
       },
       "expected": {
         "status": "unsupported",
-        "candidates": []
+        "candidates": [],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
+        ]
       }
     },
     {
@@ -4168,7 +4418,17 @@
       },
       "expected": {
         "status": "unsupported",
-        "candidates": []
+        "candidates": [],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
+        ]
       }
     },
     {
@@ -4231,6 +4491,16 @@
               "guessed: token 3"
             ]
           }
+        ],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
         ]
       }
     },
@@ -4293,7 +4563,17 @@
       },
       "expected": {
         "status": "no_candidate_in_searched_space",
-        "candidates": []
+        "candidates": [],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
+        ]
       }
     },
     {
@@ -4338,7 +4618,17 @@
         "status": "not_computed",
         "candidates": [],
         "prefix_agreeing": [],
-        "not_computed_reason": "no reliable prefix: alignment stops before token 1"
+        "not_computed_reason": "no reliable prefix: alignment stops before token 1",
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
+        ]
       }
     },
     {
@@ -4448,6 +4738,16 @@
             "surface": "SWWSWWS",
             "segmentation": "(W)SW|WSW|WS(W)"
           }
+        ],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
         ]
       }
     },
@@ -4536,6 +4836,16 @@
             "surface": "SWWSW",
             "segmentation": "SW|WS+W"
           }
+        ],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
         ]
       }
     },
@@ -4590,7 +4900,17 @@
       },
       "expected": {
         "status": "no_candidate_in_searched_space",
-        "candidates": []
+        "candidates": [],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
+        ]
       },
       "call": {
         "families": {
@@ -4601,6 +4921,13 @@
   ],
   "amendments": [
     "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6642971751",
-    "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6643037958"
+    "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6643037958",
+    "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6643123630"
+  ],
+  "open_fixture_gaps": [
+    "C1/C3 remain characterization pairs, not attested family positives; no C1-S or C3-S freeze is invented.",
+    "C2-U compatibility is a controlled-vector fact, not newly accepted independent family attestation.",
+    "No new dactylic attested positive; initial-truncation source acceptance does not itself change policy status.",
+    "Entire 203-ID inventory remains unsupported foundation until separately sequenced wiring and recheck."
   ]
 }
