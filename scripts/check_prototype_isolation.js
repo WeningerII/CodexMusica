@@ -223,6 +223,7 @@ const SHELL_DATA = new Set([
   '../library/data/catalog.json',
   '../library/data/artwork.json',
   '../library/data/collections.json',
+  '../library/data/methods.json',
 ]);
 // The one computed read: a collection file, by an id prototype/data.js has
 // checked against the collection-id pattern first (collectionFile()).
