@@ -62,6 +62,9 @@ function liveRegion(container) {
 function bindKeys(root, ci, handlers, opts) {
   const grid = (opts && opts.grid) || null;
   function onKey(ev) {
+    // A key something closer already handled, or one an input method is
+    // still composing, is not ours (#656 item 6).
+    if (ev.defaultPrevented || ev.isComposing) return;
     const t = ev.target;
     const tag = t.tagName;
     if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || t.isContentEditable) {
@@ -158,7 +161,9 @@ function cellShowsControl(doc, ci, checked, currentId, onChange, live) {
 
 // The phone bottom sheet around the inspector. Opening moves focus to its
 // heading; closing (the handle, or Esc inside it) returns focus to where it
-// came from. It is a non-modal region, so the poem stays reachable.
+// came from, or to the view's heading when that is gone or hidden. It is a
+// non-modal region, so the poem stays reachable: closing it while focus is
+// elsewhere (close(false)) leaves focus where it is (#656 item 6).
 function bottomSheet(container, title) {
   const doc = container.ownerDocument;
   const sheet = doc.createElement('section');
@@ -185,10 +190,14 @@ function bottomSheet(container, title) {
     handle.setAttribute('aria-expanded', 'true');
     heading.focus();
   }
-  function close() {
+  function close(restore = true) {
     body.hidden = true;
     handle.setAttribute('aria-expanded', 'false');
-    if (returnTo?.isConnected) returnTo.focus();
+    if (restore)
+      (returnTo?.isConnected && !returnTo.closest('[hidden]')
+        ? returnTo
+        : viewHeading(container)
+      )?.focus();
     returnTo = null;
   }
   handle.addEventListener('click', () => (body.hidden ? open(handle) : close()));
@@ -200,6 +209,14 @@ function bottomSheet(container, title) {
     }
   });
   return { el: sheet, body, open, close, isOpen: () => !body.hidden };
+}
+
+// The view's own heading, made focusable: where focus goes when the element
+// it should return to, or the one it was on, no longer exists.
+function viewHeading(root) {
+  const h = root?.querySelector(':scope>h2');
+  if (h) h.tabIndex = -1;
+  return h;
 }
 
 // What the live region says for a selection, from the model the views drew.
@@ -409,16 +426,22 @@ function mount(host, opts) {
       model.counts = model.countsFor(model.checkedMethods);
     draw(focusKey);
   }
-  function select(sel, { fromUrl, inspect } = {}) {
+  function select(sel, { fromUrl, inspect, keepFocus } = {}) {
     // Back to an address with nothing selected, while nothing is, changes
     // nothing and says nothing.
     if (fromUrl && !sel && !model.selection) return;
-    const key = ci.selectionKey(
-      sel || (narrow() && model.rowOccurrence && ci.occurrence(model.rowOccurrence))
-    );
+    // keepFocus: Esc on a control elsewhere in the view clears the selection
+    // without pulling focus to a word (#656 item 6); draw keeps the control.
+    const key = keepFocus
+      ? ''
+      : ci.selectionKey(
+          sel || (narrow() && model.rowOccurrence && ci.occurrence(model.rowOccurrence))
+        );
     const rowOccurrence =
       sel && sel.kind === 'occurrence' ? sel.entity_id : sel ? model.rowOccurrence : null;
     update({ selection: sel, rowOccurrence, notice: null }, key);
+    if (keepFocus && !stage.contains(doc.activeElement))
+      viewHeading(stage.firstElementChild)?.focus();
     if (!fromUrl) url.write(sel);
     // The address read at mount sets the selection without a word: nobody
     // has done anything yet.
@@ -463,8 +486,16 @@ function mount(host, opts) {
     stage,
     ci,
     {
-      clear: () =>
-        sheet?.isOpen() ? (sheet.close(), true) : !!model.selection && (select(null), true),
+      // One layer per press: an open sheet first, then the selection. Focus
+      // returns to the opener only when it was in the sheet; from anywhere
+      // else in the view it stays where it is (#656 item 6).
+      clear: () => {
+        const a = doc.activeElement;
+        return sheet?.isOpen()
+          ? (sheet.close(sheet.el.contains(a)), true)
+          : !!model.selection &&
+              (select(null, { keepFocus: !a.closest('[data-selection]') }), true);
+      },
       inspect: () => {
         const t = doc.activeElement && doc.activeElement.closest('[data-selection]');
         const sel = t && ci.selectionFromKey(t.dataset.selection);
