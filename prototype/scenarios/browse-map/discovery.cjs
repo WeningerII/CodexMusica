@@ -131,7 +131,11 @@ const server = http.createServer((req, res) => {
           s.focus();
         });
         await page.keyboard.press('ArrowRight');
-        await page.waitForFunction(() => document.querySelector('.discovery-shelf').scrollLeft > 0);
+        assert(
+          await page.evaluate(
+            () => document.activeElement === document.querySelectorAll('.discovery-card')[1]
+          )
+        );
         checks++;
         await page.locator('.discovery-card span').first().click();
         assert(
@@ -199,7 +203,7 @@ const server = http.createServer((req, res) => {
         await page.locator('[data-close]').click();
         assert(
           await page.evaluate(
-            () => document.activeElement === document.querySelector('.discovery-shelf')
+            () => document.activeElement === document.querySelector('.discovery-card[tabindex="0"]')
           )
         );
         checks++;
@@ -538,6 +542,202 @@ const server = http.createServer((req, res) => {
         assert.match(await page.evaluate(() => notices.at(-1)), /map is unavailable/);
         checks++;
         await page.evaluate(() => h.unmount());
+        // Explicitly synthetic full-size catalog; focused card and selected item are independent.
+        await page.evaluate(() => {
+          window.uxAbort = new AbortController();
+          window.uxNotices = [];
+          window.uxWrites = [];
+          window.uxRefuse = false;
+          window.uxItems = Object.freeze(
+            Array.from({ length: 7755 }, (_, n) =>
+              Object.freeze({
+                id: `large-${n}`,
+                name:
+                  n === 0
+                    ? 'Authoritative fixture family'
+                    : n === 1
+                      ? 'A long tradition name with enough words to span more than two lines on a small card'
+                      : `Large tradition ${n}`,
+                family: n === 2 ? 'missing_family' : 'large-0',
+                place:
+                  n === 1
+                    ? Object.freeze({
+                        lat: 0,
+                        lng: 0,
+                        label: 'Fixture place',
+                        region: 'Fixture region',
+                        provenance: Object.freeze({
+                          status: 'reviewed',
+                          method: 'model',
+                          on: '2026-11-04',
+                        }),
+                      })
+                    : null,
+              })
+            )
+          );
+          document.querySelector('#outside').focus();
+          window.uxHandle = mountDiscovery(document.querySelector('#host'), {
+            ...fixtureContext,
+            items: window.uxItems,
+            signal: window.uxAbort.signal,
+            announce: (text) => window.uxNotices.push(text),
+            storage: {
+              read: () => ({ ok: true, value: 'large-2' }),
+              write: (_name, value) => {
+                window.uxWrites.push(value);
+                return { ok: !window.uxRefuse };
+              },
+            },
+          });
+        });
+        assert.equal(await page.locator('.discovery-card').count(), 7755);
+        checks++;
+        assert.equal(await page.locator('.discovery-card[tabindex="0"]').count(), 1);
+        checks++;
+        assert.equal(await page.locator('.discovery-shelf').getAttribute('tabindex'), '-1');
+        checks++;
+        assert(
+          await page.evaluate(
+            () => document.activeElement.id === 'outside' && window.uxNotices.length === 0
+          )
+        );
+        checks++;
+        assert.equal(
+          await page.locator('.discovery-card[tabindex="0"]').textContent(),
+          'Large tradition 2'
+        );
+        checks++;
+        assert.equal(
+          await page.locator('[data-description]').textContent(),
+          'Family label unavailable (catalog ID: missing_family).'
+        );
+        checks++;
+        await page.evaluate(() => window.uxHandle.focus());
+        await page.keyboard.press('Home');
+        assert.equal(
+          await page.evaluate(() => document.activeElement.textContent),
+          'Authoritative fixture family'
+        );
+        checks++;
+        await page.keyboard.press('ArrowLeft');
+        assert.equal(
+          await page.evaluate(() => document.activeElement.textContent),
+          'Authoritative fixture family'
+        );
+        checks++;
+        assert.equal(
+          await page.locator('[aria-pressed="true"]').textContent(),
+          'Large tradition 2'
+        );
+        checks++;
+        await page.keyboard.press('End');
+        await page.keyboard.press('ArrowRight');
+        assert.equal(
+          await page.evaluate(() => document.activeElement.textContent),
+          'Large tradition 7754'
+        );
+        checks++;
+        assert.equal(await page.locator('.discovery-card[tabindex="0"]').count(), 1);
+        checks++;
+        await page.keyboard.press('Tab');
+        assert(await page.locator('[data-close]').evaluate((e) => e === document.activeElement));
+        checks++;
+        await page.keyboard.press('Shift+Tab');
+        assert.equal(
+          await page.evaluate(() => document.activeElement.textContent),
+          'Large tradition 7754'
+        );
+        checks++;
+        await page.keyboard.press('Enter');
+        assert.equal(
+          await page.locator('.discovery-detail h2').textContent(),
+          'Large tradition 7754'
+        );
+        checks++;
+        assert.equal(await page.evaluate(() => window.uxNotices.length), 1);
+        checks++;
+        assert.match(
+          await page.evaluate(() => window.uxNotices[0]),
+          /Large tradition 7754: No fixed origin/
+        );
+        checks++;
+        // Map-origin selection updates detail, not the roving focus; no command echo.
+        await page.evaluate(() => mapPick('large-1'));
+        assert.equal(
+          await page.evaluate(() => document.activeElement.textContent),
+          'Large tradition 7754'
+        );
+        checks++;
+        assert.equal(await page.evaluate(() => window.uxNotices.length), 2);
+        checks++;
+        assert.equal(
+          await page.locator('[data-description]').textContent(),
+          'Authoritative fixture family'
+        );
+        checks++;
+        assert.equal(
+          await page.locator('[data-provenance]').textContent(),
+          'Model reviewed location; not human verified. Review date: 2026-11-04.'
+        );
+        checks++;
+        assert.equal(
+          await page.locator('.discovery-detail h2').textContent(),
+          await page.evaluate(() => window.uxItems[1].name)
+        );
+        checks++;
+        assert.equal(
+          await page
+            .locator('.discovery-card span')
+            .nth(1)
+            .evaluate((e) => getComputedStyle(e).webkitLineClamp),
+          '2'
+        );
+        checks++;
+        // Actual keyboard selection of the long-name card exposes its full heading.
+        await page.keyboard.press('Home');
+        await page.keyboard.press('ArrowRight');
+        await page.keyboard.press('Enter');
+        assert.equal(
+          await page.locator('.discovery-detail h2').textContent(),
+          await page.evaluate(() => window.uxItems[1].name)
+        );
+        checks++;
+        assert(
+          (await page.getByRole('button', { name: 'Previous traditions', exact: true }).count()) ===
+            1
+        );
+        checks++;
+        assert(
+          (await page.getByRole('button', { name: 'Next traditions', exact: true }).count()) === 1
+        );
+        checks++;
+        // One informative announcement includes a refused save, without duplicate messages.
+        await page.evaluate(() => {
+          window.uxRefuse = true;
+          window.uxNotices = [];
+        });
+        await page.keyboard.press('ArrowRight');
+        await page.keyboard.press('Enter');
+        assert.equal(await page.evaluate(() => window.uxNotices.length), 1);
+        checks++;
+        assert.match(
+          await page.evaluate(() => window.uxNotices[0]),
+          /Large tradition 2: No fixed origin.*could not be saved/
+        );
+        checks++;
+        await page.evaluate(() => {
+          window.uxDetached = document.activeElement;
+          window.uxBefore = window.uxWrites.length;
+          window.uxAbort.abort();
+          window.uxHandle.focus();
+          window.uxDetached.click();
+          mapPick('large-3');
+        });
+        assert.equal(await page.locator('#host').innerHTML(), '');
+        checks++;
+        assert(await page.evaluate(() => window.uxWrites.length === window.uxBefore));
+        checks++;
         // Large default fonts must wrap controls rather than overflow the page.
         await page.evaluate(() => {
           window.h = mountDiscovery(document.querySelector('#host'), {

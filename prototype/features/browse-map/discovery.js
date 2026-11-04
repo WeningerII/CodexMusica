@@ -26,8 +26,8 @@ export function mount(host, ctx) {
   style.rel = 'stylesheet';
   style.href = new URL('./discovery.css', import.meta.url).href;
   root.innerHTML = `<p class="discovery-notice">Prototype discovery increment. Catalog and geographical map integration are pending.</p>
-    <div class="discovery-controls"><button type="button" data-step="-1" aria-label="Scroll traditions left">Previous</button><button type="button" data-step="1" aria-label="Scroll traditions right">Next</button></div>
-    <div class="discovery-shelf" tabindex="0" role="region" aria-label="Traditions, horizontally scrollable"><ul></ul></div>
+    <div class="discovery-controls"><button type="button" data-step="-1" aria-label="Previous traditions">Previous</button><button type="button" data-step="1" aria-label="Next traditions">Next</button></div>
+    <div class="discovery-shelf" tabindex="-1" role="region" aria-label="Traditions, horizontally scrollable"><ul></ul></div>
     <p class="discovery-empty" hidden>No traditions are available.</p>
     <section class="discovery-detail" aria-label="Selected tradition" hidden><h2 tabindex="-1"></h2><p data-description></p><p data-location></p><p data-provenance></p><button type="button" data-close>Close details</button></section>
     <div class="discovery-map" aria-label="Geographical map"></div>`;
@@ -42,6 +42,26 @@ export function mount(host, ctx) {
     dead = false,
     mapReady = false,
     unsubscribe = null;
+  const ids = [...records.keys()];
+  const indices = new Map(ids.map((id, index) => [id, index]));
+  let focusedIndex = 0;
+  function rove(index, moveFocus = false) {
+    if (dead || !ids.length) return;
+    buttons.get(ids[focusedIndex]).tabIndex = -1;
+    focusedIndex = Math.max(0, Math.min(ids.length - 1, index));
+    const button = buttons.get(ids[focusedIndex]);
+    button.tabIndex = 0;
+    if (moveFocus) {
+      button.focus({ preventScroll: true });
+      button.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'instant' });
+    }
+  }
+  function focusShelf() {
+    if (!dead) {
+      if (ids.length) rove(focusedIndex, true);
+      else shelf.focus();
+    }
+  }
   const listeners = [];
   const on = (target, type, fn) => {
     target.addEventListener(type, fn, { signal: ctx.signal });
@@ -50,11 +70,11 @@ export function mount(host, ctx) {
   function save(id) {
     if (dead) return;
     try {
-      if (ctx.storage.write('selection', id).ok) return;
+      if (ctx.storage.write('selection', id).ok) return '';
     } catch {
       /* Report refusals, including a throwing injected wrapper. */
     }
-    ctx.announce('Selection changed, but could not be saved.');
+    return 'Selection changed, but could not be saved.';
   }
   function syncMap() {
     if (dead || !mapReady) return;
@@ -62,23 +82,32 @@ export function mount(host, ctx) {
       if (selected !== null) ctx.map.select(selected);
       if (!dead) ctx.map.highlight(selected === null ? [] : [selected]);
     } catch {
-      if (!dead) ctx.announce('Map selection could not be updated. Browsing is still available.');
+      if (!dead) return 'Map selection could not be updated. Browsing is still available.';
     }
   }
   function select(id, source) {
     if (dead || (id !== null && !records.has(id))) return;
     if (id === selected) {
-      if (id !== null && source === 'card') detail.hidden = false;
+      if (id !== null && source === 'card' && detail.hidden) {
+        detail.hidden = false;
+        announceSelection(id, '');
+      }
       return;
     }
     if (source === 'map') opener = null;
+    if (selected !== null) buttons.get(selected).setAttribute('aria-pressed', 'false');
     selected = id;
-    for (const [key, button] of buttons) button.setAttribute('aria-pressed', String(key === id));
+    if (id !== null) buttons.get(id).setAttribute('aria-pressed', 'true');
+    if (source === 'restore' && id !== null) rove(indices.get(id));
     detail.hidden = id === null;
     if (id !== null) {
       const item = records.get(id);
       detail.querySelector('h2').textContent = item.name;
-      detail.querySelector('[data-description]').textContent = item.family || 'No family supplied.';
+      detail.querySelector('[data-description]').textContent = !item.family
+        ? 'No family supplied.'
+        : records.has(item.family)
+          ? records.get(item.family).name
+          : `Family label unavailable (catalog ID: ${item.family}).`;
       const place = item.place;
       detail.querySelector('[data-location]').textContent =
         place == null
@@ -96,25 +125,44 @@ export function mount(host, ctx) {
           unreviewed: 'Unreviewed location; not human verified.',
         };
         const status = Object.hasOwn(labels, review.status) ? review.status : 'unreviewed';
+        const redundant = new Set([
+          status,
+          status === 'reviewed' ? 'model' : status === 'verified' ? 'human' : '',
+        ]);
+        const method = typeof review.method === 'string' ? review.method.trim() : '';
         provenance.dataset.reviewStatus = status;
         provenance.textContent = [
           labels[status],
-          typeof review.method === 'string' && review.method ? `Method: ${review.method}.` : '',
+          method && !redundant.has(method.toLowerCase()) ? `Method: ${review.method}.` : '',
           typeof review.on === 'string' && review.on ? `Review date: ${review.on}.` : '',
         ]
           .filter(Boolean)
           .join(' ');
       }
     }
-    if (source !== 'map') syncMap();
+    let warning = '';
+    if (source !== 'map') warning = syncMap() || '';
     else if (mapReady && !dead) {
       try {
         ctx.map.highlight(id === null ? [] : [id]);
       } catch {
-        ctx.announce('Map highlight could not be updated.');
+        warning = 'Map highlight could not be updated.';
       }
     }
-    save(id);
+    warning = [warning, save(id)].filter(Boolean).join(' ');
+    if (!dead && source !== 'restore') announceSelection(id, warning);
+    else if (!dead && warning) ctx.announce(warning);
+  }
+  function announceSelection(id, warning) {
+    if (dead) return;
+    const item = records.get(id);
+    const location = item?.place
+      ? [item.place.label, item.place.region].filter(Boolean).join(', ')
+      : 'No fixed origin';
+    const message = item
+      ? `${item.name}: ${location}. ${detail.querySelector('[data-provenance]').textContent}`
+      : 'Selection cleared.';
+    ctx.announce([message, warning].filter(Boolean).join(' '));
   }
   for (const item of records.values()) {
     const li = doc.createElement('li');
@@ -122,6 +170,7 @@ export function mount(host, ctx) {
     button.type = 'button';
     button.className = 'discovery-card';
     button.title = item.name;
+    button.tabIndex = buttons.size === 0 ? 0 : -1;
     button.setAttribute('aria-pressed', 'false');
     const label = doc.createElement('span');
     label.textContent = item.name;
@@ -129,12 +178,15 @@ export function mount(host, ctx) {
     li.append(button);
     list.append(li);
     buttons.set(item.id, button);
+    on(button, 'focus', () => rove(indices.get(item.id)));
     on(button, 'click', () => {
+      rove(indices.get(item.id));
       opener = button;
       select(item.id, 'card');
     });
   }
   root.querySelector('.discovery-empty').hidden = items.length !== 0;
+  shelf.tabIndex = items.length ? -1 : 0;
   function edges() {
     if (dead) return;
     root.querySelector('[data-step="-1"]').disabled = shelf.scrollLeft <= 1;
@@ -151,18 +203,26 @@ export function mount(host, ctx) {
   on(shelf, 'scroll', edges);
   on(style, 'load', edges);
   on(shelf, 'keydown', (event) => {
-    // Arrow navigation belongs to the shelf itself, never nested controls/editors.
-    if (event.target !== shelf || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey)
-      return;
-    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    // Only a card itself (or programmatically focused shelf) owns navigation.
+    // Nested controls and editable fields retain their native keys.
+    if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+    const card = buttons.get(ids[focusedIndex]);
+    if (event.target !== shelf && event.target !== card) return;
+    const target = {
+      ArrowLeft: focusedIndex - 1,
+      ArrowRight: focusedIndex + 1,
+      Home: 0,
+      End: ids.length - 1,
+    }[event.key];
+    if (target === undefined || !ids.length) return;
     event.preventDefault();
-    scroll(event.key === 'ArrowLeft' ? -1 : 1);
+    rove(target, true);
   });
   on(detail.querySelector('[data-close]'), 'click', () => {
     // Closing a disclosure does not clear the shared selected tradition.
     detail.hidden = true;
     if (opener?.isConnected) opener.focus();
-    else if (!dead) shelf.focus();
+    else focusShelf();
   });
   const mapHost = root.querySelector('.discovery-map');
   let observer;
@@ -198,7 +258,8 @@ export function mount(host, ctx) {
           unsubscribe = release;
           mapHost.textContent =
             'Map adapter connected; atlas preservation awaits integrated validation.';
-          syncMap();
+          const warning = syncMap();
+          if (!dead && warning) ctx.announce(warning);
         })
         .catch(() => {
           if (!dead) ctx.announce('Geographical map is unavailable. Browsing is still available.');
@@ -223,7 +284,7 @@ export function mount(host, ctx) {
   return {
     unmount,
     focus() {
-      if (!dead) shelf.focus();
+      focusShelf();
     },
   };
 }
