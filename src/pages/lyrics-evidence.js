@@ -505,10 +505,8 @@
   // it, so a refusal never drops focus to the panel heading, which the
   // sticky-bar rule would then scroll to (#661).
   function lyRelationReturnButton(session, label) {
-    if (!session?.returnUnavailable)
-      return `<button type="button" data-ui="ly-relation-return">${label}</button>`;
-    const why = session.reason ? `<span class="ly-sr">. ${esc(session.reason)}</span>` : '';
-    return `<button type="button" data-ui="ly-relation-return" aria-disabled="true">${label}${why}</button>`;
+    const off = session?.returnUnavailable;
+    return `<button type="button" data-ui="ly-relation-return"${off ? ' aria-disabled="true"' : ''}>${label}${off && session.reason ? `<span class="ly-sr">. ${esc(session.reason)}</span>` : ''}</button>`;
   }
   function lyRelationDockMarkup(view, session) {
     if (!session?.armed)
