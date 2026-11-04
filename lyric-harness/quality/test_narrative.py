@@ -4,6 +4,8 @@ line-up counter. The tables transcribe NARRATIVE_DESIGN.md as RULED
 MODULE's internal consistency and the counter's behavior, so a later
 ruling's row edit moves pins loudly instead of silently."""
 
+import itertools
+import math
 import os
 import re
 import sys
@@ -108,11 +110,40 @@ def test_refusal_and_determinism():
           N.admits(shape))
 
 
+def enumerated_lineups(functions):
+    """Small test oracle: enumerate atom assignments, then count legal seams.
+
+    Uses the ruled vocabulary tables but none of the production DP, candidate,
+    card, seam, or count helpers. Keep the positional/return rules explicit.
+    """
+    positions = [i for i, fn in enumerate(functions) if N.FUNCTION_ATOMS[fn]]
+    sung = [functions[i] for i in positions]
+    if not sung:
+        return 0
+    total = 0
+    for atoms in itertools.product(*(N.FUNCTION_ATOMS[fn] for fn in sung)):
+        if atoms[0] in ("TURN", "JUDGE", "RESOLVE"):
+            continue
+        if any(atom == "RESOLVE" and "COMPLICATE" not in atoms[:i]
+               for i, atom in enumerate(atoms)):
+            continue
+        if any(len({atom for fn, atom in zip(sung, atoms) if fn == returning}) > 1
+               for returning in N.INVARIANT_RETURNS):
+            continue
+        total += math.prod(
+            sum(atom in allowed and not (
+                junction == "BUT" and sung[i] in N.INVARIANT_RETURNS
+                and sung[i] == sung[i-1] and positions[i] == positions[i-1] + 1)
+                for junction, allowed in N.ENTER.items())
+            for i, atom in enumerate(atoms) if i)
+    return total
+
+
 def test_measured_seeds():
     print("\n5. measured seeds, 2026-09-28: the 12..31 work envelope is "
           "deleted (owner ruling) and plans draw the whole 12..463 envelope "
           "again; the sweeps below are retained as history. Current seeds "
-          "1..40: 36 admit / 4 zero.")
+          "1..40: 38 admit / 2 zero (#676).")
     from quality import plan as P
     #: REPINNED 2026-08-26 (`MISSING.md` M-133) BY THE M-131 SONG-PROFILE
     #: RE-ADOPTION, AND THE PIN THAT MOVED IS NOT THE PIN THAT MATTERS.
@@ -325,17 +356,86 @@ def test_measured_seeds():
     # ~~sixteen zeros (2, 6, 13, 38, 41, 42, 52, 59, 60, 67, 69, 73, 75,
     # 81, 89, 95)~~ -> thirteen; ~~6: 0, 7: 26818560, 9: 6367248, 19: 7344,
     # 27: 8273920, 30: 97202617712640, 34: 226391040, 39: 798031872~~.
-    ZEROS = (38, 41, 42, 52, 56, 58, 59, 60, 67, 73, 81, 86, 89)
+    # #676: only shapes repeating registry-once functions moved in this
+    # 100-seed population. Keep every displaced shape as authored input;
+    # their narrative meanings/counts must NOT change with generation policy.
+    # Baseline d3abd8e34 -> candidate 9a449d93; the independent exhaustive
+    # oracle below verifies counts rather than trusting a measured repin.
+    displaced_shapes = {
+        20: (
+            "drop interlude prechorus chorus false_ending vamp build false_ending build chorus "
+            "verse false_ending build interlude breakdown patter vamp build reprise build verse "
+            "chorus coda",
+            88020836352000),
+        26: (
+            "intro prechorus chorus reprise verse reprise turnaround bridge vamp prechorus "
+            "chorus interlude verse coda",
+            428318720),
+        34: (
+            "intro chorus reprise reprise patter vamp patter breakdown chorus bridge interlude "
+            "drop chorus postchorus false_ending solo prechorus chorus verse prechorus chorus "
+            "drop drop outro",
+            499008090931200),
+        41: (
+            "intro false_ending turnaround reprise false_ending verse tag breakdown prechorus "
+            "chorus postchorus prechorus chorus drop breakdown outro",
+            0),
+        48: (
+            "intro prechorus chorus verse turnaround prechorus chorus prechorus chorus tag "
+            "patter breakdown reprise interlude bridge solo turnaround build solo false_ending "
+            "hook reprise outro",
+            953218498560),
+        53: (
+            "intro tag chorus postchorus turnaround reprise interlude patter turnaround chorus "
+            "postchorus chorus breakdown hook reprise false_ending interlude verse interlude "
+            "coda",
+            8222146560),
+        56: (
+            "solo false_ending prechorus chorus hook prechorus chorus drop build build chorus "
+            "patter verse build bridge turnaround false_ending breakdown coda",
+            0),
+        59: (
+            "tag verse breakdown drop prechorus chorus false_ending verse drop solo "
+            "false_ending vamp turnaround prechorus chorus turnaround verse drop turnaround "
+            "false_ending coda",
+            0),
+        79: (
+            "intro interlude reprise prechorus chorus interlude tag breakdown verse reprise "
+            "chorus solo chorus breakdown outro",
+            47513600),
+        87: (
+            "intro breakdown prechorus chorus build verse patter build false_ending hook "
+            "false_ending verse reprise prechorus chorus chorus chorus breakdown interlude "
+            "interlude breakdown chorus turnaround verse",
+            886728425472000),
+        95: (
+            "intro patter build false_ending chorus interlude vamp chorus postchorus reprise "
+            "drop breakdown verse build hook breakdown false_ending tag chorus postchorus "
+            "chorus postchorus vamp patter coda",
+            50258171658240000),
+        99: (
+            "intro patter solo breakdown chorus postchorus verse bridge patter reprise drop "
+            "chorus postchorus hook build reprise breakdown outro",
+            269738803200),
+    }
+    for seed, (spelling, count) in displaced_shapes.items():
+        shape = spelling.split()
+        check(f"authored pre-676 shape {seed} retains its narrative count",
+              N.count_lineups(shape) == enumerated_lineups(shape) == count)
+    # Previously 13 zeros: 41, 56, 59 become positive; 20 becomes zero.
+    # All 100 plans still ship. Zero story line-ups are not PlanRefused.
+    ZEROS = (20, 38, 42, 52, 58, 60, 67, 73, 81, 86, 89)
     pins = {1:13602816, 4:94679040000, 6:24938496, 7:173260800,
             9:10849383088128, 15:394496, 19:417600, 23:4625856, 24:102336,
             25:170560, 27:6240, 28:23762003558400, 30:391680000, 31:63232,
-            34:499008090931200, 39:15206400, 77:24440832, 89:0,
+            34:1917665280, 39:15206400, 77:24440832, 89:0,
+            41:8165376, 56:716161269104640, 59:1899776,
             **{seed: 0 for seed in ZEROS}}
     got = {}
     for seed, want in sorted(pins.items()):
         fns = [s["function"] for s in P.make_plan(seed, form="verse-chorus")["sections"]]
         got[seed] = N.count_lineups(fns)
-    check("all eighteen historical seeds and all thirteen current zero "
+    check("all eighteen historical seeds and all eleven current zero "
           "exemplars re-derive exactly under the plan envelope",
           got == pins and set(historical_pins_2026_09_05) <= set(pins), got)
     # A SEED THE JOINT GATE REFUSES FOR `NO_FREE_WORD` ALONE HAS NO PLAN
@@ -344,7 +444,7 @@ def test_measured_seeds():
     # draws one; the roster is drawn BEFORE the meter, so every other seed's
     # count is unchanged, and seed 55 was neither a zero nor a pin. It is
     # left out of the denominator and named; any other refusal still raises.
-    sweep, refused = {}, []
+    sweep, refused, shapes = {}, [], {}
     for seed in range(1, 101):
         try:
             fns = [section["function"]
@@ -355,19 +455,35 @@ def test_measured_seeds():
                 raise
             refused.append(seed)
             continue
+        shapes[seed] = fns
         sweep[seed] = N.count_lineups(fns)
     # THE SKIP IS PINNED, not open-ended (3PO 6346083397): ~~exactly seed
     # 55 refuses here~~ — since option (b) (2026-10-22) a draw the joint gate
     # refuses is redrawn, so NO seed refuses and the denominator is all 100
     # again; any refusal fails this check.
-    check("the complete current 100-seed denominator has exactly thirteen "
-          "zero shapes, one of them among the first forty, over all 100 "
+    check("the complete current 100-seed denominator has exactly eleven "
+          "zero shapes, two of them among the first forty, over all 100 "
           "plans with no seed refused",
           {seed for seed, count in sweep.items() if count == 0} == set(ZEROS)
-          and sum(sweep[seed] > 0 for seed in range(1,41)) == 39
+          and sum(sweep[seed] > 0 for seed in range(1,41)) == 38
           and refused == [],
           f"{len(sweep)} plans of 100 seeds; refused NO_FREE_WORD: "
           f"{refused or 'none'}")
+    from quality.grid import SECTION_FUNCTIONS
+    once = {fn for fn, spec in SECTION_FUNCTIONS.items()
+            if spec.recurrence == "once"}
+    check("all 100 generated shapes honor registry once and verse-chorus form",
+          len(shapes) == 100 and all(
+              all(shape.count(fn) <= 1 for fn in once)
+              and "verse" in shape and shape.count("chorus") >= 2
+              for shape in shapes.values()))
+    check("every generated count agrees with exhaustive legal atom/seam enumeration",
+          all(sweep[seed] == enumerated_lineups(shape)
+              for seed, shape in shapes.items()))
+    check("each displaced shape violated once; each replacement changes that shape",
+          all(any(spelling.split().count(fn) > 1 for fn in once)
+              and shapes[seed] != spelling.split()
+              for seed, (spelling, _) in displaced_shapes.items()))
     #: The claim above is only worth making if the KINDS of zero are
     #: actually distinguishable, so the position is asserted rather than
     #: described: an opening refusal collapses at prefix length 1, and
@@ -394,9 +510,18 @@ def test_measured_seeds():
     # covered by the declared shapes below.
     check("actual current zeros distinguish opening refusals from refusals "
           "at the second and third sections",
-          at == {38: 1, 41: 2, 42: 3, 52: 3, 56: 1, 58: 1, 59: 1, 60: 1,
+          at == {20: 2, 38: 1, 42: 3, 52: 3, 58: 1, 60: 1,
                  67: 1, 73: 1, 81: 1, 86: 1, 89: 1},
           at)
+    check("seed 20's depth 2 is RESOLVE without prior COMPLICATE",
+          shapes[20][:2] == ["intro", "false_ending"]
+          and N.count_lineups(shapes[20][:1]) > 0
+          and N.count_lineups(["build", "false_ending"]) > 0)
+    check("former zero 56 starts wordless; its old depth 1 was not a sung refusal",
+          displaced_shapes[56][0].split()[:2] == ["solo", "false_ending"]
+          and N.FUNCTION_ATOMS["solo"] == ()
+          and N.count_lineups(["solo", "false_ending"]) == 0
+          and N.count_lineups(["solo", "build", "false_ending"]) > 0)
     # The old seeded depth 3/4/5 exemplars no longer belong to the zero class.
     # Keep the actual semantic clauses covered at each missing depth with
     # declared shapes and positive controls, rather than claiming dice saw it.

@@ -250,6 +250,69 @@ test(
       } finally {
         await client.close();
       }
+      // THE SERVER CARD AGAINST WHAT IS SERVED (#661). /.well-known/mcp.json
+      // is built inline in server_http.js and is the pre-connect hint a
+      // discovering client reads, so every name and endpoint it states must
+      // be one this server answers, and it must point where the registry
+      // entry and the plugin point. Version and description are pinned to
+      // server.json above; this pins the rest.
+      {
+        assert.equal(card.name, manifest.name, 'the card and server.json name one server');
+        assert.equal(
+          card.endpoint,
+          manifest.remotes[0].url,
+          'the card advertises the registry remote'
+        );
+        const plugin = JSON.parse(
+          readFileSync(new URL('../plugins/codex-musica/.mcp.json', import.meta.url), 'utf8')
+        );
+        assert.equal(
+          plugin.mcpServers['codex-musica'].url,
+          card.endpoint,
+          'the plugin connects where the card points'
+        );
+        const pathOf = (url) => new URL(url).pathname;
+        const namesAt = async (path) => {
+          const probe = new Client({ name: 'server-card', version: '1' }, { capabilities: {} });
+          await probe.connect(new StreamableHTTPClientTransport(new URL(`${base}${path}`)));
+          try {
+            return (await probe.listTools()).tools.map((tool) => tool.name);
+          } finally {
+            await probe.close();
+          }
+        };
+        const sharedNames = await namesAt(pathOf(card.endpoint));
+        for (const control of card.workflowControls)
+          assert(
+            sharedNames.includes(control),
+            `card workflowControls names ${control}, which ${pathOf(card.endpoint)} does not serve`
+          );
+        const recipeNames = await namesAt(pathOf(card.taskEndpoints.recipe));
+        assert(
+          recipeNames.includes('start_recipe') && !recipeNames.some((n) => n.startsWith('lyric_')),
+          `card taskEndpoints.recipe serves the recipe family: ${recipeNames}`
+        );
+        const lyricNames = await namesAt(pathOf(card.taskEndpoints.lyrics));
+        assert(
+          lyricNames.includes('lyric_sweep') && !lyricNames.includes('start_recipe'),
+          `card taskEndpoints.lyrics serves the lyrics family: ${lyricNames}`
+        );
+        // Exactly, both ways: a control the server adds but the card omits
+        // fails as loudly as one the card names but the server dropped.
+        const families = new Set([...recipeNames, ...lyricNames]);
+        assert.deepEqual(
+          sharedNames.filter((n) => !families.has(n)).sort(),
+          [...card.workflowControls].sort(),
+          'card workflowControls are exactly the /mcp tools outside the two task families'
+        );
+        const traditions = JSON.parse(
+          readFileSync(new URL('../api/index.json', import.meta.url), 'utf8')
+        ).counts.traditions;
+        assert(
+          card.description.includes(`over ${traditions} traditions`),
+          `the card's tradition count is the catalog's (${traditions})`
+        );
+      }
       const connectWorkflow = async (domain) => {
         const connection = new Client(
           { name: 'shared-http-contract', version: '1' },
