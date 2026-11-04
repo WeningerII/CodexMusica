@@ -1,13 +1,16 @@
 #!/usr/bin/env node
 // Selected Rule-1 accessors (#661), complementary to check_library_shell's byte checks.
-// Watches app.cards reads, Engine/Catalog properties, compiler/environment calls
-// and getItem of codex-workbench-v1/recovery. Does not cover chat state/storage,
-// legacy storage keys, IndexedDB opens or all transient writes (Don 6640105982).
-// Usage: node scripts/check_library_rule1_isolation.js [--negative-control[=helper|inline|inline-helper]]
+// Watches app.cards, Engine/Catalog/chatState own properties, compiler entry
+// points, string-keyed recipe/chat/legacy Storage calls, and saved-workspace
+// indexedDB.open. See NEGATIVE_CONTROLS for the planted Library-source probes.
+// Usage: node scripts/check_library_rule1_isolation.js [--negative-control[=NAME]]
 // Builds only in /tmp. Spec: docs/library-native-design.md Rule 1 and row 58;
 // docs/ui-foundation.md "One recipe workspace"; Don's superseding #733 comment 6639915514.
 // Monitored Library-owned reads fail. Shared shell reads are INFO;
-// Lyrics/history reads are WARN pending spec resolution. Walk frames from
+// Lyrics/history accesses remain WARN until the separately owned wording lands.
+// Jony 6640484873 permits host history/autosave reads; unchanged recipe bytes
+// cannot distinguish an identical autosave re-store from no write. Storage
+// instrumentation now records such calls, without treating host calls as leaks. Walk frames from
 // reader outward: a Library source frame
 // before the explicit handoff boundary owns a read, including shared helpers.
 // Do not discard a stack merely because it also contains shell/receiver code.
@@ -17,7 +20,7 @@
 // not a proof about arbitrary deferred callbacks or retained object aliases.
 // Negative controls inject into the built Works chunk or inline libraryShow,
 // directly or through sessionSnapshot. Only the temporary build/SRI are changed.
-/* global app, Engine, Catalog, compileRecipeStack:writable, envCardOf:writable, uiOpenInLyrics:writable, _workspaceReady, UI, window, location, document, Storage, localStorage */
+/* global app, Engine, Catalog, compileRecipeStack:writable, envCardOf:writable, uiOpenInLyrics:writable, _workspaceReady, UI, window, location, document, Storage, localStorage, chatState, IDBFactory */
 'use strict';
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
@@ -28,19 +31,45 @@ const { execFileSync } = require('node:child_process');
 const { start } = require('./_pages_server');
 const ROOT = path.resolve(__dirname, '..');
 const READING = 'reading_570567e3-ba7f-56f3-a1bf-f06c6a8d9b81';
+const NEGATIVE_CONTROLS = {
+  direct: { code: 'void app.cards;', expected: ['app.cards'] },
+  helper: {
+    code: 'queueMicrotask(function rule1HelperLeak(){sessionSnapshot();});',
+    expected: ['app.cards'],
+  },
+  inline: { code: 'void app.cards;', expected: ['app.cards'] },
+  'inline-helper': { code: 'sessionSnapshot();', expected: ['app.cards'] },
+  'chat-state': { code: 'void chatState.workspace;', expected: ['chatState.workspace'] },
+  'chat-storage': {
+    code: 'localStorage.getItem(CHAT_STORAGE_KEY);',
+    expected: ['storage.getItem:codex-musica-chat-v2:'],
+  },
+  'storage-write': {
+    code: '{const saved=localStorage.getItem("codex-workbench-v1");localStorage.setItem("codex-workbench-v1",saved);}',
+    expected: ['storage.setItem:codex-workbench-v1'],
+  },
+  'storage-remove': {
+    code: '{const saved=localStorage.getItem("codex-workbench-v1");localStorage.removeItem("codex-workbench-v1");localStorage.setItem("codex-workbench-v1",saved);}',
+    expected: ['storage.removeItem:codex-workbench-v1'],
+  },
+  legacy: {
+    code: 'localStorage.getItem("musica-workbench-v3");localStorage.getItem("musica-study-v1");',
+    expected: ['storage.getItem:musica-workbench-v3', 'storage.getItem:musica-study-v1'],
+  },
+  indexeddb: {
+    code: '{const req=indexedDB.open("codex-musica");req.onsuccess=()=>req.result.close();}',
+    expected: ['indexedDB.open:codex-musica'],
+  },
+};
 const negativeArg = process.argv[2];
+const negative = negativeArg ? negativeArg.split('=')[1] || 'direct' : null;
 assert.ok(
   process.argv.length <= 3 &&
-    [
-      undefined,
-      '--negative-control',
-      '--negative-control=helper',
-      '--negative-control=inline',
-      '--negative-control=inline-helper',
-    ].includes(negativeArg),
+    (!negativeArg ||
+      (/^--negative-control(?:=[a-z-]+)?$/.test(negativeArg) &&
+        Object.hasOwn(NEGATIVE_CONTROLS, negative))),
   'unknown argument'
 );
-const negative = negativeArg ? negativeArg.split('=')[1] || 'direct' : null;
 
 function ownership(stack) {
   for (const frame of stack.split('\n')) {
@@ -82,33 +111,68 @@ function instrument() {
   const note = (access) => {
     if (armed) records.push({ access, stack: new Error().stack });
   };
+  const descriptors = [];
   const watch = (object, key, label) => {
     const d = Object.getOwnPropertyDescriptor(object, key);
-    if (!d || !d.configurable || !('value' in d)) throw Error('Cannot instrument ' + label);
+    if (!d || !d.configurable) throw Error('Cannot instrument non-configurable/missing ' + label);
     let value = d.value;
-    Object.defineProperty(object, key, {
-      configurable: true,
+    const replacement = {
+      configurable: d.configurable,
       enumerable: d.enumerable,
       get() {
         note(label);
-        return value;
+        return 'value' in d ? value : d.get?.call(this);
       },
-      ...(d.writable
-        ? {
-            set(next) {
-              value = next;
-            },
-          }
-        : {}),
-    });
+    };
+    if ('value' in d && d.writable)
+      replacement.set = function (next) {
+        // Preserve ordinary inherited-data assignment: write the receiver, not
+        // the watched prototype. The app itself uses these objects directly.
+        if (this === object) value = next;
+        else
+          Object.defineProperty(this, key, {
+            value: next,
+            writable: true,
+            enumerable: true,
+            configurable: true,
+          });
+      };
+    else if (!('value' in d) && d.set)
+      replacement.set = function (next) {
+        return d.set.call(this, next);
+      };
+    Object.defineProperty(object, key, replacement);
+    descriptors.push({ object, key, replacement });
+  };
+  const wrapMethod = (object, key, observe) => {
+    const d = Object.getOwnPropertyDescriptor(object, key);
+    if (!d || typeof d.value !== 'function' || (!d.writable && !d.configurable))
+      throw Error('Cannot wrap ' + key);
+    const original = d.value;
+    const replacement = {
+      ...d,
+      value: function (...args) {
+        observe(args);
+        // No extra coercion, changed argument count, receiver binding or catches.
+        return Reflect.apply(original, this, args);
+      },
+    };
+    for (const field of ['name', 'length'])
+      Object.defineProperty(replacement.value, field, {
+        ...Object.getOwnPropertyDescriptor(original, field),
+      });
+    Object.defineProperty(object, key, replacement);
+    descriptors.push({ object, key, replacement });
+    return original;
   };
   // app's other fields include shared lyric/UI state; cards owns the recipe.
   watch(app, 'cards', 'app.cards');
   for (const [name, object] of [
     ['Engine', Engine],
     ['Catalog', Catalog],
+    ['chatState', chatState],
   ])
-    for (const key of Object.keys(object)) watch(object, key, name + '.' + key);
+    for (const key of Reflect.ownKeys(object)) watch(object, key, name + '.' + String(key));
   const compile = compileRecipeStack;
   compileRecipeStack = function (...args) {
     note('compileRecipeStack');
@@ -119,12 +183,107 @@ function instrument() {
     note('envCardOf');
     return env.apply(this, args);
   };
-  const getItem = Storage.prototype.getItem;
-  Storage.prototype.getItem = function (key) {
-    if (/^codex-workbench(?:-v1|-recovery)$/.test(String(key))) note('storage.' + key);
-    return getItem.call(this, key);
+  const protectedKey = (key) =>
+    typeof key === 'string' &&
+    (/^(?:codex-workbench-(?:v1|recovery)|musica-workbench-v3|musica-study-v1)$/.test(key) ||
+      key.startsWith('codex-musica-chat-v2:'));
+  const nativeStorage = {};
+  for (const method of ['getItem', 'setItem', 'removeItem']) {
+    nativeStorage[method] = wrapMethod(Storage.prototype, method, (args) => {
+      if (protectedKey(args[0])) note('storage.' + method + ':' + args[0]);
+    });
+  }
+  const nativeOpen = wrapMethod(IDBFactory.prototype, 'open', (args) => {
+    if (args[0] === 'codex-musica') note('indexedDB.open:codex-musica');
+  });
+  // Calibration while disarmed: safe descriptors, receiver forwarding, native
+  // argument-count/brand errors, return values and one-time key coercion.
+  const check = (ok, message) => {
+    if (!ok) throw Error('Observer semantics: ' + message);
   };
+  const sample = {};
+  Object.defineProperty(sample, 'data', {
+    value: 7,
+    writable: true,
+    configurable: true,
+    enumerable: false,
+  });
+  Object.defineProperty(sample, 'readonly', { value: 3, writable: false, configurable: true });
+  Object.defineProperty(sample, 'accessor', {
+    configurable: true,
+    get() {
+      return this.data;
+    },
+    set(value) {
+      this.data = value;
+    },
+  });
+  for (const key of ['data', 'readonly', 'accessor']) watch(sample, key, 'calibration.' + key);
+  sample.accessor = 9;
+  const child = Object.create(sample);
+  child.data = 11;
+  check(sample.data === 9 && child.accessor === 11, 'data/accessor receiver and values preserved');
+  check(!Reflect.set(sample, 'readonly', 4) && sample.readonly === 3, 'readonly preserved');
+  check(!Object.getOwnPropertyDescriptor(sample, 'data').enumerable, 'enumerability preserved');
+  const errorName = (fn, receiver, args) => {
+    try {
+      Reflect.apply(fn, receiver, args);
+      return null;
+    } catch (e) {
+      return e.name;
+    }
+  };
+  for (const method of ['getItem', 'setItem', 'removeItem']) {
+    check(
+      Storage.prototype[method].name === nativeStorage[method].name &&
+        Storage.prototype[method].length === nativeStorage[method].length,
+      method + ' metadata preserved'
+    );
+    for (const [receiver, args] of [
+      [localStorage, []],
+      [{}, ['rule1-calibration']],
+    ])
+      check(
+        errorName(Storage.prototype[method], receiver, args) ===
+          errorName(nativeStorage[method], receiver, args),
+        method + ' native errors preserved'
+      );
+  }
+  check(
+    errorName(IDBFactory.prototype.open, {}, ['codex-musica']) ===
+      errorName(nativeOpen, {}, ['codex-musica']),
+    'IDB native receiver error preserved'
+  );
+  let conversions = 0;
+  const key = {
+    toString() {
+      conversions++;
+      return 'rule1-calibration';
+    },
+  };
+  check(
+    localStorage.setItem(key, 'test') === undefined && conversions === 1,
+    'setItem return/coercion'
+  );
+  check(localStorage.getItem(key) === 'test' && conversions === 2, 'getItem return/coercion');
+  check(
+    localStorage.removeItem(key) === undefined && conversions === 3,
+    'removeItem return/coercion'
+  );
+  const verifyDescriptors = () => {
+    for (const { object, key, replacement } of descriptors) {
+      const actual = Object.getOwnPropertyDescriptor(object, key);
+      for (const field of ['get', 'set', 'value', 'writable', 'enumerable', 'configurable'])
+        check(
+          actual?.[field] === replacement[field],
+          String(key) + ' descriptor changed: ' + field
+        );
+    }
+    return true;
+  };
+  verifyDescriptors();
   window.rule1 = {
+    verifyDescriptors,
     envelopes: () => envelopes,
     begin() {
       records.length = 0;
@@ -246,7 +405,7 @@ async function main() {
       if (negative?.startsWith('inline')) {
         const marker = 'async function libraryShow(){';
         assert.ok(body.includes(marker), 'inline libraryShow mutation point');
-        const read = negative === 'inline-helper' ? 'sessionSnapshot();' : 'void app.cards;';
+        const read = NEGATIVE_CONTROLS[negative].code;
         body = body.replace(
           marker,
           marker + 'if(!window.rule1InlineLeak){window.rule1InlineLeak=true;' + read + '}'
@@ -261,12 +420,9 @@ async function main() {
       assert.ok(entry, 'Works lazy chunk and SRI must exist');
       const chunkPath = path.join(dir, entry[1]);
       const original = fs.readFileSync(chunkPath, 'utf8');
-      const marker = 'CMLibraryDefine("works",function(){';
+      const marker = 'CMLibraryDefine("works",function(){"use strict";';
       assert.ok(original.includes(marker), 'Works factory injection point');
-      const injected =
-        negative === 'helper'
-          ? 'queueMicrotask(function rule1HelperLeak(){sessionSnapshot();});'
-          : 'void app.cards;';
+      const injected = NEGATIVE_CONTROLS[negative].code;
       const changed = original.replace(marker, marker + injected);
       fs.writeFileSync(chunkPath, changed);
       const integrity = 'sha384-' + crypto.createHash('sha384').update(changed).digest('base64');
@@ -363,6 +519,9 @@ async function main() {
     await page.waitForTimeout(1500);
     assert.equal(await page.evaluate(() => app.cards.length), 1, 'saved recipe restored');
     await page.evaluate(instrument);
+    console.log(
+      'PASS observer semantics: descriptors, receivers, returns, argument errors and key coercion preserved'
+    );
     // Calibrate the observer with a read that leaves every recipe byte intact.
     const before = await page.evaluate(() => window.rule1.snapshot());
     const calibration = await page.evaluate(() => {
@@ -436,7 +595,7 @@ async function main() {
       const reads = await page.evaluate(() => window.rule1.end());
       const libraryReads = reads.filter((r) => ownership(r.stack) === 'Library');
       console.log(
-        `${libraryReads.length ? 'FAIL' : 'PASS'} ${name}: ${libraryReads.length} Library-owned reads; ${reads.length - libraryReads.length} host reads (${name === 'Lyrics handoff' ? 'WARN: wording unresolved' : 'INFO'})`
+        `${libraryReads.length ? 'FAIL' : 'PASS'} ${name}: ${libraryReads.length} Library-owned accesses; ${reads.length - libraryReads.length} host accesses (${name === 'Lyrics handoff' ? 'WARN: doc wording pending' : 'INFO'})`
       );
       // Preserve every distinct caller stack, including legitimate host reads.
       const groups = new Map();
@@ -450,9 +609,30 @@ async function main() {
         console.log(
           `${ownership(group.stack) === 'Library' ? 'FAIL' : name === 'Lyrics handoff' ? 'WARN' : 'INFO'} ${ownership(group.stack)} ${group.access} x${group.count}\n${group.stack}`
         );
-      if (libraryReads.length) failures.push(`${name}: ${libraryReads.length} Library-owned reads`);
-      if (negative && name === (negative.startsWith('inline') ? 'Explore' : 'Works'))
-        assert.ok(libraryReads.length > 0, 'planted Library read must be attributed to Library');
+      if (libraryReads.length)
+        failures.push(`${name}: ${libraryReads.length} Library-owned accesses`);
+      if (negative && name === (negative.startsWith('inline') ? 'Explore' : 'Works')) {
+        for (const expected of NEGATIVE_CONTROLS[negative].expected)
+          assert.ok(
+            libraryReads.some(
+              (read) =>
+                read.access === expected ||
+                (expected.endsWith(':') && read.access.startsWith(expected))
+            ),
+            'planted Library operation must be attributed: ' + expected
+          );
+        console.log(
+          'PASS negative-control attribution: ' +
+            negative +
+            ' -> ' +
+            NEGATIVE_CONTROLS[negative].expected.join(', ')
+        );
+      }
+      assert.equal(
+        await page.evaluate(() => window.rule1.verifyDescriptors()),
+        true,
+        'observer descriptors intact'
+      );
       assert.equal(
         await page.evaluate(() => window.rule1.snapshot()),
         before,
@@ -484,7 +664,7 @@ async function main() {
     assert.deepEqual(unexpected, [], 'unstubbed network traffic');
     assert.deepEqual(failures, [], 'Rule-1 isolation violations');
     console.log(
-      'LIBRARY RULE-1: PASS — six routes, no monitored Library-owned reads; handoff WARN retained'
+      'LIBRARY RULE-1: PASS — six routes, no monitored Library-owned accesses; handoff WARN retained'
     );
   } finally {
     if (browser) await browser.close();
