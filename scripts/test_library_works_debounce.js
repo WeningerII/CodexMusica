@@ -111,8 +111,17 @@ test('Enter commits immediately once; a no-input Open remains open', async (t) =
   const f = await fixture(t);
   f.input('typed');
   f.view.input.dispatchEvent(new f.w.KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+  assert.deepEqual(
+    f.routes,
+    ['/works?q=typed'],
+    'Enter navigates before the debounce timer advances'
+  );
   await f.tick();
-  assert.deepEqual(f.routes, ['/works?q=typed']);
+  assert.deepEqual(
+    f.routes,
+    ['/works?q=typed'],
+    'flushing timers must not duplicate Enter navigation'
+  );
   const other = await fixture(t);
   other.click('open');
   const route = other.routes.at(-1);
