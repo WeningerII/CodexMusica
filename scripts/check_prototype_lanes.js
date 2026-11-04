@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global document */
+/* global document, localStorage, Storage */
 // check_prototype_lanes.js — the #670 feature lanes, mounted for real.
 //
 // check_prototype_hosts.js proves the shell side with probe lanes; each
@@ -23,7 +23,12 @@
 //   provenance its review status implies (model reviewed, unreviewed, none for
 //   no fixed origin); selecting moves focus; the selection is not restored
 //   after a reload; or the map host claims a map the prototype doesn't have.
-//   BOTH. A route change does not focus the panel heading, the page scrolls
+//   LYRICS (#743). The text the editor reports is not what the shell stores,
+//   byte for byte (punctuation, notation, a tab, a trailing newline), or is
+//   not handed back after a reload; the editor node is replaced across a
+//   route switch; or a refused save is not said ("Not saved") with the text
+//   kept in the editor.
+//   ALL. A route change does not focus the panel heading, the page scrolls
 //   sideways at 320 px, or the page throws.
 //
 //   node scripts/check_prototype_lanes.js
@@ -241,6 +246,69 @@ async function library(browser, srv) {
   await narrow.context.close();
 }
 
+async function lyrics(browser, srv) {
+  // Punctuation, notation, typographic quotes, a tab and a trailing newline,
+  // the cases the lane's own scenario pins, now through the shell's draft.
+  const text = 'Verse 1:\n  “Hold—on,” she said… ♪ [Chorus x2]\n\tOh-oh (oh); ¿sí? — 1/2\n';
+  const { context, page, errors } = await open(browser, srv, '#lyrics');
+  const area = page.locator('[data-feature-host="lyrics"] textarea');
+  await area.waitFor({ timeout: 20000 });
+  expect((await area.inputValue()) === '', 'lyrics: a fresh editor is not empty');
+  await area.fill(text);
+  const stored = await page.evaluate(() =>
+    localStorage.getItem('codex-prototype:host-lyrics-draft')
+  );
+  expect(
+    stored === JSON.stringify(text),
+    `lyrics: the shell stored ${stored}, not the exact text the editor reported`
+  );
+  await area.evaluate((el) => (el.__kept = true));
+  await page.locator('[data-route="map"]').click();
+  await page.locator('[data-route="lyrics"]').click();
+  expect(
+    await area.evaluate((el) => el.__kept === true),
+    'lyrics: the editor node was replaced across a route switch'
+  );
+  expect(
+    await headingFocused(page, 'h-lyrics'),
+    'lyrics: the route change did not focus the heading'
+  );
+  await page.reload();
+  await area.waitFor({ timeout: 20000 });
+  expect(
+    (await area.inputValue()) === text,
+    `lyrics: after a reload the editor holds ${JSON.stringify(await area.inputValue())}`
+  );
+  expect(!errors.length, `lyrics: uncaught errors: ${errors.join(' | ')}`);
+  await context.close();
+
+  // A refused save is said, and the text stays in the editor.
+  const refused = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+  await refused.addInitScript(() => {
+    const set = Storage.prototype.setItem;
+    Storage.prototype.setItem = function (k, v) {
+      if (String(k).includes('lyrics-draft')) throw new DOMException('quota', 'QuotaExceededError');
+      return set.call(this, k, v);
+    };
+  });
+  const rp = await refused.newPage();
+  await rp.goto(`${srv.url}/prototype/#lyrics`);
+  const ra = rp.locator('[data-feature-host="lyrics"] textarea');
+  await ra.waitFor({ timeout: 20000 });
+  await ra.fill('unsaved words');
+  expect(/^Not saved/.test(await status(rp)), `lyrics: a refused save said "${await status(rp)}"`);
+  expect(
+    (await ra.inputValue()) === 'unsaved words',
+    'lyrics: the text was lost when the save was refused'
+  );
+  await refused.close();
+
+  const narrow = await open(browser, srv, '#lyrics', 320);
+  await narrow.page.locator('[data-feature-host="lyrics"] textarea').waitFor({ timeout: 20000 });
+  expect(await noSideScroll(narrow.page), 'lyrics: the page scrolls sideways at 320 px');
+  await narrow.context.close();
+}
+
 async function browse(browser, srv) {
   const index = json('api', 'traditions', 'index.json').items;
   const geo = json('data', 'geo.json');
@@ -327,6 +395,7 @@ async function browse(browser, srv) {
   const lanes = {
     library: 'prototype/features/library/explore.js',
     browse: 'prototype/features/browse-map/discovery.js',
+    lyrics: 'prototype/features/lyrics/editor.js',
   };
   const present = Object.keys(lanes).filter((l) => fs.existsSync(path.join(root, lanes[l])));
   const srv = await start({ root });
@@ -340,6 +409,7 @@ async function browse(browser, srv) {
     for (const [lane, run] of [
       ['library', library],
       ['browse', browse],
+      ['lyrics', lyrics],
     ]) {
       if (!present.includes(lane)) continue;
       await run(browser, srv).catch((e) =>
