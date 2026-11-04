@@ -336,10 +336,16 @@ test('expansion survives Close/reopen and invalid selections cannot reuse an ear
     api.lyRelationInspectorMarkup(view, session),
     /Your draft changed; your edits are kept/
   );
-  assert.match(
+  // Refused, but still focusable: aria-disabled with the reason, never
+  // `disabled`, so focus can stay on it (#661).
+  for (const markup of [
     api.lyRelationInspectorMarkup(view, session),
-    /data-ui="ly-relation-return" disabled/
-  );
+    api.lyRelationDockMarkup(view, session),
+  ]) {
+    assert.match(markup, /data-ui="ly-relation-return" aria-disabled="true"/);
+    assert.doesNotMatch(markup, /data-ui="ly-relation-return"[^>]*\sdisabled/);
+    assert.match(markup, /, unavailable\. Your draft changed; your edits are kept/);
+  }
   api.lyRelationSessionReturn(session, {
     restore: () => {
       throw Error('must not repeat invalid restore');
