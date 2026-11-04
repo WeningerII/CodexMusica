@@ -42,6 +42,16 @@ uiRegisterPage({
     const frame = $ui('map-frame');
     if (frame.src) return;
     $ui('map-status').hidden = false;
+    // Opened from disk the atlas cannot load its data, and a missing
+    // atlas.html beside a standalone build leaves a blank frame whose load
+    // event hides the status: say so instead of loading it (#660).
+    if (location.protocol === 'file:') {
+      frame.hidden = true;
+      $ui('map-status').classList.add('map-status-file');
+      $ui('map-status').innerHTML =
+        'Opened from a file, the map can’t load its data. Use codexmusica.com/atlas.html, or run <code>python3 -m http.server</code> here and open localhost:8000.';
+      return;
+    }
     frame.addEventListener('load', () => ($ui('map-status').hidden = true), { once: true });
     frame.src = 'atlas.html?embedded=1';
   },
