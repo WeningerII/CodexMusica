@@ -68,6 +68,8 @@ const { chromium } = require('playwright');
 const fs = require('node:fs');
 const path = require('node:path');
 const { execFileSync } = require('node:child_process');
+// ESLint's parser (a devDependency's own dependency), for scenario imports.
+const espree = require('espree');
 const { start } = require('./_pages_server.js');
 
 const root = path.resolve(__dirname, '..');
@@ -151,17 +153,56 @@ const FEATURE = /^prototype\/features\/([a-z0-9-]+)\//;
 // imports are Node built-ins, playwright, scripts/_pages_server.js, or their own
 // lane's feature and scenario folders, and nothing the page loads imports them.
 const SCENARIO = /^prototype\/scenarios\/([a-z0-9-]+)\//;
+// Parsed, not pattern-matched: a scenario often holds page-side code in a
+// string (an inline module it serves, a pattern it asserts against), and only
+// its own import declarations and require() calls are its imports.
 function scenarioProblems(text, rel) {
   const out = [];
   const lane = SCENARIO.exec(rel)[1];
   if (!/\.(cjs|mjs)$/.test(rel)) out.push('is a scenario but not .cjs or .mjs');
-  for (const s of specifiers(text)) {
-    if (s.dynamic) continue; // a test runner may load code however it needs to
-    const lit = /^(['"`])([^'"`$]*)\1$/.exec(s.raw);
-    const spec = lit ? lit[2] : s.raw;
-    if (/^node:[\w/]+$/.test(spec) || spec === 'playwright') continue;
-    const target = path.posix.normalize(path.posix.join(path.posix.dirname(rel), spec));
+  let ast;
+  try {
+    ast = espree.parse(text, {
+      ecmaVersion: 'latest',
+      sourceType: rel.endsWith('.cjs') ? 'commonjs' : 'module',
+    });
+  } catch (e) {
+    return [...out, `does not parse (${e.message})`];
+  }
+  const specs = [];
+  const visit = (node) => {
+    if (!node || typeof node.type !== 'string') return;
+    if (
+      (node.type === 'ImportDeclaration' ||
+        node.type === 'ExportNamedDeclaration' ||
+        node.type === 'ExportAllDeclaration') &&
+      node.source
+    )
+      specs.push(node.source.value);
+    if (
+      node.type === 'CallExpression' &&
+      node.callee.type === 'Identifier' &&
+      node.callee.name === 'require'
+    ) {
+      const arg = node.arguments[0];
+      specs.push(arg && arg.type === 'Literal' ? arg.value : '(computed)');
+    }
+    for (const key of Object.keys(node)) {
+      if (key === 'parent') continue;
+      const v = node[key];
+      if (Array.isArray(v)) v.forEach(visit);
+      else if (v && typeof v.type === 'string') visit(v);
+    }
+  };
+  visit(ast); // dynamic import() is the test runner's business, and isn't collected
+  for (const spec of specs) {
+    if (typeof spec === 'string' && (/^node:[\w/]+$/.test(spec) || spec === 'playwright')) continue;
+    const target =
+      typeof spec === 'string'
+        ? path.posix.normalize(path.posix.join(path.posix.dirname(rel), spec))
+        : '';
     const ok =
+      typeof spec === 'string' &&
       /^\.\.?\//.test(spec) &&
       (target.startsWith(`prototype/features/${lane}/`) ||
         target.startsWith(`prototype/scenarios/${lane}/`) ||
@@ -333,6 +374,22 @@ function selfTest() {
       1,
     ],
     [scenarioProblems('', 'prototype/scenarios/recipe/live-editor.js'), 1],
+    [
+      scenarioProblems(
+        "const page = `<script type=module>import { mount } from '/editor.js';</script>`;",
+        'prototype/scenarios/lyrics/editor.cjs'
+      ),
+      0,
+    ],
+    [scenarioProblems("const _ = require('lodash');", 'prototype/scenarios/lyrics/editor.cjs'), 1],
+    [
+      scenarioProblems(
+        "const fs = require('node:fs'); const { chromium } = require('playwright');",
+        'prototype/scenarios/lyrics/editor.cjs'
+      ),
+      0,
+    ],
+    [scenarioProblems('const x = require(name);', 'prototype/scenarios/lyrics/editor.cjs'), 1],
     [moduleProblems("import x from './scenarios/recipe/a.mjs';", 'prototype/app.js'), 1],
   ];
   cases.forEach(([got, want], i) =>
@@ -357,7 +414,7 @@ function staticChecks(base) {
       `${rel}: names an absolute or protocol-relative URL`
     );
     expect(
-      !/\b(XMLHttpRequest|WebSocket|EventSource|sendBeacon)\b/.test(text),
+      scenario || !/\b(XMLHttpRequest|WebSocket|EventSource|sendBeacon)\b/.test(text),
       `${rel}: opens a network channel other than fetch() of the static catalog`
     );
     if (scenario) {
