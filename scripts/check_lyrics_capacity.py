@@ -232,6 +232,41 @@ def process_rss(pid):
     return None
 
 
+#: The process.memoryUsage() fields the resident server publishes (#612).
+NODE_MEMORY_FIELDS = ('rss', 'heapTotal', 'heapUsed', 'external', 'arrayBuffers')
+NODE_MEMORY_SCOPE = ('the resident Node server\'s own process.memoryUsage() and startup phase, '
+                     'as it last published them (about once a second) before this sample; '
+                     'age_s is how much older than the sample that publication is')
+
+
+def node_memory(path, pid, now_wall=None):
+    """-> the server's latest published memory record, or 'unavailable'.
+
+    INSTRUMENTATION ONLY (#612). A missing, unreadable, malformed or foreign
+    file, or one from another process, is 'unavailable', never zeros: a zero
+    heap is not a measurement, as a zero VmRSS is not one either."""
+    raw = read(path) if path else None
+    try:
+        record = json.loads(raw) if raw else None
+    except ValueError:
+        record = None
+    memory = record.get('memory') if isinstance(record, dict) else None
+    if (not isinstance(memory, dict) or record.get('version') != 1 or not pid
+            or record.get('pid') != pid or not isinstance(record.get('wall_ms'), int)
+            or not all(type(memory.get(f)) is int and memory[f] >= 0 for f in NODE_MEMORY_FIELDS)
+            or memory['rss'] == 0):
+        return 'unavailable'
+    phases = record.get('phases')
+    now_wall = time.time() if now_wall is None else now_wall
+    return {'pid': pid, 'phase': record.get('phase') if isinstance(record.get('phase'), str) else 'unavailable',
+            'uptime_ms': record['uptime_ms'] if type(record.get('uptime_ms')) is int else 'unavailable',
+            'phases_ms': ({k: v for k, v in phases.items() if isinstance(k, str) and type(v) is int}
+                          if isinstance(phases, dict) else 'unavailable'),
+            'age_s': round(now_wall - record['wall_ms'] / 1000, 3),
+            **{f: memory[f] for f in NODE_MEMORY_FIELDS},
+            'scope': NODE_MEMORY_SCOPE}
+
+
 def events_delta(before, after):
     """-> {row: after - before} for memory.events, or 'unavailable'.
 
@@ -334,7 +369,7 @@ class MeasurementProgress:
     hold is a sampled quantity, at that cadence; the Python child's own
     peak is measured exactly by its rusage and gated separately.
     """
-    def __init__(self, identity, node_pid=None):
+    def __init__(self, identity, node_pid=None, node_memory_path=None):
         self.identity = identity
         self.started = self.last = time.monotonic()
         self.output_bytes = 0
@@ -345,6 +380,7 @@ class MeasurementProgress:
         # peak above is unchanged; these record what was in the cgroup at
         # the very sample that set it, and every sample's cache estimate.
         self.node_pid = node_pid
+        self.node_memory_path = node_memory_path
         self.peak_sample = None
         self.cache_samples = []
         self.cache_missing = 0
@@ -383,7 +419,8 @@ class MeasurementProgress:
                 'memory_stat': {row: stat[row] if row in stat else 'unavailable' for row in BREAKDOWN_ROWS},
                 'node_rss': {'pid': pid if pid else 'unavailable',
                              'bytes': rss if rss is not None else 'unavailable',
-                             'scope': NODE_RSS_SCOPE}}
+                             'scope': NODE_RSS_SCOPE},
+                'node_memory': node_memory(self.node_memory_path, pid)}
 
     def instrumentation(self):
         """-> the per-execution record of the samples behind the gated peak."""
@@ -405,10 +442,14 @@ class MeasurementProgress:
             return
         rows = ' '.join(f'{row}={value}' for row, value in peak['memory_stat'].items())
         node = peak['node_rss']
+        heap = peak.get('node_memory', 'unavailable')
+        heap = (' '.join(f'node_{f}={heap[f]}' for f in NODE_MEMORY_FIELDS) +
+                f" node_phase={heap['phase']} node_uptime_ms={heap['uptime_ms']} node_memory_age_s={heap['age_s']}"
+                if isinstance(heap, dict) else 'node_memory=unavailable')
         print(f"Capacity peak sample {self.identity}: elapsed={peak['elapsed_s']}s "
               f"resident_bytes={peak['resident_bytes']} current_bytes={peak['current_bytes']} "
               f"cgroup_peak_bytes={peak['cgroup_peak_bytes']} {rows} "
-              f"node_rss_bytes={node['bytes']} node_pid={node['pid']} samples={self.samples}", flush=True)
+              f"node_rss_bytes={node['bytes']} node_pid={node['pid']} {heap} samples={self.samples}", flush=True)
 
     def emit(self, output, final=False):
         now = time.monotonic()
@@ -642,7 +683,8 @@ def main():
                 print(f'Capacity lines={size} seed={seed} mode={mode}', flush=True)
                 progress = MeasurementProgress(
                     f'{size}/{seed}/{mode}',
-                    node_pid=lambda: resident.child.pid if resident.child is not None else None)
+                    node_pid=lambda: resident.child.pid if resident.child is not None else None,
+                    node_memory_path=resident.directory / 'node-memory.json')
                 proc = None
                 try:
                     remaining = deadline - time.monotonic()
