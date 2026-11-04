@@ -344,7 +344,8 @@ test('expansion survives Close/reopen and invalid selections cannot reuse an ear
   ]) {
     assert.match(markup, /data-ui="ly-relation-return" aria-disabled="true"/);
     assert.doesNotMatch(markup, /data-ui="ly-relation-return"[^>]*\sdisabled/);
-    assert.match(markup, /, unavailable\. Your draft changed; your edits are kept/);
+    assert.match(markup, /<span class="ly-sr">\. Your draft changed; your edits are kept/);
+    assert.doesNotMatch(markup, /, unavailable\./);
   }
   api.lyRelationSessionReturn(session, {
     restore: () => {

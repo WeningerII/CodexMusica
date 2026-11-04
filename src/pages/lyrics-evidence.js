@@ -500,15 +500,15 @@
       ? { ...session, armed: false, listOpen: false, origin: null, selected: null, reason: '' }
       : { ...session, reason: result?.reason || 'The previous panel is unavailable.' };
   }
-  // A refused Return stays focusable (aria-disabled, not disabled) and names
-  // why: activating it again is refused the same way, and focus can stay on
+  // A refused Return stays focusable (aria-disabled, not disabled, which
+  // screen readers already announce as unavailable) and names why: activating it again is refused the same way, and focus can stay on
   // it, so a refusal never drops focus to the panel heading, which the
   // sticky-bar rule would then scroll to (#661).
   function lyRelationReturnButton(session, label) {
     if (!session?.returnUnavailable)
       return `<button type="button" data-ui="ly-relation-return">${label}</button>`;
-    const why = session.reason ? ` ${esc(session.reason)}` : '';
-    return `<button type="button" data-ui="ly-relation-return" aria-disabled="true">${label}<span class="ly-sr">, unavailable.${why}</span></button>`;
+    const why = session.reason ? `<span class="ly-sr">. ${esc(session.reason)}</span>` : '';
+    return `<button type="button" data-ui="ly-relation-return" aria-disabled="true">${label}${why}</button>`;
   }
   function lyRelationDockMarkup(view, session) {
     if (!session?.armed)

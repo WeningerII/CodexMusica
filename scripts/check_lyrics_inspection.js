@@ -167,7 +167,8 @@ const settle = (p) => p.waitForTimeout(120);
         a?.dataset?.ui === 'ly-relation-return' &&
         a.getAttribute('aria-disabled') === 'true' &&
         !a.disabled &&
-        /, unavailable\. \S/.test(a.textContent)
+        !!lyInspectionSession().reason &&
+        a.textContent.includes(lyInspectionSession().reason)
       );
     });
   const state = (p) =>
