@@ -1577,12 +1577,12 @@ def test_the_measure():
     # which is now the envelope's beat ceiling. `propose.py` imports only
     # `re` at module level and opens no file (checked below).
     check("plan.py imports exactly {schemes, propose, structures, grid, "
-          "floor, slots, relations, narrative, melody, rhyme_types} from quality and "
+          "floor, slots, relations, narrative, melody, rhyme_types, function_disclosure} from quality and "
           "opens NO file — the corpus cannot reach the dice (the owner's "
           "move-37 rule)",
           subs == {"schemes", "propose", "structures", "grid", "floor",
                    "slots", "relations", "narrative", "melody",
-                   "rhyme_types"}
+                   "rhyme_types", "function_disclosure"}
           and opens == 0,
           f"imports {sorted(subs)}, open() calls {opens}")
     prop_names = {a.name for n in ast.walk(tree)
@@ -1622,6 +1622,42 @@ def test_the_measure():
           report_imports == [('ImportFrom', 'quality.rhyme_types',
                               ('resolve_relation',), 'audible_share')],
           str(report_imports))
+    # #676 admits only name disclosure in the writer's report, never the
+    # helper's section validator or a new route from the corpus to the draw.
+    disclosure_imports = []
+    for node in ast.walk(tree):
+        if ((isinstance(node, ast.ImportFrom) and
+             (node.module == 'quality.function_disclosure' or
+              (node.module == 'quality' and any(a.name == 'function_disclosure'
+                                               for a in node.names)))) or
+            (isinstance(node, ast.Import) and any(a.name == 'quality.function_disclosure'
+                                                 for a in node.names))):
+            owner = report_parents.get(id(node))
+            while owner is not None and not isinstance(owner, ast.FunctionDef):
+                owner = report_parents.get(id(owner))
+            disclosure_imports.append((type(node).__name__, getattr(node, 'module', None),
+                                       tuple(a.name for a in node.names),
+                                       getattr(owner, 'name', None)))
+    check('function_disclosure contributes only its name report inside writer_brief',
+          disclosure_imports == [('ImportFrom', 'quality.function_disclosure',
+                                  ('disclose_functions',), 'writer_brief')],
+          str(disclosure_imports))
+    from quality import function_disclosure as _disclosure
+    disclosure_tree = ast.parse(_inspect.getsource(_disclosure))
+    disclosure_deps = {(n.module, tuple(a.name for a in n.names))
+                       for n in ast.walk(disclosure_tree) if isinstance(n, ast.ImportFrom)}
+    reading_tree = ast.parse(_inspect.getsource(_disclosure.disclose_functions))
+    reading_names = {n.attr for n in ast.walk(reading_tree)
+                     if isinstance(n, ast.Attribute) and isinstance(n.value, ast.Name)
+                     and n.value.id == 'grid'}
+    check('name disclosure reads only grid name APIs and deepcopy, with no file readers',
+          disclosure_deps == {('copy', ('deepcopy',)), ('quality', ('grid',))}
+          and not any(isinstance(n, ast.Import) for n in ast.walk(disclosure_tree))
+          and reading_names == {'as_function', 'specialisation_of', 'UnknownFunction', 'UNDECLARED'}
+          and not any(isinstance(n, ast.Call) and isinstance(n.func, ast.Name)
+                      and n.func.id in {'open', 'eval', 'exec', '__import__'}
+                      for n in ast.walk(disclosure_tree)),
+          f'imports {sorted(disclosure_deps)}, grid names {sorted(reading_names)}')
     # Melody is a pure declaration reader/formatter. Guard the admitted
     # module itself so this cannot become a route from the corpus to dice.
     import inspect

@@ -5018,6 +5018,20 @@ def writer_brief(plan):
                 slots[0]["duration"] * plan["subdivision"]))
             out.append(f"      up to {_cap} syllables a line after the "
                        f"pickup")
+    # Report the request after the drawn song, without changing its roster,
+    # sampling or stored declarations. Blank inputs remain in request only.
+    from quality.function_disclosure import disclose_functions
+    readings = disclose_functions([
+        raw for raw in (plan.get("request", {}).get("functions") or [])
+        if str(raw).strip()
+    ])
+    if readings:
+        out.append("Your request allowed these functions (as written → as read):")
+        for row in readings:
+            out.append(f"  {json.dumps(row['raw'], ensure_ascii=False)} → "
+                       f"{json.dumps(row['canonical'], ensure_ascii=False)}")
+        out.append("The sections above are the song; do not add or remove "
+                   "sections based on this list.")
     out.append(f"Feel: {m['beats']}/{m['unit']} grouped "
                f"{'+'.join(str(g) for g in m['groups'])}.")
     if plan.get("melody"):
