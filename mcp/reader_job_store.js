@@ -168,15 +168,27 @@ export function decodeStoredObject(raw) {
     if (raw.length < 18 || raw[2] !== 8 || raw[3] & 0xe0) throw corrupt();
     const flags = raw[3];
     let at = 10;
-    if (flags & 4) at += 2 + raw.readUInt16LE(at);
+    const trailer = raw.length - 8;
+    if (flags & 4) {
+      if (at + 2 > trailer) throw corrupt();
+      at += 2 + raw.readUInt16LE(at);
+      if (at > trailer) throw corrupt();
+    }
     for (const bit of [8, 16])
       if (flags & bit) {
         const end = raw.indexOf(0, at);
-        if (end < 0) throw corrupt();
+        if (end < 0 || end >= trailer) throw corrupt();
         at = end + 1;
       }
-    if (flags & 2) at += 2;
-    const trailer = raw.length - 8;
+    if (flags & 2) {
+      // RFC 1952 FHCRC is the low 16 bits of CRC32 over every header byte
+      // preceding this field, including optional extra/name/comment fields.
+      // Python's zlib reader validates it too; accepting a bad header here
+      // would let Node read a checkpoint that the worker refuses.
+      if (at + 2 > trailer || (zlib.crc32(raw.subarray(0, at)) & 0xffff) !== raw.readUInt16LE(at))
+        throw corrupt();
+      at += 2;
+    }
     if (at > trailer) throw corrupt();
     let out;
     try {

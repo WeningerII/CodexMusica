@@ -544,3 +544,96 @@ test(
     }
   }
 );
+
+test('optional gzip headers and FHCRC have identical bounded Node/Python acceptance', (t) => {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'reader-fhcrc-'));
+  t.after(() => fs.rmSync(directory, { recursive: true, force: true }));
+  const body = Buffer.from('{"instances":[]}');
+  const original = zlib.gzipSync(body);
+  assert.equal(original[3] & 2, 0, 'the Phase B writer does not emit FHCRC');
+  const cases = [{ name: 'writer output without FHCRC', raw: original, accepted: true }];
+  for (const options of [0, 4, 8, 16, 4 | 8 | 16]) {
+    const fixed = Buffer.from(original.subarray(0, 10));
+    fixed[3] = options | 2;
+    const fields = [fixed];
+    if (options & 4) fields.push(Buffer.from([3, 0, 0x41, 0, 0x42]));
+    if (options & 8) fields.push(Buffer.from('evidence.json\0'));
+    if (options & 16) fields.push(Buffer.from('retained page\0'));
+    const header = Buffer.concat(fields);
+    const crc = Buffer.alloc(2);
+    crc.writeUInt16LE(zlib.crc32(header) & 0xffff);
+    const raw = Buffer.concat([header, crc, original.subarray(10)]);
+    cases.push({ name: `valid FHCRC, optional flags ${options}`, raw, accepted: true });
+    const wrong = Buffer.from(raw);
+    wrong[header.length] ^= 1;
+    cases.push({ name: `invalid FHCRC, optional flags ${options}`, raw: wrong, accepted: false });
+    cases.push({
+      name: `truncated FHCRC, optional flags ${options}`,
+      raw: Buffer.concat([header, crc.subarray(0, 1)]),
+      accepted: false,
+    });
+    // Optional fields themselves remain legal without a header CRC.
+    const noCrc = Buffer.from(header);
+    noCrc[3] &= ~2;
+    cases.push({
+      name: `optional flags ${options} without FHCRC`,
+      raw: Buffer.concat([noCrc, original.subarray(10)]),
+      accepted: true,
+    });
+  }
+  const badExtra = Buffer.from(original.subarray(0, 10));
+  badExtra[3] = 4;
+  cases.push({
+    name: 'extra field exceeds header bound',
+    raw: Buffer.concat([badExtra, Buffer.from([255, 255]), original.subarray(10)]),
+    accepted: false,
+  });
+  for (const flag of [8, 16]) {
+    const header = Buffer.from(original.subarray(0, 10));
+    header[3] = flag;
+    cases.push({
+      name: `unterminated optional field ${flag}`,
+      raw: Buffer.concat([header, Buffer.from('unterminated')]),
+      accepted: false,
+    });
+  }
+  for (const item of cases) {
+    if (item.accepted) assert.deepEqual(decodeStoredObject(item.raw), body, item.name);
+    else assert.throws(() => decodeStoredObject(item.raw), { code: 'STORAGE_CORRUPT' }, item.name);
+  }
+  const worker = fileURLToPath(new URL('./worker.py', import.meta.url));
+  const file = path.join(directory, `${sha(body)}.json`);
+  const result = spawnSync(
+    'python3',
+    [
+      '-c',
+      `import base64,importlib.util,json,sys
+spec=importlib.util.spec_from_file_location('worker',sys.argv[1]); w=importlib.util.module_from_spec(spec); spec.loader.exec_module(w)
+results=[]
+for case in json.load(sys.stdin):
+ with open(sys.argv[2],'wb') as f: f.write(base64.b64decode(case['raw']))
+ try:
+  value=w.read_page_object(sys.argv[2])
+  assert value=={'instances':[]}
+  results.append(True)
+ except ValueError:
+  results.append(False)
+print(json.dumps(results))`,
+      worker,
+      file,
+    ],
+    {
+      input: JSON.stringify(cases.map((item) => ({ raw: item.raw.toString('base64') }))),
+      encoding: 'utf8',
+    }
+  );
+  assert.equal(result.status, 0, result.stderr);
+  assert.deepEqual(
+    JSON.parse(result.stdout),
+    cases.map((item) => item.accepted),
+    cases.map((item) => item.name).join('\n')
+  );
+  t.diagnostic(
+    `${cases.length} optional-header fixtures agree across Node and the unchanged Python worker`
+  );
+});
