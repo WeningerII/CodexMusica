@@ -408,7 +408,7 @@ process, disable `READER_STORE_GZIP`, and back up the store. With those processe
 kept stopped, run:
 
 ```sh
-node mcp/reader_store_inflate.mjs /absolute/path/to/reader-jobs-v1
+node /app/mcp/reader_store_inflate.mjs /absolute/path/to/reader-jobs-v1
 ```
 
 Stopping every reader process and disabling gzip is a **procedural operator
