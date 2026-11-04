@@ -1953,12 +1953,15 @@ jobs:
       - name: Install numpy (kalevala_rate's permutation null is vectorised)
         run: python3 -m pip install --disable-pip-version-check numpy
 
-      # cmudict.dict is 3.6 MB, gitignored, and fetched from a moving master
-      # branch with no checksum — which the audit flagged as its own defect
-      # (doctrine 34, inside the function whose comment invokes doctrine 34).
-      # Caching it keeps CI off that fetch on most runs; it does not fix the
-      # provenance gap, and is not pretending to. data/opensubtitles_en_50k.tsv
-      # is repo-committed and provenance-gated, so it is never fetched.
+      # cmudict.dict is 3.6 MB, gitignored, and fetched from a pinned upstream
+      # commit (CMUDICT_URL in lyric_harness.py, cmusphinx/cmudict@74790861f652).
+      # The audit's old finding, a moving master branch with no checksum, no
+      # longer holds: "Stage the lexicon" below runs fetch_data(), which calls
+      # verify_asset("cmudict") after a download AND on a cache hit, checking
+      # bytes and sha256 against lyric-harness/data/runtime_assets.json, and
+      # exits 1 (LEXICAL_ASSET_UNREADABLE) on any mismatch. Caching only keeps
+      # CI off the network on most runs. data/opensubtitles_en_50k.tsv is
+      # repo-committed and provenance-gated, so it is never fetched.
       - name: Cache CMUdict
         uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:

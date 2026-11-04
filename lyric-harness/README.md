@@ -12,10 +12,12 @@ this sentence said did not exist. There are two rosters, and which verb is on
 which side is MEASURED by `quality/test_verbs.py` §47 with the resources
 hidden, not declared here:
 
-- **~~26 of the 32~~ 27 of the 34 dispatched verbs never reach the slop floor**
-  (RE-COUNTED 2026-09-26: the dispatcher has 34 verbs; `recover` joined on
-  this side and `tryline` on the other — with `--seed=` and the resources
-  hidden it REFUSES at exit 2 for the tagger, measured) — `score`,
+- **~~26 of the 32~~ ~~27 of the 34~~ 28 of the 35 dispatched verbs never reach
+  the slop floor** (RE-COUNTED 2026-11-03: the dispatcher has 35 verbs;
+  `normalize-numbering` joined on this side — `quality/test_verbs.py` §47
+  measures it answering clean with the resources hidden. 2026-09-26: `recover`
+  joined on this side and `tryline` on the other — with `--seed=` and the
+  resources hidden it REFUSES at exit 2 for the tagger, measured) — `score`,
   `candidates`, `meter`, `scheme`, `chains`, `graph`, `plan` (and
   `plan --sweep`), `readability`, `relations`, `fit`, `grid`, `function`,
   `types`, `capacity` and the rest — and run on the standard library over

@@ -47,19 +47,19 @@ Hard rule: **anything you emit (recipe or arrangement) MUST pass §6 before you 
 
 | Entity | Count | ID namespace | Table (global `const`) |
 |---|---|---|---|
-| instrument families | 11 | bare slug: `bowed`,`percussion`,`wind`,… | `INSTRUMENT_FAMILIES` (array) |
+| instrument families | 11 | bare slug: `<family>` | `INSTRUMENT_FAMILIES` (array) |
 | family part-groups | 9 | keyed by family slug | `INSTRUMENT_FAMILY_PARTS` (object) |
-| instruments | 1671 | bare slug, e.g. `oud`, `electric_bass` | `INSTRUMENTS` (array) |
-| rooms | 256 | bare slug, e.g. `parlor` | `ROOMS` (array) |
+| instruments | 1671 | bare slug, e.g. `<instrument id>` | `INSTRUMENTS` (array) |
+| rooms | 256 | bare slug, e.g. `<room id>` | `ROOMS` (array) |
 | chain archetypes | 84 | `arch_<slug>` | `CHAIN_ARCHETYPES` (array) |
 | chain sections (UI menus) | 8 | `mic`/`pre`/`fx`/… | `CHAIN_SECTIONS` (array) |
-| production aesthetics | 21 | bare slug, e.g. `wall_of_sound` | `PRODUCTION_AESTHETICS` (array) |
+| production aesthetics | 21 | bare slug, e.g. `<aesthetic id>` | `PRODUCTION_AESTHETICS` (array) |
 | arrangement templates | 5 | bare slug | `ARRANGEMENTS` (array) |
-| tunings | 122 | bare slug, e.g. `twelve_tet` | `TUNINGS` (array) |
-| tree nodes | 317 | **full dotted path**, e.g. `groovePercussion.afroDiasporicElec` | `TREE_NODES` (array) |
-| traditions | 7755 | bare slug, e.g. `afrobeat` | `TRADITIONS` (array) |
+| tunings | 122 | bare slug, e.g. `<tuning id>` | `TUNINGS` (array) |
+| tree nodes | 317 | **full dotted path**, e.g. `<node>.<node>` | `TREE_NODES` (array) |
+| traditions | 7755 | bare slug, e.g. `<tradition id>` | `TRADITIONS` (array) |
 | tradition extras | 7755 | keyed by tradition id | `TRADITION_EXTRAS` (object) |
-| voice/preface lexicon | 740 | bare slug, e.g. `sobbing` | `PREFACE_LEXICON` (array) |
+| voice/preface lexicon | 740 | bare slug, e.g. `<preface id>` | `PREFACE_LEXICON` (array) |
 | axis definitions | 13 (trad) / 9 (inst) | bare slug, e.g. `harm` | `AXIS_DEFINITIONS`, `INSTRUMENT_AXIS_DEFINITIONS` |
 
 **Bundles → tables.** Each file declares bare `const NAME = …;` (no `window`; only
@@ -133,7 +133,7 @@ Facts that bite if you miss them:
   pop_rock`; `global` dominates at 2492/7755) — a top-level genre bucket, NOT an
   instrument family.
 - **Tree-node ids are full dotted paths.** 292 of 317 ids contain dots
-  (`functionalSong.country.honkyTonkEra`); `extras.parent`/`crossRefs` hold such ids and
+  (`<node>.<node>.<node>`); `extras.parent`/`crossRefs` hold such ids and
   resolve directly via `byNode[path]` — no path reconstruction.
 - **`crossRefs[]` is a mixed array**: mostly strings (node-id paths), but 67 entries
   (across 63 distinct traditions) are `{ref:"<node path>", voice_isolated:true}` (44) or
@@ -143,7 +143,7 @@ Facts that bite if you miss them:
 - An instrument's `parts` are already family-merged in the data; the §2 helper
   `partsFor(id)` reproduces the merge (family parts filtered by `applies_to`, overlaid
   with own parts) so it works whether or not merge ran.
-- `PREFACE_LEXICON` is a flat list of named token bundles (e.g. `sobbing`,`crooning`)
+- `PREFACE_LEXICON` is a flat list of named token bundles (e.g. `<preface id>`)
   for vocal/character description — **not** a parts table and **not** a conflicts table.
 - Names are **not unique** and not always literal; the `id` is the key. Region/era live
   in `lineage`/`description` text and on archetype/aesthetic `era`, not in a tidy field.
@@ -191,15 +191,15 @@ node -e 'console.log(require("./references/07_preface_lexicon.js").PREFACE_LEXIC
 ### C. grep to locate fast (single-quoted JS; the field is `name`)
 
 ```bash
-grep -oE "name: '[^']*[Oo]ud[^']*'" references/02_instruments.js | head -2
-# name: 'Jingju role-type mechanism (… jing pressed-loud …)'   ← false positive ("l[oud]")
-# name: 'Fretless (oud-style neck)'                             ← a variant name, not the instrument
+grep -oE "name: '[^']*<name fragment>[^']*'" references/02_instruments.js | head -2
+# name: '<an unrelated name with the fragment inside a longer word>'   ← false positive
+# name: '<a variant name containing the fragment>'                      ← a variant name, not the instrument
 ```
-Caveat: a substring pattern catches false positives (here `[Oo]ud` matches "l**oud**") **and
-can miss the record you want** — the real instrument's name is
-`'ʿŪd (Arab/Mediterranean fretless lute)'` (id `oud`), whose non-ASCII spelling this pattern
+Caveat: a substring pattern catches false positives (here the fragment matched inside a longer,
+unrelated word) **and can miss the record you want** — in the verified case the real instrument's
+name (id `<instrument id>`) used a non-ASCII spelling this pattern
 never matches. So grep is for rough locating only; resolve the actual record by **id** via
-`q.js` (`db.byInst['oud']`). Records are pretty-printed over many lines, so `grep -c "^  { id:"`
+`q.js` (`db.byInst['<instrument id>']`). Records are pretty-printed over many lines, so `grep -c "^  { id:"`
 does NOT count records — use the loader to count.
 
 ### D. `jq` works on the auxiliary `_*.json` files (real JSON), not the bundles.
@@ -247,7 +247,7 @@ if (require.main === module) {        // demo: instruments whose available parts
     .filter(i => db.partsFor(i.id).some(p => /mute/.test(p.id))).slice(0, 6).map(i => i.id)));
 }
 ```
-Verified `node q.js` → `["fiddle","trombone","trumpet"]`.
+Verified `node q.js` → `[<instrument ids>]` (three ids).
 For any query, `const db = require('./q.js')` and read `db.*` / `db.by*` /
 `db.partsFor(id)` — load once, never re-parse the 1–2 MB bundles.
 
@@ -257,20 +257,20 @@ For any query, `const db = require('./q.js')` and read `db.*` / `db.by*` /
 # 1) instruments per family, top 5
 node -e 'const db=require("./q.js");const c={};db.INSTRUMENTS.forEach(i=>c[i.family]=(c[i.family]||0)+1);
 console.log(JSON.stringify(Object.entries(c).sort((a,b)=>b[1]-a[1]).slice(0,5)))'
-# → [["percussion",106],["plucked_traditional",76],["wind",73],["ensemble",32],["bowed",31]]
+# → [[<family>,106],[<family>,76],[<family>,73],[<family>,32],[<family>,31]]
 
 # 2) traditions under a genre-tree branch (extras.parent is a full dotted path)
 node -e 'const db=require("./q.js");
-console.log(JSON.stringify(db.TRADITIONS.filter(t=>db.extras[t.id].parent.startsWith("groovePercussion")).slice(0,5).map(t=>t.id)))'
-# → ["palm_wine","highlife","funk","samba","pagode"]
+console.log(JSON.stringify(db.TRADITIONS.filter(t=>db.extras[t.id].parent.startsWith("<tree node id>")).slice(0,5).map(t=>t.id)))'
+# → [<tradition ids>]
 
-# 3) tunings that are not the Western default (group by first descriptor)
+# 3) tunings that are not the default (group by first descriptor)
 node -e 'const db=require("./q.js");
-console.log(JSON.stringify(db.TUNINGS.filter(t=>!(t.descriptors||[]).includes("Western")).slice(0,4).map(t=>t.id+":"+(t.descriptors||[])[0])))'
-# → ["just_intonation:pure","pythagorean:medieval","meantone:mellow","well_temperament:key-colored"]
+console.log(JSON.stringify(db.TUNINGS.filter(t=>!(t.descriptors||[]).includes("<descriptor>")).slice(0,4).map(t=>t.id+":"+(t.descriptors||[])[0])))'
+# → [<tuning id>:<descriptor>, …]
 ```
 (Verified: instrument families 11; tradition.family buckets 12; tuning first-descriptor
-groups `pentatonic:11, korean-traditional:2, son-clave:2, …` — descriptors are
+groups `<descriptor>:11, <descriptor>:2, <descriptor>:2, …` — descriptors are
 character-based, not region-based; `PREFACE_LEXICON` has 567 distinct tokens.)
 
 ---
@@ -285,13 +285,13 @@ Each reuses `const db = require('./q.js')`. Run from the package root or with
 1. **Pick the tradition** — by id, or filter by `tradition.family` bucket /
    `extras.parent` branch / words in `lineage`:
    ```bash
-   node -e 'const db=require("./q.js");const t=db.byTrad["afrobeat"];
+   node -e 'const db=require("./q.js");const t=db.byTrad["<tradition id>"];
    console.log(t.id,"|",t.family,"|",t.instruments.length,"insts | parent",db.extras[t.id].parent)'
-   # → afrobeat | global | 9 insts | parent groovePercussion.afroDiasporicElec
+   # → <tradition id> | <family> | 9 insts | parent <tree node id>
    ```
 2. **Resolve the ensemble + sound refs** (this is the seed):
    ```bash
-   node -e 'const db=require("./q.js");const t=db.byTrad["afrobeat"];
+   node -e 'const db=require("./q.js");const t=db.byTrad["<tradition id>"];
    t.instruments.forEach(id=>console.log(id, db.byInst[id].name, "["+db.byInst[id].family+"]"));
    const a=db.byArch[t.chain_archetype], r=db.byRoom[t.room];
    console.log("room:",r.id,"("+r.cluster+")");
@@ -300,22 +300,14 @@ Each reuses `const db = require('./q.js')`. Run from the package root or with
    ```
    Verified output:
    ```
-   electric_guitar_single_coil Solid-body electric guitar with single-coil pickups [electric_strings]
-   electric_bass Solid-body electric bass [electric_strings]
-   drum_kit Drum kit (Western) [percussion]
-   tonewheel_organ Drawbar tonewheel organ (with rotating-speaker cabinet) [keyboard]
-   saxophone Saxophone (soprano / alto / tenor / baritone) [wind]
-   trumpet Trumpet / cornet / flugelhorn [wind]
-   voice Voice [voice]
-   shekere Shekere (West African beaded gourd) [percussion]
-   congas Congas / tumbadoras (Cuban) [percussion]
-   room: studio_emi_lagos_african (commercial_studio)
-   archetype: arch_emi_lagos_african_70s era=1965-1985 mic=condenser_ldc comp=comp_vari_mu
-   tuning: twelve_tet
+   <instrument id> <instrument name> [<family>]      (one such line per instrument: 9 lines)
+   room: <room id> (<cluster>)
+   archetype: <archetype id> era=<era> mic=<mic id> comp=<comp id>
+   tuning: <tuning id>
    ```
 3. **Assign one variant per relevant instrument part** (technique/voicing) from
    `db.partsFor(id)`; default is the `default:true` variant unless the tradition points
-   elsewhere (e.g. afrobeat guitar → `electric_chicken_scratch`).
+   elsewhere (e.g. a tradition's `<instrument id>` → `<variant>`).
 4. **Blend** (one to three traditions): union the instrument lists; keep the **primary** as
    anchor and reconcile room/archetype/tuning to it; pull staples only from genres close
    in the tree. Then §3e and §6.
@@ -326,16 +318,16 @@ Each reuses `const db = require('./q.js')`. Run from the package root or with
   ```bash
   node -e 'const db=require("./q.js");
   console.log(JSON.stringify(db.INSTRUMENTS.filter(i=>db.partsFor(i.id).some(p=>/mute/.test(p.id))).slice(0,6).map(i=>i.id)))'
-  # → ["fiddle","trombone","trumpet"]
+  # → [<instrument ids>]
   ```
 - **By genre:** genre is on the **tradition** side (`tradition.family` bucket,
   `extras.parent` branch) and on archetype/aesthetic `era`/region. Go tradition→instruments:
   ```bash
   node -e 'const db=require("./q.js");const ids=new Set();
-  db.TRADITIONS.filter(t=>t.family==="jazz").forEach(t=>t.instruments.forEach(i=>ids.add(i)));
-  console.log("instruments across jazz traditions:",ids.size)'   # → 33
+  db.TRADITIONS.filter(t=>t.family==="<family>").forEach(t=>t.instruments.forEach(i=>ids.add(i)));
+  console.log("instruments across <family> traditions:",ids.size)'   # → <count>
   ```
-- **By instrument family / class / axes:** filter `i.family==="bowed"`, `i.class`, or
+- **By instrument family / class / axes:** filter `i.family==="<family>"`, `i.class`, or
   numeric `i.axes.sustain`, etc. Confirm a chosen part is in `db.partsFor(id)` (§6).
 
 ### 3c. Design signal chain + room + tuning
@@ -343,34 +335,34 @@ Each reuses `const db = require('./q.js')`. Run from the package root or with
 1. **Chain = pick an archetype** (period-curated bundle in `.components`). Match `era`
    + `region`:
    ```bash
-   node -e 'const db=require("./q.js");const a=db.byArch["arch_memphis_southern_soul"];
+   node -e 'const db=require("./q.js");const a=db.byArch["<archetype id>"];
    console.log(a.id,"["+a.era+","+a.region+"]"); console.log(JSON.stringify(a.components))'
-   # arch_memphis_southern_soul [1965-1980,NA-S]
-   # {"mic":"ribbon_passive","pre":"pre_neve_1073_input","console":"colored","comp":"comp_la2a_optical","eq":"eq_inductor_iron","medium":"tape_30ips"}
+   # <archetype id> [<era>,<region>]
+   # {"mic":"<mic id>","pre":"<pre id>","console":"<console id>","comp":"<comp id>","eq":"<eq id>","medium":"<medium id>"}
    ```
    If no archetype fits, set the inline `chain_mic/pre/console/comp/eq/medium` ids
    directly — they are **free vocabulary**, not a lookup table.
 2. **Room** (exactly one): group by `cluster`; match `descriptors` to intent.
    ```bash
-   node -e 'const db=require("./q.js");const r=db.byRoom["studio_emi_lagos_african"];
+   node -e 'const db=require("./q.js");const r=db.byRoom["<room id>"];
    console.log(r.id,"|",r.cluster,"|",r.descriptors.join("/"))'
-   # studio_emi_lagos_african | commercial_studio | large-tropical/ensemble-volume/EMI-equipment-heritage
+   # <room id> | <cluster> | <descriptor>/<descriptor>/<descriptor>
    ```
    (List clusters with `[...new Set(db.ROOMS.map(r=>r.cluster))]`.)
-3. **Tuning** (usually one): start from `tradition.tuning` (often `twelve_tet`). Mixing
-   tuning *families* (Western vs maqam vs gamelan, read from `descriptors`/`sub`) is a
+3. **Tuning** (usually one): start from `tradition.tuning` (often the default equal-temperament tuning). Mixing
+   tuning *families* (one family vs another, read from `descriptors`/`sub`) is a
    hard flag unless intentional.
 
 ### 3d. Voice & preface lexicon (descriptor enrichment)
 
 `PREFACE_LEXICON` is 740 named bundles of descriptor tokens for **vocal/character**
-description (`sobbing`, `belting`, `keening`, `wailing`, `crooning`, `purring`, …). Use it
+description (`<preface id>`, `<preface id>`, …). Use it
 to enrich a voice chair's descriptors with consistent tokens; there is **no numeric
 op-model and no conflicts table**.
 ```bash
-node -e 'const db=require("./q.js");const p=db.byPreface["belting"];
+node -e 'const db=require("./q.js");const p=db.byPreface["<preface id>"];
 console.log(p.id,"=>",p.tokens.slice(0,8).join(", "))'
-# belting => projecting, chest-resonance-low-mid, vibrato-rich, late-Romantic-onward, ringing, blues-shouter, characteristic-cry, choir-blendable
+# <preface id> => <token>, <token>, <token>, <token>, <token>, <token>, <token>, <token>
 ```
 Pick a bundle whose name matches the intended delivery and fold a few tokens into the
 voice chair's `descriptors`. Keep the output free of impressionistic contradictions
@@ -388,10 +380,10 @@ Assemble it from the resolved pieces in this fixed order:
 4. Chain electronics from the archetype components: amp, mic, pre, console, comp, eq.
 5. Medium + fx, then production aesthetic.
 
-A real compiled recipe (verbatim `node scripts/recipe.js --tradition afrobeat`
-snapshot, 990 chars — shown truncated):
+The shape of a real compiled recipe (a `node scripts/recipe.js --tradition <tradition id>`
+snapshot, 990 chars — shown truncated, each word replaced by its slot):
 ```
-classic West African mid-1970s afrobeat, groove Percussion, Afro-diasporic electric branch, American jazz fusion, Afro-diasporic MC rhythm acid jazz. thick, rap, nervy, narrative. Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, birch vintage ambassador asymmetric bronze bell bronze drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 145 …
+classic <region> <era> <tradition name>, <parent branch>, <crossRef>, <crossRef>. <voice descriptor>, <voice descriptor>, …. <amp> <variant descriptors> <instrument noun>, <amp> <variant descriptors> <instrument noun>, <variant descriptors> <instrument noun>, …
 ```
 Output rules are strict (§4A): no prose/connectives, no axis values, **no
 artist/band/exemplar names**, drop defaults silently, modifiers-before-noun.
@@ -440,10 +432,10 @@ Notes that bite:
 
 Verified examples:
 ```bash
-node scripts/recipe.js --tradition delta_blues --swap-variant=voice:voice_register:falsetto
-node scripts/recipe.js --tradition afrobeat --exclude-instrument=saxophone,trumpet
-node scripts/recipe.js --diff --weight=0.5 delta_blues detroit_techno
-node scripts/recipe.js --diff delta_blues detroit_techno          # bare form: both ids stay positional
+node scripts/recipe.js --tradition <tradition id> --swap-variant=<instrument id>:<part>:<variant>
+node scripts/recipe.js --tradition <tradition id> --exclude-instrument=<instrument id>,<instrument id>
+node scripts/recipe.js --diff --weight=0.5 <tradition id> <tradition id>
+node scripts/recipe.js --diff <tradition id> <tradition id>          # bare form: both ids stay positional
 ```
 
 ### 3g. Reshape a card toward a preface (inverse-configure)
@@ -455,11 +447,11 @@ that preface's token signature (coordinate-ascent; same algorithm as the
 browser app's `inverseConfigureForPreface`).
 
 ```bash
-node scripts/preface_configure.js --instrument voice --preface liturgical
+node scripts/preface_configure.js --instrument <instrument id> --preface <preface id>
 #   target coverage: 0/13 → 4/13 tokens
-#   Register: Chest → Countertenor;  Pitch flexibility: Tempered → Just intonation
-#   Tuning: (none) → Pythagorean tuning   [+medieval]
-#   Room: (none) → Tin-roofed shack
+#   <part name>: <variant name> → <variant name>;  <part name>: <variant name> → <variant name>
+#   Tuning: (none) → <tuning name>   [+<token>]
+#   Room: (none) → <room name>
 ```
 - `--tradition <id>` seeds the card from a real tradition first (so you refine a
   recipe card rather than a bare default).
@@ -472,9 +464,9 @@ node scripts/preface_configure.js --instrument voice --preface liturgical
 
 **A preface override can move your settings — including the room.** The inverse
 re-picks across part-variants, tuning, **room**, and chain stages (mic/pre/
-medium/console). Verified: `caressing` on a `voice` card moved
-`Room → Front parlor (period furniture, rugs, drapes)` (and on a fuller card,
-Register Head→Chest + Quality lowered-larynx→Opera). So if you commit a preface
+medium/console). Verified: one preface on a single-instrument card moved
+`Room → <room name>` (and on a fuller card, two of its
+parts to other variants). So if you commit a preface
 *after* hand-setting a room/tuning, expect it may overwrite them — check the
 returned `changes[]` and re-set anything you wanted to keep.
 
@@ -528,11 +520,11 @@ const dom=new JSDOM(html,{runScripts:'dangerously',pretendToBeVisual:true,before
 setTimeout(()=>{
   const probe=`(function(){
     // Build cards with the app's OWN makeCard, then tweak parts/tuning/room/chain.
-    const TRAD='tin_pan_alley_song';
-    const v=makeCard('voice',{traditionId:TRAD});
-    v.parts.voice_register='head_voice';                 // example tweak
-    const cards=[v, makeCard('cornet',{traditionId:TRAD})];
-    // commitPrefaceChange(cards[0],'caressing');         // optional: reshape toward a preface
+    const TRAD='<tradition id>';
+    const v=makeCard('<instrument id>',{traditionId:TRAD});
+    v.parts['<part>']='<variant>';                       // example tweak
+    const cards=[v, makeCard('<instrument id>',{traditionId:TRAD})];
+    // commitPrefaceChange(cards[0],'<preface id>');      // optional: reshape toward a preface
     window.__out=compileRecipeStack(cards,'rich',{});     // 'rich' | 'prose' | 'tags' | 'compact'
   })();`;
   const s=dom.window.document.createElement('script'); s.textContent=probe;
@@ -543,8 +535,8 @@ setTimeout(()=>{
 - Inside the probe you have the full app API: `makeCard(id,{traditionId})`,
   `card.parts`/`tuning`/`room`/`chain`, `commitPrefaceChange(card,id)`,
   `compileRecipeStack(cards, format, {})`. Tweak, then compile.
-- The chain shape is `{fx:[],amp,pre,comp,eq,console,mic,medium}`; set acoustic-era
-  gear by id, e.g. `card.chain={...card.chain, mic:'mic_acoustic_horn_pre1925', medium:'shellac_78'}`.
+- The chain shape is `{fx:[],amp,pre,comp,eq,console,mic,medium}`; set a stage's
+  gear by id, e.g. `card.chain={...card.chain, mic:'<mic id>', medium:'<medium id>'}`.
 - **Validate the result against §6** before returning it (≤1000 chars, no proper
   names, ids resolve). The four formats all honor the ceiling via the same trim
   cascade.
@@ -565,7 +557,7 @@ A single descriptor-stack string. Constraints (all enforced by §6):
 - No prose, connectives, or labels. Period between category groups; commas within.
 - **No axis values** printed. **No artist/band/composer/exemplar names** — those live
   only in `extras.exemplars[]` / `archetype.exemplar_studios[]` and must never appear.
-- Drop catalog defaults silently (e.g. don't print `twelve_tet`, `comp_none`).
+- Drop catalog defaults silently (e.g. don't print the default equal-temperament tuning, `comp_none`).
 - Modifiers in front, anchor noun last.
 
 ### 4B. Arrangement JSON (when the user wants a structured, checkable plan)
@@ -577,64 +569,64 @@ Emit exactly this shape. **Required:** `meta.title`, and each `ensemble[]` item'
 {
   "meta": {
     "title": "string (required)",
-    "tradition": "afrobeat",            // optional; if built from one
-    "blend": ["afrobeat","highlife"],   // optional; primary first
-    "tempo_bpm": 118, "key": "E dorian"
+    "tradition": "<tradition id>",      // optional; if built from one
+    "blend": ["<tradition id>","<tradition id>"],   // optional; primary first
+    "tempo_bpm": <bpm>, "key": "<key>"
   },
   "ensemble": [
-    { "instrument_id": "electric_guitar_single_coil",   // required, must resolve
+    { "instrument_id": "<instrument id>",               // required, must resolve
       "parts": [                                         // each part_id ∈ db.partsFor(instrument_id)
-        { "part_id": "electric_technique",
-          "variant_id": "electric_chicken_scratch",      // ∈ that part's variants
-          "descriptors": ["chicken-scratch","midrange-forward"] } ] }
+        { "part_id": "<part>",
+          "variant_id": "<variant>",                     // ∈ that part's variants
+          "descriptors": ["<descriptor>","<descriptor>"] } ] }
   ],
-  "room_id": "studio_emi_lagos_african",                // exactly one
-  "chain": { "archetype_id": "arch_emi_lagos_african_70s",  // resolves; supersedes inline
+  "room_id": "<room id>",                               // exactly one
+  "chain": { "archetype_id": "<archetype id>",          // resolves; supersedes inline
              "mic": null, "pre": null, "console": null, "comp": null, "eq": null, "medium": null },
-  "tuning_id": "twelve_tet",
+  "tuning_id": "<tuning id>",
   "aesthetic_id": null,                                  // optional; must resolve if present
-  "recipe": "classic West African mid-1970s afrobeat, …",   // the §4A string
+  "recipe": "classic <region> <era> <tradition name>, …",   // the §4A string
   "validation": { "checked": true, "issues": [] }        // checked MUST be true; issues empty (or all soft)
 }
 ```
 
 ### Complete worked example (every id verified to resolve & be coherent)
 
-Built from the real `afrobeat` tradition — all nine instruments resolve; `room`,
-`chain_archetype` (with components), and `tuning` all resolve; `electric_chicken_scratch`
-is a real variant of the single-coil guitar's `electric_technique` part:
+Built from a real tradition — all nine instruments resolve; `room`,
+`chain_archetype` (with components), and `tuning` all resolve; the chosen `<variant>`
+is a real variant of the first instrument's `<part>` part:
 
 ```json
 {
-  "meta": { "title": "Afrobeat Session in E Dorian", "tradition": "afrobeat", "tempo_bpm": 118, "key": "E dorian" },
+  "meta": { "title": "<title>", "tradition": "<tradition id>", "tempo_bpm": <bpm>, "key": "<key>" },
   "ensemble": [
-    { "instrument_id": "electric_guitar_single_coil",
-      "parts": [ { "part_id": "electric_technique", "variant_id": "electric_chicken_scratch",
-                   "descriptors": ["chicken-scratch","midrange-forward","clean"] } ] },
-    { "instrument_id": "electric_bass", "parts": [] },
-    { "instrument_id": "drum_kit", "parts": [] },
-    { "instrument_id": "tonewheel_organ", "parts": [] },
-    { "instrument_id": "saxophone", "parts": [] },
-    { "instrument_id": "trumpet", "parts": [] },
-    { "instrument_id": "voice", "parts": [] },
-    { "instrument_id": "shekere", "parts": [] },
-    { "instrument_id": "congas", "parts": [] }
+    { "instrument_id": "<instrument id>",
+      "parts": [ { "part_id": "<part>", "variant_id": "<variant>",
+                   "descriptors": ["<descriptor>","<descriptor>","<descriptor>"] } ] },
+    { "instrument_id": "<instrument id>", "parts": [] },
+    { "instrument_id": "<instrument id>", "parts": [] },
+    { "instrument_id": "<instrument id>", "parts": [] },
+    { "instrument_id": "<instrument id>", "parts": [] },
+    { "instrument_id": "<instrument id>", "parts": [] },
+    { "instrument_id": "<instrument id>", "parts": [] },
+    { "instrument_id": "<instrument id>", "parts": [] },
+    { "instrument_id": "<instrument id>", "parts": [] }
   ],
-  "room_id": "studio_emi_lagos_african",
-  "chain": { "archetype_id": "arch_emi_lagos_african_70s", "mic": null, "pre": null, "console": null, "comp": null, "eq": null, "medium": null },
-  "tuning_id": "twelve_tet",
+  "room_id": "<room id>",
+  "chain": { "archetype_id": "<archetype id>", "mic": null, "pre": null, "console": null, "comp": null, "eq": null, "medium": null },
+  "tuning_id": "<tuning id>",
   "aesthetic_id": null,
-  "recipe": "classic West African mid-1970s afrobeat, groove Percussion, Afro-diasporic electric branch, American jazz fusion. thick, nervy, narrative. chicken-scratch midrange-forward clean single coil electric guitar, fingerstyle electric bass, bronze drum kit, tonewheel organ Leslie, tenor saxophone, trumpet, shekere, congas. large-diaphragm condenser, German tube V72-school preamp, German tube console, vari-mu tube compressor, Pultec-style passive program EQ. two-inch thirty-ips tape.",
+  "recipe": "classic <region> <era> <tradition name>, <parent branch>, <crossRef>. <voice descriptors>. <variant descriptors> <instrument noun>, <variant descriptors> <instrument noun>, …. <mic>, <pre>, <console>, <comp>, <eq>. <medium>.",
   "validation": { "checked": true, "issues": [] }
 }
 ```
-(`electric_chicken_scratch` descriptors are `["chicken-scratch","midrange-forward",
-"clean"]` — verbatim from the data. Because the arrangement sets `chain.archetype_id`, the
-chain uses archetype `arch_emi_lagos_african_70s`'s components (which **supersede**
-afrobeat's inline `chain_*` per §4B): `mic=condenser_ldc`, `pre=pre_tube_german_v72`,
-`console=console_german_tube_50s`, `comp=comp_vari_mu`, `eq=eq_passive_program_pultec`,
-`medium=tape_30ips`. The recipe contains none of afrobeat's exemplars
-(`Fela Kuti, Tony Allen, Antibalas`). Caveat: variants are family-part-level, so the §6
+(The `<variant>` descriptors are
+verbatim from the data. Because the arrangement sets `chain.archetype_id`, the
+chain uses archetype `<archetype id>`'s components (which **supersede**
+the tradition's inline `chain_*` per §4B): `mic=<mic id>`, `pre=<pre id>`,
+`console=<console id>`, `comp=<comp id>`, `eq=<eq id>`,
+`medium=<medium id>`. The recipe contains none of the tradition's exemplars.
+Caveat: variants are family-part-level, so the §6
 validator confirms a `variant_id` belongs to its part but cannot judge musical idiom —
 choose idiomatic variants yourself.)
 
@@ -790,7 +782,7 @@ consistent. (Two subtleties make this true: the disjoint-`applies_to` `MULTI_DEF
 exception covers `wind.wind_articulation` and `percussion.percussion_technique`; and
 crossRefs are normalized via `cr.ref ?? cr` since 67 are `{ref,voice_isolated}`/`{ref,isolated_parts}` objects.) The
 checker also flags injected damage — a dup instrument id, bad `family`, orphan extras
-key, tradition with no extras, and bad extras `parent` yield `DUP_INST oud`,
+key, tradition with no extras, and bad extras `parent` yield `DUP_INST <instrument id>`,
 `BAD_FAMILY frob`, `EXTRAS_ORPHAN x_orphan`, `TRAD_NO_EXTRAS x_bad`,
 `EXTRAS_BAD_PARENT x_orphan` (verified).
 
@@ -810,7 +802,7 @@ Run IN ORDER. Stop and fix on any hard failure; record soft items in
 3. **Part valid for instrument** — every `part_id ∈ db.partsFor(instrument_id)`, and
    `variant_id` belongs to that part.
 4. **Tuning coherence** — all tunings in use share a family (read `descriptors`/`sub`);
-   mixing Western with maqam/gamelan/just is a hard flag unless intentional.
+   mixing tunings from different families is a hard flag unless intentional.
 5. **Era/region coherence** — if a tradition is named, the room/archetype/aesthetic eras
    and regions are consistent with its `lineage`; flag obvious anachronisms as soft.
 6. **No exemplar/proper names in `recipe`** — none of the tradition's `exemplars[]` (or
@@ -855,15 +847,15 @@ if (typeof A.recipe === 'string') {
 }
 console.log(JSON.stringify({ ok: hard.length === 0, hard, soft, recipeLen: (A.recipe || '').length }, null, 1));
 ```
-On the §4 worked example: `{"ok":true,"hard":[],"soft":[],"recipeLen":480}` (verified).
-On a deliberately broken arrangement (unknown instrument `NOPE`; a `brass_mute` part the
-acoustic guitar can't take; a real `acoustic_technique` part with a bogus
+On the §4 worked example: `{"ok":true,"hard":[],"soft":[],"recipeLen":<length>}` (verified on a real arrangement of this shape).
+On a deliberately broken arrangement (unknown instrument `NOPE`; a `<part>` part the
+instrument can't take; a real `<part>` part with a bogus
 `acoustic_moonwalk` variant; unknown room/tuning/aesthetic; a made-up archetype; and a
-recipe containing "Bill Monroe") it returns `ok:false` with hard items
-`unknown instrument NOPE`, `chair 1: acoustic_guitar_dread has no part brass_mute`,
-`chair 2: variant acoustic_moonwalk not in acoustic_technique`, `unknown room room_NOPE`,
+recipe containing one of the tradition's exemplar names) it returns `ok:false` with hard items
+`unknown instrument NOPE`, `chair 1: <instrument id> has no part <part>`,
+`chair 2: variant acoustic_moonwalk not in <part>`, `unknown room room_NOPE`,
 `unknown tuning tuning_NOPE`, `unknown aesthetic aesthetic_NOPE`, `recipe leaks exemplar
-name: Bill Monroe`, and the made-up archetype in `soft` (verified).
+name: <exemplar>`, and the made-up archetype in `soft` (verified).
 
 ---
 
@@ -942,8 +934,8 @@ catalog, and `--json` piped into `jq` is always complete JSON.
 | Axis-vector search | `node scripts/nearest_neighbor.js --type tradition --axes "harm:1,density:2,…"` |
 | Neighbors of a variant / tree-node / chain-item / room | `--type variant\|tree-node\|chain-item\|room --id <id>` |
 
-Verified: `nearest_neighbor.js --type instrument --id voice` → top neighbor `spoken_dramatic_cast`
-(score 1.30); `--type tradition --id delta_blues` → `hill_country_blues` (1.35).
+Verified: `nearest_neighbor.js --type instrument --id <instrument id>` → a top neighbor `<instrument id>`
+(score 1.30); `--type tradition --id <tradition id>` → `<tradition id>` (1.35).
 
 ### Compare & diagnose
 
@@ -996,7 +988,7 @@ nothing else. There are exactly these levers, and no others:
 | **Tradition ORDER** | order of cards in the array | header reads `Name1 + Name2, …` in **first-appearance order**; reorder cards to reorder the header (and the per-instrument order) |
 | **Which instruments** | one card per instrument | the instrument chunks (the body of the recipe) |
 | **Instrument PART variants** | `card.parts[<partId>] = <variantId>` | the post-noun descriptor stack per instrument (material/technique/lineage/**era**) |
-| **Tuning** | `card.tuning` | the tuning chunk (e.g. `arabic-maqam-framework: microtonal-bend`) |
+| **Tuning** | `card.tuning` | the tuning chunk (e.g. `<tuning descriptor>: <tuning descriptor>`) |
 | **Room** | `card.room` | the room chunk (acoustics) |
 | **Signal chain** | `card.chain.{mic,pre,comp,eq,medium,console,amp,fx}` | the chain chunks (gear) **and** (for 4 of the 8 stages) the prefaces |
 | **Preface** | `card.preface` + `card.prefaceAuto` | the per-card affective label; auto-derived unless locked |
@@ -1006,8 +998,8 @@ nothing else. There are exactly these levers, and no others:
 > `compileRecipeStack(cards, format, options)` — no arrangement param). They are **CLI-only** —
 > `recipe.js --arrangement=<id>` and a tradition's `production_aesthetic` field feed the `translate.js`
 > renderer, a *different* output from the four named formats. Verified both directions:
-> `recipe.js --tradition delta_blues --arrangement twelve_bar_blues_repeated` injects a clause
-> (`twelve-bar blues repeated, twelve bar cyclic, i iv v foundation, call and response within cycle`)
+> `recipe.js --tradition <tradition id> --arrangement <arrangement id>` injects a clause
+> (the arrangement's descriptors)
 > that the browser Rich for the same tradition does **not** contain. If a user asks for the "Rich"
 > recipe, arrangement/aesthetic are irrelevant; don't reach for them.
 
@@ -1030,15 +1022,15 @@ The single biggest source of "the recipe says the wrong thing." Three independen
 
 **(a) Relocating `room` does NOT move the `chain`.** A card's chain comes from the tradition's inline
 `chain_*` fields, fixed at `importTradition` time — not from the room and not from the chain archetype.
-So setting `card.room` to a period studio leaves an anachronistic chain behind (e.g. a "1968 Düsseldorf
-Kling Klang" room with an "SSL-clone 1989" chain). **Fix:** set `card.chain` explicitly to the period
+So setting `card.room` to a period studio leaves an anachronistic chain behind (e.g. a 1968
+studio room with a 1989 chain). **Fix:** set `card.chain` explicitly to the period
 archetype's components. To read an archetype's components:
 ```bash
-node scripts/list.js --archetypes 2>&1 | grep -A1 arch_acoustic_horn_pre1925
-# arch_acoustic_horn_pre1925  era=1900-1925 ...
-#   components: mic=mic_acoustic_horn_pre1925  comp=comp_none  eq=eq_none  medium=shellac_78
+node scripts/list.js --archetypes 2>&1 | grep -A1 <archetype id>
+# <archetype id>  era=<era> ...
+#   components: mic=<mic id>  comp=<comp id>  eq=<eq id>  medium=<medium id>
 ```
-then in the build: `card.chain = { fx:[], amp:null, mic:'mic_acoustic_horn_pre1925', pre:null, comp:null, eq:null, medium:'shellac_78', console:null }`.
+then in the build: `card.chain = { fx:[], amp:null, mic:'<mic id>', pre:null, comp:null, eq:null, medium:'<medium id>', console:null }`.
 
 **(b) `makeCard(id, {traditionId})` does NOT inherit tuning/room/chain.** It sets
 `tuning:null, room:null, chain:emptyChain()` — only `importTradition` populates those from the
@@ -1046,7 +1038,7 @@ tradition row. An instrument added via `makeCard` (the agent equivalent of `--ad
 **bare** and renders without tuning/room/chain context. **Fix — copy from a sibling card** (the clean idiom):
 ```js
 const sib = cards[0];  // any already-populated card in the same tradition
-const c = makeCard('riq', { traditionId: TRAD, tuning: sib.tuning, room: sib.room, chain: { ...sib.chain } });
+const c = makeCard('<instrument id>', { traditionId: TRAD, tuning: sib.tuning, room: sib.room, chain: { ...sib.chain } });
 ```
 
 **(c) PART variants can carry an anachronistic ERA — from defaults *or* from preface-reshaping.**
@@ -1055,13 +1047,13 @@ families** (e.g. `voice.voice_multitrack_stack`, `voice.voice_processing_chain`,
 `cymbal_alloy`, pickup/string/lineage parts on guitars). Two ways a wrong era sneaks in: (1) the
 instrument's **default** variant is modern, or (2) **locking a preface** via `commitPrefaceChange` runs
 the inverse (§3g), which **re-picks** parts toward the preface's tokens and can land on an era-stamped
-variant — in dogfooding, locking a 1949 vocal to `keening` reshaped its `voice_multitrack_stack` to a
-*late-1980s-reverb-saturated-bus* variant, stamping "late-1980s" on the recipe. The signal-chain tweak
+variant — in dogfooding, locking a 1949 vocal to one preface reshaped its `voice_multitrack_stack` to a
+*late-1980s* variant, stamping "late-1980s" on the recipe. The signal-chain tweak
 can't touch this — it's a *part*, a different axis. **Fix:** after any preface lock, re-check and
 explicitly set era-bearing part variants. Find which
 parts carry era on an instrument:
 ```bash
-node -e 'const db=require("./scripts/_loader.js");const i=db.INSTRUMENTS.find(x=>x.id==="voice");
+node -e 'const db=require("./scripts/_loader.js");const i=db.INSTRUMENTS.find(x=>x.id==="<instrument id>");
 for(const p of i.parts){for(const v of (p.variants||[])){if(/\b(19|20)\d{2}\b|late-|early-|-era/.test((v.descriptors||[]).join(" "))){console.log(p.id,"->",v.id);break;}}}'
 ```
 then set `card.parts[partId] = periodVariantId` (or via the CLI, `recipe.js --swap-variant=inst:part:variant`).
@@ -1072,9 +1064,9 @@ Recipe compile runs a **dedup**: no two cards may show the same preface in the r
 card claims its top-scoring preface; collisions are resolved by giving it to the highest-scoring card and
 bumping the losers to their *next-best*. With many cards in one tradition, the good on-genre prefaces get
 claimed early and later cards cascade **past their whole top-N** to a leftover that can be cross-cultural
-— e.g. a bluegrass fiddle labeled `erhuang` (Chinese opera), or a tarab violin labeled `mor-lam-storytelling` (Thai mor lam).
-Worst case observed (dogfooding): a Notre-Dame-organum recipe whose voices cascaded to `street-pulsing`
-(club) and pipe organ to `breaks-skittering` (breakbeat) — once every apt sacred preface had been claimed
+— e.g. an instrument labeled with a preface from an unrelated tradition, or a second instrument labeled with a preface from another distant tradition.
+Worst case observed (dogfooding): a sacred-register recipe whose voices and organ cascaded to prefaces
+from unrelated traditions — once every apt sacred preface had been claimed
 by a higher-scoring card, the losers cascaded down the shared ranked list (the cause is generic-token
 overlap, *not* a shallow pool — see below).
 
@@ -1086,8 +1078,8 @@ overlap, *not* a shallow pool — see below).
 - **Root cause is generic-token overlap, not a shallow pool.** The matcher is pure token-overlap with no
   cultural awareness. Culturally-distant prefaces share *generic* tokens (`thick`, `grounded`,
   `speech-derived`, `high-falsetto`) with a card's descriptors, so they can score **as high as** the
-  apt ones — e.g. a default chant voice ranks `jeong` (Korean) and `nadryv` (Russian) at the same 0.56
-  as sacred prefaces. (The pool itself is usually deep — that same chant voice has ~106 scoring prefaces,
+  apt ones — e.g. a default sacred-register voice ranks two prefaces from distant traditions at the same 0.56
+  as sacred prefaces. (The pool itself is usually deep — that same voice has ~106 scoring prefaces,
   not a handful; an earlier "shallow pool" reading was a measurement artifact of scoring a parts-stripped
   card.) So even the *top* picks can be cross-cultural, and **many same-tradition cards amplify it**:
   the more cards competing for the same high-scorers, the further down the shared ranked list the losers
@@ -1098,14 +1090,13 @@ overlap, *not* a shallow pool — see below).
   - *Few same-instrument cards:* locking the lead vocal + 1-2 signature instruments is usually enough.
   - *Many cards competing (e.g. a big vocal/choir section, or a blend):* locking the lead alone only frees
     one id — the others still cascade. **Lock EVERY iconic card** (one apt preface each). Verified on the
-    organum case: locking voice→`inshad-cantillating`, choir→`hymnic`, organ→`liturgical` fully rescued the
-    primary positions (the lexicon does carry sacred prefaces: `inshad-cantillating, oli-chanting,
-    liturgical, hymnic, monastic, doxological, devotional, sepulchral, penitential, sermonizing, oracular,
-    …` — confirm an id exists before relying on it; e.g. there is no bare `cantillating`, only
-    `inshad-cantillating`).
+    sacred-register case: locking its three iconic cards each to a sacred-register preface fully rescued the
+    primary positions (the lexicon does carry sacred-register prefaces
+    — confirm an id exists before relying on it; e.g. a bare word may be absent where only a
+    compound id containing it exists).
   ```js
-  commitPrefaceChange(voiceCard, 'keening');   // locks it; reshapes settings toward the preface (see §3g)
-  // or label-only, no reshape:  card.preface = 'keening'; card.prefaceAuto = false;
+  commitPrefaceChange(voiceCard, '<preface id>');   // locks it; reshapes settings toward the preface (see §3g)
+  // or label-only, no reshape:  card.preface = '<preface id>'; card.prefaceAuto = false;
   ```
   (Locking via `commitPrefaceChange` runs the inverse and may move the card's room/tuning/parts — see §3g.
   If you've already period-pinned the chain, re-pin it after locking.)
@@ -1114,14 +1105,14 @@ overlap, *not* a shallow pool — see below).
 
 The Rich/Tags renderers group chunks by **trailing token (the instrument noun)**: two-plus chunks ending
 in the same noun merge into one, prefaces stacked. Within one tradition this is tidy (a 12-piece
-percussion bench renders as compact merged chunks). **In a blend it is lossy:** if `voice` appears in
-4 stapled traditions, all four voice cards merge into a single `voice` chunk with their prefaces piled in
-front (e.g. `street-pulsing rasping apollonian spoken-flowing voice`) — you **cannot** show "trap voice"
-and "chant voice" as separate lines. Past ~3 same-noun cards the stack becomes an unreadable adjective
-pile (a 41-voice stress build stacked 41 distinct preface words before one `voice:`). It never errors and
+percussion bench renders as compact merged chunks). **In a blend it is lossy:** if an instrument appears in
+4 stapled traditions, all four of its cards merge into a single chunk with their prefaces piled in
+front (e.g. `<preface> <preface> <preface> <preface> <instrument noun>`) — you **cannot** show one tradition's take
+and another's as separate lines. Past ~3 same-noun cards the stack becomes an unreadable adjective
+pile (a stress build of 41 same-instrument cards stacked 41 distinct preface words before one noun). It never errors and
 stays under ceiling, but the per-tradition distinction is gone. **If you need two traditions' takes on the same
-instrument to read distinctly, give them different instrument *ids*** (e.g. `voice` vs a specific vocal
-variant, or `violin_orchestral` vs `fiddle`) so they don't share a trailing noun — or accept the merge.
+instrument to read distinctly, give them different instrument *ids*** (e.g. `<instrument id>` vs
+`<instrument id>`) so they don't share a trailing noun — or accept the merge.
 
 ### 9.4b GOTCHA — the environment (tuning/room/chain) comes from ONE card: the first that has one
 
@@ -1130,7 +1121,7 @@ or chain stage (`envCardOf` in `scripts/_recipe_stack.js`; the app mirrors it) �
 merged across cards. One shared sonic environment for the whole recipe. Consequences:
 - Only that **environment card's** tuning/room/chain render as env chunks. Other cards' tunings survive
   *only* as their own instrument-level descriptors, never as an env tuning. A 5-tradition build with five
-  incompatible tunings (12-TET + maqam + shruti + just + Pythagorean) renders just **one** env
+  incompatible tunings renders just **one** env
   tuning — the environment card's — and looks perfectly clean; the clash is **invisible, not flagged**.
 - A bare card (added with no tradition: empty tuning, room and chain) is skipped, so it can sit first
   without taking the environment away. That is also why the connector's `set_environment` with no
@@ -1171,8 +1162,8 @@ instrumentation, recording technology**. Then:
    archetype's components, (b) **room** to a period-appropriate space, (c) era-bearing **part variants**
    (don't trust modern defaults). Cross-check the rendered recipe for stray modern tokens
    (`grep -oE '(19|20)[0-9]{2}'`-style sanity on the output) — a 1949 song must not contain "1980s".
-4. **Tuning** — set to the tradition's vocabulary tuning (maqam/shruti/pentatonic/etc.) or `twelve_tet`.
-   If two cards use tunings from different families (Western vs maqam vs gamelan), that's a hard flag
+4. **Tuning** — set to the tradition's vocabulary tuning or the default equal-temperament tuning.
+   If two cards use tunings from different families, that's a hard flag
    unless intentional (§6.4).
 5. **Voice** — if voiced, set `voice_register / voice_quality / voice_vibrato` (and the era-bearing
    `voice_multitrack_stack` / `voice_processing_chain`) to match the singer; don't leave the modern-pop
