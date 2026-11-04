@@ -161,6 +161,9 @@ module.exports = [
       eqeqeq: ['error', 'smart'],
       'no-console': 'off',
       'no-empty': ['error', { allowEmptyCatch: true }],
+      // A scenario may list the globals it uses in a /* global */ comment;
+      // that restates the node + browser set above, so it isn't a redeclaration.
+      'no-redeclare': ['error', { builtinGlobals: false }],
       ...NO_BARE_LOCALE_COMPARE,
     },
   },
@@ -176,6 +179,9 @@ module.exports = [
       eqeqeq: ['error', 'smart'],
       'no-console': 'off',
       'no-empty': ['error', { allowEmptyCatch: true }],
+      // A scenario may list the globals it uses in a /* global */ comment;
+      // that restates the node + browser set above, so it isn't a redeclaration.
+      'no-redeclare': ['error', { builtinGlobals: false }],
       ...NO_BARE_LOCALE_COMPARE,
     },
   },
