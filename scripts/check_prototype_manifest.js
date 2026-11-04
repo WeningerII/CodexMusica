@@ -10,9 +10,9 @@
 //      row is missing a field.
 //   2. INVENTORY. Rows 1–220 are not exactly the `status: reachable` entries
 //      of tests/ui_capability_inventory.md, each with the scenario kind its
-//      inventory kind implies. A surface added to the inventory needs a
-//      ledger row; one retired from it needs an explicit decision, not a
-//      silent removal.
+//      inventory kind implies and the reachability gate (`reach`). A surface
+//      added to the inventory needs a ledger row; one retired from it needs an
+//      explicit decision, not a silent removal.
 //   3. LIBRARY. The `library#k` rows are not exactly the rows of the Library
 //      feature matrix (docs/library-native-design.md), or a row's gate is not
 //      a test that matrix row names.
@@ -22,7 +22,8 @@
 //      Defer its reason.
 //   5. STATUS. A row is marked done without naming a scenario file that
 //      exists.
-//   6. GATES. A row's named gate is not a file in the repo — except the
+//   6. GATES. A row's named gate is not a file the repo tracks (an untracked
+//      local file does not count, so a local run agrees with CI) — except the
 //      tests listed in KNOWN_MISSING, which the feature matrix names but the
 //      repo does not have. That list must match exactly: a test that appears
 //      must leave it, and a newly missing one fails.
@@ -93,6 +94,8 @@ for (const r of uiRows) {
       `row ${r.n} (${r.id}): kind ${r.kind}, inventory says ${e.kind}`
     );
   }
+  // An inventory row's existing gate is the reachability check (BB8, #720).
+  expect(r.gate === 'reach', `row ${r.n} (${r.id}): gate ${r.gate}, an inventory row's is reach`);
 }
 const inLedger = new Set(uiRows.map((r) => r.id));
 for (const name of reachable.keys()) {
@@ -168,16 +171,7 @@ for (const r of rows) {
 // 6. gates
 const tracked = execFileSync(
   'git',
-  [
-    'ls-files',
-    '--cached',
-    '--others',
-    '--exclude-standard',
-    '--',
-    'scripts',
-    'mcp',
-    'lyric-harness',
-  ],
+  ['ls-files', '--cached', '--', 'scripts', 'mcp', 'lyric-harness'],
   {
     cwd: root,
     encoding: 'utf8',
