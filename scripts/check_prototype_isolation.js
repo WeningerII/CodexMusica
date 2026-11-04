@@ -54,6 +54,10 @@
 //      listener to window or document. Only prototype/app.js loads feature
 //      code, and only through a literal import() in its lane registry. The
 //      rules run on fixed examples first, so a rule that can't fail fails.
+//      A lane's scenarios (prototype/scenarios/<lane>/) are Node-side test
+//      code under their own rule: .cjs or .mjs, static imports only of node:
+//      built-ins, playwright, scripts/_pages_server.js and the lane's own
+//      folders, and never imported or named by the page.
 //      (The mounted behaviour is check_prototype_hosts.js.)
 //
 //   node scripts/check_prototype_isolation.js [--base=REF]
@@ -141,6 +145,35 @@ function walk(dir) {
 // Feature code lives in prototype/features/<lane>/ and reaches the rest of the
 // prototype only through the ctx the shell hands it.
 const FEATURE = /^prototype\/features\/([a-z0-9-]+)\//;
+// A lane's scenarios (prototype/scenarios/<lane>/) are Node-side test code: the
+// page never loads them, so the browser rules don't apply. What does: they are
+// .cjs or .mjs (never a .js the page could mistake for a module), their static
+// imports are Node built-ins, playwright, scripts/_pages_server.js, or their own
+// lane's feature and scenario folders, and nothing the page loads imports them.
+const SCENARIO = /^prototype\/scenarios\/([a-z0-9-]+)\//;
+function scenarioProblems(text, rel) {
+  const out = [];
+  const lane = SCENARIO.exec(rel)[1];
+  if (!/\.(cjs|mjs)$/.test(rel)) out.push('is a scenario but not .cjs or .mjs');
+  for (const s of specifiers(text)) {
+    if (s.dynamic) continue; // a test runner may load code however it needs to
+    const lit = /^(['"`])([^'"`$]*)\1$/.exec(s.raw);
+    const spec = lit ? lit[2] : s.raw;
+    if (/^node:[\w/]+$/.test(spec) || spec === 'playwright') continue;
+    const target = path.posix.normalize(path.posix.join(path.posix.dirname(rel), spec));
+    const ok =
+      /^\.\.?\//.test(spec) &&
+      (target.startsWith(`prototype/features/${lane}/`) ||
+        target.startsWith(`prototype/scenarios/${lane}/`) ||
+        target === 'scripts/_pages_server.js');
+    if (!ok) {
+      out.push(
+        `imports "${spec}"; a scenario imports node: built-ins, playwright, scripts/_pages_server.js and its own lane's files`
+      );
+    }
+  }
+  return out;
+}
 // Read-only data the shell (never a feature) may load besides ../api/.
 const SHELL_DATA = new Set([
   '../data/geo.json',
@@ -198,6 +231,8 @@ function moduleProblems(text, rel) {
       out.push(`imports "${lit[2]}" from outside its own folder prototype/features/${lane[1]}/`);
     else if (!lane && !target.startsWith('prototype/'))
       out.push(`imports "${lit[2]}" from outside prototype/`);
+    else if (SCENARIO.test(target))
+      out.push(`imports "${lit[2]}", a scenario; the page never loads test code`);
     else if (!lane && FEATURE.test(target) && (!s.dynamic || rel !== 'prototype/app.js'))
       out.push(`loads feature code (${lit[2]}); only app.js's lane registry may, with import()`);
   }
@@ -241,6 +276,64 @@ function selfTest() {
     [moduleProblems("load: () => import('./features/lyrics/editor.js'),", 'prototype/app.js'), 0],
     [moduleProblems("import { mount } from './features/lyrics/editor.js';", 'prototype/app.js'), 1],
     [moduleProblems("load: () => import('./features/lyrics/editor.js'),", 'prototype/host.js'), 1],
+    [
+      scenarioProblems(
+        "import assert from 'node:assert/strict';\nimport test from 'node:test';",
+        'prototype/scenarios/recipe/live-editor.test.mjs'
+      ),
+      0,
+    ],
+    [
+      scenarioProblems(
+        "const { chromium } = require('playwright');",
+        'prototype/scenarios/lyrics/editor.cjs'
+      ),
+      0,
+    ],
+    [
+      scenarioProblems(
+        'const m = await import(`data:text/javascript;base64,${b}`);',
+        'prototype/scenarios/recipe/live-editor.test.mjs'
+      ),
+      0,
+    ],
+    [
+      scenarioProblems(
+        "import { mount } from '../../features/recipe/live-editor.js';",
+        'prototype/scenarios/recipe/live-editor.test.mjs'
+      ),
+      0,
+    ],
+    [
+      scenarioProblems(
+        "import { start } from '../../../scripts/_pages_server.js';",
+        'prototype/scenarios/recipe/live-editor.test.mjs'
+      ),
+      0,
+    ],
+    [
+      scenarioProblems(
+        "import x from '../../features/library/explore.js';",
+        'prototype/scenarios/recipe/live-editor.test.mjs'
+      ),
+      1,
+    ],
+    [
+      scenarioProblems(
+        "import { read } from '../../storage.js';",
+        'prototype/scenarios/recipe/live-editor.test.mjs'
+      ),
+      1,
+    ],
+    [
+      scenarioProblems(
+        "import _ from 'lodash';",
+        'prototype/scenarios/recipe/live-editor.test.mjs'
+      ),
+      1,
+    ],
+    [scenarioProblems('', 'prototype/scenarios/recipe/live-editor.js'), 1],
+    [moduleProblems("import x from './scenarios/recipe/a.mjs';", 'prototype/app.js'), 1],
   ];
   cases.forEach(([got, want], i) =>
     expect(
@@ -255,8 +348,10 @@ function staticChecks(base) {
   expect(fs.existsSync(path.join(PROTO_DIR, 'index.html')), 'prototype/index.html is missing');
   for (const file of walk(PROTO_DIR)) {
     const rel = path.relative(root, file);
-    if (!/\.(html|js|mjs|css|json)$/.test(file)) continue;
+    if (!/\.(html|js|mjs|cjs|css|json)$/.test(file)) continue;
     const text = fs.readFileSync(file, 'utf8');
+    const unixRel = rel.split(path.sep).join('/');
+    const scenario = SCENARIO.test(unixRel);
     expect(
       !/(?:https?:)?\/\/[\w-]+\.[\w.-]+\//i.test(text),
       `${rel}: names an absolute or protocol-relative URL`
@@ -265,7 +360,11 @@ function staticChecks(base) {
       !/\b(XMLHttpRequest|WebSocket|EventSource|sendBeacon)\b/.test(text),
       `${rel}: opens a network channel other than fetch() of the static catalog`
     );
-    if (/\.(m?js|html)$/.test(file)) {
+    if (scenario) {
+      for (const problem of scenarioProblems(text, unixRel)) expect(false, `${rel}: ${problem}`);
+      continue;
+    }
+    if (/\.(m?js|cjs|html)$/.test(file)) {
       const allowed = STORAGE_ALLOWED[rel.split(path.sep).join('/')] || [];
       const named = [...new Set([...text.matchAll(STORAGE_NAMES)].map((m) => m[0]))];
       const stray = named.filter((n) => !allowed.includes(n));
@@ -276,11 +375,15 @@ function staticChecks(base) {
     }
     const unix = rel.split(path.sep).join('/');
     for (const problem of fetchProblems(text, unix)) expect(false, `${rel}: ${problem}`);
-    if (/\.m?js$/.test(file)) {
+    if (/\.(m?js|cjs)$/.test(file)) {
       for (const problem of moduleProblems(text, unix)) expect(false, `${rel}: ${problem}`);
     }
   }
 
+  expect(
+    !/scenarios\//.test(fs.readFileSync(path.join(PROTO_DIR, 'index.html'), 'utf8')),
+    'prototype/index.html names prototype/scenarios/; the page never loads test code'
+  );
   const shipped = [
     'codex.html',
     'scripts/build_html.js',
@@ -744,8 +847,14 @@ async function failures(browser, url) {
   await waitRoute(page, 'library');
   const s = await routeState(page);
   expect(s.visible.join() === 'library', `storage failure: the shell stopped switching routes`);
-  const msg = await page.locator('#proto-status[role="status"]').textContent();
-  expect(/not saved/i.test(msg || ''), `storage failure: no honest status message ("${msg}")`);
+  // The lasting notice has its own visible line (#proto-saved), so a lane's
+  // own announcement in the shared status region can't erase it (#741).
+  const saved = page.locator('#proto-saved');
+  const msg = await saved.textContent();
+  expect(
+    /not saved/i.test(msg || '') && (await saved.isVisible()),
+    `storage failure: no honest, visible status line ("${msg}")`
+  );
   for (const e of errors) expect(false, `storage failure: page error: ${e}`);
   await context.close();
 

@@ -13,7 +13,9 @@ import { loadItems, loadLibrary, collectionFile } from './data.js';
 const ROUTES = ['browse', 'genre', 'instrument', 'map', 'lyrics', 'library'];
 const DEFAULT_ROUTE = 'browse';
 
-const status = document.getElementById('proto-status');
+// The shell's own lasting state (storage refused) has its own visible line,
+// so a lane's announcement in the shared status region can't erase it.
+const savedLine = document.getElementById('proto-saved');
 
 function routeFromHash() {
   const id = decodeURIComponent(location.hash.replace(/^#/, ''));
@@ -142,9 +144,10 @@ function show(route, { moveFocus }) {
   if (moveFocus) document.querySelector(`[data-panel="${route}"] h1`).focus();
   if (hosts[route]) hosts[route].show();
   const saved = write('route', route);
-  if (!saved.ok) {
-    status.textContent =
+  if (!saved.ok && !savedLine.textContent) {
+    savedLine.textContent =
       'Not saved: this browser would not store the prototype’s settings. It still works in this tab.';
+    announce(savedLine.textContent);
   }
 }
 
