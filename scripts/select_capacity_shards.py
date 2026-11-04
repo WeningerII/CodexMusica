@@ -23,6 +23,17 @@ are each a refusal that names the shard. It never falls back to an older
 attempt: a shard re-run in attempt N answers with attempt N's artifact or not
 at all. When the metadata cannot be read, a full re-run is the way forward.
 
+IT WAITS, BOUNDED, FOR THE CURRENT ATTEMPT'S RECORDS TO SETTLE. The merge job
+starts once every shard job has finished, but GitHub's job records can lag
+behind: a shard can still read in_progress, or completed with no
+`completed_at`, for a few seconds after the merge starts (2026-11-04: the
+merge refused "shard ... end has no timestamp" on a run whose shards had
+all finished). So `main` re-reads the current attempt's job list until every
+shard job there reads completed with both timestamps, for at most
+--settle-seconds. Earlier attempts are finished and are read once. After the
+bound the records are judged exactly as before, so a shard that really did
+not finish still refuses, and the refusal says how long it waited.
+
 The selected files are copied to --out-dir unchanged, so the merger validates
 their payload exactly as before; --provenance records which execution and
 which artifact each one came from.
@@ -35,9 +46,12 @@ from pathlib import Path
 import re
 import shutil
 import sys
+import time
 import urllib.request
 
 FULL_RERUN = 're-run all jobs of this workflow run'
+SETTLE_SECONDS = 120
+SETTLE_STEP_SECONDS = 10
 
 
 class Refusal(Exception):
@@ -91,8 +105,47 @@ def shard_job(jobs, shard, where):
     return found[0]
 
 
-def select(fetch, repo, run_id, attempt, sha, shards, artifacts_dir):
-    """-> provenance list, one entry per shard, in `shards` order."""
+def settled(job_list, shard):
+    """True once `shard`'s job in `job_list` reads completed with both timestamps.
+
+    Zero or several matching jobs count as settled: waiting cannot fix an
+    ambiguous list, and `shard_job` refuses it by name afterwards.
+    """
+    pattern = re.compile(rf'(^|/ )cells {re.escape(shard)}$')
+    found = [job for job in job_list if pattern.search(job.get('name') or '')]
+    if len(found) != 1:
+        return len(found) > 1
+    job = found[0]
+    return job.get('status') == 'completed' and bool(job.get('started_at')) and bool(job.get('completed_at'))
+
+
+class Settle:
+    """A bounded wait: `seconds` in all, re-reading every `step` seconds."""
+
+    def __init__(self, seconds=SETTLE_SECONDS, step=SETTLE_STEP_SECONDS,
+                 sleep=time.sleep, clock=time.monotonic):
+        self.seconds, self.step, self.sleep, self.clock = seconds, step, sleep, clock
+        self.waited, self.pending = 0.0, []
+
+    def read(self, read_jobs, shards):
+        """-> the job list once every shard has settled, or the last one read at the bound."""
+        start = self.clock()
+        while True:
+            job_list = read_jobs()
+            self.pending = [shard for shard in shards if not settled(job_list, shard)]
+            self.waited = self.clock() - start
+            left = self.seconds - self.waited
+            if not self.pending or left <= 0:
+                return job_list
+            self.sleep(min(self.step, left))
+
+
+def select(fetch, repo, run_id, attempt, sha, shards, artifacts_dir, settle=None):
+    """-> provenance list, one entry per shard, in `shards` order.
+
+    `settle`, a Settle, re-reads the current attempt's jobs until every shard
+    has settled (bounded); None reads them once.
+    """
     base = f'/repos/{repo}/actions/runs/{run_id}'
     starts, jobs = {}, {}
     for a in range(1, attempt + 1):
@@ -104,7 +157,8 @@ def select(fetch, repo, run_id, attempt, sha, shards, artifacts_dir):
         starts[a] = when(meta.get('run_started_at'), f'attempt {a}')
         if a > 1 and not starts[a] > starts[a - 1]:
             raise Refusal(f'attempt {a} did not start after attempt {a - 1}')
-        jobs[a] = paged(fetch, f'{base}/attempts/{a}/jobs', 'jobs')
+        read_jobs = lambda a=a: paged(fetch, f'{base}/attempts/{a}/jobs', 'jobs')
+        jobs[a] = settle.read(read_jobs, shards) if settle and a == attempt else read_jobs()
         for job in jobs[a]:
             if job.get('run_id') not in (None, run_id):
                 raise Refusal(f'attempt {a} lists job {job.get("id")} of run {job.get("run_id")}')
@@ -171,6 +225,9 @@ def main(argv=None):
     ap.add_argument('--artifacts-dir', required=True, help='one folder per downloaded artifact')
     ap.add_argument('--out-dir', required=True)
     ap.add_argument('--provenance', required=True)
+    ap.add_argument('--settle-seconds', type=float, default=SETTLE_SECONDS,
+                    help='how long to wait for the current attempt\'s shard job records to read '
+                         'completed before judging them (default %(default)s; 0 reads once)')
     args = ap.parse_args(argv)
     shards = [s for s in args.shards.split(',') if s]
     token = os.environ.get('GITHUB_TOKEN')
@@ -178,12 +235,16 @@ def main(argv=None):
         print(f'REFUSED — no GITHUB_TOKEN to read this run\'s attempts; {FULL_RERUN}', file=sys.stderr)
         return 2
     fetch = http_fetch(os.environ.get('GITHUB_API_URL', 'https://api.github.com'), token)
+    settle = Settle(seconds=max(0.0, args.settle_seconds))
     try:
         if args.attempt < 1 or len(set(shards)) != len(shards) or not shards:
             raise Refusal(f'attempt {args.attempt} and shards {shards} do not describe a matrix')
-        provenance = select(fetch, args.repo, args.run_id, args.attempt, args.sha, shards, args.artifacts_dir)
+        provenance = select(fetch, args.repo, args.run_id, args.attempt, args.sha, shards,
+                            args.artifacts_dir, settle=settle)
     except Refusal as error:
-        print(f'REFUSED — {error}; {FULL_RERUN}', file=sys.stderr)
+        waited = (f' (after waiting {settle.waited:.0f}s for shard jobs {", ".join(settle.pending)} to finish)'
+                  if settle.pending else '')
+        print(f'REFUSED — {error}{waited}; {FULL_RERUN}', file=sys.stderr)
         return 2
     except (OSError, ValueError) as error:
         print(f'REFUSED — reading this run\'s attempts failed: {error}; {FULL_RERUN}', file=sys.stderr)

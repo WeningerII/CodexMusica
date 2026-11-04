@@ -107,6 +107,113 @@ def rerun(api, shard, attempt, conclusion='success', status='completed', upload=
     return api
 
 
+def lagging(api, attempt, shard, reads):
+    """A fetch whose first `reads` reads of `attempt`'s job list show `shard`'s
+    job still running, with no end: GitHub's record lagging the job itself."""
+    inner = fetcher(api)
+    seen = [0]
+    base = f'/repos/{REPO}/actions/runs/{RUN}/attempts/{attempt}/jobs'
+
+    def fetch(path):
+        body = inner(path)
+        if path.partition('?')[0] == base:
+            seen[0] += 1
+            if seen[0] <= reads:
+                body = copy.deepcopy(body)
+                for job in body['jobs']:
+                    if job['name'].endswith(f'cells {shard}'):
+                        job.update(status='in_progress', conclusion=None, completed_at=None)
+        return body
+    fetch.reads = seen
+    return fetch
+
+
+class FakeTime:
+    """sleep() advances clock(); nothing really waits."""
+
+    def __init__(self):
+        self.now, self.slept = 0.0, []
+
+    def clock(self):
+        return self.now
+
+    def sleep(self, seconds):
+        self.slept.append(seconds)
+        self.now += seconds
+
+
+class Settle(unittest.TestCase):
+    """The merge can start before GitHub's job records say the shards ended
+    (2026-11-04: REFUSED "shard ... end has no timestamp" on a run whose
+    shards had all finished). The selector re-reads, bounded, before judging."""
+
+    def select(self, fetch, settle, api):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = downloaded(tmp, api)
+            return sel.select(fetch, REPO, RUN, 1, SHA, SHARDS, root, settle=settle)
+
+    def test_a_lagging_record_is_re_read_until_it_settles(self):
+        api, t = ladder(1), FakeTime()
+        fetch = lagging(api, 1, 'rest', reads=2)
+        settle = sel.Settle(seconds=120, step=10, sleep=t.sleep, clock=t.clock)
+        got = {p['shard']: p['executed_attempt'] for p in self.select(fetch, settle, api)}
+        self.assertEqual(got, {s: 1 for s in SHARDS})
+        self.assertEqual(t.slept, [10, 10])
+        self.assertEqual(fetch.reads[0], 3)
+        self.assertEqual(settle.pending, [])
+
+    def test_the_wait_is_bounded_and_then_refuses_as_before(self):
+        api, t = ladder(1), FakeTime()
+        fetch = lagging(api, 1, 'rest', reads=10**6)
+        settle = sel.Settle(seconds=25, step=10, sleep=t.sleep, clock=t.clock)
+        with self.assertRaises(sel.Refusal) as caught:
+            self.select(fetch, settle, api)
+        self.assertIn('shard rest job', str(caught.exception))
+        self.assertIn('end has no timestamp', str(caught.exception))
+        self.assertEqual(t.slept, [10, 10, 5])
+        self.assertEqual((settle.pending, settle.waited), (['rest'], 25))
+
+    def test_a_finished_failure_is_not_waited_for(self):
+        api, t = rerun(ladder(2), 'pole', 2, conclusion='failure'), FakeTime()
+        settle = sel.Settle(seconds=120, step=10, sleep=t.sleep, clock=t.clock)
+        with tempfile.TemporaryDirectory() as tmp:
+            root = downloaded(tmp, api)
+            with self.assertRaises(sel.Refusal) as caught:
+                sel.select(fetcher(api), REPO, RUN, 2, SHA, SHARDS, root, settle=settle)
+        self.assertIn('failure, not completed/success', str(caught.exception))
+        self.assertEqual(t.slept, [])
+
+    def test_only_the_current_attempt_is_waited_on(self):
+        api, t = ladder(2), FakeTime()
+        for s in SHARDS:
+            rerun(api, s, 2)
+        fetch = lagging(api, 1, 'rest', reads=10**6)
+        settle = sel.Settle(seconds=120, step=10, sleep=t.sleep, clock=t.clock)
+        with tempfile.TemporaryDirectory() as tmp:
+            root = downloaded(tmp, api)
+            got = sel.select(fetch, REPO, RUN, 2, SHA, SHARDS, root, settle=settle)
+        self.assertEqual({p['executed_attempt'] for p in got}, {2})
+        self.assertEqual((t.slept, fetch.reads[0]), ([], 1))
+
+    def test_the_refusal_says_how_long_it_waited(self):
+        from contextlib import redirect_stderr
+        from io import StringIO
+        from unittest import mock
+        api = ladder(1)
+        with tempfile.TemporaryDirectory() as tmp:
+            root = downloaded(tmp, api)
+            err = StringIO()
+            with mock.patch.dict('os.environ', {'GITHUB_TOKEN': 'x'}), \
+                    mock.patch.object(sel, 'http_fetch', lambda api_url, token: lagging(api, 1, 'rest', 10**6)), \
+                    redirect_stderr(err):
+                code = sel.main(['--repo', REPO, '--run-id', str(RUN), '--attempt', '1', '--sha', SHA,
+                                 '--shards', ','.join(SHARDS), '--artifacts-dir', str(root),
+                                 '--out-dir', str(Path(tmp) / 'out'), '--provenance', str(Path(tmp) / 'p.json'),
+                                 '--settle-seconds', '0'])
+        self.assertEqual(code, 2)
+        self.assertIn('end has no timestamp (after waiting 0s for shard jobs rest to finish)', err.getvalue())
+
+
 class Select(unittest.TestCase):
     def run_select(self, api, attempt=None, corrupt=(), **fetch_options):
         attempt = attempt or max(api['attempts'])
