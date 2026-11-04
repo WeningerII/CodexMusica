@@ -1161,6 +1161,29 @@ jobs:
           node scripts/run_parallel.js test:ci:serial --shard=${{ matrix.shard }}/2
           --record="$RUNNER_TEMP/verify-record.json"
 
+      # THE PROTOTYPE'S BASE DIFF (#670, #719). `test:prototype` above runs in
+      # every PR, but its standing form cannot ask whether codex.html or
+      # library/code/ changed: ordinary PRs change them. A PR that touches the
+      # prototype must not, so here, and only then, the same gate runs with
+      # --base, which fails if either differs from the PR's base. Shard 1 only,
+      # pull_request runs only (the merge commit's first parent IS the base;
+      # one --deepen gives the gate the merge-base its `base...HEAD` needs).
+      - name: Prototype PRs leave codex.html and library/code/ untouched (check_prototype_isolation --base)
+        if: ${{ matrix.shard == 1 && github.event_name == 'pull_request' }}
+        run: |
+          base="${{ github.event.pull_request.base.sha }}"
+          git fetch --no-tags --quiet --deepen=1 origin "${{ github.sha }}"
+          if ! git cat-file -e "$base^{commit}" 2>/dev/null; then
+            echo "::error::PR base $base is not present after --deepen=1"; exit 1
+          fi
+          touched="$(git diff --no-renames --name-only "$base" HEAD -- prototype/ scripts/check_prototype_isolation.js)"
+          if [ -z "$touched" ]; then
+            echo "No prototype path changed in this PR — the base diff does not apply."
+            exit 0
+          fi
+          echo "Prototype paths changed:"; echo "$touched" | sed 's/^/  /'
+          node scripts/check_prototype_isolation.js --base="$base"
+
       # The fan-in's evidence: the whole leaf list and the leaves this shard
       # ran, written even when a leaf failed, so a red shard still proves
       # which leaves it owned.
