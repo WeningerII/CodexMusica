@@ -202,6 +202,11 @@ async function waitForRecovery(status) {
   } while (Date.now() < deadline);
   return state;
 }
+function observeRecovery(scenario, status) {
+  // Both mode decisions must use the same observation window. An immediate
+  // blank snapshot cannot establish that an asynchronous recovery is absent.
+  return scenario === 'missing' ? waitForRecovery(status) : recoveryState(status);
+}
 async function predicateControls(browser) {
   const results = [];
   for (const width of [1280, 375]) {
@@ -241,20 +246,38 @@ async function predicateControls(browser) {
         );
         results.push({ width, variant, accepted: result.announcedRecovery });
       }
-      // This fixture proves the bounded wait accepts recovery appearing after load.
-      await page.setContent(
-        '<div id="status" role="status" hidden>The map did not load. <button>Try again</button></div>'
-      );
-      await page.evaluate(() =>
-        setTimeout(() => {
-          document.querySelector('#status').hidden = false;
-        }, 150)
-      );
-      assert(
-        (await waitForRecovery(page.locator('#status'))).announcedRecovery,
-        'delayed recovery'
-      );
-      results.push({ width, variant: 'delayed-recovery', accepted: true });
+      // Exercise the same observation and outcome functions as real missing
+      // cases, starting each mode with a fresh initially blank fixture.
+      for (const modeArgs of [[], ['--expect-defect']]) {
+        const { recoveryMode } = parseOptions(modeArgs);
+        await page.setContent(
+          '<div id="status" role="status" hidden>The map did not load. <button>Try again</button></div>'
+        );
+        assert.equal((await recoveryState(page.locator('#status'))).statusVisible, false);
+        await page.evaluate(() =>
+          setTimeout(() => {
+            document.querySelector('#status').hidden = false;
+          }, 150)
+        );
+        const recovery = await observeRecovery('missing', page.locator('#status'));
+        assert(recovery.announcedRecovery, 'delayed recovery must be observed in both modes');
+        const row = {
+          caseId: 'delayed-recovery',
+          blank: !recovery.statusVisible,
+          announcedRecovery: recovery.announcedRecovery,
+        };
+        if (recoveryMode) assertMissingOutcome(row, recoveryMode);
+        else
+          assert.throws(
+            () => assertMissingOutcome(row, recoveryMode),
+            /known blank-panel defect no longer reproduces/
+          );
+        results.push({
+          width,
+          variant: recoveryMode ? 'delayed-recovery-default' : 'delayed-recovery-expect-defect',
+          accepted: recoveryMode,
+        });
+      }
     } finally {
       await page.close();
     }
@@ -402,10 +425,7 @@ const server = http.createServer(async (req, res) => {
               `${caseId}: controlled data failure reached the server`
             );
           }
-          const recovery =
-            recoveryMode && scenario === 'missing'
-              ? await waitForRecovery(status)
-              : await recoveryState(status);
+          const recovery = await observeRecovery(scenario, status);
           const snapshot = {
             ...recovery,
             ...(await page.evaluate(() => {
