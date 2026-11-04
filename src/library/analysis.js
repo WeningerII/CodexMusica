@@ -152,10 +152,12 @@ async function failFrom(response) {
   });
   return error;
 }
-// A job paused because its reading changed cannot resume: the server refuses
-// any resume whose identity differs (reader_job_store.js resume()).
+// A job paused STALE_READING cannot resume: the server refuses any resume
+// whose source, declarations or engine/resource identity differ
+// (reader_job_store.js resume()), which covers a changed reading and a
+// release that changed the analyzer alike (Jony, #726).
 const STALE_JOB =
-  'This reading was updated after the analysis started, so it can’t resume. Start a new whole-work analysis.';
+  'This analysis was started on an earlier version of the reading or the analyzer, so it can’t resume. Start a new whole-work analysis.';
 // An unclassified failure (a 5xx, no answer at all, or a bare transport
 // message such as "Library service 503") does not show what the server
 // admitted: a POST /analyses may have started a job, and a poll's job still

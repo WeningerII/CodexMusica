@@ -2127,8 +2127,9 @@ SECTIONS.retry = async function ({ page, base, tag, errors }) {
       !!(await focused('#surface-library [data-act="analyze"]')),
       await page.evaluate(() => document.activeElement?.outerHTML.slice(0, 120))
     );
-    // #656 L1: a job the worker paused because its reading changed cannot
-    // resume (the server refuses a resume whose identity differs), so it
+    // #656 L1: a job the worker paused STALE_READING (its reading or the
+    // analyzer changed) cannot resume (the server refuses a resume whose
+    // identity differs), so it
     // offers no Resume and says why in a sentence; an ordinary pause still
     // offers Resume. The ordinary pause comes first and waits for a slot
     // (deferred_requeue), so polling continues and picks up the stale one.
@@ -2180,7 +2181,7 @@ SECTIONS.retry = async function ({ page, base, tag, errors }) {
       /can’t resume/.test(document.querySelector('#surface-library .la-section')?.innerText || '')
     );
     check(
-      `${tag} stale pause: a job paused because its reading changed offers no Resume`,
+      `${tag} stale pause: a job paused STALE_READING offers no Resume`,
       /paused/i.test(stale.text) && !stale.resume,
       short(stale.text)
     );
