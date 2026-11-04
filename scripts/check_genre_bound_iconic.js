@@ -33,6 +33,7 @@ for (const d of [
   'four-on-floor',
   'four-on-the-floor kick',
   'Four on the floor',
+  'four-to-the-floor stomp',
   'four-on-floor kick drum',
   'two-step shuffle',
   'twostep',
@@ -48,7 +49,7 @@ for (const d of [
   'floor tom',
   'two hands',
   'step',
-  'four to the floor',
+  'four of the floors',
 ]) {
   expect(!hasGenreBoundIconic(tokens(d)), `"${d}" should not carry a genre-bound signature`);
 }

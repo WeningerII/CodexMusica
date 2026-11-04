@@ -943,6 +943,7 @@ const GENRE_BOUND_ICONIC_TOKENS = new Set([
 const GENRE_BOUND_ICONIC_PHRASES = [
   ['four', 'on', 'floor'], // disco/house signature beat ("four-on-floor")
   ['four', 'on', 'the', 'floor'], // the same beat as the catalog usually spells it
+  ['four', 'to', 'the', 'floor'], // and as it also spells it
   ['two', 'step'], // UK garage ("two-step")
 ];
 
