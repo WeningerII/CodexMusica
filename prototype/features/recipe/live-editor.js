@@ -1,9 +1,7 @@
 // Headless binding for #670. There is no renderer or musical engine here.
 // snapshot() and edit payloads are deliberately opaque until Don supplies P2.
 // createBinding is lane-local preparation, not a new shell integration hook.
-const REQUIRED = [
-  'snapshot', 'apply', 'undo', 'redo', 'canUndo', 'canRedo', 'subscribe',
-];
+const REQUIRED = ['snapshot', 'apply', 'undo', 'redo', 'canUndo', 'canRedo', 'subscribe'];
 
 export function createBinding({ recipe, announce, signal }) {
   for (const name of REQUIRED) {
@@ -11,8 +9,13 @@ export function createBinding({ recipe, announce, signal }) {
       throw new TypeError(`Recipe adapter requires ${name}()`);
     }
   }
-  if (typeof announce !== 'function' || !signal || typeof signal.aborted !== 'boolean' ||
-      typeof signal.addEventListener !== 'function' || typeof signal.removeEventListener !== 'function') {
+  if (
+    typeof announce !== 'function' ||
+    !signal ||
+    typeof signal.aborted !== 'boolean' ||
+    typeof signal.addEventListener !== 'function' ||
+    typeof signal.removeEventListener !== 'function'
+  ) {
     throw new TypeError('Recipe binding requires announce and an AbortSignal');
   }
   let disposed = false;
@@ -93,13 +96,20 @@ export function createBinding({ recipe, announce, signal }) {
     apply(edit) {
       return invoke(() => {
         const result = recipe.apply(edit);
-        if (!result || typeof result.ok !== 'boolean' ||
-            typeof result.changed !== 'boolean' || (!result.ok && result.changed)) {
+        if (
+          !result ||
+          typeof result.ok !== 'boolean' ||
+          typeof result.changed !== 'boolean' ||
+          (!result.ok && result.changed)
+        ) {
           throw new TypeError('Recipe apply() returned an invalid receipt');
         }
         if (!result.ok && active()) {
-          announce(typeof result.refusal === 'string' && result.refusal.trim()
-            ? result.refusal : 'Recipe change was refused.');
+          announce(
+            typeof result.refusal === 'string' && result.refusal.trim()
+              ? result.refusal
+              : 'Recipe change was refused.'
+          );
         }
         return result;
       });
@@ -141,7 +151,7 @@ export function mount(host, ctx) {
       // Do not make the host focusable or disturb the shell's h1 route focus.
       // There is no focus target until the owner integrates the renderer.
       const control = host.querySelector(
-        'button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled])',
+        'button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled])'
       );
       control?.focus({ preventScroll: true });
     },
