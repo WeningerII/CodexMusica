@@ -5327,6 +5327,7 @@ await check('validation: actionable errors', () => {
       'mcp/test_library_search.mjs': 'offline Library search store, engine and route regressions',
       'mcp/test_library_search_parity.mjs':
         'replays the Worker search goldens against a built store (library-site.yml)',
+      'mcp/test_reader_store_gzip.mjs': 'offline gzip storage and rollback regressions',
       'mcp/test_reader_store_bounds.mjs':
         'offline bounded reader-store maintenance and quiescent usage regressions',
       'mcp/test_library_viewer_routes.mjs':
