@@ -280,3 +280,47 @@ test('remount retires the old timer and reauthorizes the remembered job', async 
   await f.advance(3000);
   assert.equal(f.reads.length, 2);
 });
+
+// Characterization only: Don Norman's #736 review identified this transient-error
+// pause as a UX gap. Jony owns its disposition; this does not prescribe retry UX.
+// Unlike 404/410 (which deliberately lose the job), a 503 retains the running job.
+test('current behavior: a transient rejected poll stops until visibility resumes polling', async (t) => {
+  const f = await fixture(t, { state: 'running' });
+  let rejectOnce = true;
+  f.respond((id) => {
+    if (rejectOnce) {
+      rejectOnce = false;
+      return Promise.reject(Object.assign(new Error('Service unavailable'), { status: 503 }));
+    }
+    return { job: { ...f.jobs.get(id) } };
+  });
+  const status = () => f.container.querySelector('[data-slot="status"]');
+  const message = 'The analysis service is unavailable. We couldn’t confirm the current status.';
+  await f.advance(3000);
+  assert.equal(f.reads.length, 1);
+  assert.equal(f.timers.size, 0, 'current behavior does not schedule a transient-error retry');
+  assert.equal(status().querySelector('strong').textContent, 'running');
+  assert.equal(status().querySelector('[role="alert"]').textContent, message);
+  assert.ok(status().querySelector('[data-act="cancel"]'), '503 retains the active job controls');
+  assert.doesNotMatch(status().textContent, /earlier browser session|expired or was deleted/);
+
+  await f.advance(180000);
+  assert.equal(f.reads.length, 1, 'elapsed time alone does not retry');
+  assert.equal(f.timers.size, 0);
+  assert.equal(status().querySelector('strong').textContent, 'running');
+  assert.equal(status().querySelector('[role="alert"]').textContent, message);
+
+  // A short hide/show resumes by scheduling, not by the >60 s authorize path.
+  await f.visible(false);
+  await f.advance(1);
+  await f.visible(true);
+  assert.equal(f.reads.length, 1);
+  assert.equal(f.delay, 15000, 'visibility resumes with the elapsed-time backoff');
+  await f.advance(14999);
+  assert.equal(f.reads.length, 1);
+  await f.advance(1);
+  assert.equal(f.reads.length, 2);
+  assert.equal(f.reads.at(-1).url, '/jobs/job-1');
+  assert.equal(status().querySelector('strong').textContent, 'running');
+  assert.equal(f.delay, 15000, 'successful recovery continues polling the retained job');
+});
