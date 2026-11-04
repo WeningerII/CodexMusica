@@ -18141,6 +18141,13 @@ function _renderBootError(err) {
   const host = document.getElementById('boot-status') || document.body;
   host.setAttribute('role', 'alert');
   const engine = !!(err && (err.engine || err.name === 'EngineNotReadyError'));
+  // Opened from disk, fetch() is refused for the file scheme: the network is
+  // not the cause and Reload cannot help, so say what can (#660).
+  if (location.protocol === 'file:') {
+    host.innerHTML =
+      '<div class="empty-state" id="boot-error"><p>Opened from a file, this page can’t load its data. Use codexmusica.com, or run python3 -m http.server here.</p></div>';
+    return;
+  }
   host.innerHTML =
     '<div class="empty-state" id="boot-error"' + (engine ? ' data-engine-pending="failed"' : '') + '>' +
     (engine

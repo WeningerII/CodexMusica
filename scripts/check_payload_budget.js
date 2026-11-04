@@ -210,12 +210,14 @@ const LIBRARY_BUDGETS = {
   // three steps (#712, #711, #717) toward at most 401,056, approved by John
   // and recorded by R2 on #665 (comment 6632168810). Owner-approved
   // exception; no performance certification.
-  // ~~400724~~ raised 2026-11-04 to 400,844 (+120 B) for #711's tree-index
-  // collator (A1/A2, #663), measured at 400,844 B after merging main
-  // 10b42689f. Second of three steps (#712, #711, #717) toward at most
-  // 401,056, approved by John and recorded by R2 on #665 (comment
-  // 6632168810). Owner-approved exception; no performance certification.
-  'library-shelves-path': 400844,
+  // ~~400724~~ raised 2026-11-04 to 401,056 (+332 B), John's ceiling, for
+  // release train D (#711, #717, #718, #719, #726). That combined tree,
+  // built on main 10b42689f, measures exactly 401,056 B; #717 on that main
+  // alone measures 400,933 B, and #711 alone 400,844 B. Third of three steps
+  // (#712, #711, #717), approved by John and recorded by R2 on #665
+  // (comment 6632168810). Owner-approved exception; no performance
+  // certification.
+  'library-shelves-path': 401056,
   'library-growth': 6144,
 };
 
