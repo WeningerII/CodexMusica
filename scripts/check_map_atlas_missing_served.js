@@ -3,8 +3,9 @@
 /* global document, window, location, innerWidth, innerHeight */
 // #660, Don's #668 handoff 6639689668, phase 1 ONLY. No production fix.
 // CHROMIUM_PATH=/path/to/chromium node scripts/check_map_atlas_missing_served.js
-// Default: reproduce the known defect; exit 0 means reproduced, NOT product healthy.
-// --assert-recovery: require an announced recovery instead; currently exits 1.
+// Default / --assert-recovery: require announced recovery; currently exits 1.
+// --expect-defect: explicitly reproduce the known defect; exit 0 means reproduced,
+// NOT product healthy. Do not register this mode as a product gate.
 // --evidence-dir=/tmp/map-evidence: retain JSON and screenshots.
 // Builds the real embedded shell into a temporary folder, serves HTTP, and withholds
 // only atlas.html (empty HTML 404). Healthy atlas and data-error cases are controls.
@@ -19,14 +20,71 @@ const { execFileSync } = require('node:child_process');
 const { chromium } = require('playwright');
 const { createHash } = require('node:crypto');
 const root = path.resolve(__dirname, '..');
-const args = process.argv.slice(2);
-assert(
-  args.every((a) => a === '--assert-recovery' || a.startsWith('--evidence-dir=')),
-  'Unknown argument'
-);
-const recoveryMode = args.includes('--assert-recovery');
-const evidenceArg = args.find((a) => a.startsWith('--evidence-dir='));
-const evidenceDir = evidenceArg && path.resolve(evidenceArg.slice('--evidence-dir='.length));
+function parseOptions(args) {
+  let mode;
+  let evidenceDir;
+  for (const arg of args) {
+    if (arg === '--assert-recovery' || arg === '--expect-defect') {
+      assert.equal(mode, undefined, 'Specify only one mode, without duplicates');
+      mode = arg;
+    } else if (arg.startsWith('--evidence-dir=')) {
+      assert.equal(evidenceDir, undefined, 'Duplicate --evidence-dir');
+      const value = arg.slice('--evidence-dir='.length);
+      assert(value.trim(), '--evidence-dir requires a nonempty path');
+      evidenceDir = path.resolve(value);
+    } else {
+      throw new Error(`Unknown argument: ${arg}`);
+    }
+  }
+  return { recoveryMode: mode !== '--expect-defect', evidenceDir };
+}
+function assertMissingOutcome(row, recoveryMode) {
+  if (recoveryMode)
+    assert(
+      row.announcedRecovery,
+      `${row.caseId}: missing atlas must expose an announced, visible recovery action`
+    );
+  else
+    assert(
+      row.blank && !row.announcedRecovery,
+      `${row.caseId}: known blank-panel defect no longer reproduces; inspect before updating this phase-1 check`
+    );
+}
+function checkModeContract() {
+  assert.deepEqual(parseOptions([]), parseOptions(['--assert-recovery']));
+  assert.equal(parseOptions([]).recoveryMode, true);
+  assert.equal(parseOptions(['--expect-defect']).recoveryMode, false);
+  assert.equal(
+    parseOptions(['--expect-defect', '--evidence-dir=/tmp/map-mode-control']).evidenceDir,
+    '/tmp/map-mode-control'
+  );
+  for (const args of [
+    ['--assert-recovery', '--expect-defect'],
+    ['--expect-defect', '--assert-recovery'],
+    ['--assert-recovery', '--assert-recovery'],
+    ['--expect-defect', '--expect-defect'],
+    ['--unknown'],
+    ['--expect-defect=true'],
+    ['--evidence-dir'],
+    ['--evidence-dir='],
+    ['--evidence-dir= '],
+    ['--evidence-dir=a', '--evidence-dir=b'],
+  ])
+    assert.throws(() => parseOptions(args));
+  const broken = { caseId: 'synthetic-broken', blank: true, announcedRecovery: false };
+  const recovered = { caseId: 'synthetic-recovered', blank: false, announcedRecovery: true };
+  assert.throws(() => assertMissingOutcome(broken, true));
+  assertMissingOutcome(broken, false);
+  assertMissingOutcome(recovered, true);
+  assert.throws(() => assertMissingOutcome(recovered, false));
+  assert.throws(() =>
+    assertMissingOutcome({ caseId: 'neither', blank: false, announcedRecovery: false }, false)
+  );
+  console.log('PASS: mode parsing and outcome contract controls');
+}
+// Validate CLI before building, launching a browser or creating temporary outputs.
+const { recoveryMode, evidenceDir } = parseOptions(process.argv.slice(2));
+checkModeContract();
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'map-atlas-served-'));
 const records = [];
 const gates = new Map();
@@ -420,7 +478,7 @@ const server = http.createServer(async (req, res) => {
       recoveryControls,
       scope:
         'Local served HTTP only; external requests blocked. No offline or production qualification.',
-      mode: recoveryMode ? 'assert-recovery' : 'reproduce-known-defect',
+      mode: recoveryMode ? 'assert-recovery' : 'expect-defect',
       records,
     };
     if (evidenceDir)
@@ -428,18 +486,8 @@ const server = http.createServer(async (req, res) => {
         path.join(evidenceDir, 'report.json'),
         JSON.stringify(report, null, 2) + '\n'
       );
-    for (const row of records.filter((r) => r.scenario === 'missing')) {
-      if (recoveryMode)
-        assert(
-          row.announcedRecovery,
-          `${row.caseId}: missing atlas must expose an announced, visible recovery action`
-        );
-      else
-        assert(
-          row.blank,
-          `${row.caseId}: known blank-panel defect no longer reproduces; inspect before updating this phase-1 check`
-        );
-    }
+    for (const row of records.filter((r) => r.scenario === 'missing'))
+      assertMissingOutcome(row, recoveryMode);
     console.log(
       recoveryMode
         ? 'PASS: announced recovery'
