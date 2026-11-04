@@ -747,6 +747,68 @@ test('Escape outside an open sheet closes only the sheet before clearing selecti
   win.close();
 });
 
+// #656 item 6: Esc pressed elsewhere in the view closes the sheet (and then
+// clears the selection) without pulling focus to the word that opened it.
+test('Escape outside an open sheet leaves focus where it is, at both layers', () => {
+  const { win, doc, host, m } = mounted(undefined, true);
+  const sel = CI.pair(ALLIT, 'e-watch-4-2', 'e-woods-4-4');
+  find(host, keyOf(sel)).click();
+  assert.equal(host.querySelector('.lib-cb-sheet-body').hidden, false, 'the sheet opened');
+  const tab = host.querySelector('[data-view="matrix"]');
+  tab.focus();
+  key(win, tab, 'Escape');
+  assert.equal(host.querySelector('.lib-cb-sheet-body').hidden, true, 'the sheet closed');
+  assert.equal(doc.activeElement, tab, 'focus stayed on the tab, not the opener');
+  key(win, doc.activeElement, 'Escape');
+  assert.equal(m.model().selection, null, 'the second Esc cleared the selection');
+  assert.equal(doc.activeElement.dataset.view, 'matrix', 'focus is still on that tab');
+  m.destroy();
+  win.close();
+});
+
+test('Escape inside the sheet returns to the opener, or to the view heading once it is gone', () => {
+  const { B, win, doc } = load();
+  const root = doc.getElementById('surface-library');
+  root.innerHTML = '<h2 id="title">Connections</h2><button id="row">woods · L4 w4</button>';
+  const row = doc.getElementById('row');
+  const sheet = B.bottomSheet(root, 'Pair inspector');
+  row.focus();
+  sheet.open(row);
+  key(win, doc.activeElement, 'Escape');
+  assert.equal(doc.activeElement, row, 'the opener, while it exists');
+  sheet.open(row);
+  row.remove();
+  key(win, doc.activeElement, 'Escape');
+  assert.equal(sheet.isOpen(), false);
+  assert.equal(doc.activeElement, doc.getElementById('title'), 'the heading, never <body>');
+  assert.equal(doc.getElementById('title').tabIndex, -1);
+});
+
+test('Escape that something closer handled, or that an input method is composing, is left alone', () => {
+  const { win, host, m } = mounted(undefined, true);
+  const sel = CI.pair(ALLIT, 'e-watch-4-2', 'e-woods-4-4');
+  find(host, keyOf(sel)).click();
+  const tab = host.querySelector('[data-view="matrix"]');
+  tab.focus();
+  tab.dispatchEvent(
+    new win.KeyboardEvent('keydown', {
+      key: 'Escape',
+      isComposing: true,
+      bubbles: true,
+      cancelable: true,
+    })
+  );
+  assert.equal(host.querySelector('.lib-cb-sheet-body').hidden, false, 'composing: untouched');
+  const handled = (ev) => ev.preventDefault();
+  tab.addEventListener('keydown', handled);
+  key(win, tab, 'Escape');
+  tab.removeEventListener('keydown', handled);
+  assert.equal(host.querySelector('.lib-cb-sheet-body').hidden, false, 'handled: untouched');
+  assert.ok(CI.sameSelection(m.model().selection, sel));
+  m.destroy();
+  win.close();
+});
+
 test('resize mode redraws coalesce on a frame and pending work cannot survive destroy', () => {
   const { B, win, doc } = load();
   const frames = new Map();

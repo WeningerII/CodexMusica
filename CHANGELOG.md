@@ -6,6 +6,18 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Changed — the lyrics runtime and session workflow documents state current rules; their history moves to an engineering log
+
+`mcp/LYRICS_RUNTIME.md` and `docs/session-workflow-repairs.md` keep their paths and state
+current rules and limits in the present tense. The history they carried (what changed and
+when, causes, corpus measurements, witness lines, and commit and issue trails) moves
+verbatim, labelled with its source path and commit `03a42ba83`, to
+[docs/engineering-log.md](docs/engineering-log.md). The website's own reader-migration
+rules for the Lyrics page and the Library tab move to
+[docs/lyrics-reader-migration-dev.md](docs/lyrics-reader-migration-dev.md), stated as
+current behaviour. The runtime document's open defects stay in it as "Known open
+limitations (pre-existing items)". Documentation only; no runtime change.
+
 ### Changed — the descriptor tables and the tree's descriptions leave the lazy page: codex.html is 0.36 MB gzipped, not 0.46 MB
 
 Two generated tables were still evaluated on every first view that never reads them:

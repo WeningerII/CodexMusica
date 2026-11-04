@@ -1953,12 +1953,15 @@ jobs:
       - name: Install numpy (kalevala_rate's permutation null is vectorised)
         run: python3 -m pip install --disable-pip-version-check numpy
 
-      # cmudict.dict is 3.6 MB, gitignored, and fetched from a moving master
-      # branch with no checksum — which the audit flagged as its own defect
-      # (doctrine 34, inside the function whose comment invokes doctrine 34).
-      # Caching it keeps CI off that fetch on most runs; it does not fix the
-      # provenance gap, and is not pretending to. data/opensubtitles_en_50k.tsv
-      # is repo-committed and provenance-gated, so it is never fetched.
+      # cmudict.dict is 3.6 MB, gitignored, and fetched from a pinned upstream
+      # commit (CMUDICT_URL in lyric_harness.py, cmusphinx/cmudict@74790861f652).
+      # The audit's old finding, a moving master branch with no checksum, no
+      # longer holds: "Stage the lexicon" below runs fetch_data(), which calls
+      # verify_asset("cmudict") after a download AND on a cache hit, checking
+      # bytes and sha256 against lyric-harness/data/runtime_assets.json, and
+      # exits 1 (LEXICAL_ASSET_UNREADABLE) on any mismatch. Caching only keeps
+      # CI off the network on most runs. data/opensubtitles_en_50k.tsv is
+      # repo-committed and provenance-gated, so it is never fetched.
       - name: Cache CMUdict
         uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
@@ -3105,7 +3108,7 @@ jobs:
       #   mosaic_rhyme and sequence_unread joined 2026-10-31 with M-311 F1/F4
       #   (#657): the mosaic rule and the unread-word guard; seconds each;
       #   label 109 to 111
-      - name: The 113 cheap suites (their history is the comment above; 111 until 2026-10-27, when the five bank suites were deleted with the song bank; sound_inventory joined 2026-10-30; connection_schemas the same day; schema_report 2026-10-31; mosaic_rhyme and sequence_unread 2026-10-31; meter_honesty 2026-11-02; bias_census 2026-11-03)
+      - name: The 114 cheap suites (their history is the comment above; 111 until 2026-10-27, when the five bank suites were deleted with the song bank; sound_inventory joined 2026-10-30; connection_schemas the same day; schema_report 2026-10-31; mosaic_rhyme and sequence_unread 2026-10-31; meter_honesty 2026-11-02; bias_census 2026-11-03; meter_strict 2026-11-04)
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -3197,7 +3200,7 @@ jobs:
                    section_marks phonology nucleus corpus_taxonomy mut_band coda \
                    band relation_shapes matrix render_form verify_entries register_audit \
                    phon_msa mandate_language phon_fas phon_non phon_san staging \
-                   controls data_row_claims english_text stub_resolution melody meter meter_honesty bias_census tempo verify_figures expected_drift \
+                   controls data_row_claims english_text stub_resolution melody meter meter_honesty meter_strict bias_census tempo verify_figures expected_drift \
                    cross_song brief_provenance shard \
                    battery_rounds comparator_pin audit_regressions production_harness production_relations high_report \
                    production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window within_item computational_audit interlocking_chain field_store type_canon backlog_status source_identity figure_exhibits relation_index lexicon_supplement reader reader_quotes moby_convert coverage_split coverage_queue pilot_frame schema_instance_evidence sound_inventory connection_schemas schema_report mosaic_rhyme sequence_unread; do

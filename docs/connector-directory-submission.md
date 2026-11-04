@@ -54,8 +54,7 @@ CodexMusica is a recording-arrangement engine exposed as MCP tools. Its
 catalog places **7755 recorded-music traditions** in a 13-dimensional parameter
 space alongside **1671 instruments** (decomposed into per-part variants), **256
 rooms**, **122 tunings**, and **740 "prefaces"** — named aesthetic/technique/
-delivery signatures (e.g. `satirical`, `keening`, `jhala-cascading`) that map
-*intent → physical settings*.
+delivery signatures that map *intent → physical settings*.
 
 Ask for a sound in plain language and Claude resolves it to real catalog ids,
 seeds a tradition's deterministic default recipe — identical to what a human sees
@@ -73,13 +72,12 @@ host for each fix.
 
 ## Use cases
 
-1. **Compose from a vibe.** *"outlaw country satirical, desert blues bitter,
-   face-melting sitar"* → seed the traditions, then re-pick each instrument's
-   preface → a ready-to-track descriptor stack with `satirical voice`,
-   `face-melting sitar`, and the full chain.
+1. **Compose from a vibe.** The user's own words → seed the traditions they name,
+   then re-pick each instrument's preface toward their mood words → a
+   ready-to-track descriptor stack and the full chain.
 2. **Blend traditions.** Seed several traditions at once → a combined roster,
    room, and chain, then trim or extend it instrument by instrument.
-3. **Bend one instrument to a feeling.** Set `worn` on a voice → the engine
+3. **Bend one instrument to a feeling.** Set a preface on one instrument → the engine
    re-derives the mic/medium/variant chain that realizes it, in place.
 4. **Iterate.** Swap a part variant, change the room, add or remove an instrument
    or tradition — each edit re-renders the recipe, deterministically.
@@ -134,17 +132,17 @@ listed under **Read / write** above.
    for a few seconds.
 3. Suggested end-to-end exercise:
    - `list_options` with `kind: "rooms"` → room ids `set_environment` takes.
-   - `search_catalog` with `query: "face-melting sitar"` → resolves request words to real ids.
-   - `search_prefaces` with `query: "satirical"` → ranked preface ids.
-   - `list_traditions` with `query: "blues"`; `get_tradition` with `id: "delta_blues"`;
-     `get_instrument` with `id: "sitar"`.
-   - `start_recipe` with `traditions: ["delta_blues"]` → a recipe and a `session_id`.
+   - `search_catalog` with `query` set to style or gear words of your own → resolves them to real ids.
+   - `search_prefaces` with `query` set to mood words of your own → ranked preface ids.
+   - `list_traditions` with a `query` of your own; `get_tradition` with an `id` from that list;
+     `get_instrument` with an instrument `id` that `search_catalog` returned.
+   - `start_recipe` with `traditions: ["<a tradition id from list_traditions>"]` → a recipe and a `session_id`.
    - `edit_recipe` with that `session_id` and `edits: [{action: "set_environment", room: "<a room id>"}]`
      → the re-rendered recipe and the next `session_id`.
    - `render_recipe` with the latest `session_id` and `format: "prose"`.
-   - `lyric_types` with `word_a: "heart"`, `word_b: "start"` → answers at once.
+   - `lyric_types` with `word_a` and `word_b` set to any two words of your own → answers at once.
    - `begin_lyrics` → `lyric_sweep` with that `session_id`, `seed_from: 0`, `count: 5`,
-     `lines: 16`, `functions: "verse,chorus"`, `want: ["before=verse,chorus"]` → poll `get_operation` with the returned `operation_id`
+     and, if you like, an exact `lines` count and a `functions` list of your own → poll `get_operation` with the returned `operation_id`
      until it is completed.
 
 Lookups are side-effect-free. Session tools write only the caller's own session;
