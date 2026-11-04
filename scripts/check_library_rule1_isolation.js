@@ -1,18 +1,22 @@
 #!/usr/bin/env node
-// Rule-1 runtime coverage (#661), complementary to check_library_shell's byte checks.
-// Usage: node scripts/check_library_rule1_isolation.js [--negative-control[=helper]]
+// Selected Rule-1 accessors (#661), complementary to check_library_shell's byte checks.
+// Watches app.cards reads, Engine/Catalog properties, compiler/environment calls
+// and getItem of codex-workbench-v1/recovery. Does not cover chat state/storage,
+// legacy storage keys, IndexedDB opens or all transient writes (Don 6640105982).
+// Usage: node scripts/check_library_rule1_isolation.js [--negative-control[=helper|inline|inline-helper]]
 // Builds only in /tmp. Spec: docs/library-native-design.md Rule 1 and row 58;
-// docs/ui-foundation.md "One recipe workspace"; Don's #668 comment 6639896087.
-// Library-owned reads fail; shared shell and explicit Lyrics receiver reads
-// remain visible as INFO. Walk frames from reader outward: a Library chunk
+// docs/ui-foundation.md "One recipe workspace"; Don's superseding #733 comment 6639915514.
+// Monitored Library-owned reads fail. Shared shell reads are INFO;
+// Lyrics/history reads are WARN pending spec resolution. Walk frames from
+// reader outward: a Library source frame
 // before the explicit handoff boundary owns a read, including shared helpers.
 // Do not discard a stack merely because it also contains shell/receiver code.
 // The handoff wrapper marks only uiOpenInLyrics's awaited receiver call, never
 // a global "handoff active" interval (which would hide concurrent Library reads).
 // Async stacks can be truncated by the browser: this is exercised-path evidence,
 // not a proof about arbitrary deferred callbacks or retained object aliases.
-// Negative controls inject a read inside the built Works chunk (directly, or
-// via sessionSnapshot in a microtask). Only the temporary chunk/SRI are changed.
+// Negative controls inject into the built Works chunk or inline libraryShow,
+// directly or through sessionSnapshot. Only the temporary build/SRI are changed.
 /* global app, Engine, Catalog, compileRecipeStack:writable, envCardOf:writable, uiOpenInLyrics:writable, _workspaceReady, UI, window, location, document, Storage, localStorage */
 'use strict';
 const assert = require('node:assert/strict');
@@ -27,14 +31,21 @@ const READING = 'reading_570567e3-ba7f-56f3-a1bf-f06c6a8d9b81';
 const negativeArg = process.argv[2];
 assert.ok(
   process.argv.length <= 3 &&
-    [undefined, '--negative-control', '--negative-control=helper'].includes(negativeArg),
+    [
+      undefined,
+      '--negative-control',
+      '--negative-control=helper',
+      '--negative-control=inline',
+      '--negative-control=inline-helper',
+    ].includes(negativeArg),
   'unknown argument'
 );
-const negative = negativeArg ? (negativeArg.endsWith('=helper') ? 'helper' : 'direct') : null;
+const negative = negativeArg ? negativeArg.split('=')[1] || 'direct' : null;
 
 function ownership(stack) {
   for (const frame of stack.split('\n')) {
     if (/\bat (?:async )?rule1HandoffBoundary \(/.test(frame)) return 'Lyrics receiver';
+    if (/rule1:\/\/\/src\/pages\/library\.js:\d+:\d+/.test(frame)) return 'Library';
     if (/https?:\/\/[^/]+\/library\/code\/[a-z-]+\.[0-9a-f]+\.js:\d+:\d+/.test(frame))
       return 'Library';
   }
@@ -43,6 +54,11 @@ function ownership(stack) {
 // A Library helper remains owned by Library; a caller below the explicit
 // receiver seam does not transfer ownership of receiver-internal reads.
 const libFrame = '    at read (http://localhost/library/code/works.abcdef1234.js:1:1)';
+const inlineFrame = '    at libraryShow (rule1:///src/pages/library.js:2:1)';
+assert.equal(
+  ownership('Error\n at sessionSnapshot (http://localhost/codex.html:1:1)\n' + inlineFrame),
+  'Library'
+);
 const seam = '    at async rule1HandoffBoundary (eval at evaluate:1:1)';
 assert.equal(
   ownership('Error\n at sessionSnapshot (http://localhost/codex.html:1:1)\n' + libFrame),
@@ -55,8 +71,10 @@ assert.equal(ownership('Error\n' + libFrame + '\n' + seam), 'Library');
 // violation caught by production code remains recorded and behavior can finish.
 function instrument() {
   Error.stackTraceLimit = 100;
+  const envelopes = [];
   const handoff = uiOpenInLyrics;
   uiOpenInLyrics = async function rule1HandoffBoundary(...args) {
+    envelopes.push(JSON.parse(JSON.stringify(args[0])));
     return await handoff.apply(this, args);
   };
   const records = [];
@@ -107,6 +125,7 @@ function instrument() {
     return getItem.call(this, key);
   };
   window.rule1 = {
+    envelopes: () => envelopes,
     begin() {
       records.length = 0;
       armed = true;
@@ -119,6 +138,87 @@ function instrument() {
       return JSON.stringify(app.cards);
     },
   };
+}
+
+// Bound the actual Reader envelope, not a fabricated handoff. Provenance is
+// source metadata; this fixture has no user declarations. Recipe keys are
+// forbidden recursively even inside otherwise extensible source metadata.
+function checkEnvelope(envelope) {
+  const keys = (value, allowed, label) => {
+    assert.ok(value && typeof value === 'object' && !Array.isArray(value), label);
+    assert.ok(
+      Object.keys(value).every((key) => allowed.includes(key)),
+      label + ': unexpected field'
+    );
+  };
+  keys(
+    envelope,
+    ['protocol', 'version', 'handoffId', 'draftId', 'createdAt', 'payload', 'digest'],
+    'envelope'
+  );
+  assert.equal(envelope.protocol, 'codex-musica.library-import');
+  assert.equal(envelope.version, 1);
+  const p = envelope.payload;
+  keys(
+    p,
+    ['text', 'title', 'language', 'scope', 'provenance', 'lineage', 'declarations'],
+    'payload'
+  );
+  assert.ok(typeof p.text === 'string' && p.text.length > 0, 'Library text present');
+  assert.equal(p.scope, 'whole');
+  keys(
+    p.provenance,
+    [
+      'snapshotId',
+      'unitId',
+      'workId',
+      'editionId',
+      'revisionId',
+      'source_sha256',
+      'normalized_sha256',
+      'source_path',
+      'rights',
+      'contributors',
+      'completeness',
+      'metadata',
+      'source_map',
+      'source_marks',
+      'source_labels',
+      'source_basis',
+      'work_reviewed_equivalence',
+    ],
+    'provenance'
+  );
+  assert.equal(p.provenance.unitId, READING);
+  assert.ok(Array.isArray(p.lineage) && p.lineage.length > 0, 'text lineage present');
+  p.lineage.forEach((row) =>
+    keys(
+      row,
+      [
+        'line_id',
+        'physical_line',
+        'analysis_line',
+        'normalized_cp_range',
+        'normalized_utf16_range',
+        'source_ranges',
+      ],
+      'lineage'
+    )
+  );
+  assert.deepEqual(p.declarations, [{}], 'fresh fixture has no user declarations');
+  const visit = (value) => {
+    if (!value || typeof value !== 'object') return;
+    for (const [key, child] of Object.entries(value)) {
+      assert.ok(
+        !/^(recipe|cards|workspace|engine|catalog|room|chain|tuning|instruments|traditions|arrangement|environment)$/i.test(
+          key
+        ),
+        'recipe field in envelope: ' + key
+      );
+      visit(child);
+    }
+  };
+  visit(envelope);
 }
 
 async function main() {
@@ -135,9 +235,28 @@ async function main() {
         stdio: ['ignore', 'ignore', 'inherit'],
       }
     );
-    if (negative) {
-      const htmlPath = path.join(dir, 'codex.html');
-      let html = fs.readFileSync(htmlPath, 'utf8');
+    // Label only the inline Library module's stack source in the temporary
+    // build. Function names alone cannot distinguish it from the host shell.
+    const htmlPath = path.join(dir, 'codex.html');
+    let html = fs.readFileSync(htmlPath, 'utf8');
+    let labeled = 0;
+    html = html.replace(/<script\b[^>]*>([\s\S]*?)<\/script>/g, (tag, body) => {
+      if (!/^\s*\/\/ ─── runtime: src\/pages\/library\.js ───/.test(body)) return tag;
+      labeled++;
+      if (negative?.startsWith('inline')) {
+        const marker = 'async function libraryShow(){';
+        assert.ok(body.includes(marker), 'inline libraryShow mutation point');
+        const read = negative === 'inline-helper' ? 'sessionSnapshot();' : 'void app.cards;';
+        body = body.replace(
+          marker,
+          marker + 'if(!window.rule1InlineLeak){window.rule1InlineLeak=true;' + read + '}'
+        );
+      }
+      return '<script>' + body + '\n//# sourceURL=rule1:///src/pages/library.js\n</script>';
+    });
+    assert.equal(labeled, 1, 'exactly one inline Library source labeled');
+    fs.writeFileSync(htmlPath, html);
+    if (negative && !negative.startsWith('inline')) {
       const entry = /works:\["(library\/code\/works\.[0-9a-f]+\.js)","(sha384-[^"]+)"\]/.exec(html);
       assert.ok(entry, 'Works lazy chunk and SRI must exist');
       const chunkPath = path.join(dir, entry[1]);
@@ -317,7 +436,7 @@ async function main() {
       const reads = await page.evaluate(() => window.rule1.end());
       const libraryReads = reads.filter((r) => ownership(r.stack) === 'Library');
       console.log(
-        `${libraryReads.length ? 'FAIL' : 'PASS'} ${name}: ${libraryReads.length} Library-owned reads; ${reads.length - libraryReads.length} host reads (INFO)`
+        `${libraryReads.length ? 'FAIL' : 'PASS'} ${name}: ${libraryReads.length} Library-owned reads; ${reads.length - libraryReads.length} host reads (${name === 'Lyrics handoff' ? 'WARN: wording unresolved' : 'INFO'})`
       );
       // Preserve every distinct caller stack, including legitimate host reads.
       const groups = new Map();
@@ -329,10 +448,10 @@ async function main() {
       }
       for (const group of groups.values())
         console.log(
-          `${ownership(group.stack) === 'Library' ? 'FAIL' : 'INFO'} ${ownership(group.stack)} ${group.access} x${group.count}\n${group.stack}`
+          `${ownership(group.stack) === 'Library' ? 'FAIL' : name === 'Lyrics handoff' ? 'WARN' : 'INFO'} ${ownership(group.stack)} ${group.access} x${group.count}\n${group.stack}`
         );
       if (libraryReads.length) failures.push(`${name}: ${libraryReads.length} Library-owned reads`);
-      if (name === 'Works' && negative)
+      if (negative && name === (negative.startsWith('inline') ? 'Explore' : 'Works'))
         assert.ok(libraryReads.length > 0, 'planted Library read must be attributed to Library');
       assert.equal(
         await page.evaluate(() => window.rule1.snapshot()),
@@ -340,11 +459,32 @@ async function main() {
         name + ': recipe bytes changed'
       );
     }
+    const envelopes = await page.evaluate(() => window.rule1.envelopes());
+    assert.equal(envelopes.length, 1, 'one actual Reader handoff');
+    checkEnvelope(envelopes[0]);
+    for (const target of ['payload', 'provenance', 'declarations']) {
+      const mutant = JSON.parse(JSON.stringify(envelopes[0]));
+      const destination =
+        target === 'payload'
+          ? mutant.payload
+          : target === 'provenance'
+            ? mutant.payload.provenance
+            : mutant.payload.declarations[0];
+      destination.recipe = { cards: [] };
+      assert.throws(
+        () => checkEnvelope(mutant),
+        /unexpected field|fresh fixture|recipe field/,
+        target + ' rejects recipe state'
+      );
+    }
+    console.log(
+      'PASS bounded envelope: actual Library text/provenance/declarations only; three recipe-field mutants rejected'
+    );
     assert.deepEqual(errors, [], 'uncaught browser exceptions');
     assert.deepEqual(unexpected, [], 'unstubbed network traffic');
     assert.deepEqual(failures, [], 'Rule-1 isolation violations');
     console.log(
-      'LIBRARY RULE-1: PASS — six routes, no Library-owned recipe reads; host reads reported'
+      'LIBRARY RULE-1: PASS — six routes, no monitored Library-owned reads; handoff WARN retained'
     );
   } finally {
     if (browser) await browser.close();
