@@ -117,7 +117,7 @@ test('Library copy: capture serializes parsed models as text; activation indepen
   assert.equal(record.pageReview.run.baseModel, song, 'stored record stays text');
 });
 
-test('manual one-occurrence edit stays divergent through EACH independent restore and leaves an open Return', async () => {
+test('manual one-occurrence edit stays divergent through EACH independent restore and fails Return identity', async () => {
   const edited = song.replace('I hold the light', 'I guard the light');
   const before = page(edited);
   const expected = [['R1', 1, 3, 'NOT_VERBATIM']];

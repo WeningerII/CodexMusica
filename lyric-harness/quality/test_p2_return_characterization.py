@@ -9,6 +9,11 @@ floor is explicitly omitted by a test double: these tests DO NOT establish
 which full-floor lexical flags survive. That missing acceptance is a skip,
 not a passing fake floor. The two persistence paths live in the companion JS
 fixture; neither suite claims browser/UI or typed contained-role acceptance.
+
+Separate full-floor observations: #666 comment 6640294428, BB8 on e3525a4e,
+Python 3.13.16 / nltk 3.10.3 with verified assets. This is not the environment
+of this suite's original Python 3.12.14 / nltk 3.10.4 execution, nor CI
+equivalence. That receipt does not remove this suite's floor skip.
 """
 import sys
 import unittest
@@ -104,7 +109,12 @@ class ReturnCharacterization(unittest.TestCase):
                             lines[0] = 'I guard the light'
                         m = S.mandate('ABAB', n_lines=4, returns=returns)
                         result = self.reviser(licence).inspect(lines, m)
-                        findings = [f for bucket in result['per_line'].values() for f in bucket]
+                        # One Finding object can occur in several line buckets.
+                        # Deduplicate object identities, not distinct engine
+                        # findings that happen to share code/location fields.
+                        placed = result['whole'] + [
+                            f for bucket in result['per_line'].values() for f in bucket]
+                        findings = list({id(f): f for f in placed}.values())
                         actual = {(f.code, f.severity, tuple(f.locations))
                                   for f in findings if f.code in wanted}
                         if returns:
@@ -118,6 +128,21 @@ class ReturnCharacterization(unittest.TestCase):
                         else:
                             expected = set()
                         self.assertEqual(actual, expected)
+                        obligations = [o for o in result['coverage']['obligations']
+                                       if o['id'].startswith('return:')]
+                        self.assertEqual(obligations, [
+                            {'id': 'return:1:3', 'layer': 'return', 'status': 'answered'}
+                        ] if returns else [])
+                        self.assertNotIn('return:1:3', result['coverage']['refused_obligations'])
+                        # An answered comparison can FAIL. Certification is a
+                        # coverage property, never proof of absence of flags.
+                        # Do not pin overall certification from OmittedFloor:
+                        # the local sentencehood resource is also unavailable.
+                        if returns and edited:
+                            failures = [f for f in findings if f.code == 'RETURN_NOT_VERBATIM']
+                            self.assertEqual(len(failures), 1)
+                            self.assertEqual(failures[0].severity, 'flag')
+                            self.assertEqual(failures[0].locations, [1, 3])
                         self.assertEqual(lines[2], LINES[2], 'inspection must not re-sync text')
 
     def test_floor_projection_excludes_return_pairs_but_keeps_other_occurrences(self):
