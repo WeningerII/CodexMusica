@@ -1,0 +1,136 @@
+/* Prototype shell styles (#670 slice P0). Sizes are in rem so a raised
+   browser font size enlarges the text (spec §4, text scaling). */
+:root {
+  --bg: #ffffff;
+  --fg: #1b1b1f;
+  --muted: #4a4a52;
+  --line: #d4d4da;
+  --accent: #1f4fa8;
+  --notice-bg: #fff4d6;
+  --focus: #1f4fa8;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15161a;
+    --fg: #ececf1;
+    --muted: #b8b8c2;
+    --line: #3a3b44;
+    --accent: #9cbcff;
+    --notice-bg: #3a3220;
+    --focus: #9cbcff;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font:
+    1rem/1.5 system-ui,
+    sans-serif;
+}
+:focus-visible {
+  outline: 0.1875rem solid var(--focus);
+  outline-offset: 0.125rem;
+}
+.skip {
+  position: absolute;
+  left: -100vw;
+}
+.skip:focus {
+  left: 1rem;
+  top: 1rem;
+  background: var(--bg);
+  padding: 0.5rem;
+  z-index: 1;
+}
+.app-bar {
+  border-bottom: 1px solid var(--line);
+  padding: 0 1rem;
+}
+.notice {
+  margin: 0 -1rem;
+  padding: 0.5rem 1rem;
+  background: var(--notice-bg);
+  font-size: 0.875rem;
+}
+.app-bar-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+  padding: 0.5rem 0;
+}
+.brand {
+  margin: 0;
+  font-weight: 600;
+}
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  padding: 0 0.75rem;
+  border-radius: 0.375rem;
+  color: var(--fg);
+  text-decoration: none;
+}
+.nav a[aria-current='page'] {
+  color: var(--accent);
+  box-shadow: inset 0 -0.1875rem 0 var(--accent);
+  font-weight: 600;
+}
+.status:empty {
+  display: none;
+}
+.status {
+  margin: 0 0 0.5rem;
+  color: var(--muted);
+}
+.layout {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+}
+@media (min-width: 56.25rem) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr) 20rem;
+  }
+}
+.panel h1 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+.recipe {
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  align-self: start;
+}
+.recipe h2 {
+  margin-top: 0;
+  font-size: 1.125rem;
+}
+.catalog {
+  color: var(--muted);
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
