@@ -3,6 +3,12 @@
 // Accepted data/action contract: #668 comment 6641909843.
 // ctx.catalog = immutable catalog.json object; ctx.artwork = immutable artwork.json
 // object, NOT a new record schema. The host loads these; this module never does.
+// Retry boundary: #668 comment 6645267823. The shell loads both files before
+// mount; a failed load never mounts this lane. The shell owns Retry, reruns its
+// context loader, and on success mounts fresh frozen inputs and calls focus().
+// Repeated failure keeps shell Retry focus and announces once. There is no lane
+// retry hook or transport state. Missing-input messages below are defensive;
+// post-mount image failures retain attribution with the image-unavailable state.
 // Accepted image contract: #668 comment 6642118480. ctx.artworkUrls is a frozen
 // plain object keyed by artwork ID. The host includes only committed renditions
 // with values '../assets/library/art/<id>-480.webp'; missing key means no image.
@@ -131,6 +137,7 @@ export function mount(host, ctx) {
     }
   } else {
     node('p', 'The catalog census could not be loaded', census, 'pcc-note');
+    node('p', 'Check your connection, then retry.', census, 'pcc-note');
   }
 
   const credits = node('section', undefined, root, 'pcc-card');
@@ -143,6 +150,7 @@ export function mount(host, ctx) {
   );
   if (!Array.isArray(ctx.artwork?.artwork)) {
     node('p', 'Artwork credits could not be loaded', credits, 'pcc-note');
+    node('p', 'Check your connection, then retry.', credits, 'pcc-note');
   } else {
     const records = Object.freeze(
       ctx.artwork.artwork.map((record) => Object.freeze({ ...record }))

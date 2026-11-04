@@ -68,6 +68,10 @@
   border-radius: 0.5rem;
 }
 .pcc a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 2px 4px;
   color: var(--cm-link, var(--accent, #1551a1));
   text-decoration: underline;
 }
