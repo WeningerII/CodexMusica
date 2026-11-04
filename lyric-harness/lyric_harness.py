@@ -5245,7 +5245,10 @@ def _reading_provenance(reader, piece, phones, is_oov):
     returned. `source` is one of dictionary / rule / guessed / declared /
     unknown, or `unclassified` when the reader took a path this function
     cannot reproduce exactly -- every branch below re-derives the phones it
-    attributes and claims nothing on a mismatch."""
+    attributes and claims nothing on a mismatch, EXCEPT `guessed`: that one
+    is claimed whenever the reader has a g2p fallback and no rule above
+    matched, without re-running the fallback (#677 6641363309 showed a
+    drifted rule then reads as `guessed`, not `unclassified`)."""
     phones = list(phones)
     if is_oov:
         return "unknown", {}
@@ -5264,10 +5267,21 @@ def _reading_provenance(reader, piece, phones, is_oov):
             detail = {"index": rows.index(phones), "readings": len(variants)}
             src = (reader.reading_source(w, phones)
                    if hasattr(reader, "reading_source") else None)
-            detail["reading"] = ("cmudict" if src == "cmudict" else
-                                 f"accent-derived ({src[5:]})"
-                                 if src and src.startswith("rule:") else
-                                 "lexicon")
+            # "accent-derived" only for a reading `derive_accent_readings`
+            # wrote (it is in `reading_rules` under that rule's name). A
+            # supplement row whose SOURCE is spelled `rule:...` (the
+            # number-compound rows) is rule-derived but not an accent
+            # reading, so it is named by its source and not given a family
+            # it does not belong to.
+            accent = getattr(reader, "reading_rules", {}).get(
+                (w, tuple(phones)))
+            detail["reading"] = (
+                "cmudict" if src == "cmudict" else
+                f"accent-derived ({accent})"
+                if accent and src == f"rule:{accent}" else
+                f"rule-derived ({src[5:]})"
+                if src and src.startswith("rule:") else
+                "lexicon")
             return "dictionary", detail
         # Not a row: `pronunciation_variants` reduced `-ing` to `-in'`.
         # Re-derive that reduction exactly, or claim nothing.
