@@ -45,6 +45,51 @@ const SAFE_SCRIPTS = new Set([
 const PLACEHOLDER = /[<>{}…]|\.\.\.|\$\{|\bq\.js\b|\bload\.js\b|\brich_recipe\.js\b/;
 const CMD_RE = /node\s+scripts\/([A-Za-z0-9_]+\.js)[^\n`]*/g;
 
+// The model-visible docs carry no real catalog ids (#698): a recipe.js example
+// is written with placeholders (`--tradition <id>`, `--swap-variant=<instrument>:
+// <part>:<variant>`). So that every documented FORM still runs, the argument
+// roles below are filled here, at check time, from one coherent fixture derived
+// from the catalog (a tradition, two of its instruments, a part with a
+// non-default variant on a third, and a second tradition). Only these roles
+// are filled; a command with any other placeholder stays illustrative.
+function recipeFixture() {
+  const C = require('./_loader.js');
+  const inst = new Map(C.INSTRUMENTS.map((i) => [i.id, i]));
+  const trads = [...C.TRADITIONS].sort((x, y) => (x.id < y.id ? -1 : x.id > y.id ? 1 : 0));
+  for (const t of trads) {
+    const ids = (t.instruments || []).filter((id) => inst.has(id));
+    if (ids.length < 3) continue;
+    for (const sw of ids) {
+      const part = (inst.get(sw).parts || []).find((pt) => (pt.variants || []).length >= 2);
+      if (!part) continue;
+      const variant = part.variants.find((v) => !v.default) || part.variants[1];
+      const others = ids.filter((id) => id !== sw);
+      const t2 = trads.find((x) => x.id !== t.id);
+      return {
+        t: t.id,
+        t2: t2.id,
+        ex1: others[0],
+        ex2: others[1],
+        swap: `${sw}:${part.id}:${variant.id}`,
+      };
+    }
+  }
+  throw new Error('check_doc_commands: no catalog tradition fits the recipe.js fixture');
+}
+let FIXTURE = null;
+function fillRecipeRoles(cmd) {
+  if (!/^node\s+scripts\/recipe\.js\b/.test(cmd) || !/<[^<>]+>/.test(cmd)) return cmd;
+  FIXTURE = FIXTURE || recipeFixture();
+  const F = FIXTURE;
+  return cmd
+    .replace(/--swap-variant=<[^<>]+>:<[^<>]+>:<[^<>]+>/g, `--swap-variant=${F.swap}`)
+    .replace(/--exclude-instrument=<[^<>]+>,<[^<>]+>/g, `--exclude-instrument=${F.ex1},${F.ex2}`)
+    .replace(/--exclude-instrument=<[^<>]+>/g, `--exclude-instrument=${F.ex1}`)
+    .replace(/--traditions <[^<>]+>,<[^<>]+>/g, `--traditions ${F.t},${F.t2}`)
+    .replace(/(--diff(?: --weight=[0-9.]+)?) <[^<>]+> <[^<>]+>/g, `$1 ${F.t} ${F.t2}`)
+    .replace(/--tradition(=| )<[^<>]+>/g, `--tradition$1${F.t}`);
+}
+
 const cmds = new Map(); // normalized command -> "file:line" of first occurrence
 for (const rel of DOCS) {
   const p = path.join(ROOT, rel);
@@ -56,6 +101,7 @@ for (const rel of DOCS) {
     while ((m = CMD_RE.exec(line)) !== null) {
       let cmd = m[0].trim().replace(/\s+#.*$/, ''); // drop trailing inline comment
       if (!SAFE_SCRIPTS.has(m[1])) continue;
+      cmd = fillRecipeRoles(cmd);
       if (PLACEHOLDER.test(cmd)) continue;
       if (!cmds.has(cmd)) cmds.set(cmd, `${rel}:${i + 1}`);
     }
