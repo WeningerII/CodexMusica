@@ -226,8 +226,12 @@ class FormReaderTests(unittest.TestCase):
                          {"bridge": ["ea", "ee"], "against": ["ay", "ight"], "shared": [],
                           "coverage": "complete", "unread": 0, "separates": True})
         shared = analyze_form(*self._contrast_work(["the river and the day", "the willow and the tree"]))
+        # The shared key also comes with its words (#676 follow-up): 'day'
+        # in the bridge; 'day' and 'way' in the verses.
         self.assertEqual(shared["bridge_contrast"]["rhyme_inventory"],
                          {"bridge": ["ay", "ee"], "against": ["ay", "ight"], "shared": ["ay"],
+                          "shared_words": [{"key": "ay", "bridge": ["day"],
+                                            "against": ["day", "way"]}],
                           "coverage": "complete", "unread": 0, "separates": False})
         self.assertFalse([r for r in shared["refusals"] if r["code"] == "CHANNEL_NOT_MEASURED"])
 
