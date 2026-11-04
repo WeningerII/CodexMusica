@@ -1,5 +1,5 @@
 /* exported renderInstrumentDiscovery, uiInspectInstrument */
-/* global uiMotion, $ui, CODEX_IMAGE_MANIFEST, Catalog, ChainItem, FamName, INSTRUMENT_FILTER_PILLS, Inst, PREFACE_CAT_ORDER, RECIPE_FORMATS, Room, Tradition, Tuning, UI, UILayout, Variant, app, applyPartEdit, buildStackParts, compileStack, copyToClipboard, entryRenderDescs, envCardOf, esc, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, icon, image, inverseConfigureForPreface, listenLink, loadPrefaceRecent, makeCard, normalizeSearch, passesInstrumentFilter, prefaceCatGlyphHTML, prefaceGlyphsHTML, prefaceGroups, recordPrefaceRecent, showToast, suggestPrefaceForCard, traditionCardOpts, uiAddInstrument, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos, Engine, InstLite, UI_PAGES, _engineLive, engineReady, searchRank, uiSearchToResults */
+/* global uiMotion, $ui, CODEX_IMAGE_MANIFEST, Catalog, ChainItem, FamName, INSTRUMENT_FILTER_PILLS, Inst, PREFACE_CAT_ORDER, RECIPE_FORMATS, Room, Tradition, Tuning, UI, UILayout, Variant, app, applyPartEdit, buildStackParts, compileStack, copyToClipboard, entryRenderDescs, envCardOf, esc, hasEnvironment, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, icon, image, inverseConfigureForPreface, listenLink, loadPrefaceRecent, makeCard, normalizeSearch, passesInstrumentFilter, prefaceCatGlyphHTML, prefaceGlyphsHTML, prefaceGroups, recordPrefaceRecent, showToast, suggestPrefaceForCard, traditionCardOpts, uiAddInstrument, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos, Engine, InstLite, UI_PAGES, _engineLive, engineReady, searchRank, uiSearchToResults */
 /* Instrument page. Owned by the Instrument page worker; see docs/ui-foundation.md.
 
    Three columns over the Your recipe dock: the catalogue (families, classes,
@@ -809,12 +809,7 @@ function ipEnvSource() {
   // The recipe renders ONE environment: the first card that has one
   // (envCardOf, the canonical rule). Say which card that would be.
   const src = envCardOf(app.cards);
-  const has = (c) =>
-    !!c &&
-    (c.tuning ||
-      c.room ||
-      Object.values(c.chain || {}).some((v) => (Array.isArray(v) ? v.length > 0 : !!v)));
-  if (src && has(src))
+  if (src && hasEnvironment(src))
     return `Your recipe renders one environment, from ${esc(Inst(src.instrumentId)?.name || 'its first instrument')}${src.traditionId ? ' (' + esc(Tradition(src.traditionId)?.name || '') + ')' : ''}. This instrument's settings here render only if it becomes that source.`;
   return 'Your recipe has no environment yet. If this instrument has one, it becomes the environment the recipe renders.';
 }

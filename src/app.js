@@ -1,4 +1,4 @@
-/* global uiMotion, CODEX_DEFER_BOOT, UI, UI_ICONS, UI_PAGES, UILayout, uiAddGenre, uiAfterPaint, uiChatSessions, uiLyricsOpened, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
+/* global envCardOf, uiMotion, CODEX_DEFER_BOOT, UI, UI_ICONS, UI_PAGES, UILayout, uiAddGenre, uiAfterPaint, uiChatSessions, uiLyricsOpened, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
 /* exported INSTRUMENT_FILTER_PILLS, RECIPE_FORMATS, STARTER_TRADITIONS, addInstrumentFromPicker, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, passesInstrumentFilter, surpriseTradition, lyricMetaOf, _chatSend, uiEnsureWorkspace, _whenWorkspace, _releaseEngine, searchRank */
 
 
@@ -2611,29 +2611,10 @@ function buildStackParts(card) {
   });
   return out;
 }
-// WHICH card the one rendered environment comes from. Byte-mirror of
-// envCardOf in scripts/_recipe_stack.js — see that copy for the full note.
-//
-// Every format carries the environment exactly once and every one of them used
-// to read cards[0] unconditionally. That is right whenever cards[0] has an
-// environment, and silently wrong when it doesn't: a card built outside a
-// tradition has none (importTradition seeds one shared env across a tradition's
-// cards; a bare instrument card gets null tuning, null room, empty chain), and
-// adding a tradition APPENDS, so a bare instrument added first sits at index 0
-// forever. Start from one instrument, add a genre, and the recipe renders no
-// tuning, no room and none of the seven chain stages while the header still
-// names the genre.
-//
-// First card that HAS an environment, and that card's environment WHOLE — not a
-// field-by-field merge, which would render a combination no card actually
-// holds. Can only ADD environment to renders that had none, so existing recipe
-// bytes are unchanged.
-function envCardOf(cards) {
-  if (!cards || !cards.length) return null;
-  const has = (c) => !!c && (c.tuning || c.room ||
-    Object.values(c.chain || {}).some(v => Array.isArray(v) ? v.length > 0 : !!v));
-  return cards.find(has) || cards[0];
-}
+// WHICH card the one rendered environment comes from: envCardOf (and its
+// predicate hasEnvironment) are defined once, in scripts/_recipe_stack.js's
+// @inline region, which build_html.js inlines into the page's first runtime
+// block ahead of this file. See that region for the rule and why (#662).
 function compileStack(card, format) {
   const parts = buildStackParts(card);
   if (parts.length === 0) return '';
