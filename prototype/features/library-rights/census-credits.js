@@ -14,7 +14,8 @@
 // hide a Render request. Without the callback the action is visibly unavailable.
 // Common ctx: { storage, announce, signal }. storage has read/write/remove result
 // objects {ok,value?,reason?}; this read-only view has no persistent state and
-// deliberately calls none of them. The host loads census-credits.css.
+// deliberately calls none of them. Each mount owns its stylesheet link in host
+// and removes that link on unmount, including abort-driven teardown.
 // Proposed improvements over production: distinct link accessible names, safe
 // URL rejection, visible missing-image/action feedback and callback error feedback.
 // Counts, their ordering, snapshot and attribution text retain production semantics.
@@ -36,6 +37,9 @@ export function mount(host, ctx) {
   let alive = !ctx.signal?.aborted;
   let busy = false;
   const cleanup = [];
+  const stylesheet = doc.createElement('link');
+  stylesheet.rel = 'stylesheet';
+  stylesheet.href = new URL('./census-credits.css', import.meta.url).href;
   const root = doc.createElement('section');
   root.className = 'pcc';
   root.setAttribute('aria-label', 'Sources & rights');
@@ -54,6 +58,7 @@ export function mount(host, ctx) {
     alive = false;
     cleanup.splice(0).forEach((fn) => fn());
     root.remove();
+    stylesheet.remove();
   }
   const heading = node('h2', 'Sources & rights');
   heading.tabIndex = -1;
@@ -195,6 +200,6 @@ export function mount(host, ctx) {
       }
     }
   }
-  if (alive) host.append(root);
+  if (alive) host.append(stylesheet, root);
   return handle;
 }
