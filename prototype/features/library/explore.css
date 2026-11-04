@@ -76,3 +76,21 @@
     scroll-behavior: auto;
   }
 }
+
+/* Border pattern distinguishes partial selection without relying on colour. */
+.prototype-library-explore button[aria-pressed] {
+  color: #111;
+  background: #fff;
+  border: 2px solid #767676;
+}
+.prototype-library-explore button[aria-pressed='true'],
+.prototype-library-explore button[aria-pressed='mixed'] {
+  border: 3px solid #111;
+  font-weight: 700;
+}
+.prototype-library-explore button[aria-pressed='mixed'] {
+  border-style: dashed;
+}
+.prototype-library-explore button[aria-pressed]:focus-visible {
+  outline-color: #005fcc;
+}
