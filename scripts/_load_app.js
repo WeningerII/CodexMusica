@@ -109,4 +109,4 @@ function _cardDescriptorSet(card) {
   );
 }
 
-module.exports = { loadApp };
+module.exports = { loadApp, EXPORTED };
