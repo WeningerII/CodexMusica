@@ -18141,6 +18141,13 @@ function _renderBootError(err) {
   const host = document.getElementById('boot-status') || document.body;
   host.setAttribute('role', 'alert');
   const engine = !!(err && (err.engine || err.name === 'EngineNotReadyError'));
+  // Opened from disk, fetch() is refused for the file scheme: the network is
+  // not the cause and Reload cannot help, so say what can (#660).
+  if (location.protocol === 'file:') {
+    host.innerHTML =
+      '<div class="empty-state" id="boot-error"><p>Opened from a file, this page can’t load its data. Use codexmusica.com, or run python3 -m http.server here.</p></div>';
+    return;
+  }
   host.innerHTML =
     '<div class="empty-state" id="boot-error"' + (engine ? ' data-engine-pending="failed"' : '') + '>' +
     (engine
@@ -18475,10 +18482,23 @@ function getTreeNode(id) {
 function tradParent(tradId) {
   return Catalog.ext(tradId)?.parent || null;
 }
+// Browse-tree index (#663 A1): each parent's [tree nodes, traditions] in
+// TREE_NODES / Catalog.all() order. A leaf count is a parent's traditions plus
+// its child nodes' counts, walked over the index. Parents are set only at
+// catalog boot, so it is rebuilt only when the catalog list is replaced or
+// either list changes length.
+let _tIdx = null;
+function treeIndex() {
+  const all = Catalog.all(), n = all.length + ':' + TREE_NODES.length;
+  if (_tIdx?.all === all && _tIdx.n === n) return _tIdx;
+  const k = new Map(), at = (p) => k.get(p) || k.set(p, [[], []]).get(p);
+  for (const t of TREE_NODES) at(t.parent)[0].push(t);
+  for (const t of all) at(tradParent(t.id))[1].push(t);
+  return (_tIdx = { all, n, k });
+}
 function getChildren(nodeId) {
-  const internal = TREE_NODES.filter(n => n.parent === nodeId);
-  const leaves = Catalog.all().filter(t => tradParent(t.id) === nodeId);
-  return [...internal, ...leaves];
+  const e = treeIndex().k.get(nodeId);
+  return e ? e[0].concat(e[1]) : [];
 }
 function getCrossRefLeaves(nodeId) {
   return Catalog.all().filter(t => {
@@ -18492,17 +18512,8 @@ function getRoots() {
   return TREE_NODES.filter(n => n.parent === null);
 }
 function countDescendantLeaves(nodeId) {
-  let count = 0;
-  const stack = [nodeId];
-  while (stack.length) {
-    const id = stack.pop();
-    const kids = getChildren(id);
-    kids.forEach(k => {
-      if (TREE_NODES.some(n => n.id === k.id)) stack.push(k.id);
-      else count++;
-    });
-  }
-  return count;
+  const e = treeIndex().k.get(nodeId);
+  return e ? e[0].reduce((s, t) => s + countDescendantLeaves(t.id), e[1].length) : 0;
 }
 function getAncestorPath(tradId) {
   const path = [];
