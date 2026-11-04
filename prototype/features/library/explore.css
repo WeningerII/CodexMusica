@@ -1,0 +1,52 @@
+.prototype-library-explore {
+  min-width: 0;
+  color: inherit;
+  font: inherit;
+}
+.prototype-library-explore * { box-sizing: border-box; }
+.library-prototype-shelf { min-width: 0; margin-block: 1.5rem; }
+.library-prototype-scroll {
+  display: flex;
+  position: relative;
+  align-items: stretch;
+  gap: 14px;
+  overflow-x: auto;
+  padding: 6px;
+  scroll-snap-type: x proximity;
+  scroll-behavior: auto;
+  max-width: 100%;
+}
+.library-prototype-card {
+  flex: 0 0 min(13rem, 100%);
+  min-width: 0;
+  padding: .75rem;
+  border: 1px solid currentColor;
+  border-radius: .5rem;
+  overflow-wrap: anywhere;
+  scroll-snap-align: start;
+}
+.library-prototype-card img, .library-prototype-cover {
+  width: 100%;
+  height: 8rem;
+  object-fit: contain;
+}
+.library-prototype-cover { padding: .5rem; overflow: hidden; background: #e5e7eb; color: #17212b; }
+.library-prototype-card h3 { margin-block: .75rem; font-size: 1.1em; }
+.prototype-library-explore button {
+  display: block;
+  min-height: 44px;
+  padding: .5rem;
+  margin-block: .25rem;
+  max-width: 100%;
+  font: inherit;
+  overflow-wrap: anywhere;
+  white-space: normal;
+  cursor: pointer;
+}
+.prototype-library-explore button:disabled { cursor: default; }
+.library-prototype-more { flex: 0 0 min(10rem, 100%); align-self: center; }
+.library-prototype-more[hidden] { display: none; }
+.prototype-library-explore :focus-visible { outline: 3px solid currentColor; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  .library-prototype-scroll { scroll-behavior: auto; }
+}
