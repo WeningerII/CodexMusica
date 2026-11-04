@@ -54,10 +54,12 @@
   text-align: start;
 }
 .proto-discovery .discovery-card span {
-  display: block;
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  white-space: normal;
   overflow: hidden;
-  text-overflow: ellipsis;
+  overflow-wrap: anywhere;
 }
 .proto-discovery [aria-pressed='true'] {
   border-width: 3px;
