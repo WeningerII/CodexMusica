@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global document, localStorage, Storage */
+/* global document, localStorage, Storage, getComputedStyle */
 // check_prototype_lanes.js — the #670 feature lanes, mounted for real.
 //
 // check_prototype_hosts.js proves the shell side with probe lanes; each
@@ -11,14 +11,18 @@
 // It fails when:
 //
 //   LIBRARY (#741). The shelves are not catalog.json's, in order, named as the
-//   live Library names them; a shelf's count is not "N of total"; Show more
+//   live Library names them; a shelf's count is not "N of total", with
+//   thousands separators; Show more
 //   does not add the next 24 readable rows of collections.json, keep the cards
 //   already shown, update the count and move focus to the first new card;
 //   Play first reading does not say the reader isn't here yet, for a preview
 //   card and an appended one; Select readable units does not press; Artwork
 //   credit does not say artwork.json's credit; or the shelves are lost across
 //   a route switch.
-//   BROWSE (#742). The cards are not api/traditions/index.json, in order; a
+//   Library also fails when the focused new card has no accessible name (its
+//   heading), or Select readable units looks the same pressed (Jony, L1/L2).
+//   BROWSE (#742). The cards are not api/traditions/index.json, in order, or
+//   are more than one tab stop (Jony, B1); a
 //   selected tradition's detail does not show data/geo.json's place and the
 //   provenance its review status implies (model reviewed, unreviewed, none for
 //   no fixed origin); selecting moves focus; the selection is not restored
@@ -72,6 +76,8 @@ const headingFocused = (page, id) =>
       () => true,
       () => false
     );
+// Counts as a person reads them, with thousands separators (Jony's L3, #744).
+const fmt = (n) => n.toLocaleString('en-US');
 const status = (page) => page.locator('#proto-status').textContent();
 const noSideScroll = (page) =>
   page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth);
@@ -110,7 +116,7 @@ async function library(browser, srv) {
       `library: the ${s.language} shelf's cards are not catalog.json's`
     );
     expect(
-      (got.count || '').startsWith(`${s.cards.length} of ${s.total} collections`),
+      (got.count || '').startsWith(`${fmt(s.cards.length)} of ${fmt(s.total)} collections`),
       `library: the ${s.language} count says "${got.count}"`
     );
   }
@@ -138,6 +144,23 @@ async function library(browser, srv) {
     kept: [...s.querySelectorAll('[data-collection]')].filter((c) => c.__kept).length,
     count: s.querySelector('p').textContent,
     focus: document.activeElement && document.activeElement.dataset.collection,
+    // What a screen reader says for the focused card (Jony's L1): its name.
+    focusName: (() => {
+      const a = document.activeElement;
+      const ids = (a && a.getAttribute('aria-labelledby')) || '';
+      return ids
+        .split(/\s+/)
+        .map((id) =>
+          id && document.getElementById(id) ? document.getElementById(id).textContent : ''
+        )
+        .join(' ')
+        .trim();
+    })(),
+    focusHeading:
+      (document.activeElement &&
+        document.activeElement.querySelector('h3') &&
+        document.activeElement.querySelector('h3').textContent.trim()) ||
+      '',
   }));
   const want = engRows.slice(0, preview.cards.length + 24).map((r) => r[0]);
   expect(
@@ -149,12 +172,18 @@ async function library(browser, srv) {
     `library: Show more replaced cards (${after.kept} of ${preview.cards.length} kept)`
   );
   expect(
-    after.count.startsWith(`${preview.cards.length + 24} of ${preview.total} collections`),
+    after.count.startsWith(
+      `${fmt(preview.cards.length + 24)} of ${fmt(preview.total)} collections`
+    ),
     `library: after Show more the count says "${after.count}"`
   );
   expect(
     after.focus === next,
     `library: after Show more focus is on ${after.focus}, not the first new card`
+  );
+  expect(
+    after.focusName && after.focusName === after.focusHeading,
+    `library: the focused new card's accessible name is "${after.focusName}", its heading "${after.focusHeading}"`
   );
 
   // Play first reading: a preview card, then an appended one.
@@ -181,6 +210,20 @@ async function library(browser, srv) {
   const select = eng.locator(`[data-collection="${next}"] button`, {
     hasText: 'Select readable units',
   });
+  // A pressed state a person can see, not only aria-pressed (Jony's L2).
+  const look = (b) =>
+    b.evaluate((el) => {
+      const c = getComputedStyle(el);
+      return [
+        c.backgroundColor,
+        c.color,
+        c.borderTopWidth,
+        c.borderTopColor,
+        c.fontWeight,
+        c.outlineStyle,
+      ].join('|');
+    });
+  const unpressed = await look(select);
   await select.click();
   await page
     .waitForFunction(
@@ -197,6 +240,10 @@ async function library(browser, srv) {
   expect(
     (await select.getAttribute('aria-pressed')) === 'true',
     'library: Select readable units did not press'
+  );
+  expect(
+    (await look(select)) !== unpressed,
+    'library: Select readable units looks the same pressed as unpressed'
   );
   // Artwork credit, on a card that has art.
   const withArt = catalog.shelves.flatMap((s) => s.cards).find((c) => c[4]);
@@ -326,6 +373,11 @@ async function browse(browser, srv) {
     names.length === index.length && names.every((n, i) => n === index[i].name),
     `browse: ${names.length} cards, not api/traditions/index.json's ${index.length} in order`
   );
+  // One tab stop for the shelf, not one per card (Jony's B1).
+  const stops = await host
+    .locator('.discovery-card')
+    .evaluateAll((b) => b.filter((x) => x.tabIndex >= 0).length);
+  expect(stops === 1, `browse: the shelf has ${stops} tab stops, not one`);
   const pick = {
     reviewed: index.find((t) => !none.has(t.id) && reviewed.has(t.id) && !verified.has(t.id)),
     unreviewed: index.find((t) => !none.has(t.id) && !reviewed.has(t.id) && !verified.has(t.id)),
