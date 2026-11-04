@@ -26,17 +26,20 @@ const V2 = { 'core.cccccccccc.js': 'core 2', 'reader.bbbbbbbbbb.js': 'reader 1' 
 function publishedV1() {
   return build({
     ...V1,
-    'generations.json': JSON.stringify({
-      version: 1,
-      retain_days: 30,
-      generations: [{
-        // sha256 of V1's sorted names joined with a newline, first 16 hex.
-        id: '73a20cc73daa9fc5',
-        files: ['core.aaaaaaaaaa.js', 'reader.bbbbbbbbbb.js'],
-        first_published: '2026-11-01',
-        retired: null,
-      }],
-    }) + '\n',
+    'generations.json':
+      JSON.stringify({
+        version: 1,
+        retain_days: 30,
+        generations: [
+          {
+            // sha256 of V1's sorted names joined with a newline, first 16 hex.
+            id: '73a20cc73daa9fc5',
+            files: ['core.aaaaaaaaaa.js', 'reader.bbbbbbbbbb.js'],
+            first_published: '2026-11-01',
+            retired: null,
+          },
+        ],
+      }) + '\n',
   });
 }
 
@@ -112,11 +115,14 @@ test('a multi-file collision refuses publication without changing names, bytes o
     'core.aaaaaaaaaa.js': 'other',
     'reader.bbbbbbbbbb.js': 'reader 1',
   });
-  assert.throws(
-    () => G.apply({ repo, dist, today: '2026-11-02' }),
-    { message: `${path.join(repo, 'core.aaaaaaaaaa.js')}: a published chunk with this content-hashed name has other bytes` }
+  assert.throws(() => G.apply({ repo, dist, today: '2026-11-02' }), {
+    message: `${path.join(repo, 'core.aaaaaaaaaa.js')}: a published chunk with this content-hashed name has other bytes`,
+  });
+  assert.deepEqual(
+    listing(repo),
+    before.map(([name]) => name),
+    'collision preserves filenames'
   );
-  assert.deepEqual(listing(repo), before.map(([name]) => name), 'collision preserves filenames');
   for (const [name, bytes] of before)
     assert.deepEqual(fs.readFileSync(path.join(repo, name)), bytes, `collision preserves ${name}`);
 });
