@@ -372,23 +372,31 @@
           if (window.console) console.warn('[atlas] ' + (err && err.message ? err.message : err));
           el.count.textContent = 'Not loaded';
           $('loading').classList.remove('sr-only');
-          $('loading').innerHTML =
-            '<div class="cm-empty" data-tone="danger"><strong>The map did not load.</strong>' +
-            '<span>' +
-            (retrying ? 'Still couldn’t reach the server. ' : 'Couldn’t reach the server. ') +
-            'Check your connection and try again.</span><span class="cm-empty-actions"><button type="button" data-act="reload">Try again</button>' +
-            '<a href="api/all.json">Every recipe as JSON</a></span></div>';
-          var again = document.querySelector('[data-act="reload"]');
-          if (again) {
-            again.addEventListener('click', function () {
-              if (S.building) return location.reload();
-              $('loading').textContent = 'Loading the catalog…';
-              // Focus waits on the status while the catalog loads.
-              $('loading').setAttribute('tabindex', '-1');
-              $('loading').focus();
-              load(true);
-            });
-            if (retrying) again.focus();
+          if (location.protocol === 'file:') {
+            // Opened from disk: fetch() is refused for the file scheme, so the
+            // network is not the cause and Try again cannot help (#660).
+            $('loading').innerHTML =
+              '<div class="cm-empty" data-tone="danger"><strong>The map did not load.</strong><span>' +
+              'Opened from a file, this page can’t load its data. Use codexmusica.com/atlas.html, or run python3 -m http.server here and open localhost:8000/atlas.html.</span></div>';
+          } else {
+            $('loading').innerHTML =
+              '<div class="cm-empty" data-tone="danger"><strong>The map did not load.</strong>' +
+              '<span>' +
+              (retrying ? 'Still couldn’t reach the server. ' : 'Couldn’t reach the server. ') +
+              'Check your connection and try again.</span><span class="cm-empty-actions"><button type="button" data-act="reload">Try again</button>' +
+              '<a href="api/all.json">Every recipe as JSON</a></span></div>';
+            var again = document.querySelector('[data-act="reload"]');
+            if (again) {
+              again.addEventListener('click', function () {
+                if (S.building) return location.reload();
+                $('loading').textContent = 'Loading the catalog…';
+                // Focus waits on the status while the catalog loads.
+                $('loading').setAttribute('tabindex', '-1');
+                $('loading').focus();
+                load(true);
+              });
+              if (retrying) again.focus();
+            }
           }
           el.list.innerHTML =
             '<p class="list-empty">The catalog did not load. Every recipe is still available at ' +
