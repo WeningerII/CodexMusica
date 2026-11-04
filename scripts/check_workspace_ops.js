@@ -596,10 +596,15 @@ console.log('\nenvironment-card rule (single source):');
     );
   }
   // One source holds only if nothing else carries the body. A local copy in a
-  // page or the server matches today and drifts later, so the predicate's core
-  // (whitespace removed, any variable name) may appear in no runtime file. The
-  // test oracles in check_edit_differential.js and recipe_probe_verdict.mjs are
-  // deliberate independent copies and live outside these roots.
+  // page or the server matches today and drifts later, so the region's core
+  // expression `Array.isArray(x) ? x.length > 0 : !!x` (whitespace removed, any
+  // variable name) may appear in no .js/.mjs file under src/ or mcp/. It is a
+  // tripwire for that one spelling, not a ban on every rewording: the older
+  // `Array.isArray(v) ? v.length : v` is deliberately not matched, because
+  // mcp/engine.js envSettings uses it for a different job (which chain stages
+  // are set, for the response). The test oracles in check_edit_differential.js
+  // and recipe_probe_verdict.mjs are deliberate independent copies and live
+  // outside these roots.
   const CORE = /Array\.isArray\((\w+)\)\?\1\.length>0:!!\1/;
   const copies = [];
   const walk = (dir) => {
@@ -615,7 +620,11 @@ console.log('\nenvironment-card rule (single source):');
     }
   };
   for (const root of ['src', 'mcp']) walk(path.join(__dirname, '..', root));
-  check('no runtime copy of the predicate in src/ or mcp/', !copies.length, copies.join(', '));
+  check(
+    "the region's core expression appears in no .js/.mjs file under src/ or mcp/",
+    !copies.length,
+    copies.join(', ')
+  );
 }
 
 console.log(failures === 0 ? '\nPASS' : `\nFAIL (${failures})`);
