@@ -201,3 +201,41 @@ export async function loadLibrary() {
   }
   return { shelves, loadMore, unitOf, art, catalog };
 }
+
+// ── The Library's reference lanes (#747 census and credits, #750 methods) ──
+// The committed files themselves, deep-frozen, so a lane reads exactly what
+// the live Library reads and can't change it for another lane.
+function deepFreeze(value) {
+  if (value && typeof value === 'object' && !Object.isFrozen(value)) {
+    Object.freeze(value);
+    for (const v of Object.values(value)) deepFreeze(v);
+  }
+  return value;
+}
+
+// ctx.catalog, ctx.artwork and ctx.artworkUrls for the census-and-credits lane
+// (#668 6642118480). A key in artworkUrls only for an artwork artwork.json
+// lists: every one has its renditions committed under assets/library/art/,
+// which check_prototype_hosts.js confirms on disk.
+export async function loadLibraryCredits() {
+  const [catalog, artwork] = await Promise.all([
+    fetch('../library/data/catalog.json').then(json),
+    fetch('../library/data/artwork.json').then(json),
+  ]);
+  const artworkUrls = {};
+  for (const a of artwork.artwork || []) {
+    if (typeof a.id === 'string' && /^[\w-]+$/.test(a.id)) {
+      artworkUrls[a.id] = `../assets/library/art/${a.id}-480.webp`;
+    }
+  }
+  return {
+    catalog: deepFreeze(catalog),
+    artwork: deepFreeze(artwork),
+    artworkUrls: Object.freeze(artworkUrls),
+  };
+}
+
+// ctx.registry for the method-reference lane: library/data/methods.json whole.
+export async function loadMethodRegistry() {
+  return { registry: deepFreeze(await fetch('../library/data/methods.json').then(json)) };
+}

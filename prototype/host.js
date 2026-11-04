@@ -46,10 +46,13 @@ export function createHost(lane, panel) {
   let host = null;
   let pending = null;
 
+  // Several lanes can share a panel. Each host goes after the panel's last
+  // one, so the lanes appear in registry order.
   function place() {
     host = document.createElement('div');
     host.dataset.featureHost = lane.id;
-    panel.querySelector('h1').after(host);
+    const hosts = panel.querySelectorAll('[data-feature-host]');
+    (hosts.length ? hosts[hosts.length - 1] : panel.querySelector('h1')).after(host);
   }
 
   async function mountNow() {

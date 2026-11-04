@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global document, window, localStorage, Storage */
+/* global document, window, localStorage, Storage, history */
 // check_prototype_hosts.js — the #670 prototype shell mounts feature lanes
 // exactly as the contract in #670 6639542176 §1 (with 6640163315 for the
 // browse items) says, whatever the lanes themselves do.
@@ -46,6 +46,15 @@
 //      selection does not toggle all of a collection's units and notify; or
 //      showCredit does not say artwork.json's credit. Each refusal's message
 //      is not its sentence, with a next step (SAYS).
+//  11. REFERENCE (#747, #750). The Library panel does not hold Explore, the
+//      sources and credits, and the method reference in that order; their ctx
+//      is not catalog.json, artwork.json and methods.json exactly, deep-frozen;
+//      artworkUrls is not one committed rendition per artwork; or inspectAll
+//      does not say the Works list isn't here yet.
+//  12. ADAPTERS. media.resolve lets a remote, climbing or non-string image
+//      through, or refuses a committed one; overlay.open does not hold one
+//      history entry and a scroll lock that Back releases with one onClose,
+//      close() releases without one, and a second overlay takes over cleanly.
 //   9. UNMOUNT. unmount() does not abort ctx.signal, remove the host and
 //      restore the placeholder.
 //
@@ -65,6 +74,8 @@ const LANE_MODULES = {
   browse: '/prototype/features/browse-map/discovery.js',
   lyrics: '/prototype/features/lyrics/editor.js',
   library: '/prototype/features/library/explore.js',
+  librarycredits: '/prototype/features/library-rights/census-credits.js',
+  librarymethods: '/prototype/features/library-methods/reference.js',
 };
 const CTX_KEYS = {
   browse: ['announce', 'items', 'signal', 'storage'],
@@ -81,6 +92,16 @@ const CTX_KEYS = {
     'signal',
     'storage',
   ],
+  librarycredits: [
+    'announce',
+    'artwork',
+    'artworkUrls',
+    'catalog',
+    'inspectAll',
+    'signal',
+    'storage',
+  ],
+  librarymethods: ['announce', 'registry', 'signal', 'storage'],
 };
 
 const problems = [];
@@ -659,6 +680,146 @@ async function libraryChecks(browser, srv) {
   }
 }
 
+// The Library panel's reference lanes (#747, #750) and the shell adapters.
+async function referenceLanes(browser, srv) {
+  const { context, page, errors } = await newPage(browser, srv);
+  await page.goto(`${srv.url}/prototype/#library`);
+  for (const lane of ['library', 'librarycredits', 'librarymethods']) await waitMounted(page, lane);
+  const order = await page.evaluate(() =>
+    [...document.querySelectorAll('[data-panel="library"] [data-feature-host]')].map(
+      (h) => h.dataset.featureHost
+    )
+  );
+  expect(
+    JSON.stringify(order) === JSON.stringify(['library', 'librarycredits', 'librarymethods']),
+    `reference: the Library panel's lanes are [${order}], not Explore, credits, methods in order`
+  );
+  for (const lane of ['librarycredits', 'librarymethods']) {
+    const p = await probe(page, lane);
+    expect(
+      JSON.stringify(p.keys) === JSON.stringify(CTX_KEYS[lane]),
+      `ctx: ${lane} got [${p.keys}], expected [${CTX_KEYS[lane]}]`
+    );
+  }
+  const got = await page.evaluate(() => {
+    const c = window.__probeCtx.librarycredits;
+    const m = window.__probeCtx.librarymethods;
+    const frozenDeep = (v) =>
+      !v || typeof v !== 'object' || (Object.isFrozen(v) && Object.values(v).every(frozenDeep));
+    c.inspectAll();
+    return {
+      catalog: JSON.stringify(c.catalog),
+      artwork: JSON.stringify(c.artwork),
+      registry: JSON.stringify(m.registry),
+      frozen: frozenDeep(c.catalog) && frozenDeep(c.artwork) && frozenDeep(m.registry),
+      urls: { ...c.artworkUrls },
+      urlsFrozen: Object.isFrozen(c.artworkUrls),
+      said: document.getElementById('proto-status').textContent,
+    };
+  });
+  const file = (rel) => JSON.stringify(JSON.parse(fs.readFileSync(path.join(root, rel), 'utf8')));
+  expect(
+    got.catalog === file('library/data/catalog.json'),
+    'reference: ctx.catalog is not catalog.json'
+  );
+  expect(
+    got.artwork === file('library/data/artwork.json'),
+    'reference: ctx.artwork is not artwork.json'
+  );
+  expect(
+    got.registry === file('library/data/methods.json'),
+    'reference: ctx.registry is not methods.json'
+  );
+  expect(got.frozen, 'reference: catalog, artwork or registry is not deep-frozen');
+  const ids = JSON.parse(
+    fs.readFileSync(path.join(root, 'library/data/artwork.json'), 'utf8')
+  ).artwork.map((a) => a.id);
+  expect(
+    got.urlsFrozen &&
+      JSON.stringify(Object.keys(got.urls).sort()) === JSON.stringify([...ids].sort()) &&
+      Object.entries(got.urls).every(
+        ([id, u]) =>
+          u === `../assets/library/art/${id}-480.webp` &&
+          fs.existsSync(path.join(root, 'assets', 'library', 'art', `${id}-480.webp`))
+      ),
+    `reference: artworkUrls ${JSON.stringify(got.urls)} are not one committed rendition per artwork`
+  );
+  expect(
+    /Works list isn’t part of this prototype/.test(got.said),
+    `reference: inspectAll said "${got.said}"`
+  );
+
+  // The adapters: media.resolve and overlay.open (#668 6641909843).
+  const ad = await page.evaluate(async () => {
+    const { media, overlay } = await import('/prototype/adapters.js');
+    const r = (x) => media.resolve(x);
+    const out = {
+      local: r('../assets/library/art/blake-480.webp'),
+      remote: r('https://upload.wikimedia.org/x.jpg'),
+      climb: r('../assets/../../etc/passwd.png'),
+      nonString: r(null),
+    };
+    const waitPop = () =>
+      new Promise((res) => window.addEventListener('popstate', res, { once: true }));
+    const len0 = history.length;
+    let closed = 0;
+    const h1 = overlay.open({ label: 'Photo', onClose: () => closed++ });
+    out.pushed = history.length === len0 + 1;
+    out.locked = document.documentElement.style.overflow === 'hidden';
+    const back = waitPop();
+    history.back();
+    await back;
+    out.backCloses = closed === 1;
+    out.unlockedByBack = document.documentElement.style.overflow === '';
+    h1.close(); // already closed: nothing happens
+    out.closedOnce = closed === 1;
+    let closed2 = 0;
+    const h2 = overlay.open({ label: 'Photo', onClose: () => closed2++ });
+    const settled = waitPop();
+    h2.close();
+    await settled;
+    out.closeNoCallback = closed2 === 0;
+    out.unlockedByClose = document.documentElement.style.overflow === '';
+    let firstClosed = 0;
+    const a = overlay.open({ label: 'A', onClose: () => firstClosed++ });
+    const lenA = history.length;
+    const b = overlay.open({ label: 'B', onClose: () => {} });
+    out.secondReplaces = firstClosed === 1 && history.length === lenA;
+    const end = waitPop();
+    b.close();
+    await end;
+    a.close();
+    out.finalUnlocked = document.documentElement.style.overflow === '';
+    return out;
+  });
+  expect(
+    ad.local === '../assets/library/art/blake-480.webp',
+    `adapters: a committed file resolved to ${ad.local}`
+  );
+  expect(
+    ad.remote === null && ad.climb === null && ad.nonString === null,
+    'adapters: media.resolve let a remote, climbing or non-string image through'
+  );
+  expect(
+    ad.pushed && ad.locked,
+    'adapters: overlay.open did not push one history entry and lock scroll'
+  );
+  expect(
+    ad.backCloses && ad.unlockedByBack && ad.closedOnce,
+    'adapters: Back did not close the overlay once and unlock scroll'
+  );
+  expect(
+    ad.closeNoCallback && ad.unlockedByClose,
+    'adapters: close() called onClose, or left scroll locked'
+  );
+  expect(
+    ad.secondReplaces && ad.finalUnlocked,
+    'adapters: a second overlay did not take over the first one cleanly'
+  );
+  expect(!errors.length, `reference: uncaught errors: ${errors.join(' | ')}`);
+  await context.close();
+}
+
 async function unmounting(browser, srv) {
   const { context, page, errors } = await newPage(browser, srv);
   await page.goto(`${srv.url}/prototype/#genre`);
@@ -729,6 +890,7 @@ async function unmounting(browser, srv) {
     await refusedDraft(browser, srv);
     await failuresOf(browser, srv);
     await libraryChecks(browser, srv);
+    await referenceLanes(browser, srv);
     await unmounting(browser, srv);
   } finally {
     await browser.close();

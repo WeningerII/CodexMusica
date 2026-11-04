@@ -8,7 +8,13 @@
 
 import { read, write, scope } from './storage.js';
 import { createHost, announce } from './host.js';
-import { loadItems, loadLibrary, collectionFile } from './data.js';
+import {
+  loadItems,
+  loadLibrary,
+  collectionFile,
+  loadLibraryCredits,
+  loadMethodRegistry,
+} from './data.js';
 
 const ROUTES = ['browse', 'genre', 'instrument', 'map', 'lyrics', 'library'];
 const DEFAULT_ROUTE = 'browse';
@@ -125,9 +131,36 @@ LANES.library = {
   context: libraryContext,
 };
 
+// More lanes in a panel, after its first, in this order (#668 6643233628).
+const MORE = {
+  library: [
+    {
+      id: 'librarycredits',
+      label: 'The sources and credits',
+      load: () => import('./features/library-rights/census-credits.js'),
+      unloaded: 'The Library’s sources and credits did not load.',
+      context: async () => ({
+        ...(await loadLibraryCredits()),
+        // The prototype has no Works list yet; say so, as openCollection does.
+        inspectAll() {
+          announce('The full Works list isn’t part of this prototype yet.');
+        },
+      }),
+    },
+    {
+      id: 'librarymethods',
+      label: 'The method reference',
+      load: () => import('./features/library-methods/reference.js'),
+      unloaded: 'The Library’s method reference did not load.',
+      context: loadMethodRegistry,
+    },
+  ],
+};
+
 const hosts = {};
 for (const [route, lane] of Object.entries(LANES)) {
-  hosts[route] = createHost(lane, document.querySelector(`[data-panel="${route}"]`));
+  const panel = document.querySelector(`[data-panel="${route}"]`);
+  hosts[route] = [lane, ...(MORE[route] || [])].map((l) => createHost(l, panel));
 }
 
 function show(route, { moveFocus }) {
@@ -142,7 +175,7 @@ function show(route, { moveFocus }) {
   // A route change the user asked for moves focus to the new panel's heading,
   // so the next Tab lands inside it. The first paint does not take focus.
   if (moveFocus) document.querySelector(`[data-panel="${route}"] h1`).focus();
-  if (hosts[route]) hosts[route].show();
+  for (const h of hosts[route] || []) h.show();
   const saved = write('route', route);
   if (!saved.ok && !savedLine.textContent) {
     savedLine.textContent =
