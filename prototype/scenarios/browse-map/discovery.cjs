@@ -608,10 +608,19 @@ const server = http.createServer((req, res) => {
           'Large tradition 2'
         );
         checks++;
+        // Neither unresolved nor named families add a detail line; input data survives.
+        assert.equal(await page.locator('[data-description]').count(), 0);
         assert.equal(
-          await page.locator('[data-description]').textContent(),
-          'Family label unavailable (catalog ID: missing_family).'
+          await page.evaluate(
+            () => window.uxItems.filter((item) => item.family === 'missing_family').length
+          ),
+          1
         );
+        assert.doesNotMatch(
+          await page.locator('.discovery-detail').textContent(),
+          /missing_family|Family label/
+        );
+        checks += 2;
         checks++;
         await page.evaluate(() => window.uxHandle.focus());
         await page.keyboard.press('Home');
@@ -671,10 +680,18 @@ const server = http.createServer((req, res) => {
         checks++;
         assert.equal(await page.evaluate(() => window.uxNotices.length), 2);
         checks++;
-        assert.equal(
-          await page.locator('[data-description]').textContent(),
-          'Authoritative fixture family'
+        assert.equal(await page.locator('[data-description]').count(), 0);
+        assert.doesNotMatch(
+          await page.locator('.discovery-detail').textContent(),
+          /Authoritative fixture family/
         );
+        assert.equal(
+          await page.evaluate(
+            () => window.uxItems.filter((item) => item.family === 'large-0').length
+          ),
+          7754
+        );
+        checks += 2;
         checks++;
         assert.equal(
           await page.locator('[data-provenance]').textContent(),
