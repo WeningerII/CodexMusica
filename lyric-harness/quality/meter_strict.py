@@ -29,6 +29,13 @@ prefix are still compared: a disagreement there is a real `does_not_hold`.
 Positions after it are never compared, and a line with no disagreement in
 its prefix is `not_computed`, never `holds`.
 
+That abstention is deliberately conservative, and it includes one case
+where more could be said: a prefix that is already LONGER than the template
+(`compare("0101", "./", valid=4)`) is still `not_computed`. The unread tail
+leaves the line's true length unknown, so no exact overhang is reported; a
+future negative there would need a lower-bound witness ("at least N
+syllables past the template"), not a fabricated count.
+
 TEMPLATE SYMBOLS. Only `.` and `/`. The legacy path reads any other
 character as weak; strict mode refuses it instead (`not_computed`), because
 a symbol it does not understand is not evidence of a weak position.
@@ -41,9 +48,11 @@ the entries the b1 meter check in `lyric_harness` already returns
 STATUS = ("holds", "does_not_hold", "not_computed")
 POLICIES = (None, "initial_inversion")
 
-BASIS = ("every template position compared, weak and strong; stress 0 is W, "
-         "1 and 2 are S; source digits kept; no promotion, demotion or "
-         "substitution except a declared policy; a declared check, not "
+BASIS = ("weak and strong positions compared wherever the reading is reliably "
+         "aligned (each result states how far that was); stress 0 is W, 1 and "
+         "2 are S; source digits kept; reads the b1 stream as b1 reports it "
+         "(after its own demotion) and applies no further promotion, demotion "
+         "or substitution except a declared policy; a declared check, not "
          "recognition, and uniqueness is not established")
 
 
@@ -165,9 +174,13 @@ def report_lines(result):
                 f"positions agree with the declared template")
     elif st == "does_not_hold":
         diffs = result["differences"]
+        # Each difference names its expected slot and the SOURCE digit, so a
+        # secondary stress on a weak slot reads "W slot, stress 2" -- the
+        # evidence the structured result keeps is not dropped in print.
         where = ", ".join(
-            f"{d['position']}"
-            + (f" ({d['word']!r}, token {d['token']})" if "word" in d else "")
+            f"{d['position']} ("
+            + (f"{d['word']!r}, token {d['token']}, " if "word" in d else "")
+            + f"{d['expected']} slot, stress {d['stress']})"
             for d in diffs)
         head = f"strict: does not hold{under}"
         head += f" at position(s) {where}" if diffs else ""
@@ -179,6 +192,9 @@ def report_lines(result):
     else:
         head = f"strict: not computed -- {result.get('reason', '')}"
     out = ["  " + head]
+    if "positions_compared" in result:
+        out.append(f"    compared {result['positions_compared']} of "
+                   f"{result['template_positions']} template position(s)")
     if result.get("not_compared_after_syllable") is not None and st != "not_computed":
         out.append(f"    positions after syllable "
                    f"{result['not_compared_after_syllable']} not compared "

@@ -149,6 +149,10 @@ class ProductionReader(unittest.TestCase):
         self.assertNotIn("overhang", r)
         text = "\n".join(MS.report_lines(r))
         self.assertIn("after syllable 5 not compared", text)
+        self.assertIn("compared 5 of 10 template position(s)", text)
+        # A W-slot difference means the digit is 1 or 2; the frozen record
+        # gives the binary stream only, so the digit is not pinned here.
+        self.assertRegex(text, r"\('thou', token 5, W slot, stress [12]\)")
 
     def test_c2p_holds_on_every_position(self):
         e, r = self.strict(C2, TROCHAIC4)
@@ -206,11 +210,35 @@ class ProductionReader(unittest.TestCase):
         self.assertIn("strict: holds -- all 8 positions agree", strict.stdout)
         self.assertNotIn("strict:", plain.stdout)
         inv = run(IAMBIC4, V1, "--strict=initial_inversion")
-        self.assertIn("strict: does not hold under initial inversion at "
-                      "position(s) 3 ('ye', token 2), 7 ('ye', token 5)", inv.stdout)
-        bad = run(IAMBIC4, V1, "--strict=medial")
-        self.assertIn("no policy 'medial'", bad.stdout + bad.stderr)
-        self.assertNotIn("strict:", bad.stdout)
+        # Positions and words are the frozen V1-P leftovers; each one prints
+        # its expected slot and the source digit (W slot here: the frozen
+        # record puts both stressed `ye` on weak slots).
+        self.assertRegex(inv.stdout, r"strict: does not hold under initial "
+                         r"inversion at position\(s\) 3 \('ye', token 2, W "
+                         r"slot, stress [12]\), 7 \('ye', token 5, W slot, "
+                         r"stress [12]\)")
+        self.assertIn("compared 8 of 8 template position(s)", inv.stdout)
+        # Refusals: an unknown policy, a duplicated flag, and no lines. Each
+        # exits 2 and prints no strict verdict.
+        for argv, why in (((IAMBIC4, V1, "--strict=medial"), "no policy 'medial'"),
+                          ((IAMBIC4, V1, "--strict", "--strict"), "at most once"),
+                          ((IAMBIC4, "--strict"), "no lines")):
+            bad = run(*argv)
+            self.assertEqual(bad.returncode, 2, argv)
+            self.assertIn(why, bad.stdout + bad.stderr, argv)
+            self.assertNotIn("strict:", bad.stdout, argv)
+
+    def test_cli_renders_the_source_digit_of_a_weak_slot_secondary(self):
+        # C3-P position 17: `hemlocks`, token 11, stress "2" on a W slot
+        # (frozen production record). The human report must show the 2.
+        import subprocess
+        here = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        out = subprocess.run(
+            [sys.executable, "lyric_harness.py", "meter", HEXAMETER, C3, "--strict"],
+            cwd=here, capture_output=True, text=True, timeout=300).stdout
+        self.assertIn("17 ('hemlocks', token 11, W slot, stress 2)", out)
+        # An S-slot difference can only be a 0.
+        self.assertIn("1 ('THIS', token 1, S slot, stress 0)", out)
 
     def test_words_unavailable_is_not_computed(self):
         r = MS.from_entry({"words": None, "alignment": "unavailable"}, IAMBIC5)
