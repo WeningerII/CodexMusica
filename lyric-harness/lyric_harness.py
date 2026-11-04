@@ -7787,7 +7787,7 @@ commands (the fifteen spine verbs):
   declaration             print the active declaration
   score  W1 -- W2         graded pair score with sub-scores
   candidates W [n]        ranked rhyme candidates
-  meter  'template' L...  meter check ('/'=strong, any other character weak; strong slots only, with each reading's source)
+  meter  'template' L... [--strict[=initial_inversion]]  meter check ('/'=strong, any other character weak; strong slots only, with each reading's source); --strict also compares every position, weak ones included (quality/meter_strict.py)
   scheme SCHEME L1 L2 ... scheme check, e.g. AABB
                           [--profile full|assonance|rawi] (or --profile=,
                           either position) REBINDS THE CHANNEL WEIGHTS every
@@ -11123,7 +11123,21 @@ def main():
 
     elif cmd == "meter":
         template = args[1]
-        lines = args[2:]
+        # `--strict` (#677 b2): ALSO compare every position, weak ones
+        # included, with `quality/meter_strict.py`. `--strict=initial_inversion`
+        # declares the one supported variation. The strong-only report and
+        # its exit code are unchanged; the strict verdict is added beneath.
+        strict_flags = [a for a in args[2:]
+                        if a == "--strict" or a.startswith("--strict=")]
+        lines = [a for a in args[2:] if a not in strict_flags]
+        strict_policy = None
+        if len(strict_flags) > 1:
+            _refuse("meter takes --strict at most once")
+        if strict_flags and "=" in strict_flags[0]:
+            strict_policy = strict_flags[0].split("=", 1)[1]
+            if strict_policy != "initial_inversion":
+                _refuse(f"meter --strict has no policy {strict_policy!r}. It "
+                        f"takes: --strict, --strict=initial_inversion")
         # ZERO LINES ITERATED ZERO TIMES AND THE VERB FELL OFF THE END —
         # exit 0, stdout empty, stderr empty, which a caller in a pipeline
         # reads as "meter checked, nothing wrong" (doctrine 20). A verb whose
@@ -11132,7 +11146,8 @@ def main():
         # AND AN UNRECOGNISED FLAG WAS SCORED AS A LINE OF VERSE. `meter`
         # declares no flags at all, so every `--token` in the line list is a
         # mistake, and it was measured as one syllable of sung text.
-        _no_unknown_flags_or_refuse(lines, ("(none — meter takes no flags)",),
+        _no_unknown_flags_or_refuse(lines, ("--strict",
+                                            "--strict=initial_inversion"),
                                     "meter")
         if not lines:
             _refuse("meter was given a TEMPLATE and no lines to check it "
@@ -11141,10 +11156,18 @@ def main():
                             "every line of this verb's output is per-line, "
                             "so an empty draft produces an empty report that "
                             "is indistinguishable from a clean one."])
+        if strict_flags:
+            from quality import meter_strict as MS
         for e in check_meter(lex, lines, template):
             for row in meter_report_lines(e):
                 print(row)
+            if strict_flags:
+                for row in MS.report_lines(
+                        MS.from_entry(e, template, policy=strict_policy)):
+                    print(row)
         print(meter_basis_line())
+        if strict_flags:
+            print("  strict basis: " + MS.BASIS)
 
     elif cmd == "internal":
         picked, nA, _ = internal_matches(lex, " ".join(args[1:]), decl)

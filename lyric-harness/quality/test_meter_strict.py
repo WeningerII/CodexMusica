@@ -192,6 +192,26 @@ class ProductionReader(unittest.TestCase):
                          ("not_computed", 3))
         self.assertNotIn("missing_positions", r)
 
+    def test_cli_strict_flag_adds_the_verdict_and_keeps_the_legacy_report(self):
+        import subprocess
+        here = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        run = lambda *a: subprocess.run(
+            [sys.executable, "lyric_harness.py", "meter", *a], cwd=here,
+            capture_output=True, text=True, timeout=300)
+        plain = run(TROCHAIC4, "Tell me not in mournful numbers")
+        strict = run(TROCHAIC4, "Tell me not in mournful numbers", "--strict")
+        self.assertEqual((plain.returncode, strict.returncode), (0, 0))
+        # The strong-only report is unchanged; the strict verdict is added.
+        self.assertTrue(strict.stdout.startswith(plain.stdout.rsplit("  basis:", 1)[0]))
+        self.assertIn("strict: holds -- all 8 positions agree", strict.stdout)
+        self.assertNotIn("strict:", plain.stdout)
+        inv = run(IAMBIC4, V1, "--strict=initial_inversion")
+        self.assertIn("strict: does not hold under initial inversion at "
+                      "position(s) 3 ('ye', token 2), 7 ('ye', token 5)", inv.stdout)
+        bad = run(IAMBIC4, V1, "--strict=medial")
+        self.assertIn("no policy 'medial'", bad.stdout + bad.stderr)
+        self.assertNotIn("strict:", bad.stdout)
+
     def test_words_unavailable_is_not_computed(self):
         r = MS.from_entry({"words": None, "alignment": "unavailable"}, IAMBIC5)
         self.assertEqual(r["status"], "not_computed")
