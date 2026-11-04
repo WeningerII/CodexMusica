@@ -22,6 +22,24 @@ const manifest = (dir) => JSON.parse(fs.readFileSync(path.join(dir, 'generations
 const V1 = { 'core.aaaaaaaaaa.js': 'core 1', 'reader.bbbbbbbbbb.js': 'reader 1' };
 const V2 = { 'core.cccccccccc.js': 'core 2', 'reader.bbbbbbbbbb.js': 'reader 1' };
 
+// Independent fixture: no publisher call or committed generation manifest.
+function publishedV1() {
+  return build({
+    ...V1,
+    'generations.json': JSON.stringify({
+      version: 1,
+      retain_days: 30,
+      generations: [{
+        // sha256 of V1's sorted names joined with a newline, first 16 hex.
+        id: '73a20cc73daa9fc5',
+        files: ['core.aaaaaaaaaa.js', 'reader.bbbbbbbbbb.js'],
+        first_published: '2026-11-01',
+        retired: null,
+      }],
+    }) + '\n',
+  });
+}
+
 test('a publish merges beside the previous generation and keeps it 30 days', () => {
   const repo = path.join(tmp(), 'code');
   G.apply({ repo, dist: build(V1), today: '2026-11-01' });
@@ -85,13 +103,44 @@ test('a build with no chunks retires the current generation and, after 30 days, 
   assert.deepEqual(G.check({ repo: none, dist: build({}) }), []);
 });
 
-test('a content-hashed name published with other bytes is refused', () => {
-  const repo = path.join(tmp(), 'code');
-  G.apply({ repo, dist: build(V1), today: '2026-11-01' });
+test('a multi-file collision refuses publication without changing names, bytes or manifest', () => {
+  const repo = publishedV1();
+  const before = listing(repo).map((name) => [name, fs.readFileSync(path.join(repo, name))]);
+  const dist = build({
+    // Sorts before the collision: a copy-as-you-check loop would leak this file.
+    'added.dddddddddd.js': 'new chunk',
+    'core.aaaaaaaaaa.js': 'other',
+    'reader.bbbbbbbbbb.js': 'reader 1',
+  });
   assert.throws(
-    () => G.apply({ repo, dist: build({ 'core.aaaaaaaaaa.js': 'other' }), today: '2026-11-02' }),
-    /other bytes/
+    () => G.apply({ repo, dist, today: '2026-11-02' }),
+    { message: `${path.join(repo, 'core.aaaaaaaaaa.js')}: a published chunk with this content-hashed name has other bytes` }
   );
+  assert.deepEqual(listing(repo), before.map(([name]) => name), 'collision preserves filenames');
+  for (const [name, bytes] of before)
+    assert.deepEqual(fs.readFileSync(path.join(repo, name)), bytes, `collision preserves ${name}`);
+});
+
+test('--check refuses changed bytes with an otherwise matching manifest', () => {
+  const repo = publishedV1();
+  const dist = build(V1);
+  assert.deepEqual(G.check({ repo, dist }), []);
+  fs.writeFileSync(path.join(repo, 'core.aaaaaaaaaa.js'), 'changed bytes');
+  assert.deepEqual(G.check({ repo, dist }), [
+    'core.aaaaaaaaaa.js: published bytes differ from the fresh build',
+  ]);
+});
+
+test('--check refuses current-manifest identity with all chunk bytes matching', () => {
+  const repo = publishedV1();
+  const dist = build(V1);
+  assert.deepEqual(G.check({ repo, dist }), []);
+  const m = manifest(repo);
+  m.generations[0].id = '0000000000000000';
+  fs.writeFileSync(path.join(repo, 'generations.json'), JSON.stringify(m) + '\n');
+  assert.deepEqual(G.check({ repo, dist }), [
+    "generations.json: the current generation is not this build's chunks",
+  ]);
 });
 
 test('--check refuses drift', () => {
