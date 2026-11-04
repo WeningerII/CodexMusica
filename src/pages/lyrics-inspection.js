@@ -183,6 +183,13 @@
       side: had.dataset?.side,
       part: had.dataset?.part,
     };
+    // A dock control that opens the inspector (a refused Return reopens it)
+    // is redrawn away; its twin in the inspector takes focus, so the person
+    // hears the same control and its state, not just Close (#661).
+    const dockUi = had?.closest?.('#ly-relation-dock') ? had.dataset?.ui : null;
+    const twin = (host) =>
+      dockUi &&
+      [...host.querySelectorAll('[data-ui]')].find((n) => n.dataset.ui === dockUi && !n.disabled);
     const view = getView();
     lySetWritingRangeMarks(lyRelationWritingMarks(view, session));
     lyInspectionRenderDock();
@@ -204,7 +211,9 @@
       // dialog's does (Jony #13 on #519).
       if (opening && (!document.activeElement || document.activeElement === document.body))
         (
-          inline.querySelector('[data-ui="ly-relation-close"]') || inline.querySelector('button')
+          twin(inline) ||
+          inline.querySelector('[data-ui="ly-relation-close"]') ||
+          inline.querySelector('button')
         )?.focus({ preventScroll: true });
     }
     if (dialog) {
@@ -212,7 +221,10 @@
       if (!showing || !narrow) closeDialog();
       else {
         if (dialog.innerHTML !== html) dialog.innerHTML = html;
-        if (!dialog.open) dialog.showModal();
+        if (!dialog.open) {
+          dialog.showModal();
+          twin(dialog)?.focus({ preventScroll: true });
+        }
       }
     }
     const to = showing ? (narrow ? dialog : inline) : null;
