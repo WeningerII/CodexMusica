@@ -5,7 +5,7 @@
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 import path from 'node:path';
-import { queuePressure } from './lyrics_capacity_queue.mjs';
+import { queuePressure, memoryPublisher } from './lyrics_capacity_queue.mjs';
 import { RUNS, LYRIC_TOOL_SCHEMAS, lyricCapacity } from '../mcp/lyric_tools.js';
 import {
   WORKER_STATE_BYTES,
@@ -26,30 +26,11 @@ if (!evidencePath || !preparedPath || (mode && mode !== '--prepare'))
 // say WHAT grew. Once a second this process publishes its own
 // process.memoryUsage() and the startup phase it is in, on its own clock, to a
 // private file beside its evidence; the sampler copies the latest one into the
-// peak sample, with its age. One small atomic write a second; no production
-// module, route or limit changes.
-const memoryPath = path.join(path.dirname(evidencePath), 'node-memory.json');
-const phases = { module_body: Math.round(process.uptime() * 1000) };
-let phase = 'module_body';
-function enterPhase(name) {
-  phase = name;
-  phases[name] = Math.round(process.uptime() * 1000);
-  publishMemory();
-}
-function publishMemory() {
-  const record = {
-    version: 1,
-    pid: process.pid,
-    wall_ms: Date.now(),
-    uptime_ms: Math.round(process.uptime() * 1000),
-    phase,
-    phases,
-    memory: process.memoryUsage(),
-  };
-  fs.writeFileSync(memoryPath + '.tmp', JSON.stringify(record) + '\n', { mode: 0o600 });
-  fs.renameSync(memoryPath + '.tmp', memoryPath);
-}
-if (mode !== '--prepare') setInterval(publishMemory, 1000).unref();
+// peak sample, with its age. A failed write is counted, never thrown
+// (memoryPublisher). No production module, route or limit changes.
+const memory = memoryPublisher(path.join(path.dirname(evidencePath), 'node-memory.json'));
+const enterPhase = memory.enterPhase;
+if (mode !== '--prepare') setInterval(memory.publish, 1000).unref();
 if (RUNS.size()) throw new Error('Capacity server requires its own empty RunStore');
 const bytes = (value) => Buffer.byteLength(JSON.stringify(value));
 const noise = (length) =>

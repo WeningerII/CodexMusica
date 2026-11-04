@@ -263,6 +263,8 @@ def node_memory(path, pid, now_wall=None):
             'phases_ms': ({k: v for k, v in phases.items() if isinstance(k, str) and type(v) is int}
                           if isinstance(phases, dict) else 'unavailable'),
             'age_s': round(now_wall - record['wall_ms'] / 1000, 3),
+            'publish_failures': (record['publish_failures'] if type(record.get('publish_failures')) is int
+                                 else 'unavailable'),
             **{f: memory[f] for f in NODE_MEMORY_FIELDS},
             'scope': NODE_MEMORY_SCOPE}
 
