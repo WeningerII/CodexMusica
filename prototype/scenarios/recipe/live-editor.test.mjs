@@ -1,4 +1,3 @@
-/* global URL:readonly, Buffer:readonly, AbortController:readonly */
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
@@ -6,17 +5,17 @@ import test from 'node:test';
 // Browser ES module in a CommonJS repository: load these exact bytes without
 // changing package.json or adding a second implementation.
 const source = await readFile(
-  new URL('../../features/recipe/live-editor.js', import.meta.url),
+  new globalThis.URL('../../features/recipe/live-editor.js', import.meta.url),
   'utf8'
 );
 const { createBinding, mount } = await import(
-  `data:text/javascript;base64,${Buffer.from(source).toString('base64')}`
+  `data:text/javascript;base64,${globalThis.Buffer.from(source).toString('base64')}`
 );
 
 // FAKE ADAPTER ONLY. Toy scalar history proves dispatch/lifecycle plumbing;
 // it is not a recipe engine, catalog, deduplication or production parity test.
 function fixture() {
-  const abort = new AbortController();
+  const abort = new globalThis.AbortController();
   const calls = [],
     messages = [],
     subscribers = new Set();
