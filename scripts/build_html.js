@@ -580,6 +580,24 @@ function _cardDescriptorSet(card) {
 }
 `;
 
+// The environment-card rule — inlined from the single source
+// scripts/_recipe_stack.js (its one @inline region: hasEnvironment + envCardOf),
+// so the page picks the environment card with exactly the text the Node
+// renderer, the connector and the workspace ops run. First runtime block,
+// before src/app.js and src/workbench.js, which call it.
+const ecSource = fs.readFileSync(path.join(__dirname, '_recipe_stack.js'), 'utf8');
+const ecMatch = ecSource.match(/\/\* @inline-start[^\n]*\*\/\n([\s\S]*?)\n\/\* @inline-end \*\//);
+if (!ecMatch) {
+  console.error(
+    'build_html: could not find @inline-start/@inline-end markers in scripts/_recipe_stack.js'
+  );
+  process.exit(5);
+}
+const ENV_CARD_SNIPPET = `
+// ─────────── Environment-card rule — single source: scripts/_recipe_stack.js ───────────
+${ecMatch[1]}
+`;
+
 // ──────────────────────────── runtime blocks ────────────────────────────
 // The application, one <script> per source module, in the order they were
 // once concatenated into a single `runtime` block. That block reached 988 KiB
@@ -660,8 +678,8 @@ if (LIBRARY) {
 }
 const RUNTIME_MODULES = [
   {
-    label: 'runtime: scripts/_merge.js + scripts/_card_descriptors.js',
-    code: FAMILY_PARTS_MERGE_SNIPPET + CARD_DESCRIPTORS_SNIPPET,
+    label: 'runtime: scripts/_merge.js + scripts/_card_descriptors.js + scripts/_recipe_stack.js',
+    code: FAMILY_PARTS_MERGE_SNIPPET + CARD_DESCRIPTORS_SNIPPET + ENV_CARD_SNIPPET,
   },
   { label: 'runtime: src/layout.js', code: layoutJs },
   {
