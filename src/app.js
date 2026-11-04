@@ -18495,9 +18495,10 @@ function tradParent(tradId) {
   return Catalog.ext(tradId)?.parent || null;
 }
 // Browse-tree index (#663 A1): each parent's [tree nodes, traditions] in
-// TREE_NODES / Catalog.all() order, and memoized leaf counts. Parents are set
-// only at catalog boot, so it is rebuilt only when the catalog list is replaced
-// or either list changes length.
+// TREE_NODES / Catalog.all() order. A leaf count is a parent's traditions plus
+// its child nodes' counts, walked over the index. Parents are set only at
+// catalog boot, so it is rebuilt only when the catalog list is replaced or
+// either list changes length.
 let _tIdx = null;
 function treeIndex() {
   const all = Catalog.all(), n = all.length + ':' + TREE_NODES.length;
@@ -18505,11 +18506,11 @@ function treeIndex() {
   const k = new Map(), at = (p) => k.get(p) || k.set(p, [[], []]).get(p);
   for (const t of TREE_NODES) at(t.parent)[0].push(t);
   for (const t of all) at(tradParent(t.id))[1].push(t);
-  return (_tIdx = { all, n, k, inner: new Set(TREE_NODES.map((t) => t.id)), c: new Map() });
+  return (_tIdx = { all, n, k });
 }
 function getChildren(nodeId) {
   const e = treeIndex().k.get(nodeId);
-  return e ? [...e[0], ...e[1]] : [];
+  return e ? e[0].concat(e[1]) : [];
 }
 function getCrossRefLeaves(nodeId) {
   return Catalog.all().filter(t => {
@@ -18523,10 +18524,8 @@ function getRoots() {
   return TREE_NODES.filter(n => n.parent === null);
 }
 function countDescendantLeaves(nodeId) {
-  const i = treeIndex();
-  if (!i.c.has(nodeId))
-    i.c.set(nodeId, getChildren(nodeId).reduce((s, x) => s + (i.inner.has(x.id) ? countDescendantLeaves(x.id) : 1), 0));
-  return i.c.get(nodeId);
+  const e = treeIndex().k.get(nodeId);
+  return e ? e[0].reduce((s, t) => s + countDescendantLeaves(t.id), e[1].length) : 0;
 }
 function getAncestorPath(tradId) {
   const path = [];
