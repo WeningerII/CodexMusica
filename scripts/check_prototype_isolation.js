@@ -11,17 +11,26 @@
 //      Statically, no prototype file names an absolute or protocol-relative
 //      URL, and fetch() is only ever given the committed static catalog
 //      (../api/).
-//   2. STORAGE. Any localStorage or sessionStorage key outside
-//      `codex-prototype:` is read, written, removed or enumerated, or any
-//      IndexedDB database, Cache Storage cache, cookie or service worker is
-//      opened or set. Every production key is pre-seeded with a sentinel (and
-//      the production IndexedDB databases with a sentinel record) and must be
-//      byte-unchanged after the full sweep. A positive control requires the
-//      prototype's own route key to be written, so a page that stored nothing
-//      cannot pass by accident.
+//   2. STORAGE. Statically, only prototype/storage.js may name localStorage,
+//      and no prototype file names sessionStorage, indexedDB, caches,
+//      document.cookie or serviceWorker; so every storage access, by method
+//      or by property, goes through the one wrapper that refuses any key
+//      outside `codex-prototype:`. At runtime, a getItem/setItem/removeItem/
+//      key/clear call on a key outside the namespace, or any IndexedDB open,
+//      Cache Storage open, cookie access or service-worker registration,
+//      fails. Every production key is pre-seeded with a sentinel (and the
+//      production IndexedDB databases with a sentinel record) and must be
+//      byte-unchanged after the full sweep, and neither localStorage nor
+//      sessionStorage may gain a key outside the namespace. A positive control
+//      requires the prototype's own route key to be written, so a page that
+//      stored nothing cannot pass by accident. The namespace shares the
+//      production app's origin and so its quota (Jony, #719): everything under
+//      it must stay within OWN_BYTES_MAX.
 //   3. SEPARATION. codex.html, the app source (src/), the Library chunks
-//      (library/code/) and the page builder name neither prototype/ nor the
-//      prototype's storage namespace, so no prototype byte reaches the shipped
+//      (library/code/) and the page builder name neither a path to the
+//      prototype (/prototype, ./prototype, ../prototype, with or without a
+//      trailing slash; `Object.prototype` is not a path) nor the prototype's
+//      storage namespace, so no prototype byte reaches the shipped
 //      page or any check_payload_budget row. With --base=REF it also fails if
 //      codex.html or library/code/ differ from REF (use it on prototype PRs;
 //      it is not part of the standing suite, where other PRs change them).
@@ -90,6 +99,16 @@ const PRODUCTION_DBS = [
   'codex-musica-library-drafts',
 ];
 const sentinel = (k) => `sentinel:${k}:do-not-touch`;
+// The prototype shares the production origin's ~5 MB storage quota. Its own
+// keys and values together stay under this many characters, so a feature
+// slice cannot crowd production's autosave out unnoticed (Jony, #719).
+const OWN_BYTES_MAX = 64 * 1024;
+// Only the wrapper may name a storage area; no prototype file names the rest.
+const STORAGE_NAMES =
+  /\b(localStorage|sessionStorage|indexedDB|caches|serviceWorker)\b|document\.cookie/g;
+const STORAGE_ALLOWED = { 'prototype/storage.js': ['localStorage'] };
+// A path to the prototype, not `Foo.prototype`.
+const PROTOTYPE_PATH = /(?:^|[^.\w$])\.{0,2}\/prototype\b/;
 
 const problems = [];
 let checks = 0;
@@ -123,6 +142,15 @@ function staticChecks(base) {
       !/\b(XMLHttpRequest|WebSocket|EventSource|sendBeacon)\b/.test(text),
       `${rel}: opens a network channel other than fetch() of the static catalog`
     );
+    if (/\.(m?js|html)$/.test(file)) {
+      const allowed = STORAGE_ALLOWED[rel.split(path.sep).join('/')] || [];
+      const named = [...new Set([...text.matchAll(STORAGE_NAMES)].map((m) => m[0]))];
+      const stray = named.filter((n) => !allowed.includes(n));
+      expect(
+        !stray.length,
+        `${rel}: names ${stray.join(', ')}; only prototype/storage.js may touch storage, and only localStorage`
+      );
+    }
     for (const m of text.matchAll(/\bfetch\(\s*([^)]*)\)/g)) {
       expect(
         /^['"`]\.\.\/api\/[\w./-]+['"`]$/.test(m[1].trim()),
@@ -140,8 +168,8 @@ function staticChecks(base) {
   for (const rel of shipped) {
     const text = fs.readFileSync(path.join(root, rel), 'utf8');
     expect(
-      !text.includes('prototype/') && !text.includes(NS),
-      `${rel}: names the prototype (prototype/ or ${NS}); prototype code must stay out of the shipped page`
+      !PROTOTYPE_PATH.test(text) && !text.includes(NS),
+      `${rel}: names the prototype (a /prototype path or ${NS}); prototype code must stay out of the shipped page`
     );
   }
   if (base) {
@@ -297,6 +325,11 @@ async function verifySentinels(page, url, at) {
       }
       const own = [];
       for (let i = 0; i < localStorage.length; i++) own.push(localStorage.key(i));
+      const sessionKeys = [];
+      for (let i = 0; i < sessionStorage.length; i++) sessionKeys.push(sessionStorage.key(i));
+      const ownBytes = own
+        .filter((k) => k.startsWith('codex-prototype:'))
+        .reduce((n, k) => n + k.length + (localStorage.getItem(k) || '').length, 0);
       const db = {};
       for (const name of dbs) {
         db[name] = await new Promise((res) => {
@@ -316,7 +349,7 @@ async function verifySentinels(page, url, at) {
           req.onerror = () => res(null);
         });
       }
-      return { local, session, db, keys: own };
+      return { local, session, db, keys: own, sessionKeys, ownBytes };
     },
     { keys: PRODUCTION_LOCAL_KEYS, dbs: PRODUCTION_DBS }
   );
@@ -329,6 +362,17 @@ async function verifySentinels(page, url, at) {
   }
   const foreign = state.keys.filter((k) => !k.startsWith(NS) && !PRODUCTION_LOCAL_KEYS.includes(k));
   expect(!foreign.length, `${at}: new non-prototype localStorage keys: ${foreign.join(', ')}`);
+  const foreignSession = state.sessionKeys.filter(
+    (k) => !k.startsWith(NS) && !PRODUCTION_LOCAL_KEYS.includes(k)
+  );
+  expect(
+    !foreignSession.length,
+    `${at}: new non-prototype sessionStorage keys: ${foreignSession.join(', ')}`
+  );
+  expect(
+    state.ownBytes <= OWN_BYTES_MAX,
+    `${at}: the prototype stores ${state.ownBytes} characters under ${NS}, over its ${OWN_BYTES_MAX} share of the origin's quota`
+  );
   return state.keys;
 }
 
