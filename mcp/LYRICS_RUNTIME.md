@@ -345,9 +345,11 @@ regression of the rules above.
   jobs can run different versions (F3). The owner accepted this window rather
   than engineering it away (2026-11-04). What already holds in it: a lyric
   continuation signed by the old server is refused with
-  `CONTINUATION_MIGRATION_REQUIRED` and resumes with `recover_only: true`, and a
-  Library job queued or paused across the release is refused `STALE_READING`
-  rather than resumed against the new reader.
+  `CONTINUATION_MIGRATION_REQUIRED`; it can export the stored lyrics and
+  journal using `recover_only: true` (without replay), and continuing requires a
+  new run under the current runtime. A Library job queued or paused across the
+  release is refused `STALE_READING` by the scheduler's identity recheck
+  (`mcp/reader_scheduler.js:521`) rather than resumed against the new reader.
   (tracking: [#656 L5](https://github.com/WeningerII/CodexMusica/issues/656#issuecomment-6614429602))
 
 ## What the money limits establish

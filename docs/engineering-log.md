@@ -168,8 +168,10 @@ _Owner's decision (2026-11-04, John, #656 6638610083): F2 is not repaired;
 affected chunks expire within their 30-day retention. F3 is accepted and
 documented in `mcp/LYRICS_RUNTIME.md` (known open limitations), with the
 safety that already holds across a deploy: old-server continuations refuse
-`CONTINUATION_MIGRATION_REQUIRED` and resume with `recover_only`, and Library
-jobs queued or paused across a release refuse `STALE_READING`._
+`CONTINUATION_MIGRATION_REQUIRED` and can export their stored lyrics and
+journal with `recover_only` (without replay; continuing requires a new run under
+the current runtime), and Library jobs queued or paused across a release refuse
+`STALE_READING` (`mcp/reader_scheduler.js:521`)._
 
 _Later finding (2026-11-03, BB8, #656 6615011687): the empty-pivot deletion
 item above was already fixed on main by `0e849218d6` (the #570 re-land, 16
