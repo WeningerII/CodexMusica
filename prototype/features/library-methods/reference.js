@@ -7,9 +7,15 @@
 // Native filter searches name/aliases/required_capabilities, NOT definition;
 // the historical matrix17 predicate differs. Keep row237 pending integration.
 // No execution callbacks: every record is display-only.
-const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) =>
-  ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const label = (s) => String(s).replaceAll('_', ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+const esc = (s) =>
+  String(s ?? '').replace(
+    /[&<>"']/g,
+    (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]
+  );
+const label = (s) =>
+  String(s)
+    .replaceAll('_', ' ')
+    .replace(/\b\w/g, (c) => c.toUpperCase());
 const freeze = (value) => {
   if (value && typeof value === 'object' && !Object.isFrozen(value)) {
     Object.values(value).forEach(freeze);
@@ -89,7 +95,8 @@ function valueRenderer(root, on) {
     store.push({ v, depth, limit });
     return store.length - 1;
   };
-  on(root,
+  on(
+    root,
     'toggle',
     (e) => {
       const d = e.target;
@@ -102,7 +109,7 @@ function valueRenderer(root, on) {
     },
     true
   );
-  on(root,'click', (e) => {
+  on(root, 'click', (e) => {
     const b = e.target.closest('[data-more]');
     if (!b || !root.contains(b)) return;
     const s = store[Number(b.dataset.more)];
@@ -153,6 +160,9 @@ export function mount(host, ctx) {
   const doc = host.ownerDocument;
   const root = doc.createElement('section');
   root.className = 'lm-reference';
+  const stylesheet = doc.createElement('link');
+  stylesheet.rel = 'stylesheet';
+  stylesheet.href = new URL('./reference.css', import.meta.url).href;
   let stopped = false;
   let timer;
   const cleanup = [];
@@ -165,18 +175,21 @@ export function mount(host, ctx) {
     stopped = true;
     clearTimeout(timer);
     cleanup.splice(0).forEach((remove) => remove());
+    stylesheet.remove();
     root.remove();
   };
   if (ctx.signal?.aborted) return { unmount, focus() {} };
   on(ctx.signal, 'abort', unmount, { once: true });
-  root.innerHTML = '<details class="lm-disclosure"><summary>Method reference</summary><div class="lm-body"></div></details>';
+  root.innerHTML =
+    '<details class="lm-disclosure"><summary>Method reference</summary><div class="lm-body"></div></details>';
   const disclosure = root.querySelector('.lm-disclosure');
   const body = root.querySelector('.lm-body');
   let loaded = false;
   on(disclosure, 'toggle', () => {
     if (!disclosure.open || loaded || stopped) return;
     loaded = true;
-    body.innerHTML = '<input class="la-method-search" type="search" placeholder="Find a method or requirement" aria-label="Search method reference"><p class="lm-count"></p><div class="la-method-list"></div>';
+    body.innerHTML =
+      '<input class="la-method-search" type="search" placeholder="Find a method or requirement" aria-label="Search method reference"><p class="lm-count"></p><div class="la-method-list"></div>';
     const search = body.querySelector('input');
     const list = body.querySelector('.la-method-list');
     const byId = new Map(registry.methods.map((m) => [m.id, m]));
@@ -198,10 +211,14 @@ export function mount(host, ctx) {
       const query = q.toLowerCase();
       const hits = registry.methods.filter((m) =>
         `${m.name} ${m.aliases?.join(' ')} ${m.required_capabilities?.join(' ')}`
-          .toLowerCase().includes(query)
+          .toLowerCase()
+          .includes(query)
       );
       list.innerHTML = hits.length
-        ? hits.slice(0, 300).map((m) => methodDetailHTML(m)).join('')
+        ? hits
+            .slice(0, 300)
+            .map((m) => methodDetailHTML(m))
+            .join('')
         : '<p><strong>No method matches</strong><br>Try a shorter word.</p>';
       const count = `${Math.min(hits.length, 300)} shown · ${hits.length} matching · ${registry.methods.length} methods`;
       body.querySelector('.lm-count').textContent = count;
@@ -211,26 +228,32 @@ export function mount(host, ctx) {
       clearTimeout(timer);
       timer = setTimeout(() => draw(search.value, true), 120);
     });
-    on(list, 'toggle', (e) => {
-      const d = e.target;
-      if (!d.open || d.dataset.filled) return;
-      const m = byId.get(d.closest('[data-method]')?.dataset.method);
-      if (!m) return;
-      if ('mfig' in d.dataset) {
-        d.dataset.filled = '1';
-        d.insertAdjacentHTML('beforeend', render({ figure: m.figure, channels: m.channels }));
-      }
-      if ('mprov' in d.dataset) {
-        d.dataset.filled = '1';
-        d.insertAdjacentHTML('beforeend', render(m.provenance));
-      }
-    }, true);
+    on(
+      list,
+      'toggle',
+      (e) => {
+        const d = e.target;
+        if (!d.open || d.dataset.filled) return;
+        const m = byId.get(d.closest('[data-method]')?.dataset.method);
+        if (!m) return;
+        if ('mfig' in d.dataset) {
+          d.dataset.filled = '1';
+          d.insertAdjacentHTML('beforeend', render({ figure: m.figure, channels: m.channels }));
+        }
+        if ('mprov' in d.dataset) {
+          d.dataset.filled = '1';
+          d.insertAdjacentHTML('beforeend', render(m.provenance));
+        }
+      },
+      true
+    );
     draw('');
   });
-  host.append(root);
+  host.append(stylesheet, root);
   return {
     unmount,
-    focus() { if (!stopped) disclosure.querySelector('summary').focus(); },
+    focus() {
+      if (!stopped) disclosure.querySelector('summary').focus();
+    },
   };
 }
-

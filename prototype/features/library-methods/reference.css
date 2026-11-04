@@ -1,21 +1,103 @@
-.lm-reference { color: var(--fg, #1b1b1f); font: 1rem/1.5 system-ui, sans-serif; min-width: 0; }
-.lm-reference * { box-sizing: border-box; }
-.lm-reference summary { cursor: pointer; min-height: 44px; padding: 10px 12px; overflow-wrap: anywhere; }
-.lm-reference summary:focus-visible, .lm-reference input:focus-visible, .lm-reference button:focus-visible { outline: 3px solid var(--focus, #1f4fa8); outline-offset: 3px; }
-.lm-reference .lm-body { padding: 12px 0; }
-.lm-reference .la-method-search { width: 100%; min-height: 44px; padding: 10px; font: inherit; color: inherit; background: var(--bg, #ffffff); border: 1px solid var(--line, #d4d4da); border-radius: 6px; }
-.lm-reference .la-method { border: 1px solid var(--line, #d4d4da); border-radius: 8px; margin-block: 10px; }
-.lm-reference .la-method small { font-size: .875rem; }
-.lm-reference .la-method-body { padding: 0 12px 12px; overflow-wrap: anywhere; }
-.lm-reference .la-method-body p { margin-block: 8px; }
-.lm-reference .la-method-body h3 { font-size: 1rem; margin-block: 12px 4px; }
-.lm-reference .la-badge { display: inline-block; padding: 2px 6px; border: 1px solid currentColor; border-radius: 4px; font-size: .8rem; }
-.lm-reference .la-req small { display: block; }
-.lm-reference .la-lazy { border-inline-start: 2px solid var(--line, #d4d4da); margin-block: 8px; padding-inline-start: 8px; }
-.lm-reference .la-grid { margin: 0; }
-.lm-reference .la-grid > div { display: grid; grid-template-columns: minmax(90px, 1fr) minmax(0, 3fr); gap: 8px; margin-block: 4px; }
-.lm-reference dt { font-weight: 600; }
-.lm-reference dd { margin: 0; min-width: 0; }
-.lm-reference .la-link { min-height: 44px; padding: 8px; font: inherit; color: inherit; background: transparent; border: 1px solid var(--line, #d4d4da); border-radius: 4px; cursor: pointer; }
-.lm-reference .lm-count { font-size: .875rem; }
-@media (max-width: 480px) { .lm-reference .la-grid > div { display: block; } }
+.lm-reference {
+  color: var(--fg, #1b1b1f);
+  font:
+    1rem/1.5 system-ui,
+    sans-serif;
+  min-width: 0;
+}
+.lm-reference * {
+  box-sizing: border-box;
+}
+.lm-reference summary {
+  cursor: pointer;
+  min-height: 44px;
+  padding: 10px 12px;
+  overflow-wrap: anywhere;
+}
+.lm-reference summary:focus-visible,
+.lm-reference input:focus-visible,
+.lm-reference button:focus-visible {
+  outline: 3px solid var(--focus, #1f4fa8);
+  outline-offset: 3px;
+}
+.lm-reference .lm-body {
+  padding: 12px 0;
+}
+.lm-reference .la-method-search {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px;
+  font: inherit;
+  color: inherit;
+  background: var(--bg, #ffffff);
+  border: 1px solid var(--line, #d4d4da);
+  border-radius: 6px;
+}
+.lm-reference .la-method {
+  border: 1px solid var(--line, #d4d4da);
+  border-radius: 8px;
+  margin-block: 10px;
+}
+.lm-reference .la-method small {
+  font-size: 0.875rem;
+}
+.lm-reference .la-method-body {
+  padding: 0 12px 12px;
+  overflow-wrap: anywhere;
+}
+.lm-reference .la-method-body p {
+  margin-block: 8px;
+}
+.lm-reference .la-method-body h3 {
+  font-size: 1rem;
+  margin-block: 12px 4px;
+}
+.lm-reference .la-badge {
+  display: inline-block;
+  padding: 2px 6px;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+.lm-reference .la-req small {
+  display: block;
+}
+.lm-reference .la-lazy {
+  border-inline-start: 2px solid var(--line, #d4d4da);
+  margin-block: 8px;
+  padding-inline-start: 8px;
+}
+.lm-reference .la-grid {
+  margin: 0;
+}
+.lm-reference .la-grid > div {
+  display: grid;
+  grid-template-columns: minmax(90px, 1fr) minmax(0, 3fr);
+  gap: 8px;
+  margin-block: 4px;
+}
+.lm-reference dt {
+  font-weight: 600;
+}
+.lm-reference dd {
+  margin: 0;
+  min-width: 0;
+}
+.lm-reference .la-link {
+  min-height: 44px;
+  padding: 8px;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 1px solid var(--line, #d4d4da);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.lm-reference .lm-count {
+  font-size: 0.875rem;
+}
+@media (max-width: 480px) {
+  .lm-reference .la-grid > div {
+    display: block;
+  }
+}
