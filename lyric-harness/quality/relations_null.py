@@ -236,7 +236,7 @@ Run: python3 quality/relations_null.py             (all three arms, ~25 min)
      python3 quality/relations_null.py --arm=0 --null=global_redeal
      python3 quality/relations_null.py --coverage  (the census, instant)
      python3 quality/relations_null.py --verify    (the ledger, ~5 s, CI)
-     python3 quality/relations_null.py --verify --deep   (~2 min)
+     python3 quality/relations_null.py --verify --deep   (~~2 min~~ ~78 min)
      python3 quality/relations_null.py --sweep --corpus=P --limit=N --n=K
      python3 quality/relations_null.py --sensitivity --corpus=P ...
      python3 quality/relations_null.py --help
@@ -3482,7 +3482,8 @@ USAGE = """quality/relations_null.py - matched controls for relations.py
                          that never fails (doctrine 48)
   --verify --deep        also re-measures the derivation against a full sweep
                          at LEDGER_REPLICATES and diffs MENU_SILENT and
-                         OFF_MENU_MOVERS.  ~2 min; the only tier that checks
+                         OFF_MENU_MOVERS.  ~~2 min~~ ~78 min (measured,
+                         4 cores, 2026-11-04); the only tier that checks
                          EXTENDABLE's "a null bites" against a MEASUREMENT
   --verify --record      print the ledger tables as literals, for pasting
                          after a human has read the complaints
