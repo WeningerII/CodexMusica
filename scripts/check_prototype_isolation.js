@@ -355,8 +355,30 @@ async function newContext(browser, opts, reports) {
   return context;
 }
 
-const noHScroll = (page) =>
-  page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth);
+// Fails when the page scrolls sideways, naming the elements that stick out.
+async function expectNoHScroll(page, what) {
+  const wide = await page.evaluate(() => {
+    const doc = document.documentElement;
+    if (doc.scrollWidth <= doc.clientWidth) return '';
+    return [...document.querySelectorAll('body *')]
+      .filter((el) => el.getBoundingClientRect().right > doc.clientWidth + 0.5)
+      .slice(0, 4)
+      .map((el) => el.tagName.toLowerCase() + (el.id ? `#${el.id}` : ''))
+      .join(', ');
+  });
+  expect(!wide, `${what} (wider than the viewport: ${wide})`);
+}
+
+// A route is shown once its hash is set AND the hashchange handler has run:
+// location.hash changes before the event fires, so waiting on it alone races.
+const waitRoute = (page, route) =>
+  page.waitForFunction(
+    (r) =>
+      location.hash === `#${r}` &&
+      !document.querySelector(`[data-panel="${r}"]`).hidden &&
+      document.querySelector(`[data-route="${r}"]`).getAttribute('aria-current') === 'page',
+    route
+  );
 
 async function routeState(page) {
   return page.evaluate(() => {
@@ -411,7 +433,7 @@ async function sweep(browser, url, width) {
     `${at}: first paint shows [${s.visible}] instead of browse`
   );
   expect(s.focusPanel === null, `${at}: the first paint took focus into a panel`);
-  expect(await noHScroll(page), `${at}: horizontal scroll on first paint`);
+  await expectNoHScroll(page, `${at}: horizontal scroll on first paint`);
 
   const sizes = await page.$$eval('[data-route]', (as) =>
     as.map((a) => {
@@ -435,7 +457,7 @@ async function sweep(browser, url, width) {
       await link.focus();
       await page.keyboard.press('Enter');
     }
-    await page.waitForFunction((r) => location.hash === `#${r}`, route);
+    await waitRoute(page, route);
     await page
       .waitForFunction(
         (r) => document.activeElement && document.activeElement.closest(`[data-panel="${r}"]`),
@@ -452,19 +474,20 @@ async function sweep(browser, url, width) {
       `${at}: ${how} on ${route} left focus outside its panel heading (in ${s.focusPanel})`
     );
     expect(s.recipe, `${at}: "Your recipe" is not shown on ${route}`);
-    expect(await noHScroll(page), `${at}: horizontal scroll on ${route}`);
+    await expectNoHScroll(page, `${at}: horizontal scroll on ${route}`);
     previous = route;
   }
 
   // Back returns to the route before; a reload restores the last route.
   await page.locator('[data-route="lyrics"]').click();
-  await page.waitForFunction(() => location.hash === '#lyrics');
+  await waitRoute(page, 'lyrics');
   await page.goBack();
-  await page.waitForFunction((r) => location.hash === `#${r}`, previous);
+  await waitRoute(page, previous);
   s = await routeState(page);
   expect(s.visible.join() === previous, `${at}: Back shows [${s.visible}], not ${previous}`);
   await page.locator('[data-route="map"]').click();
-  await page.waitForFunction(() => location.hash === '#map');
+  await waitRoute(page, 'map');
+  await page.waitForFunction((k) => localStorage.getItem(k) === '"map"', `${NS}route`);
   await page.goto(`${url}/prototype/`);
   s = await routeState(page);
   expect(
@@ -491,7 +514,7 @@ async function zoomAndText(browser, url) {
   const page = await context.newPage();
   for (const route of ROUTES) {
     await page.goto(`${url}/prototype/#${route}`);
-    expect(await noHScroll(page), `200% zoom: horizontal scroll on ${route}`);
+    await expectNoHScroll(page, `200% zoom: horizontal scroll on ${route}`);
   }
   await context.close();
 
@@ -504,7 +527,7 @@ async function zoomAndText(browser, url) {
     await cdp.send('Page.setFontSizes', { fontSizes: { standard: 32 } });
     for (const route of ROUTES) {
       await p.goto(`${url}/prototype/#${route}`);
-      expect(await noHScroll(p), `default font 32 px @${width}: horizontal scroll on ${route}`);
+      await expectNoHScroll(p, `default font 32 px @${width}: horizontal scroll on ${route}`);
     }
     const after = await p.evaluate(() => parseFloat(getComputedStyle(document.body).fontSize));
     expect(
@@ -552,7 +575,7 @@ async function failures(browser, url) {
   page.on('pageerror', (e) => errors.push(e.message));
   await page.goto(`${url}/prototype/`);
   await page.locator('[data-route="library"]').click();
-  await page.waitForFunction(() => location.hash === '#library');
+  await waitRoute(page, 'library');
   const s = await routeState(page);
   expect(s.visible.join() === 'library', `storage failure: the shell stopped switching routes`);
   const msg = await page.locator('#proto-status[role="status"]').textContent();

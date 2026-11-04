@@ -68,6 +68,10 @@ body {
   margin: 0;
   font-weight: 600;
 }
+nav {
+  min-width: 0;
+  max-width: 100%;
+}
 .nav {
   display: flex;
   flex-wrap: wrap;
@@ -85,6 +89,7 @@ body {
   border-radius: 0.375rem;
   color: var(--fg);
   text-decoration: none;
+  overflow-wrap: anywhere;
 }
 .nav a[aria-current='page'] {
   color: var(--accent);
@@ -100,8 +105,17 @@ body {
 }
 .layout {
   display: grid;
+  /* One column that never grows past the viewport: without this the implicit
+     track sizes to the longest unbreakable word, which overflows at 320 px
+     once the browser's default font is raised. */
+  grid-template-columns: minmax(0, 1fr);
   gap: 1rem;
   padding: 1rem;
+}
+h1,
+h2,
+p {
+  overflow-wrap: break-word;
 }
 @media (min-width: 56.25rem) {
   .layout {
