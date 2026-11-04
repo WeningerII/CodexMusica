@@ -9,8 +9,9 @@
 //   1. NETWORK. Any request leaves the origin, or reaches /mcp or /chat on it.
 //      Every request the page makes is recorded; off-origin ones are aborted.
 //      Statically, no prototype file names an absolute or protocol-relative
-//      URL, and fetch() is only ever given the committed static catalog
-//      (../api/).
+//      URL, and fetch() is only ever given a literal path into the committed
+//      static catalog (../api/); the shell, and never a feature lane, may also
+//      read three committed data files (SHELL_DATA).
 //   2. STORAGE. Statically, only prototype/storage.js may name localStorage,
 //      and no prototype file names sessionStorage, indexedDB, caches,
 //      document.cookie or serviceWorker; so every storage access, by method
@@ -48,6 +49,12 @@
 //      numbered 1–6, each pending or naming a scenario file that exists, with
 //      the 6622487968 §2 corrections (no Undo "across the reload", no
 //      workspace "restore"). prototype/fixtures.js holds all seven states.
+//   6. LANES (#670 6639542176 §1). Code under prototype/features/<lane>/
+//      imports only literal relative paths inside its own folder, and adds no
+//      listener to window or document. Only prototype/app.js loads feature
+//      code, and only through a literal import() in its lane registry. The
+//      rules run on fixed examples first, so a rule that can't fail fails.
+//      (The mounted behaviour is check_prototype_hosts.js.)
 //
 //   node scripts/check_prototype_isolation.js [--base=REF]
 //
@@ -130,6 +137,107 @@ function walk(dir) {
   return out;
 }
 
+// ── the feature-lane rules (#670 6639542176 §1, slice P2) ──────────────────
+// Feature code lives in prototype/features/<lane>/ and reaches the rest of the
+// prototype only through the ctx the shell hands it.
+const FEATURE = /^prototype\/features\/([a-z0-9-]+)\//;
+// Read-only data the shell (never a feature) may load besides ../api/.
+const SHELL_DATA = new Set([
+  '../data/geo.json',
+  '../data/geo-meta.json',
+  '../data/no-fixed-origin.json',
+]);
+function fetchProblems(text, rel) {
+  const out = [];
+  const shell = rel.startsWith('prototype/') && !FEATURE.test(rel);
+  for (const m of text.matchAll(/\bfetch\(\s*([^)]*)\)/g)) {
+    const arg = m[1].trim();
+    const lit = /^(['"`])([^'"`$]*)\1$/.exec(arg);
+    const ok = lit && (/^\.\.\/api\/[\w./-]+$/.test(lit[2]) || (shell && SHELL_DATA.has(lit[2])));
+    if (!ok) {
+      out.push(
+        `fetch(${arg}) is not a literal path into the static catalog (../api/)` +
+          (shell ? ' or one of the shell’s data files' : '')
+      );
+    }
+  }
+  return out;
+}
+function specifiers(text) {
+  const out = [];
+  for (const m of text.matchAll(/\bimport\s*\(\s*([^)]*)\)/g))
+    out.push({ dynamic: true, raw: m[1].trim() });
+  for (const m of text.matchAll(
+    /(?:^|[\n;])\s*(?:import|export)\b[^'"`;]*?\bfrom\s*(['"`][^'"`]*['"`])/g
+  ))
+    out.push({ dynamic: false, raw: m[1] });
+  for (const m of text.matchAll(/(?:^|[\n;])\s*import\s*(['"`][^'"`]*['"`])/g))
+    out.push({ dynamic: false, raw: m[1] });
+  return out;
+}
+function moduleProblems(text, rel) {
+  const out = [];
+  const lane = FEATURE.exec(rel);
+  for (const s of specifiers(text)) {
+    const lit = /^(['"`])([^'"`$]*)\1$/.exec(s.raw);
+    if (!lit) {
+      out.push(`imports ${s.raw}, which is not a literal path`);
+      continue;
+    }
+    const target = path.posix.normalize(path.posix.join(path.posix.dirname(rel), lit[2]));
+    if (!/^\.\.?\//.test(lit[2])) out.push(`imports "${lit[2]}", which is not a relative path`);
+    else if (lane && !target.startsWith(`prototype/features/${lane[1]}/`))
+      out.push(`imports "${lit[2]}" from outside its own folder prototype/features/${lane[1]}/`);
+    else if (!lane && !target.startsWith('prototype/'))
+      out.push(`imports "${lit[2]}" from outside prototype/`);
+    else if (!lane && FEATURE.test(target) && (!s.dynamic || rel !== 'prototype/app.js'))
+      out.push(`loads feature code (${lit[2]}); only app.js's lane registry may, with import()`);
+  }
+  if (lane) {
+    // A lane's listeners go on its host, through ctx.signal: none on the
+    // window or document, and no global keyboard shortcuts.
+    if (
+      /\b(?:window|document|globalThis|self)\s*\.\s*(?:addEventListener|on[a-z]+\s*=(?!=))/.test(
+        text
+      )
+    )
+      out.push('adds a listener to window or document; listeners go on the lane’s host');
+    if (/(?:^|[^.\w$])addEventListener\s*\(/.test(text))
+      out.push('calls a bare addEventListener (the window’s); listeners go on the lane’s host');
+  }
+  return out;
+}
+// The rules above must catch what they claim to, and pass what they allow.
+function selfTest() {
+  const lane = 'prototype/features/lyrics/editor.js';
+  const cases = [
+    [fetchProblems("fetch('../api/index.json')", lane), 0],
+    [fetchProblems("fetch('../data/geo.json')", lane), 1],
+    [fetchProblems("fetch('../data/geo.json')", 'prototype/data.js'), 0],
+    [fetchProblems("fetch('../data/countries.geo.json')", 'prototype/data.js'), 1],
+    [fetchProblems('fetch(`../api/${id}.json`)', lane), 1],
+    [moduleProblems("import { x } from './part.js';", lane), 0],
+    [moduleProblems("import { read } from '../../storage.js';", lane), 1],
+    [moduleProblems("import x from '../browse-map/discovery.js';", lane), 1],
+    [moduleProblems("const m = await import('./lazy.js');", lane), 0],
+    [moduleProblems('const m = await import(name);', lane), 1],
+    [moduleProblems("import 'lodash';", lane), 1],
+    [moduleProblems("host.addEventListener('keydown', f, { signal });", lane), 0],
+    [moduleProblems("document.addEventListener('keydown', f);", lane), 1],
+    [moduleProblems('window.onkeydown = f;', lane), 1],
+    [moduleProblems("addEventListener('resize', f);", lane), 1],
+    [moduleProblems("load: () => import('./features/lyrics/editor.js'),", 'prototype/app.js'), 0],
+    [moduleProblems("import { mount } from './features/lyrics/editor.js';", 'prototype/app.js'), 1],
+    [moduleProblems("load: () => import('./features/lyrics/editor.js'),", 'prototype/host.js'), 1],
+  ];
+  cases.forEach(([got, want], i) =>
+    expect(
+      got.length === want,
+      `rule self-test ${i + 1}: expected ${want} problem(s), got ${JSON.stringify(got)}`
+    )
+  );
+}
+
 // ── 1 (static), 3 and 5: files on disk ─────────────────────────────────────
 function staticChecks(base) {
   expect(fs.existsSync(path.join(PROTO_DIR, 'index.html')), 'prototype/index.html is missing');
@@ -154,11 +262,10 @@ function staticChecks(base) {
         `${rel}: names ${stray.join(', ')}; only prototype/storage.js may touch storage, and only localStorage`
       );
     }
-    for (const m of text.matchAll(/\bfetch\(\s*([^)]*)\)/g)) {
-      expect(
-        /^['"`]\.\.\/api\/[\w./-]+['"`]$/.test(m[1].trim()),
-        `${rel}: fetch(${m[1].trim()}) is not a literal path into the static catalog (../api/)`
-      );
+    const unix = rel.split(path.sep).join('/');
+    for (const problem of fetchProblems(text, unix)) expect(false, `${rel}: ${problem}`);
+    if (/\.m?js$/.test(file)) {
+      for (const problem of moduleProblems(text, unix)) expect(false, `${rel}: ${problem}`);
     }
   }
 
@@ -676,6 +783,7 @@ async function fixtures(browser, url) {
 
 (async () => {
   const base = (process.argv.find((a) => a.startsWith('--base=')) || '').slice(7) || null;
+  selfTest();
   staticChecks(base);
   const srv = await start({ root });
   const browser = await chromium.launch({
