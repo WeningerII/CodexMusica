@@ -36,6 +36,7 @@ function fail(res, error) {
  * @param {import('./library_search.js').LibrarySearch | null} options.search
  *   the loaded store, or null when this service has none installed
  * @param {() => boolean} [options.analysisAvailable] public analysis is live
+ * @param {() => object} [options.readerStoreRequirement] passive disk format floor
  * @param {import('./library_corpus_routes.js').CorpusPackages | null} [options.corpus]
  *   the installed whole-corpus packages, listed by health
  * @param {Windows} [options.windows] rate-limit counters (shared per process)
@@ -47,6 +48,7 @@ const PRONUNCIATION_NUMBERINGS = Object.freeze(['v1', 'v1+voices', 'v2', 'v2+voi
 export function libraryPublicRouter({
   search,
   analysisAvailable = () => false,
+  readerStoreRequirement = () => ({ min_reader: 'unknown' }),
   corpus = null,
   windows = new Windows(),
   ipOf = clientIp,
@@ -104,6 +106,7 @@ export function libraryPublicRouter({
         : null,
       search_ready: Boolean(search),
       analysis_available: Boolean(analysisAvailable()),
+      reader_store: readerStoreRequirement(),
       // What this service's analysis accepts beyond the original contract,
       // so a page can tell it from an older one without probing with a
       // refusal: a pronunciation row in a declaration set may carry

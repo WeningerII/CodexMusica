@@ -105,7 +105,7 @@ function identityHash(identity) {
 
 // Same-volume atomicPrivateWrite algorithm from job_store.js, isolated here to
 // avoid loading chat/Express/provider dependencies into the reader namespace.
-function atomicWrite(file, data, fault = () => {}, kind = 'record') {
+export function atomicWrite(file, data, fault = () => {}, kind = 'record') {
   const dir = path.dirname(file);
   const temp = `${file}.${crypto.randomBytes(12).toString('hex')}.tmp`;
   let fd;
@@ -144,7 +144,7 @@ function atomicWrite(file, data, fault = () => {}, kind = 'record') {
   }
   if (failure) throw failure;
 }
-function syncDirectory(dir) {
+export function syncDirectory(dir) {
   const fd = fs.openSync(dir, 'r');
   try {
     fs.fsyncSync(fd);
@@ -155,8 +155,8 @@ function syncDirectory(dir) {
 
 // Phase A of storage at rest: every object reader accepts plain or gzip bytes.
 // Identity is always sha256 of the UNCOMPRESSED bytes, and inflation is bounded
-// by the same object limit the plain format has. The writer still writes plain
-// objects; gzip writes are a separate, later switch (READER_STORE_GZIP).
+// by the same object limit the plain format has. Phase B optionally compresses
+// new pages; all other objects and existing page representations stay unchanged.
 //
 // A gzip object is exactly one member with no trailing bytes. gunzip would
 // concatenate further members and Python's reader stops after the first, so
@@ -201,6 +201,65 @@ export function decodeStoredObject(raw) {
   return raw;
 }
 
+// Passive deployment signal: never take the writer lock or create directories.
+// Only ENOENT means absence; malformed/unreadable/future markers fail closed.
+export function readerStoreFormat(directory) {
+  let fd;
+  try {
+    fd = fs.openSync(path.join(directory, 'store-format.json'), 'r');
+    const raw = Buffer.alloc(1025);
+    const size = fs.readSync(fd, raw, 0, raw.length, 0);
+    if (size > 1024) return { min_reader: 'unknown' };
+    const value = JSON.parse(raw.subarray(0, size));
+    return { min_reader: value?.min_reader === 'A' ? 'A' : 'unknown' };
+  } catch (error) {
+    return { min_reader: error.code === 'ENOENT' ? null : 'unknown' };
+  } finally {
+    if (fd !== undefined) fs.closeSync(fd);
+  }
+}
+
+// Shared with the offline inflate tool; never substitute a second lock name.
+export function withReaderWriterLock(directory, run, now = () => Date.now()) {
+  const lock = path.join(directory, 'writer.lock');
+  let fd;
+  try {
+    fd = fs.openSync(lock, 'wx', 0o600);
+  } catch (error) {
+    if (error.code !== 'EEXIST') throw error;
+    let owner;
+    try {
+      owner = JSON.parse(fs.readFileSync(lock, 'utf8'));
+    } catch {}
+    let dead = false;
+    if (Number.isInteger(owner?.pid)) {
+      try {
+        process.kill(owner.pid, 0);
+      } catch (e) {
+        dead = e.code === 'ESRCH';
+      }
+    } else dead = now() - fs.statSync(lock).mtimeMs > READER_LIMITS.leaseMs;
+    if (!dead)
+      throw problem('STORE_BUSY', 'Another reader storage operation owns the writer lock.', 503);
+    fs.unlinkSync(lock);
+    syncDirectory(directory);
+    fd = fs.openSync(lock, 'wx', 0o600);
+  }
+  const nonce = crypto.randomBytes(16).toString('hex');
+  try {
+    fs.writeFileSync(fd, JSON.stringify({ pid: process.pid, nonce }));
+    fs.fsyncSync(fd);
+    return run();
+  } finally {
+    fs.closeSync(fd);
+    const owner = JSON.parse(fs.readFileSync(lock, 'utf8'));
+    if (owner.nonce === nonce) {
+      fs.unlinkSync(lock);
+      syncDirectory(directory);
+    }
+  }
+}
+
 export class ReaderJobStore {
   constructor({
     directory,
@@ -212,6 +271,7 @@ export class ReaderJobStore {
     ttlMs = READER_LIMITS.retentionMs,
     leaseMs = READER_LIMITS.leaseMs,
     faultInjector = null,
+    gzip = false,
   } = {}) {
     if (typeof directory !== 'string' || !directory.trim())
       throw problem(
@@ -234,6 +294,9 @@ export class ReaderJobStore {
         500
       );
     this.directory = path.join(path.resolve(directory), 'reader-jobs-v1');
+    if (typeof gzip !== 'boolean')
+      throw problem('INVALID_CONFIGURATION', 'Reader gzip setting must be boolean.', 500);
+    this.gzip = gzip;
     this.maxBytes = maxBytes;
     this.now = now;
     this.clock = clock;
@@ -307,48 +370,18 @@ export class ReaderJobStore {
         'Reader persistence failed; no new work is admitted.',
         503
       );
-    const lock = path.join(this.directory, 'writer.lock');
-    let fd;
-    try {
-      fd = fs.openSync(lock, 'wx', 0o600);
-    } catch (error) {
-      if (error.code !== 'EEXIST') throw error;
-      let owner;
-      try {
-        owner = JSON.parse(fs.readFileSync(lock, 'utf8'));
-      } catch {}
-      let dead = false;
-      if (Number.isInteger(owner?.pid)) {
+    return withReaderWriterLock(
+      this.directory,
+      () => {
+        this._enterLock();
         try {
-          process.kill(owner.pid, 0);
-        } catch (e) {
-          dead = e.code === 'ESRCH';
+          return run();
+        } finally {
+          this._leaveLock();
         }
-      } else dead = this.now() - fs.statSync(lock).mtimeMs > READER_LIMITS.leaseMs;
-      if (!dead)
-        throw problem('STORE_BUSY', 'Another reader storage operation owns the writer lock.', 503);
-      fs.unlinkSync(lock);
-      syncDirectory(this.directory);
-      fd = fs.openSync(lock, 'wx', 0o600);
-    }
-    const nonce = crypto.randomBytes(16).toString('hex');
-    try {
-      fs.writeFileSync(fd, JSON.stringify({ pid: process.pid, nonce }));
-      fs.fsyncSync(fd);
-      this._enterLock();
-      try {
-        return run();
-      } finally {
-        this._leaveLock();
-      }
-    } finally {
-      fs.closeSync(fd);
-      const owner = JSON.parse(fs.readFileSync(lock, 'utf8'));
-      if (owner.nonce === nonce) {
-        fs.unlinkSync(lock);
-        syncDirectory(this.directory);
-      }
-    }
+      },
+      this.now
+    );
   }
 
   // ── generation and write intent ────────────────────────────────────────
@@ -457,8 +490,14 @@ export class ReaderJobStore {
       throw problem('STORAGE_CORRUPT', 'Stored reader object exceeds its bounded format.', 503);
     return fs.readFileSync(file);
   }
-  _usage() {
+  _metadataBytes() {
     let total = fs.statSync(path.join(this.directory, 'capability-key')).size;
+    const marker = path.join(this.directory, 'store-format.json');
+    if (fs.existsSync(marker)) total += fs.statSync(marker).size;
+    return total;
+  }
+  _usage() {
+    let total = this._metadataBytes();
     for (const dir of ['records', ...OBJECT_KINDS])
       for (const name of fs.readdirSync(path.join(this.directory, dir)))
         total += fs.statSync(path.join(this.directory, dir, name)).size;
@@ -532,11 +571,30 @@ export class ReaderJobStore {
       const now = new Date();
       fs.utimesSync(file, now, now);
     } else {
-      this._capacity(bytes.length);
+      let stored = bytes;
+      if (kind === 'pages' && this.gzip) {
+        const compressed = zlib.gzipSync(bytes);
+        // Keep both stored and expanded sizes bounded, even for random input.
+        if (compressed.length < bytes.length) stored = compressed;
+      }
+      const marker = path.join(this.directory, 'store-format.json');
+      const format = Buffer.from(JSON.stringify({ min_reader: 'A' }));
+      const compressed = stored !== bytes;
+      const needsMarker = compressed && !fs.existsSync(marker);
+      if (compressed && !needsMarker) {
+        if (JSON.parse(this._readFile(marker)).min_reader !== 'A')
+          throw problem('STORAGE_CORRUPT', 'Unknown reader store format.', 503);
+      }
+      this._capacity(stored.length + (needsMarker ? format.length : 0));
       this._beginWrite();
       this._inflight = true;
-      atomicWrite(file, bytes, this.fault, kind);
-      if (this.usage !== null) this.usage += bytes.length;
+      // The compatibility floor becomes durable BEFORE any gzip page exists.
+      if (needsMarker) {
+        atomicWrite(marker, format, this.fault, 'store-format');
+        if (this.usage !== null) this.usage += format.length;
+      }
+      atomicWrite(file, stored, this.fault, kind);
+      if (this.usage !== null) this.usage += stored.length;
       this._inflight = false;
     }
     return { sha256: hash, bytes: bytes.length };
@@ -1797,7 +1855,7 @@ export class ReaderJobStore {
       let g0, total;
       try {
         g0 = this._readGeneration();
-        total = fs.statSync(path.join(this.directory, 'capability-key')).size;
+        total = this._metadataBytes();
         let n = 0;
         for (const dir of ['records', ...OBJECT_KINDS])
           for (const name of fs.readdirSync(path.join(this.directory, dir))) {

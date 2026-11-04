@@ -48,6 +48,8 @@ function dir(t) {
 function scan(store) {
   // The ground truth the counter must equal: every byte the quota covers.
   let total = fs.statSync(path.join(store.directory, 'capability-key')).size;
+  const marker = path.join(store.directory, 'store-format.json');
+  if (fs.existsSync(marker)) total += fs.statSync(marker).size;
   for (const sub of ['records', 'pages', 'indexes', 'checkpoints', 'manifests', 'definitions'])
     for (const name of fs.readdirSync(path.join(store.directory, sub)))
       total += fs.statSync(path.join(store.directory, sub, name)).size;

@@ -12,6 +12,7 @@ reader adds no resident Python process and yields when writing work queues.
 | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | `READER_CATALOG_DIR`          | Installed immutable catalog directory containing the pinned canonical manifest, index and approved readable units. No remote source fetch.   |
 | `READER_RUNTIME_DIR`          | Durable directory; defaults to `LYRIC_RUNTIME_DIR/reader-jobs`. Analysis fails closed without durable storage.                               |
+| `READER_STORE_GZIP` | Set exactly `1` to compress new evidence pages. Default off. Enable only after the writer, external image-format gate, and inflate utility are live (Phase B). |
 | `READER_STORAGE_MAX_BYTES`    | Quota for the reader namespace; defaults to 256 MiB. Reserve metadata space and pause with `RESOURCE_LIMIT` before exhausting it.            |
 | `READER_BRIDGE_SECRET`        | Optional. Server-only shared HMAC secret of at least 32 UTF-8 bytes; with `READER_SITE_ID` it mounts only `/internal/reader`, while the Site exists. |
 | `READER_SITE_ID`              | Optional. Exact trusted Site instance identifier (see above).                                                                                |
@@ -354,5 +355,60 @@ scan runs every 15 minutes.
 Object readers in Node and in the Python worker accept a stored file of at most
 2 MiB holding a plain object or exactly one gzip member with no trailing bytes,
 bound inflation by the same 2 MiB, and verify the address against the
-uncompressed bytes. The store writes plain objects until gzip writes are
-separately approved.
+uncompressed bytes. With `READER_STORE_GZIP=1`, new evidence pages use gzip
+only when smaller than plain bytes. Existing pages are never rewritten; indexes,
+checkpoints, manifests and retained definitions remain plain. Addresses and page
+reference byte lengths always describe the uncompressed bytes. Quota accounting
+charges actual stored object bytes plus the format marker, retaining the 256 MiB
+default and existing record reservations. Compression saves disk, not candidate
+work or expanded analysis memory.
+
+Before the first compressed page is published, the writer atomically persists
+and fsyncs `reader-jobs-v1/store-format.json` containing `{"min_reader":"A"}`
+under the existing writer lock. Turning compression off does not remove it.
+`GET /library/v1/health` passively reports `reader_store.min_reader`: `"A"`
+when the marker is valid, `null` only when absent, and `"unknown"` for unreadable
+or malformed markers. This read takes no lock and writes nothing.
+
+Phase B activation is a separate recorded release action after the writer,
+external candidate-image format gate and conversion utility are all deployed.
+The candidate image label is `com.codexmusica.reader-format="A"`, copied from
+the built image into `lyrics-image.json` as `reader_format`. The release gate
+must refuse an unlabeled/pre-A candidate once the marker exists. The label and
+external deploy/qualification gate are delivered by R2's companion change;
+this writer alone is not sufficient to enable Phase B. Run the completed
+"Song of Myself" qualification after activation and record logical/stored bytes,
+quota peak, elapsed time, memory, coverage and restart/resume evidence.
+
+### Rollback after gzip activation
+
+**Never use Render dashboard rollback to an image older than phase A while
+`store-format.json` exists.** Dashboard rollback bypasses the external gate.
+B to A is compatible: both readers accept mixed plain/gzip objects. This is
+storage compatibility only; runtime continuation identity rules still apply.
+
+To prepare a rollback before A, stop every reader server/worker and maintenance
+process, disable `READER_STORE_GZIP`, and back up the store. With those processes
+kept stopped, run:
+
+```sh
+node mcp/reader_store_inflate.mjs /absolute/path/to/reader-jobs-v1
+```
+
+Pass the namespace directory, not its `READER_RUNTIME_DIR` parent. The tool takes
+the same exclusive `writer.lock`, verifies all object hashes, and requires free
+space of at least the remaining inflated size plus 20%. It writes and verifies
+plain copies in `inflate-staging/`, atomically replaces each gzip object, verifies
+all final objects, then removes the compatibility marker. It preserves a
+`inflate-manifest.json` checksum inventory. Staging, manifest and generation/lock
+metadata are housekeeping outside the job quota. Inflated contents can exceed
+the existing quota; new allocations remain refused until usage is below it.
+
+On interruption, keep all services stopped and rerun the same command. It
+verifies already-converted files and stages remaining gzip objects again. A
+failure keeps the compatibility floor; do not manually remove it or the pending
+marker to force rollback. The checksum manifest marks completion but marker
+absence is valid only after the tool succeeds. Restarting a gzip-enabled writer
+can create gzip again, so keep the flag off through rollback. The store recounts
+physical usage on reopen; already-running instances also detect its generation
+change, but this does not replace the requirement to stop them for conversion.
