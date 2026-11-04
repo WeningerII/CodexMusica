@@ -30,7 +30,11 @@ export function mount(host, ctx) {
     cleanups.forEach((cleanup) => cleanup());
     const release = unsubscribe;
     unsubscribe = undefined;
-    try { release?.(); } finally { abortObserver.abort(); }
+    try {
+      release?.();
+    } finally {
+      abortObserver.abort();
+    }
   };
   const batch = 24; // P1 core.js:385; initial catalog previews contain at most 12.
   const active = () => alive && !ctx.signal.aborted;
@@ -41,16 +45,26 @@ export function mount(host, ctx) {
     return node;
   };
   const listen = (node, type, fn, options = {}) => {
-    const guarded = (event) => { if (active()) fn(event); };
+    const guarded = (event) => {
+      if (active()) fn(event);
+    };
     node.addEventListener(type, guarded, { ...options, signal: ctx.signal });
     cleanups.push(() => node.removeEventListener(type, guarded, options));
   };
-  const announce = (text) => { if (active()) ctx.announce(text); };
+  const announce = (text) => {
+    if (active()) ctx.announce(text);
+  };
   const link = el('link');
   link.rel = 'stylesheet';
   link.href = new URL('./explore.css', import.meta.url).href;
   const root = el('div', undefined, 'prototype-library-explore');
-  root.append(el('p', 'Prototype: catalog loading and actions use injected shell adapters.', 'library-prototype-note'));
+  root.append(
+    el(
+      'p',
+      'Prototype: catalog loading and actions use injected shell adapters.',
+      'library-prototype-note'
+    )
+  );
   if (!alive) return { unmount() {}, focus() {} };
   host.append(link, root);
 
@@ -111,9 +125,8 @@ export function mount(host, ctx) {
     const mark = (failed) => {
       if (!active()) return;
       note.textContent = failed ? ' · position unsaved' : '';
-      if (failed !== unsaved) announce(failed
-        ? `${label} position unsaved on this device.`
-        : `${label} position saved.`);
+      if (failed !== unsaved)
+        announce(failed ? `${label} position unsaved on this device.` : `${label} position saved.`);
       unsaved = failed;
     };
     const more = el('button', undefined, 'library-prototype-more');
@@ -140,7 +153,10 @@ export function mount(host, ctx) {
         cover.setAttribute('aria-hidden', 'true');
         article.append(cover);
       }
-      article.append(el('h3', collection.title), el('p', `${collection.readable} readable · ${collection.recorded} recorded units`));
+      article.append(
+        el('h3', collection.title),
+        el('p', `${collection.readable} readable · ${collection.recorded} recorded units`)
+      );
       const addAction = (label, handler) => {
         const button = el('button', label);
         button.type = 'button';
@@ -151,25 +167,34 @@ export function mount(host, ctx) {
         return button;
       };
       addAction('Open collection', ctx.openCollection && (() => ctx.openCollection(collection.id)));
-      addAction('Play first reading', ctx.openReading
-        ? () => ctx.openReading(collection.id) : null);
-      const selectionReady = ctx.selection?.state && ctx.selection?.toggle && ctx.selection?.subscribe;
+      addAction(
+        'Play first reading',
+        ctx.openReading ? () => ctx.openReading(collection.id) : null
+      );
+      const selectionReady =
+        ctx.selection?.state && ctx.selection?.toggle && ctx.selection?.subscribe;
       const select = addAction('Select readable units', null);
       const refresh = () => {
         if (!active()) return;
         const state = ctx.selection?.state?.(collection.id);
-        select.setAttribute('aria-pressed', state === 'all' ? 'true' : state === 'some' ? 'mixed' : 'false');
+        select.setAttribute(
+          'aria-pressed',
+          state === 'all' ? 'true' : state === 'some' ? 'mixed' : 'false'
+        );
       };
       refresh();
       selectionRefreshers.push(refresh);
       if (selectionReady) {
         select.disabled = false;
         select.removeAttribute('title');
-        listen(select, 'click', () => run(select,
-          () => ctx.selection.toggle(collection.id), refresh));
+        listen(select, 'click', () =>
+          run(select, () => ctx.selection.toggle(collection.id), refresh)
+        );
       }
-      addAction('Artwork credit', collection.art && ctx.showCredit
-        ? () => ctx.showCredit(collection.art) : null);
+      addAction(
+        'Artwork credit',
+        collection.art && ctx.showCredit ? () => ctx.showCredit(collection.art) : null
+      );
       return article;
     };
     const update = () => {
@@ -179,11 +204,14 @@ export function mount(host, ctx) {
       more.disabled = !ready || typeof ctx.loadMore !== 'function';
       // Keep keyboard focus while loading; the pending guard blocks activation.
       more.setAttribute('aria-disabled', String(pending || more.disabled));
-      more.textContent = pending ? 'Loading collections…' : `Show ${Math.min(batch, remaining)} more of ${remaining}`;
+      more.textContent = pending
+        ? 'Loading collections…'
+        : `Show ${Math.min(batch, remaining)} more of ${remaining}`;
       more.setAttribute('aria-busy', String(pending));
     };
     const load = async (requested, explicit = false) => {
-      if (!active() || pending || collections.length >= total || typeof ctx.loadMore !== 'function') return 0;
+      if (!active() || pending || collections.length >= total || typeof ctx.loadMore !== 'function')
+        return 0;
       pending = true;
       update();
       try {
@@ -192,10 +220,21 @@ export function mount(host, ctx) {
         // Contract violations are rejected atomically, not deduplicated/sorted or
         // interpreted as a new catalog. Only the shell reports DATA_CHANGED.
         const ids = new Set(collections.map((c) => c.id));
-        const valid = result && result.total === total && Array.isArray(result.cards)
-          && result.cards.length <= requested && collections.length + result.cards.length <= total
-          && result.cards.every((c) => c && typeof c.id === 'string' && c.language === shelf.language
-            && c.readable > 0 && !ids.has(c.id) && ids.add(c.id));
+        const valid =
+          result &&
+          result.total === total &&
+          Array.isArray(result.cards) &&
+          result.cards.length <= requested &&
+          collections.length + result.cards.length <= total &&
+          result.cards.every(
+            (c) =>
+              c &&
+              typeof c.id === 'string' &&
+              c.language === shelf.language &&
+              c.readable > 0 &&
+              !ids.has(c.id) &&
+              ids.add(c.id)
+          );
         if (!valid) throw { message: 'Invalid shelf response; existing collections retained.' };
         const firstNew = result.cards.length ? card(result.cards[0]) : null;
         if (firstNew) scroll.insertBefore(firstNew, more);
@@ -208,47 +247,80 @@ export function mount(host, ctx) {
           firstNew.focus({ preventScroll: true });
           firstNew.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'instant' });
         }
-        if (explicit) announce(result.cards.length
-          ? `${collections.length} of ${total} ${label} collections shown.`
-          : `No additional ${label} collections returned. Try again.`);
+        if (explicit)
+          announce(
+            result.cards.length
+              ? `${collections.length} of ${total} ${label} collections shown.`
+              : `No additional ${label} collections returned. Try again.`
+          );
         return result.cards.length;
       } catch (error) {
-        if (active()) announce(`${label}: ${error?.code ? `${error.code}: ` : ''}${error?.message || 'Collections could not load. Try again.'}`);
+        if (active())
+          announce(
+            `${label}: ${error?.code ? `${error.code}: ` : ''}${error?.message || 'Collections could not load. Try again.'}`
+          );
         return 0;
       } finally {
-        if (active()) { pending = false; update(); }
+        if (active()) {
+          pending = false;
+          update();
+        }
       }
     };
     scroll.append(more);
     for (const c of collections) scroll.insertBefore(card(c), more);
     update();
-    listen(more, 'click', () => { if (ready) void load(Math.min(batch, total - collections.length), true); });
+    listen(more, 'click', () => {
+      if (ready) void load(Math.min(batch, total - collections.length), true);
+    });
     listen(scroll, 'keydown', (event) => {
-      if (event.target !== scroll || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+      if (
+        event.target !== scroll ||
+        event.altKey ||
+        event.ctrlKey ||
+        event.metaKey ||
+        event.shiftKey
+      )
+        return;
       if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
       event.preventDefault();
-      scroll.scrollBy({ left: stride() * (event.key === 'ArrowLeft' ? -1 : 1), behavior: 'instant' });
+      scroll.scrollBy({
+        left: stride() * (event.key === 'ArrowLeft' ? -1 : 1),
+        behavior: 'instant',
+      });
     });
-    listen(scroll, 'scroll', () => {
-      if (!ready) return;
-      clearTimeout(timer);
-      timers.delete(timer);
-      timer = setTimeout(async () => {
+    listen(
+      scroll,
+      'scroll',
+      () => {
+        if (!ready) return;
+        clearTimeout(timer);
         timers.delete(timer);
-        if (!active()) return;
-        try {
-          const position = Math.max(0, Math.min(collections.length - 1, Math.round(scroll.scrollLeft / stride())));
-          if (position === lastPosition) return;
-          lastPosition = position;
-          const result = await ctx.storage.write(storageKey, position);
-          mark(!result?.ok);
-        } catch { mark(true); }
-      }, 500);
-      timers.add(timer);
-    }, { passive: true });
+        timer = setTimeout(async () => {
+          timers.delete(timer);
+          if (!active()) return;
+          try {
+            const position = Math.max(
+              0,
+              Math.min(collections.length - 1, Math.round(scroll.scrollLeft / stride()))
+            );
+            if (position === lastPosition) return;
+            lastPosition = position;
+            const result = await ctx.storage.write(storageKey, position);
+            mark(!result?.ok);
+          } catch {
+            mark(true);
+          }
+        }, 500);
+        timers.add(timer);
+      },
+      { passive: true }
+    );
     // Await CSS before measuring; no frame/global event listener is needed.
     Promise.all([
-      Promise.resolve().then(() => active() ? ctx.storage.read(storageKey) : { ok: true }).catch(() => ({ ok: false })),
+      Promise.resolve()
+        .then(() => (active() ? ctx.storage.read(storageKey) : { ok: true }))
+        .catch(() => ({ ok: false })),
       new Promise((resolve) => {
         if (link.sheet) resolve();
         else {
@@ -263,12 +335,17 @@ export function mount(host, ctx) {
       const pos = Number.isFinite(value) ? Math.max(0, Math.min(total - 1, Math.floor(value))) : 0;
       // A partial batch is useful, but an empty/refused batch must not spin.
       while (active() && pos >= collections.length && collections.length < total) {
-        const added = await load(Math.min(total - collections.length, Math.max(batch, pos + 1 - collections.length)));
+        const added = await load(
+          Math.min(total - collections.length, Math.max(batch, pos + 1 - collections.length))
+        );
         if (!added) break;
       }
       if (!active()) return;
       if (pos < collections.length) scroll.scrollLeft = pos * stride();
-      else announce(`${label} saved position could not be restored; loaded collections remain available.`);
+      else
+        announce(
+          `${label} saved position could not be restored; loaded collections remain available.`
+        );
       // Ignore initial/restoration snap events at the same card index.
       lastPosition = Math.max(0, Math.round(scroll.scrollLeft / stride()));
       ready = true;
@@ -283,7 +360,9 @@ export function mount(host, ctx) {
     else release?.();
   }
   return {
-    focus() { if (active()) sections[0]?.focus(); },
+    focus() {
+      if (active()) sections[0]?.focus();
+    },
     unmount() {
       stop();
       root.remove();
