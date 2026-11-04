@@ -8,7 +8,7 @@ set -u
 if (( $# )); then
   if [[ $# == 1 && $1 == --help ]]; then
     printf '%s\n' 'Usage: bash scripts/dev_env_check.sh' \
-      'Read-only local preflight. Exit 0: checked prerequisites present; 1: gaps; 2: usage.' \
+      'Read-only local preflight. Exit 0: no blocking gaps (warnings possible); 1: gaps; 2: usage.' \
       'Repair commands are suggestions only. Passing does not certify tests or production.'
     exit 0
   fi
@@ -71,11 +71,11 @@ try {
   const {chromium} = require(path.resolve('node_modules/playwright'));
   const candidates = [['Playwright default executable', chromium.executablePath()]];
   if (process.env.CHROMIUM_PATH) candidates.push(['CHROMIUM_PATH override', process.env.CHROMIUM_PATH]);
-  console.log(`INFO PLAYWRIGHT_BROWSERS_PATH: ${process.env.PLAYWRIGHT_BROWSERS_PATH ? 'set' : 'unset'}; /opt/pw-browsers ${fs.existsSync('/opt/pw-browsers') ? 'exists' : 'absent'}`);
+  console.log(`INFO PLAYWRIGHT_BROWSERS_PATH: ${JSON.stringify(process.env.PLAYWRIGHT_BROWSERS_PATH ?? '(unset; Playwright default cache)')}; /opt/pw-browsers ${fs.existsSync('/opt/pw-browsers') ? 'exists' : 'absent'}`);
   for (const [label, executable] of candidates) {
     let ok = false;
     try { ok = fs.statSync(executable).isFile(); fs.accessSync(executable, fs.constants.X_OK); } catch { ok = false; }
-    report(ok, label, ok ? 'file is executable (launch and system libraries not tested)' : 'unavailable; review browser path configuration or README.md Chromium setup');
+    report(ok, label, `expected=${JSON.stringify(executable)}; ${ok ? 'file is executable (launch and system libraries not tested)' : 'unavailable; review browser path configuration or README.md Chromium setup'}`);
   }
   console.log('INFO browser scope: CHROMIUM_PATH is honored by some gates; it does not replace the default Playwright browser for all gates.');
 } catch {
@@ -103,11 +103,19 @@ def report(ok, label, detail):
     failures += not ok
 
 print(f'INFO Python: {sys.version.split()[0]}; capacity-proof CI pins 3.11.16/x64; Library-site CI uses 3.12. Neither is a universal local-version assertion.')
+tracked_files = set()
+checkout_remedy = 'inspect local deletions and restore the intended tracked files from the checkout'
 if shutil.which('git'):
     tracked = subprocess.run(['git', 'ls-files', '-z'], capture_output=True)
     if tracked.returncode == 0:
-        missing = [os.fsdecode(p) for p in tracked.stdout.split(b'\0') if p and not os.path.lexists(os.fsdecode(p))]
-        report(not missing, 'tracked checkout paths', 'all present on disk' if not missing else f'{len(missing)} missing; examples: {missing[:5]!r}; inspect sparse-checkout exclusions or local deletions before running documentation/fixture gates')
+        paths = [os.fsdecode(p) for p in tracked.stdout.split(b'\0') if p]
+        tracked_files = {os.path.abspath(p) for p in paths}
+        missing = [p for p in paths if not os.path.lexists(p)]
+        sparse = subprocess.run(['git', 'config', '--get', 'core.sparseCheckout'], capture_output=True, text=True)
+        if sparse.stdout.strip() == 'true':
+            checkout_remedy = 'review and run git sparse-checkout disable manually; if paths remain absent, inspect local deletions'
+        directories = sorted({str(Path(p).parent) for p in missing})
+        report(not missing, 'tracked checkout paths', 'all present on disk' if not missing else f'{len(missing)} missing in {len(directories)} directories; affected directories (up to 8): {directories[:8]!r}; examples: {missing[:5]!r}; {checkout_remedy}')
     else:
         print('INFO tracked checkout paths not checked: no readable Git index; directory checks alone cannot detect partial sparse exclusions.')
 try:
@@ -127,7 +135,11 @@ try:
             actual = importlib.metadata.version(name)
         except importlib.metadata.PackageNotFoundError:
             actual = 'missing'
-        report(actual == expected, f'Python package {name}', f'installed={actual}, pinned={expected}; see mcp/requirements-runtime.txt and CI hash-locked setup')
+        detail = f'installed={actual}, pinned={expected}; see mcp/requirements-runtime.txt and CI hash-locked setup'
+        if actual != 'missing' and actual != expected:
+            print(f'WARN Python package {name}: {detail}; differs from CI hash-locked pin; results may differ from CI (not production qualification)')
+        else:
+            report(actual != 'missing', f'Python package {name}', detail)
 except (OSError, ValueError) as error:
     report(False, 'Python requirements', f'missing, unreadable or unsupported inventory ({type(error).__name__}); restore mcp/requirements-runtime.txt or update this diagnostic for its syntax')
 
@@ -150,15 +162,23 @@ try:
     for asset in runtime_assets:
         base = harness if asset['base'] == 'root' else staged
         bad = []
+        checkout_gaps = []
         for entry in asset['files']:
+            target = base / entry['path']
+            if not os.path.lexists(target) and os.path.abspath(target) in tracked_files:
+                checkout_gaps.append(entry['path'])
+                continue
             try:
-                data = (base / entry['path']).read_bytes()
+                data = target.read_bytes()
                 ok = len(data) == entry['bytes'] and hashlib.sha256(data).hexdigest() == entry['sha256']
             except OSError:
                 ok = False
             if not ok:
                 bad.append(entry['path'])
-        report(not bad, f'lexical asset {asset["id"]}', 'manifest hashes match' if not bad else f'missing or mismatched: {", ".join(bad)}; review CI staging: lyric_harness.fetch_data() and quality/fetch_data.py --runtime from lyric-harness/')
+        if checkout_gaps:
+            report(False, f'checkout gap for lexical asset {asset["id"]}', f'tracked files absent: {", ".join(checkout_gaps)}; {checkout_remedy}; asset staging cannot restore these tracked files')
+        if bad or not checkout_gaps:
+            report(not bad, f'lexical asset {asset["id"]}', 'manifest hashes match' if not bad else f'missing or mismatched: {", ".join(bad)}; review CI staging: lyric_harness.fetch_data() and quality/fetch_data.py --runtime from lyric-harness/')
     if os.environ.get('NLTK_DATA'):
         print('INFO NLTK_DATA is set; verify its search paths against the staged data. This check hashes staged assets, not NLTK lookup resolution.')
 except (OSError, ValueError, KeyError, TypeError):
@@ -170,6 +190,6 @@ printf '%s\n' 'INFO Not checked: native catalog, browser launch, full transitive
 if (( failed )); then
   printf '%s\n' 'RESULT environment gaps found; resolve the named prerequisites before attributing test failures to a change.'
 else
-  printf '%s\n' 'RESULT checked prerequisites present; run the task-specific tests and existing release gates separately.'
+  printf '%s\n' 'RESULT checked prerequisites present; review any WARN lines and run the task-specific tests and existing release gates separately.'
 fi
 exit "$failed"
