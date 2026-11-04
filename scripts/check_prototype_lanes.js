@@ -32,6 +32,12 @@
 //   not handed back after a reload; the editor node is replaced across a
 //   route switch; or a refused save is not said ("Not saved") with the text
 //   kept in the editor.
+//   CREDITS (#747). The census doesn't show catalog.json's readable units,
+//   an artwork.json credit is missing, or Inspect all doesn't say the Works
+//   list isn't here yet.
+//   METHODS (#750). Opened, the reference doesn't count all of methods.json,
+//   or a search doesn't count what the native predicate (name, aliases,
+//   required capabilities) matches.
 //   ALL. A route change does not focus the panel heading, the page scrolls
 //   sideways at 320 px, or the page throws.
 //
@@ -356,6 +362,89 @@ async function lyrics(browser, srv) {
   await narrow.context.close();
 }
 
+async function credits(browser, srv) {
+  const catalog = json('library', 'data', 'catalog.json');
+  const artwork = json('library', 'data', 'artwork.json').artwork;
+  const { context, page, errors } = await open(browser, srv, '#library');
+  const host = page.locator('[data-feature-host="librarycredits"]');
+  await host
+    .locator('button', { hasText: 'Inspect all recorded availability' })
+    .waitFor({ timeout: 20000 });
+  const text = await host.innerText();
+  const units = fmt(catalog.census.readable_reading_units);
+  expect(text.includes(units), `credits: the census doesn't show ${units} readable reading units`);
+  const missing = artwork.filter((a) => !text.includes(a.credit.replace(/\s+/g, ' ').trim()));
+  expect(
+    !missing.length,
+    `credits: artwork.json credits not shown: ${missing.map((a) => a.id).join(', ')}`
+  );
+  await host.locator('button', { hasText: 'Inspect all recorded availability' }).click();
+  await page
+    .waitForFunction(
+      () =>
+        /Works list isn’t part of this prototype/.test(
+          document.getElementById('proto-status').textContent
+        ),
+      null,
+      { timeout: 10000 }
+    )
+    .catch(() => {});
+  expect(
+    /The full Works list isn’t part of this prototype yet/.test(await status(page)),
+    `credits: Inspect all said "${await status(page)}"`
+  );
+  expect(!errors.length, `credits: uncaught errors: ${errors.join(' | ')}`);
+  await context.close();
+}
+
+async function methods(browser, srv) {
+  const registry = json('library', 'data', 'methods.json').methods;
+  const { context, page, errors } = await open(browser, srv, '#library');
+  const host = page.locator('[data-feature-host="librarymethods"]');
+  const summary = host.locator('.lm-disclosure > summary');
+  await summary.waitFor({ timeout: 20000 });
+  await summary.click();
+  const count = host.locator('.lm-count');
+  await count.waitFor({ timeout: 10000 });
+  const all = `${Math.min(registry.length, 300)} shown · ${registry.length} matching · ${registry.length} methods`;
+  expect(
+    (await count.textContent()) === all,
+    `methods: the reference says "${await count.textContent()}", not "${all}"`
+  );
+  // The native predicate: name, aliases and required capabilities (#668 6641909843).
+  // A query whose answer depends on aliases or capabilities, not names alone,
+  // so a lane that searched names only would count differently.
+  const full = (q) =>
+    registry.filter((m) =>
+      `${m.name} ${m.aliases?.join(' ')} ${m.required_capabilities?.join(' ')}`
+        .toLowerCase()
+        .includes(q)
+    ).length;
+  const nameOnly = (q) => registry.filter((m) => m.name.toLowerCase().includes(q)).length;
+  const q = registry
+    .flatMap((m) => [...(m.required_capabilities || []), ...(m.aliases || [])])
+    .map((x) => String(x).toLowerCase())
+    .find((x) => x && full(x) !== nameOnly(x));
+  expect(!!q, 'methods: no query separates the native predicate from a names-only one');
+  const hits = full(q);
+  await host.locator('input[type="search"]').fill(q);
+  const want = `${Math.min(hits, 300)} shown · ${hits} matching · ${registry.length} methods`;
+  await page
+    .waitForFunction(
+      ({ w }) =>
+        document.querySelector('[data-feature-host="librarymethods"] .lm-count').textContent === w,
+      { w: want },
+      { timeout: 5000 }
+    )
+    .catch(() => {});
+  expect(
+    (await count.textContent()) === want,
+    `methods: searching "${q}" says "${await count.textContent()}", not "${want}"`
+  );
+  expect(!errors.length, `methods: uncaught errors: ${errors.join(' | ')}`);
+  await context.close();
+}
+
 async function browse(browser, srv) {
   const index = json('api', 'traditions', 'index.json').items;
   const geo = json('data', 'geo.json');
@@ -448,6 +537,8 @@ async function browse(browser, srv) {
     library: 'prototype/features/library/explore.js',
     browse: 'prototype/features/browse-map/discovery.js',
     lyrics: 'prototype/features/lyrics/editor.js',
+    credits: 'prototype/features/library-rights/census-credits.js',
+    methods: 'prototype/features/library-methods/reference.js',
   };
   const present = Object.keys(lanes).filter((l) => fs.existsSync(path.join(root, lanes[l])));
   const srv = await start({ root });
@@ -462,6 +553,8 @@ async function browse(browser, srv) {
       ['library', library],
       ['browse', browse],
       ['lyrics', lyrics],
+      ['credits', credits],
+      ['methods', methods],
     ]) {
       if (!present.includes(lane)) continue;
       await run(browser, srv).catch((e) =>
