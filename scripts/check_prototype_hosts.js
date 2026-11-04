@@ -144,6 +144,8 @@ async function newPage(browser, srv, opts = {}) {
   const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
   const requested = [];
   const errors = [];
+  // Paths answered 404 for now; a check can clear one to let a retry through.
+  const failing = new Set(opts.fail || []);
   await context.route('**/*', (route) => {
     const u = new URL(route.request().url());
     if (u.origin !== srv.url) return route.abort();
@@ -153,13 +155,13 @@ async function newPage(browser, srv, opts = {}) {
       if ((opts.missing || []).includes(lane)) return route.fulfill({ status: 404, body: '' });
       return route.fulfill({ status: 200, contentType: 'text/javascript', body: PROBE });
     }
-    if ((opts.fail || []).includes(u.pathname)) return route.fulfill({ status: 404, body: '' });
+    if (failing.has(u.pathname)) return route.fulfill({ status: 404, body: '' });
     return route.continue();
   });
   if (opts.init) await context.addInitScript(opts.init.fn, opts.init.arg);
   const page = await context.newPage();
   page.on('pageerror', (e) => errors.push(e.message));
-  return { context, page, requested, errors };
+  return { context, page, requested, errors, failing };
 }
 
 const probe = (page, lane) => page.evaluate((l) => (window.__probe || {})[l] || null, lane);
@@ -441,6 +443,58 @@ async function failuresOf(browser, srv) {
     await page.locator('[data-route="lyrics"]').click();
     await waitMounted(page, 'lyrics');
     expect(!errors.length, `failure (data): uncaught errors: ${errors.join(' | ')}`);
+    await context.close();
+  }
+  // Retry (#668 6645267823): the sentence says what happened and what to do;
+  // Retry tries the lane's data again; a second failure keeps focus on Retry
+  // and says so once; a success mounts the lane and puts focus in it.
+  {
+    const { context, page, errors, failing } = await newPage(browser, srv, {
+      fail: ['/data/geo.json'],
+    });
+    await page.goto(`${srv.url}/prototype/#browse`);
+    const note = await settledNote(page, 'browse');
+    expect(
+      /did not load/.test(note) && /Check your connection, then try again\.$/.test(note),
+      `retry: the failure sentence doesn't say what to do: ${JSON.stringify(note)}`
+    );
+    const retry = page.locator('[data-panel="browse"] [data-host-retry]');
+    expect((await retry.count()) === 1, 'retry: no Retry button follows the sentence');
+    const box = await retry.boundingBox();
+    expect(box && box.height >= 44, `retry: the Retry target is ${box && box.height}px tall`);
+    const status = () => page.evaluate(() => document.getElementById('proto-status').textContent);
+    await retry.click();
+    const onRetry = await page
+      .waitForFunction(
+        () => document.activeElement && document.activeElement.matches('[data-host-retry]'),
+        null,
+        { timeout: 10000 }
+      )
+      .then(
+        () => true,
+        () => false
+      );
+    expect(onRetry, 'retry: after a second failure, focus is not on Retry');
+    expect(
+      (await status()) === note,
+      `retry: a second failure announced ${JSON.stringify(await status())}`
+    );
+    expect(!(await probe(page, 'browse')), 'retry: Browse mounted while its data still fails');
+    failing.delete('/data/geo.json');
+    await page.locator('[data-panel="browse"] [data-host-retry]').click();
+    await waitMounted(page, 'browse');
+    const focused = await page.evaluate(
+      () => document.activeElement && document.activeElement.dataset.probe
+    );
+    expect(focused === 'browse', `retry: after it mounted, focus is on ${focused}`);
+    expect(
+      (await page
+        .locator('[data-panel="browse"] [data-host-note], [data-panel="browse"] [data-host-retry]')
+        .count()) === 0,
+      'retry: the failure sentence or Retry stayed beside the mounted lane'
+    );
+    expect((await probe(page, 'browse')).mounts === 1, 'retry: the lane mounted more than once');
+    expect(!errors.length, `retry: uncaught errors: ${errors.join(' | ')}`);
     await context.close();
   }
 }
