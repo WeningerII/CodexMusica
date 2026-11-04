@@ -1280,7 +1280,10 @@ function uiStart() {
     }
   });
   document.addEventListener('keydown', (e) => {
-    if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('svg [role="button"]')) {
+    if (
+      (e.key === 'Enter' || e.key === ' ') &&
+      e.target.matches('svg [role="button"],[data-ui=genre-place]')
+    ) {
       e.preventDefault();
       e.target.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     }
