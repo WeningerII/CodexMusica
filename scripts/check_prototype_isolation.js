@@ -29,7 +29,8 @@
 //   3. SEPARATION. codex.html, the app source (src/), the Library chunks
 //      (library/code/) and the page builder name neither a path to the
 //      prototype (/prototype, ./prototype, ../prototype, with or without a
-//      trailing slash; `Object.prototype` is not a path) nor the prototype's
+//      trailing slash, or a bare relative prototype/...; `Object.prototype`
+//      is not a path) nor the prototype's
 //      storage namespace, so no prototype byte reaches the shipped
 //      page or any check_payload_budget row. With --base=REF it also fails if
 //      codex.html or library/code/ differ from REF (use it on prototype PRs;
@@ -107,8 +108,10 @@ const OWN_BYTES_MAX = 64 * 1024;
 const STORAGE_NAMES =
   /\b(localStorage|sessionStorage|indexedDB|caches|serviceWorker)\b|document\.cookie/g;
 const STORAGE_ALLOWED = { 'prototype/storage.js': ['localStorage'] };
-// A path to the prototype, not `Foo.prototype`.
-const PROTOTYPE_PATH = /(?:^|[^.\w$])\.{0,2}\/prototype\b/;
+// A path to the prototype, slash-led (/prototype, ./prototype, ../prototype)
+// or bare relative (prototype/index.html, href="prototype/"), never
+// `Foo.prototype` or `isPrototypeOf` (BB8, #719).
+const PROTOTYPE_PATH = /(?:^|[^.\w$])(?:\.{0,2}\/prototype\b|prototype\/)/;
 
 const problems = [];
 let checks = 0;
@@ -169,7 +172,7 @@ function staticChecks(base) {
     const text = fs.readFileSync(path.join(root, rel), 'utf8');
     expect(
       !PROTOTYPE_PATH.test(text) && !text.includes(NS),
-      `${rel}: names the prototype (a /prototype path or ${NS}); prototype code must stay out of the shipped page`
+      `${rel}: names the prototype (a path to prototype/ or ${NS}); prototype code must stay out of the shipped page`
     );
   }
   if (base) {
