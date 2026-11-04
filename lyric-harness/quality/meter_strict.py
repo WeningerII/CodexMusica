@@ -49,7 +49,8 @@ STATUS = ("holds", "does_not_hold", "not_computed")
 POLICIES = (None, "initial_inversion")
 
 BASIS = ("weak and strong positions compared wherever the stream is reliably "
-         "aligned (each result states how many); stress 0 is W, 1 and 2 are "
+         "aligned (when a comparison is made, the result states how many; an "
+         "early refusal gives its reason only); stress 0 is W, 1 and 2 are "
          "S; the input digits are kept as given; this check applies no "
          "promotion, demotion or substitution except a declared policy; a "
          "declared check, not recognition, and uniqueness is not established")
