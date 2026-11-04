@@ -32,24 +32,24 @@ For full structured arrangements (ensemble, room, chain, tuning) per tradition:
    - `…/api/traditions/index.json` → `{ count, items: [{ id, name, family, href }] }`
    - `…/api/instruments/index.json`
 2. **Fetch one entry** by id:
-   - `…/api/traditions/{id}.json` (e.g. `…/api/traditions/bluegrass.json`)
-   - `…/api/instruments/{id}.json` (e.g. `…/api/instruments/oud.json`)
+   - `…/api/traditions/{id}.json`, with an `id` from the traditions index
+   - `…/api/instruments/{id}.json`, with an `id` from the instruments index
 3. **Read the `recipe` field** for the human-usable answer; read `config` if you need
    the structured breakdown.
 
 `…/api/index.json` is the machine-readable endpoint map and catalog counts.
 
-### Example (tradition record, abridged)
+### Shape of a tradition record (abridged)
 
 ```json
 {
-  "id": "bluegrass",
-  "name": "Bluegrass",
-  "family": "vernacular",
-  "recipe": "classic North American 1945-1948 bluegrass, …",
-  "recipe_chars": 759,
-  "score": 234.156,
-  "config": { "traditions": ["bluegrass", …], "instruments": [ … ], "room": "bristol_sessions_appalachian_pre_commercial", "archetype": "arch_late60s_us_multitrack", "inline_chain": { … }, "tuning": "bluegrass_high_lonesome_pentatonic", "aesthetic": …, "arrangement": …, "fx_extras": [ … ] }
+  "id": "<tradition id>",
+  "name": "<display name>",
+  "family": "<family>",
+  "recipe": "<descriptor stack, at most 1000 characters>",
+  "recipe_chars": <number>,
+  "score": <number>,
+  "config": { "traditions": ["<tradition id>", …], "instruments": [ … ], "room": "<room id>", "archetype": "<archetype id>", "inline_chain": { … }, "tuning": "<tuning id>", "aesthetic": …, "arrangement": …, "fx_extras": [ … ] }
 }
 ```
 
@@ -210,9 +210,9 @@ Every file path those commands name is checked to exist, in this file and in eve
 git clone https://github.com/WeningerII/CodexMusica
 cd CodexMusica && npm ci
 
-node scripts/recipe.js --traditions afrobeat,post_punk            # blend genres
-node scripts/recipe.js --tradition afrobeat --exclude-instrument=saxophone --swap-variant=voice:voice_register:falsetto
-node scripts/recipe.js --diff --weight=0.6 bluegrass thrash_metal  # weighted blend
+node scripts/recipe.js --traditions <id>,<id>                      # blend genres
+node scripts/recipe.js --tradition <id> --exclude-instrument=<instrument id> --swap-variant=<instrument>:<part>:<variant>
+node scripts/recipe.js --diff --weight=0.6 <id> <id>               # weighted blend
 node scripts/recipe.js --axis-target "harm:1,density:2,intensity:2"
 npm run validate                                                   # reference-integrity check
 ```
