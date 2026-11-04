@@ -1,4 +1,14 @@
 'use strict';
+// Page-side fixtures assigned on window below and read by Playwright callbacks.
+/* global originalNode:readonly, calls:readonly, beforeHide:readonly,
+   editor:readonly, remount:readonly, changed:readonly,
+   typingTimers:readonly, observers:readonly, timerFires:readonly,
+   controller:readonly, retiredObserver:readonly, retiredRoot:readonly,
+   mutations:readonly, gutterObserver:readonly, retiredDraft:readonly,
+   firesBeforeAbort:readonly, focusBefore:readonly, changesBeforeAbort:readonly,
+   reentrantMutations:readonly, reentrantObserver:readonly,
+   reentrantRoot:readonly, announcements:readonly, savedOnAbort:writable,
+   announcementsBefore:readonly */
 // Local, temporary harness only. No shell registration or manifest completion.
 // The same-origin server exposes only the two reserved feature files.
 // No fixture accesses persistence directly: the injected P0-shaped adapter records calls.
@@ -338,7 +348,7 @@ const server = http.createServer((req, res) => {
       );
       await page.evaluate(() => {
         editor.unmount();
-        fail = true;
+        window.fail = true;
         remount('blocked');
       });
       check(
@@ -429,7 +439,7 @@ const server = http.createServer((req, res) => {
         'Abort then repeated unmount is idempotent'
       );
       await page.evaluate(() => {
-        fail = false;
+        window.fail = false;
         remount('unmount first');
         editor.unmount();
         controller.abort();
@@ -447,7 +457,7 @@ const server = http.createServer((req, res) => {
       );
       for (const operation of ['edit', 'undo']) {
         await page.evaluate(() => {
-          abortOnChange = false;
+          window.abortOnChange = false;
           remount('reentrant');
         });
         await draft.focus();
@@ -475,7 +485,7 @@ const server = http.createServer((req, res) => {
             },
             { once: true }
           );
-          abortOnChange = true;
+          window.abortOnChange = true;
         });
         await page.keyboard.press(operation === 'undo' ? 'Control+z' : 'x');
         check(
@@ -503,7 +513,7 @@ const server = http.createServer((req, res) => {
         await page.evaluate(() => {
           reentrantObserver.disconnect();
           editor.unmount();
-          abortOnChange = false;
+          window.abortOnChange = false;
         });
       }
       check((await page.locator('#outside').count()) === 1, 'Unmount preserves sibling content');
