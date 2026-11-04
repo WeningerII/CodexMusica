@@ -221,6 +221,18 @@ class RecognitionContract(unittest.TestCase):
                     self.assertFalse({'extra_final_weak', 'final_catalexis'} <= set(p))
                     self.assertEqual(len(p), len(set(p)))
 
+    def test_unknown_agreement_under_unsupported_policy_is_separate(self):
+        line = copy.deepcopy(CASES['DA7']['input'])
+        line['readings'][0]['occurrences'][1]['digits'] = '1'
+        result = self.recognize(line, families={'anapestic': 'WWS'})
+        self.assertEqual(result['status'], 'not_computed')
+        self.assertEqual(result['candidates'], [])
+        self.assertEqual(result['prefix_agreeing'], [])
+        self.assertTrue(any(c['policies_used'] == ['initial_truncation'] and
+                            c['feet'] is None and c['surface'] == 'WS' and
+                            c['positions_compared'] == 2
+                            for c in result['requires_unsupported_policy']))
+
     def test_scope_refusals_do_not_search(self):
         for language, theory in [('ang','old_english_sievers'), ('eng','quantitative'),
                                  ('eng','sprung'), ('eng','syllabic')]:
