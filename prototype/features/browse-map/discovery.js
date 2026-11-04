@@ -29,7 +29,7 @@ export function mount(host, ctx) {
     <div class="discovery-controls"><button type="button" data-step="-1" aria-label="Previous traditions">Previous</button><button type="button" data-step="1" aria-label="Next traditions">Next</button></div>
     <div class="discovery-shelf" tabindex="-1" role="region" aria-label="Traditions, horizontally scrollable"><ul></ul></div>
     <p class="discovery-empty" hidden>No traditions are available.</p>
-    <section class="discovery-detail" aria-label="Selected tradition" hidden><h2 tabindex="-1"></h2><p data-description></p><p data-location></p><p data-provenance></p><button type="button" data-close>Close details</button></section>
+    <section class="discovery-detail" aria-label="Selected tradition" hidden><h2 tabindex="-1"></h2><p data-location></p><p data-provenance></p><button type="button" data-close>Close details</button></section>
     <div class="discovery-map" aria-label="Geographical map"></div>`;
   host.append(style, root);
   const shelf = root.querySelector('.discovery-shelf');
@@ -103,11 +103,6 @@ export function mount(host, ctx) {
     if (id !== null) {
       const item = records.get(id);
       detail.querySelector('h2').textContent = item.name;
-      detail.querySelector('[data-description]').textContent = !item.family
-        ? 'No family supplied.'
-        : records.has(item.family)
-          ? records.get(item.family).name
-          : `Family label unavailable (catalog ID: ${item.family}).`;
       const place = item.place;
       detail.querySelector('[data-location]').textContent =
         place == null
