@@ -2127,6 +2127,69 @@ SECTIONS.retry = async function ({ page, base, tag, errors }) {
       !!(await focused('#surface-library [data-act="analyze"]')),
       await page.evaluate(() => document.activeElement?.outerHTML.slice(0, 120))
     );
+    // #656 L1: a job the worker paused because its reading changed cannot
+    // resume (the server refuses a resume whose identity differs), so it
+    // offers no Resume and says why in a sentence; an ordinary pause still
+    // offers Resume. The ordinary pause comes first and waits for a slot
+    // (deferred_requeue), so polling continues and picks up the stale one.
+    const paused = (code, deferred) => (route) => {
+      const req = route.request();
+      if (req.method() !== 'GET') return route.fallback();
+      return route.fulfill({
+        status: 200,
+        headers: {
+          'content-type': 'application/json',
+          'access-control-allow-origin': req.headers().origin || '*',
+          'access-control-allow-credentials': 'true',
+        },
+        body: JSON.stringify({
+          contract_version: 1,
+          job: {
+            id: JOB,
+            state: 'paused',
+            deferred_requeue: deferred,
+            reason: { code, message: `reader: ${code}: test` },
+            attempt: 1,
+            generation: 1,
+            created_at: Date.now(),
+            updated_at: Date.now(),
+          },
+        }),
+      });
+    };
+    const shows = async (code, deferred, until) => {
+      const handler = paused(code, deferred);
+      await page.route(`${API}/jobs/${JOB}`, handler);
+      await page.waitForFunction(until, null, { timeout: 20000, polling: 200 }).catch(() => {});
+      const seen = await page.evaluate(() => ({
+        resume: !!document.querySelector('#surface-library [data-act="resume"]'),
+        text: document.querySelector('#surface-library .la-section')?.innerText || '',
+      }));
+      await page.unroute(`${API}/jobs/${JOB}`, handler);
+      return seen;
+    };
+    const ordinary = await shows('YIELD', true, () =>
+      /paused/i.test(document.querySelector('#surface-library .la-section')?.innerText || '')
+    );
+    check(
+      `${tag} stale pause: an ordinary pause still offers Resume`,
+      /paused/i.test(ordinary.text) && ordinary.resume,
+      short(ordinary.text)
+    );
+    const stale = await shows('STALE_READING', false, () =>
+      /can’t resume/.test(document.querySelector('#surface-library .la-section')?.innerText || '')
+    );
+    check(
+      `${tag} stale pause: a job paused because its reading changed offers no Resume`,
+      /paused/i.test(stale.text) && !stale.resume,
+      short(stale.text)
+    );
+    check(
+      `${tag} stale pause: and says in a sentence to start a new analysis, with no raw code`,
+      /can’t resume\. Start a new whole-work analysis\./.test(stale.text) &&
+        !/STALE_READING/.test(stale.text),
+      short(stale.text)
+    );
   }
   // The failures this section asked for are not the page's errors.
   for (let i = errors.length - 1; i >= 0; i--)
