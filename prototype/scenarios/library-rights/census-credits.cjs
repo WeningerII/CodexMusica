@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 'use strict';
-/* global __dirname, process, Buffer, URL, window, document, AbortController, MouseEvent, innerWidth, console, getComputedStyle */
 // Standalone source-grounded browser proof, not integrated-shell row completion.
 // Run: CHROMIUM_PATH=/usr/bin/chromium node prototype/scenarios/library-rights/census-credits.cjs
 // --mutate-note deliberately corrupts the metadata-only explanation and MUST fail.
+// --mutate-style omits stylesheet insertion; --mutate-style-cleanup leaks its link.
+// Both MUST fail the lifecycle/style assertions below. Only shell CSS is preloaded.
 // All browser requests are fulfilled locally; no external image/data requests.
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
@@ -16,9 +17,8 @@ const artwork = JSON.parse(fs.readFileSync(path.join(root, 'library/data/artwork
 const production = fs.readFileSync(path.join(root, 'src/library/rights.js'), 'utf8');
 const file = path.join(root, 'prototype/features/library-rights/census-credits.js');
 let source = fs.readFileSync(file, 'utf8');
-const css =
-  fs.readFileSync(path.join(root, 'prototype/proto.css'), 'utf8') +
-  fs.readFileSync(file.replace(/\.js$/, '.css'), 'utf8');
+const shellCss = fs.readFileSync(path.join(root, 'prototype/proto.css'), 'utf8');
+const css = fs.readFileSync(file.replace(/\.js$/, '.css'), 'utf8');
 const note =
   'Held and research records remain searchable as metadata. Their source bodies are excluded from readable exports.';
 const exclusion = 'Collection artwork is historical and credited here; it is in no export package.';
@@ -28,6 +28,14 @@ assert.ok(production.includes("lib.go('/works?availability=all')"));
 if (process.argv.includes('--mutate-note')) {
   assert.ok(source.includes(note), 'mutation target exists');
   source = source.replace(note, 'Held records are included in readable exports.');
+}
+if (process.argv.includes('--mutate-style')) {
+  assert.ok(source.includes('host.append(stylesheet, root)'), 'stylesheet mutation target exists');
+  source = source.replace('host.append(stylesheet, root)', 'host.append(root)');
+}
+if (process.argv.includes('--mutate-style-cleanup')) {
+  assert.ok(source.includes('stylesheet.remove();'), 'stylesheet cleanup mutation target exists');
+  source = source.replace('stylesheet.remove();', '');
 }
 const keys = [
   'source_files',
@@ -52,6 +60,7 @@ async function main() {
   const page = await browser.newPage({ locale: 'en-US', viewport: { width: 1024, height: 900 } });
   const unexpected = [];
   const errors = [];
+  let stylesheetRequests = 0;
   page.on('pageerror', (error) => errors.push(error.message));
   await page.route('**/*', async (route) => {
     const url = new URL(route.request().url());
@@ -62,12 +71,16 @@ async function main() {
     if (url.pathname === '/')
       return route.fulfill({
         contentType: 'text/html',
-        body: '<!doctype html><html lang="en"><head><title>Credits scenario</title><link rel="stylesheet" href="/component.css"></head><body><button id="outside">Outside</button><main id="host"></main></body></html>',
+        body: '<!doctype html><html lang="en"><head><title>Credits scenario</title><link rel="stylesheet" href="/shell.css"></head><body><button id="outside">Outside</button><main id="host"></main></body></html>',
       });
-    if (url.pathname === '/component.js')
+    if (url.pathname === '/prototype/features/library-rights/census-credits.js')
       return route.fulfill({ contentType: 'text/javascript', body: source });
-    if (url.pathname === '/component.css')
+    if (url.pathname === '/shell.css')
+      return route.fulfill({ contentType: 'text/css', body: shellCss });
+    if (url.pathname === '/prototype/features/library-rights/census-credits.css') {
+      stylesheetRequests++;
       return route.fulfill({ contentType: 'text/css', body: css });
+    }
     if (artwork.artwork.some((a) => url.pathname === '/assets/library/art/' + a.id + '-480.webp'))
       return route.fulfill({
         contentType: 'image/png',
@@ -82,9 +95,10 @@ async function main() {
   });
   try {
     await page.goto(server.url + '/');
+    assert.equal(stylesheetRequests, 0, 'fixture does not preload component CSS');
     await page.evaluate(
       async ({ catalog, artwork }) => {
-        window.component = await import('/component.js');
+        window.component = await import('/prototype/features/library-rights/census-credits.js');
         const freeze = (value) => {
           if (value && typeof value === 'object') {
             Object.values(value).forEach(freeze);
@@ -149,6 +163,43 @@ async function main() {
       },
       { catalog, artwork }
     );
+    assert.equal(
+      await page.locator('#host > link[rel="stylesheet"]').count(),
+      1,
+      'mount owns one stylesheet link inside host'
+    );
+    assert.equal(
+      await page.locator('#host > link').getAttribute('href'),
+      server.url + '/prototype/features/library-rights/census-credits.css',
+      'stylesheet resolves beside module'
+    );
+    await page.waitForFunction(
+      () => getComputedStyle(document.querySelector('.pcc')).display === 'grid'
+    );
+    assert.ok(stylesheetRequests > 0, 'mount requested its real stylesheet');
+    assert.deepEqual(
+      await page
+        .locator('.pcc-card')
+        .first()
+        .evaluate((el) => ({
+          display: getComputedStyle(el).display,
+          padding: getComputedStyle(el).paddingTop,
+          radius: getComputedStyle(el).borderTopLeftRadius,
+        })),
+      { display: 'grid', padding: '16px', radius: '12px' },
+      'actual component rules rendered without preloading'
+    );
+    await page.evaluate(() => {
+      window.keptLink = document.querySelector('#host > link');
+      document.querySelector('#host').hidden = true;
+      document.querySelector('#host').hidden = false;
+    });
+    assert.equal(
+      await page.evaluate(() => window.keptLink === document.querySelector('#host > link')),
+      true,
+      'hide/show keeps mounted stylesheet'
+    );
+    groups++;
     const rows = await page
       .locator('.pcc-census > div')
       .evaluateAll((els) =>
@@ -278,6 +329,7 @@ async function main() {
     });
     await page.waitForTimeout(30);
     assert.equal(await page.locator('.pcc').count(), 0);
+    assert.equal(await page.locator('#host > link').count(), 0, 'abort removes stylesheet');
     assert.equal(
       await page.evaluate(() => window.messages.at(-1)),
       'Inspection unavailable',
@@ -295,12 +347,22 @@ async function main() {
     });
     assert.equal(await page.evaluate(() => window.calls), 3, 'detached action listener removed');
     assert.equal(await page.evaluate(() => document.activeElement.id), 'outside');
+    assert.equal(
+      await page.locator('#host > link').count(),
+      0,
+      'repeated explicit unmount removes stylesheet'
+    );
     await page.evaluate(() => {
       const controller = new AbortController();
       controller.abort();
       window.make({ signal: controller.signal });
     });
     assert.equal(await page.locator('.pcc').count(), 0, 'pre-aborted mount inert');
+    assert.equal(
+      await page.locator('#host > link').count(),
+      0,
+      'pre-aborted mount inserts no stylesheet'
+    );
     groups++;
     await page.evaluate(() =>
       window.make({
@@ -416,11 +478,47 @@ async function main() {
     );
     await page.evaluate(() => {
       window.second = window.component.mount(document.querySelector('#host'), window.ctx);
-      window.instance.unmount();
     });
+    assert.equal(
+      await page.locator('#host > link').count(),
+      2,
+      'each concurrent mount owns its own link'
+    );
+    await page.evaluate(() => window.instance.unmount());
     assert.equal(await page.locator('.pcc').count(), 1, 'instance cleanup scoped');
+    assert.equal(
+      await page.locator('#host > link').count(),
+      1,
+      'unmount keeps other instance stylesheet'
+    );
+    await page.waitForFunction(
+      () => getComputedStyle(document.querySelector('.pcc')).display === 'grid'
+    );
     await page.evaluate(() => window.controller.abort());
     assert.equal(await page.locator('.pcc').count(), 0);
+    assert.equal(
+      await page.locator('#host > link').count(),
+      0,
+      'shared signal clears surviving mount stylesheet'
+    );
+    groups++;
+    for (let i = 0; i < 3; i++) {
+      await page.evaluate(() => window.make());
+      assert.equal(
+        await page.locator('#host > link').count(),
+        1,
+        'remount does not accumulate links'
+      );
+      await page.waitForFunction(
+        () => getComputedStyle(document.querySelector('.pcc')).display === 'grid'
+      );
+      await page.evaluate(() => window.instance.unmount());
+      assert.equal(
+        await page.locator('#host').evaluate((host) => host.children.length),
+        0,
+        'unmount removes all owned nodes'
+      );
+    }
     groups++;
     assert.deepEqual(unexpected, [], 'no unapproved browser request');
     assert.deepEqual(errors, [], 'no browser errors');
