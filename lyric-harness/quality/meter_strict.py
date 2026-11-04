@@ -48,12 +48,17 @@ the entries the b1 meter check in `lyric_harness` already returns
 STATUS = ("holds", "does_not_hold", "not_computed")
 POLICIES = (None, "initial_inversion")
 
-BASIS = ("weak and strong positions compared wherever the reading is reliably "
-         "aligned (each result states how far that was); stress 0 is W, 1 and "
-         "2 are S; source digits kept; reads the b1 stream as b1 reports it "
-         "(after its own demotion) and applies no further promotion, demotion "
-         "or substitution except a declared policy; a declared check, not "
-         "recognition, and uniqueness is not established")
+BASIS = ("weak and strong positions compared wherever the stream is reliably "
+         "aligned (each result states how many); stress 0 is W, 1 and 2 are "
+         "S; the input digits are kept as given; this check applies no "
+         "promotion, demotion or substitution except a declared policy; a "
+         "declared check, not recognition, and uniqueness is not established")
+
+# Where the digits came from is a property of the ADAPTER, not of the
+# comparison: `compare` also takes supplied (declared) streams. `from_entry`
+# stamps this on its results and the CLI prints it.
+B1_SOURCE = ("digits are the b1 meter check's reported stream, after b1's own "
+             "function-word demotion; nothing further is adjusted here")
 
 
 def _not_computed(reason, **extra):
@@ -158,6 +163,7 @@ def from_entry(entry, template, *, policy=None):
         return _not_computed("alignment unavailable", policy=policy)
     out = compare(digits, template, policy=policy, valid=valid,
                   tokens=tokens)
+    out["source"] = B1_SOURCE
     if isinstance(align, dict):
         out["unread_from_token"] = align.get("valid_through_token", 0) + 1
     return out
@@ -190,7 +196,12 @@ def report_lines(result):
             head += (f"; {result['missing_positions']} template "
                      f"position(s) unfilled")
     else:
-        head = f"strict: not computed -- {result.get('reason', '')}"
+        head = "strict: not computed -- "
+        k = result.get("positions_compared")
+        if k and result.get("not_compared_after_syllable") is not None:
+            # Say what WAS compared, without letting it read as `holds`.
+            head += f"the {k} compared position(s) agree; "
+        head += result.get("reason", "")
     out = ["  " + head]
     if "positions_compared" in result:
         out.append(f"    compared {result['positions_compared']} of "

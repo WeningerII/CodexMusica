@@ -124,6 +124,21 @@ class SuppliedStreams(unittest.TestCase):
         last_unread = MS.compare("01", "./", valid=2)
         self.assertEqual(last_unread["status"], "not_computed")
         self.assertNotIn("missing_positions", last_unread)
+        # The human line says what WAS compared, and never reads as holds.
+        head = MS.report_lines(clean_prefix)[0]
+        self.assertIn("not computed -- the 4 compared position(s) agree; "
+                      "positions after syllable 4", head)
+        self.assertNotIn("holds", head)
+
+    def test_weak_slot_contract_as_a_supplied_stream(self):
+        # Synthetic contract 2 (6587406414) as the record states it: a
+        # stressed stream against (WS)x5, with no dictionary in between.
+        r = MS.compare("1111111111", IAMBIC5)
+        self.assertEqual((r["status"], positions(r)),
+                         ("does_not_hold", [1, 3, 5, 7, 9]))
+        # A supplied stream carries no b1 provenance claim.
+        self.assertNotIn("source", r)
+        self.assertNotIn("b1", r["basis"])
 
 
 class ProductionReader(unittest.TestCase):
@@ -147,6 +162,7 @@ class ProductionReader(unittest.TestCase):
         self.assertEqual((r["compared_through_syllable"], r["unread_from_token"]),
                          (5, 6))
         self.assertNotIn("overhang", r)
+        self.assertEqual(r["source"], MS.B1_SOURCE)
         text = "\n".join(MS.report_lines(r))
         self.assertIn("after syllable 5 not compared", text)
         self.assertIn("compared 5 of 10 template position(s)", text)
@@ -207,6 +223,9 @@ class ProductionReader(unittest.TestCase):
         self.assertEqual((plain.returncode, strict.returncode), (0, 0))
         # The strong-only report is unchanged; the strict verdict is added.
         self.assertTrue(strict.stdout.startswith(plain.stdout.rsplit("  basis:", 1)[0]))
+        self.assertIn("strict source: digits are the b1 meter check's "
+                      "reported stream, after b1's own function-word "
+                      "demotion", strict.stdout)
         self.assertIn("strict: holds -- all 8 positions agree", strict.stdout)
         self.assertNotIn("strict:", plain.stdout)
         inv = run(IAMBIC4, V1, "--strict=initial_inversion")

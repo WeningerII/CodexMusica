@@ -11168,6 +11168,7 @@ def main():
         print(meter_basis_line())
         if strict_flags:
             print("  strict basis: " + MS.BASIS)
+            print("  strict source: " + MS.B1_SOURCE)
 
     elif cmd == "internal":
         picked, nA, _ = internal_matches(lex, " ".join(args[1:]), decl)
