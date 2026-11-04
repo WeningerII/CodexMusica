@@ -67,6 +67,7 @@ for (const prefix of ['.', 'mcp']) {
   }
 }
 try {
+  console.log('INFO trust boundary: Chromium discovery imports the installed Playwright package; use trusted node_modules. This checker is not a sandbox.');
   const {chromium} = require(path.resolve('node_modules/playwright'));
   const candidates = [['Playwright default executable', chromium.executablePath()]];
   if (process.env.CHROMIUM_PATH) candidates.push(['CHROMIUM_PATH override', process.env.CHROMIUM_PATH]);
@@ -111,22 +112,42 @@ if shutil.which('git'):
         print('INFO tracked checkout paths not checked: no readable Git index; directory checks alone cannot detect partial sparse exclusions.')
 try:
     requirements = Path('mcp/requirements-runtime.txt').read_text()
-    for name, expected in re.findall(r'^([A-Za-z0-9_.-]+)==([^\s\\]+)', requirements, re.M):
+    records = [line.strip() for line in requirements.replace('\\\n', ' ').splitlines()
+               if line.strip() and not line.lstrip().startswith('#')]
+    if not records:
+        raise ValueError('empty requirements inventory')
+    pins = []
+    for record in records:
+        pin = re.fullmatch(r'([A-Za-z0-9_.-]+)==([0-9][A-Za-z0-9.!+_-]*)(?:\s+--hash=sha256:[0-9a-fA-F]{64})*', record)
+        if not pin:
+            raise ValueError('unsupported requirements syntax; expected exact version pins with optional SHA-256 hashes')
+        pins.append(pin.groups())
+    for name, expected in pins:
         try:
             actual = importlib.metadata.version(name)
         except importlib.metadata.PackageNotFoundError:
             actual = 'missing'
         report(actual == expected, f'Python package {name}', f'installed={actual}, pinned={expected}; see mcp/requirements-runtime.txt and CI hash-locked setup')
-except (OSError, ValueError):
-    report(False, 'Python requirements', 'missing or unreadable; restore mcp/requirements-runtime.txt')
+except (OSError, ValueError) as error:
+    report(False, 'Python requirements', f'missing, unreadable or unsupported inventory ({type(error).__name__}); restore mcp/requirements-runtime.txt or update this diagnostic for its syntax')
 
 try:
     harness = Path('lyric-harness')
     staged = Path(os.environ.get('LYRIC_STAGED_DATA') or harness / 'data')
     manifest = json.loads((harness / 'data/runtime_assets.json').read_text())
-    for asset in manifest['assets']:
-        if not asset.get('runtime'):
-            continue
+    assets = manifest['assets']
+    if not isinstance(assets, list) or not assets or any(not isinstance(a, dict) or type(a.get('runtime')) is not bool for a in assets):
+        raise ValueError('invalid assets inventory')
+    runtime_assets = [a for a in assets if a['runtime']]
+    if not runtime_assets:
+        raise ValueError('empty runtime inventory')
+    for asset in runtime_assets:
+        if not isinstance(asset.get('id'), str) or not asset['id'] or asset.get('base') not in ('root', 'staged') or not isinstance(asset.get('files'), list) or not asset['files']:
+            raise ValueError('invalid runtime asset')
+        for entry in asset['files']:
+            if not isinstance(entry, dict) or not isinstance(entry.get('path'), str) or not entry['path'] or Path(entry['path']).is_absolute() or '..' in Path(entry['path']).parts or type(entry.get('bytes')) is not int or entry['bytes'] < 0 or not isinstance(entry.get('sha256'), str) or not re.fullmatch(r'[0-9a-f]{64}', entry['sha256']):
+                raise ValueError('invalid runtime asset file')
+    for asset in runtime_assets:
         base = harness if asset['base'] == 'root' else staged
         bad = []
         for entry in asset['files']:
