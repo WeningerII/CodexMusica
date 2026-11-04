@@ -2093,7 +2093,7 @@
       "id": "library#9",
       "treatment": "Keep",
       "kind": "L",
-      "gate": "test_library_routes",
+      "gate": "test_library_search",
       "status": "pending",
       "scenario": null
     },
@@ -2112,7 +2112,7 @@
       "id": "library#11",
       "treatment": "Keep",
       "kind": "L",
-      "gate": "test_library_routes",
+      "gate": "test_library_search",
       "status": "pending",
       "scenario": null
     },
@@ -2301,7 +2301,7 @@
       "id": "library#32",
       "treatment": "Keep",
       "kind": "L",
-      "gate": "test_library_routes",
+      "gate": "test_library_viewer_routes",
       "status": "pending",
       "scenario": null
     },
@@ -2310,7 +2310,7 @@
       "id": "library#33",
       "treatment": "Keep",
       "kind": "L",
-      "gate": "test_library_routes",
+      "gate": "test_library_viewer_routes",
       "status": "pending",
       "scenario": null
     },
@@ -2319,7 +2319,7 @@
       "id": "library#34",
       "treatment": "Keep",
       "kind": "L",
-      "gate": "test_library_routes",
+      "gate": "test_library_viewer_routes",
       "status": "pending",
       "scenario": null
     },
@@ -2328,7 +2328,7 @@
       "id": "library#35",
       "treatment": "Keep",
       "kind": "L",
-      "gate": "test_library_routes",
+      "gate": "test_library_viewer_routes",
       "status": "pending",
       "scenario": null
     },
@@ -2337,7 +2337,7 @@
       "id": "library#36",
       "treatment": "Keep",
       "kind": "L",
-      "gate": "test_library_routes",
+      "gate": "test_library_viewer_routes",
       "status": "pending",
       "scenario": null
     },
@@ -2346,7 +2346,7 @@
       "id": "library#37",
       "treatment": "Keep",
       "kind": "L",
-      "gate": "test_library_routes",
+      "gate": "test_library_viewer_routes",
       "status": "pending",
       "scenario": null
     },
@@ -2463,7 +2463,7 @@
       "id": "library#50",
       "treatment": "Keep",
       "kind": "L",
-      "gate": "test_library_routes",
+      "gate": "test_library_corpus",
       "status": "pending",
       "scenario": null
     },
@@ -2492,7 +2492,7 @@
       "id": "library#53",
       "treatment": "Keep",
       "kind": "L",
-      "gate": "test_library_import_inpage",
+      "gate": "check_library_shell",
       "status": "pending",
       "scenario": null
     },
@@ -2501,7 +2501,7 @@
       "id": "library#54",
       "treatment": "Keep",
       "kind": "L",
-      "gate": "test_library_import_inpage",
+      "gate": "check_library_page",
       "status": "pending",
       "scenario": null
     },

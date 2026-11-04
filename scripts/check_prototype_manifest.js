@@ -50,10 +50,7 @@ const KIND = {
 const MERGE_GROUPS = ['tabs', 'parts', 'environment', 'signal-chain', 'character', 'output'];
 const GATE_FILES = { reach: 'scripts/ui_reachability_check.js' };
 // Named by the Library feature matrix, absent from the repo (#670 P1 finding).
-const KNOWN_MISSING = {
-  test_library_routes: 'matrix rows 9, 11, 32–37 and 50 name mcp/test_library_routes',
-  test_library_import_inpage: 'matrix rows 53 and 54 name test_library_import_inpage.js',
-};
+const KNOWN_MISSING = {};
 
 const problems = [];
 let checks = 0;
