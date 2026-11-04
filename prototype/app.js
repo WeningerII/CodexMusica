@@ -8,7 +8,7 @@
 
 import { read, write, scope } from './storage.js';
 import { createHost, announce } from './host.js';
-import { loadItems } from './data.js';
+import { loadItems, loadLibrary, collectionFile } from './data.js';
 
 const ROUTES = ['browse', 'genre', 'instrument', 'map', 'lyrics', 'library'];
 const DEFAULT_ROUTE = 'browse';
@@ -60,6 +60,69 @@ const LANES = {
     },
   },
 };
+// The Library lane's ctx (#670 6639673247, 6640163315, 6640718497). It has
+// no recipe object, by construction (Rule 1). The prototype has no collection
+// page and no reader yet, so the two navigation calls say so instead of
+// routing; openReading still resolves the unit as production's Play does.
+async function libraryContext() {
+  const lib = await loadLibrary();
+  const ids = new Map(); // collection → its readable unit ids, once fetched
+  const selected = new Set(); // reading unit ids, this tab only
+  const listeners = new Set();
+  const idsOf = async (cid) => {
+    if (!ids.has(cid)) {
+      const file = await collectionFile(cid);
+      ids.set(cid, file.readable_ids || []);
+    }
+    return ids.get(cid);
+  };
+  const selection = Object.freeze({
+    state(cid) {
+      const list = ids.get(cid) || [];
+      const n = list.filter((id) => selected.has(id)).length;
+      return !n ? 'none' : n === list.length ? 'all' : 'some';
+    },
+    async toggle(cid) {
+      const list = await idsOf(cid);
+      const all = list.length && list.every((id) => selected.has(id));
+      for (const id of list) {
+        if (all) selected.delete(id);
+        else selected.add(id);
+      }
+      for (const fn of listeners) fn(cid);
+      return selection.state(cid);
+    },
+    subscribe(fn) {
+      listeners.add(fn);
+      return () => listeners.delete(fn);
+    },
+  });
+  return {
+    shelves: lib.shelves,
+    loadMore: lib.loadMore,
+    selection,
+    openCollection() {
+      announce('Collection pages aren’t part of this prototype yet.');
+    },
+    async openReading(cid) {
+      const unitId = await lib.unitOf(cid);
+      announce('The reader isn’t part of this prototype yet.');
+      return { unitId };
+    },
+    showCredit(artworkId) {
+      const a = lib.art.get(artworkId);
+      announce(a ? a.credit : 'No credit is recorded for this artwork.');
+    },
+  };
+}
+LANES.library = {
+  id: 'library',
+  label: 'The Library',
+  load: () => import('./features/library/explore.js'),
+  unloaded: 'The Library’s collections did not load, so there is nothing to show yet.',
+  context: libraryContext,
+};
+
 const hosts = {};
 for (const [route, lane] of Object.entries(LANES)) {
   hosts[route] = createHost(lane, document.querySelector(`[data-panel="${route}"]`));

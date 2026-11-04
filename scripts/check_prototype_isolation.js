@@ -146,14 +146,22 @@ const SHELL_DATA = new Set([
   '../data/geo.json',
   '../data/geo-meta.json',
   '../data/no-fixed-origin.json',
+  '../library/data/catalog.json',
+  '../library/data/artwork.json',
+  '../library/data/collections.json',
 ]);
+// The one computed read: a collection file, by an id prototype/data.js has
+// checked against the collection-id pattern first (collectionFile()).
+const COLLECTION_FETCH = '`../library/data/c/${id}.json.gz`';
 function fetchProblems(text, rel) {
   const out = [];
   const shell = rel.startsWith('prototype/') && !FEATURE.test(rel);
   for (const m of text.matchAll(/\bfetch\(\s*([^)]*)\)/g)) {
     const arg = m[1].trim();
     const lit = /^(['"`])([^'"`$]*)\1$/.exec(arg);
-    const ok = lit && (/^\.\.\/api\/[\w./-]+$/.test(lit[2]) || (shell && SHELL_DATA.has(lit[2])));
+    const ok =
+      (lit && (/^\.\.\/api\/[\w./-]+$/.test(lit[2]) || (shell && SHELL_DATA.has(lit[2])))) ||
+      (rel === 'prototype/data.js' && arg === COLLECTION_FETCH);
     if (!ok) {
       out.push(
         `fetch(${arg}) is not a literal path into the static catalog (../api/)` +
@@ -215,6 +223,10 @@ function selfTest() {
     [fetchProblems("fetch('../data/geo.json')", lane), 1],
     [fetchProblems("fetch('../data/geo.json')", 'prototype/data.js'), 0],
     [fetchProblems("fetch('../data/countries.geo.json')", 'prototype/data.js'), 1],
+    [fetchProblems('fetch(`../library/data/c/${id}.json.gz`)', 'prototype/data.js'), 0],
+    [fetchProblems('fetch(`../library/data/c/${id}.json.gz`)', 'prototype/app.js'), 1],
+    [fetchProblems('fetch(`../library/data/u/${id}.json.gz`)', 'prototype/data.js'), 1],
+    [fetchProblems("fetch('../library/data/catalog.json')", lane), 1],
     [fetchProblems('fetch(`../api/${id}.json`)', lane), 1],
     [moduleProblems("import { x } from './part.js';", lane), 0],
     [moduleProblems("import { read } from '../../storage.js';", lane), 1],

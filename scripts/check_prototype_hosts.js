@@ -34,6 +34,17 @@
 //   8. FAILURE. A missing lane module, a mount() that throws, or catalog data
 //      that won't load does not leave one honest sentence in that panel, in
 //      place of the placeholder, and a working shell, with no uncaught error.
+//  10. LIBRARY (6640163315, 6640718497). ctx.shelves is not catalog.json's
+//      shelves in order, frozen, with production's language names
+//      (src/library/core.js LANGUAGE_NAMES) and its card mapping; loadMore
+//      does not append exactly the next readable rows of collections.json for
+//      that language, with first: null, or a data_id that disagrees with the
+//      catalog is not refused as DATA_CHANGED; openReading does not resolve a
+//      preview card to its `first` and an appended card to the first of its
+//      collection file's readable_ids, or does not refuse a bad id
+//      (NOT_FOUND) and a collection with nothing readable (NO_READABLE);
+//      selection does not toggle all of a collection's units and notify; or
+//      showCredit does not say artwork.json's credit.
 //   9. UNMOUNT. unmount() does not abort ctx.signal, remove the host and
 //      restore the placeholder.
 //
@@ -44,6 +55,7 @@
 const { chromium } = require('playwright');
 const fs = require('node:fs');
 const path = require('node:path');
+const zlib = require('node:zlib');
 const { start } = require('./_pages_server.js');
 
 const root = path.resolve(__dirname, '..');
@@ -51,10 +63,23 @@ const NS = 'codex-prototype:';
 const LANE_MODULES = {
   browse: '/prototype/features/browse-map/discovery.js',
   lyrics: '/prototype/features/lyrics/editor.js',
+  library: '/prototype/features/library/explore.js',
 };
 const CTX_KEYS = {
   browse: ['announce', 'items', 'signal', 'storage'],
   lyrics: ['announce', 'onChange', 'signal', 'storage', 'text'],
+  // No recipe object, ever (Rule 1, 6639673247).
+  library: [
+    'announce',
+    'loadMore',
+    'openCollection',
+    'openReading',
+    'selection',
+    'shelves',
+    'showCredit',
+    'signal',
+    'storage',
+  ],
 };
 
 const problems = [];
@@ -398,6 +423,202 @@ async function failuresOf(browser, srv) {
   }
 }
 
+const libData = (rel) =>
+  JSON.parse(fs.readFileSync(path.join(root, 'library', 'data', rel), 'utf8'));
+function coreLanguageNames() {
+  const src = fs.readFileSync(path.join(root, 'src', 'library', 'core.js'), 'utf8');
+  const m = /const LANGUAGE_NAMES = (\{[^}]*\});/.exec(src);
+  return m ? Function(`return (${m[1]})`)() : null;
+}
+
+async function libraryChecks(browser, srv) {
+  const catalog = libData('catalog.json');
+  const collections = libData('collections.json').collections;
+  const artwork = libData('artwork.json').artwork;
+  const names = coreLanguageNames();
+  expect(!!names, 'library: could not read LANGUAGE_NAMES from src/library/core.js');
+  const { context, page, errors } = await newPage(browser, srv);
+  await page.goto(`${srv.url}/prototype/#library`);
+  await waitMounted(page, 'library');
+  const p = await probe(page, 'library');
+  expect(
+    JSON.stringify(p.keys) === JSON.stringify(CTX_KEYS.library),
+    `ctx: library got [${p.keys}], expected [${CTX_KEYS.library}]`
+  );
+  const shelves = await page.evaluate(() => {
+    const s = window.__probeCtx.library.shelves;
+    return {
+      frozen: Object.isFrozen(s) && s.every((x) => Object.isFrozen(x) && Object.isFrozen(x.cards)),
+      list: JSON.parse(JSON.stringify(s)),
+    };
+  });
+  expect(shelves.frozen, 'library: ctx.shelves (or a shelf, or its cards) is not frozen');
+  const want = catalog.shelves.map((s) => ({
+    language: s.language,
+    languageLabel: names ? names[s.language] || s.language : null,
+    total: s.total,
+    cards: s.cards.map((t) => [t[0], t[1], s.language, t[2], t[3], t[4], t[5]]),
+  }));
+  const have = shelves.list.map((s) => ({
+    language: s.language,
+    languageLabel: s.languageLabel,
+    total: s.total,
+    cards: s.cards.map((c) => [c.id, c.title, c.language, c.readable, c.recorded, c.art, c.first]),
+  }));
+  expect(
+    JSON.stringify(have) === JSON.stringify(want),
+    'library: ctx.shelves differs from catalog.json (order, names, totals or card mapping)'
+  );
+  const withArt = shelves.list.flatMap((s) => s.cards).filter((c) => c.art);
+  expect(
+    withArt.length > 0 &&
+      withArt.every(
+        (c) =>
+          c.artworkUrl === `../assets/library/art/${c.art}-480.webp` &&
+          c.artworkLabel === (artwork.find((a) => a.id === c.art) || {}).title
+      ),
+    'library: a card with art lacks its artworkUrl or artworkLabel'
+  );
+  // loadMore
+  const eng = collections.filter((r) => r[3] > 0 && r[2] === 'eng');
+  const more = await page.evaluate(async () => {
+    const c = window.__probeCtx.library;
+    const a = await c.loadMore('eng', 24);
+    const b = await c.loadMore('eng', 24);
+    return {
+      a: JSON.parse(JSON.stringify(a)),
+      b: JSON.parse(JSON.stringify(b)),
+      frozen: Object.isFrozen(a.cards),
+    };
+  });
+  const preview = catalog.shelves.find((s) => s.language === 'eng').cards.length;
+  expect(
+    JSON.stringify(more.a.cards.map((c) => c.id)) ===
+      JSON.stringify(eng.slice(preview, preview + 24).map((r) => r[0])) &&
+      JSON.stringify(more.b.cards.map((c) => c.id)) ===
+        JSON.stringify(eng.slice(preview + 24, preview + 48).map((r) => r[0])),
+    'library: loadMore did not append the next readable English rows of collections.json, in order'
+  );
+  expect(
+    more.a.total === catalog.shelves.find((s) => s.language === 'eng').total &&
+      more.a.cards.every((c) => c.first === null) &&
+      more.frozen,
+    'library: loadMore cards lack first: null, are not frozen, or the total is wrong'
+  );
+  // openReading
+  const firstCard = catalog.shelves[0].cards[0];
+  const appended = more.a.cards[0].id;
+  const file = JSON.parse(
+    zlib.gunzipSync(fs.readFileSync(path.join(root, 'library', 'data', 'c', `${appended}.json.gz`)))
+  );
+  const open = await page.evaluate(
+    async ({ a, b }) => {
+      const c = window.__probeCtx.library;
+      const code = (fn) =>
+        fn().then(
+          () => 'resolved',
+          (e) => e.code
+        );
+      return {
+        a: (await c.openReading(a)).unitId,
+        said: document.getElementById('proto-status').textContent,
+        b: (await c.openReading(b)).unitId,
+        bad: await code(() => c.openReading('collection_not-a-real-id')),
+        missing: await code(() => c.openReading('collection_00000000-0000-0000-0000-000000000000')),
+      };
+    },
+    { a: firstCard[0], b: appended }
+  );
+  expect(
+    open.a === firstCard[5],
+    `library: openReading(a preview card) gave ${open.a}, its first is ${firstCard[5]}`
+  );
+  expect(
+    open.b === (file.readable_ids || [])[0],
+    `library: openReading(an appended card) gave ${open.b}, its collection file says ${(file.readable_ids || [])[0]}`
+  );
+  expect(
+    /isn’t part of this prototype/.test(open.said),
+    `library: openReading said "${open.said}"`
+  );
+  expect(open.bad === 'NOT_FOUND', `library: openReading(a malformed id) gave ${open.bad}`);
+  expect(
+    open.missing === 'NOT_FOUND',
+    `library: openReading(an unknown collection) gave ${open.missing}`
+  );
+  // selection and credit
+  const sel = await page.evaluate(async (cid) => {
+    const c = window.__probeCtx.library;
+    const seen = [];
+    const off = c.selection.subscribe((id) => seen.push(id));
+    const before = c.selection.state(cid);
+    const on = await c.selection.toggle(cid);
+    const offState = await c.selection.toggle(cid);
+    off();
+    await c.selection.toggle(cid);
+    return { before, on, offState, seen };
+  }, appended);
+  expect(
+    sel.before === 'none' && sel.on === 'all' && sel.offState === 'none' && sel.seen.length === 2,
+    `library: selection toggle/notify gave ${JSON.stringify(sel)}`
+  );
+  const art = artwork.find((a) => withArt.some((c) => c.art === a.id));
+  const credit = await page.evaluate((id) => {
+    window.__probeCtx.library.showCredit(id);
+    return document.getElementById('proto-status').textContent;
+  }, art.id);
+  expect(credit === art.credit, `library: showCredit said "${credit}"`);
+  expect(!errors.length, `library: uncaught errors: ${errors.join(' | ')}`);
+  await context.close();
+
+  // DATA_CHANGED and NO_READABLE, from served files that disagree.
+  {
+    const ctx2 = await browser.newContext();
+    const page2 = await ctx2.newPage();
+    await ctx2.route('**/*', (route) => {
+      const u = new URL(route.request().url());
+      if (u.pathname === LANE_MODULES.library)
+        return route.fulfill({ status: 200, contentType: 'text/javascript', body: PROBE });
+      if (u.pathname === '/library/data/collections.json')
+        return route.fulfill({
+          status: 200,
+          contentType: 'application/json',
+          body: JSON.stringify({ ...libData('collections.json'), data_id: 'changed' }),
+        });
+      if (u.pathname === `/library/data/c/${appended}.json.gz`)
+        return route.fulfill({
+          status: 200,
+          contentType: 'application/gzip',
+          body: zlib.gzipSync(JSON.stringify({ ...file, readable_ids: [] })),
+        });
+      return route.continue();
+    });
+    await page2.goto(`${srv.url}/prototype/#library`);
+    await waitMounted(page2, 'library');
+    const codes = await page2.evaluate(async (b) => {
+      const c = window.__probeCtx.library;
+      const code = (fn) =>
+        fn().then(
+          () => 'resolved',
+          (e) => e.code
+        );
+      return {
+        more: await code(() => c.loadMore('eng', 24)),
+        none: await code(() => c.openReading(b)),
+      };
+    }, appended);
+    expect(
+      codes.more === 'DATA_CHANGED',
+      `library: a disagreeing collections.json gave ${codes.more}`
+    );
+    expect(
+      codes.none === 'NO_READABLE',
+      `library: a collection with no readable unit gave ${codes.none}`
+    );
+    await ctx2.close();
+  }
+}
+
 async function unmounting(browser, srv) {
   const { context, page, errors } = await newPage(browser, srv);
   await page.goto(`${srv.url}/prototype/#genre`);
@@ -467,6 +688,7 @@ async function unmounting(browser, srv) {
     await mounting(browser, srv);
     await refusedDraft(browser, srv);
     await failuresOf(browser, srv);
+    await libraryChecks(browser, srv);
     await unmounting(browser, srv);
   } finally {
     await browser.close();

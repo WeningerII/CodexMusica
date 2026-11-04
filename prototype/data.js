@@ -51,3 +51,146 @@ export async function loadItems() {
   });
   return Object.freeze(items);
 }
+
+// ── The Library lane (#670 6640163315, 6640718497) ─────────────────────────
+// Read-only, from the committed library/data/ beside the site, with the same
+// mappings production uses (src/library/core.js fromShelf/fromRow, Play).
+
+const COLLECTION = /^collection_[0-9a-f-]{36}$/;
+const libError = (code, message) => Object.assign(new Error(message), { code });
+
+async function inflated(response) {
+  if (!response.ok) {
+    throw libError(
+      response.status === 404 ? 'NOT_FOUND' : 'LOAD_FAILED',
+      `HTTP ${response.status}`
+    );
+  }
+  let bytes = new Uint8Array(await response.arrayBuffer());
+  // A .json.gz arrives as gzip bytes unless the host already decoded it.
+  if (bytes.length > 1 && bytes[0] === 0x1f && bytes[1] === 0x8b) {
+    const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
+    bytes = new Uint8Array(await new Response(stream).arrayBuffer());
+  }
+  return JSON.parse(new TextDecoder().decode(bytes));
+}
+
+// The one computed path the shell reads: a collection file, by an id that
+// must look like one (check_prototype_isolation.js allows only this form).
+export function collectionFile(id) {
+  if (typeof id !== 'string' || !COLLECTION.test(id)) {
+    throw libError('NOT_FOUND', `"${id}" is not a collection id`);
+  }
+  return fetch(`../library/data/c/${id}.json.gz`).then(inflated);
+}
+
+// Copied from src/library/core.js LANGUAGE_NAMES, so a shelf is named as the
+// live Library names it. check_prototype_hosts.js compares the two.
+const LANGUAGE = {
+  eng: 'English',
+  fas: 'Persian',
+  fin: 'Finnish',
+  cym: 'Welsh',
+  non: 'Old Norse',
+  ltc: 'Middle Chinese',
+  msa: 'Malay',
+  san: 'Sanskrit',
+  som: 'Somali',
+};
+
+// ctx.shelves, ctx.loadMore and ctx.openReading's resolution for the Library
+// lane. A shelf card's `first` is the catalog's first readable unit; a card
+// appended by loadMore has first: null (as production's fromRow does), and
+// openReading resolves it from the collection file.
+export async function loadLibrary() {
+  const [catalog, artwork] = await Promise.all([
+    fetch('../library/data/catalog.json').then(json),
+    fetch('../library/data/artwork.json').then(json),
+  ]);
+  const art = new Map((artwork.artwork || []).map((a) => [a.id, a]));
+  const card = (c) => {
+    const a = c.art && art.get(c.art);
+    return Object.freeze({
+      ...c,
+      ...(a
+        ? { artworkUrl: `../assets/library/art/${c.art}-480.webp`, artworkLabel: a.title }
+        : {}),
+    });
+  };
+  const first = new Map();
+  const shelves = Object.freeze(
+    catalog.shelves.map((s) =>
+      Object.freeze({
+        language: s.language,
+        languageLabel: LANGUAGE[s.language] || s.language,
+        total: s.total,
+        cards: Object.freeze(
+          s.cards.map((t) => {
+            first.set(t[0], t[5]);
+            return card({
+              id: t[0],
+              title: t[1],
+              language: s.language,
+              readable: t[2],
+              recorded: t[3],
+              art: t[4],
+              first: t[5],
+            });
+          })
+        ),
+      })
+    )
+  );
+  const shown = new Map(shelves.map((s) => [s.language, s.cards.length]));
+  let rows = null;
+  const all = async () => {
+    if (!rows) {
+      rows = fetch('../library/data/collections.json')
+        .then(json)
+        .then((file) => {
+          if (file.data_id !== catalog.data_id) {
+            throw libError('DATA_CHANGED', 'The Library data changed since this page loaded.');
+          }
+          return file.collections;
+        })
+        .catch((e) => {
+          rows = null; // a failure is forgotten, so the next Show more asks again
+          throw e.code ? e : libError('LOAD_FAILED', String(e.message || e));
+        });
+    }
+    return rows;
+  };
+  async function loadMore(language, count) {
+    const shelf = shelves.find((s) => s.language === language);
+    if (!shelf) throw libError('NOT_FOUND', `No shelf for "${language}".`);
+    const list = (await all()).filter((r) => r[3] > 0 && r[2] === language);
+    const from = shown.get(language);
+    const next = list.slice(from, from + Math.max(0, count | 0)).map((r) =>
+      card({
+        id: r[0],
+        title: r[1],
+        language: r[2],
+        readable: r[3],
+        recorded: r[4],
+        art: r[5],
+        first: null,
+      })
+    );
+    shown.set(language, from + next.length);
+    return { cards: Object.freeze(next), total: shelf.total };
+  }
+  async function unitOf(collectionId) {
+    const known = first.get(collectionId);
+    if (known) return known;
+    const file = await collectionFile(collectionId).catch((e) => {
+      throw e.code ? e : libError('LOAD_FAILED', String(e.message || e));
+    });
+    if (file.data_id && file.data_id !== catalog.data_id) {
+      throw libError('DATA_CHANGED', 'The Library data changed since this page loaded.');
+    }
+    const id = (file.readable_ids || [])[0];
+    if (!id) throw libError('NO_READABLE', 'This collection has no readable work yet.');
+    return id;
+  }
+  return { shelves, loadMore, unitOf, art, catalog };
+}
