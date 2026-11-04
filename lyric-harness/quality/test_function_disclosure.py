@@ -206,11 +206,12 @@ class FunctionDisclosureTests(unittest.TestCase):
 
 class WriterDisclosureTests(unittest.TestCase):
     raw = [' verse ', '', ' English_Song::BREAK ', '  ', 'reprise', 'reprise']
-    block = ('Your request allowed these functions (as written → as read):\n'
+    block = ('The request allowed these functions (as written → resolved name):\n'
              '  " verse " → "verse"\n'
              '  " English_Song::BREAK " → "interlude"\n'
              '  "reprise" → "reprise"\n'
              '  "reprise" → "reprise"\n'
+             'Not drawn in this song: interlude, reprise.\n'
              'The sections above are the song; do not add or remove sections based on this list.\n')
 
     def test_exact_roster_and_blanks_preserve_request(self):
@@ -218,6 +219,8 @@ class WriterDisclosureTests(unittest.TestCase):
         plan = P.make_plan(11, functions=raw, lines=24)
         self.assertEqual(raw, self.raw)
         self.assertEqual(plan['request']['functions'], self.raw)
+        self.assertEqual([s['function'] for s in plan['sections']], ['verse'])
+        self.assertEqual(plan['functions_unused'], ['interlude', 'reprise'])
         brief = plan['writer_brief']
         self.assertEqual(brief.count(self.block), 1)
         self.assertIn(self.block + 'Feel:', brief)
@@ -228,13 +231,48 @@ class WriterDisclosureTests(unittest.TestCase):
         clean['request']['functions'] = raw.copy()
         self.assertEqual(plan, clean)
 
-    def test_brief_block_only_reads_request_not_unrelated_prose(self):
+    def test_seed_12_names_allowed_but_undrawn_functions(self):
+        raw = ['verse', 'chorus', 'bridge']
+        plan = P.make_plan(12, functions=raw, lines=24)
+        self.assertEqual(plan['request']['functions'], raw)
+        self.assertEqual([s['function'] for s in plan['sections']],
+                         ['verse', 'verse', 'verse'])
+        self.assertEqual(plan['functions_unused'], ['bridge', 'chorus'])
+        block = ('The request allowed these functions (as written → resolved name):\n'
+                 '  "verse" → "verse"\n'
+                 '  "chorus" → "chorus"\n'
+                 '  "bridge" → "bridge"\n'
+                 'Not drawn in this song: bridge, chorus.\n'
+                 'The sections above are the song; do not add or remove sections based on this list.\n')
+        self.assertIn(block + 'Feel:', plan['writer_brief'])
+
+    def test_all_allowed_functions_drawn_has_no_undrawn_line(self):
+        plan = P.make_plan(11, functions=['verse'], lines=24)
+        self.assertEqual(plan['functions_unused'], [])
+        self.assertEqual([s['function'] for s in plan['sections']], ['verse'] * 4)
+        block = ('The request allowed these functions (as written → resolved name):\n'
+                 '  "verse" → "verse"\n'
+                 'The sections above are the song; do not add or remove sections based on this list.\n')
+        self.assertIn(block + 'Feel:', plan['writer_brief'])
+        self.assertNotIn('Not drawn in this song:', plan['writer_brief'])
+
+    def test_undrawn_display_reads_existing_order_without_mutation(self):
+        plan = P.make_plan(11, functions=self.raw, lines=24)
+        # Report supplied plan metadata, rather than rerunning a draw or
+        # recomputing/sorting its unused list while rendering.
+        plan['functions_unused'] = ['reprise', 'interlude']
+        before = copy.deepcopy(plan)
+        self.assertIn('Not drawn in this song: reprise, interlude.\n',
+                      P.writer_brief(plan))
+        self.assertEqual(plan, before)
+
+    def test_brief_block_excludes_unrelated_prose(self):
         plan = P.make_plan(11, functions=self.raw, lines=24)
         plan.update(genre='GENRE_SENTINEL', theme='THEME_SENTINEL',
                     lyric_example='LYRIC_SENTINEL')
         plan['request'].update(genre='REQUEST_GENRE_SENTINEL')
         rendered = P.writer_brief(plan)
-        start = rendered.index('Your request allowed these functions')
+        start = rendered.index('The request allowed these functions')
         block = rendered[start:rendered.index('Feel:', start)]
         self.assertEqual(block, self.block)
         for word in ('GENRE_SENTINEL', 'THEME_SENTINEL', 'LYRIC_SENTINEL',
@@ -267,6 +305,9 @@ print(json.dumps([plan.make_plan(**case) for case in cases]))
                  for seed in (7, 11, 31)
                  for functions in (None, [], self.raw,
                                    [' Pre-Chorus ', 'chorus', ' Pre-Chorus '])]
+        cases.extend([{'seed': 12, 'lines': 24,
+                       'functions': ['verse', 'chorus', 'bridge']},
+                      {'seed': 11, 'lines': 24, 'functions': ['verse']}])
         cases.append({'seed': 11, 'lines': 24, 'functions': ['bridge'],
                       'wants': ['sections.bridge=4']})
         env = dict(os.environ, PYTHONHASHSEED=str(hashseed),
@@ -296,7 +337,7 @@ print(json.dumps([plan.make_plan(**case) for case in cases]))
                     continue
                 old_brief, new_brief = old.pop('writer_brief'), new.pop('writer_brief')
                 self.assertEqual(json.dumps(old), json.dumps(new))
-                start = new_brief.index('Your request allowed these functions')
+                start = new_brief.index('The request allowed these functions')
                 end = new_brief.index('Feel:', start)
                 self.assertEqual(old_brief, new_brief[:start] + new_brief[end:])
                 self.assertNotEqual(old_brief, new_brief)

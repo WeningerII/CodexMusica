@@ -5026,10 +5026,13 @@ def writer_brief(plan):
         if str(raw).strip()
     ])
     if readings:
-        out.append("Your request allowed these functions (as written → as read):")
+        out.append("The request allowed these functions (as written → resolved name):")
         for row in readings:
             out.append(f"  {json.dumps(row['raw'], ensure_ascii=False)} → "
                        f"{json.dumps(row['canonical'], ensure_ascii=False)}")
+        if plan.get("functions_unused"):
+            out.append("Not drawn in this song: " +
+                       ", ".join(plan["functions_unused"]) + ".")
         out.append("The sections above are the song; do not add or remove "
                    "sections based on this list.")
     out.append(f"Feel: {m['beats']}/{m['unit']} grouped "

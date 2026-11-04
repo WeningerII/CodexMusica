@@ -140,8 +140,13 @@ async function connection(t) {
 }
 
 // The optional baseline is a separate checkout of the released runtime, not
-// a forged identity on a current-runtime wire. Existing codec/session suites
-// also exercise synthetic mismatches without needing a second checkout.
+// a forged identity on a current-runtime wire. Without a second checkout,
+// test_state_codec.mjs's top-level oldWire/oldBodyWire assertions cover
+// synthetic mismatch refusal, exact recovery and refusal to restamp old state.
+// test_chatgpt.mjs: "a changed scorer refuses old lyric sessions with an export,
+// and never blocks a recipe" checks synthetic session admission refusal and
+// the recovery instruction (not execution of recovery or an old-runtime grade).
+// These are complementary checks, not substitutes for the released fixture.
 test(
   'released runtime session and sealed caller state refuse before execution and recover exactly',
   { skip: !process.env.FUNCTION_DISCLOSURE_BASELINE_ROOT, timeout: 120000 },
@@ -187,7 +192,7 @@ test(
     assert.equal(previous.session.task.plan.sha256, hash(previous.session.task.plan.result));
     assert.doesNotMatch(
       previous.session.task.plan.result.writer_brief,
-      /Your request allowed these functions/
+      /(?:Your|The) request allowed these functions/
     );
     const directory = mkdtempSync(join(tmpdir(), 'disclosure-session-'));
     t.after(() => rmSync(directory, { recursive: true, force: true }));
@@ -264,7 +269,12 @@ test(
     const args = { seed: sweep.accepted_shown[0], lines: 24, functions: raw };
     const planned = await call('lyric_plan', args);
     assert.equal(planned.exit_code, 0);
-    assert.match(planned.plan.writer_brief, /Your request allowed these functions/);
+    assert.match(
+      planned.plan.writer_brief,
+      /The request allowed these functions \(as written → resolved name\):/
+    );
+    assert.deepEqual(planned.plan.functions_unused, ['interlude', 'reprise']);
+    assert.match(planned.plan.writer_brief, /Not drawn in this song: interlude, reprise\./);
     assert.equal(planned.plan_sha256, hash(planned.plan));
     recordCreation(task, 'lyric_plan', args, planned);
     assert.equal(task.workflow.plan.sha256, planned.plan_sha256);
