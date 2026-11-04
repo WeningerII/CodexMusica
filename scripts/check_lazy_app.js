@@ -3012,12 +3012,18 @@ async function engineSweep(lazyHtml) {
 // E6. The direct reads of the engine tables in the page's code, from the AST:
 // an identifier that is not a property name or an object key, counted by the
 // function it is read in: { file: { table: { function: reads } } }. The code
-// is src/*.js and src/pages/*.js, and the three regions build_html.js inlines
+// is src/*.js and src/pages/*.js, and the four regions build_html.js inlines
 // from scripts/ (between their @inline markers, cut as the build cuts them),
-// counted as "scripts/_merge.js@inline", "scripts/_card_descriptors.js@inline"
-// and "scripts/_engine_codec.js@inline" (which writes the two render tables'
-// slots by property, so reads none by name).
-const INLINED = ['scripts/_merge.js', 'scripts/_card_descriptors.js', 'scripts/_engine_codec.js'];
+// counted as "scripts/_merge.js@inline", "scripts/_card_descriptors.js@inline",
+// "scripts/_engine_codec.js@inline" (which writes the two render tables'
+// slots by property, so reads none by name) and "scripts/_recipe_stack.js@inline"
+// (the environment-card rule, which reads no engine table).
+const INLINED = [
+  'scripts/_merge.js',
+  'scripts/_card_descriptors.js',
+  'scripts/_engine_codec.js',
+  'scripts/_recipe_stack.js',
+];
 const INLINE_REGION = /\/\* @inline-start[^\n]*\*\/\n([\s\S]*?)\n\/\* @inline-end \*\//;
 function engineReaders() {
   const espree = require(

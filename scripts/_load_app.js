@@ -68,7 +68,14 @@ function loadApp() {
   const cdMatch = cdSource.match(/\/\* @inline-start[^\n]*\*\/\n([\s\S]*?)\n\/\* @inline-end \*\//);
   if (!cdMatch)
     throw new Error('could not find @inline-start/@inline-end markers in _card_descriptors.js');
+  // The environment-card rule, the same region build_html.js inlines into the
+  // page's first runtime block (single source: scripts/_recipe_stack.js).
+  const ecSource = fs.readFileSync(path.join(__dirname, '_recipe_stack.js'), 'utf8');
+  const ecMatch = ecSource.match(/\/\* @inline-start[^\n]*\*\/\n([\s\S]*?)\n\/\* @inline-end \*\//);
+  if (!ecMatch)
+    throw new Error('could not find @inline-start/@inline-end markers in _recipe_stack.js');
   const cardDescriptorsSnippet = `
+${ecMatch[1]}
 ${cdMatch[1]}
 function _cardDescriptorSet(card) {
   return harvestDescriptors(card, {

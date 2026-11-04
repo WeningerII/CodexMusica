@@ -15,6 +15,8 @@ function editsHold(run) {
   // A set_environment with no card writes to the card the recipe renders its
   // environment from: the first card that has any (scripts/_recipe_stack.js
   // envCardOf), which is cards[0] only while cards[0] has an environment.
+  // Deliberately an independent copy of hasEnvironment: this is the acceptance
+  // oracle, so it must not share the code it judges.
   const hasEnv = (c) =>
     !!c &&
     (c.tuning ||

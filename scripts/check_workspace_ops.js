@@ -501,5 +501,131 @@ console.log('\nadd_instrument with a tradition:');
   );
 }
 
+// ── the environment-card rule, as the page receives it (#662) ───────────────
+//
+// hasEnvironment + envCardOf have ONE source: _recipe_stack.js's @inline
+// region, which build_html.js inlines into codex.html and _load_app.js prepends
+// for the parity gates. One source cannot drift, but it can be wrong, and every
+// parity gate would then compare the wrong text with itself. So the case table
+// is hand-specified (expected index, not a frozen copy of an older body) and is
+// run against the region TEXT, evaluated alone in an empty context — which also
+// proves the region reaches nothing module-scoped — and against the module.
+console.log('\nenvironment-card rule (single source):');
+{
+  const fs = require('fs');
+  const path = require('path');
+  const vm = require('vm');
+  const RS = require('./_recipe_stack.js');
+  const text = fs.readFileSync(path.join(__dirname, '_recipe_stack.js'), 'utf8');
+  const regions =
+    text.match(/\/\* @inline-start[^\n]*\*\/\n[\s\S]*?\n\/\* @inline-end \*\//g) || [];
+  check(
+    '_recipe_stack.js has exactly one @inline region',
+    regions.length === 1,
+    `${regions.length}`
+  );
+  const body = (regions[0] || '').replace(/^[^\n]*\n/, '').replace(/\n[^\n]*$/, '');
+  const box = vm.createContext({});
+  let regionOk = true;
+  try {
+    vm.runInContext(
+      `${body}\nthis.hasEnvironment = hasEnvironment; this.envCardOf = envCardOf;`,
+      box
+    );
+  } catch (e) {
+    regionOk = false;
+    fail(`the region does not run alone: ${e.message}`);
+  }
+  const bare = () => ({ tuning: null, room: null, chain: {} });
+  const env = () => ({ tuning: 't', room: null, chain: {} });
+  // [label, card, expected hasEnvironment]
+  const PRED = [
+    ['null card', null, false],
+    ['bare card', bare(), false],
+    ['chain: null', { tuning: null, room: null, chain: null }, false],
+    ['no chain key', { tuning: null, room: null }, false],
+    ["stage values 0, '' and null", { chain: { mic: 0, pre: '', console: null } }, false],
+    ['fx: [] (empty multi-select)', { chain: { fx: [] } }, false],
+    ["fx: [''] (length 1)", { chain: { fx: [''] } }, true],
+    ["tuning: '' with room: null", { tuning: '', room: null, chain: {} }, false],
+    ['tuning set', { tuning: 't' }, true],
+    ['room set', { room: 'r' }, true],
+    ['one single-stage id', { chain: { mic: 'm' } }, true],
+  ];
+  // [label, cards, expected index (-1 = null)]
+  const a = bare();
+  const b = env();
+  const c = { tuning: null, room: null, chain: { fx: [] } };
+  const d = { tuning: null, room: 'r', chain: {} };
+  const SEL = [
+    ['missing list', null, -1],
+    ['empty list', [], -1],
+    ['[null]', [null], 0],
+    ['[null, env] -> the env card', [null, b], 1],
+    ['all bare -> cards[0] itself', [a, bare()], 0],
+    ['environment only on a later card', [a, b], 1],
+    ['an earlier fx: [] loses to a later environment', [c, d], 1],
+    ['cards[0] with an environment wins', [b, d], 0],
+    ['reordered, the first holder wins', [d, b], 0],
+    ['owner cleared -> the next holder', [{ ...b, tuning: null }, d], 1],
+  ];
+  for (const [impl, H, E] of [
+    ['module', RS.hasEnvironment, RS.envCardOf],
+    ['region', regionOk ? box.hasEnvironment : null, regionOk ? box.envCardOf : null],
+  ]) {
+    if (!H || !E) continue;
+    const predBad = PRED.filter(([, card, want]) => {
+      const got = H(card);
+      return typeof got !== 'boolean' || got !== want;
+    }).map(([l]) => l);
+    check(
+      `${impl}: hasEnvironment, ${PRED.length} cases, always a boolean`,
+      !predBad.length,
+      predBad.join('; ')
+    );
+    const selBad = SEL.filter(([, cards, want]) => {
+      const before = JSON.stringify(cards);
+      const got = E(cards);
+      const same = want === -1 ? got === null : got === cards[want];
+      return !same || JSON.stringify(cards) !== before;
+    }).map(([l]) => l);
+    check(
+      `${impl}: envCardOf, ${SEL.length} cases, the card object itself, input unchanged`,
+      !selBad.length,
+      selBad.join('; ')
+    );
+  }
+  // One source holds only if nothing else carries the body. A local copy in a
+  // page or the server matches today and drifts later, so the region's core
+  // expression `Array.isArray(x) ? x.length > 0 : !!x` (whitespace removed, any
+  // variable name) may appear in no .js/.mjs file under src/ or mcp/. It is a
+  // tripwire for that one spelling, not a ban on every rewording: the older
+  // `Array.isArray(v) ? v.length : v` is deliberately not matched, because
+  // mcp/engine.js envSettings uses it for a different job (which chain stages
+  // are set, for the response). The test oracles in check_edit_differential.js
+  // and recipe_probe_verdict.mjs are deliberate independent copies and live
+  // outside these roots.
+  const CORE = /Array\.isArray\((\w+)\)\?\1\.length>0:!!\1/;
+  const copies = [];
+  const walk = (dir) => {
+    for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (ent.name === 'node_modules' || ent.name.startsWith('.')) continue;
+      const f = path.join(dir, ent.name);
+      if (ent.isDirectory()) walk(f);
+      else if (
+        /\.(m?js)$/.test(ent.name) &&
+        CORE.test(fs.readFileSync(f, 'utf8').replace(/\s+/g, ''))
+      )
+        copies.push(path.relative(path.join(__dirname, '..'), f));
+    }
+  };
+  for (const root of ['src', 'mcp']) walk(path.join(__dirname, '..', root));
+  check(
+    "the region's core expression appears in no .js/.mjs file under src/ or mcp/",
+    !copies.length,
+    copies.join(', ')
+  );
+}
+
 console.log(failures === 0 ? '\nPASS' : `\nFAIL (${failures})`);
 process.exit(failures === 0 ? 0 : 1);

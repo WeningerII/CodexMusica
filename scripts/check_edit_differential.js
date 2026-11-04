@@ -167,6 +167,8 @@ ENV_WRITES.push({
 const tripwireBroken = ENV_WRITES.filter((w) => !w.re.test(w.src));
 
 const cloneCards = (cards) => JSON.parse(JSON.stringify(cards));
+// Deliberately an independent copy of hasEnvironment (scripts/_recipe_stack.js):
+// this is the test's oracle, so it must not share the code it checks.
 const hasEnv = (c) =>
   !!c &&
   (c.tuning ||
