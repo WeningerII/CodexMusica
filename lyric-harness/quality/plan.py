@@ -2855,9 +2855,87 @@ def _edges():
 PATTERN_ATTEMPTS = 200
 
 
-def _sample_pattern(rng, roster=None, form=None, max_cells=None):
-    """-> ordered tuple of function names. Once-functions once, edges at
-    the edges, everything else free.
+def _recurrence_policy(wants, roster=None):
+    """Relax default once preferences only when count intervals require it.
+
+    Capacities are optimistic upper bounds, not a grammar feasibility solver.
+    Explicit caps, absent functions and shared boundary slots remain binding.
+    Other predicates are deliberately left to the existing evaluator.
+    """
+    from quality import grid as G
+    inf = float("inf")
+    allowed = set(GENERATOR_ROSTER if roster is None else roster)
+    intervals = {f: [0, inf if f in allowed else 0] for f in GENERATOR_ROSTER}
+    total = [0, inf]
+    count_atoms = []
+    for name, op, value in wants:
+        if name == "sections":
+            interval = total
+        elif name.startswith("sections.") and name[9:] in intervals:
+            interval = intervals[name[9:]]
+        else:
+            continue
+        count_atoms.append(f"{name}{op}{value}")
+        n = int(value)
+        if op in ("=", ">="):
+            interval[0] = max(interval[0], n)
+        if op in ("=", "<="):
+            interval[1] = min(interval[1], n)
+    requested = "; ".join(count_atoms)
+    for name, (lo, hi) in [("sections", total), *(
+            (f"sections.{f}", bounds) for f, bounds in intervals.items())]:
+        if lo > hi:
+            absent = ("; the declared roster allows at most 0 of this function"
+                      if name.startswith("sections.") and name[9:] not in allowed else "")
+            raise PlanRefused(
+                f"{requested} can't be met: {name} requires at least {lo} and "
+                f"at most {hi} after applying nonnegative counts and roster limits{absent}")
+    first, last = _edges()
+    boundary = set(first) | set(last)
+    for position, edge in (("first", first), ("last", last)):
+        if sum(intervals[f][0] for f in edge) > 1:
+            raise PlanRefused(
+                f"{requested} can't be met: the shared {position} boundary slot "
+                f"allows at most 1 section; requested minimum is "
+                f"{sum(intervals[f][0] for f in edge)}")
+    if sum(lo for lo, hi in intervals.values()) > total[1]:
+        raise PlanRefused(
+            f"{requested} can't be met: named counts require at least "
+            f"{sum(lo for lo, hi in intervals.values())} sections, "
+            f"but the total allows at most {total[1]}")
+    once = {f for f in intervals if G.SECTION_FUNCTIONS[f].recurrence == "once"}
+    lifted = {f: "named count lower bound" for f in once - boundary
+              if intervals[f][0] > 1}
+
+    def capacity():
+        caps = {f: min(hi, 1) if f in boundary or (f in once and f not in lifted)
+                else hi for f, (lo, hi) in intervals.items()}
+        # Never add arbitrary-size integer caps to floating infinity.
+        # With no unbounded term, all remaining arithmetic stays integer.
+        if any(cap == inf for cap in caps.values()):
+            return inf
+        return (sum(cap for f, cap in caps.items() if f not in boundary)
+                + min(1, sum(caps[f] for f in first))
+                + min(1, sum(caps[f] for f in last)))
+
+    if total[0] > capacity():
+        for f in sorted(once - boundary - {"bridge"} - lifted.keys()):
+            if intervals[f][1] > 1:
+                lifted[f] = "total count lower bound"
+    if total[0] > capacity() and "bridge" in once - boundary:
+        if intervals["bridge"][1] > 1:
+            lifted["bridge"] = "total count lower bound after other once preferences"
+    if total[0] > capacity():
+        raise PlanRefused(
+            f"{requested} can't be met: at least {total[0]} sections are required, "
+            f"but this roster and these caps allow at most {capacity()} sections "
+            "(upper capacity)")
+    return lifted
+
+
+def _sample_pattern(rng, roster=None, form=None, max_cells=None, relaxed=()):
+    """-> ordered tuple of function names. Once by default, except explicit
+    count policy relaxations; edges stay at the edges.
 
     `form` is THE NAMED SHAPE, and it is enforced HERE because nothing else
     could (2026-08-23). It was a parameter of `make_plan` that this function
@@ -2893,6 +2971,8 @@ def _sample_pattern(rng, roster=None, form=None, max_cells=None):
     first_fns, last_fns = _edges()
     need = set(FORM_REQUIRES.get(form, ()))
     from quality import grid as _GR
+    once = {fn for fn, spec in _GR.SECTION_FUNCTIONS.items()
+            if spec.recurrence == "once"} - set(relaxed)
     # PRUNE THE PROPOSAL, DO NOT STEER THE DRAW. Drawing uniformly from the
     # cells a roster admits is uniform over the admissible set -- the same
     # argument rejection sampling rests on, with the rejections done once
@@ -2936,7 +3016,8 @@ def _sample_pattern(rng, roster=None, form=None, max_cells=None):
         n_cells = rng.randint(1, max(1, max_cells))
         bridge_used = False
         for _ in range(n_cells):
-            eligible = [c for c in cells if not (bridge_used and "bridge" in c)]
+            eligible = [c for c in cells if not (
+                bridge_used and "bridge" in c and "bridge" not in relaxed)]
             if not eligible:
                 # A once-only singleton roster has no next cell. Reject this
                 # finite draw; never spin waiting for a cell that cannot exist.
@@ -2972,6 +3053,13 @@ def _sample_pattern(rng, roster=None, form=None, max_cells=None):
         ending = rng.choice(enders)
         if ending:
             funcs.append(ending)
+        # Keep the historic progressive bridge draw; reject other unsolicited
+        # once repetitions as whole proposals, without deleting any sections.
+        # Include both edges and every member of a compound cell. This is a
+        # generation contract only; explicit blueprints keep their advisory
+        # recurrence reporting. Read the registry, not a second name list.
+        if any(funcs.count(fn) > 1 for fn in once):
+            continue
         # THE FORM'S OWN MEMBERSHIP, on the same rejection path as the
         # placement constraints. Pruning the cell grammar instead would be
         # steering the draw rather than pruning the proposal, which is the
@@ -2991,10 +3079,10 @@ def _sample_pattern(rng, roster=None, form=None, max_cells=None):
            f"({', '.join(sorted(need))})" if need else "")
         + (f" and drawing {', '.join(FORM_RECURS[form])} at least twice "
            f"(the form's recurrence)" if FORM_RECURS.get(form) else "")
-        + f". The placement constraints on `grid.SECTION_FUNCTIONS`"
+        + f". The placement and once-recurrence constraints on `grid.SECTION_FUNCTIONS`"
         + (", the declared roster," if roster else "")
         + (", the form's membership," if need else "")
-        + f" and the cell grammar `_CELLS` do not intersect — REFUSED rather "
+        + f" and the cell grammar `_CELLS` yielded no accepted draw within the bound — REFUSED rather "
         f"than returning a pattern the vocabulary's own definitions reject, "
         f"or quietly widening a roster the writer declared (doctrine 20).")
 
@@ -3352,9 +3440,10 @@ def sweep(seeds, wants=(), **plan_kw):
     other refusal (another window refuses the same way until the request
     changes), each group's seeds in seed order.
 
-    A PLAN IS A PURE FUNCTION OF ITS SEED, so this returns SEEDS and no
-    plans: the caller runs `plan --seed=N` on one and gets the artifact,
-    reproducibly, with nothing carried over from the search.
+    A PLAN IS A PURE FUNCTION OF ITS REQUEST, including the seed and count
+    policy. This returns SEEDS and no plans: the caller repeats the same
+    request and predicates with an accepted seed to obtain that artifact.
+    Sweep does not condition the draw to make a failing predicate pass.
     """
     seeds = list(seeds)
     wants = list(wants)
@@ -3406,7 +3495,7 @@ def _sweep_one(job):
     than as an exception stripped of its seed."""
     s, wants, plan_kw = job
     try:
-        p = make_plan(seed=s, **plan_kw)
+        p = make_plan(seed=s, _recurrence_wants=wants, **plan_kw)
     except PlanRefused as exc:
         scope = "seed" if isinstance(exc, SeedRefused) else "request"
         return (s, "refused", [], (scope, str(exc).split("\n", 1)[0][:240]))
@@ -3474,7 +3563,7 @@ def group_types_to_relations(group_types, relations=None):
 
 def make_plan(seed, form=None, lines=None, relation=None,
               functions=None, title=None, narrative=None, wants=(), melody=None,
-              relations=None, group_types=None):
+              relations=None, group_types=None, _recurrence_wants=None):
     """Plan under explicit brief predicates; never supply aesthetic defaults.
 
     The existing closed sweep vocabulary is also accepted at the generation
@@ -3488,6 +3577,7 @@ def make_plan(seed, form=None, lines=None, relation=None,
         wants = [p for p in wants.split(";") if p.strip()]
     parsed = [parse_sweep_want(w) if isinstance(w, str) else
               parse_sweep_want("".join(w)) for w in wants]
+    recurrence_wants = parsed if _recurrence_wants is None else _recurrence_wants
     form = form or DEFAULT_FORM
     if group_types:
         # THE REQUEST RECORDS WHAT WAS SENT. The plan is drawn from the
@@ -3498,6 +3588,7 @@ def make_plan(seed, form=None, lines=None, relation=None,
         plan = make_plan(seed, form=form, lines=lines, relation=relation,
                          functions=functions, title=title,
                          narrative=narrative, wants=wants, melody=melody,
+                         _recurrence_wants=recurrence_wants,
                          relations=group_types_to_relations(
                              group_types, relations) or None)
         plan["request"]["group_types"] = [
@@ -3505,13 +3596,15 @@ def make_plan(seed, form=None, lines=None, relation=None,
         return plan
     kw = dict(form=form, lines=lines, relation=relation, functions=functions,
               title=title, narrative=narrative, _wants=parsed, melody=melody,
+              _recurrence_wants=recurrence_wants,
               relations=relations)
     if not parsed:
         if melody is not None:
             return _make_plan_candidate(seed, **kw)
         return _redraw_past_joint_gate(seed, kw)
     # THE SEED'S OWN PLAN FIRST. `sweep` judges each seed's plan drawn
-    # WITHOUT the wants (a filter over seeds, M-79), and the wants below
+    # with recurrence policy but WITHOUT draw conditioning (a filter over
+    # seeds, M-79), and the wants below
     # narrow the draw itself, which moves the rng: a seed the sweep accepted
     # came back from `lyric_plan` with the same want as a different song
     # under the same candidate seed, undisclosed (seed 31 under `lines<=60`:
@@ -3522,7 +3615,7 @@ def make_plan(seed, form=None, lines=None, relation=None,
         base = make_plan(seed, form=form, lines=lines, relation=relation,
                          functions=functions, title=title,
                          narrative=narrative, melody=melody,
-                         relations=relations)
+                         _recurrence_wants=recurrence_wants, relations=relations)
     except SeedRefused:
         base = None
     if base is not None and all(sweep_holds(base, w) for w in parsed):
@@ -3668,7 +3761,7 @@ def _redraw_past_joint_gate(seed, kw):
 
 def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
                          functions=None, title=None, narrative=None, _wants=(), melody=None,
-                         relations=None, _total=None, _drawn=None):
+                         relations=None, _total=None, _drawn=None, _recurrence_wants=None):
     """A request -> the plan dict. Refuses rather than guessing.
 
     `relation`, `functions` and `title` are THE WRITER'S DECLARATION
@@ -3837,6 +3930,8 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
                 f"{sorted(need - reachable)}. Declare them in --functions, "
                 f"or declare a form that does not require them.")
 
+    recurrence = _recurrence_policy(
+        _wants if _recurrence_wants is None else _recurrence_wants, roster)
     rng = random.Random(seed)
 
     # REJECTION SAMPLING over the generated grammar: uniform over the
@@ -3922,7 +4017,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         _cells_hi = min(_max_sections, max(1, total // max(_STANZA, _min_section)))
         try:
             funcs = _sample_pattern(rng, roster, form=form,
-                                    max_cells=_cells_hi)
+                                    max_cells=_cells_hi, relaxed=recurrence)
         except PlanRefused:
             # A REJECTED DRAW, NOT A REFUSED REQUEST. `_sample_pattern`
             # raises when it cannot find an admissible pattern within the
@@ -4375,7 +4470,10 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
                                         f"1..{_cells_hi} cells under the drawn total and declared brief, "
                                         f"optional intro/outro/coda, "
                                         f"roster {len(GENERATOR_ROSTER)} "
-                                        f"of {_vocab_size()} functions")},
+                                        f"of {_vocab_size()} functions"
+                                        + ("; default once preferences lifted: " +
+                                           ", ".join(f"{f} ({why})" for f, why in sorted(recurrence.items()))
+                                           if recurrence else ""))},
             "meter": {"value": dict(meter),
                       "beats_per_line": beats_pl,
                       "slots_per_line": beats_pl * sub,
