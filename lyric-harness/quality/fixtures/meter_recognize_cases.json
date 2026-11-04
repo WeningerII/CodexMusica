@@ -1,0 +1,4606 @@
+{
+  "schema": "meter_recognize.fixtures.v1",
+  "base_commit": "10b42689f04db0f16a98425b3e22c9a5487b254c",
+  "interface": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6642873705",
+  "policy_rulings": [
+    "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6642828841",
+    "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6642871642",
+    "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6642887791"
+  ],
+  "scope": "Initial modern-English single-family supplied-reading milestone; no parser, reader integration, exhaustive catalog acceptance or live wiring.",
+  "evidence_limits": [
+    "Expected subsets were authored from source freezes before inspecting recognizer output.",
+    "lexical fields are controlled reporting inputs (often mirrored from supplied digits); except explicitly frozen D/U pairs they do not claim measured raw production lexical streams. Recognition must use digits only.",
+    "dictionary provenance in reader-contrast snapshots is supplied attribution, not a new dictionary run.",
+    "No complete source page pixels, performance, or pronunciation oracle is claimed."
+  ],
+  "sources": {
+    "common": {
+      "freeze": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6587884272",
+      "edition": "Exact electronic witnesses and locators in revision 2; public-domain poem text, modern analyses separately protected.",
+      "urls": [
+        "https://www.gutenberg.org/files/100/100-h/100-h.htm",
+        "https://rpo.library.utoronto.ca/content/psalm-life",
+        "https://www.gutenberg.org/cache/epub/2039/pg2039-images.html",
+        "https://rpo.library.utoronto.ca/content/virgins-make-much-time",
+        "https://terpconnect.umd.edu/~idsardi/papers/2008lal.pdf"
+      ],
+      "limits": "D is researcher-declared; U is a controlled injected-dictionary post-demotion freeze, not a production reader receipt. C3 is a reconciled mapping, not Penn transcription. V1 source rose-buds is mapped to fixture rosebuds."
+    },
+    "A1": {
+      "freeze": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6642828841",
+      "urls": [
+        "https://poets.org/poem/destruction-sennacherib",
+        "https://poets.org/glossary/anapest"
+      ],
+      "edition": "Academy of American Poets electronic public-domain Byron, The Destruction of Sennacherib, line 3; Hirsch glossary for division only.",
+      "limits": "Reader stream reported by BB8; no independently rerun reader here. Modern glossary layout/prose not copied."
+    },
+    "C4": {
+      "freeze": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6642828841",
+      "urls": [
+        "https://people.clas.ufl.edu/mbryant/files/BASIC-METRICAL-FEET-in-ENGLISH-POETRY.pdf"
+      ],
+      "edition": "Marsha Bryant handout p.1, final example, two segmentations.",
+      "limits": "Six-word quotation; no general handout license; extracted text, not page pixels. Source metrical mapping and supplied readings are distinct."
+    },
+    "DA": {
+      "freeze": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6640317668",
+      "review": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6640417904",
+      "urls": [
+        "https://www.merriam-webster.com/dictionary/garage",
+        "https://www.merriam-webster.com/dictionary/record",
+        "https://www.merriam-webster.com/dictionary/fire",
+        "https://www.scottishpoetrylibrary.org.uk/poem/jabberwocky/"
+      ],
+      "edition": "Dictionary pronunciation headers; Carroll electronic poem stanza 1 line 4.",
+      "limits": "Pronunciation-array mappings and composed contexts are controlled inputs, not observed speech or CMU alternatives. Dictionary prose/audio not copied; Carroll text public domain. DA7 unknown and DA8 guess are synthetic, not observed OOV/G2P."
+    },
+    "Jonson": {
+      "freeze": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6642871642",
+      "urls": [
+        "https://www.gutenberg.org/files/3771/3771-h/3771-h.htm",
+        "https://doi.org/10.7557/12.6260"
+      ],
+      "edition": "Cynthia's Revels, Act V scene III, Hesperus song opening; Gutenberg 3771, updated 2013-01-09, Everyman edition first issue 1910/reprint 1915. Bye 2021 Nordlyd45(1), p72 ex36 for scan.",
+      "limits": "Public-domain line independently HTML-checked; Bye acceptance by Jony rests on recorded locator and standard scan, source unavailable to him. No page-image collation."
+    },
+    "Daw": {
+      "freeze": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6642871642",
+      "urls": [
+        "https://www.gutenberg.org/files/1522/1522-h/1522-h.htm"
+      ],
+      "edition": "Julius Caesar III.ii, Antony funeral speech second line, Gutenberg1522 electronic text. Daw, Down and Dirty Guide to Scanning Verse, Variations, source locator retained in acceptance.",
+      "limits": "Public-domain text HTML-checked; modern teaching guide license/edition/line numbering unresolved, guide prose not copied. Explicit him:0 is a declaration, not automatic demotion."
+    },
+    "long": {
+      "freeze": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6640300932",
+      "correction": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6640586829",
+      "edition": "Synthetic supplied vectors; no independent English poem attestation.",
+      "limits": "Nine-case flat-comparison receipt is separate, not a recognition oracle. Mixed37 composition remains unsupported."
+    },
+    "historical": {
+      "freeze": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6639567653",
+      "urls": [
+        "https://www.cambridge.org/core/books/reconstructing-alliterative-verse/accentual-paradigm-in-early-english-metrics/E684D7E185FD6153517F6469C0D5E834"
+      ],
+      "edition": "Cornelius, Reconstructing Alliterative Verse (2017), ch2 Five Types list: Beowulf11a,4a,477b,1927a,1160a.",
+      "limits": "Existing H1–H5 reused, not new evidence. Theory-specific metrical S/x are not lexical stress; no binary conversion. Short medieval text only."
+    },
+    "R5": {
+      "urls": [
+        "https://rpo.library.utoronto.ca/content/sapphics"
+      ],
+      "edition": "Swinburne, Sapphics line9, RPO1999, Collected Poetical Works1924 I204–07.",
+      "limits": "Public-domain text/form; quantitative theory deliberately refused, no inferred quantitative compliance."
+    },
+    "E2": {
+      "urls": [
+        "https://www.gutenberg.org/cache/epub/22403/pg22403-images.html"
+      ],
+      "edition": "Hopkins Poems1918, Bridges, poem13 and note13.",
+      "limits": "Public-domain opening; sprung theory refused; no conversion to single-family stress."
+    },
+    "synthetic": {
+      "edition": "Researcher-authored deterministic controls.",
+      "limits": "No poem attestation, pronunciation verification, or software-generated expected truth."
+    }
+  },
+  "cases": [
+    {
+      "id": "C1",
+      "source_id": "common",
+      "input": {
+        "text": "That time of year thou mayst in me behold,",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "That"
+          },
+          {
+            "index": 2,
+            "word": "time"
+          },
+          {
+            "index": 3,
+            "word": "of"
+          },
+          {
+            "index": 4,
+            "word": "year"
+          },
+          {
+            "index": 5,
+            "word": "thou"
+          },
+          {
+            "index": 6,
+            "word": "mayst"
+          },
+          {
+            "index": 7,
+            "word": "in"
+          },
+          {
+            "index": 8,
+            "word": "me"
+          },
+          {
+            "index": 9,
+            "word": "behold"
+          }
+        ],
+        "readings": [
+          {
+            "id": "C1-D",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "C1-D:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "C1-D:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "C1-D:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "C1-D:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "C1-D:token:5"
+              },
+              {
+                "token": 6,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "C1-D:token:6"
+              },
+              {
+                "token": 7,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "C1-D:token:7"
+              },
+              {
+                "token": 8,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "C1-D:token:8"
+              },
+              {
+                "token": 9,
+                "digits": "01",
+                "lexical": "01",
+                "source": "declared",
+                "reading_id": "C1-D:token:9"
+              }
+            ]
+          },
+          {
+            "id": "C1-U",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "0",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "C1-U:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "C1-U:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "C1-U:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "C1-U:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "C1-U:token:5"
+              },
+              {
+                "token": 6,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "C1-U:token:6"
+              },
+              {
+                "token": 7,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "C1-U:token:7"
+              },
+              {
+                "token": 8,
+                "digits": "0",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "C1-U:token:8"
+              },
+              {
+                "token": 9,
+                "digits": "01",
+                "lexical": "01",
+                "source": "dictionary",
+                "reading_id": "C1-U:token:9"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "excluded_by_reading": [
+          {
+            "family": "iambic",
+            "feet": 5,
+            "policies_used": [],
+            "reading_id": "C1-D",
+            "differences": [
+              {
+                "position": 1,
+                "expected": "W",
+                "digit": "1",
+                "token": 1
+              },
+              {
+                "position": 5,
+                "expected": "W",
+                "digit": "1",
+                "token": 5
+              }
+            ]
+          },
+          {
+            "family": "iambic",
+            "feet": 5,
+            "policies_used": [],
+            "reading_id": "C1-U",
+            "differences": [
+              {
+                "position": 5,
+                "expected": "W",
+                "digit": "1",
+                "token": 5
+              },
+              {
+                "position": 8,
+                "expected": "S",
+                "digit": "0",
+                "token": 8
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "C2",
+      "source_id": "common",
+      "input": {
+        "text": "Tell me not, in mournful numbers,",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "Tell"
+          },
+          {
+            "index": 2,
+            "word": "me"
+          },
+          {
+            "index": 3,
+            "word": "not"
+          },
+          {
+            "index": 4,
+            "word": "in"
+          },
+          {
+            "index": 5,
+            "word": "mournful"
+          },
+          {
+            "index": 6,
+            "word": "numbers"
+          }
+        ],
+        "readings": [
+          {
+            "id": "C2-D",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "C2-D:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "C2-D:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "C2-D:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "C2-D:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "10",
+                "lexical": "10",
+                "source": "declared",
+                "reading_id": "C2-D:token:5"
+              },
+              {
+                "token": 6,
+                "digits": "10",
+                "lexical": "10",
+                "source": "declared",
+                "reading_id": "C2-D:token:6"
+              }
+            ]
+          },
+          {
+            "id": "C2-U",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "C2-U:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "0",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "C2-U:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "C2-U:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "0",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "C2-U:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "10",
+                "lexical": "10",
+                "source": "dictionary",
+                "reading_id": "C2-U:token:5"
+              },
+              {
+                "token": 6,
+                "digits": "10",
+                "lexical": "10",
+                "source": "dictionary",
+                "reading_id": "C2-U:token:6"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "status": "candidates",
+        "candidates": [
+          {
+            "family": "trochaic",
+            "feet": 4,
+            "policies_used": [],
+            "reading_id": "C2-U"
+          }
+        ],
+        "excluded_by_reading": [
+          {
+            "family": "trochaic",
+            "feet": 4,
+            "policies_used": [],
+            "reading_id": "C2-D",
+            "differences": [
+              {
+                "position": 2,
+                "expected": "W",
+                "digit": "1",
+                "token": 2
+              },
+              {
+                "position": 4,
+                "expected": "W",
+                "digit": "1",
+                "token": 4
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "C3",
+      "source_id": "common",
+      "input": {
+        "text": "THIS is the forest primeval. The murmuring pines and the hemlocks,",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "THIS"
+          },
+          {
+            "index": 2,
+            "word": "is"
+          },
+          {
+            "index": 3,
+            "word": "the"
+          },
+          {
+            "index": 4,
+            "word": "forest"
+          },
+          {
+            "index": 5,
+            "word": "primeval"
+          },
+          {
+            "index": 6,
+            "word": "The"
+          },
+          {
+            "index": 7,
+            "word": "murmuring"
+          },
+          {
+            "index": 8,
+            "word": "pines"
+          },
+          {
+            "index": 9,
+            "word": "and"
+          },
+          {
+            "index": 10,
+            "word": "the"
+          },
+          {
+            "index": 11,
+            "word": "hemlocks"
+          }
+        ],
+        "readings": [
+          {
+            "id": "C3-D",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "C3-D:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "C3-D:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "C3-D:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "10",
+                "lexical": "10",
+                "source": "declared",
+                "reading_id": "C3-D:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "010",
+                "lexical": "010",
+                "source": "declared",
+                "reading_id": "C3-D:token:5"
+              },
+              {
+                "token": 6,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "C3-D:token:6"
+              },
+              {
+                "token": 7,
+                "digits": "100",
+                "lexical": "100",
+                "source": "declared",
+                "reading_id": "C3-D:token:7"
+              },
+              {
+                "token": 8,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "C3-D:token:8"
+              },
+              {
+                "token": 9,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "C3-D:token:9"
+              },
+              {
+                "token": 10,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "C3-D:token:10"
+              },
+              {
+                "token": 11,
+                "digits": "10",
+                "lexical": "10",
+                "source": "declared",
+                "reading_id": "C3-D:token:11"
+              }
+            ]
+          },
+          {
+            "id": "C3-U",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "0",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "C3-U:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "0",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "C3-U:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "C3-U:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "10",
+                "lexical": "10",
+                "source": "dictionary",
+                "reading_id": "C3-U:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "010",
+                "lexical": "010",
+                "source": "dictionary",
+                "reading_id": "C3-U:token:5"
+              },
+              {
+                "token": 6,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "C3-U:token:6"
+              },
+              {
+                "token": 7,
+                "digits": "100",
+                "lexical": "100",
+                "source": "dictionary",
+                "reading_id": "C3-U:token:7"
+              },
+              {
+                "token": 8,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "C3-U:token:8"
+              },
+              {
+                "token": 9,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "C3-U:token:9"
+              },
+              {
+                "token": 10,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "C3-U:token:10"
+              },
+              {
+                "token": 11,
+                "digits": "10",
+                "lexical": "10",
+                "source": "dictionary",
+                "reading_id": "C3-U:token:11"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "excluded_by_reading": [
+          {
+            "family": "dactylic",
+            "feet": 6,
+            "policies_used": [
+              "final_catalexis"
+            ],
+            "reading_id": "C3-D",
+            "differences": [
+              {
+                "position": 2,
+                "expected": "W",
+                "digit": "1",
+                "token": 2
+              }
+            ]
+          },
+          {
+            "family": "dactylic",
+            "feet": 6,
+            "policies_used": [
+              "final_catalexis"
+            ],
+            "reading_id": "C3-U",
+            "differences": [
+              {
+                "position": 1,
+                "expected": "S",
+                "digit": "0",
+                "token": 1
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "V1",
+      "source_id": "common",
+      "input": {
+        "text": "Gather ye rosebuds while ye may,",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "Gather"
+          },
+          {
+            "index": 2,
+            "word": "ye"
+          },
+          {
+            "index": 3,
+            "word": "rosebuds"
+          },
+          {
+            "index": 4,
+            "word": "while"
+          },
+          {
+            "index": 5,
+            "word": "ye"
+          },
+          {
+            "index": 6,
+            "word": "may"
+          }
+        ],
+        "readings": [
+          {
+            "id": "V1-D",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "10",
+                "lexical": "10",
+                "source": "declared",
+                "reading_id": "V1-D:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "V1-D:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "10",
+                "lexical": "10",
+                "source": "declared",
+                "reading_id": "V1-D:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "V1-D:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "V1-D:token:5"
+              },
+              {
+                "token": 6,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "V1-D:token:6"
+              }
+            ]
+          },
+          {
+            "id": "V1-U",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "10",
+                "lexical": "10",
+                "source": "dictionary",
+                "reading_id": "V1-U:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "V1-U:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "10",
+                "lexical": "10",
+                "source": "dictionary",
+                "reading_id": "V1-U:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "V1-U:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "V1-U:token:5"
+              },
+              {
+                "token": 6,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "V1-U:token:6"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "status": "candidates",
+        "candidates": [
+          {
+            "family": "iambic",
+            "feet": 4,
+            "policies_used": [
+              "initial_inversion"
+            ],
+            "reading_id": "V1-D",
+            "template": "WSWSWSWS",
+            "segmentation": "SW|WS|WS|WS",
+            "surface": "SWWSWSWS"
+          },
+          {
+            "family": "iambic",
+            "feet": 4,
+            "policies_used": [
+              "initial_inversion"
+            ],
+            "reading_id": "V1-U",
+            "template": "WSWSWSWS",
+            "segmentation": "SW|WS|WS|WS",
+            "surface": "SWWSWSWS"
+          }
+        ],
+        "excluded_by_reading": [
+          {
+            "family": "iambic",
+            "feet": 4,
+            "policies_used": [],
+            "reading_id": "V1-D",
+            "differences": [
+              {
+                "position": 1,
+                "expected": "W",
+                "digit": "1",
+                "token": 1
+              },
+              {
+                "position": 2,
+                "expected": "S",
+                "digit": "0",
+                "token": 1
+              }
+            ]
+          },
+          {
+            "family": "iambic",
+            "feet": 4,
+            "policies_used": [],
+            "reading_id": "V1-U",
+            "differences": [
+              {
+                "position": 1,
+                "expected": "W",
+                "digit": "1",
+                "token": 1
+              },
+              {
+                "position": 2,
+                "expected": "S",
+                "digit": "0",
+                "token": 1
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "A1",
+      "source_id": "A1",
+      "input": {
+        "text": "And the sheen of their spears was like stars on the sea,",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "And"
+          },
+          {
+            "index": 2,
+            "word": "the"
+          },
+          {
+            "index": 3,
+            "word": "sheen"
+          },
+          {
+            "index": 4,
+            "word": "of"
+          },
+          {
+            "index": 5,
+            "word": "their"
+          },
+          {
+            "index": 6,
+            "word": "spears"
+          },
+          {
+            "index": 7,
+            "word": "was"
+          },
+          {
+            "index": 8,
+            "word": "like"
+          },
+          {
+            "index": 9,
+            "word": "stars"
+          },
+          {
+            "index": 10,
+            "word": "on"
+          },
+          {
+            "index": 11,
+            "word": "the"
+          },
+          {
+            "index": 12,
+            "word": "sea"
+          }
+        ],
+        "readings": [
+          {
+            "id": "A1-D",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "A1-D:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "A1-D:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "A1-D:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "A1-D:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "0",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "A1-D:token:5"
+              },
+              {
+                "token": 6,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "A1-D:token:6"
+              },
+              {
+                "token": 7,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "A1-D:token:7"
+              },
+              {
+                "token": 8,
+                "digits": "0",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "A1-D:token:8"
+              },
+              {
+                "token": 9,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "A1-D:token:9"
+              },
+              {
+                "token": 10,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "A1-D:token:10"
+              },
+              {
+                "token": 11,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "A1-D:token:11"
+              },
+              {
+                "token": 12,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "A1-D:token:12"
+              }
+            ]
+          },
+          {
+            "id": "A1-reader",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "A1-reader:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "A1-reader:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "A1-reader:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "A1-reader:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "A1-reader:token:5"
+              },
+              {
+                "token": 6,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "A1-reader:token:6"
+              },
+              {
+                "token": 7,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "A1-reader:token:7"
+              },
+              {
+                "token": 8,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "A1-reader:token:8"
+              },
+              {
+                "token": 9,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "A1-reader:token:9"
+              },
+              {
+                "token": 10,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "A1-reader:token:10"
+              },
+              {
+                "token": 11,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "A1-reader:token:11"
+              },
+              {
+                "token": 12,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "A1-reader:token:12"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "status": "candidates",
+        "candidates": [
+          {
+            "family": "anapestic",
+            "feet": 4,
+            "policies_used": [],
+            "reading_id": "A1-D",
+            "template": "WWSWWSWWSWWS",
+            "segmentation": "WWS|WWS|WWS|WWS",
+            "positions_compared": 12,
+            "surface": "WWSWWSWWSWWS"
+          }
+        ],
+        "excluded_by_reading": [
+          {
+            "family": "anapestic",
+            "feet": 4,
+            "policies_used": [],
+            "reading_id": "A1-reader",
+            "differences": [
+              {
+                "position": 5,
+                "expected": "W",
+                "digit": "1",
+                "token": 5
+              },
+              {
+                "position": 8,
+                "expected": "W",
+                "digit": "1",
+                "token": 8
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "C4",
+      "source_id": "C4",
+      "input": {
+        "text": "Two tutors who tutored the flute",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "Two"
+          },
+          {
+            "index": 2,
+            "word": "tutors"
+          },
+          {
+            "index": 3,
+            "word": "who"
+          },
+          {
+            "index": 4,
+            "word": "tutored"
+          },
+          {
+            "index": 5,
+            "word": "the"
+          },
+          {
+            "index": 6,
+            "word": "flute"
+          }
+        ],
+        "readings": [
+          {
+            "id": "C4-D",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "0",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "C4-D:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "10",
+                "lexical": "10",
+                "source": "dictionary",
+                "reading_id": "C4-D:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "0",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "C4-D:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "10",
+                "lexical": "10",
+                "source": "dictionary",
+                "reading_id": "C4-D:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "C4-D:token:5"
+              },
+              {
+                "token": 6,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "C4-D:token:6"
+              }
+            ]
+          },
+          {
+            "id": "C4-reader",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "C4-reader:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "10",
+                "lexical": "10",
+                "source": "dictionary",
+                "reading_id": "C4-reader:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "C4-reader:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "10",
+                "lexical": "10",
+                "source": "dictionary",
+                "reading_id": "C4-reader:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "C4-reader:token:5"
+              },
+              {
+                "token": 6,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "C4-reader:token:6"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "status": "candidates",
+        "candidates": [
+          {
+            "family": "amphibrachic",
+            "feet": 3,
+            "policies_used": [
+              "final_catalexis"
+            ],
+            "reading_id": "C4-D",
+            "template": "WSWWSWWSW",
+            "segmentation": "WSW|WSW|WS(W)",
+            "surface": "WSWWSWWS"
+          }
+        ],
+        "requires_unsupported_policy": [
+          {
+            "family": "anapestic",
+            "feet": 3,
+            "policies_used": [
+              "initial_truncation"
+            ],
+            "reading_id": "C4-D",
+            "template": "WWSWWSWWS",
+            "segmentation": "(W)WS|WWS|WWS",
+            "surface": "WSWWSWWS"
+          }
+        ],
+        "excluded_by_reading": [
+          {
+            "family": "amphibrachic",
+            "feet": 3,
+            "policies_used": [
+              "final_catalexis"
+            ],
+            "reading_id": "C4-reader",
+            "differences": [
+              {
+                "position": 1,
+                "expected": "W",
+                "digit": "1",
+                "token": 1
+              },
+              {
+                "position": 4,
+                "expected": "W",
+                "digit": "1",
+                "token": 3
+              }
+            ]
+          },
+          {
+            "family": "anapestic",
+            "feet": 3,
+            "policies_used": [
+              "initial_truncation"
+            ],
+            "reading_id": "C4-reader",
+            "differences": [
+              {
+                "position": 1,
+                "expected": "W",
+                "digit": "1",
+                "token": 1
+              },
+              {
+                "position": 4,
+                "expected": "W",
+                "digit": "1",
+                "token": 3
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "N1",
+      "source_id": "common",
+      "input": {
+        "text": "Tell me not, in mournful numbers,",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "Tell"
+          },
+          {
+            "index": 2,
+            "word": "me"
+          },
+          {
+            "index": 3,
+            "word": "not"
+          },
+          {
+            "index": 4,
+            "word": "in"
+          },
+          {
+            "index": 5,
+            "word": "mournful"
+          },
+          {
+            "index": 6,
+            "word": "numbers"
+          }
+        ],
+        "readings": [
+          {
+            "id": "N1-U",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "N1-U:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "0",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "N1-U:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "N1-U:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "0",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "N1-U:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "10",
+                "lexical": "10",
+                "source": "dictionary",
+                "reading_id": "N1-U:token:5"
+              },
+              {
+                "token": 6,
+                "digits": "10",
+                "lexical": "10",
+                "source": "dictionary",
+                "reading_id": "N1-U:token:6"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "status": "candidates",
+        "candidates": [
+          {
+            "family": "trochaic",
+            "feet": 4,
+            "policies_used": [],
+            "reading_id": "N1-U"
+          }
+        ],
+        "excluded_by_reading": [
+          {
+            "family": "iambic",
+            "feet": 4,
+            "policies_used": [],
+            "reading_id": "N1-U",
+            "differences": [
+              {
+                "position": 1,
+                "expected": "W",
+                "digit": "1",
+                "token": 1
+              },
+              {
+                "position": 2,
+                "expected": "S",
+                "digit": "0",
+                "token": 2
+              },
+              {
+                "position": 3,
+                "expected": "W",
+                "digit": "1",
+                "token": 3
+              },
+              {
+                "position": 4,
+                "expected": "S",
+                "digit": "0",
+                "token": 4
+              },
+              {
+                "position": 5,
+                "expected": "W",
+                "digit": "1",
+                "token": 5
+              },
+              {
+                "position": 6,
+                "expected": "S",
+                "digit": "0",
+                "token": 5
+              },
+              {
+                "position": 7,
+                "expected": "W",
+                "digit": "1",
+                "token": 6
+              },
+              {
+                "position": 8,
+                "expected": "S",
+                "digit": "0",
+                "token": 6
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "M185-A",
+      "source_id": "Jonson",
+      "input": {
+        "text": "Queen and huntress, chaste and fair,",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "Queen"
+          },
+          {
+            "index": 2,
+            "word": "and"
+          },
+          {
+            "index": 3,
+            "word": "huntress"
+          },
+          {
+            "index": 4,
+            "word": "chaste"
+          },
+          {
+            "index": 5,
+            "word": "and"
+          },
+          {
+            "index": 6,
+            "word": "fair"
+          }
+        ],
+        "readings": [
+          {
+            "id": "M185-reader",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "M185-reader:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "0",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "M185-reader:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "10",
+                "lexical": "10",
+                "source": "dictionary",
+                "reading_id": "M185-reader:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "M185-reader:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "0",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "M185-reader:token:5"
+              },
+              {
+                "token": 6,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "M185-reader:token:6"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "status": "candidates",
+        "candidates": [
+          {
+            "family": "trochaic",
+            "feet": 4,
+            "policies_used": [
+              "final_catalexis"
+            ],
+            "reading_id": "M185-reader",
+            "template": "SWSWSWSW",
+            "segmentation": "SW|SW|SW|S(W)",
+            "surface": "SWSWSWS"
+          }
+        ]
+      }
+    },
+    {
+      "id": "M190-A",
+      "source_id": "Daw",
+      "input": {
+        "text": "I come to bury Caesar, not to praise him.",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "I"
+          },
+          {
+            "index": 2,
+            "word": "come"
+          },
+          {
+            "index": 3,
+            "word": "to"
+          },
+          {
+            "index": 4,
+            "word": "bury"
+          },
+          {
+            "index": 5,
+            "word": "Caesar"
+          },
+          {
+            "index": 6,
+            "word": "not"
+          },
+          {
+            "index": 7,
+            "word": "to"
+          },
+          {
+            "index": 8,
+            "word": "praise"
+          },
+          {
+            "index": 9,
+            "word": "him"
+          }
+        ],
+        "readings": [
+          {
+            "id": "M190-D",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "M190-D:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "M190-D:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "M190-D:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "10",
+                "lexical": "10",
+                "source": "dictionary",
+                "reading_id": "M190-D:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "10",
+                "lexical": "10",
+                "source": "dictionary",
+                "reading_id": "M190-D:token:5"
+              },
+              {
+                "token": 6,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "M190-D:token:6"
+              },
+              {
+                "token": 7,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "M190-D:token:7"
+              },
+              {
+                "token": 8,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "M190-D:token:8"
+              },
+              {
+                "token": 9,
+                "digits": "0",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "M190-D:token:9"
+              }
+            ]
+          },
+          {
+            "id": "M190-reader",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "M190-reader:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "M190-reader:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "M190-reader:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "10",
+                "lexical": "10",
+                "source": "dictionary",
+                "reading_id": "M190-reader:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "10",
+                "lexical": "10",
+                "source": "dictionary",
+                "reading_id": "M190-reader:token:5"
+              },
+              {
+                "token": 6,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "M190-reader:token:6"
+              },
+              {
+                "token": 7,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "M190-reader:token:7"
+              },
+              {
+                "token": 8,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "M190-reader:token:8"
+              },
+              {
+                "token": 9,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "M190-reader:token:9"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "status": "candidates",
+        "candidates": [
+          {
+            "family": "iambic",
+            "feet": 5,
+            "policies_used": [
+              "extra_final_weak"
+            ],
+            "reading_id": "M190-D",
+            "template": "WSWSWSWSWS",
+            "surface": "WSWSWSWSWSW",
+            "segmentation": "WS|WS|WS|WS|WS+W"
+          }
+        ],
+        "excluded_by_reading": [
+          {
+            "family": "iambic",
+            "feet": 5,
+            "policies_used": [
+              "extra_final_weak"
+            ],
+            "reading_id": "M190-reader",
+            "differences": [
+              {
+                "position": 11,
+                "expected": "W",
+                "digit": "1",
+                "token": 9
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "D1",
+      "source_id": "DA",
+      "input": {
+        "text": "garage",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "garage"
+          }
+        ],
+        "readings": [
+          {
+            "id": "D1-currentCMU",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "01",
+                "lexical": "01",
+                "source": "dictionary",
+                "reading_id": "D1-currentCMU:token:1"
+              }
+            ]
+          },
+          {
+            "id": "D1-initial",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "10",
+                "lexical": "10",
+                "source": "declared",
+                "reading_id": "D1-initial:token:1"
+              }
+            ]
+          },
+          {
+            "id": "D1-secondary",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "12",
+                "lexical": "12",
+                "source": "declared",
+                "reading_id": "D1-secondary:token:1"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "candidates": [
+          {
+            "family": "iambic",
+            "feet": 1,
+            "policies_used": [],
+            "reading_id": "D1-currentCMU"
+          },
+          {
+            "family": "trochaic",
+            "feet": 1,
+            "policies_used": [],
+            "reading_id": "D1-initial"
+          }
+        ]
+      }
+    },
+    {
+      "id": "DA3",
+      "source_id": "DA",
+      "input": {
+        "text": "record",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "record"
+          }
+        ],
+        "readings": [
+          {
+            "id": "DA3-verb",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "01",
+                "lexical": "01",
+                "source": "declared",
+                "reading_id": "DA3-verb:token:1"
+              }
+            ]
+          },
+          {
+            "id": "DA3-noun1",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "10",
+                "lexical": "10",
+                "source": "declared",
+                "reading_id": "DA3-noun1:token:1"
+              }
+            ]
+          },
+          {
+            "id": "DA3-noun1-secondary",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "12",
+                "lexical": "12",
+                "source": "declared",
+                "reading_id": "DA3-noun1-secondary:token:1"
+              }
+            ]
+          },
+          {
+            "id": "DA3-noun2-device",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "01",
+                "lexical": "01",
+                "source": "declared",
+                "reading_id": "DA3-noun2-device:token:1"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "candidates": [
+          {
+            "family": "iambic",
+            "feet": 1,
+            "policies_used": [],
+            "reading_id": "DA3-verb"
+          },
+          {
+            "family": "trochaic",
+            "feet": 1,
+            "policies_used": [],
+            "reading_id": "DA3-noun1"
+          },
+          {
+            "family": "iambic",
+            "feet": 1,
+            "policies_used": [],
+            "reading_id": "DA3-noun2-device"
+          }
+        ]
+      }
+    },
+    {
+      "id": "DA4",
+      "source_id": "DA",
+      "input": {
+        "text": "fire",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "fire"
+          }
+        ],
+        "readings": [
+          {
+            "id": "DA4-contracted",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "DA4-contracted:token:1"
+              }
+            ]
+          },
+          {
+            "id": "DA4-expanded",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "10",
+                "lexical": "10",
+                "source": "declared",
+                "reading_id": "DA4-expanded:token:1"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "candidates": [
+          {
+            "family": "trochaic",
+            "feet": 1,
+            "policies_used": [],
+            "reading_id": "DA4-expanded"
+          }
+        ]
+      }
+    },
+    {
+      "id": "DA7",
+      "source_id": "DA",
+      "input": {
+        "text": "And the mome raths outgrabe.",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "And"
+          },
+          {
+            "index": 2,
+            "word": "the"
+          },
+          {
+            "index": 3,
+            "word": "mome"
+          },
+          {
+            "index": 4,
+            "word": "raths"
+          },
+          {
+            "index": 5,
+            "word": "outgrabe"
+          }
+        ],
+        "readings": [
+          {
+            "id": "DA7-missing",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "DA7-missing:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "DA7-missing:token:2"
+              },
+              {
+                "token": 3,
+                "digits": null,
+                "lexical": null,
+                "source": "unknown",
+                "reading_id": "DA7-missing:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "DA7-missing:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "01",
+                "lexical": "01",
+                "source": "declared",
+                "reading_id": "DA7-missing:token:5"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "status": "not_computed",
+        "candidates": [],
+        "prefix_agreeing": [
+          {
+            "family": "anapestic",
+            "feet": null,
+            "policies_used": [],
+            "reading_id": "DA7-missing",
+            "template": null,
+            "surface": "WW",
+            "segmentation": null,
+            "positions_compared": 2,
+            "not_compared_after_token": 3
+          }
+        ],
+        "excluded_by_reading": [
+          {
+            "family": "trochaic",
+            "feet": null,
+            "policies_used": [],
+            "reading_id": "DA7-missing",
+            "differences": [
+              {
+                "position": 1,
+                "expected": "S",
+                "digit": "0",
+                "token": 1
+              }
+            ]
+          },
+          {
+            "family": "dactylic",
+            "feet": null,
+            "policies_used": [],
+            "reading_id": "DA7-missing",
+            "differences": [
+              {
+                "position": 1,
+                "expected": "S",
+                "digit": "0",
+                "token": 1
+              }
+            ]
+          },
+          {
+            "family": "iambic",
+            "feet": null,
+            "policies_used": [],
+            "reading_id": "DA7-missing",
+            "differences": [
+              {
+                "position": 2,
+                "expected": "S",
+                "digit": "0",
+                "token": 2
+              }
+            ]
+          },
+          {
+            "family": "amphibrachic",
+            "feet": null,
+            "policies_used": [],
+            "reading_id": "DA7-missing",
+            "differences": [
+              {
+                "position": 2,
+                "expected": "S",
+                "digit": "0",
+                "token": 2
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "DA8",
+      "source_id": "DA",
+      "input": {
+        "text": "And the mome raths outgrabe.",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "And"
+          },
+          {
+            "index": 2,
+            "word": "the"
+          },
+          {
+            "index": 3,
+            "word": "mome"
+          },
+          {
+            "index": 4,
+            "word": "raths"
+          },
+          {
+            "index": 5,
+            "word": "outgrabe"
+          }
+        ],
+        "readings": [
+          {
+            "id": "DA8-guess",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "DA8-guess:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "DA8-guess:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "1",
+                "lexical": "1",
+                "source": "guessed",
+                "reading_id": "DA8-test-guess-mome-1"
+              },
+              {
+                "token": 4,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "DA8-guess:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "01",
+                "lexical": "01",
+                "source": "declared",
+                "reading_id": "DA8-guess:token:5"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "status": "no_candidate_in_searched_space",
+        "candidates": []
+      }
+    },
+    {
+      "id": "DA9",
+      "source_id": "DA",
+      "input": {
+        "text": "record the record",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "record"
+          },
+          {
+            "index": 2,
+            "word": "the"
+          },
+          {
+            "index": 3,
+            "word": "record"
+          }
+        ],
+        "readings": [
+          {
+            "id": "DA9-noun1",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "01",
+                "lexical": "01",
+                "source": "declared",
+                "reading_id": "DA9-noun1:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "DA9-noun1:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "10",
+                "lexical": "10",
+                "source": "declared",
+                "reading_id": "DA9-noun1:token:3"
+              }
+            ]
+          },
+          {
+            "id": "DA9-secondary",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "01",
+                "lexical": "01",
+                "source": "declared",
+                "reading_id": "DA9-secondary:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "DA9-secondary:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "12",
+                "lexical": "12",
+                "source": "declared",
+                "reading_id": "DA9-secondary:token:3"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "candidates": [
+          {
+            "family": "iambic",
+            "feet": 2,
+            "policies_used": [
+              "extra_final_weak"
+            ],
+            "reading_id": "DA9-noun1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "DA10",
+      "source_id": "DA",
+      "input": {
+        "text": "the fire burns",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "the"
+          },
+          {
+            "index": 2,
+            "word": "fire"
+          },
+          {
+            "index": 3,
+            "word": "burns"
+          }
+        ],
+        "readings": [
+          {
+            "id": "DA10-contracted",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "DA10-contracted:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "DA10-contracted:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "DA10-contracted:token:3"
+              }
+            ]
+          },
+          {
+            "id": "DA10-expanded",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "DA10-expanded:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "10",
+                "lexical": "10",
+                "source": "declared",
+                "reading_id": "DA10-expanded:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "DA10-expanded:token:3"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "candidates": [
+          {
+            "family": "iambic",
+            "feet": 2,
+            "policies_used": [],
+            "reading_id": "DA10-expanded"
+          }
+        ],
+        "excluded_by_reading": [
+          {
+            "family": "iambic",
+            "feet": 1,
+            "policies_used": [
+              "extra_final_weak"
+            ],
+            "reading_id": "DA10-contracted",
+            "differences": [
+              {
+                "position": 3,
+                "expected": "W",
+                "digit": "1",
+                "token": 3
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "Liamb9",
+      "source_id": "long",
+      "input": {
+        "text": "la la la la la la la la la la la la la la la la la la",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "la"
+          },
+          {
+            "index": 2,
+            "word": "la"
+          },
+          {
+            "index": 3,
+            "word": "la"
+          },
+          {
+            "index": 4,
+            "word": "la"
+          },
+          {
+            "index": 5,
+            "word": "la"
+          },
+          {
+            "index": 6,
+            "word": "la"
+          },
+          {
+            "index": 7,
+            "word": "la"
+          },
+          {
+            "index": 8,
+            "word": "la"
+          },
+          {
+            "index": 9,
+            "word": "la"
+          },
+          {
+            "index": 10,
+            "word": "la"
+          },
+          {
+            "index": 11,
+            "word": "la"
+          },
+          {
+            "index": 12,
+            "word": "la"
+          },
+          {
+            "index": 13,
+            "word": "la"
+          },
+          {
+            "index": 14,
+            "word": "la"
+          },
+          {
+            "index": 15,
+            "word": "la"
+          },
+          {
+            "index": 16,
+            "word": "la"
+          },
+          {
+            "index": 17,
+            "word": "la"
+          },
+          {
+            "index": 18,
+            "word": "la"
+          }
+        ],
+        "readings": [
+          {
+            "id": "Liamb9",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Liamb9:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Liamb9:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Liamb9:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Liamb9:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Liamb9:token:5"
+              },
+              {
+                "token": 6,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Liamb9:token:6"
+              },
+              {
+                "token": 7,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Liamb9:token:7"
+              },
+              {
+                "token": 8,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Liamb9:token:8"
+              },
+              {
+                "token": 9,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Liamb9:token:9"
+              },
+              {
+                "token": 10,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Liamb9:token:10"
+              },
+              {
+                "token": 11,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Liamb9:token:11"
+              },
+              {
+                "token": 12,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Liamb9:token:12"
+              },
+              {
+                "token": 13,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Liamb9:token:13"
+              },
+              {
+                "token": 14,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Liamb9:token:14"
+              },
+              {
+                "token": 15,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Liamb9:token:15"
+              },
+              {
+                "token": 16,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Liamb9:token:16"
+              },
+              {
+                "token": 17,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Liamb9:token:17"
+              },
+              {
+                "token": 18,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Liamb9:token:18"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "candidates": [
+          {
+            "family": "iambic",
+            "feet": 9,
+            "policies_used": [],
+            "reading_id": "Liamb9",
+            "segmentation": "WS|WS|WS|WS|WS|WS|WS|WS|WS"
+          }
+        ]
+      }
+    },
+    {
+      "id": "Liamb10",
+      "source_id": "long",
+      "input": {
+        "text": "la la la la la la la la la la la la la la la la la la la la",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "la"
+          },
+          {
+            "index": 2,
+            "word": "la"
+          },
+          {
+            "index": 3,
+            "word": "la"
+          },
+          {
+            "index": 4,
+            "word": "la"
+          },
+          {
+            "index": 5,
+            "word": "la"
+          },
+          {
+            "index": 6,
+            "word": "la"
+          },
+          {
+            "index": 7,
+            "word": "la"
+          },
+          {
+            "index": 8,
+            "word": "la"
+          },
+          {
+            "index": 9,
+            "word": "la"
+          },
+          {
+            "index": 10,
+            "word": "la"
+          },
+          {
+            "index": 11,
+            "word": "la"
+          },
+          {
+            "index": 12,
+            "word": "la"
+          },
+          {
+            "index": 13,
+            "word": "la"
+          },
+          {
+            "index": 14,
+            "word": "la"
+          },
+          {
+            "index": 15,
+            "word": "la"
+          },
+          {
+            "index": 16,
+            "word": "la"
+          },
+          {
+            "index": 17,
+            "word": "la"
+          },
+          {
+            "index": 18,
+            "word": "la"
+          },
+          {
+            "index": 19,
+            "word": "la"
+          },
+          {
+            "index": 20,
+            "word": "la"
+          }
+        ],
+        "readings": [
+          {
+            "id": "Liamb10",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Liamb10:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Liamb10:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Liamb10:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Liamb10:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Liamb10:token:5"
+              },
+              {
+                "token": 6,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Liamb10:token:6"
+              },
+              {
+                "token": 7,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Liamb10:token:7"
+              },
+              {
+                "token": 8,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Liamb10:token:8"
+              },
+              {
+                "token": 9,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Liamb10:token:9"
+              },
+              {
+                "token": 10,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Liamb10:token:10"
+              },
+              {
+                "token": 11,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Liamb10:token:11"
+              },
+              {
+                "token": 12,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Liamb10:token:12"
+              },
+              {
+                "token": 13,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Liamb10:token:13"
+              },
+              {
+                "token": 14,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Liamb10:token:14"
+              },
+              {
+                "token": 15,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Liamb10:token:15"
+              },
+              {
+                "token": 16,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Liamb10:token:16"
+              },
+              {
+                "token": 17,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Liamb10:token:17"
+              },
+              {
+                "token": 18,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Liamb10:token:18"
+              },
+              {
+                "token": 19,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Liamb10:token:19"
+              },
+              {
+                "token": 20,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Liamb10:token:20"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "candidates": [
+          {
+            "family": "iambic",
+            "feet": 10,
+            "policies_used": [],
+            "reading_id": "Liamb10",
+            "segmentation": "WS|WS|WS|WS|WS|WS|WS|WS|WS|WS"
+          }
+        ]
+      }
+    },
+    {
+      "id": "Lmixed37",
+      "source_id": "long",
+      "input": {
+        "text": "la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "la"
+          },
+          {
+            "index": 2,
+            "word": "la"
+          },
+          {
+            "index": 3,
+            "word": "la"
+          },
+          {
+            "index": 4,
+            "word": "la"
+          },
+          {
+            "index": 5,
+            "word": "la"
+          },
+          {
+            "index": 6,
+            "word": "la"
+          },
+          {
+            "index": 7,
+            "word": "la"
+          },
+          {
+            "index": 8,
+            "word": "la"
+          },
+          {
+            "index": 9,
+            "word": "la"
+          },
+          {
+            "index": 10,
+            "word": "la"
+          },
+          {
+            "index": 11,
+            "word": "la"
+          },
+          {
+            "index": 12,
+            "word": "la"
+          },
+          {
+            "index": 13,
+            "word": "la"
+          },
+          {
+            "index": 14,
+            "word": "la"
+          },
+          {
+            "index": 15,
+            "word": "la"
+          },
+          {
+            "index": 16,
+            "word": "la"
+          },
+          {
+            "index": 17,
+            "word": "la"
+          },
+          {
+            "index": 18,
+            "word": "la"
+          },
+          {
+            "index": 19,
+            "word": "la"
+          },
+          {
+            "index": 20,
+            "word": "la"
+          },
+          {
+            "index": 21,
+            "word": "la"
+          },
+          {
+            "index": 22,
+            "word": "la"
+          },
+          {
+            "index": 23,
+            "word": "la"
+          },
+          {
+            "index": 24,
+            "word": "la"
+          },
+          {
+            "index": 25,
+            "word": "la"
+          },
+          {
+            "index": 26,
+            "word": "la"
+          },
+          {
+            "index": 27,
+            "word": "la"
+          },
+          {
+            "index": 28,
+            "word": "la"
+          },
+          {
+            "index": 29,
+            "word": "la"
+          },
+          {
+            "index": 30,
+            "word": "la"
+          },
+          {
+            "index": 31,
+            "word": "la"
+          },
+          {
+            "index": 32,
+            "word": "la"
+          },
+          {
+            "index": 33,
+            "word": "la"
+          },
+          {
+            "index": 34,
+            "word": "la"
+          },
+          {
+            "index": 35,
+            "word": "la"
+          },
+          {
+            "index": 36,
+            "word": "la"
+          },
+          {
+            "index": 37,
+            "word": "la"
+          },
+          {
+            "index": 38,
+            "word": "la"
+          },
+          {
+            "index": 39,
+            "word": "la"
+          },
+          {
+            "index": 40,
+            "word": "la"
+          },
+          {
+            "index": 41,
+            "word": "la"
+          },
+          {
+            "index": 42,
+            "word": "la"
+          },
+          {
+            "index": 43,
+            "word": "la"
+          },
+          {
+            "index": 44,
+            "word": "la"
+          },
+          {
+            "index": 45,
+            "word": "la"
+          },
+          {
+            "index": 46,
+            "word": "la"
+          },
+          {
+            "index": 47,
+            "word": "la"
+          },
+          {
+            "index": 48,
+            "word": "la"
+          },
+          {
+            "index": 49,
+            "word": "la"
+          },
+          {
+            "index": 50,
+            "word": "la"
+          },
+          {
+            "index": 51,
+            "word": "la"
+          },
+          {
+            "index": 52,
+            "word": "la"
+          },
+          {
+            "index": 53,
+            "word": "la"
+          },
+          {
+            "index": 54,
+            "word": "la"
+          },
+          {
+            "index": 55,
+            "word": "la"
+          },
+          {
+            "index": 56,
+            "word": "la"
+          },
+          {
+            "index": 57,
+            "word": "la"
+          },
+          {
+            "index": 58,
+            "word": "la"
+          },
+          {
+            "index": 59,
+            "word": "la"
+          },
+          {
+            "index": 60,
+            "word": "la"
+          },
+          {
+            "index": 61,
+            "word": "la"
+          },
+          {
+            "index": 62,
+            "word": "la"
+          },
+          {
+            "index": 63,
+            "word": "la"
+          },
+          {
+            "index": 64,
+            "word": "la"
+          },
+          {
+            "index": 65,
+            "word": "la"
+          },
+          {
+            "index": 66,
+            "word": "la"
+          },
+          {
+            "index": 67,
+            "word": "la"
+          },
+          {
+            "index": 68,
+            "word": "la"
+          },
+          {
+            "index": 69,
+            "word": "la"
+          },
+          {
+            "index": 70,
+            "word": "la"
+          },
+          {
+            "index": 71,
+            "word": "la"
+          },
+          {
+            "index": 72,
+            "word": "la"
+          },
+          {
+            "index": 73,
+            "word": "la"
+          },
+          {
+            "index": 74,
+            "word": "la"
+          },
+          {
+            "index": 75,
+            "word": "la"
+          },
+          {
+            "index": 76,
+            "word": "la"
+          },
+          {
+            "index": 77,
+            "word": "la"
+          },
+          {
+            "index": 78,
+            "word": "la"
+          },
+          {
+            "index": 79,
+            "word": "la"
+          },
+          {
+            "index": 80,
+            "word": "la"
+          },
+          {
+            "index": 81,
+            "word": "la"
+          },
+          {
+            "index": 82,
+            "word": "la"
+          },
+          {
+            "index": 83,
+            "word": "la"
+          },
+          {
+            "index": 84,
+            "word": "la"
+          },
+          {
+            "index": 85,
+            "word": "la"
+          },
+          {
+            "index": 86,
+            "word": "la"
+          }
+        ],
+        "readings": [
+          {
+            "id": "Lmixed37",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:5"
+              },
+              {
+                "token": 6,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:6"
+              },
+              {
+                "token": 7,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:7"
+              },
+              {
+                "token": 8,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:8"
+              },
+              {
+                "token": 9,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:9"
+              },
+              {
+                "token": 10,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:10"
+              },
+              {
+                "token": 11,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:11"
+              },
+              {
+                "token": 12,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:12"
+              },
+              {
+                "token": 13,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:13"
+              },
+              {
+                "token": 14,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:14"
+              },
+              {
+                "token": 15,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:15"
+              },
+              {
+                "token": 16,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:16"
+              },
+              {
+                "token": 17,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:17"
+              },
+              {
+                "token": 18,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:18"
+              },
+              {
+                "token": 19,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:19"
+              },
+              {
+                "token": 20,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:20"
+              },
+              {
+                "token": 21,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:21"
+              },
+              {
+                "token": 22,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:22"
+              },
+              {
+                "token": 23,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:23"
+              },
+              {
+                "token": 24,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:24"
+              },
+              {
+                "token": 25,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:25"
+              },
+              {
+                "token": 26,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:26"
+              },
+              {
+                "token": 27,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:27"
+              },
+              {
+                "token": 28,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:28"
+              },
+              {
+                "token": 29,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:29"
+              },
+              {
+                "token": 30,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:30"
+              },
+              {
+                "token": 31,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:31"
+              },
+              {
+                "token": 32,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:32"
+              },
+              {
+                "token": 33,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:33"
+              },
+              {
+                "token": 34,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:34"
+              },
+              {
+                "token": 35,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:35"
+              },
+              {
+                "token": 36,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:36"
+              },
+              {
+                "token": 37,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:37"
+              },
+              {
+                "token": 38,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:38"
+              },
+              {
+                "token": 39,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:39"
+              },
+              {
+                "token": 40,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:40"
+              },
+              {
+                "token": 41,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:41"
+              },
+              {
+                "token": 42,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:42"
+              },
+              {
+                "token": 43,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:43"
+              },
+              {
+                "token": 44,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:44"
+              },
+              {
+                "token": 45,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:45"
+              },
+              {
+                "token": 46,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:46"
+              },
+              {
+                "token": 47,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:47"
+              },
+              {
+                "token": 48,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:48"
+              },
+              {
+                "token": 49,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:49"
+              },
+              {
+                "token": 50,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:50"
+              },
+              {
+                "token": 51,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:51"
+              },
+              {
+                "token": 52,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:52"
+              },
+              {
+                "token": 53,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:53"
+              },
+              {
+                "token": 54,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:54"
+              },
+              {
+                "token": 55,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:55"
+              },
+              {
+                "token": 56,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:56"
+              },
+              {
+                "token": 57,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:57"
+              },
+              {
+                "token": 58,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:58"
+              },
+              {
+                "token": 59,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:59"
+              },
+              {
+                "token": 60,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:60"
+              },
+              {
+                "token": 61,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:61"
+              },
+              {
+                "token": 62,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:62"
+              },
+              {
+                "token": 63,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:63"
+              },
+              {
+                "token": 64,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:64"
+              },
+              {
+                "token": 65,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:65"
+              },
+              {
+                "token": 66,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:66"
+              },
+              {
+                "token": 67,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:67"
+              },
+              {
+                "token": 68,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:68"
+              },
+              {
+                "token": 69,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:69"
+              },
+              {
+                "token": 70,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:70"
+              },
+              {
+                "token": 71,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:71"
+              },
+              {
+                "token": 72,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:72"
+              },
+              {
+                "token": 73,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:73"
+              },
+              {
+                "token": 74,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:74"
+              },
+              {
+                "token": 75,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:75"
+              },
+              {
+                "token": 76,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:76"
+              },
+              {
+                "token": 77,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:77"
+              },
+              {
+                "token": 78,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:78"
+              },
+              {
+                "token": 79,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:79"
+              },
+              {
+                "token": 80,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:80"
+              },
+              {
+                "token": 81,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:81"
+              },
+              {
+                "token": 82,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:82"
+              },
+              {
+                "token": 83,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:83"
+              },
+              {
+                "token": 84,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:84"
+              },
+              {
+                "token": 85,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:85"
+              },
+              {
+                "token": 86,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "Lmixed37:token:86"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "status": "no_candidate_in_searched_space",
+        "candidates": []
+      },
+      "scope_limit": "The 37 mixed feet (WS|SW|WWS)*12|WS are not a supported family. No recognition claim follows from the prior flat-template receipt."
+    },
+    {
+      "id": "H1",
+      "source_id": "historical",
+      "input": {
+        "text": "gomban gyldan",
+        "language": "ang",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "gomban"
+          },
+          {
+            "index": 2,
+            "word": "gyldan"
+          }
+        ],
+        "readings": [],
+        "theory": "old_english_sievers"
+      },
+      "expected": {
+        "status": "unsupported",
+        "candidates": []
+      }
+    },
+    {
+      "id": "H2",
+      "source_id": "historical",
+      "input": {
+        "text": "oft Scyld Scēfing",
+        "language": "ang",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "oft"
+          },
+          {
+            "index": 2,
+            "word": "Scyld"
+          },
+          {
+            "index": 3,
+            "word": "Scēfing"
+          }
+        ],
+        "readings": [],
+        "theory": "old_english_sievers"
+      },
+      "expected": {
+        "status": "unsupported",
+        "candidates": []
+      }
+    },
+    {
+      "id": "H3",
+      "source_id": "historical",
+      "input": {
+        "text": "hīe wyrd forswēop",
+        "language": "ang",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "hīe"
+          },
+          {
+            "index": 2,
+            "word": "wyrd"
+          },
+          {
+            "index": 3,
+            "word": "forswēop"
+          }
+        ],
+        "readings": [],
+        "theory": "old_english_sievers"
+      },
+      "expected": {
+        "status": "unsupported",
+        "candidates": []
+      }
+    },
+    {
+      "id": "H4",
+      "source_id": "historical",
+      "input": {
+        "text": "wīs wēlþungen",
+        "language": "ang",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "wīs"
+          },
+          {
+            "index": 2,
+            "word": "wēlþungen"
+          }
+        ],
+        "readings": [],
+        "theory": "old_english_sievers"
+      },
+      "expected": {
+        "status": "unsupported",
+        "candidates": []
+      }
+    },
+    {
+      "id": "H5",
+      "source_id": "historical",
+      "input": {
+        "text": "glēomannes gyd",
+        "language": "ang",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "glēomannes"
+          },
+          {
+            "index": 2,
+            "word": "gyd"
+          }
+        ],
+        "readings": [],
+        "theory": "old_english_sievers"
+      },
+      "expected": {
+        "status": "unsupported",
+        "candidates": []
+      }
+    },
+    {
+      "id": "R5",
+      "source_id": "R5",
+      "input": {
+        "text": "Saw the white implacable Aphrodite,",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "Saw"
+          },
+          {
+            "index": 2,
+            "word": "the"
+          },
+          {
+            "index": 3,
+            "word": "white"
+          },
+          {
+            "index": 4,
+            "word": "implacable"
+          },
+          {
+            "index": 5,
+            "word": "Aphrodite"
+          }
+        ],
+        "readings": [],
+        "theory": "quantitative"
+      },
+      "expected": {
+        "status": "unsupported",
+        "candidates": []
+      }
+    },
+    {
+      "id": "E2",
+      "source_id": "E2",
+      "input": {
+        "text": "GLORY be to God for dappled things—",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "GLORY"
+          },
+          {
+            "index": 2,
+            "word": "be"
+          },
+          {
+            "index": 3,
+            "word": "to"
+          },
+          {
+            "index": 4,
+            "word": "God"
+          },
+          {
+            "index": 5,
+            "word": "for"
+          },
+          {
+            "index": 6,
+            "word": "dappled"
+          },
+          {
+            "index": 7,
+            "word": "things"
+          }
+        ],
+        "readings": [],
+        "theory": "sprung"
+      },
+      "expected": {
+        "status": "unsupported",
+        "candidates": []
+      }
+    },
+    {
+      "id": "guessed-positive-control",
+      "source_id": "synthetic",
+      "input": {
+        "text": "la la la",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "la"
+          },
+          {
+            "index": 2,
+            "word": "la"
+          },
+          {
+            "index": 3,
+            "word": "la"
+          }
+        ],
+        "readings": [
+          {
+            "id": "guessed-control",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "guessed-control:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "guessed-control:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "1",
+                "lexical": "1",
+                "source": "guessed",
+                "reading_id": "guessed-control:token:3"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "candidates": [
+          {
+            "family": "anapestic",
+            "feet": 1,
+            "policies_used": [],
+            "reading_id": "guessed-control",
+            "conditional_contains": [
+              "guessed: token 3"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "correlation-control",
+      "source_id": "synthetic",
+      "input": {
+        "text": "la la",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "la"
+          },
+          {
+            "index": 2,
+            "word": "la"
+          }
+        ],
+        "readings": [
+          {
+            "id": "correlated-00",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "correlated-00:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "correlated-00:token:2"
+              }
+            ]
+          },
+          {
+            "id": "correlated-11",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "correlated-11:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "correlated-11:token:2"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "status": "no_candidate_in_searched_space",
+        "candidates": []
+      }
+    },
+    {
+      "id": "unknown-first",
+      "source_id": "synthetic",
+      "input": {
+        "text": "mome la",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "mome"
+          },
+          {
+            "index": 2,
+            "word": "la"
+          }
+        ],
+        "readings": [
+          {
+            "id": "unknown-first",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": null,
+                "lexical": null,
+                "source": "unknown",
+                "reading_id": "unknown-first:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "unknown-first:token:2"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "status": "not_computed",
+        "candidates": [],
+        "prefix_agreeing": [],
+        "not_computed_reason": "no reliable prefix: alignment stops before token 1"
+      }
+    },
+    {
+      "id": "double-removal",
+      "source_id": "synthetic",
+      "input": {
+        "text": "la la la la la la la",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "la"
+          },
+          {
+            "index": 2,
+            "word": "la"
+          },
+          {
+            "index": 3,
+            "word": "la"
+          },
+          {
+            "index": 4,
+            "word": "la"
+          },
+          {
+            "index": 5,
+            "word": "la"
+          },
+          {
+            "index": 6,
+            "word": "la"
+          },
+          {
+            "index": 7,
+            "word": "la"
+          }
+        ],
+        "readings": [
+          {
+            "id": "double-removal",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "double-removal:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "double-removal:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "double-removal:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "double-removal:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "double-removal:token:5"
+              },
+              {
+                "token": 6,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "double-removal:token:6"
+              },
+              {
+                "token": 7,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "double-removal:token:7"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "requires_unsupported_policy": [
+          {
+            "family": "amphibrachic",
+            "feet": 3,
+            "policies_used": [
+              "initial_truncation",
+              "final_catalexis"
+            ],
+            "reading_id": "double-removal",
+            "template": "WSWWSWWSW",
+            "surface": "SWWSWWS",
+            "segmentation": "(W)SW|WSW|WS(W)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "inversion-extra",
+      "source_id": "synthetic",
+      "input": {
+        "text": "la la la la la",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "la"
+          },
+          {
+            "index": 2,
+            "word": "la"
+          },
+          {
+            "index": 3,
+            "word": "la"
+          },
+          {
+            "index": 4,
+            "word": "la"
+          },
+          {
+            "index": 5,
+            "word": "la"
+          }
+        ],
+        "readings": [
+          {
+            "id": "inversion-extra",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "inversion-extra:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "inversion-extra:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "inversion-extra:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "inversion-extra:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "inversion-extra:token:5"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "candidates": [
+          {
+            "family": "iambic",
+            "feet": 2,
+            "policies_used": [
+              "initial_inversion",
+              "extra_final_weak"
+            ],
+            "reading_id": "inversion-extra",
+            "template": "WSWS",
+            "surface": "SWWSW",
+            "segmentation": "SW|WS+W"
+          }
+        ]
+      }
+    },
+    {
+      "id": "forbidden-double-start",
+      "source_id": "synthetic",
+      "input": {
+        "text": "la la la",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "la"
+          },
+          {
+            "index": 2,
+            "word": "la"
+          },
+          {
+            "index": 3,
+            "word": "la"
+          }
+        ],
+        "readings": [
+          {
+            "id": "double-start",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "double-start:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "double-start:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "double-start:token:3"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "status": "no_candidate_in_searched_space",
+        "candidates": []
+      },
+      "call": {
+        "families": {
+          "iambic": "WS"
+        }
+      }
+    }
+  ],
+  "amendments": [
+    "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6642971751",
+    "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6643037958"
+  ]
+}
