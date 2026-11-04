@@ -360,15 +360,19 @@ only when smaller than plain bytes. Existing pages are never rewritten; indexes,
 checkpoints, manifests and retained definitions remain plain. Addresses and page
 reference byte lengths always describe the uncompressed bytes. Quota accounting
 charges actual stored object bytes plus the format marker, retaining the 256 MiB
-default and existing record reservations. Compression saves disk, not candidate
+numeric default and existing record reservations. This is a physical stored-byte
+limit: compression increases the amount of logical evidence that fits under the
+same 256 MiB number. Compression saves disk, not candidate
 work or expanded analysis memory.
 
 Before the first compressed page is published, the writer atomically persists
 and fsyncs `reader-jobs-v1/store-format.json` containing `{"min_reader":"A"}`
 under the existing writer lock. Turning compression off does not remove it.
 `GET /library/v1/health` passively reports `reader_store.min_reader`: `"A"`
-when the marker is valid, `null` only when absent, and `"unknown"` for unreadable
-or malformed markers. This read takes no lock and writes nothing.
+when marked A, a well-formed future token (one uppercase letter, such as `"B"`)
+verbatim, `null` only when absent, and `"unknown"` for unreadable, oversized or
+malformed markers. Preserving future tokens lets an older external gate refuse
+a requirement it does not understand. This read takes no lock and writes nothing.
 
 Phase B activation is a separate recorded release action after the writer,
 external candidate-image format gate and conversion utility are all deployed.
@@ -376,9 +380,21 @@ The candidate image label is `com.codexmusica.reader-format="A"`, copied from
 the built image into `lyrics-image.json` as `reader_format`. The release gate
 must refuse an unlabeled/pre-A candidate once the marker exists. The label and
 external deploy/qualification gate are delivered by R2's companion change;
-this writer alone is not sufficient to enable Phase B. Run the completed
-"Song of Myself" qualification after activation and record logical/stored bytes,
-quota peak, elapsed time, memory, coverage and restart/resume evidence.
+this writer alone is not sufficient to enable Phase B. Before production
+activation, run "Song of Myself" to completion on the qualified release image,
+with its baked snapshot and `READER_STORE_GZIP=1` on a disposable store outside
+production. Record logical/stored bytes, quota peak, elapsed time, memory,
+coverage and restart/resume evidence. R2 owns that prerequisite and the later
+separate production activation.
+
+Ordinary CI does not stage the native catalog used by the interruption/resume
+test. Exact-head CI does not by itself establish real-engine gzip compatibility.
+The opt-in case in `mcp/test_reader_store_gzip.mjs` requires the pinned dictionary
+and `READER_GZIP_NATIVE_CATALOG` pointing to a catalog built from the documented
+source manifest. It checks an actual compressed checkpoint, worker restart,
+completion, and evidence equality against uninterrupted native analysis. Setting
+the variable without staging the required assets fails instead of silently
+skipping. This small-work result does not substitute for the long-work image run.
 
 ### Rollback after gzip activation
 
@@ -394,6 +410,11 @@ kept stopped, run:
 ```sh
 node mcp/reader_store_inflate.mjs /absolute/path/to/reader-jobs-v1
 ```
+
+Stopping every reader process and disabling gzip is a **procedural operator
+precondition**, not an enforced service-state check. The lock is per write: a
+running server between writes does not hold it, and the utility cannot reliably
+detect that server. Do not treat successful lock acquisition as proof of shutdown.
 
 Pass the namespace directory, not its `READER_RUNTIME_DIR` parent. The tool takes
 the same exclusive `writer.lock`, verifies all object hashes, and requires free

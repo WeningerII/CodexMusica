@@ -73,7 +73,11 @@ export function inflateReaderStore(
     const pending = path.join(directory, 'pending');
     const stage = path.join(directory, 'inflate-staging');
     const manifestFile = path.join(directory, 'inflate-manifest.json');
-    const manifest = { version: 1, complete: false, objects: objects.map(({ gzip, ...o }) => o) };
+    const manifest = {
+      version: 1,
+      complete: false,
+      objects: objects.map(({ gzip: _gzip, ...o }) => o),
+    };
     // Establish a compatibility floor even for manually imported gzip fixtures.
     if (objects.some((o) => o.gzip) && !fs.existsSync(marker))
       atomicWrite(marker, JSON.stringify({ min_reader: 'A' }));

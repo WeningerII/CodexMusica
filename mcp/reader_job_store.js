@@ -202,7 +202,8 @@ export function decodeStoredObject(raw) {
 }
 
 // Passive deployment signal: never take the writer lock or create directories.
-// Only ENOENT means absence; malformed/unreadable/future markers fail closed.
+// Only ENOENT means absence. Preserve well-formed future tokens so an older
+// external gate refuses an unknown requirement instead of assuming format A.
 export function readerStoreFormat(directory) {
   let fd;
   try {
@@ -211,7 +212,12 @@ export function readerStoreFormat(directory) {
     const size = fs.readSync(fd, raw, 0, raw.length, 0);
     if (size > 1024) return { min_reader: 'unknown' };
     const value = JSON.parse(raw.subarray(0, size));
-    return { min_reader: value?.min_reader === 'A' ? 'A' : 'unknown' };
+    return {
+      min_reader:
+        typeof value?.min_reader === 'string' && /^[A-Z]$/.test(value.min_reader)
+          ? value.min_reader
+          : 'unknown',
+    };
   } catch (error) {
     return { min_reader: error.code === 'ENOENT' ? null : 'unknown' };
   } finally {

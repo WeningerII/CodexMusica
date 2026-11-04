@@ -249,7 +249,10 @@ test('health passively reports absence, A and malformed/unreadable markers even 
     ['{', 'unknown'],
     ['{}', 'unknown'],
     ['null', 'unknown'],
-    ['{"min_reader":"Z"}', 'unknown'],
+    ['{"min_reader":"B"}', 'B'],
+    ['{"min_reader":"Z"}', 'Z'],
+    ['{"min_reader":"a"}', 'unknown'],
+    ['{"min_reader":"AB"}', 'unknown'],
     [' '.repeat(1025), 'unknown'],
   ]) {
     fs.writeFileSync(marker(f.store), raw);
@@ -350,3 +353,194 @@ s._open(()=>s._blob('pages',{instances:[{id:'orphan',text:'x'.repeat(50000)}]}))
   assert.equal(reopened.usage, physical(reopened));
   assert.ok(fs.existsSync(marker(reopened)));
 });
+
+// Opt-in qualification: ordinary CI does not stage this pinned native catalog.
+test(
+  'native gzip checkpoint restart matches uninterrupted real-engine analysis (explicit catalog setup)',
+  { skip: !process.env.READER_GZIP_NATIVE_CATALOG, timeout: 120000 },
+  async (t) => {
+    const { mkdtemp, rm } = await import('node:fs/promises');
+    const { createCatalogResolver, packReaderPages, probeReaderScheme } =
+      await import('./reader_scheduler.js');
+    const { createPythonBridge } = await import('./python_bridge.js');
+    const here = path.dirname(fileURLToPath(import.meta.url));
+    const root = path.resolve(here, '..');
+    const catalog = process.env.READER_GZIP_NATIVE_CATALOG;
+    assert.ok(
+      fs.existsSync(path.join(catalog, 'manifest.json')),
+      'explicit native catalog must be staged'
+    );
+    assert.ok(
+      fs.existsSync(path.join(root, 'lyric-harness/cmudict.dict')),
+      'pinned dictionary must be staged'
+    );
+    const tmpdir = os.tmpdir;
+    const directory = await mkdtemp(path.join(tmpdir(), 'reader-actual-integration-'));
+    const resolver = createCatalogResolver({
+      directory: catalog,
+      engineCommit: 'reader-integration',
+      resourceFingerprint: 'installed-assets',
+      readerScheme: await probeReaderScheme({
+        python: process.env.LYRIC_PYTHON || 'python3',
+        harnessDir: path.join(root, 'lyric-harness'),
+      }),
+    });
+    const { snapshot_id } = await resolver.probe();
+    const request = {
+      contract_version: 1,
+      snapshot_id,
+      reading_unit_id: 'reading_17250bdd-17d0-5cc0-a6b9-65d7b08bf7ca',
+      reading_revision: 'c87834414a515cb18750e03225287ea78b179c196e5d6d6dbf62a34fed9e8882',
+      declaration_set: {},
+      requested_layers: ['sound', 'form', 'rhythm', 'language'],
+    };
+    const identity = await resolver.resolveIdentity(request);
+    const { source } = await resolver.resolveSource(request);
+    const bridge = createPythonBridge({
+      python: process.env.LYRIC_PYTHON || 'python3',
+      harnessDir: path.join(root, 'lyric-harness'),
+      workerPath: path.join(here, 'worker.py'),
+      harnessEnv: () => ({ ...process.env, PYTHONDONTWRITEBYTECODE: '1' }),
+      timeoutMs: 600000,
+      maxOutputBytes: 1024 * 1024,
+    });
+    let store = new ReaderJobStore({ directory, gzip: true });
+    const created = store.create({
+      viewer: 'reader-fixture',
+      idempotency_key: 'interrupted',
+      identity,
+      request,
+    });
+    const run = async (job, stopAfterCheckpoint = false) => {
+      const lease = store.lease(job.id);
+      let summary;
+      const result = await bridge.runReaderLease(
+        {
+          source,
+          identity,
+          declarations: {},
+          requested: request.requested_layers,
+          checkpoint: lease.cursor,
+          committed_pages: store.workerPayload(job.id).page_paths,
+          lease_ms: 600000,
+        },
+        {
+          shouldStop: () => (stopAfterCheckpoint ? 'YIELD' : null),
+          onReaderCheckpoint: (step) => {
+            assert.equal(step.provider_calls, 0);
+            summary = step.summary;
+            const committed = store.commitCheckpoint(job.id, lease.attempt, lease.fence, {
+              cursor: step.checkpoint,
+              pages: packReaderPages(step.records),
+              progress: summary.counters,
+              coverage: summary.coverage,
+            });
+            return { added_page_paths: committed.added_page_paths };
+          },
+        }
+      );
+      assert.equal(result.code, 0, result.stderr);
+      if (result.reader_result.status === 'complete')
+        return store.complete(job.id, lease.attempt, lease.fence, {
+          summary,
+          coverage: summary.coverage,
+          exhausted: true,
+          census_reconciled: true,
+          provider_calls: 0,
+        });
+      store.pause(job.id, lease.attempt, lease.fence, {
+        code: 'INTERRUPTED',
+        message: 'Explicit fixture interruption.',
+        requeue: false,
+      });
+      return store.inspect(job.id);
+    };
+    const rows = (job, capability) => {
+      const records = [];
+      let offset = 0;
+      do {
+        const page = store.readManifestPage(
+          job.id,
+          capability,
+          'reader-fixture',
+          job.manifest_hash,
+          { offset, limit: 250 }
+        );
+        for (const ref of page.page_refs)
+          records.push(
+            ...store.readPage(job.id, ref.sha256, capability, 'reader-fixture', job.manifest_hash)
+              .instances
+          );
+        offset = page.next_offset;
+      } while (offset !== null);
+      return records;
+    };
+    try {
+      const interrupted = await run(created.record, true);
+      assert.equal(interrupted.state, 'paused');
+      assert.ok(interrupted.checkpoint_hash);
+      const physicalPages = store.workerPayload(created.record.id).page_paths;
+      assert.ok(
+        physicalPages.some((file) => {
+          const bytes = fs.readFileSync(file);
+          return bytes[0] === 0x1f && bytes[1] === 0x8b;
+        }),
+        'the real engine must have committed gzip evidence before interruption'
+      );
+      await bridge.internals.kill();
+      store = new ReaderJobStore({ directory, gzip: true });
+      const resumed = store.resume(interrupted.id, created.capability, 'reader-fixture', identity, {
+        idempotency_key: 'resume-once',
+      });
+      const complete = await run(resumed);
+      assert.ok(['completed', 'completed_with_refusals'].includes(complete.state));
+      const final = store.readManifest(complete.id, created.capability, 'reader-fixture');
+      assert.equal(final.partial, false);
+      assert.equal(final.summary.coverage.pending_methods, 0);
+      assert.equal(
+        final.summary.coverage.requested_methods,
+        final.summary.coverage.answered_methods + final.summary.coverage.refused_methods
+      );
+      assert.equal(final.summary.counters.evidence_records, complete.evidence_count);
+      assert.equal(final.provider_calls, 0);
+      const restartedRows = rows(complete, created.capability);
+      const uninterrupted = store.create({
+        viewer: 'reader-fixture',
+        idempotency_key: 'uninterrupted',
+        identity,
+        request,
+      });
+      const other = await run(uninterrupted.record);
+      assert.deepEqual(rows(other, uninterrupted.capability), restartedRows);
+      assert.deepEqual(
+        store.readManifest(other.id, uninterrupted.capability, 'reader-fixture').summary,
+        final.summary
+      );
+      assert.equal(complete.attempt, 2);
+      t.diagnostic(
+        JSON.stringify({
+          snapshot_id,
+          reading_unit_id: request.reading_unit_id,
+          reading_revision: request.reading_revision,
+          attempts: complete.attempt,
+          evidence_count: complete.evidence_count,
+          coverage: {
+            requested: final.summary.coverage.requested_methods,
+            answered: final.summary.coverage.answered_methods,
+            refused: final.summary.coverage.refused_methods,
+            pending: final.summary.coverage.pending_methods,
+          },
+          state: complete.state,
+          gzip_pages: fs
+            .readdirSync(path.join(store.directory, 'pages'))
+            .filter(
+              (name) => fs.readFileSync(path.join(store.directory, 'pages', name))[0] === 0x1f
+            ).length,
+        })
+      );
+    } finally {
+      await bridge.internals.kill();
+      await rm(directory, { recursive: true, force: true });
+    }
+  }
+);
