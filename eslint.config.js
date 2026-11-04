@@ -146,6 +146,40 @@ module.exports = [
     },
   },
   {
+    // The #670 prototype's scenarios (prototype/scenarios/<lane>/): Node-side
+    // tests that drive a browser, so code passed to page.evaluate() runs in
+    // the page. Never loaded by prototype/index.html
+    // (check_prototype_isolation.js rule 6).
+    files: ['prototype/scenarios/**/*.cjs'],
+    languageOptions: {
+      ecmaVersion: 2023,
+      sourceType: 'commonjs',
+      globals: { ...globals.node, ...globals.browser },
+    },
+    rules: {
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+      eqeqeq: ['error', 'smart'],
+      'no-console': 'off',
+      'no-empty': ['error', { allowEmptyCatch: true }],
+      ...NO_BARE_LOCALE_COMPARE,
+    },
+  },
+  {
+    files: ['prototype/scenarios/**/*.mjs'],
+    languageOptions: {
+      ecmaVersion: 2023,
+      sourceType: 'module',
+      globals: { ...globals.node, ...globals.browser },
+    },
+    rules: {
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+      eqeqeq: ['error', 'smart'],
+      'no-console': 'off',
+      'no-empty': ['error', { allowEmptyCatch: true }],
+      ...NO_BARE_LOCALE_COMPARE,
+    },
+  },
+  {
     // The MCP server (mcp/) — Node, ESM. Imports the CommonJS engine under
     // scripts/ via createRequire. Its own deps live in mcp/node_modules.
     files: ['mcp/**/*.js', 'mcp/**/*.mjs'],
