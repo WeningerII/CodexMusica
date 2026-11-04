@@ -28,7 +28,7 @@ for tool in git node npm python3; do
   fi
 done
 if command -v git >/dev/null 2>&1; then
-  sparse=$(git config --get core.sparseCheckout 2>/dev/null || true)
+  sparse=$(git config --bool --get core.sparseCheckout 2>/dev/null || true)
   printf 'INFO sparse checkout: %s\n' "${sparse:-false}"
 fi
 for path in scripts src references lyric-harness mcp; do
@@ -55,7 +55,8 @@ for (const prefix of ['.', 'mcp']) {
   try {
     const pkg = JSON.parse(fs.readFileSync(path.join(prefix, 'package.json')));
     const lock = JSON.parse(fs.readFileSync(path.join(prefix, 'package-lock.json')));
-    report(fs.existsSync(path.join(prefix, 'node_modules')), `${prefix}/node_modules`, `local dependency tree; suggested setup: ${install}`);
+    const present = fs.existsSync(path.join(prefix, 'node_modules'));
+    report(present, `${prefix}/node_modules`, `local dependency tree ${present ? 'present' : 'absent'}; suggested setup: ${install}`);
     for (const name of Object.keys({...pkg.dependencies, ...pkg.devDependencies})) {
       const expected = lock.packages?.[`node_modules/${name}`]?.version;
       let actual;
@@ -69,17 +70,40 @@ for (const prefix of ['.', 'mcp']) {
 try {
   console.log('INFO trust boundary: Chromium discovery imports the installed Playwright package; use trusted node_modules. This checker is not a sandbox.');
   const {chromium} = require(path.resolve('node_modules/playwright'));
-  const candidates = [['Playwright default executable', chromium.executablePath()]];
-  if (process.env.CHROMIUM_PATH) candidates.push(['CHROMIUM_PATH override', process.env.CHROMIUM_PATH]);
-  console.log(`INFO PLAYWRIGHT_BROWSERS_PATH: ${JSON.stringify(process.env.PLAYWRIGHT_BROWSERS_PATH ?? '(unset; Playwright default cache)')}; /opt/pw-browsers ${fs.existsSync('/opt/pw-browsers') ? 'exists' : 'absent'}`);
-  for (const [label, executable] of candidates) {
-    let ok = false;
-    try { ok = fs.statSync(executable).isFile(); fs.accessSync(executable, fs.constants.X_OK); } catch { ok = false; }
-    report(ok, label, `expected=${JSON.stringify(executable)}; ${ok ? 'file is executable (launch and system libraries not tested)' : 'unavailable; review browser path configuration or README.md Chromium setup'}`);
+  const expected = chromium.executablePath();
+  const override = process.env.CHROMIUM_PATH;
+  function executableExists(file) {
+    if (!file) return false;
+    try { fs.accessSync(file, fs.constants.X_OK); return fs.statSync(file).isFile(); } catch { return false; }
   }
-  console.log('INFO browser scope: CHROMIUM_PATH is honored by some gates; it does not replace the default Playwright browser for all gates.');
+  const defaultOK = executableExists(expected);
+  const overrideOK = executableExists(override);
+  const os = require('node:os');
+  const defaultCache = process.platform === 'darwin' ? path.join(os.homedir(), 'Library', 'Caches', 'ms-playwright')
+    : process.platform === 'win32' ? path.join(process.env.LOCALAPPDATA || path.join(os.homedir(), 'AppData', 'Local'), 'ms-playwright')
+    : path.join(process.env.XDG_CACHE_HOME || path.join(os.homedir(), '.cache'), 'ms-playwright');
+  const caches = new Set(['/opt/pw-browsers', defaultCache]);
+  if (process.env.PLAYWRIGHT_BROWSERS_PATH && process.env.PLAYWRIGHT_BROWSERS_PATH !== '0') caches.add(path.resolve(process.env.PLAYWRIGHT_BROWSERS_PATH));
+  // Include the cache Playwright actually resolved (also covers hermetic "0").
+  for (let dir = path.dirname(expected); path.dirname(dir) !== dir; dir = path.dirname(dir)) {
+    if (/^chromium(?:[_-]headless[_-]shell)?-\d+$/.test(path.basename(dir))) { caches.add(path.dirname(dir)); break; }
+  }
+  console.log(`INFO PLAYWRIGHT_BROWSERS_PATH: ${JSON.stringify(process.env.PLAYWRIGHT_BROWSERS_PATH ?? '(unset; Playwright default cache)')}; /opt/pw-browsers ${fs.existsSync('/opt/pw-browsers') ? 'exists' : 'absent'}`);
+  for (const cache of caches) {
+    try {
+      const builds = fs.readdirSync(cache, {withFileTypes: true}).filter(e => e.isDirectory() && /^(chromium|chrome|firefox|webkit|ffmpeg)[-_]/.test(e.name)).map(e => e.name).sort();
+      console.log(`INFO browser cache ${JSON.stringify(cache)}: ${builds.length} build directories; first 8=${JSON.stringify(builds.slice(0, 8))} (presence only)`);
+    } catch {
+      console.log(`INFO browser cache ${JSON.stringify(cache)}: absent or unreadable`);
+    }
+  }
+  const detail = `expected=${JSON.stringify(expected)}; ${defaultOK ? 'file is executable' : 'unavailable'}`;
+  if (!defaultOK && overrideOK) console.log(`WARN Playwright default executable: ${detail}; valid executable CHROMIUM_PATH override exists`);
+  else report(defaultOK, 'Playwright default executable', detail);
+  if (override) report(overrideOK, 'CHROMIUM_PATH override', `expected=${JSON.stringify(override)}; ${overrideOK ? 'file is executable' : 'absent, not a file, or not executable'}`);
+  console.log('INFO browser route: point CHROMIUM_PATH at an existing executable for gates using Playwright executablePath. Gates ignoring the override still need the expected default. No install or launch performed; file/executable presence does NOT establish a working browser or compatible system libraries.');
 } catch {
-  report(false, 'Chromium discovery', 'local Playwright unavailable; first restore root dependencies, then review npx playwright install chromium (README.md)');
+  report(false, 'Chromium discovery', 'local Playwright unavailable; first restore root dependencies, then inspect configured browser caches and the CHROMIUM_PATH/executablePath route');
 }
 process.exitCode = failures ? 1 : 0;
 NODE
@@ -111,7 +135,7 @@ if shutil.which('git'):
         paths = [os.fsdecode(p) for p in tracked.stdout.split(b'\0') if p]
         tracked_files = {os.path.abspath(p) for p in paths}
         missing = [p for p in paths if not os.path.lexists(p)]
-        sparse = subprocess.run(['git', 'config', '--get', 'core.sparseCheckout'], capture_output=True, text=True)
+        sparse = subprocess.run(['git', 'config', '--bool', '--get', 'core.sparseCheckout'], capture_output=True, text=True)
         if sparse.stdout.strip() == 'true':
             checkout_remedy = 'review and run git sparse-checkout disable manually; if paths remain absent, inspect local deletions'
         directories = sorted({str(Path(p).parent) for p in missing})
@@ -176,9 +200,9 @@ try:
             if not ok:
                 bad.append(entry['path'])
         if checkout_gaps:
-            report(False, f'checkout gap for lexical asset {asset["id"]}', f'tracked files absent: {", ".join(checkout_gaps)}; {checkout_remedy}; asset staging cannot restore these tracked files')
+            report(False, f'checkout gap for lexical asset {asset["id"]}', f'{len(checkout_gaps)} tracked files absent; first 5: {", ".join(checkout_gaps[:5])}; {checkout_remedy}; asset staging cannot restore these tracked files')
         if bad or not checkout_gaps:
-            report(not bad, f'lexical asset {asset["id"]}', 'manifest hashes match' if not bad else f'missing or mismatched: {", ".join(bad)}; review CI staging: lyric_harness.fetch_data() and quality/fetch_data.py --runtime from lyric-harness/')
+            report(not bad, f'lexical asset {asset["id"]}', 'manifest hashes match' if not bad else f'{len(bad)} missing or mismatched; first 5: {", ".join(bad[:5])}; review CI staging: lyric_harness.fetch_data() and quality/fetch_data.py --runtime from lyric-harness/')
     if os.environ.get('NLTK_DATA'):
         print('INFO NLTK_DATA is set; verify its search paths against the staged data. This check hashes staged assets, not NLTK lookup resolution.')
 except (OSError, ValueError, KeyError, TypeError):
