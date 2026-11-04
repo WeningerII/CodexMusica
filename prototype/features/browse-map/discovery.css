@@ -1,16 +1,82 @@
-.proto-discovery { color: inherit; min-width: 0; max-width: 100%; }
-.proto-discovery * { box-sizing: border-box; }
-.proto-discovery button { font: inherit; color: inherit; background: transparent; border: 1px solid currentColor; border-radius: .4rem; min-height: 44px; padding: .5rem .8rem; }
-.proto-discovery button:focus-visible, .proto-discovery [tabindex]:focus-visible { outline: 3px solid currentColor; outline-offset: 2px; }
-.proto-discovery button:disabled { opacity: .5; }
-.proto-discovery .discovery-controls { display: flex; flex-wrap: wrap; gap: .5rem; margin-block: .75rem; }
-.proto-discovery .discovery-shelf { max-width: 100%; overflow-x: auto; scroll-snap-type: x proximity; overscroll-behavior-x: contain; padding-block: .3rem; }
-.proto-discovery ul { display: flex; gap: .75rem; list-style: none; margin: 0; padding: 0; }
-.proto-discovery li { flex: 0 0 min(14rem, 85%); min-width: 0; scroll-snap-align: start; }
-.proto-discovery .discovery-card { width: 100%; min-height: 7rem; text-align: start; }
-.proto-discovery .discovery-card span { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.proto-discovery [aria-pressed="true"] { border-width: 3px; font-weight: bold; }
-.proto-discovery .discovery-detail { margin-block: 1rem; padding: 1rem; border: 1px solid currentColor; overflow-wrap: anywhere; }
-.proto-discovery .discovery-notice { font-size: .9rem; }
-.proto-discovery [hidden] { display: none; }
-@media (prefers-reduced-motion: reduce) { .proto-discovery .discovery-shelf { scroll-behavior: auto; } }
+.proto-discovery {
+  color: inherit;
+  min-width: 0;
+  max-width: 100%;
+}
+.proto-discovery * {
+  box-sizing: border-box;
+}
+.proto-discovery button {
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: 0.4rem;
+  min-height: 44px;
+  padding: 0.5rem 0.8rem;
+}
+.proto-discovery button:focus-visible,
+.proto-discovery [tabindex]:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 2px;
+}
+.proto-discovery button:disabled {
+  opacity: 0.5;
+}
+.proto-discovery .discovery-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-block: 0.75rem;
+}
+.proto-discovery .discovery-shelf {
+  max-width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  overscroll-behavior-x: contain;
+  padding-block: 0.3rem;
+}
+.proto-discovery ul {
+  display: flex;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.proto-discovery li {
+  flex: 0 0 min(14rem, 85%);
+  min-width: 0;
+  scroll-snap-align: start;
+}
+.proto-discovery .discovery-card {
+  width: 100%;
+  min-height: 7rem;
+  text-align: start;
+}
+.proto-discovery .discovery-card span {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.proto-discovery [aria-pressed='true'] {
+  border-width: 3px;
+  font-weight: bold;
+}
+.proto-discovery .discovery-detail {
+  margin-block: 1rem;
+  padding: 1rem;
+  border: 1px solid currentColor;
+  overflow-wrap: anywhere;
+}
+.proto-discovery .discovery-notice {
+  font-size: 0.9rem;
+}
+.proto-discovery [hidden] {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .proto-discovery .discovery-shelf {
+    scroll-behavior: auto;
+  }
+}

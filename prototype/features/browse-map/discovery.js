@@ -8,9 +8,13 @@
 // The adapter owns geographic rendering; this module invents no coordinates.
 export function mount(host, ctx) {
   const items = ctx.items || [];
-  if (!ctx.signal || typeof ctx.announce !== 'function' || !ctx.storage ||
-      items.some(i => !i || typeof i.id !== 'string' || !i.id || typeof i.name !== 'string') ||
-      new Set(items.map(i => i.id)).size !== items.length) {
+  if (
+    !ctx.signal ||
+    typeof ctx.announce !== 'function' ||
+    !ctx.storage ||
+    items.some((i) => !i || typeof i.id !== 'string' || !i.id || typeof i.name !== 'string') ||
+    new Set(items.map((i) => i.id)).size !== items.length
+  ) {
     throw new TypeError('Discovery requires unique named items and the shell context.');
   }
   if (ctx.signal.aborted) return { unmount() {}, focus() {} };
@@ -32,8 +36,12 @@ export function mount(host, ctx) {
   const list = shelf.querySelector('ul');
   const detail = root.querySelector('.discovery-detail');
   const buttons = new Map();
-  const records = new Map(items.map(i => [i.id, { ...i }]));
-  let selected = null, opener = null, dead = false, mapReady = false, unsubscribe = null;
+  const records = new Map(items.map((i) => [i.id, { ...i }]));
+  let selected = null,
+    opener = null,
+    dead = false,
+    mapReady = false,
+    unsubscribe = null;
   const listeners = [];
   const on = (target, type, fn) => {
     target.addEventListener(type, fn, { signal: ctx.signal });
@@ -43,7 +51,9 @@ export function mount(host, ctx) {
     if (dead) return;
     try {
       if (ctx.storage.write('selection', id).ok) return;
-    } catch { /* Report refusals, including a throwing injected wrapper. */ }
+    } catch {
+      /* Report refusals, including a throwing injected wrapper. */
+    }
     ctx.announce('Selection changed, but could not be saved.');
   }
   function syncMap() {
@@ -51,11 +61,16 @@ export function mount(host, ctx) {
     try {
       if (selected !== null) ctx.map.select(selected);
       if (!dead) ctx.map.highlight(selected === null ? [] : [selected]);
-    } catch { if (!dead) ctx.announce('Map selection could not be updated. Browsing is still available.'); }
+    } catch {
+      if (!dead) ctx.announce('Map selection could not be updated. Browsing is still available.');
+    }
   }
   function select(id, source) {
     if (dead || (id !== null && !records.has(id))) return;
-    if (id === selected) { if (id !== null && source === 'card') detail.hidden = false; return; }
+    if (id === selected) {
+      if (id !== null && source === 'card') detail.hidden = false;
+      return;
+    }
     if (source === 'map') opener = null;
     selected = id;
     for (const [key, button] of buttons) button.setAttribute('aria-pressed', String(key === id));
@@ -65,9 +80,10 @@ export function mount(host, ctx) {
       detail.querySelector('h2').textContent = item.name;
       detail.querySelector('[data-description]').textContent = item.family || 'No family supplied.';
       const place = item.place;
-      detail.querySelector('[data-location]').textContent = place == null
-        ? 'No fixed origin; this tradition remains available to browse.'
-        : `${place.label} · ${place.region} · ${place.lat}, ${place.lng}`;
+      detail.querySelector('[data-location]').textContent =
+        place == null
+          ? 'No fixed origin; this tradition remains available to browse.'
+          : `${place.label} · ${place.region} · ${place.lat}, ${place.lng}`;
       const provenance = detail.querySelector('[data-provenance]');
       if (place == null) {
         provenance.textContent = 'No coordinate review applies.';
@@ -81,16 +97,22 @@ export function mount(host, ctx) {
         };
         const status = Object.hasOwn(labels, review.status) ? review.status : 'unreviewed';
         provenance.dataset.reviewStatus = status;
-        provenance.textContent = [labels[status],
+        provenance.textContent = [
+          labels[status],
           typeof review.method === 'string' && review.method ? `Method: ${review.method}.` : '',
           typeof review.on === 'string' && review.on ? `Review date: ${review.on}.` : '',
-        ].filter(Boolean).join(' ');
+        ]
+          .filter(Boolean)
+          .join(' ');
       }
     }
     if (source !== 'map') syncMap();
     else if (mapReady && !dead) {
-      try { ctx.map.highlight(id === null ? [] : [id]); }
-      catch { ctx.announce('Map highlight could not be updated.'); }
+      try {
+        ctx.map.highlight(id === null ? [] : [id]);
+      } catch {
+        ctx.announce('Map highlight could not be updated.');
+      }
     }
     save(id);
   }
@@ -107,25 +129,31 @@ export function mount(host, ctx) {
     li.append(button);
     list.append(li);
     buttons.set(item.id, button);
-    on(button, 'click', () => { opener = button; select(item.id, 'card'); });
+    on(button, 'click', () => {
+      opener = button;
+      select(item.id, 'card');
+    });
   }
   root.querySelector('.discovery-empty').hidden = items.length !== 0;
   function edges() {
     if (dead) return;
     root.querySelector('[data-step="-1"]').disabled = shelf.scrollLeft <= 1;
-    root.querySelector('[data-step="1"]').disabled = shelf.scrollLeft >= shelf.scrollWidth - shelf.clientWidth - 1;
+    root.querySelector('[data-step="1"]').disabled =
+      shelf.scrollLeft >= shelf.scrollWidth - shelf.clientWidth - 1;
   }
   function scroll(step) {
     // Instant movement also preserves reduced-motion behavior without media listeners.
     shelf.scrollBy({ left: step * Math.max(1, shelf.clientWidth * 0.85), behavior: 'instant' });
     edges();
   }
-  for (const button of root.querySelectorAll('[data-step]')) on(button, 'click', () => scroll(Number(button.dataset.step)));
+  for (const button of root.querySelectorAll('[data-step]'))
+    on(button, 'click', () => scroll(Number(button.dataset.step)));
   on(shelf, 'scroll', edges);
   on(style, 'load', edges);
-  on(shelf, 'keydown', event => {
+  on(shelf, 'keydown', (event) => {
     // Arrow navigation belongs to the shelf itself, never nested controls/editors.
-    if (event.target !== shelf || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+    if (event.target !== shelf || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey)
+      return;
     if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
     event.preventDefault();
     scroll(event.key === 'ArrowLeft' ? -1 : 1);
@@ -144,25 +172,43 @@ export function mount(host, ctx) {
     for (const remove of listeners) remove();
     ctx.signal.removeEventListener('abort', unmount);
     observer?.disconnect();
-    try { unsubscribe?.(); } finally { root.remove(); style.remove(); }
+    try {
+      unsubscribe?.();
+    } finally {
+      root.remove();
+      style.remove();
+    }
   }
   ctx.signal.addEventListener('abort', unmount, { once: true });
   try {
-    mapHost.textContent = ctx.map ? 'Geographical map adapter is preparing.' : 'Geographical map adapter is not connected.';
-    if (ctx.map) Promise.resolve(ctx.map.ready).then(() => {
-      if (dead) return;
-      mapReady = true;
-      const release = ctx.map.onSelect(id => select(id, 'map'));
-      // Subscription itself may synchronously trigger shell teardown.
-      if (dead) { release(); return; }
-      unsubscribe = release;
-      mapHost.textContent = 'Map adapter connected; atlas preservation awaits integrated validation.';
-      syncMap();
-    }).catch(() => {
-      if (!dead) ctx.announce('Geographical map is unavailable. Browsing is still available.');
-    });
+    mapHost.textContent = ctx.map
+      ? 'Geographical map adapter is preparing.'
+      : 'Geographical map adapter is not connected.';
+    if (ctx.map)
+      Promise.resolve(ctx.map.ready)
+        .then(() => {
+          if (dead) return;
+          mapReady = true;
+          const release = ctx.map.onSelect((id) => select(id, 'map'));
+          // Subscription itself may synchronously trigger shell teardown.
+          if (dead) {
+            release();
+            return;
+          }
+          unsubscribe = release;
+          mapHost.textContent =
+            'Map adapter connected; atlas preservation awaits integrated validation.';
+          syncMap();
+        })
+        .catch(() => {
+          if (!dead) ctx.announce('Geographical map is unavailable. Browsing is still available.');
+        });
     let saved;
-    try { saved = ctx.storage.read('selection'); } catch { saved = { ok: false }; }
+    try {
+      saved = ctx.storage.read('selection');
+    } catch {
+      saved = { ok: false };
+    }
     if (dead) return { unmount, focus() {} };
     if (!saved.ok) ctx.announce('Saved selection could not be read. Browsing is still available.');
     if (saved.ok && records.has(saved.value)) select(saved.value, 'restore');
@@ -170,6 +216,14 @@ export function mount(host, ctx) {
     observer = new ResizeObserver(edges);
     observer.observe(shelf);
     edges();
-  } catch (error) { unmount(); throw error; }
-  return { unmount, focus() { if (!dead) shelf.focus(); } };
+  } catch (error) {
+    unmount();
+    throw error;
+  }
+  return {
+    unmount,
+    focus() {
+      if (!dead) shelf.focus();
+    },
+  };
 }
