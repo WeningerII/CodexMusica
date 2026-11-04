@@ -33,7 +33,10 @@ const PAGES = [
   },
 ];
 const WIDTHS = [1280, 375];
-const NAMES_CAUSE = (text, expect, at) => {
+// `serve`: whether serving the folder is a remedy. For codex.html and
+// atlas.html it is; a standalone embedded file has no atlas.html to serve,
+// so its Map must point only to the hosted site (Jony, #717).
+const NAMES_CAUSE = (text, expect, at, serve = true) => {
   expect(
     !/check your connection|reach the server/i.test(text),
     `${at}: still blames the network: "${text}"`
@@ -43,7 +46,12 @@ const NAMES_CAUSE = (text, expect, at) => {
     `${at}: does not name the cause (opened from a file): "${text}"`
   );
   expect(/codexmusica\.com/.test(text), `${at}: does not point to the hosted site`);
-  expect(/python3 -m http\.server/.test(text), `${at}: does not say how to serve the folder`);
+  expect(
+    /python3 -m http\.server/.test(text) === serve,
+    serve
+      ? `${at}: does not say how to serve the folder`
+      : `${at}: advises serving the folder, which cannot help a standalone file`
+  );
 };
 
 (async () => {
@@ -131,7 +139,7 @@ const NAMES_CAUSE = (text, expect, at) => {
           };
         });
         expect(seen.text !== '', `${at}: no message where the map would be`);
-        NAMES_CAUSE(seen.text, expect, at);
+        NAMES_CAUSE(seen.text, expect, at, false);
         expect(seen.role === 'status', `${at}: the message is not announced (role=${seen.role})`);
         expect(!seen.frameShown, `${at}: the map frame is still loaded (a blank frame)`);
         expect(seen.fits, `${at}: the message runs off the page`);
@@ -150,6 +158,6 @@ const NAMES_CAUSE = (text, expect, at) => {
     process.exit(1);
   }
   console.log(
-    `FILE PROTOCOL: PASS — ${checks} checks: codex.html, atlas.html and the standalone embedded Map opened from disk, at ${WIDTHS.join(' and ')} px, name the cause, point to the hosted site and to serving the folder, and offer no retry`
+    `FILE PROTOCOL: PASS — ${checks} checks: codex.html, atlas.html and the standalone embedded Map opened from disk, at ${WIDTHS.join(' and ')} px, name the cause, point to the hosted site (and, where it helps, to serving the folder), and offer no retry`
   );
 })();

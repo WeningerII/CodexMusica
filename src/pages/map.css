@@ -12,11 +12,5 @@
 /* A long status (the file:// message, #660) wraps inside a phone's width. */
 #surface-map .map-status-file {
   max-width: calc(100% - 32px);
-  width: max-content;
-  display: block;
   white-space: normal;
-  border-radius: var(--cm-radius-md);
-}
-#surface-map .map-status-file code {
-  white-space: nowrap;
 }

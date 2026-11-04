@@ -49,7 +49,7 @@ uiRegisterPage({
       frame.hidden = true;
       $ui('map-status').classList.add('map-status-file');
       $ui('map-status').innerHTML =
-        'Opened from a file, the map can’t load its data. Use codexmusica.com/atlas.html, or run <code>python3 -m http.server</code> here and open localhost:8000.';
+        'Opened from a file, this page can’t load its data. Use codexmusica.com.';
       return;
     }
     frame.addEventListener('load', () => ($ui('map-status').hidden = true), { once: true });

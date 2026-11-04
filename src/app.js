@@ -18154,8 +18154,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // which body.boot-failed shows over the whole viewport. Drawn in the workspace
 // it would sit in the editor panel, which the workbench's styles hide until an
 // editor opens, and the page would read as blank.
-const FILE_PAGE_HELP =
-  'Opened from a file, this page can’t load its data. Use codexmusica.com, or run python3 -m http.server here and open localhost:8000.';
 function _renderBootError(err) {
   console.error('Catalog boot failed:', err);
   document.body.classList.add('boot-failed');
@@ -18166,7 +18164,7 @@ function _renderBootError(err) {
   // not the cause and Reload cannot help, so say what can (#660).
   if (location.protocol === 'file:') {
     host.innerHTML =
-      '<div class="empty-state" id="boot-error"><p>' + FILE_PAGE_HELP + '</p></div>';
+      '<div class="empty-state" id="boot-error"><p>Opened from a file, this page can’t load its data. Use codexmusica.com, or run python3 -m http.server here.</p></div>';
     return;
   }
   host.innerHTML =
