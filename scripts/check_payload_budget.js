@@ -189,7 +189,10 @@ const LIBRARY_BUDGETS = {
   // factory minifier, so 4 KiB with room to grow. A new row, unmerged.
   // John approved this 24-byte increase on 2026-10-31 (Sentinel_4bd356900bb08191b05ddfa56f90483a).
   // Owner-approved exception to the Lighthouse citation policy; no performance certification.
-  'library-connection-bindings': 4120,
+  // ~~4120~~ raised 2026-11-03 to 4,240 (+120 B) for #683's Escape focus fix
+  // (#656 item 6), measured at 4,236 B. John's approval, relayed by R2 on #683
+  // (comment 6608479966). Same exception policy; no performance certification.
+  'library-connection-bindings': 4240,
   // Root-approved new component row: 5,321 B gzip measured on the combined
   // source, 2026-10-30. Existing ceilings are unchanged.
   'library-connection-views': 6144,
@@ -198,7 +201,23 @@ const LIBRARY_BUDGETS = {
   // the built fixes and get them live"). Lighthouse evidence on #519 comment
   // 6400551234: pooled LCP +3.6% (4,202 -> 4,352 ms), FCP +150 ms from a
   // byte-threshold step (one more simulated round trip), not a code path.
-  'library-shelves-path': 400640,
+  // ~~400640~~ raised 2026-11-03 to 400,720 (+80 B) for #684's genre place
+  // line (#656 item 7), measured at 400,710 B after merging main. John's
+  // approval, relayed by R2 on #684 (comment 6609415589), replacing the earlier
+  // 400,689 figure. Owner-approved exception; no performance certification.
+  // ~~400720~~ raised 2026-11-04 to 400,724 (+4 B) for #712's stale Return
+  // focus fix, measured at 400,724 B after merging main 661aa6018. First of
+  // three steps (#712, #711, #717) toward at most 401,056, approved by John
+  // and recorded by R2 on #665 (comment 6632168810). Owner-approved
+  // exception; no performance certification.
+  // ~~400724~~ raised 2026-11-04 to 401,056 (+332 B), John's ceiling, for
+  // release train D (#711, #717, #718, #719, #726). That combined tree,
+  // built on main 10b42689f, measures exactly 401,056 B; #717 on that main
+  // alone measures 400,933 B, and #711 alone 400,844 B. Third of three steps
+  // (#712, #711, #717), approved by John and recorded by R2 on #665
+  // (comment 6632168810). Owner-approved exception; no performance
+  // certification.
+  'library-shelves-path': 401056,
   'library-growth': 6144,
 };
 

@@ -37,7 +37,7 @@ const server = http.createServer((req, res) => {
   });
   try {
     for (const width of [390, 1280])
-      for (const kind of ['real', 'long', 'missing']) {
+      for (const kind of ['real', 'long', 'missing', 'one', 'two']) {
         const context = await browser.newContext({ viewport: { width, height: 900 } });
         let release;
         const ready = new Promise((resolve) => {
@@ -47,6 +47,13 @@ const server = http.createServer((req, res) => {
         const long = 'A very long place name '.repeat(20);
         if (kind === 'long') for (const coord of Object.values(geo.coords)) coord[2] = long;
         if (kind === 'missing') geo.coords = {};
+        // #656 item 7: fixed strings, independent of the live catalog. At 390
+        // the place line reserves two lines; 'one' and 'two' fit, 'long' does not.
+        const fixed = {
+          one: 'Clarksdale, North America',
+          two: 'Southern Appalachians and the Blue Ridge, North America',
+        };
+        if (fixed[kind]) for (const coord of Object.values(geo.coords)) coord[2] = fixed[kind];
         await context.route('**/data/atlas-geo.json', async (route) => {
           await ready;
           await route.fulfill({ contentType: 'application/json', body: JSON.stringify(geo) });
@@ -114,6 +121,37 @@ const server = http.createServer((req, res) => {
             if (kind === 'long') assert.ok(text.includes(long));
             assert.ok((await label.ariaSnapshot()).includes(text.trim()));
           }
+          // #656 item 7: only a name its reserved lines cannot hold becomes a
+          // button; it reveals the whole name on Enter, and the name stays
+          // complete for assistive technology throughout.
+          const fit = () =>
+            page.evaluate(() => {
+              const l = document.querySelector('.gp-detail-place');
+              const sp = l.querySelector('span');
+              return {
+                role: l.getAttribute('role'),
+                expanded: l.getAttribute('aria-expanded'),
+                height: l.getBoundingClientRect().height,
+                clipped: !!sp && sp.scrollHeight > sp.clientHeight + 1,
+              };
+            });
+          const placed = await fit();
+          if (width === 390 && kind === 'long') {
+            assert.equal(placed.role, 'button', `${width}/${kind}: a clipped name is a button`);
+            assert.equal(placed.expanded, 'false');
+            assert.ok(placed.clipped, `${width}/${kind}: the name is clipped before the reveal`);
+            await label.focus();
+            await page.keyboard.press('Enter');
+            const open = await fit();
+            assert.equal(open.expanded, 'true', `${width}/${kind}: Enter reveals the name`);
+            assert.ok(!open.clipped, `${width}/${kind}: the whole name is shown`);
+            assert.ok(open.height > placed.height, `${width}/${kind}: the line grew on request`);
+            assert.ok((await label.ariaSnapshot()).includes(long.trim()));
+          } else {
+            assert.equal(placed.role, null, `${width}/${kind}: no button when the name fits`);
+          }
+          if (width === 390 && (kind === 'one' || kind === 'two'))
+            assert.ok(!placed.clipped, `${width}/${kind}: the name is shown whole`);
           assert.equal(
             await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth),
             false,

@@ -152,6 +152,12 @@ async function failFrom(response) {
   });
   return error;
 }
+// A job paused STALE_READING cannot resume: the server refuses any resume
+// whose source, declarations or engine/resource identity differ
+// (reader_job_store.js resume()), which covers a changed reading and a
+// release that changed the analyzer alike (Jony, #726).
+const STALE_JOB =
+  'This analysis was started on an earlier version of the reading or the analyzer, so it can’t resume. Start a new whole-work analysis.';
 // An unclassified failure (a 5xx, no answer at all, or a bare transport
 // message such as "Library service 503") does not show what the server
 // admitted: a POST /analyses may have started a job, and a poll's job still
@@ -1768,12 +1774,12 @@ function mount(container, input) {
       ${
         j
           ? `<div class="la-row">
-          ${['paused', 'cancelled', 'failed'].includes(j.state) ? `<button type="button" class="cm-btn cm-btn-outline" data-act="resume" ${st.busy || j.deferred_requeue ? 'disabled' : ''}>Resume</button>` : ''}
+          ${['paused', 'cancelled'].includes(j.state) && j.reason?.code !== 'STALE_READING' ? `<button type="button" class="cm-btn cm-btn-outline" data-act="resume" ${st.busy || j.deferred_requeue ? 'disabled' : ''}>Resume</button>` : ''}
           ${['running', 'queued'].includes(j.state) ? `<button type="button" class="cm-btn cm-btn-outline" data-act="cancel" ${st.busy ? 'disabled' : ''}>Cancel</button>` : ''}
           <button type="button" class="la-link" data-act="delete" ${st.busy ? 'disabled' : ''}>Delete analysis</button></div>`
           : ''
       }
-      ${j?.reason ? render(j.reason) : ''}
+      ${j?.reason?.code === 'STALE_READING' ? `<p class="la-note">${STALE_JOB}</p>` : j?.reason ? render(j.reason) : ''}
       ${
         evidenceVisible() &&
         j.manifest_hash &&
