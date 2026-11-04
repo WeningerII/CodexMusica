@@ -1,0 +1,2563 @@
+{
+  "source": "#670 treatment manifest (6622503880, on main 5901dde86), Keep* rows resolved and three Library gates corrected as noted per row",
+  "note": "One row per checklist item. scripts/check_prototype_manifest.js cross-checks rows 1-220 against tests/ui_capability_inventory.md and rows 221-280 against the Library feature matrix in docs/library-native-design.md. A row is pending until the slice that implements it names its scenario file.",
+  "rows": [
+    {
+      "n": 1,
+      "id": "app-bar-traditions",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 2,
+      "id": "app-bar-saved",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 3,
+      "id": "app-bar-save",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 4,
+      "id": "app-bar-add-instrument",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 5,
+      "id": "app-bar-undo",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 6,
+      "id": "app-bar-redo",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 7,
+      "id": "app-bar-attributions",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 8,
+      "id": "empty-starter-gallery",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 9,
+      "id": "empty-surprise",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 10,
+      "id": "empty-state-add-instrument",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 11,
+      "id": "empty-state-browse-traditions",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 12,
+      "id": "empty-state-quick-pick",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 13,
+      "id": "workspace-rename",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 14,
+      "id": "sidebar-filter-input",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 15,
+      "id": "sidebar-tradition-header",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 16,
+      "id": "sidebar-card",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 17,
+      "id": "sidebar-add-to-tradition",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 18,
+      "id": "sidebar-staple-add",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 19,
+      "id": "sidebar-staple-refresh",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 20,
+      "id": "sidebar-recipe-copy",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 21,
+      "id": "sidebar-recipe-open-full",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 22,
+      "id": "detail-primary-marker",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 23,
+      "id": "card-pin",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 24,
+      "id": "card-similar",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 25,
+      "id": "card-drift",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 26,
+      "id": "card-duplicate",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 27,
+      "id": "card-delete",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 28,
+      "id": "detail-tab-parts",
+      "treatment": "Merge",
+      "merge_group": "tabs",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 29,
+      "id": "detail-tab-environment",
+      "treatment": "Merge",
+      "merge_group": "tabs",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 30,
+      "id": "detail-tab-signal-chain",
+      "treatment": "Merge",
+      "merge_group": "tabs",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 31,
+      "id": "detail-tab-preface",
+      "treatment": "Merge",
+      "merge_group": "tabs",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 32,
+      "id": "detail-tab-stack",
+      "treatment": "Merge",
+      "merge_group": "tabs",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 33,
+      "id": "part-row-toggle",
+      "treatment": "Merge",
+      "merge_group": "parts",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 34,
+      "id": "part-variant-pick",
+      "treatment": "Merge",
+      "merge_group": "parts",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 35,
+      "id": "env-row-toggle",
+      "treatment": "Merge",
+      "merge_group": "environment",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 36,
+      "id": "env-tuning-pick",
+      "treatment": "Merge",
+      "merge_group": "environment",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 37,
+      "id": "env-room-pick",
+      "treatment": "Merge",
+      "merge_group": "environment",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 38,
+      "id": "chain-stage-toggle",
+      "treatment": "Merge",
+      "merge_group": "signal-chain",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 39,
+      "id": "chain-item-pick",
+      "treatment": "Merge",
+      "merge_group": "signal-chain",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 40,
+      "id": "preface-input",
+      "treatment": "Merge",
+      "merge_group": "character",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 41,
+      "id": "preface-browse",
+      "treatment": "Merge",
+      "merge_group": "character",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 42,
+      "id": "preface-suggestion-fan",
+      "treatment": "Merge",
+      "merge_group": "character",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 43,
+      "id": "preface-shifts-panel",
+      "treatment": "Merge",
+      "merge_group": "character",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 44,
+      "id": "stack-format-prose",
+      "treatment": "Merge",
+      "merge_group": "output",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 45,
+      "id": "stack-format-tags",
+      "treatment": "Merge",
+      "merge_group": "output",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 46,
+      "id": "stack-format-rich",
+      "treatment": "Merge",
+      "merge_group": "output",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 47,
+      "id": "stack-format-compact",
+      "treatment": "Merge",
+      "merge_group": "output",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 48,
+      "id": "stack-copy",
+      "treatment": "Merge",
+      "merge_group": "output",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 49,
+      "id": "drift-walk",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 50,
+      "id": "drift-roll",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 51,
+      "id": "drift-close",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 52,
+      "id": "modal-add",
+      "treatment": "Keep",
+      "kind": "M",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 53,
+      "id": "modal-add-instrument-chip",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 54,
+      "id": "modal-add-axis-filter-toggle",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 55,
+      "id": "modal-add-axis-filter-clear",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 56,
+      "id": "find-similar-instrument-add-to-canvas",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 57,
+      "id": "modal-trad",
+      "treatment": "Keep",
+      "kind": "M",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 58,
+      "id": "modal-trad-tree-node-toggle",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 59,
+      "id": "modal-trad-leaf-import",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 60,
+      "id": "modal-trad-leaf-find-similar",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 61,
+      "id": "modal-saved",
+      "treatment": "Keep",
+      "kind": "M",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 62,
+      "id": "modal-saved-load",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 63,
+      "id": "modal-saved-fork",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 64,
+      "id": "modal-saved-delete",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 65,
+      "id": "modal-save",
+      "treatment": "Keep",
+      "kind": "M",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 66,
+      "id": "modal-preface",
+      "treatment": "Keep",
+      "kind": "M",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 67,
+      "id": "modal-recipe-stack",
+      "treatment": "Keep",
+      "kind": "M",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 68,
+      "id": "modal-recipe-stack-copy",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 69,
+      "id": "modal-attributions",
+      "treatment": "Keep",
+      "kind": "M",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 70,
+      "id": "modal-close-via-data-close",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 71,
+      "id": "keyboard-escape-modal",
+      "treatment": "Keep",
+      "kind": "K",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 72,
+      "id": "keyboard-undo",
+      "treatment": "Keep",
+      "kind": "K",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 73,
+      "id": "keyboard-redo",
+      "treatment": "Keep",
+      "kind": "K",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 74,
+      "id": "stack-signature-panel",
+      "treatment": "Keep",
+      "note": "Former Defer row; Keep per Don Norman (6622436960), adopted in 6622487968 §3",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 75,
+      "id": "tradition-group-delete",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 76,
+      "id": "tradition-group-reorder",
+      "treatment": "Keep",
+      "kind": "DD",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 77,
+      "id": "tradition-group-move-up",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 78,
+      "id": "tradition-group-move-down",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 79,
+      "id": "card-drag-reparent",
+      "treatment": "Keep",
+      "kind": "DD",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 80,
+      "id": "card-move-to-genre-menu",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 81,
+      "id": "card-pin-sidebar-visual",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 82,
+      "id": "drift-scroll-into-view",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 83,
+      "id": "navigation-genre",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 84,
+      "id": "navigation-instrument",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 85,
+      "id": "navigation-map",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 86,
+      "id": "navigation-lyrics",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 87,
+      "id": "recipe-assistant",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 88,
+      "id": "genre-listen",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 89,
+      "id": "instrument-listen",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 90,
+      "id": "session-export",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 91,
+      "id": "session-import",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 92,
+      "id": "lyrics-draft",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 93,
+      "id": "lyrics-use-recipe",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 94,
+      "id": "map-workspace",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 95,
+      "id": "theme-setting",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 96,
+      "id": "autosave-status",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 97,
+      "id": "recipe-panel-collapse",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 98,
+      "id": "recipe-dock-resize",
+      "treatment": "Keep",
+      "note": "Former Defer row; Keep per Don Norman (6622436960), adopted in 6622487968 §3",
+      "kind": "DD",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 99,
+      "id": "recipe-empty-state",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 100,
+      "id": "map-status",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 101,
+      "id": "keyboard-escape-layers",
+      "treatment": "Keep",
+      "kind": "K",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 102,
+      "id": "history-back-between-sections",
+      "treatment": "Keep",
+      "kind": "K",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 103,
+      "id": "genre-no-results-clear",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 104,
+      "id": "instrument-no-results-recovery",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 105,
+      "id": "toast-action-undo",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 106,
+      "id": "map-your-recipe-dock",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 107,
+      "id": "recipe-sidebar-right",
+      "treatment": "Keep",
+      "note": "Former Defer row; Keep per Don Norman (6622436960), adopted in 6622487968 §3",
+      "kind": "DD",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 108,
+      "id": "recipe-row-edit",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 109,
+      "id": "recipe-row-menu",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 110,
+      "id": "recipe-row-duplicate",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 111,
+      "id": "recipe-row-pin",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 112,
+      "id": "recipe-row-move-genre",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 113,
+      "id": "recipe-row-variations",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 114,
+      "id": "recipe-row-similar",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 115,
+      "id": "recipe-row-remove",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 116,
+      "id": "recipe-genre-menu",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 117,
+      "id": "recipe-genre-make-primary",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 118,
+      "id": "recipe-suggestions-toggle",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 119,
+      "id": "recipe-environment-room",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 120,
+      "id": "recipe-environment-tuning",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 121,
+      "id": "recipe-environment-chain",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 122,
+      "id": "recipe-environment-edit",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 123,
+      "id": "recipe-preview-format",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 124,
+      "id": "recipe-preview-expand",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 125,
+      "id": "recipe-open-full-editor",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 126,
+      "id": "recipe-filter-toggle",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 127,
+      "id": "recipe-ai-entry",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 128,
+      "id": "recipe-autosave-mirror",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 129,
+      "id": "lyrics-song-title",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 130,
+      "id": "lyrics-song-brief",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 131,
+      "id": "lyrics-inspector-tabs",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 132,
+      "id": "lyrics-mobile-nav",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 133,
+      "id": "lyrics-line-tools",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 134,
+      "id": "lyrics-add-section",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 135,
+      "id": "lyrics-find",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 136,
+      "id": "lyrics-display",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 137,
+      "id": "lyrics-outline",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 138,
+      "id": "lyrics-section-actions",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 139,
+      "id": "lyrics-form-story",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 140,
+      "id": "lyrics-new-or-import",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 141,
+      "id": "lyrics-new-song-writer",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 142,
+      "id": "lyrics-edit-with-writer",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 143,
+      "id": "lyrics-writer-panel",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 144,
+      "id": "lyrics-review-draft",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 145,
+      "id": "lyrics-review-panel",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 146,
+      "id": "lyrics-check-and-apply",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 147,
+      "id": "lyrics-history-recovery",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 148,
+      "id": "lyrics-export",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 149,
+      "id": "lyrics-writing-tools",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 150,
+      "id": "lyrics-rhyme-links",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 151,
+      "id": "lyrics-rhythm-placement",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 152,
+      "id": "lyrics-word-rules",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 153,
+      "id": "lyrics-pronunciation",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 154,
+      "id": "lyrics-returns-voices",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 155,
+      "id": "lyrics-page-resize",
+      "treatment": "Keep",
+      "note": "Former Defer row; Keep per Don Norman (6622436960), adopted in 6622487968 §3",
+      "kind": "DD",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 156,
+      "id": "lyrics-declared-melody",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 157,
+      "id": "lyrics-line-placement",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 158,
+      "id": "lyrics-story-intentions",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 159,
+      "id": "lyrics-structured-answer",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 160,
+      "id": "lyrics-placed-returns",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 161,
+      "id": "genre-view-tabs",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 162,
+      "id": "genre-layout-rows-list",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 163,
+      "id": "genre-browse-roots",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 164,
+      "id": "genre-browse-all-roots",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 165,
+      "id": "genre-browse-disclosure",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 166,
+      "id": "genre-find-a-sound",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 167,
+      "id": "genre-find-a-sound-all-13",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 168,
+      "id": "genre-find-a-sound-clear",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 169,
+      "id": "genre-find-a-sound-match",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 170,
+      "id": "genre-detail-tabs",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 171,
+      "id": "genre-detail-sound-targets-from-profile",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 172,
+      "id": "genre-detail-instrument-destination",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 173,
+      "id": "genre-detail-instrument-add",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 174,
+      "id": "genre-detail-view-on-map",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 175,
+      "id": "genre-detail-background-references",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 176,
+      "id": "genre-row-open",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 177,
+      "id": "genre-media-photo-or-glyph",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 178,
+      "id": "genre-explore-map",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 179,
+      "id": "map-search",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 180,
+      "id": "map-filter-chips",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 181,
+      "id": "map-side-tabs",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 182,
+      "id": "map-genre-groups",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 183,
+      "id": "map-key",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 184,
+      "id": "map-routes",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 185,
+      "id": "map-collections",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 186,
+      "id": "map-in-view",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 187,
+      "id": "map-location-chooser",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 188,
+      "id": "map-tradition-inspector",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 189,
+      "id": "map-view-controls",
+      "treatment": "Keep",
+      "kind": "K",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 190,
+      "id": "map-information",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 191,
+      "id": "map-panel-layout",
+      "treatment": "Keep",
+      "note": "Former Defer row; Keep per Don Norman (6622436960), adopted in 6622487968 §3",
+      "kind": "DD",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 192,
+      "id": "map-standalone-atlas",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 193,
+      "id": "instrument-categories",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 194,
+      "id": "instrument-sound-properties",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 195,
+      "id": "instrument-sort-and-view",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 196,
+      "id": "instrument-add-destination",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 197,
+      "id": "instrument-categories-disclosure",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 198,
+      "id": "instrument-inspector-tabs",
+      "treatment": "Merge",
+      "merge_group": "tabs",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 199,
+      "id": "instrument-inspector-part-options",
+      "treatment": "Merge",
+      "merge_group": "parts",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 200,
+      "id": "instrument-inspector-not-set",
+      "treatment": "Merge",
+      "merge_group": "parts",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 201,
+      "id": "instrument-inspector-character",
+      "treatment": "Merge",
+      "merge_group": "character",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 202,
+      "id": "instrument-inspector-character-browser",
+      "treatment": "Merge",
+      "merge_group": "character",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 203,
+      "id": "instrument-inspector-environment",
+      "treatment": "Merge",
+      "merge_group": "environment",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 204,
+      "id": "instrument-inspector-signal-chain",
+      "treatment": "Merge",
+      "merge_group": "signal-chain",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 205,
+      "id": "instrument-inspector-output",
+      "treatment": "Merge",
+      "merge_group": "output",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 206,
+      "id": "instrument-add-configured",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 207,
+      "id": "instrument-inspector-similar",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 208,
+      "id": "instrument-inspector-close",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 209,
+      "id": "instrument-your-recipe-dock",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 210,
+      "id": "photo-enlarge",
+      "treatment": "Keep",
+      "kind": "D",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 211,
+      "id": "photo-lightbox",
+      "treatment": "Keep",
+      "kind": "M",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 212,
+      "id": "browse-rows-genre-letters",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 213,
+      "id": "browse-rows-jump-letters",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 214,
+      "id": "browse-rows-instrument-families",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 215,
+      "id": "browse-rows-jump-families",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 216,
+      "id": "browse-rows-scroll",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 217,
+      "id": "browse-card-details",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 218,
+      "id": "browse-card-listen-add",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 219,
+      "id": "browse-card-photo-credit",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 220,
+      "id": "browse-card-menu",
+      "treatment": "Keep",
+      "kind": "W",
+      "gate": "reach",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 221,
+      "id": "library#1",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_ui_foundation",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 222,
+      "id": "library#2",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 223,
+      "id": "library#3",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 224,
+      "id": "library#4",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 225,
+      "id": "library#5",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 226,
+      "id": "library#6",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 227,
+      "id": "library#7",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 228,
+      "id": "library#8",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 229,
+      "id": "library#9",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "test_library_routes",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 230,
+      "id": "library#10",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "note": "Manifest named check_library, which does not exist; the matrix row names check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 231,
+      "id": "library#11",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "test_library_routes",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 232,
+      "id": "library#12",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 233,
+      "id": "library#13",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 234,
+      "id": "library#14",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 235,
+      "id": "library#15",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 236,
+      "id": "library#16",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 237,
+      "id": "library#17",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 238,
+      "id": "library#18",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 239,
+      "id": "library#19",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 240,
+      "id": "library#20",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 241,
+      "id": "library#21",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 242,
+      "id": "library#22",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 243,
+      "id": "library#23",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 244,
+      "id": "library#24",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 245,
+      "id": "library#25",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_mobile_layout",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 246,
+      "id": "library#26",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 247,
+      "id": "library#27",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 248,
+      "id": "library#28",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 249,
+      "id": "library#29",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 250,
+      "id": "library#30",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 251,
+      "id": "library#31",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 252,
+      "id": "library#32",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "test_library_routes",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 253,
+      "id": "library#33",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "test_library_routes",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 254,
+      "id": "library#34",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "test_library_routes",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 255,
+      "id": "library#35",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "test_library_routes",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 256,
+      "id": "library#36",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "test_library_routes",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 257,
+      "id": "library#37",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "test_library_routes",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 258,
+      "id": "library#38",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 259,
+      "id": "library#39",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 260,
+      "id": "library#40",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 261,
+      "id": "library#41",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 262,
+      "id": "library#42",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 263,
+      "id": "library#43",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 264,
+      "id": "library#44",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 265,
+      "id": "library#45",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_data",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 266,
+      "id": "library#46",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 267,
+      "id": "library#47",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 268,
+      "id": "library#48",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "test_library_exports",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 269,
+      "id": "library#49",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "test_library_exports",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 270,
+      "id": "library#50",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "test_library_routes",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 271,
+      "id": "library#51",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "qualify_reader",
+      "note": "Manifest named check_library_page; the matrix row names only qualify_reader",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 272,
+      "id": "library#52",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "qualify_reader",
+      "note": "Manifest named check_library_page; the matrix row names only qualify_reader",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 273,
+      "id": "library#53",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "test_library_import_inpage",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 274,
+      "id": "library#54",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "test_library_import_inpage",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 275,
+      "id": "library#55",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 276,
+      "id": "library#56",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 277,
+      "id": "library#57",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 278,
+      "id": "library#58",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_ui_foundation",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 279,
+      "id": "library#59",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_ui_foundation",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "n": 280,
+      "id": "library#60",
+      "treatment": "Keep",
+      "kind": "L",
+      "gate": "check_library_page",
+      "status": "pending",
+      "scenario": null
+    }
+  ]
+}
