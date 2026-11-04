@@ -44,7 +44,8 @@
 //      collection file's readable_ids, or does not refuse a bad id
 //      (NOT_FOUND) and a collection with nothing readable (NO_READABLE);
 //      selection does not toggle all of a collection's units and notify; or
-//      showCredit does not say artwork.json's credit.
+//      showCredit does not say artwork.json's credit. Each refusal's message
+//      is not its sentence, with a next step (SAYS).
 //   9. UNMOUNT. unmount() does not abort ctx.signal, remove the host and
 //      restore the placeholder.
 //
@@ -431,6 +432,18 @@ function coreLanguageNames() {
   return m ? Function(`return (${m[1]})`)() : null;
 }
 
+// What a person reads for each refusal (Jony, #744 6642173271): a sentence,
+// with what to do next; never a raw "HTTP 404" or "Failed to fetch".
+const SAYS = {
+  NOT_FOUND:
+    'NOT_FOUND|This collection isn’t in the Library’s data. Reload to see the current collections.',
+  LOAD_FAILED:
+    'LOAD_FAILED|The Library’s collections couldn’t load. Check your connection, then try again.',
+  DATA_CHANGED:
+    'DATA_CHANGED|The Library data changed since this page loaded. Reload to see the current collections.',
+  NO_READABLE: 'NO_READABLE|This collection has no readable work yet.',
+};
+
 async function libraryChecks(browser, srv) {
   const catalog = libData('catalog.json');
   const collections = libData('collections.json').collections;
@@ -517,7 +530,7 @@ async function libraryChecks(browser, srv) {
       const code = (fn) =>
         fn().then(
           () => 'resolved',
-          (e) => e.code
+          (e) => `${e.code}|${e.message}`
         );
       return {
         a: (await c.openReading(a)).unitId,
@@ -541,9 +554,9 @@ async function libraryChecks(browser, srv) {
     /isn’t part of this prototype/.test(open.said),
     `library: openReading said "${open.said}"`
   );
-  expect(open.bad === 'NOT_FOUND', `library: openReading(a malformed id) gave ${open.bad}`);
+  expect(open.bad === SAYS.NOT_FOUND, `library: openReading(a malformed id) gave ${open.bad}`);
   expect(
-    open.missing === 'NOT_FOUND',
+    open.missing === SAYS.NOT_FOUND,
     `library: openReading(an unknown collection) gave ${open.missing}`
   );
   // selection and credit
@@ -600,7 +613,7 @@ async function libraryChecks(browser, srv) {
       const code = (fn) =>
         fn().then(
           () => 'resolved',
-          (e) => e.code
+          (e) => `${e.code}|${e.message}`
         );
       return {
         more: await code(() => c.loadMore('eng', 24)),
@@ -608,14 +621,41 @@ async function libraryChecks(browser, srv) {
       };
     }, appended);
     expect(
-      codes.more === 'DATA_CHANGED',
+      codes.more === SAYS.DATA_CHANGED,
       `library: a disagreeing collections.json gave ${codes.more}`
     );
     expect(
-      codes.none === 'NO_READABLE',
+      codes.none === SAYS.NO_READABLE,
       `library: a collection with no readable unit gave ${codes.none}`
     );
     await ctx2.close();
+  }
+
+  // LOAD_FAILED, from a collections.json the server won't send.
+  {
+    const ctx3 = await browser.newContext();
+    const page3 = await ctx3.newPage();
+    await ctx3.route('**/*', (route) => {
+      const u = new URL(route.request().url());
+      if (u.pathname === LANE_MODULES.library)
+        return route.fulfill({ status: 200, contentType: 'text/javascript', body: PROBE });
+      if (u.pathname === '/library/data/collections.json')
+        return route.fulfill({ status: 503, body: '' });
+      return route.continue();
+    });
+    await page3.goto(`${srv.url}/prototype/#library`);
+    await waitMounted(page3, 'library');
+    const failed = await page3.evaluate(() =>
+      window.__probeCtx.library.loadMore('eng', 24).then(
+        () => 'resolved',
+        (e) => `${e.code}|${e.message}`
+      )
+    );
+    expect(
+      failed === SAYS.LOAD_FAILED,
+      `library: a collections.json that won't load gave ${failed}`
+    );
+    await ctx3.close();
   }
 }
 

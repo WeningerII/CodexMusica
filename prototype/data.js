@@ -58,13 +58,20 @@ export async function loadItems() {
 
 const COLLECTION = /^collection_[0-9a-f-]{36}$/;
 const libError = (code, message) => Object.assign(new Error(message), { code });
+// What a person reads when a Library call fails: a sentence, with what to do
+// next. A raw "HTTP 404" or "Failed to fetch" never reaches the page (Jony,
+// #744 6642173271). NO_READABLE's sentence is at its one call site.
+export const LIBRARY_MESSAGES = Object.freeze({
+  NOT_FOUND: 'This collection isn’t in the Library’s data. Reload to see the current collections.',
+  LOAD_FAILED: 'The Library’s collections couldn’t load. Check your connection, then try again.',
+  DATA_CHANGED:
+    'The Library data changed since this page loaded. Reload to see the current collections.',
+});
+const libFail = (code) => libError(code, LIBRARY_MESSAGES[code]);
 
 async function inflated(response) {
   if (!response.ok) {
-    throw libError(
-      response.status === 404 ? 'NOT_FOUND' : 'LOAD_FAILED',
-      `HTTP ${response.status}`
-    );
+    throw libFail(response.status === 404 ? 'NOT_FOUND' : 'LOAD_FAILED');
   }
   let bytes = new Uint8Array(await response.arrayBuffer());
   // A .json.gz arrives as gzip bytes unless the host already decoded it.
@@ -79,7 +86,7 @@ async function inflated(response) {
 // must look like one (check_prototype_isolation.js allows only this form).
 export function collectionFile(id) {
   if (typeof id !== 'string' || !COLLECTION.test(id)) {
-    throw libError('NOT_FOUND', `"${id}" is not a collection id`);
+    throw libFail('NOT_FOUND');
   }
   return fetch(`../library/data/c/${id}.json.gz`).then(inflated);
 }
@@ -149,20 +156,20 @@ export async function loadLibrary() {
         .then(json)
         .then((file) => {
           if (file.data_id !== catalog.data_id) {
-            throw libError('DATA_CHANGED', 'The Library data changed since this page loaded.');
+            throw libFail('DATA_CHANGED');
           }
           return file.collections;
         })
         .catch((e) => {
           rows = null; // a failure is forgotten, so the next Show more asks again
-          throw e.code ? e : libError('LOAD_FAILED', String(e.message || e));
+          throw e.code ? e : libFail('LOAD_FAILED');
         });
     }
     return rows;
   };
   async function loadMore(language, count) {
     const shelf = shelves.find((s) => s.language === language);
-    if (!shelf) throw libError('NOT_FOUND', `No shelf for "${language}".`);
+    if (!shelf) throw libFail('NOT_FOUND');
     const list = (await all()).filter((r) => r[3] > 0 && r[2] === language);
     const from = shown.get(language);
     const next = list.slice(from, from + Math.max(0, count | 0)).map((r) =>
@@ -183,10 +190,10 @@ export async function loadLibrary() {
     const known = first.get(collectionId);
     if (known) return known;
     const file = await collectionFile(collectionId).catch((e) => {
-      throw e.code ? e : libError('LOAD_FAILED', String(e.message || e));
+      throw e.code ? e : libFail('LOAD_FAILED');
     });
     if (file.data_id && file.data_id !== catalog.data_id) {
-      throw libError('DATA_CHANGED', 'The Library data changed since this page loaded.');
+      throw libFail('DATA_CHANGED');
     }
     const id = (file.readable_ids || [])[0];
     if (!id) throw libError('NO_READABLE', 'This collection has no readable work yet.');
