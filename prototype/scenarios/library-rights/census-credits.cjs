@@ -18,12 +18,14 @@ const production = fs.readFileSync(path.join(root, 'src/library/rights.js'), 'ut
 const file = path.join(root, 'prototype/features/library-rights/census-credits.js');
 let source = fs.readFileSync(file, 'utf8');
 const shellCss = fs.readFileSync(path.join(root, 'prototype/proto.css'), 'utf8');
-const css = fs.readFileSync(file.replace(/\.js$/, '.css'), 'utf8');
+let css = fs.readFileSync(file.replace(/\.js$/, '.css'), 'utf8');
 const note =
   'Held and research records remain searchable as metadata. Their source bodies are excluded from readable exports.';
 const exclusion = 'Collection artwork is historical and credited here; it is in no export package.';
+const guidance = 'Check your connection, then retry.';
 assert.ok(production.includes(note));
 assert.ok(production.includes(exclusion));
+assert.ok(production.includes(guidance));
 assert.ok(production.includes("lib.go('/works?availability=all')"));
 if (process.argv.includes('--mutate-note')) {
   assert.ok(source.includes(note), 'mutation target exists');
@@ -36,6 +38,19 @@ if (process.argv.includes('--mutate-style')) {
 if (process.argv.includes('--mutate-style-cleanup')) {
   assert.ok(source.includes('stylesheet.remove();'), 'stylesheet cleanup mutation target exists');
   source = source.replace('stylesheet.remove();', '');
+}
+if (process.argv.includes('--mutate-guidance')) {
+  assert.ok(
+    source.includes('Check your connection, then retry.'),
+    'guidance mutation target exists'
+  );
+  source = source.replaceAll('Check your connection, then retry.', '');
+}
+if (process.argv.includes('--mutate-inspect-target')) {
+  css += '\n.pcc button { min-height: 0; padding: 0; }';
+}
+if (process.argv.includes('--mutate-source-target')) {
+  css += '\n.pcc a { display: inline; min-height: 0; padding: 0; }';
 }
 const keys = [
   'source_files',
@@ -199,6 +214,45 @@ async function main() {
       true,
       'hide/show keeps mounted stylesheet'
     );
+    groups++;
+    const targetMeasurements = [];
+    for (const width of [1280, 320]) {
+      await page.setViewportSize({ width, height: 900 });
+      const inspect = page.getByRole('button', { name: 'Inspect all recorded availability' });
+      await inspect.scrollIntoViewIfNeeded();
+      const buttonBox = await inspect.boundingBox();
+      assert.ok(
+        buttonBox.height >= 44 && buttonBox.width >= 44,
+        `Inspect target at ${width}px must be at least 44px`
+      );
+      const sourceBoxes = [];
+      for (const link of await page.locator('.pcc-art a').all()) {
+        await link.scrollIntoViewIfNeeded();
+        const box = await link.boundingBox();
+        assert.ok(
+          box.height >= 24 && box.width >= 24,
+          `Source target at ${width}px must be at least 24px`
+        );
+        assert.equal(
+          await link.evaluate((el) => {
+            const r = el.getBoundingClientRect();
+            const hit = el.ownerDocument.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2);
+            return hit === el || el.contains(hit);
+          }),
+          true,
+          'Source target center receives pointer input'
+        );
+        sourceBoxes.push({ width: box.width, height: box.height });
+      }
+      assert.equal(sourceBoxes.length, 8);
+      targetMeasurements.push({
+        viewport: width,
+        inspect: { width: buttonBox.width, height: buttonBox.height },
+        sources: sourceBoxes,
+      });
+    }
+    console.log('Target measurements: ' + JSON.stringify(targetMeasurements));
+    await page.setViewportSize({ width: 1024, height: 900 });
     groups++;
     const rows = await page
       .locator('.pcc-census > div')
@@ -388,6 +442,8 @@ async function main() {
     );
     assert.ok(!(await page.locator('#host').innerText()).includes('Readings: snapshot'));
     groups++;
+    // Defensive malformed-context tests only: the real shell retries failures
+    // before mount and supplies both immutable records on a successful mount.
     await page.evaluate(() => window.make({ catalog: null, artwork: null }));
     assert.ok(
       (await page.locator('#host').innerText()).includes('The catalog census could not be loaded')
@@ -396,9 +452,47 @@ async function main() {
       (await page.locator('#host').innerText()).includes('Artwork credits could not be loaded')
     );
     assert.equal(
+      await page.getByText(guidance, { exact: true }).count(),
+      2,
+      'both load failures preserve production retry guidance'
+    );
+    assert.equal(
+      await page.getByText('Retry is not connected in this prototype.', { exact: true }).count(),
+      0,
+      'no stale claim about shell retry availability'
+    );
+    assert.equal(
+      await page.getByRole('button', { name: 'Retry', exact: true }).count(),
+      0,
+      'retry is shell-owned; the lane adds no retry action'
+    );
+    assert.equal(
       await page.locator('.pcc-census').count(),
       0,
       'absent catalog not fabricated zero census'
+    );
+    groups++;
+    await page.evaluate(() => window.make({ catalog: null }));
+    assert.equal(
+      await page.getByText(guidance, { exact: true }).count(),
+      1,
+      'catalog-only failure guidance'
+    );
+    assert.equal(
+      await page.locator('.pcc-art a').count(),
+      8,
+      'catalog failure preserves artwork credits'
+    );
+    await page.evaluate(() => window.make({ artwork: null }));
+    assert.equal(
+      await page.getByText(guidance, { exact: true }).count(),
+      1,
+      'artwork-only failure guidance'
+    );
+    assert.equal(
+      await page.locator('.pcc-census dd').count(),
+      11,
+      'artwork failure preserves census'
     );
     groups++;
     await page.evaluate(() =>
