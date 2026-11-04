@@ -1,6 +1,6 @@
 """Strict all-position meter check against a declared template (#677 b2).
 
-`check_meter` (b1) compares a template's STRONG positions only and says so.
+The b1 meter check compares a template's STRONG positions only and says so.
 This module is the other half of a declared check: it compares EVERY
 position, weak ones included, and answers in the A2 vocabulary (#676
 6586644079):
@@ -34,8 +34,8 @@ character as weak; strict mode refuses it instead (`not_computed`), because
 a symbol it does not understand is not evidence of a weak position.
 
 This module edits nothing and imports nothing from the harness: it reads
-the entries `lyric_harness.check_meter` already returns (`from_entry`) or a
-supplied stress stream (`compare`).
+the entries the b1 meter check in `lyric_harness` already returns
+(`from_entry`) or a supplied stress stream (`compare`).
 """
 
 STATUS = ("holds", "does_not_hold", "not_computed")
@@ -125,7 +125,7 @@ def compare(digits, template, *, policy=None, valid=None, tokens=None):
 
 
 def from_entry(entry, template, *, policy=None):
-    """-> the strict result for one `check_meter` entry (b1 fields).
+    """-> the strict result for one b1 meter-check entry (b1 fields).
 
     Reads the per-word `stream` digits and `alignment` that b1 reports; an
     entry whose word detail is unavailable is `not_computed`, never guessed.
