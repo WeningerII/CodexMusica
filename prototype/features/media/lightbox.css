@@ -33,7 +33,7 @@
   display: grid;
   place-items: center;
   min-height: 8rem;
-  font-size: 3rem;
+  font-size: 1rem;
 }
 .media-photo-credit-details {
   padding: 0.5rem;
