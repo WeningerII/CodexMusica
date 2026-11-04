@@ -108,8 +108,11 @@ def shard_job(jobs, shard, where):
 def settled(job_list, shard):
     """True once `shard`'s job in `job_list` reads completed with both timestamps.
 
-    Zero or several matching jobs count as settled: waiting cannot fix an
-    ambiguous list, and `shard_job` refuses it by name afterwards.
+    No matching job is NOT settled: GitHub's lag can hide a job's record as
+    well as its end, so the wait covers that too, and after the bound
+    `shard_job` refuses "0 jobs named ..." by name. Several matching jobs count
+    as settled: waiting cannot fix an ambiguous list, and `shard_job` refuses
+    it by name afterwards.
     """
     pattern = re.compile(rf'(^|/ )cells {re.escape(shard)}$')
     found = [job for job in job_list if pattern.search(job.get('name') or '')]

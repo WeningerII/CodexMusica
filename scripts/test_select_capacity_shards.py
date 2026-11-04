@@ -173,6 +173,27 @@ class Settle(unittest.TestCase):
         self.assertEqual(t.slept, [10, 10, 5])
         self.assertEqual((settle.pending, settle.waited), (['rest'], 25))
 
+    def test_a_missing_record_is_waited_for_then_refused_by_name(self):
+        # Lag can hide the job itself, not only its end: zero matches wait the
+        # full bound, then refuse with shard_job's own message.
+        api, t = ladder(1), FakeTime()
+        api['jobs'][1] = [j for j in api['jobs'][1] if not j['name'].endswith('cells rest')]
+        settle = sel.Settle(seconds=30, step=10, sleep=t.sleep, clock=t.clock)
+        with self.assertRaises(sel.Refusal) as caught:
+            self.select(fetcher(api), settle, api)
+        self.assertIn('0 jobs named "cells rest"', str(caught.exception))
+        self.assertEqual((t.slept, settle.pending), ([10, 10, 10], ['rest']))
+
+    def test_duplicate_records_are_not_waited_for(self):
+        api, t = ladder(1), FakeTime()
+        dup = next(j for j in api['jobs'][1] if j['name'].endswith('cells rest'))
+        api['jobs'][1].append(dict(dup, id=dup['id'] + 1))
+        settle = sel.Settle(seconds=30, step=10, sleep=t.sleep, clock=t.clock)
+        with self.assertRaises(sel.Refusal) as caught:
+            self.select(fetcher(api), settle, api)
+        self.assertIn('2 jobs named "cells rest"', str(caught.exception))
+        self.assertEqual(t.slept, [])
+
     def test_a_finished_failure_is_not_waited_for(self):
         api, t = rerun(ladder(2), 'pole', 2, conclusion='failure'), FakeTime()
         settle = sel.Settle(seconds=120, step=10, sleep=t.sleep, clock=t.clock)
