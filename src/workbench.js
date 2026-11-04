@@ -1,6 +1,6 @@
 /* exported UI, UI_ICONS, uiEmptyState, uiFind, uiFocus, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport, uiRecipeGenres, uiCount, uiTabIndex, uiDownload, uiSubroute, uiRouteOf, uiOpenInLyrics, uiInertOutside */
 /* global UILayout, CMLibraryImport, _whenWorkspace, _workspaceReady, uiEnsureWorkspace, _releaseEngine, _renderBootError, uiLyricsOpened */
-/* global recipeEditSnapshot, lyricMetaOf, ChainItem, renderSidebar, Room, Tuning, compileRecipeStack, envCardOf, renderSidebarTraditions, _revealSelectedCard, Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting, _engineLive, engineReady, storedSessionText */
+/* global recipeEditSnapshot, lyricMetaOf, ChainItem, renderSidebar, Room, Tuning, compileRecipeStack, envCardOf, hasEnvironment, renderSidebarTraditions, _revealSelectedCard, Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting, _engineLive, engineReady, storedSessionText */
 /* The shared application shell: one header, one navigation, one recipe
    workspace and session, one AI writer, one set of panels. Built alongside the
    canonical app (src/app.js) and catalog, which stay the only engine.
@@ -503,13 +503,8 @@ const UI_ENV_ROWS = [
   ['tuning', 'Tuning', 'tuning-fork', 'env'],
   ['chain', 'Signal chain', 'settings', 'chain'],
 ];
-const uiEnvIsSet = (card) =>
-  !!(
-    card &&
-    (card.room ||
-      card.tuning ||
-      Object.values(card.chain || {}).some((v) => (Array.isArray(v) ? v.length : v)))
-  );
+// Whether a card carries an environment: hasEnvironment, the same predicate
+// envCardOf uses (single source: scripts/_recipe_stack.js's @inline region).
 const uiCardWho = (card) => {
   const inst = Inst(card.instrumentId);
   return (inst && (inst.name || inst.short)) || card.instrumentId;
@@ -519,7 +514,7 @@ function uiRecipeEnvHTML() {
   if (!card) return '';
   const trad = card.traditionId ? Tradition(card.traditionId) : null;
   const who = esc(uiCardWho(card));
-  const has = uiEnvIsSet(card);
+  const has = hasEnvironment(card);
   // Every set stage, in chain order; the summary names each by its kind
   // ("Ribbon") or its name without the parenthesis, the tooltip in full.
   const stages = CHAIN_SECTIONS.flatMap((sec) =>
@@ -568,12 +563,12 @@ function uiEnvHandoverText() {
   const card = envCardOf(app.cards);
   const prev = UI.envSource;
   UI.envSource = card
-    ? { id: card.id, ids: new Set(app.cards.map((c) => c.id)), has: uiEnvIsSet(card), card }
+    ? { id: card.id, ids: new Set(app.cards.map((c) => c.id)), has: hasEnvironment(card), card }
     : null;
   if (!prev || !card || prev.id === card.id || !prev.has || !prev.ids.has(card.id)) return '';
   const trad = card.traditionId ? Tradition(card.traditionId) : null;
   const from = `${uiCardWho(card)} (${trad ? trad.name : 'independent'})`;
-  if (!uiEnvIsSet(card))
+  if (!hasEnvironment(card))
     return `No recording environment is set now. It was on ${uiCardWho(prev.card)}.`;
   const leads =
     trad && app.cards[0] === card && card.traditionId !== prev.card.traditionId
