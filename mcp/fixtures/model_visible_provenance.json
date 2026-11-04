@@ -401,36 +401,6 @@
       ],
       "about": "app",
       "reason": "The app's panel label, so the model knows the recipe string is the one a person sees."
-    },
-    {
-      "literal": "satirical",
-      "category": "pending-removal",
-      "at": ["search_prefaces description"],
-      "contexts": [
-        "(aesthetic/technique/delivery signatures: satirical, keening, brooding, …) by mood/feel words."
-      ],
-      "tracked": "#671",
-      "reason": "A real preface id in search_prefaces's description, from before #629 (0af50f9684). Mood words of the class #629 removed from that tool's field; the team agreed (#688 review) to remove them in a small #671 text PR. Admitted only until then."
-    },
-    {
-      "literal": "keening",
-      "category": "pending-removal",
-      "at": ["search_prefaces description"],
-      "contexts": [
-        "(aesthetic/technique/delivery signatures: satirical, keening, brooding, …) by mood/feel words. Ranked"
-      ],
-      "tracked": "#671",
-      "reason": "A real preface id in search_prefaces's description, from before #629 (0af50f9684). Mood words of the class #629 removed from that tool's field; the team agreed (#688 review) to remove them in a small #671 text PR. Admitted only until then."
-    },
-    {
-      "literal": "brooding",
-      "category": "pending-removal",
-      "at": ["search_prefaces description"],
-      "contexts": [
-        "(aesthetic/technique/delivery signatures: satirical, keening, brooding, …) by mood/feel words. Ranked like search_catalog:"
-      ],
-      "tracked": "#671",
-      "reason": "A real preface id in search_prefaces's description, from before #629 (0af50f9684). Mood words of the class #629 removed from that tool's field; the team agreed (#688 review) to remove them in a small #671 text PR. Admitted only until then."
     }
   ]
 }

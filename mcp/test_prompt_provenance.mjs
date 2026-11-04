@@ -38,6 +38,7 @@
 //   5. A stated default form is DEFAULT_FORM, and DEFAULT_FORM is `open`.
 //   6. No word list or ban is stated to the writer (#627).
 //   7. Nothing #629 removed comes back, anywhere in this text.
+//   8. search_prefaces descriptions name no catalog preface ids (#671).
 //
 // THE REVIEWED LIST (mcp/fixtures/model_visible_provenance.json) admits an
 // OCCURRENCE, never a word: each row binds one literal to the locations it was
@@ -370,6 +371,20 @@ function wordListViolations(list, registry) {
   return bad;
 }
 
+// Whole identifier tokens, case-insensitive: punctuation/quotes delimit an id,
+// while a longer word, snake_case field or hyphenated id is not a substring hit.
+// This is specific to the published description, never to user inputs/results.
+const PREFACE_IDS = new Set(C.PREFACE_LEXICON.map((p) => p.id.toLowerCase()));
+function prefaceDescriptionViolations(list) {
+  const bad = [];
+  for (const s of list.filter((s) => s.where === 'search_prefaces description')) {
+    const tokens = s.text.toLowerCase().match(/[\p{L}\p{N}_]+(?:-[\p{L}\p{N}_]+)*/gu) || [];
+    for (const id of new Set(tokens))
+      if (PREFACE_IDS.has(id)) bad.push(`${JSON.stringify(id)} (${where(s)})`);
+  }
+  return bad;
+}
+
 // Where a field or value is declared. A row names the file that produces the
 // field (`declared_in: [{file, as}]`) and the role it has there: `key` (an
 // object or dict key, or an assigned property) or `value` (a compared,
@@ -551,6 +566,59 @@ test('7. nothing #629 removed comes back', () => {
   assert.deepEqual(bad, []);
 });
 
+test('8. published search_prefaces descriptions contain no catalog preface ids', () => {
+  const descriptions = strings.filter((s) => s.where === 'search_prefaces description');
+  assert.deepEqual(
+    descriptions.map((s) => s.surface).sort(),
+    [
+      'raw engine (stdio)',
+      'raw /mcp/recipe',
+      "website chat's server",
+      '/mcp',
+      '/mcp/chatgpt',
+      '/mcp/chatgpt/recipe',
+    ].sort(),
+    'every recipe-capable surface must publish the description'
+  );
+  assert.ok(PREFACE_IDS.size > 0, 'the real preface catalog was loaded');
+  for (const s of descriptions) assert.ok(s.text.length > 200, `${where(s)} is nearly empty`);
+  assert.deepEqual(
+    prefaceDescriptionViolations(descriptions),
+    [],
+    'a catalog preface id reached a description'
+  );
+});
+
+test('the description guard catches every catalog id, including quoted and uppercase ids', () => {
+  for (const id of PREFACE_IDS) {
+    for (const text of [id, `"${id}"`, `(${id.toUpperCase()}).`]) {
+      const corpus = [{ surface: 'synthetic', where: 'search_prefaces description', text }];
+      assert.equal(prefaceDescriptionViolations(corpus).length, 1, `missed ${text}`);
+    }
+  }
+});
+
+test('the description guard respects identifier boundaries and its published location', () => {
+  const id = [...PREFACE_IDS][0];
+  assert.ok(id, 'a real id is needed for the controls');
+  for (const text of [`prefix${id}suffix`, `field_${id}`, `${id}_field`, `prefix-${id}-suffix`]) {
+    assert.deepEqual(
+      prefaceDescriptionViolations([
+        { surface: 'synthetic', where: 'search_prefaces description', text },
+      ]),
+      [],
+      `substring is not a whole catalog id: ${text}`
+    );
+  }
+  assert.deepEqual(
+    prefaceDescriptionViolations([
+      { surface: 'synthetic', where: 'search_prefaces result', text: id },
+    ]),
+    [],
+    'catalog results and explicit choices remain legitimate'
+  );
+});
+
 test('the reviewed list is closed, checkable and current', () => {
   assert.deepEqual(registryProblems(strings, REGISTRY), []);
 });
@@ -560,8 +628,25 @@ test('the reviewed list is closed, checkable and current', () => {
 // exception could be stretched into new writer guidance (#688 review).
 
 test('a reviewed id does not license the same word in a new sentence', () => {
-  const live = strings.find((s) => s.where === 'search_prefaces description');
-  assert.ok(live, 'the justified occurrence is still collected');
+  // Synthetic historical occurrence: keep proving occurrence scoping after
+  // the live examples and their production registry rows have been removed.
+  const live = {
+    surface: 'synthetic',
+    where: 'search_prefaces description',
+    text: 'Reviewed prefaces: satirical, keening, brooding, …',
+  };
+  const registry = {
+    entries: ['satirical', 'keening', 'brooding'].map((literal) => ({
+      literal,
+      category: 'pending-removal',
+      at: [live.where],
+      contexts: [live.text],
+      tracked: '#671',
+      reason: 'Synthetic historical occurrence used only to test registry scoping.',
+    })),
+  };
+  assert.deepEqual(registryProblems([live], registry), []);
+  assert.equal(wordListViolations([live], { entries: [] }).length, 3, 'the control needs its rows');
   const corpus = [
     live, // the reviewed occurrence stays covered
     {
@@ -576,10 +661,10 @@ test('a reviewed id does not license the same word in a new sentence', () => {
     },
     { surface: 'synthetic', where: 'lyric_plan description', text: 'Moods: dark, brooding, …' },
   ];
-  assert.deepEqual(wordListViolations([live], REGISTRY), [], 'the justified list is covered');
-  const quoted = quotedViolations(corpus, REGISTRY);
+  assert.deepEqual(wordListViolations([live], registry), [], 'the justified list is covered');
+  const quoted = quotedViolations(corpus, registry);
   assert.equal(quoted.length, 2, `both new quoted uses are uncovered: ${quoted}`);
-  const listed = wordListViolations(corpus, REGISTRY);
+  const listed = wordListViolations(corpus, registry);
   assert.ok(
     listed.some((x) => x.includes('"brooding"') && x.includes('lyric_plan')),
     `${listed}`
