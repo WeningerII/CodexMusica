@@ -595,6 +595,27 @@ console.log('\nenvironment-card rule (single source):');
       selBad.join('; ')
     );
   }
+  // One source holds only if nothing else carries the body. A local copy in a
+  // page or the server matches today and drifts later, so the predicate's core
+  // (whitespace removed, any variable name) may appear in no runtime file. The
+  // test oracles in check_edit_differential.js and recipe_probe_verdict.mjs are
+  // deliberate independent copies and live outside these roots.
+  const CORE = /Array\.isArray\((\w+)\)\?\1\.length>0:!!\1/;
+  const copies = [];
+  const walk = (dir) => {
+    for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (ent.name === 'node_modules' || ent.name.startsWith('.')) continue;
+      const f = path.join(dir, ent.name);
+      if (ent.isDirectory()) walk(f);
+      else if (
+        /\.(m?js)$/.test(ent.name) &&
+        CORE.test(fs.readFileSync(f, 'utf8').replace(/\s+/g, ''))
+      )
+        copies.push(path.relative(path.join(__dirname, '..'), f));
+    }
+  };
+  for (const root of ['src', 'mcp']) walk(path.join(__dirname, '..', root));
+  check('no runtime copy of the predicate in src/ or mcp/', !copies.length, copies.join(', '));
 }
 
 console.log(failures === 0 ? '\nPASS' : `\nFAIL (${failures})`);
