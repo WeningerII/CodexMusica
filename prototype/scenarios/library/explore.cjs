@@ -484,7 +484,7 @@ const root = path.resolve(__dirname, '../..');
     });
     await test('English preview 12 of 2195, one concurrent load, stable append and null targets', async () => {
       await boot({ total: 2195, deferredLoad: true });
-      assert.match(await shelf().textContent(), /12 of 2195 collections/);
+      assert.match(await shelf().textContent(), /12 of 2,195 collections/);
       await page.evaluate(() => {
         window.oldCard = document.querySelector('article');
         window.oldMore = document.querySelector('.library-prototype-more');
@@ -506,7 +506,7 @@ const root = path.resolve(__dirname, '../..');
             oldMore === document.querySelector('.library-prototype-more')
         )
       );
-      assert.match(await shelf().textContent(), /36 of 2195 collections/);
+      assert.match(await shelf().textContent(), /36 of 2,195 collections/);
       assert.equal(
         await shelf()
           .locator('[data-collection=c12]')
@@ -550,7 +550,7 @@ const root = path.resolve(__dirname, '../..');
         () =>
           document.querySelector('.library-prototype-more').getAttribute('aria-busy') === 'false'
       );
-      assert.match(await shelf().textContent(), /13 of 2195/);
+      assert.match(await shelf().textContent(), /13 of 2,195/);
     });
     await test('DATA_CHANGED refusal preserves button/cards; retry and nested focus stay intact', async () => {
       await boot({ rejectLoad: 'DATA_CHANGED' });
@@ -719,6 +719,104 @@ const root = path.resolve(__dirname, '../..');
           await page.evaluate(() => oldPlay.dispatchEvent(new Event('click')));
           assert.equal(await page.evaluate(() => calls.length), 1);
         }
+    });
+    await test('named card focus and unique title IDs across mounts and appended cards', async () => {
+      await boot();
+      const title = 'Collection 12 with a long readable title';
+      await shelf().locator('.library-prototype-more').click();
+      const named = shelf().getByRole('article', { name: title, exact: true });
+      await named.waitFor();
+      assert.equal(await named.count(), 1); // Browser-computed accessible name, not attribute-only.
+      assert.ok(await named.evaluate((n) => n === document.activeElement));
+      assert.match(
+        await named.ariaSnapshot(),
+        /article "Collection 12 with a long readable title"/
+      );
+      await page.evaluate(() => {
+        const host = document.createElement('div');
+        host.id = 'second-host';
+        document.body.append(host);
+        window.secondFeature = mountFeature(host, {
+          ...ctx,
+          storage: { read: () => ({ ok: true }), write: () => ({ ok: true }) },
+        });
+      });
+      await page.locator('#second-host .library-prototype-more').first().click();
+      await page.waitForFunction(
+        () => document.querySelectorAll('#second-host [data-language=eng] article').length > 12
+      );
+      const headings = await page.locator('article').evaluateAll((cards) =>
+        cards.map((card) => {
+          const heading = card.querySelector('h3');
+          return {
+            id: heading.id,
+            label: card.getAttribute('aria-labelledby'),
+            own: document.getElementById(heading.id) === heading,
+          };
+        })
+      );
+      assert.equal(new Set(headings.map((h) => h.id)).size, headings.length);
+      assert.ok(headings.every((h) => h.id && h.label === h.id && h.own));
+      await page.evaluate(() => window.secondFeature.unmount());
+    });
+    await test('selection states are visibly distinct, contrasted and keyboard-focused; counts are explicit', async () => {
+      await boot({ total: 2195 });
+      assert.equal(await shelf().locator('p').first().textContent(), '12 of 2,195 collections');
+      const more = shelf().locator('.library-prototype-more');
+      assert.equal(await more.textContent(), 'Show 24 more (2,183 not shown)');
+      const select = shelf()
+        .locator('article')
+        .first()
+        .getByRole('button', { name: 'Select readable units' });
+      const styles = [];
+      for (const state of ['none', 'some', 'all']) {
+        await page.evaluate((state) => {
+          selected.c0 = state;
+          notifySelection();
+        }, state);
+        styles.push(
+          await select.evaluate((n) => {
+            const s = getComputedStyle(n);
+            return {
+              border: s.borderTopStyle,
+              width: s.borderTopWidth,
+              weight: s.fontWeight,
+              color: s.color,
+              background: s.backgroundColor,
+            };
+          })
+        );
+      }
+      assert.equal(new Set(styles.map((s) => JSON.stringify(s))).size, 3);
+      assert.equal(styles[1].border, 'dashed');
+      assert.equal(styles[2].border, 'solid');
+      assert.equal(styles[1].width, '3px');
+      assert.equal(styles[2].width, '3px');
+      for (const s of styles) {
+        assert.equal(s.color, 'rgb(17, 17, 17)');
+        assert.equal(s.background, 'rgb(255, 255, 255)'); // 18.88:1 text contrast.
+      }
+      await select.focus();
+      await page.keyboard.press('Tab');
+      await page.keyboard.press('Shift+Tab');
+      assert.ok(
+        await select.evaluate(
+          (n) =>
+            n === document.activeElement &&
+            n.matches(':focus-visible') &&
+            getComputedStyle(n).outlineWidth === '3px'
+        )
+      );
+      await more.click();
+      await page.waitForFunction(
+        () =>
+          document.querySelector('[data-language=eng] p').textContent === '36 of 2,195 collections'
+      );
+      assert.equal(await more.textContent(), 'Show 24 more (2,159 not shown)');
+      assert.equal(
+        await page.evaluate(() => messages.at(-1)),
+        '36 of 2,195 English collections shown.'
+      );
     });
     await test('320px, 200% text, native horizontal overflow and reduced motion', async () => {
       await page.setViewportSize({ width: 320, height: 800 });

@@ -13,6 +13,9 @@
 // Native overflow/index restoration follow src/library/core.js:671–745;
 // shelf-only Arrow handling follows :871–880, not the stale looping matrix.
 // ctx.storage is already lane-scoped; read/write return { ok, value?, reason? }.
+let nextCardHeading = 0;
+const formatCount = (value) => value.toLocaleString('en-US');
+
 export function mount(host, ctx) {
   if ('recipe' in ctx) throw new TypeError('Library context must not contain a recipe object.');
   const doc = host.ownerDocument;
@@ -153,8 +156,11 @@ export function mount(host, ctx) {
         cover.setAttribute('aria-hidden', 'true');
         article.append(cover);
       }
+      const title = el('h3', collection.title);
+      title.id = `library-card-heading-${++nextCardHeading}`;
+      article.setAttribute('aria-labelledby', title.id);
       article.append(
-        el('h3', collection.title),
+        title,
         el('p', `${collection.readable} readable · ${collection.recorded} recorded units`)
       );
       const addAction = (label, handler) => {
@@ -199,14 +205,14 @@ export function mount(host, ctx) {
     };
     const update = () => {
       const remaining = total - collections.length;
-      countText.textContent = `${collections.length} of ${total} collections`;
+      countText.textContent = `${formatCount(collections.length)} of ${formatCount(total)} collections`;
       more.hidden = remaining === 0;
       more.disabled = !ready || typeof ctx.loadMore !== 'function';
       // Keep keyboard focus while loading; the pending guard blocks activation.
       more.setAttribute('aria-disabled', String(pending || more.disabled));
       more.textContent = pending
         ? 'Loading collections…'
-        : `Show ${Math.min(batch, remaining)} more of ${remaining}`;
+        : `Show ${formatCount(Math.min(batch, remaining))} more (${formatCount(remaining)} not shown)`;
       more.setAttribute('aria-busy', String(pending));
     };
     const load = async (requested, explicit = false) => {
@@ -250,7 +256,7 @@ export function mount(host, ctx) {
         if (explicit)
           announce(
             result.cards.length
-              ? `${collections.length} of ${total} ${label} collections shown.`
+              ? `${formatCount(collections.length)} of ${formatCount(total)} ${label} collections shown.`
               : `No additional ${label} collections returned. Try again.`
           );
         return result.cards.length;
