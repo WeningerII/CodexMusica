@@ -91,6 +91,8 @@ import json
 import os
 from pathlib import Path
 import re
+import shutil
+import subprocess
 import sys
 
 failures = 0
@@ -100,6 +102,13 @@ def report(ok, label, detail):
     failures += not ok
 
 print(f'INFO Python: {sys.version.split()[0]}; capacity-proof CI pins 3.11.16/x64; Library-site CI uses 3.12. Neither is a universal local-version assertion.')
+if shutil.which('git'):
+    tracked = subprocess.run(['git', 'ls-files', '-z'], capture_output=True)
+    if tracked.returncode == 0:
+        missing = [os.fsdecode(p) for p in tracked.stdout.split(b'\0') if p and not os.path.lexists(os.fsdecode(p))]
+        report(not missing, 'tracked checkout paths', 'all present on disk' if not missing else f'{len(missing)} missing; examples: {missing[:5]!r}; inspect sparse-checkout exclusions or local deletions before running documentation/fixture gates')
+    else:
+        print('INFO tracked checkout paths not checked: no readable Git index; directory checks alone cannot detect partial sparse exclusions.')
 try:
     requirements = Path('mcp/requirements-runtime.txt').read_text()
     for name, expected in re.findall(r'^([A-Za-z0-9_.-]+)==([^\s\\]+)', requirements, re.M):
