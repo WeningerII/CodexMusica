@@ -17,6 +17,7 @@ const os = require('node:os');
 const http = require('node:http');
 const { execFileSync } = require('node:child_process');
 const { chromium } = require('playwright');
+const { createHash } = require('node:crypto');
 const root = path.resolve(__dirname, '..');
 const args = process.argv.slice(2);
 assert(
@@ -30,6 +31,185 @@ const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'map-atlas-served-'));
 const records = [];
 const gates = new Map();
 const requests = [];
+// DOM/actionability checks, not proof that a screen reader announced the text or
+// that activating the eventual recovery performs a successful recovery.
+async function visibleAndExposed(locator) {
+  return (
+    (await locator.isVisible()) &&
+    locator.evaluate((el) => {
+      for (let node = el; node; node = node.parentElement) {
+        if (
+          node.inert ||
+          node.getAttribute('aria-hidden') === 'true' ||
+          Number(window.getComputedStyle(node).opacity) === 0
+        )
+          return false;
+      }
+      return true;
+    })
+  );
+}
+async function recoveryState(status) {
+  const statusVisible = await visibleAndExposed(status);
+  const statusText = statusVisible ? (await status.innerText()).trim() : '';
+  const explanation = statusVisible
+    ? await status.evaluate((el) => {
+        // An actionable button alone must not stand in for visible explanation text.
+        const walker = document.createTreeWalker(el, 4 /* SHOW_TEXT */);
+        const text = [];
+        for (let node = walker.nextNode(); node; node = walker.nextNode()) {
+          if (!node.textContent.trim() || node.parentElement.closest('button,a[href]')) continue;
+          let exposed = true;
+          for (let parent = node.parentElement; parent; parent = parent.parentElement) {
+            const css = window.getComputedStyle(parent);
+            if (
+              parent.inert ||
+              parent.getAttribute('aria-hidden') === 'true' ||
+              css.visibility !== 'visible' ||
+              Number(css.opacity) === 0
+            )
+              exposed = false;
+          }
+          const range = document.createRange();
+          range.selectNodeContents(node);
+          if (exposed && [...range.getClientRects()].some((r) => r.width > 0 && r.height > 0))
+            text.push(node.textContent.trim());
+        }
+        return text.join(' ');
+      })
+    : '';
+  const role = await status.getAttribute('role');
+  const fitsViewport = await status.evaluate((el) => {
+    const b = el.getBoundingClientRect();
+    return (
+      b.width > 0 &&
+      b.height > 0 &&
+      b.left >= 0 &&
+      b.right <= innerWidth &&
+      b.top >= 0 &&
+      b.bottom <= innerHeight
+    );
+  });
+  let recoveryActions = 0;
+  if (statusVisible) {
+    for (const action of await status.locator('a[href],button').all()) {
+      if (!(await visibleAndExposed(action)) || !(await action.isEnabled())) continue;
+      if (!((await action.innerText()).trim() || (await action.getAttribute('aria-label'))))
+        continue;
+      try {
+        // Trial checks enabled, stable, visible and receives pointer events; no navigation.
+        await action.click({ trial: true, timeout: 300 });
+        recoveryActions++;
+      } catch {
+        /* An obstructed/disabled control is not an actionable recovery. */
+      }
+    }
+  }
+  return {
+    statusVisible,
+    statusText,
+    explanation,
+    role,
+    fitsViewport,
+    recoveryActions,
+    announcedRecovery:
+      statusVisible &&
+      !!explanation &&
+      ['status', 'alert'].includes(role) &&
+      !/Loading the map/.test(statusText) &&
+      recoveryActions > 0 &&
+      fitsViewport,
+  };
+}
+async function bounded(promise, label, ms = 10000) {
+  let timer;
+  try {
+    return await Promise.race([
+      promise,
+      new Promise((_, reject) => {
+        timer = setTimeout(() => reject(new Error(`${label}: timed out after ${ms} ms`)), ms);
+      }),
+    ]);
+  } finally {
+    clearTimeout(timer);
+  }
+}
+async function waitForRecovery(status) {
+  const deadline = Date.now() + 3000;
+  let state;
+  do {
+    state = await recoveryState(status);
+    if (state.announcedRecovery) return state;
+    await status.page().waitForTimeout(50);
+  } while (Date.now() < deadline);
+  return state;
+}
+async function predicateControls(browser) {
+  const results = [];
+  for (const width of [1280, 375]) {
+    const page = await browser.newPage({ viewport: { width, height: 900 } });
+    try {
+      for (const variant of [
+        'visible-enabled',
+        'hidden-status',
+        'hidden-action',
+        'disabled-action',
+        'aria-disabled-action',
+        'aria-hidden-status',
+        'transparent-status',
+        'hidden-explanation',
+      ]) {
+        await page.setContent(
+          '<div id="status" role="status">The map did not load. <button>Try again</button></div>'
+        );
+        await page.evaluate((variant) => {
+          const status = document.querySelector('#status');
+          const button = status.querySelector('button');
+          if (variant === 'hidden-status') status.style.visibility = 'hidden';
+          if (variant === 'hidden-action') button.style.visibility = 'hidden';
+          if (variant === 'disabled-action') button.disabled = true;
+          if (variant === 'aria-disabled-action') button.setAttribute('aria-disabled', 'true');
+          if (variant === 'aria-hidden-status') status.setAttribute('aria-hidden', 'true');
+          if (variant === 'transparent-status') status.style.opacity = '0';
+          if (variant === 'hidden-explanation')
+            status.innerHTML =
+              '<span style="visibility:hidden">The map did not load.</span><button>Try again</button>';
+        }, variant);
+        const result = await recoveryState(page.locator('#status'));
+        assert.equal(
+          result.announcedRecovery,
+          variant === 'visible-enabled',
+          `${width}: ${variant} recovery predicate`
+        );
+        results.push({ width, variant, accepted: result.announcedRecovery });
+      }
+      // This fixture proves the bounded wait accepts recovery appearing after load.
+      await page.setContent(
+        '<div id="status" role="status" hidden>The map did not load. <button>Try again</button></div>'
+      );
+      await page.evaluate(() =>
+        setTimeout(() => {
+          document.querySelector('#status').hidden = false;
+        }, 150)
+      );
+      assert(
+        (await waitForRecovery(page.locator('#status'))).announcedRecovery,
+        'delayed recovery'
+      );
+      results.push({ width, variant: 'delayed-recovery', accepted: true });
+    } finally {
+      await page.close();
+    }
+  }
+  await assert.rejects(
+    bounded(new Promise(() => {}), 'unseen atlas request control', 25),
+    /timed out/
+  );
+  console.log(
+    `PASS: ${results.length} synthetic recovery controls and missing-request timeout control (not product fixes)`
+  );
+  return results;
+}
 const mime = {
   '.html': 'text/html',
   '.js': 'text/javascript',
@@ -95,6 +275,7 @@ const server = http.createServer(async (req, res) => {
       executablePath: process.env.CHROMIUM_PATH || undefined,
       args: ['--no-sandbox'],
     });
+    const recoveryControls = await predicateControls(browser);
     if (evidenceDir) fs.mkdirSync(evidenceDir, { recursive: true });
     for (const width of [1280, 375]) {
       for (const scenario of ['healthy', 'missing', 'data-error']) {
@@ -133,7 +314,7 @@ const server = http.createServer(async (req, res) => {
           await page.waitForFunction(() =>
             document.querySelector('#map-frame')?.getAttribute('src')?.includes('atlas.html')
           );
-          await requestedPromise;
+          await bounded(requestedPromise, `${caseId}: atlas request`);
           const status = page.locator('#map-status');
           assert(
             await status.isVisible(),
@@ -163,37 +344,26 @@ const server = http.createServer(async (req, res) => {
               `${caseId}: controlled data failure reached the server`
             );
           }
-          const snapshot = await page.evaluate(() => {
-            const status = document.querySelector('#map-status');
-            const frame = document.querySelector('#map-frame');
-            const doc = frame.contentDocument;
-            const box = status.getBoundingClientRect();
-            return {
-              protocol: location.protocol,
-              statusVisible: !status.hidden && !!status.getClientRects().length,
-              statusText: status.textContent.trim(),
-              role: status.getAttribute('role'),
-              fitsViewport:
-                box.left >= 0 &&
-                box.right <= innerWidth &&
-                box.top >= 0 &&
-                box.bottom <= innerHeight,
-              recoveryActions: [...status.querySelectorAll('a[href],button')].filter(
-                (el) => !!el.getClientRects().length
-              ).length,
-              atlasPresent: !!doc?.querySelector('#map-main'),
-              frameText: doc?.body?.textContent.trim() || '',
-              frameLoads: window.__mapFrameLoads,
-            };
-          });
+          const recovery =
+            recoveryMode && scenario === 'missing'
+              ? await waitForRecovery(status)
+              : await recoveryState(status);
+          const snapshot = {
+            ...recovery,
+            ...(await page.evaluate(() => {
+              const frame = document.querySelector('#map-frame');
+              const doc = frame.contentDocument;
+              return {
+                protocol: location.protocol,
+                atlasPresent: !!doc?.querySelector('#map-main'),
+                frameText: doc?.body?.textContent.trim() || '',
+                frameLoads: window.__mapFrameLoads,
+              };
+            })),
+          };
           const blank =
             !snapshot.statusVisible && !snapshot.atlasPresent && snapshot.frameText === '';
-          const announcedRecovery =
-            snapshot.statusVisible &&
-            ['status', 'alert'].includes(snapshot.role) &&
-            !/Loading the map/.test(snapshot.statusText) &&
-            snapshot.recoveryActions > 0 &&
-            snapshot.fitsViewport;
+          const { announcedRecovery } = recovery;
           assert.equal(snapshot.protocol, 'http:');
           assert.deepEqual(errors, [], `${caseId}: unexpected JavaScript errors`);
           const atlasRequests = requests.filter(
@@ -227,6 +397,27 @@ const server = http.createServer(async (req, res) => {
       build: 'fresh --embedded; default Library setting',
       browser: browser.version(),
       source: execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim(),
+      workingTreeStatus: execFileSync('git', ['status', '--porcelain'], {
+        cwd: root,
+        encoding: 'utf8',
+      }),
+      sha256: Object.fromEntries(
+        [
+          'scripts/check_map_atlas_missing_served.js',
+          'src/pages/map.js',
+          'src/pages/map.css',
+          'src/atlas.js',
+          'atlas.html',
+          'scripts/build_html.js',
+          'src/app.js',
+        ].map((file) => [
+          file,
+          createHash('sha256')
+            .update(fs.readFileSync(path.join(root, file)))
+            .digest('hex'),
+        ])
+      ),
+      recoveryControls,
       scope:
         'Local served HTTP only; external requests blocked. No offline or production qualification.',
       mode: recoveryMode ? 'assert-recovery' : 'reproduce-known-defect',
