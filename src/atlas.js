@@ -163,10 +163,9 @@
     return a.name.localeCompare(b.name, 'en');
   }
   // A to Z by a shown label, case- and accent-insensitive: how a ranked list
-  // (a count, a distance, a match) orders its ties.
-  function az(a, b) {
-    return a.localeCompare(b, 'en', { sensitivity: 'base' });
-  }
+  // (a count, a distance, a match) orders its ties. One collator, not one per
+  // call (#663 A2).
+  const az = new Intl.Collator('en', { sensitivity: 'base' }).compare;
   function esc(s) {
     return String(s)
       .replace(/&/g, '&amp;')
