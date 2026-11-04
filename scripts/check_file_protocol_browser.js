@@ -24,7 +24,13 @@ const { execFileSync } = require('node:child_process');
 const root = path.resolve(__dirname, '..');
 const PAGES = [
   { file: 'codex.html', message: '#boot-error', retry: '#boot-error button' },
-  { file: 'atlas.html', message: '#loading', retry: '#loading button' },
+  // The atlas keeps its recipe-list link: opening a sibling file works over file://.
+  {
+    file: 'atlas.html',
+    message: '#loading',
+    retry: '#loading button',
+    keep: '#loading a[href="api/all.json"]',
+  },
 ];
 const WIDTHS = [1280, 375];
 const NAMES_CAUSE = (text, expect, at) => {
@@ -69,9 +75,10 @@ const NAMES_CAUSE = (text, expect, at) => {
             { timeout: 20000 }
           )
           .catch(() => {});
-        const seen = await page.evaluate(({ message, retry }) => {
+        const seen = await page.evaluate(({ message, retry, keep }) => {
           const el = document.querySelector(message);
           return {
+            kept: keep ? !!document.querySelector(keep) : true,
             text: el ? el.textContent.replace(/\s+/g, ' ').trim() : '',
             retries: [...document.querySelectorAll(retry)].map((b) => b.textContent.trim()),
             announced: !!(
@@ -87,6 +94,7 @@ const NAMES_CAUSE = (text, expect, at) => {
           `${at}: offers a retry that cannot work: ${seen.retries.join(', ')}`
         );
         expect(seen.announced, `${at}: the message is not in a live region`);
+        expect(seen.kept, `${at}: dropped the link that still works from disk (${p.keep})`);
         expect(errors.length === 0, `${at}: page errors: ${errors.join(' | ')}`);
         await page.close();
       }

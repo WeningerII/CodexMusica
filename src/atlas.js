@@ -374,10 +374,12 @@
           $('loading').classList.remove('sr-only');
           if (location.protocol === 'file:') {
             // Opened from disk: fetch() is refused for the file scheme, so the
-            // network is not the cause and Try again cannot help (#660).
+            // network is not the cause and Try again cannot help (#660). The
+            // recipe list stays: opening a sibling file works over file://.
             $('loading').innerHTML =
               '<div class="cm-empty" data-tone="danger"><strong>The map did not load.</strong><span>' +
-              'Opened from a file, this page can’t load its data. Use codexmusica.com/atlas.html, or run python3 -m http.server here and open localhost:8000/atlas.html.</span></div>';
+              'Opened from a file, this page can’t load its data. Use codexmusica.com/atlas.html, or run python3 -m http.server here and open localhost:8000/atlas.html.</span>' +
+              '<span class="cm-empty-actions"><a href="api/all.json">Every recipe as JSON</a></span></div>';
           } else {
             $('loading').innerHTML =
               '<div class="cm-empty" data-tone="danger"><strong>The map did not load.</strong>' +
