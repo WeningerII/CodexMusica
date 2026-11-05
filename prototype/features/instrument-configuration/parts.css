@@ -1,0 +1,86 @@
+.ic-parts {
+  color: inherit;
+  font: inherit;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.ic-parts h3 {
+  margin: 0;
+  font: inherit;
+}
+.ic-parts .ic-parts-part {
+  border-block-end: 1px solid currentColor;
+  padding-block: 0.5rem;
+}
+.ic-parts .ic-parts-toggle,
+.ic-parts .ic-parts-more {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  min-height: 2.75rem;
+  width: 100%;
+  font: inherit;
+  text-align: start;
+  color: inherit;
+  background: transparent;
+  border: 1px solid currentColor;
+  padding: 0.5rem;
+  overflow-wrap: anywhere;
+}
+.ic-parts .ic-parts-options {
+  display: grid;
+  gap: 0.25rem;
+  margin-block: 0.5rem;
+}
+.ic-parts .ic-parts-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+}
+.ic-parts input {
+  flex: 0 0 auto;
+}
+.ic-parts :focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+.ic-parts .ic-parts-status:empty {
+  display: none;
+}
+
+.ic-parts .ic-parts-descriptors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+.ic-parts .ic-parts-option {
+  flex-wrap: wrap;
+}
+.ic-parts .ic-parts-option[hidden] {
+  display: none;
+}
+.ic-parts .ic-parts-filter {
+  display: grid;
+  gap: 0.25rem;
+  margin-block: 0.5rem;
+}
+.ic-parts .ic-parts-filter input {
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 2.75rem;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 1px solid currentColor;
+}
+.ic-parts .ic-parts-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
