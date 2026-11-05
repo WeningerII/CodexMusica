@@ -4,6 +4,9 @@
 // points, string-keyed recipe/chat/legacy Storage calls, and saved-workspace
 // indexedDB.open. See NEGATIVE_CONTROLS for the planted Library-source probes.
 // Usage: node scripts/check_library_rule1_isolation.js [--negative-control[=NAME]]
+//   --self-test[=NAME]: exact planted route/operations plus all other invariants;
+//   without NAME, runs baseline and all ten controls. --unit-test: native semantics.
+// Legacy negative controls still exit 1. No arbitrary failure counts as detection.
 // Builds only in /tmp. Spec: docs/library-native-design.md Rule 1 and row 58;
 // docs/ui-foundation.md "One recipe workspace"; Don's superseding #733 comment 6639915514.
 // Monitored Library-owned reads fail. Shared shell reads are INFO;
@@ -20,7 +23,7 @@
 // not a proof about arbitrary deferred callbacks or retained object aliases.
 // Negative controls inject into the built Works chunk or inline libraryShow,
 // directly or through sessionSnapshot. Only the temporary build/SRI are changed.
-/* global app, Engine, Catalog, compileRecipeStack:writable, envCardOf:writable, uiOpenInLyrics:writable, _workspaceReady, UI, window, location, document, Storage, localStorage, chatState, IDBFactory */
+/* global app, Engine, Catalog, compileRecipeStack:writable, envCardOf:writable, uiOpenInLyrics:writable, _workspaceReady, UI, window, location, document, Storage, localStorage, chatState, CHAT_STORAGE_KEY, IDBFactory */
 'use strict';
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
@@ -39,7 +42,10 @@ const NEGATIVE_CONTROLS = {
   },
   inline: { code: 'void app.cards;', expected: ['app.cards'] },
   'inline-helper': { code: 'sessionSnapshot();', expected: ['app.cards'] },
-  'chat-state': { code: 'void chatState.workspace;', expected: ['chatState.workspace'] },
+  'chat-state': {
+    code: 'void chatState.workspace;',
+    expected: ['chatState.workspace'],
+  },
   'chat-storage': {
     code: 'localStorage.getItem(CHAT_STORAGE_KEY);',
     expected: ['storage.getItem:codex-musica-chat-v2:'],
@@ -61,15 +67,297 @@ const NEGATIVE_CONTROLS = {
     expected: ['indexedDB.open:codex-musica'],
   },
 };
-const negativeArg = process.argv[2];
-const negative = negativeArg ? negativeArg.split('=')[1] || 'direct' : null;
+const modeArg = process.argv[2];
+const mode = modeArg?.split('=')[0];
+const selected = modeArg?.split('=')[1];
 assert.ok(
   process.argv.length <= 3 &&
-    (!negativeArg ||
-      (/^--negative-control(?:=[a-z-]+)?$/.test(negativeArg) &&
-        Object.hasOwn(NEGATIVE_CONTROLS, negative))),
+    (!modeArg ||
+      modeArg === '--unit-test' ||
+      (/^--(?:negative-control|self-test)(?:=[a-z-]+)?$/.test(modeArg) &&
+        (!selected || Object.hasOwn(NEGATIVE_CONTROLS, selected)))),
   'unknown argument'
 );
+
+// Only this mode accepts a planted violation, and only its exact operation
+// multiset on its exact route. Ancillary planted Storage reads/writes count too.
+function checkControlReads(control, route, reads, chatKey) {
+  const expectedRoute = control?.startsWith('inline') ? 'Explore' : 'Works';
+  let expected = [];
+  if (control && route === expectedRoute) {
+    expected = [...NEGATIVE_CONTROLS[control].expected];
+    if (control === 'chat-storage') {
+      assert.ok(typeof chatKey === 'string' && chatKey.startsWith('codex-musica-chat-v2:'));
+      expected = ['storage.getItem:' + chatKey];
+    }
+    if (control === 'storage-write' || control === 'storage-remove')
+      expected.push('storage.getItem:codex-workbench-v1');
+    if (control === 'storage-remove') expected.push('storage.setItem:codex-workbench-v1');
+  }
+  assert.deepEqual(
+    reads.map((r) => r.access).sort(),
+    expected.sort(),
+    'exact planted operations on ' + route
+  );
+}
+
+// Configurable properties only. Data descriptors become accessors; this is
+// not descriptor-kind or arbitrary-receiver transparency. Successful ordinary
+// receiver writes preserve flags. Unsupported rejection paths throw and remain
+// sticky failures even if application code catches the exception: an accessor
+// setter cannot return native ordinary-data Reflect.set(false).
+function observeProperty(object, key, note, label, unsupported) {
+  'use strict';
+  const d = Object.getOwnPropertyDescriptor(object, key);
+  if (!d || !d.configurable) throw Error('Cannot instrument non-configurable/missing ' + label);
+  let value = d.value;
+  const replacement = {
+    configurable: d.configurable,
+    enumerable: d.enumerable,
+    get() {
+      note(label);
+      return 'value' in d ? value : d.get?.call(this);
+    },
+  };
+  if ('value' in d && d.writable)
+    replacement.set = function (next) {
+      if (this === object) {
+        value = next;
+        return;
+      }
+      const reject = () => {
+        const message = 'Unsupported observer receiver: ' + label;
+        unsupported(message);
+        const error = new TypeError(message);
+        error.name = 'Rule1UnsupportedReceiver';
+        throw error;
+      };
+      if (this === null || (typeof this !== 'object' && typeof this !== 'function')) reject();
+      const own = Object.getOwnPropertyDescriptor(this, key);
+      if (own) {
+        if (!('value' in own) || !own.writable) reject();
+        // Updating only value preserves writable/configurable/enumerable flags,
+        // including a valid write to an existing non-configurable property.
+        Object.defineProperty(this, key, { value: next });
+      } else {
+        if (!Object.isExtensible(this)) reject();
+        Object.defineProperty(this, key, {
+          value: next,
+          writable: true,
+          enumerable: true,
+          configurable: true,
+        });
+      }
+    };
+  else if (!('value' in d) && d.set)
+    replacement.set = function (next) {
+      return d.set.call(this, next);
+    };
+  Object.defineProperty(object, key, replacement);
+  return replacement;
+}
+
+function checkObserverSemantics(observe) {
+  'use strict';
+  const check = (ok, message) => {
+    if (!ok) throw Error('Observer semantics: ' + message);
+  };
+  const strictSet = Function('r', '"use strict"; return r.x = 9;');
+  const sloppySet = Function('r', 'return r.x = 9;');
+  const attempt = (fn) => {
+    try {
+      return { result: fn() };
+    } catch (e) {
+      return { error: e.name };
+    }
+  };
+  let supported = 0,
+    unsupported = 0;
+  for (const targetKind of ['writable', 'readonly', 'getter', 'accessor'])
+    for (const enumerable of [false, true])
+      for (const receiverKind of [
+        'self',
+        'empty',
+        'writable',
+        'fixed-writable',
+        'readonly',
+        'fixed-readonly',
+        'getter',
+        'accessor',
+        'primitive',
+      ])
+        for (const extensible of [false, true])
+          for (const mode of ['reflect', 'strict', 'sloppy']) {
+            const run = (watched) => {
+              const target = {};
+              let calls = 0,
+                receiverSeen = false;
+              const d = ['writable', 'readonly'].includes(targetKind)
+                ? { value: 1, writable: targetKind === 'writable' }
+                : {
+                    get() {
+                      return this.y ?? 1;
+                    },
+                    ...(targetKind === 'accessor'
+                      ? {
+                          set(v) {
+                            calls++;
+                            this.y = v;
+                          },
+                        }
+                      : {}),
+                  };
+              Object.defineProperty(target, 'x', { ...d, configurable: true, enumerable });
+              let receiver =
+                receiverKind === 'self'
+                  ? target
+                  : receiverKind === 'primitive'
+                    ? 17
+                    : Object.create(target);
+              if (receiverKind.includes('writable') || receiverKind.includes('readonly'))
+                Object.defineProperty(receiver, 'x', {
+                  value: 2,
+                  writable: !receiverKind.includes('readonly'),
+                  enumerable,
+                  configurable: !receiverKind.startsWith('fixed'),
+                });
+              if (['getter', 'accessor'].includes(receiverKind))
+                Object.defineProperty(receiver, 'x', {
+                  get() {
+                    return 2;
+                  },
+                  ...(receiverKind === 'accessor'
+                    ? {
+                        set() {
+                          calls++;
+                          receiverSeen = this === receiver;
+                        },
+                      }
+                    : {}),
+                  configurable: true,
+                  enumerable,
+                });
+              const rejected = [];
+              if (watched)
+                observe(
+                  target,
+                  'x',
+                  () => {},
+                  'unit.x',
+                  (m) => rejected.push(m)
+                );
+              if (!extensible && typeof receiver === 'object') Object.preventExtensions(receiver);
+              const result = attempt(() =>
+                mode === 'reflect'
+                  ? Reflect.set(target, 'x', 9, receiver)
+                  : mode === 'strict'
+                    ? strictSet(receiver)
+                    : sloppySet(receiver)
+              );
+              const own = Object.getOwnPropertyDescriptor(receiver, 'x');
+              check(
+                Object.getOwnPropertyDescriptor(target, 'x').enumerable === enumerable,
+                'target enumerability preserved'
+              );
+              // Watched self data becomes an accessor; compare its value/flags
+              // separately, never mislabel that transformation as native parity.
+              const receiverDescriptor =
+                receiverKind === 'self'
+                  ? null
+                  : own && {
+                      value: own.value,
+                      writable: own.writable,
+                      enumerable: own.enumerable,
+                      configurable: own.configurable,
+                      get: !!own.get,
+                      set: !!own.set,
+                    };
+              return {
+                result,
+                rejected,
+                targetValue: target.x,
+                receiverValue: receiver.x,
+                targetY: target.y,
+                receiverY: receiver.y,
+                receiverDescriptor,
+                calls,
+                receiverSeen,
+              };
+            };
+            const native = run(false),
+              watched = run(true);
+            const failurePath =
+              targetKind === 'writable' &&
+              receiverKind !== 'self' &&
+              ((mode === 'reflect' &&
+                ['readonly', 'fixed-readonly', 'getter', 'accessor', 'primitive'].includes(
+                  receiverKind
+                )) ||
+                (receiverKind === 'empty' && !extensible));
+            if (failurePath) {
+              check(
+                watched.result.error === 'Rule1UnsupportedReceiver' &&
+                  watched.rejected.length === 1,
+                'unsupported receiver must fail closed'
+              );
+              // This intentional exception replaces native false/silent rejection.
+              // All state, flags and accessor effects must still match native.
+              delete native.result;
+              delete watched.result;
+              watched.rejected = [];
+              unsupported++;
+            } else supported++;
+            check(
+              JSON.stringify(native) === JSON.stringify(watched),
+              [targetKind, enumerable, receiverKind, extensible, mode].join('/')
+            );
+          }
+  const records = [],
+    rejected = [],
+    sample = { x: 7 };
+  const replacement = observe(
+    sample,
+    'x',
+    (v) => records.push(v),
+    'unit.x',
+    (m) => rejected.push(m)
+  );
+  check(sample.x === 7 && records.join() === 'unit.x', 'read observed');
+  check(Object.getOwnPropertyDescriptor(sample, 'x').get === replacement.get, 'observer installed');
+  const sentinel = {};
+  const accessor = {};
+  let receiverSeen;
+  Object.defineProperty(accessor, 'x', {
+    configurable: true,
+    get() {
+      receiverSeen = this;
+      throw sentinel;
+    },
+    set() {
+      receiverSeen = this;
+      throw sentinel;
+    },
+  });
+  observe(
+    accessor,
+    'x',
+    () => {},
+    'sentinel',
+    (m) => rejected.push(m)
+  );
+  const child = Object.create(accessor);
+  for (const operation of [() => child.x, () => Reflect.set(accessor, 'x', 3, child)]) {
+    let error;
+    try {
+      operation();
+    } catch (e) {
+      error = e;
+    }
+    check(error === sentinel && receiverSeen === child, 'accessor receiver/error identity');
+  }
+  check(rejected.length === 0, 'supported calibration clean');
+  return { supported, unsupported };
+}
 
 function ownership(stack) {
   for (const frame of stack.split('\n')) {
@@ -96,9 +384,8 @@ assert.equal(
 assert.equal(ownership('Error\n' + seam + '\n' + libFrame), 'Lyrics receiver');
 assert.equal(ownership('Error\n' + libFrame + '\n' + seam), 'Library');
 
-// Runs in the browser. Getters preserve original values and writes, so even a
-// violation caught by production code remains recorded and behavior can finish.
-function instrument() {
+// Runs in the browser; caught production violations remain recorded.
+function instrument(observe, calibrate) {
   Error.stackTraceLimit = 100;
   const envelopes = [];
   const handoff = uiOpenInLyrics;
@@ -112,36 +399,11 @@ function instrument() {
     if (armed) records.push({ access, stack: new Error().stack });
   };
   const descriptors = [];
+  const unsupportedReceivers = [];
   const watch = (object, key, label) => {
-    const d = Object.getOwnPropertyDescriptor(object, key);
-    if (!d || !d.configurable) throw Error('Cannot instrument non-configurable/missing ' + label);
-    let value = d.value;
-    const replacement = {
-      configurable: d.configurable,
-      enumerable: d.enumerable,
-      get() {
-        note(label);
-        return 'value' in d ? value : d.get?.call(this);
-      },
-    };
-    if ('value' in d && d.writable)
-      replacement.set = function (next) {
-        // Preserve ordinary inherited-data assignment: write the receiver, not
-        // the watched prototype. The app itself uses these objects directly.
-        if (this === object) value = next;
-        else
-          Object.defineProperty(this, key, {
-            value: next,
-            writable: true,
-            enumerable: true,
-            configurable: true,
-          });
-      };
-    else if (!('value' in d) && d.set)
-      replacement.set = function (next) {
-        return d.set.call(this, next);
-      };
-    Object.defineProperty(object, key, replacement);
+    const replacement = observe(object, key, note, label, (message) =>
+      unsupportedReceivers.push(message)
+    );
     descriptors.push({ object, key, replacement });
   };
   const wrapMethod = (object, key, observe) => {
@@ -201,30 +463,11 @@ function instrument() {
   const check = (ok, message) => {
     if (!ok) throw Error('Observer semantics: ' + message);
   };
-  const sample = {};
-  Object.defineProperty(sample, 'data', {
-    value: 7,
-    writable: true,
-    configurable: true,
-    enumerable: false,
-  });
-  Object.defineProperty(sample, 'readonly', { value: 3, writable: false, configurable: true });
-  Object.defineProperty(sample, 'accessor', {
-    configurable: true,
-    get() {
-      return this.data;
-    },
-    set(value) {
-      this.data = value;
-    },
-  });
-  for (const key of ['data', 'readonly', 'accessor']) watch(sample, key, 'calibration.' + key);
-  sample.accessor = 9;
-  const child = Object.create(sample);
-  child.data = 11;
-  check(sample.data === 9 && child.accessor === 11, 'data/accessor receiver and values preserved');
-  check(!Reflect.set(sample, 'readonly', 4) && sample.readonly === 3, 'readonly preserved');
-  check(!Object.getOwnPropertyDescriptor(sample, 'data').enumerable, 'enumerability preserved');
+  const semanticCases = calibrate(observe);
+  check(
+    semanticCases.supported === 406 && semanticCases.unsupported === 26,
+    'complete supported/fail-closed receiver matrix'
+  );
   const errorName = (fn, receiver, args) => {
     try {
       Reflect.apply(fn, receiver, args);
@@ -271,6 +514,7 @@ function instrument() {
     'removeItem return/coercion'
   );
   const verifyDescriptors = () => {
+    check(unsupportedReceivers.length === 0, unsupportedReceivers.join('; '));
     for (const { object, key, replacement } of descriptors) {
       const actual = Object.getOwnPropertyDescriptor(object, key);
       for (const field of ['get', 'set', 'value', 'writable', 'enumerable', 'configurable'])
@@ -380,7 +624,7 @@ function checkEnvelope(envelope) {
   visit(envelope);
 }
 
-async function main() {
+async function main(negative = null, selfTest = false) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'library-rule1-'));
   let browser, srv;
   const failures = [];
@@ -392,6 +636,7 @@ async function main() {
         cwd: ROOT,
         env: { ...process.env, CODEX_LIBRARY: '1' },
         stdio: ['ignore', 'ignore', 'inherit'],
+        timeout: 120000,
       }
     );
     // Label only the inline Library module's stack source in the temporary
@@ -434,8 +679,13 @@ async function main() {
     srv = await start({ root: dir });
     const { chromium } = require('playwright');
     const exe = process.env.CHROMIUM_PATH;
-    browser = await chromium.launch({ headless: true, ...(exe ? { executablePath: exe } : {}) });
-    const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+    browser = await chromium.launch({
+      headless: true,
+      ...(exe ? { executablePath: exe } : {}),
+    });
+    const context = await browser.newContext({
+      viewport: { width: 1280, height: 900 },
+    });
     let job;
     const requests = [];
     const unexpected = [];
@@ -494,9 +744,15 @@ async function main() {
       }
       if (p === '/jobs/rule1-job') return reply(200, { contract_version: 1, job });
       if (['/viewer', '/session', '/me', '/jobs', '/analyses'].includes(p))
-        return reply(200, { contract_version: 1, viewer: 'rule1-viewer', jobs: job ? [job] : [] });
+        return reply(200, {
+          contract_version: 1,
+          viewer: 'rule1-viewer',
+          jobs: job ? [job] : [],
+        });
       unexpected.push(req.method() + ' ' + p);
-      return reply(404, { error: { code: 'NOT_FOUND', message: 'Unstubbed request' } });
+      return reply(404, {
+        error: { code: 'NOT_FOUND', message: 'Unstubbed request' },
+      });
     });
     await context.addInitScript(() => {
       localStorage.setItem(
@@ -510,6 +766,13 @@ async function main() {
     });
     const page = await context.newPage();
     const errors = [];
+    const networkFailures = [];
+    page.on('requestfailed', (request) =>
+      networkFailures.push(request.url() + ': ' + request.failure()?.errorText)
+    );
+    page.on('response', (response) => {
+      if (response.status() >= 400) networkFailures.push(response.status() + ' ' + response.url());
+    });
     page.on('pageerror', (e) => errors.push(e.message));
     // Initialize the shell before arming; Library chunks have not run yet.
     await page.goto(srv.url + '/codex.html#lyrics');
@@ -518,9 +781,10 @@ async function main() {
     // measuring Library actions; these are not initiated by Library routes.
     await page.waitForTimeout(1500);
     assert.equal(await page.evaluate(() => app.cards.length), 1, 'saved recipe restored');
-    await page.evaluate(instrument);
+    await page.evaluate(`(${instrument})(${observeProperty}, ${checkObserverSemantics})`);
+    const chatKey = await page.evaluate(() => CHAT_STORAGE_KEY);
     console.log(
-      'PASS observer semantics: descriptors, receivers, returns, argument errors and key coercion preserved'
+      'PASS observer semantics: finite native parity and explicit fail-closed receivers; methods/coercion'
     );
     // Calibrate the observer with a read that leaves every recipe byte intact.
     const before = await page.evaluate(() => window.rule1.snapshot());
@@ -609,7 +873,8 @@ async function main() {
         console.log(
           `${ownership(group.stack) === 'Library' ? 'FAIL' : name === 'Lyrics handoff' ? 'WARN' : 'INFO'} ${ownership(group.stack)} ${group.access} x${group.count}\n${group.stack}`
         );
-      if (libraryReads.length)
+      if (selfTest) checkControlReads(negative, name, libraryReads, chatKey);
+      if (libraryReads.length && !selfTest)
         failures.push(`${name}: ${libraryReads.length} Library-owned accesses`);
       if (negative && name === (negative.startsWith('inline') ? 'Explore' : 'Works')) {
         for (const expected of NEGATIVE_CONTROLS[negative].expected)
@@ -662,9 +927,14 @@ async function main() {
     );
     assert.deepEqual(errors, [], 'uncaught browser exceptions');
     assert.deepEqual(unexpected, [], 'unstubbed network traffic');
+    assert.deepEqual(networkFailures, [], 'failed network traffic');
     assert.deepEqual(failures, [], 'Rule-1 isolation violations');
     console.log(
-      'LIBRARY RULE-1: PASS — six routes, no monitored Library-owned accesses; handoff WARN retained'
+      selfTest && negative
+        ? 'LIBRARY RULE-1 SELF-TEST: PASS — ' +
+            negative +
+            '; exact route/operations and remaining invariants'
+        : 'LIBRARY RULE-1: PASS — six routes, no monitored Library-owned accesses; handoff WARN retained'
     );
   } finally {
     if (browser) await browser.close();
@@ -672,7 +942,22 @@ async function main() {
     fs.rmSync(dir, { recursive: true, force: true });
   }
 }
-main().catch((e) => {
+async function run() {
+  if (mode === '--unit-test') {
+    console.log(
+      'PASS native observer matrix: ' + JSON.stringify(checkObserverSemantics(observeProperty))
+    );
+    return;
+  }
+  if (mode === '--self-test') {
+    if (selected) await main(selected, true);
+    else {
+      await main(null, true);
+      for (const control of Object.keys(NEGATIVE_CONTROLS)) await main(control, true);
+    }
+  } else await main(mode ? selected || 'direct' : null);
+}
+run().catch((e) => {
   console.error('LIBRARY RULE-1: FAIL', e.stack || e);
   process.exitCode = 1;
 });
