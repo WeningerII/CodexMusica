@@ -229,6 +229,10 @@ const SHELL_DATA = new Set([
 // The one computed read: a collection file, by an id prototype/data.js has
 // checked against the collection-id pattern first (collectionFile()).
 const COLLECTION_FETCH = '`../library/data/c/${id}.json.gz`';
+// Rule 1's static half: a file names no absolute or protocol-relative URL.
+// The SVG namespace is a name, not a request (an inline SVG fixture, a glyph).
+const absoluteUrl = (text) =>
+  /(?:https?:)?\/\/[\w-]+\.[\w.-]+\//i.test(text.replaceAll('http://www.w3.org/2000/svg', ''));
 function fetchProblems(text, rel) {
   const out = [];
   const shell = rel.startsWith('prototype/') && !FEATURE.test(rel);
@@ -393,6 +397,9 @@ function selfTest() {
     ],
     [scenarioProblems('const x = require(name);', 'prototype/scenarios/lyrics/editor.cjs'), 1],
     [moduleProblems("import x from './scenarios/recipe/a.mjs';", 'prototype/app.js'), 1],
+    [absoluteUrl('http://www.w3.org/2000/svg') ? ['x'] : [], 0],
+    [absoluteUrl('http://www.w3.org/2000/svg https://example.org/x') ? ['x'] : [], 1],
+    [absoluteUrl('//cdn.example.org/a.js') ? ['x'] : [], 1],
   ];
   cases.forEach(([got, want], i) =>
     expect(
@@ -411,10 +418,7 @@ function staticChecks(base) {
     const text = fs.readFileSync(file, 'utf8');
     const unixRel = rel.split(path.sep).join('/');
     const scenario = SCENARIO.test(unixRel);
-    expect(
-      !/(?:https?:)?\/\/[\w-]+\.[\w.-]+\//i.test(text),
-      `${rel}: names an absolute or protocol-relative URL`
-    );
+    expect(!absoluteUrl(text), `${rel}: names an absolute or protocol-relative URL`);
     expect(
       scenario || !/\b(XMLHttpRequest|WebSocket|EventSource|sendBeacon)\b/.test(text),
       `${rel}: opens a network channel other than fetch() of the static catalog`
