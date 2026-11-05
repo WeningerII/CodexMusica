@@ -218,7 +218,7 @@ test('retention slides in memory per read and persists at most once an hour', (t
 
 test('expiry binds at read time, before any sweep has run', (t) => {
   let now = 1000;
-  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now, clock: () => 0 });
   const job = run(store, 'viewer-a', 'k-a', 'a');
   now += READER_LIMITS.retentionMs + 1;
   refused(() => store.get(job.record.id, job.capability, 'viewer-a'), 'RESULT_EXPIRED');
