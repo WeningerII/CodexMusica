@@ -131,7 +131,7 @@ The current rule this sentence states is in `docs/lyrics-reader-migration-dev.md
 
 ### Word numbering: the pre-existing items as first recorded (lines 432–459)
 
-The current list is "Known open limitations (pre-existing items)" in
+The current list is "Known limitations (pre-existing items)" in
 `mcp/LYRICS_RUNTIME.md`. The `sites/library` item below is not restated there:
 it has not been verified on current main.
 
@@ -166,7 +166,7 @@ it has not been verified on current main.
 
 _Owner's decision (2026-11-04, John, #656 6638610083): F2 is not repaired;
 affected chunks expire within their 30-day retention. F3 is accepted and
-documented in `mcp/LYRICS_RUNTIME.md` (known open limitations), with the
+documented in `mcp/LYRICS_RUNTIME.md` (known limitations), with the
 safety that already holds across a deploy: old-server continuations refuse
 `CONTINUATION_MIGRATION_REQUIRED` and can export their stored lyrics and
 journal with `recover_only` (without replay; continuing requires a new run under
