@@ -55,6 +55,14 @@
 //      through, or refuses a committed one; overlay.open does not hold one
 //      history entry and a scroll lock that Back releases with one onClose,
 //      close() releases without one, and a second overlay takes over cleanly.
+//  13. SPEECH (#758, 6642118480). Play does not open read-aloud after the
+//      reader, alone, with the reading's language, every line of every
+//      verified page as { analysis_line, text } and one autoplay grant; or
+//      ctx.speech does not give the device one utterance at a time (a
+//      handle's cancel() stops only its own, a queued one leaves the device
+//      alone), clamp rate to 0.5–2, pick the named voice, report voice
+//      changes until unsubscribed, and say it is unavailable where the
+//      browser cannot speak.
 //   9. UNMOUNT. unmount() does not abort ctx.signal, remove the host and
 //      restore the placeholder.
 //
@@ -78,9 +86,11 @@ const LANE_MODULES = {
   librarymethods: '/prototype/features/library-methods/reference.js',
   genredetail: '/prototype/features/genre-detail/detail.js',
   libraryreading: '/prototype/features/library-reading/text-view.js',
+  libraryspeech: '/prototype/features/library-speech/controls.js',
 };
 const CTX_KEYS = {
   libraryreading: ['announce', 'reading', 'signal', 'storage', 'unitId'],
+  libraryspeech: ['announce', 'language', 'lines', 'signal', 'speech', 'storage'],
   genredetail: ['announce', 'genre', 'loadGenre', 'media', 'openPhoto', 'signal', 'storage'],
   browse: ['announce', 'items', 'signal', 'storage'],
   lyrics: ['announce', 'onChange', 'signal', 'storage', 'text'],
@@ -1218,6 +1228,252 @@ async function referenceLanes(browser, srv) {
   await context.close();
 }
 
+// A device speech stand-in: records what reaches it, ends on demand.
+function fakeSpeech() {
+  const log = (window.__speech = { spoken: [], cancels: 0 });
+  class Utterance {
+    constructor(text) {
+      this.text = text;
+      this.rate = 1;
+      this.lang = '';
+      this.voice = null;
+    }
+  }
+  const t = new EventTarget();
+  const voices = [
+    { voiceURI: 'v-en', name: 'English', lang: 'en-GB', default: true, localService: true },
+    { voiceURI: 'v-zh', name: 'Chinese', lang: 'zh-CN', default: false, localService: false },
+  ];
+  const synth = {
+    getVoices: () => voices,
+    speak(u) {
+      log.spoken.push(u);
+    },
+    cancel() {
+      log.cancels++;
+      const u = log.spoken[log.spoken.length - 1];
+      if (u && u.onerror) u.onerror({ error: 'interrupted' });
+    },
+    addEventListener: (...a) => t.addEventListener(...a),
+    removeEventListener: (...a) => t.removeEventListener(...a),
+    dispatchEvent: (e) => t.dispatchEvent(e),
+  };
+  Object.defineProperty(window, 'speechSynthesis', { value: synth, configurable: true });
+  Object.defineProperty(window, 'SpeechSynthesisUtterance', {
+    value: Utterance,
+    configurable: true,
+  });
+}
+
+async function speechChecks(browser, srv) {
+  const gz = (rel) => zlib.gunzipSync(fs.readFileSync(path.join(root, 'library', 'data', rel)));
+  // The first multi-page reading, and its lines from the committed pages.
+  let multi = null;
+  for (const f of fs.readdirSync(path.join(root, 'library', 'data', 'u')).sort()) {
+    for (const [uid, key] of JSON.parse(gz(`u/${f}`)).units) {
+      const dir = `r/${uid.slice(8, 10)}/${uid}/${key}`;
+      if (fs.readdirSync(path.join(root, 'library', 'data', dir)).length > 2) {
+        multi = { uid, dir };
+        break;
+      }
+    }
+    if (multi) break;
+  }
+  expect(!!multi, 'speech: no reading with two or more pages found');
+  const head = JSON.parse(gz(`${multi.dir}/head.json.gz`));
+  const files = fs.readdirSync(path.join(root, 'library', 'data', multi.dir));
+  const want = [];
+  for (let i = 0; i < head.page_count; i++) {
+    const rows =
+      i === 0
+        ? head.lines
+        : JSON.parse(gz(`${multi.dir}/${files.find((f) => f.startsWith(`${i}-`))}`)).lines;
+    for (const r of rows) want.push({ analysis_line: r[4] == null ? null : r[4], text: r[1] });
+  }
+  const { context, page, errors } = await newPage(browser, srv, { init: { fn: fakeSpeech } });
+  await page.goto(`${srv.url}/prototype/#library`);
+  await waitMounted(page, 'library');
+
+  // The whole reading's lines.
+  const lines = await page.evaluate(async (uid) => {
+    const { readingLoader, readingLines } = await import('/prototype/data.js');
+    const x = await readingLines(await readingLoader().reading(uid));
+    return { json: JSON.stringify(x), frozen: Object.isFrozen(x) && x.every(Object.isFrozen) };
+  }, multi.uid);
+  expect(
+    lines.json === JSON.stringify(want),
+    'speech: readingLines is not every committed line in order'
+  );
+  expect(lines.frozen, 'speech: readingLines is not frozen');
+
+  // The adapter on the stand-in.
+  const a = await page.evaluate(async () => {
+    const { speechAdapter } = await import('/prototype/adapters.js');
+    const log = window.__speech;
+    const s = speechAdapter();
+    const ended = [];
+    const out = { available: s.available, frozen: Object.isFrozen(s) };
+    const v = s.getVoices();
+    out.voices = JSON.stringify(v);
+    out.voicesFrozen = Object.isFrozen(v) && v.every(Object.isFrozen);
+    let heard = 0;
+    const off = s.subscribeVoices(() => heard++);
+    window.speechSynthesis.dispatchEvent(new Event('voiceschanged'));
+    off();
+    window.speechSynthesis.dispatchEvent(new Event('voiceschanged'));
+    out.heard = heard;
+    const one = s.speak('one', { rate: 9, voiceURI: 'v-zh', onend: () => ended.push('one') });
+    const two = s.speak('two', { rate: 0.1, lang: 'fa', onend: () => ended.push('two') });
+    const three = s.speak('three', { onend: () => ended.push('three') });
+    out.atOnce = log.spoken.length;
+    out.one = {
+      rate: log.spoken[0].rate,
+      lang: log.spoken[0].lang,
+      voice: log.spoken[0].voice && log.spoken[0].voice.voiceURI,
+    };
+    two.cancel();
+    out.queuedCancel = log.cancels;
+    log.spoken[0].onend();
+    out.afterOne = log.spoken.map((u) => u.text);
+    out.three = { rate: log.spoken[1].rate, lang: log.spoken[1].lang };
+    three.cancel();
+    out.currentCancel = log.cancels;
+    log.spoken[1].onend && log.spoken[1].onend();
+    one.cancel();
+    out.ended = ended.slice();
+    const four = s.speak('four', { rate: 0.1, lang: 'fa', onerror: (e) => ended.push(`err:${e}`) });
+    out.four = { rate: log.spoken[2].rate, lang: log.spoken[2].lang };
+    log.spoken[2].onerror({ error: 'synthesis-failed' });
+    log.spoken[2].onerror({ error: 'synthesis-failed' });
+    four.cancel();
+    out.errored = ended.slice();
+    out.grantOff = [s.takeAutoplay(), s.takeAutoplay()];
+    const g = speechAdapter({ autoplay: true });
+    out.grantOn = [g.takeAutoplay(), g.takeAutoplay()];
+    return out;
+  });
+  expect(
+    a.available && a.frozen,
+    'speech: the adapter is unavailable or not frozen on a device that speaks'
+  );
+  expect(
+    a.voices ===
+      JSON.stringify([
+        { voiceURI: 'v-en', name: 'English', lang: 'en-GB', default: true, localService: true },
+        { voiceURI: 'v-zh', name: 'Chinese', lang: 'zh-CN', default: false, localService: false },
+      ]) && a.voicesFrozen,
+    `speech: getVoices gave ${a.voices}`
+  );
+  expect(a.heard === 1, `speech: subscribeVoices heard ${a.heard} changes, expected 1`);
+  expect(a.atOnce === 1, `speech: ${a.atOnce} utterances reached the device at once`);
+  expect(
+    a.one.rate === 2 && a.one.voice === 'v-zh' && a.one.lang === 'zh-CN',
+    `speech: the first utterance was ${JSON.stringify(a.one)}`
+  );
+  expect(a.queuedCancel === 0, 'speech: cancelling a queued utterance cancelled the device');
+  expect(
+    JSON.stringify(a.afterOne) === '["one","three"]' && a.three.rate === 1,
+    `speech: after the first ended the device heard ${JSON.stringify(a.afterOne)} (${JSON.stringify(a.three)})`
+  );
+  expect(
+    a.currentCancel === 1,
+    `speech: cancelling the current utterance cancelled the device ${a.currentCancel} times`
+  );
+  expect(
+    JSON.stringify(a.ended) === '["one"]',
+    `speech: onend ran for ${JSON.stringify(a.ended)}, expected only the one that ended`
+  );
+  expect(
+    a.four.rate === 0.5 &&
+      a.four.lang === 'fa' &&
+      JSON.stringify(a.errored) === '["one","err:synthesis-failed"]',
+    `speech: rate floor, lang or one onerror failed: ${JSON.stringify(a.four)} ${JSON.stringify(a.errored)}`
+  );
+  expect(
+    JSON.stringify(a.grantOff) === '[false,false]' && JSON.stringify(a.grantOn) === '[true,false]',
+    `speech: autoplay grants were ${JSON.stringify(a.grantOff)} and ${JSON.stringify(a.grantOn)}`
+  );
+
+  // Play opens read-aloud after the reader, with one grant.
+  const shell = await page.evaluate(async (cid) => {
+    const c = window.__probeCtx.library;
+    const { unitId } = await c.openReading(cid);
+    await c.openReading(cid);
+    const t0 = Date.now();
+    while (
+      !(window.__probe.libraryspeech && window.__probe.libraryspeech.mounts === 2) &&
+      Date.now() - t0 < 15000
+    )
+      await new Promise((r) => setTimeout(r, 50));
+    const x = window.__probeCtx.libraryspeech;
+    const hosts = [...document.querySelectorAll('[data-feature-host]')].map(
+      (h) => h.dataset.featureHost
+    );
+    const { readingLoader, readingLines } = await import('/prototype/data.js');
+    const rec = await readingLoader().reading(unitId);
+    return {
+      hosts,
+      mounts: window.__probe.libraryspeech && window.__probe.libraryspeech.mounts,
+      language: x && x.language,
+      expected: rec.head.language,
+      lines: x && JSON.stringify(x.lines) === JSON.stringify(await readingLines(rec)),
+      grant: x && [x.speech.takeAutoplay(), x.speech.takeAutoplay()],
+    };
+  }, libData('catalog.json').shelves[0].cards[0][0]);
+  const sp = shell.hosts.filter((h) => h === 'libraryspeech').length;
+  expect(
+    sp === 1 && shell.hosts.indexOf('libraryspeech') === shell.hosts.indexOf('libraryreading') + 1,
+    `speech: read-aloud is not one host right after the reader (${shell.hosts.join(', ')})`
+  );
+  expect(shell.mounts === 2, `speech: read-aloud mounted ${shell.mounts} times over two Plays`);
+  expect(
+    shell.language === shell.expected,
+    `speech: ctx.language is ${shell.language}, the head says ${shell.expected}`
+  );
+  expect(shell.lines === true, 'speech: ctx.lines is not the whole reading');
+  expect(
+    JSON.stringify(shell.grant) === '[true,false]',
+    `speech: Play granted autoplay ${JSON.stringify(shell.grant)}`
+  );
+  expect(!errors.length, `speech: uncaught errors: ${errors.join(' | ')}`);
+  await context.close();
+
+  // A browser that can't speak.
+  const bare = await newPage(browser, srv, {
+    init: {
+      fn: () => {
+        Object.defineProperty(window, 'speechSynthesis', { value: undefined, configurable: true });
+      },
+    },
+  });
+  await bare.page.goto(`${srv.url}/prototype/#library`);
+  await waitMounted(bare.page, 'library');
+  const none = await bare.page.evaluate(async () => {
+    const { speechAdapter } = await import('/prototype/adapters.js');
+    const s = speechAdapter({ autoplay: true });
+    let thrown = null;
+    try {
+      s.speak('x');
+    } catch (e) {
+      thrown = e.code;
+    }
+    return {
+      available: s.available,
+      voices: s.getVoices().length,
+      thrown,
+      off: typeof s.subscribeVoices(() => {}),
+    };
+  });
+  expect(
+    none.available === false &&
+      none.voices === 0 &&
+      none.thrown === 'UNAVAILABLE' &&
+      none.off === 'function',
+    `speech: a browser without speech gave ${JSON.stringify(none)}`
+  );
+  await bare.context.close();
+}
+
 async function unmounting(browser, srv) {
   const { context, page, errors } = await newPage(browser, srv);
   await page.goto(`${srv.url}/prototype/#genre`);
@@ -1291,6 +1547,7 @@ async function unmounting(browser, srv) {
     await referenceLanes(browser, srv);
     await genreChecks(browser, srv);
     await readingChecks(browser, srv);
+    await speechChecks(browser, srv);
     await unmounting(browser, srv);
   } finally {
     await browser.close();
