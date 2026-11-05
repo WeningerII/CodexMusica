@@ -1,4 +1,4 @@
-/* global $ui, UI, uiAddGenre, uiFocus, uiNavigate, uiRegisterPage */
+/* global $ui, UI, uiAddGenre, uiAnnounce, uiFocus, uiNavigate, uiRegisterPage */
 /* Map page (the codex side). Owned by the Map page worker together with
    atlas.html, src/atlas.js, src/atlas-tiles.js, src/map-ui.js and src/map.css;
    see docs/ui-foundation.md. The atlas runs in a same-origin iframe and asks
@@ -41,19 +41,93 @@ uiRegisterPage({
   render() {
     const frame = $ui('map-frame');
     if (frame.src) return;
-    $ui('map-status').hidden = false;
+    const status = $ui('map-status');
+    status.hidden = false;
     // Opened from disk the atlas cannot load its data, and a missing
     // atlas.html beside a standalone build leaves a blank frame whose load
     // event hides the status: say so instead of loading it (#660).
     if (location.protocol === 'file:') {
       frame.hidden = true;
-      $ui('map-status').classList.add('map-status-file');
-      $ui('map-status').innerHTML =
-        'Opened from a file, this page can’t load its data. Use codexmusica.com.';
+      status.classList.add('map-status-file');
+      status.innerHTML = 'Opened from a file, this page can’t load its data. Use codexmusica.com.';
       return;
     }
-    frame.addEventListener('load', () => ($ui('map-status').hidden = true), { once: true });
-    frame.src = 'atlas.html?embedded=1';
+    let timer,
+      observer,
+      attempt = 0,
+      departures = 0;
+    this.mapLeft = () => departures++;
+    const load = () => {
+      clearTimeout(timer);
+      observer?.disconnect();
+      const current = ++attempt,
+        route = departures;
+      let complete = false,
+        failureShown = false;
+      const failed = () => {
+        if (current !== attempt || complete || failureShown) return;
+        failureShown = true;
+        clearTimeout(timer);
+        frame.hidden = true;
+        status.hidden = false;
+        status.classList.add('map-status-file');
+        if (!status.querySelector('button'))
+          status.innerHTML = ' <button type="button">Try again</button>';
+        status.firstChild.textContent = 'The map couldn’t load. ';
+        status.querySelector('button').onclick = load;
+      };
+      frame.onload = () => {
+        if (current !== attempt || complete) return;
+        try {
+          if (frame.contentDocument?.URL !== frame.src) return;
+          if (!frame.contentDocument.getElementById('map-main')) return failed();
+        } catch {
+          return failed();
+        }
+        complete = true;
+        clearTimeout(timer);
+        const retry = status.querySelector('button');
+        const focus =
+          retry &&
+          document.activeElement === retry &&
+          route === departures &&
+          UI.view === 'map' &&
+          !$ui('surface-map').hidden;
+        frame.hidden = false;
+        // Capture ownership before our own removal can move focus to body.
+        status.textContent = '';
+        status.hidden = true;
+        if (focus) frame.focus();
+        // A loaded atlas document can still fail to fetch its catalog. Let its
+        // existing error status speak; announce success only once it is ready.
+        const loading = frame.contentDocument.getElementById('loading');
+        let announced = false;
+        const ready = () => {
+          if (current !== attempt || announced) return;
+          if (loading.classList.contains('sr-only')) {
+            announced = true;
+            observer?.disconnect();
+            if (route === departures && UI.view === 'map' && !$ui('surface-map').hidden)
+              uiAnnounce('The map is ready.');
+          }
+        };
+        if (loading) {
+          observer = new MutationObserver(ready);
+          observer.observe(loading, { attributes: true, childList: true, subtree: true });
+          ready();
+        }
+      };
+      status.hidden = false;
+      // Keep the retry control mounted while loading so keyboard focus survives.
+      status.firstChild.textContent = 'Loading the map… ';
+      frame.hidden = true;
+      timer = setTimeout(failed, 10000);
+      frame.src = 'atlas.html?embedded=1&load=' + current;
+    };
+    load();
+  },
+  leave() {
+    this.mapLeft?.();
   },
   resetLayout() {
     $ui('map-frame').contentWindow?.postMessage({ type: 'reset-layout' }, location.origin);
