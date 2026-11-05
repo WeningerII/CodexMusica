@@ -93,7 +93,7 @@
     "check:atlas": "node scripts/build_atlas_basemap.js --check && node scripts/build_atlas_geo.js --check && node scripts/build_atlas_tree.js --check && node scripts/check_atlas_publish.js && node scripts/check_atlas_publish.js --self-test && node scripts/check_earth_tiles.js && node --test scripts/test_atlas_tiles.js scripts/test_atlas_controls.js",
     "test:lyrics:browser": "node scripts/check_lyrics_writing.js && node scripts/check_lyrics_gate.js && node scripts/check_lyrics_viewport.js && node scripts/check_lyrics_natural_resize.js && node scripts/check_lyrics_integration.js && node scripts/check_lyrics_inspection_transport.mjs && node scripts/check_lyrics_inspection.js",
     "test:focus": "npm run test:atlas:focus && npm run test:lyrics:focus && npm run test:genre:focus && npm run test:lyrics:sections-focus && npm run test:navigation:focus",
-    "test:atlas:focus": "node scripts/check_atlas_focus_browser.js",
+    "test:atlas:focus": "node scripts/check_atlas_focus_browser.js && node scripts/check_map_atlas_missing_served.js",
     "test:lyrics:focus": "node scripts/check_lyrics_focus_browser.js",
     "test:genre:focus": "node scripts/check_genre_focus_browser.js",
     "test:lyrics:sections-focus": "node scripts/check_lyrics_sections_focus_browser.js",
