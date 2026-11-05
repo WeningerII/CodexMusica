@@ -62,9 +62,11 @@ uiRegisterPage({
       observer?.disconnect();
       const current = ++attempt,
         route = departures;
-      let complete = false;
+      let complete = false,
+        failureShown = false;
       const failed = () => {
-        if (current !== attempt || complete) return;
+        if (current !== attempt || complete || failureShown) return;
+        failureShown = true;
         clearTimeout(timer);
         frame.hidden = true;
         status.hidden = false;
@@ -105,7 +107,8 @@ uiRegisterPage({
           if (loading.classList.contains('sr-only')) {
             announced = true;
             observer?.disconnect();
-            uiAnnounce('The map is ready.');
+            if (route === departures && UI.view === 'map' && !$ui('surface-map').hidden)
+              uiAnnounce('The map is ready.');
           }
         };
         if (loading) {

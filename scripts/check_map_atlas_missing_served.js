@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 'use strict';
 /* global document, window, location, innerWidth, innerHeight */
-// #660, Don's #668 handoff 6639689668, phase 1 ONLY. No production fix.
+// #660: served recovery checks and deterministic Map lifecycle contracts.
 // CHROMIUM_PATH=/path/to/chromium node scripts/check_map_atlas_missing_served.js
-// Default / --assert-recovery: require announced recovery; currently exits 1.
+// Default / --assert-recovery: require announced recovery.
 // --expect-defect: explicitly reproduce the known defect; exit 0 means reproduced,
 // NOT product healthy. Do not register this mode as a product gate.
 // --evidence-dir=/tmp/map-evidence: retain JSON and screenshots.
@@ -19,7 +19,157 @@ const http = require('node:http');
 const { execFileSync } = require('node:child_process');
 const { chromium } = require('playwright');
 const { createHash } = require('node:crypto');
+const { JSDOM } = require('jsdom');
 const root = path.resolve(__dirname, '..');
+// Controlled DOM/event tests of the actual registered page, not speech or HTTP.
+// Keep timer/load/observer callbacks callable after cancellation to test races.
+function checkMapLifecycle(source, label) {
+  const results = [];
+  const failures = [];
+  const cases = {
+    'failure presentation is idempotent, late success still recovers'(h) {
+      h.timeout();
+      const retry = h.status.querySelector('button');
+      const writes = new h.NativeObserver(() => {});
+      writes.observe(h.status, { subtree: true, childList: true, characterData: true });
+      h.load(false);
+      h.load(false);
+      assert.equal(writes.takeRecords().length, 0, 'duplicate failure rewrote live-region text');
+      assert.equal(h.status.querySelector('button'), retry);
+      h.load(true);
+      assert.equal(h.status.hidden, true);
+      assert.equal(h.frame.hidden, false);
+      h.ready();
+      assert.deepEqual(h.announcements, ['The map is ready.']);
+      writes.disconnect();
+    },
+    'readiness after departure stays silent'(h) {
+      h.load(true);
+      h.page.leave();
+      h.window.UI.view = 'genre';
+      h.surface.hidden = true;
+      h.ready();
+      assert.deepEqual(h.announcements, [], 'Map announced readiness on Genre');
+      h.window.UI.view = 'map';
+      h.surface.hidden = false;
+      h.ready();
+      assert.deepEqual(h.announcements, [], 'departed attempt announced on a later visit');
+      assert.equal(h.frame.hidden, false, 'readiness must not discard the loaded frame');
+    },
+    'hidden surface cannot announce'(h) {
+      h.load(true);
+      h.surface.hidden = true;
+      h.ready();
+      assert.deepEqual(h.announcements, []);
+    },
+    'wrong route cannot announce'(h) {
+      h.load(true);
+      h.window.UI.view = 'genre';
+      h.ready();
+      assert.deepEqual(h.announcements, []);
+    },
+    'retry retains focus and restores it on success exactly once'(h) {
+      h.timeout();
+      const retry = h.status.querySelector('button');
+      retry.focus();
+      retry.click();
+      assert.equal(h.status.querySelector('button'), retry);
+      assert.equal(h.window.document.activeElement, retry);
+      assert.equal(h.frame.hidden, true);
+      h.load(true);
+      assert.equal(h.window.document.activeElement, h.frame);
+      h.ready();
+      h.ready();
+      assert.deepEqual(h.announcements, ['The map is ready.']);
+    },
+    'departure invalidates focus restoration even after return'(h) {
+      h.timeout();
+      const retry = h.status.querySelector('button');
+      retry.focus();
+      retry.click();
+      h.page.leave();
+      h.load(true);
+      assert.notEqual(h.window.document.activeElement, h.frame);
+    },
+    'superseded load and timer cannot overwrite the current attempt'(h) {
+      const oldLoad = h.frame.onload;
+      const oldTimeout = h.timeout;
+      h.timeout();
+      h.status.querySelector('button').click();
+      h.load(true);
+      oldLoad();
+      oldTimeout();
+      assert.equal(h.status.hidden, true);
+      assert.equal(h.frame.hidden, false);
+      h.ready();
+      assert.deepEqual(h.announcements, ['The map is ready.']);
+    },
+    'moving focus elsewhere prevents retry focus theft'(h) {
+      h.timeout();
+      h.status.querySelector('button').click();
+      h.other.focus();
+      h.load(true);
+      assert.equal(h.window.document.activeElement, h.other);
+    },
+  };
+  for (const [name, run] of Object.entries(cases)) {
+    const dom = new JSDOM('<button id="other">Other</button><div id="surface-map"></div>', {
+      url: 'http://localhost/codex.html',
+      runScripts: 'outside-only',
+    });
+    const window = dom.window;
+    const h = { window, announcements: [] };
+    let observer;
+    window.UI = { view: 'map' };
+    window.$ui = (id) => window.document.getElementById(id);
+    window.uiRegisterPage = (page) => (h.page = page);
+    window.uiAnnounce = (message) => h.announcements.push(message);
+    window.setTimeout = (callback) => ((h.timeout = callback), 1);
+    window.clearTimeout = () => {};
+    const NativeObserver = window.MutationObserver;
+    window.MutationObserver = class {
+      constructor(callback) {
+        observer = callback;
+      }
+      observe() {}
+      disconnect() {}
+    };
+    // Use the real DOM observer to detect repeated status text writes.
+    try {
+      window.eval(source);
+      h.surface = window.$ui('surface-map');
+      h.other = window.$ui('other');
+      h.page.mount(h.surface);
+      h.frame = window.$ui('map-frame');
+      h.status = window.$ui('map-status');
+      let atlas;
+      Object.defineProperty(h.frame, 'contentDocument', { get: () => atlas });
+      h.load = (healthy) => {
+        atlas = window.document.implementation.createHTMLDocument();
+        Object.defineProperty(atlas, 'URL', { value: h.frame.src });
+        atlas.body.innerHTML = healthy ? '<main id="map-main"></main><div id="loading"></div>' : '';
+        h.frame.onload();
+      };
+      h.ready = () => {
+        atlas.getElementById('loading').classList.add('sr-only');
+        observer();
+      };
+      h.page.render();
+      // The page captures the controlled observer when the document loads;
+      // expose a native observer separately for mutation assertions.
+      h.NativeObserver = NativeObserver;
+      run(h);
+      results.push(name);
+    } catch (error) {
+      failures.push(`${label}: ${name}: ${error.message}`);
+    } finally {
+      dom.window.close();
+    }
+  }
+  assert.equal(failures.length, 0, failures.join('\n'));
+  console.log(`PASS: ${results.length} ${label} lifecycle contracts (controlled DOM/events)`);
+  return results;
+}
 function parseOptions(args) {
   let mode;
   let evidenceDir;
@@ -85,6 +235,10 @@ function checkModeContract() {
 // Validate CLI before building, launching a browser or creating temporary outputs.
 const { recoveryMode, evidenceDir } = parseOptions(process.argv.slice(2));
 checkModeContract();
+const sourceLifecycle = checkMapLifecycle(
+  fs.readFileSync(path.join(root, 'src/pages/map.js'), 'utf8'),
+  'source'
+);
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'map-atlas-served-'));
 const records = [];
 const gates = new Map();
@@ -350,6 +504,12 @@ const server = http.createServer(async (req, res) => {
       ],
       { cwd: root, stdio: 'pipe' }
     );
+    const built = fs.readFileSync(path.join(temp, 'codex.html'), 'utf8');
+    const mapBlocks = [...built.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)]
+      .map((match) => match[1])
+      .filter((code) => code.includes('runtime: src/pages/map.js'));
+    assert.equal(mapBlocks.length, 1, 'exactly one generated Map runtime block');
+    const generatedLifecycle = checkMapLifecycle(mapBlocks[0], 'generated');
     await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
     const origin = `http://127.0.0.1:${server.address().port}`;
     browser = await chromium.launch({
@@ -496,6 +656,8 @@ const server = http.createServer(async (req, res) => {
         ])
       ),
       recoveryControls,
+      sourceLifecycle,
+      generatedLifecycle,
       scope:
         'Local served HTTP only; external requests blocked. No offline or production qualification.',
       mode: recoveryMode ? 'assert-recovery' : 'expect-defect',
