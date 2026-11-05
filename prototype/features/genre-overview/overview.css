@@ -1,0 +1,81 @@
+.go-overview {
+  container-type: inline-size;
+  color: inherit;
+  min-width: 0;
+}
+.go-overview * {
+  box-sizing: border-box;
+}
+.go-overview h2,
+.go-overview h3 {
+  overflow-wrap: anywhere;
+}
+.go-overview .go-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+}
+.go-overview .go-grid > section + section {
+  padding-left: 24px;
+  border-left: 1px solid currentColor;
+}
+.go-overview .go-ensemble,
+.go-overview .go-words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 8px;
+}
+.go-overview li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  max-width: 100%;
+  padding: 6px 12px;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  overflow-wrap: anywhere;
+}
+.go-overview img {
+  flex: 0 0 28px;
+}
+.go-overview button {
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  min-height: 44px;
+  max-width: 100%;
+  padding: 8px 12px;
+  text-align: start;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+.go-overview :focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+.go-overview .go-note,
+.go-overview .go-also {
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.go-overview .go-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+@container (max-width: 700px) {
+  .go-overview .go-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .go-overview .go-grid > section + section {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
