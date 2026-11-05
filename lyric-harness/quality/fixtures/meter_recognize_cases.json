@@ -10,7 +10,7 @@
   "scope": "Initial modern-English single-family supplied-reading milestone; no parser, reader integration, exhaustive catalog acceptance or live wiring.",
   "evidence_limits": [
     "Expected subsets were authored from source freezes before inspecting recognizer output.",
-    "lexical fields are controlled reporting inputs (often mirrored from supplied digits); except explicitly frozen D/U pairs they do not claim measured raw production lexical streams. Recognition must use digits only.",
+    "Lexical fields in historical D/U characterization vectors are controlled reporting inputs, not measured raw production lexical streams. C3-U is controlled, not default-reader output. Separately attributed reader snapshots retain their stated provenance. Recognition must use digits only.",
     "dictionary provenance in reader-contrast snapshots is supplied attribution, not a new dictionary run.",
     "No complete source page pixels, performance, or pronunciation oracle is claimed."
   ],
@@ -104,6 +104,31 @@
     "synthetic": {
       "edition": "Researcher-authored deterministic controls.",
       "limits": "No poem attestation, pronunciation verification, or software-generated expected truth."
+    },
+    "C3-S": {
+      "freeze": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6643348177",
+      "source_review": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6643328128",
+      "source_packet": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6643263877",
+      "urls": [
+        "https://www.uv.es/tronch/stu/GuideEnglishProsody"
+      ],
+      "edition": "Basic guide to ENGLISH Prosody, Examples under Line lengths: Evangeline scanned line. Text authority remains C3 Gutenberg2039, opening line, electronic update2020-12-31.",
+      "limits": "Institutional teaching guide with no established author/date/underlying edition; acute marks and foot slashes encode stress, unmarked syllables are weak by the accepted convention. Guide uses comma after primeval, lowercase the and no terminal punctuation; original C3 edition string retained. Text extraction only, no page pixels or blanket guide license. Published scansion encoded as declared values, not a measured pronunciation oracle."
+    },
+    "RAVEN": {
+      "freeze": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6643348177",
+      "source_review": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6643328128",
+      "identity_check": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6643361755",
+      "text_receipt": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6644369459",
+      "text_url": "https://www.eapoe.org/works/poems/ravena.htm",
+      "edition": "Poe, The Raven, American Review vol.1, February1845, p.143, stanza1 line1; Poe Society Text-02b electronic transcription. Historical printed attribution Quarles.",
+      "scan_url": "https://msellisliteraturelab.com/2016/12/15/poetic-meter/",
+      "scan_identity": "Ms. Conti's Literature Lab, Poetic Meter and Scansion, December15,2016; article-specific author unverified. Site-profile text is not an article byline.",
+      "corroboration": [
+        "https://milnepublishing.geneseo.edu/naming-the-unnameable/chapter/chapter-six-acoustics/",
+        "https://www.eapoe.org/works/essays/philcomp.htm"
+      ],
+      "limits": "Public-domain poem text via edition-linked electronic transcription, not facsimile collation. Teaching-page positional marks accepted only with Evory foot divisions and Poe1846 classification. Classroom punctuation is not adopted; article author/underlying edition and blanket reuse license unverified. Source scansion and reader evidence remain distinct. Corroborating trochaic pair, not replacement of M185-A."
     }
   },
   "cases": [
@@ -342,7 +367,9 @@
           "rove-over",
           "anacrusis",
           "stanza and printed-line structure"
-        ]
+        ],
+        "status": "no_candidate_in_searched_space",
+        "candidates": []
       }
     },
     {
@@ -781,7 +808,14 @@
           "rove-over",
           "anacrusis",
           "stanza and printed-line structure"
-        ]
+        ],
+        "status": "no_candidate_in_searched_space",
+        "candidates": []
+      },
+      "reading_evidence": {
+        "C3-D": "Historical controlled declared characterization vector; not an observed production-reader result.",
+        "C3-U": "Historical controlled injected-dictionary characterization vector, not an observed default-reader result. Its hemlocks digits10/source dictionary are intentionally retained; pinned v2 observations instead report rule-derived12.",
+        "reader_configuration_reference": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6643377772"
       }
     },
     {
@@ -1762,6 +1796,14 @@
           "anacrusis",
           "stanza and printed-line structure"
         ]
+      },
+      "milestone_role": {
+        "family": "trochaic",
+        "role": "attested family positive",
+        "reading": "M185-reader",
+        "reading_status": "default-reader positive, independently reported by BB8; no declared reading needed",
+        "source_scan": "Bye 2021, p72 example36; printed per-position scan accepted by Jony",
+        "ruling": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6643319314"
       }
     },
     {
@@ -4184,7 +4226,8 @@
           "rove-over",
           "anacrusis",
           "stanza and printed-line structure"
-        ]
+        ],
+        "unsupported_reason": "language 'ang' is outside modern English scope"
       }
     },
     {
@@ -4222,7 +4265,8 @@
           "rove-over",
           "anacrusis",
           "stanza and printed-line structure"
-        ]
+        ],
+        "unsupported_reason": "language 'ang' is outside modern English scope"
       }
     },
     {
@@ -4260,7 +4304,8 @@
           "rove-over",
           "anacrusis",
           "stanza and printed-line structure"
-        ]
+        ],
+        "unsupported_reason": "language 'ang' is outside modern English scope"
       }
     },
     {
@@ -4294,7 +4339,8 @@
           "rove-over",
           "anacrusis",
           "stanza and printed-line structure"
-        ]
+        ],
+        "unsupported_reason": "language 'ang' is outside modern English scope"
       }
     },
     {
@@ -4328,7 +4374,8 @@
           "rove-over",
           "anacrusis",
           "stanza and printed-line structure"
-        ]
+        ],
+        "unsupported_reason": "language 'ang' is outside modern English scope"
       }
     },
     {
@@ -4374,7 +4421,8 @@
           "rove-over",
           "anacrusis",
           "stanza and printed-line structure"
-        ]
+        ],
+        "unsupported_reason": "theory 'quantitative' is outside accentual-syllabic scope"
       }
     },
     {
@@ -4428,7 +4476,8 @@
           "rove-over",
           "anacrusis",
           "stanza and printed-line structure"
-        ]
+        ],
+        "unsupported_reason": "theory 'sprung' is outside accentual-syllabic scope"
       }
     },
     {
@@ -4917,17 +4966,1068 @@
           "iambic": "WS"
         }
       }
+    },
+    {
+      "id": "C3-S-pair",
+      "source_id": "C3-S",
+      "input": {
+        "text": "THIS is the forest primeval. The murmuring pines and the hemlocks,",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "THIS"
+          },
+          {
+            "index": 2,
+            "word": "is"
+          },
+          {
+            "index": 3,
+            "word": "the"
+          },
+          {
+            "index": 4,
+            "word": "forest"
+          },
+          {
+            "index": 5,
+            "word": "primeval"
+          },
+          {
+            "index": 6,
+            "word": "The"
+          },
+          {
+            "index": 7,
+            "word": "murmuring"
+          },
+          {
+            "index": 8,
+            "word": "pines"
+          },
+          {
+            "index": 9,
+            "word": "and"
+          },
+          {
+            "index": 10,
+            "word": "the"
+          },
+          {
+            "index": 11,
+            "word": "hemlocks"
+          }
+        ],
+        "readings": [
+          {
+            "id": "C3-S",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "C3-S:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "0",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "C3-reader:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "C3-reader:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "10",
+                "lexical": "10",
+                "source": "dictionary",
+                "reading_id": "C3-reader:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "010",
+                "lexical": "010",
+                "source": "dictionary",
+                "reading_id": "C3-reader:token:5"
+              },
+              {
+                "token": 6,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "C3-reader:token:6"
+              },
+              {
+                "token": 7,
+                "digits": "100",
+                "lexical": "100",
+                "source": "dictionary",
+                "reading_id": "C3-reader:token:7"
+              },
+              {
+                "token": 8,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "C3-reader:token:8"
+              },
+              {
+                "token": 9,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "C3-reader:token:9"
+              },
+              {
+                "token": 10,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "C3-reader:token:10"
+              },
+              {
+                "token": 11,
+                "digits": "10",
+                "lexical": "12",
+                "source": "declared",
+                "reading_id": "C3-S:token:11"
+              }
+            ]
+          },
+          {
+            "id": "C3-reader",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "0",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "C3-reader:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "0",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "C3-reader:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "C3-reader:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "10",
+                "lexical": "10",
+                "source": "dictionary",
+                "reading_id": "C3-reader:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "010",
+                "lexical": "010",
+                "source": "dictionary",
+                "reading_id": "C3-reader:token:5"
+              },
+              {
+                "token": 6,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "C3-reader:token:6"
+              },
+              {
+                "token": 7,
+                "digits": "100",
+                "lexical": "100",
+                "source": "dictionary",
+                "reading_id": "C3-reader:token:7"
+              },
+              {
+                "token": 8,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "C3-reader:token:8"
+              },
+              {
+                "token": 9,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "C3-reader:token:9"
+              },
+              {
+                "token": 10,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "C3-reader:token:10"
+              },
+              {
+                "token": 11,
+                "digits": "12",
+                "lexical": "12",
+                "source": "rule",
+                "reading_id": "C3-reader:token:11"
+              }
+            ]
+          }
+        ]
+      },
+      "milestone_role": {
+        "family": "dactylic",
+        "role": "attested family positive under declared reading",
+        "reading": "C3-S",
+        "basis": "published scansion",
+        "declarations": {
+          "1": "THIS:1 from source acute",
+          "11": "hemlocks:10 from source unmarked final syllable"
+        }
+      },
+      "reader_observation": {
+        "reported_by": "Jony Ives; not a new production-reader execution by this fixture writer",
+        "configuration_source": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6643377772",
+        "exact_text_receipt": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6643450918",
+        "text": "THIS is the forest primeval. The murmuring pines and the hemlocks,",
+        "configuration": {
+          "constructor": "L.Lexicon()",
+          "reader_scheme": "v2",
+          "fallback": null,
+          "supplement": null,
+          "declarations": null,
+          "python": "3.13.16",
+          "main_equivalence": "10b42689f04db0f16a98425b3e22c9a5487b254c",
+          "reported_worktree": "661aa6018",
+          "lyric_harness_blob_prefix": "78fa765333c4",
+          "meter_strict_blob_prefix": "12838d404c1d",
+          "cmudict_sha256_prefix": "81917843c7f44ce2",
+          "data_locations": "NLTK_DATA and LYRIC_STAGED_DATA point to staged runtime data; absolute paths not supplied",
+          "invocation": "L.check_meter(lex, [text], \"/../../../../../.\")[0]"
+        },
+        "syllables": 17,
+        "alignment": "exact",
+        "oov": [],
+        "words": [
+          {
+            "token": 1,
+            "word": "THIS",
+            "syllables": 1,
+            "lexical": "1",
+            "stream": "0",
+            "demoted": true,
+            "source": "dictionary",
+            "detail": {
+              "index": 0,
+              "readings": 2,
+              "reading": "cmudict"
+            }
+          },
+          {
+            "token": 2,
+            "word": "is",
+            "syllables": 1,
+            "lexical": "1",
+            "stream": "0",
+            "demoted": true,
+            "source": "dictionary",
+            "detail": {
+              "index": 0,
+              "readings": 2,
+              "reading": "cmudict"
+            }
+          },
+          {
+            "token": 3,
+            "word": "the",
+            "syllables": 1,
+            "lexical": "0",
+            "stream": "0",
+            "demoted": false,
+            "source": "dictionary",
+            "detail": {
+              "index": 0,
+              "readings": 3,
+              "reading": "cmudict"
+            }
+          },
+          {
+            "token": 4,
+            "word": "forest",
+            "syllables": 2,
+            "lexical": "10",
+            "stream": "10",
+            "demoted": false,
+            "source": "dictionary",
+            "detail": {
+              "index": 0,
+              "readings": 2,
+              "reading": "cmudict"
+            }
+          },
+          {
+            "token": 5,
+            "word": "primeval",
+            "syllables": 3,
+            "lexical": "010",
+            "stream": "010",
+            "demoted": false,
+            "source": "dictionary",
+            "detail": {
+              "index": 0,
+              "readings": 1,
+              "reading": "cmudict"
+            }
+          },
+          {
+            "token": 6,
+            "word": "The",
+            "syllables": 1,
+            "lexical": "0",
+            "stream": "0",
+            "demoted": false,
+            "source": "dictionary",
+            "detail": {
+              "index": 0,
+              "readings": 3,
+              "reading": "cmudict"
+            }
+          },
+          {
+            "token": 7,
+            "word": "murmuring",
+            "syllables": 3,
+            "lexical": "100",
+            "stream": "100",
+            "demoted": false,
+            "source": "dictionary",
+            "detail": {
+              "index": 0,
+              "readings": 2,
+              "reading": "cmudict"
+            }
+          },
+          {
+            "token": 8,
+            "word": "pines",
+            "syllables": 1,
+            "lexical": "1",
+            "stream": "1",
+            "demoted": false,
+            "source": "dictionary",
+            "detail": {
+              "index": 0,
+              "readings": 1,
+              "reading": "cmudict"
+            }
+          },
+          {
+            "token": 9,
+            "word": "and",
+            "syllables": 1,
+            "lexical": "0",
+            "stream": "0",
+            "demoted": false,
+            "source": "dictionary",
+            "detail": {
+              "index": 0,
+              "readings": 2,
+              "reading": "cmudict"
+            }
+          },
+          {
+            "token": 10,
+            "word": "the",
+            "syllables": 1,
+            "lexical": "0",
+            "stream": "0",
+            "demoted": false,
+            "source": "dictionary",
+            "detail": {
+              "index": 0,
+              "readings": 3,
+              "reading": "cmudict"
+            }
+          },
+          {
+            "token": 11,
+            "word": "hemlocks",
+            "syllables": 2,
+            "lexical": "12",
+            "stream": "12",
+            "demoted": false,
+            "source": "rule",
+            "detail": {
+              "rule": "plural",
+              "from": "hemlock"
+            }
+          }
+        ],
+        "guide_run": {
+          "receipt": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6643416440",
+          "text": "This is the forest primeval, the murmuring pines and the hemlocks",
+          "comparison": "Jony executed both texts in the same process: only echoed word case differs at tokens1/6; all other word-entry fields identical. Separate exact-text execution, not inferred equivalence."
+        }
+      },
+      "expected": {
+        "status": "candidates",
+        "candidates": [
+          {
+            "family": "dactylic",
+            "feet": 6,
+            "policies_used": [
+              "final_catalexis"
+            ],
+            "reading_id": "C3-S",
+            "template": "SWWSWWSWWSWWSWWSWW",
+            "surface": "SWWSWWSWWSWWSWWSW",
+            "segmentation": "SWW|SWW|SWW|SWW|SWW|SW(W)",
+            "positions_compared": 17
+          }
+        ],
+        "excluded_by_reading": [
+          {
+            "family": "dactylic",
+            "feet": 6,
+            "policies_used": [
+              "final_catalexis"
+            ],
+            "reading_id": "C3-reader",
+            "differences": [
+              {
+                "position": 1,
+                "expected": "S",
+                "digit": "0",
+                "token": 1
+              },
+              {
+                "position": 17,
+                "expected": "W",
+                "digit": "2",
+                "token": 11
+              }
+            ]
+          }
+        ],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
+        ]
+      }
+    },
+    {
+      "id": "extra-final-weak-precondition",
+      "source_id": "synthetic",
+      "input": {
+        "text": "la la la la la la la la la",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "la"
+          },
+          {
+            "index": 2,
+            "word": "la"
+          },
+          {
+            "index": 3,
+            "word": "la"
+          },
+          {
+            "index": 4,
+            "word": "la"
+          },
+          {
+            "index": 5,
+            "word": "la"
+          },
+          {
+            "index": 6,
+            "word": "la"
+          },
+          {
+            "index": 7,
+            "word": "la"
+          },
+          {
+            "index": 8,
+            "word": "la"
+          },
+          {
+            "index": 9,
+            "word": "la"
+          }
+        ],
+        "readings": [
+          {
+            "id": "extra-final-weak-precondition",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "extra-final-weak-precondition:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "extra-final-weak-precondition:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "extra-final-weak-precondition:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "extra-final-weak-precondition:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "extra-final-weak-precondition:token:5"
+              },
+              {
+                "token": 6,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "extra-final-weak-precondition:token:6"
+              },
+              {
+                "token": 7,
+                "digits": "1",
+                "lexical": "1",
+                "source": "declared",
+                "reading_id": "extra-final-weak-precondition:token:7"
+              },
+              {
+                "token": 8,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "extra-final-weak-precondition:token:8"
+              },
+              {
+                "token": 9,
+                "digits": "0",
+                "lexical": "0",
+                "source": "declared",
+                "reading_id": "extra-final-weak-precondition:token:9"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "status": "no_candidate_in_searched_space",
+        "candidates": [],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
+        ]
+      },
+      "basis": "BB8 #7496644285383 synthetic negative: extra_final_weak requires original final S; trochaic four feet ends W and cannot append W."
+    },
+    {
+      "id": "RAVEN-S-pair",
+      "source_id": "RAVEN",
+      "input": {
+        "text": "Once upon a midnight dreary, while I pondered, weak and weary,",
+        "language": "eng",
+        "tokens": [
+          {
+            "index": 1,
+            "word": "Once"
+          },
+          {
+            "index": 2,
+            "word": "upon"
+          },
+          {
+            "index": 3,
+            "word": "a"
+          },
+          {
+            "index": 4,
+            "word": "midnight"
+          },
+          {
+            "index": 5,
+            "word": "dreary"
+          },
+          {
+            "index": 6,
+            "word": "while"
+          },
+          {
+            "index": 7,
+            "word": "I"
+          },
+          {
+            "index": 8,
+            "word": "pondered"
+          },
+          {
+            "index": 9,
+            "word": "weak"
+          },
+          {
+            "index": 10,
+            "word": "and"
+          },
+          {
+            "index": 11,
+            "word": "weary"
+          }
+        ],
+        "readings": [
+          {
+            "id": "RAVEN-S",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "RAVEN-reader:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "01",
+                "lexical": "01",
+                "source": "dictionary",
+                "reading_id": "RAVEN-reader:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "RAVEN-reader:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "10",
+                "lexical": "12",
+                "source": "declared",
+                "reading_id": "RAVEN-S:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "10",
+                "lexical": "10",
+                "source": "dictionary",
+                "reading_id": "RAVEN-reader:token:5"
+              },
+              {
+                "token": 6,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "RAVEN-reader:token:6"
+              },
+              {
+                "token": 7,
+                "digits": "0",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "RAVEN-reader:token:7"
+              },
+              {
+                "token": 8,
+                "digits": "10",
+                "lexical": "10",
+                "source": "dictionary",
+                "reading_id": "RAVEN-reader:token:8"
+              },
+              {
+                "token": 9,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "RAVEN-reader:token:9"
+              },
+              {
+                "token": 10,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "RAVEN-reader:token:10"
+              },
+              {
+                "token": 11,
+                "digits": "10",
+                "lexical": "10",
+                "source": "dictionary",
+                "reading_id": "RAVEN-reader:token:11"
+              }
+            ]
+          },
+          {
+            "id": "RAVEN-reader",
+            "occurrences": [
+              {
+                "token": 1,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "RAVEN-reader:token:1"
+              },
+              {
+                "token": 2,
+                "digits": "01",
+                "lexical": "01",
+                "source": "dictionary",
+                "reading_id": "RAVEN-reader:token:2"
+              },
+              {
+                "token": 3,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "RAVEN-reader:token:3"
+              },
+              {
+                "token": 4,
+                "digits": "12",
+                "lexical": "12",
+                "source": "dictionary",
+                "reading_id": "RAVEN-reader:token:4"
+              },
+              {
+                "token": 5,
+                "digits": "10",
+                "lexical": "10",
+                "source": "dictionary",
+                "reading_id": "RAVEN-reader:token:5"
+              },
+              {
+                "token": 6,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "RAVEN-reader:token:6"
+              },
+              {
+                "token": 7,
+                "digits": "0",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "RAVEN-reader:token:7"
+              },
+              {
+                "token": 8,
+                "digits": "10",
+                "lexical": "10",
+                "source": "dictionary",
+                "reading_id": "RAVEN-reader:token:8"
+              },
+              {
+                "token": 9,
+                "digits": "1",
+                "lexical": "1",
+                "source": "dictionary",
+                "reading_id": "RAVEN-reader:token:9"
+              },
+              {
+                "token": 10,
+                "digits": "0",
+                "lexical": "0",
+                "source": "dictionary",
+                "reading_id": "RAVEN-reader:token:10"
+              },
+              {
+                "token": 11,
+                "digits": "10",
+                "lexical": "10",
+                "source": "dictionary",
+                "reading_id": "RAVEN-reader:token:11"
+              }
+            ]
+          }
+        ]
+      },
+      "milestone_role": {
+        "family": "trochaic",
+        "role": "corroborating declared pair; M185-A remains the reader-positive family exemplar",
+        "reading": "RAVEN-S",
+        "basis": "teaching-page marks, corroborated (Evory, Poe 1846)",
+        "declaration": "token4 midnight:10 only; no other occurrence changes"
+      },
+      "reader_observation": {
+        "reported_by": "Dialect worker; public exact-edition reader receipt, not independently executed by fixture writer",
+        "text": "Once upon a midnight dreary, while I pondered, weak and weary,",
+        "configuration": {
+          "head": "10b42689f04db0f16a98425b3e22c9a5487b254c",
+          "python": "3.12.14",
+          "constructor": "Lexicon(reader_scheme='v2')",
+          "supplement": null,
+          "fallback": null,
+          "declarations": null,
+          "lyric_harness_git_blob": "78fa765333c45fd3f6c1cf0232e215056aa3c198",
+          "lyric_harness_sha256": "e0f3fd9b86fc2f4b274519f2d67b55b9686bfd9aecc369b2303eb82ae0f78a51",
+          "pronunciation_git_blob": "a8d530dff5e9f5810e1455bd761bb2c503009bb7",
+          "pronunciation_sha256": "2fd5f5bc2626952938aed92fbfb695628ca44140a31eb94e4bcd94eaeab190aa",
+          "cmudict_bytes": 3618488,
+          "cmudict_sha256": "81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22",
+          "call": "check_meter(lex, [exact_text], './' * 20)[0]"
+        },
+        "syllables": 16,
+        "syllable_count": "exact",
+        "alignment": "exact",
+        "oov": [],
+        "joined_stream": "1010121010101010",
+        "stress": "/././//././././.",
+        "words": [
+          {
+            "token": 1,
+            "word": "Once",
+            "syllables": 1,
+            "lexical": "1",
+            "stream": "1",
+            "demoted": false,
+            "source": "dictionary",
+            "detail": {
+              "index": 0,
+              "readings": 1,
+              "reading": "cmudict"
+            }
+          },
+          {
+            "token": 2,
+            "word": "upon",
+            "syllables": 2,
+            "lexical": "01",
+            "stream": "01",
+            "demoted": false,
+            "source": "dictionary",
+            "detail": {
+              "index": 0,
+              "readings": 2,
+              "reading": "cmudict"
+            }
+          },
+          {
+            "token": 3,
+            "word": "a",
+            "syllables": 1,
+            "lexical": "0",
+            "stream": "0",
+            "demoted": false,
+            "source": "dictionary",
+            "detail": {
+              "index": 0,
+              "readings": 3,
+              "reading": "cmudict"
+            }
+          },
+          {
+            "token": 4,
+            "word": "midnight",
+            "syllables": 2,
+            "lexical": "12",
+            "stream": "12",
+            "demoted": false,
+            "source": "dictionary",
+            "detail": {
+              "index": 0,
+              "readings": 2,
+              "reading": "cmudict"
+            }
+          },
+          {
+            "token": 5,
+            "word": "dreary",
+            "syllables": 2,
+            "lexical": "10",
+            "stream": "10",
+            "demoted": false,
+            "source": "dictionary",
+            "detail": {
+              "index": 0,
+              "readings": 1,
+              "reading": "cmudict"
+            }
+          },
+          {
+            "token": 6,
+            "word": "while",
+            "syllables": 1,
+            "lexical": "1",
+            "stream": "1",
+            "demoted": false,
+            "source": "dictionary",
+            "detail": {
+              "index": 0,
+              "readings": 2,
+              "reading": "cmudict"
+            }
+          },
+          {
+            "token": 7,
+            "word": "I",
+            "syllables": 1,
+            "lexical": "1",
+            "stream": "0",
+            "demoted": true,
+            "source": "dictionary",
+            "detail": {
+              "index": 0,
+              "readings": 1,
+              "reading": "cmudict"
+            }
+          },
+          {
+            "token": 8,
+            "word": "pondered",
+            "syllables": 2,
+            "lexical": "10",
+            "stream": "10",
+            "demoted": false,
+            "source": "dictionary",
+            "detail": {
+              "index": 0,
+              "readings": 3,
+              "reading": "cmudict"
+            }
+          },
+          {
+            "token": 9,
+            "word": "weak",
+            "syllables": 1,
+            "lexical": "1",
+            "stream": "1",
+            "demoted": false,
+            "source": "dictionary",
+            "detail": {
+              "index": 0,
+              "readings": 2,
+              "reading": "cmudict"
+            }
+          },
+          {
+            "token": 10,
+            "word": "and",
+            "syllables": 1,
+            "lexical": "0",
+            "stream": "0",
+            "demoted": false,
+            "source": "dictionary",
+            "detail": {
+              "index": 0,
+              "readings": 2,
+              "reading": "cmudict"
+            }
+          },
+          {
+            "token": 11,
+            "word": "weary",
+            "syllables": 2,
+            "lexical": "10",
+            "stream": "10",
+            "demoted": false,
+            "source": "dictionary",
+            "detail": {
+              "index": 0,
+              "readings": 1,
+              "reading": "cmudict"
+            }
+          }
+        ],
+        "limits": "The40-position template obtained reader evidence only; its agreement score is not a scansion result. Edition identity inherited from source owner; reader worker did not independently verify transcription or inspect facsimile.",
+        "exact_text_receipt": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6644428150"
+      },
+      "expected": {
+        "status": "candidates",
+        "candidates": [
+          {
+            "family": "trochaic",
+            "feet": 8,
+            "policies_used": [],
+            "reading_id": "RAVEN-S",
+            "template": "SWSWSWSWSWSWSWSW",
+            "surface": "SWSWSWSWSWSWSWSW",
+            "segmentation": "SW|SW|SW|SW|SW|SW|SW|SW",
+            "positions_compared": 16
+          }
+        ],
+        "excluded_by_reading": [
+          {
+            "family": "trochaic",
+            "feet": 8,
+            "policies_used": [],
+            "reading_id": "RAVEN-reader",
+            "differences": [
+              {
+                "position": 6,
+                "expected": "W",
+                "digit": "2",
+                "token": 4
+              }
+            ]
+          }
+        ],
+        "not_searched": [
+          "mixed-foot composition",
+          "medial substitution",
+          "resolution",
+          "synizesis",
+          "outrides",
+          "rove-over",
+          "anacrusis",
+          "stanza and printed-line structure"
+        ]
+      }
     }
   ],
   "amendments": [
     "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6642971751",
     "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6643037958",
-    "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6643123630"
+    "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6643123630",
+    "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6643319314",
+    "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6643348177",
+    "https://github.com/WeningerII/CodexMusica/pull/749#issuecomment-6644285383"
   ],
   "open_fixture_gaps": [
-    "C1/C3 remain characterization pairs, not attested family positives; no C1-S or C3-S freeze is invented.",
+    "Historical C1/C3-D/U remain characterization pairs. The separate C3-S pair is frozen by BB8; no C1-S freeze is invented.",
     "C2-U compatibility is a controlled-vector fact, not newly accepted independent family attestation.",
-    "No new dactylic attested positive; initial-truncation source acceptance does not itself change policy status.",
-    "Entire 203-ID inventory remains unsupported foundation until separately sequenced wiring and recheck."
+    "Five initial families have source-accepted positives; this is not exhaustive inventory coverage. Initial truncation remains unsupported; source acceptance alone does not change policy status.",
+    "Entire 203-ID inventory remains unsupported foundation until separately sequenced wiring and recheck.",
+    "RAVEN-S is corroborating declared trochaic evidence with a secondary-stress reader contrast; it does not replace M185-A or establish a production-reader positive."
   ]
 }

@@ -19,6 +19,10 @@ DATA = json.loads(FIXTURE.read_text(encoding='utf-8'))
 CASES = {case['id']: case for case in DATA['cases']}
 LIST_BUCKETS = {'candidates', 'requires_unsupported_policy', 'prefix_agreeing',
                 'excluded_by_reading'}
+NOT_SEARCHED = [
+    'mixed-foot composition', 'medial substitution', 'resolution', 'synizesis',
+    'outrides', 'rove-over', 'anacrusis', 'stanza and printed-line structure',
+]
 
 
 def identity(row):
@@ -62,6 +66,8 @@ class FixtureIntegrity(unittest.TestCase):
         expected = {'C1': ['1101110101', '0101110001'],
                     'C2': ['11111010', '10101010'],
                     'C3': ['11010010010010010', '00010010010010010'],
+                    'C3-S-pair': ['10010010010010010', '00010010010010012'],
+                    'RAVEN-S-pair': ['1010101010101010', '1010121010101010'],
                     'V1': ['10010101', '10010101'],
                     'A1': ['001001001001', '001011011001'],
                     'C4': ['01001001', '11011001'],
@@ -101,6 +107,15 @@ class RecognitionContract(unittest.TestCase):
         self.assertEqual(line, before, 'recognition mutated a supplied reading vector')
         self.assertEqual(kwargs, options, 'recognition mutated caller search options')
         self.assertEqual(result['schema'], 'meter_recognize.v1')
+        self.assertEqual(result.get('not_searched'), NOT_SEARCHED,
+                         'every result must preserve the exact unsearched scope')
+        buckets = sorted(LIST_BUCKETS)
+        for i, bucket in enumerate(buckets):
+            identities = {identity(row) for row in result[bucket]}
+            for other in buckets[i + 1:]:
+                overlap = identities & {identity(row) for row in result[other]}
+                self.assertFalse(overlap,
+                                 f'contradictory witness in {bucket} and {other}: {overlap}')
         return result
 
     def test_source_frozen_subsets(self):
@@ -122,6 +137,15 @@ class RecognitionContract(unittest.TestCase):
         self.assertEqual(registry['initial_truncation']['status'], 'unsupported')
         for name in ('final_catalexis', 'extra_final_weak'):
             self.assertIn('6642871642', str(registry[name]['source']))
+
+    def test_extra_final_weak_requires_original_final_strong(self):
+        result = self.recognize(copy.deepcopy(CASES['extra-final-weak-precondition']['input']))
+        for bucket in LIST_BUCKETS:
+            self.assertFalse(any(row['family'] == 'trochaic' and row['feet'] == 4
+                                 and 'extra_final_weak' in row['policies_used']
+                                 for row in result[bucket]), bucket)
+        self.assertEqual(result['status'], 'no_candidate_in_searched_space')
+        self.assertEqual(result['candidates'], [])
 
     def test_c4_both_segmentations_and_policy_gate(self):
         line = copy.deepcopy(CASES['C4']['input'])
@@ -151,7 +175,8 @@ class RecognitionContract(unittest.TestCase):
         self.assertEqual(changed['candidates'], result['candidates'])
 
     def test_declarations_and_guesses_remain_conditional(self):
-        for cid in ('A1', 'C4', 'M190-A', 'guessed-positive-control'):
+        for cid in ('A1', 'C4', 'M190-A', 'C3-S-pair', 'RAVEN-S-pair',
+                    'guessed-positive-control'):
             line = copy.deepcopy(CASES[cid]['input'])
             result = self.recognize(line)
             by_id = {r['id']: r for r in line['readings']}
@@ -163,6 +188,75 @@ class RecognitionContract(unittest.TestCase):
                     if o['source'] == 'declared':
                         self.assertTrue(any(o['reading_id'] in str(c) for c in conditions),
                                         (cid, o['reading_id'], conditions))
+
+    def test_c3_source_pair_preserves_exact_reader_provenance(self):
+        case = CASES['C3-S-pair']
+        line = copy.deepcopy(case['input'])
+        self.assertEqual(line['text'], CASES['C3']['input']['text'])
+        observation = case['reader_observation']
+        self.assertEqual(observation['text'], line['text'])
+        self.assertNotEqual(observation['guide_run']['text'], line['text'])
+        self.assertTrue(observation['exact_text_receipt'].endswith('6643450918'))
+        config = observation['configuration']
+        self.assertEqual(config['constructor'], 'L.Lexicon()')
+        self.assertEqual(config['reader_scheme'], 'v2')
+        for field in ('fallback', 'supplement', 'declarations'):
+            self.assertIsNone(config[field])
+        source, reader = line['readings']
+        self.assertEqual([o['token'] for o in source['occurrences']
+                          if o['source'] == 'declared'], [1, 11])
+        for token, occurrence, word in zip(line['tokens'], reader['occurrences'],
+                                           observation['words']):
+            self.assertEqual(token['word'], word['word'])
+            self.assertEqual(occurrence['token'], word['token'])
+            self.assertEqual(occurrence['digits'], word['stream'])
+            self.assertEqual(occurrence['lexical'], word['lexical'])
+            self.assertEqual(occurrence['source'], word['source'])
+        hemlocks = reader['occurrences'][-1]
+        self.assertEqual((hemlocks['digits'], hemlocks['lexical'], hemlocks['source']),
+                         ('12', '12', 'rule'))
+        self.assertEqual(observation['words'][-1]['detail'],
+                         {'rule': 'plural', 'from': 'hemlock'})
+        result = self.recognize(line)
+        self.assertTrue(any(subset(row, case['expected']['candidates'][0])
+                            for row in result['candidates']))
+        self.assertFalse(any(row['reading_id'] == 'C3-reader'
+                             for row in result['candidates']))
+        self.assertTrue(any(subset(row, case['expected']['excluded_by_reading'][0])
+                            for row in result['excluded_by_reading']))
+
+    def test_raven_exact_text_and_single_declaration(self):
+        case = CASES['RAVEN-S-pair']
+        line = copy.deepcopy(case['input'])
+        self.assertEqual(line['text'],
+                         'Once upon a midnight dreary, while I pondered, weak and weary,')
+        observation = case['reader_observation']
+        self.assertEqual(observation['text'], line['text'])
+        source, reader = line['readings']
+        self.assertEqual([o['token'] for o in source['occurrences']
+                          if o['source'] == 'declared'], [4])
+        for token, actual, declared, word in zip(line['tokens'], reader['occurrences'],
+                                                source['occurrences'], observation['words']):
+            self.assertEqual(token['word'], word['word'])
+            self.assertEqual(actual['token'], word['token'])
+            self.assertEqual(actual['digits'], word['stream'])
+            self.assertEqual(actual['lexical'], word['lexical'])
+            self.assertEqual(actual['source'], word['source'])
+            if actual['token'] != 4:
+                self.assertEqual(declared, actual)
+        midnight = source['occurrences'][3]
+        self.assertEqual((midnight['digits'], midnight['lexical'], midnight['source'],
+                          midnight['reading_id']), ('10', '12', 'declared', 'RAVEN-S:token:4'))
+        self.assertEqual([w['token'] for w in observation['words'] if w['demoted']], [7])
+        for field in ('supplement', 'fallback', 'declarations'):
+            self.assertIsNone(observation['configuration'][field])
+        result = self.recognize(line)
+        self.assertTrue(any(subset(row, case['expected']['candidates'][0])
+                            for row in result['candidates']))
+        self.assertFalse(any(row['reading_id'] == 'RAVEN-reader'
+                             for row in result['candidates']))
+        self.assertTrue(any(subset(row, case['expected']['excluded_by_reading'][0])
+                            for row in result['excluded_by_reading']))
 
     def test_bound_cannot_search_unsupplied_or_later_vectors(self):
         line = copy.deepcopy(CASES['correlation-control']['input'])
@@ -234,13 +328,19 @@ class RecognitionContract(unittest.TestCase):
                             for c in result['requires_unsupported_policy']))
 
     def test_scope_refusals_do_not_search(self):
-        for language, theory in [('ang','old_english_sievers'), ('eng','quantitative'),
-                                 ('eng','sprung'), ('eng','syllabic')]:
+        for language, theory, reason in [
+            ('ang', 'old_english_sievers',
+             "language 'ang' is outside modern English scope"),
+            ('eng', 'quantitative',
+             "theory 'quantitative' is outside accentual-syllabic scope"),
+            ('eng', 'sprung', "theory 'sprung' is outside accentual-syllabic scope"),
+            ('eng', 'syllabic', "theory 'syllabic' is outside accentual-syllabic scope"),
+        ]:
             line = copy.deepcopy(CASES['A1']['input'])
             line.update(language=language, theory=theory)
             result = self.recognize(line)
             self.assertEqual(result['status'], 'unsupported')
-            self.assertTrue(result['unsupported_reason'])
+            self.assertEqual(result['unsupported_reason'], reason)
             self.assertEqual(result['search']['readings_examined'], 0)
             for bucket in LIST_BUCKETS:
                 self.assertEqual(result[bucket], [])
