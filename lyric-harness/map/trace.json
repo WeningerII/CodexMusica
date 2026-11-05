@@ -1,20 +1,20 @@
 {
- "generated": "2026-10-22T17:17:13.940Z",
+ "generated": "2026-11-04T15:18:19.823Z",
  "profiled": false,
  "worker": "warm",
  "tool_budget_ms": 600000,
  "song_lines": 16,
  "seed": 0,
- "total_ms": 106740,
+ "total_ms": 116149,
  "calls": [
   {
    "n": 1,
    "flow": "create",
    "tool": "lyric_sweep",
-   "ms": 686,
+   "ms": 3381,
    "exit_code": 0,
    "status": null,
-   "meaning": "answered — no authenticated grading verdict; whole-draft findings are unknown",
+   "meaning": "answered — 4 of the 4 planned seed(s) in this window hold every predicate (0 refused by the planner); accepted_shown lists them",
    "refusal": null,
    "asked": null,
    "stop": null,
@@ -24,7 +24,7 @@
    "n": 2,
    "flow": "create",
    "tool": "lyric_screen",
-   "ms": 17241,
+   "ms": 16360,
    "exit_code": 0,
    "status": null,
    "meaning": "answered — screened response; whole-draft findings were not measured",
@@ -37,7 +37,7 @@
    "n": 3,
    "flow": "create",
    "tool": "lyric_plan",
-   "ms": 709,
+   "ms": 1393,
    "exit_code": 0,
    "status": null,
    "meaning": "answered — planned response; whole-draft findings were not measured",
@@ -50,7 +50,7 @@
    "n": 4,
    "flow": "create",
    "tool": "lyric_grade",
-   "ms": 8624,
+   "ms": 11111,
    "exit_code": 3,
    "status": null,
    "meaning": "answered — at least one FLAG stands; the report names the lines",
@@ -63,7 +63,7 @@
    "n": 5,
    "flow": "create",
    "tool": "lyric_revise",
-   "ms": 13948,
+   "ms": 4814,
    "exit_code": 4,
    "status": "awaiting_proposal",
    "meaning": null,
@@ -72,7 +72,7 @@
     "kind": "propose_batch",
     "lines": [
      3,
-     9,
+     7,
      11,
      12
     ],
@@ -86,19 +86,20 @@
    "n": 6,
    "flow": "create",
    "tool": "lyric_revise",
-   "ms": 11138,
+   "ms": 4121,
    "exit_code": 4,
    "status": "awaiting_proposal",
    "meaning": null,
    "refusal": null,
    "asked": {
-    "kind": "propose_batch",
-    "lines": [
-     4,
-     13,
-     14
+    "kind": "propose_group",
+    "members": [
+     2,
+     3,
+     4
     ],
     "attempt": 0,
+    "question_sha256": "4d2ee0cfa095757ece1c450633acbbd180363ce38d12c1baced0f1b2aff3c6bb",
     "round": 1
    },
    "stop": null,
@@ -108,16 +109,16 @@
    "n": 7,
    "flow": "create",
    "tool": "lyric_revise",
-   "ms": 9821,
+   "ms": 4072,
    "exit_code": 4,
    "status": "awaiting_proposal",
    "meaning": null,
    "refusal": null,
    "asked": {
     "kind": "propose",
-    "line": 13,
+    "line": 4,
     "attempt": 0,
-    "round": 2
+    "round": 1
    },
    "stop": null,
    "error": null
@@ -126,20 +127,140 @@
    "n": 8,
    "flow": "create",
    "tool": "lyric_revise",
-   "ms": 5850,
-   "exit_code": 3,
-   "status": "stopped_with_open_lines",
-   "meaning": "answered — at least one FLAG stands; the report names the lines",
+   "ms": 4171,
+   "exit_code": 4,
+   "status": "awaiting_proposal",
+   "meaning": null,
    "refusal": null,
-   "asked": null,
-   "stop": "[FINISHED — seed 0 — exit 3 — ROUND_LIMIT after 2 round(s) — UNRESOLVED: L13]",
+   "asked": {
+    "kind": "propose_group",
+    "members": [
+     2,
+     3,
+     4
+    ],
+    "attempt": 0,
+    "question_sha256": "987a554d93a4034390c77076aa97391f90a6ab06fa7b6350d1b6c27962e987e3",
+    "round": 1
+   },
+   "stop": null,
    "error": null
   },
   {
    "n": 9,
+   "flow": "create",
+   "tool": "lyric_revise",
+   "ms": 4256,
+   "exit_code": 4,
+   "status": "awaiting_proposal",
+   "meaning": null,
+   "refusal": null,
+   "asked": {
+    "kind": "propose_group",
+    "members": [
+     6,
+     7,
+     8
+    ],
+    "attempt": 0,
+    "question_sha256": "5305f1eaced283edc253a18309219ba8d5dab2045d96d4ff5fe4e138e955860f",
+    "round": 1
+   },
+   "stop": null,
+   "error": null
+  },
+  {
+   "n": 10,
+   "flow": "create",
+   "tool": "lyric_revise",
+   "ms": 4294,
+   "exit_code": 4,
+   "status": "awaiting_proposal",
+   "meaning": null,
+   "refusal": null,
+   "asked": {
+    "kind": "propose",
+    "line": 8,
+    "attempt": 0,
+    "round": 1
+   },
+   "stop": null,
+   "error": null
+  },
+  {
+   "n": 11,
+   "flow": "create",
+   "tool": "lyric_revise",
+   "ms": 4204,
+   "exit_code": 4,
+   "status": "awaiting_proposal",
+   "meaning": null,
+   "refusal": null,
+   "asked": {
+    "kind": "propose_group",
+    "members": [
+     6,
+     7,
+     8
+    ],
+    "attempt": 0,
+    "question_sha256": "0d6494242ebb68877e4971edd2ebf8b1272df1cc00f33b2ad50beba4e4ae2081",
+    "round": 1
+   },
+   "stop": null,
+   "error": null
+  },
+  {
+   "n": 12,
+   "flow": "create",
+   "tool": "lyric_revise",
+   "ms": 4324,
+   "exit_code": 4,
+   "status": "awaiting_proposal",
+   "meaning": null,
+   "refusal": null,
+   "asked": {
+    "kind": "propose_group",
+    "members": [
+     10,
+     11,
+     14
+    ],
+    "attempt": 0,
+    "question_sha256": "c53d921dafc24c9290983f4ff8fd4ec6cc46da7da10763029fb0fde49651c024",
+    "round": 1
+   },
+   "stop": null,
+   "error": null
+  },
+  {
+   "n": 13,
+   "flow": "create",
+   "tool": "lyric_revise",
+   "ms": 4553,
+   "exit_code": 4,
+   "status": "awaiting_proposal",
+   "meaning": null,
+   "refusal": null,
+   "asked": {
+    "kind": "propose_group",
+    "members": [
+     9,
+     12,
+     13
+    ],
+    "attempt": 0,
+    "question_sha256": "5e65f20bf9bb43631e8982a6de576f517360b1b8569e76623d3931d40ce3ce5f",
+    "round": 1
+   },
+   "stop": null,
+   "error": null
+  },
+  {
+   "n": 14,
    "flow": "pasted",
    "tool": "lyric_recover",
-   "ms": 2284,
+   "ms": 3662,
    "exit_code": 3,
    "status": null,
    "meaning": "recovered with REFUSALS — each coordinate under `refusals` carries its reason and must be DECLARED by the caller before the graders can ask about it (the meter always: counting gives syllables, not a grid). Hand `lines` with `mandate` to lyric_check and lyric_revise.",
@@ -149,10 +270,10 @@
    "error": null
   },
   {
-   "n": 10,
+   "n": 15,
    "flow": "pasted",
    "tool": "lyric_check",
-   "ms": 22098,
+   "ms": 13857,
    "exit_code": 0,
    "status": null,
    "meaning": "answered — no flag stands",
@@ -162,10 +283,10 @@
    "error": null
   },
   {
-   "n": 11,
+   "n": 16,
    "flow": "pasted",
    "tool": "lyric_revise",
-   "ms": 6097,
+   "ms": 12716,
    "exit_code": 0,
    "status": "finished_clean",
    "meaning": "answered — no flag stands",
@@ -175,10 +296,10 @@
    "error": null
   },
   {
-   "n": 12,
+   "n": 17,
    "flow": "pasted",
    "tool": "lyric_verify",
-   "ms": 6208,
+   "ms": 9215,
    "exit_code": 0,
    "status": null,
    "meaning": "REJECTED — read accepted and reasons; exit zero means the comparison answered.",
@@ -188,10 +309,10 @@
    "error": null
   },
   {
-   "n": 13,
+   "n": 18,
    "flow": "lookup",
    "tool": "lyric_types",
-   "ms": 2030,
+   "ms": 5636,
    "exit_code": 0,
    "status": null,
    "meaning": "answered — a classification of the pair under the reported lexicon; nothing was graded",

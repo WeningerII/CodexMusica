@@ -1830,7 +1830,8 @@
 }
 #surface-lyrics .ly-relation-dock button:disabled,
 #surface-lyrics .ly-relation-inspector button:disabled,
-#surface-lyrics .ly-relations-dialog button:disabled {
+#surface-lyrics .ly-relations-dialog button:disabled,
+#surface-lyrics [data-ui='ly-relation-return'][aria-disabled='true'] {
   opacity: 0.5;
   cursor: default;
 }
