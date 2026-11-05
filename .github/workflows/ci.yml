@@ -1169,15 +1169,26 @@ jobs:
       # pull_request runs only. The base is the merge commit's FIRST PARENT,
       # the base-branch tip this run tests against -- not
       # `pull_request.base.sha`, which keeps the tip from when the PR was
-      # opened and is not in the shallow checkout (run 41876520688). One
-      # --deepen fetches that parent, which is also the merge-base the gate's
-      # `base...HEAD` needs.
+      # opened and is not in the shallow checkout (run 41876520688). The
+      # merge commit is fetched again at --depth=2, which brings both of its
+      # parents; the first is also the merge-base the gate's `base...HEAD`
+      # needs. Not --deepen=1: on a PR whose base isn't `main` (#778, job
+      # 127200159687) it exits 0 without fetching the parent, while --depth=2
+      # from the same commit fetches it (reproduced on 0911c01cb0). The base
+      # branch's own tip is fetched too, only to say so when the base has
+      # moved since the merge commit was made; the first parent is still the
+      # tree this run tests.
       - name: Prototype PRs leave codex.html and library/code/ untouched (check_prototype_isolation --base)
         if: ${{ matrix.shard == 1 && github.event_name == 'pull_request' }}
         run: |
-          git fetch --no-tags --quiet --deepen=1 origin "${{ github.sha }}"
+          git fetch --no-tags --quiet --depth=2 origin "${{ github.sha }}"
+          echo "Merge commit ${{ github.sha }} parents: $(git rev-list --parents -n 1 HEAD | cut -s -d' ' -f2-)"
           if ! base="$(git rev-parse --verify --quiet HEAD^1)"; then
-            echo "::error::the PR merge commit's first parent is not present after --deepen=1"; exit 1
+            echo "::error::the PR merge commit's first parent is not present after --depth=2"; exit 1
+          fi
+          if git fetch --no-tags --quiet --depth=1 origin "+refs/heads/${{ github.base_ref }}:refs/ci/base" &&
+            tip="$(git rev-parse --verify --quiet refs/ci/base)" && [ "$tip" != "$base" ]; then
+            echo "::notice::${{ github.base_ref }} has moved to $tip since this merge commit was made; testing against its first parent $base, the tree this run tests"
           fi
           echo "Base: $base (first parent of the PR merge commit ${{ github.sha }})"
           touched="$(git diff --no-renames --name-only "$base" HEAD -- prototype/ scripts/check_prototype_isolation.js)"
