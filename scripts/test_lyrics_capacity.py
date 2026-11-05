@@ -719,6 +719,93 @@ class PeakInstrumentation(unittest.TestCase):
         self.assertIsNone(matrix.process_rss(None))
 
 
+class NodeMemoryBreakdown(unittest.TestCase):
+    """#612: the peak sample carries the resident server's own published
+    process.memoryUsage() and startup phase; anything it cannot trust reads
+    'unavailable', never zeros, and the gated peak is untouched."""
+
+    RECORD = {'version': 1, 'pid': 4242, 'wall_ms': 1_000_000_000_000, 'uptime_ms': 42_100,
+              'phase': 'serving', 'phases': {'module_body': 900, 'loading_prepared': 950,
+                                             'prepared_loaded': 9_800, 'importing_server': 9_810,
+                                             'serving': 21_400},
+              'memory': {'rss': 1_200_000_000, 'heapTotal': 600_000_000, 'heapUsed': 550_000_000,
+                         'external': 90_000_000, 'arrayBuffers': 40_000_000}}
+
+    def write(self, record):
+        import tempfile
+        d = tempfile.mkdtemp()
+        path = Path(d) / 'node-memory.json'
+        path.write_text(record if isinstance(record, str) else json.dumps(record))
+        return path
+
+    def test_published_fields_reach_the_peak_sample(self):
+        import check_lyrics_capacity as matrix
+        path = self.write(self.RECORD)
+        feed = iter([(1_500, {'file': 600, 'shmem': 100}), (1_900, {'file': 500, 'shmem': 100})])
+        state = {}
+        def cgroup(name):
+            if name == 'memory.current':
+                state['current'], state['stat'] = next(feed)
+                return state['current']
+            return None
+        with patch.object(matrix, 'cgroup_bytes', side_effect=cgroup), \
+             patch.object(matrix, 'memory_stat', side_effect=lambda: state['stat']), \
+             patch.object(matrix, 'memory_events', return_value={'oom_kill': 0}), \
+             patch.object(matrix, 'process_rss', return_value=1_190_000_000), \
+             patch.object(matrix.time, 'time', return_value=1_000_000_000.4):
+            progress = matrix.MeasurementProgress('t', node_pid=lambda: 4242, node_memory_path=path)
+            progress.sample()
+            progress.sample()
+            peak = progress.instrumentation()['peak_sample']
+            with patch('builtins.print') as printed:
+                progress.report_peak()
+        self.assertEqual(progress.resident_peak, 1_900 - (500 - 100))   # gate unchanged
+        node = peak['node_memory']
+        for field, value in self.RECORD['memory'].items():
+            self.assertEqual(node[field], value)
+        self.assertEqual(node['phase'], 'serving')
+        self.assertEqual(node['uptime_ms'], 42_100)
+        self.assertEqual(node['phases_ms']['prepared_loaded'], 9_800)
+        self.assertEqual(node['age_s'], 0.4)
+        self.assertIn('node_heapUsed=550000000', printed.call_args[0][0])
+        self.assertIn('node_phase=serving', printed.call_args[0][0])
+
+    def test_untrustworthy_records_are_unavailable_not_zero(self):
+        from check_lyrics_capacity import node_memory
+        missing = Path('/nonexistent/node-memory.json')
+        cases = {
+            'no file': (missing, 4242),
+            'no path': (None, 4242),
+            'no server pid': (self.write(self.RECORD), None),
+            'another process': (self.write(self.RECORD), 9999),
+            'not JSON': (self.write('{"version": 1, "pid": 42'), 4242),
+            'zero rss': (self.write({**self.RECORD, 'memory': {**self.RECORD['memory'], 'rss': 0}}), 4242),
+            'a field missing': (self.write({**self.RECORD, 'memory': {'rss': 5}}), 4242),
+            'a field not an integer': (self.write({**self.RECORD, 'memory': {
+                **self.RECORD['memory'], 'heapUsed': '550'}}), 4242),
+            'wrong version': (self.write({**self.RECORD, 'version': 2}), 4242),
+        }
+        for label, (path, pid) in cases.items():
+            with self.subTest(label):
+                self.assertEqual(node_memory(path, pid), 'unavailable')
+        self.assertIsInstance(node_memory(self.write(self.RECORD), 4242), dict)
+
+    def test_a_missing_file_in_the_peak_sample_says_unavailable(self):
+        import check_lyrics_capacity as matrix
+        with patch.object(matrix, 'cgroup_bytes', side_effect=lambda n: 1_000 if n == 'memory.current' else None), \
+             patch.object(matrix, 'memory_stat', return_value={}), \
+             patch.object(matrix, 'memory_events', return_value={}), \
+             patch.object(matrix, 'process_rss', return_value=None):
+            progress = matrix.MeasurementProgress('t', node_pid=lambda: 4242,
+                                                  node_memory_path=Path('/nonexistent/node-memory.json'))
+            progress.sample()
+            peak = progress.instrumentation()['peak_sample']
+            with patch('builtins.print') as printed:
+                progress.report_peak()
+        self.assertEqual(peak['node_memory'], 'unavailable')
+        self.assertIn('node_memory=unavailable', printed.call_args[0][0])
+
+
 class LeakSignature(unittest.TestCase):
     """`leak_verdict` records the signature for every run and fails only the
     run that measured the whole matrix; the readings are run 34518177848's."""

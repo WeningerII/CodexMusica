@@ -5,7 +5,7 @@
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 import path from 'node:path';
-import { queuePressure } from './lyrics_capacity_queue.mjs';
+import { queuePressure, memoryPublisher } from './lyrics_capacity_queue.mjs';
 import { RUNS, LYRIC_TOOL_SCHEMAS, lyricCapacity } from '../mcp/lyric_tools.js';
 import {
   WORKER_STATE_BYTES,
@@ -20,6 +20,17 @@ import { STATE_WIRE_BYTES } from '../mcp/payload_limits.js';
 const [evidencePath, preparedPath, mode] = process.argv.slice(2);
 if (!evidencePath || !preparedPath || (mode && mode !== '--prepare'))
   throw new Error('Usage: lyrics_capacity_server.mjs EVIDENCE_PATH PREPARED_PATH [--prepare]');
+
+// INSTRUMENTATION ONLY (#612): nothing reads this to judge anything. The
+// sampler (check_lyrics_capacity.py) reads Node's RSS from /proc, which cannot
+// say WHAT grew. Once a second this process publishes its own
+// process.memoryUsage() and the startup phase it is in, on its own clock, to a
+// private file beside its evidence; the sampler copies the latest one into the
+// peak sample, with its age. A failed write is counted, never thrown
+// (memoryPublisher). No production module, route or limit changes.
+const memory = memoryPublisher(path.join(path.dirname(evidencePath), 'node-memory.json'));
+const enterPhase = memory.enterPhase;
+if (mode !== '--prepare') setInterval(memory.publish, 1000).unref();
 if (RUNS.size()) throw new Error('Capacity server requires its own empty RunStore');
 const bytes = (value) => Buffer.byteLength(JSON.stringify(value));
 const noise = (length) =>
@@ -122,6 +133,7 @@ if (mode === '--prepare') {
   );
   process.exit(0);
 }
+enterPhase('loading_prepared');
 let preparedBytes = fs.readFileSync(preparedPath);
 const preparedSha256 = crypto.createHash('sha256').update(preparedBytes).digest('hex');
 const prepared = JSON.parse(preparedBytes);
@@ -148,6 +160,7 @@ for (const row of prepared.records) RUNS.put(row.key, row);
 // The records are held only by the actual singleton after loading. Discard
 // the preparer's parsed container and raw bytes before the heavy workload.
 prepared.records = null;
+enterPhase('prepared_loaded');
 
 let probes = 0;
 function snapshot() {
@@ -225,4 +238,6 @@ setInterval(async () => {
     pressureBusy = false;
   }
 }, 250);
+enterPhase('importing_server');
 await import('../mcp/server_http.js');
+enterPhase('serving');
