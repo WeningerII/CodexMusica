@@ -324,23 +324,20 @@ legacy v1 state rows or their fingerprints.
   supplement row found that way is credited to its own source. v1 and declared
   readings are unchanged.
 
-### Known open limitations (pre-existing items)
+### Known limitations (pre-existing items)
 
-These defects are open. Each is listed so it is not read as fixed, or as a
-regression of the rules above.
+These limitations remain by design or explicit decision. Each is listed so it is
+not read as fixed, or as a regression of the rules above.
 
-- A Library job refused `STALE_READING` (queued or paused across a release)
-  offers a Resume that cannot succeed: `src/library/analysis.js` shows the
-  Resume button for every paused, cancelled or failed job. (tracking: [#656 L1](https://github.com/WeningerII/CodexMusica/issues/656#issuecomment-6614429602))
 - Under reader scheme v1, the default end slot's swap splices into an echo
   aside that repeats the end word, so it edits the aside instead of the end
   word the grader binds. The v1 replay keeps that wrong edit byte-identical,
   because v1 runs the earlier code verbatim (`lyric-harness/quality/loop.py`
-  `swap_at_slot` docstring). (tracking: [#656 L2](https://github.com/WeningerII/CodexMusica/issues/656#issuecomment-6614429602))
+  `swap_at_slot` docstring). (tracking: [#656 L2](https://github.com/WeningerII/CodexMusica/issues/656#issuecomment-6614509856))
 - A retained 30-day Library chunk saved before the cut-marker fix keeps its
   declarations without their cut (F2). No repair is planned: the owner decided
   to let affected chunks expire within their 30-day retention (2026-11-04).
-  (tracking: [#656 L4](https://github.com/WeningerII/CodexMusica/issues/656#issuecomment-6614429602))
+  (tracking: [#656 L4](https://github.com/WeningerII/CodexMusica/issues/656#issuecomment-6638610083))
 - During a deploy there is a window in which the page, the server and queued
   jobs can run different versions (F3). The owner accepted this window rather
   than engineering it away (2026-11-04). What already holds in it: a lyric
@@ -350,7 +347,7 @@ regression of the rules above.
   new run under the current runtime. A Library job queued or paused across the
   release is refused `STALE_READING` by the scheduler's identity recheck
   (`mcp/reader_scheduler.js:521`) rather than resumed against the new reader.
-  (tracking: [#656 L5](https://github.com/WeningerII/CodexMusica/issues/656#issuecomment-6614429602))
+  (tracking: [#656 L5](https://github.com/WeningerII/CodexMusica/issues/656#issuecomment-6638610083))
 
 ## What the money limits establish
 
