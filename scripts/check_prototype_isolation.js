@@ -229,6 +229,8 @@ const SHELL_DATA = new Set([
 // The one computed read: a collection file, by an id prototype/data.js has
 // checked against the collection-id pattern first (collectionFile()).
 const COLLECTION_FETCH = '`../library/data/c/${id}.json.gz`';
+// The reader's files, by a path data.js has checked against READING_FILE.
+const READING_FETCH = '`../library/data/${rel}`, { signal }';
 // Rule 1's static half: a file names no absolute or protocol-relative URL.
 // The SVG namespace is a name, not a request (an inline SVG fixture, a glyph).
 const absoluteUrl = (text) =>
@@ -241,7 +243,7 @@ function fetchProblems(text, rel) {
     const lit = /^(['"`])([^'"`$]*)\1$/.exec(arg);
     const ok =
       (lit && (/^\.\.\/api\/[\w./-]+$/.test(lit[2]) || (shell && SHELL_DATA.has(lit[2])))) ||
-      (rel === 'prototype/data.js' && arg === COLLECTION_FETCH);
+      (rel === 'prototype/data.js' && (arg === COLLECTION_FETCH || arg === READING_FETCH));
     if (!ok) {
       out.push(
         `fetch(${arg}) is not a literal path into the static catalog (../api/)` +
@@ -400,6 +402,8 @@ function selfTest() {
     [absoluteUrl('http://www.w3.org/2000/svg') ? ['x'] : [], 0],
     [absoluteUrl('http://www.w3.org/2000/svg https://example.org/x') ? ['x'] : [], 1],
     [absoluteUrl('//cdn.example.org/a.js') ? ['x'] : [], 1],
+    [fetchProblems('fetch(`../library/data/${rel}`, { signal })', 'prototype/data.js'), 0],
+    [fetchProblems('fetch(`../library/data/${rel}`, { signal })', 'prototype/app.js'), 1],
   ];
   cases.forEach(([got, want], i) =>
     expect(
