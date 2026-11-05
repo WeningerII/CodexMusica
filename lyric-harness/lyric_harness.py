@@ -12486,6 +12486,8 @@ def main():
               f"{len(the_plan['sections'])} section(s): "
               f"{'-'.join(pat['functions'])}")
         print(f"    (pattern drawn from {pat['chosen_from']})")
+        for explanation in PLN.recurrence_report(the_plan):
+            print("    " + explanation)
         if "brief_selection" in the_plan["choices"]:
             print("  BRIEF SELECTION: " + json.dumps(the_plan["choices"]["brief_selection"], sort_keys=True))
         # A REDRAWN SEED IS SAID, as a brief selection is (option (b),

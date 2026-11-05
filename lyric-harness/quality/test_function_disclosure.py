@@ -343,5 +343,173 @@ print(json.dumps([plan.make_plan(**case) for case in cases]))
                 self.assertNotEqual(old_brief, new_brief)
 
 
+class RecurrenceReportTests(unittest.TestCase):
+    def fixture(self, functions, wants, drawn):
+        # Independently specified final-plan facts for the pure report API.
+        return {'request': {'functions': functions, 'wants': wants},
+                'sections': [{'function': f} for f in drawn]}
+
+    def test_named_equality_minimum_and_range_keep_operators(self):
+        cases = [
+            (['sections.reprise=2'], 2,
+             'reprise ×2: the request specifies sections.reprise=2.'),
+            (['sections.reprise>=2'], 3,
+             'reprise ×3: at least the requested minimum: sections.reprise>=2.'),
+            (['sections.reprise>=2', 'sections.reprise<=4'], 3,
+             'reprise ×3: within the requested range: sections.reprise>=2, sections.reprise<=4.'),
+            (['sections.reprise>=2', 'sections.reprise<=2'], 2,
+             'reprise ×2: within the requested range: sections.reprise>=2, sections.reprise<=2.'),
+        ]
+        for wants, count, expected in cases:
+            with self.subTest(wants=wants):
+                p = self.fixture(['verse', 'reprise'], wants,
+                                 ['verse'] + ['reprise'] * count)
+                self.assertEqual(P.recurrence_report(p), [expected])
+
+    def test_global_and_last_resort_bridge_sampler_wording(self):
+        p = self.fixture(['false_ending', 'reprise'], ['sections>=4', 'sections<=6'],
+                         ['false_ending', 'reprise', 'reprise', 'reprise'])
+        self.assertEqual(P.recurrence_report(p), [
+            'reprise ×3: the sampler chose this repeat after once-only limits were lifted because the requested minimum exceeded capacity: sections>=4, sections<=6.'])
+        p = self.fixture(['bridge', 'reprise'], ['sections=4', 'sections.reprise<=2'],
+                         ['bridge', 'reprise', 'bridge', 'reprise'])
+        self.assertEqual(P.recurrence_report(p), [
+            'bridge ×2: the sampler chose this repeat after the bridge limit was lifted because the other eligible lifts still left insufficient capacity for the requested minimum: sections=4.',
+            'reprise ×2: the sampler chose this repeat after once-only limits were lifted because the requested minimum exceeded capacity: sections=4.'])
+
+    def test_no_rows_for_unrepeated_unlifted_recurring_or_authored(self):
+        cases = [
+            (['false_ending', 'reprise'], ['sections=4'], ['verse', 'reprise']),
+            (['verse', 'reprise'], ['sections.reprise<=4'], ['verse', 'reprise', 'reprise']),
+            (['verse', 'chorus'], ['sections=4'], ['verse', 'chorus', 'verse', 'chorus']),
+            (['verse', 'reprise'], [], ['verse', 'reprise', 'reprise']),
+            (['intro', 'verse', 'outro'], [], ['intro', 'verse', 'outro']),
+        ]
+        for roster, wants, drawn in cases:
+            with self.subTest(wants=wants, drawn=drawn):
+                p = self.fixture(roster, wants, drawn)
+                p['lines'] = ['Repeated authored words'] * 4
+                self.assertEqual(P.recurrence_report(p), [])
+        for f in ('intro', 'outro', 'coda'):
+            with self.assertRaises(P.PlanRefused):
+                P._recurrence_policy([P.parse_sweep_want('sections.' + f + '=2')])
+
+    def test_scoped_duplicate_roster_is_resolved_without_mutation(self):
+        raw = [' verse ', ' English_Song::BREAK ', '', 'reprise', 'reprise']
+        p = self.fixture(raw, ['sections=4'], ['verse', 'reprise', 'reprise', 'verse'])
+        before = copy.deepcopy(p)
+        # The unbounded verse/interlude capacity prevents a total-induced lift.
+        self.assertEqual(P.recurrence_report(p), [])
+        self.assertEqual(p, before)
+        p['request']['wants'] = ['sections.reprise=2']
+        self.assertEqual(P.recurrence_report(p), [
+            'reprise ×2: the request specifies sections.reprise=2.'])
+        self.assertEqual(p['request']['functions'], raw)
+
+    cases = [
+        dict(seed=11, form='open', lines=24, functions=['false_ending', 'reprise'],
+             wants=['sections=4', 'sections.false_ending<=2', 'sections.reprise<=2']),
+        dict(seed=11, form='open', lines=24, functions=['verse', 'reprise'],
+             wants=['sections=4', 'sections.verse<=1']),
+        dict(seed=11, form='open', lines=24, functions=['bridge'],
+             wants=['sections.bridge=4']),
+        dict(seed=11, form='open', lines=24, functions=['verse', 'chorus', 'false_ending', 'reprise'],
+             wants=['sections.false_ending=2']),
+        dict(seed=2, form='verse-chorus', lines=24,
+             functions=['verse', 'chorus', 'false_ending', 'reprise'],
+             wants=['sections.reprise=2']),
+    ]
+
+    def test_real_final_plans_first_and_conditioned_paths_and_policy_agree(self):
+        paths = set()
+        for case in self.cases:
+            p = P.make_plan(**case)
+            before = json.dumps(p)
+            paths.add(p['choices']['brief_selection']['policy'])
+            wants = [P.parse_sweep_want(w) for w in p['request']['wants']]
+            roster = tuple(dict.fromkeys(G.as_function(f.strip()) for f in case['functions']))
+            policy = P._recurrence_policy(wants, roster)
+            suffix = '; default once preferences lifted: ' + ', '.join(
+                f'{f} ({why})' for f, why in sorted(policy.items()))
+            self.assertTrue(p['choices']['pattern']['chosen_from'].endswith(suffix))
+            rows = P.recurrence_report(p)
+            counts = {f: sum(s['function'] == f for s in p['sections']) for f in policy}
+            self.assertEqual(len(rows), sum(n > 1 for n in counts.values()))
+            for f, n in counts.items():
+                if n > 1:
+                    self.assertTrue(any(row.startswith(f'{f} ×{n}: ') for row in rows))
+            self.assertEqual(json.dumps(p), before)
+            self.assertFalse(any(row in p['writer_brief'] for row in rows))
+        self.assertEqual(paths, {
+            "the seed's own plan satisfies every want; the draw was not conditioned",
+            'first satisfying candidate; no ranking'})
+
+    @unittest.skipUnless(os.environ.get('P1B_PLAN_BASELINE'),
+                         'supply pinned pre-P1b plan.py via P1B_PLAN_BASELINE')
+    def test_cli_report_only_delta_and_no_lift_byte_identity(self):
+        import tempfile
+        harness = Path(__file__).resolve().parents[1] / 'lyric_harness.py'
+        baseline = Path(os.environ['P1B_PLAN_BASELINE']).parent.parent / 'lyric_harness.py'
+        runner = ('import sys; from pathlib import Path; __file__ = sys.argv[0]; '
+                  'exec(compile(Path(sys.argv.pop(1)).read_text(), '
+                  'sys.argv[0], "exec"))')
+        with tempfile.TemporaryDirectory() as tmp:
+            target = Path(tmp) / 'plan.json'
+            for roster, wants, expected in [
+                ('verse', '', ''),
+                ('bridge', 'sections.bridge=4',
+                 '    bridge ×4: the request specifies sections.bridge=4.\n'),
+            ]:
+                args = ['plan', '--seed=11', '--lines=24', '--functions=' + roster,
+                        '--out=' + str(target)]
+                if wants:
+                    args.append('--want=' + wants)
+                # Same __file__, argv and dependencies: only the exact pinned
+                # harness source differs. No modules or grading are doubled.
+                def run(source):
+                    code = 'import sys; sys.argv[0]=' + repr(str(harness)) + '; ' + runner
+                    result = subprocess.run([sys.executable, '-B', '-c', code,
+                                             str(source), *args],
+                        cwd=harness.parent, text=True, capture_output=True, timeout=120)
+                    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                    return result.stdout, target.read_bytes()
+                old, old_bytes = run(baseline)
+                new, new_bytes = run(harness)
+                self.assertEqual(new_bytes, old_bytes)
+                self.assertEqual(new.replace(expected, '', 1) if expected else new, old)
+                if expected:
+                    self.assertEqual(new.count(expected), 1)
+
+    @unittest.skipUnless(os.environ.get('P1B_PLAN_BASELINE'),
+                         'supply pinned pre-P1b plan.py via P1B_PLAN_BASELINE')
+    def test_pinned_prechange_entire_plans_and_process_determinism(self):
+        program = '''
+import json, os, types
+from pathlib import Path
+from quality import plan as P
+if os.environ.get('P1B_OLD'):
+    old = types.ModuleType('quality.p1b_baseline')
+    old.__file__ = P.__file__
+    exec(compile(Path(os.environ['P1B_OLD']).read_text(), old.__file__, 'exec'), old.__dict__)
+    P = old
+print(json.dumps([P.make_plan(**c) for c in json.loads(os.environ['P1B_CASES'])]))
+'''
+        cases = self.cases + [dict(seed=11, lines=24, functions=WriterDisclosureTests.raw),
+                              dict(seed=11, lines=24)]
+        def run(hashseed, baseline=None):
+            env = dict(os.environ, PYTHONHASHSEED=str(hashseed), P1B_CASES=json.dumps(cases))
+            env.pop('P1B_OLD', None)
+            if baseline:
+                env['P1B_OLD'] = baseline
+            return subprocess.check_output([sys.executable, '-B', '-c', program],
+                cwd=Path(__file__).resolve().parents[1], env=env)
+        import hashlib
+        baseline = run(11, os.environ['P1B_PLAN_BASELINE'])
+        for seed in (1, 937):
+            current = run(seed)
+            self.assertEqual(current, baseline)
+            self.assertEqual(hashlib.sha256(current).hexdigest(), hashlib.sha256(baseline).hexdigest())
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)

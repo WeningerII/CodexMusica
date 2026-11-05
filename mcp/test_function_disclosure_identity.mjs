@@ -295,3 +295,50 @@ test(
     assert.equal(task.workflow.grade, null);
   }
 );
+
+test(
+  'actual recurrence report reaches plan text only and grade retains its receipt',
+  { timeout: 120000 },
+  async (t) => {
+    const client = await connection(t);
+    const args = { seed: 11, lines: 24, functions: 'bridge', wants: ['sections.bridge=4'] };
+    const result = await client.callTool({ name: 'lyric_plan', arguments: args });
+    assert.notEqual(result.isError, true, JSON.stringify(result));
+    const planned = verdictOf(result);
+    assert.equal(planned.exit_code, 0);
+    const sentence = 'bridge ×4: the request specifies sections.bridge=4.';
+    assert.equal(result.content[0].text.split(sentence).length - 1, 1);
+    assert.equal(planned.plan.sections.filter((s) => s.function === 'bridge').length, 4);
+    assert(!planned.plan.writer_brief.includes(sentence));
+    assert(!JSON.stringify(planned.plan).includes(sentence));
+    assert.equal(planned.plan_sha256, hash(planned.plan));
+    const graded = verdictOf(
+      await client.callTool({
+        name: 'lyric_grade',
+        arguments: {
+          ...args,
+          draft: Array(planned.plan.total_lines).fill('I hold your hand beside the rain'),
+        },
+      })
+    );
+    assert.equal(graded.plan_sha256, planned.plan_sha256);
+    assert.deepEqual(graded.plan_request, planned.plan_request);
+    const task = { domain: 'lyrics', phase: 'create' };
+    // Synthetic admission setup isolates the existing receipt-tamper guard;
+    // the plan and grade above are real handler executions, not a sweep claim.
+    recordCreation(
+      task,
+      'lyric_sweep',
+      { lines: 24, functions: 'bridge', want: args.wants },
+      { exit_code: 0, accepted_shown: [11] }
+    );
+    recordCreation(task, 'lyric_screen', { words: ['rain', 'train'] }, { exit_code: 0 });
+    recordCreation(task, 'lyric_plan', args, planned);
+    assert(task.workflow.plan);
+    const tampered = structuredClone(planned);
+    tampered.plan.request.wants = ['sections.bridge>=4'];
+    tampered.plan_request = structuredClone(tampered.plan.request);
+    recordCreation(task, 'lyric_plan', args, tampered);
+    assert.equal(task.workflow.plan, null);
+  }
+);
