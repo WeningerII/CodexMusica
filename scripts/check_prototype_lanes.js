@@ -192,24 +192,43 @@ async function library(browser, srv) {
     `library: the focused new card's accessible name is "${after.focusName}", its heading "${after.focusHeading}"`
   );
 
-  // Play first reading: a preview card, then an appended one.
+  // Play first reading: a preview card, then an appended one. The reader
+  // (#757) opens on the collection's first readable unit, as production's
+  // Play does, with that reading's own title and focus on it.
+  const zlib = require('node:zlib');
+  const gz = (...p) =>
+    JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(root, 'library', 'data', ...p))));
+  const headOf = (unitId) => {
+    const hh = unitId.slice(8, 10);
+    const key = gz('u', `${hh}.json.gz`).units.find((u) => u[0] === unitId)[1];
+    return gz('r', hh, unitId, key, 'head.json.gz');
+  };
+  const firstOf = (cid) =>
+    preview.cards.find((c) => c[0] === cid)?.[5] || gz('c', `${cid}.json.gz`).readable_ids[0];
   for (const id of [preview.cards[0][0], next]) {
-    await page.evaluate(() => (document.getElementById('proto-status').textContent = ''));
+    const head = headOf(firstOf(id));
     await eng
       .locator(`[data-collection="${id}"] button`, { hasText: 'Play first reading' })
       .click();
-    await page
-      .waitForFunction(
-        () =>
-          /isn’t part of this prototype/.test(document.getElementById('proto-status').textContent),
-        null,
-        { timeout: 15000 }
-      )
-      .catch(() => {});
+    const reader = page.locator('[data-feature-host="libraryreading"]');
+    const title = reader.locator('h2', { hasText: head.title });
+    const shown = await title.waitFor({ timeout: 15000 }).then(
+      () => true,
+      () => false
+    );
+    expect(shown, `library: Play on ${id} did not open its first reading, "${head.title}"`);
+    expect(
+      (await page.locator('[data-feature-host="libraryreading"]').count()) === 1,
+      `library: Play on ${id} left more than one reader open`
+    );
+    const focused = await page.evaluate(
+      () => document.activeElement && document.activeElement.textContent
+    );
+    expect(focused === head.title, `library: after Play on ${id}, focus is on "${focused}"`);
     const said = await status(page);
     expect(
-      /The reader isn’t part of this prototype yet/.test(said),
-      `library: Play on ${id} said "${said}"`
+      said === `Page 1 of ${head.page_count}`,
+      `library: Play on ${id} said "${said}", not "Page 1 of ${head.page_count}"`
     );
   }
   // Select readable units.
