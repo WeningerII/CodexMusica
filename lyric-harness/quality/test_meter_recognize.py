@@ -274,6 +274,23 @@ class RecognitionContract(unittest.TestCase):
         self.assertEqual([identity(c) for c in full['candidates']],
                          [('late-01', 'iambic', 1, ())])
 
+    def test_no_reading_examined_is_not_computed(self):
+        # Amendment 4 (#6776646385914): zero work is not evidence of absence.
+        for empty, cap, supplied, complete in [(True, 64, 0, True),
+                                               (False, 0, 2, False)]:
+            with self.subTest(empty=empty, cap=cap):
+                line = copy.deepcopy(CASES['correlation-control']['input'])
+                if empty:
+                    line['readings'] = []
+                result = self.recognize(line, max_readings=cap, policies={})
+                self.assertEqual(result['status'], 'not_computed')
+                self.assertEqual(result.get('not_computed_reason'), 'no reading examined')
+                self.assertEqual(result['search'], {'readings_supplied': supplied,
+                                  'readings_examined': 0, 'max_readings': cap,
+                                  'complete': complete})
+                for bucket in LIST_BUCKETS:
+                    self.assertEqual(result[bucket], [])
+
     def test_reading_order_retains_distinct_witnesses(self):
         line = copy.deepcopy(CASES['DA3']['input'])
         first = self.recognize(line, policies={})
@@ -282,6 +299,84 @@ class RecognitionContract(unittest.TestCase):
         self.assertEqual({identity(c) for c in first['candidates']},
                          {identity(c) for c in second['candidates']})
         self.assertEqual(second, self.recognize(line, policies={}))
+
+    def test_equal_vectors_keep_literal_witnesses_at_each_cap(self):
+        line = {
+            'text': 'fixture', 'language': 'eng',
+            'tokens': [{'index': 1, 'word': 'x'}],
+            'readings': [
+                {'id': 'first', 'occurrences': [
+                    {'token': 1, 'digits': '01', 'lexical': '01',
+                     'source': 'dictionary', 'reading_id': None}]},
+                {'id': 'second', 'occurrences': [
+                    {'token': 1, 'digits': '01', 'lexical': '01',
+                     'source': 'declared', 'reading_id': 'second-declaration'}]},
+            ],
+        }
+        # Literal reviewer oracle: five assertions per cap, no self-reference.
+        expected = [
+            (0, [], [], [],
+             {'readings_supplied': 2, 'readings_examined': 0,
+              'max_readings': 0, 'complete': False}, [[], [], []]),
+            (1, ['first'], [[]], [('iambic', 1, 'WS')],
+             {'readings_supplied': 2, 'readings_examined': 1,
+              'max_readings': 1, 'complete': False}, [[], [], []]),
+            (2, ['first', 'second'], [[], ['declared: second-declaration']],
+             [('iambic', 1, 'WS'), ('iambic', 1, 'WS')],
+             {'readings_supplied': 2, 'readings_examined': 2,
+              'max_readings': 2, 'complete': True}, [[], [], []]),
+            (3, ['first', 'second'], [[], ['declared: second-declaration']],
+             [('iambic', 1, 'WS'), ('iambic', 1, 'WS')],
+             {'readings_supplied': 2, 'readings_examined': 2,
+              'max_readings': 3, 'complete': True}, [[], [], []]),
+        ]
+        for cap, ids, conditions, geometry, search, empty in expected:
+            with self.subTest(cap=cap):
+                result = self.recognize(copy.deepcopy(line), families={'iambic': 'WS'},
+                                        policies={}, max_readings=cap)
+                self.assertEqual([c['reading_id'] for c in result['candidates']], ids)
+                self.assertEqual([c['conditional_on'] for c in result['candidates']], conditions)
+                self.assertEqual([(c['family'], c['feet'], c['surface'])
+                                  for c in result['candidates']], geometry)
+                self.assertEqual(result['search'], search)
+                self.assertEqual([result[k] for k in ('requires_unsupported_policy',
+                                  'prefix_agreeing', 'excluded_by_reading')], empty)
+
+    def test_explicit_malformed_inputs_raise_value_error(self):
+        # Only specified token/digit/policy/declaration requirements; no probes
+        # of unresolved normalization, precedence or provenance resolution.
+        base = {
+            'text': 'a beat', 'language': 'eng',
+            'tokens': [{'index': 1, 'word': 'a'}, {'index': 2, 'word': 'beat'}],
+            'readings': [{'id': 'R', 'occurrences': [
+                {'token': 1, 'digits': '0', 'lexical': '0',
+                 'source': 'dictionary', 'reading_id': 'dict:a'},
+                {'token': 2, 'digits': '1', 'lexical': '1',
+                 'source': 'dictionary', 'reading_id': 'dict:beat'},
+            ]}],
+        }
+        refusals = [
+            ('duplicate-token-index', ('tokens', 1, 'index'), 1, {}),
+            ('occurrences-out-of-order', ('readings', 0, 'occurrences'),
+             list(reversed(base['readings'][0]['occurrences'])), {}),
+            ('invalid-stress-digit', ('readings', 0, 'occurrences', 0, 'digits'), '3', {}),
+            ('invalid-policy-status', (), None, {'policies': {
+                'initial_inversion': {'status': 'other', 'source': 6642873705}}}),
+            ('missing-declaration-id', ('readings', 0, 'occurrences', 0),
+             {'token': 1, 'digits': '0', 'lexical': '0',
+              'source': 'declared', 'reading_id': None}, {}),
+        ]
+        for name, path, value, options in refusals:
+            with self.subTest(case=name):
+                line = copy.deepcopy(base)
+                if path:
+                    target = line
+                    for key in path[:-1]:
+                        target = target[key]
+                    target[path[-1]] = copy.deepcopy(value)
+                # Other exception classes are errors, never successful refusals.
+                with self.assertRaises(ValueError):
+                    self.meter.recognize(line, **copy.deepcopy(options))
 
     def test_unknown_suffix_is_never_globally_aligned(self):
         line = copy.deepcopy(CASES['DA7']['input'])

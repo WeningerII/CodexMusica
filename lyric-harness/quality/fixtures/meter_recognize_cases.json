@@ -67,9 +67,7 @@
     },
     "Daw": {
       "freeze": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6642871642",
-      "urls": [
-        "https://www.gutenberg.org/files/1522/1522-h/1522-h.htm"
-      ],
+      "urls": ["https://www.gutenberg.org/files/1522/1522-h/1522-h.htm"],
       "edition": "Julius Caesar III.ii, Antony funeral speech second line, Gutenberg1522 electronic text. Daw, Down and Dirty Guide to Scanning Verse, Variations, source locator retained in acceptance.",
       "limits": "Public-domain text HTML-checked; modern teaching guide license/edition/line numbering unresolved, guide prose not copied. Explicit him:0 is a declaration, not automatic demotion."
     },
@@ -88,16 +86,12 @@
       "limits": "Existing H1–H5 reused, not new evidence. Theory-specific metrical S/x are not lexical stress; no binary conversion. Short medieval text only."
     },
     "R5": {
-      "urls": [
-        "https://rpo.library.utoronto.ca/content/sapphics"
-      ],
+      "urls": ["https://rpo.library.utoronto.ca/content/sapphics"],
       "edition": "Swinburne, Sapphics line9, RPO1999, Collected Poetical Works1924 I204–07.",
       "limits": "Public-domain text/form; quantitative theory deliberately refused, no inferred quantitative compliance."
     },
     "E2": {
-      "urls": [
-        "https://www.gutenberg.org/cache/epub/22403/pg22403-images.html"
-      ],
+      "urls": ["https://www.gutenberg.org/cache/epub/22403/pg22403-images.html"],
       "edition": "Hopkins Poems1918, Bridges, poem13 and note13.",
       "limits": "Public-domain opening; sprung theory refused; no conversion to single-family stress."
     },
@@ -109,9 +103,7 @@
       "freeze": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6643348177",
       "source_review": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6643328128",
       "source_packet": "https://github.com/WeningerII/CodexMusica/issues/677#issuecomment-6643263877",
-      "urls": [
-        "https://www.uv.es/tronch/stu/GuideEnglishProsody"
-      ],
+      "urls": ["https://www.uv.es/tronch/stu/GuideEnglishProsody"],
       "edition": "Basic guide to ENGLISH Prosody, Examples under Line lengths: Evangeline scanned line. Text authority remains C3 Gutenberg2039, opening line, electronic update2020-12-31.",
       "limits": "Institutional teaching guide with no established author/date/underlying edition; acute marks and foot slashes encode stress, unmarked syllables are weak by the accepted convention. Guide uses comma after primeval, lowercase the and no terminal punctuation; original C3 edition string retained. Text extraction only, no page pixels or blanket guide license. Published scansion encoded as declared values, not a measured pronunciation oracle."
     },
@@ -769,9 +761,7 @@
           {
             "family": "dactylic",
             "feet": 6,
-            "policies_used": [
-              "final_catalexis"
-            ],
+            "policies_used": ["final_catalexis"],
             "reading_id": "C3-D",
             "differences": [
               {
@@ -785,9 +775,7 @@
           {
             "family": "dactylic",
             "feet": 6,
-            "policies_used": [
-              "final_catalexis"
-            ],
+            "policies_used": ["final_catalexis"],
             "reading_id": "C3-U",
             "differences": [
               {
@@ -953,9 +941,7 @@
           {
             "family": "iambic",
             "feet": 4,
-            "policies_used": [
-              "initial_inversion"
-            ],
+            "policies_used": ["initial_inversion"],
             "reading_id": "V1-D",
             "template": "WSWSWSWS",
             "segmentation": "SW|WS|WS|WS",
@@ -964,9 +950,7 @@
           {
             "family": "iambic",
             "feet": 4,
-            "policies_used": [
-              "initial_inversion"
-            ],
+            "policies_used": ["initial_inversion"],
             "reading_id": "V1-U",
             "template": "WSWSWSWS",
             "segmentation": "SW|WS|WS|WS",
@@ -1447,9 +1431,7 @@
           {
             "family": "amphibrachic",
             "feet": 3,
-            "policies_used": [
-              "final_catalexis"
-            ],
+            "policies_used": ["final_catalexis"],
             "reading_id": "C4-D",
             "template": "WSWWSWWSW",
             "segmentation": "WSW|WSW|WS(W)",
@@ -1460,9 +1442,7 @@
           {
             "family": "anapestic",
             "feet": 3,
-            "policies_used": [
-              "initial_truncation"
-            ],
+            "policies_used": ["initial_truncation"],
             "reading_id": "C4-D",
             "template": "WWSWWSWWS",
             "segmentation": "(W)WS|WWS|WWS",
@@ -1473,9 +1453,7 @@
           {
             "family": "amphibrachic",
             "feet": 3,
-            "policies_used": [
-              "final_catalexis"
-            ],
+            "policies_used": ["final_catalexis"],
             "reading_id": "C4-reader",
             "differences": [
               {
@@ -1495,9 +1473,7 @@
           {
             "family": "anapestic",
             "feet": 3,
-            "policies_used": [
-              "initial_truncation"
-            ],
+            "policies_used": ["initial_truncation"],
             "reading_id": "C4-reader",
             "differences": [
               {
@@ -1777,9 +1753,7 @@
           {
             "family": "trochaic",
             "feet": 4,
-            "policies_used": [
-              "final_catalexis"
-            ],
+            "policies_used": ["final_catalexis"],
             "reading_id": "M185-reader",
             "template": "SWSWSWSW",
             "segmentation": "SW|SW|SW|S(W)",
@@ -1995,9 +1969,7 @@
           {
             "family": "iambic",
             "feet": 5,
-            "policies_used": [
-              "extra_final_weak"
-            ],
+            "policies_used": ["extra_final_weak"],
             "reading_id": "M190-D",
             "template": "WSWSWSWSWS",
             "surface": "WSWSWSWSWSW",
@@ -2008,9 +1980,7 @@
           {
             "family": "iambic",
             "feet": 5,
-            "policies_used": [
-              "extra_final_weak"
-            ],
+            "policies_used": ["extra_final_weak"],
             "reading_id": "M190-reader",
             "differences": [
               {
@@ -2591,9 +2561,7 @@
           {
             "family": "iambic",
             "feet": 2,
-            "policies_used": [
-              "extra_final_weak"
-            ],
+            "policies_used": ["extra_final_weak"],
             "reading_id": "DA9-noun1"
           }
         ],
@@ -2697,9 +2665,7 @@
           {
             "family": "iambic",
             "feet": 1,
-            "policies_used": [
-              "extra_final_weak"
-            ],
+            "policies_used": ["extra_final_weak"],
             "reading_id": "DA10-contracted",
             "differences": [
               {
@@ -4536,9 +4502,7 @@
             "feet": 1,
             "policies_used": [],
             "reading_id": "guessed-control",
-            "conditional_contains": [
-              "guessed: token 3"
-            ]
+            "conditional_contains": ["guessed: token 3"]
           }
         ],
         "not_searched": [
@@ -4778,10 +4742,7 @@
           {
             "family": "amphibrachic",
             "feet": 3,
-            "policies_used": [
-              "initial_truncation",
-              "final_catalexis"
-            ],
+            "policies_used": ["initial_truncation", "final_catalexis"],
             "reading_id": "double-removal",
             "template": "WSWWSWWSW",
             "surface": "SWWSWWS",
@@ -4876,10 +4837,7 @@
           {
             "family": "iambic",
             "feet": 2,
-            "policies_used": [
-              "initial_inversion",
-              "extra_final_weak"
-            ],
+            "policies_used": ["initial_inversion", "extra_final_weak"],
             "reading_id": "inversion-extra",
             "template": "WSWS",
             "surface": "SWWSW",
@@ -5386,9 +5344,7 @@
           {
             "family": "dactylic",
             "feet": 6,
-            "policies_used": [
-              "final_catalexis"
-            ],
+            "policies_used": ["final_catalexis"],
             "reading_id": "C3-S",
             "template": "SWWSWWSWWSWWSWWSWW",
             "surface": "SWWSWWSWWSWWSWWSW",
@@ -5400,9 +5356,7 @@
           {
             "family": "dactylic",
             "feet": 6,
-            "policies_used": [
-              "final_catalexis"
-            ],
+            "policies_used": ["final_catalexis"],
             "reading_id": "C3-reader",
             "differences": [
               {
