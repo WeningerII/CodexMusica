@@ -244,6 +244,24 @@ async function browserArm(want) {
       `the engine's request rule ${ok ? 'refuses' : 'allows'} ${url}`
     );
 
+  // The taxonomy the Genre detail lane reads (treeNodes): the page's
+  // TREE_NODES, node for node, against the catalog's own (references/04_tree.js).
+  const tree = L.treeNodes(page).map((n) => ({ id: n.id, name: n.name, parent: n.parent }));
+  const refTree = JSON.parse(
+    execFileSync(
+      process.execPath,
+      [
+        '-e',
+        "const C = require('./scripts/_loader.js'); process.stdout.write(JSON.stringify(C.TREE_NODES.map((n) => ({ id: n.id, name: n.name, parent: n.parent }))))",
+      ],
+      { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }
+    )
+  );
+  expect(
+    tree.length > 0 && JSON.stringify(tree) === JSON.stringify(refTree),
+    `treeNodes: codex.html's TREE_NODES (${tree.length}) are not references/04_tree.js's (${refTree.length})`
+  );
+
   // 4. in the browser
   await browserArm(production.bluegrass.rich);
 

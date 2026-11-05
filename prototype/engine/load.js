@@ -137,14 +137,41 @@ export function engineModule(html) {
 // AI panel's chat calls among it) can't reach the network from here.
 export const ENGINE_REQUEST = /^api\/[\w-]+(?:\/[\w.-]+)*\.json(?:\?v=[0-9a-f]+)?$/;
 
+// The page beside the prototype, as text: read once, shared by the engine and
+// the taxonomy (treeNodes). A failed read is forgotten, so a retry asks again.
+let page = null;
+export function pageText() {
+  if (!page)
+    page = fetch('../codex.html')
+      .then((res) => {
+        if (!res.ok) throw new Error(`codex.html did not load (${res.status})`);
+        return res.text();
+      })
+      .catch((e) => {
+        page = null;
+        throw e;
+      });
+  return page;
+}
+
+// The taxonomy production's Genre page walks (getTreeNode, gpPath): the page's
+// own "04_tree.js" block, TREE_NODES as { id, name, parent }. Only that block
+// is evaluated.
+export const TREE = '04_tree.js';
+export function treeNodes(html) {
+  const found = blocksOf(html).filter((b) => b.label === TREE);
+  if (found.length !== 1) throw new Error(`codex.html has ${found.length} "${TREE}" blocks, not 1`);
+  const nodes = new Function(`${found[0].code}\n;return TREE_NODES;`)();
+  if (!Array.isArray(nodes)) throw new Error(`codex.html's "${TREE}" block has no TREE_NODES`);
+  return nodes;
+}
+
 // In the browser: the engine of the codex.html this prototype is served
 // beside, booted the way the lazy page boots. Resolves to the object
 // createEngine returns once its catalog and instrument data are in.
 export async function loadEngine() {
-  const res = await fetch('../codex.html');
-  if (!res.ok) throw new Error(`codex.html did not load (${res.status})`);
   const href = URL.createObjectURL(
-    new Blob([engineModule(await res.text())], { type: 'text/javascript' })
+    new Blob([engineModule(await pageText())], { type: 'text/javascript' })
   );
   let mod;
   try {
