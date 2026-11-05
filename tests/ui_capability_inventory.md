@@ -78,6 +78,8 @@ When a future capability needs a precondition not listed here, add the precondit
 
 ### App bar
 
+Two entries in this section no longer live in the app bar: `app-bar-traditions` (`#btn-traditions`) and `app-bar-add-instrument` (`#btn-add`) are now in Your recipe, below the genres, as each entry's `surface:` says. They keep their names here so ids and the prototype ledger's row order stay stable.
+
 ```yaml
 name: app-bar-traditions
 kind: widget
@@ -174,7 +176,9 @@ status: reachable
 precondition: empty
 ```
 
-### Empty state
+### Formerly the empty state
+
+The legacy empty state was deleted on 2026-09-26 (see Retired entries). Each control below lives where its `surface:` says: the genre catalog (`empty-starter-gallery`), the More menu (`empty-surprise`), the shared recipe (`empty-state-add-instrument`, the same `#btn-add` control as `app-bar-add-instrument`), Genre navigation (`empty-state-browse-traditions`) and the Instrument catalog (`empty-state-quick-pick`). The names are kept so ids and the prototype ledger's row order stay stable.
 
 ```yaml
 name: empty-state-add-instrument
@@ -999,12 +1003,12 @@ notes: Master-detail layout (2026-05) enforces single-active selection via app.s
 
 ## Counts (for the gate's preamble verification)
 
-- Reachable: 106
+- Reachable: 220
 - Pending: 0
-- Retired: 1
-- **Total tracked surfaces: 107**
+- Retired: 6
+- **Total tracked surfaces: 226**
 
-When this count changes, update it here AND update the verification block in `scripts/ui_reachability_check.js`. Sanity match on every build.
+These are the counts of `status:` values in this file's entries. `scripts/ui_reachability_check.js` counts the reachable entries itself and has no hard-coded total, so when an entry is added or retired, update these lines to match `grep -c '^status: reachable'` (and `retired`).
 
 ## Production shared workspace (2026-09-12)
 
