@@ -251,6 +251,12 @@ const COLLECTION_FETCH = '`../library/data/c/${id}.json.gz`';
 // Rule 7: load.js reads the page beside the prototype, and passes the
 // engine's own catalog requests through (ENGINE_REQUEST in load.js).
 const PAGE_FETCH = "'../codex.html'";
+// One instrument record, for an id the index lists (instrumentLoader in data.js).
+const INSTRUMENT_FETCH = '`../api/instruments/${id}.json`';
+// Rule 1's static half: a file names no absolute or protocol-relative URL.
+// The SVG namespace is a name, not a request (data.js builds glyph images).
+const absoluteUrl = (text) =>
+  /(?:https?:)?\/\/[\w-]+\.[\w.-]+\//i.test(text.replaceAll('http://www.w3.org/2000/svg', ''));
 const ENGINE_FETCH = '`../${rel}`, init';
 function fetchProblems(text, rel) {
   const out = [];
@@ -260,7 +266,7 @@ function fetchProblems(text, rel) {
     const lit = /^(['"`])([^'"`$]*)\1$/.exec(arg);
     const ok =
       (lit && (/^\.\.\/api\/[\w./-]+$/.test(lit[2]) || (shell && SHELL_DATA.has(lit[2])))) ||
-      (rel === 'prototype/data.js' && arg === COLLECTION_FETCH) ||
+      (rel === 'prototype/data.js' && (arg === COLLECTION_FETCH || arg === INSTRUMENT_FETCH)) ||
       (rel === ENGINE_FILE && (arg === PAGE_FETCH || arg === ENGINE_FETCH));
     if (!ok) {
       out.push(
@@ -426,6 +432,11 @@ function selfTest() {
     [fetchProblems('fetch(`../${rel}`, init)', ENGINE_FILE), 0],
     [fetchProblems('fetch(`../${rel}`, init)', 'prototype/data.js'), 1],
     [moduleProblems('import(href)', ENGINE_FILE), 0],
+    [fetchProblems('fetch(`../api/instruments/${id}.json`)', 'prototype/data.js'), 0],
+    [fetchProblems('fetch(`../api/instruments/${id}.json`)', 'prototype/app.js'), 1],
+    [absoluteUrl('http://www.w3.org/2000/svg') ? ['x'] : [], 0],
+    [absoluteUrl('http://www.w3.org/2000/svg https://example.org/x') ? ['x'] : [], 1],
+    [absoluteUrl('//cdn.example.org/a.js') ? ['x'] : [], 1],
     [moduleProblems('import(href)', 'prototype/app.js'), 1],
   ];
   cases.forEach(([got, want], i) =>
@@ -447,10 +458,7 @@ function staticChecks(base) {
     if (!/\.(html|js|mjs|cjs|css|json)$/.test(file)) continue;
     const text = fs.readFileSync(file, 'utf8');
     const scenario = SCENARIO.test(unixRel);
-    expect(
-      !/(?:https?:)?\/\/[\w-]+\.[\w.-]+\//i.test(text),
-      `${rel}: names an absolute or protocol-relative URL`
-    );
+    expect(!absoluteUrl(text), `${rel}: names an absolute or protocol-relative URL`);
     expect(
       scenario || !/\b(XMLHttpRequest|WebSocket|EventSource|sendBeacon)\b/.test(text),
       `${rel}: opens a network channel other than fetch() of the static catalog`

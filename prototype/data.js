@@ -1,3 +1,5 @@
+import { pageEngine } from './engine/load.js';
+
 // What the shell loads for feature lanes (#670 slice P2). Lanes fetch
 // nothing themselves: every read is here, read-only, from committed files
 // beside the site, with literal paths only (check_prototype_isolation.js).
@@ -344,4 +346,91 @@ export function genreLoader() {
     });
   }
   return { loadGenre };
+}
+
+// ── The Instrument detail lane (#668 6646057912) ───────────────────────────
+// production's ipRenderInspector header: identity, family, class, photo and
+// glyph. The record is api/instruments/<id>.json, read only for an id the
+// index lists; the family names and the glyph live only in the page, so they
+// come from codex.html's own tables and image() (prototype/engine/load.js).
+export const INSTRUMENT_MESSAGES = Object.freeze({
+  NOT_FOUND: 'This instrument isn’t in the catalog’s data. Reload to see the current catalog.',
+  LOAD_FAILED: 'This instrument’s details couldn’t load. Check your connection, then try again.',
+});
+const instrumentFail = (code) => Object.assign(new Error(INSTRUMENT_MESSAGES[code]), { code });
+// The SVG namespace an <img> needs; a name, not a request.
+const SVG_NS = 'http://www.w3.org/2000/svg';
+// production's ipHuman: underscores to spaces, first letter capitalised.
+const human = (s) => {
+  const t = String(s || '').replaceAll('_', ' ');
+  return t.charAt(0).toUpperCase() + t.slice(1);
+};
+// An abort ends the caller's wait; the shared reads carry on for the next call.
+const waitFor = (promise, signal) =>
+  !signal
+    ? promise
+    : signal.aborted
+      ? Promise.reject(new DOMException('The load was aborted.', 'AbortError'))
+      : new Promise((resolve, reject) => {
+          const stop = () => reject(new DOMException('The load was aborted.', 'AbortError'));
+          signal.addEventListener('abort', stop, { once: true });
+          promise.then(resolve, reject).finally(() => signal.removeEventListener('abort', stop));
+        });
+
+export function instrumentLoader() {
+  let shared = null;
+  const records = new Map();
+  const load = () => {
+    if (!shared)
+      shared = Promise.all([
+        fetch('../api/instruments/index.json').then(json),
+        fetch('../api/instrument_images.json').then(json),
+        pageEngine(),
+      ])
+        .then(([index, images, engine]) => ({
+          ids: new Set((index.items || []).map((i) => i.id)),
+          photos: images.instruments || {},
+          engine,
+          families: new Map(engine.INSTRUMENT_FAMILIES.map((f) => [f.id, f.name])),
+        }))
+        .catch(() => {
+          shared = null;
+          throw instrumentFail('LOAD_FAILED');
+        });
+    return shared;
+  };
+  // The one computed read here, for an id the index lists
+  // (check_prototype_isolation.js allows only this form, in this file).
+  const record = (id) => {
+    if (!records.has(id))
+      records.set(
+        id,
+        fetch(`../api/instruments/${id}.json`)
+          .then(json)
+          .catch(() => {
+            records.delete(id);
+            throw instrumentFail('LOAD_FAILED');
+          })
+      );
+    return records.get(id);
+  };
+  async function loadInstrument(id, { signal } = {}) {
+    const f = await waitFor(load(), signal);
+    if (typeof id !== 'string' || !f.ids.has(id)) throw instrumentFail('NOT_FOUND');
+    const r = await waitFor(record(id), signal);
+    const svg = f.engine.image(id, 32);
+    const photo = f.photos[id];
+    return Object.freeze({
+      id: r.id,
+      name: r.name,
+      short: r.short || null,
+      family: Object.freeze({ id: r.family, name: f.families.get(r.family) || null }),
+      class: Object.freeze({ id: r.class || null, name: r.class ? human(r.class) : null }),
+      photo: Array.isArray(photo) ? Object.freeze([...photo]) : null,
+      glyphUrl: svg
+        ? `data:image/svg+xml,${encodeURIComponent(svg.replace('<svg ', `<svg xmlns="${SVG_NS}" `))}`
+        : null,
+    });
+  }
+  return { loadInstrument };
 }

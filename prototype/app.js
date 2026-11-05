@@ -15,9 +15,10 @@ import {
   loadLibraryCredits,
   loadMethodRegistry,
   genreLoader,
+  instrumentLoader,
 } from './data.js';
 import { media } from './adapters.js';
-import { genre } from './selection.js';
+import { genre, instrument } from './selection.js';
 
 const ROUTES = ['browse', 'genre', 'instrument', 'map', 'lyrics', 'library'];
 const DEFAULT_ROUTE = 'browse';
@@ -147,6 +148,26 @@ LANES.genre = {
   context: async () => ({
     genre: Object.freeze({ current: genre.current, subscribe: genre.subscribe }),
     loadGenre: genres.loadGenre,
+    media,
+    openPhoto(photo, { returnFocus } = {}) {
+      announce('The photo viewer isn’t part of this build of the prototype yet.');
+      if (returnFocus && typeof returnFocus.focus === 'function') returnFocus.focus();
+    },
+  }),
+};
+
+// The Instrument detail lane (#668 6646057912): production's inspector
+// header for the instrument the person opened. As for Genre, instrument.set()
+// is the shell's until Browse can open one.
+const instruments = instrumentLoader();
+LANES.instrument = {
+  id: 'instrumentdetail',
+  label: 'The instrument detail page',
+  load: () => import('./features/instrument-detail/detail.js'),
+  unloaded: 'The instrument detail page did not load.',
+  context: async () => ({
+    instrument: Object.freeze({ current: instrument.current, subscribe: instrument.subscribe }),
+    loadInstrument: instruments.loadInstrument,
     media,
     openPhoto(photo, { returnFocus } = {}) {
       announce('The photo viewer isn’t part of this build of the prototype yet.');

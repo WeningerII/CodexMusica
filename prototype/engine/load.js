@@ -50,6 +50,8 @@ export const NAMES = Object.freeze([
   'envCardOf',
   'traditionCardOpts',
   '_placeCardAfterTraditionRun',
+  'image',
+  'INSTRUMENT_FAMILIES',
 ]);
 
 // The page around the engine. Each is a parameter of the wrapper, so the
@@ -137,29 +139,48 @@ export function engineModule(html) {
 // AI panel's chat calls among it) can't reach the network from here.
 export const ENGINE_REQUEST = /^api\/[\w-]+(?:\/[\w.-]+)*\.json(?:\?v=[0-9a-f]+)?$/;
 
+// The engine's own requests: files of the static catalog beside the page.
+const engineFetch = (url, init) => {
+  const rel = String(url);
+  if (!ENGINE_REQUEST.test(rel) || rel.includes('..'))
+    return Promise.reject(new Error(`the engine may not request ${rel}`));
+  return fetch(`../${rel}`, init);
+};
+
 // In the browser: the engine of the codex.html this prototype is served
-// beside, booted the way the lazy page boots. Resolves to the object
-// createEngine returns once its catalog and instrument data are in.
+// beside, created once. Its page tables and the functions that read only
+// them (image(), INSTRUMENT_FAMILIES) work at once; the catalog and the
+// instrument data follow as the lazy page's do. A failure is forgotten, so a
+// retry asks again.
+let created = null;
+export function pageEngine() {
+  if (!created)
+    created = fetch('../codex.html')
+      .then((res) => {
+        if (!res.ok) throw new Error(`codex.html did not load (${res.status})`);
+        return res.text();
+      })
+      .then(async (html) => {
+        const href = URL.createObjectURL(
+          new Blob([engineModule(html)], { type: 'text/javascript' })
+        );
+        try {
+          return (await import(href)).createEngine({ fetch: engineFetch });
+        } finally {
+          URL.revokeObjectURL(href);
+        }
+      })
+      .catch((e) => {
+        created = null;
+        throw e;
+      });
+  return created;
+}
+
+// The engine, booted the way the lazy page boots: resolves once its catalog
+// and instrument data are in.
 export async function loadEngine() {
-  const res = await fetch('../codex.html');
-  if (!res.ok) throw new Error(`codex.html did not load (${res.status})`);
-  const href = URL.createObjectURL(
-    new Blob([engineModule(await res.text())], { type: 'text/javascript' })
-  );
-  let mod;
-  try {
-    mod = await import(href);
-  } finally {
-    URL.revokeObjectURL(href);
-  }
-  const engine = mod.createEngine({
-    fetch: (url, init) => {
-      const rel = String(url);
-      if (!ENGINE_REQUEST.test(rel) || rel.includes('..'))
-        return Promise.reject(new Error(`the engine may not request ${rel}`));
-      return fetch(`../${rel}`, init);
-    },
-  });
+  const engine = await pageEngine();
   await engine.CATALOG_READY;
   await engine.Engine.ensure();
   return engine;
