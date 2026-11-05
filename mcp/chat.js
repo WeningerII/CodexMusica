@@ -438,12 +438,12 @@ export async function createChatRouter({
     )
       return null;
     // The journal's declarations are declarationsOf's, which writes the
-    // planner's defaults (form: 'verse-chorus') into every run. A normal turn
-    // carries only what the caller declared (declarationArgs), so a pasted
-    // song's (unseeded) recovered call re-sent `form` and every revise was
-    // refused as "form is a plan declaration …" (BB8's RD1). A plan-only field
-    // cannot have come from such a caller (it is refused on that run), so
-    // none is carried for one.
+    // planner's defaults (form: DEFAULT_FORM, 'open', from lyric_workflow.js)
+    // into every run. A normal turn carries only what the caller declared
+    // (declarationArgs), so a pasted song's (unseeded) recovered call re-sent
+    // `form` and every revise was refused as "form is a plan declaration …"
+    // (BB8's RD1). A plan-only field cannot have come from such a caller (it
+    // is refused on that run), so none is carried for one.
     const decl =
       typeof progress.connector_declarations.seed === 'number'
         ? progress.connector_declarations

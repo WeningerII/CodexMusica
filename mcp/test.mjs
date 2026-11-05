@@ -1282,8 +1282,8 @@ await check('validation: actionable errors', () => {
       });
       assert.ok(AV.planArgs({ seed: 3, melody }).includes(`--melody=${melody}`));
     });
-    // The form is always sent (2026-10-27, D7): the raw CLI still defaults
-    // to verse-chorus, and the connector's default is `open`.
+    // The form is always sent (2026-10-27, D7). The connector's default is
+    // `open`, and so is the raw CLI's since #724.
     await check('planArgs carries --narrative= exactly as it carries --title=', () => {
       assert.deepEqual(AV.planArgs({ seed: 7 }), ['--seed=7', '--form=open']);
       assert.deepEqual(AV.planArgs({ seed: 7, form: 'verse-chorus' }), [

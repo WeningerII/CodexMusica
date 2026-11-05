@@ -107,8 +107,8 @@ const MAX_LINE_CHARS = 200;
 // Two closed vocabularies the schemas enumerate, checked the same way:
 // `quality/plan.py` PLAN_FORMS and `quality/rhyme_types.py` POSITION.
 export const PLAN_FORMS = ['open', 'verse-chorus'];
-// The raw CLI's own default form is still verse-chorus, so the connector
-// always sends one: DEFAULT_FORM (`lyric_workflow.js`) when none is named.
+// The connector always sends a form: DEFAULT_FORM (`lyric_workflow.js`) when
+// none is named. The raw CLI's own default is the same `open` (#724).
 export const TYPE_POSITIONS = ['end', 'internal', 'leonine', 'cross', 'head', 'holorhyme'];
 // The plan declarations lyric_grade and lyric_revise must repeat, and the
 // reading declarations a revision carries from its grade — named from the
