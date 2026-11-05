@@ -1372,7 +1372,16 @@ function uiStart() {
 // often dropped by screen readers. A hashchange says it at once.
 function uiRouteMissed(miss, { boot = false } = {}) {
   if (!miss) return;
-  if (boot) uiAfterPaint(() => setTimeout(() => uiWhenActionable(() => uiAnnounce(miss)), 1000));
+  // Spoken only while its note still shows: a page opened or the note dismissed
+  // before the landed page is ready leaves nothing stale to announce.
+  const current = () => {
+    const n = $ui('ui-route-note');
+    return !n || (!n.hidden && n.querySelector('.ui-route-note-text').textContent === miss);
+  };
+  if (boot)
+    uiAfterPaint(() =>
+      setTimeout(() => uiWhenActionable(() => current() && uiAnnounce(miss)), 1000)
+    );
   else uiAnnounce(miss);
   const note = $ui('ui-route-note');
   if (!note) return;
