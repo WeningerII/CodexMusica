@@ -532,6 +532,73 @@ async function browse(browser, srv) {
   await narrow.context.close();
 }
 
+// Genre detail (#759) in the shell: the genre the person opens shows the
+// header and Background production's gpDetail would, from the committed files.
+async function genre(browser, srv) {
+  const boot = new Map(json('api', 'browse_boot.json').items.map((t) => [t.id, t]));
+  const prose = new Map(json('api', 'browse_prose.json').items.map((t) => [t.id, t]));
+  const tree = json('data', 'tree-nodes.json');
+  const pathOf = (id) => {
+    const out = [];
+    const seen = new Set();
+    for (let p = boot.get(id).parent; p && !seen.has(p) && tree[p]; p = tree[p].p) {
+      seen.add(p);
+      out.unshift(tree[p].n);
+    }
+    return out.join(' › ');
+  };
+  const { context, page, errors } = await open(browser, srv, '#genre');
+  const host = page.locator('[data-feature-host="genredetail"]');
+  await host.getByText('No genre is open.', { exact: false }).waitFor({ timeout: 20000 });
+  expect(true, 'genre: the empty state shows before a genre is opened');
+  const openGenre = (id) =>
+    page.evaluate(async (g) => (await import('/prototype/selection.js')).genre.set(g), id);
+  for (const id of ['honky_tonk', 'bluegrass']) {
+    const t = boot.get(id);
+    const pr = prose.get(id) || {};
+    await openGenre(id);
+    await host.locator('h2', { hasText: t.name }).waitFor({ timeout: 20000 });
+    const text = await host.innerText();
+    const description = pr.description || t.description;
+    expect(text.includes(description), `genre ${id}: the About text is not the catalog's`);
+    const lineage = pr.lineage || t.lineage;
+    expect(!lineage || text.includes(lineage), `genre ${id}: the Lineage is not the catalog's`);
+    expect(text.includes(pathOf(id)), `genre ${id}: the classification path is not ${pathOf(id)}`);
+    expect(
+      !t.status || text.includes(`Catalog status: ${t.status}.`),
+      `genre ${id}: the catalog status is missing`
+    );
+    for (const x of (pr.exemplars || t.exemplars || []).filter(
+      (v) => typeof v === 'string' && v.trim()
+    ))
+      expect(text.includes(x), `genre ${id}: exemplar ${x} is missing`);
+  }
+  await page.locator('[data-route="lyrics"]').click();
+  await page.locator('[data-route="genre"]').click();
+  expect(
+    (await host.locator('h2').textContent()) === boot.get('bluegrass').name,
+    'genre: the open genre was lost across a route switch'
+  );
+  await openGenre('__not_a_genre__');
+  await host
+    .getByText('This genre isn’t in the catalog’s data. Reload to see the current catalog.')
+    .waitFor({ timeout: 10000 });
+  expect(true, 'genre: an unknown genre shows the shell’s sentence');
+  await openGenre(null);
+  await host.getByText('No genre is open.', { exact: false }).waitFor({ timeout: 10000 });
+  expect(!errors.length, `genre: uncaught errors: ${errors.join(' | ')}`);
+  await context.close();
+  const narrow = await open(browser, srv, '#genre', 320);
+  await narrow.page.evaluate(async () =>
+    (await import('/prototype/selection.js')).genre.set('honky_tonk')
+  );
+  await narrow.page
+    .locator('[data-feature-host="genredetail"] h2', { hasText: boot.get('honky_tonk').name })
+    .waitFor({ timeout: 20000 });
+  expect(await noSideScroll(narrow.page), 'genre: the page scrolls sideways at 320 px');
+  await narrow.context.close();
+}
+
 (async () => {
   const lanes = {
     library: 'prototype/features/library/explore.js',
@@ -539,6 +606,7 @@ async function browse(browser, srv) {
     lyrics: 'prototype/features/lyrics/editor.js',
     credits: 'prototype/features/library-rights/census-credits.js',
     methods: 'prototype/features/library-methods/reference.js',
+    genre: 'prototype/features/genre-detail/detail.js',
   };
   const present = Object.keys(lanes).filter((l) => fs.existsSync(path.join(root, lanes[l])));
   const srv = await start({ root });
@@ -555,6 +623,7 @@ async function browse(browser, srv) {
       ['lyrics', lyrics],
       ['credits', credits],
       ['methods', methods],
+      ['genre', genre],
     ]) {
       if (!present.includes(lane)) continue;
       await run(browser, srv).catch((e) =>
