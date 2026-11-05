@@ -5463,7 +5463,9 @@ def test_finish_exits_3_on_a_whole_draft_flag_alone():
              'A quiet lamp still burns beside the gate']
     with open(draft, "w", encoding="utf-8") as fh:
         fh.write("\n".join(lines) + "\n")
-    common = ["--seed=176", "--lines=12", "--relation=RHYME", "--attempts=0",
+    # Written for seed 176's verse-chorus plan; declared since #671 took
+    # away the CLI's own default form.
+    common = ["--seed=176", "--form=verse-chorus", "--lines=12", "--relation=RHYME", "--attempts=0",
               "--backtrack=0", "--max-rounds=1"]
     rc, out, _ = run("finish", draft, "--title=zebra confetti", *common)
     result = _machine_result(out)
@@ -6262,7 +6264,9 @@ def test_tryline_is_the_loops_own_acceptance_decision():
           str(sorted(targets2)))
     check("...and its mates are untouched", after2[1:] == lines[1:])
 
-    # (c) THE VERB ITSELF, on a real plan. Seed 7 declares RETURNS 2,3, so
+    # (c) THE VERB ITSELF, on a real plan. Seed 7 under `verse-chorus`
+    #     (declared since #671 took away the CLI's own default form)
+    #     declares RETURNS 2,3, so
     #     asking about L3 must move L2 with it — the mirroring reaching the
     #     command line, not just the library.
     tmpd = tempfile.mkdtemp()
@@ -6275,7 +6279,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
         "carry the cold stone\nmarry the old bone\n"
         "quiet folds a wing\ngrief is a small thing\n")
     rc, out, _ = run("tryline", draft, "3", "nothing here is very still",
-                     "--seed=7", "--lines=12", expect_rc=0)
+                     "--seed=7", "--form=verse-chorus", "--lines=12", expect_rc=0)
     row = _machine_result(out)
     check("the verb ACCEPTS a good candidate at exit 0", rc == 0, out[-400:])
     check("...and reports the return class as what it MOVED",
@@ -6307,7 +6311,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # band, which the owner deleted that day; before that, "a" by the
     # syllable band, deleted 2026-09-28.)
     long_line = " ".join(["area"] * 33 + ["king"])
-    rc, out, _ = run("tryline", draft, "1", long_line, "--seed=7",
+    rc, out, _ = run("tryline", draft, "1", long_line, "--seed=7", "--form=verse-chorus",
                      "--lines=12", expect_rc=3)
     row = _machine_result(out)
     check("a candidate that trades one defect for another is REJECTED at "
@@ -6329,14 +6333,14 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # (d) THE REFUSALS — a question about a line that does not exist is not a
     #     rejected candidate (doctrine 20), so it refuses rather than says no.
     rc, out, _ = run("tryline", draft, "99", "some line",
-                     "--seed=7", "--lines=12", expect_rc=2)
+                     "--seed=7", "--form=verse-chorus", "--lines=12", expect_rc=2)
     check("a line number outside the draft REFUSES at 2, never 'rejected'",
           rc == 2 and "REFUSED" in out, out[-200:])
     rc, out, _ = run("tryline", draft, "notanumber", "some line",
-                     "--seed=7", "--lines=12", expect_rc=2)
+                     "--seed=7", "--form=verse-chorus", "--lines=12", expect_rc=2)
     check("a non-numeric line number REFUSES by name", rc == 2, out[-200:])
     rc, out, _ = run("tryline", draft, "3", "  ",
-                     "--seed=7", "--lines=12", expect_rc=2)
+                     "--seed=7", "--form=verse-chorus", "--lines=12", expect_rc=2)
     check("an empty candidate REFUSES — it is not a revision", rc == 2,
           out[-200:])
 
@@ -6369,7 +6373,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # check needs: the batch below is re-measured under it, not assumed.
     REL = "--relation=RHYME"
     st = os.path.join(tmpd, "state.json")
-    rc, out, _ = run("finish", draft, "--seed=7", "--lines=12", REL,
+    rc, out, _ = run("finish", draft, "--seed=7", "--form=verse-chorus", "--lines=12", REL,
                      f"--propose=defer:{st}", expect_rc=4)
     with _io.open(st, encoding="utf-8") as fh:
         stj = json.load(fh)
@@ -6400,7 +6404,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # ~~'Stay by the door and pray'~~ — 'pray' is in L5's forbidden modal
     # head for 'way' on this plan; 'holiday' is in the offered field.
     rc, out, _ = run("tryline", draft, "5", "Stay by the door until the holiday",
-                     "--seed=7", "--lines=12", REL, f"--propose=defer:{st}",
+                     "--seed=7", "--form=verse-chorus", "--lines=12", REL, f"--propose=defer:{st}",
                      expect_rc=0)
     row = _machine_result(out)
     check("asked through the state, the verb says WHICH draft it read and "
@@ -6413,7 +6417,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
           out[-600:])
     l5_before = bool(row.get("accepted"))
     rc, out, _ = run("tryline", draft, "3", "nothing here is very still",
-                     "--seed=7", "--lines=12", REL, "--propose=stub",
+                     "--seed=7", "--form=verse-chorus", "--lines=12", REL, "--propose=stub",
                      expect_rc=2)
     check("a proposer spelling on tryline REFUSES — defer:PATH is the one "
           "value it takes", rc == 2 and "defer:PATH" in out, out[-300:])
@@ -6423,12 +6427,12 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     ol[0] = "the water holds the night"
     _io.open(other, "w", encoding="utf-8").write("\n".join(ol) + "\n")
     rc, out, _ = run("tryline", other, "3", "nothing here is very still",
-                     "--seed=7", "--lines=12", REL, f"--propose=defer:{st}",
+                     "--seed=7", "--form=verse-chorus", "--lines=12", REL, f"--propose=defer:{st}",
                      expect_rc=2)
     check("a state started on a DIFFERENT handed-in draft REFUSES by name",
           rc == 2 and "DIFFERENT handed-in draft" in out, out[-300:])
     rc, out, _ = run("tryline", draft, "3", "nothing here is very still",
-                     "--seed=7", "--lines=12", REL,
+                     "--seed=7", "--form=verse-chorus", "--lines=12", REL,
                      f"--propose=defer:{os.path.join(tmpd, 'nope.json')}",
                      expect_rc=2)
     check("a state that does not exist REFUSES — nothing has been briefed",
@@ -6449,7 +6453,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
                                 f"L8: {l8_own}")
     with _io.open(st, "w", encoding="utf-8") as fh:
         json.dump(stj, fh)
-    rc, out, _ = run("finish", draft, "--seed=7", "--lines=12", REL,
+    rc, out, _ = run("finish", draft, "--seed=7", "--form=verse-chorus", "--lines=12", REL,
                      f"--propose=defer:{st}", expect_rc=4)
     with _io.open(st, encoding="utf-8") as fh:
         stj = json.load(fh)
@@ -6470,7 +6474,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
           verdicts.get(3) is True, str(verdicts))
     # NOW the file is a draft the loop no longer holds
     rc, out, _ = run("tryline", draft, "9", "carry the cold light",
-                     "--seed=7", "--lines=12", REL, expect_rc=2)
+                     "--seed=7", "--form=verse-chorus", "--lines=12", REL, expect_rc=2)
     check("asked against the FILE once the state has moved past it, the "
           "verb REFUSES and names the state to ask instead",
           rc == 2 and "past this file" in out and st in out, out[-400:])
@@ -6479,7 +6483,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # about here moves to L10, which the loop does not have open; that is
     # what the second check is about.
     rc, out, _ = run("tryline", draft, "10", "marry the old light",
-                     "--seed=7", "--lines=12", REL, f"--propose=defer:{st}")
+                     "--seed=7", "--form=verse-chorus", "--lines=12", REL, f"--propose=defer:{st}")
     row = _machine_result(out)
     check("asked through the state, it answers against the CURRENT draft "
           "and says which lines moved",
@@ -6520,7 +6524,7 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     with _io.open(bad, "w", encoding="utf-8") as fh:
         json.dump(bj, fh)
     rc, out, _ = run("tryline", draft, "9", "carry the cold light",
-                     "--seed=7", "--lines=12", REL, f"--propose=defer:{bad}",
+                     "--seed=7", "--form=verse-chorus", "--lines=12", REL, f"--propose=defer:{bad}",
                      expect_rc=2)
     check("a state whose open brief was asked on a different draft than "
           "it now holds REFUSES rather than reads a verdict off it",
@@ -6559,7 +6563,9 @@ def test_a_proposer_that_cannot_reach_its_writer_refuses_by_name():
                 "        return ''\n"
                 "    return call\n")
     draft = os.path.join(tmpd, "draft.txt")
-    rc0, plan, _ = run("plan", "--seed=2003", "--lines=12")
+    # The pins below were measured on seed 2003's verse-chorus plan; the
+    # CLI has no default form of its own since #671, so it is declared.
+    rc0, plan, _ = run("plan", "--seed=2003", "--form=verse-chorus", "--lines=12")
     n = int(re.search(r"seed=2003 -> (\d+) line", plan).group(1))
     pool = ["the lantern swung and lit the stony road",
             "we counted every mile beneath the rain",
@@ -6581,7 +6587,7 @@ def test_a_proposer_that_cannot_reach_its_writer_refuses_by_name():
     budget = ["--max-rounds=1", "--attempts=1", "--backtrack=1"]
     try:
         r = subprocess.run([sys.executable, "lyric_harness.py", "finish", draft,
-                            "--seed=2003", f"--lines={n}",
+                            "--seed=2003", "--form=verse-chorus", f"--lines={n}",
                             "--propose=call:zz_unreachable:make", *budget],
                            capture_output=True, text=True, env=env, timeout=CLI_TIMEOUT_SECONDS)
         check("an unreachable writer is REFUSED at exit 2, naming the seam and "
@@ -6597,7 +6603,7 @@ def test_a_proposer_that_cannot_reach_its_writer_refuses_by_name():
               and not re.search(r"^\s*\[FINISHED\b", r.stdout, re.M),
               [l for l in r.stdout.splitlines() if "verdict" in l][:1])
         r2 = subprocess.run([sys.executable, "lyric_harness.py", "finish", draft,
-                             "--seed=2003", f"--lines={n}",
+                             "--seed=2003", "--form=verse-chorus", f"--lines={n}",
                              "--propose=call:zz_declines:make", *budget],
                             capture_output=True, text=True, env=env, timeout=CLI_TIMEOUT_SECONDS)
         completed = _machine_result(r2.stdout)
