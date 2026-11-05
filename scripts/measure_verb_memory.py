@@ -114,6 +114,12 @@ class WorkerCapture:
             self._line()
 
 
+#: The form every capacity cell plans under. The CLI drew `verse-chorus` when
+#: no --form was given until #724 made it `open`; the cells were measured
+#: on `verse-chorus`, so it is named here rather than inherited.
+CAPACITY_FORM = "--form=verse-chorus"
+
+
 def _machine_result(output):
     records = []
     for line in output.splitlines():
@@ -393,7 +399,9 @@ def _worker_sequence(seed, n_lines, draft_path, td, verb, rounds):
         if not typed:
             raise RuntimeError(f"untyped or refused {verb_name}: {output[-800:]}")
     try:
-        base=[f"--seed={seed}",f"--lines={n_lines}"]
+        # The capacity cells were measured on the CLI's old default form;
+        # declared since #724 so a change of default cannot move them.
+        base=[f"--seed={seed}",f"--lines={n_lines}",CAPACITY_FORM]
         call(["plan",*base,f"--out={plan_path}"],"plan")
         call(["plan",*base,f"--fill={draft_path}",f"--out={bp_path}"],"fill")
         plan=json.load(open(plan_path)); grade=_grade_args(plan,bp_path,draft_path)
@@ -547,7 +555,7 @@ def main(argv):
         return 2
 
     REPORT.update(seed=seed,mode="worker" if worker else "cold",rounds=rounds if worker else 1)
-    line_flags = [f"--lines={requested_lines}"] if requested_lines is not None else []
+    line_flags = ([f"--lines={requested_lines}"] if requested_lines is not None else []) + [CAPACITY_FORM]
     with tempfile.TemporaryDirectory() as td:
         plan_path = os.path.join(td, "plan.json")
         bp_path = os.path.join(td, "bp.json")

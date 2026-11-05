@@ -500,11 +500,19 @@
       ? { ...session, armed: false, listOpen: false, origin: null, selected: null, reason: '' }
       : { ...session, reason: result?.reason || 'The previous panel is unavailable.' };
   }
+  // A refused Return stays focusable (aria-disabled, not disabled, which
+  // screen readers already announce as unavailable) and names why: activating it again is refused the same way, and focus can stay on
+  // it, so a refusal never drops focus to the panel heading, which the
+  // sticky-bar rule would then scroll to (#661).
+  function lyRelationReturnButton(session, label) {
+    const off = session?.returnUnavailable;
+    return `<button type="button" data-ui="ly-relation-return"${off ? ' aria-disabled="true"' : ''}>${label}${off && session.reason ? `<span class="ly-sr">. ${esc(session.reason)}</span>` : ''}</button>`;
+  }
   function lyRelationDockMarkup(view, session) {
     if (!session?.armed)
       return '<button type="button" data-ui="ly-relations"><span aria-hidden="true">↔</span> Relations</button>';
     const source = view.occurrences[session.sourceOccurrence]?.text || 'Selected relation';
-    return `<span>${esc(source)}</span><button type="button" data-ui="ly-relation-reopen"><span aria-hidden="true">↔</span> Back to relations</button><button type="button" data-ui="ly-relation-return"${session.returnUnavailable ? ' disabled' : ''}><span aria-hidden="true">↩</span> Return to editing</button>`;
+    return `<span>${esc(source)}</span><button type="button" data-ui="ly-relation-reopen"><span aria-hidden="true">↔</span> Back to relations</button>${lyRelationReturnButton(session, '<span aria-hidden="true">↩</span> Return to editing')}`;
   }
   function lyRelationLineLabels(ids) {
     return ids
@@ -560,7 +568,7 @@
     const scopeDetails = view.population
       ? `<details><summary>Report scope and exclusions</summary><pre>${esc(JSON.stringify(view.population, null, 2))}</pre><p>Coverage by check</p><pre>${esc(JSON.stringify(view.coverage.methods || [], null, 2))}</pre></details>`
       : '';
-    return `<section aria-label="Relations"><h3>Relations</h3>${session?.sourceOccurrence ? `<p>Source: ${esc(view.occurrences[session.sourceOccurrence]?.text || 'unplaced occurrence')} · ${listed.length} reported pairs · ${partners.size} partner occurrences</p>` : ''}<p role="status">${esc(summary)} ${view.reason ? `<span title="${esc(view.reason)}" aria-label="${esc(`These pairs can’t be shown in your lyrics yet. ${view.reason}`)}">These pairs can’t be shown in your lyrics yet.</span>` : ''}</p><p>These results come from checks of your lyrics. They are separate from your declared rhyme scheme and suggested words.</p><p>${esc(scope)}</p>${scopeDetails}${!session?.expanded && listed.length ? `<p>${visible.length} of ${listed.length}, in lyric order</p>` : ''}<ol>${rows}</ol>${visible.length < listed.length ? `<button type="button" data-ui="ly-relation-expand">Show all ${listed.length} pairs</button>` : ''}<p role="status">${esc(session?.reason)}</p><p class="ly-sr" role="status" data-relation-said></p><button type="button" data-ui="ly-relation-close">Close</button><button type="button" data-ui="ly-relation-return"${session?.returnUnavailable ? ' disabled' : ''}>Return to editing origin</button>${session?.previousPanel ? '<button type="button" data-ui="ly-relation-back">Back to previous panel</button>' : ''}<button type="button" data-ui="ly-relation-stay">Stay here and end inspection</button></section>`;
+    return `<section aria-label="Relations"><h3>Relations</h3>${session?.sourceOccurrence ? `<p>Source: ${esc(view.occurrences[session.sourceOccurrence]?.text || 'unplaced occurrence')} · ${listed.length} reported pairs · ${partners.size} partner occurrences</p>` : ''}<p role="status">${esc(summary)} ${view.reason ? `<span title="${esc(view.reason)}" aria-label="${esc(`These pairs can’t be shown in your lyrics yet. ${view.reason}`)}">These pairs can’t be shown in your lyrics yet.</span>` : ''}</p><p>These results come from checks of your lyrics. They are separate from your declared rhyme scheme and suggested words.</p><p>${esc(scope)}</p>${scopeDetails}${!session?.expanded && listed.length ? `<p>${visible.length} of ${listed.length}, in lyric order</p>` : ''}<ol>${rows}</ol>${visible.length < listed.length ? `<button type="button" data-ui="ly-relation-expand">Show all ${listed.length} pairs</button>` : ''}<p role="status">${esc(session?.reason)}</p><p class="ly-sr" role="status" data-relation-said></p><button type="button" data-ui="ly-relation-close">Close</button>${lyRelationReturnButton(session, 'Return to editing origin')}${session?.previousPanel ? '<button type="button" data-ui="ly-relation-back">Back to previous panel</button>' : ''}<button type="button" data-ui="ly-relation-stay">Stay here and end inspection</button></section>`;
   }
   Object.assign(globalThis, {
     lyRelationBindReport,
