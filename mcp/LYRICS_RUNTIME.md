@@ -337,10 +337,20 @@ regression of the rules above.
   word the grader binds. The v1 replay keeps that wrong edit byte-identical,
   because v1 runs the earlier code verbatim (`lyric-harness/quality/loop.py`
   `swap_at_slot` docstring). (tracking: [#656 L2](https://github.com/WeningerII/CodexMusica/issues/656#issuecomment-6614429602))
-- A retained 30-day Library chunk saves declarations without their cut (F2).
-  It awaits the owner's scope decision. (tracking: [#656 L4](https://github.com/WeningerII/CodexMusica/issues/656#issuecomment-6614429602))
-- The mixed-version deploy window between page, server and queued jobs (F3)
-  awaits the owner's scope decision. (tracking: [#656 L5](https://github.com/WeningerII/CodexMusica/issues/656#issuecomment-6614429602))
+- A retained 30-day Library chunk saved before the cut-marker fix keeps its
+  declarations without their cut (F2). No repair is planned: the owner decided
+  to let affected chunks expire within their 30-day retention (2026-11-04).
+  (tracking: [#656 L4](https://github.com/WeningerII/CodexMusica/issues/656#issuecomment-6614429602))
+- During a deploy there is a window in which the page, the server and queued
+  jobs can run different versions (F3). The owner accepted this window rather
+  than engineering it away (2026-11-04). What already holds in it: a lyric
+  continuation signed by the old server is refused with
+  `CONTINUATION_MIGRATION_REQUIRED`; it can export the stored lyrics and
+  journal using `recover_only: true` (without replay), and continuing requires a
+  new run under the current runtime. A Library job queued or paused across the
+  release is refused `STALE_READING` by the scheduler's identity recheck
+  (`mcp/reader_scheduler.js:521`) rather than resumed against the new reader.
+  (tracking: [#656 L5](https://github.com/WeningerII/CodexMusica/issues/656#issuecomment-6614429602))
 
 ## What the money limits establish
 

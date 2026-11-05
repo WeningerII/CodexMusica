@@ -65,6 +65,7 @@ const LENSES = [
 ];
 const EVIDENCE_LENSES = new Set(['sound', 'form', 'rhythm', 'language']);
 const ACTIVE = new Set(['queued', 'running', 'deferred_requeue']);
+const MAX_POLL_RETRIES = 5;
 const HASH = /^[a-f0-9]{64}$/;
 const LINE_NS = '7b347e4c-4ea7-5cbf-8387-2975a17890f3';
 const EARLIER_SESSION = 'This analysis belonged to an earlier browser session.';
@@ -152,6 +153,12 @@ async function failFrom(response) {
   });
   return error;
 }
+// A job paused STALE_READING cannot resume: the server refuses any resume
+// whose source, declarations or engine/resource identity differ
+// (reader_job_store.js resume()), which covers a changed reading and a
+// release that changed the analyzer alike (Jony, #726).
+const STALE_JOB =
+  'This analysis was started on an earlier version of the reading or the analyzer, so it can’t resume. Start a new whole-work analysis.';
 // An unclassified failure (a 5xx, no answer at all, or a bare transport
 // message such as "Library service 503") does not show what the server
 // admitted: a POST /analyses may have started a job, and a poll's job still
@@ -1400,6 +1407,9 @@ function mount(container, input) {
     unsaved: false,
     busy: false,
     error: '',
+    pollError: null,
+    pollChecking: false,
+    pollAnnouncement: '',
     notice: '',
     authorized: false, // a fresh 200 for mem.job in this activation
     lost: false, // the job answered 404/410 this activation
@@ -1420,6 +1430,9 @@ function mount(container, input) {
   let pollTimer = null;
   let pollStarted = 0;
   let hiddenAt = 0;
+  let pollFailures = 0;
+  let pollGeneration = 0;
+  let pollRequest = null;
   container.innerHTML = `<div class="la-root" aria-busy="true">${uiEmptyState({ title: 'Loading analysis tools…' })}</div>`;
   const root = container.firstElementChild;
 
@@ -1489,6 +1502,7 @@ function mount(container, input) {
     draw();
   };
   function lose(status) {
+    resetPoll();
     clearConnections();
     // Drop the job's in-memory evidence at once; keep only declarations.
     st.lost = status === 404 ? 'session' : 'expired';
@@ -1500,44 +1514,22 @@ function mount(container, input) {
     stopPoll();
   }
   async function rehydrate() {
+    const generation = pollGeneration;
     const records = mem.records;
     const result = await hydrateEvidence(records);
-    if (!alive || records !== mem.records) return;
+    if (!alive || generation !== pollGeneration || records !== mem.records) return;
     st.resolved = result.records;
     st.pending = result.pending;
   }
   // Fresh authorization: GET /jobs/:id → 200 before any evidence renders.
   async function authorize() {
-    if (!mem.job) return;
-    st.authorized = false;
-    clearConnections();
-    const id = mem.job.id;
-    try {
-      const data = await api.job(id);
-      if (!alive || mem.job?.id !== id) return;
-      mem.job = data.job;
-      st.authorized = true;
-      st.lost = false;
-      st.error = '';
-      mem.seen = Date.now();
-      if (data.job.manifest_hash && !mem.report)
-        await loadEvidence(data.job.manifest_hash, 0, false);
-      else if (
-        data.job.manifest_hash &&
-        mem.report &&
-        data.job.manifest_hash !== mem.report.manifest_hash
-      )
-        st.notice =
-          'A newer evidence checkpoint is available. Load it explicitly to replace the currently pinned pages.';
-      schedulePoll();
-    } catch (e) {
-      fail(e);
-    }
+    return readJob(true);
   }
   async function loadEvidence(hash, offset, append) {
+    const generation = pollGeneration;
     const job = mem.job;
     const result = await loadEvidencePage(api, job, hash, offset);
-    if (!alive || mem.job?.id !== job.id) return;
+    if (!alive || generation !== pollGeneration || mem.job?.id !== job.id) return;
     if (append && mem.report?.manifest_hash !== hash) return;
     mem.report = result.manifest;
     mem.records = append ? [...mem.records, ...result.instances] : result.instances;
@@ -1546,49 +1538,167 @@ function mount(container, input) {
     if (!append) st.notice = '';
     await rehydrate();
   }
-  // Polling: 3 s while queued/running/deferred, 15 s after 2 min, paused while hidden.
-  function schedulePoll() {
+  // Normal polling and transient retries share the job/generation fence. A
+  // manual or tab-return check starts a fresh bounded run, not a new job.
+  const cadence = () => (Date.now() - pollStarted > 120_000 ? 15_000 : 3_000);
+  function resetPoll() {
     stopPoll();
-    if (!alive || !mem.job || !(ACTIVE.has(mem.job.state) || mem.job.deferred_requeue)) return;
+    pollGeneration++;
+    pollRequest = null;
+    pollFailures = 0;
+    st.pollChecking = false;
+    st.pollError = null;
+    st.pollAnnouncement = '';
+  }
+  function schedulePoll(delay) {
+    stopPoll();
+    if (!alive || !mem.job) return;
+    // A failed read needs bounded recovery even for a previously terminal job;
+    // only ordinary cadence polling depends on the last confirmed active state.
+    if (delay === undefined && !(ACTIVE.has(mem.job.state) || mem.job.deferred_requeue)) return;
     pollStarted ||= Date.now();
-    const delay = Date.now() - pollStarted > 120_000 ? 15_000 : 3_000;
-    pollTimer = setTimeout(tick, delay);
+    const id = mem.job.id,
+      generation = pollGeneration;
+    pollTimer = setTimeout(() => {
+      if (generation === pollGeneration && mem.job?.id === id) tick();
+    }, delay ?? cadence());
   }
   function stopPoll() {
     clearTimeout(pollTimer);
     pollTimer = null;
   }
-  async function tick() {
+  function pollFailed(e) {
+    const p = e?.problem || problemOf(e);
+    if (p.status === 404 || p.status === 410) return lose(p.status);
+    const transient =
+      !p.status ||
+      p.status >= 500 ||
+      p.status === 429 ||
+      (!(p.status >= 400 && p.status < 500) && failMessage(p) === UNCONFIRMED);
+    pollFailures++;
+    const retry = transient && pollFailures <= MAX_POLL_RETRIES;
+    let delay = Math.max(Math.min(5000 * 2 ** (pollFailures - 1), 60000), cadence());
+    if (p.status === 429) {
+      const header = String(p.retryAfter ?? '').trim();
+      const seconds = /^\d+(?:\.\d+)?$/.test(header)
+        ? Number(header) * 1000
+        : /^[A-Za-z]{3}, \d{2} [A-Za-z]{3} \d{4} \d{2}:\d{2}:\d{2} GMT$/.test(header)
+          ? Date.parse(header) - Date.now()
+          : NaN;
+      delay = Math.min(300000, Math.max(delay, Number.isNaN(seconds) ? 0 : seconds));
+    }
+    // libraryAnnounce owns speech; the visible status/alert note has aria-live=off
+    // so changing a 429 delay cannot trigger a second native announcement.
+    const first = pollFailures === 1;
+    st.pollError = {
+      retry,
+      message: retry
+        ? p.status === 429
+          ? `The analysis service is busy. Trying again in ${Math.ceil(delay / 1000)} s.`
+          : "Can't reach the analysis service. Trying again automatically."
+        : transient
+          ? UNCONFIRMED
+          : p.remedy
+            ? `${p.message} ${p.remedy}`
+            : p.message,
+    };
+    // Delays and attempt counts never enter the announcement diff.
+    if (!retry) st.pollAnnouncement = st.pollError.message;
+    else if (first)
+      st.pollAnnouncement =
+        p.status === 429
+          ? 'The analysis service is busy. Trying again automatically.'
+          : "Can't reach the analysis service. Trying again automatically.";
+    if (retry) schedulePoll(delay);
+  }
+  async function readJob(authorization = false) {
     if (!root.isConnected) return handle.destroy();
-    if (!alive || !mem.job) return;
-    if (document.hidden) return; // resumed by visibilitychange
-    const id = mem.job.id;
+    if (!alive || !mem.job || document.hidden) return;
+    if (pollRequest) {
+      if (!authorization) return;
+      // An activation requires a read issued now, not the pre-hide request.
+      // Retire its success, rejection, evidence work and finally ownership.
+      pollGeneration++;
+      pollRequest = null;
+    }
+    stopPoll();
+    // Terminal jobs have no normal timer to establish the first read's epoch.
+    pollStarted ||= Date.now();
+    const request = { id: mem.job.id, generation: pollGeneration };
+    pollRequest = request;
+    const current = () =>
+      alive &&
+      root.isConnected &&
+      pollRequest === request &&
+      pollGeneration === request.generation &&
+      mem.job?.id === request.id;
+    st.pollChecking = true;
+    if (authorization) {
+      st.authorized = false;
+      clearConnections();
+      draw(['status', 'main']);
+    } else if (st.pollError) draw(['status']);
+    let jobRead = false;
     try {
-      const data = await api.job(id);
-      if (!alive || mem.job?.id !== id) return;
+      const data = await api.job(request.id);
+      if (!current()) return;
+      jobRead = true;
+      if (st.pollError)
+        st.pollAnnouncement = `Reconnected. Analysis ${data.job.state.replaceAll('_', ' ')}.`;
+      st.pollError = null;
+      pollFailures = 0;
       const before = mem.job;
       mem.job = data.job;
+      // A retry's fresh 200 also restores authority after a failed activation.
+      const reveal = !st.authorized;
+      st.authorized = true;
+      st.lost = false;
+      mem.seen = Date.now();
       if (data.job.manifest_hash && !mem.report)
         await loadEvidence(data.job.manifest_hash, 0, false);
       else if (data.job.manifest_hash && data.job.manifest_hash !== mem.report?.manifest_hash)
         st.notice =
           'A newer evidence checkpoint is available. Load it explicitly to replace the currently pinned pages.';
+      if (!current()) return;
+      st.pollChecking = false;
       draw(
-        before.manifest_hash !== data.job.manifest_hash || !mem.report
+        reveal || before.manifest_hash !== data.job.manifest_hash || !mem.report
           ? ['status', 'main']
           : ['status']
       );
       schedulePoll();
     } catch (e) {
-      fail(e);
+      if (!current()) return;
+      st.pollChecking = false;
+      // Evidence failures belong to the evidence/shared error path, never to
+      // the GET /jobs retry budget. Success clears only the poll's own error.
+      if (jobRead) fail(e);
+      else pollFailed(e);
+      draw(['status']);
+    } finally {
+      if (pollRequest === request) {
+        pollRequest = null;
+        st.pollChecking = false;
+      }
     }
+  }
+  async function tick() {
+    return readJob();
+  }
+  function recheck(authorization = false) {
+    if (pollRequest && !authorization) return;
+    stopPoll();
+    pollFailures = 0;
+    return authorization ? authorize() : tick();
   }
   const onVisibility = () => {
     if (document.hidden) {
       hiddenAt = Date.now();
       return;
     }
-    if (hiddenAt && Date.now() - hiddenAt > 60_000 && mem.job) authorize().then(draw);
+    const authorization = hiddenAt && Date.now() - hiddenAt > 60_000;
+    if (st.pollError) recheck(authorization);
+    else if (authorization && mem.job) authorize().then(draw);
     else schedulePoll();
     hiddenAt = 0;
   };
@@ -1611,6 +1721,7 @@ function mount(container, input) {
         : mem.previous;
       const data = await api.create(body);
       mem.previous = previous;
+      resetPoll();
       mem.job = data.job;
       dropEvidence(mem);
       st.resolved = [];
@@ -1636,6 +1747,7 @@ function mount(container, input) {
     try {
       if (action === 'delete') {
         await api.remove(mem.job.id);
+        resetPoll();
         mem.job = null;
         dropEvidence(mem);
         st.resolved = [];
@@ -1644,6 +1756,7 @@ function mount(container, input) {
         showToast('Analysis deleted.');
       } else {
         const data = await api.act(mem.job.id, action);
+        resetPoll();
         mem.job = data.job;
         pollStarted = 0;
         schedulePoll();
@@ -1663,6 +1776,7 @@ function mount(container, input) {
       const current = mem.job;
       mem.previous = mem.previous.filter((_, i) => i !== index);
       if (current) mem.previous.push({ id: current.id, declarations: st.declarations });
+      resetPoll();
       mem.job = data.job;
       dropEvidence(mem);
       st.resolved = [];
@@ -1752,9 +1866,10 @@ function mount(container, input) {
     // a live region would read its static intro each time. What changes is
     // spoken through the Library's own #library-live (announceStatus, below).
     return `<section class="la-section">
-      <div class="la-row"><strong>${j ? esc(j.state.replaceAll('_', ' ')) : 'Interpret the entire work'}</strong>${badge}</div>
+      <div class="la-row"><strong tabindex="-1" data-poll-heading>${j ? (st.pollError ? 'Last confirmed: ' : '') + esc(j.state.replaceAll('_', ' ')) : 'Interpret the entire work'}</strong>${badge}</div>
       <p class="la-note">${j ? 'Complete reading unit · selection only filters evidence' : 'Native sound, form, rhythm and language · deterministic analysis'}</p>
       ${lost}${engine}
+      ${st.pollError ? `<p class="la-note" data-poll-message aria-live="off" role="${st.pollError.retry ? 'status' : 'alert'}">${esc(st.pollError.message)}</p><button type="button" class="cm-btn cm-btn-outline" data-act="recheck" ${st.pollChecking ? 'disabled' : ''}>${st.pollChecking ? 'Checking…' : 'Check again'}</button>` : ''}
       ${j?.progress ? `<div class="la-progress">${render(j.progress)}</div>` : ''}
       <button type="button" class="cm-btn cm-btn-primary" data-act="analyze" ${st.busy ? 'disabled' : ''}>${icon('play', 16)}<span>${
         st.busy
@@ -1768,12 +1883,12 @@ function mount(container, input) {
       ${
         j
           ? `<div class="la-row">
-          ${['paused', 'cancelled', 'failed'].includes(j.state) ? `<button type="button" class="cm-btn cm-btn-outline" data-act="resume" ${st.busy || j.deferred_requeue ? 'disabled' : ''}>Resume</button>` : ''}
+          ${['paused', 'cancelled'].includes(j.state) && j.reason?.code !== 'STALE_READING' ? `<button type="button" class="cm-btn cm-btn-outline" data-act="resume" ${st.busy || j.deferred_requeue ? 'disabled' : ''}>Resume</button>` : ''}
           ${['running', 'queued'].includes(j.state) ? `<button type="button" class="cm-btn cm-btn-outline" data-act="cancel" ${st.busy ? 'disabled' : ''}>Cancel</button>` : ''}
           <button type="button" class="la-link" data-act="delete" ${st.busy ? 'disabled' : ''}>Delete analysis</button></div>`
           : ''
       }
-      ${j?.reason ? render(j.reason) : ''}
+      ${j?.reason?.code === 'STALE_READING' ? `<p class="la-note">${STALE_JOB}</p>` : j?.reason ? render(j.reason) : ''}
       ${
         evidenceVisible() &&
         j.manifest_hash &&
@@ -1971,8 +2086,14 @@ function mount(container, input) {
         : '',
       notice: st.notice || '',
       error: st.error || '',
+      poll: st.pollAnnouncement,
     };
-    const changed = spoken ? Object.keys(now).filter((k) => now[k] && now[k] !== spoken[k]) : [];
+    const recovering = now.poll !== spoken?.poll && now.poll.startsWith('Reconnected.');
+    const changed = spoken
+      ? Object.keys(now).filter(
+          (k) => now[k] && now[k] !== spoken[k] && !(recovering && k === 'state')
+        )
+      : [];
     spoken = now;
     if (changed.length && typeof libraryAnnounce === 'function')
       libraryAnnounce(changed.map((k) => now[k]).join(' '));
@@ -1984,8 +2105,10 @@ function mount(container, input) {
   function draw(which = ['tabs', 'status', 'main']) {
     if (!alive) return;
     const had = document.activeElement;
-    if (had && root.contains(had) && had.dataset.act)
-      held = { act: had.dataset.act, id: had.dataset.id || '' };
+    if (had && root.contains(had)) {
+      if (had.dataset.act) held = { act: had.dataset.act, id: had.dataset.id || '' };
+      else if (had.hasAttribute('data-poll-heading')) held = { heading: true };
+    }
     root.setAttribute('aria-busy', String(st.busy));
     if (which.includes('tabs')) slot('tabs').innerHTML = tabsHTML();
     if (which.includes('status')) {
@@ -1996,11 +2119,15 @@ function mount(container, input) {
     if (which.includes('main')) drawConnections();
     const now = document.activeElement;
     if (held && (!now || now === document.body || !now.isConnected)) {
-      const next = [...root.querySelectorAll(`[data-act="${held.act}"]`)].find(
-        (el) => (el.dataset.id || '') === held.id
-      );
+      const next = held.heading
+        ? slot('status').querySelector('[data-poll-heading]')
+        : [...root.querySelectorAll(`[data-act="${held.act}"]`)].find(
+            (el) => (el.dataset.id || '') === held.id
+          );
       if (next && !next.disabled) (next.focus(), (held = null));
-      else if (!st.busy) {
+      else if (!st.busy && !st.pollChecking) {
+        if (held.act === 'recheck' && !st.pollError)
+          slot('status').querySelector('[data-poll-heading]')?.focus();
         if (held.act === 'more' || held.act === 'latest') {
           const heading = slot('main')
             .querySelector('.la-cards')
@@ -2097,6 +2224,7 @@ function mount(container, input) {
       const act = b.dataset.act;
       if (act === 'analyze') analyze();
       else if (['cancel', 'resume', 'delete'].includes(act)) control(act);
+      else if (act === 'recheck' && !st.pollChecking) recheck();
       else if (act === 'export') exportAnalysis();
       else if (act === 'previous') openPrevious(Number(b.dataset.i));
       else if (act === 'drop-undecided') dropUndecided(Number(b.dataset.i));
