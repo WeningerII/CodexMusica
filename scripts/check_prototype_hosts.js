@@ -1996,6 +1996,16 @@ async function discoveryChecks(browser, srv) {
       await T.targets.match(T.targets.current().revision);
       out.matched = genre.current();
       out.best = T.targets.current().results.best && T.targets.current().results.best.id;
+      // 3PO's sequence (#668 6667209954): Match a genre, apply targets that
+      // empty the list, Match again. Production keeps the open genre
+      // (gpApplyAxis and genre-sound-match never touch UI.genre; observed in
+      // codex.html at d022ec589d) and focuses the count.
+      for (const ax of T.targets.current().axes)
+        await T.targets.apply(ax.id, ax.id === 'density' ? -2 : 2, T.targets.current().revision);
+      const empty = T.targets.current().results.count;
+      document.body.focus();
+      await T.targets.match(T.targets.current().revision);
+      out.emptyMatch = { empty, kept: genre.current(), focus: document.activeElement === count };
       return out;
     }, 'bluegrass')
     .catch((e) => ({ error: String(e) }));
@@ -2051,6 +2061,10 @@ async function discoveryChecks(browser, srv) {
     expect(
       beh.best && beh.matched === beh.best,
       `discovery: match opened ${beh.matched}, best ${beh.best}`
+    );
+    expect(
+      beh.emptyMatch.empty === 0 && beh.emptyMatch.kept === beh.matched && beh.emptyMatch.focus,
+      `discovery: after targets that empty the list, Match did not keep the open genre and focus the count, as production does (${JSON.stringify(beh.emptyMatch)})`
     );
   }
   // The breakpoint is production's @container discovery (max-width: 720px).
