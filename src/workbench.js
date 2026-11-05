@@ -1372,13 +1372,38 @@ function uiStart() {
 // often dropped by screen readers. A hashchange says it at once.
 function uiRouteMissed(miss, { boot = false } = {}) {
   if (!miss) return;
-  if (boot) uiAfterPaint(() => setTimeout(() => uiAnnounce(miss), 1000));
+  if (boot) uiAfterPaint(() => setTimeout(() => uiWhenActionable(() => uiAnnounce(miss)), 1000));
   else uiAnnounce(miss);
   const note = $ui('ui-route-note');
   if (!note) return;
   note.querySelector('.ui-route-note-text').textContent = miss;
   note.dataset.view = UI.view;
   note.hidden = false;
+}
+// Runs fn once the visible surface has a control (bounded): a slow page can
+// still be drawing a second after paint.
+function uiWhenActionable(fn, limit = 8000) {
+  const ready = () => {
+    const s = document.querySelector('.ui-surface:not([hidden])');
+    return !!s && !!s.querySelector('button, a[href]');
+  };
+  if (ready()) return fn();
+  let done = false;
+  const finish = () => {
+    if (done) return;
+    done = true;
+    mo.disconnect();
+    clearTimeout(timer);
+    fn();
+  };
+  const mo = new MutationObserver(() => ready() && finish());
+  mo.observe(document.body, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['hidden'],
+  });
+  const timer = setTimeout(finish, limit);
 }
 function uiRouteMiss({ view, sub }, boot) {
   if (!view) return '';
