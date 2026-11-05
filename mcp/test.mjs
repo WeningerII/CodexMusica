@@ -504,11 +504,19 @@ await check(
       format: 'compact',
       max_chars: 120,
     });
-    if (!tight.recipe.includes(room.name))
-      assert.ok(
-        tight.render_warnings.some((x) => x.code === 'ENVIRONMENT_NOT_LITERAL'),
-        'a dropped environment line must be named in render_warnings'
-      );
+    // The fallback is actually reached: instrument lines only, no environment.
+    assert.equal(
+      tight.recipe.split('\n').length,
+      2,
+      'tier 3: one line per instrument, nothing else'
+    );
+    assert.ok(!tight.recipe.includes(room.name), 'tier 3 drops the environment line whole');
+    const lost = tight.render_warnings.find((x) => x.code === 'ENVIRONMENT_NOT_LITERAL');
+    assert.ok(lost, 'a dropped environment line must be named in render_warnings');
+    assert.ok(
+      lost.items.some((it) => it.name === room.name),
+      'the warning names the requested room the output lost'
+    );
   }
 );
 
