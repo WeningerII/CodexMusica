@@ -129,6 +129,83 @@ async function ready(p) {
     { timeout: 60000 }
   );
 }
+// This classifies observed transport/UI state; it never changes either.
+// Synthetic controls below test this accounting only, not product behavior.
+function reviewAccounting(payload, tool, after) {
+  const checkInvoked = !!tool && !tool.not_run && Number.isInteger(tool.exit_code);
+  const completedCheck = checkInvoked && [0, 3].includes(tool.exit_code) && !tool.error;
+  if (payload?.stopped === 'MAX_STEPS') {
+    assert.equal(after.state, 'failed', 'MAX_STEPS must remain an incomplete current UI review');
+    assert.equal(
+      after.badge.trim(),
+      'Review incomplete',
+      'MAX_STEPS badge must disclose incompleteness'
+    );
+    assert.match(
+      after.review,
+      /Review incomplete/,
+      'Review panel must disclose MAX_STEPS incompleteness'
+    );
+    return { checkInvoked, completedCheck, uiReviewComplete: false, transportIncomplete: true };
+  }
+  if (completedCheck) {
+    assert(!payload?.stopped, 'unexpected transport stop cannot count as completed UI review');
+    assert(
+      ['assessed_clear', 'assessed_findings', 'input'].includes(after.state),
+      'real review must answer the current version'
+    );
+    assert.equal(
+      after.state,
+      payload?.assessment?.status,
+      'current UI must match actual assessment'
+    );
+  }
+  return {
+    checkInvoked,
+    completedCheck,
+    uiReviewComplete: completedCheck && after.state !== 'input',
+    transportIncomplete: false,
+  };
+}
+function accountingControls() {
+  const tool = { exit_code: 0, not_run: false };
+  const payload = {
+    stopped: 'MAX_STEPS',
+    assessment: { status: 'assessed_clear', certified: false },
+  };
+  const after = { state: 'failed', badge: 'Review incomplete', review: 'Review incomplete' };
+  const got = reviewAccounting(payload, tool, after);
+  assert(got.completedCheck && !got.uiReviewComplete && got.transportIncomplete);
+  assert(!reviewAccounting(payload, { exit_code: 2 }, after).completedCheck);
+  assert.throws(() => reviewAccounting({ ...payload, stopped: null }, tool, after), {
+    code: 'ERR_ASSERTION',
+  });
+  assert.throws(() => reviewAccounting({ ...payload, stopped: 'OTHER_STOP' }, tool, after), {
+    code: 'ERR_ASSERTION',
+  });
+  assert.throws(() => reviewAccounting(payload, tool, { ...after, state: 'assessed_clear' }), {
+    code: 'ERR_ASSERTION',
+  });
+  assert.throws(() => reviewAccounting(payload, tool, { ...after, badge: 'Reviewed' }), {
+    code: 'ERR_ASSERTION',
+  });
+  assert.throws(() => reviewAccounting(payload, tool, { ...after, review: 'Reviewed' }), {
+    code: 'ERR_ASSERTION',
+  });
+  assert(
+    reviewAccounting({ assessment: { status: 'assessed_clear' } }, tool, {
+      state: 'assessed_clear',
+    }).uiReviewComplete
+  );
+  assert(
+    !reviewAccounting({ assessment: { status: 'input' } }, tool, { state: 'input' })
+      .uiReviewComplete
+  );
+  return {
+    passed: 9,
+    scope: 'Synthetic accounting-only controls; not browser or harness acceptance',
+  };
+}
 async function review(env, stage) {
   const { p, posts, replies } = env;
   const before = await view(p);
@@ -149,22 +226,27 @@ async function review(env, stage) {
   const tool = reply?.payload?.tools?.find((t) => t.name === 'lyric_check');
   const record = { stage, before, context, request: posts[n], reply, after };
   receipts.push(record);
-  // A genuine not-run/refusal is evidence of a blocker, never a passing review.
-  record.checkInvoked = !!tool && !tool.not_run && Number.isInteger(tool.exit_code);
-  record.completedCheck = !!tool && [0, 3].includes(tool.exit_code) && !tool.not_run && !tool.error;
-  if (record.completedCheck) {
-    assert(
-      ['assessed_clear', 'assessed_findings', 'input'].includes(after.state),
-      'real review must answer the current version'
-    );
+  // Preserve tool facts, but leave UI completion false until all assertions pass.
+  // A failed assertion must not leave the stage falsely marked complete.
+  Object.assign(record, {
+    checkInvoked: !!tool && !tool.not_run && Number.isInteger(tool.exit_code),
+    completedCheck: !!tool && [0, 3].includes(tool.exit_code) && !tool.not_run && !tool.error,
+    uiReviewComplete: false,
+    transportIncomplete: false,
+  });
+  const accounting = reviewAccounting(reply?.payload, tool, after);
+  if (accounting.completedCheck) {
     assert.equal(
       tool.coverage?.obligations?.find((o) => o.id === 'return:1:3')?.status,
       'answered'
     );
-    // The compact tool summary has counts, not structured finding locations.
-    // Do not claim an exact Return flag here from a substring in prose.
-    // The pre-existing harness characterization owns that semantic assertion.
   }
+  assert.equal(
+    after.runBase,
+    before.text,
+    'review remains bound to the submitted current document'
+  );
+  Object.assign(record, accounting);
   return record;
 }
 async function saveSession(p) {
@@ -270,6 +352,7 @@ async function expectKilled(label, action) {
 }
 (async () => {
   fs.mkdirSync(out, { recursive: true });
+  const accountingRegression = accountingControls();
   const provenance = {
     node: process.version,
     root,
@@ -531,7 +614,9 @@ async function expectKilled(label, action) {
     ];
     const reviewStages = requiredStages.map((stage) => ({
       stage,
-      complete: receipts.some((r) => r.stage === stage && r.completedCheck),
+      complete: receipts.some((r) => r.stage === stage && r.uiReviewComplete),
+      toolCheckComplete: receipts.some((r) => r.stage === stage && r.completedCheck),
+      transportIncomplete: receipts.some((r) => r.stage === stage && r.transportIncomplete),
       attempted: receipts.some((r) => r.stage === stage),
     }));
     const reviewComplete = reviewStages.every((r) => r.complete);
@@ -541,6 +626,7 @@ async function expectKilled(label, action) {
       receipts,
       reviewStages,
       reviewComplete,
+      accountingRegression,
       exitCode: failed ? 1 : reviewComplete ? 0 : 2,
     };
     fs.writeFileSync(path.join(out, 'results.json'), JSON.stringify(report, null, 2) + '\n');
