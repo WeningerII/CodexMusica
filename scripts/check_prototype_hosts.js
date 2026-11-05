@@ -2003,9 +2003,20 @@ async function discoveryChecks(browser, srv) {
       for (const ax of T.targets.current().axes)
         await T.targets.apply(ax.id, ax.id === 'density' ? -2 : 2, T.targets.current().revision);
       const empty = T.targets.current().results.count;
-      document.body.focus();
+      // Focus starts on a known control, so the count taking it is a move.
+      const prior = document.createElement('button');
+      prior.textContent = 'before';
+      document.body.append(prior);
+      prior.focus();
+      const away = document.activeElement === prior && document.activeElement !== count;
       await T.targets.match(T.targets.current().revision);
-      out.emptyMatch = { empty, kept: genre.current(), focus: document.activeElement === count };
+      out.emptyMatch = {
+        empty,
+        kept: genre.current(),
+        away,
+        focus: document.activeElement === count,
+      };
+      prior.remove();
       return out;
     }, 'bluegrass')
     .catch((e) => ({ error: String(e) }));
@@ -2063,7 +2074,10 @@ async function discoveryChecks(browser, srv) {
       `discovery: match opened ${beh.matched}, best ${beh.best}`
     );
     expect(
-      beh.emptyMatch.empty === 0 && beh.emptyMatch.kept === beh.matched && beh.emptyMatch.focus,
+      beh.emptyMatch.empty === 0 &&
+        beh.emptyMatch.kept === beh.matched &&
+        beh.emptyMatch.away &&
+        beh.emptyMatch.focus,
       `discovery: after targets that empty the list, Match did not keep the open genre and focus the count, as production does (${JSON.stringify(beh.emptyMatch)})`
     );
   }
