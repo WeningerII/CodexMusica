@@ -85,6 +85,7 @@ const LANE_MODULES = {
   librarycredits: '/prototype/features/library-rights/census-credits.js',
   librarymethods: '/prototype/features/library-methods/reference.js',
   genredetail: '/prototype/features/genre-detail/detail.js',
+  instrumentdetail: '/prototype/features/instrument-detail/detail.js',
   libraryreading: '/prototype/features/library-reading/text-view.js',
   libraryspeech: '/prototype/features/library-speech/controls.js',
 };
@@ -92,6 +93,15 @@ const CTX_KEYS = {
   libraryreading: ['announce', 'reading', 'signal', 'storage', 'unitId'],
   libraryspeech: ['announce', 'language', 'lines', 'signal', 'speech', 'storage'],
   genredetail: ['announce', 'genre', 'loadGenre', 'media', 'openPhoto', 'signal', 'storage'],
+  instrumentdetail: [
+    'announce',
+    'instrument',
+    'loadInstrument',
+    'media',
+    'openPhoto',
+    'signal',
+    'storage',
+  ],
   browse: ['announce', 'items', 'signal', 'storage'],
   lyrics: ['announce', 'onChange', 'signal', 'storage', 'text'],
   // No recipe object, ever (Rule 1, 6639673247).
@@ -977,6 +987,183 @@ async function genreChecks(browser, srv) {
   await context.close();
 }
 
+// The Instrument detail lane's ctx (#668 6646057912), held to production:
+// every instrument's identity against references/02_instruments.js, its
+// family name against the page's INSTRUMENT_FAMILIES, and its glyph against
+// codex.html's own image().
+async function instrumentChecks(browser, srv) {
+  const ids = readJson('api/instruments/index.json').items.map((i) => i.id);
+  const ref = JSON.parse(
+    require('node:child_process').execFileSync(
+      process.execPath,
+      [
+        '-e',
+        "const C = require('./scripts/_loader.js'); process.stdout.write(JSON.stringify({ i: C.INSTRUMENTS.map((x) => ({ id: x.id, name: x.name, family: x.family, class: x.class || null, short: x.short || null })), f: C.INSTRUMENT_FAMILIES }))",
+      ],
+      { cwd: root, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }
+    )
+  );
+  const refBy = new Map(ref.i.map((x) => [x.id, x]));
+  const famName = new Map(ref.f.map((f) => [f.id, f.name]));
+  const prod = await (async () => {
+    const { context, page } = await newPage(browser, srv);
+    await page.goto(`${srv.url}/codex.html`);
+    const out = await page.evaluate((list) => {
+      /* global image, EMOJI_REGISTRY */
+      return {
+        glyphs: list.map((id) => image(id, 32)),
+        fallback: list.filter((id) => !EMOJI_REGISTRY[id]).length,
+      };
+    }, ids);
+    await context.close();
+    return out;
+  })();
+  const { context, page, errors, failing } = await newPage(browser, srv);
+  await page.goto(`${srv.url}/prototype/#instrument`);
+  await waitMounted(page, 'instrumentdetail');
+  const p = await probe(page, 'instrumentdetail');
+  expect(
+    JSON.stringify(p.keys) === JSON.stringify(CTX_KEYS.instrumentdetail),
+    `ctx: instrumentdetail got [${p.keys}], expected [${CTX_KEYS.instrumentdetail}]`
+  );
+  const asked = [];
+  page.on('request', (r) => asked.push(new URL(r.url()).pathname));
+  const got = await page.evaluate(async (list) => {
+    const ctx = window.__probeCtx.instrumentdetail;
+    const frozenDeep = (v) =>
+      !v || typeof v !== 'object' || (Object.isFrozen(v) && Object.values(v).every(frozenDeep));
+    const loaded = [];
+    for (let i = 0; i < list.length; i += 100)
+      loaded.push(
+        ...(await Promise.all(list.slice(i, i + 100).map((id) => ctx.loadInstrument(id))))
+      );
+    const fail = async (fn) => {
+      try {
+        await fn();
+        return null;
+      } catch (e) {
+        return `${typeof e.code === 'string' ? e.code : e.name}|${e.message}`;
+      }
+    };
+    const missing = await fail(() => ctx.loadInstrument('__not_an_instrument__'));
+    const climbing = await fail(() => ctx.loadInstrument('../../codex'));
+    const pre = new AbortController();
+    pre.abort();
+    const aborted = await fail(() => ctx.loadInstrument(list[0], { signal: pre.signal }));
+    const { instrument } = await import('/prototype/selection.js');
+    let calls = 0;
+    const stop = ctx.instrument.subscribe(() => calls++);
+    instrument.set(list[0]);
+    instrument.set(list[0]);
+    const current = ctx.instrument.current();
+    stop();
+    instrument.set(null);
+    return {
+      loaded: JSON.parse(JSON.stringify(loaded)),
+      frozen: loaded.every(frozenDeep),
+      missing,
+      climbing,
+      aborted,
+      calls,
+      current,
+      setInCtx: 'set' in ctx.instrument,
+    };
+  }, ids);
+  const photos = readJson('api/instrument_images.json').instruments || {};
+  const human = (c) => {
+    const t = String(c || '').replaceAll('_', ' ');
+    return t.charAt(0).toUpperCase() + t.slice(1);
+  };
+  const PREFIX = 'data:image/svg+xml,';
+  let identity = 0;
+  let glyphs = 0;
+  let withGlyph = 0;
+  const bad = [];
+  ids.forEach((id, k) => {
+    const g = got.loaded[k];
+    const r = refBy.get(id);
+    const same =
+      r &&
+      g.id === r.id &&
+      g.name === r.name &&
+      g.short === r.short &&
+      g.family.id === r.family &&
+      g.family.name === famName.get(r.family) &&
+      g.class.id === r.class &&
+      g.class.name === (r.class ? human(r.class) : null) &&
+      JSON.stringify(g.photo) === JSON.stringify(photos[id] || null);
+    if (same) identity++;
+    else if (bad.length < 3) bad.push(`${id}: ${JSON.stringify(g)} vs ${JSON.stringify(r)}`);
+    const want = prod.glyphs[k];
+    const svg =
+      g.glyphUrl && g.glyphUrl.startsWith(PREFIX)
+        ? decodeURIComponent(g.glyphUrl.slice(PREFIX.length))
+        : null;
+    const ok = want
+      ? svg === want.replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" ')
+      : g.glyphUrl === null;
+    if (ok) glyphs++;
+    else if (bad.length < 3) bad.push(`${id}: glyph differs from production's image()`);
+    if (want) withGlyph++;
+  });
+  expect(
+    identity === ids.length,
+    `instrument: ${ids.length - identity} of ${ids.length} records differ from references/02_instruments.js: ${bad.join(' | ')}`
+  );
+  expect(
+    glyphs === ids.length,
+    `instrument: ${ids.length - glyphs} of ${ids.length} glyphs differ from production's image(): ${bad.join(' | ')}`
+  );
+  expect(
+    ids.length === ref.i.length,
+    `instrument: the index lists ${ids.length}, the catalog ${ref.i.length}`
+  );
+  expect(
+    withGlyph > 0 && prod.fallback > 0,
+    'instrument: no glyph, or no family-fallback glyph, in the sample'
+  );
+  expect(got.frozen, 'instrument: a loaded instrument is not deep-frozen');
+  const NF =
+    'NOT_FOUND|This instrument isn’t in the catalog’s data. Reload to see the current catalog.';
+  expect(got.missing === NF, `instrument: an unknown id gave ${got.missing}`);
+  expect(got.climbing === NF, `instrument: a climbing id gave ${got.climbing}`);
+  expect(
+    !asked.some((a) => a.includes('codex.json') || a.includes('__not_an_instrument__')),
+    'instrument: an id the index does not list was requested'
+  );
+  expect(
+    /^AbortError\|/.test(got.aborted || ''),
+    `instrument: an aborted load gave ${got.aborted}`
+  );
+  expect(got.calls === 1 && got.current === ids[0], `instrument: subscribe ran ${got.calls} times`);
+  expect(!got.setInCtx, 'instrument: the lane can set the selection');
+  // A record that won't load: the sentence, then a later call asks again.
+  failing.add(`/api/instruments/${ids[0]}.json`);
+  const failed = await page.evaluate(async (id) => {
+    const { instrumentLoader } = await import('/prototype/data.js');
+    window.__retryInstrument = instrumentLoader();
+    try {
+      await window.__retryInstrument.loadInstrument(id);
+      return null;
+    } catch (e) {
+      return `${e.code}|${e.message}`;
+    }
+  }, ids[0]);
+  failing.delete(`/api/instruments/${ids[0]}.json`);
+  const again = await page.evaluate(
+    async (id) => (await window.__retryInstrument.loadInstrument(id)).id,
+    ids[0]
+  );
+  expect(
+    failed ===
+      'LOAD_FAILED|This instrument’s details couldn’t load. Check your connection, then try again.',
+    `instrument: a record that won't load gave ${failed}`
+  );
+  expect(again === ids[0], 'instrument: after a failed load, the next call did not ask again');
+  expect(!errors.length, `instrument: uncaught errors: ${errors.join(' | ')}`);
+  await context.close();
+}
+
 // The reader's ctx.reading (#757): production's checks on the committed files.
 async function readingChecks(browser, srv) {
   const gz = (rel) => zlib.gunzipSync(fs.readFileSync(path.join(root, 'library', 'data', rel)));
@@ -1546,6 +1733,7 @@ async function unmounting(browser, srv) {
     await libraryChecks(browser, srv);
     await referenceLanes(browser, srv);
     await genreChecks(browser, srv);
+    await instrumentChecks(browser, srv);
     await readingChecks(browser, srv);
     await speechChecks(browser, srv);
     await unmounting(browser, srv);

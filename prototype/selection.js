@@ -1,5 +1,5 @@
 // What the person has opened, shared by the shell's lanes (#668 6645589522):
-// one value per kind, with listeners. The Genre detail lane reads the genre;
+// one value per kind, with listeners. The detail lanes read theirs;
 // set() is the shell's (and its tests'), so a lane can follow the selection
 // but not change another lane's.
 function selection() {
@@ -21,3 +21,4 @@ function selection() {
 }
 
 export const genre = selection();
+export const instrument = selection();

@@ -59,6 +59,16 @@
 //      built-ins, playwright, jsdom, scripts/_pages_server.js and the lane's own
 //      folders, and never imported or named by the page.
 //      (The mounted behaviour is check_prototype_hosts.js.)
+//   7. ENGINE (#670 6639581575). prototype/engine/ holds one file, load.js,
+//      the shell's way to production's recipe engine: it reads ../codex.html
+//      as text and imports that page's own engine blocks. It is ordinary
+//      reviewed code under rules 1 and 2, with three narrow allowances, each
+//      for this file alone: the literal fetch('../codex.html'), one computed
+//      fetch of `../${rel}` for the engine's own requests (load.js admits only
+//      files of the static catalog, ENGINE_REQUEST, which
+//      check_prototype_engine.js tests), and a dynamic import of the module it
+//      builds. It may name localStorage and sessionStorage, because it names
+//      them only to shadow them. A lane never imports it (rule 6).
 //
 //   node scripts/check_prototype_isolation.js [--base=REF]
 //
@@ -120,7 +130,11 @@ const OWN_BYTES_MAX = 64 * 1024;
 // Only the wrapper may name a storage area; no prototype file names the rest.
 const STORAGE_NAMES =
   /\b(localStorage|sessionStorage|indexedDB|caches|serviceWorker)\b|document\.cookie/g;
-const STORAGE_ALLOWED = { 'prototype/storage.js': ['localStorage'] };
+const STORAGE_ALLOWED = {
+  'prototype/storage.js': ['localStorage'],
+  // Rule 7: named only as the engine wrapper's parameters, to shadow them.
+  'prototype/engine/load.js': ['localStorage', 'sessionStorage'],
+};
 // A path to the prototype, slash-led (/prototype, ./prototype, ../prototype)
 // or bare relative (prototype/index.html, href="prototype/"), never
 // `Foo.prototype` or `isPrototypeOf` (BB8, #719).
@@ -156,6 +170,11 @@ const FEATURE = /^prototype\/features\/([a-z0-9-]+)\//;
 // lane's feature and scenario folders, and nothing the page loads imports them.
 const SCENARIO = /^prototype\/scenarios\/([a-z0-9-]+)\//;
 const SCENARIO_PACKAGES = new Set(['playwright', 'jsdom']);
+const ENGINE_FILE = 'prototype/engine/load.js';
+// Rule 7: prototype/engine/ holds load.js and nothing else.
+function engineProblems(rel) {
+  return rel === ENGINE_FILE ? [] : [`${rel}: prototype/engine/ holds only load.js`];
+}
 // Parsed, not pattern-matched: a scenario often holds page-side code in a
 // string (an inline module it serves, a pattern it asserts against), and only
 // its own import declarations and require() calls are its imports.
@@ -233,8 +252,11 @@ const SHELL_DATA = new Set([
 // The one computed read: a collection file, by an id prototype/data.js has
 // checked against the collection-id pattern first (collectionFile()).
 const COLLECTION_FETCH = '`../library/data/c/${id}.json.gz`';
-// The reader's files, by a path data.js has checked against READING_FILE.
-const READING_FETCH = '`../library/data/${rel}`, { signal }';
+// Rule 7: load.js reads the page beside the prototype, and passes the
+// engine's own catalog requests through (ENGINE_REQUEST in load.js).
+const PAGE_FETCH = "'../codex.html'";
+// One instrument record, for an id the index lists (instrumentLoader in data.js).
+const INSTRUMENT_FETCH = '`../api/instruments/${id}.json`';
 // Rule 1's static half: a file names no absolute or protocol-relative URL.
 // The SVG namespace is a name, not a request (an inline SVG fixture, a glyph).
 // A scenario (Node test code) may also name a host under a reserved test
@@ -246,6 +268,9 @@ const absoluteUrl = (text, { scenario = false } = {}) => {
     t = t.replace(/(?:https?:)?\/\/[\w.-]+\.(?:test|example|invalid)(?::\d+)?(?=[/'"`\s]|$)/gi, '');
   return /(?:https?:)?\/\/[\w-]+\.[\w.-]+\//i.test(t);
 };
+const ENGINE_FETCH = '`../${rel}`, init';
+// The reader's files, by a path data.js has checked against READING_FILE.
+const READING_FETCH = '`../library/data/${rel}`, { signal }';
 function fetchProblems(text, rel) {
   const out = [];
   const shell = rel.startsWith('prototype/') && !FEATURE.test(rel);
@@ -254,7 +279,9 @@ function fetchProblems(text, rel) {
     const lit = /^(['"`])([^'"`$]*)\1$/.exec(arg);
     const ok =
       (lit && (/^\.\.\/api\/[\w./-]+$/.test(lit[2]) || (shell && SHELL_DATA.has(lit[2])))) ||
-      (rel === 'prototype/data.js' && (arg === COLLECTION_FETCH || arg === READING_FETCH));
+      (rel === 'prototype/data.js' &&
+        (arg === COLLECTION_FETCH || arg === INSTRUMENT_FETCH || arg === READING_FETCH)) ||
+      (rel === ENGINE_FILE && (arg === PAGE_FETCH || arg === ENGINE_FETCH));
     if (!ok) {
       out.push(
         `fetch(${arg}) is not a literal path into the static catalog (../api/)` +
@@ -280,6 +307,8 @@ function moduleProblems(text, rel) {
   const out = [];
   const lane = FEATURE.exec(rel);
   for (const s of specifiers(text)) {
+    // Rule 7: load.js imports the engine module it built from ../codex.html.
+    if (rel === ENGINE_FILE && s.dynamic && s.raw === 'href') continue;
     const lit = /^(['"`])([^'"`$]*)\1$/.exec(s.raw);
     if (!lit) {
       out.push(`imports ${s.raw}, which is not a literal path`);
@@ -426,9 +455,19 @@ function selfTest() {
     ],
     [moduleProblems("import { JSDOM } from 'jsdom';", 'prototype/features/lyrics/editor.js'), 1],
     [moduleProblems("import x from './scenarios/recipe/a.mjs';", 'prototype/app.js'), 1],
+    [engineProblems(ENGINE_FILE), 0],
+    [engineProblems('prototype/engine/engine.js'), 1],
+    [fetchProblems("fetch('../codex.html')", ENGINE_FILE), 0],
+    [fetchProblems("fetch('../codex.html')", 'prototype/app.js'), 1],
+    [fetchProblems('fetch(`../${rel}`, init)', ENGINE_FILE), 0],
+    [fetchProblems('fetch(`../${rel}`, init)', 'prototype/data.js'), 1],
+    [moduleProblems('import(href)', ENGINE_FILE), 0],
+    [fetchProblems('fetch(`../api/instruments/${id}.json`)', 'prototype/data.js'), 0],
+    [fetchProblems('fetch(`../api/instruments/${id}.json`)', 'prototype/app.js'), 1],
     [absoluteUrl('http://www.w3.org/2000/svg') ? ['x'] : [], 0],
     [absoluteUrl('http://www.w3.org/2000/svg https://example.org/x') ? ['x'] : [], 1],
     [absoluteUrl('//cdn.example.org/a.js') ? ['x'] : [], 1],
+    [moduleProblems('import(href)', 'prototype/app.js'), 1],
     [absoluteUrl("page.goto('http://reading.test/')", { scenario: true }) ? ['x'] : [], 0],
     [absoluteUrl("page.goto('http://reading.test/')") ? ['x'] : [], 1],
     [absoluteUrl("page.goto('https://example.org/')", { scenario: true }) ? ['x'] : [], 1],
@@ -449,9 +488,11 @@ function staticChecks(base) {
   expect(fs.existsSync(path.join(PROTO_DIR, 'index.html')), 'prototype/index.html is missing');
   for (const file of walk(PROTO_DIR)) {
     const rel = path.relative(root, file);
+    const unixRel = rel.split(path.sep).join('/');
+    if (unixRel.startsWith('prototype/engine/'))
+      for (const problem of engineProblems(unixRel)) expect(false, problem);
     if (!/\.(html|js|mjs|cjs|css|json)$/.test(file)) continue;
     const text = fs.readFileSync(file, 'utf8');
-    const unixRel = rel.split(path.sep).join('/');
     const scenario = SCENARIO.test(unixRel);
     expect(!absoluteUrl(text, { scenario }), `${rel}: names an absolute or protocol-relative URL`);
     expect(

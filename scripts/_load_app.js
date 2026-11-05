@@ -55,6 +55,11 @@ const EXPORTED = [
   // The tradition catalog layer, so check_aliases can confirm a retired id
   // resolves inside the app itself (Catalog.resolve / Catalog.get).
   'Catalog',
+  // The instrument glyph (image(), with its family fallback) and the family
+  // names, which live only in the page. The prototype's Instrument header
+  // reads both through prototype/engine/load.js.
+  'image',
+  'INSTRUMENT_FAMILIES',
 ];
 
 function loadApp() {
@@ -116,4 +121,4 @@ function _cardDescriptorSet(card) {
   );
 }
 
-module.exports = { loadApp };
+module.exports = { loadApp, EXPORTED };
