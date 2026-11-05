@@ -2110,6 +2110,70 @@ async function editorKeyboard(page, where) {
         first && first.after >= 1000 && first.rendered,
         'Routes: at boot the notice is spoken after the page renders: ' + JSON.stringify(first)
       );
+      // On a slow device the Instrument catalogue is still drawing a second after
+      // paint. The notice waits for a control on the landed surface instead of
+      // speaking over an empty one (the #740/#773 reds: after=1201 and 1229,
+      // rendered=false). 8x CPU throttling reproduces that order deterministically.
+      {
+        const slow = await context.newPage();
+        await slow.addInitScript(() => {
+          window.__liveFirst = null;
+          document.addEventListener('DOMContentLoaded', () => {
+            const live = document.getElementById('ui-live');
+            if (live)
+              new MutationObserver(() => {
+                if (window.__liveFirst || !live.textContent.trim()) return;
+                const s = document.querySelector('.ui-surface:not([hidden])');
+                window.__liveFirst = {
+                  rendered: !!s && s.querySelectorAll('button, a[href]').length > 0,
+                };
+              }).observe(live, { childList: true, characterData: true, subtree: true });
+          });
+        });
+        const cdp = await context.newCDPSession(slow);
+        await cdp.send('Emulation.setCPUThrottlingRate', { rate: 8 });
+        await slow.goto(base + '/codex.html?miss=4#instrument/zzqx_not_an_instrument');
+        await slow
+          .waitForFunction(() => window.__liveFirst, null, { timeout: 60000 })
+          .catch(() => {});
+        const slowFirst = await slow.evaluate(() => window.__liveFirst);
+        assert.ok(
+          slowFirst && slowFirst.rendered,
+          'Routes: on a slow device the boot notice still waits for a usable page: ' +
+            JSON.stringify(slowFirst)
+        );
+        await slow.close();
+      }
+      // ...and a page opened before the landed page is ready cancels it: the
+      // notice is never spoken late for a page the user has already left.
+      {
+        const left = await context.newPage();
+        await left.addInitScript(() => {
+          window.__live = [];
+          document.addEventListener('DOMContentLoaded', () => {
+            const live = document.getElementById('ui-live');
+            if (live)
+              new MutationObserver(() => {
+                const t = live.textContent.trim();
+                if (t) window.__live.push(t);
+              }).observe(live, { childList: true, characterData: true, subtree: true });
+          });
+        });
+        const cdp = await context.newCDPSession(left);
+        await cdp.send('Emulation.setCPUThrottlingRate', { rate: 8 });
+        await left.goto(base + '/codex.html?miss=5#instrument/zzqx_not_an_instrument', {
+          waitUntil: 'domcontentloaded',
+        });
+        await left.evaluate(() => (window.location.hash = '#genre'));
+        await left.waitForTimeout(12000);
+        const spoken = await left.evaluate(() => window.__live);
+        assert.ok(
+          !spoken.some((t) => /didn’t match an instrument/.test(t)),
+          'Routes: a boot notice for a page already left is not spoken late: ' +
+            JSON.stringify(spoken)
+        );
+        await left.close();
+      }
       // Said and shown: a slim note above the page, never a toast and never
       // focused, until it is dismissed or another page is opened.
       const note = () =>

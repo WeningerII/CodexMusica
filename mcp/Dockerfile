@@ -85,6 +85,7 @@ COPY mcp/*.js mcp/production-config.json mcp/capacity_verification.json* ./mcp/
 # The Library search fold table (mcp/library_search.js imports it).
 COPY mcp/library_casefold.json ./mcp/
 COPY mcp/qualify_reader.mjs ./mcp/
+COPY mcp/reader_store_inflate.mjs ./mcp/
 COPY mcp/worker.py mcp/gemini_proposer.py ./mcp/
 # Only approved runtime assets reach a final layer; research corpora and optional
 # uncleared norms remain outside the deployed image.
@@ -147,6 +148,11 @@ ENV READER_CATALOG_DIR=/app/lyric-harness/library/snapshot
 ENV LIBRARY_SEARCH_DIR=/app/library-data/search
 ENV LIBRARY_EXPORT_DIR=/app/library-data/exports
 ENV LIBRARY_CORPUS_DIR=/app/library-data/corpus
+# Reader format (#656 Phase B): the deploy gate, scripts/reader_format_gate.mjs,
+# refuses an image whose reader is older than the live store's
+# reader-jobs-v1/store-format.json min_reader. "A" reads plain and gzip
+# objects. Keep it equal to the last entry of READER_FORMATS in that script.
+LABEL com.codexmusica.reader-format="A"
 ENV PORT=8080
 EXPOSE 8080
 WORKDIR /app/mcp

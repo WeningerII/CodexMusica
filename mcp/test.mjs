@@ -446,6 +446,80 @@ await check('set_preface after set_environment reports the environment it replac
   assert.ok(!changedMind.render_warnings.some((x) => x.code === 'ENVIRONMENT_OVERWRITTEN'));
 });
 
+await check(
+  'compact renders ONE environment, from the environment card, like every format (#662)',
+  () => {
+    const s = E.startRecipe({ traditions: ['bluegrass'], format: 'compact' });
+    const rooms = E.listOptions({ kind: 'rooms' }).items;
+    const room = rooms.find((x) => x.id !== s.workspace.cards[0].room && x.name);
+    const rid = room.id;
+    const keep = s.workspace.cards.slice(0, 2).map((c) => c.id);
+    const drop = s.workspace.cards
+      .slice(2)
+      .map((c) => ({ action: 'remove_instrument', card: c.id }));
+    // The reproduction: a room set on the SECOND card, which is not the
+    // environment card. Before #662's fix compact tier 1 printed it on that
+    // card's line while ENVIRONMENT_NOT_RENDERED said it was not used.
+    const r = E.editRecipe({
+      workspace: thread(s.workspace),
+      format: 'compact',
+      edits: [...drop, { action: 'set_environment', card: keep[1], room: rid }],
+    });
+    assert.ok(r.render_warnings.some((x) => x.code === 'ENVIRONMENT_NOT_RENDERED'));
+    assert.ok(!r.recipe.includes(room.name), 'the warning and the output must agree');
+    const lines = r.recipe.split('\n');
+    assert.equal(lines.length, 3, 'one line per instrument, then the environment once');
+    const seedRoom = rooms.find((x) => x.id === s.workspace.cards[0].room);
+    assert.equal(r.recipe.split(seedRoom.name).length - 1, 1, 'the environment is said once');
+    // Control: the environment card is not cards[0]. With the first card's
+    // environment cleared, compact takes the later card's, as envCardOf does.
+    const cleared = E.editRecipe({
+      workspace: thread(r.workspace),
+      format: 'compact',
+      edits: [
+        {
+          action: 'set_environment',
+          card: keep[0],
+          clear: ['room', 'tuning', 'fx', 'amp', 'mic', 'pre', 'comp', 'eq', 'medium', 'console'],
+        },
+      ],
+    });
+    assert.equal(cleared.render_scope.environment_card, keep[1]);
+    assert.ok(
+      cleared.recipe.includes(room.name),
+      'the later card is now the environment card and its room renders'
+    );
+    // Every format agrees on which card the environment comes from.
+    for (const format of ['rich', 'tags', 'prose', 'compact'])
+      assert.equal(
+        E.renderRecipe({ workspace: thread(cleared.workspace), format }).render_scope
+          .environment_card,
+        keep[1],
+        format
+      );
+    // Tier 3: when even the one environment line does not fit, it is dropped
+    // whole AND the requested environment word is named as absent.
+    const tight = E.renderRecipe({
+      workspace: thread(cleared.workspace),
+      format: 'compact',
+      max_chars: 120,
+    });
+    // The fallback is actually reached: instrument lines only, no environment.
+    assert.equal(
+      tight.recipe.split('\n').length,
+      2,
+      'tier 3: one line per instrument, nothing else'
+    );
+    assert.ok(!tight.recipe.includes(room.name), 'tier 3 drops the environment line whole');
+    const lost = tight.render_warnings.find((x) => x.code === 'ENVIRONMENT_NOT_LITERAL');
+    assert.ok(lost, 'a dropped environment line must be named in render_warnings');
+    assert.ok(
+      lost.items.some((it) => it.name === room.name),
+      'the warning names the requested room the output lost'
+    );
+  }
+);
+
 await check('an environment edit that does not reach the output is not confirmed silently', () => {
   const s = E.startRecipe({ traditions: ['appalachian_folk'] });
   // On a card the recipe does not render the environment from.
@@ -5327,6 +5401,7 @@ await check('validation: actionable errors', () => {
       'mcp/test_library_search.mjs': 'offline Library search store, engine and route regressions',
       'mcp/test_library_search_parity.mjs':
         'replays the Worker search goldens against a built store (library-site.yml)',
+      'mcp/test_reader_store_gzip.mjs': 'offline gzip storage and rollback regressions',
       'mcp/test_reader_store_bounds.mjs':
         'offline bounded reader-store maintenance and quiescent usage regressions',
       'mcp/test_library_viewer_routes.mjs':
