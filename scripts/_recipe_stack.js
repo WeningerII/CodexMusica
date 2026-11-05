@@ -1030,17 +1030,22 @@ function compressTagsRecipe(cards, ceiling) {
 // bare line diverges from the app by exactly one character per card — enough to
 // fail check_app_parity.js on every tradition in the catalog.
 function compressCompactRecipe(cards, ceiling) {
-  let out = cards
-    .map((card) => {
-      const preface = _resolvePreface(card);
-      return (
-        buildStackParts(card)
-          .map((p) => (p.kind === 'instrument' && preface ? `${preface} ${p.label}` : p.label))
-          .join(' · ') + ','
-      );
-    })
-    .join('\n');
-  if (out.length <= ceiling) return out;
+  // ONE environment for the whole recording, as in every other format (#662):
+  // tuning, room and chain come from envCardOf(cards), never from each card. A
+  // single card keeps its one full-stack line (that card IS the environment
+  // card); a roster gets one instrument line per card and the environment once.
+  let out =
+    cards.length === 1
+      ? (() => {
+          const preface = _resolvePreface(cards[0]);
+          return (
+            buildStackParts(cards[0])
+              .map((p) => (p.kind === 'instrument' && preface ? `${preface} ${p.label}` : p.label))
+              .join(' · ') + ','
+          );
+        })()
+      : '';
+  if (out && out.length <= ceiling) return out;
 
   const instLines = cards.map((card) => {
     const inst = buildStackParts(card).find((p) => p.kind === 'instrument');
@@ -1049,12 +1054,9 @@ function compressCompactRecipe(cards, ceiling) {
     return (preface ? `${preface} ${inst.label}` : inst.label) + ',';
   });
 
-  // Tier 1 repeats the environment on EVERY line, so any roster past about four
-  // cards blows the ceiling — and the fallback below drops the environment
-  // outright. That lost the answer to a question the user had actually asked:
-  // set a room, ask for compact, and "carpeted bedroom" was simply not in the
-  // string, with no error and nothing to notice. Say it once instead. Every
-  // other format already carries the environment exactly once, from cards[0].
+  // The environment is said once, from the card the recipe takes it from. When
+  // even that does not fit, the line is dropped whole and render_warnings names
+  // every requested environment word the output lost (ENVIRONMENT_NOT_LITERAL).
   const envLine = cards.length
     ? buildStackParts(envCardOf(cards))
         .filter((p) => p.kind !== 'instrument')
