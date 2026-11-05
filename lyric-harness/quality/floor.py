@@ -1793,6 +1793,24 @@ class FloorDeclaration:
 FLOOR_FEATURES = ("mattr", "function_word_ratio")
 
 
+#: One default `Lexicon()` per process for the `QualityFeatures` a floor builds
+#: itself (2026-10-31, R2's follow-up on #637). Every `Reviser()` built a floor,
+#: and every floor built its own default Lexicon -- in the warm connector worker
+#: that was a 1-2 s build on every `screen`, `grade` and `check` call. Nothing
+#: writes to this lexicon after it is built (the audit on #637: the writers are
+#: `lyric_harness.main`, `fit.py` and the Library, each on lexicons of its own),
+#: so one instance answers exactly as a fresh one would. A caller that hands in
+#: its own `qf` is unaffected.
+_DEFAULT_LEXICON = None
+
+
+def _default_lexicon():
+    global _DEFAULT_LEXICON
+    if _DEFAULT_LEXICON is None:
+        _DEFAULT_LEXICON = _lh.Lexicon()
+    return _DEFAULT_LEXICON
+
+
 class SlopFloor:
 
     def __init__(self, decl=None, qf=None):
@@ -1806,7 +1824,8 @@ class SlopFloor:
         # `check()` instead, and this only sets the default for a `qf` this
         # constructor builds itself.
         self.qf = qf or QualityFeatures(
-            mattr_window=self.decl.mattr_window, features=FLOOR_FEATURES)
+            mattr_window=self.decl.mattr_window, features=FLOOR_FEATURES,
+            lex=_default_lexicon())
         # THE PERSISTENT FIELD STORE (`MISSING.md` M-244's remaining lever).
         # `PREDICTABLE_RHYME` below is the floor's expensive check and it is
         # `RhymeField.field` all the way down -- M-244 profiled it at 151.5 s

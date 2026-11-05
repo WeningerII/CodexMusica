@@ -336,8 +336,12 @@ def test_inventory():
           _shape_refusals == [], str(_shape_refusals))
     # REPINNED 2026-10-30 (`MISSING.md` M-323) from ~~49 of 78~~: the two
     # interior schemas run on the quatrain; nothing else moved.
-    check("51 of 80 run; the rest refuse for capabilities and spans",
-          ran == 51 and refused == 29,
+    # REPINNED 2026-10-31 (M-311 F1, R2's mosaic ruling) from ~~51 of 80~~:
+    # mosaic rhyme compares under the phonology's `reduced_vowel` quotient,
+    # which this fixture phonology does not declare, so it refuses by name
+    # with the four P14 schemas below.
+    check("50 of 80 run; the rest refuse for capabilities and spans",
+          ran == 50 and refused == 30,
           f"ran={ran} refused={refused}; capability_report says "
           f"{len(rep['reachable'])} reachable "
           f"(2 of those refuse at the SPAN, which is correct: 'penult' and "
@@ -1941,12 +1945,18 @@ def test_known_open_defects():
     _rec = {n: b for n, b in _burd.items() if b["recovered_instances"]}
     check("text-order, half 2: the DECLINE was FALSE — on an ASYMMETRIC "
           "schema the skip DELETED instances, and only there",
-          len(_asym) == 17
+          # 2026-10-31 (M-311 F1, R2's mosaic ruling): ~~17~~ 16 asymmetric,
+          # ~~409 / 383~~ 26 / 0 recovered. Mosaic rhyme's two members are
+          # now one rule (equal free runs from the line ends), so it has no
+          # text-order skip; and on this fixture phonology it refuses for the
+          # `reduced_vowel` quotient. amphisbaenic (22 / 0) and cynghanedd
+          # lusg (4 / 0) are unmoved.
+          len(_asym) == 16
           # REPINNED 2026-09-25 from 103 / 65 over four schemas: cynghanedd sain drosgl stopped firing: since 2026-09-25 it is sain's three-node figure with the answering edge relocated to a non-initial stressed syllable, where it was the bare onset edge that any two words of an English line could satisfy, and
           # a full figure has no text-order skip to recover from.
           # REPINNED 2026-10-30 from 88 / 62 (M-322 item 4, G1): `_bucket_key` keyed a flush_right `each` channel at the span's FIRST unit, so mosaic rhyme's free run was filed under its first syllable and every pair the judge accepts on the last was pruned before it was judged. Keyed at the last unit, mosaic rhyme recovers 383 (was 62); amphisbaenic rhyme (22 / 0) and cynghanedd lusg (4 / 0) are unmoved.
-          and sum(b["recovered_instances"] for b in _burd.values()) == 409
-          and sum(b["recovered_true"] for b in _burd.values()) == 383
+          and sum(b["recovered_instances"] for b in _burd.values()) == 26
+          and sum(b["recovered_true"] for b in _burd.values()) == 0
           and not any(b["symmetric"] for b in _rec.values()),
           f"metidja.txt, all {len(R.REGISTRY)} schemas: "
           f"{sum(b['recovered_instances'] for b in _burd.values())} "
@@ -1958,19 +1968,20 @@ def test_known_open_defects():
           f"(b, a) is generally not enumerated and there was nothing to "
           f"de-duplicate — the skip was pure loss. `mirrored()` drops a "
           f"reversed pair only where the mirror is genuinely a candidate.")
-    _mos = R.realise(R.REGISTRY["mosaic rhyme"], _ls, keep="all")
-    check("...and the concrete case: `mosaic rhyme` recovered its ENTIRE "
-          "TRUE set, because every one of those pairs had the single word "
-          "print SECOND",
-          # REPINNED 2026-10-30 from 62 / 112 (G1, the pin above).
-          _burd["mosaic rhyme"]["recovered_true"] == 383
-          and sum(1 for i in _mos if i.verdict is True) == 714,
-          "383 of the schema's 714 TRUE instances existed only because the "
-          "positional skip was removed — every one of them a real rhyme "
-          "where the single-word member happened to print after the "
-          "multi-word run that rhymed with it. A schema's recall was a "
-          "function of which member the text prints first, which is not a "
-          "naming decision.")
+    # THE CONCRETE CASE, HISTORY (2026-10-31, M-311 F1). Until R2's ruling
+    # mosaic rhyme carried this: its members came from DIFFERENT rules (a
+    # line-final word against a free run), and 383 of its 714 TRUE instances
+    # on these lines existed only because the positional skip was removed --
+    # the single-word member printed after the run. Those instances were end
+    # rhymes with a word before them, which the ruled rule does not admit,
+    # and its two members are now ONE rule, so the claim has no carrier
+    # there; the general claim above stands on amphisbaenic rhyme.
+    _mo = R.REGISTRY["mosaic rhyme"]
+    check("...and the concrete case's schema is symmetric now: `mosaic rhyme` "
+          "has no text-order skip to recover from",
+          _mo.spans[0] == _mo.spans[1]
+          and _burd["mosaic rhyme"]["recovered_instances"] == 0,
+          str(_burd["mosaic rhyme"]))
     check("...and `cynghanedd lusg` recovers candidates that still read "
           "FALSE, so 'recovered' and 'TRUE' are not the same claim",
           _burd["cynghanedd lusg"]["recovered_instances"] == 4
@@ -2309,9 +2320,14 @@ def test_relation_report_renderer_runs():
           "exits 0",
           rc == 0 and "phonology eng   schemas declared 80" in out
           and "REFUSED 27 (capability 27 · EMPTY DECLARED FRAME 0 · OTHER 0)"
-          in out and "RAN AND FOUND NOTHING 29" in out
-          and "RAN AND FIRED 24" in out,
-          "REFUSED 27 · RAN AND FOUND NOTHING 29 · RAN AND FIRED 24, "
+          in out and "RAN AND FOUND NOTHING 30" in out
+          and "RAN AND FIRED 23" in out,
+          "REFUSED 27 · RAN AND FOUND NOTHING 30 · RAN AND FIRED 23, "
+          "REPINNED 2026-10-31 (M-311 F1, R2's mosaic ruling) from FOUND "
+          "NOTHING ~~29~~ and FIRED ~~24~~: mosaic rhyme's 714 instances on "
+          "Browning's lines were end rhymes with a word before them, which "
+          "the ruled rule does not admit, and no member crosses a word "
+          "boundary at a stressed anchor; it runs and finds nothing. "
           "REPINNED 2026-10-30 (`MISSING.md` M-323) from declared ~~78~~ and "
           "FIRED ~~22~~: `internal assonance` and `internal consonance` are "
           "declared and both fire on Browning's lines; alliteration still "
@@ -2723,8 +2739,11 @@ def test_vacuous_frame_is_not_a_null():
     # trees: cynghanedd sain drosgl stopped firing: since 2026-09-25 it is sain's three-node figure with the answering edge relocated to a non-initial stressed syllable, where it was the bare onset edge that any two words of an English line could satisfy.
     # REPINNED 2026-10-30 (30, 27, 21) -> (30, 27, 23), `MISSING.md` M-323:
     # `internal assonance` and `internal consonance` are declared and fire.
-    check("the staged item reproduces the measured split (30, 27, 23)",
-          before == (30, 27, 23),
+    # REPINNED 2026-10-31 (M-311 F1) (30, 27, 23) -> (29, 28, 23): mosaic
+    # rhyme refuses on this fixture for the `reduced_vowel` quotient it does
+    # not declare (FIRED -> REFUSED, a capability refusal).
+    check("the staged item reproduces the measured split (29, 28, 23)",
+          before == (29, 28, 23),
           f"{before} on corpus/{VACUITY_ITEM}: {len(raw)} raw lines, "
           f"{len(st.units)} units. PREMISE — it must hold on both trees.")
 
@@ -2773,8 +2792,8 @@ def test_vacuous_frame_is_not_a_null():
     after = _split(st)
     # 2026-10-30 (M-323): ~~30/27/21~~ ~~30/21/27~~, two fired schemas more.
     check("...so calling both markers moves NOTHING: the split is still "
-          "30/27/23, where it used to become 30/21/29",
-          after == before == (30, 27, 23),
+          "29/28/23, where it used to become 29/22/29",
+          after == before == (29, 28, 23),
           f"before {before} after {after}. Six schemas crossing from REFUSED "
           f"to RAN AND FOUND NOTHING is the collapse; the counts are the "
           f"cheapest place to see it.")
@@ -2783,9 +2802,11 @@ def test_vacuous_frame_is_not_a_null():
     rep = R.relation_report(st)
     check("relation_report separates the two refusals and the partition "
           "still closes",
-          rep["refused_vacuous"] == 6 and rep["refused_capability"] == 21
+          # 2026-10-31 (M-311 F1): capability ~~21~~ 22, refused ~~27~~ 28 --
+          # mosaic rhyme's `quotient:reduced_vowel`, not declared here.
+          rep["refused_vacuous"] == 6 and rep["refused_capability"] == 22
           and rep["refused_other"] == 0
-          and rep["refused"] == 27
+          and rep["refused"] == 28
           and (rep["refused"] + rep["ran_found_nothing"]
                # 2026-10-30 (M-323): ~~78~~ 80.
                + rep["ran_and_fired"]) == rep["declared"] == 80
@@ -2869,12 +2890,13 @@ def test_vacuous_frame_is_not_a_null():
         mut_rep = R.relation_report(st)
         mut_state = st.supply("caesura").state
     check("MUTANT: with `provides` reading the SOURCE again, all six stop "
-          "refusing and return an empty list, the split moves to 30/21/29 "
-          "(~~30/21/27~~ before M-323's two schemas, 2026-10-30), "
+          "refusing and return an empty list, the split moves to 29/22/29 "
+          "(~~30/21/27~~ before M-323's two schemas, 2026-10-30; ~~30/21/29~~ "
+          "before mosaic rhyme refused on this fixture, 2026-10-31), "
           "and the fourth count goes to zero",
           all(not isinstance(o, R.Refusal) and len(o) == 0
               for o in mut_outs.values())
-          and mut_split == (30, 21, 29) and mut_rep["refused_vacuous"] == 0
+          and mut_split == (29, 22, 29) and mut_rep["refused_vacuous"] == 0
           and mut_state == "present",
           f"{mut_split} under the mutant against {after} at head; "
           f"{ {n: len(o) for n, o in mut_outs.items()} }. Six schemas, six "

@@ -431,7 +431,14 @@ const PINNED_PROBE = `(() => {
       }
     );
     await page.getByLabel('Search genres').fill('Delta blues');
-    const starter = await page.$('[data-ui="genre-add"][data-id="delta_blues"]');
+    // Wait for the result row rather than query once: under CI load the
+    // search can redraw after fill() returns, and a single page.$() then
+    // reads the list before the row is there.
+    const starterRow = page.locator('[data-ui="genre-add"][data-id="delta_blues"]');
+    const starter = await starterRow
+      .waitFor({ state: 'attached', timeout: 15000 })
+      .then(() => starterRow.elementHandle())
+      .catch(() => null);
     if (!starter) {
       fail(vp, 'no starter recipe in the empty state — cannot exercise the editor');
       await ctx.close();

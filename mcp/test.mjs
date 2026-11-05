@@ -5359,6 +5359,10 @@ await check('validation: actionable errors', () => {
         'offline check-only chat and page regressions; CI supplies the browser and source tree',
       'mcp/test_revise_repeat_guard.mjs':
         'offline repeated-revise guard and writer-dispatch count regressions',
+      'mcp/test_revise_kitchen_finished.mjs':
+        'localhost HTTP repeat-guard regressions on the real kitchen with a stub writer',
+      'mcp/test_review_mandate.mjs':
+        'localhost HTTP review-mode mandate and bound regressions on the real kitchen',
       'mcp/test_lyrics_evidence_binding.mjs':
         'offline authenticated evidence-binding regression suite, not a production entry point',
       'mcp/test_connector_contracts.mjs': 'offline connector and release contract regressions',
@@ -5394,6 +5398,10 @@ await check('validation: actionable errors', () => {
       'mcp/test_session_repairs.mjs': 'offline session workflow and Rich rendering regressions',
       'mcp/test_session_coverage_ids.mjs':
         'offline duplicate-coverage-id session regressions on the real lyric harness',
+      'mcp/test_prompt_provenance.mjs':
+        'what every surface sends a model, held to a provenance contract (#671), executed by CI (test:connector:live)',
+      'mcp/fixtures/model_visible_provenance.json':
+        'the reviewed provenance rows read only by test_prompt_provenance.mjs',
       'mcp/test_high_report.mjs':
         'native connector regressions for the high-severity report repairs, executed by CI (test:connector:live)',
       'mcp/test_loop_redesign.mjs':

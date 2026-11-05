@@ -1859,7 +1859,7 @@ EXTENSION_LEDGER = (
     ('homoioteleuton',                          'extendable',      6,  0),
     ('polyptoton',                              'extendable',      4,  0),
     ('multisyllabic rhyme',                     'extendable',      6,  0),
-    ('mosaic rhyme',                            'extendable',      8,  0),
+    ('mosaic rhyme',                            'no_instance',     6,  0),  # ~~extendable, 8~~ 2026-10-31, M-311 F1 (R2's ruling, #657): end rhymes with a word before them are no longer mosaics, and the slice holds no anchored multi-word tail
     ('compound / phrasal rhyme',                'extendable',      8,  0),  # ~~extendable~~ 2026-10-30, M-322 accent readings: candidates unresolved, not absent; ~~cannot_obtain~~ 2026-10-31, G1 (#647): `_bucket_key` keys flush_right `each` at the last unit, so the judge now reaches definite instances
     ('holorhyme',                               'no_instance',     2,  0),
     ('broken rhyme',                            'no_instance',     8,  0),
@@ -1913,6 +1913,9 @@ EXTENSION_LEDGER = (
     # 2026-10-31 (G1, #647, approved by John): compound / phrasal rhyme above
     # moves cannot_obtain -> extendable. Ledger now: 3 controlled, ~~29~~ 30
     # extendable, 8 no-instance, ~~39~~ 38 cannot-obtain (~~38 / 1~~ 37 / 1).
+    # 2026-10-31 (M-311 F1, #657): mosaic rhyme above moves extendable ->
+    # no_instance, menu ~~8~~ 6. Ledger now: 3 controlled, ~~30~~ 29
+    # extendable, ~~8~~ 9 no-instance, 38 cannot-obtain (37 / 1).
     ('internal assonance',                      'extendable',      8,  0),
     ('internal consonance',                     'extendable',      8,  0),
 )

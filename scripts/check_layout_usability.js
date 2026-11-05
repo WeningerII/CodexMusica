@@ -2490,52 +2490,102 @@ async function editorKeyboard(page, where) {
       const page = await context.newPage();
       const errors = [];
       page.on('pageerror', (e) => errors.push(e.message));
-      await page.goto(base + '/codex.html#genre/delta_blues');
-      await page.locator('#gp-tab-instruments').click();
-      const inspect = page.locator('[data-ui="instrument-inspect"]').first();
-      const id = await inspect.getAttribute('data-id');
-      await inspect.focus();
-      await page.keyboard.press('Enter');
-      await page.locator('#ip-title').waitFor();
-      const focused = () =>
-        page.evaluate(() => {
-          const a = document.activeElement;
-          return {
-            tag: a.tagName,
-            ui: a.dataset.ui || '',
-            id: a.dataset.id || '',
-            view: a.dataset.view || '',
-          };
-        });
-      await page.goBack();
-      await page.waitForFunction(() => document.body.dataset.view === 'genre');
-      await settle(page);
-      assert.deepEqual(
-        await focused(),
-        { tag: 'BUTTON', ui: 'instrument-inspect', id, view: '' },
-        `Back to Genre at ${width}px: focus returns to the Inspect button that left it`
+      const requests = [];
+      page.on('requestfailed', (request) =>
+        requests.push({ url: request.url(), failure: request.failure() })
       );
-      await page.goForward();
-      await page.waitForFunction(() => document.body.dataset.view === 'instrument');
-      await settle(page);
-      const f = await focused();
-      assert.ok(
-        f.tag !== 'BODY' && f.view === 'instrument',
-        `Forward to Instrument at ${width}px: focus lands on its nav button, not BODY: ` +
-          JSON.stringify(f)
-      );
-      // Back again, after Forward: the Inspect button again, not the
-      // Instrument nav button Forward left focus on.
-      await page.goBack();
-      await page.waitForFunction(() => document.body.dataset.view === 'genre');
-      await settle(page);
-      assert.deepEqual(
-        await focused(),
-        { tag: 'BUTTON', ui: 'instrument-inspect', id, view: '' },
-        `Back after Forward at ${width}px: focus returns to the Inspect button again`
-      );
-      assert.deepEqual(errors, [], 'No browser errors');
-      console.log(`PASS page Back/Forward focus at ${width}px`);
+      await page.addInitScript(() => {
+        window.genreNavigationEvents = [];
+        for (const type of ['pointerdown', 'pointerup', 'click', 'focusin', 'keydown'])
+          document.addEventListener(
+            type,
+            (event) => {
+              const tab = document.querySelector('#gp-tab-instruments');
+              window.genreNavigationEvents.push({
+                type,
+                trusted: event.isTrusted,
+                target: event.target.outerHTML?.slice(0, 500),
+                tab: tab?.getBoundingClientRect().toJSON(),
+                selected: tab?.getAttribute('aria-selected'),
+              });
+            },
+            true
+          );
+      });
+      try {
+        await page.goto(base + '/codex.html#genre/delta_blues');
+        await page.locator('#gp-tab-instruments').click();
+        assert.equal(
+          await page.locator('#gp-tab-instruments').getAttribute('aria-selected'),
+          'true',
+          'Instruments activates before Inspect'
+        );
+        const inspect = page.locator('[data-ui="instrument-inspect"]').first();
+        const id = await inspect.getAttribute('data-id');
+        await inspect.focus();
+        await page.keyboard.press('Enter');
+        await page.locator('#ip-title').waitFor();
+        const focused = () =>
+          page.evaluate(() => {
+            const a = document.activeElement;
+            return {
+              tag: a.tagName,
+              ui: a.dataset.ui || '',
+              id: a.dataset.id || '',
+              view: a.dataset.view || '',
+            };
+          });
+        await page.goBack();
+        await page.waitForFunction(() => document.body.dataset.view === 'genre');
+        await settle(page);
+        assert.deepEqual(
+          await focused(),
+          { tag: 'BUTTON', ui: 'instrument-inspect', id, view: '' },
+          `Back to Genre at ${width}px: focus returns to the Inspect button that left it`
+        );
+        await page.goForward();
+        await page.waitForFunction(() => document.body.dataset.view === 'instrument');
+        await settle(page);
+        const f = await focused();
+        assert.ok(
+          f.tag !== 'BODY' && f.view === 'instrument',
+          `Forward to Instrument at ${width}px: focus lands on its nav button, not BODY: ` +
+            JSON.stringify(f)
+        );
+        // Back again, after Forward: the Inspect button again, not the
+        // Instrument nav button Forward left focus on.
+        await page.goBack();
+        await page.waitForFunction(() => document.body.dataset.view === 'genre');
+        await settle(page);
+        assert.deepEqual(
+          await focused(),
+          { tag: 'BUTTON', ui: 'instrument-inspect', id, view: '' },
+          `Back after Forward at ${width}px: focus returns to the Inspect button again`
+        );
+        assert.deepEqual(errors, [], 'No browser errors');
+        console.log(`PASS page Back/Forward focus at ${width}px`);
+      } catch (error) {
+        const prefix = path.join(require('node:os').tmpdir(), `genre-navigation-${width}`);
+        fs.writeFileSync(prefix + '.html', await page.content());
+        fs.writeFileSync(
+          prefix + '.json',
+          JSON.stringify(
+            {
+              errors,
+              requests,
+              state: await page.evaluate(() => ({
+                href: window.location.href,
+                active: document.activeElement.outerHTML,
+                events: window.genreNavigationEvents,
+              })),
+            },
+            null,
+            2
+          )
+        );
+        await page.screenshot({ path: prefix + '.png', fullPage: true });
+        throw error;
+      }
       await context.close();
     }
     for (const width of [1280, 390]) {

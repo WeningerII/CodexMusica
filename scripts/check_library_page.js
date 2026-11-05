@@ -10,7 +10,8 @@
 //
 // Sections: explore, works, rights, reader, compare, focus, analysis,
 // declarations, retained. A section whose
-// chunk is not in the build prints SKIP (not a failure). Every section runs in
+// chunk is not in the build prints SKIP (not a failure); `retained` never
+// SKIPs, because it carries its own pinned copy of the chunk it needs. Every section runs in
 // both themes at 1280 and 390 wide; any console error, uncaught exception,
 // failed same-origin request or horizontal page overflow fails the run.
 //
@@ -18,7 +19,7 @@
 //   node scripts/check_library_page.js --built=DIR     # check an existing build
 //   node scripts/check_library_page.js --only=reader,compare --headed
 //   node scripts/check_library_page.js --shots=DIR     # screenshot each section
-/* global innerWidth, document, location, getComputedStyle, libraryChunk, indexedDB, window, MutationObserver */ // inside page.evaluate
+/* global innerWidth, document, location, history, getComputedStyle, libraryChunk, indexedDB, window, MutationObserver */ // inside page.evaluate
 'use strict';
 
 const fs = require('fs');
@@ -369,6 +370,219 @@ async function overflow(page) {
 
 // ─── Sections ────────────────────────────────────────────────────────────────
 const SECTIONS = {
+  async connections({ page, base, tag }) {
+    // Real Library route and hashed viewer pages; records are a committed,
+    // bounded two-line AnalysisSession capture, not the illustrative r5 PNG.
+    const fixture = require('./fixtures/connection-backend.json');
+    const soundId = require('../library/data/methods.json').methods.find(
+      (m) => m.namespace === 'shared_sound' && m.name === 'onset@v1'
+    ).id;
+    const crypto = require('node:crypto');
+    const canonical = (v) =>
+      v && typeof v === 'object'
+        ? Array.isArray(v)
+          ? '[' + v.map(canonical).join(',') + ']'
+          : '{' +
+            Object.keys(v)
+              .sort()
+              .map((k) => JSON.stringify(k) + ':' + canonical(v[k]))
+              .join(',') +
+            '}'
+        : JSON.stringify(v);
+    const digest = (s) => crypto.createHash('sha256').update(s).digest('hex');
+    const payloads = [
+      fixture.records.filter((r) => r.kind !== 'relation_instance'),
+      fixture.records.filter((r) => r.kind === 'relation_instance'),
+    ].map((instances) => JSON.stringify({ instances }));
+    const hashes = payloads.map(digest);
+    let job,
+      manifest,
+      hash,
+      expired = false,
+      posts = 0;
+    await page.route(API + '/**', async (route) => {
+      const req = route.request(),
+        url = new URL(req.url()),
+        p = url.pathname.slice('/library/v1'.length);
+      const reply = (value, status = 200) =>
+        route.fulfill({
+          status,
+          contentType: 'application/json',
+          body: typeof value === 'string' ? value : JSON.stringify(value),
+        });
+      if (p === '/analyses' && req.method() === 'POST') {
+        const body = JSON.parse(req.postData());
+        posts++;
+        check(
+          `${tag} connections: shared sound not silently requested`,
+          body.requested_methods
+            ? body.requested_methods.length === 1 && body.requested_methods[0] === soundId
+            : !body.requested_layers.includes('shared_sound')
+        );
+        job = {
+          id: posts <= 3 ? 'connection-test' : 'connection-test-4',
+          state: 'running',
+          identity: {
+            reading_unit_id: body.reading_unit_id,
+            reading_revision: body.reading_revision,
+            requested_methods: body.requested_methods || [],
+          },
+          progress: { completed: 1, total: 2 },
+        };
+        manifest = JSON.stringify({
+          job_id: job.id,
+          identity_hash: digest(canonical(job.identity)),
+          partial: false,
+          page_count: 2,
+          evidence_count: fixture.records.length,
+        });
+        hash = digest(manifest);
+        return reply({ job }, 202);
+      }
+      if (p === `/jobs/${job.id}`)
+        return expired
+          ? reply({ error: { code: 'EXPIRED' } }, 410)
+          : reply({ job: { ...job, state: 'complete', manifest_hash: hash } });
+      if (p === `/jobs/${job.id}/manifests/${hash}`) return reply(manifest);
+      if (p === `/jobs/${job.id}/manifests/${hash}/pages`) {
+        const i = Number(url.searchParams.get('offset'));
+        return reply({
+          manifest_hash: hash,
+          page_refs: [{ sha256: hashes[i] }],
+          next_offset: i === 0 ? 1 : null,
+        });
+      }
+      const i = hashes.findIndex((h) => p === `/jobs/${job.id}/pages/${h}`);
+      if (i >= 0) return reply(payloads[i]);
+      return route.fallback();
+    });
+    await go(page, base, `/read/${EPI_A}?lens=sound`);
+    await settled(page, 'reader', '#surface-library .rd-paper .rd-line');
+    if (await page.isVisible('#surface-library [data-rd="sheet"]'))
+      await page.click('#surface-library [data-rd="sheet"]');
+    await page.click('[data-act="analyze"]');
+    await page.waitForSelector('.cv-root', { timeout: 20000 });
+    check(`${tag} connections: authorized route mounts actual views`, !!(await page.$('.cv-poem')));
+    await page.evaluate(() => {
+      const u = new URL(location.href);
+      u.searchParams.set('keep', 'connection-test');
+      history.replaceState(null, '', u);
+    });
+    await page.click('.cv-root [data-view="matrix"]');
+    check(
+      `${tag} connections: unloaded evidence is not a negative`,
+      await page
+        .locator('.cv-root [data-selection]')
+        .evaluateAll(
+          (nodes) =>
+            nodes.some((n) => n.getAttribute('aria-label')?.includes('not yet computed')) &&
+            !nodes.some((n) => n.getAttribute('aria-label')?.includes('does not hold'))
+        )
+    );
+    const target = page.locator('.cv-root [data-selection]:visible').first();
+    await target.click();
+    if (await page.isVisible('.lib-cb-sheet-body')) await page.keyboard.press('Escape');
+    await page.keyboard.press('Escape');
+    check(
+      `${tag} connections: clearing selection keeps visible focus`,
+      await page.evaluate(
+        () =>
+          document.activeElement !== document.body &&
+          document.activeElement.getClientRects().length > 0
+      )
+    );
+    await page.locator('.cv-root [data-selection]:visible').first().click();
+    if (await page.isVisible('.lib-cb-sheet-body')) await page.keyboard.press('Escape');
+    const selectedUrl = page.url();
+    await page.click('[data-act="more"]');
+    await page.waitForFunction(() =>
+      document.querySelector('.cv-root')?.textContent.includes('all pages loaded')
+    );
+    check(
+      `${tag} connections: page update keeps matrix and selection URL`,
+      (await page.getAttribute('.cv-root [data-view="matrix"]', 'aria-current')) === 'true' &&
+        page.url() === selectedUrl
+    );
+    check(
+      `${tag} connections: explicit holds appear after verified page`,
+      (await page.textContent('.cv-root')).includes('holds')
+    );
+    check(
+      `${tag} connections: final evidence page returns focus to Evidence`,
+      await page.evaluate(
+        () =>
+          document.activeElement?.tagName === 'H2' &&
+          document.activeElement.textContent === 'Evidence'
+      )
+    );
+    await page.click('.cv-root [data-view="poem"]');
+    await page.waitForSelector('.cv-poem [data-directed="true"]');
+    check(
+      `${tag} connections: real backend holds mount directed arcs`,
+      await page
+        .locator('.cv-poem [data-directed="true"]')
+        .evaluateAll((nodes) =>
+          nodes.every(
+            (n) => n.dataset.selection.startsWith('b:') && n.querySelector('.lib-mk-head')
+          )
+        )
+    );
+    check(`${tag} connections: display interaction sends no computation`, posts === 1);
+    const stale = new URL(selectedUrl);
+    stale.hash = `#library/read/${EPI_B}?lens=sound`;
+    await page.goto(stale.href);
+    await settled(page, 'reader', '#surface-library .rd-paper .rd-line');
+    if (await page.isVisible('#surface-library [data-rd="sheet"]'))
+      await page.click('#surface-library [data-rd="sheet"]');
+    await page.click('[data-act="analyze"]');
+    await page.waitForSelector('.cv-notice');
+    check(
+      `${tag} connections: old selection URL rejected on a different reading`,
+      (await page.textContent('.cv-notice')).includes('no longer exists')
+    );
+    check(
+      `${tag} connections: stale link refusal is politely announced`,
+      (await page.textContent('.lib-cb-live')).includes('no longer exists')
+    );
+    await page.click('[data-act="methods"]');
+    await page.click(`[data-f="reference"] [data-method="${soundId}"] > summary`);
+    const sent = page.waitForResponse(
+      (r) => r.url().endsWith('/analyses') && r.request().method() === 'POST'
+    );
+    await page.click(`[data-act="analyze-method"][data-id="${soundId}"]`);
+    const response = await sent;
+    check(
+      `${tag} connections: shared sound uses the explicit existing request`,
+      JSON.parse(response.request().postData()).requested_methods?.[0] === soundId && posts === 3
+    );
+    await page.waitForFunction(() => !new URLSearchParams(location.search).has('sel'));
+    await page.waitForSelector('.cv-root');
+    check(
+      `${tag} connections: changed identity remounts without stale selection`,
+      !(await page.$('.cv-notice')) &&
+        !(await page.textContent('.la-root')).includes('Connection views unavailable')
+    );
+    await page.click('.cv-root [data-view="matrix"]');
+    await page.click('.cv-phone-row button:visible');
+    // The reference remains open; a subsequent request returns a different job ID.
+    await page.click(`[data-act="analyze-method"][data-id="${soundId}"]`);
+    await page.waitForFunction(() => !new URLSearchParams(location.search).has('sel'));
+    await page.waitForSelector('.cv-root');
+    check(
+      `${tag} connections: new job clears only connection URL state`,
+      posts === 4 &&
+        new URL(await page.url()).hash.includes('/read/') &&
+        new URL(await page.url()).searchParams.get('keep') === 'connection-test' &&
+        !(await page.$('.cv-notice'))
+    );
+    expired = true;
+    await page.click('[data-rd="lens"][data-id="form"]');
+    await page.click('[data-rd="lens"][data-id="sound"]');
+    await page.waitForFunction(() =>
+      document.querySelector('.la-root')?.textContent.includes('expired')
+    );
+    check(`${tag} connections: expiry destroys mounted evidence`, !(await page.$('.cv-root')));
+  },
   async explore({ page, base, tag }) {
     await go(page, base, '');
     const failed = await settled(page, 'core', '#surface-library .lib-shelf');
@@ -1594,15 +1808,61 @@ SECTIONS.declarations = async function ({ page, base, tag, log }) {
 // or a match only under the current cut) and sets aside, naming both
 // readings, a number that names different words under the two cuts, instead
 // of moving it to whichever word the earlier cut would give.
+//
+// THE SCENARIO OUTLIVES THE FILE (#661). The chunk's generation retired on
+// 2026-10-14 and library_chunk_generations.js drops it 30 days later, so the
+// first publish from 2026-11-14 deletes library/code/<chunk>; this section
+// used to turn into a SKIP then, and the old-tab rule would go untested. The
+// test keeps its own gzipped copy (scripts/fixtures/library-retained/), pinned
+// by sha384 to the bytes that generation shipped, and serves those bytes to the
+// simulated old tab. While generations.json still names the chunk the shipped
+// file is required and must be byte-identical to the copy; once the generation
+// has expired the copy alone carries the scenario. It never SKIPs.
 const RETAINED_ANALYSIS = 'analysis.71b110b249.js';
-SECTIONS.retained = async function ({ page, base, tag }) {
-  const file = path.join(ROOT, 'library', 'code', RETAINED_ANALYSIS);
-  if (!fs.existsSync(file)) {
-    results.push(`SKIP ${tag} retained — ${RETAINED_ANALYSIS} is no longer kept`);
-    return;
+const RETAINED_SHA384 = 'sha384-JqtIwA2cF3CYojVUUsniW1mSXHbRXi4S5jw1B4wX1ZyTE8AwKt+iuQJ/U21RJd6R';
+const RETAINED_FIXTURE = path.join(
+  ROOT,
+  'scripts',
+  'fixtures',
+  'library-retained',
+  `${RETAINED_ANALYSIS}.gz`
+);
+const sha384 = (b) => `sha384-${require('crypto').createHash('sha384').update(b).digest('base64')}`;
+// The retained chunk's bytes, or a reason they cannot be trusted.
+function retainedBytes() {
+  if (!fs.existsSync(RETAINED_FIXTURE)) return { error: `${RETAINED_FIXTURE} is missing` };
+  const bytes = zlib.gunzipSync(fs.readFileSync(RETAINED_FIXTURE));
+  if (sha384(bytes) !== RETAINED_SHA384)
+    return { error: `the fixture copy is not the pinned ${RETAINED_SHA384}` };
+  const manifest = path.join(ROOT, 'library', 'code', 'generations.json');
+  const named =
+    fs.existsSync(manifest) && fs.readFileSync(manifest, 'utf8').includes(RETAINED_ANALYSIS);
+  const shipped = path.join(ROOT, 'library', 'code', RETAINED_ANALYSIS);
+  if (named) {
+    if (!fs.existsSync(shipped))
+      return {
+        error: `generations.json names ${RETAINED_ANALYSIS} but library/code has no such file`,
+      };
+    if (sha384(fs.readFileSync(shipped)) !== RETAINED_SHA384)
+      return { error: `library/code/${RETAINED_ANALYSIS} differs from the pinned copy` };
   }
-  const bytes = fs.readFileSync(file);
-  const integrity = `sha384-${require('crypto').createHash('sha384').update(bytes).digest('base64')}`;
+  return {
+    bytes,
+    source: named ? 'shipped (and pinned copy)' : 'pinned copy (generation expired)',
+  };
+}
+SECTIONS.retained = async function ({ page, base, tag }) {
+  const retained = retainedBytes();
+  if (
+    !check(
+      `${tag} retained: the retained chunk's bytes are available and pinned`,
+      !retained.error,
+      retained.error
+    )
+  )
+    return;
+  const { bytes } = retained;
+  const integrity = RETAINED_SHA384;
   const idb = (op, key, value) => idbOp(page, op, key, value);
   const text = (sel) =>
     page.evaluate((q) => document.querySelector(q)?.innerText || '', `#surface-library ${sel}`);
@@ -1866,6 +2126,70 @@ SECTIONS.retry = async function ({ page, base, tag, errors }) {
       `${tag} retry analyze: an Analyze that starts the job keeps focus on its replacement`,
       !!(await focused('#surface-library [data-act="analyze"]')),
       await page.evaluate(() => document.activeElement?.outerHTML.slice(0, 120))
+    );
+    // #656 L1: a job the worker paused STALE_READING (its reading or the
+    // analyzer changed) cannot resume (the server refuses a resume whose
+    // identity differs), so it
+    // offers no Resume and says why in a sentence; an ordinary pause still
+    // offers Resume. The ordinary pause comes first and waits for a slot
+    // (deferred_requeue), so polling continues and picks up the stale one.
+    const paused = (code, deferred) => (route) => {
+      const req = route.request();
+      if (req.method() !== 'GET') return route.fallback();
+      return route.fulfill({
+        status: 200,
+        headers: {
+          'content-type': 'application/json',
+          'access-control-allow-origin': req.headers().origin || '*',
+          'access-control-allow-credentials': 'true',
+        },
+        body: JSON.stringify({
+          contract_version: 1,
+          job: {
+            id: JOB,
+            state: 'paused',
+            deferred_requeue: deferred,
+            reason: { code, message: `reader: ${code}: test` },
+            attempt: 1,
+            generation: 1,
+            created_at: Date.now(),
+            updated_at: Date.now(),
+          },
+        }),
+      });
+    };
+    const shows = async (code, deferred, until) => {
+      const handler = paused(code, deferred);
+      await page.route(`${API}/jobs/${JOB}`, handler);
+      await page.waitForFunction(until, null, { timeout: 20000, polling: 200 }).catch(() => {});
+      const seen = await page.evaluate(() => ({
+        resume: !!document.querySelector('#surface-library [data-act="resume"]'),
+        text: document.querySelector('#surface-library .la-section')?.innerText || '',
+      }));
+      await page.unroute(`${API}/jobs/${JOB}`, handler);
+      return seen;
+    };
+    const ordinary = await shows('YIELD', true, () =>
+      /paused/i.test(document.querySelector('#surface-library .la-section')?.innerText || '')
+    );
+    check(
+      `${tag} stale pause: an ordinary pause still offers Resume`,
+      /paused/i.test(ordinary.text) && ordinary.resume,
+      short(ordinary.text)
+    );
+    const stale = await shows('STALE_READING', false, () =>
+      /can’t resume/.test(document.querySelector('#surface-library .la-section')?.innerText || '')
+    );
+    check(
+      `${tag} stale pause: a job paused STALE_READING offers no Resume`,
+      /paused/i.test(stale.text) && !stale.resume,
+      short(stale.text)
+    );
+    check(
+      `${tag} stale pause: and says in a sentence to start a new analysis, with no raw code`,
+      /can’t resume\. Start a new whole-work analysis\./.test(stale.text) &&
+        !/STALE_READING/.test(stale.text),
+      short(stale.text)
     );
   }
   // The failures this section asked for are not the page's errors.
@@ -2258,6 +2582,7 @@ const NEEDS = {
   compare: 'compare',
   focus: 'compare',
   analysis: 'analysis',
+  connections: 'analysis',
   declarations: 'analysis',
   retained: 'analysis',
   retry: 'works',

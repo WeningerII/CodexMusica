@@ -537,8 +537,11 @@ class AnalysisSession:
     #: Past it the method is refused as incomplete, never answered over the
     #: combinations it did not try.
     EDGE_COMBOS = 64
-    #: Line-pair rebuilds one schema's discovery may make, likewise.
-    MINI_CAP = 4096
+    #: Line-pair rebuilds one schema's discovery may make, likewise. Sized
+    #: to the longest single English work in the Library, Whitman's "Song of
+    #: Myself" (1,658 lines): every line and every pair of lines, L(L+1)/2,
+    #: so no work in the corpus is refused for length (John, 2026-10-31).
+    MINI_CAP = 1375311
     #: Line readings kept for the rebuilds at once, one per line text, its
     #: words and the readings pinned on it. Past it the table starts again:
     #: a cache, so what a rebuild reads never depends on it. One rebuild adds
@@ -722,6 +725,15 @@ class AnalysisSession:
         open_ = not complete or (not merged and inst is not None and inst.verdict is None)
         reasons = [] if complete else ["combination_cap"]
         examined = 0
+        # WHAT WAS JUDGED UNDER EACH COMBINATION (item 5; 3PO 6547475463,
+        # 6547785583): every combination this loop judges is kept as its
+        # complete role-bound assignment with its outcome. Only these are
+        # known; every other assignment stays uncomputed. Nothing is searched
+        # for it, and the first witness still ends the search.
+        roles = self._span_roles(st, a, b)
+        outcomes = []
+        under = self._judged_under(st, roles, inst.verdict if inst is not None else None,
+                                   "merged_set" if self._merged_touched(st, a, b) else None)
         # The reading `inst` was judged under is not judged again.
         to_judge = [c for c in combos if merged or not (
             st is self.stream and c is combos[0] or self._combo_key(c) == own)]
@@ -734,6 +746,7 @@ class AnalysisSession:
                 reasons.append("rebuild_unavailable")
                 continue
             examined += 1
+            combo_open = False
             sides = []
             for rule, span in ((schema.spans[0], a), (schema.spans[1], b)):
                 try:
@@ -747,7 +760,7 @@ class AnalysisSession:
                 # Spans at this locus that match none is a key the reader
                 # cannot pair: open, never a confident False.
                 if not found and index.get(("locus", self._origin(span, st), span.direction)):
-                    open_ = True
+                    open_ = combo_open = True
                     reasons.append("locus_unmatched")
                 sides.append(found)
             for x in sides[0]:
@@ -758,10 +771,15 @@ class AnalysisSession:
                         # exhaustive only if nothing was left unjudged (3PO,
                         # #641), whatever the cap allowed.
                         whole = complete and examined == len(to_judge)  # no rebuild failed
-                        return got, alt, self._witness(alt, cause), first_only, self._search(
-                            "exhaustive" if whole else "partial", examined, termination="witness_found")
+                        return got, alt, self._witness(alt, cause), first_only, self._outcome_search(
+                            self._search("exhaustive" if whole else "partial", examined,
+                                         termination="witness_found"), outcomes, under)
                     if got is not None and got.verdict is None:
-                        open_ = True
+                        open_ = combo_open = True
+            # A member with no span under this reading was not a candidate
+            # there: outside the locus, never a predicate False.
+            outcomes.append(self._outcome(roles, combo, None if combo_open else
+                                          "outside_locus" if not (sides[0] and sides[1]) else False))
         whole = complete and examined == len(to_judge)
         state = "exhaustive" if whole else "partial"
         termination = ("combination_cap" if not complete else
@@ -777,7 +795,112 @@ class AnalysisSession:
         # instance by `_undecided_reason`.
         reason = next((r for r in ("combination_cap", "rebuild_unavailable", "locus_unmatched")
                        if r in reasons), None) if inst is not None and inst.verdict is None else None
-        return inst, st, None, first_only, self._search(state, examined, reason, termination)
+        return inst, st, None, first_only, self._outcome_search(
+            self._search(state, examined, reason, termination), outcomes, under)
+
+    def _applicable_readings(self, li, ti):
+        """The readings the any-reading search varies for this occurrence
+        (item 5; BB8's shape, #637 6547502531): the declared row when the
+        writer pinned one, else the lexicon's whole-reading variants -- the
+        same `occurrence_readings` the search pins from, which can differ
+        from `dictionary_readings`. Unlocatable: a null list, never a
+        fallback to the dictionary."""
+        memo = self.__dict__.setdefault("_applicable_memo", {})
+        if (li, ti) not in memo:
+            memo[(li, ti)] = self._find_applicable(li, ti)
+        return dict(memo[(li, ti)])
+
+    def _find_applicable(self, li, ti):
+        from quality.pronunciation import occurrence_readings
+        lex = self.RL._stream_lexicon(self.stream)
+        words = self.stream.lexical_tokens[li] if self.stream.lexical_tokens else ()
+        got = (occurrence_readings(lex, self.stream.text_lines[li], words, ti)
+               if lex is not None else None)
+        if got is None:
+            return {"applicable_readings": None, "applicable_source": "unlocatable"}
+        tok, _word, readings = got
+        declared = any(row["line"] == self.stream.text_lines[li] and row["token"] == tok
+                       for row in (getattr(lex, "pronunciations", ()) or ()))
+        return {"applicable_readings": [" ".join(p) for p in readings],
+                "applicable_source": "declared" if declared else "variants"}
+
+    def _span_roles(self, st, a, b):
+        """-> {(line, token): ["a"] | ["b"] | ["a", "b"]}: every occurrence
+        the pair's two members cover on `st`, with its role."""
+        roles = {}
+        for role, span in (("a", a), ("b", b)):
+            for i in span.idx:
+                u = st.units[i]
+                got = roles.setdefault((u.line, u.token), [])
+                if role not in got:
+                    got.append(role)
+        return roles
+
+    def _held_reading(self, tok):
+        """-> (phones or None, how) for an occurrence no combination varied:
+        its only reading, the merged set it is read as, its first-listed
+        reading, or unread."""
+        if tok in self._merged:
+            return None, "merged_set"
+        readings = self._applicable_readings(*tok)["applicable_readings"]
+        if readings is None:
+            return None, "unread"
+        return readings[0], "only_reading" if len(readings) == 1 else "first_listed"
+
+    def _assignment(self, roles, combo):
+        """The complete role-bound assignment of one judged combination: each
+        occurrence of both members, by its token id and role, with the
+        reading it was judged under. `display` is presentation only; the
+        occurrence and role are the identity (3PO 6547751176), so a word
+        repeated in the pair is never confused."""
+        out = []
+        for (li, ti), role in sorted(roles.items()):
+            word = str(self.stream.lexical_tokens[li][ti])
+            if (li, ti) in combo:
+                phones, held = " ".join(combo[(li, ti)][2]), "varied"
+            else:
+                phones, held = self._held_reading((li, ti))
+            out.append({"occurrence": f"{self._line_id(li)}:token:{ti}", "role": role,
+                        "phones": phones, "held": held,
+                        "display": f"{word} = {phones}" if phones else f"{word} ({held.replace('_', ' ')})"})
+        return out
+
+    def _outcome(self, roles, combo, value):
+        """One judged combination and what it was judged: "false",
+        "undecided", or "outside_locus" when a member had no span under it.
+        Never True: a True is the witness, on `reading`."""
+        return {"assignment": self._assignment(roles, combo),
+                "verdict": value if value == "outside_locus" else
+                "false" if value is False else "undecided"}
+
+    def _judged_under(self, st, roles, value, basis=None):
+        """What the pair's own verdict, before any search, was judged on: a
+        rebuilt stream's own assignment, the merged sets, or the first-listed
+        readings; with that verdict and its complete assignment."""
+        combo = {t: c for t, c in (getattr(st, "any_reading_combo", None) or {}).items() if t in roles}
+        return {"basis": "rebuilt_assignment" if combo else basis or "first_listed",
+                "verdict": verdict(value), "assignment": self._assignment(roles, combo)}
+
+    @staticmethod
+    def _outcome_search(search, outcomes, under):
+        """`search` carrying the loop's judged outcomes and the pair's own
+        verdict's basis, for the record to lift off: the `reading_search`
+        summary itself keeps its agreed shape."""
+        search["_outcomes"] = outcomes
+        search["_judged_under"] = under
+        return search
+
+    @staticmethod
+    def _lift_outcomes(search, extra):
+        """Move a search's judged outcomes onto the record (`extra`), as
+        `reading_outcomes` and `judged_under`; -> the bare summary."""
+        search = dict(search)
+        outcomes = search.pop("_outcomes", None)
+        under = search.pop("_judged_under", None)
+        if outcomes is not None:
+            extra["reading_outcomes"] = outcomes
+            extra["judged_under"] = under
+        return search
 
     def _witness(self, st, touched):
         """-> the readings a verdict rests on: those of `touched` words a
@@ -1263,8 +1386,12 @@ class AnalysisSession:
                 "precision": "token"}
 
     #: Candidate pairs one schema's domain may enumerate. Past it the domain
-    #: is refused (`projection: none`), never sampled.
-    DOMAIN_CAP = 262144
+    #: is refused (`projection: none`), never sampled. Sized to the longest
+    #: single English work in the Library, Whitman's "Song of Myself" (15,769
+    #: words by `relations.tokenise`): n*n, the largest member product
+    #: (`len(aa) * len(bb)`) a word-level domain over it can make, so no work
+    #: in the corpus is refused for length (John, 2026-10-31).
+    DOMAIN_CAP = 248661361
 
     def _domain(self, name, alt_cells=()):
         """-> WHICH OCCURRENCE PAIRS THIS SCHEMA'S LOCI CAN BIND, so a view can
@@ -1336,6 +1463,73 @@ class AnalysisSession:
     def _token_id(self, tok):
         return f"{self._line_id(tok[0])}:token:{tok[1]}"
 
+    @staticmethod
+    def _domain_tally(delta, record):
+        """Note a recorded edge's token pair toward its method's domain
+        outcomes. A true or undecided edge whose members are each one token,
+        and two distinct tokens, names one candidate pair. Several candidate
+        spans can name the same pair (each syllable of a word is a span), so
+        the PAIR is noted, not counted: `_outcomes` reduces the notes to
+        distinct pairs (3PO, #637 6547517269). Kept with the method's counts,
+        so a resumed traversal keeps them, and a replayed note is the same
+        pair again, never a second one."""
+        a, b = (record.get(k, {}).get("token_ids") or () for k in ("a", "b"))
+        if len(a) == 1 and len(b) == 1 and a[0] != b[0]:
+            key = "domain_true" if record.get("verdict") == "true" else "domain_undecided"
+            delta[key] = delta.get(key, []) + [[a[0], b[0]]]
+
+    @staticmethod
+    def _outcomes(domain, tally, answered=True):
+        """-> `domain` with `listed_pairs_by_state`: its listed pairs by the
+        state their own records give, where the verdicts were reached.
+        A WHOLE-METHOD population (3PO, #637 6545638972): never a view's local
+        denominator, never a refused or pending pair total, and not the
+        population `counts` describes (`counts` counts the engine's bucket
+        candidates: pruned candidates are listed and in no count,
+        placement-refused ones are counted and not listed).
+
+        `tally` is the true and undecided records' token pairs, as noted.
+        Each listed pair is counted once (3PO, #637 6547517269): true if any
+        record of it is true (the method is existential), else undecided if
+        any is; so the two populations are disjoint. `judged_false` is the
+        listed pairs with neither, and null when that rest is not shown
+        False: a method whose coverage is not `answered` (an unread member, an
+        incomplete reading search), a listed pair touching a
+        reading-dependent occurrence (only its own record answers it,
+        `MethodDomain`), or a recorded pair the listing does not hold."""
+        if domain.get("projection") != "exact_token_pair":
+            return domain
+        tokens = domain["tokens"]
+        index = {t: i for i, t in enumerate(tokens)}
+        listed = {(int(i), j) for i, runs in domain["pairs"].items() for lo, hi in runs
+                  for j in range(lo, hi + 1)}
+        unordered = domain.get("ordering") == "unordered"
+
+        def pairs(notes):
+            out, stray = set(), False
+            for a, b in notes:
+                i, j = index.get(a), index.get(b)
+                key = None if i is None or j is None else (min(i, j), max(i, j)) if unordered else (i, j)
+                if key in listed:
+                    out.add(key)
+                else:
+                    stray = True
+            return out, stray
+        true, stray_t = pairs(tally[0])
+        undecided, stray_u = pairs(tally[1])
+        undecided -= true
+        # A reading-dependent occurrence may list no pair at all (its locus is
+        # empty on the first-listed reading): it then touches no listed pair.
+        dependent = {index[t] for t in domain.get("reading_dependent_tokens", ()) if t in index}
+        dependent_pairs = sum(1 for i, j in listed if i in dependent or j in dependent)
+        rest = len(listed) - len(true) - len(undecided)
+        domain["listed_pairs_by_state"] = {"listed": len(listed), "true_pairs": len(true),
+                                           "undecided_pairs": len(undecided),
+                                           "judged_false": (rest if answered and not dependent_pairs
+                                                            and not (stray_t or stray_u) else None),
+                                           "reading_dependent_pairs": dependent_pairs}
+        return domain
+
     def _project(self, cells, ordering):
         """{(line, token) pairs} -> the exact token-pair projection: tokens,
         and each token's partners as [first, last] index runs."""
@@ -1392,8 +1586,12 @@ class AnalysisSession:
 
     # -- Shared sound (`namespace: "shared_sound"`; #637) -------------------
     #: Occurrence pairs one shared-sound method judges at most. Past it the
-    #: method is refused, never answered over the pairs it reached.
-    SOUND_PAIR_CAP = 262144
+    #: method is refused, never answered over the pairs it reached. Sized to
+    #: the longest single English work in the Library, Whitman's "Song of
+    #: Myself" (15,769 words by `relations.tokenise`): every pair of its
+    #: words, n(n-1)/2, so no work in the corpus is refused for length
+    #: (John, 2026-10-31).
+    SOUND_PAIR_CAP = 124322796
 
     def _sound_spans(self, family, st):
         """-> {(line, token): [span]}: the family's own canonical spans on
@@ -1465,8 +1663,11 @@ class AnalysisSession:
         family = SHARED_SOUND_METHODS[key][0]
         varying = {t for t in (ta, tb) if t in self._disputed or t in self._merged}
         combos, complete = RL.reading_combos(st, varying, self.EDGE_COMBOS)
-        examined, open_, located, reasons = 0, False, False, []
+        examined, open_, located, reasons, outcomes = 0, False, False, [], []
         a, b = self._sound_member(ta), self._sound_member(tb)
+        roles = {ta: ["a"], tb: ["b"]}
+        # The work's own reading gives no span here: nothing was judged on it.
+        under = {"basis": "no_span_on_work", "verdict": None, "assignment": self._assignment(roles, {})}
         for combo in combos or ():
             alt = self._line_stream(sorted({ta[0], tb[0]}), combo)
             if alt is None:
@@ -1476,16 +1677,20 @@ class AnalysisSession:
             examined += 1
             found = self._sound_spans(family, alt)
             if ta not in found or tb not in found:
+                outcomes.append(self._outcome(roles, combo, "outside_locus"))
                 continue
             located = True
             v, r, x = self._sound_judge(key, found[ta][0], found[tb][0], alt)
             if v is True:
                 whole = complete and examined == len(combos)
-                search = self._search("exhaustive" if whole else "partial", examined, termination="witness_found")
+                search = self._outcome_search(
+                    self._search("exhaustive" if whole else "partial", examined, termination="witness_found"),
+                    outcomes, under)
                 return True, self._sound_record(key, a, b, True, r, x, alt, self._witness(alt, varying),
                                                 search, False), True
             if v is None:
                 open_ = True
+            outcomes.append(self._outcome(roles, combo, v))
         whole = bool(combos) and complete and examined == len(combos)
         if not combos:
             reasons.append("no_reading_combination")
@@ -1500,6 +1705,8 @@ class AnalysisSession:
                               examined, reason,
                               None if not combos else "combination_cap" if not complete else
                               "exhausted" if whole else "rebuild_unavailable")
+        if combos:
+            search = self._outcome_search(search, outcomes, under)
         if value is False:
             return False, None, True
         return None, self._sound_record(key, a, b, None, None, None, st, None, search, False), True
@@ -1549,7 +1756,9 @@ class AnalysisSession:
                 first_only = disputed
             else:
                 combos, complete = RL.reading_combos(st, varying, self.EDGE_COMBOS)
-                examined, open_, reasons = 0, False, []
+                examined, open_, reasons, outcomes = 0, False, [], []
+                roles = self._span_roles(st, a, b)
+                under = self._judged_under(st, roles, value, "merged_set" if varying & self._merged else None)
                 for combo in combos or ():
                     alt = self._line_stream(sorted({ta[0], tb[0]}), combo)
                     if alt is None:
@@ -1561,17 +1770,20 @@ class AnalysisSession:
                     if ta not in found or tb not in found:
                         # No span at the word under this reading (no stressed
                         # syllable to anchor): nothing there to share.
+                        outcomes.append(self._outcome(roles, combo, "outside_locus"))
                         continue
                     v, r, x = self._sound_judge(key, found[ta][0], found[tb][0], alt)
                     if v is True:
                         whole = complete and examined == len(combos)
                         value, rec, at, judged = True, r, x, alt
                         witness = self._witness(alt, varying)
-                        search = self._search("exhaustive" if whole else "partial", examined,
-                                              termination="witness_found")
+                        search = self._outcome_search(
+                            self._search("exhaustive" if whole else "partial", examined,
+                                         termination="witness_found"), outcomes, under)
                         break
                     if v is None:
                         open_ = True
+                    outcomes.append(self._outcome(roles, combo, v))
                 else:
                     # Nothing to search is not a search: no combination
                     # judged never certifies a False.
@@ -1590,6 +1802,8 @@ class AnalysisSession:
                                           examined, reason,
                                           None if not combos else "combination_cap" if not complete else
                                           "exhausted" if whole else "rebuild_unavailable")
+                    if combos:
+                        search = self._outcome_search(search, outcomes, under)
         if value is False:
             return False, None, first_only
         return value, self._sound_record(key, a, b, value, rec, at, judged, witness, search, first_only), first_only
@@ -1602,6 +1816,8 @@ class AnalysisSession:
         extra = {}
         if witness:
             extra["reading"] = {"rule": "any_reading", "witness": witness}
+            extra["witness_assignment"] = self._assignment(
+                self._span_roles(self.stream, a, b), getattr(st, "any_reading_combo", None) or {})
         if at is not None:
             k, reads = at
             sa, sb = rec["syllables"][k]
@@ -1618,6 +1834,7 @@ class AnalysisSession:
         if rec is not None:
             extra["reading_context"] = json_safe(rec["reading_context"])
             extra["channel_versions"] = json_safe(rec["versions"])
+        search = self._lift_outcomes(search, extra)
         return self._record("relation_instance", method_id("shared_sound", name), [a.idx, b.idx],
             namespace="shared_sound", method_name=name, layer=SHARED_SOUND_LAYER, verdict=verdict(value),
             a=self._span(a), b=self._span(b), family=family, channel=channel, position=position, **extra,
@@ -1650,6 +1867,7 @@ class AnalysisSession:
                 "reading_dependent_tokens": [self._token_id(t) for t in dependent]}
 
     def _sound_result(self, key, mid, counts):
+        tally = (counts.get("domain_true", []), counts.get("domain_undecided", []))
         if self.stream.unreadable and counts["coverage"] == "answered":
             counts["coverage"] = "refused"
             counts["unreadable_tokens"] = len(self.stream.unreadable)
@@ -1657,8 +1875,8 @@ class AnalysisSession:
                 "detail": "Unread lexical members remain in the source census. Findings over readable members do not answer those obligations."}
         return self._record("method_result", mid, "result", namespace="shared_sound",
                             method_name=shared_sound_name(key), layer=SHARED_SOUND_LAYER,
-                            coverage=counts["coverage"], counts=counts,
-                            domain=self._sound_domain(key, counts.pop("alt_cells", []))
+                            coverage=counts["coverage"], counts=self._public_counts(counts),
+                            domain=self._outcomes(self._sound_domain(key, counts.get("alt_cells", [])), tally)
                             if counts["coverage"] == "answered"
                             else {"projection": "none", "reason": "refused"},
                             refusal=counts.get("refusal"),
@@ -1714,7 +1932,11 @@ class AnalysisSession:
             extra["reading"] = {"rule": "any_reading", "witness": witness or []}
         elif witness:
             extra["reading"] = {"rule": "any_reading", "witness": witness}
-        search = search or self._search("not_needed")
+        if witness:
+            # Beside `reading`, which keeps its agreed shape.
+            extra["witness_assignment"] = self._assignment(
+                self._span_roles(st, inst.a, inst.b), getattr(st, "any_reading_combo", None) or {})
+        search = self._lift_outcomes(search or self._search("not_needed"), extra)
         if inst.verdict is None:
             extra["undecided_reason"] = self._undecided_reason(inst, search)
         return self._record("relation_instance", mid, key,
@@ -1894,6 +2116,7 @@ class AnalysisSession:
                                               "stress": [s["stress"] for s in LH.syllabify(p)]} for p in options],
                     "requires_source": True, "supplied_reading_requires_source": not bool(options),
                     "matching_line_ids": [self._line_id(i) for i, line in enumerate(self.stream.text_lines) if line == raw_line]}
+                out.update(self._applicable_readings(li, ti))
             return out
         u = value
         ranges, normalized = self._token_ranges(u.line, u.token)
@@ -2157,6 +2380,10 @@ class AnalysisSession:
         if phase == "shared_sound":
             return [self._sound_result(name, mid, counts)]
         rows = []
+        # Read, not popped: the terminal record may be emitted across a
+        # checkpoint (a detached domain's parts), and a restore rebuilds it
+        # from these same inputs. `_advance` drops them once it is out.
+        tally = (counts.get("domain_true", []), counts.get("domain_undecided", []))
         needs_assembly = phase == "schema" and not RL.pair_scope_representable(RL.REGISTRY[name]) and name not in RL.FULL_SHAPES
         if needs_assembly and counts["coverage"] == "answered":
             counts.pop("coverage", None)
@@ -2172,9 +2399,10 @@ class AnalysisSession:
                     "detail": "Not every combination of the disputed words' readings was searched: " + self._incomplete[name]
                               + ". Findings over the combinations searched do not answer the rest."}
             rows.append(self._record("method_result", mid, "result", namespace="schema", schema_name=name,
-                                    coverage=counts["coverage"], counts=counts,
-                                    domain=self._domain(name, counts.pop("alt_cells", [])) if phase == "schema"
-                                    else {"projection": "none", "reason": "whole_figure"},
+                                    coverage=counts["coverage"], counts=self._public_counts(counts),
+                                    domain=self._outcomes(self._domain(name, counts.get("alt_cells", [])), tally,
+                                                          answered=counts["coverage"] == "answered")
+                                    if phase == "schema" else {"projection": "none", "reason": "whole_figure"},
                                     refusal=counts.get("refusal"), availability="available" if counts["coverage"] == "answered" else "unknown_members",
                                     supply={c: json_safe(self.stream.supply(c))
                                                                        for c in RL.REGISTRY[name].capabilities()}))
@@ -2206,7 +2434,20 @@ class AnalysisSession:
                   if first_only or unsearched else self._search("not_needed"))
         return self._edge_record(e, st, search=search, first_only=first_only)
 
+    # A method's terminal inputs: kept in its checkpoint counts until its
+    # terminal record is wholly emitted, and never published.
+    _TERMINAL_INPUTS = ("domain_true", "domain_undecided", "alt_cells")
+
+    @classmethod
+    def _public_counts(cls, counts):
+        return {k: v for k, v in counts.items() if k not in cls._TERMINAL_INPUTS}
+
     def _advance(self):
+        i = self.checkpoint["method_index"]
+        if i < len(self.tasks):
+            done = self.checkpoint["methods"].get(self._task_mid(*self.tasks[i]))
+            for key in self._TERMINAL_INPUTS if done is not None else ():
+                done.pop(key, None)
         self.checkpoint["method_index"] += 1
         self.checkpoint["candidate"] = 0
         self.checkpoint["emission"] = 0
@@ -2282,6 +2523,7 @@ class AnalysisSession:
                         if inst.verdict is not False:
                             record = self._edge_record(inst, judged, witness, search, first_only)
                             new.append(record)
+                            self._domain_tally(delta, record)
                             if not RL.pair_scope_representable(RL.REGISTRY[name]):
                                 self._local_records.setdefault(self._task_mid(phase, name), []).append(record)
                 else:
@@ -2308,6 +2550,7 @@ class AnalysisSession:
                     delta["first_reading_only"] += first_only
                     if value is not False:
                         new.append(record)
+                        self._domain_tally(delta, record)
             else:
                 new = [binding]
             delta["candidates"] = 1

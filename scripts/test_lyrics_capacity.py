@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Cheap adversarial checks for the production capacity qualification oracle."""
 import copy
+import sys
+import json
 import hashlib
 from pathlib import Path
 from lyrics_capacity_runtime import library_evidence_failures, runtime_evidence_failures, run_store_evidence_failures, queue_pressure_failures, ResidentRuntime
@@ -449,6 +451,126 @@ class CapacitySourceIdentity(unittest.TestCase):
         self.assertNotEqual(before, after)
 
 
+class CapacitySourceClosure(unittest.TestCase):
+    """The identity is every repository module the measured runtime loads,
+    derived from its entry points, not a hand-picked list (#612/#664 R-3)."""
+
+    def test_the_closure_covers_grid_and_the_old_hand_picked_list(self):
+        from check_lyrics_capacity import source_closure, source_identity
+        closure = set(source_closure())
+        self.assertEqual(set(source_identity()), closure)
+        # The module the hand-picked list missed, which #676/#677 change.
+        self.assertIn('lyric-harness/quality/grid.py', closure)
+        # Every file the old list named stays covered.
+        for name in ('lyric-harness/lyric_harness.py', 'lyric-harness/quality/plan.py',
+                     'lyric-harness/quality/revise.py', 'lyric-harness/quality/relations.py',
+                     'mcp/server_http.js', 'mcp/job_store.js', 'mcp/run_store.js',
+                     'mcp/state_codec.js', 'mcp/python_bridge.js', 'mcp/worker.py',
+                     'scripts/measure_verb_memory.py', 'scripts/check_lyrics_capacity.py',
+                     'scripts/lyrics_capacity_runtime.py', 'scripts/seed_lyrics_capacity_receipts.mjs',
+                     'scripts/lyrics_capacity_server.mjs', 'scripts/lyrics_capacity_queue.mjs'):
+            self.assertIn(name, closure)
+
+    def test_every_module_importing_the_harness_loads_is_in_the_closure(self):
+        """An independent oracle: what Python actually loads when the harness
+        and the verbs' main lyric modules are imported, read from sys.modules,
+        never from the static analyser."""
+        import subprocess
+        from check_lyrics_capacity import ROOT, source_closure
+        probe = (
+            "import os, sys, json\n"
+            "sys.path.insert(0, os.getcwd())\n"
+            "import importlib, lyric_harness\n"
+            "for name in ('quality.plan', 'quality.revise', 'quality.relations', 'quality.grid'):\n"
+            "    importlib.import_module(name)\n"
+            "root = os.path.abspath('..')\n"
+            "print(json.dumps(sorted({os.path.relpath(os.path.abspath(m.__file__), root)\n"
+            "    for m in list(sys.modules.values()) if getattr(m, '__file__', None)\n"
+            "    and os.path.abspath(m.__file__).startswith(root + os.sep)})))\n")
+        out = subprocess.run([sys.executable, '-I', '-c', probe], cwd=ROOT / 'lyric-harness',
+                             capture_output=True, text=True, timeout=120, check=True)
+        loaded = set(json.loads(out.stdout.strip().splitlines()[-1]))
+        self.assertIn('lyric-harness/lyric_harness.py', loaded)
+        self.assertGreater(len(loaded), 5)
+        self.assertEqual(loaded - set(source_closure()), set())
+
+    def test_the_resolver_on_a_hand_built_tree(self):
+        """Lazy, relative, from-package and dynamic JS imports are followed;
+        standard-library and package specifiers are not; data is not a module."""
+        import tempfile
+        import check_lyrics_capacity as matrix
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            files = {
+                'h/main.py': 'import os\nimport pkg.a\ndef late():\n    from pkg import b\n',
+                'h/pkg/__init__.py': '',
+                'h/pkg/a.py': 'from . import c\nfrom .d import thing\n',
+                'h/pkg/b.py': 'import json\n',
+                'h/pkg/c.py': '',
+                'h/pkg/d.py': 'thing = 1\n',
+                'h/pkg/unused.py': '',
+                'h/data.json': '{}',
+                'w/s.js': "import fs from 'node:fs';\nimport { m } from './m.js';\n"
+                          "export async function f() { return import('./n.mjs'); }\n",
+                'w/m.js': "export const m = 1;\n",
+                'w/n.mjs': "export default 2;\n",
+                'w/unused.js': '',
+            }
+            for name, text in files.items():
+                (root / name).parent.mkdir(parents=True, exist_ok=True)
+                (root / name).write_text(text)
+            with patch.object(matrix, 'ROOT', root.resolve()), \
+                 patch.object(matrix, 'SOURCE_ENTRIES', ('h/main.py', 'w/s.js')), \
+                 patch.object(matrix, 'PYTHON_ROOTS', ('h',)):
+                closure = matrix.source_closure()
+        self.assertEqual(closure, sorted([
+            'h/main.py', 'h/pkg/__init__.py', 'h/pkg/a.py', 'h/pkg/b.py', 'h/pkg/c.py',
+            'h/pkg/d.py', 'w/m.js', 'w/n.mjs', 'w/s.js']))
+
+
+    def test_launched_scripts_are_in_the_closure(self):
+        """A script the runtime runs as a subprocess or worker is not imported,
+        so neither the import walk nor a sys.modules probe can see it (3PO on
+        #680: runtime_assets.js runs quality/verify_capacity.py)."""
+        from check_lyrics_capacity import source_closure
+        closure = set(source_closure())
+        for name in ('lyric-harness/quality/verify_capacity.py',   # runtime_assets.js spawn
+                     'lyric-harness/quality/release_assets.py',    # runtime_assets.js spawn
+                     'mcp/reader_source_worker.js',                # reader_scheduler.js Worker
+                     'mcp/library_export_worker.js'):              # library export Worker
+            self.assertIn(name, closure)
+
+    def test_a_launched_scripts_bytes_move_the_identity(self):
+        """On a hand-built tree: a script named only as a spawn argument joins
+        the closure, its bytes move the identity, and prose naming a file (a
+        comment, a backticked mention) or a literal naming no file adds nothing."""
+        import tempfile
+        import check_lyrics_capacity as matrix
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            files = {
+                'w/s.js': "import { spawn } from 'node:child_process';\n"
+                          "const root = new URL('../h/', import.meta.url);\n"
+                          "// see `h/q/cited.py` and h/q/cited.py\n"
+                          "spawn('python3', [path.join(root, 'q/v.py'), 'q/missing.py']);\n",
+                'h/q/v.py': 'print(1)\n',
+                'h/q/cited.py': '',
+            }
+            for name, text in files.items():
+                (root / name).parent.mkdir(parents=True, exist_ok=True)
+                (root / name).write_text(text)
+            with patch.object(matrix, 'ROOT', root.resolve()), \
+                 patch.object(matrix, 'SOURCE_ENTRIES', ('w/s.js',)), \
+                 patch.object(matrix, 'PYTHON_ROOTS', ('h',)):
+                closure = matrix.source_closure()
+                before = matrix.source_identity()
+                (root / 'h/q/v.py').write_text('print(2)\n')
+                after = matrix.source_identity()
+        self.assertEqual(closure, ['h/q/v.py', 'w/s.js'])
+        self.assertNotEqual(before['h/q/v.py'], after['h/q/v.py'])
+        self.assertNotEqual(before, after)
+
+
 class ResidentMemoryReading(unittest.TestCase):
     """The envelope is gated on what it has to HOLD, not on what the kernel
     happens to be caching (M-269). The arithmetic is small and the failure
@@ -486,13 +608,115 @@ class ResidentMemoryReading(unittest.TestCase):
     def test_the_progress_sampler_keeps_the_largest_resident_reading(self):
         import check_lyrics_capacity as matrix
         readings = iter([(500, 900), (800, 1500), (300, 700)])
-        with patch.object(matrix, 'resident_bytes', side_effect=lambda: (*next(readings), 'current-minus-reclaimable-file')):
+        with patch.object(matrix, 'resident_bytes', side_effect=lambda **_: (*next(readings), 'current-minus-reclaimable-file')):
             progress = matrix.MeasurementProgress('t')
             for _ in range(3):
                 progress.sample()
         self.assertEqual(progress.resident_peak, 800)
         self.assertEqual(progress.samples, 3)
         self.assertEqual(progress.accounting, 'current-minus-reclaimable-file')
+
+
+class PeakInstrumentation(unittest.TestCase):
+    """#656: the breakdown recorded beside the gated peak comes from the very
+    sample that set it, a counter the kernel lacks reads 'unavailable', and the
+    gated number itself is computed exactly as before."""
+
+    def readings(self, matrix, samples):
+        """Patch the cgroup reads so each sample() sees the next (current, stat)."""
+        feed = iter(samples)
+        state = {}
+        def cgroup(name):
+            if name == 'memory.current':
+                state['current'], state['stat'] = next(feed)
+                return state['current']
+            return 2_000_000_000 if name == 'memory.peak' else None
+        return (patch.object(matrix, 'cgroup_bytes', side_effect=cgroup),
+                patch.object(matrix, 'memory_stat', side_effect=lambda: state['stat']),
+                patch.object(matrix, 'memory_events', return_value={'max': 1, 'oom_kill': 0}),
+                patch.object(matrix, 'process_rss', return_value=300 * 2**20))
+
+    def test_breakdown_is_the_peak_samples_own(self):
+        import check_lyrics_capacity as matrix
+        samples = [(1_500, {'file': 600, 'shmem': 100, 'anon': 700, 'kernel': 150, 'slab_reclaimable': 90}),
+                   (1_900, {'file': 500, 'shmem': 100, 'anon': 1_200, 'kernel': 160, 'slab_reclaimable': 95}),
+                   (1_800, {'file': 900, 'shmem': 100, 'anon': 800, 'kernel': 140, 'slab_reclaimable': 80})]
+        a, b, c, d = self.readings(matrix, samples)
+        with a, b, c, d:
+            progress = matrix.MeasurementProgress('t', node_pid=lambda: 4242)
+            for _ in samples:
+                progress.sample()
+            record = progress.instrumentation()
+        self.assertEqual(progress.resident_peak, 1_900 - (500 - 100))   # unchanged rule
+        peak = record['peak_sample']
+        self.assertEqual(peak['resident_bytes'], progress.resident_peak)
+        self.assertEqual(peak['current_bytes'], 1_900)
+        self.assertEqual(peak['memory_stat']['anon'], 1_200)
+        self.assertEqual(peak['memory_stat']['slab_reclaimable'], 95)
+        self.assertEqual(peak['memory_stat']['percpu'], 'unavailable')
+        self.assertEqual(peak['node_rss'], {'pid': 4242, 'bytes': 300 * 2**20, 'scope': matrix.NODE_RSS_SCOPE})
+        self.assertEqual(record['cache_estimate_bytes'], [500, 400, 800])
+        self.assertEqual(record['sample_count'], 3)
+        self.assertEqual(record['memory_events_delta'], {'max': 0, 'oom_kill': 0})
+
+    def test_missing_counters_and_process_read_unavailable_not_zero(self):
+        import check_lyrics_capacity as matrix
+        a, b, c, d = self.readings(matrix, [(1_000, {})])
+        with a, b, c, patch.object(matrix, 'process_rss', return_value=None), \
+             patch.object(matrix, 'memory_events', return_value={}):
+            progress = matrix.MeasurementProgress('t')
+            progress.sample()
+            record = progress.instrumentation()
+        peak = record['peak_sample']
+        self.assertEqual(peak['accounting'], 'cgroup-current')
+        self.assertTrue(all(v == 'unavailable' for v in peak['memory_stat'].values()))
+        self.assertEqual(peak['node_rss']['pid'], 'unavailable')
+        self.assertEqual(peak['node_rss']['bytes'], 'unavailable')
+        self.assertEqual(record['memory_events_delta'], 'unavailable')
+        self.assertEqual(record['mean_sample_interval_s'], 'unavailable')
+        self.assertEqual(record['cache_estimate_bytes'], [])
+        self.assertEqual(record['cache_estimate_unavailable_samples'], 1)
+
+    def test_fallback_readings_are_not_cache_estimates(self):
+        """A memory.stat without `file` or without `shmem` falls back to
+        resident = current; that zero must not enter the cache median."""
+        import check_lyrics_capacity as matrix
+        samples = [(1_000, {'file': 300, 'shmem': 50}), (1_100, {'shmem': 50}),
+                   (1_200, {'file': 400}), (1_050, {'file': 250, 'shmem': 50})]
+        a, b, c, d = self.readings(matrix, samples)
+        with a, b, c, d:
+            progress = matrix.MeasurementProgress('t')
+            for _ in samples:
+                progress.sample()
+            record = progress.instrumentation()
+        self.assertEqual(record['cache_estimate_bytes'], [250, 200])
+        self.assertEqual(record['cache_estimate_unavailable_samples'], 2)
+        self.assertEqual(record['sample_count'], 4)
+        # The gate's own conservative fallback is unchanged: 1_200 counted whole.
+        self.assertEqual(progress.resident_peak, 1_200)
+
+    def test_events_delta_never_assumes_a_zero_baseline(self):
+        from check_lyrics_capacity import events_delta
+        self.assertEqual(events_delta({'max': 2, 'low': 1}, {'max': 5, 'oom_kill': 1}),
+                         {'low': 'unavailable', 'max': 3, 'oom_kill': 'unavailable'})
+        self.assertEqual(events_delta({}, {'max': 1}), 'unavailable')
+        self.assertEqual(events_delta({'max': 1}, {}), 'unavailable')
+
+    def test_no_reading_records_no_peak_sample(self):
+        import check_lyrics_capacity as matrix
+        with patch.object(matrix, 'read', return_value=None):
+            progress = matrix.MeasurementProgress('t')
+            progress.sample()
+            self.assertEqual(progress.instrumentation()['peak_sample'], 'unavailable')
+            self.assertIsNone(progress.resident_peak)
+
+    def test_process_rss_reads_vmrss(self):
+        import check_lyrics_capacity as matrix
+        with patch.object(matrix, 'read', return_value='Name:\tnode\nVmRSS:\t  2048 kB\n'):
+            self.assertEqual(matrix.process_rss(7), 2048 * 1024)
+        with patch.object(matrix, 'read', return_value=None):
+            self.assertIsNone(matrix.process_rss(7))
+        self.assertIsNone(matrix.process_rss(None))
 
 
 class LeakSignature(unittest.TestCase):

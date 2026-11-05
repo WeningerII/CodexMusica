@@ -210,6 +210,39 @@ def resident_bytes(current=None, stat=None):
     return current, current, 'cgroup-current'
 
 
+#: memory.stat rows recorded beside the gated peak. They OVERLAP (`kernel`
+#: holds the slab rows and the stacks; `file` holds `shmem`), so they are a
+#: breakdown to read, never terms to add up.
+BREAKDOWN_ROWS = ('anon', 'file', 'shmem', 'file_mapped', 'kernel', 'kernel_stack',
+                  'pagetables', 'percpu', 'sock', 'slab', 'slab_reclaimable',
+                  'slab_unreclaimable')
+#: What `node_rss` measures, said once in the record so nobody adds it to the
+#: cgroup's figures: one process's own resident set, not its children's.
+NODE_RSS_SCOPE = 'VmRSS of the resident Node server process only; children excluded'
+
+
+def process_rss(pid):
+    """-> VmRSS bytes of one process from /proc, or None when unreadable."""
+    status = read(f'/proc/{pid}/status') if pid else None
+    for line in (status or '').splitlines():
+        if line.startswith('VmRSS:'):
+            parts = line.split()
+            if len(parts) >= 2 and parts[1].isdigit():
+                return int(parts[1]) * 1024
+    return None
+
+
+def events_delta(before, after):
+    """-> {row: after - before} for memory.events, or 'unavailable'.
+
+    A row missing from either reading has no delta: it reads 'unavailable',
+    never a number measured from an assumed zero."""
+    if not before or not after:
+        return 'unavailable'
+    return {key: after[key] - before[key] if key in before and key in after else 'unavailable'
+            for key in sorted(set(before) | set(after))}
+
+
 def write_result(path, result):
     path.parent.mkdir(parents=True, exist_ok=True)
     temp = path.with_suffix(path.suffix + '.tmp')
@@ -301,25 +334,85 @@ class MeasurementProgress:
     hold is a sampled quantity, at that cadence; the Python child's own
     peak is measured exactly by its rusage and gated separately.
     """
-    def __init__(self, identity):
+    def __init__(self, identity, node_pid=None):
         self.identity = identity
         self.started = self.last = time.monotonic()
         self.output_bytes = 0
         self.resident_peak = None
         self.accounting = None
         self.samples = 0
+        # INSTRUMENTATION ONLY (#656): nothing below is judged. The gated
+        # peak above is unchanged; these record what was in the cgroup at
+        # the very sample that set it, and every sample's cache estimate.
+        self.node_pid = node_pid
+        self.peak_sample = None
+        self.cache_samples = []
+        self.cache_missing = 0
+        self.last_sample_at = None
+        self.events_before = memory_events() or None
 
-    def sample(self):
-        resident, current, accounting = resident_bytes()
+    def sample(self, now=None):
+        current = cgroup_bytes('memory.current')
+        stat = memory_stat()
+        resident, current, accounting = resident_bytes(current=current, stat=stat)
         self.accounting = accounting
         if resident is not None:
             self.samples += 1
+            self.last_sample_at = time.monotonic() if now is None else now
+            # Only a reading that subtracted the cache estimates it. The
+            # `cgroup-current` fallback sets resident = current, and its
+            # zero is a missing counter, not an empty cache.
+            if accounting == 'current-minus-reclaimable-file':
+                self.cache_samples.append(current - resident)
+            else:
+                self.cache_missing += 1
+            if self.resident_peak is None or resident > self.resident_peak:
+                self.peak_sample = self.describe(resident, current, accounting, stat, self.last_sample_at)
             self.resident_peak = resident if self.resident_peak is None else max(self.resident_peak, resident)
         return resident, current
 
+    def describe(self, resident, current, accounting, stat, at):
+        """The cgroup as it stood at one sample; a counter it lacks says so."""
+        pid = self.node_pid() if callable(self.node_pid) else self.node_pid
+        rss = process_rss(pid)
+        peak = cgroup_bytes('memory.peak')
+        return {'elapsed_s': round(at - self.started, 3),
+                'utc': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
+                'resident_bytes': resident, 'current_bytes': current, 'accounting': accounting,
+                'cgroup_peak_bytes': peak if peak is not None else 'unavailable',
+                'memory_stat': {row: stat[row] if row in stat else 'unavailable' for row in BREAKDOWN_ROWS},
+                'node_rss': {'pid': pid if pid else 'unavailable',
+                             'bytes': rss if rss is not None else 'unavailable',
+                             'scope': NODE_RSS_SCOPE}}
+
+    def instrumentation(self):
+        """-> the per-execution record of the samples behind the gated peak."""
+        elapsed = (self.last_sample_at - self.started) if self.last_sample_at is not None else None
+        return {'peak_sample': self.peak_sample if self.peak_sample is not None else 'unavailable',
+                'sample_count': self.samples,
+                'sampled_seconds': round(elapsed, 3) if elapsed is not None else 'unavailable',
+                'mean_sample_interval_s': (round(elapsed / (self.samples - 1), 3)
+                                           if elapsed is not None and self.samples > 1 else 'unavailable'),
+                'cache_estimate_bytes': self.cache_samples,
+                'cache_estimate_unavailable_samples': self.cache_missing,
+                'memory_events_delta': events_delta(self.events_before, memory_events())}
+
+    def report_peak(self):
+        """One log line for the gated peak's sample, beside the activity lines."""
+        peak = self.peak_sample
+        if peak is None:
+            print(f'Capacity peak sample {self.identity}: unavailable', flush=True)
+            return
+        rows = ' '.join(f'{row}={value}' for row, value in peak['memory_stat'].items())
+        node = peak['node_rss']
+        print(f"Capacity peak sample {self.identity}: elapsed={peak['elapsed_s']}s "
+              f"resident_bytes={peak['resident_bytes']} current_bytes={peak['current_bytes']} "
+              f"cgroup_peak_bytes={peak['cgroup_peak_bytes']} {rows} "
+              f"node_rss_bytes={node['bytes']} node_pid={node['pid']} samples={self.samples}", flush=True)
+
     def emit(self, output, final=False):
         now = time.monotonic()
-        resident, current = self.sample()
+        resident, current = self.sample(now)
         if not final and now - self.last < 30:
             return
         raw = output.encode('utf-8') if isinstance(output, str) else (output or b'')
@@ -338,15 +431,149 @@ class MeasurementProgress:
         self.last = now
 
 
+#: The measured runtime's entry points. Everything they import from this
+#: repository is part of the identity (`source_closure`), so a change to any
+#: module the workload actually loads changes `source_sha256`.
+#: A HAND-PICKED LIST STOOD HERE (#612/#664, R-3): it named four lyric
+#: modules and missed `quality/grid.py` and eighteen others the verbs load,
+#: so the matrix could measure a changed workload under an unchanged identity.
+SOURCE_ENTRIES = (
+    'lyric-harness/lyric_harness.py', 'mcp/worker.py', 'scripts/measure_verb_memory.py',
+    'scripts/check_lyrics_capacity.py', 'scripts/lyrics_capacity_runtime.py',
+    'mcp/server_http.js', 'scripts/seed_lyrics_capacity_receipts.mjs',
+    'scripts/lyrics_capacity_server.mjs', 'scripts/lyrics_capacity_queue.mjs')
+#: Where the measured Python resolves its own imports: the harness directory
+#: is on sys.path for the verbs and the worker alike.
+PYTHON_ROOTS = ('lyric-harness', 'scripts', 'mcp')
+
+
+def _python_imports(path):
+    """-> the module names a Python file imports, at any depth (lazy imports
+    inside functions included), with relative imports made absolute."""
+    import ast
+    tree = ast.parse(path.read_text(encoding='utf-8'), filename=str(path))
+    package = None
+    for root in PYTHON_ROOTS:
+        try:
+            rel = path.relative_to(ROOT / root)
+        except ValueError:
+            continue
+        parts = list(rel.with_suffix('').parts)
+        package = parts[:-1] if parts[-1] != '__init__' else parts[:-1]
+        break
+    names = set()
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Import):
+            names.update(alias.name for alias in node.names)
+        elif isinstance(node, ast.ImportFrom):
+            if node.level:
+                if package is None:
+                    continue
+                base = package[:len(package) - (node.level - 1)] if node.level > 1 else package
+                stem = '.'.join(base + ([node.module] if node.module else []))
+            else:
+                stem = node.module or ''
+            if stem:
+                names.add(stem)
+            # `from quality import grid` imports the submodule quality.grid.
+            names.update(f'{stem}.{alias.name}' if stem else alias.name for alias in node.names)
+    return names
+
+
+def _resolve_python(name):
+    """-> repository files a dotted module name loads (its package
+    `__init__` files included), or [] for anything outside the repository."""
+    parts = name.split('.')
+    for root in PYTHON_ROOTS:
+        base = ROOT / root
+        found = []
+        for i in range(1, len(parts) + 1):
+            mod = base.joinpath(*parts[:i])
+            if (mod / '__init__.py').is_file():
+                found.append(mod / '__init__.py')
+            elif mod.with_suffix('.py').is_file() and i == len(parts):
+                found.append(mod.with_suffix('.py'))
+            elif i < len(parts) and not mod.is_dir():
+                break
+        if found and (found[-1].stem == parts[-1] or found[-1].name == '__init__.py'
+                      and found[-1].parent.name == parts[-1]):
+            return found
+    return []
+
+
+def _js_imports(path):
+    """-> repository files a JS module imports statically or by literal
+    dynamic import(); bare package specifiers are outside the repository."""
+    import re
+    text = path.read_text(encoding='utf-8')
+    specs = re.findall(r"""(?:\bfrom\s*|\bimport\s*\(\s*|\bimport\s+|\brequire\s*\(\s*)['"](\.{1,2}/[^'"]+)['"]""", text)
+    return {(path.parent / spec).resolve() for spec in specs}
+
+
+SCRIPT_PATH = r'[\w.\-/]+\.(?:py|js|mjs|cjs)'
+
+
+def _script_literals(path):
+    """-> repository files a module names as a whole string literal that is a
+    script path: what it launches as a subprocess or worker rather than
+    imports (runtime_assets.js runs 'quality/verify_capacity.py'; the
+    reader's Worker is new URL('./reader_source_worker.js'); python_bridge.js
+    spawns 'lyric_harness.py'). A literal resolves against the module's own
+    folder, each Python root (a launched script's working directory) and the
+    repository root; one that names no file there is not an edge. A quoted
+    literal that only cites a script (lyric_harness.py names the builders of
+    its label tables) also counts: that makes the identity stricter, never
+    weaker. Running prose is never a whole literal of this shape, and a
+    backticked mention is not a quoted literal."""
+    import re
+    text = path.read_text(encoding='utf-8')
+    if path.suffix == '.py':
+        import ast
+        literals = {node.value for node in ast.walk(ast.parse(text, filename=str(path)))
+                    if isinstance(node, ast.Constant) and isinstance(node.value, str)
+                    and re.fullmatch(SCRIPT_PATH, node.value)}
+    else:
+        literals = set(re.findall(rf"""['"]({SCRIPT_PATH})['"]""", text))
+    bases = [path.parent, *(ROOT / root for root in PYTHON_ROOTS), ROOT]
+    found = set()
+    for literal in literals:
+        for base in bases:
+            target = (base / literal).resolve()
+            if target.is_file() and ROOT in target.parents:
+                found.add(target)
+    return found
+
+
+def source_closure():
+    """-> sorted repository paths the measured runtime loads from its entry
+    points: the Python import closure (static, so imports inside functions
+    count), the relative JS import closure, and every script a member
+    launches by a literal path (`_script_literals`).
+
+    THIS IS REPOSITORY-MODULE IDENTITY, NOT DATA OR WORKLOAD IDENTITY. Files a
+    member reads as data are outside it, including the catalog modules
+    `scripts/_loader.js` evaluates from references/*.js with readFileSync and
+    new Function, and every data/ or corpus table. Two shards that agree on
+    this identity ran the same code, not necessarily the same inputs."""
+    seen, todo = set(), [ROOT / entry for entry in SOURCE_ENTRIES]
+    while todo:
+        path = todo.pop().resolve()
+        if path in seen or not path.is_file():
+            continue
+        seen.add(path)
+        if path.suffix == '.py':
+            for name in _python_imports(path):
+                todo.extend(_resolve_python(name))
+        elif path.suffix in ('.js', '.mjs', '.cjs'):
+            todo.extend(p for p in _js_imports(path) if ROOT in p.parents)
+        if path.suffix in ('.py', '.js', '.mjs', '.cjs'):
+            todo.extend(_script_literals(path))
+    return sorted(str(p.relative_to(ROOT)) for p in seen)
+
+
 def source_identity():
     import hashlib
-    return {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in (
-        'lyric-harness/lyric_harness.py', 'lyric-harness/quality/plan.py', 'lyric-harness/quality/revise.py',
-        'lyric-harness/quality/relations.py', 'mcp/server_http.js', 'mcp/job_store.js',
-        'mcp/run_store.js', 'mcp/state_codec.js', 'mcp/python_bridge.js', 'mcp/worker.py',
-        'scripts/measure_verb_memory.py', 'scripts/check_lyrics_capacity.py',
-        'scripts/lyrics_capacity_runtime.py', 'scripts/seed_lyrics_capacity_receipts.mjs',
-        'scripts/lyrics_capacity_server.mjs', 'scripts/lyrics_capacity_queue.mjs')}
+    return {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in source_closure()}
 
 
 def terminate_measurement(proc):
@@ -413,7 +640,9 @@ def main():
                 if mode == 'worker':
                     command += ['--worker', f"--rounds={LIMITS['worker_rounds']}"]
                 print(f'Capacity lines={size} seed={seed} mode={mode}', flush=True)
-                progress = MeasurementProgress(f'{size}/{seed}/{mode}')
+                progress = MeasurementProgress(
+                    f'{size}/{seed}/{mode}',
+                    node_pid=lambda: resident.child.pid if resident.child is not None else None)
                 proc = None
                 try:
                     remaining = deadline - time.monotonic()
@@ -476,6 +705,7 @@ def main():
                 # ride beside them, unjudged, so the record still shows
                 # what the kernel's own counter said.
                 boundary_resident, boundary_current = progress.sample()
+                progress.report_peak()
                 report['memory_trace'].append({
                     'lines': size, 'seed': seed, 'mode': mode,
                     'peak_bytes': progress.resident_peak,
@@ -483,7 +713,8 @@ def main():
                     'samples': progress.samples,
                     'accounting': progress.accounting,
                     'cgroup_peak_bytes': cgroup_bytes('memory.peak'),
-                    'cgroup_current_bytes': boundary_current})
+                    'cgroup_current_bytes': boundary_current,
+                    'instrumentation': progress.instrumentation()})
                 write_result(out, report)
         try:
             if report.get('resident_runtime', {}).get('startup_ok'):

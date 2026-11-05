@@ -48,6 +48,11 @@ jobs:
   # wall is claimed. CI retains its image smoke test and acceptance controls.
   capacity-matrix:
     uses: ./.github/workflows/capacity-matrix.yml
+    # The merge reads this run's attempts and artifacts to pick each shard's
+    # evidence (scripts/select_capacity_shards.py).
+    permissions:
+      contents: read
+      actions: read
 
   capacity-matrix-result:
     name: qualification-capacity-matrix

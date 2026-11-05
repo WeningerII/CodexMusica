@@ -365,6 +365,14 @@ EXEMPT_VOWEL_CHANGED = {
     ("I came to be here", "the sea I see"): {"assonance", "subtractive rhyme"},
 }
 
+#: RULED OUT, named: `mosaic rhyme` (2026-10-31, `MISSING.md` M-311 F1, R2's
+#: ruling #637 6545559338 / 6545666653). Main listed it on every one of the six
+#: one-syllable end rhymes above because the old rule excluded the overhang:
+#: any end rhyme with a word before it passed. Under the ruled rule the members
+#: are equal in syllables from the anchor and neither crosses a word boundary
+#: here, so the schema does not hold -- the ruling's target, not a loss.
+RULED_OUT = {"mosaic rhyme"}
+
 #: 2026-10-30: the G1 carve-out (`G1_MASKED`) is gone. `relations._bucket_key`
 #: (M-322 item 4) keyed mosaic rhyme's free run on its FIRST syllable while
 #: flush_right compares the LAST, so main found mosaic rhyme only where a
@@ -385,9 +393,11 @@ def test_listings_report_every_schema_some_reading_holds():
 
     for (a, b), main in MAIN_LISTS.items():
         held, open_, w = listed(a, b)
-        lost = set(main) - held
-        check(f"{a.split()[-1]}/{b.split()[-1]} lists every schema main lists",
-              not lost, f"lost {sorted(lost)}; held {sorted(held)}")
+        lost = set(main) - held - RULED_OUT
+        check(f"{a.split()[-1]}/{b.split()[-1]} lists every schema main lists "
+              f"(but the ruled-out mosaic)",
+              not lost and not (held & RULED_OUT),
+              f"lost {sorted(lost)}; held {sorted(held)}")
     for (a, b), gone in EXEMPT_VOWEL_CHANGED.items():
         held, _, _ = listed(a, b)
         check(f"{a.split()[-1]}/{b.split()[-1]} (exempt: NEAR is its own vowel) "
@@ -409,8 +419,16 @@ def test_listings_report_every_schema_some_reading_holds():
                                           "consonance"])
     held_my, _, _ = listed("what is it about", "my lights went out")
     # 2026-10-30: was "absent here, as on main" -- G1's witness, now fixed.
-    check("G1 fixed: with `my` (one reading) mosaic rhyme is held here, "
-          "where main misses it", "mosaic rhyme" in held_my, str(sorted(held_my)))
+    # 2026-10-31 (M-311 F1, R2's ruling): about ~ went out is a one-syllable
+    # end rhyme, never a mosaic. M-325's INDEXING fix (the key at the run's
+    # last unit) stands and is carried by a real mosaic, `window ~ thin
+    # dough`, whose run is keyed on its last syllable.
+    check("about/out is not a mosaic (R2's ruling); G1's indexing witness "
+          "moved to a real one", "mosaic rhyme" not in held_my,
+          str(sorted(held_my)))
+    held_mo, _, _ = listed("I looked out of my window", "I kneaded fresh thin dough")
+    check("G1 fixed: a real mosaic is listed from its last-syllable key "
+          "(window ~ thin dough)", "mosaic rhyme" in held_mo, str(sorted(held_mo)))
     # The consumers read the same listing.
     lines = ["I walked out in the night", "and saw the light"]
     cs = L.check_scheme(LEX, lines, "AA", DECL)

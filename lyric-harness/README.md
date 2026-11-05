@@ -12,10 +12,12 @@ this sentence said did not exist. There are two rosters, and which verb is on
 which side is MEASURED by `quality/test_verbs.py` §47 with the resources
 hidden, not declared here:
 
-- **~~26 of the 32~~ 27 of the 34 dispatched verbs never reach the slop floor**
-  (RE-COUNTED 2026-09-26: the dispatcher has 34 verbs; `recover` joined on
-  this side and `tryline` on the other — with `--seed=` and the resources
-  hidden it REFUSES at exit 2 for the tagger, measured) — `score`,
+- **~~26 of the 32~~ ~~27 of the 34~~ 28 of the 35 dispatched verbs never reach
+  the slop floor** (RE-COUNTED 2026-11-03: the dispatcher has 35 verbs;
+  `normalize-numbering` joined on this side — `quality/test_verbs.py` §47
+  measures it answering clean with the resources hidden. 2026-09-26: `recover`
+  joined on this side and `tryline` on the other — with `--seed=` and the
+  resources hidden it REFUSES at exit 2 for the tagger, measured) — `score`,
   `candidates`, `meter`, `scheme`, `chains`, `graph`, `plan` (and
   `plan --sweep`), `readability`, `relations`, `fit`, `grid`, `function`,
   `types`, `capacity` and the rest — and run on the standard library over
@@ -53,7 +55,12 @@ hidden, not declared here:
 - candidates: reverse index over ~~20k common words~~ the 50k-word
   `data/opensubtitles_en_50k.tsv` frequency table (the 20k list was refused
   2026-08-22; re-dated 2026-09-26), perfect/strong/slant tiers
-- ~~check_meter~~ `meter`: syllable count + strong-position agreement vs template
+- ~~check_meter~~ `meter`: syllable count + strong-position agreement vs template,
+  each stated with its limits (#677): every word's reading source (dictionary,
+  rule, guessed, declared or unknown), how far the comparison stays aligned
+  after a word with no reading, strong slots matched/compared/total, and the
+  basis line — first listed reading, function words demoted, primary and
+  secondary stress merged, weak positions not checked, no named meter
 - ~~check_scheme~~ `scheme`: full pairwise score matrix diffed against target letters —
   violations, cross-letter collisions, transitivity-defect triangle count
 - value flags: cliche_pair (30-pair seed list), shared_suffix (stem-checked),

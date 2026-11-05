@@ -5222,9 +5222,172 @@ def stress_string(sylls):
     return "".join("/" if s["stress"] in (1, 2) else "." for s in sylls)
 
 
+#: WHAT EVERY `check_meter` COMPARISON IS MADE ON (#677 b1), stated once and
+#: carried on each line's report so no number travels without its basis.
+METER_BASIS = {
+    "stress": ("the first listed reading of each word (from the dictionary, "
+               "a spelling rule, a guess or a declaration, as each word's "
+               "source says), function words demoted, primary and "
+               "secondary stress merged"),
+    "weak_positions": "not_checked",
+    "named_meter": "not_attempted",
+    "template": ("legacy reading: '/' is a strong position and every other "
+                 "character a weak one"),
+}
+
+
+def _stress_digits(phones):
+    return "".join(ph[-1] for ph in phones if ph[-1:] in ("0", "1", "2"))
+
+
+def _reading_provenance(reader, piece, phones, is_oov):
+    """-> (source, detail) for the reading `reader.transcribe_word(piece)`
+    returned. `source` is one of dictionary / rule / guessed / declared /
+    unknown, or `unclassified` when the reader took a path this function
+    cannot reproduce exactly -- every branch below re-derives the phones it
+    attributes and claims nothing on a mismatch."""
+    phones = list(phones)
+    if is_oov:
+        return "unknown", {}
+    choice = getattr(reader, "_pronunciation_choice", None)
+    if choice and list(choice.get("phones", ())) == phones:
+        return "declared", {}
+    variants = (reader.pronunciation_variants(piece)
+                if hasattr(reader, "pronunciation_variants") else [])
+    v2 = _scheme_of(reader) == "v2"
+    w = fold_apostrophes(normalise_word(piece) if v2 else piece).lower()
+    w = w.strip("'\"“”‘’.,;:!?()[]")
+    entries = getattr(reader, "entries", {})
+    if variants and list(variants[0]) == phones:
+        rows = [list(r) for r in entries.get(w, ())]
+        if phones in rows:
+            detail = {"index": rows.index(phones), "readings": len(variants)}
+            src = (reader.reading_source(w, phones)
+                   if hasattr(reader, "reading_source") else None)
+            detail["reading"] = ("cmudict" if src == "cmudict" else
+                                 f"accent-derived ({src[5:]})"
+                                 if src and src.startswith("rule:") else
+                                 "lexicon")
+            return "dictionary", detail
+        # Not a row: `pronunciation_variants` reduced `-ing` to `-in'`.
+        # Re-derive that reduction exactly, or claim nothing.
+        if w.endswith("in"):
+            for row in entries.get(w + "g", ()):
+                row = list(row)
+                if row[-2:] == ["IH0", "NG"] and row[:-1] + ["N"] == phones:
+                    return "rule", {"rule": "dropped g (-in')",
+                                    "from": w + "g"}
+        return "unclassified", {}
+    if not variants:
+        for suffix in ("'s", "s"):
+            base = w[: -len(suffix)]
+            if w.endswith(suffix) and base in entries:
+                b = list(entries[base][0])
+                if b + plural_s_tail(b) == phones:
+                    return "rule", {"rule": "plural", "from": base}
+        if w.endswith("'d"):
+            for cand in (w[:-2] + "ed", w[:-2] + "d"):
+                if cand in entries:
+                    if list(entries[cand][0]) == phones:
+                        return "rule", {"rule": "elision", "from": cand}
+                    break
+        if w.endswith("in") and (w + "g") in entries:
+            q = list(entries[w + "g"][0])
+            if q and q[-1] == "NG":
+                q[-1] = "N"
+            if q == phones:
+                return "rule", {"rule": "dropped g (-in')", "from": w + "g"}
+        if getattr(reader, "g2p_fallback", None) is not None:
+            return "guessed", {}
+    return "unclassified", {}
+
+
+def _meter_words(lex, text):
+    """-> one row per word piece of `text`, in reading order, or None when
+    the detail cannot be read on this reader (scheme v1) or does not add up
+    to exactly the stream `lex.transcribe` returns. Mirrors
+    `Lexicon.transcribe_tokens` piece for piece."""
+    scoped = lex.for_line(text) if hasattr(lex, "for_line") else lex
+    if _scheme_of(scoped) != "v2" or not hasattr(scoped, "transcribe_word"):
+        return None
+    words = line_tokens(text, getattr(scoped, "strip_parens", True), "v2")
+    rows, joined = [], []
+    for index, w in enumerate(words):
+        reader = scoped.for_token(index) if hasattr(scoped, "for_token") \
+            else scoped
+        pieces = (reader.word_pieces(w) if hasattr(reader, "word_pieces")
+                  else re.split(r"[-‑]", w))
+        for piece in pieces:
+            if not piece:
+                continue
+            p, is_oov = reader.transcribe_word(piece)
+            demoted = weak_token(reader, piece.lower(),
+                                 phrase_final=(index == len(words) - 1))
+            q = [re.sub(r"[12]$", "0", ph) for ph in p] if demoted else list(p)
+            source, detail = _reading_provenance(reader, piece, p, is_oov)
+            rows.append({"token": index + 1, "word": piece,
+                         "syllables": len(_stress_digits(p)),
+                         "lexical": _stress_digits(p),
+                         "stream": _stress_digits(q),
+                         "demoted": bool(demoted and _stress_digits(p)
+                                         != _stress_digits(q)),
+                         "source": source, **({"detail": detail}
+                                               if detail else {})})
+            joined.extend(q)
+    phones, _, _ = scoped.transcribe(text)
+    return rows if joined == list(phones) else None
+
+
+def _meter_honesty(entry, words, template):
+    """The additive, honest half of one `check_meter` line (#677 b1)."""
+    entry["basis"] = dict(METER_BASIS)
+    entry["words"] = words
+    if words is None:
+        entry["alignment"] = "unavailable"
+        return
+    unknown = [r for r in words if r["source"] == "unknown"]
+    entry["syllable_count"] = "lower_bound" if unknown else "exact"
+    if unknown:
+        first = unknown[0]["token"]
+        valid = sum(r["syllables"] for r in words if r["token"] < first)
+        entry["alignment"] = {"valid_through_token": first - 1,
+                              "valid_syllables": valid}
+    else:
+        valid = entry["syllables"]
+        entry["alignment"] = "exact"
+    if not template:
+        return
+    strong = [i for i, c in enumerate(template) if c == "/"]
+    compared = [i for i in strong if i < valid]
+    matched = [i for i in compared if entry["stress"][i] == "/"]
+    entry["strong_slots"] = {"total": len(strong), "compared": len(compared),
+                             "matched": len(matched)}
+    entry["strong_position_agreement_basis"] = (
+        "aligned" if not unknown else
+        f"misaligned after token {first - 1}: positions past it are shifted "
+        f"by the unread word, so the legacy value compares the wrong "
+        f"syllables there")
+    if not unknown:
+        entry["overhang"] = max(0, valid - len(template))
+        entry["missing_positions"] = max(0, len(template) - valid)
+    odd = sorted(set(template) - {"/", "."})
+    if odd:
+        entry["template_symbols_read_as_weak"] = odd
+
+
 def check_meter(lex, lines, template=None):
-    """template: string like './'*4 for iambic tetrameter ('.' weak, '/' strong).
-    Lexical stress is a proxy for scansion; monosyllables count as flexible."""
+    """template: a string like './'*4 for iambic tetrameter ('.' weak,
+    '/' strong; under the legacy reading any character but '/' is weak).
+
+    WHAT IS COMPARED, said plainly (#677 b1). Each line is read as the stream
+    of its words' FIRST listed readings, after function-word demotion, with
+    primary and secondary stress merged; `syllable_match` compares its length
+    and `strong_position_agreement` the template's strong positions only.
+    Weak positions are never compared and no named meter is recognised. A
+    word with no reading adds no syllables, so every later position shifts:
+    `alignment` and `strong_slots` say how far the comparison is valid, and
+    each word's `source` says where its reading came from. The legacy keys
+    keep their values; the new ones state their limits."""
     report = []
     for i, line in enumerate(lines):
         phones, words, oov = lex.transcribe(line)
@@ -5235,13 +5398,88 @@ def check_meter(lex, lines, template=None):
         if template:
             entry["target_syllables"] = len(template)
             entry["syllable_match"] = (len(sylls) == len(template))
-            # agreement over strong positions only (weak positions flexible)
+            # agreement over strong positions only (weak positions unchecked)
             agree = sum(1 for a, b in zip(ss, template) if b == "/" and a == "/")
             strongs = template.count("/")
             entry["strong_position_agreement"] = (
                 round(agree / strongs, 2) if strongs else None)
+        _meter_honesty(entry, _meter_words(lex, line), template)
         report.append(entry)
     return report
+
+
+def meter_basis_line():
+    """The one line that says what every `meter` comparison was made on."""
+    return ("  basis: " + METER_BASIS["stress"] + "; weak positions not "
+            "checked; named meter not attempted")
+
+
+def meter_report_lines(e):
+    """-> the human lines for one `check_meter` entry (#677 b1): what was
+    compared, how much of it, and every reading that did not come straight
+    from the dictionary. The legacy numbers are printed with their limits."""
+    n, t = e["syllables"], e.get("target_syllables")
+    if t is None:
+        label = f"{n} syl, no template"
+    elif e.get("syllable_count") == "lower_bound":
+        label = f"syllables partial: {n} read, {t} expected"
+    elif e.get("syllable_match"):
+        label = f"syllables ok: {n}/{t}"
+    else:
+        label = f"syllables BAD: {n} read, {t} expected"
+    align = e.get("alignment")
+    cut = align.get("valid_through_token") if isinstance(align, dict) else None
+    head = f"  L{e['line']} [{label}]  stress {e['stress']}"
+    slots = e.get("strong_slots")
+    if slots:
+        head += (f"  strong {slots['matched']}/{slots['compared']} matched "
+                 f"of {slots['total']}")
+        if cut is not None:
+            head += f" (compared through token {cut} only)"
+    out = [head]
+    if e.get("overhang"):
+        out.append(f"     {e['overhang']} syllable(s) past the template, "
+                   f"not compared")
+    if e.get("missing_positions"):
+        out.append(f"     {e['missing_positions']} template position(s) "
+                   f"with no syllable, not compared")
+    for w in e.get("words") or ():
+        src = w["source"]
+        d = w.get("detail", {})
+        if src == "unknown":
+            note = ("no reading; alignment stops before it"
+                    if w["token"] == (cut or 0) + 1 else "no reading")
+        elif src == "rule":
+            note = (f"rule-derived ({d.get('rule')}"
+                    + (f" of '{d['from']}'" if d.get("from") else "") + ")")
+        elif src == "guessed":
+            note = "guessed (no dictionary reading)"
+        elif src == "declared":
+            note = "declared reading"
+        elif src == "unclassified":
+            note = "reading source not classified"
+        else:
+            continue
+        out.append(f"     T{w['token']} '{w['word']}': {note}")
+    if e.get("words") is None:
+        out.append("     per-word readings unavailable on this reader")
+    if t is not None:
+        if cut is None:
+            out.append(f"     legacy strong-pos agreement "
+                       f"{e.get('strong_position_agreement')}")
+        else:
+            # The legacy number compares shifted positions past the unread
+            # word, so it is not printed here; it stays in the returned
+            # entry (`strong_position_agreement`) for compatibility only.
+            first = next((w for w in e.get("words") or ()
+                          if w["source"] == "unknown"), {})
+            out.append(f"     full-line strong-position agreement not "
+                       f"computed: alignment stops before token {cut + 1} "
+                       f"'{first.get('word', '?')}' (no reading)")
+    if e.get("template_symbols_read_as_weak"):
+        out.append("     template symbols read as weak positions: "
+                   + " ".join(e["template_symbols_read_as_weak"]))
+    return out
 
 
 # ---------------------------------------------------------------------------
@@ -7549,7 +7787,7 @@ commands (the fifteen spine verbs):
   declaration             print the active declaration
   score  W1 -- W2         graded pair score with sub-scores
   candidates W [n]        ranked rhyme candidates
-  meter  'template' L...  meter check ('.'=weak '/'=strong)
+  meter  'template' L... [--strict[=initial_inversion]]  meter check ('/'=strong, any other character weak; strong slots only, with each reading's source); --strict also compares every position, weak ones included (quality/meter_strict.py)
   scheme SCHEME L1 L2 ... scheme check, e.g. AABB
                           [--profile full|assonance|rawi] (or --profile=,
                           either position) REBINDS THE CHANNEL WEIGHTS every
@@ -10885,7 +11123,21 @@ def main():
 
     elif cmd == "meter":
         template = args[1]
-        lines = args[2:]
+        # `--strict` (#677 b2): ALSO compare every position, weak ones
+        # included, with `quality/meter_strict.py`. `--strict=initial_inversion`
+        # declares the one supported variation. The strong-only report and
+        # its exit code are unchanged; the strict verdict is added beneath.
+        strict_flags = [a for a in args[2:]
+                        if a == "--strict" or a.startswith("--strict=")]
+        lines = [a for a in args[2:] if a not in strict_flags]
+        strict_policy = None
+        if len(strict_flags) > 1:
+            _refuse("meter takes --strict at most once")
+        if strict_flags and "=" in strict_flags[0]:
+            strict_policy = strict_flags[0].split("=", 1)[1]
+            if strict_policy != "initial_inversion":
+                _refuse(f"meter --strict has no policy {strict_policy!r}. It "
+                        f"takes: --strict, --strict=initial_inversion")
         # ZERO LINES ITERATED ZERO TIMES AND THE VERB FELL OFF THE END —
         # exit 0, stdout empty, stderr empty, which a caller in a pipeline
         # reads as "meter checked, nothing wrong" (doctrine 20). A verb whose
@@ -10894,7 +11146,8 @@ def main():
         # AND AN UNRECOGNISED FLAG WAS SCORED AS A LINE OF VERSE. `meter`
         # declares no flags at all, so every `--token` in the line list is a
         # mistake, and it was measured as one syllable of sung text.
-        _no_unknown_flags_or_refuse(lines, ("(none — meter takes no flags)",),
+        _no_unknown_flags_or_refuse(lines, ("--strict",
+                                            "--strict=initial_inversion"),
                                     "meter")
         if not lines:
             _refuse("meter was given a TEMPLATE and no lines to check it "
@@ -10903,13 +11156,19 @@ def main():
                             "every line of this verb's output is per-line, "
                             "so an empty draft produces an empty report that "
                             "is indistinguishable from a clean one."])
+        if strict_flags:
+            from quality import meter_strict as MS
         for e in check_meter(lex, lines, template):
-            mark = "ok " if e.get("syllable_match") else "BAD"
-            print(f"  L{e['line']} [{mark}] {e['syllables']} syl "
-                  f"(target {e.get('target_syllables')})  "
-                  f"stress {e['stress']}  "
-                  f"strong-pos agreement {e.get('strong_position_agreement')}"
-                  + (f"  OOV:{e['oov']}" if e["oov"] else ""))
+            for row in meter_report_lines(e):
+                print(row)
+            if strict_flags:
+                for row in MS.report_lines(
+                        MS.from_entry(e, template, policy=strict_policy)):
+                    print(row)
+        print(meter_basis_line())
+        if strict_flags:
+            print("  strict basis: " + MS.BASIS)
+            print("  strict source: " + MS.B1_SOURCE)
 
     elif cmd == "internal":
         picked, nA, _ = internal_matches(lex, " ".join(args[1:]), decl)
@@ -12895,6 +13154,8 @@ def main():
             print(f"  REFUSED {r.code}: {r.message}")
             if getattr(r, "evidence", ""):
                 print(f"      {r.evidence}")
+        for row in GR.contrast_lines(rep.get("contrast")):
+            print(f"  {row}")
         for fn, rets in rep["returns"].items():
             for a, b, ret in rets:
                 print(f"  -- {fn}: {a.name} -> {b.name}")
@@ -15895,9 +16156,9 @@ def main():
         for e in check_meter(lex, ["The river took the bridge at dawn",
                                    "a broken analytical excuse"],
                              "./" * 4):
-            print(f"  L{e['line']} {e['syllables']} syl target 8  "
-                  f"stress {e['stress']}  "
-                  f"agreement {e['strong_position_agreement']}")
+            for row in meter_report_lines(e):
+                print(row)
+        print(meter_basis_line())
     else:
         # WAS EXIT 0. An unrecognised verb printed one line and returned
         # SUCCESS, so a pipeline could not tell `lyric_harness.py schme ...`

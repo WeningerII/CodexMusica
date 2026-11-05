@@ -692,13 +692,23 @@
   outline-offset: var(--cm-focus-offset);
 }
 .gp-detail-place {
+  /* Optional geo must not move the tabs while a pointer is pressed. */
+  height: 1.5em;
+  line-height: 1.5;
+  min-width: 0;
   display: flex;
   align-items: center;
   gap: 6px;
   color: var(--cm-text-secondary);
   font-size: var(--cm-text-sm);
 }
+.gp-detail-place span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .gp-detail-place svg {
+  flex-shrink: 0;
   color: var(--cm-route-map);
 }
 .gp-crumbs {
@@ -1237,6 +1247,26 @@
   }
   .gp-axis input {
     height: 44px;
+  }
+  /* Two reserved lines: every place name but one fits, and the height is set
+     before the name arrives, so the tabs still never move (#656 item 7). */
+  .gp-detail-place {
+    height: 3em;
+  }
+  .gp-detail-place span {
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  .gp-detail-place[role='button'] span {
+    text-decoration: underline dotted;
+  }
+  .gp-detail-place[aria-expanded='true'] {
+    height: auto;
+  }
+  .gp-detail-place[aria-expanded='true'] span {
+    -webkit-line-clamp: none;
   }
 }
 /* Glyphs in a wide box (list rows) are sized by its height and shown whole;

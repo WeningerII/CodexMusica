@@ -1672,6 +1672,18 @@ class Reviser:
             pairs = [p for p in pairs if p[2] in _only_groups]
         refusals = refusals_for_pairs(records, sorted({(i - 1, j - 1)
                                                        for i, j, _ in pairs}))
+
+        def _unread_on(i, j):
+            # The words the reader could not read on either line of a pair
+            # (`line_readability`'s `unreadable`, every token, not only the
+            # end word). Only a refusal whose own cause is an unread member
+            # carries them (Jony, #687: a placement or declaration refusal
+            # does not blame a word, so `Refusal` / `RelationRefused` keep
+            # []), so the row names the word it blames
+            # instead of `unreadable: []` (#656 item 4). An empty list still
+            # means no unread word on either line; it never moves a verdict.
+            return list(dict.fromkeys(
+                w for ln in (i, j) for w in records[ln - 1]["unreadable"]))
         # M-149(b): THE SKIP SET IS KEYED PER (PAIR, GROUP), NEVER PER PAIR.
         # It held bare `(i, j)` keys, so a refusal minted while judging ONE
         # group's reading of a pair silenced every sibling group's DIFFERENT
@@ -2181,7 +2193,7 @@ class Reviser:
                         refusals.append({
                             "lines": (i, j),
                             "endwords": (ew_i, ew_j),
-                            "unreadable": [],
+                            "unreadable": _unread_on(i, j),
                             "groups": [m.labels[k]],
                             "reason": (f"the declared relation {want!r} has no "
                                        f"coordinates in this pair (a member the "
@@ -2220,7 +2232,8 @@ class Reviser:
                         refusals.append({
                             "lines": (i, j),
                             "endwords": (ew_i, ew_j),
-                            "unreadable": [],
+                            "unreadable": ([] if _by_readings
+                                           else _unread_on(i, j)),
                             # The scalar refusals get their "groups" annotated
                             # in one pass above, BEFORE this loop runs — a
                             # record minted here must carry its own or the

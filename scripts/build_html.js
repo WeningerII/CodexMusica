@@ -227,12 +227,12 @@ const workbenchCss = fs.readFileSync(path.join(SRC, 'workbench.css'), 'utf8');
 // The four pages, in navigation order. Each registers itself with the shell
 // (src/workbench.js) and owns only its own surface; docs/ui-foundation.md
 // names the owner of every file. Page styles load after the shell's.
-// The native Library tab (docs/library-native-design.md) ships dark: only a
-// build with CODEX_LIBRARY=1 (CI's flagged build) registers its route, inlines
-// its stub page and emits its chunks. A default build is byte-identical to one
-// without any of it.
-// On by default since the cutover; CODEX_LIBRARY=0 builds the page without it
-// (the base the Library's growth and boot-equality gates compare against).
+// The native Library tab (docs/library-native-design.md) is ON BY DEFAULT since
+// the cutover: a default build registers its route, inlines its stub page and
+// emits its chunks (`--library` forces it on too). CODEX_LIBRARY=0 builds the
+// page without any of it, byte-identical to the pre-Library page — the base the
+// Library's growth and boot-equality gates compare against. (This comment once
+// said the reverse: "ships dark", "only CODEX_LIBRARY=1".)
 const LIBRARY = process.env.CODEX_LIBRARY !== '0' || !!flags.library;
 const PAGES = ['genre', 'instrument', 'map', 'lyrics', ...(LIBRARY ? ['library'] : [])];
 const pageFile = (name, ext) => fs.readFileSync(path.join(SRC, 'pages', name + ext), 'utf8');
@@ -278,16 +278,16 @@ if (enginePreloadJs.split("'ENGINE_URL'").length !== 2) {
   console.error("build_html: src/engine_preload.js must name 'ENGINE_URL' exactly once");
   process.exit(5);
 }
-// Flagged Library builds only (CODEX_LIBRARY=1). The boot index's preload
-// becomes src/boot_preload.js (the same element, except on a #library route),
-// and src/library_preload.js follows the engine preload, asking from <head> for
-// what the tab draws first on a #library route. The marker shares the engine
-// preload's line, so a default build, which replaces it with nothing, is byte
-// for byte what it was.
+// Library builds only (the default; not CODEX_LIBRARY=0). The boot index's
+// preload becomes src/boot_preload.js (the same element, except on a #library
+// route), and src/library_preload.js follows the engine preload, asking from
+// <head> for what the tab draws first on a #library route. The marker shares
+// the engine preload's line, so a build without the Library (CODEX_LIBRARY=0),
+// which replaces it with nothing, is byte for byte what it was.
 const LIBRARY_PRELOAD_MARKER = '<!--@LIBRARY_PRELOAD-->';
-// The flagged build's engine preload skips #library routes, which draw no
-// cards before the Library (src/engine_preload.js says so). Inserted here so
-// the default build's script stays byte for byte as it is.
+// A Library build's engine preload skips #library routes, which draw no cards
+// before the Library (src/engine_preload.js says so). Inserted here so a build
+// without the Library keeps its script byte for byte as it is.
 const ENGINE_TRY = '  try {\n    var text =';
 function libraryRouteTest(js) {
   if (js.split(ENGINE_TRY).length !== 2)
@@ -580,6 +580,24 @@ function _cardDescriptorSet(card) {
 }
 `;
 
+// The environment-card rule — inlined from the single source
+// scripts/_recipe_stack.js (its one @inline region: hasEnvironment + envCardOf),
+// so the page picks the environment card with exactly the text the Node
+// renderer, the connector and the workspace ops run. First runtime block,
+// before src/app.js and src/workbench.js, which call it.
+const ecSource = fs.readFileSync(path.join(__dirname, '_recipe_stack.js'), 'utf8');
+const ecMatch = ecSource.match(/\/\* @inline-start[^\n]*\*\/\n([\s\S]*?)\n\/\* @inline-end \*\//);
+if (!ecMatch) {
+  console.error(
+    'build_html: could not find @inline-start/@inline-end markers in scripts/_recipe_stack.js'
+  );
+  process.exit(5);
+}
+const ENV_CARD_SNIPPET = `
+// ─────────── Environment-card rule — single source: scripts/_recipe_stack.js ───────────
+${ecMatch[1]}
+`;
+
 // ──────────────────────────── runtime blocks ────────────────────────────
 // The application, one <script> per source module, in the order they were
 // once concatenated into a single `runtime` block. That block reached 988 KiB
@@ -619,11 +637,20 @@ if (LIBRARY) {
   const inline = [];
   for (const file of fs
     .readdirSync(path.join(SRC, 'library'))
-    .filter((f) => f.endsWith('.js'))
+    .filter((f) => f.endsWith('.js') && f !== 'connection-adapter.js')
     .sort()) {
     const name = file.slice(0, -3);
+    const prelude =
+      name === 'analysis'
+        ? fs.readFileSync(path.join(SRC, 'connection-interaction.js'), 'utf8') +
+          '\n' +
+          fs.readFileSync(path.join(SRC, 'connection-families.js'), 'utf8') +
+          '\n' +
+          fs.readFileSync(path.join(SRC, 'library/connection-adapter.js'), 'utf8') +
+          '\n'
+        : '';
     const code = squeeze(
-      `CMLibraryDefine(${JSON.stringify(name)}, function () {\n${fs.readFileSync(path.join(SRC, 'library', file), 'utf8')}\n});`,
+      `CMLibraryDefine(${JSON.stringify(name)}, function () {\n${prelude}${fs.readFileSync(path.join(SRC, 'library', file), 'utf8')}\n});`,
       // Factories are runtime code: shorten their private local bindings with
       // the same policy as inline runtime scripts. Public globals, property
       // keys and function/class names stay intact; hashes cover final bytes.
@@ -651,8 +678,8 @@ if (LIBRARY) {
 }
 const RUNTIME_MODULES = [
   {
-    label: 'runtime: scripts/_merge.js + scripts/_card_descriptors.js',
-    code: FAMILY_PARTS_MERGE_SNIPPET + CARD_DESCRIPTORS_SNIPPET,
+    label: 'runtime: scripts/_merge.js + scripts/_card_descriptors.js + scripts/_recipe_stack.js',
+    code: FAMILY_PARTS_MERGE_SNIPPET + CARD_DESCRIPTORS_SNIPPET + ENV_CARD_SNIPPET,
   },
   { label: 'runtime: src/layout.js', code: layoutJs },
   {

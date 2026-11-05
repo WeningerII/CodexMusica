@@ -143,6 +143,9 @@ function scriptClosure() {
   //   _engine_codec.js     — the codec api/engine.json writes the two render
   //                          tables with; its @inline region is read as text,
   //                          digested (codecSha) and inlined into the lazy page
+  //   _recipe_stack.js     — build_html.js reads its @inline region (the
+  //                          environment-card rule, hasEnvironment + envCardOf)
+  //                          as text into the page's first runtime block (#662)
   //
   // This list is short and hand-written, which would normally be the weak point.
   // It is not, because check_build_closure.js traces a real build and fails on
@@ -153,6 +156,7 @@ function scriptClosure() {
     'scripts/_compile_worker.js',
     'scripts/_card_descriptors.js',
     'scripts/_engine_codec.js',
+    'scripts/_recipe_stack.js',
   ]) {
     if (fs.existsSync(path.join(ROOT, extra))) seen.add(extra);
   }

@@ -1,4 +1,4 @@
-/* global uiMotion, CODEX_DEFER_BOOT, UI, UI_ICONS, UI_PAGES, UILayout, uiAddGenre, uiAfterPaint, uiChatSessions, uiLyricsOpened, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
+/* global envCardOf, uiMotion, CODEX_DEFER_BOOT, UI, UI_ICONS, UI_PAGES, UILayout, uiAddGenre, uiAfterPaint, uiChatSessions, uiLyricsOpened, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
 /* exported INSTRUMENT_FILTER_PILLS, RECIPE_FORMATS, STARTER_TRADITIONS, addInstrumentFromPicker, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, passesInstrumentFilter, surpriseTradition, lyricMetaOf, _chatSend, uiEnsureWorkspace, _whenWorkspace, _releaseEngine, searchRank */
 
 
@@ -2611,29 +2611,10 @@ function buildStackParts(card) {
   });
   return out;
 }
-// WHICH card the one rendered environment comes from. Byte-mirror of
-// envCardOf in scripts/_recipe_stack.js — see that copy for the full note.
-//
-// Every format carries the environment exactly once and every one of them used
-// to read cards[0] unconditionally. That is right whenever cards[0] has an
-// environment, and silently wrong when it doesn't: a card built outside a
-// tradition has none (importTradition seeds one shared env across a tradition's
-// cards; a bare instrument card gets null tuning, null room, empty chain), and
-// adding a tradition APPENDS, so a bare instrument added first sits at index 0
-// forever. Start from one instrument, add a genre, and the recipe renders no
-// tuning, no room and none of the seven chain stages while the header still
-// names the genre.
-//
-// First card that HAS an environment, and that card's environment WHOLE — not a
-// field-by-field merge, which would render a combination no card actually
-// holds. Can only ADD environment to renders that had none, so existing recipe
-// bytes are unchanged.
-function envCardOf(cards) {
-  if (!cards || !cards.length) return null;
-  const has = (c) => !!c && (c.tuning || c.room ||
-    Object.values(c.chain || {}).some(v => Array.isArray(v) ? v.length > 0 : !!v));
-  return cards.find(has) || cards[0];
-}
+// WHICH card the one rendered environment comes from: envCardOf (and its
+// predicate hasEnvironment) are defined once, in scripts/_recipe_stack.js's
+// @inline region, which build_html.js inlines into the page's first runtime
+// block ahead of this file. See that region for the rule and why (#662).
 function compileStack(card, format) {
   const parts = buildStackParts(card);
   if (parts.length === 0) return '';
@@ -18160,6 +18141,13 @@ function _renderBootError(err) {
   const host = document.getElementById('boot-status') || document.body;
   host.setAttribute('role', 'alert');
   const engine = !!(err && (err.engine || err.name === 'EngineNotReadyError'));
+  // Opened from disk, fetch() is refused for the file scheme: the network is
+  // not the cause and Reload cannot help, so say what can (#660).
+  if (location.protocol === 'file:') {
+    host.innerHTML =
+      '<div class="empty-state" id="boot-error"><p>Opened from a file, this page can’t load its data. Use codexmusica.com, or run python3 -m http.server here.</p></div>';
+    return;
+  }
   host.innerHTML =
     '<div class="empty-state" id="boot-error"' + (engine ? ' data-engine-pending="failed"' : '') + '>' +
     (engine
@@ -18494,10 +18482,23 @@ function getTreeNode(id) {
 function tradParent(tradId) {
   return Catalog.ext(tradId)?.parent || null;
 }
+// Browse-tree index (#663 A1): each parent's [tree nodes, traditions] in
+// TREE_NODES / Catalog.all() order. A leaf count is a parent's traditions plus
+// its child nodes' counts, walked over the index. Parents are set only at
+// catalog boot, so it is rebuilt only when the catalog list is replaced or
+// either list changes length.
+let _tIdx = null;
+function treeIndex() {
+  const all = Catalog.all(), n = all.length + ':' + TREE_NODES.length;
+  if (_tIdx?.all === all && _tIdx.n === n) return _tIdx;
+  const k = new Map(), at = (p) => k.get(p) || k.set(p, [[], []]).get(p);
+  for (const t of TREE_NODES) at(t.parent)[0].push(t);
+  for (const t of all) at(tradParent(t.id))[1].push(t);
+  return (_tIdx = { all, n, k });
+}
 function getChildren(nodeId) {
-  const internal = TREE_NODES.filter(n => n.parent === nodeId);
-  const leaves = Catalog.all().filter(t => tradParent(t.id) === nodeId);
-  return [...internal, ...leaves];
+  const e = treeIndex().k.get(nodeId);
+  return e ? e[0].concat(e[1]) : [];
 }
 function getCrossRefLeaves(nodeId) {
   return Catalog.all().filter(t => {
@@ -18511,17 +18512,8 @@ function getRoots() {
   return TREE_NODES.filter(n => n.parent === null);
 }
 function countDescendantLeaves(nodeId) {
-  let count = 0;
-  const stack = [nodeId];
-  while (stack.length) {
-    const id = stack.pop();
-    const kids = getChildren(id);
-    kids.forEach(k => {
-      if (TREE_NODES.some(n => n.id === k.id)) stack.push(k.id);
-      else count++;
-    });
-  }
-  return count;
+  const e = treeIndex().k.get(nodeId);
+  return e ? e[0].reduce((s, t) => s + countDescendantLeaves(t.id), e[1].length) : 0;
 }
 function getAncestorPath(tradId) {
   const path = [];

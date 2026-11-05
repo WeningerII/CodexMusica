@@ -15,7 +15,7 @@
 // - evidence renders only after a fresh 200 from GET /jobs/:id on every
 //   activation (mount, evidence-lens switch, return to a tab hidden > 60 s);
 //   a 404 or 410 drops that job's pages at once.
-/* global CMLyricTokens, esc, icon, showToast, uiDownload, uiEmptyState, uiTabIndex, libraryAnnounce */
+/* global CMLyricTokens, CMConnectionInteraction, _connectionModel, _connectionComplete, libraryChunk, esc, icon, showToast, uiDownload, uiEmptyState, uiTabIndex, libraryAnnounce */
 'use strict';
 
 // lyric-harness quality/narrative.py grammar (sites/library/lib/declaration-options.json).
@@ -152,6 +152,12 @@ async function failFrom(response) {
   });
   return error;
 }
+// A job paused STALE_READING cannot resume: the server refuses any resume
+// whose source, declarations or engine/resource identity differ
+// (reader_job_store.js resume()), which covers a changed reading and a
+// release that changed the analyzer alike (Jony, #726).
+const STALE_JOB =
+  'This analysis was started on an earlier version of the reading or the analyzer, so it can’t resume. Start a new whole-work analysis.';
 // An unclassified failure (a 5xx, no answer at all, or a bare transport
 // message such as "Library service 503") does not show what the server
 // admitted: a POST /analyses may have started a job, and a poll's job still
@@ -1413,11 +1419,74 @@ function mount(container, input) {
     inspected: null,
   };
   let alive = true;
+  let connections = null,
+    connectionJob = null,
+    connectionIdentity = null,
+    connectionGeneration = 0;
   let pollTimer = null;
   let pollStarted = 0;
   let hiddenAt = 0;
   container.innerHTML = `<div class="la-root" aria-busy="true">${uiEmptyState({ title: 'Loading analysis tools…' })}</div>`;
   const root = container.firstElementChild;
+
+  function clearConnections() {
+    connectionGeneration++;
+    connections?.destroy();
+    connections = null;
+    connectionJob = null;
+    root.querySelector('[data-slot="connections"]')?.replaceChildren();
+  }
+  async function drawConnections() {
+    if (!alive || st.lens !== 'sound' || !st.authorized || !mem.report) {
+      clearConnections();
+      return;
+    }
+    const job = mem.job.id;
+    if (connectionJob && connectionJob !== job) clearConnections();
+    let generation = ++connectionGeneration;
+    try {
+      const [views, bindings, marks] = await Promise.all(
+        ['connection-views', 'connection-bindings', 'marks'].map(libraryChunk)
+      );
+      if (!alive || generation !== connectionGeneration || !st.authorized || mem.job?.id !== job)
+        return;
+      const adapted = _connectionModel(CMConnectionInteraction, {
+        records: st.resolved,
+        registry: st.registry,
+        report: mem.report,
+        complete: _connectionComplete(
+          mem.report,
+          mem.records.length,
+          mem.offset,
+          mem.next,
+          st.pending.length
+        ),
+      });
+      const identity = job + ':' + adapted.current.analysisIdentity;
+      const resetAddress = connectionIdentity !== null && connectionIdentity !== identity;
+      if (resetAddress) {
+        clearConnections();
+        generation = connectionGeneration;
+      }
+      if (connections) connections.update(adapted);
+      else
+        connections = bindings.mount(slot('connections'), {
+          ...adapted,
+          resetAddress,
+          ci: CMConnectionInteraction,
+          marks,
+          createViews: views.createViews,
+        });
+      connectionJob = job;
+      connectionIdentity = identity;
+    } catch {
+      if (alive && generation === connectionGeneration) {
+        clearConnections();
+        slot('connections').textContent =
+          'Connection views unavailable. Verified evidence remains below.';
+      }
+    }
+  }
 
   const fail = (e) => {
     const p = e?.problem || problemOf(e);
@@ -1426,6 +1495,7 @@ function mount(container, input) {
     draw();
   };
   function lose(status) {
+    clearConnections();
     // Drop the job's in-memory evidence at once; keep only declarations.
     st.lost = status === 404 ? 'session' : 'expired';
     st.authorized = false;
@@ -1436,7 +1506,9 @@ function mount(container, input) {
     stopPoll();
   }
   async function rehydrate() {
-    const result = await hydrateEvidence(mem.records);
+    const records = mem.records;
+    const result = await hydrateEvidence(records);
+    if (!alive || records !== mem.records) return;
     st.resolved = result.records;
     st.pending = result.pending;
   }
@@ -1444,9 +1516,11 @@ function mount(container, input) {
   async function authorize() {
     if (!mem.job) return;
     st.authorized = false;
+    clearConnections();
+    const id = mem.job.id;
     try {
-      const data = await api.job(mem.job.id);
-      if (!alive) return;
+      const data = await api.job(id);
+      if (!alive || mem.job?.id !== id) return;
       mem.job = data.job;
       st.authorized = true;
       st.lost = false;
@@ -1700,12 +1774,12 @@ function mount(container, input) {
       ${
         j
           ? `<div class="la-row">
-          ${['paused', 'cancelled', 'failed'].includes(j.state) ? `<button type="button" class="cm-btn cm-btn-outline" data-act="resume" ${st.busy || j.deferred_requeue ? 'disabled' : ''}>Resume</button>` : ''}
+          ${['paused', 'cancelled'].includes(j.state) && j.reason?.code !== 'STALE_READING' ? `<button type="button" class="cm-btn cm-btn-outline" data-act="resume" ${st.busy || j.deferred_requeue ? 'disabled' : ''}>Resume</button>` : ''}
           ${['running', 'queued'].includes(j.state) ? `<button type="button" class="cm-btn cm-btn-outline" data-act="cancel" ${st.busy ? 'disabled' : ''}>Cancel</button>` : ''}
           <button type="button" class="la-link" data-act="delete" ${st.busy ? 'disabled' : ''}>Delete analysis</button></div>`
           : ''
       }
-      ${j?.reason ? render(j.reason) : ''}
+      ${j?.reason?.code === 'STALE_READING' ? `<p class="la-note">${STALE_JOB}</p>` : j?.reason ? render(j.reason) : ''}
       ${
         evidenceVisible() &&
         j.manifest_hash &&
@@ -1881,7 +1955,7 @@ function mount(container, input) {
   // Slots redraw independently: a poll redraws status (and main when the
   // evidence changed) without touching an open declarations editor.
   root.innerHTML =
-    '<div data-slot="tabs"></div><div data-slot="status"></div><div data-slot="decl"></div><div data-slot="main"></div><div data-slot="ref"></div>';
+    '<div data-slot="tabs"></div><div data-slot="status"></div><div data-slot="decl"></div><div data-slot="connections"></div><div data-slot="main"></div><div data-slot="ref"></div>';
   root.removeAttribute('aria-busy');
   const slot = (name) => root.querySelector(`[data-slot="${name}"]`);
   // The status lines a listener needs to hear when they CHANGE: the job's
@@ -1925,13 +1999,22 @@ function mount(container, input) {
       announceStatus();
     }
     if (which.includes('main')) slot('main').innerHTML = mainHTML();
+    if (which.includes('main')) drawConnections();
     const now = document.activeElement;
     if (held && (!now || now === document.body || !now.isConnected)) {
       const next = [...root.querySelectorAll(`[data-act="${held.act}"]`)].find(
         (el) => (el.dataset.id || '') === held.id
       );
       if (next && !next.disabled) (next.focus(), (held = null));
-      else if (!st.busy) held = null;
+      else if (!st.busy) {
+        if (held.act === 'more' || held.act === 'latest') {
+          const heading = slot('main')
+            .querySelector('.la-cards')
+            ?.parentElement.querySelector('h2');
+          if (heading) ((heading.tabIndex = -1), heading.focus());
+        }
+        held = null;
+      }
     } else held = null;
     if (which.includes('decl')) {
       slot('decl').innerHTML = '';
@@ -2119,6 +2202,7 @@ function mount(container, input) {
     },
     destroy() {
       alive = false;
+      clearConnections();
       stopPoll();
       document.removeEventListener('visibilitychange', onVisibility);
       if (LIVE === handle) LIVE = null;

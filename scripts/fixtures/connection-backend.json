@@ -1,0 +1,988 @@
+{
+  "records": [
+    {
+      "id": "line:0ef2824451697f33d35f5e5f153c694f",
+      "kind": "line",
+      "method_id": "coordinates",
+      "basis": "measured",
+      "line_id": "line:0",
+      "text": "watch woods",
+      "source_ranges": [
+        { "codepoint_range": [0, 11], "utf16_range": [0, 11], "precision": "exact" }
+      ],
+      "status": "",
+      "excluded": false,
+      "normalized_cp_range": [0, 11]
+    },
+    {
+      "id": "token:3cd290d253805b778428fe656ae8b7fe",
+      "kind": "token",
+      "method_id": "coordinates",
+      "basis": "measured",
+      "token_id": "line:0:token:0",
+      "line_id": "line:0",
+      "token": 0,
+      "text": "watch",
+      "source_ranges": [
+        {
+          "codepoint_range": [0, 5],
+          "utf16_range": [0, 5],
+          "physical_line": null,
+          "precision": "exact"
+        }
+      ],
+      "normalized_range": { "codepoint_range": [0, 5], "utf16_range": [0, 5] },
+      "unit_ids": ["syllable:0"],
+      "readable": true,
+      "reading_status": "merged",
+      "reading_note": "syllable 0 undecided on nucleus",
+      "reading_choices": {
+        "line": "watch woods",
+        "token": 1,
+        "word": "watch",
+        "numbering": "v2+voices",
+        "dictionary_readings": [
+          { "phones": ["W", "AA1", "CH"], "syllables": 1, "stress": [1] },
+          { "phones": ["W", "AO1", "CH"], "syllables": 1, "stress": [1] },
+          { "phones": ["W", "OO1", "CH"], "syllables": 1, "stress": [1] }
+        ],
+        "requires_source": true,
+        "supplied_reading_requires_source": false,
+        "matching_line_ids": ["line:0"]
+      }
+    },
+    {
+      "id": "token:fcc6fc064059cce862dbd5c25ccb0090",
+      "kind": "token",
+      "method_id": "coordinates",
+      "basis": "measured",
+      "token_id": "line:0:token:1",
+      "line_id": "line:0",
+      "token": 1,
+      "text": "woods",
+      "source_ranges": [
+        {
+          "codepoint_range": [6, 11],
+          "utf16_range": [6, 11],
+          "physical_line": null,
+          "precision": "exact"
+        }
+      ],
+      "normalized_range": { "codepoint_range": [6, 11], "utf16_range": [6, 11] },
+      "unit_ids": ["syllable:1"],
+      "readable": true,
+      "reading_status": "certain",
+      "reading_note": "1 readings and they agree everywhere",
+      "reading_choices": {
+        "line": "watch woods",
+        "token": 2,
+        "word": "woods",
+        "numbering": "v2+voices",
+        "dictionary_readings": [
+          { "phones": ["W", "UH1", "D", "Z"], "syllables": 1, "stress": [1] }
+        ],
+        "requires_source": true,
+        "supplied_reading_requires_source": false,
+        "matching_line_ids": ["line:0"]
+      }
+    },
+    {
+      "id": "line:b15e2351e2a2981c1f3795c78325fd12",
+      "kind": "line",
+      "method_id": "coordinates",
+      "basis": "measured",
+      "line_id": "line:1",
+      "text": "cat hat",
+      "source_ranges": [
+        { "codepoint_range": [12, 19], "utf16_range": [12, 19], "precision": "exact" }
+      ],
+      "status": "",
+      "excluded": false,
+      "normalized_cp_range": [12, 19]
+    },
+    {
+      "id": "token:2ceae49a4e4ad7bb2f4125e7b6cc01af",
+      "kind": "token",
+      "method_id": "coordinates",
+      "basis": "measured",
+      "token_id": "line:1:token:0",
+      "line_id": "line:1",
+      "token": 0,
+      "text": "cat",
+      "source_ranges": [
+        {
+          "codepoint_range": [12, 15],
+          "utf16_range": [12, 15],
+          "physical_line": null,
+          "precision": "exact"
+        }
+      ],
+      "normalized_range": { "codepoint_range": [12, 15], "utf16_range": [12, 15] },
+      "unit_ids": ["syllable:2"],
+      "readable": true,
+      "reading_status": "certain",
+      "reading_note": "1 readings and they agree everywhere",
+      "reading_choices": {
+        "line": "cat hat",
+        "token": 1,
+        "word": "cat",
+        "numbering": "v2+voices",
+        "dictionary_readings": [{ "phones": ["K", "AE1", "T"], "syllables": 1, "stress": [1] }],
+        "requires_source": true,
+        "supplied_reading_requires_source": false,
+        "matching_line_ids": ["line:1"]
+      }
+    },
+    {
+      "id": "token:95452e4338e8e66bd9d50775cbd4346e",
+      "kind": "token",
+      "method_id": "coordinates",
+      "basis": "measured",
+      "token_id": "line:1:token:1",
+      "line_id": "line:1",
+      "token": 1,
+      "text": "hat",
+      "source_ranges": [
+        {
+          "codepoint_range": [16, 19],
+          "utf16_range": [16, 19],
+          "physical_line": null,
+          "precision": "exact"
+        }
+      ],
+      "normalized_range": { "codepoint_range": [16, 19], "utf16_range": [16, 19] },
+      "unit_ids": ["syllable:3"],
+      "readable": true,
+      "reading_status": "certain",
+      "reading_note": "1 readings and they agree everywhere",
+      "reading_choices": {
+        "line": "cat hat",
+        "token": 2,
+        "word": "hat",
+        "numbering": "v2+voices",
+        "dictionary_readings": [{ "phones": ["HH", "AE1", "T"], "syllables": 1, "stress": [1] }],
+        "requires_source": true,
+        "supplied_reading_requires_source": false,
+        "matching_line_ids": ["line:1"]
+      }
+    },
+    {
+      "id": "syllable:0ef2824451697f33d35f5e5f153c694f",
+      "kind": "syllable",
+      "method_id": "coordinates",
+      "basis": "measured",
+      "unit_id": "syllable:0",
+      "line_id": "line:0",
+      "token_id": "line:0:token:0",
+      "token_syllable": 0,
+      "syllable": {
+        "text": "watch",
+        "onset": ["W"],
+        "nucleus": { "kind": "readings", "values": ["AA", "AO", "OO"] },
+        "coda": ["CH"],
+        "prominence": 1,
+        "moras": 1
+      },
+      "source_ranges": [
+        {
+          "codepoint_range": [0, 5],
+          "utf16_range": [0, 5],
+          "physical_line": null,
+          "precision": "exact"
+        }
+      ],
+      "normalized_range": { "codepoint_range": [0, 5], "utf16_range": [0, 5] },
+      "precision": "token",
+      "grid_unit": "syllable",
+      "prominence_rule": "lexical stress from CMUdict (1 or 2 -> prominent, 0 -> not), with the harness's WEAK_ALWAYS / WEAK_NONFINAL function-word demotion applied at the phrase level -- doctrine 46: a function-word list is part of a phonology, not an optimisation"
+    },
+    {
+      "id": "syllable:b15e2351e2a2981c1f3795c78325fd12",
+      "kind": "syllable",
+      "method_id": "coordinates",
+      "basis": "measured",
+      "unit_id": "syllable:1",
+      "line_id": "line:0",
+      "token_id": "line:0:token:1",
+      "token_syllable": 0,
+      "syllable": {
+        "text": "woods",
+        "onset": ["W"],
+        "nucleus": "UH",
+        "coda": ["D", "Z"],
+        "prominence": 1,
+        "moras": 1
+      },
+      "source_ranges": [
+        {
+          "codepoint_range": [6, 11],
+          "utf16_range": [6, 11],
+          "physical_line": null,
+          "precision": "exact"
+        }
+      ],
+      "normalized_range": { "codepoint_range": [6, 11], "utf16_range": [6, 11] },
+      "precision": "token",
+      "grid_unit": "syllable",
+      "prominence_rule": "lexical stress from CMUdict (1 or 2 -> prominent, 0 -> not), with the harness's WEAK_ALWAYS / WEAK_NONFINAL function-word demotion applied at the phrase level -- doctrine 46: a function-word list is part of a phonology, not an optimisation"
+    },
+    {
+      "id": "syllable:1e19e6e9aae978175076d230f2e4aec1",
+      "kind": "syllable",
+      "method_id": "coordinates",
+      "basis": "measured",
+      "unit_id": "syllable:2",
+      "line_id": "line:1",
+      "token_id": "line:1:token:0",
+      "token_syllable": 0,
+      "syllable": {
+        "text": "cat",
+        "onset": ["K"],
+        "nucleus": "AE",
+        "coda": ["T"],
+        "prominence": 1,
+        "moras": 1
+      },
+      "source_ranges": [
+        {
+          "codepoint_range": [12, 15],
+          "utf16_range": [12, 15],
+          "physical_line": null,
+          "precision": "exact"
+        }
+      ],
+      "normalized_range": { "codepoint_range": [12, 15], "utf16_range": [12, 15] },
+      "precision": "token",
+      "grid_unit": "syllable",
+      "prominence_rule": "lexical stress from CMUdict (1 or 2 -> prominent, 0 -> not), with the harness's WEAK_ALWAYS / WEAK_NONFINAL function-word demotion applied at the phrase level -- doctrine 46: a function-word list is part of a phonology, not an optimisation"
+    },
+    {
+      "id": "syllable:de8d023013eac792b7dbe85433d00df4",
+      "kind": "syllable",
+      "method_id": "coordinates",
+      "basis": "measured",
+      "unit_id": "syllable:3",
+      "line_id": "line:1",
+      "token_id": "line:1:token:1",
+      "token_syllable": 0,
+      "syllable": {
+        "text": "hat",
+        "onset": ["HH"],
+        "nucleus": "AE",
+        "coda": ["T"],
+        "prominence": 1,
+        "moras": 1
+      },
+      "source_ranges": [
+        {
+          "codepoint_range": [16, 19],
+          "utf16_range": [16, 19],
+          "physical_line": null,
+          "precision": "exact"
+        }
+      ],
+      "normalized_range": { "codepoint_range": [16, 19], "utf16_range": [16, 19] },
+      "precision": "token",
+      "grid_unit": "syllable",
+      "prominence_rule": "lexical stress from CMUdict (1 or 2 -> prominent, 0 -> not), with the harness's WEAK_ALWAYS / WEAK_NONFINAL function-word demotion applied at the phrase level -- doctrine 46: a function-word list is part of a phonology, not an optimisation"
+    },
+    {
+      "id": "native_pair:818208bb612720e3214c0ae1d397875c",
+      "kind": "native_pair",
+      "method_id": "native:54a122b523dc901f54d7abf6",
+      "basis": "measured",
+      "namespace": "native",
+      "language": "eng",
+      "line_ids": ["line:0", "line:1"],
+      "words": ["woods", "hat"],
+      "predicates": {},
+      "coverage": "answered",
+      "reason": "No native rhyme predicate is supplied by this profile.",
+      "type_coordinate": {
+        "agreement": [[false, false, false]],
+        "identity": "distinct",
+        "stress": "aligned",
+        "position": null,
+        "boundary": "simple",
+        "length": "equal",
+        "realisation": "phonetic",
+        "anchor_a": {
+          "rule": "last-prominent",
+          "determinacy": "rule-fixed",
+          "span": "to-end",
+          "index": null,
+          "side": null
+        },
+        "anchor_b": {
+          "rule": "last-prominent",
+          "determinacy": "rule-fixed",
+          "span": "to-end",
+          "index": null,
+          "side": null
+        }
+      },
+      "type_names": [],
+      "unknown_channels": [],
+      "route": { "rhyme": "channels", "alliteration": "channels" },
+      "class_verdicts": {
+        "RHYME": "false",
+        "RIME_RICHE": "false",
+        "PROMOTED_RHYME": "false",
+        "ASSONANCE": "false",
+        "CONSONANCE": "false"
+      },
+      "whole_reading": { "verdict": "false", "witness": null, "combination_limit": 64 }
+    },
+    {
+      "id": "relation_instance:1b026dd119ae6cf8f3d9ed2c7cff6a47",
+      "kind": "relation_instance",
+      "method_id": "schema:85d0a9d89593c874a7ac0fab",
+      "basis": "measured",
+      "namespace": "schema",
+      "schema_name": "alliteration",
+      "verdict": "true",
+      "a": {
+        "unit_ids": ["syllable:0"],
+        "token_ids": ["line:0:token:0"],
+        "line_ids": ["line:0"],
+        "anchor_position": 0,
+        "direction": 1,
+        "origin": "L0.T0",
+        "search_k": 1,
+        "source_ranges": [
+          {
+            "codepoint_range": [0, 5],
+            "utf16_range": [0, 5],
+            "physical_line": null,
+            "precision": "exact"
+          }
+        ],
+        "normalized_ranges": [{ "codepoint_range": [0, 5], "utf16_range": [0, 5] }],
+        "precision": "token"
+      },
+      "b": {
+        "unit_ids": ["syllable:1"],
+        "token_ids": ["line:0:token:1"],
+        "line_ids": ["line:0"],
+        "anchor_position": 0,
+        "direction": 1,
+        "origin": "L0.T1",
+        "search_k": 1,
+        "source_ranges": [
+          {
+            "codepoint_range": [6, 11],
+            "utf16_range": [6, 11],
+            "physical_line": null,
+            "precision": "exact"
+          }
+        ],
+        "normalized_ranges": [{ "codepoint_range": [6, 11], "utf16_range": [6, 11] }],
+        "precision": "token"
+      },
+      "alignment": {
+        "pairs": [[0, 0]],
+        "unmatched_a": [],
+        "unmatched_b": [],
+        "kind": "flush_left"
+      },
+      "compared": {
+        "a": [
+          {
+            "text": "watch",
+            "onset": ["W"],
+            "nucleus": { "kind": "readings", "values": ["AA", "AO", "OO"] },
+            "coda": ["CH"],
+            "prominence": 1,
+            "moras": 1
+          }
+        ],
+        "b": [
+          {
+            "text": "woods",
+            "onset": ["W"],
+            "nucleus": "UH",
+            "coda": ["D", "Z"],
+            "prominence": 1,
+            "moras": 1
+          }
+        ]
+      },
+      "quantifier": "exists_compatible_reading",
+      "reading_search": {
+        "state": "not_needed",
+        "combinations_examined": 0,
+        "combination_limit": 64
+      },
+      "channel_reads": [
+        ["onset", 0, { "value": true, "informative": true, "note": "" }],
+        ["onset", 0, { "value": true, "informative": true, "note": "present on both members" }]
+      ],
+      "placement_reads": [["same_line", true]],
+      "identity_reads": [["token", { "value": true, "informative": true, "note": "" }]],
+      "unknown_channels": [],
+      "informative_channels": ["onset", "onset"],
+      "scope": "in_tradition",
+      "engine_edge": {
+        "schema": "alliteration",
+        "a": {
+          "idx": [0],
+          "anchor_pos": 0,
+          "direction": 1,
+          "unit": "syllable",
+          "origin": "L0.T0",
+          "search_k": 1,
+          "promoted": false
+        },
+        "b": {
+          "idx": [1],
+          "anchor_pos": 0,
+          "direction": 1,
+          "unit": "syllable",
+          "origin": "L0.T1",
+          "search_k": 1,
+          "promoted": false
+        },
+        "alignment": {
+          "pairs": [[0, 0]],
+          "unmatched_a": [],
+          "unmatched_b": [],
+          "kind": "flush_left"
+        },
+        "reads": [
+          ["onset", 0, { "value": true, "informative": true, "note": "" }],
+          ["onset", 0, { "value": true, "informative": true, "note": "present on both members" }]
+        ],
+        "verdict": true,
+        "placement_reads": [["same_line", true]],
+        "identity_reads": [["token", { "value": true, "informative": true, "note": "" }]],
+        "search_k": 1
+      }
+    },
+    {
+      "id": "method_result:cee45b5b9f947217b7dd3122764a606a",
+      "kind": "method_result",
+      "method_id": "schema:85d0a9d89593c874a7ac0fab",
+      "basis": "measured",
+      "namespace": "schema",
+      "schema_name": "alliteration",
+      "coverage": "answered",
+      "counts": { "candidates": 2, "true": 1, "false": 1, "undecided": 0, "coverage": "answered" },
+      "domain": {
+        "projection": "exact_token_pair",
+        "ordering": "role_ordered",
+        "tokens": ["line:0:token:0", "line:0:token:1", "line:1:token:0", "line:1:token:1"],
+        "pairs": { "0": [[1, 1]], "2": [[3, 3]] },
+        "pair_count": 2,
+        "reading_policy": "exists_compatible_reading",
+        "reading_dependent_tokens": []
+      },
+      "refusal": null,
+      "availability": "available",
+      "supply": {}
+    },
+    {
+      "id": "relation_instance:57339ae74c241e78355c4a6861c4df2f",
+      "kind": "relation_instance",
+      "method_id": "schema:1429ae948687ca75ce1cebde",
+      "basis": "measured",
+      "namespace": "schema",
+      "schema_name": "internal rhyme",
+      "verdict": "true",
+      "a": {
+        "unit_ids": ["syllable:2"],
+        "token_ids": ["line:1:token:0"],
+        "line_ids": ["line:1"],
+        "anchor_position": 0,
+        "direction": 1,
+        "origin": "L1.T0",
+        "search_k": 1,
+        "source_ranges": [
+          {
+            "codepoint_range": [12, 15],
+            "utf16_range": [12, 15],
+            "physical_line": null,
+            "precision": "exact"
+          }
+        ],
+        "normalized_ranges": [{ "codepoint_range": [12, 15], "utf16_range": [12, 15] }],
+        "precision": "token"
+      },
+      "b": {
+        "unit_ids": ["syllable:3"],
+        "token_ids": ["line:1:token:1"],
+        "line_ids": ["line:1"],
+        "anchor_position": 0,
+        "direction": 1,
+        "origin": "L1.T1",
+        "search_k": 1,
+        "source_ranges": [
+          {
+            "codepoint_range": [16, 19],
+            "utf16_range": [16, 19],
+            "physical_line": null,
+            "precision": "exact"
+          }
+        ],
+        "normalized_ranges": [{ "codepoint_range": [16, 19], "utf16_range": [16, 19] }],
+        "precision": "token"
+      },
+      "alignment": { "pairs": [[0, 0]], "unmatched_a": [], "unmatched_b": [], "kind": "anchor" },
+      "compared": {
+        "a": [
+          {
+            "text": "cat",
+            "onset": ["K"],
+            "nucleus": "AE",
+            "coda": ["T"],
+            "prominence": 1,
+            "moras": 1
+          }
+        ],
+        "b": [
+          {
+            "text": "hat",
+            "onset": ["HH"],
+            "nucleus": "AE",
+            "coda": ["T"],
+            "prominence": 1,
+            "moras": 1
+          }
+        ]
+      },
+      "quantifier": "exists_compatible_reading",
+      "reading_search": {
+        "state": "not_needed",
+        "combinations_examined": 0,
+        "combination_limit": 64
+      },
+      "channel_reads": [
+        ["nucleus", 0, { "value": true, "informative": true, "note": "" }],
+        ["coda", 0, { "value": true, "informative": true, "note": "" }]
+      ],
+      "placement_reads": [["both_line_final", true]],
+      "identity_reads": [["token", { "value": true, "informative": true, "note": "" }]],
+      "unknown_channels": [],
+      "informative_channels": ["nucleus", "coda"],
+      "scope": "in_tradition",
+      "engine_edge": {
+        "schema": "internal rhyme",
+        "a": {
+          "idx": [2],
+          "anchor_pos": 0,
+          "direction": 1,
+          "unit": "syllable",
+          "origin": "L1.T0",
+          "search_k": 1,
+          "promoted": false
+        },
+        "b": {
+          "idx": [3],
+          "anchor_pos": 0,
+          "direction": 1,
+          "unit": "syllable",
+          "origin": "L1.T1",
+          "search_k": 1,
+          "promoted": false
+        },
+        "alignment": { "pairs": [[0, 0]], "unmatched_a": [], "unmatched_b": [], "kind": "anchor" },
+        "reads": [
+          ["nucleus", 0, { "value": true, "informative": true, "note": "" }],
+          ["coda", 0, { "value": true, "informative": true, "note": "" }]
+        ],
+        "verdict": true,
+        "placement_reads": [["both_line_final", true]],
+        "identity_reads": [["token", { "value": true, "informative": true, "note": "" }]],
+        "search_k": 1
+      }
+    },
+    {
+      "id": "method_result:b41c677903502d51c7ea03f53e8a9d68",
+      "kind": "method_result",
+      "method_id": "schema:1429ae948687ca75ce1cebde",
+      "basis": "measured",
+      "namespace": "schema",
+      "schema_name": "internal rhyme",
+      "coverage": "answered",
+      "counts": { "candidates": 4, "true": 1, "false": 3, "undecided": 0, "coverage": "answered" },
+      "domain": {
+        "projection": "exact_token_pair",
+        "ordering": "role_ordered",
+        "tokens": ["line:0:token:0", "line:0:token:1", "line:1:token:0", "line:1:token:1"],
+        "pairs": { "0": [[1, 3]], "1": [[2, 2]], "2": [[3, 3]] },
+        "pair_count": 5,
+        "reading_policy": "exists_compatible_reading",
+        "reading_dependent_tokens": []
+      },
+      "refusal": null,
+      "availability": "available",
+      "supply": {
+        "prominence": {
+          "capability": "prominence",
+          "state": "present",
+          "n": 4,
+          "source": "phonology",
+          "detail": "units whose syllable carries a prominence value"
+        }
+      }
+    }
+  ],
+  "identity": {
+    "contract_version": 1,
+    "reading_unit_id": "caller-owned-fixture:eng",
+    "reading_revision": "fixture-v1",
+    "source_sha256": null,
+    "normalized_sha256": "6b998c737581b8755600df35d8d194854be60f9734e744aa5c27e6dd2a439085",
+    "source_map_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "language": "eng",
+    "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "requested": { "layers": ["sound"], "schemas": ["alliteration", "internal rhyme"] },
+    "runtime": {
+      "engine_hash": "7340978493d084a98c3e911f00d08652b9a9981e800ce0889b7a8f4c1be3b90f",
+      "resources_hash": "bf13b8ae25a7d86fe1ef0ecfa9293265096b54d4d5117518f28b20f54aa705c4",
+      "phonology": {
+        "language": "eng",
+        "name": "English (General American)",
+        "notation": "ARPAbet, cmusphinx/cmudict master working copy (post-0.7b); stress digits 0/1/2 on vowel phones; under reader scheme v2 the extended English inventory and rule-derived accent readings (lyric_harness.derive_accent_readings)",
+        "grid_unit": "syllable",
+        "prominence_rule": "lexical stress from CMUdict (1 or 2 -> prominent, 0 -> not), with the harness's WEAK_ALWAYS / WEAK_NONFINAL function-word demotion applied at the phrase level -- doctrine 46: a function-word list is part of a phonology, not an optimisation",
+        "relation": "none declared. An English pair is judged in every relation it stands in -- each coarse relation (score()) and every registry schema (quality/relations.py REGISTRY) -- so `rhymes()` stays the inherited stub and the channels decide -- see this module's docstring",
+        "source": "cmusphinx/cmudict master working copy, md5 5837aa6e49fd070d482b8ca0525f28ef; BSD-2-clause (Carnegie Mellon University), NOT public domain; see data/sources.tsv",
+        "readings": "all",
+        "syllable_disputes": "first",
+        "reader_scheme": "v2",
+        "accent_readings": "accent-readings-2026-10-30",
+        "strip_parens": false,
+        "fallback": null,
+        "fallback_licenses": "no fallback: a word CMUdict cannot read REFUSES"
+      }
+    },
+    "catalog": {},
+    "hash": "60ddd2a18f0582c018a571150dc36ecbac6dca6ff51b3c33d5b8bbd52183f185"
+  },
+  "summary": {
+    "identity": {
+      "contract_version": 1,
+      "reading_unit_id": "caller-owned-fixture:eng",
+      "reading_revision": "fixture-v1",
+      "source_sha256": null,
+      "normalized_sha256": "6b998c737581b8755600df35d8d194854be60f9734e744aa5c27e6dd2a439085",
+      "source_map_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "language": "eng",
+      "declaration_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "requested": { "layers": ["sound"], "schemas": ["alliteration", "internal rhyme"] },
+      "runtime": {
+        "engine_hash": "7340978493d084a98c3e911f00d08652b9a9981e800ce0889b7a8f4c1be3b90f",
+        "resources_hash": "bf13b8ae25a7d86fe1ef0ecfa9293265096b54d4d5117518f28b20f54aa705c4",
+        "phonology": {
+          "language": "eng",
+          "name": "English (General American)",
+          "notation": "ARPAbet, cmusphinx/cmudict master working copy (post-0.7b); stress digits 0/1/2 on vowel phones; under reader scheme v2 the extended English inventory and rule-derived accent readings (lyric_harness.derive_accent_readings)",
+          "grid_unit": "syllable",
+          "prominence_rule": "lexical stress from CMUdict (1 or 2 -> prominent, 0 -> not), with the harness's WEAK_ALWAYS / WEAK_NONFINAL function-word demotion applied at the phrase level -- doctrine 46: a function-word list is part of a phonology, not an optimisation",
+          "relation": "none declared. An English pair is judged in every relation it stands in -- each coarse relation (score()) and every registry schema (quality/relations.py REGISTRY) -- so `rhymes()` stays the inherited stub and the channels decide -- see this module's docstring",
+          "source": "cmusphinx/cmudict master working copy, md5 5837aa6e49fd070d482b8ca0525f28ef; BSD-2-clause (Carnegie Mellon University), NOT public domain; see data/sources.tsv",
+          "readings": "all",
+          "syllable_disputes": "first",
+          "reader_scheme": "v2",
+          "accent_readings": "accent-readings-2026-10-30",
+          "strip_parens": false,
+          "fallback": null,
+          "fallback_licenses": "no fallback: a word CMUdict cannot read REFUSES"
+        }
+      },
+      "catalog": {},
+      "hash": "60ddd2a18f0582c018a571150dc36ecbac6dca6ff51b3c33d5b8bbd52183f185"
+    },
+    "language": "eng",
+    "provider_calls": 0,
+    "completion": "complete",
+    "methods": [
+      {
+        "method_id": "native:54a122b523dc901f54d7abf6",
+        "candidates": 1,
+        "true": 0,
+        "false": 0,
+        "undecided": 0,
+        "coverage": "answered"
+      },
+      {
+        "method_id": "schema:85d0a9d89593c874a7ac0fab",
+        "candidates": 2,
+        "true": 1,
+        "false": 1,
+        "undecided": 0,
+        "coverage": "answered"
+      },
+      {
+        "method_id": "schema:1429ae948687ca75ce1cebde",
+        "candidates": 4,
+        "true": 1,
+        "false": 3,
+        "undecided": 0,
+        "coverage": "answered"
+      }
+    ],
+    "counters": { "candidates": 17, "evidence_records": 15, "true": 2, "false": 4, "undecided": 0 },
+    "coverage": {
+      "certified": true,
+      "partial": false,
+      "requested_methods": 3,
+      "answered_methods": 3,
+      "refused_methods": 0,
+      "pending_methods": 0,
+      "not_requested_methods": 78,
+      "refused_obligations": []
+    },
+    "denominators": {
+      "raw_tokens": 4,
+      "readable_tokens": 4,
+      "unread_tokens": 0,
+      "excluded_lines": 0,
+      "syllables": 4
+    },
+    "capabilities": {
+      "reachable": [
+        "Kalevala alliteration (strong)",
+        "Kalevala alliteration (weak)",
+        "Scots vowel-length rhyme (Aitken's Law)",
+        "ablaut reduplication",
+        "additive rhyme",
+        "alliteration",
+        "amphisbaenic rhyme",
+        "anadiplosis",
+        "anaphora",
+        "apocopated rhyme",
+        "assonance",
+        "broken rhyme",
+        "chain rhyme (rap)",
+        "cluster consonance / skothending span",
+        "compound / phrasal rhyme",
+        "consonance",
+        "cross rhyme",
+        "cynghanedd lusg",
+        "cynghanedd sain",
+        "cynghanedd sain drosgl",
+        "cynghanedd sain gadwynog",
+        "cynghanedd sain lafarog",
+        "enjambed rhyme",
+        "epanalepsis",
+        "exact reduplication",
+        "family rhyme",
+        "head rhyme (positional)",
+        "holorhyme",
+        "homoioteleuton",
+        "incremental repetition",
+        "interlaced rhyme",
+        "internal assonance",
+        "internal consonance",
+        "internal rhyme",
+        "light rhyme",
+        "linked rhyme",
+        "mosaic rhyme",
+        "multisyllabic rhyme",
+        "pantun ABAB",
+        "pararhyme",
+        "parechesis / general consonance",
+        "paroemion",
+        "perfect rhyme",
+        "polyptoton",
+        "repetition",
+        "reverse rhyme",
+        "rhyming reduplication",
+        "rime riche",
+        "semirhyme",
+        "subtractive rhyme",
+        "syllabic rhyme",
+        "symploce",
+        "trite rhyme"
+      ],
+      "refused": {
+        "sense": ["antanaclasis"],
+        "delivered": ["transformative / bent rhyme", "wrenched rhyme"],
+        "orthography": ["eye rhyme"],
+        "earlier": ["historical rhyme"],
+        "poet": ["dialect rhyme"],
+        "caesura": [
+          "cynghanedd draws",
+          "cynghanedd groes",
+          "cynghanedd groes o gyswllt",
+          "leonine rhyme"
+        ],
+        "refrain_tail": ["epistrophe / radif", "qafiya (before the radif)"],
+        "stanza": [
+          "analysed rhyme",
+          "blues AAB stanza",
+          "chain rhyme (interlocking scheme)",
+          "dvitiyakshara-prasa",
+          "monai",
+          "monorhyme / leash"
+        ],
+        "lifts": ["alliterative long line", "fourth lift must not alliterate"],
+        "quotient:vowel_class": ["proest"],
+        "quotient:\u540c\u7528": ["Middle Chinese end rhyme (\u540c\u7528 group)"],
+        "tonal_template+tone": ["\u5e73\u4ec4 tonal template"],
+        "beat": ["offbeat internal rhyme"],
+        "slang": ["rhyming slang"],
+        "sung": ["sung-delivery rhyme"],
+        "stub_resolution": ["refrain by reference"]
+      },
+      "vacuous": {},
+      "supply": {
+        "prominence": {
+          "capability": "prominence",
+          "state": "present",
+          "n": 4,
+          "source": "phonology",
+          "detail": "units whose syllable carries a prominence value"
+        },
+        "sense": {
+          "capability": "sense",
+          "state": "absent",
+          "n": 0,
+          "source": "phonology",
+          "detail": "named in declaration['resources'] or phon.resources"
+        },
+        "quotient:manner": {
+          "capability": "quotient:manner",
+          "state": "present",
+          "n": 1,
+          "source": "declaration",
+          "detail": "a partition callable, from the declaration or the phonology"
+        },
+        "delivered": {
+          "capability": "delivered",
+          "state": "absent",
+          "n": 0,
+          "source": "none",
+          "detail": "no second declaration is held under this name"
+        },
+        "orthography": {
+          "capability": "orthography",
+          "state": "absent",
+          "n": 0,
+          "source": "none",
+          "detail": "no second declaration is held under this name"
+        },
+        "earlier": {
+          "capability": "earlier",
+          "state": "absent",
+          "n": 0,
+          "source": "none",
+          "detail": "no second declaration is held under this name"
+        },
+        "poet": {
+          "capability": "poet",
+          "state": "absent",
+          "n": 0,
+          "source": "none",
+          "detail": "no second declaration is held under this name"
+        },
+        "morphology": {
+          "capability": "morphology",
+          "state": "present",
+          "n": 1,
+          "source": "phonology",
+          "detail": "named in declaration['resources'] or phon.resources"
+        },
+        "lexicon": {
+          "capability": "lexicon",
+          "state": "present",
+          "n": 1,
+          "source": "phonology",
+          "detail": "named in declaration['resources'] or phon.resources"
+        },
+        "caesura": {
+          "capability": "caesura",
+          "state": "absent",
+          "n": 0,
+          "source": "none",
+          "detail": "no source declared: lines carrying a caesura position"
+        },
+        "refrain_tail": {
+          "capability": "refrain_tail",
+          "state": "absent",
+          "n": 0,
+          "source": "none",
+          "detail": "no source declared: lines carrying a refrain tail"
+        },
+        "stanza": {
+          "capability": "stanza",
+          "state": "absent",
+          "n": 0,
+          "source": "none",
+          "detail": "no source declared: distinct stanzas over the stream's units"
+        },
+        "lifts": {
+          "capability": "lifts",
+          "state": "absent",
+          "n": 0,
+          "source": "none",
+          "detail": "no source declared: lines carrying a lift template"
+        },
+        "quotient:vowel_class": {
+          "capability": "quotient:vowel_class",
+          "state": "absent",
+          "n": 0,
+          "source": "declaration",
+          "detail": "a partition callable, from the declaration or the phonology"
+        },
+        "quotient:\u540c\u7528": {
+          "capability": "quotient:\u540c\u7528",
+          "state": "absent",
+          "n": 0,
+          "source": "declaration",
+          "detail": "a partition callable, from the declaration or the phonology"
+        },
+        "tonal_template": {
+          "capability": "tonal_template",
+          "state": "absent",
+          "n": 0,
+          "source": "none",
+          "detail": "no source declared: lines carrying a declared \u5e73\u4ec4 pattern"
+        },
+        "tone": {
+          "capability": "tone",
+          "state": "absent",
+          "n": 0,
+          "source": "phonology",
+          "detail": "units whose prominence the phonology declares as \u5e73/\u4ec4"
+        },
+        "beat": {
+          "capability": "beat",
+          "state": "absent",
+          "n": 0,
+          "source": "none",
+          "detail": "no source declared: lines carrying a declared beat grid"
+        },
+        "slang": {
+          "capability": "slang",
+          "state": "absent",
+          "n": 0,
+          "source": "none",
+          "detail": "no second declaration is held under this name"
+        },
+        "sung": {
+          "capability": "sung",
+          "state": "absent",
+          "n": 0,
+          "source": "none",
+          "detail": "no second declaration is held under this name"
+        },
+        "stub_resolution": {
+          "capability": "stub_resolution",
+          "state": "absent",
+          "n": 0,
+          "source": "none",
+          "detail": "no source declared: stub lines resolved to a span"
+        },
+        "quotient:trite": {
+          "capability": "quotient:trite",
+          "state": "present",
+          "n": 1,
+          "source": "declaration",
+          "detail": "a partition callable, from the declaration or the phonology"
+        }
+      }
+    }
+  }
+}

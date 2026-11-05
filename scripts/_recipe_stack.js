@@ -481,7 +481,7 @@ function buildStackParts(card) {
   return out;
 }
 
-// @inline
+/* @inline-start — the region between the markers is inlined verbatim into codex.html (build_html.js) and prepended by _load_app.js, so the page and the parity gates run this exact text */
 // WHICH card the one rendered environment comes from.
 //
 // Every format carries the environment exactly once, and every format used to
@@ -509,15 +509,34 @@ function buildStackParts(card) {
 // carries anything the answer is still cards[0], so every existing recipe byte
 // is unchanged — asserted by rebuilding the static API and byte-comparing, and
 // by the fixture suites.
+//
+// ONE SOURCE (#662). This region is the only copy of the rule. src/app.js used
+// to carry a byte-mirror of envCardOf and src/workbench.js a third spelling of
+// the predicate (uiEnvIsSet); both now call these. Written as function
+// declarations, with nothing module-scoped inside, because the page runs this
+// text in its first runtime block and a later block's global const/let of the
+// same name would throw. check_workspace_ops.js pins the case table against
+// this region as the page receives it.
+//
+// hasEnvironment(card) -> true when the card carries a tuning, a room, or any
+// set chain stage (a non-empty list for a multi-select stage such as fx, any
+// truthy id for a single stage). Always a boolean.
+function hasEnvironment(card) {
+  return !!(
+    card &&
+    (card.tuning ||
+      card.room ||
+      Object.values(card.chain || {}).some((v) => (Array.isArray(v) ? v.length > 0 : !!v)))
+  );
+}
+// envCardOf(cards) -> the first card that has an environment, else cards[0]
+// itself (so a first environment edit on an all-bare workspace has a target),
+// else null for an empty or missing list. Returns the card object, never a copy.
 function envCardOf(cards) {
   if (!cards || !cards.length) return null;
-  const has = (c) =>
-    !!c &&
-    (c.tuning ||
-      c.room ||
-      Object.values(c.chain || {}).some((v) => (Array.isArray(v) ? v.length > 0 : !!v)));
-  return cards.find(has) || cards[0];
+  return cards.find((c) => hasEnvironment(c)) || cards[0];
 }
+/* @inline-end */
 
 // ─────────────────────────── preface resolution + dedup ───────────────────────────
 const _sanitizePreface = (raw) => (raw == null ? '' : String(raw).replace(/[,.]/g, '').trim());
@@ -1294,6 +1313,7 @@ module.exports = {
   // connector's set_environment targets it when no card is named, and its
   // responses report it — both have to agree with the renderer, not restate it.
   envCardOf,
+  hasEnvironment,
   assignDedupedPrefaces,
   compileStack,
   compressProseRecipe,
