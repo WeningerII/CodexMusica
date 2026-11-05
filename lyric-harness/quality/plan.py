@@ -2933,6 +2933,52 @@ def _recurrence_policy(wants, roster=None):
     return lifted
 
 
+def recurrence_report(plan):
+    """Human report for a freshly generated, final plan, never a loaded draft.
+
+    Reuse generation's policy; explain only actual repeated lifted functions.
+    This is display text, not plan metadata, a writer seed or a grading rule.
+    """
+    from collections import Counter
+    from quality import grid as G
+    request = plan["request"]
+    raw_wants = request.get("wants", [])
+    wants = [parse_sweep_want(w) for w in raw_wants]
+    raw_roster = request.get("functions")
+    roster = (tuple(dict.fromkeys(G.as_function(str(f).strip())
+                                 for f in raw_roster if str(f).strip()))
+              if raw_roster else None)
+    lifted = _recurrence_policy(wants, roster)
+    counts = Counter(s["function"] for s in plan["sections"])
+    rows = []
+    for function, count in counts.items():
+        if count <= 1 or function not in lifted:
+            continue
+        reason = lifted[function]
+        named = reason == "named count lower bound"
+        coordinate = "sections." + function if named else "sections"
+        atoms = [(raw, op, int(value)) for raw, (name, op, value)
+                 in zip(raw_wants, wants) if name == coordinate]
+        constraints = ", ".join(raw for raw, _, _ in atoms)
+        if named:
+            if any(op == "=" and value == count for _, op, value in atoms):
+                why = "the request specifies " + constraints
+            elif any(op == "<=" for _, op, _ in atoms):
+                why = "within the requested range: " + constraints
+            else:
+                why = "at least the requested minimum: " + constraints
+        elif reason == "total count lower bound":
+            why = ("the sampler chose this repeat after once-only limits were "
+                   "lifted because the requested minimum exceeded capacity: "
+                   + constraints)
+        else:
+            why = ("the sampler chose this repeat after the bridge limit was "
+                   "lifted because the other eligible lifts still left "
+                   "insufficient capacity for the requested minimum: " + constraints)
+        rows.append(f"{function} ×{count}: {why}.")
+    return rows
+
+
 def _sample_pattern(rng, roster=None, form=None, max_cells=None, relaxed=()):
     """-> ordered tuple of function names. Once by default, except explicit
     count policy relaxations; edges stay at the edges.
