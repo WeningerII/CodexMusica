@@ -72,6 +72,26 @@ const LANES = {
     },
   },
 };
+// The reader (#757): one reading at a time, mounted where openReading is
+// called, with the unit fixed in its ctx (#668 6646411306).
+const readings = readingLoader();
+let readerHost = null;
+async function openReader(unitId) {
+  if (readerHost) readerHost.unmount();
+  readerHost = createHost(
+    {
+      id: 'libraryreading',
+      label: 'The reader',
+      load: () => import('./features/library-reading/text-view.js'),
+      unloaded: 'The reading did not load.',
+      context: async () => ({ unitId, reading: readings.reading }),
+    },
+    document.querySelector('[data-panel="library"]')
+  );
+  await readerHost.show();
+  readerHost.focus();
+}
+
 // The Library lane's ctx (#670 6639673247, 6640163315, 6640718497). It has
 // no recipe object, by construction (Rule 1). The prototype has no collection
 // page and no reader yet, so the two navigation calls say so instead of
@@ -116,9 +136,12 @@ async function libraryContext() {
     openCollection() {
       announce('Collection pages aren’t part of this prototype yet.');
     },
+    // Production's Play: resolve the collection's first readable unit, then
+    // open it. The prototype has no reading route, so the reader opens in the
+    // Library panel, below the lanes, and replaces any reading already open.
     async openReading(cid) {
       const unitId = await lib.unitOf(cid);
-      announce('The reader isn’t part of this prototype yet.');
+      await openReader(unitId);
       return { unitId };
     },
     showCredit(artworkId) {

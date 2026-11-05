@@ -458,7 +458,7 @@ function staticChecks(base) {
     if (!/\.(html|js|mjs|cjs|css|json)$/.test(file)) continue;
     const text = fs.readFileSync(file, 'utf8');
     const scenario = SCENARIO.test(unixRel);
-    expect(!absoluteUrl(text), `${rel}: names an absolute or protocol-relative URL`);
+    expect(!absoluteUrl(text, { scenario }), `${rel}: names an absolute or protocol-relative URL`);
     expect(
       scenario || !/\b(XMLHttpRequest|WebSocket|EventSource|sendBeacon)\b/.test(text),
       `${rel}: opens a network channel other than fetch() of the static catalog`

@@ -80,6 +80,7 @@ const LANE_MODULES = {
   instrumentdetail: '/prototype/features/instrument-detail/detail.js',
 };
 const CTX_KEYS = {
+  libraryreading: ['announce', 'reading', 'signal', 'storage', 'unitId'],
   genredetail: ['announce', 'genre', 'loadGenre', 'media', 'openPhoto', 'signal', 'storage'],
   instrumentdetail: [
     'announce',
@@ -158,6 +159,8 @@ async function newPage(browser, srv, opts = {}) {
   const errors = [];
   // Paths answered 404 for now; a check can clear one to let a retry through.
   const failing = new Set(opts.fail || []);
+  // Paths answered with these bytes instead (a tampered file).
+  const override = new Map();
   await context.route('**/*', (route) => {
     const u = new URL(route.request().url());
     if (u.origin !== srv.url) return route.abort();
@@ -168,12 +171,13 @@ async function newPage(browser, srv, opts = {}) {
       return route.fulfill({ status: 200, contentType: 'text/javascript', body: PROBE });
     }
     if (failing.has(u.pathname)) return route.fulfill({ status: 404, body: '' });
+    if (override.has(u.pathname)) return route.fulfill(override.get(u.pathname));
     return route.continue();
   });
   if (opts.init) await context.addInitScript(opts.init.fn, opts.init.arg);
   const page = await context.newPage();
   page.on('pageerror', (e) => errors.push(e.message));
-  return { context, page, requested, errors, failing };
+  return { context, page, requested, errors, failing, override };
 }
 
 const probe = (page, lane) => page.evaluate((l) => (window.__probe || {})[l] || null, lane);
@@ -637,9 +641,19 @@ async function libraryChecks(browser, srv) {
     open.b === (file.readable_ids || [])[0],
     `library: openReading(an appended card) gave ${open.b}, its collection file says ${(file.readable_ids || [])[0]}`
   );
+  const reader = await page.evaluate(() => ({
+    hosts: document.querySelectorAll('[data-feature-host="libraryreading"]').length,
+    mounts: window.__probe.libraryreading && window.__probe.libraryreading.mounts,
+    unitId: window.__probeCtx.libraryreading && window.__probeCtx.libraryreading.unitId,
+    focused: document.activeElement && document.activeElement.dataset.probe,
+  }));
   expect(
-    /isn’t part of this prototype/.test(open.said),
-    `library: openReading said "${open.said}"`
+    reader.hosts === 1 && reader.mounts === 2 && reader.unitId === open.b,
+    `library: openReading did not open the reader for the last unit, alone (${JSON.stringify(reader)})`
+  );
+  expect(
+    reader.focused === 'libraryreading',
+    `library: after openReading, focus is on ${reader.focused}`
   );
   expect(open.bad === SAYS.NOT_FOUND, `library: openReading(a malformed id) gave ${open.bad}`);
   expect(
