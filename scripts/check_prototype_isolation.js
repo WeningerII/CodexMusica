@@ -233,8 +233,15 @@ const COLLECTION_FETCH = '`../library/data/c/${id}.json.gz`';
 const READING_FETCH = '`../library/data/${rel}`, { signal }';
 // Rule 1's static half: a file names no absolute or protocol-relative URL.
 // The SVG namespace is a name, not a request (an inline SVG fixture, a glyph).
-const absoluteUrl = (text) =>
-  /(?:https?:)?\/\/[\w-]+\.[\w.-]+\//i.test(text.replaceAll('http://www.w3.org/2000/svg', ''));
+// A scenario (Node test code) may also name a host under a reserved test
+// domain (RFC 2606: .test, .example, .invalid), which never resolves; its
+// requests are answered by its own routing.
+const absoluteUrl = (text, { scenario = false } = {}) => {
+  let t = text.replaceAll('http://www.w3.org/2000/svg', '');
+  if (scenario)
+    t = t.replace(/(?:https?:)?\/\/[\w.-]+\.(?:test|example|invalid)(?::\d+)?(?=[/'"`\s]|$)/gi, '');
+  return /(?:https?:)?\/\/[\w-]+\.[\w.-]+\//i.test(t);
+};
 function fetchProblems(text, rel) {
   const out = [];
   const shell = rel.startsWith('prototype/') && !FEATURE.test(rel);
@@ -402,6 +409,10 @@ function selfTest() {
     [absoluteUrl('http://www.w3.org/2000/svg') ? ['x'] : [], 0],
     [absoluteUrl('http://www.w3.org/2000/svg https://example.org/x') ? ['x'] : [], 1],
     [absoluteUrl('//cdn.example.org/a.js') ? ['x'] : [], 1],
+    [absoluteUrl("page.goto('http://reading.test/')", { scenario: true }) ? ['x'] : [], 0],
+    [absoluteUrl("page.goto('http://reading.test/')") ? ['x'] : [], 1],
+    [absoluteUrl("page.goto('https://example.org/')", { scenario: true }) ? ['x'] : [], 1],
+    [absoluteUrl("fetch('http://evil.test.com/x')", { scenario: true }) ? ['x'] : [], 1],
     [fetchProblems('fetch(`../library/data/${rel}`, { signal })', 'prototype/data.js'), 0],
     [fetchProblems('fetch(`../library/data/${rel}`, { signal })', 'prototype/app.js'), 1],
   ];
@@ -422,7 +433,7 @@ function staticChecks(base) {
     const text = fs.readFileSync(file, 'utf8');
     const unixRel = rel.split(path.sep).join('/');
     const scenario = SCENARIO.test(unixRel);
-    expect(!absoluteUrl(text), `${rel}: names an absolute or protocol-relative URL`);
+    expect(!absoluteUrl(text, { scenario }), `${rel}: names an absolute or protocol-relative URL`);
     expect(
       scenario || !/\b(XMLHttpRequest|WebSocket|EventSource|sendBeacon)\b/.test(text),
       `${rel}: opens a network channel other than fetch() of the static catalog`
