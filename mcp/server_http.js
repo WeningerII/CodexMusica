@@ -38,7 +38,7 @@ import {
   probeReaderSchemeOfWorker,
   readerPythonBridge,
 } from './lyric_tools.js';
-import { ReaderJobStore } from './reader_job_store.js';
+import { ReaderJobStore, readerStoreFormat } from './reader_job_store.js';
 import { ReaderScheduler, createCatalogResolver } from './reader_scheduler.js';
 import { createReaderRouter } from './reader_routes.js';
 import { LibrarySearch } from './library_search.js';
@@ -334,6 +334,7 @@ try {
   readerStore = new ReaderJobStore({
     directory: process.env.READER_RUNTIME_DIR || runtimeDir('reader-jobs'),
     maxBytes: Number(process.env.READER_STORAGE_MAX_BYTES) || 256 * 1024 * 1024,
+    gzip: process.env.READER_STORE_GZIP === '1',
   });
   if (!process.env.READER_CATALOG_DIR)
     throw new Error('Reader requires a pinned catalog and a durable directory.');
@@ -538,6 +539,13 @@ function buildLibraryRouter() {
   }
   router.use(
     libraryPublicRouter({
+      readerStoreRequirement: () =>
+        readerStoreFormat(
+          path.join(
+            path.resolve(process.env.READER_RUNTIME_DIR || runtimeDir('reader-jobs')),
+            'reader-jobs-v1'
+          )
+        ),
       search: librarySearch,
       corpus: libraryCorpus,
       analysisAvailable: () =>
