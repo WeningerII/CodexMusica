@@ -6,8 +6,9 @@
           CMLyricTokens, core, writes, snapshot, requests, jobFixture, memoryKey, reading, lib, handle */
 /* global jobStatus: writable */
 
-// Local synthetic fixtures only. Execute the real analysis chunk, token helper,
+// Local synthetic fixtures only. Execute production analysis source, token helper,
 // and core device adapter in Chromium; do not duplicate their cache algorithms.
+// These are wrapped source files, not the shipped CMLibraryDefine library/code chunks.
 // This complements the recipe/chat isolation check: it checks private evidence
 // eviction and interpretation writes, not backend deletion, HTTP cache policy,
 // browser disk forensics, or every Library persistence path.
@@ -234,6 +235,11 @@ async function scenario(browser, analysis, mode, action) {
     await page.evaluate(() => {
       analysis._memory.get(memoryKey).offset = 3;
     });
+    assert.match(
+      await page.evaluate(() => document.body.innerText),
+      /private-(page|manifest)-sentinel/,
+      action + ': private evidence visible before eviction'
+    );
     if (action === 'delete') {
       await page.locator('[data-act="delete"]').click();
       await page.waitForFunction(() => analysis._memory.get(memoryKey).job === null);
@@ -251,12 +257,24 @@ async function scenario(browser, analysis, mode, action) {
       requests,
       local: Object.keys(localStorage),
       session: Object.keys(sessionStorage),
+      renderedText: document.body.innerText,
+      renderedHTML: document.body.innerHTML,
     }));
     assert.equal(after.memory.job, null, action + ': job released');
     assert.equal(after.memory.report, null, action + ': manifest dropped');
     assert.deepEqual(after.memory.records, [], action + ': evidence pages dropped');
     assert.equal(after.memory.next, null, action + ': next cursor dropped');
     assert.equal(after.memory.offset, 0, action + ': offset reset');
+    assert.doesNotMatch(
+      after.renderedHTML,
+      /private-(page|manifest)-sentinel/,
+      action + ': rendered private evidence removed'
+    );
+    assert.doesNotMatch(
+      after.renderedText,
+      /private-(page|manifest)-sentinel/,
+      action + ': visible private evidence removed'
+    );
     assert.deepEqual(after.stored, before, action + ': declarations preserved unchanged');
     assert.deepEqual(after.declarations, row.value.declarations, 'declarations remain readable');
     for (const w of after.writes) {
@@ -349,6 +367,14 @@ async function main() {
           'exact device key',
           'const deviceKey = `interpretation:${reading.reading_unit_id}:${reading.reading_revision}`;',
           'const deviceKey = `interpretation:${reading.reading_unit_id}:wrong-revision`;',
+        ],
+        [
+          'delete leaves stale rendered evidence',
+          'core',
+          'delete',
+          'delete: rendered private evidence removed',
+          'st.busy = false;\n      draw();\n    }\n  }\n  async function openPrevious',
+          'st.busy = false;\n      if (mem.job) draw();\n    }\n  }\n  async function openPrevious',
         ],
       ];
       for (const [name, mode, action, expected, from, to] of mutants) {
