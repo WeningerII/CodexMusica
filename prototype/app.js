@@ -318,26 +318,46 @@ discovery.results.subscribe((r) => {
 });
 discovery.setFocusCount(() => countLine.focus());
 // clear's last resort (#668 6665493327 B): the Categories lane's toggle.
-discovery.setFocusToggle(() => {
-  const t = genrePanel.querySelector(
-    '[data-feature-host="genrecategories"] [data-discovery-toggle]'
-  );
-  if (t) t.focus();
-});
+discovery.setFocusToggle(() => focusDisclosureToggle());
 // Below production's discovery breakpoint (900px of the panel) Categories and
 // Find a sound sit behind the Categories lane's disclosure: that lane hides
 // its own list, and the shell hides Find a sound until it is open.
 const NARROW = 900;
+// The Find a sound host's id, which the Categories toggle names in its
+// aria-controls beside its own list's id (#668 6665716865).
+const TARGETS_HOST_ID = 'proto-genre-targets';
+const focusDisclosureToggle = () => {
+  const t = genrePanel.querySelector(
+    '[data-feature-host="genrecategories"] [data-discovery-toggle]'
+  );
+  if (t) t.focus();
+};
 const syncDisclosure = () => {
   const d = discovery.discovery.current();
   const targetsHost = genrePanel.querySelector('[data-feature-host="genretargets"]');
-  if (targetsHost) targetsHost.hidden = d.narrow && !d.open;
+  if (!targetsHost) return;
+  targetsHost.id = TARGETS_HOST_ID;
+  const hide = d.narrow && !d.open;
+  // Hiding the host that holds focus would drop it on the page: it goes to
+  // the toggle that brings the host back.
+  if (hide && targetsHost.contains(document.activeElement)) focusDisclosureToggle();
+  targetsHost.hidden = hide;
 };
 discovery.discovery.subscribe(syncDisclosure);
 new ResizeObserver(() => {
   discovery.setNarrow(genrePanel.clientWidth > 0 && genrePanel.clientWidth < NARROW);
   syncDisclosure();
 }).observe(genrePanel);
+// Escape is the page's, as production's genre escape(): it closes the open
+// disclosure and puts focus on its toggle. (The tree modal and a pinned
+// detail, which production closes first, aren't in this build.)
+genrePanel.addEventListener('keydown', (e) => {
+  if (e.key !== 'Escape' || e.defaultPrevented) return;
+  const d = discovery.discovery.current();
+  if (!(d.narrow && d.open)) return;
+  e.preventDefault();
+  discovery.discovery.setOpen(false, d.revision).then(focusDisclosureToggle);
+});
 
 function show(route, { moveFocus }) {
   for (const panel of document.querySelectorAll('[data-panel]')) {

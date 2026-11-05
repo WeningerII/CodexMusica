@@ -2063,13 +2063,57 @@ async function discoveryChecks(browser, srv) {
   const narrow = await page.evaluate(async () => {
     const D = window.__probeCtx.genrecategories.discovery;
     const host = () => document.querySelector('[data-feature-host="genretargets"]');
-    const closed = { narrow: D.current().narrow, hidden: host().hidden };
+    // A stand-in for the Categories lane's marked toggle.
+    const cats = document.querySelector('[data-feature-host="genrecategories"]');
+    const toggle = document.createElement('button');
+    toggle.dataset.discoveryToggle = '';
+    toggle.textContent = 'Categories & find a sound';
+    cats.append(toggle);
+    const closed = { narrow: D.current().narrow, hidden: host().hidden, id: host().id };
     await D.setOpen(true, D.current().revision);
-    return { closed, openHidden: host().hidden };
+    const openHidden = host().hidden;
+    // Focus inside Find a sound when it closes moves to the toggle.
+    host().querySelector('textarea').focus();
+    await D.setOpen(false, D.current().revision);
+    const afterClose = document.activeElement === toggle;
+    // Escape closes the open disclosure and returns focus to the toggle.
+    await D.setOpen(true, D.current().revision);
+    host().querySelector('textarea').focus();
+    document.activeElement.dispatchEvent(
+      new window.KeyboardEvent('keydown', { key: 'Escape', bubbles: true, cancelable: true })
+    );
+    await new Promise((r) => setTimeout(r, 50));
+    const escaped = { open: D.current().open, focus: document.activeElement === toggle };
+    let unsub = 0;
+    const stop = D.subscribe(() => unsub++);
+    stop();
+    await D.setOpen(true, D.current().revision);
+    let stale = null;
+    try {
+      await D.setOpen(false, D.current().revision - 1);
+    } catch (e) {
+      stale = e.code;
+    }
+    return { closed, openHidden, afterClose, escaped, unsubscribed: unsub === 0, stale };
   });
   expect(
-    narrow.closed.narrow && narrow.closed.hidden && !narrow.openHidden,
+    narrow.closed.narrow &&
+      narrow.closed.hidden &&
+      narrow.closed.id === 'proto-genre-targets' &&
+      !narrow.openHidden,
     `discovery: narrow disclosure ${JSON.stringify(narrow)}`
+  );
+  expect(
+    narrow.afterClose,
+    'discovery: hiding Find a sound left focus inside it, not on the toggle'
+  );
+  expect(
+    !narrow.escaped.open && narrow.escaped.focus,
+    `discovery: Escape gave ${JSON.stringify(narrow.escaped)}`
+  );
+  expect(
+    narrow.unsubscribed && narrow.stale === 'STALE',
+    `discovery: subscribe/unsubscribe or STALE on setOpen failed (${JSON.stringify(narrow)})`
   );
   expect(!errors.length, `discovery: uncaught errors: ${errors.join(' | ')}`);
   await context.close();
