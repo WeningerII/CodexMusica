@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global document, localStorage, Storage, getComputedStyle */
+/* global window, document, localStorage, Storage, getComputedStyle */
 // check_prototype_lanes.js — the #670 feature lanes, mounted for real.
 //
 // check_prototype_hosts.js proves the shell side with probe lanes; each
@@ -16,7 +16,8 @@
 //   does not add the next 24 readable rows of collections.json, keep the cards
 //   already shown, update the count and move focus to the first new card;
 //   Play first reading does not say the reader isn't here yet, for a preview
-//   card and an appended one; Select readable units does not press; Artwork
+//   card and an appended one; Play does not open read-aloud right below the
+//   reader, reading the first sung line, with Stop stopping the device once; Select readable units does not press; Artwork
 //   credit does not say artwork.json's credit; or the shelves are lost across
 //   a route switch.
 //   Library also fails when the focused new card has no accessible name (its
@@ -60,8 +61,9 @@ const expect = (ok, what) => {
   if (!ok) problems.push(what);
 };
 
-async function open(browser, srv, hash, width = 1280) {
+async function open(browser, srv, hash, width = 1280, init = null) {
   const context = await browser.newContext({ viewport: { width, height: 900 } });
+  if (init) await context.addInitScript(init);
   const page = await context.newPage();
   page.setDefaultTimeout(10000);
   const errors = [];
@@ -88,13 +90,39 @@ const status = (page) => page.locator('#proto-status').textContent();
 const noSideScroll = (page) =>
   page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth);
 
+// A device with one English voice that records what it is asked to say and
+// never finishes on its own, so the first line is the one being read.
+function englishDevice() {
+  const log = (window.__device = { said: [], cancels: 0 });
+  const voices = [{ voiceURI: 'en', name: 'English', lang: 'en-GB', default: true }];
+  const t = new EventTarget();
+  Object.defineProperty(window, 'SpeechSynthesisUtterance', {
+    configurable: true,
+    value: class {
+      constructor(text) {
+        this.text = text;
+      }
+    },
+  });
+  Object.defineProperty(window, 'speechSynthesis', {
+    configurable: true,
+    value: {
+      getVoices: () => voices,
+      speak: (u) => log.said.push(u.text),
+      cancel: () => log.cancels++,
+      addEventListener: (...a) => t.addEventListener(...a),
+      removeEventListener: (...a) => t.removeEventListener(...a),
+    },
+  });
+}
+
 async function library(browser, srv) {
   const catalog = json('library', 'data', 'catalog.json');
   const rows = json('library', 'data', 'collections.json').collections;
   const artwork = json('library', 'data', 'artwork.json').artwork;
   const core = fs.readFileSync(path.join(root, 'src', 'library', 'core.js'), 'utf8');
   const names = Function(`return (${/const LANGUAGE_NAMES = (\{[^}]*\});/.exec(core)[1]})`)();
-  const { context, page, errors } = await open(browser, srv, '#library');
+  const { context, page, errors } = await open(browser, srv, '#library', 1280, englishDevice);
   const host = page.locator('[data-feature-host="library"]');
   await host.locator('section[data-language]').first().waitFor({ timeout: 20000 });
 
@@ -230,7 +258,44 @@ async function library(browser, srv) {
       said === `Page 1 of ${head.page_count}`,
       `library: Play on ${id} said "${said}", not "Page 1 of ${head.page_count}"`
     );
+    // Read-aloud (#758) opens below the reader and, because Play opened it,
+    // starts on the reading's first sung line.
+    const first = head.lines.find((l) => l[4] != null && l[1])[1];
+    const heard = await page
+      .waitForFunction((t) => window.__device.said.at(-1) === t, first, { timeout: 5000 })
+      .then(
+        () => true,
+        () => false
+      );
+    const hosts = await page.evaluate(() =>
+      [...document.querySelectorAll('[data-feature-host]')].map((h) => h.dataset.featureHost)
+    );
+    expect(
+      hosts.filter((h) => h === 'libraryspeech').length === 1 &&
+        hosts.indexOf('libraryspeech') === hosts.indexOf('libraryreading') + 1,
+      `library: after Play on ${id}, read-aloud is not one lane right below the reader (${hosts.join(', ')})`
+    );
+    expect(
+      heard,
+      `library: Play on ${id} did not start reading aloud at "${first}" (heard ${JSON.stringify(await page.evaluate(() => window.__device.said))})`
+    );
+    expect(
+      (await page
+        .locator('[data-feature-host="libraryspeech"] button', { hasText: 'Stop' })
+        .count()) === 1,
+      `library: while reading ${id} aloud, there is no Stop button`
+    );
   }
+  // Stop stops the device and offers to read again.
+  const cancels = await page.evaluate(() => window.__device.cancels);
+  await page.locator('[data-feature-host="libraryspeech"] button', { hasText: 'Stop' }).click();
+  expect(
+    (await page.evaluate(() => window.__device.cancels)) === cancels + 1 &&
+      (await page
+        .locator('[data-feature-host="libraryspeech"] button', { hasText: 'Read this work' })
+        .count()) === 1,
+    'library: Stop did not stop the device once and offer "Read this work"'
+  );
   // Select readable units.
   const select = eng.locator(`[data-collection="${next}"] button`, {
     hasText: 'Select readable units',
