@@ -1244,65 +1244,138 @@ const SECTIONS = {
         `${info.lines} → ${more}`
       );
     }
-    // Line selection → passage bar → Lyrics handoff with the exact text.
-    const toggles = await page.$$('#surface-library [data-rd="toggle"]');
-    const picked = [];
-    for (const t of toggles.slice(4, 7)) {
-      await t.click();
-      picked.push(await t.evaluate((el) => el.closest('.rd-line')?.id));
-    }
-    const texts = await page.evaluate(
-      (ids) =>
-        ids.map(
-          (id) =>
-            document.getElementById(id)?.querySelector('.rd-text, .rd-t, [class*="text"]')
-              ?.textContent ?? ''
-        ),
-      picked
+    // Expectations come only from committed fixture bytes, never reader output.
+    const selectedRows = [7, 8, 9];
+    const expectedText = selectedRows.map((row) => head.lines[row][1]).join('\n');
+    const expectedLineage = selectedRows.map((row) => {
+      const line = head.lines[row];
+      if (line[0] !== 'lyric') throw Error(`Fixture row ${row} must be an analysis line`);
+      const prefix = head.lines
+        .slice(0, row)
+        .filter((l) => l[0] === 'lyric')
+        .map((l) => l[1]);
+      const before = prefix.length ? prefix.join('\n') + '\n' : '';
+      // UUIDv5 namespace from the static-export line-ID contract.
+      const hash = require('crypto')
+        .createHash('sha1')
+        .update(Buffer.from('7b347e4c4ea75cbf83872975a17890f3', 'hex'))
+        .update(`line:${EPI_A}:${row}`)
+        .digest()
+        .subarray(0, 16);
+      hash[6] = (hash[6] & 15) | 80;
+      hash[8] = (hash[8] & 63) | 128;
+      const hex = hash.toString('hex');
+      return {
+        line_id: `line_${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`,
+        physical_line: line[3],
+        analysis_line: line[4],
+        normalized_cp_range: [[...before].length, [...before].length + [...line[1]].length],
+        normalized_utf16_range: [before.length, before.length + line[1].length],
+        source_ranges: line[7].map((r) => ({
+          codepoint_range: r[0],
+          byte_range: r[1],
+          utf16_range: r[2],
+          physical_line: r[3],
+          precision: r[4],
+        })),
+      };
+    });
+    const catalog = JSON.parse(fs.readFileSync(path.join(DATA, 'catalog.json'), 'utf8'));
+    const expectedIds = {
+      snapshotId: catalog.projected_from.snapshot_id,
+      unitId: EPI_A,
+      workId: head.work_id,
+      editionId: head.edition_id,
+      revisionId: head.reading_revision,
+    };
+    const expectedRights = gz(`rights/r-${head.rights_ref.slice(0, 2)}.json.gz`).rights[
+      head.rights_ref
+    ];
+    if (!expectedRights) throw Error('Fixture rights are required for the source-details check');
+    // Rights shards intern source records; expand them from the same committed
+    // fixture tree before comparing the complete exported rights object.
+    for (const key of ['sources', 'file_sources'])
+      expectedRights[key] = expectedRights[key].map((digest) => {
+        const shard = (parseInt(digest.slice(0, 2), 16) >> 2).toString(16).padStart(2, '0');
+        return gz(`rights/rows-${shard}.json.gz`).rows[digest];
+      });
+    expectedRights.notices = expectedRights.notices.map((notice) => ({
+      ...notice,
+      text: JSON.parse(fs.readFileSync(path.join(DATA, 'notices', `${notice.sha256}.json`), 'utf8'))
+        .text,
+    }));
+    const same = require('util').isDeepStrictEqual;
+    for (const row of selectedRows)
+      await page.click(`#surface-library .rd-line[data-row="${row}"] [data-rd="toggle"]`);
+    check(
+      `${tag} reader: passage bar after selecting lines`,
+      await page.isVisible('#surface-library [data-rd="p-lyrics"]')
     );
-    const bar = await page.isVisible('#surface-library [data-rd="p-lyrics"]').catch(() => false);
+    const readerHash = await page.evaluate(() => location.hash);
+    await page.click('#surface-library [data-rd="p-lyrics"]');
+    await page.waitForFunction(
+      () => location.hash === '#lyrics' && document.querySelector('#lyrics-draft')?.value.length > 0
+    );
+    const imported = await page.evaluate(() => ({
+      text: document.querySelector('#lyrics-draft').value,
+      draftId: window.lyMeta().draftId,
+      origin: window.lyMeta().libraryOrigin,
+    }));
+    check(
+      `${tag} reader: Lyrics holds exactly the fixture excerpt`,
+      imported.text === expectedText
+    );
+    check(`${tag} reader: excerpt scope is retained`, imported.origin.scope === 'excerpt');
+    check(
+      `${tag} reader: excerpt lineage equals selected fixture rows`,
+      same(imported.origin.lineage, expectedLineage)
+    );
+    check(`${tag} reader: excerpt carries no declarations`, same(imported.origin.declarations, []));
+    const idsOf = (p) => Object.fromEntries(Object.keys(expectedIds).map((key) => [key, p?.[key]]));
+    check(
+      `${tag} reader: all five fixture origin IDs reach Lyrics`,
+      same(idsOf(imported.origin.provenance), expectedIds)
+    );
+    check(
+      `${tag} reader: fixture rights reach Lyrics`,
+      same(imported.origin.provenance.rights, expectedRights)
+    );
+
+    const downloadReady = page.waitForEvent('download');
+    await page.click('[data-ui="ly-library-provenance"]');
+    const download = await downloadReady;
+    check(
+      `${tag} reader: source-details download is named correctly`,
+      download.suggestedFilename() === 'codex-musica-library-source.json'
+    );
+    const exported = JSON.parse(fs.readFileSync(await download.path(), 'utf8'));
+    check(
+      `${tag} reader: source-details export keeps the complete origin`,
+      exported.version === 1 &&
+        exported.draftId === imported.draftId &&
+        same(exported.libraryOrigin, imported.origin)
+    );
+    check(
+      `${tag} reader: source-details export keeps fixture IDs and credits`,
+      same(idsOf(exported.libraryOrigin?.provenance), expectedIds) &&
+        same(exported.libraryOrigin?.provenance?.rights, expectedRights)
+    );
+
+    await page.goBack();
     if (
-      check(
-        `${tag} reader: passage bar after selecting lines`,
-        bar && picked.length === 3,
-        `${picked.length} picked`
+      !check(
+        `${tag} reader: Back returns to the original reading route`,
+        (await page.evaluate(() => location.hash)) === readerHash
       )
-    ) {
-      // The exact text: the derived lyric rows the reader holds for those ids.
-      const expected = await page.evaluate(
-        async ({ id, ids }) => {
-          const core = await libraryChunk('core');
-          const head = await core.lib.reading(id);
-          return head.lines.filter((l, row) => ids.includes(row)).map((l) => l[1]);
-        },
-        {
-          id: EPI_A,
-          ids: await page.evaluate(
-            (ids) => ids.map((i) => Number(document.getElementById(i)?.dataset.row)),
-            picked
-          ),
-        }
-      );
-      await page.click('#surface-library [data-rd="p-lyrics"]');
-      await page
-        .waitForFunction(() => !location.hash.startsWith('#library'), null, { timeout: 15000 })
-        .catch(() => {});
-      await page.waitForTimeout(800);
-      const lyr = await page.evaluate(() => ({
-        hash: location.hash,
-        text:
-          [...document.querySelectorAll('textarea')].map((t) => t.value).join('\n') +
-          '\n' +
-          (document.querySelector('[id^="surface-lyrics"], #surface-lyrics')?.innerText || ''),
-      }));
-      check(`${tag} reader: Lyrics handoff opens Lyrics`, /lyrics/i.test(lyr.hash), lyr.hash);
-      const missing = expected.filter((t) => t.trim() && !lyr.text.includes(t));
-      check(
-        `${tag} reader: Lyrics holds the exact excerpt`,
-        expected.length === 3 && missing.length === 0,
-        `missing ${JSON.stringify(missing.slice(0, 2))} (shown ${JSON.stringify(texts)})`
-      );
-    }
+    )
+      return;
+    await page.waitForSelector('#surface-library .rd-paper .rd-line');
+    check(
+      `${tag} reader: Back restores the fixture reading`,
+      (await page.locator('#surface-library .rd-paper h1').textContent()) === head.title &&
+        (await page.locator('#surface-library .rd-line[data-row="7"] .rd-text').textContent()) ===
+          head.lines[7][1]
+    );
   },
 
   async compare({ page, base, tag }) {
