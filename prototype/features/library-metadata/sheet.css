@@ -1,0 +1,70 @@
+.lm-sheet {
+  box-sizing: border-box;
+  max-inline-size: 42rem;
+  inline-size: 100%;
+  padding: 1rem;
+  color: inherit;
+  background: inherit;
+  overflow-wrap: anywhere;
+}
+.lm-sheet *,
+.lm-sheet *::before,
+.lm-sheet *::after {
+  box-sizing: border-box;
+}
+.lm-sheet header {
+  display: flex;
+  align-items: start;
+  gap: 1rem;
+}
+.lm-sheet h2 {
+  flex: 1;
+  min-inline-size: 0;
+  margin-block-start: 0;
+}
+.lm-sheet button,
+.lm-sheet summary {
+  min-block-size: 44px;
+  padding: 0.65rem;
+  cursor: pointer;
+  font: inherit;
+}
+.lm-sheet :focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+.lm-sheet .lm-badge {
+  display: inline-block;
+  border: 1px solid currentColor;
+  border-radius: 0.4rem;
+  padding: 0.3rem 0.6rem;
+}
+.lm-sheet dl {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 0.5rem;
+}
+.lm-sheet dd {
+  margin: 0;
+  white-space: pre-wrap;
+}
+.lm-sheet .lm-values > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 0.5rem;
+  padding-block: 0.35rem;
+}
+.lm-sheet details {
+  padding-inline-start: 0.5rem;
+  border-inline-start: 1px solid currentColor;
+}
+.lm-sheet .lm-values span {
+  white-space: pre-wrap;
+  min-inline-size: 0;
+}
+@media (max-width: 390px) {
+  .lm-sheet dl,
+  .lm-sheet .lm-values > div {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
