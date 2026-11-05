@@ -4,6 +4,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 import { runtimeSourceFingerprint } from '../mcp/build_identity.js';
+import { READER_FORMATS, READER_FORMAT_LABEL } from './reader_format_gate.mjs';
 
 export function validateImageManifest(value, { sha, repository, releaseId }) {
   if (!/^[a-f0-9]{40}$/.test(sha || '') || value?.version !== 1 || value.commit !== sha)
@@ -28,6 +29,10 @@ export function validateImageManifest(value, { sha, repository, releaseId }) {
   for (const field of ['node', 'python', 'nltk'])
     if (typeof value.build[field] !== 'string' || !value.build[field].trim())
       throw new Error(`Image manifest lacks ${field} runtime version.`);
+  // Optional: manifests recorded before the label existed have none, and the
+  // reader-format gate treats that as "reads no gzip".
+  if ('reader_format' in value && !READER_FORMATS.includes(value.reader_format))
+    throw new Error('Image manifest names a reader format this release path does not know.');
   return `${repository}@${value.digest}`;
 }
 
@@ -87,6 +92,8 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
         digest: reference.split('@')[1],
         build,
       };
+      const readerFormat = info.Config?.Labels?.[READER_FORMAT_LABEL];
+      if (readerFormat !== undefined) manifest.reader_format = readerFormat;
       validateImageManifest(manifest, { sha, repository });
       writeFileSync(file, JSON.stringify(manifest, null, 2) + '\n');
     } else if (verb === 'url') {

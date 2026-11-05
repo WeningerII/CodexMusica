@@ -217,7 +217,13 @@ const LIBRARY_BUDGETS = {
   // (#712, #711, #717), approved by John and recorded by R2 on #665
   // (comment 6632168810). Owner-approved exception; no performance
   // certification.
-  'library-shelves-path': 401056,
+  // ~~401056~~ raised 2026-11-05 to 402,080 (+1,024 B), John's ceiling, for
+  // release train F′ (which absorbs train G: #778, #779, #736, and later
+  // #732 and the instrument baseline fix). F′ on main fe7c0fafd measures
+  // 401,259 B before #732 (+369 B) and the baseline fix (+13 B). Approved by
+  // John to R2 on 2026-11-05 and recorded in the F′ train post. Owner-
+  // approved exception; no performance certification.
+  'library-shelves-path': 402080,
   'library-growth': 6144,
 };
 

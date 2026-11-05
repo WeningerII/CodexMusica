@@ -54,6 +54,15 @@ that differ from the OBSERVATION at all (doctrine 68).
 | Kalevala weak · line_fraction | line_permutation | .845 | .845 | **+0** | 1.000 | **0%** |
 | Kalevala weak · line_fraction | global_redeal | .845 | .340 | **+.505** | 3.018 | 100% |
 
+RE-MEASURED 2026-11-04 (#656), ONE ROW: `perfect rhyme · count ·
+line_final_permutation` on the same 200 lines now gives observed 125 (not
+2431) and 0 of 20 replicates differing.  That is NOT evidence that the error
+went away.  Most end rhymes on this text are now UNDECIDED between rhotic
+and non-rhotic readings (#656, Jony's sample), so the confirmed count the
+null permutes has collapsed and the row cannot be measured here.  The 89.5% is
+what this run recorded; whether it still holds is unknown.  The table is kept
+as the run it was.
+
 FOUR THINGS THAT TABLE SAYS, and they are the reason this file exists rather
 than a number for it to print:
 
@@ -236,7 +245,7 @@ Run: python3 quality/relations_null.py             (all three arms, ~25 min)
      python3 quality/relations_null.py --arm=0 --null=global_redeal
      python3 quality/relations_null.py --coverage  (the census, instant)
      python3 quality/relations_null.py --verify    (the ledger, ~5 s, CI)
-     python3 quality/relations_null.py --verify --deep   (~2 min)
+     python3 quality/relations_null.py --verify --deep   (~~2 min~~ ~78 min)
      python3 quality/relations_null.py --sweep --corpus=P --limit=N --n=K
      python3 quality/relations_null.py --sensitivity --corpus=P ...
      python3 quality/relations_null.py --help
@@ -1397,14 +1406,18 @@ def sweep(lines, phon, language, schemas=None, n=25, seed=SEED, chans=None,
     RECORDED TABLE.  `perfect rhyme · count` reads `line_position` and
     `line_order`; `line_final_permutation` declares it destroys
     `line_distance`; the two do not intersect, so the derivation calls that
-    pair an identity map — and the measured row above says **89.5% of
-    replicates differed**.  The cause is not placement at all and `report()`
-    already names it: a permutation moves UNREADABLE tokens between lines, and
+    pair an identity map — and the measured row above RECORDED **89.5% of
+    replicates differed**.  The cause was not placement at all and `report()`
+    names it: a permutation moves UNREADABLE tokens between lines, and
     `line_final_token` is the last token the DECLARATION could read, so a swap
     changes which word is line-final (an ingestion effect wearing a placement
     number, doctrine 79).  A sweep that trusted the derivation would have
     silently dropped the one arm in this file's own table that the derivation
-    gets wrong.  Doctrine 68 is not a footnote here: the derivation proposes
+    got wrong.  That row can no longer be measured (#656: its confirmed count
+    collapsed once most end rhymes became undecided between readings), so the
+    reason now rests on rows that do move: `OFF_MENU_MOVERS` holds 25 pairs
+    the derivation calls identity maps and the sweep measured moving, among
+    them `multisyllabic rhyme · count · line_final_permutation` at 10 of 10.  Doctrine 68 is not a footnote here: the derivation proposes
     the plan and the MEASUREMENT decides, so every null is run and
     `Result.differing` is what the reader is asked to look at.
 
@@ -1627,9 +1640,14 @@ LEDGER_SLICE = ("corpus/song/eng_american_edgar_allan_poe.txt", "eng", 40)
 #: chosen round.  At n=4 this file's own known-wrong row — `perfect rhyme ·
 #: count · line_final_permutation`, derived an identity map, recorded at 89.5%
 #: differing — moved 0 of 4 and `OFF_MENU_MOVERS` could not see it; at n=10 it
-#: moves and the set contains it.  Doctrine 28: 0-of-4 was "cannot tell", not
+#: moved and the set contained it.  Doctrine 28: 0-of-4 was "cannot tell", not
 #: "no", and a ledger recorded at an n too small to reach the counterexample
 #: the file already knows about would be decoration with a number on it.
+#: 2026-11-04 (#656): that row can no longer be measured on the ledger slice
+#: (one confirmed witness; the end rhymes are undecided between readings), so
+#: the value is kept on today's evidence instead.  At n=10 the rarest mover the table holds,
+#: `paroemion · line_fraction · line_final_permutation`, moves 1 of 10; an n
+#: below 10 would be likely to miss it.
 LEDGER_REPLICATES = 10
 
 #: None ON PURPOSE — see the third bullet above.  Named rather than inlined so
@@ -1934,8 +1952,13 @@ EXTENSION_LEDGER = (
 #: is the worked case: silent at n=4, moving at n=10, so a ledger recorded at
 #: n=4 would have carried it here and been wrong about it.
 #:
-#: 22 of the 154 nominated pairs on this slice, over 9 of the 29 EXTENDABLE
-#: schemas — one nominated pair in seven.
+#: ~~22 of the 154 nominated pairs on this slice, over 9 of the 29 EXTENDABLE
+#: schemas — one nominated pair in seven.~~  RE-MEASURED 2026-11-04 (#656):
+#: 24 of the 153 pairs nominated on the 33 live schemas, over 11 schemas.  Of
+#: the 24, 23 are statistics pinned at a floor or ceiling the null cannot
+#: shift (local_fraction@2 at 0, compound / phrasal rhyme at 1.0) and one is
+#: `interlaced rhyme · count`, constant at 26.  The per-row verdicts, and
+#: which rows are fragile to the slice, are in #656 (6646175503).
 #:
 #: RE-MEASURED 2026-08-22 (M-39) AND SEVENTEEN ROWS LEFT: ~~39 of 195, over 13
 #: of 33, one in five~~.  Four of the schemas this counted over --
@@ -1960,16 +1983,28 @@ EXTENSION_LEDGER = (
 # eligible questions and are retained in docs/null-endpoint-gap.json. Removing
 # them from this comparison does not requalify the other historical readings.
 MENU_SILENT = (
+    ("Scots vowel-length rhyme (Aitken's Law)",
+     'local_fraction@2', 'line_final_permutation'),
+    ("Scots vowel-length rhyme (Aitken's Law)",
+     'local_fraction@2', 'line_permutation'),
     ('anaphora', 'local_fraction@2', 'line_final_permutation'),
+    ('assonance', 'local_fraction@2', 'line_final_permutation'),
+    ('assonance', 'local_fraction@2', 'line_permutation'),
     ('chain rhyme (rap)', 'line_fraction', 'global_redeal'),
     ('chain rhyme (rap)', 'line_fraction', 'line_final_permutation'),
     ('chain rhyme (rap)', 'line_fraction', 'line_permutation'),
     ('chain rhyme (rap)', 'line_fraction', 'within_line_shuffle'),
+    ('compound / phrasal rhyme', 'local_fraction@2', 'line_final_permutation'),
+    ('compound / phrasal rhyme', 'local_fraction@2', 'line_permutation'),
+    ('family rhyme', 'local_fraction@2', 'line_final_permutation'),
+    ('family rhyme', 'local_fraction@2', 'line_permutation'),
     ('head rhyme (positional)', 'local_fraction@2', 'line_final_permutation'),
-    ('rime riche', 'local_fraction@2', 'global_redeal'),
-    ('rime riche', 'local_fraction@2', 'within_line_shuffle'),
-    ('semirhyme', 'local_fraction@2', 'line_final_permutation'),
-    ('semirhyme', 'local_fraction@2', 'line_permutation'),
+    ('head rhyme (positional)', 'local_fraction@2', 'line_permutation'),
+    ('interlaced rhyme', 'count', 'line_final_permutation'),
+    ('perfect rhyme', 'local_fraction@2', 'line_final_permutation'),
+    ('perfect rhyme', 'local_fraction@2', 'line_permutation'),
+    ('subtractive rhyme', 'local_fraction@2', 'line_final_permutation'),
+    ('subtractive rhyme', 'local_fraction@2', 'line_permutation'),
     ('symploce', 'local_fraction@2', 'global_redeal'),
     ('symploce', 'local_fraction@2', 'line_final_permutation'),
     ('symploce', 'local_fraction@2', 'line_permutation'),
@@ -1983,29 +2018,51 @@ MENU_SILENT = (
 #: rows need no n at all to be conclusive — they only need an n large enough
 #: to reach them, which is the other half of why `LEDGER_REPLICATES` is 10.
 #:
-#: `('perfect rhyme', 'count', 'line_final_permutation')` IS IN THIS TABLE,
+#: ~~`('perfect rhyme', 'count', 'line_final_permutation')` IS IN THIS TABLE,
 #: and it is the row this file's own docstring records at 89.5% differing and
 #: `sweep()`'s docstring names as the reason `derived_only` is not the
-#: default.  Until now that counterexample lived in prose; a change to
-#: `_PLACEMENT_READS` or `_GAP_FORCED` that silently "fixed" the derivation
-#: into agreeing with itself would have left the prose standing and nothing
-#: would have failed.
+#: default.~~  RE-MEASURED 2026-11-04 (#656): that row has LEFT this table,
+#: and the reason is UNMEASURABILITY, not a correction.  On this slice it has
+#: one confirmed witness (tapping ~ rapping, mid-line) and 236 unresolved
+#: pairs, because most of this slice's end rhymes (lore / door / more / floor / Lenore) are undecided between the rhotic and non-rhotic readings.
+#: A permutation of nothing moves nothing.  Whether the derivation is still
+#: wrong about it is unknown until those readings resolve.  The reason
+#: `derived_only` is not the default still stands on rows that do move today:
+#: `multisyllabic rhyme · count · line_final_permutation` (10 of 10), the four
+#: cynghanedd sain rows under `within_line_shuffle` (8-10 of 10) and the
+#: Kalevala and alliteration rows under `line_final_permutation`.  The table is
+#: what makes that checkable: a change to `_PLACEMENT_READS` or `_GAP_FORCED`
+#: that silently "fixed" the derivation into agreeing with itself would empty
+#: rows here, and `--verify --deep` would say so.
 #:
 #: THIS SET MATTERS TO THE MARKER AND NOT ONLY TO THE MENU.  A schema whose
 #: menu is empty is CANNOT FAIL, whose remedy is "build a new randomisation";
 #: a single entry here on such a schema would mean the remedy is wrong and the
-#: right one was "run it".  There are none on this slice because there are no
-#: CANNOT FAIL schemas on it — the three reduplications are NO INSTANCE here —
-#: and that is itself worth stating: the CANNOT FAIL verdict has never been
-#: measured on a text where its schemas fire, so it is inconclusive by
-#: construction (doctrine 20) and this ledger cannot yet make it fail.
+#: right one was "run it".  ~~There are none on this slice because there are
+#: no CANNOT FAIL schemas on it~~.  Since 2026-10-30 (M-322) `rhyming
+#: reduplication` fires here (observed 2) and is CANNOT FAIL, and on
+#: 2026-11-04 it moved 0 of 10 under all four nulls, so there is still no
+#: entry here on a CANNOT FAIL schema: the first measurement of that verdict on
+#: a text where its schema fires agrees with the derivation.  One schema and
+#: one slice; it is a measurement, not a proof.
 #:
-#: 43 rows over 29 schemas.  29 of them are `line_final_permutation`, which is
-#: the mechanism `report()` already names: a permutation moves UNREADABLE
+#: ~~43 rows over 29 schemas.  29 of them are `line_final_permutation`, which
+#: is the mechanism `report()` already names: a permutation moves UNREADABLE
 #: tokens between lines and `line_final_token` is the last token the
 #: declaration could READ, so a swap changes which word is line-final.  That
 #: is an ingestion effect wearing a placement number (doctrine 79), and it is
-#: not in `_PLACEMENT_READS` because it is not a placement fact.
+#: not in `_PLACEMENT_READS` because it is not a placement fact.~~
+#: RE-MEASURED 2026-11-04 (#656): 25 rows over 16 schemas, 16 of them
+#: `line_final_permutation`.  The ingestion effect no longer moves the rows
+#: that can still show it: `consonance · count` (observed 25), `internal
+#: rhyme · count` (352) and `syllabic rhyme · count` (18) stay at 0 of 10
+#: even with an unreadable word added at the end of every fifth line.  The
+#: other eight rows that left have a confirmed count of 1 or 3 on this slice
+#: and cannot show it either way.  The rows that remain move on every
+#: version of the slice tried, so they are the derivation's own errors, not
+#: ingestion: the cynghanedd sain rows under `within_line_shuffle` and
+#: `multisyllabic rhyme` under `line_final_permutation` each owe a
+#: `_PLACEMENT_READS`/`_GAP_FORCED` entry (tracked on #656, 6646201683).
 OFF_MENU_MOVERS = (
     ('Kalevala alliteration (strong)', 'count', 'line_final_permutation'),
     ('Kalevala alliteration (strong)',
@@ -2013,39 +2070,27 @@ OFF_MENU_MOVERS = (
     ('Kalevala alliteration (weak)', 'count', 'line_final_permutation'),
     ('Kalevala alliteration (weak)',
      'line_fraction', 'line_final_permutation'),
-    ("Scots vowel-length rhyme (Aitken's Law)",
-     'count', 'line_final_permutation'),
     ('alliteration', 'count', 'line_final_permutation'),
-    ('assonance', 'count', 'line_final_permutation'),
+    ('cluster consonance / skothending span', 'count', 'global_redeal'),
+    ('cluster consonance / skothending span', 'count', 'within_line_shuffle'),
+    ('cluster consonance / skothending span',
+     'local_fraction@2', 'within_line_shuffle'),
     ('compound / phrasal rhyme', 'count', 'line_final_permutation'),
-    ('compound / phrasal rhyme', 'local_fraction@0', 'line_final_permutation'),
-    ('consonance', 'count', 'line_final_permutation'),
-    ('cynghanedd lusg', 'count', 'line_final_permutation'),
-    ('cynghanedd lusg', 'count', 'within_line_shuffle'),
     ('cynghanedd sain', 'count', 'line_final_permutation'),
-    ('cynghanedd sain drosgl', 'count', 'line_final_permutation'),
+    ('cynghanedd sain', 'count', 'within_line_shuffle'),
+    ('cynghanedd sain drosgl', 'count', 'within_line_shuffle'),
     ('cynghanedd sain gadwynog', 'count', 'line_final_permutation'),
+    ('cynghanedd sain gadwynog', 'count', 'within_line_shuffle'),
     ('cynghanedd sain lafarog', 'count', 'line_final_permutation'),
+    ('cynghanedd sain lafarog', 'count', 'within_line_shuffle'),
     ('epanalepsis', 'count', 'line_final_permutation'),
     ('epanalepsis', 'count', 'within_line_shuffle'),
-    ('head rhyme (positional)', 'count', 'line_final_permutation'),
-    ('internal rhyme', 'count', 'line_final_permutation'),
+    ('internal assonance', 'local_fraction@0', 'line_final_permutation'),
+    ('internal consonance', 'local_fraction@0', 'line_final_permutation'),
     ('internal rhyme', 'local_fraction@0', 'line_final_permutation'),
-    ('linked rhyme', 'count', 'global_redeal'),
-    ('linked rhyme', 'count', 'within_line_shuffle'),
-    ('mosaic rhyme', 'count', 'line_final_permutation'),
-    ('mosaic rhyme', 'local_fraction@0', 'line_final_permutation'),
-    ('perfect rhyme', 'count', 'line_final_permutation'),
-    ('repetition', 'count', 'global_redeal'),
-    ('repetition', 'count', 'within_line_shuffle'),
-    ('repetition', 'local_fraction@2', 'within_line_shuffle'),
-    ('reverse rhyme', 'count', 'line_final_permutation'),
-    ('rime riche', 'count', 'line_final_permutation'),
-    ('semirhyme', 'count', 'line_final_permutation'),
-    ('semirhyme', 'count', 'line_permutation'),
-    ('subtractive rhyme', 'count', 'line_final_permutation'),
-    ('subtractive rhyme', 'count', 'line_permutation'),
-    ('syllabic rhyme', 'count', 'line_final_permutation'),
+    ('multisyllabic rhyme', 'count', 'line_final_permutation'),
+    ('paroemion', 'count', 'line_final_permutation'),
+    ('paroemion', 'line_fraction', 'line_final_permutation'),
     ('symploce', 'count', 'line_permutation'),
 )
 
@@ -3482,7 +3527,8 @@ USAGE = """quality/relations_null.py - matched controls for relations.py
                          that never fails (doctrine 48)
   --verify --deep        also re-measures the derivation against a full sweep
                          at LEDGER_REPLICATES and diffs MENU_SILENT and
-                         OFF_MENU_MOVERS.  ~2 min; the only tier that checks
+                         OFF_MENU_MOVERS.  ~~2 min~~ ~78 min (measured,
+                         4 cores, 2026-11-04); the only tier that checks
                          EXTENDABLE's "a null bites" against a MEASUREMENT
   --verify --record      print the ledger tables as literals, for pasting
                          after a human has read the complaints
