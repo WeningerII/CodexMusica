@@ -139,17 +139,24 @@ export function mount(host, ctx) {
     } catch (error) {
       if (disposed || seq !== generation) return;
       const restoreFocus = moveFocus && doc.activeElement === loading;
-      if (error.name === 'AbortError') {
+      if (error?.name === 'AbortError') {
         message('Instrument loading was cancelled.');
         if (restoreFocus) focus();
         return;
       }
+      const notFound = error?.code === 'NOT_FOUND';
+      const known = notFound || error?.code === 'LOAD_FAILED';
+      const fallback = notFound
+        ? 'This instrument isn’t in the catalog’s data. Reload to see the current catalog.'
+        : 'This instrument’s details couldn’t load. Check your connection, then try again.';
+      // Only the loader's defined errors carry user guidance. Keep its exact
+      // sentence, rendered by message() as text, never markup or a raw exception.
       const text =
-        error.code === 'NOT_FOUND'
-          ? 'This instrument isn’t in the catalog’s data. Select another instrument.'
-          : 'This instrument’s details couldn’t load. Try again.';
+        known && typeof error.message === 'string' && error.message.trim()
+          ? error.message
+          : fallback;
       message(text);
-      if (error.code !== 'NOT_FOUND') {
+      if (!notFound) {
         const retry = node('button', 'Retry');
         retry.type = 'button';
         retry.addEventListener('click', () => update(true), { signal: events.signal });

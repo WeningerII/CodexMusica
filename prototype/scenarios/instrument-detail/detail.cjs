@@ -50,8 +50,17 @@ records.described = {
   photo: null,
   glyphUrl: null,
 };
+// Optional exact-target overlay: executes its actual instrumentLoader errors.
+const adapterRoot = process.env.INSTRUMENT_ADAPTER_ROOT;
+const messages = {
+  NOT_FOUND: 'This instrument isn’t in the catalog’s data. Reload to see the current catalog.',
+  LOAD_FAILED: 'This instrument’s details couldn’t load. Check your connection, then try again.',
+};
 const mutation = process.env.INSTRUMENT_MUTATION || '';
 const mutations = {
+  guidance: ['? error.message', '? fallback'],
+  fallback: ['Reload to see the current catalog.', 'Select another instrument.'],
+  html: ['el.textContent = text;', 'el.innerHTML = text;'],
   css: ['host.append(sheet, root);', 'host.append(root);'],
   stale: ['disposed || seq !== generation', 'disposed'],
   credit: ["photo[2] || 'uncredited'", "photo[1] || 'uncredited'"],
@@ -84,6 +93,34 @@ const server = http.createServer((req, res) => {
     }
     res.setHeader('Content-Type', url.pathname.endsWith('.js') ? 'text/javascript' : 'text/css');
     res.end(body);
+  } else if (
+    adapterRoot &&
+    [
+      '/prototype/data.js',
+      '/prototype/engine/load.js',
+      '/codex.html',
+      '/api/instruments/index.json',
+      '/api/instrument_images.json',
+      '/api/engine.json',
+      '/api/browse_boot.json',
+    ].includes(url.pathname)
+  ) {
+    const file = path.join(
+      url.pathname.startsWith('/api/') ? repo : adapterRoot,
+      url.pathname.slice(1)
+    );
+    res.setHeader(
+      'Content-Type',
+      url.pathname.endsWith('.js')
+        ? 'text/javascript'
+        : url.pathname.endsWith('.json')
+          ? 'application/json'
+          : 'text/html'
+    );
+    res.end(fs.readFileSync(file));
+  } else if (adapterRoot && url.pathname === '/api/instruments/oud.json') {
+    res.statusCode = 503;
+    res.end('deliberate record-load failure');
   } else {
     res.statusCode = 404;
     res.end();
@@ -111,7 +148,7 @@ const server = http.createServer((req, res) => {
   try {
     await page.goto(origin);
     await page.evaluate(
-      async ({ records, featurePath }) => {
+      async ({ records, featurePath, messages }) => {
         window.feature = await import('/' + featurePath);
         const freeze = (value) => {
           if (value && typeof value === 'object') {
@@ -122,7 +159,7 @@ const server = http.createServer((req, res) => {
         };
         Object.values(records).forEach(freeze);
         window.fixture = records;
-        window.control = {};
+        window.control = { messages };
         window.control.create = (hostId, initial) => {
           let value = initial;
           const listeners = new Set();
@@ -158,11 +195,16 @@ const server = http.createServer((req, res) => {
             }),
             loadInstrument(id, { signal }) {
               calls.push({ id, signal });
-              if (c.slow) return new Promise((resolve) => pending.push({ id, resolve })); // deliberately ignores abort
-              if (c.fail) return Promise.reject(Object.assign(new Error('fixture'), c.fail));
+              if (c.slow)
+                return new Promise((resolve, reject) => pending.push({ id, resolve, reject })); // deliberately ignores abort
+              if (c.rejectRaw) return Promise.reject(c.rawError);
+              if (c.fail)
+                return Promise.reject(Object.assign(new Error(messages.LOAD_FAILED), c.fail));
               return fixture[id]
                 ? Promise.resolve(fixture[id])
-                : Promise.reject(Object.assign(new Error('unknown'), { code: 'NOT_FOUND' }));
+                : Promise.reject(
+                    Object.assign(new Error(messages.NOT_FOUND), { code: 'NOT_FOUND' })
+                  );
             },
             media: Object.freeze({ resolve: (url) => (url === '/local.svg' ? url : null) }),
             openPhoto(photo, options) {
@@ -175,7 +217,7 @@ const server = http.createServer((req, res) => {
         };
         control.one = control.create('one', null);
       },
-      { records, featurePath }
+      { records, featurePath, messages }
     );
     const heading = page.locator('#one h2');
     await heading.filter({ hasText: 'Select an instrument' }).waitFor();
@@ -311,6 +353,112 @@ const server = http.createServer((req, res) => {
       control.one.select('unknown');
     });
     await heading.filter({ hasText: 'isn’t in the catalog' }).waitFor();
+    assert.equal(await heading.textContent(), messages.NOT_FOUND, 'full NOT_FOUND guidance');
+    if (adapterRoot) {
+      const actual = await page.evaluate(async () => {
+        const { instrumentLoader } = await import('/prototype/data.js');
+        const loader = instrumentLoader();
+        const results = {};
+        for (const id of ['../escape', 'oud']) {
+          try {
+            await loader.loadInstrument(id);
+          } catch (error) {
+            results[error.code] = { code: error.code, message: error.message };
+          }
+        }
+        return results;
+      });
+      for (const code of ['NOT_FOUND', 'LOAD_FAILED']) {
+        assert.equal(actual[code].message, messages[code], 'actual adapter ' + code);
+        await page.evaluate((error) => {
+          control.one.fail = error;
+          control.one.select('oud');
+        }, actual[code]);
+        await page.waitForFunction(
+          () => !document.querySelector('#one .instrument-detail').hasAttribute('aria-busy')
+        );
+        assert.equal(
+          await heading.textContent(),
+          actual[code].message,
+          'preserve actual adapter ' + code
+        );
+      }
+    }
+    for (const code of ['NOT_FOUND', 'LOAD_FAILED']) {
+      for (const payload of ['', '   ', null, 7, {}, []]) {
+        await page.evaluate(
+          ({ code, payload }) => {
+            control.one.fail = { code, message: payload };
+            control.one.select('oud');
+          },
+          { code, payload }
+        );
+        await page.waitForFunction(
+          () => !document.querySelector('#one .instrument-detail').hasAttribute('aria-busy')
+        );
+        assert.equal(
+          await heading.textContent(),
+          messages[code],
+          'malformed message fallback ' + code
+        );
+      }
+    }
+    for (const rawError of [
+      null,
+      undefined,
+      'raw exception',
+      { code: 'OTHER', message: 'private diagnostic' },
+    ]) {
+      await page.evaluate((rawError) => {
+        control.one.rejectRaw = true;
+        control.one.rawError = rawError;
+        control.one.select('oud');
+      }, rawError);
+      await page.waitForFunction(
+        () => !document.querySelector('#one .instrument-detail').hasAttribute('aria-busy')
+      );
+      assert.equal(await heading.textContent(), messages.LOAD_FAILED, 'malformed error fallback');
+    }
+    await page.evaluate(() => {
+      control.one.rejectRaw = false;
+    });
+    const literal = 'Keep this guidance: <strong>Reload & retry</strong>.';
+    await page.evaluate((message) => {
+      control.one.fail = { code: 'LOAD_FAILED', message };
+      control.one.select('oud');
+    }, literal);
+    await page.waitForFunction(
+      () => !document.querySelector('#one .instrument-detail').hasAttribute('aria-busy')
+    );
+    assert.equal(await heading.textContent(), literal, 'supplied guidance preserved verbatim');
+    assert.equal(await heading.locator('strong').count(), 0, 'guidance is text, not markup');
+    await page.evaluate(() => {
+      control.one.fail = null;
+      control.one.slow = true;
+      control.one.select('oud');
+      control.one.select('accordina');
+      control.one.pending.at(-1).resolve(fixture.accordina);
+    });
+    await heading.filter({ hasText: accordina.name }).waitFor();
+    const announcements = await page.evaluate(() => control.one.announcements.length);
+    await page.evaluate(() =>
+      control.one.pending.at(-2).reject({ code: 'LOAD_FAILED', message: 'Stale guidance' })
+    );
+    await page.evaluate(() => new Promise(requestAnimationFrame));
+    assert.equal(
+      await heading.textContent(),
+      accordina.name,
+      'stale error cannot replace selection'
+    );
+    assert.equal(
+      await page.evaluate(() => control.one.announcements.length),
+      announcements,
+      'stale error stays silent'
+    );
+    await page.evaluate(() => {
+      control.one.slow = false;
+    });
+
     await page.evaluate(() => {
       control.one.fail = { code: 'LOAD_FAILED' };
       control.one.select('oud');
