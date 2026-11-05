@@ -220,6 +220,7 @@ const SHELL_DATA = new Set([
   '../data/geo.json',
   '../data/geo-meta.json',
   '../data/no-fixed-origin.json',
+  '../data/tree-nodes.json',
   '../library/data/catalog.json',
   '../library/data/artwork.json',
   '../library/data/collections.json',
