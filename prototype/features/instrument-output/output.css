@@ -1,0 +1,65 @@
+.io-output {
+  min-width: 0;
+  color: inherit;
+}
+
+.io-output [hidden] {
+  display: none;
+}
+
+.io-output .io-formats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.io-output button {
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.io-output button[aria-pressed='true'] {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.io-output button:focus-visible,
+.io-output .io-state:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.io-output .io-help,
+.io-output .io-state {
+  overflow-wrap: anywhere;
+}
+
+.io-output .io-text {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 12px;
+  min-height: 72px;
+  max-width: 100%;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  font: inherit;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.io-output .io-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+}
