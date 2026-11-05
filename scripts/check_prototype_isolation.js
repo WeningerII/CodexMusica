@@ -56,7 +56,7 @@
 //      rules run on fixed examples first, so a rule that can't fail fails.
 //      A lane's scenarios (prototype/scenarios/<lane>/) are Node-side test
 //      code under their own rule: .cjs or .mjs, static imports only of node:
-//      built-ins, playwright, scripts/_pages_server.js and the lane's own
+//      built-ins, playwright, jsdom, scripts/_pages_server.js and the lane's own
 //      folders, and never imported or named by the page.
 //      (The mounted behaviour is check_prototype_hosts.js.)
 //
@@ -150,9 +150,12 @@ const FEATURE = /^prototype\/features\/([a-z0-9-]+)\//;
 // A lane's scenarios (prototype/scenarios/<lane>/) are Node-side test code: the
 // page never loads them, so the browser rules don't apply. What does: they are
 // .cjs or .mjs (never a .js the page could mistake for a module), their static
-// imports are Node built-ins, playwright, scripts/_pages_server.js, or their own
+// imports are Node built-ins, playwright, jsdom (both locked root dependencies:
+// a scenario may drive a browser or a DOM without one, #668 6648324045),
+// scripts/_pages_server.js, or their own
 // lane's feature and scenario folders, and nothing the page loads imports them.
 const SCENARIO = /^prototype\/scenarios\/([a-z0-9-]+)\//;
+const SCENARIO_PACKAGES = new Set(['playwright', 'jsdom']);
 // Parsed, not pattern-matched: a scenario often holds page-side code in a
 // string (an inline module it serves, a pattern it asserts against), and only
 // its own import declarations and require() calls are its imports.
@@ -196,7 +199,8 @@ function scenarioProblems(text, rel) {
   };
   visit(ast); // dynamic import() is the test runner's business, and isn't collected
   for (const spec of specs) {
-    if (typeof spec === 'string' && (/^node:[\w/]+$/.test(spec) || spec === 'playwright')) continue;
+    if (typeof spec === 'string' && (/^node:[\w/]+$/.test(spec) || SCENARIO_PACKAGES.has(spec)))
+      continue;
     const target =
       typeof spec === 'string'
         ? path.posix.normalize(path.posix.join(path.posix.dirname(rel), spec))
@@ -209,7 +213,7 @@ function scenarioProblems(text, rel) {
         target === 'scripts/_pages_server.js');
     if (!ok) {
       out.push(
-        `imports "${spec}"; a scenario imports node: built-ins, playwright, scripts/_pages_server.js and its own lane's files`
+        `imports "${spec}"; a scenario imports node: built-ins, playwright, jsdom, scripts/_pages_server.js and its own lane's files`
       );
     }
   }
@@ -405,6 +409,22 @@ function selfTest() {
       0,
     ],
     [scenarioProblems('const x = require(name);', 'prototype/scenarios/lyrics/editor.cjs'), 1],
+    [
+      scenarioProblems(
+        "const { JSDOM } = require('jsdom');",
+        'prototype/scenarios/lyrics/editor.cjs'
+      ),
+      0,
+    ],
+    [scenarioProblems("import { JSDOM } from 'jsdom';", 'prototype/scenarios/recipe/a.mjs'), 0],
+    [
+      scenarioProblems(
+        "const j = require('jsdom/lib/api');",
+        'prototype/scenarios/lyrics/editor.cjs'
+      ),
+      1,
+    ],
+    [moduleProblems("import { JSDOM } from 'jsdom';", 'prototype/features/lyrics/editor.js'), 1],
     [moduleProblems("import x from './scenarios/recipe/a.mjs';", 'prototype/app.js'), 1],
     [absoluteUrl('http://www.w3.org/2000/svg') ? ['x'] : [], 0],
     [absoluteUrl('http://www.w3.org/2000/svg https://example.org/x') ? ['x'] : [], 1],

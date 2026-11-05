@@ -2,6 +2,12 @@
 // Ordinary page Run review -> local HTTP/chat -> authenticated MCP/Python -> lyReceive.
 // Only model tool choice is stubbed. Positive replies are forwarded unchanged.
 // One labelled negative corrupts an authenticated projection to verify rejection.
+// Run review is review-only (#636): the agent builds lyric_recover and
+// lyric_check from the signed page context and never rewrites the draft. The
+// cases that once sent the model different declarations or lines now assert
+// that those model arguments are discarded (the evidence still binds as
+// current); mismatch rejection itself is pinned by
+// mcp/test_lyrics_evidence_binding.mjs and scripts/test_lyrics_evidence.js.
 import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
@@ -36,8 +42,7 @@ const cases = [
     name: 'sections-whitespace-repeated-utf16',
     text: '[SETUP — rhyme groups — 1,2]\n[VERSE 😀]\n\n \tcat bat cat  \n\n[CHORUS]\n  hat\t ',
     args: { lines: ['cat bat cat', 'hat'], groups: '1,2' },
-    current: false,
-    rewrittenFinal: true,
+    current: true,
   },
   {
     name: 'sections-blanks-repeated-utf16-go',
@@ -57,7 +62,8 @@ const cases = [
     name: 'changed-groups',
     text: '[SETUP — rhyme groups — 1,2]\ncat\nhat',
     args: { lines: ['cat', 'hat'], groups: '1.head,2' },
-    current: false,
+    current: true,
+    modelArgsIgnored: true,
   },
   {
     name: 'changed-readings',
@@ -76,13 +82,15 @@ const cases = [
         },
       ],
     },
-    current: false,
+    current: true,
+    modelArgsIgnored: true,
   },
   {
     name: 'unsupported-text-transformation',
     text: '[SETUP — rhyme groups — 1,2]\ncat\nhat',
     args: { lines: ['bat', 'hat'], groups: '1,2' },
-    current: false,
+    current: true,
+    modelArgsIgnored: true,
   },
 ];
 const results = [];
@@ -204,25 +212,25 @@ try {
         'page preserved exact submitted context'
       );
       assert(state.evidence, 'authenticated real producer evidence reached lyReceive');
+      // A review never rewrites the draft (#636).
+      assert.equal(state.draftText, record.beforeClick.draft, 'review leaves the draft unchanged');
+      if (scenario.modelArgsIgnored) {
+        // The model asked for other declarations or lines; the agent ran the
+        // real check from the page context instead (not refused, not skipped).
+        const tools = replies[0].tools || [];
+        assert.deepEqual(
+          tools.map((t) => [t.name, !!t.isError]),
+          [
+            ['lyric_recover', false],
+            ['lyric_check', false],
+          ],
+          'recover then the real check ran'
+        );
+      }
       if (scenario.current) {
         assert.equal(state.freshness, 'current');
         assert(state.binding);
         assert(state.canGo);
-      } else if (scenario.rewrittenFinal) {
-        // The real reply applies trimmed sung lines. Its source receipt remains
-        // bound to the original bytes, so the rewritten document must be stale.
-        assert.equal(state.binding, true);
-        assert.equal(state.freshness, 'stale');
-        assert.equal(state.canGo, false);
-        assert.equal(state.savedBinding.text, record.beforeClick.text);
-        assert.notEqual(state.currentText, record.beforeClick.text);
-        assert.equal(
-          state.currentText,
-          record.beforeClick.text
-            .split('\n')
-            .map((row) => (row.trim() && !row.trim().startsWith('[') ? row.trim() : row))
-            .join('\n')
-        );
       } else {
         assert.equal(state.binding, false);
         assert.equal(state.canGo, false);

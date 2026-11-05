@@ -18,14 +18,19 @@ const check = (ok, label) => {
 const settle = (p) => p.waitForTimeout(120);
 (async () => {
   const { createOfflineChat } = await import('./lyrics_inspection_transport_fixture.mjs');
-  const backend = await createOfflineChat();
-  const receipts = new Map();
+  // The browser first, then the backend: a launch that fails leaves no server
+  // listening, so the check exits with the error instead of hanging (CI sets no
+  // CHROMIUM_PATH, and Playwright's own Chromium is the default there).
   const browser = await chromium.launch({
     headless: true,
-    executablePath:
-      process.env.CHROMIUM_PATH || '/tmp/musica-browsers/chromium-0/chrome-linux/chrome',
+    executablePath: process.env.CHROMIUM_PATH || undefined,
     args: ['--no-sandbox', '--disable-dev-shm-usage'],
   });
+  const backend = await createOfflineChat().catch(async (e) => {
+    await browser.close();
+    throw e;
+  });
+  const receipts = new Map();
   const open = async (width, height) => {
     const ctx = await browser.newContext({
       viewport: { width, height },
@@ -157,6 +162,20 @@ const settle = (p) => p.waitForTimeout(120);
     await (await control(p, action, extra)).click();
     await settle(p);
   };
+  // A refused Return keeps focus on itself, says it is unavailable and why,
+  // and stays refused when pressed again (#661: focus used to fall to the
+  // panel heading, which the narrow sticky-bar rule then scrolled to).
+  const refusedReturnFocused = (p) =>
+    p.evaluate(() => {
+      const a = document.activeElement;
+      return (
+        a?.dataset?.ui === 'ly-relation-return' &&
+        a.getAttribute('aria-disabled') === 'true' &&
+        !a.disabled &&
+        !!lyInspectionSession().reason &&
+        a.textContent.includes(lyInspectionSession().reason)
+      );
+    });
   const state = (p) =>
     p.evaluate(() => ({
       text: lyDraft().value,
@@ -384,6 +403,19 @@ const settle = (p) => p.waitForTimeout(120);
           await p.evaluate(() => !!lyInspectionSession().reason),
           label + ' stale Return explains refusal'
         );
+        check(
+          await refusedReturnFocused(p),
+          label + ' stale Return keeps focus, refused and explained'
+        );
+        const refusedOnce = await state(p);
+        // Focus is on it: press it again the way a keyboard user would.
+        await p.keyboard.press('Enter');
+        await settle(p);
+        check(
+          JSON.stringify(await state(p)) === JSON.stringify(refusedOnce) &&
+            (await refusedReturnFocused(p)),
+          label + ' second stale Return stays refused in place'
+        );
         const refused = await state(p);
         await (await control(p, 'ly-relation-stay')).scrollIntoViewIfNeeded();
         const beforeStay = await state(p);
@@ -495,6 +527,10 @@ const settle = (p) => p.waitForTimeout(120);
         check(
           JSON.stringify(after) === JSON.stringify(before),
           'keyboard stale Return preserves position'
+        );
+        check(
+          await refusedReturnFocused(p),
+          'keyboard stale Return keeps focus, refused and explained'
         );
         const stay = await control(p, 'ly-relation-stay');
         await stay.focus();
