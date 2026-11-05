@@ -1,0 +1,61 @@
+.pgc {
+  color: inherit;
+  min-width: 0;
+}
+.pgc [hidden] {
+  display: none !important;
+}
+.pgc .pgc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+.pgc .pgc-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 44px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid currentColor;
+  border-radius: 0.4rem;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+.pgc .pgc-button:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 2px;
+}
+.pgc .pgc-button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.pgc .pgc-list li + li {
+  margin-top: 0.3rem;
+}
+.pgc .pgc-name {
+  overflow-wrap: anywhere;
+}
+.pgc .pgc-count {
+  margin-inline-start: auto;
+  font-variant-numeric: tabular-nums;
+}
+.pgc .pgc-glyphs,
+.pgc .pgc-current {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.pgc .pgc-glyphs {
+  flex: none;
+}
+.pgc .pgc-current {
+  margin-block: 0.75rem;
+}
+.pgc .pgc-message {
+  margin-block: 0.5rem;
+}
+/* The shell owns the discovery breakpoint and both hosts' visibility. */
