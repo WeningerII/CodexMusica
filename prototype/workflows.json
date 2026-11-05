@@ -1,0 +1,48 @@
+{
+  "source": "#670 prototype spec §3 (6620617004), as corrected in 6622487968 §2",
+  "note": "Each workflow stays pending until the feature slice that implements it adds its scenario. scripts/check_prototype_isolation.js fails if one is removed, renumbered or marked done without a scenario.",
+  "workflows": [
+    {
+      "id": 1,
+      "title": "Build a recipe",
+      "steps": "Build a recipe from a genre, edit a part, set an environment and copy all four formats. Reload: the workspace is restored. Undo and Redo work within the session; after a reload the history starts at the restored snapshot. The signature strip shows the workspace centroid and the four nearest traditions once the workspace has two or more cards.",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "id": 2,
+      "title": "Saved workspaces",
+      "steps": "Save, rename, fork and delete a saved workspace, with a truthful autosave status. Delete keeps its confirmation and its truthful failure message.",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "id": 3,
+      "title": "Write a song",
+      "steps": "On Lyrics: brief, draft and Review; a refusal with its named next step; recovery after a failed or interrupted run.",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "id": 4,
+      "title": "Library",
+      "steps": "Find a work, read it, select a passage, run an analysis, cancel and resume it, export, hand off to Lyrics, use Back and Forward.",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "id": 5,
+      "title": "Map",
+      "steps": "Search, filter, pan and zoom by pointer, touch and keyboard, open a tradition, return.",
+      "status": "pending",
+      "scenario": null
+    },
+    {
+      "id": 6,
+      "title": "Errors and offline",
+      "steps": "Catalog fetch failure, connector unavailable and file://, each with an honest message.",
+      "status": "pending",
+      "scenario": null
+    }
+  ]
+}
