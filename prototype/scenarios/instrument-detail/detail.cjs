@@ -1,5 +1,19 @@
 // Standalone lane harness; does not establish #755 shell or #748 overlay parity.
-// Fixtures read committed production JSON; synthetic local photos exercise wiring only.
+// Self-contained recorded fixtures; synthetic local photos/glyphs exercise wiring only.
+// Catalog snapshot: fd16719d46217adc9b57ef939c9497e29e77741c.
+// api/instruments/{id}.json: scripts/build_static_api.js main() writes
+// scripts/_api_contract.js stripExpandedVariants(inst). Only fields used here
+// are retained; no renderer is executed by this scenario.
+// Record blobs: oud 29e26ab50962daf006fe6599614bfb5df61ea3f5;
+// accordina d37cee03575e45a9697336c6b0b16e2351db2e6b;
+// credited_auxiliary_percussion c14822037562ffb901aa454b3c5d556f7e9f8fab.
+// Photo tuples: scripts/_image_tables.js compactInstrumentImages(), written by
+// build_static_api.js main() to api/instrument_images.json, blob
+// d0386633dec52cb64a388adbdbe7ec28382b547f at the same snapshot.
+// Labels follow references/02_instruments.js INSTRUMENT_FAMILIES and production
+// src/pages/instrument.js ipHuman(). The described fixture deliberately overlays
+// prose onto Oud's identity shape to prove prose is ignored, not family parity.
+// Current catalog/adapter/glyph parity belongs to Don's shared gates.
 /* global fixture, control, feature */
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
@@ -8,12 +22,35 @@ const http = require('node:http');
 const { chromium } = require('playwright');
 const repo = path.resolve(__dirname, '../../..');
 const featurePath = 'prototype/features/instrument-detail/detail.js';
-const photos = JSON.parse(
-  fs.readFileSync(path.join(repo, 'api/instrument_images.json'))
-).instruments;
-const read = (id) => JSON.parse(fs.readFileSync(path.join(repo, `api/instruments/${id}.json`)));
-const oud = read('oud');
-const accordina = read('accordina');
+const photos = {
+  oud: [
+    'https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/%C5%AAd_MET_DP340079.jpg/500px-%C5%AAd_MET_DP340079.jpg',
+    'CC0',
+    'Creator:Manol (Emmanuel Venios)',
+    'https://commons.wikimedia.org/wiki/File:%C5%AAd_MET_DP340079.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/9/92/%C5%AAd_MET_DP340079.jpg',
+  ],
+  accordina: [
+    'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail',
+    'CC BY 2.5 Generic',
+    'Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic',
+    'https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg',
+  ],
+};
+const oud = {
+  id: 'oud',
+  name: 'ʿŪd (Arab/Mediterranean fretless lute)',
+  short: 'oud',
+  family: 'plucked_traditional',
+  class: 'plucked_string_lead',
+};
+const accordina = {
+  id: 'accordina',
+  name: 'Accordina',
+  short: 'Accordina',
+  family: 'free_reed',
+  class: 'accordina',
+};
 const svg =
   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><circle cx="18" cy="18" r="12"/></svg>';
 const records = {
@@ -39,7 +76,17 @@ const records = {
     glyphUrl: null,
   },
 };
-const described = read('credited_auxiliary_percussion');
+const described = {
+  id: 'credited_auxiliary_percussion',
+  name: 'Credited auxiliary percussion (source unspecified)',
+  short: 'Unspecified credited percussion',
+  description:
+    'Data owner for a positively credited auxiliary percussion role whose source does not identify the instrument family or playing mechanism. No drum, shaker, tambourine, construction, material or technique is inferred. Neutral axes are authored routing coordinates, not measured acoustic facts.',
+  sources: [
+    'https://mencho.bandcamp.com/album/interiores',
+    'https://www.wuwm.com/arts-culture/2023-06-23/muna-tiny-desk-concert',
+  ],
+};
 records.described = {
   ...records.oud,
   id: described.id,
@@ -50,8 +97,13 @@ records.described = {
   photo: null,
   glyphUrl: null,
 };
-// Optional exact-target overlay: executes its actual instrumentLoader errors.
-const adapterRoot = process.env.INSTRUMENT_ADAPTER_ROOT;
+// Recorded from prototype/data.js INSTRUMENT_MESSAGES / instrumentFail(),
+// consumed by instrumentLoader(), at #755 241718b1157540c2c6db669cf2b01e3f15da569c
+// (data.js blob 14c98a6741c90a806ef2496c0f30abf45653334a).
+// Historical qualification executed the real adapter's NOT_FOUND and HTTP503
+// LOAD_FAILED errors. Its two source-oracle assertions are intentionally removed
+// here; the two rendering assertions remain below using these recorded errors.
+// This hermetic scenario does not rerun that adapter qualification.
 const messages = {
   NOT_FOUND: 'This instrument isn’t in the catalog’s data. Reload to see the current catalog.',
   LOAD_FAILED: 'This instrument’s details couldn’t load. Check your connection, then try again.',
@@ -93,34 +145,6 @@ const server = http.createServer((req, res) => {
     }
     res.setHeader('Content-Type', url.pathname.endsWith('.js') ? 'text/javascript' : 'text/css');
     res.end(body);
-  } else if (
-    adapterRoot &&
-    [
-      '/prototype/data.js',
-      '/prototype/engine/load.js',
-      '/codex.html',
-      '/api/instruments/index.json',
-      '/api/instrument_images.json',
-      '/api/engine.json',
-      '/api/browse_boot.json',
-    ].includes(url.pathname)
-  ) {
-    const file = path.join(
-      url.pathname.startsWith('/api/') ? repo : adapterRoot,
-      url.pathname.slice(1)
-    );
-    res.setHeader(
-      'Content-Type',
-      url.pathname.endsWith('.js')
-        ? 'text/javascript'
-        : url.pathname.endsWith('.json')
-          ? 'application/json'
-          : 'text/html'
-    );
-    res.end(fs.readFileSync(file));
-  } else if (adapterRoot && url.pathname === '/api/instruments/oud.json') {
-    res.statusCode = 503;
-    res.end('deliberate record-load failure');
   } else {
     res.statusCode = 404;
     res.end();
@@ -354,35 +378,22 @@ const server = http.createServer((req, res) => {
     });
     await heading.filter({ hasText: 'isn’t in the catalog' }).waitFor();
     assert.equal(await heading.textContent(), messages.NOT_FOUND, 'full NOT_FOUND guidance');
-    if (adapterRoot) {
-      const actual = await page.evaluate(async () => {
-        const { instrumentLoader } = await import('/prototype/data.js');
-        const loader = instrumentLoader();
-        const results = {};
-        for (const id of ['../escape', 'oud']) {
-          try {
-            await loader.loadInstrument(id);
-          } catch (error) {
-            results[error.code] = { code: error.code, message: error.message };
-          }
-        }
-        return results;
-      });
-      for (const code of ['NOT_FOUND', 'LOAD_FAILED']) {
-        assert.equal(actual[code].message, messages[code], 'actual adapter ' + code);
-        await page.evaluate((error) => {
+    for (const code of ['NOT_FOUND', 'LOAD_FAILED']) {
+      await page.evaluate(
+        (error) => {
           control.one.fail = error;
           control.one.select('oud');
-        }, actual[code]);
-        await page.waitForFunction(
-          () => !document.querySelector('#one .instrument-detail').hasAttribute('aria-busy')
-        );
-        assert.equal(
-          await heading.textContent(),
-          actual[code].message,
-          'preserve actual adapter ' + code
-        );
-      }
+        },
+        { code, message: messages[code] }
+      );
+      await page.waitForFunction(
+        () => !document.querySelector('#one .instrument-detail').hasAttribute('aria-busy')
+      );
+      assert.equal(
+        await heading.textContent(),
+        messages[code],
+        'preserve recorded adapter ' + code
+      );
     }
     for (const code of ['NOT_FOUND', 'LOAD_FAILED']) {
       for (const payload of ['', '   ', null, 7, {}, []]) {
