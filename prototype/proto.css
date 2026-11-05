@@ -148,3 +148,15 @@ p {
     scroll-behavior: auto !important;
   }
 }
+
+/* A lane whose data didn't load: the shell's Retry (host.js). */
+.host-retry {
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  padding: 0 1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.375rem;
+  background: var(--bg);
+  color: var(--fg);
+  font: inherit;
+}
