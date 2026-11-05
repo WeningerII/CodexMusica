@@ -3,6 +3,15 @@
 // 47078396261039a6d18e97edbe1c242d2b440f80; 02_instruments.js
 // 0f67d61306b2a96bd005c7c01e34c52afd70357f; 05_traditions.js
 // f8b910676eac35dcaf8ec00e5e5b531a40fb91c0. IDs/names/order below are exact.
+// Producing renderer at that commit: src/pages/genre.js gpInstruments(id, t),
+// reading t.instruments in order and InstLite(i).name for each roster label.
+// The recorded bluegrass/ambient IDs and names came from TRADITIONS/INSTRUMENTS;
+// the source oracle used direct table-lookup doubles for Tradition/InstLite and
+// executed gpInstruments to check the full roster against those recorded values.
+// Destination text/labels: gpDestNote, gpDestAddLabel and gpRecipeCount;
+// dispatch oracle: gpAddInstrument, with uiAddInstrument replaced by a spy.
+// Listen query producer: src/workbench.js listenHref(name, true), called by
+// listenLink(name, true) in gpInstruments. The fixture substitutes only its host.
 // Default: deliberately small DOM double, no layout/accessibility-tree claim.
 // --browser: the same interactions in sandboxed Chromium; startup failures fail.
 // --mutation=ensemble|destination|stale-load|cleanup|note tests attribution by
