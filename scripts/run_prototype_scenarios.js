@@ -14,7 +14,7 @@
 //   node scripts/run_prototype_scenarios.js
 //
 // Exit 0 if every scenario passes, 1 if any fails or times out, 2 if there
-// are none to run.
+// are none to run or SCENARIO_TIMEOUT_MS is not a positive whole number.
 
 const fs = require('fs');
 const path = require('path');
@@ -22,7 +22,22 @@ const { spawnSync } = require('child_process');
 
 const ROOT = path.resolve(__dirname, '..');
 const DIR = path.join(ROOT, 'prototype', 'scenarios');
-const TIMEOUT_MS = Number(process.env.SCENARIO_TIMEOUT_MS) || 300000;
+const TIMEOUT_MS = timeoutSetting(process.env.SCENARIO_TIMEOUT_MS);
+
+// SCENARIO_TIMEOUT_MS, when set, must be a positive whole number of
+// milliseconds; anything else is refused by name rather than reaching
+// spawnSync (where a negative value throws) or silently becoming the default.
+function timeoutSetting(raw) {
+  if (raw === undefined || raw === '') return 300000;
+  const n = Number(raw);
+  if (!Number.isSafeInteger(n) || n <= 0) {
+    console.error(
+      `run_prototype_scenarios: SCENARIO_TIMEOUT_MS must be a positive whole number of milliseconds, got "${raw}"`
+    );
+    process.exit(2);
+  }
+  return n;
+}
 
 const scenarios = fs.existsSync(DIR)
   ? fs
