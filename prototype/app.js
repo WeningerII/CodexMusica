@@ -18,7 +18,9 @@ import {
   instrumentLoader,
   readingLoader,
   readingLines,
+  loadGenreDiscovery,
 } from './data.js';
+import { genreDiscovery } from './discovery.js';
 import { media, speechAdapter } from './adapters.js';
 import { genre, instrument } from './selection.js';
 
@@ -224,6 +226,48 @@ LANES.instrument = {
   }),
 };
 
+// The Genre page's discovery (#668 6665493327): Categories (rows 163–165)
+// and Find a sound (rows 166–169, 171) read one store, so a count equals its
+// list and a target narrows the same results. The ranked results are the
+// shell's; until the list lane arrives, the shell shows their count line,
+// which takes focus after a branch or a match that finds nothing.
+const discovery = genreDiscovery({
+  load: loadGenreDiscovery,
+  select: (id) => genre.set(id),
+  announce,
+});
+const discoveryLanes = [
+  {
+    id: 'genrecategories',
+    label: 'The genre categories',
+    load: () => import('./features/genre-categories/categories.js'),
+    unloaded: 'The genre categories did not load.',
+    context: async () => {
+      await discovery.start();
+      if (discovery.categories.current().status !== 'ready') throw new Error('not ready');
+      return {
+        categories: discovery.categories,
+        discovery: discovery.discovery,
+        targets: Object.freeze({
+          current: discovery.targets.current,
+          subscribe: discovery.targets.subscribe,
+        }),
+      };
+    },
+  },
+  {
+    id: 'genretargets',
+    label: 'Find a sound',
+    load: () => import('./features/genre-targets/targets.js'),
+    unloaded: 'Find a sound did not load.',
+    context: async () => {
+      await discovery.start();
+      if (discovery.targets.current().status !== 'ready') throw new Error('not ready');
+      return { targets: discovery.targets, discovery: discovery.discovery };
+    },
+  },
+];
+
 // More lanes in a panel, after its first, in this order (#668 6643233628).
 const MORE = {
   library: [
@@ -250,11 +294,50 @@ const MORE = {
   ],
 };
 
+// Genre: the discovery lanes first, then the detail (#668 6665493327).
+const FIRST = { genre: discoveryLanes };
+
 const hosts = {};
 for (const [route, lane] of Object.entries(LANES)) {
   const panel = document.querySelector(`[data-panel="${route}"]`);
-  hosts[route] = [lane, ...(MORE[route] || [])].map((l) => createHost(l, panel));
+  hosts[route] = [...(FIRST[route] || []), lane, ...(MORE[route] || [])].map((l) =>
+    createHost(l, panel)
+  );
 }
+
+// The results count line (production's #gp-count): the shell's own node,
+// after the Genre panel's hosts, rewritten from the store.
+const genrePanel = document.querySelector('[data-panel="genre"]');
+const countLine = document.createElement('p');
+countLine.className = 'proto-count';
+countLine.dataset.genreCount = '';
+countLine.tabIndex = -1;
+genrePanel.append(countLine);
+discovery.results.subscribe((r) => {
+  countLine.textContent = r.status === 'ready' ? r.line : '';
+});
+discovery.setFocusCount(() => countLine.focus());
+// clear's last resort (#668 6665493327 B): the Categories lane's toggle.
+discovery.setFocusToggle(() => {
+  const t = genrePanel.querySelector(
+    '[data-feature-host="genrecategories"] [data-discovery-toggle]'
+  );
+  if (t) t.focus();
+});
+// Below production's discovery breakpoint (900px of the panel) Categories and
+// Find a sound sit behind the Categories lane's disclosure: that lane hides
+// its own list, and the shell hides Find a sound until it is open.
+const NARROW = 900;
+const syncDisclosure = () => {
+  const d = discovery.discovery.current();
+  const targetsHost = genrePanel.querySelector('[data-feature-host="genretargets"]');
+  if (targetsHost) targetsHost.hidden = d.narrow && !d.open;
+};
+discovery.discovery.subscribe(syncDisclosure);
+new ResizeObserver(() => {
+  discovery.setNarrow(genrePanel.clientWidth > 0 && genrePanel.clientWidth < NARROW);
+  syncDisclosure();
+}).observe(genrePanel);
 
 function show(route, { moveFocus }) {
   for (const panel of document.querySelectorAll('[data-panel]')) {
@@ -300,3 +383,7 @@ fetch('../api/index.json')
   .catch(() => {
     catalog.textContent = 'The catalog did not load, so nothing can be added yet.';
   });
+
+// The discovery store, for the host gate (check_prototype_hosts.js), which
+// reads the shell's ranked rows; lanes get only their ctx.
+export { discovery };

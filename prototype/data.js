@@ -556,3 +556,24 @@ export async function readingLines(record, { signal } = {}) {
   }
   return Object.freeze(out);
 }
+
+// ── The Genre discovery hosts (#668 6665493327) ─────────────────────────────
+// What prototype/discovery.js ranks and counts: every genre in
+// api/browse_boot.json with its parent, cross-references and its 13 axes by
+// name (the file lists them in axisKeys order), and the page's own taxonomy,
+// glyphs and axis definitions from codex.html (prototype/engine/load.js).
+export async function loadGenreDiscovery() {
+  const [boot, engine] = await Promise.all([
+    fetch('../api/browse_boot.json').then(json),
+    pageEngine(),
+  ]);
+  const keys = boot.axisKeys || [];
+  const items = (boot.items || []).map((t) => ({
+    id: t.id,
+    name: t.name,
+    parent: t.parent || null,
+    crossRefs: Array.isArray(t.crossRefs) ? t.crossRefs : [],
+    axes: Object.fromEntries(keys.map((k, i) => [k, (t.axes || [])[i]])),
+  }));
+  return { items, page: engine };
+}

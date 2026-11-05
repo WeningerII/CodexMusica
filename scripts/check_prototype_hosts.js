@@ -88,8 +88,12 @@ const LANE_MODULES = {
   instrumentdetail: '/prototype/features/instrument-detail/detail.js',
   libraryreading: '/prototype/features/library-reading/text-view.js',
   libraryspeech: '/prototype/features/library-speech/controls.js',
+  genrecategories: '/prototype/features/genre-categories/categories.js',
+  genretargets: '/prototype/features/genre-targets/targets.js',
 };
 const CTX_KEYS = {
+  genrecategories: ['announce', 'categories', 'discovery', 'signal', 'storage', 'targets'],
+  genretargets: ['announce', 'discovery', 'signal', 'storage', 'targets'],
   libraryreading: ['announce', 'reading', 'signal', 'storage', 'unitId'],
   libraryspeech: ['announce', 'language', 'lines', 'signal', 'speech', 'storage'],
   genredetail: ['announce', 'genre', 'loadGenre', 'media', 'openPhoto', 'signal', 'storage'],
@@ -1713,6 +1717,364 @@ async function unmounting(browser, srv) {
   await context.close();
 }
 
+// ── 10. GENRE DISCOVERY (#668 6665493327) ─────────────────────────────────
+// Categories and Find a sound against codex.html's own gpMembership,
+// getRoots, traditionGlyphsHTML's glyphs and gpResults: every node's count
+// and cross-listed count, the root and child order, every glyph pair, and the
+// ranked list for seeded targets with and without a branch. Then the
+// commands: refusals, unapplied versus an explicit 0, Use as sound targets,
+// the settled announcement, focus after a branch or a match, and the narrow
+// disclosure.
+function seededTargets(keys) {
+  let s = 20261105;
+  const rnd = () => (s = (s * 1103515245 + 12345) % 2147483648) / 2147483648;
+  const out = [];
+  for (let i = 0; i < 12; i++) {
+    const n = 1 + Math.floor(rnd() * 4);
+    const t = {};
+    while (Object.keys(t).length < n)
+      t[keys[Math.floor(rnd() * keys.length)]] = Math.floor(rnd() * 5) - 2;
+    out.push(t);
+  }
+  return out;
+}
+
+async function discoveryChecks(browser, srv) {
+  const boot = readJson('api/browse_boot.json');
+  const combos = seededTargets(boot.axisKeys);
+  const prod = await (async () => {
+    const { context, page } = await newPage(browser, srv);
+    await page.goto(`${srv.url}/codex.html#genre`);
+    const out = await page.evaluate(async (combos) => {
+      /* global gpMembership, getRoots, TREE_NODES, resolveTraditionGlyphs, glyphSvg, GLYPH_META, gpResults, G, UI, $ui, AXIS_DEFINITIONS, axisLabel */
+      await CATALOG_READY;
+      const t0 = Date.now();
+      while (!$ui('genre-search') && Date.now() - t0 < 20000)
+        await new Promise((r) => setTimeout(r, 100));
+      const m = gpMembership();
+      const byId = Object.fromEntries(TREE_NODES.map((n) => [n.id, n]));
+      const nodes = TREE_NODES.map((n) => {
+        const r = resolveTraditionGlyphs(n.id, byId);
+        const glyphs = [
+          [r.fn, 'fn'],
+          [r.second, r.secondKind || 'region'],
+        ]
+          .map(([ch, kind]) => ({
+            svg: ch ? glyphSvg(ch, 22) : '',
+            label: (ch && GLYPH_META[ch]?.label) || '',
+            kind,
+          }))
+          .filter((g) => g.svg);
+        return {
+          id: n.id,
+          count: m.count.get(n.id) || 0,
+          cross: m.cross.get(n.id) || 0,
+          children: TREE_NODES.filter((k) => k.parent === n.id).map((k) => k.id),
+          glyphs,
+        };
+      });
+      const roots = getRoots().map((n) => n.id);
+      $ui('genre-search').value = '';
+      const ranked = (targets, branch) => {
+        G.targets = { ...targets };
+        UI.genreNode = branch || '';
+        return gpResults().map((r) => r.t.id);
+      };
+      const branch = roots[0];
+      const deep = TREE_NODES.find((n) => n.parent && TREE_NODES.some((k) => k.parent === n.id)).id;
+      const runs = [];
+      runs.push({ targets: {}, branch: null, ids: ranked({}, null) });
+      runs.push({ targets: {}, branch: deep, ids: ranked({}, deep) });
+      for (const [i, t] of combos.entries())
+        runs.push({
+          targets: t,
+          branch: i % 3 === 1 ? branch : i % 3 === 2 ? deep : null,
+          ids: ranked(t, i % 3 === 1 ? branch : i % 3 === 2 ? deep : null),
+        });
+      G.targets = {};
+      UI.genreNode = '';
+      const labels = AXIS_DEFINITIONS.map((ax) => [-2, -1, 0, 1, 2].map((v) => axisLabel(ax, v)));
+      return { nodes, roots, runs, labels, axes: AXIS_DEFINITIONS.map((a) => a.id) };
+    }, combos);
+    await context.close();
+    return out;
+  })();
+  expect(
+    prod.roots.length === 25 && prod.nodes.length > 300,
+    `discovery: production gave ${prod.roots.length} roots, ${prod.nodes.length} nodes`
+  );
+
+  const { context, page, errors } = await newPage(browser, srv);
+  await page.goto(`${srv.url}/prototype/#genre`);
+  await waitMounted(page, 'genrecategories');
+  await waitMounted(page, 'genretargets');
+  for (const lane of ['genrecategories', 'genretargets']) {
+    const p = await probe(page, lane);
+    expect(
+      JSON.stringify(p.keys) === JSON.stringify(CTX_KEYS[lane]),
+      `ctx: ${lane} got [${p.keys}], expected [${CTX_KEYS[lane]}]`
+    );
+  }
+  const got = await page
+    .evaluate(
+      async ({ runs, ids }) => {
+        const C = window.__probeCtx.genrecategories;
+        const T = window.__probeCtx.genretargets;
+        const { discovery } = await import('/prototype/app.js');
+        const frozenDeep = (v) =>
+          !v || typeof v !== 'object' || (Object.isFrozen(v) && Object.values(v).every(frozenDeep));
+        const svgOf = (url) =>
+          decodeURIComponent(url.slice('data:image/svg+xml,'.length)).replace(
+            ' xmlns="http://www.w3.org/2000/svg"',
+            ''
+          );
+        const glyphsOf = (n) =>
+          n.glyphs.map((g) => ({ svg: svgOf(g.url), label: g.label, kind: g.kind }));
+        const cat = C.categories.current();
+        const out = {
+          frozen: frozenDeep(cat) && frozenDeep(T.targets.current()),
+          roots: cat.roots.map((n) => n.id),
+          rootGlyphs: Object.fromEntries(cat.roots.map((n) => [n.id, glyphsOf(n)])),
+          total: cat.total,
+          rootCount: cat.rootCount,
+          nodes: {},
+        };
+        // Every node, opened as a branch: its count, cross-listed count,
+        // children and glyphs.
+        for (const id of ids) {
+          await C.categories.openBranch(id, C.categories.current().revision);
+          const b = C.categories.current().branch;
+          out.nodes[id] = {
+            count: b.node.count,
+            cross: b.cross,
+            children: b.children.map((k) => k.id),
+            glyphs: glyphsOf(b.node),
+          };
+        }
+        const runOne = async ({ targets, branch }) => {
+          const c = C.categories.current();
+          if (branch) await C.categories.openBranch(branch, c.revision);
+          else await C.categories.allGenres(c.revision);
+          await T.targets.reset(T.targets.current().revision);
+          for (const [k, v] of Object.entries(targets))
+            await T.targets.apply(k, v, T.targets.current().revision);
+          return discovery.results.current().rows.map((r) => r.id);
+        };
+        out.results = [];
+        for (const r of runs) out.results.push(await runOne(r));
+        return out;
+      },
+      { runs: prod.runs, ids: prod.nodes.map((n) => n.id) }
+    )
+    .catch((e) => ({ error: String(e) }));
+  expect(!got.error, `discovery: the prototype run threw ${got.error}`);
+  if (!got.error) {
+    expect(got.frozen, 'discovery: a snapshot is not deeply frozen');
+    expect(
+      JSON.stringify(got.roots) === JSON.stringify(prod.roots),
+      'discovery: the roots are not production’s, in production’s order'
+    );
+    expect(
+      got.total === boot.items.length && got.rootCount === 25,
+      `discovery: total ${got.total}, rootCount ${got.rootCount}`
+    );
+    let nodesSame = 0;
+    for (const b of prod.nodes) {
+      const a = got.nodes[b.id];
+      const ok =
+        a &&
+        a.count === b.count &&
+        a.cross === b.cross &&
+        JSON.stringify(a.children) === JSON.stringify(b.children) &&
+        JSON.stringify(a.glyphs) === JSON.stringify(b.glyphs);
+      if (ok) nodesSame++;
+      else if (nodesSame + 5 > prod.nodes.length || !a || problems.length < 40)
+        expect(
+          false,
+          `discovery: node ${b.id} differs from production (${JSON.stringify(a)?.slice(0, 160)})`
+        );
+    }
+    expect(
+      nodesSame === prod.nodes.length,
+      `discovery: ${nodesSame}/${prod.nodes.length} nodes equal production's count, cross-listed count, children and glyphs`
+    );
+    for (const id of prod.roots)
+      expect(
+        JSON.stringify(got.rootGlyphs[id]) ===
+          JSON.stringify(prod.nodes.find((n) => n.id === id).glyphs),
+        `discovery: root ${id}'s glyphs differ`
+      );
+    let same = 0;
+    prod.runs.forEach((r, i) => {
+      const ok = JSON.stringify(got.results[i]) === JSON.stringify(r.ids);
+      if (ok) same++;
+      else
+        expect(
+          false,
+          `discovery: results for ${JSON.stringify(r.targets)} in ${r.branch || 'all'} differ (prototype ${got.results[i].length}, production ${r.ids.length})`
+        );
+    });
+    expect(
+      same === prod.runs.length,
+      `discovery: ${same}/${prod.runs.length} ranked lists equal production's`
+    );
+  }
+  // The commands, refusals, announcement and focus.
+  const beh = await page
+    .evaluate(async (profileId) => {
+      const C = window.__probeCtx.genrecategories;
+      const T = window.__probeCtx.genretargets;
+      const { genre } = await import('/prototype/selection.js');
+      const code = async (fn) => {
+        try {
+          await fn();
+          return null;
+        } catch (e) {
+          return e.code || e.name;
+        }
+      };
+      const status = () => document.getElementById('proto-status').textContent;
+      const settle = () => new Promise((r) => setTimeout(r, 700));
+      const count = document.querySelector('[data-genre-count]');
+      const out = {};
+      await C.categories.allGenres(C.categories.current().revision);
+      await T.targets.reset(T.targets.current().revision);
+      await settle();
+      const r0 = T.targets.current().revision;
+      out.stale = await code(() => T.targets.apply('density', 1, r0 - 1));
+      out.badAxis = await code(() => T.targets.apply('nope', 1, r0));
+      out.badValue = await code(() => T.targets.apply('density', 3, r0));
+      out.badFraction = await code(() => T.targets.apply('density', 0.5, r0));
+      out.notApplied = await code(() => T.targets.clear('density', r0));
+      out.noBranch = await code(() =>
+        C.categories.openBranch('__nope__', C.categories.current().revision)
+      );
+      // Unapplied versus an explicit 0.
+      const before = T.targets.current();
+      await T.targets.apply('density', 0, before.revision);
+      const zero = T.targets.current();
+      out.zero = { applied: zero.applied, target: zero.targets[0], before: before.applied };
+      await settle();
+      out.said1 = status();
+      document.getElementById('proto-status').textContent = 'x';
+      await T.targets.apply('density', 0, T.targets.current().revision);
+      await settle();
+      out.repeatSilent = status() === 'x';
+      await T.targets.clear('density', T.targets.current().revision);
+      await settle();
+      out.said2 = status();
+      out.cleared = T.targets.current().applied;
+      // Featured axes first; toggles.
+      out.axes = T.targets
+        .current()
+        .axes.slice(0, 3)
+        .map((a) => a.id);
+      await T.targets.toggleAll(T.targets.current().revision);
+      out.allAxes = T.targets.current().allAxes;
+      await C.categories.toggleRoots(C.categories.current().revision);
+      out.allRoots = C.categories.current().allRoots;
+      // A branch: focus moves to the shell's count, which names it.
+      const root = C.categories.current().roots[0];
+      await C.categories.openBranch(root.id, C.categories.current().revision);
+      out.branchFocus = document.activeElement === count;
+      out.countLine = count.textContent;
+      out.rootName = root.name;
+      out.rootCount = root.count;
+      await C.categories.back(C.categories.current().revision);
+      out.backTo = C.categories.current().branch;
+      // Use as sound targets: all 13 from the profile, all axes, no branch.
+      await T.targets.useProfile(profileId);
+      const u = T.targets.current();
+      out.profile = {
+        applied: u.applied,
+        allAxes: u.allAxes,
+        focus: document.activeElement === count,
+      };
+      out.profileSaid = status();
+      // Match opens the best genre; nothing to match focuses the count.
+      genre.set(null);
+      await T.targets.match(T.targets.current().revision);
+      out.matched = genre.current();
+      out.best = T.targets.current().results.best && T.targets.current().results.best.id;
+      return out;
+    }, 'bluegrass')
+    .catch((e) => ({ error: String(e) }));
+  expect(!beh.error, `discovery: the command run threw ${beh.error}`);
+  if (!beh.error) {
+    expect(
+      beh.stale === 'STALE' &&
+        beh.badAxis === 'BAD_AXIS' &&
+        beh.badValue === 'BAD_VALUE' &&
+        beh.badFraction === 'BAD_VALUE' &&
+        beh.notApplied === 'NOT_APPLIED' &&
+        beh.noBranch === 'NOT_FOUND',
+      `discovery: refusals were ${JSON.stringify([beh.stale, beh.badAxis, beh.badValue, beh.badFraction, beh.notApplied, beh.noBranch])}`
+    );
+    expect(
+      beh.zero.before === 0 &&
+        beh.zero.applied === 1 &&
+        beh.zero.target.value === 0 &&
+        beh.zero.target.label === 'middle',
+      `discovery: an explicit 0 is not an applied "middle" target (${JSON.stringify(beh.zero)})`
+    );
+    expect(
+      /^1 target applied\. [\d,]+ genres\.$/.test(beh.said1),
+      `discovery: the settled announcement was "${beh.said1}"`
+    );
+    expect(beh.repeatSilent, 'discovery: the same sentence was announced twice in a row');
+    expect(
+      /^Sound targets cleared\. 7,755 genres\.$/.test(beh.said2) && beh.cleared === 0,
+      `discovery: clearing said "${beh.said2}"`
+    );
+    expect(
+      JSON.stringify(beh.axes) === JSON.stringify(['soundTech', 'density', 'voice']),
+      `discovery: featured axes ${beh.axes}`
+    );
+    expect(
+      beh.allAxes === true && beh.allRoots === true,
+      'discovery: toggleAll or toggleRoots did not flip'
+    );
+    expect(
+      beh.branchFocus &&
+        beh.countLine.startsWith(`${beh.rootCount.toLocaleString('en')} genres in ${beh.rootName}`),
+      `discovery: after a branch, focus ${beh.branchFocus}, count "${beh.countLine}"`
+    );
+    expect(beh.backTo === null, 'discovery: Back from a root did not return to all genres');
+    expect(
+      beh.profile.applied === 13 && beh.profile.allAxes && beh.profile.focus,
+      `discovery: useProfile gave ${JSON.stringify(beh.profile)}`
+    );
+    expect(
+      beh.profileSaid === 'Sound targets set from Bluegrass’s profile',
+      `discovery: useProfile said "${beh.profileSaid}"`
+    );
+    expect(
+      beh.best && beh.matched === beh.best,
+      `discovery: match opened ${beh.matched}, best ${beh.best}`
+    );
+  }
+  // Narrow: Find a sound waits behind the disclosure until it opens.
+  await page.setViewportSize({ width: 600, height: 900 });
+  await page
+    .waitForFunction(() => window.__probeCtx.genretargets.discovery.current().narrow, null, {
+      timeout: 5000,
+    })
+    .catch(() => {});
+  const narrow = await page.evaluate(async () => {
+    const D = window.__probeCtx.genrecategories.discovery;
+    const host = () => document.querySelector('[data-feature-host="genretargets"]');
+    const closed = { narrow: D.current().narrow, hidden: host().hidden };
+    await D.setOpen(true, D.current().revision);
+    return { closed, openHidden: host().hidden };
+  });
+  expect(
+    narrow.closed.narrow && narrow.closed.hidden && !narrow.openHidden,
+    `discovery: narrow disclosure ${JSON.stringify(narrow)}`
+  );
+  expect(!errors.length, `discovery: uncaught errors: ${errors.join(' | ')}`);
+  await context.close();
+}
+
 (async () => {
   for (const [lane, mod] of Object.entries(LANE_MODULES)) {
     const app = fs.readFileSync(path.join(root, 'prototype', 'app.js'), 'utf8');
@@ -1734,6 +2096,7 @@ async function unmounting(browser, srv) {
     await referenceLanes(browser, srv);
     await genreChecks(browser, srv);
     await instrumentChecks(browser, srv);
+    await discoveryChecks(browser, srv);
     await readingChecks(browser, srv);
     await speechChecks(browser, srv);
     await unmounting(browser, srv);
