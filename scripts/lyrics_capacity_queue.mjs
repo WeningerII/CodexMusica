@@ -40,6 +40,63 @@ function alive(pid) {
 // at all: it ran only inside a live capacity shard, so the one defect it had —
 // a single ENOENT nulling the entire inventory — could only ever be found by a
 // red matrix in CI, and was.
+// INSTRUMENTATION ONLY (#612). The resident capacity server publishes its own
+// process.memoryUsage() and startup phase to `file` for the sampler to copy
+// into each peak sample. A failed write or rename (ENOSPC, a vanished
+// directory) must never take the measured server down, from its interval or
+// from a phase change during startup: it is counted, and the next publication
+// that does land carries the count and the last error code.
+export function memoryPublisher(
+  file,
+  {
+    writeFileSync = fs.writeFileSync,
+    renameSync = fs.renameSync,
+    memoryUsage = () => process.memoryUsage(),
+    now = Date.now,
+    uptime = () => process.uptime(),
+  } = {}
+) {
+  const ms = () => Math.round(uptime() * 1000);
+  const phases = { module_body: ms() };
+  let phase = 'module_body';
+  let failures = 0;
+  let lastError = null;
+  function publish() {
+    try {
+      const record = {
+        version: 1,
+        pid: process.pid,
+        wall_ms: now(),
+        uptime_ms: ms(),
+        phase,
+        phases,
+        publish_failures: failures,
+        last_publish_error: lastError,
+        memory: memoryUsage(),
+      };
+      writeFileSync(file + '.tmp', JSON.stringify(record) + '\n', { mode: 0o600 });
+      renameSync(file + '.tmp', file);
+      return true;
+    } catch (error) {
+      failures += 1;
+      lastError = (error && (error.code || error.name)) || 'error';
+      return false;
+    }
+  }
+  function enterPhase(name) {
+    phase = name;
+    phases[name] = ms();
+    publish();
+  }
+  return {
+    publish,
+    enterPhase,
+    get failures() {
+      return failures;
+    },
+  };
+}
+
 export function instrumentChildren(pid) {
   if (!Number.isSafeInteger(pid) || pid < 1) return null;
   let ids;

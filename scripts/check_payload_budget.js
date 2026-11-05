@@ -205,7 +205,19 @@ const LIBRARY_BUDGETS = {
   // line (#656 item 7), measured at 400,710 B after merging main. John's
   // approval, relayed by R2 on #684 (comment 6609415589), replacing the earlier
   // 400,689 figure. Owner-approved exception; no performance certification.
-  'library-shelves-path': 400720,
+  // ~~400720~~ raised 2026-11-04 to 400,724 (+4 B) for #712's stale Return
+  // focus fix, measured at 400,724 B after merging main 661aa6018. First of
+  // three steps (#712, #711, #717) toward at most 401,056, approved by John
+  // and recorded by R2 on #665 (comment 6632168810). Owner-approved
+  // exception; no performance certification.
+  // ~~400724~~ raised 2026-11-04 to 401,056 (+332 B), John's ceiling, for
+  // release train D (#711, #717, #718, #719, #726). That combined tree,
+  // built on main 10b42689f, measures exactly 401,056 B; #717 on that main
+  // alone measures 400,933 B, and #711 alone 400,844 B. Third of three steps
+  // (#712, #711, #717), approved by John and recorded by R2 on #665
+  // (comment 6632168810). Owner-approved exception; no performance
+  // certification.
+  'library-shelves-path': 401056,
   'library-growth': 6144,
 };
 

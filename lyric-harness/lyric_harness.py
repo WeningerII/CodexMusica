@@ -12228,7 +12228,11 @@ def main():
         from quality import plan as PLN
         rest = args[1:]
         seed = _flag_value(rest, "--seed")
-        form = _flag_value(rest, "--form") or "verse-chorus"
+        # No --form means the planner's own default (`plan.DEFAULT_FORM`,
+        # `open` since the D7 ruling of 2026-10-27), exactly as `make_plan()`
+        # and the connector apply it. A CLI default of its own drew a
+        # returning chorus nobody asked for (#671, Jony's pass 2).
+        form = _flag_value(rest, "--form") or PLN.DEFAULT_FORM
         nlines = _flag_value(rest, "--lines")
         fill = _flag_value(rest, "--fill")
         out_path = _flag_value(rest, "--out")
@@ -12435,7 +12439,7 @@ def main():
             import shlex as _shlex
             print(f"    NEXT: python3 lyric_harness.py plan "
                   f"--seed={res['accepted'][0]}"
-                  + (f" --form={form}" if form != "verse-chorus" else "")
+                  + (f" --form={form}" if form != PLN.DEFAULT_FORM else "")
                   + (f" --lines={nlines}" if nlines else "")
                   + (f" --functions={funcs_raw}" if funcs_raw else "")
                   # Every declaration the sweep planned under, or the
@@ -13363,7 +13367,7 @@ def main():
                                     "--relation, --group-types, "
                                     "--functions, --title, --narrative"])
             _fseed = _flag_value(args, "--seed")
-            _fform = _flag_value(args, "--form") or "verse-chorus"
+            _fform = _flag_value(args, "--form") or PLN2.DEFAULT_FORM
             _fnlines = _flag_value(args, "--lines")
             # `--relation` here is the PLAN declaration (it silences the
             # per-group draw), consumed before `_mandate_arg` can read the

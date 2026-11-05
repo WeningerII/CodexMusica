@@ -83,6 +83,7 @@
 //   slot-pick drift     -> check_slot_picks.js    (searched slot drifts from lock-ins)
 //   dead audit token    -> audit_dead_tokens.js   (token dead even in the enriched pool)
 //   workspace mutation  -> check_workspace_ops.js (an edit op mutates its input ws)
+//   env-card rule wrong -> check_workspace_ops.js (the single-source environment predicate counts fx: [])
 //   stale voice-parts   -> _gen_voice_parts.js --check (Node voice maps drift from src/app.js)
 //   drifted frozen DF   -> build_descriptor_df.js --check (app.js DF block != the JSON)
 //   stale frozen DF     -> build_descriptor_df.js --check (the freeze fell behind the catalog)
@@ -2839,6 +2840,29 @@ if (want('renderer-fork-drift')) {
     'renderer-fork-drift -> check_edit_differential.js',
     gate(d, ['scripts/check_edit_differential.js']),
     /bytes differ|divergence/i
+  );
+}
+
+// the single-source environment-card rule is wrong -> check_workspace_ops.js
+//
+// hasEnvironment + envCardOf live in ONE @inline region of _recipe_stack.js,
+// which the page inlines and the parity gates prepend (#662). One source cannot
+// drift, so every parity gate compares this text with itself and a WRONG rule
+// passes all of them. This plants a wrong rule — the multi-select length check
+// dropped, so an empty fx: [] counts as an environment — and expects the
+// hand-specified case table in check_workspace_ops.js to fail.
+if (want('env-card-rule-wrong')) {
+  const d = mkenv(['scripts', 'references', 'src']);
+  const f = path.join(d, 'scripts/_recipe_stack.js');
+  const src = fs.readFileSync(f, 'utf8');
+  const needle = '(Array.isArray(v) ? v.length > 0 : !!v)';
+  if (src.split(needle).length !== 2)
+    throw new Error('faults: _recipe_stack.js environment predicate not found exactly once');
+  fs.writeFileSync(f, src.replace(needle, '!!v'));
+  record(
+    'env-card-rule-wrong -> check_workspace_ops.js',
+    gate(d, ['scripts/check_workspace_ops.js']),
+    /hasEnvironment, \d+ cases[^\n]*fx: \[\]/
   );
 }
 

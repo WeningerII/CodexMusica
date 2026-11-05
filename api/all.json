@@ -1,7 +1,7 @@
 {
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json. `aliases` maps each retired (merged) id to the tradition it was merged into.",
-  "generated": "2026-10-08",
+  "generated": "2026-11-04",
   "count": 7755,
   "items": [
     {
@@ -11404,8 +11404,8 @@
       "id": "partido_alto",
       "name": "Partido-Alto",
       "family": "vernacular",
-      "recipe": "classic Southern American mid-1930s partido-alto, groove Percussion, Brazilian branch, pagode Brazilian, Latin am troubadour ballad poetry, Brazilian song functional song roda de samba brega paraense. vocal fry, breath veiled tone, interlocked note trading, neutral third half flat. goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro, samba foundation mahogany samba canon cavaquinho, choro tradition nylon Brazilian rosewood pre 1992 choro accompaniment violao 7 cordas, multi rod cluster canonical samba aluminum canonical rio escola tamborim, nylon canonical rio carnival surdo, hand clap, a cappella small 3 to 8 one per part sardinian cantu a tenore oche mesu contra bassu choir ensemble. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
-      "recipe_chars": 946
+      "recipe": "classic Southern American mid-1930s partido-alto, groove Percussion, Brazilian branch, pagode Brazilian, Latin am troubadour ballad poetry, Brazilian song functional song roda de samba brega paraense. vocal fry, breath veiled tone, interlocked note trading, neutral third half flat. goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro, samba foundation mahogany samba canon cavaquinho, choro tradition nylon Brazilian rosewood pre 1992 choro accompaniment violao 7 cordas, multi rod cluster canonical samba aluminum canonical rio escola tamborim, nylon canonical rio carnival surdo, hand clap, a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+      "recipe_chars": 977
     },
     {
       "id": "jovem_guarda",
@@ -11432,8 +11432,8 @@
       "id": "carimbo",
       "name": "Carimbó (Pará Amazonian carimbó)",
       "family": "vernacular",
-      "recipe": "classic West African mid-1960s carimbó, groove Percussion, Brazilian branch, tropical song functional song, Brazilian carnival processional chicha funaná. thick, breath veiled tone, slow rate, interlocked note trading. traditional cowhide canonical candomble atabaque, ganza, reco reco, cedar plain gut sheep gut unsplit classical nylon-string guitar, round tenor saxophone, hand clap, a cappella small 3 to 8 one per part sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. tin roofed shack. passive ribbon, tube pre. direct-to-disc lacquer.",
-      "recipe_chars": 584
+      "recipe": "classic West African mid-1960s carimbó, groove Percussion, Brazilian branch, tropical song functional song, Brazilian carnival processional chicha funaná. thick, breath veiled tone, slow rate, interlocked note trading. traditional cowhide canonical candomble atabaque, ganza, reco reco, cedar plain gut sheep gut unsplit classical nylon-string guitar, round tenor saxophone, hand clap, a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. tin roofed shack. passive ribbon, tube pre. direct-to-disc lacquer.",
+      "recipe_chars": 615
     },
     {
       "id": "vaqueiro",
@@ -14099,8 +14099,8 @@
       "id": "musette",
       "name": "Valse musette (accordion virtuoso repertoire)",
       "family": "vernacular",
-      "recipe": "classic Western European 1934-1936 valse musette, functional Song, europop branch, string improv improv on frame, chanson fado classic chanson flamenco guitar choro. weltmeister east German mid tier vintage volk chromatic lead accordion, dearmond vintage jazz carved top solid spruce Gibson canon archtop, norway spruce European alpine European maple sycamore maple oil varnish double bass, fiberskyn synthetic calf brushes-and-sticks drum kit, cedar nylon classical nylon-string guitar, grenadilla African blackwood traditional clarinet. intimate paris small studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
-      "recipe_chars": 676
+      "recipe": "classic Western European 1934-1936 valse musette, functional Song, europop branch, string improv improv on frame, chanson fado classic chanson flamenco guitar choro. weltmeister east German mid tier vintage volk chromatic lead accordion, dearmond clip on vintage jazz carved top solid spruce archtop, norway spruce European alpine European maple sycamore maple oil varnish double bass, fiberskyn synthetic calf brushes-and-sticks drum kit, cedar nylon classical nylon-string guitar, grenadilla African blackwood traditional clarinet. intimate paris small studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 671
     },
     {
       "id": "neomelodici",
@@ -14995,8 +14995,8 @@
       "id": "contemporary_post_bop",
       "name": "Contemporary post-bop",
       "family": "jazz",
-      "recipe": "classic North American mid-1990s contemporary post-bop, improv On Frame, bop branch, American jazz hard bop, American jazz avant blue note straight-ahead jazz. tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, vintage ambassador asymmetric brushes-and-sticks drum kit, Fender blackface amp American 60s amp spring reverb bright dearmond vintage jazz archtop, bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 877
+      "recipe": "classic North American mid-1990s contemporary post-bop, improv On Frame, bop branch, American jazz hard bop, American jazz avant blue note straight-ahead jazz. tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, vintage ambassador asymmetric brushes-and-sticks drum kit, Fender blackface amp American 60s amp spring reverb bright dearmond clip on archtop, bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 872
     },
     {
       "id": "chicago_bop",
@@ -28344,8 +28344,8 @@
       "id": "british_orchestra",
       "name": "British orchestra",
       "family": "classical",
-      "recipe": "classic british orchestra, art Music, western common practice branch. Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 violin orchestral, Italian alpine spruce val di fiemme European maple general cremonese pre 1750 modern setup viola classical, Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 cello, upright bass. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
-      "recipe_chars": 489
+      "recipe": "classic british orchestra, art Music, western common practice branch. Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 violin orchestral, Italian alpine spruce val di fiemme European maple general cremonese pre 1750 four layer system viola classical, Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 cello, upright bass. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 494
     },
     {
       "id": "canadian_classical",
@@ -28575,8 +28575,8 @@
       "id": "chamber_orchestra",
       "name": "Chamber orchestra",
       "family": "classical",
-      "recipe": "classic chamber orchestra, art Music, western common practice branch. modern bright oversize maple tension resonator European spruce norway spruce grand piano, carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup violin orchestral, carpathian spruce eastern European source European maple general cremonese pre 1750 modern setup viola classical, carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup cello, carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup double bass, yamaha modern Japanese mid to premium flute, boxwood canonical Baroque classical pre 1850 oboe, reedy French orchestra bassoon, french horn, bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn legato trumpet, timpani. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-      "recipe_chars": 911
+      "recipe": "classic chamber orchestra, art Music, western common practice branch. modern bright oversize maple tension resonator European spruce norway spruce grand piano, carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system violin orchestral, carpathian spruce eastern European source European maple general cremonese pre 1750 four layer system viola classical, carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system cello, carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system double bass, yamaha modern Japanese mid to premium flute, boxwood canonical Baroque classical pre 1850 oboe, reedy French orchestra bassoon, french horn, bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn legato trumpet, timpani. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 931
     },
     {
       "id": "children_s_choir",
@@ -29135,8 +29135,8 @@
       "id": "string_orchestra",
       "name": "String orchestra",
       "family": "classical",
-      "recipe": "classic string orchestra, art Music, western common practice branch. carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup violin orchestral, carpathian spruce eastern European source European maple general cremonese pre 1750 modern setup viola classical, carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup cello, carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup double bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-      "recipe_chars": 560
+      "recipe": "classic string orchestra, art Music, western common practice branch. carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system violin orchestral, carpathian spruce eastern European source European maple general cremonese pre 1750 four layer system viola classical, carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system cello, carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system double bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 580
     },
     {
       "id": "spanish_classical_piano",
@@ -29184,8 +29184,8 @@
       "id": "french_orchestra",
       "name": "French orchestra",
       "family": "classical",
-      "recipe": "classic french orchestra, art Music, western common practice branch. carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup violin orchestral, carpathian spruce eastern European source European maple general cremonese pre 1750 modern setup viola classical, carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup cello, upright bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-      "recipe_chars": 481
+      "recipe": "classic french orchestra, art Music, western common practice branch. carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system violin orchestral, carpathian spruce eastern European source European maple general cremonese pre 1750 four layer system viola classical, carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system cello, upright bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 496
     },
     {
       "id": "german_orchestra",
@@ -29275,8 +29275,8 @@
       "id": "nordic_orchestra",
       "name": "Nordic orchestra",
       "family": "classical",
-      "recipe": "classic nordic orchestra, art Music, western common practice branch. carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system violin orchestral, carpathian spruce eastern European source European maple general cremonese pre 1750 four layer system viola classical, carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system cello, carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup double bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-      "recipe_chars": 575
+      "recipe": "classic nordic orchestra, art Music, western common practice branch. carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system violin orchestral, carpathian spruce eastern European source European maple general cremonese pre 1750 four layer system viola classical, carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system cello, carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system double bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 580
     },
     {
       "id": "norwegian_choir",
@@ -29303,22 +29303,22 @@
       "id": "orchestra",
       "name": "Orchestra",
       "family": "classical",
-      "recipe": "classic orchestra, art Music, western common practice branch. Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 violin orchestral, Italian alpine spruce val di fiemme European maple general cremonese pre 1750 modern setup viola classical, Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 cello, Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 double bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-      "recipe_chars": 562
+      "recipe": "classic orchestra, art Music, western common practice branch. Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 violin orchestral, Italian alpine spruce val di fiemme European maple general cremonese pre 1750 four layer system viola classical, Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 cello, Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 double bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 567
     },
     {
       "id": "orchestral_performance",
       "name": "Orchestral performance",
       "family": "classical",
-      "recipe": "classic orchestral performance, art Music, western common practice branch. Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 violin orchestral, Italian alpine spruce val di fiemme European maple general cremonese pre 1750 modern setup viola classical, Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 cello, Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 double bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-      "recipe_chars": 575
+      "recipe": "classic orchestral performance, art Music, western common practice branch. Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 violin orchestral, Italian alpine spruce val di fiemme European maple general cremonese pre 1750 four layer system viola classical, Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 cello, Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 double bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 580
     },
     {
       "id": "pops_orchestra",
       "name": "Pops orchestra",
       "family": "classical",
-      "recipe": "classic pops orchestra, art Music, western common practice branch. carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup violin orchestral, carpathian spruce eastern European source European maple general cremonese pre 1750 modern setup viola classical, carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup cello, carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup double bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-      "recipe_chars": 558
+      "recipe": "classic pops orchestra, art Music, western common practice branch. carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system violin orchestral, carpathian spruce eastern European source European maple general cremonese pre 1750 four layer system viola classical, carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system cello, carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system double bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 578
     },
     {
       "id": "russian_orchestra",
@@ -29443,8 +29443,8 @@
       "id": "youth_orchestra",
       "name": "Youth orchestra",
       "family": "classical",
-      "recipe": "classic youth orchestra, art Music, western common practice branch. carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup violin orchestral, carpathian spruce eastern European source European maple general cremonese pre 1750 modern setup viola classical, carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup cello, carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup double bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-      "recipe_chars": 559
+      "recipe": "classic youth orchestra, art Music, western common practice branch. carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system violin orchestral, carpathian spruce eastern European source European maple general cremonese pre 1750 four layer system viola classical, carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system cello, carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system double bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 579
     },
     {
       "id": "afrikaans_folk",
@@ -29667,8 +29667,8 @@
       "id": "german_ska",
       "name": "German ska",
       "family": "global",
-      "recipe": "classic german ska, bass System, reggae diaspora branch. a 440 modern pitch us standard grand piano, venice catlin high twist renaissance bass cremonese pre 1750 modern setup double bass, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bass trombone trombone, 60s jazz canon vintage ambassador asymmetric drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-      "recipe_chars": 464
+      "recipe": "classic german ska, bass System, reggae diaspora branch. a 440 modern pitch us standard grand piano, venice catlin high twist renaissance bass cremonese pre 1750 four layer system double bass, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bass trombone trombone, 60s jazz canon vintage ambassador asymmetric drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 469
     },
     {
       "id": "indonesian_reggae",
