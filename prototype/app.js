@@ -17,8 +17,9 @@ import {
   genreLoader,
   instrumentLoader,
   readingLoader,
+  readingLines,
 } from './data.js';
-import { media } from './adapters.js';
+import { media, speechAdapter } from './adapters.js';
 import { genre, instrument } from './selection.js';
 
 const ROUTES = ['browse', 'genre', 'instrument', 'map', 'lyrics', 'library'];
@@ -73,12 +74,17 @@ const LANES = {
     },
   },
 };
-// The reader (#757): one reading at a time, mounted where openReading is
-// called, with the unit fixed in its ctx (#668 6646411306).
+// The reader (#757) and its read-aloud (#758): one reading at a time,
+// mounted where openReading is called, with the unit fixed in its ctx (#668
+// 6646411306). Read-aloud follows the text, over the whole verified reading,
+// and is granted autoplay once when Play opened it, as production's ?play=1.
 const readings = readingLoader();
 let readerHost = null;
-async function openReader(unitId) {
+let speechHost = null;
+async function openReader(unitId, { play = false } = {}) {
+  if (speechHost) speechHost.unmount();
   if (readerHost) readerHost.unmount();
+  const panel = document.querySelector('[data-panel="library"]');
   readerHost = createHost(
     {
       id: 'libraryreading',
@@ -87,10 +93,28 @@ async function openReader(unitId) {
       unloaded: 'The reading did not load.',
       context: async () => ({ unitId, reading: readings.reading }),
     },
-    document.querySelector('[data-panel="library"]')
+    panel
+  );
+  speechHost = createHost(
+    {
+      id: 'libraryspeech',
+      label: 'Read aloud',
+      load: () => import('./features/library-speech/controls.js'),
+      unloaded: 'Read aloud did not load.',
+      context: async () => {
+        const record = await readings.reading(unitId);
+        return {
+          language: record.head.language,
+          lines: await readingLines(record),
+          speech: speechAdapter({ autoplay: play }),
+        };
+      },
+    },
+    panel
   );
   await readerHost.show();
   readerHost.focus();
+  await speechHost.show();
 }
 
 // The Library lane's ctx (#670 6639673247, 6640163315, 6640718497). It has
@@ -142,7 +166,7 @@ async function libraryContext() {
     // Library panel, below the lanes, and replaces any reading already open.
     async openReading(cid) {
       const unitId = await lib.unitOf(cid);
-      await openReader(unitId);
+      await openReader(unitId, { play: true });
       return { unitId };
     },
     showCredit(artworkId) {

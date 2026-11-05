@@ -541,3 +541,18 @@ export function readingLoader() {
   }
   return { reading };
 }
+
+// The whole reading's lines for read-aloud (#758): every verified page, in
+// order, as { analysis_line, text }. analysis_line is the page's shipped
+// number (production's derive asserts it equals the derived one) and null
+// for a line that isn't sung.
+export async function readingLines(record, { signal } = {}) {
+  const out = [];
+  for (let i = 0; i < record.head.page_count; i++) {
+    const page = await record.loadPage(i, { signal });
+    for (const row of page.lines) {
+      out.push(Object.freeze({ analysis_line: row[4] == null ? null : row[4], text: row[1] }));
+    }
+  }
+  return Object.freeze(out);
+}
