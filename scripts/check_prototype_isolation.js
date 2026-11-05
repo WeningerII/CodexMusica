@@ -254,7 +254,7 @@ const PAGE_FETCH = "'../codex.html'";
 // One instrument record, for an id the index lists (instrumentLoader in data.js).
 const INSTRUMENT_FETCH = '`../api/instruments/${id}.json`';
 // Rule 1's static half: a file names no absolute or protocol-relative URL.
-// The SVG namespace is a name, not a request (data.js builds glyph images).
+// The SVG namespace is a name, not a request (an inline SVG fixture, a glyph).
 const absoluteUrl = (text) =>
   /(?:https?:)?\/\/[\w-]+\.[\w.-]+\//i.test(text.replaceAll('http://www.w3.org/2000/svg', ''));
 const ENGINE_FETCH = '`../${rel}`, init';
