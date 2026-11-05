@@ -4421,10 +4421,23 @@ def admits(s, theta, relations=None, cuts=None):
 
 def relation_label(s_or_rels):
     """-> the relations a pair stands in, printable: `ASSONANCE+RHYME`, or
-    `NO_RELATION` for none. A display of the SET, never a choice from it."""
+    `NO_RELATION` for none. A display of the SET, never a choice from it.
+
+    A schema the registry DISOWNS (`relations.disowned`: `normative`
+    forbidden or deprecated -- today homoioteleuton, trite rhyme, cynghanedd
+    sain drosgl, fourth lift must not alliterate) is left out of the label
+    (#671 row 7, under #627 D6). It still holds of the pair and the data
+    still carries it; what changes is that no report writes a judgement the
+    system has disowned onto the writer's two words. A pair whose ONLY
+    relations are disowned prints `NO_ATTESTED_RELATION`, never
+    `NO_RELATION`, which would say it stands in nothing."""
     rels = (s_or_rels.get("relations", ()) if isinstance(s_or_rels, dict)
             else (s_or_rels or ()))
-    return "+".join(sorted(rels)) if rels else "NO_RELATION"
+    if not rels:
+        return "NO_RELATION"
+    from quality.relations import disowned as _disowned
+    shown = [r for r in rels if not _disowned(r)]
+    return "+".join(sorted(shown)) if shown else "NO_ATTESTED_RELATION"
 
 
 def relation_totals(s):

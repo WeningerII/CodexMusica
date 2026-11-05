@@ -1293,7 +1293,7 @@ def _PLACE_POOL(max_token):
 #: The `normative` values that disown a type: never drawn, and refused when
 #: requested. Eligibility asks the stricter `normative == "attested"` (rule
 #: (a) in `type_eligibility`); today the two select the same rows.
-DISOWNED_NORMATIVE = ("forbidden", "deprecated")
+DISOWNED_NORMATIVE = _RL.DISOWNED_NORMATIVE
 
 #: THE CAPABILITIES THE GRADE STREAM OF A PLANNED SONG PROVIDES, per language.
 #: `Reviser.grade` builds one stream per draft (`build_stream` with the
