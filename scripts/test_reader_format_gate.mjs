@@ -51,11 +51,26 @@ test('a format the gate does not know is refused on either side', () => {
 test('health bodies map to the live requirement', () => {
   assert.deepEqual(liveReaderRequirement(null), { reachable: false, minReader: 'unknown' });
   assert.deepEqual(liveReaderRequirement({ contract: 1 }), { reachable: true, minReader: null });
-  assert.deepEqual(liveReaderRequirement({ reader_store: { min_reader: null } }), { reachable: true, minReader: null });
-  assert.deepEqual(liveReaderRequirement({ reader_store: { min_reader: 'A' } }), { reachable: true, minReader: 'A' });
-  assert.deepEqual(liveReaderRequirement({ reader_store: { min_reader: 'unknown' } }), { reachable: true, minReader: 'unknown' });
-  assert.deepEqual(liveReaderRequirement({ reader_store: {} }), { reachable: true, minReader: 'unknown' });
-  assert.deepEqual(liveReaderRequirement({ reader_store: { min_reader: 3 } }), { reachable: true, minReader: 'unknown' });
+  assert.deepEqual(liveReaderRequirement({ reader_store: { min_reader: null } }), {
+    reachable: true,
+    minReader: null,
+  });
+  assert.deepEqual(liveReaderRequirement({ reader_store: { min_reader: 'A' } }), {
+    reachable: true,
+    minReader: 'A',
+  });
+  assert.deepEqual(liveReaderRequirement({ reader_store: { min_reader: 'unknown' } }), {
+    reachable: true,
+    minReader: 'unknown',
+  });
+  assert.deepEqual(liveReaderRequirement({ reader_store: {} }), {
+    reachable: true,
+    minReader: 'unknown',
+  });
+  assert.deepEqual(liveReaderRequirement({ reader_store: { min_reader: 3 } }), {
+    reachable: true,
+    minReader: 'unknown',
+  });
 });
 
 test('the Dockerfile labels the final image with the newest format', () => {
@@ -63,13 +78,18 @@ test('the Dockerfile labels the final image with the newest format', () => {
   const stages = dockerfile.split(/^FROM /m);
   const final = stages[stages.length - 1];
   const newest = READER_FORMATS[READER_FORMATS.length - 1];
-  assert.match(final, new RegExp(`^LABEL ${READER_FORMAT_LABEL.replace(/\./g, '\\.')}="${newest}"$`, 'm'));
+  assert.match(
+    final,
+    new RegExp(`^LABEL ${READER_FORMAT_LABEL.replace(/\./g, '\\.')}="${newest}"$`, 'm')
+  );
 });
 
 const run = (args) =>
   new Promise((resolveRun) =>
-    execFile(process.execPath, [join(here, 'reader_format_gate.mjs'), ...args], (error, stdout, stderr) =>
-      resolveRun({ code: error ? error.code : 0, stdout, stderr })
+    execFile(
+      process.execPath,
+      [join(here, 'reader_format_gate.mjs'), ...args],
+      (error, stdout, stderr) => resolveRun({ code: error ? error.code : 0, stdout, stderr })
     )
   );
 
@@ -77,7 +97,11 @@ test('the CLI against a stub health server', async () => {
   const dir = mkdtempSync(join(tmpdir(), 'reader-format-gate-'));
   let body = { contract: 1 };
   const server = createServer((req, res) => {
-    if (body === 'down') { res.writeHead(503); res.end(); return; }
+    if (body === 'down') {
+      res.writeHead(503);
+      res.end();
+      return;
+    }
     res.writeHead(200, { 'content-type': 'application/json' });
     res.end(JSON.stringify(body));
   });

@@ -26,25 +26,46 @@ const rank = (format) => READER_FORMATS.indexOf(format);
 export function readerFormatDecision(live, candidate) {
   const known = typeof candidate === 'string' && rank(candidate) >= 0;
   if (candidate != null && !known)
-    return { go: false, why: `the candidate declares reader format ${JSON.stringify(candidate)}, which this gate does not know` };
+    return {
+      go: false,
+      why: `the candidate declares reader format ${JSON.stringify(candidate)}, which this gate does not know`,
+    };
   const required = live?.reachable ? live.minReader : 'unknown';
   if (required === null) return { go: true, why: 'the live store has no format marker' };
   if (required !== 'unknown' && rank(required) < 0)
     return known
-      ? { go: false, why: `the live store requires reader format ${JSON.stringify(required)}, which this gate does not know` }
-      : { go: false, why: `the live store requires reader format ${JSON.stringify(required)} and the candidate declares none` };
+      ? {
+          go: false,
+          why: `the live store requires reader format ${JSON.stringify(required)}, which this gate does not know`,
+        }
+      : {
+          go: false,
+          why: `the live store requires reader format ${JSON.stringify(required)} and the candidate declares none`,
+        };
   if (required === 'unknown')
     return known
-      ? { go: true, why: `the live store's requirement is unknown, and the candidate reads format ${candidate}, the newest this gate knows of or later` }
-      : { go: false, why: "the live store's format requirement is unknown and the candidate declares no reader format; an image without one cannot read gzip objects" };
+      ? {
+          go: true,
+          why: `the live store's requirement is unknown, and the candidate reads format ${candidate}, the newest this gate knows of or later`,
+        }
+      : {
+          go: false,
+          why: "the live store's format requirement is unknown and the candidate declares no reader format; an image without one cannot read gzip objects",
+        };
   if (!known)
     return {
       go: false,
       why: `the live store requires reader format ${required} (reader-jobs-v1/store-format.json) and the candidate declares none. Convert the store with mcp/reader_store_inflate.mjs under the writer lock first, or promote an image that reads ${required}`,
     };
   if (rank(candidate) < rank(required))
-    return { go: false, why: `the live store requires reader format ${required}; the candidate reads only ${candidate}` };
-  return { go: true, why: `the candidate reads format ${candidate}; the live store requires ${required}` };
+    return {
+      go: false,
+      why: `the live store requires reader format ${required}; the candidate reads only ${candidate}`,
+    };
+  return {
+    go: true,
+    why: `the candidate reads format ${candidate}; the live store requires ${required}`,
+  };
 }
 
 // Health body -> { reachable, minReader }. A body without reader_store comes
