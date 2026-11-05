@@ -192,6 +192,44 @@ class MeterHonesty(unittest.TestCase):
             self.lex, "lovin'", ["L", "AH1", "V", "IH0", "Z"], False),
             ("unclassified", {}))
 
+    def test_elision_is_rederived_and_never_assumed(self):
+        # 3PO's provenance-parity audit (#677 6641363309): a mutant that
+        # changed the elision reading's phones survived every meter test,
+        # because no test named the elision rule. `crown'd` reads as
+        # CMUdict `crowned` (K R AW1 N D), and anything else is not claimed.
+        e = self.one("crown'd", "/")
+        rec = by_token(e)[1]
+        self.assertEqual((rec["source"], rec.get("detail")),
+                         ("rule", {"rule": "elision", "from": "crowned"}))
+        self.assertEqual(rec.get("lexical"), "1")
+        self.assertEqual(lh._reading_provenance(
+            self.lex, "crown'd", ["K", "R", "AW1", "N", "D", "Z"], False),
+            ("unclassified", {}))
+
+    def test_only_an_accent_rule_reading_is_called_accent_derived(self):
+        # 3PO's provenance-parity audit (#677 6641363309): supplement rows
+        # whose source is `rule:number-compound` were labelled
+        # "accent-derived (number-compound)". They are rule-derived, not
+        # accent readings. `here` (NEAR respelling) is the accent control.
+        from quality import lexicon_supplement as LS
+        try:
+            sv2 = LS.supplemented_lexicon(reader_scheme="v2")
+        except LS.SupplementUnavailable as exc:
+            self.skipTest(str(exc))
+
+        def reading(lex, word):
+            rec = by_token(self.one(word, "./", lex=lex))[1]
+            return rec["source"], rec["detail"].get("reading")
+
+        self.assertEqual(reading(sv2, "thirty-one"),
+                         ("dictionary", "rule-derived (number-compound)"))
+        self.assertEqual(reading(sv2, "here"),
+                         ("dictionary", "accent-derived (near)"))
+        self.assertEqual(reading(self.lex, "here"),
+                         ("dictionary", "accent-derived (near)"))
+        self.assertEqual(reading(self.lex, "record"),
+                         ("dictionary", "cmudict"))
+
     def test_both_dropped_g_routes_name_one_rule(self):
         # Jony (#686 nit): the reduced-variant route (lovin') and the
         # fallback route (everythin') spell the rule the same way.
