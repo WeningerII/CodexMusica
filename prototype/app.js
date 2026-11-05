@@ -14,10 +14,7 @@ import {
   collectionFile,
   loadLibraryCredits,
   loadMethodRegistry,
-  genreLoader,
 } from './data.js';
-import { media } from './adapters.js';
-import { genre } from './selection.js';
 
 const ROUTES = ['browse', 'genre', 'instrument', 'map', 'lyrics', 'library'];
 const DEFAULT_ROUTE = 'browse';
@@ -132,27 +129,6 @@ LANES.library = {
   load: () => import('./features/library/explore.js'),
   unloaded: 'The Library’s collections did not load, so there is nothing to show yet.',
   context: libraryContext,
-};
-
-// The Genre detail lane (#668 6645589522, 6645704407): the header and the
-// Background of the genre the person opened. Until Browse can open one,
-// genre.set() is the shell's (and its tests'). The photo viewer (#748) isn't
-// in this build, so openPhoto says so and puts focus back.
-const genres = genreLoader();
-LANES.genre = {
-  id: 'genredetail',
-  label: 'The genre detail page',
-  load: () => import('./features/genre-detail/detail.js'),
-  unloaded: 'The genre detail page did not load.',
-  context: async () => ({
-    genre: Object.freeze({ current: genre.current, subscribe: genre.subscribe }),
-    loadGenre: genres.loadGenre,
-    media,
-    openPhoto(photo, { returnFocus } = {}) {
-      announce('The photo viewer isn’t part of this build of the prototype yet.');
-      if (returnFocus && typeof returnFocus.focus === 'function') returnFocus.focus();
-    },
-  }),
 };
 
 // More lanes in a panel, after its first, in this order (#668 6643233628).
