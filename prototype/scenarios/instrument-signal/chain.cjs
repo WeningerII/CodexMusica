@@ -2,6 +2,16 @@
 // Source/DOM qualification of row 204, not shell integration. Recorded catalog
 // and states below come from the byte-pinned canonical oracle (20 states).
 // No fixture adapter computes chain effects: tests deliver recorded snapshots.
+// Fixture source commit: fd16719d46217adc9b57ef939c9497e29e77741c.
+// Catalog projection: references/03_rooms_chains_tunings.js CHAIN_SECTIONS,
+// evaluated by scripts/_loader.js (stage id/name/multiSelect and item id/name).
+// Card producers: src/app.js makeCard('oud') and
+// makeCard('banjo_5_string', traditionCardOpts('bluegrass', 'banjo_5_string')),
+// executed through scripts/_load_app.js loadApp() in the disposable oracle.
+// Changed states: src/pages/instrument.js ipApply(card, { k: 'chain', ... });
+// removals also execute that page's actions['ip-fx-remove'], delegating to ipApply.
+// The oracle records card.instrumentId/card.chain; only those fields and the
+// catalog projection above are embedded here, not descriptor or recipe outputs.
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
