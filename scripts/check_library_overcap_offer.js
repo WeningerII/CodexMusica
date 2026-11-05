@@ -21,7 +21,8 @@ const sha = (x) =>
 function fixture(options = {}) {
   const files = new Map(),
     downloads = [],
-    handoffs = [];
+    handoffs = [],
+    attempts = [];
   const rights = { sources: [], file_sources: [], notices: [], required_attribution: [] };
   const metadata = { title: 'Saved reading' },
     rr = sha(rights),
@@ -97,7 +98,11 @@ function fixture(options = {}) {
     esc: String,
     icon: () => '',
     uiDownload: (...x) => downloads.push(x),
-    uiOpenInLyrics: async (x) => handoffs.push(x),
+    uiOpenInLyrics: async (x) => {
+      attempts.push(x);
+      if (options.onOpen) await options.onOpen(x, attempts.length);
+      handoffs.push(x);
+    },
     fetch: async (url) => {
       const name = String(url).replace(lib.base, '');
       return files.has(name) ? new Response(files.get(name)) : new Response('', { status: 404 });
@@ -135,7 +140,7 @@ function fixture(options = {}) {
       });
     return { R, state, main, alerts, click };
   }
-  return { reader, lib, downloads, handoffs, open };
+  return { reader, lib, downloads, handoffs, attempts, open };
 }
 // A small injected transfer limit keeps boundary/fault checks cheap; the final
 // scenario below also runs against the unchanged production transfer limit.
@@ -199,6 +204,88 @@ async function boundary(delta, mutate) {
   }
   assert.fail('could not construct exact serialized boundary');
 }
+async function refusedHandoff(excerpt, mutate) {
+  const f = fixture({
+    cap: CAP,
+    mutate,
+    onOpen: async (_envelope, attempt) => {
+      if (attempt === 1) throw Error('synthetic receiver refusal');
+    },
+  });
+  const view = await f.open();
+  const action = excerpt ? 'p-lyrics' : 'lyrics';
+  await view.click(action);
+  assert.equal(f.attempts.length, 1, 'under-cap action must reach Lyrics');
+  assert.equal(f.handoffs.length, 0, 'refused action must not activate');
+  assert.ok(bytes(f.attempts[0]) <= CAP);
+  assert.equal(f.downloads.length, 1, 'receiver refusal must download its envelope');
+  const [name, encoded, mime] = f.downloads[0];
+  assert.equal(name, 'codex-musica-library-import.json');
+  assert.equal(mime, 'application/json');
+  const bundle = JSON.parse(encoded);
+  assert.deepEqual(
+    bundle,
+    JSON.parse(JSON.stringify(f.attempts[0])),
+    'fallback must retain the exact attempted envelope'
+  );
+  await Import.validateEnvelope(bundle, webcrypto);
+  assert.equal(bundle.payload.scope, excerpt ? 'excerpt' : 'whole');
+  assert.equal(
+    bundle.payload.text,
+    excerpt ? 'Small selected excerpt' : 'Small selected excerpt\nA café at dusk'
+  );
+  assert.equal(bundle.payload.lineage.length, excerpt ? 1 : 2);
+  if (excerpt) {
+    assert.equal(bundle.payload.lineage[0].line_id, [...view.state.sel][0]);
+    assert.deepEqual(bundle.payload.declarations, []);
+  }
+  assert.match(view.alerts.innerHTML, /Import bundle downloaded\. In Lyrics, choose Import\./);
+  assert.match(view.alerts.innerHTML, /Lyrics could not open it here: synthetic receiver refusal/);
+  assert.equal(view.state.busy, false, 'receiver refusal must release busy guard');
+  await view.click(action);
+  assert.equal(f.attempts.length, 2, 'retry must reach Lyrics after refusal');
+  assert.equal(f.handoffs.length, 1);
+  assert.equal(f.downloads.length, 1, 'successful retry must not download again');
+  assert.deepEqual(JSON.parse(JSON.stringify(f.handoffs[0].payload)), bundle.payload);
+  assert.equal(view.alerts.innerHTML, '', 'successful retry must clear refusal guidance');
+  assert.equal(view.state.busy, false);
+}
+async function overcapExcerpt(mutate) {
+  const tail = 'é'.repeat(CAP / 2);
+  const f = fixture({ cap: CAP, tail, mutate });
+  const view = await f.open();
+  const lines = view.R.pages.get(0).lines;
+  view.state.sel = new Set([lines[1].id]);
+  await view.click('p-lyrics');
+  assert.equal(f.attempts.length, 0, 'oversized excerpt must not reach Lyrics');
+  assert.equal(f.downloads.length, 1, 'oversized excerpt must offer its own bundle');
+  const [name, encoded, mime] = f.downloads[0];
+  assert.equal(name, 'codex-musica-library-import.json');
+  assert.equal(mime, 'application/json');
+  const bundle = JSON.parse(encoded);
+  assert.ok(Buffer.byteLength(encoded) > CAP);
+  await Import.validateEnvelope(bundle, webcrypto);
+  assert.equal(bundle.payload.scope, 'excerpt');
+  assert.equal(bundle.payload.text, tail, 'excerpt bundle must exclude unselected text');
+  assert.equal(bundle.payload.lineage.length, 1);
+  assert.equal(bundle.payload.lineage[0].line_id, lines[1].id);
+  assert.deepEqual(bundle.payload.declarations, []);
+  assert.match(view.alerts.innerHTML, /bundle was downloaded.*choose Import, or select an excerpt/);
+  assert.equal(view.state.busy, false);
+  view.state.sel = new Set([lines[0].id]);
+  await view.click('p-lyrics');
+  assert.equal(f.attempts.length, 1, 'smaller selection must recover after oversized excerpt');
+  assert.equal(f.handoffs.length, 1);
+  assert.equal(f.downloads.length, 1);
+  assert.equal(f.handoffs[0].payload.text, lines[0].text);
+  assert.equal(f.handoffs[0].payload.scope, 'excerpt');
+  assert.equal(f.handoffs[0].payload.lineage.length, 1);
+  assert.equal(f.handoffs[0].payload.lineage[0].line_id, lines[0].id);
+  assert.ok(bytes(f.handoffs[0]) <= CAP);
+  await Import.validateEnvelope(f.handoffs[0], webcrypto);
+  assert.equal(view.alerts.innerHTML, '');
+  assert.equal(view.state.busy, false);
+}
 function fault(from, to) {
   return (source) => {
     assert.equal(source.split(from).length, 2, 'fault must target exactly one production site');
@@ -226,7 +313,39 @@ test('empty selection fails locally and a later excerpt still succeeds', async (
   await view.click('p-lyrics');
   assert.equal(f.handoffs.length, 1);
 });
+for (const excerpt of [false, true])
+  test(`receiver refusal downloads exact ${excerpt ? 'excerpt' : 'whole'} envelope and retry recovers`, () =>
+    refusedHandoff(excerpt));
+test('oversized excerpt downloads only selected data and smaller selection recovers', () =>
+  overcapExcerpt());
 for (const [name, mutate, check, message] of [
+  [
+    'drop receiver-refusal fallback download',
+    fault(
+      "uiDownload('codex-musica-library-import.json', JSON.stringify(envelope), 'application/json');",
+      'void envelope;'
+    ),
+    (m) => refusedHandoff(false, m),
+    /receiver refusal must download its envelope/,
+  ],
+  [
+    'truncate receiver-refusal fallback text',
+    fault(
+      "JSON.stringify(envelope), 'application/json'",
+      "JSON.stringify({ ...envelope, payload: { ...envelope.payload, text: '' } }), 'application/json'"
+    ),
+    (m) => refusedHandoff(true, m),
+    /fallback must retain the exact attempted envelope/,
+  ],
+  [
+    'exempt selected excerpts from transfer cap',
+    fault(
+      'enc.encode(encoded).length > TRANSFER_BYTES',
+      '!excerpt && enc.encode(encoded).length > TRANSFER_BYTES'
+    ),
+    overcapExcerpt,
+    /oversized excerpt must not reach Lyrics/,
+  ],
   [
     'bypass size guard',
     fault('enc.encode(encoded).length > TRANSFER_BYTES', 'false'),
