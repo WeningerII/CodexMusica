@@ -4,84 +4,275 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const crypto = require('node:crypto');
-const vm = require('node:vm');
 const http = require('node:http');
 const { chromium } = require('playwright');
-const ROOT = path.resolve(__dirname, '../../..');
-const source = (file) => fs.readFileSync(path.join(ROOT, file), 'utf8');
-const blob = (text) =>
-  crypto
-    .createHash('sha1')
-    .update(`blob ${Buffer.byteLength(text)}\0`)
-    .update(text)
-    .digest('hex');
-const pins = {
-  'api/browse_boot.json': '80c531e657e8115c638a5026c31075c02ff1feab',
-  'references/03_rooms_chains_tunings.js': '2240639fd08b0ae27b2b72c2f0fdecf68be973cd',
-  'src/pages/genre.js': '47078396261039a6d18e97edbe1c242d2b440f80',
-  'src/app.js': 'c363423cee3f6c8340d2ca0a1ebcfe0f318e3a38',
+const FEATURE = path.resolve(__dirname, '../../features/genre-sound');
+const source = (file) => fs.readFileSync(path.join(FEATURE, file), 'utf8');
+// Frozen-context fixtures derived at e736f53404b13491fbb22f1570d4e4f178faa49d:
+// scripts/_browse_tables.js browseItem + Catalog.bootFromIndex produced the
+// named axes below; AXIS_DEFINITIONS supplied the ordered endpoint vocabulary.
+// gpSoundProfile + axisLabel produced the expected labels/values captured below.
+// Catalog.resolve maps the real retired bluegrass_fiddle alias to bluegrass.
+// These are historical fixture oracles, not a current-production parity check.
+// Current parity belongs to Don's hosts/engine/lanes gates. Missing-value and
+// race cases below remain explicit fault injections, not new catalog records.
+const definitions = [
+  {
+    id: 'harm',
+    name: 'Harmonic logic',
+    neg: 'modal / drone-tonic',
+    pos: 'functional progression',
+  },
+  {
+    id: 'pitch',
+    name: 'Pitch system',
+    neg: 'fixed equal-tempered',
+    pos: 'flexible / microtonal',
+  },
+  {
+    id: 'ornament',
+    name: 'Melodic ornament',
+    neg: 'plain',
+    pos: 'heavily ornamented',
+  },
+  {
+    id: 'meter',
+    name: 'Meter',
+    neg: 'free / rubato',
+    pos: 'strict isochronous',
+  },
+  {
+    id: 'density',
+    name: 'Density',
+    neg: 'sparse',
+    pos: 'dense polyphonic',
+  },
+  {
+    id: 'transmission',
+    name: 'Transmission',
+    neg: 'notated',
+    pos: 'oral',
+  },
+  {
+    id: 'improv',
+    name: 'Real-time generativity',
+    neg: 'fixed',
+    pos: 'improvised',
+  },
+  {
+    id: 'soundTech',
+    name: 'Sound technology',
+    neg: 'acoustic',
+    pos: 'processed / synthesized',
+  },
+  {
+    id: 'intensity',
+    name: 'Perceptual intensity',
+    neg: 'meditative',
+    pos: 'cathartic',
+  },
+  {
+    id: 'voice',
+    name: 'Voice centrality',
+    neg: 'instrumental',
+    pos: 'vocally driven',
+  },
+  {
+    id: 'timbre',
+    name: 'Timbral grain',
+    neg: 'clean / smooth',
+    pos: 'rough / distorted',
+  },
+  {
+    id: 'percussion',
+    name: 'Percussion role',
+    neg: 'absent',
+    pos: 'foreground / metric',
+  },
+  {
+    id: 'cyclicity',
+    name: 'Formal cyclicity',
+    neg: 'through-composed',
+    pos: 'cyclical / strophic',
+  },
+];
+const records = {
+  bluegrass: {
+    id: 'bluegrass',
+    name: 'Bluegrass',
+    values: [1, 1, 1, 2, 1, 1, 1, -2, 1, 1, 1, -1, 2],
+  },
+  delta_blues: {
+    id: 'delta_blues',
+    name: 'Delta blues',
+    values: [1, 1, 1, 0, -1, 1, 1, -2, 1, 2, 2, -1, 2],
+  },
+  techno: {
+    id: 'techno',
+    name: 'Techno',
+    values: [0, -1, 0, 1, 0, -1, 0, 2, 1, -2, 1, 2, 2],
+  },
+  bornesange: {
+    id: 'bornesange',
+    name: 'Bornesange',
+    values: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  },
 };
-// Fixtures are pinned to #755 e736f53404b13491fbb22f1570d4e4f178faa49d.
-// Updating a source pin requires rechecking the production oracle, not silently
-// accepting a changed fixture. Missing-value and race cases below are fault injection.
-for (const [file, sha] of Object.entries(pins)) assert.equal(blob(source(file)), sha, file);
-const boot = JSON.parse(source('api/browse_boot.json'));
-const definitions = JSON.parse(
-  JSON.stringify(
-    vm.runInNewContext(
-      source('references/03_rooms_chains_tunings.js').match(
-        /const AXIS_DEFINITIONS = (\[[\s\S]*?\n\]);/
-      )[1]
-    )
+const freeze = (value) => {
+  if (value && typeof value === 'object') {
+    Object.values(value).forEach(freeze);
+    Object.freeze(value);
+  }
+  return value;
+};
+const fixtures = freeze(
+  Object.fromEntries(
+    Object.entries(records).map(([id, row]) => [
+      id,
+      {
+        id: row.id,
+        name: row.name,
+        definitions,
+        axes: definitions.map((axis, i) => ({ id: axis.id, value: row.values[i], recorded: true })),
+      },
+    ])
   )
 );
-const esc = (s) =>
-  String(s)
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;');
-const production = vm.createContext({
-  esc,
-  AXIS_DEFINITIONS: definitions,
-  Tradition: (id) => boot.items.find((item) => item.id === id),
-  uiButton: () => '', // Only compare production scale semantics, not its shell controls.
+const expected = freeze({
+  bluegrass: {
+    labels: [
+      'Harmonic logic: leans functional progression (+1 from −2 modal / drone-tonic to +2 functional progression)',
+      'Pitch system: leans flexible / microtonal (+1 from −2 fixed equal-tempered to +2 flexible / microtonal)',
+      'Melodic ornament: leans heavily ornamented (+1 from −2 plain to +2 heavily ornamented)',
+      'Meter: strict isochronous (+2 from −2 free / rubato to +2 strict isochronous)',
+      'Density: leans dense polyphonic (+1 from −2 sparse to +2 dense polyphonic)',
+      'Transmission: leans oral (+1 from −2 notated to +2 oral)',
+      'Real-time generativity: leans improvised (+1 from −2 fixed to +2 improvised)',
+      'Sound technology: acoustic (-2 from −2 acoustic to +2 processed / synthesized)',
+      'Perceptual intensity: leans cathartic (+1 from −2 meditative to +2 cathartic)',
+      'Voice centrality: leans vocally driven (+1 from −2 instrumental to +2 vocally driven)',
+      'Timbral grain: leans rough / distorted (+1 from −2 clean / smooth to +2 rough / distorted)',
+      'Percussion role: leans absent (-1 from −2 absent to +2 foreground / metric)',
+      'Formal cyclicity: cyclical / strophic (+2 from −2 through-composed to +2 cyclical / strophic)',
+    ],
+    values: [
+      'leans functional progression',
+      'leans flexible / microtonal',
+      'leans heavily ornamented',
+      'strict isochronous',
+      'leans dense polyphonic',
+      'leans oral',
+      'leans improvised',
+      'acoustic',
+      'leans cathartic',
+      'leans vocally driven',
+      'leans rough / distorted',
+      'leans absent',
+      'cyclical / strophic',
+    ],
+  },
+  delta_blues: {
+    labels: [
+      'Harmonic logic: leans functional progression (+1 from −2 modal / drone-tonic to +2 functional progression)',
+      'Pitch system: leans flexible / microtonal (+1 from −2 fixed equal-tempered to +2 flexible / microtonal)',
+      'Melodic ornament: leans heavily ornamented (+1 from −2 plain to +2 heavily ornamented)',
+      'Meter: middle (0 from −2 free / rubato to +2 strict isochronous)',
+      'Density: leans sparse (-1 from −2 sparse to +2 dense polyphonic)',
+      'Transmission: leans oral (+1 from −2 notated to +2 oral)',
+      'Real-time generativity: leans improvised (+1 from −2 fixed to +2 improvised)',
+      'Sound technology: acoustic (-2 from −2 acoustic to +2 processed / synthesized)',
+      'Perceptual intensity: leans cathartic (+1 from −2 meditative to +2 cathartic)',
+      'Voice centrality: vocally driven (+2 from −2 instrumental to +2 vocally driven)',
+      'Timbral grain: rough / distorted (+2 from −2 clean / smooth to +2 rough / distorted)',
+      'Percussion role: leans absent (-1 from −2 absent to +2 foreground / metric)',
+      'Formal cyclicity: cyclical / strophic (+2 from −2 through-composed to +2 cyclical / strophic)',
+    ],
+    values: [
+      'leans functional progression',
+      'leans flexible / microtonal',
+      'leans heavily ornamented',
+      'middle',
+      'leans sparse',
+      'leans oral',
+      'leans improvised',
+      'acoustic',
+      'leans cathartic',
+      'vocally driven',
+      'rough / distorted',
+      'leans absent',
+      'cyclical / strophic',
+    ],
+  },
+  techno: {
+    labels: [
+      'Harmonic logic: middle (0 from −2 modal / drone-tonic to +2 functional progression)',
+      'Pitch system: leans fixed equal-tempered (-1 from −2 fixed equal-tempered to +2 flexible / microtonal)',
+      'Melodic ornament: middle (0 from −2 plain to +2 heavily ornamented)',
+      'Meter: leans strict isochronous (+1 from −2 free / rubato to +2 strict isochronous)',
+      'Density: middle (0 from −2 sparse to +2 dense polyphonic)',
+      'Transmission: leans notated (-1 from −2 notated to +2 oral)',
+      'Real-time generativity: middle (0 from −2 fixed to +2 improvised)',
+      'Sound technology: processed / synthesized (+2 from −2 acoustic to +2 processed / synthesized)',
+      'Perceptual intensity: leans cathartic (+1 from −2 meditative to +2 cathartic)',
+      'Voice centrality: instrumental (-2 from −2 instrumental to +2 vocally driven)',
+      'Timbral grain: leans rough / distorted (+1 from −2 clean / smooth to +2 rough / distorted)',
+      'Percussion role: foreground / metric (+2 from −2 absent to +2 foreground / metric)',
+      'Formal cyclicity: cyclical / strophic (+2 from −2 through-composed to +2 cyclical / strophic)',
+    ],
+    values: [
+      'middle',
+      'leans fixed equal-tempered',
+      'middle',
+      'leans strict isochronous',
+      'middle',
+      'leans notated',
+      'middle',
+      'processed / synthesized',
+      'leans cathartic',
+      'instrumental',
+      'leans rough / distorted',
+      'foreground / metric',
+      'cyclical / strophic',
+    ],
+  },
+  bornesange: {
+    labels: [
+      'Harmonic logic: middle (0 from −2 modal / drone-tonic to +2 functional progression)',
+      'Pitch system: middle (0 from −2 fixed equal-tempered to +2 flexible / microtonal)',
+      'Melodic ornament: middle (0 from −2 plain to +2 heavily ornamented)',
+      'Meter: middle (0 from −2 free / rubato to +2 strict isochronous)',
+      'Density: middle (0 from −2 sparse to +2 dense polyphonic)',
+      'Transmission: middle (0 from −2 notated to +2 oral)',
+      'Real-time generativity: middle (0 from −2 fixed to +2 improvised)',
+      'Sound technology: middle (0 from −2 acoustic to +2 processed / synthesized)',
+      'Perceptual intensity: middle (0 from −2 meditative to +2 cathartic)',
+      'Voice centrality: middle (0 from −2 instrumental to +2 vocally driven)',
+      'Timbral grain: middle (0 from −2 clean / smooth to +2 rough / distorted)',
+      'Percussion role: middle (0 from −2 absent to +2 foreground / metric)',
+      'Formal cyclicity: middle (0 from −2 through-composed to +2 cyclical / strophic)',
+    ],
+    values: [
+      'middle',
+      'middle',
+      'middle',
+      'middle',
+      'middle',
+      'middle',
+      'middle',
+      'middle',
+      'middle',
+      'middle',
+      'middle',
+      'middle',
+      'middle',
+    ],
+  },
 });
-const genreSource = source('src/pages/genre.js');
-vm.runInContext(
-  source('src/app.js').match(/function axisLabel\(axis, value\) \{[\s\S]*?\n\}/)[0] +
-    '\n' +
-    genreSource.slice(
-      genreSource.indexOf('function gpSoundProfile('),
-      genreSource.indexOf('// What a single-instrument Add')
-    ),
-  production
-);
-const fixtures = {};
-const expected = {};
-for (const id of ['bluegrass', 'delta_blues', 'techno', 'bornesange']) {
-  const row = boot.items.find((item) => item.id === id);
-  fixtures[id] = {
-    id,
-    name: row.name,
-    definitions: definitions.map(({ id, name, neg, pos }) => ({ id, name, neg, pos })),
-    axes: definitions.map((axis) => ({
-      id: axis.id,
-      value: row.axes[boot.axisKeys.indexOf(axis.id)],
-      recorded: true,
-    })),
-  };
-  expected[id] = production.gpSoundProfile(id, {
-    axes: Object.fromEntries(fixtures[id].axes.map((axis) => [axis.id, axis.value])),
-  });
-}
-const alias = Object.entries(boot.aliases || {}).find(([, row]) => fixtures[row.of]);
-assert.ok(alias, 'real retired alias for one fixture');
+const alias = freeze(['bluegrass_fiddle', { of: 'bluegrass', name: 'Bluegrass fiddle' }]);
 
 async function main() {
   const modulePath = 'prototype/features/genre-sound/sound.js';
-  let moduleSource = source(modulePath);
+  let moduleSource = source('sound.js');
   // Meaningful negative controls, applied only to the served bytes.
   const mutations = {
     label: ["return 'middle';", 'return axis.pos;'],
@@ -108,7 +299,7 @@ async function main() {
       res.end(moduleSource);
     } else if (req.url === '/prototype/features/genre-sound/sound.css') {
       res.setHeader('content-type', 'text/css');
-      res.end(source('prototype/features/genre-sound/sound.css'));
+      res.end(source('sound.css'));
     } else {
       res.statusCode = 404;
       res.end();
@@ -234,19 +425,15 @@ async function main() {
     await page.locator('#outside').focus();
     for (const id of Object.keys(fixtures)) {
       await choose(id);
-      const actual = await page.locator('#a').evaluate((host, html) => {
-        const oracle = document.createElement('div');
-        oracle.innerHTML = html;
+      const actual = await page.locator('#a').evaluate((host, oracle) => {
         return {
           names: [...host.querySelectorAll('.genre-sound-name')].map((x) => x.textContent),
           labels: [...host.querySelectorAll('[role="img"]')].map((x) =>
             x.getAttribute('aria-label')
           ),
-          expectedLabels: [...oracle.querySelectorAll('[role="img"]')].map((x) =>
-            x.getAttribute('aria-label')
-          ),
+          expectedLabels: oracle.labels,
           values: [...host.querySelectorAll('.genre-sound-value')].map((x) => x.textContent),
-          expectedValues: [...oracle.querySelectorAll('.gp-axis-value')].map((x) => x.textContent),
+          expectedValues: oracle.values,
           positions: [...host.querySelectorAll('.genre-sound-dots')].map((x) =>
             [...x.children].findIndex((d) => d.classList.contains('is-on'))
           ),
@@ -258,8 +445,16 @@ async function main() {
         fixtures[id].definitions.map((x) => x.name),
         'all 13 in production order'
       );
-      assert.deepEqual(actual.labels, actual.expectedLabels, 'exact production accessible scales');
-      assert.deepEqual(actual.values, actual.expectedValues, 'exact production value labels');
+      assert.deepEqual(
+        actual.labels,
+        actual.expectedLabels,
+        'exact historical fixture accessible scales'
+      );
+      assert.deepEqual(
+        actual.values,
+        actual.expectedValues,
+        'exact historical fixture value labels'
+      );
       assert.deepEqual(
         actual.positions,
         fixtures[id].axes.map((x) => x.value + 2)
@@ -497,7 +692,7 @@ async function main() {
     assert.equal(await page.locator('#a').innerHTML(), '');
     assert.deepEqual(failures, []);
     console.log(
-      'PASS: pinned production scales; alias callbacks; missing-value fault; errors/retry/focus; stale/abort/teardown; multiple hosts; desktop/mobile/text reflow. Standalone only; rows 170/171 pending.'
+      'PASS: derived historical fixture scales; alias callbacks; missing-value fault; errors/retry/focus; stale/abort/teardown; multiple hosts; desktop/mobile/text reflow. Standalone only; rows 170/171 pending.'
     );
   } finally {
     if (browser) await browser.close();
