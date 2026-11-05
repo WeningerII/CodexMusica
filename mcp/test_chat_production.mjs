@@ -2167,9 +2167,10 @@ test('a newer signed tool result supersedes worker progress across durable resta
     RUNS.ledger.mark(runId, 3, true);
     assert.equal(router.recoverCheckpoint(store.get(crashed)).lyric.run_id, undefined);
 
-    // RD1 (BB8): a pasted song's (unseeded) journal carries declarationsOf's
-    // planner default form: 'verse-chorus'. Carried back, every revise from the
-    // recovered continuation was refused as "form is a plan declaration …".
+    // RD1 (BB8): a pasted song's (unseeded) journal carries a form from
+    // declarationsOf (here the fixture's 'verse-chorus'). Carried back, every
+    // revise from the recovered continuation was refused as "form is a plan
+    // declaration …".
     // The recovered decl keeps the mandate and drops every plan-only field;
     // a seeded run keeps its plan.
     const pasted = crypto.randomBytes(32).toString('hex');
