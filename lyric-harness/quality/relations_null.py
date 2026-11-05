@@ -55,9 +55,13 @@ that differ from the OBSERVATION at all (doctrine 68).
 | Kalevala weak · line_fraction | global_redeal | .845 | .340 | **+.505** | 3.018 | 100% |
 
 RE-MEASURED 2026-11-04 (#656), ONE ROW: `perfect rhyme · count ·
-line_final_permutation` on the same 200 lines now gives observed 125 and 0 of
-20 replicates differing.  The 89.5% above is what this run recorded, not what
-the code does today; the table is kept as the run it was.
+line_final_permutation` on the same 200 lines now gives observed 125 (not
+2431) and 0 of 20 replicates differing.  That is NOT evidence that the error
+went away.  Most end rhymes on this text are now UNDECIDED between rhotic
+and non-rhotic readings (#656, Jony's sample), so the confirmed count the
+null permutes has collapsed and the row cannot be measured here.  The 89.5% is
+what this run recorded; whether it still holds is unknown.  The table is kept
+as the run it was.
 
 FOUR THINGS THAT TABLE SAYS, and they are the reason this file exists rather
 than a number for it to print:
@@ -1409,10 +1413,11 @@ def sweep(lines, phon, language, schemas=None, n=25, seed=SEED, chans=None,
     changes which word is line-final (an ingestion effect wearing a placement
     number, doctrine 79).  A sweep that trusted the derivation would have
     silently dropped the one arm in this file's own table that the derivation
-    got wrong.  That row no longer moves (re-measured 2026-11-04, #656), but
-    the reason stands on rows that do: `OFF_MENU_MOVERS` holds 25 pairs the
-    derivation calls identity maps and the sweep measured moving, among them
-    `multisyllabic rhyme · count · line_final_permutation` at 10 of 10.  Doctrine 68 is not a footnote here: the derivation proposes
+    got wrong.  That row can no longer be measured (#656: its confirmed count
+    collapsed once most end rhymes became undecided between readings), so the
+    reason now rests on rows that do move: `OFF_MENU_MOVERS` holds 25 pairs
+    the derivation calls identity maps and the sweep measured moving, among
+    them `multisyllabic rhyme · count · line_final_permutation` at 10 of 10.  Doctrine 68 is not a footnote here: the derivation proposes
     the plan and the MEASUREMENT decides, so every null is run and
     `Result.differing` is what the reader is asked to look at.
 
@@ -1638,8 +1643,9 @@ LEDGER_SLICE = ("corpus/song/eng_american_edgar_allan_poe.txt", "eng", 40)
 #: moved and the set contained it.  Doctrine 28: 0-of-4 was "cannot tell", not
 #: "no", and a ledger recorded at an n too small to reach the counterexample
 #: the file already knows about would be decoration with a number on it.
-#: 2026-11-04 (#656): that row no longer moves at any n tried, so the value is
-#: kept on today's evidence instead.  At n=10 the rarest mover the table holds,
+#: 2026-11-04 (#656): that row can no longer be measured on the ledger slice
+#: (one confirmed witness; the end rhymes are undecided between readings), so
+#: the value is kept on today's evidence instead.  At n=10 the rarest mover the table holds,
 #: `paroemion · line_fraction · line_final_permutation`, moves 1 of 10; an n
 #: below 10 would be likely to miss it.
 LEDGER_REPLICATES = 10
@@ -2015,9 +2021,12 @@ MENU_SILENT = (
 #: ~~`('perfect rhyme', 'count', 'line_final_permutation')` IS IN THIS TABLE,
 #: and it is the row this file's own docstring records at 89.5% differing and
 #: `sweep()`'s docstring names as the reason `derived_only` is not the
-#: default.~~  RE-MEASURED 2026-11-04 (#656): that row has LEFT this table.
-#: It moves 0 of 10 here and 0 of 20 on the docstring's own 200-line arm, so
-#: the 89.5% is history, not a current counterexample.  The reason
+#: default.~~  RE-MEASURED 2026-11-04 (#656): that row has LEFT this table,
+#: and the reason is UNMEASURABILITY, not a correction.  On this slice it has
+#: one confirmed witness (tapping ~ rapping, mid-line) and 236 unresolved
+#: pairs, because most of this slice's end rhymes (lore / door / more / floor / Lenore) are undecided between the rhotic and non-rhotic readings.
+#: A permutation of nothing moves nothing.  Whether the derivation is still
+#: wrong about it is unknown until those readings resolve.  The reason
 #: `derived_only` is not the default still stands on rows that do move today:
 #: `multisyllabic rhyme · count · line_final_permutation` (10 of 10), the four
 #: cynghanedd sain rows under `within_line_shuffle` (8-10 of 10) and the
@@ -2044,9 +2053,12 @@ MENU_SILENT = (
 #: is an ingestion effect wearing a placement number (doctrine 79), and it is
 #: not in `_PLACEMENT_READS` because it is not a placement fact.~~
 #: RE-MEASURED 2026-11-04 (#656): 25 rows over 16 schemas, 16 of them
-#: `line_final_permutation`.  That ingestion effect no longer moves the rows
-#: it used to: eleven of them stay at 0 of 10 even with an unreadable word
-#: added at the end of every fifth line.  The rows that remain move on every
+#: `line_final_permutation`.  The ingestion effect no longer moves the rows
+#: that can still show it: `consonance · count` (observed 25), `internal
+#: rhyme · count` (352) and `syllabic rhyme · count` (18) stay at 0 of 10
+#: even with an unreadable word added at the end of every fifth line.  The
+#: other eight rows that left have a confirmed count of 1 or 3 on this slice
+#: and cannot show it either way.  The rows that remain move on every
 #: version of the slice tried, so they are the derivation's own errors, not
 #: ingestion: the cynghanedd sain rows under `within_line_shuffle` and
 #: `multisyllabic rhyme` under `line_final_permutation` each owe a

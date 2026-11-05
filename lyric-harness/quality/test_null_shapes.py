@@ -37,8 +37,9 @@ because they have five different remedies (doctrine 44).
   6. THE DERIVATION IS NOT THE AUTHORITY (doctrine 68). `null_menu` derives
      `perfect rhyme · count · line_final_permutation` to be an identity map;
      the recorded table measured 89.5% of replicates differing on exactly
-     that pair (that row no longer moves, re-measured 2026-11-04 in #656;
-     `OFF_MENU_MOVERS` holds the current counterexamples). So the SWEEP must
+     that pair (that row can no longer be measured, #656: its end rhymes are
+     now undecided between readings; `OFF_MENU_MOVERS` holds the current
+     counterexamples). So the SWEEP must
      run every null anyway, and this asserts the plan does.
   7. THE SECOND RUNNER MUST AGREE WITH THE FIRST. `sweep` shares replicates
      across schemas where `run_many` does not; on the same schema, statistic,
@@ -556,7 +557,7 @@ def relations_sections():
           "for `perfect rhyme · count`",
           "line_final_permutation" not in menu, "derived menu %s" % (menu,))
     # ...and the recorded table measured 89.5% of replicates differing on it
-    # (no longer, #656: OFF_MENU_MOVERS now carries the live counterexamples),
+    # (unmeasurable now, #656; OFF_MENU_MOVERS carries the live counterexamples),
     # so a sweep that trusted the derivation could drop a real arm.
     _res, _cen = N.sweep(FAR, phon, "eng", n=1, budget=None,
                          schemas={"perfect rhyme": per})
