@@ -203,8 +203,16 @@ const settle = async (p) => {
           (await p.locator('#lyrics-draft').inputValue()) !== edited,
           'Line actions Undo changes draft'
         );
-        if (narrow) await trigger.click();
-        await p.locator(`${historyScope} [data-ui="ly-redo"]`).click();
+        // The phone's Line actions menu stays open across its own Undo
+        // (5672358efe), so Redo is reached without reopening it; a second
+        // trigger click would close the menu.
+        const redo = p.locator(`${historyScope} [data-ui="ly-redo"]`);
+        if (narrow)
+          verify(
+            await redo.isVisible(),
+            'Line actions menu stays open after Undo with Redo visible'
+          );
+        await redo.click();
         await settle(p);
         verify(
           (await p.locator('#lyrics-draft').inputValue()) === edited,

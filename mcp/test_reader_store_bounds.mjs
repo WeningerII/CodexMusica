@@ -48,6 +48,8 @@ function dir(t) {
 function scan(store) {
   // The ground truth the counter must equal: every byte the quota covers.
   let total = fs.statSync(path.join(store.directory, 'capability-key')).size;
+  const marker = path.join(store.directory, 'store-format.json');
+  if (fs.existsSync(marker)) total += fs.statSync(marker).size;
   for (const sub of ['records', 'pages', 'indexes', 'checkpoints', 'manifests', 'definitions'])
     for (const name of fs.readdirSync(path.join(store.directory, sub)))
       total += fs.statSync(path.join(store.directory, sub, name)).size;
@@ -87,7 +89,7 @@ function run(store, viewer, key, tag) {
 
 test('the delta counter equals a full scan after a randomized mix of operations', (t) => {
   let now = 1000;
-  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now, clock: () => 0 });
   assert.equal(store.usage, scan(store));
   // A fixed pseudo-random sequence (deterministic, so a failure reproduces).
   let seed = 7;
@@ -218,7 +220,7 @@ test('retention slides in memory per read and persists at most once an hour', (t
 
 test('expiry binds at read time, before any sweep has run', (t) => {
   let now = 1000;
-  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now, clock: () => 0 });
   const job = run(store, 'viewer-a', 'k-a', 'a');
   now += READER_LIMITS.retentionMs + 1;
   refused(() => store.get(job.record.id, job.capability, 'viewer-a'), 'RESULT_EXPIRED');
@@ -230,7 +232,7 @@ test('expiry binds at read time, before any sweep has run', (t) => {
 
 test('a maintenance slice is bounded, and the sweep spares objects re-referenced after its mark', (t) => {
   let now = 1000;
-  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now, clock: () => 0 });
   const jobs = [];
   for (let i = 0; i < 6; i++) jobs.push(run(store, `v${i}`, `k${i}`, `t${i}`));
   for (const j of jobs) store.delete(j.record.id, j.capability, j.record.viewer);
@@ -315,7 +317,7 @@ const markOnly = { records: 1000, objects: 1000, bytes: 1 << 30, ms: 10_000 };
 
 test('a page re-referenced by hash after the mark began is not swept', (t) => {
   let now = 1000;
-  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now, clock: () => 0 });
   const gone = run(store, 'viewer-a', 'k-a', 'shared');
   const page = store.workerPayload(gone.record.id).page_paths[0];
   const hash = path.basename(page, '.json');
@@ -347,7 +349,7 @@ test('a page re-referenced by hash after the mark began is not swept', (t) => {
 
 test('a mark that fails part-way abandons the collection instead of sweeping a partial mark', (t) => {
   let now = 1000;
-  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now, clock: () => 0 });
   const live = run(store, 'viewer-a', 'k-a', 'live');
   const objects = () =>
     ['pages', 'indexes', 'checkpoints', 'manifests'].flatMap((sub) =>
@@ -372,7 +374,7 @@ test('a mark that fails part-way abandons the collection instead of sweeping a p
 
 test('a mark slice reads at most its object bound, resuming mid-chain', (t) => {
   let now = 1000;
-  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now, clock: () => 0 });
   const job = create(store, 'viewer-a', 'k-a');
   let lease = store.lease(job.record.id);
   // A long chain on ONE record: several checkpoints, each with an index node.
@@ -568,7 +570,7 @@ test('an expired job cannot be handed to the worker', (t) => {
 
 test('a slice examines at most its bound: expiry, mark and sweep enumeration all resume', (t) => {
   let now = 1000;
-  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now, clock: () => 0 });
   for (let i = 0; i < 8; i++) {
     const j = run(store, `v${i}`, `k${i}`, `t${i}`);
     if (i % 2) store.delete(j.record.id, j.capability, j.record.viewer);
@@ -614,7 +616,7 @@ test("one job's growth never consumes another job's reservation", (t) => {
 
 test('the dirty re-mark stays inside the slice bound and withholds the sweep until it completes', (t) => {
   let now = 1000;
-  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now, clock: () => 0 });
   const gone = run(store, 'viewer-g', 'k-g', 'gone');
   store.delete(gone.record.id, gone.capability, 'viewer-g');
   age(store);
@@ -675,7 +677,7 @@ test('expiry checks the time bound between tombstones and resumes where it stopp
 
 test('the byte bound is checked before an object is read or deleted', (t) => {
   let now = 1000;
-  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now, clock: () => 0 });
   const big = 'x'.repeat(700_000); // three of these pages exceed one 2 MiB slice
   const job = create(store, 'viewer-a', 'k-a');
   const lease = store.lease(job.record.id);
@@ -733,7 +735,7 @@ test('a mark step defers, unread, an object that would pass the byte bound', (t)
 
 test('retained definitions: exact bytes, counted, kept while referenced, collected after deletion', (t) => {
   let now = 1000;
-  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now, clock: () => 0 });
   const methods = Buffer.from('{"methods":[1,2,3]}\n');
   const schema = Buffer.from('{"type":"object"}');
   const make = (viewer, key) =>

@@ -310,7 +310,7 @@ def main():
         except GP.ProposerUnavailable as error:
             failure = error
         check(f"malformed provider case {index} is a typed refusal after exactly one dispatch",
-              failure is not None and getattr(failure, "code", "").startswith("PROVIDER_")
+              failure is not None and getattr(failure, "code", None) == ("PROVIDER_PROTOCOL" if index < 7 else "PROVIDER_USAGE")
               and len(sc.seen) == 1 and not call.in_flight)
         srv.shutdown()
 
@@ -468,6 +468,109 @@ def main():
     check("a refused attempt then a reply: the reply is used, the refusal settles rejected and leaves no unknown",
           got == "after the refusal" and [f["status"] for a, f in settlements if a == "settle"] == ["rejected", "success"]
           and writer.unknown_attempts == 0, json.dumps(settlements)[:300])
+
+    print("\n9. raw protocol, unsupported parts and thought text boundaries")
+    def parts_body(parts):
+        payload = ok_body("unused")
+        payload["candidates"][0]["content"]["parts"] = parts
+        return payload
+
+    boundaries = [
+        ("unreadable JSON", b"{", "PROVIDER_PROTOCOL"),
+        ("invalid UTF-8", b"\xff", "PROVIDER_PROTOCOL"),
+        ("oversized JSON", b" " * (GP.MAX_RESPONSE_BYTES + 1), "PROVIDER_PROTOCOL"),
+        ("no candidate", {"promptFeedback": {"blockReason": "SAFETY"}}, "PROVIDER_REFUSAL"),
+        ("bad feedback", {**ok_body("x"), "promptFeedback": []}, "PROVIDER_PROTOCOL"),
+        ("missing finish", {"candidates": [{"content": {"parts": [{"text": "x"}]}}]}, "PROVIDER_PROTOCOL"),
+        ("unknown finish", ok_body("x", finish="UNSUPPORTED"), "PROVIDER_REFUSAL"),
+        ("non-text part", parts_body([{"functionCall": {"name": "x"}}]), "PROVIDER_PROTOCOL"),
+        ("bad thought flag", parts_body([{"text": "x", "thought": "true"}]), "PROVIDER_PROTOCOL"),
+        ("thought text excluded", parts_body([{"text": "hidden", "thought": True}, {"text": "answer"}]), None),
+    ]
+    for label, payload, expected in boundaries:
+        env(GEMINI_API_KEY="k", LYRIC_PROPOSER_MODEL="m")
+        writer = GP.make()
+        settlements = []
+        writer._budget = lambda action, **fields: settlements.append((action, fields)) or {}
+        raw = payload if isinstance(payload, bytes) else json.dumps(payload).encode()
+        buf = io.StringIO()
+        failure = result = None
+        with patch.object(GP.urllib.request, "urlopen", return_value=_Reply(raw)) as dispatch:
+            with redirect_stdout(buf):
+                try:
+                    result = writer("boundary")
+                except Exception as error:
+                    # Unexpected exceptions must fail the typed-refusal check,
+                    # not abort this table before its remaining boundaries run.
+                    failure = error
+        final = [json.loads(line.split("proposer event: ", 1)[1])
+                 for line in buf.getvalue().splitlines() if "proposer event:" in line][-1]
+        check(label + ": exact result after one dispatch, no in-flight request",
+              (isinstance(failure, GP.ProposerUnavailable) if expected
+               else result == "answer" and failure is None)
+              and getattr(failure, "code", None) == expected
+              and final["failure_code"] == expected
+              and dispatch.call_count == 1 and writer.attempts == 1 and not writer.in_flight,
+              repr(failure) if failure is not None else repr(result))
+        if isinstance(payload, bytes):
+            check(label + ": unreadable response settles unknown exactly once",
+                  [fields["status"] for action, fields in settlements if action == "settle"] == ["unknown"]
+                  and writer.unknown_attempts == 1 and final["usage_unknown"])
+
+    print("\n10. provider reads stay within the application response bounds")
+    class CountingReply(io.BytesIO):
+        def __init__(self, raw):
+            super().__init__(raw)
+            self.requested = []
+            self.consumed = 0
+
+        def read(self, n=-1):
+            self.requested.append(n)
+            data = super().read(n)
+            self.consumed += len(data)
+            return data
+
+    limit = GP.MAX_RESPONSE_BYTES
+    for http_error in (False, True):
+        for size in (limit - 1, limit, limit + 1, limit + 2):
+            env(GEMINI_API_KEY="k", LYRIC_PROPOSER_MODEL="m")
+            writer = GP.make()
+            settlements = []
+            writer._budget = lambda action, **fields: settlements.append((action, fields)) or {}
+            payload = {"error": {"message": "fixture"}} if http_error else ok_body("answer")
+            encoded = json.dumps(payload).encode()
+            reply = CountingReply(encoded + b" " * (size - len(encoded)))
+            error = urllib.error.HTTPError("http://127.0.0.1/fixture", 400, "fixture", {}, reply)
+            mock = {"side_effect": error} if http_error else {"return_value": reply}
+            buf = io.StringIO()
+            failure = result = None
+            with patch.object(GP.urllib.request, "urlopen", **mock) as dispatch:
+                with redirect_stdout(buf):
+                    try:
+                        result = writer("read boundary")
+                    except Exception as caught:
+                        failure = caught
+            expected_read = limit if http_error else limit + 1
+            label = f"{'HTTP400' if http_error else 'success'} response {size} bytes"
+            check(label + ": exact bounded read request and consumption",
+                  reply.requested == [expected_read]
+                  and reply.consumed == min(size, expected_read),
+                  f"requested={reply.requested}, consumed={reply.consumed}")
+            oversized = not http_error and size > limit
+            expected_settle = "rejected" if http_error else "unknown" if oversized else "success"
+            typed = isinstance(failure, GP.ProposerUnavailable)
+            outcome = ((typed and "400" in str(failure)) if http_error else
+                       (typed and getattr(failure, "code", None) == "PROVIDER_PROTOCOL") if oversized else
+                       (failure is None and result == "answer"))
+            final = [json.loads(line.split("proposer event: ", 1)[1])
+                     for line in buf.getvalue().splitlines() if "proposer event:" in line][-1]
+            check(label + ": outcome and settlement survive the read boundary",
+                  outcome and dispatch.call_count == 1 and writer.attempts == 1 and not writer.in_flight
+                  and [fields["status"] for action, fields in settlements if action == "settle"] == [expected_settle]
+                  and writer.unknown_attempts == int(oversized)
+                  and final["usage_unknown"] is oversized,
+                  repr(failure) if failure is not None else repr(result))
+            reply.close()
 
     print()
     if FAILURES:

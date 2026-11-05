@@ -1,0 +1,99 @@
+.pgd,
+.pgd * {
+  box-sizing: border-box;
+}
+.pgd {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+  min-width: 0;
+  color: var(--cm-text, var(--fg, #222));
+  font: inherit;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.pgd h2,
+.pgd h3,
+.pgd h4,
+.pgd p {
+  margin: 0;
+}
+.pgd .pgd-header,
+.pgd .pgd-background {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid var(--cm-border, var(--line, #ccc));
+  border-radius: 0.75rem;
+  background: var(--cm-surface, var(--bg, #fff));
+}
+.pgd .pgd-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.5rem;
+  min-width: 0;
+}
+.pgd .pgd-note,
+.pgd .pgd-place,
+.pgd .pgd-credit,
+.pgd .pgd-listen {
+  color: var(--cm-text-muted, var(--muted, #555));
+}
+.pgd .pgd-media {
+  width: min(100%, 24rem);
+}
+.pgd .pgd-unavailable {
+  padding: 1rem;
+  border: 1px dashed var(--cm-border, var(--line, #888));
+  border-radius: 0.5rem;
+}
+.pgd button {
+  min-width: 44px;
+  min-height: 44px;
+  max-width: 100%;
+  justify-self: start;
+  padding: 0.5rem 0.75rem;
+  font: inherit;
+  color: inherit;
+  background: var(--cm-surface, var(--bg, #fff));
+  border: 1px solid var(--cm-border, var(--line, #888));
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.pgd .pgd-photo {
+  display: block;
+  padding: 0.25rem;
+  cursor: zoom-in;
+}
+.pgd .pgd-photo img {
+  display: block;
+  max-width: 100%;
+  max-height: 16rem;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.pgd a {
+  display: inline-block;
+  min-height: 44px;
+  padding: 0.5rem 0.25rem;
+  color: var(--cm-link, var(--accent, #1551a1));
+  text-decoration: underline;
+}
+.pgd .pgd-source,
+.pgd .pgd-listen {
+  display: block;
+}
+.pgd .pgd-exemplars {
+  margin: 0;
+  padding-inline-start: 1.5rem;
+}
+.pgd .pgd-exemplars li + li {
+  margin-block-start: 0.75rem;
+}
+.pgd :focus-visible {
+  outline: 3px solid var(--cm-link, var(--accent, #1551a1));
+  outline-offset: 3px;
+}

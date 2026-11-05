@@ -33,7 +33,7 @@ of all seven declared predicates and absence of joint findings.
 
 ## What the current sweeps measure
 
-All ranges are half-open. The CLI's default form is `verse-chorus`, default
+All ranges are half-open. The CLI's default form was `verse-chorus` at the time (it is `open` since #671), default
 production planning, with no corpus-weighted sampler. Counts of planned,
 refused and accepted seeds remain separate.
 

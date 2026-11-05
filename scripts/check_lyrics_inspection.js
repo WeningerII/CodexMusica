@@ -18,14 +18,19 @@ const check = (ok, label) => {
 const settle = (p) => p.waitForTimeout(120);
 (async () => {
   const { createOfflineChat } = await import('./lyrics_inspection_transport_fixture.mjs');
-  const backend = await createOfflineChat();
-  const receipts = new Map();
+  // The browser first, then the backend: a launch that fails leaves no server
+  // listening, so the check exits with the error instead of hanging (CI sets no
+  // CHROMIUM_PATH, and Playwright's own Chromium is the default there).
   const browser = await chromium.launch({
     headless: true,
-    executablePath:
-      process.env.CHROMIUM_PATH || '/tmp/musica-browsers/chromium-0/chrome-linux/chrome',
+    executablePath: process.env.CHROMIUM_PATH || undefined,
     args: ['--no-sandbox', '--disable-dev-shm-usage'],
   });
+  const backend = await createOfflineChat().catch(async (e) => {
+    await browser.close();
+    throw e;
+  });
+  const receipts = new Map();
   const open = async (width, height) => {
     const ctx = await browser.newContext({
       viewport: { width, height },

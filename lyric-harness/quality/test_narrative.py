@@ -751,7 +751,7 @@ def test_the_wired_draw():
     import subprocess
     HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     off = subprocess.run(
-        [sys.executable, "lyric_harness.py", "plan", "--seed=31",
+        [sys.executable, "lyric_harness.py", "plan", "--seed=31", "--form=verse-chorus",
          "--narrative=off"], cwd=HERE, capture_output=True, text=True)
     # The declared strings are SPELLED FROM SEED 31's OWN DRAWN LINE-UP
     # (2026-09-01: the literal re-spelled at each repin went stale on
@@ -775,11 +775,11 @@ def test_the_wired_draw():
           "section cannot carry TURN, by the validator's own word",
           any("cannot carry TURN" in x for x in _turn_first), f"{_turn_first[:1]}")
     dec = subprocess.run(
-        [sys.executable, "lyric_harness.py", "plan", "--seed=31",
+        [sys.executable, "lyric_harness.py", "plan", "--seed=31", "--form=verse-chorus",
          f"--narrative={dec_spelling}"],
         cwd=HERE, capture_output=True, text=True)
     bad = subprocess.run(
-        [sys.executable, "lyric_harness.py", "plan", "--seed=31",
+        [sys.executable, "lyric_harness.py", "plan", "--seed=31", "--form=verse-chorus",
          f"--narrative={bad_spelling}"],
         cwd=HERE, capture_output=True, text=True)
     check("the CLI spelling is REACHABLE (the M-55 lesson): "

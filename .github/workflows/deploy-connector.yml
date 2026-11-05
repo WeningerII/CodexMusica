@@ -245,6 +245,24 @@ jobs:
           fi
           echo "sha=$sha" >> "$GITHUB_OUTPUT"
 
+      # READER FORMAT (#656 Phase B). Once gzip writes are on, the reader store
+      # holds reader-jobs-v1/store-format.json {"min_reader": "A"}, and an
+      # image whose reader predates it would fail on every compressed object.
+      # The old image cannot know that, so the refusal lives here. A refusal is
+      # red, never a stand-down: promoting such an image is not a safe no-op.
+      # Before any marker exists every candidate passes (the table is in
+      # scripts/reader_format_gate.mjs and its tests).
+      - name: Can this image read the live reader store's format?
+        if: steps.evidence.outputs.qualified == 'yes'
+        env:
+          LIBRARY_HEALTH_URL: ${{ vars.CONNECTOR_URL != '' && format('{0}/library/v1/health', vars.CONNECTOR_URL) || '' }}
+        run: |
+          if [ -z "$LIBRARY_HEALTH_URL" ]; then
+            echo "CONNECTOR_URL is not configured; the live store's format is unknown."
+            LIBRARY_HEALTH_URL="http://127.0.0.1:9/unreachable"
+          fi
+          node scripts/reader_format_gate.mjs verified-image/lyrics-image.json "$LIBRARY_HEALTH_URL"
+
       - name: May this verified image be deployed? (the main ordering guard)
         if: steps.evidence.outputs.qualified == 'yes'
         id: guard

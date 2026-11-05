@@ -15,12 +15,13 @@ every surface:
      MASS ONLY: a single total drawn about 10x as often as uniform (about
      92% detection), or a band of the domain about 40% above its share.
      Smaller preferences are not excluded (Jony's arithmetic, #693).
-  2. FORM. Each surface's documented default: `open` for `make_plan` and the
-     connector, `verse-chorus` for the raw CLI `plan` and `finish`. The
-     Python and CLI paths are executed here; the connector's argv is executed
-     by `mcp/test.mjs` and only its source is read here. Pinning
-     the CLI default protects the current documented contract; it does not
-     endorse it (whether it should change is John's policy call).
+  2. FORM. Each surface's documented default: `open` for `make_plan`, the
+     connector and, since #724 (Jony's #671 pass 2), the raw CLI `plan` and
+     `finish`, which until then drew `verse-chorus`. The Python and CLI paths
+     are executed here; the connector's argv is executed by `mcp/test.mjs`
+     and only its source is read here. Changing the CLI default is John's
+     policy call, and #724 carries it to him; these pins state the contract
+     the tree declares, not an endorsement of it.
   3. FREQUENCY. D6 on #519: no system-chosen word reaches the draft. With
      the default stub proposer, `revise` changes nothing, offers no
      candidates in the brief, and never enters the multi-line backtrack.
@@ -238,16 +239,16 @@ class FormDefaults(unittest.TestCase):
                            timeout=600)
         return r.stdout + r.stderr
 
-    def test_raw_cli_plan_defaults_to_verse_chorus(self):
+    def test_raw_cli_plan_defaults_to_open(self):
         out = self._cli("plan", "--seed=1")
-        self.assertRegex(out, r"PLAN: form=verse-chorus seed=1 ")
-        self.assertRegex(self._cli("plan", "--seed=1", "--form=open"),
-                         r"PLAN: form=open seed=1 ")
+        self.assertRegex(out, rf"PLAN: form={P.DEFAULT_FORM} seed=1 ")
+        self.assertRegex(self._cli("plan", "--seed=1", "--form=verse-chorus"),
+                         r"PLAN: form=verse-chorus seed=1 ")
 
-    def test_raw_cli_finish_defaults_to_verse_chorus(self):
+    def test_raw_cli_finish_defaults_to_open(self):
         # `finish` re-derives the plan from --seed; on a draft of the wrong
-        # length it refuses and names the plan's total, which is the
-        # verse-chorus plan's, not the open plan's.
+        # length it refuses and names the plan's total, which is the open
+        # plan's, not the verse-chorus plan's.
         vc = P.make_plan(1, form="verse-chorus")["total_lines"]
         op = P.make_plan(1, form="open")["total_lines"]
         self.assertNotEqual(vc, op)
@@ -256,7 +257,7 @@ class FormDefaults(unittest.TestCase):
             with open(draft, "w", encoding="utf-8") as fh:
                 fh.write("one line\nanother line\n")
             out = self._cli("finish", draft, "--seed=1")
-        self.assertIn(f"the plan declares {vc} line(s)", out)
+        self.assertIn(f"the plan declares {op} line(s)", out)
 
 
 class FrequencyTrace(unittest.TestCase):

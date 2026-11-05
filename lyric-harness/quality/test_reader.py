@@ -56,6 +56,7 @@ No test here is a list of named words the reader must accept.
 Run: python3 quality/test_reader.py
 """
 import copy
+import hashlib
 import json
 import os
 import re
@@ -3008,7 +3009,13 @@ class WarmWorker(unittest.TestCase):
     scheme builds that scheme's lexicons itself, inside a real request -- the
     path the meter_bands regression took -- instead of finding them primed by
     the check. Only after a scenario's LAST request does `_caches_agree`
-    (which builds both schemes' lexicons to compare them) run."""
+    (which builds both schemes' lexicons to compare them) run.
+
+    DURABLE ACKNOWLEDGEMENT (#721). Every Library request here is acknowledged
+    as the Node adapter acknowledges it: each step's records are committed to
+    a page the next step can read (`_DurableParent`). One more scenario runs
+    the same analysis with a step boundary after every record and requires
+    the same records and rows."""
 
     def _child(self, name):
         env = {**os.environ, _WARM_CHILD: "1"}
@@ -3066,6 +3073,55 @@ class WarmWorker(unittest.TestCase):
 
     def test_a_new_lyrics_request_then_a_library_analysis(self):
         self._child("test_a_new_lyrics_request_then_a_library_analysis")
+
+    def test_a_library_analysis_resumes_at_every_step_boundary(self):
+        self._child("test_a_library_analysis_resumes_at_every_step_boundary")
+
+
+class _DurableParent:
+    """The parent `run_reader` acknowledges to, as the Node adapter
+    (`mcp/reader_job_store.js`) is: each checkpoint frame's records are
+    committed to a content-addressed page before the ack names it in
+    `added_page_paths`, and `run_reader` reads those pages back through
+    `load_records`.
+
+    That is the reader's contract (`AnalysisSession`: `load_records` yields
+    the caller's committed records; each `step` keeps only its own
+    uncommitted tail). An ack that commits nothing passes only while one
+    step happens to hold both a whole-figure schema's last edge and its
+    assembly; a step cut by its one-second deadline between them resumes
+    with counts but no edges and refuses RESULT_EXPIRED (#721)."""
+
+    def __init__(self, request_id, pages, commit=True):
+        self.request_id, self.pages, self.commit = request_id, pages, commit
+        self.records, self.frames, self._part, self._last = [], 0, "", None
+
+    def write(self, text):
+        self._part += text
+        while "\n" in self._part:
+            line, self._part = self._part.split("\n", 1)
+            if line:
+                self._last = line
+        return len(text)
+
+    def flush(self):
+        pass
+
+    def readline(self):
+        frame, self._last = json.loads(self._last), None
+        assert frame["id"] == self.request_id and frame["event"] == "reader_checkpoint", frame
+        records = frame["data"]["records"]
+        self.records.extend(records)
+        self.frames += 1
+        if not self.commit:
+            # The acknowledgement the warm-worker test sent before #721.
+            return json.dumps({"id": self.request_id, "event": "reader_ack", "continue": True}) + "\n"
+        body = json.dumps({"instances": records}, ensure_ascii=False,
+                          separators=(",", ":")).encode("utf-8")
+        page = self.pages / (hashlib.sha256(body).hexdigest() + ".json")
+        page.write_bytes(body)
+        return json.dumps({"id": self.request_id, "event": "reader_ack", "continue": True,
+                           "added_page_paths": [str(page)]}) + "\n"
 
 
 @unittest.skipUnless(os.environ.get(_WARM_CHILD) == "1",
@@ -3143,10 +3199,14 @@ class WarmWorkerBody(unittest.TestCase):
         written = json.loads((work / "state.json").read_text(encoding="utf-8"))
         return json.loads(line[len("  lyric result: "):]), written
 
-    def _library(self):
-        """-> (result, rows the analysis bound) of one Library request
-        through `run_reader`, acknowledging every checkpoint."""
-        import io
+    def _library(self, cut=False, commit=True):
+        """-> the rows one Library request bound, through `run_reader`,
+        acknowledging every checkpoint as the durable parent does
+        (`_DurableParent`). The records it committed are left in
+        `self.committed`. `cut` stops every step after its first record, so a
+        step boundary falls at every emission, including the one just before
+        whole-figure assembly (#721). `commit=False` acknowledges without
+        committing anything, to show that boundary needs the pages."""
         from unittest.mock import patch
         import library.analysis as LA
         made = []
@@ -3155,20 +3215,27 @@ class WarmWorkerBody(unittest.TestCase):
             def __init__(self, *a, **kw):
                 super().__init__(*a, **kw)
                 made.append(self)
+
+            def step(self, budget_candidates=256, deadline=None, max_bytes=1048576):
+                # A deadline already past: `step` stops once it holds a record.
+                return super().step(budget_candidates, 0.0 if cut else deadline, max_bytes)
         lines = list(dict.fromkeys(r["line"] for r in self.rows))
         payload = {"source": {"reading_unit_id": "caller-owned-fixture:eng",
                               "reading_revision": "fixture-v1", "language": "eng",
                               "text": "\n".join(lines)},
                    "declarations": {"pronunciations": self.rows}, "requested": ["sound"]}
-        ack = json.dumps({"id": "r", "event": "reader_ack", "continue": True}) + "\n"
+        pages = Path(tempfile.mkdtemp(prefix="reader-pages-"))
+        self.addCleanup(__import__("shutil").rmtree, pages, True)
+        parent = _DurableParent("r", pages, commit)
         saved = sys.stdin, sys.stdout
-        sys.stdin, sys.stdout = io.StringIO(ack * 5000), io.StringIO()
+        sys.stdin = sys.stdout = parent
         try:
             with patch.object(LA, "AnalysisSession", Recording):
                 result = self.W.run_reader(payload, "r")
         finally:
             sys.stdin, sys.stdout = saved
         self.assertEqual(result["status"], "complete")
+        self.committed, self.steps = parent.records, parent.frames
         return made[0].phon.lexicon.pronunciations
 
     def _caches_agree(self):
@@ -3288,6 +3355,25 @@ class WarmWorkerBody(unittest.TestCase):
         self.assertGreater(self._analysed(), 0)
         self._caches_hold_their_schemes()
         self._caches_agree()
+        self._report()
+
+    def test_a_library_analysis_resumes_at_every_step_boundary(self):
+        """#721. The same analysis, once with the worker's own step deadlines
+        and once with a boundary after every record, commits the same records
+        and binds the same rows. The cut run crosses every resume point,
+        including the step that first reaches whole-figure assembly, so it
+        needs the edges earlier steps committed: a parent that acknowledged
+        without committing would refuse it RESULT_EXPIRED."""
+        bound = self._library()
+        records, steps = self.committed, self.steps
+        self.assertEqual(self._library(cut=True), bound)
+        self.assertEqual(self.committed, records)
+        self.assertGreater(self.steps, steps)
+        # The cut run crosses a boundary only committed pages carry it over:
+        # acknowledged without them, the same run refuses there.
+        with self.assertRaisesRegex(ValueError, "RESULT_EXPIRED: committed whole-figure edges"):
+            self._library(cut=True, commit=False)
+        self.analyses = 3
         self._report()
 
     def _cold(self, scheme):

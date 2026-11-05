@@ -1161,6 +1161,44 @@ jobs:
           node scripts/run_parallel.js test:ci:serial --shard=${{ matrix.shard }}/2
           --record="$RUNNER_TEMP/verify-record.json"
 
+      # THE PROTOTYPE'S BASE DIFF (#670, #719). `test:prototype` above runs in
+      # every PR, but its standing form cannot ask whether codex.html or
+      # library/code/ changed: ordinary PRs change them. A PR that touches the
+      # prototype must not, so here, and only then, the same gate runs with
+      # --base, which fails if either differs from the PR's base. Shard 1 only,
+      # pull_request runs only. The base is the merge commit's FIRST PARENT,
+      # the base-branch tip this run tests against -- not
+      # `pull_request.base.sha`, which keeps the tip from when the PR was
+      # opened and is not in the shallow checkout (run 41876520688). The
+      # merge commit is fetched again at --depth=2, which brings both of its
+      # parents; the first is also the merge-base the gate's `base...HEAD`
+      # needs. Not --deepen=1: on a PR whose base isn't `main` (#778, job
+      # 127200159687) it exits 0 without fetching the parent, while --depth=2
+      # from the same commit fetches it (reproduced on 0911c01cb0). The base
+      # branch's own tip is fetched too, only to say so when the base has
+      # moved since the merge commit was made; the first parent is still the
+      # tree this run tests.
+      - name: Prototype PRs leave codex.html and library/code/ untouched (check_prototype_isolation --base)
+        if: ${{ matrix.shard == 1 && github.event_name == 'pull_request' }}
+        run: |
+          git fetch --no-tags --quiet --depth=2 origin "${{ github.sha }}"
+          echo "Merge commit ${{ github.sha }} parents: $(git rev-list --parents -n 1 HEAD | cut -s -d' ' -f2-)"
+          if ! base="$(git rev-parse --verify --quiet HEAD^1)"; then
+            echo "::error::the PR merge commit's first parent is not present after --depth=2"; exit 1
+          fi
+          if git fetch --no-tags --quiet --depth=1 origin "+refs/heads/${{ github.base_ref }}:refs/ci/base" &&
+            tip="$(git rev-parse --verify --quiet refs/ci/base)" && [ "$tip" != "$base" ]; then
+            echo "::notice::${{ github.base_ref }} has moved to $tip since this merge commit was made; testing against its first parent $base, the tree this run tests"
+          fi
+          echo "Base: $base (first parent of the PR merge commit ${{ github.sha }})"
+          touched="$(git diff --no-renames --name-only "$base" HEAD -- prototype/ scripts/check_prototype_isolation.js)"
+          if [ -z "$touched" ]; then
+            echo "No prototype path changed in this PR — the base diff does not apply."
+            exit 0
+          fi
+          echo "Prototype paths changed:"; echo "$touched" | sed 's/^/  /'
+          node scripts/check_prototype_isolation.js --base="$base"
+
       # The fan-in's evidence: the whole leaf list and the leaves this shard
       # ran, written even when a leaf failed, so a red shard still proves
       # which leaves it owned.
@@ -3108,7 +3146,7 @@ jobs:
       #   mosaic_rhyme and sequence_unread joined 2026-10-31 with M-311 F1/F4
       #   (#657): the mosaic rule and the unread-word guard; seconds each;
       #   label 109 to 111
-      - name: The 114 cheap suites (their history is the comment above; 111 until 2026-10-27, when the five bank suites were deleted with the song bank; sound_inventory joined 2026-10-30; connection_schemas the same day; schema_report 2026-10-31; mosaic_rhyme and sequence_unread 2026-10-31; meter_honesty 2026-11-02; bias_census 2026-11-03; meter_strict 2026-11-04)
+      - name: The 115 cheap suites (their history is the comment above; 111 until 2026-10-27, when the five bank suites were deleted with the song bank; sound_inventory joined 2026-10-30; connection_schemas the same day; schema_report 2026-10-31; mosaic_rhyme and sequence_unread 2026-10-31; meter_honesty 2026-11-02; bias_census 2026-11-03; meter_strict 2026-11-04; function_disclosure 2026-11-04)
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -3200,7 +3238,7 @@ jobs:
                    section_marks phonology nucleus corpus_taxonomy mut_band coda \
                    band relation_shapes matrix render_form verify_entries register_audit \
                    phon_msa mandate_language phon_fas phon_non phon_san staging \
-                   controls data_row_claims english_text stub_resolution melody meter meter_honesty meter_strict bias_census tempo verify_figures expected_drift \
+                   controls data_row_claims english_text stub_resolution melody meter meter_honesty meter_strict bias_census function_disclosure tempo verify_figures expected_drift \
                    cross_song brief_provenance shard \
                    battery_rounds comparator_pin audit_regressions production_harness production_relations high_report \
                    production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window within_item computational_audit interlocking_chain field_store type_canon backlog_status source_identity figure_exhibits relation_index lexicon_supplement reader reader_quotes moby_convert coverage_split coverage_queue pilot_frame schema_instance_evidence sound_inventory connection_schemas schema_report mosaic_rhyme sequence_unread; do

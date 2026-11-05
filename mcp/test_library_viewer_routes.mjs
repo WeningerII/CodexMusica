@@ -40,7 +40,16 @@ const UNITS = {
   held: { availability: 'held', revision: 'rev_held', lines: 10 },
 };
 
-async function setup(t, { now: clock, router = {}, identityDelay = 0, bridge = false } = {}) {
+async function setup(
+  t,
+  {
+    now: clock,
+    router = {},
+    identityDelay = 0,
+    bridge = false,
+    engineCommit = () => 'engine-1',
+  } = {}
+) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'library-viewer-'));
   t.after(() => fs.rmSync(dir, { recursive: true, force: true }));
   let now = clock ?? 1_000_000;
@@ -64,7 +73,7 @@ async function setup(t, { now: clock, router = {}, identityDelay = 0, bridge = f
       snapshot_id: r.snapshot_id,
       reading_unit_id: r.reading_unit_id,
       reading_revision: r.reading_revision,
-      engine_commit: 'engine-1',
+      engine_commit: engineCommit(),
       resource_fingerprint: 'fp-1',
       declaration_hash: 'none',
       requested_layers: r.requested_layers,
@@ -213,6 +222,140 @@ async function setup(t, { now: clock, router = {}, identityDelay = 0, bridge = f
   };
 }
 const BRIDGE_SECRET = 'b'.repeat(48);
+
+// #661: HTTP envelopes missing from the existing store-level coverage.
+// These use the real router/store; the transport stays on loopback fixtures.
+test('HTTP boundary: changed create retry is a conflict', async (t) => {
+  const { browser } = await setup(t);
+  const a = browser();
+  const created = await a.analyse('short', 'same-key', { requested_layers: ['sound'] });
+  assert.equal(created.status, 202);
+  const conflict = await a.analyse('short', 'same-key', { requested_layers: ['form'] });
+  assert.equal(conflict.status, 409, 'create conflict: HTTP status');
+  assert.equal(conflict.body.error.code, 'IDEMPOTENCY_CONFLICT', 'create conflict: error code');
+  assert.equal(conflict.res.headers.get('cache-control'), 'private, no-store');
+  const after = await a.call('GET', `/jobs/${created.body.job.id}`);
+  assert.deepEqual(after.body.job.identity, created.body.job.identity);
+});
+
+test('HTTP boundary: global queue refusal includes retry guidance', async (t) => {
+  const { browser } = await setup(t);
+  // Distinct addresses/viewers keep per-viewer and per-IP admission out of this case.
+  for (let i = 0; i < 16; i++)
+    assert.equal((await browser(`queue-ip-${i}`).analyse()).status, 202, `queued ${i}`);
+  const refused = await browser('queue-overflow').analyse();
+  assert.equal(refused.status, 429, 'global queue: HTTP status');
+  assert.equal(refused.body.error.code, 'QUEUE_FULL', 'global queue: error code');
+  assert.equal(refused.res.headers.get('retry-after'), '5', 'global queue: Retry-After');
+  assert.equal(refused.body.error.remedy, 'The analysis queue is full; retry shortly.');
+  assert.equal(refused.res.headers.get('cache-control'), 'private, no-store');
+});
+
+test('HTTP boundary: recount refusal recovers after a successful recount', async (t) => {
+  const { browser, store } = await setup(t);
+  const a = browser();
+  assert.equal((await a.analyse('short', 'before-recount')).status, 202);
+  // Same unknown-usage fixture as test_reader_store_bounds; only HTTP is asserted here.
+  fs.writeFileSync(path.join(store.directory, 'pending'), JSON.stringify({ generation: 5 }));
+  const refused = await a.analyse('other', 'during-recount');
+  assert.equal(refused.status, 503, 'recount: HTTP status');
+  assert.equal(refused.body.error.code, 'STORE_RECOUNTING', 'recount: error code');
+  assert.equal(refused.res.headers.get('retry-after'), '5', 'recount: Retry-After');
+  assert.equal(refused.body.error.remedy, 'Retry shortly.');
+  assert.equal(refused.res.headers.get('cache-control'), 'private, no-store');
+  assert.equal(await store.recount(), true, 'fixture recount succeeds');
+  const recovered = await a.analyse('other', 'during-recount');
+  assert.equal(recovered.status, 202, 'recount: HTTP recovery');
+  assert.equal(recovered.body.contract_version, 1);
+  assert.equal(recovered.body.job.state, 'queued');
+});
+
+test('HTTP boundary: repeated cancellation returns the cancelled job', async (t) => {
+  const { browser } = await setup(t);
+  const a = browser();
+  const id = (await a.analyse()).body.job.id;
+  for (let i = 0; i < 2; i++) {
+    const result = await a.call('POST', `/jobs/${id}/cancel`, {
+      headers: { 'Idempotency-Key': 'repeat-cancel' },
+    });
+    assert.equal(result.status, 200, 'cancel replay: HTTP status');
+    assert.equal(result.body.contract_version, 1);
+    assert.equal(result.body.job.id, id);
+    assert.equal(result.body.job.state, 'cancelled', 'cancel replay: job state');
+  }
+});
+
+test('HTTP boundary: changed engine identity refuses resume', async (t) => {
+  let engine = 'engine-1';
+  const { browser, kicks } = await setup(t, { engineCommit: () => engine });
+  const a = browser();
+  const id = (await a.analyse()).body.job.id;
+  assert.equal(
+    (
+      await a.call('POST', `/jobs/${id}/cancel`, {
+        headers: { 'Idempotency-Key': 'cancel-before-change' },
+      })
+    ).status,
+    200
+  );
+  engine = 'engine-2';
+  const before = kicks.length;
+  const result = await a.call('POST', `/jobs/${id}/resume`, {
+    headers: { 'Idempotency-Key': 'resume-after-change' },
+  });
+  assert.equal(result.status, 409, 'stale resume: HTTP status');
+  assert.equal(result.body.error.code, 'STALE_READING', 'stale resume: error code');
+  assert.equal(result.res.headers.get('cache-control'), 'private, no-store');
+  assert.equal(kicks.length, before, 'stale resume: no dispatch');
+  assert.equal((await a.call('GET', `/jobs/${id}`)).body.job.state, 'cancelled');
+});
+
+test('HTTP boundary: repeated deletion keeps its exact response and tombstone refusal', async (t) => {
+  const { browser } = await setup(t);
+  const a = browser();
+  const id = (await a.analyse()).body.job.id;
+  for (let i = 0; i < 2; i++) {
+    const result = await a.call('DELETE', `/jobs/${id}`, {
+      headers: { 'Idempotency-Key': 'repeat-delete' },
+    });
+    assert.equal(result.status, 200);
+    assert.deepEqual(
+      result.body,
+      { contract_version: 1, deleted: true, job_id: id },
+      'delete replay: exact body'
+    );
+  }
+  const gone = await a.call('GET', `/jobs/${id}`);
+  assert.equal(gone.status, 410);
+  assert.equal(gone.body.error.code, 'RESULT_EXPIRED', 'delete replay: tombstone code');
+});
+
+test('HTTP boundary: corrupted evidence page is an uncached JSON refusal', async (t) => {
+  const { browser, store } = await setup(t);
+  const a = browser();
+  const id = (await a.analyse()).body.job.id;
+  const lease = store.lease(id);
+  const checkpoint = store.commitCheckpoint(lease.id, lease.attempt, lease.fence, {
+    cursor: { phase: 'pairs', index: 1 },
+    pages: [{ instances: [{ id: 'local-evidence' }] }],
+    progress: { candidates: 1 },
+    coverage,
+  });
+  const job = (await a.call('GET', `/jobs/${id}`)).body.job;
+  const hash = checkpoint.page_refs[0].sha256;
+  const url = `/jobs/${id}/pages/${hash}?manifest=${job.manifest_hash}`;
+  assert.equal((await a.call('GET', url)).status, 200, 'fixture page is initially readable');
+  fs.writeFileSync(store.workerPayload(id).page_paths[0], '{"instances":[]}');
+  const refused = await a.call('GET', url);
+  assert.equal(refused.status, 503, 'corrupt page: HTTP status');
+  assert.equal(refused.body.error.code, 'STORAGE_CORRUPT', 'corrupt page: error code');
+  assert.match(refused.res.headers.get('content-type'), /^application\/json\b/);
+  assert.equal(
+    refused.res.headers.get('cache-control'),
+    'private, no-store',
+    'corrupt page: cache policy'
+  );
+});
 
 test('POST mints the HttpOnly cookie, the job carries no capability, reads slide the cookie', async (t) => {
   const { browser, kicks } = await setup(t);
