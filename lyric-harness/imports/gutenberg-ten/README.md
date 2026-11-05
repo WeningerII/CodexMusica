@@ -59,6 +59,12 @@ direct shell access was blocked. Their hashes explicitly identify reconstructed
 transcriptions, not original HTTP response bytes. Both decoded transcriptions
 are retained as compressed source evidence for offline adapter replay.
 
+Each `test_adapter.py` here is an import receipt, not a CI test: CI pins the
+committed `candidates.json` files through `quality/test_gutenberg_import.py`.
+Run a receipt from its collection directory. The 22223 and 76941 receipts take
+a source path as their argument; the 30418 and 56625 receipts check the
+committed `candidates.json` only.
+
 Translation review covered printed author/translator credits, first lines,
 source notes and targeted hymn authorities. Cross-collection matching caught
 seven additional translated hymns during integration. Anonymous credits are
