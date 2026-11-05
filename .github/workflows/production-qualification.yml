@@ -30,7 +30,16 @@ name: Production qualification
 # nightly begins. The 19 component jobs each carry a 300-minute bound, which
 # is the cap on a hung fork and not the expected cost.
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      # #612 stores-on/off diagnostic ONLY (6586723824, 6665999906 item 1).
+      # This commit is pinned for two dispatches and never merged. Off means
+      # the capacity shards start the server with the three Library store
+      # directories empty, so no store loads; nothing else changes.
+      library_stores:
+        description: 'Load the Library stores in the capacity matrix (#612 diagnostic)'
+        type: boolean
+        default: true
   schedule:
     - cron: '23 1 * * *'
 permissions:
@@ -48,6 +57,8 @@ jobs:
   # wall is claimed. CI retains its image smoke test and acceptance controls.
   capacity-matrix:
     uses: ./.github/workflows/capacity-matrix.yml
+    with:
+      library_stores: ${{ github.event_name != 'workflow_dispatch' || inputs.library_stores }}
     # The merge reads this run's attempts and artifacts to pick each shard's
     # evidence (scripts/select_capacity_shards.py).
     permissions:

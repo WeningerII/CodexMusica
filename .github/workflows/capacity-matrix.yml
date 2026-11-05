@@ -54,7 +54,12 @@ name: Production capacity matrix
 # one runtime, and `BUILD_RELEASE_ID` is the same string in every shard so
 # the four images carry one release identity.
 on:
-  workflow_call: {}
+  workflow_call:
+    inputs:
+      # #612 stores-on/off diagnostic ONLY; see production-qualification.yml.
+      library_stores:
+        type: boolean
+        default: true
 permissions:
   contents: read
 
@@ -134,11 +139,18 @@ jobs:
           TESTED_IMAGE: ${{ steps.image.outputs.image_id }}
           CELLS: ${{ matrix.cells }}
           NAME: ${{ matrix.name }}
+          LIBRARY_STORES: ${{ inputs.library_stores }}
         run: |
           set -euo pipefail
           mkdir -p capacity-evidence
+          stores_off=()
+          if [ "$LIBRARY_STORES" = false ]; then
+            stores_off=(-e LIBRARY_SEARCH_DIR= -e LIBRARY_EXPORT_DIR= -e LIBRARY_CORPUS_DIR=)
+          fi
+          echo "library_stores: $LIBRARY_STORES"
           set +e
           docker run --rm --network=none --cpus=1 --memory=2g --memory-swap=2g --pids-limit=256 \
+            "${stores_off[@]}" \
             --mount "type=bind,src=$GITHUB_WORKSPACE/scripts,dst=/app/scripts,readonly" \
             --mount "type=bind,src=$GITHUB_WORKSPACE/capacity-evidence,dst=/evidence" \
             --workdir=/app --entrypoint=python3 "$TESTED_IMAGE" \
