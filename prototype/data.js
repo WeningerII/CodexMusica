@@ -434,3 +434,110 @@ export function instrumentLoader() {
   }
   return { loadInstrument };
 }
+
+// ── The reader (#757) ──────────────────────────────────────────────────────
+// ctx.reading(unitId) → { head, loadPage(index, { signal }) }, as production's
+// reader opens and checks a reading (src/library/reader.js openReading,
+// loadPage): the unit's shard gives its <rev16>-<proj12> key; the head's
+// sha256 must begin with proj12 and each page's sha256 must equal the digest
+// the head lists; every file must name this unit, revision, page index and
+// page count. Any mismatch is DATA_CHANGED and no text is returned. Pages
+// are returned as the committed files hold them; the lane derives the lines.
+export const READING_MESSAGES = Object.freeze({
+  NOT_FOUND: 'This reading isn’t in the Library’s data. Reload to see the current collections.',
+  LOAD_FAILED: 'The reading couldn’t load. Check your connection, then try again.',
+  DATA_CHANGED:
+    'This reading changed or failed its checks, so no text is shown. Reload to see the current collections.',
+});
+const readingFail = (code) => Object.assign(new Error(READING_MESSAGES[code]), { code });
+const UNIT = /^reading_([0-9a-f]{2})[0-9a-f]{6}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
+// The reader's files, and nothing else under library/data/
+// (check_prototype_isolation.js allows only this computed read, in this file).
+const READING_FILE =
+  /^(?:u\/[0-9a-f]{2}\.json\.gz|r\/[0-9a-f]{2}\/reading_[0-9a-f-]{36}\/[0-9a-f]{16}-[0-9a-f]{12}\/(?:head|[1-9]\d*-[0-9a-f]{12})\.json\.gz)$/;
+const hexOf = (buf) =>
+  Array.from(new Uint8Array(buf), (b) => b.toString(16).padStart(2, '0')).join('');
+const sha256 = async (bytes) => hexOf(await crypto.subtle.digest('SHA-256', bytes));
+
+async function readingBytes(rel, signal) {
+  if (!READING_FILE.test(rel)) throw readingFail('NOT_FOUND');
+  let res;
+  try {
+    res = await fetch(`../library/data/${rel}`, { signal });
+  } catch (e) {
+    throw e && e.name === 'AbortError' ? e : readingFail('LOAD_FAILED');
+  }
+  if (!res.ok) throw readingFail(res.status === 404 ? 'NOT_FOUND' : 'LOAD_FAILED');
+  let bytes = new Uint8Array(await res.arrayBuffer());
+  if (bytes.length > 1 && bytes[0] === 0x1f && bytes[1] === 0x8b) {
+    const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
+    bytes = new Uint8Array(await new Response(stream).arrayBuffer());
+  }
+  return bytes;
+}
+const parse = (bytes) => {
+  try {
+    return JSON.parse(new TextDecoder().decode(bytes));
+  } catch {
+    throw readingFail('DATA_CHANGED');
+  }
+};
+
+export function readingLoader() {
+  const shards = new Map();
+  const shard = (hh) => {
+    if (!shards.has(hh))
+      shards.set(
+        hh,
+        readingBytes(`u/${hh}.json.gz`)
+          .then(parse)
+          .catch((e) => {
+            shards.delete(hh);
+            throw e;
+          })
+      );
+    return shards.get(hh);
+  };
+  async function reading(unitId, { signal } = {}) {
+    const m = typeof unitId === 'string' && UNIT.exec(unitId);
+    if (!m) throw readingFail('NOT_FOUND');
+    const hit = ((await shard(m[1])).units || []).find((u) => u[0] === unitId);
+    if (!hit || typeof hit[1] !== 'string' || !/^[0-9a-f]{16}-[0-9a-f]{12}$/.test(hit[1]))
+      throw readingFail('NOT_FOUND');
+    const key = hit[1];
+    const dir = `r/${m[1]}/${unitId}/${key}/`;
+    const raw = await readingBytes(`${dir}head.json.gz`, signal);
+    if ((await sha256(raw)).slice(0, 12) !== key.slice(17)) throw readingFail('DATA_CHANGED');
+    const head = parse(raw);
+    const same = (file, index) =>
+      file &&
+      file.reading_unit_id === unitId &&
+      file.reading_revision === head.reading_revision &&
+      file.page_index === index &&
+      file.page_count === head.page_count;
+    if (
+      !same(head, 0) ||
+      !Array.isArray(head.pages) ||
+      head.page_count !== head.pages.length + 1 ||
+      typeof head.reading_revision !== 'string' ||
+      !head.reading_revision.startsWith(key.slice(0, 16))
+    )
+      throw readingFail('DATA_CHANGED');
+    deepFreeze(head);
+    async function loadPage(index, { signal: pageSignal } = {}) {
+      if (!Number.isInteger(index) || index < 0 || index >= head.page_count)
+        throw readingFail('NOT_FOUND');
+      if (index === 0) return head;
+      const digest = head.pages[index - 1];
+      if (typeof digest !== 'string' || !/^[0-9a-f]{64}$/.test(digest))
+        throw readingFail('DATA_CHANGED');
+      const bytes = await readingBytes(`${dir}${index}-${digest.slice(0, 12)}.json.gz`, pageSignal);
+      if ((await sha256(bytes)) !== digest) throw readingFail('DATA_CHANGED');
+      const page = parse(bytes);
+      if (!same(page, index)) throw readingFail('DATA_CHANGED');
+      return deepFreeze(page);
+    }
+    return Object.freeze({ head, loadPage });
+  }
+  return { reading };
+}

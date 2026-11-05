@@ -255,9 +255,18 @@ const PAGE_FETCH = "'../codex.html'";
 const INSTRUMENT_FETCH = '`../api/instruments/${id}.json`';
 // Rule 1's static half: a file names no absolute or protocol-relative URL.
 // The SVG namespace is a name, not a request (an inline SVG fixture, a glyph).
-const absoluteUrl = (text) =>
-  /(?:https?:)?\/\/[\w-]+\.[\w.-]+\//i.test(text.replaceAll('http://www.w3.org/2000/svg', ''));
+// A scenario (Node test code) may also name a host under a reserved test
+// domain (RFC 2606: .test, .example, .invalid), which never resolves; its
+// requests are answered by its own routing.
+const absoluteUrl = (text, { scenario = false } = {}) => {
+  let t = text.replaceAll('http://www.w3.org/2000/svg', '');
+  if (scenario)
+    t = t.replace(/(?:https?:)?\/\/[\w.-]+\.(?:test|example|invalid)(?::\d+)?(?=[/'"`\s]|$)/gi, '');
+  return /(?:https?:)?\/\/[\w-]+\.[\w.-]+\//i.test(t);
+};
 const ENGINE_FETCH = '`../${rel}`, init';
+// The reader's files, by a path data.js has checked against READING_FILE.
+const READING_FETCH = '`../library/data/${rel}`, { signal }';
 function fetchProblems(text, rel) {
   const out = [];
   const shell = rel.startsWith('prototype/') && !FEATURE.test(rel);
@@ -266,7 +275,8 @@ function fetchProblems(text, rel) {
     const lit = /^(['"`])([^'"`$]*)\1$/.exec(arg);
     const ok =
       (lit && (/^\.\.\/api\/[\w./-]+$/.test(lit[2]) || (shell && SHELL_DATA.has(lit[2])))) ||
-      (rel === 'prototype/data.js' && (arg === COLLECTION_FETCH || arg === INSTRUMENT_FETCH)) ||
+      (rel === 'prototype/data.js' &&
+        (arg === COLLECTION_FETCH || arg === INSTRUMENT_FETCH || arg === READING_FETCH)) ||
       (rel === ENGINE_FILE && (arg === PAGE_FETCH || arg === ENGINE_FETCH));
     if (!ok) {
       out.push(
@@ -438,6 +448,12 @@ function selfTest() {
     [absoluteUrl('http://www.w3.org/2000/svg https://example.org/x') ? ['x'] : [], 1],
     [absoluteUrl('//cdn.example.org/a.js') ? ['x'] : [], 1],
     [moduleProblems('import(href)', 'prototype/app.js'), 1],
+    [absoluteUrl("page.goto('http://reading.test/')", { scenario: true }) ? ['x'] : [], 0],
+    [absoluteUrl("page.goto('http://reading.test/')") ? ['x'] : [], 1],
+    [absoluteUrl("page.goto('https://example.org/')", { scenario: true }) ? ['x'] : [], 1],
+    [absoluteUrl("fetch('http://evil.test.com/x')", { scenario: true }) ? ['x'] : [], 1],
+    [fetchProblems('fetch(`../library/data/${rel}`, { signal })', 'prototype/data.js'), 0],
+    [fetchProblems('fetch(`../library/data/${rel}`, { signal })', 'prototype/app.js'), 1],
   ];
   cases.forEach(([got, want], i) =>
     expect(

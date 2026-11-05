@@ -78,6 +78,7 @@ const LANE_MODULES = {
   librarymethods: '/prototype/features/library-methods/reference.js',
   genredetail: '/prototype/features/genre-detail/detail.js',
   instrumentdetail: '/prototype/features/instrument-detail/detail.js',
+  libraryreading: '/prototype/features/library-reading/text-view.js',
 };
 const CTX_KEYS = {
   libraryreading: ['announce', 'reading', 'signal', 'storage', 'unitId'],
@@ -1153,6 +1154,117 @@ async function instrumentChecks(browser, srv) {
   await context.close();
 }
 
+// The reader's ctx.reading (#757): production's checks on the committed files.
+async function readingChecks(browser, srv) {
+  const gz = (rel) => zlib.gunzipSync(fs.readFileSync(path.join(root, 'library', 'data', rel)));
+  // A reading with a head and two pages, and one with a head only.
+  const units = [];
+  for (const f of fs.readdirSync(path.join(root, 'library', 'data', 'u')).sort()) {
+    for (const [uid, key] of JSON.parse(gz(`u/${f}`)).units) {
+      const dir = `r/${uid.slice(8, 10)}/${uid}/${key}`;
+      const n = fs.readdirSync(path.join(root, 'library', 'data', dir)).length;
+      if (!units.some((u) => u.n > 1 === n > 1)) units.push({ uid, key, dir, n });
+    }
+    if (units.length === 2) break;
+  }
+  const multi = units.find((u) => u.n > 1);
+  const single = units.find((u) => u.n === 1);
+  expect(!!multi && !!single, 'reading: no multi-page and single-page readings found');
+  const head = JSON.parse(gz(`${multi.dir}/head.json.gz`));
+  const pageFile = fs
+    .readdirSync(path.join(root, 'library', 'data', multi.dir))
+    .find((f) => f.startsWith('1-'));
+  const page1 = JSON.parse(gz(`${multi.dir}/${pageFile}`));
+  const { context, page, errors, override, failing } = await newPage(browser, srv);
+  await page.goto(`${srv.url}/prototype/#library`);
+  await waitMounted(page, 'library');
+  const run = (body, arg) =>
+    page.evaluate(
+      async ({ body, arg }) => {
+        const { readingLoader } = await import('/prototype/data.js');
+        const r = readingLoader();
+        const code = (p) =>
+          p.then(
+            () => 'resolved',
+            (e) => `${typeof e.code === 'string' ? e.code : e.name}|${e.message}`
+          );
+        const frozenDeep = (v) =>
+          !v || typeof v !== 'object' || (Object.isFrozen(v) && Object.values(v).every(frozenDeep));
+        return new Function('r', 'code', 'frozenDeep', 'arg', `return (async () => { ${body} })()`)(
+          r,
+          code,
+          frozenDeep,
+          arg
+        );
+      },
+      { body, arg }
+    );
+  const got = await run(
+    `const x = await r.reading(arg.multi);
+     const p0 = await x.loadPage(0);
+     const p1 = await x.loadPage(1);
+     return {
+       head: JSON.stringify(x.head), same0: p0 === x.head, p1: JSON.stringify(p1),
+       frozen: frozenDeep(x.head) && frozenDeep(p1),
+       past: await code(x.loadPage(x.head.page_count)),
+       single: (await r.reading(arg.single)).head.page_count,
+       bad: await code(r.reading('reading_not-an-id')),
+       unknown: await code(r.reading('reading_00000000-0000-0000-0000-000000000000')),
+     };`,
+    { multi: multi.uid, single: single.uid }
+  );
+  expect(got.head === JSON.stringify(head), 'reading: the head is not the committed file');
+  expect(got.same0, 'reading: loadPage(0) is not the head');
+  expect(got.p1 === JSON.stringify(page1), 'reading: page 1 is not the committed file');
+  expect(got.frozen, 'reading: the head or a page is not deep-frozen');
+  expect(got.single === 1, `reading: a one-page reading has page_count ${got.single}`);
+  const NF =
+    'NOT_FOUND|This reading isn’t in the Library’s data. Reload to see the current collections.';
+  for (const k of ['past', 'bad', 'unknown']) expect(got[k] === NF, `reading: ${k} gave ${got[k]}`);
+  const DC =
+    'DATA_CHANGED|This reading changed or failed its checks, so no text is shown. Reload to see the current collections.';
+  // A page whose bytes changed fails its digest; a head whose bytes changed
+  // fails its address.
+  const tamper = (rel, fn) => {
+    const bytes = zlib.gzipSync(Buffer.from(fn(gz(rel).toString('utf8'))));
+    override.set(`/library/data/${rel}`, {
+      status: 200,
+      body: bytes,
+      contentType: 'application/gzip',
+    });
+  };
+  tamper(`${multi.dir}/${pageFile}`, (t) => t.replace('"page_index":1', '"page_index": 1'));
+  const pageChanged = await run(
+    `const x = await r.reading(arg); return code(x.loadPage(1));`,
+    multi.uid
+  );
+  override.clear();
+  tamper(`${multi.dir}/head.json.gz`, (t) => t.replace('"page_count"', ' "page_count"'));
+  const headChanged = await run(`return code(r.reading(arg));`, multi.uid);
+  override.clear();
+  expect(pageChanged === DC, `reading: a changed page gave ${pageChanged}`);
+  expect(headChanged === DC, `reading: a changed head gave ${headChanged}`);
+  // A page that won't load, and an aborted page load.
+  override.set(`/library/data/${multi.dir}/${pageFile}`, { status: 503, body: '' });
+  const unloaded = await run(
+    `const x = await r.reading(arg); return code(x.loadPage(1));`,
+    multi.uid
+  );
+  override.clear();
+  expect(
+    unloaded === 'LOAD_FAILED|The reading couldn’t load. Check your connection, then try again.',
+    `reading: a page that won't load gave ${unloaded}`
+  );
+  const aborted = await run(
+    `const x = await r.reading(arg); const c = new AbortController(); c.abort(); return code(x.loadPage(1, { signal: c.signal }));`,
+    multi.uid
+  );
+  expect(/^AbortError\|/.test(aborted), `reading: an aborted page load gave ${aborted}`);
+  void failing;
+  expect(!errors.length, `reading: uncaught errors: ${errors.join(' | ')}`);
+  await context.close();
+}
+
 // The Library panel's reference lanes (#747, #750) and the shell adapters.
 async function referenceLanes(browser, srv) {
   const { context, page, errors } = await newPage(browser, srv);
@@ -1366,6 +1478,7 @@ async function unmounting(browser, srv) {
     await referenceLanes(browser, srv);
     await genreChecks(browser, srv);
     await instrumentChecks(browser, srv);
+    await readingChecks(browser, srv);
     await unmounting(browser, srv);
   } finally {
     await browser.close();

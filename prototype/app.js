@@ -16,6 +16,7 @@ import {
   loadMethodRegistry,
   genreLoader,
   instrumentLoader,
+  readingLoader,
 } from './data.js';
 import { media } from './adapters.js';
 import { genre, instrument } from './selection.js';
