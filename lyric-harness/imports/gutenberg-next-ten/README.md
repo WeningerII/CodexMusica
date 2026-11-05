@@ -77,6 +77,11 @@ python3 quality/test_gutenberg_next_import.py
 python3 quality/corpus_manifest.py --check
 ```
 
+Each collection's `test_adapter.py` is an import receipt, not a CI test: CI pins
+the committed `candidates.json` files through
+`quality/test_gutenberg_next_import.py`. Run a receipt from its collection
+directory.
+
 Adapters replay their retained witnesses offline; HTML adapters require
 Beautiful Soup. To regenerate reviewed data, run `integrate.py`, then
 `prepare_catalog.py`. To build this expanded Library with existing machinery:
