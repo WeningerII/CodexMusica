@@ -1577,12 +1577,12 @@ def test_the_measure():
     # which is now the envelope's beat ceiling. `propose.py` imports only
     # `re` at module level and opens no file (checked below).
     check("plan.py imports exactly {schemes, propose, structures, grid, "
-          "floor, slots, relations, narrative, melody, rhyme_types} from quality and "
+          "floor, slots, relations, narrative, melody, rhyme_types, function_disclosure} from quality and "
           "opens NO file — the corpus cannot reach the dice (the owner's "
           "move-37 rule)",
           subs == {"schemes", "propose", "structures", "grid", "floor",
                    "slots", "relations", "narrative", "melody",
-                   "rhyme_types"}
+                   "rhyme_types", "function_disclosure"}
           and opens == 0,
           f"imports {sorted(subs)}, open() calls {opens}")
     prop_names = {a.name for n in ast.walk(tree)
@@ -1622,6 +1622,42 @@ def test_the_measure():
           report_imports == [('ImportFrom', 'quality.rhyme_types',
                               ('resolve_relation',), 'audible_share')],
           str(report_imports))
+    # #676 admits only name disclosure in the writer's report, never the
+    # helper's section validator or a new route from the corpus to the draw.
+    disclosure_imports = []
+    for node in ast.walk(tree):
+        if ((isinstance(node, ast.ImportFrom) and
+             (node.module == 'quality.function_disclosure' or
+              (node.module == 'quality' and any(a.name == 'function_disclosure'
+                                               for a in node.names)))) or
+            (isinstance(node, ast.Import) and any(a.name == 'quality.function_disclosure'
+                                                 for a in node.names))):
+            owner = report_parents.get(id(node))
+            while owner is not None and not isinstance(owner, ast.FunctionDef):
+                owner = report_parents.get(id(owner))
+            disclosure_imports.append((type(node).__name__, getattr(node, 'module', None),
+                                       tuple(a.name for a in node.names),
+                                       getattr(owner, 'name', None)))
+    check('function_disclosure contributes only its name report inside writer_brief',
+          disclosure_imports == [('ImportFrom', 'quality.function_disclosure',
+                                  ('disclose_functions',), 'writer_brief')],
+          str(disclosure_imports))
+    from quality import function_disclosure as _disclosure
+    disclosure_tree = ast.parse(_inspect.getsource(_disclosure))
+    disclosure_deps = {(n.module, tuple(a.name for a in n.names))
+                       for n in ast.walk(disclosure_tree) if isinstance(n, ast.ImportFrom)}
+    reading_tree = ast.parse(_inspect.getsource(_disclosure.disclose_functions))
+    reading_names = {n.attr for n in ast.walk(reading_tree)
+                     if isinstance(n, ast.Attribute) and isinstance(n.value, ast.Name)
+                     and n.value.id == 'grid'}
+    check('name disclosure reads only grid name APIs and deepcopy, with no file readers',
+          disclosure_deps == {('copy', ('deepcopy',)), ('quality', ('grid',))}
+          and not any(isinstance(n, ast.Import) for n in ast.walk(disclosure_tree))
+          and reading_names == {'as_function', 'specialisation_of', 'UnknownFunction', 'UNDECLARED'}
+          and not any(isinstance(n, ast.Call) and isinstance(n.func, ast.Name)
+                      and n.func.id in {'open', 'eval', 'exec', '__import__'}
+                      for n in ast.walk(disclosure_tree)),
+          f'imports {sorted(disclosure_deps)}, grid names {sorted(reading_names)}')
     # Melody is a pure declaration reader/formatter. Guard the admitted
     # module itself so this cannot become a route from the corpus to dice.
     import inspect
@@ -2056,8 +2092,8 @@ def test_the_writers_declaration():
           and P.fill_plan(base, ["x"] * base["total_lines"])["title"] == "",
           repr(base["title"]))
 
-    # Under the raw CLI's own default form (verse-chorus), which the
-    # subprocess below plans with.
+    # Under `verse-chorus`, which the subprocess below declares (#671: the
+    # CLI no longer has a default form of its own).
     t = P.make_plan(11, title="Stay Awake", form="verse-chorus")
     filled = P.fill_plan(t, [f"line {i}" for i in range(t["total_lines"])])
     check("a declared title is CARRIED into the plan and through `fill_plan` "
@@ -2084,7 +2120,7 @@ def test_the_writers_declaration():
         # compare a plan with a CompletedProcess.
         proc = subprocess.run(
             [sys.executable, _os.path.join(root, "lyric_harness.py"), "plan",
-             "--seed=11", "--title=Stay Awake", f"--fill={draft}",
+             "--seed=11", "--form=verse-chorus", "--title=Stay Awake", f"--fill={draft}",
              f"--out={bp}"], capture_output=True, text=True, cwd=root)
         wrote = _os.path.exists(bp)
         got = _json.load(open(bp, encoding="utf-8"))["title"] if wrote else None
@@ -3808,16 +3844,34 @@ def test_the_grade_it_line_runs():
     check("...step 1 is the SAME plan invocation plus --fill/--out, so "
           "it re-derives the identical plan (a plan is a pure function "
           "of its seed) and writes the blueprint step 2 grades against",
-          "plan --seed=7 --form=verse-chorus --input-format=literal "
+          "plan --seed=7 --form=open --input-format=literal "
           "--fill=DRAFT.txt --out=BP.json" in out)
     check("...and step 2 is the grading command against BP.json, which "
           "step 1 actually writes",
           "song BP.json DRAFT.txt --input-format=literal" in out)
+    # #671 (Jony's pass 2): with no --form the CLI drew `verse-chorus`, a
+    # returning chorus nobody asked for, while `make_plan()` and the
+    # connector drew `open`. The CLI now takes the planner's DEFAULT_FORM.
+    from quality.plan import DEFAULT_FORM
+    for _seed in (7, 11):
+        _cli = subprocess.run(
+            [sys.executable, "lyric_harness.py", "plan", f"--seed={_seed}",
+             "--lines=16"],
+            capture_output=True, text=True,
+            cwd=os.path.join(HERE, ".."), timeout=560)
+        _lib = make_plan(_seed, lines=16)
+        _want = (f"PLAN: form={DEFAULT_FORM} seed={_seed} -> 16 line(s), "
+                 f"{len(_lib['choices']['pattern']['functions'])} section(s): "
+                 + "-".join(_lib["choices"]["pattern"]["functions"]))
+        check(f"plan --seed={_seed} --lines=16 with no --form plans the "
+              f"form and sections make_plan() draws ({DEFAULT_FORM})",
+              _cli.returncode == 0 and _want in _cli.stdout,
+              f"rc {_cli.returncode}; want {_want!r}")
     with tempfile.TemporaryDirectory() as td:
         import json as _json
-        # The raw CLI's default form is still verse-chorus
-        # (`lyric_harness.py`); the library's is `open` since 2026-10-27.
-        p = make_plan(7, form="verse-chorus")
+        # The CLI's default form is the library's (`open` since
+        # 2026-10-27; #671 removed the CLI's own `verse-chorus` default).
+        p = make_plan(7)
         draft = os.path.join(td, "d.txt")
         with open(draft, "w", encoding="utf-8") as fh:
             fh.write("\n".join("word " * 5 for _ in

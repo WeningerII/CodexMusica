@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Codex Musica prototype</title>
+    <link rel="stylesheet" href="proto.css" />
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#proto-main">Skip to content</a>
+    <header class="app-bar">
+      <p class="notice">
+        Prototype for review. It is not the live app, and it never reads or changes your saved
+        work.
+      </p>
+      <div class="app-bar-row">
+        <p class="brand">Codex Musica</p>
+        <nav aria-label="Sections">
+          <ul class="nav">
+            <li><a href="#browse" data-route="browse">Browse</a></li>
+            <li><a href="#genre" data-route="genre">Genre</a></li>
+            <li><a href="#instrument" data-route="instrument">Instrument</a></li>
+            <li><a href="#map" data-route="map">Map</a></li>
+            <li><a href="#lyrics" data-route="lyrics">Lyrics</a></li>
+            <li><a href="#library" data-route="library">Library</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="status" id="proto-status" role="status"></p>
+    </header>
+    <div class="layout">
+      <main id="proto-main">
+        <section class="panel" data-panel="browse" aria-labelledby="h-browse">
+          <h1 id="h-browse" tabindex="-1">Browse</h1>
+          <p>Placeholder. Browse rows arrive with their feature slice.</p>
+        </section>
+        <section class="panel" data-panel="genre" aria-labelledby="h-genre" hidden>
+          <h1 id="h-genre" tabindex="-1">Genre</h1>
+          <p>Placeholder. The Genre page arrives with its feature slice.</p>
+        </section>
+        <section class="panel" data-panel="instrument" aria-labelledby="h-instrument" hidden>
+          <h1 id="h-instrument" tabindex="-1">Instrument</h1>
+          <p>Placeholder. The Instrument page arrives with its feature slice.</p>
+        </section>
+        <section class="panel" data-panel="map" aria-labelledby="h-map" hidden>
+          <h1 id="h-map" tabindex="-1">Map</h1>
+          <p>Placeholder. The geographical map arrives with its feature slice.</p>
+        </section>
+        <section class="panel" data-panel="lyrics" aria-labelledby="h-lyrics" hidden>
+          <h1 id="h-lyrics" tabindex="-1">Lyrics</h1>
+          <p>Placeholder. The Lyrics page arrives with its feature slice.</p>
+        </section>
+        <section class="panel" data-panel="library" aria-labelledby="h-library" hidden>
+          <h1 id="h-library" tabindex="-1">Library</h1>
+          <p>Placeholder. The Library arrives with its feature slice.</p>
+        </section>
+      </main>
+      <aside class="recipe" aria-labelledby="h-recipe">
+        <h2 id="h-recipe">Your recipe</h2>
+        <p>No instruments yet.</p>
+        <p class="catalog" id="proto-catalog">Loading the catalog…</p>
+      </aside>
+    </div>
+  </body>
+</html>

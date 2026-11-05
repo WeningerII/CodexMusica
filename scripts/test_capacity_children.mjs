@@ -19,7 +19,7 @@ import fs from 'node:fs';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { setTimeout as sleep } from 'node:timers/promises';
-import { childRow, instrumentChildren } from './lyrics_capacity_queue.mjs';
+import { childRow, instrumentChildren, memoryPublisher } from './lyrics_capacity_queue.mjs';
 
 const problems = [];
 const check = (label, fn) => {
@@ -203,6 +203,61 @@ if (teardown > 0) {
     `  NOT OBSERVED  teardown, in ${samples} samples over ${exits} exits — the window was shorter than ` +
       'the sampling gaps here, so the real-exit check proved nothing about that state on this run'
   );
+}
+
+// ── #612: the memory publisher never takes the measured server down ────────
+// A failing write (ENOSPC here) is counted, not thrown, from the interval and
+// from a phase change; the next write that lands carries the count.
+{
+  const dir = fs.mkdtempSync('/tmp/capacity-memory-');
+  const file = `${dir}/node-memory.json`;
+  let failing = true;
+  const writeFileSync = (target, data, opts) => {
+    if (failing) throw Object.assign(new Error('no space left on device'), { code: 'ENOSPC' });
+    fs.writeFileSync(target, data, opts);
+  };
+  const pub = memoryPublisher(file, { writeFileSync });
+  check('a failing write is counted, never thrown', () => {
+    assert.equal(pub.publish(), false);
+    assert.doesNotThrow(() => pub.enterPhase('loading_prepared'));
+    assert.equal(pub.failures, 2);
+    assert.equal(fs.existsSync(file), false);
+  });
+  failing = false;
+  check('the next write that lands carries the count and the error code', () => {
+    assert.equal(pub.publish(), true);
+    const record = JSON.parse(fs.readFileSync(file, 'utf8'));
+    assert.equal(record.publish_failures, 2);
+    assert.equal(record.last_publish_error, 'ENOSPC');
+    assert.equal(record.phase, 'loading_prepared');
+    assert.equal(record.pid, process.pid);
+    assert.ok(record.memory.rss > 0);
+  });
+  fs.rmSync(dir, { recursive: true, force: true });
+}
+{
+  // A real process on the real interval, every write failing: it must stay up
+  // and keep counting, as the resident server must.
+  const queueUrl = new URL('./lyrics_capacity_queue.mjs', import.meta.url).href;
+  const child = spawn(
+    process.execPath,
+    [
+      '--input-type=module',
+      '-e',
+      `import { memoryPublisher } from ${JSON.stringify(queueUrl)};
+       const pub = memoryPublisher('/nonexistent-dir/node-memory.json');
+       const timer = setInterval(pub.publish, 20);
+       setTimeout(() => { clearInterval(timer); console.log(pub.failures); process.exit(0); }, 400);`,
+    ],
+    { stdio: ['ignore', 'pipe', 'pipe'] }
+  );
+  let out = '';
+  child.stdout.on('data', (d) => (out += d));
+  const code = await new Promise((resolve) => child.on('close', resolve));
+  check('a process publishing on an interval survives every write failing', () => {
+    assert.equal(code, 0);
+    assert.ok(Number(out.trim()) >= 5, `failures counted: ${out.trim()}`);
+  });
 }
 
 if (problems.length) {

@@ -130,6 +130,22 @@ module.exports = [
     languageOptions: { parserOptions: { ecmaFeatures: { globalReturn: true } } },
   },
   {
+    // The #670 prototype (prototype/): browser ES modules, never built into
+    // codex.html. scripts/check_prototype_isolation.js holds it to R2's limits.
+    files: ['prototype/**/*.js'],
+    languageOptions: {
+      ecmaVersion: 2023,
+      sourceType: 'module',
+      globals: { ...globals.browser },
+    },
+    rules: {
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+      eqeqeq: ['error', 'smart'],
+      'no-empty': ['error', { allowEmptyCatch: true }],
+      ...NO_BARE_LOCALE_COMPARE,
+    },
+  },
+  {
     // The MCP server (mcp/) — Node, ESM. Imports the CommonJS engine under
     // scripts/ via createRequire. Its own deps live in mcp/node_modules.
     files: ['mcp/**/*.js', 'mcp/**/*.mjs'],
