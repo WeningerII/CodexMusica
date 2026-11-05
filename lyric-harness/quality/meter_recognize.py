@@ -238,7 +238,9 @@ def recognize(line: LineInput, *, families=FAMILIES, policies=POLICY_REGISTRY,
                             family_rows, policy_rows)
     out['search']['complete'] = (
         out['search']['readings_examined'] == len(line['readings']))
-    if out['candidates']:
+    if not out['search']['readings_examined']:
+        out.update(status='not_computed', not_computed_reason='no reading examined')
+    elif out['candidates']:
         out['status'] = 'candidates'
     elif unresolved_prefix or out['prefix_agreeing']:
         out['status'] = 'not_computed'
