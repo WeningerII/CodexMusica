@@ -602,7 +602,7 @@ async function ipRebuild() {
     opts = traditionCardOpts(dest, id) || undefined;
   }
   if (seq !== IP.seq || id !== UI.instrumentPreview) return;
-  IP.base = makeCard(id, opts);
+  IP.base = structuredClone(makeCard(id, opts));
   IP.card = makeCard(id, opts);
   for (const e of ipEdits(id)) ipApply(IP.card, e);
   ipRenderInspector();

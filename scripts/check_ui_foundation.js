@@ -2082,6 +2082,120 @@ async function loadDelta(page) {
       await ctx.close();
     }
 
+    // Preview baseline isolation: canonical edits stay visible in Your changes.
+    /* global $ui, Option, IP, ipRebuild, ipDiff, ipChoose, ipRenderChanges, ipDescriptors, makeCard, ipApply */
+    stage = 'S0. Instrument preview baseline';
+    {
+      const { ctx, page } = await newPage({ viewport: { width: 1280, height: 900 } });
+      await page.goto(url + '#instrument');
+      await ready(page);
+      const result = await page.evaluate(async function previewBaselineRegression() {
+        const failures = [],
+          evidence = [];
+        const check = (ok, label) => {
+          evidence.push({ label, ok });
+          if (!ok) failures.push(label);
+        };
+        const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+        const config = (c) => ({
+          instrumentId: c.instrumentId,
+          traditionId: c.traditionId,
+          parts: c.parts,
+          chain: c.chain,
+          room: c.room,
+          tuning: c.tuning,
+          preface: c.preface,
+          prefaceAuto: c.prefaceAuto,
+          pinnedParts: c.pinnedParts,
+        });
+        const reset = async (id, dest) => {
+          const select = $ui('instrument-destination');
+          if (select.options && ![...select.options].some((o) => o.value === dest))
+            select.add(new Option(dest, dest));
+          select.value = dest;
+          UI.instrumentPreview = id;
+          IP.edits.clear();
+          IP.note = '';
+          await ipRebuild();
+        };
+        await reset('banjo_5_string', 'bluegrass');
+        const seed = structuredClone(IP.base);
+        check(IP.base.chain.mic === 'mic_rca_77dx_ribbon', 'Bluegrass seed microphone');
+        check(ipDiff(IP.base, IP.card).length === 0, 'untouched has no changes');
+        ipChoose({ k: 'auto' });
+        check(ipDiff(IP.base, IP.card).length === 0, 'auto preserves untouched configuration');
+        ipChoose({ k: 'preface', id: 'keening' });
+        check(IP.card.chain.mic === 'dynamic_mic', 'canonical inverse moves microphone');
+        check(same(IP.base, seed), 'baseline remains intact after inverse');
+        check(IP.note.includes('Microphone'), 'immediate note reports microphone');
+        const mic = () => ipDiff(IP.base, IP.card).find((c) => c.key === 'chain:mic');
+        check(!!mic(), 'cumulative microphone diff survives');
+        const changes = ipRenderChanges();
+        check(
+          changes.includes('Microphone: Dynamic moving-coil') &&
+            changes.includes('<strong>Microphone</strong> RCA 77-DX'),
+          'summary and list report microphone'
+        );
+        const expectedDescriptors = [...ipDescriptors(seed)];
+        check(
+          same([...ipDescriptors(IP.base)], expectedDescriptors),
+          'baseline descriptors stay original'
+        );
+        check(changes === ipRenderChanges(), 'repeated rendering is stable');
+        const chosen = structuredClone(config(IP.card));
+        await ipRebuild();
+        check(
+          same(config(IP.card), chosen) && !!mic(),
+          'ordered replay retains configuration and diff'
+        );
+        ipChoose({ k: 'preface', id: 'keening' });
+        check(same(config(IP.card), chosen) && !!mic(), 'repeated pick retains cumulative diff');
+        ipChoose({ k: 'chain', stage: 'mic', v: 'mic_rca_77dx_ribbon' });
+        await ipRebuild();
+        check(
+          IP.card.chain.mic === 'mic_rca_77dx_ribbon' && !mic(),
+          'later explicit microphone choice wins replay'
+        );
+        await reset('electric_bass', '');
+        const independent = structuredClone(IP.base);
+        check(ipDiff(IP.base, IP.card).length === 0, 'independent untouched control');
+        ipChoose({ k: 'preface', id: 'warm' });
+        const canonical = makeCard('electric_bass');
+        ipApply(canonical, { k: 'preface', id: 'warm' });
+        check(
+          same(config(IP.card), config(canonical)),
+          'independent warm uses canonical configuration'
+        );
+        check(same(IP.base, independent), 'independent baseline unchanged');
+        await ipRebuild();
+        check(same(config(IP.card), config(canonical)), 'independent replay control');
+        await reset('banjo_5_string', 'bluegrass');
+        check(
+          IP.card.chain !== IP.base.chain && IP.card.chain.fx !== IP.base.chain.fx,
+          'chain object and nested effects array are isolated'
+        );
+        IP.card.chain.fx.push('test-only-effect');
+        check(
+          !IP.base.chain.fx.includes('test-only-effect'),
+          'in-place effects mutation cannot change baseline'
+        );
+        check(
+          Array.isArray(IP.base.chain.fx) &&
+            IP.base.chain.amp === null &&
+            typeof IP.base.prefaceAuto === 'boolean',
+          'baseline preserves catalog value types'
+        );
+        await reset('banjo_5_string', '');
+        check(
+          IP.card.traditionId === null && ipDiff(IP.base, IP.card).length === 0,
+          'destination change rebuilds independent seed'
+        );
+        return { failures, evidence };
+      });
+      for (const row of result.evidence) check(row.ok, 'S0. ' + row.label);
+      await ctx.close();
+    }
+
     // ── S. Saved sessions and the Instrument inspector keep focus visible ─
     // Jony's round 3: Escape on a confirmation closes only the confirmation
     // (#8); Delete hands focus to a row and Load to the opener (#10); after
