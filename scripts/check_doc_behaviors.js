@@ -20,7 +20,7 @@
 
 'use strict';
 const path = require('path');
-const { execFileSync } = require('child_process');
+const { execFileSync, spawnSync } = require('child_process');
 const C = require('./_loader.js'); // shipped loader → tradition names without the q.js shim
 
 const ROOT = path.join(__dirname, '..');
@@ -126,6 +126,43 @@ assert('§3f', 'a valid --swap-variant on an instrument part changes the recipe'
     detail: `exit ${r.code}; recipe ${r.out === base.out ? 'unchanged' : 'changed'}`,
   };
 });
+
+// A valid swap can still print none of its words, and then it has to say so
+// (#671; BB8 6646430850). mpc_modern's only word is the BARE token `modern`,
+// which this renderer never prints, so stdout is byte-identical to the run
+// without the swap. stdout stays exactly that; stderr names the card and the
+// filtered descriptor, and a run without a swap says nothing of the kind.
+assert(
+  '§3f',
+  'a swap whose words the recipe filters out is named on stderr; stdout is unchanged',
+  () => {
+    const full = (args) => {
+      const r = spawnSync('node', args, { cwd: ROOT, encoding: 'utf8', timeout: 60000 });
+      return { code: r.status, out: r.stdout || '', err: r.stderr || '' };
+    };
+    const notes = (r) => r.err.split('\n').filter((line) => line.startsWith('note: '));
+    const base = full([RECIPE, '--tradition', 'gangsta_rap']);
+    const r = full([
+      RECIPE,
+      '--tradition',
+      'gangsta_rap',
+      '--swap-variant=sampler_classic:sampler_archetypes:mpc_modern',
+    ]);
+    const [note = ''] = notes(r);
+    const ok =
+      base.code === 0 &&
+      r.code === 0 &&
+      r.out === base.out &&
+      notes(base).length === 0 &&
+      notes(r).length === 1 &&
+      /\bsampler_classic card\b/.test(note) &&
+      /: modern \(sampler_archetypes:mpc_modern\)$/.test(note);
+    return {
+      ok,
+      detail: `exit ${r.code}; stdout ${r.out === base.out ? 'unchanged' : 'changed'}; note ${JSON.stringify(note)}`,
+    };
+  }
+);
 
 // SKILL.md's flag contract: a misspelled flag is refused by name, not
 // stored and ignored with the recipe unchanged and exit 0.

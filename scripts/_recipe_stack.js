@@ -650,6 +650,53 @@ function assignDedupedPrefaces(cards) {
   return cards;
 }
 
+// ─────────────────────────── per-card segment trace ───────────────────────────
+// Which printed span of a recipe belongs to which card (#671). The connector's
+// render_warnings may only call a pinned descriptor disclosed when it is printed
+// in that card's OWN segment: a word printed on another card describes that
+// card, not the one the user edited. Re-parsing the finished string for card
+// boundaries would be a guess — labels, prefaces and env names all contain the
+// separators — so each compressor reports the chunk list it actually joined.
+//
+// Every compressor takes an optional `trace` object as its last argument and,
+// when given one, fills it at each return from the final chunk list it joined;
+// with none, nothing below runs. Recording reads the chunks after the output is
+// built and never writes them, so the returned string is the same either way
+// (check_app_parity.js compares it with src/app.js, which has no trace).
+//
+//   trace.segments  [{ start, end, cards, pooled, own? }], one per printed chunk
+//                   that renders at least one card's instrument:
+//     start, end    offsets into the returned string
+//     cards         indexes into the `cards` array the compressor was given
+//     pooled        true when the chunk pools the words of more than one source
+//                   (rich and prose merge cards that share a label or a trailing
+//                   word into one chunk), so a word in it cannot be attributed to
+//                   any one of its cards
+//     own           tags only: card index -> that card's own chunk text. A tags
+//                   chunk merges only when the cards' descriptor suffixes are
+//                   identical, so each card keeps its own words exactly.
+//   trace.intact    how many leading characters of the returned string are the
+//                   chunks' own text; shorter than the string only when the
+//                   output was cut and marked "[truncated]".
+//
+// A card with no segment was dropped (`[+N hidden]`) or cut off.
+function _traceSegments(trace, items, sep, intact) {
+  const segments = [];
+  let at = 0;
+  for (const it of items) {
+    const end = at + it.text.length;
+    if (it.cards.length) {
+      const seg = { start: at, end, cards: it.cards.slice(), pooled: !!it.pooled };
+      if (it.own) seg.own = it.own;
+      segments.push(seg);
+    }
+    at = end + sep.length;
+  }
+  trace.segments = segments;
+  trace.intact = intact;
+}
+const _unionCards = (lists) => [...new Set(lists.flat())].sort((a, b) => a - b);
+
 // ─────────────────────────── prose (collapsed) ───────────────────────────
 // Prose is the ICONIC view: a chunk carries its card's preface and its
 // instrument label and nothing else. The full descriptor stack is deliberately
@@ -659,9 +706,9 @@ function assignDedupedPrefaces(cards) {
 // meant to read bare. That is why a chunk here has a `preface` field and no
 // `descriptors` field at all: src/app.js compressProseRecipe is shaped the same
 // way, and check_app_parity.js compares the two byte for byte.
-function compressProseRecipe(cards, ceiling) {
+function compressProseRecipe(cards, ceiling, trace) {
   const rawChunks = [];
-  for (const card of cards) {
+  for (const [ci, card] of cards.entries()) {
     const parts = buildStackParts(card);
     const inst = parts.find((p) => p.kind === 'instrument');
     if (!inst) continue;
@@ -670,6 +717,7 @@ function compressProseRecipe(cards, ceiling) {
       kind: 'inst',
       label: _kebab(inst.label),
       preface: preface || null,
+      cards: [ci],
     });
   }
   if (cards.length > 0) {
@@ -682,6 +730,7 @@ function compressProseRecipe(cards, ceiling) {
         kind: 'env',
         label: _kebab(label),
         preface: null,
+        cards: [],
       });
     }
   }
@@ -696,11 +745,15 @@ function compressProseRecipe(cards, ceiling) {
     if (mergedByLabel.has(c.label)) {
       const existing = mergedByLabel.get(c.label);
       if (c.preface && !existing.prefaces.includes(c.preface)) existing.prefaces.push(c.preface);
+      existing.cards.push(...c.cards);
+      existing.sources++;
     } else {
       mergedByLabel.set(c.label, {
         kind: c.kind,
         label: c.label,
         prefaces: c.preface ? [c.preface] : [],
+        cards: c.cards.slice(),
+        sources: 1,
       });
       labelOrder.push(c.label);
       labelKind.set(c.label, c.kind);
@@ -753,7 +806,12 @@ function compressProseRecipe(cards, ceiling) {
         const member = mergedByLabel.get(groupKey);
         const memberSegs = member.label.split('-');
         const innerLabel = memberSegs.slice(0, -1).join('-') || null;
-        parts.push({ prefaces: member.prefaces.slice(), innerLabel });
+        parts.push({
+          prefaces: member.prefaces.slice(),
+          innerLabel,
+          cards: member.cards.slice(),
+          sources: member.sources,
+        });
         if (labelKind.get(groupKey) === 'env') groupKind = 'env';
         emitted.add(groupKey);
       }
@@ -763,7 +821,14 @@ function compressProseRecipe(cards, ceiling) {
       finalChunks.push({
         kind: c.kind,
         trailingLabel: c.label,
-        parts: [{ prefaces: c.prefaces.slice(), innerLabel: null }],
+        parts: [
+          {
+            prefaces: c.prefaces.slice(),
+            innerLabel: null,
+            cards: c.cards.slice(),
+            sources: c.sources,
+          },
+        ],
       });
     }
   }
@@ -777,9 +842,26 @@ function compressProseRecipe(cards, ceiling) {
     return tokens.length > 0 ? `${tokens.join(' ')} ${c.trailingLabel}` : c.trailingLabel;
   };
   const renderAll = () => finalChunks.map(renderChunk).join(', ') + '.';
+  // The chunks this output was joined from, for render_warnings (#671). The
+  // third trim phase pops whole parts, so a chunk's cards are read off the
+  // parts it still has.
+  const traced = (out, intact = out.length) => {
+    if (trace)
+      _traceSegments(
+        trace,
+        finalChunks.map((c) => ({
+          text: renderChunk(c),
+          cards: _unionCards(c.parts.map((p) => p.cards)),
+          pooled: c.parts.reduce((n, p) => n + p.sources, 0) > 1,
+        })),
+        ', ',
+        intact
+      );
+    return out;
+  };
 
   let output = renderAll();
-  if (output.length <= ceiling) return output;
+  if (output.length <= ceiling) return traced(output);
 
   // Phase 1 (preface shed): pop the trailing preface off whichever chunk-part
   // holds the most pooled prefaces. `targetLen` starting at 1 is the whole
@@ -805,7 +887,7 @@ function compressProseRecipe(cards, ceiling) {
     target.prefaces.pop();
   }
   output = renderAll();
-  if (output.length <= ceiling) return output;
+  if (output.length <= ceiling) return traced(output);
 
   while (renderAll().length > ceiling && finalChunks.some((c) => c.kind === 'env')) {
     for (let i = finalChunks.length - 1; i >= 0; i--) {
@@ -816,7 +898,7 @@ function compressProseRecipe(cards, ceiling) {
     }
   }
   output = renderAll();
-  if (output.length <= ceiling) return output;
+  if (output.length <= ceiling) return traced(output);
 
   while (renderAll().length > ceiling) {
     let popped = false;
@@ -831,7 +913,7 @@ function compressProseRecipe(cards, ceiling) {
     if (!popped) break;
   }
   output = renderAll();
-  if (output.length <= ceiling) return output;
+  if (output.length <= ceiling) return traced(output);
 
   const noticeFor = (n) => (n > 0 ? ` [+${n} hidden]` : '');
   let droppedChunks = 0;
@@ -840,8 +922,9 @@ function compressProseRecipe(cards, ceiling) {
     droppedChunks++;
   }
   output = renderAll() + noticeFor(droppedChunks);
-  if (output.length > ceiling) output = output.slice(0, ceiling - 16) + '… [truncated]';
-  return output;
+  if (output.length <= ceiling) return traced(output);
+  const kept = output.slice(0, ceiling - 16);
+  return traced(kept + '… [truncated]', kept.length);
 }
 
 // ─────────────────────────── tags ───────────────────────────
@@ -863,10 +946,17 @@ function compressProseRecipe(cards, ceiling) {
 // drops. Mirrors src/app.js:_collapseSharedSuffixes.
 function _collapseSharedSuffixes(chunks) {
   if (!Array.isArray(chunks) || chunks.length < 2) return chunks;
-  const parsed = chunks.map((chunk) => {
+  return _collapseSuffixGroups(chunks).map((g) => g.text);
+}
+// The collapse itself, keeping which input chunks each output chunk stands for
+// (`members`, input indexes) so the segment trace can say which cards a merged
+// chunk renders. _collapseSharedSuffixes is this with the members dropped, so
+// the two cannot disagree about what is printed.
+function _collapseSuffixGroups(chunks) {
+  const parsed = chunks.map((chunk, i) => {
     const sp = chunk.indexOf(' ');
-    if (sp < 0) return { chunk, prefix: null, suffix: null };
-    return { chunk, prefix: chunk.slice(0, sp), suffix: chunk.slice(sp + 1) };
+    if (sp < 0) return { i, chunk, prefix: null, suffix: null };
+    return { i, chunk, prefix: chunk.slice(0, sp), suffix: chunk.slice(sp + 1) };
   });
   const groups = new Map();
   for (const p of parsed) {
@@ -875,21 +965,25 @@ function _collapseSharedSuffixes(chunks) {
     const g = groups.get(p.suffix);
     if (!g.prefixes.includes(p.prefix)) g.prefixes.push(p.prefix);
   }
-  const emitted = new Set();
+  const emitted = new Map();
   const result = [];
   for (const p of parsed) {
     if (p.suffix === null) {
-      result.push(p.chunk);
+      result.push({ text: p.chunk, members: [p.i] });
       continue;
     }
     const g = groups.get(p.suffix);
     if (g.prefixes.length < 2) {
-      result.push(p.chunk);
+      result.push({ text: p.chunk, members: [p.i] });
       continue;
     }
-    if (emitted.has(p.suffix)) continue;
-    emitted.add(p.suffix);
-    result.push(g.prefixes.join(' ') + ' ' + p.suffix);
+    if (emitted.has(p.suffix)) {
+      emitted.get(p.suffix).members.push(p.i);
+      continue;
+    }
+    const merged = { text: g.prefixes.join(' ') + ' ' + p.suffix, members: [p.i] };
+    emitted.set(p.suffix, merged);
+    result.push(merged);
   }
   return result;
 }
@@ -906,26 +1000,47 @@ function _tagsChunk(label, descs, preface) {
   return clean.length === 0 ? head : `${head}: ${clean.join(' ')}`;
 }
 
-function compressTagsRecipe(cards, ceiling) {
+function compressTagsRecipe(cards, ceiling, trace) {
   const chunks = [];
-  for (const card of cards) {
+  const chunkCards = []; // per chunk, the card it renders ([] for an env chunk)
+  for (const [ci, card] of cards.entries()) {
     const parts = buildStackParts(card);
     const inst = parts.find((p) => p.kind === 'instrument');
     if (!inst) continue;
     chunks.push(_tagsChunk(inst.label, inst.descriptors, _resolvePreface(card)));
+    chunkCards.push([ci]);
   }
   if (cards.length > 0) {
     for (const p of buildStackParts(envCardOf(cards))) {
       if (p.kind === 'instrument') continue;
       chunks.push(_tagsChunk(p.label, p.descriptors));
+      chunkCards.push([]);
     }
   }
+  // The chunks this output was joined from, for render_warnings (#671). A
+  // merged chunk prints every word of each member's own chunk (the members'
+  // heads in order, then the suffix they share exactly), so each card's own
+  // text is kept beside the merged span.
+  const traced = (out, texts, cardsOf, intact = out.length) => {
+    if (trace)
+      _traceSegments(
+        trace,
+        _collapseSuffixGroups(texts).map((g) => {
+          const own = {};
+          for (const m of g.members) for (const ci of cardsOf[m]) own[ci] = texts[m];
+          return { text: g.text, cards: _unionCards(g.members.map((m) => cardsOf[m])), own };
+        }),
+        ', ',
+        intact
+      );
+    return out;
+  };
   let output = _collapseSharedSuffixes(chunks).join(', ');
   const TRIM_TARGET = ceiling - 1;
-  if (output.length <= TRIM_TARGET) return output + '.';
+  if (output.length <= TRIM_TARGET) return traced(output + '.', chunks, chunkCards);
 
   const rebuilt = cards
-    .map((card) => {
+    .map((card, ci) => {
       const parts = buildStackParts(card);
       const inst = parts.find((p) => p.kind === 'instrument');
       return inst
@@ -934,6 +1049,7 @@ function compressTagsRecipe(cards, ceiling) {
             label: inst.label,
             preface: _resolvePreface(card),
             descs: _sortDescriptorsByPriority(_suppressSubsumed(inst.descriptors)),
+            cards: [ci],
           }
         : null;
     })
@@ -946,6 +1062,7 @@ function compressTagsRecipe(cards, ceiling) {
         label: p.label,
         preface: null,
         descs: _sortDescriptorsByPriority(_suppressSubsumed(p.descriptors)),
+        cards: [],
       });
     }
   }
@@ -1016,9 +1133,12 @@ function compressTagsRecipe(cards, ceiling) {
     rebuilt.splice(dropIdx, 1);
     droppedInst++;
   }
-  let final = renderAll() + '.' + noticeFor(droppedInst);
-  if (final.length > ceiling) final = final.slice(0, Math.max(0, ceiling - 16)) + '… [truncated]';
-  return final;
+  const final = renderAll() + '.' + noticeFor(droppedInst);
+  const texts = rebuilt.map(chunkText);
+  const cardsOf = rebuilt.map((c) => c.cards);
+  if (final.length <= ceiling) return traced(final, texts, cardsOf);
+  const kept = final.slice(0, Math.max(0, ceiling - 16));
+  return traced(kept + '… [truncated]', texts, cardsOf, kept.length);
 }
 
 // ─────────────────────────── compact ───────────────────────────
@@ -1029,23 +1149,37 @@ function compressTagsRecipe(cards, ceiling) {
 // src/app.js:compressCompactRecipe tails every line including the last, so a
 // bare line diverges from the app by exactly one character per card — enough to
 // fail check_app_parity.js on every tradition in the catalog.
-function compressCompactRecipe(cards, ceiling) {
+function compressCompactRecipe(cards, ceiling, trace) {
   // ONE environment for the whole recording, as in every other format (#662):
   // tuning, room and chain come from envCardOf(cards), never from each card. A
   // single card keeps its one full-stack line (that card IS the environment
   // card); a roster gets one instrument line per card and the environment once.
+  //
+  // The card's segment, for render_warnings (#671), is its instrument piece:
+  // the head of the one full-stack line, or its own line in a roster. The
+  // environment pieces after it are the recording's, not the instrument's.
+  let soloHead = null;
   let out =
     cards.length === 1
       ? (() => {
           const preface = _resolvePreface(cards[0]);
           return (
             buildStackParts(cards[0])
-              .map((p) => (p.kind === 'instrument' && preface ? `${preface} ${p.label}` : p.label))
+              .map((p) => {
+                const text = p.kind === 'instrument' && preface ? `${preface} ${p.label}` : p.label;
+                if (p.kind === 'instrument') soloHead = text;
+                return text;
+              })
               .join(' · ') + ','
           );
         })()
       : '';
-  if (out && out.length <= ceiling) return out;
+  if (out && out.length <= ceiling) {
+    // buildStackParts puts the instrument first, so its piece starts the line.
+    if (trace)
+      _traceSegments(trace, soloHead ? [{ text: soloHead, cards: [0] }] : [], '', out.length);
+    return out;
+  }
 
   const instLines = cards.map((card) => {
     const inst = buildStackParts(card).find((p) => p.kind === 'instrument');
@@ -1053,6 +1187,20 @@ function compressCompactRecipe(cards, ceiling) {
     const preface = _resolvePreface(card);
     return (preface ? `${preface} ${inst.label}` : inst.label) + ',';
   });
+  // Every instrument line is `<text>,` and the lines are joined by a newline.
+  const traced = (text, intact = text.length) => {
+    if (trace)
+      _traceSegments(
+        trace,
+        instLines.map((line, ci) => ({
+          text: line.slice(0, -1),
+          cards: line === '?,' ? [] : [ci],
+        })),
+        ',\n',
+        intact
+      );
+    return text;
+  };
 
   // The environment is said once, from the card the recipe takes it from. When
   // even that does not fit, the line is dropped whole and render_warnings names
@@ -1065,16 +1213,17 @@ function compressCompactRecipe(cards, ceiling) {
     : '';
   if (envLine) {
     out = instLines.concat(envLine + ',').join('\n');
-    if (out.length <= ceiling) return out;
+    if (out.length <= ceiling) return traced(out);
   }
 
   out = instLines.join('\n');
-  if (out.length <= ceiling) return out;
-  return out.slice(0, ceiling - 16) + '\n[truncated]';
+  if (out.length <= ceiling) return traced(out);
+  const kept = out.slice(0, ceiling - 16);
+  return traced(kept + '\n[truncated]', kept.length);
 }
 
 // ─────────────────────────── rich ───────────────────────────
-function compressRichRecipe(cards, ceiling) {
+function compressRichRecipe(cards, ceiling, trace) {
   // Explicit part choices outrank stock material/gear descriptors under pressure.
   // Use the actual rendered descriptors; variant IDs are not output tokens.
   const pinnedDescriptors = new Set();
@@ -1085,7 +1234,7 @@ function compressRichRecipe(cards, ceiling) {
   }
   const richTier = (d) => (pinnedDescriptors.has(d) ? -1 : _descriptorTier(d));
   const rawChunks = [];
-  for (const card of cards) {
+  for (const [ci, card] of cards.entries()) {
     const parts = buildStackParts(card);
     const inst = parts.find((p) => p.kind === 'instrument');
     if (!inst) continue;
@@ -1094,6 +1243,7 @@ function compressRichRecipe(cards, ceiling) {
       label: _kebab(inst.label),
       preface: _resolvePreface(card) || null,
       descriptors: _suppressSubsumed(inst.descriptors).slice(),
+      cards: [ci],
     });
   }
   if (cards.length > 0) {
@@ -1107,6 +1257,7 @@ function compressRichRecipe(cards, ceiling) {
         label: _kebab(label),
         preface: null,
         descriptors: _suppressSubsumed(p.descriptors).slice(),
+        cards: [],
       });
     }
   }
@@ -1118,12 +1269,16 @@ function compressRichRecipe(cards, ceiling) {
       const ex = byLabel.get(c.label);
       if (c.preface && !ex.prefaces.includes(c.preface)) ex.prefaces.push(c.preface);
       for (const d of c.descriptors) if (!ex.descriptors.includes(d)) ex.descriptors.push(d);
+      ex.cards.push(...c.cards);
+      ex.sources++;
     } else {
       byLabel.set(c.label, {
         kind: c.kind,
         label: c.label,
         prefaces: c.preface ? [c.preface] : [],
         descriptors: c.descriptors.slice(),
+        cards: c.cards.slice(),
+        sources: 1,
       });
       labelOrder.push(c.label);
     }
@@ -1171,6 +1326,8 @@ function compressRichRecipe(cards, ceiling) {
     if (group.length >= 2 && !bareLabels.has(trailing)) {
       const parts = [];
       const pooledDescriptors = [];
+      const groupCards = [];
+      let groupSources = 0;
       let groupKind = 'inst';
       for (const groupKey of group) {
         const m = byLabel.get(groupKey);
@@ -1180,6 +1337,8 @@ function compressRichRecipe(cards, ceiling) {
         for (const d of m.descriptors)
           if (!pooledDescriptors.includes(d)) pooledDescriptors.push(d);
         if (m.kind === 'env') groupKind = 'env';
+        groupCards.push(...m.cards);
+        groupSources += m.sources;
         emitted.add(groupKey);
       }
       finalChunks.push({
@@ -1187,6 +1346,8 @@ function compressRichRecipe(cards, ceiling) {
         trailingLabel: trailing,
         parts,
         descriptors: pooledDescriptors,
+        cards: _unionCards([groupCards]),
+        sources: groupSources,
       });
     } else {
       emitted.add(key);
@@ -1195,6 +1356,8 @@ function compressRichRecipe(cards, ceiling) {
         trailingLabel: c.label,
         parts: [{ prefaces: c.prefaces.slice(), innerLabel: null }],
         descriptors: c.descriptors.slice(),
+        cards: _unionCards([c.cards]),
+        sources: c.sources,
       });
     }
   }
@@ -1214,9 +1377,22 @@ function compressRichRecipe(cards, ceiling) {
     return c.descriptors.length > 0 ? `${head}: ${c.descriptors.join(' ')}` : head;
   };
   const renderAll = () => finalChunks.map(renderChunk).join(', ');
+  // The chunks this output was joined from, for render_warnings (#671). A chunk
+  // that merged several cards (same label, or same trailing word) pools their
+  // descriptors, so it is marked pooled: its words belong to no one card.
+  const traced = (out, intact = out.length) => {
+    if (trace)
+      _traceSegments(
+        trace,
+        finalChunks.map((c) => ({ text: renderChunk(c), cards: c.cards, pooled: c.sources > 1 })),
+        ', ',
+        intact
+      );
+    return out;
+  };
 
   const TRIM_TARGET = ceiling - 1;
-  if (renderAll().length <= TRIM_TARGET) return renderAll() + '.';
+  if (renderAll().length <= TRIM_TARGET) return traced(renderAll() + '.');
 
   let guard = 5000;
   while (renderAll().length > TRIM_TARGET && guard-- > 0) {
@@ -1291,22 +1467,28 @@ function compressRichRecipe(cards, ceiling) {
     finalChunks.splice(dropIdx, 1);
     droppedInst++;
   }
-  let final = renderAll() + '.' + noticeFor(droppedInst);
-  if (final.length > ceiling) final = final.slice(0, Math.max(0, ceiling - 16)) + '… [truncated]';
-  return final;
+  const final = renderAll() + '.' + noticeFor(droppedInst);
+  if (final.length <= ceiling) return traced(final);
+  const kept = final.slice(0, Math.max(0, ceiling - 16));
+  return traced(kept + '… [truncated]', kept.length);
 }
 
 // ─────────────────────────── dispatch (no header) ───────────────────────────
-function compileStack(cards, format, ceiling) {
-  if (!cards || cards.length === 0) return '';
+// `trace`, when given, is filled with the output's per-card segments (see
+// _traceSegments); it never changes the string returned.
+function compileStack(cards, format, ceiling, trace) {
+  if (!cards || cards.length === 0) {
+    if (trace) _traceSegments(trace, [], '', 0);
+    return '';
+  }
   // Hard recipe ceiling (RECIPE_CHAR_CEILING): defensive clamp so any direct
   // caller of the compressors is bounded, not just renderWorkspace.
   const { RECIPE_CHAR_CEILING } = require('./_api_contract.js');
   ceiling = Math.min(ceiling || RECIPE_CHAR_CEILING, RECIPE_CHAR_CEILING);
-  if (format === 'tags') return compressTagsRecipe(cards, ceiling);
-  if (format === 'compact') return compressCompactRecipe(cards, ceiling);
-  if (format === 'rich') return compressRichRecipe(cards, ceiling);
-  return compressProseRecipe(cards, ceiling);
+  if (format === 'tags') return compressTagsRecipe(cards, ceiling, trace);
+  if (format === 'compact') return compressCompactRecipe(cards, ceiling, trace);
+  if (format === 'rich') return compressRichRecipe(cards, ceiling, trace);
+  return compressProseRecipe(cards, ceiling, trace);
 }
 
 module.exports = {

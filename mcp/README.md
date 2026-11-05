@@ -31,7 +31,10 @@ writes there, and a multi-select stage (`fx`) adds to its list (`clear` empties 
 Rich compression prioritizes explicitly pinned descriptors; inspect `render_warnings`
 for explicit words — descriptors, prefaces, environment — absent from the result, or
 an environment that moved, was overwritten or was set on a card that does not render,
-and `render_scope` for which shared environment is represented.
+and `render_scope` for which shared environment is represented. A pinned descriptor
+counts only as a whole word in its own card's segment (`PINNED_DESCRIPTORS_NOT_LITERAL`
+otherwise, even when another card prints it); printed only in a chunk pooled from several
+cards, it is `PINNED_DESCRIPTORS_NOT_ATTRIBUTABLE`, with those cards in `shared_with`.
 
 | Tool | What it does |
 |---|---|

@@ -1376,7 +1376,51 @@ function isSwappedSlot(config, instId, partId) {
   return Array.isArray(parts) && parts.includes(partId);
 }
 
-function buildSentence2_voice(config, _trustedTokens) {
+// What a swap printed (#671). Rendering a swapped slot whatever its score still
+// leaves some of its words out: a BARE genre token such as `modern` is a scoring
+// hint this renderer never prints, the voice sentence keeps one word per part,
+// the instrument stack is capped, and the budget trim cuts trailing clauses. A
+// swap whose only word is filtered exits 0 with stdout byte-identical to the run
+// without it, so the caller has to be told — on stderr, the recipe unchanged.
+//
+// Each builder below records, per swapped slot, the words its phrase printed and
+// where that phrase's clause ends in its sentence; translate() then checks the
+// clause against what the trim kept. `swaps` is null unless the caller asked
+// (options.filteredSwaps), and nothing here changes a byte of the recipe.
+function swapRecord(variant, instId, partId, variantId, sentence) {
+  const words = [];
+  for (const d of (variant && variant.descriptors) || []) {
+    // Meta tags (canonical, standard, …) are not words; the connector drops
+    // the same set before it renders or warns.
+    if (isDefaultDescriptor(d)) continue;
+    const descriptor = stripCanonical(d);
+    if (!words.some((w) => w.descriptor === descriptor))
+      words.push({ descriptor, display: displayDescriptor(descriptor) });
+  }
+  return {
+    instrument: instId,
+    part: partId,
+    variant: variantId,
+    sentence,
+    words,
+    shown: new Set(),
+    clauseEnd: -1,
+  };
+}
+
+// Where each clause of a `', '`-joined sentence ends, by clause index.
+function clauseEnds(clauses) {
+  const ends = [];
+  let at = 0;
+  for (const c of clauses) {
+    at += c.length;
+    ends.push(at);
+    at += 2;
+  }
+  return ends;
+}
+
+function buildSentence2_voice(config, _trustedTokens, swaps = null) {
   // "blues-shouter, narrative."
   // Take the IDENTIFYING descriptor (the iconic name) from each scoring part.
   // Just voice descriptors, no noun.
@@ -1386,9 +1430,24 @@ function buildSentence2_voice(config, _trustedTokens) {
   if (!voice) return null;
   const descriptors = [];
   const swappedDescs = [];
+  const records = [];
   for (const part of voice.parts || []) {
     const variantId = (voiceSlot.slots || {})[part.id];
     if (!variantId) continue;
+    const record =
+      swaps && isSwappedSlot(config, 'voice', part.id)
+        ? swapRecord(
+            part.variants.find((v) => v.id === variantId),
+            'voice',
+            part.id,
+            variantId,
+            'voice'
+          )
+        : null;
+    if (record) {
+      swaps.push(record);
+      records.push(record);
+    }
     // Skip uninformed picks. Threshold tuned post-substring-bleed structural fix:
     // pre-fix scores were inflated by subtoken overlap (every shared subtoken
     // added prose/singles credit through the unified weights map). With bleed
@@ -1410,13 +1469,23 @@ function buildSentence2_voice(config, _trustedTokens) {
       const stripped = stripCanonical(d);
       if (isScoreHintOnly(stripped)) continue;
       // A swapped part's word leads, so the cap of four below cannot cut it.
-      if (isSwappedSlot(config, 'voice', part.id)) swappedDescs.push(displayDescriptor(stripped));
-      else descriptors.push(displayDescriptor(stripped));
+      if (isSwappedSlot(config, 'voice', part.id)) {
+        swappedDescs.push(displayDescriptor(stripped));
+        if (record) record.word = displayDescriptor(stripped);
+      } else descriptors.push(displayDescriptor(stripped));
       break; // one per variant — the iconic name
     }
   }
   if (descriptors.length + swappedDescs.length === 0) return null;
   const unique = [...new Set([...swappedDescs, ...descriptors])].slice(0, 4);
+  // Each word is its own clause here, so a swap's clause is the one its word is.
+  const ends = clauseEnds(unique);
+  for (const r of records) {
+    const at = r.word === undefined ? -1 : unique.indexOf(r.word);
+    if (at < 0) continue;
+    r.shown.add(r.word);
+    r.clauseEnd = ends[at];
+  }
   return unique.join(', ') + '.';
 }
 
@@ -1462,9 +1531,12 @@ function buildSentenceArrangement(config) {
 // Phrase format on input: "<descriptors> <instrument-display-name>", where
 // descriptors may be empty. Order of phrases is preserved in output, with
 // each collapse group replacing its first occurrence and removing the rest.
-function collapseRepeatedNouns(phrases) {
-  if (!phrases || phrases.length < 2) return phrases;
-
+//
+// Returns one { text, members } per output clause: `members` are the indexes
+// of the input phrases that clause prints. The sentence joins the texts; the
+// swap disclosure (#671) reads the members to follow a swapped instrument's
+// phrase into the clause that prints it. Callers pass two or more phrases.
+function collapseRepeatedNounGroups(phrases) {
   // Build the set of canonical instrument display-names. We use this both
   // to find the longest-matching instrument-suffix in each phrase AND to
   // veto cross-instrument collapse when the trailing word is itself a name.
@@ -1519,10 +1591,11 @@ function collapseRepeatedNouns(phrases) {
   //   - nothing (if this is a non-first member of a collapsed group)
   const emitted = new Set();
   const result = [];
+  const members = (group) => group.map((g) => g.idx);
   for (const item of parsed) {
     const group = byTrailing.get(item.trailingWord);
     if (group.length < 2) {
-      result.push(item.phrase);
+      result.push({ text: item.phrase, members: [item.idx] });
       continue;
     }
     if (emitted.has(item.trailingWord)) continue; // already emitted the collapsed form
@@ -1535,7 +1608,10 @@ function collapseRepeatedNouns(phrases) {
         .map((g) => g.descriptors)
         .filter((d) => d)
         .join(' ');
-      result.push(descs ? `${descs} ${group[0].instDisp}` : group[0].instDisp);
+      result.push({
+        text: descs ? `${descs} ${group[0].instDisp}` : group[0].instDisp,
+        members: members(group),
+      });
       continue;
     }
 
@@ -1545,7 +1621,7 @@ function collapseRepeatedNouns(phrases) {
     if (dispToId.has(item.trailingWord)) {
       // veto: emit each phrase separately
       for (const g of group) {
-        result.push(g.phrase);
+        result.push({ text: g.phrase, members: [g.idx] });
       }
       continue;
     }
@@ -1555,7 +1631,7 @@ function collapseRepeatedNouns(phrases) {
       const instWithoutTrailing = g.instDisp.slice(0, -item.trailingWord.length - 1);
       return g.descriptors ? `${g.descriptors} ${instWithoutTrailing}` : instWithoutTrailing;
     });
-    result.push(`${segments.join(' ')} ${item.trailingWord}`);
+    result.push({ text: `${segments.join(' ')} ${item.trailingWord}`, members: members(group) });
   }
 
   return result;
@@ -1567,8 +1643,9 @@ function lastWord(s) {
   return idx === -1 ? trimmed : trimmed.slice(idx + 1);
 }
 
-function buildSentence3_instruments(config, trustedTokens) {
+function buildSentence3_instruments(config, trustedTokens, swaps = null) {
   const phrases = [];
+  const records = []; // [{ record, phrase }] — phrase is its index in `phrases`
   for (const inst of config.instruments || []) {
     if (inst.id === 'voice') continue; // handled in sentence 2
     const cataInst = C.INSTRUMENTS.find((i) => i.id === inst.id);
@@ -1580,9 +1657,21 @@ function buildSentence3_instruments(config, trustedTokens) {
     // Technique-bearing parts go LAST in the stack so the strongest descriptor lands
     // closest to the instrument anchor noun.
     const partGroups = [];
+    const instRecords = [];
     for (const part of cataInst.parts || []) {
       const variantId = (inst.slots || {})[part.id];
       if (!variantId) continue;
+      if (swaps && isSwappedSlot(config, inst.id, part.id)) {
+        const record = swapRecord(
+          part.variants.find((v) => v.id === variantId),
+          inst.id,
+          part.id,
+          variantId,
+          'instruments'
+        );
+        swaps.push(record);
+        instRecords.push(record);
+      }
       const score = (inst.scores || {})[part.id];
       // Family-derived parts get a higher confidence bar — they're inherited
       // vocabulary, not authored for this specific instrument, so they need
@@ -1749,6 +1838,10 @@ function buildSentence3_instruments(config, trustedTokens) {
       }
     const instName = displayInstrumentName(inst.id);
     if (!instName) continue;
+    for (const record of instRecords) {
+      for (const w of record.words) if (trimmed.includes(w.display)) record.shown.add(w.display);
+      records.push({ record, phrase: phrases.length });
+    }
     if (trimmed.length === 0) {
       phrases.push(instName);
     } else {
@@ -1756,7 +1849,17 @@ function buildSentence3_instruments(config, trustedTokens) {
     }
   }
   if (phrases.length === 0) return null;
-  const collapsed = collapseRepeatedNouns(phrases);
+  const groups =
+    phrases.length < 2
+      ? phrases.map((text, idx) => ({ text, members: [idx] }))
+      : collapseRepeatedNounGroups(phrases);
+  const collapsed = groups.map((g) => g.text);
+  // A collapsed clause still prints every member phrase's words.
+  const ends = clauseEnds(collapsed);
+  for (const { record, phrase } of records) {
+    const at = groups.findIndex((g) => g.members.includes(phrase));
+    if (at >= 0) record.clauseEnd = ends[at];
+  }
   return collapsed.join(', ') + '.';
 }
 
@@ -1983,14 +2086,20 @@ function translate(config, options = {}) {
   const { RECIPE_CHAR_CEILING } = require('./_api_contract.js');
   const ceiling = Math.min(options.ceiling || RECIPE_CHAR_CEILING, RECIPE_CHAR_CEILING);
   const trustedTokens = buildTraditionContextTokens(config);
+  // options.filteredSwaps, when an array, is filled with one entry per swapped
+  // slot (--swap-variant) whose words the returned recipe does not print:
+  // { instrument, part, variant, descriptors }. See swapRecord.
+  const swaps = Array.isArray(options.filteredSwaps) ? [] : null;
   const sentences = [];
   const s1 = buildSentence1(config);
   if (s1) sentences.push(s1);
-  const s2 = buildSentence2_voice(config, trustedTokens);
+  const s2 = buildSentence2_voice(config, trustedTokens, swaps);
+  const voiceAt = s2 ? sentences.length : -1;
   if (s2) sentences.push(s2);
   const s2b = buildSentenceArrangement(config);
   if (s2b) sentences.push(s2b);
-  const s3 = buildSentence3_instruments(config, trustedTokens);
+  const s3 = buildSentence3_instruments(config, trustedTokens, swaps);
+  const instrumentsAt = s3 ? sentences.length : -1;
   if (s3) sentences.push(s3);
   const s4 = buildSentence4_room(config);
   if (s4) sentences.push(s4);
@@ -2016,6 +2125,30 @@ function translate(config, options = {}) {
     const cut = Math.max(body.lastIndexOf(', '), body.lastIndexOf('; '));
     return cut > 0 ? body.slice(0, cut).replace(/[,;:\s]+$/, '') + '.' : null;
   };
+  // The trim only ever drops a sentence's trailing clauses, so a swap's clause
+  // is printed while its sentence still keeps the characters it ends at.
+  // keptOf(j) is how much of sentence j's body the output kept.
+  const disclose = (output, keptOf) => {
+    if (!swaps) return output;
+    for (const r of swaps) {
+      const at = r.sentence === 'voice' ? voiceAt : instrumentsAt;
+      const printed = at >= 0 && r.clauseEnd >= 0 && r.clauseEnd <= keptOf(at);
+      const lost = r.words.filter((w) => !(printed && r.shown.has(w.display)));
+      if (lost.length)
+        options.filteredSwaps.push({
+          instrument: r.instrument,
+          part: r.part,
+          variant: r.variant,
+          descriptors: lost.map((w) => w.descriptor),
+        });
+    }
+    return output;
+  };
+  const bodyLength = (j) => {
+    const sentence = sentences[j];
+    if (sentence === undefined) return 0;
+    return sentence.endsWith('.') ? sentence.length - 1 : sentence.length;
+  };
   let output = sentences.join(' ');
   while (output.length > ceiling && sentences.length > 0) {
     const trimmed = lastClauseCut(sentences[sentences.length - 1]);
@@ -2028,12 +2161,13 @@ function translate(config, options = {}) {
       let s = sentences[0].slice(0, Math.max(0, ceiling - 1));
       const sp = s.lastIndexOf(' ');
       if (sp > 0) s = s.slice(0, sp);
-      output = s.replace(/[,;:\s]+$/, '') + '.';
-      return output;
+      const kept = s.replace(/[,;:\s]+$/, '');
+      output = kept + '.';
+      return disclose(output, (j) => (j === 0 ? kept.length : 0));
     }
     output = sentences.join(' ');
   }
-  return output;
+  return disclose(output, bodyLength);
 }
 
 // === CLI ===

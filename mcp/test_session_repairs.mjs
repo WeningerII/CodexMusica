@@ -175,6 +175,105 @@ test('explicit part descriptors survive before stock descriptors; losses are dis
   assert.match(rich.render_scope.output, /no recording/);
 });
 
+// #671 (R2 6670845696 §4, BB8 6670984213): a pinned descriptor is disclosed
+// only as a whole word inside its OWN card's segment of the rendered recipe.
+const swapOne = (tradition, instrument, part, variant) => {
+  const seeded = startRecipe({ traditions: [tradition] });
+  const card = seeded.cards.find((c) => c.instrument === instrument).card;
+  const { workspace } = editRecipe({
+    workspace: seeded.workspace,
+    edits: [{ action: 'set_variant', card, part, variant }],
+  });
+  return { seeded, card, workspace };
+};
+const pinnedWarnings = (r, card) =>
+  r.render_warnings
+    .filter((w) => w.card === card && w.code.startsWith('PINNED_DESCRIPTORS_'))
+    .map((w) => [w.code, w.descriptors]);
+
+test('#671 a pinned word printed only on another card is not disclosed, in any format', () => {
+  // Each target variant's only descriptor is the BARE token `modern`. R2's
+  // table: 12 renders, of which only celtic rich prints `modern` on the swapped
+  // card itself. Gangsta rich, gangsta tags and celtic tags print it only on
+  // other cards (`electric-bass: modern alder …`) and used to warn nothing.
+  const swaps = [
+    ['gangsta_rap', 'sampler_classic', 'sampler_archetypes', 'mpc_modern'],
+    ['bluegrass', 'acoustic_guitar_dread', 'top_wood', 'sintir_poplar_body'],
+    ['celtic_irish_trad', 'uilleann_pipes', 'uilleann_chanter_wood', 'sintir_poplar_body'],
+  ];
+  const lost = [['PINNED_DESCRIPTORS_NOT_LITERAL', ['modern']]];
+  for (const [tradition, instrument, part, variant] of swaps) {
+    const { card, workspace } = swapOne(tradition, instrument, part, variant);
+    for (const format of ['rich', 'tags', 'prose', 'compact']) {
+      const r = renderRecipe({ workspace, format });
+      const own = tradition === 'celtic_irish_trad' && format === 'rich';
+      if (own)
+        assert.match(r.recipe, /uilleann-pipes: modern /, 'fixture: the word is on the pipes');
+      assert.deepEqual(pinnedWarnings(r, card), own ? [] : lost, `${tradition} ${format}`);
+    }
+  }
+  // The three that were silent really do print `modern`, as a whole word,
+  // somewhere else — so a whole-recipe test, even a whole-word one, passes them.
+  for (const [tradition, format] of [
+    ['gangsta_rap', 'rich'],
+    ['gangsta_rap', 'tags'],
+    ['celtic_irish_trad', 'tags'],
+  ]) {
+    const [, instrument, part, variant] = swaps.find((s) => s[0] === tradition);
+    const { workspace } = swapOne(tradition, instrument, part, variant);
+    assert.match(
+      renderRecipe({ workspace, format }).recipe,
+      /\bmodern\b/,
+      `${tradition} ${format}`
+    );
+  }
+});
+
+test('#671 a pinned word inside a longer word is not disclosed; a hyphenated compound is', () => {
+  // vocal_fry's `low` is printed only inside the voice's own preface
+  // `spoken-flowing`, and nowhere as a word.
+  const fry = swapOne('yacht_rock', 'voice', 'voice_register', 'vocal_fry');
+  const r = renderRecipe({ workspace: fry.workspace });
+  assert.match(r.recipe, /^Yacht rock, spoken-flowing voice: croaky vocal-fry /, 'fixture moved');
+  assert.doesNotMatch(r.recipe, /\blow\b/i, 'fixture: `low` must not be a word anywhere');
+  assert.deepEqual(pinnedWarnings(r, fry.card), [['PINNED_DESCRIPTORS_NOT_LITERAL', ['low']]]);
+  // Control: a hyphen bounds a word, as `\b` does, so a pinned word kept inside
+  // a compound on its own card (`nervy` in `nervy-intensity`) is printed.
+  const vib = swapOne('honky_tonk', 'voice', 'voice_vibrato', 'fast_vibrato');
+  const v = renderRecipe({ workspace: vib.workspace });
+  assert.match(v.recipe, /^Honky-tonk, [a-z-]+ voice: [^,]*\bnervy-intensity\b/, 'fixture moved');
+  assert.ok(
+    !pinnedWarnings(v, vib.card).some(([, ds]) => ds.includes('nervy')),
+    JSON.stringify(v.render_warnings)
+  );
+});
+
+test('#671 a pinned word in a chunk pooled from several cards is named as not attributable', () => {
+  // Rich merges tack-piano and upright-piano into one chunk on the shared
+  // trailing word and pools their descriptors, so `stride` is printed but the
+  // output does not say which piano it describes.
+  const { seeded, card, workspace } = swapOne(
+    'honky_tonk',
+    'tack_piano',
+    'keyboard_technique',
+    'keyboard_stride_left_hand'
+  );
+  const upright = seeded.cards.find((c) => c.instrument === 'upright_piano').card;
+  const r = renderRecipe({ workspace });
+  assert.match(r.recipe, / tack piercing upright piano: stride /, 'fixture moved');
+  assert.deepEqual(pinnedWarnings(r, card), [['PINNED_DESCRIPTORS_NOT_ATTRIBUTABLE', ['stride']]]);
+  const w = r.render_warnings.find((x) => x.code === 'PINNED_DESCRIPTORS_NOT_ATTRIBUTABLE');
+  assert.deepEqual(w.shared_with, [upright]);
+  assert.match(w.meaning, /tack_piano with upright_piano/);
+  assert.match(w.meaning, /Do not claim they survived on this card/);
+  // Tags keeps each piano in its own chunk (and gives explicit parts no trim
+  // priority), so there the word is plainly lost from the card's own chunk.
+  const tags = renderRecipe({ workspace, format: 'tags' });
+  assert.match(tags.recipe, / tack-piano: [^,]*, piercing upright-piano: /, 'fixture moved');
+  assert.doesNotMatch(tags.recipe, /\bstride\b/);
+  assert.deepEqual(pinnedWarnings(tags, card), [['PINNED_DESCRIPTORS_NOT_LITERAL', ['stride']]]);
+});
+
 test('partial authenticated measurement is not labelled as no harness answer', () => {
   const verdict = _verdictInternals.verdictOf({
     code: 2,

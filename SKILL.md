@@ -426,6 +426,16 @@ Notes that bite:
 - `--swap-variant` is `inst:part:variant`; multiple swaps separated by `;`.
   Validate the triple first via `db.partsFor(inst)` (§2) — recipe.js rejects
   unknown part/variant ids with exit 2.
+- A valid swap can still leave some of its words out of the recipe: a BARE genre token is
+  a scoring hint this renderer never prints, the voice sentence keeps one word per part,
+  and the stack cap and length trim cut more. A swap whose only word is such a token
+  leaves stdout byte-identical to the run without it. stdout stays exactly the recipe, and
+  stderr gets one line per card naming what was filtered out of that card's own phrase:
+  ```
+  note: <instrument> card: --swap-variant descriptor(s) filtered out of the recipe: <descriptor>, … (<part>:<variant>)
+  ```
+  Under `--why-json` / `--why-prefaces-json` stderr is JSON, so the note is left out there,
+  as `(N chars)` is.
 - Stapling **order** in `--traditions a,b` sets which tradition leads the
   recipe header and instrument order (matches the app's group-order → output
   behavior). Reorder by reordering the ids.

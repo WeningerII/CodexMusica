@@ -69,7 +69,12 @@ Rich compression prioritizes explicitly pinned part descriptors. Inspect the ret
 `render_warnings` for requested words — part descriptors, prefaces, environment
 settings — absent from the actual output, and `render_scope` for the one shared
 environment and the card it comes from; neither a preface nor a chain description
-establishes a measured audio result.
+establishes a measured audio result. A pinned part descriptor counts as printed only as a
+whole word in its own card's segment of the output: the same word printed on another card,
+or inside a longer word, is `PINNED_DESCRIPTORS_NOT_LITERAL`, and a word printed only in a
+chunk the format pools from several cards (Rich and Prose merge cards that share a label or
+trailing word) is `PINNED_DESCRIPTORS_NOT_ATTRIBUTABLE`, with the other cards in
+`shared_with`. Neither may be reported as a part that survived.
 
 A hosted **Model Context Protocol** server is the headless twin of the browser app — it
 exposes the full *editable* engine as tools. Seed a recipe from any tradition, then edit

@@ -243,6 +243,59 @@ function envLiteral(recipeLower, name) {
   );
 }
 
+// Is a pinned part descriptor printed for ITS card (#671)? It counts only as a
+// whole word inside that card's own segment of the rendered recipe. A word
+// printed on another card describes that card, not the one the user edited: the
+// old whole-recipe substring test called a sampler swap to `modern` disclosed
+// because the bass read `electric-bass: modern alder`, and would have found
+// `modern` inside `postmodern` too.
+//
+// A whole word is bounded as `\b` bounds one, made Unicode-aware: no letter,
+// digit, combining mark or underscore on either side. So `modern` is a word in
+// `uilleann-pipes: modern cane` and in a hyphenated compound such as
+// `modern-alder` (where subsumption folds a pinned word into a longer one, the
+// word is still printed), but not in `postmodern`, and `low` is not in
+// `bellowing`. Case is ignored: compact prints catalog names as named.
+const WORD_EDGE = '[\\p{L}\\p{N}\\p{M}_]';
+function hasWord(text, word) {
+  const w = String(word || '').toLowerCase();
+  if (!text || !w) return false;
+  const esc = w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`(?<!${WORD_EDGE})${esc}(?!${WORD_EDGE})`, 'u').test(
+    String(text).toLowerCase()
+  );
+}
+
+// The span of `recipe` that renders card `index`, from the renderer's own chunk
+// list (renderWorkspace's `trace`, see _traceSegments in _recipe_stack.js), not
+// from re-parsing the string. Returns { printed, own, pooled, sharedWith }; null
+// when the card has no segment (hidden behind `[+N hidden]` or cut off); and
+// undefined when the render kept no per-card layout at all.
+function cardSegment(trace, recipe, index) {
+  if (!trace || !Array.isArray(trace.segments)) return undefined;
+  const seg = trace.segments.find((s) => s.cards.includes(index));
+  if (!seg) return null;
+  const end = Math.min(seg.end, trace.intact ?? recipe.length);
+  return {
+    printed: end > seg.start ? recipe.slice(seg.start, end) : '',
+    own: seg.own ? (seg.own[index] ?? null) : null,
+    pooled: !!seg.pooled,
+    sharedWith: seg.cards.filter((i) => i !== index),
+  };
+}
+
+// 'present' (a whole word in the card's own segment), 'unattributed' (printed,
+// but only where the output cannot say which card it describes: a chunk pooled
+// from several cards, or a render with no per-card layout), or 'absent'.
+function pinnedPlace(segment, recipe, d) {
+  if (segment === undefined) return hasWord(recipe, d) ? 'unattributed' : 'absent';
+  if (!segment || !hasWord(segment.printed, d)) return 'absent';
+  // A tags chunk that merged on a shared suffix prints each member's own words;
+  // the word has to be one of this card's.
+  if (segment.own != null && !hasWord(segment.own, d)) return 'absent';
+  return segment.pooled ? 'unattributed' : 'present';
+}
+
 // Report every field an edit action can write — parts, room, tuning, each chain
 // stage, and the preface. Covering parts alone would make the summary look
 // authoritative while still hiding the result of set_environment, which is a
@@ -355,7 +408,10 @@ function shape(ws, params = {}, meta = {}) {
   // RECIPE_CHAR_CEILING is the canonical Current-Recipe cap; clamp defensively
   // so a direct engine call (bypassing the tool-schema max) can't exceed it.
   const ceiling = Math.min(params.max_chars || RECIPE_CHAR_CEILING, RECIPE_CHAR_CEILING);
-  const recipe = W.render(ws, { format, ceiling });
+  // `trace` comes back holding which span of `recipe` renders which card, read
+  // off the chunk list the renderer joined (it never changes the string).
+  const trace = {};
+  const recipe = W.render(ws, { format, ceiling, trace });
   const out = {
     recipe,
     recipe_chars: recipe.length,
@@ -377,10 +433,14 @@ function shape(ws, params = {}, meta = {}) {
       'Text recipe only; no recording, mix, stereo placement or listening test was performed.',
   };
   out.render_warnings = [];
-  for (const card of ws.cards) {
+  for (const [index, card] of ws.cards.entries()) {
     const parts = Object.fromEntries((card.pinnedParts || []).map((id) => [id, card.parts[id]]));
     const instrument = buildStackParts({ ...card, parts }).find((p) => p.kind === 'instrument');
-    const missing = (instrument?.descriptors || []).filter((d) => !recipe.includes(d));
+    const pinned = instrument?.descriptors || [];
+    const segment = pinned.length ? cardSegment(trace, recipe, index) : null;
+    const place = (d) => pinnedPlace(segment, recipe, d);
+    const missing = pinned.filter((d) => place(d) === 'absent');
+    const unattributed = pinned.filter((d) => place(d) === 'unattributed');
     if (missing.length)
       out.render_warnings.push({
         card: card.id,
@@ -388,8 +448,24 @@ function shape(ws, params = {}, meta = {}) {
         code: 'PINNED_DESCRIPTORS_NOT_LITERAL',
         descriptors: missing,
         meaning:
-          'Explicit part descriptors are absent literally from this output; compression or subsumption may remove them. Do not claim they survived.',
+          "Explicit part descriptors are absent, as whole words, from this card's own segment of this output; compression may have trimmed them, and the same word printed on another card or in the header does not count. Do not claim they survived.",
       });
+    if (unattributed.length) {
+      const others = (segment?.sharedWith || []).map((i) => ws.cards[i]);
+      const pool = others.length
+        ? `${cardLabel(ws.cards, card)} with ${others.map((c) => cardLabel(ws.cards, c)).join(', ')}`
+        : `${cardLabel(ws.cards, card)} with the recording environment`;
+      out.render_warnings.push({
+        card: card.id,
+        instrument: card.instrumentId,
+        code: 'PINNED_DESCRIPTORS_NOT_ATTRIBUTABLE',
+        descriptors: unattributed,
+        ...(segment ? { shared_with: others.map((c) => c.id) } : {}),
+        meaning: segment
+          ? `These explicit part descriptors are printed, but only in one segment this format pools from several sources (${pool}), so the output does not say which card they describe. Do not claim they survived on this card.`
+          : 'These explicit part descriptors are printed, but this output keeps no per-card segments, so it does not say which card they describe. Do not claim they survived on this card.',
+      });
+    }
     if (card.prefaceAuto === false && card.preface && !recipe.includes(card.preface))
       out.render_warnings.push({
         card: card.id,

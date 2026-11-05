@@ -212,18 +212,36 @@ function recipeHeaderFromCards(cards) {
 // Render a workspace (array of cards) to the recipe string. Default format
 // 'rich' = the app's "Current Recipe". Header + body within `ceiling`, prefaces
 // auto-assigned (deduped) unless a card's preface is pinned (prefaceAuto === false).
-function renderWorkspace(cards, { format = 'rich', ceiling } = {}) {
-  if (!cards || cards.length === 0) return '';
+//
+// `trace`, when given an object, is filled with which span of the returned
+// string renders which card (indexes into `cards`), offsets already past the
+// header: see _traceSegments in _recipe_stack.js. The connector's
+// render_warnings reads it (#671); the string is the same with or without it.
+function renderWorkspace(cards, { format = 'rich', ceiling, trace } = {}) {
+  const none = (out) => {
+    if (trace) Object.assign(trace, { segments: [], intact: out.length });
+    return out;
+  };
+  if (!cards || cards.length === 0) return none('');
   assignDedupedPrefaces(cards);
   // Hard recipe ceiling (RECIPE_CHAR_CEILING): clamp the total budget before
   // the header is subtracted so header+body can never exceed the cap.
   const { RECIPE_CHAR_CEILING } = require('./_api_contract.js');
   const cap = Math.min(ceiling || RECIPE_CHAR_CEILING, RECIPE_CHAR_CEILING);
   const header = recipeHeaderFromCards(cards);
-  if (header.length >= cap) return header.slice(0, Math.max(0, cap - 1)) + '…';
-  const body = compileStack(cards, format, Math.max(1, cap - header.length));
+  if (header.length >= cap) return none(header.slice(0, Math.max(0, cap - 1)) + '…');
+  const body = compileStack(cards, format, Math.max(1, cap - header.length), trace);
   const rendered = header + body;
-  return rendered.length <= cap ? rendered : rendered.slice(0, Math.max(0, cap - 1)) + '…';
+  if (trace) {
+    for (const seg of trace.segments) {
+      seg.start += header.length;
+      seg.end += header.length;
+    }
+    trace.intact += header.length;
+  }
+  if (rendered.length <= cap) return rendered;
+  if (trace) trace.intact = Math.min(trace.intact, Math.max(0, cap - 1));
+  return rendered.slice(0, Math.max(0, cap - 1)) + '…';
 }
 
 // Only what another module actually imports. recipeHeaderFromCards,

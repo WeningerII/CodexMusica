@@ -6,6 +6,28 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Fixed — a pinned descriptor is disclosed only on its own card; a filtered CLI swap says so (#671)
+
+`render_warnings` decided whether a pinned part descriptor survived with a whole-recipe
+substring test, so a sampler swapped to `mpc_modern` (whose only word is `modern`) counted
+as disclosed because the bass printed `electric-bass: modern alder …`, and `postmodern`
+would have counted too. Gangsta rap Rich and Tags and Irish trad session Tags were silent.
+
+- **Own segment, whole word.** Each compressor in `scripts/_recipe_stack.js` can now report
+  which span of its output renders which card, read off the chunk list it joined
+  (`renderWorkspace(cards, { trace })`); the connector checks a pinned descriptor as a
+  whole word inside that card's span only. Absent there is `PINNED_DESCRIPTORS_NOT_LITERAL`,
+  whatever another card prints.
+- **`PINNED_DESCRIPTORS_NOT_ATTRIBUTABLE`** (new): the word is printed, but only in a chunk
+  Rich or Prose pooled from several cards (they merge cards that share a label or trailing
+  word), so the output cannot say which card it describes; `shared_with` names the others.
+- **CLI.** `recipe.js --swap-variant` keeps stdout exactly as rendered and prints one
+  stderr line per card naming the swapped descriptors its phrase does not print
+  (`note: sampler_classic card: --swap-variant descriptor(s) filtered out of the recipe:
+  modern (sampler_archetypes:mpc_modern)`).
+- **No recipe byte moves.** `check_app_parity.js` stays 7755/7755 in all four formats, and
+  `regression_recipes.js` 1149/1149.
+
 ### Changed — the lyrics runtime and session workflow documents state current rules; their history moves to an engineering log
 
 `mcp/LYRICS_RUNTIME.md` and `docs/session-workflow-repairs.md` keep their paths and state
