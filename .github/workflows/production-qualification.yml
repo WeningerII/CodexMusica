@@ -434,6 +434,14 @@ jobs:
           CAPACITY_RESULT: ${{ needs.capacity-proof-result.result }}
           MATRIX_RESULT: ${{ needs.capacity-matrix-result.result }}
         run: test "$RESULT" = success && test "$CAPACITY_RESULT" = success && test "$MATRIX_RESULT" = success
+      # RE-RUN ALL JOBS, NEVER "RE-RUN FAILED JOBS". Every artifact this
+      # workflow hands on is keyed by `github.run_attempt`: each component's
+      # evidence, the capacity proof and this aggregate's download pattern. A
+      # failed-jobs-only re-run starts a new attempt in which the jobs that
+      # already passed do not run again, so their evidence keeps the old attempt
+      # number, this pattern misses it, and the coverage check below refuses.
+      # No qualification then exists for the deploy. One full re-run per
+      # failure; #685's attempt 2 is the case on record (#665 6594264704).
       - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
           pattern: qualification-*-${{ github.run_attempt }}
