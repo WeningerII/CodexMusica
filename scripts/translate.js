@@ -920,11 +920,14 @@ function isTrustedTechnique(desc) {
 // near-pathognomonic of a specific genre family. Most iconic descriptors
 // (chicken-scratch, palm-muted, bottleneck, fingerpicked) are technique
 // vocabulary that legitimately reads across many traditions and stay bypassed.
+//
+// Descriptors are split on hyphens and spaces before this check (`dTokens`
+// below), so a hyphenated signature never arrives as one token. Those live in
+// GENRE_BOUND_ICONIC_PHRASES and match only as consecutive tokens. Listing
+// their parts here instead (`four`, `on`, `floor`) bound every descriptor that
+// merely contained one of those words: an orchestral viola's "four layer
+// system" was dropped as if it were disco (#671, Jony's pass 2).
 const GENRE_BOUND_ICONIC_TOKENS = new Set([
-  'four-on-floor',
-  'four',
-  'on',
-  'floor', // disco/house signature beat (also caught as split tokens)
   'breakbeat', // jungle/dnb signature
   'rave',
   'gabber',
@@ -933,11 +936,25 @@ const GENRE_BOUND_ICONIC_TOKENS = new Set([
   'drill', // hip-hop subgenre identifiers
   'reggaeton',
   'dembow', // reggaeton signature
-  'twostep',
-  'two-step', // UK garage
+  'twostep', // UK garage, written as one word
   'gqom', // South African gqom
   'cumbia', // Latin-genre identifiers (when iconic-bound)
 ]);
+const GENRE_BOUND_ICONIC_PHRASES = [
+  ['four', 'on', 'floor'], // disco/house signature beat ("four-on-floor")
+  ['four', 'on', 'the', 'floor'], // the same beat as the catalog usually spells it
+  ['four', 'to', 'the', 'floor'], // and as it also spells it
+  ['two', 'step'], // UK garage ("two-step")
+];
+
+// True when the descriptor's tokens carry a genre-bound signature: one of the
+// single tokens, or one of the phrases as consecutive tokens.
+function hasGenreBoundIconic(dTokens) {
+  if (dTokens.some((t) => GENRE_BOUND_ICONIC_TOKENS.has(t))) return true;
+  return GENRE_BOUND_ICONIC_PHRASES.some((phrase) =>
+    dTokens.some((_, i) => phrase.every((w, j) => dTokens[i + j] === w))
+  );
+}
 
 // Generic stem tokens that appear in many variant ids and parent paths but carry
 // no genre information. When checking whether a variant id is "directly grounded"
@@ -1628,7 +1645,7 @@ function buildSentence3_instruments(config, trustedTokens) {
         if (isTrustedTechnique(stripped)) {
           // bypass — technique vocabulary is tradition-agnostic
         } else if (iconicMatch) {
-          const isGenreBoundIconic = dTokens.some((t) => GENRE_BOUND_ICONIC_TOKENS.has(t));
+          const isGenreBoundIconic = hasGenreBoundIconic(dTokens);
           if (isGenreBoundIconic) {
             const direct = trustedTokens && trustedTokens.direct;
             if (direct && direct.size > 0) {
@@ -2070,4 +2087,4 @@ if (require.main === module) {
   console.error(`(${out.length} chars)`);
 }
 
-module.exports = { translate };
+module.exports = { translate, hasGenreBoundIconic };
