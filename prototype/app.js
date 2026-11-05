@@ -319,10 +319,13 @@ discovery.results.subscribe((r) => {
 discovery.setFocusCount(() => countLine.focus());
 // clear's last resort (#668 6665493327 B): the Categories lane's toggle.
 discovery.setFocusToggle(() => focusDisclosureToggle());
-// Below production's discovery breakpoint (900px of the panel) Categories and
-// Find a sound sit behind the Categories lane's disclosure: that lane hides
-// its own list, and the shell hides Find a sound until it is open.
-const NARROW = 900;
+// Below production's discovery breakpoint, Categories and Find a sound sit
+// behind the Categories lane's disclosure: that lane hides its own list, and
+// the shell hides Find a sound until it is open. Production's rule is
+// `@container discovery (max-width: 720px)` (src/pages/genre.css, on
+// #discovery); the 900px in genre.js's comments is stale (#668 6665850534).
+// The panel stands in for #discovery, and max-width is inclusive.
+const NARROW = 720;
 // The Find a sound host's id, which the Categories toggle names in its
 // aria-controls beside its own list's id (#668 6665716865).
 const TARGETS_HOST_ID = 'proto-genre-targets';
@@ -345,7 +348,7 @@ const syncDisclosure = () => {
 };
 discovery.discovery.subscribe(syncDisclosure);
 new ResizeObserver(() => {
-  discovery.setNarrow(genrePanel.clientWidth > 0 && genrePanel.clientWidth < NARROW);
+  discovery.setNarrow(genrePanel.clientWidth > 0 && genrePanel.clientWidth <= NARROW);
   syncDisclosure();
 }).observe(genrePanel);
 // Escape is the page's, as production's genre escape(): it closes the open

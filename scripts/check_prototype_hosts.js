@@ -2053,6 +2053,27 @@ async function discoveryChecks(browser, srv) {
       `discovery: match opened ${beh.matched}, best ${beh.best}`
     );
   }
+  // The breakpoint is production's @container discovery (max-width: 720px).
+  const widths = [];
+  for (const w of [700, 760, 1000]) {
+    await page.setViewportSize({ width: w, height: 900 });
+    await page.waitForTimeout(150);
+    widths.push(
+      await page.evaluate(() => {
+        const panel = document.querySelector('[data-panel="genre"]');
+        return {
+          width: panel.clientWidth,
+          narrow: window.__probeCtx.genretargets.discovery.current().narrow,
+        };
+      })
+    );
+  }
+  expect(
+    widths.every((x) => x.narrow === x.width <= 720) &&
+      widths.some((x) => x.narrow) &&
+      widths.some((x) => !x.narrow),
+    `discovery: narrow is not production's 720px rule at ${JSON.stringify(widths)}`
+  );
   // Narrow: Find a sound waits behind the disclosure until it opens.
   await page.setViewportSize({ width: 600, height: 900 });
   await page
