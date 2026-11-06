@@ -44,7 +44,11 @@ it, so repeating the edit without `card` ends the warning. Each card records wha
 `set_environment` wrote on it (`envWritten`, inside the workspace you thread), so a
 tradition's stock settings and a room a `set_preface` re-derived never count, and a
 workspace without the record has nothing written, so it gets no `ENVIRONMENT_MOVED` or
-`ENVIRONMENT_OVERWRITTEN` for those settings either. A pinned descriptor
+`ENVIRONMENT_OVERWRITTEN` for those settings either. The record holds only environment
+fields and the catalog ids written under them; anything else sent back in it is dropped.
+Where a warning or `render_scope` says a card's preface is auto-derived, that is a card
+whose `preface_locked` is false in the response's `cards`: its preface word is worked out
+from its settings, so a setting written there can still shape it. A pinned descriptor
 counts only as a whole word in its own card's segment (`PINNED_DESCRIPTORS_NOT_LITERAL`
 otherwise, even when another card prints it). In a Rich or Prose chunk that merges cards on
 a trailing word, a card's own words are its head words (its preface, then its inner label),
