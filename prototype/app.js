@@ -7,7 +7,7 @@
 // (../api/). There is no call to the connector, /chat or any model provider.
 
 import { read, write, scope } from './storage.js';
-import { createHost, createOnDemand, announce } from './host.js';
+import { createHost, createOnDemand, announce, untilAborted } from './host.js';
 import {
   loadItems,
   loadLibrary,
@@ -316,14 +316,20 @@ const MORE = {
       // As for the discovery lanes: the store's load also fails on the
       // engine's page parse, which no connection fixes.
       retryHint: 'Try again.',
-      context: async () => {
+      // Its genre and recipe listeners end with the mount (the host's
+      // signal), whatever the lane keeps.
+      context: async ({ signal }) => {
         await recipe.start();
         if (recipe.status() !== 'ready') throw new Error('not ready');
+        const port = recipe.port(['addEnsemble', 'addInstrument', 'snapshot', 'subscribe']);
         return {
-          genre: Object.freeze({ current: genre.current, subscribe: genre.subscribe }),
+          genre: Object.freeze({
+            current: genre.current,
+            subscribe: untilAborted(genre.subscribe, signal),
+          }),
           loadGenreInstruments,
           openInstrument,
-          recipe: recipe.port(['addEnsemble', 'addInstrument', 'snapshot', 'subscribe']),
+          recipe: Object.freeze({ ...port, subscribe: untilAborted(port.subscribe, signal) }),
         };
       },
     },

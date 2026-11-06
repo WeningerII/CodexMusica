@@ -2274,7 +2274,12 @@ const DEMAND_MUTANTS = {
   },
   'no stop after the ctx loads': {
     check: 'overtaken while its ctx loads',
-    edits: [['if (host !== node) return; // unmounted while its ctx loaded', '']],
+    edits: [
+      [
+        '    if (host !== node) {\n      mine.abort();\n      return; // unmounted while its ctx loaded\n    }\n',
+        '',
+      ],
+    ],
   },
   'an overtaken open goes on': {
     check: 'stops when overtaken',
@@ -3226,6 +3231,19 @@ const SERVED = {
   load: '/prototype/engine/load.js',
   data: '/prototype/data.js',
   app: '/prototype/app.js',
+  host: '/prototype/host.js',
+};
+// Before any page script: every AbortController the page makes, so a check
+// can abort a mount's signal as its host's unmount would.
+const KEEP_CONTROLLERS = () => {
+  const Real = window.AbortController;
+  const made = (window.__controllers = []);
+  window.AbortController = class extends Real {
+    constructor() {
+      super();
+      made.push(this);
+    }
+  };
 };
 function plantIn(text, edits) {
   let src = text;
@@ -3382,8 +3400,8 @@ const inPage = (page, body, arg) =>
 
 // A fresh page for one check: the prototype at `hash`, with the store (and
 // load.js) served as given, and the check's own routes.
-async function storePage(browser, srv, { served = {}, routes = {}, permissions, fail } = {}) {
-  const { context, page, errors, override, failing } = await newPage(browser, srv, { fail });
+async function storePage(browser, srv, { served = {}, routes = {}, permissions, fail, init } = {}) {
+  const { context, page, errors, override, failing } = await newPage(browser, srv, { fail, init });
   await context.addInitScript(SAID);
   for (const [p, r] of Object.entries(rowOverrides())) override.set(p, r);
   if (permissions) await context.grantPermissions(permissions, { origin: srv.url });
@@ -5595,6 +5613,139 @@ const STORE_CHECKS = {
         JSON.stringify(g)
       ),
   },
+  // 37. A lane's listeners end with its mount, whatever the lane keeps
+  // (#770's mount returns a bare function and never unsubscribes): Genre
+  // Instruments' recipe and genre listeners stop at its signal's abort, as
+  // the host's unmount aborts it, and one added after the abort is never
+  // added. The host gives context() that same signal before the lane has a
+  // ctx, and aborts it when the context fails or the host is unmounted
+  // while it loads.
+  released: {
+    opts: { hash: '#genre', init: { fn: KEEP_CONTROLLERS } },
+    run: async (page) => {
+      await waitMounted(page, 'genreinstruments');
+      return inPage(page, async (S) => {
+        const { R } = await S.boot();
+        const sel = await import('/prototype/selection.js');
+        const ctx = window.__probeCtx.genreinstruments;
+        const mine = window.__controllers.find((c) => c.signal === ctx.signal);
+        const heard = { recipe: 0, genre: 0 };
+        const offRecipe = ctx.recipe.subscribe(() => heard.recipe++);
+        ctx.genre.subscribe(() => heard.genre++);
+        const change = async (g) => {
+          await R.addInstrument({
+            instrumentId: 'udu',
+            destination: null,
+            revision: R.snapshot().revision,
+          });
+          sel.genre.set(g);
+          await S.settle();
+        };
+        await change('bluegrass');
+        const live = { ...heard };
+        let own = 0;
+        const off = ctx.recipe.subscribe(() => own++);
+        const offs = [off(), off()];
+        if (mine) mine.abort();
+        await change('afrobeat');
+        const after = { ...heard };
+        let late = 0;
+        const offLate = ctx.recipe.subscribe(() => late++);
+        ctx.genre.subscribe(() => late++);
+        await change('gagaku');
+        let threw = false;
+        try {
+          ctx.recipe.subscribe('not a function');
+        } catch (e) {
+          threw = e instanceof TypeError;
+        }
+        // The host's side, with fixture lanes: a context overtaken while it
+        // loads, one that fails, and one that mounts.
+        const { createHost } = await import('/prototype/host.js');
+        const panel = document.createElement('section');
+        panel.innerHTML = '<h1>Probe</h1>';
+        document.body.append(panel);
+        const url = URL.createObjectURL(
+          new Blob(
+            [
+              'export function mount(h, ctx) { (window.__fixtureCtx = window.__fixtureCtx || []).push(ctx); return { unmount() {}, focus() {} }; }',
+            ],
+            { type: 'text/javascript' }
+          )
+        );
+        const given = [];
+        const lane = (id, context) => ({
+          id,
+          label: id,
+          load: () => import(url),
+          unloaded: 'x',
+          context: (a) => {
+            given.push(a && a.signal);
+            return context();
+          },
+        });
+        let release;
+        const slow = createHost(
+          lane('slowctx', () => new Promise((r) => (release = r))),
+          panel
+        );
+        const showing = slow.show();
+        await S.tick(50);
+        slow.unmount();
+        release({});
+        await showing;
+        await createHost(
+          lane('failctx', () => Promise.reject(new Error('gate: a ctx that fails'))),
+          panel
+        ).show();
+        const ok = createHost(
+          lane('okctx', async () => ({})),
+          panel
+        );
+        await ok.show();
+        const mounted = (window.__fixtureCtx || [])[0];
+        const host = {
+          signals: given.map((x) => !!x && typeof x.aborted === 'boolean'),
+          aborted: given.map((x) => !!x && x.aborted),
+          same: !!mounted && mounted.signal === given[2],
+        };
+        ok.unmount();
+        host.unmounted = !!given[2] && given[2].aborted;
+        return {
+          found: !!mine,
+          live,
+          after,
+          final: { ...heard },
+          own,
+          offs,
+          late,
+          types: [typeof offRecipe, typeof offLate],
+          threw,
+          host,
+        };
+      });
+    },
+    verdict: (g) =>
+      why(
+        g.found &&
+          g.live.recipe >= 1 &&
+          g.live.genre === 1 &&
+          same(g.after, g.live) &&
+          same(g.final, g.live) &&
+          g.own === 0 &&
+          same(g.offs, [undefined, undefined]) &&
+          g.late === 0 &&
+          same(g.types, ['function', 'function']) &&
+          g.threw &&
+          same(g.host, {
+            signals: [true, true, true],
+            aborted: [true, true, false],
+            same: true,
+            unmounted: true,
+          }),
+        JSON.stringify(g)
+      ),
+  },
 };
 
 // One planted defect (at least) for every check: text edits to
@@ -5940,9 +6091,61 @@ const APP_MUTANTS = {
       ],
     ],
   },
+  'the genre instruments recipe view outlives its mount': {
+    check: 'released',
+    edits: [
+      [
+        '          recipe: Object.freeze({ ...port, subscribe: untilAborted(port.subscribe, signal) }),',
+        '          recipe: port,',
+      ],
+    ],
+  },
+  'the genre instruments genre selection outlives its mount': {
+    check: 'released',
+    edits: [
+      [
+        '            subscribe: untilAborted(genre.subscribe, signal),',
+        '            subscribe: genre.subscribe,',
+      ],
+    ],
+  },
   'openInstrument without the route': {
     check: 'genreHost',
     edits: [["  if (routeFromHash() !== 'instrument') location.hash = '#instrument';\n", '']],
+  },
+};
+
+const HOST_SHELL_MUTANTS = {
+  'a context given another signal than its mount': {
+    check: 'released',
+    edits: [
+      [
+        'extra = (await lane.context({ signal: mine.signal })) || {};',
+        'extra = (await lane.context({ signal: new AbortController().signal })) || {};',
+      ],
+    ],
+  },
+  'a failed context keeps its signal': {
+    check: 'released',
+    edits: [
+      [
+        '    } catch {\n      mine.abort();\n      if (host !== node) return;',
+        '    } catch {\n      if (host !== node) return;',
+      ],
+    ],
+  },
+  'an overtaken context keeps its signal': {
+    check: 'released',
+    edits: [
+      [
+        '    if (host !== node) {\n      mine.abort();\n      return;',
+        '    if (host !== node) {\n      return;',
+      ],
+    ],
+  },
+  'a listener kept after the abort': {
+    check: 'released',
+    edits: [["    signal.addEventListener('abort', end, { once: true });\n", '']],
   },
 };
 
@@ -5960,6 +6163,7 @@ async function storeRun(browser, srv, name, prod, served = {}) {
       routes: opts.routes,
       permissions: opts.permissions,
       fail: opts.fail,
+      init: opts.init,
     });
     x.urls = [];
     x.page.on('request', (r) => x.urls.push(new URL(r.url()).pathname));
@@ -6048,6 +6252,12 @@ async function recipeChecks(browser, srv) {
     ...Object.entries(LOAD_MUTANTS).map(([m, d]) => ({ m, ...d, file: 'load', text: LOAD_JS })),
     ...Object.entries(DATA_MUTANTS).map(([m, d]) => ({ m, ...d, file: 'data', text: DATA_JS })),
     ...Object.entries(APP_MUTANTS).map(([m, d]) => ({ m, ...d, file: 'app', text: APP_JS })),
+    ...Object.entries(HOST_SHELL_MUTANTS).map(([m, d]) => ({
+      m,
+      ...d,
+      file: 'host',
+      text: HOST_JS,
+    })),
   ];
   expect(
     new Set(mutants.map((x) => x.m)).size === mutants.length,

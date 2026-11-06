@@ -36,6 +36,28 @@ export function announce(text) {
   region.textContent = String(text);
 }
 
+// A subscribe whose listeners end with a mount: given the signal the host
+// passed a lane's context(), each listener is removed when that signal
+// aborts, or when its own unsubscribe runs, so a lane that keeps a listener
+// past its unmount stops hearing at the abort. One added after the abort is
+// never added.
+export function untilAborted(subscribe, signal) {
+  return (fn) => {
+    if (typeof fn !== 'function') throw new TypeError('subscribe needs a function');
+    if (signal.aborted) return () => {};
+    const off = subscribe(fn);
+    let on = true;
+    const end = () => {
+      if (!on) return;
+      on = false;
+      signal.removeEventListener('abort', end);
+      off();
+    };
+    signal.addEventListener('abort', end, { once: true });
+    return end;
+  };
+}
+
 // What the person sees in the panel while a lane loads, or instead of it when
 // it can't be shown: one sentence, standing in for the placeholder so the
 // panel doesn't say the same thing twice. The shell keeps working. With
@@ -110,12 +132,17 @@ export function createHost(lane, panel) {
 
   // The lane's ctx, then mount. `again` is a Retry: focus follows the person,
   // into the lane when it mounts, or back to Retry when it fails again.
+  // context({ signal }) gets this mount's signal before the lane has a ctx,
+  // so what the shell hands the lane can end with the mount (untilAborted);
+  // an attempt that fails, or is overtaken, mounts nothing and aborts it.
   async function attach(mod, again) {
     const node = host;
+    const mine = new AbortController();
     let extra;
     try {
-      extra = (await lane.context()) || {};
+      extra = (await lane.context({ signal: mine.signal })) || {};
     } catch {
+      mine.abort();
       if (host !== node) return;
       state = 'unavailable';
       const sentence = `${lane.unloaded} ${lane.retryHint || RETRY_HINT}`;
@@ -131,9 +158,11 @@ export function createHost(lane, panel) {
       }
       return;
     }
-    if (host !== node) return; // unmounted while its ctx loaded
+    if (host !== node) {
+      mine.abort();
+      return; // unmounted while its ctx loaded
+    }
     host.replaceChildren(); // the lane receives an empty host
-    const mine = new AbortController();
     controller = mine;
     // This mount's close, for a closable lane only: once, and never a later
     // mount's.
