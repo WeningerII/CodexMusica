@@ -27,7 +27,10 @@ what a `set_environment` wrote on it, inside the workspace, and the warnings rea
   there settles that effect only, since the list holds several): the caller has then
   chosen what renders, so repeating the edit without `card`, as the warning advises, ends
   it, and a later choice of the recording's room is not met with advice to copy the older
-  one over it. A workspace without the record (an older session or client) has nothing
+  one over it. `scripts/check_env_advice.mjs` (`npm run test:connector:advice`) follows
+  the advice in every tradition with a second card, for a room, a tuning, a chain stage
+  and an effect, both written on the wrong card and left behind when another card takes
+  the environment: none still warns. A workspace without the record (an older session or client) has nothing
   written, so it stays silent until a new `set_environment` writes, and that write warns on
   its edit as before. The record keeps only catalog ids of each field, so a long list sent
   back in it costs a render nothing. The warning stands while the card still holds the
