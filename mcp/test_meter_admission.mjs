@@ -270,9 +270,15 @@ const RAW_PATHS = {
 // The id a refusal names for the one line of each path: the normalised
 // sung-line index, except lyric_recover, whose source reader numbers its sung
 // lines after setting apparatus rows aside, so its refusal names the row of
-// the pasted text.
+// the pasted text; and the blueprint, whose stored text meets no per-line cap
+// (BB8's ruling on #827), so a declaration on that text is refused as a
+// declared line, by its pronunciation.
 const LINE_ID = (path) =>
-  path === 'recover lines_text' ? 'The line at row 1 of the pasted text' : 'L001 of `[^`]+`';
+  path === 'recover lines_text'
+    ? 'The line at row 1 of the pasted text'
+    : path === 'blueprint'
+      ? 'The line "[^"]+", which P001 declares readings for,'
+      : 'L001 of `[^`]+`';
 const AT_REQUEST_FOR = (path) => (path === 'blueprint' ? AT_REQUEST_BESIDE_DRAFT : AT_REQUEST);
 // The array paths cannot carry more than MAX_LINES items or a 201-character
 // item: the published schema refuses them before any handler. Their raw-row
@@ -357,8 +363,9 @@ test('every raw path: at the cap admitted, one over refused with RESOURCE_LIMIT 
         admitted(await call(path, AT_REQUEST_FOR(path)), path, 'request at cap');
         const overRequest = await call(path, OVER_REQUEST, OVER_REQUEST_DECL);
         if (path === 'blueprint') {
-          // A blueprint's stored text is never recognised (BB8 ruling 2): it
-          // meets the row and per-line caps above, and stays out of the total.
+          // A blueprint's stored text is never recognised (BB8 ruling 2 and
+          // his ruling on #827): it meets the raw-row cap above, and stays
+          // out of the per-line cap and the total.
           admitted(overRequest, path, 'blueprint past the request total');
           assert.equal(overRequest.queued, 1, overRequest.text);
         } else refused(overRequest, 'meter_request_digits', path, 'request over');
@@ -418,6 +425,19 @@ test('one decision rule: a line whose bound is over the cap but whose count is n
           text,
           new RegExp(
             `RESOURCE_LIMIT: meter_line_digits — The line at row 1 of the pasted text .*? could reach ${boundOnly} `
+          ),
+          text
+        );
+        assert.equal(r.isError, true);
+        continue;
+      }
+      if (path === 'blueprint') {
+        // The same bound; the blueprint's text is not measured, so the
+        // declaration is refused as a declared line (see LINE_ID).
+        assert.match(
+          text,
+          new RegExp(
+            `RESOURCE_LIMIT: meter_line_digits — ${LINE_ID(path)} .*? could reach ${boundOnly} `
           ),
           text
         );
@@ -613,11 +633,29 @@ test('lyric_recover: rows are measured as the source reader is handed them, and 
   const ph = (t, line) => decl(line, 128, t, 'a');
   const sung = 'a a a';
   // Apparatus rows before the line: the refusal names row 3, not an L id the
-  // source reader (which sets those rows aside) would not give.
+  // source reader (which sets those rows aside) would not give. Sent as a
+  // `lines` array, the row is the item's position (blank items included);
+  // sent as `lines_text`, it is the row of the paste as pasted.
   assert.throws(
     () =>
       admitLyricCall('lyric_recover', {
-        lines: ['# credits', '---', sung],
+        lines: ['# credits', '', sung],
+        pronunciations: [1, 2, 3].map((t) => ph(t, sung)),
+      }),
+    /meter_line_digits — The line at row 3 of `lines` \(the row is the item's position in the array, counted from 1 with blank items included\) could reach 384 /
+  );
+  assert.throws(
+    () =>
+      admitLyricCall('lyric_recover', {
+        lines: ['# credits', '', sung],
+        pronunciations: [1, 2, 3].map((t) => ph(t, sung)),
+      }),
+    (e) => !/pasted text/.test(e.message) && e.detail.line === 'row 3' && e.detail.set === 'lines'
+  );
+  assert.throws(
+    () =>
+      admitLyricCall('lyric_recover', {
+        lines_text: '# credits\n\n' + sung + '\n',
         pronunciations: [1, 2, 3].map((t) => ph(t, sung)),
       }),
     /meter_line_digits — The line at row 3 of the pasted text \(rows are counted from the top, including headings and blank rows, so you can find it as pasted\) could reach 384 /
@@ -779,6 +817,41 @@ test('lyric_recover handler: 463 rows with a final break reach the verb, the fil
   }
 });
 
+test("a blueprint's line text meets no per-line cap (BB8, #827): the same text as a draft line is refused", () => {
+  // Over the per-line bound with no declaration at all: 250 characters.
+  const LONG = 'a'.repeat(250);
+  assert(lineDigitBound(LONG).bound > METER_LINE_DIGITS_CAP);
+  const measured = admitLyricCall('lyric_check', {
+    lines: [DRAFT_LINE],
+    scheme: 'X',
+    blueprint: blueprintOf([LONG]),
+  });
+  const bp = measured.find((m) => m.name === 'blueprint.lines');
+  assert.equal(bp.unrecognised, true);
+  assert.equal(bp.outside_total, true);
+  assert.equal(bp.lines[0].text, LONG);
+  // The same text as a draft line is refused, by the per-line cap.
+  assert.throws(
+    () => admitLyricCall('lyric_check', { lines_text: LONG, scheme: 'X' }),
+    (e) => e.cause === 'meter_line_digits' && /L001 of `lines_text`/.test(e.message)
+  );
+  assert.throws(
+    () =>
+      admitLyricCall('lyric_check', { lines: [LONG], scheme: 'X', blueprint: blueprintOf([LONG]) }),
+    (e) => e.cause === 'meter_line_digits' && e.detail.set === 'lines'
+  );
+  // The blueprint still meets the raw-row cap.
+  assert.throws(
+    () =>
+      admitLyricCall('lyric_check', {
+        lines: [DRAFT_LINE],
+        scheme: 'X',
+        blueprint: blueprintOf(Array(RAW_ROWS_CAP + 1).fill('')),
+      }),
+    (e) => e.cause === 'raw_rows' && e.detail.set === 'blueprint.lines'
+  );
+});
+
 test('one total per request: the draft once, every other song the response recognises added', async () => {
   const cause = (args, tool) => {
     try {
@@ -822,7 +895,9 @@ test('one total per request: the draft once, every other song the response recog
       await close();
     }
   }
-  // The blueprint still meets the per-line cap.
+  // A declaration on a blueprint's text is still a declared line: an answer
+  // or a source reading could make that text sung, so the declaration meets
+  // the per-line cap (the blueprint's own text does not; see the next test).
   assert.equal(
     cause(
       { lines: [DRAFT_LINE], blueprint: blueprintOf([WITNESS]), pronunciations: OVER_LINE },

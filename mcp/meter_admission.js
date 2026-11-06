@@ -68,7 +68,8 @@
 // `before` and `after` and lyric_recover's rows, summed. A blueprint's stored
 // line texts are NOT in it: every lyric tool fits the draft's own lines to the
 // blueprint's placements and never reads that text (only the CLI `fit` verb
-// does), so they meet the row and per-line caps only. Declared lines are
+// does), so they meet the raw-row cap only, not the per-line cap (BB8's
+// ruling on #827). Declared lines are
 // counted with the set that holds them. The refusal names every set it summed
 // and every set it left out.
 
@@ -284,13 +285,15 @@ export function recognitionInputOf(args = {}, { tool = null } = {}) {
     const held = decoded.connector_declarations?.pronunciations;
     if (!carried && Array.isArray(held)) carried = held;
   }
-  // A blueprint's stored line texts are rows and lines the call carries, so
-  // they meet the row and per-line caps; but no lyric tool's response carries
-  // their recognition (the meter and function passes fit the DRAFT's lines to
-  // the blueprint's placements; only the CLI `fit` verb reads its own text),
-  // so they stay out of the per-request total (BB8 ruling 2).
+  // A blueprint's stored line texts are rows the call carries, so they meet
+  // the raw-row cap; but nothing recognises their text (the meter and
+  // function passes fit the DRAFT's lines to the blueprint's placements; only
+  // the CLI `fit` verb reads its own text), so they meet neither the per-line
+  // cap (BB8's ruling on #827) nor the per-request total (BB8 ruling 2).
+  // If any path ever recognises blueprint.lines text, both the per-line cap
+  // and the request total apply to it again: drop `unrecognised` here.
   const bp = blueprintTexts(args.blueprint);
-  if (bp) sets.push({ ...lineSetOfArray('blueprint.lines', bp), outsideTotal: true });
+  if (bp) sets.push({ ...lineSetOfArray('blueprint.lines', bp), unrecognised: true });
   const list = Array.isArray(args.pronunciations) ? args.pronunciations : carried || [];
   const declarations = list
     .map((row, i) => ({
@@ -337,7 +340,7 @@ export function admitRecognitionInput({ sets, declarations = [] }) {
     family: set.family,
     rows: set.rows,
     ...(set.declaredOnly ? { declared_only: true } : {}),
-    ...(set.outsideTotal ? { outside_total: true } : {}),
+    ...(set.unrecognised ? { unrecognised: true, outside_total: true } : {}),
     ...(set.byRow ? { by_row: true } : {}),
     lines: set.lines.map((text, i) => {
       const bound = lineDigitBound(text, declarations);
@@ -350,7 +353,7 @@ export function admitRecognitionInput({ sets, declarations = [] }) {
     }),
   }));
   for (const set of measured)
-    for (const line of set.lines)
+    for (const line of set.unrecognised ? [] : set.lines)
       if (line.bound > METER_LINE_DIGITS_CAP) {
         const how = line.contributing.length
           ? `under its declared readings (${line.contributing
@@ -362,7 +365,9 @@ export function admitRecognitionInput({ sets, declarations = [] }) {
         const which = set.declared_only
           ? `The line ${JSON.stringify(line.text)}, which ${line.id} declare${line.contributing.length > 1 ? '' : 's'} readings for, is in no line set of this call, but an answer or a source reading can make it a sung line, and it`
           : set.by_row
-            ? `The line at ${line.id} of the pasted text (rows are counted from the top, including headings and blank rows, so you can find it as pasted)`
+            ? set.name === 'lines'
+              ? `The line at ${line.id} of \`lines\` (the row is the item's position in the array, counted from 1 with blank items included)`
+              : `The line at ${line.id} of the pasted text (rows are counted from the top, including headings and blank rows, so you can find it as pasted)`
             : `${line.id} of \`${set.name}\``;
         throw new AdmissionRefusal(
           'meter_line_digits',

@@ -226,7 +226,9 @@ The checks run in this order:
    `lyric_verify`'s `before` and `after` and `lyric_recover`'s rows, added
    together. A `blueprint`'s stored line texts are not in the total: every
    lyric tool fits the draft's own lines to the blueprint's placements and
-   never reads that text, so they meet only the row and per-line caps. The
+   never reads that text, so they meet only the raw-row cap: neither the
+   per-line cap nor this total applies to them. If any path ever reads that
+   text, both apply to it again. The
    refusal names each set it added (for example, "`before` (463 lines,
    139,363) and `after` (1 line, 19) together could reach 139,382 syllable
    digits; one request carries at most 139,363") and each set it left out.
@@ -236,12 +238,15 @@ The checks run in this order:
 - `draft`, `draft_text`, `lines`, `lines_text`, `before`, `after` and the text
   twins of `before` and `after`;
 - a `state` or `checkpoint` continuation's `input_draft` and `accepted_lines`;
-- a declared `blueprint`'s line texts;
+- a declared `blueprint`'s line texts, held to the raw-row cap only (nothing
+  recognises them; see above);
 - for `lyric_recover`, the rows of `lines` or `lines_text` as the source reader
   is handed them. That reader sets apparatus rows aside and resolves bracket
   spans before it numbers the sung lines, so a refusal there names the row,
   counted from the top of the paste with headings and blank rows included
-  ("row 3 of the pasted text"), not an L id. A final line break ends the last
+  ("row 3 of the pasted text"), not an L id; sent as a `lines` array, the row
+  is the item's position in the array, counted from 1 with blank items
+  included ("row 3 of `lines`"). A final line break ends the last
   row and opens no blank row after it, in the check and in the handler alike,
   so 463 sung rows with a final break are 463 rows;
 - every distinct line a pronunciation declares that could be sung (at most
