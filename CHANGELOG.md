@@ -18,16 +18,25 @@ would have counted too. Gangsta rap Rich and Tags and Irish trad session Tags we
   (`renderWorkspace(cards, { trace })`); the connector checks a pinned descriptor as a
   whole word inside that card's span only. Absent there is `PINNED_DESCRIPTORS_NOT_LITERAL`,
   whatever another card prints.
-- **`PINNED_DESCRIPTORS_NOT_ATTRIBUTABLE`** (new): the word is printed, but only in a chunk
-  Rich or Prose pooled from several cards (they merge cards that share a label or trailing
-  word), so the output cannot say which card it describes; `shared_with` names the others.
+- **A merged chunk's head words.** Rich and Prose merge cards that share a trailing word
+  into one chunk and print each card's preface right before its own inner label (48g:
+  `cold humbucker-solid-body-electric street-pulsing dreadnought-acoustic guitar`). The
+  trace records, for each card that is its part's only source, those head words as the
+  renderer joins them, and a pinned word there is printed on that card; a word only in
+  another card's head is that card's, so it is `NOT_LITERAL` for this one.
+- **`PINNED_DESCRIPTORS_NOT_ATTRIBUTABLE`** (new): the word is printed, but only where the
+  output cannot say which card it describes: a chunk Rich or Prose pools from cards with the
+  same label, the trailing label or pooled descriptors a merged chunk's cards share, or a
+  render with no per-card segments. `shared_with` names the others, and the `meaning` says
+  which of the three it is.
 - **A pinned preface, by the same rule.** `EXPLICIT_PREFACE_NOT_LITERAL` tested
   `recipe.includes(preface)`, so the same preface pinned on another card (or a header word,
   or a longer word) hid that this card's was shed or that the card was hidden: Honky-tonk
   with `raging` pinned on the voice and the upright piano warned nothing at Tags 200 (the
   piano hidden) or Rich 150 (its preface shed). The preface's printed form now has to be
-  consecutive whole words in the card's own segment; printed only in a pooled chunk is
-  `EXPLICIT_PREFACE_NOT_ATTRIBUTABLE` (new), with `shared_with`. Both carry a `meaning`.
+  consecutive whole words in the card's own part; printed only in one of the three places
+  above is `EXPLICIT_PREFACE_NOT_ATTRIBUTABLE` (new), with `shared_with`. Both carry a
+  `meaning`.
 - **CLI.** `recipe.js --swap-variant` keeps stdout exactly as rendered and prints one
   stderr line per card naming the swapped descriptors its own clause does not print
   (`note: --swap-variant descriptor(s) not printed in the sampler_classic card's part of the

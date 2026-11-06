@@ -265,32 +265,62 @@ function envLiteral(recipeLower, name) {
 
 // The span of `recipe` that renders card `index`, from the renderer's own chunk
 // list (renderWorkspace's `trace`, see _traceSegments in _recipe_stack.js), not
-// from re-parsing the string. Returns { printed, own, pooled, sharedWith }; null
-// when the card has no segment (hidden behind `[+N hidden]` or cut off); and
-// undefined when the render kept no per-card layout at all.
+// from re-parsing the string. Returns { printed, own, pooled, head, shared,
+// sharedWith }; null when the card has no segment (hidden behind `[+N hidden]`
+// or cut off); and undefined when the render kept no per-card layout at all.
+// `head` and `shared` are set in a Rich or Prose chunk merged on a trailing word,
+// for a card that is the only source of its part: `head` is that card's own head
+// words (its preface, then its inner label) as the renderer joined them, and
+// `shared` the words every card of the chunk shares (the trailing label and, in
+// Rich, the pooled descriptors). Each is cut where the output was truncated.
 function cardSegment(trace, recipe, index) {
   if (!trace || !Array.isArray(trace.segments)) return undefined;
   const seg = trace.segments.find((s) => s.cards.includes(index));
   if (!seg) return null;
-  const end = Math.min(seg.end, trace.intact ?? recipe.length);
+  const stop = trace.intact ?? recipe.length;
+  const printed = (from, to) =>
+    Math.min(to, stop) > from ? recipe.slice(from, Math.min(to, stop)) : '';
+  const head = seg.heads ? seg.heads[index] : undefined;
   return {
-    printed: end > seg.start ? recipe.slice(seg.start, end) : '',
+    printed: printed(seg.start, seg.end),
     own: seg.own ? (seg.own[index] ?? null) : null,
     pooled: !!seg.pooled,
+    head: head ? printed(seg.start + head[0], seg.start + head[1]) : null,
+    shared: head ? printed(seg.start + seg.shared, seg.end) : null,
     sharedWith: seg.cards.filter((i) => i !== index),
   };
 }
 
-// 'present' (a whole word in the card's own segment), 'unattributed' (printed,
-// but only where the output cannot say which card it describes: a chunk pooled
-// from several cards, or a render with no per-card layout), or 'absent'.
+// 'present' (a whole word in the card's own words), 'unattributed' (printed,
+// but only where the output cannot say which card it describes), or 'absent'.
+// The card's own words are its segment, except where a format merged it with
+// other cards: a tags chunk keeps each member's own text (`own`), and a Rich or
+// Prose chunk merged on a trailing word prints each single-source card's head
+// words before its own inner label (`head`, BB8's ruling on #814). There a word
+// in this card's head is present, a word only in the words the cards share is
+// unattributed, and a word only in another card's head is that card's: absent.
 function pinnedPlace(segment, recipe, d) {
   if (segment === undefined) return hasWord(recipe, d) ? 'unattributed' : 'absent';
   if (!segment || !hasWord(segment.printed, d)) return 'absent';
   // A tags chunk that merged on a shared suffix prints each member's own words;
   // the word has to be one of this card's.
   if (segment.own != null && !hasWord(segment.own, d)) return 'absent';
-  return segment.pooled ? 'unattributed' : 'present';
+  if (!segment.pooled) return 'present';
+  if (segment.head == null) return 'unattributed';
+  if (hasWord(segment.head, d)) return 'present';
+  return hasWord(segment.shared, d) ? 'unattributed' : 'absent';
+}
+
+// Why a word pinnedPlace calls 'unattributed' cannot be given to its card, for
+// the warning's `meaning`: the render kept no per-card segments, the card is
+// pooled with another card of the same label (one part holds both prefaces and
+// both descriptor lists), or the word is printed only in what a merged chunk's
+// cards share.
+function unattributedWhy(segment, pool) {
+  if (!segment) return 'this output keeps no per-card segments';
+  if (segment.head == null)
+    return `only in one segment this format pools from several sources (${pool}), where this card shares its label, and so its words, with another card`;
+  return `only in the words one segment shares among the cards it merges (${pool}): their common trailing label or, in Rich, their pooled descriptors, not this card's own head words`;
 }
 
 // Report every field an edit action can write — parts, room, tuning, each chain
@@ -450,7 +480,7 @@ function shape(ws, params = {}, meta = {}) {
         code: 'PINNED_DESCRIPTORS_NOT_LITERAL',
         descriptors: missing,
         meaning:
-          "Explicit part descriptors are absent, as whole words, from this card's own segment of this output; compression may have trimmed them, and the same word printed on another card or in the header does not count. Do not claim they survived.",
+          "Explicit part descriptors are absent, as whole words, from this card's own part of this output (in a chunk that merges cards, its own words and the words they share); compression may have trimmed them, and the same word printed on another card or in the header does not count. Do not claim they survived.",
       });
     if (unattributed.length)
       out.render_warnings.push({
@@ -459,9 +489,7 @@ function shape(ws, params = {}, meta = {}) {
         code: 'PINNED_DESCRIPTORS_NOT_ATTRIBUTABLE',
         descriptors: unattributed,
         ...(segment ? { shared_with: others.map((c) => c.id) } : {}),
-        meaning: segment
-          ? `These explicit part descriptors are printed, but only in one segment this format pools from several sources (${pool}), so the output does not say which card they describe. Do not claim they survived on this card.`
-          : 'These explicit part descriptors are printed, but this output keeps no per-card segments, so it does not say which card they describe. Do not claim they survived on this card.',
+        meaning: `These explicit part descriptors are printed, but ${unattributedWhy(segment, pool)}, so the output does not say which card they describe. Do not claim they survived on this card.`,
       });
     // A pinned preface is judged by the same rule (#671, BB8 6676262617): the
     // form the renderer prints (_resolvePreface: the lexicon's case, `,` and `.`
@@ -479,7 +507,7 @@ function shape(ws, params = {}, meta = {}) {
         code: 'EXPLICIT_PREFACE_NOT_LITERAL',
         preface,
         meaning:
-          "This card's pinned preface is absent, as whole words, from this card's own segment of this output; compression may have shed it or hidden the card, and the same word printed on another card or in the header does not count. Do not claim it survived.",
+          "This card's pinned preface is absent, as whole words, from this card's own part of this output (in a chunk that merges cards, its own words and the words they share); compression may have shed it or hidden the card, and the same word printed on another card or in the header does not count. Do not claim it survived.",
       });
     if (prefacePlace === 'unattributed')
       out.render_warnings.push({
@@ -488,9 +516,7 @@ function shape(ws, params = {}, meta = {}) {
         code: 'EXPLICIT_PREFACE_NOT_ATTRIBUTABLE',
         preface,
         ...(segment ? { shared_with: others.map((c) => c.id) } : {}),
-        meaning: segment
-          ? `This card's pinned preface is printed, but only in one segment this format pools from several sources (${pool}), so the output does not say which card it describes. Do not claim it survived on this card.`
-          : "This card's pinned preface is printed, but this output keeps no per-card segments, so it does not say which card it describes. Do not claim it survived on this card.",
+        meaning: `This card's pinned preface is printed, but ${unattributedWhy(segment, pool)}, so the output does not say which card it describes. Do not claim it survived on this card.`,
       });
   }
   // The environment words an edit put on the rendered environment card, checked

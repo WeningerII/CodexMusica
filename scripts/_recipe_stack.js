@@ -664,17 +664,27 @@ function assignDedupedPrefaces(cards) {
 // built and never writes them, so the returned string is the same either way
 // (check_app_parity.js compares it with src/app.js, which has no trace).
 //
-//   trace.segments  [{ start, end, cards, pooled, own? }], one per printed chunk
-//                   that renders at least one card's instrument:
+//   trace.segments  [{ start, end, cards, pooled, own?, heads?, shared? }], one
+//                   per printed chunk that renders at least one card's instrument:
 //     start, end    offsets into the returned string
 //     cards         indexes into the `cards` array the compressor was given
 //     pooled        true when the chunk pools the words of more than one source
 //                   (rich and prose merge cards that share a label or a trailing
 //                   word into one chunk), so a word in it cannot be attributed to
-//                   any one of its cards
+//                   any one of its cards unless `heads` gives that card its own
 //     own           tags only: card index -> that card's own chunk text. A tags
 //                   chunk merges only when the cards' descriptor suffixes are
 //                   identical, so each card keeps its own words exactly.
+//     heads         rich and prose, pooled chunks only: card index -> [from, to],
+//                   offsets from `start`, of that card's own head words (its
+//                   prefaces, then its inner label) in a chunk that merged cards
+//                   on a trailing word. Recorded by _chunkHead as it joins the
+//                   tokens, for each part that has exactly one source; a card
+//                   pooled with another of the same label has none, since their
+//                   prefaces are pooled into one part.
+//     shared        with `heads`: offset from `start` where the words every card
+//                   of the chunk shares begin (the trailing label and, in rich,
+//                   the pooled descriptors), running to `end`.
 //   trace.intact    how many leading characters of the returned string are the
 //                   chunks' own text; shorter than the string only when the
 //                   output was cut and marked "[truncated]".
@@ -688,6 +698,10 @@ function _traceSegments(trace, items, sep, intact) {
     if (it.cards.length) {
       const seg = { start: at, end, cards: it.cards.slice(), pooled: !!it.pooled };
       if (it.own) seg.own = it.own;
+      if (it.heads) {
+        seg.heads = it.heads;
+        seg.shared = it.shared;
+      }
       segments.push(seg);
     }
     at = end + sep.length;
@@ -696,6 +710,40 @@ function _traceSegments(trace, items, sep, intact) {
   trace.intact = intact;
 }
 const _unionCards = (lists) => [...new Set(lists.flat())].sort((a, b) => a - b);
+
+// The head of a rich or prose chunk, as both formats print it: each part's
+// prefaces, then its inner label (set only in a chunk merged on a trailing word),
+// then the trailing label the parts share. Given `layout` ({ heads: {} }), it also
+// records, for the trace, where each part that renders exactly one card prints
+// that card's own words (layout.heads[card] = [from, to] in the returned text) and
+// where the shared trailing label starts (layout.shared). Both are counted off
+// the tokens as they are joined (#671), so they cannot disagree with the text.
+function _chunkHead(c, layout) {
+  const tokens = [];
+  let at = 0;
+  for (const p of c.parts) {
+    const from = at;
+    for (const pref of p.prefaces) {
+      tokens.push(pref);
+      at += pref.length + 1;
+    }
+    if (p.innerLabel) {
+      tokens.push(p.innerLabel);
+      at += p.innerLabel.length + 1;
+    }
+    if (layout && p.sources === 1 && p.cards.length === 1)
+      layout.heads[p.cards[0]] = [from, Math.max(from, at - 1)];
+  }
+  if (layout) layout.shared = at;
+  return tokens.length > 0 ? `${tokens.join(' ')} ${c.trailingLabel}` : c.trailingLabel;
+}
+// A pooled rich or prose chunk's trace entry: its text, plus each single-source
+// card's own head words and where the shared words start (see _traceSegments).
+function _pooledTraceItem(c, renderChunk, cards) {
+  const layout = { heads: {} };
+  const text = renderChunk(c, layout);
+  return { text, cards, pooled: true, heads: layout.heads, shared: layout.shared };
+}
 
 // ─────────────────────────── prose (collapsed) ───────────────────────────
 // Prose is the ICONIC view: a chunk carries its card's preface and its
@@ -833,27 +881,22 @@ function compressProseRecipe(cards, ceiling, trace) {
     }
   }
 
-  const renderChunk = (c) => {
-    const tokens = [];
-    for (const p of c.parts) {
-      for (const pref of p.prefaces) tokens.push(pref);
-      if (p.innerLabel) tokens.push(p.innerLabel);
-    }
-    return tokens.length > 0 ? `${tokens.join(' ')} ${c.trailingLabel}` : c.trailingLabel;
-  };
-  const renderAll = () => finalChunks.map(renderChunk).join(', ') + '.';
+  const renderChunk = (c, layout) => _chunkHead(c, layout);
+  const renderAll = () => finalChunks.map((c) => renderChunk(c)).join(', ') + '.';
   // The chunks this output was joined from, for render_warnings (#671). The
   // third trim phase pops whole parts, so a chunk's cards are read off the
-  // parts it still has.
+  // parts it still has. A pooled chunk also carries each single-source card's
+  // own head words (its preface, then its inner label).
   const traced = (out, intact = out.length) => {
     if (trace)
       _traceSegments(
         trace,
-        finalChunks.map((c) => ({
-          text: renderChunk(c),
-          cards: _unionCards(c.parts.map((p) => p.cards)),
-          pooled: c.parts.reduce((n, p) => n + p.sources, 0) > 1,
-        })),
+        finalChunks.map((c) => {
+          const cardsOf = _unionCards(c.parts.map((p) => p.cards));
+          return c.parts.reduce((n, p) => n + p.sources, 0) > 1
+            ? _pooledTraceItem(c, renderChunk, cardsOf)
+            : { text: renderChunk(c), cards: cardsOf, pooled: false };
+        }),
         ', ',
         intact
       );
@@ -1333,7 +1376,12 @@ function compressRichRecipe(cards, ceiling, trace) {
         const m = byLabel.get(groupKey);
         const memberSegs = m.label.split('-');
         const innerLabel = memberSegs.slice(0, -1).join('-') || null;
-        parts.push({ prefaces: m.prefaces.slice(), innerLabel });
+        parts.push({
+          prefaces: m.prefaces.slice(),
+          innerLabel,
+          cards: m.cards.slice(),
+          sources: m.sources,
+        });
         for (const d of m.descriptors)
           if (!pooledDescriptors.includes(d)) pooledDescriptors.push(d);
         if (m.kind === 'env') groupKind = 'env';
@@ -1354,7 +1402,14 @@ function compressRichRecipe(cards, ceiling, trace) {
       finalChunks.push({
         kind: c.kind,
         trailingLabel: c.label,
-        parts: [{ prefaces: c.prefaces.slice(), innerLabel: null }],
+        parts: [
+          {
+            prefaces: c.prefaces.slice(),
+            innerLabel: null,
+            cards: c.cards.slice(),
+            sources: c.sources,
+          },
+        ],
         descriptors: c.descriptors.slice(),
         cards: _unionCards([c.cards]),
         sources: c.sources,
@@ -1367,24 +1422,25 @@ function compressRichRecipe(cards, ceiling, trace) {
       (a, b) => Number(pinnedDescriptors.has(b)) - Number(pinnedDescriptors.has(a))
     );
 
-  const renderChunk = (c) => {
-    const tokens = [];
-    for (const p of c.parts) {
-      for (const pref of p.prefaces) tokens.push(pref);
-      if (p.innerLabel) tokens.push(p.innerLabel);
-    }
-    const head = tokens.length > 0 ? `${tokens.join(' ')} ${c.trailingLabel}` : c.trailingLabel;
+  const renderChunk = (c, layout) => {
+    const head = _chunkHead(c, layout);
     return c.descriptors.length > 0 ? `${head}: ${c.descriptors.join(' ')}` : head;
   };
-  const renderAll = () => finalChunks.map(renderChunk).join(', ');
+  const renderAll = () => finalChunks.map((c) => renderChunk(c)).join(', ');
   // The chunks this output was joined from, for render_warnings (#671). A chunk
   // that merged several cards (same label, or same trailing word) pools their
-  // descriptors, so it is marked pooled: its words belong to no one card.
+  // descriptors, so it is marked pooled: those words belong to no one card. A
+  // card that is its part's only source still has its own head words (its
+  // preface, then its inner label), which the trace records.
   const traced = (out, intact = out.length) => {
     if (trace)
       _traceSegments(
         trace,
-        finalChunks.map((c) => ({ text: renderChunk(c), cards: c.cards, pooled: c.sources > 1 })),
+        finalChunks.map((c) =>
+          c.sources > 1
+            ? _pooledTraceItem(c, renderChunk, c.cards)
+            : { text: renderChunk(c), cards: c.cards, pooled: false }
+        ),
         ', ',
         intact
       );
