@@ -2,7 +2,7 @@
   "fixture": "good/codec_error_mapping.json",
   "contract": "mcp/DISCOVERY_V1.md",
   "kind": "codec",
-  "exercises": "The entry codec raises a local error with a rule tag, and the enclosing operation maps it; the codec never picks a public code (§2.11). Each single-fault case pins its tag in Python and in Node and, for F1, its what; the controls pass; each integer-only field maps to its operation's rule; the multi-fault cases pin the code only, and the worker's emit pins F1 before F2; the integral float 1.0 has one pin per side; invalid UTF-8 in a segment is F3 once the store decodes strictly; the codec requirement's calls and the admission guard are stated; and the raw-transport pair shows F2 is measured on the canonical form.",
+  "exercises": "The entry codec raises a local error with a rule tag, and the enclosing operation maps it; the codec never picks a public code (§2.11). Each single-fault case pins its tag in Python and in Node and, for F1, its what; the controls pass; each integer-only field maps to its operation's rule; the multi-fault cases pin the code only, and the worker's emit pins F1 before F2; the integral float 1.0 has one pin per side; invalid UTF-8 in a segment is F3 once the store decodes strictly, and its address-valid read-back of a lone 0xFF byte is F3 on a full read, a lease's walk and the worker's load, while a replacing decode meets F5; the codec requirement's calls and the admission guard and its stored-request case are stated; and the raw-transport pair shows F2 is measured on the canonical form.",
   "expect": {
     "accepted": true
   },
@@ -135,6 +135,13 @@
       "node": "F1"
     },
     {
+      "name": "past_the_depth",
+      "text": "[[[[[[[[[0]]]]]]]]]",
+      "tag": "F1",
+      "node": "F1",
+      "what": "a nesting depth past ENTRY_DEPTH (8)"
+    },
+    {
       "name": "over_the_bound",
       "build": {
         "string": 4095
@@ -183,6 +190,11 @@
       "name": "booleans_and_null",
       "text": "[true,false,null,\"\"]",
       "canonical": "[true,false,null,\"\"]"
+    },
+    {
+      "name": "at_the_depth",
+      "text": "[[[[[[[[0]]]]]]]]",
+      "canonical": "[[[[[[[[0]]]]]]]]"
     }
   ],
   "integer_fields": [
@@ -313,8 +325,8 @@
       }
     ],
     "deep_valid": {
-      "depth": 2047,
-      "canonical_bytes": 4094
+      "depth": 8,
+      "canonical_bytes": 16
     }
   },
   "cross_language": {
@@ -342,7 +354,119 @@
         "rule": "F3",
         "tag": "JSON"
       },
-      "store_today": "passes"
+      "store_today": "passes",
+      "read_back": {
+        "store": {
+          "segments_from": null,
+          "omit": [],
+          "segments": [
+            {
+              "hex": "7b2276657273696f6e223a312c226b696e64223a227265616465725f646973636f766572795f7365676d656e74222c226a6f625f6964223a227265616465725f636f646563222c226964656e746974795f68617368223a2266666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666222c2265706f6368223a302c226c6f67223a227365656e222c2270726576696f75735f68617368223a6e756c6c2c226669727374223a302c22636f756e74223a312c226469676573745f6265666f7265223a2263336364386436653464393666613263383835313334333839343165383433333232306534316130643832393531343830333536393466636466663839313336222c226469676573745f6166746572223a2262333633633664613330313066663961613235323635333530376537616531383663333536323633633061303964353631663037336264303631356364336336222c22656e7472696573223a5b22ff225d7d"
+            }
+          ]
+        },
+        "directory": "/store",
+        "record": {
+          "id": "reader_codec",
+          "identity_hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "discovery": {
+            "version": 1,
+            "epoch": 0,
+            "logs": {
+              "seen": {
+                "head": "ca6277bbad4b4efef902c1d1fce5c4e91d39cac11afb66674835f399f75f4ef1",
+                "segments": 1,
+                "count": 1,
+                "bytes": 3,
+                "digest": "b363c6da3010ff9aa252653507e7ae186c356263c0a09d561f073bd0615cd3c6"
+              }
+            },
+            "verified": {
+              "seen": {
+                "head": null,
+                "segments": 0,
+                "count": 0,
+                "bytes": 0,
+                "digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136"
+              }
+            },
+            "unavailable": null
+          },
+          "cursor": {
+            "contract_version": 2,
+            "method_index": 0,
+            "discovery": {
+              "version": 1,
+              "epoch": 0,
+              "logs": {
+                "seen": {
+                  "sealed": 1,
+                  "sealed_digest": "b363c6da3010ff9aa252653507e7ae186c356263c0a09d561f073bd0615cd3c6",
+                  "tail": []
+                }
+              },
+              "inventory": null,
+              "groups": {
+                "through": null,
+                "current": null
+              }
+            }
+          }
+        },
+        "addresses": {
+          "seen": ["ca6277bbad4b4efef902c1d1fce5c4e91d39cac11afb66674835f399f75f4ef1"]
+        },
+        "payload": {
+          "discovery": {
+            "version": 1,
+            "summary": {
+              "epoch": 0,
+              "logs": {
+                "seen": {
+                  "head": "ca6277bbad4b4efef902c1d1fce5c4e91d39cac11afb66674835f399f75f4ef1",
+                  "segments": 1,
+                  "count": 1,
+                  "bytes": 3,
+                  "digest": "b363c6da3010ff9aa252653507e7ae186c356263c0a09d561f073bd0615cd3c6"
+                }
+              }
+            },
+            "paths": {
+              "seen": [
+                "/store/pages/ca6277bbad4b4efef902c1d1fce5c4e91d39cac11afb66674835f399f75f4ef1.json"
+              ]
+            }
+          }
+        },
+        "inventory": []
+      },
+      "expect": {
+        "rule": "F3",
+        "full_read": {
+          "code": "DISCOVERY_UNAVAILABLE",
+          "status": 409,
+          "cause": "chain_broken",
+          "released": true
+        },
+        "lease_walk": {
+          "code": "STORAGE_CORRUPT",
+          "status": 503,
+          "released": false
+        },
+        "worker_load": {
+          "code": "DISCOVERY_UNAVAILABLE",
+          "status": 409,
+          "cause": "chain_broken"
+        }
+      },
+      "replacing_decode": {
+        "rule": "F5",
+        "worker_load": {
+          "code": "DISCOVERY_UNAVAILABLE",
+          "status": 409,
+          "cause": "digest_mismatch"
+        }
+      }
     }
   ],
   "raw_transport": {
@@ -420,6 +544,16 @@
         "call": "canonical_bytes([-(2 ** 53)])",
         "rule": "F1"
       }
+    ],
+    "depth_calls": [
+      {
+        "call": "decode_entry('[[[[[[[[[0]]]]]]]]]')",
+        "rule": "F1"
+      },
+      {
+        "call": "canonical_bytes([[[[[[[[[0]]]]]]]]])",
+        "rule": "F1"
+      }
     ]
   },
   "admission": {
@@ -451,6 +585,18 @@
         "name": "pair",
         "body": "{\"declaration_set\":{\"pronunciations\":[{\"line\":\"Bad \\ud83d\\ude00\"}]}}"
       }
-    ]
+    ],
+    "stored_request": {
+      "name": "stored",
+      "request": "{\"declaration_set\":{\"pronunciations\":[{\"line\":\"Bad \\ud800\"}]}}",
+      "written_before_the_check": true,
+      "checked_at": "reader_scheduler.js:519-523",
+      "expect": {
+        "code": "INVALID_DECLARATION",
+        "paused": true,
+        "leased": false,
+        "run_reader_lease": "never called"
+      }
+    }
   }
 }

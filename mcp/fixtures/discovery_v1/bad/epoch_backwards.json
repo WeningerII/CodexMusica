@@ -21,6 +21,7 @@
           "head": null,
           "segments": 0,
           "count": 0,
+          "bytes": 0,
           "digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136"
         }
       },
@@ -29,6 +30,7 @@
           "head": null,
           "segments": 0,
           "count": 0,
+          "bytes": 0,
           "digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136"
         }
       },

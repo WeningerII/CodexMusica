@@ -47,6 +47,9 @@ const README = fs.readFileSync(path.join(DIR, 'README.md'), 'utf8');
 // §3 of the contract. The document must state the same values (checked below).
 const LIMITS = Object.freeze({
   ENTRY_BYTES: 4096,
+  // F1's depth bound (BB8 6693502369, item 31): provisional until the #721
+  // author declares the entry shapes (§2.1, §12 item 31).
+  ENTRY_DEPTH: 8,
   SEGMENT_ENTRIES: 1024,
   SEGMENT_BYTES: 16384,
   FRAME_SEALS: 8,
@@ -58,7 +61,7 @@ const LIMITS = Object.freeze({
   CURSOR_BYTES: 131072,
   REFUSAL_BYTES: 543,
   MEMBERSHIP_ENTRIES: 65536,
-  MEMBERSHIP_BYTES: 2097152,
+  MEMBERSHIP_BYTES: 4194304,
 });
 // §8, C1: a bad cause or log is echoed in the reason, cut to this many bytes.
 const ECHO_BYTES = 64;
@@ -180,6 +183,9 @@ const REFUSAL = {
   // A cursor over CURSOR_BYTES (§3.1) or a refusal over REFUSAL_BYTES (§3.2):
   // the store refuses the frame; the worker never emits it.
   cursor: { W4: PROTOCOL },
+  // An entry past ENTRY_DEPTH (BB8 6693502369, item 31): the store's F1 on a
+  // submitted frame; the fixture also holds the worker's emit and the read-back.
+  depth: { F1: PROTOCOL },
   // A failed worker reply whose cause or log is outside its set (§8, C1): the
   // job pauses with this code; there is no HTTP status.
   reply: { C1: { code: 'READER_PROTOCOL' } },
@@ -217,19 +223,32 @@ const plainObject = (v) =>
   typeof v === 'object' &&
   !Array.isArray(v) &&
   Object.getPrototypeOf(v) === Object.prototype;
-// F1: arrays, well-formed strings, booleans, null and safe integers; nothing else.
-function isEntry(v) {
+// F1: arrays, well-formed strings, booleans, null and safe integers, nested at
+// most ENTRY_DEPTH arrays deep (a scalar is 0, [["a"]] is 2); nothing else.
+function isEntry(v, depth = 0) {
   if (v === null || typeof v === 'boolean') return true;
   if (typeof v === 'string') return v.isWellFormed();
   if (typeof v === 'number') return Number.isSafeInteger(v);
-  if (Array.isArray(v)) return v.every(isEntry);
+  if (Array.isArray(v)) return depth < LIMITS.ENTRY_DEPTH && v.every((x) => isEntry(x, depth + 1));
   return false;
 }
+// §3's <what> for an entry past ENTRY_DEPTH (BB8 6693502369, item 31).
+const DEPTH_WHAT = `a nesting depth past ENTRY_DEPTH (${LIMITS.ENTRY_DEPTH})`;
+// §2.1: the count of nested arrays, so a scalar is 0 and [["a"]] is 2.
+const entryDepth = (v) => (Array.isArray(v) ? 1 + Math.max(0, ...v.map(entryDepth)) : 0);
 const isPair = (v) => Array.isArray(v) && v.length === 2 && v.every(Number.isSafeInteger);
 // A group's line pair is two different lines: a key within one line never forms a group.
 const isLinePair = (v) => isPair(v) && v[0] < v[1];
 const cmpPair = (a, b) => a[0] - b[0] || a[1] - b[1];
-const emptyLog = (log) => ({ head: null, segments: 0, count: 0, digest: d0(DOMAIN.log(log)) });
+// §2.7: a log's state; `bytes` is the sum of |canonical(e)| over its sealed
+// entries (BB8 6693502369, item 30).
+const emptyLog = (log) => ({
+  head: null,
+  segments: 0,
+  count: 0,
+  bytes: 0,
+  digest: d0(DOMAIN.log(log)),
+});
 const sumBytes = (entries) => entries.reduce((n, e) => n + size(e), 0);
 const segmentBytes = (segment) => Buffer.from(JSON.stringify(segment), 'utf8');
 // F3 holds a stored segment's content too (§2.5; BB8, #721 item 2 (c)): bytes
@@ -576,7 +595,13 @@ function evaluateFrame(job, record, frame) {
     const raw = segmentBytes(segment);
     const address = sha(raw);
     segments.push({ log, address, bytes: raw.length, raw, segment });
-    logs[log] = { head: address, segments: st.segments + 1, count: st.count + n, digest: after };
+    logs[log] = {
+      head: address,
+      segments: st.segments + 1,
+      count: st.count + n,
+      bytes: st.bytes + bytes,
+      digest: after,
+    };
     if (logs[log].segments > LIMITS.CHAIN_SEGMENTS) bad('W5', `${log} chain over CHAIN_SEGMENTS`);
     (sealed[log] ??= []).push(...s.entries);
   });
@@ -591,6 +616,10 @@ function evaluateFrame(job, record, frame) {
   // plus its new tail (§3, derived in §6.11)
   const held = membershipHeld(logs, cd);
   if (held > LIMITS.MEMBERSHIP_ENTRIES) bad('W7', `the membership logs would hold ${held} entries`);
+  // and their entry bytes, each log's `bytes` plus its new tail's (BB8 6693502369, item 30)
+  const heldBytes = membershipBytes(logs, cd);
+  if (heldBytes > LIMITS.MEMBERSHIP_BYTES)
+    bad('W7', `the membership logs would hold ${heldBytes} entry bytes`);
   // W6, append-only tails
   if (pc?.discovery && pc.discovery.epoch === epoch)
     for (const [log, st] of Object.entries(cd.logs)) {
@@ -648,18 +677,30 @@ function membershipHeld(logs, cd) {
   }
   return held;
 }
-// The worker, before it emits a frame that passes the cap: it names the log
+// The membership logs' entry bytes after a frame: each log's `bytes` plus its
+// cursor tail's canonical bytes (W7, BB8 6693502369, item 30).
+function membershipBytes(logs, cd) {
+  let held = 0;
+  for (const log of MEMBERSHIP_LOGS) {
+    const tail = cd.logs?.[log]?.tail;
+    if (logs[log]) held += logs[log].bytes;
+    if (Array.isArray(tail)) held += sumBytes(tail.filter((e) => isEntry(e)));
+  }
+  return held;
+}
+// The worker, before it emits a frame that passes either cap: it names the log
 // whose append passes it. A fixture frame grows exactly one membership log.
 function workerMembershipRefusal(record, frame) {
-  const before = (log) =>
-    (record.discovery.logs[log]?.count ?? 0) +
-    (record.cursor.discovery.logs[log]?.tail.length ?? 0);
-  const after = (log) =>
-    (record.discovery.logs[log]?.count ?? 0) + (frame.cursor.discovery.logs[log]?.tail.length ?? 0);
+  const tail = (c, log) => c.discovery.logs[log]?.tail ?? [];
+  const sealed = (log) => record.discovery.logs[log] ?? { count: 0, bytes: 0 };
+  const before = (log) => sealed(log).count + tail(record.cursor, log).length;
+  const after = (log) => sealed(log).count + tail(frame.cursor, log).length;
+  const afterBytes = (log) => sealed(log).bytes + sumBytes(tail(frame.cursor, log));
   const grew = MEMBERSHIP_LOGS.filter((log) => after(log) > before(log));
   assert.equal(grew.length, 1, 'a membership fixture frame grows one log');
   const total = MEMBERSHIP_LOGS.reduce((n, log) => n + after(log), 0);
-  return total > LIMITS.MEMBERSHIP_ENTRIES
+  const totalBytes = MEMBERSHIP_LOGS.reduce((n, log) => n + afterBytes(log), 0);
+  return total > LIMITS.MEMBERSHIP_ENTRIES || totalBytes > LIMITS.MEMBERSHIP_BYTES
     ? { code: 'RESOURCE_LIMIT', cause: `discovery_${grew[0]}` }
     : null;
 }
@@ -676,11 +717,18 @@ function replay(fx) {
 }
 // Every segment the seal sequence builds, by address. `corrupt` changes one
 // stored byte of a segment ({address, at, byte}), so its bytes no longer match
-// its address.
-function storeOf(rel, omit = [], corrupt = []) {
+// its address. `extra` are segments a fixture stores as they are, such as one
+// no store would have written (an entry past ENTRY_DEPTH, §2.1), or, as
+// `{hex}`, bytes no JSON value spells (invalid UTF-8, §2.11).
+function storeOf(rel, omit = [], corrupt = [], extra = []) {
   const store = new Map();
-  for (const result of replay(load(rel)))
-    for (const s of result.segments) if (!omit.includes(s.address)) store.set(s.address, s.raw);
+  if (rel)
+    for (const result of replay(load(rel)))
+      for (const s of result.segments) if (!omit.includes(s.address)) store.set(s.address, s.raw);
+  for (const seg of extra) {
+    const raw = typeof seg.hex === 'string' ? Buffer.from(seg.hex, 'hex') : segmentBytes(seg);
+    store.set(sha(raw), raw);
+  }
   for (const { address, at, byte } of corrupt) {
     const raw = Buffer.from(store.get(address));
     assert.notEqual(raw[at], byte, 'a corruption changes the byte');
@@ -695,7 +743,7 @@ function evaluateResume(fx) {
   const violations = [];
   const skipped = [];
   const bad = (rule, detail) => violations.push({ rule, detail });
-  const store = storeOf(fx.store.segments_from, fx.store.omit);
+  const store = storeOf(fx.store.segments_from, fx.store.omit, [], fx.store.segments);
   const { record } = fx;
   const p = fx.payload.discovery;
   const rd = record.discovery;
@@ -713,7 +761,7 @@ function evaluateResume(fx) {
       }
       // F6, F3 (its content included, §2.5), F4 bounds, F5 on every segment that resolves
       if (sha(raw) !== stem) bad('F6', `${stem} does not match its address`);
-      const { seg, faults } = segmentContent(raw);
+      const { seg, faults } = segmentContent(raw, { fatal: !fx.replacing });
       if (faults.length) bad('F3', `${stem} content: ${faults.join(', ')}`);
       if (!seg) return null;
       if (
@@ -782,6 +830,13 @@ function evaluateResume(fx) {
   for (const [log, st] of Object.entries(p.summary.logs)) {
     const c = cd.logs[log];
     if (c && (c.sealed !== st.count || c.sealed_digest !== st.digest)) bad('R3', `${log} totals`);
+    // The summary's bytes against the worker's own sum over what it loaded,
+    // the bytes it computed once for F5 (BB8 6693502369, item 30).
+    const list = read[log] || [];
+    if (!list.includes(null)) {
+      const own = list.reduce((n, x) => n + sumBytes(x.seg.entries), 0);
+      if (own !== st.bytes) bad('R3', `${log}: bytes ${st.bytes} against the loaded ${own}`);
+    }
   }
   // R4, the recomputed inventory matches its witness
   if (cd.inventory) {
@@ -805,7 +860,7 @@ const RESUME_RULES = ['R1', 'R2', 'R3', 'R4', 'F3', 'F4', 'F5', 'F6'];
 function evaluateWalk(fx, discovery, mode) {
   const violations = [];
   const bad = (rule, detail, log = null) => violations.push({ rule, detail, log });
-  const store = storeOf(fx.store.segments_from, fx.store.omit, fx.store.corrupt);
+  const store = storeOf(fx.store.segments_from, fx.store.omit, fx.store.corrupt, fx.store.segments);
   const rd = discovery;
   const stat = [];
   const read = [];
@@ -821,7 +876,7 @@ function evaluateWalk(fx, discovery, mode) {
     }
     read.push(address);
     if (sha(raw) !== address) bad('F6', `${address} does not match its address`, log);
-    const { seg, faults } = segmentContent(raw);
+    const { seg, faults } = segmentContent(raw, { fatal: !fx.replacing });
     if (faults.length) bad('F3', `${address} content: ${faults.join(', ')}`, log);
     if (!seg) return null;
     if (
@@ -841,8 +896,11 @@ function evaluateWalk(fx, discovery, mode) {
     head: address,
     segments: at.segments + 1,
     count: seg.first + seg.count,
+    bytes: at.bytes + sumBytes(seg.entries),
     digest: seg.digest_after,
   });
+  const withoutBytes = (st) =>
+    Object.fromEntries(Object.entries(st).filter(([k]) => k !== 'bytes'));
   const links = (at, seg) =>
     seg.previous_hash === at.head && seg.first === at.count && seg.digest_before === at.digest;
   if (mode === 'full') {
@@ -895,6 +953,8 @@ function evaluateWalk(fx, discovery, mode) {
         v.segments <= st.segments &&
         Number.isSafeInteger(v.count) &&
         v.count <= st.count &&
+        Number.isSafeInteger(v.bytes) &&
+        v.bytes <= st.bytes &&
         (v.segments !== 0 || canonical(v) === canonical(emptyLog(log))) &&
         (v.segments !== st.segments || canonical(v) === canonical(st)) &&
         (v.segments === 0 || list[v.segments - 1] === v.head);
@@ -908,16 +968,28 @@ function evaluateWalk(fx, discovery, mode) {
     // The first segment read continues the verified head: the junction (R5).
     let at = v;
     let junction = v.segments > 0;
+    // A segment missing or unreadable ends the walk of its log; its refusal
+    // is already recorded, and nothing after it is linked.
+    let ended = false;
     for (const address of list.slice(v.segments)) {
       const seg = get(log, address);
-      if (!seg) break;
+      if (!seg) {
+        ended = true;
+        break;
+      }
       if (!links(at, seg))
         bad(junction ? 'R5' : 'R2', `${log}: ${address} does not continue ${at.head}`, log);
       junction = false;
       at = next(at, address, seg);
     }
-    if (canonical(at) !== canonical(st))
+    // R2 links the last segment read to the head, its count and its digest; R5's
+    // junction holds the bytes: the segments read, added to v.bytes, end at the
+    // head's bytes (BB8 6693502369, item 30).
+    if (ended) continue;
+    if (canonical(withoutBytes(at)) !== canonical(withoutBytes(st)))
       bad('R2', `${log}: the walk does not end at the head`, log);
+    else if (at.bytes !== st.bytes)
+      bad('R5', `${log}: the bytes read from v.bytes do not end at the head's bytes`, log);
     verified[log] = clone(st);
     paths[log] = list.map((a) => path.join(fx.directory, 'pages', `${a}.json`));
   }
@@ -1015,10 +1087,12 @@ function pauseCase(record, kase) {
 // queue fields at their widest. It returns every delta.
 function releaseDeltas() {
   const out = [];
+  // `bytes` at its smallest (one byte an entry) or its largest (every segment full).
   const withHead = (log, count) => ({
     head: sha(`head ${log}`),
     segments: Math.max(1, Math.ceil(count / LIMITS.SEGMENT_ENTRIES)),
     count,
+    bytes: count === 4 ? 4 : LIMITS.CHAIN_SEGMENTS * LIMITS.SEGMENT_BYTES,
     digest: sha(`digest ${log}`),
   });
   const kinds = ['absent', 'tail', 'smallest', 'largest'];
@@ -1374,8 +1448,10 @@ const longestReason = (edge, mini) =>
   ].reduce((a, b) => (Buffer.byteLength(b) > Buffer.byteLength(a) ? b : a));
 const cbytes = (v) => Buffer.byteLength(canonical(v));
 // One entry of exactly ENTRY_BYTES per load shape §10 measures (§6.11): long
-// strings, value-dense arrays, and arrays nested to the deepest an entry holds.
-// Each pads its first string to the exact size.
+// strings, value-dense arrays, and arrays nested to the deepest an entry holds,
+// each shape's depth capped at ENTRY_DEPTH (BB8 6693502369, item 31): an
+// array nested d deep sits inside the entry's own array, so it is capped at
+// ENTRY_DEPTH - 1. Each pads its first string to the exact size.
 const mib = (bytes) => `${bytes / 2 ** 20} MiB`;
 const LOAD_SHAPES = (() => {
   const fit = (e) => {
@@ -1388,7 +1464,8 @@ const LOAD_SHAPES = (() => {
     while (cbytes([...e, unit]) <= LIMITS.ENTRY_BYTES) e.push(unit);
     return fit(e);
   };
-  const nest = (depth, leaf) => {
+  const nest = (asked, leaf) => {
+    const depth = Math.min(asked, LIMITS.ENTRY_DEPTH - 1);
     let u = leaf === null ? [] : [leaf];
     for (let i = 1; i < depth; i++) u = [u];
     return u;
@@ -2672,6 +2749,11 @@ const REQUIRED_CONTROLS = {
 };
 const BAD = {
   changed_digest_after: 'F5',
+  entry_over_depth: 'F1',
+  head_bytes_disagree: 'R2',
+  summary_bytes_disagree: 'R3',
+  verified_bytes_disagree: 'R5',
+  verified_bytes_ahead: 'R5',
   cursor_over_bound: 'W4',
   cursor_record_disagreement: 'W4',
   cursor_summary_disagreement: 'R3',
@@ -2838,22 +2920,19 @@ test('canonical form and ordered digest: the vectors, recomputed in Node and in 
     py.single_pass.every(Boolean),
     "the worker's single-pass key equals canonical_json(entry)"
   );
-  // On the load shapes it is equal wherever canonical_json completes, and
-  // canonical_json fails only past about 1,000 levels of nesting (§2.1).
-  const depth = (v) => (Array.isArray(v) ? 1 + Math.max(0, ...v.map(depth)) : 0);
-  // The single pass completes on every shape, the two deepest included, and
-  // writes Node's bytes (BB8 6693638249); canonical_json is compared only
-  // where it completes.
+  // On the load shapes, each capped at ENTRY_DEPTH, canonical_json completes
+  // and the single pass equals it (§2.1; BB8 6693502369). The single pass runs
+  // outside the try, so its own failure fails the run (BB8 6693638249).
   LOAD_SHAPES.forEach((e, i) => {
     assert.equal(py.shape_pass[i][0], JSON.stringify(e), `load shape ${i}: the single pass`);
-    assert.equal(
-      py.shape_pass[i][1],
-      depth(e) > 1000 ? null : true,
-      `load shape ${i} (depth ${depth(e)})`
-    );
+    assert.equal(py.shape_pass[i][1], true, `load shape ${i} (depth ${entryDepth(e)})`);
+    assert.ok(isEntry(e), `load shape ${i} is an entry`);
   });
-  assert.equal(py.shape_pass.filter((x) => x[1] === null).length, 2);
-  assert.ok(Math.max(...LOAD_SHAPES.map(depth)) >= 2040, 'the deepest shape is checked');
+  assert.equal(
+    Math.max(...LOAD_SHAPES.map(entryDepth)),
+    LIMITS.ENTRY_DEPTH,
+    'the deepest shape sits at the bound'
+  );
   py.segments.forEach(([sameBytes, address, after], i) => {
     const node = JSON.parse(segments[i].toString('utf8'));
     assert.ok(sameBytes, `segment ${i}: json.dumps without sort_keys reproduces the bytes`);
@@ -3813,32 +3892,49 @@ for (const rel of fixtureFiles().filter((f) => f.startsWith('bad/')))
         return { r, n: membershipHeld(r.discovery.logs, c.frame.cursor.discovery) };
       };
       violations = [];
+      // Each case is at one cap: the entries, or the entry bytes, which the
+      // store totals from each log's `bytes` (BB8 6693502369, item 30).
+      const totals = (c, r) => ({
+        entries: membershipHeld(r.discovery.logs, c.frame.cursor.discovery),
+        bytes: membershipBytes(r.discovery.logs, c.frame.cursor.discovery),
+      });
+      const cap = { entries: LIMITS.MEMBERSHIP_ENTRIES, bytes: LIMITS.MEMBERSHIP_BYTES };
+      const other = { entries: 'bytes', bytes: 'entries' };
       for (const m of fx.mutants) {
         const before = clone(m.record);
-        const { r, n } = held(m);
+        const { r } = held(m);
+        const at = m.cap ?? 'entries';
+        const n = totals(m, r);
         assert.deepEqual(m.record, before, `${m.name}: nothing is written`);
-        assert.equal(n, LIMITS.MEMBERSHIP_ENTRIES + 1, `${m.name} is one past the cap`);
+        assert.equal(n[at], cap[at] + 1, `${m.name} is one past the ${at} cap`);
+        assert.ok(n[other[at]] <= cap[other[at]], `${m.name} is within the other cap`);
         assert.deepEqual(workerMembershipRefusal(m.record, m.frame), m.worker, m.name);
         assert.equal(m.worker.cause, `discovery_${m.log}`);
         violations.push(...r.violations);
       }
-      assert.deepEqual(
-        fx.mutants.map((m) => m.log).sort(),
-        [...MEMBERSHIP_LOGS].sort(),
-        'a cause for each membership log'
-      );
-      // Each control reaches the cap exactly, and is accepted.
+      // Each control reaches its cap exactly, and is accepted.
       for (const c of fx.controls) {
-        const { r, n } = held(c);
+        const { r } = held(c);
+        const at = c.cap ?? 'entries';
+        const n = totals(c, r);
         assert.deepEqual(r.violations, [], `control ${c.name}`);
-        assert.equal(n, LIMITS.MEMBERSHIP_ENTRIES, `${c.name} is at the cap`);
+        assert.equal(n[at], cap[at], `${c.name} is at the ${at} cap`);
+        assert.ok(n[other[at]] <= cap[other[at]], `${c.name} is within the other cap`);
         assert.equal(workerMembershipRefusal(c.record, c.frame), null, `${c.name}: emitted`);
       }
-      assert.deepEqual(
-        fx.controls.map((c) => c.log).sort(),
-        [...MEMBERSHIP_LOGS].sort(),
-        'an at-cap control for each membership log'
-      );
+      for (const at of ['entries', 'bytes']) {
+        const of = (list) => list.filter((c) => (c.cap ?? 'entries') === at).map((c) => c.log);
+        assert.deepEqual(
+          of(fx.mutants).sort(),
+          [...MEMBERSHIP_LOGS].sort(),
+          `${at}: a cause per log`
+        );
+        assert.deepEqual(
+          of(fx.controls).sort(),
+          [...MEMBERSHIP_LOGS].sort(),
+          `${at}: a control per log`
+        );
+      }
     } else if (fx.kind === 'full') {
       // A full read (reconciliation, resume()) on a store holding a segment
       // whose bytes do not match its address: the job is released with
@@ -3858,7 +3954,9 @@ for (const rel of fixtureFiles().filter((f) => f.startsWith('bad/')))
         },
         'reconciliation names the cause and the log'
       );
-      assert.equal(fx.expect.logged, 'error');
+      // segment_corrupt is logged at error level (BB8 6681838131).
+      if (first.rule === 'F6') assert.equal(fx.expect.logged, 'error');
+      else assert.equal(fx.expect.logged, undefined);
       assert.equal(fx.expect.store_fails, false);
       const released = pauseCase(fx.record, {
         state: fx.job_state,
@@ -3881,7 +3979,7 @@ for (const rel of fixtureFiles().filter((f) => f.startsWith('bad/')))
         fx.expect.resume,
         "resume()'s full read releases it the same way"
       );
-      for (const c of fx.controls) {
+      for (const c of fx.controls ?? []) {
         const got = evaluateWalk({ ...fx, store: c.store }, c.discovery, 'full');
         const v = got.violations[0];
         assert.deepEqual(
@@ -3893,11 +3991,14 @@ for (const rel of fixtureFiles().filter((f) => f.startsWith('bad/')))
     } else if (fx.kind === 'walk') {
       const got = evaluateWalk(fx, fx.record.discovery, 'lease');
       violations = got.violations;
+      // R5's record and list clauses refuse before any read; its junction, on
+      // the bytes, once the segments appended since are read (BB8 6693502369).
       assert.deepEqual(
         [got.read, got.saved],
-        [[], false],
-        'refused before any read; nothing saved'
+        [fx.expect.lease?.read ?? [], false],
+        'refused at R5; nothing saved'
       );
+      if (fx.expect.lease) assert.equal(fx.expect.lease.saved, false);
       // A lease's walk never releases (§5.1): the job keeps its chains, and
       // resume()'s full read, which uses neither verified nor the list, decides.
       assert.equal(fx.expect.released, null, 'nothing is released');
@@ -3912,6 +4013,56 @@ for (const rel of fixtureFiles().filter((f) => f.startsWith('bad/')))
         fx.record.discovery.logs,
         'it saves the corrected verified heads'
       );
+    } else if (fx.kind === 'depth') {
+      // BB8 6693502369, item 31: an entry one level past ENTRY_DEPTH, met on a
+      // submitted frame, on the worker's emit and read back from a segment.
+      assert.equal(entryDepth(fx.entry), LIMITS.ENTRY_DEPTH + 1, 'one level past the bound');
+      assert.equal(entryDepth(fx.control), LIMITS.ENTRY_DEPTH, 'the control is at the bound');
+      assert.ok(!isEntry(fx.entry) && isEntry(fx.control));
+      assert.deepEqual(fx.frame.cursor.discovery.logs[fx.log].tail, [fx.entry]);
+      assert.deepEqual(fx.control_frame.cursor.discovery.logs[fx.log].tail, [fx.control]);
+      // The store: F1, READER_PROTOCOL, nothing written; the control is accepted.
+      const before = clone(fx.record);
+      violations = evaluateFrame(fx, fx.record, fx.frame).violations;
+      assert.deepEqual(fx.record, before, 'nothing is written');
+      assert.deepEqual(fx.expect.store, { ...REFUSAL.write.F1, written: 'nothing' });
+      assert.deepEqual(evaluateFrame(fx, clone(fx.record), fx.control_frame).violations, []);
+      // The worker's emit: INVARIANT_FAILURE with §3's F1 message (§2.11 (b)).
+      const message = INVARIANT_MESSAGES.F1.replace('<log>', fx.log).replace('<what>', DEPTH_WHAT);
+      assert.deepEqual(fx.expect.worker_emit, {
+        code: 'INVARIANT_FAILURE',
+        message,
+        emitted: 'nothing',
+      });
+      const segs = [fx.read_back, fx.read_back_control].map((rb) => rb.store.segments[0]);
+      for (const [seg, e] of [
+        [segs[0], fx.entry],
+        [segs[1], fx.control],
+      ])
+        assert.deepEqual(seg.entries.at(-1), e, 'the segment holds the entry');
+      const py = codecPython({
+        emit: [fx.entry, fx.control].map((e) => JSON.stringify(e)),
+        segments: segs.map((s) => segmentBytes(s).toString('utf8')),
+      });
+      assert.deepEqual([py.emit[0].tag, py.emit[0].what], ['F1', DEPTH_WHAT], 'Python: F1');
+      assert.equal(py.emit[1].tag, 'passes', 'Python: the control encodes');
+      assert.deepEqual(py.segments[0], { rule: 'F3', tag: 'F1' }, 'Python: read back, F3');
+      assert.deepEqual(py.segments[1], { rule: null }, 'Python: the control reads back');
+      // Read back: F3 on a full read, a lease's walk and the worker's load.
+      const rb = fx.read_back;
+      const want = fx.expect.read_back;
+      assert.equal(want.rule, 'F3');
+      assert.deepEqual(rulesOf(evaluateWalk(rb, rb.record.discovery, 'full')), ['F3']);
+      assert.deepEqual(want.full_read, { ...REFUSAL.full.F3, released: true });
+      assert.deepEqual(rulesOf(evaluateWalk(rb, rb.record.discovery, 'lease')), ['F3']);
+      const walkCode = { code: REFUSAL.walk.F3.code, status: REFUSAL.walk.F3.status };
+      assert.deepEqual(want.lease_walk, { ...walkCode, released: false });
+      assert.deepEqual(rulesOf(evaluateResume(rb)), ['F3']);
+      assert.deepEqual(want.worker_load, REFUSAL.resume.F3);
+      const rc = fx.read_back_control;
+      for (const mode of ['full', 'lease'])
+        assert.deepEqual(evaluateWalk(rc, rc.record.discovery, mode).violations, [], mode);
+      assert.deepEqual(evaluateResume(rc).violations, [], 'the control loads');
     } else if (fx.kind === 'resume') {
       violations = evaluateResume(fx).violations;
       if (fx.expect.store_outside_reconciliation)
@@ -4184,6 +4335,16 @@ test('the contract states the constants, logs, schema, domains and causes this f
     logs.filter((r) => r[3] === 'yes').map((r) => r[0].replace(/`/g, '')),
     [...RESETTABLE]
   );
+  // §2.7's <state> holds the keys the model's states hold, `bytes` among them
+  // (BB8 6693502369, item 30), and §2.10's summary the same.
+  const stateLine = section('2. Format').match(/^<state> = \{(.*)\}$/m)[1];
+  assert.deepEqual(
+    [...stateLine.matchAll(/"([a-z_]+)":/g)].map((m) => m[1]),
+    Object.keys(emptyLog('seen')),
+    '§2.7: <state> holds head, segments, count, bytes and digest'
+  );
+  const summaryKeys = section('2. Format').match(/"logs":\{"<log>":\{([^}]*)\}\}\}/)[1];
+  assert.deepEqual(summaryKeys.replace(/"/g, '').split(','), Object.keys(emptyLog('seen')));
   const schema = section('2. Format').split('### 2.5')[1].split('```')[1];
   assert.deepEqual(
     [...schema.matchAll(/"([a-z_]+)":/g)].map((m) => m[1]),
@@ -4249,7 +4410,7 @@ test('the contract states the constants, logs, schema, domains and causes this f
     assert.ok(corrupt[3].includes(rule), `§8's STORAGE_CORRUPT row names ${rule}`);
   assert.ok(!causes.find((r) => r[0] === '`chain_broken`')[1].includes('R5'), 'R5 never releases');
   assert.ok(CONTRACT.includes(`\`MEMBERSHIP_ENTRIES = ${LIMITS.MEMBERSHIP_ENTRIES}\``));
-  assert.ok(section('4. Write path').includes('**W7, the membership cap.**'), '§4 states W7');
+  assert.ok(section('4. Write path').includes('**W7, the membership caps.**'), '§4 states W7');
   assert.ok(
     section('1. Terms').includes(
       `**Membership logs.** ${MEMBERSHIP_LOGS.map((l) => `\`${l}\``)
@@ -4342,13 +4503,15 @@ test('§6.11: MEMBERSHIP_ENTRIES fits the first-commit budget by the contract fi
   // 4,096-byte entries (§10), scaled by the same factor, fitted into what the
   // margin leaves beside the per-entry term at its cap. The two terms
   // overcount each other's share, so their sum bounds any mix of entry sizes.
-  assert.ok(measured.includes('251.4 ns per entry byte at 4,096-byte entries'), '§10 measures it');
-  const byteRate = 251.4e-9 * factor;
+  // The rate §10 measured over the 17 shapes capped at ENTRY_DEPTH (BB8 6693502369).
+  const perByteRow = tableRows(measured).find((r) => r[0] === 'load per byte')[1];
+  const median = Number(perByteRow.match(/^([\d.]+) ns per entry byte at 4,096-byte entries/)[1]);
+  const byteRate = median * 1e-9 * factor;
   const byteRoom = Math.floor((29 - fixed - atCap) / byteRate);
-  assert.equal(byteRoom, 3076221);
-  assert.equal(pow2(byteRoom), LIMITS.MEMBERSHIP_BYTES, 'rounded down to 2 MiB');
-  // The withdrawn 4 MiB, from the worst of five shapes, does not fit at this rate.
-  assert.ok(fixed + atCap + 4194304 * byteRate > 29, '4 MiB is withdrawn');
+  assert.equal(pow2(byteRoom), LIMITS.MEMBERSHIP_BYTES, 'rounded down to a power of two');
+  // The cap stops fitting past this measured rate; twice the cap does not fit.
+  const stopsFitting = ((29 - fixed - atCap) / (LIMITS.MEMBERSHIP_BYTES * factor)) * 1e9;
+  assert.ok(median <= stopsFitting && fixed + atCap + 2 * LIMITS.MEMBERSHIP_BYTES * byteRate > 29);
   const atBytes = LIMITS.MEMBERSHIP_BYTES * byteRate;
   const both = fixed + atCap + atBytes;
   assert.ok(both <= 29, 'both caps together hold the margin');
@@ -4371,24 +4534,33 @@ test('§6.11: MEMBERSHIP_ENTRIES fits the first-commit budget by the contract fi
   const text = section('6. Worker semantics').split('### 6.11')[1];
   const s1 = (x) => `${x.toFixed(1)} s`;
   const s = (x) => `${x.toFixed(2)} s`;
+  // An unrounded term, printed to five places: every count is computed from
+  // these, so a reader recomputing from the text gets the same counts (nit 3).
+  const u = (x) => `${x.toFixed(5)} s`;
   const n = (x) => x.toLocaleString('en-US');
   for (const stated of [
     '6682942783',
     '91.2 µs',
     `| construct | ${s1(construct)} | measured on #656, loaded host (§10), not scaled |`,
     `| recompute | ${s1(recompute)} | measured on #656, loaded host (§10), not scaled |`,
-    s(walk),
-    s(fixed),
-    s(30 - fixed),
+    u(walk),
+    u(fixed),
+    u(30 - fixed),
     n(room),
     n(withMargin),
     '90,975 with the margin, rounded down to 65,536',
-    s(atCap),
+    u(atCap),
     s(fixed + atCap),
     s(30 - fixed - atCap),
-    '754.2 ns',
-    s(29 - fixed - atCap),
+    `${(median * factor).toFixed(1)} ns`,
+    u(29 - fixed - atCap),
     n(byteRoom),
+    'Every count in this section is computed from the unrounded terms',
+    `29 − ${u(fixed).slice(0, -2)} − ${u(atCap).slice(0, -2)} = ${u(29 - fixed - atCap)}`,
+    `stops fitting only past ${stopsFitting.toFixed(1)} ns per byte`,
+    "No #656 entry count is a term in it: #656's own entries count inside the cap.",
+    '251.4 ns per byte, the 17 shapes measured up to 2,040 levels deep, which F1 no longer admits',
+    'about 2.3-fold the 107.3 ns the five shapes of `465582a78` peaked at on the same host',
     `\`MEMBERSHIP_BYTES = ${LIMITS.MEMBERSHIP_BYTES}\``,
     s(atBytes),
     s(both),
@@ -4455,14 +4627,188 @@ function workerMembershipBytesRefusal(held, log, appended) {
     ? { code: 'RESOURCE_LIMIT', cause: `discovery_${log}` }
     : null;
 }
-test("§6.11: MEMBERSHIP_BYTES refuses one byte past 2 MiB with the appending log's cause", () => {
-  // 511 entries of exactly ENTRY_BYTES spread over the four logs, 2 MiB less
-  // one entry; each log then appends the last 4,096 bytes (accepted, at the
-  // cap), or 4,096 and one byte more (refused). Far under MEMBERSHIP_ENTRIES.
+// The README: a synthetic chain, named by its totals, names its `bytes` too:
+// 16 an entry in the membership fixture's entry cases and the compaction
+// fixture's record; the byte cases' figure is the cap less three 4,096-byte
+// entries (BB8 6693502369, item 30).
+test('synthetic chains name their bytes as the README states', () => {
+  const states = [];
+  const walkStates = (v) => {
+    if (Array.isArray(v)) v.forEach(walkStates);
+    else if (plainObject(v)) {
+      if (same(Object.keys(v), ['head', 'segments', 'count', 'bytes', 'digest'])) states.push(v);
+      else Object.values(v).forEach(walkStates);
+    }
+  };
+  const mo = load('bad/membership_over_cap.json');
+  for (const c of [...mo.mutants, ...mo.controls]) {
+    const before = states.length;
+    walkStates(c.record.discovery);
+    for (const st of states.slice(before))
+      assert.equal(
+        st.bytes,
+        c.cap === 'bytes' ? LIMITS.MEMBERSHIP_BYTES - 3 * LIMITS.ENTRY_BYTES : 16 * st.count,
+        c.name
+      );
+  }
+  const rs = load('good/row_seen_compaction_next_frame.json');
+  const row = rs.record.discovery.logs.row_seen;
+  assert.equal(row.bytes, 16 * row.count, 'the compaction fixture names 16 an entry');
+  assert.ok(README.replace(/\s+/g, ' ').includes('16 an entry in `bad/membership_over_cap.json`'));
+});
+
+// BB8 6693502369, item 31: §10's rate is over the 17 shapes capped at
+// ENTRY_DEPTH, the ratios it states are its own figures', and the rates at
+// the deeper bounds the formula allows leave the cap where it is.
+test('§10: the per-byte rate over the capped shapes, and at the deeper bounds', () => {
+  const rows = tableRows(section('10. Measured on #656, not bounds'));
+  const row = rows.find((r) => r[0] === 'load per byte')[1].replace(/\s+/g, ' ');
+  const num = (re) => Number(row.match(re)[1]);
+  const median = num(/^([\d.]+) ns per entry byte/);
+  const five = num(/peak at ([\d.]+) ns in the same passes/);
+  assert.ok(
+    row.includes(`over 17 entry shapes, each capped at \`ENTRY_DEPTH\` (${LIMITS.ENTRY_DEPTH})`)
+  );
+  assert.ok(row.includes(`about ${(median / five).toFixed(1)}-fold`), 'the capped ratio');
+  assert.ok(row.includes(`capped at ${LIMITS.ENTRY_DEPTH - 1} inside the entry's own array`));
+  assert.ok(row.includes('about 2.3-fold the 107.3 ns'), 'nit 4: the 2.3-fold is against 107.3 ns');
+  assert.ok((251.4 / 107.3).toFixed(1) === '2.3' && (251.4 / 102.4).toFixed(1) !== '2.3');
+  assert.equal(LOAD_SHAPES.length, 17);
+  const factor = 3;
+  const walk = 5 * LIMITS.CHAIN_SEGMENTS * (0.01 / 99) * factor;
+  const left = 29 - 15.2 - 2.4 - walk - LIMITS.MEMBERSHIP_ENTRIES * 30.4e-6 * factor;
+  const stops = (left / (LIMITS.MEMBERSHIP_BYTES * factor)) * 1e9;
+  const deeper = rows.find((r) => r[0] === 'load per byte, deeper bounds')[1].replace(/\s+/g, ' ');
+  const [, at16, at64] = deeper.match(/worst medians ([\d.]+) and ([\d.]+) ns/).map(Number);
+  assert.ok(
+    deeper.includes(`capped at ${depthFor(5)} and at 64 instead`),
+    'the next bound and the last'
+  );
+  assert.ok(deeper.includes(`under the ${stops.toFixed(1)} ns at which it stops fitting`));
+  for (const r of [median, at16, at64]) {
+    assert.ok(r <= stops, `${r} ns keeps ${LIMITS.MEMBERSHIP_BYTES}`);
+    const room = Math.floor(left / (r * 1e-9 * factor));
+    assert.equal(2 ** Math.floor(Math.log2(room)), LIMITS.MEMBERSHIP_BYTES, `${r} ns`);
+  }
+  assert.ok(median < at16 && at16 < at64, 'the rate rises with the bound');
+});
+
+// The review of the item 30-31 fold, finding 2: §10's per-byte figures are
+// computed here from the committed rows of the measurement, so the text cannot
+// drift from what was measured. A measurement, not a bound.
+const MEASUREMENT = 'good/membership_load_measurement.json';
+test(`${MEASUREMENT}: §10's per-byte figures are the rows' own`, () => {
+  const fx = load(MEASUREMENT);
+  const m = fx.method;
+  const kinds = [...new Set(fx.shapes.map((x) => x.kind))];
+  assert.equal(fx.shapes.length, LOAD_SHAPES.length, 'the 17 shapes the validator keys');
+  // Every run is five loads of 8 MiB of 4,096-byte entries, four to a segment.
+  assert.equal(m.loads_per_run, 5);
+  assert.equal(m.entry_bytes, LIMITS.ENTRY_BYTES);
+  assert.equal(m.key, 'once', 'keyed by the single pass §2.1 requires');
+  for (const r of fx.runs) {
+    assert.deepEqual(
+      [r.bytes, r.entries, r.segments],
+      [m.total_bytes, m.total_bytes / LIMITS.ENTRY_BYTES, m.total_bytes / LIMITS.ENTRY_BYTES / 4]
+    );
+    assert.ok(r.ns_per_byte_med <= r.ns_per_byte_max, `${r.kind}: the median is at most the max`);
+    // The rates are the times per byte, to within the times' last place.
+    const tol = (1e-4 * 1e9) / r.bytes;
+    assert.ok(Math.abs(r.ns_per_byte_med - (r.median_s * 1e9) / r.bytes) <= tol, r.kind);
+    assert.ok(Math.abs(r.ns_per_byte_max - (r.max_s * 1e9) / r.bytes) <= tol, r.kind);
+    // A nested kind is capped one level under its bound, inside the entry's own array.
+    const d = /^(?:deep|single)_(\d+)_/.exec(r.kind);
+    if (d) assert.ok(Number(d[1]) <= r.cap - 1, `${r.kind} within ${r.cap}`);
+  }
+  const at = (cap) => fx.runs.filter((r) => r.cap === cap);
+  const main = at(LIMITS.ENTRY_DEPTH);
+  // Every shape, plain and gzipped, in each of two passes.
+  const passes = [...new Set(main.map((r) => r.pass))].sort();
+  assert.deepEqual(passes, [1, 2]);
+  for (const p of passes)
+    for (const k of kinds)
+      assert.deepEqual(
+        main
+          .filter((r) => r.pass === p && r.kind === k)
+          .map((r) => r.gz)
+          .sort(),
+        [false, true],
+        `pass ${p}: ${k} plain and gzipped`
+      );
+  assert.equal(main.length, 2 * 2 * kinds.length);
+  const top = (rows, f) => rows.reduce((a, r) => (r[f] > a[f] ? r : a));
+  const worst = top(main, 'ns_per_byte_med');
+  const single = top(main, 'ns_per_byte_max');
+  const five = top(
+    main.filter((r) => fx.five_shapes.includes(r.kind)),
+    'ns_per_byte_med'
+  );
+  assert.equal(fx.five_shapes.length, 5);
+  const sens = [depthFor(5), 64].map((cap) => {
+    const rows = at(cap);
+    assert.deepEqual([...new Set(rows.map((r) => r.pass))], [1], `capped at ${cap}: one pass`);
+    return top(rows, 'ns_per_byte_med').ns_per_byte_med;
+  });
+  const f1 = (x) => x.toFixed(1);
+  // The host's load averages are printed to two places, and rounded half up.
+  const up1 = (x) => (Math.round(Math.round(x * 100) / 10) / 10).toFixed(1);
+  const rows = tableRows(section('10. Measured on #656, not bounds'));
+  const row = rows.find((r) => r[0] === 'load per byte')[1].replace(/\s+/g, ' ');
+  const deeper = rows.find((r) => r[0] === 'load per byte, deeper bounds')[1].replace(/\s+/g, ' ');
+  // The worst shape, by the name the row gives it.
+  const shapeName = /^deep_(\d+)_z$/.exec(worst.kind);
+  assert.ok(shapeName, `the worst median is a nested 0: ${worst.kind}`);
+  const la = fx.host.load_average_1m;
+  for (const stated of [
+    `${f1(worst.ns_per_byte_med)} ns per entry byte at 4,096-byte entries: the worst median of five loads of 8 MiB`,
+    `over ${fx.shapes.length} entry shapes`,
+    'each stored plain and gzipped, in two passes.',
+    `The worst median is \`0\` nested ${shapeName[1]} deep, ${worst.gz ? 'gzipped' : 'plain'};`,
+    `the worst single load ${f1(single.ns_per_byte_max)} ns.`,
+    `peak at ${f1(five.ns_per_byte_med)} ns in the same passes`,
+    `about ${f1(worst.ns_per_byte_med / five.ns_per_byte_med)}-fold`,
+    `Measured on a ${fx.host.cpus}-CPU Xeon at 2.1 GHz under Python ${fx.host.python.split('.').slice(0, 2).join('.')}`,
+    `at one-minute load averages of ${up1(Math.min(...la))} to ${up1(Math.max(...la))}`,
+  ])
+    assert.ok(row.includes(stated), `§10 states ${stated}`);
+  assert.ok(fx.host.cpu.includes('Xeon') && fx.host.cpu.includes('2.10GHz'));
+  assert.ok(
+    deeper.includes(
+      `the same load, in one pass, with the nested shapes capped at ${depthFor(5)} and at 64 instead: worst medians ${f1(sens[0])} and ${f1(sens[1])} ns`
+    )
+  );
+  assert.ok(
+    rows
+      .find((r) => r[0] === 'load per byte')[2]
+      .includes('the rows are `good/membership_load_measurement.json`')
+  );
+  // §6.11's rate is §10's worst median as printed, scaled by 3; the exception
+  // to the unrounded terms says so, with the unrounded median.
+  const s611 = section('6. Worker semantics').split('### 6.11')[1].replace(/\s+/g, ' ');
+  const printed = Number(f1(worst.ns_per_byte_med));
+  assert.ok(
+    s611.includes(
+      `| load rate per byte | ${printed} ns per entry byte × 3 = ${f1(printed * 3)} ns |`
+    )
+  );
+  assert.ok(
+    s611.includes(
+      `with one exception: the per-byte rate enters as printed, §10's worst median of ${worst.ns_per_byte_med} ns rounded to ${printed} ns and scaled to ${f1(printed * 3)} ns, so the byte room below is the unrounded time over ${f1(printed * 3)} ns.`
+    )
+  );
+  assert.notEqual(f1(worst.ns_per_byte_med * 3), f1(printed * 3), 'the rounding moves the rate');
+});
+
+test("§6.11: MEMBERSHIP_BYTES refuses one byte past the cap with the appending log's cause", () => {
+  // MEMBERSHIP_BYTES / ENTRY_BYTES - 1 entries of exactly ENTRY_BYTES (1,023
+  // at 4 MiB) spread over the four logs, the cap less one entry; each log then
+  // appends the last 4,096 bytes (accepted, at the cap), or 4,096 and one byte
+  // more (refused). Far under MEMBERSHIP_ENTRIES.
   const big = (i) => ['k' + i, 'x'.repeat(LIMITS.ENTRY_BYTES - cbytes(['k' + i, '']))];
   assert.equal(cbytes(big(7)), LIMITS.ENTRY_BYTES);
   const per = LIMITS.MEMBERSHIP_BYTES / LIMITS.ENTRY_BYTES;
-  assert.equal(per, 512);
+  assert.ok(Number.isInteger(per));
+  assert.equal(per - 1, 1023, 'the count the comment above gives');
   const held = { seen: [], variants: [], row_seen: [], alt_seen: [] };
   for (let i = 0; i < per - 1; i++) held[MEMBERSHIP_LOGS[i % 4]].push(big(i));
   for (const log of MEMBERSHIP_LOGS) {
@@ -4475,11 +4821,64 @@ test("§6.11: MEMBERSHIP_BYTES refuses one byte past 2 MiB with the appending lo
   }
   const total = MEMBERSHIP_LOGS.reduce((n, l) => n + held[l].length, 0) + 2;
   assert.ok(total < LIMITS.MEMBERSHIP_ENTRIES, 'the byte cap binds first');
+  // The same cap at the store, W7, from each log's `bytes` (BB8 6693502369,
+  // item 30): the held entries as sealed chains, the append as the new tail.
+  const storeCase = (log, appended) => {
+    const logs = {};
+    const cursorLogs = {};
+    for (const l of MEMBERSHIP_LOGS) {
+      const st = {
+        head: sha(`held ${l}`),
+        segments: Math.ceil(held[l].length / 4),
+        count: held[l].length,
+        bytes: sumBytes(held[l]),
+        digest: fold(d0(DOMAIN.log(l)), held[l]),
+      };
+      logs[l] = st;
+      cursorLogs[l] = {
+        sealed: st.count,
+        sealed_digest: st.digest,
+        tail: l === log ? appended : [],
+      };
+    }
+    const cursor = (tails) => ({
+      contract_version: 2,
+      method_index: 3,
+      discovery: {
+        version: 1,
+        epoch: 3,
+        logs: tails,
+        inventory: null,
+        groups: { through: null, current: null },
+      },
+      witness: null,
+      continuation: {},
+    });
+    const empty = Object.fromEntries(
+      Object.entries(cursorLogs).map(([l, c]) => [l, { ...c, tail: [] }])
+    );
+    const record = {
+      discovery: { version: 1, epoch: 3, logs, verified: clone(logs), unavailable: null },
+      cursor: cursor(empty),
+    };
+    const frame = { discovery: { epoch: 3, resets: [], seals: [] }, cursor: cursor(cursorLogs) };
+    return [
+      ...new Set(
+        evaluateFrame({ job_id: 'j', identity_hash: 'h' }, record, frame).violations.map(
+          (v) => v.rule
+        )
+      ),
+    ];
+  };
+  for (const log of MEMBERSHIP_LOGS) {
+    assert.deepEqual(storeCase(log, [big(per)]), [], `${log}: the store accepts the cap`);
+    assert.deepEqual(storeCase(log, [big(per), 0]), ['W7'], `${log}: W7 one byte past it`);
+  }
   // The document: §3's row, §8's causes and the store's side.
   const limits = tableRows(section('3. Hard limits'));
   const row = limits.find((r) => r[0] === '`MEMBERSHIP_BYTES`');
   assert.ok(row[2].includes('the same cause for each log'), "§3: the worker's causes");
-  assert.ok(row[3].startsWith('none at the frame'), '§3: the store keeps no byte count');
+  assert.ok(row[3].startsWith('`READER_PROTOCOL` (W7)'), "§3: the store's W7, from `bytes`");
   const causes = tableRows(section('8. Refusals'));
   for (const log of MEMBERSHIP_LOGS)
     assert.ok(
@@ -4647,14 +5046,16 @@ test('BB8 6688972927: each fold is pinned where it is stated, with computed figu
     )
   );
   assert.ok(i16.includes("no further full-read place (the store's two, as item 14 amends them)"));
-  // Item 2: the byte cap is the worker's alone, and W7 says so.
+  // Item 2, as item 30 amends it: W7 holds both caps, the bytes from each
+  // log's `bytes` (BB8 6693502369).
   const write = flat(section('4. Write path'));
   assert.ok(
     write.includes(
-      "W7 does not hold `MEMBERSHIP_BYTES`: the record keeps no byte count, so that cap is the worker's alone (§3)."
+      'at most `MEMBERSHIP_ENTRIES` entries and at most `MEMBERSHIP_BYTES` entry bytes together'
     )
   );
-  assert.ok(!/W7 holds `MEMBERSHIP_BYTES`/.test(flat(CONTRACT)));
+  assert.ok(!/W7 does not hold `MEMBERSHIP_BYTES`/.test(flat(CONTRACT)));
+  assert.ok(!/the worker's refusal is the bound/.test(flat(CONTRACT)), 'no store-less byte cap');
   for (const log of MEMBERSHIP_LOGS)
     assert.equal(
       row(`\`discovery_${log}\``)[1],
@@ -4723,7 +5124,7 @@ test('BB8 6688972927: each fold is pinned where it is stated, with computed figu
   assert.ok(bytesRow.startsWith(`${MB} canonical entry bytes (${mib(MB)}) in the same four logs`));
   // §12 items 13 and 25 and §11 row 40 carry the same figures.
   const i13 = item(13);
-  assert.ok(i13.includes(`\`MEMBERSHIP_BYTES\` (${mib(MB)})`));
+  assert.ok(i13.includes(`\`MEMBERSHIP_BYTES\` (${mib(MB)}, item 31)`));
   assert.ok(i13.includes(`The ${s(fixed + atCap)} and ${s(both)} at the caps are derivations`));
   const i25 = item(25);
   assert.ok(
@@ -4739,7 +5140,10 @@ test('BB8 6688972927: each fold is pinned where it is stated, with computed figu
       `${n(withMargin)} entries with the margin, rounded down to \`MEMBERSHIP_ENTRIES = ${LIMITS.MEMBERSHIP_ENTRIES}\``
     )
   );
-  assert.ok(flat(rows.find((r) => r[0] === '46')[2]).includes(`\`MEMBERSHIP_BYTES = ${MB}\``));
+  assert.ok(flat(rows.find((r) => r[0] === '48')[2]).includes(`\`MEMBERSHIP_BYTES = ${MB}\``));
+  assert.ok(
+    flat(rows.find((r) => r[0] === '46')[2]).includes('(2 MiB then; re-derived by row 48)')
+  );
   // Finding 1: the single-pass key is required, in §2.1 and §5.2.
   const format = flat(section('2. Format'));
   assert.ok(
@@ -4751,15 +5155,19 @@ test('BB8 6688972927: each fold is pinned where it is stated, with computed figu
     format.includes('It **must not** compute a key by calling `canonical_json` on an entry')
   );
   assert.ok(!format.includes('keys its sets by `canonical_json(entry)`'));
-  // canonical_json fails past about 1,000 levels; the vectors test shows it on
-  // the load shapes, and §2.1 states it.
+  // F1's depth bound keeps every entry under the recursion limit, so
+  // canonical_json completes on every entry; the 2,048-level text and the
+  // RecursionError caveat are gone (BB8 6693502369, item 31).
   assert.ok(
     format.includes(
-      "its output is identical to `canonical_json`'s (`contracts.py:208-210`) wherever `canonical_json` completes. It does not complete on an entry nested deeper than about 990 levels"
+      "For this subset its output is identical to `canonical_json`'s (`contracts.py:208-210`). `json_safe` recurses once per level, and F1's depth bound keeps every entry far under Python's recursion limit, so both complete on every entry"
     )
   );
-  assert.ok(format.includes('raising `RecursionError`'));
-  assert.ok(format.includes('handle the 2,048 levels a 4,096-byte entry can hold'));
+  assert.ok(
+    !/RecursionError|2,048 levels|wherever `canonical_json` completes|wherever that completes/.test(
+      format
+    )
+  );
   assert.ok(
     resume.includes(
       "**Required** (§2.1): the worker computes each loaded entry's canonical form once, hashes those bytes for F5, and keys its sets by the same bytes"
@@ -5275,7 +5683,7 @@ test('the attribution of the row_seen figure and the headroom (BB8 6683944548)',
 });
 
 // §12: every item BB8 ruled is marked with its ruling; only item 29 is open.
-test('§12: items 21-28 carry their rulings, 30-31 are ruled and not yet folded, and only 29 is open', () => {
+test('§12: items 21-28 carry their rulings, 30-31 are ruled and folded, and only 29 is open', () => {
   const text = section('12. Rulings on the items added for confirmation');
   const item = (n) => {
     const m = new RegExp(`\\n${n}\\. \\*\\*([^*]+)\\*\\*`).exec(text);
@@ -5286,18 +5694,16 @@ test('§12: items 21-28 carry their rulings, 30-31 are ruled and not yet folded,
     assert.match(item(n), /^Ruled/, `item ${n} is ruled`);
   assert.match(item(24), /^3PO's/, "item 24 is 3PO's");
   assert.match(item(29), /^Open/, 'item 29 stays open');
-  // R2's two questions of 6693449409: BB8 ruled both yes (6693502369); the
-  // fold is the next revision's, so the rule text (§2.1, §3) does not move yet.
-  assert.equal(item(30), 'Ruled: yes, not yet folded');
-  assert.equal(item(31), 'Ruled: yes, not yet folded');
+  // R2's two questions of 6693449409: BB8 ruled both yes (6693502369), and
+  // this revision folds both; item 31's value waits on the declared shapes.
+  assert.equal(item(30), 'Ruled: yes, folded');
+  assert.equal(item(31), 'Ruled: yes, folded; its value is open');
   const body = (n) =>
     text.match(new RegExp(`\\n${n}\\. [\\s\\S]*?(?=\\n\\d+\\. |\\n#|$)`))[0].replace(/\s+/g, ' ');
   for (const n of [30, 31]) assert.ok(body(n).includes('(BB8 6693502369; asked in 6693449409)'));
-  assert.ok(
-    body(30).includes("Until the next revision folds it, §3's `MEMBERSHIP_BYTES` row stands.")
-  );
-  assert.ok(body(31).includes("Until the next revision folds it, §2.1's depth text stands."));
-  assert.ok(!/ENTRY_DEPTH/.test(section('2. Format')), '§2.1 does not carry ENTRY_DEPTH yet');
+  assert.ok(!/not yet folded|Until the next revision folds/.test(text), 'nothing waits on a fold');
+  assert.ok(body(31).includes('**Open for BB8:**'), "item 31's value is open for BB8");
+  assert.ok(/ENTRY_DEPTH/.test(section('2. Format')), '§2.1 carries ENTRY_DEPTH');
   assert.ok(!/\n32\. /.test(text), 'no item 32');
   assert.ok(text.replace(/\s+/g, ' ').includes('Only item 29 is open, for the proof run.'));
   assert.ok(!/Items 29, 30 and 31 are open/.test(text));
@@ -5359,6 +5765,8 @@ function nodeTag(text) {
 // hold to this fixture and to §9's required calls.
 const CODEC_PROGRAM = String.raw`import json, re, sys, tracemalloc
 MAX = (1 << 53) - 1
+DEPTH = ${LIMITS.ENTRY_DEPTH}
+DEEP = "${DEPTH_WHAT}"
 PAST = "an integer past 2⁵³ − 1"
 SURROGATE = re.compile("[\ud800-\udfff]")
 class Tag(Exception):
@@ -5388,6 +5796,10 @@ def f1_walk(value):
             if t is list:
                 if id(x) in active:
                     raise Tag("F1", "a cyclic array")
+                # The depth bound: one iterator per open array, so its depth
+                # is the stack's (BB8 6693502369, item 31).
+                if len(stack) > DEPTH:
+                    raise Tag("F1", DEEP)
                 active.add(id(x))
                 path.append(id(x))
                 stack.append(iter(x))
@@ -5785,10 +6197,14 @@ test(`${CODEC}: the worker's emit makes two passes, F1 before F2, with BB8's cas
     ep.cases.map((c) => c.rule),
     ['F1', 'F1', 'F1', 'F2']
   );
-  // A deep entry that F1 and F2 both admit encodes unchanged, to Node's bytes.
+  // A deep entry that F1 and F2 both admit encodes unchanged, to Node's bytes:
+  // nested exactly ENTRY_DEPTH deep, so one more level breaks F1 (item 31).
   let deep = [];
   for (let k = 1; k < ep.deep_valid.depth; k++) deep = [deep];
   assert.equal(py.deep, JSON.stringify(deep));
+  assert.equal(entryDepth(deep), LIMITS.ENTRY_DEPTH, 'the deep entry sits at the bound');
+  assert.equal(nodeTag(JSON.stringify([deep])).tag, 'F1', 'one level more breaks F1 in Node');
+  assert.equal(codecPython({ entries: [JSON.stringify([deep])] }).entries[0].what, DEPTH_WHAT);
   assert.equal(Buffer.byteLength(py.deep), ep.deep_valid.canonical_bytes);
   assert.ok(ep.deep_valid.canonical_bytes <= LIMITS.ENTRY_BYTES);
   assert.equal(nodeTag(py.deep).tag, 'passes');
@@ -5820,12 +6236,24 @@ const s9codec = () => {
 test(`${CODEC}: §9's required calls are the fixture's, and the model raises each rule`, () => {
   const fx = load(CODEC);
   const text = s9codec();
-  const [integers, emit] = text.split("- `canonical_bytes` makes §2.11 (d)'s two passes");
-  assert.ok(emit, '§9 states the two-pass requirement');
+  const [integers, rest] = text.split("- `canonical_bytes` makes §2.11 (d)'s two passes");
+  assert.ok(rest, '§9 states the two-pass requirement');
+  const [emit, depth] = rest.split('- the codec counts the depth');
+  assert.ok(depth, '§9 states the depth requirement (BB8 6693502369, item 31)');
   const stripped = (cases) => cases.map(({ call, rule }) => ({ call, rule }));
   assert.deepEqual(requiredCalls(integers), fx.codec_requirement.calls);
   assert.deepEqual(requiredCalls(emit), stripped(fx.emit_precedence.cases));
-  const all = [...fx.codec_requirement.calls, ...fx.emit_precedence.cases];
+  assert.deepEqual(requiredCalls(depth), fx.codec_requirement.depth_calls);
+  // Each depth call's entry is one level past the bound (§2.1).
+  for (const c of fx.codec_requirement.depth_calls) {
+    const arg = c.call.match(/^\w+\((.*)\)$/)[1].replace(/^'(.*)'$/, '$1');
+    assert.equal(entryDepth(JSON.parse(arg)), LIMITS.ENTRY_DEPTH + 1, c.call);
+  }
+  const all = [
+    ...fx.codec_requirement.calls,
+    ...fx.emit_precedence.cases,
+    ...fx.codec_requirement.depth_calls,
+  ];
   const py = codecPython({ calls: all.map((c) => c.call) });
   all.forEach((c, i) => assert.equal(py.calls[i].rule, c.rule, c.call));
   // INTEGER_FIELD is require_integer's alone; an integer inside an entry is F1
@@ -5889,6 +6317,36 @@ test(`${CODEC}: invalid UTF-8 in a segment is F3 in both languages once the stor
     // And the store's read today is JSON.parse on the buffer, not a fatal decode.
     const store = fs.readFileSync(path.join(ROOT, 'mcp/reader_job_store.js'), 'utf8');
     assert.ok(!/fatal: true/.test(store), 'the requirement is not met yet, so it is stated');
+    // BB8 21:31Z: the read-back is an address-valid segment holding a string
+    // with a lone 0xFF byte, F3 on a full read, a lease's walk and the
+    // worker's load; a replacing decode passes the content and meets F5.
+    const rb = c.read_back;
+    const [stored] = rb.store.segments;
+    const bytes = Buffer.from(stored.hex, 'hex');
+    assert.deepEqual(bytes, raw, 'the read-back stores these bytes');
+    assert.equal(sha(bytes), rb.addresses.seen[0], 'address-valid');
+    assert.ok(bytes.includes(Buffer.from('"\xff"', 'latin1')), 'a lone 0xFF inside a string');
+    assert.equal(Buffer.from(c.entry_hex, 'hex').filter((x) => x === 0xff).length, 1);
+    assert.deepEqual(rulesOf(evaluateWalk(rb, rb.record.discovery, 'full')), ['F3']);
+    assert.deepEqual(c.expect.full_read, { ...REFUSAL.full.F3, released: true });
+    assert.deepEqual(rulesOf(evaluateWalk(rb, rb.record.discovery, 'lease')), ['F3']);
+    assert.deepEqual(c.expect.lease_walk, {
+      code: REFUSAL.walk.F3.code,
+      status: REFUSAL.walk.F3.status,
+      released: false,
+    });
+    assert.deepEqual(rulesOf(evaluateResume(rb)), ['F3']);
+    assert.deepEqual(c.expect.worker_load, REFUSAL.resume.F3);
+    assert.equal(c.expect.rule, m3(fx));
+    // The test §2.11 requires fails against a replacing decode: no F3 there.
+    const replacing = { ...rb, replacing: true };
+    for (const mode of ['full', 'lease'])
+      assert.ok(!rulesOf(evaluateWalk(replacing, rb.record.discovery, mode)).includes('F3'), mode);
+    const load = rulesOf(evaluateResume(replacing));
+    assert.ok(!load.includes('F3') && load[0] === c.replacing_decode.rule, load.join());
+    assert.deepEqual(c.replacing_decode.worker_load, REFUSAL.resume[c.replacing_decode.rule]);
+    // Buffer.toString is such a decode.
+    assert.ok(bytes.toString('utf8').includes('\ufffd'));
   }
 });
 const m3 = (fx) => fx.mapping.persisted.rule;
@@ -6359,6 +6817,23 @@ test(`${CODEC}: the admission guard's cases, paths and refusal (§2.11, §9)`, (
     { code: ad.code, status: ad.status },
     { code: 'INVALID_DECLARATION', status: 400 }
   );
+  // BB8 21:31Z: a record written before the check is refused at the
+  // scheduler's check before workerPayload, paused with the code, never leased.
+  const st = ad.stored_request;
+  const stored = JSON.parse(st.request);
+  assert.equal(wellFormedDeep(stored.declaration_set), false, 'the stored request is refused');
+  assert.deepEqual(stored, JSON.parse(ad.refused[0].body), "the guard test's line, stored");
+  assert.equal(st.written_before_the_check, true);
+  assert.ok(
+    CITES.some(([c]) => c === st.checked_at),
+    st.checked_at
+  );
+  assert.deepEqual(st.expect, {
+    code: ad.code,
+    paused: true,
+    leased: false,
+    run_reader_lease: 'never called',
+  });
 });
 
 // Every statement this fold adds, as the contract must read once the facts
@@ -6381,7 +6856,8 @@ const CLAIMS = [
       "codec is whatever decodes, checks or encodes entries: the #721 author's entry codec in",
       "the worker, and the store's entry checks (§4). Its tags: - `F1`: a value inside an entry",
       "that is outside §2.1's subset: a float (`1.0` included), a nonfinite number, an object,",
-      'an integer past ±(2⁵³ − 1), a lone surrogate, a cyclic array or a value of another type;',
+      'an integer past ±(2⁵³ − 1), a lone surrogate, a cyclic array, an array past `ENTRY_DEPTH` or',
+      'a value of another type;',
       '- `F2`: an entry whose canonical form is longer than `ENTRY_BYTES`; - `JSON`: input that',
       'is not one JSON value: invalid UTF-8, a truncated value or trailing content; -',
       '`INTEGER_FIELD`: an integer-only field outside the entries that is not an integer in its',
@@ -6399,7 +6875,8 @@ const CLAIMS = [
       'reader line past `READER_FRAME_CAP` (`:16`) as `{{A_CODE}}` (`:320-325`). - **(b) The',
       'worker, on an entry it generated, before it emits.** `F2` is `{{B_F2_CODE}}`, cause',
       '`{{B_F2_CAUSE}}`, naming the log (§3, §8). `F1` (a float, a lone surrogate, an object,',
-      'an integer out of range) is `{{B_F1_CODE}}`, an engine defect, with a message that names',
+      'an integer out of range, a depth past `ENTRY_DEPTH`) is `{{B_F1_CODE}}`, an engine defect,',
+      'with a message that names',
       'the rule, like the other `{{B_F1_CODE}}` messages (§3, §8). The worker never truncates',
       'or skips the entry. It refuses before it builds the frame. Without that refusal a lone',
       'surrogate would fail later, still before the write: `worker.py` builds each frame with',
@@ -6412,17 +6889,25 @@ const CLAIMS = [
       '(reconciliation, `resume()`) releases with `{{C_FULL_CODE}}`, cause `{{C_CAUSE}}`',
       "(§5.1); the worker's load refuses with `{{C_CAUSE}}` (§5.2). `{{STORE_CAUSE}}` stays",
       "F6's alone, and the store's alone, and a failed gzip inflation stays F6. - **Invalid",
-      "UTF-8 in a segment, in both languages.** The worker's load decodes strictly",
+      "UTF-8 in a segment, in both languages** (BB8, 21:31Z). The worker's load decodes strictly",
       '(`worker.py:123`), so bytes that are not UTF-8 are `{{U_TAG}}`, and F3. The store today',
       'parses the verified bytes with `JSON.parse` on the buffer (`reader_job_store.js:681`),',
       'which decodes invalid UTF-8 as U+FFFD instead of refusing it, so the same bytes would',
       "pass or meet F5. **Required** (R2's, in the store half): the store decodes a segment's",
       "verified bytes with a fatal UTF-8 decoder (`new TextDecoder('utf-8', { fatal: true })`)",
-      'before it parses them, and a failure is F3, so both languages refuse the same bytes for',
-      'the same rule. Only a writer other than the store can produce such bytes.',
-      "`persisted_bytes` in `good/codec_error_mapping.json` pins it: Python's load and the",
-      "required store are F3 (`JSON`), and a non-fatal decode, as the store's is today, passes",
-      'the bytes. - **The integral float `1.0`, across languages.** Take a persisted segment',
+      'before it parses them, never with `Buffer.toString` or `JSON.parse` on the buffer, which',
+      'replace bytes that are not UTF-8, and a failure is F3, so both languages refuse the same',
+      "bytes for the same rule: a full read releases with `{{U_FULL_CAUSE}}`, a lease's walk",
+      "refuses `{{U_WALK_CODE}}`, and the worker's load refuses with `{{U_LOAD_CAUSE}}`. A failed",
+      'gzip inflation comes before the decode and stays F6. Only a writer other than the store',
+      'can produce such bytes. `persisted_bytes` in `good/codec_error_mapping.json` pins it:',
+      "Python's load and the required store are F3 (`JSON`), and a non-fatal decode, as the",
+      "store's is today, passes the bytes. Its `read_back` is an address-valid segment holding",
+      "a string with a lone {{U_BYTE}} byte. **Required test** (R2's store tests): a full read and a",
+      "lease's walk of that segment each refuse it as F3, and the same test run against a",
+      'replacing decode fails, because that decode passes the content and meets {{U_REPLACING}}',
+      'instead, so the test shows the store does not use one. - **The integral float `1.0`,',
+      'across languages.** Take a persisted segment',
       "whose digests a Python writer computed over the bytes `1.0`. Python's load meets a",
       'float: F1, so F3, cause `{{C_CAUSE}}`. Node parses it as the integer 1, so the entry',
       'passes F1 and its recomputed digest does not match: {{X_NODE_RULE}}, cause',
@@ -6436,7 +6921,7 @@ const CLAIMS = [
       'it breaks, {{P1}} included: `{{B_F1_CODE}}` reports an engine defect, and',
       "`{{B_F2_CODE}}` would blame the input and hide the defect. The worker's encoder makes",
       "two passes. The first is the F1 walk: §2.1's types with no subclasses, integers within",
-      '±(2⁵³ − 1), cycles, and lone surrogates found by a scan that encodes nothing. It',
+      '±(2⁵³ − 1), cycles, the depth, and lone surrogates found by a scan that encodes nothing. It',
       "serialises nothing, holds iterators rather than a stack proportional to an array's",
       'width, allocates in proportion to the depth and takes time in proportion to the nodes.',
       "Only an entry that passes it reaches the second pass, today's encoder with its early F2",
@@ -6511,7 +6996,12 @@ const CLAIMS = [
       'whose declaration key holds one, are each refused `{{ADM_CODE}}` ({{ADM_STATUS}}) on',
       'both create paths, {{ADM_PATHS}}, before any lease: no job record is written and the',
       "bridge's `runReaderLease` is never called. The same text with a well-formed pair",
-      '(`{{ADM_PAIR}}`) is admitted.',
+      "(`{{ADM_PAIR}}`) is admitted. **Stored-request case** (BB8's, 21:31Z; R2's scheduler",
+      'test): a job record written before the check, whose stored declaration set holds the',
+      'same lone-surrogate `line`, is refused at the check before `workerPayload`',
+      '(`{{ADM_STORED_AT}}`) with `{{ADM_CODE}}` and paused with that code, and is never leased:',
+      '`runReaderLease` is never called. `admission.stored_request` in',
+      "`good/codec_error_mapping.json` is that record's request.",
     ],
   },
   {
@@ -6524,8 +7014,7 @@ const CLAIMS = [
       '`{{B_F1_CODE}}`; persisted content is F3, and the store decodes it strictly; precedence',
       "is pinned F1 before F2 on the worker's emit and unpinned elsewhere; F2 is measured on",
       'the canonical form; integer-only fields get their own tag; and a lone surrogate is',
-      'refused where caller text is admitted (§2.5, §2.11, §3, §4, §5, §8, §9, §12, §13). Where',
-      'this text and the proposal differ, this text governs.',
+      'refused where caller text is admitted (§2.5, §2.11, §3, §4, §5, §8, §9, §12, §13).',
     ],
   },
   {
@@ -6573,16 +7062,17 @@ const CLAIMS = [
     text: [
       '- `INVARIANT_FAILURE: a generated entry of <log> breaks F1: <what>`, where `<log>` is',
       'the log the entry was for and `<what>` is `a float`, `a nonfinite number`, `an object`,',
-      '`an integer past 2⁵³ − 1`, `a lone surrogate`, `a cyclic array` or `a value of another',
-      'type`.',
+      '`an integer past 2⁵³ − 1`, `a lone surrogate`, `a cyclic array`, `{{DEPTH_WHAT}}` or `a',
+      'value of another type`.',
     ],
   },
   {
     where: '4',
     whole: false,
     text: [
-      '- **F1, F2** on every entry in the seals, in the cursor tails and in the group keys.',
-      'They hold entries only: a frame field that must be an integer and is not is W1 (`epoch`,',
+      '- **F1, F2** on every entry in the seals, in the cursor tails and in the group keys,',
+      "F1's depth bound included (§2.1). They hold entries only: a frame field that must be an",
+      'integer and is not is W1 (`epoch`,',
       "a seal's `first`), and a cursor number W4 (§2.11).",
     ],
   },
@@ -6620,7 +7110,8 @@ const CLAIMS = [
     text: [
       '| `{{B_F1_CODE}}` | — (the job pauses) | worker | `CURSOR_BYTES`, `CONTINUATION_BYTES`,',
       '`REFUSAL_BYTES` or `WITNESS_FIELDS` passed, or an entry the worker generated breaks F1',
-      '(a float, a lone surrogate, an object or an integer out of range; §2.11): an engine',
+      '(a float, a lone surrogate, an object, an integer out of range or a depth past',
+      '`ENTRY_DEPTH`; §2.11): an engine',
       'defect, naming no cause, never a truncation or a skip; its message names the bound and',
       'its value, such as `REFUSAL_BYTES (543)`, or the rule, `breaks F1: <what>` (§3, §3.1,',
       '§3.2) |',
@@ -6645,16 +7136,25 @@ const CLAIMS = [
       "`canonical_bytes('\\ud800' + 'x' * 5000)`, `canonical_bytes(['x' * 5000, 1.5])` and",
       "`canonical_bytes([0] * 100000 + [1.5])` each raise with `rule == 'F1'`, the last with a",
       "traced peak under {{PEAK}} bytes (the codec's early-encoder threshold), its input built",
-      "before tracing; `canonical_bytes(['x' * 5000])` raises with `rule == 'F2'`; and an empty",
-      'array nested {{DEEP}} deep encodes, unchanged, to its {{DEEP_BYTES}} canonical bytes; -',
-      "the codec's tests pin every `single_fault` case of `good/codec_error_mapping.json` to",
+      "before tracing; and `canonical_bytes(['x' * 5000])` raises with `rule == 'F2'`;",
+    ],
+  },
+  {
+    where: '9',
+    whole: false,
+    text: [
+      "- the codec's tests pin every `single_fault` case of `good/codec_error_mapping.json` to",
       'its tag and its `what`, its `cross_language.python` cause, its `persisted_bytes` case,',
       'and both `raw_transport` tests, peak memory measured; its multi-fault decode tests',
       'assert the code and that nothing is written, never the tag, and on the emit path the',
       'code is `{{B_F1_CODE}}` (§2.11 (d)); - the worker maps the tags as §2.11 (b) and (c)',
       'give: F2 on a generated entry is `{{B_F2_CODE}}` (`{{B_F2_CAUSE}}`), F1 is',
       "`{{B_F1_CODE}}` with §3's message, and any tag on a loaded segment is F3, `{{C_CAUSE}}`;",
-      "- the declared entry shapes show that no caller number reaches an entry, which §3's",
+      "- the #721 author declares each log's entry shape and its largest depth (BB8 6693502369,",
+      'item 31): `ENTRY_DEPTH` is derived from that declaration (§2.1) and `MEMBERSHIP_BYTES`',
+      'from the 17 shapes capped at it (§6.11). Both are provisional until it exists,',
+      '`ENTRY_DEPTH = {{ED}}` and `MEMBERSHIP_BYTES = {{MB}}`, and a declared depth of',
+      "{{DECL_NEXT}} or more re-derives both before the worker half joins a release train; - the declared entry shapes show that no caller number reaches an entry, which §3's",
       'classification of a generated F1 as an engine defect assumes and this contract has not',
       'traced (`declaration_set` admits any finite JSON number, `reader_job_store.js:60-76`).',
     ],
@@ -6665,7 +7165,9 @@ const CLAIMS = [
     text: [
       "- **The store's segment decode (R2).** The store decodes a segment's verified bytes with",
       'a fatal UTF-8 decoder before it parses them, so invalid UTF-8 is F3 in Node as in Python',
-      "(§2.11), in the store half's runtime train.",
+      "(§2.11), in the store half's runtime train. It never decodes them with `Buffer.toString`,",
+      "and its tests include §2.11's read-back of a lone {{U_BYTE}} byte, which a replacing decode",
+      'fails (BB8, 21:31Z).',
     ],
   },
   {
@@ -6675,7 +7177,8 @@ const CLAIMS = [
       "- **Admission refuses a lone surrogate (R2).** `validateRequest` and the scheduler's",
       'check before `workerPayload` refuse a declaration set holding text that is not',
       "well-formed Unicode, as `{{ADM_CODE}}` ({{ADM_STATUS}}), in the store half's runtime",
-      "train, which carries the worker half (§2.11). BB8's guard test is R2's.",
+      "train, which carries the worker half (§2.11). BB8's guard test and his stored-request",
+      "case (21:31Z) are R2's.",
     ],
   },
   {
@@ -6697,45 +7200,6 @@ const CLAIMS = [
     ],
   },
   {
-    where: '12',
-    whole: false,
-    text: [
-      "Only item 29 is open, for the proof run. Items 30 and 31, R2's two questions of",
-      '6693449409, are ruled (BB8 6693502369: yes to both), and their fold is the next',
-      "revision's.",
-    ],
-  },
-  {
-    where: '12',
-    whole: false,
-    text: [
-      "Item 29 stays open. Items 30 and 31 are R2's two questions to BB8 in 6693449409; BB8",
-      'ruled both yes (6693502369), and this text does not yet fold either ruling.',
-    ],
-  },
-  {
-    where: '12',
-    whole: false,
-    text: [
-      '30. **Ruled: yes, not yet folded** (BB8 6693502369; asked in 6693449409). The store',
-      "keeps counts, not bytes, so W7 does not check `MEMBERSHIP_BYTES`, and the worker's",
-      'refusal is the bound. BB8 ruled that W7 is to hold `MEMBERSHIP_BYTES` through a `bytes`',
-      "member in each log's head and verified state, verified wherever it is read (R2 at a full",
-      "read, R5 at the walk's junction, R3 at the worker). Until the next revision folds it,",
-      "§3's `MEMBERSHIP_BYTES` row stands.",
-    ],
-  },
-  {
-    where: '12',
-    whole: false,
-    text: [
-      "31. **Ruled: yes, not yet folded** (BB8 6693502369; asked in 6693449409). BB8's ruling:",
-      "F1 bounds an entry's nesting depth with `ENTRY_DEPTH`, derived from the #721 author's",
-      'declared entry shapes, and `MEMBERSHIP_BYTES` is re-derived over shapes capped at it.',
-      "Until the next revision folds it, §2.1's depth text stands.",
-    ],
-  },
-  {
     where: '13',
     whole: false,
     text: [
@@ -6744,8 +7208,9 @@ const CLAIMS = [
       'at the bounds, the integer-only fields and the rule each maps to, multi-fault inputs',
       "that pin only the code, the worker's emit precedence (F1 before F2) with BB8's cases,",
       'the `1.0` divergence with one pin per side, invalid UTF-8 in a segment, F3 in both',
-      "languages once the store decodes strictly, the codec requirement's calls (§9), the",
-      "admission guard's cases, and the raw-transport pair: a whitespace-padded entry of 4,096",
+      'languages once the store decodes strictly, with its address-valid read-back of a lone',
+      "{{U_BYTE}} byte, the codec requirement's calls (§9), the admission guard's cases and its",
+      'stored-request case, and the raw-transport pair: a whitespace-padded entry of 4,096',
       'canonical bytes that passes and one of 4,097 that fails F2 however it is spaced.',
     ],
   },
@@ -6772,6 +7237,490 @@ const CLAIMS = [
     ],
   },
 ];
+const FOLD48_CLAIMS = [
+  {
+    where: '0',
+    whole: false,
+    text: [
+      "It folds BB8's two rulings of 6693502369 and the nits of his review 6693638249: each",
+      "log's state carries a verified `bytes` member, so W7 holds `MEMBERSHIP_BYTES` and R2, R5",
+      "and R3 check the member where it is read (§2.7, §2.10, §3, §4, §5); F1 bounds an entry's",
+      'nesting depth by `ENTRY_DEPTH`, provisional until the #721 author declares the entry',
+      'shapes, and `MEMBERSHIP_BYTES` is re-derived over the 17 shapes capped at it,',
+      'provisional with it (§2.1, §2.11, §3, §6.11, §8, §9, §10, §12, §13).',
+    ],
+  },
+  {
+    where: '0',
+    whole: false,
+    text: [
+      "It folds BB8's confirmations of 21:31Z: segment bytes that are not UTF-8 are F3 in both",
+      'languages, decoded in Node by a fatal `TextDecoder`, never `Buffer.toString`; and',
+      "admission's lone-surrogate refusal has a guard test on both create paths and a",
+      'stored-request case at `workerPayload` (§2.11, §9, §13).',
+    ],
+  },
+  {
+    where: '0',
+    whole: false,
+    text: [
+      'shapes, which halved `MEMBERSHIP_BYTES` to {{MIB_HALF}} (restored to {{MIB}} under',
+      '`ENTRY_DEPTH`, below),',
+    ],
+  },
+  {
+    where: '1',
+    whole: false,
+    text: [
+      '- **Depth.** The count of nested arrays in an entry: a scalar is 0, `["a"]` is 1 and',
+      '`[["a"]]` is 2. F1 holds it to `ENTRY_DEPTH` (§2.1).',
+    ],
+  },
+  {
+    where: '2',
+    whole: false,
+    text: [
+      '- **F1, the subset.** An entry is built only from arrays, strings, booleans, `null` and',
+      'integers n with |n| ≤ 2⁵³ − 1, and its depth is at most `ENTRY_DEPTH`. Objects and',
+      'non-integers are not entries. Strings are well-formed Unicode with no lone surrogate',
+      '(Node `String.prototype.isWellFormed`; in Python, strict UTF-8 encoding succeeds). -',
+      '**The depth bound** (BB8 6693502369, item 31). `ENTRY_DEPTH` is derived from the #721',
+      "author's declared entry shapes: the smallest power of two at least twice the largest",
+      'depth they declare, and at least 8. It is never above 64, well under any recursion',
+      'limit, so `canonical_json` completes on every entry. Nothing in v1 needs deep entries:',
+      "§2.3's logs hold fixed-shape keys and descriptors that `analysis.py` declares, and",
+      "caller text cannot deepen them. **Required** (§9): the #721 author declares each log's",
+      'entry shape and its largest depth. That declaration does not exist yet, so `ENTRY_DEPTH',
+      '= {{ED}}` is provisional, and open for BB8 (§12, item 31). Its basis is the deepest',
+      'shape the source builds at this head: a `seen` or `alt_seen` key is a pair of span keys',
+      '(`analysis.py:2044`, `:1081`), each span key the locus, the direction and the cells, and',
+      'each cell a line and a token, with its syllable outside a disputed word (`:612-627`), so',
+      'depth {{DECL}}; an `alt_cells` entry is a pair of cells, at the pair build',
+      '(`:2512-2519`) and at the shared-sound build (`:2537-2546`), depth {{DECL_CELLS}}.',
+      "`variants`' descriptor and `row_seen`'s keys are not built yet. Twice {{DECL}} is",
+      '{{ED}}, which is also the floor. If the declared largest depth is {{DECL_NEXT}} or more,',
+      '`ENTRY_DEPTH` becomes {{ED_NEXT}} or more, and `MEMBERSHIP_BYTES` is derived again with',
+      'it (§6.11). So `MEMBERSHIP_BYTES = {{MB}}`, derived at `ENTRY_DEPTH = {{ED}}`, is',
+      'provisional with it, until the #721 author (3PO) declares the entry shapes (§3, §9,',
+      '§12, item 31).',
+    ],
+  },
+  {
+    where: '2',
+    whole: false,
+    text: [
+      "`json_safe` recurses once per level, and F1's depth bound keeps every entry far under",
+      "Python's recursion limit, so both complete on every entry (BB8 6693502369).",
+    ],
+  },
+  {
+    where: '2',
+    whole: false,
+    text: [
+      'single pass (§6.11). That rule is about the rate, not recursion, so the depth bound',
+      'leaves it as it was (BB8 6693502369). The validator checks the byte equality on every',
+      'vector and fixture entry through Python itself, and on every §10 load shape, each capped',
+      'at `ENTRY_DEPTH`.',
+    ],
+  },
+  {
+    where: '2',
+    whole: false,
+    text: [
+      'most `MEMBERSHIP_ENTRIES` entries and `MEMBERSHIP_BYTES` entry bytes, sealed and tail',
+      '(§3).',
+    ],
+  },
+  {
+    where: '2',
+    whole: false,
+    text: [
+      "- **`bytes`** (BB8 6693502369, item 30) is the sum of `|canonical(e)|` over the state's",
+      'sealed entries, separators not counted, so 0 for the empty state. A commit adds each',
+      "seal's entry bytes (§4), the bytes F2, F4 and F5 already compute, and W7 holds the",
+      'membership logs to `MEMBERSHIP_BYTES` with it. It is verified wherever it is read: R2 at',
+      "a full read and R5 at a lease's walk (§5.1), and R3 at the worker's load (§5.2). An",
+      'unverified count would be worse than none. `record.discovery` has not shipped, so the',
+      'member costs no format break now.',
+    ],
+  },
+  {
+    where: '2',
+    whole: false,
+    text: [
+      'It is never ahead of the head. Its `segments`, `count` and `bytes` are at most the',
+      "head's; it is the empty state (head `null`, segments 0, count 0, bytes 0, digest `d₀`)",
+    ],
+  },
+  {
+    where: '2',
+    whole: false,
+    text: ['"logs":{"<log>":{"head","segments","count","bytes","digest"}'],
+  },
+  {
+    where: '2',
+    whole: false,
+    text: [
+      "Resets are listed in `frame.discovery.resets`. They are applied before the frame's",
+      'seals, and the log restarts empty (head `{{RESET_HEAD}}`, count {{RESET_COUNT}}, bytes',
+      '{{RESET_BYTES}}, digest `d₀`). Its old chain is released.',
+    ],
+  },
+  {
+    where: '3',
+    whole: false,
+    text: [
+      '| `ENTRY_DEPTH` | {{ED}} nested arrays per entry (a scalar is 0, `[["a"]]` is 2):',
+      'provisional until the #721 author (3PO) declares the entry shapes, then derived from them',
+      'as the smallest power of two at least twice their largest depth, at least 8 and at most 64 (§2.1, BB8',
+      '6693502369) | `{{B_F1_CODE}}`: an entry it generated past the bound breaks F1, an engine',
+      'defect, since no input can deepen an entry (§2.11) | `{{A_CODE}}` (F1) |',
+    ],
+  },
+  {
+    where: '3',
+    whole: false,
+    text: [
+      '| `MEMBERSHIP_BYTES` | {{MB}} canonical entry bytes ({{MIB}}) in the same four logs',
+      'together, each sealed and tail: provisional with `ENTRY_DEPTH`, until the #721 author',
+      '(3PO) declares the entry shapes (§2.1); derived from',
+    ],
+  },
+  {
+    where: '3',
+    whole: false,
+    text: [
+      '| `RESOURCE_LIMIT`, with the same cause for each log as `MEMBERSHIP_ENTRIES` |',
+      "`{{A_CODE}}` (W7), totalled from each log's `bytes` (§2.7; BB8 6693502369) |",
+    ],
+  },
+  {
+    where: '4',
+    whole: false,
+    text: [
+      '- **W7, the membership caps.** After the frame, the four membership logs hold at most',
+      '`MEMBERSHIP_ENTRIES` entries and at most `MEMBERSHIP_BYTES` entry bytes together: for',
+      "each of `seen`, `variants`, `row_seen` and `alt_seen`, its count plus its new tail's",
+      "length, and its `bytes` plus its new tail's canonical bytes (§2.7, §3, §6.11; BB8",
+      '6693502369).',
+    ],
+  },
+  {
+    where: '4',
+    whole: false,
+    text: ['`count`, adds its entry bytes to `bytes` and sets `digest`'],
+  },
+  {
+    where: '4',
+    whole: false,
+    text: ['depth bound included (§2.1).'],
+  },
+  {
+    where: '5',
+    whole: false,
+    text: [
+      '`null`). `v` is never ahead of the head (§2.7): its `segments`, `count` and `bytes` are',
+      "at most the head's,",
+    ],
+  },
+  {
+    where: '5',
+    whole: false,
+    text: [
+      "`v.digest`; and the walk's bytes start from `v.bytes` and, with each segment read's",
+      "entry bytes added, end at the head's `bytes` (BB8 6693502369).",
+    ],
+  },
+  {
+    where: '5',
+    whole: false,
+    text: [
+      "`count`, `bytes` and `digest` (R2): its summed entry bytes equal the head's `bytes`, and",
+      'a mismatch is structural (BB8 6693502369).',
+    ],
+  },
+  {
+    where: '5',
+    whole: false,
+    text: [
+      "- **R3, cursor agreement.** The summary's epoch and log names equal",
+      "`cursor.discovery`'s. For each log, `count` equals `sealed` and `digest` equals",
+      "`sealed_digest`, and for each log it loads, the summary's `bytes` equals the worker's",
+      "own sum of its loaded entries' canonical bytes, the bytes it computes once for F5 (§2.1;",
+      'BB8 6693502369). A mismatch is cause `{{R3_CAUSE}}`.',
+    ],
+  },
+  {
+    where: '6',
+    whole: false,
+    text: [
+      'its meaning; the order only makes the bytes canonical. It counts toward',
+      '`MEMBERSHIP_ENTRIES` and `MEMBERSHIP_BYTES` (§3): an append that would pass either cap',
+      "refuses with `RESOURCE_LIMIT`, cause `discovery_seen`, and so does `variants`' with",
+      '`discovery_variants`.',
+    ],
+  },
+  {
+    where: '6',
+    whole: false,
+    text: [
+      'empty: it counts toward `MEMBERSHIP_ENTRIES` and `MEMBERSHIP_BYTES` with the other',
+      'membership logs (§3), and an append that would pass either cap refuses with',
+      '`RESOURCE_LIMIT`, cause `discovery_row_seen`.',
+    ],
+  },
+  {
+    where: '6',
+    whole: false,
+    text: [
+      '- **The membership caps.** `alt_seen` counts toward `MEMBERSHIP_ENTRIES` and',
+      '`MEMBERSHIP_BYTES` with the other membership logs (§3, derived in §6.11). A new key that',
+      'would take them past either is refused with `RESOURCE_LIMIT`, cause',
+      '`discovery_alt_seen`, before the frame is emitted.',
+    ],
+  },
+  {
+    where: '6',
+    whole: false,
+    text: [
+      "either cap refuses it as `{{A_CODE}}` (W7): each log's state carries its `bytes` (§2.7;",
+      'BB8 6693502369), so the store totals the entry bytes as it totals the counts.',
+    ],
+  },
+  {
+    where: '7',
+    whole: false,
+    text: [
+      'For each released log the save drops its two states, in `logs` and in `verified` (about',
+      '{{STATE_HEAD}} bytes with a head, about {{STATE_EMPTY}} for an empty state), and adds its head',
+      'twice',
+    ],
+  },
+  {
+    where: '9',
+    whole: false,
+    text: [
+      "- the codec counts the depth in its iterative parse and in its encoder's F1 walk, and an",
+      "entry past `ENTRY_DEPTH` raises with `rule == 'F1'` and `what` `{{DEPTH_WHAT}}` (BB8",
+      '6693502369, item 31). Required test, in Node and in Python:',
+      "`decode_entry('[[[[[[[[[0]]]]]]]]]')` and `canonical_bytes([[[[[[[[[0]]]]]]]]])` each",
+      "raise with `rule == 'F1'`; and an empty array nested {{DEEP}} deep encodes, unchanged,",
+      'to its {{DEEP_BYTES}} canonical bytes;',
+    ],
+  },
+  {
+    where: '9',
+    whole: false,
+    text: [
+      "- the #721 author declares each log's entry shape and its largest depth (BB8 6693502369,",
+      'item 31): `ENTRY_DEPTH` is derived from that declaration (§2.1) and `MEMBERSHIP_BYTES`',
+      'from the 17 shapes capped at it (§6.11). Both are provisional until it exists,',
+      '`ENTRY_DEPTH = {{ED}}` and `MEMBERSHIP_BYTES = {{MB}}`, and a declared depth of',
+      '{{DECL_NEXT}} or more re-derives both before the worker half joins a release train;',
+    ],
+  },
+  {
+    where: '9',
+    whole: false,
+    text: [
+      "- **The store's byte count (R2).** Each log's state carries `bytes`, a commit adds its",
+      "seals' entry bytes, and W7 holds `MEMBERSHIP_BYTES` from it; R2 checks it at a full read",
+      "and R5 at a lease's walk, and the worker's R3 at its load, in the store half's runtime",
+      'train (§2.7, §4, §5; BB8 6693502369). `record.discovery` has not shipped, so the member',
+      'is no format break.',
+    ],
+  },
+  {
+    where: '11',
+    whole: false,
+    text: [
+      "| 48 | BB8 6693502369 (items 30 and 31, R2's questions of 6693449409); BB8's review",
+      "6693638249, nits 1–4 | (30) each log's head and verified state carry `bytes`, the sum of",
+      "its sealed entries' canonical bytes, added to by each seal; W7 holds `MEMBERSHIP_BYTES`",
+      'from it; it is verified where it is read: R2 at a full read (`{{C_CAUSE}}`), R5 at a',
+      "lease's walk (`{{C_WALK_CODE}}`), R3 at the worker's load (`{{R3_CAUSE}}`); (31) F1",
+      'bounds the depth by `ENTRY_DEPTH`, the smallest power of two at least twice the largest',
+      'declared depth, at least 8 and at most 64, provisionally 8 until the #721 author',
+      "declares the entry shapes; past it `{{B_F1_CODE}}` on the worker's emit, `{{A_CODE}}` at",
+      'the store, F3 on read-back; `MEMBERSHIP_BYTES = {{MB}}` re-derived over the 17 shapes',
+      "capped at it, provisional with it; the nits: no #656 entry count is a term, each log's",
+      'section names both caps, the counts use the unrounded terms but for the per-byte rate,',
+      "as printed, and 2.3-fold is against 107.3 ns; BB8's 21:31Z confirmations: invalid UTF-8",
+      "in a segment F3 in both languages, never `Buffer.toString`, and admission's",
+      'stored-request case | §1, §2.1, §2.3, §2.7, §2.10, §2.11, §3, §4, §5.1, §5.2, §6.1,',
+      '§6.2, §6.4, §6.11, §8, §9, §10, §12, §13 | `bad/entry_over_depth.json`,',
+      '`bad/head_bytes_disagree.json`, `bad/verified_bytes_disagree.json`,',
+      '`bad/summary_bytes_disagree.json`, `bad/membership_over_cap.json`,',
+      '`bad/verified_bytes_ahead.json`, `good/codec_error_mapping.json`,',
+      '`good/membership_load_measurement.json`; the §6.11 derivation and byte tests |',
+    ],
+  },
+  {
+    where: '12',
+    whole: false,
+    text: [
+      "are ruled (BB8 6693502369: yes to both) and folded; item 31's `ENTRY_DEPTH`, and",
+      '`MEMBERSHIP_BYTES` with it, are provisional until the #721 author declares the entry',
+      'shapes, and those values are open for BB8.',
+    ],
+  },
+  {
+    where: '12',
+    whole: false,
+    text: ['6693449409; BB8 ruled both yes (6693502369), and this text folds both rulings.'],
+  },
+  {
+    where: '12',
+    whole: false,
+    text: [
+      '30. **Ruled: yes, folded** (BB8 6693502369; asked in 6693449409). W7 holds',
+      "`MEMBERSHIP_BYTES` through a `bytes` member in each log's head and verified state: the",
+      'sum of `|canonical(e)|` over its sealed entries, which a commit adds to with each seal',
+      '(§2.7, §4). It is verified wherever it is read: R2 at a full read, `{{C_CAUSE}}`; R5 at',
+      "a lease's walk, the junction, `{{C_WALK_CODE}}`; and R3 at the worker's load,",
+      '`{{R3_CAUSE}}` (§5.1, §5.2). A frame one byte past the cap is refused by W7 and one at',
+      'it passes (`bad/membership_over_cap.json`); a head, a verified state and a summary whose',
+      '`bytes` disagrees with the chain are `bad/head_bytes_disagree.json`,',
+      '`bad/verified_bytes_disagree.json` and `bad/summary_bytes_disagree.json`; a verified',
+      "`bytes` past its head's is refused by R5 before anything is read",
+      '(`bad/verified_bytes_ahead.json`).',
+    ],
+  },
+  {
+    where: '12',
+    whole: false,
+    text: [
+      '31. **Ruled: yes, folded; its value is open** (BB8 6693502369; asked in 6693449409). F1',
+      "bounds an entry's nesting depth with `ENTRY_DEPTH`: the smallest power of two at least",
+      "twice the largest depth among the #721 author's declared entry shapes, at least 8 and at",
+      "most 64 (§2.1). Past it a generated entry is `{{B_F1_CODE}}` on the worker's emit, a",
+      'submitted frame `{{A_CODE}}` at the store (F1), and a persisted segment F3 on read-back',
+      "(`bad/entry_over_depth.json`). §2.1's 2,048-level text and its `RecursionError` caveat",
+      'are gone; the single-pass key stays, for the rate. **Open for BB8:** no declaration of',
+      'the entry shapes exists yet, so the #721 author is required to make one (§9), and',
+      '`ENTRY_DEPTH = {{ED}}` is provisional, from the deepest shape the source builds at this',
+      'head, a `seen` or `alt_seen` key of depth {{DECL}} (§2.1). `MEMBERSHIP_BYTES` is',
+      're-derived over the 17 shapes capped at it (§6.11, §10), and `MEMBERSHIP_BYTES = {{MB}}`',
+      "is provisional with `ENTRY_DEPTH = {{ED}}`: both wait on the #721 author's (3PO's)",
+      'declared entry shapes, and a declared depth of {{DECL_NEXT}} or more re-derives both.',
+    ],
+  },
+  {
+    where: '13',
+    whole: false,
+    text: [
+      '- depth: `bad/entry_over_depth.json` (F1). An entry one level past `ENTRY_DEPTH`: a',
+      "store sent it in a frame refuses `{{A_CODE}}` 400 and writes nothing; the worker's emit",
+      "refuses it as `{{B_F1_CODE}}` with §3's F1 message; read back from an address-valid",
+      "segment it is F3, so a full read releases with `{{C_CAUSE}}`, a lease's walk refuses",
+      "`{{C_WALK_CODE}}` 503 and the worker's load refuses `{{C_CAUSE}}`. The same cases at",
+      'exactly `ENTRY_DEPTH` pass (BB8 6693502369, item 31);',
+    ],
+  },
+  {
+    where: '13',
+    whole: false,
+    text: [
+      '`bad/head_bytes_disagree.json` (R2, cause `{{C_CAUSE}}`): a head whose `bytes` disagrees',
+      "with its chain, which a lease's walk meets at R5's junction as `{{C_WALK_CODE}}`;",
+    ],
+  },
+  {
+    where: '13',
+    whole: false,
+    text: [
+      "`bad/summary_bytes_disagree.json` (R3: the summary's `bytes` against the worker's own",
+      'sum),',
+    ],
+  },
+  {
+    where: '13',
+    whole: false,
+    text: [
+      "`bad/verified_bytes_disagree.json` (R5's junction: the bytes read from the verified",
+      "state's `bytes` do not end at the head's), refused once the appended segment is read,",
+      'releasing and saving nothing, its full read likewise passing;',
+      "`bad/verified_bytes_ahead.json` (R5: a verified `bytes` past its head's, every other",
+      "field a valid prefix), refused by R5's prefix check before anything is read, its full",
+      'read likewise passing;',
+    ],
+  },
+  {
+    where: '13',
+    whole: false,
+    text: [
+      "`bad/entry_over_depth.json`'s entry is likewise one that each operation refuses by its",
+      "own rule: the worker's emit as `{{B_F1_CODE}}`, its load as F3, and the store's frame",
+      'check as F1.',
+    ],
+  },
+  {
+    where: '13',
+    whole: false,
+    text: [
+      "- `good/membership_load_measurement.json`: the raw rows behind §10's per-byte load rate",
+      '(BB8 6693502369), a measurement, not a bound: the {{SHAPES}} shapes capped at',
+      '`ENTRY_DEPTH`, plain and gzipped, in two passes, and the nested shapes capped at {{SENS16}}',
+      "and at {{SENS64}}, in one pass. The validator computes §10's figures from the rows and",
+      "checks §10's text and §6.11's rate against them.",
+    ],
+  },
+];
+// Item 31's basis (§2.1): the deepest entries the source builds at this head,
+// read from the lines §2.1 cites, and ENTRY_DEPTH from the formula BB8 ruled
+// (6693502369): the smallest power of two at least twice the largest declared
+// depth, at least 8 and at most 64.
+const depthFor = (declared) => Math.min(64, Math.max(8, 2 ** Math.ceil(Math.log2(2 * declared))));
+function declaredDepths() {
+  const src = fs
+    .readFileSync(path.join(ROOT, 'lyric-harness', 'library', 'analysis.py'), 'utf8')
+    .split('\n');
+  const at = (line, text) =>
+    assert.ok(src[line - 1].includes(text), `analysis.py:${line} holds ${text}`);
+  at(612, 'def _cell(self, u):');
+  at(613, 'tok = (u.line, u.token)');
+  at(614, 'return tok if tok in self._disputed else (u.line, u.token, u.tok_syl)');
+  at(627, 'return (self._origin(span, st), span.direction, tuple(cells))');
+  at(2044, 'seen.add((self._span_key(a, st), self._span_key(b, st)))');
+  at(1076, 'key = (self._span_key(x, alt), self._span_key(y, alt))');
+  at(1081, 'seen.add(key)');
+  at(2516, 'cells = [sorted({(found.units[i].line, found.units[i].token) for i in m.idx})');
+  at(2519, '[[list(cells[0][0]), list(cells[1][0])]]');
+  // The shared-sound build of the same entry: a pair of cells, each a binding's
+  // (line, token) (§6.8's `:2537-2546`).
+  at(2538, 'elif phase == "shared_sound":');
+  at(2545, '[[list(binding[1]), list(binding[2])]]');
+  // The shapes those lines build, as JSON: a cell is a line and a token (and
+  // a syllable), a span key its origin, direction and cells, a key two span keys.
+  const cell = [12, 3, 0];
+  const spanKey = ['origin@12:3', 'forward', [cell, [12, 4]]];
+  const key = [spanKey, spanKey];
+  const altCell = [
+    [12, 3],
+    [14, 1],
+  ];
+  return { key: entryDepth(key), alt_cells: entryDepth(altCell) };
+}
+function releaseStateSizes() {
+  const hex = 'a'.repeat(64);
+  const sized = (log, st) => cbytes(log) + 1 + Buffer.byteLength(canonical(st)) + 1;
+  const widths = [
+    [1, 1, 1],
+    [LIMITS.CHAIN_SEGMENTS, LIMITS.MEMBERSHIP_ENTRIES, LIMITS.MEMBERSHIP_BYTES],
+  ];
+  const head = [];
+  const empty = [];
+  for (const log of LOGS) {
+    for (const [segments, count, bytes] of widths)
+      head.push(sized(log, { head: hex, segments, count, bytes, digest: hex }));
+    empty.push(sized(log, emptyLog(log)));
+  }
+  const about = (xs) => Math.round(xs.reduce((a, x) => a + x, 0) / xs.length / 10) * 10;
+  const out = { head: about(head), empty: about(empty) };
+  for (const [k, xs] of Object.entries({ head, empty }))
+    for (const x of xs) assert.ok(Math.abs(x - out[k]) <= 10, `${k}: ${x} is about ${out[k]}`);
+  return out;
+}
 function codecFacts() {
   const fx = load(CODEC);
   const m = fx.mapping;
@@ -6789,6 +7738,15 @@ function codecFacts() {
   const pair = /"line":"Bad ([^"]*)"/.exec(ad.admitted[0].body)[1];
   const peak = fx.emit_precedence.cases.find((c) => c.peak_under).peak_under;
   const b = codecBounds();
+  const decl = declaredDepths();
+  // A reset restarts the log as the empty state (§2.6).
+  const reset = emptyLog('row_seen');
+  // §7.4's release sizes: a log's state with its key and separator, by the
+  // canonical form, at the smallest and largest counts with a head, and empty;
+  // each "about" figure is the mean rounded to ten bytes, and every case is
+  // within ten bytes of it.
+  const states = releaseStateSizes();
+  const meas = load(MEASUREMENT);
   const facts = {
     A_CODE: m.store_frame.F1.code,
     A_STATUS: String(m.store_frame.F1.status),
@@ -6823,7 +7781,36 @@ function codecFacts() {
     PEAK: n(peak),
     DEEP: n(fx.emit_precedence.deep_valid.depth),
     DEEP_BYTES: n(fx.emit_precedence.deep_valid.canonical_bytes),
+    // Items 30 and 31 (BB8 6693502369).
+    DEPTH_WHAT,
+    ED: String(LIMITS.ENTRY_DEPTH),
+    DECL: String(decl.key),
+    DECL_CELLS: String(decl.alt_cells),
+    DECL_NEXT: String(decl.key + 1),
+    ED_NEXT: String(depthFor(decl.key + 1)),
+    MB: String(LIMITS.MEMBERSHIP_BYTES),
+    R3_CAUSE: REFUSAL.resume.R3.cause,
+    // The review of the item 30-31 fold, and BB8's 21:31Z confirmations.
+    MIB: mib(LIMITS.MEMBERSHIP_BYTES),
+    MIB_HALF: mib(LIMITS.MEMBERSHIP_BYTES / 2),
+    RESET_HEAD: String(reset.head),
+    RESET_COUNT: String(reset.count),
+    RESET_BYTES: String(reset.bytes),
+    STATE_HEAD: String(states.head),
+    STATE_EMPTY: String(states.empty),
+    U_FULL_CAUSE: pb.expect.full_read.cause,
+    U_WALK_CODE: pb.expect.lease_walk.code,
+    U_LOAD_CAUSE: pb.expect.worker_load.cause,
+    U_BYTE: `0x${pb.entry_hex.slice(2, -2).toUpperCase()}`,
+    U_REPLACING: pb.replacing_decode.rule,
+    ADM_STORED_AT: ad.stored_request.checked_at,
+    SHAPES: String(meas.shapes.length),
+    SENS16: String(depthFor(5)),
+    SENS64: String(64),
   };
+  // ENTRY_DEPTH is the formula's value at the deepest shape the source builds.
+  assert.equal(depthFor(Math.max(decl.key, decl.alt_cells)), LIMITS.ENTRY_DEPTH);
+  assert.equal(fx.emit_precedence.deep_valid.depth, LIMITS.ENTRY_DEPTH);
   // The codes the facts name are the tables' own.
   assert.deepEqual({ code: facts.A_CODE, status: +facts.A_STATUS }, REFUSAL.write.F1);
   assert.deepEqual(REFUSAL.full.F3, unavailable(facts.C_CAUSE));
@@ -6838,6 +7825,9 @@ const fillClaim = (text, facts) =>
   });
 const CLAIM_SECTIONS = {
   0: () => CONTRACT.slice(0, CONTRACT.indexOf('\n## 1.')),
+  1: () => section('1. Terms'),
+  6: () => section('6. Worker semantics'),
+  7: () => section('7. Retention, GC roots and crash ordering'),
   2: () => section('2. Format'),
   3: () => section('3. Hard limits'),
   4: () => section('4. Write path'),
@@ -6859,7 +7849,7 @@ test('§2.11 and every statement of this fold read as the fixture, the tables an
   const facts = codecFacts();
   const flat = (t) => t.replace(/\s+/g, ' ').trim();
   assert.equal(CLAIMS.filter((c) => c.whole).length, 1);
-  for (const c of CLAIMS) {
+  for (const c of [...CLAIMS, ...FOLD48_CLAIMS]) {
     const want = flat(fillClaim(c.text.join(' '), facts));
     if (c.whole) {
       const have = flat(s211raw());
@@ -6871,7 +7861,9 @@ test('§2.11 and every statement of this fold read as the fixture, the tables an
   }
   // Every fact is used, so none is checked against nothing.
   const used = new Set(
-    CLAIMS.flatMap((c) => [...c.text.join(' ').matchAll(/\{\{([A-Z0-9_]+)\}\}/g)].map((x) => x[1]))
+    [...CLAIMS, ...FOLD48_CLAIMS].flatMap((c) =>
+      [...c.text.join(' ').matchAll(/\{\{([A-Z0-9_]+)\}\}/g)].map((x) => x[1])
+    )
   );
   assert.deepEqual([...used].sort(), Object.keys(facts).sort());
 });

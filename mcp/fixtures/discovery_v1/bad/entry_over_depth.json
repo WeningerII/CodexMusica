@@ -1,0 +1,302 @@
+{
+  "fixture": "bad/entry_over_depth.json",
+  "contract": "mcp/DISCOVERY_V1.md",
+  "kind": "depth",
+  "exercises": "An entry nested ENTRY_DEPTH + 1 (9) arrays deep, and its control at exactly ENTRY_DEPTH (8) (BB8 6693502369, item 31; depth counts nested arrays, so a scalar is 0 and [[\"a\"]] is 2). The store, sent a frame whose seen tail holds it, refuses F1 as READER_PROTOCOL 400 and writes nothing; the control frame is accepted. The worker, having generated it, refuses before it emits, as INVARIANT_FAILURE with §3's F1 message: an engine defect, since no input can deepen an entry. Read back from a segment whose bytes match its address, it is F3: a full read (reconciliation, resume()) releases with DISCOVERY_UNAVAILABLE, cause chain_broken; a lease's walk refuses STORAGE_CORRUPT 503 and releases nothing; the worker's load refuses chain_broken. The same segment holding the control passes all three.",
+  "expect": {
+    "accepted": false,
+    "rule": "F1",
+    "code": "READER_PROTOCOL",
+    "status": 400,
+    "store": {
+      "code": "READER_PROTOCOL",
+      "status": 400,
+      "written": "nothing"
+    },
+    "worker_emit": {
+      "code": "INVARIANT_FAILURE",
+      "message": "INVARIANT_FAILURE: a generated entry of seen breaks F1: a nesting depth past ENTRY_DEPTH (8)",
+      "emitted": "nothing"
+    },
+    "read_back": {
+      "rule": "F3",
+      "full_read": {
+        "code": "DISCOVERY_UNAVAILABLE",
+        "status": 409,
+        "cause": "chain_broken",
+        "released": true
+      },
+      "lease_walk": {
+        "code": "STORAGE_CORRUPT",
+        "status": 503,
+        "released": false
+      },
+      "worker_load": {
+        "code": "DISCOVERY_UNAVAILABLE",
+        "status": 409,
+        "cause": "chain_broken"
+      }
+    }
+  },
+  "job_id": "reader_depth",
+  "identity_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  "log": "seen",
+  "entry": [[[[[[[[["deep"]]]]]]]]],
+  "control": [[[[[[[["deep"]]]]]]]],
+  "record": {
+    "discovery": null,
+    "cursor": null
+  },
+  "frame": {
+    "discovery": {
+      "epoch": 0,
+      "resets": [],
+      "seals": []
+    },
+    "cursor": {
+      "contract_version": 2,
+      "method_index": 0,
+      "witness": null,
+      "methods": {},
+      "discovery": {
+        "version": 1,
+        "epoch": 0,
+        "logs": {
+          "seen": {
+            "sealed": 0,
+            "sealed_digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136",
+            "tail": [[[[[[[[[["deep"]]]]]]]]]]
+          }
+        },
+        "inventory": null,
+        "groups": {
+          "through": null,
+          "current": null
+        }
+      },
+      "continuation": {}
+    }
+  },
+  "control_frame": {
+    "discovery": {
+      "epoch": 0,
+      "resets": [],
+      "seals": []
+    },
+    "cursor": {
+      "contract_version": 2,
+      "method_index": 0,
+      "witness": null,
+      "methods": {},
+      "discovery": {
+        "version": 1,
+        "epoch": 0,
+        "logs": {
+          "seen": {
+            "sealed": 0,
+            "sealed_digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136",
+            "tail": [[[[[[[[["deep"]]]]]]]]]
+          }
+        },
+        "inventory": null,
+        "groups": {
+          "through": null,
+          "current": null
+        }
+      },
+      "continuation": {}
+    }
+  },
+  "read_back": {
+    "store": {
+      "segments_from": null,
+      "omit": [],
+      "segments": [
+        {
+          "version": 1,
+          "kind": "reader_discovery_segment",
+          "job_id": "reader_depth",
+          "identity_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "epoch": 0,
+          "log": "seen",
+          "previous_hash": null,
+          "first": 0,
+          "count": 4,
+          "digest_before": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136",
+          "digest_after": "fd2149a0f4bc96715cd581575d3fba6c2fdaef78c4449953a954745d5ceb16b6",
+          "entries": [["k0"], ["k1"], ["k2"], [[[[[[[[["deep"]]]]]]]]]]
+        }
+      ]
+    },
+    "directory": "/store",
+    "record": {
+      "id": "reader_depth",
+      "identity_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "discovery": {
+        "version": 1,
+        "epoch": 0,
+        "logs": {
+          "seen": {
+            "head": "bf0fefe5552e0d4cdbca7fc9766c7f17cbfa6b5762511b84f3b365bbe9849e62",
+            "segments": 1,
+            "count": 4,
+            "bytes": 42,
+            "digest": "fd2149a0f4bc96715cd581575d3fba6c2fdaef78c4449953a954745d5ceb16b6"
+          }
+        },
+        "verified": {
+          "seen": {
+            "head": null,
+            "segments": 0,
+            "count": 0,
+            "bytes": 0,
+            "digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136"
+          }
+        },
+        "unavailable": null
+      },
+      "cursor": {
+        "contract_version": 2,
+        "method_index": 0,
+        "discovery": {
+          "version": 1,
+          "epoch": 0,
+          "logs": {
+            "seen": {
+              "sealed": 4,
+              "sealed_digest": "fd2149a0f4bc96715cd581575d3fba6c2fdaef78c4449953a954745d5ceb16b6",
+              "tail": []
+            }
+          },
+          "inventory": null,
+          "groups": {
+            "through": null,
+            "current": null
+          }
+        }
+      }
+    },
+    "addresses": {
+      "seen": ["bf0fefe5552e0d4cdbca7fc9766c7f17cbfa6b5762511b84f3b365bbe9849e62"]
+    },
+    "payload": {
+      "discovery": {
+        "version": 1,
+        "summary": {
+          "epoch": 0,
+          "logs": {
+            "seen": {
+              "head": "bf0fefe5552e0d4cdbca7fc9766c7f17cbfa6b5762511b84f3b365bbe9849e62",
+              "segments": 1,
+              "count": 4,
+              "bytes": 42,
+              "digest": "fd2149a0f4bc96715cd581575d3fba6c2fdaef78c4449953a954745d5ceb16b6"
+            }
+          }
+        },
+        "paths": {
+          "seen": [
+            "/store/pages/bf0fefe5552e0d4cdbca7fc9766c7f17cbfa6b5762511b84f3b365bbe9849e62.json"
+          ]
+        }
+      }
+    },
+    "inventory": []
+  },
+  "read_back_control": {
+    "store": {
+      "segments_from": null,
+      "omit": [],
+      "segments": [
+        {
+          "version": 1,
+          "kind": "reader_discovery_segment",
+          "job_id": "reader_depth",
+          "identity_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "epoch": 0,
+          "log": "seen",
+          "previous_hash": null,
+          "first": 0,
+          "count": 4,
+          "digest_before": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136",
+          "digest_after": "d4000ef06eba2c1e16e993b461cae90b9b350e749836e8e218200cc8d82c6230",
+          "entries": [["k0"], ["k1"], ["k2"], [[[[[[[["deep"]]]]]]]]]
+        }
+      ]
+    },
+    "directory": "/store",
+    "record": {
+      "id": "reader_depth",
+      "identity_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "discovery": {
+        "version": 1,
+        "epoch": 0,
+        "logs": {
+          "seen": {
+            "head": "1eeab0e4fee43aab7ebfdbee92c497aa4cc83576b025b23eed10592bf4943838",
+            "segments": 1,
+            "count": 4,
+            "bytes": 40,
+            "digest": "d4000ef06eba2c1e16e993b461cae90b9b350e749836e8e218200cc8d82c6230"
+          }
+        },
+        "verified": {
+          "seen": {
+            "head": null,
+            "segments": 0,
+            "count": 0,
+            "bytes": 0,
+            "digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136"
+          }
+        },
+        "unavailable": null
+      },
+      "cursor": {
+        "contract_version": 2,
+        "method_index": 0,
+        "discovery": {
+          "version": 1,
+          "epoch": 0,
+          "logs": {
+            "seen": {
+              "sealed": 4,
+              "sealed_digest": "d4000ef06eba2c1e16e993b461cae90b9b350e749836e8e218200cc8d82c6230",
+              "tail": []
+            }
+          },
+          "inventory": null,
+          "groups": {
+            "through": null,
+            "current": null
+          }
+        }
+      }
+    },
+    "addresses": {
+      "seen": ["1eeab0e4fee43aab7ebfdbee92c497aa4cc83576b025b23eed10592bf4943838"]
+    },
+    "payload": {
+      "discovery": {
+        "version": 1,
+        "summary": {
+          "epoch": 0,
+          "logs": {
+            "seen": {
+              "head": "1eeab0e4fee43aab7ebfdbee92c497aa4cc83576b025b23eed10592bf4943838",
+              "segments": 1,
+              "count": 4,
+              "bytes": 40,
+              "digest": "d4000ef06eba2c1e16e993b461cae90b9b350e749836e8e218200cc8d82c6230"
+            }
+          }
+        },
+        "paths": {
+          "seen": [
+            "/store/pages/1eeab0e4fee43aab7ebfdbee92c497aa4cc83576b025b23eed10592bf4943838.json"
+          ]
+        }
+      }
+    },
+    "inventory": []
+  }
+}

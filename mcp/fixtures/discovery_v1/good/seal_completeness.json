@@ -67,6 +67,7 @@
               "head": "4939983c9407d8551d2133d8850d68aa1ab86e2eb8cea1b977dec3f7511989e7",
               "segments": 2,
               "count": 8,
+              "bytes": 28772,
               "digest": "98eb5226b4b6a9adfac5ff49360ad07d3edb4332b3872bf90a1f72b93b393116"
             }
           },
@@ -75,6 +76,7 @@
               "head": null,
               "segments": 0,
               "count": 0,
+              "bytes": 0,
               "digest": "3d776edd104fc89d5c3285e2ecc6bb2c9d882cd84ec9858b11dd88cbd1c6fbd1"
             }
           },

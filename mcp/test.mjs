@@ -5480,6 +5480,18 @@ await check('validation: actionable errors', () => {
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/fixtures/discovery_v1/good/codec_error_mapping.json':
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/entry_over_depth.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/head_bytes_disagree.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/summary_bytes_disagree.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/verified_bytes_disagree.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/verified_bytes_ahead.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/good/membership_load_measurement.json':
+        'a discovery_v1 measurement fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/test_library_viewer_routes.mjs':
         'offline Library viewer route, cookie, isolation and limit regressions',
       'mcp/test_library_exports.mjs':
