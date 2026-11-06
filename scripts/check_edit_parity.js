@@ -541,8 +541,10 @@ const ENV_WRITES = [
   },
   // A pick there, or in any other card's editor, also writes the record (#826,
   // BB8's rulings (b) on Don 6694017051 and (ii) in 6695603726), through
-  // recordEnvPick, which the card-less and other-card cases below call.
-  // Unconditionally: whether it settles is recordEnvPick's own call.
+  // recordEnvPick, unconditionally: whether it settles is recordEnvPick's own
+  // call. check_workbench.js drives those picks through the editors' own buttons
+  // across a catalog sample and compares the record with set_environment's; the
+  // cases here compare the values and renders, which the record never moves.
   {
     label: 'room pick records',
     src: appSrc,
@@ -718,25 +720,9 @@ for (let i = 0; i < cases.length; i++) {
     target.room = room || null;
     target.tuning = tuning || null;
     target.chain[stage.id] = item.id || null;
-    // The panel's picks also write the record, as the handler does after each
-    // assignment (pinned by the tripwire above).
-    app.app.cards = appCards;
-    app.recordEnvPick(target, 'room', { id: target.room });
-    app.recordEnvPick(target, 'tuning', { id: target.tuning });
-    app.recordEnvPick(target, stage.id, { id: target.chain[stage.id] });
     const after = W.setEnvironment(ws, null, { room, tuning, chain: { [stage.id]: item.id } });
     cardlessCases++;
     if (appCards.indexOf(target) !== 0) cardlessMoved++;
-    const recordsOf = (cards) => JSON.stringify(cards.map((x) => x[W.ENV_RECORD] ?? null));
-    if (recordsOf(appCards) !== recordsOf(after.cards)) {
-      mismatches++;
-      if (shown < SHOW) {
-        shown++;
-        console.log(
-          `  ✗ ${c.tradition}: the panel's record differs from set_environment's\n      app:       ${recordsOf(appCards)}\n      connector: ${recordsOf(after.cards)}`
-        );
-      }
-    }
     compareRosters(
       `${c.tradition} roster (cards[0]=${ws.cards[0].instrumentId}) → card-less environment`,
       appCards,
@@ -744,11 +730,10 @@ for (let i = 0; i < cases.length; i++) {
     );
   }
 
-  // another card: a pick in the editor of a card that is not the environment
-  // card records the write on that card and settles nothing, as
-  // set_environment {card} there does (#826, BB8's ruling (ii) in 6695603726).
-  // The environment card first holds a connector write of the same room, so a
-  // settle the pick must not make would show as a record that went missing.
+  // another card: the values a pick in the editor of a card that is not the
+  // environment card stores, against set_environment {card} there (#826, BB8's
+  // ruling (ii) in 6695603726); its record is check_workbench.js's to compare.
+  // The environment card first holds a connector write of the same room.
   {
     let ws = W.seed([c.tradition]);
     if (ws.cards.length < 2) ws = W.addInstrument(ws, c.card.instrumentId);
@@ -763,28 +748,13 @@ for (let i = 0; i < cases.length; i++) {
       target.room = room || null;
       target.tuning = tuning || null;
       target.chain[stage.id] = item.id || null;
-      app.app.cards = appCards;
-      app.recordEnvPick(target, 'room', { id: target.room });
-      app.recordEnvPick(target, 'tuning', { id: target.tuning });
-      app.recordEnvPick(target, stage.id, { id: target.chain[stage.id] });
       const chain = { [stage.id]: item.id };
       if (multiPick) {
         target.chain[multi.id] = [...(target.chain[multi.id] || []), multiPick.id];
-        app.recordEnvPick(target, multi.id, { id: multiPick.id, off: false });
         chain[multi.id] = multiPick.id;
       }
       const after = W.setEnvironment(ws, target.id, { room, tuning, chain });
       otherCardCases++;
-      const recordsOf = (cards) => JSON.stringify(cards.map((x) => x[W.ENV_RECORD] ?? null));
-      if (recordsOf(appCards) !== recordsOf(after.cards) || !target[W.ENV_RECORD]) {
-        mismatches++;
-        if (shown < SHOW) {
-          shown++;
-          console.log(
-            `  ✗ ${c.tradition}: another card's editor's record differs from set_environment {card}'s\n      app:       ${recordsOf(appCards)}\n      connector: ${recordsOf(after.cards)}`
-          );
-        }
-      }
       compareRosters(
         `${c.tradition} roster → environment pick on ${target.instrumentId} (not the environment card)`,
         appCards,
@@ -951,66 +921,8 @@ mismatches += recordLost;
   }
 
   // The app's Duplicate copies a card's values, not its provenance (#671, BB8
-  // 6685465828, 5(e)): the record says what a set_environment wrote on the card
-  // copied, and nothing was written on the copy. The environment card is the one
-  // that matters: a copy of it carrying the record would sit beside it, not render
-  // the environment, and be warned about on every response for settings nobody
-  // set there. The app's real dupCard on the app's own card list.
-  console.log('\n=== Duplicate: the copy takes the values, not the record ===');
-  let dupCases = 0;
-  let dupWrong = 0;
-  for (let i = 0; i < cases.length; i++) {
-    const c = cases[i];
-    let ws = W.seed([c.tradition]);
-    ws = W.setEnvironment(ws, null, {
-      room: rooms[i % rooms.length],
-      chain: { [multiStages[0].id]: multiStages[0].items[i % multiStages[0].items.length].id },
-    });
-    const envCard = app.envCardOf(ws.cards);
-    const record = JSON.stringify(envCard[W.ENV_RECORD]);
-    app.app.cards = clone(ws.cards);
-    const copy = app.dupCard(envCard.id);
-    const cards = clone(app.app.cards);
-    dupCases++;
-    const original = cards.find((x) => x.id === envCard.id);
-    const problems = [];
-    if (!copy || cards.length !== ws.cards.length + 1) problems.push('no copy was added');
-    else {
-      const made = cards.find((x) => x.id === copy.id);
-      if (W.ENV_RECORD in made)
-        problems.push(`the copy carries ${JSON.stringify(made[W.ENV_RECORD])}`);
-      if (JSON.stringify(original[W.ENV_RECORD]) !== record)
-        problems.push('the original lost its record');
-      if (
-        made.room !== original.room ||
-        JSON.stringify(made.chain) !== JSON.stringify(original.chain)
-      )
-        problems.push('the copy does not carry the values');
-      // The connector's ENVIRONMENT_NOT_RENDERED condition, by the shared definition
-      // it reads (W.envRecord, W.envRecordHolds): a card other than the environment
-      // card holding something its record says was written there.
-      const standing = Object.entries(W.envRecord(made)).filter(([f, v]) =>
-        W.envRecordHolds(made, f, v)
-      );
-      if (app.envCardOf(cards) !== made && standing.length)
-        problems.push('the copy would be warned about as ENVIRONMENT_NOT_RENDERED');
-    }
-    if (problems.length) {
-      dupWrong++;
-      if (shown < SHOW) {
-        shown++;
-        console.log(`  ✗ ${c.tradition}: ${problems.join('; ')}`);
-      }
-    }
-  }
-  console.log(
-    `  ${dupCases} environment card(s) duplicated in the app: ${dupWrong} copy(ies) wrong`
-  );
-  if (dupCases === 0) {
-    console.log('\nEDIT PARITY: FAIL — no duplicate case ran; agreement there proves nothing.');
-    process.exit(1);
-  }
-  mismatches += dupWrong;
+  // 6685465828, 5(e)): check_workbench.js runs the app's own Duplicate action on
+  // the environment card across a catalog sample and checks the copy.
 
   // Same anti-vacuity rule the cascade check above uses: a render comparison that
   // never ran is not a render comparison that passed.
@@ -1030,7 +942,7 @@ mismatches += recordLost;
     process.exit(1);
   }
   console.log(
-    `\nEDIT PARITY: PASS — set_variant, set_preface and set_environment each reshape the card identically in both surfaces, the record set_environment keeps comes through the app's edits as the connector's own edits leave it and a duplicated card starts without it, and all ${rendersCompared} post-edit renders are byte-identical across every format.`
+    `\nEDIT PARITY: PASS — set_variant, set_preface and set_environment each reshape the card identically in both surfaces, the record set_environment keeps comes through the app's edits as the connector's own edits leave it, and all ${rendersCompared} post-edit renders are byte-identical across every format.`
   );
   process.exit(0);
 })().catch((error) => {

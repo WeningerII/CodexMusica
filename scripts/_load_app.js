@@ -35,10 +35,6 @@ const EXPORTED = [
   // parity gate must never do.
   'addCard',
   'rmCard',
-  // The app's Duplicate (handleAction 'duplicate'). check_edit_parity confirms
-  // the copy carries the card's values and none of the connector's envWritten
-  // record, which says what was written on the card copied (#671).
-  'dupCard',
   'makeCard',
   // The REAL browser branch for a variant pick, guard included. The parity gates
   // used to call reconfigureAfterPartEdit directly, which reaches past the guard
@@ -50,9 +46,6 @@ const EXPORTED = [
   // uiOpenEnvironment opens the editor on envCardOf(app.cards)). check_edit_parity
   // resolves a card-less set_environment against the app's own copy of the rule.
   'envCardOf',
-  // The record a pick in that panel writes (#826, BB8's ruling (b) on Don
-  // 6694017051): check_edit_parity compares it with set_environment's.
-  'recordEnvPick',
   // "Add instrument to this tradition" (src/app.js addInstrumentFromPicker):
   // the card is configured by traditionCardOpts and placed after the
   // tradition's run. check_edit_differential drives the connector's

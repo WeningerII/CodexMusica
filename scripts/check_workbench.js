@@ -1183,6 +1183,178 @@ const run = (code) => dom.window.eval(code);
           .sort();
       assert.deepEqual(warn(cards), warn(cleared.cards), `Not set (${clear}): the same warnings`);
     }
+    // Across the catalog, through the editors' own buttons: a pick on the
+    // environment card (the panel) records and settles as set_environment
+    // without `card` does, a pick in another card's editor records as
+    // set_environment {card} does and settles nothing, and the app's Duplicate
+    // copies the values and not the record. Every third tradition of a strided
+    // sample has a bare card moved to the front, so cards[0] and the
+    // environment card differ.
+    {
+      const C = require('./_loader.js');
+      const { envCardOf: envCardOfCards } = require('./_recipe_stack.js');
+      const sections = C.CHAIN_SECTIONS || [];
+      const singles = sections.filter((x) => !x.multiSelect && (x.items || []).length);
+      const multi = sections.find((x) => x.multiSelect && (x.items || []).length);
+      const trads = (C.TRADITIONS || []).filter((t) => (t.instruments || []).length);
+      const SAMPLE = 16;
+      const stride = Math.max(1, Math.floor(trads.length / SAMPLE));
+      // Card ids by position: the app's import mints fresh ones.
+      const warningsOf = (cards) => {
+        const at = (id) => cards.findIndex((c) => c.id === id);
+        return E.renderRecipe({ workspace: { cards } })
+          .render_warnings.map((w) => ({
+            ...w,
+            card: at(w.card),
+            environment_card: at(w.environment_card),
+          }))
+          .map((w) =>
+            cards
+              .map((c, k) => [c.id, k])
+              .sort((a, b) => b[0].length - a[0].length)
+              .reduce((text, [id, k]) => text.split(id).join(`#${k}`), JSON.stringify(w))
+          )
+          .sort();
+      };
+      const editorAt = (k, tab, env) =>
+        run(
+          `{const c=app.cards[${k}];c._uiTab=${JSON.stringify(tab)};c.editingEnv=${JSON.stringify(env)};c.editingChainStage=null;renderAll();uiOpenEditor(c.id)}`
+        );
+      // Picks the n-th value the editor on card k offers in a field, by its button.
+      const choose = (k, field, n, skip = []) => {
+        let selector;
+        if (field === 'room' || field === 'tuning') {
+          editorAt(k, 'env', field);
+          selector = `[data-set-${field}]`;
+        } else {
+          editorAt(k, 'chain', null);
+          const stage = doc.querySelector(`#detail-view [data-edit-chain="${field}"]`);
+          assert.ok(stage, `the editor offers the ${field} stage`);
+          stage.click();
+          selector = `[data-set-chain="${field}"]`;
+        }
+        const offered = [...doc.querySelectorAll(`#detail-view ${selector}`)].filter((b) => {
+          const id =
+            field === 'room' || field === 'tuning'
+              ? b.dataset[`set${field[0].toUpperCase()}${field.slice(1)}`]
+              : b.dataset.item;
+          return id && !skip.includes(id);
+        });
+        assert.ok(offered.length, `the editor offers a ${field}`);
+        const button = offered[n % offered.length];
+        const id =
+          field === 'room' || field === 'tuning'
+            ? button.dataset[`set${field[0].toUpperCase()}${field.slice(1)}`]
+            : button.dataset.item;
+        button.click();
+        return id;
+      };
+      let panelCases = 0;
+      let otherCases = 0;
+      let dupCases = 0;
+      let bareFirst = 0;
+      for (let n = 0, i = 0; i < trads.length && n < SAMPLE; i += stride, n++) {
+        let ws = W.seed([trads[i].id]);
+        if (!ws.cards.length) continue;
+        if (ws.cards.length < 2 || n % 3 === 1) {
+          ws = W.addInstrument(ws, ws.cards[0].instrumentId);
+          if (n % 3 === 1) ws = W.moveInstrument(ws, ws.cards[ws.cards.length - 1].id);
+        }
+        const label = trads[i].id;
+        const stage = singles[n % singles.length].id;
+
+        // The panel: the environment card's editor.
+        await load(ws.cards);
+        const e = envIndex();
+        if (e > 0) bareFirst++;
+        const room = choose(e, 'room', n);
+        const tuning = choose(e, 'tuning', n);
+        const item = choose(e, stage, n);
+        const cardless = W.setEnvironment(ws, null, { room, tuning, chain: { [stage]: item } });
+        assert.deepEqual(
+          records(appCards()),
+          records(cardless.cards),
+          `${label}: the panel records as set_environment`
+        );
+        assert.deepEqual(
+          warningsOf(appCards()),
+          warningsOf(cardless.cards),
+          `${label}: and warns as it`
+        );
+        panelCases++;
+
+        // Another card's editor, the environment card holding a write of its own.
+        const held = W.setEnvironment(ws, null, { room });
+        const at = held.cards.indexOf(envCardOfCards(held.cards));
+        const k = held.cards.findIndex((_, x) => x > at);
+        if (k > 0) {
+          await load(held.cards);
+          const oRoom = choose(k, 'room', n + 1);
+          const oTuning = choose(k, 'tuning', n + 1);
+          const oItem = choose(k, stage, n + 1);
+          const chain = { [stage]: oItem };
+          if (multi) {
+            const fx = choose(k, multi.id, n, held.cards[k].chain[multi.id] || []);
+            chain[multi.id] = fx;
+          }
+          const byCard = W.setEnvironment(held, held.cards[k].id, {
+            room: oRoom,
+            tuning: oTuning,
+            chain,
+          });
+          const now = appCards();
+          assert.equal(envIndex(), at, `${label}: fixture: the environment card stays`);
+          assert.ok(now[k][W.ENV_RECORD], `${label}: the other card's pick is recorded`);
+          assert.deepEqual(
+            records(now),
+            records(byCard.cards),
+            `${label}: as set_environment {card} records it, settling nothing`
+          );
+          assert.deepEqual(warningsOf(now), warningsOf(byCard.cards), `${label}: and warns as it`);
+          assert.ok(
+            warningsOf(now).some((w) => w.includes('ENVIRONMENT_NOT_RENDERED')),
+            `${label}: ENVIRONMENT_NOT_RENDERED`
+          );
+          otherCases++;
+        }
+
+        // Duplicate, the app's own action, on the environment card.
+        const fxItem = multi ? multi.items[n % multi.items.length].id : null;
+        const written = W.setEnvironment(
+          ws,
+          null,
+          fxItem ? { room, chain: { [multi.id]: fxItem } } : { room }
+        );
+        await load(written.cards);
+        const before = appCards();
+        const d = envIndex();
+        run("handleAction('duplicate', envCardOf(app.cards))");
+        const after = appCards();
+        const copy = after.find((c) => !before.some((b) => b.id === c.id));
+        assert.ok(copy && after.length === before.length + 1, `${label}: Duplicate adds one card`);
+        assert.ok(!(W.ENV_RECORD in copy), `${label}: the copy carries no record`);
+        assert.deepEqual(
+          after[d][W.ENV_RECORD],
+          before[d][W.ENV_RECORD],
+          `${label}: the original keeps its record`
+        );
+        assert.equal(copy.room, after[d].room, `${label}: the copy carries the room`);
+        assert.deepEqual(copy.chain, after[d].chain, `${label}: and the chain`);
+        assert.ok(
+          !warningsOf(after).some((w) => w.includes('ENVIRONMENT_NOT_RENDERED')),
+          `${label}: no ENVIRONMENT_NOT_RENDERED for the copy`
+        );
+        dupCases++;
+      }
+      console.log(
+        `  catalog sample: ${panelCases} panel, ${otherCases} other-card and ${dupCases} duplicate case(s), ${bareFirst} with a bare card first`
+      );
+      assert.ok(
+        panelCases >= 12 && otherCases >= 12 && dupCases >= 12 && bareFirst > 0,
+        `the catalog sample ran (${panelCases} panel, ${otherCases} other-card, ${dupCases} duplicate, ${bareFirst} bare-first)`
+      );
+    }
+
     // Let the editor's queued focus and announcement work run while the page is open.
     await new Promise((r) => setTimeout(r, 50));
   }
