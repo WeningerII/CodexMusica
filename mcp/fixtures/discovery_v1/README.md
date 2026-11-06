@@ -51,10 +51,18 @@ passes every other rule.
   `zeros` zeros, with `pad` whitespace characters after `[`, before and after every `,` and before
   `]`, each run cycling space, tab, CR, LF from its start. A `single_fault` case names its tag in
   Python (`tag`) and what Node's reader of the same text meets (`node`: a tag, or `passes` when
-  Node parses `1.0` as 1); `what` is the F1 message's `<what>` (§3). `mapping` is the code each
-  operation gives a tag. `integer_fields` set one field of a minimal frame, cursor or segment.
-  `multi_fault` cases have `tag: null`: only the code is pinned. `cross_language` holds one pin per
-  side, and neither side asserts the other's (§2.11).
+  Node parses `1.0` as 1); `what` is the F1 message's `<what>` (§3), the reason the codec met.
+  `mapping` is the code each operation gives a tag, and `mapping.worker_emit.precedence` the emit's
+  order, F1 before F2. `integer_fields` set one field of a minimal frame, cursor or segment.
+  `multi_fault` cases have `tag: null`: no decode tag is pinned, only the code; an entry case's
+  `emit` is what the worker's emit gives it, F1 first. `emit_precedence` holds BB8's emit cases as
+  §9 writes them (`call`, a Python expression over the codec's functions, its `rule`, `code` and
+  `peak_under` in traced bytes) and a deep entry that encodes unchanged (`deep_valid`: an empty
+  array nested `depth` deep). `cross_language` holds one pin per side, and neither side asserts
+  the other's (§2.11). `persisted_bytes` holds an entry's bytes (`entry_hex`) spliced into a
+  segment: Python's load, the store as §2.11 requires it, and the store's decode today
+  (`store_today`). `codec_requirement.calls` are §9's required calls, in its order. `admission`
+  holds the guard's request bodies, as sent, and the two create paths.
 - `bad/float_entry.json` holds the number `1.0`. Python reads it as a float and must refuse
   it as F1; Node reads it as the integer 1 and refuses the seal as F5 (`node_detects`).
   Reformatting must keep the literal.
@@ -150,7 +158,7 @@ it is accepted), and what it exercises.
 | `good/thrown_save_outcome_unknown.json` | R2 F3 F6 | none | a commit's record save throws: with a status, before the write, so only orphans change; without one, after the rename, so the outcome is unknown, the instance serves nothing, and the restart's full read rebuilds the lists from the durable heads, landed or not |
 | `good/refusal_construction.json` | W4 | none | every refusal construction in the adapter's call closure, read from the source with the bound of each variable part, independently and per schema; the largest, every part at its maximum, is 543 bytes, REFUSAL_BYTES, which the dispatch never builds; the largest it can build is 336 bytes; every refusal name, `_Refused` use and refusal copy is listed; frame source labels of 1, 4,096 and 65,536 bytes build the same refusals |
 | `good/unavailable_pause_reason.json` | U1 U2 | none | every release path and the saves after one: one save empties `logs` and `verified`; `unavailable` and the reason keep the released log names and their heads; the first trace wins; a released job is never requeued |
-| `good/codec_error_mapping.json` | F1 F2 F3 W1 W4 | none | the codec's tags and where each operation maps them (§2.11): single-fault entries with their tag in Python and in Node, controls at the bounds, integer-only fields and the rule each maps to, multi-fault inputs that pin only the code, the `1.0` divergence with one pin per side, and a whitespace-padded entry of 4,096 canonical bytes that passes beside one of 4,097 that fails F2 however it is spaced |
+| `good/codec_error_mapping.json` | F1 F2 F3 W1 W4 | none | the codec's tags and where each operation maps them (§2.11): single-fault entries with their tag in Python and in Node, controls at the bounds, integer-only fields and the rule each maps to, multi-fault inputs that pin only the code, the `1.0` divergence with one pin per side, a whitespace-padded entry of 4,096 canonical bytes that passes beside one of 4,097 that fails F2 however it is spaced, the emit's F1-before-F2 cases, invalid UTF-8 in a segment, §9's required calls and the admission guard's cases |
 | `bad/missing_segment.json` | R1 | DISCOVERY_UNAVAILABLE 409 segment_missing | the oldest `alt_cells` segment is gone; the store meeting it outside reconciliation says STORAGE_CORRUPT 503 |
 | `bad/reordered_segment.json` | R2 | DISCOVERY_UNAVAILABLE 409 chain_broken | the two `alt_cells` paths are swapped |
 | `bad/cursor_summary_disagreement.json` | R3 | DISCOVERY_UNAVAILABLE 409 cursor_disagrees | the cursor's `alt_cells` totals are one segment short of the walked summary |

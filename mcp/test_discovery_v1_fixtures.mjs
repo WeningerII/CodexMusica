@@ -236,11 +236,14 @@ const segmentBytes = (segment) => Buffer.from(JSON.stringify(segment), 'utf8');
 // that passed F6 but do not parse, an entry failing F1 or F2, or an integer
 // field that is not an integer. Each is F3 wherever the segment is read; the
 // walk, the full read and the load map F3 by their own tables. The faults are
-// the codec's tags (§2.11), listed in the order the scan meets them.
-function segmentContent(raw) {
+// the codec's tags (§2.11), listed in the order the scan meets them. The bytes
+// are decoded as the store is required to decode them, with a fatal UTF-8
+// decoder (§2.11); `{ fatal: false }` is the store's decode today, which reads
+// invalid UTF-8 as U+FFFD (`JSON.parse` on the buffer, reader_job_store.js:681).
+function segmentContent(raw, { fatal = true } = {}) {
   let seg;
   try {
-    seg = JSON.parse(Buffer.from(raw).toString('utf8'));
+    seg = JSON.parse(new TextDecoder('utf-8', { fatal }).decode(Buffer.from(raw)));
   } catch {
     return { seg: null, faults: ['JSON'] };
   }
@@ -1761,11 +1764,14 @@ out["single_pass"] = [one_pass(e) == canonical_json(e)
                       + [e for t in data["segments"] for e in json.loads(t)["entries"]]]
 # On the load shapes canonical_json may not complete: json_safe recurses per
 # level, past Python's recursion limit on an entry nested about 1,000 deep.
+# The single pass runs outside the try, so a RecursionError of its own fails
+# the run instead of reading as canonical_json's (BB8 6693638249).
 def shape_pass(e):
+    one = one_pass(e)
     try:
-        return one_pass(e) == canonical_json(e)
+        return [one, one == canonical_json(e)]
     except RecursionError:
-        return None
+        return [one, None]
 out["shape_pass"] = [shape_pass(e) for e in data["shapes"]]
 for text in data["segments"]:
     seg = json.loads(text)
@@ -2835,14 +2841,19 @@ test('canonical form and ordered digest: the vectors, recomputed in Node and in 
   // On the load shapes it is equal wherever canonical_json completes, and
   // canonical_json fails only past about 1,000 levels of nesting (§2.1).
   const depth = (v) => (Array.isArray(v) ? 1 + Math.max(0, ...v.map(depth)) : 0);
-  LOAD_SHAPES.forEach((e, i) =>
+  // The single pass completes on every shape, the two deepest included, and
+  // writes Node's bytes (BB8 6693638249); canonical_json is compared only
+  // where it completes.
+  LOAD_SHAPES.forEach((e, i) => {
+    assert.equal(py.shape_pass[i][0], JSON.stringify(e), `load shape ${i}: the single pass`);
     assert.equal(
-      py.shape_pass[i],
+      py.shape_pass[i][1],
       depth(e) > 1000 ? null : true,
       `load shape ${i} (depth ${depth(e)})`
-    )
-  );
-  assert.equal(py.shape_pass.filter((x) => x === null).length, 2);
+    );
+  });
+  assert.equal(py.shape_pass.filter((x) => x[1] === null).length, 2);
+  assert.ok(Math.max(...LOAD_SHAPES.map(depth)) >= 2040, 'the deepest shape is checked');
   py.segments.forEach(([sameBytes, address, after], i) => {
     const node = JSON.parse(segments[i].toString('utf8'));
     assert.ok(sameBytes, `segment ${i}: json.dumps without sort_keys reproduces the bytes`);
@@ -5264,7 +5275,7 @@ test('the attribution of the row_seen figure and the headroom (BB8 6683944548)',
 });
 
 // §12: every item BB8 ruled is marked with its ruling; only item 29 is open.
-test('§12: items 21-28 carry their rulings, and items 29-31 stay open', () => {
+test('§12: items 21-28 carry their rulings, 30-31 are ruled and not yet folded, and only 29 is open', () => {
   const text = section('12. Rulings on the items added for confirmation');
   const item = (n) => {
     const m = new RegExp(`\\n${n}\\. \\*\\*([^*]+)\\*\\*`).exec(text);
@@ -5275,21 +5286,21 @@ test('§12: items 21-28 carry their rulings, and items 29-31 stay open', () => {
     assert.match(item(n), /^Ruled/, `item ${n} is ruled`);
   assert.match(item(24), /^3PO's/, "item 24 is 3PO's");
   assert.match(item(29), /^Open/, 'item 29 stays open');
-  // R2's two questions of 6693449409, BB8's to rule, carried unchanged.
-  assert.match(item(30), /^Open/, 'item 30 stays open');
-  assert.match(item(31), /^Open/, 'item 31 stays open');
+  // R2's two questions of 6693449409: BB8 ruled both yes (6693502369); the
+  // fold is the next revision's, so the rule text (§2.1, §3) does not move yet.
+  assert.equal(item(30), 'Ruled: yes, not yet folded');
+  assert.equal(item(31), 'Ruled: yes, not yet folded');
   const body = (n) =>
     text.match(new RegExp(`\\n${n}\\. [\\s\\S]*?(?=\\n\\d+\\. |\\n#|$)`))[0].replace(/\s+/g, ' ');
-  assert.ok(body(30).includes("BB8's to rule; asked in 6693449409"));
+  for (const n of [30, 31]) assert.ok(body(n).includes('(BB8 6693502369; asked in 6693449409)'));
   assert.ok(
-    body(30).includes('Should W7 hold `MEMBERSHIP_BYTES`? That would need a `bytes` member')
+    body(30).includes("Until the next revision folds it, §3's `MEMBERSHIP_BYTES` row stands.")
   );
-  assert.ok(body(31).includes("BB8's to rule; asked in 6693449409"));
-  assert.ok(body(31).includes("Should F1 bound an entry's nesting depth? A bound would cap"));
-  assert.ok(body(31).includes('This revision rules on neither.'));
+  assert.ok(body(31).includes("Until the next revision folds it, §2.1's depth text stands."));
+  assert.ok(!/ENTRY_DEPTH/.test(section('2. Format')), '§2.1 does not carry ENTRY_DEPTH yet');
   assert.ok(!/\n32\. /.test(text), 'no item 32');
-  assert.ok(text.replace(/\s+/g, ' ').includes('Items 29, 30 and 31 are open'));
-  assert.ok(!/Only item 29 is open/.test(text));
+  assert.ok(text.replace(/\s+/g, ' ').includes('Only item 29 is open, for the proof run.'));
+  assert.ok(!/Items 29, 30 and 31 are open/.test(text));
   assert.ok(text.includes('6684866461') && text.includes('6683944548'));
   assert.ok(!/Items 21–2\d and 26–29 are open/.test(text));
 });
@@ -5342,53 +5353,83 @@ function nodeTag(text) {
   return { tag: 'passes', canonical: JSON.stringify(v) };
 }
 // The validator's model of the Python codec: tags only, never a code (§2.11).
-// Its decoder is json.loads with the subset's hooks; the reference for the
-// worker half is the #721 author's codec, which its own tests hold to this
-// fixture (§9).
-const CODEC_PROGRAM = String.raw`import json, sys, tracemalloc
+// Its decoder is json.loads with the subset's hooks; its encoder makes §2.11
+// (d)'s two passes, the F1 walk and then the encoder with its F2 bound. The
+// reference for the worker half is the #721 author's codec, which its own tests
+// hold to this fixture and to §9's required calls.
+const CODEC_PROGRAM = String.raw`import json, re, sys, tracemalloc
 MAX = (1 << 53) - 1
+PAST = "an integer past 2⁵³ − 1"
+SURROGATE = re.compile("[\ud800-\udfff]")
 class Tag(Exception):
-    def __init__(self, rule):
+    def __init__(self, rule, what=None):
         self.rule = rule
-def _no(_):
-    raise Tag("F1")
+        self.what = what
+def _float(_):
+    raise Tag("F1", "a float")
+def _constant(_):
+    raise Tag("F1", "a nonfinite number")
+def _object(_):
+    raise Tag("F1", "an object")
 def _int(text):
     if len(text.lstrip("-")) > 16:
-        raise Tag("F1")
+        raise Tag("F1", PAST)
     v = int(text)
     if not -MAX <= v <= MAX:
-        raise Tag("F1")
+        raise Tag("F1", PAST)
     return v
-def check(v):
-    stack = [v]
+# Pass 1: the F1 walk. It serialises nothing and holds one iterator per open
+# array, so it allocates with the depth, not the width.
+def f1_walk(value):
+    active, path, stack = set(), [], [iter((value,))]
     while stack:
-        x = stack.pop()
-        if type(x) is list:
-            stack.extend(x)
-        elif type(x) is str:
-            try:
-                x.encode("utf-8", "strict")
-            except UnicodeEncodeError:
-                raise Tag("F1")
-        elif not (x is None or type(x) in (bool, int)):
-            raise Tag("F1")
-def decode(data):
+        for x in stack[-1]:
+            t = type(x)
+            if t is list:
+                if id(x) in active:
+                    raise Tag("F1", "a cyclic array")
+                active.add(id(x))
+                path.append(id(x))
+                stack.append(iter(x))
+                break
+            if t is str:
+                if SURROGATE.search(x):
+                    raise Tag("F1", "a lone surrogate")
+            elif t is int:
+                if not -MAX <= x <= MAX:
+                    raise Tag("F1", PAST)
+            elif t is float:
+                raise Tag("F1", "a float" if x - x == 0 else "a nonfinite number")
+            elif t is dict:
+                raise Tag("F1", "an object")
+            elif not (x is None or t is bool):
+                raise Tag("F1", "a value of another type")
+        else:
+            stack.pop()
+            if path:
+                active.discard(path.pop())
+# Pass 2, only for an entry pass 1 found clean: the encoder and its F2 bound.
+def canonical_bytes(value):
+    f1_walk(value)
+    out = json.dumps(value, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+    if len(out) > 4096:
+        raise Tag("F2")
+    return out
+def decode_entry(data):
+    if isinstance(data, str):
+        data = data.encode("utf-8", "surrogatepass")
     try:
         text = data.decode("utf-8", "strict")
     except UnicodeDecodeError:
         raise Tag("JSON")
     try:
-        v = json.loads(text, parse_float=_no, parse_constant=_no, parse_int=_int,
-                       object_pairs_hook=_no)
+        v = json.loads(text, parse_float=_float, parse_constant=_constant, parse_int=_int,
+                       object_pairs_hook=_object)
     except Tag:
         raise
     except (ValueError, RecursionError):
         raise Tag("JSON")
-    check(v)
-    c = json.dumps(v, ensure_ascii=False, separators=(",", ":"), allow_nan=False).encode("utf-8")
-    if len(c) > 4096:
-        raise Tag("F2")
-    return c
+    return canonical_bytes(v)
 def require_integer(v, nonnegative=False):
     if type(v) is not int or not -MAX <= v <= MAX or (nonnegative and v < 0):
         raise Tag("INTEGER_FIELD")
@@ -5396,37 +5437,79 @@ def require_integer(v, nonnegative=False):
 def tag_of(fn, *a):
     try:
         out = fn(*a)
-        return {"tag": "passes", "canonical": out.decode("utf-8") if isinstance(out, bytes) else None}
+        return {"tag": "passes", "what": None,
+                "canonical": out.decode("utf-8") if isinstance(out, bytes) else None}
     except Tag as t:
-        return {"tag": t.rule}
+        return {"tag": t.rule, "what": t.what}
 # A persisted segment, F6 passed: any tag on its content is F3 (§2.5).
 def segment(data):
     try:
-        seg = json.loads(data.decode("utf-8", "strict"), parse_float=_no, parse_constant=_no)
+        try:
+            text = data.decode("utf-8", "strict")
+        except UnicodeDecodeError:
+            raise Tag("JSON")
+        seg = json.loads(text, parse_float=_float, parse_constant=_constant)
         for f in ("epoch", "first", "count"):
             require_integer(seg[f], nonnegative=True)
         for e in seg["entries"]:
-            decode(json.dumps(e, ensure_ascii=False).encode("utf-8", "surrogatepass"))
+            canonical_bytes(e)
     except Tag as t:
         return {"rule": "F3", "tag": t.rule}
     except (ValueError, KeyError, TypeError):
         return {"rule": "F3", "tag": "JSON"}
     return {"rule": None}
+# One call as §9 writes it: its arguments are built before tracing starts, so
+# the peak is the codec's own work.
+NAMES = {"require_integer": require_integer, "decode_entry": decode_entry,
+         "canonical_bytes": canonical_bytes}
+def call(expr):
+    name, args = re.fullmatch(r"(\w+)\((.*)\)", expr, re.S).groups()
+    a, k = eval("(lambda *a, **k: (a, k))(" + args + ")", {"__builtins__": {}})
+    tracemalloc.start()
+    try:
+        NAMES[name](*a, **k)
+        got = {"rule": None, "what": None}
+    except Tag as t:
+        got = {"rule": t.rule, "what": t.what}
+    got["peak"] = tracemalloc.get_traced_memory()[1]
+    tracemalloc.stop()
+    return got
 data = json.loads(sys.stdin.buffer.read().decode("utf-8"))
-out = {"entries": [tag_of(decode, t.encode("utf-8", "surrogatepass")) for t in data["entries"]],
+enc = lambda s: s.encode("utf-8", "surrogatepass")
+out = {"entries": [tag_of(decode_entry, enc(t)) for t in data["entries"]],
+       "emit": [tag_of(canonical_bytes, json.loads(t)) for t in data["emit"]],
        "integers": [tag_of(require_integer, v) for v in data["integers"]],
-       "segments": [segment(s.encode("utf-8", "surrogatepass")) for s in data["segments"]]}
+       "segments": [segment(enc(s)) for s in data["segments"]]
+                   + [segment(bytes.fromhex(h)) for h in data["segments_hex"]],
+       "calls": [call(c) for c in data["calls"]]}
+deep = []
+for _ in range(data["deep"] - 1):
+    deep = [deep]
+out["deep"] = canonical_bytes(deep).decode("utf-8") if data["deep"] else None
 # Item 3: the padded entry passes within the bound, its peak memory measured.
 raw = data["padded"].encode("utf-8")
 tracemalloc.start()
-got = tag_of(decode, raw)
+got = tag_of(decode_entry, raw)
 out["padded"] = {"raw_bytes": len(raw), "peak": tracemalloc.get_traced_memory()[1], **got}
 tracemalloc.stop()
 sys.stdout.buffer.write(json.dumps(out).encode("ascii"))
 `;
 function codecPython(input) {
   const run = spawnSync('python3', ['-I', '-c', CODEC_PROGRAM], {
-    input: Buffer.from(JSON.stringify(input), 'utf8'),
+    input: Buffer.from(
+      JSON.stringify({
+        entries: [],
+        emit: [],
+        integers: [],
+        segments: [],
+        segments_hex: [],
+        calls: [],
+        deep: 0,
+        padded: '[]',
+        ...input,
+      }),
+      'utf8'
+    ),
     maxBuffer: 16 * 1024 * 1024,
   });
   assert.equal(run.error, undefined, `python3 runs (${run.error?.message})`);
@@ -5447,9 +5530,10 @@ const codecStore = (frame) => {
   assert.deepEqual(record, { discovery: null, cursor: null }, 'nothing is written');
   return got.violations.map((v) => v.rule);
 };
-// A stored segment's bytes with one entry spliced in as its text (so `1.0`
-// and the escape keep their bytes), digests as a Python writer computes them.
-function codecSegment(entryText, fields = {}) {
+// A stored segment's bytes with one entry spliced in as its bytes (so `1.0`,
+// the escape and invalid UTF-8 keep their bytes), digests as a Python writer
+// computes them.
+function codecSegmentBytes(entryBytes, fields = {}) {
   const head = {
     version: 1,
     kind: 'reader_discovery_segment',
@@ -5466,23 +5550,30 @@ function codecSegment(entryText, fields = {}) {
   const after = crypto
     .createHash('sha256')
     .update(Buffer.from(head.digest_before, 'hex'))
-    .update(Buffer.from(entryText, 'utf8'))
+    .update(entryBytes)
     .digest('hex');
-  const body = JSON.stringify({ ...head, digest_after: after, entries: [] });
-  return body.replace('"entries":[]', `"entries":[${entryText}]`);
+  const [pre, post] = JSON.stringify({ ...head, digest_after: after, entries: [] }).split(
+    '"entries":[]'
+  );
+  return Buffer.concat([Buffer.from(`${pre}"entries":[`), entryBytes, Buffer.from(`]${post}`)]);
 }
+const codecSegment = (entryText, fields = {}) =>
+  codecSegmentBytes(Buffer.from(entryText, 'utf8'), fields).toString('utf8');
 
-test(`${CODEC}: each single-fault case's tag, in Node and in Python (§2.11)`, () => {
+test(`${CODEC}: each single-fault case's tag and what, in Node and in Python (§2.11)`, () => {
   const fx = load(CODEC);
   assert.equal(fx.kind, 'codec');
   assert.deepEqual(fx.tags, ['F1', 'F2', 'JSON', 'INTEGER_FIELD']);
   const texts = [...fx.single_fault, ...fx.controls].map(codecText);
-  const py = codecPython({ entries: texts, integers: [], segments: [], padded: '[]' });
+  const py = codecPython({ entries: texts });
   const whats = new Set();
   fx.single_fault.forEach((c, i) => {
     assert.equal(py.entries[i].tag, c.tag, `${c.name}: Python's tag`);
+    // The F1 message's <what> is the reason the codec met, not a label.
+    assert.equal(py.entries[i].what, c.what ?? null, `${c.name}: Python's what`);
     assert.equal(nodeTag(texts[i]).tag, c.node, `${c.name}: Node's tag`);
     if (c.tag === 'F1') whats.add(c.what);
+    else assert.equal(c.what, undefined, `${c.name}: only an F1 case names a what`);
     if (c.canonical_bytes) {
       const v = JSON.parse(texts[i]);
       assert.equal(size(v), c.canonical_bytes, `${c.name}: canonical bytes`);
@@ -5524,6 +5615,7 @@ test(`${CODEC}: each operation maps the tag, and only the operation (§2.11 (a)-
   for (const [field, r] of Object.entries(m.store_frame.INTEGER_FIELD)) {
     assert.ok(WRITE_RULES.includes(r.rule) && r.rule !== 'F1', `${field}: its frame rule`);
     assert.deepEqual({ code: r.code, status: r.status }, REFUSAL.write[r.rule]);
+    assert.equal(r.written, 'nothing');
   }
   assert.deepEqual(m.store_frame.JSON, { step_channel: 'bridge_failure', code: null });
   // Each single-fault entry in a frame's tail, where Node sees its tag, fails
@@ -5535,7 +5627,8 @@ test(`${CODEC}: each operation maps the tag, and only the operation (§2.11 (a)-
     assert.deepEqual(codecStore(codecFrame([JSON.parse(codecText(c))])), [node], c.name);
   }
   // (b) the worker, on an entry it generated: F2 RESOURCE_LIMIT with its
-  // cause, F1 INVARIANT_FAILURE with §3's message; nothing is emitted.
+  // cause, F1 INVARIANT_FAILURE with §3's message; nothing is emitted; F1
+  // first (§2.11 (d)).
   assert.deepEqual(m.worker_emit.F2, {
     code: 'RESOURCE_LIMIT',
     cause: 'discovery_entry_bytes',
@@ -5548,6 +5641,7 @@ test(`${CODEC}: each operation maps the tag, and only the operation (§2.11 (a)-
     template: INVARIANT_MESSAGES.F1,
     emitted: 'nothing',
   });
+  assert.deepEqual(m.worker_emit.precedence, ['F1', 'F2']);
   // (c) a persisted segment that passed F6: every content fault is F3, with
   // F3's mapping on the walk, the full read and the load; inflation is F6.
   assert.equal(m.persisted.rule, 'F3');
@@ -5555,6 +5649,7 @@ test(`${CODEC}: each operation maps the tag, and only the operation (§2.11 (a)-
   assert.deepEqual(m.persisted.lease_walk, lease);
   assert.deepEqual(m.persisted.full_read, { ...REFUSAL.full.F3, released: true });
   assert.deepEqual(m.persisted.worker_load, REFUSAL.resume.F3);
+  assert.equal(m.persisted.inflation.rule, 'F6');
   assert.deepEqual(m.persisted.inflation.lease_walk, {
     code: REFUSAL.walk.F6.code,
     status: REFUSAL.walk.F6.status,
@@ -5569,12 +5664,7 @@ test(`${CODEC}: each operation maps the tag, and only the operation (§2.11 (a)-
   assert.deepEqual(STORE_CAUSES, ['segment_corrupt']);
   assert.ok(!WORKER_CAUSES.includes('segment_corrupt'));
   const segs = fx.single_fault.filter((c) => c.node !== 'passes').map((c) => codecText(c));
-  const py = codecPython({
-    entries: [],
-    integers: [],
-    segments: segs.map((t) => codecSegment(t)),
-    padded: '[]',
-  });
+  const py = codecPython({ segments: segs.map((t) => codecSegment(t)) });
   segs.forEach((text, i) => {
     const node = segmentContent(Buffer.from(codecSegment(text), 'utf8'));
     assert.ok(node.faults.length, `Node: ${text.slice(0, 20)} is a content fault`);
@@ -5586,12 +5676,7 @@ test(`${CODEC}: each operation maps the tag, and only the operation (§2.11 (a)-
 
 test(`${CODEC}: an integer-only field is INTEGER_FIELD, under its operation's rule, never F1`, () => {
   const fx = load(CODEC);
-  const py = codecPython({
-    entries: [],
-    integers: fx.integer_fields.map((c) => c.value),
-    segments: [],
-    padded: '[]',
-  });
+  const py = codecPython({ integers: fx.integer_fields.map((c) => c.value) });
   fx.integer_fields.forEach((c, i) => {
     assert.equal(c.tag, 'INTEGER_FIELD');
     assert.equal(py.integers[i].tag, 'INTEGER_FIELD', `${c.where}.${c.field}: the tag`);
@@ -5632,32 +5717,34 @@ test(`${CODEC}: an integer-only field is INTEGER_FIELD, under its operation's ru
   assert.ok(inEntry.length === 2 && inEntry.every((c) => c.tag === 'F1'));
 });
 
-test(`${CODEC}: a multi-fault input pins the code and nothing written, never the tag (§2.11 (d))`, () => {
+test(`${CODEC}: a multi-fault input pins the code and nothing written; the emit pins F1 first (§2.11 (d))`, () => {
   const fx = load(CODEC);
   for (const c of fx.multi_fault) {
-    assert.equal(c.tag, null, `${c.name}: no tag is pinned`);
+    assert.equal(c.tag, null, `${c.name}: no tag is pinned on a decode`);
     assert.ok(c.faults.length >= 2, `${c.name}: more than one fault`);
   }
   const entries = fx.multi_fault.filter((c) => c.build);
   const segCase = fx.multi_fault.find((c) => c.where === 'segment');
   const py = codecPython({
     entries: entries.map(codecText),
-    integers: [],
+    emit: entries.map(codecText),
     segments: [codecSegment(segCase.text, { [segCase.field]: segCase.value })],
-    padded: '[]',
   });
   entries.forEach((c, i) => {
-    // Python raises one of the faults' tags, whichever its scan meets first.
+    // Python's decode raises one of the faults' tags, whichever its scan meets first.
     assert.ok(c.faults.includes(py.entries[i].tag), `${c.name}: one of its faults`);
     // The store: READER_PROTOCOL whatever the first, and nothing written.
     const rules = codecStore(codecFrame([JSON.parse(codecText(c))]));
     assert.ok(rules.length >= 1);
     for (const r of rules) assert.deepEqual(REFUSAL.write[r], PROTOCOL, `${c.name}: ${r}`);
-    // The worker, before it emits: one of the two codes its faults map to.
-    const codes = c.faults.map((f) => fx.mapping.worker_emit[f].code);
-    assert.deepEqual(codes.sort(), ['INVARIANT_FAILURE', 'RESOURCE_LIMIT']);
+    // The worker, before it emits: F1 first, so INVARIANT_FAILURE (BB8, 19:40Z).
+    assert.deepEqual(c.faults, fx.mapping.worker_emit.precedence, c.name);
+    assert.equal(py.emit[i].tag, c.emit.tag, `${c.name}: the emit's tag`);
+    assert.equal(fx.mapping.worker_emit[c.emit.tag].code, c.emit.code, c.name);
+    assert.equal(c.emit.code, 'INVARIANT_FAILURE');
   });
   const seal = fx.multi_fault.find((c) => c.where === 'seal');
+  assert.equal(seal.emit, undefined, 'a frame field is not an emitted entry');
   const frame = codecFrame([]);
   const e = JSON.parse(seal.text);
   frame.discovery.seals = [
@@ -5679,11 +5766,93 @@ test(`${CODEC}: a multi-fault input pins the code and nothing written, never the
   assert.deepEqual([...new Set(node.faults)].sort(), [...segCase.faults].sort());
 });
 
+test(`${CODEC}: the worker's emit makes two passes, F1 before F2, with BB8's cases (§2.11 (d))`, () => {
+  const fx = load(CODEC);
+  const ep = fx.emit_precedence;
+  const py = codecPython({ calls: ep.cases.map((c) => c.call), deep: ep.deep_valid.depth });
+  ep.cases.forEach((c, i) => {
+    assert.equal(py.calls[i].rule, c.rule, `${c.call}: the rule`);
+    const mapped = fx.mapping.worker_emit[c.rule];
+    assert.equal(mapped.code, c.code, `${c.call}: the code`);
+    if (c.rule === 'F2') assert.equal(mapped.cause, c.cause);
+    else assert.equal(c.cause, undefined);
+    if (c.peak_under !== undefined)
+      assert.ok(py.calls[i].peak < c.peak_under, `${c.call}: peak ${py.calls[i].peak}`);
+  });
+  // Each F1 case would be F2 to a one-pass encoder that bounds first: it holds
+  // more than ENTRY_BYTES of string or members besides its F1 fault.
+  assert.deepEqual(
+    ep.cases.map((c) => c.rule),
+    ['F1', 'F1', 'F1', 'F2']
+  );
+  // A deep entry that F1 and F2 both admit encodes unchanged, to Node's bytes.
+  let deep = [];
+  for (let k = 1; k < ep.deep_valid.depth; k++) deep = [deep];
+  assert.equal(py.deep, JSON.stringify(deep));
+  assert.equal(Buffer.byteLength(py.deep), ep.deep_valid.canonical_bytes);
+  assert.ok(ep.deep_valid.canonical_bytes <= LIMITS.ENTRY_BYTES);
+  assert.equal(nodeTag(py.deep).tag, 'passes');
+});
+
+// §9's required calls, as the contract writes them: `name(args)` in backticks,
+// each followed by the rule it must raise.
+function requiredCalls(text) {
+  const out = [];
+  const re =
+    /`((?:require_integer|decode_entry|canonical_bytes)\([^`]*\))`|rule == '([A-Z0-9_]+)'/g;
+  let pending = [];
+  for (const m of text.matchAll(re)) {
+    if (m[1]) pending.push(m[1]);
+    else {
+      for (const call of pending) out.push({ call, rule: m[2] });
+      pending = [];
+    }
+  }
+  assert.deepEqual(pending, [], 'every call is followed by its rule');
+  return out;
+}
+const s9codec = () => {
+  const s9 = section('9. Compatibility and release');
+  const a = s9.indexOf("- **The entry codec (the #721 author's;");
+  return s9.slice(a, s9.indexOf('\n- **', a + 5));
+};
+
+test(`${CODEC}: §9's required calls are the fixture's, and the model raises each rule`, () => {
+  const fx = load(CODEC);
+  const text = s9codec();
+  const [integers, emit] = text.split("- `canonical_bytes` makes §2.11 (d)'s two passes");
+  assert.ok(emit, '§9 states the two-pass requirement');
+  const stripped = (cases) => cases.map(({ call, rule }) => ({ call, rule }));
+  assert.deepEqual(requiredCalls(integers), fx.codec_requirement.calls);
+  assert.deepEqual(requiredCalls(emit), stripped(fx.emit_precedence.cases));
+  const all = [...fx.codec_requirement.calls, ...fx.emit_precedence.cases];
+  const py = codecPython({ calls: all.map((c) => c.call) });
+  all.forEach((c, i) => assert.equal(py.calls[i].rule, c.rule, c.call));
+  // INTEGER_FIELD is require_integer's alone; an integer inside an entry is F1
+  // on the decode and the encode paths alike (BB8's review).
+  for (const c of fx.codec_requirement.calls)
+    assert.equal(c.rule === 'INTEGER_FIELD', c.call.startsWith('require_integer('), c.call);
+  const paths = new Set(
+    fx.codec_requirement.calls.filter((c) => c.rule === 'F1').map((c) => c.call.split('(')[0])
+  );
+  assert.deepEqual([...paths].sort(), ['canonical_bytes', 'decode_entry']);
+  // The 128,000-byte threshold and the deep entry are stated as the fixture holds them.
+  const flat = text.replace(/\s+/g, ' ');
+  const peak = fx.emit_precedence.cases.find((c) => c.peak_under).peak_under;
+  assert.ok(flat.includes(`a traced peak under ${peak.toLocaleString('en-US')} bytes`));
+  const dv = fx.emit_precedence.deep_valid;
+  assert.ok(
+    flat.includes(
+      `an empty array nested ${dv.depth.toLocaleString('en-US')} deep encodes, unchanged, to its ${dv.canonical_bytes.toLocaleString('en-US')} canonical bytes`
+    )
+  );
+});
+
 test(`${CODEC}: the integral float 1.0 diverges, with one pin per side (§2.11)`, () => {
   const fx = load(CODEC);
   const x = fx.cross_language;
   const raw = codecSegment(x.text);
-  const py = codecPython({ entries: [x.text], integers: [], segments: [raw], padded: '[]' });
+  const py = codecPython({ entries: [x.text], segments: [raw] });
   // Python: a float, F1, so F3 on the load, chain_broken.
   assert.equal(py.entries[0].tag, x.python.tag);
   assert.equal(py.segments[0].rule, x.python.rule);
@@ -5702,31 +5871,50 @@ test(`${CODEC}: the integral float 1.0 diverges, with one pin per side (§2.11)`
   assert.deepEqual([fl.rule, fl.node_detects, fl.code], ['F1', 'F5', 'READER_PROTOCOL']);
 });
 
+test(`${CODEC}: invalid UTF-8 in a segment is F3 in both languages once the store decodes strictly (§2.11)`, () => {
+  const fx = load(CODEC);
+  for (const c of fx.persisted_bytes) {
+    const raw = codecSegmentBytes(Buffer.from(c.entry_hex, 'hex'));
+    assert.throws(() => new TextDecoder('utf-8', { fatal: true }).decode(raw), TypeError);
+    const py = codecPython({ segments_hex: [raw.toString('hex')] });
+    assert.deepEqual(py.segments[0], c.python, `${c.name}: Python's load`);
+    // The store as §2.11 requires it: the fatal decode refuses, so F3 (JSON).
+    assert.deepEqual(segmentContent(raw).faults, [c.store_required.tag], `${c.name}: required`);
+    assert.equal(c.store_required.rule, m3(fx));
+    // The store today: Buffer.toString reads U+FFFD, so the content passes.
+    assert.equal(c.store_today, 'passes');
+    const today = segmentContent(raw, { fatal: false });
+    assert.deepEqual(today.faults, [], `${c.name}: today's decode passes the bytes`);
+    assert.ok(today.seg.entries[0].includes('�'));
+    // And the store's read today is JSON.parse on the buffer, not a fatal decode.
+    const store = fs.readFileSync(path.join(ROOT, 'mcp/reader_job_store.js'), 'utf8');
+    assert.ok(!/fatal: true/.test(store), 'the requirement is not met yet, so it is stated');
+  }
+});
+const m3 = (fx) => fx.mapping.persisted.rule;
+
 test(`${CODEC}: F2 is on the canonical form; the raw input only within the enclosing reader's bound (item 3)`, () => {
   const fx = load(CODEC);
   const rt = fx.raw_transport;
-  // The enclosing readers' existing bounds, read from the source.
-  const src = (f) => fs.readFileSync(path.join(ROOT, f), 'utf8');
-  const frameCap = /const READER_FRAME_CAP = 2 \* 1024 \* 1024 \+ 16384;/.test(
-    src('mcp/python_bridge.js')
-  );
-  assert.ok(frameCap, 'python_bridge.js: READER_FRAME_CAP is 2 MiB + 16 KiB');
-  assert.ok(/^READER_OBJECT_BYTES = 2 \* 1024 \* 1024/m.test(src('mcp/worker.py')));
-  assert.ok(/objectBytes: 2 \* 1024 \* 1024,/.test(src('mcp/reader_job_store.js')));
-  const bound = 2 * 1024 * 1024;
+  const bounds = codecBounds();
+  // The bound is the enclosing reader's, by the names §2.11 gives them.
+  assert.ok(rt.bound.startsWith("the enclosing reader's: "), rt.bound);
+  for (const name of ['READER_FRAME_CAP', 'READER_OBJECT_BYTES', 'READER_LIMITS.objectBytes']) {
+    assert.ok(rt.bound.includes(name), `raw_transport.bound names ${name}`);
+    assert.ok(s211text().includes(`\`${name}\``), `§2.11 names ${name}`);
+  }
   // No raw-input constant: LIMITS holds none, and §2.11 says the contract adds none.
   assert.ok(!Object.keys(LIMITS).some((k) => /RAW/.test(k)));
-  const s211 = CONTRACT.slice(CONTRACT.indexOf('\n### 2.11'), CONTRACT.indexOf('\n## 3.'));
-  assert.ok(s211.replace(/\s+/g, ' ').includes('this contract adds no raw-input constant'));
+  assert.ok(s211text().includes('this contract adds no raw-input constant'));
   const padded = codecText(rt.valid_padded);
   const bytes = Buffer.byteLength(padded);
   assert.equal(bytes, rt.valid_padded.raw_bytes);
-  assert.ok(bytes <= bound && bytes > 1000 * 1024, 'about 1 MiB, within the bound');
+  assert.ok(bytes <= bounds.objectBytes && bytes > 1000 * 1024, 'about 1 MiB, within the bound');
   assert.equal(size(JSON.parse(padded)), rt.valid_padded.canonical_bytes);
   assert.equal(rt.valid_padded.canonical_bytes, LIMITS.ENTRY_BYTES);
   assert.equal(nodeTag(padded).tag, 'passes');
   const over = rt.over_spaced.map(codecText);
-  const py = codecPython({ entries: over, integers: [], segments: [], padded });
+  const py = codecPython({ entries: over, padded });
   assert.equal(py.padded.tag, 'passes', 'the padded entry passes F2 in Python');
   assert.equal(py.padded.raw_bytes, bytes);
   // Peak memory measured: the decoder's peak is proportional to the raw bytes.
@@ -5745,10 +5933,33 @@ test(`${CODEC}: F2 is on the canonical form; the raw input only within the enclo
   );
 });
 
+// The enclosing readers' existing bounds, read from the source as arithmetic.
+function codecBounds() {
+  const src = (f) => fs.readFileSync(path.join(ROOT, f), 'utf8');
+  const constant = (file, re) => {
+    const m = re.exec(src(file));
+    assert.ok(m, `${file}: ${re}`);
+    assert.match(m[1], /^[0-9 *+]+$/);
+    return Function(`return (${m[1]});`)();
+  };
+  return {
+    frameCap: constant('mcp/python_bridge.js', /^const READER_FRAME_CAP = ([0-9 *+]+);$/m),
+    workerFrame: constant('mcp/worker.py', /if len\(frame\.encode\("utf-8"\)\) > ([0-9 *+]+):/),
+    objectBytes: constant('mcp/worker.py', /^READER_OBJECT_BYTES = ([0-9 *+]+?)\s+#/m),
+    storeBytes: constant('mcp/reader_job_store.js', /^ {2}objectBytes: ([0-9 *+]+),$/m),
+  };
+}
+const mibKib = (n) => {
+  const whole = Math.floor(n / 1048576);
+  const rest = n - whole * 1048576;
+  assert.equal(rest % 1024, 0);
+  return rest ? `${whole} MiB plus ${rest / 1024} KiB` : `${whole} MiB`;
+};
+
 // §2.11: where caller text enters the analysis, by line. A lone surrogate the
 // caller sends as an escape reaches the worker as a lone surrogate, and only a
 // lyrics argv is cleaned, so admission must refuse one (BB8's condition).
-const TRACE = [
+const TRACE_LINES = [
   ['mcp/server_http.js', 226, 'express.json({'],
   [
     'mcp/reader_routes.js',
@@ -5758,16 +5969,24 @@ const TRACE = [
   ['mcp/reader_routes.js', 169, 'export function validateRequest(input) {'],
   [
     'mcp/reader_routes.js',
+    173,
+    "if (!validBinding(input[field])) throw fail('BAD_REQUEST', `A valid ${field} is required.`);",
+  ],
+  [
+    'mcp/reader_routes.js',
     180,
     "throw fail('INVALID_DECLARATION', 'The declaration set must be a JSON object.');",
   ],
+  ['mcp/reader_routes.js', 209, "'idempotency_key',"],
   ['mcp/reader_routes.js', 226, 'export async function createAnalysisJob({'],
   ['mcp/reader_routes.js', 283, 'let request = validateRequest(req.body);'],
+  ['mcp/library_viewer_routes.js', 146, "if (typeof key !== 'string' || !key || key.length > 200)"],
   [
     'mcp/library_viewer_routes.js',
     148,
     'const request = validateRequest({ ...body, snapshot_id: snapshotId() });',
   ],
+  ['mcp/reader_scheduler.js', 66, 'const source = JSON.parse(bytes);'],
   ['mcp/reader_scheduler.js', 280, 'const prepareRequest = async (request) => {'],
   [
     'mcp/reader_scheduler.js',
@@ -5776,12 +5995,16 @@ const TRACE = [
   ],
   [
     'mcp/reader_scheduler.js',
+    420,
+    'declaration_hash: sha256(canonicalJSON(semanticDeclarations(request.declaration_set || {}))),',
+  ],
+  [
+    'mcp/reader_scheduler.js',
     521,
     "throw error('STALE_READING', 'Source or engine identity changed; create a new reader job.');",
   ],
   ['mcp/reader_scheduler.js', 523, 'const trusted = this.store.workerPayload(record.id);'],
   ['mcp/reader_scheduler.js', 528, 'declarations: record.request.declaration_set,'],
-  ['mcp/reader_scheduler.js', 66, 'const source = JSON.parse(bytes);'],
   [
     'mcp/reader_source_worker.js',
     12,
@@ -5807,7 +6030,11 @@ const TRACE = [
     "...(options.family === 'reader' ? { reader: options.readerPayload } : {}),",
   ],
   ['mcp/worker.py', 87, '_LONE_SURROGATE = re.compile("[\\ud800-\\udfff]")'],
-  ['mcp/worker.py', 94, 'READER_OBJECT_BYTES = 2 * 1024 * 1024'],
+  [
+    'mcp/worker.py',
+    94,
+    'READER_OBJECT_BYTES = 2 * 1024 * 1024  # READER_LIMITS.objectBytes in reader_job_store.js',
+  ],
   ['mcp/worker.py', 97, 'def read_page_object(page_path):'],
   ['mcp/worker.py', 105, 'raw = source_file.read(READER_OBJECT_BYTES + 1)'],
   ['mcp/worker.py', 111, 'body = inflater.decompress(raw, READER_OBJECT_BYTES + 1)'],
@@ -5823,154 +6050,828 @@ const TRACE = [
     'frame = json.dumps({"id": request_id, "event": "reader_checkpoint", "data": step},',
   ],
   ['mcp/worker.py', 166, 'if len(frame.encode("utf-8")) > 2 * 1024 * 1024:'],
+  ['mcp/worker.py', 168, 'print(frame, flush=True)'],
   ['mcp/worker.py', 241, 'req = json.loads(line)'],
   ['mcp/worker.py', 249, 'argv = [_LONE_SURROGATE.sub("\\ufffd", a) for a in argv]'],
+  ['mcp/worker.py', 265, 'reason = "READER_ERROR"'],
   ['mcp/reader_job_store.js', 10, 'objectBytes: 2 * 1024 * 1024,'],
   ['mcp/reader_job_store.js', 164, 'export function decodeStoredObject(raw) {'],
   ['mcp/reader_job_store.js', 511, '_readFile(file) {'],
   ['mcp/reader_job_store.js', 667, '_object(kind, hash) {'],
   ['mcp/reader_job_store.js', 681, 'return JSON.parse(bytes);'],
+  [
+    'mcp/reader_job_store.js',
+    812,
+    'const idempotency_hash = sha(`${viewer}\\0${idempotency_key}`);',
+  ],
   ['lyric-harness/library/analysis.py', 163, 'def _public_declarations(value):'],
   [
     'lyric-harness/library/analysis.py',
     367,
-    'raise ValueError("STALE_READING: an exact pronunciation line is absent from this registered reading")',
+    'raise ValueError("STALE_READING: an exact pronunciation line is absent from this registered reading"',
   ],
   [
     'lyric-harness/quality/pronunciation.py',
     174,
-    "if not isinstance(line, str) or not line.strip() or len(line) > 4000 or any(c in line for c in '\\r\\n'):",
+    "if not isinstance(line, str) or not line.strip() or len(line) > 4000 or any(c in line for c in '\\r\\n",
   ],
 ];
+// Every citation §2.11 makes, as it resolves: a bare `:N` names the file of the
+// nearest file-qualified citation before it in the same bullet. Each is listed
+// once, with the text its first and last lines start with.
+const CITES = [
+  ['python_bridge.js:317', 'const reply = JSON.parse(line);', null],
+  ['python_bridge.js:370-372', '} catch (error) {', 'return;'],
+  ['python_bridge.js:16', 'const READER_FRAME_CAP = 2 * 1024 * 1024 + 16384;', null],
+  [
+    'python_bridge.js:320-325',
+    'if (',
+    "throw interrupted('unreadable reader checkpoint', { code: 'READER_PROTOC",
+  ],
+  [
+    'worker.py:164-165',
+    'frame = json.dumps({"id": request_id, "event": "reader_checkpoint", "dat',
+    'ensure_ascii=False, separators=(",", ":"))',
+  ],
+  ['worker.py:166', 'if len(frame.encode("utf-8")) > 2 * 1024 * 1024:', null],
+  ['worker.py:168', 'print(frame, flush=True)', null],
+  ['worker.py:260-270', 'except Exception as exc:', '"provider_calls": 0}}), flush=True)'],
+  ['worker.py:123', 'return json.loads(body.decode("utf-8"))', null],
+  ['reader_job_store.js:681', 'return JSON.parse(bytes);', null],
+  [
+    'python_bridge.js:378-381',
+    'if (',
+    "kill(interrupted('worker protocol frame exceeds cap', { protocolError: t",
+  ],
+  [
+    'worker.py:164-167',
+    'frame = json.dumps({"id": request_id, "event": "reader_checkpoint", "dat',
+    'raise ValueError("reader checkpoint frame exceeds byte limit")',
+  ],
+  [
+    'worker.py:97-123',
+    'def read_page_object(page_path):',
+    'return json.loads(body.decode("utf-8"))',
+  ],
+  [
+    'worker.py:94',
+    'READER_OBJECT_BYTES = 2 * 1024 * 1024  # READER_LIMITS.objectBytes in re',
+    null,
+  ],
+  [
+    'worker.py:104-107',
+    'with open(page_path, "rb") as source_file:',
+    'raise ValueError("reader page object exceeds its bound")',
+  ],
+  [
+    'worker.py:108-117',
+    'if raw[:2] == b"\\x1f\\x8b":',
+    'raise ValueError("reader page object exceeds its bound, is truncated or ',
+  ],
+  ['reader_job_store.js:667-682', '_object(kind, hash) {', '}'],
+  ['reader_job_store.js:511-515', '_readFile(file) {', '}'],
+  ['reader_job_store.js:10', 'objectBytes: 2 * 1024 * 1024,', null],
+  ['reader_job_store.js:164-214', 'export function decodeStoredObject(raw) {', '}'],
+  ['server_http.js:225-231', 'app.use(', '})'],
+  ['reader_routes.js:169-219', 'export function validateRequest(input) {', '}'],
+  ['reader_routes.js:283', 'let request = validateRequest(req.body);', null],
+  [
+    'library_viewer_routes.js:148',
+    'const request = validateRequest({ ...body, snapshot_id: snapshotId() });',
+    null,
+  ],
+  [
+    'reader_routes.js:174-180',
+    'if (',
+    "throw fail('INVALID_DECLARATION', 'The declaration set must be a JSON ob",
+  ],
+  [
+    'reader_routes.js:15',
+    'const validBinding = (value) => /^[A-Za-z0-9_.:-]{1,200}$/.test(value);',
+    null,
+  ],
+  [
+    'reader_routes.js:172-173',
+    "for (const field of ['snapshot_id', 'reading_unit_id', 'reading_revision",
+    "if (!validBinding(input[field])) throw fail('BAD_REQUEST', `A valid ${fi",
+  ],
+  [
+    'reader_routes.js:181-197',
+    "const requested = input.requested_layers ?? ['sound', 'form', 'rhythm', ",
+    ');',
+  ],
+  ['reader_routes.js:209', "'idempotency_key',", null],
+  [
+    'library_viewer_routes.js:145-147',
+    'const key = body.idempotency_key;',
+    "throw fail('BAD_REQUEST', 'An idempotency_key (at most 200 characters) i",
+  ],
+  [
+    'reader_job_store.js:806-813',
+    'create({ viewer, idempotency_key, identity, request, definitions = null ',
+    'const request_digest = sha(canonical({ identity, request: intent }));',
+  ],
+  ['reader_scheduler.js:524-540', 'const result = await this.bridge.runReaderLease(', '},'],
+  [
+    'reader_scheduler.js:404-422',
+    'return {',
+    'requested_methods: request.requested_methods ?? null,',
+  ],
+  ['reader_routes.js:226-247', 'export async function createAnalysisJob({', '}'],
+  ['reader_scheduler.js:280', 'const prepareRequest = async (request) => {', null],
+  [
+    'reader_scheduler.js:369',
+    'declaration_set: { ...declarations, pronunciations: structuredClone(defa',
+    null,
+  ],
+  ['reader_scheduler.js:528', 'declarations: record.request.declaration_set,', null],
+  ['python_bridge.js:579-586', 'child.stdin.write(', "}) + '\\n'"],
+  ['worker.py:241', 'req = json.loads(line)', null],
+  ['worker.py:87', '_LONE_SURROGATE = re.compile("[\\ud800-\\udfff]")', null],
+  ['worker.py:249', 'argv = [_LONE_SURROGATE.sub("\\ufffd", a) for a in argv]', null],
+  [
+    'worker.py:155',
+    'session = AnalysisSession(payload["source"], payload.get("declarations")',
+    null,
+  ],
+  [
+    'analysis.py:163-170',
+    'def _public_declarations(value):',
+    'return [_public_declarations(v) for v in value]',
+  ],
+  [
+    'quality/pronunciation.py:174',
+    'if not isinstance(line, str) or not line.strip() or len(line) > 4000 or ',
+    null,
+  ],
+  [
+    'analysis.py:366-367',
+    'if any(choice["line"] not in lines for choice in lex.pronunciations):',
+    'raise ValueError("STALE_READING: an exact pronunciation line is absent f',
+  ],
+  ['reader_scheduler.js:63-80', 'export function verifyReading(bytes, expected, request) {', '}'],
+  [
+    'reader_source_worker.js:12',
+    'const source = verifyReading(await readFile(file), expected, request);',
+    null,
+  ],
+  [
+    'reader_routes.js:180',
+    "throw fail('INVALID_DECLARATION', 'The declaration set must be a JSON ob",
+    null,
+  ],
+  [
+    'reader_scheduler.js:519-523',
+    'const identity = await this.resolveIdentity(record.request);',
+    'const trusted = this.store.workerPayload(record.id);',
+  ],
+];
+const CITE_ROOTS = ['mcp/', 'lyric-harness/library/', 'lyric-harness/'];
+const citeFile = (f) => {
+  const hit = ['', ...CITE_ROOTS].map((r) => r + f).find((p) => fs.existsSync(path.join(ROOT, p)));
+  assert.ok(hit, `${f} resolves to a file`);
+  return hit;
+};
+function citesOf(text) {
+  const out = [];
+  let file = null;
+  for (const line of text.split('\n')) {
+    if (/^\s*(?:- |\d+\. )/.test(line) || !line.trim()) file = null;
+    for (const m of line.matchAll(/`(?:([a-z_./]+\.(?:js|py)))?:(\d+)(?:-(\d+))?`/g)) {
+      if (m[1]) file = m[1];
+      assert.ok(file, `the bare citation :${m[2]} follows a named file in its bullet`);
+      out.push(`${file}:${m[2]}${m[3] ? `-${m[3]}` : ''}`);
+    }
+  }
+  return out;
+}
+const s211raw = () => CONTRACT.slice(CONTRACT.indexOf('\n### 2.11'), CONTRACT.indexOf('\n## 3.'));
+const s211text = () => s211raw().replace(/\s+/g, ' ');
 
-test('§2.11: caller text reaches the analysis unrefused today, so admission refuses a lone surrogate', () => {
-  for (const [file, line, text] of TRACE) {
-    const got = fs.readFileSync(path.join(ROOT, file), 'utf8').split('\n')[line - 1] ?? '';
+test('§2.11: every citation resolves to a pinned range, and the trace runs end to end', () => {
+  const lines = (f) => fs.readFileSync(path.join(ROOT, citeFile(f)), 'utf8').split('\n');
+  for (const [file, line, text] of TRACE_LINES) {
+    const got = lines(file)[line - 1] ?? '';
     assert.ok(got.trim().startsWith(text), `${file}:${line} is ${JSON.stringify(text)}`);
   }
-  // Every line §2.11 cites with its file named is a line this trace pins.
-  const s211 = CONTRACT.slice(CONTRACT.indexOf('\n### 2.11'), CONTRACT.indexOf('\n## 3.'));
-  const cites = [...s211.matchAll(/`([a-z_./]+\.(?:js|py)):(\d+)(?:-(\d+))?`/g)];
-  assert.ok(cites.length >= 15, `§2.11 cites ${cites.length} lines by file`);
-  for (const [, file, a, b] of cites) {
-    const [lo, hi] = [Number(a), Number(b ?? a)];
-    assert.ok(
-      TRACE.some(([f, l]) => f.endsWith(file) && l >= lo && l <= hi),
-      `§2.11 cites ${file}:${a}${b ? `-${b}` : ''}, and the trace pins a line there`
-    );
+  // The citations §2.11 makes are exactly CITES, each range's ends as pinned.
+  const cited = [...new Set(citesOf(s211raw()))].sort();
+  assert.deepEqual(cited, CITES.map(([c]) => c).sort(), '§2.11 cites exactly the pinned ranges');
+  for (const [cite, first, last] of CITES) {
+    const [, file, a, b] = /^(.+):(\d+)(?:-(\d+))?$/.exec(cite);
+    const src = lines(file);
+    assert.ok(src[a - 1].trim().startsWith(first), `${cite} starts ${JSON.stringify(first)}`);
+    if (b) assert.ok(src[b - 1].trim().startsWith(last), `${cite} ends ${JSON.stringify(last)}`);
+    else assert.equal(last, null);
   }
-  // The declaration set is held only to being an object; the other fields are ASCII or closed.
+  // Every pinned line lies inside a range §2.11 cites.
+  for (const [file, line] of TRACE_LINES)
+    assert.ok(
+      CITES.some(([c]) => {
+        const [, f, a, b] = /^(.+):(\d+)(?:-(\d+))?$/.exec(c);
+        return citeFile(f) === citeFile(file) && line >= +a && line <= +(b ?? a);
+      }),
+      `${file}:${line} lies in a cited range`
+    );
+  // The declaration set is held only to being an object; the bindings are ASCII.
   const routes = fs.readFileSync(path.join(ROOT, 'mcp/reader_routes.js'), 'utf8');
   const validate = routes.slice(routes.indexOf('export function validateRequest'));
+  const body = validate.slice(0, validate.indexOf('\n}\n'));
+  assert.ok(!/isWellFormed|toWellFormed|surrogate/.test(body));
+  // idempotency_key is allowed and unchecked there; the lease payload omits it.
+  assert.equal(body.match(/idempotency_key/g).length, 1);
+  const sched = fs.readFileSync(path.join(ROOT, 'mcp/reader_scheduler.js'), 'utf8').split('\n');
+  const payload = sched.slice(523, 540).join('\n');
   assert.ok(
-    !/isWellFormed|toWellFormed|surrogate/.test(validate.slice(0, validate.indexOf('\n}\n')))
+    !/idempotency/.test(payload) && /declarations: record\.request\.declaration_set/.test(payload)
   );
+  assert.ok(!/idempotency/.test(sched.slice(403, 422).join('\n')), 'the identity holds no key');
   // The worker cleans lone surrogates in a lyrics argv only.
   const worker = fs.readFileSync(path.join(ROOT, 'mcp/worker.py'), 'utf8');
   assert.equal(worker.match(/_LONE_SURROGATE\.sub/g).length, 1);
   // The round trip, run: JSON.parse makes the escape a lone surrogate,
-  // JSON.stringify writes it back as the escape, and Python's json.loads makes
-  // it a lone surrogate again, which strict UTF-8 refuses (F1, §2.1).
-  const body = JSON.parse('{"declaration_set":{"pronunciations":[{"line":"Bad \\ud800"}]}}');
-  const line = body.declaration_set.pronunciations[0].line;
+  // JSON.stringify writes it back as the escape, Python's json.loads makes it
+  // a lone surrogate again, and the frame's strict encode refuses it.
+  const parsed = JSON.parse('{"declaration_set":{"pronunciations":[{"line":"Bad \\ud800"}]}}');
+  const line = parsed.declaration_set.pronunciations[0].line;
   assert.equal(line.isWellFormed(), false);
-  const wire = JSON.stringify({ reader: { declarations: body.declaration_set } });
+  const wire = JSON.stringify({ reader: { declarations: parsed.declaration_set } });
   assert.ok(wire.includes('Bad \\ud800'), 'the bridge writes the escape');
   const run = spawnSync(
     'python3',
     [
       '-I',
       '-c',
-      'import json,sys\nv=json.loads(sys.stdin.read())["reader"]["declarations"]["pronunciations"][0]["line"]\ntry:\n    v.encode("utf-8","strict"); print("encodes")\nexcept UnicodeEncodeError:\n    print("lone surrogate", hex(ord(v[-1])))',
+      [
+        'import json,sys',
+        'v=json.loads(sys.stdin.read())["reader"]["declarations"]["pronunciations"][0]["line"]',
+        'frame=json.dumps({"data":v},ensure_ascii=False,separators=(",",":"))',
+        'try:',
+        '    frame.encode("utf-8"); print("encodes")',
+        'except UnicodeEncodeError:',
+        '    print("the size check refuses", hex(ord(v[-1])))',
+      ].join('\n'),
     ],
     { input: wire }
   );
   assert.equal(run.status, 0, run.stderr?.toString());
-  assert.equal(run.stdout.toString().trim(), 'lone surrogate 0xd800');
-  // A well-formed pair survives the same trip and encodes.
-  const pair = JSON.parse('"\\ud83d\\ude00"');
-  assert.ok(pair.isWellFormed());
-  // The contract requires the refusal, its code and message, and BB8's guard test.
-  const flat = s211text();
-  for (const needle of [
-    'as `INVALID_DECLARATION` (400), "The declaration set contains text that is not well-formed Unicode."',
-    'It runs before the store creates a job, so no lease is ever offered.',
-    'the scheduler holds a stored request to the same check before `workerPayload`',
-    "**Guard test** (BB8's; R2's store and route tests)",
-    "no job record is written and the bridge's `runReaderLease` is never called",
-    'The same text with a well-formed pair (`\\ud83d\\ude00`) is admitted.',
-  ])
-    assert.ok(flat.includes(needle), `§2.11: ${needle}`);
+  assert.equal(run.stdout.toString().trim(), 'the size check refuses 0xd800');
 });
-const s211text = () =>
-  CONTRACT.slice(CONTRACT.indexOf('\n### 2.11'), CONTRACT.indexOf('\n## 3.')).replace(/\s+/g, ' ');
 
-test("§2.5, §2.11, §3, §4, §5, §8, §9: BB8's #721 items 2-3 and the codec review are folded where they are stated", () => {
-  const flat = (t) => t.replace(/\s+/g, ' ');
-  const s211 = s211text();
-  assert.ok(
-    s211.includes(
-      'The codec raises a local error with a rule tag; the enclosing operation maps it; the codec never chooses a public code.'
-    ),
-    'the principle'
+// The admission refusal: a declaration set holding a string or key, at any
+// depth, that is not well-formed Unicode. This is the predicate §2.11 requires.
+const wellFormedDeep = (v) =>
+  typeof v === 'string'
+    ? v.isWellFormed()
+    : Array.isArray(v)
+      ? v.every(wellFormedDeep)
+      : v && typeof v === 'object'
+        ? Object.entries(v).every(([k, x]) => k.isWellFormed() && wellFormedDeep(x))
+        : true;
+
+test(`${CODEC}: the admission guard's cases, paths and refusal (§2.11, §9)`, () => {
+  const fx = load(CODEC);
+  const ad = fx.admission;
+  for (const c of ad.refused) {
+    const body = JSON.parse(c.body);
+    assert.equal(wellFormedDeep(body.declaration_set), false, `${c.name}: refused`);
+  }
+  for (const c of ad.admitted) {
+    const body = JSON.parse(c.body);
+    assert.equal(wellFormedDeep(body.declaration_set), true, `${c.name}: admitted`);
+  }
+  assert.deepEqual(
+    ad.refused.map((c) => c.name),
+    ['line', 'key']
   );
-  for (const tag of ['`F1`', '`F2`', '`JSON`', '`INTEGER_FIELD`'])
-    assert.ok(s211.includes(`- ${tag}:`), `§2.11 lists the tag ${tag}`);
-  assert.ok(s211.includes('`F1` stays for integers inside entries'));
-  assert.ok(s211.includes('there is no new code'), '(a): a frame that is not JSON');
-  assert.ok(s211.includes('`F2` is `RESOURCE_LIMIT`, cause `discovery_entry_bytes`'), '(b) F2');
-  assert.ok(
-    s211.includes('is `INVARIANT_FAILURE`, an engine defect, with a message that names the rule')
+  assert.ok(Object.keys(JSON.parse(ad.refused[1].body).declaration_set)[0].includes('\ud800'));
+  // The two create paths are the two validateRequest callers the trace pins.
+  assert.deepEqual(
+    ad.paths.map((p) => p.cite),
+    ['reader_routes.js:283', 'library_viewer_routes.js:148']
   );
-  assert.ok(s211.includes('The worker never truncates or skips the entry.'));
-  assert.ok(
-    s211.includes(
-      "`segment_corrupt` stays F6's alone, and the store's alone, and a failed gzip inflation stays F6."
-    )
+  for (const p of ad.paths)
+    assert.ok(
+      CITES.some(([c]) => c === p.cite),
+      p.cite
+    );
+  assert.deepEqual(
+    { code: ad.code, status: ad.status },
+    { code: 'INVALID_DECLARATION', status: 400 }
   );
-  assert.ok(s211.includes("Neither side's tests assert the other side's cause."));
-  assert.ok(s211.includes('**(d) Precedence is not pinned.**'));
-  assert.ok(s211.includes("first failure in §4's listed order"));
-  assert.ok(
-    s211.includes('it never asserts the tag or the rule. Only a single-fault case asserts its tag.')
+});
+
+// Every statement this fold adds, as the contract must read once the facts
+// are filled in from the fixture, the refusal tables, LIMITS and the source.
+// §2.11 must be exactly its claim; each other claim must appear in its
+// section. A fact changed in the text, or in the data it is read from, fails
+// here; a fact changed in the data alone also fails the model tests above.
+const CLAIMS = [
+  {
+    where: '2.11',
+    whole: true,
+    text: [
+      "### 2.11 Codec errors and where they are mapped (BB8, #721 items 2–3) This is BB8's",
+      "proposal for the #721 handoff's items 2 and 3, which R2 accepted, with BB8's review of",
+      "the #721 entry codec (should-fix 1) and BB8's ruling on the worker's emit precedence",
+      '(his 19:40Z DM of 2026-11-06). `good/codec_error_mapping.json` pins each byte and',
+      'mapping claim below, and the validator checks it in Node and in Python and builds this',
+      "section's text from it (§13). - **The principle.** The codec raises a local error with a",
+      'rule tag; the enclosing operation maps it; the codec never chooses a public code. The',
+      "codec is whatever decodes, checks or encodes entries: the #721 author's entry codec in",
+      "the worker, and the store's entry checks (§4). Its tags: - `F1`: a value inside an entry",
+      "that is outside §2.1's subset: a float (`1.0` included), a nonfinite number, an object,",
+      'an integer past ±(2⁵³ − 1), a lone surrogate, a cyclic array or a value of another type;',
+      '- `F2`: an entry whose canonical form is longer than `ENTRY_BYTES`; - `JSON`: input that',
+      'is not one JSON value: invalid UTF-8, a truncated value or trailing content; -',
+      '`INTEGER_FIELD`: an integer-only field outside the entries that is not an integer in its',
+      "range: a frame's `epoch`, a seal's `first`, a cursor number, or a segment's `epoch`,",
+      '`first` or `count`. `F1` stays for integers inside entries, on the decode and the encode',
+      "paths alike (BB8's review; required of the codec, §9). - **(a) The store, on a submitted",
+      'frame** (§4 step 3). `F1` or `F2` on any entry in the seals, the cursor tails or the',
+      'group keys is `{{A_CODE}}` ({{A_STATUS}}), and nothing is written. `INTEGER_FIELD` is',
+      "the same code under the frame's own rule, not F1: {{W1}} for `epoch` and a seal's",
+      '`first`, {{W4}} for a cursor number. Same code, different tag. A frame whose `discovery`',
+      'is not JSON never reaches the store, because the frame is one JSON line: it is the step',
+      "channel's existing failure for a malformed step, and there is no new code. The bridge",
+      'parses each line (`python_bridge.js:317`) inside the try whose catch kills the worker',
+      '(`:370-372`), a bridge failure with no reply that pauses as today (§8), and refuses a',
+      'reader line past `READER_FRAME_CAP` (`:16`) as `{{A_CODE}}` (`:320-325`). - **(b) The',
+      'worker, on an entry it generated, before it emits.** `F2` is `{{B_F2_CODE}}`, cause',
+      '`{{B_F2_CAUSE}}`, naming the log (§3, §8). `F1` (a float, a lone surrogate, an object,',
+      'an integer out of range) is `{{B_F1_CODE}}`, an engine defect, with a message that names',
+      'the rule, like the other `{{B_F1_CODE}}` messages (§3, §8). The worker never truncates',
+      'or skips the entry. It refuses before it builds the frame. Without that refusal a lone',
+      'surrogate would fail later, still before the write: `worker.py` builds each frame with',
+      "`ensure_ascii=False` (`worker.py:164-165`), and the size check's strict encode (`:166`)",
+      'raises `UnicodeEncodeError` before the frame is printed (`:168`), so the lease would end',
+      'as `READER_ERROR` (`:260-270`). - **(c) A persisted segment that passed F6.** Bytes that',
+      'do not parse, an entry failing F1 or F2, and a `first`, `count` or `epoch` that is not',
+      "an integer are F3, not corruption (§2.5). The mapping is F3's, unchanged: a lease's walk",
+      'refuses `{{C_WALK_CODE}}` ({{C_WALK_STATUS}}) and releases nothing (§5.1); a full read',
+      '(reconciliation, `resume()`) releases with `{{C_FULL_CODE}}`, cause `{{C_CAUSE}}`',
+      "(§5.1); the worker's load refuses with `{{C_CAUSE}}` (§5.2). `{{STORE_CAUSE}}` stays",
+      "F6's alone, and the store's alone, and a failed gzip inflation stays F6. - **Invalid",
+      "UTF-8 in a segment, in both languages.** The worker's load decodes strictly",
+      '(`worker.py:123`), so bytes that are not UTF-8 are `{{U_TAG}}`, and F3. The store today',
+      'parses the verified bytes with `JSON.parse` on the buffer (`reader_job_store.js:681`),',
+      'which decodes invalid UTF-8 as U+FFFD instead of refusing it, so the same bytes would',
+      "pass or meet F5. **Required** (R2's, in the store half): the store decodes a segment's",
+      "verified bytes with a fatal UTF-8 decoder (`new TextDecoder('utf-8', { fatal: true })`)",
+      'before it parses them, and a failure is F3, so both languages refuse the same bytes for',
+      'the same rule. Only a writer other than the store can produce such bytes.',
+      "`persisted_bytes` in `good/codec_error_mapping.json` pins it: Python's load and the",
+      "required store are F3 (`JSON`), and a non-fatal decode, as the store's is today, passes",
+      'the bytes. - **The integral float `1.0`, across languages.** Take a persisted segment',
+      "whose digests a Python writer computed over the bytes `1.0`. Python's load meets a",
+      'float: F1, so F3, cause `{{C_CAUSE}}`. Node parses it as the integer 1, so the entry',
+      'passes F1 and its recomputed digest does not match: {{X_NODE_RULE}}, cause',
+      '`{{X_NODE_CAUSE}}`. The divergence is accepted: both refuse, with different causes. Each',
+      'side pins its own cause in `good/codec_error_mapping.json`: `cross_language.python` for',
+      "the worker's codec, `cross_language.node` for a Node reader and this validator's model",
+      "of the load. Neither side's tests assert the other side's cause. On a submitted frame",
+      "the same divergence is `bad/float_entry.json`'s (F1 in Python, F5 in Node), where both",
+      "are `{{A_CODE}}`. - **(d) Precedence is pinned on the worker's emit path only** (BB8,",
+      '19:40Z). An entry the worker generated that breaks F1 is `{{B_F1_CODE}}` whatever else',
+      'it breaks, {{P1}} included: `{{B_F1_CODE}}` reports an engine defect, and',
+      "`{{B_F2_CODE}}` would blame the input and hide the defect. The worker's encoder makes",
+      "two passes. The first is the F1 walk: §2.1's types with no subclasses, integers within",
+      '±(2⁵³ − 1), cycles, and lone surrogates found by a scan that encodes nothing. It',
+      "serialises nothing, holds iterators rather than a stack proportional to an array's",
+      'width, allocates in proportion to the depth and takes time in proportion to the nodes.',
+      "Only an entry that passes it reaches the second pass, today's encoder with its early F2",
+      "guards unchanged. `emit_precedence` in `good/codec_error_mapping.json` holds BB8's",
+      'cases. - **Elsewhere precedence is not pinned.** On a submitted frame and on a persisted',
+      'segment, an input that breaks more than one rule carries the tag of its first failure in',
+      "§4's listed order, and within one entry whichever check the bounded scan reaches first.",
+      'No test depends on which. A test of such an input asserts the code and that nothing was',
+      'written; it never asserts the tag or the rule. Only a single-fault case asserts its tag.',
+      'The same holds for (c): a segment with several content faults is F3, whichever comes',
+      'first. - **F2 is measured on the canonical form, not on the raw input** (BB8, #721 item',
+      "3). The decoder's time and peak memory grow with the raw bytes it is given, whitespace",
+      'included. F2 bounds only the canonical form: an entry passes F2 when its canonical form',
+      'is at most {{ENTRY_BYTES}} bytes, however it was spaced. The raw input is bounded only',
+      "by the enclosing reader's existing limit, and this contract adds no raw-input constant:",
+      '- a submitted frame is one step line of at most `READER_FRAME_CAP`, {{FRAME_CAP}}, which',
+      'the bridge holds each line to (`python_bridge.js:16`, `:320-325`) and its unterminated',
+      'buffer too (`:378-381`); the worker holds its own frames to {{WORKER_FRAME}} before it',
+      'writes them (`worker.py:164-167`); - a segment the worker reads goes through the bounded',
+      'page reader, `read_page_object` (`worker.py:97-123`): it reads at most',
+      '`READER_OBJECT_BYTES`, {{OBJ}} (`:94`, `:104-107`), and inflates at most as much',
+      '(`:108-117`), before it parses (`:123`); - a segment the store reads goes through',
+      '`_object` (`reader_job_store.js:667-682`): `_readFile` holds the stored bytes to',
+      '`READER_LIMITS.objectBytes`, {{STORE_OBJ}} (`:511-515`, `:10`), and `decodeStoredObject`',
+      'holds the inflated bytes to it too (`:164-214`). Required acceptance tests, of the',
+      "worker half's codec (the validator runs both against its own model): a valid entry whose",
+      'canonical form is {{ENTRY_BYTES}} bytes, padded with whitespace to {{PADDED}}, decodes',
+      'and passes F2 within those bounds, with its peak memory measured; and an entry whose',
+      'canonical form is {{ENTRY_BYTES1}} bytes fails F2 however it is spaced. `raw_transport`',
+      'in `good/codec_error_mapping.json` builds both. - **A lone surrogate is refused where',
+      'caller text is admitted.** (b) calls a lone surrogate in a generated entry an engine',
+      'defect. That holds only if no caller text can carry one into the analysis, and today',
+      'caller text can: 1. Both create paths parse the body with `express.json`',
+      '(`server_http.js:225-231`), whose `JSON.parse` turns the escape `\\ud800` into a lone',
+      'surrogate, and both call `validateRequest` (`reader_routes.js:169-219`): the Site bridge',
+      '(`:283`) and `/library/v1` (`library_viewer_routes.js:148`). It holds `declaration_set`',
+      'only to being an object (`reader_routes.js:174-180`). The three bindings are ASCII by',
+      '`validBinding` (`:15`, `:172-173`), and the layers and methods are a closed set or ASCII',
+      'by `validBinding` (`:181-197`). `idempotency_key` is on the allow-list (`:209`) and',
+      'nothing in `validateRequest` checks it; `/library/v1` holds it only to a string of at',
+      'most 200 characters (`library_viewer_routes.js:145-147`), and the store keeps it with',
+      'the request (`reader_job_store.js:806-813`). It never reaches the worker: the lease',
+      'payload carries the declarations, the layers and the methods, not the key',
+      '(`reader_scheduler.js:524-540`), and the identity holds only hashes of the request',
+      '(`:404-422`). 2. `createAnalysisJob` (`reader_routes.js:226-247`) stores the request as',
+      "it is: `prepareRequest` (`reader_scheduler.js:280`) keeps a caller's declaration set,",
+      "and only adds a collection's default pronunciations to a set that has none (`:369`). 3.",
+      'Each lease passes `record.request.declaration_set` to the worker',
+      '(`reader_scheduler.js:528`). The bridge writes it with `JSON.stringify`',
+      '(`python_bridge.js:579-586`), which writes a lone surrogate as the escape `\\ud800`, and',
+      '`worker.py` reads it with `json.loads` (`worker.py:241`), which makes it a lone',
+      "surrogate again. `worker.py` replaces lone surrogates only in a lyrics request's `argv`",
+      '(`:87`, `:249`); the reader family hands `declarations` to `AnalysisSession` as they are',
+      '(`:155`). 4. In the analysis, `_public_declarations` (`analysis.py:163-170`) redacts',
+      'only `source`, `provenance` and `citation`, and no check on the way holds a string to',
+      "well-formed Unicode: a pronunciation's `line` is held to 4,000 characters",
+      '(`quality/pronunciation.py:174`) and refused later only because no registered line',
+      'matches it (`analysis.py:366-367`). The registered reading is not caller text: it comes',
+      'from the approved snapshot, checked against its pinned hash',
+      '(`reader_scheduler.js:63-80`, read off the event loop by `reader_source_worker.js:12`).',
+      "**Required** (R2's, in the store half's runtime train, which is the worker half's, §9):",
+      '`validateRequest` refuses a request whose `declaration_set` holds a string or a key, at',
+      'any depth, that is not well-formed Unicode (`String.prototype.isWellFormed`), as',
+      '`{{ADM_CODE}}` ({{ADM_STATUS}}), "{{ADM_MESSAGE}}", in the style of its other',
+      'declaration refusal (`reader_routes.js:180`). It runs before the store creates a job, so',
+      'no lease is ever offered. Because the job identity does not always change between images',
+      '(§9), the scheduler holds a stored request to the same check before `workerPayload`',
+      '(`reader_scheduler.js:519-523`) and pauses a job that fails it with that code, so a job',
+      'admitted by an image without the check never reaches the worker either. **Guard test**',
+      "(BB8's; R2's store and route tests): a create whose declaration set holds a",
+      'lone-surrogate pronunciation `line` (`"{{ADM_LINE}}"`, sent as the JSON escape), and one',
+      'whose declaration key holds one, are each refused `{{ADM_CODE}}` ({{ADM_STATUS}}) on',
+      'both create paths, {{ADM_PATHS}}, before any lease: no job record is written and the',
+      "bridge's `runReaderLease` is never called. The same text with a well-formed pair",
+      '(`{{ADM_PAIR}}`) is admitted.',
+    ],
+  },
+  {
+    where: '0',
+    whole: false,
+    text: [
+      "It folds BB8's proposal for the #721 handoff's items 2 and 3, which R2 accepted, BB8's",
+      "review of the #721 entry codec (should-fix 1), and BB8's emit-precedence ruling: the",
+      "codec raises a tagged local error and the enclosing operation maps it; a worker's F1 is",
+      '`{{B_F1_CODE}}`; persisted content is F3, and the store decodes it strictly; precedence',
+      "is pinned F1 before F2 on the worker's emit and unpinned elsewhere; F2 is measured on",
+      'the canonical form; integer-only fields get their own tag; and a lone surrogate is',
+      'refused where caller text is admitted (§2.5, §2.11, §3, §4, §5, §8, §9, §12, §13). Where',
+      'this text and the proposal differ, this text governs.',
+    ],
+  },
+  {
+    where: '2',
+    whole: false,
+    text: [
+      '- **F3 holds the content too** (BB8, #721 item 2 (c)): every entry passes F1 and F2, and',
+      'every integer field is an integer. So a segment whose bytes match its address (F6',
+      'passed) but do not parse (invalid UTF-8 included, which the store decodes strictly,',
+      '§2.11), hold an entry that fails F1 or F2, or hold a `first`, `count` or `epoch` that is',
+      "not an integer fails F3: bad content, not corruption. F3's mapping does not change: on a",
+      "lease's walk `{{C_WALK_CODE}}` with nothing released (§5.1), at a full read",
+      '(reconciliation, `resume()`) `{{C_FULL_CODE}}`, cause `{{C_CAUSE}}` (§5.1), and at the',
+      "worker's load `{{C_CAUSE}}` (§5.2). `{{STORE_CAUSE}}` stays F6's alone, and the store's",
+      'alone; a failed gzip inflation stays F6 (§2.11).',
+    ],
+  },
+  {
+    where: '3',
+    whole: false,
+    text: [
+      '| `ENTRY_BYTES` | {{ENTRY_BYTES_RAW}} per entry, measured on the canonical form, not the',
+      'raw input (§2.11) | `{{B_F2_CODE}}` (cause `{{B_F2_CAUSE}}`); an entry it generated that',
+      'breaks F1 is `{{B_F1_CODE}}` (§2.11) | `{{A_CODE}}` (F2) |',
+    ],
+  },
+  {
+    where: '3',
+    whole: false,
+    text: [
+      'An entry the worker generates that breaks F1 takes it too (§2.11; BB8, #721 item 2 (b)).',
+      "That is BB8's classification: the engine builds the entries, and the caller text known",
+      "to reach the analysis, a declaration's strings, is held to well-formed Unicode at",
+      'admission (§2.11). That no caller number reaches an entry is not traced here:',
+      '`declaration_set` admits any finite JSON number (`reader_job_store.js:60-76`), and the',
+      '#721 author shows it from the declared entry shapes (§9). None of the five names a cause',
+      "(§8), and each one's message names the bound it passed, with the bound's value and the",
+      'size found, or the rule it broke, so an engine-defect report says which invariant broke',
+      '(BB8 6688972927):',
+    ],
+  },
+  {
+    where: '3',
+    whole: false,
+    text: [
+      '- `INVARIANT_FAILURE: a generated entry of <log> breaks F1: <what>`, where `<log>` is',
+      'the log the entry was for and `<what>` is `a float`, `a nonfinite number`, `an object`,',
+      '`an integer past 2⁵³ − 1`, `a lone surrogate`, `a cyclic array` or `a value of another',
+      'type`.',
+    ],
+  },
+  {
+    where: '4',
+    whole: false,
+    text: [
+      '- **F1, F2** on every entry in the seals, in the cursor tails and in the group keys.',
+      'They hold entries only: a frame field that must be an integer and is not is W1 (`epoch`,',
+      "a seal's `first`), and a cursor number W4 (§2.11).",
+    ],
+  },
+  {
+    where: '5',
+    whole: false,
+    text: [
+      'and its content (§2.5): every entry passes F1 and F2, and every integer field is an',
+      'integer.',
+    ],
+  },
+  {
+    where: '5',
+    whole: false,
+    text: [
+      'Bytes that match the address but do not parse (`JSON.parse`, `:681`), or are not UTF-8',
+      'under the required fatal decode (§2.11), are F3, so `{{C_CAUSE}}` (§2.5); any other',
+      'error keeps its own code.',
+    ],
+  },
+  {
+    where: '5',
+    whole: false,
+    text: [
+      '- **F3 and R2** as in §5.1, with cause `{{C_CAUSE}}`. F3 includes the content (§2.5):',
+      'bytes that do not parse (`json.loads`, `worker.py:123`), an entry the codec refuses as',
+      'F1 or F2, and a `first`, `count` or `epoch` that is not an integer are `{{C_CAUSE}}`,',
+      'never `{{C_WALK_CODE}}`. A failed inflation in the page reader (`:108-117`) stays F6',
+      '(§2.11).',
+    ],
+  },
+  {
+    where: '8',
+    whole: false,
+    text: [
+      '| `{{B_F1_CODE}}` | — (the job pauses) | worker | `CURSOR_BYTES`, `CONTINUATION_BYTES`,',
+      '`REFUSAL_BYTES` or `WITNESS_FIELDS` passed, or an entry the worker generated breaks F1',
+      '(a float, a lone surrogate, an object or an integer out of range; §2.11): an engine',
+      'defect, naming no cause, never a truncation or a skip; its message names the bound and',
+      'its value, such as `REFUSAL_BYTES (543)`, or the rule, `breaks F1: <what>` (§3, §3.1,',
+      '§3.2) |',
+    ],
+  },
+  {
+    where: '9',
+    whole: false,
+    text: [
+      "- **The entry codec (the #721 author's; BB8's review, should-fix 1; BB8's emit ruling,",
+      '19:40Z).** The codec raises a local error with a rule tag and never a public code; the',
+      'enclosing operation maps it (§2.11). Before the worker half enters a train, the #721',
+      "author changes the handoff's codec so that: - `require_integer` raises `EntryError` with",
+      "`rule == 'INTEGER_FIELD'` for an integer-only field outside the entries, never `'F1'`.",
+      "The entry paths (`decode_entry`, `canonical_bytes`) keep `'F1'` for an integer inside an",
+      "entry, so they hold an entry's integers to their own F1 range check, not to",
+      '`require_integer`. Required test: `require_integer(1.5)`, `require_integer(True)`,',
+      '`require_integer(2 ** 53)` and `require_integer(-1, nonnegative=True)` each raise with',
+      "`rule == 'INTEGER_FIELD'`; `decode_entry('[9007199254740992]')`, `canonical_bytes([2 **",
+      "53])` and `canonical_bytes([-(2 ** 53)])` each still raise with `rule == 'F1'`; -",
+      "`canonical_bytes` makes §2.11 (d)'s two passes, F1 before F2. Required test:",
+      "`canonical_bytes('\\ud800' + 'x' * 5000)`, `canonical_bytes(['x' * 5000, 1.5])` and",
+      "`canonical_bytes([0] * 100000 + [1.5])` each raise with `rule == 'F1'`, the last with a",
+      "traced peak under {{PEAK}} bytes (the codec's early-encoder threshold), its input built",
+      "before tracing; `canonical_bytes(['x' * 5000])` raises with `rule == 'F2'`; and an empty",
+      'array nested {{DEEP}} deep encodes, unchanged, to its {{DEEP_BYTES}} canonical bytes; -',
+      "the codec's tests pin every `single_fault` case of `good/codec_error_mapping.json` to",
+      'its tag and its `what`, its `cross_language.python` cause, its `persisted_bytes` case,',
+      'and both `raw_transport` tests, peak memory measured; its multi-fault decode tests',
+      'assert the code and that nothing is written, never the tag, and on the emit path the',
+      'code is `{{B_F1_CODE}}` (§2.11 (d)); - the worker maps the tags as §2.11 (b) and (c)',
+      'give: F2 on a generated entry is `{{B_F2_CODE}}` (`{{B_F2_CAUSE}}`), F1 is',
+      "`{{B_F1_CODE}}` with §3's message, and any tag on a loaded segment is F3, `{{C_CAUSE}}`;",
+      "- the declared entry shapes show that no caller number reaches an entry, which §3's",
+      'classification of a generated F1 as an engine defect assumes and this contract has not',
+      'traced (`declaration_set` admits any finite JSON number, `reader_job_store.js:60-76`).',
+    ],
+  },
+  {
+    where: '9',
+    whole: false,
+    text: [
+      "- **The store's segment decode (R2).** The store decodes a segment's verified bytes with",
+      'a fatal UTF-8 decoder before it parses them, so invalid UTF-8 is F3 in Node as in Python',
+      "(§2.11), in the store half's runtime train.",
+    ],
+  },
+  {
+    where: '9',
+    whole: false,
+    text: [
+      "- **Admission refuses a lone surrogate (R2).** `validateRequest` and the scheduler's",
+      'check before `workerPayload` refuse a declaration set holding text that is not',
+      "well-formed Unicode, as `{{ADM_CODE}}` ({{ADM_STATUS}}), in the store half's runtime",
+      "train, which carries the worker half (§2.11). BB8's guard test is R2's.",
+    ],
+  },
+  {
+    where: '11',
+    whole: false,
+    text: [
+      "| 47 | BB8, #721 items 2–3 (accepted by R2); BB8's #721 codec review, should-fix 1;",
+      "BB8's emit-precedence ruling (19:40Z) | the codec raises a local error with a rule tag",
+      "and the enclosing operation maps it, never the codec; (a) a submitted frame's F1 or F2",
+      'is `{{A_CODE}}`, its integer fields W1 and W4, and a frame that is not JSON is the step',
+      "channel's failure; (b) a generated entry's F2 is `{{B_F2_CODE}}` (`{{B_F2_CAUSE}}`) and",
+      "its F1 `{{B_F1_CODE}}`, its message naming the rule; (c) a persisted segment's bad",
+      "content is F3, `{{STORE_CAUSE}}` stays F6's and the store's, a failed inflation F6; the",
+      '`1.0` divergence, one pin per side; invalid UTF-8 in a segment F3 in both languages;',
+      "precedence F1 before F2 on the worker's emit, unpinned elsewhere; F2 on the canonical",
+      'form, the raw input bounded by the enclosing reader; `INTEGER_FIELD`; a lone surrogate',
+      'refused at admission, before any lease | §2.5, §2.11, §3, §4, §5.1, §5.2, §8, §9, §13 |',
+      '`good/codec_error_mapping.json`, `bad/float_entry.json`; the §2.11 tests |',
+    ],
+  },
+  {
+    where: '12',
+    whole: false,
+    text: [
+      "Only item 29 is open, for the proof run. Items 30 and 31, R2's two questions of",
+      '6693449409, are ruled (BB8 6693502369: yes to both), and their fold is the next',
+      "revision's.",
+    ],
+  },
+  {
+    where: '12',
+    whole: false,
+    text: [
+      "Item 29 stays open. Items 30 and 31 are R2's two questions to BB8 in 6693449409; BB8",
+      'ruled both yes (6693502369), and this text does not yet fold either ruling.',
+    ],
+  },
+  {
+    where: '12',
+    whole: false,
+    text: [
+      '30. **Ruled: yes, not yet folded** (BB8 6693502369; asked in 6693449409). The store',
+      "keeps counts, not bytes, so W7 does not check `MEMBERSHIP_BYTES`, and the worker's",
+      'refusal is the bound. BB8 ruled that W7 is to hold `MEMBERSHIP_BYTES` through a `bytes`',
+      "member in each log's head and verified state, verified wherever it is read (R2 at a full",
+      "read, R5 at the walk's junction, R3 at the worker). Until the next revision folds it,",
+      "§3's `MEMBERSHIP_BYTES` row stands.",
+    ],
+  },
+  {
+    where: '12',
+    whole: false,
+    text: [
+      "31. **Ruled: yes, not yet folded** (BB8 6693502369; asked in 6693449409). BB8's ruling:",
+      "F1 bounds an entry's nesting depth with `ENTRY_DEPTH`, derived from the #721 author's",
+      'declared entry shapes, and `MEMBERSHIP_BYTES` is re-derived over shapes capped at it.',
+      "Until the next revision folds it, §2.1's depth text stands.",
+    ],
+  },
+  {
+    where: '13',
+    whole: false,
+    text: [
+      "- `good/codec_error_mapping.json`: the codec's tags and where each is mapped (§2.11):",
+      'single-fault entries with their tag and `what` in Python and their tag in Node, controls',
+      'at the bounds, the integer-only fields and the rule each maps to, multi-fault inputs',
+      "that pin only the code, the worker's emit precedence (F1 before F2) with BB8's cases,",
+      'the `1.0` divergence with one pin per side, invalid UTF-8 in a segment, F3 in both',
+      "languages once the store decodes strictly, the codec requirement's calls (§9), the",
+      "admission guard's cases, and the raw-transport pair: a whitespace-padded entry of 4,096",
+      'canonical bytes that passes and one of 4,097 that fails F2 however it is spaced.',
+    ],
+  },
+  {
+    where: '13',
+    whole: false,
+    text: [
+      'refuse each bad one with the same rule, code, status and cause, but for',
+      '`bad/float_entry.json`, whose `1.0` each operation refuses by its own rule (§2.11): the',
+      "worker's emit refuses it as `{{B_F1_CODE}}` (F1), the worker's load of a segment holding",
+      "it as F3, `{{C_CAUSE}}`, and the store's check of a frame holding it as F5,",
+      '`{{A_CODE}}`, because Node parses `1.0` as the integer 1.',
+    ],
+  },
+  {
+    where: '13',
+    whole: false,
+    text: [
+      "`good/codec_error_mapping.json` is the codec's statement (§2.11, §9): its tests pin each",
+      "`single_fault` case's `tag` and `what`, the `cross_language.python` cause, the",
+      '`persisted_bytes` case, every `codec_requirement` call and both `raw_transport` cases,',
+      'and the worker maps each tag as `mapping` gives; its `multi_fault` cases pin no tag, and',
+      'its `emit_precedence` cases pin `{{B_F1_CODE}}` before `{{B_F2_CODE}}`.',
+    ],
+  },
+];
+function codecFacts() {
+  const fx = load(CODEC);
+  const m = fx.mapping;
+  const n = (v) => v.toLocaleString('en-US');
+  // One fact per name: where the text states it twice, the data must agree.
+  assert.deepEqual(m.store_frame.F1, { ...m.store_frame.F2, rule: 'F1' });
+  const ints = m.store_frame.INTEGER_FIELD;
+  assert.equal(ints['frame.epoch'].rule, ints['seal.first'].rule);
+  assert.equal(m.persisted.full_read.cause, m.persisted.worker_load.cause);
+  assert.equal(m.persisted.lease_walk.code, m.persisted.inflation.lease_walk.code);
+  const [pb] = fx.persisted_bytes;
+  assert.deepEqual(pb.store_required, pb.python);
+  const ad = fx.admission;
+  const line = /"line":"([^"]*)"/.exec(ad.refused[0].body)[1];
+  const pair = /"line":"Bad ([^"]*)"/.exec(ad.admitted[0].body)[1];
+  const peak = fx.emit_precedence.cases.find((c) => c.peak_under).peak_under;
+  const b = codecBounds();
+  const facts = {
+    A_CODE: m.store_frame.F1.code,
+    A_STATUS: String(m.store_frame.F1.status),
+    W1: ints['frame.epoch'].rule,
+    W4: ints.cursor_number.rule,
+    B_F1_CODE: m.worker_emit.F1.code,
+    B_F2_CODE: m.worker_emit.F2.code,
+    B_F2_CAUSE: m.worker_emit.F2.cause,
+    P1: m.worker_emit.precedence[1],
+    C_WALK_CODE: m.persisted.lease_walk.code,
+    C_WALK_STATUS: String(m.persisted.lease_walk.status),
+    C_FULL_CODE: m.persisted.full_read.code,
+    C_CAUSE: m.persisted.full_read.cause,
+    STORE_CAUSE: m.persisted.inflation.full_read.cause,
+    U_TAG: pb.python.tag,
+    X_NODE_RULE: fx.cross_language.node.rule,
+    X_NODE_CAUSE: fx.cross_language.node.cause,
+    ENTRY_BYTES: n(LIMITS.ENTRY_BYTES),
+    ENTRY_BYTES_RAW: String(LIMITS.ENTRY_BYTES),
+    ENTRY_BYTES1: n(fx.raw_transport.over_spaced[0].canonical_bytes),
+    PADDED: `about ${Math.round(fx.raw_transport.valid_padded.raw_bytes / 1048576)} MiB`,
+    FRAME_CAP: mibKib(b.frameCap),
+    WORKER_FRAME: mibKib(b.workerFrame),
+    OBJ: mibKib(b.objectBytes),
+    STORE_OBJ: mibKib(b.storeBytes),
+    ADM_CODE: ad.code,
+    ADM_STATUS: String(ad.status),
+    ADM_MESSAGE: ad.message,
+    ADM_PATHS: ad.paths.map((p) => p.name).join(' and '),
+    ADM_LINE: line,
+    ADM_PAIR: pair,
+    PEAK: n(peak),
+    DEEP: n(fx.emit_precedence.deep_valid.depth),
+    DEEP_BYTES: n(fx.emit_precedence.deep_valid.canonical_bytes),
+  };
+  // The codes the facts name are the tables' own.
+  assert.deepEqual({ code: facts.A_CODE, status: +facts.A_STATUS }, REFUSAL.write.F1);
+  assert.deepEqual(REFUSAL.full.F3, unavailable(facts.C_CAUSE));
+  assert.deepEqual(REFUSAL.full.F6, unavailable(facts.STORE_CAUSE));
+  assert.deepEqual(REFUSAL.walk.F3, { code: facts.C_WALK_CODE, status: +facts.C_WALK_STATUS });
+  return facts;
+}
+const fillClaim = (text, facts) =>
+  text.replace(/\{\{([A-Z0-9_]+)\}\}/g, (_, k) => {
+    assert.ok(Object.hasOwn(facts, k), `the fact ${k}`);
+    return facts[k];
+  });
+const CLAIM_SECTIONS = {
+  0: () => CONTRACT.slice(0, CONTRACT.indexOf('\n## 1.')),
+  2: () => section('2. Format'),
+  3: () => section('3. Hard limits'),
+  4: () => section('4. Write path'),
+  5: () => section('5. Resume path'),
+  8: () => section('8. Refusals'),
+  9: () => section('9. Compatibility and release'),
+  11: () => section('11. Cross-reference'),
+  12: () => section('12. Rulings on the items added for confirmation'),
+  13: () => section('13. Fixtures and validator'),
+};
+// Where two flattened texts first differ, with some context, for the message.
+const firstDifference = (a, b) => {
+  let i = 0;
+  while (i < a.length && a[i] === b[i]) i++;
+  return `at ${i}: the contract has ${JSON.stringify(a.slice(i - 40, i + 60))}, the facts give ${JSON.stringify(b.slice(i - 40, i + 60))}`;
+};
+
+test('§2.11 and every statement of this fold read as the fixture, the tables and the source give them', () => {
+  const facts = codecFacts();
+  const flat = (t) => t.replace(/\s+/g, ' ').trim();
+  assert.equal(CLAIMS.filter((c) => c.whole).length, 1);
+  for (const c of CLAIMS) {
+    const want = flat(fillClaim(c.text.join(' '), facts));
+    if (c.whole) {
+      const have = flat(s211raw());
+      assert.ok(have === want, `§2.11 is exactly its claim, ${firstDifference(have, want)}`);
+    } else {
+      const have = flat(CLAIM_SECTIONS[c.where]());
+      assert.ok(have.includes(want), `§${c.where} states: ${want.slice(0, 120)}`);
+    }
+  }
+  // Every fact is used, so none is checked against nothing.
+  const used = new Set(
+    CLAIMS.flatMap((c) => [...c.text.join(' ').matchAll(/\{\{([A-Z0-9_]+)\}\}/g)].map((x) => x[1]))
   );
-  assert.ok(s211.includes('**F2 is measured on the canonical form, not on the raw input**'));
-  // (c): F3 widened exactly as BB8 worded it.
-  const s25 = flat(section('2. Format').split('### 2.5')[1].split('### 2.6')[0]);
-  assert.ok(s25.includes('every entry passes F1 and F2, and every integer field is an integer'));
-  assert.ok(
-    s25.includes(
-      "`segment_corrupt` stays F6's alone, and the store's alone; a failed gzip inflation stays F6"
-    )
-  );
-  // §3: the F1 case and its message.
-  const s3 = flat(section('3. Hard limits').split('### 3.1')[0]);
-  assert.ok(s3.includes('An entry the worker generates that breaks F1 takes it too'));
-  assert.ok(s3.includes('None of the five names a cause'));
-  assert.ok(!s3.includes('None of the four'));
-  assert.ok(s3.includes('measured on the canonical form, not the raw input (§2.11)'));
-  // §4: F1 and F2 hold entries only.
-  const s4 = flat(section('4. Write path'));
-  assert.ok(
-    s4.includes('They hold entries only: a frame field that must be an integer and is not is W1')
-  );
-  // §5: the content is F3; unparseable bytes are F3, inflation F6.
-  const s5 = flat(section('5. Resume path'));
-  assert.ok(
-    s5.includes('Bytes that match the address but do not parse (`JSON.parse`, `:681`) are F3')
-  );
-  assert.ok(s5.includes('are `chain_broken`, never `STORAGE_CORRUPT`'));
-  // §8: the INVARIANT_FAILURE row names F1.
-  const inv = tableRows(section('8. Refusals')).find((r) => r[0] === '`INVARIANT_FAILURE`');
-  assert.ok(inv[3].includes('or an entry the worker generated breaks F1'));
-  assert.ok(inv[3].includes('`breaks F1: <what>`'));
-  // §9: INTEGER_FIELD is required of the worker half's codec, with its test.
-  const s9 = flat(section('9. Compatibility and release'));
-  assert.ok(s9.includes("`require_integer` raises `EntryError` with `rule == 'INTEGER_FIELD'`"));
-  assert.ok(s9.includes("`decode_entry('[9007199254740992]')` still raises with `rule == 'F1'`"));
-  assert.ok(s9.includes('**Admission refuses a lone surrogate (R2).**'));
-  // §11 row 47 and §13 name the fixture.
-  const r47 = tableRows(section('11. Cross-reference')).find((r) => r[0] === '47');
-  assert.ok(r47 && r47[4].includes('`good/codec_error_mapping.json`'));
-  assert.ok(section('13. Fixtures and validator').includes('`good/codec_error_mapping.json`'));
+  assert.deepEqual([...used].sort(), Object.keys(facts).sort());
 });

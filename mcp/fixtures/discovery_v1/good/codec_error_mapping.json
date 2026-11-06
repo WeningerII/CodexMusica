@@ -2,7 +2,7 @@
   "fixture": "good/codec_error_mapping.json",
   "contract": "mcp/DISCOVERY_V1.md",
   "kind": "codec",
-  "exercises": "The entry codec raises a local error with a rule tag, and the enclosing operation maps it; the codec never picks a public code (§2.11). Each single-fault case pins its tag in Python and in Node; the controls pass; each integer-only field maps to its operation's rule; the multi-fault cases pin the code only; the integral float 1.0 has one pin per side; and the raw-transport pair shows F2 is measured on the canonical form.",
+  "exercises": "The entry codec raises a local error with a rule tag, and the enclosing operation maps it; the codec never picks a public code (§2.11). Each single-fault case pins its tag in Python and in Node and, for F1, its what; the controls pass; each integer-only field maps to its operation's rule; the multi-fault cases pin the code only, and the worker's emit pins F1 before F2; the integral float 1.0 has one pin per side; invalid UTF-8 in a segment is F3 once the store decodes strictly; the codec requirement's calls and the admission guard are stated; and the raw-transport pair shows F2 is measured on the canonical form.",
   "expect": {
     "accepted": true
   },
@@ -56,7 +56,8 @@
         "code": "RESOURCE_LIMIT",
         "cause": "discovery_entry_bytes",
         "emitted": "nothing"
-      }
+      },
+      "precedence": ["F1", "F2"]
     },
     "persisted": {
       "rule": "F3",
@@ -249,7 +250,11 @@
         "object_string": 4095
       },
       "faults": ["F1", "F2"],
-      "tag": null
+      "tag": null,
+      "emit": {
+        "tag": "F1",
+        "code": "INVARIANT_FAILURE"
+      }
     },
     {
       "name": "lone_surrogate_past_the_bound",
@@ -257,7 +262,11 @@
         "surrogate_string": 4095
       },
       "faults": ["F1", "F2"],
-      "tag": null
+      "tag": null,
+      "emit": {
+        "tag": "F1",
+        "code": "INVARIANT_FAILURE"
+      }
     },
     {
       "name": "seal_first_and_entry",
@@ -278,6 +287,36 @@
       "tag": null
     }
   ],
+  "emit_precedence": {
+    "cases": [
+      {
+        "call": "canonical_bytes('\\ud800' + 'x' * 5000)",
+        "rule": "F1",
+        "code": "INVARIANT_FAILURE"
+      },
+      {
+        "call": "canonical_bytes(['x' * 5000, 1.5])",
+        "rule": "F1",
+        "code": "INVARIANT_FAILURE"
+      },
+      {
+        "call": "canonical_bytes([0] * 100000 + [1.5])",
+        "rule": "F1",
+        "code": "INVARIANT_FAILURE",
+        "peak_under": 128000
+      },
+      {
+        "call": "canonical_bytes(['x' * 5000])",
+        "rule": "F2",
+        "code": "RESOURCE_LIMIT",
+        "cause": "discovery_entry_bytes"
+      }
+    ],
+    "deep_valid": {
+      "depth": 2047,
+      "canonical_bytes": 4094
+    }
+  },
   "cross_language": {
     "text": "[1.0]",
     "python": {
@@ -291,6 +330,21 @@
       "cause": "digest_mismatch"
     }
   },
+  "persisted_bytes": [
+    {
+      "name": "invalid_utf8",
+      "entry_hex": "22ff22",
+      "python": {
+        "rule": "F3",
+        "tag": "JSON"
+      },
+      "store_required": {
+        "rule": "F3",
+        "tag": "JSON"
+      },
+      "store_today": "passes"
+    }
+  ],
   "raw_transport": {
     "bound": "the enclosing reader's: READER_FRAME_CAP for a frame line, READER_OBJECT_BYTES and READER_LIMITS.objectBytes for a segment",
     "valid_padded": {
@@ -333,6 +387,69 @@
         "canonical_bytes": 4097,
         "raw_bytes": 1052673,
         "tag": "F2"
+      }
+    ]
+  },
+  "codec_requirement": {
+    "calls": [
+      {
+        "call": "require_integer(1.5)",
+        "rule": "INTEGER_FIELD"
+      },
+      {
+        "call": "require_integer(True)",
+        "rule": "INTEGER_FIELD"
+      },
+      {
+        "call": "require_integer(2 ** 53)",
+        "rule": "INTEGER_FIELD"
+      },
+      {
+        "call": "require_integer(-1, nonnegative=True)",
+        "rule": "INTEGER_FIELD"
+      },
+      {
+        "call": "decode_entry('[9007199254740992]')",
+        "rule": "F1"
+      },
+      {
+        "call": "canonical_bytes([2 ** 53])",
+        "rule": "F1"
+      },
+      {
+        "call": "canonical_bytes([-(2 ** 53)])",
+        "rule": "F1"
+      }
+    ]
+  },
+  "admission": {
+    "code": "INVALID_DECLARATION",
+    "status": 400,
+    "message": "The declaration set contains text that is not well-formed Unicode.",
+    "paths": [
+      {
+        "name": "the Site bridge",
+        "cite": "reader_routes.js:283"
+      },
+      {
+        "name": "`/library/v1`",
+        "cite": "library_viewer_routes.js:148"
+      }
+    ],
+    "refused": [
+      {
+        "name": "line",
+        "body": "{\"declaration_set\":{\"pronunciations\":[{\"line\":\"Bad \\ud800\"}]}}"
+      },
+      {
+        "name": "key",
+        "body": "{\"declaration_set\":{\"Bad \\ud800\":{\"line\":\"Bad\"}}}"
+      }
+    ],
+    "admitted": [
+      {
+        "name": "pair",
+        "body": "{\"declaration_set\":{\"pronunciations\":[{\"line\":\"Bad \\ud83d\\ude00\"}]}}"
       }
     ]
   }
