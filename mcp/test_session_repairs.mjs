@@ -1206,6 +1206,66 @@ test('the record is per card: no alias, no remap on a fresh-id import, nothing a
   assert.deepEqual(warnings(r), [], 'and nothing warns');
 });
 
+// A caller-threaded workspace may send anything back in a record. Only what the
+// record can hold comes through (W.copyEnvRecord): copied whole, 2.5 MB in one
+// card's record was copied by every op of a 64-edit batch and held the raw
+// endpoint for half a minute (#671 review). Through the real tool path.
+test('an oversized record sent back is cut to what it can hold, on the raw endpoint', async () => {
+  const seed = startRecipe({ traditions: ['honky_tonk'] });
+  const env = seed.render_scope.environment_card;
+  const other = seed.workspace.cards.find((c) => c.id !== env).id;
+  const wrote = editRecipe({
+    workspace: seed.workspace,
+    edits: [{ action: 'set_environment', card: other, room: 'cathedral' }],
+  });
+  const sent = JSON.parse(JSON.stringify(wrote.workspace));
+  const card = sent.cards.find((c) => c.id === other);
+  card[RECORD] = {
+    ...card[RECORD],
+    x: Array.from({ length: 100000 }, (_, i) => ({ a: i })),
+    card: env,
+    fx: Array(100000).fill('tape_echo'),
+  };
+  const { client, close } = await linked(
+    buildServer({ task: { domain: 'recipe', format: 'rich' } })
+  );
+  try {
+    const call = async (name, args) => {
+      const res = await client.callTool({ name, arguments: args });
+      assert(!res.isError, JSON.stringify(res).slice(0, 400));
+      return { text: res.content[0].text, r: JSON.parse(res.content[0].text) };
+    };
+    const tuning = sent.cards.find((c) => c.id === env).tuning;
+    const edits = Array.from({ length: 64 }, () => ({
+      action: 'set_environment',
+      card: sent.cards[2].id,
+      tuning,
+    }));
+    for (const [name, args] of [
+      ['render_recipe', { workspace: sent }],
+      ['edit_recipe', { workspace: sent, edits }],
+    ]) {
+      const { text, r } = await call(name, args);
+      const back = r.workspace.cards.find((c) => c.id === other)[RECORD];
+      assert.deepEqual(
+        back,
+        { room: 'cathedral', fx: ['tape_echo'] },
+        `${name}: the record as it can be held`
+      );
+      assert(
+        text.length < 200000,
+        `${name}: the response is not the junk sent back (${text.length})`
+      );
+      assert(
+        unrendered(r).some((w) => w.card === other),
+        `${name}: the card still warns for what it holds`
+      );
+    }
+  } finally {
+    await close();
+  }
+});
+
 test('stock environment settings on other cards never warn, on any response', async () => {
   await onEverySurface(async (s, name) => {
     // A blend's second tradition seeds its cards with a room of their own that

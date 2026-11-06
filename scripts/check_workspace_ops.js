@@ -679,6 +679,51 @@ console.log('\nenvWritten record:');
         json(rec(out, guitar)) === json({ tuning: 'just_intonation' })
     );
   }
+
+  // A record comes back in a workspace the caller threads, so it may hold
+  // anything. clone() keeps only what the record can hold (copyEnvRecord): the
+  // environment fields, the catalog ids of each, an item once. Copied whole, a
+  // few megabytes sent back in it were copied again by every op of a batch and
+  // returned in the workspace, which held a request for half a minute (#671
+  // review). What it drops, nothing reads, so the warnings do not move.
+  {
+    const junk = Array.from({ length: 50000 }, (_, i) => ({ a: i }));
+    const sent = JSON.parse(JSON.stringify(w3));
+    const target = sent.cards.find((c) => c.id === bass);
+    target[K] = {
+      ...target[K],
+      x: junk,
+      card: bass,
+      fx: [...Array(50000).fill('tape_echo'), 'no_such_effect', 'plate_reverb'],
+      room: 7,
+    };
+    const out = W.setEnvironment(sent, guitar, { tuning: 'just_intonation' });
+    check(
+      'an oversized record sent back is cut to the fields and catalog ids it can hold',
+      json(rec(out)) === json({ fx: ['tape_echo', 'plate_reverb'], mic: 'ribbon_passive' }),
+      json(rec(out)).slice(0, 200)
+    );
+    check(
+      'and the workspace an op returns is no bigger for it',
+      json(out).length < json(w3).length + 200,
+      `${json(out).length} vs ${json(w3).length}`
+    );
+    const none = JSON.parse(JSON.stringify(w3));
+    none.cards.find((c) => c.id === bass)[K] = { x: junk };
+    check(
+      'a record with nothing it can hold leaves no key on the card',
+      !(
+        K in
+        W.setEnvironment(none, guitar, { tuning: 'just_intonation' }).cards.find(
+          (c) => c.id === bass
+        )
+      )
+    );
+    check(
+      'what it drops is nothing a reader used: the record reads the same before and after',
+      json(W.envRecord(target)) === json(W.envRecord(out.cards.find((c) => c.id === bass)))
+    );
+  }
 }
 function envCardOfSeed(ws) {
   return require('./_recipe_stack.js').envCardOf(ws.cards).id;
