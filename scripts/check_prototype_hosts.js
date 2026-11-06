@@ -137,10 +137,16 @@
 //      such as speak's onend, among them) are SUBSCRIBED's, and each hears a
 //      change while the lane is mounted and none once its mount's signal
 //      aborts, and the device is given nothing to say after it (#810
-//      6682309672). Each check has a planted defect of its own
-//      (STORE_MUTANTS, LOAD_MUTANTS, DATA_MUTANTS, APP_MUTANTS), served in
-//      place of the file in that check's own page, and that defect must fail
-//      the check.
+//      6682309672). #773's Instrument catalog, not registered yet, mounted
+//      by the gate on the store's view for it, with an add that fails: its
+//      visible note is outside any live region, says exactly the sentence
+//      the shell said, and is cleared when the next attempt starts or
+//      succeeds, and a rejection with no message shows no note (D7, #810
+//      6682330118). Each check has a planted defect of its own
+//      (STORE_MUTANTS, LOAD_MUTANTS, DATA_MUTANTS, APP_MUTANTS,
+//      CATALOG_MUTANTS), served in place of the file in that check's own
+//      page, and that defect must fail the check (a catalog.js defect, on
+//      the condition it is named for).
 //  17. READER (#810 6677708921). Through the Library lane's openReading,
 //      with a stand-in that says a rejection as explore.js does: when the
 //      reader that is open throws from its own unmount(), the new reading
@@ -4332,6 +4338,7 @@ const SERVED = {
   data: '/prototype/data.js',
   app: '/prototype/app.js',
   host: '/prototype/host.js',
+  catalog: '/prototype/features/instrument-catalog/catalog.js',
 };
 // Before any page script: every AbortController the page makes, so a check
 // can abort a mount's signal as its host's unmount would.
@@ -7619,6 +7626,206 @@ const STORE_CHECKS = {
         JSON.stringify(g).slice(0, 900)
       ),
   },
+  // 41. #773's visible note (D7: Don, #810 6682330118). The Instrument
+  // catalog's own catalog.js, not registered yet, mounted by the gate in the
+  // Instrument panel on the store's own recipe view for it
+  // (STORE_VIEWS.instrumentcatalog), with the rest of its ctx (#668
+  // 6647648469) made here. Its Add fails because the instrument can't be
+  // read, so the store refuses the add and says why. Then the note must be
+  // outside any live region: no ancestor, itself included, with an aria-live
+  // other than off, a live role or an <output>, and not the shell's status
+  // region. It must say exactly the sentence the shell said for that
+  // attempt, which is the store's "<instrument> couldn't be added. Nothing
+  // was changed. Try again.", and be shown. It must be cleared as the next
+  // attempt starts, whether that one fails too or succeeds, and stay clear
+  // after a success. And a rejection with no message (the store's own, its
+  // message taken off on its way to the lane) must show no note at all,
+  // never a sentence of the lane's own. Each condition has a planted defect
+  // in catalog.js (CATALOG_MUTANTS) that must fail it by name.
+  catalogNote: {
+    opts: { hash: '#instrument' },
+    page: async (S) => {
+      const { recipe, E } = await S.boot();
+      const { scope } = await import('/prototype/storage.js');
+      const { announce } = await import('/prototype/host.js');
+      const sel = await import('/prototype/selection.js');
+      const { media } = await import('/prototype/adapters.js');
+      const lane = await import('/prototype/features/instrument-catalog/catalog.js');
+      const store = recipe.port(['addInstrument', 'snapshot', 'subscribe']);
+      // The same view, except that from its second add on a rejection loses
+      // its message on the way to the lane.
+      let adds = 0;
+      const bare = Object.freeze({
+        snapshot: store.snapshot,
+        subscribe: store.subscribe,
+        addInstrument: (a) => {
+          const p = store.addInstrument(a);
+          return ++adds === 1 ? p : p.catch((e) => Promise.reject({ code: e && e.code }));
+        },
+      });
+      const ids = ['banjo_5_string', 'oud', 'udu'];
+      const data = Object.freeze({
+        families: [...new Set(ids.map((id) => E.Inst(id).family))].map((f) => ({
+          id: f,
+          name: f,
+          classes: [],
+        })),
+        properties: [],
+        propertyGroups: [],
+        sorts: [{ id: 'name', name: 'Name A–Z' }],
+        items: ids.map((id, n) => ({
+          id,
+          name: E.Inst(id).name,
+          short: E.Inst(id).short || id,
+          familyId: E.Inst(id).family,
+          classId: null,
+          partCount: E.Inst(id).parts.length,
+          nameOrder: n,
+          propertyIds: [],
+          listenHref: null,
+          photo: null,
+        })),
+      });
+      const mountOn = async (view) => {
+        const host = document.createElement('div');
+        host.dataset.featureHost = 'instrumentcatalog';
+        document.querySelector('[data-panel="instrument"]').append(host);
+        const ac = new AbortController();
+        lane.mount(
+          host,
+          Object.freeze({
+            announce,
+            signal: ac.signal,
+            storage: scope('instrumentcatalog'),
+            catalog: Object.freeze({
+              normalize: E.normalizeSearch,
+              search: (q) => Object.freeze({ normalizedQuery: E.normalizeSearch(q), matches: [] }),
+            }),
+            instrument: Object.freeze({
+              current: sel.instrument.current,
+              subscribe: sel.instrument.subscribe,
+            }),
+            loadInstrumentCatalog: async () => data,
+            media,
+            openInstrument: () => {},
+            openPhoto: () => {},
+            recipe: view,
+          })
+        );
+        for (let i = 0; i < 400 && !host.querySelector('[data-add]'); i++) await S.tick(10);
+        return { host, end: () => (ac.abort(), host.remove()) };
+      };
+      // What makes a node part of a live region, from it up.
+      const live = (n) => {
+        const out = [];
+        for (let x = n; x && x.nodeType === 1; x = x.parentElement) {
+          const role = (x.getAttribute('role') || '').trim().toLowerCase();
+          const polite = x.getAttribute('aria-live');
+          if (
+            /^(status|alert|log|marquee|timer)$/.test(role) ||
+            (polite !== null && polite.trim().toLowerCase() !== 'off') ||
+            x.tagName === 'OUTPUT' ||
+            x.id === 'proto-status'
+          )
+            out.push(
+              `${x.tagName.toLowerCase()}${x.id ? '#' + x.id : ''} role=${role} aria-live=${polite}`
+            );
+        }
+        return out;
+      };
+      const want = (id) => `${E.Inst(id).name} couldn’t be added. Nothing was changed. Try again.`;
+      // One press of an instrument's Add, failing (its parts can't be read)
+      // or not: the note as the attempt starts and once it has settled.
+      const attempt = async (m, id, fails) => {
+        const inst = E.Inst(id);
+        const parts = inst.parts;
+        const button = m.host.querySelector(`[data-add="${id}"]`);
+        const note = m.host.querySelector('.ic-note');
+        const before = store.snapshot().cards.length;
+        if (fails)
+          Object.defineProperty(inst, 'parts', {
+            configurable: true,
+            get() {
+              throw new Error('gate: an instrument that can’t be read');
+            },
+          });
+        await S.settle();
+        S.said();
+        button.click();
+        const pending = note.textContent;
+        for (
+          let i = 0;
+          i < 500 && (button.disabled || store.snapshot().busy || !window.__said.length);
+          i++
+        )
+          await S.tick(10);
+        await S.settle();
+        await S.tick(30);
+        Object.defineProperty(inst, 'parts', { configurable: true, writable: true, value: parts });
+        return {
+          pending,
+          note: note.textContent,
+          said: S.said(),
+          live: live(note),
+          shown: note.getClientRects().length > 0,
+          added: store.snapshot().cards.length - before,
+        };
+      };
+      const first = await mountOn(store);
+      const failed = await attempt(first, 'udu', true);
+      const again = await attempt(first, 'udu', true);
+      const succeeded = await attempt(first, 'udu', false);
+      first.end();
+      const second = await mountOn(bare);
+      const shown = await attempt(second, 'oud', true);
+      const messageless = await attempt(second, 'oud', true);
+      second.end();
+      return {
+        want: { udu: want('udu'), oud: want('oud') },
+        failed,
+        again,
+        succeeded,
+        shown,
+        messageless,
+      };
+    },
+    verdict: (g) => {
+      if (!g || !g.want) return JSON.stringify(g).slice(0, 300);
+      const C = CATALOG_NOTE;
+      const { want, failed, again, succeeded, shown, messageless } = g;
+      const all = [failed, again, succeeded, shown, messageless];
+      const holds = {
+        [C.relies]:
+          failed.added === 0 &&
+          again.added === 0 &&
+          succeeded.added === 1 &&
+          shown.added === 0 &&
+          messageless.added === 0 &&
+          same(failed.said, [want.udu]) &&
+          same(again.said, [want.udu]) &&
+          same(shown.said, [want.oud]) &&
+          same(messageless.said, [want.oud]),
+        [C.live]: all.every((x) => !x.live.length),
+        [C.sentence]:
+          failed.note === want.udu &&
+          again.note === want.udu &&
+          shown.note === want.oud &&
+          [failed, again, shown].every((x) => x.shown) &&
+          all.every((x) => x.note === '' || same(x.said, [x.note])),
+        [C.clears]:
+          again.pending === '' &&
+          succeeded.pending === '' &&
+          succeeded.note === '' &&
+          messageless.pending === '',
+        [C.bare]: messageless.note === '',
+      };
+      const broken = Object.keys(holds).filter((k) => !holds[k]);
+      return why(
+        !broken.length,
+        `${broken.map((k) => `✗ ${k}`).join('; ')}: ${JSON.stringify(g).slice(0, 900)}`
+      );
+    },
+  },
 };
 
 // One planted defect (at least) for every check: text edits to
@@ -8379,6 +8586,49 @@ const HOST_SHELL_MUTANTS = {
   },
 };
 
+// #773's note check (41): its conditions, by the name a failure gives, and
+// catalog.js as the lane wrote it, with a planted defect for each condition
+// that must fail it by that name (`fails`): the note never cleared, as at
+// b4d5912e9 before its fix; a sentence of the lane's own for a rejection
+// with no message; and the note inside a live region.
+const CATALOG_NOTE = {
+  relies: 'the adds the check relies on',
+  live: 'outside any live region',
+  sentence: 'exactly the shell’s sentence',
+  clears: 'cleared on the next attempt or on success',
+  bare: 'no note for a rejection with no message',
+};
+const CATALOG_FILE = path.join(root, 'prototype', 'features', 'instrument-catalog', 'catalog.js');
+const hasCatalog = fs.existsSync(CATALOG_FILE);
+const CATALOG_JS = hasCatalog ? fs.readFileSync(CATALOG_FILE, 'utf8') : '';
+const CATALOG_MUTANTS = {
+  'the note never cleared (catalog.js at b4d5912e9)': {
+    check: 'catalogNote',
+    fails: CATALOG_NOTE.clears,
+    edits: [["    message('');\n    pendingAdds.add(item.id);", '    pendingAdds.add(item.id);']],
+  },
+  'a sentence of its own for a rejection with no message': {
+    check: 'catalogNote',
+    fails: CATALOG_NOTE.sentence,
+    edits: [
+      [
+        ".catch((e) => message(e?.message || ''))",
+        ".catch((e) => message(e?.message || 'The instrument could not be added.'))",
+      ],
+    ],
+  },
+  'the note inside a live region': {
+    check: 'catalogNote',
+    fails: CATALOG_NOTE.live,
+    edits: [
+      [
+        "  root.setAttribute('aria-label', 'Instrument catalog');\n",
+        "  root.setAttribute('aria-label', 'Instrument catalog');\n  root.setAttribute('aria-live', 'polite');\n",
+      ],
+    ],
+  },
+};
+
 // Runs one check in its own page (and any further pages it opens), with the
 // store and load.js as served (`served.store`, `served.load`: the planted
 // text, or undefined for the committed file). Returns its verdict and the
@@ -8443,6 +8693,10 @@ let storeDefects = 0;
 async function recipeChecks(browser, srv) {
   expect(hasStore, 'recipe store: prototype/recipe-store.js is missing');
   if (!hasStore) return;
+  expect(
+    hasCatalog,
+    'recipe store: prototype/features/instrument-catalog/catalog.js (#773) is missing'
+  );
   const prodRun = await storeProduction(browser, srv);
   expect(
     !prodRun.errors.length,
@@ -8524,6 +8778,12 @@ async function recipeChecks(browser, srv) {
       file: 'host',
       text: HOST_JS,
     })),
+    ...Object.entries(CATALOG_MUTANTS).map(([m, d]) => ({
+      m,
+      ...d,
+      file: 'catalog',
+      text: CATALOG_JS,
+    })),
   ];
   expect(
     new Set(mutants.map((x) => x.m)).size === mutants.length,
@@ -8555,7 +8815,14 @@ async function recipeChecks(browser, srv) {
       o.verdict !== true,
       `recipe store: with the planted defect "${x.m}", the ${x.check} check still passes`
     );
-    if (o.verdict !== true) storePlanted++;
+    // A defect named for one condition must fail that one.
+    const named = !x.fails || String(o.verdict).includes(`✗ ${x.fails}`);
+    if (x.fails)
+      expect(
+        o.verdict === true || named,
+        `recipe store: with the planted defect "${x.m}", the ${x.check} check fails, but not on "${x.fails}": ${String(o.verdict).slice(0, 300)}`
+      );
+    if (o.verdict !== true && named) storePlanted++;
   });
 }
 
