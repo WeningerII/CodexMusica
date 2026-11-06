@@ -145,7 +145,8 @@ pipeline plans and grades songs whose every line you write; no connector call re
   preface — most edits move nothing else. Room, tuning and the chain never move. Batch a
   `set_preface` first if you want to steer the cascade. The `envWritten` record a `set_environment`
   keeps on a card is the connector's own; the app keeps it untouched through its edits, saves and
-  exports.
+  exports, and a card the app duplicates gets the values without the record, since nothing was
+  written on the copy.
   <!-- @promise: connector-edit-parity -->
 - **What each tool touches.** Recipe computation is deterministic and closed-world, and no tool on
   any connector surface reaches a model provider or the open web (`openWorldHint: false`

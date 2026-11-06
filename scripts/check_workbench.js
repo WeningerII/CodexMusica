@@ -607,8 +607,57 @@ const run = (code) => dom.window.eval(code);
       );
   }
 
+  // Duplicating a card copies its values, not its provenance (#671, BB8
+  // 6685465828, 5(e)): the record says what a set_environment wrote on that card,
+  // and nothing was written on the copy. A copy of the environment card that
+  // carried it would be warned about on every response for settings nobody set
+  // there. The app's own Duplicate action (handleAction -> dupCard).
+  {
+    const W = require('./_workspace_ops.js');
+    let ws = W.seed(['garage_rock']);
+    ws = W.setEnvironment(ws, null, { room: 'cathedral', chain: { fx: 'tape_echo' } });
+    const record = { room: 'cathedral', fx: ['tape_echo'] };
+    assert.deepEqual(
+      ws.cards[0][W.ENV_RECORD],
+      record,
+      'fixture: the record on the environment card'
+    );
+    dom.window.connectorCards = JSON.parse(JSON.stringify(ws.cards));
+    run("app.cards=[];app.lyrics='';app.history=[];app.historyIndex=-1;pushHistory();");
+    await run(
+      "uiImport({text:async()=>JSON.stringify({name:'Connector recipe',workspace:{cards:window.connectorCards}})})"
+    );
+    const before = JSON.parse(run('JSON.stringify(app.cards.map((c) => c.id))'));
+    run("handleAction('duplicate', envCardOf(app.cards))");
+    const cards = JSON.parse(run('JSON.stringify(app.cards)'));
+    assert.equal(cards.length, before.length + 1, 'Duplicate adds one card');
+    const original = cards[0];
+    const copy = cards.find((c) => !before.includes(c.id));
+    assert.ok(copy && cards.indexOf(copy) === 1, 'the copy sits after the environment card');
+    assert.deepEqual(original[W.ENV_RECORD], record, 'the original keeps its record');
+    assert.ok(!(W.ENV_RECORD in copy), 'the copy carries no record');
+    assert.equal(copy.room, 'cathedral', 'the copy carries the values');
+    assert.deepEqual(copy.chain.fx, original.chain.fx, 'and the effects');
+    const E = await import(path.join(root, 'mcp/engine.js'));
+    const back = E.renderRecipe({ workspace: { cards } });
+    assert.equal(back.render_scope.environment_card, original.id, 'fixture: the original renders');
+    assert.deepEqual(
+      back.render_warnings.filter((w) => w.code === 'ENVIRONMENT_NOT_RENDERED'),
+      [],
+      'no ENVIRONMENT_NOT_RENDERED for the copy'
+    );
+    // Before 5(e) the copy carried the record: what the connector says about such a card.
+    const carried = cards.map((c) => (c.id === copy.id ? { ...c, [W.ENV_RECORD]: record } : c));
+    assert.ok(
+      E.renderRecipe({ workspace: { cards: carried } }).render_warnings.some(
+        (w) => w.code === 'ENVIRONMENT_NOT_RENDERED' && w.card === copy.id
+      ),
+      'fixture: a copy carrying the record would be warned about'
+    );
+  }
+
   console.log(
-    'PASS workbench integration: boot, route grammar and sub-routes, partial import, isolated transfers, Undo, full sessions, concurrent save recovery, chat routing, stale recipe protection, late lyrics, conflict protection, preface Enter flush, connector record kept'
+    'PASS workbench integration: boot, route grammar and sub-routes, partial import, isolated transfers, Undo, full sessions, concurrent save recovery, chat routing, stale recipe protection, late lyrics, conflict protection, preface Enter flush, connector record kept, a duplicate carries no record'
   );
   dom.window.close();
 })().catch((e) => {

@@ -35,6 +35,10 @@ const EXPORTED = [
   // parity gate must never do.
   'addCard',
   'rmCard',
+  // The app's Duplicate (handleAction 'duplicate'). check_edit_parity confirms
+  // the copy carries the card's values and none of the connector's envWritten
+  // record, which says what was written on the card copied (#671).
+  'dupCard',
   'makeCard',
   // The REAL browser branch for a variant pick, guard included. The parity gates
   // used to call reconfigureAfterPartEdit directly, which reaches past the guard

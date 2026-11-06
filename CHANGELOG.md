@@ -66,7 +66,10 @@ what a `set_environment` wrote on it, inside the workspace, and the warnings rea
 - **No recipe byte moves.** `check_app_parity.js` stays 7755/7755 in all four formats, and
   `regression_recipes.js` 1149/1149: no renderer reads `envWritten`. The browser app keeps it
   untouched through import, "Use recipe", its own edits, Undo, saved copies and exports
-  (`check_edit_parity.js`, `check_workbench.js`).
+  (`check_edit_parity.js`, `check_workbench.js`). Its Duplicate copies a card's values and
+  not the record, which says what was written on the card copied: a copy of the environment
+  card that carried it would be warned about on every response for settings nobody set
+  there.
 
 ### Fixed — a pinned descriptor or preface is disclosed only on its own card; a filtered CLI swap says so (#671)
 

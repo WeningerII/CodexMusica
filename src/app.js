@@ -2231,6 +2231,12 @@ function dupCard(id) {
     chain: { ...o.chain, fx: [...(o.chain.fx || [])] },
     ..._CARD_TRANSIENTS,
   };
+  // The copy takes the card's values, not its provenance. `envWritten` is the
+  // connector's record of what a set_environment wrote on THIS card (#671,
+  // scripts/_workspace_ops.js), and nothing was written on the copy: carried
+  // over, a copy of the environment card would be warned about, on every
+  // response, for settings nobody set there (BB8 6685465828, 5(e)).
+  delete copy.envWritten;
   app.cards.splice(i + 1, 0, copy);
   if (typeof pushHistory === 'function') pushHistory();
   return copy;

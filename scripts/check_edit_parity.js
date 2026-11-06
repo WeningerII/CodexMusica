@@ -786,6 +786,66 @@ if (recordCases === 0) {
 }
 mismatches += recordLost;
 
+// The app's Duplicate copies a card's values, not its provenance (#671, BB8
+// 6685465828, 5(e)): the record says what a set_environment wrote on the card
+// copied, and nothing was written on the copy. The environment card is the one
+// that matters: a copy of it carrying the record would sit beside it, not render
+// the environment, and be warned about on every response for settings nobody
+// set there. The app's real dupCard on the app's own card list.
+console.log('\n=== Duplicate: the copy takes the values, not the record ===');
+let dupCases = 0;
+let dupWrong = 0;
+for (let i = 0; i < cases.length; i++) {
+  const c = cases[i];
+  let ws = W.seed([c.tradition]);
+  ws = W.setEnvironment(ws, null, {
+    room: rooms[i % rooms.length],
+    chain: { [multiStages[0].id]: multiStages[0].items[i % multiStages[0].items.length].id },
+  });
+  const envCard = app.envCardOf(ws.cards);
+  const record = JSON.stringify(envCard[W.ENV_RECORD]);
+  app.app.cards = clone(ws.cards);
+  const copy = app.dupCard(envCard.id);
+  const cards = clone(app.app.cards);
+  dupCases++;
+  const original = cards.find((x) => x.id === envCard.id);
+  const problems = [];
+  if (!copy || cards.length !== ws.cards.length + 1) problems.push('no copy was added');
+  else {
+    const made = cards.find((x) => x.id === copy.id);
+    if (W.ENV_RECORD in made)
+      problems.push(`the copy carries ${JSON.stringify(made[W.ENV_RECORD])}`);
+    if (JSON.stringify(original[W.ENV_RECORD]) !== record)
+      problems.push('the original lost its record');
+    if (
+      made.room !== original.room ||
+      JSON.stringify(made.chain) !== JSON.stringify(original.chain)
+    )
+      problems.push('the copy does not carry the values');
+    // The connector's ENVIRONMENT_NOT_RENDERED condition, by the shared definition
+    // it reads (W.envRecord, W.envRecordHolds): a card other than the environment
+    // card holding something its record says was written there.
+    const standing = Object.entries(W.envRecord(made)).filter(([f, v]) =>
+      W.envRecordHolds(made, f, v)
+    );
+    if (app.envCardOf(cards) !== made && standing.length)
+      problems.push('the copy would be warned about as ENVIRONMENT_NOT_RENDERED');
+  }
+  if (problems.length) {
+    dupWrong++;
+    if (shown < SHOW) {
+      shown++;
+      console.log(`  ✗ ${c.tradition}: ${problems.join('; ')}`);
+    }
+  }
+}
+console.log(`  ${dupCases} environment card(s) duplicated in the app: ${dupWrong} copy(ies) wrong`);
+if (dupCases === 0) {
+  console.log('\nEDIT PARITY: FAIL — no duplicate case ran; agreement there proves nothing.');
+  process.exit(1);
+}
+mismatches += dupWrong;
+
 // Same anti-vacuity rule the cascade check above uses: a render comparison that
 // never ran is not a render comparison that passed.
 if (rendersCompared === 0) {
@@ -802,6 +862,6 @@ if (mismatches || renderMismatches) {
   process.exit(1);
 }
 console.log(
-  `\nEDIT PARITY: PASS — set_variant, set_preface and set_environment each reshape the card identically in both surfaces, the record set_environment keeps comes through the app's edits untouched, and all ${rendersCompared} post-edit renders are byte-identical across every format.`
+  `\nEDIT PARITY: PASS — set_variant, set_preface and set_environment each reshape the card identically in both surfaces, the record set_environment keeps comes through the app's edits untouched and a duplicated card starts without it, and all ${rendersCompared} post-edit renders are byte-identical across every format.`
 );
 process.exit(0);
