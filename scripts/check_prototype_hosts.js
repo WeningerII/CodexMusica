@@ -155,15 +155,18 @@
 //  18. READER START (#810, Don's reply to 6683384760). Through openReading
 //      again, when the new reader can't start, because its module doesn't
 //      load, its context() fails or its mount() throws: the status region
-//      does not hear exactly one sentence, the one the reader's host shows;
-//      openReading does not resolve { unitId }; or focus is not moved to the
+//      does not hear exactly one sentence, the one the reader's host shows,
+//      or does not end on it once read-aloud has mounted and spoken;
+//      openReading does not resolve { unitId }; focus is not moved to the
 //      reader's Retry when it has one, else to its sentence, from Play or
-//      from nowhere, or is moved when the person put it elsewhere while the
-//      unit was looked up. With read-aloud failing too, anything but the
+//      from nowhere, or is moved when the person put it elsewhere, while the
+//      unit was looked up or while the reader's module loaded; read-aloud is
+//      granted Play's autoplay; or, with the Library's route left at once,
+//      anything is said. With read-aloud failing too, anything but the
 //      reader's sentence is said, or focus is not on that sentence; with
-//      read-aloud failing alone, its sentence is not said once, or focus
-//      leaves the reader. Each check has a planted defect in host.js or
-//      app.js (START_MUTANTS), as in 16.
+//      read-aloud failing alone, anything is said, or focus leaves the
+//      reader. Each check has a planted defect in host.js or app.js
+//      (START_MUTANTS), as in 16.
 //
 //   node scripts/check_prototype_hosts.js
 //
@@ -274,6 +277,7 @@ export function mount(host, ctx) {
   rec.write = ctx.storage.write('pref', { n: 1 });
   // A check can make a lane's mount() throw: one lane, or a list.
   if ([].concat(window.__probeThrow).includes(lane)) throw new Error('probe mount failure');
+  if ([].concat(window.__probeSays).includes(lane)) ctx.announce(lane + ' probe mounted');
   // A check can make a lane's unmount() (one lane, or a list) or focus()
   // throw, read when called. Each unmount error names its lane and is kept.
   const throws = () => window.__probeThrows || {};
@@ -302,12 +306,13 @@ async function newPage(browser, srv, opts = {}) {
   const failing = new Set(opts.fail || []);
   // Paths answered with these bytes instead (a tampered file).
   const override = new Map();
-  await context.route('**/*', (route) => {
+  await context.route('**/*', async (route) => {
     const u = new URL(route.request().url());
     if (u.origin !== srv.url) return route.abort();
     const lane = Object.keys(LANE_MODULES).find((l) => LANE_MODULES[l] === u.pathname);
     if (lane) {
       requested.push(lane);
+      if (opts.slow && opts.slow[lane]) await new Promise((r) => setTimeout(r, opts.slow[lane]));
       if ((opts.missing || []).includes(lane)) return route.fulfill({ status: 404, body: '' });
       return route.fulfill({ status: 200, contentType: 'text/javascript', body: PROBE });
     }
@@ -2103,20 +2108,25 @@ async function readerChecks(browser, srv) {
 // probe's). The reader's context awaits nothing in this build, so it can't
 // fail by itself: the gate serves app.js with that one context changed to
 // throw when window.__readerContextFails is set (READER_CONTEXT_FAULT), and
-// applies each planted defect beneath it. In each way, Play ("Play" is the
-// Library probe's field) is pressed three times with focus on it: once it is
-// left there, once moved nowhere (blurred) and once moved elsewhere (the
-// method reference's field), each move made at once, while the unit is looked
-// up and before the open begins. Each time the status region must hear
-// exactly one sentence, the one the reader's host shows in the panel;
-// openReading must resolve { unitId }, so the stand-in says nothing; and
-// focus must be on the reader's Retry when its host has one (the context),
-// else on the sentence, unless the person moved it elsewhere, where it must
-// stay. With the reader and read-aloud both throwing, only the reader's
-// sentence is said, with focus on it; with read-aloud alone throwing, its
-// sentence is said and focus stays in the reader, where the open put it. Each
-// check has a planted defect in host.js or app.js (START_MUTANTS), served in
-// place of the file in pages of its own, which must fail it.
+// applies each planted defect beneath it. The stand-in read-aloud says
+// something as it mounts, as the real one can, and its first module load is
+// answered late. In each way, Play ("Play" is the Library probe's field) is
+// pressed with focus on it: once it is left there, once moved nowhere
+// (blurred) and once moved elsewhere (the method reference's field), each
+// move made at once, while the unit is looked up and before the open begins,
+// and once moved elsewhere while the reader's module loads. Each time the
+// status region must hear exactly one sentence, the one the reader's host
+// shows in the panel, and end on it; openReading must resolve { unitId }, so
+// the stand-in says nothing; focus must be on the reader's Retry when its
+// host has one (the context), else on the sentence, unless the person moved
+// it elsewhere, where it must stay; and read-aloud must not be granted Play's
+// autoplay. Once more, the person leaves the Library's route at once, and
+// nothing may be said. With the reader and read-aloud both throwing, only the
+// reader's sentence is said, with focus on it; with read-aloud alone
+// throwing, nothing is said, focus stays in the reader, where the open put
+// it, and read-aloud is granted the autoplay. Each check has a planted
+// defect in host.js or app.js (START_MUTANTS), served in place of the file
+// in pages of its own, which must fail it.
 const START_SAYS = {
   module: 'The reader isn’t part of this build of the prototype yet.',
   context: 'The reading did not load. Check your connection, then try again.',
@@ -2130,21 +2140,19 @@ const READER_CONTEXT_FAULT = [
     "      context: async () => {\n        if (window.__readerContextFails) throw new Error('probe context failure');\n        return { unitId, reading: readings.reading };\n      },\n",
   ],
 ];
-const TELL_IF = 'if (!active || active === document.body || active === opener)';
+const TELL_IF = 'if (!active || active === document.body || active === from)';
+const OPEN_TELLS = 'if (mounted && hosts.length) hosts[0].tellUnavailable();';
 const START_MUTANTS = {
   'a reader that can’t start is not said': {
     file: 'host',
     check: 'said once',
-    edits: [['      announce(note.textContent);\n      return true;', '      return true;']],
+    edits: [['    announce(note.textContent);\n    return true;', '    return true;']],
   },
   'focus stays where the open left it': {
     file: 'host',
     check: 'focus from Play',
     edits: [
-      [
-        `      ${TELL_IF}\n        (host.querySelector('[data-host-retry]') || note).focus();\n`,
-        '',
-      ],
+      [`    ${TELL_IF}\n      (host.querySelector('[data-host-retry]') || note).focus();\n`, ''],
     ],
   },
   'focus from Play is not moved': {
@@ -2155,7 +2163,7 @@ const START_MUTANTS = {
   'focus that was nowhere stays nowhere': {
     file: 'host',
     check: 'focus from nowhere',
-    edits: [[TELL_IF, 'if (active === opener)']],
+    edits: [[TELL_IF, 'if (active === from)']],
   },
   'focus taken from wherever it is': {
     file: 'host',
@@ -2170,12 +2178,47 @@ const START_MUTANTS = {
   'every lane that can’t start is said': {
     file: 'host',
     check: 'both lanes',
-    edits: [['if (!told) told = h.tellUnavailable();', 'h.tellUnavailable();']],
+    edits: [[OPEN_TELLS, 'if (mounted) for (const h of hosts) h.tellUnavailable();']],
   },
-  'only the first lane is told': {
+  'a later lane’s failure is said too': {
     file: 'host',
     check: 'read-aloud alone',
-    edits: [['if (!told) told = h.tellUnavailable();', 'if (i === 0) told = h.tellUnavailable();']],
+    edits: [[OPEN_TELLS, 'if (mounted) for (const h of hosts) if (h.tellUnavailable()) break;']],
+  },
+  'told before the later lanes are shown': {
+    file: 'host',
+    check: 'said last',
+    edits: [
+      [
+        '        if (i === 0) h.focus();\n      }\n',
+        '        if (i === 0) {\n          h.focus();\n          h.tellUnavailable();\n        }\n      }\n',
+      ],
+      [`      ${OPEN_TELLS}\n`, ''],
+    ],
+  },
+  // Focus as it was when the lane was shown, before its module had loaded.
+  'focus read when the lane was shown, not when told': {
+    file: 'host',
+    check: 'focus moved while the reader loads',
+    edits: [
+      [
+        '  let opener = null; // what show() was opened from, for close()\n',
+        '  let opener = null; // what show() was opened from, for close()\n  let seen = null;\n',
+      ],
+      [
+        '        opener = returnFocus || document.activeElement;\n',
+        '        opener = returnFocus || document.activeElement;\n        seen = document.activeElement;\n',
+      ],
+      [
+        `    const active = document.activeElement;\n    ${TELL_IF}`,
+        `    const active = seen;\n    ${TELL_IF}`,
+      ],
+    ],
+  },
+  'said while the panel is hidden': {
+    file: 'host',
+    check: 'nothing said while the Library is hidden',
+    edits: [["if (!note || panel.closest('[hidden]')) return false;", 'if (!note) return false;']],
   },
   // Each way a lane can't start, left unmarked, so the open can't tell it.
   'a module that won’t load is not marked': {
@@ -2223,6 +2266,16 @@ const START_MUTANTS = {
       ],
     ],
   },
+  'autoplay beside a reader that couldn’t start': {
+    file: 'app',
+    check: 'no autoplay beside a reader that couldn’t start',
+    edits: [
+      [
+        "        if (!readerStarted()) play = false; // Play's autoplay, only beside the reader\n",
+        '',
+      ],
+    ],
+  },
   'openReading rejects with the sentence as well': {
     file: 'app',
     check: 'resolves',
@@ -2240,11 +2293,13 @@ async function startRun(page, cid, kind) {
     async ({ cid, kind }) => {
       const c = window.__probeCtx.library;
       const region = document.getElementById('proto-status');
-      // Every sentence the region is given, one per announcement.
+      // Every sentence the region is given, one per announcement, but the
+      // stand-in read-aloud's own (said as it mounts, for "said last").
       let said = [];
       new MutationObserver((records) => {
         for (const r of records)
-          for (const n of r.addedNodes) if (n.textContent) said.push(n.textContent);
+          for (const n of r.addedNodes)
+            if (n.textContent && !n.textContent.endsWith('probe mounted')) said.push(n.textContent);
       }).observe(region, { childList: true, subtree: true });
       const wait = (ms) => new Promise((r) => setTimeout(r, ms));
       const play = () => document.querySelector('[data-feature-host="library"] textarea');
@@ -2255,6 +2310,7 @@ async function startRun(page, cid, kind) {
         if (!a || a === document.body) return 'nowhere';
         if (a === play()) return 'play';
         if (a === elsewhere()) return 'elsewhere';
+        if (a.closest('[data-panel="browse"]')) return 'browse';
         const h = a.closest && a.closest('[data-feature-host]');
         const id = h ? h.dataset.featureHost : a.tagName;
         if (a.matches('[data-host-note]')) return `note:${id}`;
@@ -2263,49 +2319,93 @@ async function startRun(page, cid, kind) {
       };
       const inHost = (lane, sel) =>
         document.querySelector(`[data-panel="library"] [data-feature-host="${lane}"] ${sel}`);
-      const press = async (situation, throws) => {
-        await wait(50); // the turn before has ended
-        window.__probeThrow = throws;
-        said = [];
-        play().focus();
-        // Play, as explore.js handles it: a rejection is said, in its message.
-        const opened = c.openReading(cid).then(
+      // Play, as explore.js handles it: a rejection is said, in its message.
+      const openFromPlay = (id) =>
+        c.openReading(id).then(
           (v) => JSON.stringify(v),
           (error) => {
             c.announce((error && error.message) || 'Library action could not finish. Try again.');
             return `threw: ${error && error.message}`;
           }
         );
-        // The person moves focus at once, while the unit is looked up.
-        if (situation === 'nowhere') document.activeElement.blur();
-        if (situation === 'elsewhere') elsewhere().focus();
-        const returned = await opened;
-        await wait(150); // anything said late is heard
+      const speechCtx = () => window.__probeCtx && window.__probeCtx.libraryspeech;
+      const state = (situation, returned, before) => {
         const reader = inHost('libraryreading', '[data-host-note]');
         const speech = inHost('libraryspeech', '[data-host-note]');
+        const sp = speechCtx();
         return {
           situation,
           returned,
           said: said.slice(),
+          last: region.textContent,
           focus: where(),
           reader: reader ? reader.textContent : null,
           readerRetry: !!inHost('libraryreading', '[data-host-retry]'),
           speech: speech ? speech.textContent : null,
+          // What this open's read-aloud was granted (null: it had no ctx).
+          autoplay: sp && sp !== before.sp ? sp.speech.takeAutoplay() : null,
+          hidden: document.querySelector('[data-panel="library"]').hidden,
           hosts: [...document.querySelectorAll('[data-panel="library"] [data-feature-host]')]
             .map((h) => h.dataset.featureHost)
             .join(),
         };
       };
+      const press = async (situation, throws) => {
+        await wait(50); // the turn before has ended
+        window.__probeThrow = throws;
+        said = [];
+        const before = { sp: speechCtx() };
+        play().focus();
+        const opened = openFromPlay(cid);
+        // The person moves focus at once, while the unit is looked up.
+        if (situation === 'nowhere') document.activeElement.blur();
+        if (situation === 'elsewhere') elsewhere().focus();
+        // Or once the open has begun, while the reader's module loads.
+        if (situation === 'during') {
+          while (!/^Loading/.test(inHost('libraryreading', '[data-host-note]')?.textContent || ''))
+            await wait(5);
+          elsewhere().focus();
+        }
+        const returned = await opened;
+        await wait(150); // anything said late is heard
+        return state(situation, returned, before);
+      };
+      // The shell's own route change, run now rather than in the task the
+      // hash change queues, so that no open can finish before it.
+      const route = (to) => {
+        location.hash = `#${to}`;
+        window.dispatchEvent(new window.HashChangeEvent('hashchange'));
+      };
+      // Play, and the person leaves the Library's route at once.
+      const away = async (throws) => {
+        await wait(50);
+        window.__probeThrow = throws;
+        said = [];
+        const before = { sp: speechCtx() };
+        play().focus();
+        const opened = openFromPlay(cid);
+        route('browse');
+        const returned = await opened;
+        await wait(150);
+        const r = state('away', returned, before);
+        route('library');
+        await wait(50);
+        return r;
+      };
       window.__readerContextFails = kind === 'context';
+      window.__probeSays = 'libraryspeech'; // read-aloud speaks as it mounts
       const lane = kind === 'mount' ? 'libraryreading' : undefined;
       const runs = [];
-      for (const situation of ['play', 'nowhere', 'elsewhere'])
+      // 'during' first: only the first load of the reader's module is slow.
+      for (const situation of ['during', 'play', 'nowhere', 'elsewhere'])
         runs.push(await press(situation, lane));
       if (kind === 'mount') {
         runs.push(await press('both', ['libraryreading', 'libraryspeech']));
         runs.push(await press('speech', 'libraryspeech'));
       }
+      runs.push(await away(lane));
       window.__probeThrow = undefined;
+      window.__probeSays = undefined;
       return runs;
     },
     { cid, kind }
@@ -2316,7 +2416,7 @@ function startVerdict(g) {
   const SITUATIONS = ['play', 'nowhere', 'elsewhere'];
   const of = (kind) => (g[kind] || []).filter((r) => SITUATIONS.includes(r.situation));
   const all = START_KINDS.flatMap((kind) => of(kind).map((r) => ({ kind, r })));
-  const extra = (s) => (g.mount || []).find((r) => r.situation === s) || null;
+  const run = (kind, s) => (g[kind] || []).find((r) => r.situation === s) || null;
   const target = (kind, s) =>
     s === 'elsewhere' ? 'elsewhere' : `${kind === 'context' ? 'retry' : 'note'}:libraryreading`;
   const resolved = (r) => /^\{"unitId":"[^"]+"\}$/.test(r.returned);
@@ -2337,9 +2437,20 @@ function startVerdict(g) {
   const focusFrom = (s) =>
     all.filter((x) => x.r.situation === s).length === 3 &&
     all.filter((x) => x.r.situation === s).every((x) => x.r.focus === target(x.kind, s));
-  const both = extra('both');
-  const speech = extra('speech');
+  const both = run('mount', 'both');
+  const speech = run('mount', 'speech');
+  const during = START_KINDS.map((kind) => [kind, run(kind, 'during')]);
+  const away = START_KINDS.map((kind) => [kind, run(kind, 'away')]);
+  // Every open beside a reader that couldn't start, whose read-aloud had a ctx.
+  const besideFailed = [
+    ...START_KINDS.flatMap((kind) => ['during', ...SITUATIONS].map((s) => run(kind, s))),
+    both,
+  ];
   return {
+    'focus moved while the reader loads': during.every(
+      ([kind, r]) => r && r.focus === 'elsewhere' && saidOnce(r, START_SAYS[kind]) && resolved(r)
+    ),
+    'said last': all.length === 9 && all.every((x) => x.r.last === START_SAYS[x.kind]),
     'a module that won’t load': kindRight('module'),
     'a context that fails': kindRight('context'),
     'a mount that throws': kindRight('mount'),
@@ -2368,11 +2479,23 @@ function startVerdict(g) {
       tail(both),
     'read-aloud alone':
       !!speech &&
-      saidOnce(speech, SPEECH_COULDNT_START) &&
+      !speech.said.length &&
       speech.reader === null &&
       speech.speech === SPEECH_COULDNT_START &&
       speech.focus === 'libraryreading' &&
       tail(speech),
+    'nothing said while the Library is hidden': away.every(
+      ([kind, r]) =>
+        r &&
+        r.hidden &&
+        !r.said.length &&
+        r.reader === START_SAYS[kind] &&
+        r.focus === 'browse' &&
+        resolved(r)
+    ),
+    // Beside a reader that started (read-aloud alone failing), Play's grant.
+    'no autoplay beside a reader that couldn’t start':
+      besideFailed.every((r) => r && r.autoplay === false) && !!speech && speech.autoplay === true,
   };
 }
 
@@ -2383,11 +2506,13 @@ async function startChecks(browser, srv) {
   // One page per way the reader can't start, with app.js and host.js as
   // served (`served.app`, `served.host`: the planted text, or undefined for
   // the committed file); the context's page gets READER_CONTEXT_FAULT on top.
+  // The reader's module is answered late (only its first load asks for it).
   const onePage = async (kind, served) => {
+    const slow = { libraryreading: 300 };
     const { context, page, errors, override } = await newPage(
       browser,
       srv,
-      kind === 'module' ? { missing: ['libraryreading'] } : {}
+      kind === 'module' ? { missing: ['libraryreading'], slow } : { slow }
     );
     const js = (body) => ({ status: 200, contentType: 'text/javascript', body });
     const app =

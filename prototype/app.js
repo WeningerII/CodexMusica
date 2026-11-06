@@ -147,15 +147,19 @@ const LANES = {
 // A new reading that can't start (the reader's or read-aloud's module
 // doesn't load, its context() fails or its mount() throws) is the slot's to
 // state (host.js createOnDemand; #810, Don's reply to 6683384760). The panel
-// shows the lane's sentence, the first such sentence is said once, and focus
-// goes to its Retry, else to the sentence, if it is still on Play or
-// nowhere. openReading still resolves { unitId }: the unit was found and the
-// reading opened, and what didn't start says so itself, as a lane that can't
-// start on its own route does. A rejection keeps the meaning above: the open
-// itself failed, while a teardown's error, or several in one AggregateError,
-// is logged and not said. So Explore, which says only a rejection
-// (explore.js:85-88), says nothing here, and the shell's sentence is the only
-// one.
+// shows the lane's sentence. The reader's is also said, once, after
+// read-aloud is shown, and focus goes to its Retry, else to the sentence, if
+// it is still on Play or nowhere; read-aloud's only shows, beside a reader
+// that opened with focus in it. Beside a reader that couldn't start,
+// read-aloud isn't granted Play's autoplay (readerStarted): it would read a
+// work the person can't see, and what it says would replace the reader's
+// sentence. openReading still resolves { unitId }: the unit was found and
+// the reading opened, and what didn't start says so itself, as a lane that
+// can't start on its own route does. A rejection keeps the meaning above: the
+// open itself failed, while a teardown's error, or several in one
+// AggregateError, is logged and not said. So Explore, which says only a
+// rejection (explore.js:85-88), says nothing here, and the shell's sentence
+// is the only one.
 //
 // Each open is opened from `opener`, what had focus when the person asked
 // (Play, from openReading), not from what has focus once the unit is found:
@@ -165,6 +169,13 @@ const LANES = {
 // as returnFocus. Without one, open() takes what has focus when it begins.
 const readings = readingLoader();
 const slot = createOnDemand(document.querySelector('[data-panel="library"]'));
+// Whether the reader's host holds no sentence of its own: by the time
+// read-aloud's context is asked for, the reader has been shown, and a reader
+// that couldn't start (or is trying again) shows one instead of itself.
+const readerStarted = () =>
+  !document.querySelector(
+    '[data-panel="library"] [data-feature-host="libraryreading"] [data-host-note]'
+  );
 async function openReader(unitId, { play = false, opener } = {}) {
   const reader = {
     close: () => slot.close(),
@@ -192,6 +203,7 @@ async function openReader(unitId, { play = false, opener } = {}) {
       unloaded: 'Read aloud did not load.',
       context: async ({ signal }) => {
         const record = await readings.reading(unitId);
+        if (!readerStarted()) play = false; // Play's autoplay, only beside the reader
         return {
           language: record.head.language,
           lines: await readingLines(record),

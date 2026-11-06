@@ -209,6 +209,22 @@ export function createHost(lane, panel) {
     if (again && typeof handle.focus === 'function') handle.focus();
   }
 
+  // A lane that couldn't start, told: the sentence its host shows is said,
+  // and focus goes to its Retry if it has one, else to the sentence, but only
+  // while focus is still on `from` or nowhere. Focus the person moved
+  // elsewhere stays there. While the panel is hidden (the person left its
+  // route) nothing is said and focus isn't moved: the panel shows the
+  // sentence when they come back. Returns whether it was said.
+  function tell(from) {
+    const note = state === 'unavailable' && host && host.querySelector('[data-host-note]');
+    if (!note || panel.closest('[hidden]')) return false;
+    const active = document.activeElement;
+    if (!active || active === document.body || active === from)
+      (host.querySelector('[data-host-retry]') || note).focus();
+    announce(note.textContent);
+    return true;
+  }
+
   // unmount() and ctx.close(): the lane's own unmount(), then its signal and
   // its node. The fields are cleared first, so a lane whose unmount() calls
   // close() again finds nothing left to close. The placeholder comes back
@@ -256,19 +272,11 @@ export function createHost(lane, panel) {
       if (handle && typeof handle.focus === 'function') handle.focus();
     },
     // For an open that an action asked for (createOnDemand): if the lane
-    // couldn't start, the sentence its panel shows is said, and focus goes to
-    // its Retry if it has one, else to the sentence, but only while focus is
-    // still on what opened it (show()'s returnFocus, else what had focus
-    // then) or nowhere. Focus the person moved elsewhere stays there. Returns
-    // whether there was a sentence to say.
+    // couldn't start, it is told (tell), with focus moved only from what
+    // opened it (show()'s returnFocus, else what had focus then) or from
+    // nowhere.
     tellUnavailable() {
-      const note = state === 'unavailable' && host && host.querySelector('[data-host-note]');
-      if (!note) return false;
-      const active = document.activeElement;
-      if (!active || active === document.body || active === opener)
-        (host.querySelector('[data-host-retry]') || note).focus();
-      announce(note.textContent);
-      return true;
+      return tell(opener);
     },
     unmount() {
       teardown();
@@ -296,13 +304,18 @@ export function createHost(lane, panel) {
 // A lane that can't start (its module doesn't load, its ctx fails or its
 // mount() throws) is not an error of the open (#810, Don's reply to
 // 6683384760). Its host shows its sentence in the panel, as for any lane,
-// and open() goes on and resolves as before. An action asked for it, so the
-// first such lane's sentence is also said, once, through announce. If focus
-// is still on the opener (returnFocus, else what had focus when open() was
-// called) or nowhere, it moves to that lane's Retry if it has one, else to
-// the sentence. Focus the open put in its first lane, or that the person
-// moved elsewhere, stays where it is. Once overtaken, an open says nothing
-// more.
+// and open() goes on and resolves as before. An action asked for the first
+// lane, so if that one can't start, its sentence is also said, once, through
+// announce, after every lane is shown: a later lane that says something as
+// it mounts can't replace it in the one status region. If focus is still on
+// the opener (returnFocus, else what had focus when open() was called) or
+// nowhere when it is said, focus moves to that lane's Retry if it has one,
+// else to the sentence. Focus the person moved elsewhere, even while the
+// lanes loaded, stays where it is. A later lane that can't start only shows
+// its sentence: the first lane opened, with focus in it. Nothing is said, and
+// no focus moves, while the panel is hidden (the person left its route), and
+// once overtaken, an open says nothing more. Its Retry, if the person presses
+// it, is the host's own (createHost).
 //
 // A held lane whose own unmount() throws doesn't stop either one, as it
 // doesn't stop ctx.close() (#810 6675659005): that lane's host still ends (its
@@ -345,7 +358,6 @@ export function createOnDemand(panel) {
       const hosts = list.map((l) => createHost(l, panel));
       held = hosts;
       let mounted = true;
-      let told = false; // only the first lane that couldn't start is said
       for (const [i, h] of hosts.entries()) {
         await h.show({ returnFocus: back });
         if (mine !== turn) {
@@ -353,8 +365,12 @@ export function createOnDemand(panel) {
           break;
         }
         if (i === 0) h.focus();
-        if (!told) told = h.tellUnavailable();
       }
+      // The first lane is the one the open is for and puts focus in. If it
+      // couldn't start, it is told once every lane is shown, so what a later
+      // lane says as it mounts can't replace its sentence in the one status
+      // region. A later lane that can't start only shows its sentence.
+      if (mounted && hosts.length) hosts[0].tellUnavailable();
       if (failed.length) throw failure(failed); // the open went on regardless
       return mounted;
     },
