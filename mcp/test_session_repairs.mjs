@@ -1315,6 +1315,57 @@ test('a workspace with no record is silent on render and warns at edit time, as 
     ]);
     expectUnrendered(tuned, bass, env, { edit: 0, where: `${name} a new write` });
     expectUnrendered(await s.render(tuned), bass, env, { where: `${name} render after it` });
+    // The environment card's own unrecorded settings are not reported as moved.
+    const whole = await s.forget(
+      await s.edit(seed, [{ action: 'set_environment', room: 'cathedral' }])
+    );
+    const guitar = seed.cards.find((c) => c.instrument === 'electric_guitar_single_coil');
+    const front = await s.edit(whole, [{ action: 'move_instrument', card: guitar.card }]);
+    assert.equal(front.render_scope.environment_card, guitar.card, `${name}: fixture`);
+    assert.deepEqual(moved(front), [], `${name}: no record, nothing moved`);
+    assert.deepEqual(unrendered(front), [], `${name}: and nothing unrendered`);
+  });
+});
+
+test('ENVIRONMENT_MOVED speaks only for settings a set_environment wrote', async () => {
+  await onEverySurface(async (s, name) => {
+    // An untouched seed changing hands.
+    const blend = await s.start(['garage_rock', 'delta_blues']);
+    const handed = await s.edit(blend, [
+      { action: 'move_instrument', card: blend.cards.at(-1).card },
+    ]);
+    assert.notEqual(
+      handed.render_scope.environment_card,
+      blend.render_scope.environment_card,
+      `${name}: fixture`
+    );
+    assert.deepEqual(moved(handed), [], `${name}: a stock environment changing hands`);
+    // A room a set_preface re-derived on the environment card.
+    const folk = await s.start(['appalachian_folk']);
+    const voice = folk.render_scope.environment_card;
+    const tinted = await s.edit(folk, [{ action: 'set_preface', card: voice, preface: 'raging' }]);
+    assert.notEqual(
+      tinted.render_scope.environment_settings.room,
+      folk.render_scope.environment_settings.room,
+      `${name}: fixture: the preface moved the room`
+    );
+    const move = { action: 'move_instrument', card: folk.cards[1].card };
+    const away = await s.edit(tinted, [move]);
+    assert.notEqual(away.render_scope.environment_card, voice, `${name}: fixture`);
+    assert.deepEqual(moved(away), [], `${name}: a re-derived room is not a written one`);
+    assert.deepEqual(unrendered(away), [], `${name}: nor does it warn on its old card`);
+    // A room a set_environment wrote there: MOVED once, for that room.
+    const wrote = await s.edit(tinted, [{ action: 'set_environment', room: 'cathedral' }]);
+    const gone = await s.edit(wrote, [move]);
+    assert.deepEqual(
+      moved(gone).map((w) => [w.card, w.edit, Object.keys(w.settings)]),
+      [[voice, 0, ['room']]],
+      `${name}: the written room`
+    );
+    expectUnrendered(gone, cardOf(folk, voice), cardOf(gone, gone.render_scope.environment_card), {
+      where: `${name}: and it stands on the old card`,
+    });
+    assert.deepEqual(moved(await s.render(gone)), [], `${name}: once`);
   });
 });
 

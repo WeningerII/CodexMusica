@@ -205,8 +205,8 @@ function explicitEnv(card) {
 // The environment fields a set_environment wrote on this card and the card still
 // holds: the card's `envWritten` record, read with the retained rule (W.envRecord
 // and W.envRecordHolds in scripts/_workspace_ops.js). This, not a comparison with
-// the seed, is what "settings someone wrote" means for ENVIRONMENT_NOT_RENDERED
-// (#671, BB8 6681659990). A tradition's stock settings
+// the seed, is what "settings someone wrote" means for ENVIRONMENT_MOVED and
+// ENVIRONMENT_NOT_RENDERED (#671, BB8 6681659990). A tradition's stock settings
 // and a room a set_preface re-derived are not in the record, and a workspace that
 // has none (saved before the record existed) has nothing written: nothing is
 // inferred from values.
@@ -849,11 +849,15 @@ function applyEdit(ws, e) {
 //     chain toward the preface, as the app's preface pick does, and replaced
 //     settings an edit had put on the environment card.
 //
-// "Put there by an edit" means differing from the card's seeded baseline — the
-// same test `changed` uses — so a seeded environment changing hands is not
-// reported: that is what move_instrument is for. On a card other than the
-// environment card, a set_preface reports what it replaced of that card's
-// `envWritten` record (ownEnvOverwritten).
+// For ENVIRONMENT_MOVED, "settings an edit had put there" are the ones a
+// set_environment wrote and the card still holds (writtenEnv: the card's
+// `envWritten` record), so a seeded environment changing hands is not reported,
+// and neither is a room a set_preface re-derived (#671, BB8 6681659990): that is
+// what move_instrument is for, and the state warning (ENVIRONMENT_NOT_RENDERED)
+// simply follows the new environment card. For ENVIRONMENT_OVERWRITTEN on the
+// environment card they are still the fields differing from the card's seeded
+// baseline, the test `changed` uses. On any other card a set_preface reports what
+// it replaced of that card's record (ownEnvOverwritten).
 //
 // One more way in: a set_environment that clears EVERY setting on the
 // environment card leaves it with none, so the renderer moves on to the next
@@ -910,7 +914,7 @@ function environmentTransition(before, after, i, e, target) {
     return lost;
   };
   if (!b || b.id !== a.id) {
-    const lost = lostOf(explicitEnv(a));
+    const lost = lostOf(writtenEnv(a));
     if (!Object.keys(lost).length) return [];
     return [
       {
