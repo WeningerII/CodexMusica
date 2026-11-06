@@ -142,9 +142,10 @@ export function createHost(lane, panel) {
   }
 
   // The lane's ctx, then mount. `again` is a Retry: focus follows the person,
-  // into the lane when it mounts, or back to Retry when its data fails again
-  // (or to the sentence when its mount() throws), which is said, unless they
-  // moved focus on while it loaded (tell).
+  // into the lane when it mounts, or back to Retry when its data fails again,
+  // which is said, or to the sentence when its mount() throws, which focusing
+  // reads, unless they moved focus on while it loaded, when the sentence is
+  // said and focus stays (tell).
   // context({ signal }) gets this mount's signal before the lane has a ctx,
   // so what the shell hands the lane can end with the mount (untilAborted);
   // an attempt that fails, or is overtaken, mounts nothing and aborts it.
@@ -213,19 +214,23 @@ export function createHost(lane, panel) {
       handle.focus();
   }
 
-  // A lane that couldn't start, told: the sentence its host shows is said,
-  // and, when `move` is set, focus goes to its Retry if it has one, else to
-  // the sentence, but only while focus is still on `from` or nowhere. Focus
-  // the person moved elsewhere stays there. While the panel is hidden (the
-  // person left its route) nothing is said and focus isn't moved: the panel
-  // shows the sentence when they come back. Returns whether it was told.
+  // A lane that couldn't start, told. When `move` is set, focus goes to its
+  // Retry if it has one, else to the sentence its host shows, but only while
+  // focus is still on `from` or nowhere. Focus the person moved elsewhere
+  // stays there. The sentence is then said, unless focus is on it: focusing
+  // the sentence (tabindex=-1) reads it, and saying it as well would say it
+  // twice. While the panel is hidden (the person left its route) nothing is
+  // said and focus isn't moved: the panel shows the sentence when they come
+  // back. Returns whether it was told.
   function tell(from, move = true) {
     const note = state === 'unavailable' && host && host.querySelector('[data-host-note]');
     if (!note || panel.closest('[hidden]')) return false;
     const active = document.activeElement;
+    let to = null;
     if (move && (!active || active === document.body || active === from))
-      (host.querySelector('[data-host-retry]') || note).focus();
-    announce(note.textContent);
+      to = host.querySelector('[data-host-retry]') || note;
+    if (to) to.focus();
+    if (to !== note || document.activeElement !== note) announce(note.textContent);
     return true;
   }
 
@@ -310,13 +315,14 @@ export function createHost(lane, panel) {
 // mount() throws) is not an error of the open (#810, Don's reply to
 // 6683384760). Its host shows its sentence in the panel, as for any lane,
 // and open() goes on and resolves as before. An action asked for the first
-// lane, so if that one can't start, its sentence is also said, once, through
-// announce, after every lane is shown: a later lane that says something as
-// it mounts can't replace it in the one status region. If focus is still on
-// the opener (returnFocus, else what had focus when open() was called) or
-// nowhere when it is said, focus moves to that lane's Retry if it has one,
-// else to the sentence. Focus the person moved elsewhere, even while the
-// lanes loaded, stays where it is. If the first lane opened, the first later
+// lane, so if that one can't start, it is told, once, after every lane is
+// shown: a later lane that says something as it mounts can't replace its
+// sentence in the one status region. If focus is still on the opener
+// (returnFocus, else what had focus when open() was called) or nowhere
+// then, focus moves to that lane's Retry if it has one, and the sentence is
+// said through announce, else to the sentence itself, which focusing reads,
+// so it isn't said as well. Focus the person moved elsewhere, even while the
+// lanes loaded, stays where it is, and the sentence is said. If the first lane opened, the first later
 // lane that can't start is said instead, once, and last: after `settled`
 // (open()'s option, a function whose promise resolves once what the first
 // lane says as it opens has been said), with focus left where it is, in the

@@ -162,23 +162,26 @@
 //  18. READER START (#810, Don's reply to 6683384760). Through openReading
 //      again, when the new reader can't start, because its module doesn't
 //      load, its context() fails or its mount() throws: the status region
-//      does not hear exactly one sentence, the one the reader's host shows,
-//      or does not end on it once read-aloud has mounted and spoken;
-//      openReading does not resolve { unitId }; focus is not moved to the
-//      reader's Retry when it has one, else to its sentence, from Play or
-//      from nowhere, or is moved when the person put it elsewhere, while the
-//      unit was looked up or while the reader's module loaded; read-aloud is
-//      granted Play's autoplay; or, with the Library's route left at once,
-//      anything is said. With read-aloud failing too, anything but the
-//      reader's sentence is said, or focus is not on that sentence; with
-//      read-aloud failing alone, beside a reader that reads its unit late,
-//      read-aloud's sentence is not said once, last, after the reader's
-//      "Page 1 of N", or focus leaves the reader. The reader's Retry: a mount() that throws then is not said,
-//      with focus on its sentence; focus the person moved on (elsewhere, or
-//      back to Play) is taken, by a Retry that fails again or one that
-//      mounts. Two Plays whose look-ups finish out of order: the earlier
-//      one's reading opens. Each check has a planted defect in host.js or
-//      app.js (START_MUTANTS), as in 16.
+//      does not hear the reader's sentence exactly once, and end on it once
+//      read-aloud has mounted and spoken, when focus goes to the reader's
+//      Retry or stays where the person moved it, or hears it at all when
+//      focus is put on the sentence (which reads it); any case hears other
+//      than its exact count (START_COUNTS); openReading does not resolve
+//      { unitId }; focus is not moved to the reader's Retry when it has one,
+//      else to its sentence, from Play or from nowhere, or is moved when the
+//      person put it elsewhere, while the unit was looked up or while the
+//      reader's module loaded; read-aloud is granted Play's autoplay; or,
+//      with the Library's route left at once, anything is said. With
+//      read-aloud failing too, anything is said, or focus is not on the
+//      reader's sentence; with read-aloud failing alone, beside a reader that
+//      reads its unit late, read-aloud's sentence is not said once, last,
+//      after the reader's "Page 1 of N", or focus leaves the reader. The
+//      reader's Retry: a mount() that throws then does not put focus on its
+//      sentence, or says it; focus the person moved on (elsewhere, or back to
+//      Play) is taken, by a Retry that fails again or one that mounts. Two
+//      Plays whose look-ups finish out of order: the earlier one's reading
+//      opens. Each check has a planted defect in host.js or app.js
+//      (START_MUTANTS), as in 16.
 //
 //   node scripts/check_prototype_hosts.js
 //
@@ -2135,29 +2138,33 @@ async function readerChecks(browser, srv) {
 // pressed with focus on it: once it is left there, once moved nowhere
 // (blurred) and once moved elsewhere (the method reference's field), each
 // move made at once, while the unit is looked up and before the open begins,
-// and once moved elsewhere while the reader's module loads. Each time the
-// status region must hear exactly one sentence, the one the reader's host
-// shows in the panel, and end on it; openReading must resolve { unitId }, so
-// the stand-in says nothing; focus must be on the reader's Retry when its
-// host has one (the context), else on the sentence, unless the person moved
-// it elsewhere, where it must stay; and read-aloud must not be granted Play's
-// autoplay. Once more, the person leaves the Library's route at once, and
-// nothing may be said. With the reader and read-aloud both throwing, only the
-// reader's sentence is said, with focus on it; with read-aloud alone
-// throwing, beside a stand-in reader that reads its unit and says its first
-// page ("Page 1 of N") once its ctx.reading() settles, answered late
-// (READER_READS_LATE), the region hears that page and then read-aloud's
-// sentence, once, last; focus stays in the reader, where the open put it,
-// and read-aloud is granted the autoplay. The reader's Retry (the
-// context's): when its mount() throws, its sentence is said with focus on
-// it; when its data fails again, its sentence is said and focus moved back
-// to Retry, unless the person moved it on (elsewhere, or back to Play) while
-// it loaded; when it mounts, focus goes into the reader unless the person
-// moved it on. And Play on an appended card, whose collection file is
+// and once moved elsewhere while the reader's module loads. Each time
+// openReading must resolve { unitId }, so the stand-in says nothing; focus
+// must be on the reader's Retry when its host has one (the context), else on
+// the sentence the reader's host shows in the panel, unless the person moved
+// it elsewhere, where it must stay; the status region must hear that
+// sentence exactly once, and end on it, when focus goes to Retry or stays
+// where the person moved it, and hear nothing when focus is put on the
+// sentence, since focusing it reads it (Don); and read-aloud must not be
+// granted Play's autoplay. Once more, the person leaves the Library's route
+// at once, and nothing may be said. With the reader and read-aloud both
+// throwing, nothing is said, with focus on the reader's sentence; with
+// read-aloud alone throwing, beside a stand-in reader that reads its unit
+// and says its first page ("Page 1 of N") once its ctx.reading() settles,
+// answered late (READER_READS_LATE), the region hears that page and then
+// read-aloud's sentence, once, last; focus stays in the reader, where the
+// open put it, and read-aloud is granted the autoplay. The reader's Retry
+// (the context's): when its mount() throws, focus is put on its sentence,
+// which is not said; when its data fails again, its sentence is said and
+// focus moved back to Retry, unless the person moved it on (elsewhere, or
+// back to Play) while it loaded, when it is said and focus stays; when it
+// mounts, focus goes into the reader unless the person moved it on, and
+// nothing is said. And Play on an appended card, whose collection file is
 // answered late, then Play on a shelf's card: only the later reading opens,
-// and its sentence is said once. Each check has a planted defect in host.js
-// or app.js (START_MUTANTS), served in place of the file in pages of its own,
-// which must fail it.
+// with focus on its sentence. Every case's count of what the region hears is
+// exact (START_COUNTS, "announcements per case"). Each check has a planted
+// defect in host.js or app.js (START_MUTANTS), served in place of the file
+// in pages of its own, which must fail it.
 const START_SAYS = {
   module: 'The reader isn’t part of this build of the prototype yet.',
   context: 'The reading did not load. Check your connection, then try again.',
@@ -2187,18 +2194,49 @@ const RETRY_TOLD =
 const RETRY_FOCUS =
   "    if (again && (!active || active === document.body) && typeof handle.focus === 'function')\n      handle.focus();";
 const OPEN_TELLS = "if (hosts[0].state === 'unavailable') hosts[0].tellUnavailable();";
+const TELL_SAYS =
+  '    if (to !== note || document.activeElement !== note) announce(note.textContent);\n';
 const LATER_TOLD = '          if (mine === turn) later.tellUnavailable({ move: false });\n';
 const START_MUTANTS = {
   'a reader that can’t start is not said': {
     file: 'host',
     check: 'said once',
-    edits: [['    announce(note.textContent);\n    return true;', '    return true;']],
+    edits: [[TELL_SAYS, '']],
   },
   'focus stays where the open left it': {
     file: 'host',
     check: 'focus from Play',
+    edits: [['    if (to) to.focus();\n', '']],
+  },
+  // Each count of the announcements a case hears, wrong (Don).
+  'the sentence is said as well when focus is put on it': {
+    file: 'host',
+    check: 'announcements per case',
+    edits: [[TELL_SAYS, '    announce(note.textContent);\n']],
+  },
+  'nothing said when focus goes to Retry': {
+    file: 'host',
+    check: 'announcements per case',
+    edits: [[TELL_SAYS, '    if (!to) announce(note.textContent);\n']],
+  },
+  'nothing said when focus stays where the person moved it': {
+    file: 'host',
+    check: 'announcements per case',
     edits: [
-      [`    ${TELL_IF}\n      (host.querySelector('[data-host-retry]') || note).focus();\n`, ''],
+      [
+        TELL_SAYS,
+        '    if (to && (to !== note || document.activeElement !== note)) announce(note.textContent);\n',
+      ],
+    ],
+  },
+  'read-aloud said twice': {
+    file: 'host',
+    check: 'announcements per case',
+    edits: [
+      [
+        '          if (settled) await settled();\n',
+        '          later.tellUnavailable({ move: false });\n          if (settled) await settled();\n',
+      ],
     ],
   },
   'focus from Play is not moved': {
@@ -2219,7 +2257,7 @@ const START_MUTANTS = {
   'the sentence over Retry': {
     file: 'host',
     check: 'Retry before the sentence',
-    edits: [["(host.querySelector('[data-host-retry]') || note).focus();", 'note.focus();']],
+    edits: [["to = host.querySelector('[data-host-retry]') || note;", 'to = note;']],
   },
   'every lane that can’t start is said': {
     file: 'host',
@@ -2233,7 +2271,7 @@ const START_MUTANTS = {
   },
   'read-aloud failing alone is not said': {
     file: 'host',
-    check: 'read-aloud alone',
+    check: 'announcements per case',
     edits: [[LATER_TOLD, '']],
   },
   'read-aloud said before the reader’s page': {
@@ -2266,8 +2304,8 @@ const START_MUTANTS = {
         '        opener = returnFocus || document.activeElement;\n        seen = document.activeElement;\n',
       ],
       [
-        `    const active = document.activeElement;\n    ${TELL_IF}`,
-        `    const active = seen;\n    ${TELL_IF}`,
+        `    const active = document.activeElement;\n    let to = null;\n    ${TELL_IF}`,
+        `    const active = seen;\n    let to = null;\n    ${TELL_IF}`,
       ],
     ],
   },
@@ -2303,7 +2341,7 @@ const START_MUTANTS = {
     ],
   },
   // A Retry, as 13de255a3 left it, and judged as the open is.
-  'a Retry whose mount throws says nothing': {
+  'a Retry whose mount throws is not told': {
     file: 'host',
     check: 'Retry whose mount throws',
     edits: [
@@ -2557,6 +2595,33 @@ async function startRun(page, cid, kind, later) {
   );
 }
 
+// What the status region hears in each case of each way, counted.
+const START_COUNTS = {
+  module: { during: 1, play: 0, nowhere: 0, elsewhere: 1, away: 0 },
+  context: {
+    during: 1,
+    play: 1,
+    nowhere: 1,
+    elsewhere: 1,
+    'retry-mount': 0,
+    'retry-elsewhere': 1,
+    'retry-play': 1,
+    'retry-ok': 0,
+    'retry-ok-elsewhere': 0,
+    away: 0,
+  },
+  mount: {
+    during: 1,
+    play: 0,
+    nowhere: 0,
+    elsewhere: 1,
+    both: 0,
+    speech: 2,
+    overtaken: 0,
+    away: 0,
+  },
+};
+
 function startVerdict(g) {
   const SITUATIONS = ['play', 'nowhere', 'elsewhere'];
   const of = (kind) => (g[kind] || []).filter((r) => SITUATIONS.includes(r.situation));
@@ -2570,8 +2635,13 @@ function startVerdict(g) {
     r.hosts.split(',').filter((h) => h === 'libraryreading').length === 1 &&
     r.hosts.split(',').filter((h) => h === 'libraryspeech').length === 1;
   const saidOnce = (r, sentence) => r.said.length === 1 && r.said[0] === sentence;
+  // Focus put on the sentence reads it, so it isn't said: it is said when
+  // focus goes to Retry (the context's), or stays where the person moved it.
+  const says = (kind, s) => kind === 'context' || s === 'elsewhere';
+  const heard = (kind, r) =>
+    says(kind, r.situation) ? saidOnce(r, START_SAYS[kind]) : !r.said.length;
   const right = ({ kind, r }) =>
-    saidOnce(r, START_SAYS[kind]) &&
+    heard(kind, r) &&
     r.reader === START_SAYS[kind] &&
     r.readerRetry === (kind === 'context') &&
     r.speech === null &&
@@ -2604,10 +2674,22 @@ function startVerdict(g) {
     'focus moved while the reader loads': during.every(
       ([kind, r]) => r && r.focus === 'elsewhere' && saidOnce(r, START_SAYS[kind]) && resolved(r)
     ),
-    'said last': all.length === 9 && all.every((x) => x.r.last === START_SAYS[x.kind]),
+    'said last':
+      all.filter((x) => says(x.kind, x.r.situation)).length === 5 &&
+      all.filter((x) => says(x.kind, x.r.situation)).every((x) => x.r.last === START_SAYS[x.kind]),
+    // Every case, its exact count of what the region hears (the stand-in
+    // read-aloud's own sentence aside): the sentence, or nothing when focus
+    // is put on it; with read-aloud failing alone, the reader's page, then
+    // read-aloud's sentence.
+    'announcements per case': START_KINDS.every(
+      (kind) =>
+        Array.isArray(g[kind]) &&
+        g[kind].length === Object.keys(START_COUNTS[kind]).length &&
+        g[kind].every((r) => r.said.length === START_COUNTS[kind][r.situation])
+    ),
     'Retry whose mount throws':
       !!retried('retry-mount') &&
-      saidOnce(retried('retry-mount'), START_SAYS.mount) &&
+      !retried('retry-mount').said.length &&
       retried('retry-mount').focus === 'note:libraryreading',
     'Retry leaves focus the person moved': ['elsewhere', 'play'].every(
       (to) =>
@@ -2625,7 +2707,12 @@ function startVerdict(g) {
     'a module that won’t load': kindRight('module'),
     'a context that fails': kindRight('context'),
     'a mount that throws': kindRight('mount'),
-    'said once': all.length === 9 && all.every((x) => saidOnce(x.r, START_SAYS[x.kind])),
+    'said once':
+      all.length === 9 &&
+      all.filter((x) => says(x.kind, x.r.situation)).length === 5 &&
+      all
+        .filter((x) => says(x.kind, x.r.situation))
+        .every((x) => saidOnce(x.r, START_SAYS[x.kind])),
     'focus from Play': focusFrom('play'),
     'focus from nowhere': focusFrom('nowhere'),
     'focus moved elsewhere': focusFrom('elsewhere'),
@@ -2643,7 +2730,7 @@ function startVerdict(g) {
       resolved(speech),
     'both lanes':
       !!both &&
-      saidOnce(both, START_SAYS.mount) &&
+      !both.said.length &&
       both.reader === START_SAYS.mount &&
       both.speech === SPEECH_COULDNT_START &&
       both.focus === 'note:libraryreading' &&
@@ -2674,7 +2761,7 @@ function startVerdict(g) {
       !!overtaken.readerUnit &&
       overtaken.readerUnit === unitOf(overtaken.returned[1]) &&
       overtaken.readerUnit !== unitOf(overtaken.returned[0]) &&
-      saidOnce(overtaken, START_SAYS.mount) &&
+      !overtaken.said.length &&
       overtaken.focus === 'note:libraryreading' &&
       tail(overtaken),
     // Beside a reader that started (read-aloud alone failing), Play's grant.

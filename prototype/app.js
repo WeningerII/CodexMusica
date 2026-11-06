@@ -147,9 +147,10 @@ const LANES = {
 // A new reading that can't start (the reader's or read-aloud's module
 // doesn't load, its context() fails or its mount() throws) is the slot's to
 // state (host.js createOnDemand; #810, Don's reply to 6683384760). The panel
-// shows the lane's sentence. The reader's is also said, once, after
-// read-aloud is shown, and focus goes to its Retry, else to the sentence, if
-// it is still on Play or nowhere. Read-aloud's, beside a reader that opened
+// shows the lane's sentence. The reader's is told once read-aloud is shown:
+// focus goes to its Retry, else to the sentence, if it is still on Play or
+// nowhere, and the sentence is said once, unless focus is on it (focusing it
+// reads it). Read-aloud's, beside a reader that opened
 // with focus in it, is said once and last, after what the reader says as it
 // opens ("Page 1 of 7"): once the reader's own ctx.reading() has settled and
 // the task it settled in has ended (readerSaid), with focus left in the
