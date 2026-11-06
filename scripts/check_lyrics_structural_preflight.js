@@ -148,6 +148,21 @@ async function checkStructural(sourcePath = path.join(ROOT, 'src/pages/lyrics.js
   refusal(context(full), "LY_ACTIONS['ly-sec-remove']('0')", 'returns');
   refusal(context(full), "LY_ACTIONS['ly-sec-remove']('1')", 'rhyme groups');
   refusal(context(full), "LY_ACTIONS['ly-make-return']('2:0')", 'returns');
+  // Setup parsing trims surrounding whitespace; occurrence counting must use
+  // the same identity without changing raw serialization or losing duplicates.
+  for (const padding of ['  ', '\t']) {
+    const padded = context(`${padding}[SETUP — title — Test]${padding}\n` + song);
+    eq(padded.run("LY_ACTIONS['ly-sec-move']('0:1').applied"), true);
+    eq(padded.run("lySetupOf(LY.model, 'title').map(d => d.value)"), ['Test']);
+    ok(padded.draft.value.includes(`${padding}[SETUP — title — Test]${padding}`));
+    for (const op of ["LY_ACTIONS['ly-sec-remove']('0')", "LY_ACTIONS['ly-sec-dup']('0')"]) {
+      const duplicate = context(
+        '[SETUP — title — Test]\n[VERSE]\nHello\n' +
+          `${padding}[SETUP — title — Test]${padding}\n[CHORUS]\nWorld`
+      );
+      refusal(duplicate, op, 'title: Test');
+    }
+  }
   // Empty declarations must not disappear in serialization; an unknown cut
   // cannot acquire freshly interpreted physical members through an edit.
   for (const [row, named] of [

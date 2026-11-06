@@ -3267,7 +3267,9 @@ function lyStructuralPreflight(model, parts, libraryOrigin, originalBlocks) {
   // Setup inside a section can itself be deleted or duplicated. Even a
   // declaration without numbered members must not disappear with its block.
   const counts = new Map();
-  rows.forEach((r) => counts.set(r.raw, (counts.get(r.raw) || 0) + 1));
+  // lyParseSetup receives trimmed rows; compare the same keys here while
+  // retaining the original row bytes for assembly.
+  rows.forEach((r) => counts.set(r.raw.trim(), (counts.get(r.raw.trim()) || 0) + 1));
   const before = new Map();
   model.setup.forEach((d) => before.set(d.raw, (before.get(d.raw) || 0) + 1));
   for (const d of model.setup) {

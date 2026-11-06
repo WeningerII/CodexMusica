@@ -4666,6 +4666,21 @@ async function browserChecks(chromium) {
         (await page.evaluate(() => $ui('lyrics-draft').value)).includes('[BRIDGE — 4 lines]'),
         'one Undo did not reverse the applied change'
       );
+      // Timed sections now refuse structural moves rather than moving a bar
+      // span silently. Keep that check, then exercise the original pending
+      // target invalidation gate with an explicitly untimed fixture.
+      const timedMove = await page.evaluate(() => {
+        const before = $ui('lyrics-draft').value;
+        const result = LY_ACTIONS['ly-sec-move']('0:1');
+        return { result, unchanged: $ui('lyrics-draft').value === before };
+      });
+      check(
+        !timedMove.result.applied &&
+          timedMove.unchanged &&
+          timedMove.result.refused.some((r) => r.includes('8 bars of 4/4')),
+        'timed fixture moved instead of refusing its declared bar span'
+      );
+      await setDraft(page, DRAFT.replaceAll(' — 8 bars of 4/4', ''));
       // A pending entry whose target moves is kept and blocked.
       await page.evaluate(() => {
         LY.picks.formSec = 0;
@@ -4675,7 +4690,8 @@ async function browserChecks(chromium) {
       // The person clicks Move down: focus leaves the note field.
       await page.evaluate(() => {
         document.activeElement.blur();
-        LY_ACTIONS['ly-sec-move']('0:1');
+        const result = LY_ACTIONS['ly-sec-move']('0:1');
+        if (!result.applied) throw new Error('untimed pending-target fixture did not move');
       });
       await page.evaluate(() => lyRefresh(true));
       const blocked = await page.evaluate(() => ({
