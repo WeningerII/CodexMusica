@@ -430,12 +430,24 @@ Notes that bite:
   a scoring hint this renderer never prints, the voice sentence keeps one word per part,
   and the stack cap and length trim cut more. A swap whose only word is such a token
   leaves stdout byte-identical to the run without it. stdout stays exactly the recipe, and
-  stderr gets one line per card naming what was filtered out of that card's own phrase:
+  stderr gets one line per card naming the swap's words that card's own clause does not
+  print. A word counts as printed by the rule the connector's `render_warnings` applies: as a
+  whole word (a hyphen is a boundary; a word inside a longer word does not count), anywhere
+  in that card's own clause, whichever of the card's parts printed it. The same word printed
+  on another card or in the header does not count:
   ```
   note: <instrument> card: --swap-variant descriptor(s) filtered out of the recipe: <descriptor>, … (<part>:<variant>)
   ```
-  Under `--why-json` / `--why-prefaces-json` stderr is JSON, so the note is left out there,
-  as `(N chars)` is.
+- A swap on an instrument the recipe does not have (not in the roster, or removed by
+  `--exclude-instrument`) has no card to apply to: exit 0, and stdout is the recipe (under
+  `--json`, the config) without it. stderr gets one line per such swap (a part swapped twice
+  keeps only the last, as on a card), ending `(add it with --add-instrument=<instrument>)`
+  or `(--exclude-instrument removed it)`:
+  ```
+  note: <instrument> is not in the recipe, so --swap-variant <instrument>:<part>:<variant> was not applied (…)
+  ```
+  Under `--why-json` / `--why-prefaces-json` stderr is JSON, so both notes are left out
+  there, as `(N chars)` is.
 - Stapling **order** in `--traditions a,b` sets which tradition leads the
   recipe header and instrument order (matches the app's group-order → output
   behavior). Reorder by reordering the ids.

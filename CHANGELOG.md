@@ -22,9 +22,19 @@ would have counted too. Gangsta rap Rich and Tags and Irish trad session Tags we
   Rich or Prose pooled from several cards (they merge cards that share a label or trailing
   word), so the output cannot say which card it describes; `shared_with` names the others.
 - **CLI.** `recipe.js --swap-variant` keeps stdout exactly as rendered and prints one
-  stderr line per card naming the swapped descriptors its phrase does not print
+  stderr line per card naming the swapped descriptors its own clause does not print
   (`note: sampler_classic card: --swap-variant descriptor(s) filtered out of the recipe:
-  modern (sampler_archetypes:mpc_modern)`).
+  modern (sampler_archetypes:mpc_modern)`). It decides "printed" with the connector's own
+  test (`scripts/_whole_word.js`, shared with `mcp/engine.js`): a whole word anywhere in
+  that card's clause, whichever part printed it, so a drum-kit `edge_round` swap no longer
+  names `fundamental` while the clause reads `low fundamental tuning … drum kit`.
+- **CLI: a swap with no card.** A `--swap-variant` on an instrument the recipe does not
+  have (not in the roster, or removed by `--exclude-instrument`) used to be dropped with
+  exit 0 and nothing said. stdout is still the recipe (or the `--json` config) without it,
+  and stderr now says
+  `note: <instrument> is not in the recipe, so --swap-variant <triple> was not applied (…)`,
+  one line per such swap. `--json` no longer ends with `process.exit()`, which through a
+  pipe could cut off the end of stderr (`--why` output, and now this note).
 - **No recipe byte moves.** `check_app_parity.js` stays 7755/7755 in all four formats, and
   `regression_recipes.js` 1149/1149.
 

@@ -44,6 +44,14 @@ function run(args) {
   }
 }
 
+// Run a node script keeping stdout and stderr apart: { code, out, err }.
+function runSplit(args) {
+  const r = spawnSync('node', args, { cwd: ROOT, encoding: 'utf8', timeout: 60000 });
+  return { code: r.status, out: r.stdout || '', err: r.stderr || '' };
+}
+// The `note: ` lines recipe.js wrote to stderr.
+const stderrNotes = (r) => r.err.split('\n').filter((line) => line.startsWith('note: '));
+
 const tradName = (id) => (C.TRADITIONS.find((t) => t.id === id) || {}).name || id;
 const allEqual = (arr) => arr.length > 0 && arr.every((x) => x.length > 0 && x === arr[0]);
 
@@ -136,31 +144,202 @@ assert(
   '§3f',
   'a swap whose words the recipe filters out is named on stderr; stdout is unchanged',
   () => {
-    const full = (args) => {
-      const r = spawnSync('node', args, { cwd: ROOT, encoding: 'utf8', timeout: 60000 });
-      return { code: r.status, out: r.stdout || '', err: r.stderr || '' };
-    };
-    const notes = (r) => r.err.split('\n').filter((line) => line.startsWith('note: '));
-    const base = full([RECIPE, '--tradition', 'gangsta_rap']);
-    const r = full([
+    const base = runSplit([RECIPE, '--tradition', 'gangsta_rap']);
+    const r = runSplit([
       RECIPE,
       '--tradition',
       'gangsta_rap',
       '--swap-variant=sampler_classic:sampler_archetypes:mpc_modern',
     ]);
-    const [note = ''] = notes(r);
+    const [note = ''] = stderrNotes(r);
     const ok =
       base.code === 0 &&
       r.code === 0 &&
       r.out === base.out &&
-      notes(base).length === 0 &&
-      notes(r).length === 1 &&
+      stderrNotes(base).length === 0 &&
+      stderrNotes(r).length === 1 &&
       /\bsampler_classic card\b/.test(note) &&
       /: modern \(sampler_archetypes:mpc_modern\)$/.test(note);
     return {
       ok,
       detail: `exit ${r.code}; stdout ${r.out === base.out ? 'unchanged' : 'changed'}; note ${JSON.stringify(note)}`,
     };
+  }
+);
+
+// The note decides "printed" by the connector's rule (#671): a whole word,
+// hyphen as a boundary, anywhere in that card's own clause, whichever part
+// printed it. The named set has to be exactly the swap's catalog words absent,
+// by an independent whole-word test, from the card's clause on stdout (the
+// clause that ends in the card's name), plus any word that clause prints only
+// from another card's phrase it pools. Each case checks first that it still
+// shows the distinction it is here for:
+// - italogaze edge_round: `fundamental` is printed in `low fundamental tuning`
+//   (the note used to name it, testing each word against the stack's printed
+//   descriptors one by one);
+// - the same at --max-chars=270: the trim cuts the drum-kit clause, so every
+//   word is named;
+// - tanzanian_traditional mubvamaropa: `wood` is printed only inside
+//   `hardwood`, which is not the word;
+// - quiet_storm khomus_forged_steel: `bright` is printed, but in the
+//   semi-hollow guitar's clause, not the Rhodes card's;
+// - tropicalia celtic_gut: the humbucker's phrase is pooled into one clause
+//   with the classical guitar's, and `classical` there is the classical
+//   guitar's name, not the humbucker card's own phrase.
+assert(
+  '§3f',
+  "the swap note names only words its card's own clause does not print as whole words",
+  () => {
+    const edge = '[\\p{L}\\p{N}\\p{M}_]';
+    const whole = (text, w) =>
+      new RegExp(`(?<!${edge})${w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?!${edge})`, 'iu').test(
+        text
+      );
+    const printedIn = (text, d) => [d, d.replace(/-/g, ' ')].some((f) => whole(text, f));
+    const cases = [
+      {
+        tradition: 'italogaze',
+        swap: 'drum_kit:bearing_edges:edge_round',
+        noun: 'drum kit',
+        holds: (clause) => clause !== '' && printedIn(clause, 'fundamental'),
+      },
+      {
+        tradition: 'italogaze',
+        extra: ['--max-chars=270'],
+        swap: 'drum_kit:bearing_edges:edge_round',
+        noun: 'drum kit',
+        holds: (clause, out) => clause === '' && !/\bdrum kit\b/.test(out),
+      },
+      {
+        tradition: 'tanzanian_traditional',
+        swap: 'acoustic_guitar_om:back_sides:mubvamaropa',
+        noun: 'acoustic guitar',
+        holds: (clause) => /hardwood/.test(clause) && !printedIn(clause, 'wood'),
+      },
+      {
+        tradition: 'quiet_storm',
+        swap: 'rhodes_electric:rhodes_tine_material:khomus_forged_steel',
+        noun: 'rhodes electric',
+        holds: (clause, out) =>
+          clause !== '' && printedIn(out, 'bright') && !printedIn(clause, 'bright'),
+      },
+      {
+        tradition: 'tropicalia',
+        swap: 'electric_guitar_humbucker:string_material:celtic_gut',
+        noun: 'humbucker electric guitar',
+        notOwn: ['classical'],
+        holds: (clause) => /\bclassical nylon-string\b/.test(clause),
+      },
+    ];
+    const details = [];
+    let ok = true;
+    for (const c of cases) {
+      const [instId, partId, variantId] = c.swap.split(':');
+      const inst = C.INSTRUMENTS.find((i) => i.id === instId);
+      const part = inst && inst.parts.find((p) => p.id === partId);
+      const variant = part && part.variants.find((v) => v.id === variantId);
+      const words = (variant && variant.descriptors) || [];
+      const r = runSplit([
+        RECIPE,
+        '--tradition',
+        c.tradition,
+        ...(c.extra || []),
+        `--swap-variant=${c.swap}`,
+      ]);
+      const ends = new RegExp(`\\b${c.noun}$`, 'i');
+      const clause = r.out.split(/[.,] /).find((x) => ends.test(x)) || '';
+      const notes = stderrNotes(r).filter((n) => n.startsWith(`note: ${instId} card: `));
+      const m = (notes[0] || '').match(new RegExp(`: ([^:]*) \\(${partId}:${variantId}\\)$`));
+      const named = m ? m[1].split(', ') : [];
+      const expected = words.filter((d) => !printedIn(clause, d) || (c.notOwn || []).includes(d));
+      const caseOk =
+        r.code === 0 &&
+        words.length > 0 &&
+        c.holds(clause, r.out) &&
+        notes.length === (expected.length ? 1 : 0) &&
+        JSON.stringify(named) === JSON.stringify(expected);
+      ok = ok && caseOk;
+      details.push(
+        `${c.tradition} ${(c.extra || []).join(' ')} ${c.swap}: ${caseOk ? 'ok' : 'FAIL'}; exit ${r.code}; clause ${JSON.stringify(clause)}; named ${JSON.stringify(named)}; expected ${JSON.stringify(expected)}`
+      );
+    }
+    return { ok, detail: details.join(' | ') };
+  }
+);
+
+// A swap on an instrument the recipe does not have has no card to apply to.
+// banjo_5_string is not in gangsta_rap's roster, and --exclude-instrument
+// drops sampler_classic. Both exited 0 with stdout byte-identical to the run
+// without the swap and nothing on stderr. stdout stays exactly that; stderr
+// gets one note per swap with its reason. The exclude is the reason only when
+// it removed the instrument: excluding banjo_5_string removes nothing. Under
+// --json stdout is the config, unchanged, and stderr gets the same notes;
+// under --why-json and --why-prefaces-json stderr is JSON, so none.
+assert(
+  '§3f',
+  'a swap on an instrument not in the recipe is named on stderr as not applied; stdout is unchanged',
+  () => {
+    const banjo = ['banjo_5_string:banjo_back:resonator', 'banjo_5_string:tone_ring:tubaphone'];
+    const note = (swap, removed) => {
+      const instrument = swap.split(':')[0];
+      const why = removed
+        ? '--exclude-instrument removed it'
+        : `add it with --add-instrument=${instrument}`;
+      return `note: ${instrument} is not in the recipe, so --swap-variant ${swap} was not applied (${why})`;
+    };
+    const cases = [
+      { base: [], swaps: banjo, removed: false, modes: true },
+      {
+        base: ['--exclude-instrument=sampler_classic'],
+        swaps: ['sampler_classic:sampler_archetypes:mpc_modern'],
+        removed: true,
+      },
+      { base: ['--exclude-instrument=banjo_5_string'], swaps: [banjo[0]], removed: false },
+    ];
+    const isJson = (text) => {
+      try {
+        return typeof JSON.parse(text) === 'object';
+      } catch {
+        return false;
+      }
+    };
+    const details = [];
+    let ok = true;
+    for (const c of cases) {
+      const args = [RECIPE, '--tradition', 'gangsta_rap', ...c.base];
+      const swapFlag = `--swap-variant=${c.swaps.join(';')}`;
+      const want = JSON.stringify(c.swaps.map((s) => note(s, c.removed)));
+      const base = runSplit(args);
+      const r = runSplit([...args, swapFlag]);
+      let caseOk =
+        base.code === 0 &&
+        r.code === 0 &&
+        r.out === base.out &&
+        stderrNotes(base).length === 0 &&
+        JSON.stringify(stderrNotes(r)) === want;
+      const detail = [`notes ${JSON.stringify(stderrNotes(r))}`];
+      if (c.modes) {
+        const jsonBase = runSplit([...args, '--json']);
+        const json = runSplit([...args, '--json', swapFlag]);
+        const jsonOk =
+          json.code === 0 &&
+          json.out === jsonBase.out &&
+          JSON.stringify(stderrNotes(json)) === want;
+        detail.push(`--json ${jsonOk ? 'ok' : 'FAIL'}`);
+        caseOk = caseOk && jsonOk;
+        for (const mode of ['--why-json', '--why-prefaces-json']) {
+          const w = runSplit([...args, mode, swapFlag]);
+          const wOk = w.code === 0 && w.out === base.out && isJson(w.err);
+          detail.push(`${mode} stderr ${wOk ? 'is JSON' : 'FAIL'}`);
+          caseOk = caseOk && wOk;
+        }
+      }
+      ok = ok && caseOk;
+      details.push(
+        `${c.base.join(' ')} ${c.swaps.join(';')}: ${caseOk ? 'ok' : 'FAIL'}; exit ${r.code}; stdout ${r.out === base.out ? 'unchanged' : 'changed'}; ${detail.join('; ')}`
+      );
+    }
+    return { ok, detail: details.join(' | ') };
   }
 );
 

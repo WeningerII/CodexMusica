@@ -19,6 +19,9 @@
 //   node scripts/translate.js --tradition <id>           (run search then translate)
 
 const C = require('./_loader.js');
+// The connector's whole-word rule for a pinned descriptor (#671), shared so the
+// --swap-variant note and render_warnings decide "printed" the same way.
+const { hasWord } = require('./_whole_word.js');
 
 // ============================================================
 // ID-TO-DISPLAY TRANSLATOR
@@ -1383,10 +1386,16 @@ function isSwappedSlot(config, instId, partId) {
 // swap whose only word is filtered exits 0 with stdout byte-identical to the run
 // without it, so the caller has to be told — on stderr, the recipe unchanged.
 //
-// Each builder below records, per swapped slot, the words its phrase printed and
-// where that phrase's clause ends in its sentence; translate() then checks the
-// clause against what the trim kept. `swaps` is null unless the caller asked
-// (options.filteredSwaps), and nothing here changes a byte of the recipe.
+// A word counts as printed by the rule render_warnings applies (mcp/engine.js):
+// a WHOLE word (hasWord, a hyphen is a boundary) inside the card's OWN segment
+// of the output. Which part of the card printed it does not matter, and the
+// same word printed on another card, in the header or inside a longer word
+// does not count. Each builder below records, per swapped slot, where its
+// card's segment lies in its sentence (`start`..`end`) and, where a clause can
+// pool several cards' phrases, the card's own phrase (`own`); translate() then
+// reads that segment back as far as the trim kept it. `swaps` is null unless
+// the caller asked (options.filteredSwaps), and nothing here changes a byte of
+// the recipe.
 function swapRecord(variant, instId, partId, variantId, sentence) {
   const words = [];
   for (const d of (variant && variant.descriptors) || []) {
@@ -1403,9 +1412,19 @@ function swapRecord(variant, instId, partId, variantId, sentence) {
     variant: variantId,
     sentence,
     words,
-    shown: new Set(),
-    clauseEnd: -1,
+    start: 0,
+    end: 0, // no segment until a builder places one: nothing printed
+    own: null,
   };
+}
+
+// Is swap word `w` printed in `printed`, the card's segment as kept, and (when
+// the segment pools several cards) in `own`, the card's own phrase? Either the
+// form the CLI prints or the catalog's hyphenated form counts.
+function swapWordPrinted(w, printed, own) {
+  return [w.display, w.descriptor].some(
+    (form) => hasWord(printed, form) && (own === null || hasWord(own, form))
+  );
 }
 
 // Where each clause of a `', '`-joined sentence ends, by clause index.
@@ -1469,24 +1488,18 @@ function buildSentence2_voice(config, _trustedTokens, swaps = null) {
       const stripped = stripCanonical(d);
       if (isScoreHintOnly(stripped)) continue;
       // A swapped part's word leads, so the cap of four below cannot cut it.
-      if (isSwappedSlot(config, 'voice', part.id)) {
-        swappedDescs.push(displayDescriptor(stripped));
-        if (record) record.word = displayDescriptor(stripped);
-      } else descriptors.push(displayDescriptor(stripped));
+      if (isSwappedSlot(config, 'voice', part.id)) swappedDescs.push(displayDescriptor(stripped));
+      else descriptors.push(displayDescriptor(stripped));
       break; // one per variant — the iconic name
     }
   }
   if (descriptors.length + swappedDescs.length === 0) return null;
   const unique = [...new Set([...swappedDescs, ...descriptors])].slice(0, 4);
-  // Each word is its own clause here, so a swap's clause is the one its word is.
-  const ends = clauseEnds(unique);
-  for (const r of records) {
-    const at = r.word === undefined ? -1 : unique.indexOf(r.word);
-    if (at < 0) continue;
-    r.shown.add(r.word);
-    r.clauseEnd = ends[at];
-  }
-  return unique.join(', ') + '.';
+  const body = unique.join(', ');
+  // The voice is the only card this sentence renders, so all of it is the
+  // voice card's own segment.
+  for (const r of records) r.end = body.length;
+  return body + '.';
 }
 
 // Render an arrangement descriptor sentence from config.arrangement.
@@ -1838,10 +1851,7 @@ function buildSentence3_instruments(config, trustedTokens, swaps = null) {
       }
     const instName = displayInstrumentName(inst.id);
     if (!instName) continue;
-    for (const record of instRecords) {
-      for (const w of record.words) if (trimmed.includes(w.display)) record.shown.add(w.display);
-      records.push({ record, phrase: phrases.length });
-    }
+    for (const record of instRecords) records.push({ record, phrase: phrases.length });
     if (trimmed.length === 0) {
       phrases.push(instName);
     } else {
@@ -1854,11 +1864,16 @@ function buildSentence3_instruments(config, trustedTokens, swaps = null) {
       ? phrases.map((text, idx) => ({ text, members: [idx] }))
       : collapseRepeatedNounGroups(phrases);
   const collapsed = groups.map((g) => g.text);
-  // A collapsed clause still prints every member phrase's words.
+  // A card's segment is the clause that prints its phrase. A collapsed clause
+  // prints every member phrase's words, so a word there counts for this card
+  // only when it is also one of the card's own phrase.
   const ends = clauseEnds(collapsed);
   for (const { record, phrase } of records) {
     const at = groups.findIndex((g) => g.members.includes(phrase));
-    if (at >= 0) record.clauseEnd = ends[at];
+    if (at < 0) continue;
+    record.start = ends[at] - collapsed[at].length;
+    record.end = ends[at];
+    if (groups[at].members.length > 1) record.own = phrases[phrase];
   }
   return collapsed.join(', ') + '.';
 }
@@ -2125,15 +2140,17 @@ function translate(config, options = {}) {
     const cut = Math.max(body.lastIndexOf(', '), body.lastIndexOf('; '));
     return cut > 0 ? body.slice(0, cut).replace(/[,;:\s]+$/, '') + '.' : null;
   };
-  // The trim only ever drops a sentence's trailing clauses, so a swap's clause
-  // is printed while its sentence still keeps the characters it ends at.
-  // keptOf(j) is how much of sentence j's body the output kept.
+  // The trim only ever drops a sentence's tail, so what the output kept of
+  // sentence j is the first keptOf(j) characters of it as built, and a card's
+  // segment is printed as far as that reaches.
+  const built = sentences.slice();
   const disclose = (output, keptOf) => {
     if (!swaps) return output;
     for (const r of swaps) {
       const at = r.sentence === 'voice' ? voiceAt : instrumentsAt;
-      const printed = at >= 0 && r.clauseEnd >= 0 && r.clauseEnd <= keptOf(at);
-      const lost = r.words.filter((w) => !(printed && r.shown.has(w.display)));
+      const printed =
+        at >= 0 ? built[at].slice(r.start, Math.max(r.start, Math.min(r.end, keptOf(at)))) : '';
+      const lost = r.words.filter((w) => !swapWordPrinted(w, printed, r.own));
       if (lost.length)
         options.filteredSwaps.push({
           instrument: r.instrument,

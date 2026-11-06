@@ -232,7 +232,8 @@ function parseOpts(flags, _primaryTradId, _stapleIds) {
     process.exit(2);
   }
 
-  return { exclude, add, swap, stapleMode, arrangement };
+  // removed: filled by seedFromTradition with the ids an exclude actually removed.
+  return { exclude, add, swap, stapleMode, arrangement, removed: [] };
 }
 
 // === Seed generation by mode ===
@@ -599,6 +600,24 @@ if (flags['why-prefaces'] || flags['why-prefaces-json']) {
   }
 }
 
+// A swap on an instrument the recipe does not have (not in the roster, or
+// removed by --exclude-instrument) has no card to apply to, and stdout is the
+// recipe, or under --json the config, without it, so stderr says so, one line
+// per swap (#671). Under --why-json / --why-prefaces-json stderr is JSON.
+if (!flags['why-json'] && !flags['why-prefaces-json']) {
+  const inRecipe = new Set(result.config.instruments.map((inst) => inst.id));
+  for (const [instrument, parts] of Object.entries(opts.swap)) {
+    if (inRecipe.has(instrument)) continue;
+    const why = opts.removed.includes(instrument)
+      ? '--exclude-instrument removed it'
+      : `add it with --add-instrument=${instrument}`;
+    for (const [part, variant] of Object.entries(parts))
+      console.error(
+        `note: ${instrument} is not in the recipe, so --swap-variant ${instrument}:${part}:${variant} was not applied (${why})`
+      );
+  }
+}
+
 if (flags.json) {
   console.log(
     JSON.stringify(
@@ -607,7 +626,12 @@ if (flags.json) {
       2
     )
   );
-  process.exit(0);
+  // Not process.exit(): to a pipe Node writes asynchronously, and exiting here
+  // dropped whatever stderr (--why output, the note above) had not drained yet.
+  // The module ends and Node exits 0 once both streams are written (as
+  // audit.js does).
+  process.exitCode = 0;
+  return;
 }
 
 // A swapped part can still print none of its words (a BARE token such as

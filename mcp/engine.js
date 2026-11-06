@@ -36,6 +36,9 @@ const {
 // The product-defining hard recipe cap — single source of truth, re-exported so
 // the tool schema (tools.js) derives its max_chars bound from the same constant.
 const { RECIPE_CHAR_CEILING } = require('../scripts/_api_contract.js');
+// The whole-word rule render_warnings applies below, shared with the CLI's
+// --swap-variant stderr note (scripts/translate.js) so both decide alike.
+const { hasWord } = require('../scripts/_whole_word.js');
 
 // Locale-invariant ordering: localeCompare with no locale argument collates by
 // the machine's ICU locale, which made this ordering depend on where it ran.
@@ -256,15 +259,8 @@ function envLiteral(recipeLower, name) {
 // `modern-alder` (where subsumption folds a pinned word into a longer one, the
 // word is still printed), but not in `postmodern`, and `low` is not in
 // `bellowing`. Case is ignored: compact prints catalog names as named.
-const WORD_EDGE = '[\\p{L}\\p{N}\\p{M}_]';
-function hasWord(text, word) {
-  const w = String(word || '').toLowerCase();
-  if (!text || !w) return false;
-  const esc = w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  return new RegExp(`(?<!${WORD_EDGE})${esc}(?!${WORD_EDGE})`, 'u').test(
-    String(text).toLowerCase()
-  );
-}
+// hasWord (scripts/_whole_word.js) is that test; the CLI's --swap-variant note
+// applies the same one inside each card's own clause.
 
 // The span of `recipe` that renders card `index`, from the renderer's own chunk
 // list (renderWorkspace's `trace`, see _traceSegments in _recipe_stack.js), not
