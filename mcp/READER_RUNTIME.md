@@ -299,6 +299,12 @@ calls; refusals produce `completed_with_refusals`. The final manifest is fsynced
 before its completed pointer. Resource exhaustion preserves the preceding
 cursor. A process interruption never automatically replays writing or paid work.
 
+The cursor is kept only in the job record, which each commit replaces; resume
+reads it there. Each generation's immutable checkpoint object links its manifest
+and page index to the previous generation and carries no cursor, so a commit's
+storage does not grow with the cursor (#656). Checkpoint objects written before
+this change still carry one; nothing reads it, and they leave with their job.
+
 Private results retain 30 days without authorized access; access refreshes their
 advertised expiry. The refresh slides in memory on every authorized read and is
 persisted at most once an hour, so a restart can shorten a result's retention by

@@ -1072,13 +1072,17 @@ export class ReaderJobStore {
           coverage,
           progress,
         });
+        // A checkpoint object is history: it links this generation's manifest
+        // and page index to the one before, and carries no cursor. The record
+        // is the head and holds the one cursor resume reads (#656: a cursor
+        // copy in every generation filled the quota). Checkpoints written
+        // before this change still carry one; nothing reads it.
         const checkpoint = this._blob('checkpoints', {
           version: 1,
           job_id: id,
           identity_hash: record.identity_hash,
           previous_hash: record.checkpoint_hash,
           generation,
-          cursor: input.cursor,
           progress,
           coverage,
           page_index_hash: root,
@@ -1210,13 +1214,13 @@ export class ReaderJobStore {
           evidence_count: record.evidence_count,
           coverage,
         });
+        // No cursor here either: the record keeps it (see commitCheckpoint).
         const checkpoint = this._blob('checkpoints', {
           version: 1,
           job_id: id,
           identity_hash: record.identity_hash,
           previous_hash: record.checkpoint_hash,
           generation,
-          cursor: record.cursor,
           progress: record.progress,
           coverage,
           page_index_hash: record.page_index_hash,
