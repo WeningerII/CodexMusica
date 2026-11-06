@@ -3972,6 +3972,29 @@ async function storeProduction(browser, srv) {
         app.cards = saved;
       }
     };
+    // The render with the environment items' names marked (sentence).
+    const MARK = '\\u2400';
+    const marked = (after, src, ceiling) => {
+      const chain = src.chain || {};
+      const items = [
+        ...new Set(
+          [
+            src.tuning && Tuning(src.tuning),
+            src.room && Room(src.room),
+            ...CHAIN_SECTIONS.flatMap((sec) =>
+              [].concat(chain[sec.id] || []).map((id) => ChainItem(sec.id, id))
+            ),
+          ].filter(Boolean)
+        ),
+      ];
+      const names = items.map((it) => it.name);
+      try {
+        items.forEach((it) => { it.name = MARK.repeat(it.name.length); });
+        return compileRecipeStack(after, 'compact', { ceiling });
+      } finally {
+        items.forEach((it, i) => { it.name = names[i]; });
+      }
+    };
     const sentence = (after, copy, format, ceiling) => {
       const src = envCardOf(after);
       if (!src || !hasEnvironment(src)) return 'Your recipe has no environment yet, and neither does this instrument.';
@@ -3979,17 +4002,21 @@ async function storeProduction(browser, srv) {
         ? 'Added now, this instrument would set your recipe’s environment: its tuning, room and chain are the ones the recipe renders.'
         : 'Your recipe renders one environment, from ' + who(src) + ' (' + (src.traditionId ? Tradition(src.traditionId).name : 'independent') + '). This instrument’s tuning, room and chain are kept on its card, but render only if it becomes that source.';
       if (format !== 'compact') return lead;
+      // Whether Compact writes the environment, read from a signal the
+      // render's shape can't counterfeit (#810, the review of 6682309672's
+      // fixes): the same render with the name of each environment item (the
+      // source card's tuning, room and chain items) swapped for a run of a
+      // mark no catalog name uses, each run as long as the name it stands
+      // for. compressCompactRecipe cuts by length alone, so the swapped
+      // render makes the same cut, and the environment is written exactly
+      // when the mark is in it. A swapped render of another length, or the
+      // mark already in the render, would make this rule wrong, and the
+      // sentence says so instead.
       const text = compileRecipeStack(after, 'compact', { ceiling });
-      // compressCompactRecipe's shapes: a render cut at the ceiling ends
-      // in a "[truncated]" line and has no environment line; otherwise the
-      // environment is the line after one line per card, or, for one card
-      // that fits on one line, its parts after the instrument's, each after
-      // a " · ".
-      const lines = text.split('\\n');
-      const written =
-        lines[lines.length - 1] !== '[truncated]' &&
-        (lines.length === after.length + 1 ||
-          (after.length === 1 && lines.length === 1 && text.includes(' · ')));
+      const swapped = marked(after, src, ceiling);
+      if (swapped.length !== text.length || text.includes(MARK))
+        return 'gate: the swapped render can’t say whether Compact writes the environment: ' + JSON.stringify([text, swapped]);
+      const written = swapped.includes(MARK);
       return written
         ? lead + ' In Compact it is written once, after the instruments.'
         : lead + ' In Compact the environment line is dropped to fit the ' + ceiling + '-character limit.';
@@ -4007,6 +4034,10 @@ async function storeProduction(browser, srv) {
       // room, its tuning and one item on every chain stage): the single-card
       // render without it, one line ("<preface> oud,").
       aloneLong: () => { const p = edited(makeCard('oud')); for (const sec of CHAIN_SECTIONS) p.chain[sec.id] = sec.multiSelect ? [sec.items[0].id] : sec.items[0].id; return { recipe: [], preview: p }; },
+      // The same card, its instrument named with a " · " of its own: at 150
+      // and 100 its render is still one line with a " · " in it, and no
+      // environment.
+      aloneNamed: () => ({ ...cases.aloneLong(), dotted: true }),
       // Whale song's cards have no environment and a loose banjo with a
       // room follows them; the preview, grouped to whale song, lands before
       // the banjo, so it would set the environment.
@@ -4036,16 +4067,29 @@ async function storeProduction(browser, srv) {
       r.name = Inst(src.instrumentId).short || Inst(src.instrumentId).name;
       try { return read(); } finally { r.name = was; }
     };
+    // The instrument named with a " · " of its own, only while a case is
+    // read.
+    const dotted = (id, read) => {
+      const inst = Inst(id);
+      const had = Object.prototype.hasOwnProperty.call(inst, 'short');
+      const was = inst.short;
+      inst.short = (inst.short || inst.name) + ' · lute';
+      try { return read(); } finally { if (had) inst.short = was; else delete inst.short; }
+    };
     out.sources = {};
+    out.dottedRenders = {};
     for (const [name, make] of Object.entries(cases)) {
       out.sources[name] = {};
       for (const ceiling of [1000, 150, 100])
         for (const [f] of RECIPE_FORMATS) {
-          const { recipe, preview, rename } = make();
+          const { recipe, preview, rename, dotted: dot } = make();
           const copy = { ...preview, id: '__preview__' };
           const after = place(recipe, copy);
           const read = () => sentence(after, copy, f, ceiling);
-          out.sources[name][ceiling + ':' + f] = rename ? renamed(after, read) : read();
+          const named = rename ? () => renamed(after, read) : read;
+          out.sources[name][ceiling + ':' + f] = dot ? dotted(copy.instrumentId, named) : named();
+          if (dot && f === 'compact')
+            out.dottedRenders[ceiling] = dotted(copy.instrumentId, () => compileRecipeStack(after, 'compact', { ceiling }));
         }
     }
     out.room = room;
@@ -4934,6 +4978,15 @@ const STORE_CHECKS = {
               await V.chain.choose({ ...choice, revision: V.chain.snapshot().revision });
             await S.settle();
             await read('aloneLong');
+            // aloneNamed: the same, its instrument named with a " · " of its
+            // own while it is read.
+            const inst = E.Inst('oud');
+            const had = Object.prototype.hasOwnProperty.call(inst, 'short');
+            const was = inst.short;
+            inst.short = `${inst.short || inst.name} · lute`;
+            await read('aloneNamed');
+            if (had) inst.short = was;
+            else delete inst.short;
             for (const choice of stages(false))
               await V.chain.choose({ ...choice, revision: V.chain.snapshot().revision });
             await S.settle();
@@ -5000,6 +5053,7 @@ const STORE_CHECKS = {
           'banjo',
           'alone',
           'aloneLong',
+          'aloneNamed',
           'grouped',
           'truncating',
           'named',
@@ -7304,6 +7358,12 @@ Object.assign(STORE_MUTANTS, {
       ],
     ],
   },
+  // ...and read by any " · " in it, the gate's own rule before (#810, the
+  // review of 6682309672's fixes): aloneNamed's instrument has one.
+  'the Compact clause for one card read from any " · "': {
+    check: 'environment',
+    edits: [['text.endsWith(` · ${env}`);', "text.includes(' · ');"]],
+  },
   'the Compact clause found anywhere in the text': {
     check: 'environment',
     edits: [
@@ -7641,6 +7701,21 @@ async function recipeChecks(browser, srv) {
   expect(
     p.handover.filter(([, t]) => t).length >= 3,
     `recipe store: codex.html's hand-over sequence says too little: ${JSON.stringify(p.handover)}`
+  );
+  // The environment check's aloneNamed case is what it is there to be: at
+  // 150 and 100 the render is one line with a " · " in it, and the gate's
+  // reference says the environment line is dropped.
+  expect(
+    [150, 100].every((c) => {
+      const text = p.dottedRenders[c];
+      return (
+        typeof text === 'string' &&
+        !text.includes('\n') &&
+        text.includes(' · ') &&
+        / the environment line is dropped /.test(p.sources.aloneNamed[`${c}:compact`])
+      );
+    }) && !Object.values(p.sources).some((s) => Object.values(s).some((t) => /^gate: /.test(t))),
+    `recipe store: codex.html's environment cases don't hold the gate's rule: ${JSON.stringify(p.dottedRenders)}`
   );
 
   const names = Object.keys(STORE_CHECKS);
