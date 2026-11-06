@@ -3545,9 +3545,20 @@ async function storeProduction(browser, srv) {
     out.output = Object.fromEntries(RECIPE_FORMATS.map(([f]) => [f, compileStack(conf, f)]));
 
     // 13: the environment sentence, by the gate's own rule over this
-    // page's render: where the card would land, which card the recipe's
+    // page's render: where the card would land (after its genre's run, as
+    // addInstrumentFromPicker places it), which card the recipe's
     // environment would come from, and whether Compact writes it.
     const who = (c) => uiCardWho(c);
+    const place = (recipe, copy) => {
+      const saved = app.cards;
+      try {
+        app.cards = [...recipe, copy];
+        if (copy.traditionId) _placeCardAfterTraditionRun(copy, copy.traditionId);
+        return app.cards;
+      } finally {
+        app.cards = saved;
+      }
+    };
     const sentence = (after, copy, format, ceiling) => {
       const src = envCardOf(after);
       if (!src || !hasEnvironment(src)) return 'Your recipe has no environment yet, and neither does this instrument.';
@@ -3556,20 +3567,41 @@ async function storeProduction(browser, srv) {
         : 'Your recipe renders one environment, from ' + who(src) + ' (' + (src.traditionId ? Tradition(src.traditionId).name : 'independent') + '). This instrument’s tuning, room and chain are kept on its card, but render only if it becomes that source.';
       if (format !== 'compact') return lead;
       const text = compileRecipeStack(after, 'compact', { ceiling });
-      // Two or more cards: the environment is the line after the
-      // instruments'. One card: Compact writes one line, and the
-      // environment's parts follow the instrument's, each after a " · ".
-      const written = after.length >= 2 ? text.split('\\n').length === after.length + 1 : text.includes(' · ');
+      // compressCompactRecipe's shapes: a render cut at the ceiling ends
+      // in a "[truncated]" line and has no environment line; otherwise the
+      // environment is the line after one line per card, or, for one card
+      // that fits on one line, its parts after the instrument's, each after
+      // a " · ".
+      const lines = text.split('\\n');
+      const written =
+        lines[lines.length - 1] !== '[truncated]' &&
+        (lines.length === after.length + 1 ||
+          (after.length === 1 && lines.length === 1 && text.includes(' · ')));
       return written
         ? lead + ' In Compact it is written once, after the instruments.'
         : lead + ' In Compact the environment line is dropped to fit the ' + ceiling + '-character limit.';
     };
     const room = ROOMS[3].id;
+    await Catalog.ensureFull('whale_song');
+    await Catalog.ensureFull('brasilia_indie');
+    const edited = (p) => { p.room = room; p.tuning = TUNINGS[5].id; return p; };
     const cases = {
       empty: () => ({ recipe: [], preview: makeCard('oud') }),
       genre: () => { app.cards = []; importTradition('bluegrass'); return { recipe: app.cards.slice(), preview: makeCard('oud') }; },
       banjo: () => { const p = makeCard('oud'); p.room = room; return { recipe: [makeCard('banjo_5_string')], preview: p }; },
       alone: () => { const p = makeCard('oud'); p.room = room; return { recipe: [], preview: p }; },
+      // Whale song's cards have no environment and a loose banjo with a
+      // room follows them; the preview, grouped to whale song, lands before
+      // the banjo, so it would set the environment.
+      grouped: () => {
+        app.cards = [];
+        importTradition('whale_song');
+        const banjo = makeCard('banjo_5_string');
+        banjo.room = room;
+        return { recipe: [...app.cards, banjo], preview: edited(makeCard('oud', traditionCardOpts('whale_song', 'oud') || undefined)) };
+      },
+      // Brasília indie's five cards and the loose preview: cut at 150.
+      truncating: () => { app.cards = []; importTradition('brasilia_indie'); return { recipe: app.cards.slice(), preview: edited(makeCard('oud')) }; },
     };
     out.sources = {};
     for (const [name, make] of Object.entries(cases)) {
@@ -3578,7 +3610,7 @@ async function storeProduction(browser, srv) {
         for (const [f] of RECIPE_FORMATS) {
           const { recipe, preview } = make();
           const copy = { ...preview, id: '__preview__' };
-          out.sources[name][ceiling + ':' + f] = sentence([...recipe, copy], copy, f, ceiling);
+          out.sources[name][ceiling + ':' + f] = sentence(place(recipe, copy), copy, f, ceiling);
         }
     }
     out.room = room;
@@ -4284,7 +4316,9 @@ const STORE_CHECKS = {
       ),
   },
   // 13. environment: the options, a choice, and sourceMessage for every
-  // format at ceilings 1000, 150 and 100 against production's own render.
+  // format at ceilings 1000, 150 and 100 against production's own render,
+  // with the preview placed where Add would put it (grouped, it lands after
+  // its genre's run) and a recipe Compact cuts at 150.
   environment: {
     run: async (page, p, ctx) => {
       const out = {};
@@ -4318,7 +4352,13 @@ const STORE_CHECKS = {
               await recipe.start();
               V = recipe.preview;
             }
-            const R = recipe.port(['snapshot', 'addInstrument', 'addEnsemble', 'apply']);
+            const R = recipe.port([
+              'snapshot',
+              'addInstrument',
+              'addEnsemble',
+              'apply',
+              'setInstrumentDestination',
+            ]);
             const E = await (await import('/prototype/engine/load.js')).loadEngine();
             const rev = () => R.snapshot().revision;
             const messages = {};
@@ -4369,6 +4409,26 @@ const STORE_CHECKS = {
               })
             );
             const source = R.snapshot().environmentCard;
+            // grouped: whale song, a loose banjo with the room, and the
+            // preview (its room and tuning) grouped to whale song.
+            await R.addEnsemble({ genreId: 'whale_song', revision: rev() });
+            await R.addInstrument({
+              instrumentId: 'banjo_5_string',
+              destination: null,
+              revision: rev(),
+            });
+            const banjo = R.snapshot().cards.find((c) => c.instrumentId === 'banjo_5_string').id;
+            R.apply({ op: 'set_environment', card: banjo, room: ARG.room });
+            await R.setInstrumentDestination(S.args(R, { destination: 'whale_song' }));
+            await S.settle();
+            await read('grouped');
+            // truncating: Brasília indie and the loose preview.
+            R.apply({ op: 'remove_tradition', tradition: 'whale_song' });
+            R.apply({ op: 'remove_instrument', card: banjo });
+            await S.settle();
+            await R.addEnsemble({ genreId: 'brasilia_indie', revision: rev() });
+            await S.settle();
+            await read('truncating');
             return {
               fields,
               messages,
@@ -4386,7 +4446,7 @@ const STORE_CHECKS = {
       if (!r || !r.fields) return JSON.stringify(g).slice(0, 300);
       const wrong = [];
       for (const ceiling of [1000, 150, 100])
-        for (const name of ['empty', 'genre', 'banjo', 'alone'])
+        for (const name of ['empty', 'genre', 'banjo', 'alone', 'grouped', 'truncating'])
           for (const f of ['rich', 'tags', 'prose', 'compact']) {
             const k = ceiling + ':' + f;
             const got = g[ceiling].messages[name][k];
@@ -6417,6 +6477,26 @@ Object.assign(STORE_MUTANTS, {
       [
         "    const said = handover();\n    fallback();\n    touch('recipe', 'environment');\n    flush();\n    if (said) announce(said);\n    return changed;",
         "    const said = handover();\n    touch('recipe', 'environment');\n    flush();\n    if (said) announce(said);\n    return changed;",
+      ],
+    ],
+  },
+});
+// The environment check's defects: the preview not placed in its genre's
+// run, and Compact's clause decided by counting lines, which a cut render's
+// "[truncated]" line fools.
+Object.assign(STORE_MUTANTS, {
+  'sourceMessage never places the preview in its genre': {
+    check: 'environment',
+    edits: [
+      ['      if (copy.traditionId) E._placeCardAfterTraditionRun(copy, copy.traditionId);\n', ''],
+    ],
+  },
+  'the Compact clause counted by lines': {
+    check: 'environment',
+    edits: [
+      [
+        '    return labels.some((label) => text.includes(label))',
+        "    return (after.length >= 2 ? text.split('\\n').length === after.length + 1 : text.includes(' · ')) && labels",
       ],
     ],
   },
