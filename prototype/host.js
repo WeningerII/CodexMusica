@@ -326,7 +326,10 @@ export function createHost(lane, panel) {
 // lane that can't start is said instead, once, and last: after `settled`
 // (open()'s option, a function whose promise resolves once what the first
 // lane says as it opens has been said), with focus left where it is, in the
-// first lane unless the person moved it. Only one lane is ever said. Nothing
+// first lane unless the person moved it. open() resolves without waiting
+// for `settled`, so the action that asked for it isn't held up by what the
+// first lane is still loading; an open overtaken before `settled` says
+// nothing. Only one lane is ever said. Nothing
 // is said, and no focus moves, while the panel is hidden (the person left
 // its route), and once overtaken, an open says nothing more and resolves
 // false. Its Retry, if the person presses it, is the host's own (createHost).
@@ -385,14 +388,20 @@ export function createOnDemand(panel) {
       // lane says as it mounts can't replace its sentence in the one status
       // region. If it started, the first later lane that couldn't start is
       // told instead, once what the first lane says as it opens has been
-      // said (settled), with focus left where it is.
+      // said (settled), with focus left where it is. The open doesn't wait
+      // for that (#810 review of 2fa8f2208): what the first lane says can
+      // wait on a fetch with no time limit, and the action that asked for
+      // the open (Play) stays busy until it resolves. An open overtaken
+      // before then says nothing.
       if (mounted && hosts.length) {
         const later = hosts.slice(1).find((h) => h.state === 'unavailable');
         if (hosts[0].state === 'unavailable') hosts[0].tellUnavailable();
         else if (later) {
-          if (settled) await settled();
-          if (mine === turn) later.tellUnavailable({ move: false });
-          else mounted = false; // overtaken while the first lane settled
+          const tellLater = () => {
+            if (mine === turn) later.tellUnavailable({ move: false });
+          };
+          if (settled) Promise.resolve().then(settled).then(tellLater, tellLater);
+          else tellLater();
         }
       }
       if (failed.length) throw failure(failed); // the open went on regardless

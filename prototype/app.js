@@ -154,7 +154,9 @@ const LANES = {
 // with focus in it, is said once and last, after what the reader says as it
 // opens ("Page 1 of 7"): once the reader's own ctx.reading() has settled and
 // the task it settled in has ended (readerSaid), with focus left in the
-// reader. Only one sentence is said. Beside a reader that couldn't start,
+// reader. openReading doesn't wait for that: Play is busy until it resolves,
+// and the reader's reading is a fetch with no time limit. Only one sentence
+// is said. Beside a reader that couldn't start,
 // read-aloud isn't granted Play's autoplay (readerStarted): it would read a
 // work the person can't see, and what it says would replace the reader's
 // sentence. openReading still resolves { unitId }: the unit was found and

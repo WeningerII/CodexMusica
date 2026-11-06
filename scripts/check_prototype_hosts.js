@@ -174,9 +174,11 @@
 //      reader's module loaded; read-aloud is granted Play's autoplay; or,
 //      with the Library's route left at once, anything is said. With
 //      read-aloud failing too, anything is said, or focus is not on the
-//      reader's sentence; with read-aloud failing alone, beside a reader that
-//      reads its unit late, read-aloud's sentence is not said once, last,
-//      after the reader's "Page 1 of N", or focus leaves the reader. The
+//      reader's sentence; with read-aloud failing alone (its module, its
+//      context or its mount), beside a reader that reads its unit late,
+//      read-aloud's sentence is not said once, last, after the reader's
+//      "Page 1 of N", focus leaves the reader, or openReading waits for that
+//      page before it resolves. The
 //      reader's Retry: a mount() that throws then does not put focus on its
 //      sentence, or says it; focus the person moved on (elsewhere, or back to
 //      Play) is taken, by a Retry that fails again or one that mounts. Two
@@ -2150,11 +2152,14 @@ async function readerChecks(browser, srv) {
 // granted Play's autoplay. Once more, the person leaves the Library's route
 // at once, and nothing may be said. With the reader and read-aloud both
 // throwing, nothing is said, with focus on the reader's sentence; with
-// read-aloud alone throwing, beside a stand-in reader that reads its unit
-// and says its first page ("Page 1 of N") once its ctx.reading() settles,
-// answered late (READER_READS_LATE), the region hears that page and then
-// read-aloud's sentence, once, last; focus stays in the reader, where the
-// open put it, and read-aloud is granted the autoplay. The reader's Retry
+// read-aloud alone failing (its mount throws; or, in a page of its own, its
+// module won't load or its context fails, SPEECH_CONTEXT_FAULT), beside a
+// stand-in reader that reads its unit and says its first page ("Page 1 of
+// N") once its ctx.reading() settles, answered late (READER_READS_LATE), the
+// region hears that page and then read-aloud's sentence, once, last; focus
+// stays in the reader, where the open put it; openReading has resolved
+// before the page is said, so Play isn't held busy by the reader's reading;
+// and a read-aloud that mounted is granted the autoplay. The reader's Retry
 // (the context's): when its mount() throws, focus is put on its sentence,
 // which is not said; when its data fails again, its sentence is said and
 // focus moved back to Retry, unless the person moved it on (elsewhere, or
@@ -2188,6 +2193,19 @@ const READER_READS_LATE = [
     '  const readerReading = (...args) =>\n    (read = (window.__readerReadsLate ? new Promise((r) => setTimeout(r, 300)) : Promise.resolve()).then(() => readings.reading(...args)));\n',
   ],
 ];
+// Read-aloud's own context() fails when window.__speechContextFails is set.
+const SPEECH_CONTEXT_FAULT = [
+  [
+    '      context: async ({ signal }) => {\n        const record = await readings.reading(unitId);\n',
+    "      context: async ({ signal }) => {\n        if (window.__speechContextFails) throw new Error('probe speech context failure');\n        const record = await readings.reading(unitId);\n",
+  ],
+];
+// Read-aloud's sentence, by the way it can't start beside a reader that did.
+const SPEECH_SAYS = {
+  module: 'Read aloud isn’t part of this build of the prototype yet.',
+  context: 'Read aloud did not load. Check your connection, then try again.',
+  mount: SPEECH_COULDNT_START,
+};
 const TELL_IF = 'if (move && (!active || active === document.body || active === from))';
 // The Retry's own: its data fails again, or it mounts.
 const RETRY_TOLD =
@@ -2197,7 +2215,10 @@ const RETRY_FOCUS =
 const OPEN_TELLS = "if (hosts[0].state === 'unavailable') hosts[0].tellUnavailable();";
 const TELL_SAYS =
   '    if (to !== note || document.activeElement !== note) announce(note.textContent);\n';
-const LATER_TOLD = '          if (mine === turn) later.tellUnavailable({ move: false });\n';
+const LATER_TOLD = '            if (mine === turn) later.tellUnavailable({ move: false });\n';
+// Where the open hands read-aloud's sentence to `settled`, without waiting.
+const LATER_WAITS =
+  '          if (settled) Promise.resolve().then(settled).then(tellLater, tellLater);\n          else tellLater();\n';
 const START_MUTANTS = {
   'a reader that can’t start is not said': {
     file: 'host',
@@ -2233,12 +2254,7 @@ const START_MUTANTS = {
   'read-aloud said twice': {
     file: 'host',
     check: 'announcements per case',
-    edits: [
-      [
-        '          if (settled) await settled();\n',
-        '          later.tellUnavailable({ move: false });\n          if (settled) await settled();\n',
-      ],
-    ],
+    edits: [[LATER_WAITS, `          later.tellUnavailable({ move: false });\n${LATER_WAITS}`]],
   },
   'focus from Play is not moved': {
     file: 'host',
@@ -2278,7 +2294,13 @@ const START_MUTANTS = {
   'read-aloud said before the reader’s page': {
     file: 'host',
     check: 'read-aloud alone',
-    edits: [['          if (settled) await settled();\n', '']],
+    edits: [[LATER_WAITS, '          tellLater();\n']],
+  },
+  // As 2fa8f2208 had it: Play stays busy until the reader's page is said.
+  'the open waits for the reader’s page': {
+    file: 'host',
+    check: 'resolves before the reader’s page',
+    edits: [[LATER_WAITS, '          if (settled) await settled();\n          tellLater();\n']],
   },
   'told before the later lanes are shown': {
     file: 'host',
@@ -2503,8 +2525,13 @@ async function startRun(page, cid, kind, later) {
           elsewhere().focus();
         }
         const returned = await opened;
+        // What had been said when openReading resolved: beside a reader that
+        // reads late, its page and read-aloud's sentence come after.
+        const saidAtReturn = said.length;
+        if (situation === 'speech')
+          for (let t = 0; t < 2000 && said.length < 2; t += 25) await wait(25);
         await wait(150); // anything said late is heard
-        return state(situation, returned, before);
+        return { ...state(situation, returned, before), saidAtReturn };
       };
       // The shell's own route change, run now rather than in the task the
       // hash change queues, so that no open can finish before it.
@@ -2546,6 +2573,19 @@ async function startRun(page, cid, kind, later) {
       };
       window.__readerContextFails = kind === 'context';
       window.__probeSays = 'libraryspeech'; // read-aloud speaks as it mounts
+      // Read-aloud alone can't start, its module or its context, beside a
+      // reader that reads its unit late and says its page.
+      if (kind === 'speech-module' || kind === 'speech-context') {
+        window.__speechContextFails = kind === 'speech-context';
+        window.__probeReads = 'libraryreading';
+        window.__readerReadsLate = true;
+        const r = await press('speech', undefined);
+        window.__probeReads = undefined;
+        window.__readerReadsLate = false;
+        window.__speechContextFails = false;
+        window.__probeSays = undefined;
+        return [r];
+      }
       const lane = kind === 'mount' ? 'libraryreading' : undefined;
       const runs = [];
       // 'during' first: only the first load of the reader's module is slow.
@@ -2598,7 +2638,7 @@ async function startRun(page, cid, kind, later) {
 
 // What the status region hears in each case of each way, counted.
 const START_COUNTS = {
-  module: { during: 1, play: 0, nowhere: 0, elsewhere: 1, away: 0 },
+  module: { during: 1, play: 0, nowhere: 0, elsewhere: 1, away: 0, speech: 2 },
   context: {
     during: 1,
     play: 1,
@@ -2610,6 +2650,7 @@ const START_COUNTS = {
     'retry-ok': 0,
     'retry-ok-elsewhere': 0,
     away: 0,
+    speech: 2,
   },
   mount: {
     during: 1,
@@ -2655,6 +2696,8 @@ function startVerdict(g) {
     all.filter((x) => x.r.situation === s).every((x) => x.r.focus === target(x.kind, s));
   const both = run('mount', 'both');
   const speech = run('mount', 'speech');
+  // Read-aloud alone failing, each way: its module, its context, its mount.
+  const speeches = START_KINDS.map((kind) => [kind, run(kind, 'speech')]);
   const overtaken = run('mount', 'overtaken');
   const during = START_KINDS.map((kind) => [kind, run(kind, 'during')]);
   const away = START_KINDS.map((kind) => [kind, run(kind, 'away')]);
@@ -2727,8 +2770,7 @@ function startVerdict(g) {
       all.every((x) => resolved(x.r)) &&
       !!both &&
       resolved(both) &&
-      !!speech &&
-      resolved(speech),
+      speeches.every(([, r]) => r && resolved(r)),
     'both lanes':
       !!both &&
       !both.said.length &&
@@ -2736,16 +2778,23 @@ function startVerdict(g) {
       both.speech === SPEECH_COULDNT_START &&
       both.focus === 'note:libraryreading' &&
       tail(both),
-    'read-aloud alone':
-      !!speech &&
-      speech.said.length === 2 &&
-      /^Page 1 of [1-9][0-9]*$/.test(speech.said[0]) &&
-      speech.said[1] === SPEECH_COULDNT_START &&
-      speech.last === SPEECH_COULDNT_START &&
-      speech.reader === null &&
-      speech.speech === SPEECH_COULDNT_START &&
-      speech.focus === 'libraryreading' &&
-      tail(speech),
+    'read-aloud alone': speeches.every(
+      ([kind, r]) =>
+        !!r &&
+        r.said.length === 2 &&
+        /^Page 1 of [1-9][0-9]*$/.test(r.said[0]) &&
+        r.said[1] === SPEECH_SAYS[kind] &&
+        r.last === SPEECH_SAYS[kind] &&
+        r.reader === null &&
+        r.speech === SPEECH_SAYS[kind] &&
+        r.focus === 'libraryreading' &&
+        tail(r)
+    ),
+    // Play isn't held busy by the reader's reading: openReading resolves
+    // before the late reader has said its page (#810 review of 2fa8f2208).
+    'resolves before the reader’s page': speeches.every(
+      ([, r]) => !!r && r.saidAtReturn === 0 && r.said.length === 2
+    ),
     'nothing said while the Library is hidden': away.every(
       ([kind, r]) =>
         r &&
@@ -2793,13 +2842,23 @@ async function startChecks(browser, srv) {
     const { context, page, errors, override } = await newPage(
       browser,
       srv,
-      kind === 'module' ? { missing: ['libraryreading'], slow } : { slow }
+      kind === 'module'
+        ? { missing: ['libraryreading'], slow }
+        : kind === 'speech-module'
+          ? { missing: ['libraryspeech'], slow }
+          : { slow }
     );
     const js = (body) => ({ status: 200, contentType: 'text/javascript', body });
     const late = plantIn(served.app || APP_JS, READER_READS_LATE);
-    const app = kind === 'context' && late ? plantIn(late, READER_CONTEXT_FAULT) : late;
+    const fault =
+      kind === 'context'
+        ? READER_CONTEXT_FAULT
+        : kind === 'speech-context'
+          ? SPEECH_CONTEXT_FAULT
+          : null;
+    const app = fault && late ? plantIn(late, fault) : late;
     if (!late) errors.push('the late reading no longer applies to app.js');
-    if (kind === 'context' && !app) errors.push('the context fault no longer applies to app.js');
+    if (fault && !app) errors.push(`the ${kind} fault no longer applies to app.js`);
     if (app) override.set('/prototype/app.js', js(app));
     if (served.host) override.set('/prototype/host.js', js(served.host));
     let got = null;
@@ -2815,10 +2874,18 @@ async function startChecks(browser, srv) {
     await context.close();
     return { got, errors };
   };
+  // Read-aloud alone failing by its module or its context runs in a page of
+  // its own (the reader must start there), and counts with its kind.
+  const SPEECH_PAGES = { module: 'speech-module', context: 'speech-context' };
   const once = async (served) => {
-    const pages = await Promise.all(START_KINDS.map((kind) => onePage(kind, served)));
+    const kinds = [...START_KINDS, ...Object.values(SPEECH_PAGES)];
+    const pages = await Promise.all(kinds.map((kind) => onePage(kind, served)));
+    const got = Object.fromEntries(kinds.map((kind, i) => [kind, pages[i].got]));
     const g = {};
-    START_KINDS.forEach((kind, i) => (g[kind] = pages[i].got));
+    for (const kind of START_KINDS) {
+      const extra = SPEECH_PAGES[kind] ? got[SPEECH_PAGES[kind]] : [];
+      g[kind] = got[kind] && extra ? got[kind].concat(extra) : null;
+    }
     return { g, ok: pages.every((p) => p.got), errors: pages.flatMap((p) => p.errors) };
   };
   const base = await once({});
