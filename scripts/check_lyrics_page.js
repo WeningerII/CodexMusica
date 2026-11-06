@@ -67,6 +67,7 @@
 // Exit 0 if every assertion passes, 1 otherwise, 2 if playwright is missing.
 
 'use strict';
+/* global lyCommit */
 /* global devicePixelRatio, lyAnalysis, lyIdentity, lyLibraryCapture, lyLibraryRecord, lyDeclarationRefusal, lyItems, visualViewport, innerHeight, document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lySyncCaret, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage, uiChatOpen, requestAnimationFrame, LY_ACTION_TEXT, lySubmitLyricsAction, lyWriterState, lyToolRequestAction, lyInspectionSession, Image, InputEvent, MutationObserver, NodeFilter */
 const fs = require('fs');
 const http = require('http');
@@ -881,7 +882,7 @@ function unitTypeMenu() {
     JSON.stringify(movedDecl.group_types) === JSON.stringify([{ group: 1, type: perfect }]),
     `the migrated link lost its type: ${JSON.stringify(movedDecl.group_types)} (${draft.value.split('\n')[1]})`
   );
-  // A structural edit that makes two links spell alike keeps each link's type
+  // The assembler's convergence primitive keeps each link's type
   // (3PO, #629): `1,2;1,2,3` typed 0 and 4 loses line 3 with its section, and
   // becomes `1,2;1,2` typed 0 and 4, not 4 and none. Each route that
   // rebuilds the text (removing a section, a section made to return) and the
@@ -899,8 +900,18 @@ function unitTypeMenu() {
     ['a section made to return', "LY_ACTIONS['ly-make-return']('1:0')"],
   ]) {
     draft.value = converge;
-    run(edit);
-    const edited = draft.value;
+    const result = run(edit);
+    check(
+      result.applied === false && draft.value === converge,
+      `${route}: a referenced-member loss must refuse before changing the draft`
+    );
+    // Retain the #629 serializer regression independently of the now-refused
+    // user operation: explicit redeclaration may still make links converge.
+    const edited = run(
+      '(() => { const p = lyBlocks(lyParse(__t)); p.blocks.splice(1, 1); return lyAssemble(p).text; })()',
+      { __t: converge }
+    );
+    draft.value = edited;
     check(
       /rhyme groups — 1,2;1,2\b/.test(edited),
       `${route}: the links did not come to spell alike, so the case proves nothing: ${edited.split('\n')[0]}`
@@ -5881,10 +5892,9 @@ async function browserChecks(chromium) {
       await ctx.close();
     });
 
-    // ── 9e. link types through a removed section, in the shipped page: two
-    // links that come to spell alike keep a type each, through Run review,
-    // a reload and Undo (3PO, #629) ─────────────────────────────────────
-    await step('9e. link types survive a removed section', async () => {
+    // ── 9e. refuse implicit loss; an explicit manual redeclaration that
+    // makes links alike keeps both types through review/reload/Undo (#629).
+    await step('9e. link types survive explicit redeclaration', async () => {
       const { ctx, page, q } = await boot();
       const pre = `[SETUP — rhyme groups — 1,2;1,2,3]\n[SETUP — group types — 1,2=0;1,2,3=4]\n\n[VERSE — 2 lines]\none\ntwo\n\n[CHORUS — 1 line]\nthree`;
       const both = JSON.stringify([
@@ -5896,7 +5906,19 @@ async function browserChecks(chromium) {
           () => lyDeclarationsOf(lyParse($ui('lyrics-draft').value)).group_types || null
         );
       await setDraft(page, pre);
-      await page.evaluate(() => LY_ACTIONS['ly-sec-remove']('1'));
+      const refused = await page.evaluate(() => {
+        const history = app.history.length,
+          text = $ui('lyrics-draft').value;
+        const result = LY_ACTIONS['ly-sec-remove']('1');
+        return (
+          !result.applied && app.history.length === history && $ui('lyrics-draft').value === text
+        );
+      });
+      check(refused, 'referenced section removal changed the draft or history');
+      // Explicit author edit, not permission inferred by the structural tool.
+      const manual =
+        '[SETUP — rhyme groups — 1,2;1,2]\n[SETUP — group types — 1,2=0;1,2#2=4]\n\n[VERSE — 2 lines]\none\ntwo';
+      await page.evaluate((text) => lyCommit(text, 'Declarations edited explicitly.'), manual);
       const row = await page.evaluate(() => $ui('lyrics-draft').value.split('\n')[0]);
       check(/1,2;1,2\b/.test(row), `the removed section left ${row}`);
       check(
@@ -7360,6 +7382,498 @@ async function browserChecks(chromium) {
       }
     });
 
+    // S803: real DOM events and persistence, with no save/focus/render doubles.
+    // Mutation counts establish DOM delivery only; audible AT remains manual.
+    const structuralSong =
+      '[CHORUS]\nI lead you home\nWe watch the rain\n\n[VERSE]\nThe road bends east\nA lantern lights the lane\n\n[CHORUS]\nI lead you home\nWe watch the rain';
+    const structuralDecl =
+      '[SETUP — rhyme groups — 2,4,6 — numbering v2 — cut v2]\n[SETUP — returns — 1,5;2,6 — numbering v2 — cut v2]\n';
+    const structuralExtra = '\n\n[VERSE]\nClouds gather above the hill\nThe gate stands open';
+    const structuralNear = structuralSong.replace(/We watch the rain$/, 'We await the dawn');
+    const structuralButton = (action, id) =>
+      `#surface-lyrics [data-ui="${action}"]${id == null ? '' : `[data-id="${id}"]`}`;
+    const structuralOpen = async (page, review = false) => {
+      // Reuse the harness's navigation setup; operations below use real controls.
+      await page.evaluate((review) => {
+        LY_ACTIONS['ly-tab'](review ? 'review' : 'tools');
+        if (!review) LY_ACTIONS['ly-tool']('form-story');
+      }, review);
+      await page.waitForFunction(() => !!lyLibraryStore);
+      // The existing Library persistence debounce is 300 ms (J14 uses 800).
+      await page.waitForTimeout(800);
+    };
+    const structuralState = (page) =>
+      page.evaluate(async () => ({
+        text: $ui('lyrics-draft').value,
+        saved: app.lyrics,
+        meta: JSON.stringify(app.lyricMeta),
+        history: JSON.stringify(app.history),
+        index: app.historyIndex,
+        revision: UI.lyricRevision,
+        selection: [$ui('lyrics-draft').selectionStart, $ui('lyrics-draft').selectionEnd],
+        picked: LY.picks.formSec,
+        session: localStorage.getItem('codex-workbench-v1'),
+        recovery: sessionStorage.getItem('codex-workbench-recovery'),
+        library: app.lyricMeta?.draftId
+          ? JSON.stringify((await lyLibraryStore.getDraft(app.lyricMeta.draftId)) || null)
+          : 'NO_DRAFT_ID',
+      }));
+    const structuralDrag = (page) =>
+      page
+        .locator('#ly-form-rows tr[data-sec="0"] .ly-handle')
+        .dragTo(page.locator('#ly-form-rows tr[data-sec="2"] .ly-handle'));
+    for (const scenario of [
+      {
+        name: 'move',
+        action: 'ly-sec-move',
+        id: '0:1',
+        text: '[SETUP — placement — 3:5:1:4]\n' + structuralSong,
+        named: 'timing',
+      },
+      {
+        name: 'duplicate',
+        action: 'ly-sec-dup',
+        id: '0',
+        text: structuralDecl + structuralSong,
+        named: 'returns',
+      },
+      {
+        name: 'remove',
+        action: 'ly-sec-remove',
+        id: '1',
+        text: structuralDecl + structuralSong,
+        named: 'rhyme groups',
+      },
+      {
+        name: 'drop',
+        action: 'ly-form-pick',
+        id: '0',
+        text: '[INTRO — 4 bars]\n' + structuralSong,
+        named: '[INTRO — 4 bars]',
+      },
+      {
+        name: 'label',
+        action: 'ly-label-stanzas',
+        text: '[SETUP — returns — ]\n' + structuralSong.replace(/^\[(CHORUS|VERSE)\]\n/gm, ''),
+        named: 'returns',
+      },
+      {
+        name: 'make-return',
+        action: 'ly-make-return',
+        id: '2:0',
+        text: structuralDecl + structuralNear,
+        named: 'returns',
+        review: true,
+      },
+      {
+        name: 'imported-label',
+        action: 'ly-label-stanzas',
+        text: 'The evening wind\nReturns the song',
+        named: 'Library source details',
+        imported: true,
+      },
+    ]) {
+      await step(`S803 refusal ${scenario.name}`, async () => {
+        const { ctx, page, q } = await boot();
+        try {
+          if (scenario.imported) {
+            // Exact valid envelope fixture from test_library_import.js;
+            // the actual receiver validates/digests and activates the draft.
+            await page.evaluate(async (text) => {
+              const envelope = {
+                protocol: CMLibraryImport.PROTOCOL,
+                version: 1,
+                handoffId: 'handoff:one',
+                draftId: 'draft:imported',
+                createdAt: '2026-10-08T00:00:00Z',
+                payload: {
+                  text,
+                  title: 'Test reading',
+                  language: 'eng',
+                  scope: 'whole',
+                  provenance: {
+                    snapshotId: 'snapshot:one',
+                    unitId: 'unit:one',
+                    workId: 'work:one',
+                    editionId: 'edition:one',
+                    revisionId: 'revision:one',
+                    rights: {
+                      attribution: 'Source credit',
+                      notices: ['First notice', 'Second notice'],
+                    },
+                  },
+                  lineage: [{ row: 1, sourceLine: 12, sourceStart: 100, sourceEnd: 116 }],
+                  declarations: [],
+                },
+              };
+              envelope.digest = await CMLibraryImport.envelopeDigest(envelope, crypto);
+              await lyLibraryImport(envelope);
+              if (!app.lyricMeta?.libraryOrigin)
+                throw new Error('import did not activate source metadata');
+            }, scenario.text);
+          } else await setDraft(page, scenario.text);
+          await structuralOpen(page, scenario.review);
+          const button = page.locator(structuralButton(scenario.action, scenario.id)).first();
+          await button.waitFor({ state: 'visible' });
+          await page.evaluate(() => $ui('lyrics-draft').setSelectionRange(7, 9));
+          await button.focus();
+          // Repeat the same refusal: each activation must deliver one message.
+          for (let attempt = 0; attempt < 2; attempt++) {
+            const before = await structuralState(page);
+            const observation = await page.evaluateHandle((drag) => {
+              const state = {
+                focus: document.activeElement,
+                messages: [],
+                observer: null,
+                dragStarted: false,
+                selection: null,
+              };
+              // mousedown/drag initiation may move focus before the app sees
+              // drop. Sample that real boundary, not pre-gesture focus.
+              if (drag)
+                document.addEventListener(
+                  'dragstart',
+                  () => {
+                    state.dragStarted = true;
+                    state.focus = document.activeElement;
+                    const draft = $ui('lyrics-draft');
+                    state.selection = [draft.selectionStart, draft.selectionEnd];
+                  },
+                  { once: true, capture: true }
+                );
+              state.observer = new MutationObserver((records) => {
+                for (const record of records)
+                  for (const node of record.addedNodes)
+                    if (
+                      node.nodeType === 1 &&
+                      node.matches('span') &&
+                      node.textContent.startsWith('Nothing changed.')
+                    )
+                      state.messages.push(node.textContent);
+              });
+              state.observer.observe(document.getElementById('toast'), { childList: true });
+              return state;
+            }, scenario.name === 'drop');
+            if (scenario.name === 'drop') await structuralDrag(page);
+            else await page.keyboard.press('Enter');
+            await page.waitForFunction(() => document.querySelector('#toast.toast-error.show'));
+            const after = await structuralState(page);
+            if (scenario.name === 'drop') {
+              const gesture = await observation.evaluate((state) => ({
+                started: state.dragStarted,
+                selection: state.selection,
+              }));
+              check(gesture.started, 'drop fixture did not produce a real dragstart');
+              before.selection = gesture.selection;
+            }
+            check(
+              JSON.stringify(after) === JSON.stringify(before),
+              `${scenario.name}: refusal mutated state: ${JSON.stringify({ before, after })}`
+            );
+            const delivery = await observation.evaluate((state) => {
+              state.observer.disconnect();
+              const toast = document.getElementById('toast');
+              return {
+                sameFocus: document.activeElement === state.focus,
+                connected: state.focus.isConnected,
+                messages: state.messages,
+                role: toast.getAttribute('role'),
+                live: toast.getAttribute('aria-live'),
+                dismiss: !!toast.querySelector('.toast-dismiss'),
+                secondRegion: $ui('ly-live').textContent,
+              };
+            });
+            check(
+              delivery.sameFocus && delivery.connected,
+              `${scenario.name}: refusal moved or destroyed focus`
+            );
+            check(
+              delivery.messages.length === 1 && delivery.messages[0].includes(scenario.named),
+              `${scenario.name}: wrong message/update count ${JSON.stringify(delivery)}`
+            );
+            check(
+              delivery.role === 'status' && delivery.live === 'polite' && delivery.dismiss,
+              `${scenario.name}: refusal lacks persistent polite notification`
+            );
+            check(
+              !delivery.secondRegion.includes('Nothing changed.'),
+              `${scenario.name}: refusal duplicated in Lyrics live region`
+            );
+            await observation.dispose();
+          }
+          check(q.calls.length === 0, 'structural refusal sent a provider request');
+        } finally {
+          await ctx.close();
+        }
+      });
+    }
+    for (const scenario of [
+      {
+        name: 'move',
+        action: 'ly-sec-move',
+        id: '0:1',
+        text: structuralDecl + structuralSong,
+        lines: 6,
+        focus: 'ly-sec-move',
+        focusId: '1:1',
+        groups: '4,2,6',
+        returns: '3,5;4,6',
+      },
+      {
+        name: 'duplicate',
+        action: 'ly-sec-dup',
+        id: '3',
+        text: structuralDecl + structuralSong + structuralExtra,
+        lines: 10,
+        focus: 'ly-sec-dup',
+        focusId: '4',
+      },
+      {
+        name: 'remove',
+        action: 'ly-sec-remove',
+        id: '3',
+        text: structuralDecl + structuralSong + structuralExtra,
+        lines: 6,
+        focus: 'ly-sec-remove',
+        focusId: '2',
+      },
+      {
+        name: 'drop',
+        action: 'ly-form-pick',
+        id: '0',
+        text: structuralDecl + structuralSong,
+        lines: 6,
+        groups: '6,2,4',
+        returns: '5,3;6,4',
+      },
+      {
+        name: 'label',
+        action: 'ly-label-stanzas',
+        text: structuralSong.replace(/^\[(CHORUS|VERSE)\]\n/gm, ''),
+        lines: 6,
+      },
+      {
+        name: 'make-return',
+        action: 'ly-make-return',
+        id: '2:0',
+        text: structuralNear,
+        lines: 6,
+        review: true,
+      },
+    ]) {
+      await step(`S803 success ${scenario.name} and Undo`, async () => {
+        const { ctx, page, q } = await boot();
+        try {
+          await setDraft(page, scenario.text);
+          await structuralOpen(page, scenario.review);
+          await page.locator(structuralButton(scenario.action, scenario.id)).first().focus();
+          const before = await structuralState(page);
+          if (scenario.name === 'drop') await structuralDrag(page);
+          else await page.keyboard.press('Enter');
+          await page.waitForFunction((text) => $ui('lyrics-draft').value !== text, before.text);
+          const after = await structuralState(page);
+          const got = await page.evaluate(() => ({
+            lines: LY.model.sung.length,
+            headers: LY.model.sections.map((s) => s.header?.name),
+            sung: LY.model.sung.map((r) => r.text),
+            declarations: lyDeclarationsOf(LY.model),
+            focus: document.activeElement?.dataset?.ui,
+            focusId: document.activeElement?.dataset?.id,
+            focusAlive:
+              document.activeElement !== document.body && document.activeElement?.isConnected,
+            picked: LY.picks.formSec,
+            toast: document.getElementById('toast').classList.contains('toast-success'),
+          }));
+          check(
+            got.lines === scenario.lines && got.toast,
+            `${scenario.name}: supported edit did not succeed`
+          );
+          check(
+            after.revision === before.revision + 1 && after.index === before.index + 1,
+            `${scenario.name}: edit is not one save/history step`
+          );
+          check(
+            after.saved === after.text && JSON.parse(after.session).lyrics === after.text,
+            `${scenario.name}: edited text not saved`
+          );
+          if (scenario.focus)
+            check(
+              got.focus === scenario.focus && got.focusId === scenario.focusId,
+              `${scenario.name}: wrong success focus ${JSON.stringify(got)}`
+            );
+          else if (scenario.name !== 'drop')
+            check(got.focusAlive, `${scenario.name}: success lost focus to body`);
+          // Drop has no explicit focus handoff in existing host wiring. Record
+          // its outcome rather than inventing a success-focus contract here.
+          if (scenario.name === 'drop') {
+            check(got.picked === 2, 'drop did not select its destination');
+            console.log(
+              'S803 drop success focus (review required):',
+              JSON.stringify({ focus: got.focus, focusAlive: got.focusAlive })
+            );
+          }
+          if (scenario.groups)
+            check(
+              got.declarations.groups === scenario.groups &&
+                got.declarations.returns === scenario.returns,
+              `${scenario.name}: wrong occurrence mapping`
+            );
+          if (scenario.name === 'label')
+            check(
+              JSON.stringify(got.headers) === JSON.stringify(['Stanza 1', 'Stanza 2', 'Stanza 3']),
+              'label did not create the three headers'
+            );
+          if (scenario.name === 'make-return')
+            check(
+              JSON.stringify(got.sung.slice(0, 2)) === JSON.stringify(got.sung.slice(4, 6)),
+              'make-return did not copy the first occurrence'
+            );
+          // Form & story hides the document toolbar; use the visible native
+          // session history buttons, retained by workbench setup.
+          await page.locator('#btn-undo').click();
+          check(
+            (await structuralState(page)).text === before.text,
+            `${scenario.name}: Undo did not restore exact text`
+          );
+          await page.locator('#btn-redo').click();
+          check(
+            (await structuralState(page)).text === after.text,
+            `${scenario.name}: Redo did not restore exact edit`
+          );
+          check(
+            await page.evaluate(
+              () => document.activeElement !== document.body && document.activeElement?.isConnected
+            ),
+            `${scenario.name}: Redo lost focus to body`
+          );
+          check(q.calls.length === 0, 'structural edit sent a provider request');
+        } finally {
+          await ctx.close();
+        }
+      });
+    }
+    await step('S803 focused older-toast replacement', async () => {
+      const { ctx, page } = await boot();
+      try {
+        await setDraft(page, structuralDecl + structuralSong);
+        await structuralOpen(page);
+        const button = page.locator(structuralButton('ly-sec-remove', '1'));
+        await button.focus();
+        const opener = await page.evaluateHandle(() => document.activeElement);
+        await page.evaluate(() => showToast('Older notification.', 'error'));
+        await page.keyboard.press('F8');
+        check(
+          await page
+            .locator('#toast .toast-dismiss')
+            .evaluate((el) => el === document.activeElement),
+          'F8 did not focus the older Dismiss button'
+        );
+        const before = await structuralState(page);
+        // DOM click while Dismiss holds focus exercises notification replacement
+        // without a pointer press first moving focus to the section button.
+        await button.evaluate((el) => el.click());
+        const after = await structuralState(page);
+        check(
+          JSON.stringify(after) === JSON.stringify(before),
+          'older-toast replacement mutated document state'
+        );
+        check(
+          await opener.evaluate((el) => el === document.activeElement),
+          'existing toast replacement did not restore its opener'
+        );
+        check(
+          await page
+            .locator('#toast')
+            .evaluate((el) => el.textContent.includes('Nothing changed.')),
+          'older toast was not replaced by the refusal'
+        );
+        await opener.dispose();
+      } finally {
+        await ctx.close();
+      }
+    });
+    for (const route of ['session', 'Library']) {
+      await step(`S803 separate ${route} reload`, async () => {
+        const { ctx, page, q } = await boot();
+        try {
+          await setDraft(page, structuralDecl + structuralSong);
+          // Existing /chat fixture route, real request/receive binding. No
+          // assignment to LY.run and no live provider or grading assertion.
+          const final = await page.evaluate(() => LY.model.sung.map((r) => r.text));
+          const reply = certified();
+          reply.artifact = { ...reply.artifact, text: final.join('\n'), final_draft: final };
+          await sendReview(page, q, reply);
+          const current = await page.evaluate(() => LY.run && lyRunStatus(LY.run));
+          if (!current?.certified)
+            throw new Error('fixture did not establish a current accepted review');
+          await structuralOpen(page);
+          await page.locator(structuralButton('ly-sec-move', '0:1')).click();
+          const expected = await page.evaluate(() => ({
+            text: $ui('lyrics-draft').value,
+            declarations: lyDeclarationsOf(LY.model),
+          }));
+          const stale = await page.evaluate(() => LY.run && lyRunStatus(LY.run));
+          check(
+            stale?.word === 'Last run certified an earlier draft' && !stale.certified,
+            'structural edit did not invalidate the accepted review'
+          );
+          let draftId;
+          if (route === 'Library') {
+            await page.waitForFunction(() => !!lyLibraryStore);
+            // Actual IndexedDB adapter, as in J14; no replacement store.
+            draftId = await page.evaluate(async () => {
+              const record = lyLibraryCapture();
+              await lyLibraryStore.saveDraft(record);
+              const saved = await lyLibraryStore.getDraft(record.draftId);
+              if (saved?.text !== record.text) throw new Error('Library readback differs');
+              localStorage.clear();
+              sessionStorage.clear();
+              return record.draftId;
+            });
+          }
+          await page.reload();
+          await page.waitForFunction(() => UI.ready && !!LY.model);
+          if (route === 'Library') {
+            check(
+              (await structuralState(page)).text !== expected.text,
+              'Library reload was accidentally satisfied by session restore'
+            );
+            await page.evaluate(async (id) => LY_ACTIONS['ly-library-restore'](id), draftId);
+          }
+          const restored = await page.evaluate(() => ({
+            text: $ui('lyrics-draft').value,
+            declarations: lyDeclarationsOf(LY.model),
+          }));
+          check(
+            JSON.stringify(restored) === JSON.stringify(expected),
+            `${route}: reload changed text/declarations`
+          );
+          const reloadedReview = await page.evaluate(() => (LY.run ? lyRunStatus(LY.run) : null));
+          if (route === 'Library')
+            check(
+              reloadedReview?.word === 'Last run certified an earlier draft' &&
+                !reloadedReview.certified,
+              'Library reload lost the stale review or made it current'
+            );
+          else {
+            // Page render may recover the saved writer artifact without its
+            // request binding. That is explicitly unknown, never current.
+            const recoveredArtifact = await page.evaluate(() => !!chatState.task?.artifact);
+            check(
+              recoveredArtifact
+                ? reloadedReview?.word === 'Earlier result · declarations unknown' &&
+                    !reloadedReview.certified
+                : reloadedReview === null,
+              'session restore treated an unbound artifact as a current review'
+            );
+          }
+          check(q.calls.length === 1, 'reload or structural edit sent another review request');
+        } finally {
+          await ctx.close();
+        }
+      });
+    }
+
     // U. Undo in the draft is the page's one history, a typing run per step
     // (Jony #79: the read layer's redraw broke Chromium's native typing group,
     // so Ctrl+Z took back one character a press); Undo and Redo say what they
@@ -7642,6 +8156,7 @@ async function browserChecks(chromium) {
     unitEndIdentity();
     unitFormOrder();
     unitHeadersAndIdentity();
+    checks += await require('./check_lyrics_structural_preflight')(UNIT_SOURCE);
   }
   if (flags['unit-only']) {
     if (failures.length) {

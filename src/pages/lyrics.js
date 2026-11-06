@@ -3247,18 +3247,145 @@ function lyCarriedDecide(id, keep) {
     )
   );
 }
+// Read-only preflight over detached rows. Old sung numbers identify occurrences;
+// identical text never substitutes for a missing or cloned numbered member.
+// Readings and hooks, in contrast, retain today's exact-text declarations.
+function lyStructuralPreflight(model, parts, libraryOrigin, originalBlocks) {
+  const rows = [...parts.prefix, ...parts.blocks.flat(), ...parts.suffix];
+  const sung = rows.filter((r) => r.raw.trim() && !LY_BRACKET.test(r.raw.trim()));
+  const positions = new Map();
+  sung.forEach((r, i) => {
+    if (r.n) positions.set(r.n, [...(positions.get(r.n) || []), i + 1]);
+  });
+  const changed =
+    sung.length !== model.sung.length ||
+    sung.some((r, i) => r.n !== i + 1 || r.raw !== model.sung[i]?.raw);
+  const refused = new Set();
+  const carried = (n) =>
+    positions.get(n)?.length === 1 && sung[positions.get(n)[0] - 1].raw === model.sung[n - 1]?.raw;
+  const moved = (n) => !carried(n) || positions.get(n)[0] !== n;
+  // Setup inside a section can itself be deleted or duplicated. Even a
+  // declaration without numbered members must not disappear with its block.
+  const counts = new Map();
+  rows.forEach((r) => counts.set(r.raw, (counts.get(r.raw) || 0) + 1));
+  const before = new Map();
+  model.setup.forEach((d) => before.set(d.raw, (before.get(d.raw) || 0) + 1));
+  for (const d of model.setup) {
+    if (counts.get(d.raw) !== before.get(d.raw)) refused.add(`${d.key}: ${d.value}`);
+    // The assembler drops empty/malformed declarations. Refuse before that
+    // loss even for header-only edits; an unknown cut is not ours to rewrite.
+    if (d.key === 'rhyme groups' || d.key === 'returns') {
+      const groups = lyParseGroups(d.value);
+      if (
+        d.unknownCut ||
+        !groups.length ||
+        groups.some((g) => g.length < 2 || g.some((m) => m.bad))
+      )
+        refused.add(d.raw);
+    } else if (d.key === 'placement') {
+      const placements = lyParsePlacement(d.value);
+      if (!placements.length || placements.some((p) => p.bad)) refused.add(d.raw);
+    }
+    if (!changed) continue;
+    if (d.key === 'rhyme groups' || d.key === 'returns') {
+      for (const group of lyParseGroups(d.value)) {
+        if (group.length < 2 || group.some((m) => m.bad || !carried(m.line)))
+          refused.add(`${d.key}: ${group.map((m) => m.raw).join(', ')}`);
+      }
+    } else if (d.key === 'placement') {
+      for (const p of lyParsePlacement(d.value))
+        if (p.bad || moved(p.line))
+          refused.add(`timing: ${p.raw || `${p.line}:${p.bar}:${p.beat}:${p.duration}`}`);
+    } else if (d.key === 'reading' || d.key === 'hook') {
+      // An existing text binding survives a permutation unchanged, including
+      // its shared application to identical lines. Cloning/deleting a bound
+      // occurrence needs an ownership decision even if another text matches.
+      const bound = model.sung.filter((r) => r.text === d.line);
+      if (!d.line || !bound.length || bound.some((r) => !carried(r.n)))
+        refused.add(`${d.key}: ${d.value}`);
+      if (sung.some((r) => !r.n && r.raw.trim() === d.line)) refused.add(`${d.key}: ${d.value}`);
+    } else if (d.key === 'narrative') {
+      if (!/^off$/i.test(d.value.trim())) refused.add(`narrative: ${d.value}`);
+    } else if (d.key === 'melody') {
+      refused.add(`melody: ${d.value}`);
+    } else if (
+      !['title', 'voices', 'require', 'avoid', 'relation', 'group types'].includes(d.key)
+    ) {
+      refused.add(`${d.key}: ${d.value}`);
+    }
+  }
+  // Empty timed sections still own a bar span. Track their original detached
+  // rows as well as their position: sung numbering alone cannot see them.
+  for (const s of model.sections) {
+    if (!(s.header?.bars != null || s.header?.meter || s.header?.pickup || s.header?.extra.length))
+      continue;
+    const original = originalBlocks[s.index];
+    const candidate = parts.blocks[s.index];
+    if (
+      !candidate ||
+      original.length !== candidate.length ||
+      original.some((r, i) => r !== candidate[i]) ||
+      rows.filter((r) => r.raw === s.headerRow.raw).length !==
+        model.rows.filter((r) => r.raw === s.headerRow.raw).length
+    )
+      refused.add(`section: ${s.headerRow.raw}`);
+  }
+  const contentChanged =
+    rows
+      .filter((r) => r.raw.trim())
+      .map((r) => r.raw)
+      .join('\n') !==
+    model.rows
+      .filter((r) => r.raw.trim())
+      .map((r) => r.raw)
+      .join('\n');
+  if (libraryOrigin && (changed || contentChanged))
+    refused.add('Library source details for this draft');
+  if (changed) {
+    // Until ownership is defined, do not silently move a bar span, story or
+    // imported source coordinate. These are real declarations, not new fields.
+    for (const s of model.sections)
+      if (
+        (s.header?.bars != null || s.header?.meter || s.header?.pickup || s.header?.extra.length) &&
+        s.sung.some((r) => moved(r.n))
+      )
+        refused.add(`section: ${s.headerRow.raw}`);
+  }
+  return { refused: [...refused] };
+}
 function lyEditSections(mutate, message) {
-  const model = lyParse(lyDraft().value);
+  const source = lyDraft().value;
+  const model = lyParse(source);
   const parts = lyBlocks(model);
-  if (mutate(parts, model) === false) return;
+  const originalBlocks = parts.blocks.map((block) => block.slice());
+  if (mutate(parts, model) === false) return { applied: false, refused: [] };
+  const result = lyStructuralPreflight(model, parts, app.lyricMeta?.libraryOrigin, originalBlocks);
+  if (lyDraft().value !== source)
+    result.refused.push('the draft changed while preparing this edit');
+  if (result.refused.length) {
+    showToast(
+      `Nothing changed. This edit cannot carry ${result.refused.join('; ')}. Edit the declarations explicitly, then recheck.`,
+      'error'
+    );
+    return { applied: false, refused: result.refused };
+  }
   const { text, dropped } = lyAssemble(parts);
-  lyCommit(
-    text,
-    message +
-      (dropped
-        ? ` ${uiCount(dropped, 'declared link member')} pointed at removed lines and ${dropped === 1 ? 'was' : 'were'} removed.`
-        : '')
-  );
+  // Keep the assembler's loss accounting as a final guard, not a success
+  // notice after saving. Preflight should have named every such reference.
+  if (dropped || lyDraft().value !== source) {
+    const refused = [
+      dropped
+        ? `${dropped} declared link or timing members`
+        : 'the draft changed while preparing this edit',
+    ];
+    showToast(
+      `Nothing changed. This edit cannot carry ${refused.join('; ')}. Edit the declarations explicitly, then recheck.`,
+      'error'
+    );
+    return { applied: false, refused };
+  }
+  lyCommit(text, message);
+  return { applied: true, refused: [] };
 }
 // Structural edits replace the table. Keep keyboard work on the affected row,
 // using its section button when the same action is now disabled at a boundary.
@@ -7126,7 +7253,7 @@ const LY_ACTIONS = {
   },
   'ly-sec-move'(id) {
     const [k, d] = id.split(':').map(Number);
-    lyEditSections(
+    const result = lyEditSections(
       ({ blocks }) => {
         const j = k + d;
         if (j < 0 || j >= blocks.length) return false;
@@ -7134,30 +7261,36 @@ const LY_ACTIONS = {
       },
       `Moved section ${d < 0 ? 'up' : 'down'}.`
     );
+    if (!result.applied) return result;
     if (LY.picks.formSec === k) LY.picks.formSec = k + d;
     lyFocusSectionControl(k + d, `[data-ui="ly-sec-move"][data-id="${k + d}:${d}"]`);
+    return result;
   },
   'ly-sec-dup'(id) {
     const k = Number(id);
-    lyEditSections(({ blocks }) => {
+    const result = lyEditSections(({ blocks }) => {
       blocks.splice(
         k + 1,
         0,
         blocks[k].map((r) => ({ raw: r.raw, n: r.n }))
       );
     }, 'Duplicated the section after the original.');
+    if (!result.applied) return result;
     lyFocusSectionControl(k + 1, '[data-ui="ly-sec-dup"]');
+    return result;
   },
   'ly-sec-remove'(id) {
     const k = Number(id);
     const title = LY.model.sections[k]?.title || 'section';
-    lyEditSections(({ blocks }) => {
+    const result = lyEditSections(({ blocks }) => {
       blocks.splice(k, 1);
     }, `Removed ${title}. Undo restores it.`);
+    if (!result.applied) return result;
     lyFocusSectionControl(Math.min(k, LY.model.sections.length - 1), '[data-ui="ly-sec-remove"]');
+    return result;
   },
   'ly-label-stanzas'() {
-    lyEditSections(({ blocks }) => {
+    return lyEditSections(({ blocks }) => {
       blocks.forEach((b, k) => b.unshift({ raw: `[Stanza ${k + 1}]` }));
     }, 'Each stanza now has a header. Rename them in Form & story.');
   },
@@ -7469,7 +7602,7 @@ const LY_ACTIONS = {
   },
   'ly-make-return'(id) {
     const [k, first] = id.split(':').map(Number);
-    lyEditSections(({ blocks }) => {
+    return lyEditSections(({ blocks }) => {
       const src = blocks[first],
         dst = blocks[k];
       if (!src || !dst) return false;
@@ -8143,11 +8276,13 @@ function lyWire(surface) {
     e.preventDefault();
     const to = Number(tr.dataset.sec);
     if (to === from) return;
-    lyEditSections(({ blocks }) => {
+    const result = lyEditSections(({ blocks }) => {
       const [b] = blocks.splice(from, 1);
       blocks.splice(to, 0, b);
     }, 'Moved the section.');
+    if (!result.applied) return result;
     LY.picks.formSec = to;
+    return result;
   });
   document.addEventListener('click', (e) => {
     if (!LY.menu || e.target.closest('.ly-menu-wrap')) return;
