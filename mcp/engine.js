@@ -599,9 +599,13 @@ function shape(ws, params = {}, meta = {}) {
     environment_card: environment?.id || null,
     environment_instrument: environment?.instrumentId || null,
     environment_settings: envSettings(environment),
+    // Branched as ENVIRONMENT_MOVED is (movedMeaning): with no card carrying an
+    // environment, envCardOf falls back to the first card, but nothing renders.
     environment:
-      `The whole recipe uses one room, tuning and signal chain, taken from environment_card (${environment ? cardLabel(ws.cards, environment) : 'none yet'}), the first card that has any. ` +
-      "set_environment without `card` changes it. These settings on other cards don't set the rendered environment; while a card's preface is auto-derived they can still shape its preface word.",
+      environment && hasEnvironment(environment)
+        ? `The whole recipe uses one room, tuning and signal chain, taken from environment_card (${cardLabel(ws.cards, environment)}), the first card that has any. ` +
+          "set_environment without `card` changes it. These settings on other cards don't set the rendered environment; while a card's preface is auto-derived they can still shape its preface word."
+        : 'The recipe renders no room, tuning or signal chain: no card carries an environment yet. set_environment without `card` sets one.',
     output:
       'Text recipe only; no recording, mix, stereo placement or listening test was performed.',
   };

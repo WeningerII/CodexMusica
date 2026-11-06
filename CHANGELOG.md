@@ -65,12 +65,12 @@ what a `set_environment` wrote on it, inside the workspace, and the warnings rea
   `ENVIRONMENT_NOT_RENDERED`, which says such a setting can still shape that card's preface
   word while the preface is auto-derived, `ENVIRONMENT_MOVED` and `render_scope.environment`
   said it was "not used in the current rendered recipe", which is untrue for about one
-  written setting in eight. In Jony's wording, `ENVIRONMENT_MOVED` now says the environment
-  set on the old card "no longer sets the rendered recipe", `render_scope.environment` that
-  settings on other cards "don't set the rendered environment; while a card's preface is
-  auto-derived they can still shape its preface word", and `ENVIRONMENT_OVERWRITTEN` on a
-  card other than the environment card that settings there "don't set the rendered
-  environment", with how to change it.
+  written setting in eight. `ENVIRONMENT_MOVED` now says the environment set on the old card
+  "no longer sets the rendered recipe", `render_scope.environment` that settings on other
+  cards "don't set the rendered environment; while a card's preface is auto-derived they can
+  still shape its preface word", and `ENVIRONMENT_OVERWRITTEN` on a card other than the
+  environment card that settings there "don't set the rendered environment", with how to
+  change it.
 - **`ENVIRONMENT_MOVED` says what the returned recipe renders.** It said the recipe "now
   takes its room, tuning and chain from" the first card left even when no card left had
   any (the environment card removed with only a bare card behind it), where the recipe
@@ -79,7 +79,10 @@ what a `set_environment` wrote on it, inside the workspace, and the warnings rea
   tradition added later in that batch brought an environment back, and a batch that handed
   the environment on twice named the card in between. Both texts are now worked out against
   the card the response renders from, as `environment_card` already was, and
-  `environment_instrument` follows it.
+  `environment_instrument` follows it. `render_scope.environment` is branched the same way:
+  with no card carrying an environment it said the environment was "taken from
+  environment_card (none yet)", and now says the recipe renders no room, tuning or signal
+  chain and that `set_environment` without `card` sets one.
 - **`ENVIRONMENT_OVERWRITTEN` on the environment card reads the record too.** It compared
   the card with its seed, so a second `set_preface` on the environment card that moved the
   room the first one derived said it "replaced the environment you set", which nobody had

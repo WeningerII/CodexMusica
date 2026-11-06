@@ -34,11 +34,12 @@ an environment that moved or was overwritten (said on the edit that did it), and
 `render_scope` for which shared environment is represented. `ENVIRONMENT_MOVED` speaks
 for settings a `set_environment` wrote on the old environment card, and when a
 `set_environment` clears every setting there so the next card's own settings render;
-`ENVIRONMENT_OVERWRITTEN` for settings a `set_environment` wrote that a `set_preface` then
-re-derived (what an earlier `set_preface` derived is nobody's setting). A
-setting a `set_environment` wrote on a card that does not render it is
-`ENVIRONMENT_NOT_RENDERED` on every response while the card still holds it, render_recipe
-included; `edit` is there only on the call that wrote it. A `set_environment` on the
+`ENVIRONMENT_OVERWRITTEN` for settings a `set_environment` wrote that a `set_preface`
+then re-derived (a second `set_preface` that replaces what the first derived gives no
+warning: nothing there was written by `set_environment`). A setting a `set_environment`
+wrote on a card that does not render it is `ENVIRONMENT_NOT_RENDERED` on every response
+while the card still holds it, render_recipe included; `edit` is there only on the call
+that wrote it. A `set_environment` on the
 environment card that sets or clears the same field (an added effect: that effect) settles
 it, so repeating the edit without `card` ends the warning. Each card records what
 `set_environment` wrote on it (`envWritten`, inside the workspace you thread), so a

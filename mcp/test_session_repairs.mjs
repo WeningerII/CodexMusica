@@ -1787,6 +1787,15 @@ test('ENVIRONMENT_MOVED says which card the returned recipe renders from, or tha
       );
       assert.doesNotMatch(r.recipe, /cathedral/i, `${name} ${format}`);
     }
+    // render_scope.environment is branched the same way (Jony, #826): with no
+    // card carrying an environment it says nothing renders, and names no card
+    // whose settings could set it.
+    for (const r of [bare, await s.render(bare)])
+      assert.equal(
+        r.render_scope.environment,
+        'The recipe renders no room, tuning or signal chain: no card carries an environment yet. set_environment without `card` sets one.',
+        `${name}: render_scope.environment, when no card carries one`
+      );
     // The roster empties mid-batch and a tradition with an environment comes
     // back: said against the card that renders it, not as "no card".
     const lead = await s.edit(seed, [
