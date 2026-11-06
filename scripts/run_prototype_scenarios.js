@@ -30,9 +30,11 @@
 // it and passed here, at the bytes now on disk. The acceptance runs inside
 // this process, not as a step after it: CI's run_parallel deals
 // test:prototype's steps out as concurrent leaves, on two machines, so a
-// separate step could not see this run's file.
+// separate step could not see this run's file. A run that passes removes
+// its results file; one that fails keeps it and prints where. With
+// --keep-results a passing run keeps it too.
 //
-//   node scripts/run_prototype_scenarios.js
+//   node scripts/run_prototype_scenarios.js [--keep-results]
 //   node scripts/run_prototype_scenarios.js --self-check
 //
 // --self-check runs no lane scenario. It copies this runner,
@@ -64,6 +66,7 @@ const ROOT = path.resolve(__dirname, '..');
 const EXCLUDED = {};
 
 if (process.argv.includes('--self-check')) process.exit(selfCheck());
+const KEEP_RESULTS = process.argv.includes('--keep-results');
 
 const TIMEOUT_MS = timeoutSetting(process.env.SCENARIO_TIMEOUT_MS);
 
@@ -201,11 +204,16 @@ if (accept.status !== 0)
   );
 
 const lead = `${scenarios.length} discovered, ${Object.keys(EXCLUDED).length} excluded`;
-if (failed.length || problems.length) {
+const passing = !failed.length && !problems.length;
+// A passing run's results have done their work, so they don't pile up under
+// the temp dir; a failing run's stay, for whoever reads the failure.
+if (passing && !KEEP_RESULTS) fs.rmSync(RESULTS, { force: true });
+if (!passing) {
   console.error(
     `run_prototype_scenarios: FAIL — ${failed.length} of ${ran.length} scenarios run failed${failed.length ? `: ${failed.join(', ')}` : ''}; ${problems.length} problem(s) with the run (${lead})`
   );
   for (const p of problems) console.error(`  ✗ ${p}`);
+  console.error(`  results kept: ${RESULTS}`);
   process.exit(1);
 }
 console.log(
@@ -364,11 +372,23 @@ function selfCheck() {
       files: { [CATEGORIES]: '// rows: 1\nprocess.exit(1);\n' },
       ok: (r) => r.status === 1 && says(r, `done, but ${CATEGORIES} did not pass in this run`),
     },
+    // Results files don't pile up under the temp dir (#810 review of
+    // 8345248ac): a passing run removes its own; a failing one keeps it and
+    // says where.
+    'a passing run removes its results file': {
+      ok: (r) => r.status === 0 && r.kept === false,
+    },
+    'a failing run keeps its results file': {
+      files: { [TARGETS]: 'process.exit(3);\n' },
+      ok: (r) => r.status === 1 && r.kept === true && says(r, '  results kept: '),
+    },
     'another run’s results fail': {
+      args: ['--keep-results'],
       after: (tree, r) => accept(tree, r, { runId: crypto.randomUUID() }),
       ok: (r) => r.status === 1 && says(r, 'is from another run'),
     },
     'a scenario changed since it ran fails': {
+      args: ['--keep-results'],
       after: (tree, r) => {
         fs.appendFileSync(path.join(tree, CATEGORIES), '// edited after the run\n');
         return accept(tree, r);
@@ -500,6 +520,14 @@ function selfCheck() {
           "{ withFileTypes: true }).filter((d) => !d.name.startsWith('.')).flatMap(",
         ],
       ],
+    },
+    'results are never removed': {
+      check: 'a passing run removes its results file',
+      edits: [['if (passing && !KEEP_RESULTS) fs.rmSync(', 'if (false) fs.rmSync(']],
+    },
+    'a failing run’s results are removed': {
+      check: 'a failing run keeps its results file',
+      edits: [['if (passing && !KEEP_RESULTS) fs.rmSync(', 'if (!KEEP_RESULTS) fs.rmSync(']],
     },
     'a failing scenario is not a failure': {
       check: 'a failing scenario fails',
@@ -663,16 +691,21 @@ function selfCheck() {
       fs.mkdirSync(path.dirname(path.join(tree, rel)), { recursive: true });
       fs.writeFileSync(path.join(tree, rel), text);
     }
-    const r = spawnSync(process.execPath, ['scripts/run_prototype_scenarios.js'], {
-      cwd: tree,
-      env: { ...process.env, SCENARIO_TIMEOUT_MS: '30000' },
-      encoding: 'utf8',
-      timeout: 60000,
-    });
+    const r = spawnSync(
+      process.execPath,
+      ['scripts/run_prototype_scenarios.js', ...(check.args || [])],
+      {
+        cwd: tree,
+        env: { ...process.env, SCENARIO_TIMEOUT_MS: '30000' },
+        encoding: 'utf8',
+        timeout: 60000,
+      }
+    );
     const first = { status: r.status, out: `${r.stdout || ''}${r.stderr || ''}` };
     const out = check.after ? check.after(tree, first) : first;
-    // The run's results file, which this tree's run wrote, goes with it.
+    // Whether the run left its results file, which then goes with this tree.
     const m = /^results: (.+) \(run /m.exec(first.out);
+    out.kept = !!m && fs.existsSync(m[1]);
     if (m) fs.rmSync(m[1], { force: true });
     return out;
   };
