@@ -981,6 +981,9 @@ export function recipeStore({ load, selection, announce, ceiling } = {}) {
       if (!cardOf(edit.card)) return no('NOT_FOUND');
       E.rmCard(edit.card);
     } else if (edit.op === 'remove_tradition') {
+      // A genre is named by its id: a card with no genre has null there, so
+      // anything else would match the independent cards.
+      if (typeof edit.tradition !== 'string') return no('INVALID');
       const ids = E.app.cards.filter((c) => c.traditionId === edit.tradition).map((c) => c.id);
       if (!ids.length) return no('NOT_FOUND');
       for (const id of ids) E.rmCard(id, { skipHistory: true });

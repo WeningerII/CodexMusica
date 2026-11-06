@@ -4718,10 +4718,16 @@ const STORE_CHECKS = {
   },
   // 21. apply: the ops not in this build are refused; set_variant is the
   // editor's part click; set_environment with no card edits envCardOf; an
-  // edit that moves nothing is { ok: true, changed: false } and no entry.
+  // edit that moves nothing is { ok: true, changed: false } and no entry;
+  // remove_tradition takes a genre id only, so it can't reach the loose udu.
   apply: {
     page: async (S, ARG) => {
       const { R, E } = await S.boot();
+      await R.addInstrument({
+        instrumentId: 'udu',
+        destination: null,
+        revision: R.snapshot().revision,
+      });
       await R.addEnsemble({ genreId: 'bluegrass', revision: R.snapshot().revision });
       const banjo = E.app.cards.find((c) => c.instrumentId === 'banjo_5_string');
       const refused = [
@@ -4736,6 +4742,15 @@ const STORE_CHECKS = {
         R.apply({ op: 'set_variant', card: banjo.id, part: 'zz', variant: null }).code,
         R.apply({ op: 'set_variant', card: 'zz', part: ARG.part, variant: null }).code,
         R.apply({ op: 'set_environment' }).code,
+      ];
+      const count = () => E.app.cards.length;
+      const n0 = count();
+      const removeTradition = [
+        R.apply({ op: 'remove_tradition', tradition: null }).code,
+        R.apply({ op: 'remove_tradition' }).code,
+        R.apply({ op: 'remove_tradition', tradition: 42 }).code,
+        R.apply({ op: 'remove_tradition', tradition: 'zz_not_in_recipe' }).code,
+        count() - n0,
       ];
       const v = R.apply({
         op: 'set_variant',
@@ -4772,6 +4787,7 @@ const STORE_CHECKS = {
         refused,
         asyncOps,
         invalid,
+        removeTradition,
         v,
         card,
         env,
@@ -4787,6 +4803,7 @@ const STORE_CHECKS = {
         g.refused.every((c) => c === 'NOT_IN_BUILD') &&
           same(g.asyncOps, ['ASYNC', 'ASYNC']) &&
           same(g.invalid, ['INVALID', 'NOT_FOUND', 'INVALID']) &&
+          same(g.removeTradition, ['INVALID', 'INVALID', 'INVALID', 'NOT_FOUND', 0]) &&
           same(g.v, { ok: true, changed: true }) &&
           same(g.card, p.setVariant.card) &&
           same(g.env, { ok: true, changed: true }) &&
@@ -5665,6 +5682,11 @@ Object.assign(STORE_MUTANTS, {
     ],
   },
 });
+// remove_tradition's genre guard, among apply's.
+STORE_MUTANTS['remove_tradition takes a genre that isn’t an id'] = {
+  check: 'apply',
+  edits: [["      if (typeof edit.tradition !== 'string') return no('INVALID');\n", '']],
+};
 // The throwing-add check's defects.
 Object.assign(STORE_MUTANTS, {
   'an ensemble whose engine call throws leaves the store busy': {
