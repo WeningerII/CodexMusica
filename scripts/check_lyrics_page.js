@@ -7781,7 +7781,9 @@ async function browserChecks(chromium) {
         }
       });
     }
-    for (const phone of [false, true]) {
+    // HTML pointer drag is qualified on desktop; the touch-emulated phone
+    // uses keyboard Move checks below, not a claim of touch drag support.
+    for (const phone of [false]) {
       await step(
         `S803 drop destination after splice: first, last and repeated reorder (${phone ? 'phone' : 'desktop'})`,
         async () => {
