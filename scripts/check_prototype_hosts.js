@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global document, window, localStorage, Storage, history */
+/* global document, window, localStorage, Storage, history, MutationObserver */
 // check_prototype_hosts.js — the #670 prototype shell mounts feature lanes
 // exactly as the contract in #670 6639542176 §1 (with 6640163315 for the
 // browse items) says, whatever the lanes themselves do.
@@ -106,6 +106,27 @@
 //      so its next show() does not mount. Each check has a planted defect, as
 //      in 14. The reader and read-aloud, which app.js opens through it, keep
 //      their CTX_KEYS.
+//
+//  16. RECIPE STORE (#670 P2 step 5). prototype/recipe-store.js, through
+//      the `recipe` app.js constructs, each check in a page of its own and
+//      against codex.html's own functions on the same sequence: one history
+//      entry per command, with a baseline; the recipe production builds for
+//      the same adds; STALE on revision, previewRevision and instrumentId,
+//      and BUSY while an edit or a preview rebuild runs (#668 6647636873's
+//      four safeguards, the planted race included); the preview's baseline
+//      never sharing the card's chain; the five preview views equal to
+//      production's lists, glyphs, ipApply, ipChoose note, render and copy;
+//      sourceMessage held to production's own render at ceilings 1000, 150
+//      and 100; every outcome said once, in production's words where it has
+//      them; the destination's fallback; frozen snapshots and the
+//      notification order; the store's hold on the engine's workspace; each
+//      view's methods; apply's vocabulary; the hand-over sentence; pending
+//      commands always settling; the note cleared at each rebuild; no
+//      previewRevision change while nothing is open; addGenre before start;
+//      no selection effect before start; a retried catalog boot; and an Undo
+//      that restores nothing refused. Each check has a planted defect of its
+//      own (STORE_MUTANTS, LOAD_MUTANTS), served in place of the file in
+//      that check's own page, and that defect must fail the check.
 //
 //   node scripts/check_prototype_hosts.js
 //
@@ -3162,6 +3183,2247 @@ async function discoveryChecks(browser, srv) {
   await context.close();
 }
 
+// ── 16. THE RECIPE STORE (#670 P2 step 5) ─────────────────────────────────
+// prototype/recipe-store.js, through the shell that constructs it (app.js's
+// exported `recipe` and selection.js's `instrument`), each check in a page
+// of its own, against codex.html's own functions on the same sequence:
+// uiAddGenre, uiAddInstrument, ipAddConfigured, ipApply, ipChoose, ipDiff,
+// makeCard, traditionCardOpts, compileStack, compileRecipeStack, envCardOf,
+// uiEnvHandoverText and copyToClipboard, and the toasts they show. Every
+// check also runs on the store with a planted defect of its own
+// (STORE_MUTANTS; LOAD_MUTANTS for load.js), served in place of the file in
+// that check's own page, and that defect must fail the check.
+const STORE_FILE = path.join(root, 'prototype', 'recipe-store.js');
+const LOAD_FILE = path.join(root, 'prototype', 'engine', 'load.js');
+const hasStore = fs.existsSync(STORE_FILE);
+const STORE_JS = hasStore ? fs.readFileSync(STORE_FILE, 'utf8') : '';
+const LOAD_JS = fs.readFileSync(LOAD_FILE, 'utf8');
+function plantIn(text, edits) {
+  let src = text;
+  for (const [from, to] of edits) {
+    if (src.split(from).length !== 2) return null;
+    src = src.replace(from, () => to);
+  }
+  return src;
+}
+// The planned recipe and preview views (the §10 table of the step-5
+// design): each lane's view has exactly these methods.
+const STORE_VIEWS = {
+  recipe: ['apply', 'canRedo', 'canUndo', 'redo', 'snapshot', 'subscribe', 'undo'],
+  genreinstruments: ['addEnsemble', 'addInstrument', 'snapshot', 'subscribe'],
+  instrumentactions: [
+    'addConfiguredInstrument',
+    'resetInstrumentPreview',
+    'setInstrumentDestination',
+    'snapshot',
+    'subscribe',
+  ],
+  instrumentsimilar: ['addInstrument', 'snapshot', 'subscribe'],
+  instrumentcatalog: ['addInstrument', 'snapshot', 'subscribe'],
+};
+const PREVIEW_KEYS = {
+  configuration: ['choosePart', 'snapshot', 'subscribe'],
+  character: ['automatic', 'choose', 'normalize', 'snapshot', 'subscribe'],
+  environment: ['choose', 'snapshot', 'subscribe'],
+  chain: ['choose', 'snapshot', 'subscribe'],
+  output: ['copy', 'setFormat', 'snapshot', 'subscribe'],
+};
+// Genres whose full row the gate rewrites, the same way for production and
+// for the prototype: one with an instrument the catalog doesn't know (a
+// partial ensemble) and one with none it knows.
+const PARTIAL = 'delta_blues';
+const NONE = 'dub';
+function rowOverrides() {
+  const out = {};
+  const boot = readJson('api/browse_boot.json');
+  const light = (id) => boot.items.find((t) => t.id === id);
+  for (const [id, list] of [
+    [PARTIAL, (l) => [...l.instruments.slice(0, -1), 'zz_not_an_instrument']],
+    [NONE, () => ['zz_not_an_instrument']],
+  ]) {
+    const rec = readJson(`api/traditions/${id}.json`);
+    rec.source = { ...(rec.source || {}), instruments: list(light(id)) };
+    out[`/api/traditions/${id}.json`] = {
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify(rec),
+    };
+  }
+  return out;
+}
+
+// In every page: the announcements, one by one (announce() clears the
+// region first, so each sentence is an added text node).
+const SAID = () => {
+  window.__said = [];
+  const watch = () => {
+    const region = document.getElementById('proto-status');
+    if (!region) return;
+    new MutationObserver((records) => {
+      for (const r of records)
+        for (const n of r.addedNodes) if (n.textContent) window.__said.push(n.textContent);
+    }).observe(region, { childList: true, subtree: true, characterData: true });
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', watch);
+  else watch();
+};
+// The page-side helpers every check's code starts from.
+const STORE_HELPERS = `
+  const S = {
+    async boot({ start = true } = {}) {
+      const app = await import('/prototype/app.js');
+      const sel = await import('/prototype/selection.js');
+      const load = await import('/prototype/engine/load.js');
+      const recipe = app.recipe;
+      if (start) await recipe.start();
+      const E = start ? await load.loadEngine() : null;
+      const R = recipe.port(${JSON.stringify([
+        'snapshot',
+        'subscribe',
+        'apply',
+        'undo',
+        'redo',
+        'canUndo',
+        'canRedo',
+        'addInstrument',
+        'addEnsemble',
+        'setInstrumentDestination',
+        'addConfiguredInstrument',
+        'resetInstrumentPreview',
+      ])});
+      return { recipe, R, V: recipe.preview, instrument: sel.instrument, E, load };
+    },
+    said: () => window.__said.splice(0),
+    tick: (ms = 0) => new Promise((r) => setTimeout(r, ms)),
+    async settle(n = 4) { for (let i = 0; i < n; i++) await new Promise((r) => setTimeout(r, 0)); },
+    async code(p) { try { await p; return 'ok'; } catch (e) { return (e && e.code) || String(e); } },
+    key: (E) => JSON.parse(E.musicalWorkspaceKey(E.app.cards)).map(({ id, ...c }) => (void id, c)),
+    acts: (R) => R.snapshot().instrumentActions,
+    // An instrument-action command's arguments, from the current snapshot.
+    args(R, extra) {
+      const s = R.snapshot();
+      const a = s.instrumentActions;
+      return { instrumentId: a.instrumentId, revision: s.revision, previewRevision: a.previewRevision, ...extra };
+    },
+    // The preview card as the five views show it.
+    project(V) {
+      const c = V.configuration.snapshot();
+      const ch = V.character.snapshot();
+      const env = V.environment.snapshot();
+      const chain = V.chain.snapshot();
+      return {
+        parts: Object.fromEntries(c.parts.map((p) => [p.id, p.value])),
+        pinned: c.parts.filter((p) => p.pinned).map((p) => p.id).sort(),
+        preface: ch.current,
+        auto: ch.automatic,
+        tuning: (env.fields.find((f) => f.key === 'tuning') || {}).value ?? null,
+        room: (env.fields.find((f) => f.key === 'room') || {}).value ?? null,
+        chain: Object.fromEntries(chain.stages.map((s) => [s.stage, s.value])),
+      };
+    },
+    materialOf(E, id, current) {
+      const part = E.Inst(id).parts.find((p) => p.variants.some((v) => v.expanded));
+      const alt = part.variants.find((v) => v.expanded && v.id !== current[part.id]);
+      return [part.id, alt.id];
+    },
+    svgUrl(html) {
+      const m = /<svg[\\s\\S]*?<\\/svg>/.exec(html || '');
+      return m ? 'data:image/svg+xml,' + encodeURIComponent(m[0].replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" ')) : null;
+    },
+  };
+`;
+// The same card shape from a production card (the five views' projection).
+const PROJECT_CARD = `
+  const projectCard = (card) => ({
+    parts: Object.fromEntries((Inst(card.instrumentId).parts || []).map((p) => [p.id, card.parts[p.id] || null])),
+    pinned: (card.pinnedParts || []).slice().sort(),
+    preface: card.preface || null,
+    auto: card.prefaceAuto !== false,
+    tuning: card.tuning || null,
+    room: card.room || null,
+    chain: Object.fromEntries(CHAIN_SECTIONS.map((s) => [s.id, s.multiSelect ? [...((card.chain || {})[s.id] || [])] : (card.chain || {})[s.id] || null])),
+  });
+`;
+// Runs `body` (an async function's source, given S and its arguments) in the
+// page and returns what it returns.
+const inPage = (page, body, arg) =>
+  page.evaluate(
+    `(async () => { ${STORE_HELPERS}; const ARG = ${JSON.stringify(arg === undefined ? null : arg)}; return (${body})(S, ARG); })()`
+  );
+
+// A fresh page for one check: the prototype at `hash`, with the store (and
+// load.js) served as given, and the check's own routes.
+async function storePage(browser, srv, { store, load, routes = {}, permissions } = {}) {
+  const { context, page, errors, override, failing } = await newPage(browser, srv);
+  await context.addInitScript(SAID);
+  for (const [p, r] of Object.entries(rowOverrides())) override.set(p, r);
+  if (permissions) await context.grantPermissions(permissions, { origin: srv.url });
+  if (store !== undefined)
+    await context.route(
+      (u) => u.pathname === '/prototype/recipe-store.js',
+      (route) => route.fulfill({ status: 200, contentType: 'text/javascript', body: store })
+    );
+  if (load !== undefined)
+    await context.route(
+      (u) => u.pathname === '/prototype/engine/load.js',
+      (route) => route.fulfill({ status: 200, contentType: 'text/javascript', body: load })
+    );
+  // { path: { delay, status, times } }: a slow or failing answer, for the
+  // first `times` requests (every request when times is left out).
+  for (const [p, r] of Object.entries(routes)) {
+    let n = 0;
+    await context.route(
+      (u) => u.pathname === p,
+      async (route) => {
+        n++;
+        if (r.times && n > r.times) return route.fallback();
+        if (r.delay) await new Promise((res) => setTimeout(res, r.delay));
+        if (r.status) return route.fulfill({ status: r.status, body: '' });
+        return route.fallback();
+      }
+    );
+  }
+  return { context, page, errors, override, failing };
+}
+
+// codex.html's own answers for the sequences the checks drive, from its
+// globals: one page, booted, then each sequence from an empty recipe with a
+// baseline entry. Toasts are read as showToast is given them.
+async function storeProduction(browser, srv) {
+  const { context, page, errors, override } = await newPage(browser, srv);
+  for (const [p, r] of Object.entries(rowOverrides())) override.set(p, r);
+  await context.route(
+    (u) => u.pathname === '/api/traditions/post_punk.json',
+    (route) => route.fulfill({ status: 404, body: '' })
+  );
+  await page.goto(`${srv.url}/codex.html#instrument`);
+  const got = await page.evaluate(`(async () => {
+    /* the page's own globals */
+    await CATALOG_READY;
+    await Engine.ensure();
+    await loadNavGlyphArt();
+    for (let i = 0; i < 200 && !(typeof UI !== 'undefined' && UI.ready); i++) await new Promise((r) => setTimeout(r, 50));
+    ${STORE_HELPERS}
+    ${PROJECT_CARD}
+    const toasts = [];
+    const real = showToast;
+    showToast = (msg, ...rest) => { toasts.push(String(msg)); return real(msg, ...rest); };
+    const took = () => toasts.splice(0);
+    const reset = () => { app.cards = []; app.history = []; app.historyIndex = -1; app._addToTradition = null; pushHistory(); renderAll(); };
+    const key = () => S.key({ musicalWorkspaceKey, app });
+    const out = {};
+
+    // 3 and 16: the recipe commands and what they say.
+    reset();
+    took();
+    const step = async (name, run) => { await run(); out.toasts[name] = took(); };
+    out.toasts = {};
+    await step('genre', () => uiAddGenre('bluegrass'));
+    await step('grouped', () => uiAddInstrument('oud', { destination: 'bluegrass' }));
+    await step('loose', () => uiAddInstrument('udu', { destination: '' }));
+    await step('created', () => uiAddInstrument('banjo_5_string', { destination: 'afrobeat' }));
+    out.parity = { key: key(), length: app.history.length, index: app.historyIndex };
+    await step('partial', () => uiAddGenre(${JSON.stringify(PARTIAL)}));
+    await step('none', () => uiAddGenre(${JSON.stringify(NONE)}));
+    UI.busy = true;
+    await step('busyGenre', () => uiAddGenre('gagaku'));
+    UI.busy = false;
+    out.failedGenre = { name: Inst('udu').name, genre: Tradition('post_punk').name };
+    await step('failed', () => uiAddInstrument('udu', { destination: 'post_punk' }));
+    // The configured add, from the inspector, with and without changes.
+    uiInspectInstrument('oud');
+    await S.settle(8);
+    ipSyncDestination();
+    $ui('instrument-destination').value = 'bluegrass';
+    await ipRebuild();
+    ipChoose({ k: 'room', v: ROOMS[3].id });
+    await step('configured', () => ipAddConfigured());
+    IP.edits.set('oud', []);
+    await ipRebuild();
+    await step('defaults', () => ipAddConfigured());
+    UI.busy = true;
+    await step('busyAdd', () => ipAddConfigured());
+    UI.busy = false;
+    $ui('instrument-destination').value = '';
+    await ipRebuild();
+
+    // 11, 12, 15: the inspector's card for Oud with no destination.
+    const fresh = (id, opts) => {
+      IP.edits.set(id, []);
+      IP.card = makeCard(id, opts);
+      IP.base = makeCard(id, opts);
+      UI.instrumentPreview = id;
+    };
+    const partsOf = (id) => Inst(id).parts.map((p) => ({
+      id: p.id,
+      name: p.name || ipHuman(p.id),
+      variants: p.variants.map((v) => ({ id: v.id, name: v.name, descriptors: entryRenderDescs(v), expanded: v.expanded || false, alias_of: v.alias_of || null })),
+    }));
+    out.parts = { oud: partsOf('oud'), banjo_5_string: partsOf('banjo_5_string') };
+    fresh('oud');
+    const [mp, mv] = S.materialOf({ Inst }, 'oud', IP.card.parts);
+    out.material = { part: mp, variant: mv };
+    ipChoose({ k: 'part', part: mp, v: mv });
+    out.choosePart = { card: projectCard(IP.card), note: IP.note || null, changed: ipDiff(IP.base, IP.card).length };
+    // Then, on a fresh banjo, a choice that moves something else, so the
+    // note says what.
+    fresh('banjo_5_string');
+    const moving = () => {
+      for (const part of Inst('banjo_5_string').parts)
+        for (const v of part.variants.slice(0, 120)) {
+          if (v.id === IP.card.parts[part.id]) continue;
+          const c = JSON.parse(JSON.stringify(IP.card));
+          const before = JSON.parse(JSON.stringify(c));
+          ipApply(c, { k: 'part', part: part.id, v: v.id });
+          if (ipDiff(before, c).some((x) => x.key !== 'part:' + part.id)) return { part: part.id, variant: v.id };
+        }
+      return null;
+    };
+    out.moving = moving();
+    if (out.moving) ipChoose({ k: 'part', part: out.moving.part, v: out.moving.variant });
+    out.chooseMoving = { card: projectCard(IP.card), note: IP.note || null };
+    fresh('oud');
+    out.character0 = { current: IP.card.preface || null, automatic: IP.card.prefaceAuto !== false, suggestion: (() => { const s = suggestPrefaceForCard(IP.card); return s && s !== IP.card.preface ? s : null; })() };
+    ipChoose({ k: 'preface', id: 'sermonizing' });
+    out.choosePreface = { card: projectCard(IP.card), note: IP.note || null };
+    ipChoose({ k: 'auto' });
+    out.chooseAuto = { card: projectCard(IP.card), note: IP.note || null };
+    out.categories = PREFACE_CAT_ORDER.map((cat) => ({
+      id: cat,
+      glyph: S.svgUrl(prefaceCatGlyphHTML(cat, 16)),
+      prefaces: (prefaceGroups()[cat] || []).map((e) => ({ id: e.id, note: e.note || null, entry: S.svgUrl(prefaceGlyphsHTML(e, 15, true)) })),
+    }));
+    out.tunings = TUNINGS.map((t) => ({ id: t.id, name: t.name }));
+    out.rooms = ROOMS.map((r) => ({ id: r.id, name: r.name }));
+    out.tuningDescs = entryRenderDescs(Tuning(TUNINGS[5].id));
+    out.stages = CHAIN_SECTIONS.map((s) => ({ stage: s.id, multi: !!s.multiSelect, options: s.items.map((i) => ({ id: i.id, name: i.name })) }));
+    // 15: a configured card's single-card render.
+    const conf = makeCard('oud', traditionCardOpts('bluegrass', 'oud'));
+    ipApply(conf, { k: 'part', part: mp, v: mv });
+    out.output = Object.fromEntries(RECIPE_FORMATS.map(([f]) => [f, compileStack(conf, f)]));
+
+    // 13: the environment sentence, by the gate's own rule over this
+    // page's render: where the card would land, which card the recipe's
+    // environment would come from, and whether Compact writes it.
+    const who = (c) => uiCardWho(c);
+    const sentence = (after, copy, format, ceiling) => {
+      const src = envCardOf(after);
+      if (!src || !hasEnvironment(src)) return 'Your recipe has no environment yet, and neither does this instrument.';
+      const lead = src === copy
+        ? 'Added now, this instrument would set your recipe’s environment: its tuning, room and chain are the ones the recipe renders.'
+        : 'Your recipe renders one environment, from ' + who(src) + ' (' + (src.traditionId ? Tradition(src.traditionId).name : 'independent') + '). This instrument’s tuning, room and chain are kept on its card, but render only if it becomes that source.';
+      if (format !== 'compact') return lead;
+      const text = compileRecipeStack(after, 'compact', { ceiling });
+      // Two or more cards: the environment is the line after the
+      // instruments'. One card: Compact writes one line, and the
+      // environment's parts follow the instrument's, each after a " · ".
+      const written = after.length >= 2 ? text.split('\\n').length === after.length + 1 : text.includes(' · ');
+      return written
+        ? lead + ' In Compact it is written once, after the instruments.'
+        : lead + ' In Compact the environment line is dropped to fit the ' + ceiling + '-character limit.';
+    };
+    const room = ROOMS[3].id;
+    const cases = {
+      empty: () => ({ recipe: [], preview: makeCard('oud') }),
+      genre: () => { app.cards = []; importTradition('bluegrass'); return { recipe: app.cards.slice(), preview: makeCard('oud') }; },
+      banjo: () => { const p = makeCard('oud'); p.room = room; return { recipe: [makeCard('banjo_5_string')], preview: p }; },
+      alone: () => { const p = makeCard('oud'); p.room = room; return { recipe: [], preview: p }; },
+    };
+    out.sources = {};
+    for (const [name, make] of Object.entries(cases)) {
+      out.sources[name] = {};
+      for (const ceiling of [1000, 150, 100])
+        for (const [f] of RECIPE_FORMATS) {
+          const { recipe, preview } = make();
+          const copy = { ...preview, id: '__preview__' };
+          out.sources[name][ceiling + ':' + f] = sentence([...recipe, copy], copy, f, ceiling);
+        }
+    }
+    out.room = room;
+
+    // 21: the editor's part click on a recipe card (handleCardClick).
+    reset();
+    importTradition('bluegrass');
+    const banjo = app.cards.find((c) => c.instrumentId === 'banjo_5_string');
+    const [bp, bv] = S.materialOf({ Inst }, 'banjo_5_string', banjo.parts);
+    banjo.parts[bp] = bv;
+    if (applyPartEdit(banjo, bp)) pushHistory();
+    out.setVariant = { part: bp, variant: bv, card: projectCard(banjo) };
+
+    // 22: the hand-over sentence, read after each step (the page's own
+    // deferred read is held off while the sequence runs).
+    UI.envPending = true;
+    reset();
+    UI.envSource = null;
+    uiEnvHandoverText();
+    const said = [];
+    const read = (name) => said.push([name, uiEnvHandoverText()]);
+    await Catalog.ensureFull('afrobeat');
+    importTradition('afrobeat');
+    read('afrobeat');
+    importTradition('bluegrass');
+    read('bluegrass');
+    rmCard(envCardOf(app.cards).id);
+    read('remove source');
+    for (const c of app.cards.filter((c) => c.traditionId === 'afrobeat')) rmCard(c.id, { skipHistory: true });
+    pushHistory();
+    read('remove afrobeat');
+    for (const c of app.cards.filter((c) => c.traditionId === 'bluegrass')) rmCard(c.id, { skipHistory: true });
+    pushHistory();
+    read('remove bluegrass');
+    addCard('banjo_5_string');
+    read('loose banjo');
+    importTradition('bluegrass');
+    read('bluegrass again');
+    undo();
+    read('undo');
+    redo();
+    read('redo');
+    UI.envPending = false;
+    out.handover = said;
+    return out;
+  })()`);
+  await context.close();
+  return { got, errors };
+}
+
+// copyToClipboard on codex.html, from a click, in a context whose clipboard
+// is granted or not: what production says for the same browser.
+async function productionCopy(browser, srv, permissions) {
+  const { context, page } = await newPage(browser, srv);
+  if (permissions) await context.grantPermissions(permissions, { origin: srv.url });
+  await page.goto(`${srv.url}/codex.html#instrument`);
+  await page.evaluate(`(async () => {
+    await CATALOG_READY;
+    window.__toasts = [];
+    const real = showToast;
+    showToast = (m, ...r) => { window.__toasts.push(String(m)); return real(m, ...r); };
+    const b = document.createElement('button');
+    b.id = 'gate-copy';
+    b.textContent = 'copy';
+    b.addEventListener('click', () => copyToClipboard('gate text', 'Copied', 'Copy failed — select the text instead'));
+    document.body.prepend(b);
+  })()`);
+  await page.click('#gate-copy');
+  await page.waitForFunction(() => window.__toasts.length > 0, null, { timeout: 5000 });
+  const toasts = await page.evaluate(() => window.__toasts);
+  await context.close();
+  return toasts;
+}
+
+// The checks. Each runs in a page of its own (`opts` set it up), returns
+// what it saw, and its verdict compares that with the rule and, where
+// production has an answer, with storeProduction's. A verdict is true, or
+// the reason it failed.
+const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+const why = (ok, detail) => (ok ? true : detail);
+const STORE_CHECKS = {
+  // 1. The baseline: nothing to undo on an empty recipe; one add, then Undo,
+  // gives the empty recipe back.
+  baseline: {
+    page: async (S) => {
+      const { R } = await S.boot();
+      const before = R.canUndo();
+      await S.code(
+        R.addInstrument({ instrumentId: 'udu', destination: null, revision: R.snapshot().revision })
+      );
+      const afterAdd = R.canUndo();
+      const undo = R.undo();
+      return { before, afterAdd, undo, cards: R.snapshot().cards.length, canUndo: R.canUndo() };
+    },
+    verdict: (g) =>
+      why(
+        g.before === false &&
+          g.afterAdd === true &&
+          same(g.undo, { ok: true, changed: true }) &&
+          g.cards === 0 &&
+          g.canUndo === false,
+        JSON.stringify(g)
+      ),
+  },
+  // 2. One history entry for each command and each apply op.
+  entries: {
+    page: async (S) => {
+      const { R, E, instrument } = await S.boot();
+      const n = () => E.app.history.length;
+      const out = {};
+      const rev = () => R.snapshot().revision;
+      let at = n();
+      const mark = (name) => {
+        out[name] = n() - at;
+        at = n();
+      };
+      await R.addEnsemble({ genreId: 'bluegrass', revision: rev() });
+      mark('addEnsemble');
+      await R.addInstrument({ instrumentId: 'oud', destination: 'bluegrass', revision: rev() });
+      mark('addInstrument');
+      instrument.set('udu');
+      await S.settle();
+      await S.code(R.setInstrumentDestination(S.args(R, { destination: 'bluegrass' })));
+      mark('setInstrumentDestination');
+      await R.addConfiguredInstrument(S.args(R, { destination: 'bluegrass' }));
+      mark('addConfiguredInstrument');
+      const card = (id) => E.app.cards.find((c) => c.instrumentId === id);
+      const banjo = card('banjo_5_string');
+      const [p, v] = S.materialOf(E, 'banjo_5_string', banjo.parts);
+      out.receipts = [];
+      const op = (name, edit) => {
+        out.receipts.push([name, R.apply(edit)]);
+        mark(name);
+      };
+      op('set_variant', { op: 'set_variant', card: banjo.id, part: p, variant: v });
+      op('set_preface', { op: 'set_preface', card: banjo.id, preface: 'bitter' });
+      op('set_preface auto', { op: 'set_preface', card: banjo.id, preface: null });
+      op('set_environment', { op: 'set_environment', room: E.ROOMS[7].id });
+      op('remove_instrument', { op: 'remove_instrument', card: card('oud').id });
+      op('remove_tradition', { op: 'remove_tradition', tradition: 'bluegrass' });
+      return out;
+    },
+    verdict: (g) => {
+      const counts = Object.entries(g).filter(([k]) => k !== 'receipts');
+      return why(
+        counts.every(([k, d]) => d === (k === 'setInstrumentDestination' ? 0 : 1)) &&
+          g.receipts.every(([, r]) => r.ok === true && r.changed === true),
+        JSON.stringify(g)
+      );
+    },
+  },
+  // 3. The recipe the store builds equals production's for the same adds.
+  parity: {
+    page: async (S) => {
+      const { R, E } = await S.boot();
+      const rev = () => R.snapshot().revision;
+      const placed = [];
+      await R.addEnsemble({ genreId: 'bluegrass', revision: rev() });
+      for (const [id, d] of [
+        ['oud', 'bluegrass'],
+        ['udu', null],
+        ['banjo_5_string', 'afrobeat'],
+      ])
+        placed.push(
+          (await R.addInstrument({ instrumentId: id, destination: d, revision: rev() })).placed
+        );
+      return { key: S.key(E), length: E.app.history.length, index: E.app.historyIndex, placed };
+    },
+    verdict: (g, p) =>
+      why(
+        same(g.key, p.parity.key) &&
+          g.length === p.parity.length &&
+          g.index === p.parity.index &&
+          same(g.placed, ['grouped', 'independent', 'grouped']),
+        `the store's recipe ${JSON.stringify(g).slice(0, 300)} vs codex.html's ${JSON.stringify(p.parity).slice(0, 300)}`
+      ),
+  },
+  // 4. A command against an old revision is STALE, and changes nothing.
+  staleRevision: {
+    page: async (S) => {
+      const { R, E, instrument } = await S.boot();
+      await R.addEnsemble({ genreId: 'bluegrass', revision: R.snapshot().revision });
+      instrument.set('oud');
+      await S.settle();
+      const s0 = R.snapshot();
+      const h0 = JSON.stringify(E.app.history);
+      const old = s0.revision - 1;
+      const a = s0.instrumentActions;
+      const pa = {
+        instrumentId: a.instrumentId,
+        previewRevision: a.previewRevision,
+        revision: old,
+      };
+      const out = {
+        addInstrument: await S.code(
+          R.addInstrument({ instrumentId: 'udu', destination: null, revision: old })
+        ),
+        addEnsemble: await S.code(R.addEnsemble({ genreId: 'afrobeat', revision: old })),
+        setInstrumentDestination: await S.code(
+          R.setInstrumentDestination({ ...pa, destination: 'bluegrass' })
+        ),
+        addConfiguredInstrument: await S.code(
+          R.addConfiguredInstrument({ ...pa, destination: null })
+        ),
+        resetInstrumentPreview: await S.code(R.resetInstrumentPreview(pa)),
+        apply: R.apply({ op: 'set_environment', room: E.ROOMS[7].id, revision: old }).code,
+      };
+      out.sameSnapshot = R.snapshot() === s0;
+      out.sameHistory = JSON.stringify(E.app.history) === h0;
+      return out;
+    },
+    verdict: (g) =>
+      why(
+        [
+          'addInstrument',
+          'addEnsemble',
+          'setInstrumentDestination',
+          'addConfiguredInstrument',
+          'resetInstrumentPreview',
+          'apply',
+        ].every((k) => g[k] === 'STALE') &&
+          g.sameSnapshot &&
+          g.sameHistory,
+        JSON.stringify(g)
+      ),
+  },
+  // 5. Safeguard 1: an old previewRevision or another instrument is STALE.
+  stalePreview: {
+    page: async (S) => {
+      const { R, E, instrument } = await S.boot();
+      await R.addEnsemble({ genreId: 'bluegrass', revision: R.snapshot().revision });
+      instrument.set('oud');
+      await S.settle();
+      const h0 = E.app.history.length;
+      const out = {};
+      for (const [name, extra] of [
+        ['setInstrumentDestination', { destination: 'bluegrass' }],
+        ['addConfiguredInstrument', { destination: null }],
+        ['resetInstrumentPreview', {}],
+      ]) {
+        const base = S.args(R, extra);
+        out[name] = [
+          await S.code(R[name]({ ...base, previewRevision: base.previewRevision - 1 })),
+          await S.code(R[name]({ ...base, instrumentId: 'banjo_5_string' })),
+        ];
+      }
+      out.history = E.app.history.length - h0;
+      return out;
+    },
+    verdict: (g) =>
+      why(
+        ['setInstrumentDestination', 'addConfiguredInstrument', 'resetInstrumentPreview'].every(
+          (k) => same(g[k], ['STALE', 'STALE'])
+        ) && g.history === 0,
+        JSON.stringify(g)
+      ),
+  },
+  // 6. While a recipe edit waits on a genre's row, everything is BUSY and
+  // Undo and Redo are unavailable.
+  busyEdit: {
+    opts: { routes: { '/api/traditions/afrobeat.json': { delay: 1500 } } },
+    page: async (S) => {
+      const { R, E, instrument } = await S.boot();
+      await R.addEnsemble({ genreId: 'bluegrass', revision: R.snapshot().revision });
+      instrument.set('oud');
+      await S.settle();
+      const canUndo0 = R.canUndo();
+      const running = R.addEnsemble({ genreId: 'afrobeat', revision: R.snapshot().revision });
+      await S.tick(200);
+      const s = R.snapshot();
+      const pa = S.args(R);
+      const out = {
+        busy: s.busy,
+        canUndo0,
+        canUndo: R.canUndo(),
+        canRedo: R.canRedo(),
+        addInstrument: await S.code(
+          R.addInstrument({ instrumentId: 'udu', destination: null, revision: s.revision })
+        ),
+        addEnsemble: await S.code(R.addEnsemble({ genreId: 'gagaku', revision: s.revision })),
+        setInstrumentDestination: await S.code(
+          R.setInstrumentDestination({ ...pa, destination: 'bluegrass' })
+        ),
+        addConfiguredInstrument: await S.code(
+          R.addConfiguredInstrument({ ...pa, destination: null })
+        ),
+        resetInstrumentPreview: await S.code(R.resetInstrumentPreview(pa)),
+        apply: R.apply({ op: 'set_environment', room: E.ROOMS[7].id }).code,
+        undo: R.undo().code,
+      };
+      out.done = await S.code(running);
+      out.after = R.snapshot().busy;
+      return out;
+    },
+    verdict: (g) =>
+      why(
+        g.busy === true &&
+          g.canUndo0 === true &&
+          g.canUndo === false &&
+          g.canRedo === false &&
+          [
+            'addInstrument',
+            'addEnsemble',
+            'setInstrumentDestination',
+            'addConfiguredInstrument',
+            'resetInstrumentPreview',
+            'apply',
+            'undo',
+          ].every((k) => g[k] === 'BUSY') &&
+          g.done === 'ok' &&
+          g.after === false,
+        JSON.stringify(g)
+      ),
+  },
+  // 7. Safeguard 2 as resolved: while the preview rebuilds, the three
+  // instrument-action commands are BUSY, and plain Add still adds.
+  busyPreview: {
+    page: async (S) => {
+      const { R, instrument } = await S.boot();
+      await R.addEnsemble({ genreId: 'bluegrass', revision: R.snapshot().revision });
+      instrument.set('oud');
+      await S.settle();
+      void S.code(R.setInstrumentDestination(S.args(R, { destination: 'bluegrass' })));
+      // Before anything is awaited: the rebuild is running.
+      const s = R.snapshot();
+      const pa = S.args(R);
+      const calls = {
+        setInstrumentDestination: R.setInstrumentDestination({ ...pa, destination: null }),
+        addConfiguredInstrument: R.addConfiguredInstrument({ ...pa, destination: 'bluegrass' }),
+        resetInstrumentPreview: R.resetInstrumentPreview(pa),
+        addInstrument: R.addInstrument({
+          instrumentId: 'udu',
+          destination: null,
+          revision: s.revision,
+        }),
+      };
+      const out = { status: s.instrumentActions.status };
+      for (const [k, p] of Object.entries(calls)) out[k] = await S.code(p);
+      out.cards = R.snapshot()
+        .cards.map((c) => c.instrumentId)
+        .filter((i) => i === 'udu').length;
+      return out;
+    },
+    verdict: (g) =>
+      why(
+        g.status === 'loading' &&
+          g.setInstrumentDestination === 'BUSY' &&
+          g.addConfiguredInstrument === 'BUSY' &&
+          g.resetInstrumentPreview === 'BUSY' &&
+          g.addInstrument === 'ok' &&
+          g.cards === 1,
+        JSON.stringify(g)
+      ),
+  },
+  // 8. Safeguard 3: setInstrumentDestination and resetInstrumentPreview move
+  // previewRevision and say 'loading' before anything is awaited, so an Add
+  // against the old preview is STALE.
+  safeguard3: {
+    page: async (S) => {
+      const { R, instrument } = await S.boot();
+      await R.addEnsemble({ genreId: 'bluegrass', revision: R.snapshot().revision });
+      instrument.set('oud');
+      await S.settle();
+      const out = {};
+      for (const [name, extra] of [
+        ['setInstrumentDestination', { destination: 'bluegrass' }],
+        ['resetInstrumentPreview', {}],
+      ]) {
+        const old = S.args(R);
+        const p = R[name]({ ...old, ...extra });
+        const a = S.acts(R);
+        const add = R.addConfiguredInstrument({ ...old, destination: a.destination });
+        out[name] = {
+          status: a.status,
+          moved: a.previewRevision !== old.previewRevision,
+          add: await S.code(add),
+          done: await S.code(p),
+        };
+      }
+      return out;
+    },
+    verdict: (g) =>
+      why(
+        ['setInstrumentDestination', 'resetInstrumentPreview'].every(
+          (k) =>
+            g[k].status === 'loading' && g[k].moved && g[k].add === 'STALE' && g[k].done === 'ok'
+        ),
+        JSON.stringify(g)
+      ),
+  },
+  // 9. Safeguard 4 and the planted race: the configured add is the preview
+  // as it was at the call, whatever is chosen while the add waits.
+  capture: {
+    page: async (S) => {
+      const { R, V, E, instrument } = await S.boot();
+      await R.addEnsemble({ genreId: 'bluegrass', revision: R.snapshot().revision });
+      instrument.set('oud');
+      await S.settle();
+      await R.setInstrumentDestination(S.args(R, { destination: 'bluegrass' }));
+      await S.settle();
+      await V.environment.choose({
+        field: 'room',
+        id: E.ROOMS[9].id,
+        revision: V.environment.snapshot().revision,
+      });
+      await V.chain.choose({
+        stage: 'fx',
+        id: E.CHAIN_SECTIONS[0].items[2].id,
+        on: true,
+        revision: V.chain.snapshot().revision,
+      });
+      const captured = S.project(V);
+      const h0 = E.app.history.length;
+      const adding = R.addConfiguredInstrument(S.args(R, { destination: 'bluegrass' }));
+      // While it waits: a choice on the preview.
+      const conf = V.configuration.snapshot();
+      const [p, v] = S.materialOf(
+        E,
+        'oud',
+        Object.fromEntries(conf.parts.map((x) => [x.id, x.value]))
+      );
+      const raced = await S.code(
+        V.configuration.choosePart({ partId: p, variantId: v, revision: conf.revision })
+      );
+      const receipt = await adding;
+      const entries = E.app.history.length - h0;
+      const addedId = E.app.cards.find((c) => c.instrumentId === 'oud').id;
+      const added = () => E.app.cards.find((c) => c.id === addedId);
+      const proj = (c) => ({
+        parts: Object.fromEntries(
+          E.Inst(c.instrumentId).parts.map((x) => [x.id, c.parts[x.id] || null])
+        ),
+        pinned: (c.pinnedParts || []).slice().sort(),
+        preface: c.preface || null,
+        auto: c.prefaceAuto !== false,
+        tuning: c.tuning || null,
+        room: c.room || null,
+        chain: Object.fromEntries(
+          E.CHAIN_SECTIONS.map((s) => [
+            s.id,
+            s.multiSelect ? [...(c.chain[s.id] || [])] : c.chain[s.id] || null,
+          ])
+        ),
+      });
+      const got = proj(added());
+      // A later chain choice on the preview leaves the added card alone.
+      await V.chain.choose({
+        stage: 'fx',
+        id: E.CHAIN_SECTIONS[0].items[3].id,
+        on: true,
+        revision: V.chain.snapshot().revision,
+      });
+      const later = proj(added());
+      await R.setInstrumentDestination(S.args(R, { destination: null }));
+      await S.settle();
+      const loose = await R.addConfiguredInstrument(S.args(R, { destination: null }));
+      return {
+        raced,
+        captured,
+        got,
+        later,
+        entries,
+        placed: receipt.placed,
+        loosePlaced: loose.placed,
+        differs: JSON.stringify(captured) !== JSON.stringify(S.project(V)),
+      };
+    },
+    verdict: (g) =>
+      why(
+        g.raced === 'ok' &&
+          g.differs &&
+          same(g.got, g.captured) &&
+          same(g.later, g.captured) &&
+          g.entries === 1 &&
+          g.placed === 'grouped' &&
+          g.loosePlaced === 'independent',
+        JSON.stringify(g).slice(0, 900)
+      ),
+  },
+  // 10. The baseline and the card never share a chain: a chain choice on a
+  // preview seeded from a genre counts as a change.
+  aliasing: {
+    page: async (S) => {
+      const { R, V, E, instrument } = await S.boot();
+      await R.addEnsemble({ genreId: 'bluegrass', revision: R.snapshot().revision });
+      instrument.set('oud');
+      await S.settle();
+      await R.setInstrumentDestination(S.args(R, { destination: 'bluegrass' }));
+      await S.settle();
+      const before = S.acts(R).changedCount;
+      await V.chain.choose({
+        stage: 'fx',
+        id: E.CHAIN_SECTIONS[0].items[0].id,
+        on: true,
+        revision: V.chain.snapshot().revision,
+      });
+      const fx = S.acts(R).changedCount;
+      const mic = E.CHAIN_SECTIONS.find((s) => s.id === 'mic');
+      await V.chain.choose({
+        stage: 'mic',
+        id: mic.items[5].id,
+        revision: V.chain.snapshot().revision,
+      });
+      return { before, fx, mic: S.acts(R).changedCount, canReset: S.acts(R).canReset };
+    },
+    verdict: (g) =>
+      why(g.before === 0 && g.fx === 1 && g.mic === 2 && g.canReset === true, JSON.stringify(g)),
+  },
+  // 11. configuration: the parts and variants as production lists them, and
+  // a material choice that leaves the card, and the note, as ipChoose does.
+  configuration: {
+    page: async (S, ARG) => {
+      const { V, instrument } = await S.boot();
+      const lists = {};
+      for (const id of ['banjo_5_string', 'oud']) {
+        instrument.set(id);
+        await S.settle();
+        lists[id] = V.configuration
+          .snapshot()
+          .parts.map(({ id: pid, name, variants }) => ({ id: pid, name, variants }));
+      }
+      const r = V.configuration.snapshot().revision;
+      await V.configuration.choosePart({ partId: ARG.part, variantId: ARG.variant, revision: r });
+      const first = { card: S.project(V), note: V.configuration.snapshot().note };
+      instrument.set('banjo_5_string');
+      await S.settle();
+      if (ARG.moving)
+        await V.configuration.choosePart({
+          partId: ARG.moving.part,
+          variantId: ARG.moving.variant,
+          revision: V.configuration.snapshot().revision,
+        });
+      return {
+        lists,
+        ...first,
+        moving: { card: S.project(V), note: V.configuration.snapshot().note },
+      };
+    },
+    arg: (p) => ({ ...p.material, moving: p.moving }),
+    verdict: (g, p) =>
+      why(
+        same(g.lists.oud, p.parts.oud) &&
+          same(g.lists.banjo_5_string, p.parts.banjo_5_string) &&
+          same(g.card, p.choosePart.card) &&
+          g.note === p.choosePart.note &&
+          !!p.moving &&
+          same(g.moving, p.chooseMoving) &&
+          !!g.moving.note,
+        `parts equal: ${same(g.lists.oud, p.parts.oud)}/${same(g.lists.banjo_5_string, p.parts.banjo_5_string)}; card ${JSON.stringify(g.card).slice(0, 200)} vs ${JSON.stringify(p.choosePart.card).slice(0, 200)}; note ${g.note} vs ${p.choosePart.note}; then ${JSON.stringify(p.moving)}: ${JSON.stringify(g.moving).slice(0, 300)} vs ${JSON.stringify(p.chooseMoving).slice(0, 300)}`
+      ),
+  },
+  // 12. character: 16 categories, 740 entries, production's glyphs at its
+  // sizes, and choose and automatic leaving the card as ipChoose does.
+  character: {
+    page: async (S) => {
+      const { V, instrument } = await S.boot();
+      instrument.set('oud');
+      await S.settle();
+      const s = V.character.snapshot();
+      const head = { current: s.current, automatic: s.automatic, suggestion: s.suggestion };
+      const categories = s.categories.map((c) => ({
+        id: c.id,
+        glyph: (c.prefaces[0] && c.prefaces[0].glyph.category) || null,
+        prefaces: c.prefaces.map((e) => ({ id: e.id, note: e.note, entry: e.glyph.entry })),
+      }));
+      await V.character.choose({ prefaceId: 'sermonizing', revision: s.revision });
+      const chosen = { card: S.project(V), note: V.configuration.snapshot().note };
+      await V.character.automatic({ revision: V.character.snapshot().revision });
+      const auto = { card: S.project(V), note: V.configuration.snapshot().note };
+      return { head, categories, chosen, auto, normalize: V.character.normalize('ʿŪd – Café') };
+    },
+    verdict: (g, p) =>
+      why(
+        g.categories.length === 16 &&
+          g.categories.reduce((n, c) => n + c.prefaces.length, 0) === 740 &&
+          same(g.categories, p.categories) &&
+          same(g.head, p.character0) &&
+          same(g.chosen, p.choosePreface) &&
+          same(g.auto, p.chooseAuto) &&
+          g.normalize === 'ud cafe',
+        `categories equal: ${same(g.categories, p.categories)}; head ${JSON.stringify(g.head)} vs ${JSON.stringify(p.character0)}; chosen ${same(g.chosen, p.choosePreface)}; auto ${same(g.auto, p.chooseAuto)}; normalize ${g.normalize}`
+      ),
+  },
+  // 13. environment: the options, a choice, and sourceMessage for every
+  // format at ceilings 1000, 150 and 100 against production's own render.
+  environment: {
+    run: async (page, p, ctx) => {
+      const out = {};
+      for (const ceiling of [1000, 150, 100])
+        out[ceiling] = await inPage(
+          ceiling === 1000 ? page : await ctx.fresh(),
+          async (S, ARG) => {
+            let recipe;
+            let V;
+            let instrument;
+            if (ARG.ceiling === 1000) ({ recipe, V, instrument } = await S.boot());
+            else {
+              const { recipeStore } = await import('/prototype/recipe-store.js');
+              const { loadEngine } = await import('/prototype/engine/load.js');
+              let value = null;
+              const fns = new Set();
+              instrument = {
+                current: () => value,
+                subscribe: (fn) => (fns.add(fn), () => fns.delete(fn)),
+                set: (v) => {
+                  value = v;
+                  for (const fn of [...fns]) fn();
+                },
+              };
+              recipe = recipeStore({
+                load: loadEngine,
+                selection: instrument,
+                announce: () => {},
+                ceiling: ARG.ceiling,
+              });
+              await recipe.start();
+              V = recipe.preview;
+            }
+            const R = recipe.port(['snapshot', 'addInstrument', 'addEnsemble', 'apply']);
+            const E = await (await import('/prototype/engine/load.js')).loadEngine();
+            const rev = () => R.snapshot().revision;
+            const messages = {};
+            const read = async (name) => {
+              messages[name] = {};
+              for (const f of ['rich', 'tags', 'prose', 'compact']) {
+                V.output.setFormat(f);
+                messages[name][ARG.ceiling + ':' + f] = V.environment.snapshot().sourceMessage;
+              }
+              V.output.setFormat('rich');
+            };
+            instrument.set('oud');
+            await S.settle();
+            const env = V.environment.snapshot();
+            const fields = env.fields.map((f) => ({
+              key: f.key,
+              count: f.options.length,
+              options: f.options,
+            }));
+            await read('empty');
+            await R.addEnsemble({ genreId: 'bluegrass', revision: rev() });
+            await read('genre');
+            R.apply({ op: 'remove_tradition', tradition: 'bluegrass' });
+            await R.addInstrument({
+              instrumentId: 'banjo_5_string',
+              destination: null,
+              revision: rev(),
+            });
+            await V.environment.choose({
+              field: 'room',
+              id: ARG.room,
+              revision: V.environment.snapshot().revision,
+            });
+            await read('banjo');
+            R.apply({ op: 'remove_instrument', card: R.snapshot().cards[0].id });
+            await read('alone');
+            await V.environment.choose({
+              field: 'tuning',
+              id: E.TUNINGS[5].id,
+              revision: V.environment.snapshot().revision,
+            });
+            const tuning = V.environment.snapshot().fields.find((f) => f.key === 'tuning');
+            const bad = await S.code(
+              V.environment.choose({
+                field: 'room',
+                id: 'zz_no_room',
+                revision: V.environment.snapshot().revision,
+              })
+            );
+            const source = R.snapshot().environmentCard;
+            return {
+              fields,
+              messages,
+              tuning: { value: tuning.value, descriptors: tuning.descriptors },
+              bad,
+              source,
+            };
+          },
+          { ceiling, room: p.room }
+        );
+      return out;
+    },
+    verdict: (g, p) => {
+      const r = g[1000];
+      if (!r || !r.fields) return JSON.stringify(g).slice(0, 300);
+      const wrong = [];
+      for (const ceiling of [1000, 150, 100])
+        for (const name of ['empty', 'genre', 'banjo', 'alone'])
+          for (const f of ['rich', 'tags', 'prose', 'compact']) {
+            const k = ceiling + ':' + f;
+            const got = g[ceiling].messages[name][k];
+            if (got !== p.sources[name][k])
+              wrong.push(`${name} ${k}: "${got}" vs "${p.sources[name][k]}"`);
+          }
+      return why(
+        r.fields[0].key === 'tuning' &&
+          r.fields[0].count === 122 &&
+          r.fields[1].key === 'room' &&
+          r.fields[1].count === 256 &&
+          same(r.fields[0].options, p.tunings) &&
+          same(r.fields[1].options, p.rooms) &&
+          same(r.tuning.descriptors, p.tuningDescs) &&
+          r.bad === 'INVALID' &&
+          !wrong.length,
+        wrong.slice(0, 4).join(' | ') || JSON.stringify(r).slice(0, 300)
+      );
+    },
+  },
+  // 14. chain: production's stage order; an effect added goes last, one
+  // removed goes; a single stage clears with null.
+  chain: {
+    page: async (S) => {
+      const { V, E, instrument } = await S.boot();
+      instrument.set('oud');
+      await S.settle();
+      const fx = E.CHAIN_SECTIONS[0].items.map((i) => i.id);
+      const c = () => V.chain.snapshot();
+      const value = (stage) => c().stages.find((s) => s.stage === stage).value;
+      const out = { order: c().stages.map((s) => [s.stage, s.multi, s.options.length]) };
+      await V.chain.choose({ stage: 'fx', id: fx[4], on: true, revision: c().revision });
+      await V.chain.choose({ stage: 'fx', id: fx[1], on: true, revision: c().revision });
+      out.added = value('fx');
+      const r0 = c().revision;
+      await V.chain.choose({ stage: 'fx', id: fx[1], on: true, revision: r0 });
+      out.again = [value('fx'), c().revision === r0];
+      await V.chain.choose({ stage: 'fx', id: fx[4], on: false, revision: c().revision });
+      out.removed = value('fx');
+      const mic = E.CHAIN_SECTIONS.find((s) => s.id === 'mic').items[2].id;
+      await V.chain.choose({ stage: 'mic', id: mic, revision: c().revision });
+      out.mic = value('mic');
+      await V.chain.choose({ stage: 'mic', id: null, revision: c().revision });
+      out.cleared = value('mic');
+      out.bad = await S.code(V.chain.choose({ stage: 'zz', id: null, revision: c().revision }));
+      out.want = { added: [fx[4], fx[1]], removed: [fx[1]], mic };
+      return out;
+    },
+    verdict: (g, p) =>
+      why(
+        same(
+          g.order,
+          p.stages.map((s) => [s.stage, s.multi, s.options.length])
+        ) &&
+          same(g.added, g.want.added) &&
+          same(g.again, [g.want.added, true]) &&
+          same(g.removed, g.want.removed) &&
+          g.mic === g.want.mic &&
+          g.cleared === null &&
+          g.bad === 'INVALID',
+        JSON.stringify(g).slice(0, 600)
+      ),
+  },
+  // 15. output: production's single-card render in every format; an
+  // unknown format refused; copy says its outcome once, as production's
+  // copyToClipboard does in the same browser.
+  output: {
+    opts: { permissions: ['clipboard-read', 'clipboard-write'] },
+    run: async (page, p) => {
+      const got = await inPage(
+        page,
+        async (S, ARG) => {
+          const { R, V, E, instrument } = await S.boot();
+          await R.addEnsemble({ genreId: 'bluegrass', revision: R.snapshot().revision });
+          instrument.set('oud');
+          await S.settle();
+          await R.setInstrumentDestination(S.args(R, { destination: 'bluegrass' }));
+          await S.settle();
+          const conf = V.configuration.snapshot();
+          await V.configuration.choosePart({
+            partId: ARG.part,
+            variantId: ARG.variant,
+            revision: conf.revision,
+          });
+          const text = {};
+          for (const f of ['rich', 'tags', 'prose', 'compact']) {
+            V.output.setFormat(f);
+            text[f] = V.output.snapshot().text;
+          }
+          V.output.setFormat('rich');
+          const s0 = V.output.snapshot();
+          let thrown = null;
+          try {
+            V.output.setFormat('zz');
+          } catch (e) {
+            thrown = e instanceof TypeError;
+          }
+          window.__copied = [];
+          const b = document.createElement('button');
+          b.id = 'gate-copy';
+          b.addEventListener('click', () => {
+            window.__copied.push(V.output.copy());
+          });
+          document.body.prepend(b);
+          return { text, thrown, unchanged: V.output.snapshot() === s0, ready: !!E };
+        },
+        p.material
+      );
+      const copy = async () => {
+        await page.evaluate(() => window.__said.splice(0));
+        await page.click('#gate-copy');
+        const r = await page.evaluate(async () => {
+          const result = await window.__copied[window.__copied.length - 1];
+          await new Promise((res) => setTimeout(res, 50));
+          return { result, said: window.__said.splice(0) };
+        });
+        return r;
+      };
+      got.granted = await copy();
+      await page.context().clearPermissions();
+      got.denied = await copy();
+      // A clipboard that throws at once still says the outcome once.
+      await page.evaluate(() => {
+        Object.defineProperty(navigator, 'clipboard', {
+          configurable: true,
+          value: {
+            writeText: () => {
+              throw new Error('gate: no clipboard');
+            },
+          },
+        });
+      });
+      got.throwing = await copy();
+      return got;
+    },
+    verdict: (g, p) => {
+      const sentence = (toasts) => toasts[toasts.length - 1];
+      const ok = (r, want) =>
+        r && r.said.length === 1 && r.said[0] === want && r.result.ok === (want === 'Copied');
+      return why(
+        same(g.text, p.output) &&
+          g.thrown === true &&
+          g.unchanged &&
+          ok(g.granted, sentence(p.copyGranted)) &&
+          ok(g.denied, sentence(p.copyDenied)) &&
+          g.throwing.said.length === 1 &&
+          typeof g.throwing.result.ok === 'boolean',
+        JSON.stringify({
+          g: { ...g, text: same(g.text, p.output) },
+          granted: p.copyGranted,
+          denied: p.copyDenied,
+        }).slice(0, 700)
+      );
+    },
+  },
+  // 16. Every recipe command's outcome is said once, in production's words
+  // where production has them.
+  announcements: {
+    opts: { routes: { '/api/traditions/post_punk.json': { status: 404 } } },
+    page: async (S) => {
+      const { R, V, E, instrument } = await S.boot();
+      S.said();
+      const rev = () => R.snapshot().revision;
+      const out = {};
+      const step = async (name, run) => {
+        await S.code(run());
+        await S.settle();
+        out[name] = S.said();
+      };
+      await step('genre', () => R.addEnsemble({ genreId: 'bluegrass', revision: rev() }));
+      await step('grouped', () =>
+        R.addInstrument({ instrumentId: 'oud', destination: 'bluegrass', revision: rev() })
+      );
+      await step('loose', () =>
+        R.addInstrument({ instrumentId: 'udu', destination: null, revision: rev() })
+      );
+      await step('created', () =>
+        R.addInstrument({
+          instrumentId: 'banjo_5_string',
+          destination: 'afrobeat',
+          revision: rev(),
+        })
+      );
+      await step('partial', () => R.addEnsemble({ genreId: 'delta_blues', revision: rev() }));
+      await step('none', () => R.addEnsemble({ genreId: 'dub', revision: rev() }));
+      await step('failed', () =>
+        R.addInstrument({ instrumentId: 'udu', destination: 'post_punk', revision: rev() })
+      );
+      instrument.set('oud');
+      await S.settle();
+      await R.setInstrumentDestination(S.args(R, { destination: 'bluegrass' }));
+      await S.settle();
+      S.said();
+      await V.environment.choose({
+        field: 'room',
+        id: E.ROOMS[3].id,
+        revision: V.environment.snapshot().revision,
+      });
+      await step('configured', () =>
+        R.addConfiguredInstrument(S.args(R, { destination: 'bluegrass' }))
+      );
+      await R.resetInstrumentPreview(S.args(R));
+      await S.settle();
+      S.said();
+      await step('defaults', () =>
+        R.addConfiguredInstrument(S.args(R, { destination: 'bluegrass' }))
+      );
+      // While an addition runs: both BUSY sentences.
+      const running = R.addEnsemble({ genreId: 'gagaku', revision: rev() });
+      S.said();
+      const busy = [
+        await S.code(R.addEnsemble({ genreId: 'afrobeat', revision: rev() })),
+        await S.code(R.addConfiguredInstrument(S.args(R, { destination: 'bluegrass' }))),
+      ];
+      await S.settle();
+      out.busy = S.said();
+      out.busyCodes = busy;
+      await running;
+      await S.settle();
+      S.said();
+      await step('stale', () =>
+        R.addInstrument({ instrumentId: 'udu', destination: null, revision: rev() - 1 })
+      );
+      return out;
+    },
+    verdict: (g, p) => {
+      const t = p.toasts;
+      const want = {
+        genre: t.genre,
+        grouped: t.grouped,
+        loose: t.loose,
+        created: t.created,
+        partial: t.partial,
+        none: t.none,
+        failed: [
+          `Added ${p.failedGenre.name} as an independent instrument (${p.failedGenre.genre} could not be loaded)`,
+        ],
+        configured: t.configured,
+        defaults: t.defaults,
+        busy: [...t.busyGenre, ...t.busyAdd],
+        stale: [
+          `Your recipe changed before ${p.failedGenre.name} was added. Nothing was added; try again.`,
+        ],
+      };
+      const wrong = Object.keys(want).filter(
+        (k) => !same(g[k], want[k]) || want[k].length !== 1 + (k === 'busy' ? 1 : 0)
+      );
+      return why(
+        !wrong.length && same(g.busyCodes, ['BUSY', 'BUSY']),
+        wrong
+          .map((k) => `${k}: ${JSON.stringify(g[k])} vs ${JSON.stringify(want[k])}`)
+          .join(' | ') || JSON.stringify(g.busyCodes)
+      );
+    },
+  },
+  // 17. The destination: Independent first and the default, the genres in
+  // first-card order; undoing a genre falls back and rebuilds the preview.
+  destination: {
+    page: async (S) => {
+      const { R, instrument } = await S.boot();
+      instrument.set('oud');
+      await S.settle();
+      const first = S.acts(R);
+      await R.addEnsemble({ genreId: 'bluegrass', revision: R.snapshot().revision });
+      await R.addEnsemble({ genreId: 'afrobeat', revision: R.snapshot().revision });
+      const listed = S.acts(R).destinations.map((d) => d.genreId);
+      await R.setInstrumentDestination(S.args(R, { destination: 'afrobeat' }));
+      await S.settle();
+      const pr = S.acts(R).previewRevision;
+      R.undo();
+      const fell = S.acts(R).destination;
+      await S.settle();
+      const a = S.acts(R);
+      return {
+        default: [first.destination, first.destinations[0]],
+        listed,
+        fell,
+        after: {
+          destination: a.destination,
+          moved: a.previewRevision > pr,
+          status: a.status,
+          listed: a.destinations.map((d) => d.genreId),
+        },
+      };
+    },
+    verdict: (g) =>
+      why(
+        same(g.default, [null, { genreId: null, name: 'Independent instrument' }]) &&
+          same(g.listed, [null, 'bluegrass', 'afrobeat']) &&
+          g.fell === null &&
+          same(g.after, {
+            destination: null,
+            moved: true,
+            status: 'ready',
+            listed: [null, 'bluegrass'],
+          }),
+        JSON.stringify(g)
+      ),
+  },
+  // 18. Snapshots are deep-frozen and the same object until a change;
+  // subscribe's unsubscribe is idempotent; a throwing listener stops no
+  // other; a command started in a listener is delivered after the pass.
+  immutability: {
+    page: async (S) => {
+      const { R, V, E, instrument } = await S.boot();
+      await R.addEnsemble({ genreId: 'bluegrass', revision: R.snapshot().revision });
+      instrument.set('oud');
+      await S.settle();
+      const s = R.snapshot();
+      const c = V.configuration.snapshot();
+      const frozen = [
+        s,
+        s.instrumentActions,
+        s.instrumentActions.destinations[1],
+        s.groups[0],
+        s.cards[0],
+        c,
+        c.parts[0],
+        c.parts[0].variants[0],
+        c.parts[0].variants[0].descriptors,
+        V.character.snapshot().categories[0].prefaces[0].glyph,
+      ].every((x) => Object.isFrozen(x));
+      const stable = R.snapshot() === s && V.configuration.snapshot() === c;
+      const seen = [];
+      let started = false;
+      const offA = R.subscribe(() => {
+        seen.push(['a', R.snapshot().revision]);
+        if (!started) {
+          started = true;
+          R.apply({ op: 'set_environment', room: E.ROOMS[11].id });
+          seen.push(['a started', R.snapshot().revision]);
+        }
+      });
+      const offThrow = R.subscribe(() => {
+        throw new Error('gate: a listener that throws');
+      });
+      const offB = R.subscribe(() => seen.push(['b', R.snapshot().revision]));
+      R.apply({ op: 'set_environment', room: E.ROOMS[13].id });
+      offA();
+      offThrow();
+      const twice = [offB(), offB()];
+      const quiet = seen.length;
+      R.apply({ op: 'set_environment', room: E.ROOMS[15].id });
+      return {
+        frozen,
+        stable,
+        seen,
+        twice,
+        quietAfter: seen.length === quiet,
+        fresh: R.snapshot() !== s,
+        fn: typeof offA,
+      };
+    },
+    verdict: (g) => {
+      // a sees commit 1 and starts commit 2 at once; b is told of commit 1
+      // (reading the newer snapshot), then of commit 2, in order.
+      const order = g.seen.map(([w]) => w).join(',');
+      return why(
+        g.frozen &&
+          g.stable &&
+          g.fresh &&
+          g.fn === 'function' &&
+          same(g.twice, [undefined, undefined]) &&
+          g.quietAfter &&
+          order === 'a,a started,b,a,b',
+        JSON.stringify(g)
+      );
+    },
+    errors: ['gate: a listener that throws'],
+  },
+  // 19. The store owns the engine's workspace: it resets what was there,
+  // a second store can't claim it, and the other loaders never write it.
+  ownership: {
+    page: async (S) => {
+      const data = await import('/prototype/data.js');
+      const engine = (await data.loadGenreDiscovery()).page;
+      engine.app.history.push('{"cards":[]}');
+      engine.app.historyIndex = engine.app.history.length - 1;
+      const { R, E, recipe } = await S.boot();
+      const reset = { length: E.app.history.length, index: E.app.historyIndex, same: E === engine };
+      await R.addInstrument({
+        instrumentId: 'udu',
+        destination: null,
+        revision: R.snapshot().revision,
+      });
+      const h = JSON.stringify(E.app.history);
+      const { recipeStore } = await import('/prototype/recipe-store.js');
+      const { instrument } = await import('/prototype/selection.js');
+      const second = recipeStore({
+        load: (await import('/prototype/engine/load.js')).loadEngine,
+        selection: instrument,
+        announce: () => {},
+      });
+      const claimed = await S.code(second.start());
+      const kept = JSON.stringify(E.app.history) === h;
+      await data.instrumentLoader().loadInstrument('oud');
+      await data.loadGenreDiscovery();
+      return {
+        reset,
+        claimed,
+        kept,
+        untouched: JSON.stringify(E.app.history) === h,
+        status: recipe.status(),
+      };
+    },
+    verdict: (g) =>
+      why(
+        same(g.reset, { length: 1, index: 0, same: true }) &&
+          g.claimed === 'CLAIMED' &&
+          g.kept &&
+          g.untouched &&
+          g.status === 'ready',
+        JSON.stringify(g)
+      ),
+  },
+  // 20. Each view carries exactly its contract's methods.
+  surfaces: {
+    page: async (S, ARG) => {
+      const { recipe } = await S.boot();
+      const out = {};
+      for (const [lane, keys] of Object.entries(ARG.ports))
+        out[lane] = Object.keys(recipe.port(keys)).sort();
+      for (const v of Object.keys(ARG.views)) out[v] = Object.keys(recipe.preview[v]).sort();
+      out.store = Object.keys(recipe).sort();
+      out.frozen =
+        Object.isFrozen(recipe) &&
+        Object.isFrozen(recipe.preview) &&
+        Object.isFrozen(recipe.port(['snapshot']));
+      let refused = false;
+      try {
+        recipe.port(['snapshot', 'zz']);
+      } catch (e) {
+        refused = e instanceof TypeError;
+      }
+      out.refused = refused;
+      return out;
+    },
+    arg: () => ({ ports: STORE_VIEWS, views: PREVIEW_KEYS }),
+    verdict: (g) => {
+      const wrong = [...Object.entries(STORE_VIEWS), ...Object.entries(PREVIEW_KEYS)].filter(
+        ([k, keys]) => !same(g[k], [...keys].sort())
+      );
+      return why(
+        !wrong.length &&
+          same(g.store, ['addGenre', 'port', 'preview', 'previewIs', 'start', 'status']) &&
+          g.frozen &&
+          g.refused,
+        wrong.map(([k]) => `${k}: ${JSON.stringify(g[k])}`).join(' | ') || JSON.stringify(g)
+      );
+    },
+  },
+  // 21. apply: the ops not in this build are refused; set_variant is the
+  // editor's part click; set_environment with no card edits envCardOf; an
+  // edit that moves nothing is { ok: true, changed: false } and no entry.
+  apply: {
+    page: async (S, ARG) => {
+      const { R, E } = await S.boot();
+      await R.addEnsemble({ genreId: 'bluegrass', revision: R.snapshot().revision });
+      const banjo = E.app.cards.find((c) => c.instrumentId === 'banjo_5_string');
+      const refused = [
+        'duplicate_instrument',
+        'move_to_tradition',
+        'make_primary',
+        'move_instrument',
+        'zz_op',
+      ].map((op) => R.apply({ op, card: banjo.id }).code);
+      const asyncOps = ['add_instrument', 'add_tradition'].map((op) => R.apply({ op }).code);
+      const invalid = [
+        R.apply({ op: 'set_variant', card: banjo.id, part: 'zz', variant: null }).code,
+        R.apply({ op: 'set_variant', card: 'zz', part: ARG.part, variant: null }).code,
+        R.apply({ op: 'set_environment' }).code,
+      ];
+      const v = R.apply({
+        op: 'set_variant',
+        card: banjo.id,
+        part: ARG.part,
+        variant: ARG.variant,
+      });
+      const after = E.app.cards.find((c) => c.id === banjo.id);
+      const card = {
+        parts: Object.fromEntries(
+          E.Inst('banjo_5_string').parts.map((x) => [x.id, after.parts[x.id] || null])
+        ),
+        pinned: (after.pinnedParts || []).slice().sort(),
+        preface: after.preface || null,
+        auto: after.prefaceAuto !== false,
+        tuning: after.tuning || null,
+        room: after.room || null,
+        chain: Object.fromEntries(
+          E.CHAIN_SECTIONS.map((s) => [
+            s.id,
+            s.multiSelect ? [...(after.chain[s.id] || [])] : after.chain[s.id] || null,
+          ])
+        ),
+      };
+      const src = E.envCardOf(E.app.cards);
+      const room = E.ROOMS[17].id;
+      const env = R.apply({ op: 'set_environment', room });
+      const landed =
+        E.envCardOf(E.app.cards).id === src.id && E.envCardOf(E.app.cards).room === room;
+      const h = E.app.history.length;
+      const r = R.snapshot().revision;
+      const sameRoom = R.apply({ op: 'set_environment', room });
+      return {
+        refused,
+        asyncOps,
+        invalid,
+        v,
+        card,
+        env,
+        landed,
+        sameRoom,
+        entries: E.app.history.length - h,
+        revision: R.snapshot().revision === r,
+      };
+    },
+    arg: (p) => ({ part: p.setVariant.part, variant: p.setVariant.variant }),
+    verdict: (g, p) =>
+      why(
+        g.refused.every((c) => c === 'NOT_IN_BUILD') &&
+          same(g.asyncOps, ['ASYNC', 'ASYNC']) &&
+          same(g.invalid, ['INVALID', 'NOT_FOUND', 'INVALID']) &&
+          same(g.v, { ok: true, changed: true }) &&
+          same(g.card, p.setVariant.card) &&
+          same(g.env, { ok: true, changed: true }) &&
+          g.landed &&
+          same(g.sameRoom, { ok: true, changed: false }) &&
+          g.entries === 0 &&
+          g.revision,
+        JSON.stringify(g).slice(0, 700)
+      ),
+  },
+  // 22. The environment's hand-over is said as production says it, and an
+  // add that takes the environment over says nothing about it.
+  handover: {
+    page: async (S) => {
+      const { R } = await S.boot();
+      await S.settle();
+      S.said();
+      const rev = () => R.snapshot().revision;
+      const out = [];
+      const step = async (name, run) => {
+        await S.code(run());
+        await S.settle();
+        out.push([name, S.said()]);
+      };
+      await step('afrobeat', () => R.addEnsemble({ genreId: 'afrobeat', revision: rev() }));
+      await step('bluegrass', () => R.addEnsemble({ genreId: 'bluegrass', revision: rev() }));
+      await step('remove source', () =>
+        Promise.resolve(R.apply({ op: 'remove_instrument', card: R.snapshot().environmentCard }))
+      );
+      await step('remove afrobeat', () =>
+        Promise.resolve(R.apply({ op: 'remove_tradition', tradition: 'afrobeat' }))
+      );
+      await step('remove bluegrass', () =>
+        Promise.resolve(R.apply({ op: 'remove_tradition', tradition: 'bluegrass' }))
+      );
+      await step('loose banjo', () =>
+        R.addInstrument({ instrumentId: 'banjo_5_string', destination: null, revision: rev() })
+      );
+      await step('bluegrass again', () => R.addEnsemble({ genreId: 'bluegrass', revision: rev() }));
+      await step('undo', () => Promise.resolve(R.undo()));
+      await step('redo', () => Promise.resolve(R.redo()));
+      return out;
+    },
+    verdict: (g, p) => {
+      const adds = ['afrobeat', 'bluegrass', 'loose banjo', 'bluegrass again'];
+      const wrong = [];
+      for (const [name, text] of p.handover) {
+        const said = (g.find(([n]) => n === name) || [null, null])[1];
+        if (!said) wrong.push(`${name}: not run`);
+        else if (adds.includes(name)) {
+          if (said.length !== 1 || (text && said.includes(text)))
+            wrong.push(`${name}: ${JSON.stringify(said)} (production: "${text}")`);
+        } else if (!same(said, text ? [text] : []))
+          wrong.push(`${name}: ${JSON.stringify(said)} vs "${text}"`);
+      }
+      const spoken = p.handover.filter(([, t]) => t).length;
+      return why(
+        !wrong.length && spoken >= 3,
+        wrong.join(' | ') || `only ${spoken} hand-overs in production's sequence`
+      );
+    },
+  },
+  // 23. A pending destination change or Reset always settles: when a later
+  // rebuild overtakes it, and when the rebuild ends in an error.
+  settles: {
+    page: async (S) => {
+      const { R, E, instrument } = await S.boot();
+      await R.addEnsemble({ genreId: 'bluegrass', revision: R.snapshot().revision });
+      await R.addEnsemble({ genreId: 'afrobeat', revision: R.snapshot().revision });
+      instrument.set('oud');
+      await S.settle();
+      await R.setInstrumentDestination(S.args(R, { destination: 'bluegrass' }));
+      await S.settle();
+      const within = (p) => Promise.race([S.code(p), S.tick(3000).then(() => 'pending')]);
+      // Each command waits on a rebuild that waits on the genre's row; a
+      // later rebuild, started at once, ends it.
+      const round = async (then) => {
+        const fresh = async () => {
+          instrument.set(null);
+          instrument.set('oud');
+          await S.settle();
+        };
+        await fresh();
+        const reset = R.resetInstrumentPreview(S.args(R));
+        then();
+        const r = await within(reset);
+        await fresh();
+        const other = S.acts(R).destination === 'bluegrass' ? 'afrobeat' : 'bluegrass';
+        const dest = R.setInstrumentDestination(S.args(R, { destination: other }));
+        then();
+        return [r, await within(dest)];
+      };
+      const out = {};
+      out.overtaken = await round(() => instrument.set(null));
+      out.unknown = await round(() => instrument.set('zz_not_an_instrument'));
+      const inst = E.Inst('udu');
+      const parts = inst.parts;
+      out.throwing = await round(() => {
+        Object.defineProperty(inst, 'parts', {
+          configurable: true,
+          get() {
+            throw new Error('gate: a broken instrument');
+          },
+        });
+        instrument.set('udu');
+      });
+      Object.defineProperty(inst, 'parts', { configurable: true, writable: true, value: parts });
+      instrument.set('oud');
+      await S.settle();
+      out.after = await S.code(R.resetInstrumentPreview(S.args(R)));
+      return out;
+    },
+    verdict: (g) =>
+      why(
+        same(g.overtaken, ['ok', 'ok']) &&
+          same(g.unknown, ['NOT_FOUND', 'NOT_FOUND']) &&
+          same(g.throwing, ['LOAD_FAILED', 'LOAD_FAILED']) &&
+          g.after === 'ok',
+        JSON.stringify(g)
+      ),
+  },
+  // 24. The "what moved" note is cleared at every rebuild.
+  note: {
+    page: async (S) => {
+      const { R, V, instrument } = await S.boot();
+      await R.addEnsemble({ genreId: 'bluegrass', revision: R.snapshot().revision });
+      instrument.set('oud');
+      await S.settle();
+      await V.character.choose({
+        prefaceId: 'sermonizing',
+        revision: V.character.snapshot().revision,
+      });
+      const picked = V.configuration.snapshot().note;
+      instrument.set('banjo_5_string');
+      await S.settle();
+      const opened = V.configuration.snapshot().note;
+      await V.character.choose({
+        prefaceId: 'sermonizing',
+        revision: V.character.snapshot().revision,
+      });
+      const again = V.configuration.snapshot().note;
+      await R.setInstrumentDestination(S.args(R, { destination: 'bluegrass' }));
+      await S.settle();
+      return { picked, opened, again, moved: V.configuration.snapshot().note };
+    },
+    verdict: (g) =>
+      why(!!g.picked && g.opened === null && !!g.again && g.moved === null, JSON.stringify(g)),
+  },
+  // 25. While no instrument is open, nothing moves previewRevision, and the
+  // five preview views keep their snapshots through recipe changes.
+  noInstrument: {
+    page: async (S) => {
+      const { R, V, instrument } = await S.boot();
+      await R.addEnsemble({ genreId: 'bluegrass', revision: R.snapshot().revision });
+      instrument.set('oud');
+      await S.settle();
+      await R.setInstrumentDestination(S.args(R, { destination: 'bluegrass' }));
+      await S.settle();
+      instrument.set(null);
+      await S.settle();
+      const views = Object.fromEntries(Object.keys(V).map((k) => [k, V[k].snapshot()]));
+      const pr = S.acts(R).previewRevision;
+      const a0 = S.acts(R);
+      await R.addInstrument({
+        instrumentId: 'udu',
+        destination: null,
+        revision: R.snapshot().revision,
+      });
+      R.undo();
+      R.undo();
+      await S.settle();
+      const a = S.acts(R);
+      return {
+        error: views.configuration.error,
+        state: [a0.status, a0.instrumentId, a0.destination],
+        kept: Object.keys(V).every((k) => V[k].snapshot() === views[k]),
+        revision: a.previewRevision === pr,
+        after: [a.status, a.instrumentId, a.destination, a.destinations.length],
+      };
+    },
+    verdict: (g) =>
+      why(
+        same(g.error, { code: 'NO_INSTRUMENT', message: 'No instrument is open.' }) &&
+          same(g.state, ['ready', null, 'bluegrass']) &&
+          g.kept &&
+          g.revision &&
+          same(g.after, ['ready', null, null, 1]),
+        JSON.stringify(g)
+      ),
+  },
+  // 26. addGenre on a page where nothing has started the store.
+  addGenre: {
+    page: async (S) => {
+      const { recipe } = await S.boot({ start: false });
+      const before = recipe.status();
+      S.said();
+      let threw = false;
+      try {
+        recipe.addGenre('bluegrass');
+      } catch {
+        threw = true;
+      }
+      for (let i = 0; i < 300 && !window.__said.length; i++) await S.tick(20);
+      await S.settle();
+      const R = recipe.port(['snapshot']);
+      return {
+        before,
+        threw,
+        said: S.said(),
+        groups: R.snapshot().groups.map((g) => [g.genreId, g.count]),
+      };
+    },
+    verdict: (g, p) =>
+      why(
+        g.before === 'loading' &&
+          !g.threw &&
+          same(g.said, p.toasts.genre) &&
+          same(g.groups, [['bluegrass', 6]]),
+        JSON.stringify(g)
+      ),
+  },
+  // 27. Before the store starts, a selection change reaches nothing: no
+  // throw, the listeners after the store's still run, no instrument data.
+  selection: {
+    opts: { hash: '#instrument' },
+    run: async (page, p, ctx) => {
+      const got = await inPage(page, async (S) => {
+        const { instrument, recipe } = await S.boot({ start: false });
+        let ran = 0;
+        const off = instrument.subscribe(() => ran++);
+        let threw = null;
+        try {
+          instrument.set('oud');
+          instrument.set('banjo_5_string');
+        } catch (e) {
+          threw = String(e && e.message);
+        }
+        off();
+        await S.tick(300);
+        const pr = recipe.port(['snapshot']).snapshot().instrumentActions.previewRevision;
+        return { ran, threw, status: recipe.status(), pr };
+      });
+      got.engineJson = ctx.requested().some((u) => u.startsWith('/api/engine.json'));
+      return got;
+    },
+    verdict: (g) =>
+      why(
+        g.ran === 2 && g.threw === null && g.status === 'loading' && g.pr === 0 && !g.engineJson,
+        JSON.stringify(g)
+      ),
+  },
+  // 28. A failed catalog boot can be retried.
+  retry: {
+    // The engine's own CATALOG_READY and loadEngine's immediate second ask
+    // both fail; the next start() asks a third time.
+    opts: { routes: { '/api/browse_boot.json': { status: 404, times: 2 } } },
+    page: async (S) => {
+      const { recipe } = await S.boot({ start: false });
+      const first = await S.code(recipe.start());
+      const status = recipe.status();
+      const second = await S.code(recipe.start());
+      const R = recipe.port(['snapshot', 'addEnsemble']);
+      const added = await S.code(
+        R.addEnsemble({ genreId: 'bluegrass', revision: R.snapshot().revision })
+      );
+      return {
+        first,
+        status,
+        second,
+        after: recipe.status(),
+        added,
+        cards: R.snapshot().cards.length,
+      };
+    },
+    verdict: (g) =>
+      why(
+        g.first === 'LOAD_FAILED' &&
+          g.status === 'error' &&
+          g.second === 'ok' &&
+          g.after === 'ready' &&
+          g.added === 'ok' &&
+          g.cards === 6,
+        JSON.stringify(g)
+      ),
+  },
+  // 29. An Undo that restores nothing is refused, and changes nothing.
+  undoFails: {
+    page: async (S) => {
+      const { R, E } = await S.boot();
+      await R.addEnsemble({ genreId: 'bluegrass', revision: R.snapshot().revision });
+      await R.addInstrument({
+        instrumentId: 'udu',
+        destination: null,
+        revision: R.snapshot().revision,
+      });
+      E.app.history[E.app.historyIndex - 1] = '{not json';
+      const s = R.snapshot();
+      let told = 0;
+      const off = R.subscribe(() => told++);
+      const r = R.undo();
+      off();
+      return {
+        r,
+        revision: R.snapshot().revision === s.revision,
+        same: R.snapshot() === s,
+        told,
+        index: E.app.historyIndex === E.app.history.length - 1,
+      };
+    },
+    verdict: (g) =>
+      why(
+        g.r.ok === false &&
+          g.r.changed === false &&
+          g.r.code === 'UNDO_FAILED' &&
+          typeof g.r.refusal === 'string' &&
+          g.revision &&
+          g.same &&
+          g.told === 0 &&
+          g.index,
+        JSON.stringify(g)
+      ),
+  },
+};
+
+// One planted defect (at least) for every check: text edits to
+// prototype/recipe-store.js (STORE_MUTANTS) or prototype/engine/load.js
+// (LOAD_MUTANTS), served in that check's own page in place of the file.
+const STORE_MUTANTS = {
+  'no baseline entry': {
+    check: 'baseline',
+    edits: [
+      [
+        '    E.app._addToTradition = null;\n    E.pushHistory();\n    tables();',
+        '    E.app._addToTradition = null;\n    tables();',
+      ],
+    ],
+  },
+  'an entry per ensemble card': {
+    check: 'entries',
+    edits: [
+      [
+        'const created = E.importTradition(id);',
+        'const created = (trad.instruments || []).map((i) => E.addCard(i, E.traditionCardOpts(id, i))).filter(Boolean);',
+      ],
+    ],
+  },
+  'addInstrument ignores its destination': {
+    check: 'parity',
+    edits: [
+      [
+        'return addCard(instrumentId, dest || null, null)',
+        'return addCard(instrumentId, null, null)',
+      ],
+    ],
+  },
+  'no revision check in addEnsemble': {
+    check: 'staleRevision',
+    edits: [
+      [
+        "    if (rev !== revision)\n      return refuse(fail('STALE', M.STALE_ADD(`${genreName(genreId)}’s ensemble`)));\n",
+        '',
+      ],
+    ],
+  },
+  'no previewRevision check in addConfiguredInstrument': {
+    check: 'stalePreview',
+    edits: [
+      [
+        '    const e = actionGuard(args);\n    if (e)\n      return refuse(',
+        '    const e = actionGuard({ ...args, previewRevision: pv.revision });\n    if (e)\n      return refuse(',
+      ],
+    ],
+  },
+  'busy cleared before the wait': {
+    check: 'busyEdit',
+    edits: [
+      [
+        '    setBusy(true);\n    return E.Catalog.ensureFull(id).then(',
+        '    setBusy(true);\n    busy = false;\n    return E.Catalog.ensureFull(id).then(',
+      ],
+    ],
+  },
+  'plain Add refused while the preview rebuilds': {
+    check: 'busyPreview',
+    edits: [
+      [
+        "    if (busy) return refuse(fail('BUSY', M.BUSY_ADD(name)));",
+        "    if (busy || pv.state === 'loading') return refuse(fail('BUSY', M.BUSY_ADD(name)));",
+      ],
+    ],
+  },
+  'previewRevision moved only after the wait': {
+    check: 'safeguard3',
+    edits: [
+      [
+        "    pv.state = 'loading';\n    pv.error = null;\n    pv.revision++;\n",
+        "    pv.state = 'loading';\n    pv.error = null;\n",
+      ],
+    ],
+  },
+  'configure reads the live preview': {
+    check: 'capture',
+    edits: [
+      [
+        'const configure = captured ? (c) => Object.assign(c, clone(captured)) : null;',
+        'const configure = captured ? (c) => Object.assign(c, clone({ parts: pv.card.parts, pinnedParts: pv.card.pinnedParts || [], preface: pv.card.preface, prefaceAuto: pv.card.prefaceAuto, tuning: pv.card.tuning, room: pv.card.room, chain: pv.card.chain })) : null;',
+      ],
+    ],
+  },
+  'one traditionCardOpts for both seeds': {
+    check: 'aliasing',
+    edits: [['b = E.traditionCardOpts(dest, id) || undefined;', 'b = a;']],
+  },
+  'no applyPartEdit on a part choice': {
+    check: 'configuration',
+    edits: [['      E.applyPartEdit(card, e.part, { quiet: true });\n', '']],
+  },
+  'the category glyph taken from the entry': {
+    check: 'character',
+    edits: [
+      [
+        'glyph: { category, entry: svgUrl(E.prefaceGlyphsHTML(e, 15, true)) },',
+        'glyph: { category: svgUrl(E.prefaceGlyphsHTML(e, 15, true)), entry: svgUrl(E.prefaceGlyphsHTML(e, 15, true)) },',
+      ],
+    ],
+  },
+  'the Compact clause always at 1000': {
+    check: 'environment',
+    edits: [
+      ['const limit = ceiling || E.RECIPE_CHAR_CEILING;', 'const limit = E.RECIPE_CHAR_CEILING;'],
+    ],
+  },
+  'an effect added first': {
+    check: 'chain',
+    edits: [['v: [...now, id] }', 'v: [id, ...now] }']],
+  },
+  'no execCommand fallback': {
+    check: 'output',
+    edits: [["const ok = document.execCommand('copy');", 'const ok = false;']],
+  },
+  'the grouped sentence whatever happened': {
+    check: 'announcements',
+    edits: [
+      [
+        '        card.traditionId || !dest\n          ? E._addedInstrumentMessage(instrumentId, card)\n          : `Added ${name} as an independent instrument (${genreName(dest)} could not be loaded)`',
+        '        !dest\n          ? E._addedInstrumentMessage(instrumentId, card)\n          : `Added ${name} to ${genreName(dest)}`',
+      ],
+    ],
+  },
+  'no fallback to Independent': {
+    check: 'destination',
+    edits: [
+      ['if (destination && !groups().some((g) => g.genreId === destination)) {', 'if (false) {'],
+    ],
+  },
+  'snapshots not frozen': {
+    check: 'immutability',
+    edits: [['snaps[view] = freeze(make());', 'snaps[view] = make();']],
+  },
+  'no reset at start': {
+    check: 'ownership',
+    edits: [['    E.app.cards = [];\n    E.app.history = [];\n    E.app.historyIndex = -1;\n', '']],
+  },
+  'no claim guard': {
+    check: 'ownership',
+    edits: [
+      ["    if (claimed.has(engine) && engine !== held) throw fail('CLAIMED', M.CLAIMED);\n", ''],
+    ],
+  },
+  'apply on every recipe view': {
+    check: 'surfaces',
+    edits: [
+      [
+        '    return Object.freeze(out);\n  }\n\n  return Object.freeze({',
+        '    out.apply = recipe.apply;\n    return Object.freeze(out);\n  }\n\n  return Object.freeze({',
+      ],
+    ],
+  },
+  'changed always true': {
+    check: 'apply',
+    edits: [
+      [
+        '    return { ok: true, changed: commit(before) };',
+        '    commit(before);\n    return { ok: true, changed: true };',
+      ],
+    ],
+  },
+  'the old card named in the hand-over': {
+    check: 'handover',
+    edits: [
+      [
+        'const from = `${instrumentName(card.instrumentId)} (${',
+        'const from = `${instrumentName(prev.card.instrumentId)} (${',
+      ],
+    ],
+  },
+  'pending commands settle only on a ready rebuild': {
+    check: 'settles',
+    edits: [
+      [
+        "    if (pv.state === 'error') {\n      announce(pv.error.message);",
+        "    if (pv.state === 'error') {\n      return void pv.waiting.push(...list);\n      announce(pv.error.message);",
+      ],
+    ],
+  },
+  'the note kept across a rebuild': {
+    check: 'note',
+    edits: [
+      ['    pv.note = null;\n    pv.base = pv.card = null;', '    pv.base = pv.card = null;'],
+    ],
+  },
+  'the fallback moves previewRevision': {
+    check: 'noInstrument',
+    edits: [
+      [
+        '      if (pv.instrumentId) rebuild();',
+        '      if (pv.instrumentId) rebuild();\n      else (pv.revision++, touchPreview(), flush());',
+      ],
+    ],
+  },
+  'addGenre without starting the store': {
+    check: 'addGenre',
+    edits: [
+      [
+        '    start().then(\n      () => {\n        if (busy) return announce(M.BUSY_GENRE);\n        ensemble(id).catch(() => {}); // announced already\n      },\n      () => announce(M.LOAD_FAILED)\n    );',
+        '    if (busy) return announce(M.BUSY_GENRE);\n    ensemble(id).catch(() => {});',
+      ],
+    ],
+  },
+  'subscribed to the selection at construction': {
+    check: 'selection',
+    edits: [['  // ── Boot ──', '  selection.subscribe(() => rebuild());\n  // ── Boot ──']],
+  },
+  'an Undo that restores nothing still succeeds': {
+    check: 'undoFails',
+    edits: [
+      ["    if (E.app.historyIndex === at) return no(back ? 'UNDO_FAILED' : 'REDO_FAILED');\n", ''],
+    ],
+  },
+};
+const LOAD_MUTANTS = {
+  'loadEngine waits on CATALOG_READY itself': {
+    check: 'retry',
+    edits: [['  await bootCatalog(engine);', '  await engine.CATALOG_READY;']],
+  },
+};
+
+// Runs one check in its own page (and any further pages it opens), with the
+// store and load.js as served (`served.store`, `served.load`: the planted
+// text, or undefined for the committed file). Returns its verdict and the
+// page errors it didn't expect.
+async function storeRun(browser, srv, name, prod, served = {}) {
+  const check = STORE_CHECKS[name];
+  const opts = check.opts || {};
+  const pages = [];
+  const open = async () => {
+    const x = await storePage(browser, srv, {
+      store: served.store,
+      load: served.load,
+      routes: opts.routes,
+      permissions: opts.permissions,
+    });
+    x.urls = [];
+    x.page.on('request', (r) => x.urls.push(new URL(r.url()).pathname));
+    pages.push(x);
+    await x.page.goto(`${srv.url}/prototype/${opts.hash || '#map'}`);
+    return x;
+  };
+  let verdict;
+  try {
+    const first = await open();
+    const ctx = { fresh: async () => (await open()).page, requested: () => first.urls };
+    const got = check.run
+      ? await check.run(first.page, prod, ctx)
+      : await inPage(first.page, check.page, check.arg ? check.arg(prod) : null);
+    verdict = check.verdict(got, prod);
+  } catch (e) {
+    verdict = `threw: ${(e && e.message) || e}`.slice(0, 600);
+  }
+  const all = pages.flatMap((x) => x.errors);
+  const wanted = check.errors || [];
+  const errors = all.filter((e) => !wanted.some((w) => e.includes(w)));
+  const missing = wanted.filter((w) => !all.some((e) => e.includes(w)));
+  for (const x of pages) await x.context.close();
+  return { verdict, errors, missing };
+}
+
+// A few checks at a time, each in its own browser context.
+async function pooled(items, size, fn) {
+  const out = new Array(items.length);
+  let next = 0;
+  const worker = async () => {
+    while (next < items.length) {
+      const i = next++;
+      out[i] = await fn(items[i]);
+    }
+  };
+  await Promise.all(Array.from({ length: Math.min(size, items.length) }, worker));
+  return out;
+}
+
+let storePlanted = 0;
+let storeDefects = 0;
+async function recipeChecks(browser, srv) {
+  expect(hasStore, 'recipe store: prototype/recipe-store.js is missing');
+  if (!hasStore) return;
+  const prodRun = await storeProduction(browser, srv);
+  expect(
+    !prodRun.errors.length,
+    `recipe store: codex.html raised errors: ${prodRun.errors.join(' | ')}`
+  );
+  const p = prodRun.got;
+  p.copyGranted = await productionCopy(browser, srv, ['clipboard-read', 'clipboard-write']);
+  p.copyDenied = await productionCopy(browser, srv, null);
+  // The production sequences did what the checks rely on.
+  expect(
+    same(p.toasts.genre, ['Imported Bluegrass']) &&
+      p.toasts.partial.length === 1 &&
+      /^Imported \d+\/\d+ instruments from "/.test(p.toasts.partial[0]) &&
+      /has no recognised instruments$/.test(p.toasts.none[0]),
+    `recipe store: codex.html's ensemble toasts are not the full, partial and none cases: ${JSON.stringify(p.toasts).slice(0, 400)}`
+  );
+  expect(
+    p.handover.filter(([, t]) => t).length >= 3,
+    `recipe store: codex.html's hand-over sequence says too little: ${JSON.stringify(p.handover)}`
+  );
+
+  const names = Object.keys(STORE_CHECKS);
+  const results = await pooled(names, 4, (n) => storeRun(browser, srv, n, p));
+  names.forEach((n, i) => {
+    const r = results[i];
+    expect(r.verdict === true, `recipe store: ${n}: ${r.verdict}`);
+    expect(!r.errors.length, `recipe store: ${n}: uncaught errors: ${r.errors.join(' | ')}`);
+    expect(
+      !r.missing.length,
+      `recipe store: ${n}: the page never reported ${r.missing.join(', ')}`
+    );
+  });
+
+  // Every check has a planted defect of its own, and each must fail it.
+  const mutants = [
+    ...Object.entries(STORE_MUTANTS).map(([m, d]) => ({ m, ...d, file: 'store', text: STORE_JS })),
+    ...Object.entries(LOAD_MUTANTS).map(([m, d]) => ({ m, ...d, file: 'load', text: LOAD_JS })),
+  ];
+  expect(
+    new Set(mutants.map((x) => x.m)).size === mutants.length,
+    'recipe store: two planted defects share a name'
+  );
+  const planting = new Set(mutants.map((x) => x.check));
+  for (const n of names)
+    expect(planting.has(n), `recipe store: the ${n} check has no planted defect`);
+  for (const x of mutants)
+    expect(
+      names.includes(x.check),
+      `recipe store: the planted defect "${x.m}" names no check (${x.check})`
+    );
+  storeDefects = mutants.length;
+  const outcomes = await pooled(mutants, 4, async (x) => {
+    const src = plantIn(x.text, x.edits);
+    if (!src) return { applies: false };
+    const r = await storeRun(browser, srv, x.check, p, { [x.file]: src });
+    return { applies: true, verdict: r.verdict };
+  });
+  mutants.forEach((x, i) => {
+    const o = outcomes[i];
+    expect(
+      o.applies,
+      `recipe store: the planted defect "${x.m}" no longer applies to ${x.file === 'store' ? 'recipe-store.js' : 'load.js'}`
+    );
+    if (!o.applies) return;
+    expect(
+      o.verdict !== true,
+      `recipe store: with the planted defect "${x.m}", the ${x.check} check still passes`
+    );
+    if (o.verdict !== true) storePlanted++;
+  });
+}
+
 (async () => {
   for (const [lane, mod] of Object.entries(LANE_MODULES)) {
     const app = fs.readFileSync(path.join(root, 'prototype', 'app.js'), 'utf8');
@@ -3188,6 +5450,7 @@ async function discoveryChecks(browser, srv) {
     await speechChecks(browser, srv);
     await unmounting(browser, srv);
     await closing(browser, srv);
+    await recipeChecks(browser, srv);
   } finally {
     await browser.close();
     await srv.close();
@@ -3198,7 +5461,7 @@ async function discoveryChecks(browser, srv) {
     process.exit(1);
   }
   console.log(
-    `check_prototype_hosts: ${checks}/${checks} checks pass; ${planted}/${ALL_MUTANTS.length} planted host.js defects fail their checks`
+    `check_prototype_hosts: ${checks}/${checks} checks pass; ${planted + storePlanted}/${ALL_MUTANTS.length + storeDefects} planted defects fail their checks (${planted}/${ALL_MUTANTS.length} in host.js, ${storePlanted}/${storeDefects} in the recipe store)`
   );
 })().catch((e) => {
   console.error(e);
