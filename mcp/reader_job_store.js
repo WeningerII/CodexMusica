@@ -346,6 +346,17 @@ export class ReaderJobStore {
         this.key = fs.readFileSync(keyFile);
         if (this.key.length !== 32)
           throw problem('STORAGE_CORRUPT', 'Reader capability key is invalid.', 503);
+        // Collect first: an interrupted write can leave a temporary or an
+        // unlinked object that no quota check ever counted.
+        this._pruneExpired(Infinity);
+        this._collectAll();
+        // Startup holds the writer lock throughout, so this full scan is a
+        // quiescent one by construction: usage is known before any request,
+        // and before the pauses below. Pausing a running record a few bytes
+        // larger than its 16 KiB reservation needs a known usage; while it is
+        // unknown that growth is refused, which would fail every restart.
+        this.usage = this._usage();
+        this._recountWanted = false;
         for (const record of this.records.values()) {
           if (record.state !== 'running') continue;
           this._save(
@@ -364,12 +375,6 @@ export class ReaderJobStore {
             true
           );
         }
-        this._pruneExpired(Infinity);
-        this._collectAll();
-        // Startup holds the writer lock throughout, so this full scan is a
-        // quiescent one by construction: usage is known before any request.
-        this.usage = this._usage();
-        this._recountWanted = false;
         this._probe();
       });
       this.durable = true;

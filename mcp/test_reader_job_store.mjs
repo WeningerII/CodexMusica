@@ -566,21 +566,17 @@ test('many commits with a 500 KB cursor fit a small quota; no checkpoint object 
 });
 
 test('after a restart the worker payload and the next lease carry the last committed cursor', (t) => {
-  // A 10 KB cursor keeps the record inside its 16 KiB reservation: a restart
-  // pauses a running job before usage is recounted, and refuses to grow a
-  // larger record then (a separate limit, not this test's subject).
   // With a cursor copy per generation, the fourth commit passes this quota.
-  const quota = 64 * 1024;
-  const cursorAt = (index) => ({ phase: 'pairs', index, frontier: 'x'.repeat(10_000) });
+  const quota = SMALL_QUOTA;
   const { directory, store } = fixture(t, { maxBytes: quota });
   const job = create(store),
     lease = store.lease(job.record.id);
   for (let i = 1; i <= 8; i++)
-    assert.equal(commit(store, lease, [{ id: `evidence-${i}` }], cursorAt(i)).state, 'running');
+    assert.equal(commit(store, lease, [{ id: `evidence-${i}` }], bigCursor(i)).state, 'running');
   const restarted = new ReaderJobStore({ directory, maxBytes: quota });
   assert.equal(restarted.inspect(lease.id).reason.code, 'INTERRUPTED');
   assert.equal(restarted.inspect(lease.id).generation, 8);
-  assert.deepEqual(restarted.workerPayload(lease.id).cursor, cursorAt(8));
+  assert.deepEqual(restarted.workerPayload(lease.id).cursor, bigCursor(8));
   assert.equal(
     chain(restarted, lease.id).some((node) => 'cursor' in node),
     false,
@@ -588,9 +584,9 @@ test('after a restart the worker payload and the next lease carry the last commi
   );
   restarted.resume(lease.id, job.capability, 'viewer-a', identity);
   const next = restarted.lease(lease.id);
-  assert.deepEqual(next.cursor, cursorAt(8));
-  assert.equal(commit(restarted, next, [{ id: 'after' }], cursorAt(9)).generation, 9);
-  assert.deepEqual(restarted.workerPayload(lease.id).cursor, cursorAt(9));
+  assert.deepEqual(next.cursor, bigCursor(8));
+  assert.equal(commit(restarted, next, [{ id: 'after' }], bigCursor(9)).generation, 9);
+  assert.deepEqual(restarted.workerPayload(lease.id).cursor, bigCursor(9));
   assert.equal(restarted.usage, scan(restarted));
 });
 
@@ -747,6 +743,102 @@ test('a failed checkpoint write keeps the previous generation and its record cur
   const saved = commit(recovered, next, [{ id: 'retried' }], { phase: 'pairs', index: 2 });
   assert.equal(saved.generation, 2);
   assert.equal(checkpointAt(recovered, saved.checkpoint_hash).previous_hash, kept.checkpoint_hash);
+});
+
+// Startup pauses every running job, and a paused record is a few bytes larger
+// than a running one (it gains a reason). Past the record's 16 KiB reservation
+// that growth needs a known usage, so startup counts before it pauses; before
+// this, every restart of such a store failed with STORE_RECOUNTING.
+const RESERVE = 16 * 1024;
+const restartsTwice = (directory, maxBytes) => {
+  const restarted = new ReaderJobStore({ directory, maxBytes });
+  assert.doesNotThrow(() => new ReaderJobStore({ directory, maxBytes }));
+  return restarted;
+};
+test('a restart pauses a running job whose record is past its reservation', (t) => {
+  const { directory, store } = fixture(t, { maxBytes: SMALL_QUOTA });
+  const job = create(store),
+    lease = store.lease(job.record.id);
+  commit(store, lease, [{ id: 'first' }], bigCursor(1));
+  assert.ok(
+    fs.statSync(path.join(directory, 'reader-jobs-v1', 'records', `${lease.id}.json`)).size >
+      RESERVE
+  );
+  const restarted = restartsTwice(directory, SMALL_QUOTA);
+  assert.equal(restarted.inspect(lease.id).state, 'paused');
+  assert.equal(restarted.inspect(lease.id).reason.code, 'INTERRUPTED');
+  assert.deepEqual(restarted.workerPayload(lease.id).cursor, bigCursor(1));
+  assert.equal(restarted.usage, scan(restarted));
+  // The same path after a crash mid-commit (the record still names the
+  // previous generation, and the new checkpoint is an orphan).
+  restarted.resume(lease.id, job.capability, 'viewer-a', identity);
+  const next = restarted.lease(lease.id);
+  assert.equal(commit(restarted, next, [{ id: 'second' }], bigCursor(2)).state, 'running');
+  restarted.fault = (stage, event) => {
+    if (event.kind === 'checkpoints' && stage === 'renamed')
+      throw new Error('simulated process loss');
+  };
+  refused(() => commit(restarted, next, [{ id: 'lost' }], bigCursor(3)), 'STORAGE_UNAVAILABLE');
+  const recovered = restartsTwice(directory, SMALL_QUOTA);
+  const record = recovered.inspect(lease.id);
+  assert.equal(record.state, 'paused');
+  assert.equal(record.reason.code, 'INTERRUPTED');
+  assert.equal(record.generation, 2);
+  assert.deepEqual(recovered.workerPayload(lease.id).cursor, bigCursor(2));
+  assert.equal(objectsOf(recovered, 'checkpoints').length, 2, 'the orphan is collected');
+  assert.equal(recovered.usage, scan(recovered));
+});
+
+test('a restart collects a killed write before it counts, so a near-full store still pauses', (t) => {
+  // A process killed during a record write leaves the new record's temporary
+  // beside the old record. No quota check counted it: near a full quota,
+  // counting it before collecting it leaves no room for the pause.
+  const { directory, store } = fixture(t, { maxBytes: SMALL_QUOTA });
+  const job = create(store),
+    lease = store.lease(job.record.id);
+  // Fill with evidence until under 8 KB is left beyond the job's reservation.
+  let generation = 0;
+  for (let room = Infinity; room > 0; room = SMALL_QUOTA - store.usage - RESERVE - 8192) {
+    const text = 'x'.repeat(Math.min(room, 1_000_000));
+    const saved = commit(
+      store,
+      lease,
+      [{ id: `fill-${generation}`, text }],
+      bigCursor(++generation)
+    );
+    assert.equal(saved.state, 'running');
+  }
+  assert.ok(SMALL_QUOTA - store.usage - RESERVE < 8192, 'the store is near its quota');
+  const records = path.join(directory, 'reader-jobs-v1', 'records');
+  store.fault = (stage, event) => {
+    if (event.kind !== 'record' || stage !== 'temporary_written') return;
+    const temp = fs.readdirSync(records).find((name) => name.endsWith('.tmp'));
+    // What the kill leaves: the write's own temporary is unlinked as the
+    // simulated failure unwinds, so keep a copy under a temporary's name.
+    fs.copyFileSync(
+      path.join(records, temp),
+      path.join(records, `${lease.id}.json.${'0'.repeat(24)}.tmp`)
+    );
+    throw new Error('simulated process loss');
+  };
+  refused(
+    () => commit(store, lease, [{ id: 'lost' }], bigCursor(generation + 1)),
+    'STORAGE_UNAVAILABLE'
+  );
+  assert.ok(scan(store) > SMALL_QUOTA, 'counted before collection, the store is over quota');
+  const recovered = restartsTwice(directory, SMALL_QUOTA);
+  const record = recovered.inspect(lease.id);
+  assert.equal(record.state, 'paused');
+  assert.equal(record.reason.code, 'INTERRUPTED');
+  assert.equal(record.generation, generation);
+  assert.deepEqual(recovered.workerPayload(lease.id).cursor, bigCursor(generation));
+  assert.deepEqual(
+    fs.readdirSync(records).filter((name) => name.endsWith('.tmp')),
+    [],
+    'the temporary is collected'
+  );
+  assert.equal(recovered.usage, scan(recovered));
+  assert.ok(recovered.usage + recovered.slack <= SMALL_QUOTA);
 });
 
 const readerSha = (value) => createHash('sha256').update(value).digest('hex');

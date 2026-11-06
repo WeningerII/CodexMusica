@@ -334,6 +334,13 @@ outgrowing its reservation) is refused with 503 `STORE_RECOUNTING`; a record
 transition inside its reservation still commits, a paused lease requeues as for
 `RESOURCE_LIMIT`, and deletes and reads proceed.
 
+Startup holds the writer lock throughout. It tombstones expired jobs, removes
+what an interrupted write left (unreferenced objects and temporaries), counts
+usage, and only then pauses each running job as `INTERRUPTED`. A paused record
+gains a reason, so a record already past its reservation grows; with usage
+known that growth takes the ordinary quota check instead of being refused as
+`STORE_RECOUNTING`, which failed every restart of such a store.
+
 A verification scan runs in slices outside the lock and is accepted only if
 every measurement succeeded, no marker appeared and the generation did not move
 across it. Anything else, including a failed `stat` or lock contention at
