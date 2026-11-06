@@ -1,4 +1,4 @@
-import { pageEngine } from './engine/load.js';
+import { pageEngine, loadEngine } from './engine/load.js';
 
 // What the shell loads for feature lanes (#670 slice P2). Lanes fetch
 // nothing themselves: every read is here, read-only, from committed files
@@ -576,4 +576,51 @@ export async function loadGenreDiscovery() {
     axes: Object.fromEntries(keys.map((k, i) => [k, (t.axes || [])[i]])),
   }));
   return { items, page: engine };
+}
+
+// ── The Genre instruments lane (#770, #668 6647387849) ─────────────────────
+// A genre's whole roster, in order, as the genre page lists it
+// (src/pages/genre.js gpInstruments reads the light row's instruments): each
+// instrument's display name (InstLite's, which is Inst once the instrument
+// engine is in) and its glyph from the engine's image(). listenHref is null:
+// production's Listen link is a search on another site, and the prototype
+// names no address off its own origin. The engine is the recipe store's,
+// so once the store has started this waits on nothing. Its load failure
+// names no connection: the engine's page parse fails there too.
+export const GENRE_INSTRUMENT_MESSAGES = Object.freeze({
+  NOT_FOUND: GENRE_MESSAGES.NOT_FOUND,
+  LOAD_FAILED: 'This genre’s instruments couldn’t load. Try again.',
+});
+const rosterFail = (code) => Object.assign(new Error(GENRE_INSTRUMENT_MESSAGES[code]), { code });
+export async function loadGenreInstruments(id, { signal } = {}) {
+  let engine;
+  try {
+    engine = await waitFor(loadEngine(), signal);
+  } catch (e) {
+    if (e && e.name === 'AbortError') throw e;
+    throw rosterFail('LOAD_FAILED');
+  }
+  const live = typeof id === 'string' ? engine.Catalog.resolve(id) : null;
+  const t = live ? engine.Catalog.get(live) : null;
+  if (!t) throw rosterFail('NOT_FOUND');
+  const glyph = (i) => {
+    const svg = engine.image(i, 32);
+    return svg
+      ? `data:image/svg+xml,${encodeURIComponent(svg.replace('<svg ', `<svg xmlns="${SVG_NS}" `))}`
+      : null;
+  };
+  return Object.freeze({
+    id: live,
+    name: t.name,
+    instruments: Object.freeze(
+      (t.instruments || []).map((i) =>
+        Object.freeze({
+          id: i,
+          name: engine.Inst(i)?.name || i,
+          glyphUrl: glyph(i),
+          listenHref: null,
+        })
+      )
+    ),
+  });
 }
