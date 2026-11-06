@@ -3,6 +3,7 @@ const test = require('node:test');
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
+const { spawnSync } = require('node:child_process');
 const { webcrypto } = require('node:crypto');
 const api = require('../src/library-import.js');
 const copy = (value) => JSON.parse(JSON.stringify(value));
@@ -298,24 +299,36 @@ test('file import retains an oversized native reading verbatim and refuses write
   assert.equal(result.draft.meta.libraryOrigin.writingEligibility.eligible, false);
 });
 // #659: the website never links to, or takes an import from, the old Library
-// Site. Every Library import arrives in-page or from a bundle file, so no
-// shipped byte names a chatgpt.site address: the committed page, the Library
-// chunks it loads, and every source file the build reads.
-test('no shipped file names a chatgpt.site address', () => {
+// Site. Every Library import arrives in-page or from a bundle file. GitHub
+// Pages serves every file on main (.nojekyll is at the root), not only the
+// page, so a perf config or a README is as reachable under codexmusica.com as
+// codex.html is: the scope is every file git tracks. What is matched is an
+// address, a host label before the domain, so prose that names the domain
+// (this comment, the design doc) does not trip it. Files are read as stored;
+// none of the tracked .gz or .zip files holds the address once unpacked
+// (checked for #659), but this test does not unpack them.
+const SITE_ADDRESS = /[a-z0-9-]+\.chatgpt\.site/i;
+// sites/library/ is the old Site's own source, and #811 deletes it. Until that
+// lands it is the one place that may name the Site's address; afterwards this
+// prefix matches nothing.
+const ADDRESS_EXEMPT = ['sites/library/'];
+test('no tracked file names a chatgpt.site address (Pages serves all of main)', () => {
   const root = path.join(__dirname, '..');
-  const files = ['codex.html'];
-  const walk = (dir) => {
-    for (const entry of fs.readdirSync(path.join(root, dir), { withFileTypes: true })) {
-      const rel = path.posix.join(dir, entry.name);
-      if (entry.isDirectory()) walk(rel);
-      else files.push(rel);
-    }
-  };
-  walk('src');
-  walk('library/code');
-  assert.ok(files.length > 50, 'the shipped tree was found');
-  const hits = files.filter((rel) =>
-    /chatgpt\.site/i.test(fs.readFileSync(path.join(root, rel), 'latin1'))
+  // A fixed-string git grep narrows the tracked tree to the few files that
+  // mention the domain at all, in about a second; the address pattern decides.
+  const found = spawnSync('git', ['grep', '-z', '-l', '-i', '-F', 'chatgpt.site'], {
+    cwd: root,
+    encoding: 'utf8',
+    maxBuffer: 64 * 1024 * 1024,
+  });
+  assert.ok(found.status === 0 || found.status === 1, `git grep failed: ${found.stderr}`);
+  const mentions = found.stdout.split('\0').filter(Boolean);
+  // This file names the domain, so a scan that did not list it did not look.
+  assert.ok(mentions.includes('scripts/test_library_import.js'), 'the tracked tree was scanned');
+  const hits = mentions.filter(
+    (rel) =>
+      !ADDRESS_EXEMPT.some((prefix) => rel.startsWith(prefix)) &&
+      SITE_ADDRESS.test(fs.readFileSync(path.join(root, rel), 'latin1'))
   );
   assert.deepEqual(hits, []);
 });
