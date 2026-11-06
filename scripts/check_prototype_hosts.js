@@ -119,10 +119,10 @@
 //      never sharing the card's chain; the five preview views equal to
 //      production's lists, glyphs, ipApply, ipChoose note, render and copy;
 //      sourceMessage held to production's own render at ceilings 1000, 150
-//      and 100, with a room named like part of a card's own line among the
-//      cases; every outcome said once, in production's words where it has
-//      them; the destination's fallback; frozen snapshots and the
-//      notification order; the store's hold on the engine's workspace; each
+//      and 100, with a room named like part of a card's own line, and one
+//      card alone whose environment line is dropped, among the cases; every
+//      outcome said once, in production's words where it has them; the
+//      destination's fallback; frozen snapshots and the notification order; the store's hold on the engine's workspace; each
 //      view's methods; apply's vocabulary; the hand-over sentence; pending
 //      commands always settling; the note cleared at each rebuild; no
 //      previewRevision change while nothing is open; addGenre before start;
@@ -4003,6 +4003,10 @@ async function storeProduction(browser, srv) {
       genre: () => { app.cards = []; importTradition('bluegrass'); return { recipe: app.cards.slice(), preview: makeCard('oud') }; },
       banjo: () => { const p = makeCard('oud'); p.room = room; return { recipe: [makeCard('banjo_5_string')], preview: p }; },
       alone: () => { const p = makeCard('oud'); p.room = room; return { recipe: [], preview: p }; },
+      // One card alone whose environment line can't fit at 150 or 100 (its
+      // room, its tuning and one item on every chain stage): the single-card
+      // render without it, one line ("<preface> oud,").
+      aloneLong: () => { const p = edited(makeCard('oud')); for (const sec of CHAIN_SECTIONS) p.chain[sec.id] = sec.multiSelect ? [sec.items[0].id] : sec.items[0].id; return { recipe: [], preview: p }; },
       // Whale song's cards have no environment and a loose banjo with a
       // room follows them; the preview, grouped to whale song, lands before
       // the banjo, so it would set the environment.
@@ -4917,6 +4921,22 @@ const STORE_CHECKS = {
               })
             );
             const source = R.snapshot().environmentCard;
+            // aloneLong: the preview alone, with its room, its tuning and
+            // one item on every chain stage, so its one line can't fit at
+            // 150 or 100; then the stages cleared again.
+            const stages = (on) =>
+              E.CHAIN_SECTIONS.map((sec) => ({
+                stage: sec.id,
+                id: sec.multiSelect || on ? sec.items[0].id : null,
+                ...(sec.multiSelect ? { on } : {}),
+              }));
+            for (const choice of stages(true))
+              await V.chain.choose({ ...choice, revision: V.chain.snapshot().revision });
+            await S.settle();
+            await read('aloneLong');
+            for (const choice of stages(false))
+              await V.chain.choose({ ...choice, revision: V.chain.snapshot().revision });
+            await S.settle();
             // grouped: whale song, a loose banjo with the room, and the
             // preview (its room and tuning) grouped to whale song.
             await R.addEnsemble({ genreId: 'whale_song', revision: rev() });
@@ -4979,6 +4999,7 @@ const STORE_CHECKS = {
           'genre',
           'banjo',
           'alone',
+          'aloneLong',
           'grouped',
           'truncating',
           'named',
@@ -7271,6 +7292,17 @@ Object.assign(STORE_MUTANTS, {
   'the Compact clause counted by lines': {
     check: 'environment',
     edits: [['        ? lines[lines.length - 1] === env\n', '        ? true\n']],
+  },
+  // One card on one line: that line ends with the environment, or the
+  // environment was dropped (aloneLong).
+  'the Compact clause for one card counted by lines': {
+    check: 'environment',
+    edits: [
+      [
+        '        : after.length === 1 && lines.length === 1 && text.endsWith(` · ${env}`);',
+        '        : after.length === 1 && lines.length === 1;',
+      ],
+    ],
   },
   'the Compact clause found anywhere in the text': {
     check: 'environment',
