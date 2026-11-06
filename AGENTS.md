@@ -77,12 +77,12 @@ its own inner label (`cold humbucker-solid-body-electric street-pulsing
 dreadnought-acoustic guitar`), so those head words are that card's own, and a word printed
 only in another card's head is `NOT_LITERAL` for this one. A word printed only where the
 output cannot say which card it describes is `PINNED_DESCRIPTORS_NOT_ATTRIBUTABLE`, with the
-other cards in `shared_with`: in a chunk that pools cards of the same label, in the trailing
-label or pooled descriptors a merged chunk's cards share, or in a render with no per-card
-segments. Neither may be reported as a part that survived. A pinned preface is judged the
-same way, as consecutive whole words: `EXPLICIT_PREFACE_NOT_LITERAL` when the card's own part
-does not print it (even if another card or the header does), `EXPLICIT_PREFACE_NOT_ATTRIBUTABLE`
-in those three cases. Present means printed in that card's part of the recipe, not that the
+other cards in `shared_with`: in the part of a chunk that pools cards of the same label, in
+the trailing label or pooled descriptors a merged chunk's cards share, or in a render with no
+per-card segments. Neither may be reported as a part that survived. A pinned preface is
+judged the same way, as consecutive whole words: `EXPLICIT_PREFACE_NOT_LITERAL` when the
+card's own part does not print it (even if another card or the header does),
+`EXPLICIT_PREFACE_NOT_ATTRIBUTABLE` in those three cases. Present means printed in that card's part of the recipe, not that the
 edit put it there.
 
 A hosted **Model Context Protocol** server is the headless twin of the browser app — it

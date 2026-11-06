@@ -477,6 +477,44 @@ test('#671 a preface shed from one card of a merged chunk is not printed on that
   }
 });
 
+test('#671 a same-label card is not given a word printed only in another card head words', () => {
+  // Two upright pianos pool into one part of the chunk Rich and Prose merge on
+  // `piano`; the tack piano is its part's only source. With `raging` pinned on
+  // the tack piano and the second upright piano, shedding the uprights' part
+  // leaves `raging` only in the tack piano's own head words: that is the tack
+  // piano's, so the second upright piano's preface is not printed.
+  const seeded = startRecipe({ traditions: ['honky_tonk'] });
+  const pianos = editRecipe({
+    workspace: seeded.workspace,
+    edits: [{ action: 'add_instrument', instrument: 'upright_piano' }],
+  });
+  const tack = pianos.cards.find((c) => c.instrument === 'tack_piano').card;
+  const second = pianos.cards.filter((c) => c.instrument === 'upright_piano')[1].card;
+  const { workspace } = editRecipe({
+    workspace: pianos.workspace,
+    edits: [
+      { action: 'set_preface', card: tack, preface: 'raging' },
+      { action: 'set_preface', card: second, preface: 'raging' },
+    ],
+  });
+  for (const [format, max, shape] of [
+    ['rich', 200, /, raging tack upright piano\.$/],
+    ['rich', 207, /, raging tack maracatu-marching upright piano\.$/],
+    ['prose', 521, /, raging tack maracatu-marching upright piano, /],
+    ['prose', 200, /, raging tack piano\.$/],
+  ]) {
+    const r = renderRecipe({ workspace, format, max_chars: max });
+    assert.match(r.recipe, shape, `fixture moved (${format} ${max}): ${r.recipe}`);
+    assert.deepEqual(prefaceCodes(r), [[second, 'EXPLICIT_PREFACE_NOT_LITERAL', 'raging']]);
+  }
+  // Printed in the uprights' own pooled part, it is still not attributable.
+  for (const format of ['rich', 'prose']) {
+    const full = renderRecipe({ workspace, format });
+    assert.match(full.recipe, /, raging tack maracatu-marching raging upright piano[:,] /);
+    assert.deepEqual(prefaceCodes(full), [[second, 'EXPLICIT_PREFACE_NOT_ATTRIBUTABLE', 'raging']]);
+  }
+});
+
 test('partial authenticated measurement is not labelled as no harness answer', () => {
   const verdict = _verdictInternals.verdictOf({
     code: 2,

@@ -23,12 +23,13 @@ would have counted too. Gangsta rap Rich and Tags and Irish trad session Tags we
   `cold humbucker-solid-body-electric street-pulsing dreadnought-acoustic guitar`). The
   trace records, for each card that is its part's only source, those head words as the
   renderer joins them, and a pinned word there is printed on that card; a word only in
-  another card's head is that card's, so it is `NOT_LITERAL` for this one.
+  another card's head is that card's, so it is `NOT_LITERAL` for this one, also when this
+  card is pooled with another of its label.
 - **`PINNED_DESCRIPTORS_NOT_ATTRIBUTABLE`** (new): the word is printed, but only where the
-  output cannot say which card it describes: a chunk Rich or Prose pools from cards with the
-  same label, the trailing label or pooled descriptors a merged chunk's cards share, or a
-  render with no per-card segments. `shared_with` names the others, and the `meaning` says
-  which of the three it is.
+  output cannot say which card it describes: the part of a chunk Rich or Prose pools from
+  cards with the same label, the trailing label or pooled descriptors a merged chunk's cards
+  share, or a render with no per-card segments. `shared_with` names the others, and the
+  `meaning` says which of the three it is.
 - **A pinned preface, by the same rule.** `EXPLICIT_PREFACE_NOT_LITERAL` tested
   `recipe.includes(preface)`, so the same preface pinned on another card (or a header word,
   or a longer word) hid that this card's was shed or that the card was hidden: Honky-tonk

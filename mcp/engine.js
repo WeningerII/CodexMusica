@@ -265,14 +265,17 @@ function envLiteral(recipeLower, name) {
 
 // The span of `recipe` that renders card `index`, from the renderer's own chunk
 // list (renderWorkspace's `trace`, see _traceSegments in _recipe_stack.js), not
-// from re-parsing the string. Returns { printed, own, pooled, head, shared,
-// sharedWith }; null when the card has no segment (hidden behind `[+N hidden]`
-// or cut off); and undefined when the render kept no per-card layout at all.
-// `head` and `shared` are set in a Rich or Prose chunk merged on a trailing word,
-// for a card that is the only source of its part: `head` is that card's own head
-// words (its preface, then its inner label) as the renderer joined them, and
-// `shared` the words every card of the chunk shares (the trailing label and, in
-// Rich, the pooled descriptors). Each is cut where the output was truncated.
+// from re-parsing the string. Returns { printed, own, pooled, head, poolPart,
+// shared, sharedWith }; null when the card has no segment (hidden behind
+// `[+N hidden]` or cut off); and undefined when the render kept no per-card
+// layout at all. In a Rich or Prose chunk that pools several sources, each card
+// has one of `head` and `poolPart`, as the renderer joined them: `head`, for a
+// card that is the only source of its part, is that card's own head words (its
+// preface, then its inner label); `poolPart`, for a card pooled with others of
+// its label, is the one part that holds all their prefaces and that label.
+// `shared` is then the words every card of the chunk shares (the trailing label
+// and, in Rich, the pooled descriptors). Each is cut where the output was
+// truncated.
 function cardSegment(trace, recipe, index) {
   if (!trace || !Array.isArray(trace.segments)) return undefined;
   const seg = trace.segments.find((s) => s.cards.includes(index));
@@ -281,12 +284,15 @@ function cardSegment(trace, recipe, index) {
   const printed = (from, to) =>
     Math.min(to, stop) > from ? recipe.slice(from, Math.min(to, stop)) : '';
   const head = seg.heads ? seg.heads[index] : undefined;
+  const pool = seg.pools ? seg.pools[index] : undefined;
+  const part = (span) => printed(seg.start + span[0], seg.start + span[1]);
   return {
     printed: printed(seg.start, seg.end),
     own: seg.own ? (seg.own[index] ?? null) : null,
     pooled: !!seg.pooled,
-    head: head ? printed(seg.start + head[0], seg.start + head[1]) : null,
-    shared: head ? printed(seg.start + seg.shared, seg.end) : null,
+    head: head ? part(head) : null,
+    poolPart: pool ? part(pool.span) : null,
+    shared: head || pool ? printed(seg.start + seg.shared, seg.end) : null,
     sharedWith: seg.cards.filter((i) => i !== index),
   };
 }
@@ -297,8 +303,10 @@ function cardSegment(trace, recipe, index) {
 // other cards: a tags chunk keeps each member's own text (`own`), and a Rich or
 // Prose chunk merged on a trailing word prints each single-source card's head
 // words before its own inner label (`head`, BB8's ruling on #814). There a word
-// in this card's head is present, a word only in the words the cards share is
-// unattributed, and a word only in another card's head is that card's: absent.
+// in this card's head is present; a word in the part this card shares with the
+// cards of its label (`poolPart`), or only in the words the chunk's cards share,
+// is unattributed; and a word only in another card's head or another label's
+// part is those cards': absent here.
 function pinnedPlace(segment, recipe, d) {
   if (segment === undefined) return hasWord(recipe, d) ? 'unattributed' : 'absent';
   if (!segment || !hasWord(segment.printed, d)) return 'absent';
@@ -306,8 +314,11 @@ function pinnedPlace(segment, recipe, d) {
   // the word has to be one of this card's.
   if (segment.own != null && !hasWord(segment.own, d)) return 'absent';
   if (!segment.pooled) return 'present';
-  if (segment.head == null) return 'unattributed';
-  if (hasWord(segment.head, d)) return 'present';
+  if (segment.head != null && hasWord(segment.head, d)) return 'present';
+  if (segment.poolPart != null && hasWord(segment.poolPart, d)) return 'unattributed';
+  // A pooled chunk the trace kept no parts for: none of its words is any one
+  // card's.
+  if (segment.shared == null) return 'unattributed';
   return hasWord(segment.shared, d) ? 'unattributed' : 'absent';
 }
 

@@ -664,7 +664,7 @@ function assignDedupedPrefaces(cards) {
 // built and never writes them, so the returned string is the same either way
 // (check_app_parity.js compares it with src/app.js, which has no trace).
 //
-//   trace.segments  [{ start, end, cards, pooled, own?, heads?, shared? }], one
+//   trace.segments  [{ start, end, cards, pooled, own?, heads?, pools?, shared? }], one
 //                   per printed chunk that renders at least one card's instrument:
 //     start, end    offsets into the returned string
 //     cards         indexes into the `cards` array the compressor was given
@@ -682,6 +682,11 @@ function assignDedupedPrefaces(cards) {
 //                   tokens, for each part that has exactly one source; a card
 //                   pooled with another of the same label has none, since their
 //                   prefaces are pooled into one part.
+//     pools         with `heads`: card index -> { span, cards } for every other
+//                   card of the chunk: `span` ([from, to], as in `heads`) is the
+//                   one part that pools it with the other `cards` of its label (or
+//                   with an environment chunk of that label). A word there belongs
+//                   to those cards together, and to none of the chunk's others.
 //     shared        with `heads`: offset from `start` where the words every card
 //                   of the chunk shares begin (the trailing label and, in rich,
 //                   the pooled descriptors), running to `end`.
@@ -700,6 +705,7 @@ function _traceSegments(trace, items, sep, intact) {
       if (it.own) seg.own = it.own;
       if (it.heads) {
         seg.heads = it.heads;
+        seg.pools = it.pools;
         seg.shared = it.shared;
       }
       segments.push(seg);
@@ -713,11 +719,13 @@ const _unionCards = (lists) => [...new Set(lists.flat())].sort((a, b) => a - b);
 
 // The head of a rich or prose chunk, as both formats print it: each part's
 // prefaces, then its inner label (set only in a chunk merged on a trailing word),
-// then the trailing label the parts share. Given `layout` ({ heads: {} }), it also
-// records, for the trace, where each part that renders exactly one card prints
-// that card's own words (layout.heads[card] = [from, to] in the returned text) and
-// where the shared trailing label starts (layout.shared). Both are counted off
-// the tokens as they are joined (#671), so they cannot disagree with the text.
+// then the trailing label the parts share. Given `layout` ({ heads: {}, pools: {} }),
+// it also records, for the trace, where each part that renders exactly one card
+// prints that card's own words (layout.heads[card] = [from, to] in the returned
+// text), where each part that pools several sources prints their words together
+// (layout.pools[card] = { span: [from, to], cards }, for each of its cards), and
+// where the shared trailing label starts (layout.shared). All are counted off the
+// tokens as they are joined (#671), so they cannot disagree with the text.
 function _chunkHead(c, layout) {
   const tokens = [];
   let at = 0;
@@ -731,18 +739,23 @@ function _chunkHead(c, layout) {
       tokens.push(p.innerLabel);
       at += p.innerLabel.length + 1;
     }
-    if (layout && p.sources === 1 && p.cards.length === 1)
-      layout.heads[p.cards[0]] = [from, Math.max(from, at - 1)];
+    if (layout && p.cards.length > 0) {
+      const span = [from, Math.max(from, at - 1)];
+      if (p.sources === 1 && p.cards.length === 1) layout.heads[p.cards[0]] = span;
+      else for (const ci of p.cards) layout.pools[ci] = { span, cards: p.cards.slice() };
+    }
   }
   if (layout) layout.shared = at;
   return tokens.length > 0 ? `${tokens.join(' ')} ${c.trailingLabel}` : c.trailingLabel;
 }
 // A pooled rich or prose chunk's trace entry: its text, plus each single-source
-// card's own head words and where the shared words start (see _traceSegments).
+// card's own head words, each other card's pooled part, and where the shared
+// words start (see _traceSegments).
 function _pooledTraceItem(c, renderChunk, cards) {
-  const layout = { heads: {} };
+  const layout = { heads: {}, pools: {} };
   const text = renderChunk(c, layout);
-  return { text, cards, pooled: true, heads: layout.heads, shared: layout.shared };
+  const { heads, pools, shared } = layout;
+  return { text, cards, pooled: true, heads, pools, shared };
 }
 
 // ─────────────────────────── prose (collapsed) ───────────────────────────
@@ -886,7 +899,8 @@ function compressProseRecipe(cards, ceiling, trace) {
   // The chunks this output was joined from, for render_warnings (#671). The
   // third trim phase pops whole parts, so a chunk's cards are read off the
   // parts it still has. A pooled chunk also carries each single-source card's
-  // own head words (its preface, then its inner label).
+  // own head words (its preface, then its inner label), and the part each other
+  // card shares with the cards of its label.
   const traced = (out, intact = out.length) => {
     if (trace)
       _traceSegments(
@@ -1431,7 +1445,8 @@ function compressRichRecipe(cards, ceiling, trace) {
   // that merged several cards (same label, or same trailing word) pools their
   // descriptors, so it is marked pooled: those words belong to no one card. A
   // card that is its part's only source still has its own head words (its
-  // preface, then its inner label), which the trace records.
+  // preface, then its inner label), which the trace records, as it records the
+  // part a card shares with the other cards of its label.
   const traced = (out, intact = out.length) => {
     if (trace)
       _traceSegments(
