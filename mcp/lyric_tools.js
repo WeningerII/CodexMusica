@@ -31,6 +31,7 @@ import { createPythonBridge } from './python_bridge.js';
 import { probeReaderScheme } from './reader_scheduler.js';
 import { requestContext } from './execution_context.js';
 import { draftFromText, normalizeDraftLines } from './lyric_text.js';
+import { admitRecognitionArgs } from './meter_admission.js';
 export { draftFromText } from './lyric_text.js';
 import {
   assessmentCoverageValid,
@@ -375,6 +376,32 @@ function wireKey(wire) {
   }
 }
 export const RUNS = new RunStore({ ledger: createRunLedger(), wireKey });
+
+// THE RECOGNITION CAPS, BEFORE ANYTHING QUEUES (#677 W5, meter_admission.js).
+// Called by the tool wrapper (tools.js) before a lyric handler runs, so before
+// the Python bridge admits it, and by WorkflowSessions.submit before an
+// operation is queued. A revision that continues a run this process holds is
+// measured with what the run will carry in: its draft, its continuation and
+// its declarations, exactly as the handler will fill them.
+export function admitLyricCall(name, args = {}) {
+  if (!String(name).startsWith('lyric_')) return null;
+  // An export reads a held journal and queues no recognition.
+  if (name === 'lyric_revise' && args.recover_only === true) return null;
+  return admitRecognitionArgs(withCarriedRun(name, args));
+}
+function withCarriedRun(name, args) {
+  if (name !== 'lyric_revise' || args.new_run || typeof args.run_id !== 'string') return args;
+  const rec = RUNS.byId(args.run_id);
+  if (!rec) return args;
+  const out = { ...args };
+  const draft = rec.replay_draft || rec.draft;
+  if (out.draft == null && out.draft_text == null && Array.isArray(draft)) out.draft = draft;
+  if (out.state == null && typeof rec.state === 'string') out.state = rec.state;
+  if (out.checkpoint == null && typeof rec.checkpoint === 'string') out.checkpoint = rec.checkpoint;
+  if (out.pronunciations == null && Array.isArray(rec.decl?.pronunciations))
+    out.pronunciations = rec.decl.pronunciations;
+  return out;
+}
 
 export const CONNECTOR_ATTEMPTS = 1;
 // THE KITCHEN'S OWN ATTEMPTS (M-257, round 24). One attempt per line was

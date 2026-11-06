@@ -4,6 +4,7 @@
 import { randomBytes } from 'node:crypto';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
+import { admitLyricCall } from './lyric_tools.js';
 import { connectConnector } from './client.js';
 import { requestDigest } from './job_store.js';
 import { createOperationBudget } from './paid_budget.js';
@@ -34,6 +35,8 @@ export const SESSION_STORE_LIMITS = Object.freeze({
 });
 
 const capability = () => randomBytes(32).toString('hex');
+const definedArgs = (args) =>
+  Object.fromEntries(Object.entries(args || {}).filter(([, v]) => v !== undefined));
 const clone = (value) => structuredClone(value);
 // `receipt` carries any id the caller needs to go on (the operation a stale
 // session advanced to): ids are private capabilities and stay out of the
@@ -618,6 +621,14 @@ export class WorkflowSessions {
         'SESSION_CAPACITY',
         'The lyric operation queue is full. Retry this same call with the same session_id shortly; nothing was queued.'
       );
+    // The recognition caps (#677 W5), before an operation exists: the same
+    // check the tool runs, on the arguments the operation would run with —
+    // for a revision that continues, with the run the session carries.
+    if (domain === 'lyrics') {
+      const carried =
+        tool === 'lyric_revise' && !args.new_run ? session.native?.continuation?.args : null;
+      admitLyricCall(tool, carried ? { ...carried, ...definedArgs(args) } : args);
+    }
     // A receipt written by an earlier release is copied here unchanged, so the
     // single-successor rule holds for it in the store that admits the
     // successor; the store adopts it in the same admission as the new record.

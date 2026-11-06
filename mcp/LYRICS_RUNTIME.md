@@ -198,6 +198,54 @@ one bounded request can stop and resume from its receipt; then attempt a full so
 This code and the offline regression suite do not prove live provider latency,
 writer convergence, the actual mounted disk, or sustained memory headroom.
 
+## Recognition caps, checked before anything is queued
+
+Three caps bound what one lyric call can feed the meter recognizer. They are
+checked by one function, `admitRecognitionInput` in `mcp/meter_admission.js`,
+before any work is queued: by the tool wrapper in `mcp/tools.js` before a lyric
+handler can reach the Python queue, and by `WorkflowSessions.submit` in
+`mcp/workflow_sessions.js` before a session operation exists. A call over one
+is refused with `RESOURCE_LIMIT` and the cap's cause. Nothing is queued, and no
+line is truncated or renumbered.
+
+The checks run in this order:
+
+1. **`raw_rows`.** A line set may have at most 1,389 physical rows (3 × 463),
+   counting blank rows and `[SECTION]` markers. Line ids are not affected: the
+   sung lines are numbered `L001`… after blank rows and markers are dropped, so
+   500 blank rows and one sung line make one line, `L001`.
+2. **`meter_line_digits`.** A sung line may have at most 301 syllable digits,
+   floor(1.5 × 201).
+3. **`meter_request_digits`.** A line set may have at most 139,363 digits in
+   total (463 × 301).
+
+**What counts as a line set.** Each of the following is one line set:
+
+- `draft`, `draft_text`, `lines`, `lines_text`, `before`, `after` and the text
+  twins of `before` and `after`;
+- a `state` or `checkpoint` continuation's `input_draft` and `accepted_lines`;
+- a declared `blueprint`'s line texts.
+
+A revision's answered lines are not a separate line set. Each one replaces a
+line of a draft that was already admitted, and an answer over 200 characters
+is refused before any work.
+
+**How a line's digits are counted.** The figure is an upper bound computed
+without the lexicon. It is the stressed vowels of each reading the call
+declares for one of the line's tokens, plus 1.5 digits per unit for the rest. A
+unit is one character, or the separator that ends a token.
+
+- No token the reader can produce reads more than 1.5 digits per unit, so a
+  line of 200 characters without declarations is never refused.
+  `lyric-harness/quality/test_meter_digit_bound.py` re-derives that ratio over
+  the pinned lexicon, rule tables and fallback layers.
+- A line with declarations can be refused even if its real count would fit.
+  The refusal names the line, each declaration that contributes (`P001`…),
+  the bound and the cap. It says the line *could reach* that many digits, never
+  that it has them.
+
+Every path uses this same rule.
+
 ## Reading basis: the lexicon supplement
 
 Every tool that reads words (`lyric_screen`, `lyric_grade`, `lyric_revise`,
