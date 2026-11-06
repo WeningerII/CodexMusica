@@ -34,7 +34,10 @@ an environment that moved, was overwritten or was set on a card that does not re
 and `render_scope` for which shared environment is represented. A pinned descriptor
 counts only as a whole word in its own card's segment (`PINNED_DESCRIPTORS_NOT_LITERAL`
 otherwise, even when another card prints it); printed only in a chunk pooled from several
-cards, it is `PINNED_DESCRIPTORS_NOT_ATTRIBUTABLE`, with those cards in `shared_with`.
+cards, it is `PINNED_DESCRIPTORS_NOT_ATTRIBUTABLE`, with those cards in `shared_with`. A
+pinned preface follows the same rule (`EXPLICIT_PREFACE_NOT_LITERAL`,
+`EXPLICIT_PREFACE_NOT_ATTRIBUTABLE`). Present means printed in that card's part of the
+recipe, not that the edit put it there.
 
 | Tool | What it does |
 |---|---|

@@ -6,7 +6,7 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
-### Fixed — a pinned descriptor is disclosed only on its own card; a filtered CLI swap says so (#671)
+### Fixed — a pinned descriptor or preface is disclosed only on its own card; a filtered CLI swap says so (#671)
 
 `render_warnings` decided whether a pinned part descriptor survived with a whole-recipe
 substring test, so a sampler swapped to `mpc_modern` (whose only word is `modern`) counted
@@ -21,6 +21,13 @@ would have counted too. Gangsta rap Rich and Tags and Irish trad session Tags we
 - **`PINNED_DESCRIPTORS_NOT_ATTRIBUTABLE`** (new): the word is printed, but only in a chunk
   Rich or Prose pooled from several cards (they merge cards that share a label or trailing
   word), so the output cannot say which card it describes; `shared_with` names the others.
+- **A pinned preface, by the same rule.** `EXPLICIT_PREFACE_NOT_LITERAL` tested
+  `recipe.includes(preface)`, so the same preface pinned on another card (or a header word,
+  or a longer word) hid that this card's was shed or that the card was hidden: Honky-tonk
+  with `raging` pinned on the voice and the upright piano warned nothing at Tags 200 (the
+  piano hidden) or Rich 150 (its preface shed). The preface's printed form now has to be
+  consecutive whole words in the card's own segment; printed only in a pooled chunk is
+  `EXPLICIT_PREFACE_NOT_ATTRIBUTABLE` (new), with `shared_with`. Both carry a `meaning`.
 - **CLI.** `recipe.js --swap-variant` keeps stdout exactly as rendered and prints one
   stderr line per card naming the swapped descriptors its own clause does not print
   (`note: sampler_classic card: --swap-variant descriptor(s) filtered out of the recipe:

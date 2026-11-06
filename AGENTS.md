@@ -74,7 +74,12 @@ whole word in its own card's segment of the output: the same word printed on ano
 or inside a longer word, is `PINNED_DESCRIPTORS_NOT_LITERAL`, and a word printed only in a
 chunk the format pools from several cards (Rich and Prose merge cards that share a label or
 trailing word) is `PINNED_DESCRIPTORS_NOT_ATTRIBUTABLE`, with the other cards in
-`shared_with`. Neither may be reported as a part that survived.
+`shared_with`. Neither may be reported as a part that survived. A pinned preface is judged
+the same way, as consecutive whole words in its own card's segment:
+`EXPLICIT_PREFACE_NOT_LITERAL` when that segment does not print it (even if another card or
+the header does), `EXPLICIT_PREFACE_NOT_ATTRIBUTABLE` when it is printed only in a pooled
+chunk. Present means printed in that card's part of the recipe, not that the edit put it
+there.
 
 A hosted **Model Context Protocol** server is the headless twin of the browser app — it
 exposes the full *editable* engine as tools. Seed a recipe from any tradition, then edit

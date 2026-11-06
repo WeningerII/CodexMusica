@@ -26,6 +26,7 @@ const {
   buildStackParts,
   envCardOf,
   _kebab,
+  _resolvePreface,
 } = require('../scripts/_recipe_stack.js');
 const {
   seedTraditionCards,
@@ -433,10 +434,15 @@ function shape(ws, params = {}, meta = {}) {
     const parts = Object.fromEntries((card.pinnedParts || []).map((id) => [id, card.parts[id]]));
     const instrument = buildStackParts({ ...card, parts }).find((p) => p.kind === 'instrument');
     const pinned = instrument?.descriptors || [];
-    const segment = pinned.length ? cardSegment(trace, recipe, index) : null;
+    const segment = cardSegment(trace, recipe, index);
     const place = (d) => pinnedPlace(segment, recipe, d);
     const missing = pinned.filter((d) => place(d) === 'absent');
     const unattributed = pinned.filter((d) => place(d) === 'unattributed');
+    // Who else a pooled segment speaks for, by card label, for the meanings.
+    const others = (segment?.sharedWith || []).map((i) => ws.cards[i]);
+    const pool = others.length
+      ? `${cardLabel(ws.cards, card)} with ${others.map((c) => cardLabel(ws.cards, c)).join(', ')}`
+      : `${cardLabel(ws.cards, card)} with the recording environment`;
     if (missing.length)
       out.render_warnings.push({
         card: card.id,
@@ -446,11 +452,7 @@ function shape(ws, params = {}, meta = {}) {
         meaning:
           "Explicit part descriptors are absent, as whole words, from this card's own segment of this output; compression may have trimmed them, and the same word printed on another card or in the header does not count. Do not claim they survived.",
       });
-    if (unattributed.length) {
-      const others = (segment?.sharedWith || []).map((i) => ws.cards[i]);
-      const pool = others.length
-        ? `${cardLabel(ws.cards, card)} with ${others.map((c) => cardLabel(ws.cards, c)).join(', ')}`
-        : `${cardLabel(ws.cards, card)} with the recording environment`;
+    if (unattributed.length)
       out.render_warnings.push({
         card: card.id,
         instrument: card.instrumentId,
@@ -461,13 +463,34 @@ function shape(ws, params = {}, meta = {}) {
           ? `These explicit part descriptors are printed, but only in one segment this format pools from several sources (${pool}), so the output does not say which card they describe. Do not claim they survived on this card.`
           : 'These explicit part descriptors are printed, but this output keeps no per-card segments, so it does not say which card they describe. Do not claim they survived on this card.',
       });
-    }
-    if (card.prefaceAuto === false && card.preface && !recipe.includes(card.preface))
+    // A pinned preface is judged by the same rule (#671, BB8 6676262617): the
+    // form the renderer prints (_resolvePreface: the lexicon's case, `,` and `.`
+    // removed; null prints nothing), as consecutive whole words in this card's
+    // own segment. The old whole-recipe substring let the same preface on
+    // another card, a header word or a longer word hide that this card's
+    // preface was shed, or that the card was hidden.
+    const preface = card.prefaceAuto === false && card.preface ? card.preface : null;
+    const printedPreface = preface && _resolvePreface(card);
+    const prefacePlace = !preface ? 'present' : printedPreface ? place(printedPreface) : 'absent';
+    if (prefacePlace === 'absent')
       out.render_warnings.push({
         card: card.id,
         instrument: card.instrumentId,
         code: 'EXPLICIT_PREFACE_NOT_LITERAL',
-        preface: card.preface,
+        preface,
+        meaning:
+          "This card's pinned preface is absent, as whole words, from this card's own segment of this output; compression may have shed it or hidden the card, and the same word printed on another card or in the header does not count. Do not claim it survived.",
+      });
+    if (prefacePlace === 'unattributed')
+      out.render_warnings.push({
+        card: card.id,
+        instrument: card.instrumentId,
+        code: 'EXPLICIT_PREFACE_NOT_ATTRIBUTABLE',
+        preface,
+        ...(segment ? { shared_with: others.map((c) => c.id) } : {}),
+        meaning: segment
+          ? `This card's pinned preface is printed, but only in one segment this format pools from several sources (${pool}), so the output does not say which card it describes. Do not claim it survived on this card.`
+          : "This card's pinned preface is printed, but this output keeps no per-card segments, so it does not say which card it describes. Do not claim it survived on this card.",
       });
   }
   // The environment words an edit put on the rendered environment card, checked

@@ -274,6 +274,55 @@ test('#671 a pinned word in a chunk pooled from several cards is named as not at
   assert.deepEqual(pinnedWarnings(tags, card), [['PINNED_DESCRIPTORS_NOT_LITERAL', ['stride']]]);
 });
 
+// #671 (BB8 6676262617): a pinned preface is judged as a pinned descriptor is:
+// as whole words in its own card's segment. `recipe.includes(preface)` let the
+// same preface printed on another card hide that this card's was dropped.
+test('#671 a pinned preface counts only in its own card segment, not on a card that shares it', () => {
+  const seeded = startRecipe({ traditions: ['honky_tonk'] });
+  const id = (instrument) => seeded.cards.find((c) => c.instrument === instrument).card;
+  const [voice, tack, upright] = ['voice', 'tack_piano', 'upright_piano'].map(id);
+  // The voice and the upright piano both pin `raging`.
+  const { workspace } = editRecipe({
+    workspace: seeded.workspace,
+    edits: [
+      { action: 'set_preface', card: voice, preface: 'raging' },
+      { action: 'set_preface', card: upright, preface: 'raging' },
+    ],
+  });
+  const prefaceWarnings = (r) =>
+    r.render_warnings
+      .filter((w) => w.code.startsWith('EXPLICIT_PREFACE_'))
+      .map((w) => [w.card, w.code]);
+  // Tags at 200 hides the upright piano; `raging` is still printed, on the voice.
+  const hidden = renderRecipe({ workspace, format: 'tags', max_chars: 200 });
+  assert.match(hidden.recipe, /^Honky-tonk, raging voice, .*\[\+1 hidden\]$/, 'fixture moved');
+  assert.doesNotMatch(hidden.recipe, /upright[- ]piano/, 'fixture: the upright piano is hidden');
+  assert.deepEqual(prefaceWarnings(hidden), [[upright, 'EXPLICIT_PREFACE_NOT_LITERAL']]);
+  const w = hidden.render_warnings.find((x) => x.code === 'EXPLICIT_PREFACE_NOT_LITERAL');
+  assert.equal(w.preface, 'raging');
+  assert.match(w.meaning, /Do not claim it survived/);
+  // Rich at 150 sheds both pianos' prefaces from their shared chunk.
+  const shed = renderRecipe({ workspace, format: 'rich', max_chars: 150 });
+  assert.match(
+    shed.recipe,
+    /^Honky-tonk, raging voice, .*, tack upright piano\.$/,
+    'fixture moved'
+  );
+  assert.deepEqual(prefaceWarnings(shed), [[upright, 'EXPLICIT_PREFACE_NOT_LITERAL']]);
+  // Rich at full length prints it, but only in the chunk pooled with the tack
+  // piano, so the output does not say which piano is raging.
+  const pooled = renderRecipe({ workspace, format: 'rich' });
+  assert.match(pooled.recipe, / tack raging upright piano: /, 'fixture moved');
+  assert.deepEqual(prefaceWarnings(pooled), [[upright, 'EXPLICIT_PREFACE_NOT_ATTRIBUTABLE']]);
+  const p = pooled.render_warnings.find((x) => x.code === 'EXPLICIT_PREFACE_NOT_ATTRIBUTABLE');
+  assert.deepEqual(p.shared_with, [tack]);
+  assert.match(p.meaning, /upright_piano with tack_piano/);
+  // Tags at full length gives the upright piano its own chunk: nothing to say.
+  const own = renderRecipe({ workspace, format: 'tags' });
+  assert.match(own.recipe, /, raging upright-piano: /, 'fixture moved');
+  assert.deepEqual(prefaceWarnings(own), []);
+});
+
 test('partial authenticated measurement is not labelled as no harness answer', () => {
   const verdict = _verdictInternals.verdictOf({
     code: 2,
