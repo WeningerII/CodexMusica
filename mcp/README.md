@@ -42,7 +42,8 @@ while the card still holds it, render_recipe included; `edit` is there only on t
 that wrote it. A `set_environment` on the
 environment card that sets or clears the same field (an added effect: that effect) settles
 it, so repeating the edit without `card` ends the warning. Each card records what
-`set_environment` wrote on it (`envWritten`, inside the workspace you thread), so a
+`set_environment` (or a pick in that card's environment editor in the app) wrote on it
+(`envWritten`, inside the workspace you thread), so a
 tradition's stock settings and a room a `set_preface` re-derived never count, and a
 workspace without the record has nothing written, so it gets no `ENVIRONMENT_MOVED` or
 `ENVIRONMENT_OVERWRITTEN` for those settings either. The record holds only environment

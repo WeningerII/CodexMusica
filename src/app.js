@@ -17631,24 +17631,29 @@ function _detailFocusTarget(t) {
   return null;
 }
 
-// A pick in the Recording environment panel writes the connector's record of
-// what was set there (`envWritten`, scripts/_workspace_ops.js), exactly as a
-// set_environment on the same card and field does (#826, BB8's ruling (b) on
-// Don 6694017051): a room, tuning or single-select stage records the id picked
-// (the value already there included: picking it is a write), its "Not set"
-// takes the field out as the connector's clear does, and an effect switched on
-// in a multi-select stage is added to the list. On the environment card it also
+// A pick in a card's environment editor (the Recording environment panel on
+// envCardOf's card, or any other card's own editor) writes the connector's
+// record of what was set on that card (`envWritten`, scripts/_workspace_ops.js),
+// exactly as a set_environment on the same card and field does (#826, BB8's
+// rulings (b) on Don 6694017051 and (ii) in 6695603726): a room, tuning or
+// single-select stage records the id picked (the value already there included:
+// picking it is a write), its "Not set" takes the field out as the connector's
+// clear does, and an effect switched on in a multi-select stage is added to the
+// list. When the card is the environment card once the value is stored, it also
 // settles what it names on every other card, as set_environment there does
 // (settleEnvRecords), so fixing a misdirected write from the panel ends its
-// warning. An effect switched off leaves this card's record and settles
-// nothing: the connector has no edit that removes one effect. Only these clicks write: rendering the panel, a restore,
-// Undo and Redo (which restore the record with the rest of the card), a preface
-// cascade and every other programmatic set write nothing (a preface pick only
-// drops the fields it re-derived, as set_preface does: dropReDerivedEnv). The panel
-// is the editor on envCardOf's card, so a pick on any other card writes nothing,
-// as before: the caller says whether the card was that one before the pick, and
-// calls this once the value is stored, since set_environment settles the other
-// cards only when the card it wrote is the environment card afterwards.
+// warning; a pick on any other card records the write and settles nothing, as
+// set_environment {card} there does, so the connector then answers it with
+// ENVIRONMENT_NOT_RENDERED, and with ENVIRONMENT_OVERWRITTEN if that card later
+// becomes the environment card and a set_preface re-derives what was picked.
+// An effect switched off leaves this card's record only and settles nothing:
+// the connector has no edit that removes one effect. Only these clicks write:
+// rendering an editor, a restore, Undo and Redo (which restore the record with
+// the rest of the card), a preface cascade and every other programmatic set
+// write nothing (a preface pick only drops the fields it re-derived, as
+// set_preface does: dropReDerivedEnv). The caller calls this once the value is
+// stored, since set_environment settles the other cards only when the card it
+// wrote is the environment card afterwards.
 function recordEnvPick(card, field, pick) {
   const record = envRecordOf(card.envWritten);
   let named = true;
@@ -17740,17 +17745,15 @@ function handleCardClick(e, card) {
     return;
   }
   if (t.dataset.setTuning != null) {
-    const panel = card === envCardOf(app.cards);
     card.tuning = t.dataset.setTuning || null;
-    if (panel) recordEnvPick(card, 'tuning', { id: card.tuning });
+    recordEnvPick(card, 'tuning', { id: card.tuning });
     card.editingEnv = null;
     rerenderCard(card);
     return;
   }
   if (t.dataset.setRoom != null) {
-    const panel = card === envCardOf(app.cards);
     card.room = t.dataset.setRoom || null;
-    if (panel) recordEnvPick(card, 'room', { id: card.room });
+    recordEnvPick(card, 'room', { id: card.room });
     card.editingEnv = null;
     rerenderCard(card);
     return;
@@ -17765,15 +17768,14 @@ function handleCardClick(e, card) {
     const itemId = t.dataset.item;
     const sec = CHAIN_SECTIONS.find(s => s.id === sId);
     if (!sec) return;
-    const panel = card === envCardOf(app.cards);
     if (sec.multiSelect) {
       const cur = card.chain[sId] || [];
       const off = cur.includes(itemId);
       card.chain[sId] = cur.includes(itemId) ? cur.filter(x => x !== itemId) : [...cur, itemId];
-      if (panel) recordEnvPick(card, sId, { id: itemId, off });
+      recordEnvPick(card, sId, { id: itemId, off });
     } else {
       card.chain[sId] = itemId || null;
-      if (panel) recordEnvPick(card, sId, { id: card.chain[sId] });
+      recordEnvPick(card, sId, { id: card.chain[sId] });
     }
     rerenderCard(card);
     return;

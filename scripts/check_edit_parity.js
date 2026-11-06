@@ -539,22 +539,29 @@ const ENV_WRITES = [
     src: appSrc,
     re: /card\.chain\[sId\]\s*=\s*cur\.includes\(itemId\)\s*\?\s*cur\.filter\(x\s*=>\s*x\s*!==\s*itemId\)\s*:\s*\[\.\.\.cur,\s*itemId\]/,
   },
-  // A pick there also writes the record (#826, BB8's ruling (b) on Don
-  // 6694017051), through recordEnvPick, which the card-less case below calls.
+  // A pick there, or in any other card's editor, also writes the record (#826,
+  // BB8's rulings (b) on Don 6694017051 and (ii) in 6695603726), through
+  // recordEnvPick, which the card-less and other-card cases below call.
+  // Unconditionally: whether it settles is recordEnvPick's own call.
   {
     label: 'room pick records',
     src: appSrc,
-    re: /if \(panel\) recordEnvPick\(card, 'room', \{ id: card\.room \}\)/,
+    re: /\n\s*recordEnvPick\(card, 'room', \{ id: card\.room \}\)/,
   },
   {
     label: 'tuning pick records',
     src: appSrc,
-    re: /if \(panel\) recordEnvPick\(card, 'tuning', \{ id: card\.tuning \}\)/,
+    re: /\n\s*recordEnvPick\(card, 'tuning', \{ id: card\.tuning \}\)/,
   },
   {
     label: 'chain pick records',
     src: appSrc,
-    re: /if \(panel\) recordEnvPick\(card, sId, \{ id: itemId, off \}\)[\s\S]{0,200}if \(panel\) recordEnvPick\(card, sId, \{ id: card\.chain\[sId\] \}\)/,
+    re: /\n\s*recordEnvPick\(card, sId, \{ id: itemId, off \}\)[\s\S]{0,200}\n\s*recordEnvPick\(card, sId, \{ id: card\.chain\[sId\] \}\)/,
+  },
+  {
+    label: 'a pick records with no card gate',
+    src: appSrc,
+    re: /^(?![\s\S]*if \(panel\) recordEnvPick)/,
   },
   {
     label: 'environment editor opens on envCardOf',
@@ -618,6 +625,7 @@ let multiCases = 0;
 let clearCases = 0;
 let cardlessCases = 0;
 let cardlessMoved = 0;
+let otherCardCases = 0;
 for (let i = 0; i < cases.length; i++) {
   const c = cases[i];
   const room = rooms[i % rooms.length];
@@ -735,14 +743,70 @@ for (let i = 0; i < cases.length; i++) {
       after.cards
     );
   }
+
+  // another card: a pick in the editor of a card that is not the environment
+  // card records the write on that card and settles nothing, as
+  // set_environment {card} there does (#826, BB8's ruling (ii) in 6695603726).
+  // The environment card first holds a connector write of the same room, so a
+  // settle the pick must not make would show as a record that went missing.
+  {
+    let ws = W.seed([c.tradition]);
+    if (ws.cards.length < 2) ws = W.addInstrument(ws, c.card.instrumentId);
+    const envId = app.envCardOf(ws.cards).id;
+    ws = W.setEnvironment(ws, null, { room });
+    const appCards = clone(ws.cards);
+    const envAt = appCards.findIndex((x) => x.id === envId);
+    const target = appCards.find((x, k) => k > envAt);
+    if (target) {
+      const multiPick =
+        multi && multi.items.find((it) => !(target.chain[multi.id] || []).includes(it.id));
+      target.room = room || null;
+      target.tuning = tuning || null;
+      target.chain[stage.id] = item.id || null;
+      app.app.cards = appCards;
+      app.recordEnvPick(target, 'room', { id: target.room });
+      app.recordEnvPick(target, 'tuning', { id: target.tuning });
+      app.recordEnvPick(target, stage.id, { id: target.chain[stage.id] });
+      const chain = { [stage.id]: item.id };
+      if (multiPick) {
+        target.chain[multi.id] = [...(target.chain[multi.id] || []), multiPick.id];
+        app.recordEnvPick(target, multi.id, { id: multiPick.id, off: false });
+        chain[multi.id] = multiPick.id;
+      }
+      const after = W.setEnvironment(ws, target.id, { room, tuning, chain });
+      otherCardCases++;
+      const recordsOf = (cards) => JSON.stringify(cards.map((x) => x[W.ENV_RECORD] ?? null));
+      if (recordsOf(appCards) !== recordsOf(after.cards) || !target[W.ENV_RECORD]) {
+        mismatches++;
+        if (shown < SHOW) {
+          shown++;
+          console.log(
+            `  ✗ ${c.tradition}: another card's editor's record differs from set_environment {card}'s\n      app:       ${recordsOf(appCards)}\n      connector: ${recordsOf(after.cards)}`
+          );
+        }
+      }
+      compareRosters(
+        `${c.tradition} roster → environment pick on ${target.instrumentId} (not the environment card)`,
+        appCards,
+        after.cards
+      );
+    }
+  }
 }
 console.log(
   `  ${envCases} single-card, ${multiCases} multi-select add, ${clearCases} clear and ` +
-    `${cardlessCases} card-less roster edit(s) compared (${cardlessMoved} with a bare card first)`
+    `${cardlessCases} card-less roster edit(s) compared (${cardlessMoved} with a bare card first), ` +
+    `and ${otherCardCases} pick(s) on a card that is not the environment card`
 );
-if (envCases === 0 || multiCases === 0 || clearCases === 0 || cardlessMoved === 0) {
+if (
+  envCases === 0 ||
+  multiCases === 0 ||
+  clearCases === 0 ||
+  cardlessMoved === 0 ||
+  otherCardCases === 0
+) {
   console.log(
-    '\nEDIT PARITY: FAIL — an environment case kind never ran (single-card, multi-select, clear, or a card-less edit on a roster whose first card is bare); agreement there proves nothing.'
+    '\nEDIT PARITY: FAIL — an environment case kind never ran (single-card, multi-select, clear, a card-less edit on a roster whose first card is bare, or a pick on another card); agreement there proves nothing.'
   );
   process.exit(1);
 }
@@ -751,9 +815,9 @@ if (envCases === 0 || multiCases === 0 || clearCases === 0 || cardlessMoved === 
 //
 // set_environment keeps a record on the card of what it wrote (`envWritten`,
 // scripts/_workspace_ops.js), which the connector's ENVIRONMENT_NOT_RENDERED
-// and ENVIRONMENT_MOVED read (#671, BB8 6681659990). Only a pick in the app's
-// Recording environment panel writes it there (check_workbench.js drives that
-// through the panel); the edits here are not picks: a workspace a connector
+// and ENVIRONMENT_MOVED read (#671, BB8 6681659990). Only a pick in an app card's
+// environment editor writes it there (check_workbench.js drives that through
+// the editors); the edits here are not picks: a workspace a connector
 // edited, then edited in the app, must come back with the record exactly as the
 // connector left it, and the record must change no byte either surface renders.
 // The app's edits here are its real functions (commitPrefaceChange,

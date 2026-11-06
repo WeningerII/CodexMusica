@@ -116,8 +116,16 @@ what a `set_environment` wrote on it, inside the workspace, and the warnings rea
   `set_preface` was reported as `ENVIRONMENT_OVERWRITTEN` before the record existed and
   said nothing since; it is reported again, in the same words. Only the pick writes:
   opening the panel, a restore, Undo and Redo (which restore the record with the rest of
-  the card) and every programmatic set leave it as it is, and a pick on a card that is not
-  the environment card, outside the panel, writes nothing.
+  the card) and every programmatic set leave it as it is.
+- **A pick in any other card's environment editor is a write too**, as `set_environment`
+  with that `card` is: the record holds it on that card and no other card is settled, so the
+  connector answers it with `ENVIRONMENT_NOT_RENDERED` in the words that edit gets, and if
+  that card later becomes the environment card (the old one moved away or removed), a
+  `set_preface` on it reports `ENVIRONMENT_OVERWRITTEN` for the room picked. It used to write
+  nothing, so the same choice warned on the connector and stayed silent in the app. The
+  same rules hold: only the pick writes, the seeded value counts, "Not set" clears, Undo
+  and Redo restore the record, and switching an effect off drops it from that card's
+  record only.
 - **A preface picked in the app drops what it re-derives from the record**, as `set_preface`
   does: a recorded field whose value the re-derivation changes leaves the record, and one it
   leaves as it was keeps it. The app left the record as it was, so a later preface that

@@ -149,8 +149,12 @@ pipeline plans and grades songs whose every line you write; no connector call re
   also runs the inverse cascade a preface pick runs, so other parts of that card may move toward the
   preface — most edits move nothing else. Room, tuning and the chain never move. Batch a
   `set_preface` first if you want to steer the cascade. The `envWritten` record a `set_environment`
-  keeps on a card is also written by a pick in the app's Recording environment panel, which
-  records and settles exactly as a `set_environment` without `card` does. Nothing else the app
+  keeps on a card is also written by a pick in that card's environment editor in the app (the
+  Recording environment panel on the environment card, or any other card's own editor), which
+  records and settles exactly as a `set_environment` on that card does: a pick on the
+  environment card settles what it names on the other cards, and a pick on any other card
+  records the write there and settles nothing, so it is `ENVIRONMENT_NOT_RENDERED` as the
+  connector's own write there would be. Nothing else the app
   does writes it, and a preface picked in the app drops the fields it re-derives, as
   `set_preface` does. Its saves and exports carry it, and a card the app duplicates gets the values
   without the record, since nothing was written on the copy.
