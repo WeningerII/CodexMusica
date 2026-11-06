@@ -263,7 +263,10 @@ function unrenderedEnvWarnings(ws, environment, owners = new Map()) {
   if (!environment) return [];
   const out = [];
   for (const card of ws.cards) {
-    if (card.id === environment.id) continue;
+    // The environment card itself, by identity: a caller-threaded workspace can
+    // hold two cards with one id (the app and the engine never mint one), and a
+    // card that only shares the environment card's id still does not render.
+    if (card === environment) continue;
     const standing = writtenEnv(card);
     if (!standing.length) continue;
     const own = owners.get(card.id) || {};
