@@ -1206,6 +1206,28 @@ test('the record is per card: no alias, no remap on a fresh-id import, nothing a
   assert.deepEqual(warnings(r), [], 'and nothing warns');
 });
 
+// The environment card is skipped as that card, not by its id: a caller-threaded
+// workspace can hold two cards with one id, and the one that is not the
+// environment card still does not render what was written on it (#671 review).
+test('a card that shares the environment card id still warns for what it holds', () => {
+  const seed = startRecipe({ traditions: ['honky_tonk'] });
+  const env = seed.render_scope.environment_card;
+  const index = seed.workspace.cards.findIndex((c) => c.id !== env);
+  const other = seed.workspace.cards[index];
+  const wrote = editRecipe({
+    workspace: seed.workspace,
+    edits: [{ action: 'set_environment', card: other.id, room: 'cathedral' }],
+  });
+  const ws = JSON.parse(JSON.stringify(wrote.workspace));
+  ws.cards[index].id = env;
+  const r = renderRecipe({ workspace: ws });
+  assert.equal(r.render_scope.environment_card, env, 'fixture: the environment card is unchanged');
+  const said = unrendered(r);
+  assert.equal(said.length, 1, JSON.stringify(said));
+  assert.equal(said[0].instrument, other.instrumentId);
+  assert.match(said[0].meaning, new RegExp(`^Saved on ${other.instrumentId}, `));
+});
+
 // A caller-threaded workspace may send anything back in a record. Only what the
 // record can hold comes through (W.copyEnvRecord): copied whole, 2.5 MB in one
 // card's record was copied by every op of a 64-edit batch and held the raw
