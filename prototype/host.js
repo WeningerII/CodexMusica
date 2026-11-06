@@ -235,31 +235,53 @@ export function createHost(lane, panel) {
 // called. An open() overtaken by a later open() or close() stops where it
 // is: it mounts nothing more, moves no focus and resolves false. close() is
 // the shell's own: it unmounts every lane the slot holds.
+//
+// A held lane whose own unmount() throws doesn't stop either one, as it
+// doesn't stop ctx.close() (#810 6675659005): that lane's host still ends (its
+// signal aborts, its node goes, it is idle), every other held lane is
+// unmounted too, and open() still mounts its lanes, focus included. The first
+// error then comes back: open() rejects with it once it has finished (or
+// been overtaken), and close() throws it once every lane is gone.
 export function createOnDemand(panel) {
   let held = [];
   let turn = 0;
+  // Every held lane, last first; the first error is returned, not thrown.
   const clear = () => {
-    for (const h of held.slice().reverse()) h.unmount();
+    let failed = null;
+    for (const h of held.slice().reverse()) {
+      try {
+        h.unmount();
+      } catch (error) {
+        failed = failed || { error };
+      }
+    }
     held = [];
+    return failed;
   };
   return {
     async open(lanes, { returnFocus } = {}) {
       const back = returnFocus || document.activeElement;
       const mine = ++turn;
-      clear(); // what was open goes first
+      const failed = clear(); // what was open goes first
       const list = [].concat(lanes);
       const hosts = list.map((l) => createHost(l, panel));
       held = hosts;
+      let mounted = true;
       for (const [i, h] of hosts.entries()) {
         await h.show({ returnFocus: back });
-        if (mine !== turn) return false;
+        if (mine !== turn) {
+          mounted = false; // overtaken
+          break;
+        }
         if (i === 0) h.focus();
       }
-      return true;
+      if (failed) throw failed.error; // the open went on regardless
+      return mounted;
     },
     close() {
       turn++;
-      clear(); // the shell's own close
+      const failed = clear(); // the shell's own close
+      if (failed) throw failed.error; // every lane went regardless
     },
   };
 }

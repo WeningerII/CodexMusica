@@ -97,7 +97,11 @@
 //      on to mount its later lanes or resolve true; a closable lane opened on
 //      demand does not close back to the opener, alone or second of two, or
 //      to returnFocus; the shell's close() leaves a lane mounted, or does not
-//      stop an open() still loading its first lane; or a host unmounted
+//      stop an open() still loading its first lane; a held lane whose own
+//      unmount() throws stops the next open() or the shell's close() from
+//      ending every held lane, stops the open from mounting its lane with
+//      focus in it, or is swallowed instead of coming back from open() and
+//      close() (#810 6675659005); or a host unmounted
 //      while its lane's module or ctx loads, which then fails, is not idle,
 //      so its next show() does not mount. Each check has a planted defect, as
 //      in 14. The reader and read-aloud, which app.js opens through it, keep
@@ -2221,7 +2225,7 @@ const DEMAND_MUTANTS = {
   },
   'open keeps what was open': {
     check: 'replaces',
-    edits: [['clear(); // what was open goes first', '']],
+    edits: [['const failed = clear(); // what was open goes first', 'const failed = null;']],
   },
   'lanes out of order': {
     check: 'in order',
@@ -2237,7 +2241,7 @@ const DEMAND_MUTANTS = {
   },
   'an overtaken open goes on': {
     check: 'stops when overtaken',
-    edits: [['if (mine !== turn) return false;', '']],
+    edits: [['mounted = false; // overtaken\n          break;', '']],
   },
   'later lanes close to the first': {
     check: 'closes to the opener',
@@ -2254,13 +2258,38 @@ const DEMAND_MUTANTS = {
   },
   'the shell’s close keeps the lanes': {
     check: 'shell close',
-    edits: [["clear(); // the shell's own close", '']],
+    edits: [["const failed = clear(); // the shell's own close", 'const failed = null;']],
   },
   'the shell’s close doesn’t stop an open': {
     check: 'shell close stops an open',
+    edits: [['turn++;\n      const failed = clear();', 'const failed = clear();']],
+  },
+  // #810 6675659005: a held lane whose unmount() throws.
+  'clear stops at a throwing unmount': {
+    check: 'a throwing unmount',
     edits: [
-      ["turn++;\n      clear(); // the shell's own close", "clear(); // the shell's own close"],
+      [
+        '      try {\n        h.unmount();\n      } catch (error) {\n        failed = failed || { error };\n      }\n',
+        '      h.unmount();\n',
+      ],
     ],
+  },
+  'an open stops at a throwing unmount': {
+    check: 'a throwing unmount',
+    edits: [
+      [
+        'const failed = clear(); // what was open goes first',
+        'const failed = clear(); // what was open goes first\n      if (failed) throw failed.error;',
+      ],
+    ],
+  },
+  'an open swallows a throwing unmount': {
+    check: 'a throwing unmount',
+    edits: [['if (failed) throw failed.error; // the open went on regardless', '']],
+  },
+  'the shell’s close swallows a throwing unmount': {
+    check: 'a throwing unmount',
+    edits: [['if (failed) throw failed.error; // every lane went regardless', '']],
   },
   'a load that fails after unmount sticks': {
     check: 'idle after a late failure',
@@ -2393,6 +2422,28 @@ async function demandRun(page, hostUrl) {
       await settle(slot.open([lane('e'), lane('f')]));
       slot.close();
       const shut = { order: order(), ended: ended('e') && ended('f') };
+      // A held lane whose unmount() throws (#810 6675659005): the next open()
+      // still ends every held lane, mounts its own with focus in it, and then
+      // rejects with that error; the shell's close() ends every lane too,
+      // then throws it.
+      const throwing = { context: async () => ({ unmountThrows: true }) };
+      opener.focus();
+      await settle(slot.open([lane('t1'), lane('t2', throwing)]));
+      const throwsOpen = { returned: await settle(slot.open(lane('t3'))) };
+      Object.assign(throwsOpen, {
+        order: order(),
+        focus: where(),
+        ended: ended('t1') && ended('t2'),
+        mounts: rec('t3').mounts,
+      });
+      await settle(slot.open([lane('t4'), lane('t5', throwing)]));
+      const throwsClose = { threw: null };
+      try {
+        slot.close();
+      } catch (e) {
+        throwsClose.threw = e.message;
+      }
+      Object.assign(throwsClose, { order: order(), ended: ended('t4') && ended('t5') });
       // The shell's close while an open() still loads its first lane: that
       // open stops, mounts nothing more and resolves false.
       opener.focus();
@@ -2437,7 +2488,20 @@ async function demandRun(page, hostUrl) {
       }
       tab.unmount();
       panel.remove();
-      return { one, two, loading, ctxing, sheet, second, explicit, shut, shutting, late };
+      return {
+        one,
+        two,
+        loading,
+        ctxing,
+        sheet,
+        second,
+        explicit,
+        shut,
+        throwsOpen,
+        throwsClose,
+        shutting,
+        late,
+      };
     },
     { hostUrl, src: CLOSER }
   );
@@ -2481,6 +2545,15 @@ function demandVerdict(g) {
       g.second.focus === 'opener',
     returnFocus: g.explicit.returned === true && g.explicit.focus === 'elsewhere',
     'shell close': g.shut.order === 'tab' && g.shut.ended,
+    'a throwing unmount':
+      g.throwsOpen.returned === 'threw: the lane’s unmount failed' &&
+      g.throwsOpen.ended &&
+      g.throwsOpen.order === 'tab,t3' &&
+      g.throwsOpen.mounts === 1 &&
+      g.throwsOpen.focus === 't3' &&
+      g.throwsClose.threw === 'the lane’s unmount failed' &&
+      g.throwsClose.ended &&
+      g.throwsClose.order === 'tab',
     'shell close stops an open':
       g.shutting.returned === false &&
       g.shutting.slow === 0 &&
