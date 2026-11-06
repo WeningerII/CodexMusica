@@ -1,7 +1,7 @@
 // Library selection exports (library_exports.js): the store build, content
 // identity, the plan/download contract, stream limits and verification, on a
 // synthetic export. Byte parity with the Worker's own ZIPs on 317c is the
-// golden replay (test_library_exports_parity.mjs, library-site.yml).
+// golden replay (test_library_exports_parity.mjs, library-parity.yml).
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import http from 'node:http';

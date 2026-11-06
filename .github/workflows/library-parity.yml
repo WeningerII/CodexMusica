@@ -1,0 +1,144 @@
+name: Library parity
+
+# The native Library tab re-implements the old Library Site's search, hit
+# projection, held metadata and selection ZIPs on Render (/library/v1). Its
+# parity is proven against goldens the Site's Worker produced on the pinned
+# 317c catalog (tests/library/goldens/317c/). This job checks each golden
+# against the sha256 that capture.json records, then rebuilds that catalog
+# from main 031b7de's catalog inputs, exports it exactly as the goldens' export
+# was made, builds the native search and export stores from it, and fails if
+# any search, metadata or ZIP golden differs.
+#
+# It is the native half of library-site.yml's library-goldens job, moved here
+# when the old Site (sites/library) and library-site.yml were removed from the
+# repo on 2026-11-05 (#659). The Worker's own recapture of the goldens went
+# with the Worker; its last tree is at 92c9b318 (capture script:
+# sites/library/scripts/capture-library-goldens.cjs there). The job id is kept
+# so a branch-protection check named library-goldens still reports.
+
+on:
+  pull_request:
+    paths:
+      - 'tests/library/goldens/**'
+      - 'lyric-harness/library/search_store.py'
+      - 'mcp/library_search.js'
+      - 'mcp/library_casefold.json'
+      - 'mcp/test_library_search_parity.mjs'
+      - 'mcp/library_exports.js'
+      - 'mcp/test_library_exports_parity.mjs'
+      - '.github/workflows/library-parity.yml'
+  push:
+    branches: ['**']
+    paths:
+      - 'tests/library/goldens/**'
+      - 'lyric-harness/library/search_store.py'
+      - 'mcp/library_search.js'
+      - 'mcp/library_casefold.json'
+      - 'mcp/test_library_search_parity.mjs'
+      - 'mcp/library_exports.js'
+      - 'mcp/test_library_exports_parity.mjs'
+      - '.github/workflows/library-parity.yml'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: library-parity-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  library-goldens:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+
+      # Nothing recaptures the goldens now, so each committed golden must still
+      # be the bytes capture.json recorded. readings.jsonl.gz, which no native
+      # replay reads, is checked only here.
+      - name: The committed goldens are the captured bytes
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, pathlib
+          d = pathlib.Path('tests/library/goldens/317c')
+          files = json.loads((d / 'capture.json').read_text())['files']
+          present = sorted(p.name for p in d.iterdir() if p.name != 'capture.json')
+          assert present == sorted(files), f'goldens {present} are not the captured set {sorted(files)}'
+          for name, want in files.items():
+              assert hashlib.sha256((d / name).read_bytes()).hexdigest() == want, f'{name} is not the captured golden'
+          PY
+
+      - name: Read the 317c catalog inputs (main at 031b7de)
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          repository: WeningerII/CodexMusica
+          ref: 031b7de424714d4b0e53e138c8e227df2592bb0c
+          path: .library-golden-fixture
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /lyric-harness/library/
+            /lyric-harness/corpus/
+            /lyric-harness/data/library_identity_registry.json*
+            /lyric-harness/data/sources.tsv
+            /lyric-harness/data/authority.tsv
+            /lyric-harness/data/calibration_work_editions.json
+            /lyric-harness/data/lyric_label_prefixes.json
+            /lyric-harness/lyric_harness.py
+            /lyric-harness/quality/lyric_reader.py
+            /lyric-harness/quality/provenance.py
+            /lyric-harness/quality/populate_authority.py
+      - name: Rebuild the pinned 317c snapshot
+        working-directory: .library-golden-fixture/lyric-harness
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          from library.catalog import build
+
+          root = Path.cwd()
+          source_manifest = root / 'library/catalog_sources.json'
+          source_pin = json.loads(source_manifest.read_text())['repository_commit']
+          manifest = build(root, root / 'library/snapshot', source_pin,
+                           source_manifest=source_manifest)
+          assert manifest['snapshot_id'] == '317c5afae76bfce833ed10fd06d48ddd9ffa17053fbf02d7c461e80abedf86b7'
+          assert manifest['counts']['readable_reading_units'] == 25525
+          PY
+      - name: Export it with the label registry attached
+        working-directory: .library-golden-fixture/lyric-harness
+        run: |
+          python3 -m library.catalog_site_export \
+            --source library/snapshot \
+            --output "$RUNNER_TEMP/library-golden-export"
+          python3 - <<'PY'
+          import hashlib, json, os
+          im = json.load(open(os.environ['RUNNER_TEMP'] + '/library-golden-export/import_manifest.json'))
+          want = hashlib.sha256(open('data/lyric_label_prefixes.json', 'rb').read()).hexdigest()
+          assert im['derived_metadata']['label_registry_sha256'] == want, 'label registry not attached'
+          PY
+      # The native search (/library/v1/search and /metadata/:id) answers from a
+      # store built from this same export. Every search and metadata golden
+      # must come back byte-identical.
+      - name: Native search store reproduces every search and metadata golden
+        working-directory: lyric-harness
+        run: |
+          python3 -m library.search_store "$RUNNER_TEMP/library-golden-export" "$RUNNER_TEMP/library-search"
+          node ../mcp/test_library_search_parity.mjs "$RUNNER_TEMP/library-search"
+      # Selection exports (/library/v1/exports) come from an export store built
+      # from the same export; every Worker ZIP golden must be byte-identical.
+      - name: Native export store reproduces every selection-export golden
+        run: |
+          node mcp/library_exports.js build "$RUNNER_TEMP/library-golden-export" "$RUNNER_TEMP/library-exports"
+          node mcp/test_library_exports_parity.mjs "$RUNNER_TEMP/library-exports"

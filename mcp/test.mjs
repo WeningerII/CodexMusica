@@ -5400,7 +5400,7 @@ await check('validation: actionable errors', () => {
       'mcp/test_reader_job_store.mjs': 'offline durable Library reader job regressions',
       'mcp/test_library_search.mjs': 'offline Library search store, engine and route regressions',
       'mcp/test_library_search_parity.mjs':
-        'replays the Worker search goldens against a built store (library-site.yml)',
+        'replays the Worker search goldens against a built store (library-parity.yml)',
       'mcp/test_reader_store_gzip.mjs': 'offline gzip storage and rollback regressions',
       'mcp/test_reader_store_bounds.mjs':
         'offline bounded reader-store maintenance and quiescent usage regressions',
@@ -5409,7 +5409,7 @@ await check('validation: actionable errors', () => {
       'mcp/test_library_exports.mjs':
         'offline Library selection-export store, route and limit regressions',
       'mcp/test_library_exports_parity.mjs':
-        'replays the Worker export goldens against a built export store (library-site.yml)',
+        'replays the Worker export goldens against a built export store (library-parity.yml)',
       'mcp/test_library_fixtures.mjs': 'shared offline Library export test fixtures',
       'mcp/test_library_corpus.mjs':
         'offline Library corpus-package route, range, limit and stream-guard regressions',

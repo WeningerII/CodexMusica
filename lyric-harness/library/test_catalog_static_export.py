@@ -1,5 +1,5 @@
 """Static Library data (catalog_static_export) and its gate (scripts/check_library_data.py),
-on a small catalog built the way library-site.yml builds one; no external resources."""
+on a small catalog built the way library-parity.yml builds one; no external resources."""
 import contextlib
 import fnmatch
 import gzip

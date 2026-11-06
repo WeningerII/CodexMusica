@@ -361,7 +361,8 @@ Receipt for A.2-six: `quality/results/named_place_lookup_2026-10-14/`.
 Pre-existing items, labelled in `mcp/LYRICS_RUNTIME.md` and not fixed:
 - the impossible Resume on a `STALE_READING` Library job;
 - the v1 echo-aside wrong edit kept byte-identical in v1 replay;
-- `sites/library` posting device declarations unmigrated.
+- `sites/library` posting device declarations unmigrated. [`sites/library`
+  was removed from the repo on 2026-11-05, #659.]
 
 F2 and F3 await the owner's scope decision and were not touched.
 

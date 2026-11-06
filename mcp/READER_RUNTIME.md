@@ -79,7 +79,7 @@ server's own snapshot (the client never sends one):
   `LIBRARY_SEARCH_DIR`. It reproduces SQLite's `instr`, `substr`, ASCII
   `lower()` and BINARY ordering. Every one of the Worker's 363 search goldens
   replays byte-identically (`mcp/test_library_search_parity.mjs`, run by
-  `library-site.yml`); the only intended difference is the page cap of 100
+  `library-parity.yml`); the only intended difference is the page cap of 100
   instead of 250. No canonical reading is parsed on a request: a hit reads
   only the compressed projection chunks it intersects.
 - `GET /library/v1/metadata/:id`: one unit's recorded metadata, any
@@ -89,7 +89,7 @@ server's own snapshot (the client never sends one):
   or csv) and `HEAD`/`GET /library/v1/exports/p/<content_id>.zip`: a selection
   export, byte-identical to the approved Worker's ZIP (every one of its nine
   export goldens replays exactly: `mcp/test_library_exports_parity.mjs`, run by
-  `library-site.yml`). The plan names the exact inputs (`content_id`: exporter
+  `library-parity.yml`). The plan names the exact inputs (`content_id`: exporter
   version, format, snapshot, rights registry and each reading's revision) and
   is held in a process-local LRU (2,000 plans, one hour), so no id list ever
   appears in a URL or log. A download recomputes `content_id` (409
