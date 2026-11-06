@@ -19,8 +19,9 @@ import {
   readingLoader,
   readingLines,
   loadGenreDiscovery,
+  loadGenreInstruments,
 } from './data.js';
-import { genreDiscovery } from './discovery.js';
+import { genreDiscovery, countOf } from './discovery.js';
 import { recipeStore } from './recipe-store.js';
 import { loadEngine } from './engine/load.js';
 import { media, speechAdapter } from './adapters.js';
@@ -274,8 +275,57 @@ const discoveryLanes = [
 // recipe.preview's views, never the store.
 const recipe = recipeStore({ load: loadEngine, selection: instrument, announce });
 
+// Opens an instrument (#668 6647387849): the shell's selection, then the
+// Instrument route, whose heading takes focus. A lane passes returnFocus, the
+// control that asked; the Instrument page's way back isn't in this build, so
+// nothing reads it yet.
+function openInstrument(id) {
+  instrument.set(id);
+  if (routeFromHash() !== 'instrument') location.hash = '#instrument';
+}
+
+// "Your recipe" (index.html's aside): until the dock (row 209) arrives, one
+// line written from the store's snapshot on every change. Reading the
+// snapshot doesn't start the store, and nothing can be added before it
+// starts, so the line is never false.
+const recipeLine = document.querySelector('aside.recipe > p:not(.catalog)');
+const shellRecipe = recipe.port(['snapshot', 'subscribe']);
+const writeRecipeLine = () => {
+  const s = shellRecipe.snapshot();
+  const n = s.status === 'ready' ? s.cards.length : 0;
+  recipeLine.textContent = n
+    ? `${countOf(n, 'instrument')} in Your recipe.`
+    : 'No instruments yet.';
+};
+shellRecipe.subscribe(writeRecipeLine);
+writeRecipeLine();
+
 // More lanes in a panel, after its first, in this order (#668 6643233628).
 const MORE = {
+  // The genre's instruments (#770, rows 172–173; #668 6647387849), after the
+  // detail: its roster, and Add for one instrument or the whole ensemble,
+  // through ctx.recipe. Its context waits for the recipe store.
+  genre: [
+    {
+      id: 'genreinstruments',
+      label: 'The genre’s instruments',
+      load: () => import('./features/genre-instruments/instruments.js'),
+      unloaded: 'The genre’s instruments did not load.',
+      // As for the discovery lanes: the store's load also fails on the
+      // engine's page parse, which no connection fixes.
+      retryHint: 'Try again.',
+      context: async () => {
+        await recipe.start();
+        if (recipe.status() !== 'ready') throw new Error('not ready');
+        return {
+          genre: Object.freeze({ current: genre.current, subscribe: genre.subscribe }),
+          loadGenreInstruments,
+          openInstrument,
+          recipe: recipe.port(['addEnsemble', 'addInstrument', 'snapshot', 'subscribe']),
+        };
+      },
+    },
+  ],
   library: [
     {
       id: 'librarycredits',

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global document, window, localStorage, Storage, history, MutationObserver */
+/* global document, window, localStorage, Storage, history, MutationObserver, location */
 // check_prototype_hosts.js — the #670 prototype shell mounts feature lanes
 // exactly as the contract in #670 6639542176 §1 (with 6640163315 for the
 // browse items) says, whatever the lanes themselves do.
@@ -124,9 +124,14 @@
 //      commands always settling; the note cleared at each rebuild; no
 //      previewRevision change while nothing is open; addGenre before start;
 //      no selection effect before start; a retried catalog boot; and an Undo
-//      that restores nothing refused. Each check has a planted defect of its
-//      own (STORE_MUTANTS, LOAD_MUTANTS), served in place of the file in
-//      that check's own page, and that defect must fail the check.
+//      that restores nothing refused. With Genre Instruments (#770)
+//      registered: its roster is the genre page's, the "Your recipe" line
+//      follows the store, and its host's ctx and recipe view are exactly
+//      CTX_KEYS and PORT_KEYS, with "Try again." and a Retry that mounts it
+//      when the store can't load. Each check has a planted defect of its own
+//      (STORE_MUTANTS, LOAD_MUTANTS, DATA_MUTANTS, APP_MUTANTS), served in
+//      place of the file in that check's own page, and that defect must fail
+//      the check.
 //
 //   node scripts/check_prototype_hosts.js
 //
@@ -148,6 +153,7 @@ const LANE_MODULES = {
   librarymethods: '/prototype/features/library-methods/reference.js',
   genredetail: '/prototype/features/genre-detail/detail.js',
   instrumentdetail: '/prototype/features/instrument-detail/detail.js',
+  genreinstruments: '/prototype/features/genre-instruments/instruments.js',
   libraryreading: '/prototype/features/library-reading/text-view.js',
   libraryspeech: '/prototype/features/library-speech/controls.js',
   genrecategories: '/prototype/features/genre-categories/categories.js',
@@ -156,6 +162,15 @@ const LANE_MODULES = {
 const CTX_KEYS = {
   genrecategories: ['announce', 'categories', 'discovery', 'signal', 'storage', 'targets'],
   genretargets: ['announce', 'discovery', 'signal', 'storage', 'targets'],
+  genreinstruments: [
+    'announce',
+    'genre',
+    'loadGenreInstruments',
+    'openInstrument',
+    'recipe',
+    'signal',
+    'storage',
+  ],
   libraryreading: ['announce', 'reading', 'signal', 'storage', 'unitId'],
   libraryspeech: ['announce', 'language', 'lines', 'signal', 'speech', 'storage'],
   genredetail: ['announce', 'genre', 'loadGenre', 'media', 'openPhoto', 'signal', 'storage'],
@@ -3198,6 +3213,19 @@ const LOAD_FILE = path.join(root, 'prototype', 'engine', 'load.js');
 const hasStore = fs.existsSync(STORE_FILE);
 const STORE_JS = hasStore ? fs.readFileSync(STORE_FILE, 'utf8') : '';
 const LOAD_JS = fs.readFileSync(LOAD_FILE, 'utf8');
+const DATA_JS = fs.readFileSync(path.join(root, 'prototype', 'data.js'), 'utf8');
+const APP_JS = fs.readFileSync(path.join(root, 'prototype', 'app.js'), 'utf8');
+// A registered lane's recipe view: exactly these methods (the §10 table).
+const PORT_KEYS = {
+  genreinstruments: { recipe: ['addEnsemble', 'addInstrument', 'snapshot', 'subscribe'] },
+};
+// What a check may serve in place of a committed file.
+const SERVED = {
+  store: '/prototype/recipe-store.js',
+  load: '/prototype/engine/load.js',
+  data: '/prototype/data.js',
+  app: '/prototype/app.js',
+};
 function plantIn(text, edits) {
   let src = text;
   for (const [from, to] of edits) {
@@ -3353,20 +3381,15 @@ const inPage = (page, body, arg) =>
 
 // A fresh page for one check: the prototype at `hash`, with the store (and
 // load.js) served as given, and the check's own routes.
-async function storePage(browser, srv, { store, load, routes = {}, permissions } = {}) {
-  const { context, page, errors, override, failing } = await newPage(browser, srv);
+async function storePage(browser, srv, { served = {}, routes = {}, permissions, fail } = {}) {
+  const { context, page, errors, override, failing } = await newPage(browser, srv, { fail });
   await context.addInitScript(SAID);
   for (const [p, r] of Object.entries(rowOverrides())) override.set(p, r);
   if (permissions) await context.grantPermissions(permissions, { origin: srv.url });
-  if (store !== undefined)
+  for (const [file, body] of Object.entries(served))
     await context.route(
-      (u) => u.pathname === '/prototype/recipe-store.js',
-      (route) => route.fulfill({ status: 200, contentType: 'text/javascript', body: store })
-    );
-  if (load !== undefined)
-    await context.route(
-      (u) => u.pathname === '/prototype/engine/load.js',
-      (route) => route.fulfill({ status: 200, contentType: 'text/javascript', body: load })
+      (u) => u.pathname === SERVED[file],
+      (route) => route.fulfill({ status: 200, contentType: 'text/javascript', body })
     );
   // { path: { delay, status, times } }: a slow or failing answer, for the
   // first `times` requests (every request when times is left out).
@@ -3581,6 +3604,16 @@ async function storeProduction(browser, srv) {
     read('redo');
     UI.envPending = false;
     out.handover = said;
+
+    // The genre page's roster (gpInstruments): the light row's instruments,
+    // in order, named by InstLite, with image()'s glyph.
+    const xmlns = (svg) => (svg ? 'data:image/svg+xml,' + encodeURIComponent(svg.replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" ')) : null);
+    out.rosters = {};
+    for (const id of ['bluegrass', 'afrobeat', 'gagaku', 'qawwali', 'acousmatic']) {
+      const live = Catalog.resolve(id);
+      const t = Tradition(live);
+      out.rosters[id] = { id: live, name: t.name, instruments: (t.instruments || []).map((i) => ({ id: i, name: InstLite(i)?.name || i, glyphUrl: xmlns(image(i, 32)), listenHref: null })) };
+    }
     return out;
   })()`);
   await context.close();
@@ -5068,6 +5101,142 @@ const STORE_CHECKS = {
         JSON.stringify(g)
       ),
   },
+  // 30. Genre Instruments' roster (#770): production's genre page roster, in
+  // order, an alias answered by its genre, an unknown id NOT_FOUND.
+  roster: {
+    page: async (S) => {
+      await S.boot();
+      const data = await import('/prototype/data.js');
+      const out = {};
+      for (const id of ['bluegrass', 'afrobeat', 'gagaku', 'qawwali', 'acousmatic'])
+        out[id] = JSON.parse(JSON.stringify(await data.loadGenreInstruments(id)));
+      const r = await data.loadGenreInstruments('bluegrass');
+      out.frozen =
+        Object.isFrozen(r) && Object.isFrozen(r.instruments) && Object.isFrozen(r.instruments[0]);
+      out.unknown = await S.code(data.loadGenreInstruments('zz_not_a_genre'));
+      const ac = new AbortController();
+      ac.abort();
+      out.aborted = await data.loadGenreInstruments('bluegrass', { signal: ac.signal }).then(
+        () => 'resolved',
+        (e) => e.name
+      );
+      return out;
+    },
+    verdict: (g, p) => {
+      const ids = Object.keys(p.rosters);
+      const wrong = ids.filter((id) => !same(g[id], p.rosters[id]));
+      return why(
+        !wrong.length &&
+          g.frozen &&
+          g.unknown === 'NOT_FOUND' &&
+          g.aborted === 'AbortError' &&
+          g.acousmatic.id !== 'acousmatic',
+        wrong
+          .map(
+            (id) =>
+              `${id}: ${JSON.stringify(g[id]).slice(0, 200)} vs ${JSON.stringify(p.rosters[id]).slice(0, 200)}`
+          )
+          .join(' | ') ||
+          JSON.stringify({ frozen: g.frozen, unknown: g.unknown, aborted: g.aborted })
+      );
+    },
+  },
+  // 31. The "Your recipe" line follows the store: nothing before it starts,
+  // the count after each change, and back after Undo.
+  countLine: {
+    page: async (S) => {
+      const line = () => document.querySelector('aside.recipe > p:not(.catalog)').textContent;
+      const { recipe } = await S.boot({ start: false });
+      const out = { before: line() };
+      await recipe.start();
+      out.started = line();
+      const R = recipe.port(['snapshot', 'addEnsemble', 'addInstrument', 'undo']);
+      await R.addInstrument({
+        instrumentId: 'udu',
+        destination: null,
+        revision: R.snapshot().revision,
+      });
+      out.one = line();
+      await R.addEnsemble({ genreId: 'bluegrass', revision: R.snapshot().revision });
+      out.seven = line();
+      R.undo();
+      out.undone = line();
+      R.undo();
+      out.empty = line();
+      return out;
+    },
+    verdict: (g) =>
+      why(
+        same(g, {
+          before: 'No instruments yet.',
+          started: 'No instruments yet.',
+          one: '1 instrument in Your recipe.',
+          seven: '7 instruments in Your recipe.',
+          undone: '1 instrument in Your recipe.',
+          empty: 'No instruments yet.',
+        }),
+        JSON.stringify(g)
+      ),
+  },
+  // 32. The Genre Instruments host (#770): its ctx and its recipe view are
+  // exactly the registered ones; when the store can't load it says so with
+  // "Try again." and Retry mounts it; openInstrument opens the Instrument
+  // route on that instrument.
+  genreHost: {
+    opts: { hash: '#genre', fail: ['/api/browse_boot.json'] },
+    run: async (page, p, ctx) => {
+      const note = () =>
+        page.evaluate(() => {
+          const n = document.querySelector(
+            '[data-feature-host="genreinstruments"] [data-host-note]'
+          );
+          return n ? n.textContent : null;
+        });
+      await page.waitForFunction(
+        () => {
+          const n = document.querySelector(
+            '[data-feature-host="genreinstruments"] [data-host-note]'
+          );
+          return n && !/^Loading/.test(n.textContent);
+        },
+        null,
+        { timeout: 30000 }
+      );
+      const unloaded = await note();
+      ctx.unfail('/api/browse_boot.json');
+      await page.click('[data-feature-host="genreinstruments"] [data-host-retry]');
+      await waitMounted(page, 'genreinstruments');
+      const got = await page.evaluate(async () => {
+        const ctx = window.__probeCtx.genreinstruments;
+        const sel = await import('/prototype/selection.js');
+        const keys = window.__probe.genreinstruments.keys;
+        const recipeKeys = Object.keys(ctx.recipe).sort();
+        const frozen = Object.isFrozen(ctx.recipe) && Object.isFrozen(ctx.genre);
+        ctx.openInstrument('oud', { returnFocus: document.body });
+        await new Promise((r) => setTimeout(r, 100));
+        return {
+          keys,
+          recipeKeys,
+          frozen,
+          instrument: sel.instrument.current(),
+          hash: location.hash,
+          heading: document.activeElement && document.activeElement.id,
+        };
+      });
+      return { unloaded, ...got };
+    },
+    verdict: (g) =>
+      why(
+        g.unloaded === 'The genre’s instruments did not load. Try again.' &&
+          same(g.keys, CTX_KEYS.genreinstruments) &&
+          same(g.recipeKeys, PORT_KEYS.genreinstruments.recipe) &&
+          g.frozen &&
+          g.instrument === 'oud' &&
+          g.hash === '#instrument' &&
+          g.heading === 'h-instrument',
+        JSON.stringify(g)
+      ),
+  },
 };
 
 // One planted defect (at least) for every check: text edits to
@@ -5292,6 +5461,36 @@ const LOAD_MUTANTS = {
     edits: [['  await bootCatalog(engine);', '  await engine.CATALOG_READY;']],
   },
 };
+const DATA_MUTANTS = {
+  'the roster reversed': {
+    check: 'roster',
+    edits: [
+      [
+        '      (t.instruments || []).map((i) =>',
+        '      (t.instruments || []).slice().reverse().map((i) =>',
+      ],
+    ],
+  },
+};
+const APP_MUTANTS = {
+  'the recipe line never rewritten': {
+    check: 'countLine',
+    edits: [['shellRecipe.subscribe(writeRecipeLine);\n', '']],
+  },
+  'no retryHint on the genre instruments': {
+    check: 'genreHost',
+    edits: [
+      [
+        "      unloaded: 'The genre’s instruments did not load.',\n      // As for the discovery lanes: the store's load also fails on the\n      // engine's page parse, which no connection fixes.\n      retryHint: 'Try again.',\n",
+        "      unloaded: 'The genre’s instruments did not load.',\n",
+      ],
+    ],
+  },
+  'openInstrument without the route': {
+    check: 'genreHost',
+    edits: [["  if (routeFromHash() !== 'instrument') location.hash = '#instrument';\n", '']],
+  },
+};
 
 // Runs one check in its own page (and any further pages it opens), with the
 // store and load.js as served (`served.store`, `served.load`: the planted
@@ -5303,10 +5502,10 @@ async function storeRun(browser, srv, name, prod, served = {}) {
   const pages = [];
   const open = async () => {
     const x = await storePage(browser, srv, {
-      store: served.store,
-      load: served.load,
+      served,
       routes: opts.routes,
       permissions: opts.permissions,
+      fail: opts.fail,
     });
     x.urls = [];
     x.page.on('request', (r) => x.urls.push(new URL(r.url()).pathname));
@@ -5317,7 +5516,11 @@ async function storeRun(browser, srv, name, prod, served = {}) {
   let verdict;
   try {
     const first = await open();
-    const ctx = { fresh: async () => (await open()).page, requested: () => first.urls };
+    const ctx = {
+      fresh: async () => (await open()).page,
+      requested: () => first.urls,
+      unfail: (p) => first.failing.delete(p),
+    };
     const got = check.run
       ? await check.run(first.page, prod, ctx)
       : await inPage(first.page, check.page, check.arg ? check.arg(prod) : null);
@@ -5389,6 +5592,8 @@ async function recipeChecks(browser, srv) {
   const mutants = [
     ...Object.entries(STORE_MUTANTS).map(([m, d]) => ({ m, ...d, file: 'store', text: STORE_JS })),
     ...Object.entries(LOAD_MUTANTS).map(([m, d]) => ({ m, ...d, file: 'load', text: LOAD_JS })),
+    ...Object.entries(DATA_MUTANTS).map(([m, d]) => ({ m, ...d, file: 'data', text: DATA_JS })),
+    ...Object.entries(APP_MUTANTS).map(([m, d]) => ({ m, ...d, file: 'app', text: APP_JS })),
   ];
   expect(
     new Set(mutants.map((x) => x.m)).size === mutants.length,
@@ -5413,7 +5618,7 @@ async function recipeChecks(browser, srv) {
     const o = outcomes[i];
     expect(
       o.applies,
-      `recipe store: the planted defect "${x.m}" no longer applies to ${x.file === 'store' ? 'recipe-store.js' : 'load.js'}`
+      `recipe store: the planted defect "${x.m}" no longer applies to ${SERVED[x.file].slice('/prototype/'.length)}`
     );
     if (!o.applies) return;
     expect(
@@ -5461,7 +5666,7 @@ async function recipeChecks(browser, srv) {
     process.exit(1);
   }
   console.log(
-    `check_prototype_hosts: ${checks}/${checks} checks pass; ${planted + storePlanted}/${ALL_MUTANTS.length + storeDefects} planted defects fail their checks (${planted}/${ALL_MUTANTS.length} in host.js, ${storePlanted}/${storeDefects} in the recipe store)`
+    `check_prototype_hosts: ${checks}/${checks} checks pass; ${planted + storePlanted}/${ALL_MUTANTS.length + storeDefects} planted defects fail their checks (${planted}/${ALL_MUTANTS.length} in host.js, ${storePlanted}/${storeDefects} in the recipe store's checks)`
   );
 })().catch((e) => {
   console.error(e);
