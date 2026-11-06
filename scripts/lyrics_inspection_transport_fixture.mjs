@@ -35,8 +35,6 @@ export async function createOfflineChat({ args, jobs = false } = {}) {
   let selectedArgs = args;
   let hop = 0;
   const requests = [];
-  const dir = jobs ? fs.mkdtempSync(path.join(os.tmpdir(), 'lyrics-inspection-jobs-')) : null;
-  const store = jobs ? new JobStore(dir) : null;
   const router = await createChatRouter({
     buildServer,
     Client,
@@ -45,21 +43,37 @@ export async function createOfflineChat({ args, jobs = false } = {}) {
     limits: { ...CHAT_LIMITS, perIpPerMinute: 1000, perIpPerHour: 1000 },
     turnLimits: { ...LIMITS, maxSteps: 3, maxTurnMs: 120000 },
   });
-  const app = express();
-  app.use(express.json({ limit: '2mb' }));
-  app.use((req, _res, next) => {
-    requests.push({
-      method: req.method,
-      path: req.path,
-      request_id: typeof req.body?.request_id === 'string' ? req.body.request_id : null,
+  // The job directory is allocated only once the router exists, and any later
+  // startup failure releases it: a caller that never receives close() must not
+  // be left holding a temporary directory or a listening socket.
+  let dir = null;
+  let store = null;
+  let server = null;
+  try {
+    if (jobs) {
+      dir = fs.mkdtempSync(path.join(os.tmpdir(), 'lyrics-inspection-jobs-'));
+      store = new JobStore(dir);
+    }
+    const app = express();
+    app.use(express.json({ limit: '2mb' }));
+    app.use((req, _res, next) => {
+      requests.push({
+        method: req.method,
+        path: req.path,
+        request_id: typeof req.body?.request_id === 'string' ? req.body.request_id : null,
+      });
+      next();
     });
-    next();
-  });
-  if (store)
-    app.use(createJobRouter({ store, recoverCheckpoint: (r) => router.recoverCheckpoint(r) }));
-  app.use(router);
-  const server = app.listen(0, '127.0.0.1');
-  await once(server, 'listening');
+    if (store)
+      app.use(createJobRouter({ store, recoverCheckpoint: (r) => router.recoverCheckpoint(r) }));
+    app.use(router);
+    server = app.listen(0, '127.0.0.1');
+    await once(server, 'listening');
+  } catch (error) {
+    if (server?.listening) await new Promise((resolve) => server.close(resolve));
+    if (dir) fs.rmSync(dir, { recursive: true, force: true });
+    throw error;
+  }
   const url = `http://127.0.0.1:${server.address().port}`;
   const turn = [
     () => ({ functionCall: { name: 'lyric_recover', args: {} } }),
