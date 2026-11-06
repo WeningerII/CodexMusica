@@ -423,7 +423,8 @@ Notes that bite:
   `--diff requires two tradition ids`. `check_doc_commands.js` runs the documented form
   and `check_doc_behaviors.js` asserts every argument ordering stays byte-identical on
   each CI run, so this can't silently regress.)
-- `--swap-variant` is `inst:part:variant`; multiple swaps separated by `;`.
+- `--swap-variant` is `inst:part:variant`; several swaps go in one `--swap-variant`,
+  separated by `;` (a second `--swap-variant` flag is not added to the first; see below).
   Validate the triple first via `db.partsFor(inst)` (§2) — recipe.js rejects
   unknown part/variant ids with exit 2.
 - A valid swap can still leave some of its words out of the recipe: a BARE genre token is
@@ -453,6 +454,15 @@ Notes that bite:
   replaced by `c`; a repeat of the variant used replaces nothing):
   ```
   note: --swap-variant <instrument>:<part>:<variant> was replaced by a later --swap-variant for the same part (<variant used>)
+  ```
+- A flag given more than once (two `--swap-variant` flags, two `--tradition` flags, …) is
+  read once, with its last value; the earlier values are not read, even when they swap
+  another part, and stdout is what the last one alone prints. Each other value the flag was
+  given gets a line first (the same value twice says nothing); for `--swap-variant`,
+  `--exclude-instrument` and `--add-instrument` it ends by naming the separator that gives
+  several in one flag (`;`, `,`, `,`):
+  ```
+  note: only the last --<flag> is read, so --<flag>=<value> was not (to give several, separate them with ';' in one --swap-variant)
   ```
 - Under `--why-json` / `--why-prefaces-json` stderr is JSON, so none of these note lines is
   printed there (nor `(N chars)`): the same note strings are in that JSON's top-level

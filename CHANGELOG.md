@@ -50,6 +50,12 @@ would have counted too. Gangsta rap Rich and Tags and Irish trad session Tags we
   `note: --swap-variant <instrument>:<part>:<variant> was replaced by a later --swap-variant for the same part (<variant used>)`,
   once, naming the variant the part ends up with (`a;b;a` names only `b`), before the other
   notes.
+- **CLI: a flag given twice.** `--swap-variant=<a> --swap-variant=<b>` read only `<b>`, so
+  the first flag's swaps were dropped with exit 0 and nothing said, even on another part
+  (already so on 0888a1610; any flag given twice keeps its last value). That stays, so
+  stdout does not change, and each value that was not read now gets
+  `note: only the last --<flag> is read, so --<flag>=<value> was not (…)`, first; for
+  `--swap-variant` it says to separate several swaps with `;` in one flag.
 - **CLI: the notes under `--why-json` / `--why-prefaces-json`.** There stderr is pure JSON,
   so a note line would break it, and the notes were left out: a JSON consumer was never
   told. The same strings are now in that JSON's top-level `notes` array, after the keys it

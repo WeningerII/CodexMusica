@@ -502,6 +502,91 @@ assert('§3f', 'a part swapped twice keeps the last swap and names the one it re
   return { ok, detail: details.join(' | ') };
 });
 
+// A flag given twice keeps its last value, as it always has, and the earlier
+// one used to vanish: two --swap-variant flags printed what the last one alone
+// prints, and nothing named the first, even when it swapped another part
+// (#814 review; already so on 0888a1610). stdout and the exit code still match
+// the last flag alone; each other value the flag was given gets a note first,
+// also in the JSON's `notes`, and the same value twice says nothing. The `;`
+// form, which applies every swap, differs from the last swap alone.
+assert('§3f', 'a flag given twice reads the last one and names the one it did not read', () => {
+  const unread = (name, value, sep) =>
+    `note: only the last --${name} is read, so --${name}=${value} was not` +
+    (sep ? ` (to give several, separate them with '${sep}' in one --${name})` : '');
+  const falsetto = 'voice:voice_register:falsetto';
+  const edge = (v) => `drum_kit:bearing_edges:${v}`;
+  const cases = [
+    {
+      args: [
+        '--tradition',
+        'grunge',
+        `--swap-variant=${falsetto}`,
+        `--swap-variant=${edge('edge_45')}`,
+      ],
+      alone: ['--tradition', 'grunge', `--swap-variant=${edge('edge_45')}`],
+      unread: [unread('swap-variant', falsetto, ';')],
+      joined: ['--tradition', 'grunge', `--swap-variant=${falsetto};${edge('edge_45')}`],
+    },
+    {
+      args: [
+        '--tradition',
+        'italogaze',
+        '--swap-variant',
+        edge('edge_round'),
+        '--swap-variant',
+        edge('edge_45'),
+      ],
+      alone: ['--tradition', 'italogaze', `--swap-variant=${edge('edge_45')}`],
+      unread: [unread('swap-variant', edge('edge_round'), ';')],
+    },
+    {
+      args: [
+        '--tradition',
+        'italogaze',
+        `--swap-variant=${edge('edge_45')}`,
+        `--swap-variant=${edge('edge_45')}`,
+      ],
+      alone: ['--tradition', 'italogaze', `--swap-variant=${edge('edge_45')}`],
+      unread: [],
+    },
+    {
+      args: ['--tradition', 'afrobeat', '--tradition', 'italogaze'],
+      alone: ['--tradition', 'italogaze'],
+      unread: [unread('tradition', 'afrobeat')],
+    },
+  ];
+  const details = [];
+  let ok = true;
+  for (const c of cases) {
+    const r = runSplit([RECIPE, ...c.args]);
+    const alone = runSplit([RECIPE, ...c.alone]);
+    const want = [...c.unread, ...stderrNotes(alone)];
+    let notes = null;
+    const j = runSplit([RECIPE, ...c.args, '--why-json']);
+    try {
+      notes = JSON.parse(j.err).notes;
+    } catch {
+      notes = null;
+    }
+    const joined = c.joined ? runSplit([RECIPE, ...c.joined]) : null;
+    const caseOk =
+      r.code === 0 &&
+      alone.code === 0 &&
+      r.out === alone.out &&
+      JSON.stringify(stderrNotes(r)) === JSON.stringify(want) &&
+      j.code === 0 &&
+      j.out === alone.out &&
+      JSON.stringify(notes) === JSON.stringify(want) &&
+      (!joined || (joined.code === 0 && joined.out !== alone.out));
+    ok = ok && caseOk;
+    details.push(
+      `${c.args.join(' ')}: ${caseOk ? 'ok' : 'FAIL'}; exit ${r.code}; notes ${JSON.stringify(stderrNotes(r))}; want ${JSON.stringify(want)}; --why-json notes ${JSON.stringify(notes)}` +
+        (joined ? `; ';' form differs from the last alone: ${joined.out !== alone.out}` : '')
+    );
+  }
+  return { ok, detail: details.join(' | ') };
+});
+
 // SKILL.md's flag contract: a misspelled flag is refused by name, not
 // stored and ignored with the recipe unchanged and exit 0.
 assert('§3f', 'a misspelled flag exits 2 and names the flag it meant', () => {

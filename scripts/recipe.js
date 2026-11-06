@@ -56,21 +56,48 @@ const BOOLEAN_FLAGS = new Set([
   'why-prefaces',
   'why-prefaces-json',
 ]);
+// A flag given more than once keeps its last value. Every value it was given is
+// kept here, so the ones that were not read can be named (see repeatedFlagNotes).
+const given = new Map();
+const setFlag = (name, value) => {
+  flags[name] = value;
+  given.set(name, [...(given.get(name) || []), value]);
+};
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
   if (a.startsWith('--')) {
     const eq = a.indexOf('=');
-    if (eq > 0) flags[a.slice(2, eq)] = a.slice(eq + 1);
+    if (eq > 0) setFlag(a.slice(2, eq), a.slice(eq + 1));
     else {
       const name = a.slice(2);
       const next = args[i + 1];
       if (!BOOLEAN_FLAGS.has(name) && next && !next.startsWith('--')) {
-        flags[name] = next;
+        setFlag(name, next);
         i++;
-      } else flags[name] = true;
+      } else setFlag(name, true);
     }
   } else {
     positional.push(a);
+  }
+}
+
+// Two --swap-variant flags used to keep the second and drop the first one's
+// swaps with exit 0 and nothing said; the same holds for any flag given twice.
+// Only the last value is still read (stdout does not change), and each other
+// value the flag was given gets a note (#814 review). Several swaps go in one
+// --swap-variant, separated by `;`; several ids in one --exclude-instrument or
+// --add-instrument, separated by `,`.
+const LIST_SEPARATOR = { 'swap-variant': ';', 'exclude-instrument': ',', 'add-instrument': ',' };
+const repeatedFlagNotes = [];
+for (const [name, values] of given) {
+  const last = values[values.length - 1];
+  for (const value of new Set(values)) {
+    if (value === last) continue;
+    const sep = LIST_SEPARATOR[name];
+    repeatedFlagNotes.push(
+      `note: only the last --${name} is read, so --${name}${value === true ? '' : '=' + value} was not` +
+        (sep ? ` (to give several, separate them with '${sep}' in one --${name})` : '')
+    );
   }
 }
 
@@ -450,9 +477,10 @@ const jsonStderr = !!(flags['why-json'] || flags['why-prefaces-json']);
 
 // A swap on an instrument the recipe does not have (not in the roster, or
 // removed by --exclude-instrument) has no card to apply to, and stdout is the
-// recipe, or under --json the config, without it, one note per swap. A swap a
-// later one replaced (opts.replaced) is noted first.
-const notAppliedNotes = [...opts.replaced];
+// recipe, or under --json the config, without it, one note per swap. A flag
+// value that was not read (repeatedFlagNotes), then a swap a later one replaced
+// (opts.replaced), are noted first.
+const notAppliedNotes = [...repeatedFlagNotes, ...opts.replaced];
 {
   const inRecipe = new Set(result.config.instruments.map((inst) => inst.id));
   for (const [instrument, parts] of Object.entries(opts.swap)) {
