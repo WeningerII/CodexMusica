@@ -1,6 +1,6 @@
 {
   "format": 1,
-  "about": "The old Library Site's live load times, measured by scripts/check_library_perf.js (four-condition ready detection, 9 fresh contexts per profile, mode live) from a GitHub runner. The native tab is judged against these. Bytes and requests are those completed before the milestone.",
+  "about": "The old Library Site's live load times, measured by scripts/check_library_perf.js (four-condition ready detection, 9 fresh contexts per profile, mode live) from a GitHub runner. The native tab is judged against these. Bytes and requests are those completed before the milestone. Status (#659): the old Site is gone and codexmusica.com never names its address, so each target is now a label for the page that was timed (the shelves at / and one reading under /read/); the workflow named under source and its config were deleted with it. The numbers are kept as the record.",
   "source": {
     "workflow": ".github/workflows/library-perf-baseline.yml",
     "run": "https://github.com/WeningerII/CodexMusica/actions/runs/38102804786",
@@ -14,7 +14,7 @@
   "baselines": {
     "shelves-mobile": {
       "profile": "mobile",
-      "target": "https://codex-musica-corpus.tonybolognamacaroni.chatgpt.site/",
+      "target": "old Library Site /",
       "milestone": "shelves-ready",
       "median": 12653,
       "p90": 12823.479999999987,
@@ -38,7 +38,7 @@
     },
     "shelves-desktop": {
       "profile": "desktop",
-      "target": "https://codex-musica-corpus.tonybolognamacaroni.chatgpt.site/",
+      "target": "old Library Site /",
       "milestone": "shelves-ready",
       "median": 4590.299999999988,
       "p90": 5154.859999999998,
@@ -62,7 +62,7 @@
     },
     "reader-mobile": {
       "profile": "mobile",
-      "target": "https://codex-musica-corpus.tonybolognamacaroni.chatgpt.site/read/reading_3c5bf756-d01e-5900-b806-c98f94741e2f",
+      "target": "old Library Site /read/reading_3c5bf756-d01e-5900-b806-c98f94741e2f",
       "milestone": "reader-ready",
       "median": 12695.5,
       "p90": 13333.32000000003,
@@ -86,7 +86,7 @@
     },
     "reader-desktop": {
       "profile": "desktop",
-      "target": "https://codex-musica-corpus.tonybolognamacaroni.chatgpt.site/read/reading_3c5bf756-d01e-5900-b806-c98f94741e2f",
+      "target": "old Library Site /read/reading_3c5bf756-d01e-5900-b806-c98f94741e2f",
       "milestone": "reader-ready",
       "median": 5204.599999999977,
       "p90": 5740.720000000007,

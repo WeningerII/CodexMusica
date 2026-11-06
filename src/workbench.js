@@ -1,5 +1,5 @@
 /* exported UI, UI_ICONS, uiEmptyState, uiFind, uiFocus, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport, uiRecipeGenres, uiCount, uiTabIndex, uiDownload, uiSubroute, uiRouteOf, uiOpenInLyrics, uiInertOutside */
-/* global UILayout, CMLibraryImport, _whenWorkspace, _workspaceReady, uiEnsureWorkspace, _releaseEngine, _renderBootError, uiLyricsOpened */
+/* global UILayout, _whenWorkspace, _workspaceReady, uiEnsureWorkspace, _releaseEngine, _renderBootError, uiLyricsOpened */
 /* global recipeEditSnapshot, lyricMetaOf, ChainItem, renderSidebar, Room, Tuning, compileRecipeStack, envCardOf, hasEnvironment, renderSidebarTraditions, _revealSelectedCard, Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting, _engineLive, engineReady, storedSessionText */
 /* The shared application shell: one header, one navigation, one recipe
    workspace and session, one AI writer, one set of panels. Built alongside the
@@ -141,14 +141,6 @@ async function uiOpenInLyrics(envelope) {
     uiFocus($ui('lyrics-draft'));
   return result;
 }
-// Without the native Library route, the Library is the old Library Site,
-// hosted apart from this static build (its source, sites/library, was removed
-// from the repo on 2026-11-05, #659), so its entry in Main sections is a link
-// that opens it in a new tab rather than a route: this page's unsaved work
-// stays where it is. Its address is the one origin the Library-to-Lyrics
-// import already trusts.
-const uiLibraryLink = () =>
-  `<a class="cm-tab ui-nav-link" href="${esc(CMLibraryImport.SITE_ORIGIN)}/" target="_blank" rel="noopener" aria-label="Library (opens in a new tab)" title="Library">${icon('book-open', 20)}<span>Library</span></a>`;
 // The genres in Your recipe, in first-card order.
 const uiRecipeGenres = () => [...new Set(app.cards.map((c) => c.traditionId).filter(Boolean))];
 // A count and its noun ("1 genre", "1,000 lines"): one plural rule for
@@ -938,7 +930,7 @@ function uiStart() {
       `<button class="cm-tab" data-view="${v}">${icon(i, 20)}<span>${l}</span></button>`
   ).join(
     ''
-  )}${UI_ROUTES.some(([id]) => id === 'library') ? '' : uiLibraryLink()}</nav><div class="ui-tools"><button id="ui-undo" data-ui="undo" aria-label="Undo">${icon('undo', 18)}</button><button id="ui-redo" data-ui="redo" aria-label="Redo">${icon('redo', 18)}</button><span id="ui-autosave" class="cm-status" role="status" aria-live="polite"></span>${uiButton('save', 'Save', 'save')}${uiButton('saved', 'Saved sessions', 'folder')}${uiButton('session', 'Recipe', 'layers', 'aria-expanded="false" aria-controls="workspace-sidebar"')}<span id="ui-count">0</span>${uiButton('menu', 'More', 'more-horizontal', 'aria-controls="ui-menu"')}</div>`;
+  )}</nav><div class="ui-tools"><button id="ui-undo" data-ui="undo" aria-label="Undo">${icon('undo', 18)}</button><button id="ui-redo" data-ui="redo" aria-label="Redo">${icon('redo', 18)}</button><span id="ui-autosave" class="cm-status" role="status" aria-live="polite"></span>${uiButton('save', 'Save', 'save')}${uiButton('saved', 'Saved sessions', 'folder')}${uiButton('session', 'Recipe', 'layers', 'aria-expanded="false" aria-controls="workspace-sidebar"')}<span id="ui-count">0</span>${uiButton('menu', 'More', 'more-horizontal', 'aria-controls="ui-menu"')}</div>`;
   document.body.prepend(header);
   const more = document.createElement('div');
   more.id = 'ui-menu';
