@@ -277,7 +277,7 @@ const LINE_ID = (path) =>
   path === 'recover lines_text'
     ? 'The line at row 1 of the pasted text'
     : path === 'blueprint'
-      ? 'The line "[^"]+", which P001 declares readings for,'
+      ? 'The line "[^"]+", which P001 declares readings for, is a line of `blueprint.lines`, whose stored text is not read,'
       : 'L001 of `[^`]+`';
 const AT_REQUEST_FOR = (path) => (path === 'blueprint' ? AT_REQUEST_BESIDE_DRAFT : AT_REQUEST);
 // The array paths cannot carry more than MAX_LINES items or a 201-character
@@ -852,6 +852,79 @@ test("a blueprint's line text meets no per-line cap (BB8, #827): the same text a
   );
 });
 
+// Every tool that takes a blueprint reaches the same exemption (lyric_grade
+// takes none): the tool wrapper and session submit both admit through
+// admitLyricCall.
+const LONG_BLUEPRINT_LINE = 'a'.repeat(250);
+const BLUEPRINT_CALLS = [
+  ['lyric_check', { lines: [DRAFT_LINE], scheme: 'X', subdivision: 2 }],
+  ['lyric_revise', { draft_text: DRAFT_LINE }],
+  ['lyric_revise', { draft: [DRAFT_LINE] }],
+  ['lyric_verify', { before: [DRAFT_LINE], after: [DRAFT_LINE], scheme: 'X' }],
+];
+
+test('a long undeclared blueprint line is admitted on every tool that carries a blueprint', async () => {
+  assert(lineDigitBound(LONG_BLUEPRINT_LINE).bound > METER_LINE_DIGITS_CAP);
+  const blueprint = blueprintOf([LONG_BLUEPRINT_LINE]);
+  for (const [name, args] of BLUEPRINT_CALLS) {
+    const measured = admitLyricCall(name, { ...args, blueprint });
+    const bp = measured.find((m) => m.name === 'blueprint.lines');
+    assert.equal(bp?.unrecognised, true, `${name} ${Object.keys(args)}`);
+  }
+  // The tool wrapper: each call reaches the queue, none is refused.
+  {
+    const { client, close } = await rawClient();
+    const queue = watchQueue();
+    try {
+      for (const [name, args] of BLUEPRINT_CALLS) {
+        const before = queue.count;
+        const r = await client.callTool({ name, arguments: { ...args, blueprint } });
+        assert.doesNotMatch(textOf(r), /RESOURCE_LIMIT/, `${name}: ${textOf(r).slice(0, 300)}`);
+        assert.equal(queue.count, before + 1, `${name}: ${textOf(r).slice(0, 300)}`);
+      }
+    } finally {
+      queue.restore();
+      await close();
+    }
+  }
+  // Session submit on /mcp, in an edit session (a pasted song).
+  for (const [name, args] of BLUEPRINT_CALLS) {
+    const h = await sessionHarness();
+    try {
+      const r = await h.client.callTool({
+        name,
+        arguments: { ...args, blueprint, session_id: h.session_id },
+      });
+      assert(!r.isError, `${name}: ${textOf(r)}`);
+      await Promise.all([...h.sessions.active.values()]);
+      assert.deepEqual(h.executed, [name]);
+    } finally {
+      await h.close();
+    }
+  }
+});
+
+test('a declaration on a blueprint line is refused as a blueprint line, not as a line in no set', () => {
+  const text = 'a a a';
+  const pronunciations = [1, 2, 3].map((t) => decl(text, 128, t, 'a'));
+  for (const [name, args] of BLUEPRINT_CALLS)
+    assert.throws(
+      () => admitLyricCall(name, { ...args, blueprint: blueprintOf([text]), pronunciations }),
+      (e) =>
+        e.cause === 'meter_line_digits' &&
+        e.message.includes(
+          'The line "a a a", which P001, P002, P003 declare readings for, is a line of `blueprint.lines`, whose stored text is not read, but an answer or a source reading can make it a sung line, and it could reach '
+        ) &&
+        !/in no line set/.test(e.message),
+      name
+    );
+  // A declared line in no set keeps its own wording.
+  assert.throws(
+    () => admitLyricCall('lyric_check', { lines: [DRAFT_LINE], scheme: 'X', pronunciations }),
+    (e) => e.cause === 'meter_line_digits' && /is in no line set of this call/.test(e.message)
+  );
+});
+
 test('one total per request: the draft once, every other song the response recognises added', async () => {
   const cause = (args, tool) => {
     try {
@@ -957,7 +1030,7 @@ test('one total per request: the draft once, every other song the response recog
         'meter_request_digits — the draft `state.input_draft` (464 lines, 139,364) could reach 139,364 syllable digits; one request carries at most 139,363'
       ) &&
       e.message.includes(
-        "Not counted, because no response carries their recognition: `blueprint.lines` (its stored text is not read; the draft's lines are fitted to its placements); the pronunciations' own lines"
+        "Not counted, because no response carries their recognition: `blueprint.lines` (its stored text is not read; the draft's lines are fitted to its placements); the pronunciations' own lines (a declaration on a line of a set summed here counts there; every other declared line, one on a `blueprint.lines` text included, was held to the per-line cap)."
       ) &&
       JSON.stringify(e.detail.not_counted) === JSON.stringify(['blueprint.lines', 'pronunciations'])
   );

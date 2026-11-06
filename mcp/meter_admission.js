@@ -40,13 +40,17 @@
 // trailing empty row is dropped before rows are counted (as `.splitlines()`).
 //
 // CHECK ORDER (BB8): raw rows for every line set first, the cheapest check and
-// the one that bounds the rest; then every normalised line; then the
-// request's total.
+// the one that bounds the rest; then every normalised line of every set the
+// recognizer reads, and every declared line; then the request's total.
 //
-// A LINE SET is one sequence of lines the recognizer would read: `draft`,
-// `draft_text`, `lines`, `lines_text`, `before`/`after` and their text twins,
-// a continuation's `input_draft` and `accepted_lines`, and a declared
-// blueprint's line texts. lyric_recover reads its paste as SOURCE (apparatus
+// A LINE SET is one sequence of lines a call carries: `draft`, `draft_text`,
+// `lines`, `lines_text`, `before`/`after` and their text twins, a
+// continuation's `input_draft` and `accepted_lines`, lyric_recover's rows, and
+// a declared blueprint's line texts. Every one meets the raw-row cap. All but
+// the blueprint's are read by the recognizer and meet the per-line cap too; a
+// blueprint's stored text is not read (see ONE TOTAL PER REQUEST below), so it
+// meets the raw-row cap only, and a declaration on that text is measured as a
+// declared line. lyric_recover reads its paste as SOURCE (apparatus
 // rows set aside, bracket spans resolved), so its rows are measured as rows
 // and a refusal names the row, never an L id the harness would not give.
 //
@@ -293,7 +297,12 @@ export function recognitionInputOf(args = {}, { tool = null } = {}) {
   // If any path ever recognises blueprint.lines text, both the per-line cap
   // and the request total apply to it again: drop `unrecognised` here.
   const bp = blueprintTexts(args.blueprint);
-  if (bp) sets.push({ ...lineSetOfArray('blueprint.lines', bp), unrecognised: true });
+  const unreadTexts = new Set();
+  if (bp) {
+    const set = { ...lineSetOfArray('blueprint.lines', bp), unrecognised: true };
+    sets.push(set);
+    for (const text of [...bp, ...set.lines]) unreadTexts.add(text);
+  }
   const list = Array.isArray(args.pronunciations) ? args.pronunciations : carried || [];
   const declarations = list
     .map((row, i) => ({
@@ -314,6 +323,8 @@ export function recognitionInputOf(args = {}, { tool = null } = {}) {
     if (d.line.trim() && !SINGLE_ROW.test(d.line) && codePoints(d.line) <= ADMISSION_MAX_LINE_CHARS)
       declaredLines.push(d.line);
   }
+  // A declared line that is a blueprint text is named as one: that set is a
+  // line set, but its text is not read, so the line is measured here.
   if (declaredLines.length)
     sets.push({
       name: 'pronunciations',
@@ -321,6 +332,7 @@ export function recognitionInputOf(args = {}, { tool = null } = {}) {
       rows: 0,
       lines: declaredLines,
       declaredOnly: true,
+      unread: declaredLines.map((text) => unreadTexts.has(text)),
     });
   return { sets, declarations };
 }
@@ -349,7 +361,7 @@ export function admitRecognitionInput({ sets, declarations = [] }) {
         : set.ids
           ? set.ids[i]
           : lid(i + 1);
-      return { id, text, ...bound };
+      return { id, text, ...(set.unread?.[i] ? { blueprint_text: true } : {}), ...bound };
     }),
   }));
   for (const set of measured)
@@ -363,7 +375,7 @@ export function admitRecognitionInput({ sets, declarations = [] }) {
               )}: ${fmt(line.declared_digits)} digits) and 1.5 digits per unit for its ${fmt(line.undeclared_units)} undeclared units`
           : `at 1.5 digits per unit for its ${fmt(line.undeclared_units)} units (each character and each token's separator)`;
         const which = set.declared_only
-          ? `The line ${JSON.stringify(line.text)}, which ${line.id} declare${line.contributing.length > 1 ? '' : 's'} readings for, is in no line set of this call, but an answer or a source reading can make it a sung line, and it`
+          ? `The line ${JSON.stringify(line.text)}, which ${line.id} declare${line.contributing.length > 1 ? '' : 's'} readings for, ${line.blueprint_text ? 'is a line of `blueprint.lines`, whose stored text is not read,' : 'is in no line set of this call,'} but an answer or a source reading can make it a sung line, and it`
           : set.by_row
             ? set.name === 'lines'
               ? `The line at ${line.id} of \`lines\` (the row is the item's position in the array, counted from 1 with blank items included)`
@@ -414,7 +426,7 @@ export function admitRecognitionInput({ sets, declarations = [] }) {
       ? ` Not counted, because no response carries their recognition: ${left
           .map((s) =>
             s.declared_only
-              ? "the pronunciations' own lines (one in a line set counts there; one in none was held to the per-line cap)"
+              ? "the pronunciations' own lines (a declaration on a line of a set summed here counts there; every other declared line, one on a `blueprint.lines` text included, was held to the per-line cap)"
               : `\`${s.name}\` (its stored text is not read; the draft's lines are fitted to its placements)`
           )
           .join('; ')}.`
