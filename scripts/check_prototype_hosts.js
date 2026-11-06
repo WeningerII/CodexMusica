@@ -4063,28 +4063,62 @@ async function storeProduction(browser, srv) {
   return { got, errors };
 }
 
-// copyToClipboard on codex.html, from a click, in a context whose clipboard
-// is granted or not: what production says for the same browser.
-async function productionCopy(browser, srv, permissions) {
+// A clipboard the gate decides, the same in production's page and the
+// store's: 'reject' is a write the browser refuses, as one without the
+// permission does; 'throw' is a clipboard that throws at once; 'none' is a
+// page with no clipboard API. Each sends a copy to the execCommand fallback,
+// whatever this browser does with a permission (#810 6682309672: a click's
+// activation alone lets Chromium 141 write after clearPermissions()).
+function stubClipboard(mode) {
+  const value =
+    mode === 'none'
+      ? undefined
+      : {
+          writeText:
+            mode === 'reject'
+              ? () => Promise.reject(new DOMException('gate: not allowed', 'NotAllowedError'))
+              : () => {
+                  throw new Error('gate: no clipboard');
+                },
+        };
+  Object.defineProperty(navigator, 'clipboard', { configurable: true, value });
+}
+
+// copyToClipboard on codex.html, from a click, with the clipboard granted
+// and, given `clipboard`, stubbed as stubClipboard has it: what production
+// says for the same browser. A copyToClipboard that throws (it doesn't catch
+// a writeText that throws at once) says nothing; that is `threw`.
+async function productionCopy(browser, srv, { clipboard } = {}) {
   const { context, page } = await newPage(browser, srv);
-  if (permissions) await context.grantPermissions(permissions, { origin: srv.url });
+  await context.grantPermissions(['clipboard-read', 'clipboard-write'], { origin: srv.url });
   await page.goto(`${srv.url}/codex.html#instrument`);
   await page.evaluate(`(async () => {
     await CATALOG_READY;
     window.__toasts = [];
+    window.__threw = null;
     const real = showToast;
     showToast = (m, ...r) => { window.__toasts.push(String(m)); return real(m, ...r); };
     const b = document.createElement('button');
     b.id = 'gate-copy';
     b.textContent = 'copy';
-    b.addEventListener('click', () => copyToClipboard('gate text', 'Copied', 'Copy failed — select the text instead'));
+    b.addEventListener('click', () => {
+      try {
+        copyToClipboard('gate text', 'Copied', 'Copy failed — select the text instead');
+      } catch (e) {
+        window.__threw = String((e && e.message) || e);
+      }
+    });
     document.body.prepend(b);
   })()`);
+  if (clipboard) await page.evaluate(stubClipboard, clipboard);
   await page.click('#gate-copy');
-  await page.waitForFunction(() => window.__toasts.length > 0, null, { timeout: 5000 });
-  const toasts = await page.evaluate(() => window.__toasts);
+  await page.waitForFunction(() => window.__toasts.length > 0 || window.__threw !== null, null, {
+    timeout: 5000,
+  });
+  await page.waitForTimeout(50);
+  const out = await page.evaluate(() => ({ toasts: window.__toasts, threw: window.__threw }));
   await context.close();
-  return toasts;
+  return out;
 }
 
 // The checks. Each runs in a page of its own (`opts` set it up), returns
@@ -4092,6 +4126,8 @@ async function productionCopy(browser, srv, permissions) {
 // production has an answer, with storeProduction's. A verdict is true, or
 // the reason it failed.
 const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+// The sentence production's Copy said last (productionCopy).
+const copySaid = (r) => r.toasts[r.toasts.length - 1];
 const why = (ok, detail) => (ok ? true : detail);
 const STORE_CHECKS = {
   // 1. The baseline: nothing to undo on an empty recipe; one add, then Undo,
@@ -4914,8 +4950,10 @@ const STORE_CHECKS = {
       ),
   },
   // 15. output: production's single-card render in every format; an
-  // unknown format refused; copy says its outcome once, as production's
-  // copyToClipboard does in the same browser.
+  // unknown format refused; copy says its outcome once, in production's
+  // words for the same clipboard: granted, a write refused (stubbed, so the
+  // execCommand fallback runs in every browser), and one that throws at
+  // once, held to production's own fallback (#810 6682309672).
   output: {
     opts: { permissions: ['clipboard-read', 'clipboard-write'] },
     run: async (page, p) => {
@@ -4969,39 +5007,26 @@ const STORE_CHECKS = {
         return r;
       };
       got.granted = await copy();
-      await page.context().clearPermissions();
+      // Denied: the write refused, by the stub rather than by clearing the
+      // permission, so the fallback runs in every browser.
+      await page.evaluate(stubClipboard, 'reject');
       got.denied = await copy();
       // A clipboard that throws at once still says the outcome once.
-      await page.evaluate(() => {
-        Object.defineProperty(navigator, 'clipboard', {
-          configurable: true,
-          value: {
-            writeText: () => {
-              throw new Error('gate: no clipboard');
-            },
-          },
-        });
-      });
+      await page.evaluate(stubClipboard, 'throw');
       got.throwing = await copy();
       return got;
     },
     verdict: (g, p) => {
-      const sentence = (toasts) => toasts[toasts.length - 1];
       const ok = (r, want) =>
         r && r.said.length === 1 && r.said[0] === want && r.result.ok === (want === 'Copied');
       return why(
         same(g.text, p.output) &&
           g.thrown === true &&
           g.unchanged &&
-          ok(g.granted, sentence(p.copyGranted)) &&
-          ok(g.denied, sentence(p.copyDenied)) &&
-          g.throwing.said.length === 1 &&
-          typeof g.throwing.result.ok === 'boolean',
-        JSON.stringify({
-          g: { ...g, text: same(g.text, p.output) },
-          granted: p.copyGranted,
-          denied: p.copyDenied,
-        }).slice(0, 700)
+          ok(g.granted, copySaid(p.copy.granted)) &&
+          ok(g.denied, copySaid(p.copy.denied)) &&
+          ok(g.throwing, copySaid(p.copy.throwing)),
+        JSON.stringify({ g: { ...g, text: same(g.text, p.output) }, copy: p.copy }).slice(0, 700)
       );
     },
   },
@@ -6676,6 +6701,26 @@ const STORE_MUTANTS = {
     check: 'output',
     edits: [["const ok = document.execCommand('copy');", 'const ok = false;']],
   },
+  // Each fallback route on its own: a refused write, and a clipboard that
+  // throws at once.
+  'a refused write not sent to the fallback': {
+    check: 'output',
+    edits: [
+      [
+        'navigator.clipboard.writeText(text).then(() => finish(true), fallbackCopy);',
+        'navigator.clipboard.writeText(text).then(() => finish(true), () => finish(false));',
+      ],
+    ],
+  },
+  'a throwing clipboard not sent to the fallback': {
+    check: 'output',
+    edits: [
+      [
+        '          } catch {\n            fallbackCopy();\n          }',
+        '          } catch {\n            finish(false);\n          }',
+      ],
+    ],
+  },
   'the grouped sentence whatever happened': {
     check: 'announcements',
     edits: [
@@ -7184,8 +7229,27 @@ async function recipeChecks(browser, srv) {
     `recipe store: codex.html raised errors: ${prodRun.errors.join(' | ')}`
   );
   const p = prodRun.got;
-  p.copyGranted = await productionCopy(browser, srv, ['clipboard-read', 'clipboard-write']);
-  p.copyDenied = await productionCopy(browser, srv, null);
+  // Production's Copy under the clipboards the output check gives the store.
+  // Production's copyToClipboard doesn't catch a writeText that throws at
+  // once, so for a throwing one it says nothing; its own fallback, which the
+  // store's runs then, is what it says with no clipboard API.
+  p.copy = {
+    granted: await productionCopy(browser, srv),
+    denied: await productionCopy(browser, srv, { clipboard: 'reject' }),
+    throwing: await productionCopy(browser, srv, { clipboard: 'throw' }),
+    none: await productionCopy(browser, srv, { clipboard: 'none' }),
+  };
+  if (p.copy.throwing.threw && !p.copy.throwing.toasts.length) p.copy.throwing = p.copy.none;
+  // What the output check relies on: production's fallback copies in this
+  // browser, so a store whose fallback never copies says otherwise. (A
+  // browser whose execCommand('copy') can't copy fails here, not silently.)
+  expect(
+    ['granted', 'denied', 'throwing'].every((k) => p.copy[k].toasts.length === 1) &&
+      copySaid(p.copy.granted) === 'Copied' &&
+      copySaid(p.copy.denied) === 'Copied' &&
+      copySaid(p.copy.throwing) === 'Copied',
+    `recipe store: codex.html's Copy and its fallback don't both copy here: ${JSON.stringify(p.copy)}`
+  );
   // The production sequences did what the checks rely on.
   expect(
     same(p.toasts.genre, ['Imported Bluegrass']) &&
