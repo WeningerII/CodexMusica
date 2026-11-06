@@ -57,7 +57,10 @@ const ROOT = path.resolve(__dirname, '..');
 
 // Discovered scenarios this runner does not run, each with its reason. Every
 // run prints them. An entry that names no discovered scenario fails the run,
-// so one can't outlive its file.
+// so one can't outlive its file. A lane prototype/app.js registers can't be
+// excused here: the manifest's acceptance needs one of its scenarios to pass
+// in every run, and fails naming the entry that left it without one. So an
+// entry here is for a lane the shell doesn't register.
 const EXCLUDED = {};
 
 if (process.argv.includes('--self-check')) process.exit(selfCheck());
@@ -387,6 +390,18 @@ function selfCheck() {
         r.status === 1 &&
         says(r, 'genre-categories is registered in prototype/app.js, but no scenario of it passed'),
     },
+    // An exclusion can't excuse a registered lane, and says so (#810 review
+    // of 8345248ac): the fixture app.js registers genre-targets.
+    'excluding a registered lane’s scenario fails by name': {
+      edits: [exclude(TARGETS, 'a fixture exclusion')],
+      ok: (r) =>
+        r.status === 1 &&
+        says(r, `SKIP  ${TARGETS} — a fixture exclusion`) &&
+        says(
+          r,
+          `genre-targets is registered in prototype/app.js, but no scenario of it passed in this run (prototype/scenarios/genre-targets/); the runner's EXCLUDED names ${TARGETS}`
+        ),
+    },
     'a registered lane with no module fails': {
       files: { 'prototype/features/genre-categories/categories.js': null },
       ok: (r) =>
@@ -530,6 +545,11 @@ function selfCheck() {
       check: 'a registered lane with no passing scenario fails',
       in: 'manifest',
       edits: [['passed(lane),', 'true,']],
+    },
+    'an exclusion that leaves a registered lane is not named': {
+      check: 'excluding a registered lane’s scenario fails by name',
+      in: 'manifest',
+      edits: [['const held = skipped.filter(', 'const held = [].filter(']],
     },
     'a registered lane needs no module': {
       check: 'a registered lane with no module fails',

@@ -58,7 +58,8 @@
 // declaration is malformed; a row marked done names a scenario that doesn't
 // declare it, didn't run in this run, or didn't pass; or a lane app.js
 // registers has no module in this build or no scenario of it that passed in
-// this run. KNOWN_UNBUILT is the one stated exception, #760's instrument
+// this run (the runner's EXCLUDED can't excuse that, and the failure names
+// any exclusion that left the lane without one). KNOWN_UNBUILT is the one stated exception, #760's instrument
 // detail, and must leave once its files arrive.
 //
 //   node scripts/check_prototype_manifest.js
@@ -419,15 +420,22 @@ function afterRun(file, runId) {
     [...ran.values()].some(
       (s) => s.status === 'pass' && s.path.startsWith(`prototype/scenarios/${lane}/`)
     );
+  // The runner's exclusions, named where they leave a registered lane with
+  // no passing scenario: EXCLUDED can't excuse a lane the shell registers.
+  const skipped = Object.keys((results && results.excluded) || {});
   for (const { lane, module } of lanes) {
     if (Object.hasOwn(KNOWN_UNBUILT, lane)) continue;
     expect(
       fs.existsSync(path.join(root, module)),
       `${lane} is registered in prototype/app.js, but its module ${module} is not in this build`
     );
+    const held = skipped.filter((rel) => rel.startsWith(`prototype/scenarios/${lane}/`));
     expect(
       passed(lane),
-      `${lane} is registered in prototype/app.js, but no scenario of it passed in this run (prototype/scenarios/${lane}/)`
+      `${lane} is registered in prototype/app.js, but no scenario of it passed in this run (prototype/scenarios/${lane}/)` +
+        (held.length
+          ? `; the runner's EXCLUDED names ${held.join(', ')}, and a registered lane needs one of its scenarios to run and pass: run it, or unregister the lane`
+          : '')
     );
   }
   for (const [lane, reason] of Object.entries(KNOWN_UNBUILT)) {
