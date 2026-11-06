@@ -127,6 +127,9 @@ def validate_blueprint(obj):
         if not isinstance(rows, list) or any(not isinstance(r, dict) for r in rows):
             raise ValueError(f"blueprint {field} must be an array of objects")
         guard_expansion(len(rows), f"blueprint {field}", MAX_BLUEPRINT_ITEMS)
+    for index, line in enumerate(lines, 1):
+        if "role" in line:
+            raise ValueError(f"line {index}: line roles are not checked yet; remove `role` or wait for P2")
     if lines and not sections:
         raise ValueError("blueprint lines require at least one declared section")
     spans, cursor, total_bars = [], 1, 0
