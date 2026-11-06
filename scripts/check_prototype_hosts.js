@@ -4184,7 +4184,16 @@ const STORE_CHECKS = {
       await R.setInstrumentDestination(S.args(R, { destination: null }));
       await S.settle();
       const loose = await R.addConfiguredInstrument(S.args(R, { destination: null }));
+      // Undo past both configured adds, then Redo the grouped one: it comes
+      // back as captured, because it was configured before its history entry.
+      R.undo();
+      R.undo();
+      const undone = !added();
+      R.redo();
+      const redone = added() ? proj(added()) : null;
       return {
+        undone,
+        redone,
         raced,
         pin: pin.id,
         captured,
@@ -4205,6 +4214,8 @@ const STORE_CHECKS = {
           g.captured.auto === false &&
           same(g.got, g.captured) &&
           same(g.later, g.captured) &&
+          g.undone &&
+          same(g.redone, g.captured) &&
           g.entries === 1 &&
           g.placed === 'grouped' &&
           g.loosePlaced === 'independent',
@@ -6170,6 +6181,15 @@ const STORE_MUTANTS = {
       [
         'const configure = captured ? (c) => Object.assign(c, clone(captured)) : null;',
         'const configure = captured ? (c) => Object.assign(c, clone({ parts: pv.card.parts, pinnedParts: pv.card.pinnedParts || [], preface: pv.card.preface, prefaceAuto: pv.card.prefaceAuto, tuning: pv.card.tuning, room: pv.card.room, chain: pv.card.chain })) : null;',
+      ],
+    ],
+  },
+  'the configured add configured after its history entry': {
+    check: 'capture',
+    edits: [
+      [
+        '      card = await E.addInstrumentFromPicker(id, configure ? { configure } : undefined);',
+        '      card = await E.addInstrumentFromPicker(id);\n      if (card && configure) configure(card);',
       ],
     ],
   },

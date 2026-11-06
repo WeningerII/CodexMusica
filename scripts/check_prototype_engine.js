@@ -38,7 +38,8 @@
 //   7. Every routed name can fail its hold (PLANTS): the page text with that
 //      one name's behaviour changed (or, for a LIVE_TABLES name, load.js
 //      returning a plain property in place of its getter) yields a module
-//      whose hold disagrees with production. A plant whose anchor is gone,
+//      whose hold disagrees with production. MORE_PLANTS adds a drift for a
+//      name whose hold covers more than one behaviour. A plant whose anchor is gone,
 //      or occurs more than once, fails the gate as no longer applying.
 //
 //   node scripts/check_prototype_engine.js
@@ -371,6 +372,24 @@ async function holdSamples(E, which, input) {
       mark('grouped', { message: E._addedInstrumentMessage('oud', oud) });
       const udu = await E.addInstrumentFromPicker('udu');
       mark('loose', { message: E._addedInstrumentMessage('udu', udu) });
+      // The configured add the recipe store's addConfiguredInstrument makes:
+      // configure runs on the new card before its one history entry, grouped
+      // and loose, so Undo removes it and Redo brings it back configured.
+      E.app._addToTradition = 'bluegrass';
+      const banjo = await E.addInstrumentFromPicker('banjo_5_string', {
+        configure: (c) => {
+          c.room = E.ROOMS[3].id;
+          c.tuning = E.TUNINGS[5].id;
+          c.pinnedParts = [c.pinnedParts || [], Object.keys(c.parts)[0]].flat();
+        },
+      });
+      mark('configured grouped', { message: E._addedInstrumentMessage('banjo_5_string', banjo) });
+      await E.addInstrumentFromPicker('udu', {
+        configure: (c) => {
+          c.room = E.ROOMS[4].id;
+        },
+      });
+      mark('configured loose');
       const [part, alt] = materialOf(oud);
       oud.parts[part] = alt;
       E.applyPartEdit(oud, part, { quiet: true });
@@ -382,6 +401,13 @@ async function holdSamples(E, which, input) {
       mark('undo again');
       E.redo();
       mark('redo');
+      E.undo();
+      E.undo();
+      mark('undo past the configured adds');
+      E.redo();
+      mark('redo the configured grouped add');
+      E.redo();
+      mark('redo the configured loose add');
       return steps;
     },
     async glyphs() {
@@ -595,6 +621,20 @@ const PLANTS = {
   findSimilar: wrap('findSimilar', 'i,n', 'return findSimilar__real(i,n).slice().reverse()'),
   getMatchingAxes: wrap('getMatchingAxes', 'a,b,n', 'return getMatchingAxes__real(a,b,n).slice(1)'),
 };
+// Further drifts, for a name whose hold covers more than one of its
+// behaviours: addInstrumentFromPicker's configure option, which the store's
+// configured add depends on, ignored.
+const MORE_PLANTS = [
+  [
+    'addInstrumentFromPicker',
+    wrap(
+      'addInstrumentFromPicker',
+      'i,o',
+      'return addInstrumentFromPicker__real(i,o&&{...o,configure:undefined})',
+      { async: true }
+    ),
+  ],
+];
 // A LIVE_TABLES name planted in load.js itself: its getter becomes a plain
 // property, which keeps the slot's value when the engine was created.
 const livePlant = (moduleText, name) => {
@@ -790,13 +830,14 @@ async function productionHolds(names, which, input) {
     `"ud" does not rank udu, udukkai, oud first (${JSON.stringify(ud.slice(0, 3))})`
   );
 
-  // 7. every routed name's planted drift fails its hold
+  // 7. every routed name's planted drift fails its hold (and MORE_PLANTS)
   let drifts = 0;
-  for (const n of held) {
-    const text = L.LIVE_TABLES.includes(n)
+  const drifted = [...held.map((n) => [n, PLANTS[n]]), ...MORE_PLANTS];
+  for (const [n, plant] of drifted) {
+    const text = !plant
       ? livePlant(L.engineModule(page), n)
       : (() => {
-          const p = planted(page, PLANTS[n]);
+          const p = planted(page, plant);
           return p && L.engineModule(p);
         })();
     expect(!!text, `the planted drift for ${n} no longer applies`);
@@ -825,7 +866,7 @@ async function productionHolds(names, which, input) {
     process.exit(1);
   }
   console.log(
-    `check_prototype_engine: ${checks}/${checks} checks pass — ${agree} recipes (${ids.length} genres × ${FORMATS.length} formats) equal production's, and bluegrass in Chromium through ../codex.html; a planted drift fails ${pcmp.diffs.length}/${four.length * FORMATS.length}; ${held.length} routed names in ${Object.keys(HOLDS).length} holds equal codex.html's own, and ${drifts}/${held.length} planted drifts fail their hold`
+    `check_prototype_engine: ${checks}/${checks} checks pass — ${agree} recipes (${ids.length} genres × ${FORMATS.length} formats) equal production's, and bluegrass in Chromium through ../codex.html; a planted drift fails ${pcmp.diffs.length}/${four.length * FORMATS.length}; ${held.length} routed names in ${Object.keys(HOLDS).length} holds equal codex.html's own, and ${drifts}/${drifted.length} planted drifts fail their hold`
   );
 })().catch((e) => {
   console.error('check_prototype_engine: ERROR', e && e.stack);
