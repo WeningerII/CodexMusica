@@ -3622,8 +3622,9 @@ const PORT_KEYS = {
   genreinstruments: { recipe: ['addEnsemble', 'addInstrument', 'snapshot', 'subscribe'] },
 };
 // Every registered lane, and what its ctx lets it subscribe to (a field's
-// subscribe or subscribeVoices), each of which ends with its mount (app.js
-// ending, #810 6682309672).
+// subscribe or subscribeVoices, or a method that takes a listener among its
+// options, CALLBACK_METHODS), each of which ends with its mount (app.js
+// ending and speaking, #810 6682309672).
 const SUBSCRIBED = {
   browse: [],
   genrecategories: ['categories.subscribe', 'discovery.subscribe', 'targets.subscribe'],
@@ -3635,9 +3636,12 @@ const SUBSCRIBED = {
   librarycredits: [],
   librarymethods: [],
   libraryreading: [],
-  libraryspeech: ['speech.subscribeVoices'],
+  libraryspeech: ['speech.speak', 'speech.subscribeVoices'],
   lyrics: [],
 };
+// The ctx methods that take a listener among their options: speak's onend
+// and onerror (#810, the review of 6682309672's fixes).
+const CALLBACK_METHODS = ['speech.speak'];
 // What a check may serve in place of a committed file.
 const SERVED = {
   store: '/prototype/recipe-store.js',
@@ -6758,11 +6762,13 @@ const STORE_CHECKS = {
   },
   // 40. Every lane's subscriptions end with its mount (Don, #810 6682309672,
   // point 5). Each registered lane is mounted (the reader's two through
-  // openReading), and a listener goes on every subscribe its ctx carries:
-  // it hears a change while the lane is mounted, none once the mount's
-  // signal aborts (as the host's unmount aborts it), and one added after
-  // the abort never hears. The subscriptions found are exactly SUBSCRIBED's,
-  // so a lane given a new one can't go unchecked.
+  // openReading), and a listener goes on every subscribe its ctx carries,
+  // and on every CALLBACK_METHODS method (for speak, three utterances, each
+  // ending with the listener): it hears a change while the lane is mounted,
+  // none once the mount's signal aborts (as the host's unmount aborts it),
+  // and one added after the abort never hears; nor is the device given
+  // anything to say after the abort. The subscriptions found are exactly
+  // SUBSCRIBED's, so a lane given a new one can't go unchecked.
   lanesReleased: {
     opts: { hash: '#genre', init: { fn: `(${KEEP_CONTROLLERS})();\n(${fakeSpeech})();` } },
     run: async (page) => {
@@ -6789,18 +6795,42 @@ const STORE_CHECKS = {
           const sel = await import('/prototype/selection.js');
           const { discovery } = await import('/prototype/app.js');
           const all = window.__probeCtx;
-          // Every subscribe a lane's ctx carries, as 'field.method'.
+          // A listener method as a subscribe: speak's, three utterances
+          // that each end with the listener (one ends while the lane is
+          // mounted, two wait behind it at the abort); refused, nothing.
+          const AS_SUBSCRIBE = {
+            'speech.speak': (speak) => (fn) => {
+              const handles = [];
+              try {
+                for (const n of [1, 2, 3])
+                  handles.push(speak(`gate ${n}`, { onend: () => fn(), onerror: () => fn() }));
+              } catch {
+                // An ended lane's speak() is refused.
+              }
+              return () => handles.forEach((h) => h.cancel());
+            },
+          };
+          // Every subscribe a lane's ctx carries, and every listener
+          // method, as 'field.method'.
           const found = {};
           const subs = [];
           for (const lane of ARG.lanes) {
             found[lane] = [];
             for (const [field, v] of Object.entries(all[lane] || {}))
               if (v && typeof v === 'object' && !Array.isArray(v))
-                for (const k of Object.keys(v))
-                  if (/^subscribe/.test(k) && typeof v[k] === 'function') {
-                    found[lane].push(`${field}.${k}`);
-                    subs.push({ lane, name: `${field}.${k}`, subscribe: v[k] });
-                  }
+                for (const k of Object.keys(v)) {
+                  const name = `${field}.${k}`;
+                  if (typeof v[k] !== 'function') continue;
+                  if (/^subscribe/.test(k)) subs.push({ lane, name, subscribe: v[k] });
+                  else if (ARG.callbacks.includes(name))
+                    subs.push({
+                      lane,
+                      name,
+                      subscribe: (AS_SUBSCRIBE[name] || (() => null))(v[k]),
+                    });
+                  else continue;
+                  found[lane].push(name);
+                }
             found[lane].sort();
           }
           // A change that reaches each kind of subscription.
@@ -6829,8 +6859,15 @@ const STORE_CHECKS = {
             'selection.subscribe': () => all.library.selection.toggle(ARG.cid),
             'speech.subscribeVoices': () =>
               window.speechSynthesis.dispatchEvent(new Event('voiceschanged')),
+            // The utterance with the device ends.
+            'speech.speak': () => {
+              const u = window.__speech.spoken[window.__speech.spoken.length - 1];
+              if (u && u.onend) u.onend();
+            },
           };
-          const unknown = subs.filter((x) => !CHANGES[x.name]).map((x) => `${x.lane} ${x.name}`);
+          const unknown = subs
+            .filter((x) => !CHANGES[x.name] || typeof x.subscribe !== 'function')
+            .map((x) => `${x.lane} ${x.name}`);
           const kinds = [...new Set(subs.map((x) => x.name))].filter((n) => CHANGES[n]);
           const failed = [];
           const round = async () => {
@@ -6849,6 +6886,7 @@ const STORE_CHECKS = {
           const controllers = ARG.lanes.map((l) =>
             window.__controllers.find((c) => all[l] && c.signal === all[l].signal)
           );
+          const spokenAtAbort = window.__speech.spoken.length;
           for (const c of controllers) if (c) c.abort();
           await round();
           const late = subs.map(() => 0);
@@ -6864,9 +6902,10 @@ const STORE_CHECKS = {
             deaf: named(at((i) => !live[i])),
             kept: named(at((i) => heard[i] !== live[i])),
             late: named(at((i) => late[i] > 0)),
+            spokenAfterAbort: window.__speech.spoken.slice(spokenAtAbort).map((u) => u.text),
           };
         },
-        { lanes: Object.keys(SUBSCRIBED), cid }
+        { lanes: Object.keys(SUBSCRIBED), cid, callbacks: CALLBACK_METHODS }
       );
     },
     verdict: (g) =>
@@ -6878,7 +6917,8 @@ const STORE_CHECKS = {
           !g.unmounted.length &&
           !g.deaf.length &&
           !g.kept.length &&
-          !g.late.length,
+          !g.late.length &&
+          same(g.spokenAfterAbort, []),
         JSON.stringify(g).slice(0, 900)
       ),
   },
@@ -7533,10 +7573,35 @@ const APP_MUTANTS = {
   },
   'read-aloud’s voices outlive its mount': {
     check: 'lanesReleased',
+    edits: [["    ...ending(signal, speech, 'subscribeVoices'),", '    ...speech,']],
+  },
+  // Read-aloud's speech (speaking): the whole wrapper gone, as before the
+  // review of 6682309672's fixes; the queued utterances cancelled after the
+  // one with the device, so each starts; and a speak() after the abort taken.
+  'read-aloud’s speech outlives its mount': {
+    check: 'lanesReleased',
     edits: [
       [
+        '          speech: speaking(signal, speechAdapter({ autoplay: play })),',
         "          speech: ending(signal, speechAdapter({ autoplay: play }), 'subscribeVoices'),",
-        '          speech: speechAdapter({ autoplay: play }),',
+      ],
+    ],
+  },
+  'read-aloud’s queued utterances start at the abort': {
+    check: 'lanesReleased',
+    edits: [
+      [
+        '      for (const h of [...live].reverse()) h.cancel();',
+        '      for (const h of [...live]) h.cancel();',
+      ],
+    ],
+  },
+  'read-aloud speaks for an ended lane': {
+    check: 'lanesReleased',
+    edits: [
+      [
+        "      if (signal.aborted)\n        throw Object.assign(new Error('Read aloud has ended.'), { code: 'ENDED' });\n",
+        '',
       ],
     ],
   },

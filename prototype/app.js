@@ -48,6 +48,44 @@ function routeFromHash() {
 const ending = (signal, view, key = 'subscribe') =>
   Object.freeze({ ...view, [key]: untilAborted(view[key], signal) });
 
+// Read-aloud's speech ends with its mount as well (#810, the review of
+// 6682309672's fixes): its voices through ending, and at the abort every
+// utterance the lane started and the device hasn't finished is cancelled,
+// the queued ones first so none of them starts, and no onend or onerror
+// reaches the lane after it. A speak() after the abort is refused (ENDED).
+const speaking = (signal, speech) => {
+  const live = new Set();
+  signal.addEventListener(
+    'abort',
+    () => {
+      for (const h of [...live].reverse()) h.cancel();
+      live.clear();
+    },
+    { once: true }
+  );
+  return Object.freeze({
+    ...ending(signal, speech, 'subscribeVoices'),
+    speak(text, opts) {
+      if (signal.aborted)
+        throw Object.assign(new Error('Read aloud has ended.'), { code: 'ENDED' });
+      const o = opts || {};
+      let handle;
+      const done = (fn) => (arg) => {
+        live.delete(handle);
+        if (!signal.aborted && typeof fn === 'function') fn(arg);
+      };
+      handle = speech.speak(text, { ...o, onend: done(o.onend), onerror: done(o.onerror) });
+      live.add(handle);
+      return Object.freeze({
+        cancel() {
+          live.delete(handle);
+          handle.cancel();
+        },
+      });
+    },
+  });
+};
+
 // The lane registry: route → lane. Each import is a literal path, so the
 // gate can check where feature code may come from. A lane's file not being
 // in this build is a stated state, not an error (host.js). A lane that closes
@@ -135,7 +173,7 @@ async function openReader(unitId, { play = false } = {}) {
         return {
           language: record.head.language,
           lines: await readingLines(record),
-          speech: ending(signal, speechAdapter({ autoplay: play }), 'subscribeVoices'),
+          speech: speaking(signal, speechAdapter({ autoplay: play })),
         };
       },
     },
