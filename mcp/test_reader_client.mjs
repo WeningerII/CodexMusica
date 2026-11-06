@@ -672,3 +672,129 @@ test('a job queued across the word-cut release is refused, never run, never rewr
     await rm(directory, { recursive: true, force: true });
   }
 });
+
+// #816 review: at a full store, lease() refused the whole queue when its head
+// job's lease did not fit, and pump() let that refusal escape kick() as an
+// unhandled rejection, which ends the process; a restart on the same store did
+// it again. Dispatch now leases past a job that does not fit and retries it
+// with backoff, and a refusal from the store is logged and retried.
+const until = async (condition, label) => {
+  const deadline = Date.now() + 5000;
+  while (!condition()) {
+    if (Date.now() > deadline) throw new Error(`timed out waiting for ${label}`);
+    await new Promise((resolve) => setTimeout(resolve, 5));
+  }
+};
+function dispatchProbe(store) {
+  const ran = [];
+  const scheduler = new ReaderScheduler({
+    store,
+    bridge: {
+      capacity: () => ({ active: 0, admitted: 0, queued: 0 }),
+      // Each lease ends at once as an interruption, which pauses its job.
+      runReaderLease: async (input) => {
+        ran.push(input.checkpoint?.job ?? 'fresh');
+        return { code: 1, error_code: 'INTERRUPTED' };
+      },
+    },
+    pollMs: 5,
+    retryMaxMs: 20,
+    resolveIdentity: async () => identity,
+    resolveSource: async () => ({ source: { text: 'line' } }),
+  });
+  return { scheduler, ran };
+}
+async function watched(run) {
+  const rejections = [];
+  const logged = [];
+  const onRejection = (reason) => rejections.push(reason);
+  const log = console.error;
+  process.on('unhandledRejection', onRejection);
+  console.error = (...args) => logged.push(args.join(' '));
+  try {
+    await run(logged);
+  } finally {
+    console.error = log;
+    process.off('unhandledRejection', onRejection);
+  }
+  assert.deepEqual(rejections, [], 'no dispatch failure escapes');
+}
+function pastReservation(store, viewer) {
+  const job = store.create({ viewer, idempotency_key: viewer, identity, request });
+  const lease = store.lease(job.record.id);
+  store.commitCheckpoint(lease.id, lease.attempt, lease.fence, {
+    cursor: { phase: 'pairs', job: viewer, frontier: 'x'.repeat(30_000) },
+    pages: [{ instances: [{ id: viewer }] }],
+    progress: {},
+    coverage,
+  });
+  return { job, lease };
+}
+
+test('restarted at a full store, the scheduler dispatches past a job that does not fit and retries it', async () => {
+  const directory = await mkdtemp(path.join(tmpdir(), 'reader-full-'));
+  let clock = 1_800_000_000_000;
+  const now = () => clock;
+  const first = new ReaderJobStore({ directory, maxBytes: 2 * 1024 * 1024, now });
+  // a: past its reservation, paused and resumed, the head of the queue; b:
+  // past its reservation and running; c: inside its reservation, behind a.
+  const a = pastReservation(first, 'a');
+  first.pause(a.lease.id, a.lease.attempt, a.lease.fence);
+  pastReservation(first, 'b');
+  first.resume(a.job.record.id, a.job.capability, 'a', identity);
+  const c = first.create({ viewer: 'c', idempotency_key: 'c', identity, request });
+  const maxBytes = first.usage + first.slack;
+  clock += 600_001;
+  // The restart pauses b whatever the quota; then server_http.js kicks.
+  const store = new ReaderJobStore({ directory, maxBytes, now });
+  assert.ok(store.usage + store.slack > maxBytes, "b's pause stands over the full quota");
+  const { scheduler, ran } = dispatchProbe(store);
+  try {
+    await watched(async (logged) => {
+      scheduler.kick();
+      await until(() => store.inspect(c.record.id).state === 'paused', 'c to run');
+      assert.deepEqual(ran, ['fresh']);
+      // a waits queued while nothing frees room, and dispatch keeps looking.
+      await until(() => scheduler.retryMs === 20, 'the backoff to reach its cap');
+      assert.equal(store.inspect(a.job.record.id).state, 'queued');
+      assert.deepEqual(ran, ['fresh']);
+      store.maxBytes += 8192;
+      await until(() => store.inspect(a.job.record.id).state === 'paused', 'a to run');
+      assert.deepEqual(ran, ['fresh', 'a']);
+      assert.deepEqual(logged, []);
+    });
+  } finally {
+    scheduler.stop();
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test('a dispatch refused while usage is recounted is logged and retried until counted', async () => {
+  const directory = await mkdtemp(path.join(tmpdir(), 'reader-recount-'));
+  let clock = 1_800_000_000_000;
+  const store = new ReaderJobStore({ directory, now: () => clock });
+  const a = pastReservation(store, 'a');
+  const c = store.create({ viewer: 'c', idempotency_key: 'c', identity, request });
+  clock += 600_001;
+  // a's expired lease grows a record past its reservation: refused while
+  // usage is unknown, so lease() refuses.
+  store.usage = null;
+  const { scheduler, ran } = dispatchProbe(store);
+  try {
+    await watched(async (logged) => {
+      scheduler.kick();
+      await until(() => logged.length >= 2, 'a refusal and its retry');
+      assert.match(logged[0], /^\[reader\] dispatch refused: STORE_RECOUNTING$/);
+      assert.equal(store.inspect(a.job.record.id).state, 'running');
+      assert.equal(store.inspect(c.record.id).state, 'queued');
+      assert.deepEqual(ran, []);
+      assert.equal(await store.recount(), true);
+      await until(() => store.inspect(c.record.id).state === 'paused', 'c to run');
+      assert.deepEqual(ran, ['fresh']);
+      assert.match(store.inspect(a.job.record.id).reason.message, /^Lease expired/);
+    });
+  } finally {
+    scheduler.stop();
+    await rm(directory, { recursive: true, force: true });
+  }
+});

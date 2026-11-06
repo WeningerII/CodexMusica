@@ -2162,7 +2162,10 @@ SECTIONS.retry = async function ({ page, base, tag, errors }) {
   const analyze = await inspectorOpen(page);
   if (check(`${tag} retry analyze: Sound lens offers Analyze`, !!analyze)) {
     await page.evaluate(() => (document.getElementById('library-live').textContent = ''));
-    await analyze.click();
+    // Click through the selector, not the handle inspectorOpen returned: at
+    // phone width the sheet can still be moving and the inspector can redraw
+    // Analyze, which detaches a held handle. Playwright looks it up again.
+    await page.click('#surface-library [data-act="analyze"]');
     await page.waitForSelector('#surface-library .la-error', { timeout: 10000 }).catch(() => null);
     await page.waitForTimeout(300);
     const err = await page

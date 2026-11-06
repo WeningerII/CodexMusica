@@ -31,7 +31,18 @@ writes there, and a multi-select stage (`fx`) adds to its list (`clear` empties 
 Rich compression prioritizes explicitly pinned descriptors; inspect `render_warnings`
 for explicit words — descriptors, prefaces, environment — absent from the result, or
 an environment that moved, was overwritten or was set on a card that does not render,
-and `render_scope` for which shared environment is represented.
+and `render_scope` for which shared environment is represented. A pinned descriptor
+counts only as a whole word in its own card's segment (`PINNED_DESCRIPTORS_NOT_LITERAL`
+otherwise, even when another card prints it). In a Rich or Prose chunk that merges cards on
+a trailing word, a card's own words are its head words (its preface, then its inner label),
+which the renderer prints before that card's label. Printed only where the output cannot say
+which card it describes (the part of a chunk pooling cards of the same label, the trailing
+label or pooled descriptors a merged chunk's cards share, or a render with no per-card
+segments), it is `PINNED_DESCRIPTORS_NOT_ATTRIBUTABLE`, with the cards that share the words
+it is printed in under `shared_with` (only the same-label cards for their pooled part). A
+pinned preface follows the same rule (`EXPLICIT_PREFACE_NOT_LITERAL`,
+`EXPLICIT_PREFACE_NOT_ATTRIBUTABLE`). Present means printed in that card's part of the
+recipe, not that the edit put it there.
 
 | Tool | What it does |
 |---|---|

@@ -423,9 +423,51 @@ Notes that bite:
   `--diff requires two tradition ids`. `check_doc_commands.js` runs the documented form
   and `check_doc_behaviors.js` asserts every argument ordering stays byte-identical on
   each CI run, so this can't silently regress.)
-- `--swap-variant` is `inst:part:variant`; multiple swaps separated by `;`.
+- `--swap-variant` is `inst:part:variant`; several swaps go in one `--swap-variant`,
+  separated by `;` (a second `--swap-variant` flag is not added to the first; see below).
   Validate the triple first via `db.partsFor(inst)` (§2) — recipe.js rejects
   unknown part/variant ids with exit 2.
+- A valid swap can still leave some of its words out of the recipe: a BARE genre token is
+  a scoring hint this renderer never prints, the voice sentence keeps one word per part,
+  and the stack cap and length trim cut more. A swap whose only word is such a token
+  leaves stdout byte-identical to the run without it. stdout stays exactly the recipe, and
+  stderr gets one line per card naming the swap's words that card's own clause does not
+  print. A word counts as printed by the rule the connector's `render_warnings` applies: as a
+  whole word (a hyphen is a boundary; a word inside a longer word does not count), anywhere
+  in that card's own clause, whichever of the card's parts printed it. Present means printed
+  in that card's part of the recipe, not that the swap put it there. The same word printed
+  on another card or in the header does not count, so a named word may still appear
+  elsewhere in the recipe:
+  ```
+  note: --swap-variant descriptor(s) not printed in the <instrument> card's part of the recipe: <descriptor>, … (<part>:<variant>)
+  ```
+- A swap on an instrument the recipe does not have (not in the roster, or removed by
+  `--exclude-instrument`) has no card to apply to: exit 0, and stdout is the recipe (under
+  `--json`, the config) without it. stderr gets one line per such swap, ending
+  `(add it with --add-instrument=<instrument>)` or `(--exclude-instrument removed it)`:
+  ```
+  note: <instrument> is not in the recipe, so --swap-variant <instrument>:<part>:<variant> was not applied (…)
+  ```
+- A part swapped more than once in one `--swap-variant` keeps the last variant, as a card
+  keeps its last pick; it is not refused. Each other variant the part was given gets a line
+  first, naming the variant used (`a;b;a` names only `b`, and `a;b;c` names `a` and `b`, each
+  replaced by `c`; a repeat of the variant used replaces nothing):
+  ```
+  note: --swap-variant <instrument>:<part>:<variant> was replaced by a later --swap-variant for the same part (<variant used>)
+  ```
+- A flag given more than once (two `--swap-variant` flags, two `--tradition` flags, …) is
+  read once, with its last value; the earlier values are not read, even when they swap
+  another part, and stdout is what the last one alone prints. Each other value the flag was
+  given gets a line first (the same value twice says nothing); for `--swap-variant`,
+  `--exclude-instrument` and `--add-instrument` it ends by naming the separator that gives
+  several in one flag (`;`, `,`, `,`):
+  ```
+  note: only the last --<flag> is read, so --<flag>=<value> was not (to give several, separate them with ';' in one --swap-variant)
+  ```
+- Under `--why-json` / `--why-prefaces-json` stderr is JSON, so none of these note lines is
+  printed there (nor `(N chars)`): the same note strings are in that JSON's top-level
+  `notes` array, after the keys it always had, which do not change (`[]` when there is no
+  note).
 - Stapling **order** in `--traditions a,b` sets which tradition leads the
   recipe header and instrument order (matches the app's group-order → output
   behavior). Reorder by reordering the ids.

@@ -26,6 +26,7 @@ const {
   buildStackParts,
   envCardOf,
   _kebab,
+  _resolvePreface,
 } = require('../scripts/_recipe_stack.js');
 const {
   seedTraditionCards,
@@ -36,6 +37,9 @@ const {
 // The product-defining hard recipe cap — single source of truth, re-exported so
 // the tool schema (tools.js) derives its max_chars bound from the same constant.
 const { RECIPE_CHAR_CEILING } = require('../scripts/_api_contract.js');
+// The whole-word rule render_warnings applies below, shared with the CLI's
+// --swap-variant stderr note (scripts/translate.js) so both decide alike.
+const { hasWord } = require('../scripts/_whole_word.js');
 
 // Locale-invariant ordering: localeCompare with no locale argument collates by
 // the machine's ICU locale, which made this ordering depend on where it ran.
@@ -243,6 +247,124 @@ function envLiteral(recipeLower, name) {
   );
 }
 
+// Is a pinned part descriptor printed for ITS card (#671)? It counts only as a
+// whole word inside that card's own segment of the rendered recipe. A word
+// printed on another card describes that card, not the one the user edited: the
+// old whole-recipe substring test called a sampler swap to `modern` disclosed
+// because the bass read `electric-bass: modern alder`, and would have found
+// `modern` inside `postmodern` too.
+//
+// A whole word is bounded as `\b` bounds one, made Unicode-aware: no letter,
+// digit, combining mark or underscore on either side. So `modern` is a word in
+// `uilleann-pipes: modern cane` and in a hyphenated compound such as
+// `modern-alder` (where subsumption folds a pinned word into a longer one, the
+// word is still printed), but not in `postmodern`, and `low` is not in
+// `bellowing`. Case is ignored: compact prints catalog names as named.
+// hasWord (scripts/_whole_word.js) is that test; the CLI's --swap-variant note
+// applies the same one inside each card's own clause.
+
+// The span of `recipe` that renders card `index`, from the renderer's own chunk
+// list (renderWorkspace's `trace`, see _traceSegments in _recipe_stack.js), not
+// from re-parsing the string. Returns { printed, own, pooled, head, poolPart,
+// shared, partners, sharedWith }; null when the card has no segment (hidden behind
+// `[+N hidden]` or cut off); and undefined when the render kept no per-card
+// layout at all. In a Rich or Prose chunk that pools several sources, each card
+// has one of `head` and `poolPart`, as the renderer joined them: `head`, for a
+// card that is the only source of its part, is that card's own head words (its
+// preface, then its inner label); `poolPart`, for a card pooled with others of
+// its label, is the one part that holds all their prefaces and that label.
+// `shared` is then the words every card of the chunk shares (the trailing label
+// and, in Rich, the pooled descriptors). Each is cut where the output was
+// truncated. `partners` are the other cards `poolPart` holds (every other card
+// of a pooled segment that kept no parts), and `sharedWith` every other card of
+// the segment.
+function cardSegment(trace, recipe, index) {
+  if (!trace || !Array.isArray(trace.segments)) return undefined;
+  const seg = trace.segments.find((s) => s.cards.includes(index));
+  if (!seg) return null;
+  const stop = trace.intact ?? recipe.length;
+  const printed = (from, to) =>
+    Math.min(to, stop) > from ? recipe.slice(from, Math.min(to, stop)) : '';
+  const head = seg.heads ? seg.heads[index] : undefined;
+  const pool = seg.pools ? seg.pools[index] : undefined;
+  const part = (span) => printed(seg.start + span[0], seg.start + span[1]);
+  return {
+    printed: printed(seg.start, seg.end),
+    own: seg.own ? (seg.own[index] ?? null) : null,
+    pooled: !!seg.pooled,
+    head: head ? part(head) : null,
+    poolPart: pool ? part(pool.span) : null,
+    shared: head || pool ? printed(seg.start + seg.shared, seg.end) : null,
+    // A pooled segment that kept no parts pools every card in it.
+    partners: (pool ? pool.cards : head || !seg.pooled ? [] : seg.cards).filter((i) => i !== index),
+    sharedWith: seg.cards.filter((i) => i !== index),
+  };
+}
+
+// 'present' (a whole word in the card's own words), 'absent', or, printed only
+// where the output cannot say which card it describes, why not: 'label' (in what
+// one segment pools from this card and others of its label), 'shared' (only in
+// the words a merged chunk's cards share) or 'unsegmented' (the render kept no
+// per-card segments).
+// The card's own words are its segment, except where a format merged it with
+// other cards: a tags chunk keeps each member's own text (`own`), and a Rich or
+// Prose chunk merged on a trailing word prints each single-source card's head
+// words before its own inner label (`head`, BB8's ruling on #814). There a word
+// in this card's head is present; a word in the part this card shares with the
+// cards of its label (`poolPart`), or only in the words the chunk's cards share,
+// is unattributed; and a word only in another card's head or another label's
+// part is those cards': absent here.
+function pinnedPlace(segment, recipe, d) {
+  if (segment === undefined) return hasWord(recipe, d) ? 'unsegmented' : 'absent';
+  if (!segment || !hasWord(segment.printed, d)) return 'absent';
+  // A tags chunk that merged on a shared suffix prints each member's own words;
+  // the word has to be one of this card's.
+  if (segment.own != null && !hasWord(segment.own, d)) return 'absent';
+  if (!segment.pooled) return 'present';
+  if (segment.head != null && hasWord(segment.head, d)) return 'present';
+  if (segment.poolPart != null && hasWord(segment.poolPart, d)) return 'label';
+  // A pooled chunk the trace kept no parts for: none of its words is any one
+  // card's.
+  if (segment.shared == null) return 'label';
+  if (!hasWord(segment.shared, d)) return 'absent';
+  // A chunk that pools only this card's label shares nothing with anyone else.
+  const alone =
+    segment.head == null && segment.sharedWith.every((i) => segment.partners.includes(i));
+  return alone ? 'label' : 'shared';
+}
+const UNATTRIBUTED = ['label', 'shared', 'unsegmented'];
+
+// For the words pinnedPlace could not give to card `index` (`places`, one per
+// word), the other cards they may describe and why, for the warning's
+// `shared_with` and `meaning` (#671). Each place names its own cards: a word in
+// what a segment pools from cards of one label is theirs together (the card's
+// `partners`); a word only in the words a merged chunk's cards share is any of
+// them (`sharedWith`); a render with no per-card segments names none.
+function unattributedOf(cards, index, segment, places) {
+  const among = (place) =>
+    place === 'label' ? segment.partners : place === 'shared' ? segment.sharedWith : [];
+  const named = (list) =>
+    `${cardLabel(cards, cards[index])} with ${
+      list.length
+        ? list.map((i) => cardLabel(cards, cards[i])).join(', ')
+        : 'the recording environment'
+    }`;
+  const why = (place) => {
+    if (place === 'unsegmented') return 'this output keeps no per-card segments';
+    if (place === 'label')
+      return `only in a part of one segment that this format pools from several sources (${named(among(place))}), where this card shares its label, and so its words, with ${segment.partners.length ? 'another card' : 'the recording environment'}`;
+    return `only in the words one segment shares among the cards it merges (${named(among(place))}): their common trailing label or, in Rich, their pooled descriptors, not ${segment.head != null ? "this card's own head words" : "the part that holds this card's label"}`;
+  };
+  const found = UNATTRIBUTED.filter((place) => places.includes(place));
+  const ids = new Set(found.flatMap(among));
+  return {
+    ...(segment
+      ? { shared_with: segment.sharedWith.filter((i) => ids.has(i)).map((i) => cards[i].id) }
+      : {}),
+    why: found.map(why).join('; or '),
+  };
+}
+
 // Report every field an edit action can write — parts, room, tuning, each chain
 // stage, and the preface. Covering parts alone would make the summary look
 // authoritative while still hiding the result of set_environment, which is a
@@ -355,7 +477,10 @@ function shape(ws, params = {}, meta = {}) {
   // RECIPE_CHAR_CEILING is the canonical Current-Recipe cap; clamp defensively
   // so a direct engine call (bypassing the tool-schema max) can't exceed it.
   const ceiling = Math.min(params.max_chars || RECIPE_CHAR_CEILING, RECIPE_CHAR_CEILING);
-  const recipe = W.render(ws, { format, ceiling });
+  // `trace` comes back holding which span of `recipe` renders which card, read
+  // off the chunk list the renderer joined (it never changes the string).
+  const trace = {};
+  const recipe = W.render(ws, { format, ceiling, trace });
   const out = {
     recipe,
     recipe_chars: recipe.length,
@@ -377,10 +502,15 @@ function shape(ws, params = {}, meta = {}) {
       'Text recipe only; no recording, mix, stereo placement or listening test was performed.',
   };
   out.render_warnings = [];
-  for (const card of ws.cards) {
+  for (const [index, card] of ws.cards.entries()) {
     const parts = Object.fromEntries((card.pinnedParts || []).map((id) => [id, card.parts[id]]));
     const instrument = buildStackParts({ ...card, parts }).find((p) => p.kind === 'instrument');
-    const missing = (instrument?.descriptors || []).filter((d) => !recipe.includes(d));
+    const pinned = instrument?.descriptors || [];
+    const segment = cardSegment(trace, recipe, index);
+    const place = (d) => pinnedPlace(segment, recipe, d);
+    const places = pinned.map(place);
+    const missing = pinned.filter((d, i) => places[i] === 'absent');
+    const unattributed = pinned.filter((d, i) => UNATTRIBUTED.includes(places[i]));
     if (missing.length)
       out.render_warnings.push({
         card: card.id,
@@ -388,15 +518,53 @@ function shape(ws, params = {}, meta = {}) {
         code: 'PINNED_DESCRIPTORS_NOT_LITERAL',
         descriptors: missing,
         meaning:
-          'Explicit part descriptors are absent literally from this output; compression or subsumption may remove them. Do not claim they survived.',
+          "Explicit part descriptors are absent, as whole words, from this card's own part of this output (in a chunk that merges cards, its own words and the words they share); compression may have trimmed them, and the same word printed on another card or in the header does not count. Do not claim they survived.",
       });
-    if (card.prefaceAuto === false && card.preface && !recipe.includes(card.preface))
+    if (unattributed.length) {
+      const { why, ...shared } = unattributedOf(
+        ws.cards,
+        index,
+        segment,
+        places.filter((p) => UNATTRIBUTED.includes(p))
+      );
+      out.render_warnings.push({
+        card: card.id,
+        instrument: card.instrumentId,
+        code: 'PINNED_DESCRIPTORS_NOT_ATTRIBUTABLE',
+        descriptors: unattributed,
+        ...shared,
+        meaning: `These explicit part descriptors are printed, but ${why}, so the output does not say which card they describe. Do not claim they survived on this card.`,
+      });
+    }
+    // A pinned preface is judged by the same rule (#671, BB8 6676262617): the
+    // form the renderer prints (_resolvePreface: the lexicon's case, `,` and `.`
+    // removed; null prints nothing), as consecutive whole words in this card's
+    // own segment. The old whole-recipe substring let the same preface on
+    // another card, a header word or a longer word hide that this card's
+    // preface was shed, or that the card was hidden.
+    const preface = card.prefaceAuto === false && card.preface ? card.preface : null;
+    const printedPreface = preface && _resolvePreface(card);
+    const prefacePlace = !preface ? 'present' : printedPreface ? place(printedPreface) : 'absent';
+    if (prefacePlace === 'absent')
       out.render_warnings.push({
         card: card.id,
         instrument: card.instrumentId,
         code: 'EXPLICIT_PREFACE_NOT_LITERAL',
-        preface: card.preface,
+        preface,
+        meaning:
+          "This card's pinned preface is absent, as whole words, from this card's own part of this output (in a chunk that merges cards, its own words and the words they share); compression may have shed it or hidden the card, and the same word printed on another card or in the header does not count. Do not claim it survived.",
       });
+    if (UNATTRIBUTED.includes(prefacePlace)) {
+      const { why, ...shared } = unattributedOf(ws.cards, index, segment, [prefacePlace]);
+      out.render_warnings.push({
+        card: card.id,
+        instrument: card.instrumentId,
+        code: 'EXPLICIT_PREFACE_NOT_ATTRIBUTABLE',
+        preface,
+        ...shared,
+        meaning: `This card's pinned preface is printed, but ${why}, so the output does not say which card it describes. Do not claim it survived on this card.`,
+      });
+    }
   }
   // The environment words an edit put on the rendered environment card, checked
   // against the output like the part descriptors above. Compression drops the

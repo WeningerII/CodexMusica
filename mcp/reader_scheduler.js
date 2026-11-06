@@ -475,6 +475,7 @@ export class ReaderScheduler {
     readerScheme = null,
     leaseMs = 600000,
     pollMs = 100,
+    retryMaxMs = 30000,
   }) {
     if (!store || !bridge?.runReaderLease)
       throw new TypeError('Reader scheduler requires its durable store and shared bridge.');
@@ -486,33 +487,70 @@ export class ReaderScheduler {
       readerScheme,
       leaseMs: Math.min(600000, leaseMs),
       pollMs,
+      retryMaxMs: Math.max(pollMs, retryMaxMs),
     });
     this.active = false;
     this.stopped = false;
     this.timer = null;
+    this.retrying = false;
+    this.retryMs = 0;
   }
+  // A kick runs a pump at once, cutting short a retry's backoff (a request
+  // may have freed room), but not the bridge-capacity poll.
   kick() {
-    if (this.stopped || this.active || this.timer) return;
+    if (this.stopped || this.active || (this.timer && !this.retrying)) return;
+    this._arm(0);
+  }
+  // Every timed pump is caught: a failure is logged and retried with backoff,
+  // never an unhandled rejection, which would end the process.
+  _arm(ms, retrying = false) {
+    clearTimeout(this.timer);
+    this.retrying = retrying;
     this.timer = setTimeout(() => {
       this.timer = null;
-      void this.pump();
-    }, 0);
+      this.retrying = false;
+      this.pump().catch((failure) => {
+        console.error('[reader] dispatch failed:', failure?.code || 'READER_ERROR');
+        this._retry();
+      });
+    }, ms);
     this.timer.unref?.();
+  }
+  // Backoff from pollMs, doubling to retryMaxMs; reset once a lease is taken
+  // or the queue is empty.
+  _retry() {
+    if (this.stopped) return;
+    this.retryMs = Math.min(this.retryMaxMs, Math.max(this.pollMs, this.retryMs * 2));
+    this._arm(this.retryMs, true);
   }
   async pump() {
     if (this.stopped || this.active) return;
-    if (!this.store.listQueued().length) return;
-    const capacity = this.bridge.capacity();
-    if (capacity.active || capacity.admitted || capacity.queued) {
-      this.timer = setTimeout(() => {
-        this.timer = null;
-        void this.pump();
-      }, this.pollMs);
-      this.timer.unref?.();
+    let record;
+    try {
+      if (!this.store.listQueued().length) {
+        this.retryMs = 0;
+        return;
+      }
+      const capacity = this.bridge.capacity();
+      if (capacity.active || capacity.admitted || capacity.queued) {
+        this._arm(this.pollMs);
+        return;
+      }
+      record = this.store.lease();
+    } catch (failure) {
+      // A store refusal at dispatch (usage being recounted, storage
+      // unavailable) leases nothing; dispatch tries again later.
+      console.error('[reader] dispatch refused:', failure.code || 'READER_ERROR');
+      this._retry();
       return;
     }
-    const record = this.store.lease();
-    if (!record) return;
+    if (!record) {
+      // Queued work that no lease fits yet (no room, or another live lease):
+      // look again with backoff rather than wait for the next kick.
+      this._retry();
+      return;
+    }
+    this.retryMs = 0;
     this.active = true;
     let lastStep;
     try {

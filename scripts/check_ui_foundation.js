@@ -1921,6 +1921,8 @@ async function loadDelta(page) {
       });
       await page.click('#instrument-body [data-ui="instrument-family"][data-id="voice"]');
       const voice = '#instrument-body .cm-tile[data-id="voice"]';
+      // The family's tiles draw after the click; $eval below doesn't wait.
+      await page.waitForSelector(voice + ' .cm-tile-add');
       const addTo = async (v) => {
         await page.selectOption('#instrument-destination', { value: v });
         await page.waitForTimeout(200);
