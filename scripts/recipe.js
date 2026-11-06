@@ -139,11 +139,12 @@ function parseOpts(flags, _primaryTradId, _stapleIds) {
   const add = new Set();
   const swap = {};
   const errors = [];
-  // A part given a different variant by a later swap keeps the later one, as a
-  // card keeps its last pick; the earlier swap gets a note rather than
-  // vanishing (BB8 6676262617, call 4). A repeat of the same variant replaces
-  // nothing.
+  // A part swapped more than once keeps its last variant, as a card keeps its
+  // last pick; each other variant it was given gets a note naming the one used,
+  // rather than vanishing (BB8 6676262617, call 4). A repeat of the variant used
+  // replaces nothing: `a;b;a` notes only b, `a;b;c` notes a and b.
   const replaced = [];
+  const swapsOf = new Map(); // `inst:part` -> every variant given, in order
 
   if (flags['exclude-instrument']) {
     const ids = String(flags['exclude-instrument'])
@@ -223,13 +224,17 @@ function parseOpts(flags, _primaryTradId, _stapleIds) {
         continue;
       }
       swap[iid] = swap[iid] || {};
-      const prior = swap[iid][pid];
-      if (prior !== undefined && prior !== vid)
-        replaced.push(
-          `note: --swap-variant ${iid}:${pid}:${prior} was replaced by a later --swap-variant for the same part (${vid})`
-        );
       swap[iid][pid] = vid;
+      swapsOf.set(`${iid}:${pid}`, [...(swapsOf.get(`${iid}:${pid}`) || []), vid]);
     }
+  }
+  for (const [part, vids] of swapsOf) {
+    const used = vids[vids.length - 1];
+    for (const was of new Set(vids))
+      if (was !== used)
+        replaced.push(
+          `note: --swap-variant ${part}:${was} was replaced by a later --swap-variant for the same part (${used})`
+        );
   }
 
   const stapleMode = flags['staple-mode'] === 'lineage' ? 'lineage' : 'full';

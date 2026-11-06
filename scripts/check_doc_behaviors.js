@@ -423,8 +423,9 @@ assert(
 // (BB8 6676262617, call 4). It is not refused; the earlier swap gets a note,
 // first, and the run otherwise matches the last swap alone, stdout, exit and
 // every other note, also in the JSON's `notes` and for an instrument the
-// recipe does not have. Each swap a later different one replaced is named
-// (`a;b;a` names a then b); a repeat of the same variant replaces nothing.
+// recipe does not have. Each other variant the part was given is named once,
+// with the variant used (`a;b;a` names only b, `a;b;c` names a and b, each
+// replaced by c); a repeat of the variant used replaces nothing.
 assert('§3f', 'a part swapped twice keeps the last swap and names the one it replaced', () => {
   const replacedNote = (inst, part, was, now) =>
     `note: --swap-variant ${inst}:${part}:${was} was replaced by a later --swap-variant for the same part (${now})`;
@@ -441,9 +442,15 @@ assert('§3f', 'a part swapped twice keeps the last swap and names the one it re
       tradition: 'italogaze',
       swaps: [edge('edge_round'), edge('edge_45'), edge('edge_round')],
       alone: edge('edge_round'),
+      replaced: [replacedNote('drum_kit', 'bearing_edges', 'edge_45', 'edge_round')],
+    },
+    {
+      tradition: 'italogaze',
+      swaps: [edge('edge_round'), edge('edge_45'), edge('edge_30')],
+      alone: edge('edge_30'),
       replaced: [
-        replacedNote('drum_kit', 'bearing_edges', 'edge_round', 'edge_45'),
-        replacedNote('drum_kit', 'bearing_edges', 'edge_45', 'edge_round'),
+        replacedNote('drum_kit', 'bearing_edges', 'edge_round', 'edge_30'),
+        replacedNote('drum_kit', 'bearing_edges', 'edge_45', 'edge_30'),
       ],
     },
     {

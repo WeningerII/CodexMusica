@@ -447,11 +447,12 @@ Notes that bite:
   ```
   note: <instrument> is not in the recipe, so --swap-variant <instrument>:<part>:<variant> was not applied (…)
   ```
-- A part swapped more than once keeps the last variant, as a card keeps its last pick; it
-  is not refused. Each earlier swap a later, different variant replaced gets a line first
-  (a repeat of the same variant replaces nothing):
+- A part swapped more than once in one `--swap-variant` keeps the last variant, as a card
+  keeps its last pick; it is not refused. Each other variant the part was given gets a line
+  first, naming the variant used (`a;b;a` names only `b`, and `a;b;c` names `a` and `b`, each
+  replaced by `c`; a repeat of the variant used replaces nothing):
   ```
-  note: --swap-variant <instrument>:<part>:<variant> was replaced by a later --swap-variant for the same part (<variant>)
+  note: --swap-variant <instrument>:<part>:<variant> was replaced by a later --swap-variant for the same part (<variant used>)
   ```
 - Under `--why-json` / `--why-prefaces-json` stderr is JSON, so none of these note lines is
   printed there (nor `(N chars)`): the same note strings are in that JSON's top-level
