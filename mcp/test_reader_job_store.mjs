@@ -885,9 +885,20 @@ for (const cancel of [false, true])
       restarted.readPage(lease.id, ref.sha256, job.capability, 'viewer-a').instances[0].id,
       'kept'
     );
-    // Growth is refused as usual, and admitted again once a delete frees room.
+    // Growth is refused as usual, and admitted again once a delete frees room:
+    // a new job (the per-record reservation check), and the paused record
+    // growing past its reservation by a control receipt (the slack check).
     refused(() => create(restarted, 'viewer-b', 'after-restart'), 'RESOURCE_LIMIT');
     assert.equal(restarted.usage, scan(restarted));
+    const pausedBytes = fs.readFileSync(record);
+    refused(
+      () => restarted.cancel(lease.id, job.capability, 'viewer-a', { idempotency_key: 'late' }),
+      'RESOURCE_LIMIT'
+    );
+    assert.deepEqual(fs.readFileSync(record), pausedBytes);
+    assert.equal(restarted.inspect(lease.id).state, paused.state);
+    assert.equal(restarted.usage, scan(restarted));
+    assert.equal(restarted.usage + restarted.slack, quota + grown);
     restarted.delete(lease.id, job.capability, 'viewer-a');
     assert.equal(create(restarted, 'viewer-b', 'after-delete').created, true);
     assert.equal(restarted.usage, scan(restarted));

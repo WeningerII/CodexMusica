@@ -328,7 +328,8 @@ unknown.
 Every job holds a 16 KiB reservation for its own record. The quota invariant is
 usage plus slack at most `READER_STORAGE_MAX_BYTES`, where slack sums each
 record's unused reservation, so one job's growth can never consume another's
-room and any record can always grow to 16 KiB. While usage is unknown, a write
+room and any record can always grow to 16 KiB, except while a startup pause's
+bytes stand over the quota (below). While usage is unknown, a write
 that would raise usage plus slack (a new job, a new object, or a record
 outgrowing its reservation) is refused with 503 `STORE_RECOUNTING`; a record
 transition inside its reservation still commits, a paused lease requeues as for
@@ -342,8 +343,10 @@ already past its reservation grows by a few bytes. That pause always commits,
 whatever the quota: refused, it would fail every restart of the store. It is
 the one write exempt from the quota check, once per running job, and its bytes
 are counted exactly, so usage plus slack may then exceed the quota by those
-bytes. Every later write that grows the store is refused with `RESOURCE_LIMIT`
-until expiry, collection or a delete frees room.
+bytes. Every later write that grows the store is refused with `RESOURCE_LIMIT`,
+and while those bytes stand they come out of other jobs' reservations, so even
+a transition inside a job's reservation can be refused, until expiry,
+collection or a delete frees room.
 
 A verification scan runs in slices outside the lock and is accepted only if
 every measurement succeeded, no marker appeared and the generation did not move

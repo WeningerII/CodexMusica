@@ -360,10 +360,11 @@ export class ReaderJobStore {
         // bytes, and at a full quota the ordinary check would refuse that
         // growth. A store that cannot record its own interruption cannot
         // start, and every request then fails until someone frees space. So
-        // this one transition per running record skips the quota check, and
-        // nothing else does; its bytes are still counted in usage and slack.
-        // Usage plus slack may then exceed the quota by those bytes, and every
-        // later growth is refused as usual until expiry, collection or a
+        // this one transition per running record is never refused for quota,
+        // and nothing else is exempt; its bytes are still counted in usage and
+        // slack. Usage plus slack may then exceed the quota by those bytes,
+        // which come out of other records' reservations (see _capacity), and
+        // every later growth is refused as usual until expiry, collection or a
         // delete frees room.
         for (const record of this.records.values()) {
           if (record.state !== 'running') continue;
@@ -540,6 +541,10 @@ export class ReaderJobStore {
   // so any record can grow to RESERVE_BYTES whatever the others do. A record
   // growing inside its reservation moves bytes from slack to usage and leaves
   // the sum unchanged; that is the only growth allowed while usage is unknown.
+  // One exception: the startup pause's bytes (see the constructor) may put
+  // usage + slack over maxBytes. While they stand they come out of other
+  // records' reservations, so even a transition inside a reservation can be
+  // refused until expiry, collection or a delete frees room.
   _capacity(bytes, reserve = true, extraRecords = 0, slackDelta = 0) {
     const growth = bytes + slackDelta;
     if (this.usage === null) {
@@ -571,7 +576,9 @@ export class ReaderJobStore {
       );
   }
   // `startupPause` is the constructor's pause of a running record, the one
-  // write exempt from the quota check (see there). It is still counted.
+  // write exempt from the quota limit (see there). It is still counted. Only
+  // the RESOURCE_LIMIT refusal of an existing record with known usage is
+  // skipped; an unknown usage or a new record still takes the full check.
   _save(input, reserved = false, startupPause = false) {
     const { record_digest: _old, ...body } = input;
     body.updated_at = this.now();
@@ -580,7 +587,7 @@ export class ReaderJobStore {
     const file = path.join(this.directory, 'records', `${record.id}.json`);
     const previous = fs.existsSync(file) ? fs.statSync(file).size : 0;
     const slackDelta = reserveGap(bytes.length) - (previous ? reserveGap(previous) : 0);
-    if (!startupPause)
+    if (!startupPause || this.usage === null || !previous)
       this._capacity(bytes.length - previous, !reserved, previous ? 0 : 1, slackDelta);
     this._beginWrite();
     this._inflight = true;
@@ -984,7 +991,8 @@ export class ReaderJobStore {
   _quotaPause(record, error) {
     const recounting = error.code === 'STORE_RECOUNTING' && error.status === 503;
     if (!recounting && (error.code !== 'RESOURCE_LIMIT' || error.status !== 507)) throw error;
-    // The cursor is unchanged. Reserved metadata space makes this pause durable.
+    // The cursor is unchanged. Reserved metadata space makes this pause durable,
+    // except while a startup pause's overage stands (see _capacity).
     // A recount pause returns to the queue by itself once a slot opens.
     return this._save(
       {
