@@ -1068,8 +1068,53 @@ const run = (code) => dom.window.eval(code);
     await new Promise((r) => setTimeout(r, 50));
   }
 
+  // An imported record is normalised as the engine reads it (BB8, #826
+  // 6694245096): what is not an environment field holding catalog ids of that
+  // field is dropped, a repeated effect kept once, and an empty record leaves
+  // no key, exactly as copyEnvRecord does.
+  {
+    const W = require('./_workspace_ops.js');
+    const seed = W.seed(['garage_rock']);
+    const junk = [
+      {
+        bogus: 1,
+        fx: ['tape_echo', 'tape_echo', 'not_an_effect', 7],
+        room: 'cathedral',
+        tuning: 42,
+        mic: { nested: true },
+      },
+      { room: 'no_such_room', fx: [] },
+      ['room', 'cathedral'],
+    ];
+    dom.window.connectorCards = seed.cards.map((c, i) =>
+      i < junk.length ? { ...c, [W.ENV_RECORD]: junk[i] } : c
+    );
+    run("app.cards=[];app.lyrics='';app.history=[];app.historyIndex=-1;pushHistory();");
+    await run(
+      "uiImport({text:async()=>JSON.stringify({name:'Connector recipe',workspace:{cards:window.connectorCards}})})"
+    );
+    const cards = JSON.parse(run('JSON.stringify(app.cards)'));
+    junk.forEach((raw, i) => {
+      const want = W.copyEnvRecord(raw);
+      if (want === undefined) assert.ok(!(W.ENV_RECORD in cards[i]), `import ${i}: no record left`);
+      else {
+        assert.deepEqual(
+          cards[i][W.ENV_RECORD],
+          want,
+          `import ${i}: normalised as the engine does`
+        );
+        assert.deepEqual(
+          Object.keys(cards[i][W.ENV_RECORD]),
+          Object.keys(want),
+          `import ${i}: key order`
+        );
+      }
+    });
+    assert.deepEqual(W.copyEnvRecord(junk[0]), { room: 'cathedral', fx: ['tape_echo'] }, 'fixture');
+  }
+
   console.log(
-    'PASS workbench integration: boot, route grammar and sub-routes, partial import, isolated transfers, Undo, full sessions, concurrent save recovery, chat routing, stale recipe protection, late lyrics, conflict protection, preface Enter flush, connector record kept, a duplicate carries no record, a record-only change is a step, every round trip keeps the record, a panel pick writes it as set_environment does'
+    'PASS workbench integration: boot, route grammar and sub-routes, partial import, isolated transfers, Undo, full sessions, concurrent save recovery, chat routing, stale recipe protection, late lyrics, conflict protection, preface Enter flush, connector record kept, a duplicate carries no record, a record-only change is a step, every round trip keeps the record, a panel pick writes it as set_environment does, an import normalises it'
   );
   dom.window.close();
 })().catch((e) => {

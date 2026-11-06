@@ -125,6 +125,10 @@ what a `set_environment` wrote on it, inside the workspace, and the warnings rea
   card, then the prefaces conspiring and shrieking) brought `ENVIRONMENT_NOT_RENDERED` back
   for a room the preface derived. `check_edit_parity.js` runs that sequence on both paths
   and compares the record with `set_preface`'s after every preface pick it makes.
+- **An imported record is normalised.** A record arriving in an import, "Use recipe" or a
+  restored session is read as the engine reads it: anything but an environment field holding
+  catalog ids of that field is dropped, so junk no longer sits in history, autosave and the
+  history key until the next engine call. No warning moves.
 
 ### Fixed — a pinned descriptor or preface is disclosed only on its own card; a filtered CLI swap says so (#671)
 

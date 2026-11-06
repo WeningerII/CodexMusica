@@ -14596,6 +14596,8 @@ function normalizeWorkspaceCards(cards,freshIds=false){
     }
     if(c.pinnedParts!==undefined&&(!Array.isArray(c.pinnedParts)||c.pinnedParts.some(p=>!inst.parts.some(x=>x.id===p))))throw Error('Unknown pinned part');
     if(freshIds||typeof c.id!=='string'||ids.has(c.id))c.id=newId('card');ids.add(c.id);
+    // The connector's record, normalised as the engine reads it (envRecord): junk off the wire does not sit in history, autosave and the key.
+    if('envWritten'in c)storeEnvRecordOn(c,c.envWritten);
     return {...c,chain,prefaceAuto:c.prefaceAuto===undefined?!c.preface:!!c.prefaceAuto,..._CARD_TRANSIENTS};
   });
 }
