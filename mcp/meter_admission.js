@@ -362,7 +362,7 @@ export function admitRecognitionInput({ sets, declarations = [] }) {
         const which = set.declared_only
           ? `The line ${JSON.stringify(line.text)}, which ${line.id} declare${line.contributing.length > 1 ? '' : 's'} readings for, is in no line set of this call, but an answer or a source reading can make it a sung line, and it`
           : set.by_row
-            ? `The line at ${line.id} of the pasted text (lyric_recover numbers its sung lines after setting apparatus rows aside, so the row is named)`
+            ? `The line at ${line.id} of the pasted text (rows are counted from the top, including headings and blank rows, so you can find it as pasted)`
             : `${line.id} of \`${set.name}\``;
         throw new AdmissionRefusal(
           'meter_line_digits',

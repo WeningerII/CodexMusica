@@ -620,7 +620,7 @@ test('lyric_recover: rows are measured as the source reader is handed them, and 
         lines: ['# credits', '---', sung],
         pronunciations: [1, 2, 3].map((t) => ph(t, sung)),
       }),
-    /meter_line_digits — The line at row 3 of the pasted text \(lyric_recover numbers its sung lines after setting apparatus rows aside, so the row is named\) could reach 384 /
+    /meter_line_digits — The line at row 3 of the pasted text \(rows are counted from the top, including headings and blank rows, so you can find it as pasted\) could reach 384 /
   );
   // A declaration on the line as the source reader reads it (a bracket span
   // resolved) is measured as a declared line.
