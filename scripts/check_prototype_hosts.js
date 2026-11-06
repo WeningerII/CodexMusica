@@ -65,10 +65,20 @@
 //      browser cannot speak.
 //   9. UNMOUNT. unmount() does not abort ctx.signal, remove the host and
 //      restore the placeholder.
-//  14. CLOSE (#665 B0). A lane registered closable: true lacks ctx.close, or
-//      a lane without it has one, so every list in CTX_KEYS still holds. Each
-//      close check also runs on host.js with a planted defect, served beside
-//      it as host.js?mutant=<name>, and that defect must fail the check.
+//  14. CLOSE (#665 B0). On a fixture lane registered closable: true, beside
+//      a plain lane in one panel, closed once by its Close button and once
+//      by Escape: the plain lane's ctx has close or the closable one's lacks
+//      it (so every list in CTX_KEYS still holds); after ctx.close() the host
+//      is not idle, its node stays, focus does not return to the opener, the
+//      lane's unmount() did not run, or the old signal is not aborted; the
+//      next show() does not mount the lane again, into an empty host, with a
+//      new and live signal; close() does not return true once, or a stale
+//      ctx closes a later mount; the other lane or the hidden placeholder is
+//      disturbed; close() takes focus from outside the lane; focus does not
+//      fall back to the panel heading when the opener is gone, or ignores
+//      show()'s returnFocus. Each check also runs on host.js with a planted
+//      defect, served beside it as host.js?mutant=<name>, and that defect
+//      must fail the check under both Close and Escape.
 //
 //   node scripts/check_prototype_hosts.js
 //
@@ -1725,24 +1735,112 @@ async function unmounting(browser, srv) {
 // A closable fixture lane and a plain one, in one panel, on host.js as
 // committed and then on each planted defect (CLOSE_MUTANTS): the edits to
 // host.js, applied in order, each of whose `from` must occur exactly once,
-// and the check that the defect must fail.
+// and the check that the defect must fail. The fixture lane closes itself
+// as a sheet does: its Close button, or Escape anywhere inside it.
 const CLOSER = `
 export function mount(host, ctx) {
   const lane = host.dataset.featureHost;
   const all = window.__closer;
-  const rec = (all[lane] = all[lane] || { mounts: 0, keys: [] });
+  const rec = (all[lane] = all[lane] || {
+    mounts: 0, keys: [], ctxs: [], fields: [], empty: [], unmounts: 0, returned: [],
+  });
   rec.mounts++;
   rec.keys.push(Object.keys(ctx).sort().join());
+  rec.ctxs.push(ctx);
+  rec.empty.push(host.childNodes.length === 0);
   const field = document.createElement('textarea');
   field.setAttribute('aria-label', lane + ' field');
+  rec.fields.push(field);
   host.append(field);
-  return { unmount() {}, focus() { field.focus(); } };
+  if (typeof ctx.close === 'function') {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.dataset.close = '';
+    b.textContent = 'Close';
+    host.append(b);
+    b.addEventListener('click', () => rec.returned.push(ctx.close()), { signal: ctx.signal });
+    host.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape' || e.defaultPrevented) return;
+      e.preventDefault();
+      rec.returned.push(ctx.close());
+    }, { signal: ctx.signal });
+  }
+  return { unmount() { rec.unmounts++; }, focus() { field.focus(); } };
 }
 `;
+const OPENER_LINE = 'let opener = null; // what show() was opened from, for close()';
 const CLOSE_MUTANTS = {
   'close in every ctx': {
     check: 'opt-in',
     edits: [['...(lane.closable === true ? { close } : {}),', 'close,']],
+  },
+  'close leaves the host mounted': {
+    check: 'idle',
+    edits: [["state = 'idle'; // the next show() mounts the lane afresh", '']],
+  },
+  'close keeps the node': { check: 'node removed', edits: [['if (node) node.remove();', '']] },
+  'close drops focus': {
+    check: 'focus to the opener',
+    edits: [['if (hadFocus) refocus(back);', '']],
+  },
+  'close skips the lane’s unmount': {
+    check: 'lane unmounted',
+    edits: [["if (h && typeof h.unmount === 'function') h.unmount();", '']],
+  },
+  'close leaves the signal live': {
+    check: 'old signal aborted',
+    edits: [['if (c) c.abort();', '']],
+  },
+  'a host mounts its lane once': {
+    check: 'mounts again',
+    edits: [
+      [OPENER_LINE, `${OPENER_LINE}\n  let shown = false;`],
+      ["if (state === 'idle') {", "if (state === 'idle' && !shown) {\n        shown = true;"],
+    ],
+  },
+  'one signal per host': {
+    check: 'new signal',
+    edits: [
+      [OPENER_LINE, `${OPENER_LINE}\n  let kept = null;`],
+      ['const mine = new AbortController();', 'const mine = (kept ||= new AbortController());'],
+    ],
+  },
+  'a stale ctx closes the current mount': {
+    check: 'closes once',
+    edits: [
+      [
+        "if (controller !== mine || state !== 'mounted') return false;",
+        "if (state !== 'mounted') return false;",
+      ],
+    ],
+  },
+  'close brings the placeholder back': {
+    check: 'other lane kept',
+    edits: [
+      [
+        "if (placeholder && !panel.querySelector('[data-feature-host]')) placeholder.hidden = false;",
+        'if (placeholder) placeholder.hidden = false;',
+      ],
+    ],
+  },
+  'close takes focus from outside the lane': {
+    check: 'focus not taken',
+    edits: [
+      [
+        'const hadFocus = !active || active === document.body || node.contains(active);',
+        'const hadFocus = true;',
+      ],
+    ],
+  },
+  'no fallback to the heading': {
+    check: 'heading fallback',
+    edits: [["const target = ok ? to : panel.querySelector('h1');", 'const target = to;']],
+  },
+  'returnFocus ignored': {
+    check: 'returnFocus',
+    edits: [
+      ['opener = returnFocus || document.activeElement;', 'opener = document.activeElement;'],
+    ],
   },
 };
 const HOST_JS = fs.readFileSync(path.join(root, 'prototype', 'host.js'), 'utf8');
@@ -1755,14 +1853,19 @@ function plant(edits) {
   return src;
 }
 
-// One run on the host module at hostUrl: what the gate reads back.
-async function closeRun(page, hostUrl) {
-  return page.evaluate(
+// One run on the host module at hostUrl, the lane closed by `via` (its
+// Close button, or Escape): what the gate reads back.
+async function closeRun(page, hostUrl, via) {
+  const keys = await page.evaluate(
     async ({ hostUrl, src }) => {
       const { createHost } = await import(hostUrl);
+      for (const old of document.querySelectorAll('[data-close-run]')) old.remove();
       window.__closer = {};
       const panel = document.createElement('section');
-      panel.innerHTML = '<h1 tabindex="-1">Close probe</h1><p data-placeholder>Placeholder.</p>';
+      panel.dataset.closeRun = '';
+      panel.innerHTML =
+        '<h1 tabindex="-1">Close probe</h1><p data-placeholder>Placeholder.</p>' +
+        '<button type="button" data-opener>Open</button><input data-elsewhere aria-label="Elsewhere">';
       document.body.append(panel);
       const url = URL.createObjectURL(new Blob([src], { type: 'text/javascript' }));
       const lane = (id, more) => ({
@@ -1776,28 +1879,130 @@ async function closeRun(page, hostUrl) {
       const stay = createHost(lane('stay'), panel);
       const closer = createHost(lane('closer', { closable: true }), panel);
       await stay.show();
+      const opener = panel.querySelector('[data-opener]');
+      opener.focus();
       await closer.show();
-      const got = {
-        keys: { stay: window.__closer.stay.keys[0], closer: window.__closer.closer.keys[0] },
-      };
-      closer.unmount();
-      stay.unmount();
-      panel.remove();
-      return got;
+      window.__closeRun = { panel, stay, closer, opener };
+      return { stay: window.__closer.stay.keys[0], closer: window.__closer.closer.keys[0] };
     },
     { hostUrl, src: CLOSER }
   );
+  const lane = page.locator('[data-close-run] [data-feature-host="closer"]').first();
+  if (via === 'button') await lane.locator('[data-close]').click();
+  else {
+    await lane.locator('textarea').focus();
+    await page.keyboard.press('Escape');
+  }
+  const rest = await page.evaluate(async () => {
+    const r = window.__closeRun;
+    const c = window.__closer.closer;
+    const s = window.__closer.stay;
+    const heading = r.panel.querySelector('h1');
+    const elsewhere = r.panel.querySelector('[data-elsewhere]');
+    const where = () => {
+      const a = document.activeElement;
+      if (a === r.opener) return 'opener';
+      if (a === elsewhere) return 'elsewhere';
+      if (a === heading) return 'heading';
+      if (!a || a === document.body) return 'body';
+      return r.panel.contains(a) ? 'lane' : a.tagName;
+    };
+    const nodes = () => r.panel.querySelectorAll('[data-feature-host="closer"]').length;
+    const live = (i) => !!c.ctxs[i] && !c.ctxs[i].signal.aborted;
+    const closeOf = (i) => (c.ctxs[i] ? c.ctxs[i].close() : null);
+    // Closed by the person.
+    const after = {
+      state: r.closer.state,
+      nodes: nodes(),
+      focus: where(),
+      unmounts: c.unmounts,
+      aborted: c.ctxs[0].signal.aborted,
+      returned: c.returned.slice(),
+      placeholderHidden: r.panel.querySelector('[data-placeholder]').hidden,
+      stay: {
+        state: r.stay.state,
+        nodes: r.panel.querySelectorAll('[data-feature-host="stay"]').length,
+        aborted: s.ctxs[0].signal.aborted,
+        unmounts: s.unmounts,
+      },
+    };
+    // Shown again: a second mount, into an empty host, with its own signal.
+    await r.closer.show();
+    const again = {
+      mounts: c.mounts,
+      nodes: nodes(),
+      state: r.closer.state,
+      empty: c.empty[1] === true,
+      fresh: !!c.ctxs[1] && c.ctxs[1].signal !== c.ctxs[0].signal,
+      live: live(1),
+    };
+    // The first mount's ctx, closed again: it can't touch the second.
+    const stale = {
+      returned: closeOf(0),
+      state: r.closer.state,
+      nodes: nodes(),
+      live: live(1),
+      unmounts: c.unmounts,
+    };
+    // A close while focus is elsewhere leaves it there.
+    elsewhere.focus();
+    const away = { returned: closeOf(1), focus: where(), state: r.closer.state };
+    // The opener is gone by the time the lane closes: the panel heading.
+    const gone = document.createElement('button');
+    gone.textContent = 'Gone';
+    r.panel.append(gone);
+    gone.focus();
+    await r.closer.show();
+    gone.remove();
+    if (c.fields[2]) c.fields[2].focus();
+    const fallback = { returned: closeOf(2), focus: where() };
+    // show()'s returnFocus wins over what had focus.
+    await r.closer.show({ returnFocus: elsewhere });
+    if (c.fields[3]) c.fields[3].focus();
+    const explicit = { returned: closeOf(3), focus: where() };
+    r.closer.unmount();
+    r.stay.unmount();
+    r.panel.remove();
+    return { after, again, stale, away, fallback, explicit };
+  });
+  return { keys, ...rest };
 }
 
 // The checks, by name, on one run.
-function closeVerdict(got) {
+function closeVerdict(g) {
   return {
     'opt-in':
-      got.keys.closer === 'announce,close,signal,storage' &&
-      got.keys.stay === 'announce,signal,storage',
+      g.keys.closer === 'announce,close,signal,storage' &&
+      g.keys.stay === 'announce,signal,storage',
+    idle: g.after.state === 'idle',
+    'node removed': g.after.nodes === 0,
+    'focus to the opener': g.after.focus === 'opener',
+    'lane unmounted': g.after.unmounts === 1,
+    'old signal aborted': g.after.aborted === true,
+    'mounts again':
+      g.again.mounts === 2 && g.again.nodes === 1 && g.again.state === 'mounted' && g.again.empty,
+    'new signal': g.again.fresh && g.again.live,
+    'closes once':
+      JSON.stringify(g.after.returned) === '[true]' &&
+      g.stale.returned === false &&
+      g.stale.state === 'mounted' &&
+      g.stale.nodes === 1 &&
+      g.stale.live &&
+      g.stale.unmounts === 1,
+    'other lane kept':
+      g.after.placeholderHidden &&
+      g.after.stay.state === 'mounted' &&
+      g.after.stay.nodes === 1 &&
+      !g.after.stay.aborted &&
+      g.after.stay.unmounts === 0,
+    'focus not taken':
+      g.away.returned === true && g.away.focus === 'elsewhere' && g.away.state === 'idle',
+    'heading fallback': g.fallback.returned === true && g.fallback.focus === 'heading',
+    returnFocus: g.explicit.returned === true && g.explicit.focus === 'elsewhere',
   };
 }
 
+const VIAS = ['button', 'escape'];
 let planted = 0;
 async function closing(browser, srv) {
   const { context, page, errors } = await newPage(browser, srv);
@@ -1812,19 +2017,33 @@ async function closing(browser, srv) {
       })
   );
   await page.goto(`${srv.url}/prototype/#map`);
-  const got = await closeRun(page, '/prototype/host.js');
-  for (const [check, ok] of Object.entries(closeVerdict(got)))
-    expect(ok, `close: ${check} failed on host.js: ${JSON.stringify(got)}`);
+  const names = new Set();
+  for (const via of VIAS) {
+    const got = await closeRun(page, '/prototype/host.js', via);
+    for (const [check, ok] of Object.entries(closeVerdict(got))) {
+      names.add(check);
+      expect(ok, `close (${via}): ${check} failed on host.js: ${JSON.stringify(got)}`);
+    }
+  }
   expect(!errors.length, `close: uncaught errors: ${errors.join(' | ')}`);
+  // Every check has a planted defect of its own.
+  const planting = new Set(Object.values(CLOSE_MUTANTS).map((m) => m.check));
+  for (const check of names)
+    expect(planting.has(check), `close: the ${check} check has no planted defect`);
   for (const [name, { check, edits }] of Object.entries(CLOSE_MUTANTS)) {
     const src = plant(edits);
     expect(!!src, `close: the planted defect "${name}" no longer applies to host.js`);
     if (!src) continue;
     mutants.set(name, src);
-    const bad = await closeRun(page, `/prototype/host.js?mutant=${encodeURIComponent(name)}`);
-    const caught = !closeVerdict(bad)[check];
-    expect(caught, `close: with the planted defect "${name}", the ${check} check still passes`);
-    if (caught) planted++;
+    const hostUrl = `/prototype/host.js?mutant=${encodeURIComponent(name)}`;
+    const missed = [];
+    for (const via of VIAS)
+      if (closeVerdict(await closeRun(page, hostUrl, via))[check]) missed.push(via);
+    expect(
+      !missed.length,
+      `close: with the planted defect "${name}", the ${check} check still passes (${missed.join(', ')})`
+    );
+    if (!missed.length) planted++;
   }
   await context.close();
 }
