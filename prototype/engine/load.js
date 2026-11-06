@@ -45,6 +45,7 @@ export const NAMES = Object.freeze([
   'commitPrefaceChange',
   'addCard',
   'rmCard',
+  'dupCard',
   'makeCard',
   'applyPartEdit',
   'envCardOf',
