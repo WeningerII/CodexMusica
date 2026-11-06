@@ -61,6 +61,7 @@ export const RECIPE_MESSAGES = Object.freeze({
   BUSY_ADD: (name) => `Another addition is still running. ${name} was not added; try again.`,
   BUSY_GENRE: 'An addition is already in progress.',
   GENRE_FAILED: (genre) => `${genre} couldn’t be loaded, so nothing was added. Try again.`,
+  ADD_FAILED: (name) => `${name} couldn’t be prepared, so nothing was added. Try again.`,
   NO_GENRE: 'That genre isn’t in the catalog.',
   NO_INSTRUMENT_ID: 'That instrument isn’t in the catalog.',
   STALE_ACTION: 'The instrument changed before that ran. Nothing was changed.',
@@ -691,18 +692,42 @@ export function recipeStore({ load, selection, announce, ceiling } = {}) {
     touch('recipe');
     flush();
   }
+  // An add whose engine call throws part-way (an instrument whose data can't
+  // be read) leaves the recipe as its last history entry has it: the cards
+  // the call had made have no entry yet, so they go, and nothing was added.
+  // Taken before the add; called if it throws. If the call got as far as its
+  // history entry, the recipe is that entry's and stays.
+  function partial() {
+    const cards = E.app.cards.slice();
+    const at = [E.app.history.length, E.app.historyIndex, E.app.history[E.app.historyIndex]];
+    return () => {
+      const now = [E.app.history.length, E.app.historyIndex, E.app.history[E.app.historyIndex]];
+      if (now.every((x, i) => x === at[i])) E.app.cards = cards;
+    };
+  }
+  // The end of an add that threw: the store free again and the recipe
+  // committed as it is, which partial() has put back.
+  function failed(before, undo) {
+    undo();
+    busy = false;
+    commit(before);
+  }
   // addInstrumentFromPicker with the destination it asked for; one history
-  // entry, and where the card really went.
+  // entry, and where the card really went. An engine throw is refused
+  // LOAD_FAILED and said once, and changes nothing.
   async function addCard(id, dest, configure) {
     const before = keyOf();
+    const undo = partial();
     setBusy(true);
     let card;
     try {
       E.app._addToTradition = dest || null;
       card = await E.addInstrumentFromPicker(id, configure ? { configure } : undefined);
-    } catch (e) {
+    } catch {
       E.app._addToTradition = null;
-      setBusy(false);
+      failed(before, undo);
+      const e = fail('LOAD_FAILED', M.ADD_FAILED(instrumentName(id)));
+      announce(e.message);
       throw e;
     }
     E.app._addToTradition = null;
@@ -725,7 +750,7 @@ export function recipeStore({ load, selection, announce, ceiling } = {}) {
     // production's add does.
     if (dest != null && typeof dest !== 'string') return refuse(fail('INVALID', M.BAD_DESTINATION));
     return addCard(instrumentId, dest || null, null).then((card) => {
-      if (!card) throw fail('NOT_FOUND', M.NO_INSTRUMENT_ID);
+      if (!card) return refuse(fail('NOT_FOUND', M.NO_INSTRUMENT_ID));
       // production's _addedInstrumentMessage, with ipAddConfigured's clause
       // when the genre asked for couldn't be loaded.
       announce(
@@ -743,10 +768,17 @@ export function recipeStore({ load, selection, announce, ceiling } = {}) {
     const trad = typeof genreId === 'string' && id ? E.Catalog.get(id) : null;
     if (!trad) return refuse(fail('NOT_FOUND', M.NO_GENRE));
     const before = keyOf();
+    const undo = partial();
     setBusy(true);
     return E.Catalog.ensureFull(id).then(
       () => {
-        const created = E.importTradition(id);
+        let created;
+        try {
+          created = E.importTradition(id);
+        } catch {
+          failed(before, undo);
+          return refuse(fail('LOAD_FAILED', M.GENRE_FAILED(trad.name)));
+        }
         busy = false;
         commit(before);
         const expected = (trad.instruments || []).length;
@@ -845,7 +877,7 @@ export function recipeStore({ load, selection, announce, ceiling } = {}) {
     const dest = destination;
     const name = instrumentName(id);
     return addCard(id, dest, configure).then((added) => {
-      if (!added) throw fail('NOT_FOUND', M.NO_INSTRUMENT_ID);
+      if (!added) return refuse(fail('NOT_FOUND', M.NO_INSTRUMENT_ID));
       // ipAddConfigured's message, worded from where the card landed.
       announce(
         `Added ${name}` +

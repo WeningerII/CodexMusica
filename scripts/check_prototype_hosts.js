@@ -5305,6 +5305,118 @@ const STORE_CHECKS = {
         JSON.stringify(g)
       ),
   },
+  // 34. An add whose engine call throws part-way changes nothing, is
+  // refused LOAD_FAILED and said once, and leaves the store free: the next
+  // add, ensemble, apply, Undo and addGenre all work. The ensemble's last
+  // instrument can't be read, so the cards before it were made and must go;
+  // the other adds throw when the engine pushes their card.
+  throwingAdd: {
+    page: async (S) => {
+      const { R, E, recipe, instrument } = await S.boot();
+      const rev = () => R.snapshot().revision;
+      await R.addInstrument({ instrumentId: 'udu', destination: null, revision: rev() });
+      await S.settle();
+      S.said();
+      const roster = E.Catalog.get('afrobeat').instruments;
+      const brokenId = roster[roster.length - 1];
+      const broken = E.Inst(brokenId);
+      const parts = broken.parts;
+      const unreadable = () =>
+        Object.defineProperty(broken, 'parts', {
+          configurable: true,
+          get() {
+            throw new Error('gate: an instrument that can’t be read');
+          },
+        });
+      const readable = () =>
+        Object.defineProperty(broken, 'parts', {
+          configurable: true,
+          writable: true,
+          value: parts,
+        });
+      const unpushable = () => {
+        E.app.cards = Object.freeze(E.app.cards.slice());
+      };
+      const pushable = () => {
+        if (Object.isFrozen(E.app.cards)) E.app.cards = E.app.cards.slice();
+      };
+      const state = () =>
+        JSON.stringify([S.key(E), E.app.history.length, E.app.historyIndex, rev()]);
+      const out = {};
+      const attempt = async (name, breakIt, mend, run) => {
+        const before = state();
+        breakIt();
+        const code = await S.code(run());
+        mend();
+        await S.settle();
+        out[name] = { code, said: S.said(), same: state() === before, busy: R.snapshot().busy };
+      };
+      await attempt('ensemble', unreadable, readable, () =>
+        R.addEnsemble({ genreId: 'afrobeat', revision: rev() })
+      );
+      await attempt('loose', unreadable, readable, () =>
+        R.addInstrument({ instrumentId: brokenId, destination: null, revision: rev() })
+      );
+      await attempt('grouped', unpushable, pushable, () =>
+        R.addInstrument({ instrumentId: 'oud', destination: 'afrobeat', revision: rev() })
+      );
+      instrument.set('oud');
+      await S.settle();
+      await attempt('configured', unpushable, pushable, () =>
+        R.addConfiguredInstrument(S.args(R, { destination: null }))
+      );
+      const after = {
+        add: await S.code(
+          R.addInstrument({ instrumentId: 'banjo_5_string', destination: null, revision: rev() })
+        ),
+        ensemble: await S.code(R.addEnsemble({ genreId: 'afrobeat', revision: rev() })),
+        apply: R.apply({ op: 'remove_tradition', tradition: 'afrobeat' }),
+        undo: R.undo(),
+        cards: R.snapshot().cards.length,
+      };
+      await S.settle();
+      S.said();
+      recipe.addGenre('bluegrass');
+      for (let i = 0; i < 300 && !window.__said.length; i++) await S.tick(20);
+      await S.settle();
+      after.addGenre = S.said();
+      return {
+        ...out,
+        after,
+        names: {
+          genre: E.Catalog.get('afrobeat').name,
+          broken: broken.name,
+          oud: E.Inst('oud').name,
+        },
+        roster: roster.length,
+      };
+    },
+    verdict: (g, p) => {
+      const n = g.names || {};
+      const want = {
+        ensemble: `${n.genre} couldn’t be loaded, so nothing was added. Try again.`,
+        loose: `${n.broken} couldn’t be prepared, so nothing was added. Try again.`,
+        grouped: `${n.oud} couldn’t be prepared, so nothing was added. Try again.`,
+        configured: `${n.oud} couldn’t be prepared, so nothing was added. Try again.`,
+      };
+      const wrong = Object.keys(want).filter(
+        (k) =>
+          !g[k] || !same(g[k], { code: 'LOAD_FAILED', said: [want[k]], same: true, busy: false })
+      );
+      const a = g.after || {};
+      return why(
+        g.roster > 1 &&
+          !wrong.length &&
+          a.add === 'ok' &&
+          a.ensemble === 'ok' &&
+          same(a.apply, { ok: true, changed: true }) &&
+          same(a.undo, { ok: true, changed: true }) &&
+          same(a.addGenre, p.toasts.genre),
+        wrong.map((k) => `${k}: ${JSON.stringify(g[k])} (want "${want[k]}")`).join(' | ') ||
+          JSON.stringify(a)
+      );
+    },
+  },
 };
 
 // One planted defect (at least) for every check: text edits to
@@ -5324,8 +5436,8 @@ const STORE_MUTANTS = {
     check: 'entries',
     edits: [
       [
-        'const created = E.importTradition(id);',
-        'const created = (trad.instruments || []).map((i) => E.addCard(i, E.traditionCardOpts(id, i))).filter(Boolean);',
+        '          created = E.importTradition(id);',
+        '          created = (trad.instruments || []).map((i) => E.addCard(i, E.traditionCardOpts(id, i))).filter(Boolean);',
       ],
     ],
   },
@@ -5549,6 +5661,31 @@ Object.assign(STORE_MUTANTS, {
       [
         "    if ((args.destination === undefined ? null : args.destination) !== destination)\n      return refuse(fail('INVALID', M.BAD_DESTINATION));\n",
         '',
+      ],
+    ],
+  },
+});
+// The throwing-add check's defects.
+Object.assign(STORE_MUTANTS, {
+  'an ensemble whose engine call throws leaves the store busy': {
+    check: 'throwingAdd',
+    edits: [
+      [
+        "        let created;\n        try {\n          created = E.importTradition(id);\n        } catch {\n          failed(before, undo);\n          return refuse(fail('LOAD_FAILED', M.GENRE_FAILED(trad.name)));\n        }\n",
+        '        const created = E.importTradition(id);\n',
+      ],
+    ],
+  },
+  'the cards a failed add made are kept': {
+    check: 'throwingAdd',
+    edits: [['      if (now.every((x, i) => x === at[i])) E.app.cards = cards;\n', '']],
+  },
+  'an add whose engine call throws comes out raw': {
+    check: 'throwingAdd',
+    edits: [
+      [
+        "    } catch {\n      E.app._addToTradition = null;\n      failed(before, undo);\n      const e = fail('LOAD_FAILED', M.ADD_FAILED(instrumentName(id)));\n      announce(e.message);\n      throw e;\n    }",
+        '    } catch (e) {\n      E.app._addToTradition = null;\n      setBusy(false);\n      throw e;\n    }',
       ],
     ],
   },
