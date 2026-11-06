@@ -196,7 +196,10 @@ const sameValue = (a, b) =>
 
 // The environment fields on which a card differs from its seeded baseline —
 // what an edit put there. Used to decide which environment words a response has
-// to account for; an untouched card has none.
+// to account for (ENVIRONMENT_NOT_LITERAL); an untouched card has none. The
+// environment warnings that speak for a caller's settings (NOT_RENDERED, MOVED,
+// OVERWRITTEN) read the record of what set_environment wrote instead
+// (writtenEnv), never this comparison.
 function explicitEnv(card) {
   const base = baselineForCard(card);
   if (!base) return [];

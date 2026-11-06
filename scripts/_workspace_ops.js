@@ -331,7 +331,9 @@ const CLEARABLE = () => ['room', 'tuning', ...(C.CHAIN_SECTIONS || []).map((s) =
 // It is how the connector tells a setting a caller chose from one that came with
 // the card: a tradition's stock settings and the room, tuning and chain a
 // set_preface re-derives are not in it. mcp/engine.js reads it for
-// ENVIRONMENT_NOT_RENDERED and ENVIRONMENT_MOVED (#671, BB8 6681659990).
+// ENVIRONMENT_NOT_RENDERED, ENVIRONMENT_MOVED and ENVIRONMENT_OVERWRITTEN (#671,
+// BB8 6681659990 and 6685465828). A card the app duplicates starts without one:
+// the copy has the values, and nothing was written on it.
 //
 //   set_environment  records each value it writes; `clear`, or a null value,
 //                    takes the field out.

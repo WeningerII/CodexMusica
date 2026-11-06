@@ -126,11 +126,11 @@ pipeline plans and grades songs whose every line you write; no connector call re
   counts: each card records it inside the workspace (`envWritten`, threaded with the rest), so a
   tradition's stock settings and a room a `set_preface` re-derived never warn, and a workspace saved
   without the record has nothing written, so none of this warning, `ENVIRONMENT_MOVED` and
-  `ENVIRONMENT_OVERWRITTEN` speaks for the settings it already holds. The warning goes once the field is cleared there, a
-  `set_preface` re-derives it, the card becomes the environment card, or a `set_environment` on the
-  environment card sets or clears that field (for `fx`, an effect added there settles that effect),
-  so repeating the edit without `card`, as the warning advises, ends it (`scripts/check_env_advice.mjs`
-  follows that advice in every tradition). The environment lives on
+  `ENVIRONMENT_OVERWRITTEN` speaks for the settings it already holds. The warning goes once the
+  field is cleared there, a `set_preface` re-derives it, the card becomes the environment card, or a
+  `set_environment` on the environment card sets or clears that field (for `fx`, an effect added
+  there settles that effect), so repeating the edit without `card`, as the warning advises, ends it
+  (`scripts/check_env_advice.mjs` follows that advice in every tradition). The environment lives on
   its card: removing or moving that card hands the environment to the next card that has one, and a
   `set_preface` on it re-derives its room, tuning and chain — `render_warnings` reports both on the
   edit that does it (`ENVIRONMENT_MOVED`, for settings a `set_environment` wrote there, and when a
