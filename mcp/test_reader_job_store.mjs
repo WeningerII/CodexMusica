@@ -1153,6 +1153,163 @@ test('repeated transitions at exactly its quota never accumulate overage', (t) =
   }
 });
 
+// #816 review of the exemption: a lease is growth back into running and is
+// never exempt. In one live instance at exactly its quota, each cycle's lease
+// rewrites the record at the size it had there, until the eighth cycle, where
+// its attempt and its queue position each gain a digit (9 -> 10). That lease
+// is refused, nothing is written, its job waits queued and the overage stays
+// one reason's growth.
+for (const kind of ['expiry', 'quota'])
+  test(`after repeated ${kind === 'expiry' ? 'lease expiries' : 'quota pauses'} at exactly its quota, a lease that grows its record is refused`, (t) => {
+    const f = heldAtQuota(t);
+    const { store, job, record } = f;
+    let { lease } = f;
+    let overage = null;
+    for (let cycle = 0; ; cycle++) {
+      assert.ok(cycle < 12, 'the attempt reaches 10');
+      if (kind === 'expiry') {
+        f.advance(READER_LIMITS.leaseMs + 1);
+        assert.equal(store.lease(), null);
+      } else
+        assert.equal(
+          commit(store, lease, [{ id: `grown-${cycle}` }], doneCursor(f.frontier, 2)).state,
+          'paused'
+        );
+      exact(store, `${kind} ${cycle}`);
+      overage ??= store.usage + store.slack - HELD_QUOTA;
+      assert.ok(overage > 0 && overage < 64, `${kind} overage ${overage} is one reason's growth`);
+      assert.equal(store.usage + store.slack - HELD_QUOTA, overage, `${kind} ${cycle}: unchanged`);
+      store.resume(job.record.id, job.capability, 'viewer-a', identity);
+      exact(store, `resume ${cycle}`);
+      if (lease.attempt < 9) {
+        lease = store.lease();
+        assert.equal(lease.id, job.record.id);
+        exact(store, `lease ${cycle}`);
+        assert.equal(store.usage + store.slack, HELD_QUOTA, `cycle ${cycle} is back at the quota`);
+        continue;
+      }
+      assert.ok(cycle >= 7, 'eight cycles in one instance');
+      const bytes = fs.readFileSync(record);
+      const held = store.usage + store.slack;
+      assert.equal(store.lease(), null, 'the tenth attempt does not fit');
+      refused(() => store.lease(job.record.id), 'RESOURCE_LIMIT');
+      const waiting = store.inspect(job.record.id);
+      assert.equal(waiting.state, 'queued');
+      assert.equal(waiting.attempt, 9);
+      assert.deepEqual(fs.readFileSync(record), bytes, 'nothing was written');
+      exact(store, 'refused lease');
+      assert.equal(store.usage + store.slack, held, 'the overage does not move');
+      // The lease needs exactly the two bytes those digits add; given them,
+      // the same job is dispatched.
+      store.maxBytes = f.quota + 1;
+      assert.equal(store.lease(), null);
+      store.maxBytes = f.quota + 2;
+      const tenth = store.lease();
+      assert.equal(tenth.id, job.record.id);
+      assert.equal(tenth.attempt, 10);
+      exact(store, 'tenth lease');
+      assert.equal(store.usage + store.slack, HELD_QUOTA + 2);
+      return;
+    }
+  });
+// A queued job past its reservation whose lease does not fit stays queued,
+// and the job behind it is dispatched; lease(id) still refuses. With room
+// free, the head of the queue is leased first, as before.
+for (const free of [0, 8192])
+  test(`${free ? 'with 8 KiB free, the head of the queue is leased' : 'at a full quota, a queued job whose lease does not fit waits and the next is dispatched'}`, (t) => {
+    let clock = 1_800_000_000_000;
+    const { store } = fixture(t, { maxBytes: SMALL_QUOTA, now: () => clock });
+    // A: past its reservation, paused by its worker and resumed: the head.
+    const a = create(store, 'viewer-a', 'a');
+    const la = store.lease(a.record.id);
+    commit(store, la, [{ id: 'a' }], doneCursor(30_000));
+    store.pause(la.id, la.attempt, la.fence);
+    // B: past its reservation and running.
+    const b = create(store, 'viewer-b', 'b');
+    const lb = store.lease(b.record.id);
+    commit(store, lb, [{ id: 'b' }], doneCursor(30_000));
+    store.resume(a.record.id, a.capability, 'viewer-a', identity);
+    // C: inside its reservation, queued behind A.
+    const c = create(store, 'viewer-c', 'c');
+    store.maxBytes = store.usage + store.slack + free;
+    exact(store, 'full');
+    const head = path.join(store.directory, 'records', `${a.record.id}.json`);
+    assert.ok(fs.statSync(head).size > RESERVE, 'the head is past its reservation');
+    const bytes = fs.readFileSync(head);
+    clock += READER_LIMITS.leaseMs + 1;
+    if (free) {
+      const next = store.lease();
+      assert.equal(next.id, a.record.id);
+      assert.equal(store.inspect(b.record.id).state, 'paused');
+      assert.equal(store.inspect(c.record.id).state, 'queued');
+      exact(store, 'head leased');
+      return;
+    }
+    // B's expiry commits (exempt); A's lease is then refused.
+    refused(() => store.lease(a.record.id), 'RESOURCE_LIMIT');
+    assert.equal(store.inspect(b.record.id).state, 'paused');
+    assert.deepEqual(fs.readFileSync(head), bytes);
+    exact(store, 'head refused');
+    const held = store.usage + store.slack;
+    assert.ok(held > store.maxBytes, "B's expiry stands over the quota");
+    const next = store.lease();
+    assert.equal(next.id, c.record.id, 'the job behind it is dispatched');
+    assert.equal(next.state, 'running');
+    assert.equal(store.inspect(a.record.id).state, 'queued');
+    assert.deepEqual(fs.readFileSync(head), bytes, 'nothing was written for the head');
+    exact(store, 'next leased');
+    assert.equal(store.usage + store.slack, held, "C's lease stays inside its reservation");
+  });
+// A store over its quota (as the inflate rollback can leave it,
+// mcp/READER_RUNTIME.md) restarts, and its one small queued job does not fit:
+// lease() answers null, not a refusal that fails every dispatch.
+test('over its quota, a restarted store answers lease() with null and keeps its job queued', (t) => {
+  const { directory, store: first } = fixture(t, { maxBytes: SMALL_QUOTA });
+  const a = create(first, 'viewer-a', 'a');
+  const la = first.lease(a.record.id);
+  commit(first, la, [{ id: 'big', text: 'x'.repeat(200_000) }], { phase: 'pairs' });
+  first.pause(la.id, la.attempt, la.fence);
+  const b = create(first, 'viewer-b', 'b');
+  const store = new ReaderJobStore({ directory, maxBytes: first.usage - 1000 });
+  assert.ok(store.usage > store.maxBytes);
+  const file = path.join(store.directory, 'records', `${b.record.id}.json`);
+  const bytes = fs.readFileSync(file);
+  assert.equal(store.lease(), null);
+  refused(() => store.lease(b.record.id), 'RESOURCE_LIMIT');
+  assert.equal(store.inspect(b.record.id).state, 'queued');
+  assert.deepEqual(fs.readFileSync(file), bytes);
+  exact(store, 'over quota');
+  store.maxBytes = SMALL_QUOTA;
+  assert.equal(store.lease().id, b.record.id);
+  exact(store, 'leased with room');
+});
+// #816 review: while usage is unknown, a commit's quota pause takes the
+// ordinary check. Past its reservation the pause grows the store, so it fails
+// closed: the job stays running with its record and objects untouched. Once
+// counted, the same commit quota-pauses.
+test('while usage is unknown, a commit that cannot grow fails closed, and pauses once counted', async (t) => {
+  const { store, job, lease, record, frontier } = heldAtQuota(t);
+  const bytes = fs.readFileSync(record);
+  const pages = objectsOf(store, 'pages');
+  const grow = () =>
+    commit(store, lease, [{ id: 'grown', text: 'y'.repeat(4000) }], doneCursor(frontier, 2));
+  store.usage = null;
+  refused(grow, 'STORE_RECOUNTING');
+  assert.equal(store.inspect(job.record.id).state, 'running');
+  assert.deepEqual(fs.readFileSync(record), bytes);
+  assert.deepEqual(objectsOf(store, 'pages'), pages);
+  assert.equal(await store.recount(), true);
+  exact(store, 'recounted');
+  assert.equal(store.usage + store.slack, HELD_QUOTA);
+  const paused = grow();
+  assert.equal(paused.state, 'paused');
+  assert.equal(paused.reason.code, 'RESOURCE_LIMIT');
+  assert.equal(paused.deferred_requeue, false);
+  assert.deepEqual(objectsOf(store, 'pages'), pages);
+  readsKept(store, job);
+  exact(store, 'paused');
+});
+
 const readerSha = (value) => createHash('sha256').update(value).digest('hex');
 function pronunciationCatalogFixture(t, options = {}) {
   const { directory, store } = fixture(t);

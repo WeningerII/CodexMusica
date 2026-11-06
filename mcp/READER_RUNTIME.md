@@ -291,6 +291,13 @@ successful requeue until a slot opens; it still continues automatically. Failure
 restart and explicit cancellation require explicit Resume. Closing the browser
 or a polling request does not cancel work.
 
+Dispatch leases the first queued job whose lease fits the quota (below); a job
+it does not fit stays queued and the next is tried. When the store refuses
+dispatch (usage being recounted, storage unavailable), the scheduler logs
+`[reader] dispatch refused:` with the refusal's code. Either way it looks again
+with backoff, from its 100 ms poll interval up to 30 seconds, and a create or
+resume looks at once; a refusal never ends the process.
+
 Python emits a bounded `reader_checkpoint` frame and waits. Node fsyncs immutable
 pages, then commits the fenced checkpoint cursor and page-hash index before
 sending `reader_ack`. Stale attempts cannot publish. Completion requires an
@@ -354,10 +361,15 @@ of that record is checked as usual, and it leaves running again only after a
 resume, which clears the reason, and a lease, so repeated cycles do not add to
 the overage. Every other write that grows the store is refused with
 `RESOURCE_LIMIT`, a worker's own pause and a cancellation request included (a
-running job whose pause is refused is paused when its lease expires). While
-those bytes stand they come out of other jobs' reservations, so even a
-transition inside a job's reservation can be refused, until expiry, collection
-or a delete frees room.
+running job whose pause is refused is paused when its lease expires). A lease
+is growth back into running and is always checked: a queued job whose lease
+does not fit (its attempt number or queue position gaining a digit is enough)
+waits queued with nothing written. A routed resume always carries an
+`Idempotency-Key` and so records a control receipt; where that outweighs the
+reason the resume clears, it needs room like any other growth. While a
+transition's bytes stand over the quota they come out of other jobs'
+reservations, so even a transition inside a job's reservation can be refused,
+until expiry, collection or a delete frees room.
 
 A verification scan runs in slices outside the lock and is accepted only if
 every measurement succeeded, no marker appeared and the generation did not move

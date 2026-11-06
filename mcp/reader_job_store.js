@@ -46,6 +46,11 @@ const OBJECT_KINDS = ['pages', 'indexes', 'checkpoints', 'manifests', 'definitio
 const clone = (value) => JSON.parse(JSON.stringify(value));
 const sha = (bytes) => crypto.createHash('sha256').update(bytes).digest('hex');
 const reserveGap = (size) => Math.max(0, RESERVE_BYTES - size);
+// A write refused for room: the quota (RESOURCE_LIMIT), or usage unknown until
+// a recount (STORE_RECOUNTING). Both are thrown before that write's first byte.
+const roomRefusal = (error) =>
+  (error?.code === 'RESOURCE_LIMIT' && error.status === 507) ||
+  (error?.code === 'STORE_RECOUNTING' && error.status === 503);
 function problem(code, message, status = 409) {
   return Object.assign(new Error(message), { code, status });
 }
@@ -580,7 +585,9 @@ export class ReaderJobStore {
   // (which clears the reason) and a lease, so repeated cycles add nothing
   // more. Only the RESOURCE_LIMIT refusal of an existing running record with
   // known usage is skipped; an unknown usage, a new record or any other write
-  // takes the full check.
+  // takes the full check. A lease is growth back into running and is never
+  // exempt (see lease()); the running guards below keep it checked even if a
+  // caller passed `transition`.
   _save(input, reserved = false, transition = false) {
     const { record_digest: _old, ...body } = input;
     body.updated_at = this.now();
@@ -907,29 +914,44 @@ export class ReaderJobStore {
     });
   }
 
+  // With no id, the first queued job whose lease fits is leased. A lease grows
+  // its record back into running and always takes the quota check: a job it
+  // does not fit (RESOURCE_LIMIT, or STORE_RECOUNTING while usage is unknown)
+  // stays queued with nothing written and the next one is tried, so one job
+  // that has outgrown the room left never stops the queue behind it. null
+  // when none fits. lease(id) still refuses.
   lease(id = null) {
     return this._open(() => {
       this._expireLeases();
       this._promoteDeferred();
       if ([...this.records.values()].some((r) => r.state === 'running')) return null;
       const queued = this._dispatchable();
-      const record = id ? this._require(id) : queued.sort((a, b) => this._queueSort(a, b))[0];
-      if (!record || record.state !== 'queued') return null;
-      const leased = this._save(
-        {
-          ...record,
-          state: 'running',
-          attempt: record.attempt + 1,
-          fence: crypto.randomBytes(32).toString('hex'),
-          lease_expires_at: this.now() + this.leaseMs,
-          cancel_requested: false,
-          deferred_requeue: false,
-          reason: null,
-        },
-        true
-      );
-      this._promoteDeferred();
-      return leased;
+      const candidates = id ? [this._require(id)] : queued.sort((a, b) => this._queueSort(a, b));
+      for (const record of candidates) {
+        if (record.state !== 'queued') return null;
+        let leased;
+        try {
+          leased = this._save(
+            {
+              ...record,
+              state: 'running',
+              attempt: record.attempt + 1,
+              fence: crypto.randomBytes(32).toString('hex'),
+              lease_expires_at: this.now() + this.leaseMs,
+              cancel_requested: false,
+              deferred_requeue: false,
+              reason: null,
+            },
+            true
+          );
+        } catch (error) {
+          if (id || !roomRefusal(error)) throw error;
+          continue;
+        }
+        this._promoteDeferred();
+        return leased;
+      }
+      return null;
     });
   }
   _promoteDeferred() {
@@ -999,8 +1021,8 @@ export class ReaderJobStore {
     return record;
   }
   _quotaPause(record, error) {
-    const recounting = error.code === 'STORE_RECOUNTING' && error.status === 503;
-    if (!recounting && (error.code !== 'RESOURCE_LIMIT' || error.status !== 507)) throw error;
+    if (!roomRefusal(error)) throw error;
+    const recounting = error.code === 'STORE_RECOUNTING';
     // The cursor is unchanged. This pause is durable whatever the quota (see
     // _save): refused, the job would stay running. While usage is unknown it
     // takes the full check, and a recount pause returns to the queue by
