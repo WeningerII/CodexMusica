@@ -211,16 +211,25 @@ line is truncated or renumbered.
 The checks run in this order:
 
 1. **`raw_rows`.** A line set may have at most 1,389 physical rows (3 × 463),
-   counting blank rows and `[SECTION]` markers. Line ids are not affected: the
-   sung lines are numbered `L001`… after blank rows and markers are dropped, so
-   500 blank rows and one sung line make one line, `L001`.
+   counting blank rows and `[SECTION]` markers. A final line break ends the
+   last row and does not open another, so 1,389 rows are admitted with or
+   without one (`\n`, `\r\n` or `\r`); a blank row after it is a row. Line
+   ids are not affected: the sung lines are numbered `L001`… after blank rows
+   and markers are dropped, so 500 blank rows and one sung line make one line,
+   `L001`.
 2. **`meter_line_digits`.** A sung line may have at most 301 syllable digits,
    floor(1.5 × 201).
 3. **`meter_request_digits`.** One request may carry at most 139,363 digits in
-   total (463 × 301): the draft once, at the largest of its spellings (the
-   call's own draft and a continuation's `input_draft` and `accepted_lines`
-   are one song), plus a `blueprint`'s lines, `lyric_verify`'s `before` and
-   `after`, and `lyric_recover`'s rows, added together.
+   total (463 × 301), over every line whose recognition the response carries:
+   the draft once, at the largest of its spellings (the call's own draft and a
+   continuation's `input_draft` and `accepted_lines` are one song), plus
+   `lyric_verify`'s `before` and `after` and `lyric_recover`'s rows, added
+   together. A `blueprint`'s stored line texts are not in the total: every
+   lyric tool fits the draft's own lines to the blueprint's placements and
+   never reads that text, so they meet only the row and per-line caps. The
+   refusal names each set it added (for example, "`before` (463 lines,
+   139,363) and `after` (1 line, 19) together could reach 139,382 syllable
+   digits; one request carries at most 139,363") and each set it left out.
 
 **What counts as a line set.** Each of the following is one line set:
 
@@ -230,13 +239,16 @@ The checks run in this order:
 - a declared `blueprint`'s line texts;
 - for `lyric_recover`, the rows of `lines` or `lines_text` as the source reader
   is handed them. That reader sets apparatus rows aside and resolves bracket
-  spans before it numbers the sung lines, so a refusal there names the row
-  (`row 3`), not an L id;
+  spans before it numbers the sung lines, so a refusal there names the row,
+  counted from the top of the paste with headings and blank rows included
+  ("row 3 of the pasted text"), not an L id;
 - every distinct line a pronunciation declares that could be sung (at most
   200 characters, one row), checked against the per-line cap only. The harness
   keeps a declaration whose line is in no draft (it reports it stale), and an
   answer or a source reading can make that line sung later, so it is measured
-  even when no draft holds it.
+  even when no draft holds it. Its refusal names the declaration by its P
+  index and quotes the line's text; it has no L id, because the line is not
+  sung.
 
 A revision's answered lines are not a separate line set. An undeclared answer
 over 200 characters is refused before any work, and a declared one is measured
@@ -260,18 +272,6 @@ unit is one character, or the separator that ends a token.
 
 Every path uses this same rule.
 
-## Reading basis: the lexicon supplement
-
-Every tool that reads words (`lyric_screen`, `lyric_grade`, `lyric_revise`,
-`lyric_check`, `lyric_verify`, `lyric_recover`) reads CMUdict plus one frozen
-version of the reviewed lexicon supplement, named in
-`lyric-harness/data/lexicon_supplement_versions.json`. The declaration is
-`lexicon_supplement` (a version id, or `none` for CMUdict alone), and the record
-keeps the version's file SHA256 beside it as `lexicon_supplement_sha256`
-(`mcp/lexicon_basis.js`).
-
-- **New work** that omits the field reads the manifest's `default`.
-- **A continued run** (by `run_id`, `state`, `checkpoint`, or a session's grade
 **What one admitted line costs a response.** The largest recognition the
 recognizer core can return for one line at the per-line cap, JSON-escaped as
 the bounded payload measures it and with its candidate rows included, is
@@ -284,6 +284,18 @@ the figure over every surface the core can generate and fails if it moves or
 the candidate rows leave it; until the core (`quality/meter_recognize.py`) is
 on the branch, that measurement reports SKIP.
 
+## Reading basis: the lexicon supplement
+
+Every tool that reads words (`lyric_screen`, `lyric_grade`, `lyric_revise`,
+`lyric_check`, `lyric_verify`, `lyric_recover`) reads CMUdict plus one frozen
+version of the reviewed lexicon supplement, named in
+`lyric-harness/data/lexicon_supplement_versions.json`. The declaration is
+`lexicon_supplement` (a version id, or `none` for CMUdict alone), and the record
+keeps the version's file SHA256 beside it as `lexicon_supplement_sha256`
+(`mcp/lexicon_basis.js`).
+
+- **New work** that omits the field reads the manifest's `default`.
+- **A continued run** (by `run_id`, `state`, `checkpoint`, or a session's grade
   receipt) keeps the version and SHA256 it recorded. A record written before
   this field existed reads `none`: it stays on CMUdict alone whatever the
   default now is. Inheritance is applied first, the default only after it.
