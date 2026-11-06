@@ -1,9 +1,13 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { createRequire } from 'node:module';
+import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { connectConnector } from './client.js';
 import { buildServer } from './tools.js';
+import { buildWorkflowServer } from './workflow_tools.js';
+import { WorkflowSessions } from './workflow_sessions.js';
+import { JobStore } from './job_store.js';
 import { startRecipe, editRecipe, renderRecipe, ENV_FIELDS } from './engine.js';
 import { _verdictInternals } from './lyric_tools.js';
 const require = createRequire(import.meta.url);
@@ -846,10 +850,12 @@ test('environment clear warnings distinguish cleared settings from retained non-
     { action: 'set_environment', card: later, chain: { fx: 'plate_reverb' } },
     { action: 'set_environment', card: later, chain: { fx: 'fuzz_germanium' } },
   ]);
+  // One warning per card and set of fields (#671, BB8 6681659990): both writes
+  // stand, and they leave the same field, so the card is said once, by the first.
   assert.deepEqual(
     hidden(effects).map((w) => w.edit),
-    [0, 1],
-    'appending another effect retains both earlier and later writes'
+    [0],
+    'appending another effect retains both writes, said once for the card by the first'
   );
   const different = run([
     write,
@@ -871,4 +877,688 @@ test('environment warning accuracy preserves preface/write ordering disclosures'
   const preserved = editRecipe({ workspace: initial.workspace, edits: [preface, write] });
   assert.equal(preserved.render_scope.environment_settings.room, 'cathedral');
   assert(!preserved.render_warnings.some((w) => w.code === 'ENVIRONMENT_OVERWRITTEN'));
+});
+
+// ── ENVIRONMENT_NOT_RENDERED: what a set_environment wrote, said while it stands ──
+// (#671, BB8 6675691909, amended 6681659990)
+//
+// Each card keeps a record (`envWritten`) of the environment fields a
+// set_environment wrote on it. A card other than the environment card that still
+// holds one of them is said on every response that renders the workspace, on
+// every surface: the engine, the raw MCP endpoint, and the session endpoints,
+// which keep only the workspace between calls. On the edit that wrote it the
+// warning names that edit; on any other response it has no `edit`. A tradition's
+// stock settings and a room a set_preface re-derived are not in the record and
+// never warn, and a workspace saved before the record existed has nothing in it.
+
+const NOT_RENDERED = 'ENVIRONMENT_NOT_RENDERED';
+const RECORD = 'envWritten';
+const FORMATS = ['rich', 'tags', 'prose', 'compact'];
+const unrendered = (r) => r.render_warnings.filter((w) => w.code === NOT_RENDERED);
+const moved = (r) => r.render_warnings.filter((w) => w.code === 'ENVIRONMENT_MOVED');
+const overwritten = (r) => r.render_warnings.filter((w) => w.code === 'ENVIRONMENT_OVERWRITTEN');
+// A workspace as a session or client saved it before the record existed.
+const FORGET = 'forget the record';
+const withoutRecord = (ws) => {
+  const copy = JSON.parse(JSON.stringify(ws));
+  for (const card of copy.cards) delete card[RECORD];
+  return copy;
+};
+
+async function linked(server) {
+  const [a, b] = InMemoryTransport.createLinkedPair();
+  const client = new Client({ name: 'not-rendered-test', version: '1' }, { capabilities: {} });
+  await server.connect(a);
+  await client.connect(b);
+  return {
+    client,
+    close: async () => {
+      await client.close();
+      await server.close();
+    },
+  };
+}
+
+// Each surface drives the same three tools. `next` is what the following call
+// is given: the workspace for a caller-managed surface, the session_id for a
+// session. `reopen` carries the state into a fresh server, as a reconnect or a
+// caller moving its workspace to another connection would. `forget` drops the
+// record from the state the surface holds, as a workspace saved by an earlier
+// release has none, and `recorded` reads a card's record back from that state.
+// A session only moves forward, so a scenario that goes on from an earlier
+// response replays that response's steps into a new session first; the call
+// under test is then an ordinary call on a session that holds that workspace.
+const traced = (r, history) => ({ ...r, history });
+const stepped = (prev, step) => ({ ...prev.history, steps: [...prev.history.steps, step] });
+const callerManaged = (call, close, reopen) => ({
+  start: (traditions) => call('start_recipe', { traditions }, { traditions, steps: [] }),
+  edit: (prev, edits) => call('edit_recipe', { workspace: prev.next, edits }, stepped(prev, edits)),
+  render: (prev, extra = {}) =>
+    call('render_recipe', { workspace: prev.next, ...extra }, prev.history),
+  forget: async (prev) => ({
+    ...prev,
+    next: withoutRecord(prev.next),
+    history: stepped(prev, FORGET),
+  }),
+  recorded: async (prev, card) => prev.next.cards.find((c) => c.id === card)?.[RECORD],
+  reopen,
+  close,
+});
+const SURFACES = {
+  engine: async () => {
+    const tools = {
+      start_recipe: startRecipe,
+      edit_recipe: editRecipe,
+      render_recipe: renderRecipe,
+    };
+    const call = async (name, args, history) => {
+      const r = tools[name](JSON.parse(JSON.stringify(args)));
+      return traced({ ...r, next: JSON.parse(JSON.stringify(r.workspace)) }, history);
+    };
+    return callerManaged(
+      call,
+      async () => {},
+      async () => {}
+    );
+  },
+  'raw /mcp/recipe': async () => {
+    // The host owns a task endpoint's format: one request, one format.
+    let conns = {};
+    const conn = async (format = 'rich') =>
+      (conns[format] ??= await linked(buildServer({ task: { domain: 'recipe', format } })));
+    const call = async (name, args, history) => {
+      const res = await (await conn(args.format)).client.callTool({ name, arguments: args });
+      assert(!res.isError, JSON.stringify(res));
+      const r = JSON.parse(res.content[0].text);
+      return traced({ ...r, next: r.workspace }, history);
+    };
+    const closeAll = async () => {
+      for (const c of Object.values(conns)) await c.close();
+      conns = {};
+    };
+    return callerManaged(call, closeAll, closeAll);
+  },
+  ...Object.fromEntries(
+    [
+      ['session /mcp/chatgpt/recipe', { domain: 'recipe' }],
+      ['session /mcp', { compatibility: true }],
+    ].map(([name, options]) => [
+      name,
+      async () => {
+        const sessions = new WorkflowSessions({ store: new JobStore() });
+        const open = async () => linked(await buildWorkflowServer({ ...options, sessions }));
+        let conn = await open();
+        let latest = null;
+        const call = async (tool, args, history) => {
+          const res = await conn.client.callTool({ name: tool, arguments: args });
+          assert(!res.isError, JSON.stringify(res));
+          const r = JSON.parse(res.content[0].text);
+          assert(res.structuredContent?.session_id, JSON.stringify(res.structuredContent));
+          latest = res.structuredContent.session_id;
+          return traced({ ...r, next: latest }, history);
+        };
+        // The workspace a session holds, read and written in its store.
+        const held = (id) => sessions.store.get(id).response.body.session.workspace;
+        const forgetIn = (id) => {
+          const record = sessions.store.records.get(id);
+          const response = record.response;
+          response.body.session.workspace = withoutRecord(response.body.session.workspace);
+          sessions.store.records.set(id, { ...record, response });
+        };
+        const start = (traditions) =>
+          call('start_recipe', { traditions }, { traditions, steps: [] });
+        // The session holding `prev`'s workspace, as the latest one.
+        const current = async (prev) => {
+          if (prev.next === latest) return prev.next;
+          let at = await start(prev.history.traditions);
+          for (const step of prev.history.steps)
+            if (step === FORGET) forgetIn(at.next);
+            else at = await call('edit_recipe', { session_id: at.next, edits: step }, at.history);
+          return at.next;
+        };
+        return {
+          start,
+          edit: async (prev, edits) =>
+            call('edit_recipe', { session_id: await current(prev), edits }, stepped(prev, edits)),
+          render: async (prev, extra = {}) =>
+            call('render_recipe', { session_id: await current(prev), ...extra }, prev.history),
+          forget: async (prev) => {
+            const id = await current(prev);
+            forgetIn(id);
+            return { ...prev, next: id, history: stepped(prev, FORGET) };
+          },
+          recorded: async (prev, card) =>
+            held(await current(prev)).cards.find((c) => c.id === card)?.[RECORD],
+          reopen: async () => {
+            await conn.close();
+            conn = await open();
+          },
+          close: () => conn.close(),
+        };
+      },
+    ])
+  ),
+};
+
+async function onEverySurface(scenario) {
+  for (const [name, open] of Object.entries(SURFACES)) {
+    const surface = await open();
+    try {
+      await scenario(surface, name);
+    } finally {
+      await surface.close();
+    }
+  }
+}
+
+// The warning a response gives for `card`: with `edit` on the call that wrote
+// the setting, and without it (the key absent, not null) on every other one.
+function expectUnrendered(r, card, env, { edit, where } = {}) {
+  const ws = unrendered(r).filter((w) => w.card === card.card);
+  assert.equal(
+    ws.length,
+    1,
+    `${where}: one ${NOT_RENDERED} for ${card.card}: ${JSON.stringify(r.render_warnings)}`
+  );
+  const X = card.instrument;
+  const want = {
+    card: card.card,
+    instrument: X,
+    code: NOT_RENDERED,
+    ...(edit === undefined ? {} : { edit }),
+    environment_card: env.card,
+    environment_instrument: env.instrument,
+    meaning: `Saved on ${X}, but the recipe takes its room, tuning and chain from ${env.instrument}, so this setting does not set the rendered environment. While ${X}'s preface is auto-derived, it can still shape ${X}'s preface word. Repeat the edit without \`card\` to change the rendered environment.`,
+  };
+  assert.deepEqual(ws[0], want, where);
+  assert.deepEqual(Object.keys(ws[0]), Object.keys(want), `${where}: key order`);
+  if (edit === undefined) assert(!('edit' in ws[0]), `${where}: no edit key`);
+  assert.equal(r.render_scope.environment_card, env.card, where);
+}
+const cardOf = (r, id) => r.cards.find((c) => c.card === id);
+const garage = async (s) => {
+  const seed = await s.start(['garage_rock']);
+  return {
+    seed,
+    env: cardOf(seed, seed.render_scope.environment_card),
+    bass: seed.cards.find((c) => c.instrument === 'electric_bass'),
+  };
+};
+
+test('the record holds what set_environment wrote, on every surface that threads the workspace', async () => {
+  await onEverySurface(async (s, name) => {
+    const { seed, env, bass } = await garage(s);
+    for (const card of seed.cards)
+      assert.equal(await s.recorded(seed, card.card), undefined, `${name}: a seed records nothing`);
+    const wrote = await s.edit(seed, [
+      { action: 'set_environment', card: bass.card, room: 'cathedral' },
+      { action: 'set_environment', card: bass.card, chain: { fx: 'fuzz_germanium' } },
+    ]);
+    assert.deepEqual(await s.recorded(wrote, bass.card), {
+      room: 'cathedral',
+      fx: ['fuzz_germanium'],
+    });
+    assert.equal(await s.recorded(wrote, env.card), undefined, `${name}: only the card written`);
+    await s.reopen();
+    const echo = await s.edit(wrote, [
+      { action: 'set_environment', card: bass.card, chain: { fx: 'tape_echo' } },
+    ]);
+    assert.deepEqual(
+      await s.recorded(echo, bass.card),
+      { room: 'cathedral', fx: ['fuzz_germanium', 'tape_echo'] },
+      `${name}: an effect joins the ones written before it, across calls`
+    );
+    const cleared = await s.edit(echo, [
+      { action: 'set_environment', card: bass.card, clear: ['fx'] },
+    ]);
+    assert.deepEqual(await s.recorded(cleared, bass.card), { room: 'cathedral' });
+    const tinted = await s.edit(cleared, [
+      { action: 'set_preface', card: bass.card, preface: 'drowning' },
+    ]);
+    assert.notEqual(cardOf(tinted, bass.card).changed?.room, 'cathedral', `${name}: fixture`);
+    assert.equal(
+      await s.recorded(tinted, bass.card),
+      undefined,
+      `${name}: a re-derived room leaves the record, and an empty record leaves the card`
+    );
+    // A card-less set_environment records on the environment card.
+    const whole = await s.edit(seed, [{ action: 'set_environment', tuning: 'just_intonation' }]);
+    assert.deepEqual(await s.recorded(whole, env.card), { tuning: 'just_intonation' });
+    // The record changes no byte of any format.
+    for (const format of FORMATS) {
+      const a = await s.render(wrote, { format });
+      const b = await s.render(await s.forget(wrote), { format });
+      assert.equal(a.recipe, b.recipe, `${name} ${format}: same recipe with and without it`);
+    }
+  });
+});
+
+test('stock environment settings on other cards never warn, on any response', async () => {
+  await onEverySurface(async (s, name) => {
+    // A blend's second tradition seeds its cards with a room of their own that
+    // the environment card does not have: stock, so nobody asked for it.
+    for (const traditions of [['garage_rock'], ['tamil_filmi'], ['garage_rock', 'delta_blues']]) {
+      const seed = await s.start(traditions);
+      const env = seed.render_scope.environment_card;
+      assert(
+        seed.cards.some((c) => c.card !== env && !c.changed),
+        `${name}: fixture has untouched non-environment cards`
+      );
+      assert.deepEqual(unrendered(seed), [], `${name} start_recipe ${traditions}`);
+      for (const format of FORMATS)
+        assert.deepEqual(unrendered(await s.render(seed, { format })), [], `${name} ${format}`);
+      const other = await s.edit(seed, [{ action: 'add_instrument', instrument: 'harmonica' }]);
+      assert.deepEqual(unrendered(other), [], `${name} unrelated edit`);
+    }
+  });
+});
+
+test('the AGENTS.md working order leaves no recurring warning, on any response', async () => {
+  // set_preface on every card, then one set_environment without `card`. The
+  // prefaces re-derive rooms on cards the environment does not render from;
+  // nobody wrote those, so nothing says they do not render (BB8 6681659990).
+  await onEverySurface(async (s, name) => {
+    for (const traditions of [
+      ['garage_rock'],
+      ['appalachian_folk'],
+      ['garage_rock', 'delta_blues'],
+    ]) {
+      const where = `${name} ${traditions}`;
+      const seed = await s.start(traditions);
+      const ordered = await s.edit(seed, [
+        ...seed.cards.map((c) => ({ action: 'set_preface', card: c.card, preface: 'drowning' })),
+        { action: 'set_environment', room: 'cathedral' },
+      ]);
+      const env = ordered.render_scope.environment_card;
+      assert(
+        ordered.cards.some((c) => c.card !== env && c.changed?.room),
+        `${where}: fixture: a preface moved the room of a card that does not render it`
+      );
+      assert.match(ordered.recipe, /cathedral/, where);
+      assert.deepEqual(
+        ordered.render_warnings.filter((w) =>
+          [NOT_RENDERED, 'ENVIRONMENT_MOVED', 'ENVIRONMENT_OVERWRITTEN'].includes(w.code)
+        ),
+        [],
+        `${where}: the edit`
+      );
+      for (const format of FORMATS)
+        assert.deepEqual(unrendered(await s.render(ordered, { format })), [], `${where} ${format}`);
+      const later = await s.edit(ordered, [{ action: 'add_instrument', instrument: 'harmonica' }]);
+      assert.deepEqual(unrendered(later), [], `${where}: a later edit`);
+      // A set_preface on its own, in a later call, on such a card.
+      const other = ordered.cards.find((c) => c.card !== env);
+      const tinted = await s.edit(ordered, [
+        { action: 'set_preface', card: other.card, preface: 'haunting' },
+      ]);
+      assert.deepEqual(unrendered(tinted), [], `${where}: a later set_preface`);
+      assert.deepEqual(unrendered(await s.render(tinted)), [], `${where}: render after it`);
+    }
+  });
+});
+
+test('a written setting warns on its edit, then on every later response without `edit`', async () => {
+  await onEverySurface(async (s, name) => {
+    const { seed, env, bass } = await garage(s);
+    const wrote = await s.edit(seed, [
+      { action: 'set_environment', card: bass.card, room: 'cathedral' },
+    ]);
+    assert.equal(wrote.recipe, seed.recipe, `${name}: fixture: the room does not render`);
+    assert.equal(cardOf(wrote, bass.card).changed?.room, 'cathedral');
+    expectUnrendered(wrote, bass, env, { edit: 0, where: `${name} causing edit` });
+    for (const format of FORMATS)
+      expectUnrendered(await s.render(wrote, { format }), bass, env, {
+        where: `${name} render_recipe ${format}`,
+      });
+    const later = await s.edit(wrote, [{ action: 'add_instrument', instrument: 'harmonica' }]);
+    expectUnrendered(later, bass, env, { where: `${name} unrelated later edit` });
+    expectUnrendered(await s.render(later), bass, env, { where: `${name} render after it` });
+  });
+});
+
+test('the warning clears when the setting is cleared, and stands when the seeded value is written', async () => {
+  await onEverySurface(async (s, name) => {
+    const { seed, env, bass } = await garage(s);
+    const stock = 'concrete_basement';
+    const write = { action: 'set_environment', card: bass.card, room: 'cathedral' };
+    const wrote = await s.edit(seed, [write]);
+    expectUnrendered(wrote, bass, env, { edit: 0, where: name });
+    const back = await s.edit(wrote, [
+      { action: 'set_environment', card: bass.card, clear: ['room'] },
+    ]);
+    assert.deepEqual(unrendered(back), [], `${name} cleared`);
+    assert.deepEqual(unrendered(await s.render(back)), [], `${name} render after`);
+    // The seeded room written back is still a value a set_environment wrote:
+    // nothing is inferred from values.
+    const again = await s.edit(wrote, [{ ...write, room: stock }]);
+    assert.equal(cardOf(again, bass.card).changed?.room, undefined, `${name}: fixture`);
+    expectUnrendered(again, bass, env, { edit: 0, where: `${name} the seeded room written` });
+    expectUnrendered(await s.render(again), bass, env, { where: `${name} render after` });
+    // In one batch: the write that stands is the one named.
+    expectUnrendered(await s.edit(seed, [write, { ...write, room: stock }]), bass, env, {
+      edit: 1,
+      where: `${name} write, then the seeded room`,
+    });
+    assert.deepEqual(
+      unrendered(
+        await s.edit(seed, [write, { action: 'set_environment', card: bass.card, clear: ['room'] }])
+      ),
+      [],
+      `${name}: write, then clear`
+    );
+  });
+});
+
+test('a set_preface that re-derives a written setting takes it out: ENVIRONMENT_OVERWRITTEN once', async () => {
+  await onEverySurface(async (s, name) => {
+    const { seed, env, bass } = await garage(s);
+    const write = { action: 'set_environment', card: bass.card, room: 'cathedral' };
+    const drowning = { action: 'set_preface', card: bass.card, preface: 'drowning' };
+    const wrote = await s.edit(seed, [write]);
+    expectUnrendered(wrote, bass, env, { edit: 0, where: name });
+    // drowning re-derives the bass's room.
+    const over = await s.edit(wrote, [drowning]);
+    const room = cardOf(over, bass.card).changed?.room;
+    assert(room && room !== 'cathedral', `${name}: fixture: the preface moved the room`);
+    assert.deepEqual(
+      overwritten(over).map((w) => [w.card, w.instrument, w.edit, w.action, w.settings]),
+      [[bass.card, 'electric_bass', 0, 'set_preface', { room: { was: 'cathedral', now: room } }]],
+      `${name}: the transition, on its edit`
+    );
+    assert.equal(
+      overwritten(over)[0].meaning,
+      `set_preface on electric_bass replaced the environment you set (room cathedral → ${room}): it re-derives room, tuning and chain toward the preface. To keep your settings, put set_environment after set_preface in the same batch.`
+    );
+    assert.deepEqual(unrendered(over), [], `${name}: the warning clears with it`);
+    const after = await s.render(over);
+    assert.deepEqual(overwritten(after), [], `${name}: said once`);
+    assert.deepEqual(unrendered(after), [], `${name}: render after`);
+    // A preface that leaves the written room as it was takes nothing out.
+    const kept = await s.edit(wrote, [{ ...drowning, preface: 'raging' }]);
+    assert.equal(cardOf(kept, bass.card).changed?.room, 'cathedral', `${name}: fixture`);
+    assert.deepEqual(overwritten(kept), [], `${name}: nothing was replaced`);
+    expectUnrendered(kept, bass, env, { where: `${name} a preface that kept the room` });
+    // In one batch: a set_preface after the write reports it; a set_environment
+    // after the set_preface is the documented order, and stands.
+    const batch = await s.edit(seed, [write, drowning]);
+    assert.deepEqual(
+      overwritten(batch).map((w) => [w.card, w.edit]),
+      [[bass.card, 1]]
+    );
+    assert.deepEqual(unrendered(batch), [], `${name}: write, then preface`);
+    const ordered = await s.edit(seed, [drowning, write]);
+    assert.deepEqual(overwritten(ordered), [], `${name}: preface, then write`);
+    expectUnrendered(ordered, bass, env, { edit: 1, where: `${name} preface, then write` });
+    const restored = await s.edit(seed, [write, drowning, write]);
+    assert.deepEqual(overwritten(restored), [], `${name}: written again after the preface`);
+    expectUnrendered(restored, bass, env, { edit: 2, where: `${name} written again` });
+  });
+});
+
+test('a workspace with no record is silent on render and warns at edit time, as before', async () => {
+  await onEverySurface(async (s, name) => {
+    const { seed, env, bass } = await garage(s);
+    const wrote = await s.edit(seed, [
+      { action: 'set_environment', card: bass.card, room: 'cathedral' },
+    ]);
+    const old = await s.forget(wrote);
+    assert.equal(await s.recorded(old, bass.card), undefined, `${name}: fixture`);
+    const shown = await s.render(old);
+    assert.equal(cardOf(shown, bass.card).changed?.room, 'cathedral', `${name}: still on the card`);
+    for (const format of FORMATS)
+      assert.deepEqual(unrendered(await s.render(old, { format })), [], `${name} ${format}`);
+    const other = await s.edit(old, [{ action: 'add_instrument', instrument: 'harmonica' }]);
+    assert.deepEqual(unrendered(other), [], `${name}: an unrelated edit`);
+    // A set_environment with that card warns on its edit, and from then on.
+    const tuned = await s.edit(old, [
+      { action: 'set_environment', card: bass.card, tuning: 'just_intonation' },
+    ]);
+    expectUnrendered(tuned, bass, env, { edit: 0, where: `${name} a new write` });
+    expectUnrendered(await s.render(tuned), bass, env, { where: `${name} render after it` });
+  });
+});
+
+test('the environment moving to the written card is ENVIRONMENT_MOVED once, and its warning goes', async () => {
+  await onEverySurface(async (s, name) => {
+    const { seed, env, bass } = await garage(s);
+    const ownRoom = await s.edit(seed, [{ action: 'set_environment', room: 'cathedral' }]);
+    assert.deepEqual(
+      ownRoom.render_warnings,
+      [],
+      `${name}: a write on the environment card renders`
+    );
+    const wrote = await s.edit(ownRoom, [
+      { action: 'set_environment', card: bass.card, room: 'tin_roofed_shack' },
+    ]);
+    expectUnrendered(wrote, bass, env, { edit: 0, where: name });
+    const front = await s.edit(wrote, [{ action: 'move_instrument', card: bass.card }]);
+    assert.equal(front.render_scope.environment_card, bass.card, `${name}: fixture`);
+    assert.match(front.recipe, /tin-roofed/, `${name}: the written room renders now`);
+    assert.equal(moved(front).length, 1, `${name}: ${JSON.stringify(front.render_warnings)}`);
+    assert.equal(moved(front)[0].card, env.card);
+    assert.equal(moved(front)[0].edit, 0);
+    assert.deepEqual(
+      unrendered(front).filter((w) => w.card === bass.card),
+      [],
+      `${name}: no state warning for the card that renders now`
+    );
+    const after = await s.render(front);
+    assert.deepEqual(moved(after), [], `${name}: the transition is said once`);
+    assert.deepEqual(
+      unrendered(after).filter((w) => w.card === bass.card),
+      [],
+      `${name}: render after the move`
+    );
+  });
+});
+
+test('a multi-select write warns while an item it added is still in the list', async () => {
+  await onEverySurface(async (s, name) => {
+    const seed = await s.start(['tamil_filmi']);
+    const env = cardOf(seed, seed.render_scope.environment_card);
+    const [veena, bansuri] = ['veena', 'bansuri'].map((i) =>
+      seed.cards.find((c) => c.instrument === i)
+    );
+    const fuzz = { action: 'set_environment', card: veena.card, chain: { fx: 'fuzz_germanium' } };
+    const added = await s.edit(seed, [fuzz]);
+    expectUnrendered(added, veena, env, { edit: 0, where: `${name} added` });
+    expectUnrendered(await s.render(added), veena, env, { where: `${name} render` });
+    // Another effect on the same card in a later call: one warning, naming it.
+    const echo = await s.edit(added, [{ ...fuzz, chain: { fx: 'tape_echo' } }]);
+    expectUnrendered(echo, veena, env, { edit: 0, where: `${name} second effect` });
+    // An item the card was seeded with, written again, is a write: the caller
+    // chose it, and the bansuri does not render it.
+    const stock = await s.edit(added, [
+      { action: 'set_environment', card: bansuri.card, chain: { fx: 'plate_reverb' } },
+    ]);
+    assert.deepEqual(
+      unrendered(stock).map((w) => [w.card, w.edit]),
+      [
+        [bansuri.card, 0],
+        [veena.card, undefined],
+      ],
+      `${name}: the reverb written on bansuri, and the fuzz from the earlier call`
+    );
+    // Cleared: the list emptied, or replaced by an item of its own.
+    const gone = await s.edit(echo, [
+      { action: 'set_environment', card: veena.card, clear: ['fx'] },
+    ]);
+    assert.deepEqual(unrendered(gone), [], `${name} cleared`);
+    assert.deepEqual(unrendered(await s.render(gone)), [], `${name} render after clearing`);
+    const replaced = await s.edit(echo, [
+      { action: 'set_environment', card: veena.card, clear: ['fx'], chain: { fx: 'plate_reverb' } },
+    ]);
+    expectUnrendered(replaced, veena, env, { edit: 0, where: `${name} replaced` });
+    // Retained against removed in one batch.
+    assert.deepEqual(
+      unrendered(
+        await s.edit(seed, [fuzz, { action: 'set_environment', card: veena.card, clear: ['fx'] }])
+      ),
+      [],
+      `${name}: write then clear`
+    );
+    expectUnrendered(
+      await s.edit(seed, [{ action: 'set_environment', card: veena.card, clear: ['fx'] }, fuzz]),
+      veena,
+      env,
+      { edit: 1, where: `${name} clear then write` }
+    );
+    expectUnrendered(
+      await s.edit(seed, [
+        fuzz,
+        { action: 'set_environment', card: veena.card, clear: ['fx'] },
+        fuzz,
+      ]),
+      veena,
+      env,
+      { edit: 2, where: `${name} write, clear, write: the write that stands` }
+    );
+  });
+});
+
+test('an effects list replaced or reordered warns while an item written into it is there', async () => {
+  // `clear` then add is the documented way to replace a list. Every item it adds
+  // is a value the caller wrote, even one the card was seeded with, and even when
+  // the list comes back exactly as seeded: nothing is inferred from values.
+  const cases = [
+    // [tradition, card, the seeded list, the list written]
+    ['city_pop', 'card_7', ['chorus_pedal', 'fx_lexicon_224'], ['fx_lexicon_224', 'chorus_pedal']],
+    ['honky_tonk', 'card_2', ['spring_reverb', 'analog_delay'], ['spring_reverb']],
+  ];
+  for (const [tradition, id, stock] of cases) {
+    const seeded = startRecipe({ traditions: [tradition] });
+    const card = seeded.workspace.cards.find((c) => c.id === id);
+    assert.deepEqual(card.chain.fx, stock, `fixture: ${tradition} ${id} fx`);
+    assert.notEqual(seeded.render_scope.environment_card, id, `fixture: ${tradition} ${id}`);
+  }
+  await onEverySurface(async (s, name) => {
+    for (const [tradition, id, stock, list] of cases) {
+      const seed = await s.start([tradition]);
+      const env = cardOf(seed, seed.render_scope.environment_card);
+      const card = cardOf(seed, id);
+      // The published schema takes one effect per edit: clear with the first,
+      // then add the rest, each in its own edit.
+      const replace = ([first, ...rest]) => [
+        { action: 'set_environment', card: id, clear: ['fx'], chain: { fx: first } },
+        ...rest.map((fx) => ({ action: 'set_environment', card: id, chain: { fx } })),
+      ];
+      const wrote = await s.edit(seed, replace(list));
+      assert.deepEqual(cardOf(wrote, id).changed?.chain?.fx, list, `${name}: changed says it`);
+      expectUnrendered(wrote, card, env, { edit: 0, where: `${name} ${tradition} edit` });
+      expectUnrendered(await s.render(wrote), card, env, { where: `${name} ${tradition} render` });
+      // Put back as seeded, in the seeded order, by set_environment: written.
+      const back = await s.edit(wrote, replace(stock));
+      assert.equal(cardOf(back, id).changed, undefined, `${name}: fixture: the seeded list`);
+      expectUnrendered(back, card, env, { edit: 0, where: `${name} ${tradition} written back` });
+      // Emptied: nothing written stands.
+      const empty = await s.edit(wrote, [{ action: 'set_environment', card: id, clear: ['fx'] }]);
+      assert.deepEqual(unrendered(empty), [], `${name} ${tradition} cleared`);
+      assert.deepEqual(unrendered(await s.render(empty)), [], `${name} ${tradition} render after`);
+    }
+  });
+});
+
+test('the causing edit and the standing state are one warning, not two', async () => {
+  await onEverySurface(async (s, name) => {
+    const { seed, env, bass } = await garage(s);
+    const room = { action: 'set_environment', card: bass.card, room: 'cathedral' };
+    const tuning = { action: 'set_environment', card: bass.card, tuning: 'just_intonation' };
+    const wrote = await s.edit(seed, [room]);
+    // The room stands from the earlier call; this call writes the tuning.
+    expectUnrendered(await s.edit(wrote, [tuning]), bass, env, {
+      edit: 0,
+      where: `${name} second field in a later call`,
+    });
+    // One warning per card and set of fields still standing: two edits in one
+    // call that each leave a different field standing are each named, as the
+    // edit response always named them; two effects added to one list leave the
+    // same field, and are said once, by the first.
+    const two = await s.edit(seed, [room, tuning]);
+    assert.deepEqual(
+      unrendered(two).map((w) => [w.card, w.edit]),
+      [
+        [bass.card, 0],
+        [bass.card, 1],
+      ],
+      `${name} two fields, one batch`
+    );
+    const effects = await s.edit(seed, [
+      { action: 'set_environment', card: bass.card, chain: { fx: 'plate_reverb' } },
+      { action: 'set_environment', card: bass.card, chain: { fx: 'fuzz_germanium' } },
+    ]);
+    expectUnrendered(effects, bass, env, { edit: 0, where: `${name} two effects, one list` });
+    // Once the call is over the card's settings are one standing state: one
+    // warning, no `edit`.
+    expectUnrendered(await s.render(two), bass, env, { where: `${name} render after` });
+    expectUnrendered(
+      await s.edit(seed, [
+        { action: 'add_instrument', instrument: 'harmonica' },
+        room,
+        { ...room, room: 'tin_roofed_shack' },
+      ]),
+      bass,
+      env,
+      { edit: 2, where: `${name} the write that stands names it` }
+    );
+  });
+});
+
+test('the warning recurs after the state is carried on: a new server, or another environment card', async () => {
+  await onEverySurface(async (s, name) => {
+    const { seed, env, bass } = await garage(s);
+    const wrote = await s.edit(seed, [
+      { action: 'set_environment', card: bass.card, room: 'cathedral' },
+    ]);
+    await s.reopen();
+    expectUnrendered(await s.render(wrote), bass, env, { where: `${name} after reopening` });
+    // The environment card is removed and the environment passes to the next
+    // card that has one, which is not the written card: the warning names it.
+    const removed = await s.edit(wrote, [{ action: 'remove_instrument', card: env.card }]);
+    const next = cardOf(removed, removed.render_scope.environment_card);
+    assert.notEqual(next.card, bass.card, `${name}: fixture`);
+    assert.deepEqual(moved(removed), [], `${name}: a stock environment changing hands`);
+    expectUnrendered(removed, bass, next, { where: `${name} environment passed on` });
+    expectUnrendered(await s.render(removed), bass, next, { where: `${name} render after` });
+    // The written card removed: the warning leaves with it.
+    const without = await s.edit(wrote, [{ action: 'remove_instrument', card: bass.card }]);
+    assert.deepEqual(unrendered(without), [], `${name}: the card is gone`);
+  });
+});
+
+test('a value written on the environment card warns once another card takes the environment', async () => {
+  await onEverySurface(async (s, name) => {
+    const { seed, env: first } = await garage(s);
+    const guitar = seed.cards.find((c) => c.instrument === 'electric_guitar_single_coil');
+    const write = { action: 'set_environment', room: 'cathedral' };
+    const move = { action: 'move_instrument', card: guitar.card };
+    const wrote = await s.edit(seed, [write]);
+    assert.deepEqual(unrendered(wrote), [], `${name}: it renders while its card leads`);
+    const front = await s.edit(wrote, [move]);
+    assert.equal(front.render_scope.environment_card, guitar.card, `${name}: fixture`);
+    assert.doesNotMatch(front.recipe, /cathedral/);
+    assert.deepEqual(
+      moved(front).map((w) => [w.card, w.edit]),
+      [[first.card, 0]],
+      `${name}: the transition, on its edit`
+    );
+    expectUnrendered(front, first, guitar, { where: `${name} re-attributed` });
+    const later = await s.render(front);
+    assert.deepEqual(moved(later), [], `${name}: MOVED stays on its edit`);
+    expectUnrendered(later, first, guitar, { where: `${name} render after` });
+    // set_environment without a card now lands on the new environment card and
+    // leaves the old card's room where it is.
+    const there = await s.edit(front, [{ action: 'set_environment', tuning: 'just_intonation' }]);
+    expectUnrendered(there, first, guitar, { where: `${name} later environment edit` });
+    // The same two steps in one batch name the write, as they always have.
+    const batch = await s.edit(seed, [write, move]);
+    assert.deepEqual(
+      moved(batch).map((w) => [w.card, w.edit]),
+      [[first.card, 1]]
+    );
+    expectUnrendered(batch, first, guitar, { edit: 0, where: `${name} one batch` });
+    // Moved back: it renders again, and nothing is said about it.
+    const home = await s.edit(front, [{ action: 'move_instrument', card: first.card }]);
+    assert.match(home.recipe, /cathedral/, `${name}: back`);
+    assert.deepEqual(unrendered(home), [], `${name}: back on the environment card`);
+  });
 });

@@ -531,8 +531,9 @@ await check('an environment edit that does not reach the output is not confirmed
   const nr = other.render_warnings.find((x) => x.code === 'ENVIRONMENT_NOT_RENDERED');
   assert.ok(nr, 'changed reported a room the recipe does not contain, with no warning');
   assert.equal(nr.environment_card, s.render_scope.environment_card);
-  // Both cards named by instrument, as edits address them; "not used in the
-  // current rendered recipe", since moving cards can change what renders.
+  // Both cards named by instrument, as edits address them. It says the setting
+  // does not set the rendered environment, and that it can still shape the
+  // card's own preface word while that is auto-derived (#671, BB8 6681659990).
   assert.equal(nr.instrument, s.cards.at(-1).instrument);
   assert.equal(nr.environment_instrument, s.render_scope.environment_instrument);
   assert.equal(
@@ -542,7 +543,7 @@ await check('an environment edit that does not reach the output is not confirmed
   assert.match(
     nr.meaning,
     new RegExp(
-      `^Saved on ${s.cards.at(-1).instrument}\\b.*from ${nr.environment_instrument}\\b.*not used in the current rendered recipe`
+      `^Saved on ${s.cards.at(-1).instrument}\\b.*from ${nr.environment_instrument}\\b.*does not set the rendered environment\\. While ${s.cards.at(-1).instrument}'s preface is auto-derived, it can still shape`
     )
   );
   assert.doesNotMatch(nr.meaning, /no effect/);

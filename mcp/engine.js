@@ -202,6 +202,79 @@ function explicitEnv(card) {
   return ENV_FIELDS.filter((f) => !sameValue(envValue(card, f), envValue(base, f)));
 }
 
+// The environment fields a set_environment wrote on this card and the card still
+// holds: the card's `envWritten` record, read with the retained rule (W.envRecord
+// and W.envRecordHolds in scripts/_workspace_ops.js). This, not a comparison with
+// the seed, is what "settings someone wrote" means for ENVIRONMENT_NOT_RENDERED
+// (#671, BB8 6681659990). A tradition's stock settings
+// and a room a set_preface re-derived are not in the record, and a workspace that
+// has none (saved before the record existed) has nothing written: nothing is
+// inferred from values.
+function writtenEnv(card) {
+  const record = W.envRecord(card);
+  return ENV_FIELDS.filter((f) => f in record && W.envRecordHolds(card, f, record[f]));
+}
+
+// ENVIRONMENT_NOT_RENDERED: a card other than the environment card holding
+// settings a set_environment wrote there (writtenEnv). It describes the
+// workspace, so every response that renders one says it, worked out afresh from
+// the cards: start_recipe, edit_recipe and render_recipe alike, in every format,
+// whichever call wrote the setting. It clears when the field is cleared or a
+// set_preface re-derives it (either takes it out of the record), when the card
+// no longer holds the value written, or when the card becomes the environment
+// card.
+//
+// `owners` is editRecipe's account, per card id, of which of this call's edits
+// wrote each recorded field. A card one of them wrote names it in `edit`, as the
+// edit response always has; a card whose settings all came from an earlier call
+// gets one warning with no `edit` key at all.
+//
+// One warning per card and set of fields: two edits that each leave a different
+// field standing are two entries, as they always were; two that leave the same
+// fields (two effects added to one list) are one, named by the first; and a
+// setting an earlier call wrote, on a card this call also wrote, is part of that
+// card's entries rather than an entry of its own.
+function unrenderedEnvWarnings(ws, environment, owners = new Map()) {
+  if (!environment) return [];
+  const out = [];
+  for (const card of ws.cards) {
+    if (card.id === environment.id) continue;
+    const standing = writtenEnv(card);
+    if (!standing.length) continue;
+    const own = owners.get(card.id) || {};
+    const fieldsOf = new Map();
+    for (const f of standing)
+      for (const edit of own[f] || []) fieldsOf.set(edit, [...(fieldsOf.get(edit) || []), f]);
+    const said = new Set();
+    const causes = [];
+    for (const edit of [...fieldsOf.keys()].sort((x, y) => x - y)) {
+      const fields = fieldsOf.get(edit).join(' ');
+      if (said.has(fields)) continue;
+      said.add(fields);
+      causes.push(edit);
+    }
+    const X = cardLabel(ws.cards, card);
+    for (const edit of causes.length ? causes : [undefined])
+      out.push({
+        card: card.id,
+        instrument: card.instrumentId,
+        code: 'ENVIRONMENT_NOT_RENDERED',
+        ...(edit === undefined ? {} : { edit }),
+        environment_card: environment.id,
+        environment_instrument: environment.instrumentId,
+        // BB8's draft (6681659990), pending Jony's wording. It says the two
+        // things that are true of such a setting: it does not set the rendered
+        // environment, and on a card whose preface is auto-derived it can still
+        // move that card's preface word.
+        meaning: `Saved on ${X}, but the recipe takes its room, tuning and chain from ${cardLabel(ws.cards, environment)}, so this setting does not set the rendered environment. While ${X}'s preface is auto-derived, it can still shape ${X}'s preface word. Repeat the edit without \`card\` to change the rendered environment.`,
+      });
+  }
+  // Settings this call wrote first, in edit order, as an edit response has always
+  // listed them; settings an earlier call wrote follow in card order.
+  const at = (w) => (w.edit === undefined ? Infinity : w.edit);
+  return out.sort((x, y) => at(x) - at(y));
+}
+
 // The card's whole environment as a caller would name it. Empty stages are left
 // out so a response does not spell eight nulls to say "a room and a mic".
 function envSettings(card) {
@@ -470,8 +543,10 @@ function cardsSummary(ws) {
 
 // The standard recipe response: the deliverable string + the state to thread on.
 // `meta.warnings` carries what only the edit sequence can know (an environment
-// that moved or was overwritten mid-batch); everything else here is a pure
-// function of the workspace and the render.
+// that moved or was overwritten mid-batch), and `meta.owners` which of this
+// call's edits wrote which recorded environment field, so a warning about the
+// state they left can name its edit; everything else here is a pure function of
+// the workspace and the render.
 function shape(ws, params = {}, meta = {}) {
   const format = params.format || 'rich';
   // RECIPE_CHAR_CEILING is the canonical Current-Recipe cap; clamp defensively
@@ -586,6 +661,7 @@ function shape(ws, params = {}, meta = {}) {
       });
   }
   for (const w of meta.warnings || []) out.render_warnings.push(w);
+  out.render_warnings.push(...unrenderedEnvWarnings(ws, environment, meta.owners));
   // Seed responses carry the edit affordance INSIDE the payload — it lands at
   // the exact moment a model decides whether to stop at the default or push it
   // toward the user's words. Deterministic (live catalog counts only).
@@ -775,7 +851,9 @@ function applyEdit(ws, e) {
 //
 // "Put there by an edit" means differing from the card's seeded baseline — the
 // same test `changed` uses — so a seeded environment changing hands is not
-// reported: that is what move_instrument is for.
+// reported: that is what move_instrument is for. On a card other than the
+// environment card, a set_preface reports what it replaced of that card's
+// `envWritten` record (ownEnvOverwritten).
 //
 // One more way in: a set_environment that clears EVERY setting on the
 // environment card leaves it with none, so the renderer moves on to the next
@@ -823,15 +901,17 @@ function environmentTransition(before, after, i, e, target) {
         },
       ];
   }
-  const explicit = explicitEnv(a);
-  if (!explicit.length) return [];
-  const lost = {};
-  for (const f of explicit) {
-    const now = b ? envValue(b, f) : null;
-    if (!sameValue(envValue(a, f), now)) lost[f] = { was: envValue(a, f), now };
-  }
-  if (!Object.keys(lost).length) return [];
-  if (!b || b.id !== a.id)
+  const lostOf = (fields) => {
+    const lost = {};
+    for (const f of fields) {
+      const now = b ? envValue(b, f) : null;
+      if (!sameValue(envValue(a, f), now)) lost[f] = { was: envValue(a, f), now };
+    }
+    return lost;
+  };
+  if (!b || b.id !== a.id) {
+    const lost = lostOf(explicitEnv(a));
+    if (!Object.keys(lost).length) return [];
     return [
       {
         card: a.id,
@@ -847,7 +927,10 @@ function environmentTransition(before, after, i, e, target) {
           : `The environment set on ${A} is not used in the current rendered recipe: no card carries an environment now. Set one with set_environment.`,
       },
     ];
+  }
   if (e.action === 'set_environment') return [];
+  const lost = lostOf(explicitEnv(a));
+  if (!Object.keys(lost).length) return [];
   return [
     {
       card: a.id,
@@ -856,7 +939,42 @@ function environmentTransition(before, after, i, e, target) {
       edit: i,
       action: e.action,
       settings: lost,
-      meaning: `${e.action} on ${A} replaced the environment you set (${envChanges(lost)}): it re-derives room, tuning and chain toward the preface. To keep your settings, put set_environment after ${e.action} in the same batch.`,
+      meaning: overwrittenMeaning(e.action, A, lost),
+    },
+  ];
+}
+
+const overwrittenMeaning = (action, label, lost) =>
+  `${action} on ${label} replaced the environment you set (${envChanges(lost)}): it re-derives room, tuning and chain toward the preface. To keep your settings, put set_environment after ${action} in the same batch.`;
+
+// ENVIRONMENT_OVERWRITTEN on a card other than the environment card: a
+// set_preface there re-derived settings a set_environment had written on it
+// (writtenEnv), which takes them out of its record (W.setPreface). They did not
+// render, but they were the caller's, and this edit replaced them; the
+// ENVIRONMENT_NOT_RENDERED they had clears on the same response. Said on the
+// edit that does it, like every transition. The environment card's own case is
+// environmentTransition's.
+function ownEnvOverwritten(before, after, i, e) {
+  if (!e || e.action !== 'set_preface') return [];
+  const was = W.findCard(before, e.card);
+  const env = envCardOf(before.cards);
+  if (!was || (env && env.id === was.id)) return [];
+  const card = after.cards.find((c) => c.id === was.id);
+  if (!card) return [];
+  const lost = {};
+  for (const f of writtenEnv(was))
+    if (!sameValue(envValue(was, f), envValue(card, f)))
+      lost[f] = { was: envValue(was, f), now: envValue(card, f) };
+  if (!Object.keys(lost).length) return [];
+  return [
+    {
+      card: card.id,
+      instrument: card.instrumentId,
+      code: 'ENVIRONMENT_OVERWRITTEN',
+      edit: i,
+      action: e.action,
+      settings: lost,
+      meaning: overwrittenMeaning(e.action, cardLabel(after.cards, card), lost),
     },
   ];
 }
@@ -874,6 +992,16 @@ export function editRecipe(params = {}) {
   }
   const warnings = [];
   const envTargets = [];
+  // Which of this call's edits wrote each recorded environment field, per card
+  // id. A set_environment owns what it wrote: a single value replaces the earlier
+  // writer, an effect joins the earlier ones (it is added beside them), and
+  // `clear` or null ends them. A field that leaves a card's record (a set_preface
+  // re-derived it, or the card is gone) ends its writers. shape() names the
+  // writers in ENVIRONMENT_NOT_RENDERED's `edit`.
+  const owners = new Map();
+  // OVERWRITTEN warnings about a card's own record rather than the rendered
+  // environment (ownEnvOverwritten); they are restated against their own card.
+  const ownCard = new Set();
   for (let i = 0; i < edits.length; i++) {
     const before = ws;
     const e = edits[i];
@@ -903,7 +1031,28 @@ export function editRecipe(params = {}) {
       );
       if (target) envTargets.push({ edit: i, card: target, fields, settings });
     }
+    for (const [id, own] of owners) {
+      const card = ws.cards.find((c) => c.id === id);
+      const record = card ? W.envRecord(card) : {};
+      for (const f of Object.keys(own)) if (!(f in record)) delete own[f];
+    }
+    if (target && e.action === 'set_environment') {
+      const p = envPatch(e);
+      const own = owners.get(target) || {};
+      for (const f of p.clear) own[f] = [];
+      for (const [f, value] of Object.entries({ room: p.room, tuning: p.tuning, ...p.chain })) {
+        if (value === undefined) continue;
+        if (value === null) own[f] = [];
+        else if (CHAIN_MULTI_STAGE_IDS.includes(f)) own[f] = [...(own[f] || []), i];
+        else own[f] = [i];
+      }
+      owners.set(target, own);
+    }
     warnings.push(...environmentTransition(before, ws, i, e, target));
+    for (const w of ownEnvOverwritten(before, ws, i, e)) {
+      ownCard.add(w);
+      warnings.push(w);
+    }
   }
   // A batch may pass through an empty roster (remove the only tradition, then add
   // its replacement); it may not END there. An empty workspace renders "" and
@@ -914,8 +1063,9 @@ export function editRecipe(params = {}) {
         '(add_tradition or add_instrument) in the same batch, or call start_recipe to begin again.'
     );
   // An explicit `card` that is not the environment card stores a room/tuning/
-  // chain no format renders. Said per edit, because only this call knows the
-  // write was an environment request rather than a preface cascade.
+  // chain no format renders. That is ENVIRONMENT_NOT_RENDERED, which shape()
+  // works out from the workspace on every response (unrenderedEnvWarnings);
+  // `owners` only lets it name the edit in this call that wrote the setting.
   const env = envCardOf(ws.cards);
   // The warnings describe the recipe returned, not a step on the way there. A
   // later edit in the same batch can undo what an earlier one reported:
@@ -928,6 +1078,26 @@ export function editRecipe(params = {}) {
   for (let k = warnings.length - 1; k >= 0; k--) {
     const w = warnings[k];
     if (w.code !== 'ENVIRONMENT_MOVED' && w.code !== 'ENVIRONMENT_OVERWRITTEN') continue;
+    if (ownCard.has(w)) {
+      // What a set_preface replaced on a card's own record stands while that
+      // card still holds something else there and no later set_environment on
+      // it chose the field again (the documented order).
+      const card = ws.cards.find((c) => c.id === w.card);
+      const settings = {};
+      for (const [f, v] of Object.entries(card ? w.settings : {})) {
+        const again = envTargets.some(
+          (t) => t.edit > w.edit && t.card === w.card && t.fields.includes(f)
+        );
+        if (!again && !sameValue(v.was, envValue(card, f)))
+          settings[f] = { was: v.was, now: envValue(card, f) };
+      }
+      if (!Object.keys(settings).length) warnings.splice(k, 1);
+      else {
+        w.settings = settings;
+        w.meaning = overwrittenMeaning(w.action, cardLabel(ws.cards, card), settings);
+      }
+      continue;
+    }
     if (w.code === 'ENVIRONMENT_MOVED' && w.card === env.id) {
       warnings.splice(k, 1);
       continue;
@@ -945,29 +1115,7 @@ export function editRecipe(params = {}) {
       if (w.code === 'ENVIRONMENT_MOVED' || w.card !== env.id) w.environment_card = env.id;
     }
   }
-  for (const t of envTargets) {
-    const card = ws.cards.find((c) => c.id === t.card);
-    if (!card || t.card === env.id) continue;
-    const retained = t.settings.some(([field, value]) => {
-      const actual = envValue(card, field);
-      // Multi-select stages append: a later effect does not erase an earlier
-      // write that still occurs in the final list.
-      return Array.isArray(actual)
-        ? (Array.isArray(value) ? value : [value]).some((item) => actual.includes(item))
-        : actual === value;
-    });
-    if (!retained) continue;
-    warnings.push({
-      card: t.card,
-      instrument: card.instrumentId,
-      code: 'ENVIRONMENT_NOT_RENDERED',
-      edit: t.edit,
-      environment_card: env.id,
-      environment_instrument: env.instrumentId,
-      meaning: `Saved on ${cardLabel(ws.cards, card)}, but the recipe takes its room, tuning and chain from ${cardLabel(ws.cards, env)}, so this setting is not used in the current rendered recipe. Repeat the edit without \`card\` to change the rendered environment.`,
-    });
-  }
-  return shape(ws, params, { warnings });
+  return shape(ws, params, { warnings, owners });
 }
 
 // Re-render an existing workspace (e.g. a different format or max_chars) without
