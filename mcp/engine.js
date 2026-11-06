@@ -118,11 +118,17 @@ function normWorkspace(ws, opName) {
         typeof c.traditionId === 'string' && liveTradId(c.traditionId) !== c.traditionId;
       const recorded = c[W.ENV_RECORD] !== undefined;
       if (!retired && !recorded) return c;
-      return {
-        ...c,
-        ...(retired ? { traditionId: liveTradId(c.traditionId) } : {}),
-        ...(recorded ? { [W.ENV_RECORD]: W.copyEnvRecord(c[W.ENV_RECORD]) } : {}),
-      };
+      const out = { ...c, ...(retired ? { traditionId: liveTradId(c.traditionId) } : {}) };
+      if (recorded) {
+        // The normalised record (W.copyEnvRecord), or no key when nothing in it is
+        // an environment field holding catalog ids: never the raw value copied
+        // whole, which would let a caller-threaded workspace carry any amount of
+        // junk through every response (#671 review).
+        const record = W.copyEnvRecord(c[W.ENV_RECORD]);
+        if (record) out[W.ENV_RECORD] = record;
+        else delete out[W.ENV_RECORD];
+      }
+      return out;
     }),
   };
 }

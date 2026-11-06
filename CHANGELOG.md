@@ -32,8 +32,10 @@ what a `set_environment` wrote on it, inside the workspace, and the warnings rea
   and an effect, both written on the wrong card and left behind when another card takes
   the environment: none still warns. A workspace without the record (an older session or client) has nothing
   written, so it stays silent until a new `set_environment` writes, and that write warns on
-  its edit as before. The record keeps only catalog ids of each field, so a long list sent
-  back in it costs a render nothing. The warning stands while the card still holds the
+  its edit as before. The record holds only environment fields and the catalog ids written
+  under them (an item once): anything else sent back in it is dropped when a call reads
+  the workspace, before any op copies it, and does not come back in the returned
+  `workspace`. The warning stands while the card still holds the
   value written (for `fx`, while any item written is in the list), on a card other than the
   environment card. On the call that wrote it, `edit` names that edit, one warning per card
   and set of fields, named by the latest edit that left that set standing (two effects

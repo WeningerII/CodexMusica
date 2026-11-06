@@ -56,8 +56,10 @@ function emptyWorkspace() {
 }
 
 // Deep-ish clone so an op never mutates the caller's workspace (state-passing).
-// The envWritten record (below) is copied too, field by field, so the next
-// workspace shares no structure with the one it came from: an op, or a caller
+// The envWritten record (below) is copied too, as envRecord reads it (anything
+// else in it is dropped: copyEnvRecord), so the next workspace shares no
+// structure with the one it came from and carries no more than the record can
+// hold, whatever a caller sent back in it: an op, or a caller
 // holding either workspace, can change one card's record without reaching into
 // the other's (#671, BB8 6688635328, 2). Only `cards` is carried: a
 // workspace-level field is dropped here, so the record cannot live there.
@@ -69,7 +71,11 @@ function clone(ws) {
         parts: { ...(c.parts || {}) },
         chain: { ...(c.chain || {}), fx: [...((c.chain && c.chain.fx) || [])] },
       };
-      if (c[ENV_RECORD] !== undefined) copy[ENV_RECORD] = copyEnvRecord(c[ENV_RECORD]);
+      if (c[ENV_RECORD] !== undefined) {
+        const record = copyEnvRecord(c[ENV_RECORD]);
+        if (record) copy[ENV_RECORD] = record;
+        else delete copy[ENV_RECORD];
+      }
       return copy;
     }),
   };
@@ -379,9 +385,18 @@ const CLEARABLE = () => ['room', 'tuning', ...(C.CHAIN_SECTIONS || []).map((s) =
 // stage is settled per effect (BB8 6685465828, 1), and a single value holds only
 // while the card still stores it (envRecordHolds).
 const ENV_RECORD = 'envWritten';
-// A copy of a record as stored, sharing no array or object with it. It is the
-// raw value (envRecord reads it defensively when it is used), copied whole.
-const copyEnvRecord = (raw) => structuredClone(raw);
+// A copy of a record, sharing no array or object with it: the record as envRecord
+// reads it, or undefined when that is empty (the card then carries no key). It is
+// the normalised record, never the raw value copied whole. The raw value comes off
+// the wire in a workspace the caller threads, and every op clones its workspace, so
+// copying it whole let one request carry megabytes of junk through every op of a
+// batch and back out in the workspace (#671 review). What is dropped is what no
+// reader uses: a key that is not an environment field, a value that is not a
+// catalog id of that field, a repeated item; so no warning moves.
+function copyEnvRecord(raw) {
+  const record = envRecord({ [ENV_RECORD]: raw });
+  return Object.keys(record).length ? record : undefined;
+}
 const isMultiStage = (field) =>
   !!((C.CHAIN_SECTIONS || []).find((s) => (s.id || s.stage) === field) || {}).multiSelect;
 
