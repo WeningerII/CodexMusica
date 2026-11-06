@@ -1183,6 +1183,73 @@ const run = (code) => dom.window.eval(code);
           .sort();
       assert.deepEqual(warn(cards), warn(cleared.cards), `Not set (${clear}): the same warnings`);
     }
+    // An effect, a multi-select stage, settles item by item (BB8, #826
+    // 6698139061). The bass's record holds effects X and Y. Picking X on the
+    // environment card takes X, and only X, out of the bass's record; switching
+    // X off again there drops it from the environment card's record only.
+    {
+      const [X, Y] = ['fuzz_silicon', 'overdrive_low'];
+      const fxOf = (cards, k) => (cards[k][W.ENV_RECORD] || {}).fx || null;
+      // The effect's button on the environment card, through the panel.
+      // The stage stays open after a pick, so it is opened only when closed.
+      const toggleFx = (id) => {
+        run('uiOpenEnvironment("chain")');
+        const find = () =>
+          doc.querySelector(`#detail-view [data-set-chain="fx"][data-item="${id}"]`);
+        if (!find()) doc.querySelector('#detail-view [data-edit-chain="fx"]').click();
+        const button = find();
+        assert.ok(button, `the fx stage offers ${id}`);
+        button.click();
+      };
+      const bassIn = (ws) => of(ws.cards, 'electric_bass');
+      const withBass = (ws) =>
+        W.setEnvironment(W.setEnvironment(ws, bassIn(ws), { chain: { fx: X } }), bassIn(ws), {
+          chain: { fx: Y },
+        });
+      const fx = withBass(wrote);
+      const b = fx.cards.findIndex((c) => c.instrumentId === 'electric_bass');
+      assert.deepEqual(fxOf(fx.cards, b), [X, Y], 'fixture: the bass records X and Y');
+      assert.deepEqual(fxOf(fx.cards, 0), ['tape_echo'], 'fixture: the voice records tape_echo');
+      await load(fx.cards);
+      assert.equal(envIndex(), 0, 'fixture: the voice is the environment card');
+      assert.ok(!appCards()[0].chain.fx.includes(X), 'fixture: the voice has no X yet');
+
+      toggleFx(X);
+      assert.ok(appCards()[0].chain.fx.includes(X), 'fixture: the voice took X');
+      assert.deepEqual(fxOf(appCards(), b), [Y], 'picking X there leaves the bass only Y');
+      assert.deepEqual(fxOf(appCards(), 0), ['tape_echo', X], 'and records X on the voice');
+      assert.deepEqual(
+        records(appCards()),
+        records(W.setEnvironment(fx, null, { chain: { fx: X } }).cards),
+        'as set_environment without card records it'
+      );
+      const bassAfterPick = appCards()[b][W.ENV_RECORD];
+
+      toggleFx(X);
+      assert.ok(!appCards()[0].chain.fx.includes(X), 'fixture: the voice switched X off');
+      assert.deepEqual(fxOf(appCards(), 0), ['tape_echo'], 'switching X off drops it there');
+      assert.deepEqual(
+        appCards()[b][W.ENV_RECORD],
+        bassAfterPick,
+        'and leaves the bass record unchanged'
+      );
+
+      // Switching off settles nothing even where another card still records X:
+      // the voice holds X, the bass X and Y, and only the voice loses X.
+      const held = withBass(W.setEnvironment(wrote, null, { chain: { fx: X } }));
+      assert.deepEqual(fxOf(held.cards, 0), ['tape_echo', X], 'fixture: the voice records X');
+      assert.deepEqual(fxOf(held.cards, b), [X, Y], 'fixture: the bass records X and Y');
+      await load(held.cards);
+      assert.ok(appCards()[0].chain.fx.includes(X), 'fixture: the voice has X on');
+      const bassBefore = appCards()[b][W.ENV_RECORD];
+      toggleFx(X);
+      assert.deepEqual(fxOf(appCards(), 0), ['tape_echo'], 'switching X off drops it there');
+      assert.deepEqual(
+        appCards()[b][W.ENV_RECORD],
+        bassBefore,
+        'and leaves X in the bass record: switching off settles nothing'
+      );
+    }
     // Across the catalog, through the editors' own buttons: a pick on the
     // environment card (the panel) records and settles as set_environment
     // without `card` does, a pick in another card's editor records as
