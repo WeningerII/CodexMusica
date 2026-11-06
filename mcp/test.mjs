@@ -5395,6 +5395,7 @@ await check('validation: actionable errors', () => {
       'mcp/test_spend_store.mjs': 'shared corrupt-spend assertion and isolated fault runner',
       'mcp/test_run_ledger.mjs':
         'offline run ledger regressions (stale and moved-past continuations)',
+      'mcp/test_p2_role_admission.mjs': 'offline P2 role-admission regressions, executed by CI',
       'mcp/test_paid_budget.mjs': 'offline shared spending admission regressions',
       'mcp/test_python_bridge.mjs': 'offline worker lifecycle regressions',
       'mcp/test_reader_job_store.mjs': 'offline durable Library reader job regressions',
