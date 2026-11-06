@@ -299,6 +299,12 @@ calls; refusals produce `completed_with_refusals`. The final manifest is fsynced
 before its completed pointer. Resource exhaustion preserves the preceding
 cursor. A process interruption never automatically replays writing or paid work.
 
+The cursor is kept only in the job record, which each commit replaces; resume
+reads it there. Each generation's immutable checkpoint object links its manifest
+and page index to the previous generation and carries no cursor, so a commit's
+storage does not grow with the cursor (#656). Checkpoint objects written before
+this change still carry one; nothing reads it, and they leave with their job.
+
 Private results retain 30 days without authorized access; access refreshes their
 advertised expiry. The refresh slides in memory on every authorized read and is
 persisted at most once an hour, so a restart can shorten a result's retention by
@@ -322,11 +328,25 @@ unknown.
 Every job holds a 16 KiB reservation for its own record. The quota invariant is
 usage plus slack at most `READER_STORAGE_MAX_BYTES`, where slack sums each
 record's unused reservation, so one job's growth can never consume another's
-room and any record can always grow to 16 KiB. While usage is unknown, a write
+room and any record can always grow to 16 KiB, except while a startup pause's
+bytes stand over the quota (below). While usage is unknown, a write
 that would raise usage plus slack (a new job, a new object, or a record
 outgrowing its reservation) is refused with 503 `STORE_RECOUNTING`; a record
 transition inside its reservation still commits, a paused lease requeues as for
 `RESOURCE_LIMIT`, and deletes and reads proceed.
+
+Startup holds the writer lock throughout. It tombstones expired jobs, removes
+what an interrupted write left (unreferenced objects and temporaries), counts
+usage, and only then pauses each running job as `INTERRUPTED` (cancelled, if
+cancellation was requested). A paused record gains a reason, so a record
+already past its reservation grows by a few bytes. That pause always commits,
+whatever the quota: refused, it would fail every restart of the store. It is
+the one write exempt from the quota check, once per running job, and its bytes
+are counted exactly, so usage plus slack may then exceed the quota by those
+bytes. Every later write that grows the store is refused with `RESOURCE_LIMIT`,
+and while those bytes stand they come out of other jobs' reservations, so even
+a transition inside a job's reservation can be refused, until expiry,
+collection or a delete frees room.
 
 A verification scan runs in slices outside the lock and is accepted only if
 every measurement succeeded, no marker appeared and the generation did not move

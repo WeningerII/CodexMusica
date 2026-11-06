@@ -346,6 +346,26 @@ export class ReaderJobStore {
         this.key = fs.readFileSync(keyFile);
         if (this.key.length !== 32)
           throw problem('STORAGE_CORRUPT', 'Reader capability key is invalid.', 503);
+        // Collect first: an interrupted write can leave a temporary or an
+        // unlinked object that no quota check ever counted.
+        this._pruneExpired(Infinity);
+        this._collectAll();
+        // Startup holds the writer lock throughout, so this full scan is a
+        // quiescent one by construction: usage is known before any request,
+        // and before the pauses below, which add their exact deltas to it.
+        this.usage = this._usage();
+        this._recountWanted = false;
+        // Each pause always commits, whatever the quota. A paused record
+        // gains a reason, so one past its 16 KiB reservation grows by a few
+        // bytes, and at a full quota the ordinary check would refuse that
+        // growth. A store that cannot record its own interruption cannot
+        // start, and every request then fails until someone frees space. So
+        // this one transition per running record is never refused for quota,
+        // and nothing else is exempt; its bytes are still counted in usage and
+        // slack. Usage plus slack may then exceed the quota by those bytes,
+        // which come out of other records' reservations (see _capacity), and
+        // every later growth is refused as usual until expiry, collection or a
+        // delete frees room.
         for (const record of this.records.values()) {
           if (record.state !== 'running') continue;
           this._save(
@@ -361,15 +381,10 @@ export class ReaderJobStore {
                 message: 'Worker interrupted; explicitly resume the committed cursor.',
               },
             },
+            true,
             true
           );
         }
-        this._pruneExpired(Infinity);
-        this._collectAll();
-        // Startup holds the writer lock throughout, so this full scan is a
-        // quiescent one by construction: usage is known before any request.
-        this.usage = this._usage();
-        this._recountWanted = false;
         this._probe();
       });
       this.durable = true;
@@ -526,6 +541,10 @@ export class ReaderJobStore {
   // so any record can grow to RESERVE_BYTES whatever the others do. A record
   // growing inside its reservation moves bytes from slack to usage and leaves
   // the sum unchanged; that is the only growth allowed while usage is unknown.
+  // One exception: the startup pause's bytes (see the constructor) may put
+  // usage + slack over maxBytes. While they stand they come out of other
+  // records' reservations, so even a transition inside a reservation can be
+  // refused until expiry, collection or a delete frees room.
   _capacity(bytes, reserve = true, extraRecords = 0, slackDelta = 0) {
     const growth = bytes + slackDelta;
     if (this.usage === null) {
@@ -556,7 +575,11 @@ export class ReaderJobStore {
         507
       );
   }
-  _save(input, reserved = false) {
+  // `startupPause` is the constructor's pause of a running record, the one
+  // write exempt from the quota limit (see there). It is still counted. Only
+  // the RESOURCE_LIMIT refusal of an existing record with known usage is
+  // skipped; an unknown usage or a new record still takes the full check.
+  _save(input, reserved = false, startupPause = false) {
     const { record_digest: _old, ...body } = input;
     body.updated_at = this.now();
     const record = { ...body, record_digest: sha(canonical(body)) };
@@ -564,7 +587,8 @@ export class ReaderJobStore {
     const file = path.join(this.directory, 'records', `${record.id}.json`);
     const previous = fs.existsSync(file) ? fs.statSync(file).size : 0;
     const slackDelta = reserveGap(bytes.length) - (previous ? reserveGap(previous) : 0);
-    this._capacity(bytes.length - previous, !reserved, previous ? 0 : 1, slackDelta);
+    if (!startupPause || this.usage === null || !previous)
+      this._capacity(bytes.length - previous, !reserved, previous ? 0 : 1, slackDelta);
     this._beginWrite();
     this._inflight = true;
     atomicWrite(file, bytes, this.fault, 'record');
@@ -967,7 +991,8 @@ export class ReaderJobStore {
   _quotaPause(record, error) {
     const recounting = error.code === 'STORE_RECOUNTING' && error.status === 503;
     if (!recounting && (error.code !== 'RESOURCE_LIMIT' || error.status !== 507)) throw error;
-    // The cursor is unchanged. Reserved metadata space makes this pause durable.
+    // The cursor is unchanged. Reserved metadata space makes this pause durable,
+    // except while a startup pause's overage stands (see _capacity).
     // A recount pause returns to the queue by itself once a slot opens.
     return this._save(
       {
@@ -1072,13 +1097,17 @@ export class ReaderJobStore {
           coverage,
           progress,
         });
+        // A checkpoint object is history: it links this generation's manifest
+        // and page index to the one before, and carries no cursor. The record
+        // is the head and holds the one cursor resume reads (#656: a cursor
+        // copy in every generation filled the quota). Checkpoints written
+        // before this change still carry one; nothing reads it.
         const checkpoint = this._blob('checkpoints', {
           version: 1,
           job_id: id,
           identity_hash: record.identity_hash,
           previous_hash: record.checkpoint_hash,
           generation,
-          cursor: input.cursor,
           progress,
           coverage,
           page_index_hash: root,
@@ -1210,13 +1239,13 @@ export class ReaderJobStore {
           evidence_count: record.evidence_count,
           coverage,
         });
+        // No cursor here either: the record keeps it (see commitCheckpoint).
         const checkpoint = this._blob('checkpoints', {
           version: 1,
           job_id: id,
           identity_hash: record.identity_hash,
           previous_hash: record.checkpoint_hash,
           generation,
-          cursor: record.cursor,
           progress: record.progress,
           coverage,
           page_index_hash: record.page_index_hash,
