@@ -40,7 +40,7 @@ The Library becomes a native tab on codexmusica.com, as much a part of the site 
 - Colour: `--cm-route-library: var(--cm-green)` in src/theme.css:168-173 (defined in both themes; this is the Library's own #1e8e3e), plus a nav svg rule beside src/workbench.css:1245-1256.
 - At cutover:
   - delete `uiLibraryLink` (workbench.js:114-119) and its call (751);
-    - Status (#659): the cutover kept it for `CODEX_LIBRARY=0` builds only, still pointing at the old Site. It was deleted with the receiver below in the website-only follow-up to #811, along with `CMLibraryImport` in workbench.js's `/* global */`. No build links to another website now.
+    - Status (#659): the cutover kept it for `CODEX_LIBRARY=0` builds only, still pointing at the old Site. It was deleted with the receiver below in the website-only follow-up to #811, along with its `.ui-nav-link` styles in workbench.css and `CMLibraryImport` in workbench.js's `/* global */`. No build links to another website now.
   - retarget the narrow-header rules (workbench.css:1300-1315, plus the `.ui-nav-link` selectors at 85,104,109,537,583,589,963,1215) to `button.cm-tab[data-view=library]`: icon-only at <=440px and 900-1099px, label kept in aria-label and title, target >=44px;
   - scripts/build_html.js:229 `PAGES += 'library'`.
 - Before cutover the entry exists only in two cases:
