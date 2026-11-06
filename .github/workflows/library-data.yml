@@ -45,9 +45,8 @@ on:
       - 'lyric-harness/data/qieyun_mc.tsv'
       - 'lyric-harness/data/qieyun_variants.tsv'
       - 'library/data/**'
+      # Card art renditions, their originals (art-src) and the artwork table.
       - 'assets/library/**'
-      - 'sites/library/lib/artwork.json'
-      - 'sites/library/public/art/**'
       - 'scripts/build_library_data.py'
       - 'scripts/check_library_data.py'
       - 'scripts/build_library_art.js'

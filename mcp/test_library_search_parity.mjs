@@ -1,12 +1,13 @@
 // Replays the approved Worker's goldens (tests/library/goldens/317c, captured
-// by sites/library/scripts/capture-library-goldens.cjs) against the native
-// search store and requires every response to be byte-identical: 363
-// searches and 20 metadata reads, status and JSON body alike.
+// by the old Library Site's capture-library-goldens.cjs; the Site was removed
+// from the repo on 2026-11-05, #659, and the script is at 92c9b318) against
+// the native search store and requires every response to be byte-identical:
+// 363 searches and 20 metadata reads, status and JSON body alike.
 //
 //   node mcp/test_library_search_parity.mjs STORE_DIR [GOLDENS_DIR]
 //
 // The store is built from the same pinned 317c export the goldens job
-// rebuilds (library-site.yml). Search pages are replayed at the Worker's own
+// rebuilds (library-parity.yml). Search pages are replayed at the Worker's own
 // cap of 250; /library/v1 caps them at 100, which is the only intended change.
 import fs from 'node:fs';
 import path from 'node:path';

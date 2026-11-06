@@ -133,7 +133,8 @@ The current rule this sentence states is in `docs/lyrics-reader-migration-dev.md
 
 The current list is "Known limitations (pre-existing items)" in
 `mcp/LYRICS_RUNTIME.md`. The `sites/library` item below is not restated there:
-it has not been verified on current main.
+it has not been verified on current main. (`sites/library` was removed from
+the repo on 2026-11-05, #659.)
 
 > - **Pre-existing, not caused by this batch and not fixed in it** (BB8 #519
 >   6161601064, 3PO 6161637870). They are listed so they are not read as
@@ -146,8 +147,9 @@ it has not been verified on current main.
 >     aside that repeats the end word (`my love (my love)` edits the aside).
 >     The v1 replay keeps that wrong edit byte-identical, because v1 is the
 >     pre-batch body verbatim (`lyric-harness/quality/loop.py` `swap_at_slot` docstring).
->   - The standalone Library Site (`sites/library`) posts device pronunciation
->     choices to the server without this release's migration.
+>   - The standalone Library Site (`sites/library` [removed from the repo on
+>     2026-11-05, #659]) posts device pronunciation choices to the server
+>     without this release's migration.
 >   - The reviser can accept a candidate that deletes a word. On the empty-walk
 >     path the stock tier-2 proposer's `GroupBrief` carries an empty pivot
 >     (`pivot_word=''`), `default_propose_group` splices that empty string in,

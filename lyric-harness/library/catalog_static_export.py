@@ -62,7 +62,7 @@ WORKS_ROWS = 100
 SHELF_CARDS = 12
 SNIPPET_CODEPOINTS = 180
 READING_ID = re.compile(r"^reading_([0-9a-f]{8})-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
-ARTWORK = Path(__file__).resolve().parents[2] / "sites/library/lib/artwork.json"
+ARTWORK = Path(__file__).resolve().parents[2] / "assets/library/artwork.json"
 
 
 def u16(text: str) -> int:
@@ -130,7 +130,7 @@ def compose_source_basis(canonical_reading_sha256, rights):
 
 
 def art_id(collection, artwork):
-    """The old Site's art() rule (sites/library/components/library/library-app.tsx)."""
+    """The old Library Site's art() rule (library-app.tsx; Site removed 2026-11-05, #659)."""
     name = (collection["title"] + " " + collection["source_path"]).lower().replace("_", " ")
     for item in artwork:
         if item["id"] == "li-qingzhao":
