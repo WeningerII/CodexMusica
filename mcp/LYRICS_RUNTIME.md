@@ -123,14 +123,17 @@ relation types the pair stands in (for example `perfect rhyme+semirhyme`).
 Two labels stand in for an empty list, and they say different things:
 
 - `NO_RELATION`: the pair stands in no relation type at all.
-- `NO_ATTESTED_RELATION`: the pair stands only in types this system doesn't
-  use. Those are the registry rows whose `normative` field is `forbidden` or
+- `NO_ATTESTED_RELATION`: every relation type the pair stands in is one this
+  system disowns, a registry row whose `normative` field is `forbidden` or
   `deprecated` (`DISOWNED_NORMATIVE` in `lyric-harness/quality/relations.py`).
+  The pair does stand in something; the report doesn't name it.
 
-Disowned types are left out of every printed relation list, not only empty
-ones, and out of the published evidence census, where they are listed under
-`not_requested_schemas`. They are still judged and measured internally, and no
-verdict, finding or exit code changes because a type is left out.
+Disowned types are left out of every relation label a grade report prints, not
+only empty ones. A report's JSON `relations` fields still list them. In the
+published evidence census they are not requested at all: they are listed under
+`not_requested_schemas`. Elsewhere, including pair relations, capacity and the
+offline audits, they are still judged. Leaving them out changes no verdict,
+finding or exit code.
 
 ## Capacity and identity
 
