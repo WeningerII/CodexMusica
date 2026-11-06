@@ -144,10 +144,12 @@
 //      visible note is outside any live region, says exactly the sentence
 //      the shell said, and is cleared when the next attempt starts or
 //      succeeds, and a rejection with no message shows no note (D7, #810
-//      6682330118); a role is read as its first recognised token, with
-//      roles that make no live region as controls the check must pass and
-//      planted defects in its own classifier (CLASSIFIER_MUTANTS, #810
-//      6690036650). Each check has a planted defect of its own
+//      6682330118); a role is read as its first recognised token, split
+//      and case-folded as Chromium does and passing over a region or form
+//      with no name, with roles that make no live region as controls the
+//      check must pass and planted defects in its own classifier
+//      (CLASSIFIER_MUTANTS, #810 6690036650 and Don's review of 4a43e7223).
+//      Each check has a planted defect of its own
 //      (STORE_MUTANTS, LOAD_MUTANTS, DATA_MUTANTS, APP_MUTANTS,
 //      CATALOG_MUTANTS), served in place of the file in that check's own
 //      page, and that defect must fail the check (a catalog.js defect, on
@@ -8221,10 +8223,21 @@ const STORE_CHECKS = {
         return { host, end: () => (ac.abort(), host.remove()) };
       };
       // What makes a node part of a live region, from it up. Its role is
-      // the first token of the role attribute, split on ASCII whitespace,
-      // that is a WAI-ARIA 1.2 role (an abstract role is none): so
-      // role="status region" and role="unknown status" are both a status,
-      // and role="none status" is none (3PO, #810 6690036650).
+      // the first token of the role attribute that is a WAI-ARIA 1.2 role
+      // (an abstract role is none): so role="status region" and
+      // role="unknown status" are both a status, and role="none status" is
+      // none (3PO, #810 6690036650). The attribute is read as Chromium reads
+      // it, probed over CDP (Don, #810 review of 4a43e7223): split on ASCII
+      // whitespace (\v too) and on U+1680, U+2000–U+200A, U+2028, U+205F and
+      // U+3000, but not on NBSP, U+0085, U+2029, U+202F or a zero-width
+      // space, so that "none\u00a0x status" is a status, not none; A–Z, the
+      // long s and the Kelvin sign fold to lowercase ASCII; and a region
+      // or form with no name is passed over for the next token, so
+      // role="region status" on an unnamed node is a status. A node is named
+      // here by an aria-label or title that isn't blank, or an
+      // aria-labelledby naming a node that exists. The 1.2 list is narrower
+      // than Chromium's (doc-*, graphics-*, image, mark, comment...): a role
+      // only Chromium knows, ahead of a live one, is read as the live one.
       const ROLES = new Set(
         (
           'alert alertdialog application article banner blockquote button caption cell ' +
@@ -8238,10 +8251,19 @@ const STORE_CHECKS = {
           'tablist tabpanel term textbox time timer toolbar tooltip tree treegrid treeitem'
         ).split(' ')
       );
+      const named = (x) =>
+        /\S/.test(x.getAttribute('aria-label') || '') ||
+        /\S/.test(x.getAttribute('title') || '') ||
+        (x.getAttribute('aria-labelledby') || '')
+          .split(/[\t\n\f\r ]+/)
+          .some((id) => id && x.ownerDocument.getElementById(id));
       const roleOf = (x) =>
         (x.getAttribute('role') || '')
           .replace(/[A-Z]/g, (c) => c.toLowerCase())
-          .split(/[\t\n\f\r ]+/)
+          .replace(/\u017f/g, 's')
+          .replace(/\u212a/g, 'k')
+          .split(/[\t\n\v\f\r \u1680\u2000-\u200a\u2028\u205f\u3000]+/)
+          .filter((t) => named(x) || (t !== 'region' && t !== 'form'))
           .find((t) => ROLES.has(t)) || '';
       const live = (n) => {
         const out = [];
@@ -9200,15 +9222,60 @@ const CATALOG_MUTANTS = {
     fails: CATALOG_NOTE.live,
     edits: CATALOG_ROLE('unknown status'),
   },
+  // Don's review of 4a43e7223 (#810): each a status in Chromium, probed
+  // over CDP. Upper case and a tab; \v and an em space, which the ASCII
+  // split missed (the old whole-attribute read caught a leading em space);
+  // the long s; an NBSP, which Chromium doesn't split on, ahead of none; and
+  // a region with no name, which Chromium passes over.
+  'the note inside role="Unknown\\tSTATUS"': {
+    check: 'catalogNote',
+    fails: CATALOG_NOTE.live,
+    edits: CATALOG_ROLE('Unknown\\tSTATUS'),
+  },
+  'the note inside role="unknown\\vstatus"': {
+    check: 'catalogNote',
+    fails: CATALOG_NOTE.live,
+    edits: CATALOG_ROLE('unknown\\vstatus'),
+  },
+  'the note inside role="\\u2003status"': {
+    check: 'catalogNote',
+    fails: CATALOG_NOTE.live,
+    edits: CATALOG_ROLE('\\u2003status'),
+  },
+  'the note inside role="\\u017ftatus"': {
+    check: 'catalogNote',
+    fails: CATALOG_NOTE.live,
+    edits: CATALOG_ROLE('\\u017ftatus'),
+  },
+  'the note inside role="none\\u00a0x status"': {
+    check: 'catalogNote',
+    fails: CATALOG_NOTE.live,
+    edits: CATALOG_ROLE('none\\u00a0x status'),
+  },
+  'the note inside role="region status" with no name': {
+    check: 'catalogNote',
+    fails: CATALOG_NOTE.live,
+    edits: [
+      [
+        "  root.setAttribute('aria-label', 'Instrument catalog');\n",
+        "  root.setAttribute('role', 'region status');\n",
+      ],
+    ],
+  },
 };
 // Roles on the same root that make no live region, each of which the
 // catalogNote check must pass: a region; none, a recognised role ahead of
-// status; an empty role; presentation.
+// status; an empty role; presentation; a named region ahead of status (the
+// root's aria-label names it); status with an NBSP, one token Chromium
+// doesn't know; and link spelt with the Kelvin sign, which Chromium folds.
 const CATALOG_CONTROLS = {
   'role="region"': CATALOG_ROLE('region'),
   'role="none status"': CATALOG_ROLE('none status'),
   'role=""': CATALOG_ROLE(''),
   'role="presentation"': CATALOG_ROLE('presentation'),
+  'role="region status" with a name': CATALOG_ROLE('region status'),
+  'role="status\\u00a0"': CATALOG_ROLE('status\\u00a0'),
+  'role="lin\\u212a status"': CATALOG_ROLE('lin\\u212a status'),
 };
 // Planted defects in the catalogNote check's own classifier, edits to its
 // page function's text: each must let a role mutant above pass (`misses`) or
@@ -9232,6 +9299,45 @@ const CLASSIFIER_MUTANTS = {
       ['.find((t) => ROLES.has(t))', '.find((t) => /^(status|alert|log|marquee|timer)$/.test(t))'],
     ],
     flags: ['role="none status"'],
+  },
+  'A–Z not lowercased': {
+    edits: [['.replace(/[A-Z]/g, (c) => c.toLowerCase())', '']],
+    misses: ['the note inside role="Unknown\\tSTATUS"'],
+  },
+  'split on spaces only': {
+    edits: [['.split(/[\\t\\n\\v\\f\\r \\u1680', '.split(/[ \\u1680']],
+    misses: ['the note inside role="Unknown\\tSTATUS"', 'the note inside role="unknown\\vstatus"'],
+  },
+  'split on ASCII whitespace only, as at 4a43e7223': {
+    edits: [
+      [
+        '.split(/[\\t\\n\\v\\f\\r \\u1680\\u2000-\\u200a\\u2028\\u205f\\u3000]+/)',
+        '.split(/[\\t\\n\\f\\r ]+/)',
+      ],
+    ],
+    misses: ['the note inside role="unknown\\vstatus"', 'the note inside role="\\u2003status"'],
+  },
+  'split on any JavaScript whitespace': {
+    edits: [
+      [
+        '.split(/[\\t\\n\\v\\f\\r \\u1680\\u2000-\\u200a\\u2028\\u205f\\u3000]+/)',
+        '.split(/\\s+/)',
+      ],
+    ],
+    misses: ['the note inside role="none\\u00a0x status"'],
+    flags: ['role="status\\u00a0"'],
+  },
+  'the long s not folded': {
+    edits: [[".replace(/\\u017f/g, 's')", '']],
+    misses: ['the note inside role="\\u017ftatus"'],
+  },
+  'the Kelvin sign not folded': {
+    edits: [[".replace(/\\u212a/g, 'k')", '']],
+    flags: ['role="lin\\u212a status"'],
+  },
+  'a region with no name taken as named': {
+    edits: [['.filter((t) => named(x) ||', '.filter((t) => true ||']],
+    misses: ['the note inside role="region status" with no name'],
   },
 };
 
