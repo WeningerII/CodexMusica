@@ -6035,6 +6035,65 @@ const STORE_CHECKS = {
         JSON.stringify(g)
       ),
   },
+  // 39. One outcome is said once: a Reset whose rebuild fails is said by the
+  // store and by a lane that says the preview's error (as #762 does), in the
+  // same turn, and the person hears it once. The same sentence in a later
+  // turn is said again, and two sentences in one turn are both said.
+  saidOnce: {
+    page: async (S) => {
+      const { R, V, E, instrument } = await S.boot();
+      const { announce } = await import('/prototype/host.js');
+      await R.addEnsemble({ genreId: 'bluegrass', revision: R.snapshot().revision });
+      instrument.set('oud');
+      await S.settle();
+      let shown = null;
+      const off = V.configuration.subscribe(() => {
+        const c = V.configuration.snapshot();
+        if (c.status === 'error' && c.revision !== shown) {
+          shown = c.revision;
+          announce(c.error.message);
+        }
+      });
+      await V.environment.choose({
+        field: 'room',
+        id: E.ROOMS[4].id,
+        revision: V.environment.snapshot().revision,
+      });
+      await S.settle();
+      S.said();
+      const inst = E.Inst('oud');
+      const parts = inst.parts;
+      Object.defineProperty(inst, 'parts', {
+        configurable: true,
+        get() {
+          throw new Error('gate: an instrument that can’t be read');
+        },
+      });
+      const reset = await S.code(R.resetInstrumentPreview(S.args(R)));
+      Object.defineProperty(inst, 'parts', { configurable: true, writable: true, value: parts });
+      await S.settle();
+      const once = S.said();
+      off();
+      announce('Gate: one.');
+      await S.tick();
+      announce('Gate: one.');
+      await S.settle();
+      const turns = S.said();
+      announce('Gate: one.');
+      announce('Gate: two.');
+      await S.settle();
+      return { reset, once, turns, sentences: S.said(), shown: shown !== null };
+    },
+    verdict: (g) =>
+      why(
+        g.reset === 'LOAD_FAILED' &&
+          g.shown &&
+          same(g.once, ['This instrument’s settings couldn’t be prepared.']) &&
+          same(g.turns, ['Gate: one.', 'Gate: one.']) &&
+          same(g.sentences, ['Gate: one.', 'Gate: two.']),
+        JSON.stringify(g)
+      ),
+  },
   // 38. The preview's choices are remembered per instrument and replayed on
   // every rebuild: after a destination round trip, and after another
   // instrument is opened and this one again, the preview is the one chosen.
@@ -6647,6 +6706,14 @@ const HOST_SHELL_MUTANTS = {
         '    if (host !== node) {\n      return;',
       ],
     ],
+  },
+  'the same sentence said twice in one turn': {
+    check: 'saidOnce',
+    edits: [['  if (sentence === saidNow) return;\n', '']],
+  },
+  'a sentence never said again': {
+    check: 'saidOnce',
+    edits: [['    if (saidNow === sentence) saidNow = null;\n', '']],
   },
   'a listener kept after the abort': {
     check: 'released',

@@ -28,12 +28,23 @@ import { scope } from './storage.js';
 
 const status = () => document.getElementById('proto-status');
 
+// The last sentence said in this turn (until the next task runs). The same
+// sentence again in the same turn, as when the shell and a lane each report
+// one outcome, would be said twice for one thing, so it is said once; a
+// later turn says it anew.
+let saidNow = null;
 export function announce(text) {
   const region = status();
   if (!region) return;
+  const sentence = String(text);
+  if (sentence === saidNow) return;
+  saidNow = sentence;
+  setTimeout(() => {
+    if (saidNow === sentence) saidNow = null;
+  });
   // Clearing first makes a repeat of the same sentence a new announcement.
   region.textContent = '';
-  region.textContent = String(text);
+  region.textContent = sentence;
 }
 
 // A subscribe whose listeners end with a mount: given the signal the host
