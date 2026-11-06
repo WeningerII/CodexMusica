@@ -5522,6 +5522,79 @@ const STORE_CHECKS = {
         JSON.stringify(g)
       ),
   },
+  // 36. A view nobody listens to isn't built when the recipe or the preview
+  // changes: it is built once when read, and then at each change while it
+  // has a listener. Counted on the environment view, whose sourceMessage
+  // places a copy of the preview card ('__preview__') in the recipe.
+  lazyViews: {
+    page: async (S) => {
+      const { R, V, E, instrument } = await S.boot();
+      await R.addEnsemble({ genreId: 'bluegrass', revision: R.snapshot().revision });
+      instrument.set('oud');
+      await S.settle();
+      let cards = E.app.cards;
+      let builds = 0;
+      Object.defineProperty(E.app, 'cards', {
+        configurable: true,
+        enumerable: true,
+        get: () => cards,
+        set: (v) => {
+          if (Array.isArray(v) && v.some((c) => c && c.id === '__preview__')) builds++;
+          cards = v;
+        },
+      });
+      const fx = E.CHAIN_SECTIONS[0].items.map((i) => i.id);
+      const changes = async (room) => {
+        await V.chain.choose({
+          stage: 'fx',
+          id: fx[1],
+          on: true,
+          revision: V.chain.snapshot().revision,
+        });
+        R.apply({ op: 'set_environment', room: E.ROOMS[room].id });
+        await V.chain.choose({
+          stage: 'fx',
+          id: fx[1],
+          on: false,
+          revision: V.chain.snapshot().revision,
+        });
+      };
+      await changes(5);
+      const unread = builds;
+      const first = V.environment.snapshot();
+      const read = builds;
+      const again = V.environment.snapshot();
+      const reread = builds;
+      let told = 0;
+      const off = V.environment.subscribe(() => told++);
+      await changes(6);
+      const listened = builds;
+      off();
+      await changes(7);
+      return {
+        unread,
+        read,
+        reread,
+        listened,
+        unlistened: builds,
+        told,
+        same: first === again,
+        message: typeof first.sourceMessage === 'string' && first.sourceMessage.length > 0,
+      };
+    },
+    verdict: (g) =>
+      why(
+        g.unread === 0 &&
+          g.read === 1 &&
+          g.reread === 1 &&
+          g.listened === 4 &&
+          g.unlistened === 4 &&
+          g.told >= 2 &&
+          g.same &&
+          g.message,
+        JSON.stringify(g)
+      ),
+  },
 };
 
 // One planted defect (at least) for every check: text edits to
@@ -5789,6 +5862,16 @@ STORE_MUTANTS['reopen rebuilds nothing'] = {
     [
       '    if (instrumentId !== selection.current() || instrumentId !== pv.instrumentId) return false;\n    rebuild();\n    return true;',
       '    if (instrumentId !== selection.current() || instrumentId !== pv.instrumentId) return false;\n    return true;',
+    ],
+  ],
+};
+// The lazy views check's defect.
+STORE_MUTANTS['every view built at every change'] = {
+  check: 'lazyViews',
+  edits: [
+    [
+      '    for (const v of VIEWS) if (listeners[v].size && dirty.delete(v)) build(v);',
+      '    for (const v of VIEWS) if (dirty.delete(v)) build(v);',
     ],
   ],
 };

@@ -186,11 +186,14 @@ export function recipeStore({ load, selection, announce, ceiling } = {}) {
     }
     return snaps[view];
   }
-  // The end of a commit: rebuild what changed, then tell each view's
-  // listeners, in view order. A command a listener starts runs at once, and
-  // its notifications wait for this pass to end, so no pass nests.
+  // The end of a commit: rebuild what changed and has listeners, then tell
+  // each view's listeners, in view order. A view nobody listens to stays
+  // dirty until it is read, so a change costs nothing there (a Compact
+  // sourceMessage renders the whole recipe). A command a listener starts
+  // runs at once, and its notifications wait for this pass to end, so no
+  // pass nests.
   function flush() {
-    for (const v of VIEWS) if (dirty.delete(v)) build(v);
+    for (const v of VIEWS) if (listeners[v].size && dirty.delete(v)) build(v);
     const changed = VIEWS.filter((v) => unsent.delete(v));
     if (!changed.length) return;
     queue.push(changed.map((v) => [v, [...listeners[v]]]));
