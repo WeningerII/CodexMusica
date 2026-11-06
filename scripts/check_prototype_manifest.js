@@ -23,10 +23,14 @@
 //   5. STATUS. A row is marked done without naming a scenario (a file
 //      prototype/scenarios/<lane>/<name>.cjs or .mjs, its name not starting
 //      with a dot, as _prototype_scenarios.js discovers them for the runner
-//      too) that declares it, or a scenario's declaration is malformed. A scenario declares the rows it
-//      proves in one line of its header, before its first line of code:
-//      `// rows: 163, 164`, rows of this manifest, none twice (#665
-//      6675529176). A file that merely exists proves nothing.
+//      too) that declares it, or a scenario's declaration is malformed. A
+//      scenario declares the rows it proves in one line of its header,
+//      before its first line of code: `// rows: 163, 164`, rows of this
+//      manifest, none twice (#665 6675529176). A comment line starting
+//      `// rows:` (in any case or spacing) is a declaration and must read
+//      exactly so; a comment that only mentions rows, such as
+//      `// rows come back ranked` or `// Rows 163-165 (#668): …`, is not
+//      one. A file that merely exists proves nothing.
 //   6. GATES. A row's named gate is not a file the repo tracks (an untracked
 //      local file does not count, so a local run agrees with CI) — except the
 //      tests listed in KNOWN_MISSING, which the feature matrix names but the
@@ -103,7 +107,9 @@ const rows = manifest.rows || [];
 // first).
 const SCENARIOS_DIR = path.join(root, 'prototype', 'scenarios');
 const scenarioFiles = () => discoverScenarios(root).scenarios;
-const ROWS_LINE = /^\s*\/\/\s*rows\b/i;
+// A line that sets out to declare rows: "// rows:", in any case or spacing.
+// Prose that mentions rows, in a scenario the lane's author wrote, is not one.
+const ROWS_LINE = /^\s*\/\/\s*rows\s*:/i;
 const ROWS_DECL = /^\/\/ rows: (\d+(?:, \d+)*)$/;
 function headerEnd(lines) {
   let comment = false;

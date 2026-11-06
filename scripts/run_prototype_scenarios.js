@@ -400,6 +400,15 @@ function selfCheck() {
       files: { 'prototype/features/instrument-detail/detail.js': 'export {};\n' },
       ok: (r) => r.status === 1 && says(r, 'instrument-detail is in this build now'),
     },
+    // Scenario files are their lanes': a comment that only mentions rows,
+    // in the header or below it, is prose, not a declaration (#810 review of
+    // 8345248ac).
+    'a comment that mentions rows is not a declaration': {
+      files: {
+        [CATEGORIES]: `// rows: 1\n// Rows 1-2 (#668): the Categories lane.\n${pass}// rows come back ranked\n`,
+      },
+      ok: (r) => r.status === 0 && says(r, '1 done row(s) proven by this run'),
+    },
     'a row declared twice fails': {
       files: { [CATEGORIES]: `// rows: 1, 1\n${pass}` },
       ok: (r) => r.status === 1 && says(r, `${CATEGORIES}: declares row 1 twice`),
@@ -531,6 +540,16 @@ function selfCheck() {
       check: 'the #760 exception ends when its files arrive',
       in: 'manifest',
       edits: [['expect(!arrived,', 'expect(true,']],
+    },
+    'any comment on rows is a declaration': {
+      check: 'a comment that mentions rows is not a declaration',
+      in: 'manifest',
+      edits: [
+        [
+          'const ROWS_LINE = /^\\s*\\/\\/\\s*rows\\s*:/i;',
+          'const ROWS_LINE = /^\\s*\\/\\/\\s*rows\\b/i;',
+        ],
+      ],
     },
     'a row declared twice passes': {
       check: 'a row declared twice fails',
