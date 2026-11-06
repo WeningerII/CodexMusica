@@ -142,12 +142,34 @@ const LANES = {
 // both lanes throw, the slot hands back one AggregateError, and each lane's
 // error is logged on its own, so neither hides the other. So open() has
 // nothing left to end, and if it rejects, the error is the new reading's own
-// and comes back to the caller. open() takes its opener after the close,
-// which differs only when focus was in the old reading, and that is gone
-// either way.
+// and comes back to the caller.
+//
+// A new reading that can't start (the reader's or read-aloud's module
+// doesn't load, its context() fails or its mount() throws) is the slot's to
+// state (host.js createOnDemand; #810, Don's reply to 6683384760). The panel
+// shows the lane's sentence, the first such sentence is said once, and focus
+// goes to its Retry, else to the sentence, if it is still on Play or
+// nowhere. openReading still resolves { unitId }: the unit was found and the
+// reading opened, and what didn't start says so itself, as a lane that can't
+// start on its own route does. A rejection keeps the meaning above: the open
+// itself failed, while a teardown's error, or several in one AggregateError,
+// is logged and not said. So Explore, which says only a rejection
+// (explore.js:85-88), says nothing here, and the shell's sentence is the only
+// one.
+//
+// Each open is opened from `opener`, what had focus when the person asked
+// (Play, from openReading), not from what has focus once the unit is found:
+// the person may move focus while the unit is looked up, before the open
+// begins, and a reading that can't start must know whether they did. So
+// openReader uses the slot through `reader`, whose open() passes that opener
+// as returnFocus. Without one, open() takes what has focus when it begins.
 const readings = readingLoader();
-const reader = createOnDemand(document.querySelector('[data-panel="library"]'));
-async function openReader(unitId, { play = false } = {}) {
+const slot = createOnDemand(document.querySelector('[data-panel="library"]'));
+async function openReader(unitId, { play = false, opener } = {}) {
+  const reader = {
+    close: () => slot.close(),
+    open: (lanes) => slot.open(lanes, { returnFocus: opener }),
+  };
   try {
     reader.close();
   } catch (error) {
@@ -228,8 +250,9 @@ async function libraryContext({ signal }) {
     // open it. The prototype has no reading route, so the reader opens in the
     // Library panel, below the lanes, and replaces any reading already open.
     async openReading(cid) {
+      const opener = document.activeElement; // Play, before the look-up
       const unitId = await lib.unitOf(cid);
-      await openReader(unitId, { play: true });
+      await openReader(unitId, { play: true, opener });
       return { unitId };
     },
     showCredit(artworkId) {

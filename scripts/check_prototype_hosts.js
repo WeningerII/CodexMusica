@@ -152,6 +152,18 @@
 //      does not reject with the new reader's error, or does not log the old
 //      one's. Each check has a planted defect in app.js (READER_MUTANTS), as
 //      in 16.
+//  18. READER START (#810, Don's reply to 6683384760). Through openReading
+//      again, when the new reader can't start, because its module doesn't
+//      load, its context() fails or its mount() throws: the status region
+//      does not hear exactly one sentence, the one the reader's host shows;
+//      openReading does not resolve { unitId }; or focus is not moved to the
+//      reader's Retry when it has one, else to its sentence, from Play or
+//      from nowhere, or is moved when the person put it elsewhere while the
+//      unit was looked up. With read-aloud failing too, anything but the
+//      reader's sentence is said, or focus is not on that sentence; with
+//      read-aloud failing alone, its sentence is not said once, or focus
+//      leaves the reader. Each check has a planted defect in host.js or
+//      app.js (START_MUTANTS), as in 16.
 //
 //   node scripts/check_prototype_hosts.js
 //
@@ -260,7 +272,8 @@ export function mount(host, ctx) {
   host.append(field);
   field.addEventListener('input', () => ctx.onChange && ctx.onChange(field.value), { signal: ctx.signal });
   rec.write = ctx.storage.write('pref', { n: 1 });
-  if (window.__probeThrow === lane) throw new Error('probe mount failure');
+  // A check can make a lane's mount() throw: one lane, or a list.
+  if ([].concat(window.__probeThrow).includes(lane)) throw new Error('probe mount failure');
   // A check can make a lane's unmount() (one lane, or a list) or focus()
   // throw, read when called. Each unmount error names its lane and is kept.
   const throws = () => window.__probeThrows || {};
@@ -2079,6 +2092,358 @@ async function readerChecks(browser, srv) {
     const failed = !r.got || readerVerdict(r.got)[check] !== true;
     expect(failed, `reader: with the planted defect "${name}", the ${check} check still passes`);
     if (failed) readerPlanted++;
+  }
+}
+
+// ── 18. A READER THAT CAN'T START (#810, Don's reply to 6683384760) ──────
+// app.js's openReader again, through the Library lane's openReading, with the
+// same stand-in for explore.js that says a rejection. Here the new reader
+// can't start, in each of the three ways a lane can't: its module doesn't
+// load (served 404), its context() fails, or its mount() throws (the
+// probe's). The reader's context awaits nothing in this build, so it can't
+// fail by itself: the gate serves app.js with that one context changed to
+// throw when window.__readerContextFails is set (READER_CONTEXT_FAULT), and
+// applies each planted defect beneath it. In each way, Play ("Play" is the
+// Library probe's field) is pressed three times with focus on it: once it is
+// left there, once moved nowhere (blurred) and once moved elsewhere (the
+// method reference's field), each move made at once, while the unit is looked
+// up and before the open begins. Each time the status region must hear
+// exactly one sentence, the one the reader's host shows in the panel;
+// openReading must resolve { unitId }, so the stand-in says nothing; and
+// focus must be on the reader's Retry when its host has one (the context),
+// else on the sentence, unless the person moved it elsewhere, where it must
+// stay. With the reader and read-aloud both throwing, only the reader's
+// sentence is said, with focus on it; with read-aloud alone throwing, its
+// sentence is said and focus stays in the reader, where the open put it. Each
+// check has a planted defect in host.js or app.js (START_MUTANTS), served in
+// place of the file in pages of its own, which must fail it.
+const START_SAYS = {
+  module: 'The reader isn’t part of this build of the prototype yet.',
+  context: 'The reading did not load. Check your connection, then try again.',
+  mount: 'The reader couldn’t start. The rest of the prototype still works.',
+};
+const SPEECH_COULDNT_START = 'Read aloud couldn’t start. The rest of the prototype still works.';
+const START_KINDS = Object.keys(START_SAYS);
+const READER_CONTEXT_FAULT = [
+  [
+    '      context: async () => ({ unitId, reading: readings.reading }),\n',
+    "      context: async () => {\n        if (window.__readerContextFails) throw new Error('probe context failure');\n        return { unitId, reading: readings.reading };\n      },\n",
+  ],
+];
+const TELL_IF = 'if (!active || active === document.body || active === opener)';
+const START_MUTANTS = {
+  'a reader that can’t start is not said': {
+    file: 'host',
+    check: 'said once',
+    edits: [['      announce(note.textContent);\n      return true;', '      return true;']],
+  },
+  'focus stays where the open left it': {
+    file: 'host',
+    check: 'focus from Play',
+    edits: [
+      [
+        `      ${TELL_IF}\n        (host.querySelector('[data-host-retry]') || note).focus();\n`,
+        '',
+      ],
+    ],
+  },
+  'focus from Play is not moved': {
+    file: 'host',
+    check: 'focus from Play',
+    edits: [[TELL_IF, 'if (!active || active === document.body)']],
+  },
+  'focus that was nowhere stays nowhere': {
+    file: 'host',
+    check: 'focus from nowhere',
+    edits: [[TELL_IF, 'if (active === opener)']],
+  },
+  'focus taken from wherever it is': {
+    file: 'host',
+    check: 'focus moved elsewhere',
+    edits: [[TELL_IF, 'if (active || !active)']],
+  },
+  'the sentence over Retry': {
+    file: 'host',
+    check: 'Retry before the sentence',
+    edits: [["(host.querySelector('[data-host-retry]') || note).focus();", 'note.focus();']],
+  },
+  'every lane that can’t start is said': {
+    file: 'host',
+    check: 'both lanes',
+    edits: [['if (!told) told = h.tellUnavailable();', 'h.tellUnavailable();']],
+  },
+  'only the first lane is told': {
+    file: 'host',
+    check: 'read-aloud alone',
+    edits: [['if (!told) told = h.tellUnavailable();', 'if (i === 0) told = h.tellUnavailable();']],
+  },
+  // Each way a lane can't start, left unmarked, so the open can't tell it.
+  'a module that won’t load is not marked': {
+    file: 'host',
+    check: 'a module that won’t load',
+    edits: [
+      [
+        "      state = 'unavailable';\n      explain(node, `${lane.label} isn’t part",
+        '      explain(node, `${lane.label} isn’t part',
+      ],
+    ],
+  },
+  'a context that fails is not marked': {
+    file: 'host',
+    check: 'a context that fails',
+    edits: [["      state = 'unavailable';\n      const sentence", '      const sentence']],
+  },
+  'a mount that throws is not marked': {
+    file: 'host',
+    check: 'a mount that throws',
+    edits: [
+      [
+        "      state = 'unavailable';\n      explain(host, `${lane.label} couldn’t start.",
+        '      explain(host, `${lane.label} couldn’t start.',
+      ],
+    ],
+  },
+  'the opener taken after the look-up': {
+    file: 'app',
+    check: 'focus moved elsewhere',
+    edits: [
+      [
+        '      const opener = document.activeElement; // Play, before the look-up\n      const unitId = await lib.unitOf(cid);\n',
+        '      const unitId = await lib.unitOf(cid);\n      const opener = document.activeElement;\n',
+      ],
+    ],
+  },
+  'openReader drops the opener': {
+    file: 'app',
+    check: 'focus moved elsewhere',
+    edits: [
+      [
+        'open: (lanes) => slot.open(lanes, { returnFocus: opener }),',
+        'open: (lanes) => slot.open(lanes),',
+      ],
+    ],
+  },
+  'openReading rejects with the sentence as well': {
+    file: 'app',
+    check: 'resolves',
+    edits: [
+      [
+        '      await openReader(unitId, { play: true, opener });\n      return { unitId };',
+        "      await openReader(unitId, { play: true, opener });\n      const note = document.querySelector('[data-feature-host=\"libraryreading\"] [data-host-note]');\n      if (note) throw Object.assign(new Error(note.textContent), { code: 'UNAVAILABLE' });\n      return { unitId };",
+      ],
+    ],
+  },
+};
+
+async function startRun(page, cid, kind) {
+  return page.evaluate(
+    async ({ cid, kind }) => {
+      const c = window.__probeCtx.library;
+      const region = document.getElementById('proto-status');
+      // Every sentence the region is given, one per announcement.
+      let said = [];
+      new MutationObserver((records) => {
+        for (const r of records)
+          for (const n of r.addedNodes) if (n.textContent) said.push(n.textContent);
+      }).observe(region, { childList: true, subtree: true });
+      const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+      const play = () => document.querySelector('[data-feature-host="library"] textarea');
+      const elsewhere = () =>
+        document.querySelector('[data-feature-host="librarymethods"] textarea');
+      const where = () => {
+        const a = document.activeElement;
+        if (!a || a === document.body) return 'nowhere';
+        if (a === play()) return 'play';
+        if (a === elsewhere()) return 'elsewhere';
+        const h = a.closest && a.closest('[data-feature-host]');
+        const id = h ? h.dataset.featureHost : a.tagName;
+        if (a.matches('[data-host-note]')) return `note:${id}`;
+        if (a.matches('[data-host-retry]')) return `retry:${id}`;
+        return id;
+      };
+      const inHost = (lane, sel) =>
+        document.querySelector(`[data-panel="library"] [data-feature-host="${lane}"] ${sel}`);
+      const press = async (situation, throws) => {
+        await wait(50); // the turn before has ended
+        window.__probeThrow = throws;
+        said = [];
+        play().focus();
+        // Play, as explore.js handles it: a rejection is said, in its message.
+        const opened = c.openReading(cid).then(
+          (v) => JSON.stringify(v),
+          (error) => {
+            c.announce((error && error.message) || 'Library action could not finish. Try again.');
+            return `threw: ${error && error.message}`;
+          }
+        );
+        // The person moves focus at once, while the unit is looked up.
+        if (situation === 'nowhere') document.activeElement.blur();
+        if (situation === 'elsewhere') elsewhere().focus();
+        const returned = await opened;
+        await wait(150); // anything said late is heard
+        const reader = inHost('libraryreading', '[data-host-note]');
+        const speech = inHost('libraryspeech', '[data-host-note]');
+        return {
+          situation,
+          returned,
+          said: said.slice(),
+          focus: where(),
+          reader: reader ? reader.textContent : null,
+          readerRetry: !!inHost('libraryreading', '[data-host-retry]'),
+          speech: speech ? speech.textContent : null,
+          hosts: [...document.querySelectorAll('[data-panel="library"] [data-feature-host]')]
+            .map((h) => h.dataset.featureHost)
+            .join(),
+        };
+      };
+      window.__readerContextFails = kind === 'context';
+      const lane = kind === 'mount' ? 'libraryreading' : undefined;
+      const runs = [];
+      for (const situation of ['play', 'nowhere', 'elsewhere'])
+        runs.push(await press(situation, lane));
+      if (kind === 'mount') {
+        runs.push(await press('both', ['libraryreading', 'libraryspeech']));
+        runs.push(await press('speech', 'libraryspeech'));
+      }
+      window.__probeThrow = undefined;
+      return runs;
+    },
+    { cid, kind }
+  );
+}
+
+function startVerdict(g) {
+  const SITUATIONS = ['play', 'nowhere', 'elsewhere'];
+  const of = (kind) => (g[kind] || []).filter((r) => SITUATIONS.includes(r.situation));
+  const all = START_KINDS.flatMap((kind) => of(kind).map((r) => ({ kind, r })));
+  const extra = (s) => (g.mount || []).find((r) => r.situation === s) || null;
+  const target = (kind, s) =>
+    s === 'elsewhere' ? 'elsewhere' : `${kind === 'context' ? 'retry' : 'note'}:libraryreading`;
+  const resolved = (r) => /^\{"unitId":"[^"]+"\}$/.test(r.returned);
+  const tail = (r) =>
+    r.hosts.split(',').slice(-2).join() === 'libraryreading,libraryspeech' &&
+    r.hosts.split(',').filter((h) => h === 'libraryreading').length === 1 &&
+    r.hosts.split(',').filter((h) => h === 'libraryspeech').length === 1;
+  const saidOnce = (r, sentence) => r.said.length === 1 && r.said[0] === sentence;
+  const right = ({ kind, r }) =>
+    saidOnce(r, START_SAYS[kind]) &&
+    r.reader === START_SAYS[kind] &&
+    r.readerRetry === (kind === 'context') &&
+    r.speech === null &&
+    resolved(r) &&
+    tail(r) &&
+    r.focus === target(kind, r.situation);
+  const kindRight = (kind) => of(kind).length === 3 && of(kind).every((r) => right({ kind, r }));
+  const focusFrom = (s) =>
+    all.filter((x) => x.r.situation === s).length === 3 &&
+    all.filter((x) => x.r.situation === s).every((x) => x.r.focus === target(x.kind, s));
+  const both = extra('both');
+  const speech = extra('speech');
+  return {
+    'a module that won’t load': kindRight('module'),
+    'a context that fails': kindRight('context'),
+    'a mount that throws': kindRight('mount'),
+    'said once': all.length === 9 && all.every((x) => saidOnce(x.r, START_SAYS[x.kind])),
+    'focus from Play': focusFrom('play'),
+    'focus from nowhere': focusFrom('nowhere'),
+    'focus moved elsewhere': focusFrom('elsewhere'),
+    'Retry before the sentence':
+      of('context').filter((r) => r.situation !== 'elsewhere').length === 2 &&
+      of('context')
+        .filter((r) => r.situation !== 'elsewhere')
+        .every((r) => r.readerRetry && r.focus === 'retry:libraryreading'),
+    resolves:
+      all.length === 9 &&
+      all.every((x) => resolved(x.r)) &&
+      !!both &&
+      resolved(both) &&
+      !!speech &&
+      resolved(speech),
+    'both lanes':
+      !!both &&
+      saidOnce(both, START_SAYS.mount) &&
+      both.reader === START_SAYS.mount &&
+      both.speech === SPEECH_COULDNT_START &&
+      both.focus === 'note:libraryreading' &&
+      tail(both),
+    'read-aloud alone':
+      !!speech &&
+      saidOnce(speech, SPEECH_COULDNT_START) &&
+      speech.reader === null &&
+      speech.speech === SPEECH_COULDNT_START &&
+      speech.focus === 'libraryreading' &&
+      tail(speech),
+  };
+}
+
+let startPlanted = 0;
+const START_DEFECTS = Object.keys(START_MUTANTS).length;
+async function startChecks(browser, srv) {
+  const cid = libData('catalog.json').shelves[0].cards[0][0];
+  // One page per way the reader can't start, with app.js and host.js as
+  // served (`served.app`, `served.host`: the planted text, or undefined for
+  // the committed file); the context's page gets READER_CONTEXT_FAULT on top.
+  const onePage = async (kind, served) => {
+    const { context, page, errors, override } = await newPage(
+      browser,
+      srv,
+      kind === 'module' ? { missing: ['libraryreading'] } : {}
+    );
+    const js = (body) => ({ status: 200, contentType: 'text/javascript', body });
+    const app =
+      kind === 'context' ? plantIn(served.app || APP_JS, READER_CONTEXT_FAULT) : served.app;
+    if (kind === 'context' && !app) errors.push('the context fault no longer applies to app.js');
+    if (app) override.set('/prototype/app.js', js(app));
+    if (served.host) override.set('/prototype/host.js', js(served.host));
+    let got = null;
+    try {
+      await page.goto(`${srv.url}/prototype/#library`);
+      await waitMounted(page, 'library');
+      await waitMounted(page, 'librarymethods');
+      got = await startRun(page, cid, kind);
+    } catch (e) {
+      errors.push(`threw: ${(e && e.message) || e}`);
+    }
+    await context.close();
+    return { got, errors };
+  };
+  const once = async (served) => {
+    const pages = await Promise.all(START_KINDS.map((kind) => onePage(kind, served)));
+    const g = {};
+    START_KINDS.forEach((kind, i) => (g[kind] = pages[i].got));
+    return { g, ok: pages.every((p) => p.got), errors: pages.flatMap((p) => p.errors) };
+  };
+  const base = await once({});
+  const names = [];
+  for (const [check, ok] of Object.entries(startVerdict(base.g))) {
+    names.push(check);
+    expect(ok, `reader start: ${check} failed: ${JSON.stringify(base.g)}`);
+  }
+  expect(base.ok, `reader start: a page did not run: ${base.errors.join(' | ')}`);
+  expect(!base.errors.length, `reader start: uncaught errors: ${base.errors.join(' | ')}`);
+  // Every check has a planted defect of its own, and each must fail it.
+  const planting = new Set(Object.values(START_MUTANTS).map((m) => m.check));
+  for (const n of names)
+    expect(planting.has(n), `reader start: the ${n} check has no planted defect`);
+  const texts = { app: APP_JS, host: HOST_JS };
+  const outcomes = await pooled(Object.entries(START_MUTANTS), 2, async ([name, m]) => {
+    const src = plantIn(texts[m.file], m.edits);
+    if (!src) return { name, m, applies: false };
+    const r = await once({ [m.file]: src });
+    return { name, m, applies: true, failed: startVerdict(r.g)[m.check] !== true };
+  });
+  for (const { name, m, applies, failed } of outcomes) {
+    expect(
+      names.includes(m.check),
+      `reader start: the planted defect "${name}" names no check (${m.check})`
+    );
+    expect(applies, `reader start: the planted defect "${name}" no longer applies to ${m.file}.js`);
+    if (!applies) continue;
+    expect(
+      failed,
+      `reader start: with the planted defect "${name}", the ${m.check} check still passes`
+    );
+    if (failed) startPlanted++;
   }
 }
 
@@ -7945,6 +8310,7 @@ async function recipeChecks(browser, srv) {
     await readingChecks(browser, srv);
     await speechChecks(browser, srv);
     await readerChecks(browser, srv);
+    await startChecks(browser, srv);
     await unmounting(browser, srv);
     await closing(browser, srv);
     await recipeChecks(browser, srv);
@@ -7958,7 +8324,7 @@ async function recipeChecks(browser, srv) {
     process.exit(1);
   }
   console.log(
-    `check_prototype_hosts: ${checks}/${checks} checks pass; ${planted + storePlanted + readerPlanted}/${ALL_MUTANTS.length + storeDefects + READER_DEFECTS} planted defects fail their checks (${planted}/${ALL_MUTANTS.length} in host.js, ${storePlanted}/${storeDefects} in the recipe store's checks, ${readerPlanted}/${READER_DEFECTS} in app.js's openReader)`
+    `check_prototype_hosts: ${checks}/${checks} checks pass; ${planted + storePlanted + readerPlanted + startPlanted}/${ALL_MUTANTS.length + storeDefects + READER_DEFECTS + START_DEFECTS} planted defects fail their checks (${planted}/${ALL_MUTANTS.length} in host.js, ${storePlanted}/${storeDefects} in the recipe store's checks, ${readerPlanted}/${READER_DEFECTS} in app.js's openReader, ${startPlanted}/${START_DEFECTS} for a reader that can't start)`
   );
 })().catch((e) => {
   console.error(e);

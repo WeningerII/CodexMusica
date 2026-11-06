@@ -255,6 +255,21 @@ export function createHost(lane, panel) {
     focus() {
       if (handle && typeof handle.focus === 'function') handle.focus();
     },
+    // For an open that an action asked for (createOnDemand): if the lane
+    // couldn't start, the sentence its panel shows is said, and focus goes to
+    // its Retry if it has one, else to the sentence, but only while focus is
+    // still on what opened it (show()'s returnFocus, else what had focus
+    // then) or nowhere. Focus the person moved elsewhere stays there. Returns
+    // whether there was a sentence to say.
+    tellUnavailable() {
+      const note = state === 'unavailable' && host && host.querySelector('[data-host-note]');
+      if (!note) return false;
+      const active = document.activeElement;
+      if (!active || active === document.body || active === opener)
+        (host.querySelector('[data-host-retry]') || note).focus();
+      announce(note.textContent);
+      return true;
+    },
     unmount() {
       teardown();
     },
@@ -277,6 +292,17 @@ export function createHost(lane, panel) {
 // called. An open() overtaken by a later open() or close() stops where it
 // is: it mounts nothing more, moves no focus and resolves false. close() is
 // the shell's own: it unmounts every lane the slot holds.
+//
+// A lane that can't start (its module doesn't load, its ctx fails or its
+// mount() throws) is not an error of the open (#810, Don's reply to
+// 6683384760). Its host shows its sentence in the panel, as for any lane,
+// and open() goes on and resolves as before. An action asked for it, so the
+// first such lane's sentence is also said, once, through announce. If focus
+// is still on the opener (returnFocus, else what had focus when open() was
+// called) or nowhere, it moves to that lane's Retry if it has one, else to
+// the sentence. Focus the open put in its first lane, or that the person
+// moved elsewhere, stays where it is. Once overtaken, an open says nothing
+// more.
 //
 // A held lane whose own unmount() throws doesn't stop either one, as it
 // doesn't stop ctx.close() (#810 6675659005): that lane's host still ends (its
@@ -319,6 +345,7 @@ export function createOnDemand(panel) {
       const hosts = list.map((l) => createHost(l, panel));
       held = hosts;
       let mounted = true;
+      let told = false; // only the first lane that couldn't start is said
       for (const [i, h] of hosts.entries()) {
         await h.show({ returnFocus: back });
         if (mine !== turn) {
@@ -326,6 +353,7 @@ export function createOnDemand(panel) {
           break;
         }
         if (i === 0) h.focus();
+        if (!told) told = h.tellUnavailable();
       }
       if (failed.length) throw failure(failed); // the open went on regardless
       return mounted;
