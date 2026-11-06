@@ -232,6 +232,28 @@ const cmpPair = (a, b) => a[0] - b[0] || a[1] - b[1];
 const emptyLog = (log) => ({ head: null, segments: 0, count: 0, digest: d0(DOMAIN.log(log)) });
 const sumBytes = (entries) => entries.reduce((n, e) => n + size(e), 0);
 const segmentBytes = (segment) => Buffer.from(JSON.stringify(segment), 'utf8');
+// F3 holds a stored segment's content too (§2.5; BB8, #721 item 2 (c)): bytes
+// that passed F6 but do not parse, an entry failing F1 or F2, or an integer
+// field that is not an integer. Each is F3 wherever the segment is read; the
+// walk, the full read and the load map F3 by their own tables. The faults are
+// the codec's tags (§2.11), listed in the order the scan meets them.
+function segmentContent(raw) {
+  let seg;
+  try {
+    seg = JSON.parse(Buffer.from(raw).toString('utf8'));
+  } catch {
+    return { seg: null, faults: ['JSON'] };
+  }
+  if (!plainObject(seg)) return { seg: null, faults: ['JSON'] };
+  const faults = [];
+  for (const f of ['epoch', 'first', 'count'])
+    if (!Number.isSafeInteger(seg[f]) || seg[f] < 0) faults.push('INTEGER_FIELD');
+  for (const e of Array.isArray(seg.entries) ? seg.entries : []) {
+    if (!isEntry(e)) faults.push('F1');
+    else if (size(e) > LIMITS.ENTRY_BYTES) faults.push('F2');
+  }
+  return { seg, faults };
+}
 
 // §2.4: the greedy, content-only cut over entry byte lengths.
 function cut(lengths) {
@@ -686,9 +708,11 @@ function evaluateResume(fx) {
         bad('R1', `${log}: ${stem} does not resolve`);
         return null;
       }
-      // F6, F3, F1/F2, F4 bounds, F5 on every segment that resolves
+      // F6, F3 (its content included, §2.5), F4 bounds, F5 on every segment that resolves
       if (sha(raw) !== stem) bad('F6', `${stem} does not match its address`);
-      const seg = JSON.parse(raw.toString('utf8'));
+      const { seg, faults } = segmentContent(raw);
+      if (faults.length) bad('F3', `${stem} content: ${faults.join(', ')}`);
+      if (!seg) return null;
       if (
         !same(Object.keys(seg), SEGMENT_FIELDS) ||
         seg.version !== 1 ||
@@ -700,10 +724,6 @@ function evaluateResume(fx) {
         seg.count !== seg.entries.length
       )
         bad('F3', `${stem} schema`);
-      for (const e of seg.entries) {
-        if (!isEntry(e)) bad('F1', stem);
-        else if (size(e) > LIMITS.ENTRY_BYTES) bad('F2', stem);
-      }
       if (seg.count > LIMITS.SEGMENT_ENTRIES || sumBytes(seg.entries) > LIMITS.SEGMENT_BYTES)
         bad('F4', `${stem} over bound`);
       if (fold(seg.digest_before, seg.entries) !== seg.digest_after) bad('F5', `${stem} digest`);
@@ -770,7 +790,7 @@ function evaluateResume(fx) {
   }
   return { violations, skipped };
 }
-const RESUME_RULES = ['R1', 'R2', 'R3', 'R4', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6'];
+const RESUME_RULES = ['R1', 'R2', 'R3', 'R4', 'F3', 'F4', 'F5', 'F6'];
 
 // ---------------------------------------------------------------- the store's walk (§5.1)
 // `addresses` is the store's in-memory address list: each live chain's
@@ -798,7 +818,9 @@ function evaluateWalk(fx, discovery, mode) {
     }
     read.push(address);
     if (sha(raw) !== address) bad('F6', `${address} does not match its address`, log);
-    const seg = JSON.parse(raw.toString('utf8'));
+    const { seg, faults } = segmentContent(raw);
+    if (faults.length) bad('F3', `${address} content: ${faults.join(', ')}`, log);
+    if (!seg) return null;
     if (
       !same(Object.keys(seg), SEGMENT_FIELDS) ||
       seg.version !== 1 ||
@@ -1491,7 +1513,9 @@ const INVARIANT_MESSAGES = (() => {
   const s3 = CONTRACT.slice(CONTRACT.indexOf('\n## 3. Hard limits'), CONTRACT.indexOf('\n### 3.1'));
   const out = {};
   for (const m of s3.matchAll(/^- `(INVARIANT_FAILURE: [^`]+)`/gm)) {
-    const bound = m[1].match(/\b(REFUSAL_BYTES|CURSOR_BYTES|CONTINUATION_BYTES|WITNESS_FIELDS) \(/);
+    const bound =
+      m[1].match(/\b(REFUSAL_BYTES|CURSOR_BYTES|CONTINUATION_BYTES|WITNESS_FIELDS) \(/) ||
+      m[1].match(/\bbreaks (F1): /);
     if (bound) out[bound[1]] = m[1];
   }
   return Object.freeze(out);
@@ -4534,6 +4558,7 @@ test('BB8 6688972927: each fold is pinned where it is stated, with computed figu
   assert.deepEqual(Object.keys(INVARIANT_MESSAGES).sort(), [
     'CONTINUATION_BYTES',
     'CURSOR_BYTES',
+    'F1',
     'REFUSAL_BYTES',
     'WITNESS_FIELDS',
   ]);
@@ -4542,8 +4567,14 @@ test('BB8 6688972927: each fold is pinned where it is stated, with computed figu
     CURSOR_BYTES: ['<n>'],
     CONTINUATION_BYTES: ['<n>'],
     WITNESS_FIELDS: ['<what>'],
+    F1: ['<log>', '<what>'],
   };
   for (const [bound, template] of Object.entries(INVARIANT_MESSAGES)) {
+    if (bound === 'F1') {
+      // A rule, not a bound: the message names the rule it broke (§2.11 (b)).
+      for (const slot of slots.F1) assert.ok(template.includes(slot), `F1: ${slot}`);
+      continue;
+    }
     assert.ok(template.includes(`${bound} (${LIMITS[bound]})`), `${bound}: names its value`);
     for (const slot of slots[bound]) assert.ok(template.includes(slot), `${bound}: ${slot}`);
     if (bound !== 'WITNESS_FIELDS')
@@ -5233,7 +5264,7 @@ test('the attribution of the row_seen figure and the headroom (BB8 6683944548)',
 });
 
 // §12: every item BB8 ruled is marked with its ruling; only item 29 is open.
-test('§12: items 21-28 carry their rulings, and only item 29 stays open', () => {
+test('§12: items 21-28 carry their rulings, and items 29-31 stay open', () => {
   const text = section('12. Rulings on the items added for confirmation');
   const item = (n) => {
     const m = new RegExp(`\\n${n}\\. \\*\\*([^*]+)\\*\\*`).exec(text);
@@ -5244,6 +5275,21 @@ test('§12: items 21-28 carry their rulings, and only item 29 stays open', () =>
     assert.match(item(n), /^Ruled/, `item ${n} is ruled`);
   assert.match(item(24), /^3PO's/, "item 24 is 3PO's");
   assert.match(item(29), /^Open/, 'item 29 stays open');
+  // R2's two questions of 6693449409, BB8's to rule, carried unchanged.
+  assert.match(item(30), /^Open/, 'item 30 stays open');
+  assert.match(item(31), /^Open/, 'item 31 stays open');
+  const body = (n) =>
+    text.match(new RegExp(`\\n${n}\\. [\\s\\S]*?(?=\\n\\d+\\. |\\n#|$)`))[0].replace(/\s+/g, ' ');
+  assert.ok(body(30).includes("BB8's to rule; asked in 6693449409"));
+  assert.ok(
+    body(30).includes('Should W7 hold `MEMBERSHIP_BYTES`? That would need a `bytes` member')
+  );
+  assert.ok(body(31).includes("BB8's to rule; asked in 6693449409"));
+  assert.ok(body(31).includes("Should F1 bound an entry's nesting depth? A bound would cap"));
+  assert.ok(body(31).includes('This revision rules on neither.'));
+  assert.ok(!/\n32\. /.test(text), 'no item 32');
+  assert.ok(text.replace(/\s+/g, ' ').includes('Items 29, 30 and 31 are open'));
+  assert.ok(!/Only item 29 is open/.test(text));
   assert.ok(text.includes('6684866461') && text.includes('6683944548'));
   assert.ok(!/Items 21–2\d and 26–29 are open/.test(text));
 });
@@ -5263,4 +5309,668 @@ test('the cross-reference covers 3PO 1-6 and BB8 1-9, each with a contract secti
     for (const f of r[4].matchAll(/`((?:good|bad)\/[a-z0-9_]+\.json)`/g))
       assert.ok(fs.existsSync(path.join(DIR, f[1])), `row ${r[0]} names ${f[1]}, which exists`);
   });
+});
+
+// ================================================================ §2.11: codec errors (BB8, #721 items 2-3)
+// The codec raises a local error with a rule tag and the enclosing operation
+// maps it; the codec never picks a public code. good/codec_error_mapping.json
+// pins each tag in Node and in Python and each operation's mapping.
+const CODEC = 'good/codec_error_mapping.json';
+const WHITESPACE = ' \t\r\n';
+// An input of the codec fixture, as bytes' text (README: the build forms).
+function codecText(input) {
+  if (typeof input.text === 'string') return input.text;
+  const b = input.build;
+  const a = (n) => 'a'.repeat(n);
+  if (Object.hasOwn(b, 'string')) return JSON.stringify(a(b.string));
+  if (Object.hasOwn(b, 'object_string')) return `[{"a":"${a(b.object_string)}"}]`;
+  if (Object.hasOwn(b, 'surrogate_string')) return `["\\ud800${a(b.surrogate_string)}"]`;
+  const pad = Array.from({ length: b.pad }, (_, i) => WHITESPACE[i % 4]).join('');
+  const tokens = [...(b.lead === null ? [] : [String(b.lead)]), ...Array(b.zeros).fill('0')];
+  return `[${pad}${tokens.join(`${pad},${pad}`)}${pad}]`;
+}
+// Node's reader of one entry's text: the tag it meets, or 'passes'.
+function nodeTag(text) {
+  let v;
+  try {
+    v = JSON.parse(text);
+  } catch {
+    return { tag: 'JSON' };
+  }
+  if (!isEntry(v)) return { tag: 'F1' };
+  if (size(v) > LIMITS.ENTRY_BYTES) return { tag: 'F2' };
+  return { tag: 'passes', canonical: JSON.stringify(v) };
+}
+// The validator's model of the Python codec: tags only, never a code (§2.11).
+// Its decoder is json.loads with the subset's hooks; the reference for the
+// worker half is the #721 author's codec, which its own tests hold to this
+// fixture (§9).
+const CODEC_PROGRAM = String.raw`import json, sys, tracemalloc
+MAX = (1 << 53) - 1
+class Tag(Exception):
+    def __init__(self, rule):
+        self.rule = rule
+def _no(_):
+    raise Tag("F1")
+def _int(text):
+    if len(text.lstrip("-")) > 16:
+        raise Tag("F1")
+    v = int(text)
+    if not -MAX <= v <= MAX:
+        raise Tag("F1")
+    return v
+def check(v):
+    stack = [v]
+    while stack:
+        x = stack.pop()
+        if type(x) is list:
+            stack.extend(x)
+        elif type(x) is str:
+            try:
+                x.encode("utf-8", "strict")
+            except UnicodeEncodeError:
+                raise Tag("F1")
+        elif not (x is None or type(x) in (bool, int)):
+            raise Tag("F1")
+def decode(data):
+    try:
+        text = data.decode("utf-8", "strict")
+    except UnicodeDecodeError:
+        raise Tag("JSON")
+    try:
+        v = json.loads(text, parse_float=_no, parse_constant=_no, parse_int=_int,
+                       object_pairs_hook=_no)
+    except Tag:
+        raise
+    except (ValueError, RecursionError):
+        raise Tag("JSON")
+    check(v)
+    c = json.dumps(v, ensure_ascii=False, separators=(",", ":"), allow_nan=False).encode("utf-8")
+    if len(c) > 4096:
+        raise Tag("F2")
+    return c
+def require_integer(v, nonnegative=False):
+    if type(v) is not int or not -MAX <= v <= MAX or (nonnegative and v < 0):
+        raise Tag("INTEGER_FIELD")
+    return v
+def tag_of(fn, *a):
+    try:
+        out = fn(*a)
+        return {"tag": "passes", "canonical": out.decode("utf-8") if isinstance(out, bytes) else None}
+    except Tag as t:
+        return {"tag": t.rule}
+# A persisted segment, F6 passed: any tag on its content is F3 (§2.5).
+def segment(data):
+    try:
+        seg = json.loads(data.decode("utf-8", "strict"), parse_float=_no, parse_constant=_no)
+        for f in ("epoch", "first", "count"):
+            require_integer(seg[f], nonnegative=True)
+        for e in seg["entries"]:
+            decode(json.dumps(e, ensure_ascii=False).encode("utf-8", "surrogatepass"))
+    except Tag as t:
+        return {"rule": "F3", "tag": t.rule}
+    except (ValueError, KeyError, TypeError):
+        return {"rule": "F3", "tag": "JSON"}
+    return {"rule": None}
+data = json.loads(sys.stdin.buffer.read().decode("utf-8"))
+out = {"entries": [tag_of(decode, t.encode("utf-8", "surrogatepass")) for t in data["entries"]],
+       "integers": [tag_of(require_integer, v) for v in data["integers"]],
+       "segments": [segment(s.encode("utf-8", "surrogatepass")) for s in data["segments"]]}
+# Item 3: the padded entry passes within the bound, its peak memory measured.
+raw = data["padded"].encode("utf-8")
+tracemalloc.start()
+got = tag_of(decode, raw)
+out["padded"] = {"raw_bytes": len(raw), "peak": tracemalloc.get_traced_memory()[1], **got}
+tracemalloc.stop()
+sys.stdout.buffer.write(json.dumps(out).encode("ascii"))
+`;
+function codecPython(input) {
+  const run = spawnSync('python3', ['-I', '-c', CODEC_PROGRAM], {
+    input: Buffer.from(JSON.stringify(input), 'utf8'),
+    maxBuffer: 16 * 1024 * 1024,
+  });
+  assert.equal(run.error, undefined, `python3 runs (${run.error?.message})`);
+  assert.equal(run.status, 0, run.stderr?.toString());
+  return JSON.parse(run.stdout.toString('ascii'));
+}
+// A minimal frame on a record with no discovery: one `seen` tail. The
+// control is accepted, so a case's violations are its own.
+function codecFrame(tail) {
+  const frame = cursorFrame({ contract_version: 2, method_index: 0, witness: null, methods: {} });
+  frame.cursor.discovery.logs.seen = { sealed: 0, sealed_digest: d0(DOMAIN.log('seen')), tail };
+  return frame;
+}
+const CODEC_JOB = { job_id: 'reader_codec', identity_hash: 'f'.repeat(64) };
+const codecStore = (frame) => {
+  const record = { discovery: null, cursor: null };
+  const got = evaluateFrame(CODEC_JOB, record, frame);
+  assert.deepEqual(record, { discovery: null, cursor: null }, 'nothing is written');
+  return got.violations.map((v) => v.rule);
+};
+// A stored segment's bytes with one entry spliced in as its text (so `1.0`
+// and the escape keep their bytes), digests as a Python writer computes them.
+function codecSegment(entryText, fields = {}) {
+  const head = {
+    version: 1,
+    kind: 'reader_discovery_segment',
+    job_id: CODEC_JOB.job_id,
+    identity_hash: CODEC_JOB.identity_hash,
+    epoch: 0,
+    log: 'seen',
+    previous_hash: null,
+    first: 0,
+    count: 1,
+    digest_before: d0(DOMAIN.log('seen')),
+    ...fields,
+  };
+  const after = crypto
+    .createHash('sha256')
+    .update(Buffer.from(head.digest_before, 'hex'))
+    .update(Buffer.from(entryText, 'utf8'))
+    .digest('hex');
+  const body = JSON.stringify({ ...head, digest_after: after, entries: [] });
+  return body.replace('"entries":[]', `"entries":[${entryText}]`);
+}
+
+test(`${CODEC}: each single-fault case's tag, in Node and in Python (§2.11)`, () => {
+  const fx = load(CODEC);
+  assert.equal(fx.kind, 'codec');
+  assert.deepEqual(fx.tags, ['F1', 'F2', 'JSON', 'INTEGER_FIELD']);
+  const texts = [...fx.single_fault, ...fx.controls].map(codecText);
+  const py = codecPython({ entries: texts, integers: [], segments: [], padded: '[]' });
+  const whats = new Set();
+  fx.single_fault.forEach((c, i) => {
+    assert.equal(py.entries[i].tag, c.tag, `${c.name}: Python's tag`);
+    assert.equal(nodeTag(texts[i]).tag, c.node, `${c.name}: Node's tag`);
+    if (c.tag === 'F1') whats.add(c.what);
+    if (c.canonical_bytes) {
+      const v = JSON.parse(texts[i]);
+      assert.equal(size(v), c.canonical_bytes, `${c.name}: canonical bytes`);
+    }
+  });
+  // Every single-fault tag but INTEGER_FIELD, which is not an entry's (below).
+  assert.deepEqual([...new Set(fx.single_fault.map((c) => c.tag))].sort(), ['F1', 'F2', 'JSON']);
+  // The <what> each F1 case names is one §3's message lists.
+  const s3 = section('3. Hard limits').split('### 3.1')[0].replace(/\s+/g, ' ');
+  const listed = s3.slice(s3.indexOf('breaks F1: <what>'));
+  for (const w of whats) assert.ok(listed.includes(`\`${w}\``), `§3 lists <what> "${w}"`);
+  fx.controls.forEach((c, k) => {
+    const i = fx.single_fault.length + k;
+    assert.equal(py.entries[i].tag, 'passes', `${c.name} passes in Python`);
+    const node = nodeTag(texts[i]);
+    assert.equal(node.tag, 'passes', `${c.name} passes in Node`);
+    assert.equal(py.entries[i].canonical, node.canonical, `${c.name}: one canonical form`);
+    if (c.canonical !== undefined) assert.equal(node.canonical, c.canonical, c.name);
+    if (c.canonical_bytes !== undefined)
+      assert.equal(Buffer.byteLength(node.canonical), c.canonical_bytes, c.name);
+  });
+  assert.equal(
+    Buffer.byteLength(nodeTag(codecText(fx.controls[0])).canonical),
+    LIMITS.ENTRY_BYTES,
+    'the control sits at the bound'
+  );
+});
+
+test(`${CODEC}: each operation maps the tag, and only the operation (§2.11 (a)-(c))`, () => {
+  const fx = load(CODEC);
+  const m = fx.mapping;
+  // (a) the store, on a submitted frame: the write table's code for F1 and F2.
+  for (const tag of ['F1', 'F2']) {
+    const { rule, code, status, written } = m.store_frame[tag];
+    assert.equal(rule, tag);
+    assert.deepEqual({ code, status }, REFUSAL.write[tag]);
+    assert.equal(written, 'nothing');
+  }
+  for (const [field, r] of Object.entries(m.store_frame.INTEGER_FIELD)) {
+    assert.ok(WRITE_RULES.includes(r.rule) && r.rule !== 'F1', `${field}: its frame rule`);
+    assert.deepEqual({ code: r.code, status: r.status }, REFUSAL.write[r.rule]);
+  }
+  assert.deepEqual(m.store_frame.JSON, { step_channel: 'bridge_failure', code: null });
+  // Each single-fault entry in a frame's tail, where Node sees its tag, fails
+  // exactly that rule and writes nothing; the control is accepted.
+  assert.deepEqual(codecStore(codecFrame([['control']])), []);
+  for (const c of fx.single_fault) {
+    const node = nodeTag(codecText(c)).tag;
+    if (!['F1', 'F2'].includes(node)) continue; // JSON never reaches the store; 1.0 is bad/float_entry.json's
+    assert.deepEqual(codecStore(codecFrame([JSON.parse(codecText(c))])), [node], c.name);
+  }
+  // (b) the worker, on an entry it generated: F2 RESOURCE_LIMIT with its
+  // cause, F1 INVARIANT_FAILURE with §3's message; nothing is emitted.
+  assert.deepEqual(m.worker_emit.F2, {
+    code: 'RESOURCE_LIMIT',
+    cause: 'discovery_entry_bytes',
+    emitted: 'nothing',
+  });
+  assert.ok(RESOURCE_CAUSES.includes('discovery_entry_bytes'));
+  assert.equal(CAUSE_LOG.discovery_entry_bytes, 'required', 'it names the log');
+  assert.deepEqual(m.worker_emit.F1, {
+    code: 'INVARIANT_FAILURE',
+    template: INVARIANT_MESSAGES.F1,
+    emitted: 'nothing',
+  });
+  // (c) a persisted segment that passed F6: every content fault is F3, with
+  // F3's mapping on the walk, the full read and the load; inflation is F6.
+  assert.equal(m.persisted.rule, 'F3');
+  const lease = { code: REFUSAL.walk.F3.code, status: REFUSAL.walk.F3.status, released: false };
+  assert.deepEqual(m.persisted.lease_walk, lease);
+  assert.deepEqual(m.persisted.full_read, { ...REFUSAL.full.F3, released: true });
+  assert.deepEqual(m.persisted.worker_load, REFUSAL.resume.F3);
+  assert.deepEqual(m.persisted.inflation.lease_walk, {
+    code: REFUSAL.walk.F6.code,
+    status: REFUSAL.walk.F6.status,
+    released: false,
+  });
+  assert.deepEqual(m.persisted.inflation.full_read, { ...REFUSAL.full.F6, released: true });
+  assert.deepEqual(m.persisted.inflation.worker_load, {
+    ...REFUSAL.resume.F6,
+    released: false,
+  });
+  // segment_corrupt is F6's alone, and the store's alone.
+  assert.deepEqual(STORE_CAUSES, ['segment_corrupt']);
+  assert.ok(!WORKER_CAUSES.includes('segment_corrupt'));
+  const segs = fx.single_fault.filter((c) => c.node !== 'passes').map((c) => codecText(c));
+  const py = codecPython({
+    entries: [],
+    integers: [],
+    segments: segs.map((t) => codecSegment(t)),
+    padded: '[]',
+  });
+  segs.forEach((text, i) => {
+    const node = segmentContent(Buffer.from(codecSegment(text), 'utf8'));
+    assert.ok(node.faults.length, `Node: ${text.slice(0, 20)} is a content fault`);
+    assert.equal(py.segments[i].rule, 'F3', `Python: ${text.slice(0, 20)} is F3`);
+  });
+  const ok = codecSegment('["control"]');
+  assert.deepEqual(segmentContent(Buffer.from(ok, 'utf8')).faults, []);
+});
+
+test(`${CODEC}: an integer-only field is INTEGER_FIELD, under its operation's rule, never F1`, () => {
+  const fx = load(CODEC);
+  const py = codecPython({
+    entries: [],
+    integers: fx.integer_fields.map((c) => c.value),
+    segments: [],
+    padded: '[]',
+  });
+  fx.integer_fields.forEach((c, i) => {
+    assert.equal(c.tag, 'INTEGER_FIELD');
+    assert.equal(py.integers[i].tag, 'INTEGER_FIELD', `${c.where}.${c.field}: the tag`);
+    let rules;
+    if (c.where === 'frame') {
+      const frame = codecFrame([]);
+      frame.discovery.epoch = c.value;
+      rules = codecStore(frame);
+    } else if (c.where === 'seal') {
+      const frame = codecFrame([]);
+      frame.discovery.seals = [
+        {
+          log: 'seen',
+          first: c.value,
+          entries: [['x']],
+          digest_before: d0(DOMAIN.log('seen')),
+          digest_after: fold(d0(DOMAIN.log('seen')), [['x']]),
+        },
+      ];
+      rules = codecStore(frame);
+    } else if (c.where === 'cursor') {
+      const frame = codecFrame([]);
+      frame.cursor.methods = { m: { candidates: c.value } };
+      rules = codecStore(frame);
+    } else {
+      const raw = Buffer.from(codecSegment('["x"]', { [c.field]: c.value }), 'utf8');
+      const { faults } = segmentContent(raw);
+      assert.deepEqual(faults, ['INTEGER_FIELD'], `${c.field}: the content fault`);
+      rules = ['F3'];
+    }
+    // §4's listed order puts the field's own rule first; every rule the frame
+    // breaks is READER_PROTOCOL, and nothing is written (codecStore).
+    assert.equal(rules[0], c.rule, `${c.where}.${c.field}: ${c.rule} first`);
+    assert.ok(!rules.includes('F1'), `${c.where}.${c.field}: never F1`);
+  });
+  // An integer inside an entry stays F1 (single_fault's integer cases).
+  const inEntry = fx.single_fault.filter((c) => c.name.startsWith('integer_'));
+  assert.ok(inEntry.length === 2 && inEntry.every((c) => c.tag === 'F1'));
+});
+
+test(`${CODEC}: a multi-fault input pins the code and nothing written, never the tag (§2.11 (d))`, () => {
+  const fx = load(CODEC);
+  for (const c of fx.multi_fault) {
+    assert.equal(c.tag, null, `${c.name}: no tag is pinned`);
+    assert.ok(c.faults.length >= 2, `${c.name}: more than one fault`);
+  }
+  const entries = fx.multi_fault.filter((c) => c.build);
+  const segCase = fx.multi_fault.find((c) => c.where === 'segment');
+  const py = codecPython({
+    entries: entries.map(codecText),
+    integers: [],
+    segments: [codecSegment(segCase.text, { [segCase.field]: segCase.value })],
+    padded: '[]',
+  });
+  entries.forEach((c, i) => {
+    // Python raises one of the faults' tags, whichever its scan meets first.
+    assert.ok(c.faults.includes(py.entries[i].tag), `${c.name}: one of its faults`);
+    // The store: READER_PROTOCOL whatever the first, and nothing written.
+    const rules = codecStore(codecFrame([JSON.parse(codecText(c))]));
+    assert.ok(rules.length >= 1);
+    for (const r of rules) assert.deepEqual(REFUSAL.write[r], PROTOCOL, `${c.name}: ${r}`);
+    // The worker, before it emits: one of the two codes its faults map to.
+    const codes = c.faults.map((f) => fx.mapping.worker_emit[f].code);
+    assert.deepEqual(codes.sort(), ['INVARIANT_FAILURE', 'RESOURCE_LIMIT']);
+  });
+  const seal = fx.multi_fault.find((c) => c.where === 'seal');
+  const frame = codecFrame([]);
+  const e = JSON.parse(seal.text);
+  frame.discovery.seals = [
+    {
+      log: 'seen',
+      first: seal.value,
+      entries: e,
+      digest_before: d0(DOMAIN.log('seen')),
+      digest_after: d0(DOMAIN.log('seen')),
+    },
+  ];
+  for (const r of codecStore(frame)) assert.deepEqual(REFUSAL.write[r], PROTOCOL, `seal: ${r}`);
+  // A segment with several content faults is F3, whichever comes first.
+  assert.equal(py.segments[0].rule, 'F3');
+  assert.ok(segCase.faults.includes(py.segments[0].tag));
+  const node = segmentContent(
+    Buffer.from(codecSegment(segCase.text, { [segCase.field]: segCase.value }), 'utf8')
+  );
+  assert.deepEqual([...new Set(node.faults)].sort(), [...segCase.faults].sort());
+});
+
+test(`${CODEC}: the integral float 1.0 diverges, with one pin per side (§2.11)`, () => {
+  const fx = load(CODEC);
+  const x = fx.cross_language;
+  const raw = codecSegment(x.text);
+  const py = codecPython({ entries: [x.text], integers: [], segments: [raw], padded: '[]' });
+  // Python: a float, F1, so F3 on the load, chain_broken.
+  assert.equal(py.entries[0].tag, x.python.tag);
+  assert.equal(py.segments[0].rule, x.python.rule);
+  assert.deepEqual(REFUSAL.resume[x.python.rule], unavailable(x.python.cause));
+  // Node: the integer 1 passes F1 and F3; the digest over `1.0` does not recompute: F5.
+  const { seg, faults } = segmentContent(Buffer.from(raw, 'utf8'));
+  assert.deepEqual(faults, []);
+  assert.equal(JSON.stringify(seg.entries[0]), x.node.parsed);
+  assert.notEqual(fold(seg.digest_before, seg.entries), seg.digest_after);
+  assert.equal(x.node.rule, 'F5');
+  assert.deepEqual(REFUSAL.resume[x.node.rule], unavailable(x.node.cause));
+  // Each side pins its own; the two causes differ, and neither is asserted for the other.
+  assert.notEqual(x.python.cause, x.node.cause);
+  // On a submitted frame the same divergence is bad/float_entry.json's.
+  const fl = load('bad/float_entry.json').expect;
+  assert.deepEqual([fl.rule, fl.node_detects, fl.code], ['F1', 'F5', 'READER_PROTOCOL']);
+});
+
+test(`${CODEC}: F2 is on the canonical form; the raw input only within the enclosing reader's bound (item 3)`, () => {
+  const fx = load(CODEC);
+  const rt = fx.raw_transport;
+  // The enclosing readers' existing bounds, read from the source.
+  const src = (f) => fs.readFileSync(path.join(ROOT, f), 'utf8');
+  const frameCap = /const READER_FRAME_CAP = 2 \* 1024 \* 1024 \+ 16384;/.test(
+    src('mcp/python_bridge.js')
+  );
+  assert.ok(frameCap, 'python_bridge.js: READER_FRAME_CAP is 2 MiB + 16 KiB');
+  assert.ok(/^READER_OBJECT_BYTES = 2 \* 1024 \* 1024/m.test(src('mcp/worker.py')));
+  assert.ok(/objectBytes: 2 \* 1024 \* 1024,/.test(src('mcp/reader_job_store.js')));
+  const bound = 2 * 1024 * 1024;
+  // No raw-input constant: LIMITS holds none, and §2.11 says the contract adds none.
+  assert.ok(!Object.keys(LIMITS).some((k) => /RAW/.test(k)));
+  const s211 = CONTRACT.slice(CONTRACT.indexOf('\n### 2.11'), CONTRACT.indexOf('\n## 3.'));
+  assert.ok(s211.replace(/\s+/g, ' ').includes('this contract adds no raw-input constant'));
+  const padded = codecText(rt.valid_padded);
+  const bytes = Buffer.byteLength(padded);
+  assert.equal(bytes, rt.valid_padded.raw_bytes);
+  assert.ok(bytes <= bound && bytes > 1000 * 1024, 'about 1 MiB, within the bound');
+  assert.equal(size(JSON.parse(padded)), rt.valid_padded.canonical_bytes);
+  assert.equal(rt.valid_padded.canonical_bytes, LIMITS.ENTRY_BYTES);
+  assert.equal(nodeTag(padded).tag, 'passes');
+  const over = rt.over_spaced.map(codecText);
+  const py = codecPython({ entries: over, integers: [], segments: [], padded });
+  assert.equal(py.padded.tag, 'passes', 'the padded entry passes F2 in Python');
+  assert.equal(py.padded.raw_bytes, bytes);
+  // Peak memory measured: the decoder's peak is proportional to the raw bytes.
+  assert.ok(py.padded.peak > 0 && py.padded.peak < 2 * bytes + 65536, `peak ${py.padded.peak}`);
+  rt.over_spaced.forEach((c, i) => {
+    assert.equal(Buffer.byteLength(over[i]), c.raw_bytes);
+    assert.equal(size(JSON.parse(over[i])), c.canonical_bytes);
+    assert.equal(c.canonical_bytes, LIMITS.ENTRY_BYTES + 1);
+    assert.equal(py.entries[i].tag, 'F2', `pad ${c.build.pad}: F2 in Python`);
+    assert.equal(nodeTag(over[i]).tag, 'F2', `pad ${c.build.pad}: F2 in Node`);
+  });
+  assert.deepEqual(
+    rt.over_spaced.map((c) => c.build.pad),
+    [0, 1, 256],
+    'however it is spaced: none, one and the padded run'
+  );
+});
+
+// §2.11: where caller text enters the analysis, by line. A lone surrogate the
+// caller sends as an escape reaches the worker as a lone surrogate, and only a
+// lyrics argv is cleaned, so admission must refuse one (BB8's condition).
+const TRACE = [
+  ['mcp/server_http.js', 226, 'express.json({'],
+  [
+    'mcp/reader_routes.js',
+    15,
+    'const validBinding = (value) => /^[A-Za-z0-9_.:-]{1,200}$/.test(value);',
+  ],
+  ['mcp/reader_routes.js', 169, 'export function validateRequest(input) {'],
+  [
+    'mcp/reader_routes.js',
+    180,
+    "throw fail('INVALID_DECLARATION', 'The declaration set must be a JSON object.');",
+  ],
+  ['mcp/reader_routes.js', 226, 'export async function createAnalysisJob({'],
+  ['mcp/reader_routes.js', 283, 'let request = validateRequest(req.body);'],
+  [
+    'mcp/library_viewer_routes.js',
+    148,
+    'const request = validateRequest({ ...body, snapshot_id: snapshotId() });',
+  ],
+  ['mcp/reader_scheduler.js', 280, 'const prepareRequest = async (request) => {'],
+  [
+    'mcp/reader_scheduler.js',
+    369,
+    'declaration_set: { ...declarations, pronunciations: structuredClone(defaults) },',
+  ],
+  [
+    'mcp/reader_scheduler.js',
+    521,
+    "throw error('STALE_READING', 'Source or engine identity changed; create a new reader job.');",
+  ],
+  ['mcp/reader_scheduler.js', 523, 'const trusted = this.store.workerPayload(record.id);'],
+  ['mcp/reader_scheduler.js', 528, 'declarations: record.request.declaration_set,'],
+  ['mcp/reader_scheduler.js', 66, 'const source = JSON.parse(bytes);'],
+  [
+    'mcp/reader_source_worker.js',
+    12,
+    'const source = verifyReading(await readFile(file), expected, request);',
+  ],
+  ['mcp/python_bridge.js', 16, 'const READER_FRAME_CAP = 2 * 1024 * 1024 + 16384;'],
+  ['mcp/python_bridge.js', 317, 'const reply = JSON.parse(line);'],
+  [
+    'mcp/python_bridge.js',
+    325,
+    "throw interrupted('unreadable reader checkpoint', { code: 'READER_PROTOCOL' });",
+  ],
+  ['mcp/python_bridge.js', 371, 'kill(error);'],
+  [
+    'mcp/python_bridge.js',
+    379,
+    "Buffer.byteLength(protocol) > (waiter?.family === 'reader' ? READER_FRAME_CAP : 1024 * 1024)",
+  ],
+  ['mcp/python_bridge.js', 580, 'JSON.stringify({'],
+  [
+    'mcp/python_bridge.js',
+    584,
+    "...(options.family === 'reader' ? { reader: options.readerPayload } : {}),",
+  ],
+  ['mcp/worker.py', 87, '_LONE_SURROGATE = re.compile("[\\ud800-\\udfff]")'],
+  ['mcp/worker.py', 94, 'READER_OBJECT_BYTES = 2 * 1024 * 1024'],
+  ['mcp/worker.py', 97, 'def read_page_object(page_path):'],
+  ['mcp/worker.py', 105, 'raw = source_file.read(READER_OBJECT_BYTES + 1)'],
+  ['mcp/worker.py', 111, 'body = inflater.decompress(raw, READER_OBJECT_BYTES + 1)'],
+  ['mcp/worker.py', 123, 'return json.loads(body.decode("utf-8"))'],
+  [
+    'mcp/worker.py',
+    155,
+    'session = AnalysisSession(payload["source"], payload.get("declarations"), requested,',
+  ],
+  [
+    'mcp/worker.py',
+    164,
+    'frame = json.dumps({"id": request_id, "event": "reader_checkpoint", "data": step},',
+  ],
+  ['mcp/worker.py', 166, 'if len(frame.encode("utf-8")) > 2 * 1024 * 1024:'],
+  ['mcp/worker.py', 241, 'req = json.loads(line)'],
+  ['mcp/worker.py', 249, 'argv = [_LONE_SURROGATE.sub("\\ufffd", a) for a in argv]'],
+  ['mcp/reader_job_store.js', 10, 'objectBytes: 2 * 1024 * 1024,'],
+  ['mcp/reader_job_store.js', 164, 'export function decodeStoredObject(raw) {'],
+  ['mcp/reader_job_store.js', 511, '_readFile(file) {'],
+  ['mcp/reader_job_store.js', 667, '_object(kind, hash) {'],
+  ['mcp/reader_job_store.js', 681, 'return JSON.parse(bytes);'],
+  ['lyric-harness/library/analysis.py', 163, 'def _public_declarations(value):'],
+  [
+    'lyric-harness/library/analysis.py',
+    367,
+    'raise ValueError("STALE_READING: an exact pronunciation line is absent from this registered reading")',
+  ],
+  [
+    'lyric-harness/quality/pronunciation.py',
+    174,
+    "if not isinstance(line, str) or not line.strip() or len(line) > 4000 or any(c in line for c in '\\r\\n'):",
+  ],
+];
+
+test('§2.11: caller text reaches the analysis unrefused today, so admission refuses a lone surrogate', () => {
+  for (const [file, line, text] of TRACE) {
+    const got = fs.readFileSync(path.join(ROOT, file), 'utf8').split('\n')[line - 1] ?? '';
+    assert.ok(got.trim().startsWith(text), `${file}:${line} is ${JSON.stringify(text)}`);
+  }
+  // Every line §2.11 cites with its file named is a line this trace pins.
+  const s211 = CONTRACT.slice(CONTRACT.indexOf('\n### 2.11'), CONTRACT.indexOf('\n## 3.'));
+  const cites = [...s211.matchAll(/`([a-z_./]+\.(?:js|py)):(\d+)(?:-(\d+))?`/g)];
+  assert.ok(cites.length >= 15, `§2.11 cites ${cites.length} lines by file`);
+  for (const [, file, a, b] of cites) {
+    const [lo, hi] = [Number(a), Number(b ?? a)];
+    assert.ok(
+      TRACE.some(([f, l]) => f.endsWith(file) && l >= lo && l <= hi),
+      `§2.11 cites ${file}:${a}${b ? `-${b}` : ''}, and the trace pins a line there`
+    );
+  }
+  // The declaration set is held only to being an object; the other fields are ASCII or closed.
+  const routes = fs.readFileSync(path.join(ROOT, 'mcp/reader_routes.js'), 'utf8');
+  const validate = routes.slice(routes.indexOf('export function validateRequest'));
+  assert.ok(
+    !/isWellFormed|toWellFormed|surrogate/.test(validate.slice(0, validate.indexOf('\n}\n')))
+  );
+  // The worker cleans lone surrogates in a lyrics argv only.
+  const worker = fs.readFileSync(path.join(ROOT, 'mcp/worker.py'), 'utf8');
+  assert.equal(worker.match(/_LONE_SURROGATE\.sub/g).length, 1);
+  // The round trip, run: JSON.parse makes the escape a lone surrogate,
+  // JSON.stringify writes it back as the escape, and Python's json.loads makes
+  // it a lone surrogate again, which strict UTF-8 refuses (F1, §2.1).
+  const body = JSON.parse('{"declaration_set":{"pronunciations":[{"line":"Bad \\ud800"}]}}');
+  const line = body.declaration_set.pronunciations[0].line;
+  assert.equal(line.isWellFormed(), false);
+  const wire = JSON.stringify({ reader: { declarations: body.declaration_set } });
+  assert.ok(wire.includes('Bad \\ud800'), 'the bridge writes the escape');
+  const run = spawnSync(
+    'python3',
+    [
+      '-I',
+      '-c',
+      'import json,sys\nv=json.loads(sys.stdin.read())["reader"]["declarations"]["pronunciations"][0]["line"]\ntry:\n    v.encode("utf-8","strict"); print("encodes")\nexcept UnicodeEncodeError:\n    print("lone surrogate", hex(ord(v[-1])))',
+    ],
+    { input: wire }
+  );
+  assert.equal(run.status, 0, run.stderr?.toString());
+  assert.equal(run.stdout.toString().trim(), 'lone surrogate 0xd800');
+  // A well-formed pair survives the same trip and encodes.
+  const pair = JSON.parse('"\\ud83d\\ude00"');
+  assert.ok(pair.isWellFormed());
+  // The contract requires the refusal, its code and message, and BB8's guard test.
+  const flat = s211text();
+  for (const needle of [
+    'as `INVALID_DECLARATION` (400), "The declaration set contains text that is not well-formed Unicode."',
+    'It runs before the store creates a job, so no lease is ever offered.',
+    'the scheduler holds a stored request to the same check before `workerPayload`',
+    "**Guard test** (BB8's; R2's store and route tests)",
+    "no job record is written and the bridge's `runReaderLease` is never called",
+    'The same text with a well-formed pair (`\\ud83d\\ude00`) is admitted.',
+  ])
+    assert.ok(flat.includes(needle), `§2.11: ${needle}`);
+});
+const s211text = () =>
+  CONTRACT.slice(CONTRACT.indexOf('\n### 2.11'), CONTRACT.indexOf('\n## 3.')).replace(/\s+/g, ' ');
+
+test("§2.5, §2.11, §3, §4, §5, §8, §9: BB8's #721 items 2-3 and the codec review are folded where they are stated", () => {
+  const flat = (t) => t.replace(/\s+/g, ' ');
+  const s211 = s211text();
+  assert.ok(
+    s211.includes(
+      'The codec raises a local error with a rule tag; the enclosing operation maps it; the codec never chooses a public code.'
+    ),
+    'the principle'
+  );
+  for (const tag of ['`F1`', '`F2`', '`JSON`', '`INTEGER_FIELD`'])
+    assert.ok(s211.includes(`- ${tag}:`), `§2.11 lists the tag ${tag}`);
+  assert.ok(s211.includes('`F1` stays for integers inside entries'));
+  assert.ok(s211.includes('there is no new code'), '(a): a frame that is not JSON');
+  assert.ok(s211.includes('`F2` is `RESOURCE_LIMIT`, cause `discovery_entry_bytes`'), '(b) F2');
+  assert.ok(
+    s211.includes('is `INVARIANT_FAILURE`, an engine defect, with a message that names the rule')
+  );
+  assert.ok(s211.includes('The worker never truncates or skips the entry.'));
+  assert.ok(
+    s211.includes(
+      "`segment_corrupt` stays F6's alone, and the store's alone, and a failed gzip inflation stays F6."
+    )
+  );
+  assert.ok(s211.includes("Neither side's tests assert the other side's cause."));
+  assert.ok(s211.includes('**(d) Precedence is not pinned.**'));
+  assert.ok(s211.includes("first failure in §4's listed order"));
+  assert.ok(
+    s211.includes('it never asserts the tag or the rule. Only a single-fault case asserts its tag.')
+  );
+  assert.ok(s211.includes('**F2 is measured on the canonical form, not on the raw input**'));
+  // (c): F3 widened exactly as BB8 worded it.
+  const s25 = flat(section('2. Format').split('### 2.5')[1].split('### 2.6')[0]);
+  assert.ok(s25.includes('every entry passes F1 and F2, and every integer field is an integer'));
+  assert.ok(
+    s25.includes(
+      "`segment_corrupt` stays F6's alone, and the store's alone; a failed gzip inflation stays F6"
+    )
+  );
+  // §3: the F1 case and its message.
+  const s3 = flat(section('3. Hard limits').split('### 3.1')[0]);
+  assert.ok(s3.includes('An entry the worker generates that breaks F1 takes it too'));
+  assert.ok(s3.includes('None of the five names a cause'));
+  assert.ok(!s3.includes('None of the four'));
+  assert.ok(s3.includes('measured on the canonical form, not the raw input (§2.11)'));
+  // §4: F1 and F2 hold entries only.
+  const s4 = flat(section('4. Write path'));
+  assert.ok(
+    s4.includes('They hold entries only: a frame field that must be an integer and is not is W1')
+  );
+  // §5: the content is F3; unparseable bytes are F3, inflation F6.
+  const s5 = flat(section('5. Resume path'));
+  assert.ok(
+    s5.includes('Bytes that match the address but do not parse (`JSON.parse`, `:681`) are F3')
+  );
+  assert.ok(s5.includes('are `chain_broken`, never `STORAGE_CORRUPT`'));
+  // §8: the INVARIANT_FAILURE row names F1.
+  const inv = tableRows(section('8. Refusals')).find((r) => r[0] === '`INVARIANT_FAILURE`');
+  assert.ok(inv[3].includes('or an entry the worker generated breaks F1'));
+  assert.ok(inv[3].includes('`breaks F1: <what>`'));
+  // §9: INTEGER_FIELD is required of the worker half's codec, with its test.
+  const s9 = flat(section('9. Compatibility and release'));
+  assert.ok(s9.includes("`require_integer` raises `EntryError` with `rule == 'INTEGER_FIELD'`"));
+  assert.ok(s9.includes("`decode_entry('[9007199254740992]')` still raises with `rule == 'F1'`"));
+  assert.ok(s9.includes('**Admission refuses a lone surrogate (R2).**'));
+  // §11 row 47 and §13 name the fixture.
+  const r47 = tableRows(section('11. Cross-reference')).find((r) => r[0] === '47');
+  assert.ok(r47 && r47[4].includes('`good/codec_error_mapping.json`'));
+  assert.ok(section('13. Fixtures and validator').includes('`good/codec_error_mapping.json`'));
 });

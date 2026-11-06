@@ -1,0 +1,339 @@
+{
+  "fixture": "good/codec_error_mapping.json",
+  "contract": "mcp/DISCOVERY_V1.md",
+  "kind": "codec",
+  "exercises": "The entry codec raises a local error with a rule tag, and the enclosing operation maps it; the codec never picks a public code (§2.11). Each single-fault case pins its tag in Python and in Node; the controls pass; each integer-only field maps to its operation's rule; the multi-fault cases pin the code only; the integral float 1.0 has one pin per side; and the raw-transport pair shows F2 is measured on the canonical form.",
+  "expect": {
+    "accepted": true
+  },
+  "tags": ["F1", "F2", "JSON", "INTEGER_FIELD"],
+  "mapping": {
+    "store_frame": {
+      "F1": {
+        "rule": "F1",
+        "code": "READER_PROTOCOL",
+        "status": 400,
+        "written": "nothing"
+      },
+      "F2": {
+        "rule": "F2",
+        "code": "READER_PROTOCOL",
+        "status": 400,
+        "written": "nothing"
+      },
+      "INTEGER_FIELD": {
+        "frame.epoch": {
+          "rule": "W1",
+          "code": "READER_PROTOCOL",
+          "status": 400,
+          "written": "nothing"
+        },
+        "seal.first": {
+          "rule": "W1",
+          "code": "READER_PROTOCOL",
+          "status": 400,
+          "written": "nothing"
+        },
+        "cursor_number": {
+          "rule": "W4",
+          "code": "READER_PROTOCOL",
+          "status": 400,
+          "written": "nothing"
+        }
+      },
+      "JSON": {
+        "step_channel": "bridge_failure",
+        "code": null
+      }
+    },
+    "worker_emit": {
+      "F1": {
+        "code": "INVARIANT_FAILURE",
+        "template": "INVARIANT_FAILURE: a generated entry of <log> breaks F1: <what>",
+        "emitted": "nothing"
+      },
+      "F2": {
+        "code": "RESOURCE_LIMIT",
+        "cause": "discovery_entry_bytes",
+        "emitted": "nothing"
+      }
+    },
+    "persisted": {
+      "rule": "F3",
+      "lease_walk": {
+        "code": "STORAGE_CORRUPT",
+        "status": 503,
+        "released": false
+      },
+      "full_read": {
+        "code": "DISCOVERY_UNAVAILABLE",
+        "status": 409,
+        "cause": "chain_broken",
+        "released": true
+      },
+      "worker_load": {
+        "code": "DISCOVERY_UNAVAILABLE",
+        "status": 409,
+        "cause": "chain_broken"
+      },
+      "inflation": {
+        "rule": "F6",
+        "lease_walk": {
+          "code": "STORAGE_CORRUPT",
+          "status": 503,
+          "released": false
+        },
+        "full_read": {
+          "code": "DISCOVERY_UNAVAILABLE",
+          "status": 409,
+          "cause": "segment_corrupt",
+          "released": true
+        },
+        "worker_load": {
+          "code": "STORAGE_CORRUPT",
+          "status": 503,
+          "released": false
+        }
+      }
+    }
+  },
+  "single_fault": [
+    {
+      "name": "float",
+      "text": "[\"a\",1.0]",
+      "tag": "F1",
+      "what": "a float",
+      "node": "passes"
+    },
+    {
+      "name": "object",
+      "text": "[{}]",
+      "tag": "F1",
+      "what": "an object",
+      "node": "F1"
+    },
+    {
+      "name": "integer_past_the_safe_range",
+      "text": "[9007199254740992]",
+      "tag": "F1",
+      "what": "an integer past 2⁵³ − 1",
+      "node": "F1"
+    },
+    {
+      "name": "integer_below_the_safe_range",
+      "text": "[-9007199254740992]",
+      "tag": "F1",
+      "what": "an integer past 2⁵³ − 1",
+      "node": "F1"
+    },
+    {
+      "name": "lone_surrogate",
+      "text": "[\"Bad \\ud800\"]",
+      "tag": "F1",
+      "what": "a lone surrogate",
+      "node": "F1"
+    },
+    {
+      "name": "over_the_bound",
+      "build": {
+        "string": 4095
+      },
+      "canonical_bytes": 4097,
+      "tag": "F2",
+      "node": "F2"
+    },
+    {
+      "name": "not_json",
+      "text": "[1,",
+      "tag": "JSON",
+      "node": "JSON"
+    },
+    {
+      "name": "trailing_content",
+      "text": "[1] [2]",
+      "tag": "JSON",
+      "node": "JSON"
+    }
+  ],
+  "controls": [
+    {
+      "name": "at_the_bound",
+      "build": {
+        "string": 4094
+      },
+      "canonical_bytes": 4096
+    },
+    {
+      "name": "largest_integers",
+      "text": "[9007199254740991,-9007199254740991]",
+      "canonical": "[9007199254740991,-9007199254740991]"
+    },
+    {
+      "name": "lexical_minus_zero",
+      "text": "[ -0 ]",
+      "canonical": "[0]"
+    },
+    {
+      "name": "surrogate_pair",
+      "text": "[\"\\ud83d\\ude00\"]",
+      "canonical": "[\"😀\"]"
+    },
+    {
+      "name": "booleans_and_null",
+      "text": "[true,false,null,\"\"]",
+      "canonical": "[true,false,null,\"\"]"
+    }
+  ],
+  "integer_fields": [
+    {
+      "where": "frame",
+      "field": "epoch",
+      "value": 1.5,
+      "tag": "INTEGER_FIELD",
+      "rule": "W1"
+    },
+    {
+      "where": "seal",
+      "field": "first",
+      "value": 0.5,
+      "tag": "INTEGER_FIELD",
+      "rule": "W1"
+    },
+    {
+      "where": "seal",
+      "field": "first",
+      "value": true,
+      "tag": "INTEGER_FIELD",
+      "rule": "W1"
+    },
+    {
+      "where": "cursor",
+      "field": "methods.m.candidates",
+      "value": 0.5,
+      "tag": "INTEGER_FIELD",
+      "rule": "W4"
+    },
+    {
+      "where": "cursor",
+      "field": "methods.m.candidates",
+      "value": 9007199254740992,
+      "tag": "INTEGER_FIELD",
+      "rule": "W4"
+    },
+    {
+      "where": "segment",
+      "field": "epoch",
+      "value": 0.5,
+      "tag": "INTEGER_FIELD",
+      "rule": "F3"
+    },
+    {
+      "where": "segment",
+      "field": "first",
+      "value": "0",
+      "tag": "INTEGER_FIELD",
+      "rule": "F3"
+    },
+    {
+      "where": "segment",
+      "field": "count",
+      "value": 1.5,
+      "tag": "INTEGER_FIELD",
+      "rule": "F3"
+    }
+  ],
+  "multi_fault": [
+    {
+      "name": "object_past_the_bound",
+      "build": {
+        "object_string": 4095
+      },
+      "faults": ["F1", "F2"],
+      "tag": null
+    },
+    {
+      "name": "lone_surrogate_past_the_bound",
+      "build": {
+        "surrogate_string": 4095
+      },
+      "faults": ["F1", "F2"],
+      "tag": null
+    },
+    {
+      "name": "seal_first_and_entry",
+      "where": "seal",
+      "field": "first",
+      "value": 0.5,
+      "text": "[{}]",
+      "faults": ["INTEGER_FIELD", "F1"],
+      "tag": null
+    },
+    {
+      "name": "segment_first_and_entry",
+      "where": "segment",
+      "field": "first",
+      "value": 0.5,
+      "text": "[\"\\ud800\"]",
+      "faults": ["INTEGER_FIELD", "F1"],
+      "tag": null
+    }
+  ],
+  "cross_language": {
+    "text": "[1.0]",
+    "python": {
+      "tag": "F1",
+      "rule": "F3",
+      "cause": "chain_broken"
+    },
+    "node": {
+      "parsed": "[1]",
+      "rule": "F5",
+      "cause": "digest_mismatch"
+    }
+  },
+  "raw_transport": {
+    "bound": "the enclosing reader's: READER_FRAME_CAP for a frame line, READER_OBJECT_BYTES and READER_LIMITS.objectBytes for a segment",
+    "valid_padded": {
+      "build": {
+        "lead": 10,
+        "zeros": 2046,
+        "pad": 256
+      },
+      "canonical_bytes": 4096,
+      "raw_bytes": 1052160,
+      "tag": null
+    },
+    "over_spaced": [
+      {
+        "build": {
+          "lead": null,
+          "zeros": 2048,
+          "pad": 0
+        },
+        "canonical_bytes": 4097,
+        "raw_bytes": 4097,
+        "tag": "F2"
+      },
+      {
+        "build": {
+          "lead": null,
+          "zeros": 2048,
+          "pad": 1
+        },
+        "canonical_bytes": 4097,
+        "raw_bytes": 8193,
+        "tag": "F2"
+      },
+      {
+        "build": {
+          "lead": null,
+          "zeros": 2048,
+          "pad": 256
+        },
+        "canonical_bytes": 4097,
+        "raw_bytes": 1052673,
+        "tag": "F2"
+      }
+    ]
+  }
+}

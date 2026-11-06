@@ -44,6 +44,17 @@ passes every other rule.
   good witness fixture's durable history. Each mutant's `records` holds indexes into that
   fixture's `durable_records`, or whole records; a mutant may also replace the witness. The
   suffix fixture's `controls` use the same form and are accepted.
+- `good/codec_error_mapping.json` is a codec fixture (§2.11). An input is a `text` (one entry's
+  JSON, spaced as given) or a `build`: `{"string": n}` is a string of n `a`s; `{"object_string": n}`
+  is `[{"a": <that string>}]`; `{"surrogate_string": n}` is an array holding one string, the lone
+  surrogate U+D800 then n `a`s; `{"lead", "zeros", "pad"}` is an array of `lead` (when not null) then
+  `zeros` zeros, with `pad` whitespace characters after `[`, before and after every `,` and before
+  `]`, each run cycling space, tab, CR, LF from its start. A `single_fault` case names its tag in
+  Python (`tag`) and what Node's reader of the same text meets (`node`: a tag, or `passes` when
+  Node parses `1.0` as 1); `what` is the F1 message's `<what>` (§3). `mapping` is the code each
+  operation gives a tag. `integer_fields` set one field of a minimal frame, cursor or segment.
+  `multi_fault` cases have `tag: null`: only the code is pinned. `cross_language` holds one pin per
+  side, and neither side asserts the other's (§2.11).
 - `bad/float_entry.json` holds the number `1.0`. Python reads it as a float and must refuse
   it as F1; Node reads it as the integer 1 and refuses the seal as F5 (`node_detects`).
   Reformatting must keep the literal.
@@ -139,6 +150,7 @@ it is accepted), and what it exercises.
 | `good/thrown_save_outcome_unknown.json` | R2 F3 F6 | none | a commit's record save throws: with a status, before the write, so only orphans change; without one, after the rename, so the outcome is unknown, the instance serves nothing, and the restart's full read rebuilds the lists from the durable heads, landed or not |
 | `good/refusal_construction.json` | W4 | none | every refusal construction in the adapter's call closure, read from the source with the bound of each variable part, independently and per schema; the largest, every part at its maximum, is 543 bytes, REFUSAL_BYTES, which the dispatch never builds; the largest it can build is 336 bytes; every refusal name, `_Refused` use and refusal copy is listed; frame source labels of 1, 4,096 and 65,536 bytes build the same refusals |
 | `good/unavailable_pause_reason.json` | U1 U2 | none | every release path and the saves after one: one save empties `logs` and `verified`; `unavailable` and the reason keep the released log names and their heads; the first trace wins; a released job is never requeued |
+| `good/codec_error_mapping.json` | F1 F2 F3 W1 W4 | none | the codec's tags and where each operation maps them (§2.11): single-fault entries with their tag in Python and in Node, controls at the bounds, integer-only fields and the rule each maps to, multi-fault inputs that pin only the code, the `1.0` divergence with one pin per side, and a whitespace-padded entry of 4,096 canonical bytes that passes beside one of 4,097 that fails F2 however it is spaced |
 | `bad/missing_segment.json` | R1 | DISCOVERY_UNAVAILABLE 409 segment_missing | the oldest `alt_cells` segment is gone; the store meeting it outside reconciliation says STORAGE_CORRUPT 503 |
 | `bad/reordered_segment.json` | R2 | DISCOVERY_UNAVAILABLE 409 chain_broken | the two `alt_cells` paths are swapped |
 | `bad/cursor_summary_disagreement.json` | R3 | DISCOVERY_UNAVAILABLE 409 cursor_disagrees | the cursor's `alt_cells` totals are one segment short of the walked summary |

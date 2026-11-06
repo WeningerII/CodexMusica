@@ -5478,6 +5478,8 @@ await check('validation: actionable errors', () => {
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/fixtures/discovery_v1/good/refusal_construction.json':
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/good/codec_error_mapping.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/test_library_viewer_routes.mjs':
         'offline Library viewer route, cookie, isolation and limit regressions',
       'mcp/test_library_exports.mjs':

@@ -41,7 +41,12 @@ measured at 4,096-byte entries, and the first-commit claim is scoped to the load
 store's alone, while the worker's finish-time `alt_cells` load is a complete verified load
 (§1, §5.1, §5.2, §8). A review of `465582a78` then measured the per-byte rate over nested
 shapes, which halves `MEMBERSHIP_BYTES` to 2 MiB, made the single-pass membership key a
-requirement, and scoped the two-rate sum to a derivation (§2.1, §5.2, §6.11, §9, §10). Where this text and the proposal differ, this text governs. 3PO's
+requirement, and scoped the two-rate sum to a derivation (§2.1, §5.2, §6.11, §9, §10). It folds BB8's proposal for
+the #721 handoff's items 2 and 3, which R2 accepted, and BB8's review of the #721 entry codec
+(should-fix 1): the codec raises a tagged local error and the enclosing operation maps it; a
+worker's F1 is `INVARIANT_FAILURE`; persisted content is F3; precedence is unpinned; F2 is
+measured on the canonical form; integer-only fields get their own tag; and a lone surrogate is
+refused where caller text is admitted (§2.5, §2.11, §3, §4, §5, §8, §9, §12, §13). Where this text and the proposal differ, this text governs. 3PO's
 acknowledgement (6677006069) fixes the `contracts.py` reservation to the checkpoint declaration
 and schema; the shared `CONTRACT_VERSION` does not change.
 
@@ -228,6 +233,14 @@ What is not logged, and why:
     `entries.length`.
   - `digest_before` is the chain digest before `first`, and `digest_after` the digest
     after its last entry (§2.2).
+  - **F3 holds the content too** (BB8, #721 item 2 (c)): every entry passes F1 and F2, and
+    every integer field is an integer. So a segment whose bytes match its address (F6 passed)
+    but do not parse, hold an entry that fails F1 or F2, or hold a `first`, `count` or `epoch`
+    that is not an integer fails F3: bad content, not corruption. F3's mapping does not change:
+    on a lease's walk `STORAGE_CORRUPT` with nothing released (§5.1), at a full read
+    (reconciliation, `resume()`) `DISCOVERY_UNAVAILABLE`, cause `chain_broken` (§5.1), and at
+    the worker's load `chain_broken` (§5.2). `segment_corrupt` stays F6's alone, and the
+    store's alone; a failed gzip inflation stays F6 (§2.11).
 - **F6, the address.** The address is the sha256 of exactly those plain bytes. In Node
   that is `JSON.stringify` of an object built in this field order. In Python it is
   `json.dumps` of a dict in this order with `ensure_ascii=False` and
@@ -389,6 +402,126 @@ null
 - A record whose `discovery.unavailable` is set never reaches a lease payload:
   `_dispatchable` does not offer it, and `workerPayload` refuses it (§2.7).
 
+### 2.11 Codec errors and where they are mapped (BB8, #721 items 2–3)
+
+This is BB8's proposal for the #721 handoff's items 2 and 3, which R2 accepted, with BB8's review
+of the #721 entry codec (should-fix 1). `good/codec_error_mapping.json` pins each byte and mapping
+claim below, and the validator checks it in Node and in Python (§13).
+
+- **The principle.** The codec raises a local error with a rule tag; the enclosing operation maps
+  it; the codec never chooses a public code. The codec is whatever decodes, checks or encodes
+  entries: the #721 author's entry codec in the worker, and the store's entry checks (§4). Its
+  tags:
+  - `F1`: a value inside an entry that is outside §2.1's subset: a float (`1.0` included), a
+    nonfinite number, an object, an integer past ±(2⁵³ − 1), a lone surrogate, a cyclic array or
+    a value of another type;
+  - `F2`: an entry whose canonical form is longer than `ENTRY_BYTES`;
+  - `JSON`: input that is not one JSON value: invalid UTF-8, a truncated value or trailing
+    content;
+  - `INTEGER_FIELD`: an integer-only field outside the entries that is not an integer in its
+    range: a frame's `epoch`, a seal's `first`, a cursor number, or a segment's `epoch`, `first`
+    or `count`. `F1` stays for integers inside entries (BB8's review; required of the codec, §9).
+- **(a) The store, on a submitted frame** (§4 step 3). `F1` or `F2` on any entry in the seals,
+  the cursor tails or the group keys is `READER_PROTOCOL` (400), and nothing is written.
+  `INTEGER_FIELD` is the same code under the frame's own rule, not F1: W1 for `epoch` and a
+  seal's `first`, W4 for a cursor number. Same code, different tag. A frame whose `discovery` is
+  not JSON never reaches the store, because the frame is one JSON line: it is the step channel's
+  existing failure for a malformed step, and there is no new code. The bridge parses each line
+  (`python_bridge.js:317`) inside the try whose catch kills the worker (`:370-372`), a bridge
+  failure with no reply that pauses as today (§8), and refuses a reader line past
+  `READER_FRAME_CAP` (`:16`) as `READER_PROTOCOL` (`:320-325`).
+- **(b) The worker, on an entry it generated, before it emits.** `F2` is `RESOURCE_LIMIT`, cause
+  `discovery_entry_bytes`, naming the log (§3, §8). `F1` (a float, a lone surrogate, an object,
+  an integer out of range) is `INVARIANT_FAILURE`, an engine defect, with a message that names
+  the rule, like the other `INVARIANT_FAILURE` messages (§3, §8). The worker never truncates or
+  skips the entry. It refuses before it writes the frame: `worker.py` writes frames with
+  `ensure_ascii=False` (`:164-165`) to a strict UTF-8 stdout, where a lone surrogate fails the
+  write itself (`:80-86`) and the lease would end as `READER_ERROR` (`:260-270`).
+- **(c) A persisted segment that passed F6.** Bytes that do not parse, an entry failing F1 or F2,
+  and a `first`, `count` or `epoch` that is not an integer are F3, not corruption (§2.5). The
+  mapping is F3's, unchanged: a lease's walk refuses `STORAGE_CORRUPT` (503) and releases
+  nothing (§5.1); a full read (reconciliation, `resume()`) releases with `DISCOVERY_UNAVAILABLE`,
+  cause `chain_broken` (§5.1); the worker's load refuses with `chain_broken` (§5.2).
+  `segment_corrupt` stays F6's alone, and the store's alone, and a failed gzip inflation stays
+  F6.
+- **The integral float `1.0`, across languages.** Take a persisted segment whose digests a
+  Python writer computed over the bytes `1.0`. Python's load meets a float: F1, so F3, cause
+  `chain_broken`. Node parses it as the integer 1, so the entry passes F1 and its recomputed
+  digest does not match: F5, cause `digest_mismatch`. The divergence is accepted: both refuse,
+  with different causes. Each side pins its own cause in `good/codec_error_mapping.json`:
+  `cross_language.python` for the worker's codec, `cross_language.node` for a Node reader and
+  this validator's model of the load. Neither side's tests assert the other side's cause. On a
+  submitted frame the same divergence is `bad/float_entry.json`'s (F1 in Python, F5 in Node),
+  where both are `READER_PROTOCOL`.
+- **(d) Precedence is not pinned.** An input that breaks more than one rule carries the tag of
+  its first failure in §4's listed order, and within one entry whichever check the bounded scan
+  reaches first. No test depends on which. A test of a multi-fault input asserts the code and
+  that nothing was written or emitted; it never asserts the tag or the rule. Only a
+  single-fault case asserts its tag. Where the faults map to different codes, the test asserts
+  one of them: an entry the worker generated that breaks F1 and F2 is `INVARIANT_FAILURE` or
+  `RESOURCE_LIMIT` (`discovery_entry_bytes`), and is not emitted. The same holds for (c): a
+  segment with several content faults is F3, whichever comes first.
+- **F2 is measured on the canonical form, not on the raw input** (BB8, #721 item 3). The
+  decoder's time and peak memory grow with the raw bytes it is given, whitespace included. F2
+  bounds only the canonical form: an entry passes F2 when its canonical form is at most 4,096
+  bytes, however it was spaced. The raw input is bounded only by the enclosing reader's existing
+  limit, and this contract adds no raw-input constant:
+  - a submitted frame is one step line of at most `READER_FRAME_CAP`, 2 MiB plus 16 KiB, which
+    the bridge holds each line to (`python_bridge.js:16`, `:320-325`) and its unterminated buffer
+    too (`:374-380`); the worker holds its own frames to 2 MiB before it writes them
+    (`worker.py:164-167`);
+  - a segment the worker reads goes through the bounded page reader, `read_page_object`
+    (`worker.py:97-123`): it reads at most `READER_OBJECT_BYTES`, 2 MiB (`:94`, `:104-107`), and
+    inflates at most as much (`:108-117`), before it parses (`:123`);
+  - a segment the store reads goes through `_object` (`reader_job_store.js:667-683`): `_readFile`
+    holds the stored bytes to `READER_LIMITS.objectBytes`, 2 MiB (`:511-515`, `:10`), and
+    `decodeStoredObject` holds the inflated bytes to it too (`:164-214`).
+
+  Required acceptance tests, of the worker half's codec (the validator runs both against its own
+  model): a valid entry whose canonical form is 4,096 bytes, padded with whitespace to about
+  1 MiB, decodes and passes F2 within those bounds, with its peak memory measured; and an entry
+  whose canonical form is 4,097 bytes fails F2 however it is spaced. `raw_transport` in
+  `good/codec_error_mapping.json` builds both.
+- **A lone surrogate is refused where caller text is admitted.** (b) calls a lone surrogate in a
+  generated entry an engine defect. That holds only if no caller text can carry one into the
+  analysis, and today caller text can:
+  1. Both create paths parse the body with `express.json` (`server_http.js:225-231`), whose
+     `JSON.parse` turns the escape `\ud800` into a lone surrogate, and both call
+     `validateRequest` (`reader_routes.js:169-219`): the Site bridge (`:283`) and `/library/v1`
+     (`library_viewer_routes.js:148`). It holds `declaration_set` only to being an object
+     (`reader_routes.js:174-180`). Every other field it admits is ASCII by `validBinding`
+     (`:15`) or one of a closed set (`:181-197`).
+  2. `createAnalysisJob` (`:226-247`) stores the request as it is: `prepareRequest`
+     (`reader_scheduler.js:280`) keeps a caller's declaration set, and only adds a collection's
+     default pronunciations to a set that has none (`:369`).
+  3. Each lease passes `record.request.declaration_set` to the worker
+     (`reader_scheduler.js:528`). The bridge writes it with `JSON.stringify`
+     (`python_bridge.js:579-586`), which writes a lone surrogate as the escape `\ud800`, and
+     `worker.py` reads it with `json.loads` (`:241`), which makes it a lone surrogate again.
+     `worker.py` replaces lone surrogates only in a lyrics request's `argv` (`:87`, `:249`); the
+     reader family hands `declarations` to `AnalysisSession` as they are (`:155`).
+  4. In the analysis, `_public_declarations` (`analysis.py:163-170`) redacts only `source`,
+     `provenance` and `citation`, and no check on the way holds a string to well-formed Unicode:
+     a pronunciation's `line` is held to 4,000 characters (`quality/pronunciation.py:174`) and
+     refused later only because no registered line matches it (`analysis.py:366-367`).
+
+  The registered reading is not caller text: it comes from the approved snapshot, checked
+  against its pinned hash (`reader_scheduler.js:63-80`, read off the event loop by
+  `reader_source_worker.js:12`). **Required** (R2's, in the store half's runtime train, which is
+  the worker half's, §9): `validateRequest` refuses a request whose `declaration_set` holds a
+  string or a key, at any depth, that is not well-formed Unicode (`String.prototype.isWellFormed`),
+  as `INVALID_DECLARATION` (400), "The declaration set contains text that is not well-formed
+  Unicode.", in the style of its other declaration refusal (`reader_routes.js:180`). It runs
+  before the store creates a job, so no lease is ever offered. Because the job identity does not
+  always change between images (§9), the scheduler holds a stored request to the same check
+  before `workerPayload` (`reader_scheduler.js:519-523`) and pauses a job that fails it with that
+  code, so a job admitted by an image without the check never reaches the worker either.
+  **Guard test** (BB8's; R2's store and route tests): a create whose declaration set holds a
+  lone-surrogate pronunciation `line` (`"Bad \ud800"`, sent as the JSON escape), and one whose
+  declaration key holds one, are each refused `INVALID_DECLARATION` (400) on both create paths
+  before any lease: no job record is written and the bridge's `runReaderLease` is never called.
+  The same text with a well-formed pair (`\ud83d\ude00`) is admitted.
+
 ## 3. Hard limits
 
 Each limit is a contract constant. Passing one is a named refusal on each side, never a
@@ -396,7 +529,7 @@ truncation.
 
 | Constant | Value | Worker, before it emits | Store, on the frame |
 | --- | --- | --- | --- |
-| `ENTRY_BYTES` | 4096 per entry | `RESOURCE_LIMIT` (cause `discovery_entry_bytes`) | `READER_PROTOCOL` (F2) |
+| `ENTRY_BYTES` | 4096 per entry, measured on the canonical form, not the raw input (§2.11) | `RESOURCE_LIMIT` (cause `discovery_entry_bytes`); an entry it generated that breaks F1 is `INVARIANT_FAILURE` (§2.11) | `READER_PROTOCOL` (F2) |
 | `SEGMENT_ENTRIES` | 1024 per segment | cut rule (§2.4) | `READER_PROTOCOL` (F4) |
 | `SEGMENT_BYTES` | 16384 entry bytes per segment | cut rule (§2.4) | `READER_PROTOCOL` (F4) |
 | tail | fewer than 1024 entries and 16384 bytes | seal | `READER_PROTOCOL` (W4) |
@@ -426,15 +559,21 @@ only once the bound is derived from the constants (BB8 6678702125, ruling 2), an
 it: 128 KiB, a largest cursor of 99,141 bytes plus an allowance of 31,931 bytes.
 `REFUSAL_BYTES` takes `INVARIANT_FAILURE` too, because §3.2 derives it from how the adapter
 builds a refusal, so no input can pass it (BB8 6684866461). `WITNESS_FIELDS` takes
-`INVARIANT_FAILURE` for the same reason as the byte bounds (§12, item 17). None of the four
-names a cause (§8), and each one's message names the bound it passed, with the bound's value
-and the size found, so an engine-defect report says which invariant broke (BB8 6688972927):
+`INVARIANT_FAILURE` for the same reason as the byte bounds (§12, item 17). An entry the worker
+generates that breaks F1 takes it too (§2.11; BB8, #721 item 2 (b)): no input can put a float,
+an object or an out-of-range integer into one, and admission refuses a lone surrogate. None of
+the five names a cause (§8), and each one's message names the bound it passed, with the bound's
+value and the size found, or the rule it broke, so an engine-defect report says which invariant
+broke (BB8 6688972927):
 
 - `INVARIANT_FAILURE: the refusal of <method> is <n> canonical bytes, past REFUSAL_BYTES (543)`;
 - `INVARIANT_FAILURE: the cursor without discovery and continuation is <n> canonical bytes, past CURSOR_BYTES (131072)`;
 - `INVARIANT_FAILURE: the continuation is <n> canonical bytes, past CONTINUATION_BYTES (8192)`;
 - `INVARIANT_FAILURE: the witness field list breaks WITNESS_FIELDS (16): <what>`, where `<what>` is
-  the field count or the field name that is not a dot path of at most 64 bytes.
+  the field count or the field name that is not a dot path of at most 64 bytes;
+- `INVARIANT_FAILURE: a generated entry of <log> breaks F1: <what>`, where `<log>` is the log the
+  entry was for and `<what>` is `a float`, `a nonfinite number`, `an object`,
+  `an integer past 2⁵³ − 1`, `a lone surrogate`, `a cyclic array` or `a value of another type`.
 
 `<method>` is the method's key in `methods` and `<n>` a decimal integer. `bad/cursor_over_bound.json`
 pins the first two messages for its two worker mutants.
@@ -740,7 +879,9 @@ There is no new channel. A frame's seals ride the existing step and its acknowle
      each at most once. There are at most `FRAME_SEALS` seals, each naming a log in §2.3,
      with an integer `first` ≥ 0, a nonempty `entries` array and two 64-character lowercase
      hex digests.
-   - **F1, F2** on every entry in the seals, in the cursor tails and in the group keys.
+   - **F1, F2** on every entry in the seals, in the cursor tails and in the group keys. They
+     hold entries only: a frame field that must be an integer and is not is W1 (`epoch`, a
+     seal's `first`), and a cursor number W4 (§2.11).
    - **W2, the epoch rule.** `epoch` equals `cursor.method_index` and
      `cursor.discovery.epoch`, and it is at least `record.discovery.epoch`. If it is greater,
      every old chain is released and `resets` is empty.
@@ -848,7 +989,8 @@ and `resume()` refuses a dead job at once instead of queueing it
   3. **Read and check the rest**: the segments appended since the verified head, oldest
      first. Each read goes through `_object('pages', …)`, which is bounded and address-checked
      (F6: changed bytes are `STORAGE_CORRUPT`). Then **F3** on each segment: the kind, the
-     version, `job_id`, `identity_hash`, `epoch` equal to the record's epoch, and `log`.
+     version, `job_id`, `identity_hash`, `epoch` equal to the record's epoch, and `log`, and its
+     content (§2.5): every entry passes F1 and F2, and every integer field is an integer.
      **R2** links each segment to the one before it, and the last one to the record's head,
      `count` and `digest`. **R5** checks the junction: the first segment read names `v.head`
      as its `previous_hash`, and its `first` and `digest_before` equal `v.count` and
@@ -883,7 +1025,9 @@ and `resume()` refuses a dead job at once instead of queueing it
   count, `first` or a field), is cause `chain_broken`. Either way the store releases the logs in
   one save (U1, §8), then refuses, naming the cause and the log. To tell F6 apart, the full read
   takes `_object`'s hash-verification refusal (`:679-680`), and a failed bounded inflation of a
-  segment (`decodeStoredObject`, `:164-214`), as F6; any other error keeps its own code. In
+  segment (`decodeStoredObject`, `:164-214`), as F6. Bytes that match the address but do not
+  parse (`JSON.parse`, `:681`) are F3, so `chain_broken` (§2.5); any other error keeps its own
+  code. In
   `resume()` this is new (§12, item 26): `_object` turns F6 into `STORAGE_CORRUPT`
   (`:668-683`), which would leave the job paused at `STORAGE_CORRUPT` on every resume. Apart
   from the membership logs the worker loads on every lease (§5.2), which is logged membership
@@ -923,7 +1067,10 @@ and `resume()` refuses a dead job at once instead of queueing it
     walk has left the lock.
   - **F6.** Changed bytes are `STORAGE_CORRUPT`: the job pauses with it, nothing is released,
     and `resume()`'s full read then releases it as `segment_corrupt` (§5.1).
-- **F3 and R2** as in §5.1, with cause `chain_broken`.
+- **F3 and R2** as in §5.1, with cause `chain_broken`. F3 includes the content (§2.5): bytes
+  that do not parse (`json.loads`, `worker.py:123`), an entry the codec refuses as F1 or F2, and
+  a `first`, `count` or `epoch` that is not an integer are `chain_broken`, never
+  `STORAGE_CORRUPT`. A failed inflation in the page reader (`:108-117`) stays F6 (§2.11).
 - **F5.** Every segment's `digest_after` is recomputed from its entries. A mismatch is cause
   `digest_mismatch`.
 - **R3, cursor agreement.** The summary's epoch and log names equal `cursor.discovery`'s.
@@ -1598,7 +1745,7 @@ Nothing is ever reinterpreted, and missing state is never rebuilt.
 | `STALE_READING` | 409 | worker | a v1 cursor on a v2 worker, a v2 cursor on a v1 worker (`analysis.py:464`), or a witness whose fields are not the ones the worker's reducer reads (§6.9) |
 | `RESULT_EXPIRED` | 410 | worker | the option 2 witness disagrees with durable history, or is null on a qualified method (§6.9) |
 | `RESOURCE_LIMIT` | — (the job pauses) | worker | a §3 limit the worker cannot meet by ending its step, or another raise of §8's list; it names its cause (below) |
-| `INVARIANT_FAILURE` | — (the job pauses) | worker | `CURSOR_BYTES`, `CONTINUATION_BYTES`, `REFUSAL_BYTES` or `WITNESS_FIELDS` passed: an engine defect, naming no cause; its message names the bound and its value, such as `REFUSAL_BYTES (543)` (§3, §3.1, §3.2) |
+| `INVARIANT_FAILURE` | — (the job pauses) | worker | `CURSOR_BYTES`, `CONTINUATION_BYTES`, `REFUSAL_BYTES` or `WITNESS_FIELDS` passed, or an entry the worker generated breaks F1 (a float, a lone surrogate, an object or an integer out of range; §2.11): an engine defect, naming no cause, never a truncation or a skip; its message names the bound and its value, such as `REFUSAL_BYTES (543)`, or the rule, `breaks F1: <what>` (§3, §3.1, §3.2) |
 
 `DISCOVERY_UNAVAILABLE` always names its cause. 409 matches `STALE_READING`; 410 stays with
 `RESULT_EXPIRED`, because here the result is not gone. The Log column says whether a reply's
@@ -1790,6 +1937,25 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   `reader_scheduler.js` (§8). The off setting exists only on branches and on `main` between the
   merges, never in a released image. Jobs paused on the previous image refuse `STALE_READING` anyway
   (`reader_scheduler.js:519-521`).
+- **The entry codec (the #721 author's; BB8's review, should-fix 1).** The codec raises a local
+  error with a rule tag and never a public code; the enclosing operation maps it (§2.11). Before
+  the worker half enters a train:
+  - `require_integer` raises `EntryError` with `rule == 'INTEGER_FIELD'` for an integer-only
+    field outside the entries, never `'F1'`; the entry paths (`decode_entry`, `canonical_bytes`)
+    keep `'F1'` for an integer inside an entry. Required test: `require_integer(1.5)`,
+    `require_integer(True)`, `require_integer(2 ** 53)` and `require_integer(-1, nonnegative=True)`
+    each raise with `rule == 'INTEGER_FIELD'`, and `decode_entry('[9007199254740992]')` still raises
+    with `rule == 'F1'`;
+  - the codec's tests pin every `single_fault` case of `good/codec_error_mapping.json` to its tag,
+    its `cross_language.python` cause, and both `raw_transport` tests, peak memory measured; its
+    multi-fault tests assert the code and that nothing is emitted, never the tag (§2.11 (d));
+  - the worker maps the tags as §2.11 (b) and (c) give: F2 on a generated entry is
+    `RESOURCE_LIMIT` (`discovery_entry_bytes`), F1 is `INVARIANT_FAILURE` with §3's message, and
+    any tag on a loaded segment is F3, `chain_broken`.
+- **Admission refuses a lone surrogate (R2).** `validateRequest` and the scheduler's check before
+  `workerPayload` refuse a declaration set holding text that is not well-formed Unicode, as
+  `INVALID_DECLARATION` (400), in the store half's runtime train, which carries the worker half
+  (§2.11). BB8's guard test is R2's.
 - **Proof run (R2).** It runs on a fresh disposable store with `READER_STORE_GZIP=1`, on the
   qualified image. It passes when the run completes, every lease's first commit lands within
   30 s of the lease start, discovery is about 1.6 MB plain and 0.2 MB stored, the store is at
@@ -1885,6 +2051,7 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | 44 | BB8 6683944548 | correction: "`row_seen` live at 6 of 42 boundaries" is 3PO's two-line synthetic fixture, not Whitman; Whitman's one measured figure is 20,045 `seen` and `variants` entries, and the 45,491 left under the cap are headroom, not a measured margin | §6.11, §10, §12 | the proof run |
 | 45 | 3PO 6684968306; the review of `2a610d053` | reconciled: `REFUSAL_BYTES = 543` is the largest construction in the call closure, which the dispatch never builds, kept as a conservative bound; the largest refusal the dispatch can build is 336 bytes, schema by schema; the independent figures (386, 339) join parts of different schemas; the validator lists every refusal name, `_Refused` use and refusal copy; the worker's label test covers every declaration that takes a source; `CURSOR_BYTES` covers the cursor without `discovery` and `continuation`, 99,141 bytes plus an allowance of 31,931, and the whole cursor is at most 235,483 bytes; W4 holds the cursor's numbers to integers from 0 to 2⁵³ − 1 and `discovery` to §2.8's keys; R2 turns C1's constant on in the worker half's train, and it is never off in a released image | §2.8, §3, §3.1, §3.2, §4 W4, §8 C1, §9 | `good/refusal_construction.json`, `bad/cursor_over_bound.json` |
 | 46 | BB8 6688972927 | `cursor_refusal_bytes` retired, accepted, on the condition that an `INVARIANT_FAILURE` message names the bound it passed; (1) the cap is stated as 90,975 with the margin, rounded down to 65,536, with no #656 measurement as a term; (2) `MEMBERSHIP_BYTES = 2097152`, from a per-byte rate measured at 4,096-byte entries, the worst of 17 shapes, scaled by 3, with the same causes; the caps bound the load and the walk, construct and recompute are measured, and the figures at the caps are a derivation; (3) an oversized compaction defers, and §6.2 wins over §3's `FRAME_SEALS` row; (4) a full read is the store's alone (reconciliation, `resume()`), and the worker's finish-time `alt_cells` load is a complete verified load, `STORAGE_CORRUPT` on F6 with no release; (5)–(10) the walk's two caps, `chain_broken` among the pause's worker causes, the GC sentence, four §6.2 tests everywhere, `discovery_row_seen`'s message, item 25's attribution; item 29 stays open | §1, §3, §5.1, §5.2, §6.2, §6.11, §7.2, §8, §10, §11, §12 | `bad/cursor_over_bound.json`; the §6.11 derivation and byte tests |
+| 47 | BB8, #721 items 2–3 (accepted by R2); BB8's #721 codec review, should-fix 1 | the codec raises a local error with a rule tag and the enclosing operation maps it, never the codec; (a) a submitted frame's F1 or F2 is `READER_PROTOCOL`, its integer fields W1 and W4, and a frame that is not JSON is the step channel's failure; (b) a generated entry's F2 is `RESOURCE_LIMIT` (`discovery_entry_bytes`) and its F1 `INVARIANT_FAILURE`, its message naming the rule; (c) a persisted segment's bad content is F3, `segment_corrupt` stays F6's and the store's, a failed inflation F6; the `1.0` divergence, one pin per side; precedence unpinned; F2 on the canonical form, the raw input bounded by the enclosing reader; `INTEGER_FIELD`; a lone surrogate refused at admission, before any lease | §2.5, §2.11, §3, §4, §5.1, §5.2, §8, §9, §13 | `good/codec_error_mapping.json`, `bad/float_entry.json`; the §2.11 tests |
 
 ## 12. Rulings on the items added for confirmation
 
@@ -1897,7 +2064,8 @@ item 25 (6682942783), which it confirmed as folded (6684866461). BB8 then ruled 
 and 28 (6683944548) and revised its ruling on item 27 (6684866461). Item 24 is 3PO's, with BB8's
 agreement. BB8's completeness ruling (6688972927) amends items 13, 14 and 25 and the full-read
 sites, and closes the contract's semantics but for item 29. Each ruling is marked on its item
-below. Only item 29 is open.
+below. Items 29, 30 and 31 are open: 29 for the proof run, and 30 and 31, R2's two questions of
+6693449409, for BB8.
 
 1. **Ruled: confirmed** (BB8 6678599629). `row_seen`'s reset at row boundaries and its
    compaction (§6.2), and the frame's `resets` field. The compaction decision depends only on
@@ -1987,7 +2155,8 @@ came with the fold of 6678702125 (`8732918312`), and items 25–29 with the fold
 and its review (`147f5dd3d`). Item 25 is ruled by 6682942783, and BB8 confirmed it as folded
 (6684866461). Items 21–23, 26 and 28 are ruled by 6683944548. Item 27 is ruled by 6684866461,
 which replaces 6683944548's ruling on it. Item 24 is 3PO's, and BB8 agrees with 3PO's
-qualification (6683944548). Item 29 stays open.
+qualification (6683944548). Item 29 stays open. Items 30 and 31 are R2's two questions to BB8 in
+6693449409, carried here unchanged; they are BB8's to rule.
 
 15. **Ruled: no semantic objection** (BB8 6681838131). **Where the walk gets its addresses**
     (§4, §5.1). Statting a segment needs its address,
@@ -2145,6 +2314,13 @@ qualification (6683944548). Item 29 stays open.
     `_domain`'s enumeration, up to `DOMAIN_CAP` pairs, are not timed. The proof run measures the
     finish lease against the lease; if it does not fit, it needs checkpointable progress or
     option 2's domain-log fallback.
+30. **Open** (BB8's to rule; asked in 6693449409). The store keeps counts, not bytes, so W7 does
+    not check `MEMBERSHIP_BYTES`, and the worker's refusal is the bound. Should W7 hold
+    `MEMBERSHIP_BYTES`? That would need a `bytes` member in each log's state in
+    `record.discovery`.
+31. **Open** (BB8's to rule; asked in 6693449409). Should F1 bound an entry's nesting depth? A
+    bound would cap the per-byte rate. It would also keep `canonical_json` usable on every entry,
+    if any later code needs it. This revision rules on neither.
 
 ## 13. Fixtures and validator
 
@@ -2208,6 +2384,12 @@ Good:
   65,536 bytes, identical across the three; and the frame sources `_apply_declarations` sets and
   the sources it reads (§3.2).
 
+- `good/codec_error_mapping.json`: the codec's tags and where each is mapped (§2.11): single-fault
+  entries with their tag in Python and in Node, controls at the bounds, the integer-only fields
+  and the rule each maps to, multi-fault inputs that pin only the code, the `1.0` divergence with
+  one pin per side, and the raw-transport pair: a whitespace-padded entry of 4,096 canonical bytes
+  that passes and one of 4,097 that fails F2 however it is spaced.
+
 Bad:
 
 - write (`READER_PROTOCOL` 400): `bad/changed_digest_after.json` (F5),
@@ -2255,7 +2437,10 @@ its guard tests (§3.2) hold each refusal the worker stores to a construction li
 `resolve_detail_records` accepts each, and the worker's suffix-membership check, run before
 resolving, must refuse it; its five controls must be accepted. `bad/reply_cause_invalid.json`'s
 `reply` cases are what the worker's reply must look like after `worker.py` reads its message
-head (§8). `good/row_seen_compaction_next_frame.json`'s `worker_must_not_emit` frames are ones a
+head (§8). `good/codec_error_mapping.json` is the codec's statement (§2.11, §9): its tests pin
+each `single_fault` case's `tag`, the `cross_language.python` cause and both `raw_transport`
+cases, and the worker maps each tag as `mapping` gives; its `multi_fault` cases pin no tag.
+`good/row_seen_compaction_next_frame.json`'s `worker_must_not_emit` frames are ones a
 store accepts and the worker never emits. The walk, full-read, thrown-save, pause, fencing and
 reply fixtures, and the compaction fixture, are the store's and the scheduler's (R2's side).
 
