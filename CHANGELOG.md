@@ -6,6 +6,61 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Fixed — a setting `set_environment` wrote where it does not render is said while it stands; the environment warnings speak only for what it wrote (#671)
+
+`ENVIRONMENT_NOT_RENDERED` was said only on the `edit_recipe` call that wrote the setting,
+and `ENVIRONMENT_MOVED` judged what an edit had put on a card by comparing it with the
+card's seed, so a room a `set_preface` re-derived reported as moved. Each card now records
+what a `set_environment` wrote on it, inside the workspace, and the warnings read that record.
+
+- **A setting the recipe does not render is said while it stands.** `ENVIRONMENT_NOT_RENDERED`
+  was said only on the `edit_recipe` call whose `set_environment` wrote the setting, so the
+  next `render_recipe` (or any later edit) returned no warning while `changed` still showed
+  the room on that card, and a value written on the environment card said nothing once
+  another card took the environment. It is now worked out from the workspace on every
+  response that renders one (`edit_recipe` and `render_recipe`, on every surface, sessions
+  included; a seed has nothing written), for what a `set_environment` wrote and nothing
+  else: each card now carries `envWritten`, a record of the room, tuning and chain stages a
+  `set_environment` wrote there (an `fx` list as the items it added), inside the
+  `workspace` callers already thread. A field leaves it when it is cleared, when a `set_preface` changes it, or when a
+  `set_environment` on the environment card sets or clears that field (an effect added
+  there settles that effect only, since the list holds several): the caller has then
+  chosen what renders, so repeating the edit without `card`, as the warning advises, ends
+  it, and a later choice of the recording's room is not met with advice to copy the older
+  one over it. A workspace without the record (an older session or client) has nothing
+  written, so it stays silent until a new `set_environment` writes, and that write warns on
+  its edit as before. The record keeps only catalog ids of each field, so a long list sent
+  back in it costs a render nothing. The warning stands while the card still holds the
+  value written (for `fx`, while any item written is in the list), on a card other than the
+  environment card. On the call that wrote it, `edit` names that edit, one warning per card
+  and set of fields, named by the latest edit that left that set standing (two effects
+  added to one list are one warning, named by the second; the same room written twice in
+  one call, which used to be two, is one, named by the write that stands); on every other
+  response it is one warning per card with no `edit` key. Its `meaning` now says the
+  setting does not set the rendered environment, and that while that card's preface is
+  auto-derived it can still shape the card's preface word. A tradition's stock settings,
+  and the room, tuning and chain a `set_preface` re-derives, never count, so the documented
+  order (`set_preface` on each card, then one `set_environment` without `card`) gives
+  none.
+- **`ENVIRONMENT_MOVED` speaks only for what a `set_environment` wrote** on the card that
+  was the environment card (its `envWritten`), so a room a `set_preface` re-derived there
+  no longer reports as moved; a stock environment changing hands still says nothing, and
+  clearing every setting on the environment card still reports the settings that take
+  over. A `set_preface` that replaces a written setting on a card other than the
+  environment card now gives `ENVIRONMENT_OVERWRITTEN` on that edit, naming the environment
+  card (`environment_card`, `environment_instrument`) and saying that the settings it
+  replaced never set the rendered environment and that `set_environment` without `card`
+  does; its `ENVIRONMENT_NOT_RENDERED` clears. A batch that already does that after the
+  `set_preface` (the documented order) gets neither. A workspace saved without the record
+  (an older session or client) has nothing written there either, so moving or removing
+  its environment card reports no `ENVIRONMENT_MOVED` for the settings that card held, as
+  for a stock environment; clearing every setting on the environment card still reports
+  the settings that take over.
+- **No recipe byte moves.** `check_app_parity.js` stays 7755/7755 in all four formats, and
+  `regression_recipes.js` 1149/1149: no renderer reads `envWritten`. The browser app keeps it
+  untouched through import, "Use recipe", its own edits, Undo, saved copies and exports
+  (`check_edit_parity.js`, `check_workbench.js`).
+
 ### Fixed — a pinned descriptor or preface is disclosed only on its own card; a filtered CLI swap says so (#671)
 
 `render_warnings` decided whether a pinned part descriptor survived with a whole-recipe
@@ -72,50 +127,8 @@ would have counted too. Gangsta rap Rich and Tags and Irish trad session Tags we
   so a note line would break it, and the notes were left out: a JSON consumer was never
   told. The same strings are now in that JSON's top-level `notes` array, after the keys it
   always had, which do not change (`[]` when there is no note).
-- **A setting the recipe does not render is said while it stands.** `ENVIRONMENT_NOT_RENDERED`
-  was said only on the `edit_recipe` call whose `set_environment` wrote the setting, so the
-  next `render_recipe` (or any later edit) returned no warning while `changed` still showed
-  the room on that card, and a value written on the environment card said nothing once
-  another card took the environment. It is now worked out from the workspace on every
-  response that renders one (`edit_recipe` and `render_recipe`, on every surface, sessions
-  included; a seed has nothing written), for what a `set_environment` wrote and nothing
-  else: each card now
-  carries `envWritten`, a record of the room, tuning and chain stages a `set_environment`
-  wrote there (an `fx` list as the items it added), inside the `workspace` callers already
-  thread. A field leaves it when it is cleared, when a `set_preface` changes it, or when a
-  `set_environment` on the environment card sets or clears that field (an effect added
-  there settles that effect only, since the list holds several): the caller has then
-  chosen what renders, so repeating the edit without `card`, as the warning advises, ends
-  it, and a later choice of the recording's room is not met with advice to copy the older
-  one over it. A workspace without the record (an older session or client) has nothing
-  written, so it stays silent until a new `set_environment` writes, and that write warns on
-  its edit as before. The record keeps only catalog ids of each field, so a long list sent
-  back in it costs a render nothing. The warning stands while the card still holds the
-  value written (for `fx`, while any item written is in the list), on a card other than the
-  environment card. On the call that wrote it, `edit` names that edit, one warning per card
-  and set of fields, named by the latest edit that left that set standing (two effects
-  added to one list are one warning, named by the second; the same room written twice in
-  one call, which used to be two, is one, named by the write that stands); on every other
-  response it is one warning per card with no `edit` key. Its `meaning` now says the
-  setting does not set the rendered environment, and that while that card's preface is
-  auto-derived it can still shape the card's preface word. A tradition's stock settings,
-  and the room, tuning and chain a `set_preface` re-derives, never count, so the documented
-  order (`set_preface` on each card, then one `set_environment` without `card`) gives
-  none.
-- **`ENVIRONMENT_MOVED` speaks only for what a `set_environment` wrote** on the card that
-  was the environment card (its `envWritten`), so a room a `set_preface` re-derived there
-  no longer reports as moved; a stock environment changing hands still says nothing, and
-  clearing every setting on the environment card still reports the settings that take
-  over. A `set_preface` that replaces a written setting on a card other than the
-  environment card now gives `ENVIRONMENT_OVERWRITTEN` on that edit, naming the environment
-  card (`environment_card`, `environment_instrument`) and saying that the settings it
-  replaced never set the rendered environment and that `set_environment` without `card`
-  does; its `ENVIRONMENT_NOT_RENDERED` clears. A batch that already does that after the
-  `set_preface` (the documented order) gets neither.
 - **No recipe byte moves.** `check_app_parity.js` stays 7755/7755 in all four formats, and
-  `regression_recipes.js` 1149/1149. The browser app keeps `envWritten` untouched through
-  import, "Use recipe", its own edits, Undo, saved copies and exports
-  (`check_edit_parity.js`, `check_workbench.js`).
+  `regression_recipes.js` 1149/1149.
 
 ### Changed — the lyrics runtime and session workflow documents state current rules; their history moves to an engineering log
 

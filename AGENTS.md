@@ -125,7 +125,8 @@ pipeline plans and grades songs whose every line you write; no connector call re
   the edit that wrote the setting only on that edit's call). Only what a `set_environment` wrote
   counts: each card records it inside the workspace (`envWritten`, threaded with the rest), so a
   tradition's stock settings and a room a `set_preface` re-derived never warn, and a workspace saved
-  without the record has nothing written. The warning goes once the field is cleared there, a
+  without the record has nothing written, so neither this warning nor `ENVIRONMENT_MOVED` speaks
+  for the settings it already holds. The warning goes once the field is cleared there, a
   `set_preface` re-derives it, the card becomes the environment card, or a `set_environment` on the
   environment card sets or clears that field (for `fx`, an effect added there settles that effect),
   so repeating the edit without `card`, as the warning advises, ends it. The environment lives on

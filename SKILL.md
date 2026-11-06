@@ -1168,7 +1168,7 @@ merged across cards. One shared sonic environment for the whole recipe. Conseque
   (The connector flags only what a `set_environment` wrote on a card that is not, or is no longer,
   the environment card, which each card records in its `envWritten`: `ENVIRONMENT_NOT_RENDERED`, on
   every response while the card still holds it, until a `set_environment` on the environment card
-  sets that field. Stock settings like these, and ones a `set_preface` re-derived, never.)
+  sets or clears that field. Stock settings like these, and ones a `set_preface` re-derived, never.)
 - A bare card (added with no tradition: empty tuning, room and chain) is skipped, so it can sit first
   without taking the environment away. That is also why the connector's `set_environment` with no
   `card` writes to the environment card rather than to `cards[0]`.
