@@ -54,6 +54,19 @@ export const NAMES = Object.freeze([
   'INSTRUMENT_FAMILIES',
 ]);
 
+// Read-only page tables and pure helpers the Genre discovery hosts read
+// (#668 6665493327): the taxonomy, its glyphs and the 13 sound
+// characteristics. Returned beside NAMES; they aren't recipe engine, so the
+// parity gates' EXPORTED list doesn't carry them.
+export const PAGE_TABLES = Object.freeze([
+  'TREE_NODES',
+  'AXIS_DEFINITIONS',
+  'GLYPH_META',
+  'resolveTraditionGlyphs',
+  'glyphSvg',
+  'axisLabel',
+]);
+
 // The page around the engine. Each is a parameter of the wrapper, so the
 // engine's code never reaches the prototype's window, document or storage:
 // it gets inert stand-ins, in-memory storage and the fetch passed to it.
@@ -126,7 +139,7 @@ export function engineModule(html) {
     `  return (function (${PARAMS.join(', ')}) {`,
     body,
     ';',
-    `    return Object.freeze({ ${NAMES.join(', ')} });`,
+    `    return Object.freeze({ ${[...NAMES, ...PAGE_TABLES].join(', ')} });`,
     '  })(sink, sink, location, sink, memory(), memory(), sink, page.fetch, () => {}, () => {}, () => 0, () => {}, undefined);',
     '}',
     '',
