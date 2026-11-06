@@ -119,19 +119,22 @@ pipeline plans and grades songs whose every line you write; no connector call re
   same card) — in all four formats. Instruments come from every card; the environment comes from
   one, and every response names it in `render_scope.environment_card`. So a space for the whole
   recording is a SINGLE `set_environment` edit, and `card` is optional there — omit it and it
-  lands on that card. Setting an environment on any other card writes fields that do not set the
-  rendered environment, and every response that renders the workspace says so while that card still
-  holds them (`ENVIRONMENT_NOT_RENDERED`, from `start_recipe`, `edit_recipe` and `render_recipe`
-  alike; its `edit` names the edit that wrote the setting only on that edit's call). Only what a
-  `set_environment` wrote counts: each card records it inside the workspace (`envWritten`, threaded
-  with the rest), so a tradition's stock settings and a room a `set_preface` re-derived never warn,
-  and a workspace saved without the record has nothing written. The warning goes once the field is
-  cleared, a `set_preface` re-derives it, or the card becomes the environment card. The environment
-  lives on its card: removing or moving that card hands the environment to the next card that has
-  one, and a `set_preface` on it re-derives its room, tuning and chain — `render_warnings` reports
-  both on the edit that does it (`ENVIRONMENT_MOVED`, for settings a `set_environment` wrote there;
-  `ENVIRONMENT_OVERWRITTEN`, also on any other card whose written settings a `set_preface`
-  replaced), so put `set_environment` after `set_preface` in a batch.
+  lands on that card. Settings a `set_environment` wrote on a card that is not, or is no longer, the
+  environment card do not set the rendered environment, and every `edit_recipe` and `render_recipe`
+  response says so while that card still holds them (`ENVIRONMENT_NOT_RENDERED`; its `edit` names
+  the edit that wrote the setting only on that edit's call). Only what a `set_environment` wrote
+  counts: each card records it inside the workspace (`envWritten`, threaded with the rest), so a
+  tradition's stock settings and a room a `set_preface` re-derived never warn, and a workspace saved
+  without the record has nothing written. The warning goes once the field is cleared there, a
+  `set_preface` re-derives it, the card becomes the environment card, or a `set_environment` on the
+  environment card sets or clears that field (for `fx`, an effect added there settles that effect),
+  so repeating the edit without `card`, as the warning advises, ends it. The environment lives on
+  its card: removing or moving that card hands the environment to the next card that has one, and a
+  `set_preface` on it re-derives its room, tuning and chain — `render_warnings` reports both on the
+  edit that does it (`ENVIRONMENT_MOVED`, for settings a `set_environment` wrote there, and when a
+  `set_environment` clears every setting on the environment card so the next card's own settings
+  render; `ENVIRONMENT_OVERWRITTEN`, also on any other card whose written settings a `set_preface`
+  replaced, naming the environment card), so put `set_environment` after `set_preface` in a batch.
 - `set_variant` does exactly what picking a variant does in the app: it sets and pins the part (your
   choice is never reverted), and on a card whose preface is still auto-derived it re-derives the
   preface label from the new sound. A **material** part (woods, strings and other shared materials)

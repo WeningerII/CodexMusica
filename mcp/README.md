@@ -31,13 +31,17 @@ writes there, and a multi-select stage (`fx`) adds to its list (`clear` empties 
 Rich compression prioritizes explicitly pinned descriptors; inspect `render_warnings`
 for explicit words — descriptors, prefaces, environment — absent from the result, or
 an environment that moved or was overwritten (said on the edit that did it), and
-`render_scope` for which shared environment is represented. A setting a
-`set_environment` wrote on a card that does not render it is `ENVIRONMENT_NOT_RENDERED`
-on every response while the card still holds it, render_recipe included; `edit` is there
-only on the call that wrote it. Each card records what `set_environment` wrote on it
-(`envWritten`, inside the workspace you thread), so a tradition's stock settings and a
-room a `set_preface` re-derived never count, and a workspace without the record has
-nothing written. A pinned descriptor
+`render_scope` for which shared environment is represented. `ENVIRONMENT_MOVED` speaks
+for settings a `set_environment` wrote on the old environment card, and when a
+`set_environment` clears every setting there so the next card's own settings render. A
+setting a `set_environment` wrote on a card that does not render it is
+`ENVIRONMENT_NOT_RENDERED` on every response while the card still holds it, render_recipe
+included; `edit` is there only on the call that wrote it. A `set_environment` on the
+environment card that sets or clears the same field (an added effect: that effect) settles
+it, so repeating the edit without `card` ends the warning. Each card records what
+`set_environment` wrote on it (`envWritten`, inside the workspace you thread), so a
+tradition's stock settings and a room a `set_preface` re-derived never count, and a
+workspace without the record has nothing written. A pinned descriptor
 counts only as a whole word in its own card's segment (`PINNED_DESCRIPTORS_NOT_LITERAL`
 otherwise, even when another card prints it). In a Rich or Prose chunk that merges cards on
 a trailing word, a card's own words are its head words (its preface, then its inner label),
