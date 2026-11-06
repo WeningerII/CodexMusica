@@ -851,11 +851,12 @@ test('environment clear warnings distinguish cleared settings from retained non-
     { action: 'set_environment', card: later, chain: { fx: 'fuzz_germanium' } },
   ]);
   // One warning per card and set of fields (#671, BB8 6681659990): both writes
-  // stand, and they leave the same field, so the card is said once, by the first.
+  // stand, and they leave the same field, so the card is said once, by the later
+  // one, as a value written twice is named by the write that stands.
   assert.deepEqual(
     hidden(effects).map((w) => w.edit),
-    [0],
-    'appending another effect retains both writes, said once for the card by the first'
+    [1],
+    'appending another effect retains both writes, said once for the card by the later'
   );
   const different = run([
     write,
@@ -1260,15 +1261,22 @@ test('a set_preface that re-derives a written setting takes it out: ENVIRONMENT_
     const over = await s.edit(wrote, [drowning]);
     const room = cardOf(over, bass.card).changed?.room;
     assert(room && room !== 'cathedral', `${name}: fixture: the preface moved the room`);
-    assert.deepEqual(
-      overwritten(over).map((w) => [w.card, w.instrument, w.edit, w.action, w.settings]),
-      [[bass.card, 'electric_bass', 0, 'set_preface', { room: { was: 'cathedral', now: room } }]],
-      `${name}: the transition, on its edit`
-    );
-    assert.equal(
-      overwritten(over)[0].meaning,
-      `set_preface on electric_bass replaced the environment you set (room cathedral → ${room}): it re-derives room, tuning and chain toward the preface. To keep your settings, put set_environment after set_preface in the same batch.`
-    );
+    // The transition, on its edit, with the environment card named as
+    // ENVIRONMENT_MOVED names it: what it replaced never set the rendered
+    // environment, so the advice is the edit that does, not a write on this card.
+    const want = {
+      card: bass.card,
+      instrument: 'electric_bass',
+      code: 'ENVIRONMENT_OVERWRITTEN',
+      edit: 0,
+      action: 'set_preface',
+      environment_card: env.card,
+      environment_instrument: env.instrument,
+      settings: { room: { was: 'cathedral', now: room } },
+      meaning: `set_preface on electric_bass re-derived the settings a set_environment wrote there (room cathedral → ${room}). They did not set the rendered environment, which the recipe takes from ${env.instrument}; set_environment without \`card\` sets it.`,
+    };
+    assert.deepEqual(overwritten(over), [want], `${name}: the transition, on its edit`);
+    assert.deepEqual(Object.keys(overwritten(over)[0]), Object.keys(want), `${name}: key order`);
     assert.deepEqual(unrendered(over), [], `${name}: the warning clears with it`);
     const after = await s.render(over);
     assert.deepEqual(overwritten(after), [], `${name}: said once`);
@@ -1292,6 +1300,33 @@ test('a set_preface that re-derives a written setting takes it out: ENVIRONMENT_
     const restored = await s.edit(seed, [write, drowning, write]);
     assert.deepEqual(overwritten(restored), [], `${name}: written again after the preface`);
     expectUnrendered(restored, bass, env, { edit: 2, where: `${name} written again` });
+    // The documented order after an earlier call's write: the preface, then the
+    // room set without `card`. That batch already did what the advice says, so
+    // nothing is said about the bass.
+    const fixed = await s.edit(wrote, [drowning, { action: 'set_environment', room: 'cathedral' }]);
+    assert.match(fixed.recipe, /cathedral/i, `${name}: the room renders`);
+    assert.deepEqual(overwritten(fixed), [], `${name}: preface, then the room without card`);
+    assert.deepEqual(unrendered(fixed), [], `${name}: and nothing unrendered`);
+    // A later edit in the batch makes the bass the environment card: what the
+    // preface put there renders now, so it is said as on the environment card.
+    const led = await s.edit(seed, [
+      write,
+      drowning,
+      { action: 'move_instrument', card: bass.card },
+    ]);
+    assert.equal(led.render_scope.environment_card, bass.card, `${name}: fixture`);
+    assert.deepEqual(
+      overwritten(led).map((w) => [w.card, w.edit, 'environment_card' in w, w.meaning]),
+      [
+        [
+          bass.card,
+          1,
+          false,
+          `set_preface on electric_bass replaced the environment you set (room cathedral → ${room}): it re-derives room, tuning and chain toward the preface. To keep your settings, put set_environment after set_preface in the same batch.`,
+        ],
+      ],
+      `${name}: the bass leads`
+    );
   });
 });
 
@@ -1495,12 +1530,19 @@ test('an effects list replaced or reordered warns while an item written into it 
       ];
       const wrote = await s.edit(seed, replace(list));
       assert.deepEqual(cardOf(wrote, id).changed?.chain?.fx, list, `${name}: changed says it`);
-      expectUnrendered(wrote, card, env, { edit: 0, where: `${name} ${tradition} edit` });
+      // Every edit of the replacement wrote the same field: one entry, the last.
+      expectUnrendered(wrote, card, env, {
+        edit: list.length - 1,
+        where: `${name} ${tradition} edit`,
+      });
       expectUnrendered(await s.render(wrote), card, env, { where: `${name} ${tradition} render` });
       // Put back as seeded, in the seeded order, by set_environment: written.
       const back = await s.edit(wrote, replace(stock));
       assert.equal(cardOf(back, id).changed, undefined, `${name}: fixture: the seeded list`);
-      expectUnrendered(back, card, env, { edit: 0, where: `${name} ${tradition} written back` });
+      expectUnrendered(back, card, env, {
+        edit: stock.length - 1,
+        where: `${name} ${tradition} written back`,
+      });
       // Emptied: nothing written stands.
       const empty = await s.edit(wrote, [{ action: 'set_environment', card: id, clear: ['fx'] }]);
       assert.deepEqual(unrendered(empty), [], `${name} ${tradition} cleared`);
@@ -1523,7 +1565,7 @@ test('the causing edit and the standing state are one warning, not two', async (
     // One warning per card and set of fields still standing: two edits in one
     // call that each leave a different field standing are each named, as the
     // edit response always named them; two effects added to one list leave the
-    // same field, and are said once, by the first.
+    // same field, and are said once, by the later, as a value written twice is.
     const two = await s.edit(seed, [room, tuning]);
     assert.deepEqual(
       unrendered(two).map((w) => [w.card, w.edit]),
@@ -1537,7 +1579,7 @@ test('the causing edit and the standing state are one warning, not two', async (
       { action: 'set_environment', card: bass.card, chain: { fx: 'plate_reverb' } },
       { action: 'set_environment', card: bass.card, chain: { fx: 'fuzz_germanium' } },
     ]);
-    expectUnrendered(effects, bass, env, { edit: 0, where: `${name} two effects, one list` });
+    expectUnrendered(effects, bass, env, { edit: 1, where: `${name} two effects, one list` });
     // Once the call is over the card's settings are one standing state: one
     // warning, no `edit`.
     expectUnrendered(await s.render(two), bass, env, { where: `${name} render after` });
@@ -1685,6 +1727,81 @@ test('following ENVIRONMENT_MOVED after the documented order ends the warning on
     assert.deepEqual(unrendered(there), [], `${name}: the advice followed`);
     assert.deepEqual(unrendered(await s.render(there)), [], `${name}: render after`);
   });
+});
+
+test('an effect restated on the environment card settles that effect, and a cleared list all of them', async () => {
+  await onEverySurface(async (s, name) => {
+    const seed = await s.start(['tamil_filmi']);
+    const env = cardOf(seed, seed.render_scope.environment_card);
+    const veena = seed.cards.find((c) => c.instrument === 'veena');
+    const add = (fx, card) => ({
+      action: 'set_environment',
+      ...(card ? { card } : {}),
+      chain: { fx },
+    });
+    const wrote = await s.edit(seed, [
+      add('fuzz_germanium', veena.card),
+      add('tape_echo', veena.card),
+    ]);
+    expectUnrendered(wrote, veena, env, { edit: 1, where: `${name} two effects` });
+    // The list holds several, so adding one there chooses against no other: only
+    // the effect restated leaves the veena's record.
+    const one = await s.edit(wrote, [add('fuzz_germanium')]);
+    assert.deepEqual(await s.recorded(one, veena.card), { fx: ['tape_echo'] }, name);
+    expectUnrendered(one, veena, env, { where: `${name} one effect restated` });
+    const both = await s.edit(one, [add('tape_echo')]);
+    assert.deepEqual(unrendered(both), [], `${name}: both restated`);
+    assert.deepEqual(unrendered(await s.render(both)), [], `${name}: render after`);
+    // Within one call, the edit named is the one whose effect still stands.
+    expectUnrendered(
+      await s.edit(seed, [
+        add('fuzz_germanium', veena.card),
+        add('tape_echo', veena.card),
+        add('fuzz_germanium'),
+      ]),
+      veena,
+      env,
+      { edit: 1, where: `${name} the effect that stands names it` }
+    );
+    // Clearing the recording's list, or replacing it, is a choice of the whole list.
+    const cleared = await s.edit(wrote, [{ action: 'set_environment', clear: ['fx'] }]);
+    assert.deepEqual(unrendered(cleared), [], `${name}: the rendered list cleared`);
+    const replaced = await s.edit(wrote, [
+      { action: 'set_environment', clear: ['fx'], chain: { fx: 'plate_reverb' } },
+    ]);
+    assert.deepEqual(unrendered(replaced), [], `${name}: the rendered list replaced`);
+  });
+});
+
+test('an empty effects list in an edit writes nothing and names no edit', () => {
+  // The published schema takes one id per stage; the engine also takes a list,
+  // and an empty one adds nothing.
+  const seed = startRecipe({ traditions: ['garage_rock'] });
+  const env = seed.render_scope.environment_card;
+  const bass = seed.workspace.cards.find((c) => c.instrumentId === 'electric_bass').id;
+  assert.deepEqual(
+    unrendered(
+      editRecipe({
+        workspace: seed.workspace,
+        edits: [{ action: 'set_environment', card: bass, chain: { fx: [] } }],
+      })
+    ),
+    [],
+    'nothing written, nothing said'
+  );
+  const wrote = editRecipe({
+    workspace: seed.workspace,
+    edits: [{ action: 'set_environment', card: bass, chain: { fx: 'tape_echo' } }],
+  });
+  const again = editRecipe({
+    workspace: wrote.workspace,
+    edits: [{ action: 'set_environment', card: bass, chain: { fx: [] } }],
+  });
+  assert.deepEqual(
+    unrendered(again).map((w) => [w.card, 'edit' in w, w.environment_card]),
+    [[bass, false, env]],
+    'the effect from the earlier call stands, and this edit is not its cause'
+  );
 });
 
 test('a long list in a record or on a card costs a render linear time', () => {
