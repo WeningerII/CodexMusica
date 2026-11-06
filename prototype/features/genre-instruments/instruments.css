@@ -1,0 +1,69 @@
+.gi-panel {
+  color: inherit;
+  font: inherit;
+  max-width: 100%;
+}
+.gi-panel label,
+.gi-panel select {
+  display: block;
+  margin-block: 0.5rem;
+}
+.gi-panel select {
+  max-width: 100%;
+  min-height: 44px;
+  font: inherit;
+}
+.gi-panel .gi-note {
+  line-height: 1.5;
+}
+.gi-panel .gi-roster {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.gi-panel .gi-row {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  min-height: 56px;
+  border-bottom: 1px solid currentColor;
+  padding-block: 0.25rem;
+}
+.gi-panel .gi-row img {
+  flex: 0 0 30px;
+}
+.gi-panel button,
+.gi-panel a {
+  font: inherit;
+  min-height: 44px;
+  min-width: 44px;
+  overflow-wrap: anywhere;
+}
+.gi-panel a {
+  display: inline-flex;
+  align-items: center;
+}
+.gi-panel .gi-inspect {
+  flex: 1;
+  min-width: 0;
+  text-align: start;
+}
+.gi-panel .gi-ensemble {
+  margin-block: 1rem;
+}
+.gi-panel [aria-disabled='true'] {
+  opacity: 0.65;
+  cursor: wait;
+}
+.gi-panel :focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .gi-panel .gi-row {
+    flex-wrap: wrap;
+  }
+  .gi-panel .gi-inspect {
+    flex-basis: calc(100% - 44px);
+  }
+}
