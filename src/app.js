@@ -16595,10 +16595,19 @@ function renderDetailTabContent(card, inst) {
 // instrument, remove, reorder, variant/preface/environment refinements, title
 // and lyrics. Presentation-only changes preserve the current history position
 // and redo future. Lyrics typing is coalesced when the editor loses focus.
+//
+// The key also holds each card's envWritten, the connector's record of what a
+// set_environment wrote there (#671, scripts/_workspace_ops.js). No recipe byte
+// depends on it, but it decides which warnings the connector gives for these
+// cards, and it can change with no value moving (writing the seeded value, or a
+// write elsewhere settling it). So a change to it alone is a step: it is not
+// coalesced into the previous history entry, Undo and Redo restore it, and a
+// recipe reply requested before it no longer owns the editor (BB8 6688635328, 3).
+// Absent on a card, it adds nothing to the key.
 function musicalWorkspaceKey(cards) {
   return JSON.stringify(cards.map(c => ({id:c.id,instrumentId:c.instrumentId,traditionId:c.traditionId,
     parts:c.parts,room:c.room,tuning:c.tuning,chain:c.chain,preface:c.preface,
-    prefaceAuto:c.prefaceAuto,pinned:c.pinned,pinnedParts:c.pinnedParts})));
+    prefaceAuto:c.prefaceAuto,pinned:c.pinned,pinnedParts:c.pinnedParts,envWritten:c.envWritten})));
 }
 // Local editor ownership for asynchronous recipe replies. History commits and
 // restores observe transitions, so edit -> Undo cannot revive an old reply.

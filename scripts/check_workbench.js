@@ -691,8 +691,80 @@ const run = (code) => dom.window.eval(code);
     });
   }
 
+  // A change to the record alone is a change (BB8 6688635328, 3). Writing the
+  // seeded value moves no value, yet it is a write the connector then warns
+  // about; so the history takes it as a step (not coalesced into the one
+  // before), the editor's revision moves, Undo takes it out and the warning with
+  // it, Redo puts both back, and autosave and a reload keep it.
+  {
+    const W = require('./_workspace_ops.js');
+    const E = await import(path.join(root, 'mcp/engine.js'));
+    const seed = W.seed(['garage_rock']);
+    const bass = seed.cards.find((c) => c.instrumentId === 'electric_bass');
+    const wrote = W.setEnvironment(seed, bass.id, { room: bass.room });
+    const strip = (cards) => JSON.stringify(cards.map(({ [W.ENV_RECORD]: _, ...c }) => c));
+    assert.equal(strip(wrote.cards), strip(seed.cards), 'fixture: no value moved');
+    assert.deepEqual(
+      wrote.cards.find((c) => c.id === bass.id)[W.ENV_RECORD],
+      { room: bass.room },
+      'fixture: only the record changed'
+    );
+    dom.window.seedCards = JSON.parse(JSON.stringify(seed.cards));
+    dom.window.wroteCards = JSON.parse(JSON.stringify(wrote.cards));
+    const appCards = () => JSON.parse(run('JSON.stringify(app.cards)'));
+    const warned = () =>
+      E.renderRecipe({ workspace: { cards: appCards() } }).render_warnings.some(
+        (w) => w.code === 'ENVIRONMENT_NOT_RENDERED' && w.card === bass.id
+      );
+    const recordNow = () =>
+      JSON.parse(
+        run(
+          `JSON.stringify(app.cards.find((c) => c.id === ${JSON.stringify(bass.id)}).${W.ENV_RECORD} ?? null)`
+        )
+      );
+    run(
+      "app.cards=normalizeWorkspaceCards(window.seedCards);app.lyrics='';app.history=[];app.historyIndex=-1;pushHistory();renderAll();"
+    );
+    assert.equal(warned(), false, 'fixture: the seed does not warn');
+    const before = JSON.parse(run('JSON.stringify([app.history.length, recipeEditSnapshot()])'));
+    run('app.cards=normalizeWorkspaceCards(window.wroteCards);pushHistory();renderAll();');
+    const after = JSON.parse(run('JSON.stringify([app.history.length, recipeEditSnapshot()])'));
+    assert.equal(after[0], before[0] + 1, 'a record-only change is its own history step');
+    assert.notEqual(after[1].revision, before[1].revision, 'and moves the editor revision');
+    assert.notEqual(after[1].key, before[1].key, 'through the workspace key');
+    assert.deepEqual(recordNow(), { room: bass.room }, 'the app holds the record');
+    assert.equal(warned(), true, 'and the connector warns for it');
+    run('undo()');
+    assert.equal(recordNow(), null, 'Undo takes the record out');
+    assert.equal(warned(), false, 'and the warning goes with it');
+    run('redo()');
+    assert.deepEqual(recordNow(), { room: bass.room }, 'Redo puts it back');
+    assert.equal(warned(), true, 'and the warning');
+    // Autosave registers it, and a reload of the autosaved session keeps it.
+    const saved = run("sessionStorage.getItem('codex-workbench-recovery')");
+    assert.deepEqual(
+      JSON.parse(saved).cards.find((c) => c.id === bass.id)[W.ENV_RECORD],
+      { room: bass.room },
+      'autosave writes the record'
+    );
+    run('undo();renderAll();');
+    assert.equal(
+      JSON.parse(run("sessionStorage.getItem('codex-workbench-recovery')")).cards.find(
+        (c) => c.id === bass.id
+      )[W.ENV_RECORD],
+      undefined,
+      'and autosaves its removal, a change to the record alone'
+    );
+    run('redo();renderAll();');
+    const held = strip(appCards());
+    run('app.cards=[];uiRestoreSession();renderAll();');
+    assert.deepEqual(recordNow(), { room: bass.room }, 'a reload keeps the record');
+    assert.equal(warned(), true, 'and the warning it carries');
+    assert.equal(strip(appCards()), held, 'and the values');
+  }
+
   console.log(
-    'PASS workbench integration: boot, route grammar and sub-routes, partial import, isolated transfers, Undo, full sessions, concurrent save recovery, chat routing, stale recipe protection, late lyrics, conflict protection, preface Enter flush, connector record kept, a duplicate carries no record'
+    'PASS workbench integration: boot, route grammar and sub-routes, partial import, isolated transfers, Undo, full sessions, concurrent save recovery, chat routing, stale recipe protection, late lyrics, conflict protection, preface Enter flush, connector record kept, a duplicate carries no record, a record-only change is a step'
   );
   dom.window.close();
 })().catch((e) => {
