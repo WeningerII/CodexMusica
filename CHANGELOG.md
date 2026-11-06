@@ -43,6 +43,10 @@ would have counted too. Gangsta rap Rich and Tags and Irish trad session Tags we
   `note: <instrument> is not in the recipe, so --swap-variant <triple> was not applied (…)`,
   one line per such swap. `--json` no longer ends with `process.exit()`, which through a
   pipe could cut off the end of stderr (`--why` output, and now this note).
+- **CLI: the notes under `--why-json` / `--why-prefaces-json`.** There stderr is pure JSON,
+  so a note line would break it, and the notes were left out: a JSON consumer was never
+  told. The same strings are now in that JSON's top-level `notes` array, after the keys it
+  always had, which do not change (`[]` when there is no note).
 - **No recipe byte moves.** `check_app_parity.js` stays 7755/7755 in all four formats, and
   `regression_recipes.js` 1149/1149.
 

@@ -279,7 +279,8 @@ assert(
 // gets one note per swap with its reason. The exclude is the reason only when
 // it removed the instrument: excluding banjo_5_string removes nothing. Under
 // --json stdout is the config, unchanged, and stderr gets the same notes;
-// under --why-json and --why-prefaces-json stderr is JSON, so none.
+// under --why-json and --why-prefaces-json stderr is JSON, and the notes are in
+// it (the next assertion).
 assert(
   '§3f',
   'a swap on an instrument not in the recipe is named on stderr as not applied; stdout is unchanged',
@@ -343,6 +344,74 @@ assert(
       details.push(
         `${c.base.join(' ')} ${c.swaps.join(';')}: ${caseOk ? 'ok' : 'FAIL'}; exit ${r.code}; stdout ${r.out === base.out ? 'unchanged' : 'changed'}; ${detail.join('; ')}`
       );
+    }
+    return { ok, detail: details.join(' | ') };
+  }
+);
+
+// Under --why-json and --why-prefaces-json stderr is pure JSON, so a note line
+// there would break it, and leaving the notes out meant a JSON consumer was
+// never told (BB8 6676262617, call 1). The same strings go in a top-level
+// `notes` array, added after the existing keys, which do not change: empty
+// without a note, the filtered note for mpc_modern, the two not-applied notes
+// for the banjo swaps (whose JSON is otherwise the run without them). Under
+// --json nothing is rendered, so only the not-applied notes are given.
+assert(
+  '§3f',
+  'under --why-json / --why-prefaces-json the swap notes are in the JSON as `notes`',
+  () => {
+    const KEYS = {
+      '--why-json': ['traditions', 'finalScore', 'breakdown', 'trace', 'slots'],
+      '--why-prefaces-json': ['tradition', 'prefaces'],
+    };
+    const gangsta = [RECIPE, '--tradition', 'gangsta_rap'];
+    const banjo = ['banjo_5_string:banjo_back:resonator', 'banjo_5_string:tone_ring:tubaphone'];
+    const notApplied = (s) =>
+      `note: banjo_5_string is not in the recipe, so --swap-variant ${s} was not applied (add it with --add-instrument=banjo_5_string)`;
+    const cases = [
+      { extra: [], notes: [] },
+      {
+        extra: ['--swap-variant=sampler_classic:sampler_archetypes:mpc_modern'],
+        notes: [
+          "note: --swap-variant descriptor(s) not printed in the sampler_classic card's part of the recipe: modern (sampler_archetypes:mpc_modern)",
+        ],
+      },
+      { extra: [`--swap-variant=${banjo.join(';')}`], notes: banjo.map(notApplied), same: true },
+      {
+        extra: ['--json', `--swap-variant=${banjo.join(';')}`],
+        notes: banjo.map(notApplied),
+        same: true,
+      },
+    ];
+    const parse = (text) => {
+      try {
+        return JSON.parse(text);
+      } catch {
+        return null;
+      }
+    };
+    const without = (j) => JSON.stringify({ ...j, notes: undefined });
+    const details = [];
+    let ok = true;
+    for (const mode of Object.keys(KEYS)) {
+      const base = runSplit([...gangsta, mode]);
+      const baseJson = parse(base.err);
+      for (const c of cases) {
+        const r = runSplit([...gangsta, mode, ...c.extra]);
+        const plain = runSplit([...gangsta, ...c.extra]);
+        const j = parse(r.err);
+        const caseOk =
+          r.code === 0 &&
+          r.out === plain.out &&
+          j !== null &&
+          JSON.stringify(Object.keys(j)) === JSON.stringify([...KEYS[mode], 'notes']) &&
+          JSON.stringify(j.notes) === JSON.stringify(c.notes) &&
+          (!c.same || (baseJson !== null && without(j) === without(baseJson)));
+        ok = ok && caseOk;
+        details.push(
+          `${mode} ${c.extra.join(' ') || '(no swap)'}: ${caseOk ? 'ok' : 'FAIL'}; exit ${r.code}; keys ${j ? JSON.stringify(Object.keys(j)) : 'not JSON'}; notes ${j ? JSON.stringify(j.notes) : '-'}`
+        );
+      }
     }
     return { ok, detail: details.join(' | ') };
   }

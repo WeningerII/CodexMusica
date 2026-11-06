@@ -448,8 +448,9 @@ Notes that bite:
   ```
   note: <instrument> is not in the recipe, so --swap-variant <instrument>:<part>:<variant> was not applied (…)
   ```
-  Under `--why-json` / `--why-prefaces-json` stderr is JSON, so both notes are left out
-  there, as `(N chars)` is.
+  Under `--why-json` / `--why-prefaces-json` stderr is JSON, so no note line is printed
+  there (nor `(N chars)`): the same note strings are in that JSON's top-level `notes` array,
+  after the keys it always had, which do not change (`[]` when there is no note).
 - Stapling **order** in `--traditions a,b` sets which tradition leads the
   recipe header and instrument order (matches the app's group-order → output
   behavior). Reorder by reordering the ids.

@@ -426,6 +426,56 @@ if (trace) {
   console.error('');
 }
 
+// ─────────────────────── stderr notes about the swaps (#671) ───────────────────────
+// Each note is one `note: ` line on stderr. Under --why-json / --why-prefaces-json
+// stderr is JSON, so the same strings go in that JSON's top-level `notes` array
+// instead (empty when there are none; the other keys are unchanged), and none is
+// printed as a line (BB8 6676262617, call 1).
+const jsonStderr = !!(flags['why-json'] || flags['why-prefaces-json']);
+
+// A swap on an instrument the recipe does not have (not in the roster, or
+// removed by --exclude-instrument) has no card to apply to, and stdout is the
+// recipe, or under --json the config, without it, one note per swap.
+const notAppliedNotes = [];
+{
+  const inRecipe = new Set(result.config.instruments.map((inst) => inst.id));
+  for (const [instrument, parts] of Object.entries(opts.swap)) {
+    if (inRecipe.has(instrument)) continue;
+    const why = opts.removed.includes(instrument)
+      ? '--exclude-instrument removed it'
+      : `add it with --add-instrument=${instrument}`;
+    for (const [part, variant] of Object.entries(parts))
+      notAppliedNotes.push(
+        `note: ${instrument} is not in the recipe, so --swap-variant ${instrument}:${part}:${variant} was not applied (${why})`
+      );
+  }
+}
+
+// The recipe, rendered once, and the notes for the swapped descriptors its
+// cards' parts do not print: a swapped part can still print none of its words
+// (a BARE token such as `modern` is never rendered), and then stdout is
+// byte-identical to the run without the swap. The recipe stays exactly as
+// rendered; the notes name, one line per card, the descriptors that card's part
+// of the recipe does not print. They say no more than that: another card or the
+// header may print the same word, which is not this card's (BB8 6676262617,
+// call 3). Under --json stdout is the config and nothing is rendered.
+let rendered = null;
+const render = () => {
+  if (rendered) return rendered;
+  const filteredSwaps = [];
+  const out = translate(result.config, { ceiling: maxChars, filteredSwaps });
+  const byCard = new Map();
+  for (const f of filteredSwaps) byCard.set(f.instrument, [...(byCard.get(f.instrument) || []), f]);
+  const notes = [...byCard].map(
+    ([instrument, swaps]) =>
+      `note: --swap-variant descriptor(s) not printed in the ${instrument} card's part of the recipe: ` +
+      swaps.map((f) => `${f.descriptors.join(', ')} (${f.part}:${f.variant})`).join('; ')
+  );
+  return (rendered = { out, notes });
+};
+// Every note this run gives, in the order the lines are printed.
+const allNotes = () => [...notAppliedNotes, ...(flags.json ? [] : render().notes)];
+
 // ─────────────────────── --why / --why-json diagnostic ───────────────────────
 // For each instrument slot in the final config, show top 3 variant candidates
 // with their scores and the delta-from-winner. Plus search trace summary, plus
@@ -486,6 +536,7 @@ if (flags.why || flags['why-json']) {
           breakdown: result.breakdown,
           trace: result.trace,
           slots: slotDetails,
+          notes: allNotes(),
         },
         null,
         2
@@ -565,6 +616,7 @@ if (flags['why-prefaces'] || flags['why-prefaces-json']) {
         {
           tradition: result.config.traditions[0],
           prefaces: prefaceDetails,
+          notes: allNotes(),
         },
         null,
         2
@@ -600,23 +652,7 @@ if (flags['why-prefaces'] || flags['why-prefaces-json']) {
   }
 }
 
-// A swap on an instrument the recipe does not have (not in the roster, or
-// removed by --exclude-instrument) has no card to apply to, and stdout is the
-// recipe, or under --json the config, without it, so stderr says so, one line
-// per swap (#671). Under --why-json / --why-prefaces-json stderr is JSON.
-if (!flags['why-json'] && !flags['why-prefaces-json']) {
-  const inRecipe = new Set(result.config.instruments.map((inst) => inst.id));
-  for (const [instrument, parts] of Object.entries(opts.swap)) {
-    if (inRecipe.has(instrument)) continue;
-    const why = opts.removed.includes(instrument)
-      ? '--exclude-instrument removed it'
-      : `add it with --add-instrument=${instrument}`;
-    for (const [part, variant] of Object.entries(parts))
-      console.error(
-        `note: ${instrument} is not in the recipe, so --swap-variant ${instrument}:${part}:${variant} was not applied (${why})`
-      );
-  }
-}
+if (!jsonStderr) for (const note of notAppliedNotes) console.error(note);
 
 if (flags.json) {
   console.log(
@@ -634,22 +670,9 @@ if (flags.json) {
   return;
 }
 
-// A swapped part can still print none of its words (a BARE token such as
-// `modern` is never rendered), and then stdout is byte-identical to the run
-// without the swap. The recipe stays exactly as rendered; stderr names, one
-// line per card, the descriptors that card's part of the recipe does not
-// print (#671). It says no more than that: another card or the header may
-// print the same word, which is not this card's (BB8 6676262617, call 3).
-const filteredSwaps = [];
-const out = translate(result.config, { ceiling: maxChars, filteredSwaps });
+const { out, notes } = render();
 console.log(out);
-if (!flags['why-json'] && !flags['why-prefaces-json']) {
-  const byCard = new Map();
-  for (const f of filteredSwaps) byCard.set(f.instrument, [...(byCard.get(f.instrument) || []), f]);
-  for (const [instrument, swaps] of byCard)
-    console.error(
-      `note: --swap-variant descriptor(s) not printed in the ${instrument} card's part of the recipe: ` +
-        swaps.map((f) => `${f.descriptors.join(', ')} (${f.part}:${f.variant})`).join('; ')
-    );
+if (!jsonStderr) {
+  for (const note of notes) console.error(note);
   console.error(`(${out.length} chars)`);
 }
