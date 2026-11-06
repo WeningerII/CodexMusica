@@ -48,7 +48,8 @@
       "bytes": 131073,
       "sha256": "fba34e007d996ce6441f7e52f0151589e71ee5db92b10bee692bba0cf7929a69",
       "worker": {
-        "code": "INVARIANT_FAILURE"
+        "code": "INVARIANT_FAILURE",
+        "message": "INVARIANT_FAILURE: the cursor without discovery and continuation is 131073 canonical bytes, past CURSOR_BYTES (131072)"
       }
     },
     {
@@ -56,7 +57,8 @@
       "bytes": 99142,
       "sha256": "7a4e441663f2ff3fd7265ad9fa663ccca06c2131ecce5f5977cf6537583b4a8b",
       "worker": {
-        "code": "INVARIANT_FAILURE"
+        "code": "INVARIANT_FAILURE",
+        "message": "INVARIANT_FAILURE: the refusal of shared_sound:4a8c5165e6085d10ab22e31d is 544 canonical bytes, past REFUSAL_BYTES (543)"
       }
     },
     {

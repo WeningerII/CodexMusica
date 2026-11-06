@@ -31,8 +31,14 @@ review of `2a610d053` and reconciles 3PO's guard derivation (6684968306): `REFUS
 dispatch never builds; the largest refusal the dispatch can build is 336 bytes (§3.2).
 `CURSOR_BYTES` says what it measures and states its allowance, and the whole cursor's bound is
 that plus `discovery`'s, `continuation`'s and their keys (§3, §3.1). W4 also holds the cursor's
-numbers and `discovery`'s keys (§4), and R2 turns C1 on in the worker half's train (§8). Where
-this text and the proposal differ, this text governs. 3PO's
+numbers and `discovery`'s keys (§4), and R2 turns C1 on in the worker half's train (§8). It
+folds BB8's completeness ruling (6688972927): an `INVARIANT_FAILURE` message names the bound it
+passed (§3, §8); the cap's derivation is 90,975 entries with the margin, rounded down to 65,536
+(§6.11); `MEMBERSHIP_BYTES` caps the membership logs' entry bytes from a per-byte load rate
+measured at 4,096-byte entries, and the first-commit claim is scoped to the load and the walk
+(§3, §6.11, §10); an oversized `row_seen` compaction defers (§3, §6.2); and a full read is the
+store's alone, while the worker's finish-time `alt_cells` load is a complete verified load
+(§1, §5.1, §5.2, §8). Where this text and the proposal differ, this text governs. 3PO's
 acknowledgement (6677006069) fixes the `contracts.py` reservation to the checkpoint declaration
 and schema; the shared `CONTRACT_VERSION` does not change.
 
@@ -75,9 +81,15 @@ truncation.
 - **Walk.** Reading a chain back and checking it (§5).
 - **Verified head.** How far the store has read a chain back and checked it. It is kept per
   log in `record.discovery.verified`, and it is never ahead of the head (§5.1).
-- **Full read.** A walk that starts at the record's head, follows `previous_hash` back to the
-  chain's first segment and checks every segment. It uses neither the verified head nor the
-  address list (§5.1).
+- **Full read.** A walk by the store that starts at the record's head, follows `previous_hash`
+  back to the chain's first segment and checks every segment. It uses neither the verified head
+  nor the address list. Only the store makes one, in reconciliation and in `resume()`, and only a
+  full read releases with `segment_corrupt` (§5.1; BB8 6688972927, amending 6678599629).
+- **Complete verified load.** The worker's finish-time load of `alt_cells` (§5.2). It reads every
+  segment by its path, checks each `previous_hash` link back from the record's head, and checks
+  the count and digest against `record.discovery`. It is not a full read: on F6 it raises
+  `STORAGE_CORRUPT` and releases nothing, like a lease-time load, and `resume()`'s full read then
+  decides (BB8 6688972927).
 - **Address list.** The store's in-memory list of a live chain's segment addresses, oldest
   first (§5.1).
 - **Terminal suffix.** A method's terminal records on its own stream: its `method_result`
@@ -88,7 +100,8 @@ truncation.
 - **Compaction.** A `row_seen` reset followed, in the same frame, by the log's live keys sealed
   again (§6.2).
 - **Membership logs.** `seen`, `variants`, `row_seen` and `alt_seen`: the logs the worker loads
-  on every lease. One cap, `MEMBERSHIP_ENTRIES`, bounds them together (§3, §6.11).
+  on every lease. Two caps bound them together: `MEMBERSHIP_ENTRIES` their entries and
+  `MEMBERSHIP_BYTES` their entry bytes (§3, §6.11).
 - **Reply.** The bridge's result for the worker's own final frame, marked `reply: true` (§8). An
   error a Node sink throws inside the lease, and a bridge failure with no worker reply, are not
   replies.
@@ -373,14 +386,15 @@ truncation.
 | `SEGMENT_ENTRIES` | 1024 per segment | cut rule (§2.4) | `READER_PROTOCOL` (F4) |
 | `SEGMENT_BYTES` | 16384 entry bytes per segment | cut rule (§2.4) | `READER_PROTOCOL` (F4) |
 | tail | fewer than 1024 entries and 16384 bytes | seal | `READER_PROTOCOL` (W4) |
-| `FRAME_SEALS` | 8 seals per frame (≤ 128 KiB of entry bytes) | end the step at the next safe point; a unit that alone needs more: `RESOURCE_LIMIT` (cause `discovery_frame_seals`) | `READER_PROTOCOL` (W1) |
+| `FRAME_SEALS` | 8 seals per frame (≤ 128 KiB of entry bytes) | end the step at the next safe point; a unit that must be emitted and alone needs more: `RESOURCE_LIMIT` (cause `discovery_frame_seals`). A `row_seen` compaction is not such a unit: it is deferrable, so one whose live keys need more seals waits and the log grows until a membership cap stops it (§6.2; BB8 6688972927) | `READER_PROTOCOL` (W1) |
 | `CHAIN_SEGMENTS` | 2048 segments per chain (≤ 32 MiB of entry bytes) | `RESOURCE_LIMIT` (cause `discovery_chain_segments`) | `READER_PROTOCOL` (W5) |
-| `MEMBERSHIP_ENTRIES` | 65536 entries in the four membership logs together (`seen`, `variants`, `row_seen` and `alt_seen`, each sealed and tail): the bound derived from the first-commit budget, with only the per-entry load rate scaled (§6.11, BB8 6682942783) | `RESOURCE_LIMIT`, naming the log whose append passes it: cause `discovery_seen`, `discovery_variants`, `discovery_row_seen` or `discovery_alt_seen` | `READER_PROTOCOL` (W7) |
+| `MEMBERSHIP_ENTRIES` | 65536 entries in the four membership logs together (`seen`, `variants`, `row_seen` and `alt_seen`, each sealed and tail): the bound derived from the first-commit budget, with only the per-entry load rate scaled: 90,975 with the margin, rounded down to 65,536 (§6.11, BB8 6682942783, 6688972927) | `RESOURCE_LIMIT`, naming the log whose append passes it: cause `discovery_seen`, `discovery_variants`, `discovery_row_seen` or `discovery_alt_seen` | `READER_PROTOCOL` (W7) |
+| `MEMBERSHIP_BYTES` | 4194304 canonical entry bytes (4 MiB) in the same four logs together, each sealed and tail: derived from a per-byte load rate measured at 4,096-byte entries, scaled by 3 and fitted into the same budget beside `MEMBERSHIP_ENTRIES`' load (§6.11, BB8 6688972927) | `RESOURCE_LIMIT`, with the same cause for each log as `MEMBERSHIP_ENTRIES` | none at the frame: `record.discovery` keeps each log's count, not its entry bytes, so the store cannot total them; the worker's refusal is the bound (§6.11) |
 | `GROUP_KEYS`, `GROUP_BYTES` | 32 keys and 8192 entry bytes in the current group | spill to `alt_seen` (§6.4): a spill rule, not a refusal | `READER_PROTOCOL` (W4) |
-| `WITNESS_FIELDS` | 16 field names, each a dot path of lowercase names (`[a-z0-9_]`, joined by `.`) of at most 64 bytes | `INVARIANT_FAILURE` (an engine defect: the field list is the reducer's constant, five names in v1) | `READER_PROTOCOL` (W4) |
-| `CONTINUATION_BYTES` | 8192 canonical bytes | `INVARIANT_FAILURE` (an engine defect, never a truncation) | `READER_PROTOCOL` (W4) |
-| `REFUSAL_BYTES` | 543 canonical bytes of one method's refusal (`methods[*].refusal`): the largest construction in the call closure of the adapter's refusals, a conservative bound that the dispatch never builds; the largest refusal the dispatch can build is 336 bytes (§3.2) | `INVARIANT_FAILURE` (an engine defect: no input can lengthen a refusal, §3.2) | `READER_PROTOCOL` (W4) |
-| `CURSOR_BYTES` | 131072 canonical bytes (128 KiB) of the cursor object with its `discovery` and `continuation` members removed: the largest such cursor, 99,141 bytes, plus an allowance of 31,931 bytes (§3.1) | `INVARIANT_FAILURE` (an engine defect: the largest cursor the constants allow is 99,141 bytes, §3.1) | `READER_PROTOCOL` (W4) |
+| `WITNESS_FIELDS` | 16 field names, each a dot path of lowercase names (`[a-z0-9_]`, joined by `.`) of at most 64 bytes | `INVARIANT_FAILURE` (an engine defect: the field list is the reducer's constant, five names in v1), its message naming `WITNESS_FIELDS (16)` | `READER_PROTOCOL` (W4) |
+| `CONTINUATION_BYTES` | 8192 canonical bytes | `INVARIANT_FAILURE` (an engine defect, never a truncation), its message naming `CONTINUATION_BYTES (8192)` | `READER_PROTOCOL` (W4) |
+| `REFUSAL_BYTES` | 543 canonical bytes of one method's refusal (`methods[*].refusal`): the largest construction in the call closure of the adapter's refusals, a conservative bound that the dispatch never builds; the largest refusal the dispatch can build is 336 bytes (§3.2) | `INVARIANT_FAILURE` (an engine defect: no input can lengthen a refusal, §3.2), its message naming `REFUSAL_BYTES (543)` | `READER_PROTOCOL` (W4) |
+| `CURSOR_BYTES` | 131072 canonical bytes (128 KiB) of the cursor object with its `discovery` and `continuation` members removed: the largest such cursor, 99,141 bytes, plus an allowance of 31,931 bytes (§3.1) | `INVARIANT_FAILURE` (an engine defect: the largest cursor the constants allow is 99,141 bytes, §3.1), its message naming `CURSOR_BYTES (131072)` | `READER_PROTOCOL` (W4) |
 | cursor numbers | every number in the cursor outside its entries and `continuation` is an integer from 0 to 2⁵³ − 1 | none: each is a count, an index or an epoch, which never reaches 2⁵³ | `READER_PROTOCOL` (W4) |
 | frame | 2 MiB (`worker.py:166`, `python_bridge.js:16`) | the existing frame refusal | — |
 | control payload and record | 2 MiB (`READER_LIMITS.objectBytes`) | — | the existing `RESOURCE_LIMIT` 413 (`reader_job_store.js:78-83`) |
@@ -399,7 +413,17 @@ it: 128 KiB, a largest cursor of 99,141 bytes plus an allowance of 31,931 bytes.
 `REFUSAL_BYTES` takes `INVARIANT_FAILURE` too, because §3.2 derives it from how the adapter
 builds a refusal, so no input can pass it (BB8 6684866461). `WITNESS_FIELDS` takes
 `INVARIANT_FAILURE` for the same reason as the byte bounds (§12, item 17). None of the four
-names a cause (§8).
+names a cause (§8), and each one's message names the bound it passed, with the bound's value
+and the size found, so an engine-defect report says which invariant broke (BB8 6688972927):
+
+- `INVARIANT_FAILURE: the refusal of <method> is <n> canonical bytes, past REFUSAL_BYTES (543)`;
+- `INVARIANT_FAILURE: the cursor without discovery and continuation is <n> canonical bytes, past CURSOR_BYTES (131072)`;
+- `INVARIANT_FAILURE: the continuation is <n> canonical bytes, past CONTINUATION_BYTES (8192)`;
+- `INVARIANT_FAILURE: the witness field list breaks WITNESS_FIELDS (16): <what>`, where `<what>` is
+  the field count or the field name that is not a dot path of at most 64 bytes.
+
+`<method>` is the method's key in `methods` and `<n>` a decimal integer. `bad/cursor_over_bound.json`
+pins the first two messages for its two worker mutants.
 
 Derived bounds, computed from the constants (not measured):
 
@@ -480,7 +504,8 @@ for all 80 schemas, every schema refused, and the widest witness:
   the integers by W4.
 - **What the worker does past it.** It checks each refusal against `REFUSAL_BYTES` first, then
   the cursor against `CURSOR_BYTES`. Either one passed is `INVARIANT_FAILURE`, never a
-  truncation: only content no constant allows gets there, such as a method the registry does not
+  truncation, with the message §3 gives, which names `REFUSAL_BYTES (543)` or
+  `CURSOR_BYTES (131072)`: only content no constant allows gets there, such as a method the registry does not
   have, or a refusal from a construction §3.2 does not list.
 - **When it is derived again.** On any change to the inputs above: a method, a schema, a
   counter, a reason, or `REFUSAL_BYTES` (§3.2). On each run the validator reads, from the
@@ -490,8 +515,8 @@ for all 80 schemas, every schema refused, and the widest witness:
   passes this table's inputs.
 - **Tests** (`bad/cursor_over_bound.json`): the largest cursor and a cursor of exactly
   `CURSOR_BYTES` are accepted. One byte over is refused by W4, and by the worker as
-  `INVARIANT_FAILURE`. One refusal one byte over `REFUSAL_BYTES` is refused by W4, and by the
-  worker as `INVARIANT_FAILURE` too. Three cursors that each hold one number W4 refuses (2⁵³,
+  `INVARIANT_FAILURE`, naming `CURSOR_BYTES (131072)`. One refusal one byte over `REFUSAL_BYTES`
+  is refused by W4, and by the worker as `INVARIANT_FAILURE` too, naming `REFUSAL_BYTES (543)`. Three cursors that each hold one number W4 refuses (2⁵³,
   −1 and 0.5) are refused by W4, and name no worker code: the engine never builds such a
   number. The validator holds the fixture to exactly these cases.
 
@@ -641,7 +666,9 @@ of different schemas.
   bound is derived again.
 - **What the worker does past it.** `INVARIANT_FAILURE`, raised when the refusal is stored,
   before the frame is emitted, and never a truncation. It names no cause, as the other byte
-  bounds do not (§8), so `cursor_refusal_bytes` is retired. BB8 left the name open (rename it to
+  bounds do not (§8), so `cursor_refusal_bytes` is retired. Its message names the limit:
+  `INVARIANT_FAILURE: the refusal of <method> is <n> canonical bytes, past REFUSAL_BYTES (543)`
+  (§3; BB8 6688972927, the condition of accepting the retirement). BB8 left the name open (rename it to
   match, or keep it under `INVARIANT_FAILURE`); it matches the other `INVARIANT_FAILURE` bounds
   by naming none, and C1's rule that only `DISCOVERY_UNAVAILABLE` and `RESOURCE_LIMIT` carry a
   cause stands as confirmed (§12, item 22). The store refuses it by W4.
@@ -713,7 +740,8 @@ There is no new channel. A frame's seals ride the existing step and its acknowle
    - **W5.** No chain holds more than `CHAIN_SEGMENTS` segments.
    - **W7, the membership cap.** After the frame, the four membership logs hold at most
      `MEMBERSHIP_ENTRIES` entries together: for each of `seen`, `variants`, `row_seen` and
-     `alt_seen`, its count plus its new tail (§3, §6.11).
+     `alt_seen`, its count plus its new tail (§3, §6.11). W7 does not hold `MEMBERSHIP_BYTES`:
+     the record keeps no byte count, so that cap is the worker's alone (§3).
    - **W6, append-only tails.** In the same epoch, for every log not reset by the frame,
      the previous cursor's tail (`record.cursor`) is a prefix of this frame's seal entries
      for that log followed by the new tail, compared entry by entry in canonical form.
@@ -845,12 +873,14 @@ and `resume()` refuses a dead job at once instead of queueing it
   `resume()` this is new (§12, item 26): `_object` turns F6 into `STORAGE_CORRUPT`
   (`:668-683`), which would leave the job paused at `STORAGE_CORRUPT` on every resume. Apart
   from the membership logs the worker loads on every lease (§5.2), which is logged membership
-  state that ruling (a) lets resume grow with, a chain is read in full in exactly three places:
-  1. the worker's load of `alt_cells` when it builds the terminal record (§5.2), by its
-     paths;
-  2. reconciliation after any foreign writer, which includes startup (§7.4);
-  3. `resume()` of a paused or cancelled job. Its own save (`:1392-1407`) carries the advanced
-     `verified`.
+  state that ruling (a) lets resume grow with, a chain is read in full in exactly two places by
+  the store, and once by the worker (BB8 6688972927, amending the three sites of 6678599629):
+  1. reconciliation after any foreign writer, which includes startup (§7.4): a full read;
+  2. `resume()` of a paused or cancelled job: a full read. Its own save (`:1392-1407`) carries
+     the advanced `verified`;
+  3. the worker's load of `alt_cells` when it builds the terminal record (§5.2), by its paths:
+     a complete verified load, not a full read (§1). It releases nothing on F6; it raises
+     `STORAGE_CORRUPT`, and `resume()`'s full read then decides.
 - **Crash safety.** `verified` lives in the record, written in the same save as the heads it
   verifies, and it is never ahead of the head:
   - a commit moves the head and leaves `verified` (§4);
@@ -867,7 +897,8 @@ and `resume()` refuses a dead job at once instead of queueing it
   steady state, the previous lease's seals (`good/lease_incremental_walk.json`). For #656 a
   full walk is 99 objects in about 10 ms (measured, §10). At the bounds a full read is five
   chains of `CHAIN_SEGMENTS` segments of about 17.5 KiB: about 175 MiB (computed). It now
-  happens only in the three places above.
+  happens only in the two places above; the worker's complete verified load reads one chain,
+  `alt_cells`, once.
 
 ### 5.2 The worker's load
 
@@ -884,12 +915,22 @@ and `resume()` refuses a dead job at once instead of queueing it
 - **R3, cursor agreement.** The summary's epoch and log names equal `cursor.discovery`'s.
   For each log, `count` equals `sealed` and `digest` equals `sealed_digest`. A mismatch is
   cause `cursor_disagrees`.
-- **Membership.** It is then each log's sealed entries followed by its tail.
+- **Membership.** It is then each log's sealed entries followed by its tail. The worker
+  computes each loaded entry's canonical form once, for F5, and keys its sets by those bytes,
+  which are `canonical_json(entry)`'s for every entry (§2.1). `MEMBERSHIP_BYTES` is derived from
+  this load (§6.11, §10). Re-canonicalising each loaded entry through `canonical_json` walks it
+  value by value in Python, about five to nine times the per-byte cost on value-dense entries
+  (measured, §10), so a worker that does so is outside the derivation.
 - **When `alt_cells` is read.** The worker reads its segments, and checks them by R1, F6,
   F3, R2 and F5, only when it builds the terminal record (`analysis.py:2386-2403`,
-  `:1870-1879`). That is one of the three full reads (§5.1), by its paths, oldest first. On
-  every other lease it checks `alt_cells` by R3 alone, and the store's walk stats its verified
-  segments and reads only those appended since (§5.1).
+  `:1870-1879`). That is a **complete verified load** (§1; BB8 6688972927), not a full read: it
+  reads every segment by its path, checks each `previous_hash` link back from the record's head
+  (R2), and checks the chain's count and digest against `record.discovery` (the summary, §2.10).
+  On F6 it raises `STORAGE_CORRUPT` and releases nothing, exactly like a lease-time load, and
+  `resume()`'s full read then decides, as the one that releases with `segment_corrupt`. R1 is
+  `segment_missing`, F3 and R2 `chain_broken` and F5 `digest_mismatch`, as on every load, and a
+  pause with any of them releases (§8). On every other lease it checks `alt_cells` by R3 alone,
+  and the store's walk stats its verified segments and reads only those appended since (§5.1).
 
 ### 5.3 The target inventory (R4)
 
@@ -951,12 +992,18 @@ within the row are in `continuation.row`.
   frame.
 - **The bound that follows.** The log holds at most twice the live keys plus one segment,
   except while the live keys alone need more than `FRAME_SEALS` seals. Then no frame can hold
-  the compaction, so it waits and the log grows, until `MEMBERSHIP_ENTRIES` stops it with
-  `discovery_row_seen` (§3).
+  the compaction, so it waits and the log grows, until `MEMBERSHIP_ENTRIES` or
+  `MEMBERSHIP_BYTES` stops it with `discovery_row_seen` (§3).
+- **An oversized compaction defers; this section wins over §3's `FRAME_SEALS` row** (BB8
+  6688972927). A compaction is deferrable: the log is correct uncompacted, only larger. So a
+  compaction whose live keys need more than `FRAME_SEALS` seals is never a unit that must be
+  emitted, and it never raises `discovery_frame_seals`. That cause is for units that must be
+  emitted (§3).
 - **Confirmed** (BB8 6678599629). The compaction decision depends only on the traversal,
   keeps the live keys in their first-insertion order and leaves membership unchanged.
   Atomicity is the amendment of 6678702125.
-- **Tests, all four required** (BB8 6678599629, 6678702125, 6681838131):
+- **Tests, all four required** (BB8 6678599629, 6678702125, 6681838131; four everywhere,
+  BB8 6688972927):
   - a fixture with repeated left spans, restarted mid-row, matches the uninterrupted run
     (BB8 4);
   - one whose left spans repeat far apart compacts, and its restart at the compaction
@@ -1232,58 +1279,78 @@ behaviour is preserved too. **Test:** restarting at every step boundary equals t
 uninterrupted run. The restart points include mid-preparation, a zero-yield target,
 mid-target, mid-group, mid-emission and across a method boundary.
 
-### 6.11 Resume cost (BB8 8; BB8 (a), 6678599629; BB8 6681838131; BB8 6682942783)
+### 6.11 Resume cost (BB8 8; BB8 (a), 6678599629; BB8 6681838131; BB8 6682942783; BB8 6688972927)
 
 Measured on #656, a resume costs about 8–19 s (construct plus load plus recompute, §10), and
 nothing is re-traversed. In an earlier revision two terms grew with position after the primary
 phase: the worker's load of `alt_seen`, and the store's walk of `alt_cells`. Ruling (a) fixes
-both, and 6681838131 widens the cap to every log the worker loads on every lease, so the cost of
-a lease up to its first commit is bounded by a constant:
+both, and 6681838131 widens the cap to every log the worker loads on every lease. **What the
+caps bound, and what they do not** (BB8 6688972927): the logged-state load and the walk are
+bounded by the caps, `MEMBERSHIP_ENTRIES` and `MEMBERSHIP_BYTES` for the load and
+`CHAIN_SEGMENTS` and `FRAME_SEALS` for the walk. Construct and recompute depend on the text: they
+are measured, not bounded. The proof run's 30 s first-commit gate is what qualifies the whole
+(§9). So:
 
 - the store's walk is incremental (§5.1): it stats the verified segments and reads only the
   ones appended since;
 - `alt_cells` is loaded only at finish (§5.2);
-- the four membership logs, `seen`, `variants`, `row_seen` and `alt_seen`, share one cap,
-  derived below from the lease's first-commit budget. Each is loaded on every lease, and `seen`
+- the four membership logs, `seen`, `variants`, `row_seen` and `alt_seen`, share two caps, one
+  on entries and one on entry bytes, derived below from the lease's first-commit budget. Each is loaded on every lease, and `seen`
   alone at `CHAIN_SEGMENTS` would load for about 191 s, so a cap on `alt_seen` alone did not meet
   the criterion.
 
-**The derivation** (BB8 6682942783, option (b)). The budget is 30 s from a lease's start to its
-first commit (§9). The inputs are §10's measurements, not bounds; the result,
-`MEMBERSHIP_ENTRIES = 65536`, is the bound. Only the per-entry load rate is scaled. Construct,
-recompute and the walk enter at their loaded-host measurements, as in the derivation of
-`8732918312`.
+**The derivation** (BB8 6682942783, option (b); 6688972927). The budget is 30 s from a lease's
+start to its first commit (§9). The inputs are §10's measurements, not bounds; the results,
+`MEMBERSHIP_ENTRIES = 65536` and `MEMBERSHIP_BYTES = 4194304`, are the bounds. Only the load
+rates are scaled. Construct, recompute and the walk enter at their loaded-host measurements, as
+in the derivation of `8732918312`.
 
 | Term | Value | Source |
 | --- | --- | --- |
-| load rate | 30.4 µs per entry × 3 = 91.2 µs | measured on the light host (§10), scaled |
+| load rate per entry | 30.4 µs per entry × 3 = 91.2 µs | measured on the light host at #656's 65.3-byte mean entry (§10), scaled |
+| load rate per byte | 102.4 ns per entry byte × 3 = 307.2 ns | measured at 4,096-byte entries (§10), scaled |
 | construct | 15.2 s | measured on #656, loaded host (§10), not scaled |
 | recompute | 2.4 s | measured on #656, loaded host (§10), not scaled |
 | incremental walk | at most 10,240 segments × 10 ms / 99 × 3 = 3.10 s | the measured walk rate (§10), computed at the bounds |
-| load of the membership logs | n entries × 91.2 µs | computed |
+| load of the membership logs | n entries × 91.2 µs + b entry bytes × 307.2 ns | computed |
 
-- **The factor is 3, and it scales the load rate only.** 30.4 µs is a light-host rate, and the
+- **The factor is 3, and it scales the load rates only.** 30.4 µs is a light-host rate, and the
   load is the term the loaded/light ratio was measured for: §10 measured the same load at 0.6 s
   light and 1.5 s loaded, a ratio of 2.5, and 3 rounds that up to a whole factor. Construct and
   recompute already enter at their loaded-host measurements. Scaling them again would count the
   same slowdown twice, for a host nobody measured.
-- **The walk term** is a full read of five chains of `CHAIN_SEGMENTS` (10,240 segments) at the
-  measured rate. The walk has one measured figure, not split by host, so, as in `8732918312`, it
-  enters at 3× that figure, about 0.3 ms per segment, as its loaded-host figure. An incremental
-  walk stats the verified segments, which costs less than reading them, and reads only the
-  appended ones, so it costs at most this.
-- **The sum.** The fixed terms come to 15.2 + 2.4 + 3.10 = 20.70 s. BB8's figure, about 81,895
-  entries in 30 s, is the room `8732918312` computed with #656's own 20,045 `seen` and
-  `variants` entries loaded as a further fixed term (1.83 s): 22.53 s fixed, 7.47 s left. Under
-  one combined cap those entries count inside the cap instead, so the room over the whole sum is
-  9.30 s, or 101,940 entries, and 90,975 once the first step's 1 s deadline
-  (`analysis.py:2582`) is kept as margin.
-- **The bound.** `MEMBERSHIP_ENTRIES = 65536`, combined over `seen`, `variants`, `alt_seen` and
-  `row_seen`: about 81,895 rounded down to a power of two (BB8 6682942783). The other two figures
-  round down to the same power. It is 64 segments full by count.
-- **The check.** At the cap the load is 65,536 × 91.2 µs = 5.98 s, about 6.0 s. With construct,
-  recompute and the walk the sum is 26.68 s, 3.32 s under the budget, which holds the first
-  step's 1 s deadline.
+- **The per-byte rate** (BB8 6688972927). The per-entry rate was measured on #656's 65.3-byte
+  mean entries, while an entry may be up to 4,096 bytes, so the per-entry rate alone does not
+  bound the load at the contract's own bounds. The per-byte rate was measured on entries of
+  exactly `ENTRY_BYTES`, four to a segment, through the worker's page reader and the §5.2 checks,
+  and it takes the worst of ten entry shapes and storages (§10). It is scaled by the same 3,
+  although it was measured on a host already loaded (§10), so the factor is conservative here.
+  Each term overcounts the other's share (the per-entry rate includes its entries' bytes, the
+  per-byte rate its entries' overhead), so their sum bounds a load of any mix of entry sizes.
+- **The walk term** is bounded by two caps (BB8 6688972927). Its stats are bounded by
+  `CHAIN_SEGMENTS`: five chains, at most 10,240 stats. Its reads are bounded by `FRAME_SEALS`:
+  at most that many segments per frame committed since the verified head. The walk has one
+  measured figure, not split by host, so, as in `8732918312`, it enters at 3× that figure, about
+  0.3 ms per segment, as its loaded-host figure, here taken for all 10,240 segments. A stat
+  costs less than a read, so this bounds the stats and the reads together.
+- **The sum.** The fixed terms come to 15.2 + 2.4 + 3.10 = 20.70 s. #656's own entries count
+  inside the combined cap, so the room over the whole sum is 9.30 s, or 101,940 entries, and
+  90,975 once the first step's 1 s deadline (`analysis.py:2582`) is kept as margin.
+- **The entry bound.** `MEMBERSHIP_ENTRIES = 65536`, combined over `seen`, `variants`,
+  `alt_seen` and `row_seen`: 90,975 with the margin, rounded down to 65,536, a power of two
+  (BB8 6682942783, as 6688972927 states it). 101,940 rounds down to the same power. It is 64
+  segments full by count. No #656 measurement is a term in it.
+- **The byte bound.** At the entry cap the per-entry term is 65,536 × 91.2 µs = 5.98 s, which
+  leaves 29 − 20.70 − 5.98 = 2.32 s with the margin. At 307.2 ns per byte that is 7,552,364
+  bytes, rounded down to a power of two: `MEMBERSHIP_BYTES = 4194304` (4 MiB), combined over the
+  same four logs. Its term is 1.29 s. At 4,096-byte entries it holds 1,024 of them, 256 segments.
+  #656's measured `seen` and `variants` hold about 1,337,764 entry bytes (19,880 × 65.3 + 165 ×
+  about 240, computed from §10), so the cap leaves 2,856,540 bytes of headroom for the
+  alternate phase, not a measured margin.
+- **The figures at the caps are a derivation, not a bound** (BB8 6688972927). At the entry cap
+  alone the sum is 26.68 s, 3.32 s under the budget; with the byte term at its cap as well,
+  27.97 s, 2.03 s under it, which holds the first step's 1 s deadline. Each uses construct,
+  recompute, the walk rate and the two load rates, which are measured terms (§10).
 - **The proof run decides whether #656 fits** (BB8 6682942783, corrected by 6683944548). The one
   Whitman figure here is its primary phase's 20,045 `seen` and `variants` entries (§10). The
   45,491 entries the cap leaves are headroom for the alternate phase, not a measured margin:
@@ -1298,12 +1365,14 @@ recompute and the walk enter at their loaded-host measurements, as in the deriva
   previous revision's 32,768 (`147f5dd3d`). A combined cap of 16,384 would refuse #656's own
   run before its alternate phase. BB8 retracts that rule (6682942783), and both figures go with
   it.
-- **One cap, with a cause for each log.** An append that would take the four logs past the cap
-  refuses with `RESOURCE_LIMIT`, cause `discovery_seen`, `discovery_variants`,
+- **Two caps, with a cause for each log.** An append that would take the four logs past either
+  cap refuses with `RESOURCE_LIMIT`, cause `discovery_seen`, `discovery_variants`,
   `discovery_row_seen` or `discovery_alt_seen`: the log whose append passes it
-  (`bad/membership_over_cap.json`). A store sent such a frame refuses it as `READER_PROTOCOL`
-  (W7). The cap is shared, so no single log can reach the 191 s load of one log at
-  `CHAIN_SEGMENTS`.
+  (`bad/membership_over_cap.json` for the entries; the validator's byte test for the bytes). A
+  store sent a frame past `MEMBERSHIP_ENTRIES` refuses it as `READER_PROTOCOL` (W7). The store
+  cannot hold `MEMBERSHIP_BYTES`: `record.discovery` keeps counts, not entry bytes, so W7 would
+  need a byte member in each log's state, which this revision does not add. The caps are shared,
+  so no single log can reach the 191 s load of one log at `CHAIN_SEGMENTS`.
 
 **What the bound leaves out** (§12, item 18, ruled by 6681838131). The cap bounds a lease's cost
 up to its first commit, and only that. It is never a qualification of a whole lease's cost.
@@ -1325,7 +1394,7 @@ Each exclusion is named, and each is either capped or left out on purpose:
   `reader_job_store.js:435-448`), the lease's first lock entry reconciles, which full-reads
   every live chain of every job (§7.4). At the default 256 MiB quota (`server_http.js:336`), if
   all of it were segments of about 17.5 KiB, that is 14,979 segments: 4.54 s at the walk term's
-  rate, more than the 3.32 s margin above. The proof run records each one (§9).
+  rate, more than the 2.03 s margin above. The proof run records each one (§9).
 
 The measured gate stays: in the proof run, every lease's first commit lands within 30 s of the
 lease start, and each walk's time is recorded (§9).
@@ -1366,7 +1435,8 @@ GC:
   be mapped to `pages`; indexing `live.discovery` would throw.
 - The sweep is unchanged. A verified head needs no root (§2.7).
 - Chains are append-only and their tails live in the record, so a running job creates no
-  discovery garbage except a reset `row_seen`'s sealed segments.
+  discovery garbage except a reset `row_seen`'s sealed segments and, at an epoch advance, every
+  segment of the logs the advance releases (§2.6).
 
 ### 7.3 Crash ordering
 
@@ -1411,8 +1481,8 @@ GC:
   (`:342-379`) always reconciles. Every discovery read the
   store makes is the walk or reconciliation, and both run under the lock (§5.1), so a walk
   always runs after the reconciliation it needs.
-- **Reconciliation is a full read** (§5.1) of every live chain, one of the three places a
-  chain is read in full. It starts at each head and stats each segment before reading it,
+- **Reconciliation is a full read** (§5.1) of every live chain, one of the store's two
+  full-read places (the other is `resume()`). It starts at each head and stats each segment before reading it,
   because `_object` maps `ENOENT` to `STORAGE_CORRUPT` (`:668-683`), and it replaces the
   address lists with what it read. For a #656-sized job that is 99 segments (measured), and
   at the bounds up to 5 × `CHAIN_SEGMENTS` per job (computed). It saves no verified head:
@@ -1491,11 +1561,11 @@ Nothing is ever reinterpreted, and missing state is never rebuilt.
 | --- | --- | --- | --- |
 | `READER_PROTOCOL` | 400 | store, `commitCheckpoint`; scheduler, at the reply boundary | any of F1–F6 or W1–W7 on a frame. Nothing is written; the job pauses with this reason and is not requeued. The scheduler pauses a job with this code, without a status, for a reply that breaks C1. |
 | `DISCOVERY_UNAVAILABLE` | 409 | store (`workerPayload`, `commitCheckpoint` and `resume` from `unavailable`; a full read in `resume()`; reconciliation's release) and worker (load, traversal) | causes below |
-| `STORAGE_CORRUPT` | 503 | store; worker | a segment's bytes do not match its address (F6) on a lease's walk or the worker's load, which releases nothing, while a full read releases that job with `segment_corrupt` instead (§5.1, §7.4); the store meets a missing segment outside reconciliation, which releases that job instead (§7.4); or a lease's walk fails R5, R2 or F3 (§5.1), which releases nothing |
+| `STORAGE_CORRUPT` | 503 | store; worker | a segment's bytes do not match its address (F6) on a lease's walk or the worker's load, the finish-time complete verified load of `alt_cells` included (§5.2), which releases nothing, while a full read releases that job with `segment_corrupt` instead (§5.1, §7.4); the store meets a missing segment outside reconciliation, which releases that job instead (§7.4); or a lease's walk fails R5, R2 or F3 (§5.1), which releases nothing |
 | `STALE_READING` | 409 | worker | a v1 cursor on a v2 worker, a v2 cursor on a v1 worker (`analysis.py:464`), or a witness whose fields are not the ones the worker's reducer reads (§6.9) |
 | `RESULT_EXPIRED` | 410 | worker | the option 2 witness disagrees with durable history, or is null on a qualified method (§6.9) |
 | `RESOURCE_LIMIT` | — (the job pauses) | worker | a §3 limit the worker cannot meet by ending its step, or another raise of §8's list; it names its cause (below) |
-| `INVARIANT_FAILURE` | — (the job pauses) | worker | `CURSOR_BYTES`, `CONTINUATION_BYTES`, `REFUSAL_BYTES` or `WITNESS_FIELDS` passed: an engine defect, naming no cause (§3, §3.1, §3.2) |
+| `INVARIANT_FAILURE` | — (the job pauses) | worker | `CURSOR_BYTES`, `CONTINUATION_BYTES`, `REFUSAL_BYTES` or `WITNESS_FIELDS` passed: an engine defect, naming no cause; its message names the bound and its value, such as `REFUSAL_BYTES (543)` (§3, §3.1, §3.2) |
 
 `DISCOVERY_UNAVAILABLE` always names its cause. 409 matches `STALE_READING`; 410 stays with
 `RESULT_EXPIRED`, because here the result is not gone. The Log column says whether a reply's
@@ -1505,7 +1575,7 @@ it. The causes:
 | Cause | Rule | Raised by | Log | Message |
 | --- | --- | --- | --- | --- |
 | `segment_missing` | R1 | worker; store from `unavailable` | required | This analysis can no longer resume exactly: part of its saved progress is missing. Its committed evidence stays readable. Delete it, then create a new analysis with a new key. |
-| `segment_corrupt` | F6 at a full read | the store's full read only (reconciliation, `resume()`), logged at error level; never a worker | required | This analysis can no longer resume exactly: part of its saved progress is damaged. Its committed evidence stays readable. Delete it, then create a new analysis with a new key. |
+| `segment_corrupt` | F6 at a full read | the store's full read only (reconciliation, `resume()`), logged at error level; never a worker, whose loads, the complete verified load of `alt_cells` included, raise `STORAGE_CORRUPT` on F6 | required | This analysis can no longer resume exactly: part of its saved progress is damaged. Its committed evidence stays readable. Delete it, then create a new analysis with a new key. |
 | `chain_broken` | R2, F3 at read | the store's full read (reconciliation, `resume()`); worker | required | This analysis can no longer resume exactly: part of its saved progress does not fit together. Its committed evidence stays readable. Delete it, then create a new analysis with a new key. |
 | `digest_mismatch` | F5 at read | worker | required | This analysis can no longer resume exactly: part of its saved progress does not match its record. Its committed evidence stays readable. Delete it, then create a new analysis with a new key. |
 | `cursor_disagrees` | R3 | worker | optional | the `digest_mismatch` message |
@@ -1520,10 +1590,10 @@ raise the reader reaches:
 | `discovery_entry_bytes` | `ENTRY_BYTES` | required | This analysis stopped: one piece of its saved progress is larger than the format allows. Its committed evidence stays readable. |
 | `discovery_frame_seals` | `FRAME_SEALS` | none | This analysis stopped: one step of its search needs more saved progress than one checkpoint can carry. Its committed evidence stays readable. |
 | `discovery_chain_segments` | `CHAIN_SEGMENTS` | required | This analysis stopped: its saved progress grew past the format's limit. Its committed evidence stays readable. |
-| `discovery_seen` | `MEMBERSHIP_ENTRIES`, by an append to `seen` | none | This analysis stopped: its search of the text's own readings kept more pairs than a resume can reload in time. Its committed evidence stays readable. |
-| `discovery_variants` | `MEMBERSHIP_ENTRIES`, by an append to `variants` | none | This analysis stopped: it prepared more reading variants than a resume can reload in time. Its committed evidence stays readable. |
-| `discovery_row_seen` | `MEMBERSHIP_ENTRIES`, by an append to `row_seen` | none | This analysis stopped: its search kept more pairs of one row than a resume can reload in time. Its committed evidence stays readable. |
-| `discovery_alt_seen` | `MEMBERSHIP_ENTRIES`, by an append to `alt_seen` | none | This analysis stopped: its search of alternate readings kept more pairs than a resume can reload in time. Its committed evidence stays readable. |
+| `discovery_seen` | `MEMBERSHIP_ENTRIES` or `MEMBERSHIP_BYTES`, by an append to `seen` | none | This analysis stopped: its search of the text's own readings kept more pairs than a resume can reload in time. Its committed evidence stays readable. |
+| `discovery_variants` | `MEMBERSHIP_ENTRIES` or `MEMBERSHIP_BYTES`, by an append to `variants` | none | This analysis stopped: it prepared more reading variants than a resume can reload in time. Its committed evidence stays readable. |
+| `discovery_row_seen` | `MEMBERSHIP_ENTRIES` or `MEMBERSHIP_BYTES`, by an append to `row_seen` | none | This analysis stopped: its search kept more row pairs than a resume can reload in time. Its committed evidence stays readable. |
+| `discovery_alt_seen` | `MEMBERSHIP_ENTRIES` or `MEMBERSHIP_BYTES`, by an append to `alt_seen` | none | This analysis stopped: its search of alternate readings kept more pairs than a resume can reload in time. Its committed evidence stays readable. |
 | `resident_capacity` | the reader's memory envelope (`analysis.py:40-55`) | none | This analysis stopped: it needs more memory than this reader may use. No source or comparison was skipped. Its committed evidence stays readable. |
 | `declared_coordinate_bits` | the meter's 256-bit coordinate budget (`quality/meter.py:94-96`) | none | This analysis stopped: a declared beat or meter position is larger than the reader can compute with. Its committed evidence stays readable. |
 | `expansion_budget` | the meter's per-operation expansion budget (`quality/meter.py:110-113`) | none | This analysis stopped: a declared meter or beat pattern expands to more positions than the reader can compute with. Its committed evidence stays readable. |
@@ -1573,8 +1643,9 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   a named cause stores no message.
 - `store.pause` with code `DISCOVERY_UNAVAILABLE` releases the logs and sets
   `unavailable: {cause, log | null, released}` in the same save (§2.7). This is how a refusal
-  the worker raises (R1, `digest_mismatch`, `cursor_disagrees`, `inventory_mismatch`,
-  `retired_key_recurred`) frees the job's chains and quota, and why a later `resume()`
+  the worker raises (R1, `chain_broken` from F3 or R2 at its load, `digest_mismatch`,
+  `cursor_disagrees`, `inventory_mismatch`, `retired_key_recurred`) frees the job's chains and
+  quota, and why a later `resume()`
   refuses at once instead of requeueing a job that would fail the same way. Confirmed, with
   one condition (BB8 6678599629): the paused reason records the released log names and
   their heads at release.
@@ -1692,11 +1763,12 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   or below 40 MiB, and frames and the record stay within their derived bounds (§3). It
   records the restart count, each restart's cost, the segments each lease's walk read and
   statted and the time each walk took, any reconciliation and its time, `row_seen`'s size in
-  both phases, the four membership logs' total against `MEMBERSHIP_ENTRIES`, worker memory in
+  both phases, the four membership logs' totals against `MEMBERSHIP_ENTRIES` and
+  `MEMBERSHIP_BYTES`, worker memory in
   the alternate phase, and the finish lease's time: its full `alt_cells` load, option 2's read
   of the evidence and `_domain`'s enumeration, against the lease (§6.11). If a lease's first
-  commit misses 30 s on the qualified image, `MEMBERSHIP_ENTRIES` is re-derived from that
-  measurement, never waived (BB8 6682942783). It is the completed run that Phase B needs
+  commit misses 30 s on the qualified image, `MEMBERSHIP_ENTRIES` and `MEMBERSHIP_BYTES` are
+  re-derived from that measurement, never waived (BB8 6682942783). It is the completed run that Phase B needs
   (`mcp/READER_RUNTIME.md`).
 
 ## 10. Measured on #656, not bounds
@@ -1718,6 +1790,7 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | discovery total | about 1.64 MB plain, about 0.2 MB gzip | computed |
 | per lease | walk about 10 ms; load 20,045 entries × 30.4 µs = 0.6 / 1.5 s; recompute 0.9 / 2.4 s; construct 6.4 / 15.2 s; about 8 / 19 s in all | measured |
 | loaded / light | construct 2.375, load 2.5, recompute 2.67 | computed from the measured times; §6.11 rounds the load's 2.5 up to 3 |
+| load per byte | 102.4 ns per entry byte at 4,096-byte entries: the median of five loads of 8 MiB (2,048 entries, 512 segments), the worst of five entry shapes (an ASCII string, a 3-byte UTF-8 string, one-digit integers, one-element arrays and empty arrays), each stored plain and gzipped; the worst single load 108.0 ns. The load is the worker's page reader (`worker.read_page_object`), F3, R2 and F5, and the membership set keyed by each entry's canonical bytes, computed once for F5 (§5.2). Measured on a 4-CPU Xeon at 2.1 GHz under Python 3.13, at load averages of 8.6 to 10.1, not on #656's light host | measured (BB8 6688972927); §6.11 scales it by 3 |
 | per commit | about 0.22 KB retained on average | computed |
 | GC at the end of the run | about 80 min per cycle, against 17 | computed |
 | preparation ticks | 256 ticks take 4–12 s | measured |
@@ -1747,9 +1820,9 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | 16 | BB8 6673031748 | exact ordered delivery; witness over every record; refusal, never a quieter fallback | §6.9 | `good/witness_cursor_option2.json`, `bad/witness_mismatch.json` |
 | 17 | BB8 6675208404 §1 | replay is exact at every boundary; ticks and pending state checkpointable | §6.3, §6.7, §6.10 | #721 restart-at-every-boundary test |
 | 18 | R2 6676918434 | one interface, tested from both sides, as versioned fixtures | §13 | the whole fixture set |
-| 19 | BB8 (a) (6678599629) | the store's walk is incremental: it stats every segment and reads and verifies only those appended since a persisted verified head; a full read happens in exactly three places | §1, §2.7 `verified`, §4, §5.1, §7.3, §7.4 | `good/lease_incremental_walk.json`, `good/lease_after_refused_commit.json`, `bad/verified_ahead_of_head.json` |
+| 19 | BB8 (a) (6678599629) | the store's walk is incremental: it stats every segment and reads and verifies only those appended since a persisted verified head; a full read happens in exactly three places (amended by row 46: two, the store's, plus the worker's complete verified load) | §1, §2.7 `verified`, §4, §5.1, §7.3, §7.4 | `good/lease_incremental_walk.json`, `good/lease_after_refused_commit.json`, `bad/verified_ahead_of_head.json` |
 | 20 | BB8 (a) | `alt_seen` gets its own cap, derived from the 30 s first-commit budget on a loaded host; passing it is `RESOURCE_LIMIT`, cause `discovery_alt_seen` (widened to the four membership logs by row 33) | §3, §4 W7, §6.4, §6.11, §8 | `bad/membership_over_cap.json`; the §6.11 derivation test |
-| 21 | BB8 (b) | confirmed: `row_seen` reset and compaction, with both tests required; `CURSOR_BYTES`, `CONTINUATION_BYTES` and `WITNESS_FIELDS`, with `INVARIANT_FAILURE` on the worker for the byte bounds; `methods[*]` holds no terminal input; the closed cause sets | §2.8, §3, §6.2, §8 | `good/lease_payload_summary_paths.json`; #721: both §6.2 tests |
+| 21 | BB8 (b) | confirmed: `row_seen` reset and compaction, with all four §6.2 tests required; `CURSOR_BYTES`, `CONTINUATION_BYTES` and `WITNESS_FIELDS`, with `INVARIANT_FAILURE` on the worker for the byte bounds; `methods[*]` holds no terminal input; the closed cause sets | §2.8, §3, §6.2, §8 | `good/lease_payload_summary_paths.json`; #721: the four §6.2 tests |
 | 22 | BB8 (b) | the terminal suffix is contiguous and belongs to its method alone; a non-terminal record after a suffix record is an inserted record | §6.9 | `bad/terminal_suffix_not_contiguous.json`, `bad/witness_mismatch.json` |
 | 23 | BB8 (b) | reconciliation pauses a released queued job, with its reason rendered from the cause, and `_dispatchable` skips it | §2.7, §7.4, §8 U2 | `good/unavailable_pause_reason.json` |
 | 24 | BB8 (b) | a `DISCOVERY_UNAVAILABLE` pause releases the logs; its reason keeps the released log names and their heads, and committed evidence stays readable | §2.7, §8 U1 and U2 | `good/unavailable_pause_reason.json` |
@@ -1768,12 +1841,13 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | 37 | BB8 6681838131; 3PO 6681823180 (a) | a thrown save is an unknown outcome: the address lists are rebuilt from the durable record head before use | §4, §5.1, §7.3 | `good/thrown_save_outcome_unknown.json` |
 | 38 | BB8 6681838131; 3PO 6681823180 (b) | reconciliation follows any foreign writer, not only an older image | §5.1, §6.11, §7.4 | — |
 | 39 | BB8 6681838131 | items 15, 17, 19 and 20: no semantic objection | §12 | — |
-| 40 | BB8 6682942783 | option (b): only the per-entry load rate is scaled (30.4 µs × 3); construct, recompute and the walk enter at their loaded-host measurements; about 81,895 entries, rounded down to `MEMBERSHIP_ENTRIES = 65536`, combined, with a cause per log; the proof run's gates decide whether #656 fits, and a missed 30 s re-derives the cap, never waives it; 16,384 retracted (item 25) | §3, §6.11, §9, §10, §12 | `bad/membership_over_cap.json`; the §6.11 derivation test |
-| 41 | BB8 6683944548 | items 21 (in method), 22, 23, 26 and 28 confirmed, and 25 confirmed as folded (also 6684866461); C1 is switched on in the same runtime train as the worker half, never before, by one switch; 29 stays open | §2.6, §3.1, §5.1, §8 C1, §9, §12 | `bad/reply_cause_invalid.json`, `bad/cursor_over_bound.json`, `bad/segment_corrupt_at_reconciliation.json` |
+| 40 | BB8 6682942783 | option (b): only the per-entry load rate is scaled (30.4 µs × 3); construct, recompute and the walk enter at their loaded-host measurements; 90,975 entries with the margin, rounded down to `MEMBERSHIP_ENTRIES = 65536` (as row 46 states it), combined, with a cause per log; the proof run's gates decide whether #656 fits, and a missed 30 s re-derives the cap, never waives it; 16,384 retracted (item 25); confirmed as folded in 6684866461 | §3, §6.11, §9, §10, §12 | `bad/membership_over_cap.json`; the §6.11 derivation test |
+| 41 | BB8 6683944548 | items 21 (in method), 22, 23, 26 and 28 confirmed (item 25 is ruled in 6682942783, row 40, and confirmed as folded in 6684866461); C1 is switched on in the same runtime train as the worker half, never before, by one switch; 29 stays open | §2.6, §3.1, §5.1, §8 C1, §9, §12 | `bad/reply_cause_invalid.json`, `bad/cursor_over_bound.json`, `bad/segment_corrupt_at_reconciliation.json` |
 | 42 | BB8 6684866461; 3PO 6684847656 | item 27 revised: the refusal stays in the cursor; `REFUSAL_BYTES = 543` is derived from the adapter's construction, conservatively (row 45), and passing it is `INVARIANT_FAILURE`; guard tests: 4 KiB and 64 KiB declared labels complete as today, continuing and restored, and the validator builds the largest refusal; `CURSOR_BYTES` re-derived with that refusal (99,141 bytes plus an allowance of 31,931, bound 131,072); `RL.realise`'s 4,607 detail bytes are context, not an adapter regression | §2.8, §3, §3.1, §3.2, §4 W4, §8 | `good/refusal_construction.json`, `bad/cursor_over_bound.json` |
 | 43 | BB8 6683944548, item 24; 3PO 6684847656 | item 24 is 3PO's: the post-terminal insertion test stays separate from the contribution-prefix case | §6.9 | `bad/terminal_suffix_not_contiguous.json`, `bad/terminal_suffix_resume_faults.json` |
 | 44 | BB8 6683944548 | correction: "`row_seen` live at 6 of 42 boundaries" is 3PO's two-line synthetic fixture, not Whitman; Whitman's one measured figure is 20,045 `seen` and `variants` entries, and the 45,491 left under the cap are headroom, not a measured margin | §6.11, §10, §12 | the proof run |
 | 45 | 3PO 6684968306; the review of `2a610d053` | reconciled: `REFUSAL_BYTES = 543` is the largest construction in the call closure, which the dispatch never builds, kept as a conservative bound; the largest refusal the dispatch can build is 336 bytes, schema by schema; the independent figures (386, 339) join parts of different schemas; the validator lists every refusal name, `_Refused` use and refusal copy; the worker's label test covers every declaration that takes a source; `CURSOR_BYTES` covers the cursor without `discovery` and `continuation`, 99,141 bytes plus an allowance of 31,931, and the whole cursor is at most 235,483 bytes; W4 holds the cursor's numbers to integers from 0 to 2⁵³ − 1 and `discovery` to §2.8's keys; R2 turns C1's constant on in the worker half's train, and it is never off in a released image | §2.8, §3, §3.1, §3.2, §4 W4, §8 C1, §9 | `good/refusal_construction.json`, `bad/cursor_over_bound.json` |
+| 46 | BB8 6688972927 | `cursor_refusal_bytes` retired, accepted, on the condition that an `INVARIANT_FAILURE` message names the bound it passed; (1) the cap is stated as 90,975 with the margin, rounded down to 65,536, with no #656 measurement as a term; (2) `MEMBERSHIP_BYTES = 4194304`, from a per-byte rate measured at 4,096-byte entries, scaled by 3, with the same causes; the caps bound the load and the walk, construct and recompute are measured, and the figures at the caps are a derivation; (3) an oversized compaction defers, and §6.2 wins over §3's `FRAME_SEALS` row; (4) a full read is the store's alone (reconciliation, `resume()`), and the worker's finish-time `alt_cells` load is a complete verified load, `STORAGE_CORRUPT` on F6 with no release; (5)–(10) the walk's two caps, `chain_broken` among the pause's worker causes, the GC sentence, four §6.2 tests everywhere, `discovery_row_seen`'s message, item 25's attribution; item 29 stays open | §1, §3, §5.1, §5.2, §6.2, §6.11, §7.2, §8, §10, §11, §12 | `bad/cursor_over_bound.json`; the §6.11 derivation and byte tests |
 
 ## 12. Rulings on the items added for confirmation
 
@@ -1782,20 +1856,25 @@ An earlier revision listed items 1–14 for confirmation. BB8 ruled on every one
 the cursor fields are 3PO's to confirm. BB8 then ruled on 3PO's amendments to items 1, 5, 7–9
 and 11, and on §6.8's wording (6678702125), made item 11's suffix check an explicit acceptance
 requirement (6678856548), ruled on items 15–20 (6681838131), and corrected the budget and ruled
-item 25 (6682942783). BB8 then ruled items 21–23, 25, 26 and 28 (6683944548) and revised its
-ruling on item 27 (6684866461). Item 24 is 3PO's, with BB8's agreement. Each ruling is marked on
-its item below. Only item 29 is open.
+item 25 (6682942783), which it confirmed as folded (6684866461). BB8 then ruled items 21–23, 26
+and 28 (6683944548) and revised its ruling on item 27 (6684866461). Item 24 is 3PO's, with BB8's
+agreement. BB8's completeness ruling (6688972927) amends items 13, 14 and 25 and the full-read
+sites, and closes the contract's semantics but for item 29. Each ruling is marked on its item
+below. Only item 29 is open.
 
 1. **Ruled: confirmed** (BB8 6678599629). `row_seen`'s reset at row boundaries and its
    compaction (§6.2), and the frame's `resets` field. The compaction decision depends only on
    the traversal, keeps the live keys in their first-insertion order and leaves membership
-   unchanged, so a restart compacts at the same boundary and seals the same bytes. Both §6.2
-   tests are required. **Amended** (BB8 6678702125, ruling 1): a compaction is atomic within
+   unchanged, so a restart compacts at the same boundary and seals the same bytes. All four §6.2
+   tests are required (BB8 6688972927: four everywhere). **Amended** (BB8 6678702125, ruling 1): a compaction is atomic within
    one frame; when the frame lacks room, the step ends before the boundary, and the compaction
    runs first in the next frame (§6.2, `good/row_seen_compaction_next_frame.json`).
 2. **Ruled: no semantic objection** (BB8 6678599629). W6, append-only tails.
-3. **Ruled: no semantic objection** (BB8 6678599629). `CHAIN_SEGMENTS = 2048` per chain. It
-   no longer bounds the per-lease walk (item 14).
+3. **Ruled: no semantic objection** (BB8 6678599629). `CHAIN_SEGMENTS = 2048` per chain. The
+   incremental walk's stat term is bounded by it, five chains or 10,240 stats; its read term is
+   bounded by `FRAME_SEALS` segments per frame committed since the verified head (§5.1, §6.11;
+   BB8 6688972927). A full read of five chains happens only in the store's two full-read places
+   (item 14).
 4. **Ruled: no semantic objection** (BB8 6678599629). The group bound (`GROUP_KEYS = 32`,
    `GROUP_BYTES = 8192`), with spill to `alt_seen`, which counts toward the membership cap
    (items 13 and 18).
@@ -1850,9 +1929,17 @@ its item below. Only item 29 is open.
     ruling (a)). After preparation, resume may grow with logged membership state, never with
     re-traversal, and its worst case at the contract's own bounds must fit the lease's
     first-commit budget. `alt_seen` got its own cap, derived from that budget, which item 18's
-    ruling widens to the four membership logs, `MEMBERSHIP_ENTRIES` (§6.11).
+    ruling widens to the four membership logs, `MEMBERSHIP_ENTRIES` (§6.11). **Scoped** (BB8
+    6688972927): the caps bound the logged-state load and the walk at the contract's own bounds,
+    `MEMBERSHIP_BYTES` (4 MiB) holding the load at 4,096-byte entries beside
+    `MEMBERSHIP_ENTRIES`. Construct and recompute depend on the text and are measured, not
+    bounded, and the proof run's 30 s first-commit gate qualifies the whole. The 26.68 s and
+    27.97 s at the caps are derivations from measured terms, not bounds.
 14. **Ruled by (a)** (BB8 6678599629). The walk is incremental (§5.1). A full read, the 175 MiB
-    figure at the bounds, happens in exactly three places.
+    figure at the bounds, happens in exactly two places, both the store's: reconciliation and
+    `resume()`. **Amended** (BB8 6688972927): the worker's finish-time load of `alt_cells`, the
+    third site of 6678599629, is a complete verified load, not a full read. It raises
+    `STORAGE_CORRUPT` on F6 and releases nothing (§1, §5.1, §5.2).
 
 BB8 still re-checks §6.9's acceptance list against the worker half once 3PO publishes it.
 
@@ -1966,10 +2053,14 @@ qualification (6683944548). Item 29 stays open.
     already enter at their loaded-host measurements, so scaling them again counts the same
     slowdown twice, and 16,384 would refuse #656's own run before its alternate phase. **The
     ruling:** only the per-entry load rate is scaled, 30.4 µs × 3 = 91.2 µs; construct (15.2 s),
-    recompute (2.4 s) and the walk enter at their loaded-host measurements. About 81,895 entries
-    fit in 30 s, rounded down to a power of two: `MEMBERSHIP_ENTRIES = 65536`, combined over
-    `seen`, `variants`, `alt_seen` and `row_seen`, with a cause for each log. At the cap the load
-    is about 6.0 s and the sum 26.68 s, under the 30 s budget. #656's 20,045 primary-phase entries,
+    recompute (2.4 s) and the walk enter at their loaded-host measurements. 90,975 entries fit in
+    30 s with the 1 s margin, rounded down to a power of two: `MEMBERSHIP_ENTRIES = 65536`,
+    combined over `seen`, `variants`, `alt_seen` and `row_seen`, with a cause for each log (the
+    derivation as BB8 6688972927 states it; no #656 measurement is a term in it). At the cap the
+    load is about 6.0 s and the sum 26.68 s, a derivation under the 30 s budget, not a bound.
+    **Added** (BB8 6688972927): `MEMBERSHIP_BYTES = 4194304` over the same logs, from a per-byte
+    rate measured at 4,096-byte entries (102.4 ns, §10) scaled by 3, with the same causes; with
+    both caps reached the sum is 27.97 s (§6.11). #656's 20,045 primary-phase entries,
     its one measured membership figure, leave 45,491 entries under the cap: headroom for the
     alternate phase, not a measured margin (BB8 6683944548). The proof run's gates decide, and if
     a lease's first commit misses 30 s on the qualified image, the cap is re-derived from that
@@ -2008,7 +2099,7 @@ qualification (6683944548). Item 29 stays open.
     fail. The mechanism is one switch (§8): R2's scheduler change carries C1 off, and R2 turns it on
     in the runtime train that carries the worker half. The #721 author's change does not touch
     `reader_scheduler.js`, and the off setting is never in a released image.
-29. **Open** (BB8 6683944548: it stays open, as stated). **Finish work must fit a lease**
+29. **Open** (BB8 6683944548 and 6688972927: it stays open for the proof run, as agreed). **Finish work must fit a lease**
     (§6.11, ruling 18). The full `alt_cells` load, option 2's read of about 63 MB, and
     `_domain`'s enumeration, up to `DOMAIN_CAP` pairs, are not timed. The proof run measures the
     finish lease against the lease; if it does not fit, it needs checkpointable progress or
@@ -2083,14 +2174,18 @@ Bad:
   `bad/premature_seal.json` (F4), `bad/epoch_backwards.json` (W2),
   `bad/reset_unheld_log.json` (W3), `bad/cursor_record_disagreement.json` (W4),
   `bad/cursor_over_bound.json` (W4, built from §3.1's inputs: the worker refuses first, with
-  `INVARIANT_FAILURE`, past `CURSOR_BYTES` or for a refusal past `REFUSAL_BYTES`; a number that
+  `INVARIANT_FAILURE`, past `CURSOR_BYTES` or for a refusal past `REFUSAL_BYTES`, its message
+  naming the bound and its value; a number that
   is not an integer from 0 to 2⁵³ − 1 is the store's alone),
   `bad/tail_rewritten.json` (W6);
 - reply (`READER_PROTOCOL`, no status): `bad/reply_cause_invalid.json` (C1), with sink errors
   and a bridge failure among its controls;
 - limit: `bad/membership_over_cap.json` (W7). For each membership log, the worker refuses first,
   as `RESOURCE_LIMIT` with cause `discovery_<log>`; a store sent the frame refuses it
-  `READER_PROTOCOL` 400. A control per log reaches the cap exactly and is accepted;
+  `READER_PROTOCOL` 400. A control per log reaches the cap exactly and is accepted.
+  `MEMBERSHIP_BYTES` is the worker's alone (§6.11), so the validator tests it without a store
+  fixture: for each log, 4 MiB exactly is accepted, and one byte more refuses with that log's
+  cause;
 - full read (`DISCOVERY_UNAVAILABLE` 409): `bad/segment_corrupt_at_reconciliation.json` (F6,
   cause `segment_corrupt`), with a lease's `STORAGE_CORRUPT` on the same store and a structural
   control that is `chain_broken`;

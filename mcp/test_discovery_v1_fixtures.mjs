@@ -14,8 +14,9 @@
 //     read from the heads (§5.1), a byte mismatch at a full read
 //     (segment_corrupt), a thrown save, the release and the saves after it
 //     (U1, U2), the cause check at the reply boundary (C1), and a release
-//     under a live lease, and recomputes the MEMBERSHIP_ENTRIES derivation
-//     from the contract's own figures (§6.11);
+//     under a live lease, and recomputes the MEMBERSHIP_ENTRIES and
+//     MEMBERSHIP_BYTES derivations from the contract's own figures and the
+//     worker's byte cap with its per-log causes (§6.11);
 //   - builds the largest cursor §3.1's inputs allow, and the largest
 //     cursor.discovery and whole cursor (§3), checks those inputs against the
 //     registry and the source; walks every refusal construction in the
@@ -57,6 +58,7 @@ const LIMITS = Object.freeze({
   CURSOR_BYTES: 131072,
   REFUSAL_BYTES: 543,
   MEMBERSHIP_ENTRIES: 65536,
+  MEMBERSHIP_BYTES: 4194304,
 });
 // §8, C1: a bad cause or log is echoed in the reason, cut to this many bytes.
 const ECHO_BYTES = 64;
@@ -1451,11 +1453,19 @@ const cursorFrame = (rest) => ({
 // The worker, before it emits: a refusal past REFUSAL_BYTES, then a cursor
 // past CURSOR_BYTES. Both are engine defects (§3.1, §3.2): no input can
 // lengthen a refusal, and only content no constant allows gets either there.
+// The message names the bound it passed and its value (§3; BB8 6688972927).
 function workerCursorRefusal(rest) {
-  for (const counts of Object.values(rest.methods))
+  for (const [method, counts] of Object.entries(rest.methods))
     if (counts.refusal && cbytes(counts.refusal) > LIMITS.REFUSAL_BYTES)
-      return { code: 'INVARIANT_FAILURE' };
-  if (cbytes(rest) > LIMITS.CURSOR_BYTES) return { code: 'INVARIANT_FAILURE' };
+      return {
+        code: 'INVARIANT_FAILURE',
+        message: `INVARIANT_FAILURE: the refusal of ${method} is ${cbytes(counts.refusal)} canonical bytes, past REFUSAL_BYTES (${LIMITS.REFUSAL_BYTES})`,
+      };
+  if (cbytes(rest) > LIMITS.CURSOR_BYTES)
+    return {
+      code: 'INVARIANT_FAILURE',
+      message: `INVARIANT_FAILURE: the cursor without discovery and continuation is ${cbytes(rest)} canonical bytes, past CURSOR_BYTES (${LIMITS.CURSOR_BYTES})`,
+    };
   return null;
 }
 
@@ -3844,12 +3854,20 @@ for (const rel of fixtureFiles().filter((f) => f.startsWith('bad/')))
       // names no worker code, because the engine never builds one.
       for (const m of fx.mutants)
         assert.deepEqual(
-          m.worker,
+          m.worker?.code,
           m.name.startsWith('integer_') || m.name.startsWith('number_')
-            ? null
-            : { code: 'INVARIANT_FAILURE' },
+            ? undefined
+            : 'INVARIANT_FAILURE',
           `${m.name}: the worker's code`
         );
+      // Each INVARIANT_FAILURE names the bound it passed, with its value
+      // (BB8 6688972927): REFUSAL_BYTES (543) or CURSOR_BYTES (131072).
+      const named = {
+        one_byte_over: `CURSOR_BYTES (${LIMITS.CURSOR_BYTES})`,
+        refusal_one_byte_over: `REFUSAL_BYTES (${LIMITS.REFUSAL_BYTES})`,
+      };
+      for (const m of fx.mutants.filter((x) => x.worker))
+        assert.ok(m.worker.message.endsWith(`past ${named[m.name]}`), `${m.name} names its bound`);
     } else if (fx.kind === 'reply') {
       // §8, C1: each mutant is a reply that is a protocol failure, releases
       // nothing and names the bad value; each control pauses as before, and the
@@ -4191,17 +4209,32 @@ test('§6.11: MEMBERSHIP_ENTRIES fits the first-commit budget by the contract fi
   const fixed = construct + recompute + walk;
   const room = Math.floor((30 - fixed) / rate);
   const withMargin = Math.floor((29 - fixed) / rate);
-  // BB8's figure: the room left with #656's own seen and variants loaded as a
-  // further fixed term, as 8732918312 computed it.
+  // BB8 6688972927: 90,975 with the margin, rounded down to 65,536. #656's own
+  // entries count inside the cap, so no #656 measurement is a term in it.
   const own = 20045;
-  const bb8 = Math.floor((30 - fixed - own * rate) / rate);
-  assert.equal(bb8, 81895, "BB8's about 81,895 entries");
+  assert.equal(withMargin, 90975, '90,975 with the margin');
+  assert.equal(room, 101940);
   const pow2 = (x) => 2 ** Math.floor(Math.log2(x));
-  assert.equal(pow2(bb8), LIMITS.MEMBERSHIP_ENTRIES, '81,895 rounded down to a power of two');
-  for (const x of [room, withMargin])
-    assert.equal(pow2(x), LIMITS.MEMBERSHIP_ENTRIES, `${x} rounds down to the same power`);
+  assert.equal(pow2(withMargin), LIMITS.MEMBERSHIP_ENTRIES, '90,975 rounded down to 65,536');
+  assert.equal(pow2(room), LIMITS.MEMBERSHIP_ENTRIES, `${room} rounds down to the same power`);
   const atCap = LIMITS.MEMBERSHIP_ENTRIES * rate;
   assert.ok(fixed + atCap <= 29, "the margin holds the first step's 1 s deadline");
+  // MEMBERSHIP_BYTES (BB8 6688972927): the per-byte rate measured at
+  // 4,096-byte entries (§10), scaled by the same factor, fitted into what the
+  // margin leaves beside the per-entry term at its cap. The two terms
+  // overcount each other's share, so their sum bounds any mix of entry sizes.
+  assert.ok(measured.includes('102.4 ns per entry byte at 4,096-byte entries'), '§10 measures it');
+  const byteRate = 102.4e-9 * factor;
+  const byteRoom = Math.floor((29 - fixed - atCap) / byteRate);
+  assert.equal(byteRoom, 7552364);
+  assert.equal(pow2(byteRoom), LIMITS.MEMBERSHIP_BYTES, 'rounded down to 4 MiB');
+  const atBytes = LIMITS.MEMBERSHIP_BYTES * byteRate;
+  const both = fixed + atCap + atBytes;
+  assert.ok(both <= 29, 'both caps together hold the margin');
+  // #656's measured seen and variants entry bytes fit under it.
+  const ownBytes = Math.round(19880 * 65.3 + 165 * 240);
+  assert.equal(ownBytes, 1337764);
+  assert.ok(ownBytes < LIMITS.MEMBERSHIP_BYTES);
   // #656's measured seen and variants are 20,045 entries; the 45,491 left are
   // headroom under the cap, not a measured margin (BB8 6683944548). 16,384, the
   // retracted every-term figure, would not hold them.
@@ -4225,16 +4258,26 @@ test('§6.11: MEMBERSHIP_ENTRIES fits the first-commit budget by the contract fi
     `| recompute | ${s1(recompute)} | measured on #656, loaded host (§10), not scaled |`,
     s(walk),
     s(fixed),
-    s(own * rate),
-    s(fixed + own * rate),
-    s(30 - fixed - own * rate),
-    n(bb8),
     s(30 - fixed),
     n(room),
     n(withMargin),
+    '90,975 with the margin, rounded down to 65,536',
     s(atCap),
     s(fixed + atCap),
     s(30 - fixed - atCap),
+    '307.2 ns',
+    s(29 - fixed - atCap),
+    n(byteRoom),
+    `\`MEMBERSHIP_BYTES = ${LIMITS.MEMBERSHIP_BYTES}\``,
+    s(atBytes),
+    s(both),
+    s(30 - both),
+    n(ownBytes),
+    n(LIMITS.MEMBERSHIP_BYTES - ownBytes),
+    'are a derivation, not a bound',
+    'measured, not bounded',
+    'bounded by `CHAIN_SEGMENTS`',
+    'bounded by `FRAME_SEALS`',
     `\`MEMBERSHIP_ENTRIES = ${LIMITS.MEMBERSHIP_ENTRIES}\``,
     n(LIMITS.MEMBERSHIP_ENTRIES),
     n(own),
@@ -4248,10 +4291,141 @@ test('§6.11: MEMBERSHIP_ENTRIES fits the first-commit budget by the contract fi
     'DOMAIN_CAP',
     'never a qualification of a whole lease',
   ])
-    assert.ok(text.includes(stated), `§6.11 states ${stated}`);
-  // The retracted rule survives only as history (BB8 6682942783).
+    assert.ok(text.replace(/\s+/g, ' ').includes(stated), `§6.11 states ${stated}`);
+  // The retracted rule survives only as history (BB8 6682942783), and the
+  // 81,895 figure is gone everywhere (BB8 6688972927).
+  assert.ok(!CONTRACT.includes('81,895') && !CONTRACT.includes('81895'));
+  assert.ok(!text.includes('bounded by a constant'), 'the first-commit claim is scoped');
+  // Every statement of either cap gives its one value, and the figures at
+  // both caps are stated together (BB8 6688972927).
+  for (const [name, value] of [
+    ['MEMBERSHIP_ENTRIES', LIMITS.MEMBERSHIP_ENTRIES],
+    ['MEMBERSHIP_BYTES', LIMITS.MEMBERSHIP_BYTES],
+  ])
+    for (const m of CONTRACT.matchAll(new RegExp(`\`${name} = (\\d+)\``, 'g')))
+      assert.equal(Number(m[1]), value, `every \`${name} = …\` gives ${value}`);
+  const flatText = text.replace(/\s+/g, ' ');
+  assert.ok(
+    flatText.includes('rounded down to a power of two: `MEMBERSHIP_BYTES = 4194304` (4 MiB)')
+  );
+  assert.ok(flatText.includes(`${s(both)}, ${s(30 - both)} under it`), 'both caps: sum and margin');
+  assert.ok(
+    flatText.includes(`the sum is ${s(fixed + atCap)}, ${s(30 - fixed - atCap)} under the budget`),
+    'the entry cap alone: sum and margin'
+  );
+  assert.ok(text.includes(`${s(30 - both)} margin above`), 'reconciliation against the new margin');
   assert.ok(!text.includes('Every term is at the loaded-host factor'));
   assert.ok(!text.includes('× 3 = 19.2 s') && !text.includes('× 3 = 2.7 s'));
+});
+
+// BB8 6688972927, item 2: MEMBERSHIP_BYTES is the worker's byte cap over the
+// four membership logs, sealed and tail. An append that passes it refuses with
+// the cause of the log it appends to, as MEMBERSHIP_ENTRIES does; the store
+// keeps no byte count, so no store rule holds it (§3, §6.11).
+function workerMembershipBytesRefusal(held, log, appended) {
+  const before = MEMBERSHIP_LOGS.reduce(
+    (n, l) => n + (held[l] || []).reduce((m, e) => m + cbytes(e), 0),
+    0
+  );
+  const after = before + appended.reduce((m, e) => m + cbytes(e), 0);
+  return after > LIMITS.MEMBERSHIP_BYTES
+    ? { code: 'RESOURCE_LIMIT', cause: `discovery_${log}` }
+    : null;
+}
+test("§6.11: MEMBERSHIP_BYTES refuses one byte past 4 MiB with the appending log's cause", () => {
+  // 1,023 entries of exactly ENTRY_BYTES spread over the four logs, 4 MiB less
+  // one entry; each log then appends the last 4,096 bytes (accepted, at the
+  // cap), or 4,096 and one byte more (refused). Far under MEMBERSHIP_ENTRIES.
+  const big = (i) => ['k' + i, 'x'.repeat(LIMITS.ENTRY_BYTES - cbytes(['k' + i, '']))];
+  assert.equal(cbytes(big(7)), LIMITS.ENTRY_BYTES);
+  const per = LIMITS.MEMBERSHIP_BYTES / LIMITS.ENTRY_BYTES;
+  assert.equal(per, 1024);
+  const held = { seen: [], variants: [], row_seen: [], alt_seen: [] };
+  for (let i = 0; i < per - 1; i++) held[MEMBERSHIP_LOGS[i % 4]].push(big(i));
+  for (const log of MEMBERSHIP_LOGS) {
+    assert.equal(workerMembershipBytesRefusal(held, log, [big(per)]), null, `${log}: at the cap`);
+    assert.deepEqual(
+      workerMembershipBytesRefusal(held, log, [big(per), 0]),
+      { code: 'RESOURCE_LIMIT', cause: `discovery_${log}` },
+      `${log}: one byte past the cap`
+    );
+  }
+  const total = MEMBERSHIP_LOGS.reduce((n, l) => n + held[l].length, 0) + 2;
+  assert.ok(total < LIMITS.MEMBERSHIP_ENTRIES, 'the byte cap binds first');
+  // The document: §3's row, §8's causes and the store's side.
+  const limits = tableRows(section('3. Hard limits'));
+  const row = limits.find((r) => r[0] === '`MEMBERSHIP_BYTES`');
+  assert.ok(row[2].includes('the same cause for each log'), "§3: the worker's causes");
+  assert.ok(row[3].startsWith('none at the frame'), '§3: the store keeps no byte count');
+  const causes = tableRows(section('8. Refusals'));
+  for (const log of MEMBERSHIP_LOGS)
+    assert.ok(
+      causes.find((r) => r[0] === `\`discovery_${log}\``)[1].includes('`MEMBERSHIP_BYTES`'),
+      `§8: discovery_${log} is raised by either cap`
+    );
+});
+
+// BB8 6688972927, items 3–10: the document states each fold.
+test('§1, §5, §6.2, §7.2, §8, §12: the completeness ruling is folded (BB8 6688972927)', () => {
+  const flat = (t) => t.replace(/\s+/g, ' ');
+  const terms = flat(section('1. Terms'));
+  assert.ok(terms.includes('Only the store makes one, in reconciliation and in `resume()`'));
+  assert.ok(terms.includes('**Complete verified load.**'), '§1 defines the complete verified load');
+  const resume = flat(section('5. Resume path'));
+  assert.ok(resume.includes('read in full in exactly two places by the store'), '§5.1: two places');
+  assert.ok(!/in exactly three places/.test(resume));
+  assert.ok(resume.includes('That is a **complete verified load**'), '§5.2 names it');
+  assert.ok(resume.includes('On F6 it raises `STORAGE_CORRUPT` and releases nothing'));
+  // Item 3: an oversized compaction defers, and §3's FRAME_SEALS row says so.
+  const frameSeals = tableRows(section('3. Hard limits')).find((r) => r[0] === '`FRAME_SEALS`');
+  assert.ok(
+    frameSeals[2].includes('a unit that must be emitted'),
+    '§3: units that must be emitted'
+  );
+  assert.ok(frameSeals[2].includes('compaction is not such a unit'));
+  assert.ok(
+    flat(section('6. Worker semantics')).includes('it never raises `discovery_frame_seals`')
+  );
+  // Item 6: a pause releases on the worker's chain_broken too.
+  assert.ok(
+    flat(section('8. Refusals')).includes('(R1, `chain_broken` from F3 or R2 at its load,')
+  );
+  // Item 7: an epoch advance's garbage.
+  assert.ok(
+    flat(section('7. Retention, GC roots and crash ordering')).includes(
+      'at an epoch advance, every segment of the logs the advance releases'
+    )
+  );
+  // Item 8: four §6.2 tests everywhere.
+  assert.ok(!/\bboth (§6\.2 )?tests\b/i.test(flat(CONTRACT)), 'no "both tests"');
+  assert.ok(!CONTRACT.includes('both §6.2 tests'));
+  // Item 9: discovery_row_seen's message.
+  const rowSeen = tableRows(section('8. Refusals')).find((r) => r[0] === '`discovery_row_seen`');
+  assert.ok(rowSeen[3].includes('kept more row pairs than a resume can reload in time'));
+  assert.ok(!CONTRACT.includes('pairs of one row'));
+  // Item 10: item 25 is ruled in 6682942783 and confirmed in 6684866461.
+  const rows = tableRows(section('11. Cross-reference'));
+  const r41 = rows.find((r) => r[0] === '41');
+  assert.ok(!/25 confirmed as folded \(also/.test(r41[2]), 'row 41 does not claim item 25');
+  assert.ok(rows.find((r) => r[0] === '40')[2].includes('confirmed as folded in 6684866461'));
+  assert.ok(
+    rows.find((r) => r[0] === '46'),
+    'row 46 records 6688972927'
+  );
+  // INVARIANT_FAILURE names its bound.
+  // The messages are listed in §3 itself, before §3.1.
+  const limits = flat(section('3. Hard limits').split('### 3.1')[0]);
+  for (const named of [
+    'past REFUSAL_BYTES (543)',
+    'past CURSOR_BYTES (131072)',
+    'past CONTINUATION_BYTES (8192)',
+    'breaks WITNESS_FIELDS (16)',
+  ])
+    assert.ok(limits.includes(named), `§3: the message names ${named}`);
+  // Item 29 stays open.
+  assert.ok(
+    flat(section('12. Rulings on the items added for confirmation')).includes('29. **Open**')
+  );
 });
 
 // BB8 6678702125, ruling 2: CURSOR_BYTES is INVARIANT_FAILURE only because it
@@ -4602,7 +4776,8 @@ test("good/refusal_construction.json: REFUSAL_BYTES is the largest refusal in th
   // One byte more is refused: by W4 on the store, as INVARIANT_FAILURE by the worker.
   const over = clone(largestCursor(cfx.inputs));
   over.methods[Object.keys(over.methods)[0]].refusal.detail += 'x';
-  assert.deepEqual(workerCursorRefusal(over), { code: 'INVARIANT_FAILURE' });
+  assert.equal(workerCursorRefusal(over).code, 'INVARIANT_FAILURE');
+  assert.ok(workerCursorRefusal(over).message.includes(`REFUSAL_BYTES (${LIMITS.REFUSAL_BYTES})`));
   // The declared label never reaches a refusal: _apply_declarations sets a
   // frame's source only to a constant, reads a declaration's own source only
   // to require one, or hands the beatgrid's to declare_beat, which reads none.
