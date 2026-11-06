@@ -2186,11 +2186,14 @@ const READER_CONTEXT_FAULT = [
 ];
 // The reader's own ctx.reading() answered late when window.__readerReadsLate
 // is set (a slow head for the reader alone), so that read-aloud fails before
-// the reader has said its page.
+// the reader has said its page: it is held until the check releases it
+// (window.__releaseReading, once openReading has resolved), or 3s have
+// passed, so an open that waited for the page would still finish, late.
+// Holding it, not a fixed delay, keeps the order the same on a slow machine.
 const READER_READS_LATE = [
   [
     '  const readerReading = (...args) => (read = readings.reading(...args));\n',
-    '  const readerReading = (...args) =>\n    (read = (window.__readerReadsLate ? new Promise((r) => setTimeout(r, 300)) : Promise.resolve()).then(() => readings.reading(...args)));\n',
+    '  const readerReading = (...args) =>\n    (read = (window.__readerReadsLate ? new Promise((r) => { window.__releaseReading = r; setTimeout(r, 3000); }) : Promise.resolve()).then(() => readings.reading(...args)));\n',
   ],
 ];
 // Read-aloud's own context() fails when window.__speechContextFails is set.
@@ -2528,8 +2531,11 @@ async function startRun(page, cid, kind, later) {
         // What had been said when openReading resolved: beside a reader that
         // reads late, its page and read-aloud's sentence come after.
         const saidAtReturn = said.length;
-        if (situation === 'speech')
+        if (situation === 'speech') {
+          if (window.__releaseReading) window.__releaseReading();
+          window.__releaseReading = undefined;
           for (let t = 0; t < 2000 && said.length < 2; t += 25) await wait(25);
+        }
         await wait(150); // anything said late is heard
         return { ...state(situation, returned, before), saidAtReturn };
       };
