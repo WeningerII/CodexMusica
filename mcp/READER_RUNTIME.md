@@ -328,9 +328,9 @@ unknown.
 Every job holds a 16 KiB reservation for its own record. The quota invariant is
 usage plus slack at most `READER_STORAGE_MAX_BYTES`, where slack sums each
 record's unused reservation, so one job's growth can never consume another's
-room and any record can always grow to 16 KiB, except while a startup pause's
-bytes stand over the quota (below). While usage is unknown, a write
-that would raise usage plus slack (a new job, a new object, or a record
+room and any record can always grow to 16 KiB, except while the bytes of a
+transition out of running stand over the quota (below). While usage is unknown,
+a write that would raise usage plus slack (a new job, a new object, or a record
 outgrowing its reservation) is refused with 503 `STORE_RECOUNTING`; a record
 transition inside its reservation still commits, a paused lease requeues as for
 `RESOURCE_LIMIT`, and deletes and reads proceed.
@@ -338,15 +338,26 @@ transition inside its reservation still commits, a paused lease requeues as for
 Startup holds the writer lock throughout. It tombstones expired jobs, removes
 what an interrupted write left (unreferenced objects and temporaries), counts
 usage, and only then pauses each running job as `INTERRUPTED` (cancelled, if
-cancellation was requested). A paused record gains a reason, so a record
-already past its reservation grows by a few bytes. That pause always commits,
-whatever the quota: refused, it would fail every restart of the store. It is
-the one write exempt from the quota check, once per running job, and its bytes
-are counted exactly, so usage plus slack may then exceed the quota by those
-bytes. Every later write that grows the store is refused with `RESOURCE_LIMIT`,
-and while those bytes stand they come out of other jobs' reservations, so even
-a transition inside a job's reservation can be refused, until expiry,
-collection or a delete frees room.
+cancellation was requested).
+
+Three transitions take a job out of running whatever the quota: that startup
+pause, a lease's expiry (paused as `INTERRUPTED`, or cancelled if cancellation
+was requested) and a commit's or completion's quota pause (paused as
+`RESOURCE_LIMIT`, or cancelled). Each gains the record a reason, so a record
+already past its reservation grows by a few bytes. Refused, startup would fail
+every restart, every lease and lease check would fail for every job, and a
+commit would leave its job running instead of durably paused. They are the only
+writes exempt from the quota check, one write per record leaving running; while
+usage is unknown they take the ordinary check. Their bytes are counted exactly,
+so usage plus slack may then exceed the quota by those bytes. Any later growth
+of that record is checked as usual, and it leaves running again only after a
+resume, which clears the reason, and a lease, so repeated cycles do not add to
+the overage. Every other write that grows the store is refused with
+`RESOURCE_LIMIT`, a worker's own pause and a cancellation request included (a
+running job whose pause is refused is paused when its lease expires). While
+those bytes stand they come out of other jobs' reservations, so even a
+transition inside a job's reservation can be refused, until expiry, collection
+or a delete frees room.
 
 A verification scan runs in slices outside the lock and is accepted only if
 every measurement succeeded, no marker appeared and the generation did not move

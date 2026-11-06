@@ -355,17 +355,10 @@ export class ReaderJobStore {
         // and before the pauses below, which add their exact deltas to it.
         this.usage = this._usage();
         this._recountWanted = false;
-        // Each pause always commits, whatever the quota. A paused record
-        // gains a reason, so one past its 16 KiB reservation grows by a few
-        // bytes, and at a full quota the ordinary check would refuse that
-        // growth. A store that cannot record its own interruption cannot
-        // start, and every request then fails until someone frees space. So
-        // this one transition per running record is never refused for quota,
-        // and nothing else is exempt; its bytes are still counted in usage and
-        // slack. Usage plus slack may then exceed the quota by those bytes,
-        // which come out of other records' reservations (see _capacity), and
-        // every later growth is refused as usual until expiry, collection or a
-        // delete frees room.
+        // Each pause always commits, whatever the quota: a store that cannot
+        // record its own interruption cannot start, and every request then
+        // fails until someone frees space. It is one of the transitions out of
+        // running that are never refused for quota (see _save).
         for (const record of this.records.values()) {
           if (record.state !== 'running') continue;
           this._save(
@@ -541,8 +534,8 @@ export class ReaderJobStore {
   // so any record can grow to RESERVE_BYTES whatever the others do. A record
   // growing inside its reservation moves bytes from slack to usage and leaves
   // the sum unchanged; that is the only growth allowed while usage is unknown.
-  // One exception: the startup pause's bytes (see the constructor) may put
-  // usage + slack over maxBytes. While they stand they come out of other
+  // One exception: a transition out of running (see _save) may put
+  // usage + slack over maxBytes. While its bytes stand they come out of other
   // records' reservations, so even a transition inside a reservation can be
   // refused until expiry, collection or a delete frees room.
   _capacity(bytes, reserve = true, extraRecords = 0, slackDelta = 0) {
@@ -575,11 +568,20 @@ export class ReaderJobStore {
         507
       );
   }
-  // `startupPause` is the constructor's pause of a running record, the one
-  // write exempt from the quota limit (see there). It is still counted. Only
-  // the RESOURCE_LIMIT refusal of an existing record with known usage is
-  // skipped; an unknown usage or a new record still takes the full check.
-  _save(input, reserved = false, startupPause = false) {
+  // `transition` marks a write that takes a record out of running, the only
+  // writes exempt from the quota limit: the startup pause (the constructor),
+  // a lease's expiry (_expireLeases) and a commit's quota pause (_quotaPause).
+  // Refused, the store could not record that its job stopped: startup would
+  // fail every restart, lease() and every lease check would throw for every
+  // job, and a commit would leave its job running. Each is one write per
+  // record leaving running, and it grows that record by at most the reason it
+  // gains; its bytes are still counted in usage and slack. Any later growth of
+  // the record is checked, and it leaves running again only after a resume
+  // (which clears the reason) and a lease, so repeated cycles add nothing
+  // more. Only the RESOURCE_LIMIT refusal of an existing running record with
+  // known usage is skipped; an unknown usage, a new record or any other write
+  // takes the full check.
+  _save(input, reserved = false, transition = false) {
     const { record_digest: _old, ...body } = input;
     body.updated_at = this.now();
     const record = { ...body, record_digest: sha(canonical(body)) };
@@ -587,8 +589,13 @@ export class ReaderJobStore {
     const file = path.join(this.directory, 'records', `${record.id}.json`);
     const previous = fs.existsSync(file) ? fs.statSync(file).size : 0;
     const slackDelta = reserveGap(bytes.length) - (previous ? reserveGap(previous) : 0);
-    if (!startupPause || this.usage === null || !previous)
-      this._capacity(bytes.length - previous, !reserved, previous ? 0 : 1, slackDelta);
+    const leaving =
+      transition &&
+      this.usage !== null &&
+      previous > 0 &&
+      this.records.get(record.id)?.state === 'running' &&
+      record.state !== 'running';
+    if (!leaving) this._capacity(bytes.length - previous, !reserved, previous ? 0 : 1, slackDelta);
     this._beginWrite();
     this._inflight = true;
     atomicWrite(file, bytes, this.fault, 'record');
@@ -946,6 +953,8 @@ export class ReaderJobStore {
       );
     }
   }
+  // An expired lease always records its pause, whatever the quota (see
+  // _save): refused, lease() and every lease check would throw for every job.
   _expireLeases() {
     for (const record of this.records.values()) {
       if (record.state === 'running' && record.lease_expires_at <= this.now())
@@ -962,6 +971,7 @@ export class ReaderJobStore {
               message: 'Lease expired; resume the last durable checkpoint explicitly.',
             },
           },
+          true,
           true
         );
     }
@@ -991,9 +1001,10 @@ export class ReaderJobStore {
   _quotaPause(record, error) {
     const recounting = error.code === 'STORE_RECOUNTING' && error.status === 503;
     if (!recounting && (error.code !== 'RESOURCE_LIMIT' || error.status !== 507)) throw error;
-    // The cursor is unchanged. Reserved metadata space makes this pause durable,
-    // except while a startup pause's overage stands (see _capacity).
-    // A recount pause returns to the queue by itself once a slot opens.
+    // The cursor is unchanged. This pause is durable whatever the quota (see
+    // _save): refused, the job would stay running. While usage is unknown it
+    // takes the full check, and a recount pause returns to the queue by
+    // itself once a slot opens.
     return this._save(
       {
         ...record,
@@ -1004,6 +1015,7 @@ export class ReaderJobStore {
         lease_expires_at: null,
         reason: { code: error.code, message: error.message },
       },
+      true,
       true
     );
   }
