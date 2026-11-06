@@ -71,14 +71,19 @@
 //      it (so every list in CTX_KEYS still holds); after ctx.close() the host
 //      is not idle, its node stays, focus does not return to the opener, the
 //      lane's unmount() did not run, or the old signal is not aborted; the
+//      teardown is not the lane's unmount(), then the abort while the node
+//      is still in the page, then the node's removal; a close() called inside
+//      mount() does not return false and leave the mount standing; the
 //      next show() does not mount the lane again, into an empty host, with a
 //      new and live signal; close() does not return true once, or a stale
 //      ctx closes a later mount; the other lane or the hidden placeholder is
 //      disturbed; close() takes focus from outside the lane; focus does not
-//      fall back to the panel heading when the opener is gone, or ignores
-//      show()'s returnFocus. Each check also runs on host.js with a planted
-//      defect, served beside it as host.js?mutant=<name>, and that defect
-//      must fail the check under both Close and Escape.
+//      return to the opener when the lane cleared its own content (and so
+//      the focus) before it called close(); focus does not fall back to the
+//      panel heading when the opener is gone, or ignores show()'s
+//      returnFocus. Each check also runs on host.js with a planted defect,
+//      served beside it as host.js?mutant=<name>, and that defect must fail
+//      the check under both Close and Escape.
 //  15. ON DEMAND (#665 B0-3). On fixture lanes opened through
 //      createOnDemand(panel) in a panel that already holds a tab lane: open()
 //      does not mount a lane after the panel's lanes with focus in it, or
@@ -88,9 +93,12 @@
 //      module or ctx loads throws, mounts that lane or moves focus, or goes
 //      on to mount its later lanes or resolve true; a closable lane opened on
 //      demand does not close back to the opener, alone or second of two, or
-//      to returnFocus; or the shell's close() leaves a lane mounted. Each
-//      check has a planted defect, as in 14. The reader and read-aloud, which
-//      app.js opens through it, keep their CTX_KEYS.
+//      to returnFocus; the shell's close() leaves a lane mounted, or does not
+//      stop an open() still loading its first lane; or a host unmounted
+//      while its lane's module or ctx loads, which then fails, is not idle,
+//      so its next show() does not mount. Each check has a planted defect, as
+//      in 14. The reader and read-aloud, which app.js opens through it, keep
+//      their CTX_KEYS.
 //
 //   node scripts/check_prototype_hosts.js
 //
@@ -1758,36 +1766,52 @@ async function unmounting(browser, srv) {
 // committed and then on each planted defect (CLOSE_MUTANTS): the edits to
 // host.js, applied in order, each of whose `from` must occur exactly once,
 // and the check that the defect must fail. The fixture lane closes itself
-// as a sheet does: its Close button, or Escape anywhere inside it.
+// as a sheet does: its Close button, or Escape anywhere inside it. Its own
+// ctx fields ask for two variants: closeInMount calls close() inside mount(),
+// and contentFirst clears the lane's own content (and with it the focus)
+// before it calls close(), as a sheet's `unmount(); ctx.close();` would.
 const CLOSER = `
 export function mount(host, ctx) {
   const lane = host.dataset.featureHost;
   const all = window.__closer;
   const rec = (all[lane] = all[lane] || {
     mounts: 0, keys: [], ctxs: [], fields: [], empty: [], unmounts: 0, returned: [],
+    atAbort: [], blurred: [],
   });
   rec.mounts++;
   rec.keys.push(Object.keys(ctx).sort().join());
   rec.ctxs.push(ctx);
   rec.empty.push(host.childNodes.length === 0);
+  let unmounted = false;
+  ctx.signal.addEventListener('abort', () => {
+    rec.atAbort.push({ unmounted, connected: host.isConnected });
+  });
   const field = document.createElement('textarea');
   field.setAttribute('aria-label', lane + ' field');
   rec.fields.push(field);
   host.append(field);
   if (typeof ctx.close === 'function') {
+    const close = () => {
+      if (ctx.contentFirst) {
+        host.replaceChildren();
+        rec.blurred.push(document.activeElement === document.body);
+      }
+      rec.returned.push(ctx.close());
+    };
     const b = document.createElement('button');
     b.type = 'button';
     b.dataset.close = '';
     b.textContent = 'Close';
     host.append(b);
-    b.addEventListener('click', () => rec.returned.push(ctx.close()), { signal: ctx.signal });
+    b.addEventListener('click', close, { signal: ctx.signal });
     host.addEventListener('keydown', (e) => {
       if (e.key !== 'Escape' || e.defaultPrevented) return;
       e.preventDefault();
-      rec.returned.push(ctx.close());
+      close();
     }, { signal: ctx.signal });
+    if (ctx.closeInMount) rec.inMount = ctx.close();
   }
-  return { unmount() { rec.unmounts++; }, focus() { field.focus(); } };
+  return { unmount() { unmounted = true; rec.unmounts++; }, focus() { field.focus(); } };
 }
 `;
 const OPENER_LINE = 'let opener = null; // what show() was opened from, for close()';
@@ -1812,6 +1836,33 @@ const CLOSE_MUTANTS = {
   'close leaves the signal live': {
     check: 'old signal aborted',
     edits: [['if (c) c.abort();', '']],
+  },
+  'the node goes before the abort': {
+    check: 'teardown order',
+    edits: [
+      [
+        'if (c) c.abort();\n      if (node) node.remove();',
+        'if (node) node.remove();\n      if (c) c.abort();',
+      ],
+    ],
+  },
+  'the abort comes before the lane’s unmount': {
+    check: 'teardown order',
+    edits: [
+      [
+        "try {\n      if (h && typeof h.unmount === 'function') h.unmount();\n    } finally {\n      if (c) c.abort();",
+        "if (c) c.abort();\n    try {\n      if (h && typeof h.unmount === 'function') h.unmount();\n    } finally {",
+      ],
+    ],
+  },
+  'a close inside mount() tears it down': {
+    check: 'close during mount',
+    edits: [
+      [
+        "if (controller !== mine || state !== 'mounted') return false;",
+        'if (controller !== mine) return false;',
+      ],
+    ],
   },
   'a host mounts its lane once': {
     check: 'mounts again',
@@ -1854,6 +1905,15 @@ const CLOSE_MUTANTS = {
       ],
     ],
   },
+  'focus that was nowhere stays lost': {
+    check: 'focus from nowhere',
+    edits: [
+      [
+        'const hadFocus = !active || active === document.body || node.contains(active);',
+        'const hadFocus = node.contains(active);',
+      ],
+    ],
+  },
   'no fallback to the heading': {
     check: 'heading fallback',
     edits: [["const target = ok ? to : panel.querySelector('h1');", 'const target = to;']],
@@ -1873,6 +1933,15 @@ function plant(edits) {
     src = src.replace(from, () => to);
   }
   return src;
+}
+
+// The person closes the lane `id` from inside it: its Close button, or
+// Escape.
+async function closeBy(page, id, via) {
+  const lane = page.locator(`[data-close-run] [data-feature-host="${id}"]`).first();
+  await lane.locator('textarea').focus();
+  if (via === 'button') await lane.locator('[data-close]').click();
+  else await page.keyboard.press('Escape');
 }
 
 // One run on the host module at hostUrl, the lane closed by `via` (its
@@ -1904,32 +1973,32 @@ async function closeRun(page, hostUrl, via) {
       const opener = panel.querySelector('[data-opener]');
       opener.focus();
       await closer.show();
-      window.__closeRun = { panel, stay, closer, opener };
+      const heading = panel.querySelector('h1');
+      const elsewhere = panel.querySelector('[data-elsewhere]');
+      const where = () => {
+        const a = document.activeElement;
+        if (a === opener) return 'opener';
+        if (a === elsewhere) return 'elsewhere';
+        if (a === heading) return 'heading';
+        if (!a || a === document.body) return 'body';
+        return panel.contains(a) ? 'lane' : a.tagName;
+      };
+      // Another closable lane in the same panel, with its own ctx fields.
+      const make = (id, fields) =>
+        createHost(lane(id, { closable: true, context: async () => fields }), panel);
+      window.__closeRun = { panel, stay, closer, opener, elsewhere, where, make };
       return { stay: window.__closer.stay.keys[0], closer: window.__closer.closer.keys[0] };
     },
     { hostUrl, src: CLOSER }
   );
-  const lane = page.locator('[data-close-run] [data-feature-host="closer"]').first();
-  if (via === 'button') await lane.locator('[data-close]').click();
-  else {
-    await lane.locator('textarea').focus();
-    await page.keyboard.press('Escape');
-  }
+  await closeBy(page, 'closer', via);
   const rest = await page.evaluate(async () => {
     const r = window.__closeRun;
+    const { elsewhere, where } = r;
     const c = window.__closer.closer;
     const s = window.__closer.stay;
-    const heading = r.panel.querySelector('h1');
-    const elsewhere = r.panel.querySelector('[data-elsewhere]');
-    const where = () => {
-      const a = document.activeElement;
-      if (a === r.opener) return 'opener';
-      if (a === elsewhere) return 'elsewhere';
-      if (a === heading) return 'heading';
-      if (!a || a === document.body) return 'body';
-      return r.panel.contains(a) ? 'lane' : a.tagName;
-    };
-    const nodes = () => r.panel.querySelectorAll('[data-feature-host="closer"]').length;
+    const count = (id) => r.panel.querySelectorAll(`[data-feature-host="${id}"]`).length;
+    const nodes = () => count('closer');
     const live = (i) => !!c.ctxs[i] && !c.ctxs[i].signal.aborted;
     const closeOf = (i) => (c.ctxs[i] ? c.ctxs[i].close() : null);
     // Closed by the person.
@@ -1939,6 +2008,7 @@ async function closeRun(page, hostUrl, via) {
       focus: where(),
       unmounts: c.unmounts,
       aborted: c.ctxs[0].signal.aborted,
+      atAbort: c.atAbort.slice(),
       returned: c.returned.slice(),
       placeholderHidden: r.panel.querySelector('[data-placeholder]').hidden,
       stay: {
@@ -1982,12 +2052,43 @@ async function closeRun(page, hostUrl, via) {
     await r.closer.show({ returnFocus: elsewhere });
     if (c.fields[3]) c.fields[3].focus();
     const explicit = { returned: closeOf(3), focus: where() };
+    // A lane that calls close() inside its own mount() hasn't begun: nothing
+    // closes, and the mount stands until a later close.
+    const early = r.make('early', { closeInMount: true });
+    await early.show();
+    const during = {
+      returned: window.__closer.early.inMount,
+      state: early.state,
+      nodes: count('early'),
+      later: window.__closer.early.ctxs[0].close(),
+    };
+    Object.assign(during, { closed: early.state, left: count('early') });
+    early.unmount();
+    // Next, a lane that clears its own content before it calls close().
+    r.first = r.make('first', { contentFirst: true });
+    r.opener.focus();
+    await r.first.show();
+    return { after, again, stale, away, fallback, explicit, during };
+  });
+  // The person closes it; focus was nowhere by the time close() ran.
+  await closeBy(page, 'first', via);
+  const nowhere = await page.evaluate(() => {
+    const r = window.__closeRun;
+    const f = window.__closer.first;
+    const got = {
+      blurred: f.blurred.slice(),
+      returned: f.returned.slice(),
+      focus: r.where(),
+      state: r.first.state,
+      nodes: r.panel.querySelectorAll('[data-feature-host="first"]').length,
+    };
+    r.first.unmount();
     r.closer.unmount();
     r.stay.unmount();
     r.panel.remove();
-    return { after, again, stale, away, fallback, explicit };
+    return got;
   });
-  return { keys, ...rest };
+  return { keys, ...rest, nowhere };
 }
 
 // The checks, by name, on one run.
@@ -2001,6 +2102,17 @@ function closeVerdict(g) {
     'focus to the opener': g.after.focus === 'opener',
     'lane unmounted': g.after.unmounts === 1,
     'old signal aborted': g.after.aborted === true,
+    'teardown order':
+      g.after.atAbort.length === 1 &&
+      g.after.atAbort[0].unmounted === true &&
+      g.after.atAbort[0].connected === true,
+    'close during mount':
+      g.during.returned === false &&
+      g.during.state === 'mounted' &&
+      g.during.nodes === 1 &&
+      g.during.later === true &&
+      g.during.closed === 'idle' &&
+      g.during.left === 0,
     'mounts again':
       g.again.mounts === 2 && g.again.nodes === 1 && g.again.state === 'mounted' && g.again.empty,
     'new signal': g.again.fresh && g.again.live,
@@ -2019,6 +2131,12 @@ function closeVerdict(g) {
       g.after.stay.unmounts === 0,
     'focus not taken':
       g.away.returned === true && g.away.focus === 'elsewhere' && g.away.state === 'idle',
+    'focus from nowhere':
+      JSON.stringify(g.nowhere.blurred) === '[true]' &&
+      JSON.stringify(g.nowhere.returned) === '[true]' &&
+      g.nowhere.focus === 'opener' &&
+      g.nowhere.state === 'idle' &&
+      g.nowhere.nodes === 0,
     'heading fallback': g.fallback.returned === true && g.fallback.focus === 'heading',
     returnFocus: g.explicit.returned === true && g.explicit.focus === 'elsewhere',
   };
@@ -2026,8 +2144,10 @@ function closeVerdict(g) {
 
 // ── 15. ON DEMAND (#665 B0-3) ───────────────────────────────────────────────
 // createOnDemand on the same fixture lane, in a panel that already holds a
-// tab lane, as Library's holds Explore. Two lanes load slowly, one its
-// module and one its ctx, so a second open() overtakes the first mid-load.
+// tab lane, as Library's holds Explore. Lanes load slowly, their module or
+// their ctx, so a second open() or the shell's close() overtakes the first
+// mid-load. Two more lanes fail to load their module or ctx the first time,
+// after their host was unmounted.
 const DEMAND_MUTANTS = {
   'open moves no focus': { check: 'opens', edits: [['if (i === 0) h.focus();', '']] },
   'every on-demand lane is closable': {
@@ -2075,6 +2195,30 @@ const DEMAND_MUTANTS = {
   'the shell’s close keeps the lanes': {
     check: 'shell close',
     edits: [["clear(); // the shell's own close", '']],
+  },
+  'the shell’s close doesn’t stop an open': {
+    check: 'shell close stops an open',
+    edits: [
+      ["turn++;\n      clear(); // the shell's own close", "clear(); // the shell's own close"],
+    ],
+  },
+  'a load that fails after unmount sticks': {
+    check: 'idle after a late failure',
+    edits: [
+      [
+        "      if (host !== node) return;\n      state = 'unavailable';\n      explain(node,",
+        "      state = 'unavailable';\n      explain(node,",
+      ],
+    ],
+  },
+  'a ctx that fails after unmount sticks': {
+    check: 'idle after a late failure',
+    edits: [
+      [
+        "      if (host !== node) return;\n      state = 'unavailable';\n      const sentence",
+        "      state = 'unavailable';\n      const sentence",
+      ],
+    ],
   },
 };
 
@@ -2189,9 +2333,51 @@ async function demandRun(page, hostUrl) {
       await settle(slot.open([lane('e'), lane('f')]));
       slot.close();
       const shut = { order: order(), ended: ended('e') && ended('f') };
+      // The shell's close while an open() still loads its first lane: that
+      // open stops, mounts nothing more and resolves false.
+      opener.focus();
+      const p5 = settle(slot.open([slowLoad('slowshut'), lane('aftershut')]));
+      slot.close();
+      const shutting = { returned: await p5 };
+      await wait(250);
+      Object.assign(shutting, {
+        order: order(),
+        slow: rec('slowshut').mounts,
+        after: rec('aftershut').mounts,
+        focus: where(),
+      });
+      // A host unmounted while its lane's module (at once) or ctx (50 ms
+      // in, of 100) loads, which then fails: the host is idle, so the next
+      // show() mounts the lane, which loads this time.
+      const late = {};
+      for (const field of ['load', 'context']) {
+        let n = 0;
+        const fail = () =>
+          wait(100).then(() => {
+            throw new Error('not this time');
+          });
+        const id = `fail${field}`;
+        const h = createHost(
+          lane(
+            id,
+            field === 'load'
+              ? { load: () => (n++ ? import(url) : fail()) }
+              : { context: () => (n++ ? Promise.resolve({}) : fail()) }
+          ),
+          panel
+        );
+        const p = settle(h.show());
+        if (field === 'context') await wait(50);
+        h.unmount();
+        const first = await p;
+        const idle = h.state;
+        await settle(Promise.resolve(h.show()));
+        late[field] = { first: String(first), idle, state: h.state, mounts: rec(id).mounts };
+        h.unmount();
+      }
       tab.unmount();
       panel.remove();
-      return { one, two, loading, ctxing, sheet, second, explicit, shut };
+      return { one, two, loading, ctxing, sheet, second, explicit, shut, shutting, late };
     },
     { hostUrl, src: CLOSER }
   );
@@ -2235,6 +2421,19 @@ function demandVerdict(g) {
       g.second.focus === 'opener',
     returnFocus: g.explicit.returned === true && g.explicit.focus === 'elsewhere',
     'shell close': g.shut.order === 'tab' && g.shut.ended,
+    'shell close stops an open':
+      g.shutting.returned === false &&
+      g.shutting.slow === 0 &&
+      g.shutting.after === 0 &&
+      g.shutting.order === 'tab' &&
+      g.shutting.focus === 'opener',
+    'idle after a late failure': ['load', 'context'].every(
+      (f) =>
+        g.late[f].first === 'undefined' &&
+        g.late[f].idle === 'idle' &&
+        g.late[f].state === 'mounted' &&
+        g.late[f].mounts === 1
+    ),
   };
 }
 
