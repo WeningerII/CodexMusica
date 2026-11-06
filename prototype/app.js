@@ -21,6 +21,8 @@ import {
   loadGenreDiscovery,
 } from './data.js';
 import { genreDiscovery } from './discovery.js';
+import { recipeStore } from './recipe-store.js';
+import { loadEngine } from './engine/load.js';
 import { media, speechAdapter } from './adapters.js';
 import { genre, instrument } from './selection.js';
 
@@ -265,6 +267,13 @@ const discoveryLanes = [
   },
 ];
 
+// The shared recipe store (#670 P2 step 5): the one "Your recipe" and the one
+// instrument preview, on the page engine's own workspace. It starts when a
+// lane that needs it is first shown (its context() awaits recipe.start()),
+// or on a genre's Add; a lane gets recipe.port([...]) or one of
+// recipe.preview's views, never the store.
+const recipe = recipeStore({ load: loadEngine, selection: instrument, announce });
+
 // More lanes in a panel, after its first, in this order (#668 6643233628).
 const MORE = {
   library: [
@@ -413,6 +422,7 @@ fetch('../api/index.json')
     catalog.textContent = 'The catalog did not load, so nothing can be added yet.';
   });
 
-// The discovery store, for the host gate (check_prototype_hosts.js), which
-// reads the shell's ranked rows; lanes get only their ctx.
-export { discovery };
+// The discovery and recipe stores, for the host gate
+// (check_prototype_hosts.js), which reads the shell's ranked rows and holds
+// the recipe store to production; lanes get only their ctx.
+export { discovery, recipe };

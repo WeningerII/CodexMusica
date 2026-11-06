@@ -233,11 +233,43 @@ export function pageEngine() {
   return created;
 }
 
+// The catalog, booted from api/browse_boot.json. The engine builds its
+// CATALOG_READY once, when it is created (src/app.js), so after a failed boot
+// index that promise stays rejected and waiting on it again can never
+// succeed. So when it has rejected, each call asks for the file again and
+// boots the catalog from it the way the lazy page's _fetchBootIndex does
+// (its deep-link prose step reads a location.search the engine's page
+// doesn't have). A failure is forgotten, so the next call asks again.
+let booted = null;
+function bootCatalog(engine) {
+  if (!booted || booted.engine !== engine)
+    booted = {
+      engine,
+      ready: Promise.resolve(engine.CATALOG_READY)
+        .catch(() =>
+          engineFetch('api/browse_boot.json')
+            .then((res) => {
+              if (!res.ok) throw new Error(`the boot index did not load (${res.status})`);
+              return res.json();
+            })
+            .then((boot) => {
+              if (!engine.Catalog.bootFromIndex(boot, 'api/'))
+                throw new Error('the boot index is empty');
+            })
+        )
+        .catch((e) => {
+          booted = null;
+          throw e;
+        }),
+    };
+  return booted.ready;
+}
+
 // The engine, booted the way the lazy page boots: resolves once its catalog
 // and instrument data are in.
 export async function loadEngine() {
   const engine = await pageEngine();
-  await engine.CATALOG_READY;
+  await bootCatalog(engine);
   await engine.Engine.ensure();
   return engine;
 }
