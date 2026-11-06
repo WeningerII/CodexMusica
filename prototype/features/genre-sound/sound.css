@@ -1,0 +1,91 @@
+.genre-sound {
+  container: genre-sound / inline-size;
+  color: var(--cm-text-primary, #eee);
+  font: inherit;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.genre-sound .genre-sound-heading {
+  font-size: 1.25rem;
+}
+.genre-sound .genre-sound-note {
+  line-height: 1.6;
+}
+.genre-sound .genre-sound-profile {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.genre-sound .genre-sound-row {
+  display: grid;
+  grid-template-columns: minmax(7.5rem, 0.8fr) minmax(0, 2fr) minmax(6.25rem, 0.8fr);
+  align-items: center;
+  gap: 0.75rem;
+  padding-block: 0.5rem;
+  border-bottom: 1px solid var(--cm-border-subtle, #626975);
+}
+.genre-sound .genre-sound-name {
+  font-weight: 600;
+}
+.genre-sound .genre-sound-scale {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+.genre-sound .genre-sound-end:first-child {
+  text-align: right;
+}
+.genre-sound .genre-sound-dots {
+  display: inline-flex;
+  gap: 0.375rem;
+}
+.genre-sound .genre-sound-dot {
+  box-sizing: border-box;
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+}
+.genre-sound .genre-sound-dot.is-on {
+  background: currentColor;
+}
+.genre-sound .genre-sound-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-block: 1rem;
+}
+.genre-sound .genre-sound-button {
+  color: inherit;
+  background: var(--cm-surface, #252a34);
+  border: 1px solid currentColor;
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  min-height: 2.75rem;
+  font: inherit;
+  cursor: pointer;
+}
+.genre-sound :focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+@container genre-sound (max-width: 48rem) {
+  .genre-sound .genre-sound-row {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .genre-sound .genre-sound-scale {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .genre-sound .genre-sound-value {
+    text-align: right;
+  }
+}
+@media (forced-colors: active) {
+  .genre-sound .genre-sound-dot.is-on {
+    background: Highlight;
+    forced-color-adjust: none;
+  }
+}
