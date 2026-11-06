@@ -133,38 +133,6 @@ function fakeIndexedDB({ failAtWrite = 0 } = {}) {
     },
   };
 }
-function fakeWindow(nonce = '1'.repeat(64), origin = api.SITE_ORIGIN) {
-  const messages = [],
-    session = new Map();
-  const opener = { postMessage: (data, target) => messages.push({ data, target }) };
-  return {
-    opener,
-    messages,
-    location: {
-      href:
-        'https://codexmusica.com/codex.html?cm_library_origin=' +
-        encodeURIComponent(origin) +
-        '&cm_library_nonce=' +
-        nonce +
-        '#lyrics',
-    },
-    sessionStorage: {
-      getItem: (key) => session.get(key) || null,
-      setItem: (key, value) => session.set(key, value),
-    },
-    addEventListener() {},
-    removeEventListener() {},
-  };
-}
-function transfer(win, value, overrides = {}) {
-  return {
-    origin: api.SITE_ORIGIN,
-    source: win.opener,
-    data: { type: api.TYPES.transfer, version: 1, nonce: '1'.repeat(64), envelope: value },
-    ...overrides,
-  };
-}
-
 test('canonical SHA256 authenticates identity, exact text and every source notice', async () => {
   const value = await envelope();
   assert.equal(
@@ -206,10 +174,7 @@ test('atomic commit preserves full previous draft, private continuation and prov
     store = api.createIndexedDBStore(indexedDB);
   const value = await envelope(),
     old = previous();
-  const commit = await store.commitImport(value, old, {
-    nonce: '1'.repeat(64),
-    origin: api.SITE_ORIGIN,
-  });
+  const commit = await store.commitImport(value, old);
   assert.deepEqual(await store.getDraft(old.draftId), old);
   assert.deepEqual(commit.draft.meta.libraryOrigin.provenance, value.payload.provenance);
   assert.equal(commit.draft.writer, null);
@@ -218,72 +183,44 @@ test('atomic commit preserves full previous draft, private continuation and prov
   await store.markActivated(value.draftId);
   assert.equal(await store.pendingActivation(), null);
 });
-test('write failure rolls back old draft, new draft, receipt and nonce claim together', async () => {
+test('write failure rolls back old draft, new draft and receipt together', async () => {
   const indexedDB = fakeIndexedDB({ failAtWrite: 3 }),
     store = api.createIndexedDBStore(indexedDB);
   const value = await envelope();
-  await assert.rejects(
-    store.commitImport(value, previous(), { nonce: '1'.repeat(64), origin: api.SITE_ORIGIN }),
-    /Injected write failure/
-  );
+  await assert.rejects(store.commitImport(value, previous()), /Injected write failure/);
   assert.equal(await store.getDraft(value.draftId), null);
   assert.equal(await store.getDraft(previous().draftId), null);
   assert.equal(await store.getReceipt(value.handoffId), null);
-  assert.equal(await store.getHandshake('1'.repeat(64)), null);
+  assert.equal(indexedDB.tables.get('active').size, 0);
 });
-test('lost ACK and identical retry create one imported draft; changed digest and nonce reuse refuse', async () => {
+test('identical re-import creates one imported draft; changed content under the same handoff refuses', async () => {
   const indexedDB = fakeIndexedDB(),
     store = api.createIndexedDBStore(indexedDB);
-  const win = fakeWindow(),
-    activations = [];
+  const activations = [];
   const receiver = api.createReceiver({
-    window: win,
     store,
     captureCurrent: previous,
     activate: async (draft) => activations.push(draft.draftId),
   });
   await receiver.start();
   const value = await envelope();
-  assert.equal(await receiver.receive(transfer(win, value)), true);
-  assert.equal(await receiver.receive(transfer(win, value)), true);
+  const first = await receiver.importEnvelope(value);
+  assert.equal(first.duplicate, false);
+  const again = await receiver.importEnvelope(value);
+  assert.equal(again.duplicate, true);
+  assert.deepEqual(again.receipt, first.receipt);
   assert.deepEqual(activations, [value.draftId]);
   assert.equal((await store.listDrafts()).length, 2);
-  assert.equal(win.messages.filter((item) => item.data.type === api.TYPES.ack).length, 2);
   const changed = await envelope({ payload: { ...value.payload, text: 'A different song' } });
-  assert.equal(await receiver.receive(transfer(win, changed)), false);
-  const next = await envelope({ handoffId: 'handoff:two', draftId: 'draft:two' });
-  assert.equal(await receiver.receive(transfer(win, next)), false);
+  await assert.rejects(receiver.importEnvelope(changed), /already used for different content/);
   assert.equal((await store.listDrafts()).length, 2);
+  assert.deepEqual(activations, [value.draftId]);
 });
-test('wrong origin, source and nonce do not commit or acknowledge', async () => {
-  const store = api.createIndexedDBStore(fakeIndexedDB()),
-    win = fakeWindow();
-  const receiver = api.createReceiver({
-    window: win,
-    store,
-    captureCurrent: previous,
-    activate: async () => {},
-  });
-  await receiver.start();
-  const value = await envelope();
-  assert.equal(
-    await receiver.receive(transfer(win, value, { origin: 'https://attacker.example' })),
-    false
-  );
-  assert.equal(await receiver.receive(transfer(win, value, { source: {} })), false);
-  const wrongNonce = transfer(win, value);
-  wrongNonce.data.nonce = '2'.repeat(64);
-  assert.equal(await receiver.receive(wrongNonce), false);
-  assert.deepEqual(await store.listDrafts(), []);
-  assert.equal(win.messages.length, 1); // Only the ready signal.
-});
-test('failed commits always release the current-draft lock and never acknowledge', async () => {
-  const win = fakeWindow(),
-    store = api.createIndexedDBStore(fakeIndexedDB({ failAtWrite: 3 }));
+test('failed commits always release the current-draft lock and never activate', async () => {
+  const store = api.createIndexedDBStore(fakeIndexedDB({ failAtWrite: 3 }));
   let locked = false,
     releases = 0;
   const receiver = api.createReceiver({
-    window: win,
     store,
     captureCurrent: () => {
       locked = true;
@@ -296,20 +233,15 @@ test('failed commits always release the current-draft lock and never acknowledge
     activate: async () => assert.fail('An aborted draft was activated.'),
   });
   await receiver.start();
-  assert.equal(await receiver.receive(transfer(win, await envelope())), false);
+  await assert.rejects(receiver.importEnvelope(await envelope()), /Injected write failure/);
   assert.equal(locked, false);
   assert.equal(releases, 1);
-  assert.equal(
-    win.messages.some((item) => item.data.type === api.TYPES.ack),
-    false
-  );
+  assert.deepEqual(await store.listDrafts(), []);
 });
-test('file and window imports serialize so each preserves the immediately preceding active draft', async () => {
-  const win = fakeWindow(),
-    store = api.createIndexedDBStore(fakeIndexedDB());
+test('concurrent imports serialize so each preserves the immediately preceding active draft', async () => {
+  const store = api.createIndexedDBStore(fakeIndexedDB());
   let current = previous();
   const receiver = api.createReceiver({
-    window: win,
     store,
     captureCurrent: () => current,
     activate: async (draft) => {
@@ -318,47 +250,33 @@ test('file and window imports serialize so each preserves the immediately preced
   });
   await receiver.start();
   const first = await envelope({ handoffId: 'handoff:file', draftId: 'draft:file' });
-  const second = await envelope({ handoffId: 'handoff:window', draftId: 'draft:window' });
-  const a = receiver.importEnvelope(first),
-    b = receiver.receive(transfer(win, second));
-  await a;
-  assert.equal(await b, true);
+  const second = await envelope({ handoffId: 'handoff:reader', draftId: 'draft:reader' });
+  const [a, b] = await Promise.all([
+    receiver.importEnvelope(first),
+    receiver.importEnvelope(second),
+  ]);
+  assert.equal(a.duplicate, false);
+  assert.equal(b.duplicate, false);
   assert.equal(current.draftId, second.draftId);
+  assert.equal((await store.getReceipt(first.handoffId)).preservedDraftId, previous().draftId);
   assert.equal((await store.getReceipt(second.handoffId)).preservedDraftId, first.draftId);
   assert.equal((await store.listDrafts()).length, 3);
-});
-test('unused handshake expires at 60 seconds; a committed retry remains safe', async () => {
-  let clock = 1000;
-  const store = api.createIndexedDBStore(fakeIndexedDB()),
-    win = fakeWindow();
-  const receiver = api.createReceiver({
-    window: win,
-    store,
-    captureCurrent: previous,
-    activate: async () => {},
-    now: () => clock,
-  });
-  await receiver.start();
-  clock += 60000;
-  assert.equal(await receiver.receive(transfer(win, await envelope())), false);
-  assert.equal((await store.listDrafts()).length, 0);
 });
 test('receiver reload completes committed activation without duplicate draft creation', async () => {
   const indexedDB = fakeIndexedDB(),
     store = api.createIndexedDBStore(indexedDB),
     value = await envelope();
-  await store.commitImport(value, previous(), { nonce: '1'.repeat(64), origin: api.SITE_ORIGIN });
-  const restored = [],
-    win = fakeWindow();
+  await store.commitImport(value, previous());
+  const restored = [];
   const receiver = api.createReceiver({
-    window: win,
     store: api.createIndexedDBStore(indexedDB),
     captureCurrent: previous,
     activate: async (draft) => restored.push(draft.draftId),
   });
   await receiver.start();
   assert.deepEqual(restored, [value.draftId]);
-  assert.equal(await receiver.receive(transfer(win, value)), true);
+  assert.equal((await receiver.importEnvelope(value)).duplicate, true);
+  assert.deepEqual(restored, [value.draftId]);
   assert.equal((await store.listDrafts()).length, 2);
 });
 test('file import retains an oversized native reading verbatim and refuses writer eligibility', async () => {
@@ -368,10 +286,8 @@ test('file import retains an oversized native reading verbatim and refuses write
     payload: { ...sample.payload, text, language: 'fas', scope: 'excerpt' },
   });
   assert.ok(new TextEncoder().encode(JSON.stringify(value)).byteLength > api.TRANSFER_BYTES);
-  const store = api.createIndexedDBStore(fakeIndexedDB()),
-    win = fakeWindow();
+  const store = api.createIndexedDBStore(fakeIndexedDB());
   const receiver = api.createReceiver({
-    window: win,
     store,
     captureCurrent: previous,
     activate: async () => {},
@@ -381,13 +297,27 @@ test('file import retains an oversized native reading verbatim and refuses write
   assert.equal(result.draft.meta.libraryOrigin.scope, 'excerpt');
   assert.equal(result.draft.meta.libraryOrigin.writingEligibility.eligible, false);
 });
-test('origins require exact production or explicitly configured localhost equality', () => {
-  assert.equal(api.originAllowed(api.SITE_ORIGIN), true);
-  assert.equal(api.originAllowed(api.SITE_ORIGIN + '.attacker.example'), false);
-  assert.equal(api.originAllowed('http://localhost:3000'), false);
-  assert.equal(api.originAllowed('http://localhost:3000', 'http://localhost:3000'), true);
-  assert.equal(api.originAllowed('http://localhost:3001', 'http://localhost:3000'), false);
-  assert.equal(api.originAllowed('https://dev.example', 'https://dev.example'), false);
+// #659: the website never links to, or takes an import from, the old Library
+// Site. Every Library import arrives in-page or from a bundle file, so no
+// shipped byte names a chatgpt.site address: the committed page, the Library
+// chunks it loads, and every source file the build reads.
+test('no shipped file names a chatgpt.site address', () => {
+  const root = path.join(__dirname, '..');
+  const files = ['codex.html'];
+  const walk = (dir) => {
+    for (const entry of fs.readdirSync(path.join(root, dir), { withFileTypes: true })) {
+      const rel = path.posix.join(dir, entry.name);
+      if (entry.isDirectory()) walk(rel);
+      else files.push(rel);
+    }
+  };
+  walk('src');
+  walk('library/code');
+  assert.ok(files.length > 50, 'the shipped tree was found');
+  const hits = files.filter((rel) =>
+    /chatgpt\.site/i.test(fs.readFileSync(path.join(root, rel), 'latin1'))
+  );
+  assert.deepEqual(hits, []);
 });
 test('metadata, saved copies, session exports and Undo retain the full untruncated provenance sidecar', async () => {
   const source = fs.readFileSync(path.join(__dirname, '../src/app.js'), 'utf8');
