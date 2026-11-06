@@ -533,6 +533,60 @@ console.log('\nenvWritten record:');
       W.envRecordHolds({ chain: { fx: ['a', 'b'] } }, 'fx', ['c', 'b']) &&
       !W.envRecordHolds({ chain: { fx: ['a'] } }, 'fx', ['b'])
   );
+  // Only catalog ids of the field count: the record is bounded by the catalog,
+  // however long a list a caller threads back (#671 review).
+  check(
+    'a record keeps only catalog ids of each field, each once',
+    json(
+      W.envRecord({
+        [K]: {
+          room: 'not_a_room',
+          tuning: 'cathedral',
+          mic: 'tape_echo',
+          fx: ['tape_echo', 'x', 'tape_echo', ...Array.from({ length: 1000 }, (_, i) => `z${i}`)],
+        },
+      })
+    ) === '{"fx":["tape_echo"]}'
+  );
+  // A set_environment on the environment card settles what it names on every
+  // other card: the caller has chosen what renders there (#671 review).
+  const envId = envCardOfSeed(seed);
+  const guitar = seed.cards.find((c) => c.instrumentId === 'electric_guitar_single_coil').id;
+  const marked = W.setEnvironment(
+    W.setEnvironment(w3, guitar, { room: 'tin_roofed_shack', tuning: 'just_intonation' }),
+    bass,
+    { tuning: 'just_intonation' }
+  );
+  const settled = W.setEnvironment(marked, null, { room: 'concrete_basement' });
+  check(
+    'set_environment on the environment card settles that field on every other card',
+    json(rec(settled)) ===
+      json({
+        tuning: 'just_intonation',
+        fx: ['tape_echo', 'plate_reverb'],
+        mic: 'ribbon_passive',
+      }) &&
+      json(rec(settled, guitar)) === json({ tuning: 'just_intonation' }) &&
+      json(rec(settled, envId)) === json({ room: 'concrete_basement' }),
+    json([rec(settled), rec(settled, guitar)])
+  );
+  check(
+    'IMMUTABLE: settling leaves the records it was given',
+    json(rec(marked, guitar)) === json({ room: 'tin_roofed_shack', tuning: 'just_intonation' })
+  );
+  check(
+    'an effect added there settles that effect only; a cleared list settles all of it',
+    json(rec(W.setEnvironment(marked, null, { chain: { fx: 'tape_echo' } })).fx) ===
+      json(['plate_reverb']) && !('fx' in rec(W.setEnvironment(marked, null, { clear: ['fx'] })))
+  );
+  check(
+    'a clear on the environment card settles the field too',
+    !('tuning' in (rec(W.setEnvironment(marked, null, { clear: ['tuning'] })) || {}))
+  );
+  check(
+    'a write on a card that is not the environment card settles nothing elsewhere',
+    json(rec(W.setEnvironment(marked, guitar, { tuning: 'pythagorean' }))) === json(rec(marked))
+  );
 }
 function envCardOfSeed(ws) {
   return require('./_recipe_stack.js').envCardOf(ws.cards).id;

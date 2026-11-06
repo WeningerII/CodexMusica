@@ -218,11 +218,12 @@ function writtenEnv(card) {
 // ENVIRONMENT_NOT_RENDERED: a card other than the environment card holding
 // settings a set_environment wrote there (writtenEnv). It describes the
 // workspace, so every response that renders one says it, worked out afresh from
-// the cards: start_recipe, edit_recipe and render_recipe alike, in every format,
-// whichever call wrote the setting. It clears when the field is cleared or a
-// set_preface re-derives it (either takes it out of the record), when the card
-// no longer holds the value written, or when the card becomes the environment
-// card.
+// the cards: edit_recipe and render_recipe alike, in every format, whichever
+// call wrote the setting (a seed has no record, so start_recipe never has one).
+// It clears when the field is cleared, a set_preface re-derives it, or a
+// set_environment on the environment card sets or clears that field (each takes
+// it out of the record: W.setEnvironment, W.setPreface), when the card no longer
+// holds the value written, or when the card becomes the environment card.
 //
 // `owners` is editRecipe's account, per card id, of which of this call's edits
 // wrote each recorded field. A card one of them wrote names it in `edit`, as the

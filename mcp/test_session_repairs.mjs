@@ -1613,3 +1613,103 @@ test('a value written on the environment card warns once another card takes the 
     assert.deepEqual(unrendered(home), [], `${name}: back on the environment card`);
   });
 });
+
+test('following the advice ends the warning: a set_environment on the environment card settles the field', async () => {
+  // ENVIRONMENT_NOT_RENDERED says "Repeat the edit without `card`" and
+  // ENVIRONMENT_MOVED says "Repeat set_environment without `card`". Doing that
+  // chooses what the environment card renders for that field, so the write left
+  // elsewhere no longer stands for an environment the caller still wants: it
+  // leaves that card's record, and nothing more is said about it (#671 review).
+  await onEverySurface(async (s, name) => {
+    const { seed, env, bass } = await garage(s);
+    const write = { action: 'set_environment', card: bass.card, room: 'cathedral' };
+    const advice = { action: 'set_environment', room: 'cathedral' };
+    const wrote = await s.edit(seed, [write]);
+    expectUnrendered(wrote, bass, env, { edit: 0, where: `${name} the misdirected write` });
+    const followed = await s.edit(wrote, [advice]);
+    assert.match(followed.recipe, /cathedral/i, `${name}: the room renders`);
+    assert.deepEqual(unrendered(followed), [], `${name}: the advice followed`);
+    assert.equal(await s.recorded(followed, bass.card), undefined, `${name}: settled`);
+    assert.deepEqual(await s.recorded(followed, env.card), { room: 'cathedral' }, name);
+    for (const format of FORMATS)
+      assert.deepEqual(unrendered(await s.render(followed, { format })), [], `${name} ${format}`);
+    const later = await s.edit(followed, [{ action: 'add_instrument', instrument: 'harmonica' }]);
+    assert.deepEqual(unrendered(later), [], `${name}: a later edit`);
+    // The same two edits in one batch.
+    assert.deepEqual(unrendered(await s.edit(seed, [write, advice])), [], `${name}: one batch`);
+    // A later choice of another room for the recording settles it too: the
+    // warning does not go on advising to copy the older room over it.
+    const chose = await s.edit(wrote, [{ action: 'set_environment', room: 'tin_roofed_shack' }]);
+    assert.deepEqual(unrendered(chose), [], `${name}: another room chosen for the recording`);
+    assert.deepEqual(unrendered(await s.render(chose)), [], `${name}: render after`);
+    // Clearing the room the recording renders is a choice of it as well.
+    const none = await s.edit(wrote, [{ action: 'set_environment', clear: ['room'] }]);
+    assert.equal(none.render_scope.environment_card, env.card, `${name}: fixture`);
+    assert.deepEqual(unrendered(none), [], `${name}: the rendered room cleared`);
+    // A different field set there settles nothing about the room.
+    const tuned = await s.edit(wrote, [{ action: 'set_environment', tuning: 'just_intonation' }]);
+    expectUnrendered(tuned, bass, env, { where: `${name} another field` });
+    // A write on another card that is not the environment card settles nothing.
+    const guitar = seed.cards.find((c) => c.instrument === 'electric_guitar_single_coil');
+    const beside = await s.edit(wrote, [{ ...write, card: guitar.card }]);
+    assert.deepEqual(
+      unrendered(beside).map((w) => [w.card, w.edit]),
+      [
+        [guitar.card, 0],
+        [bass.card, undefined],
+      ],
+      `${name}: a second misdirected write`
+    );
+  });
+});
+
+test('following ENVIRONMENT_MOVED after the documented order ends the warning on the old card', async () => {
+  await onEverySurface(async (s, name) => {
+    const { seed, env: first } = await garage(s);
+    const guitar = seed.cards.find((c) => c.instrument === 'electric_guitar_single_coil');
+    const ordered = await s.edit(seed, [
+      ...seed.cards.map((c) => ({ action: 'set_preface', card: c.card, preface: 'drowning' })),
+      { action: 'set_environment', room: 'cathedral' },
+    ]);
+    const front = await s.edit(ordered, [{ action: 'move_instrument', card: guitar.card }]);
+    assert.equal(front.render_scope.environment_card, guitar.card, `${name}: fixture`);
+    assert.deepEqual(
+      moved(front).map((w) => [w.card, Object.keys(w.settings)]),
+      [[first.card, ['room']]],
+      `${name}: MOVED for the written room`
+    );
+    expectUnrendered(front, first, cardOf(front, guitar.card), { where: `${name} old card` });
+    // "Repeat set_environment without `card` to apply it there."
+    const there = await s.edit(front, [{ action: 'set_environment', room: 'cathedral' }]);
+    assert.match(there.recipe, /cathedral/i, `${name}: it renders from the new card`);
+    assert.deepEqual(unrendered(there), [], `${name}: the advice followed`);
+    assert.deepEqual(unrendered(await s.render(there)), [], `${name}: render after`);
+  });
+});
+
+test('a long list in a record or on a card costs a render linear time', () => {
+  // A record comes back inside a workspace the caller threads, so it is read
+  // as catalog ids of its field only, and the retained rule looks items up in a
+  // set: 200,000 ids took about 40 s of CPU per render when both were scanned
+  // pairwise.
+  const seed = startRecipe({ traditions: ['garage_rock'] });
+  const ws = JSON.parse(JSON.stringify(seed.workspace));
+  const card = ws.cards.find((c) => c.id !== seed.render_scope.environment_card);
+  const n = 200000;
+  card.chain.fx = Array.from({ length: n }, () => 'tape_echo');
+  card[RECORD] = { fx: Array.from({ length: n }, (_, i) => `not_an_effect_${i}`), room: 'nope' };
+  // Compared by its keys: a failing comparison of two 200,000-item lists would
+  // spend the memory this test is about on the diff.
+  assert.deepEqual(
+    Object.keys(W.envRecord(card)),
+    [],
+    'ids no set_environment could write are not a record'
+  );
+  const started = process.hrtime.bigint();
+  const r = renderRecipe({ workspace: ws });
+  const ms = Number(process.hrtime.bigint() - started) / 1e6;
+  assert.deepEqual(unrendered(r), []);
+  assert(ms < 10000, `render took ${Math.round(ms)} ms`);
+  card[RECORD] = { fx: Array.from({ length: n }, () => 'tape_echo') };
+  assert.deepEqual(W.envRecord(card), { fx: ['tape_echo'] }, 'one entry per id');
+});
