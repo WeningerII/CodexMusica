@@ -1781,7 +1781,7 @@ const blueprintField = z
       if (line && typeof line === 'object' && Object.hasOwn(line, 'role'))
         ctx.addIssue({
           code: 'custom',
-          message: `line ${index + 1}: line roles are not checked yet; remove \`role\` or wait for P2`,
+          message: `line ${index + 1}: \`role\` isn't supported yet, so this blueprint was not accepted. Remove \`role\` from this line and send it again.`,
         });
     });
   })

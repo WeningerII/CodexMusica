@@ -58,13 +58,14 @@ def role_report(roles, owners, *, returns=()):
             'line': item.line, 'container': item.container,
             'raw': item.raw, 'role': item.role,
             'identity': 'not_checked', 'declared_returns': groups,
-            'disclosure': ('Identity is delegated to the existing Return checker; '
-                           'this role report does not judge it.' if groups else
+            'disclosure': ('A Return is declared for this line; only the Return check '
+                           'judges its identity, and only when that check is asked. '
+                           'This report does not judge it.' if groups else
                            'No Return is declared for this occurrence; identity was not checked.'),
         })
         if count == 1:
             notes.append({'line': item.line, 'severity': 'note',
-                          'message': f'marked {item.role}; occurs once in this draft'})
+                          'message': f'marked {item.role}; the only line marked {item.role} in this draft'})
         if item.role == 'burden':
             index = item.line - 1
             previous = owners.get(index - 1)
@@ -72,13 +73,13 @@ def role_report(roles, owners, *, returns=()):
             if index == 0:
                 position = 'at the opening of this draft'
             elif type(previous) is not int or previous < 0:
-                position = 'with unresolved preceding section position in this draft'
+                position = "the preceding line's section isn't resolved, so its position isn't known"
             elif previous != item.container:
                 position = 'at a section boundary in this draft'
             elif type(following) is int and following >= 0 and following != item.container:
                 position = 'at a section boundary in this draft'
             elif type(following) is not int or following < 0:
-                position = 'with unresolved following section position in this draft'
+                position = "the following line's section isn't resolved, so its position isn't known"
             else:
                 position = 'inside its containing section in this draft'
             notes.append({'line': item.line, 'severity': 'note',

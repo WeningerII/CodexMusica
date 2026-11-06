@@ -26,7 +26,8 @@ const cases = [
   ['null', null],
   ['object', { kind: 'refrain' }],
 ];
-const refusal = /line 1: line roles are not checked yet; remove `role` or wait for P2/;
+const refusal =
+  /line 1: `role` isn't supported yet, so this blueprint was not accepted\. Remove `role` from this line and send it again\./;
 function inputs(name, role) {
   const bp = structuredClone(base);
   if (name !== 'absent') bp.lines[0].role = role;

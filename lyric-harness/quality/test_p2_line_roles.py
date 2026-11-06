@@ -64,7 +64,7 @@ class LineRoles(unittest.TestCase):
     def test_once_is_note(self):
         report = role_report(resolve_line_roles([{'role': 'refrain'}], {0: 0}), {0: 0})
         self.assertEqual(report['notes'], [{'line': 1, 'severity': 'note',
-                          'message': 'marked refrain; occurs once in this draft'}])
+                          'message': 'marked refrain; the only line marked refrain in this draft'}])
 
     def test_burden_positions_are_draft_notes(self):
         owners = {0: 0, 1: 0, 2: 1, 3: 1, 4: 1}
@@ -78,7 +78,7 @@ class LineRoles(unittest.TestCase):
 
     def test_missing_adjacent_owner_is_disclosed(self):
         roles = resolve_line_roles([{}, {'role': 'burden'}], {1: 0})
-        self.assertIn('unresolved preceding', role_report(roles, {1: 0})['notes'][-1]['message'])
+        self.assertIn("the preceding line's section isn't resolved", role_report(roles, {1: 0})['notes'][-1]['message'])
 
     def test_invalid_following_owner_is_not_called_inside(self):
         for following in (None, -1, True, [], {}, '0'):
@@ -86,7 +86,7 @@ class LineRoles(unittest.TestCase):
             roles = resolve_line_roles([{}, {'role': 'burden'}, {}], owners)
             with self.subTest(following=following):
                 self.assertEqual(role_report(roles, owners)['notes'][-1]['message'],
-                    'marked burden; with unresolved following section position in this draft')
+                    "marked burden; the following line's section isn't resolved, so its position isn't known")
 
     def test_no_input_mutation_or_default_keys(self):
         rows = [{'text': 'same'}, {'text': 'same', 'role': 'burden'}]
@@ -100,7 +100,7 @@ class LineRoles(unittest.TestCase):
         for raw in ('refrain', '', None, {}, [], 17):
             bp = {'sections': [], 'lines': [{'role': raw}]}
             before = copy.deepcopy(bp)
-            with self.subTest(raw=raw), self.assertRaisesRegex(ValueError, 'line roles are not checked yet'):
+            with self.subTest(raw=raw), self.assertRaisesRegex(ValueError, r"`role` isn't supported yet, so this blueprint was not accepted\. Remove `role` from this line and send it again\."):
                 validate_blueprint(bp)
             self.assertEqual(bp, before)
 
