@@ -241,7 +241,9 @@ The checks run in this order:
   is handed them. That reader sets apparatus rows aside and resolves bracket
   spans before it numbers the sung lines, so a refusal there names the row,
   counted from the top of the paste with headings and blank rows included
-  ("row 3 of the pasted text"), not an L id;
+  ("row 3 of the pasted text"), not an L id. A final line break ends the last
+  row and opens no blank row after it, in the check and in the handler alike,
+  so 463 sung rows with a final break are 463 rows;
 - every distinct line a pronunciation declares that could be sung (at most
   200 characters, one row), checked against the per-line cap only. The harness
   keeps a declaration whose line is in no draft (it reports it stale), and an
@@ -282,7 +284,9 @@ before the response envelope, which is not measured yet. None of the three
 caps depends on it. `lyric-harness/quality/test_meter_digit_bound.py` measures
 the figure over every surface the core can generate and fails if it moves or
 the candidate rows leave it; until the core (`quality/meter_recognize.py`) is
-on the branch, that measurement reports SKIP.
+on the branch, that measurement reports SKIP. Only the core's own absence
+skips: an import error raised inside the core fails the gate, and
+`METER_RECOGNIZE_REQUIRED=1` makes the absence a failure too.
 
 ## Reading basis: the lexicon supplement
 

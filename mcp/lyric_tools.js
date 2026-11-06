@@ -31,7 +31,7 @@ import { createPythonBridge } from './python_bridge.js';
 import { probeReaderScheme } from './reader_scheduler.js';
 import { requestContext } from './execution_context.js';
 import { draftFromText, normalizeDraftLines } from './lyric_text.js';
-import { admitRecognitionArgs } from './meter_admission.js';
+import { admitRecognitionArgs, pastedRowsOf } from './meter_admission.js';
 export { draftFromText } from './lyric_text.js';
 import {
   assessmentCoverageValid,
@@ -1850,9 +1850,8 @@ export function takeLines(a, arrayName, textName, { preserveStructure = false } 
   if (!preserveStructure && Array.isArray(a[arrayName]))
     a[arrayName] = normalizeDraftLines(a[arrayName]);
   if (typeof a[textName] === 'string') {
-    const lines = preserveStructure
-      ? String(a[textName]).replace(/\r\n?/g, '\n').split('\n')
-      : draftFromText(a[textName]);
+    // A final break ends the last pasted row; it opens no blank row after it.
+    const lines = preserveStructure ? pastedRowsOf(a[textName]) : draftFromText(a[textName]);
     if (Array.isArray(a[arrayName]) && JSON.stringify(a[arrayName]) !== JSON.stringify(lines))
       throw refuse(
         `Conflicting ${arrayName} and ${textName}: send one exact draft representation.`

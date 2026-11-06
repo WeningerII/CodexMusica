@@ -132,6 +132,11 @@ const codePoints = (s) => [...s].length;
 const withoutFinalBreak = (rows) =>
   rows.length > 1 && rows[rows.length - 1] === '' ? rows.slice(0, -1) : rows;
 const rowsOf = (s) => withoutFinalBreak(s.split(/\r\n|\r|\n/)).length;
+// lyric_recover's paste as rows: the handler's own split (takeLines with
+// preserveStructure) and the admission check both call this, so the row the
+// check counts and names is the row the handler writes to the source reader.
+export const pastedRowsOf = (text) =>
+  withoutFinalBreak(String(text).replace(/\r\n?/g, '\n').split('\n'));
 const fmt = (n) => n.toLocaleString('en-US');
 const lid = (n) => `L${String(n).padStart(3, '0')}`;
 const pid = (n) => `P${String(n).padStart(3, '0')}`;
@@ -260,12 +265,7 @@ export function recognitionInputOf(args = {}, { tool = null } = {}) {
     if (tool === 'lyric_recover' && arrayName === 'lines') {
       if (Array.isArray(args.lines)) sets.push(recoverRowSet('lines', args.lines));
       if (typeof args.lines_text === 'string')
-        sets.push(
-          recoverRowSet(
-            'lines_text',
-            withoutFinalBreak(args.lines_text.replace(/\r\n?/g, '\n').split('\n'))
-          )
-        );
+        sets.push(recoverRowSet('lines_text', pastedRowsOf(args.lines_text)));
       continue;
     }
     // `lines` is also a line COUNT on the planning tools: only an array is a set.

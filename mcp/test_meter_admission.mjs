@@ -11,6 +11,7 @@
 // store and its operation set.
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import {
@@ -723,6 +724,59 @@ test('lyric_recover: a lone \\r is a row break in the pasted text, as on every o
       }),
     /meter_line_digits — The line at row 3 of the pasted text /
   );
+});
+
+// The handler reads the paste with the same split the check counts (BB8 item
+// 1 on the recover handler): 463 sung rows ending in a final break pass
+// checkLines' 463-line ceiling and reach the verb, whose source file holds
+// exactly those rows, with no blank row written after them.
+test('lyric_recover handler: 463 rows with a final break reach the verb, the file holds 463 rows', async () => {
+  const { client, close } = await rawClient();
+  const original = readerPythonBridge.runVerb;
+  const written = [];
+  readerPythonBridge.runVerb = async (args) => {
+    written.push(await readFile(args.at(-1), 'utf8'));
+    throw new Error(QUEUED);
+  };
+  try {
+    const rows = Array(MAX_LINES).fill('la');
+    for (const ending of ['', '\n', '\r\n', '\r']) {
+      const sep = ending || '\n';
+      written.length = 0;
+      const r = await client.callTool({
+        name: 'lyric_recover',
+        arguments: { lines_text: rows.join(sep) + ending },
+      });
+      const text = textOf(r);
+      assert.doesNotMatch(text, /between 1 and \d+ lines/, `ending ${JSON.stringify(ending)}`);
+      assert.match(text, new RegExp(QUEUED), `ending ${JSON.stringify(ending)}: ${text}`);
+      assert.equal(written.length, 1);
+      assert.equal(written[0], rows.join('\n') + '\n', `ending ${JSON.stringify(ending)}`);
+    }
+    // One sung row more is still refused, with or without the final break.
+    for (const ending of ['', '\n']) {
+      const r = await client.callTool({
+        name: 'lyric_recover',
+        arguments: { lines_text: [...rows, 'la'].join('\n') + ending },
+      });
+      assert(r.isError);
+      assert.match(
+        textOf(r),
+        new RegExp(`between 1 and ${MAX_LINES} lines — got ${MAX_LINES + 1}`)
+      );
+    }
+    // The array and its text twin agree when the text ends in a break.
+    const twin = { lines: ['a', 'b'], lines_text: 'a\nb\n' };
+    takeLines(twin, 'lines', 'lines_text', { preserveStructure: true });
+    assert.deepEqual(twin.lines, ['a', 'b']);
+    // Only one final break is dropped: a blank row after it is kept.
+    const blank = { lines_text: 'a\n\n' };
+    takeLines(blank, 'lines', 'lines_text', { preserveStructure: true });
+    assert.deepEqual(blank.lines, ['a', '']);
+  } finally {
+    readerPythonBridge.runVerb = original;
+    await close();
+  }
 });
 
 test('one total per request: the draft once, every other song the response recognises added', async () => {

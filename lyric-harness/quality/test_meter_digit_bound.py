@@ -43,6 +43,8 @@ WHAT IS RE-DERIVED HERE, every run, over the files whose sha256 is pinned:
      from the figure fails. Measured whenever the recognizer core
      (`quality/meter_recognize.py`, #751) is importable, or the file named by
      METER_RECOGNIZE_MODULE; until the core lands the check reports SKIP.
+     Only the core's own absence skips: an ImportError raised inside the core
+     fails the gate, and METER_RECOGNIZE_REQUIRED=1 makes the absence fail too.
 """
 
 import hashlib
@@ -423,9 +425,15 @@ def recognizer():
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
         return mod
+    # Only the core's own absence is a SKIP. An import error raised inside a
+    # core that is on the head (a module it needs, a name it imports) is a
+    # broken core, and it propagates and fails this gate rather than turning
+    # the measurement off.
     try:
         import meter_recognize
-    except ImportError:
+    except ModuleNotFoundError as e:
+        if e.name != "meter_recognize":
+            raise
         return None
     return meter_recognize
 
@@ -501,6 +509,12 @@ def test_response_bytes():
           str((pinned, wrapper, request)))
     M = recognizer()
     if M is None:
+        # METER_RECOGNIZE_REQUIRED=1 makes the missing core a failure, for the
+        # CI job that runs once the core is on the head.
+        if os.environ.get("METER_RECOGNIZE_REQUIRED") == "1":
+            check("the recognizer core is on this head, so the figure is measured", False,
+                  "METER_RECOGNIZE_REQUIRED=1 but quality/meter_recognize.py (#751) is absent")
+            return
         print("SKIP the per-line response figure is not measured: the recognizer core "
               "(quality/meter_recognize.py, #751) is not on this head; set "
               "METER_RECOGNIZE_MODULE to measure it")
