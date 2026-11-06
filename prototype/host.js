@@ -214,16 +214,16 @@ export function createHost(lane, panel) {
   }
 
   // A lane that couldn't start, told: the sentence its host shows is said,
-  // and focus goes to its Retry if it has one, else to the sentence, but only
-  // while focus is still on `from` or nowhere. Focus the person moved
-  // elsewhere stays there. While the panel is hidden (the person left its
-  // route) nothing is said and focus isn't moved: the panel shows the
-  // sentence when they come back. Returns whether it was said.
-  function tell(from) {
+  // and, when `move` is set, focus goes to its Retry if it has one, else to
+  // the sentence, but only while focus is still on `from` or nowhere. Focus
+  // the person moved elsewhere stays there. While the panel is hidden (the
+  // person left its route) nothing is said and focus isn't moved: the panel
+  // shows the sentence when they come back. Returns whether it was told.
+  function tell(from, move = true) {
     const note = state === 'unavailable' && host && host.querySelector('[data-host-note]');
     if (!note || panel.closest('[hidden]')) return false;
     const active = document.activeElement;
-    if (!active || active === document.body || active === from)
+    if (move && (!active || active === document.body || active === from))
       (host.querySelector('[data-host-retry]') || note).focus();
     announce(note.textContent);
     return true;
@@ -278,9 +278,10 @@ export function createHost(lane, panel) {
     // For an open that an action asked for (createOnDemand): if the lane
     // couldn't start, it is told (tell), with focus moved only from what
     // opened it (show()'s returnFocus, else what had focus then) or from
-    // nowhere. A Retry is told the same way, from nowhere only (attach).
-    tellUnavailable() {
-      return tell(opener);
+    // nowhere, and not at all with { move: false }. A Retry is told the same
+    // way, from nowhere only (attach).
+    tellUnavailable({ move = true } = {}) {
+      return tell(opener, move);
     },
     unmount() {
       teardown();
@@ -293,7 +294,7 @@ export function createHost(lane, panel) {
 // app.js's openReader:
 //
 //   const slot = createOnDemand(panel);
-//   await slot.open(lanes, { returnFocus }) → true, or false if overtaken
+//   await slot.open(lanes, { returnFocus, settled }) → true, or false if overtaken
 //   slot.close()
 //
 // open() takes one lane or several, in order, as the registry describes
@@ -315,11 +316,14 @@ export function createHost(lane, panel) {
 // the opener (returnFocus, else what had focus when open() was called) or
 // nowhere when it is said, focus moves to that lane's Retry if it has one,
 // else to the sentence. Focus the person moved elsewhere, even while the
-// lanes loaded, stays where it is. A later lane that can't start only shows
-// its sentence: the first lane opened, with focus in it. Nothing is said, and
-// no focus moves, while the panel is hidden (the person left its route), and
-// once overtaken, an open says nothing more. Its Retry, if the person presses
-// it, is the host's own (createHost).
+// lanes loaded, stays where it is. If the first lane opened, the first later
+// lane that can't start is said instead, once, and last: after `settled`
+// (open()'s option, a function whose promise resolves once what the first
+// lane says as it opens has been said), with focus left where it is, in the
+// first lane unless the person moved it. Only one lane is ever said. Nothing
+// is said, and no focus moves, while the panel is hidden (the person left
+// its route), and once overtaken, an open says nothing more and resolves
+// false. Its Retry, if the person presses it, is the host's own (createHost).
 //
 // A held lane whose own unmount() throws doesn't stop either one, as it
 // doesn't stop ctx.close() (#810 6675659005): that lane's host still ends (its
@@ -354,7 +358,7 @@ export function createOnDemand(panel) {
       ? errors[0]
       : new AggregateError(errors, `${errors.length} lanes did not unmount cleanly.`);
   return {
-    async open(lanes, { returnFocus } = {}) {
+    async open(lanes, { returnFocus, settled } = {}) {
       const back = returnFocus || document.activeElement;
       const mine = ++turn;
       const failed = clear(); // what was open goes first
@@ -373,8 +377,18 @@ export function createOnDemand(panel) {
       // The first lane is the one the open is for and puts focus in. If it
       // couldn't start, it is told once every lane is shown, so what a later
       // lane says as it mounts can't replace its sentence in the one status
-      // region. A later lane that can't start only shows its sentence.
-      if (mounted && hosts.length) hosts[0].tellUnavailable();
+      // region. If it started, the first later lane that couldn't start is
+      // told instead, once what the first lane says as it opens has been
+      // said (settled), with focus left where it is.
+      if (mounted && hosts.length) {
+        const later = hosts.slice(1).find((h) => h.state === 'unavailable');
+        if (hosts[0].state === 'unavailable') hosts[0].tellUnavailable();
+        else if (later) {
+          if (settled) await settled();
+          if (mine === turn) later.tellUnavailable({ move: false });
+          else mounted = false; // overtaken while the first lane settled
+        }
+      }
       if (failed.length) throw failure(failed); // the open went on regardless
       return mounted;
     },

@@ -149,8 +149,11 @@ const LANES = {
 // state (host.js createOnDemand; #810, Don's reply to 6683384760). The panel
 // shows the lane's sentence. The reader's is also said, once, after
 // read-aloud is shown, and focus goes to its Retry, else to the sentence, if
-// it is still on Play or nowhere; read-aloud's only shows, beside a reader
-// that opened with focus in it. Beside a reader that couldn't start,
+// it is still on Play or nowhere. Read-aloud's, beside a reader that opened
+// with focus in it, is said once and last, after what the reader says as it
+// opens ("Page 1 of 7"): once the reader's own ctx.reading() has settled and
+// the task it settled in has ended (readerSaid), with focus left in the
+// reader. Only one sentence is said. Beside a reader that couldn't start,
 // read-aloud isn't granted Play's autoplay (readerStarted): it would read a
 // work the person can't see, and what it says would replace the reader's
 // sentence. openReading still resolves { unitId }: the unit was found and
@@ -177,9 +180,15 @@ const readerStarted = () =>
     '[data-panel="library"] [data-feature-host="libraryreading"] [data-host-note]'
   );
 async function openReader(unitId, { play = false, opener } = {}) {
+  // The reader's last ctx.reading(), settled either way: the reader says its
+  // page (or its failure) in the microtasks that follow, so the task after it
+  // comes once that has been said.
+  let read = Promise.resolve();
+  const readerReading = (...args) => (read = readings.reading(...args));
+  const readerSaid = () => read.catch(() => {}).then(() => new Promise((r) => setTimeout(r)));
   const reader = {
     close: () => slot.close(),
-    open: (lanes) => slot.open(lanes, { returnFocus: opener }),
+    open: (lanes) => slot.open(lanes, { returnFocus: opener, settled: readerSaid }),
   };
   try {
     reader.close();
@@ -194,7 +203,7 @@ async function openReader(unitId, { play = false, opener } = {}) {
       label: 'The reader',
       load: () => import('./features/library-reading/text-view.js'),
       unloaded: 'The reading did not load.',
-      context: async () => ({ unitId, reading: readings.reading }),
+      context: async () => ({ unitId, reading: readerReading }),
     },
     {
       id: 'libraryspeech',
