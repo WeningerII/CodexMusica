@@ -2575,7 +2575,11 @@ async function closing(browser, srv) {
 // ranked list for seeded targets with and without a branch. Then the
 // commands: refusals, unapplied versus an explicit 0, Use as sound targets,
 // the settled announcement, focus after a branch or a match, and the narrow
-// disclosure.
+// disclosure. The count line must head the results, as production's #gp-count
+// does: right after Find a sound's host and before the Genre detail's, so
+// focus after a branch doesn't land past the detail (Jony, #810 6673521152);
+// and when the discovery data doesn't load, the store's sentence must not
+// blame a connection (the engine's page parse fails there too).
 function seededTargets(keys) {
   let s = 20261105;
   const rnd = () => (s = (s * 1103515245 + 12345) % 2147483648) / 2147483648;
@@ -2655,10 +2659,51 @@ async function discoveryChecks(browser, srv) {
     `discovery: production gave ${prod.roots.length} roots, ${prod.nodes.length} nodes`
   );
 
+  // Data that doesn't load: the store's own sentence says what failed and
+  // what to do, with no connection named.
+  {
+    const { context, page } = await newPage(browser, srv, { fail: ['/api/browse_boot.json'] });
+    await page.goto(`${srv.url}/prototype/#genre`);
+    await page.evaluate(async () => {
+      window.__discovery = (await import('/prototype/app.js')).discovery;
+    });
+    const failed = await page
+      .waitForFunction(
+        () => {
+          const c = window.__discovery.categories.current();
+          return c.status === 'error' && { code: c.error.code, message: c.error.message };
+        },
+        null,
+        { timeout: 15000 }
+      )
+      .then((h) => h.jsonValue())
+      .catch((e) => ({ error: String(e) }));
+    expect(
+      !!failed &&
+        failed.code === 'LOAD_FAILED' &&
+        failed.message === 'The genres couldn’t load. Try again.',
+      `discovery: a load that failed said ${JSON.stringify(failed)}`
+    );
+    await context.close();
+  }
+
   const { context, page, errors } = await newPage(browser, srv);
   await page.goto(`${srv.url}/prototype/#genre`);
   await waitMounted(page, 'genrecategories');
   await waitMounted(page, 'genretargets');
+  const placed = await page.evaluate(() => {
+    const panel = document.querySelector('[data-panel="genre"]');
+    const count = panel.querySelector('[data-genre-count]');
+    const host = (lane) => panel.querySelector(`[data-feature-host="${lane}"]`);
+    return {
+      afterTargets: !!host('genretargets') && host('genretargets').nextElementSibling === count,
+      beforeDetail: !!host('genredetail') && count.nextElementSibling === host('genredetail'),
+    };
+  });
+  expect(
+    placed.afterTargets && placed.beforeDetail,
+    `discovery: the count line is not between Find a sound and the Genre detail (${JSON.stringify(placed)})`
+  );
   for (const lane of ['genrecategories', 'genretargets']) {
     const p = await probe(page, lane);
     expect(

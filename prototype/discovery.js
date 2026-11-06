@@ -246,10 +246,9 @@ export function genreDiscovery({ load, select, announce }) {
         })
         .catch((e) => {
           loading = null;
-          failure = {
-            code: 'LOAD_FAILED',
-            message: 'The genres couldn’t load. Check your connection, then try again.',
-          };
+          // Not "check your connection": the engine's page parse fails here
+          // too, which isn't one (Jony, #810 6673521152; as #796's Library).
+          failure = { code: 'LOAD_FAILED', message: 'The genres couldn’t load. Try again.' };
           void e;
           publish();
         });

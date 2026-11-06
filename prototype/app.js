@@ -299,13 +299,21 @@ for (const [route, lane] of Object.entries(LANES)) {
 }
 
 // The results count line (production's #gp-count): the shell's own node,
-// after the Genre panel's hosts, rewritten from the store.
+// rewritten from the store. It heads the results, as #gp-count does: right
+// after Find a sound and before the Genre detail, so the focus it takes after
+// a branch or a match lands beside what it describes (Jony, #810
+// 6673521152). The hosts go into the panel when the route is shown, so
+// show() moves the line there each time (placeCount).
 const genrePanel = document.querySelector('[data-panel="genre"]');
 const countLine = document.createElement('p');
 countLine.className = 'proto-count';
 countLine.dataset.genreCount = '';
 countLine.tabIndex = -1;
 genrePanel.append(countLine);
+const placeCount = () => {
+  const targetsHost = genrePanel.querySelector('[data-feature-host="genretargets"]');
+  if (targetsHost && targetsHost.nextElementSibling !== countLine) targetsHost.after(countLine);
+};
 discovery.results.subscribe((r) => {
   countLine.textContent = r.status === 'ready' ? r.line : '';
 });
@@ -368,6 +376,7 @@ function show(route, { moveFocus }) {
   // so the next Tab lands inside it. The first paint does not take focus.
   if (moveFocus) document.querySelector(`[data-panel="${route}"] h1`).focus();
   for (const h of hosts[route] || []) h.show();
+  if (route === 'genre') placeCount();
   const saved = write('route', route);
   if (!saved.ok && !savedLine.textContent) {
     savedLine.textContent =
