@@ -34,7 +34,15 @@ WHAT IS RE-DERIVED HERE, every run, over the files whose sha256 is pinned:
      compatibility-normalises to ASCII, and every format character (the
      classes the full scan found reading anything); `--full`: all of Unicode;
   7. the witness line `"w " x 99 + "ws"` reads exactly 301 in all six modes,
-     so the cap is the maximum and not merely an upper bound.
+     so the cap is the maximum and not merely an upper bound;
+  8. what one admitted line costs a response (BB8 ruling 1): the largest
+     recognition the core can return for a line of 1-301 digits, JSON-escaped
+     as the bounded payload measures it, CANDIDATE ROWS INCLUDED, equals
+     `METER_LINE_RESPONSE_BYTES` (7,507 B) in `mcp/meter_admission.js`, and
+     falls below it without the candidate rows, so a change that drops them
+     from the figure fails. Measured whenever the recognizer core
+     (`quality/meter_recognize.py`, #751) is importable, or the file named by
+     METER_RECOGNIZE_MODULE; until the core lands the check reports SKIP.
 """
 
 import hashlib
@@ -401,6 +409,112 @@ def test_code_points():
           f"({len(cps)} code points x 6 modes)", not bad, str(bad[:10]))
 
 
+#: The default-view fields one line's recognition carries (the facts), and the
+#: candidate rows beside them.
+RESPONSE_FACTS = ("status", "search", "not_searched", "prefix_agreeing",
+                  "requires_unsupported_policy")
+
+
+def recognizer():
+    path = os.environ.get("METER_RECOGNIZE_MODULE")
+    if path:
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("meter_recognize", path)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod
+    try:
+        import meter_recognize
+    except ImportError:
+        return None
+    return meter_recognize
+
+
+def _surfaces(M, n):
+    """Every stress surface of n positions the core can match: a whole line of
+    each family, foot count and policy subset, and the n-position prefix of
+    each family's line that an unknown token after the prefix leaves."""
+    out = set()
+    for foot in M.FAMILIES.values():
+        for feet in M._count_domain(n, len(foot)):
+            for used in M._choices(M.POLICY_REGISTRY):
+                t = M._transform(foot, feet, used)
+                if t and len(t[1]) == n:
+                    out.add((t[1], False))
+        reps = -(-(n + 1) // len(foot))
+        for used in M._choices(M.POLICY_REGISTRY, prefix=True):
+            t = M._transform(foot, reps, used)
+            if t:
+                out.add((t[1][:n], True))
+    return out
+
+
+def _worst_line(surface, unknown):
+    """The surface as guessed digits over as many tokens as a line can hold
+    (each a condition the response names), then an unknown token if the
+    surface is a prefix."""
+    n = len(surface)
+    tokens = min(n, 99 if unknown else 100)
+    digits = "".join("1" if c == "S" else "0" for c in surface)
+    parts = list(digits[:tokens - 1]) + [digits[tokens - 1:]]
+    occ = [{"token": i + 1, "digits": d, "lexical": d, "source": "guessed",
+            "reading_id": None} for i, d in enumerate(parts)]
+    if unknown:
+        occ.append({"token": tokens + 1, "digits": None, "lexical": None,
+                    "source": "unknown", "reading_id": None})
+    return {"text": "x", "language": "eng",
+            "tokens": [{"index": o["token"], "word": "x"} for o in occ],
+            "readings": [{"id": "L463", "occurrences": occ}]}
+
+
+def _escaped_bytes(obj):
+    compact = json.dumps(obj, ensure_ascii=False, separators=(",", ":"))
+    return len(json.dumps(compact, ensure_ascii=False).encode())
+
+
+def response_bytes(M, with_candidates=True, digits_cap=301):
+    worst = (0, None)
+    for n in range(1, digits_cap + 1):
+        for surface, unknown in _surfaces(M, n):
+            out = M.recognize(_worst_line(surface, unknown), max_readings=1)
+            view = {k: out[k] for k in RESPONSE_FACTS}
+            if "not_computed_reason" in out:
+                view["not_computed_reason"] = out["not_computed_reason"]
+            if with_candidates:
+                view["candidates"] = out["candidates"]
+            b = _escaped_bytes(view)
+            if b > worst[0]:
+                worst = (b, n)
+    return worst
+
+
+def test_response_bytes():
+    src = open(os.path.join(REPO, "mcp", "meter_admission.js"), encoding="utf-8").read()
+
+    def const(name):
+        return int(re.search(rf"export const {name} = ([\d_]+);", src).group(1).replace("_", ""))
+    pinned = const("METER_LINE_RESPONSE_BYTES")
+    wrapper = const("METER_LINE_WRAPPER_BYTES")
+    request = const("METER_REQUEST_RESPONSE_BYTES")
+    check("the per-line response figure is 7,507 B and the request's is 463 x (7,507 + 200)",
+          (pinned, wrapper, request) == (7_507, 200, 463 * (7_507 + 200)),
+          str((pinned, wrapper, request)))
+    M = recognizer()
+    if M is None:
+        print("SKIP the per-line response figure is not measured: the recognizer core "
+              "(quality/meter_recognize.py, #751) is not on this head; set "
+              "METER_RECOGNIZE_MODULE to measure it")
+        return
+    got, at = response_bytes(M)
+    check(f"the per-line response figure, candidate rows included, measures {pinned:,} B",
+          got == pinned, f"measured {got:,} B at {at} digits; re-pin METER_LINE_RESPONSE_BYTES")
+    bare, _ = response_bytes(M, with_candidates=False)
+    check("the candidate rows are inside the figure (it is larger with them)",
+          bare < got, f"{bare:,} B without them, {got:,} B with them")
+    check("463 lines of it, with the wrapper, fit the 8 MiB default view",
+          463 * (got + wrapper) <= 8 * 1024 * 1024, f"{463 * (got + wrapper):,} B")
+
+
 def test_witness():
     line = "w " * 99 + "ws"
     got = {f"{s}/{f}": digits(line, s, f) for s, f in MODES}
@@ -410,7 +524,8 @@ def test_witness():
 
 if __name__ == "__main__":
     for fn in (test_pins, test_caps_mirror, test_dictionary, test_rule_forms, test_morphology,
-               test_elisions, test_letter_layer, test_code_points, test_witness):
+               test_elisions, test_letter_layer, test_code_points, test_witness,
+               test_response_bytes):
         fn()
     print("=" * 70)
     if FAILURES:

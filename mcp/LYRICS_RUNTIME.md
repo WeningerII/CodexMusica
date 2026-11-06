@@ -272,6 +272,18 @@ keeps the version's file SHA256 beside it as `lexicon_supplement_sha256`
 
 - **New work** that omits the field reads the manifest's `default`.
 - **A continued run** (by `run_id`, `state`, `checkpoint`, or a session's grade
+**What one admitted line costs a response.** The largest recognition the
+recognizer core can return for one line at the per-line cap, JSON-escaped as
+the bounded payload measures it and with its candidate rows included, is
+7,507 B (`METER_LINE_RESPONSE_BYTES`; 5,979 B without the candidate rows).
+With 200 B per line for the withheld wrapper, 463 such lines are 3,568,341 B
+(`METER_REQUEST_RESPONSE_BYTES`), 42.5% of the 8 MiB default-view budget,
+before the response envelope, which is not measured yet. None of the three
+caps depends on it. `lyric-harness/quality/test_meter_digit_bound.py` measures
+the figure over every surface the core can generate and fails if it moves or
+the candidate rows leave it; until the core (`quality/meter_recognize.py`) is
+on the branch, that measurement reports SKIP.
+
   receipt) keeps the version and SHA256 it recorded. A record written before
   this field existed reads `none`: it stays on CMUdict alone whatever the
   default now is. Inheritance is applied first, the default only after it.

@@ -98,6 +98,26 @@ export const ADMISSION_CAUSES = Object.freeze([
 
 const codePoints = (s) => [...s].length;
 // Physical rows of one string. Every break the tools' readers split on counts
+// WHAT ONE ADMITTED LINE COSTS A RESPONSE (BB8 ruling 1). The largest
+// recognition one line at the per-line cap can add to the default view,
+// JSON-escaped as the bounded payload measures it, CANDIDATE ROWS INCLUDED:
+// 7,507 B, at 301 digits (5,979 B without the candidate rows). Measured by
+// lyric-harness/quality/test_meter_digit_bound.py over every surface the
+// recognizer core can generate (`max_readings=1`, the default policy
+// registry, every compared token guessed); it fails if the measurement moves
+// or the candidate rows leave it. With 200 B per line for the withheld wrapper,
+// 463 lines are 3,568,341 B, 42.5% of the 8 MiB default-view budget, before
+// the response envelope, which is not measured yet. None of the caps above
+// depends on it.
+export const METER_LINE_RESPONSE_BYTES = 7_507;
+export const METER_LINE_WRAPPER_BYTES = 200;
+// ADMISSION_MAX_LINES × (METER_LINE_RESPONSE_BYTES + METER_LINE_WRAPPER_BYTES):
+export const METER_REQUEST_RESPONSE_BYTES = 3_568_341;
+if (
+  METER_REQUEST_RESPONSE_BYTES !==
+  ADMISSION_MAX_LINES * (METER_LINE_RESPONSE_BYTES + METER_LINE_WRAPPER_BYTES)
+)
+  throw new Error('meter_admission: the response figure no longer matches its derivation');
 // (`\r\n`, a lone `\r`, `\n`), so no spelling of a break hides a row.
 const rowsOf = (s) => s.split(/\r\n|\r|\n/).length;
 const fmt = (n) => n.toLocaleString('en-US');

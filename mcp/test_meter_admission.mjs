@@ -20,6 +20,9 @@ import {
   ADMISSION_MAX_LINES,
   ADMISSION_MAX_LINE_CHARS,
   ADMISSION_CAUSES,
+  METER_LINE_RESPONSE_BYTES,
+  METER_LINE_WRAPPER_BYTES,
+  METER_REQUEST_RESPONSE_BYTES,
   lineDigitBound,
   admitRecognitionArgs,
   recognitionInputOf,
@@ -53,6 +56,20 @@ test('the caps are the confirmed values, derived from the connector ceilings', (
   assert.equal(RAW_ROWS_CAP, 1_389);
   assert.equal(RAW_ROWS_CAP, 3 * MAX_LINES);
   assert.deepEqual(ADMISSION_CAUSES, ['raw_rows', 'meter_line_digits', 'meter_request_digits']);
+});
+
+test('the per-line response figure includes the candidate rows (BB8 ruling 1)', () => {
+  // Measured by lyric-harness/quality/test_meter_digit_bound.py against the
+  // recognizer core: 7,507 B with the candidate rows, 5,979 B without.
+  assert.equal(METER_LINE_RESPONSE_BYTES, 7_507);
+  assert.equal(METER_LINE_WRAPPER_BYTES, 200);
+  assert.equal(
+    METER_REQUEST_RESPONSE_BYTES,
+    MAX_LINES * (METER_LINE_RESPONSE_BYTES + METER_LINE_WRAPPER_BYTES)
+  );
+  assert.equal(METER_REQUEST_RESPONSE_BYTES, 3_568_341);
+  const share = METER_REQUEST_RESPONSE_BYTES / (8 * 1024 * 1024);
+  assert(share > 0.425 && share < 0.426, String(share));
 });
 
 test('an undeclared line is costed at 1.5 digits per unit; the witness line is exactly at the cap', () => {
