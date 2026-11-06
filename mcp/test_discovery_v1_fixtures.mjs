@@ -4709,6 +4709,15 @@ test('BB8 6688972927: each fold is pinned where it is stated, with computed figu
     format.includes('It **must not** compute a key by calling `canonical_json` on an entry')
   );
   assert.ok(!format.includes('keys its sets by `canonical_json(entry)`'));
+  // canonical_json fails past about 1,000 levels; the vectors test shows it on
+  // the load shapes, and §2.1 states it.
+  assert.ok(
+    format.includes(
+      "its output is identical to `canonical_json`'s (`contracts.py:208-210`) wherever `canonical_json` completes. It does not complete on an entry nested deeper than about 990 levels"
+    )
+  );
+  assert.ok(format.includes('raising `RecursionError`'));
+  assert.ok(format.includes('handle the 2,048 levels a 4,096-byte entry can hold'));
   assert.ok(
     resume.includes(
       "**Required** (§2.1): the worker computes each loaded entry's canonical form once, hashes those bytes for F5, and keys its sets by the same bytes"
