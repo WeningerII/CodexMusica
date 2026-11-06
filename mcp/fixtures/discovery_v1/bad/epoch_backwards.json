@@ -1,0 +1,73 @@
+{
+  "fixture": "bad/epoch_backwards.json",
+  "contract": "mcp/DISCOVERY_V1.md",
+  "kind": "write",
+  "exercises": "The record is at epoch 5; the frame and its cursor (method_index 3) are at epoch 3. Everything else is consistent with epoch 3.",
+  "expect": {
+    "accepted": false,
+    "rule": "W2",
+    "code": "READER_PROTOCOL",
+    "status": 400,
+    "written": "nothing"
+  },
+  "job_id": "reader_b90c9463724ad5086c4f8548f57e93eb31716e4b23f26eec7f01fe663a8a641a",
+  "identity_hash": "c269b6be399e5890a0cc8874a7247ddc0960a0f4ae5618e483b8a94de7f26967",
+  "record": {
+    "discovery": {
+      "version": 1,
+      "epoch": 5,
+      "logs": {
+        "seen": {
+          "head": null,
+          "segments": 0,
+          "count": 0,
+          "digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136"
+        }
+      },
+      "unavailable": null
+    },
+    "cursor": {
+      "contract_version": 2,
+      "method_index": 5,
+      "discovery": {
+        "version": 1,
+        "epoch": 5,
+        "logs": {
+          "seen": {
+            "sealed": 0,
+            "sealed_digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136",
+            "tail": [7]
+          }
+        },
+        "inventory": null,
+        "groups": { "through": null, "current": null }
+      },
+      "witness": null,
+      "continuation": { "position": 3 }
+    }
+  },
+  "frames": [
+    {
+      "discovery": { "epoch": 3, "resets": [], "seals": [] },
+      "cursor": {
+        "contract_version": 2,
+        "method_index": 3,
+        "discovery": {
+          "version": 1,
+          "epoch": 3,
+          "logs": {
+            "seen": {
+              "sealed": 0,
+              "sealed_digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136",
+              "tail": [7]
+            }
+          },
+          "inventory": null,
+          "groups": { "through": null, "current": null }
+        },
+        "witness": null,
+        "continuation": { "position": 4 }
+      }
+    }
+  ]
+}

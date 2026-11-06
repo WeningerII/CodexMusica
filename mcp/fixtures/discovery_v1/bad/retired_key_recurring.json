@@ -1,0 +1,35 @@
+{
+  "fixture": "bad/retired_key_recurring.json",
+  "contract": "mcp/DISCOVERY_V1.md",
+  "kind": "groups",
+  "exercises": "A sort broken on purpose: group [3,7] is retired when [4,8] opens, then a key over [3,7] comes up again. It is refused, never counted as new.",
+  "expect": {
+    "accepted": false,
+    "rule": "S1",
+    "code": "DISCOVERY_UNAVAILABLE",
+    "status": 409,
+    "cause": "retired_key_recurred",
+    "at_event": 4
+  },
+  "state": {
+    "discovery": {
+      "groups": { "through": null, "current": null },
+      "logs": {
+        "alt_seen": {
+          "sealed": 0,
+          "sealed_digest": "5891743092f1b2973868a42afda62358df012199207bc7660c9ae1798559f6e2",
+          "tail": []
+        }
+      }
+    },
+    "continuation": { "pending": null },
+    "emission": 0
+  },
+  "events": [
+    { "op": "key", "lines": [3, 7], "key": ["3:2", "7:1"], "expect": "new" },
+    { "op": "done" },
+    { "op": "key", "lines": [4, 8], "key": ["4:1", "8:2"], "expect": "new" },
+    { "op": "done" },
+    { "op": "key", "lines": [3, 7], "key": ["3:4", "7:1"], "expect": "refused" }
+  ]
+}

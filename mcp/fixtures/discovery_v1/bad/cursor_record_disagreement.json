@@ -1,0 +1,117 @@
+{
+  "fixture": "bad/cursor_record_disagreement.json",
+  "contract": "mcp/DISCOVERY_V1.md",
+  "kind": "write",
+  "exercises": "After seen#0 and alt_cells#0 are sealed, a frame with no seals whose cursor says seen's 1024 sealed entries have the empty digest; the record's digest for those entries differs.",
+  "expect": {
+    "accepted": false,
+    "rule": "W4",
+    "code": "READER_PROTOCOL",
+    "status": 400,
+    "written": "nothing"
+  },
+  "job_id": "reader_b90c9463724ad5086c4f8548f57e93eb31716e4b23f26eec7f01fe663a8a641a",
+  "identity_hash": "c269b6be399e5890a0cc8874a7247ddc0960a0f4ae5618e483b8a94de7f26967",
+  "record": {
+    "discovery": {
+      "version": 1,
+      "epoch": 0,
+      "logs": {
+        "seen": {
+          "head": "b074433e083b09c6dc7f0d2b765d969cf54ad290b598553c500c9e53d7447694",
+          "segments": 1,
+          "count": 1024,
+          "digest": "874b95a379790978a8f4af4e02038ae72dcf0dde5bc3b17a74debfe2520ef714"
+        },
+        "alt_cells": {
+          "head": "472d9313172d254c78b2e74742c467ae2871be26a3163af8c19c2dff3be63961",
+          "segments": 1,
+          "count": 1024,
+          "digest": "8cabfdb84c82ae3938a27fb65817d3c8d64c0fe48d5438251201593191188f12"
+        },
+        "variants": {
+          "head": null,
+          "segments": 0,
+          "count": 0,
+          "digest": "3d776edd104fc89d5c3285e2ecc6bb2c9d882cd84ec9858b11dd88cbd1c6fbd1"
+        }
+      },
+      "unavailable": null
+    },
+    "cursor": {
+      "contract_version": 2,
+      "method_index": 0,
+      "discovery": {
+        "version": 1,
+        "epoch": 0,
+        "logs": {
+          "seen": {
+            "sealed": 1024,
+            "sealed_digest": "874b95a379790978a8f4af4e02038ae72dcf0dde5bc3b17a74debfe2520ef714",
+            "tail": [1024, 1025]
+          },
+          "variants": {
+            "sealed": 0,
+            "sealed_digest": "3d776edd104fc89d5c3285e2ecc6bb2c9d882cd84ec9858b11dd88cbd1c6fbd1",
+            "tail": [
+              [12, [[3, ["n", "ay", "iy v"]]], "naïve café", "12:3", "end", "AY", "IY"],
+              [14, [[1, ["k", "ae", "f ey"]]], "🎵 \"quoted\" tab\t ", "14:1", "end", "AE", "EY"]
+            ]
+          },
+          "alt_cells": {
+            "sealed": 1024,
+            "sealed_digest": "8cabfdb84c82ae3938a27fb65817d3c8d64c0fe48d5438251201593191188f12",
+            "tail": [4, 5]
+          }
+        },
+        "inventory": {
+          "count": 3,
+          "digest": "ce5ea87dbf407353ae4322cb671472e00dc1d2728b63471e4c2dbea4fd3daed2"
+        },
+        "groups": { "through": null, "current": null }
+      },
+      "witness": null,
+      "continuation": { "position": 2160 }
+    }
+  },
+  "frames": [
+    {
+      "discovery": { "epoch": 0, "resets": [], "seals": [] },
+      "cursor": {
+        "contract_version": 2,
+        "method_index": 0,
+        "discovery": {
+          "version": 1,
+          "epoch": 0,
+          "logs": {
+            "seen": {
+              "sealed": 1024,
+              "sealed_digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136",
+              "tail": [1024, 1025, 1026]
+            },
+            "variants": {
+              "sealed": 0,
+              "sealed_digest": "3d776edd104fc89d5c3285e2ecc6bb2c9d882cd84ec9858b11dd88cbd1c6fbd1",
+              "tail": [
+                [12, [[3, ["n", "ay", "iy v"]]], "naïve café", "12:3", "end", "AY", "IY"],
+                [14, [[1, ["k", "ae", "f ey"]]], "🎵 \"quoted\" tab\t ", "14:1", "end", "AE", "EY"]
+              ]
+            },
+            "alt_cells": {
+              "sealed": 1024,
+              "sealed_digest": "8cabfdb84c82ae3938a27fb65817d3c8d64c0fe48d5438251201593191188f12",
+              "tail": [4, 5]
+            }
+          },
+          "inventory": {
+            "count": 3,
+            "digest": "ce5ea87dbf407353ae4322cb671472e00dc1d2728b63471e4c2dbea4fd3daed2"
+          },
+          "groups": { "through": null, "current": null }
+        },
+        "witness": null,
+        "continuation": { "position": 2170 }
+      }
+    }
+  ]
+}

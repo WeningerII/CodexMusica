@@ -5404,6 +5404,34 @@ await check('validation: actionable errors', () => {
       'mcp/test_reader_store_gzip.mjs': 'offline gzip storage and rollback regressions',
       'mcp/test_reader_store_bounds.mjs':
         'offline bounded reader-store maintenance and quiescent usage regressions',
+      'mcp/test_discovery_v1_fixtures.mjs':
+        'offline persisted-discovery wire fixture validator (#656), executed by CI (test:library)',
+      'mcp/DISCOVERY_V1.md': 'persisted discovery store and wire contract documentation',
+      'mcp/fixtures/discovery_v1/README.md': 'the discovery_v1 fixture index',
+      'mcp/fixtures/discovery_v1/good/epoch_jump.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/good/lease_payload_summary_paths.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/good/retired_group_then_within_line.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/good/seal_sequence_two_logs.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/good/witness_cursor_option2.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/changed_digest_after.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/cursor_record_disagreement.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/epoch_backwards.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/missing_segment.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/over_bound_seal.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/reordered_segment.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/retired_key_recurring.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/test_library_viewer_routes.mjs':
         'offline Library viewer route, cookie, isolation and limit regressions',
       'mcp/test_library_exports.mjs':

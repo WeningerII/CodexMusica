@@ -1,0 +1,122 @@
+{
+  "fixture": "good/witness_cursor_option2.json",
+  "contract": "mcp/DISCOVERY_V1.md",
+  "kind": "witness",
+  "exercises": "A full cursor v2 carrying option 2's contribution witness at the terminal step: four durable records in commit order, with a repeated id on a distinct binding, a multi-token (ineligible) record and a same-token record, all counted; the lease's local tail overlaps the last durable record and adds one not yet durable, and neither is counted.",
+  "expect": { "accepted": true, "count": 4 },
+  "cursor": {
+    "contract_version": 2,
+    "identity_hash": "c269b6be399e5890a0cc8874a7247ddc0960a0f4ae5618e483b8a94de7f26967",
+    "phase": "schema",
+    "method_index": 7,
+    "candidate": 4410,
+    "emission": 0,
+    "sequence": 4410,
+    "counters": {
+      "candidates": 4410,
+      "evidence_records": 0,
+      "true": 0,
+      "false": 0,
+      "undecided": 0
+    },
+    "methods": {},
+    "done": false,
+    "incomplete": {},
+    "discovery": {
+      "version": 1,
+      "epoch": 7,
+      "logs": {
+        "seen": {
+          "sealed": 0,
+          "sealed_digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136",
+          "tail": []
+        },
+        "alt_cells": {
+          "sealed": 0,
+          "sealed_digest": "9216001e76afe6aa1a120e7332ab77344f50c276cd781d3b2631ca8f6752d5ea",
+          "tail": [
+            [
+              [1, 3],
+              [2, 4]
+            ]
+          ]
+        }
+      },
+      "inventory": null,
+      "groups": { "through": null, "current": null }
+    },
+    "witness": {
+      "version": 1,
+      "epoch": 7,
+      "method_id": "schema:end_rhyme",
+      "fields": ["method_id", "id", "verdict", "a.token_ids", "b.token_ids"],
+      "count": 4,
+      "digest": "680dca870f3331758399c7b52b18500570c703393c4bdf7881ee99ed6114322c"
+    },
+    "continuation": {
+      "stage": "terminal",
+      "position": 4410,
+      "row": null,
+      "pending": null,
+      "shared_sound": null
+    }
+  },
+  "durable_records": [
+    {
+      "id": "relation:e1",
+      "kind": "relation_instance",
+      "method_id": "schema:end_rhyme",
+      "basis": "engine",
+      "verdict": "true",
+      "a": { "token_ids": ["L1:token:3"] },
+      "b": { "token_ids": ["L2:token:4"] }
+    },
+    {
+      "id": "relation:e2",
+      "kind": "relation_instance",
+      "method_id": "schema:end_rhyme",
+      "basis": "engine",
+      "verdict": "undecided",
+      "a": { "token_ids": ["L1:token:1", "L1:token:2"] },
+      "b": { "token_ids": ["L3:token:2"] }
+    },
+    {
+      "id": "relation:e1",
+      "kind": "relation_instance",
+      "method_id": "schema:end_rhyme",
+      "basis": "engine",
+      "verdict": "true",
+      "a": { "token_ids": ["L3:token:3"] },
+      "b": { "token_ids": ["L4:token:1"] }
+    },
+    {
+      "id": "relation:e3",
+      "kind": "relation_instance",
+      "method_id": "schema:end_rhyme",
+      "basis": "engine",
+      "verdict": "true",
+      "a": { "token_ids": ["L5:token:2"] },
+      "b": { "token_ids": ["L5:token:2"] }
+    }
+  ],
+  "local_records": [
+    {
+      "id": "relation:e3",
+      "kind": "relation_instance",
+      "method_id": "schema:end_rhyme",
+      "basis": "engine",
+      "verdict": "true",
+      "a": { "token_ids": ["L5:token:2"] },
+      "b": { "token_ids": ["L5:token:2"] }
+    },
+    {
+      "id": "relation:e4",
+      "kind": "relation_instance",
+      "method_id": "schema:end_rhyme",
+      "basis": "engine",
+      "verdict": "undecided",
+      "a": { "token_ids": ["L6:token:1"] },
+      "b": { "token_ids": ["L7:token:1"] }
+    }
+  ]
+}
