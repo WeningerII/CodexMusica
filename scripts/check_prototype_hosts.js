@@ -132,10 +132,12 @@
 //      registered: its roster is the genre page's, the "Your recipe" line
 //      follows the store, and its host's ctx and recipe view are exactly
 //      CTX_KEYS and PORT_KEYS, with "Try again." and a Retry that mounts it
-//      when the store can't load. Every registered lane's ctx subscriptions
-//      are SUBSCRIBED's, and each hears a change while the lane is mounted
-//      and none once its mount's signal aborts (#810 6682309672). Each check
-//      has a planted defect of its own
+//      when the store can't load. Every registered lane's ctx views carry
+//      exactly CTX_VIEWS's methods, its subscriptions (listener methods,
+//      such as speak's onend, among them) are SUBSCRIBED's, and each hears a
+//      change while the lane is mounted and none once its mount's signal
+//      aborts, and the device is given nothing to say after it (#810
+//      6682309672). Each check has a planted defect of its own
 //      (STORE_MUTANTS, LOAD_MUTANTS, DATA_MUTANTS, APP_MUTANTS), served in
 //      place of the file in that check's own page, and that defect must fail
 //      the check.
@@ -3642,6 +3644,48 @@ const SUBSCRIBED = {
 // The ctx methods that take a listener among their options: speak's onend
 // and onerror (#810, the review of 6682309672's fixes).
 const CALLBACK_METHODS = ['speech.speak'];
+// Every registered lane's ctx views (each object field but the host's
+// storage and signal) and every method each one carries. A view given a new
+// method fails check 40 until it is listed here, and so classified: a
+// subscription, by whatever name, also goes in SUBSCRIBED (and a listener
+// method in CALLBACK_METHODS too), where check 40 drives it (#810, the
+// review of 6682309672's fixes: a subscription inside a view, named
+// otherwise, went unchecked).
+const DISCLOSURE_METHODS = ['current', 'focusToggle', 'setOpen', 'subscribe'];
+const CTX_VIEWS = {
+  browse: {},
+  genrecategories: {
+    categories: ['allGenres', 'back', 'current', 'openBranch', 'subscribe', 'toggleRoots'],
+    discovery: DISCLOSURE_METHODS,
+    targets: ['current', 'subscribe'],
+  },
+  genredetail: { genre: ['current', 'subscribe'], media: ['resolve'] },
+  genreinstruments: {
+    genre: ['current', 'subscribe'],
+    recipe: ['addEnsemble', 'addInstrument', 'snapshot', 'subscribe'],
+  },
+  genretargets: {
+    discovery: DISCLOSURE_METHODS,
+    targets: [
+      'apply',
+      'clear',
+      'current',
+      'match',
+      'reset',
+      'subscribe',
+      'toggleAll',
+      'useProfile',
+    ],
+  },
+  instrumentdetail: { instrument: ['current', 'subscribe'], media: ['resolve'] },
+  library: { selection: ['state', 'subscribe', 'toggle'] },
+  // Data, with no methods.
+  librarycredits: { artwork: [], artworkUrls: [], catalog: [] },
+  librarymethods: { registry: [] },
+  libraryreading: {},
+  libraryspeech: { speech: ['getVoices', 'speak', 'subscribeVoices', 'takeAutoplay'] },
+  lyrics: {},
+};
 // What a check may serve in place of a committed file.
 const SERVED = {
   store: '/prototype/recipe-store.js',
@@ -6767,8 +6811,11 @@ const STORE_CHECKS = {
   // ending with the listener): it hears a change while the lane is mounted,
   // none once the mount's signal aborts (as the host's unmount aborts it),
   // and one added after the abort never hears; nor is the device given
-  // anything to say after the abort. The subscriptions found are exactly
-  // SUBSCRIBED's, so a lane given a new one can't go unchecked.
+  // anything to say after the abort. Each lane's views carry exactly
+  // CTX_VIEWS's methods, and the subscriptions found (SUBSCRIBED's, the
+  // listener methods, and any method named as a subscription is) are exactly
+  // SUBSCRIBED's, so a lane given a new one, by any name, can't go
+  // unchecked.
   lanesReleased: {
     opts: { hash: '#genre', init: { fn: `(${KEEP_CONTROLLERS})();\n(${fakeSpeech})();` } },
     run: async (page) => {
@@ -6795,6 +6842,8 @@ const STORE_CHECKS = {
           const sel = await import('/prototype/selection.js');
           const { discovery } = await import('/prototype/app.js');
           const all = window.__probeCtx;
+          // A method named as a subscription is (onResults, say).
+          const LISTENING = /^(?:subscribe|on[A-Z]|listen|watch|observe)/;
           // A listener method as a subscribe: speak's, three utterances
           // that each end with the listener (one ends while the lane is
           // mounted, two wait behind it at the abort); refused, nothing.
@@ -6810,27 +6859,34 @@ const STORE_CHECKS = {
               return () => handles.forEach((h) => h.cancel());
             },
           };
-          // Every subscribe a lane's ctx carries, and every listener
-          // method, as 'field.method'.
+          // Every method each lane's views carry (its object fields, the
+          // host's storage and signal aside), as CTX_VIEWS pins them; and,
+          // as 'field.method', every one that subscribes: SUBSCRIBED's,
+          // every listener method, and any named as a subscription is.
+          const views = {};
           const found = {};
           const subs = [];
           for (const lane of ARG.lanes) {
+            views[lane] = {};
             found[lane] = [];
-            for (const [field, v] of Object.entries(all[lane] || {}))
-              if (v && typeof v === 'object' && !Array.isArray(v))
-                for (const k of Object.keys(v)) {
-                  const name = `${field}.${k}`;
-                  if (typeof v[k] !== 'function') continue;
-                  if (/^subscribe/.test(k)) subs.push({ lane, name, subscribe: v[k] });
-                  else if (ARG.callbacks.includes(name))
-                    subs.push({
-                      lane,
-                      name,
-                      subscribe: (AS_SUBSCRIBE[name] || (() => null))(v[k]),
-                    });
-                  else continue;
-                  found[lane].push(name);
-                }
+            const ctx = all[lane] || {};
+            for (const field of Object.keys(ctx).sort()) {
+              const v = ctx[field];
+              if (!v || typeof v !== 'object' || Array.isArray(v)) continue;
+              if (field === 'storage' || field === 'signal') continue;
+              views[lane][field] = Object.keys(v)
+                .filter((k) => typeof v[k] === 'function')
+                .sort();
+              for (const k of views[lane][field]) {
+                const name = `${field}.${k}`;
+                if (ARG.callbacks.includes(name))
+                  subs.push({ lane, name, subscribe: (AS_SUBSCRIBE[name] || (() => null))(v[k]) });
+                else if (ARG.subscribed[lane].includes(name) || LISTENING.test(k))
+                  subs.push({ lane, name, subscribe: v[k] });
+                else continue;
+                found[lane].push(name);
+              }
+            }
             found[lane].sort();
           }
           // A change that reaches each kind of subscription.
@@ -6895,6 +6951,7 @@ const STORE_CHECKS = {
           const named = (list) => list.map((i) => `${subs[i].lane} ${subs[i].name}`);
           const at = (test) => subs.map((_, i) => i).filter(test);
           return {
+            views,
             found,
             unknown,
             failed,
@@ -6905,12 +6962,13 @@ const STORE_CHECKS = {
             spokenAfterAbort: window.__speech.spoken.slice(spokenAtAbort).map((u) => u.text),
           };
         },
-        { lanes: Object.keys(SUBSCRIBED), cid, callbacks: CALLBACK_METHODS }
+        { lanes: Object.keys(SUBSCRIBED), cid, callbacks: CALLBACK_METHODS, subscribed: SUBSCRIBED }
       );
     },
     verdict: (g) =>
       why(
         same(Object.keys(SUBSCRIBED).sort(), Object.keys(LANE_MODULES).sort()) &&
+          same(g.views, CTX_VIEWS) &&
           same(g.found, SUBSCRIBED) &&
           !g.unknown.length &&
           !g.failed.length &&
@@ -7602,6 +7660,26 @@ const APP_MUTANTS = {
       [
         "      if (signal.aborted)\n        throw Object.assign(new Error('Read aloud has ended.'), { code: 'ENDED' });\n",
         '',
+      ],
+    ],
+  },
+  // A subscription inside a view under a name of its own (the review of
+  // 6682309672's fixes): one named as subscriptions are, and one not.
+  'a subscription named onResults inside a view': {
+    check: 'lanesReleased',
+    edits: [
+      [
+        '        targets: ending(signal, discovery.targets),\n        discovery: ending(signal, discovery.discovery),',
+        '        targets: ending(signal, discovery.targets),\n        discovery: ending(signal, {\n          ...discovery.discovery,\n          onResults: discovery.results.subscribe,\n        }),',
+      ],
+    ],
+  },
+  'a subscription by another name inside a view': {
+    check: 'lanesReleased',
+    edits: [
+      [
+        '        targets: ending(signal, discovery.targets),\n        discovery: ending(signal, discovery.discovery),',
+        '        targets: ending(signal, { ...discovery.targets, results: discovery.results.subscribe }),\n        discovery: ending(signal, discovery.discovery),',
       ],
     ],
   },
