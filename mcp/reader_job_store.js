@@ -352,11 +352,19 @@ export class ReaderJobStore {
         this._collectAll();
         // Startup holds the writer lock throughout, so this full scan is a
         // quiescent one by construction: usage is known before any request,
-        // and before the pauses below. Pausing a running record a few bytes
-        // larger than its 16 KiB reservation needs a known usage; while it is
-        // unknown that growth is refused, which would fail every restart.
+        // and before the pauses below, which add their exact deltas to it.
         this.usage = this._usage();
         this._recountWanted = false;
+        // Each pause always commits, whatever the quota. A paused record
+        // gains a reason, so one past its 16 KiB reservation grows by a few
+        // bytes, and at a full quota the ordinary check would refuse that
+        // growth. A store that cannot record its own interruption cannot
+        // start, and every request then fails until someone frees space. So
+        // this one transition per running record skips the quota check, and
+        // nothing else does; its bytes are still counted in usage and slack.
+        // Usage plus slack may then exceed the quota by those bytes, and every
+        // later growth is refused as usual until expiry, collection or a
+        // delete frees room.
         for (const record of this.records.values()) {
           if (record.state !== 'running') continue;
           this._save(
@@ -372,6 +380,7 @@ export class ReaderJobStore {
                 message: 'Worker interrupted; explicitly resume the committed cursor.',
               },
             },
+            true,
             true
           );
         }
@@ -561,7 +570,9 @@ export class ReaderJobStore {
         507
       );
   }
-  _save(input, reserved = false) {
+  // `startupPause` is the constructor's pause of a running record, the one
+  // write exempt from the quota check (see there). It is still counted.
+  _save(input, reserved = false, startupPause = false) {
     const { record_digest: _old, ...body } = input;
     body.updated_at = this.now();
     const record = { ...body, record_digest: sha(canonical(body)) };
@@ -569,7 +580,8 @@ export class ReaderJobStore {
     const file = path.join(this.directory, 'records', `${record.id}.json`);
     const previous = fs.existsSync(file) ? fs.statSync(file).size : 0;
     const slackDelta = reserveGap(bytes.length) - (previous ? reserveGap(previous) : 0);
-    this._capacity(bytes.length - previous, !reserved, previous ? 0 : 1, slackDelta);
+    if (!startupPause)
+      this._capacity(bytes.length - previous, !reserved, previous ? 0 : 1, slackDelta);
     this._beginWrite();
     this._inflight = true;
     atomicWrite(file, bytes, this.fault, 'record');

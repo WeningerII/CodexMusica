@@ -841,6 +841,72 @@ test('a restart collects a killed write before it counts, so a near-full store s
   assert.ok(recovered.usage + recovered.slack <= SMALL_QUOTA);
 });
 
+// A store at exactly its quota, holding a running job past its reservation.
+// A commit always leaves a reservation's headroom, so the quota here is the
+// one the store restarts under: what it holds, as after the quota is lowered
+// or a gzip store is inflated (mcp/READER_RUNTIME.md).
+const STARTUP_REASON = {
+  code: 'INTERRUPTED',
+  message: 'Worker interrupted; explicitly resume the committed cursor.',
+};
+function atQuota(t, { cancel = false } = {}) {
+  const { directory, store } = fixture(t, { maxBytes: SMALL_QUOTA });
+  const job = create(store),
+    lease = store.lease(job.record.id);
+  assert.equal(commit(store, lease, [{ id: 'kept' }], bigCursor(1)).state, 'running');
+  if (cancel) store.cancel(lease.id, job.capability, 'viewer-a', { idempotency_key: 'cancel' });
+  const record = path.join(directory, 'reader-jobs-v1', 'records', `${lease.id}.json`);
+  assert.ok(fs.statSync(record).size > RESERVE, 'the record is past its reservation');
+  return { directory, store, job, lease, record, quota: store.usage + store.slack };
+}
+for (const cancel of [false, true])
+  test(`a restart at exactly its quota still ${cancel ? 'cancels' : 'pauses'} its running job`, (t) => {
+    // A store that cannot record its own interruption cannot start, and then
+    // every request fails. The pause grows the record by a few bytes, past a
+    // full quota; a requested cancellation's longer reason is replaced, so
+    // that record shrinks.
+    const { directory, job, lease, quota, record } = atQuota(t, { cancel });
+    const running = fs.statSync(record).size;
+    const restarted = restartsTwice(directory, quota);
+    const paused = restarted.inspect(lease.id);
+    assert.equal(paused.state, cancel ? 'cancelled' : 'paused');
+    assert.deepEqual(paused.reason, STARTUP_REASON);
+    assert.equal(paused.cancel_requested, false);
+    // Counted exactly: the pause is the only overage, and only by its bytes.
+    const grown = fs.statSync(record).size - running;
+    if (!cancel) assert.ok(grown > 0, 'the pause grows the record');
+    assert.equal(restarted.usage, scan(restarted));
+    assert.equal(restarted.usage + restarted.slack, quota + grown);
+    // Reads work.
+    assert.equal(restarted.get(lease.id, job.capability, 'viewer-a').state, paused.state);
+    assert.deepEqual(restarted.workerPayload(lease.id).cursor, bigCursor(1));
+    const [ref] = restarted.readManifestPage(lease.id, job.capability, 'viewer-a').page_refs;
+    assert.equal(
+      restarted.readPage(lease.id, ref.sha256, job.capability, 'viewer-a').instances[0].id,
+      'kept'
+    );
+    // Growth is refused as usual, and admitted again once a delete frees room.
+    refused(() => create(restarted, 'viewer-b', 'after-restart'), 'RESOURCE_LIMIT');
+    assert.equal(restarted.usage, scan(restarted));
+    restarted.delete(lease.id, job.capability, 'viewer-a');
+    assert.equal(create(restarted, 'viewer-b', 'after-delete').created, true);
+    assert.equal(restarted.usage, scan(restarted));
+    assert.ok(restarted.usage + restarted.slack <= quota);
+  });
+test('outside startup, the same pause at its quota is still refused', (t) => {
+  const { store, lease, quota, record } = atQuota(t);
+  store.maxBytes = quota; // the live store's quota, lowered to what it holds
+  const before = fs.readFileSync(record);
+  refused(
+    () => store.pause(lease.id, lease.attempt, lease.fence, STARTUP_REASON),
+    'RESOURCE_LIMIT'
+  );
+  assert.equal(store.inspect(lease.id).state, 'running');
+  assert.deepEqual(fs.readFileSync(record), before);
+  assert.equal(store.usage, scan(store));
+  assert.equal(store.usage + store.slack, quota);
+});
+
 const readerSha = (value) => createHash('sha256').update(value).digest('hex');
 function pronunciationCatalogFixture(t, options = {}) {
   const { directory, store } = fixture(t);

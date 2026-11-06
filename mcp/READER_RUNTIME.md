@@ -336,10 +336,14 @@ transition inside its reservation still commits, a paused lease requeues as for
 
 Startup holds the writer lock throughout. It tombstones expired jobs, removes
 what an interrupted write left (unreferenced objects and temporaries), counts
-usage, and only then pauses each running job as `INTERRUPTED`. A paused record
-gains a reason, so a record already past its reservation grows; with usage
-known that growth takes the ordinary quota check instead of being refused as
-`STORE_RECOUNTING`, which failed every restart of such a store.
+usage, and only then pauses each running job as `INTERRUPTED` (cancelled, if
+cancellation was requested). A paused record gains a reason, so a record
+already past its reservation grows by a few bytes. That pause always commits,
+whatever the quota: refused, it would fail every restart of the store. It is
+the one write exempt from the quota check, once per running job, and its bytes
+are counted exactly, so usage plus slack may then exceed the quota by those
+bytes. Every later write that grows the store is refused with `RESOURCE_LIMIT`
+until expiry, collection or a delete frees room.
 
 A verification scan runs in slices outside the lock and is accepted only if
 every measurement succeeded, no marker appeared and the generation did not move
