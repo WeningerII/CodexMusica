@@ -7,7 +7,7 @@
 // (../api/). There is no call to the connector, /chat or any model provider.
 
 import { read, write, scope } from './storage.js';
-import { createHost, announce } from './host.js';
+import { createHost, createOnDemand, announce } from './host.js';
 import {
   loadItems,
   loadLibrary,
@@ -82,14 +82,12 @@ const LANES = {
 // mounted where openReading is called, with the unit fixed in its ctx (#668
 // 6646411306). Read-aloud follows the text, over the whole verified reading,
 // and is granted autoplay once when Play opened it, as production's ?play=1.
+// The two are on-demand lanes (host.js createOnDemand): opening a reading
+// replaces the one open, and focus goes into the reader.
 const readings = readingLoader();
-let readerHost = null;
-let speechHost = null;
+const reader = createOnDemand(document.querySelector('[data-panel="library"]'));
 async function openReader(unitId, { play = false } = {}) {
-  if (speechHost) speechHost.unmount();
-  if (readerHost) readerHost.unmount();
-  const panel = document.querySelector('[data-panel="library"]');
-  readerHost = createHost(
+  await reader.open([
     {
       id: 'libraryreading',
       label: 'The reader',
@@ -97,9 +95,6 @@ async function openReader(unitId, { play = false } = {}) {
       unloaded: 'The reading did not load.',
       context: async () => ({ unitId, reading: readings.reading }),
     },
-    panel
-  );
-  speechHost = createHost(
     {
       id: 'libraryspeech',
       label: 'Read aloud',
@@ -114,11 +109,7 @@ async function openReader(unitId, { play = false } = {}) {
         };
       },
     },
-    panel
-  );
-  await readerHost.show();
-  readerHost.focus();
-  await speechHost.show();
+  ]);
 }
 
 // The Library lane's ctx (#670 6639673247, 6640163315, 6640718497). It has

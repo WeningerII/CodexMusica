@@ -79,6 +79,18 @@
 //      show()'s returnFocus. Each check also runs on host.js with a planted
 //      defect, served beside it as host.js?mutant=<name>, and that defect
 //      must fail the check under both Close and Escape.
+//  15. ON DEMAND (#665 B0-3). On fixture lanes opened through
+//      createOnDemand(panel) in a panel that already holds a tab lane: open()
+//      does not mount a lane after the panel's lanes with focus in it, or
+//      gives close to a lane not registered closable: true; a second open()
+//      does not unmount what was open, or does not mount several lanes in
+//      order with focus in the first; an open() overtaken while its lane's
+//      module or ctx loads throws, mounts that lane or moves focus, or goes
+//      on to mount its later lanes or resolve true; a closable lane opened on
+//      demand does not close back to the opener, alone or second of two, or
+//      to returnFocus; or the shell's close() leaves a lane mounted. Each
+//      check has a planted defect, as in 14. The reader and read-aloud, which
+//      app.js opens through it, keep their CTX_KEYS.
 //
 //   node scripts/check_prototype_hosts.js
 //
@@ -671,6 +683,7 @@ async function libraryChecks(browser, srv) {
     `library: openReading(an appended card) gave ${open.b}, its collection file says ${(file.readable_ids || [])[0]}`
   );
   const reader = await page.evaluate(() => ({
+    keys: window.__probe.libraryreading && window.__probe.libraryreading.keys,
     hosts: document.querySelectorAll('[data-feature-host="libraryreading"]').length,
     mounts: window.__probe.libraryreading && window.__probe.libraryreading.mounts,
     unitId: window.__probeCtx.libraryreading && window.__probeCtx.libraryreading.unitId,
@@ -683,6 +696,10 @@ async function libraryChecks(browser, srv) {
   expect(
     reader.focused === 'libraryreading',
     `library: after openReading, focus is on ${reader.focused}`
+  );
+  expect(
+    JSON.stringify(reader.keys) === JSON.stringify(CTX_KEYS.libraryreading),
+    `ctx: libraryreading got [${reader.keys}], expected [${CTX_KEYS.libraryreading}]`
   );
   expect(open.bad === SAYS.NOT_FOUND, `library: openReading(a malformed id) gave ${open.bad}`);
   expect(
@@ -1618,6 +1635,7 @@ async function speechChecks(browser, srv) {
     const rec = await readingLoader().reading(unitId);
     return {
       hosts,
+      keys: window.__probe.libraryspeech && window.__probe.libraryspeech.keys,
       mounts: window.__probe.libraryspeech && window.__probe.libraryspeech.mounts,
       language: x && x.language,
       expected: rec.head.language,
@@ -1631,6 +1649,10 @@ async function speechChecks(browser, srv) {
     `speech: read-aloud is not one host right after the reader (${shell.hosts.join(', ')})`
   );
   expect(shell.mounts === 2, `speech: read-aloud mounted ${shell.mounts} times over two Plays`);
+  expect(
+    JSON.stringify(shell.keys) === JSON.stringify(CTX_KEYS.libraryspeech),
+    `ctx: libraryspeech got [${shell.keys}], expected [${CTX_KEYS.libraryspeech}]`
+  );
   expect(
     shell.language === shell.expected,
     `speech: ctx.language is ${shell.language}, the head says ${shell.expected}`
@@ -2002,7 +2024,239 @@ function closeVerdict(g) {
   };
 }
 
-const VIAS = ['button', 'escape'];
+// ── 15. ON DEMAND (#665 B0-3) ───────────────────────────────────────────────
+// createOnDemand on the same fixture lane, in a panel that already holds a
+// tab lane, as Library's holds Explore. Two lanes load slowly, one its
+// module and one its ctx, so a second open() overtakes the first mid-load.
+const DEMAND_MUTANTS = {
+  'open moves no focus': { check: 'opens', edits: [['if (i === 0) h.focus();', '']] },
+  'every on-demand lane is closable': {
+    check: 'opt-in',
+    edits: [
+      [
+        'const hosts = list.map((l) => createHost(l, panel));',
+        'const hosts = list.map((l) => createHost({ ...l, closable: true }, panel));',
+      ],
+    ],
+  },
+  'open keeps what was open': {
+    check: 'replaces',
+    edits: [['clear(); // what was open goes first', '']],
+  },
+  'lanes out of order': {
+    check: 'in order',
+    edits: [['const list = [].concat(lanes);', 'const list = [].concat(lanes).reverse();']],
+  },
+  'no stop after the module loads': {
+    check: 'overtaken while loading',
+    edits: [['if (host !== node) return; // unmounted while the module loaded', '']],
+  },
+  'no stop after the ctx loads': {
+    check: 'overtaken while its ctx loads',
+    edits: [['if (host !== node) return; // unmounted while its ctx loaded', '']],
+  },
+  'an overtaken open goes on': {
+    check: 'stops when overtaken',
+    edits: [['if (mine !== turn) return false;', '']],
+  },
+  'later lanes close to the first': {
+    check: 'closes to the opener',
+    edits: [['await h.show({ returnFocus: back });', 'await h.show();']],
+  },
+  'open ignores returnFocus': {
+    check: 'returnFocus',
+    edits: [
+      [
+        'const back = returnFocus || document.activeElement;',
+        'const back = document.activeElement;',
+      ],
+    ],
+  },
+  'the shell’s close keeps the lanes': {
+    check: 'shell close',
+    edits: [["clear(); // the shell's own close", '']],
+  },
+};
+
+async function demandRun(page, hostUrl) {
+  return page.evaluate(
+    async ({ hostUrl, src }) => {
+      const { createHost, createOnDemand } = await import(hostUrl);
+      for (const old of document.querySelectorAll('[data-close-run]')) old.remove();
+      window.__closer = {};
+      const panel = document.createElement('section');
+      panel.dataset.closeRun = '';
+      panel.innerHTML =
+        '<h1 tabindex="-1">On-demand probe</h1><p data-placeholder>Placeholder.</p>' +
+        '<button type="button" data-opener>Open</button><input data-elsewhere aria-label="Elsewhere">';
+      document.body.append(panel);
+      const url = URL.createObjectURL(new Blob([src], { type: 'text/javascript' }));
+      const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+      const lane = (id, more) => ({
+        id,
+        label: id,
+        load: () => import(url),
+        context: async () => ({}),
+        unloaded: 'x',
+        ...more,
+      });
+      const slowLoad = (id) => lane(id, { load: () => wait(150).then(() => import(url)) });
+      const slowCtx = (id) => lane(id, { context: () => wait(150).then(() => ({})) });
+      const rec = (id) =>
+        window.__closer[id] || { mounts: 0, keys: [], ctxs: [], fields: [], unmounts: 0 };
+      const closeOf = (id) => (rec(id).ctxs[0] ? rec(id).ctxs[0].close() : null);
+      const opener = panel.querySelector('[data-opener]');
+      const elsewhere = panel.querySelector('[data-elsewhere]');
+      const where = () => {
+        const a = document.activeElement;
+        if (a === opener) return 'opener';
+        if (a === elsewhere) return 'elsewhere';
+        const h = a && a.closest && a.closest('[data-feature-host]');
+        if (h) return h.dataset.featureHost;
+        return !a || a === document.body ? 'body' : a.tagName;
+      };
+      const order = () =>
+        [...panel.querySelectorAll('[data-feature-host]')].map((n) => n.dataset.featureHost).join();
+      const settle = (p) => p.catch((e) => `threw: ${e.message}`);
+      const ended = (id) =>
+        rec(id).unmounts === 1 && !!rec(id).ctxs[0] && rec(id).ctxs[0].signal.aborted;
+      const tab = createHost(lane('tab'), panel);
+      await tab.show();
+      const slot = createOnDemand(panel);
+      // One lane, opened from a button.
+      opener.focus();
+      const one = {
+        returned: await settle(slot.open(lane('one'))),
+        order: order(),
+        mounts: rec('one').mounts,
+        focus: where(),
+        keys: rec('one').keys[0],
+      };
+      // Two lanes, which replace it.
+      opener.focus();
+      const two = {
+        returned: await settle(slot.open([lane('a'), lane('b')])),
+        order: order(),
+        focus: where(),
+        oneEnded: ended('one'),
+      };
+      // Overtaken while its first lane's module loads (at once), then while
+      // its ctx loads (50 ms in, of 150). Neither slow lane, nor the lane
+      // after it, may mount.
+      opener.focus();
+      const p1 = settle(slot.open([slowLoad('slowload'), lane('late')]));
+      const p2 = settle(slot.open(lane('c')));
+      const loading = { returned: [await p1, await p2] };
+      await wait(250);
+      Object.assign(loading, {
+        order: order(),
+        slow: rec('slowload').mounts,
+        late: rec('late').mounts,
+        focus: where(),
+      });
+      opener.focus();
+      const p3 = settle(slot.open([slowCtx('slowctx'), lane('later')]));
+      await wait(50); // its module is in; its ctx is not
+      const p4 = settle(slot.open(lane('d')));
+      const ctxing = { returned: [await p3, await p4] };
+      await wait(250);
+      Object.assign(ctxing, {
+        order: order(),
+        slow: rec('slowctx').mounts,
+        later: rec('later').mounts,
+        focus: where(),
+      });
+      // Closable lanes close back to the opener: alone, second of two, and
+      // to returnFocus.
+      opener.focus();
+      await settle(slot.open(lane('sheet', { closable: true })));
+      const sheet = { inside: where(), returned: closeOf('sheet') };
+      Object.assign(sheet, {
+        focus: where(),
+        order: order(),
+        placeholderHidden: panel.querySelector('[data-placeholder]').hidden,
+      });
+      opener.focus();
+      await settle(slot.open([lane('g'), lane('h', { closable: true })]));
+      if (rec('h').fields[0]) rec('h').fields[0].focus();
+      const second = { returned: closeOf('h') };
+      second.focus = where();
+      opener.focus();
+      await settle(slot.open(lane('sheet2', { closable: true }), { returnFocus: elsewhere }));
+      const explicit = { returned: closeOf('sheet2') };
+      explicit.focus = where();
+      // The shell's own close.
+      await settle(slot.open([lane('e'), lane('f')]));
+      slot.close();
+      const shut = { order: order(), ended: ended('e') && ended('f') };
+      tab.unmount();
+      panel.remove();
+      return { one, two, loading, ctxing, sheet, second, explicit, shut };
+    },
+    { hostUrl, src: CLOSER }
+  );
+}
+
+function demandVerdict(g) {
+  const settled = (v) => typeof v === 'boolean';
+  return {
+    opens:
+      g.one.returned === true &&
+      g.one.order === 'tab,one' &&
+      g.one.mounts === 1 &&
+      g.one.focus === 'one',
+    'opt-in': g.one.keys === 'announce,signal,storage',
+    replaces: g.two.oneEnded && !g.two.order.split(',').includes('one'),
+    'in order': g.two.returned === true && g.two.order === 'tab,a,b' && g.two.focus === 'a',
+    'overtaken while loading':
+      settled(g.loading.returned[0]) &&
+      g.loading.returned[1] === true &&
+      g.loading.slow === 0 &&
+      g.loading.focus === 'c',
+    'overtaken while its ctx loads':
+      settled(g.ctxing.returned[0]) &&
+      g.ctxing.returned[1] === true &&
+      g.ctxing.slow === 0 &&
+      g.ctxing.focus === 'd',
+    'stops when overtaken':
+      g.loading.returned[0] === false &&
+      g.loading.late === 0 &&
+      g.loading.order === 'tab,c' &&
+      g.ctxing.returned[0] === false &&
+      g.ctxing.later === 0 &&
+      g.ctxing.order === 'tab,d',
+    'closes to the opener':
+      g.sheet.inside === 'sheet' &&
+      g.sheet.returned === true &&
+      g.sheet.focus === 'opener' &&
+      g.sheet.order === 'tab' &&
+      g.sheet.placeholderHidden &&
+      g.second.returned === true &&
+      g.second.focus === 'opener',
+    returnFocus: g.explicit.returned === true && g.explicit.focus === 'elsewhere',
+    'shell close': g.shut.order === 'tab' && g.shut.ended,
+  };
+}
+
+// The suites: each runs on host.js as committed, once per variant, then on
+// each of its planted defects, which must fail its check in every variant.
+const SUITES = [
+  {
+    label: 'close',
+    variants: ['button', 'escape'],
+    run: closeRun,
+    verdict: closeVerdict,
+    mutants: CLOSE_MUTANTS,
+  },
+  {
+    label: 'on demand',
+    variants: [null],
+    run: demandRun,
+    verdict: demandVerdict,
+    mutants: DEMAND_MUTANTS,
+  },
+];
+const ALL_MUTANTS = SUITES.flatMap((s) => Object.keys(s.mutants));
 let planted = 0;
 async function closing(browser, srv) {
   const { context, page, errors } = await newPage(browser, srv);
@@ -2017,33 +2271,40 @@ async function closing(browser, srv) {
       })
   );
   await page.goto(`${srv.url}/prototype/#map`);
-  const names = new Set();
-  for (const via of VIAS) {
-    const got = await closeRun(page, '/prototype/host.js', via);
-    for (const [check, ok] of Object.entries(closeVerdict(got))) {
-      names.add(check);
-      expect(ok, `close (${via}): ${check} failed on host.js: ${JSON.stringify(got)}`);
+  expect(
+    new Set(ALL_MUTANTS).size === ALL_MUTANTS.length,
+    'close: two planted defects share a name'
+  );
+  for (const suite of SUITES) {
+    const tag = (v) => (v ? `${suite.label} (${v})` : suite.label);
+    const names = new Set();
+    for (const v of suite.variants) {
+      const got = await suite.run(page, '/prototype/host.js', v);
+      for (const [check, ok] of Object.entries(suite.verdict(got))) {
+        names.add(check);
+        expect(ok, `${tag(v)}: ${check} failed on host.js: ${JSON.stringify(got)}`);
+      }
     }
-  }
-  expect(!errors.length, `close: uncaught errors: ${errors.join(' | ')}`);
-  // Every check has a planted defect of its own.
-  const planting = new Set(Object.values(CLOSE_MUTANTS).map((m) => m.check));
-  for (const check of names)
-    expect(planting.has(check), `close: the ${check} check has no planted defect`);
-  for (const [name, { check, edits }] of Object.entries(CLOSE_MUTANTS)) {
-    const src = plant(edits);
-    expect(!!src, `close: the planted defect "${name}" no longer applies to host.js`);
-    if (!src) continue;
-    mutants.set(name, src);
-    const hostUrl = `/prototype/host.js?mutant=${encodeURIComponent(name)}`;
-    const missed = [];
-    for (const via of VIAS)
-      if (closeVerdict(await closeRun(page, hostUrl, via))[check]) missed.push(via);
-    expect(
-      !missed.length,
-      `close: with the planted defect "${name}", the ${check} check still passes (${missed.join(', ')})`
-    );
-    if (!missed.length) planted++;
+    expect(!errors.length, `${suite.label}: uncaught errors: ${errors.join(' | ')}`);
+    // Every check has a planted defect of its own.
+    const planting = new Set(Object.values(suite.mutants).map((m) => m.check));
+    for (const check of names)
+      expect(planting.has(check), `${suite.label}: the ${check} check has no planted defect`);
+    for (const [name, { check, edits }] of Object.entries(suite.mutants)) {
+      const src = plant(edits);
+      expect(!!src, `${suite.label}: the planted defect "${name}" no longer applies to host.js`);
+      if (!src) continue;
+      mutants.set(name, src);
+      const hostUrl = `/prototype/host.js?mutant=${encodeURIComponent(name)}`;
+      const missed = [];
+      for (const v of suite.variants)
+        if (suite.verdict(await suite.run(page, hostUrl, v))[check]) missed.push(tag(v));
+      expect(
+        !missed.length,
+        `${suite.label}: with the planted defect "${name}", the ${check} check still passes (${missed.join(', ')})`
+      );
+      if (!missed.length) planted++;
+    }
   }
   await context.close();
 }
@@ -2535,7 +2796,7 @@ async function discoveryChecks(browser, srv) {
     process.exit(1);
   }
   console.log(
-    `check_prototype_hosts: ${checks}/${checks} checks pass; ${planted}/${Object.keys(CLOSE_MUTANTS).length} planted host.js defects fail their checks`
+    `check_prototype_hosts: ${checks}/${checks} checks pass; ${planted}/${ALL_MUTANTS.length} planted host.js defects fail their checks`
   );
 })().catch((e) => {
   console.error(e);

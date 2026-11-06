@@ -84,27 +84,35 @@ export function createHost(lane, panel) {
     (hosts.length ? hosts[hosts.length - 1] : panel.querySelector('h1')).after(host);
   }
 
+  // A host unmounted while its lane loads (an on-demand lane opened again
+  // before the first had arrived) stops at the next await: `node` is no
+  // longer its node, so nothing is mounted or explained into a removed host.
   async function mountNow() {
     place();
-    explain(host, `Loading ${lane.label}…`);
+    const node = host;
+    explain(node, `Loading ${lane.label}…`);
     let mod;
     try {
       mod = await lane.load();
     } catch {
+      if (host !== node) return;
       state = 'unavailable';
-      explain(host, `${lane.label} isn’t part of this build of the prototype yet.`);
+      explain(node, `${lane.label} isn’t part of this build of the prototype yet.`);
       return;
     }
+    if (host !== node) return; // unmounted while the module loaded
     await attach(mod, false);
   }
 
   // The lane's ctx, then mount. `again` is a Retry: focus follows the person,
   // into the lane when it mounts, or back to Retry when it fails again.
   async function attach(mod, again) {
+    const node = host;
     let extra;
     try {
       extra = (await lane.context()) || {};
     } catch {
+      if (host !== node) return;
       state = 'unavailable';
       const sentence = `${lane.unloaded} ${RETRY_HINT}`;
       explain(host, sentence, () => {
@@ -119,6 +127,7 @@ export function createHost(lane, panel) {
       }
       return;
     }
+    if (host !== node) return; // unmounted while its ctx loaded
     host.replaceChildren(); // the lane receives an empty host
     const mine = new AbortController();
     controller = mine;
@@ -200,6 +209,51 @@ export function createHost(lane, panel) {
     },
     unmount() {
       teardown();
+    },
+  };
+}
+
+// On-demand lanes (#665 B0-3): a lane no tab shows (a dialog, a sheet, an
+// overlay, the reader), which an action opens in a panel. Generalised from
+// app.js's openReader:
+//
+//   const slot = createOnDemand(panel);
+//   await slot.open(lanes, { returnFocus }) → true, or false if overtaken
+//   slot.close()
+//
+// open() takes one lane or several, in order, as the registry describes
+// them (closable: true for one that closes itself). It unmounts whatever the
+// slot holds, mounts each lane in turn after the panel's last lane, and puts
+// focus in the first once it is mounted. A closable lane's ctx.close() then
+// returns focus to returnFocus, else to what had focus when open() was
+// called. An open() overtaken by a later open() or close() stops where it
+// is: it mounts nothing more, moves no focus and resolves false. close() is
+// the shell's own: it unmounts every lane the slot holds.
+export function createOnDemand(panel) {
+  let held = [];
+  let turn = 0;
+  const clear = () => {
+    for (const h of held.slice().reverse()) h.unmount();
+    held = [];
+  };
+  return {
+    async open(lanes, { returnFocus } = {}) {
+      const back = returnFocus || document.activeElement;
+      const mine = ++turn;
+      clear(); // what was open goes first
+      const list = [].concat(lanes);
+      const hosts = list.map((l) => createHost(l, panel));
+      held = hosts;
+      for (const [i, h] of hosts.entries()) {
+        await h.show({ returnFocus: back });
+        if (mine !== turn) return false;
+        if (i === 0) h.focus();
+      }
+      return true;
+    },
+    close() {
+      turn++;
+      clear(); // the shell's own close
     },
   };
 }
