@@ -387,7 +387,7 @@ export function admitLyricCall(name, args = {}) {
   if (!String(name).startsWith('lyric_')) return null;
   // An export reads a held journal and queues no recognition.
   if (name === 'lyric_revise' && args.recover_only === true) return null;
-  return admitRecognitionArgs(withCarriedRun(name, args));
+  return admitRecognitionArgs(withCarriedRun(name, args), { tool: name });
 }
 function withCarriedRun(name, args) {
   if (name !== 'lyric_revise' || args.new_run || typeof args.run_id !== 'string') return args;

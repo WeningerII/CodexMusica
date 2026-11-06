@@ -216,23 +216,37 @@ The checks run in this order:
    500 blank rows and one sung line make one line, `L001`.
 2. **`meter_line_digits`.** A sung line may have at most 301 syllable digits,
    floor(1.5 × 201).
-3. **`meter_request_digits`.** A line set may have at most 139,363 digits in
-   total (463 × 301).
+3. **`meter_request_digits`.** One request may carry at most 139,363 digits in
+   total (463 × 301): the draft once, at the largest of its spellings (the
+   call's own draft and a continuation's `input_draft` and `accepted_lines`
+   are one song), plus a `blueprint`'s lines, `lyric_verify`'s `before` and
+   `after`, and `lyric_recover`'s rows, added together.
 
 **What counts as a line set.** Each of the following is one line set:
 
 - `draft`, `draft_text`, `lines`, `lines_text`, `before`, `after` and the text
   twins of `before` and `after`;
 - a `state` or `checkpoint` continuation's `input_draft` and `accepted_lines`;
-- a declared `blueprint`'s line texts.
+- a declared `blueprint`'s line texts;
+- for `lyric_recover`, the rows of `lines` or `lines_text` as the source reader
+  is handed them. That reader sets apparatus rows aside and resolves bracket
+  spans before it numbers the sung lines, so a refusal there names the row
+  (`row 3`), not an L id;
+- every distinct line a pronunciation declares that could be sung (at most
+  200 characters, one row), checked against the per-line cap only. The harness
+  keeps a declaration whose line is in no draft (it reports it stale), and an
+  answer or a source reading can make that line sung later, so it is measured
+  even when no draft holds it.
 
-A revision's answered lines are not a separate line set. Each one replaces a
-line of a draft that was already admitted, and an answer over 200 characters
-is refused before any work.
+A revision's answered lines are not a separate line set. An undeclared answer
+over 200 characters is refused before any work, and a declared one is measured
+as a declared line.
 
 **How a line's digits are counted.** The figure is an upper bound computed
-without the lexicon. It is the stressed vowels of each reading the call
-declares for one of the line's tokens, plus 1.5 digits per unit for the rest. A
+without the lexicon. It is the stressed vowels of every reading the call
+declares on the line, plus 1.5 digits per unit for the rest. Declarations are
+not merged by `token` number: one number under two `numbering` values names
+two tokens, and the harness applies both. A
 unit is one character, or the separator that ends a token.
 
 - No token the reader can produce reads more than 1.5 digits per unit, so a

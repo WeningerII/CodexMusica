@@ -24,9 +24,17 @@ import {
   admitRecognitionArgs,
   recognitionInputOf,
 } from './meter_admission.js';
-import { MAX_LINES, readerPythonBridge, _argvInternals, takeLines } from './lyric_tools.js';
+import {
+  MAX_LINES,
+  readerPythonBridge,
+  _argvInternals,
+  takeLines,
+  admitLyricCall,
+  RUNS,
+} from './lyric_tools.js';
 import { buildServer } from './tools.js';
-import { encodeState } from './state_codec.js';
+import { encodeState, continuationSemanticIdentity } from './state_codec.js';
+import { requestContext } from './execution_context.js';
 import { draftFromText } from './lyric_text.js';
 
 // ── the values and their derivation ──────────────────────────────────────
@@ -79,13 +87,58 @@ test('a declared line: the stressed vowels of each declared reading plus 1.5 per
       .declared_digits,
     1
   );
-  // One reading per token: a duplicate is counted once, at its largest.
+  // Every row counts: a true duplicate (refused by the harness anyway) adds
+  // its vowels, and its word leaves the undeclared rest only once.
   const dup = lineDigitBound(text, [
     { index: 1, line: text, token: 1, word: 'zyx', phones: ['AH1'] },
     { index: 2, line: text, token: 1, word: 'zyx', phones: ['AH1', 'AH0'] },
   ]);
-  assert.equal(dup.declared_digits, 2);
+  assert.equal(dup.declared_digits, 3);
   assert.equal(dup.undeclared_units, units - 4);
+  assert.deepEqual(
+    dup.contributing.map((c) => c.p),
+    [1, 2]
+  );
+  // An opening quotation mark is not a character of the declared token.
+  const quoted = '‘zyx and the sea';
+  const q = lineDigitBound(quoted, [
+    { index: 1, line: quoted, token: 1, word: '‘zyx', phones: ['AH1'] },
+  ]);
+  assert.equal(q.undeclared_units, [...quoted].length + 1 - 4);
+});
+
+test('declarations are not merged by token number: one number under two numberings is two tokens', () => {
+  // Reviewer A's line. Under v1 its tokens are `U--h Lawdy U--h Lawdy`; under
+  // v2 `U h Lawdy U h Lawdy`. The harness maps each row through its own
+  // numbering (pronunciation.numbered_token) and accepts all four rows, as
+  // v2 tokens 3, 2, 6 and 4: 512 declared digits.
+  const line = 'U--h Lawdy U--h Lawdy';
+  const rows = [
+    [2, 'v1', 'Lawdy'],
+    [2, 'v2', 'h'],
+    [4, 'v1', 'Lawdy'],
+    [4, 'v2', 'U'],
+  ].map(([token, numbering, word]) => ({ ...decl(line, 128, token, word), numbering }));
+  const b = lineDigitBound(
+    line,
+    rows.map((r, i) => ({ index: i + 1, ...r }))
+  );
+  assert.equal(b.declared_digits, 512);
+  assert.deepEqual(
+    b.contributing.map((c) => c.p),
+    [1, 2, 3, 4]
+  );
+  // 22 units less the four declared tokens' (6 + 2 + 6 + 2).
+  assert.equal(b.undeclared_units, 6);
+  assert.equal(b.bound, 521);
+  assert.throws(
+    () => admitRecognitionArgs({ draft: [line], pronunciations: rows }),
+    (e) =>
+      e.cause === 'meter_line_digits' &&
+      /L001 of `draft` could reach 521 .*\(P001 128, P002 128, P003 128, P004 128: 512 digits\)/.test(
+        e.message
+      )
+  );
 });
 
 // ── fixtures ─────────────────────────────────────────────────────────────
@@ -120,17 +173,24 @@ const rowsText = (n) => '\n'.repeat(n - 1) + 'the only sung line';
 // line at one digit is one over it (only a continuation or a blueprint can
 // carry more than 463 lines past the schema).
 const AT_REQUEST = Array(MAX_LINES).fill(WITNESS);
+// The blueprint path also carries its one draft line (`a quiet line`, 19):
+// 462 × 301 + 282 + 19 is the request cap exactly.
+const DRAFT_LINE = 'a quiet line';
+assert.equal(lineDigitBound(DRAFT_LINE).bound, 19);
+const AT_REQUEST_BESIDE_DRAFT = [...Array(MAX_LINES - 1).fill(WITNESS), 'a'.repeat(187)];
+assert.equal(lineDigitBound('a'.repeat(187)).bound, 282);
 const OVER_REQUEST = [...AT_REQUEST, 'a'];
 const OVER_REQUEST_DECL = [{ ...decl('a', 1, 1, 'a') }];
 
 const stateWire = (lines) =>
   encodeState({ version: 1, input_draft: lines, interview: true, connector_declarations: {} });
-const checkpointWire = (lines) =>
+const checkpointWire = (lines, extra = {}) =>
   encodeState({
     version: 1,
     input_draft: lines,
     accepted_lines: lines,
     answered: { propose: [], propose_group: [] },
+    ...extra,
   });
 const blueprintOf = (lines) =>
   JSON.stringify({
@@ -181,7 +241,7 @@ const RAW_PATHS = {
   blueprint: (lines, pronunciations) => [
     'lyric_check',
     {
-      lines: ['a quiet line'],
+      lines: [DRAFT_LINE],
       scheme: 'X',
       blueprint: blueprintOf(lines),
       subdivision: 2,
@@ -189,6 +249,12 @@ const RAW_PATHS = {
     },
   ],
 };
+// The id a refusal names for the one line of each path: the normalised
+// sung-line index, except lyric_recover, whose source reader numbers its sung
+// lines after setting apparatus rows aside, so its refusal names the row.
+const LINE_ID = (path) =>
+  path === 'recover lines_text' ? 'The line at row 1 of `lines_text`' : 'L001 of `[^`]+`';
+const AT_REQUEST_FOR = (path) => (path === 'blueprint' ? AT_REQUEST_BESIDE_DRAFT : AT_REQUEST);
 // The array paths cannot carry more than MAX_LINES items or a 201-character
 // item: the published schema refuses them before any handler. Their raw-row
 // and request caps are therefore reached only through the paths that can.
@@ -251,7 +317,9 @@ test('every raw path: at the cap admitted, one over refused with RESOURCE_LIMIT 
       refused(over, 'meter_line_digits', path, 'line over cap');
       assert.match(
         over.text,
-        /L001 of `[^`]+` could reach 302 syllable digits under its declared readings \(P001 4: 4 digits\)/
+        new RegExp(
+          `${LINE_ID(path)}.*? could reach 302 syllable digits under its declared readings \\(P001 4: 4 digits\\)`
+        )
       );
       assert.match(over.text, /the per-line cap is 301/);
       assert.doesNotMatch(over.text, /\bhas 302\b/);
@@ -267,7 +335,7 @@ test('every raw path: at the cap admitted, one over refused with RESOURCE_LIMIT 
       }
       if (!SCHEMA_BOUND.has(path) && !TEXT_BOUND.has(path)) {
         // Per request: 463 × 301 admitted, one digit more refused.
-        admitted(await call(path, AT_REQUEST), path, 'request at cap');
+        admitted(await call(path, AT_REQUEST_FOR(path)), path, 'request at cap');
         refused(
           await call(path, OVER_REQUEST, OVER_REQUEST_DECL),
           'meter_request_digits',
@@ -324,6 +392,18 @@ test('one decision rule: a line whose bound is over the cap but whose count is n
       const [name, args] = RAW_PATHS[path]([BOUND_ONLY], BOUND_ONLY_DECL);
       const r = await client.callTool({ name, arguments: args });
       const text = textOf(r);
+      if (path === 'recover lines_text') {
+        // The same bound and wording; the row, not an L id (see LINE_ID).
+        assert.match(
+          text,
+          new RegExp(
+            `RESOURCE_LIMIT: meter_line_digits — The line at row 1 of \`lines_text\` .*? could reach ${boundOnly} `
+          ),
+          text
+        );
+        assert.equal(r.isError, true);
+        continue;
+      }
       const m = text.match(
         /RESOURCE_LIMIT: meter_line_digits — (L\d{3}) of `[^`]+` (could reach [\d,]+ syllable digits under its declared readings \(P001 128: 128 digits\) and 1\.5 digits per unit for its [\d,]+ undeclared units; the per-line cap is 301\.)/
       );
@@ -392,7 +472,7 @@ test('the line sets are what the handler reads, continuations and declarations i
   const fromState = recognitionInputOf({ state: encodeState(held) });
   assert.deepEqual(
     fromState.sets.map((s) => s.name),
-    ['state.input_draft']
+    ['state.input_draft', 'pronunciations']
   );
   assert.equal(fromState.declarations.length, 1);
   assert.throws(() => admitRecognitionArgs({ state: encodeState(held) }), /meter_line_digits/);
@@ -401,8 +481,263 @@ test('the line sets are what the handler reads, continuations and declarations i
   // `lines` as a count (the planning tools) is not a line set.
   assert.deepEqual(recognitionInputOf({ lines: 12 }).sets, []);
   // A revision's answers are not a line set: ANSWER_TOO_LONG and the
-  // `answers` schema refuse them at 200 characters first.
+  // `answers` schema refuse them at 200 characters first, and a declared one
+  // is measured as a declared line (below).
   assert.deepEqual(recognitionInputOf({ answer: 'x'.repeat(201) }).sets, []);
+  const refusedCause = (args) => {
+    try {
+      admitRecognitionArgs(args);
+      return null;
+    } catch (e) {
+      return e.cause;
+    }
+  };
+  // A checkpoint: only accepted_lines over a cap still refuses (its rows,
+  // which no declaration can stand in for).
+  assert.equal(
+    refusedCause({
+      checkpoint: encodeState({
+        version: 1,
+        input_draft: [DRAFT_LINE],
+        accepted_lines: rowsText(RAW_ROWS_CAP + 1).split('\n'),
+        answered: { propose: [], propose_group: [] },
+      }),
+    }),
+    'raw_rows'
+  );
+  // Every spelling of a row break counts: a lone \r, and a break inside one
+  // array item (which the handler refuses later by name).
+  assert.equal(refusedCause({ lines_text: 'a\r'.repeat(RAW_ROWS_CAP) + 'a' }), 'raw_rows');
+  assert.equal(refusedCause({ state: stateWire(['a\n'.repeat(RAW_ROWS_CAP) + 'a']) }), 'raw_rows');
+  // A checkpoint's own carried declarations count when the call sends none.
+  assert.equal(
+    refusedCause({
+      checkpoint: checkpointWire([WITNESS], {
+        connector_declarations: { pronunciations: OVER_LINE },
+      }),
+    }),
+    'meter_line_digits'
+  );
+  // lyric_verify's arrays are line sets as their text twins are.
+  for (const field of ['before', 'after']) {
+    const other = field === 'before' ? 'after' : 'before';
+    assert.throws(
+      () =>
+        admitRecognitionArgs({
+          [field]: [WITNESS],
+          [other]: [DRAFT_LINE],
+          pronunciations: OVER_LINE,
+        }),
+      new RegExp(`meter_line_digits — L001 of \`${field}\``)
+    );
+  }
+});
+
+test('a declared line in no draft is measured: an answer cannot carry it past the per-line cap', async () => {
+  // The harness keeps a declaration whose exact line is in no draft (it is
+  // reported stale) and the revise loop reads an answer under it, by text.
+  const absent = [decl(WITNESS, 128)];
+  for (const args of [
+    { draft: [DRAFT_LINE, 'a second line'], pronunciations: absent },
+    { draft: [DRAFT_LINE], pronunciations: absent, answer: WITNESS },
+    { draft: [DRAFT_LINE], pronunciations: absent, answers: [{ line: 1, text: WITNESS }] },
+  ])
+    assert.throws(
+      () => admitLyricCall('lyric_revise', args),
+      (e) =>
+        e.cause === 'meter_line_digits' &&
+        /The line that P001 declares readings for is in no line set of this call, but an answer or a source reading can make it a sung line, and it could reach 426 /.test(
+          e.message
+        ),
+      JSON.stringify(Object.keys(args))
+    );
+  // Reviewer A's answer: three 128-vowel rows on the answer's text.
+  const answer = 'a a a';
+  assert.throws(
+    () =>
+      admitLyricCall('lyric_revise', {
+        draft: ['one two', 'three four'],
+        answer,
+        pronunciations: [1, 2, 3].map((t) => decl(answer, 128, t, 'a')),
+      }),
+    /meter_line_digits — The line that P001, P002, P003 declare readings for .* could reach 384 /
+  );
+  // A declared line no tool could ever sing (over 200 code points, or more
+  // than one row) is not a sung line, so it is not measured.
+  assert.doesNotThrow(() =>
+    admitRecognitionArgs({ draft: [DRAFT_LINE], pronunciations: [decl('w '.repeat(101), 128)] })
+  );
+  // On the raw engine the wrapper refuses it before the queue.
+  const { client, close } = await rawClient();
+  const queue = watchQueue();
+  try {
+    const r = await client.callTool({
+      name: 'lyric_check',
+      arguments: { lines: [DRAFT_LINE, 'a second line'], scheme: 'AA', pronunciations: absent },
+    });
+    assert(r.isError);
+    assert.match(textOf(r), /RESOURCE_LIMIT: meter_line_digits — The line that P001 declares/);
+    assert.equal(queue.count, 0);
+  } finally {
+    queue.restore();
+    await close();
+  }
+});
+
+test('lyric_recover: rows are measured as the source reader is handed them, and named by row', () => {
+  const ph = (t, line) => decl(line, 128, t, 'a');
+  const sung = 'a a a';
+  // Apparatus rows before the line: the refusal names row 3, not an L id the
+  // source reader (which sets those rows aside) would not give.
+  assert.throws(
+    () =>
+      admitLyricCall('lyric_recover', {
+        lines: ['# credits', '---', sung],
+        pronunciations: [1, 2, 3].map((t) => ph(t, sung)),
+      }),
+    /meter_line_digits — The line at row 3 of `lines` \(lyric_recover numbers its sung lines after setting apparatus rows aside, so the row is named\) could reach 384 /
+  );
+  // A declaration on the line as the source reader reads it (a bracket span
+  // resolved) is measured as a declared line.
+  const read = 'cafē a a a';
+  assert.throws(
+    () =>
+      admitLyricCall('lyric_recover', {
+        lines: ['---', 'caf[=e] a a a'],
+        pronunciations: [2, 3, 4].map((t) => ph(t, read)),
+      }),
+    /meter_line_digits — The line that P001, P002, P003 declare readings for .* could reach 391 /
+  );
+  // The same declarations on lyric_check, where the line is in the draft.
+  assert.throws(
+    () =>
+      admitLyricCall('lyric_check', {
+        lines: [read],
+        pronunciations: [2, 3, 4].map((t) => ph(t, read)),
+      }),
+    /meter_line_digits — L001 of `lines` could reach 391 /
+  );
+  // Blank rows of the paste are not measured lines; rows are still counted.
+  const m = admitLyricCall('lyric_recover', { lines_text: '[Verse]\n\nthe line\n' });
+  assert.equal(m[0].rows, 4);
+  assert.deepEqual(
+    m[0].lines.map((l) => l.id),
+    ['row 1', 'row 3']
+  );
+});
+
+test('one total per request: the draft once, every other song the request carries added', () => {
+  const cause = (args, tool) => {
+    try {
+      admitLyricCall(tool, args);
+      return null;
+    } catch (e) {
+      return e.cause;
+    }
+  };
+  // Reviewer B: 463 × 301 as lines AND as the blueprint is 278,726 digits.
+  assert.equal(
+    cause({ lines: AT_REQUEST, scheme: 'X', blueprint: blueprintOf(AT_REQUEST) }, 'lyric_check'),
+    'meter_request_digits'
+  );
+  // lyric_verify's two songs are one request.
+  assert.equal(
+    cause({ before: AT_REQUEST, after: AT_REQUEST, scheme: 'X' }, 'lyric_verify'),
+    'meter_request_digits'
+  );
+  assert.equal(
+    cause({ before: AT_REQUEST_BESIDE_DRAFT, after: [DRAFT_LINE], scheme: 'X' }, 'lyric_verify'),
+    null
+  );
+  // The draft's spellings are one song: a continuation's input_draft and
+  // accepted_lines beside the call's own draft count once, at the largest.
+  assert.equal(
+    cause(
+      {
+        draft: AT_REQUEST,
+        checkpoint: checkpointWire(AT_REQUEST),
+        state: stateWire(AT_REQUEST),
+      },
+      'lyric_revise'
+    ),
+    null
+  );
+  assert.throws(
+    () => admitLyricCall('lyric_check', { lines: AT_REQUEST, blueprint: blueprintOf(AT_REQUEST) }),
+    /the lines this call carries for recognition \(`lines` 463 lines, 139,363; `blueprint.lines` 463 lines, 139,363\) could reach 278,726 syllable digits together; the per-request cap is 139,363\./
+  );
+});
+
+test('a run this process holds is measured with what it carries in; an export is not measured', async () => {
+  const rec = RUNS.put('admission-test', {
+    draft: [WITNESS],
+    decl: { pronunciations: OVER_LINE },
+  });
+  try {
+    assert.throws(
+      () =>
+        admitLyricCall('lyric_revise', {
+          run_id: rec.run_id,
+          run_revision: rec.revision,
+          answer: DRAFT_LINE,
+        }),
+      /meter_line_digits — L001 of `draft` could reach 302 /
+    );
+    // A checkpoint run carries its replay_draft, not the displayed draft.
+    const replayed = RUNS.put('admission-test-replay', {
+      draft: [DRAFT_LINE],
+      replay_draft: rowsText(RAW_ROWS_CAP + 1).split('\n'),
+    });
+    try {
+      assert.throws(
+        () =>
+          admitLyricCall('lyric_revise', {
+            run_id: replayed.run_id,
+            run_revision: replayed.revision,
+            answer: DRAFT_LINE,
+          }),
+        /RESOURCE_LIMIT: raw_rows — `draft` has 1,390 raw rows/
+      );
+    } finally {
+      RUNS.del(replayed.run_id);
+    }
+    const { client, close } = await rawClient();
+    const queue = watchQueue();
+    try {
+      const r = await client.callTool({
+        name: 'lyric_revise',
+        arguments: { run_id: rec.run_id, run_revision: rec.revision, answer: DRAFT_LINE },
+      });
+      assert.match(textOf(r), /RESOURCE_LIMIT: meter_line_digits/);
+      assert.equal(queue.count, 0);
+      // recover_only exports a held journal and queues no recognition: an
+      // over-cap wire is still exported, so a legacy run stays recoverable.
+      const wire = stateWire([WITNESS]);
+      assert.equal(
+        admitLyricCall('lyric_revise', {
+          recover_only: true,
+          state: wire,
+          pronunciations: OVER_LINE,
+        }),
+        null
+      );
+      const exported = await client.callTool({
+        name: 'lyric_revise',
+        arguments: {
+          recover_only: true,
+          state: checkpointWire([WITNESS], {
+            connector_declarations: { pronunciations: OVER_LINE },
+          }),
+        },
+      });
+      assert.doesNotMatch(textOf(exported), /RESOURCE_LIMIT/);
+    } finally {
+      queue.restore();
+      await close();
+    }
+  } finally {
+    RUNS.del(rec.run_id);
+  }
 });
 
 // ── /mcp: the session endpoint refuses before submit queues anything ─────
@@ -469,7 +804,7 @@ test('/mcp: every cap refuses before submit queues an operation; at the cap the 
       {
         name: 'lyric_check',
         arguments: {
-          lines: ['a quiet line'],
+          lines: [DRAFT_LINE],
           scheme: 'X',
           blueprint: blueprintOf(OVER_REQUEST),
           subdivision: 2,
@@ -485,7 +820,12 @@ test('/mcp: every cap refuses before submit queues an operation; at the cap the 
   for (const args of [
     { lines: [WITNESS], scheme: 'X', pronunciations: AT_LINE },
     { lines_text: rowsText(RAW_ROWS_CAP), scheme: 'X' },
-    { lines: ['a quiet line'], scheme: 'X', blueprint: blueprintOf(AT_REQUEST), subdivision: 2 },
+    {
+      lines: [DRAFT_LINE],
+      scheme: 'X',
+      blueprint: blueprintOf(AT_REQUEST_BESIDE_DRAFT),
+      subdivision: 2,
+    },
   ]) {
     const h = await sessionHarness();
     try {
@@ -500,4 +840,67 @@ test('/mcp: every cap refuses before submit queues an operation; at the cap the 
       await h.close();
     }
   }
+});
+
+// ── /mcp: a continuation is measured with the run the session carries ────
+test('/mcp: a revision continuation and a resume are refused with their carried run, nothing queued', async () => {
+  const { JobStore } = await import('./job_store.js');
+  const { WorkflowSessions } = await import('./workflow_sessions.js');
+  const executed = [];
+  let mode = 'suspend';
+  const sessions = new WorkflowSessions({
+    store: new JobStore(),
+    execute: async (session, name) => {
+      executed.push(name);
+      if (mode === 'suspend') {
+        // The engine's answer: a suspended run whose carried args hold the
+        // over-cap line and its declaration.
+        const next = structuredClone(session);
+        next.native.continuation = {
+          seed: 1,
+          args: { draft: [WITNESS], pronunciations: OVER_LINE },
+        };
+        return { session: next, result: { content: [{ type: 'text', text: '{}' }] } };
+      }
+      // An interrupted revision with a resumable checkpoint.
+      requestContext().onCheckpoint({
+        status: 'suspended',
+        input_draft: [WITNESS],
+        accepted_lines: [WITNESS],
+        answered: { propose: [], propose_group: [] },
+        connector_declarations: { seed: 1, pronunciations: OVER_LINE },
+        connector_semantic_identity: continuationSemanticIdentity(),
+      });
+      throw new Error('worker lost');
+    },
+  });
+  const settle = () => Promise.all([...sessions.active.values()]);
+  const open = () => sessions.open('lyrics', { phase: 'edit' }).session_id;
+  const first = sessions.submit(open(), 'lyrics', 'lyric_revise', {
+    draft: [DRAFT_LINE],
+    scheme: 'X',
+  });
+  await settle();
+  assert.throws(
+    () => sessions.submit(first.operation_id, 'lyrics', 'lyric_revise', { answer: DRAFT_LINE }),
+    (e) =>
+      e.code === 'RESOURCE_LIMIT' &&
+      /meter_line_digits — L001 of `draft` could reach 302 /.test(e.message)
+  );
+  assert.equal(sessions.queued.size, 0);
+  assert.deepEqual(executed, ['lyric_revise']);
+  mode = 'interrupt';
+  const second = sessions.submit(open(), 'lyrics', 'lyric_revise', {
+    draft: [DRAFT_LINE],
+    scheme: 'X',
+  });
+  await settle();
+  assert.equal(sessions.status(second.operation_id, 'lyrics').resumable, true);
+  assert.throws(
+    () => sessions.resume(second.operation_id, 'lyrics'),
+    (e) => e.code === 'RESOURCE_LIMIT' && /meter_line_digits/.test(e.message)
+  );
+  assert.equal(sessions.queued.size, 0);
+  assert.equal(sessions.active.size, 0);
+  assert.deepEqual(executed, ['lyric_revise', 'lyric_revise']);
 });

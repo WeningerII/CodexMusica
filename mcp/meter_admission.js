@@ -13,7 +13,7 @@
 //   meter_line_digits    METER_LINE_DIGITS_CAP = floor(1.5 × (200 + 1)) = 301
 //                        syllable digits per normalised line.
 //   meter_request_digits METER_REQUEST_DIGITS_CAP = 463 × 301 = 139,363 digits over
-//                        one line set's normalised lines.
+//                        the normalised lines of one request (below).
 //
 // ONE DECISION RULE ON EVERY PATH (BB8 condition 1). A line's digit figure is
 // an UPPER BOUND computed here, in Node, without the lexicon: the stressed
@@ -27,19 +27,42 @@
 // refusal says the line COULD REACH the figure, never that it has it. No
 // other path counts digits another way.
 //
+// EVERY DECLARATION COUNTS. Declarations are not merged by their `token`
+// number: the harness maps each row's token through its own `numbering`
+// (`pronunciation.numbered_token`), so one raw number can name two different
+// tokens and both rows are applied. The bound sums the stressed vowels of
+// every row on the line and takes a declared word's units out of the
+// undeclared rest once per (numbering, token); a true duplicate is refused
+// by the harness anyway, so summing it can only overcount a request that
+// fails regardless.
+//
 // CHECK ORDER (BB8): raw rows for every line set first, the cheapest check and
-// the one that bounds the rest; then every normalised line; then each line
-// set's total.
+// the one that bounds the rest; then every normalised line; then the
+// request's total.
 //
 // A LINE SET is one sequence of lines the recognizer would read: `draft`,
 // `draft_text`, `lines`, `lines_text`, `before`/`after` and their text twins,
 // a continuation's `input_draft` and `accepted_lines`, and a declared
-// blueprint's line texts. A revision's `answer`/`answers` are not a set: each
-// replaces one line of a draft that was admitted, and each is refused at 200
-// characters before any work (ANSWER_TOO_LONG and the `answers` schema), so it
-// stays inside the per-line cap undeclared. The per-request cap applies to
-// each set: two sets of one request (lyric_verify's `before` and `after`) are
-// two songs, each inside the cap.
+// blueprint's line texts. lyric_recover reads its paste as SOURCE (apparatus
+// rows set aside, bracket spans resolved), so its rows are measured as rows
+// and a refusal names the row, never an L id the harness would not give.
+//
+// DECLARED LINES. A declaration binds by exact line text, and the harness
+// keeps one whose line is in no draft (it is reported stale, not refused); a
+// revision's answer, or the source reading of a recovered row, can make that
+// text a sung line later. So every distinct declared line that could ever be
+// sung (at most 200 code points, one row) is also measured, against the
+// per-line cap only: with every line that can be sung at or under 301 and at
+// most 463 of them, no request passes 139,363 that way. A revision's
+// `answer`/`answers` then need no set of their own: an undeclared answer is
+// refused at 200 characters (ANSWER_TOO_LONG and the `answers` schema) and so
+// stays inside the cap, and a declared one is a declared line.
+//
+// ONE TOTAL PER REQUEST. The per-request cap is over every line the request
+// carries for recognition: the draft (whichever of its spellings is largest,
+// since a continuation's input_draft and accepted_lines and the call's own
+// draft are one song read once), plus a blueprint's lines, lyric_verify's
+// `before` and `after`, and lyric_recover's rows, summed.
 
 import { draftFromText, normalizeDraftLines } from './lyric_text.js';
 import { decodeState } from './state_codec.js';
@@ -110,25 +133,25 @@ export class AdmissionRefusal extends Error {
 // `declarations` are {index (1-based P), line, token, word, phones}.
 export function lineDigitBound(text, declarations = []) {
   const units = codePoints(text) + 1;
-  // One reading per token: a repeated (line, token) is refused later as a
-  // duplicate; here it is counted once, at its largest reading.
-  const byToken = new Map();
+  let declaredDigits = 0;
+  const contributing = [];
+  // (numbering, token) -> the fewest units a row there names: what a declared
+  // token takes out of the undeclared rest, counted once per coordinate.
+  const unitsAt = new Map();
   for (const d of declarations) {
     if (d.line !== text) continue;
-    const key = Number.isInteger(d.token) ? d.token : `?${d.index}`;
     const vowels = stressedVowels(d.phones);
-    const held = byToken.get(key);
-    if (!held || vowels > held.vowels) byToken.set(key, { ...d, vowels });
-  }
-  let declaredDigits = 0;
-  let declaredUnits = 0;
-  const contributing = [];
-  for (const d of byToken.values()) {
-    declaredDigits += d.vowels;
+    declaredDigits += vowels;
+    contributing.push({ p: d.index, token: d.token, digits: vowels });
+    const key = Number.isInteger(d.token)
+      ? `${typeof d.numbering === 'string' ? d.numbering : ''}|${d.token}`
+      : `?${d.index}`;
     const word = typeof d.word === 'string' ? d.word.replace(OPENING_MARK, '') : '';
-    declaredUnits += codePoints(word) + 1;
-    contributing.push({ p: d.index, token: d.token, digits: d.vowels });
+    const wordUnits = codePoints(word) + 1;
+    if (!unitsAt.has(key) || wordUnits < unitsAt.get(key)) unitsAt.set(key, wordUnits);
   }
+  let declaredUnits = 0;
+  for (const u of unitsAt.values()) declaredUnits += u;
   const undeclaredUnits = Math.max(0, units - declaredUnits);
   return {
     bound: declaredDigits + atRate(undeclaredUnits),
@@ -138,12 +161,35 @@ export function lineDigitBound(text, declarations = []) {
   };
 }
 
-const lineSetOfArray = (name, items) => ({
+// `family: 'draft'` marks the spellings of the one song a call reads; every
+// other set is its own song in the request total.
+const lineSetOfArray = (name, items, family = null) => ({
   name,
+  family,
   rows: items.reduce((n, item) => n + (typeof item === 'string' ? rowsOf(item) : 1), 0),
   lines: normalizeDraftLines(items).filter((l) => typeof l === 'string'),
 });
-const lineSetOfText = (name, text) => ({ name, rows: rowsOf(text), lines: draftFromText(text) });
+const lineSetOfText = (name, text, family = null) => ({
+  name,
+  family,
+  rows: rowsOf(text),
+  lines: draftFromText(text),
+});
+// lyric_recover's paste, row by row as the handler writes it to the source
+// reader (takeLines with preserveStructure): blank rows are not measured, and
+// each line keeps its row number, because the sung-line number is the source
+// reader's to give.
+function recoverRowSet(name, rows) {
+  const lines = [];
+  const ids = [];
+  rows.forEach((row, i) => {
+    if (typeof row !== 'string' || !row.trim()) return;
+    lines.push(row.trim());
+    ids.push(`row ${i + 1}`);
+  });
+  return { name, family: null, rows: rows.length, lines, ids, byRow: true };
+}
+const SINGLE_ROW = /[\r\n\u2028\u2029]/;
 
 // A continuation the handler will refuse anyway contributes nothing here: its
 // own refusal names what is wrong with it, and nothing of it is read.
@@ -171,24 +217,33 @@ function blueprintTexts(wire) {
 
 // -> { sets, declarations } for one tool call's arguments, as the handler
 // will read them. Pure: nothing is decoded into the arguments.
-export function recognitionInputOf(args = {}) {
+export function recognitionInputOf(args = {}, { tool = null } = {}) {
   const sets = [];
-  for (const [arrayName, textName] of [
-    ['draft', 'draft_text'],
-    ['lines', 'lines_text'],
-    ['before', 'before_text'],
-    ['after', 'after_text'],
+  for (const [arrayName, textName, family] of [
+    ['draft', 'draft_text', 'draft'],
+    ['lines', 'lines_text', 'draft'],
+    ['before', 'before_text', null],
+    ['after', 'after_text', null],
   ]) {
+    if (tool === 'lyric_recover' && arrayName === 'lines') {
+      if (Array.isArray(args.lines)) sets.push(recoverRowSet('lines', args.lines));
+      if (typeof args.lines_text === 'string')
+        sets.push(recoverRowSet('lines_text', args.lines_text.replace(/\r\n?/g, '\n').split('\n')));
+      continue;
+    }
     // `lines` is also a line COUNT on the planning tools: only an array is a set.
-    if (Array.isArray(args[arrayName])) sets.push(lineSetOfArray(arrayName, args[arrayName]));
-    if (typeof args[textName] === 'string') sets.push(lineSetOfText(textName, args[textName]));
+    if (Array.isArray(args[arrayName]))
+      sets.push(lineSetOfArray(arrayName, args[arrayName], family));
+    if (typeof args[textName] === 'string')
+      sets.push(lineSetOfText(textName, args[textName], family));
   }
   let carried = null;
   for (const field of ['state', 'checkpoint']) {
     const decoded = continuationOf(args[field]);
     if (!decoded) continue;
     for (const key of ['input_draft', 'accepted_lines'])
-      if (Array.isArray(decoded[key])) sets.push(lineSetOfArray(`${field}.${key}`, decoded[key]));
+      if (Array.isArray(decoded[key]))
+        sets.push(lineSetOfArray(`${field}.${key}`, decoded[key], 'draft'));
     const held = decoded.connector_declarations?.pronunciations;
     if (!carried && Array.isArray(held)) carried = held;
   }
@@ -202,8 +257,26 @@ export function recognitionInputOf(args = {}) {
       token: row?.token,
       word: row?.word,
       phones: row?.phones,
+      numbering: row?.numbering,
     }))
     .filter((d) => typeof d.line === 'string');
+  // Every declared line that could be sung, for the per-line cap only.
+  const declaredLines = [];
+  const seen = new Set();
+  for (const d of declarations) {
+    if (seen.has(d.line)) continue;
+    seen.add(d.line);
+    if (d.line.trim() && !SINGLE_ROW.test(d.line) && codePoints(d.line) <= ADMISSION_MAX_LINE_CHARS)
+      declaredLines.push(d.line);
+  }
+  if (declaredLines.length)
+    sets.push({
+      name: 'pronunciations',
+      family: null,
+      rows: 0,
+      lines: declaredLines,
+      declaredOnly: true,
+    });
   return { sets, declarations };
 }
 
@@ -219,8 +292,19 @@ export function admitRecognitionInput({ sets, declarations = [] }) {
       );
   const measured = sets.map((set) => ({
     name: set.name,
+    family: set.family,
     rows: set.rows,
-    lines: set.lines.map((text, i) => ({ id: lid(i + 1), ...lineDigitBound(text, declarations) })),
+    ...(set.declaredOnly ? { declared_only: true } : {}),
+    ...(set.byRow ? { by_row: true } : {}),
+    lines: set.lines.map((text, i) => {
+      const bound = lineDigitBound(text, declarations);
+      const id = set.declaredOnly
+        ? bound.contributing.map((c) => pid(c.p)).join(', ')
+        : set.ids
+          ? set.ids[i]
+          : lid(i + 1);
+      return { id, ...bound };
+    }),
   }));
   for (const set of measured)
     for (const line of set.lines)
@@ -232,9 +316,14 @@ export function admitRecognitionInput({ sets, declarations = [] }) {
                 ', '
               )}: ${fmt(line.declared_digits)} digits) and 1.5 digits per unit for its ${fmt(line.undeclared_units)} undeclared units`
           : `at 1.5 digits per unit for its ${fmt(line.undeclared_units)} units (each character and each token's separator)`;
+        const which = set.declared_only
+          ? `The line that ${line.id} declare${line.contributing.length > 1 ? '' : 's'} readings for is in no line set of this call, but an answer or a source reading can make it a sung line, and it`
+          : set.by_row
+            ? `The line at ${line.id} of \`${set.name}\` (lyric_recover numbers its sung lines after setting apparatus rows aside, so the row is named)`
+            : `${line.id} of \`${set.name}\``;
         throw new AdmissionRefusal(
           'meter_line_digits',
-          `${line.id} of \`${set.name}\` could reach ${fmt(line.bound)} syllable digits ${how}; the per-line cap is ${fmt(METER_LINE_DIGITS_CAP)}. This is an upper bound, not a count of the line.`,
+          `${which} could reach ${fmt(line.bound)} syllable digits ${how}; the per-line cap is ${fmt(METER_LINE_DIGITS_CAP)}. This is an upper bound, not a count of the line.`,
           {
             set: set.name,
             line: line.id,
@@ -244,16 +333,38 @@ export function admitRecognitionInput({ sets, declarations = [] }) {
           }
         );
       }
+  // One song per set, except the draft's spellings, which are one song at
+  // the largest of them.
+  const songs = [];
+  let draft = null;
   for (const set of measured) {
-    const total = set.lines.reduce((n, l) => n + l.bound, 0);
-    if (total > METER_REQUEST_DIGITS_CAP)
-      throw new AdmissionRefusal(
-        'meter_request_digits',
-        `the ${fmt(set.lines.length)} lines of \`${set.name}\` could reach ${fmt(total)} syllable digits together; the per-request cap is ${fmt(METER_REQUEST_DIGITS_CAP)}. This is an upper bound, not a count.`,
-        { set: set.name, bound: total, cap: METER_REQUEST_DIGITS_CAP }
-      );
+    if (set.declared_only) continue;
+    const song = {
+      name: set.name,
+      lines: set.lines.length,
+      bound: set.lines.reduce((n, l) => n + l.bound, 0),
+    };
+    if (set.family !== 'draft') songs.push(song);
+    else if (!draft || song.bound > draft.bound) draft = song;
+  }
+  if (draft) songs.unshift(draft);
+  const total = songs.reduce((n, s) => n + s.bound, 0);
+  if (total > METER_REQUEST_DIGITS_CAP) {
+    const parts = songs
+      .map((s) => `\`${s.name}\` ${fmt(s.lines)} lines, ${fmt(s.bound)}`)
+      .join('; ');
+    throw new AdmissionRefusal(
+      'meter_request_digits',
+      `the lines this call carries for recognition (${parts}) could reach ${fmt(total)} syllable digits together; the per-request cap is ${fmt(METER_REQUEST_DIGITS_CAP)}. This is an upper bound, not a count.`,
+      {
+        sets: songs.map((s) => s.name),
+        bound: total,
+        cap: METER_REQUEST_DIGITS_CAP,
+      }
+    );
   }
   return measured;
 }
 
-export const admitRecognitionArgs = (args) => admitRecognitionInput(recognitionInputOf(args));
+export const admitRecognitionArgs = (args, options) =>
+  admitRecognitionInput(recognitionInputOf(args, options));
