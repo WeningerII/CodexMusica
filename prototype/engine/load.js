@@ -79,6 +79,11 @@ export const PAGE_TABLES = Object.freeze([
   'ChainItem',
   'RECIPE_FORMATS',
   'RECIPE_CHAR_CEILING',
+  // Compact's shapes, rebuilt for the preview's environment sentence:
+  // the genre header and the render's deduplicated prefaces.
+  '_recipeHeader',
+  '_computeRecipeDedupedPrefaces',
+  '_resolvePreface',
   // History and add.
   'pushHistory',
   'undo',

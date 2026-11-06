@@ -121,8 +121,9 @@
 //      sourceMessage held to production's own render at ceilings 1000, 150
 //      and 100, with a room named like part of a card's own line, one card
 //      alone whose environment line is dropped, and a roster whose every
-//      card's line is long, at the ceiling and one character over it, among
-//      the cases; every outcome said once, in production's words where it
+//      card's line is long, at the ceiling and one character over it, and
+//      3PO's Compact cases (line breaks in names, an instrument named as the
+//      room), among the cases; every outcome said once, in production's words where it
 //      has them; the destination's fallback; frozen snapshots and the notification order; the store's hold on the engine's workspace; each
 //      view's methods; apply's vocabulary; the hand-over sentence; pending
 //      commands always settling; the note cleared at each rebuild; no
@@ -4625,6 +4626,34 @@ const PROJECT_CARD = `
     chain: Object.fromEntries(CHAIN_SECTIONS.map((s) => [s.id, s.multiSelect ? [...((card.chain || {})[s.id] || [])] : (card.chain || {})[s.id] || null])),
   });
 `;
+// 3PO's Compact cases (#810 6687911089), as the environment check reads
+// them: on the banjo, the udu and the preview, then on the preview alone
+// (storeProduction's COMPACT_CASES).
+const COMPACT_ROSTER = [
+  'newlineInstrument',
+  'newlineRoom',
+  'newlineKept',
+  'newlineDropped',
+  'collisionKept',
+  'collisionDropped',
+  'newlineMiddle',
+  'collisionMiddle',
+  'newlineTruncated',
+];
+const COMPACT_SOLO = ['newlineAlone', 'aloneSplit', 'aloneSplitDropped'];
+// And one of the gate's own: a loose oud beside the oud preview, whose
+// deduplicated prefaces differ from the cards' own.
+const COMPACT_TWINS = ['twins'];
+// The five of them counting Compact's lines got wrong at the ceiling of
+// 1000; the other seven it got right.
+const COUNTING_WRONG = [
+  'newlineInstrument',
+  'newlineRoom',
+  'newlineAlone',
+  'newlineKept',
+  'newlineDropped',
+];
+
 // Runs `body` (an async function's source, given S and its arguments) in the
 // page and returns what it returns.
 const inPage = (page, body, arg) =>
@@ -4987,6 +5016,109 @@ async function storeProduction(browser, srv) {
             (out.longShapes[name] = out.longShapes[name] || {})[ceiling] = padding(pads, () => ({ ...compactShape(after), render: compileRecipeStack(after, 'compact', { ceiling }) }));
           }
         }
+    }
+    // 3PO's Compact cases (#810 6687911089): labels with a line break in
+    // them, and an instrument named as the environment's room, under which
+    // counting Compact's lines misjudges whether the environment line is
+    // written. Five that counting got wrong: a line break in an instrument's
+    // name, in the room's name, and in the one card's name, each with the
+    // environment written; and the last card named as itself, a line break
+    // and the room, with the environment written exactly at the ceiling, or
+    // dropped one character over it, where the end of its own line reads as
+    // the environment line. Seven that it got right: the last card named as
+    // the room, at the ceiling and one over; one over, the middle card's
+    // name with a line break in it, or named as itself, a line break and the
+    // room; a line break in a render cut short ("[truncated]"); and the one
+    // card whose one line is one character over the ceiling, so it is
+    // written as its instrument line and then the environment line, or two
+    // over, so the environment line is dropped. The roster is the banjo, with
+    // only a room, and the udu, loose, beside the preview; a case lengthens
+    // one card's name, by a run of x after it, to its size (sized).
+    const CROOM = ROOMS[7].id;
+    const roster3 = () => {
+      const b = makeCard('banjo_5_string');
+      b.room = CROOM;
+      return { recipe: [b, makeCard('udu')], preview: edited(makeCard('oud')) };
+    };
+    const solo = () => ({ recipe: [], preview: edited(makeCard('oud')) });
+    // Each instrument named, and the environment card's room named, as
+    // names gives, only while read runs.
+    const withNames = (after, names, read) => {
+      const src = envCardOf(after);
+      const r = typeof names.room === 'string' && src && src.room ? Room(src.room) : null;
+      const was = r && r.name;
+      if (r) r.name = names.room;
+      try { return padding(names.inst || {}, read); } finally { if (r) r.name = was; }
+    };
+    const label = (id) => Inst(id).short || Inst(id).name;
+    // One card's one line, as compressCompactRecipe writes it.
+    const singleLine = (after) => {
+      const saved = _RECIPE_PREFACE_OVERRIDES;
+      _RECIPE_PREFACE_OVERRIDES = _computeRecipeDedupedPrefaces(after);
+      try {
+        const preface = _resolvePreface(after[0]);
+        return _recipeHeader(after) + buildStackParts(after[0]).map((p) => (p.kind === 'instrument' && preface ? preface + ' ' + p.label : p.label)).join(' · ') + ',';
+      } finally {
+        _RECIPE_PREFACE_OVERRIDES = saved;
+      }
+    };
+    // names, with id's name lengthened so that Compact's render with the
+    // environment (the roster's lines and the environment line, or the one
+    // card's one line) is size characters long.
+    const sized = (after, names, id, size) => {
+      const len = withNames(after, names, () => (after.length === 1 ? singleLine(after).length : compactShape(after).full.length));
+      const pad = size - len;
+      if (pad < 0) return { ...names, error: 'gate: ' + id + ' can’t be lengthened to ' + size + ' (' + len + ')' };
+      const base = (names.inst || {})[id] ?? label(id);
+      return { ...names, inst: { ...(names.inst || {}), [id]: pad ? base + '-' + 'x'.repeat(pad - 1) : base } };
+    };
+    const roomName = () => Room(CROOM).name;
+    const COMPACT_CASES = {
+      newlineInstrument: [roster3, () => ({ inst: { udu: label('udu') + '\\ndrum' } })],
+      newlineRoom: [roster3, () => ({ room: roomName() + '\\nhall' })],
+      newlineAlone: [solo, () => ({ inst: { oud: label('oud') + '\\nlute' } })],
+      newlineKept: [roster3, (after, c) => sized(after, { inst: { oud: label('oud') + '\\n' + roomName() } }, 'udu', c)],
+      newlineDropped: [roster3, (after, c) => sized(after, { inst: { oud: label('oud') + '\\n' + roomName() } }, 'udu', c + 1)],
+      collisionKept: [roster3, (after, c) => sized(after, { inst: { oud: roomName() } }, 'udu', c)],
+      collisionDropped: [roster3, (after, c) => sized(after, { inst: { oud: roomName() } }, 'udu', c + 1)],
+      newlineMiddle: [roster3, (after, c) => sized(after, { inst: { udu: label('udu') + '\\ndrum' } }, 'banjo_5_string', c + 1)],
+      collisionMiddle: [roster3, (after, c) => sized(after, { inst: { udu: label('udu') + '\\n' + roomName() } }, 'banjo_5_string', c + 1)],
+      newlineTruncated: [roster3, (after, c) => sized(after, { inst: { udu: label('udu') + '\\ndrum' } }, 'banjo_5_string', c + 400)],
+      aloneSplit: [solo, (after, c) => sized(after, {}, 'oud', c + 1)],
+      aloneSplitDropped: [solo, (after, c) => sized(after, {}, 'oud', c + 2)],
+      // Not 3PO's: a loose oud with the room beside the oud preview, whose
+      // top preface the render gives the first card only (deduplicated).
+      twins: [() => { const o = makeCard('oud'); o.room = CROOM; return { recipe: [o], preview: edited(makeCard('oud')) }; }, () => ({})],
+    };
+    // Counting lines, the rule 3PO's cases fault: one line per card and the
+    // environment line last, or one card on one line that ends with it.
+    const counted = (after, text) => {
+      const env = compactShape(after).env;
+      const lines = text.split('\\n');
+      return lines.length === after.length + 1
+        ? lines[lines.length - 1] === env
+        : after.length === 1 && lines.length === 1 && text.endsWith(' · ' + env);
+    };
+    out.compactNames = {};
+    out.compactRenders = {};
+    out.compactRoom = CROOM;
+    for (const [name, [make, namesOf]] of Object.entries(COMPACT_CASES)) {
+      out.sources[name] = {};
+      out.compactNames[name] = {};
+      out.compactRenders[name] = {};
+      for (const ceiling of [1000, 150, 100]) {
+        const { recipe, preview } = make();
+        const copy = { ...preview, id: '__preview__' };
+        const after = place(recipe, copy);
+        const names = namesOf(after, ceiling);
+        out.compactNames[name][ceiling] = names;
+        for (const [f] of RECIPE_FORMATS)
+          out.sources[name][ceiling + ':' + f] = names.error || withNames(after, names, () => sentence(after, copy, f, ceiling));
+        out.compactRenders[name][ceiling] = withNames(after, names, () => {
+          const render = compileRecipeStack(after, 'compact', { ceiling });
+          return { render, counted: counted(after, render) };
+        });
+      }
     }
     out.room = room;
     out.long = LONG;
@@ -5775,7 +5907,11 @@ const STORE_CHECKS = {
   // every card's line is long (Don, #810), each instrument named as
   // production's case names it: Compact's render with the environment line
   // exactly the ceiling (longKept), then one character over it
-  // (longDropped).
+  // (longDropped). Then 3PO's twelve Compact cases (#810 6687911089), names
+  // with line breaks in them and an instrument named as the room, on the
+  // banjo, the udu and the preview, then on the preview alone, and the
+  // gate's own twins, the oud beside the oud preview, each named as
+  // production's case names it (COMPACT_CASES).
   environment: {
     run: async (page, p, ctx) => {
       const out = {};
@@ -5958,6 +6094,49 @@ const STORE_CHECKS = {
                 if (had) inst.short = was;
                 else delete inst.short;
             }
+            // 3PO's Compact cases (#810 6687911089): the banjo, with only
+            // production's room, and the udu, loose, beside the preview; then
+            // the preview alone. Each instrument, and the room, named as
+            // production's case names them while it is read.
+            const compactRead = async (name) => {
+              const names = ARG.compact.names[name][ARG.ceiling];
+              const kept = Object.keys(names.inst || {}).map((id) => {
+                const inst = E.Inst(id);
+                const was = [inst, Object.prototype.hasOwnProperty.call(inst, 'short'), inst.short];
+                inst.short = names.inst[id];
+                return was;
+              });
+              const room = typeof names.room === 'string' ? E.Room(ARG.compact.room) : null;
+              const was = room && room.name;
+              if (room) room.name = names.room;
+              V.output.setFormat('tags'); // read afresh, with the names
+              await read(name);
+              if (room) room.name = was;
+              for (const [inst, had, was] of kept)
+                if (had) inst.short = was;
+                else delete inst.short;
+            };
+            for (const c of R.snapshot().cards) R.apply({ op: 'remove_instrument', card: c.id });
+            for (const id of ['banjo_5_string', 'udu'])
+              await R.addInstrument({ instrumentId: id, destination: null, revision: rev() });
+            R.apply({
+              op: 'set_environment',
+              card: R.snapshot().cards[0].id,
+              room: ARG.compact.room,
+            });
+            await S.settle();
+            for (const name of ARG.compact.roster) await compactRead(name);
+            for (const c of R.snapshot().cards) R.apply({ op: 'remove_instrument', card: c.id });
+            await S.settle();
+            for (const name of ARG.compact.solo) await compactRead(name);
+            await R.addInstrument({ instrumentId: 'oud', destination: null, revision: rev() });
+            R.apply({
+              op: 'set_environment',
+              card: R.snapshot().cards[0].id,
+              room: ARG.compact.room,
+            });
+            await S.settle();
+            for (const name of ARG.compact.twins) await compactRead(name);
             return {
               fields,
               messages,
@@ -5966,7 +6145,18 @@ const STORE_CHECKS = {
               source,
             };
           },
-          { ceiling, room: p.room, long: { ...p.long, names: p.longNames } }
+          {
+            ceiling,
+            room: p.room,
+            long: { ...p.long, names: p.longNames },
+            compact: {
+              names: p.compactNames,
+              room: p.compactRoom,
+              roster: COMPACT_ROSTER,
+              solo: COMPACT_SOLO,
+              twins: COMPACT_TWINS,
+            },
+          }
         );
       return out;
     },
@@ -5988,6 +6178,9 @@ const STORE_CHECKS = {
           'namedShort',
           'longKept',
           'longDropped',
+          ...COMPACT_ROSTER,
+          ...COMPACT_SOLO,
+          ...COMPACT_TWINS,
         ])
           for (const f of ['rich', 'tags', 'prose', 'compact']) {
             const k = ceiling + ':' + f;
@@ -8513,9 +8706,10 @@ Object.assign(STORE_MUTANTS, {
 });
 // The environment check's defects: the preview not placed in its genre's
 // run; Compact's clause decided by counting lines, which a cut render's
-// "[truncated]" line fools; and by an environment label found anywhere in
-// the text, which a room named like part of a card's own line fools (#810
-// 6682309672, D4).
+// "[truncated]" line and 3PO's Compact cases fool (#810 6687911089); by an
+// environment label found anywhere in the text, which a room named like
+// part of a card's own line fools (#810 6682309672, D4); and by shapes
+// rebuilt without the render's header or its deduplicated prefaces.
 Object.assign(STORE_MUTANTS, {
   'sourceMessage never places the preview in its genre': {
     check: 'environment',
@@ -8523,44 +8717,58 @@ Object.assign(STORE_MUTANTS, {
       ['      if (copy.traditionId) E._placeCardAfterTraditionRun(copy, copy.traditionId);\n', ''],
     ],
   },
+  // Counting lines, the store's rule before 3PO's cases (#810 6687911089):
+  // a roster written when it has one line per card and the environment line.
   'the Compact clause counted by lines': {
     check: 'environment',
-    edits: [['        ? lines[lines.length - 1] === env\n', '        ? true\n']],
+    edits: [
+      [
+        '(!!envLine && text === roster)',
+        "(text.split('\\n').length === after.length + 1 && text.endsWith(`\\n${envLine},`))",
+      ],
+    ],
   },
   // One card on one line: that line ends with the environment, or the
   // environment was dropped (aloneLong).
   'the Compact clause for one card counted by lines': {
     check: 'environment',
-    edits: [
-      [
-        '        : after.length === 1 && lines.length === 1 && text.endsWith(` · ${env}`);',
-        '        : after.length === 1 && lines.length === 1;',
-      ],
-    ],
+    edits: [['|| text === single;', "|| (after.length === 1 && !text.includes('\\n'));"]],
   },
   // ...and read by any " · " in it, the gate's own rule before (#810, the
   // review of 6682309672's fixes): aloneNamed's instrument has one.
   'the Compact clause for one card read from any " · "': {
     check: 'environment',
-    edits: [['text.endsWith(` · ${env}`);', "text.includes(' · ');"]],
+    edits: [['|| text === single;', "|| (after.length === 1 && text.includes(' · '));"]],
   },
   // ...and written only with room to spare, an off-by-one at the ceiling
   // that only longKept, written with none, catches.
   'the Compact clause off by one at the ceiling': {
     check: 'environment',
     edits: [
-      [
-        '      lines.length === after.length + 1\n        ? lines[lines.length - 1] === env\n',
-        '      lines.length === after.length + 1 && text.length < limit\n        ? lines[lines.length - 1] === env\n',
-      ],
+      ['(!!envLine && text === roster)', '(!!envLine && text === roster && text.length < limit)'],
     ],
   },
   'the Compact clause found anywhere in the text': {
     check: 'environment',
     edits: [
       [
-        '    const written =\n      lines.length === after.length + 1\n        ? lines[lines.length - 1] === env\n        : after.length === 1 && lines.length === 1 && text.endsWith(` · ${env}`);',
-        "    const written = env.slice(0, -1).split(' · ').some((label) => text.includes(label));",
+        '    const written = (!!envLine && text === roster) || text === single;',
+        "    const written = envLine.split(' · ').some((label) => text.includes(label));",
+      ],
+    ],
+  },
+  // The shapes rebuilt without the genre header, or with each card's own
+  // preface instead of the render's deduplicated one.
+  'the Compact shapes without the genre header': {
+    check: 'environment',
+    edits: [['    const header = E._recipeHeader(after);', "    const header = '';"]],
+  },
+  'the Compact shapes without the deduplicated prefaces': {
+    check: 'environment',
+    edits: [
+      [
+        '      const preface = deduped.has(card) ? deduped.get(card) || null : E._resolvePreface(card);',
+        '      const preface = E._resolvePreface(card);',
       ],
     ],
   },
@@ -9025,6 +9233,56 @@ async function recipeChecks(browser, srv) {
       );
     }),
     `recipe store: codex.html's long Compact cases are not at the ceiling: ${JSON.stringify(p.longShapes).slice(0, 600)}`
+  );
+
+  // ...and so are 3PO's Compact cases (#810 6687911089): at 1000, exactly
+  // the five in COUNTING_WRONG are ones where counting Compact's lines
+  // (the rule the store had) disagrees with the gate's reference, and each
+  // is the shape it is named for: written (newlineInstrument, newlineRoom,
+  // newlineAlone, newlineKept, collisionKept, aloneSplit) or dropped, the
+  // kept and dropped pairs exactly at the ceiling and one over it, and
+  // newlineTruncated cut short.
+  const compactWritten = (name, c) =>
+    / In Compact it is written once, /.test(((p.sources || {})[name] || {})[`${c}:compact`] || '');
+  const compactRender = (name) => (((p.compactRenders || {})[name] || {})[1000] || {}).render || '';
+  const wrongAt1000 = [...COMPACT_ROSTER, ...COMPACT_SOLO].filter(
+    (n) =>
+      ((p.compactRenders || {})[n] || {})[1000] &&
+      p.compactRenders[n][1000].counted !== compactWritten(n, 1000)
+  );
+  const WRITTEN = [
+    'newlineInstrument',
+    'newlineRoom',
+    'newlineAlone',
+    'newlineKept',
+    'collisionKept',
+    'aloneSplit',
+  ];
+  expect(
+    same(wrongAt1000.slice().sort(), COUNTING_WRONG.slice().sort()) &&
+      [...COMPACT_ROSTER, ...COMPACT_SOLO].every(
+        (n) => compactWritten(n, 1000) === WRITTEN.includes(n)
+      ) &&
+      // A line break of a label's own in each render that has one: more
+      // lines than its cards' and the environment's.
+      [
+        'newlineInstrument',
+        'newlineRoom',
+        'newlineAlone',
+        'newlineKept',
+        'newlineDropped',
+        'newlineMiddle',
+        'collisionMiddle',
+      ].every(
+        (n) =>
+          compactRender(n).split('\n').length >
+          (COMPACT_SOLO.includes(n) ? 1 : 3 + (compactWritten(n, 1000) ? 1 : 0))
+      ) &&
+      compactRender('newlineKept').length === 1000 &&
+      compactRender('collisionKept').length === 1000 &&
+      compactRender('aloneSplit').length === 1000 &&
+      compactRender('newlineTruncated').endsWith('\n[truncated]'),
+    `recipe store: codex.html's Compact cases from 3PO are not the cases they are named for: counting got ${JSON.stringify(wrongAt1000)} wrong; ${JSON.stringify(p.compactRenders).slice(0, 900)}`
   );
 
   const names = Object.keys(STORE_CHECKS);

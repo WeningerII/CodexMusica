@@ -623,38 +623,50 @@ export function recipeStore({ load, selection, announce, ceiling } = {}) {
             src.traditionId ? genreName(src.traditionId) : 'independent'
           }). This instrument’s tuning, room and chain are kept on its card, but render only if it becomes that source.`;
     if (format !== 'compact') return lead;
-    // Whether Compact writes the environment, read from the render's own
-    // shape (compressCompactRecipe's): the environment line is the source
-    // card's environment parts (its tuning, room and chain stages, as
-    // buildStackParts labels them), joined by " · ", with a comma. It is the
-    // last line, after one line per card, or, for one card whose whole stack
-    // fits on one line, that line's end. A label found anywhere in the text
-    // can't tell: a room or tuning named like part of a card's own line is
-    // found in that line when the environment line is dropped (#810
-    // 6682309672). Clearing the environment and comparing renders can't tell
-    // either, because the automatic characters re-derive without it.
+    // Whether Compact writes the environment, read from the render itself,
+    // against compressCompactRecipe's shapes rebuilt from the same parts
+    // (buildStackParts, the render's deduplicated prefaces as _resolvePreface
+    // reads them, envCardOf's card). Counting the render's lines can't tell:
+    // a label may hold a line break, and a card may be named as the
+    // environment's room (#810 6687911089). A label found anywhere in the
+    // text can't either: a room or tuning named like part of a card's own
+    // line is found in that line when the environment line is dropped (#810
+    // 6682309672). Clearing the environment and comparing renders can't
+    // tell, because the automatic characters re-derive without it.
     const limit = ceiling || E.RECIPE_CHAR_CEILING;
     const text = E.compileRecipeStack(after, 'compact', { ceiling: limit });
-    const env = `${E.buildStackParts(src)
+    const deduped = E._computeRecipeDedupedPrefaces(after);
+    const named = (card, label) => {
+      const preface = deduped.has(card) ? deduped.get(card) || null : E._resolvePreface(card);
+      return preface ? `${preface} ${label}` : label;
+    };
+    const header = E._recipeHeader(after);
+    const envLine = E.buildStackParts(src)
       .filter((part) => part.kind !== 'instrument')
       .map((part) => part.label)
-      .join(' · ')},`;
-    const lines = text.split('\n');
-    // Why this can't say "dropped" when the environment is written:
-    // compressCompactRecipe (scripts/_recipe_stack.js) writes a roster as
-    // exactly one `preface label,` line per card and then the environment
-    // line once, at the end. The genre header opens the first line instead
-    // of adding one, and no label holds a line break. One card alone is
-    // either one full-stack line, which ends with its environment parts, or
-    // its instrument line and then the environment line. So a render that
-    // writes the environment has one line per card and the environment line
-    // last, or is one card's one line ending with it. A render that is cut
-    // ends in [truncated], and one that drops the environment line ends on a
-    // card's line, so in neither is the last line env.
-    const written =
-      lines.length === after.length + 1
-        ? lines[lines.length - 1] === env
-        : after.length === 1 && lines.length === 1 && text.endsWith(` · ${env}`);
+      .join(' · ');
+    const instLines = after.map((card) => {
+      const inst = E.buildStackParts(card).find((part) => part.kind === 'instrument');
+      return inst ? `${named(card, inst.label)},` : '?,';
+    });
+    const roster = header + instLines.concat(`${envLine},`).join('\n');
+    const single =
+      after.length === 1 &&
+      `${header}${E.buildStackParts(after[0])
+        .map((part) => (part.kind === 'instrument' ? named(after[0], part.label) : part.label))
+        .join(' · ')},`;
+    // Why this can't misjudge: compressCompactRecipe (scripts/_recipe_stack.js)
+    // writes the environment in exactly two renders. A roster is the genre
+    // header, then one `preface label,` line per card, then the environment
+    // line once: instLines.concat(envLine + ',').join('\n'). One card alone
+    // may instead be its one full-stack line, which ends with its
+    // environment parts. Each is rebuilt here as the render builds it and
+    // compared with the render exactly, so a line break in a label, or a
+    // label named like the environment, changes both alike. A render that
+    // is cut ends in [truncated] (or …), and one that drops the environment
+    // line is the cards' lines alone, so neither equals either shape, and
+    // the sentence says it is dropped.
+    const written = (!!envLine && text === roster) || text === single;
     return written
       ? `${lead} In Compact it is written once, after the instruments.`
       : `${lead} In Compact the environment line is dropped to fit the ${limit}-character limit.`;

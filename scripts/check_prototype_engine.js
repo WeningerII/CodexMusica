@@ -210,6 +210,7 @@ const HOLDS = {
     'PREFACE_CAT_ORDER',
     'loadNavGlyphArt',
   ],
+  compact: ['_recipeHeader', '_computeRecipeDedupedPrefaces', '_resolvePreface'],
   search: ['normalizeSearch', 'searchRank'],
   instsim: ['findSimilarInstruments', 'getMatchingInstrumentAxes'],
   gensim: ['findSimilar', 'getMatchingAxes'],
@@ -306,6 +307,32 @@ async function holdSamples(E, which, input) {
             c.room ? E.Room(c.room) : null,
             ...inst.parts.map((p) => E.Variant(inst, p.id, c.parts[p.id])),
           ].map((x) => E.entryRenderDescs(x)),
+        };
+      });
+    },
+    // Compact's shapes as the recipe store rebuilds them: for each named
+    // genre's cards, then all of them together with a loose oud and banjo
+    // (one preface set by hand), the genre header, each card's deduplicated
+    // preface ('-' for a card the dedup leaves to its own) and its own.
+    async compact() {
+      const sets = [];
+      for (const id of input.genres) {
+        await E.Catalog.ensureFull(E.Catalog.resolve(id));
+        E.app.cards = [];
+        E.importTradition(id);
+        sets.push(E.app.cards.slice());
+      }
+      const banjo = E.makeCard('banjo_5_string');
+      const r = E.inverseConfigureForPreface(banjo, input.preface);
+      if (r) r.apply();
+      sets.push([...sets.flat(), E.makeCard('oud'), banjo]);
+      E.app.cards = [];
+      return sets.map((cards) => {
+        const deduped = E._computeRecipeDedupedPrefaces(cards);
+        return {
+          header: E._recipeHeader(cards),
+          deduped: cards.map((c) => (deduped.has(c) ? deduped.get(c) : '-')),
+          own: cards.map((c) => E._resolvePreface(c)),
         };
       });
     },
@@ -530,6 +557,17 @@ const PLANTS = {
   buildStackParts: wrap('buildStackParts', 'c', 'return buildStackParts__real(c).reverse()'),
   entryRenderDescs: wrap('entryRenderDescs', 'e', 'return entryRenderDescs__real(e).slice(1)'),
   hasEnvironment: wrap('hasEnvironment', 'c', 'return!hasEnvironment__real(c)'),
+  _recipeHeader: wrap('_recipeHeader', 'c', 'return _recipeHeader__real(c).trim()'),
+  _computeRecipeDedupedPrefaces: wrap(
+    '_computeRecipeDedupedPrefaces',
+    'c',
+    'const m=_computeRecipeDedupedPrefaces__real(c);for(const k of m.keys())m.set(k,null);return m'
+  ),
+  _resolvePreface: wrap(
+    '_resolvePreface',
+    'c',
+    'const r=_resolvePreface__real(c);return r&&r.toUpperCase()'
+  ),
   Inst: constWrap(
     'Inst',
     '(i)=>{const r=Inst__real(i);return r&&{...r,parts:[...(r.parts||[])].reverse()}}'
