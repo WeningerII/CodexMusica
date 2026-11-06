@@ -30,6 +30,31 @@ const requireMcp = createRequire(new URL('../mcp/package.json', import.meta.url)
 const express = requireMcp('express');
 const { Client } = requireMcp('@modelcontextprotocol/sdk/client/index.js');
 const { InMemoryTransport } = requireMcp('@modelcontextprotocol/sdk/inMemory.js');
+// Release a listening server and a job directory. Every step runs even when an
+// earlier one fails, and the failures are returned, never swallowed: a close
+// callback's error, a synchronous throw from server.close() and a failed
+// directory removal are each reported to the caller.
+async function releaseResources(server, dir) {
+  const errors = [];
+  if (server) {
+    try {
+      await new Promise((resolve, reject) => {
+        server.close((error) => (error ? reject(error) : resolve()));
+      });
+    } catch (error) {
+      errors.push(error);
+    }
+  }
+  if (dir) {
+    try {
+      fs.rmSync(dir, { recursive: true, force: true });
+    } catch (error) {
+      errors.push(error);
+    }
+  }
+  return errors;
+}
+
 export async function createOfflineChat({ args, jobs = false } = {}) {
   const nativeFetch = globalThis.fetch;
   let selectedArgs = args;
@@ -70,11 +95,14 @@ export async function createOfflineChat({ args, jobs = false } = {}) {
     server = app.listen(0, '127.0.0.1');
     await once(server, 'listening');
   } catch (error) {
-    if (server?.listening) await new Promise((resolve) => server.close(resolve));
-    if (dir) fs.rmSync(dir, { recursive: true, force: true });
+    // The startup error stays the one thrown; a cleanup failure is attached to
+    // it rather than replacing it.
+    const cleanup = await releaseResources(server?.listening ? server : null, dir);
+    if (cleanup.length && error && typeof error === 'object') error.cleanupErrors = cleanup;
     throw error;
   }
   const url = `http://127.0.0.1:${server.address().port}`;
+  let closing = null;
   const turn = [
     () => ({ functionCall: { name: 'lyric_recover', args: {} } }),
     () => ({ functionCall: { name: 'lyric_check', args: selectedArgs } }),
@@ -99,10 +127,16 @@ export async function createOfflineChat({ args, jobs = false } = {}) {
     fetch: nativeFetch,
     requests,
     store,
-    async close() {
-      globalThis.fetch = nativeFetch;
-      await new Promise((resolve) => server.close(resolve));
-      if (dir) fs.rmSync(dir, { recursive: true, force: true });
+    // Idempotent: a second call returns the first call's outcome. One cleanup
+    // failure is thrown as itself; several are thrown together.
+    close() {
+      closing ??= (async () => {
+        globalThis.fetch = nativeFetch;
+        const errors = await releaseResources(server, dir);
+        if (errors.length === 1) throw errors[0];
+        if (errors.length > 1) throw new AggregateError(errors, 'offline chat teardown failed');
+      })();
+      return closing;
     },
   };
 }
