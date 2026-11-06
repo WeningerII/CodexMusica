@@ -307,7 +307,11 @@ def _for_grade(rv, lines, mandate, *, blueprint=None, provenance=None):
     basis["comparator_fingerprint"] = comparator_fingerprint()
     basis["implementation"] = {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
         for p in (Path(__file__), Path(RL.__file__), Path(__file__).parents[1] / "library" / "analysis.py")}
+    # A disowned schema (`relations.disowned`) is not censused onto the
+    # writer's pairs: it lands in `not_requested_schemas`, by its field, not
+    # its name (#671 row 7, under #627 D6).
     return from_stream(stream, phon,
+        schemas=[n for n in RL.REGISTRY if not RL.disowned(n)],
         declarations={"mandate": mandate, "comparator": rv.decl, "sections": sections,
                       "bearing": bearing, "phonology": phon.declaration()},
         provenance=basis)
