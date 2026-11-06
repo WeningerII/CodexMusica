@@ -1007,7 +1007,13 @@ export function recipeStore({ load, selection, announce, ceiling } = {}) {
     const at = E.app.historyIndex;
     if (back) E.undo();
     else E.redo();
-    if (E.app.historyIndex === at) return no(back ? 'UNDO_FAILED' : 'REDO_FAILED');
+    // The engine refused the entry (production toasts it): said once, as
+    // #740 says only apply's refusals.
+    if (E.app.historyIndex === at) {
+      const r = no(back ? 'UNDO_FAILED' : 'REDO_FAILED');
+      announce(r.refusal);
+      return r;
+    }
     revision++;
     const said = handover();
     fallback();

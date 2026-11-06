@@ -5089,7 +5089,8 @@ const STORE_CHECKS = {
         JSON.stringify(g)
       ),
   },
-  // 29. An Undo that restores nothing is refused, and changes nothing.
+  // 29. An Undo or a Redo that restores nothing is refused, is said once,
+  // and changes nothing.
   undoFails: {
     page: async (S) => {
       const { R, E } = await S.boot();
@@ -5099,32 +5100,49 @@ const STORE_CHECKS = {
         destination: null,
         revision: R.snapshot().revision,
       });
-      E.app.history[E.app.historyIndex - 1] = '{not json';
-      const s = R.snapshot();
-      let told = 0;
-      const off = R.subscribe(() => told++);
-      const r = R.undo();
-      off();
-      return {
-        r,
-        revision: R.snapshot().revision === s.revision,
-        same: R.snapshot() === s,
-        told,
-        index: E.app.historyIndex === E.app.history.length - 1,
+      await S.settle();
+      S.said();
+      const fails = async (step, at) => {
+        const good = E.app.history[at];
+        E.app.history[at] = '{not json';
+        const s = R.snapshot();
+        const index = E.app.historyIndex;
+        let told = 0;
+        const off = R.subscribe(() => told++);
+        const r = R[step]();
+        off();
+        await S.settle();
+        const out = {
+          r,
+          said: S.said(),
+          revision: R.snapshot().revision === s.revision,
+          same: R.snapshot() === s,
+          told,
+          index: E.app.historyIndex === index,
+        };
+        E.app.history[at] = good;
+        return out;
       };
+      const undo = await fails('undo', E.app.historyIndex - 1);
+      R.undo();
+      await S.settle();
+      S.said();
+      const redo = await fails('redo', E.app.historyIndex + 1);
+      return { undo, redo };
     },
-    verdict: (g) =>
-      why(
-        g.r.ok === false &&
-          g.r.changed === false &&
-          g.r.code === 'UNDO_FAILED' &&
-          typeof g.r.refusal === 'string' &&
-          g.revision &&
-          g.same &&
-          g.told === 0 &&
-          g.index,
-        JSON.stringify(g)
-      ),
+    verdict: (g) => {
+      const ok = (x, code) =>
+        x.r.ok === false &&
+        x.r.changed === false &&
+        x.r.code === code &&
+        typeof x.r.refusal === 'string' &&
+        same(x.said, [x.r.refusal]) &&
+        x.revision &&
+        x.same &&
+        x.told === 0 &&
+        x.index;
+      return why(ok(g.undo, 'UNDO_FAILED') && ok(g.redo, 'REDO_FAILED'), JSON.stringify(g));
+    },
   },
   // 30. Genre Instruments' roster (#770): production's genre page roster, in
   // order, an alias answered by its genre, an unknown id NOT_FOUND.
@@ -5648,8 +5666,15 @@ const STORE_MUTANTS = {
   'an Undo that restores nothing still succeeds': {
     check: 'undoFails',
     edits: [
-      ["    if (E.app.historyIndex === at) return no(back ? 'UNDO_FAILED' : 'REDO_FAILED');\n", ''],
+      [
+        "    if (E.app.historyIndex === at) {\n      const r = no(back ? 'UNDO_FAILED' : 'REDO_FAILED');\n      announce(r.refusal);\n      return r;\n    }\n",
+        '',
+      ],
     ],
+  },
+  'a failed Undo or Redo is said nowhere': {
+    check: 'undoFails',
+    edits: [['      announce(r.refusal);\n      return r;\n', '      return r;\n']],
   },
 };
 // The guards check's defects, among the store's.
