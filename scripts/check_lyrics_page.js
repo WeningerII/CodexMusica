@@ -7473,7 +7473,7 @@ async function browserChecks(chromium) {
         imported: true,
       },
     ]) {
-      await step(`S803 refusal ${scenario.name}`, async () => {
+      await step(`S803 refusal ${scenario.name}: focus and selection unchanged`, async () => {
         const { ctx, page, q } = await boot();
         try {
           if (scenario.imported) {
@@ -7703,13 +7703,11 @@ async function browserChecks(chromium) {
             );
           else if (scenario.name !== 'drop')
             check(got.focusAlive, `${scenario.name}: success lost focus to body`);
-          // Drop has no explicit focus handoff in existing host wiring. Record
-          // its outcome rather than inventing a success-focus contract here.
           if (scenario.name === 'drop') {
             check(got.picked === 2, 'drop did not select its destination');
-            console.log(
-              'S803 drop success focus (review required):',
-              JSON.stringify({ focus: got.focus, focusAlive: got.focusAlive })
+            check(
+              got.focus === 'ly-form-pick' && got.focusId === '2' && got.focusAlive,
+              'successful drop did not focus the moved section control'
             );
           }
           if (scenario.groups)
@@ -7752,6 +7750,99 @@ async function browserChecks(chromium) {
         }
       });
     }
+    await step('S803 drop destination after splice: first, last and repeated reorder', async () => {
+      const { ctx, page, q } = await boot();
+      try {
+        await setDraft(page, structuralDecl + structuralSong);
+        await structuralOpen(page);
+        for (const [from, to] of [
+          [0, 2],
+          [2, 0],
+          [0, 1],
+        ]) {
+          const before = await structuralState(page);
+          const movedWords = await page.evaluate(
+            (from) => LY.model.sections[from].sung.map((r) => r.text),
+            from
+          );
+          await page
+            .locator(`#ly-form-rows tr[data-sec="${from}"] .ly-handle`)
+            .dragTo(page.locator(`#ly-form-rows tr[data-sec="${to}"] .ly-handle`));
+          const after = await structuralState(page);
+          const focus = await page.evaluate((to) => {
+            const control = document.querySelector(
+              `#ly-form-rows tr[data-sec="${to}"] [data-ui="ly-form-pick"]`
+            );
+            return {
+              matches: document.activeElement === control && control?.isConnected,
+              words: LY.model.sections[to].sung.map((r) => r.text),
+              picked: LY.picks.formSec,
+            };
+          }, to);
+          check(
+            focus.matches &&
+              focus.picked === to &&
+              JSON.stringify(focus.words) === JSON.stringify(movedWords),
+            `drop ${from}→${to} did not focus the moved occurrence`
+          );
+          check(after.index === before.index + 1, 'repeated drop added other history steps');
+          await page.locator('#btn-undo').click();
+          check(
+            (await structuralState(page)).text === before.text,
+            'repeated drop Undo did not restore text/declarations'
+          );
+          await page.locator('#btn-redo').click();
+          check(
+            (await structuralState(page)).text === after.text,
+            'repeated drop Redo did not restore text/declarations'
+          );
+        }
+        check(q.calls.length === 0, 'repeated drop sent a provider request');
+      } finally {
+        await ctx.close();
+      }
+    });
+    await step('S803 drop Undo/Redo focus unchanged from existing implementation', async () => {
+      const { ctx, page, q } = await boot();
+      try {
+        await setDraft(page, structuralDecl + structuralSong);
+        await structuralOpen(page);
+        await structuralDrag(page);
+        // Native history controls retain their node while rendering. Existing
+        // _historyFocusHandoff keeps an enabled control focused and transfers
+        // focus to its partner when the action disables it. Exercise both
+        // branches, independently of the text-restoration assertions above.
+        const outcomes = [];
+        for (const action of ['undo', 'redo']) {
+          const control = page.locator(`#btn-${action}`);
+          const node = await control.elementHandle();
+          await control.click();
+          const focus = await node.evaluate((button, action) => {
+            const partner = document.getElementById(action === 'undo' ? 'btn-redo' : 'btn-undo');
+            const expected = button.disabled ? partner : button;
+            return {
+              matches: document.activeElement === expected,
+              connected: expected?.isConnected,
+              enabled: !expected?.disabled,
+              id: document.activeElement?.id,
+              transferred: button.disabled,
+            };
+          }, action);
+          check(
+            focus.matches && focus.connected && focus.enabled,
+            `${action} changed existing history focus behavior: ${JSON.stringify(focus)}`
+          );
+          outcomes.push({ action, id: focus.id, transferred: focus.transferred });
+          await node.dispose();
+        }
+        check(!outcomes[0].transferred, 'Undo fixture did not exercise retained control focus');
+        check(outcomes[1].transferred, 'Redo fixture did not exercise partner focus handoff');
+        console.log('S803 existing history focus:', JSON.stringify(outcomes));
+        check(q.calls.length === 0, 'history focus check sent a provider request');
+      } finally {
+        await ctx.close();
+      }
+    });
     await step('S803 focused older-toast replacement', async () => {
       const { ctx, page } = await boot();
       try {

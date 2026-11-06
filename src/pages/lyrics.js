@@ -8282,6 +8282,7 @@ function lyWire(surface) {
     }, 'Moved the section.');
     if (!result.applied) return result;
     LY.picks.formSec = to;
+    lyFocusSectionControl(to, '[data-ui="ly-form-pick"]');
     return result;
   });
   document.addEventListener('click', (e) => {
