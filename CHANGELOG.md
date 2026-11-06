@@ -6,6 +6,75 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Fixed — a pinned descriptor or preface is disclosed only on its own card; a filtered CLI swap says so (#671)
+
+`render_warnings` decided whether a pinned part descriptor survived with a whole-recipe
+substring test, so a sampler swapped to `mpc_modern` (whose only word is `modern`) counted
+as disclosed because the bass printed `electric-bass: modern alder …`, and `postmodern`
+would have counted too. Gangsta rap Rich and Tags and Irish trad session Tags were silent.
+
+- **Own segment, whole word.** Each compressor in `scripts/_recipe_stack.js` can now report
+  which span of its output renders which card, read off the chunk list it joined
+  (`renderWorkspace(cards, { trace })`); the connector checks a pinned descriptor as a
+  whole word inside that card's span only. Absent there is `PINNED_DESCRIPTORS_NOT_LITERAL`,
+  whatever another card prints.
+- **A merged chunk's head words.** Rich and Prose merge cards that share a trailing word
+  into one chunk and print each card's preface right before its own inner label (48g:
+  `cold humbucker-solid-body-electric street-pulsing dreadnought-acoustic guitar`). The
+  trace records, for each card that is its part's only source, those head words as the
+  renderer joins them, and a pinned word there is printed on that card; a word only in
+  another card's head is that card's, so it is `NOT_LITERAL` for this one, also when this
+  card is pooled with another of its label.
+- **`PINNED_DESCRIPTORS_NOT_ATTRIBUTABLE`** (new): the word is printed, but only where the
+  output cannot say which card it describes: the part of a chunk Rich or Prose pools from
+  cards with the same label, the trailing label or pooled descriptors a merged chunk's cards
+  share, or a render with no per-card segments. `shared_with` names the cards that share the
+  words it is printed in (in a same-label part, only that label's other cards; in the words a
+  merged chunk shares, every other card of the chunk), and the `meaning` says which of the
+  three it is.
+- **A pinned preface, by the same rule.** `EXPLICIT_PREFACE_NOT_LITERAL` tested
+  `recipe.includes(preface)`, so the same preface pinned on another card (or a header word,
+  or a longer word) hid that this card's was shed or that the card was hidden: Honky-tonk
+  with `raging` pinned on the voice and the upright piano warned nothing at Tags 200 (the
+  piano hidden) or Rich 150 (its preface shed). The preface's printed form now has to be
+  consecutive whole words in the card's own part; printed only in one of the three places
+  above is `EXPLICIT_PREFACE_NOT_ATTRIBUTABLE` (new), with `shared_with`. Both carry a
+  `meaning`.
+- **CLI.** `recipe.js --swap-variant` keeps stdout exactly as rendered and prints one
+  stderr line per card naming the swapped descriptors its own clause does not print
+  (`note: --swap-variant descriptor(s) not printed in the sampler_classic card's part of the
+  recipe: modern (sampler_archetypes:mpc_modern)`; a word named there may still be printed
+  by another card or the header). It decides "printed" with the connector's own
+  test (`scripts/_whole_word.js`, shared with `mcp/engine.js`): a whole word anywhere in
+  that card's clause, whichever part printed it, so a drum-kit `edge_round` swap no longer
+  names `fundamental` while the clause reads `low fundamental tuning … drum kit`.
+- **CLI: a swap with no card.** A `--swap-variant` on an instrument the recipe does not
+  have (not in the roster, or removed by `--exclude-instrument`) used to be dropped with
+  exit 0 and nothing said. stdout is still the recipe (or the `--json` config) without it,
+  and stderr now says
+  `note: <instrument> is not in the recipe, so --swap-variant <triple> was not applied (…)`,
+  one line per such swap. `--json` no longer ends with `process.exit()`, which through a
+  pipe could cut off the end of stderr (`--why` output, and now this note).
+- **CLI: a part swapped twice.** `--swap-variant 'drum_kit:bearing_edges:edge_round;drum_kit:bearing_edges:edge_45'`
+  printed what `edge_45` alone prints, and nothing named `edge_round` (already so on
+  0888a1610). Last-wins stays, and is not refused; each other variant the part was given
+  now gets
+  `note: --swap-variant <instrument>:<part>:<variant> was replaced by a later --swap-variant for the same part (<variant used>)`,
+  once, naming the variant the part ends up with (`a;b;a` names only `b`), before the other
+  notes.
+- **CLI: a flag given twice.** `--swap-variant=<a> --swap-variant=<b>` read only `<b>`, so
+  the first flag's swaps were dropped with exit 0 and nothing said, even on another part
+  (already so on 0888a1610; any flag given twice keeps its last value). That stays, so
+  stdout does not change, and each value that was not read now gets
+  `note: only the last --<flag> is read, so --<flag>=<value> was not (…)`, first; for
+  `--swap-variant` it says to separate several swaps with `;` in one flag.
+- **CLI: the notes under `--why-json` / `--why-prefaces-json`.** There stderr is pure JSON,
+  so a note line would break it, and the notes were left out: a JSON consumer was never
+  told. The same strings are now in that JSON's top-level `notes` array, after the keys it
+  always had, which do not change (`[]` when there is no note).
+- **No recipe byte moves.** `check_app_parity.js` stays 7755/7755 in all four formats, and
+  `regression_recipes.js` 1149/1149.
+
 ### Changed — the lyrics runtime and session workflow documents state current rules; their history moves to an engineering log
 
 `mcp/LYRICS_RUNTIME.md` and `docs/session-workflow-repairs.md` keep their paths and state
