@@ -119,7 +119,8 @@
 //      never sharing the card's chain; the five preview views equal to
 //      production's lists, glyphs, ipApply, ipChoose note, render and copy;
 //      sourceMessage held to production's own render at ceilings 1000, 150
-//      and 100; every outcome said once, in production's words where it has
+//      and 100, with a room named like part of a card's own line among the
+//      cases; every outcome said once, in production's words where it has
 //      them; the destination's fallback; frozen snapshots and the
 //      notification order; the store's hold on the engine's workspace; each
 //      view's methods; apply's vocabulary; the hand-over sentence; pending
@@ -3994,15 +3995,33 @@ async function storeProduction(browser, srv) {
       },
       // Brasília indie's five cards and the loose preview: cut at 150.
       truncating: () => { app.cards = []; importTradition('brasilia_indie'); return { recipe: app.cards.slice(), preview: edited(makeCard('oud')) }; },
+      // An environment label inside a card's own line (#810 6682309672, D4):
+      // the environment card's room renamed as its own instrument is, so the
+      // label is in the render whether or not the environment line is. The
+      // truncating cards, cut at 150 and 100; then their first card alone
+      // with the preview, whose instrument lines fit where the environment
+      // line doesn't.
+      named: () => ({ ...cases.truncating(), rename: true }),
+      namedShort: () => { const c = cases.truncating(); return { recipe: c.recipe.slice(0, 1), preview: c.preview, rename: true }; },
+    };
+    // The renamed room, only while a case's sentence is read.
+    const renamed = (after, read) => {
+      const src = envCardOf(after);
+      const r = Room(src.room);
+      const was = r.name;
+      r.name = Inst(src.instrumentId).short || Inst(src.instrumentId).name;
+      try { return read(); } finally { r.name = was; }
     };
     out.sources = {};
     for (const [name, make] of Object.entries(cases)) {
       out.sources[name] = {};
       for (const ceiling of [1000, 150, 100])
         for (const [f] of RECIPE_FORMATS) {
-          const { recipe, preview } = make();
+          const { recipe, preview, rename } = make();
           const copy = { ...preview, id: '__preview__' };
-          out.sources[name][ceiling + ':' + f] = sentence(place(recipe, copy), copy, f, ceiling);
+          const after = place(recipe, copy);
+          const read = () => sentence(after, copy, f, ceiling);
+          out.sources[name][ceiling + ':' + f] = rename ? renamed(after, read) : read();
         }
     }
     out.room = room;
@@ -4868,6 +4887,26 @@ const STORE_CHECKS = {
             await R.addEnsemble({ genreId: 'brasilia_indie', revision: rev() });
             await S.settle();
             await read('truncating');
+            // named: the same, with the environment card's room named as its
+            // own instrument is; namedShort: that card alone with the preview.
+            const rename = () => {
+              const src = E.envCardOf(E.app.cards);
+              const r = E.Room(src.room);
+              const was = r.name;
+              r.name = E.Inst(src.instrumentId).short || E.Inst(src.instrumentId).name;
+              return () => {
+                r.name = was;
+              };
+            };
+            let back = rename();
+            await read('named');
+            back();
+            for (const c of R.snapshot().cards.slice(1))
+              R.apply({ op: 'remove_instrument', card: c.id });
+            await S.settle();
+            back = rename();
+            await read('namedShort');
+            back();
             return {
               fields,
               messages,
@@ -4885,7 +4924,16 @@ const STORE_CHECKS = {
       if (!r || !r.fields) return JSON.stringify(g).slice(0, 300);
       const wrong = [];
       for (const ceiling of [1000, 150, 100])
-        for (const name of ['empty', 'genre', 'banjo', 'alone', 'grouped', 'truncating'])
+        for (const name of [
+          'empty',
+          'genre',
+          'banjo',
+          'alone',
+          'grouped',
+          'truncating',
+          'named',
+          'namedShort',
+        ])
           for (const f of ['rich', 'tags', 'prose', 'compact']) {
             const k = ceiling + ':' + f;
             const got = g[ceiling].messages[name][k];
@@ -6999,8 +7047,10 @@ Object.assign(STORE_MUTANTS, {
   },
 });
 // The environment check's defects: the preview not placed in its genre's
-// run, and Compact's clause decided by counting lines, which a cut render's
-// "[truncated]" line fools.
+// run; Compact's clause decided by counting lines, which a cut render's
+// "[truncated]" line fools; and by an environment label found anywhere in
+// the text, which a room named like part of a card's own line fools (#810
+// 6682309672, D4).
 Object.assign(STORE_MUTANTS, {
   'sourceMessage never places the preview in its genre': {
     check: 'environment',
@@ -7010,10 +7060,14 @@ Object.assign(STORE_MUTANTS, {
   },
   'the Compact clause counted by lines': {
     check: 'environment',
+    edits: [['        ? lines[lines.length - 1] === env\n', '        ? true\n']],
+  },
+  'the Compact clause found anywhere in the text': {
+    check: 'environment',
     edits: [
       [
-        '    return labels.some((label) => text.includes(label))',
-        "    return (after.length >= 2 ? text.split('\\n').length === after.length + 1 : text.includes(' · ')) && labels",
+        '    const written =\n      lines.length === after.length + 1\n        ? lines[lines.length - 1] === env\n        : after.length === 1 && lines.length === 1 && text.endsWith(` · ${env}`);',
+        "    const written = env.slice(0, -1).split(' · ').some((label) => text.includes(label));",
       ],
     ],
   },

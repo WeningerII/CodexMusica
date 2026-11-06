@@ -623,17 +623,28 @@ export function recipeStore({ load, selection, announce, ceiling } = {}) {
             src.traditionId ? genreName(src.traditionId) : 'independent'
           }). This instrument’s tuning, room and chain are kept on its card, but render only if it becomes that source.`;
     if (format !== 'compact') return lead;
-    // Whether Compact writes the environment, read from the render itself:
-    // one of the source card's environment parts (its tuning, room or a
-    // chain stage, as buildStackParts labels them) is in the text. Clearing
-    // the environment and comparing renders can't tell, because the
-    // automatic characters re-derive without it.
+    // Whether Compact writes the environment, read from the render's own
+    // shape (compressCompactRecipe's): the environment line is the source
+    // card's environment parts (its tuning, room and chain stages, as
+    // buildStackParts labels them), joined by " · ", with a comma. It is the
+    // last line, after one line per card, or, for one card whose whole stack
+    // fits on one line, that line's end. A label found anywhere in the text
+    // can't tell: a room or tuning named like part of a card's own line is
+    // found in that line when the environment line is dropped (#810
+    // 6682309672). Clearing the environment and comparing renders can't tell
+    // either, because the automatic characters re-derive without it.
     const limit = ceiling || E.RECIPE_CHAR_CEILING;
     const text = E.compileRecipeStack(after, 'compact', { ceiling: limit });
-    const labels = E.buildStackParts(src)
+    const env = `${E.buildStackParts(src)
       .filter((part) => part.kind !== 'instrument')
-      .map((part) => part.label);
-    return labels.some((label) => text.includes(label))
+      .map((part) => part.label)
+      .join(' · ')},`;
+    const lines = text.split('\n');
+    const written =
+      lines.length === after.length + 1
+        ? lines[lines.length - 1] === env
+        : after.length === 1 && lines.length === 1 && text.endsWith(` · ${env}`);
+    return written
       ? `${lead} In Compact it is written once, after the instruments.`
       : `${lead} In Compact the environment line is dropped to fit the ${limit}-character limit.`;
   }
