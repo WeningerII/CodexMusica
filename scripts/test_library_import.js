@@ -303,15 +303,26 @@ test('file import retains an oversized native reading verbatim and refuses write
 // Pages serves every file on main (.nojekyll is at the root), not only the
 // page, so a perf config or a README is as reachable under codexmusica.com as
 // codex.html is: the scope is every file git tracks. What is matched is an
-// address, a host label before the domain, so prose that names the domain
-// (this comment, the design doc) does not trip it. Files are read as stored;
-// none of the tracked .gz or .zip files holds the address once unpacked
-// (checked for #659), but this test does not unpack them.
-const SITE_ADDRESS = /[a-z0-9-]+\.chatgpt\.site/i;
-// sites/library/ is the old Site's own source, and #811 deletes it. Until that
-// lands it is the one place that may name the Site's address; afterwards this
-// prefix matches nothing.
-const ADDRESS_EXEMPT = ['sites/library/'];
+// address: a host label before the domain, or the bare domain right after a
+// URL's two slashes, so prose that names the domain (this comment, the design
+// doc) does not trip it. Files are read as stored; none
+// of the tracked .gz or .zip files holds the address once unpacked (checked
+// for #659), but this test does not unpack them. #811 deleted sites/library/,
+// the old Site's own source, so no tracked path is exempt.
+const SITE_ADDRESS = /[a-z0-9-]+\.chatgpt\.site|\/\/chatgpt\.site/i;
+test('the address pattern matches an address, with or without a host label, and not prose', () => {
+  // Built at run time, so this file holds no address for the scan below.
+  const domain = ['chatgpt', 'site'].join('.');
+  for (const address of [
+    `https://codex-musica-corpus.example.${domain}/`,
+    `https://${domain}/library`,
+    `href="//${domain}"`,
+    `HTTPS://${domain.toUpperCase()}`,
+  ])
+    assert.ok(SITE_ADDRESS.test(address), address);
+  for (const prose of [`no ${domain} URL`, `the ${domain} origin`, `on ${domain}.`])
+    assert.ok(!SITE_ADDRESS.test(prose), prose);
+});
 test('no tracked file names a chatgpt.site address (Pages serves all of main)', () => {
   const root = path.join(__dirname, '..');
   // A fixed-string git grep narrows the tracked tree to the few files that
@@ -325,10 +336,8 @@ test('no tracked file names a chatgpt.site address (Pages serves all of main)', 
   const mentions = found.stdout.split('\0').filter(Boolean);
   // This file names the domain, so a scan that did not list it did not look.
   assert.ok(mentions.includes('scripts/test_library_import.js'), 'the tracked tree was scanned');
-  const hits = mentions.filter(
-    (rel) =>
-      !ADDRESS_EXEMPT.some((prefix) => rel.startsWith(prefix)) &&
-      SITE_ADDRESS.test(fs.readFileSync(path.join(root, rel), 'latin1'))
+  const hits = mentions.filter((rel) =>
+    SITE_ADDRESS.test(fs.readFileSync(path.join(root, rel), 'latin1'))
   );
   assert.deepEqual(hits, []);
 });
