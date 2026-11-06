@@ -50,6 +50,9 @@ const EXPORTED = [
   // uiOpenEnvironment opens the editor on envCardOf(app.cards)). check_edit_parity
   // resolves a card-less set_environment against the app's own copy of the rule.
   'envCardOf',
+  // The record a pick in that panel writes (#826, BB8's ruling (b) on Don
+  // 6694017051): check_edit_parity compares it with set_environment's.
+  'recordEnvPick',
   // "Add instrument to this tradition" (src/app.js addInstrumentFromPicker):
   // the card is configured by traditionCardOpts and placed after the
   // tradition's run. check_edit_differential drives the connector's

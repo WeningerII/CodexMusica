@@ -374,8 +374,9 @@ const CLEARABLE = () => ['room', 'tuning', ...(C.CHAIN_SECTIONS || []).map((s) =
 // not in `chain`, whose values decide which card is the environment card, and
 // not keyed by card id, which the app re-mints on import. It is absent when
 // empty, so a workspace no set_environment touched is the same bytes as before.
-// No renderer reads it, so no recipe byte depends on it; the app keeps it
-// untouched. clone() gives each card its own copy, and every op here still
+// No renderer reads it, so no recipe byte depends on it. In the app, a pick in
+// the Recording environment panel writes it as a set_environment without `card`
+// does (recordEnvPick in src/app.js); nothing else there writes it. clone() gives each card its own copy, and every op here still
 // assigns a fresh object rather than changing one in place.
 //
 // It holds field names and the catalog ids written under them, never a card id:
@@ -462,7 +463,8 @@ const sameEnvValue = (a, b) =>
 // Does the card still hold what was recorded for `field`? A single value while it
 // is the one stored; a multi-select write while any item it added is still in the
 // list, since a later effect is added beside it and does not replace it. A value
-// the app moved in place (it keeps the record untouched) no longer holds.
+// moved in place without a write (any set but a set_environment or a pick in
+// the app's panel) no longer holds.
 function envRecordHolds(card, field, value) {
   const now = envFieldValue(card, field);
   if (Array.isArray(now)) {

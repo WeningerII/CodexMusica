@@ -539,6 +539,23 @@ const ENV_WRITES = [
     src: appSrc,
     re: /card\.chain\[sId\]\s*=\s*cur\.includes\(itemId\)\s*\?\s*cur\.filter\(x\s*=>\s*x\s*!==\s*itemId\)\s*:\s*\[\.\.\.cur,\s*itemId\]/,
   },
+  // A pick there also writes the record (#826, BB8's ruling (b) on Don
+  // 6694017051), through recordEnvPick, which the card-less case below calls.
+  {
+    label: 'room pick records',
+    src: appSrc,
+    re: /if \(panel\) recordEnvPick\(card, 'room', \{ id: card\.room \}\)/,
+  },
+  {
+    label: 'tuning pick records',
+    src: appSrc,
+    re: /if \(panel\) recordEnvPick\(card, 'tuning', \{ id: card\.tuning \}\)/,
+  },
+  {
+    label: 'chain pick records',
+    src: appSrc,
+    re: /if \(panel\) recordEnvPick\(card, sId, \{ id: itemId, off \}\)[\s\S]{0,200}if \(panel\) recordEnvPick\(card, sId, \{ id: card\.chain\[sId\] \}\)/,
+  },
   {
     label: 'environment editor opens on envCardOf',
     src: workbenchSrc,
@@ -693,9 +710,25 @@ for (let i = 0; i < cases.length; i++) {
     target.room = room || null;
     target.tuning = tuning || null;
     target.chain[stage.id] = item.id || null;
+    // The panel's picks also write the record, as the handler does after each
+    // assignment (pinned by the tripwire above).
+    app.app.cards = appCards;
+    app.recordEnvPick(target, 'room', { id: target.room });
+    app.recordEnvPick(target, 'tuning', { id: target.tuning });
+    app.recordEnvPick(target, stage.id, { id: target.chain[stage.id] });
     const after = W.setEnvironment(ws, null, { room, tuning, chain: { [stage.id]: item.id } });
     cardlessCases++;
     if (appCards.indexOf(target) !== 0) cardlessMoved++;
+    const recordsOf = (cards) => JSON.stringify(cards.map((x) => x[W.ENV_RECORD] ?? null));
+    if (recordsOf(appCards) !== recordsOf(after.cards)) {
+      mismatches++;
+      if (shown < SHOW) {
+        shown++;
+        console.log(
+          `  ✗ ${c.tradition}: the panel's record differs from set_environment's\n      app:       ${recordsOf(appCards)}\n      connector: ${recordsOf(after.cards)}`
+        );
+      }
+    }
     compareRosters(
       `${c.tradition} roster (cards[0]=${ws.cards[0].instrumentId}) → card-less environment`,
       appCards,
@@ -718,8 +751,9 @@ if (envCases === 0 || multiCases === 0 || clearCases === 0 || cardlessMoved === 
 //
 // set_environment keeps a record on the card of what it wrote (`envWritten`,
 // scripts/_workspace_ops.js), which the connector's ENVIRONMENT_NOT_RENDERED
-// and ENVIRONMENT_MOVED read (#671, BB8 6681659990). The app has no such field
-// and keeps it untouched, like prefaceLock above: a workspace a connector
+// and ENVIRONMENT_MOVED read (#671, BB8 6681659990). Only a pick in the app's
+// Recording environment panel writes it there (check_workbench.js drives that
+// through the panel); the edits here are not picks: a workspace a connector
 // edited, then edited in the app, must come back with the record exactly as the
 // connector left it, and the record must change no byte either surface renders.
 // The app's edits here are its real functions (commitPrefaceChange,

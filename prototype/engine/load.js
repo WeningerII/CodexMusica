@@ -49,6 +49,7 @@ export const NAMES = Object.freeze([
   'makeCard',
   'applyPartEdit',
   'envCardOf',
+  'recordEnvPick',
   'traditionCardOpts',
   '_placeCardAfterTraditionRun',
   'image',

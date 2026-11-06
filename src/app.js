@@ -17608,6 +17608,81 @@ function _detailFocusTarget(t) {
   return null;
 }
 
+// A pick in the Recording environment panel writes the connector's record of
+// what was set there (`envWritten`, scripts/_workspace_ops.js), exactly as a
+// set_environment on the same card and field does (#826, BB8's ruling (b) on
+// Don 6694017051): a room, tuning or single-select stage records the id picked
+// (the value already there included: picking it is a write), its "Not set"
+// takes the field out as the connector's clear does, and an effect switched on
+// in a multi-select stage is added to the list. On the environment card it also
+// settles what it names on every other card, as set_environment there does
+// (settleEnvRecords), so fixing a misdirected write from the panel ends its
+// warning. An effect switched off leaves this card's record and settles
+// nothing: the connector has no edit that removes one effect. Only these clicks write: rendering the panel, a restore,
+// Undo and Redo (which restore the record with the rest of the card), a preface
+// cascade and every other programmatic set leave the record as it is. The panel
+// is the editor on envCardOf's card, so a pick on any other card writes nothing,
+// as before: the caller says whether the card was that one before the pick, and
+// calls this once the value is stored, since set_environment settles the other
+// cards only when the card it wrote is the environment card afterwards.
+function recordEnvPick(card, field, pick) {
+  const record = envRecordOf(card.envWritten);
+  let named = true;
+  if (CHAIN_SECTIONS.find(s => s.id === field)?.multiSelect) {
+    const list = record[field] || [];
+    record[field] = pick.off ? list.filter(x => x !== pick.id) : [...list, pick.id];
+    named = pick.off ? null : [pick.id];
+  } else if (pick.id) record[field] = pick.id;
+  else delete record[field];
+  storeEnvRecordOn(card, record);
+  if (named && card === envCardOf(app.cards)) settleEnvRecordsOn(app.cards, card, { [field]: named });
+}
+// The record as the engine reads it (envRecord in scripts/_workspace_ops.js):
+// only environment fields, in that order, each holding catalog ids of that
+// field (a multi-select stage a list of distinct ones), anything else dropped.
+function envRecordOf(raw) {
+  const out = {};
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return out;
+  const known = (field, id) =>
+    typeof id === 'string' &&
+    !!(field === 'room' ? Room(id) : field === 'tuning' ? Tuning(id) : ChainItem(field, id));
+  for (const field of ['room', 'tuning', ...CHAIN_SECTIONS.map(s => s.id)]) {
+    const value = raw[field];
+    if (CHAIN_SECTIONS.find(s => s.id === field)?.multiSelect) {
+      const ids = Array.isArray(value) ? [...new Set(value.filter(x => known(field, x)))] : [];
+      if (ids.length) out[field] = ids;
+    } else if (known(field, value)) out[field] = value;
+  }
+  return out;
+}
+// Stored as a fresh object, or no key when empty (storeEnvRecord).
+function storeEnvRecordOn(card, record) {
+  const clean = envRecordOf(record);
+  if (Object.keys(clean).length) card.envWritten = clean;
+  else delete card.envWritten;
+}
+// settleEnvRecords: a write on the environment card settles, on every other
+// card, what it named there (true: the whole field; a list: those items).
+function settleEnvRecordsOn(cards, envCard, named) {
+  for (const other of cards) {
+    if (other === envCard) continue;
+    const record = envRecordOf(other.envWritten);
+    let moved = false;
+    for (const [field, what] of Object.entries(named)) {
+      if (!(field in record)) continue;
+      if (what === true) delete record[field];
+      else {
+        const left = record[field].filter(x => !what.includes(x));
+        if (left.length === record[field].length) continue;
+        if (left.length) record[field] = left;
+        else delete record[field];
+      }
+      moved = true;
+    }
+    if (moved) storeEnvRecordOn(other, record);
+  }
+}
+
 function handleCardClick(e, card) {
   const t = e.target.closest('button, [data-toggle-part], [data-toggle-env]');
   if (!t) return;
@@ -17641,13 +17716,17 @@ function handleCardClick(e, card) {
     return;
   }
   if (t.dataset.setTuning != null) {
+    const panel = card === envCardOf(app.cards);
     card.tuning = t.dataset.setTuning || null;
+    if (panel) recordEnvPick(card, 'tuning', { id: card.tuning });
     card.editingEnv = null;
     rerenderCard(card);
     return;
   }
   if (t.dataset.setRoom != null) {
+    const panel = card === envCardOf(app.cards);
     card.room = t.dataset.setRoom || null;
+    if (panel) recordEnvPick(card, 'room', { id: card.room });
     card.editingEnv = null;
     rerenderCard(card);
     return;
@@ -17662,11 +17741,15 @@ function handleCardClick(e, card) {
     const itemId = t.dataset.item;
     const sec = CHAIN_SECTIONS.find(s => s.id === sId);
     if (!sec) return;
+    const panel = card === envCardOf(app.cards);
     if (sec.multiSelect) {
       const cur = card.chain[sId] || [];
+      const off = cur.includes(itemId);
       card.chain[sId] = cur.includes(itemId) ? cur.filter(x => x !== itemId) : [...cur, itemId];
+      if (panel) recordEnvPick(card, sId, { id: itemId, off });
     } else {
       card.chain[sId] = itemId || null;
+      if (panel) recordEnvPick(card, sId, { id: card.chain[sId] });
     }
     rerenderCard(card);
     return;

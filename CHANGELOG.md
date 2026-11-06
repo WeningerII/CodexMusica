@@ -102,12 +102,22 @@ what a `set_environment` wrote on it, inside the workspace, and the warnings rea
   through the engine, `/mcp/recipe`, both session endpoints, the app's save, open, fork,
   export, import, history and reload each give every record back exactly.
 - **No recipe byte moves.** `check_app_parity.js` stays 7755/7755 in all four formats, and
-  `regression_recipes.js` 1149/1149: no renderer reads `envWritten`. The browser app keeps it
-  untouched through import, "Use recipe", its own edits, Undo, saved copies and exports
-  (`check_edit_parity.js`, `check_workbench.js`). Its Duplicate copies a card's values and
-  not the record, which says what was written on the card copied: a copy of the environment
-  card that carried it would be warned about on every response for settings nobody set
-  there.
+  `regression_recipes.js` 1149/1149: no renderer reads `envWritten`. The browser app carries
+  it through import, "Use recipe", Undo, saved copies and exports (`check_edit_parity.js`,
+  `check_workbench.js`). Its Duplicate copies a card's values and not the record, which says
+  what was written on the card copied: a copy of the environment card that carried it would
+  be warned about on every response for settings nobody set there.
+- **A pick in the app's Recording environment panel is a write.** The panel is the app's
+  `set_environment`: the same card, the same fields. A room, tuning or chain stage picked
+  there, the value already there included, now goes in the record as a `set_environment`
+  without `card` puts it; "Not set" takes the field out as `clear` does; and the pick
+  settles what it names on every other card, so a misdirected `set_environment` fixed from
+  the panel stops warning. A room picked in the panel and then replaced by a connector
+  `set_preface` was reported as `ENVIRONMENT_OVERWRITTEN` before the record existed and
+  said nothing since; it is reported again, in the same words. Only the pick writes:
+  opening the panel, a restore, Undo and Redo (which restore the record with the rest of
+  the card) and every programmatic set leave it as it is, and a pick on a card that is not
+  the environment card, outside the panel, writes nothing.
 
 ### Fixed — a pinned descriptor or preface is disclosed only on its own card; a filtered CLI swap says so (#671)
 
