@@ -118,6 +118,25 @@ inspect `progress` before choosing to repeat a repair; paid-call reservations wi
 not zero-cost attempts. A `404` means no retained receipt, **not** proof that the
 request never executed. It must not trigger transparent resubmission.
 
+## Relation labels in a grade report
+
+A grade report prints each pair's relations as a `+`-joined list of the
+relation types the pair stands in (for example `perfect rhyme+semirhyme`).
+Two labels stand in for an empty list, and they say different things:
+
+- `NO_RELATION`: the pair stands in no relation type at all.
+- `NO_ATTESTED_RELATION`: every relation type the pair stands in is one this
+  system disowns, a registry row whose `normative` field is `forbidden` or
+  `deprecated` (`DISOWNED_NORMATIVE` in `lyric-harness/quality/relations.py`).
+  The pair does stand in something; the report doesn't name it.
+
+Disowned types are left out of every relation label a grade report prints, not
+only empty ones. A report's JSON `relations` fields still list them. In the
+published evidence census they are not requested at all: they are listed under
+`not_requested_schemas`. Elsewhere, including pair relations, capacity and the
+offline audits, they are still judged. Leaving them out changes no verdict,
+finding or exit code.
+
 ## Capacity and identity
 
 The `/chat` store is bounded to 128 full payloads, 8192 receipt identifiers, 18 MiB per record
