@@ -2,7 +2,7 @@
   "fixture": "bad/cursor_over_bound.json",
   "contract": "mcp/DISCOVERY_V1.md",
   "kind": "cursor",
-  "exercises": "The largest cursor the constants allow, outside discovery and continuation (§3.1), built from the inputs below: 99,141 bytes, within CURSOR_BYTES. Each of its methods holds inputs.refusal, the largest refusal the adapter can construct (§3.2, good/refusal_construction.json), of exactly REFUSAL_BYTES: the actual refusal, not padding. A store accepts it, and a cursor padded to exactly CURSOR_BYTES. Padded one byte past CURSOR_BYTES, the store refuses the frame by W4; the worker never emits it, and refuses with INVARIANT_FAILURE, because only content no constant allows (methods the registry does not have) gets a cursor that far. One refusal one byte past REFUSAL_BYTES is refused by W4 too, and the worker refuses it with INVARIANT_FAILURE as well: no input can lengthen a refusal, so only a construction §3.2 does not list gets one that long.",
+  "exercises": "The largest cursor the constants allow, measured as the canonical bytes of the cursor object with its discovery and continuation members removed (§3.1), built from the inputs below: 99,141 bytes, within CURSOR_BYTES, which is that cursor plus an allowance of 31,931 bytes. Each of its methods holds inputs.refusal, a refusal of exactly REFUSAL_BYTES: search_stub_resolution's own text, not padding, the largest construction in the adapter's call closure, which the dispatch never builds, so the figure is conservative (§3.2, good/refusal_construction.json). A store accepts it, and a cursor padded to exactly CURSOR_BYTES. Padded one byte past CURSOR_BYTES, the store refuses the frame by W4; the worker never emits it, and refuses with INVARIANT_FAILURE, because only content no constant allows (methods the registry does not have) gets a cursor that far. One refusal one byte past REFUSAL_BYTES is refused by W4 too, and the worker refuses it with INVARIANT_FAILURE as well: no input can lengthen a refusal, so only a construction §3.2 does not list gets one that long. Three cursors each hold one number W4 refuses (§2.8): 2^53, past the safe range; -1; and 0.5. Their worker is null: every such number is a count, an index or an epoch, which the engine never builds outside 0 to 2^53 - 1, so they are the store's alone. The controls and the mutants are exactly these.",
   "expect": {
     "accepted": false,
     "rule": "W4",
@@ -58,6 +58,24 @@
       "worker": {
         "code": "INVARIANT_FAILURE"
       }
+    },
+    {
+      "name": "integer_past_the_safe_range",
+      "bytes": 99141,
+      "sha256": "736bc49ef07675adef0e97167bf87feea32f5e440a6e6da31fffb8efd7670ed3",
+      "worker": null
+    },
+    {
+      "name": "integer_below_zero",
+      "bytes": 99127,
+      "sha256": "56befe78d9799ce789b83bdc0935e6917b914af82367f71513f8650376af00f3",
+      "worker": null
+    },
+    {
+      "name": "number_not_an_integer",
+      "bytes": 99128,
+      "sha256": "a600a7ecfb9c9dbf79afebc55f3cfd226a485fd5f5bfbf4e6b1e9e6967274b84",
+      "worker": null
     }
   ]
 }

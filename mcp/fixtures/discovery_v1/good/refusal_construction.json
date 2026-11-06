@@ -2,7 +2,7 @@
   "fixture": "good/refusal_construction.json",
   "contract": "mcp/DISCOVERY_V1.md",
   "kind": "refusal",
-  "exercises": "Every refusal the adapter can put in a cursor's methods[*].refusal (§3.2), read from the source: the four writes of counts[\"refusal\"] and the seven _Refused raises in analysis.py, and every Refusal and NoReferent that the relations.py functions those raises pass on can build, in their call closure. Each construction's parts are constants, a choice of two constants, or a variable part with a bound: names, capabilities and REMEDIES text at the longest the registry gives, the incomplete reason at its longest (§3.1), and every count at sys.maxsize, or the pair count n(n - 1)/2 of two such lengths. Built with every variable part at its maximum, the largest is search_stub_resolution's refusal, 543 bytes, which has no variable part: REFUSAL_BYTES. The real _candidates, _full_shape and _stub_resolved_stream, run on a stream whose every frame has a source label of 1, 4,096 and 65,536 bytes, build byte-identical refusals, all within REFUSAL_BYTES; and _apply_declarations sets a frame's source only to \"declared\" or \"none\". A construction or variable part not listed here, a bound that moves, or a label that reaches a refusal fails the validator: REFUSAL_BYTES is then derived again.",
+  "exercises": "Every refusal construction in the call closure of what the adapter can put in a cursor's methods[*].refusal (§3.2), read from the source: the four writes of counts[\"refusal\"] and the seven _Refused raises in analysis.py, and every Refusal and NoReferent that the relations.py functions those raises pass on can build, in their closure. Each construction's parts are constants, a choice of two constants, or a variable part with a bound: names, capabilities and REMEDIES text at the longest the registry gives (what is missing any subsequence of a schema's capabilities), the incomplete reason at its longest (§3.1), and every count at sys.maxsize, or the pair count n(n - 1)/2 of two such lengths. Each site's bytes take every part independently; its per_schema builds it from one schema's own parts, over the schemas its guard selects, as 3PO measured (6684968306). The largest is search_stub_resolution's refusal, 543 bytes, which has no variable part: REFUSAL_BYTES, a conservative bound, since the dispatch never builds it (reach: built when called directly, never through _stub_resolved_stream, whose line_status states come from the real Stream.supply). The largest the dispatch can build is largest_dispatched, 336 bytes. names lists every place analysis.py names a refusal, refused_uses every use of _Refused, and mutators every call in the closure that could copy a refusal with a field changed. The real _candidates, _full_shape and _stub_resolved_stream, run on streams whose every frame has a source label of 1, 4,096 and 65,536 bytes (and whose line_status is empty, blank or that label), build byte-identical refusals, all within REFUSAL_BYTES; _apply_declarations sets a frame's source only to \"declared\" or \"none\", and reads a declaration's source only to require one or to hand the beatgrid's to declare_beat, which reads none. A construction, variable part, name, use or call not listed here, a bound that moves, or a label that reaches a refusal fails the validator: REFUSAL_BYTES is then derived again.",
   "expect": {
     "accepted": true
   },
@@ -57,7 +57,8 @@
           ]
         ]
       },
-      "bytes": 297
+      "bytes": 297,
+      "per_schema": null
     },
     {
       "module": "library/analysis.py",
@@ -73,7 +74,8 @@
           "Unread lexical members remain in the source census. Findings over readable members do not answer those obligations."
         ]
       },
-      "bytes": 209
+      "bytes": 209,
+      "per_schema": null
     },
     {
       "module": "library/analysis.py",
@@ -89,7 +91,8 @@
           "Unread lexical members remain in the source census. Findings over readable members do not answer those obligations."
         ]
       },
-      "bytes": 209
+      "bytes": 209,
+      "per_schema": null
     },
     {
       "module": "library/analysis.py",
@@ -106,7 +109,11 @@
         "kind": ["const", "capability"],
         "vacuous": ["const", []]
       },
-      "bytes": 236
+      "bytes": 236,
+      "per_schema": {
+        "bytes": 219,
+        "schema": "offbeat internal rhyme"
+      }
     },
     {
       "module": "library/analysis.py",
@@ -120,7 +127,11 @@
         "missing": ["const", []],
         "vacuous": ["const", []]
       },
-      "bytes": 261
+      "bytes": 261,
+      "per_schema": {
+        "bytes": 249,
+        "schema": "Scots vowel-length rhyme (Aitken's Law)"
+      }
     },
     {
       "module": "library/analysis.py",
@@ -132,9 +143,13 @@
         "detail": ["expr", "'; '.join((REMEDIES.get(c, 'Supply ' + c) for c in missing))"],
         "missing": ["expr", "missing"],
         "vacuous": ["expr", "vacuous"],
-        "kind": ["either", ["vacuous_frame", "capability"]]
+        "kind": ["either", ["vacuous_frame", "capability"], "len(vacuous) == len(missing)"]
       },
-      "bytes": 386
+      "bytes": 386,
+      "per_schema": {
+        "bytes": 334,
+        "schema": "chain rhyme (interlocking scheme)"
+      }
     },
     {
       "module": "quality/relations.py",
@@ -151,7 +166,11 @@
         "missing": ["const", []],
         "vacuous": ["const", []]
       },
-      "bytes": 264
+      "bytes": 264,
+      "per_schema": {
+        "bytes": 264,
+        "schema": "Scots vowel-length rhyme (Aitken's Law)"
+      }
     },
     {
       "module": "quality/relations.py",
@@ -165,7 +184,11 @@
         "kind": ["const", ""],
         "vacuous": ["const", []]
       },
-      "bytes": 177
+      "bytes": 177,
+      "per_schema": {
+        "bytes": 154,
+        "schema": "blues AAB stanza"
+      }
     },
     {
       "module": "quality/relations.py",
@@ -181,15 +204,19 @@
             ["text", " needs "],
             ["value", "', '.join(miss)"],
             ["text", "; this declaration does not supply "],
-            ["either", ["it", "them"]],
+            ["either", ["it", "them"], "len(miss) == 1"],
             ["text", "."]
           ]
         ],
         "missing": ["expr", "miss"],
         "vacuous": ["expr", "vac"],
-        "kind": ["either", ["vacuous_frame", "capability"]]
+        "kind": ["either", ["vacuous_frame", "capability"], "len(vac) == len(miss)"]
       },
-      "bytes": 339
+      "bytes": 339,
+      "per_schema": {
+        "bytes": 259,
+        "schema": "平仄 tonal template"
+      }
     },
     {
       "module": "library/analysis.py",
@@ -213,7 +240,8 @@
         "missing": ["const", []],
         "vacuous": ["const", []]
       },
-      "bytes": 285
+      "bytes": 285,
+      "per_schema": null
     },
     {
       "module": "quality/relations.py",
@@ -230,7 +258,8 @@
         "kind": ["const", "capability"],
         "vacuous": ["const", []]
       },
-      "bytes": 297
+      "bytes": 297,
+      "per_schema": null
     },
     {
       "module": "quality/relations.py",
@@ -256,7 +285,8 @@
         "kind": ["const", "capability"],
         "vacuous": ["const", []]
       },
-      "bytes": 336
+      "bytes": 336,
+      "per_schema": null
     },
     {
       "module": "quality/relations.py",
@@ -273,7 +303,8 @@
         "kind": ["const", "capability"],
         "vacuous": ["const", []]
       },
-      "bytes": 543
+      "bytes": 543,
+      "per_schema": null
     }
   ],
   "messages": [
@@ -389,6 +420,221 @@
     "bytes": 543,
     "sha256": "c7aa1565a5cdb975a49c534c2ffbdd844e723bed4d1323ceff0c2fcddaf454b4"
   },
+  "largest_dispatched": {
+    "module": "quality/relations.py",
+    "function": "_stub_resolved_stream",
+    "bytes": 336
+  },
+  "reach": {
+    "direct_bytes": 543,
+    "line_status": {
+      "[]": "absent",
+      "['']": "empty",
+      "['x']": "present"
+    },
+    "guards": ["sup.state == 'absent'", "sup.state == 'empty'"]
+  },
+  "names": [
+    {
+      "function": "_prepare_event",
+      "form": "attribute",
+      "context": "Load",
+      "statement": "Assign",
+      "target": false,
+      "text": "exc.refusal"
+    },
+    {
+      "function": "_prepare_event",
+      "form": "attribute",
+      "context": "Load",
+      "statement": "Assign",
+      "target": false,
+      "text": "exc.refusal"
+    },
+    {
+      "function": "_prepare_event",
+      "form": "attribute",
+      "context": "Load",
+      "statement": "Assign",
+      "target": false,
+      "text": "exc.refusal"
+    },
+    {
+      "function": "__init__",
+      "form": "attribute",
+      "context": "Store",
+      "statement": "Assign",
+      "target": true,
+      "text": "self.refusal"
+    },
+    {
+      "function": "_finish",
+      "form": "subscript",
+      "context": "Store",
+      "statement": "Assign",
+      "target": true,
+      "text": "counts['refusal']"
+    },
+    {
+      "function": "_finish",
+      "form": "subscript",
+      "context": "Store",
+      "statement": "Assign",
+      "target": true,
+      "text": "counts['refusal']"
+    },
+    {
+      "function": "_prepare_event",
+      "form": "subscript",
+      "context": "Store",
+      "statement": "Assign",
+      "target": true,
+      "text": "counts['refusal']"
+    },
+    {
+      "function": "_sound_result",
+      "form": "subscript",
+      "context": "Store",
+      "statement": "Assign",
+      "target": true,
+      "text": "counts['refusal']"
+    },
+    {
+      "function": "_finish",
+      "form": "call_argument",
+      "context": null,
+      "statement": "Expr",
+      "target": false,
+      "text": "counts.get('refusal')"
+    },
+    {
+      "function": "_sound_result",
+      "form": "call_argument",
+      "context": null,
+      "statement": "Return",
+      "target": false,
+      "text": "counts.get('refusal')"
+    },
+    {
+      "function": "_finish",
+      "form": "keyword",
+      "context": null,
+      "statement": "Expr",
+      "target": false,
+      "text": "self._record(refusal=counts.get('refusal'))"
+    },
+    {
+      "function": "_refusal",
+      "form": "keyword",
+      "context": null,
+      "statement": "Return",
+      "target": false,
+      "text": "self._record(refusal=json_safe(refusal))"
+    },
+    {
+      "function": "_sound_refusal",
+      "form": "keyword",
+      "context": null,
+      "statement": "Return",
+      "target": false,
+      "text": "self._record(refusal=json_safe(refusal))"
+    },
+    {
+      "function": "_sound_result",
+      "form": "keyword",
+      "context": null,
+      "statement": "Return",
+      "target": false,
+      "text": "self._record(refusal=counts.get('refusal'))"
+    }
+  ],
+  "refused_uses": {
+    "raise": 7,
+    "except": 1,
+    "class": 1
+  },
+  "mutators": [
+    {
+      "function": "_full_shape",
+      "call": "replace",
+      "first": "Subscript"
+    },
+    {
+      "function": "_odl_edge",
+      "call": "replace",
+      "first": "Subscript"
+    },
+    {
+      "function": "_token_edge_schema",
+      "call": "replace",
+      "first": "Subscript"
+    },
+    {
+      "function": "_full_shape",
+      "call": "replace",
+      "first": "base"
+    },
+    {
+      "function": "crossed_edge",
+      "call": "replace",
+      "first": "base"
+    },
+    {
+      "function": "edge",
+      "call": "replace",
+      "first": "base"
+    },
+    {
+      "function": "_token_figures",
+      "call": "replace",
+      "first": "e"
+    },
+    {
+      "function": "_bind_quotient",
+      "call": "replace",
+      "first": "pred"
+    },
+    {
+      "function": "_bind_quotient",
+      "call": "replace",
+      "first": "pred"
+    },
+    {
+      "function": "_token_edge_schema",
+      "call": "replace",
+      "first": "schema"
+    },
+    {
+      "function": "_token_edge_schema",
+      "call": "replace",
+      "first": "schema"
+    },
+    {
+      "function": "_spans_at",
+      "call": "replace",
+      "first": "sp"
+    },
+    {
+      "function": "enumerate_spans",
+      "call": "replace",
+      "first": "sp"
+    },
+    {
+      "function": "_seq",
+      "call": "replace",
+      "first": "span"
+    },
+    {
+      "function": "_stub_resolved_stream",
+      "call": "replace",
+      "first": "stream"
+    },
+    {
+      "function": "declare_stub_resolution",
+      "call": "replace",
+      "first": "su"
+    }
+  ],
   "labels": [1, 4096, 65536],
   "label_runs": {
     "candidates": {
@@ -401,7 +647,7 @@
     },
     "stub_resolution": {
       "refusals": 2,
-      "largest": 543
+      "largest": 297
     }
   },
   "frame_sources": [
@@ -415,5 +661,15 @@
     ["stub_source", "declared"],
     ["tonal_source", "declared"]
   ],
-  "source_reads": 3
+  "source_reads": [
+    ["attribute", "grid.source", "BeatGrid(source=)"],
+    [
+      "attribute",
+      "self.source",
+      "grid = decode_beatgrid(self.source, self.declarations['beatgrid'])"
+    ],
+    ["get", "declaration.get('source')", "not"],
+    ["get", "declaration.get('source')", "not"],
+    ["get", "declaration.get('source')", "not"]
+  ]
 }
