@@ -1,6 +1,6 @@
 {
   "source": "#670 treatment manifest (6622503880, on main 5901dde86), Keep* rows resolved and three Library gates corrected as noted per row",
-  "note": "One row per checklist item. scripts/check_prototype_manifest.js cross-checks rows 1-220 against tests/ui_capability_inventory.md and rows 221-280 against the Library feature matrix in docs/library-native-design.md. A row is pending until the slice that implements it names its scenario file. A row's deviation records a deliberate, disclosed difference from production that a lane keeps: the lane file and the git blob it was accepted at (from its pinned head), the exact text, and the decision that kept it; the check fails if that file's bytes or the text change.",
+  "note": "One row per checklist item. scripts/check_prototype_manifest.js cross-checks rows 1-220 against tests/ui_capability_inventory.md and rows 221-280 against the Library feature matrix in docs/library-native-design.md. A row is pending until the slice that implements it names its scenario file; it is done only when that scenario declares it in its header (\"// rows: N\") and passes in the same run of scripts/run_prototype_scenarios.js. A row's deviation records a deliberate, disclosed difference from production that a lane keeps: the lane file and the git blob it was accepted at (from its pinned head), the exact text, and the decision that kept it; the check fails if that file's bytes or the text change.",
   "rows": [
     {
       "n": 1,

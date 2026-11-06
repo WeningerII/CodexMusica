@@ -20,18 +20,31 @@
 // name, however the others did. An exclusion names a discovered scenario and
 // says why, and every run prints it.
 //
+// THE SAME RUN PROVES THE MANIFEST'S ROWS (#665 6675529176). The runner
+// writes what it ran, the git blob of each scenario before and after it ran
+// and how it ended, to a results file under the OS temp dir (never
+// committed), then runs check_prototype_manifest.js --after-run on that file
+// with this run's id. A row marked done counts only if its scenario declares
+// it and passed here, at the bytes now on disk. The acceptance runs inside
+// this process, not as a step after it: CI's run_parallel deals
+// test:prototype's steps out as concurrent leaves, on two machines, so a
+// separate step could not see this run's file.
+//
 //   node scripts/run_prototype_scenarios.js
 //   node scripts/run_prototype_scenarios.js --self-check
 //
-// --self-check runs no lane scenario. It copies this runner into scratch
-// trees of trivial scenarios and runs each check in CHECKS on it, then plants
-// each defect in PLANTED (an edit to this file, as check_prototype_hosts.js
-// plants host.js defects) and fails unless every planted copy fails its check.
+// --self-check runs no lane scenario. It copies this runner and
+// check_prototype_manifest.js into scratch trees of trivial scenarios, with a
+// fixture shell registry and manifest, and runs each check in CHECKS there,
+// then plants each defect in PLANTED (an edit to this file or to the
+// manifest check, as check_prototype_hosts.js plants host.js defects) and
+// fails unless every planted copy fails its check.
 //
-// Exit 0 if every scenario passes, 1 if any fails or times out or the run
-// doesn't reconcile, 2 if there are none to run or SCENARIO_TIMEOUT_MS is not
-// a positive whole number.
+// Exit 0 if every scenario passes, 1 if any fails or times out, the run
+// doesn't reconcile, or the manifest doesn't accept it, 2 if there are none
+// to run or SCENARIO_TIMEOUT_MS is not a positive whole number.
 
+const crypto = require('crypto');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
@@ -97,6 +110,20 @@ for (const [rel, reason] of Object.entries(EXCLUDED)) {
 }
 const planned = scenarios.filter((rel) => !excluded(rel));
 
+// This run, and the bytes each scenario ran at (its git blob, as the
+// manifest check reads it back).
+const RUN_ID = crypto.randomUUID();
+const RESULTS = path.join(os.tmpdir(), 'codex-prototype-scenarios', `${RUN_ID}.json`);
+const started = new Date().toISOString();
+const blobOf = (rel) => {
+  try {
+    const bytes = fs.readFileSync(path.join(ROOT, rel));
+    return crypto.createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex');
+  } catch {
+    return null;
+  }
+};
+
 const env = { ...process.env };
 if (!env.CHROMIUM_PATH || !env.CHROMIUM) {
   let exe = env.CHROMIUM_PATH || env.CHROMIUM;
@@ -114,8 +141,10 @@ if (!env.CHROMIUM_PATH || !env.CHROMIUM) {
 }
 
 const ran = [];
+const record = [];
 const failed = [];
 for (const rel of planned) {
+  const blob = blobOf(rel);
   const t0 = Date.now();
   const r = spawnSync(process.execPath, [rel], {
     cwd: ROOT,
@@ -129,6 +158,13 @@ for (const rel of planned) {
   const secs = ((Date.now() - t0) / 1000).toFixed(1);
   const timedOut = r.error && r.error.code === 'ETIMEDOUT';
   const ok = !r.error && r.status === 0;
+  record.push({
+    path: rel,
+    blob,
+    blob_after: blobOf(rel),
+    status: ok ? 'pass' : timedOut ? 'timeout' : 'fail',
+    seconds: Number(secs),
+  });
   console.log(
     `${ok ? 'PASS' : 'FAIL'}  ${rel}  (${secs}s${timedOut ? `, timed out at ${TIMEOUT_MS / 1000}s` : ''})`
   );
@@ -141,6 +177,40 @@ for (const rel of planned) {
 }
 
 problems.push(...reconcile(scenarios, ran));
+
+// The manifest's acceptance of this run.
+fs.mkdirSync(path.dirname(RESULTS), { recursive: true });
+fs.writeFileSync(
+  RESULTS,
+  JSON.stringify(
+    {
+      run_id: RUN_ID,
+      root: ROOT,
+      started,
+      finished: new Date().toISOString(),
+      complete: true,
+      discovered: scenarios,
+      excluded: EXCLUDED,
+      problems,
+      scenarios: record,
+    },
+    null,
+    2
+  ) + '\n'
+);
+console.log(`results: ${RESULTS} (run ${RUN_ID})`);
+const accept = spawnSync(
+  process.execPath,
+  ['scripts/check_prototype_manifest.js', `--after-run=${RESULTS}`, `--run-id=${RUN_ID}`],
+  { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }
+);
+const acceptance = `${accept.stdout || ''}${accept.stderr || ''}`.trim();
+if (acceptance) console.log(acceptance);
+if (accept.status !== 0)
+  problems.push(
+    `the manifest does not accept this run (check_prototype_manifest.js --after-run exited ${accept.status})`
+  );
+
 const lead = `${scenarios.length} discovered, ${Object.keys(EXCLUDED).length} excluded`;
 if (failed.length || problems.length) {
   console.error(
@@ -149,7 +219,9 @@ if (failed.length || problems.length) {
   for (const p of problems) console.error(`  ✗ ${p}`);
   process.exit(1);
 }
-console.log(`run_prototype_scenarios: ${ran.length}/${ran.length} lane scenarios pass (${lead})`);
+console.log(
+  `run_prototype_scenarios: ${ran.length}/${ran.length} lane scenarios pass (${lead}); the manifest accepts the run`
+);
 
 // The scenarios run, against the ones discovered and EXCLUDED.
 function reconcile(discovered, run) {
@@ -189,10 +261,32 @@ function selfCheck() {
   const TARGETS = 'prototype/scenarios/genre-targets/targets.cjs';
   const LIBRARY = 'prototype/scenarios/library/explore.mjs';
   const pass = 'process.exit(0);\n';
+  const CATEGORIES = 'prototype/scenarios/genre-categories/categories.cjs';
+  // A shell that registers Categories, Find a sound and #760's instrument
+  // detail (whose files aren't in the build), and a manifest whose row 1 is
+  // done on the Categories scenario, which declares it.
+  const row = (n, status, scenario) => ({ n, id: `row-${n}`, status, scenario });
+  const manifest = (...r) => JSON.stringify({ rows: r });
   const BASE = {
-    'prototype/scenarios/genre-categories/categories.cjs': pass,
+    [CATEGORIES]: `// rows: 1\n${pass}`,
     [TARGETS]: pass,
     [LIBRARY]: pass,
+    'prototype/app.js': [
+      "const a = () => import('./features/genre-categories/categories.js');",
+      "const b = () => import('./features/genre-targets/targets.js');",
+      "const c = () => import('./features/instrument-detail/detail.js');",
+    ].join('\n'),
+    'prototype/features/genre-categories/categories.js': 'export {};\n',
+    'prototype/features/genre-targets/targets.js': 'export {};\n',
+    'prototype/manifest.json': manifest(row(1, 'done', CATEGORIES), row(2, 'pending', null)),
+    'scripts/check_prototype_manifest.js': fs.readFileSync(
+      path.join(__dirname, 'check_prototype_manifest.js'),
+      'utf8'
+    ),
+    'scripts/_inventory_parser.js': fs.readFileSync(
+      path.join(__dirname, '_inventory_parser.js'),
+      'utf8'
+    ),
   };
   // The committed exclusions' files, so they are discovered here too.
   for (const rel of Object.keys(EXCLUDED)) BASE[rel] = pass;
@@ -234,6 +328,91 @@ function selfCheck() {
     'a failing scenario fails': {
       files: { [TARGETS]: 'process.exit(3);\n' },
       ok: (r) => r.status === 1 && says(r, `FAIL  ${TARGETS}`),
+    },
+    // The manifest's same-run acceptance. 3PO's discriminators (#665
+    // 6675513892): false completion evidence, a stale blob, a missing
+    // registered Categories, and malformed declarations; the omitted Targets
+    // scenario is "a scenario dropped from the loop" above.
+    'a done row is proven by this run': {
+      ok: (r) => r.status === 0 && says(r, '1 done row(s) proven by this run'),
+    },
+    'a done row its scenario does not declare fails': {
+      files: {
+        'prototype/manifest.json': manifest(row(1, 'done', LIBRARY), row(2, 'pending', null)),
+      },
+      ok: (r) => r.status === 1 && says(r, `done, but ${LIBRARY} does not declare row 1`),
+    },
+    'a done row whose scenario did not run fails': {
+      edits: [exclude(LIBRARY, 'a fixture exclusion')],
+      files: {
+        [LIBRARY]: `// rows: 1\n${pass}`,
+        [CATEGORIES]: pass,
+        'prototype/manifest.json': manifest(row(1, 'done', LIBRARY), row(2, 'pending', null)),
+      },
+      ok: (r) => r.status === 1 && says(r, `done, but ${LIBRARY} did not run in this run`),
+    },
+    'a done row whose scenario failed fails': {
+      files: { [CATEGORIES]: '// rows: 1\nprocess.exit(1);\n' },
+      ok: (r) => r.status === 1 && says(r, `done, but ${CATEGORIES} did not pass in this run`),
+    },
+    'another run’s results fail': {
+      after: (tree, r) => accept(tree, r, { runId: crypto.randomUUID() }),
+      ok: (r) => r.status === 1 && says(r, 'is from another run'),
+    },
+    'a scenario changed since it ran fails': {
+      after: (tree, r) => {
+        fs.appendFileSync(path.join(tree, CATEGORIES), '// edited after the run\n');
+        return accept(tree, r);
+      },
+      ok: (r) => r.status === 1 && says(r, `${CATEGORIES} has changed since it ran`),
+    },
+    'a scenario changed while it ran fails': {
+      files: {
+        [CATEGORIES]: "// rows: 1\nrequire('fs').appendFileSync(__filename, '// ran\\n');\n",
+      },
+      ok: (r) => r.status === 1 && says(r, `${CATEGORIES} changed while it ran`),
+    },
+    'a registered lane with no passing scenario fails': {
+      files: {
+        [CATEGORIES]: null,
+        'prototype/manifest.json': manifest(row(1, 'pending', null), row(2, 'pending', null)),
+      },
+      ok: (r) =>
+        r.status === 1 &&
+        says(r, 'genre-categories is registered in prototype/app.js, but no scenario of it passed'),
+    },
+    'a registered lane with no module fails': {
+      files: { 'prototype/features/genre-categories/categories.js': null },
+      ok: (r) =>
+        r.status === 1 &&
+        says(
+          r,
+          'its module prototype/features/genre-categories/categories.js is not in this build'
+        ),
+    },
+    'the #760 exception ends when its files arrive': {
+      files: { 'prototype/features/instrument-detail/detail.js': 'export {};\n' },
+      ok: (r) => r.status === 1 && says(r, 'instrument-detail is in this build now'),
+    },
+    'a row declared twice fails': {
+      files: { [CATEGORIES]: `// rows: 1, 1\n${pass}` },
+      ok: (r) => r.status === 1 && says(r, `${CATEGORIES}: declares row 1 twice`),
+    },
+    'a malformed declaration fails': {
+      files: { [CATEGORIES]: `// rows: 1,2\n${pass}` },
+      ok: (r) => r.status === 1 && says(r, 'malformed rows declaration "// rows: 1,2"'),
+    },
+    'two declarations fail': {
+      files: { [CATEGORIES]: `// rows: 1\n// rows: 2\n${pass}` },
+      ok: (r) => r.status === 1 && says(r, `${CATEGORIES}: 2 rows declarations`),
+    },
+    'a declaration below the header fails': {
+      files: { [CATEGORIES]: `${pass}// rows: 1\n` },
+      ok: (r) => r.status === 1 && says(r, 'the rows declaration is below the header'),
+    },
+    'a declaration of a row the manifest lacks fails': {
+      files: { [CATEGORIES]: `// rows: 1, 9\n${pass}` },
+      ok: (r) => r.status === 1 && says(r, 'declares row 9, but the manifest has no row 9'),
     },
   };
   const PLANTED = {
@@ -289,27 +468,133 @@ function selfCheck() {
       check: 'a failing scenario fails',
       edits: [['const ok = !r.error && r.status === 0;', 'const ok = !r.error;']],
     },
+    // In the runner (the default) or, with in: 'manifest', in
+    // check_prototype_manifest.js.
+    'the acceptance never runs': {
+      check: 'a done row is proven by this run',
+      edits: [['const accept = spawnSync(', 'const accept = { status: 0 } || spawnSync(']],
+    },
+    'an undeclared done row passes': {
+      check: 'a done row its scenario does not declare fails',
+      in: 'manifest',
+      edits: [['(declares.get(r.scenario) || []).includes(r.n),', 'true,']],
+    },
+    'a done row that did not run passes': {
+      check: 'a done row whose scenario did not run fails',
+      in: 'manifest',
+      edits: [['expect(!!s, `row', 'expect(true, `row']],
+    },
+    'a done row that failed passes': {
+      check: 'a done row whose scenario failed fails',
+      in: 'manifest',
+      edits: [["s.status === 'pass',", 'true,']],
+    },
+    'another run’s results pass': {
+      check: 'another run’s results fail',
+      in: 'manifest',
+      edits: [['results.run_id === runId,', 'true,']],
+    },
+    'a stale blob passes': {
+      check: 'a scenario changed since it ran fails',
+      in: 'manifest',
+      edits: [['now === s.blob,', 'true,']],
+    },
+    'the blob after a run is not read': {
+      check: 'a scenario changed while it ran fails',
+      edits: [['    blob_after: blobOf(rel),', '    blob_after: blob,']],
+    },
+    'a registered lane needs no scenario': {
+      check: 'a registered lane with no passing scenario fails',
+      in: 'manifest',
+      edits: [['passed(lane),', 'true,']],
+    },
+    'a registered lane needs no module': {
+      check: 'a registered lane with no module fails',
+      in: 'manifest',
+      edits: [['fs.existsSync(path.join(root, module)),', 'true,']],
+    },
+    'the #760 exception never ends': {
+      check: 'the #760 exception ends when its files arrive',
+      in: 'manifest',
+      edits: [['expect(!arrived,', 'expect(true,']],
+    },
+    'a row declared twice passes': {
+      check: 'a row declared twice fails',
+      in: 'manifest',
+      edits: [['if (out.includes(n)) bad.push(', 'if (false) bad.push(']],
+    },
+    'a malformed declaration passes': {
+      check: 'a malformed declaration fails',
+      in: 'manifest',
+      edits: [['if (!m) {', 'if (!m) {\n      continue;']],
+    },
+    'two declarations pass': {
+      check: 'two declarations fail',
+      in: 'manifest',
+      edits: [['if (at.length > 1)', 'if (false)']],
+    },
+    'a declaration below the header passes': {
+      check: 'a declaration below the header fails',
+      in: 'manifest',
+      edits: [['if (i >= end)', 'if (false)']],
+    },
+    'a declaration of a missing row passes': {
+      check: 'a declaration of a row the manifest lacks fails',
+      in: 'manifest',
+      edits: [['if (!known.has(n))', 'if (false)']],
+    },
   };
 
-  // Edits apply to the runner above this section only, where each `from`
-  // must occur exactly once (below, every one also occurs as a literal).
+  // A runner edit applies to the runner above this section only (below,
+  // every `from` also occurs as a literal); a manifest edit, to all of
+  // check_prototype_manifest.js. Each `from` must occur exactly once.
   const SRC = fs.readFileSync(__filename, 'utf8');
   const cut = SRC.indexOf('\n// ── --self-check');
-  const plant = (edits) => {
-    let src = SRC.slice(0, cut);
+  const MANIFEST_CHECK = 'scripts/check_prototype_manifest.js';
+  const edit = (src, edits) => {
     for (const [from, to] of edits) {
       if (src.split(from).length !== 2) return null;
       src = src.replace(from, () => to);
     }
-    return src + SRC.slice(cut);
+    return src;
+  };
+  // The runner and the manifest check with these edits, or null if one
+  // doesn't apply. A planted defect is in the runner unless it says
+  // in: 'manifest'.
+  const plant = ({ runner = [], manifest = [] }) => {
+    const head = edit(SRC.slice(0, cut), runner);
+    const check = edit(BASE[MANIFEST_CHECK], manifest);
+    return head === null || check === null ? null : { runner: head + SRC.slice(cut), check };
+  };
+  const where = (planted) =>
+    planted.in === 'manifest' ? { manifest: planted.edits } : { runner: planted.edits };
+  // The manifest check's --after-run, again, on the results a run printed.
+  const accept = (tree, r, { runId } = {}) => {
+    const m = /^results: (.+) \(run ([0-9a-f-]+)\)$/m.exec(r.out);
+    if (!m) return { status: null, out: `no results line in: ${r.out}` };
+    const a = spawnSync(
+      process.execPath,
+      [MANIFEST_CHECK, `--after-run=${m[1]}`, `--run-id=${runId || m[2]}`],
+      { cwd: tree, encoding: 'utf8' }
+    );
+    return { status: a.status, out: `${a.stdout || ''}${a.stderr || ''}` };
   };
   const scratch = fs.mkdtempSync(path.join(os.tmpdir(), 'prototype-runner-'));
   let trees = 0;
-  const run = (check, planted = []) => {
-    const src = plant([...(check.edits || []), ...planted]);
+  const run = (check, planted = { edits: [] }) => {
+    const p = where(planted);
+    const src = plant({
+      runner: [...(check.edits || []), ...(p.runner || [])],
+      manifest: p.manifest,
+    });
     if (src === null) return null;
     const tree = path.join(scratch, String(trees++));
-    const files = { ...BASE, ...(check.files || {}), 'scripts/run_prototype_scenarios.js': src };
+    const files = {
+      ...BASE,
+      ...(check.files || {}),
+      'scripts/run_prototype_scenarios.js': src.runner,
+      [MANIFEST_CHECK]: src.check,
+    };
     for (const [rel, text] of Object.entries(files)) {
       if (text === null) continue;
       fs.mkdirSync(path.dirname(path.join(tree, rel)), { recursive: true });
@@ -321,7 +606,12 @@ function selfCheck() {
       encoding: 'utf8',
       timeout: 60000,
     });
-    return { status: r.status, out: `${r.stdout || ''}${r.stderr || ''}` };
+    const first = { status: r.status, out: `${r.stdout || ''}${r.stderr || ''}` };
+    const out = check.after ? check.after(tree, first) : first;
+    // The run's results file, which this tree's run wrote, goes with it.
+    const m = /^results: (.+) \(run /m.exec(first.out);
+    if (m) fs.rmSync(m[1], { force: true });
+    return out;
   };
 
   const bad = [];
@@ -339,19 +629,22 @@ function selfCheck() {
     if (!named.has(name)) bad.push(`the check "${name}" has no planted defect`);
   }
   let caught = 0;
-  for (const [name, { check, edits }] of Object.entries(PLANTED)) {
+  for (const [name, planted] of Object.entries(PLANTED)) {
+    const { check } = planted;
     if (!CHECKS[check]) {
       bad.push(`the planted defect "${name}" names no check (${check})`);
       continue;
     }
-    if (plant(edits) === null) {
-      bad.push(`the planted defect "${name}" no longer applies to the runner`);
+    if (plant(where(planted)) === null) {
+      bad.push(
+        `the planted defect "${name}" no longer applies to ${planted.in === 'manifest' ? 'check_prototype_manifest.js' : 'the runner'}`
+      );
       continue;
     }
-    const r = run(CHECKS[check], edits);
+    const r = run(CHECKS[check], planted);
     // A planted copy still runs to its verdict: a defect that only breaks
     // the file would fail every check and prove nothing.
-    if (!r || !/^run_prototype_scenarios: /m.test(r.out))
+    if (!r || !/^(run_prototype_scenarios|check_prototype_manifest --after-run): /m.test(r.out))
       bad.push(`the planted defect "${name}" broke the runner instead: ${r ? r.out.trim() : ''}`);
     else if (!CHECKS[check].ok(r)) caught++;
     else bad.push(`with the planted defect "${name}", the check "${check}" still holds`);
@@ -365,7 +658,7 @@ function selfCheck() {
     return 1;
   }
   console.log(
-    `run_prototype_scenarios --self-check: ${held}/${total} checks hold on the runner; ${caught}/${planted} planted runner defects fail their checks`
+    `run_prototype_scenarios --self-check: ${held}/${total} checks hold on the runner and the manifest's acceptance; ${caught}/${planted} planted defects fail their checks`
   );
   return 0;
 }
