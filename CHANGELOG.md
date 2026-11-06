@@ -85,6 +85,17 @@ what a `set_environment` wrote on it, inside the workspace, and the warnings rea
   it, said nothing. It is now said for a field a `set_environment` wrote there whose value
   the `set_preface` changes, once (the field leaves the record with it), and a workspace
   saved without the record gets none.
+- **The record lives on its card, is never shared, and a change to it alone counts.**
+  `envWritten` holds field names and the catalog ids written under them, never a card id,
+  so an import that mints fresh card ids carries it with nothing to remap, and a record put
+  at workspace level is dropped. Every workspace an op or call returns gives each card its
+  own copy, so changing one card's record never reaches another workspace's (it used to be
+  shared through the per-op copy and through `render_recipe`'s returned cards). In the app,
+  a change only to the record (writing a card's seeded value, or a write elsewhere settling
+  it) is now its own history step: Undo and Redo restore it, and the warning it carries,
+  and autosave and a reload keep it (it used to fold into the step before). Round trips
+  through the engine, `/mcp/recipe`, both session endpoints, the app's save, open, fork,
+  export, import, history and reload each give every record back exactly.
 - **No recipe byte moves.** `check_app_parity.js` stays 7755/7755 in all four formats, and
   `regression_recipes.js` 1149/1149: no renderer reads `envWritten`. The browser app keeps it
   untouched through import, "Use recipe", its own edits, Undo, saved copies and exports
