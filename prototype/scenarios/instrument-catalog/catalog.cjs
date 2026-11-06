@@ -3084,6 +3084,13 @@ let code = fs.readFileSync(
   'utf8'
 );
 const mutations = {
+  addClear: ["    message('');\n    pendingAdds.add(item.id);", '    pendingAdds.add(item.id);'],
+  addFallback: [
+    "message(e?.message || '')",
+    "message(e?.message || 'The instrument could not be added.')",
+  ],
+  addPending: ['s.busy || pendingAdds.has(item.id)', 's.busy'],
+  addBusy: ['s.busy || pendingAdds.has(item.id)', 'pendingAdds.has(item.id)'],
   and: ['.every((id) => i.propertyIds.includes(id))', '.some((id) => i.propertyIds.includes(id))'],
   ranking: ['ranks.get(a.id) - ranks.get(b.id)', '0'],
   count: ['const prospective = new Set(filters)', 'const prospective = new Set()'],
@@ -3341,6 +3348,65 @@ async function main() {
     ]);
     assert.equal(w.document.activeElement, get('add:oud'));
   });
+  const originalAdd = ctx.recipe.addInstrument;
+  const note = host.querySelector('.ic-note');
+  const speechBeforeAdd = announcements.length;
+  let addAttempts = 0;
+  let finishAdd;
+  ctx.recipe.addInstrument = () => {
+    addAttempts++;
+    return Promise.reject(new Error('Shell refused this exact addition.'));
+  };
+  click('add:oud');
+  await settle();
+  check('Add failure keeps the exact shell message outside live regions', () => {
+    assert.equal(note.textContent, 'Shell refused this exact addition.');
+    assert.equal(note.closest('[aria-live], [role=status], [role=alert], [role=log]'), null);
+    assert.equal(announcements.length, speechBeforeAdd);
+  });
+  state = { ...state, busy: true };
+  // Dispatch bypasses the disabled-button affordance to test the controller guard itself.
+  get('add:oud').dispatchEvent(new w.MouseEvent('click', { bubbles: true }));
+  check('busy Add guard preserves the note and does not start an attempt', () => {
+    assert.equal(addAttempts, 1);
+    assert.equal(note.textContent, 'Shell refused this exact addition.');
+  });
+  state = { ...state, busy: false };
+  listeners.forEach((fn) => fn());
+  ctx.recipe.addInstrument = () => {
+    addAttempts++;
+    assert.equal(note.textContent, '', 'clear before invoking the shell');
+    return new Promise((resolve) => {
+      finishAdd = resolve;
+    });
+  };
+  click('add:oud');
+  check('retry clears the stale failure at attempt start', () => {
+    assert.equal(note.textContent, '');
+    assert.equal(addAttempts, 2);
+    assert.equal(get('add:oud').disabled, true);
+  });
+  get('add:oud').dispatchEvent(new w.MouseEvent('click', { bubbles: true }));
+  check('pending Add guard prevents duplicate calls', () => assert.equal(addAttempts, 2));
+  finishAdd({ snapshot: state, placed: 'independent' });
+  await settle();
+  check('later Add success leaves no stale failure or new speech', () => {
+    assert.equal(note.textContent, '');
+    assert.equal(get('add:oud').disabled, false);
+    assert.equal(announcements.length, speechBeforeAdd);
+  });
+  for (const error of [{}, null, new Error('')]) {
+    ctx.recipe.addInstrument = () => Promise.reject(error);
+    click('add:oud');
+    await settle();
+    assert.equal(note.textContent, '', 'message-less rejection has no invented fallback');
+    assert.equal(get('add:oud').disabled, false);
+  }
+  check('message-less rejections add neither a note nor a live region', () => {
+    assert.equal(announcements.length, speechBeforeAdd);
+    assert.equal(host.querySelector('[aria-live], [role=status], [role=alert], [role=log]'), null);
+  });
+  ctx.recipe.addInstrument = originalAdd;
   const saved = state;
   state = { ...state, instrumentActions: undefined };
   listeners.forEach((fn) => fn());

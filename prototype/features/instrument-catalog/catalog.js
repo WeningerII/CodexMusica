@@ -108,6 +108,7 @@ export function mount(host, ctx) {
       return;
     }
     if (s.busy || pendingAdds.has(item.id)) return;
+    message('');
     pendingAdds.add(item.id);
     syncRecipe();
     // This is plain catalog Add: no preview card/configuration crosses the boundary.
@@ -122,7 +123,7 @@ export function mount(host, ctx) {
       result = Promise.reject(e);
     }
     Promise.resolve(result)
-      .catch((e) => message(e.message || 'The instrument could not be added.'))
+      .catch((e) => message(e?.message || ''))
       .finally(() => {
         pendingAdds.delete(item.id);
         syncRecipe();
