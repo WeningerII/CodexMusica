@@ -1,0 +1,118 @@
+{
+  "fixture": "good/within_line_inside_group.json",
+  "contract": "mcp/DISCOVERY_V1.md",
+  "kind": "groups",
+  "exercises": "A two-line target over lines 3 and 7 yields a cross-line key, a within-line key on line 7, then another cross-line key: the within-line key goes to alt_seen and does not retire [3,7], so the second cross-line key joins the group. Membership checks the primary seen log and, for this same-rule schema, the reversed key. [3,9] opens with a key already in seen (a duplicate that still retires [3,7]); a within-line key recurs from an earlier group through alt_seen; and the keys ['9:2', 1] and ['9:2', true] are different members, because membership is equality of canonical bytes.",
+  "expect": {
+    "accepted": true,
+    "state": {
+      "discovery": {
+        "groups": { "through": [3, 7], "current": { "lines": [3, 9], "keys": [["3:2", "9:1"]] } },
+        "logs": {
+          "alt_seen": {
+            "sealed": 0,
+            "sealed_digest": "5891743092f1b2973868a42afda62358df012199207bc7660c9ae1798559f6e2",
+            "tail": [
+              ["7:1", "7:4"],
+              ["3:2", "3:4"],
+              ["9:2", 1],
+              ["9:2", true]
+            ]
+          }
+        }
+      },
+      "continuation": { "pending": null },
+      "emission": 0
+    }
+  },
+  "mirror": true,
+  "seen_members": [
+    ["3:1", "7:2"],
+    ["3:5", "9:1"]
+  ],
+  "state": {
+    "discovery": {
+      "groups": { "through": null, "current": null },
+      "logs": {
+        "alt_seen": {
+          "sealed": 0,
+          "sealed_digest": "5891743092f1b2973868a42afda62358df012199207bc7660c9ae1798559f6e2",
+          "tail": []
+        }
+      }
+    },
+    "continuation": { "pending": null },
+    "emission": 0
+  },
+  "events": [
+    { "op": "key", "lines": [3, 7], "key": ["3:2", "7:1"], "expect": "new" },
+    { "op": "done" },
+    { "op": "key", "lines": [7, 7], "key": ["7:1", "7:4"], "expect": "new" },
+    { "op": "done" },
+    { "op": "key", "lines": [3, 7], "key": ["3:4", "7:1"], "expect": "new" },
+    { "op": "done" },
+    { "op": "key", "lines": [3, 7], "key": ["7:1", "3:2"], "expect": "duplicate" },
+    { "op": "key", "lines": [3, 7], "key": ["3:1", "7:2"], "expect": "duplicate" },
+    { "op": "key", "lines": [3, 7], "key": ["7:2", "3:1"], "expect": "duplicate" },
+    { "op": "key", "lines": [7, 7], "key": ["7:4", "7:1"], "expect": "duplicate" },
+    { "op": "key", "lines": [3, 3], "key": ["3:2", "3:4"], "expect": "new" },
+    { "op": "done" },
+    {
+      "op": "checkpoint",
+      "expect": {
+        "discovery": {
+          "groups": {
+            "through": null,
+            "current": {
+              "lines": [3, 7],
+              "keys": [
+                ["3:2", "7:1"],
+                ["3:4", "7:1"]
+              ]
+            }
+          },
+          "logs": {
+            "alt_seen": {
+              "sealed": 0,
+              "sealed_digest": "5891743092f1b2973868a42afda62358df012199207bc7660c9ae1798559f6e2",
+              "tail": [
+                ["7:1", "7:4"],
+                ["3:2", "3:4"]
+              ]
+            }
+          }
+        },
+        "continuation": { "pending": null },
+        "emission": 0
+      }
+    },
+    { "op": "key", "lines": [3, 9], "key": ["3:5", "9:1"], "expect": "duplicate" },
+    {
+      "op": "checkpoint",
+      "expect": {
+        "discovery": {
+          "groups": { "through": [3, 7], "current": { "lines": [3, 9], "keys": [] } },
+          "logs": {
+            "alt_seen": {
+              "sealed": 0,
+              "sealed_digest": "5891743092f1b2973868a42afda62358df012199207bc7660c9ae1798559f6e2",
+              "tail": [
+                ["7:1", "7:4"],
+                ["3:2", "3:4"]
+              ]
+            }
+          }
+        },
+        "continuation": { "pending": null },
+        "emission": 0
+      }
+    },
+    { "op": "key", "lines": [3, 9], "key": ["3:2", "9:1"], "expect": "new" },
+    { "op": "done" },
+    { "op": "key", "lines": [3, 3], "key": ["3:2", "3:4"], "expect": "duplicate" },
+    { "op": "key", "lines": [9, 9], "key": ["9:2", 1], "expect": "new" },
+    { "op": "done" },
+    { "op": "key", "lines": [9, 9], "key": ["9:2", true], "expect": "new" },
+    { "op": "done" }
+  ]
+}

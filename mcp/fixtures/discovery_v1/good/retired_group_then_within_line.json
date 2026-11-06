@@ -2,7 +2,7 @@
   "fixture": "good/retired_group_then_within_line.json",
   "contract": "mcp/DISCOVERY_V1.md",
   "kind": "groups",
-  "exercises": "Group [3,7] gathers two keys, with a checkpoint and resume inside the first pending binding (re-emitted, not re-added); [4,8] retires it at the boundary; a within-line key [9,9] retires [4,8] and goes to alt_seen, and recurs as a duplicate; [10,12] opens the next group.",
+  "exercises": "Group [3,7] gathers two keys, with a checkpoint and resume inside the first pending binding (re-emitted, not re-added); [4,8] retires it at the boundary; a within-line key [9,9] goes to alt_seen and leaves the current group [4,8] open, and recurs as a duplicate; [10,12] retires [4,8] and opens the next group.",
   "expect": {
     "accepted": true,
     "state": {
@@ -23,6 +23,8 @@
       "emission": 0
     }
   },
+  "mirror": false,
+  "seen_members": [],
   "state": {
     "discovery": {
       "groups": { "through": null, "current": null },
@@ -100,6 +102,23 @@
     },
     { "op": "key", "lines": [9, 9], "key": ["9:1", "9:3"], "expect": "new" },
     { "op": "done" },
+    {
+      "op": "checkpoint",
+      "expect": {
+        "discovery": {
+          "groups": { "through": [3, 7], "current": { "lines": [4, 8], "keys": [["4:1", "8:2"]] } },
+          "logs": {
+            "alt_seen": {
+              "sealed": 0,
+              "sealed_digest": "5891743092f1b2973868a42afda62358df012199207bc7660c9ae1798559f6e2",
+              "tail": [["9:1", "9:3"]]
+            }
+          }
+        },
+        "continuation": { "pending": null },
+        "emission": 0
+      }
+    },
     { "op": "key", "lines": [9, 9], "key": ["9:1", "9:3"], "expect": "duplicate" },
     { "op": "key", "lines": [10, 12], "key": ["10:2", "12:1"], "expect": "new" },
     { "op": "done" }

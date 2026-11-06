@@ -5432,6 +5432,24 @@ await check('validation: actionable errors', () => {
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/fixtures/discovery_v1/bad/retired_key_recurring.json':
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/good/seal_completeness.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/good/within_line_inside_group.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/cursor_summary_disagreement.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/float_entry.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/inventory_mismatch.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/premature_seal.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/reset_unheld_log.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/tail_rewritten.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/witness_mismatch.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/test_library_viewer_routes.mjs':
         'offline Library viewer route, cookie, isolation and limit regressions',
       'mcp/test_library_exports.mjs':

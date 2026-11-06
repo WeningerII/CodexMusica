@@ -1,0 +1,85 @@
+{
+  "fixture": "bad/premature_seal.json",
+  "contract": "mcp/DISCOVERY_V1.md",
+  "kind": "write",
+  "exercises": "One seal of 4 one-byte entries while the cursor's new tail starts with another one-byte entry that fits: the segment is not complete, so the seal is premature. Its digests, the cursor and the tails all agree.",
+  "expect": {
+    "accepted": false,
+    "rule": "F4",
+    "code": "READER_PROTOCOL",
+    "status": 400,
+    "written": "nothing"
+  },
+  "job_id": "reader_b90c9463724ad5086c4f8548f57e93eb31716e4b23f26eec7f01fe663a8a641a",
+  "identity_hash": "c269b6be399e5890a0cc8874a7247ddc0960a0f4ae5618e483b8a94de7f26967",
+  "record": {
+    "discovery": {
+      "version": 1,
+      "epoch": 0,
+      "logs": {
+        "alt_cells": {
+          "head": null,
+          "segments": 0,
+          "count": 0,
+          "digest": "9216001e76afe6aa1a120e7332ab77344f50c276cd781d3b2631ca8f6752d5ea"
+        }
+      },
+      "unavailable": null
+    },
+    "cursor": {
+      "contract_version": 2,
+      "method_index": 0,
+      "discovery": {
+        "version": 1,
+        "epoch": 0,
+        "logs": {
+          "alt_cells": {
+            "sealed": 0,
+            "sealed_digest": "9216001e76afe6aa1a120e7332ab77344f50c276cd781d3b2631ca8f6752d5ea",
+            "tail": [0, 1]
+          }
+        },
+        "inventory": null,
+        "groups": { "through": null, "current": null }
+      },
+      "witness": null,
+      "continuation": { "position": 10 }
+    }
+  },
+  "frames": [
+    {
+      "discovery": {
+        "epoch": 0,
+        "resets": [],
+        "seals": [
+          {
+            "log": "alt_cells",
+            "first": 0,
+            "entries": [0, 1, 2, 3],
+            "digest_before": "9216001e76afe6aa1a120e7332ab77344f50c276cd781d3b2631ca8f6752d5ea",
+            "digest_after": "42a52449e79590e5b5846f4e044d2045c001cdac172ce605c689e37662730f60"
+          }
+        ]
+      },
+      "cursor": {
+        "contract_version": 2,
+        "method_index": 0,
+        "discovery": {
+          "version": 1,
+          "epoch": 0,
+          "logs": {
+            "alt_cells": {
+              "sealed": 4,
+              "sealed_digest": "42a52449e79590e5b5846f4e044d2045c001cdac172ce605c689e37662730f60",
+              "tail": [4, 5]
+            }
+          },
+          "inventory": null,
+          "groups": { "through": null, "current": null }
+        },
+        "witness": null,
+        "continuation": { "position": 16 }
+      }
+    }
+  ]
+}

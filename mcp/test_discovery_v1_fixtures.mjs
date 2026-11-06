@@ -40,6 +40,7 @@ const LIMITS = Object.freeze({
   GROUP_BYTES: 8192,
   WITNESS_FIELDS: 16,
   CONTINUATION_BYTES: 8192,
+  CURSOR_BYTES: 65536,
 });
 const LOGS = ['seen', 'row_seen', 'variants', 'alt_cells', 'alt_seen'];
 const RESETTABLE = new Set(['row_seen']);
@@ -65,6 +66,14 @@ const CAUSES = [
   'inventory_mismatch',
   'retired_key_recurred',
 ];
+// §8: the RESOURCE_LIMIT causes a worker names for a §3 limit it cannot meet.
+const RESOURCE_CAUSES = [
+  'discovery_entry_bytes',
+  'discovery_frame_seals',
+  'discovery_chain_segments',
+];
+// §2.8: cursor v2 keeps none of a method's terminal inputs (analysis.py:2439).
+const TERMINAL_INPUTS = ['domain_true', 'domain_undecided', 'alt_cells'];
 const DOMAIN = Object.freeze({
   log: (log) => `codexmusica.reader.discovery.v1\n${log}`,
   inventory: 'codexmusica.reader.inventory.v1\n',
@@ -132,6 +141,8 @@ function isEntry(v) {
   return false;
 }
 const isPair = (v) => Array.isArray(v) && v.length === 2 && v.every(Number.isSafeInteger);
+// A group's line pair is two different lines: a key within one line never forms a group.
+const isLinePair = (v) => isPair(v) && v[0] < v[1];
 const cmpPair = (a, b) => a[0] - b[0] || a[1] - b[1];
 const emptyLog = (log) => ({ head: null, segments: 0, count: 0, digest: d0(DOMAIN.log(log)) });
 const sumBytes = (entries) => entries.reduce((n, e) => n + size(e), 0);
@@ -217,15 +228,19 @@ function cursorShape(cursor, epoch, bad) {
       bad('W4', `cursor tail of ${log} is not open`);
   }
   const g = cd.groups;
-  if (!plainObject(g) || !(g.through === null || isPair(g.through))) bad('W4', 'groups shape');
+  if (!plainObject(g) || !(g.through === null || isLinePair(g.through))) bad('W4', 'groups shape');
   else if (g.current !== null) {
-    if (!plainObject(g.current) || !isPair(g.current.lines) || !Array.isArray(g.current.keys))
+    if (!plainObject(g.current) || !isLinePair(g.current.lines) || !Array.isArray(g.current.keys))
       bad('W4', 'current group shape');
-    else if (
-      g.current.keys.length > LIMITS.GROUP_KEYS ||
-      sumBytes(g.current.keys.filter(isEntry)) > LIMITS.GROUP_BYTES
-    )
-      bad('W4', 'current group over its bound');
+    else {
+      if (g.through !== null && cmpPair(g.current.lines, g.through) <= 0)
+        bad('W4', 'the current group comes after through');
+      if (
+        g.current.keys.length > LIMITS.GROUP_KEYS ||
+        sumBytes(g.current.keys.filter(isEntry)) > LIMITS.GROUP_BYTES
+      )
+        bad('W4', 'current group over its bound');
+    }
   }
   const inv = cd.inventory;
   if (
@@ -256,6 +271,16 @@ function cursorShape(cursor, epoch, bad) {
     Buffer.byteLength(canonical(cursor.continuation)) > LIMITS.CONTINUATION_BYTES
   )
     bad('W4', 'continuation shape or bound');
+  // CURSOR_BYTES: the cursor outside discovery and continuation, witness included.
+  const rest = Object.fromEntries(
+    Object.entries(cursor).filter(([k]) => k !== 'discovery' && k !== 'continuation')
+  );
+  if (Buffer.byteLength(canonical(rest)) > LIMITS.CURSOR_BYTES)
+    bad('W4', 'the cursor outside discovery and continuation is over CURSOR_BYTES');
+  for (const [mid, counts] of Object.entries(cursor.methods || {}))
+    for (const key of TERMINAL_INPUTS)
+      if (plainObject(counts) && Object.hasOwn(counts, key))
+        bad('W4', `methods[${mid}] holds the terminal input ${key}`);
 }
 function cursorEntries(cursor) {
   const out = [];
@@ -333,14 +358,18 @@ function evaluateFrame(job, record, frame) {
   }
   const segments = [];
   const sealed = {};
+  // A log whose seal fails F5 has no store digest for the cursor to agree with.
+  const tainted = new Set();
   (fd.seals || []).forEach((s, i) => {
     if (!LOGS.includes(s.log) || !Array.isArray(s.entries)) return;
     const log = s.log;
     const st = (logs[log] ??= emptyLog(log));
     if (s.first !== st.count) bad('W3', `seal ${i} first ${s.first} against count ${st.count}`);
     if (s.digest_before !== st.digest) bad('W3', `seal ${i} digest_before`);
-    if (HEX.test(s.digest_before || '') && fold(s.digest_before, s.entries) !== s.digest_after)
+    if (HEX.test(s.digest_before || '') && fold(s.digest_before, s.entries) !== s.digest_after) {
       bad('F5', `seal ${i} digest_after does not recompute`);
+      tainted.add(log);
+    }
     const n = s.entries.length;
     const bytes = sumBytes(s.entries.filter(isEntry));
     if (n > LIMITS.SEGMENT_ENTRIES || bytes > LIMITS.SEGMENT_BYTES)
@@ -397,7 +426,8 @@ function evaluateFrame(job, record, frame) {
     if (!logs[log]) continue;
     if (st.sealed !== logs[log].count)
       bad('W4', `${log} sealed ${st.sealed} against ${logs[log].count}`);
-    if (st.sealed_digest !== logs[log].digest) bad('W4', `${log} sealed_digest`);
+    if (st.sealed_digest !== logs[log].digest && !tainted.has(log))
+      bad('W4', `${log} sealed_digest`);
   }
   if (
     pc?.discovery &&
@@ -406,6 +436,14 @@ function evaluateFrame(job, record, frame) {
     canonical(pc.discovery.inventory) !== canonical(cd.inventory)
   )
     bad('W4', 'the inventory changed within its epoch');
+  const pg = pc?.discovery?.epoch === epoch ? pc.discovery.groups : null;
+  const g = cd.groups;
+  if (
+    isPair(pg?.through) &&
+    plainObject(g) &&
+    !(isPair(g.through) && cmpPair(g.through, pg.through) >= 0)
+  )
+    bad('W4', 'groups.through went backwards within its epoch');
   return {
     violations,
     discovery: { version: 1, epoch, logs, unavailable: null },
@@ -542,14 +580,31 @@ function evaluateResume(fx) {
 const RESUME_RULES = ['R1', 'R2', 'R3', 'R4', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6'];
 
 // ---------------------------------------------------------------- groups (§6.4, S1)
+// Membership is equality of canonical bytes (§2.3), never value equality: in
+// Python 1 == True and a JSON list is not the tuple the worker held.
+const member = (list, key) => list.some((k) => canonical(k) === canonical(key));
 function runGroups(fx) {
   const violations = [];
   const bad = (rule, detail, extra = {}) => violations.push({ rule, detail, ...extra });
   let state = clone(fx.state);
   const alt = () => state.discovery.logs.alt_seen;
-  const member = (list, key) => list.some((k) => canonical(k) === canonical(key));
+  assert.ok(Array.isArray(fx.seen_members), 'a groups fixture names its primary seen members');
+  assert.equal(
+    typeof fx.mirror,
+    'boolean',
+    'a groups fixture says whether the schema is same-rule'
+  );
   assert.equal(alt().sealed, 0, 'a groups fixture starts with alt_seen wholly in its tail');
   const outcomes = [];
+  // A key already met: in the primary seen log, the current group or alt_seen,
+  // or reversed for a same-rule schema (analysis.py:1079).
+  const known = (key) => {
+    const sets = [fx.seen_members, state.discovery.groups.current?.keys || [], alt().tail];
+    const one = (k) => sets.some((set) => member(set, k));
+    return (
+      one(key) || (fx.mirror && Array.isArray(key) && key.length === 2 && one([key[1], key[0]]))
+    );
+  };
   const retire = () => {
     const g = state.discovery.groups;
     assert.equal(
@@ -561,7 +616,6 @@ function runGroups(fx) {
     g.current = null;
   };
   for (const [i, ev] of fx.events.entries()) {
-    const g = state.discovery.groups;
     if (ev.op === 'key') {
       if (!isEntry(ev.key)) bad('F1', `event ${i}`);
       else if (size(ev.key) > LIMITS.ENTRY_BYTES) bad('F2', `event ${i}`);
@@ -571,30 +625,17 @@ function runGroups(fx) {
         `event ${i}: a key arrives only between bindings`
       );
       const L = ev.lines;
-      let result;
-      if (L[0] === L[1]) {
-        if (g.current && cmpPair(L, g.current.lines) > 0) retire();
-        if (member(alt().tail, ev.key)) result = 'duplicate';
-        else {
-          alt().tail.push(ev.key);
-          result = 'new';
-        }
-      } else if (g.current && cmpPair(L, g.current.lines) === 0) {
-        if (member(g.current.keys, ev.key) || member(alt().tail, ev.key)) result = 'duplicate';
-        else if (
-          g.current.keys.length < LIMITS.GROUP_KEYS &&
-          sumBytes(g.current.keys) + size(ev.key) <= LIMITS.GROUP_BYTES
-        ) {
-          g.current.keys.push(ev.key);
-          result = 'new';
-        } else {
-          alt().tail.push(ev.key);
-          result = 'new';
-        }
-      } else {
-        const position = g.current ? g.current.lines : g.through;
-        if (position && cmpPair(L, position) <= 0) {
-          bad('S1', `event ${i}: line pair ${L} at or before ${position}`, {
+      assert.ok(isPair(L) && L[0] <= L[1], `event ${i}: lines is the key's sorted line pair`);
+      if (L[0] !== L[1]) {
+        // A two-line key: its line pair is the current group's, a later one
+        // (the boundary), or one the sort has already passed (refused).
+        const g = state.discovery.groups;
+        const passed = g.current
+          ? cmpPair(L, g.current.lines) < 0
+          : g.through !== null && cmpPair(L, g.through) <= 0;
+        if (passed) {
+          const position = g.current ? g.current.lines : g.through;
+          bad('S1', `event ${i}: line pair ${L} passed at ${position}`, {
             cause: 'retired_key_recurred',
             at_event: i,
           });
@@ -602,10 +643,21 @@ function runGroups(fx) {
           assert.equal('refused', ev.expect, `event ${i} is the expected refusal`);
           break;
         }
-        if (g.current) retire();
-        state.discovery.groups.current = { lines: L, keys: [ev.key] };
-        result = 'new';
+        if (g.current && cmpPair(L, g.current.lines) > 0) retire();
+        state.discovery.groups.current ??= { lines: L, keys: [] };
       }
+      // A key within one line never retires or opens a group: it always goes
+      // to alt_seen, because other groups' targets cover its line too.
+      const cur = state.discovery.groups.current;
+      let result = 'new';
+      if (known(ev.key)) result = 'duplicate';
+      else if (
+        L[0] !== L[1] &&
+        cur.keys.length < LIMITS.GROUP_KEYS &&
+        sumBytes(cur.keys) + size(ev.key) <= LIMITS.GROUP_BYTES
+      )
+        cur.keys.push(ev.key);
+      else alt().tail.push(ev.key);
       if (result === 'new') {
         state.continuation.pending = { binding: ev.key };
         state.emission = 0;
@@ -643,18 +695,75 @@ const witnessOf = (method, fields, records) => {
   const tuples = tuplesOf(records, fields);
   return { count: tuples.length, digest: fold(d0(DOMAIN.witness(method)), tuples) };
 };
-function evaluateWitness(fx) {
+// One record and its detail parts, resolved as resolve_detail_records
+// (analysis.py:218-256) resolves them; any defect is an error.
+function resolveOne(stream, i) {
+  const record = stream[i];
+  if (!plainObject(record) || record.kind === 'detail_part')
+    return { error: `record ${i}: a detail part has no pending parent` };
+  const refs = Object.entries(record).filter(
+    ([, v]) => plainObject(v) && Object.hasOwn(v, '$detail_ref')
+  );
+  if (!refs.length) return { record, next: i + 1 };
+  const out = { ...record };
+  const buffers = new Map(refs.map(([name, ref]) => [ref.$detail_ref, { name, ref, parts: [] }]));
+  let j = i + 1;
+  while (buffers.size) {
+    const part = stream[j];
+    if (part?.kind !== 'detail_part') return { error: `record ${i}: its detail is incomplete` };
+    const buffer = buffers.get(part.detail_id);
+    if (!buffer || part.parent_id !== record.id || part.part !== buffer.parts.length)
+      return { error: `record ${j}: detail parts are out of order` };
+    if (part.total !== buffer.ref.parts) return { error: `record ${j}: detail part count` };
+    buffer.parts.push(part.json_fragment);
+    if (buffer.parts.length === buffer.ref.parts) {
+      const raw = Buffer.from(buffer.parts.join(''), 'utf8');
+      if (raw.length !== buffer.ref.byte_length || sha(raw) !== buffer.ref.sha256)
+        return { error: `record ${i}: detail bytes do not match` };
+      out[buffer.name] = JSON.parse(raw.toString('utf8'));
+      buffers.delete(part.detail_id);
+    }
+    j++;
+  }
+  return { record: out, next: j };
+}
+// §6.9: fold exactly the first witness.count resolved records; every later
+// record is the method's terminal suffix, filtered before resolving.
+function reconstruct(method, witness, stream) {
   const violations = [];
   const bad = (rule, detail) => violations.push({ rule, detail });
-  const w = fx.cursor.witness;
-  for (const r of fx.durable_records)
-    assert.equal(r.method_id, w.method_id, 'durable_records is one method stream');
-  for (const t of tuplesOf(fx.durable_records, w.fields))
-    if (!isEntry(t)) bad('F1', 'witness tuple');
-  const got = witnessOf(w.method_id, w.fields, fx.durable_records);
-  if (got.count !== w.count || got.digest !== w.digest) bad('S2', 'witness');
-  return { violations, got };
+  if (witness === null) {
+    bad('S2', 'a null witness on a qualified method');
+    return { violations, folded: [], suffix: 0 };
+  }
+  if (witness.method_id !== method) bad('S2', 'the witness names another method');
+  const terminal = (r) => r?.kind === 'method_result' && r.method_id === method;
+  const folded = [];
+  let i = 0;
+  while (folded.length < witness.count && i < stream.length && !terminal(stream[i])) {
+    const got = resolveOne(stream, i);
+    if (got.error) {
+      bad('S2', got.error);
+      return { violations, folded, suffix: 0 };
+    }
+    folded.push(got.record);
+    i = got.next;
+  }
+  const parents = new Set();
+  for (const r of stream.slice(i))
+    if (terminal(r)) parents.add(r.id);
+    else if (!(r?.kind === 'detail_part' && parents.has(r.parent_id))) {
+      bad('S2', `${r?.id} follows the boundary and is not the terminal suffix`);
+      break;
+    }
+  for (const t of tuplesOf(folded, witness.fields)) if (!isEntry(t)) bad('F1', 'witness tuple');
+  const got = witnessOf(method, witness.fields, folded);
+  if (got.count !== witness.count || got.digest !== witness.digest)
+    bad('S2', 'the count or digest disagrees with durable history');
+  return { violations, folded, suffix: stream.length - i };
 }
+const mutantStream = (base, mutant) =>
+  mutant.records.map((r) => (typeof r === 'number' ? base.durable_records[r] : r));
 
 // ---------------------------------------------------------------- Python
 // One Python run checks every byte claim this file makes about Python.
@@ -678,6 +787,33 @@ for text in data["segments"]:
     again = json.dumps(seg, ensure_ascii=False, separators=(",", ":"))
     out["segments"].append([again == text, hashlib.sha256(again.encode("utf-8")).hexdigest(),
                             fold(seg["digest_before"], seg["entries"])])
+# Option 2's witness: filter the terminal suffix, resolve, fold (contract §6.9).
+from library.analysis import resolve_detail_records
+w = data["witness"]
+stream, method, wit = w["stream"], w["method"], w["witness"]
+k = next((i for i, r in enumerate(stream)
+          if r.get("kind") == "method_result" and r.get("method_id") == method), len(stream))
+parents = {r["id"] for r in stream[k:] if r.get("kind") == "method_result"}
+out["suffix_ok"] = all(r.get("kind") == "method_result" or r.get("parent_id") in parents
+                       for r in stream[k:])
+def get(r, name):
+    for part in name.split("."):
+        r = r.get(part) if isinstance(r, dict) else None
+    return r
+records = list(resolve_detail_records(stream[:k]))
+tuples = [[get(r, f) for f in wit["fields"]] for r in records]
+out["witness"] = [len(tuples), fold(hashlib.sha256(w["domain"].encode("utf-8")).hexdigest(), tuples)]
+try:
+    list(resolve_detail_records(stream))
+    out["whole_stream"] = "resolved"
+except ValueError as exc:
+    out["whole_stream"] = str(exc).split(":", 1)[0]
+# The float fixture as a Python worker reads it: 1.0 is a float, not an entry.
+with open(data["float_fixture"], encoding="utf-8") as f:
+    seal = json.load(f)["frames"][0]["discovery"]["seals"][0]
+e = seal["entries"][1]
+out["float"] = [type(e).__name__, canonical_json(e),
+                fold(seal["digest_before"], seal["entries"]) == seal["digest_after"]]
 sys.stdout.buffer.write(json.dumps(out).encode("ascii"))
 `;
   const run = spawnSync('python3', ['-I', '-c', program, path.join(ROOT, 'lyric-harness')], {
@@ -704,6 +840,54 @@ const tableRows = (text) =>
     .map((l) => l.slice(2, -2).split(' | '));
 
 // ================================================================ tests
+const GOOD_WRITE = [
+  'good/seal_sequence_two_logs.json',
+  'good/epoch_jump.json',
+  'good/seal_completeness.json',
+];
+const GOOD_GROUPS = [
+  'good/retired_group_then_within_line.json',
+  'good/within_line_inside_group.json',
+];
+const BAD = {
+  changed_digest_after: 'F5',
+  cursor_record_disagreement: 'W4',
+  cursor_summary_disagreement: 'R3',
+  epoch_backwards: 'W2',
+  float_entry: 'F1',
+  inventory_mismatch: 'R4',
+  missing_segment: 'R1',
+  over_bound_seal: 'F4',
+  premature_seal: 'F4',
+  reordered_segment: 'R2',
+  reset_unheld_log: 'W3',
+  retired_key_recurring: 'S1',
+  tail_rewritten: 'W6',
+  witness_mismatch: 'S2',
+};
+// Per epoch and log: every sealed entry in order, then the last cursor tail of that epoch.
+function chainsOf(fx, results) {
+  const chains = new Map();
+  fx.frames.forEach((frame, i) => {
+    assert.deepEqual(frame.discovery.resets, [], 'a good write fixture resets no log');
+    const epoch = frame.discovery.epoch;
+    for (const s of results[i].segments) {
+      const key = `${epoch}/${s.log}`;
+      const chain = chains.get(key) || { sealed: [], ranges: [], tail: [] };
+      chain.ranges.push([s.segment.first, s.segment.first + s.segment.count]);
+      chain.sealed.push(...s.segment.entries);
+      chains.set(key, chain);
+    }
+    for (const [log, st] of Object.entries(frame.cursor.discovery.logs)) {
+      const key = `${epoch}/${log}`;
+      const chain = chains.get(key) || { sealed: [], ranges: [], tail: [] };
+      chain.tail = st.tail;
+      chains.set(key, chain);
+    }
+  });
+  return chains;
+}
+
 test('the README lists every fixture once, with its rule and refusal', () => {
   const rows = readmeRows();
   const files = fixtureFiles();
@@ -750,7 +934,7 @@ test('canonical form and ordered digest: the vectors, recomputed in Node and in 
   const text = Object.fromEntries(fx.canonical_vectors.map((v) => [String(v.entry), v.canonical]));
   assert.equal(text['\b\f\n\r\t'], '"\\b\\f\\n\\r\\t"');
   assert.equal(text['\u0000\u001f\u007f'], '"\\u0000\\u001f\u007f"');
-  assert.equal(text['  '], '"  "');
+  assert.equal(text['\u2028\u2029'], '"\u2028\u2029"');
   assert.equal(text['naïve café'], '"naïve café"');
   assert.equal(fx.vector_chain.domain, DOMAIN.log('variants'));
   let d = d0(fx.vector_chain.domain);
@@ -778,12 +962,20 @@ test('canonical form and ordered digest: the vectors, recomputed in Node and in 
     entries,
   };
   const segments = [segmentBytes(seg)];
-  for (const rel of ['good/seal_sequence_two_logs.json', 'good/epoch_jump.json'])
+  for (const rel of GOOD_WRITE)
     for (const r of replay(load(rel))) for (const s of r.segments) segments.push(s.raw);
+  const wfx = load('good/witness_cursor_option2.json');
   const py = python({
     vectors: entries,
     domain: fx.vector_chain.domain,
     segments: segments.map((b) => b.toString('utf8')),
+    witness: {
+      stream: wfx.durable_records,
+      method: wfx.cursor.witness.method_id,
+      witness: wfx.cursor.witness,
+      domain: DOMAIN.witness(wfx.cursor.witness.method_id),
+    },
+    float_fixture: path.join(DIR, 'bad', 'float_entry.json'),
   });
   py.vectors.forEach(([viaContracts, viaDumps], i) => {
     assert.equal(viaContracts, fx.canonical_vectors[i].canonical, "Python's canonical_json");
@@ -796,6 +988,15 @@ test('canonical form and ordered digest: the vectors, recomputed in Node and in 
     assert.equal(address, sha(segments[i]), `segment ${i}: the same address`);
     assert.equal(after, node.digest_after, `segment ${i}: the same digest_after`);
   });
+  // Option 2: resolve_detail_records over the filtered stream gives the same witness.
+  assert.ok(py.suffix_ok, 'Python finds the same terminal suffix');
+  assert.deepEqual(py.witness, [wfx.cursor.witness.count, wfx.cursor.witness.digest]);
+  assert.equal(py.whole_stream, 'RESULT_EXPIRED', 'resolving the unfiltered stream refuses');
+  // The float: Python reads 1.0, writes "1.0", and its digest is the fixture's; Node's is not.
+  assert.deepEqual(py.float, ['float', '1.0', true]);
+  const floatSeal = load('bad/float_entry.json').frames[0].discovery.seals[0];
+  assert.equal(floatSeal.entries[1], 1, 'Node parses 1.0 as the integer 1');
+  assert.notEqual(fold(floatSeal.digest_before, floatSeal.entries), floatSeal.digest_after);
 });
 
 test('the cut rule: boundaries depend only on entry sizes', () => {
@@ -807,7 +1008,7 @@ test('the cut rule: boundaries depend only on entry sizes', () => {
   }
 });
 
-for (const rel of ['good/seal_sequence_two_logs.json', 'good/epoch_jump.json'])
+for (const rel of GOOD_WRITE)
   test(`${rel}: every frame is accepted and every segment and digest recomputes`, () => {
     const fx = load(rel);
     const results = replay(fx);
@@ -830,14 +1031,17 @@ for (const rel of ['good/seal_sequence_two_logs.json', 'good/epoch_jump.json'])
           s.address,
           'F6: not canonical() of the segment'
         );
-        const lengths = s.segment.entries.map(size);
-        assert.deepEqual(
-          cut(lengths).segments[0],
-          [0, s.segment.count],
-          'F4: the seal is one greedy segment'
-        );
       }
     });
+    // F4: the seals are exactly the greedy cut of each chain, tail included.
+    for (const [key, chain] of chainsOf(fx, results)) {
+      const lengths = [...chain.sealed, ...chain.tail].map(size);
+      assert.deepEqual(
+        cut(lengths),
+        { segments: chain.ranges, tail: [chain.sealed.length, lengths.length] },
+        `F4: ${key} is sealed exactly at its greedy cut`
+      );
+    }
     // A re-seal after a crash: the same seals give the same bytes and addresses.
     const again = replay(fx);
     assert.deepEqual(
@@ -849,6 +1053,19 @@ for (const rel of ['good/seal_sequence_two_logs.json', 'good/epoch_jump.json'])
       assert.equal(b.discovery.epoch - a.discovery.epoch, 3, 'the epoch jumps by more than one');
       assert.deepEqual(b.released, [a.segments[0].address], 'the advance releases the old head');
       assert.deepEqual(Object.keys(b.discovery.logs), ['seen'], 'and keeps none of the old chains');
+    }
+    if (rel === 'good/seal_completeness.json') {
+      const [first, second] = fx.frames[0].discovery.seals;
+      const bytes = (s) => sumBytes(s.entries);
+      assert.ok(
+        first.entries.length < LIMITS.SEGMENT_ENTRIES && bytes(first) < LIMITS.SEGMENT_BYTES
+      );
+      assert.ok(
+        bytes(first) + size(second.entries[0]) > LIMITS.SEGMENT_BYTES,
+        'the first seal is complete only because the next entry would not fit'
+      );
+      assert.ok(second.entries.length < LIMITS.SEGMENT_ENTRIES);
+      assert.equal(bytes(second), LIMITS.SEGMENT_BYTES, 'the second is complete by its bytes');
     }
   });
 
@@ -863,6 +1080,40 @@ test('good/seal_sequence_two_logs.json: the chain links across frames', () => {
   assert.equal(results[1].segments.length, 2, 'two logs sealed in one frame');
 });
 
+test('W4 holds the group positions: through never moves back, current comes after it', () => {
+  const fx = load('good/seal_sequence_two_logs.json');
+  const record = { discovery: replay(fx).at(-1).discovery, cursor: fx.frames.at(-1).cursor };
+  const next = (groups) => {
+    const cursor = clone(record.cursor);
+    cursor.discovery.groups = groups;
+    return { discovery: { epoch: 0, resets: [], seals: [] }, cursor };
+  };
+  const rules = (rec, frame) => [
+    ...new Set(evaluateFrame(fx, rec, frame).violations.map((v) => v.rule)),
+  ];
+  const advanced = next({ through: [3, 7], current: { lines: [4, 8], keys: [['4:1', '8:2']] } });
+  assert.deepEqual(rules(record, advanced), [], 'the group boundary moves both forward');
+  const after = { discovery: record.discovery, cursor: advanced.cursor };
+  for (const groups of [
+    { through: null, current: { lines: [4, 8], keys: [] } },
+    { through: [2, 5], current: null },
+  ])
+    assert.deepEqual(
+      rules(after, next(groups)),
+      ['W4'],
+      `through moved back: ${JSON.stringify(groups)}`
+    );
+  for (const groups of [
+    { through: [4, 8], current: { lines: [3, 7], keys: [] } },
+    { through: null, current: { lines: [7, 7], keys: [] } },
+  ])
+    assert.deepEqual(
+      rules(record, next(groups)),
+      ['W4'],
+      `not a valid position: ${JSON.stringify(groups)}`
+    );
+});
+
 test('good/lease_payload_summary_paths.json: the walk, the load and the inventory witness', () => {
   const fx = load('good/lease_payload_summary_paths.json');
   const { violations, skipped } = evaluateResume(fx);
@@ -875,7 +1126,8 @@ test('good/lease_payload_summary_paths.json: the walk, the load and the inventor
   assert.deepEqual(fx.record.discovery, last.discovery);
   assert.deepEqual(fx.record.cursor.discovery, seq.frames.at(-1).cursor.discovery);
   assert.equal(fx.record.id, seq.job_id);
-  // A full cursor v2: today's fields stay, the flags are in `incomplete` (BB8 6).
+  // A full cursor v2: today's fields stay, the flags are in `incomplete` (BB8 6),
+  // and methods[*] holds no terminal input.
   const c = fx.record.cursor;
   for (const key of [
     'identity_hash',
@@ -894,23 +1146,54 @@ test('good/lease_payload_summary_paths.json: the walk, the load and the inventor
   const bad = [];
   cursorShape(c, c.method_index, (rule, detail) => bad.push({ rule, detail }));
   assert.deepEqual(bad, []);
+  // And the shape check catches a terminal input or an oversized cursor.
+  for (const mutate of [
+    (m) => (m.methods['schema:end_rhyme'] = { candidates: 1, alt_cells: [] }),
+    (m) => (m.incomplete.x = 'y'.repeat(LIMITS.CURSOR_BYTES)),
+  ]) {
+    const m = clone(c);
+    mutate(m);
+    const found = [];
+    cursorShape(m, m.method_index, (rule) => found.push(rule));
+    assert.deepEqual(found, ['W4']);
+  }
 });
 
-test('good/retired_group_then_within_line.json: retirement, within-line keys and a pending binding', () => {
-  const fx = load('good/retired_group_then_within_line.json');
-  const { violations, state } = runGroups(fx);
-  assert.deepEqual(violations, []);
-  assert.deepEqual(state, fx.expect.state);
-  assert.equal(state.discovery.logs.alt_seen.sealed_digest, d0(DOMAIN.log('alt_seen')));
-});
+for (const rel of GOOD_GROUPS)
+  test(`${rel}: retirement only at a two-line boundary, within-line keys and a pending binding`, () => {
+    const fx = load(rel);
+    const { violations, state } = runGroups(fx);
+    assert.deepEqual(violations, []);
+    assert.deepEqual(state, fx.expect.state);
+    assert.equal(state.discovery.logs.alt_seen.sealed_digest, d0(DOMAIN.log('alt_seen')));
+    if (rel === 'good/within_line_inside_group.json') {
+      // (3,7), then (7,7) on its higher line, then (3,7) again, accepted: a rule
+      // that let a within-line key retire the group would refuse event 4.
+      const keys = fx.events.filter((e) => e.op === 'key');
+      assert.deepEqual(
+        keys.slice(0, 3).map((e) => [e.lines, e.expect]),
+        [
+          [[3, 7], 'new'],
+          [[7, 7], 'new'],
+          [[3, 7], 'new'],
+        ]
+      );
+      assert.ok(
+        fx.mirror && fx.seen_members.length,
+        'the reversed key and primary seen are checked'
+      );
+      assert.notEqual(canonical(['9:2', 1]), canonical(['9:2', true]));
+    }
+  });
 
 test('good/witness_cursor_option2.json: the witness sits in cursor v2 and recomputes', () => {
   const fx = load('good/witness_cursor_option2.json');
-  const { violations, got } = evaluateWitness(fx);
-  assert.deepEqual(violations, []);
-  assert.equal(got.count, fx.expect.count);
   const c = fx.cursor;
   const w = c.witness;
+  const { violations, folded, suffix } = reconstruct(w.method_id, w, fx.durable_records);
+  assert.deepEqual(violations, []);
+  assert.equal(folded.length, fx.expect.count);
+  assert.equal(suffix, fx.expect.terminal_suffix, 'a partial terminal suffix follows the boundary');
   assert.deepEqual(w.fields, WITNESS_FIELDS_V1, 'the v1 fields');
   assert.equal(w.epoch, c.method_index, 'the witness belongs to the current epoch');
   const bad = [];
@@ -918,27 +1201,39 @@ test('good/witness_cursor_option2.json: the witness sits in cursor v2 and recomp
   assert.deepEqual(bad, []);
   for (const key of ['stage', 'position', 'row', 'pending', 'shared_sound'])
     assert.ok(Object.hasOwn(c.continuation, key), `continuation names ${key}`);
+  for (const r of fx.durable_records)
+    assert.equal(r.method_id, w.method_id, 'durable_records is one method stream');
+  // Filtering before resolving matters: the partial terminal parent cannot resolve.
+  const tail = fx.durable_records.findIndex((r) => r.kind === 'method_result');
+  assert.ok(resolveOne(fx.durable_records, tail).error, 'the terminal parent is incomplete');
+  // Resolving matters: reading a detached endpoint unresolved changes the witness.
+  const raw = fx.durable_records.filter((r) => r.kind !== 'detail_part').slice(0, w.count);
+  assert.notEqual(witnessOf(w.method_id, w.fields, raw).digest, w.digest);
   // Multiplicity: deduplicating by id gives a different witness.
   const ids = new Set();
-  const dedup = fx.durable_records.filter((r) => !ids.has(r.id) && ids.add(r.id));
-  assert.ok(dedup.length < fx.durable_records.length, 'the stream repeats an id');
+  const dedup = folded.filter((r) => !ids.has(r.id) && ids.add(r.id));
+  assert.ok(dedup.length < folded.length, 'the stream repeats an id');
   assert.notEqual(witnessOf(w.method_id, w.fields, dedup).digest, w.digest);
   // Durable history only: folding in the local tail changes it.
-  const overlap = fx.local_records.filter((r) =>
-    fx.durable_records.some((d) => canonical(d) === canonical(r))
-  );
+  const overlap = fx.local_records.filter((r) => folded.some((d) => canonical(d) === canonical(r)));
   assert.ok(overlap.length >= 1, 'the local tail overlaps durable history');
   assert.notEqual(
-    witnessOf(w.method_id, w.fields, [...fx.durable_records, ...fx.local_records]).digest,
+    witnessOf(w.method_id, w.fields, [...folded, ...fx.local_records]).digest,
     w.digest
   );
   // Roles: swapping one record's endpoints changes it.
-  const swapped = clone(fx.durable_records);
+  const swapped = clone(folded);
   [swapped[0].a, swapped[0].b] = [swapped[0].b, swapped[0].a];
   assert.notEqual(witnessOf(w.method_id, w.fields, swapped).digest, w.digest);
-  // Ineligible records are still covered: dropping one changes it.
+  // Ineligible records are still covered: dropping the multi-token one changes it.
+  const multi = folded.findIndex((r) => r.a.token_ids.length > 1);
+  assert.ok(multi >= 0);
   assert.notEqual(
-    witnessOf(w.method_id, w.fields, fx.durable_records.slice(0, -1)).digest,
+    witnessOf(
+      w.method_id,
+      w.fields,
+      folded.filter((_, k) => k !== multi)
+    ).digest,
     w.digest
   );
 });
@@ -946,6 +1241,8 @@ test('good/witness_cursor_option2.json: the witness sits in cursor v2 and recomp
 for (const rel of fixtureFiles().filter((f) => f.startsWith('bad/')))
   test(`${rel}: violates exactly its rule`, () => {
     const fx = load(rel);
+    // Node parses a float such as 1.0 as an integer, so it meets F1 there as F5 (§2.1).
+    let expected = [fx.expect.node_detects ?? fx.expect.rule];
     let violations;
     if (fx.kind === 'write') {
       assert.equal(fx.frames.length, 1, 'a bad write fixture is one frame');
@@ -964,26 +1261,61 @@ for (const rel of fixtureFiles().filter((f) => f.startsWith('bad/')))
       violations = runGroups(fx).violations;
       assert.equal(violations.at(-1)?.at_event, fx.expect.at_event, 'refused at the named event');
       assert.equal(violations.at(-1)?.cause, fx.expect.cause);
+    } else if (fx.kind === 'witness') {
+      const base = load(fx.base);
+      const w = base.cursor.witness;
+      const names = fx.mutants.map((m) => m.name);
+      for (const name of [
+        'deletion',
+        'duplicate_insertion',
+        'reorder',
+        'same_count_replacement',
+        'endpoint_role_swap',
+        ...WITNESS_FIELDS_V1.map((f) => `field_${f.replace('.', '_')}`),
+        'null_witness',
+      ])
+        assert.ok(names.includes(name), `the mutants include ${name}`);
+      violations = [];
+      for (const m of fx.mutants) {
+        const got = reconstruct(
+          w.method_id,
+          Object.hasOwn(m, 'witness') ? m.witness : w,
+          mutantStream(base, m)
+        ).violations;
+        assert.deepEqual(
+          [...new Set(got.map((v) => v.rule))],
+          ['S2'],
+          `${m.name}: ${JSON.stringify(got)}`
+        );
+        violations.push(...got);
+      }
+      expected = [fx.expect.rule];
     } else assert.fail(`unknown kind ${fx.kind}`);
     assert.deepEqual(
       [...new Set(violations.map((v) => v.rule))],
-      [fx.expect.rule],
+      expected,
       JSON.stringify(violations)
     );
   });
 
-test('the bad fixtures each name a different rule, and the named ones are all present', () => {
+test('the bad fixtures are the named set, and together they cover every rule they name', () => {
   const bad = fixtureFiles().filter((f) => f.startsWith('bad/'));
-  const rules = bad.map((f) => load(f).expect.rule);
-  assert.equal(new Set(rules).size, rules.length);
-  assert.deepEqual(bad.map((f) => path.basename(f, '.json')).sort(), [
-    'changed_digest_after',
-    'cursor_record_disagreement',
-    'epoch_backwards',
-    'missing_segment',
-    'over_bound_seal',
-    'reordered_segment',
-    'retired_key_recurring',
+  assert.deepEqual(bad.map((f) => path.basename(f, '.json')).sort(), Object.keys(BAD).sort());
+  for (const f of bad) assert.equal(load(f).expect.rule, BAD[path.basename(f, '.json')], f);
+  assert.deepEqual([...new Set(Object.values(BAD))].sort(), [
+    'F1',
+    'F4',
+    'F5',
+    'R1',
+    'R2',
+    'R3',
+    'R4',
+    'S1',
+    'S2',
+    'W2',
+    'W3',
+    'W4',
+    'W6',
   ]);
 });
 
@@ -1017,11 +1349,24 @@ test('the contract states the constants, logs, schema, domains and causes this f
       CONTRACT.includes(`"${domain.replace('\n', '\\n')}"`),
       `the contract names ${JSON.stringify(domain)}`
     );
-  const causes = tableRows(section('8. Refusals').split('The causes:')[1].split('Plumbing')[0]);
+  const refusals = section('8. Refusals');
+  const causes = tableRows(
+    refusals.split('The causes:')[1].split('The `RESOURCE_LIMIT` causes')[0]
+  );
   assert.deepEqual(
     causes.map((r) => r[0].replace(/`/g, '')),
     CAUSES
   );
+  const resource = tableRows(refusals.split('The `RESOURCE_LIMIT` causes')[1].split('Plumbing')[0]);
+  assert.deepEqual(
+    resource.map((r) => r[0].replace(/`/g, '')),
+    RESOURCE_CAUSES
+  );
+  for (const cause of RESOURCE_CAUSES)
+    assert.ok(section('3. Hard limits').includes(`\`${cause}\``), `§3 names ${cause}`);
+  // record.discovery.unavailable takes exactly the DISCOVERY_UNAVAILABLE causes (§2.7).
+  const unavailable = section('2. Format').split('### 2.7')[1].split('### 2.8')[0];
+  for (const cause of CAUSES) assert.ok(unavailable.includes(`"${cause}"`), `§2.7 allows ${cause}`);
   for (const [rule, refusal] of Object.entries({ ...REFUSAL.resume, ...REFUSAL.groups }))
     if (refusal.cause)
       assert.ok(
@@ -1032,6 +1377,8 @@ test('the contract states the constants, logs, schema, domains and causes this f
     CONTRACT.includes(JSON.stringify(WITNESS_FIELDS_V1).replace(/,/g, ', ')),
     'the v1 witness fields'
   );
+  for (const key of TERMINAL_INPUTS)
+    assert.ok(section('2. Format').includes(`\`${key}\``), `§2.8 names the terminal input ${key}`);
 });
 
 test('the cross-reference covers 3PO 1-6 and BB8 1-9, each with a contract section', () => {

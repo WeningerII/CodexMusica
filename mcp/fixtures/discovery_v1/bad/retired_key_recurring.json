@@ -11,6 +11,8 @@
     "cause": "retired_key_recurred",
     "at_event": 4
   },
+  "mirror": false,
+  "seen_members": [],
   "state": {
     "discovery": {
       "groups": { "through": null, "current": null },

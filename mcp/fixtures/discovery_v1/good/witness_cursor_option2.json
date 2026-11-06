@@ -2,8 +2,8 @@
   "fixture": "good/witness_cursor_option2.json",
   "contract": "mcp/DISCOVERY_V1.md",
   "kind": "witness",
-  "exercises": "A full cursor v2 carrying option 2's contribution witness at the terminal step: four durable records in commit order, with a repeated id on a distinct binding, a multi-token (ineligible) record and a same-token record, all counted; the lease's local tail overlaps the last durable record and adds one not yet durable, and neither is counted.",
-  "expect": { "accepted": true, "count": 4 },
+  "exercises": "A full cursor v2 carrying option 2's contribution witness, resumed inside the terminal emission. Durable history holds four contributions in commit order (a repeated id on a distinct binding, a multi-token ineligible record with its endpoint a detached into a detail part, and a same-token record), then the method's terminal parent, whose detail part was not yet committed. The witness folds the four resolved contributions; the terminal suffix is filtered before resolving. The lease's local tail overlaps the last contribution and adds one not yet durable, and neither is counted.",
+  "expect": { "accepted": true, "count": 4, "terminal_suffix": 1 },
   "cursor": {
     "contract_version": 2,
     "identity_hash": "c269b6be399e5890a0cc8874a7247ddc0960a0f4ae5618e483b8a94de7f26967",
@@ -77,8 +77,26 @@
       "method_id": "schema:end_rhyme",
       "basis": "engine",
       "verdict": "undecided",
-      "a": { "token_ids": ["L1:token:1", "L1:token:2"] },
+      "a": {
+        "$detail_ref": "detail:ae6e0efc8d3181d0b3e42c12e0a62155",
+        "encoding": "json",
+        "sha256": "8f990bb3c9997ceb2ec5e4f091f34513e1ede350514e7896d443e986a4bcc205",
+        "byte_length": 41,
+        "parts": 1
+      },
       "b": { "token_ids": ["L3:token:2"] }
+    },
+    {
+      "id": "detail_part:c1e59cfd4748cb133a004ba0ba037c70",
+      "kind": "detail_part",
+      "method_id": "schema:end_rhyme",
+      "basis": "measured",
+      "parent_id": "relation:e2",
+      "detail_id": "detail:ae6e0efc8d3181d0b3e42c12e0a62155",
+      "field": "a",
+      "part": 0,
+      "total": 1,
+      "json_fragment": "{\"token_ids\":[\"L1:token:1\",\"L1:token:2\"]}"
     },
     {
       "id": "relation:e1",
@@ -97,6 +115,20 @@
       "verdict": "true",
       "a": { "token_ids": ["L5:token:2"] },
       "b": { "token_ids": ["L5:token:2"] }
+    },
+    {
+      "id": "method_result:t1",
+      "kind": "method_result",
+      "method_id": "schema:end_rhyme",
+      "basis": "measured",
+      "coverage": "answered",
+      "domain": {
+        "$detail_ref": "detail:f836b100d456726acdef2b0ed13b801c",
+        "encoding": "json",
+        "sha256": "dd1834e5389a6c98fa20e3c625918289c073ab284204c1aab425eadd6f5c9f92",
+        "byte_length": 60,
+        "parts": 1
+      }
     }
   ],
   "local_records": [

@@ -1,0 +1,78 @@
+{
+  "fixture": "bad/reset_unheld_log.json",
+  "contract": "mcp/DISCOVERY_V1.md",
+  "kind": "write",
+  "exercises": "A frame resets row_seen, which the record does not hold in this epoch. The cursor names row_seen empty afterwards, so only continuity fails.",
+  "expect": {
+    "accepted": false,
+    "rule": "W3",
+    "code": "READER_PROTOCOL",
+    "status": 400,
+    "written": "nothing"
+  },
+  "job_id": "reader_b90c9463724ad5086c4f8548f57e93eb31716e4b23f26eec7f01fe663a8a641a",
+  "identity_hash": "c269b6be399e5890a0cc8874a7247ddc0960a0f4ae5618e483b8a94de7f26967",
+  "record": {
+    "discovery": {
+      "version": 1,
+      "epoch": 0,
+      "logs": {
+        "seen": {
+          "head": null,
+          "segments": 0,
+          "count": 0,
+          "digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136"
+        }
+      },
+      "unavailable": null
+    },
+    "cursor": {
+      "contract_version": 2,
+      "method_index": 0,
+      "discovery": {
+        "version": 1,
+        "epoch": 0,
+        "logs": {
+          "seen": {
+            "sealed": 0,
+            "sealed_digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136",
+            "tail": [7]
+          }
+        },
+        "inventory": null,
+        "groups": { "through": null, "current": null }
+      },
+      "witness": null,
+      "continuation": { "position": 40 }
+    }
+  },
+  "frames": [
+    {
+      "discovery": { "epoch": 0, "resets": ["row_seen"], "seals": [] },
+      "cursor": {
+        "contract_version": 2,
+        "method_index": 0,
+        "discovery": {
+          "version": 1,
+          "epoch": 0,
+          "logs": {
+            "seen": {
+              "sealed": 0,
+              "sealed_digest": "c3cd8d6e4d96fa2c88513438941e8433220e41a0d8295148035694fcdff89136",
+              "tail": [7]
+            },
+            "row_seen": {
+              "sealed": 0,
+              "sealed_digest": "0e3c1c4ad79161d8d8d41343cd641d74139a82fe1049635899de39e8f8af6737",
+              "tail": []
+            }
+          },
+          "inventory": null,
+          "groups": { "through": null, "current": null }
+        },
+        "witness": null,
+        "continuation": { "position": 41 }
+      }
+    }
+  ]
+}

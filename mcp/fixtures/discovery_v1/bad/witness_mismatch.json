@@ -1,0 +1,169 @@
+{
+  "fixture": "bad/witness_mismatch.json",
+  "contract": "mcp/DISCOVERY_V1.md",
+  "kind": "witness",
+  "exercises": "Mutants of the good witness fixture's durable history: BB8's five (whole-record deletion, duplicate insertion, reorder, same-count replacement, endpoint-role swap), one per witness field, a contribution after the terminal suffix began, a record inserted after the last counted one, a missing detail part, and a null witness on this qualified method. Each alone refuses as RESULT_EXPIRED before pair reduction.",
+  "expect": { "accepted": false, "rule": "S2", "code": "RESULT_EXPIRED", "status": 410 },
+  "base": "good/witness_cursor_option2.json",
+  "mutants": [
+    { "name": "deletion", "records": [0, 1, 2, 4, 5] },
+    { "name": "duplicate_insertion", "records": [0, 1, 2, 3, 3, 4, 5] },
+    { "name": "reorder", "records": [0, 1, 2, 4, 3, 5] },
+    {
+      "name": "same_count_replacement",
+      "records": [
+        0,
+        1,
+        2,
+        {
+          "id": "relation:e5",
+          "kind": "relation_instance",
+          "method_id": "schema:end_rhyme",
+          "basis": "engine",
+          "verdict": "true",
+          "a": { "token_ids": ["L3:token:1"] },
+          "b": { "token_ids": ["L4:token:2"] }
+        },
+        4,
+        5
+      ]
+    },
+    {
+      "name": "endpoint_role_swap",
+      "records": [
+        {
+          "id": "relation:e1",
+          "kind": "relation_instance",
+          "method_id": "schema:end_rhyme",
+          "basis": "engine",
+          "verdict": "true",
+          "a": { "token_ids": ["L2:token:4"] },
+          "b": { "token_ids": ["L1:token:3"] }
+        },
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "name": "field_method_id",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        {
+          "id": "relation:e3",
+          "kind": "relation_instance",
+          "method_id": "schema:internal_rhyme",
+          "basis": "engine",
+          "verdict": "true",
+          "a": { "token_ids": ["L5:token:2"] },
+          "b": { "token_ids": ["L5:token:2"] }
+        },
+        5
+      ]
+    },
+    {
+      "name": "field_id",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        {
+          "id": "relation:e9",
+          "kind": "relation_instance",
+          "method_id": "schema:end_rhyme",
+          "basis": "engine",
+          "verdict": "true",
+          "a": { "token_ids": ["L5:token:2"] },
+          "b": { "token_ids": ["L5:token:2"] }
+        },
+        5
+      ]
+    },
+    {
+      "name": "field_verdict",
+      "records": [
+        {
+          "id": "relation:e1",
+          "kind": "relation_instance",
+          "method_id": "schema:end_rhyme",
+          "basis": "engine",
+          "verdict": "undecided",
+          "a": { "token_ids": ["L1:token:3"] },
+          "b": { "token_ids": ["L2:token:4"] }
+        },
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "name": "field_a_token_ids",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        {
+          "id": "relation:e3",
+          "kind": "relation_instance",
+          "method_id": "schema:end_rhyme",
+          "basis": "engine",
+          "verdict": "true",
+          "a": { "token_ids": ["L5:token:1"] },
+          "b": { "token_ids": ["L5:token:2"] }
+        },
+        5
+      ]
+    },
+    {
+      "name": "field_b_token_ids",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        {
+          "id": "relation:e3",
+          "kind": "relation_instance",
+          "method_id": "schema:end_rhyme",
+          "basis": "engine",
+          "verdict": "true",
+          "a": { "token_ids": ["L5:token:2"] },
+          "b": { "token_ids": ["L5:token:3"] }
+        },
+        5
+      ]
+    },
+    { "name": "contribution_after_terminal", "records": [0, 1, 2, 3, 5, 4] },
+    {
+      "name": "inserted_after_last_contribution",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        {
+          "id": "relation:e6",
+          "kind": "relation_instance",
+          "method_id": "schema:end_rhyme",
+          "basis": "engine",
+          "verdict": "true",
+          "a": { "token_ids": ["L8:token:1"] },
+          "b": { "token_ids": ["L9:token:1"] }
+        },
+        5
+      ]
+    },
+    { "name": "detail_part_missing", "records": [0, 1, 3, 4, 5] },
+    { "name": "null_witness", "records": [0, 1, 2, 3, 4, 5], "witness": null }
+  ]
+}
