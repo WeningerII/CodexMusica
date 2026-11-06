@@ -533,8 +533,82 @@ const run = (code) => dom.window.eval(code);
     'Enter inside the debounce window must commit the typed query’s top match, not the previous query’s'
   );
 
+  // The connector keeps a record on each card of what set_environment wrote
+  // there (`envWritten`, scripts/_workspace_ops.js; #671, BB8 6681659990). The
+  // app has no such field and keeps it untouched: an import, "Use recipe", the
+  // app's own edits, Undo and Redo, a saved copy and an export all carry it as
+  // the connector left it, and the connector reads it back from the cards the
+  // app hands on.
+  {
+    const W = require('./_workspace_ops.js');
+    let ws = W.seed(['garage_rock']);
+    const bass = ws.cards.find((c) => c.instrumentId === 'electric_bass').id;
+    ws = W.setEnvironment(ws, bass, { room: 'cathedral', chain: { fx: 'tape_echo' } });
+    const record = ws.cards.find((c) => c.id === bass)[W.ENV_RECORD];
+    assert.deepEqual(record, { room: 'cathedral', fx: ['tape_echo'] }, 'fixture: the record');
+    dom.window.connectorCards = JSON.parse(JSON.stringify(ws.cards));
+    const recordIn = (cards) =>
+      JSON.parse(
+        run(
+          `JSON.stringify(${cards}.find((c) => c.instrumentId === 'electric_bass')?.${W.ENV_RECORD} ?? null)`
+        )
+      );
+    run("app.cards=[];app.lyrics='';app.history=[];app.historyIndex=-1;pushHistory();");
+    await run(
+      "uiImport({text:async()=>JSON.stringify({name:'Connector recipe',workspace:{cards:window.connectorCards}})})"
+    );
+    assert.deepEqual(recordIn('app.cards'), record, 'an import keeps the record');
+    run(
+      "commitPrefaceChange(app.cards.find((c)=>c.instrumentId==='electric_bass'),'bright');pushHistory()"
+    );
+    assert.deepEqual(recordIn('app.cards'), record, 'a preface pick on that card leaves it');
+    run('app.cards[0].room=ROOMS[0].id;pushHistory()');
+    run('undo()');
+    run('undo()');
+    assert.deepEqual(recordIn('app.cards'), record, 'Undo keeps it');
+    run('redo()');
+    run('redo()');
+    assert.deepEqual(recordIn('app.cards'), record, 'Redo keeps it');
+    run(
+      'window.savedCopy=normalizeWorkspaceCards(JSON.parse(JSON.stringify(sessionSnapshot())).cards,true)'
+    );
+    assert.deepEqual(recordIn('window.savedCopy'), record, 'a saved copy keeps it');
+    run(
+      'window.realDownload=uiDownload;uiDownload=(name,text)=>{window.exported=text};uiExport();uiDownload=window.realDownload'
+    );
+    const exported = JSON.parse(run('window.exported')).cards;
+    assert.deepEqual(
+      exported.find((c) => c.instrumentId === 'electric_bass')[W.ENV_RECORD],
+      record,
+      'an export keeps it'
+    );
+    // "Use recipe" on a connector reply carrying the record.
+    recipeUse = await recipeReply('recipeResult.workspace={cards:window.connectorCards}');
+    await recipeUse.onclick();
+    assert.deepEqual(recordIn('app.cards'), record, '"Use recipe" keeps it');
+    // Back to the connector: what the app hands on is read with the record.
+    // The app's preface pick may have moved the room in place; the effect
+    // written is still there, so the bass's setting still does not render.
+    const E = await import(path.join(root, 'mcp/engine.js'));
+    const back = E.renderRecipe({ workspace: { cards: exported } });
+    assert.ok(
+      back.render_warnings.some(
+        (w) => w.code === 'ENVIRONMENT_NOT_RENDERED' && w.instrument === 'electric_bass'
+      ),
+      'the connector reads the record back from the app'
+    );
+    for (const format of ['rich', 'tags', 'prose', 'compact'])
+      assert.equal(
+        run(`compileRecipeStack(app.cards, ${JSON.stringify(format)}, { ceiling: 1000 })`),
+        run(
+          `compileRecipeStack(app.cards.map(({ ${W.ENV_RECORD}: _, ...c }) => c), ${JSON.stringify(format)}, { ceiling: 1000 })`
+        ),
+        `the record changes no byte the app renders (${format})`
+      );
+  }
+
   console.log(
-    'PASS workbench integration: boot, route grammar and sub-routes, partial import, isolated transfers, Undo, full sessions, concurrent save recovery, chat routing, stale recipe protection, late lyrics, conflict protection, preface Enter flush'
+    'PASS workbench integration: boot, route grammar and sub-routes, partial import, isolated transfers, Undo, full sessions, concurrent save recovery, chat routing, stale recipe protection, late lyrics, conflict protection, preface Enter flush, connector record kept'
   );
   dom.window.close();
 })().catch((e) => {

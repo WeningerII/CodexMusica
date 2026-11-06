@@ -714,6 +714,78 @@ if (envCases === 0 || multiCases === 0 || clearCases === 0 || cardlessMoved === 
   process.exit(1);
 }
 
+// ── the connector's envWritten record, then the app's own edits ─────────────
+//
+// set_environment keeps a record on the card of what it wrote (`envWritten`,
+// scripts/_workspace_ops.js), which the connector's ENVIRONMENT_NOT_RENDERED
+// and ENVIRONMENT_MOVED read (#671, BB8 6681659990). The app has no such field
+// and keeps it untouched, like prefaceLock above: a workspace a connector
+// edited, then edited in the app, must come back with the record exactly as the
+// connector left it, and the record must change no byte either surface renders.
+// The app's edits here are its real functions (commitPrefaceChange,
+// applyPartEdit) and the inline environment writes the tripwire above pins.
+// What the app moved in place, it moved: the connector then reads the record
+// against the values it is handed (W.envRecordHolds), so a value the app
+// replaced simply no longer holds.
+console.log('\n=== Record parity: a connector set_environment, then app edits ===');
+let recordCases = 0;
+let recordLost = 0;
+let recordRenderDiffs = 0;
+for (let i = 0; i < cases.length; i++) {
+  const c = cases[i];
+  let ws = W.seed([c.tradition]);
+  const envCard = app.envCardOf(ws.cards);
+  const target = ws.cards.find((x) => x !== envCard);
+  if (!target) continue;
+  ws = W.setEnvironment(ws, target.id, {
+    room: rooms[i % rooms.length],
+    chain: { [multiStages[0].id]: multiStages[0].items[i % multiStages[0].items.length].id },
+  });
+  const written = JSON.stringify(ws.cards.map((x) => x[W.ENV_RECORD] ?? null));
+  const appCards = clone(ws.cards);
+  const card = appCards.find((x) => x.id === target.id);
+  // The app's preface pick, a variant pick, and an environment write of its
+  // own on another field.
+  app.commitPrefaceChange(card, prefaces[i % prefaces.length]);
+  const inst = (C.INSTRUMENTS || []).find((x) => x.id === card.instrumentId);
+  const part = (inst.parts || []).find((p) => (p.variants || []).length > 1);
+  if (part) {
+    card.parts[part.id] = part.variants.find((v) => v.id !== card.parts[part.id]).id;
+    app.applyPartEdit(card, part.id);
+  }
+  card.tuning = tunings[i % tunings.length] || null;
+  recordCases++;
+  const now = JSON.stringify(appCards.map((x) => x[W.ENV_RECORD] ?? null));
+  if (now !== written) {
+    recordLost++;
+    if (shown < SHOW) {
+      shown++;
+      console.log(`  ✗ ${c.tradition}: the app changed the record\n      ${written}\n      ${now}`);
+    }
+  }
+  const bare = clone(appCards).map(({ [W.ENV_RECORD]: _, ...x }) => x);
+  for (const format of FORMATS) {
+    const withRecord = app.compileRecipeStack(clone(appCards), format, { ceiling: CEILING });
+    rendersCompared++;
+    if (
+      withRecord !== app.compileRecipeStack(clone(bare), format, { ceiling: CEILING }) ||
+      withRecord !== renderWorkspace(clone(appCards), { format, ceiling: CEILING })
+    ) {
+      recordRenderDiffs++;
+      renderMismatches++;
+    }
+  }
+}
+console.log(
+  `  ${recordCases} connector-written card(s) edited in the app: ${recordLost} lost or changed the record, ` +
+    `${recordRenderDiffs} render(s) moved with it`
+);
+if (recordCases === 0) {
+  console.log('\nEDIT PARITY: FAIL — no record case ran; agreement there proves nothing.');
+  process.exit(1);
+}
+mismatches += recordLost;
+
 // Same anti-vacuity rule the cascade check above uses: a render comparison that
 // never ran is not a render comparison that passed.
 if (rendersCompared === 0) {
@@ -730,6 +802,6 @@ if (mismatches || renderMismatches) {
   process.exit(1);
 }
 console.log(
-  `\nEDIT PARITY: PASS — set_variant, set_preface and set_environment each reshape the card identically in both surfaces, and all ${rendersCompared} post-edit renders are byte-identical across every format.`
+  `\nEDIT PARITY: PASS — set_variant, set_preface and set_environment each reshape the card identically in both surfaces, the record set_environment keeps comes through the app's edits untouched, and all ${rendersCompared} post-edit renders are byte-identical across every format.`
 );
 process.exit(0);
