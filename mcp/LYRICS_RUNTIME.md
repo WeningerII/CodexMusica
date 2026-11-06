@@ -22,10 +22,12 @@ and disk-backed services briefly stop during deployments. These stores therefore
 support **one Node process and one instance**. Multiple processes or replicas need
 a transactional shared store before they can safely use this protocol.
 
-| State | Default file under `LYRIC_RUNTIME_DIR` |
+| State | Default file or directory under `LYRIC_RUNTIME_DIR` |
 |---|---|
 | Request intents, progress and responses | `jobs/<request_id>.json` |
 | Connector workflow sessions and operations (`/mcp` and its aliases) | `sessions/<id>.json` |
+| Lyric continuation replay-prevention ledger | `run-ledger.json` |
+| Library reader jobs, checkpoints and evidence | `reader-jobs/reader-jobs-v1/` |
 | Generated chat signing key | `chat-secret.key` |
 | Shared model admission/accounting ledger | `model-spend.json` |
 | Legacy chat turn counters | `chat-spend.json` |
