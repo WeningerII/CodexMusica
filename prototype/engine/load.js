@@ -54,10 +54,12 @@ export const NAMES = Object.freeze([
   'INSTRUMENT_FAMILIES',
 ]);
 
-// Read-only page tables and pure helpers the Genre discovery hosts read
-// (#668 6665493327): the taxonomy, its glyphs and the 13 sound
-// characteristics. Returned beside NAMES; they aren't recipe engine, so the
-// parity gates' EXPORTED list doesn't carry them.
+// Page tables and engine functions the shell's stores call, beyond the
+// parity gates' EXPORTED list (so NAMES, which that list fixes, is unchanged).
+// Each is held in check_prototype_engine.js HOLDS, or, for the Genre
+// discovery tables (the first six: the taxonomy, its glyphs and the 13 sound
+// characteristics, #668 6665493327), in check_prototype_hosts.js
+// discoveryChecks. Returned beside NAMES, exported as they are.
 export const PAGE_TABLES = Object.freeze([
   'TREE_NODES',
   'AXIS_DEFINITIONS',
@@ -65,7 +67,48 @@ export const PAGE_TABLES = Object.freeze([
   'resolveTraditionGlyphs',
   'glyphSvg',
   'axisLabel',
+  // Rendering and lookups (the recipe store and its preview views).
+  'compileStack',
+  'buildStackParts',
+  'entryRenderDescs',
+  'hasEnvironment',
+  'Inst',
+  'Variant',
+  'Tuning',
+  'Room',
+  'ChainItem',
+  'RECIPE_FORMATS',
+  'RECIPE_CHAR_CEILING',
+  // History and add.
+  'pushHistory',
+  'undo',
+  'redo',
+  'musicalWorkspaceKey',
+  'addInstrumentFromPicker',
+  '_addedInstrumentMessage',
+  // Character.
+  'prefaceGlyphsHTML',
+  'prefaceCatGlyphHTML',
+  'prefaceGroups',
+  'prefaceCategoryOf',
+  'PREFACE_CAT_ORDER',
+  'loadNavGlyphArt',
+  // Search.
+  'normalizeSearch',
+  'searchRank',
+  // Ranking, for the similar and catalog loaders (#668 6647783903,
+  // 6647387849).
+  'findSimilarInstruments',
+  'getMatchingInstrumentAxes',
+  'findSimilar',
+  'getMatchingAxes',
 ]);
+
+// Tables the instrument engine fills after the engine is created: their
+// slots are codex.html's `let` declarations, which CODEX_ENGINE_COMMIT
+// assigns once api/engine.json is in. So they are returned as getters that
+// read the slot each time; a plain property would keep the empty slot.
+export const LIVE_TABLES = Object.freeze(['PREFACE_LEXICON', 'TUNINGS', 'ROOMS', 'CHAIN_SECTIONS']);
 
 // The page around the engine. Each is a parameter of the wrapper, so the
 // engine's code never reaches the prototype's window, document or storage:
@@ -139,7 +182,7 @@ export function engineModule(html) {
     `  return (function (${PARAMS.join(', ')}) {`,
     body,
     ';',
-    `    return Object.freeze({ ${[...NAMES, ...PAGE_TABLES].join(', ')} });`,
+    `    return Object.freeze({ ${[...NAMES, ...PAGE_TABLES, ...LIVE_TABLES.map((n) => `get ${n}() { return ${n}; }`)].join(', ')} });`,
     '  })(sink, sink, location, sink, memory(), memory(), sink, page.fetch, () => {}, () => {}, () => 0, () => {}, undefined);',
     '}',
     '',
