@@ -123,8 +123,9 @@
 //      view's methods; apply's vocabulary; the hand-over sentence; pending
 //      commands always settling; the note cleared at each rebuild; no
 //      previewRevision change while nothing is open; addGenre before start;
-//      no selection effect before start; a retried catalog boot; and an Undo
-//      that restores nothing refused. With Genre Instruments (#770)
+//      no selection effect before start; a retried catalog boot; an Undo
+//      that restores nothing refused; and the commands' argument guards and
+//      the shell's previewIs. With Genre Instruments (#770)
 //      registered: its roster is the genre page's, the "Your recipe" line
 //      follows the store, and its host's ctx and recipe view are exactly
 //      CTX_KEYS and PORT_KEYS, with "Try again." and a Retry that mounts it
@@ -5237,6 +5238,66 @@ const STORE_CHECKS = {
         JSON.stringify(g)
       ),
   },
+  // 33. The argument guards and the shell's previewIs: an instrument-action
+  // command with no instrument open, or naming a destination that isn't on
+  // offer, is INVALID; a configured add for another destination than the
+  // preview's is INVALID; Undo and Redo with nothing to step say so and
+  // change nothing; subscribe() takes only a function; previewIs is true
+  // for the open preview's own instrument and revision only.
+  guards: {
+    page: async (S) => {
+      const { R, recipe, instrument } = await S.boot();
+      const out = {};
+      const none = S.args(R);
+      out.noInstrument = [
+        await S.code(R.setInstrumentDestination({ ...none, destination: null })),
+        await S.code(R.addConfiguredInstrument({ ...none, destination: null })),
+        await S.code(R.resetInstrumentPreview(none)),
+      ];
+      out.nothing = [R.undo(), R.redo()].map((r) => [r.ok, r.changed, r.code]);
+      out.revision = R.snapshot().revision;
+      await R.addEnsemble({ genreId: 'bluegrass', revision: R.snapshot().revision });
+      instrument.set('oud');
+      await S.settle();
+      const a = S.args(R);
+      out.badDestination = await S.code(
+        R.setInstrumentDestination({ ...a, destination: 'gagaku' })
+      );
+      out.otherDestination = await S.code(
+        R.addConfiguredInstrument({ ...a, destination: 'bluegrass' })
+      );
+      out.cards = R.snapshot().cards.length;
+      let threw = null;
+      try {
+        R.subscribe('not a function');
+      } catch (e) {
+        threw = e instanceof TypeError;
+      }
+      out.subscribe = threw;
+      const pr = S.acts(R).previewRevision;
+      out.previewIs = [
+        recipe.previewIs('oud', pr),
+        recipe.previewIs('oud', pr - 1),
+        recipe.previewIs('banjo_5_string', pr),
+      ];
+      return out;
+    },
+    verdict: (g) =>
+      why(
+        same(g.noInstrument, ['INVALID', 'INVALID', 'INVALID']) &&
+          same(g.nothing, [
+            [false, false, 'NOTHING_TO_UNDO'],
+            [false, false, 'NOTHING_TO_REDO'],
+          ]) &&
+          g.revision === 1 &&
+          g.badDestination === 'INVALID' &&
+          g.otherDestination === 'INVALID' &&
+          g.cards === 6 &&
+          g.subscribe === true &&
+          same(g.previewIs, [true, false, false]),
+        JSON.stringify(g)
+      ),
+  },
 };
 
 // One planted defect (at least) for every check: text edits to
@@ -5455,6 +5516,36 @@ const STORE_MUTANTS = {
     ],
   },
 };
+// The guards check's defects, among the store's.
+Object.assign(STORE_MUTANTS, {
+  'previewIs ignores the revision': {
+    check: 'guards',
+    edits: [
+      [
+        'pv.instrumentId === instrumentId && pv.revision === previewRevision,',
+        'pv.instrumentId === instrumentId,',
+      ],
+    ],
+  },
+  'any destination accepted': {
+    check: 'guards',
+    edits: [
+      [
+        "    if (!destinations().some((d) => d.genreId === dest))\n      return refuse(fail('INVALID', M.BAD_DESTINATION));\n",
+        '',
+      ],
+    ],
+  },
+  'the configured add takes any destination': {
+    check: 'guards',
+    edits: [
+      [
+        "    if ((args.destination === undefined ? null : args.destination) !== destination)\n      return refuse(fail('INVALID', M.BAD_DESTINATION));\n",
+        '',
+      ],
+    ],
+  },
+});
 const LOAD_MUTANTS = {
   'loadEngine waits on CATALOG_READY itself': {
     check: 'retry',
