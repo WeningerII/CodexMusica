@@ -119,10 +119,11 @@
 //      never sharing the card's chain; the five preview views equal to
 //      production's lists, glyphs, ipApply, ipChoose note, render and copy;
 //      sourceMessage held to production's own render at ceilings 1000, 150
-//      and 100, with a room named like part of a card's own line, and one
-//      card alone whose environment line is dropped, among the cases; every
-//      outcome said once, in production's words where it has them; the
-//      destination's fallback; frozen snapshots and the notification order; the store's hold on the engine's workspace; each
+//      and 100, with a room named like part of a card's own line, one card
+//      alone whose environment line is dropped, and a roster whose every
+//      card's line is long, at the ceiling and one character over it, among
+//      the cases; every outcome said once, in production's words where it
+//      has them; the destination's fallback; frozen snapshots and the notification order; the store's hold on the engine's workspace; each
 //      view's methods; apply's vocabulary; the hand-over sentence; pending
 //      commands always settling; the note cleared at each rebuild; no
 //      previewRevision change while nothing is open; addGenre before start;
@@ -4719,6 +4720,69 @@ async function storeProduction(browser, srv) {
     await Catalog.ensureFull('whale_song');
     await Catalog.ensureFull('brasilia_indie');
     const edited = (p) => { p.room = room; p.tuning = TUNINGS[5].id; return p; };
+    // A roster whose every card's line is long (Don, #810): Compact's lines
+    // as compressCompactRecipe builds them, with the render's own
+    // deduplicated prefaces: the genre header, one "preface label," line per
+    // card, and the environment line.
+    const compactShape = (after) => {
+      const saved = _RECIPE_PREFACE_OVERRIDES;
+      _RECIPE_PREFACE_OVERRIDES = _computeRecipeDedupedPrefaces(after);
+      try {
+        const header = _recipeHeader(after);
+        const lines = after.map((c) => {
+          const inst = buildStackParts(c).find((p) => p.kind === 'instrument');
+          const preface = _resolvePreface(c);
+          return (preface ? preface + ' ' + inst.label : inst.label) + ',';
+        });
+        const env = buildStackParts(envCardOf(after)).filter((p) => p.kind !== 'instrument').map((p) => p.label).join(' · ') + ',';
+        return { header, lines, env, full: header + [...lines, env].join('\\n'), without: header + lines.join('\\n') };
+      } finally {
+        _RECIPE_PREFACE_OVERRIDES = saved;
+      }
+    };
+    // Each instrument named as names gives, only while read runs.
+    const padding = (names, read) => {
+      const kept = Object.keys(names).map((id) => {
+        const inst = Inst(id);
+        const was = [inst, Object.prototype.hasOwnProperty.call(inst, 'short'), inst.short];
+        inst.short = names[id];
+        return was;
+      });
+      try { return read(); } finally {
+        for (const [inst, had, was] of kept) { if (had) inst.short = was; else delete inst.short; }
+      }
+    };
+    // The names that make the Compact render of after, with its environment
+    // line, size characters long: the shortest card line lengthened, one
+    // character at a time, by a run of x after its instrument's name.
+    const padded = (after, size) => {
+      const s = compactShape(after);
+      const len = s.lines.map((l) => l.length);
+      const pads = len.map(() => 0);
+      for (let left = size - s.full.length; left > 0; left--) {
+        const i = len.indexOf(Math.min(...len));
+        len[i]++;
+        pads[i]++;
+      }
+      return Object.fromEntries(after.map((c, i) => {
+        const inst = Inst(c.instrumentId);
+        const name = inst.short || inst.name;
+        return [c.instrumentId, pads[i] ? name + '-' + 'x'.repeat(pads[i] - 1) : name];
+      }));
+    };
+    // The banjo, with a short room and tuning, and the udu, loose, then the
+    // preview: Compact's render with the environment line is the ceiling
+    // plus over.
+    const LONG = { room: ROOMS[7].id, tuning: TUNINGS[1].id };
+    const long = (ceiling, over) => {
+      const banjo = makeCard('banjo_5_string');
+      banjo.room = LONG.room;
+      banjo.tuning = LONG.tuning;
+      const recipe = [banjo, makeCard('udu')];
+      const preview = edited(makeCard('oud'));
+      const after = place(recipe, { ...preview, id: '__preview__' });
+      return { recipe, preview, pads: padded(after, Math.min(ceiling, RECIPE_CHAR_CEILING) + over) };
+    };
     const cases = {
       empty: () => ({ recipe: [], preview: makeCard('oud') }),
       genre: () => { app.cards = []; importTradition('bluegrass'); return { recipe: app.cards.slice(), preview: makeCard('oud') }; },
@@ -4752,6 +4816,12 @@ async function storeProduction(browser, srv) {
       // line doesn't.
       named: () => ({ ...cases.truncating(), rename: true }),
       namedShort: () => { const c = cases.truncating(); return { recipe: c.recipe.slice(0, 1), preview: c.preview, rename: true }; },
+      // A roster whose every card's line is long (Don, #810), each name
+      // padded while the case is read: the render with the environment line
+      // is exactly the ceiling, so it is written once (longKept), or one
+      // character over it, so the line is dropped whole (longDropped).
+      longKept: (ceiling) => long(ceiling, 0),
+      longDropped: (ceiling) => long(ceiling, 1),
     };
     // The renamed room, only while a case's sentence is read.
     const renamed = (after, read) => {
@@ -4772,21 +4842,28 @@ async function storeProduction(browser, srv) {
     };
     out.sources = {};
     out.dottedRenders = {};
+    out.longNames = {};
+    out.longShapes = {};
     for (const [name, make] of Object.entries(cases)) {
       out.sources[name] = {};
       for (const ceiling of [1000, 150, 100])
         for (const [f] of RECIPE_FORMATS) {
-          const { recipe, preview, rename, dotted: dot } = make();
+          const { recipe, preview, rename, dotted: dot, pads } = make(ceiling);
           const copy = { ...preview, id: '__preview__' };
           const after = place(recipe, copy);
           const read = () => sentence(after, copy, f, ceiling);
-          const named = rename ? () => renamed(after, read) : read;
+          const named = rename ? () => renamed(after, read) : pads ? () => padding(pads, read) : read;
           out.sources[name][ceiling + ':' + f] = dot ? dotted(copy.instrumentId, named) : named();
           if (dot && f === 'compact')
             out.dottedRenders[ceiling] = dotted(copy.instrumentId, () => compileRecipeStack(after, 'compact', { ceiling }));
+          if (pads && f === 'compact') {
+            (out.longNames[name] = out.longNames[name] || {})[ceiling] = pads;
+            (out.longShapes[name] = out.longShapes[name] || {})[ceiling] = padding(pads, () => ({ ...compactShape(after), render: compileRecipeStack(after, 'compact', { ceiling }) }));
+          }
         }
     }
     out.room = room;
+    out.long = LONG;
 
     // 21: the editor's part click on a recipe card (handleCardClick).
     reset();
@@ -5568,7 +5645,11 @@ const STORE_CHECKS = {
   // 13. environment: the options, a choice, and sourceMessage for every
   // format at ceilings 1000, 150 and 100 against production's own render,
   // with the preview placed where Add would put it (grouped, it lands after
-  // its genre's run) and a recipe Compact cuts at 150.
+  // its genre's run) and a recipe Compact cuts at 150. Last, a roster whose
+  // every card's line is long (Don, #810), each instrument named as
+  // production's case names it: Compact's render with the environment line
+  // exactly the ceiling (longKept), then one character over it
+  // (longDropped).
   environment: {
     run: async (page, p, ctx) => {
       const out = {};
@@ -5724,6 +5805,33 @@ const STORE_CHECKS = {
             back = rename();
             await read('namedShort');
             back();
+            // longKept, longDropped: the banjo, with production's short room
+            // and tuning, and the udu, loose, beside the preview, each
+            // instrument named as production's case names it while it is
+            // read.
+            R.apply({ op: 'remove_tradition', tradition: 'brasilia_indie' });
+            for (const id of ['banjo_5_string', 'udu'])
+              await R.addInstrument({ instrumentId: id, destination: null, revision: rev() });
+            R.apply({
+              op: 'set_environment',
+              card: R.snapshot().cards[0].id,
+              room: ARG.long.room,
+              tuning: ARG.long.tuning,
+            });
+            await S.settle();
+            for (const name of ['longKept', 'longDropped']) {
+              const names = ARG.long.names[name][ARG.ceiling];
+              const kept = Object.keys(names).map((id) => {
+                const inst = E.Inst(id);
+                const was = [inst, Object.prototype.hasOwnProperty.call(inst, 'short'), inst.short];
+                inst.short = names[id];
+                return was;
+              });
+              await read(name);
+              for (const [inst, had, was] of kept)
+                if (had) inst.short = was;
+                else delete inst.short;
+            }
             return {
               fields,
               messages,
@@ -5732,7 +5840,7 @@ const STORE_CHECKS = {
               source,
             };
           },
-          { ceiling, room: p.room }
+          { ceiling, room: p.room, long: { ...p.long, names: p.longNames } }
         );
       return out;
     },
@@ -5752,6 +5860,8 @@ const STORE_CHECKS = {
           'truncating',
           'named',
           'namedShort',
+          'longKept',
+          'longDropped',
         ])
           for (const f of ['rich', 'tags', 'prose', 'compact']) {
             const k = ceiling + ':' + f;
@@ -8308,6 +8418,17 @@ Object.assign(STORE_MUTANTS, {
     check: 'environment',
     edits: [['text.endsWith(` · ${env}`);', "text.includes(' · ');"]],
   },
+  // ...and written only with room to spare, an off-by-one at the ceiling
+  // that only longKept, written with none, catches.
+  'the Compact clause off by one at the ceiling': {
+    check: 'environment',
+    edits: [
+      [
+        '      lines.length === after.length + 1\n        ? lines[lines.length - 1] === env\n',
+        '      lines.length === after.length + 1 && text.length < limit\n        ? lines[lines.length - 1] === env\n',
+      ],
+    ],
+  },
   'the Compact clause found anywhere in the text': {
     check: 'environment',
     edits: [
@@ -8752,6 +8873,32 @@ async function recipeChecks(browser, srv) {
       );
     }) && !Object.values(p.sources).some((s) => Object.values(s).some((t) => /^gate: /.test(t))),
     `recipe store: codex.html's environment cases don't hold the gate's rule: ${JSON.stringify(p.dottedRenders)}`
+  );
+
+  // ...and so are its long roster's (Don, #810): at each ceiling, three
+  // cards whose lines are each at least a fifth of the ceiling; for
+  // longKept, a render that is those lines and then the environment line,
+  // exactly the ceiling long, which the gate's reference says is written
+  // once; for longDropped, a render that is the same cards' lines alone, the
+  // environment line one character over the ceiling, which the reference
+  // says is dropped. Each shape is compressCompactRecipe's (compactShape).
+  expect(
+    [1000, 150, 100].every((c) => {
+      const k = ((p.longShapes || {}).longKept || {})[c];
+      const d = ((p.longShapes || {}).longDropped || {})[c];
+      return (
+        !!k &&
+        !!d &&
+        [k, d].every((x) => x.lines.length === 3 && x.lines.every((l) => l.length >= c / 5)) &&
+        k.full.length === c &&
+        k.render === k.full &&
+        d.full.length === c + 1 &&
+        d.render === d.without &&
+        / In Compact it is written once, /.test(p.sources.longKept[`${c}:compact`]) &&
+        / In Compact the environment line is dropped /.test(p.sources.longDropped[`${c}:compact`])
+      );
+    }),
+    `recipe store: codex.html's long Compact cases are not at the ceiling: ${JSON.stringify(p.longShapes).slice(0, 600)}`
   );
 
   const names = Object.keys(STORE_CHECKS);

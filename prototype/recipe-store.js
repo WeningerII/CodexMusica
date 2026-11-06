@@ -640,6 +640,17 @@ export function recipeStore({ load, selection, announce, ceiling } = {}) {
       .map((part) => part.label)
       .join(' · ')},`;
     const lines = text.split('\n');
+    // Why this can't say "dropped" when the environment is written:
+    // compressCompactRecipe (scripts/_recipe_stack.js) writes a roster as
+    // exactly one `preface label,` line per card and then the environment
+    // line once, at the end. The genre header opens the first line instead
+    // of adding one, and no label holds a line break. One card alone is
+    // either one full-stack line, which ends with its environment parts, or
+    // its instrument line and then the environment line. So a render that
+    // writes the environment has one line per card and the environment line
+    // last, or is one card's one line ending with it. A render that is cut
+    // ends in [truncated], and one that drops the environment line ends on a
+    // card's line, so in neither is the last line env.
     const written =
       lines.length === after.length + 1
         ? lines[lines.length - 1] === env
