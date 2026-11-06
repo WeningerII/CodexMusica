@@ -133,6 +133,15 @@
 //      (STORE_MUTANTS, LOAD_MUTANTS, DATA_MUTANTS, APP_MUTANTS), served in
 //      place of the file in that check's own page, and that defect must fail
 //      the check.
+//  17. READER (#810 6677708921). Through the Library lane's openReading,
+//      with a stand-in that says a rejection as explore.js does: when the
+//      reader that is open throws from its own unmount(), the new reading
+//      does not resolve { unitId }, is not mounted once after the Library's
+//      lanes with focus in it, leaves the old one standing, says anything, or
+//      does not log the error; or, when the new reader's open fails, over an
+//      old one that throws, openReading does not reject with the new
+//      reader's error, or does not log the old one's. Each check has a
+//      planted defect in app.js (READER_MUTANTS), as in 16.
 //
 //   node scripts/check_prototype_hosts.js
 //
@@ -242,7 +251,18 @@ export function mount(host, ctx) {
   field.addEventListener('input', () => ctx.onChange && ctx.onChange(field.value), { signal: ctx.signal });
   rec.write = ctx.storage.write('pref', { n: 1 });
   if (window.__probeThrow === lane) throw new Error('probe mount failure');
-  return { unmount() { rec.unmounted = true; }, focus() { field.focus(); } };
+  // A check can make a lane's unmount() or focus() throw, read when called.
+  const throws = () => window.__probeThrows || {};
+  return {
+    unmount() {
+      rec.unmounted = true;
+      if (throws().unmount === lane) throw (window.__probeUnmountError = new Error('probe unmount failure'));
+    },
+    focus() {
+      if (throws().focus === lane) throw new Error('probe focus failure');
+      field.focus();
+    },
+  };
 }
 `;
 
@@ -1751,6 +1771,246 @@ async function speechChecks(browser, srv) {
     `speech: a browser without speech gave ${JSON.stringify(none)}`
   );
   await bare.context.close();
+}
+
+// ── 17. A READING OVER A THROWING ONE (#810 6677708921) ────────────────────
+// app.js's openReader, through the Library lane's openReading, as Play calls
+// it. explore.js (lines 85-88) says a rejected openReading to the person, so
+// here a stand-in says it the same way, and every sentence the status region
+// hears is kept. Then, with the reader that is open throwing from its own
+// unmount(), a second reading must open, resolve { unitId } and take focus,
+// with nothing said and the error logged (console.warn or console.error).
+// And with a new reader whose open fails (its focus() throws, the last step
+// of an open), over one whose unmount also throws, openReading must still
+// reject, with the new reader's error, and the teardown error still logged.
+// (A reader whose mount() throws is not that case: the host says so in the
+// panel, as for any lane (8), and the open resolves, before this fix and
+// after it.)
+// Each check also runs on app.js with a planted defect (READER_MUTANTS),
+// served in place of app.js in a page of its own, which must fail it.
+const READER_MUTANTS = {
+  'openReader rejects on the old reader’s teardown (as at c1cb00757)': {
+    check: 'an old reader’s teardown',
+    edits: [
+      [
+        "  try {\n    reader.close();\n  } catch (error) {\n    console.warn('[prototype] The reading that was open did not end cleanly:', error);\n  }\n",
+        '',
+      ],
+    ],
+  },
+  'openReader opens nothing after a teardown error': {
+    check: 'an old reader’s teardown',
+    edits: [
+      [
+        "console.warn('[prototype] The reading that was open did not end cleanly:', error);\n",
+        "console.warn('[prototype] The reading that was open did not end cleanly:', error);\n    throw error;\n",
+      ],
+    ],
+  },
+  'openReader resolves before the reading opens': {
+    check: 'an old reader’s teardown',
+    edits: [['  await reader.open([\n', '  void reader.open([\n']],
+  },
+  'openReader tells the person about the teardown': {
+    check: 'nothing said',
+    edits: [
+      [
+        "console.warn('[prototype] The reading that was open did not end cleanly:', error);",
+        "announce('The reading that was open did not end cleanly.');",
+      ],
+    ],
+  },
+  'openReader drops the teardown error unlogged': {
+    check: 'logged',
+    edits: [
+      [
+        "console.warn('[prototype] The reading that was open did not end cleanly:', error);",
+        'void error;',
+      ],
+    ],
+  },
+  'openReader swallows a failed open': {
+    check: 'a new reader’s failure',
+    edits: [
+      [
+        "  ]);\n}\n\n// The Library lane's ctx",
+        "  ]).catch(() => {});\n}\n\n// The Library lane's ctx",
+      ],
+    ],
+  },
+};
+
+async function readerRun(page, cid) {
+  return page.evaluate(async (cid) => {
+    const c = window.__probeCtx.library;
+    const region = document.getElementById('proto-status');
+    const said = [];
+    new MutationObserver(() => {
+      if (region.textContent) said.push(region.textContent);
+    }).observe(region, { childList: true, characterData: true, subtree: true });
+    const logged = [];
+    for (const k of ['warn', 'error']) {
+      const real = console[k].bind(console);
+      console[k] = (...args) => {
+        logged.push(args);
+        real(...args);
+      };
+    }
+    const loggedOf = (err) =>
+      logged.filter((args) =>
+        args.some((a) => a === err || (typeof a === 'string' && a.includes(err.message)))
+      ).length;
+    const tick = () => new Promise((r) => setTimeout(r, 0));
+    const until = async (ok) => {
+      const t0 = Date.now();
+      while (!ok() && Date.now() - t0 < 15000) await new Promise((r) => setTimeout(r, 50));
+    };
+    const mounts = (lane) => (window.__probe[lane] ? window.__probe[lane].mounts : 0);
+    // Play, as explore.js handles it: a rejection is said, in its message.
+    const play = async () => {
+      try {
+        return JSON.stringify(await c.openReading(cid));
+      } catch (error) {
+        c.announce((error && error.message) || 'Library action could not finish. Try again.');
+        return `threw: ${error && error.message}`;
+      }
+    };
+    const hosts = () =>
+      [...document.querySelectorAll('[data-panel="library"] [data-feature-host]')].map(
+        (h) => h.dataset.featureHost
+      );
+    const focusIn = () => {
+      const a = document.activeElement;
+      const h = a && a.closest && a.closest('[data-feature-host]');
+      return h ? h.dataset.featureHost : a ? a.tagName : null;
+    };
+    const playButton = () => document.querySelector('[data-feature-host="library"] textarea');
+
+    // A first reading, with nothing throwing.
+    playButton().focus();
+    const first = await play();
+    await until(() => mounts('libraryspeech') === 1);
+    const old = {
+      reading: window.__probe.libraryreading,
+      speech: window.__probe.libraryspeech,
+      readingCtx: window.__probeCtx.libraryreading,
+      speechCtx: window.__probeCtx.libraryspeech,
+    };
+    await tick();
+    said.length = 0;
+
+    // A: the reader that is open throws from its unmount().
+    window.__probeThrows = { unmount: 'libraryreading' };
+    playButton().focus();
+    const returned = await play();
+    const a = {
+      first,
+      returned,
+      hosts: hosts().join(),
+      mounts: [mounts('libraryreading'), mounts('libraryspeech')],
+      focus: focusIn(),
+      focusNew:
+        !!window.__probe.libraryreading &&
+        window.__probe.libraryreading !== old.reading &&
+        document.activeElement ===
+          document.querySelector('[data-feature-host="libraryreading"] textarea'),
+      oldEnded:
+        old.reading.unmounted &&
+        old.reading.aborted &&
+        old.readingCtx.signal.aborted &&
+        old.speech.unmounted &&
+        old.speech.aborted &&
+        old.speechCtx.signal.aborted,
+      threw: !!window.__probeUnmountError,
+    };
+    const errA = window.__probeUnmountError;
+    a.logged = errA ? loggedOf(errA) : 0;
+    await until(() => mounts('libraryspeech') >= 2);
+    await tick();
+    a.said = said.slice();
+    said.length = 0;
+
+    // B: a new reader whose open fails, over one whose unmount throws.
+    window.__probeUnmountError = null;
+    window.__probeThrows = { unmount: 'libraryreading', focus: 'libraryreading' };
+    playButton().focus();
+    const b = { returned: await play() };
+    const errB = window.__probeUnmountError;
+    b.threw = !!errB;
+    b.logged = errB ? loggedOf(errB) : 0;
+    await tick();
+    b.said = said.slice();
+    window.__probeThrows = {};
+    return { a, b };
+  }, cid);
+}
+
+function readerVerdict(g) {
+  const { a, b } = g;
+  const tail = a.hosts.split(',').slice(-2).join();
+  const once = (id) => a.hosts.split(',').filter((h) => h === id).length === 1;
+  return {
+    'an old reader’s teardown':
+      a.threw &&
+      /"unitId":"/.test(a.first) &&
+      a.returned === a.first &&
+      tail === 'libraryreading,libraryspeech' &&
+      once('libraryreading') &&
+      once('libraryspeech') &&
+      a.mounts[0] === 2 &&
+      a.mounts[1] === 2 &&
+      a.oldEnded &&
+      a.focus === 'libraryreading' &&
+      a.focusNew,
+    'nothing said': a.threw && a.said.length === 0,
+    logged: a.threw && a.logged === 1,
+    'a new reader’s failure':
+      b.threw && b.returned === 'threw: probe focus failure' && b.logged === 1,
+  };
+}
+
+let readerPlanted = 0;
+const READER_DEFECTS = Object.keys(READER_MUTANTS).length;
+async function readerChecks(browser, srv) {
+  const cid = libData('catalog.json').shelves[0].cards[0][0];
+  const once = async (body) => {
+    const { context, page, errors, override } = await newPage(browser, srv);
+    if (body)
+      override.set('/prototype/app.js', { status: 200, contentType: 'text/javascript', body });
+    let got;
+    try {
+      await page.goto(`${srv.url}/prototype/#library`);
+      await waitMounted(page, 'library');
+      got = await readerRun(page, cid);
+    } catch (e) {
+      got = null;
+      errors.push(`threw: ${(e && e.message) || e}`);
+    }
+    await context.close();
+    return { got, errors };
+  };
+  const base = await once(null);
+  const names = [];
+  if (base.got) {
+    for (const [check, ok] of Object.entries(readerVerdict(base.got))) {
+      names.push(check);
+      expect(ok, `reader: ${check} failed on app.js: ${JSON.stringify(base.got)}`);
+    }
+  } else expect(false, `reader: the run failed: ${base.errors.join(' | ')}`);
+  expect(!base.errors.length, `reader: uncaught errors: ${base.errors.join(' | ')}`);
+  // Every check has a planted defect of its own, and each must fail it.
+  const planting = new Set(Object.values(READER_MUTANTS).map((m) => m.check));
+  for (const n of names) expect(planting.has(n), `reader: the ${n} check has no planted defect`);
+  for (const [name, { check, edits }] of Object.entries(READER_MUTANTS)) {
+    expect(names.includes(check), `reader: the planted defect "${name}" names no check (${check})`);
+    const src = plantIn(APP_JS, edits);
+    expect(!!src, `reader: the planted defect "${name}" no longer applies to app.js`);
+    if (!src) continue;
+    const r = await once(src);
+    const failed = !r.got || readerVerdict(r.got)[check] !== true;
+    expect(failed, `reader: with the planted defect "${name}", the ${check} check still passes`);
+    if (failed) readerPlanted++;
+  }
 }
 
 async function unmounting(browser, srv) {
@@ -6890,6 +7150,7 @@ async function recipeChecks(browser, srv) {
     await discoveryChecks(browser, srv);
     await readingChecks(browser, srv);
     await speechChecks(browser, srv);
+    await readerChecks(browser, srv);
     await unmounting(browser, srv);
     await closing(browser, srv);
     await recipeChecks(browser, srv);
@@ -6903,7 +7164,7 @@ async function recipeChecks(browser, srv) {
     process.exit(1);
   }
   console.log(
-    `check_prototype_hosts: ${checks}/${checks} checks pass; ${planted + storePlanted}/${ALL_MUTANTS.length + storeDefects} planted defects fail their checks (${planted}/${ALL_MUTANTS.length} in host.js, ${storePlanted}/${storeDefects} in the recipe store's checks)`
+    `check_prototype_hosts: ${checks}/${checks} checks pass; ${planted + storePlanted + readerPlanted}/${ALL_MUTANTS.length + storeDefects + READER_DEFECTS} planted defects fail their checks (${planted}/${ALL_MUTANTS.length} in host.js, ${storePlanted}/${storeDefects} in the recipe store's checks, ${readerPlanted}/${READER_DEFECTS} in app.js's openReader)`
   );
 })().catch((e) => {
   console.error(e);

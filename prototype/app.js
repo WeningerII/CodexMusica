@@ -87,9 +87,23 @@ const LANES = {
 // and is granted autoplay once when Play opened it, as production's ?play=1.
 // The two are on-demand lanes (host.js createOnDemand): opening a reading
 // replaces the one open, and focus goes into the reader.
+//
+// The reading that was open ends first, by the slot's own close(). If one of
+// its lanes' unmount() throws, that lane still ends (host.js), and the error
+// is the shell's own: it is logged, and the new reading still opens and
+// resolves, because the person's request succeeded (#810 6677708921). So
+// open() has nothing left to end, and if it rejects, the error is the new
+// reading's own and comes back to the caller. open() takes its opener after
+// the close, which differs only when focus was in the old reading, and that
+// is gone either way.
 const readings = readingLoader();
 const reader = createOnDemand(document.querySelector('[data-panel="library"]'));
 async function openReader(unitId, { play = false } = {}) {
+  try {
+    reader.close();
+  } catch (error) {
+    console.warn('[prototype] The reading that was open did not end cleanly:', error);
+  }
   await reader.open([
     {
       id: 'libraryreading',
