@@ -1330,6 +1330,59 @@ test('a set_preface that re-derives a written setting takes it out: ENVIRONMENT_
   });
 });
 
+test('ENVIRONMENT_OVERWRITTEN on the environment card speaks only for what a set_environment wrote there', async () => {
+  // "replaced the environment you set" is a claim about a write, so it reads the
+  // record, as ENVIRONMENT_MOVED does, not the card's seed (#671, BB8 6685465828
+  // 5(b)). A second set_preface replacing what the first derived replaced nothing
+  // anyone set; a set_environment, then a set_preface that moves it, is said once.
+  await onEverySurface(async (s, name) => {
+    const folk = await s.start(['appalachian_folk']);
+    const voice = folk.render_scope.environment_card;
+    const room = (r) => r.render_scope.environment_settings.room;
+    const drowning = { action: 'set_preface', card: voice, preface: 'drowning' };
+    const raging = { action: 'set_preface', card: voice, preface: 'raging' };
+    const first = await s.edit(folk, [drowning]);
+    const second = await s.edit(first, [raging]);
+    assert.notEqual(room(first), room(folk), `${name}: fixture: drowning moves the seeded room`);
+    assert.notEqual(room(second), room(first), `${name}: fixture: raging moves drowning's room`);
+    assert.deepEqual(overwritten(first), [], `${name}: a set_preface on the seed`);
+    assert.deepEqual(overwritten(second), [], `${name}: set_preface, then set_preface`);
+    const both = await s.edit(folk, [drowning, raging]);
+    assert.deepEqual(overwritten(both), [], `${name}: set_preface, then set_preface, one batch`);
+    // set_environment, then set_preface: exactly one, for the room written.
+    const write = { action: 'set_environment', room: 'cathedral' };
+    const wrote = await s.edit(folk, [write]);
+    const over = await s.edit(wrote, [drowning]);
+    assert.notEqual(room(over), 'cathedral', `${name}: fixture`);
+    assert.deepEqual(
+      overwritten(over).map((w) => [w.card, w.edit, w.settings, 'environment_card' in w]),
+      [[voice, 0, { room: { was: 'cathedral', now: room(over) } }, false]],
+      `${name}: set_environment, then set_preface`
+    );
+    assert.equal(await s.recorded(over, voice), undefined, `${name}: the room leaves the record`);
+    assert.deepEqual(overwritten(await s.render(over)), [], `${name}: not on a render`);
+    assert.deepEqual(overwritten(await s.edit(over, [raging])), [], `${name}: said once`);
+    const batch = await s.edit(folk, [write, drowning, raging]);
+    assert.deepEqual(
+      overwritten(batch).map((w) => [w.edit, w.settings.room.was]),
+      [[1, 'cathedral']],
+      `${name}: one batch: the set_preface that replaced the write, once`
+    );
+    // A preface that keeps the written room replaces nothing (5(a)), and writing
+    // the seeded value is a write (5(d)).
+    const seeded = await s.edit(folk, [{ action: 'set_environment', room: room(folk) }]);
+    assert.deepEqual(
+      overwritten(await s.edit(seeded, [drowning])).map((w) => [w.edit, w.settings]),
+      [[0, { room: { was: room(folk), now: room(first) } }]],
+      `${name}: the seeded room, written`
+    );
+    // A workspace saved without the record has nothing written there.
+    const old = await s.forget(wrote);
+    assert.equal(await s.recorded(old, voice), undefined, `${name}: fixture`);
+    assert.deepEqual(overwritten(await s.edit(old, [drowning])), [], `${name}: no record`);
+  });
+});
+
 test('a workspace with no record is silent on render and warns at edit time, as before', async () => {
   await onEverySurface(async (s, name) => {
     const { seed, env, bass } = await garage(s);

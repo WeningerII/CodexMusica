@@ -853,15 +853,19 @@ function applyEdit(ws, e) {
 //     chain toward the preface, as the app's preface pick does, and replaced
 //     settings an edit had put on the environment card.
 //
-// For ENVIRONMENT_MOVED, "settings an edit had put there" are the ones a
-// set_environment wrote and the card still holds (writtenEnv: the card's
-// `envWritten` record), so a seeded environment changing hands is not reported,
-// and neither is a room a set_preface re-derived (#671, BB8 6681659990): that is
-// what move_instrument is for, and the state warning (ENVIRONMENT_NOT_RENDERED)
-// simply follows the new environment card. For ENVIRONMENT_OVERWRITTEN on the
-// environment card they are still the fields differing from the card's seeded
-// baseline, the test `changed` uses. On any other card a set_preface reports what
-// it replaced of that card's record (ownEnvOverwritten).
+// For both, "settings an edit had put there" are the ones a set_environment
+// wrote and the card still holds (writtenEnv: the card's `envWritten` record),
+// so a seeded environment changing hands is not reported, and neither is a room
+// a set_preface re-derived (#671, BB8 6681659990): that is what move_instrument
+// is for, and the state warning (ENVIRONMENT_NOT_RENDERED) simply follows the
+// new environment card. ENVIRONMENT_OVERWRITTEN on the environment card is the
+// same record (BB8 6685465828, 5(b)): it says "the environment you set", a claim
+// about a write, so it is said only for a field a set_environment wrote there
+// whose value the re-derivation changed. A second set_preface replacing what the
+// first one derived replaced nothing anyone set, and a workspace with no record
+// has nothing written; a write of the seeded value is a write (5(d)). On any
+// other card a set_preface reports what it replaced of that card's record
+// (ownEnvOverwritten).
 //
 // One more way in: a set_environment that clears EVERY setting on the
 // environment card leaves it with none, so the renderer moves on to the next
@@ -937,7 +941,7 @@ function environmentTransition(before, after, i, e, target) {
     ];
   }
   if (e.action === 'set_environment') return [];
-  const lost = lostOf(explicitEnv(a));
+  const lost = lostOf(writtenEnv(a));
   if (!Object.keys(lost).length) return [];
   return [
     {

@@ -125,8 +125,8 @@ pipeline plans and grades songs whose every line you write; no connector call re
   the edit that wrote the setting only on that edit's call). Only what a `set_environment` wrote
   counts: each card records it inside the workspace (`envWritten`, threaded with the rest), so a
   tradition's stock settings and a room a `set_preface` re-derived never warn, and a workspace saved
-  without the record has nothing written, so neither this warning nor `ENVIRONMENT_MOVED` speaks
-  for the settings it already holds. The warning goes once the field is cleared there, a
+  without the record has nothing written, so none of this warning, `ENVIRONMENT_MOVED` and
+  `ENVIRONMENT_OVERWRITTEN` speaks for the settings it already holds. The warning goes once the field is cleared there, a
   `set_preface` re-derives it, the card becomes the environment card, or a `set_environment` on the
   environment card sets or clears that field (for `fx`, an effect added there settles that effect),
   so repeating the edit without `card`, as the warning advises, ends it. The environment lives on
@@ -134,8 +134,10 @@ pipeline plans and grades songs whose every line you write; no connector call re
   `set_preface` on it re-derives its room, tuning and chain — `render_warnings` reports both on the
   edit that does it (`ENVIRONMENT_MOVED`, for settings a `set_environment` wrote there, and when a
   `set_environment` clears every setting on the environment card so the next card's own settings
-  render; `ENVIRONMENT_OVERWRITTEN`, also on any other card whose written settings a `set_preface`
-  replaced, naming the environment card), so put `set_environment` after `set_preface` in a batch.
+  render; `ENVIRONMENT_OVERWRITTEN`, for settings a `set_environment` wrote that a `set_preface`
+  then re-derived, so a second `set_preface` replacing what the first derived says nothing, and on
+  any other card it names the environment card), so put `set_environment` after `set_preface` in a
+  batch.
 - `set_variant` does exactly what picking a variant does in the app: it sets and pins the part (your
   choice is never reverted), and on a card whose preface is still auto-derived it re-derives the
   preface label from the new sound. A **material** part (woods, strings and other shared materials)

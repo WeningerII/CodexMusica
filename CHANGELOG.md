@@ -56,6 +56,13 @@ what a `set_environment` wrote on it, inside the workspace, and the warnings rea
   its environment card reports no `ENVIRONMENT_MOVED` for the settings that card held, as
   for a stock environment; clearing every setting on the environment card still reports
   the settings that take over.
+- **`ENVIRONMENT_OVERWRITTEN` on the environment card reads the record too.** It compared
+  the card with its seed, so a second `set_preface` on the environment card that moved the
+  room the first one derived said it "replaced the environment you set", which nobody had
+  set, and a `set_environment` that wrote the seeded room, then a `set_preface` that moved
+  it, said nothing. It is now said for a field a `set_environment` wrote there whose value
+  the `set_preface` changes, once (the field leaves the record with it), and a workspace
+  saved without the record gets none.
 - **No recipe byte moves.** `check_app_parity.js` stays 7755/7755 in all four formats, and
   `regression_recipes.js` 1149/1149: no renderer reads `envWritten`. The browser app keeps it
   untouched through import, "Use recipe", its own edits, Undo, saved copies and exports
