@@ -165,7 +165,10 @@
 //      anything is said. With read-aloud failing too, anything but the
 //      reader's sentence is said, or focus is not on that sentence; with
 //      read-aloud failing alone, anything is said, or focus leaves the
-//      reader. Each check has a planted defect in host.js or app.js
+//      reader. The reader's Retry: a mount() that throws then is not said,
+//      with focus on its sentence; focus the person moved on (elsewhere, or
+//      back to Play) is taken, by a Retry that fails again or one that
+//      mounts. Each check has a planted defect in host.js or app.js
 //      (START_MUTANTS), as in 16.
 //
 //   node scripts/check_prototype_hosts.js
@@ -2124,9 +2127,14 @@ async function readerChecks(browser, srv) {
 // nothing may be said. With the reader and read-aloud both throwing, only the
 // reader's sentence is said, with focus on it; with read-aloud alone
 // throwing, nothing is said, focus stays in the reader, where the open put
-// it, and read-aloud is granted the autoplay. Each check has a planted
-// defect in host.js or app.js (START_MUTANTS), served in place of the file
-// in pages of its own, which must fail it.
+// it, and read-aloud is granted the autoplay. The reader's Retry (the
+// context's): when its mount() throws, its sentence is said with focus on
+// it; when its data fails again, its sentence is said and focus moved back
+// to Retry, unless the person moved it on (elsewhere, or back to Play) while
+// it loaded; when it mounts, focus goes into the reader unless the person
+// moved it on. Each check has a planted defect in host.js or app.js
+// (START_MUTANTS), served in place of the file in pages of its own, which
+// must fail it.
 const START_SAYS = {
   module: 'The reader isn’t part of this build of the prototype yet.',
   context: 'The reading did not load. Check your connection, then try again.',
@@ -2141,6 +2149,11 @@ const READER_CONTEXT_FAULT = [
   ],
 ];
 const TELL_IF = 'if (!active || active === document.body || active === from)';
+// The Retry's own: its data fails again, or it mounts.
+const RETRY_TOLD =
+  '      if (again) tell(null); // a Retry asked for it\n      return;\n    }\n    if (host !== node) {';
+const RETRY_FOCUS =
+  "    if (again && (!active || active === document.body) && typeof handle.focus === 'function')\n      handle.focus();";
 const OPEN_TELLS = 'if (mounted && hosts.length) hosts[0].tellUnavailable();';
 const START_MUTANTS = {
   'a reader that can’t start is not said': {
@@ -2245,6 +2258,37 @@ const START_MUTANTS = {
         '      explain(host, `${lane.label} couldn’t start.',
       ],
     ],
+  },
+  // A Retry, as 13de255a3 left it, and judged as the open is.
+  'a Retry whose mount throws says nothing': {
+    file: 'host',
+    check: 'Retry whose mount throws',
+    edits: [
+      [
+        'prototype still works.`);\n      if (again) tell(null); // a Retry asked for it\n',
+        'prototype still works.`);\n',
+      ],
+    ],
+  },
+  'a Retry that fails again takes focus back': {
+    file: 'host',
+    check: 'Retry leaves focus the person moved',
+    edits: [
+      [
+        RETRY_TOLD,
+        "      if (again) {\n        host.querySelector('[data-host-retry]').focus();\n        announce(sentence);\n      }\n      return;\n    }\n    if (host !== node) {",
+      ],
+    ],
+  },
+  'a Retry judged from what opened the lane': {
+    file: 'host',
+    check: 'Retry leaves focus the person moved',
+    edits: [[RETRY_TOLD, RETRY_TOLD.replace('tell(null)', 'tell(opener)')]],
+  },
+  'a Retry that starts takes focus back': {
+    file: 'host',
+    check: 'a Retry that starts leaves focus the person moved',
+    edits: [[RETRY_FOCUS, "    if (again && typeof handle.focus === 'function') handle.focus();"]],
   },
   'the opener taken after the look-up': {
     file: 'app',
@@ -2399,6 +2443,32 @@ async function startRun(page, cid, kind) {
       // 'during' first: only the first load of the reader's module is slow.
       for (const situation of ['during', 'play', 'nowhere', 'elsewhere'])
         runs.push(await press(situation, lane));
+      // A Retry (the context's), with focus on it: its data fails again with
+      // focus moved elsewhere or back to Play while it loads; it mounts and
+      // the mount throws; or it mounts, with focus left or moved elsewhere.
+      const retry = async (situation) => {
+        await press('play', lane); // focus on Retry
+        await wait(50);
+        said = [];
+        if (/^retry-(mount|ok)/.test(situation)) window.__readerContextFails = false;
+        if (situation === 'retry-mount') window.__probeThrow = 'libraryreading';
+        inHost('libraryreading', '[data-host-retry]').click();
+        if (/elsewhere$/.test(situation)) elsewhere().focus();
+        if (situation === 'retry-play') play().focus();
+        await wait(200);
+        window.__readerContextFails = true;
+        window.__probeThrow = undefined;
+        return { situation, said: said.slice(), focus: where() };
+      };
+      if (kind === 'context')
+        for (const situation of [
+          'retry-mount',
+          'retry-elsewhere',
+          'retry-play',
+          'retry-ok',
+          'retry-ok-elsewhere',
+        ])
+          runs.push(await retry(situation));
       if (kind === 'mount') {
         runs.push(await press('both', ['libraryreading', 'libraryspeech']));
         runs.push(await press('speech', 'libraryspeech'));
@@ -2441,6 +2511,7 @@ function startVerdict(g) {
   const speech = run('mount', 'speech');
   const during = START_KINDS.map((kind) => [kind, run(kind, 'during')]);
   const away = START_KINDS.map((kind) => [kind, run(kind, 'away')]);
+  const retried = (s) => run('context', s);
   // Every open beside a reader that couldn't start, whose read-aloud had a ctx.
   const besideFailed = [
     ...START_KINDS.flatMap((kind) => ['during', ...SITUATIONS].map((s) => run(kind, s))),
@@ -2451,6 +2522,23 @@ function startVerdict(g) {
       ([kind, r]) => r && r.focus === 'elsewhere' && saidOnce(r, START_SAYS[kind]) && resolved(r)
     ),
     'said last': all.length === 9 && all.every((x) => x.r.last === START_SAYS[x.kind]),
+    'Retry whose mount throws':
+      !!retried('retry-mount') &&
+      saidOnce(retried('retry-mount'), START_SAYS.mount) &&
+      retried('retry-mount').focus === 'note:libraryreading',
+    'Retry leaves focus the person moved': ['elsewhere', 'play'].every(
+      (to) =>
+        !!retried(`retry-${to}`) &&
+        saidOnce(retried(`retry-${to}`), START_SAYS.context) &&
+        retried(`retry-${to}`).focus === to
+    ),
+    'a Retry that starts leaves focus the person moved':
+      !!retried('retry-ok') &&
+      !retried('retry-ok').said.length &&
+      retried('retry-ok').focus === 'libraryreading' &&
+      !!retried('retry-ok-elsewhere') &&
+      !retried('retry-ok-elsewhere').said.length &&
+      retried('retry-ok-elsewhere').focus === 'elsewhere',
     'a module that won’t load': kindRight('module'),
     'a context that fails': kindRight('context'),
     'a mount that throws': kindRight('mount'),

@@ -142,7 +142,9 @@ export function createHost(lane, panel) {
   }
 
   // The lane's ctx, then mount. `again` is a Retry: focus follows the person,
-  // into the lane when it mounts, or back to Retry when it fails again.
+  // into the lane when it mounts, or back to Retry when its data fails again
+  // (or to the sentence when its mount() throws), which is said, unless they
+  // moved focus on while it loaded (tell).
   // context({ signal }) gets this mount's signal before the lane has a ctx,
   // so what the shell hands the lane can end with the mount (untilAborted);
   // an attempt that fails, or is overtaken, mounts nothing and aborts it.
@@ -163,10 +165,7 @@ export function createHost(lane, panel) {
         host.querySelector('[data-host-note]').focus();
         pending = attach(mod, true);
       });
-      if (again) {
-        host.querySelector('[data-host-retry]').focus();
-        announce(sentence);
-      }
+      if (again) tell(null); // a Retry asked for it
       return;
     }
     if (host !== node) {
@@ -203,10 +202,15 @@ export function createHost(lane, panel) {
       mine.abort();
       state = 'unavailable';
       explain(host, `${lane.label} couldn’t start. The rest of the prototype still works.`);
+      if (again) tell(null); // a Retry asked for it
       return;
     }
     state = 'mounted'; // the placeholder was hidden by the Loading sentence
-    if (again && typeof handle.focus === 'function') handle.focus();
+    // A Retry puts focus in the lane unless the person moved it on: the
+    // Loading sentence Retry focused has gone, so focus left there is nowhere.
+    const active = document.activeElement;
+    if (again && (!active || active === document.body) && typeof handle.focus === 'function')
+      handle.focus();
   }
 
   // A lane that couldn't start, told: the sentence its host shows is said,
@@ -274,7 +278,7 @@ export function createHost(lane, panel) {
     // For an open that an action asked for (createOnDemand): if the lane
     // couldn't start, it is told (tell), with focus moved only from what
     // opened it (show()'s returnFocus, else what had focus then) or from
-    // nowhere.
+    // nowhere. A Retry is told the same way, from nowhere only (attach).
     tellUnavailable() {
       return tell(opener);
     },
