@@ -4416,7 +4416,14 @@ const STORE_CHECKS = {
   // 16. Every recipe command's outcome is said once, in production's words
   // where production has them.
   announcements: {
-    opts: { routes: { '/api/traditions/post_punk.json': { status: 404 } } },
+    // Gagaku's row is slowed so the two BUSY sentences are read while its
+    // ensemble still waits (unslowed, its "Imported" could land among them).
+    opts: {
+      routes: {
+        '/api/traditions/post_punk.json': { status: 404 },
+        '/api/traditions/gagaku.json': { delay: 1500 },
+      },
+    },
     page: async (S) => {
       const { R, V, E, instrument } = await S.boot();
       S.said();
