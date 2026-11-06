@@ -12,8 +12,12 @@
 //     names for that rule;
 //   - models the store's incremental walk over its verified heads and its full
 //     read from the heads (§5.1), the release and the saves after it (U1, U2),
-//     and recomputes the ALT_SEEN_ENTRIES derivation from the contract's own
-//     figures (§6.11);
+//     the cause check at the reply boundary (C1), and a release under a live
+//     lease, and recomputes the ALT_SEEN_ENTRIES derivation from the
+//     contract's own figures (§6.11);
+//   - builds the largest cursor §3.1's inputs allow, checks those inputs
+//     against the registry, and holds the release-size property over every
+//     combination of logs (§7.4);
 //   - checks Python's canonical_json (lyric-harness/library/contracts.py) and
 //     json.dumps against Node's bytes, so "identical for this subset" is run,
 //     not asserted;
@@ -44,9 +48,14 @@ const LIMITS = Object.freeze({
   GROUP_BYTES: 8192,
   WITNESS_FIELDS: 16,
   CONTINUATION_BYTES: 8192,
-  CURSOR_BYTES: 65536,
+  CURSOR_BYTES: 163840,
+  REFUSAL_BYTES: 1024,
   ALT_SEEN_ENTRIES: 65536,
 });
+// §8, C1: a bad cause or log is echoed in the reason, cut to this many bytes.
+const ECHO_BYTES = 64;
+// §3.1: the largest integer a cursor field holds, and so its widest.
+const INTEGER = 2 ** 53 - 1;
 const LOGS = ['seen', 'row_seen', 'variants', 'alt_cells', 'alt_seen'];
 const RESETTABLE = new Set(['row_seen']);
 const SEGMENT_FIELDS = [
@@ -77,6 +86,8 @@ const RESOURCE_CAUSES = [
   'discovery_frame_seals',
   'discovery_chain_segments',
   'discovery_alt_seen',
+  'cursor_refusal_bytes',
+  'resident_capacity',
 ];
 // §2.8: cursor v2 keeps none of a method's terminal inputs (analysis.py:2439).
 const TERMINAL_INPUTS = ['domain_true', 'domain_undecided', 'alt_cells'];
@@ -116,8 +127,17 @@ const REFUSAL = {
   },
   groups: { S1: unavailable('retired_key_recurred') },
   witness: { S2: { code: 'RESULT_EXPIRED', status: 410 } },
+  // A cursor over CURSOR_BYTES or a refusal over REFUSAL_BYTES (§3.1): the
+  // store refuses the frame; the worker never emits it.
+  cursor: { W4: PROTOCOL },
+  // A failed worker reply whose cause or log is outside its set (§8, C1): the
+  // job pauses with this code; there is no HTTP status.
+  reply: { C1: { code: 'READER_PROTOCOL' } },
 };
 const HEX = /^[a-f0-9]{64}$/;
+// A witness field is a dot path of lowercase names (§3), so its canonical form
+// is its bytes and two quotes.
+const DOT_PATH = /^[a-z0-9_]+(\.[a-z0-9_]+)*$/;
 
 // ---------------------------------------------------------------- primitives
 const sha = (bytes) => crypto.createHash('sha256').update(bytes).digest('hex');
@@ -276,7 +296,7 @@ function cursorShape(cursor, epoch, bad) {
         typeof w.method_id === 'string' &&
         Array.isArray(w.fields) &&
         w.fields.length <= LIMITS.WITNESS_FIELDS &&
-        w.fields.every((f) => typeof f === 'string' && Buffer.byteLength(f) <= 64) &&
+        w.fields.every((f) => typeof f === 'string' && DOT_PATH.test(f) && f.length <= 64) &&
         Number.isSafeInteger(w.count) &&
         HEX.test(w.digest || ''))
     )
@@ -293,10 +313,18 @@ function cursorShape(cursor, epoch, bad) {
   );
   if (Buffer.byteLength(canonical(rest)) > LIMITS.CURSOR_BYTES)
     bad('W4', 'the cursor outside discovery and continuation is over CURSOR_BYTES');
-  for (const [mid, counts] of Object.entries(cursor.methods || {}))
+  for (const [mid, counts] of Object.entries(cursor.methods || {})) {
     for (const key of TERMINAL_INPUTS)
       if (plainObject(counts) && Object.hasOwn(counts, key))
         bad('W4', `methods[${mid}] holds the terminal input ${key}`);
+    // REFUSAL_BYTES (§3.1): a refusal's detail can grow with the input.
+    if (
+      plainObject(counts) &&
+      Object.hasOwn(counts, 'refusal') &&
+      Buffer.byteLength(canonical(counts.refusal)) > LIMITS.REFUSAL_BYTES
+    )
+      bad('W4', `methods[${mid}].refusal is over REFUSAL_BYTES`);
+  }
 }
 function cursorEntries(cursor) {
   const out = [];
@@ -816,9 +844,12 @@ function pauseCase(record, kase) {
   }
   return { state, ...extra, discovery, reason };
 }
-// §7.4's claim that reconciliation's release shrinks a record: the worst case
-// over one released log with a head (the smallest a release can drop), the
-// longest cause and log names, and each job state.
+// §7.4 (BB8 6678702125, ruling 5): a release is never larger than the record
+// it replaces. A property over generated records at the bounds: each log
+// absent, with only a tail, or with a head at the smallest or the largest count
+// a chain holds; at least one with a head (reconciliation releases a chain it
+// read); the verified heads lagging or not; both causes; every job state, with
+// the attempt counter and the fence at their widest. It returns every delta.
 function releaseDeltas() {
   const out = [];
   const withHead = (log, count) => ({
@@ -827,42 +858,57 @@ function releaseDeltas() {
     count,
     digest: sha(`digest ${log}`),
   });
-  for (const log of LOGS)
-    for (const cause of ['segment_missing', 'chain_broken'])
-      for (const count of [4, LIMITS.CHAIN_SEGMENTS * LIMITS.SEGMENT_ENTRIES])
-        for (const lag of [true, false])
-          for (const state of ['queued', 'paused', 'cancelled', 'running']) {
-            const st = withHead(log, count);
-            const rd = {
-              version: 1,
-              epoch: 0,
-              logs: { [log]: st },
-              verified: { [log]: lag ? emptyLog(log) : clone(st) },
-              unavailable: null,
-            };
-            // The smallest reason a job in that state holds: none (a paused or
-            // cancelled job always holds one, so null is below every real case).
-            const before = {
-              state,
-              deferred_requeue: false,
-              fence: null,
-              reason: null,
-              discovery: rd,
-            };
-            const got = pauseCase(
-              { discovery: rd },
-              { state, events: [{ by: 'reconciliation', cause, log }] }
-            );
-            const after = { ...before, ...got };
-            out.push({
-              log,
-              cause,
-              count,
-              lag,
-              state,
-              delta: canonical(after).length - canonical(before).length,
-            });
-          }
+  const kinds = ['absent', 'tail', 'smallest', 'largest'];
+  const count = { smallest: 4, largest: LIMITS.CHAIN_SEGMENTS * LIMITS.SEGMENT_ENTRIES };
+  for (let code = 0; code < kinds.length ** LOGS.length; code++) {
+    const pick = LOGS.map((_, i) => kinds[Math.floor(code / kinds.length ** i) % kinds.length]);
+    const headed = LOGS.filter((_, i) => count[pick[i]]);
+    if (!headed.length) continue;
+    const logs = {};
+    LOGS.forEach((log, i) => {
+      if (pick[i] === 'tail') logs[log] = emptyLog(log);
+      else if (count[pick[i]]) logs[log] = withHead(log, count[pick[i]]);
+    });
+    for (const lag of [true, false])
+      for (const cause of ['segment_missing', 'chain_broken'])
+        for (const state of ['queued', 'paused', 'cancelled', 'running']) {
+          const rd = {
+            version: 1,
+            epoch: INTEGER,
+            logs,
+            verified: Object.fromEntries(
+              Object.entries(logs).map(([l, st]) => [l, lag ? emptyLog(l) : clone(st)])
+            ),
+            unavailable: null,
+          };
+          const running = state === 'running';
+          // The smallest reason a job in that state holds: none (a paused or
+          // cancelled job always holds one, so null is below every real case).
+          const before = {
+            state,
+            attempt: INTEGER,
+            fence: running ? 'f'.repeat(64) : null,
+            lease_expires_at: running ? INTEGER : null,
+            deferred_requeue: false,
+            reason: null,
+            discovery: rd,
+          };
+          const got = pauseCase(
+            { discovery: rd },
+            { state, events: [{ by: 'reconciliation', cause, log: headed[0] }] }
+          );
+          const after = { ...before, ...got };
+          out.push({
+            pick,
+            lag,
+            cause,
+            state,
+            before,
+            after,
+            delta: canonical(after).length - canonical(before).length,
+          });
+        }
+  }
   return out;
 }
 
@@ -1087,8 +1133,301 @@ function reconstruct(method, witness, stream) {
     bad('S2', 'the count or digest disagrees with durable history');
   return { violations, folded, suffix: stream.length - i };
 }
-const mutantStream = (base, mutant) =>
-  mutant.records.map((r) => (typeof r === 'number' ? base.durable_records[r] : r));
+// A mutant's record is an index into the base's durable_records, a name from
+// the fixture's own `named` records, a patched copy of one ({of, set}), or a
+// whole record.
+const mutantStream = (base, mutant, fx = {}) =>
+  mutant.records.map((r) => {
+    if (typeof r === 'number') return base.durable_records[r];
+    if (typeof r === 'string') return fx.named[r];
+    if (plainObject(r) && Object.hasOwn(r, 'of')) return { ...fx.named[r.of], ...r.set };
+    return r;
+  });
+
+// ---------------------------------------------------------------- the cursor bound (§3.1)
+// The fields of a method's counts §3.1 counts (analysis.py's delta and counts
+// writes, terminal inputs apart).
+const METHOD_FIELDS = [
+  'candidates',
+  'coverage',
+  'false',
+  'figure_counts',
+  'first_reading_only',
+  'refusal',
+  'refused_questions',
+  'true',
+  'undecided',
+  'unreadable_tokens',
+];
+// The three incomplete-search reasons (analysis.py:716, :958, :1036), as
+// source fragments; the longest is built from the constants they print.
+const INCOMPLETE_TEMPLATES = [
+  `f"a pair's words take more than {self.EDGE_COMBOS} combinations of readings"`,
+  `f"a line's words take more than {self.EDGE_COMBOS} "`,
+  `f"its disputed words' readings collide on more than "`,
+  `f"{self.MINI_CAP} line pairs"`,
+];
+const longestReason = (edge, mini) =>
+  [
+    `a pair's words take more than ${edge} combinations of readings`,
+    `a line's words take more than ${edge} combinations of readings`,
+    `its disputed words' readings collide on more than ${mini} line pairs`,
+  ].reduce((a, b) => (Buffer.byteLength(b) > Buffer.byteLength(a) ? b : a));
+const cbytes = (v) => Buffer.byteLength(canonical(v));
+// The largest cursor outside discovery and continuation that §3.1's inputs
+// allow: every integer at 2^53 - 1, every method at its fullest with a refusal
+// of exactly REFUSAL_BYTES, an incomplete reason for every schema, every schema
+// refused, and the widest witness.
+function largestCursor(inp) {
+  const id = (i) => `shared_sound:${sha(`method ${i}`)}`.slice(0, inp.method_id_bytes);
+  const name = (i) =>
+    `schema_${i}_${'n'.repeat(inp.schema_name_bytes)}`.slice(0, inp.schema_name_bytes);
+  const refusal = { capability: '', detail: '', kind: '', missing: [], schema: '', vacuous: [] };
+  refusal.detail = 'x'.repeat(inp.refusal_bytes - cbytes(refusal));
+  const I = inp.integer;
+  const entry = {
+    candidates: I,
+    coverage: 'answered',
+    false: I,
+    figure_counts: { false: I, true: I, undecided: I },
+    first_reading_only: I,
+    refusal,
+    refused_questions: I,
+    true: I,
+    undecided: I,
+    unreadable_tokens: I,
+  };
+  const names = Array.from({ length: inp.schemas }, (_, i) => name(i));
+  return {
+    contract_version: 2,
+    identity_hash: 'f'.repeat(64),
+    phase: inp.phase,
+    method_index: I,
+    candidate: I,
+    emission: I,
+    sequence: I,
+    counters: { candidates: I, evidence_records: I, true: I, false: I, undecided: I },
+    methods: Object.fromEntries(
+      Array.from({ length: inp.methods }, (_, i) => [id(i), clone(entry)])
+    ),
+    done: false,
+    incomplete: Object.fromEntries(names.map((n) => [n, inp.incomplete_reason])),
+    refused_schemas: names,
+    witness: {
+      version: 1,
+      epoch: I,
+      method_id: id(0),
+      fields: Array.from({ length: inp.witness_fields }, () => 'a'.repeat(inp.witness_field_bytes)),
+      count: I,
+      digest: 'f'.repeat(64),
+    },
+  };
+}
+// Padding past the largest cursor: methods the registry does not have,
+// `pad:<k>` holding {candidates: 0}, then one whose name is cut to make the
+// size exact.
+function padTo(cursor, target) {
+  const c = clone(cursor);
+  let k = 0;
+  while (target - cbytes(c) >= 64) c.methods[`pad:${k++}`] = { candidates: 0 };
+  const key = (n) => `pad:${'z'.repeat(n)}`;
+  c.methods[key(0)] = { candidates: 0 };
+  const n = target - cbytes(c);
+  delete c.methods[key(0)];
+  c.methods[key(n)] = { candidates: 0 };
+  return c;
+}
+function cursorCase(inp, name) {
+  const largest = largestCursor(inp);
+  if (name === 'largest') return largest;
+  if (name === 'at_the_bound') return padTo(largest, LIMITS.CURSOR_BYTES);
+  if (name === 'one_byte_over') return padTo(largest, LIMITS.CURSOR_BYTES + 1);
+  if (name === 'refusal_one_byte_over') {
+    const c = clone(largest);
+    c.methods[Object.keys(c.methods)[0]].refusal.detail += 'x';
+    return c;
+  }
+  assert.fail(`unknown cursor case ${name}`);
+}
+// A frame that carries the cursor, with an empty discovery and continuation.
+const cursorFrame = (rest) => ({
+  discovery: { epoch: rest.method_index, resets: [], seals: [] },
+  cursor: {
+    ...rest,
+    discovery: {
+      version: 1,
+      epoch: rest.method_index,
+      logs: {},
+      inventory: null,
+      groups: { through: null, current: null },
+    },
+    continuation: {},
+  },
+});
+// The worker, before it emits: a refusal past REFUSAL_BYTES is RESOURCE_LIMIT
+// (its detail can grow with the input); a cursor past CURSOR_BYTES is then an
+// engine defect, because only content no constant allows gets it there.
+function workerCursorRefusal(rest) {
+  for (const counts of Object.values(rest.methods))
+    if (counts.refusal && cbytes(counts.refusal) > LIMITS.REFUSAL_BYTES)
+      return { code: 'RESOURCE_LIMIT', cause: 'cursor_refusal_bytes' };
+  if (cbytes(rest) > LIMITS.CURSOR_BYTES) return { code: 'INVARIANT_FAILURE' };
+  return null;
+}
+
+// ---------------------------------------------------------------- the reply boundary (§8, C1)
+function echo(v) {
+  if (v === undefined || v === null) return null;
+  let text = typeof v === 'string' ? v : JSON.stringify(v);
+  while (Buffer.byteLength(text) > ECHO_BYTES) text = [...text].slice(0, -1).join('');
+  return text;
+}
+function checkReply(r) {
+  const code = r.error_code;
+  const set =
+    code === 'DISCOVERY_UNAVAILABLE' ? CAUSES : code === 'RESOURCE_LIMIT' ? RESOURCE_CAUSES : [];
+  const cause = r.error_cause ?? null;
+  if (set.length ? !set.includes(cause) : cause !== null) {
+    const value = echo(cause);
+    return {
+      field: 'error_cause',
+      value,
+      message:
+        value === null
+          ? `The reader worker replied ${code} with no cause.`
+          : `The reader worker replied ${code} with the cause ${JSON.stringify(value)}, which ${code} does not take.`,
+    };
+  }
+  const log = r.error_log ?? null;
+  if (log !== null && !LOGS.includes(log)) {
+    const value = echo(log);
+    return {
+      field: 'error_log',
+      value,
+      message: `The reader worker replied ${code} with the log ${JSON.stringify(value)}, which is not a discovery log.`,
+    };
+  }
+  return null;
+}
+// One failed reply on a running lease: the check, then the pause it leads to.
+function replyCase(discovery, r) {
+  const start = clone(discovery);
+  let rd = clone(discovery);
+  const out = { state: 'paused', deferred_requeue: false };
+  const bad = checkReply(r);
+  if (bad && rd.unavailable)
+    Object.assign(out, {
+      reason: { code: 'DISCOVERY_UNAVAILABLE', ...clone(rd.unavailable) },
+      logged: { reply_code: r.error_code, field: bad.field, value: bad.value },
+    });
+  else if (bad) out.reason = { code: 'READER_PROTOCOL', reply_code: r.error_code, ...bad };
+  else if (r.error_code === 'DISCOVERY_UNAVAILABLE' || rd.unavailable) {
+    if (!rd.unavailable) rd = releaseOf(rd, r.error_cause, r.error_log ?? null);
+    out.reason = { code: 'DISCOVERY_UNAVAILABLE', ...clone(rd.unavailable) };
+  } else if (r.error_code === 'RESOURCE_LIMIT')
+    out.reason = { code: 'RESOURCE_LIMIT', cause: r.error_cause };
+  else out.reason = { code: r.error_code };
+  const { reason, logged, ...rest } = out;
+  return {
+    ...rest,
+    discovery: canonical(rd) === canonical(start) ? 'unchanged' : rd,
+    reason,
+    ...(logged ? { logged } : {}),
+  };
+}
+
+// ---------------------------------------------------------------- a release under a live lease (§7.4)
+// Reconciliation on one instance, a commit and a pause from the instance that
+// holds the lease. The release is a normal record save: it never touches a
+// running job's attempt, fence or lease, so that lease's next commit is refused
+// and writes nothing; a queued job becomes paused with a null fence and keeps
+// its attempt counter.
+function fenceCase(record, kase) {
+  let job = { ...clone(kase.job), discovery: clone(record.discovery) };
+  return kase.events.map((ev) => {
+    let result;
+    const holds = () =>
+      job.state === 'running' && job.attempt === ev.attempt && job.fence === ev.fence;
+    if (ev.by === 'reconciliation') {
+      const before = clone(job);
+      const got = pauseCase(
+        { discovery: job.discovery },
+        {
+          state: job.state,
+          reason: job.reason,
+          events: [{ by: ev.by, cause: ev.cause, log: ev.log }],
+        }
+      );
+      job = { ...job, ...got };
+      assert.equal(job.attempt, before.attempt, `${kase.name}: the attempt counter is kept`);
+      if (before.state === 'running')
+        assert.deepEqual(
+          [job.state, job.fence, job.lease_expires_at, job.reason],
+          [before.state, before.fence, before.lease_expires_at, before.reason],
+          `${kase.name}: a lease some instance holds is untouched`
+        );
+      result = { saved: true };
+    } else if (ev.by === 'commitCheckpoint') {
+      if (!holds()) result = { refused: { code: 'STALE_ATTEMPT' }, written: 'nothing' };
+      else if (job.discovery.unavailable)
+        result = {
+          refused: {
+            code: 'DISCOVERY_UNAVAILABLE',
+            status: 409,
+            cause: job.discovery.unavailable.cause,
+            log: job.discovery.unavailable.log,
+          },
+          written: 'nothing',
+        };
+      else assert.fail(`${kase.name}: a commit lands on a released record`);
+    } else if (ev.by === 'store.pause') {
+      if (!holds()) result = { refused: { code: 'STALE_ATTEMPT' } };
+      else {
+        const got = pauseCase(
+          { discovery: job.discovery },
+          {
+            state: 'running',
+            events: [
+              {
+                by: 'store.pause',
+                code: ev.code,
+                requeue: false,
+                error_cause: ev.error_cause,
+                error_log: ev.error_log,
+              },
+            ],
+          }
+        );
+        job = { ...job, ...got, fence: null, lease_expires_at: null, deferred_requeue: false };
+        result = { saved: true };
+      }
+    } else assert.fail(`unknown event ${ev.by}`);
+    return { ...result, job: clone(job) };
+  });
+}
+
+// ---------------------------------------------------------------- row_seen compaction (§6.2)
+const range = ([a, b]) => Array.from({ length: b - a }, (_, i) => a + i);
+// A seal may be written as `entries_range` [a, b): the integers a ... b - 1.
+function expandFrame(frame) {
+  const f = clone(frame);
+  for (const s of f.discovery.seals)
+    if (s.entries_range) {
+      s.entries = range(s.entries_range);
+      delete s.entries_range;
+    }
+  return f;
+}
+// BB8 6678702125, ruling 1: a frame that resets row_seen for a compaction holds
+// all of it, its reset and every live key, sealed or in the new tail.
+function compactionWhole(frame, live) {
+  if (!frame.discovery.resets.includes('row_seen')) return true;
+  const sealed = frame.discovery.seals
+    .filter((s) => s.log === 'row_seen')
+    .flatMap((s) => s.entries);
+  const chain = [...sealed, ...frame.cursor.discovery.logs.row_seen.tail];
+  return chain.length >= live.length && live.every((k, i) => canonical(k) === canonical(chain[i]));
+}
 
 // ---------------------------------------------------------------- Python
 // One Python run checks every byte claim this file makes about Python.
@@ -1164,6 +1503,51 @@ for case in data["suffix_cases"]:
         except ValueError:
             resolves = False
     out["suffix_cases"].append([case["name"], accepted, resolves])
+# The terminal suffix after a resume (BB8 6678702125, ruling 3; 3PO 6678848728):
+# the worker's reading, and the generic resolver alone over everything after the
+# boundary, which may leave only the last terminal record partial.
+out["resume_cases"] = []
+for case in data["resume_cases"]:
+    try:
+        ok, got = witness_of(case["stream"])
+        accepted = ok and got == [wit["count"], wit["digest"]]
+    except ValueError:
+        accepted = False
+    try:
+        list(resolve_detail_records(case["stream"][case["boundary"]:]))
+        generic = "accepts"
+    except ValueError as exc:
+        generic = "accepts" if str(exc) == "RESULT_EXPIRED: final detail record is incomplete" else "refuses"
+    out["resume_cases"].append([case["name"], accepted, generic])
+# §3.1's inputs, read from the registry and the source at this head.
+import re
+from quality import relations as RL
+from library import analysis as A
+from library.contracts import method_id
+def methods_of(lang):
+    out_ = ["coordinates", "form", "language"]
+    out_ += [method_id("native", lang + "." + n) for n in A.NATIVE_WORK_METHODS[lang]]
+    out_.append(method_id("native", lang + ".relations"))
+    out_ += [method_id("schema", n) for n in RL.REGISTRY]
+    out_ += [method_id("shared_sound", A.shared_sound_name(k)) for k in A.SHARED_SOUND_METHODS]
+    return set(out_)
+per = [methods_of(lang) for lang in A.NATIVE_WORK_METHODS]
+src = open(A.__file__, encoding="utf-8").read()
+keys = set(re.findall(r'counts\\["(\\w+)"\\]\\s*=', src)) | set(re.findall(r'delta\\["(\\w+)"\\]', src))
+keys |= set(re.findall(r'"(\\w+)": 0', re.search(r"delta = \\{(.*?)\\}", src, re.S).group(1)))
+keys |= set(re.findall(r'key = "(\\w+)" if .* else "(\\w+)"', src)[0])
+out["registry"] = {
+    "methods": max(len(m) for m in per),
+    "method_id_bytes": max(len(x.encode("utf-8")) for m in per for x in m),
+    "schemas": len(RL.REGISTRY),
+    "schema_name_bytes": max(len(n.encode("utf-8")) for n in RL.REGISTRY),
+    "edge_combos": A.AnalysisSession.EDGE_COMBOS,
+    "mini_cap": A.AnalysisSession.MINI_CAP,
+    "count_keys": sorted(keys),
+    "incomplete_writers": len(re.findall(r"self\\._incomplete\\[name\\] =|self\\._incomplete\\.setdefault\\(name,", src)),
+    "templates": [t in src for t in data["incomplete_templates"]],
+}
+out["cursor"] = [canonical_json(c) == t for c, t in data["cursors"]]
 # The float fixture as a Python worker reads it: 1.0 is a float, not an entry.
 with open(data["float_fixture"], encoding="utf-8") as f:
     seal = json.load(f)["frames"][0]["discovery"]["seals"][0]
@@ -1232,10 +1616,33 @@ const REQUIRED_MUTANTS = {
     'part_foreign_detail_id',
     'part_bytes_changed',
   ],
+  // BB8 6678702125, ruling 3, and 3PO 6678848728: at each split point inside
+  // a terminal emission that spans frames, five faults resolve_detail_records
+  // refuses itself and three only the worker's suffix-membership check refuses.
+  'bad/terminal_suffix_resume_faults.json': [
+    'after_parent',
+    'after_part_0',
+    'after_part_1',
+  ].flatMap((split) =>
+    [
+      'missing_part',
+      'reordered_parts',
+      'stale_part',
+      'changed_part',
+      'wrong_parent_id',
+      'wrong_method_part',
+      'wrong_method_parent',
+      'inserted_record',
+    ].map((fault) => `${split}_${fault}`)
+  ),
 };
+// The nine 3PO found the generic resolver accepts (6678848728): the worker's
+// suffix-membership check is their only refusal.
+const MEMBERSHIP_ONLY = ['wrong_method_part', 'wrong_method_parent', 'inserted_record'];
 const BAD = {
   alt_seen_over_cap: 'W7',
   changed_digest_after: 'F5',
+  cursor_over_bound: 'W4',
   cursor_record_disagreement: 'W4',
   cursor_summary_disagreement: 'R3',
   epoch_backwards: 'W2',
@@ -1245,10 +1652,12 @@ const BAD = {
   over_bound_seal: 'F4',
   premature_seal: 'F4',
   reordered_segment: 'R2',
+  reply_cause_invalid: 'C1',
   reset_unheld_log: 'W3',
   retired_key_recurring: 'S1',
   tail_rewritten: 'W6',
   terminal_suffix_not_contiguous: 'S2',
+  terminal_suffix_resume_faults: 'S2',
   verified_ahead_of_head: 'R5',
   witness_mismatch: 'S2',
 };
@@ -1357,6 +1766,13 @@ test('canonical form and ordered digest: the vectors, recomputed in Node and in 
     ...sfx.mutants.map((m) => ({ ...m, accepted: false })),
     ...sfx.controls.map((m) => ({ ...m, accepted: true })),
   ];
+  const rfx = load('bad/terminal_suffix_resume_faults.json');
+  const resumeCases = [
+    ...rfx.mutants.map((m) => ({ ...m, accepted: false })),
+    ...rfx.controls.map((m) => ({ ...m, accepted: true, resolver: 'accepts' })),
+  ];
+  const cfx = load('bad/cursor_over_bound.json');
+  const cursors = [...cfx.controls, ...cfx.mutants].map((c) => cursorCase(cfx.inputs, c.name));
   const py = python({
     vectors: entries,
     domain: fx.vector_chain.domain,
@@ -1368,6 +1784,13 @@ test('canonical form and ordered digest: the vectors, recomputed in Node and in 
       domain: DOMAIN.witness(wfx.cursor.witness.method_id),
     },
     suffix_cases: suffixCases.map((m) => ({ name: m.name, stream: mutantStream(wfx, m) })),
+    resume_cases: resumeCases.map((m) => ({
+      name: m.name,
+      stream: mutantStream(wfx, m, rfx),
+      boundary: rfx.boundary,
+    })),
+    incomplete_templates: INCOMPLETE_TEMPLATES,
+    cursors: cursors.map((c) => [c, canonical(c)]),
     float_fixture: path.join(DIR, 'bad', 'float_entry.json'),
   });
   py.vectors.forEach(([viaContracts, viaDumps], i) => {
@@ -1398,6 +1821,51 @@ test('canonical form and ordered digest: the vectors, recomputed in Node and in 
       m.accepted,
       `Node agrees on ${m.name}`
     );
+  // After a resume inside a terminal emission that spans frames: Python's
+  // reading and Node's refuse all twenty-four faults and accept the controls;
+  // the generic resolver alone refuses fifteen and accepts the nine the
+  // worker's suffix-membership check must refuse (3PO 6678848728).
+  assert.deepEqual(
+    py.resume_cases,
+    resumeCases.map((m) => [m.name, m.accepted, m.resolver])
+  );
+  for (const m of resumeCases)
+    assert.equal(
+      reconstruct(wfx.cursor.witness.method_id, wfx.cursor.witness, mutantStream(wfx, m, rfx))
+        .violations.length === 0,
+      m.accepted,
+      `Node agrees on ${m.name}`
+    );
+  // §3.1: the registry and the source are within the derivation's inputs, and
+  // Python writes the same bytes for every cursor the cursor fixture builds.
+  const reg = py.registry;
+  for (const key of ['methods', 'method_id_bytes', 'schemas', 'schema_name_bytes'])
+    assert.ok(reg[key] <= cfx.inputs[key], `the registry's ${key} (${reg[key]}) is within §3.1`);
+  assert.deepEqual(
+    reg.count_keys.filter((k) => !METHOD_FIELDS.includes(k) && !TERMINAL_INPUTS.includes(k)),
+    [],
+    "every field a method's counts can hold is one §3.1 counts"
+  );
+  assert.equal(
+    reg.incomplete_writers,
+    INCOMPLETE_TEMPLATES.length - 1,
+    'three writers of incomplete'
+  );
+  assert.deepEqual(
+    reg.templates,
+    INCOMPLETE_TEMPLATES.map(() => true),
+    "the reasons' templates"
+  );
+  assert.equal(
+    longestReason(reg.edge_combos, reg.mini_cap),
+    cfx.inputs.incomplete_reason,
+    'the longest incomplete reason'
+  );
+  assert.deepEqual(
+    py.cursor,
+    cursors.map(() => true),
+    "Python's canonical_json agrees"
+  );
   // The float: Python reads 1.0, writes "1.0", and its digest is the fixture's; Node's is not.
   assert.deepEqual(py.float, ['float', '1.0', true]);
   const floatSeal = load('bad/float_entry.json').frames[0].discovery.seals[0];
@@ -1890,14 +2358,161 @@ test('good/unavailable_pause_reason.json: one release, its trace kept by every s
   }
 });
 
-// Review finding 8: reconciliation's release commits before usage is known, so
-// it must never grow a record. Its margin is small; this pins it.
-test("§7.4: reconciliation's release never grows a record", () => {
+// Review finding 8, and BB8 6678702125 ruling 5: reconciliation's release
+// commits before usage is known, so it must never grow a record. A property over
+// every combination of logs; its worst case is one log at its smallest count.
+test('§7.4: a release is never larger than the record it replaces, for every combination of logs', () => {
   const deltas = releaseDeltas();
+  assert.ok(deltas.length > 10000, `${deltas.length} generated records`);
   const worst = Math.max(...deltas.map((d) => d.delta));
-  assert.ok(worst <= 0, JSON.stringify(deltas.filter((d) => d.delta === worst)));
+  const at = deltas.filter((d) => d.delta === worst);
+  assert.ok(worst <= 0, JSON.stringify(at[0]?.pick));
+  assert.ok(
+    at.every(
+      (d) => d.pick.filter((k) => k !== 'absent').length === 1 && d.pick.includes('smallest')
+    ),
+    'the worst case holds one log, at its smallest count'
+  );
+  for (const d of deltas) {
+    // Each released log's entry collapses to its name and head.
+    assert.deepEqual(
+      d.after.discovery.unavailable.released,
+      Object.fromEntries(Object.entries(d.before.discovery.logs).map(([l, st]) => [l, st.head]))
+    );
+    assert.equal(d.after.attempt, d.before.attempt, 'the attempt counter is kept');
+    if (d.state === 'running')
+      assert.deepEqual(
+        [d.after.state, d.after.fence, d.after.lease_expires_at],
+        [d.before.state, d.before.fence, d.before.lease_expires_at],
+        "a running job's lease and fence are untouched"
+      );
+    else assert.equal(d.after.fence, null);
+  }
+  // U1: a second release of a released record saves the same bytes.
+  const again = deltas[0];
+  const twice = pauseCase(
+    { discovery: again.after.discovery },
+    {
+      state: again.after.state,
+      reason: again.after.reason,
+      events: [{ by: 'reconciliation', cause: 'chain_broken', log: 'seen' }],
+    }
+  );
+  assert.deepEqual({ ...again.after, ...twice }, again.after);
   const text = section('7. Retention, GC roots and crash ordering');
   assert.ok(text.includes(`shrinks by ${-worst} bytes`), `§7.4 states the ${-worst}-byte margin`);
+});
+
+test('good/release_fencing.json: a release under a live lease never lets that lease commit', () => {
+  const fx = load('good/release_fencing.json');
+  for (const kase of fx.cases) assert.deepEqual(fenceCase(fx.record, kase), kase.expect, kase.name);
+  const live = fx.cases.find((c) => c.name === 'live_lease_on_another_instance');
+  const instances = new Set(live.events.map((e) => e.instance));
+  assert.equal(instances.size, 2, 'the release and the lease are on two instances');
+  const [, commit] = live.expect;
+  assert.equal(
+    commit.refused.code,
+    'DISCOVERY_UNAVAILABLE',
+    'the holder of the fence cannot commit'
+  );
+  assert.equal(commit.job.fence, live.job.fence, 'and its fence is unchanged');
+  assert.ok(
+    fx.cases.some((c) => c.job.state === 'queued' && c.expect.at(-1).job.attempt === c.job.attempt),
+    'a queued job keeps its attempt counter'
+  );
+});
+
+test('good/row_seen_compaction_next_frame.json: a compaction lands whole in one frame, or waits for the next', () => {
+  const fx = load('good/row_seen_compaction_next_frame.json');
+  for (const rule of readmeRows().get(fx.fixture).rules) assert.ok(WRITE_RULES.includes(rule));
+  const frames = fx.frames.map(expandFrame);
+  let record = clone(fx.record);
+  const results = frames.map((frame, i) => {
+    const r = evaluateFrame(fx, record, frame);
+    assert.deepEqual(r.violations, [], `frame ${i}`);
+    assert.deepEqual(
+      {
+        record_discovery: r.discovery,
+        segments: r.segments.map(({ log, address, bytes }) => ({ log, address, bytes })),
+        released: r.released,
+      },
+      frame.expect,
+      `frame ${i}`
+    );
+    record = { discovery: r.discovery, cursor: frame.cursor };
+    return r;
+  });
+  const b = fx.boundary;
+  const live = range(b.live_range);
+  assert.ok(b.log_count > 2 * live.length, 'the log holds more than twice its live keys');
+  const cutLive = cut(live.map(size));
+  assert.equal(cutLive.segments.length, b.seals_needed, 'the live keys need two seals');
+  // Frame 1 already carries seals; the compaction would pass FRAME_SEALS, so
+  // the step ended before the boundary with no part of it in the frame.
+  const [f1, f2] = frames;
+  assert.equal(f1.discovery.seals.length, b.frame_seals_before);
+  assert.ok(b.frame_seals_before + b.seals_needed > LIMITS.FRAME_SEALS);
+  assert.deepEqual(f1.discovery.resets, []);
+  assert.ok(!f1.discovery.seals.some((s) => s.log === 'row_seen'));
+  // Frame 2 runs it first, and whole: the reset, both seals, the last live key.
+  assert.deepEqual(f2.discovery.resets, ['row_seen']);
+  assert.ok(f2.discovery.seals.slice(0, b.seals_needed).every((s) => s.log === 'row_seen'));
+  assert.ok(compactionWhole(f2, live));
+  assert.deepEqual(
+    f2.discovery.seals.slice(0, b.seals_needed).map((s) => [s.first, s.first + s.entries.length]),
+    cutLive.segments,
+    "the compaction's seals are the content cut of the live keys"
+  );
+  // A restart at the boundary resumes from frame 1's cursor; the compaction's
+  // segments depend only on the live keys, so it seals the same bytes.
+  const after1 = { discovery: results[0].discovery, cursor: frames[0].cursor };
+  const d = d0(DOMAIN.log('row_seen'));
+  let digest = d;
+  const reseal = cutLive.segments.map(([a, z]) => {
+    const entries = live.slice(a, z);
+    const s = {
+      log: 'row_seen',
+      first: a,
+      entries,
+      digest_before: digest,
+      digest_after: fold(digest, entries),
+    };
+    digest = s.digest_after;
+    return s;
+  });
+  const restart = evaluateFrame(fx, after1, {
+    discovery: { epoch: 0, resets: ['row_seen'], seals: reseal },
+    cursor: {
+      ...f2.cursor,
+      discovery: {
+        ...f2.cursor.discovery,
+        logs: { ...f2.cursor.discovery.logs, seen: f1.cursor.discovery.logs.seen },
+      },
+    },
+  });
+  assert.deepEqual(restart.violations, []);
+  assert.deepEqual(
+    restart.segments.map((s) => s.address),
+    results[1].segments.filter((s) => s.log === 'row_seen').map((s) => s.address),
+    'the restart seals the same bytes'
+  );
+  // The split the worker must never emit: a store accepts both frames, but the
+  // first holds only part of the compaction, so the log has lost live keys.
+  for (const w of fx.worker_must_not_emit) {
+    let rec = clone(fx.record);
+    const split = w.frames.map(expandFrame);
+    for (const frame of split) {
+      const r = evaluateFrame(fx, rec, frame);
+      assert.deepEqual(r.violations, [], `${w.name}: the store accepts it`);
+      rec = { discovery: r.discovery, cursor: frame.cursor };
+    }
+    assert.equal(w.expect.store, 'accepted');
+    assert.equal(
+      split.findIndex((frame) => !compactionWhole(frame, live)),
+      w.expect.at_frame,
+      `${w.name}: a frame holds part of a compaction`
+    );
+  }
 });
 
 for (const rel of GOOD_GROUPS)
@@ -2038,6 +2653,73 @@ for (const rel of fixtureFiles().filter((f) => f.startsWith('bad/')))
           code: 'STORAGE_CORRUPT',
           status: 503,
         });
+    } else if (fx.kind === 'cursor') {
+      // §3.1: the cursor is built from the fixture's inputs; both sides agree
+      // on its bytes. The controls are accepted, each mutant breaks W4 alone.
+      const run = (c) => {
+        const rest = cursorCase(fx.inputs, c.name);
+        assert.equal(cbytes(rest), c.bytes, `${c.name}: its canonical bytes`);
+        assert.equal(sha(canonical(rest)), c.sha256, `${c.name}: its digest`);
+        return {
+          rest,
+          got: evaluateFrame(fx, { discovery: null, cursor: null }, cursorFrame(rest)),
+        };
+      };
+      for (const c of fx.controls) {
+        const { rest, got } = run(c);
+        assert.deepEqual(got.violations, [], `control ${c.name}`);
+        assert.equal(workerCursorRefusal(rest), null, `${c.name}: the worker emits it`);
+      }
+      const largest = fx.controls.find((c) => c.name === 'largest');
+      assert.ok(
+        largest.bytes <= LIMITS.CURSOR_BYTES,
+        'the largest cursor the constants allow fits'
+      );
+      assert.equal(fx.controls.find((c) => c.name === 'at_the_bound').bytes, LIMITS.CURSOR_BYTES);
+      violations = [];
+      for (const m of fx.mutants) {
+        const { rest, got } = run(m);
+        assert.deepEqual(rulesOf(got), ['W4'], m.name);
+        assert.deepEqual(workerCursorRefusal(rest), m.worker, `${m.name}: the worker's refusal`);
+        violations.push(...got.violations);
+      }
+      assert.equal(
+        fx.mutants.find((m) => m.name === 'one_byte_over').bytes,
+        LIMITS.CURSOR_BYTES + 1
+      );
+    } else if (fx.kind === 'reply') {
+      // §8, C1: each mutant is a protocol failure that releases nothing and
+      // names the bad value; each control pauses as before.
+      const start = (c) =>
+        c.released
+          ? releaseOf(fx.record.discovery, c.released.cause, c.released.log)
+          : fx.record.discovery;
+      for (const c of fx.controls) {
+        assert.equal(checkReply(c.reply), null, `control ${c.name}`);
+        assert.deepEqual(replyCase(start(c), c.reply), c.expect, `control ${c.name}`);
+      }
+      violations = [];
+      for (const m of fx.mutants) {
+        const bad = checkReply(m.reply);
+        assert.ok(bad, `${m.name} is a protocol failure`);
+        const got = replyCase(start(m), m.reply);
+        assert.deepEqual(got, m.expect, m.name);
+        assert.equal(got.discovery, 'unchanged', `${m.name}: nothing is released`);
+        assert.ok(
+          !Object.hasOwn(got.reason, 'cause') || got.reason.code === 'DISCOVERY_UNAVAILABLE'
+        );
+        if (bad.value !== null) assert.ok(Buffer.byteLength(bad.value) <= ECHO_BYTES);
+        violations.push({ rule: 'C1', detail: bad.message });
+      }
+      const echoes = fx.mutants.map((m) => checkReply(m.reply).value);
+      assert.ok(echoes.includes(null), 'a missing cause');
+      assert.ok(
+        fx.mutants.some((m) => {
+          const raw = m.reply.error_cause;
+          return typeof raw === 'string' && Buffer.byteLength(raw) > ECHO_BYTES;
+        }),
+        'a cause past the echo bound'
+      );
     } else if (fx.kind === 'groups') {
       violations = runGroups(fx).violations;
       assert.equal(violations.at(-1)?.at_event, fx.expect.at_event, 'refused at the named event');
@@ -2051,16 +2733,27 @@ for (const rel of fixtureFiles().filter((f) => f.startsWith('bad/')))
       // Controls keep the rule the mutants break, and are accepted.
       for (const m of fx.controls || [])
         assert.deepEqual(
-          reconstruct(w.method_id, w, mutantStream(base, m)).violations,
+          reconstruct(w.method_id, w, mutantStream(base, m, fx)).violations,
           [],
           `control ${m.name}`
         );
+      if (rel === 'bad/terminal_suffix_resume_faults.json') {
+        const only = fx.mutants.filter((m) => m.resolver === 'accepts');
+        assert.equal(only.length, 9, 'the nine the generic resolver accepts');
+        assert.deepEqual(
+          [...new Set(only.map((m) => m.fault))].sort(),
+          [...MEMBERSHIP_ONLY].sort()
+        );
+        assert.equal(fx.mutants.filter((m) => m.resolver === 'refuses').length, 15);
+        for (const m of fx.mutants)
+          assert.equal(m.resolver === 'accepts', MEMBERSHIP_ONLY.includes(m.fault), m.name);
+      }
       violations = [];
       for (const m of fx.mutants) {
         const got = reconstruct(
           w.method_id,
           Object.hasOwn(m, 'witness') ? m.witness : w,
-          mutantStream(base, m)
+          mutantStream(base, m, fx)
         ).violations;
         assert.deepEqual(
           [...new Set(got.map((v) => v.rule))],
@@ -2083,6 +2776,7 @@ test('the bad fixtures are the named set, and together they cover every rule the
   assert.deepEqual(bad.map((f) => path.basename(f, '.json')).sort(), Object.keys(BAD).sort());
   for (const f of bad) assert.equal(load(f).expect.rule, BAD[path.basename(f, '.json')], f);
   assert.deepEqual([...new Set(Object.values(BAD))].sort(), [
+    'C1',
     'F1',
     'F4',
     'F5',
@@ -2171,6 +2865,15 @@ test('the contract states the constants, logs, schema, domains and causes this f
   );
   assert.ok(section('8. Refusals').includes('**U1, the release record.**'), '§8 states U1');
   assert.ok(
+    section('8. Refusals').includes('**C1, the cause sets at the reply boundary.**'),
+    '§8 states C1'
+  );
+  assert.ok(
+    section('8. Refusals').includes(`at most ${ECHO_BYTES} bytes`),
+    '§8 states the echo bound'
+  );
+  assert.ok(!section('8. Refusals').includes('is dropped'), 'nothing in a reply is dropped');
+  assert.ok(
     section('8. Refusals').includes('**U2, the reason follows `unavailable`.**'),
     '§8 states U2'
   );
@@ -2250,6 +2953,66 @@ test('§6.11: ALT_SEEN_ENTRIES fits the first-commit budget by the contract figu
     s(reconcile),
   ])
     assert.ok(text.includes(stated), `§6.11 states ${stated}`);
+});
+
+// BB8 6678702125, ruling 2: CURSOR_BYTES is INVARIANT_FAILURE only because it
+// is derived. The largest cursor §3.1's inputs allow fits it, and §3.1 states
+// the figures this builds.
+test('§3.1: the largest cursor the constants allow fits CURSOR_BYTES, by the stated figures', () => {
+  const inp = load('bad/cursor_over_bound.json').inputs;
+  const largest = largestCursor(inp);
+  const total = cbytes(largest);
+  assert.ok(total <= LIMITS.CURSOR_BYTES, `${total} bytes fit`);
+  const [key, entry] = Object.entries(largest.methods)[0];
+  const perMethod = cbytes({ [key]: entry }) - 2;
+  assert.equal(cbytes(entry.refusal), LIMITS.REFUSAL_BYTES, 'each refusal at its bound');
+  assert.equal(Buffer.byteLength(canonical(inp.incomplete_reason)), 70);
+  assert.ok(largest.witness.fields.every((f) => DOT_PATH.test(f) && f.length === 64));
+  // W4 holds a witness field to a dot path of at most 64 bytes, so its
+  // canonical form is bounded; anything else is refused.
+  const shapeOf = (rest) => {
+    const found = [];
+    cursorShape(cursorFrame(rest).cursor, rest.method_index, (rule) => found.push(rule));
+    return found;
+  };
+  assert.deepEqual(shapeOf(largest), []);
+  for (const f of ['A.b', 'a..b', '.a', 'a"b', 'a'.repeat(65), 'a.é']) {
+    const m = clone(largest);
+    m.witness.fields = [f];
+    assert.deepEqual(shapeOf(m), ['W4'], `witness field ${JSON.stringify(f)}`);
+  }
+  const parts = {
+    methods: cbytes(largest.methods),
+    incomplete: cbytes(largest.incomplete),
+    refused: cbytes(largest.refused_schemas),
+    witness: cbytes(largest.witness),
+  };
+  const envelope = total - Object.values(parts).reduce((a, b) => a + b, 0);
+  const margin = LIMITS.CURSOR_BYTES - total;
+  const n = (x) => x.toLocaleString('en-US');
+  const text = section('3. Hard limits').split('### 3.1')[1];
+  for (const stated of [
+    `${n(parts.methods)}: ${inp.methods} entries of ${n(perMethod)} bytes each`,
+    `| \`incomplete\` | ${n(parts.incomplete)} |`,
+    `| \`refused_schemas\` | ${n(parts.refused)} |`,
+    `| \`witness\` | ${n(parts.witness)} |`,
+    `| the envelope and its separators | ${envelope} |`,
+    `| the largest cursor | ${n(total)} |`,
+    `\`CURSOR_BYTES = ${LIMITS.CURSOR_BYTES}\``,
+    `${n(margin)} bytes above the largest cursor`,
+    `room\n  for ${Math.floor(margin / perMethod)} more methods`,
+    `\`REFUSAL_BYTES = ${LIMITS.REFUSAL_BYTES}\``,
+    `at most ${inp.methods}, each key at most ${inp.method_id_bytes} bytes`,
+    `the ${inp.schemas} schema names, each at most ${inp.schema_name_bytes} bytes`,
+    `the longest is 70 bytes: "${inp.incomplete_reason}"`,
+  ])
+    assert.ok(text.includes(stated), `§3.1 states ${stated}`);
+  assert.ok(
+    section('3. Hard limits').includes(
+      `the largest cursor the constants allow is ${n(total)} bytes`
+    ),
+    "§3's table cites the largest cursor"
+  );
 });
 
 test('the cross-reference covers 3PO 1-6 and BB8 1-9, each with a contract section', () => {

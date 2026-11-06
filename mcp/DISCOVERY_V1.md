@@ -7,10 +7,14 @@ handoff decision (6676918434) and BB8's nine semantic rulings (6676928839). It i
 BB8's reconstruction contract (6673031748) and replay ruling (6675208404 §1). It folds in
 BB8's rulings on §12 (6678599629): the store's walk is incremental (§5.1), `alt_seen` has a
 cap derived from the first-commit budget (§3, §6.11), and §12 records each ruling. It also
-fixes the eight findings of an adversarial review of that revision. Where this text and the
-proposal differ, this text governs. 3PO's acknowledgement (6677006069) fixes
-the `contracts.py` reservation to the checkpoint declaration and schema; the shared
-`CONTRACT_VERSION` does not change.
+fixes the eight findings of an adversarial review of that revision. It folds BB8's rulings on
+3PO's amendments (6678702125): an atomic `row_seen` compaction (§6.2), a derived
+`CURSOR_BYTES` (§3.1), the terminal suffix's integrity (§6.9), the cause sets enforced at the
+reply boundary (§8, C1), a release that is provably no larger and keeps fencing (§7.4), and
+§6.8's counters. And it carries 3PO's resolver results (6678848728) into §6.9 as required
+worker refusals. Where this text and the proposal differ, this text governs. 3PO's
+acknowledgement (6677006069) fixes the `contracts.py` reservation to the checkpoint declaration
+and schema; the shared `CONTRACT_VERSION` does not change.
 
 **Base.** a0 (draft PR #816, head `aabf6eeb0`): checkpoint objects carry no cursor, and the
 job record holds the one cursor that resume reads. Line references are at that head.
@@ -58,6 +62,11 @@ truncation.
   first (§5.1).
 - **Terminal suffix.** A method's terminal records on its own stream: its `method_result`
   records and their detail parts (§6.9).
+- **Split point.** Where a frame boundary falls inside a terminal emission that spans frames:
+  after the terminal parent, or after one of its detail parts. A resume there reads a durable
+  suffix whose last terminal record is partial (§6.9).
+- **Compaction.** A `row_seen` reset followed, in the same frame, by the log's live keys sealed
+  again (§6.2).
 
 ## 2. Format
 
@@ -185,6 +194,10 @@ What is not logged, and why:
   Resets are listed in `frame.discovery.resets`. They are applied before the frame's
   seals, and the log restarts empty (head `null`, count 0, digest `d₀`). Its old chain is
   released. A reset of a log the record does not hold is refused (W3).
+- **No reset after a seal of the same log.** Because a frame's resets are applied before its
+  seals, a frame cannot seal a log and then reset it: the seal from before the reset would fail
+  W3. So a step that has already sealed `row_seen` ends at the safe point before a row boundary
+  that resets it, and the reset opens the next frame (§6.2).
 
 ### 2.7 `record.discovery`
 
@@ -239,7 +252,8 @@ null
 The cursor is owned by the worker and stored as `record.cursor`. Its declaration and schema
 in `contracts.py` belong to the #721 author. Today's fields stay: `identity_hash`, `phase`,
 `method_index`, `candidate`, `emission`, `sequence`, `counters`, `methods`, `done` and
-`incomplete`. The changes:
+`incomplete`, and `refused_schemas` once a schema has refused (`analysis.py:2563-2564`). The
+changes:
 
 - **`contract_version: 2`.** This is the cursor version. It is separate from
   `CONTRACT_VERSION` (1) in the identity (`contracts.py:18`, `:253`), which does not move.
@@ -250,8 +264,9 @@ in `contracts.py` belong to the #721 author. Today's fields stay: `identity_hash
   `methods[mid]` with every event's delta (`:2600-2605`) until `_advance` pops them
   (`:2445-2458`), so nothing bounds them. In v2, `alt_cells` is a log (§2.3) and the domain
   tallies are rebuilt under option 2 (§6.9). What stays in the cursor outside `discovery`
-  and `continuation`, `witness` included, is at most `CURSOR_BYTES` (§3); Node checks both
-  rules under W4.
+  and `continuation`, `witness` included, is at most `CURSOR_BYTES`, a bound derived from the
+  engine's constants (§3.1), and each method's `refusal` is at most `REFUSAL_BYTES`; Node checks
+  these rules under W4.
 - **`discovery`:**
 
   ```
@@ -329,17 +344,23 @@ truncation.
 | `CHAIN_SEGMENTS` | 2048 segments per chain (≤ 32 MiB of entry bytes) | `RESOURCE_LIMIT` (cause `discovery_chain_segments`) | `READER_PROTOCOL` (W5) |
 | `ALT_SEEN_ENTRIES` | 65536 entries in `alt_seen`, sealed and tail together: the bound derived from the first-commit budget (§6.11) | `RESOURCE_LIMIT` (cause `discovery_alt_seen`) | `READER_PROTOCOL` (W7) |
 | `GROUP_KEYS`, `GROUP_BYTES` | 32 keys and 8192 entry bytes in the current group | spill to `alt_seen` (§6.4): a spill rule, not a refusal | `READER_PROTOCOL` (W4) |
-| `WITNESS_FIELDS` | 16 field names, each ≤ 64 bytes | `INVARIANT_FAILURE` (an engine defect: the field list is the reducer's constant, five names in v1) | `READER_PROTOCOL` (W4) |
+| `WITNESS_FIELDS` | 16 field names, each a dot path of lowercase names (`[a-z0-9_]`, joined by `.`) of at most 64 bytes | `INVARIANT_FAILURE` (an engine defect: the field list is the reducer's constant, five names in v1) | `READER_PROTOCOL` (W4) |
 | `CONTINUATION_BYTES` | 8192 canonical bytes | `INVARIANT_FAILURE` (an engine defect, never a truncation) | `READER_PROTOCOL` (W4) |
-| `CURSOR_BYTES` | 65536 canonical bytes of the cursor outside `discovery` and `continuation` | `INVARIANT_FAILURE` (an engine defect: the method registry and the refusal shapes are fixed) | `READER_PROTOCOL` (W4) |
+| `REFUSAL_BYTES` | 1024 canonical bytes of one method's refusal (`methods[*].refusal`) | `RESOURCE_LIMIT` (cause `cursor_refusal_bytes`): its detail can carry text from the input (§3.1) | `READER_PROTOCOL` (W4) |
+| `CURSOR_BYTES` | 163840 canonical bytes (160 KiB) of the cursor outside `discovery` and `continuation`, derived in §3.1 | `INVARIANT_FAILURE` (an engine defect: the largest cursor the constants allow is 142,912 bytes, §3.1) | `READER_PROTOCOL` (W4) |
 | frame | 2 MiB (`worker.py:166`, `python_bridge.js:16`) | the existing frame refusal | — |
 | control payload and record | 2 MiB (`READER_LIMITS.objectBytes`) | — | the existing `RESOURCE_LIMIT` 413 (`reader_job_store.js:78-83`) |
 
 A worker `RESOURCE_LIMIT` names its cause (§8), pauses the job with that reason and does not
-requeue it (`reader_scheduler.js:592-600`). The worker's `INVARIANT_FAILURE` for the two byte
-bounds, `CONTINUATION_BYTES` and `CURSOR_BYTES`, is confirmed (BB8 6678599629): each is an
-engine defect, never a truncation. `WITNESS_FIELDS` takes it for the same reason (§12,
-item 17).
+requeue it (`reader_scheduler.js:592-600`). The worker's resident-capacity guard
+(`analysis.py:40-55`) is not a limit of this table, but its reply names a cause too,
+`resident_capacity`, so that every `RESOURCE_LIMIT` reply carries one (C1, §8). The worker's
+`INVARIANT_FAILURE` for the two byte bounds, `CONTINUATION_BYTES` and `CURSOR_BYTES`, is
+confirmed (BB8 6678599629): each is an engine defect, never a truncation. For `CURSOR_BYTES`
+that holds only once the bound is derived from the constants (BB8 6678702125, ruling 2). §3.1
+derives it, and the previous revision's 64 KiB does not hold the largest cursor, so the bound
+is 160 KiB. `WITNESS_FIELDS` takes `INVARIANT_FAILURE` for the same reason as the byte bounds
+(§12, item 17).
 
 Derived bounds, computed from the constants (not measured):
 
@@ -347,16 +368,73 @@ Derived bounds, computed from the constants (not measured):
   separators each, plus one group of 8192 bytes plus 32 separators, plus about 1 KiB of
   envelope: about 96 KiB.
 - **The whole cursor** is `cursor.discovery`, plus `continuation` (8 KiB), plus everything
-  else (`CURSOR_BYTES`, 64 KiB, `witness` included): about 168 KiB. This holds only because
+  else (`CURSOR_BYTES`, 160 KiB, `witness` included): about 264 KiB. This holds only because
   `methods[*]` carries no terminal input (§2.8).
-- **A frame** is at most 1 MiB of records (`worker.py:161`), plus the cursor (about 168 KiB),
+- **A frame** is at most 1 MiB of records (`worker.py:161`), plus the cursor (about 264 KiB),
   plus 8 seals of about 17.2 KiB each (16384 entry bytes, 1023 separators, two digests and
-  the envelope), plus the summary, which this contract does not change: about 1.3 MiB plus
+  the envelope), plus the summary, which this contract does not change: about 1.4 MiB plus
   the summary, under the 2 MiB caps.
-- **The record** is the cursor (about 168 KiB), plus `record.discovery` (five logs, each
+- **The record** is the cursor (about 264 KiB), plus `record.discovery` (five logs, each
   about 200 bytes in `logs` and as much again in `verified`), plus today's record fields,
   including the inline page refs while `page_count` ≤ 250 (`reader_job_store.js:1062`). R2's
   store tests hold a record to that bound.
+
+### 3.1 Deriving `CURSOR_BYTES` (BB8 6678702125, ruling 2)
+
+The worker refuses a cursor past `CURSOR_BYTES` as `INVARIANT_FAILURE`, an engine defect, only
+because no input can get it there. That holds when the bound is at least the largest cursor the
+engine's own constants allow. This section builds that cursor from those constants, and
+`bad/cursor_over_bound.json` builds it byte for byte.
+
+**What the cursor outside `discovery` and `continuation` holds**, at this head:
+
+| Part | Bound | Source |
+| --- | --- | --- |
+| integers | each at most 2⁵³ − 1: 16 digits | F1's range |
+| the envelope | `contract_version`, `identity_hash` (64 hex digits), `phase` (at most 12 bytes: `native_pairs`, `shared_sound`), `method_index`, `candidate`, `emission`, `sequence`, `counters` (five integers) and `done` | the cursor's fixed fields (`analysis.py:466-476`) |
+| `methods` | one entry per method a job names: at most 91, each key at most 37 bytes (`shared_sound:` and 24 hex digits) | the task list (`analysis.py:440-462`): `coordinates`, `form`, `language`, three native work methods (the most any language has, `fas`), its relation method, the 80 schemas and the four shared-sound methods; an assembly task shares its schema's id |
+| one method's entry | seven integer counters (`candidates`, `true`, `false`, `undecided`, `refused_questions`, `first_reading_only`, `unreadable_tokens`), `coverage`, `figure_counts` (three integers) and at most one `refusal` | every key the method's counts take (`analysis.py:2484-2490`, `:2556-2605`, `:2366`, `:2379-2398`, `:1871-1876`); the terminal inputs are gone (§2.8) |
+| a refusal | at most `REFUSAL_BYTES` | its own bound, below |
+| `incomplete` | one reason per schema, at most 80; the longest is 70 bytes: "its disputed words' readings collide on more than 1375311 line pairs", with `MINI_CAP` | the three writers (`analysis.py:716`, `:958`, `:1036`) |
+| `refused_schemas` | at most the 80 schema names, each at most 39 bytes | the registry |
+| `witness` | `WITNESS_FIELDS` dot paths of 64 bytes, a method id, a count and a digest | §2.8, §3 |
+
+**The refusal is the one part that grows with the input.** Its shape is fixed,
+`{schema, capability, detail, missing, kind, vacuous}` (`quality/relations.py:184-236`), and its
+names come from the registry. But its detail is a message built from the text: counts of loci
+and pairs (`relations.py:2070-2072`, `analysis.py:1625-1628`), and, where `relations.py` builds
+a vacuous-frame refusal, a declared source label (`relations.py:3586-3588`). So a long detail
+cannot be an engine defect. It gets its own bound, `REFUSAL_BYTES = 1024`, and its own cause: a
+refusal past it is `RESOURCE_LIMIT`, cause `cursor_refusal_bytes`, raised when the refusal is
+stored, before the frame is emitted. The longest refusal at this head with no input text in it,
+the stub-resolution refusal (`relations.py:4665-4676`), is 543 bytes (measured).
+
+**The largest cursor.** Every integer at 2⁵³ − 1, 91 methods each at its fullest with a refusal
+of exactly `REFUSAL_BYTES`, the longest reason for all 80 schemas, every schema refused, and the
+widest witness:
+
+| Part | Canonical bytes |
+| --- | --- |
+| `methods` | 128,766: 91 entries of 1,414 bytes each with its key, and their separators |
+| `incomplete` | 9,041 |
+| `refused_schemas` | 3,361 |
+| `witness` | 1,274 |
+| the envelope and its separators | 470 |
+| the largest cursor | 142,912 |
+
+- **The bound.** `CURSOR_BYTES = 163840` (160 KiB), 20,928 bytes above the largest cursor: room
+  for 14 more methods at their fullest before the bound has to be derived again. The previous
+  revision's 64 KiB does not hold the largest cursor, so it is replaced (§12, item 21).
+- **What the worker does past it.** A cursor past `CURSOR_BYTES` has every refusal within
+  `REFUSAL_BYTES`, which is checked first, so only content no constant allows can get it there,
+  such as a method the registry does not have. That is `INVARIANT_FAILURE`, never a truncation.
+- **When it is derived again.** On any change to the inputs above: a method, a schema, a
+  counter, a reason or a refusal bound. The validator reads the registry and the source on each
+  run, and fails when they pass this table's inputs.
+- **Tests** (`bad/cursor_over_bound.json`): the largest cursor and a cursor of exactly
+  `CURSOR_BYTES` are accepted. One byte over is refused by W4, and by the worker as
+  `INVARIANT_FAILURE`. One refusal one byte over `REFUSAL_BYTES` is refused by W4, and by the
+  worker as `RESOURCE_LIMIT`, cause `cursor_refusal_bytes`.
 
 ## 4. Write path
 
@@ -400,10 +478,11 @@ There is no new channel. A frame's seals ride the existing step and its acknowle
      after `through`, and `through` never moves back within an epoch. `inventory` is `null`
      or a count and digest, and once it is non-null in an epoch it does not change until the
      epoch advances. `witness` is `null` or well formed, with its `epoch` equal to the
-     frame's. `continuation` stays within `CONTINUATION_BYTES`. `methods[*]` carries no
-     terminal input, and the cursor outside `discovery` and `continuation` stays within
-     `CURSOR_BYTES` (§2.8). A record holding discovery with a frame and cursor that have
-     none also fails W4.
+     frame's and its fields dot paths within `WITNESS_FIELDS`. `continuation` stays within
+     `CONTINUATION_BYTES`. `methods[*]` carries no terminal input, each method's `refusal`
+     stays within `REFUSAL_BYTES`, and the cursor outside `discovery` and `continuation` stays
+     within `CURSOR_BYTES` (§2.8, §3.1). A record holding discovery with a frame and cursor
+     that have none also fails W4.
 4. **Write order:** pages, indexes, manifest and checkpoint as today
    (`reader_job_store.js:1051-1097`), then one segment per seal in seal order (each
    `previous_hash` is the log's head at that point), then the record (`:1098-1111`). The
@@ -576,22 +655,34 @@ within the row are in `continuation.row`.
   So the worker resets `row_seen` there if it holds any entry, and the log stays empty for
   the rest of the epoch. §6.11 relies on this.
 - **Compaction.** At a row boundary where the log holds more than twice as many keys as
-  are live, and the cut of the live keys needs at most `FRAME_SEALS` seals, the worker
-  resets `row_seen` and appends the live keys again, in their first-insertion order, in the
-  same frame: a reset, then its seals, then its tail (§2.6 applies resets first, and W6
-  does not apply to a reset log). The decision depends only on the traversal, so a run
+  are live, the worker resets `row_seen` and appends the live keys again, in their
+  first-insertion order: a reset, then its seals, then its tail (§2.6 applies resets first,
+  and W6 does not apply to a reset log). The decision depends only on the traversal, so a run
   restarted after a crash compacts at the same boundary and seals the same bytes.
+- **A compaction is atomic within one frame** (BB8 6678702125, ruling 1). Its reset and every
+  seal of the live keys land in one frame, or none of them does; a compaction is never split
+  across frames. It joins the current frame only when the frame's seals so far plus the
+  compaction's seals fit `FRAME_SEALS`, and the frame holds no seal of `row_seen` (§2.6).
+  Otherwise the step ends at the safe point before that row boundary, and the compaction runs
+  first in the next frame. Where a step ends never changes a segment's bytes: the cut rule
+  depends only on content, and the compaction's seals are the cut of the live keys from an
+  empty chain. A plain reset follows the same rule about a seal of `row_seen` already in the
+  frame.
 - **The bound that follows.** The log holds at most twice the live keys plus one segment,
-  except while the live keys alone need more than `FRAME_SEALS` seals. Then compaction
-  waits and the log grows; a chain that would pass `CHAIN_SEGMENTS` refuses with
-  `RESOURCE_LIMIT`, cause `discovery_chain_segments`.
+  except while the live keys alone need more than `FRAME_SEALS` seals. Then no frame can hold
+  the compaction, so it waits and the log grows; a chain that would pass `CHAIN_SEGMENTS`
+  refuses with `RESOURCE_LIMIT`, cause `discovery_chain_segments`.
 - **Confirmed** (BB8 6678599629). The compaction decision depends only on the traversal,
   keeps the live keys in their first-insertion order and leaves membership unchanged.
+  Atomicity is the amendment of 6678702125.
 - **Tests, both required** (BB8 6678599629):
   - a fixture with repeated left spans, restarted mid-row, matches the uninterrupted run
     (BB8 4);
   - one whose left spans repeat far apart compacts, and its restart at the compaction
-    boundary matches the uninterrupted run too.
+    boundary matches the uninterrupted run too;
+  - a frame that already carries seals reaches a compaction boundary: a restart there matches
+    the uninterrupted run, and no frame holds part of a compaction (BB8 6678702125,
+    `good/row_seen_compaction_next_frame.json`).
 - **Test** for the end of the traversal: a run past its lower traversal holds an empty
   `row_seen` in every frame after it.
 
@@ -692,8 +783,11 @@ and a tick-only step stops by its deadline.
 The traversal at `analysis.py:2537-2546` gets the same treatment, held to everything in §6.
 It has its own continuation (`continuation.shared_sound`: token, span and missing-word
 positions). It keeps "false with a domain" apart from "outside the domain": an in-domain
-judged cell, false included, is an `alt_cells` entry of its epoch, and an outside-domain
-binding moves no counter and logs nothing.
+judged cell, false included, is an `alt_cells` entry of its epoch. An outside-domain binding
+logs nothing and moves no domain tally, but it is still a candidate: `candidates` increments,
+as it does today (`delta["candidates"] = 1`, `analysis.py:2556`). So records and counters equal
+an uninterrupted run's, which the tick test of §6.7 pins (BB8 6678702125, ruling 6). Only a tick
+moves no counter (§6.7).
 
 ### 6.9 Domain tallies: option 2 (BB8 2, under 6673031748; rule S2)
 
@@ -743,6 +837,40 @@ Domain tallies are not logged. They are rebuilt from committed evidence.
      complete. A non-terminal record after a suffix record is one of these. Changed detail
      bytes, a wrong part index and a wrong total refuse the same way.
   3. The count and the digest must equal the witness's.
+- **The suffix stays checked, at a resume and at every read** (BB8 6678702125, ruling 3).
+  Filtering the suffix out of reconstruction does not exempt it. Whenever the terminal record is
+  resolved, or a resume reads a durable suffix that ends at a split point,
+  `resolve_detail_records`' own checks apply to the suffix: a missing, out-of-order, stale or
+  changed part, or a part naming another parent, refuses `RESULT_EXPIRED`, and only the last
+  terminal record may be partial. A suffix part whose parent is not that method's
+  `method_result` is an inserted record.
+- **Resolver success is not suffix validation** (3PO 6678848728). The generic resolver checks
+  parts against their parent. It does not check which method a record or part belongs to, or
+  that the records after the boundary are terminal. 3PO ran #721's actual resolver at three
+  split points: it refused 15 integrity faults and accepted 9 cases that are not the method's
+  terminal suffix. The table below is this contract's reading of those cases (§12, item 24).
+  So the worker's suffix-membership check is an acceptance requirement of its own: every record
+  after the boundary is this method's `method_result` or one of its parts, in its run, and
+  nothing else. The worker must refuse each of the 9 as `RESULT_EXPIRED`, whatever the resolver
+  says. Each is a required worker refusal.
+- **The cases.** A terminal record whose detail is four parts is emitted across frames, and a
+  resume reads it at three split points: after the parent, after part 0 and after part 1
+  (`bad/terminal_suffix_resume_faults.json`). At each split point:
+
+  | Fault | Where | Read | Refused by |
+  | --- | --- | --- | --- |
+  | a missing part | the first part the resumed lease writes is skipped | later | `resolve_detail_records` |
+  | reordered parts | that part and the next one swap | later | `resolve_detail_records` |
+  | a stale part | that part is from an earlier emission, under another `detail_id` | later | `resolve_detail_records` |
+  | a changed part | that part's bytes change | later | `resolve_detail_records` |
+  | a wrong parent id | that part names another parent | later | `resolve_detail_records` |
+  | a part of another method | that part's `method_id` is another method's | later | the worker's suffix-membership check alone |
+  | a parent of another method | the durable terminal parent's `method_id` is another method's | at the resume | the worker's suffix-membership check alone |
+  | an inserted record | a contribution between the boundary and the terminal parent | at the resume | the worker's suffix-membership check alone |
+
+  Five faults at three split points are the 15 refusals the resolver gives itself. Three at
+  three are the 9 required worker refusals. Each refuses `RESULT_EXPIRED` 410. The durable
+  prefix at each split point, and the complete suffix, are accepted.
 - **Multiplicity.** Repeated ids are distinct emissions. Nothing deduplicates by public id
   or token pair, or normalises roles, before hashing or counting.
 - **Refusal.** All of these refuse as `RESULT_EXPIRED` (6673031748 §2), before pair
@@ -752,13 +880,16 @@ Domain tallies are not logged. They are rebuilt from committed evidence.
   - an endpoint-role swap, or a change in any witness field;
   - a record after the boundary that is not the terminal suffix: an inserted record,
     including one that breaks the suffix's run or belongs to another method;
-  - a detail part that is missing, out of order or changed;
+  - a detail part that is missing, out of order, stale, changed or naming another parent,
+    including after a resume inside a terminal emission that spans frames;
   - a null witness on a method that option 2 qualifies. It is never read as empty
     history.
 
   `bad/witness_mismatch.json` holds one mutant for each.
   `bad/terminal_suffix_not_contiguous.json` holds the suffix's own mutants, its parts' among
   them, and controls that keep the suffix contiguous and complete and are accepted.
+  `bad/terminal_suffix_resume_faults.json` holds the 24 faults at the three split points, and
+  its controls.
 - **The fields are part of the cursor's meaning.** A worker whose reducer reads fields
   other than `witness.fields` refuses the cursor with `STALE_READING`.
 - **The store's part is its delivery promise.** `load_records(method_id)` yields exactly
@@ -774,7 +905,10 @@ Domain tallies are not logged. They are rebuilt from committed evidence.
   - continuing and fresh streams are equal;
   - the no-callback in-memory path is byte-identical before and after;
   - the five whole-figure paths keep their id deduplication over durable plus local
-    (`_assembly_records`, `analysis.py:2325-2345`).
+    (`_assembly_records`, `analysis.py:2325-2345`);
+  - at each of the three split points, the worker refuses the 15 integrity faults through
+    `resolve_detail_records`, and the 9 cases the resolver accepts through its own
+    suffix-membership check (3PO 6678848728, `bad/terminal_suffix_resume_faults.json`).
 - **Fallback.** If reading the evidence at finish is too slow (about 63 MB plain on #656,
   time not yet measured), the fallback is domain logs, with the same semantics and no new
   ruling. It adds two logs to §2.3, so it is a revision of this contract.
@@ -947,21 +1081,33 @@ GC:
   - a running job's state and reason are left to its lease: its next refusal, from
     `workerPayload` or `commitCheckpoint`, pauses it with the reason copied from
     `unavailable` (U2, §8);
+  - **fencing** (BB8 6678702125, ruling 5): the release goes through the normal record save.
+    A running job's lease, fence and attempt are untouched, so its holder's next commit is
+    refused (`DISCOVERY_UNAVAILABLE`, from `unavailable`, before any rule) and writes nothing.
+    A queued job becomes `paused` with a null fence, as above, and keeps its attempt counter,
+    as paused and cancelled jobs do. Nothing resets a fence on a job some instance holds.
+    **Test** (`good/release_fencing.json`): reconciliation on one instance during a live lease
+    on another does not let that lease's next commit land, and does not change its fence;
   - paused and cancelled jobs keep their state. Their reason becomes the one copied from
     `unavailable` (U2), and `resume` refuses them.
 
-  A log line is written. **The release is a shrink.** For each released log the save drops
-  its two states, in `logs` and in `verified` (about 190 bytes with a head, about 125 for an
-  empty state), and adds its head twice, in `unavailable.released` and in the reason (about
-  80 bytes each, or about 20 for a log with only a tail). It adds the cause and the log twice
-  (about 30 bytes each time) and about 90 bytes of envelope once. Reconciliation releases a
-  chain because one of its segments is missing or does not fit, so the released logs include
-  one with a head. The worst case is a queued, paused or cancelled job holding that one log,
-  at its smallest count, with the longest cause and log names: the save shrinks by 13 bytes.
-  The margin is small. A field added to this reason or to `unavailable`, such as a message or
-  a time, would make the release grow, and a growth before usage is known is refused
-  (`STORE_RECOUNTING`), which would fail the startup. The validator computes this worst case
-  and holds it at or below zero.
+  A log line is written. **The release is provably no larger** (BB8 6678702125, ruling 5). In
+  `unavailable.released`, each released log's state, `{head, segments, count, digest}`,
+  collapses to its name and its head, `{"<log>": <head>}`, as the previous revision
+  (`2e8ae0239`) already defined it, and the reason copies the same map (U2). For each released log the save drops its
+  two states, in `logs` and in `verified` (about 190 bytes with a head, about 125 for an empty
+  state), and adds its head twice (about 80 bytes each, or about 20 for a log with only a tail).
+  It adds the cause and the log twice (about 30 bytes each time) and about 90 bytes of envelope
+  once. Reconciliation releases a chain because one of its segments is missing or does not fit,
+  so at least one released log has a head. The validator holds the property over every
+  combination of logs at the bounds: each log absent, with only a tail, or with a head at the
+  smallest or the largest count; verified heads lagging or not; both causes; and every job state
+  with its attempt counter and fence at their widest. The release is never larger than the
+  record it replaces. The worst case is one log at its smallest count, with the longest cause
+  and log names: the save shrinks by 13 bytes. The margin is small. A field added to this
+  reason or to `unavailable`, such as a message or a time, would make the release grow, and a
+  growth before usage is known is refused (`STORE_RECOUNTING`), which would fail the startup.
+  Startup's commit-before-usage ordering relies on this property.
 - **No refusal at lease time.** `store.lease()` is called outside the scheduler's try block
   (`reader_scheduler.js:514`) and takes the head of the queue
   (`reader_job_store.js:889-891`), so a lease that threw would pick the same job on every
@@ -982,7 +1128,7 @@ Nothing is ever reinterpreted, and missing state is never rebuilt.
 
 | Code | Status | Raised by | When |
 | --- | --- | --- | --- |
-| `READER_PROTOCOL` | 400 | store, `commitCheckpoint` | any of F1–F6 or W1–W7 on a frame. Nothing is written; the job pauses with this reason and is not requeued. |
+| `READER_PROTOCOL` | 400 | store, `commitCheckpoint`; scheduler, at the reply boundary | any of F1–F6 or W1–W7 on a frame. Nothing is written; the job pauses with this reason and is not requeued. The scheduler pauses a job with this code, without a status, for a failed worker reply that breaks C1. |
 | `DISCOVERY_UNAVAILABLE` | 409 | store (`workerPayload`, `commitCheckpoint` and `resume` from `unavailable`; a full read in `resume()`; reconciliation's pause of a queued job) and worker (load, traversal) | causes below |
 | `STORAGE_CORRUPT` | 503 | store; worker | a segment's bytes do not match its address (F6); the store meets a missing segment outside reconciliation, which releases that job instead (§7.4); or a lease's walk fails R5, R2 or F3 (§5.1), which releases nothing |
 | `STALE_READING` | 409 | worker | a v1 cursor on a v2 worker, a v2 cursor on a v1 worker (`analysis.py:464`), or a witness whose fields are not the ones the worker's reducer reads (§6.9) |
@@ -1001,7 +1147,8 @@ Nothing is ever reinterpreted, and missing state is never rebuilt.
 | `inventory_mismatch` | R4 | worker | the `digest_mismatch` message |
 | `retired_key_recurred` | S1 | worker | This analysis cannot continue exactly: its search met a line pair it had already finished. Its committed evidence stays readable. A new analysis of the same text would stop at the same place. |
 
-The `RESOURCE_LIMIT` causes, which the worker names for a §3 limit it cannot meet:
+The `RESOURCE_LIMIT` causes, which the worker names for a §3 limit it cannot meet, and for its
+resident-capacity guard:
 
 | Cause | Limit | Message |
 | --- | --- | --- |
@@ -1009,15 +1156,17 @@ The `RESOURCE_LIMIT` causes, which the worker names for a §3 limit it cannot me
 | `discovery_frame_seals` | `FRAME_SEALS` | This analysis stopped: one step of its search needs more saved progress than one checkpoint can carry. Its committed evidence stays readable. |
 | `discovery_chain_segments` | `CHAIN_SEGMENTS` | This analysis stopped: its saved progress grew past the format's limit. Its committed evidence stays readable. |
 | `discovery_alt_seen` | `ALT_SEEN_ENTRIES` | This analysis stopped: its search of alternate readings kept more pairs than a resume can reload in time. Its committed evidence stays readable. |
+| `cursor_refusal_bytes` | `REFUSAL_BYTES` | This analysis stopped: one of its methods' refusals is longer than a checkpoint can keep. Its committed evidence stays readable. |
+| `resident_capacity` | the reader's memory envelope (`analysis.py:40-55`) | This analysis stopped: it needs more memory than this reader may use. No source or comparison was skipped. Its committed evidence stays readable. |
 
 Plumbing (R2's side):
 
 - `worker.py`'s whitelist (`:263-264`) gains `DISCOVERY_UNAVAILABLE` and `STORAGE_CORRUPT`;
   otherwise they surface as `READER_ERROR`.
-- The worker's reply gains `error_cause`, from the closed set of the ten causes in the two
-  tables above, and `error_log`, a §2.3 log name, for a cause about one log. Anything else in
-  either field is dropped. The cause sets are closed and confirmed (BB8 6678599629);
-  `discovery_alt_seen` is the fourth `RESOURCE_LIMIT` cause.
+- The worker's reply gains `error_cause`, from the two closed sets above (six causes each),
+  and `error_log`, a §2.3 log name, for a cause about one log. The sets are closed and
+  confirmed (BB8 6678599629), and enforced at the reply boundary (C1, below): a value outside
+  them is never stored as a cause and never silently discarded.
 - The scheduler passes `error_cause` and `error_log` to `store.pause` on both of its failure
   paths. The error it throws for a failed reply (`reader_scheduler.js:568-572`) carries them,
   and the catch that pauses (`:592-600`) passes `failure.error_cause ?? failure.cause` and
@@ -1038,7 +1187,8 @@ Plumbing (R2's side):
   only, never pages, indexes, manifests or checkpoints (§7.2). **A release of a record whose
   `unavailable` is already set releases nothing and leaves `unavailable` unchanged**, so the
   first release's trace wins. That covers a pause after reconciliation released a running
-  job, and a pause that names no cause or another one.
+  job, and a later pause that names another cause. A pause that names no cause never gets
+  here: C1 refuses its reply first.
 - **U2, the reason follows `unavailable`.** While it is set, every save that writes the job's
   reason writes `{code: "DISCOVERY_UNAVAILABLE", cause, log, released}`, copied from it, and
   stores no message: the job view renders the message from the cause, by the table above.
@@ -1050,6 +1200,35 @@ Plumbing (R2's side):
   `deferred_requeue: false`. So the trace stays in the reason whatever happens to the job
   after the release, and the cause stays traceable after GC reclaims the segments.
   `good/unavailable_pause_reason.json` pins each path.
+- **C1, the cause sets at the reply boundary.** This is BB8 6678702125, ruling 4, and it
+  replaces the previous revision's rule that anything outside the sets was discarded. The
+  scheduler checks every failed worker reply before it pauses the job
+  (`reader_scheduler.js:568-572`):
+  - `DISCOVERY_UNAVAILABLE` needs an `error_cause` from its six causes, and `RESOURCE_LIMIT`
+    one from its six. So a missing cause, an unknown one, and a cause of one code's set used
+    with the other code all fail;
+  - any other code carries no `error_cause`;
+  - `error_log` is absent or a §2.3 log name.
+
+  A reply that fails is a protocol failure. Nothing is released, and the failed value is never
+  stored as a cause. The job pauses, and is not requeued, with the reason
+  `{code: "READER_PROTOCOL", reply_code, field, value, message}`. `field` is `error_cause` or
+  `error_log`. `value` names the bad value verbatim, a string as itself and anything else as
+  its JSON text, cut to at most 64 bytes at a character boundary, or `null` for a missing
+  cause. The message names it too, so the pause always renders: "The reader worker replied
+  DISCOVERY_UNAVAILABLE with no cause.", "The reader worker replied RESOURCE_LIMIT with the
+  cause "chain_broken", which RESOURCE_LIMIT does not take." or "The reader worker replied
+  DISCOVERY_UNAVAILABLE with the log "alt_cellz", which is not a discovery log." If
+  `unavailable` is already set, U2 governs the stored reason, and the store logs the bad value
+  instead. A worker `RESOURCE_LIMIT` with a valid cause pauses the job with
+  `{code: "RESOURCE_LIMIT", cause}`, its message rendered from the table above.
+
+  The store's and the scheduler's own refusals are not replies. A `RESOURCE_LIMIT` that Node
+  raises (the record bound, `reader_job_store.js:78-83`; `packReaderPages`,
+  `reader_scheduler.js:452-456`) carries no cause and pauses as today. `store.pause` still
+  refuses, whoever calls it, a `DISCOVERY_UNAVAILABLE` without a cause from its set, and a cause
+  outside its code's set. `bad/reply_cause_invalid.json` holds one fault for each case, and
+  controls that pause as before.
 
 **There is no new job state.** Every image's `_reload` refuses an unknown state as
 `STORAGE_CORRUPT` (`:491-498`), so adding a state would be a format break. A job refused with
@@ -1141,49 +1320,75 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | 22 | BB8 (b) | the terminal suffix is contiguous and belongs to its method alone; a non-terminal record after a suffix record is an inserted record | §6.9 | `bad/terminal_suffix_not_contiguous.json`, `bad/witness_mismatch.json` |
 | 23 | BB8 (b) | reconciliation pauses a released queued job, with its reason rendered from the cause, and `_dispatchable` skips it | §2.7, §7.4, §8 U2 | `good/unavailable_pause_reason.json` |
 | 24 | BB8 (b) | a `DISCOVERY_UNAVAILABLE` pause releases the logs; its reason keeps the released log names and their heads, and committed evidence stays readable | §2.7, §8 U1 and U2 | `good/unavailable_pause_reason.json` |
+| 25 | 3PO 6678688668 recommendation 1; BB8 6678702125 ruling 1 | a `row_seen` compaction is atomic within one frame; when the frame lacks room, the step ends at the safe point before the boundary, and the compaction runs first in the next frame | §1, §2.6, §6.2 | `good/row_seen_compaction_next_frame.json` |
+| 26 | 3PO recommendation 2; BB8 ruling 2 | `CURSOR_BYTES` is `INVARIANT_FAILURE` only once derived from the constants, with a max-cursor test; a part that grows with the input gets its own `RESOURCE_LIMIT` cause | §2.8, §3, §3.1, §4 W4, §8 | `bad/cursor_over_bound.json` |
+| 27 | 3PO recommendation 3; BB8 ruling 3 | the terminal suffix stays checked by `resolve_detail_records`' own rules, at a resume and at every read; a part whose parent is not the method's `method_result` is an inserted record | §1, §6.9 | `bad/terminal_suffix_resume_faults.json`, `bad/terminal_suffix_not_contiguous.json` |
+| 28 | 3PO recommendation 4; BB8 ruling 4 | a missing, unknown or cross-code cause is `READER_PROTOCOL`, naming the bad cause; it is never discarded | §8 C1 | `bad/reply_cause_invalid.json` |
+| 29 | 3PO recommendation 5; BB8 ruling 5 | the release save is provably no larger, each released entry collapsed to `{log, head}`; the fence and the attempt counter are kept; a live lease on another instance cannot commit | §7.4, §8 U1 | `good/release_fencing.json`; the §7.4 property test |
+| 30 | 3PO's §6.8 mismatch; BB8 ruling 6 | an outside-domain shared-sound binding moves no domain tally, and `candidates` increments as today | §6.7, §6.8 | #721 tick test |
+| 31 | 3PO 6678848728 | the generic resolver accepts 9 wrong-method parents and parts and inserted non-terminal records; the worker's suffix-membership check refuses each, as a required acceptance case | §6.9 | `bad/terminal_suffix_resume_faults.json`, its 9 `accepts` cases |
 
 ## 12. Rulings on the items added for confirmation
 
 The previous revision listed items 1–14 for confirmation. BB8 ruled on every one of them
 (6678599629). BB8 has no semantic objection to the structural items (2–4, 6, 10 and 12), and
-the cursor fields are 3PO's to confirm.
+the cursor fields are 3PO's to confirm. BB8 then ruled on 3PO's amendments to items 1, 5, 7–9
+and 11, and on §6.8's wording (6678702125); each amendment is marked on its item below, and
+item 20 is ruled by it too.
 
 1. **Ruled: confirmed** (BB8 6678599629). `row_seen`'s reset at row boundaries and its
    compaction (§6.2), and the frame's `resets` field. The compaction decision depends only on
    the traversal, keeps the live keys in their first-insertion order and leaves membership
    unchanged, so a restart compacts at the same boundary and seals the same bytes. Both §6.2
-   tests are required.
+   tests are required. **Amended** (BB8 6678702125, ruling 1): a compaction is atomic within
+   one frame; when the frame lacks room, the step ends before the boundary, and the compaction
+   runs first in the next frame (§6.2, `good/row_seen_compaction_next_frame.json`).
 2. **Ruled: no semantic objection** (BB8 6678599629). W6, append-only tails.
 3. **Ruled: no semantic objection** (BB8 6678599629). `CHAIN_SEGMENTS = 2048` per chain. It
    no longer bounds the per-lease walk (item 14).
 4. **Ruled: no semantic objection** (BB8 6678599629). The group bound (`GROUP_KEYS = 32`,
    `GROUP_BYTES = 8192`), with spill to `alt_seen`, which now has its own cap (item 13).
-5. **Ruled: confirmed** (BB8 6678599629). `CURSOR_BYTES = 65536`, `CONTINUATION_BYTES = 8192`
-   and `WITNESS_FIELDS = 16`, with `INVARIANT_FAILURE` on the worker for the two byte bounds:
-   both are engine defects, never truncations (§3). Also confirmed: `methods[*]` holds no
-   terminal input (§2.8).
+5. **Ruled: confirmed** (BB8 6678599629). `CURSOR_BYTES = 65536` (163840 since the amendment
+   below), `CONTINUATION_BYTES = 8192` and `WITNESS_FIELDS = 16`, with `INVARIANT_FAILURE` on
+   the worker for the two byte bounds: both are engine defects, never truncations (§3). Also confirmed: `methods[*]` holds no
+   terminal input (§2.8). **Amended** (BB8 6678702125, ruling 2): `INVARIANT_FAILURE` for
+   `CURSOR_BYTES` holds only once the bound is derived from the constants. §3.1 derives it. The
+   64 KiB did not hold, so the bound is 160 KiB, and a refusal, the one part that grows with the
+   input, gets `REFUSAL_BYTES` and cause `cursor_refusal_bytes` (item 21,
+   `bad/cursor_over_bound.json`).
 6. **Ruled: no semantic objection** (BB8 6678599629). A string with a lone surrogate is not an
    entry, and entries are equal exactly when their canonical bytes are (§2.1).
 7. **Ruled: confirmed** (BB8 6678599629). Reconciliation pauses a queued job it releases, and
    the lease never refuses (§7.4). That is better than leasing a job that must fail: the
    reason is rendered from the cause, and `_dispatchable` skips the job, so the queue never
-   spins.
+   spins. **Amended** (BB8 6678702125, ruling 5): the release keeps a running job's lease and
+   fence and every job's attempt counter (§7.4, `good/release_fencing.json`).
 8. **Ruled: confirmed** (BB8 6678599629). The closed cause sets and their messages (§8),
    including `retired_key_recurred`'s message, which is honest because that cause is
    deterministic. `discovery_alt_seen` is added as the fourth `RESOURCE_LIMIT` cause.
+   **Amended** (BB8 6678702125, ruling 4): the sets are enforced at the reply boundary. A
+   missing, unknown or cross-code cause is `READER_PROTOCOL`, naming the bad cause, never
+   discarded (C1, §8, `bad/reply_cause_invalid.json`).
 9. **Ruled: confirmed, with one condition** (BB8 6678599629). A `DISCOVERY_UNAVAILABLE` pause
    releases the logs; the worker's whitelist gains `STORAGE_CORRUPT`, its reply gains
    `error_cause`, and the scheduler passes it to `store.pause` (§8). The condition: the paused
    reason records the released log names and their heads at release, so the cause stays
    traceable after GC reclaims the segments (U1 and U2, §8). The committed evidence stays
-   readable.
+   readable. **Amended** (BB8 6678702125, ruling 5): the release save is provably no larger.
+   Each released entry collapses to `{log, head}`, which the previous revision already did, and
+   a property test over every combination of logs holds it; the fence and the attempt counter
+   are kept (§7.4).
 10. **Ruled: no semantic objection** (BB8 6678599629). The inventory and witness digest
     domains, and the v1 witness fields.
 11. **Ruled: confirmed, with one addition** (BB8 6678599629). Option 2's terminal-suffix rule,
     the refusal of a null witness on a qualified method, and `STALE_READING` for a witness
     whose fields the reducer does not read. The addition: the suffix is contiguous and belongs
     to its method alone, and a non-terminal record after a suffix record is an inserted record
-    (§6.9).
+    (§6.9). **Amended** (BB8 6678702125, ruling 3): filtering the suffix does not exempt it.
+    `resolve_detail_records`' checks apply to it at a resume and at every read, and a part
+    whose parent is not the method's `method_result` is an inserted record. 3PO's resolver run
+    (6678848728) adds 9 cases only the worker's suffix-membership check refuses (§6.9,
+    `bad/terminal_suffix_resume_faults.json`).
 12. **Ruled: no semantic objection** (BB8 6678599629). Node holds the inventory fixed within an
     epoch, holds `groups.through` from moving back, and requires `discovery` on a frame exactly
     when the cursor has it.
@@ -1198,8 +1403,9 @@ BB8 still re-checks §6.9's acceptance list against the worker half once 3PO pub
 
 ### New in this revision, for confirmation
 
-These fill gaps that ruling (a) left open, and record how this revision fixed an adversarial
-review of the previous one. BB8 confirms or strikes each one.
+Items 15–20 fill gaps that ruling (a) left open, and record how the previous revision fixed an
+adversarial review. Item 20 is ruled (6678702125); items 15–19 stay open for BB8. Items 21–24
+are new in this revision.
 
 15. **Where the walk gets its addresses** (§4, §5.1). Statting a segment needs its address,
     and only the segment after it names it (the record names the head). So the store keeps
@@ -1241,10 +1447,32 @@ review of the previous one. BB8 confirms or strikes each one.
     from `unavailable`, with no stored message, and a pause never requeues; the view renders
     the message from the cause. The worker's reply gains `error_log`, and the scheduler
     passes `error_cause ?? cause` and `error_log ?? log` on.
-20. **The suffix's parts** (§6.9), which item 11's addition left open. Inside the terminal
-    suffix, each terminal record's parts are held to `resolve_detail_records`'s own rules:
-    its `$detail_ref`s, the part order, the totals and the bytes. Every terminal record but
-    the last is complete; only the last may be partial.
+20. **Ruled** (BB8 6678702125, ruling 3). **The suffix's parts** (§6.9), which item 11's
+    addition left open. Inside the terminal suffix, each terminal record's parts are held to
+    `resolve_detail_records`'s own rules: its `$detail_ref`s, the part order, the totals and
+    the bytes. Every terminal record but the last is complete; only the last may be partial.
+    The ruling keeps these checks at a resume and at every read.
+21. **The `CURSOR_BYTES` derivation** (§3.1), which ruling 2 asked for. The largest cursor the
+    constants allow is 142,912 bytes, so 64 KiB is replaced by 160 KiB, with 20,928 bytes of
+    room. A refusal's detail, the one part that grows with the input, gets
+    `REFUSAL_BYTES = 1024` and cause `cursor_refusal_bytes`. Witness fields are dot paths, so
+    their canonical bytes are bounded. The validator fails when the registry passes the
+    derivation's inputs. BB8 confirms the derivation and the new bound.
+22. **The reply boundary's details** (§8, C1), beyond ruling 4's three cases. An `error_log`
+    outside §2.3, and a cause on a code that takes none, are protocol failures the same way.
+    The echo is cut to 64 bytes at a character boundary, and a value that is not a string is
+    echoed as its JSON text. After a release, U2 keeps the copied reason and the bad value is
+    logged. The worker's resident-capacity guard names a new `RESOURCE_LIMIT` cause,
+    `resident_capacity`, so its reply is not a protocol failure. BB8 confirms or strikes each.
+23. **No reset after a seal of the same log** (§2.6, §6.2). A frame applies its resets first,
+    so a step that has already sealed `row_seen` ends before a row boundary that resets it,
+    whether a plain reset or a compaction. This follows from ruling 1 and W3, and it moves only
+    where steps end. BB8 confirms.
+24. **Where the nine cases sit** (§6.9), for 3PO. This contract places the three
+    membership-only faults at three split points of a four-part terminal detail: a part of
+    another method at the junction, read later; and a parent of another method and an inserted
+    contribution, read at the resume. 3PO confirms they match the nine his resolver run
+    accepted, or names the difference.
 
 ## 13. Fixtures and validator
 
@@ -1277,6 +1505,13 @@ Good:
 - `good/lease_after_refused_commit.json`: the second frame's record after a refused third
   commit left its segment an orphan. The list was not extended, so a lease reads and saves
   nothing and its payload leaves the orphan out.
+- `good/row_seen_compaction_next_frame.json`: a frame that already carries seven seals reaches a
+  compaction boundary whose two seals would pass `FRAME_SEALS`, so the step ends before it and
+  the compaction runs first, whole, in the next frame. A restart at the boundary seals the same
+  bytes; a split the store would accept is one the worker must never emit.
+- `good/release_fencing.json`: reconciliation on one instance while another holds a live lease.
+  The lease's next commit is refused and writes nothing, its fence is unchanged, and a queued
+  job keeps its attempt counter.
 - `good/unavailable_pause_reason.json`: every path that releases, and the saves that follow a
   release: a `DISCOVERY_UNAVAILABLE` pause the worker raises, reconciliation's release of a
   queued, running or paused job, then a refusal, a yield, a lease expiry or a cancel. Each
@@ -1290,7 +1525,10 @@ Bad:
   `bad/float_entry.json` (F1, which Node meets as F5), `bad/over_bound_seal.json` (F4),
   `bad/premature_seal.json` (F4), `bad/epoch_backwards.json` (W2),
   `bad/reset_unheld_log.json` (W3), `bad/cursor_record_disagreement.json` (W4),
-  `bad/tail_rewritten.json` (W6);
+  `bad/cursor_over_bound.json` (W4, built from §3.1's inputs: the worker refuses first, with
+  `INVARIANT_FAILURE` past `CURSOR_BYTES`, or `RESOURCE_LIMIT` for a refusal past
+  `REFUSAL_BYTES`), `bad/tail_rewritten.json` (W6);
+- reply (`READER_PROTOCOL`, no status): `bad/reply_cause_invalid.json` (C1);
 - limit: `bad/alt_seen_over_cap.json` (W7). The worker refuses it first, as `RESOURCE_LIMIT`
   with cause `discovery_alt_seen`; a store sent the frame refuses it `READER_PROTOCOL` 400. Its
   control reaches the cap exactly and is accepted;
@@ -1301,15 +1539,20 @@ Bad:
   anything is read, releasing nothing; its `resume()` full read passes and saves the
   corrected verified heads;
 - traversal: `bad/retired_key_recurring.json` (S1, `DISCOVERY_UNAVAILABLE` 409),
-  `bad/witness_mismatch.json` and `bad/terminal_suffix_not_contiguous.json` (S2,
-  `RESULT_EXPIRED` 410).
+  `bad/witness_mismatch.json`, `bad/terminal_suffix_not_contiguous.json` and
+  `bad/terminal_suffix_resume_faults.json` (S2, `RESULT_EXPIRED` 410).
 
 **How the #721 author consumes them.** The worker's encoder, fed each good fixture's state,
 produces exactly its seals, tails, cursor fields and digests, byte for byte. Its load,
 traversal and reconstruction accept each good fixture and refuse each bad one with the same
 rule, code, status and cause. For `bad/float_entry.json` the worker refuses by F1, where
 Node can only refuse by F5. `bad/alt_seen_over_cap.json` is the frame the worker must refuse
-to emit. The walk and pause fixtures are the store's (R2's side).
+to emit, and so are `bad/cursor_over_bound.json`'s mutants, each with the code it names.
+`bad/terminal_suffix_resume_faults.json`'s nine `accepts` cases are required worker refusals:
+`resolve_detail_records` accepts each, and the worker's suffix-membership check must refuse it.
+`good/row_seen_compaction_next_frame.json`'s `worker_must_not_emit` frames are ones a store
+accepts and the worker never emits. The walk, pause, fencing and reply fixtures are the store's
+and the scheduler's (R2's side).
 
 The validator rebuilds every segment from the seals, recomputes every digest and address,
 and checks this document's constants, causes and cross-reference rows. It also runs Python
@@ -1317,7 +1560,9 @@ over the same bytes: `canonical_json` and `json.dumps` against Node's bytes, the
 addresses, `resolve_detail_records` and the witness over the filtered stream, the terminal
 suffix's mutants and controls (resolving the suffix itself with `resolve_detail_records`), and
 the float fixture. It recomputes the §6.11 derivation and what it leaves out from §10's
-figures and §3's constants, and it computes the worst case of §7.4's shrink claim. Each R5
+figures and §3's constants, and it holds §7.4's release property over every combination of
+logs. It builds the largest cursor from §3.1's inputs and checks those inputs against the
+registry and the source, and it models C1 and the fencing of a release. Each R5
 clause, the junction and the full read's refusals are checked one at a time. Where one
 failure leaves a later check undefined (a log whose seal fails F5 has no digest for W4 to
 compare), it skips that check. It runs in `npm run test:library`:

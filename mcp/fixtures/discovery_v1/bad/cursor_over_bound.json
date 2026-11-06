@@ -1,0 +1,56 @@
+{
+  "fixture": "bad/cursor_over_bound.json",
+  "contract": "mcp/DISCOVERY_V1.md",
+  "kind": "cursor",
+  "exercises": "The largest cursor the constants allow, outside discovery and continuation (§3.1), built from the inputs below: 142,912 bytes, within CURSOR_BYTES. A store accepts it, and a cursor padded to exactly CURSOR_BYTES. Padded one byte past CURSOR_BYTES, the store refuses the frame by W4; the worker never emits it, and refuses with INVARIANT_FAILURE, because only content no constant allows (methods the registry does not have) gets a cursor that far. One refusal one byte past REFUSAL_BYTES is refused by W4 too; the worker names RESOURCE_LIMIT, cause cursor_refusal_bytes, because a refusal's detail can grow with the input.",
+  "expect": {
+    "accepted": false,
+    "rule": "W4",
+    "code": "READER_PROTOCOL",
+    "status": 400,
+    "written": "nothing"
+  },
+  "inputs": {
+    "methods": 91,
+    "method_id_bytes": 37,
+    "schemas": 80,
+    "schema_name_bytes": 39,
+    "incomplete_reason": "its disputed words' readings collide on more than 1375311 line pairs",
+    "refusal_bytes": 1024,
+    "integer": 9007199254740991,
+    "phase": "shared_sound",
+    "witness_fields": 16,
+    "witness_field_bytes": 64
+  },
+  "controls": [
+    {
+      "name": "largest",
+      "bytes": 142912,
+      "sha256": "8472e93fff6af3596671b69c8db745dc51d11874c2d17fc9f9fec423dff88893"
+    },
+    {
+      "name": "at_the_bound",
+      "bytes": 163840,
+      "sha256": "e64ab3f7abb3267f9b1a21188425aa425c4a2cdb2dac413f106d2dd90dd171fb"
+    }
+  ],
+  "mutants": [
+    {
+      "name": "one_byte_over",
+      "bytes": 163841,
+      "sha256": "fce096c776131e8f9c2cb9f8d6e37b4e1f870c7271b1daaf2970892b67d94dc1",
+      "worker": {
+        "code": "INVARIANT_FAILURE"
+      }
+    },
+    {
+      "name": "refusal_one_byte_over",
+      "bytes": 142913,
+      "sha256": "246cf414b4250d0fc6fe5b1ad2434548ce8a707781aa01b380ebe6360e0de443",
+      "worker": {
+        "code": "RESOURCE_LIMIT",
+        "cause": "cursor_refusal_bytes"
+      }
+    }
+  ]
+}

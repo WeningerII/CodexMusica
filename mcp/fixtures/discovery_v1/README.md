@@ -1,7 +1,7 @@
 # discovery_v1 fixtures (#656)
 
 These files are the shared wire interface for persisted discovery state. The contract is
-`mcp/DISCOVERY_V1.md`, and the rule IDs below (F1–F6, W1–W7, R1–R5, S1–S2, U1–U2) are its rules.
+`mcp/DISCOVERY_V1.md`, and the rule IDs below (F1–F6, W1–W7, R1–R5, S1–S2, U1–U2, C1) are its rules.
 `mcp/test_discovery_v1_fixtures.mjs` recomputes every digest and address here from the
 contract, and asserts that each bad fixture violates exactly the rule it is named for and
 passes every other rule.
@@ -41,6 +41,36 @@ passes every other rule.
 - `good/seal_completeness.json` and the seal sequence are the largest files: a segment that
   is complete by its bytes needs 16,384 entry bytes, and one complete by count needs 1,024
   entries.
+- `good/row_seen_compaction_next_frame.json` is a compaction fixture. To keep it small, each seal
+  writes its entries as `entries_range` [a, b): the integers a … b − 1, expanded before any rule
+  runs; its digests and addresses are over the expanded entries. `boundary` names the row
+  boundary: the log's count, its live keys (`live_range`), the seals the compaction needs and the
+  seals frame 1 already carries. `worker_must_not_emit` holds frames a store accepts that a worker
+  must never emit. Its row_seen chain before frame 1 is synthetic, named by its totals.
+- `bad/cursor_over_bound.json` is a construction fixture. It states §3.1's `inputs`, and each case
+  names a cursor outside `discovery` and `continuation`, with its canonical bytes and sha256. The
+  largest cursor: every integer at `integer`; `methods` keys `shared_sound:` plus sha256 of
+  `method <i>`, cut to `method_id_bytes`, each holding every counter, `coverage: "answered"`,
+  `figure_counts` and a refusal whose `detail` is `x` repeated to make the refusal exactly
+  `refusal_bytes`; `schemas` names `schema_<i>_` padded with `n` to `schema_name_bytes`, each with
+  `incomplete_reason` and in `refused_schemas`; `identity_hash` and the witness digest 64 `f`s; a
+  witness of `witness_fields` names of `witness_field_bytes` `a`s. Padding to a target adds
+  methods `pad:<k>` holding `{"candidates": 0}` while 64 bytes or more remain, then one
+  `pad:` + `z`s whose length makes the size exact. `refusal_one_byte_over` adds one `x` to the
+  first method's refusal. A frame carries the cursor with an empty `discovery` and
+  `continuation`, at epoch `integer`, on a record with no discovery.
+- `bad/reply_cause_invalid.json` is a reply fixture: failed worker replies on a running lease,
+  each with the pause it leads to. `discovery: "unchanged"` means nothing is released. A case
+  with `released` starts from the record already released with that cause and log.
+- `good/release_fencing.json` is a fence fixture: jobs with their attempt, fence and lease, events
+  from two instances, and the job after each event (`saved`, or `refused` with `written`).
+- `bad/terminal_suffix_resume_faults.json` uses the suffix fixtures' form, and a record may also
+  be a name from its `named` records, or `{of, set}`: a copy of a named record with `set`'s
+  fields replaced. `boundary` is the index of the first record after the witness's
+  contributions. Each mutant names its `split` point, its `fault`, when it is `read` (at the
+  resume, or later), and whether `resolve_detail_records` alone, run on the records after the
+  boundary, `accepts` or `refuses` it. Every `accepts` case is a required worker refusal: only
+  the worker's suffix-membership check refuses it (3PO 6678848728).
 - The files are data. Change them only together with the contract, then run the validator.
 
 Each row: the fixture, the rule or rules it exercises, the refusal it expects (`none` when
@@ -57,6 +87,8 @@ it is accepted), and what it exercises.
 | `good/lease_payload_summary_paths.json` | R1 R2 R3 R4 | none | the lease payload `{summary, paths}`, oldest first, and the inventory witness |
 | `good/lease_incremental_walk.json` | R2 R5 | none | a lease stats the verified segments, reads only `alt_cells`' newest and advances its verified head in one save; the next lease reads and saves nothing; a full read from the heads reads all and rebuilds the list |
 | `good/lease_after_refused_commit.json` | R2 R5 | none | a refused commit left `alt_cells#1` an orphan; the list was extended only after a save that returned, so the lease reads nothing and its payload leaves the orphan out |
+| `good/row_seen_compaction_next_frame.json` | F4 W1 W3 W4 | none | a frame with seven seals reaches a compaction boundary whose two seals would pass FRAME_SEALS: the step ends before it, the compaction runs first and whole in the next frame, a restart seals the same bytes, and a split the store accepts is one the worker never emits |
+| `good/release_fencing.json` | U1 U2 | none | reconciliation on one instance during a live lease on another: the lease's next commit is refused and writes nothing, its fence and attempt are unchanged, and a queued job keeps its attempt counter |
 | `good/unavailable_pause_reason.json` | U1 U2 | none | every release path and the saves after one: one save empties `logs` and `verified`; `unavailable` and the reason keep the released log names and their heads; the first trace wins; a released job is never requeued |
 | `bad/missing_segment.json` | R1 | DISCOVERY_UNAVAILABLE 409 segment_missing | the oldest `alt_cells` segment is gone; the store meeting it outside reconciliation says STORAGE_CORRUPT 503 |
 | `bad/reordered_segment.json` | R2 | DISCOVERY_UNAVAILABLE 409 chain_broken | the two `alt_cells` paths are swapped |
@@ -74,4 +106,7 @@ it is accepted), and what it exercises.
 | `bad/cursor_record_disagreement.json` | W4 | READER_PROTOCOL 400 | the cursor's `sealed_digest` for `seen` differs from the record's |
 | `bad/alt_seen_over_cap.json` | W7 | RESOURCE_LIMIT discovery_alt_seen | `alt_seen` at `ALT_SEEN_ENTRIES` and one more key in the tail; a store sent the frame refuses READER_PROTOCOL 400; the control reaches the cap exactly and passes |
 | `bad/verified_ahead_of_head.json` | R5 | STORAGE_CORRUPT 503 | `alt_cells`' verified head is a segment past its head; the lease's walk refuses before reading and releases nothing; `resume()`'s full read passes and saves the corrected verified heads |
+| `bad/cursor_over_bound.json` | W4 | READER_PROTOCOL 400 | the largest cursor §3.1's inputs allow (142,912 bytes) and one of exactly CURSOR_BYTES pass; one byte over fails W4 and is the worker's INVARIANT_FAILURE; a refusal one byte over REFUSAL_BYTES fails W4 and is the worker's RESOURCE_LIMIT cursor_refusal_bytes |
+| `bad/reply_cause_invalid.json` | C1 | READER_PROTOCOL | a missing, unknown or cross-code cause, a cause on a code that takes none, a cut and a non-string echo, and a log outside the set: each pauses READER_PROTOCOL naming the bad value, releasing nothing; valid causes pause as before |
+| `bad/terminal_suffix_resume_faults.json` | S2 | RESULT_EXPIRED 410 | at three split points of a four-part terminal detail: fifteen faults resolve_detail_records refuses, and the nine it accepts that the worker's suffix-membership check must refuse; the durable prefixes and the complete suffix pass |
 | `bad/terminal_suffix_not_contiguous.json` | S2 | RESULT_EXPIRED 410 | the terminal suffix broken by a contribution, another method's record or part, a contribution's part, a part out of its parent's run, or a part that breaks `resolve_detail_records` (cut off, duplicated, wrong index, total, detail id or bytes); the contiguous controls pass |

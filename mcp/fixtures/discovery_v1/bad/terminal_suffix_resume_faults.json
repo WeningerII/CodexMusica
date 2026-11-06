@@ -1,0 +1,537 @@
+{
+  "fixture": "bad/terminal_suffix_resume_faults.json",
+  "contract": "mcp/DISCOVERY_V1.md",
+  "kind": "witness",
+  "exercises": "The four contributions of good/witness_cursor_option2.json, then a terminal record whose domain detail is four parts, emitted across frames. A resume reads durable history at three split points: after the parent, after part 0 and after part 1, and each durable prefix is accepted (the controls), as is the complete suffix. At each split point, a fault at the junction, in the first part the resumed lease writes, read back later: a missing part, reordered parts, a stale part of an earlier emission, a changed part and a wrong parent id. resolve_detail_records refuses each of these fifteen itself. Then the nine it accepts, which the worker's suffix-membership check must refuse: a junction part of another method, read back later, and, read at the resume itself, a terminal parent of another method and a contribution inserted before the parent. All twenty-four refuse RESULT_EXPIRED.",
+  "expect": {
+    "accepted": false,
+    "rule": "S2",
+    "code": "RESULT_EXPIRED",
+    "status": 410
+  },
+  "base": "good/witness_cursor_option2.json",
+  "boundary": 5,
+  "named": {
+    "P": {
+      "id": "method_result:t4",
+      "kind": "method_result",
+      "method_id": "schema:end_rhyme",
+      "basis": "measured",
+      "coverage": "answered",
+      "domain": {
+        "$detail_ref": "detail:fbe16fcb32069582b5a75f1d4e07f9b0",
+        "encoding": "json",
+        "sha256": "35f34f8656d3ea8456382fe55ebbf8ceb3ea817837997421dda17398f3da1e20",
+        "byte_length": 126,
+        "parts": 4
+      }
+    },
+    "d0": {
+      "id": "detail_part:514e20345423fd40932c7d2dbab4b2dd",
+      "kind": "detail_part",
+      "method_id": "schema:end_rhyme",
+      "basis": "measured",
+      "parent_id": "method_result:t4",
+      "detail_id": "detail:fbe16fcb32069582b5a75f1d4e07f9b0",
+      "field": "domain",
+      "part": 0,
+      "total": 4,
+      "json_fragment": "{\"judged_false\":1,\"j"
+    },
+    "d1": {
+      "id": "detail_part:f5a1fac941418fad93d1e8b67ae57830",
+      "kind": "detail_part",
+      "method_id": "schema:end_rhyme",
+      "basis": "measured",
+      "parent_id": "method_result:t4",
+      "detail_id": "detail:fbe16fcb32069582b5a75f1d4e07f9b0",
+      "field": "domain",
+      "part": 1,
+      "total": 4,
+      "json_fragment": "udged_true\":2,\"outsi"
+    },
+    "d2": {
+      "id": "detail_part:61a4701f4e24c086e9d64b9def642c62",
+      "kind": "detail_part",
+      "method_id": "schema:end_rhyme",
+      "basis": "measured",
+      "parent_id": "method_result:t4",
+      "detail_id": "detail:fbe16fcb32069582b5a75f1d4e07f9b0",
+      "field": "domain",
+      "part": 2,
+      "total": 4,
+      "json_fragment": "de\":0,\"pairs\":[[\"L1:"
+    },
+    "d3": {
+      "id": "detail_part:5946eb03121c312c0390b58844bbe766",
+      "kind": "detail_part",
+      "method_id": "schema:end_rhyme",
+      "basis": "measured",
+      "parent_id": "method_result:t4",
+      "detail_id": "detail:fbe16fcb32069582b5a75f1d4e07f9b0",
+      "field": "domain",
+      "part": 3,
+      "total": 4,
+      "json_fragment": "token:3\",\"L2:token:4\"],[\"L3:token:3\",\"L4:token:1\"]],\"undecided\":1}"
+    },
+    "x": {
+      "id": "relation:e9",
+      "kind": "relation_instance",
+      "method_id": "schema:end_rhyme",
+      "basis": "engine",
+      "verdict": "true",
+      "a": {
+        "token_ids": ["L7:token:1"]
+      },
+      "b": {
+        "token_ids": ["L8:token:1"]
+      }
+    }
+  },
+  "controls": [
+    {
+      "name": "after_parent_durable",
+      "split": "after_parent",
+      "records": [0, 1, 2, 3, 4, "P"]
+    },
+    {
+      "name": "after_part_0_durable",
+      "split": "after_part_0",
+      "records": [0, 1, 2, 3, 4, "P", "d0"]
+    },
+    {
+      "name": "after_part_1_durable",
+      "split": "after_part_1",
+      "records": [0, 1, 2, 3, 4, "P", "d0", "d1"]
+    },
+    {
+      "name": "complete",
+      "records": [0, 1, 2, 3, 4, "P", "d0", "d1", "d2", "d3"]
+    }
+  ],
+  "mutants": [
+    {
+      "name": "after_parent_missing_part",
+      "split": "after_parent",
+      "fault": "missing_part",
+      "resolver": "refuses",
+      "read": "later_read",
+      "records": [0, 1, 2, 3, 4, "P", "d1", "d2", "d3"]
+    },
+    {
+      "name": "after_parent_reordered_parts",
+      "split": "after_parent",
+      "fault": "reordered_parts",
+      "resolver": "refuses",
+      "read": "later_read",
+      "records": [0, 1, 2, 3, 4, "P", "d1", "d0", "d2", "d3"]
+    },
+    {
+      "name": "after_parent_stale_part",
+      "split": "after_parent",
+      "fault": "stale_part",
+      "resolver": "refuses",
+      "read": "later_read",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        "P",
+        {
+          "of": "d0",
+          "set": {
+            "detail_id": "detail:bc4eabe8e50fd958031464d8e54dcb7b"
+          }
+        },
+        "d1",
+        "d2",
+        "d3"
+      ]
+    },
+    {
+      "name": "after_parent_changed_part",
+      "split": "after_parent",
+      "fault": "changed_part",
+      "resolver": "refuses",
+      "read": "later_read",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        "P",
+        {
+          "of": "d0",
+          "set": {
+            "json_fragment": "{\"judged_false\":1,\"0"
+          }
+        },
+        "d1",
+        "d2",
+        "d3"
+      ]
+    },
+    {
+      "name": "after_parent_wrong_parent_id",
+      "split": "after_parent",
+      "fault": "wrong_parent_id",
+      "resolver": "refuses",
+      "read": "later_read",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        "P",
+        {
+          "of": "d0",
+          "set": {
+            "parent_id": "method_result:t3"
+          }
+        },
+        "d1",
+        "d2",
+        "d3"
+      ]
+    },
+    {
+      "name": "after_parent_wrong_method_part",
+      "split": "after_parent",
+      "fault": "wrong_method_part",
+      "resolver": "accepts",
+      "read": "later_read",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        "P",
+        {
+          "of": "d0",
+          "set": {
+            "method_id": "schema:internal_rhyme"
+          }
+        },
+        "d1",
+        "d2",
+        "d3"
+      ]
+    },
+    {
+      "name": "after_parent_wrong_method_parent",
+      "split": "after_parent",
+      "fault": "wrong_method_parent",
+      "resolver": "accepts",
+      "read": "resume",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        {
+          "of": "P",
+          "set": {
+            "method_id": "schema:internal_rhyme"
+          }
+        }
+      ]
+    },
+    {
+      "name": "after_parent_inserted_record",
+      "split": "after_parent",
+      "fault": "inserted_record",
+      "resolver": "accepts",
+      "read": "resume",
+      "records": [0, 1, 2, 3, 4, "x", "P"]
+    },
+    {
+      "name": "after_part_0_missing_part",
+      "split": "after_part_0",
+      "fault": "missing_part",
+      "resolver": "refuses",
+      "read": "later_read",
+      "records": [0, 1, 2, 3, 4, "P", "d0", "d2", "d3"]
+    },
+    {
+      "name": "after_part_0_reordered_parts",
+      "split": "after_part_0",
+      "fault": "reordered_parts",
+      "resolver": "refuses",
+      "read": "later_read",
+      "records": [0, 1, 2, 3, 4, "P", "d0", "d2", "d1", "d3"]
+    },
+    {
+      "name": "after_part_0_stale_part",
+      "split": "after_part_0",
+      "fault": "stale_part",
+      "resolver": "refuses",
+      "read": "later_read",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        "P",
+        "d0",
+        {
+          "of": "d1",
+          "set": {
+            "detail_id": "detail:bc4eabe8e50fd958031464d8e54dcb7b"
+          }
+        },
+        "d2",
+        "d3"
+      ]
+    },
+    {
+      "name": "after_part_0_changed_part",
+      "split": "after_part_0",
+      "fault": "changed_part",
+      "resolver": "refuses",
+      "read": "later_read",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        "P",
+        "d0",
+        {
+          "of": "d1",
+          "set": {
+            "json_fragment": "udged_true\":2,\"outs0"
+          }
+        },
+        "d2",
+        "d3"
+      ]
+    },
+    {
+      "name": "after_part_0_wrong_parent_id",
+      "split": "after_part_0",
+      "fault": "wrong_parent_id",
+      "resolver": "refuses",
+      "read": "later_read",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        "P",
+        "d0",
+        {
+          "of": "d1",
+          "set": {
+            "parent_id": "method_result:t3"
+          }
+        },
+        "d2",
+        "d3"
+      ]
+    },
+    {
+      "name": "after_part_0_wrong_method_part",
+      "split": "after_part_0",
+      "fault": "wrong_method_part",
+      "resolver": "accepts",
+      "read": "later_read",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        "P",
+        "d0",
+        {
+          "of": "d1",
+          "set": {
+            "method_id": "schema:internal_rhyme"
+          }
+        },
+        "d2",
+        "d3"
+      ]
+    },
+    {
+      "name": "after_part_0_wrong_method_parent",
+      "split": "after_part_0",
+      "fault": "wrong_method_parent",
+      "resolver": "accepts",
+      "read": "resume",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        {
+          "of": "P",
+          "set": {
+            "method_id": "schema:internal_rhyme"
+          }
+        },
+        "d0"
+      ]
+    },
+    {
+      "name": "after_part_0_inserted_record",
+      "split": "after_part_0",
+      "fault": "inserted_record",
+      "resolver": "accepts",
+      "read": "resume",
+      "records": [0, 1, 2, 3, 4, "x", "P", "d0"]
+    },
+    {
+      "name": "after_part_1_missing_part",
+      "split": "after_part_1",
+      "fault": "missing_part",
+      "resolver": "refuses",
+      "read": "later_read",
+      "records": [0, 1, 2, 3, 4, "P", "d0", "d1", "d3"]
+    },
+    {
+      "name": "after_part_1_reordered_parts",
+      "split": "after_part_1",
+      "fault": "reordered_parts",
+      "resolver": "refuses",
+      "read": "later_read",
+      "records": [0, 1, 2, 3, 4, "P", "d0", "d1", "d3", "d2"]
+    },
+    {
+      "name": "after_part_1_stale_part",
+      "split": "after_part_1",
+      "fault": "stale_part",
+      "resolver": "refuses",
+      "read": "later_read",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        "P",
+        "d0",
+        "d1",
+        {
+          "of": "d2",
+          "set": {
+            "detail_id": "detail:bc4eabe8e50fd958031464d8e54dcb7b"
+          }
+        },
+        "d3"
+      ]
+    },
+    {
+      "name": "after_part_1_changed_part",
+      "split": "after_part_1",
+      "fault": "changed_part",
+      "resolver": "refuses",
+      "read": "later_read",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        "P",
+        "d0",
+        "d1",
+        {
+          "of": "d2",
+          "set": {
+            "json_fragment": "de\":0,\"pairs\":[[\"L10"
+          }
+        },
+        "d3"
+      ]
+    },
+    {
+      "name": "after_part_1_wrong_parent_id",
+      "split": "after_part_1",
+      "fault": "wrong_parent_id",
+      "resolver": "refuses",
+      "read": "later_read",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        "P",
+        "d0",
+        "d1",
+        {
+          "of": "d2",
+          "set": {
+            "parent_id": "method_result:t3"
+          }
+        },
+        "d3"
+      ]
+    },
+    {
+      "name": "after_part_1_wrong_method_part",
+      "split": "after_part_1",
+      "fault": "wrong_method_part",
+      "resolver": "accepts",
+      "read": "later_read",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        "P",
+        "d0",
+        "d1",
+        {
+          "of": "d2",
+          "set": {
+            "method_id": "schema:internal_rhyme"
+          }
+        },
+        "d3"
+      ]
+    },
+    {
+      "name": "after_part_1_wrong_method_parent",
+      "split": "after_part_1",
+      "fault": "wrong_method_parent",
+      "resolver": "accepts",
+      "read": "resume",
+      "records": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        {
+          "of": "P",
+          "set": {
+            "method_id": "schema:internal_rhyme"
+          }
+        },
+        "d0",
+        "d1"
+      ]
+    },
+    {
+      "name": "after_part_1_inserted_record",
+      "split": "after_part_1",
+      "fault": "inserted_record",
+      "resolver": "accepts",
+      "read": "resume",
+      "records": [0, 1, 2, 3, 4, "x", "P", "d0", "d1"]
+    }
+  ]
+}

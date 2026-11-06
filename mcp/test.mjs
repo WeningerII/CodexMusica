@@ -5460,6 +5460,16 @@ await check('validation: actionable errors', () => {
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/fixtures/discovery_v1/bad/terminal_suffix_not_contiguous.json':
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/good/row_seen_compaction_next_frame.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/good/release_fencing.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/cursor_over_bound.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/reply_cause_invalid.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
+      'mcp/fixtures/discovery_v1/bad/terminal_suffix_resume_faults.json':
+        'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/fixtures/discovery_v1/bad/verified_ahead_of_head.json':
         'a discovery_v1 wire fixture read only by test_discovery_v1_fixtures.mjs',
       'mcp/test_library_viewer_routes.mjs':
