@@ -5979,7 +5979,8 @@ const STORE_CHECKS = {
           panel
         );
         const showing = slow.show();
-        await S.tick(50);
+        // Its context has started (the lane's module loads first).
+        for (let i = 0; i < 500 && !release; i++) await S.tick(10);
         slow.unmount();
         release({});
         await showing;
