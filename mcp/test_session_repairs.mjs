@@ -822,7 +822,26 @@ test('environment clear warnings distinguish cleared settings from retained non-
       return Array.isArray(value) ? value.length === 0 : value == null;
     })
   );
-  assert(cleared.render_warnings.some((w) => w.code === 'ENVIRONMENT_MOVED'));
+  const back = cleared.render_warnings.filter((w) => w.code === 'ENVIRONMENT_MOVED');
+  assert.equal(back.length, 1, JSON.stringify(back));
+  // Text 5, which Jony kept unchanged (#671): it says what the next card brings
+  // of its own and how to clear it, and makes no claim about the cleared card.
+  const label = (id) => initial.workspace.cards.find((c) => c.id === id).instrumentId;
+  const labels = initial.workspace.cards.map((c) => c.instrumentId);
+  assert.equal(new Set(labels).size, labels.length, 'fixture: every card is named by instrument');
+  const word = (v) => (Array.isArray(v) ? v.join(', ') : String(v));
+  assert.ok(Object.keys(back[0].settings).length, 'fixture: the next card has settings of its own');
+  assert.equal(
+    back[0].meaning,
+    `Clearing left ${label(owner)} with no environment, so the recipe now takes its room, tuning and chain from ${label(back[0].environment_card)}, which has these settings of its own (${Object.entries(
+      back[0].settings
+    )
+      .map(([f, { was, now }]) => {
+        assert.equal(was, null);
+        return `${f} none → ${word(now)}`;
+      })
+      .join('; ')}). To render none, clear them there too: repeat the edit without \`card\`.`
+  );
   assert.deepEqual(hidden(cleared), [], 'a clear cannot claim its removed setting is stored');
   const partial = run([{ action: 'set_environment', clear: ['room'] }]);
   assert.equal(partial.render_scope.environment_card, owner);
