@@ -654,6 +654,41 @@ const run = (code) => dom.window.eval(code);
       ),
       'fixture: a copy carrying the record would be warned about'
     );
+    // Nothing is shared (BB8 6688635328, 2): a record later written on either
+    // card, or changed in place, leaves the other card's as it was.
+    run(
+      "{const o=envCardOf(app.cards),c=app.cards[1];c.envWritten={tuning:'just_intonation'};o.envWritten.room='concrete_basement';o.envWritten.fx.push('plate_reverb');}"
+    );
+    const after = JSON.parse(run('JSON.stringify(app.cards.slice(0, 2).map((c) => c.envWritten))'));
+    assert.deepEqual(
+      after,
+      [
+        { room: 'concrete_basement', fx: ['tape_echo', 'plate_reverb'] },
+        { tuning: 'just_intonation' },
+      ],
+      'editing either card’s record leaves the other’s unchanged'
+    );
+    run("app.cards[1].envWritten.tuning='pythagorean'");
+    assert.deepEqual(
+      JSON.parse(run('JSON.stringify(envCardOf(app.cards).envWritten)')),
+      after[0],
+      'and the other way round'
+    );
+    // The same through the connector: a set_environment on the copy records
+    // there only.
+    const appCards = JSON.parse(run('JSON.stringify(app.cards)'));
+    const onCopy = W.setEnvironment({ cards: appCards }, appCards[1].id, {
+      room: 'tin_roofed_shack',
+    });
+    assert.deepEqual(
+      onCopy.cards[0][W.ENV_RECORD],
+      after[0],
+      'a connector write on the copy leaves the original'
+    );
+    assert.deepEqual(onCopy.cards[1][W.ENV_RECORD], {
+      room: 'tin_roofed_shack',
+      tuning: 'pythagorean',
+    });
   }
 
   console.log(
