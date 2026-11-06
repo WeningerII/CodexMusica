@@ -1140,6 +1140,72 @@ test('the record holds what set_environment wrote, on every surface that threads
   });
 });
 
+// The record lives on each card and names no card (BB8 6688635328, 1 and 2):
+// the workspace a call returns shares none of it with the one passed in, a
+// fresh-id import carries it with nothing to remap, and a record put at
+// workspace level is dropped and never read.
+test('the record is per card: no alias, no remap on a fresh-id import, nothing at workspace level', () => {
+  const seed = startRecipe({ traditions: ['garage_rock'] });
+  const bass = seed.workspace.cards.find((c) => c.instrumentId === 'electric_bass').id;
+  const wrote = editRecipe({
+    workspace: seed.workspace,
+    edits: [
+      { action: 'set_environment', card: bass, room: 'cathedral', chain: { fx: 'tape_echo' } },
+    ],
+  });
+  const recorded = (ws) => JSON.stringify(ws.cards.map((c) => c[RECORD] ?? null));
+  for (const [name, call] of [
+    ['render_recipe', (ws) => renderRecipe({ workspace: ws })],
+    [
+      'edit_recipe',
+      (ws) =>
+        editRecipe({
+          workspace: ws,
+          edits: [{ action: 'add_instrument', instrument: 'harmonica' }],
+        }),
+    ],
+  ]) {
+    const given = JSON.parse(JSON.stringify(wrote.workspace));
+    const before = recorded(given);
+    const out = call(given).workspace;
+    for (const c of out.cards) if (c[RECORD]) c[RECORD].fx.push('probe');
+    assert.equal(recorded(given), before, `${name}: the returned record is not the caller's`);
+    const after = recorded(out);
+    for (const c of given.cards) if (c[RECORD]) c[RECORD].room = 'probe';
+    assert.equal(recorded(out), after, `${name}: nor the other way round`);
+  }
+  // A fresh-id import, as the app's import and "Use recipe" mint: same warnings,
+  // with each card's new id, and nothing to remap.
+  const ids = new Map(wrote.workspace.cards.map((c, i) => [c.id, `imported_${i}`]));
+  const fresh = { cards: wrote.workspace.cards.map((c) => ({ ...c, id: ids.get(c.id) })) };
+  const warnings = (r) => r.render_warnings.filter((w) => w.code === NOT_RENDERED);
+  const was = warnings(renderRecipe({ workspace: wrote.workspace }));
+  assert.equal(was.length, 1, 'fixture: the bass warns');
+  assert.deepEqual(
+    warnings(renderRecipe({ workspace: fresh })),
+    was.map((w) => ({
+      ...w,
+      card: ids.get(w.card),
+      environment_card: ids.get(w.environment_card),
+    })),
+    'a fresh-id import warns the same, under the new ids'
+  );
+  for (const c of wrote.workspace.cards)
+    for (const id of ids.keys())
+      assert(
+        !JSON.stringify(c[RECORD] ?? null).includes(JSON.stringify(id)),
+        'the record names no card'
+      );
+  // At workspace level a record is dropped and does not warn.
+  const beside = {
+    cards: JSON.parse(JSON.stringify(seed.workspace.cards)),
+    [RECORD]: { [bass]: { room: 'cathedral' }, room: 'cathedral' },
+  };
+  const r = renderRecipe({ workspace: beside });
+  assert.deepEqual(Object.keys(r.workspace), ['cards'], 'only cards come back');
+  assert.deepEqual(warnings(r), [], 'and nothing warns');
+});
+
 test('stock environment settings on other cards never warn, on any response', async () => {
   await onEverySurface(async (s, name) => {
     // A blend's second tradition seeds its cards with a room of their own that

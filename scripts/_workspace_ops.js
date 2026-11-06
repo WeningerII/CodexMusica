@@ -56,13 +56,22 @@ function emptyWorkspace() {
 }
 
 // Deep-ish clone so an op never mutates the caller's workspace (state-passing).
+// The envWritten record (below) is copied too, field by field, so the next
+// workspace shares no structure with the one it came from: an op, or a caller
+// holding either workspace, can change one card's record without reaching into
+// the other's (#671, BB8 6688635328, 2). Only `cards` is carried: a
+// workspace-level field is dropped here, so the record cannot live there.
 function clone(ws) {
   return {
-    cards: ((ws && ws.cards) || []).map((c) => ({
-      ...c,
-      parts: { ...(c.parts || {}) },
-      chain: { ...(c.chain || {}), fx: [...((c.chain && c.chain.fx) || [])] },
-    })),
+    cards: ((ws && ws.cards) || []).map((c) => {
+      const copy = {
+        ...c,
+        parts: { ...(c.parts || {}) },
+        chain: { ...(c.chain || {}), fx: [...((c.chain && c.chain.fx) || [])] },
+      };
+      if (c[ENV_RECORD] !== undefined) copy[ENV_RECORD] = copyEnvRecord(c[ENV_RECORD]);
+      return copy;
+    }),
   };
 }
 
@@ -360,9 +369,19 @@ const CLEARABLE = () => ['room', 'tuning', ...(C.CHAIN_SECTIONS || []).map((s) =
 // not keyed by card id, which the app re-mints on import. It is absent when
 // empty, so a workspace no set_environment touched is the same bytes as before.
 // No renderer reads it, so no recipe byte depends on it; the app keeps it
-// untouched. clone() shares it by reference, so every op here assigns a fresh
-// object and never changes one in place.
+// untouched. clone() gives each card its own copy, and every op here still
+// assigns a fresh object rather than changing one in place.
+//
+// It holds field names and the catalog ids written under them, never a card id:
+// it travels with its card, so an import that mints fresh card ids (the app's
+// import, "Use recipe", a forked saved session) carries it with nothing to remap.
+// The values are needed, not only the names: an effect added to a multi-select
+// stage is settled per effect (BB8 6685465828, 1), and a single value holds only
+// while the card still stores it (envRecordHolds).
 const ENV_RECORD = 'envWritten';
+// A copy of a record as stored, sharing no array or object with it. It is the
+// raw value (envRecord reads it defensively when it is used), copied whole.
+const copyEnvRecord = (raw) => structuredClone(raw);
 const isMultiStage = (field) =>
   !!((C.CHAIN_SECTIONS || []).find((s) => (s.id || s.stage) === field) || {}).multiSelect;
 
@@ -703,5 +722,6 @@ module.exports = {
   ENV_RECORD,
   envRecord,
   envRecordHolds,
+  copyEnvRecord,
   WorkspaceError,
 };

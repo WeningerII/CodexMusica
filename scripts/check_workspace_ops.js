@@ -410,8 +410,8 @@ console.log('\nset_environment with no card:');
 // wrote it (BB8 6681659990). The record is how it knows: set by
 // set_environment, a field out of it when it is cleared or a set_preface
 // re-derives it, absent when empty, never inferred from values, and never read
-// by a renderer. The ops share it by reference through clone(), so each must
-// assign a fresh one; the IMMUTABLE checks below catch one changed in place.
+// by a renderer. clone() gives each card its own copy (the NO ALIAS checks
+// below), and the IMMUTABLE checks catch an op changing one in place.
 console.log('\nenvWritten record:');
 {
   const K = W.ENV_RECORD;
@@ -587,6 +587,98 @@ console.log('\nenvWritten record:');
     'a write on a card that is not the environment card settles nothing elsewhere',
     json(rec(W.setEnvironment(marked, guitar, { tuning: 'pythagorean' }))) === json(rec(marked))
   );
+
+  // No aliasing (BB8 6688635328, 2): the workspace an op returns shares no part
+  // of any record with the one it was given, so a caller (or the next op)
+  // changing either one's record in place leaves the other as it was.
+  {
+    const given = W.setEnvironment(w3, guitar, { room: 'tin_roofed_shack' });
+    const g = (ws) => ws.cards.find((c) => c.id === guitar);
+    const records = (ws) => json(ws.cards.map((c) => c[K] ?? null));
+    const poke = (ws, mark) => {
+      for (const c of ws.cards)
+        if (c[K]) {
+          c[K][mark] = mark;
+          if (Array.isArray(c[K].fx)) c[K].fx.push(mark);
+        }
+    };
+    const part = Object.keys(g(given).parts)[0];
+    const ops = [
+      ['move_instrument', (ws) => W.moveInstrument(ws, guitar)],
+      ['set_variant', (ws) => W.setVariant(ws, guitar, part, g(ws).parts[part])],
+      ['add_instrument', (ws) => W.addInstrument(ws, GUEST || 'harmonica')],
+      ['remove_instrument', (ws) => W.removeInstrument(ws, envId)],
+      [
+        'set_environment on another card',
+        (ws) => W.setEnvironment(ws, envId, { tuning: 'just_intonation' }),
+      ],
+    ];
+    const pristine = records(given);
+    for (const [name, op] of ops) {
+      const out = op(given);
+      const g0 = records(given);
+      poke(out, 'probe_out');
+      const inputKept = records(given) === g0;
+      const o1 = records(out);
+      poke(given, 'probe_in');
+      const outputKept = records(out) === o1;
+      check(
+        `NO ALIAS (${name}): changing the result's record leaves the input's, and the other way round`,
+        inputKept && outputKept && o1.includes('probe_out')
+      );
+      // Put the input back for the next op.
+      JSON.parse(pristine).forEach((r, i) => {
+        if (r) given.cards[i][K] = r;
+        else delete given.cards[i][K];
+      });
+    }
+  }
+
+  // The record holds no card id, so an import that mints fresh card ids (the
+  // app's import and "Use recipe", a forked saved session) needs no remap: the
+  // same workspace under new ids records, settles and holds the same (BB8
+  // 6688635328, 1).
+  {
+    const ids = new Map(marked.cards.map((c, i) => [c.id, `imported_${i}`]));
+    const fresh = { cards: marked.cards.map((c) => ({ ...c, id: ids.get(c.id) })) };
+    const records = (ws) => json(ws.cards.map((c) => c[K] ?? null));
+    check(
+      'a fresh-id import carries each record with its card',
+      records(fresh) === records(marked)
+    );
+    check(
+      'and the record names no card, so nothing in it points at an old id',
+      marked.cards.every(
+        (c) => !c[K] || ![...ids.keys()].some((id) => json(c[K]).includes(json(id)))
+      )
+    );
+    const settledFresh = W.setEnvironment(fresh, null, { room: 'concrete_basement' });
+    check(
+      'a set_environment on the imported environment card settles the same fields',
+      records(settledFresh) === records(settled),
+      records(settledFresh)
+    );
+    check(
+      'the imported card still holds what was written on it, under its new id',
+      W.envRecordHolds(
+        fresh.cards.find((c) => c.id === ids.get(bass)),
+        'room',
+        rec(marked).room
+      ) === W.envRecordHolds(card(marked), 'room', rec(marked).room)
+    );
+  }
+
+  // Nothing lives at workspace level: only `cards` is carried, so a record put
+  // beside them is dropped by the first op and never read.
+  {
+    const beside = { ...w3, [K]: { room: 'cathedral' }, cards: w3.cards };
+    const out = W.setEnvironment(beside, guitar, { tuning: 'just_intonation' });
+    check(
+      'a workspace-level record is dropped, and only the card written records',
+      json(Object.keys(out)) === '["cards"]' &&
+        json(rec(out, guitar)) === json({ tuning: 'just_intonation' })
+    );
+  }
 }
 function envCardOfSeed(ws) {
   return require('./_recipe_stack.js').envCardOf(ws.cards).id;

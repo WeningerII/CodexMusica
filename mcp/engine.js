@@ -106,12 +106,24 @@ function normWorkspace(ws, opName) {
   // A workspace saved before a merge may carry a retired tradition id on its
   // cards; it is rewritten to the surviving id so headers, baselines and
   // remove_tradition all see one tradition.
+  //
+  // A card carrying the envWritten record gets its own copy of it, so the
+  // workspace a call returns (render_recipe returns these cards as they are)
+  // shares no record with the one the caller passed in (#671, BB8 6688635328,
+  // 2). Only `cards` is kept: a workspace-level field is dropped here.
   return {
-    cards: cards.map((c) =>
-      c && typeof c.traditionId === 'string' && liveTradId(c.traditionId) !== c.traditionId
-        ? { ...c, traditionId: liveTradId(c.traditionId) }
-        : c
-    ),
+    cards: cards.map((c) => {
+      if (!c || typeof c !== 'object') return c;
+      const retired =
+        typeof c.traditionId === 'string' && liveTradId(c.traditionId) !== c.traditionId;
+      const recorded = c[W.ENV_RECORD] !== undefined;
+      if (!retired && !recorded) return c;
+      return {
+        ...c,
+        ...(retired ? { traditionId: liveTradId(c.traditionId) } : {}),
+        ...(recorded ? { [W.ENV_RECORD]: W.copyEnvRecord(c[W.ENV_RECORD]) } : {}),
+      };
+    }),
   };
 }
 
