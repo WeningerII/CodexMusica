@@ -2,7 +2,7 @@
   "fixture": "bad/membership_over_cap.json",
   "contract": "mcp/DISCOVERY_V1.md",
   "kind": "limit",
-  "exercises": "The four membership logs share one cap, MEMBERSHIP_ENTRIES (32,768): seen, variants, row_seen and alt_seen, each sealed and tail together. One case per log, at the phase that appends to it: variants in preparation, seen and row_seen in the primary traversal, alt_seen (with row_seen) in the alternates. Each record holds 32,767 entries across the logs of its phase, named by their totals only (synthetic: the write path reads no segment). Each mutant appends two entries to one log, so the sum passes the cap by one: the worker refuses with RESOURCE_LIMIT, naming the log whose append passes it (discovery_seen, discovery_variants, discovery_row_seen or discovery_alt_seen), instead of emitting the frame; a store sent it refuses it by W7, and every other rule passes. Each control appends one entry to the same log: the sum is exactly MEMBERSHIP_ENTRIES, which is accepted. #656 holds 20,045 (seen and variants), within the cap; at 16,384 it would not be.",
+  "exercises": "The four membership logs share one cap, MEMBERSHIP_ENTRIES (65,536, BB8 6682942783): seen, variants, row_seen and alt_seen, each sealed and tail together. One case per log, at the phase that appends to it: variants in preparation, seen and row_seen in the primary traversal, alt_seen (with row_seen) in the alternates. Each record holds 65,535 entries across the logs of its phase, named by their totals only (synthetic: the write path reads no segment). Each mutant appends two entries to one log, so the sum passes the cap by one: the worker refuses with RESOURCE_LIMIT, naming the log whose append passes it (discovery_seen, discovery_variants, discovery_row_seen or discovery_alt_seen), instead of emitting the frame; a store sent it refuses it by W7, and every other rule passes. Each control appends one entry to the same log: the sum is exactly MEMBERSHIP_ENTRIES, 65,536, which is accepted. #656 holds 20,045 (seen and variants), expected to fit with 45,491 left; the proof run decides.",
   "expect": {
     "accepted": false,
     "rule": "W7",
@@ -26,16 +26,16 @@
           "logs": {
             "variants": {
               "head": "a82a4a7468b0bf2ad09748f99f0c37b34da84a264641327098d4b7c8ca03c7dc",
-              "segments": 32,
-              "count": 32767,
+              "segments": 64,
+              "count": 65535,
               "digest": "fc60b26b04072768a5960677b99140275166e8a903da0c79d27322507e73e666"
             }
           },
           "verified": {
             "variants": {
               "head": "a82a4a7468b0bf2ad09748f99f0c37b34da84a264641327098d4b7c8ca03c7dc",
-              "segments": 32,
-              "count": 32767,
+              "segments": 64,
+              "count": 65535,
               "digest": "fc60b26b04072768a5960677b99140275166e8a903da0c79d27322507e73e666"
             }
           },
@@ -49,7 +49,7 @@
             "epoch": 3,
             "logs": {
               "variants": {
-                "sealed": 32767,
+                "sealed": 65535,
                 "sealed_digest": "fc60b26b04072768a5960677b99140275166e8a903da0c79d27322507e73e666",
                 "tail": []
               }
@@ -80,7 +80,7 @@
             "epoch": 3,
             "logs": {
               "variants": {
-                "sealed": 32767,
+                "sealed": 65535,
                 "sealed_digest": "fc60b26b04072768a5960677b99140275166e8a903da0c79d27322507e73e666",
                 "tail": [
                   ["L12", "tok:3", "r:2", 0],
@@ -121,8 +121,8 @@
             },
             "seen": {
               "head": "a937a891f5c8c1642c4b483758126ef19b4d671a3f36e0a5f1e284d04b960dc0",
-              "segments": 32,
-              "count": 32090,
+              "segments": 64,
+              "count": 64858,
               "digest": "7d8c23666fa8257be7c2424b4e24c5d6b951278b1ec49d0eb1f45f4f1d397f82"
             },
             "row_seen": {
@@ -141,8 +141,8 @@
             },
             "seen": {
               "head": "a937a891f5c8c1642c4b483758126ef19b4d671a3f36e0a5f1e284d04b960dc0",
-              "segments": 32,
-              "count": 32090,
+              "segments": 64,
+              "count": 64858,
               "digest": "7d8c23666fa8257be7c2424b4e24c5d6b951278b1ec49d0eb1f45f4f1d397f82"
             },
             "row_seen": {
@@ -167,7 +167,7 @@
                 "tail": []
               },
               "seen": {
-                "sealed": 32090,
+                "sealed": 64858,
                 "sealed_digest": "7d8c23666fa8257be7c2424b4e24c5d6b951278b1ec49d0eb1f45f4f1d397f82",
                 "tail": []
               },
@@ -208,7 +208,7 @@
                 "tail": []
               },
               "seen": {
-                "sealed": 32090,
+                "sealed": 64858,
                 "sealed_digest": "7d8c23666fa8257be7c2424b4e24c5d6b951278b1ec49d0eb1f45f4f1d397f82",
                 "tail": [
                   ["12:1", "12:4", 0],
@@ -260,8 +260,8 @@
             },
             "row_seen": {
               "head": "fe4668268590deb926b9060b65147cf1f51baa74be000364622ff7b636ea2b4d",
-              "segments": 12,
-              "count": 12122,
+              "segments": 44,
+              "count": 44890,
               "digest": "c959cc676d253f64b3999c4f302e8cbbf7accff9ca61ce5fa8d05a7f9d98ef12"
             }
           },
@@ -280,8 +280,8 @@
             },
             "row_seen": {
               "head": "fe4668268590deb926b9060b65147cf1f51baa74be000364622ff7b636ea2b4d",
-              "segments": 12,
-              "count": 12122,
+              "segments": 44,
+              "count": 44890,
               "digest": "c959cc676d253f64b3999c4f302e8cbbf7accff9ca61ce5fa8d05a7f9d98ef12"
             }
           },
@@ -305,7 +305,7 @@
                 "tail": []
               },
               "row_seen": {
-                "sealed": 12122,
+                "sealed": 44890,
                 "sealed_digest": "c959cc676d253f64b3999c4f302e8cbbf7accff9ca61ce5fa8d05a7f9d98ef12",
                 "tail": []
               }
@@ -346,7 +346,7 @@
                 "tail": []
               },
               "row_seen": {
-                "sealed": 12122,
+                "sealed": 44890,
                 "sealed_digest": "c959cc676d253f64b3999c4f302e8cbbf7accff9ca61ce5fa8d05a7f9d98ef12",
                 "tail": [
                   ["r:12", 4, 0],
@@ -399,8 +399,8 @@
             },
             "alt_seen": {
               "head": "0ef432febc972c868db22fcf895d7d24746b51537f98aa3cebb636c31d6bf294",
-              "segments": 13,
-              "count": 12722,
+              "segments": 45,
+              "count": 45490,
               "digest": "61f5e16fc9809c4c09e386aaa25fa0f92d351efa99655107233239fa390b3feb"
             }
           },
@@ -425,8 +425,8 @@
             },
             "alt_seen": {
               "head": "0ef432febc972c868db22fcf895d7d24746b51537f98aa3cebb636c31d6bf294",
-              "segments": 13,
-              "count": 12722,
+              "segments": 45,
+              "count": 45490,
               "digest": "61f5e16fc9809c4c09e386aaa25fa0f92d351efa99655107233239fa390b3feb"
             }
           },
@@ -455,7 +455,7 @@
                 "tail": []
               },
               "alt_seen": {
-                "sealed": 12722,
+                "sealed": 45490,
                 "sealed_digest": "61f5e16fc9809c4c09e386aaa25fa0f92d351efa99655107233239fa390b3feb",
                 "tail": []
               }
@@ -501,7 +501,7 @@
                 "tail": []
               },
               "alt_seen": {
-                "sealed": 12722,
+                "sealed": 45490,
                 "sealed_digest": "61f5e16fc9809c4c09e386aaa25fa0f92d351efa99655107233239fa390b3feb",
                 "tail": [
                   ["12:1", "12:4", 0],
@@ -538,16 +538,16 @@
           "logs": {
             "variants": {
               "head": "a82a4a7468b0bf2ad09748f99f0c37b34da84a264641327098d4b7c8ca03c7dc",
-              "segments": 32,
-              "count": 32767,
+              "segments": 64,
+              "count": 65535,
               "digest": "fc60b26b04072768a5960677b99140275166e8a903da0c79d27322507e73e666"
             }
           },
           "verified": {
             "variants": {
               "head": "a82a4a7468b0bf2ad09748f99f0c37b34da84a264641327098d4b7c8ca03c7dc",
-              "segments": 32,
-              "count": 32767,
+              "segments": 64,
+              "count": 65535,
               "digest": "fc60b26b04072768a5960677b99140275166e8a903da0c79d27322507e73e666"
             }
           },
@@ -561,7 +561,7 @@
             "epoch": 3,
             "logs": {
               "variants": {
-                "sealed": 32767,
+                "sealed": 65535,
                 "sealed_digest": "fc60b26b04072768a5960677b99140275166e8a903da0c79d27322507e73e666",
                 "tail": []
               }
@@ -592,7 +592,7 @@
             "epoch": 3,
             "logs": {
               "variants": {
-                "sealed": 32767,
+                "sealed": 65535,
                 "sealed_digest": "fc60b26b04072768a5960677b99140275166e8a903da0c79d27322507e73e666",
                 "tail": [["L12", "tok:3", "r:2", 0]]
               }
@@ -626,8 +626,8 @@
             },
             "seen": {
               "head": "a937a891f5c8c1642c4b483758126ef19b4d671a3f36e0a5f1e284d04b960dc0",
-              "segments": 32,
-              "count": 32090,
+              "segments": 64,
+              "count": 64858,
               "digest": "7d8c23666fa8257be7c2424b4e24c5d6b951278b1ec49d0eb1f45f4f1d397f82"
             },
             "row_seen": {
@@ -646,8 +646,8 @@
             },
             "seen": {
               "head": "a937a891f5c8c1642c4b483758126ef19b4d671a3f36e0a5f1e284d04b960dc0",
-              "segments": 32,
-              "count": 32090,
+              "segments": 64,
+              "count": 64858,
               "digest": "7d8c23666fa8257be7c2424b4e24c5d6b951278b1ec49d0eb1f45f4f1d397f82"
             },
             "row_seen": {
@@ -672,7 +672,7 @@
                 "tail": []
               },
               "seen": {
-                "sealed": 32090,
+                "sealed": 64858,
                 "sealed_digest": "7d8c23666fa8257be7c2424b4e24c5d6b951278b1ec49d0eb1f45f4f1d397f82",
                 "tail": []
               },
@@ -713,7 +713,7 @@
                 "tail": []
               },
               "seen": {
-                "sealed": 32090,
+                "sealed": 64858,
                 "sealed_digest": "7d8c23666fa8257be7c2424b4e24c5d6b951278b1ec49d0eb1f45f4f1d397f82",
                 "tail": [["12:1", "12:4", 0]]
               },
@@ -758,8 +758,8 @@
             },
             "row_seen": {
               "head": "fe4668268590deb926b9060b65147cf1f51baa74be000364622ff7b636ea2b4d",
-              "segments": 12,
-              "count": 12122,
+              "segments": 44,
+              "count": 44890,
               "digest": "c959cc676d253f64b3999c4f302e8cbbf7accff9ca61ce5fa8d05a7f9d98ef12"
             }
           },
@@ -778,8 +778,8 @@
             },
             "row_seen": {
               "head": "fe4668268590deb926b9060b65147cf1f51baa74be000364622ff7b636ea2b4d",
-              "segments": 12,
-              "count": 12122,
+              "segments": 44,
+              "count": 44890,
               "digest": "c959cc676d253f64b3999c4f302e8cbbf7accff9ca61ce5fa8d05a7f9d98ef12"
             }
           },
@@ -803,7 +803,7 @@
                 "tail": []
               },
               "row_seen": {
-                "sealed": 12122,
+                "sealed": 44890,
                 "sealed_digest": "c959cc676d253f64b3999c4f302e8cbbf7accff9ca61ce5fa8d05a7f9d98ef12",
                 "tail": []
               }
@@ -844,7 +844,7 @@
                 "tail": []
               },
               "row_seen": {
-                "sealed": 12122,
+                "sealed": 44890,
                 "sealed_digest": "c959cc676d253f64b3999c4f302e8cbbf7accff9ca61ce5fa8d05a7f9d98ef12",
                 "tail": [["r:12", 4, 0]]
               }
@@ -890,8 +890,8 @@
             },
             "alt_seen": {
               "head": "0ef432febc972c868db22fcf895d7d24746b51537f98aa3cebb636c31d6bf294",
-              "segments": 13,
-              "count": 12722,
+              "segments": 45,
+              "count": 45490,
               "digest": "61f5e16fc9809c4c09e386aaa25fa0f92d351efa99655107233239fa390b3feb"
             }
           },
@@ -916,8 +916,8 @@
             },
             "alt_seen": {
               "head": "0ef432febc972c868db22fcf895d7d24746b51537f98aa3cebb636c31d6bf294",
-              "segments": 13,
-              "count": 12722,
+              "segments": 45,
+              "count": 45490,
               "digest": "61f5e16fc9809c4c09e386aaa25fa0f92d351efa99655107233239fa390b3feb"
             }
           },
@@ -946,7 +946,7 @@
                 "tail": []
               },
               "alt_seen": {
-                "sealed": 12722,
+                "sealed": 45490,
                 "sealed_digest": "61f5e16fc9809c4c09e386aaa25fa0f92d351efa99655107233239fa390b3feb",
                 "tail": []
               }
@@ -992,7 +992,7 @@
                 "tail": []
               },
               "alt_seen": {
-                "sealed": 12722,
+                "sealed": 45490,
                 "sealed_digest": "61f5e16fc9809c4c09e386aaa25fa0f92d351efa99655107233239fa390b3feb",
                 "tail": [["12:1", "12:4", 0]]
               }

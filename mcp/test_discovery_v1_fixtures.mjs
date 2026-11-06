@@ -52,7 +52,7 @@ const LIMITS = Object.freeze({
   CONTINUATION_BYTES: 8192,
   CURSOR_BYTES: 163840,
   REFUSAL_BYTES: 1024,
-  MEMBERSHIP_ENTRIES: 32768,
+  MEMBERSHIP_ENTRIES: 65536,
 });
 // §8, C1: a bad cause or log is echoed in the reason, cut to this many bytes.
 const ECHO_BYTES = 64;
@@ -3467,9 +3467,10 @@ test('the contract states the constants, logs, schema, domains and causes this f
     assert.ok(section('2. Format').includes(`\`${key}\``), `§2.8 names the terminal input ${key}`);
 });
 
-// BB8 6678599629 (a) and 6681838131: the cap is derived from the 30 s
-// first-commit budget with every term at the loaded-host factor, and it bounds
-// the four membership logs together. The arithmetic and the document agree.
+// BB8 6678599629 (a), 6681838131 and 6682942783 (option (b)): the cap is
+// derived from the 30 s first-commit budget with only the per-entry load rate
+// scaled, and it bounds the four membership logs together. The arithmetic and
+// the document agree.
 test('§6.11: MEMBERSHIP_ENTRIES fits the first-commit budget by the contract figures', () => {
   const measured = section('10. Measured on #656, not bounds');
   for (const figure of [
@@ -3480,31 +3481,36 @@ test('§6.11: MEMBERSHIP_ENTRIES fits the first-commit budget by the contract fi
     '12,105 entries',
   ])
     assert.ok(measured.includes(figure), `§10 measures ${figure}`);
-  const light = { construct: 6.4, load: 0.6, recompute: 0.9 };
+  const light = { load: 0.6 };
   const loaded = { construct: 15.2, load: 1.5, recompute: 2.4 };
   // The factor is the load's own measured loaded/light ratio, rounded up to a
-  // whole factor; every term is scaled by it (BB8 6681838131), which is above
-  // each term's own measured ratio.
+  // whole factor, and it scales the per-entry load rate only. Construct and
+  // recompute enter at their loaded-host measurements (BB8 6682942783); the
+  // walk's one figure, not split by host, enters at 3x, as in 8732918312.
   const ratio = loaded.load / light.load;
   const factor = Math.ceil(ratio);
   assert.equal(factor, 3);
-  for (const k of ['construct', 'recompute'])
-    assert.ok(factor * light[k] >= loaded[k], `3x light covers the measured loaded ${k}`);
   const rate = 30.4e-6 * factor;
   const perSegment = (0.01 / 99) * factor;
   const walk = 5 * LIMITS.CHAIN_SEGMENTS * perSegment;
-  const construct = factor * light.construct;
-  const recompute = factor * light.recompute;
+  const construct = loaded.construct;
+  const recompute = loaded.recompute;
   const fixed = construct + recompute + walk;
   const room = Math.floor((30 - fixed) / rate);
   const withMargin = Math.floor((29 - fixed) / rate);
-  const cap = 2 ** Math.floor(Math.log2(withMargin));
-  assert.equal(cap, LIMITS.MEMBERSHIP_ENTRIES, 'the cap is the power of two within the margin');
+  // BB8's figure: the room left with #656's own seen and variants loaded as a
+  // further fixed term, as 8732918312 computed it.
+  const own = 20045;
+  const bb8 = Math.floor((30 - fixed - own * rate) / rate);
+  assert.equal(bb8, 81895, "BB8's about 81,895 entries");
+  const pow2 = (x) => 2 ** Math.floor(Math.log2(x));
+  assert.equal(pow2(bb8), LIMITS.MEMBERSHIP_ENTRIES, '81,895 rounded down to a power of two');
+  for (const x of [room, withMargin])
+    assert.equal(pow2(x), LIMITS.MEMBERSHIP_ENTRIES, `${x} rounds down to the same power`);
   const atCap = LIMITS.MEMBERSHIP_ENTRIES * rate;
   assert.ok(fixed + atCap <= 29, "the margin holds the first step's 1 s deadline");
-  // #656 fits: its seen and variants are 20,045 entries. BB8's 16,384, the
-  // per-log figure of the previous derivation, would not hold them.
-  const own = 20045;
+  // #656 is expected to fit: its seen and variants are 20,045 entries, with
+  // about 45k left. 16,384, the retracted every-term figure, would not hold them.
   assert.ok(own <= LIMITS.MEMBERSHIP_ENTRIES);
   assert.ok(own > 16384, "16,384 would refuse #656's own primary phase");
   // What the bound leaves out (§12, item 18, ruled): a membership log alone at
@@ -3519,20 +3525,27 @@ test('§6.11: MEMBERSHIP_ENTRIES fits the first-commit budget by the contract fi
   const s = (x) => `${x.toFixed(2)} s`;
   const n = (x) => x.toLocaleString('en-US');
   for (const stated of [
+    '6682942783',
     '91.2 µs',
-    s1(construct),
-    s1(recompute),
+    `| construct | ${s1(construct)} | measured on #656, loaded host (§10), not scaled |`,
+    `| recompute | ${s1(recompute)} | measured on #656, loaded host (§10), not scaled |`,
     s(walk),
     s(fixed),
+    s(own * rate),
+    s(fixed + own * rate),
+    s(30 - fixed - own * rate),
+    n(bb8),
+    s(30 - fixed),
     n(room),
     n(withMargin),
     s(atCap),
     s(fixed + atCap),
     s(30 - fixed - atCap),
     `\`MEMBERSHIP_ENTRIES = ${LIMITS.MEMBERSHIP_ENTRIES}\``,
+    n(LIMITS.MEMBERSHIP_ENTRIES),
     n(own),
     n(LIMITS.MEMBERSHIP_ENTRIES - own),
-    '16,384',
+    'It is never waived',
     n(chain),
     s(chain * rate),
     s(12105 * rate),
@@ -3542,6 +3555,9 @@ test('§6.11: MEMBERSHIP_ENTRIES fits the first-commit budget by the contract fi
     'never a qualification of a whole lease',
   ])
     assert.ok(text.includes(stated), `§6.11 states ${stated}`);
+  // The retracted rule survives only as history (BB8 6682942783).
+  assert.ok(!text.includes('Every term is at the loaded-host factor'));
+  assert.ok(!text.includes('× 3 = 19.2 s') && !text.includes('× 3 = 2.7 s'));
 });
 
 // BB8 6678702125, ruling 2: CURSOR_BYTES is INVARIANT_FAILURE only because it

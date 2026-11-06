@@ -18,8 +18,10 @@ combined cap bounds the four membership logs (§3, §6.11), `row_seen` is not as
 alternate phase (§6.2), finish work and reconciliation are named exclusions (§6.11), and a thrown
 save is an unknown outcome (§4, §5.1). It answers 3PO's review of `2e8ae0239` (6681823180), and
 fixes an adversarial review of `8732918312`: the reply plumbing C1 needs (§8), the other
-`RESOURCE_LIMIT` raisers (§8), and the precision of §6.9's nine cases. Where this text and the
-proposal differ, this text governs. 3PO's
+`RESOURCE_LIMIT` raisers (§8), and the precision of §6.9's nine cases. It folds BB8's
+correction of the budget (6682942783, option (b)): only the per-entry load rate is scaled, and
+the combined cap is 65,536 entries (§3, §6.11, §12 item 25). Where this text and the proposal
+differ, this text governs. 3PO's
 acknowledgement (6677006069) fixes the `contracts.py` reservation to the checkpoint declaration
 and schema; the shared `CONTRACT_VERSION` does not change.
 
@@ -359,7 +361,7 @@ truncation.
 | tail | fewer than 1024 entries and 16384 bytes | seal | `READER_PROTOCOL` (W4) |
 | `FRAME_SEALS` | 8 seals per frame (≤ 128 KiB of entry bytes) | end the step at the next safe point; a unit that alone needs more: `RESOURCE_LIMIT` (cause `discovery_frame_seals`) | `READER_PROTOCOL` (W1) |
 | `CHAIN_SEGMENTS` | 2048 segments per chain (≤ 32 MiB of entry bytes) | `RESOURCE_LIMIT` (cause `discovery_chain_segments`) | `READER_PROTOCOL` (W5) |
-| `MEMBERSHIP_ENTRIES` | 32768 entries in the four membership logs together (`seen`, `variants`, `row_seen` and `alt_seen`, each sealed and tail): the bound derived from the first-commit budget (§6.11) | `RESOURCE_LIMIT`, naming the log whose append passes it: cause `discovery_seen`, `discovery_variants`, `discovery_row_seen` or `discovery_alt_seen` | `READER_PROTOCOL` (W7) |
+| `MEMBERSHIP_ENTRIES` | 65536 entries in the four membership logs together (`seen`, `variants`, `row_seen` and `alt_seen`, each sealed and tail): the bound derived from the first-commit budget, with only the per-entry load rate scaled (§6.11, BB8 6682942783) | `RESOURCE_LIMIT`, naming the log whose append passes it: cause `discovery_seen`, `discovery_variants`, `discovery_row_seen` or `discovery_alt_seen` | `READER_PROTOCOL` (W7) |
 | `GROUP_KEYS`, `GROUP_BYTES` | 32 keys and 8192 entry bytes in the current group | spill to `alt_seen` (§6.4): a spill rule, not a refusal | `READER_PROTOCOL` (W4) |
 | `WITNESS_FIELDS` | 16 field names, each a dot path of lowercase names (`[a-z0-9_]`, joined by `.`) of at most 64 bytes | `INVARIANT_FAILURE` (an engine defect: the field list is the reducer's constant, five names in v1) | `READER_PROTOCOL` (W4) |
 | `CONTINUATION_BYTES` | 8192 canonical bytes | `INVARIANT_FAILURE` (an engine defect, never a truncation) | `READER_PROTOCOL` (W4) |
@@ -1013,7 +1015,7 @@ behaviour is preserved too. **Test:** restarting at every step boundary equals t
 uninterrupted run. The restart points include mid-preparation, a zero-yield target,
 mid-target, mid-group, mid-emission and across a method boundary.
 
-### 6.11 Resume cost (BB8 8; BB8 (a), 6678599629; BB8 6681838131)
+### 6.11 Resume cost (BB8 8; BB8 (a), 6678599629; BB8 6681838131; BB8 6682942783)
 
 Measured on #656, a resume costs about 8–19 s (construct plus load plus recompute, §10), and
 nothing is re-traversed. In an earlier revision two terms grew with position after the primary
@@ -1029,48 +1031,66 @@ a lease up to its first commit is bounded by a constant:
   alone at `CHAIN_SEGMENTS` would load for about 191 s, so a cap on `alt_seen` alone did not meet
   the criterion.
 
-**The derivation.** The budget is 30 s from a lease's start to its first commit (§9). The
-inputs are §10's measurements, not bounds; the result, `MEMBERSHIP_ENTRIES = 32768`, is the
-bound. Every term is at the loaded-host factor (BB8 6681838131).
+**The derivation** (BB8 6682942783, option (b)). The budget is 30 s from a lease's start to its
+first commit (§9). The inputs are §10's measurements, not bounds; the result,
+`MEMBERSHIP_ENTRIES = 65536`, is the bound. Only the per-entry load rate is scaled. Construct,
+recompute and the walk enter at their loaded-host measurements, as in the derivation of
+`8732918312`.
 
-| Term, at the loaded-host factor | Value | Source |
+| Term | Value | Source |
 | --- | --- | --- |
-| load rate | 30.4 µs per entry × 3 = 91.2 µs | measured on the light host (§10) |
-| construct | 6.4 s × 3 = 19.2 s | measured on #656, light host (§10) |
-| recompute | 0.9 s × 3 = 2.7 s | measured on #656, light host (§10) |
+| load rate | 30.4 µs per entry × 3 = 91.2 µs | measured on the light host (§10), scaled |
+| construct | 15.2 s | measured on #656, loaded host (§10), not scaled |
+| recompute | 2.4 s | measured on #656, loaded host (§10), not scaled |
 | incremental walk | at most 10,240 segments × 10 ms / 99 × 3 = 3.10 s | the measured walk rate (§10), computed at the bounds |
 | load of the membership logs | n entries × 91.2 µs | computed |
 
-- **The factor is 3.** It is the load's own measured loaded/light ratio, 2.5, rounded up to a
-  whole factor (§10). It is above each term's own measured ratio (construct 2.375, recompute
-  2.67), so every term is at or above its loaded-host measurement: construct 19.2 s against
-  15.2 s measured, recompute 2.7 s against 2.4 s.
+- **The factor is 3, and it scales the load rate only.** 30.4 µs is a light-host rate, and the
+  load is the term the loaded/light ratio was measured for: §10 measured the same load at 0.6 s
+  light and 1.5 s loaded, a ratio of 2.5, and 3 rounds that up to a whole factor. Construct and
+  recompute already enter at their loaded-host measurements. Scaling them again would count the
+  same slowdown twice, for a host nobody measured.
 - **The walk term** is a full read of five chains of `CHAIN_SEGMENTS` (10,240 segments) at the
-  measured rate, about 0.3 ms per segment once scaled. An incremental walk stats the verified
-  segments, which costs less than reading them, and reads only the appended ones, so it costs
-  at most this.
-- **The sum.** The fixed terms come to 19.2 + 2.7 + 3.10 = 25.00 s. That leaves 5.00 s, or
-  54,791 entries at 91.2 µs each, and 43,826 once the first step's 1 s deadline
+  measured rate. The walk has one measured figure, not split by host, so, as in `8732918312`, it
+  enters at 3× that figure, about 0.3 ms per segment, as its loaded-host figure. An incremental
+  walk stats the verified segments, which costs less than reading them, and reads only the
+  appended ones, so it costs at most this.
+- **The sum.** The fixed terms come to 15.2 + 2.4 + 3.10 = 20.70 s. BB8's figure, about 81,895
+  entries in 30 s, is the room `8732918312` computed with #656's own 20,045 `seen` and
+  `variants` entries loaded as a further fixed term (1.83 s): 22.53 s fixed, 7.47 s left. Under
+  one combined cap those entries count inside the cap instead, so the room over the whole sum is
+  9.30 s, or 101,940 entries, and 90,975 once the first step's 1 s deadline
   (`analysis.py:2582`) is kept as margin.
-- **The bound.** `MEMBERSHIP_ENTRIES = 32768`, the power of two within that margin: 32 segments
-  full by count. At the cap the load is 2.99 s and the sum is 27.99 s, 2.01 s under the budget.
-- **#656 fits.** Its `seen` and `variants` hold 20,045 entries (§10), leaving 12,723 for
-  `row_seen` and `alt_seen`; its `alt_seen` is empty (measured), and its `row_seen` holds one
-  row's keys at a time, since no left span repeats. The figure 16,384 in 6681838131 is the
-  previous revision's cap for `alt_seen` alone, with `seen` and `variants` as fixed terms. As a
-  combined cap it would refuse #656's own primary phase with `discovery_seen`, so the same
-  derivation over the combined sum gives 32,768 (§12, item 25).
-- **The cause names the log.** An append that would take the four logs past the cap refuses
-  with `RESOURCE_LIMIT`, cause `discovery_seen`, `discovery_variants`, `discovery_row_seen` or
-  `discovery_alt_seen`: the log whose append passes it (`bad/membership_over_cap.json`). A store
-  sent such a frame refuses it as `READER_PROTOCOL` (W7).
+- **The bound.** `MEMBERSHIP_ENTRIES = 65536`, combined over `seen`, `variants`, `alt_seen` and
+  `row_seen`: about 81,895 rounded down to a power of two (BB8 6682942783). The other two figures
+  round down to the same power. It is 64 segments full by count.
+- **The check.** At the cap the load is 65,536 × 91.2 µs = 5.98 s, about 6.0 s. With construct,
+  recompute and the walk the sum is 26.68 s, 3.32 s under the budget, which holds the first
+  step's 1 s deadline.
+- **#656 is expected to fit, and the proof run decides** (BB8 6682942783). Its primary phase
+  holds 20,045 `seen` and `variants` entries (§10), which leaves 45,491 for the alternate phase:
+  `alt_seen` measured empty, and 3PO found `row_seen` live at only 6 of 42 boundaries. That is an
+  expectation, not a guarantee. The proof run's gates decide (§9): every lease's first commit
+  within 30 s, and finish work measured, which is still open. If a lease's first commit misses
+  30 s on the qualified image, the cap is re-derived from that measurement. It is never waived.
+- **What this replaces.** 6681838131 took every term at the loaded-host factor, construct and
+  recompute included (19.2 s and 2.7 s). That gave BB8's 16,384, and over the combined sum the
+  previous revision's 32,768 (`147f5dd3d`). A combined cap of 16,384 would refuse #656's own
+  run before its alternate phase. BB8 retracts that rule (6682942783), and both figures go with
+  it.
+- **One cap, with a cause for each log.** An append that would take the four logs past the cap
+  refuses with `RESOURCE_LIMIT`, cause `discovery_seen`, `discovery_variants`,
+  `discovery_row_seen` or `discovery_alt_seen`: the log whose append passes it
+  (`bad/membership_over_cap.json`). A store sent such a frame refuses it as `READER_PROTOCOL`
+  (W7). The cap is shared, so no single log can reach the 191 s load of one log at
+  `CHAIN_SEGMENTS`.
 
 **What the bound leaves out** (§12, item 18, ruled by 6681838131). The cap bounds a lease's cost
 up to its first commit, and only that. It is never a qualification of a whole lease's cost.
 Each exclusion is named, and each is either capped or left out on purpose:
 
-- **Construct and recompute are #656's measurements**, scaled. They depend on the text, not on
-  the cursor's position.
+- **Construct and recompute are #656's loaded-host measurements**, not scaled. They depend on
+  the text, not on the cursor's position.
 - **Finish work is outside the first-commit criterion, and open.** The finish lease loads
   `alt_cells` in full: 12,105 entries on #656, about 1.10 s at 91.2 µs, and up to 2,097,152
   entries at `CHAIN_SEGMENTS`, about 191.26 s. It reads the committed evidence for option 2's
@@ -1084,8 +1104,8 @@ Each exclusion is named, and each is either capped or left out on purpose:
   writer, a generation this instance did not write or a pending marker (`_enterLock`,
   `reader_job_store.js:435-448`), the lease's first lock entry reconciles, which full-reads
   every live chain of every job (§7.4). At the default 256 MiB quota (`server_http.js:336`), if
-  all of it were segments of about 17.5 KiB, that is 14,979 segments: 4.54 s at the scaled walk
-  rate, more than the margin above. The proof run records each one (§9).
+  all of it were segments of about 17.5 KiB, that is 14,979 segments: 4.54 s at the walk term's
+  rate, more than the 3.32 s margin above. The proof run records each one (§9).
 
 The measured gate stays: in the proof run, every lease's first commit lands within 30 s of the
 lease start, and each walk's time is recorded (§9).
@@ -1440,8 +1460,10 @@ Plumbing (R2's side, with the #721 author for the worker's raises):
   statted and the time each walk took, any reconciliation and its time, `row_seen`'s size in
   both phases, the four membership logs' total against `MEMBERSHIP_ENTRIES`, worker memory in
   the alternate phase, and the finish lease's time: its full `alt_cells` load, option 2's read
-  of the evidence and `_domain`'s enumeration, against the lease (§6.11). It is the completed
-  run that Phase B needs (`mcp/READER_RUNTIME.md`).
+  of the evidence and `_domain`'s enumeration, against the lease (§6.11). If a lease's first
+  commit misses 30 s on the qualified image, `MEMBERSHIP_ENTRIES` is re-derived from that
+  measurement, never waived (BB8 6682942783). It is the completed run that Phase B needs
+  (`mcp/READER_RUNTIME.md`).
 
 ## 10. Measured on #656, not bounds
 
@@ -1454,10 +1476,10 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | `seen` key | 65.3 B mean, 1.6 B per primary pair; 2.45% of pairs touch a varying word | measured |
 | `variants` | 165 descriptors of about 240 B (211 B measured for `c[2]` alone), 3 segments, 0.04 MB | measured |
 | `alt_cells` | 12,105 entries of 20.45 B, 16 segments, 0.25 MB | measured |
-| `seen` plus `variants` | 20,045 entries, against `MEMBERSHIP_ENTRIES` (32,768) | measured |
+| `seen` plus `variants` | 20,045 entries, against `MEMBERSHIP_ENTRIES` (65,536): about 45k left for the alternate phase, an expectation (§6.11) | measured |
 | `alt_seen` | 0 entries: no within-line alternate pair, 6,250 line pairs each one contiguous run, at most 2 pairs per line pair | measured (BB8 1, 3PO 6) |
 | primary rows | 1,560 rows, no repeated left-span index | measured (3PO 1) |
-| `row_seen` | not measured; added by this revision | the proof run records it |
+| `row_seen` | its size is not measured; 3PO found it live at only 6 of 42 boundaries (cited in BB8 6682942783) | the proof run records its size |
 | segment envelope | about 550 B | measured |
 | discovery total | about 1.64 MB plain, about 0.2 MB gzip | computed |
 | per lease | walk about 10 ms; load 20,045 entries × 30.4 µs = 0.6 / 1.5 s; recompute 0.9 / 2.4 s; construct 6.4 / 15.2 s; about 8 / 19 s in all | measured |
@@ -1505,13 +1527,14 @@ sizes. Times are light host / loaded host. None is a bound; the bounds are in §
 | 30 | 3PO's §6.8 mismatch; BB8 ruling 6 | an outside-domain shared-sound binding moves no domain tally, and `candidates` increments as today | §6.7, §6.8 | #721 tick test |
 | 31 | 3PO 6678848728 | the generic resolver accepts 9 wrong-method parents and parts and inserted non-terminal records; the worker's suffix-membership check refuses each, as a required acceptance case | §6.9 | `bad/terminal_suffix_resume_faults.json`, its 9 `accepts` cases |
 | 32 | BB8 6678856548 | the suffix-membership check is separate and runs before resolving; the 9, the 15 and the 3 byte-identical valid restores are in the worker's acceptance list; resolver success never counts as suffix validation; membership is `method_id` alone | §6.9 | `bad/terminal_suffix_resume_faults.json`, each case derived from its split's durable prefix, and its five controls |
-| 33 | BB8 6681838131 item 18; 3PO 6681823180 (d) | every term at the loaded-host factor; one combined cap over `seen`, `variants`, `row_seen` and `alt_seen`, with a named cause per log; the cap is never a whole lease's qualification | §1, §3, §4 W7, §6.1, §6.4, §6.11, §8 | `bad/membership_over_cap.json`; the §6.11 derivation test |
+| 33 | BB8 6681838131 item 18; 3PO 6681823180 (d) | one combined cap over `seen`, `variants`, `row_seen` and `alt_seen`, with a named cause per log; the cap is never a whole lease's qualification (its every-term factor is retracted by row 40) | §1, §3, §4 W7, §6.1, §6.4, §6.11, §8 | `bad/membership_over_cap.json`; the §6.11 derivation test |
 | 34 | BB8 6681838131 item 18; 3PO 6681823180 (c) | `row_seen` in the alternate phase is not assumed empty: it is in the shared budget, and a restart mid-row inside the alternate phase is tested | §2.3, §6.2 | #721: a restart mid-row in the alternate phase |
 | 35 | BB8 6681838131 item 18; 3PO 6681823180 (d) | finish work is outside the first-commit criterion and open, and the proof run measures it; reconciliation inside a lease is an accepted, explicit exclusion | §6.11, §9 | proof run |
 | 36 | BB8 6681838131 item 16; 3PO 6681823180 (e) | at lease time, corruption is `STORAGE_CORRUPT` with no save and no release; at reconciliation a byte mismatch is `segment_corrupt`, logged at error level and contained to the job; `chain_broken` is structural only; every other object keeps `STORAGE_CORRUPT` | §2.7, §5.1, §7.4, §8 | `bad/segment_corrupt_at_reconciliation.json`, `bad/verified_ahead_of_head.json` |
 | 37 | BB8 6681838131; 3PO 6681823180 (a) | a thrown save is an unknown outcome: the address lists are rebuilt from the durable record head before use | §4, §5.1, §7.3 | `good/thrown_save_outcome_unknown.json` |
 | 38 | BB8 6681838131; 3PO 6681823180 (b) | reconciliation follows any foreign writer, not only an older image | §5.1, §6.11, §7.4 | — |
 | 39 | BB8 6681838131 | items 15, 17, 19 and 20: no semantic objection | §12 | — |
+| 40 | BB8 6682942783 | option (b): only the per-entry load rate is scaled (30.4 µs × 3); construct, recompute and the walk enter at their loaded-host measurements; about 81,895 entries, rounded down to `MEMBERSHIP_ENTRIES = 65536`, combined, with a cause per log; #656's fit is an expectation the proof run's gates decide, and a missed 30 s re-derives the cap, never waives it; 16,384 retracted (item 25) | §3, §6.11, §9, §10, §12 | `bad/membership_over_cap.json`; the §6.11 derivation test |
 
 ## 12. Rulings on the items added for confirmation
 
@@ -1519,8 +1542,8 @@ An earlier revision listed items 1–14 for confirmation. BB8 ruled on every one
 (6678599629). BB8 has no semantic objection to the structural items (2–4, 6, 10 and 12), and
 the cursor fields are 3PO's to confirm. BB8 then ruled on 3PO's amendments to items 1, 5, 7–9
 and 11, and on §6.8's wording (6678702125), made item 11's suffix check an explicit acceptance
-requirement (6678856548), and ruled on items 15–20 (6681838131). Each ruling is marked on its
-item below. Items 21–29 are open.
+requirement (6678856548), ruled on items 15–20 (6681838131), and corrected the budget and ruled
+item 25 (6682942783). Each ruling is marked on its item below. Items 21–24 and 26–29 are open.
 
 1. **Ruled: confirmed** (BB8 6678599629). `row_seen`'s reset at row boundaries and its
    compaction (§6.2), and the frame's `resets` field. The compaction decision depends only on
@@ -1593,8 +1616,9 @@ BB8 still re-checks §6.9's acceptance list against the worker half once 3PO pub
 ### Added for confirmation since 6678599629
 
 Items 15–20 filled gaps that ruling (a) left open, and are ruled by 6681838131. Items 21–24
-came with the fold of 6678702125 (`8732918312`), and items 25–29 with this revision's fold of
-6681838131 and its review. Items 21–29 are open for BB8, and item 24 for 3PO.
+came with the fold of 6678702125 (`8732918312`), and items 25–29 with the fold of 6681838131
+and its review (`147f5dd3d`). Item 25 is ruled by 6682942783. Items 21–23 and 26–29 are open for
+BB8, and item 24 for 3PO.
 
 15. **Ruled: no semantic objection** (BB8 6681838131). **Where the walk gets its addresses**
     (§4, §5.1). Statting a segment needs its address,
@@ -1629,7 +1653,8 @@ came with the fold of 6678702125 (`8732918312`), and items 25–29 with this rev
     at their loaded-host measurements, not scaled. The walk's single measured figure is
     scaled by 3 and taken at five full chains. Also, `WITNESS_FIELDS` on the worker is
     `INVARIANT_FAILURE`, for item 5's reason: the field list is the reducer's constant. Item 18's
-    ruling then scales every term by 3 (§6.11).
+    ruling then scaled every term by 3. 6682942783 retracts that, and the inputs stand as this item
+    states them (§6.11, item 25).
 18. **Ruled** (BB8 6681838131). **What the bound leaves out** (§6.11). The ruling: derive the cap
     with every term at the loaded-host factor; `seen`, `variants`, `alt_seen` and `row_seen`
     share one budget, with one combined cap and a named `RESOURCE_LIMIT` cause per log, since
@@ -1638,7 +1663,9 @@ came with the fold of 6678702125 (`8732918312`), and items 25–29 with this rev
     `alt_cells` load and option 2's read) is outside the first-commit criterion but must fit a
     lease, the proof run measures it, and it stays open; reconciliation inside a lease, after any
     foreign writer, is an accepted exclusion that the proof run records. §3, §6.2 and §6.11 now
-    say this, and the cap's value is item 25.
+    say this, and the cap's value is item 25. **Corrected** (BB8 6682942783): the every-term clause
+    is retracted, because construct and recompute already enter at their loaded-host
+    measurements; only the per-entry load rate is scaled (item 25). The rest of the ruling stands.
 19. **Ruled: no semantic objection** (BB8 6681838131). **The release trace** (§2.7, §8).
     `unavailable.released` is set on every release, not only on a pause, so a paused or
     cancelled job that reconciliation releases keeps its trace. U1: a release of a record
@@ -1678,13 +1705,19 @@ came with the fold of 6678702125 (`8732918312`), and items 25–29 with this rev
     contribution, read at the resume. Membership is `method_id` alone, so a part whose
     `schema_name` alone changes is accepted. 3PO confirms they match the nine his resolver run
     accepted, or names the difference.
-25. **The combined cap's value** (§6.11). Ruling 18 names 16,384, which was the previous
-    revision's cap for `alt_seen` alone, with `seen` and `variants` as fixed terms at #656's size.
-    Under one combined cap they are part of the capped sum, and #656's own `seen` and `variants`
-    hold 20,045 entries, so 16,384 would refuse #656 in its primary phase with `discovery_seen`.
-    The same derivation, every term at the loaded-host factor, over the combined sum, gives
-    43,826 entries with the margin, so `MEMBERSHIP_ENTRIES = 32768`: 27.99 s at the cap, 2.01 s
-    under the budget, and #656 uses 20,045 of it. BB8 confirms 32,768, or names another figure.
+25. **Ruled: option (b)** (BB8 6682942783). **The combined cap's value** (§6.11). Ruling 18
+    named 16,384 with every term at the loaded-host factor, and the previous revision derived
+    32,768 the same way over the combined sum. BB8 retracts that rule: construct and recompute
+    already enter at their loaded-host measurements, so scaling them again counts the same
+    slowdown twice, and 16,384 would refuse #656's own run before its alternate phase. **The
+    ruling:** only the per-entry load rate is scaled, 30.4 µs × 3 = 91.2 µs; construct (15.2 s),
+    recompute (2.4 s) and the walk enter at their loaded-host measurements. About 81,895 entries
+    fit in 30 s, rounded down to a power of two: `MEMBERSHIP_ENTRIES = 65536`, combined over
+    `seen`, `variants`, `alt_seen` and `row_seen`, with a cause for each log. At the cap the load
+    is about 6.0 s and the sum 26.68 s, under the 30 s budget. #656's 20,045 primary-phase entries
+    fit with about 45k left, as an expectation: the proof run's gates decide, and if a lease's
+    first commit misses 30 s on the qualified image, the cap is re-derived from that measurement,
+    never waived.
 26. **`resume()`'s full read on a byte mismatch** (§5.1). The ruling names reconciliation. At
     this head `_object` turns F6 into `STORAGE_CORRUPT`, so a job whose segment is damaged
     would stay paused at `STORAGE_CORRUPT` on every resume. This contract gives `resume()`'s
