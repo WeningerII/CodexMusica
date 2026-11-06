@@ -61,7 +61,7 @@ export const RECIPE_MESSAGES = Object.freeze({
   BUSY_ADD: (name) => `Another addition is still running. ${name} was not added; try again.`,
   BUSY_GENRE: 'An addition is already in progress.',
   GENRE_FAILED: (genre) => `${genre} couldn’t be loaded, so nothing was added. Try again.`,
-  ADD_FAILED: (name) => `${name} couldn’t be prepared, so nothing was added. Try again.`,
+  ADD_FAILED: (name) => `${name} couldn’t be added. Nothing was changed. Try again.`,
   NO_GENRE: 'That genre isn’t in the catalog.',
   NO_INSTRUMENT_ID: 'That instrument isn’t in the catalog.',
   STALE_ACTION: 'The instrument changed before that ran. Nothing was changed.',
@@ -759,7 +759,7 @@ export function recipeStore({ load, selection, announce, ceiling } = {}) {
       announce(
         card.traditionId || !dest
           ? E._addedInstrumentMessage(instrumentId, card)
-          : `Added ${name} as an independent instrument (${genreName(dest)} could not be loaded)`
+          : `Added ${name} as an independent instrument (${genreName(dest)} couldn’t be loaded)`
       );
       return { snapshot: snapshotOf('recipe'), placed: placedOf(card) };
     });
@@ -887,7 +887,7 @@ export function recipeStore({ load, selection, announce, ceiling } = {}) {
           (added.traditionId
             ? ' to ' + genreName(added.traditionId)
             : dest
-              ? ` as an independent instrument (${genreName(dest)} could not be loaded)`
+              ? ` as an independent instrument (${genreName(dest)} couldn’t be loaded)`
               : '') +
           (changed
             ? ` with ${countOf(changed, 'changed setting')}. Undo removes it.`

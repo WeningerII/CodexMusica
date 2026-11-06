@@ -5117,7 +5117,7 @@ const STORE_CHECKS = {
         partial: t.partial,
         none: t.none,
         failed: [
-          `Added ${p.failedGenre.name} as an independent instrument (${p.failedGenre.genre} could not be loaded)`,
+          `Added ${p.failedGenre.name} as an independent instrument (${p.failedGenre.genre} couldn’t be loaded)`,
         ],
         configured: t.configured,
         defaults: t.defaults,
@@ -6162,9 +6162,9 @@ const STORE_CHECKS = {
       const n = g.names || {};
       const want = {
         ensemble: `${n.genre} couldn’t be loaded, so nothing was added. Try again.`,
-        loose: `${n.broken} couldn’t be prepared, so nothing was added. Try again.`,
-        grouped: `${n.oud} couldn’t be prepared, so nothing was added. Try again.`,
-        configured: `${n.oud} couldn’t be prepared, so nothing was added. Try again.`,
+        loose: `${n.broken} couldn’t be added. Nothing was changed. Try again.`,
+        grouped: `${n.oud} couldn’t be added. Nothing was changed. Try again.`,
+        configured: `${n.oud} couldn’t be added. Nothing was changed. Try again.`,
       };
       const wrong = Object.keys(want).filter(
         (k) =>
@@ -6725,7 +6725,7 @@ const STORE_MUTANTS = {
     check: 'announcements',
     edits: [
       [
-        '        card.traditionId || !dest\n          ? E._addedInstrumentMessage(instrumentId, card)\n          : `Added ${name} as an independent instrument (${genreName(dest)} could not be loaded)`',
+        '        card.traditionId || !dest\n          ? E._addedInstrumentMessage(instrumentId, card)\n          : `Added ${name} as an independent instrument (${genreName(dest)} couldn’t be loaded)`',
         '        !dest\n          ? E._addedInstrumentMessage(instrumentId, card)\n          : `Added ${name} to ${genreName(dest)}`',
       ],
     ],
