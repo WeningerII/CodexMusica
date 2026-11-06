@@ -3798,6 +3798,20 @@ const STORE_CHECKS = {
       };
       out.sameSnapshot = R.snapshot() === s0;
       out.sameHistory = JSON.stringify(E.app.history) === h0;
+      // Undo and Redo move the revision too: a command made against the
+      // revision before either is STALE.
+      const beforeUndo = R.snapshot().revision;
+      out.undone = R.undo().ok;
+      out.afterUndo = await S.code(
+        R.addInstrument({ instrumentId: 'udu', destination: null, revision: beforeUndo })
+      );
+      const beforeRedo = R.snapshot().revision;
+      out.redone = R.redo().ok;
+      out.afterRedo = R.apply({
+        op: 'set_environment',
+        room: E.ROOMS[7].id,
+        revision: beforeRedo,
+      }).code;
       return out;
     },
     verdict: (g) =>
@@ -3809,16 +3823,22 @@ const STORE_CHECKS = {
           'addConfiguredInstrument',
           'resetInstrumentPreview',
           'apply',
+          'afterUndo',
+          'afterRedo',
         ].every((k) => g[k] === 'STALE') &&
+          g.undone === true &&
+          g.redone === true &&
           g.sameSnapshot &&
           g.sameHistory,
         JSON.stringify(g)
       ),
   },
-  // 5. Safeguard 1: an old previewRevision or another instrument is STALE.
+  // 5. Safeguard 1: an old previewRevision or another instrument is STALE;
+  // so is each preview view's action against an old revision, and a part's
+  // variant it doesn't have is INVALID.
   stalePreview: {
     page: async (S) => {
-      const { R, E, instrument } = await S.boot();
+      const { R, V, E, instrument } = await S.boot();
       await R.addEnsemble({ genreId: 'bluegrass', revision: R.snapshot().revision });
       instrument.set('oud');
       await S.settle();
@@ -3836,13 +3856,51 @@ const STORE_CHECKS = {
         ];
       }
       out.history = E.app.history.length - h0;
+      // Each preview view's action, against the revision before the one it
+      // shows: STALE, and the preview doesn't move.
+      const before = JSON.stringify(S.project(V));
+      const old = (v) => V[v].snapshot().revision - 1;
+      const conf = V.configuration.snapshot();
+      const part = conf.parts.find((x) => x.variants.some((w) => w.id !== x.value));
+      const other = part.variants.find((w) => w.id !== part.value).id;
+      const fx = E.CHAIN_SECTIONS[0].items[2].id;
+      out.views = [
+        await S.code(
+          V.configuration.choosePart({
+            partId: part.id,
+            variantId: other,
+            revision: old('configuration'),
+          })
+        ),
+        await S.code(V.character.choose({ prefaceId: 'sermonizing', revision: old('character') })),
+        await S.code(V.character.automatic({ revision: old('character') })),
+        await S.code(
+          V.environment.choose({ field: 'room', id: E.ROOMS[9].id, revision: old('environment') })
+        ),
+        await S.code(V.chain.choose({ stage: 'fx', id: fx, on: true, revision: old('chain') })),
+      ];
+      out.unmoved = JSON.stringify(S.project(V)) === before;
+      // A real part with a variant it doesn't have.
+      out.unknownVariant = await S.code(
+        V.configuration.choosePart({
+          partId: part.id,
+          variantId: 'zz_not_a_variant',
+          revision: V.configuration.snapshot().revision,
+        })
+      );
+      out.stillUnmoved = JSON.stringify(S.project(V)) === before;
       return out;
     },
     verdict: (g) =>
       why(
         ['setInstrumentDestination', 'addConfiguredInstrument', 'resetInstrumentPreview'].every(
           (k) => same(g[k], ['STALE', 'STALE'])
-        ) && g.history === 0,
+        ) &&
+          g.history === 0 &&
+          same(g.views, ['STALE', 'STALE', 'STALE', 'STALE', 'STALE']) &&
+          g.unmoved &&
+          g.unknownVariant === 'INVALID' &&
+          g.stillUnmoved,
         JSON.stringify(g)
       ),
   },
@@ -3904,17 +3962,48 @@ const STORE_CHECKS = {
       ),
   },
   // 7. Safeguard 2 as resolved: while the preview rebuilds, the three
-  // instrument-action commands are BUSY, and plain Add still adds.
+  // instrument-action commands are BUSY, so is each preview view's action,
+  // and plain Add still adds.
   busyPreview: {
     page: async (S) => {
-      const { R, instrument } = await S.boot();
+      const { R, V, E, instrument } = await S.boot();
       await R.addEnsemble({ genreId: 'bluegrass', revision: R.snapshot().revision });
       instrument.set('oud');
       await S.settle();
+      const oud = E.Inst('oud').parts[0];
       void S.code(R.setInstrumentDestination(S.args(R, { destination: 'bluegrass' })));
       // Before anything is awaited: the rebuild is running.
       const s = R.snapshot();
       const pa = S.args(R);
+      const now = (v) => V[v].snapshot().revision;
+      const viewCode = async (run) => {
+        try {
+          return await S.code(run());
+        } catch (e) {
+          return 'threw: ' + ((e && e.message) || e);
+        }
+      };
+      // Every call starts before anything is awaited.
+      const viewCalls = [
+        () =>
+          V.configuration.choosePart({
+            partId: oud.id,
+            variantId: oud.variants[1].id,
+            revision: now('configuration'),
+          }),
+        () => V.character.choose({ prefaceId: 'sermonizing', revision: now('character') }),
+        () => V.character.automatic({ revision: now('character') }),
+        () =>
+          V.environment.choose({ field: 'room', id: E.ROOMS[9].id, revision: now('environment') }),
+        () =>
+          V.chain.choose({
+            stage: 'fx',
+            id: E.CHAIN_SECTIONS[0].items[2].id,
+            on: true,
+            revision: now('chain'),
+          }),
+      ].map(viewCode);
+      const loading = V.configuration.snapshot().status;
       const calls = {
         setInstrumentDestination: R.setInstrumentDestination({ ...pa, destination: null }),
         addConfiguredInstrument: R.addConfiguredInstrument({ ...pa, destination: 'bluegrass' }),
@@ -3925,7 +4014,8 @@ const STORE_CHECKS = {
           revision: s.revision,
         }),
       };
-      const out = { status: s.instrumentActions.status };
+      const out = { status: s.instrumentActions.status, loading };
+      out.views = await Promise.all(viewCalls);
       for (const [k, p] of Object.entries(calls)) out[k] = await S.code(p);
       out.cards = R.snapshot()
         .cards.map((c) => c.instrumentId)
@@ -3935,6 +4025,8 @@ const STORE_CHECKS = {
     verdict: (g) =>
       why(
         g.status === 'loading' &&
+          g.loading === 'loading' &&
+          same(g.views, ['BUSY', 'BUSY', 'BUSY', 'BUSY', 'BUSY']) &&
           g.setInstrumentDestination === 'BUSY' &&
           g.addConfiguredInstrument === 'BUSY' &&
           g.resetInstrumentPreview === 'BUSY' &&
@@ -3980,7 +4072,8 @@ const STORE_CHECKS = {
       ),
   },
   // 9. Safeguard 4 and the planted race: the configured add is the preview
-  // as it was at the call, whatever is chosen while the add waits.
+  // as it was at the call (its parts, pins, character and its automatic
+  // flag, tuning, room and chain), whatever is chosen while the add waits.
   capture: {
     page: async (S) => {
       const { R, V, E, instrument } = await S.boot();
@@ -3999,6 +4092,20 @@ const STORE_CHECKS = {
         id: E.CHAIN_SECTIONS[0].items[2].id,
         on: true,
         revision: V.chain.snapshot().revision,
+      });
+      // A chosen character, then a part choice that pins (not the material
+      // part the race below moves).
+      await V.character.choose({
+        prefaceId: 'sermonizing',
+        revision: V.character.snapshot().revision,
+      });
+      const c0 = V.configuration.snapshot();
+      const [mp] = S.materialOf(E, 'oud', Object.fromEntries(c0.parts.map((x) => [x.id, x.value])));
+      const pin = c0.parts.find((x) => x.id !== mp && x.variants.some((w) => w.id !== x.value));
+      await V.configuration.choosePart({
+        partId: pin.id,
+        variantId: pin.variants.find((w) => w.id !== pin.value).id,
+        revision: c0.revision,
       });
       const captured = S.project(V);
       const h0 = E.app.history.length;
@@ -4047,6 +4154,7 @@ const STORE_CHECKS = {
       const loose = await R.addConfiguredInstrument(S.args(R, { destination: null }));
       return {
         raced,
+        pin: pin.id,
         captured,
         got,
         later,
@@ -4060,6 +4168,9 @@ const STORE_CHECKS = {
       why(
         g.raced === 'ok' &&
           g.differs &&
+          g.captured.pinned.includes(g.pin) &&
+          g.captured.preface === 'sermonizing' &&
+          g.captured.auto === false &&
           same(g.got, g.captured) &&
           same(g.later, g.captured) &&
           g.entries === 1 &&
@@ -4539,7 +4650,8 @@ const STORE_CHECKS = {
     },
   },
   // 17. The destination: Independent first and the default, the genres in
-  // first-card order; undoing a genre falls back and rebuilds the preview.
+  // first-card order; undoing a genre, or removing it with apply, falls back
+  // and rebuilds the preview.
   destination: {
     page: async (S) => {
       const { R, instrument } = await S.boot();
@@ -4556,6 +4668,14 @@ const STORE_CHECKS = {
       const fell = S.acts(R).destination;
       await S.settle();
       const a = S.acts(R);
+      // Removing the destination genre with apply falls back the same way.
+      await R.setInstrumentDestination(S.args(R, { destination: 'bluegrass' }));
+      await S.settle();
+      const pr2 = S.acts(R).previewRevision;
+      const removed = R.apply({ op: 'remove_tradition', tradition: 'bluegrass' });
+      const fell2 = S.acts(R).destination;
+      await S.settle();
+      const b = S.acts(R);
       return {
         default: [first.destination, first.destinations[0]],
         listed,
@@ -4565,6 +4685,14 @@ const STORE_CHECKS = {
           moved: a.previewRevision > pr,
           status: a.status,
           listed: a.destinations.map((d) => d.genreId),
+        },
+        applied: {
+          removed,
+          fell: fell2,
+          destination: b.destination,
+          moved: b.previewRevision > pr2,
+          status: b.status,
+          listed: b.destinations.map((d) => d.genreId),
         },
       };
     },
@@ -4578,13 +4706,22 @@ const STORE_CHECKS = {
             moved: true,
             status: 'ready',
             listed: [null, 'bluegrass'],
+          }) &&
+          same(g.applied, {
+            removed: { ok: true, changed: true },
+            fell: null,
+            destination: null,
+            moved: true,
+            status: 'ready',
+            listed: [null],
           }),
         JSON.stringify(g)
       ),
   },
   // 18. Snapshots are deep-frozen and the same object until a change;
   // subscribe's unsubscribe is idempotent; a throwing listener stops no
-  // other; a command started in a listener is delivered after the pass.
+  // other; a command started in a listener is delivered after the pass;
+  // the views are told in view order.
   immutability: {
     page: async (S) => {
       const { R, V, E, instrument } = await S.boot();
@@ -4626,14 +4763,28 @@ const STORE_CHECKS = {
       const twice = [offB(), offB()];
       const quiet = seen.length;
       R.apply({ op: 'set_environment', room: E.ROOMS[15].id });
+      const quietAfter = seen.length === quiet;
+      // A preview choice changes every view: each is told, in view order.
+      const told = [];
+      const offs = ['recipe', 'configuration', 'character', 'environment', 'chain', 'output'].map(
+        (v) => (v === 'recipe' ? R : V[v]).subscribe(() => told.push(v))
+      );
+      await V.chain.choose({
+        stage: 'fx',
+        id: E.CHAIN_SECTIONS[0].items[6].id,
+        on: true,
+        revision: V.chain.snapshot().revision,
+      });
+      for (const off of offs) off();
       return {
         frozen,
         stable,
         seen,
         twice,
-        quietAfter: seen.length === quiet,
+        quietAfter,
         fresh: R.snapshot() !== s,
         fn: typeof offA,
+        told,
       };
     },
     verdict: (g) => {
@@ -4647,7 +4798,8 @@ const STORE_CHECKS = {
           g.fn === 'function' &&
           same(g.twice, [undefined, undefined]) &&
           g.quietAfter &&
-          order === 'a,a started,b,a,b',
+          order === 'a,a started,b,a,b' &&
+          same(g.told, ['recipe', 'configuration', 'character', 'environment', 'chain', 'output']),
         JSON.stringify(g)
       );
     },
@@ -4743,8 +4895,11 @@ const STORE_CHECKS = {
     },
   },
   // 21. apply: the ops not in this build are refused; set_variant is the
-  // editor's part click; set_environment with no card edits envCardOf; an
-  // edit that moves nothing is { ok: true, changed: false } and no entry;
+  // editor's part click, and takes only a variant the part has;
+  // set_environment with no card edits envCardOf, not the first card; an
+  // edit that moves nothing is { ok: true, changed: false } and no entry; a
+  // list stage takes a copy of the caller's list, and clear empties it;
+  // set_preface null is Back to automatic;
   // remove_tradition takes a genre id only, so it can't reach the loose udu.
   apply: {
     page: async (S, ARG) => {
@@ -4768,6 +4923,8 @@ const STORE_CHECKS = {
         R.apply({ op: 'set_variant', card: banjo.id, part: 'zz', variant: null }).code,
         R.apply({ op: 'set_variant', card: 'zz', part: ARG.part, variant: null }).code,
         R.apply({ op: 'set_environment' }).code,
+        R.apply({ op: 'set_variant', card: banjo.id, part: ARG.part, variant: 'zz_not_a_variant' })
+          .code,
       ];
       const count = () => E.app.cards.length;
       const n0 = count();
@@ -4802,14 +4959,58 @@ const STORE_CHECKS = {
         ),
       };
       const src = E.envCardOf(E.app.cards);
+      const udu = E.app.cards[0];
+      // The loose udu leads and has no environment, so the environment card
+      // isn't the first card (#671's "environment not rendered").
+      const leads = udu.instrumentId === 'udu' && !E.hasEnvironment(udu) && src !== udu;
       const room = E.ROOMS[17].id;
       const env = R.apply({ op: 'set_environment', room });
       const landed =
-        E.envCardOf(E.app.cards).id === src.id && E.envCardOf(E.app.cards).room === room;
+        E.envCardOf(E.app.cards).id === src.id &&
+        E.envCardOf(E.app.cards).room === room &&
+        !udu.room &&
+        !E.hasEnvironment(udu);
       const h = E.app.history.length;
       const r = R.snapshot().revision;
       const sameRoom = R.apply({ op: 'set_environment', room });
+      const entries = E.app.history.length - h;
+      const revisionKept = R.snapshot().revision === r;
+      // A list stage takes a copy of the caller's list, and clear empties it.
+      const fxIds = E.CHAIN_SECTIONS.find((x) => x.id === 'fx')
+        .items.slice(0, 2)
+        .map((i) => i.id);
+      const list = fxIds.slice();
+      const setFx = R.apply({ op: 'set_environment', chain: { fx: list } });
+      list.push('zz_added_after');
+      const fxAfter = [...(E.envCardOf(E.app.cards).chain.fx || [])];
+      const cleared = R.apply({ op: 'set_environment', clear: ['fx', 'mic'] });
+      const envAfter = E.envCardOf(E.app.cards);
+      const chain = {
+        setFx,
+        copied: JSON.stringify(fxAfter) === JSON.stringify(fxIds),
+        cleared,
+        fx: envAfter.chain.fx,
+        mic: envAfter.chain.mic,
+      };
+      // Back to automatic: the card is automatic again, and its character
+      // is no longer the one picked (the engine's history entry re-derives
+      // every automatic card's character, as production's does).
+      const now = () => E.app.cards.find((c) => c.id === banjo.id);
+      const pick = 'bitter';
+      R.apply({ op: 'set_preface', card: banjo.id, preface: pick });
+      const picked = [now().preface, now().prefaceAuto !== false];
+      const auto = R.apply({ op: 'set_preface', card: banjo.id, preface: null });
+      const automatic = {
+        pick,
+        picked,
+        auto,
+        preface: now().preface,
+        flag: now().prefaceAuto !== false,
+      };
       return {
+        leads,
+        chain,
+        automatic,
         refused,
         asyncOps,
         invalid,
@@ -4819,8 +5020,8 @@ const STORE_CHECKS = {
         env,
         landed,
         sameRoom,
-        entries: E.app.history.length - h,
-        revision: R.snapshot().revision === r,
+        entries,
+        revision: revisionKept,
       };
     },
     arg: (p) => ({ part: p.setVariant.part, variant: p.setVariant.variant }),
@@ -4828,16 +5029,29 @@ const STORE_CHECKS = {
       why(
         g.refused.every((c) => c === 'NOT_IN_BUILD') &&
           same(g.asyncOps, ['ASYNC', 'ASYNC']) &&
-          same(g.invalid, ['INVALID', 'NOT_FOUND', 'INVALID']) &&
+          same(g.invalid, ['INVALID', 'NOT_FOUND', 'INVALID', 'INVALID']) &&
           same(g.removeTradition, ['INVALID', 'INVALID', 'INVALID', 'NOT_FOUND', 0]) &&
           same(g.v, { ok: true, changed: true }) &&
           same(g.card, p.setVariant.card) &&
           same(g.env, { ok: true, changed: true }) &&
+          g.leads &&
           g.landed &&
           same(g.sameRoom, { ok: true, changed: false }) &&
           g.entries === 0 &&
-          g.revision,
-        JSON.stringify(g).slice(0, 700)
+          g.revision &&
+          same(g.chain, {
+            setFx: { ok: true, changed: true },
+            copied: true,
+            cleared: { ok: true, changed: true },
+            fx: [],
+            mic: null,
+          }) &&
+          same(g.automatic.picked, [g.automatic.pick, false]) &&
+          same(g.automatic.auto, { ok: true, changed: true }) &&
+          g.automatic.flag &&
+          typeof g.automatic.preface === 'string' &&
+          g.automatic.preface !== g.automatic.pick,
+        JSON.stringify({ ...g, card: undefined }).slice(0, 900)
       ),
   },
   // 22. The environment's hand-over is said as production says it, and an
@@ -5020,7 +5234,8 @@ const STORE_CHECKS = {
         JSON.stringify(g)
       ),
   },
-  // 26. addGenre on a page where nothing has started the store.
+  // 26. addGenre on a page where nothing has started the store, called twice
+  // at once: one import, and the second says an addition is in progress.
   addGenre: {
     page: async (S) => {
       const { recipe } = await S.boot({ start: false });
@@ -5028,11 +5243,14 @@ const STORE_CHECKS = {
       S.said();
       let threw = false;
       try {
+        // Two at once: the second finds the first running.
         recipe.addGenre('bluegrass');
+        recipe.addGenre('afrobeat');
       } catch {
         threw = true;
       }
-      for (let i = 0; i < 300 && !window.__said.length; i++) await S.tick(20);
+      for (let i = 0; i < 300 && window.__said.length < 2; i++) await S.tick(20);
+      await S.tick(300);
       await S.settle();
       const R = recipe.port(['snapshot']);
       return {
@@ -5046,7 +5264,7 @@ const STORE_CHECKS = {
       why(
         g.before === 'loading' &&
           !g.threw &&
-          same(g.said, p.toasts.genre) &&
+          same(g.said, [...p.toasts.busyGenre, ...p.toasts.genre]) &&
           same(g.groups, [['bluegrass', 6]]),
         JSON.stringify(g)
       ),
@@ -5746,6 +5964,68 @@ const STORE_CHECKS = {
         JSON.stringify(g)
       ),
   },
+  // 38. The preview's choices are remembered per instrument and replayed on
+  // every rebuild: after a destination round trip, and after another
+  // instrument is opened and this one again, the preview is the one chosen.
+  replay: {
+    page: async (S) => {
+      const { R, V, E, instrument } = await S.boot();
+      await R.addEnsemble({ genreId: 'bluegrass', revision: R.snapshot().revision });
+      instrument.set('oud');
+      await S.settle();
+      await R.setInstrumentDestination(S.args(R, { destination: 'bluegrass' }));
+      await S.settle();
+      const seeded = S.project(V);
+      await V.environment.choose({
+        field: 'room',
+        id: E.ROOMS[9].id,
+        revision: V.environment.snapshot().revision,
+      });
+      await V.chain.choose({
+        stage: 'fx',
+        id: E.CHAIN_SECTIONS[0].items[2].id,
+        on: true,
+        revision: V.chain.snapshot().revision,
+      });
+      await V.character.choose({
+        prefaceId: 'sermonizing',
+        revision: V.character.snapshot().revision,
+      });
+      const c = V.configuration.snapshot();
+      const part = c.parts.find((x) => x.variants.some((w) => w.id !== x.value));
+      await V.configuration.choosePart({
+        partId: part.id,
+        variantId: part.variants.find((w) => w.id !== part.value).id,
+        revision: c.revision,
+      });
+      const chosen = S.project(V);
+      const changed = S.acts(R).changedCount;
+      await R.setInstrumentDestination(S.args(R, { destination: null }));
+      await S.settle();
+      const loose = S.project(V);
+      await R.setInstrumentDestination(S.args(R, { destination: 'bluegrass' }));
+      await S.settle();
+      const back = S.project(V);
+      const backChanged = S.acts(R).changedCount;
+      instrument.set('banjo_5_string');
+      await S.settle();
+      instrument.set('oud');
+      await S.settle();
+      const reopened = S.project(V);
+      return { seeded, chosen, changed, loose, back, backChanged, reopened };
+    },
+    verdict: (g) =>
+      why(
+        !same(g.chosen, g.seeded) &&
+          g.changed > 0 &&
+          g.loose.room === g.chosen.room &&
+          g.loose.preface === g.chosen.preface &&
+          same(g.back, g.chosen) &&
+          g.backChanged === g.changed &&
+          same(g.reopened, g.chosen),
+        JSON.stringify(g).slice(0, 900)
+      ),
+  },
 };
 
 // One planted defect (at least) for every check: text edits to
@@ -6016,6 +6296,131 @@ STORE_MUTANTS['reopen rebuilds nothing'] = {
     ],
   ],
 };
+// The review's planted defects (finding 3): each must fail the check named.
+Object.assign(STORE_MUTANTS, {
+  'the configured add drops the pins': {
+    check: 'capture',
+    edits: [['          pinnedParts: card.pinnedParts || [],\n', '          pinnedParts: [],\n']],
+  },
+  'the configured add drops the chosen character': {
+    check: 'capture',
+    edits: [['          preface: card.preface,\n          prefaceAuto: card.prefaceAuto,\n', '']],
+  },
+  'set_environment with no card writes the first card': {
+    check: 'apply',
+    edits: [
+      [
+        "const c = 'card' in edit ? cardOf(edit.card) : E.envCardOf(E.app.cards);",
+        "const c = 'card' in edit ? cardOf(edit.card) : E.app.cards[0];",
+      ],
+    ],
+  },
+  'set_variant takes any variant id': {
+    check: 'apply',
+    edits: [
+      [
+        "      if (!part || (v !== null && !E.Variant(inst, part.id, v))) return no('INVALID');",
+        "      if (!part) return no('INVALID');",
+      ],
+    ],
+  },
+  'clear empties a list stage to null': {
+    check: 'apply',
+    edits: [
+      [
+        'writes.push(() => (c.chain[stage] = stageOf(stage).multiSelect ? [] : null));',
+        'writes.push(() => (c.chain[stage] = null));',
+      ],
+    ],
+  },
+  'a list stage shares the caller’s array': {
+    check: 'apply',
+    edits: [
+      [
+        'writes.push(() => (c.chain[stage] = v.slice()));',
+        'writes.push(() => (c.chain[stage] = v));',
+      ],
+    ],
+  },
+  // (Dropping Back to automatic's own suggestion changes nothing: the
+  // engine's history entry re-derives every automatic card's character.)
+  'Back to automatic leaves the card manual': {
+    check: 'apply',
+    edits: [
+      [
+        '        c.prefaceAuto = true;\n        c.preface = E.suggestPrefaceForCard(c);\n        E.pushHistory();',
+        '        c.preface = E.suggestPrefaceForCard(c);\n        E.pushHistory();',
+      ],
+    ],
+  },
+  'remove_tradition takes a genre not in the recipe': {
+    check: 'apply',
+    edits: [
+      [
+        "      if (!ids.length) return no('NOT_FOUND');\n      for (const id of ids) E.rmCard(id, { skipHistory: true });",
+        '      for (const id of ids) E.rmCard(id, { skipHistory: true });',
+      ],
+    ],
+  },
+  'preview choices not remembered': {
+    check: 'replay',
+    edits: [['    editsOf(pv.instrumentId).push(e);\n', '']],
+  },
+  'choices not replayed on a rebuild': {
+    check: 'replay',
+    edits: [['      for (const e of editsOf(id)) applyEdit(pv.card, e);\n', '']],
+  },
+  'addGenre without its busy guard': {
+    check: 'addGenre',
+    edits: [['        if (busy) return announce(M.BUSY_GENRE);\n', '']],
+  },
+  'Undo does not move the revision': {
+    check: 'staleRevision',
+    edits: [['    revision++;\n    const said = handover();', '    const said = handover();']],
+  },
+  'no STALE on a preview choice': {
+    check: 'stalePreview',
+    edits: [
+      [
+        "    if (a.revision !== pv.revision) return Promise.reject(fail('STALE', M.STALE_CHOICE));\n",
+        '',
+      ],
+    ],
+  },
+  'choosePart takes any variant id': {
+    check: 'stalePreview',
+    edits: [
+      [
+        '        if (!part || (v !== null && !(part.variants || []).some((x) => x.id === v))) return false;',
+        '        if (!part) return false;',
+      ],
+    ],
+  },
+  'no BUSY on a preview choice while it loads': {
+    check: 'busyPreview',
+    edits: [
+      ["    if (pv.state !== 'ready') return Promise.reject(fail('BUSY', M.BUSY_CHOICE));\n", ''],
+    ],
+  },
+  'views told in reverse order': {
+    check: 'immutability',
+    edits: [
+      [
+        '    const changed = VIEWS.filter((v) => unsent.delete(v));',
+        '    const changed = VIEWS.filter((v) => unsent.delete(v)).reverse();',
+      ],
+    ],
+  },
+  'apply skips the destination fallback': {
+    check: 'destination',
+    edits: [
+      [
+        "    const said = handover();\n    fallback();\n    touch('recipe', 'environment');\n    flush();\n    if (said) announce(said);\n    return changed;",
+        "    const said = handover();\n    touch('recipe', 'environment');\n    flush();\n    if (said) announce(said);\n    return changed;",
+      ],
+    ],
+  },
+});
 // The lazy views check's defect.
 STORE_MUTANTS['every view built at every change'] = {
   check: 'lazyViews',
