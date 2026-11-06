@@ -21,8 +21,9 @@
 //      Merge a known merge group with at least two rows, Move its old route,
 //      Defer its reason.
 //   5. STATUS. A row is marked done without naming a scenario (a file
-//      prototype/scenarios/<lane>/<name>.cjs or .mjs) that declares it, or a
-//      scenario's declaration is malformed. A scenario declares the rows it
+//      prototype/scenarios/<lane>/<name>.cjs or .mjs, its name not starting
+//      with a dot, as _prototype_scenarios.js discovers them for the runner
+//      too) that declares it, or a scenario's declaration is malformed. A scenario declares the rows it
 //      proves in one line of its header, before its first line of code:
 //      `// rows: 163, 164`, rows of this manifest, none twice (#665
 //      6675529176). A file that merely exists proves nothing.
@@ -63,6 +64,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { execFileSync } = require('node:child_process');
 const { parseInventory } = require('./_inventory_parser.js');
+const { discoverScenarios } = require('./_prototype_scenarios.js');
 
 const root = path.resolve(__dirname, '..');
 const MANIFEST = path.join(root, 'prototype', 'manifest.json');
@@ -94,24 +96,13 @@ const blobOf = (bytes) =>
 const manifest = JSON.parse(fs.readFileSync(MANIFEST, 'utf8'));
 const rows = manifest.rows || [];
 
-// The scenarios, as run_prototype_scenarios.js discovers them, and the rows
-// each declares. The declaration is one header line, before the first line
-// of code (a shebang, 'use strict', blank lines and comments come first).
+// The scenarios, discovered as run_prototype_scenarios.js discovers them (one
+// module, so a file one of them counts as a scenario the other can't skip),
+// and the rows each declares. The declaration is one header line, before the
+// first line of code (a shebang, 'use strict', blank lines and comments come
+// first).
 const SCENARIOS_DIR = path.join(root, 'prototype', 'scenarios');
-const SCENARIO_PATH = /^prototype\/scenarios\/[a-z0-9-]+\/[^/]+\.(cjs|mjs)$/;
-function scenarioFiles() {
-  if (!fs.existsSync(SCENARIOS_DIR)) return [];
-  return fs
-    .readdirSync(SCENARIOS_DIR, { withFileTypes: true })
-    .filter((d) => d.isDirectory())
-    .flatMap((d) =>
-      fs
-        .readdirSync(path.join(SCENARIOS_DIR, d.name))
-        .map((f) => `prototype/scenarios/${d.name}/${f}`)
-    )
-    .filter((rel) => SCENARIO_PATH.test(rel))
-    .sort();
-}
+const scenarioFiles = () => discoverScenarios(root).scenarios;
 const ROWS_LINE = /^\s*\/\/\s*rows\b/i;
 const ROWS_DECL = /^\/\/ rows: (\d+(?:, \d+)*)$/;
 function headerEnd(lines) {

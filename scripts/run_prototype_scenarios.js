@@ -11,10 +11,12 @@
 // neither is set, both are pointed at Playwright's own Chromium, which CI
 // installs, rather than each scenario's local default.
 //
-// THE RUN IS RECONCILED (#665 6675529176). Discovery walks every file under
-// prototype/scenarios/. A scenario is prototype/scenarios/<lane>/<name>.cjs
-// or .mjs; any other file there fails the run by name, because nothing would
-// run it. After the last scenario, the run fails unless the scenarios it ran
+// THE RUN IS RECONCILED (#665 6675529176). Discovery (_prototype_scenarios.js,
+// which check_prototype_manifest.js shares) walks every file under
+// prototype/scenarios/, dotfiles included. A scenario is
+// prototype/scenarios/<lane>/<name>.cjs or .mjs, its name not starting with a
+// dot; any other file there fails the run by name, because nothing would run
+// it. After the last scenario, the run fails unless the scenarios it ran
 // are exactly the ones it discovered, less EXCLUDED, each once: a scenario
 // dropped from the loop, run twice, or run without being discovered fails by
 // name, however the others did. An exclusion names a discovered scenario and
@@ -33,12 +35,12 @@
 //   node scripts/run_prototype_scenarios.js
 //   node scripts/run_prototype_scenarios.js --self-check
 //
-// --self-check runs no lane scenario. It copies this runner and
-// check_prototype_manifest.js into scratch trees of trivial scenarios, with a
-// fixture shell registry and manifest, and runs each check in CHECKS there,
-// then plants each defect in PLANTED (an edit to this file or to the
-// manifest check, as check_prototype_hosts.js plants host.js defects) and
-// fails unless every planted copy fails its check.
+// --self-check runs no lane scenario. It copies this runner,
+// check_prototype_manifest.js and _prototype_scenarios.js into scratch trees
+// of trivial scenarios, with a fixture shell registry and manifest, and runs
+// each check in CHECKS there, then plants each defect in PLANTED (an edit to
+// one of those three files, as check_prototype_hosts.js plants host.js
+// defects) and fails unless every planted copy fails its check.
 //
 // Exit 0 if every scenario passes, 1 if any fails or times out, the run
 // doesn't reconcile, or the manifest doesn't accept it, 2 if there are none
@@ -49,9 +51,9 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const { spawnSync } = require('child_process');
+const { discoverScenarios } = require('./_prototype_scenarios.js');
 
 const ROOT = path.resolve(__dirname, '..');
-const DIR = path.join(ROOT, 'prototype', 'scenarios');
 
 // Discovered scenarios this runner does not run, each with its reason. Every
 // run prints them. An entry that names no discovered scenario fails the run,
@@ -77,27 +79,11 @@ function timeoutSetting(raw) {
   return n;
 }
 
-// Every file under dir, as /-separated paths relative to it; dotfiles (an
-// editor's or the OS's) aside.
-function walk(dir, rel = '') {
-  return fs
-    .readdirSync(path.join(dir, rel), { withFileTypes: true })
-    .filter((d) => !d.name.startsWith('.'))
-    .flatMap((d) => {
-      const r = rel ? `${rel}/${d.name}` : d.name;
-      return d.isDirectory() ? walk(dir, r) : [r];
-    });
-}
-
-const SCENARIO = /^[a-z0-9-]+\/[^/]+\.(cjs|mjs)$/;
-const found = fs.existsSync(DIR) ? walk(DIR).sort() : [];
-const scenarios = found.filter((f) => SCENARIO.test(f)).map((f) => `prototype/scenarios/${f}`);
-const problems = found
-  .filter((f) => !SCENARIO.test(f))
-  .map(
-    (f) =>
-      `prototype/scenarios/${f} is not a scenario this runner runs (prototype/scenarios/<lane>/<name>.cjs or .mjs)`
-  );
+const { scenarios, strays } = discoverScenarios(ROOT);
+const problems = strays.map(
+  (f) =>
+    `${f} is not a scenario this runner runs (prototype/scenarios/<lane>/<name>.cjs or .mjs, the name not starting with a dot)`
+);
 
 if (!scenarios.length) {
   console.error('run_prototype_scenarios: no scenarios under prototype/scenarios/');
@@ -287,6 +273,10 @@ function selfCheck() {
       path.join(__dirname, '_inventory_parser.js'),
       'utf8'
     ),
+    'scripts/_prototype_scenarios.js': fs.readFileSync(
+      path.join(__dirname, '_prototype_scenarios.js'),
+      'utf8'
+    ),
   };
   // The committed exclusions' files, so they are discovered here too.
   for (const rel of Object.keys(EXCLUDED)) BASE[rel] = pass;
@@ -324,6 +314,22 @@ function selfCheck() {
           r,
           'prototype/scenarios/genre-targets/nested/deep.cjs is not a scenario this runner runs'
         ),
+    },
+    // A name starting with a dot is not skipped (#810 review of 03d848acf):
+    // a failing .targets.cjs, or a scenario in a lane folder starting with a
+    // dot, fails the run as a file nothing runs.
+    'a dot-named file fails': {
+      files: {
+        'prototype/scenarios/genre-targets/.targets.cjs': 'process.exit(1);\n',
+        'prototype/scenarios/.genre-x/x.cjs': 'process.exit(1);\n',
+      },
+      ok: (r) =>
+        r.status === 1 &&
+        says(
+          r,
+          'prototype/scenarios/genre-targets/.targets.cjs is not a scenario this runner runs'
+        ) &&
+        says(r, 'prototype/scenarios/.genre-x/x.cjs is not a scenario this runner runs'),
     },
     'a failing scenario fails': {
       files: { [TARGETS]: 'process.exit(3);\n' },
@@ -457,10 +463,17 @@ function selfCheck() {
     },
     'files the runner would not run are ignored': {
       check: 'a file the runner would not run fails',
+      edits: [['const problems = strays.map(', 'const problems = [].map(']],
+    },
+    // In _prototype_scenarios.js, which the runner and the manifest check
+    // share: the dotfile filter 03d848acf had.
+    'dot-named files are skipped': {
+      check: 'a dot-named file fails',
+      in: 'discovery',
       edits: [
         [
-          'const problems = found\n  .filter((f) => !SCENARIO.test(f))',
-          'const problems = found\n  .filter(() => false)',
+          '{ withFileTypes: true }).flatMap(',
+          "{ withFileTypes: true }).filter((d) => !d.name.startsWith('.')).flatMap(",
         ],
       ],
     },
@@ -469,7 +482,8 @@ function selfCheck() {
       edits: [['const ok = !r.error && r.status === 0;', 'const ok = !r.error;']],
     },
     // In the runner (the default) or, with in: 'manifest', in
-    // check_prototype_manifest.js.
+    // check_prototype_manifest.js (with in: 'discovery', in
+    // _prototype_scenarios.js, above).
     'the acceptance never runs': {
       check: 'a done row is proven by this run',
       edits: [['const accept = spawnSync(', 'const accept = { status: 0 } || spawnSync(']],
@@ -546,11 +560,17 @@ function selfCheck() {
   };
 
   // A runner edit applies to the runner above this section only (below,
-  // every `from` also occurs as a literal); a manifest edit, to all of
-  // check_prototype_manifest.js. Each `from` must occur exactly once.
+  // every `from` also occurs as a literal); a manifest or discovery edit, to
+  // all of check_prototype_manifest.js or _prototype_scenarios.js. Each
+  // `from` must occur exactly once.
   const SRC = fs.readFileSync(__filename, 'utf8');
   const cut = SRC.indexOf('\n// ── --self-check');
   const MANIFEST_CHECK = 'scripts/check_prototype_manifest.js';
+  const DISCOVERY = 'scripts/_prototype_scenarios.js';
+  const FILE_OF = {
+    manifest: 'check_prototype_manifest.js',
+    discovery: '_prototype_scenarios.js',
+  };
   const edit = (src, edits) => {
     for (const [from, to] of edits) {
       if (src.split(from).length !== 2) return null;
@@ -558,16 +578,18 @@ function selfCheck() {
     }
     return src;
   };
-  // The runner and the manifest check with these edits, or null if one
-  // doesn't apply. A planted defect is in the runner unless it says
-  // in: 'manifest'.
-  const plant = ({ runner = [], manifest = [] }) => {
+  // The runner, the manifest check and the discovery with these edits, or
+  // null if one doesn't apply. A planted defect is in the runner unless it
+  // says in: 'manifest' or in: 'discovery'.
+  const plant = ({ runner = [], manifest = [], discovery = [] }) => {
     const head = edit(SRC.slice(0, cut), runner);
     const check = edit(BASE[MANIFEST_CHECK], manifest);
-    return head === null || check === null ? null : { runner: head + SRC.slice(cut), check };
+    const found = edit(BASE[DISCOVERY], discovery);
+    return head === null || check === null || found === null
+      ? null
+      : { runner: head + SRC.slice(cut), check, discovery: found };
   };
-  const where = (planted) =>
-    planted.in === 'manifest' ? { manifest: planted.edits } : { runner: planted.edits };
+  const where = (planted) => ({ [planted.in || 'runner']: planted.edits });
   // The manifest check's --after-run, again, on the results a run printed.
   const accept = (tree, r, { runId } = {}) => {
     const m = /^results: (.+) \(run ([0-9a-f-]+)\)$/m.exec(r.out);
@@ -586,6 +608,7 @@ function selfCheck() {
     const src = plant({
       runner: [...(check.edits || []), ...(p.runner || [])],
       manifest: p.manifest,
+      discovery: p.discovery,
     });
     if (src === null) return null;
     const tree = path.join(scratch, String(trees++));
@@ -594,6 +617,7 @@ function selfCheck() {
       ...(check.files || {}),
       'scripts/run_prototype_scenarios.js': src.runner,
       [MANIFEST_CHECK]: src.check,
+      [DISCOVERY]: src.discovery,
     };
     for (const [rel, text] of Object.entries(files)) {
       if (text === null) continue;
@@ -637,7 +661,7 @@ function selfCheck() {
     }
     if (plant(where(planted)) === null) {
       bad.push(
-        `the planted defect "${name}" no longer applies to ${planted.in === 'manifest' ? 'check_prototype_manifest.js' : 'the runner'}`
+        `the planted defect "${name}" no longer applies to ${FILE_OF[planted.in] || 'the runner'}`
       );
       continue;
     }
