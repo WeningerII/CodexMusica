@@ -404,6 +404,140 @@ console.log('\nset_environment with no card:');
   );
 }
 
+// ── what set_environment wrote: the card's envWritten record (#671) ─────────
+//
+// The connector says a setting does not render only when a set_environment
+// wrote it (BB8 6681659990). The record is how it knows: set by
+// set_environment, a field out of it when it is cleared or a set_preface
+// re-derives it, absent when empty, never inferred from values, and never read
+// by a renderer. The ops share it by reference through clone(), so each must
+// assign a fresh one; the IMMUTABLE checks below catch one changed in place.
+console.log('\nenvWritten record:');
+{
+  const K = W.ENV_RECORD;
+  const seed = W.seed(['garage_rock']);
+  const bass = seed.cards.find((c) => c.instrumentId === 'electric_bass').id;
+  const rec = (ws, id = bass) => ws.cards.find((c) => c.id === id)[K];
+  const json = (x) => JSON.stringify(x);
+  check(
+    'a seed records nothing (no key on any card)',
+    seed.cards.every((c) => !(K in c))
+  );
+  const w1 = W.setEnvironment(seed, bass, { room: 'cathedral', chain: { mic: 'ribbon_passive' } });
+  check(
+    'set_environment records what it wrote, by field',
+    json(rec(w1)) === json({ room: 'cathedral', mic: 'ribbon_passive' }),
+    json(rec(w1))
+  );
+  const env = W.setEnvironment(seed, null, { tuning: 'just_intonation' });
+  check(
+    'with no card it records on the environment card it wrote to',
+    json(rec(env, envCardOfSeed(env))) === json({ tuning: 'just_intonation' })
+  );
+  const w2 = W.setEnvironment(w1, bass, { chain: { fx: 'tape_echo' } });
+  const w3 = W.setEnvironment(w2, bass, { chain: { fx: ['plate_reverb', 'tape_echo'] } });
+  check(
+    'a multi-select stage records the items written, an item already there included',
+    json(rec(w3).fx) === json(['tape_echo', 'plate_reverb']),
+    json(rec(w3))
+  );
+  check(
+    'IMMUTABLE: an op leaves the record it was given as it was',
+    json(rec(w1)) === json({ room: 'cathedral', mic: 'ribbon_passive' }) &&
+      json(rec(w2).fx) === json(['tape_echo'])
+  );
+  const w4 = W.setEnvironment(w3, bass, { clear: ['fx'], chain: { mic: null } });
+  check(
+    'clear and a null value take the field out',
+    json(rec(w4)) === json({ room: 'cathedral' }),
+    json(rec(w4))
+  );
+  const w5 = W.setEnvironment(w4, bass, { clear: ['fx'], chain: { fx: 'tape_echo' } });
+  check('clear then add records exactly the new list', json(rec(w5).fx) === json(['tape_echo']));
+  check(
+    'a record emptied leaves the card without the key',
+    !(K in W.setEnvironment(w4, bass, { clear: ['room'] }).cards.find((c) => c.id === bass))
+  );
+  // set_preface: a field the re-derivation changed leaves; one it kept stays.
+  const card = (ws) => ws.cards.find((c) => c.id === bass);
+  let moved = null;
+  let kept = null;
+  for (const p of C.PREFACE_LEXICON || []) {
+    let out;
+    try {
+      out = W.setPreface(w4, bass, p.id);
+    } catch {
+      continue;
+    }
+    if (!moved && card(out).room !== 'cathedral') moved = out;
+    if (!kept && card(out).room === 'cathedral') kept = out;
+    if (moved && kept) break;
+  }
+  check(
+    'set_preface takes out a field whose value it re-derived',
+    moved && !(K in card(moved)),
+    moved && json(card(moved)[K])
+  );
+  check(
+    'set_preface keeps a field it left as it was',
+    kept && json(card(kept)[K]) === json({ room: 'cathedral' }),
+    kept && json(card(kept)[K])
+  );
+  check(
+    'IMMUTABLE: set_preface leaves the record it was given',
+    json(rec(w4)) === '{"room":"cathedral"}'
+  );
+  // Ops that do not write the environment carry the record with the card.
+  const carried = [
+    W.setVariant(
+      w4,
+      bass,
+      Object.keys(card(w4).parts)[0],
+      card(w4).parts[Object.keys(card(w4).parts)[0]]
+    ),
+    W.moveInstrument(w4, bass),
+    W.addInstrument(w4, GUEST || 'harmonica'),
+  ];
+  check(
+    'set_variant, move_instrument and add_instrument carry it unchanged',
+    carried.every((ws) => json(rec(ws)) === '{"room":"cathedral"}')
+  );
+  // Read defensively: a record off the wire that is not one is ignored.
+  const junk = {
+    cards: seed.cards.map((c) =>
+      c.id === bass ? { ...c, [K]: { room: 7, fx: 'x', nope: 'y' } } : c
+    ),
+  };
+  check(
+    'a malformed record reads as nothing recorded',
+    json(W.envRecord(junk.cards.find((c) => c.id === bass))) === '{}'
+  );
+  check(
+    'a malformed record does not stop a write, which stores a clean one',
+    json(rec(W.setEnvironment(junk, bass, { tuning: 'just_intonation' }))) ===
+      '{"tuning":"just_intonation"}'
+  );
+  // No renderer reads it: the same cards render the same bytes without it.
+  const bare = { cards: w3.cards.map(({ [K]: _, ...c }) => c) };
+  check(
+    'no format renders a byte of it',
+    ['rich', 'tags', 'prose', 'compact'].every(
+      (format) =>
+        W.render(w3, { format, ceiling: 1000 }) === W.render(bare, { format, ceiling: 1000 })
+    )
+  );
+  check(
+    'the retained rule: a single value while stored, an effect while any written item is listed',
+    W.envRecordHolds(card(w3), 'room', 'cathedral') &&
+      !W.envRecordHolds(card(w3), 'room', 'tin_roofed_shack') &&
+      W.envRecordHolds({ chain: { fx: ['a', 'b'] } }, 'fx', ['c', 'b']) &&
+      !W.envRecordHolds({ chain: { fx: ['a'] } }, 'fx', ['b'])
+  );
+}
+function envCardOfSeed(ws) {
+  return require('./_recipe_stack.js').envCardOf(ws.cards).id;
+}
+
 // ── card ids belong to the workspace, not the process ─────────────────────
 //
 // Ids used to come from a module-level counter, so a workspace minted by one
