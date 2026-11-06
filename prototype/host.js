@@ -10,6 +10,17 @@
 // fields. A lane is imported the first time its route is shown and mounted
 // once: switching routes hides the panel and keeps the lane, so its state and
 // nodes survive. unmount() is for tests and teardown.
+//
+// A lane that closes itself (a sheet's Close button or Escape, #665 B0) is
+// registered with closable: true, and only that lane's ctx also carries
+// close(). ctx.close() takes no arguments and closes through the host: the
+// lane's own unmount() runs, ctx.signal aborts, the host node goes, and the
+// host is idle again, so its next show() mounts the lane afresh with a new
+// ctx and signal. If focus was in the lane (or nowhere), it returns to what
+// opened it: show()'s returnFocus, else whatever had focus when show()
+// mounted the lane, else the panel's heading. It returns true when it closed
+// this mount and false when this mount had already ended or not yet begun, so
+// a stale ctx can't close a later mount.
 
 import { scope } from './storage.js';
 
@@ -62,6 +73,7 @@ export function createHost(lane, panel) {
   let controller = null;
   let host = null;
   let pending = null;
+  let opener = null; // what show() was opened from, for close()
 
   // Several lanes can share a panel. Each host goes after the panel's last
   // one, so the lanes appear in registry order.
@@ -108,17 +120,31 @@ export function createHost(lane, panel) {
       return;
     }
     host.replaceChildren(); // the lane receives an empty host
-    controller = new AbortController();
+    const mine = new AbortController();
+    controller = mine;
+    // This mount's close, for a closable lane only: once, and never a later
+    // mount's.
+    const close = () => {
+      if (controller !== mine || state !== 'mounted') return false;
+      const node = host;
+      const active = document.activeElement;
+      const hadFocus = !active || active === document.body || node.contains(active);
+      const back = opener;
+      teardown();
+      if (hadFocus) refocus(back);
+      return true;
+    };
     const ctx = Object.freeze({
       ...extra,
+      ...(lane.closable === true ? { close } : {}),
       storage: scope(lane.id),
       announce,
-      signal: controller.signal,
+      signal: mine.signal,
     });
     try {
       handle = mod.mount(host, ctx) || {};
     } catch {
-      controller.abort();
+      mine.abort();
       state = 'unavailable';
       explain(host, `${lane.label} couldn’t start. The rest of the prototype still works.`);
       return;
@@ -127,13 +153,43 @@ export function createHost(lane, panel) {
     if (again && typeof handle.focus === 'function') handle.focus();
   }
 
+  // unmount() and ctx.close(): the lane's own unmount(), then its signal and
+  // its node. The fields are cleared first, so a lane whose unmount() calls
+  // close() again finds nothing left to close. The placeholder comes back
+  // only if no other lane is left in the panel.
+  function teardown() {
+    const h = handle;
+    const c = controller;
+    const node = host;
+    handle = controller = host = pending = opener = null;
+    state = 'idle'; // the next show() mounts the lane afresh
+    try {
+      if (h && typeof h.unmount === 'function') h.unmount();
+    } finally {
+      if (c) c.abort();
+      if (node) node.remove();
+      const placeholder = panel.querySelector('[data-placeholder]');
+      if (placeholder && !panel.querySelector('[data-feature-host]')) placeholder.hidden = false;
+    }
+  }
+
+  // Focus back to what opened the lane, if it is still on the page and isn't
+  // the page itself; otherwise to the panel's heading.
+  function refocus(to) {
+    const ok = to && to !== document.body && to.isConnected && typeof to.focus === 'function';
+    const target = ok ? to : panel.querySelector('h1');
+    if (target) target.focus();
+  }
+
   return {
     get state() {
       return state;
     },
-    // Called each time the route is shown; mounts on the first call only.
-    show() {
+    // Called each time the route is shown; mounts when idle: the first call,
+    // and the first after a close. returnFocus is where close() puts focus.
+    show({ returnFocus } = {}) {
       if (state === 'idle') {
+        opener = returnFocus || document.activeElement;
         state = 'loading';
         pending = mountNow();
       }
@@ -143,13 +199,7 @@ export function createHost(lane, panel) {
       if (handle && typeof handle.focus === 'function') handle.focus();
     },
     unmount() {
-      if (handle && typeof handle.unmount === 'function') handle.unmount();
-      if (controller) controller.abort();
-      if (host) host.remove();
-      const placeholder = panel.querySelector('[data-placeholder]');
-      if (placeholder) placeholder.hidden = false;
-      handle = controller = host = pending = null;
-      state = 'idle';
+      teardown();
     },
   };
 }

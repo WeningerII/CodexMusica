@@ -38,7 +38,9 @@ function routeFromHash() {
 
 // The lane registry: route → lane. Each import is a literal path, so the
 // gate can check where feature code may come from. A lane's file not being
-// in this build is a stated state, not an error (host.js).
+// in this build is a stated state, not an error (host.js). A lane that closes
+// itself (a sheet or a dialog: its Close button, Escape) adds closable: true,
+// and only its ctx then carries close() (host.js, #665 B0). None does yet.
 const draft = scope('host');
 let draftUnsaved = false;
 const LANES = {

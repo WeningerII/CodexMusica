@@ -65,6 +65,10 @@
 //      browser cannot speak.
 //   9. UNMOUNT. unmount() does not abort ctx.signal, remove the host and
 //      restore the placeholder.
+//  14. CLOSE (#665 B0). A lane registered closable: true lacks ctx.close, or
+//      a lane without it has one, so every list in CTX_KEYS still holds. Each
+//      close check also runs on host.js with a planted defect, served beside
+//      it as host.js?mutant=<name>, and that defect must fail the check.
 //
 //   node scripts/check_prototype_hosts.js
 //
@@ -1717,6 +1721,114 @@ async function unmounting(browser, srv) {
   await context.close();
 }
 
+// ── 14. CLOSE (#665 B0) ─────────────────────────────────────────────────────
+// A closable fixture lane and a plain one, in one panel, on host.js as
+// committed and then on each planted defect (CLOSE_MUTANTS): the edits to
+// host.js, applied in order, each of whose `from` must occur exactly once,
+// and the check that the defect must fail.
+const CLOSER = `
+export function mount(host, ctx) {
+  const lane = host.dataset.featureHost;
+  const all = window.__closer;
+  const rec = (all[lane] = all[lane] || { mounts: 0, keys: [] });
+  rec.mounts++;
+  rec.keys.push(Object.keys(ctx).sort().join());
+  const field = document.createElement('textarea');
+  field.setAttribute('aria-label', lane + ' field');
+  host.append(field);
+  return { unmount() {}, focus() { field.focus(); } };
+}
+`;
+const CLOSE_MUTANTS = {
+  'close in every ctx': {
+    check: 'opt-in',
+    edits: [['...(lane.closable === true ? { close } : {}),', 'close,']],
+  },
+};
+const HOST_JS = fs.readFileSync(path.join(root, 'prototype', 'host.js'), 'utf8');
+function plant(edits) {
+  let src = HOST_JS;
+  for (const [from, to] of edits) {
+    if (src.split(from).length !== 2) return null;
+    src = src.replace(from, () => to);
+  }
+  return src;
+}
+
+// One run on the host module at hostUrl: what the gate reads back.
+async function closeRun(page, hostUrl) {
+  return page.evaluate(
+    async ({ hostUrl, src }) => {
+      const { createHost } = await import(hostUrl);
+      window.__closer = {};
+      const panel = document.createElement('section');
+      panel.innerHTML = '<h1 tabindex="-1">Close probe</h1><p data-placeholder>Placeholder.</p>';
+      document.body.append(panel);
+      const url = URL.createObjectURL(new Blob([src], { type: 'text/javascript' }));
+      const lane = (id, more) => ({
+        id,
+        label: id,
+        load: () => import(url),
+        context: async () => ({}),
+        unloaded: 'x',
+        ...more,
+      });
+      const stay = createHost(lane('stay'), panel);
+      const closer = createHost(lane('closer', { closable: true }), panel);
+      await stay.show();
+      await closer.show();
+      const got = {
+        keys: { stay: window.__closer.stay.keys[0], closer: window.__closer.closer.keys[0] },
+      };
+      closer.unmount();
+      stay.unmount();
+      panel.remove();
+      return got;
+    },
+    { hostUrl, src: CLOSER }
+  );
+}
+
+// The checks, by name, on one run.
+function closeVerdict(got) {
+  return {
+    'opt-in':
+      got.keys.closer === 'announce,close,signal,storage' &&
+      got.keys.stay === 'announce,signal,storage',
+  };
+}
+
+let planted = 0;
+async function closing(browser, srv) {
+  const { context, page, errors } = await newPage(browser, srv);
+  const mutants = new Map();
+  await context.route(
+    (u) => u.pathname === '/prototype/host.js' && u.searchParams.has('mutant'),
+    (route) =>
+      route.fulfill({
+        status: 200,
+        contentType: 'text/javascript',
+        body: mutants.get(new URL(route.request().url()).searchParams.get('mutant')),
+      })
+  );
+  await page.goto(`${srv.url}/prototype/#map`);
+  const got = await closeRun(page, '/prototype/host.js');
+  for (const [check, ok] of Object.entries(closeVerdict(got)))
+    expect(ok, `close: ${check} failed on host.js: ${JSON.stringify(got)}`);
+  expect(!errors.length, `close: uncaught errors: ${errors.join(' | ')}`);
+  for (const [name, { check, edits }] of Object.entries(CLOSE_MUTANTS)) {
+    const src = plant(edits);
+    expect(!!src, `close: the planted defect "${name}" no longer applies to host.js`);
+    if (!src) continue;
+    mutants.set(name, src);
+    const bad = await closeRun(page, `/prototype/host.js?mutant=${encodeURIComponent(name)}`);
+    const caught = !closeVerdict(bad)[check];
+    expect(caught, `close: with the planted defect "${name}", the ${check} check still passes`);
+    if (caught) planted++;
+  }
+  await context.close();
+}
+
 // ── 10. GENRE DISCOVERY (#668 6665493327) ─────────────────────────────────
 // Categories and Find a sound against codex.html's own gpMembership,
 // getRoots, traditionGlyphsHTML's glyphs and gpResults: every node's count
@@ -2193,6 +2305,7 @@ async function discoveryChecks(browser, srv) {
     await readingChecks(browser, srv);
     await speechChecks(browser, srv);
     await unmounting(browser, srv);
+    await closing(browser, srv);
   } finally {
     await browser.close();
     await srv.close();
@@ -2202,7 +2315,9 @@ async function discoveryChecks(browser, srv) {
     for (const p of problems) console.error(`  ✗ ${p}`);
     process.exit(1);
   }
-  console.log(`check_prototype_hosts: ${checks}/${checks} checks pass`);
+  console.log(
+    `check_prototype_hosts: ${checks}/${checks} checks pass; ${planted}/${Object.keys(CLOSE_MUTANTS).length} planted host.js defects fail their checks`
+  );
 })().catch((e) => {
   console.error(e);
   process.exit(1);
