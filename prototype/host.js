@@ -18,9 +18,11 @@
 // host is idle again, so its next show() mounts the lane afresh with a new
 // ctx and signal. If focus was in the lane (or nowhere), it returns to what
 // opened it: show()'s returnFocus, else whatever had focus when show()
-// mounted the lane, else the panel's heading. It returns true when it closed
-// this mount and false when this mount had already ended or not yet begun, so
-// a stale ctx can't close a later mount.
+// mounted the lane, else, if that has gone or can't take focus, the panel's
+// heading. It returns true when it closed this mount and false when this
+// mount had already ended or not yet begun, so a stale ctx can't close a
+// later mount. If the lane's own unmount() throws, the host still closes,
+// focus included, and the error comes back to the lane from close().
 
 import { scope } from './storage.js';
 
@@ -139,8 +141,11 @@ export function createHost(lane, panel) {
       const active = document.activeElement;
       const hadFocus = !active || active === document.body || node.contains(active);
       const back = opener;
-      teardown();
-      if (hadFocus) refocus(back);
+      try {
+        teardown();
+      } finally {
+        if (hadFocus) refocus(back); // even if the lane's unmount() threw
+      }
       return true;
     };
     const ctx = Object.freeze({
@@ -182,12 +187,13 @@ export function createHost(lane, panel) {
     }
   }
 
-  // Focus back to what opened the lane, if it is still on the page and isn't
-  // the page itself; otherwise to the panel's heading.
+  // Focus back to what opened the lane, if it is still on the page, isn't
+  // the page itself and takes focus (a disabled, hidden or inert one
+  // doesn't); otherwise to the panel's heading.
   function refocus(to) {
     const ok = to && to !== document.body && to.isConnected && typeof to.focus === 'function';
-    const target = ok ? to : panel.querySelector('h1');
-    if (target) target.focus();
+    if (ok) to.focus();
+    if (!ok || document.activeElement !== to) panel.querySelector('h1')?.focus();
   }
 
   return {

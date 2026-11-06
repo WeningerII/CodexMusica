@@ -80,10 +80,13 @@
 //      disturbed; close() takes focus from outside the lane; focus does not
 //      return to the opener when the lane cleared its own content (and so
 //      the focus) before it called close(); focus does not fall back to the
-//      panel heading when the opener is gone, or ignores show()'s
-//      returnFocus. Each check also runs on host.js with a planted defect,
-//      served beside it as host.js?mutant=<name>, and that defect must fail
-//      the check under both Close and Escape.
+//      panel heading when the opener is gone, or is still on the page but
+//      can't take focus (disabled), or ignores show()'s returnFocus; a lane
+//      whose own unmount() throws does not get the error back from close(),
+//      or the host does not still close, focus included. Each check also
+//      runs on host.js with a planted defect, served beside it as
+//      host.js?mutant=<name>, and that defect must fail the check under both
+//      Close and Escape.
 //  15. ON DEMAND (#665 B0-3). On fixture lanes opened through
 //      createOnDemand(panel) in a panel that already holds a tab lane: open()
 //      does not mount a lane after the panel's lanes with focus in it, or
@@ -1767,9 +1770,10 @@ async function unmounting(browser, srv) {
 // host.js, applied in order, each of whose `from` must occur exactly once,
 // and the check that the defect must fail. The fixture lane closes itself
 // as a sheet does: its Close button, or Escape anywhere inside it. Its own
-// ctx fields ask for two variants: closeInMount calls close() inside mount(),
-// and contentFirst clears the lane's own content (and with it the focus)
-// before it calls close(), as a sheet's `unmount(); ctx.close();` would.
+// ctx fields ask for three variants: closeInMount calls close() inside
+// mount(), contentFirst clears the lane's own content (and with it the focus)
+// before it calls close(), as a sheet's `unmount(); ctx.close();` would, and
+// unmountThrows makes its unmount() throw, as a buggy lane's might.
 const CLOSER = `
 export function mount(host, ctx) {
   const lane = host.dataset.featureHost;
@@ -1811,7 +1815,14 @@ export function mount(host, ctx) {
     }, { signal: ctx.signal });
     if (ctx.closeInMount) rec.inMount = ctx.close();
   }
-  return { unmount() { unmounted = true; rec.unmounts++; }, focus() { field.focus(); } };
+  return {
+    unmount() {
+      unmounted = true;
+      rec.unmounts++;
+      if (ctx.unmountThrows) throw new Error('the lane’s unmount failed');
+    },
+    focus() { field.focus(); },
+  };
 }
 `;
 const OPENER_LINE = 'let opener = null; // what show() was opened from, for close()';
@@ -1828,6 +1839,15 @@ const CLOSE_MUTANTS = {
   'close drops focus': {
     check: 'focus to the opener',
     edits: [['if (hadFocus) refocus(back);', '']],
+  },
+  'a throwing unmount drops focus': {
+    check: 'unmount throws',
+    edits: [
+      [
+        'try {\n        teardown();\n      } finally {\n        if (hadFocus) refocus(back);',
+        '{\n        teardown();\n        if (hadFocus) refocus(back);',
+      ],
+    ],
   },
   'close skips the lane’s unmount': {
     check: 'lane unmounted',
@@ -1916,7 +1936,11 @@ const CLOSE_MUTANTS = {
   },
   'no fallback to the heading': {
     check: 'heading fallback',
-    edits: [["const target = ok ? to : panel.querySelector('h1');", 'const target = to;']],
+    edits: [["if (!ok || document.activeElement !== to) panel.querySelector('h1')?.focus();", '']],
+  },
+  'an opener that can’t take focus is trusted': {
+    check: 'unfocusable opener',
+    edits: [['if (!ok || document.activeElement !== to)', 'if (!ok)']],
   },
   'returnFocus ignored': {
     check: 'returnFocus',
@@ -2052,6 +2076,35 @@ async function closeRun(page, hostUrl, via) {
     await r.closer.show({ returnFocus: elsewhere });
     if (c.fields[3]) c.fields[3].focus();
     const explicit = { returned: closeOf(3), focus: where() };
+    // The opener is still on the page but can't take focus: the heading.
+    const stuck = document.createElement('button');
+    stuck.textContent = 'Stuck';
+    r.panel.append(stuck);
+    stuck.focus();
+    await r.closer.show();
+    stuck.disabled = true;
+    if (c.fields[4]) c.fields[4].focus();
+    const unfocusable = { returned: closeOf(4), focus: where() };
+    stuck.remove();
+    // A lane whose own unmount() throws gets the error back from close(),
+    // and the host still closes, focus included.
+    const thrower = r.make('thrower', { unmountThrows: true });
+    r.opener.focus();
+    await thrower.show();
+    const t = window.__closer.thrower;
+    t.fields[0].focus();
+    const throws = { threw: null };
+    try {
+      throws.returned = t.ctxs[0].close();
+    } catch (e) {
+      throws.threw = e.message;
+    }
+    Object.assign(throws, {
+      state: thrower.state,
+      nodes: count('thrower'),
+      aborted: t.ctxs[0].signal.aborted,
+      focus: where(),
+    });
     // A lane that calls close() inside its own mount() hasn't begun: nothing
     // closes, and the mount stands until a later close.
     const early = r.make('early', { closeInMount: true });
@@ -2068,7 +2121,7 @@ async function closeRun(page, hostUrl, via) {
     r.first = r.make('first', { contentFirst: true });
     r.opener.focus();
     await r.first.show();
-    return { after, again, stale, away, fallback, explicit, during };
+    return { after, again, stale, away, fallback, explicit, unfocusable, throws, during };
   });
   // The person closes it; focus was nowhere by the time close() ran.
   await closeBy(page, 'first', via);
@@ -2138,6 +2191,13 @@ function closeVerdict(g) {
       g.nowhere.state === 'idle' &&
       g.nowhere.nodes === 0,
     'heading fallback': g.fallback.returned === true && g.fallback.focus === 'heading',
+    'unfocusable opener': g.unfocusable.returned === true && g.unfocusable.focus === 'heading',
+    'unmount throws':
+      g.throws.threw === 'the lane’s unmount failed' &&
+      g.throws.state === 'idle' &&
+      g.throws.nodes === 0 &&
+      g.throws.aborted === true &&
+      g.throws.focus === 'opener',
     returnFocus: g.explicit.returned === true && g.explicit.focus === 'elsewhere',
   };
 }
