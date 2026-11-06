@@ -13711,18 +13711,39 @@ function _refocusPreface(cardId, { chip = '', control = '.preface-input' } = {})
   const target = [pick, sec.querySelector(control), sec.querySelector('.preface-input')].find(shown);
   if (target) target.focus({ preventScroll: true });
 }
+// setPreface's record rule (scripts/_workspace_ops.js): keep each recorded
+// field whose value is the same before and after the re-derivation.
+function dropReDerivedEnv(card, was) {
+  const record = envRecordOf(card.envWritten);
+  const multi = (field) => !!CHAIN_SECTIONS.find(s => s.id === field)?.multiSelect;
+  const value = (c, field) => {
+    if (field === 'room' || field === 'tuning') return c[field] || null;
+    const v = (c.chain || {})[field];
+    return multi(field) ? (Array.isArray(v) ? v.join('\u0000') : '') : v || null;
+  };
+  const kept = Object.keys(record).filter(field => value(was, field) === value(card, field));
+  if (kept.length < Object.keys(record).length)
+    storeEnvRecordOn(card, Object.fromEntries(kept.map(field => [field, record[field]])));
+}
 function commitPrefaceChange(card, prefaceId) {
   if (!card || !prefaceId) return;
   const result = (typeof inverseConfigureForPreface === 'function')
     ? inverseConfigureForPreface(card, prefaceId)
     : null;
   if (result) {
+    const was = { room: card.room, tuning: card.tuning, chain: JSON.parse(JSON.stringify(card.chain || {})) };
     result.apply();
     // A preface pick re-derives the whole card by design, so the part pins it
     // just overwrote are spent. Carrying them forward would make the next
     // material edit restore values this call deliberately moved. Mirrors
     // scripts/_workspace_ops.js:setPreface.
     card.pinnedParts = [];
+    // And as setPreface does, a field of the record (envWritten) whose value
+    // the re-derivation changed leaves it: the card no longer holds what was
+    // written there, and a later preface that lands on the same value again
+    // must not read as the write (BB8, #826 6694245096). A field it left as it
+    // was keeps the write.
+    dropReDerivedEnv(card, was);
   } else {
     // Target not in lexicon (free-form word) — just set the label without
     // reshaping. The inverse can't run without a token signature.
@@ -17620,7 +17641,8 @@ function _detailFocusTarget(t) {
 // warning. An effect switched off leaves this card's record and settles
 // nothing: the connector has no edit that removes one effect. Only these clicks write: rendering the panel, a restore,
 // Undo and Redo (which restore the record with the rest of the card), a preface
-// cascade and every other programmatic set leave the record as it is. The panel
+// cascade and every other programmatic set write nothing (a preface pick only
+// drops the fields it re-derived, as set_preface does: dropReDerivedEnv). The panel
 // is the editor on envCardOf's card, so a pick on any other card writes nothing,
 // as before: the caller says whether the card was that one before the pick, and
 // calls this once the value is stored, since set_environment settles the other

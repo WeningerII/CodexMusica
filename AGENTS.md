@@ -151,7 +151,8 @@ pipeline plans and grades songs whose every line you write; no connector call re
   `set_preface` first if you want to steer the cascade. The `envWritten` record a `set_environment`
   keeps on a card is also written by a pick in the app's Recording environment panel, which
   records and settles exactly as a `set_environment` without `card` does. Nothing else the app
-  does writes it. Its saves and exports carry it, and a card the app duplicates gets the values
+  does writes it, and a preface picked in the app drops the fields it re-derives, as
+  `set_preface` does. Its saves and exports carry it, and a card the app duplicates gets the values
   without the record, since nothing was written on the copy.
   <!-- @promise: connector-edit-parity -->
 - **What each tool touches.** Recipe computation is deterministic and closed-world, and no tool on

@@ -118,6 +118,13 @@ what a `set_environment` wrote on it, inside the workspace, and the warnings rea
   opening the panel, a restore, Undo and Redo (which restore the record with the rest of
   the card) and every programmatic set leave it as it is, and a pick on a card that is not
   the environment card, outside the panel, writes nothing.
+- **A preface picked in the app drops what it re-derives from the record**, as `set_preface`
+  does: a recorded field whose value the re-derivation changes leaves the record, and one it
+  leaves as it was keeps it. The app left the record as it was, so a later preface that
+  landed back on the written value (bluegrass: a room `ice_glacier` written on the second
+  card, then the prefaces conspiring and shrieking) brought `ENVIRONMENT_NOT_RENDERED` back
+  for a room the preface derived. `check_edit_parity.js` runs that sequence on both paths
+  and compares the record with `set_preface`'s after every preface pick it makes.
 
 ### Fixed — a pinned descriptor or preface is disclosed only on its own card; a filtered CLI swap says so (#671)
 

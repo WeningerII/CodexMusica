@@ -376,7 +376,9 @@ const CLEARABLE = () => ['room', 'tuning', ...(C.CHAIN_SECTIONS || []).map((s) =
 // empty, so a workspace no set_environment touched is the same bytes as before.
 // No renderer reads it, so no recipe byte depends on it. In the app, a pick in
 // the Recording environment panel writes it as a set_environment without `card`
-// does (recordEnvPick in src/app.js); nothing else there writes it. clone() gives each card its own copy, and every op here still
+// does (recordEnvPick in src/app.js); nothing else there writes it, and a
+// preface pick there drops what it re-derived, as set_preface does below
+// (dropReDerivedEnv). clone() gives each card its own copy, and every op here still
 // assigns a fresh object rather than changing one in place.
 //
 // It holds field names and the catalog ids written under them, never a card id:
