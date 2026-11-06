@@ -127,15 +127,19 @@ function model({ stale = true, busy = true, invalidate = true } = {}) {
       controller = new AbortController();
     // Simulate native focus loss on disabling a focused button; jsdom alone
     // does not implement it. This is explicitly not real-browser evidence.
-    const proto = dom.window.HTMLButtonElement.prototype,
-      desc = Object.getOwnPropertyDescriptor(proto, 'disabled');
-    Object.defineProperty(proto, 'disabled', {
-      ...desc,
-      set(value) {
-        if (value && doc.activeElement === this) this.blur();
-        desc.set.call(this, value);
-      },
-    });
+    for (const proto of [
+      dom.window.HTMLButtonElement.prototype,
+      dom.window.HTMLSelectElement.prototype,
+    ]) {
+      const desc = Object.getOwnPropertyDescriptor(proto, 'disabled');
+      Object.defineProperty(proto, 'disabled', {
+        ...desc,
+        set(value) {
+          if (value && doc.activeElement === this) this.blur();
+          desc.set.call(this, value);
+        },
+      });
+    }
     let announcements = 0;
     const lane = mount(
       host,
@@ -165,6 +169,44 @@ function model({ stale = true, busy = true, invalidate = true } = {}) {
       select: host.querySelector('select'),
       announcements: () => announcements,
     };
+  }
+  for (const ending of ['success', 'moved', 'stale', 'abort', 'unmount']) {
+    const t = setup();
+    t.select.focus();
+    t.select.dispatchEvent(
+      new t.dom.window.KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true })
+    );
+    // jsdom has no native keyboard selection: emulate its change event.
+    t.select.value = 'bluegrass';
+    t.select.dispatchEvent(new t.dom.window.Event('change', { bubbles: true }));
+    check(t.doc.activeElement === t.select, 'keyboard destination retains pending focus');
+    check(
+      t.select.getAttribute('aria-disabled') === 'true',
+      'pending destination exposes disabled state'
+    );
+    t.select.dispatchEvent(new t.dom.window.Event('change'));
+    check(t.m.calls.length === 1, 'pending destination refuses repeat');
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    if (ending === 'moved' || ending === 'stale') t.doc.querySelector('#outside').focus();
+    if (ending === 'abort') t.controller.abort();
+    if (ending === 'unmount') t.lane.unmount();
+    t.m.finish(
+      ending === 'stale' ? { error: Object.assign(Error('stale'), { code: 'STALE' }) } : {}
+    );
+    await tick();
+    if (ending === 'success')
+      check(
+        t.doc.activeElement === t.select && t.select.value === 'bluegrass',
+        'delayed destination keeps focus'
+      );
+    if (ending === 'moved' || ending === 'stale')
+      check(t.doc.activeElement.id === 'outside', 'destination completion respects moved focus');
+    if (ending === 'abort' || ending === 'unmount')
+      check(
+        !t.host.children.length && !t.m.listeners.size,
+        'destination completion respects teardown'
+      );
+    t.lane.unmount();
   }
   let t = setup();
   check(

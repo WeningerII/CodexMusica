@@ -54,7 +54,8 @@ export function mount(host, ctx) {
     }
     destination.value = a?.destination ?? '';
     const disabled = pending || !usable(shown);
-    destination.disabled = disabled;
+    destination.disabled = disabled && !(pending && doc.activeElement === destination);
+    destination.setAttribute('aria-disabled', String(disabled));
     add.disabled = disabled && !(pending && doc.activeElement === add);
     add.setAttribute('aria-disabled', String(disabled));
     const resetBlocked = disabled || !a?.canReset;
