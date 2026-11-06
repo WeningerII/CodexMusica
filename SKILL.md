@@ -1165,6 +1165,10 @@ merged across cards. One shared sonic environment for the whole recipe. Conseque
   *only* as their own instrument-level descriptors, never as an env tuning. A 5-tradition build with five
   incompatible tunings renders just **one** env
   tuning — the environment card's — and looks perfectly clean; the clash is **invisible, not flagged**.
+  (The connector flags only what a `set_environment` with `card` wrote on a card other than the
+  environment card, which each card records in its `envWritten`: `ENVIRONMENT_NOT_RENDERED`, on every
+  response while the card still holds it. Stock settings like these, and ones a `set_preface`
+  re-derived, never.)
 - A bare card (added with no tradition: empty tuning, room and chain) is skipped, so it can sit first
   without taking the environment away. That is also why the connector's `set_environment` with no
   `card` writes to the environment card rather than to `cards[0]`.
