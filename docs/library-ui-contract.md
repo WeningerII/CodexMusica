@@ -3,7 +3,8 @@
 The native Library tab, built like the rest of codexmusica.com (vanilla JS, the
 site's theme tokens and components), with every feature of the old Library
 (`sites/library/components/library/*.tsx`, `sites/library/lib/*.ts`, the source
-to port). Full spec: `docs/library-native-design.md`.
+to port; removed from the repo on 2026-11-05, #659, and readable in git history
+at 92c9b318). Full spec: `docs/library-native-design.md`.
 
 Integration branch: `claude/library-ui`. Each worker works on its own branch cut
 from it (`claude/library-ui-<part>`), touches **only the files it owns**, pushes

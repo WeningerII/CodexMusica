@@ -18,7 +18,9 @@
 /* global CMLyricTokens, CMConnectionInteraction, _connectionModel, _connectionComplete, libraryChunk, esc, icon, showToast, uiDownload, uiEmptyState, uiTabIndex, libraryAnnounce */
 'use strict';
 
-// lyric-harness quality/narrative.py grammar (sites/library/lib/declaration-options.json).
+// lyric-harness quality/narrative.py grammar (ported from the old Library Site's
+// lib/declaration-options.json; the Site was removed from the repo on
+// 2026-11-05, #659).
 const OPTIONS = {
   atoms: ['ESTABLISH', 'COMPLICATE', 'TURN', 'DWELL', 'ANCHOR', 'JUDGE', 'RESOLVE', 'DEPART'],
   enter: {
@@ -276,7 +278,7 @@ async function loadEvidencePage(api, job, hash, offset) {
   };
 }
 
-// ── Evidence records (port of sites/library/lib/evidence-records.ts) ───────
+// ── Evidence records (port of the old Library Site's lib/evidence-records.ts) ─
 async function hydrateEvidence(records) {
   const groups = new Map();
   const positions = new Map(records.map((r, i) => [r, i]));

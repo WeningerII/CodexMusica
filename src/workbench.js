@@ -141,10 +141,12 @@ async function uiOpenInLyrics(envelope) {
     uiFocus($ui('lyrics-draft'));
   return result;
 }
-// The Library is its own site (sites/library, hosted apart from this static
-// build), so its entry in Main sections is a link that opens it in a new tab
-// rather than a route: this page's unsaved work stays where it is. Its address
-// is the one origin the Library-to-Lyrics import already trusts.
+// Without the native Library route, the Library is the old Library Site,
+// hosted apart from this static build (its source, sites/library, was removed
+// from the repo on 2026-11-05, #659), so its entry in Main sections is a link
+// that opens it in a new tab rather than a route: this page's unsaved work
+// stays where it is. Its address is the one origin the Library-to-Lyrics
+// import already trusts.
 const uiLibraryLink = () =>
   `<a class="cm-tab ui-nav-link" href="${esc(CMLibraryImport.SITE_ORIGIN)}/" target="_blank" rel="noopener" aria-label="Library (opens in a new tab)" title="Library">${icon('book-open', 20)}<span>Library</span></a>`;
 // The genres in Your recipe, in first-card order.

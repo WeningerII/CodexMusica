@@ -1495,7 +1495,12 @@ def test_the_measure():
                               "identity_forced", "placement_bindable",
                               "POSITION_PLACEMENT_KINDS",
                               "declared_pair_schema",
-                              "pair_scope_representable"}
+                              "pair_scope_representable",
+                              "DISOWNED_NORMATIVE"}
+    # `DISOWNED_NORMATIVE` joined 2026-11-05 (#671 row 7, BB8 6670984213):
+    # the planner's disowned set now has ONE definition, in `relations`,
+    # read by the report filter too. It is a declared tuple of two field
+    # values -- a table, not a predicate -- and builds nothing.
     # `declared_pair_schema` and `pair_scope_representable` joined
     # 2026-10-27 (owner-approved plan, D1): the type eligibility asks
     # whether the grader's own declared pair form of a type is a pair the

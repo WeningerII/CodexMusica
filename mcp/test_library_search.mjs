@@ -2,7 +2,7 @@
 // the engine (library_search.js) and the public routes (library_routes.js),
 // on a small synthetic export that exercises each SQLite semantic the engine
 // reproduces. Parity with the approved Worker on the real 317c corpus is the
-// separate golden replay (test_library_search_parity.mjs, library-site.yml).
+// separate golden replay (test_library_search_parity.mjs, library-parity.yml).
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { createHash, randomBytes } from 'node:crypto';
@@ -392,12 +392,14 @@ test('the store refuses U+0000, where SQLite and the port would disagree', (t) =
     assert.throws(() => build(t, [item('u1', fields, text)]), /U\+0000/);
 });
 
-test("the fold table is the Worker's own, until the old Site is retired", () => {
-  const worker = path.join(here, '..', 'sites/library/lib/unicode-casefold.json');
-  if (!fs.existsSync(worker)) return; // retired (design PR 7): this copy is then the only one
+// The old Library Site's Worker folded with lib/unicode-casefold.json, whose
+// bytes this copy matched by sha256 until the Site was removed from the repo
+// on 2026-11-05 (#659; last at 92c9b318). This copy is now the only one, so
+// the Worker's hash is pinned here instead.
+test("the fold table is the Worker's own, byte for byte", () => {
   assert.equal(
     sha(fs.readFileSync(path.join(here, 'library_casefold.json'))),
-    sha(fs.readFileSync(worker))
+    '24eb3573c56bae4928187f5f3626de6a271269178f47e4afc82cb36c1e815cc3'
   );
 });
 
