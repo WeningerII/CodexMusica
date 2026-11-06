@@ -1322,6 +1322,123 @@ test('the warning clears when the setting is cleared, and stands when the seeded
   });
 });
 
+// A change to the record alone changes what a response says (BB8 6688635328,
+// 3): the same call, with the same arguments, before and after an edit that
+// moves no value gives different warnings, and the recipe bytes stay the same.
+// Warnings are computed afresh on every response; nothing serves them from a
+// cache keyed on the values.
+test('the same call before and after a record-only edit gives different warnings', async () => {
+  await onEverySurface(async (s, name) => {
+    const { seed, env, bass } = await garage(s);
+    const stock = 'concrete_basement';
+    assert.equal(cardOf(seed, bass.card).instrument, 'electric_bass');
+    const before = await s.render(seed, {});
+    assert.deepEqual(unrendered(before), [], `${name}: fixture, the seed is silent`);
+    // The seeded room written on the bass: no value moves, the record does.
+    const seeded = await s.edit(seed, [
+      { action: 'set_environment', card: bass.card, room: stock },
+    ]);
+    assert.equal(cardOf(seeded, bass.card).changed?.room, undefined, `${name}: no value moved`);
+    assert.deepEqual(await s.recorded(seeded, bass.card), { room: stock });
+    const after = await s.render(seeded, {});
+    expectUnrendered(after, bass, env, { where: `${name}: the same call after` });
+    // The room set on the environment card settles the bass's: again no value
+    // moves, and the warning goes.
+    const settled = await s.edit(seeded, [{ action: 'set_environment', room: stock }]);
+    assert.equal(await s.recorded(settled, bass.card), undefined, `${name}: settled`);
+    assert.deepEqual(unrendered(await s.render(settled, {})), [], `${name}: and silent again`);
+    for (const format of FORMATS) {
+      const recipes = [];
+      for (const r of [seed, seeded, settled]) recipes.push((await s.render(r, { format })).recipe);
+      assert.equal(new Set(recipes).size, 1, `${name} ${format}: the recipe bytes do not move`);
+    }
+  });
+});
+
+// A session answers a repeated call (the same session_id and arguments) with
+// the operation it already ran. Each session_id is one workspace, its record
+// included, so the repeat is that workspace's answer: a repeat from before a
+// record-only edit is silent and one from after it warns, and neither carries
+// the other's warnings.
+test('a session repeat answers for its own workspace, record included', async () => {
+  for (const options of [{ compatibility: true }, { domain: 'recipe' }]) {
+    const sessions = new WorkflowSessions({ store: new JobStore() });
+    const { client, close } = await linked(await buildWorkflowServer({ ...options, sessions }));
+    try {
+      const call = async (tool, args) => {
+        const res = await client.callTool({ name: tool, arguments: args });
+        assert(!res.isError, JSON.stringify(res));
+        return { r: JSON.parse(res.content[0].text), id: res.structuredContent.session_id };
+      };
+      const start = await call('start_recipe', { traditions: ['garage_rock'] });
+      const bass = start.r.cards.find((c) => c.instrument === 'electric_bass').card;
+      const first = await call('render_recipe', { session_id: start.id, format: 'rich' });
+      assert.deepEqual(unrendered(first.r), []);
+      const seeded = await call('edit_recipe', {
+        session_id: first.id,
+        edits: [{ action: 'set_environment', card: bass, room: 'concrete_basement' }],
+      });
+      const second = await call('render_recipe', { session_id: seeded.id, format: 'rich' });
+      assert.equal(unrendered(second.r).length, 1, 'the later workspace warns');
+      assert.equal(second.r.recipe, first.r.recipe, 'with the same recipe');
+      const repeatFirst = await call('render_recipe', { session_id: start.id, format: 'rich' });
+      assert.deepEqual(repeatFirst.r, first.r, 'a repeat before the edit is its own answer');
+      assert.deepEqual(unrendered(repeatFirst.r), [], 'and is silent');
+      const repeatSecond = await call('render_recipe', { session_id: seeded.id, format: 'rich' });
+      assert.deepEqual(repeatSecond.r, second.r, 'a repeat after it is its own answer');
+      // The record the session holds comes back exactly.
+      const held = (id) => sessions.store.get(id).response.body.session.workspace;
+      assert.deepEqual(
+        held(second.id).cards.find((c) => c.id === bass)[RECORD],
+        { room: 'concrete_basement' },
+        'the session holds the record'
+      );
+    } finally {
+      await close();
+    }
+  }
+});
+
+// Explicit round trips through every surface that threads the workspace (BB8
+// 6688635328, 4; engine-codec covers catalog tables only): the records every
+// card carries come back exactly after renders in every format, an unrelated
+// edit and a reconnect.
+test('every record comes back exactly through each surface', async () => {
+  await onEverySurface(async (s, name) => {
+    const seed = await s.start(['garage_rock']);
+    const ids = Object.fromEntries(seed.cards.map((c) => [c.instrument, c.card]));
+    const wrote = await s.edit(seed, [
+      {
+        action: 'set_environment',
+        card: ids.electric_bass,
+        room: 'cathedral',
+        chain: { fx: 'tape_echo' },
+      },
+      { action: 'set_environment', card: ids.electric_bass, chain: { fx: 'plate_reverb' } },
+      { action: 'set_environment', card: ids.electric_guitar_single_coil, tuning: 'twelve_tet' },
+      { action: 'set_environment', card: ids.tonewheel_organ, chain: { mic: 'ribbon_passive' } },
+      { action: 'set_environment', chain: { medium: 'tape_15ips' } },
+    ]);
+    const want = {};
+    for (const c of seed.cards) want[c.card] = (await s.recorded(wrote, c.card)) ?? null;
+    assert.equal(Object.values(want).filter(Boolean).length, 4, `${name}: fixture`);
+    const same = async (r, where) => {
+      for (const c of seed.cards)
+        assert.deepEqual((await s.recorded(r, c.card)) ?? null, want[c.card], `${name} ${where}`);
+    };
+    let at = wrote;
+    for (const format of FORMATS) {
+      at = await s.render(at, { format });
+      await same(at, `render ${format}`);
+    }
+    at = await s.edit(at, [{ action: 'add_instrument', instrument: 'harmonica' }]);
+    await same(at, 'an unrelated edit');
+    await s.reopen();
+    at = await s.render(at);
+    await same(at, 'after a reconnect');
+  });
+});
+
 test('a set_preface that re-derives a written setting takes it out: ENVIRONMENT_OVERWRITTEN once', async () => {
   await onEverySurface(async (s, name) => {
     const { seed, env, bass } = await garage(s);
