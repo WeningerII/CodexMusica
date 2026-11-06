@@ -7824,16 +7824,19 @@ async function browserChecks(chromium) {
                 `drop ${from}→${to} did not focus the moved occurrence`
               );
               check(after.index === before.index + 1, 'repeated drop added other history steps');
-              await page.locator('#btn-undo').click();
-              check(
-                (await structuralState(page)).text === before.text,
-                'repeated drop Undo did not restore text/declarations'
-              );
-              await page.locator('#btn-redo').click();
-              check(
-                (await structuralState(page)).text === after.text,
-                'repeated drop Redo did not restore text/declarations'
-              );
+              // Native header history controls are desktop-only.
+              if (!phone) {
+                await page.locator('#btn-undo').click();
+                check(
+                  (await structuralState(page)).text === before.text,
+                  'repeated drop Undo did not restore text/declarations'
+                );
+                await page.locator('#btn-redo').click();
+                check(
+                  (await structuralState(page)).text === after.text,
+                  'repeated drop Redo did not restore text/declarations'
+                );
+              }
             }
             check(q.calls.length === 0, 'repeated drop sent a provider request');
           } finally {
@@ -7844,7 +7847,7 @@ async function browserChecks(chromium) {
     }
     for (const phone of [false, true]) {
       await step(
-        `S803 keyboard Move pressed selection first/last and Undo/Redo (${phone ? 'phone' : 'desktop'})`,
+        `S803 keyboard Move pressed selection first/last (${phone ? 'phone' : 'desktop with Undo/Redo'})`,
         async () => {
           const { ctx, page, q } = await boot({ phone });
           try {
@@ -7885,20 +7888,21 @@ async function browserChecks(chromium) {
                 'selection redraw added save/history step'
               );
               // Native history handoff is separately owned; preserve its behavior.
-              for (const action of ['undo', 'redo']) {
-                await page.locator(`#btn-${action}`).click();
-                check(
-                  await page.evaluate(
-                    () => document.activeElement === document.getElementById('btn-undo')
-                  ),
-                  `${action} after Move changed native history focus`
-                );
-                check(
-                  (await structuralState(page)).text ===
-                    (action === 'undo' ? before.text : after.text),
-                  `${action} after Move changed text restoration`
-                );
-              }
+              if (!phone)
+                for (const action of ['undo', 'redo']) {
+                  await page.locator(`#btn-${action}`).click();
+                  check(
+                    await page.evaluate(
+                      () => document.activeElement === document.getElementById('btn-undo')
+                    ),
+                    `${action} after Move changed native history focus`
+                  );
+                  check(
+                    (await structuralState(page)).text ===
+                      (action === 'undo' ? before.text : after.text),
+                    `${action} after Move changed text restoration`
+                  );
+                }
             }
             check(q.calls.length === 0, 'keyboard selection checks sent a provider request');
           } finally {
